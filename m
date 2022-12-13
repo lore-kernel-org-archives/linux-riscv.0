@@ -4,79 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA74BC4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Dec 2022 17:40:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8219C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Dec 2022 17:40:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Date:Message-Id
-	:Subject:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RV9SYjrOv+vJearXk36lQWeoYzLsDepVbtBdLGuM4Zc=; b=dHHXn5Y2Py2AVz
-	kdjGjsm+Pv37IBqkwAcKOXhXn+W9FGLeksCYCmI/rqeePGhuT5fzcv9oDSPH8fqWjBLiNdDuRn+gO
-	ptW1fhGM10x8IdrwlZpAUc0391m8gMG/trDHeOoTME/c4Q16ox65K4jWnKRIdoeC60Ws7e4zz+KN9
-	rYmHl5nPilv5D8rtngGlxX54kXL3N2d9+Vk+oKl0DkyMXXgFL8SqxdJ7AAY3YjFcA4n0iwrMjdSMQ
-	Y9lBHO1hShpDjlzfLD6N1csHuGLAzbZg2CqTDL+SXSu9HhaOWzIkFQAgyt8Q3locujg5SaKXaZjWG
-	Ygn/Em5/6Skh7hdIDouw==;
+	List-Owner; bh=II/f0WOzGIV+DMmPS1xRqiExw6MRIfa20NU7LcA3KXY=; b=Tt+6jf1nMBA7Dr
+	xLEbso74wknUreDJSOhcIHUYeoqyBgb2SCpBk0Xvt36QQvQimZ0iX+RornSZ1Vk8kNK653YH3Ce4F
+	Zu6LbwGz+pq1TlN4wt+w7tKEAnfJAw29DBS+yLSto+vXVedm24VAtn4fFhVsZBr4C+MtBGS5qcCC3
+	BuFnZsSWpnoh7R3Y+TwG5nzBHnaMmeKFZFlJOSv781Dd0cqUQ3uofs6FTiJ0NCMbTcEcElluR5UP9
+	+Fe4NKsXDzPi0Fd8iWo6eDbvqEDF5zC0hbeECCrC2mKwrztZt1oS7F6OkGV7dVp+Qtx4tZm2Ge9Y5
+	uSA6EhMC8FV+Sp3M5w9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p59G3-003n5N-J0; Tue, 13 Dec 2022 17:39:59 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1p59GW-003nVR-7e; Tue, 13 Dec 2022 17:40:28 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p59Fw-003myQ-NM
-	for linux-riscv@lists.infradead.org; Tue, 13 Dec 2022 17:39:55 +0000
-Received: by mail-pl1-x634.google.com with SMTP id g10so515716plo.11
-        for <linux-riscv@lists.infradead.org>; Tue, 13 Dec 2022 09:39:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
-         :subject:references:in-reply-to:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=22ObQGxg+tFUaeC+8ZZZyuwT6ARH/aXdjVJKbHdOy44=;
-        b=URZsnF5wMVvtSu7sYKk1PLkEIeFVIi7BWgYDjhE1LUeEL67l0ur1pafnT7b4yE0N/t
-         +KpU+8OBbftjRfDvLYMCXqJDGeBssIpZo10KsrzjRQoXFQOya0NMF+LD2j8AMrUJrzW/
-         ve/E+3HjTFyawNdVDvfRf8XGe0v4CZtV8GRgIgCg1zlZWHfEFlVgEsX7Pct5C6a5wwJ4
-         bxomtJD/zLE7AFdWuRPg9oVZr36WsZJxXWFabR1xK0iWqmnqh/wZHCYbxbl1CnHgdQJU
-         /X6a8hruLn3TxDjh6tEFVWnqP0doCZD7VCopFnvA93Elx/4jGDdLCMCp3gTd/MfiaGBX
-         6/Cw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
-         :subject:references:in-reply-to:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=22ObQGxg+tFUaeC+8ZZZyuwT6ARH/aXdjVJKbHdOy44=;
-        b=EP50dT7bvb2BdLrWWV1lOef/tihuWjRS8cgJtloSazbnWFgymgS91DJX1jgHfXvYm5
-         ANv23vRbt4Hq0pE6b6bZWNu1PRbjyhdz8dBEBsniz8XqT6H1sYXwTZOyFK4rwktgiHix
-         EHw7BzcvKfTBeJFoxb5BeDDL21sRb7qwt1GPLa/U90STw5AQ2sqCnttU7on+FfA/y5sL
-         P7lBPiQ+dma2x5E0ENaNl5SMZwwRFO6FUZ6Pje+BcFYwKpRwZ//J3JdYc15bYqI2/rWh
-         rpp2bREFjsVJg/w8JIvfnW+UAPI+eUK4Gb8xev6Ak4fb9uVUg8HJlQe0sPAp35/RZ5hD
-         nJBw==
-X-Gm-Message-State: ANoB5pn6L10AAl59wmaW/UqHB+W4JG2uUwbtStZ5OPab8KrBu4WZ0Zbk
-	/pwxWXSuDlFTgL+ckv5Zqjtsfw==
-X-Google-Smtp-Source: AA0mqf5To8as2YcpcxnoSETfteJYs1LY13fx/hUL7Wn1CurlZTVGERzkFiFuTf8kp3UXKidYBcf8dQ==
-X-Received: by 2002:a05:6a20:549e:b0:a3:218a:c761 with SMTP id i30-20020a056a20549e00b000a3218ac761mr31611098pzk.5.1670953190283;
-        Tue, 13 Dec 2022 09:39:50 -0800 (PST)
-Received: from localhost ([135.180.226.51])
-        by smtp.gmail.com with ESMTPSA id l5-20020a639845000000b004767bc37e03sm7100779pgo.39.2022.12.13.09.39.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 13 Dec 2022 09:39:49 -0800 (PST)
-In-Reply-To: <20221207091112.2258674-1-guoren@kernel.org>
-References: <20221207091112.2258674-1-guoren@kernel.org>
-Subject: Re: [PATCH] riscv: Fixup compile error with !MMU
-Message-Id: <167095316650.17956.4201047992243402866.b4-ty@rivosinc.com>
-Date: Tue, 13 Dec 2022 09:39:26 -0800
+	id 1p59GM-003nNv-UK
+	for linux-riscv@lists.infradead.org; Tue, 13 Dec 2022 17:40:26 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 2A7DC61647;
+	Tue, 13 Dec 2022 17:40:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 928BEC4339B;
+	Tue, 13 Dec 2022 17:40:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1670953217;
+	bh=q9RLumwClvJY21UJboeUZhhl+VsjmpkYWy4K3glQhE0=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=AxjBmg5xoZi4y49gMHfH6ToKguX6pbDE5+p0pMJvEcqMul6665HNJS/fQzCxvH9yZ
+	 9pcm4H297KAN/KFnLpbpZZ7sFR1QyGGw+oMAQgBO2NqNwSW9Lg8+Z5QzAJ2MWyN/T7
+	 2/Fz1HF7IPIFHAJCfcYCy4E6bHZilQHRfCe2t/Ki5Gbiykk+Ixc/SwLDDi6B9xlpAC
+	 02GKyZQV8Mo69iEtTrm7rDRXVdoOH8iFF8J3bmmfOYTIJURfZ+4bDJ26h6uC9hFiJh
+	 eCqShKKNhWnyJ9vJKDcute/3fyUb26sMA7GkIYqI8zzYj9CR6z/YqqPeQcuGohdoTg
+	 2q5jZSTFVHmlw==
+Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 7131FC00445;
+	Tue, 13 Dec 2022 17:40:17 +0000 (UTC)
 MIME-Version: 1.0
-X-Mailer: b4 0.11.0-dev-e660e
-Cc: Conor Dooley <conor@kernel.org>, linux-arch@vger.kernel.org,
-  linux-riscv@lists.infradead.org, Guo Ren <guoren@kernel.org>, kernel test robot <lkp@intel.com>,
-  linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Conor Dooley <conor.dooley@microchip.com>, guoren@kernel.org,
-  lizhengyu3@huawei.com, liaochang1@huawei.com
+Subject: Re: [PATCH v3 0/4] Documentation: RISC-V: patch-acceptance changes
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id:  <167095321746.5951.711585297484375290.git-patchwork-notify@kernel.org>
+Date: Tue, 13 Dec 2022 17:40:17 +0000
+References: <20221207020815.16214-1-palmer@rivosinc.com>
+In-Reply-To: <20221207020815.16214-1-palmer@rivosinc.com>
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ conor@kernel.org, anup@brainfault.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221213_093952_788174_66DF4721 
-X-CRM114-Status: UNSURE (   7.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221213_094019_068451_AFA8F994 
+X-CRM114-Status: GOOD (  11.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,30 +74,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 7 Dec 2022 04:11:12 -0500, guoren@kernel.org wrote:
-> From: Guo Ren <guoren@linux.alibaba.com>
+Hello:
+
+This series was applied to riscv/linux.git (for-next)
+by Palmer Dabbelt <palmer@rivosinc.com>:
+
+On Tue,  6 Dec 2022 18:08:11 -0800 you wrote:
+> This has a small textual change since the v2, but any change to the text
+> is pretty important so I'm sending out a v3 rather than just silently
+> squashing it in.  Folks seemed generally OK with it, so unless there's
+> any other feedback I'll target this for the merge window.
 > 
-> Current nommu_virt_defconfig can't compile:
-> 
-> In file included from
-> arch/riscv/kernel/crash_core.c:3:
-> arch/riscv/kernel/crash_core.c:
-> In function 'arch_crash_save_vmcoreinfo':
-> arch/riscv/kernel/crash_core.c:8:27:
-> error: 'VA_BITS' undeclared (first use in this function)
->     8 |         VMCOREINFO_NUMBER(VA_BITS);
->       |                           ^~~~~~~
+> Changes since v2 <https://lore.kernel.org/all/20221013045619.18906-1-palmer@rivosinc.com/>:
+> * Remove the published timeline wording, to match the standard Linux
+>   policies.
 > 
 > [...]
 
-Applied, thanks!
+Here is the summary with links:
+  - [v3,1/4] Documentation: RISC-V: Fix a typo in patch-acceptance
+    https://git.kernel.org/riscv/c/37f0ab147799
+  - [v3,2/4] Documentation: RISC-V: Allow patches for non-standard behavior
+    (no matching commit)
+  - [v3,3/4] Documentation: RISC-V: Mention the UEFI Standards
+    https://git.kernel.org/riscv/c/68eabc72023f
+  - [v3,4/4] Documentation: RISC-V: patch-acceptance: s/implementor/implementer
+    https://git.kernel.org/riscv/c/a39c636506cb
 
-[1/1] riscv: Fixup compile error with !MMU
-      https://git.kernel.org/palmer/c/c528ef0888b7
-
-Best regards,
+You are awesome, thank you!
 -- 
-Palmer Dabbelt <palmer@rivosinc.com>
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
 _______________________________________________
 linux-riscv mailing list
