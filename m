@@ -4,83 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D14D1C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Dec 2022 01:32:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38C56C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Dec 2022 01:37:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
-	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TSdLB/BxCaZB7Vbt4yBylf/ZW221T5+ESO3Vc2ShCGI=; b=3J34Dh363neWak
-	RFE1E0Fq4vInBDdXjXDBVcJyjuDbQM9jxd4EV8cPUy5Bm9ToF9AnPfnRAHczdBeRnJQY+7jAtR2WJ
-	xkV/QhEh/frPP53b30LdquyhnCKamYXKZtNMRAWHOHfF6+9iqFISuYW7EtXtFBq2G1akcrykkT91T
-	qUcTg0d7or2/u9kNXpVu3EQYds4x3Igh7iopdjZ55OmrCdvbV0IJMn4I6peCEn6+D5hrrufDM4bIA
-	L2oUodIiKUjohm9+3kc5DUD9VLwkIYCh3er6iO5eYFWUYv3TRvAjq6p/wFAcaXRdtpC3chMpX1Zu7
-	XgmV4bjqZEFO3jAz69Tw==;
+	List-Owner; bh=JVLmVZwLcRsGwJtRYhcFplfJPQWbX63cD5eCip3jRj0=; b=geXQ9/A+7+o3ac
+	piGM36WbgQcmKttiT4xDbGFRSij5eYBddw5GJxJVhekMUV0ZloQHD25DuH0/4aOPAoRYgoHiEAJDh
+	wx9s0EXVAmGujx3yki2iiB7iJDhixMdUvcZ3ETAqLuwKV4vz0p+5Up3pJde5EEntTEQoaLYYpLhQb
+	u//NLs+HoeUIz5EiDrna5h21AAcv5iy9VhxySFwx0iKbA85WpP/iSH/fB1Dg7uhDM1YK9Qu9Qrqb4
+	Z6v9Q63h61fxDh00Hv/+dMjMF8A6/axe16t6VcL1cZSWUFRysOkWaL3TOKTyzCJBQkFL9UNQ/W12W
+	Q6QK5CKsR++vm3AXltzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p4u9w-008x3q-7F; Tue, 13 Dec 2022 01:32:40 +0000
-Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
+	id 1p4uEP-0091Xp-6W; Tue, 13 Dec 2022 01:37:17 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p4syu-00894z-OC
-	for linux-riscv@lists.infradead.org; Tue, 13 Dec 2022 00:17:15 +0000
-Received: by mail-pg1-x54a.google.com with SMTP id q63-20020a632a42000000b0045724b1dfb9so8546224pgq.3
-        for <linux-riscv@lists.infradead.org>; Mon, 12 Dec 2022 16:17:04 -0800 (PST)
+	id 1p4uEL-009172-MJ
+	for linux-riscv@lists.infradead.org; Tue, 13 Dec 2022 01:37:15 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id q17-20020a17090aa01100b002194cba32e9so1907208pjp.1
+        for <linux-riscv@lists.infradead.org>; Mon, 12 Dec 2022 17:37:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=google.com; s=20210112;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=iaggZY6D6UfFXqqTQeav5mkn69NNdHNCOFauIZUnoGM=;
-        b=czhUe/RM1vX8uC3ixSupn81mlVxf2Ti23rxzwMQmgEMrXpHHtjLMqdVrkGTwwBD6/u
-         jCkHjupPCQ8QI7uPi9QYeehzrvpk0pgW7ENARmJG0E+H98nz8hzcUkkFDNOrltUuRpl6
-         PWQ07kMRSvcWyxmMGEAhMKe/Y3AbuOWf7REE0o7BoR2ePGqsOfLHv6t6CtSWzEw6V2UQ
-         8ffChaMMLsSyYSqf++EMVfTePDxU8dVE5I5DIWaQn17NmTORPN8BZJjaDqATMLSn8nXo
-         kOHsSwoOvSwnPxgC0U6NWgsNSglGMhUsvGKWl8UsOEFi1mrJQaWoypOzvt4LqNHWJV8d
-         5+6g==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=iJwqdDN1RvNeTFiZyaSzmASJkDq0+IG5uFFQ0Vq+pIE=;
+        b=UOLR4/D4l8GUzElS0sejD2JapJwiXXo2meP6+lJ4UUi6Oj9CCz+E9FE2qBHGrI7Utw
+         7OokGhkdZbKxc3Ctt6ZZXN0i35uOg0peSR+0R+WVwqWr9OVFPJSib+WjKq5pQzui/58i
+         Y8s1Y27VjQTtgwC7o5gYdWnjHddNTpRNWzMaZm5tNwUVmLRfMdVKxsEBBWh6ITeGtOW7
+         gXOTqvopxiSjsYbG5ApbWUNiAL3dozmKHp10byFJU92ZP4hQWonUzETTShKtTRFN2+Hf
+         tAOTXVSSNORLHBQ3eDPsuPXE6+G5eltxPXeLQCSKhU6J5/WfdMsaHX1ArV2nqpfebXr2
+         dRKg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=iaggZY6D6UfFXqqTQeav5mkn69NNdHNCOFauIZUnoGM=;
-        b=en7dxXZvMbaTo7ngmcTg+IlLhX2pQ6YRDFHeAgskyf/v79NnpCb4tJ2ZNhdO7PPix3
-         /Ty3Cyaj85PTcLWydZcV+HXqBcDrcAS8b+G3lGidTMjfcOdpFY0E7YOBD7MsQDEhBhpe
-         oXxzKYOfkIu8fEGoyayk5FRETCGu6+oJOg5DuMgwVFfbUC+mesbOLr7kV4paxwQT8rWQ
-         3nOFtYMK8VAkoP9fGo9+d0hnyzsuKLFsaNrNCGr8T5IPJ0qtpEAUcR+W6JSV4Zykr4Vr
-         6RpA+KmAX22XAcsH2EgrGCSDewAez1d34qerEeo5zdjknDl815SZ2VaA6yzwbqVFqUFZ
-         lGpw==
-X-Gm-Message-State: ANoB5pmihE6HUeryp/EhhCm7rfjXhXMORk8WBEYF/xAaaz1PeJU07jy4
-	04CFGmAKOy/e2qWw/2OV5bzfkUXgI5I=
-X-Google-Smtp-Source: AA0mqf423P0K3F775j7XRU0bNQseuIHeq8Bl9zlGMEI+Slu8o9KGU81MdqivvnEry1U+9Xe7aVS/pd3oOHM=
-X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a17:902:ec92:b0:189:cdc8:725c with SMTP id
- x18-20020a170902ec9200b00189cdc8725cmr23371937plg.162.1670890623569; Mon, 12
- Dec 2022 16:17:03 -0800 (PST)
-Date: Tue, 13 Dec 2022 00:16:43 +0000
-In-Reply-To: <20221213001653.3852042-1-seanjc@google.com>
-Mime-Version: 1.0
-References: <20221213001653.3852042-1-seanjc@google.com>
-X-Mailer: git-send-email 2.39.0.rc1.256.g54fd8350bd-goog
-Message-ID: <20221213001653.3852042-5-seanjc@google.com>
-Subject: [PATCH 04/14] KVM: selftests: Use pattern matching in .gitignore
-From: Sean Christopherson <seanjc@google.com>
-To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+        bh=iJwqdDN1RvNeTFiZyaSzmASJkDq0+IG5uFFQ0Vq+pIE=;
+        b=TnewWYNqZwy5F/jcIKf01ygjCFNwBgDqgtA3fOFQazjCAYjnyjIGoA4IZqYo9QcpNf
+         i1BmphTO9GL5l5gt1UBGkBZeYWFcdVCQDL1oGYzadp5Dz/UomrcJwcrAkcTiHWIYYdTK
+         X0l+TEzXaSVJDk+B5a5CUEWskv07imdtqwSjIKLwnwjehD9RPOty+xdDaETjQ1tqWvD+
+         AxLF5Glu2gZiGx/ayYe3DtWTbrQychiQRP+pNQIjWpGSXZlhQWsJ1ktbOaIs8j7Ov9Vj
+         7hetMwJGLEpeirTZIHRDbhBIz27n0Ptn5b5bVa+IN5/x2wZlD2p0DcM/agYh7eLZqo3G
+         Qj1Q==
+X-Gm-Message-State: ANoB5pmAM0Ht/nwj227vheOdqKxuR+qNGroDhtqVJsTvUX9xhV1IpJIP
+	6h8mJ5nrmldxfENFZJE001fS6OsAUVD4X8pTQj2kxA==
+X-Google-Smtp-Source: AA0mqf59hLKHWHycEAofu9/939ZBb87HK2lBuOCJYN0Zs3K9cbu8MbXmw0OtELFZfn97VUt5D/c7xWXV2p8gd3eTyxg=
+X-Received: by 2002:a17:902:f092:b0:189:9b43:a082 with SMTP id
+ p18-20020a170902f09200b001899b43a082mr45842703pla.95.1670895428992; Mon, 12
+ Dec 2022 17:37:08 -0800 (PST)
+MIME-Version: 1.0
+References: <20221213001653.3852042-1-seanjc@google.com> <20221213001653.3852042-12-seanjc@google.com>
+In-Reply-To: <20221213001653.3852042-12-seanjc@google.com>
+From: Nick Desaulniers <ndesaulniers@google.com>
+Date: Mon, 12 Dec 2022 17:36:58 -0800
+Message-ID: <CAKwvOdnRQQb9YbH=MgDymBmmjYgajc8tkyjbJVxjpA5zDZpNTQ@mail.gmail.com>
+Subject: Re: [PATCH 11/14] KVM: selftests: Disable "gnu-variable-sized-type-not-at-end"
+ warning
+To: Sean Christopherson <seanjc@google.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
 	Albert Ou <aou@eecs.berkeley.edu>, Nathan Chancellor <nathan@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>
-Cc: James Morse <james.morse@arm.com>, Alexandru Elisei <alexandru.elisei@arm.com>, 
+	James Morse <james.morse@arm.com>, Alexandru Elisei <alexandru.elisei@arm.com>, 
 	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
 	Tom Rix <trix@redhat.com>, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	kvmarm@lists.linux.dev, kvmarm@lists.cs.columbia.edu, 
 	linux-riscv@lists.infradead.org, llvm@lists.linux.dev, 
 	linux-kernel@vger.kernel.org, Ricardo Koller <ricarkol@google.com>, 
-	Sean Christopherson <seanjc@google.com>, Aaron Lewis <aaronlewis@google.com>, 
-	Raghavendra Rao Ananta <rananta@google.com>
+	Aaron Lewis <aaronlewis@google.com>, Raghavendra Rao Ananta <rananta@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221212_161712_839553_14FD383A 
-X-CRM114-Status: UNSURE (   7.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221212_173713_779686_A3E10439 
+X-CRM114-Status: GOOD (  17.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,127 +89,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: Sean Christopherson <seanjc@google.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use pattern matching to exclude everything except .c, .h, .S, and .sh
-files from Git.  Manually adding every test target has an absurd
-maintenance cost, is comically error prone, and leads to bikeshedding
-over whether or not the targets should be listed in alphabetical order.
+On Mon, Dec 12, 2022 at 4:17 PM Sean Christopherson <seanjc@google.com> wrote:
+>
+> Disable gnu-variable-sized-type-not-at-end so that tests and libraries
+> can create overlays of variable sized arrays at the end of structs when
+> using a fixed number of entries, e.g. to get/set a single MSR.
+>
+> It's possible to fudge around the warning, e.g. by defining a custom
+> struct that hardcodes the number of entries, but that is a burden for
+> both developers and readers of the code.
+>
+> lib/x86_64/processor.c:664:19: warning: field 'header' with variable sized type 'struct kvm_msrs'
+> not at the end of a struct or class is a GNU extension [-Wgnu-variable-sized-type-not-at-end]
+>                 struct kvm_msrs header;
+>                                 ^
+> lib/x86_64/processor.c:772:19: warning: field 'header' with variable sized type 'struct kvm_msrs'
+> not at the end of a struct or class is a GNU extension [-Wgnu-variable-sized-type-not-at-end]
+>                 struct kvm_msrs header;
+>                                 ^
+> lib/x86_64/processor.c:787:19: warning: field 'header' with variable sized type 'struct kvm_msrs'
+> not at the end of a struct or class is a GNU extension [-Wgnu-variable-sized-type-not-at-end]
+>                 struct kvm_msrs header;
+>                                 ^
+> 3 warnings generated.
+>
+> x86_64/hyperv_tlb_flush.c:54:18: warning: field 'hv_vp_set' with variable sized type 'struct hv_vpset'
+> not at the end of a struct or class is a GNU extension [-Wgnu-variable-sized-type-not-at-end]
+>         struct hv_vpset hv_vp_set;
+>                         ^
+> 1 warning generated.
+>
+> x86_64/xen_shinfo_test.c:137:25: warning: field 'info' with variable sized type 'struct kvm_irq_routing'
+> not at the end of a struct or class is a GNU extension [-Wgnu-variable-sized-type-not-at-end]
+>         struct kvm_irq_routing info;
+>                                ^
+> 1 warning generated.
+>
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> ---
+>  tools/testing/selftests/kvm/Makefile | 1 +
+>  1 file changed, 1 insertion(+)
+>
+> diff --git a/tools/testing/selftests/kvm/Makefile b/tools/testing/selftests/kvm/Makefile
+> index 2487db21b177..9cff99a1cb2e 100644
+> --- a/tools/testing/selftests/kvm/Makefile
+> +++ b/tools/testing/selftests/kvm/Makefile
+> @@ -196,6 +196,7 @@ else
+>  LINUX_TOOL_ARCH_INCLUDE = $(top_srcdir)/tools/arch/$(ARCH)/include
+>  endif
+>  CFLAGS += -Wall -Wstrict-prototypes -Wuninitialized -O2 -g -std=gnu99 \
+> +       -Wno-gnu-variable-sized-type-not-at-end \
 
-Deliberately do not include the one-off assets, e.g. config, settings,
-.gitignore itself, etc as Git doesn't ignore files that are already in
-the repository.  Adding the one-off assets won't prevent mistakes where
-developers forget to --force add files that don't match the "allowed".
+This is a clang-specific warning. This will need to be wrapped in a
+cc-option check.
 
-Signed-off-by: Sean Christopherson <seanjc@google.com>
----
- tools/testing/selftests/kvm/.gitignore | 91 ++------------------------
- 1 file changed, 6 insertions(+), 85 deletions(-)
+tools/build/Build.include seems to redefine that make macro, so be
+sure to test it first.
 
-diff --git a/tools/testing/selftests/kvm/.gitignore b/tools/testing/selftests/kvm/.gitignore
-index 6ce8c488d62e..6d9381d60172 100644
---- a/tools/testing/selftests/kvm/.gitignore
-+++ b/tools/testing/selftests/kvm/.gitignore
-@@ -1,86 +1,7 @@
- # SPDX-License-Identifier: GPL-2.0-only
--/aarch64/aarch32_id_regs
--/aarch64/arch_timer
--/aarch64/debug-exceptions
--/aarch64/get-reg-list
--/aarch64/hypercalls
--/aarch64/page_fault_test
--/aarch64/psci_test
--/aarch64/vcpu_width_config
--/aarch64/vgic_init
--/aarch64/vgic_irq
--/s390x/memop
--/s390x/resets
--/s390x/sync_regs_test
--/s390x/tprot
--/x86_64/amx_test
--/x86_64/cpuid_test
--/x86_64/cr4_cpuid_sync_test
--/x86_64/debug_regs
--/x86_64/exit_on_emulation_failure_test
--/x86_64/fix_hypercall_test
--/x86_64/get_msr_index_features
--/x86_64/kvm_clock_test
--/x86_64/kvm_pv_test
--/x86_64/hyperv_clock
--/x86_64/hyperv_cpuid
--/x86_64/hyperv_evmcs
--/x86_64/hyperv_features
--/x86_64/hyperv_ipi
--/x86_64/hyperv_svm_test
--/x86_64/hyperv_tlb_flush
--/x86_64/max_vcpuid_cap_test
--/x86_64/mmio_warning_test
--/x86_64/monitor_mwait_test
--/x86_64/nested_exceptions_test
--/x86_64/nx_huge_pages_test
--/x86_64/platform_info_test
--/x86_64/pmu_event_filter_test
--/x86_64/set_boot_cpu_id
--/x86_64/set_sregs_test
--/x86_64/sev_migrate_tests
--/x86_64/smaller_maxphyaddr_emulation_test
--/x86_64/smm_test
--/x86_64/state_test
--/x86_64/svm_vmcall_test
--/x86_64/svm_int_ctl_test
--/x86_64/svm_nested_soft_inject_test
--/x86_64/svm_nested_shutdown_test
--/x86_64/sync_regs_test
--/x86_64/tsc_msrs_test
--/x86_64/tsc_scaling_sync
--/x86_64/ucna_injection_test
--/x86_64/userspace_io_test
--/x86_64/userspace_msr_exit_test
--/x86_64/vmx_apic_access_test
--/x86_64/vmx_close_while_nested_test
--/x86_64/vmx_dirty_log_test
--/x86_64/vmx_exception_with_invalid_guest_state
--/x86_64/vmx_invalid_nested_guest_state
--/x86_64/vmx_msrs_test
--/x86_64/vmx_preemption_timer_test
--/x86_64/vmx_set_nested_state_test
--/x86_64/vmx_tsc_adjust_test
--/x86_64/vmx_nested_tsc_scaling_test
--/x86_64/xapic_ipi_test
--/x86_64/xapic_state_test
--/x86_64/xen_shinfo_test
--/x86_64/xen_vmcall_test
--/x86_64/xss_msr_test
--/x86_64/vmx_pmu_caps_test
--/x86_64/triple_fault_event_test
--/access_tracking_perf_test
--/demand_paging_test
--/dirty_log_test
--/dirty_log_perf_test
--/hardware_disable_test
--/kvm_create_max_vcpus
--/kvm_page_table_test
--/max_guest_memory_test
--/memslot_modification_stress_test
--/memslot_perf_test
--/rseq_test
--/set_memory_region_test
--/steal_time
--/kvm_binary_stats_test
--/system_counter_offset_test
-+*
-+!/**/
-+!*.c
-+!*.h
-+!*.S
-+!*.sh
+>         -fno-builtin-memcmp -fno-builtin-memcpy -fno-builtin-memset \
+>         -fno-stack-protector -fno-PIE -I$(LINUX_TOOL_INCLUDE) \
+>         -I$(LINUX_TOOL_ARCH_INCLUDE) -I$(LINUX_HDR_PATH) -Iinclude \
+> --
+> 2.39.0.rc1.256.g54fd8350bd-goog
+>
+>
+
+
 -- 
-2.39.0.rc1.256.g54fd8350bd-goog
-
+Thanks,
+~Nick Desaulniers
 
 _______________________________________________
 linux-riscv mailing list
