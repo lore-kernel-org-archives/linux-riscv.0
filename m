@@ -4,65 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3C1EC4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Dec 2022 07:38:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D314BC4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Dec 2022 07:57:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=K61NTWM352c7D2SJBZbW6w/QpGjRYuyiDY/t7ILpu4E=; b=uXf4XXnFhx87Lc
-	k49ENYM7wzH8imLKWs3ODEfwleqyPSTlYu7uagEVsf8HC0OZEqQyHQd4JFeRf4i0uAnnh4ovG+DSM
-	AZ7P9eS8ECGQGTopDklwTRN/jOPkR+WK1qKL5jARog8/yg5v5gVKvu5Z/nv3I3ljvKs0hWJEDskeZ
-	5CZv8AbB5NRE/Z7QVw2NmPqnYvgUdCxvcyTF3JpvbT5ydVboWuj5jAKugXbZbLzdKl3JtA9cpQMg2
-	p8AvEi7oXZVWqFHXMEe72gqgozz7Nu911qNS3B1jQWFzw1ZRmqXNaF1Tf9ziDv9U4/Qb9EpUn0YtU
-	8nx75WIfUidZvE2pKCnw==;
+	List-Owner; bh=lVCoxhygMyjZhRubgEIl2WIYicNHw97ihKjq6ZubsBo=; b=IPu734/F10La3x
+	+8aaJiZsJR4Pe50rZJv4XPzZUArr60OeXw0qvhOiKdm1keLyHjq5iDZIedLDY+vSHKcNQ/0IYGEBr
+	v12nHUbNVekIgxXXbXhX0/m/+hN2b0Cwu1RWXbJO9AfniDnGh/VsuBpbTHYosLUd9G1RBqnXhL483
+	uche5i3Jwoch7Pe/45dD8u7hkArF/QDymRBYJUil4GfUYAKhV0z6GxnfiK+GQpSLj7FLsw3+8wjBF
+	27Nzlgs4Dqd3SdPW9JVrSMX/AmXtXo1iaD02zGiTqeYa6l01tGTIR5pAYcdSzvPRiZk/O7GPfwW6B
+	MF4bCSJ0nSL1dFyVTJtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p4zsH-00CfWP-1J; Tue, 13 Dec 2022 07:38:49 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p4zsC-00CeaB-Tj
-	for linux-riscv@lists.infradead.org; Tue, 13 Dec 2022 07:38:47 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id CF47D24E023;
-	Tue, 13 Dec 2022 15:38:17 +0800 (CST)
-Received: from EXMBX068.cuchost.com (172.16.6.68) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 13 Dec
- 2022 15:38:17 +0800
-Received: from [192.168.120.55] (171.223.208.138) by EXMBX068.cuchost.com
- (172.16.6.68) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 13 Dec
- 2022 15:38:16 +0800
-Message-ID: <4c2ae045-9ece-3245-7203-2db21f604ac8@starfivetech.com>
-Date: Tue, 13 Dec 2022 15:38:16 +0800
+	id 1p509y-00DndO-V7; Tue, 13 Dec 2022 07:57:07 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1p509v-00DnbZ-OT
+	for linux-riscv@lists.infradead.org; Tue, 13 Dec 2022 07:57:05 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id h12so14702311wrv.10
+        for <linux-riscv@lists.infradead.org>; Mon, 12 Dec 2022 23:57:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=6o0GeZJe7zgU/rQbNGO95bs2olhPXjHiwqfmfQC5R7A=;
+        b=YjfllNNB32j4iHz3ehIUDe2K11iAW5NST8YgvWTvel7Ca2tyyrir/QmG3MBaAaF8Dw
+         6BGujKvE2jVDfZlXrdKxkY1DRG6uRQwJSR99PkVDPktwI2r+5bEmOEZPkvtqqzX/y/Km
+         7bLiFwkST1oDvgcEnyAgZyE3M8xj5oW0SNuWcmUJj87Klox8NRsl+ZfGlF5W2CqUc7tJ
+         EjSzNEMA5iTQV3Y10avb0/4Tny9UNW47ZK3PXY06g0DqHjCKbvM8+MqmfV6L2MW6KLcF
+         aeTyYXtRmfe1TbZRulomxOZ/4pitudsf5inLeOTbJmc6DWxXN3mHC27OLG/nq4x32j0t
+         3UHw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=6o0GeZJe7zgU/rQbNGO95bs2olhPXjHiwqfmfQC5R7A=;
+        b=zGzUG94WnTF3co2jMl2K4FPNiQioVewmhmFyHe54veD3y7FE6AlN/dOTacTs/qpq5Q
+         KGKS3WGeg5v5acoucrbBbtAJrXUEX4gww1OM+VDffRir16+vWUnJnaTBX4CkaUOHAh4T
+         I8/O8dHnSjHw448Jl1hz0SCGzV+bWXTYEE3ZdMq7o1pXxwDzgX3zc8wlYyA600PjG+R7
+         QqscwDAO67MfZ2bFbGg8mPo/HWDj6eVX/LJv6Kb32ohkbEoibAEUAqUE5Z+XWK489fCU
+         6HodmrwOIFVM2Gr/pHU5ojA1OIK48na2MQF5ASxKA7DF4l48shBEnbRgTu5PyI/FOJDC
+         GR2Q==
+X-Gm-Message-State: ANoB5pnz7MB+wUzqKk/KdKYisGCHGVZjy7GRYhDnVHs8AaJtlMgZy4ZB
+	DTldu7doAdsIug/Pt2ZRBKWVJkVpDVKtfO5ua8i+EJkHYrpvML+o
+X-Google-Smtp-Source: AA0mqf5CAW19crv/THSl7pw+ACF9HjBX2ntNgiivqTeLEk1s3kIsOF+Zmw7LKwen32ZAnBWYGYgoNLW+m979aqJdBe0=
+X-Received: by 2002:a5d:504d:0:b0:242:246c:2f89 with SMTP id
+ h13-20020a5d504d000000b00242246c2f89mr24102419wrt.108.1670918219475; Mon, 12
+ Dec 2022 23:56:59 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.5.1
-Subject: Re: [PATCH v1 2/3] mmc: starfive: Add sdio/emmc driver support
-Content-Language: en-US
-To: Shawn Lin <shawn.lin@rock-chips.com>
-CC: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Jaehoon Chung <jh80.chung@samsung.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>, <linux-kernel@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-mmc@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>
-References: <20221207131731.1291517-1-william.qiu@starfivetech.com>
- <20221207131731.1291517-3-william.qiu@starfivetech.com>
- <faea4932-add6-fc51-836d-b113e8c9a194@rock-chips.com>
- <26e9c3eb-aaeb-8cbd-dda0-20f28331dbeb@starfivetech.com>
- <cd4639e4-b0e4-3141-5b9f-1a7bd14cb799@rock-chips.com>
-From: William Qiu <william.qiu@starfivetech.com>
-In-Reply-To: <cd4639e4-b0e4-3141-5b9f-1a7bd14cb799@rock-chips.com>
-X-Originating-IP: [171.223.208.138]
-X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX068.cuchost.com
- (172.16.6.68)
-X-YovoleRuleAgent: yovoleflag
+References: <20221212143102.175065-1-alexghiti@rivosinc.com> <CAL_JsqJz4uf+956oC4BfZGdjb+rfAZqduexLw3=D5HHjtyBC+g@mail.gmail.com>
+In-Reply-To: <CAL_JsqJz4uf+956oC4BfZGdjb+rfAZqduexLw3=D5HHjtyBC+g@mail.gmail.com>
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+Date: Tue, 13 Dec 2022 08:56:48 +0100
+Message-ID: <CAHVXubgu_Voet_TPB0z+yec4DG8TP2_nSTDUcQdW2yf20wvP1w@mail.gmail.com>
+Subject: Re: [PATCH v2] riscv: Use PUD/P4D/PGD pages for the linear mapping
+To: Rob Herring <robh+dt@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>, 
+	Frank Rowand <frowand.list@gmail.com>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arch@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221212_233845_261382_4F85F175 
-X-CRM114-Status: GOOD (  10.02  )
+X-CRM114-CacheID: sfid-20221212_235704_039161_74B4391E 
+X-CRM114-Status: GOOD (  36.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,27 +83,96 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiAyMDIyLzEyLzEzIDE1OjMzLCBTaGF3biBMaW4gd3JvdGU6Cj4gSGkKPiAKPiBPbiAyMDIy
-LzEyLzEzIDE1OjIxLCBXaWxsaWFtIFFpdSB3cm90ZToKPj4KPj4KPj4gT24gMjAyMi8xMi8xMyAx
-MDoyNCwgU2hhd24gTGluIHdyb3RlOgo+Pj4gSGkKPj4KPj4+IHVzZSAiLmNvbW1vbl9jYXBzID0g
-TU1DX0NBUF9DTUQyMyIgaW5zdGVhZC4KPj4+Cj4+Cj4+IEhpIFNoYXduLAo+Pgo+PiBUaGFuayB5
-b3UgZm9yIHRha2luZyB0aW1lIHRvIHJldmlldy4KPj4gVGhlIC5jb21tb25fY2FwcyBpcyBub3Qg
-ZGVmaW5lZCBpbiBkd19tY2lfZHJ2X2RhdGEuCj4+IEFuZCAubnVtX2NhcHMgaXMgYWxzbyB1c2Vk
-IGluIGR3X21jaS1yb2NrY2hpcC5jLgo+Pgo+IAo+IFRoYXQgbWVhbnMgeW91ciBwYXRjaCBpcyBi
-YXNlZCBvbiBvbGQgdXBzdHJlYW0ga2VybmVsIHdoaWNoIGhhc24ndAo+IGJlZW4gdXBkYXRlZCBm
-b3IgYXQgbGVhc3Qgb25lIHllYXIuOikKPiAKClNvcnJ5IGFib3V0IHRoYXQuIEkganVzdCBjaGVj
-ayB0aGUgY29kZSBvbiA1LjE1LgpJIHdpbGwgdXBkYXRlIGl0IGluIG5leHQgdmVyc2lvbi4KVGhh
-bmsgeW91IGFueSB3YXkuCgo+PiBCZXN0IHJlZ2FyZHMsCj4+IFdpbGxpYW0gUWl1Cj4+Pj4gK8Kg
-wqDCoCAuc2V0X2lvcyA9IGR3X21jaV9zdGFyZml2ZV9zZXRfaW9zLAo+Pj4+ICvCoMKgwqAgLnBh
-cnNlX2R0ID0gZHdfbWNpX3N0YXJmaXZlX3BhcnNlX2R0LAo+Pj4+ICvCoMKgwqAgLmV4ZWN1dGVf
-dHVuaW5nID0gZHdfbWNpX3N0YXJmaXZlX2V4ZWN1dGVfdHVuaW5nLAo+Pj4+ICt9Owo+Pj4+ICsK
-Pj4+PiArc3RhdGljIGNvbnN0IHN0cnVjdCBvZl9kZXZpY2VfaWQgZHdfbWNpX3N0YXJmaXZlX21h
-dGNoW10gPSB7Cj4+PgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
-ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
-aXNjdgo=
+Hi Rob,
+
+
+On Mon, Dec 12, 2022 at 6:54 PM Rob Herring <robh+dt@kernel.org> wrote:
+>
+> On Mon, Dec 12, 2022 at 8:31 AM Alexandre Ghiti <alexghiti@rivosinc.com> wrote:
+> >
+> > During the early page table creation, we used to set the mapping for
+> > PAGE_OFFSET to the kernel load address: but the kernel load address is
+> > always offseted by PMD_SIZE which makes it impossible to use PUD/P4D/PGD
+> > pages as this physical address is not aligned on PUD/P4D/PGD size (whereas
+> > PAGE_OFFSET is).
+> >
+> > But actually we don't have to establish this mapping (ie set va_pa_offset)
+> > that early in the boot process because:
+> >
+> > - first, setup_vm installs a temporary kernel mapping and among other
+> >   things, discovers the system memory,
+> > - then, setup_vm_final creates the final kernel mapping and takes
+> >   advantage of the discovered system memory to create the linear
+> >   mapping.
+> >
+> > During the first phase, we don't know the start of the system memory and
+> > then until the second phase is finished, we can't use the linear mapping at
+> > all and phys_to_virt/virt_to_phys translations must not be used because it
+> > would result in a different translation from the 'real' one once the final
+> > mapping is installed.
+> >
+> > So here we simply delay the initialization of va_pa_offset to after the
+> > system memory discovery. But to make sure noone uses the linear mapping
+> > before, we add some guard in the DEBUG_VIRTUAL config.
+> >
+> > Finally we can use PUD/P4D/PGD hugepages when possible, which will result
+> > in a better TLB utilization.
+> >
+> > Note that we rely on the firmware to protect itself using PMP.
+> >
+> > Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+> > ---
+> >
+> > v2:
+> > - Add a comment on why RISCV64 does not need to set initrd_start/end that
+> >   early in the boot process, as asked by Rob
+> >
+> > Note that this patch is rebased on top of:
+> > [PATCH v1 1/1] riscv: mm: call best_map_size many times during linear-mapping
+> >
+> >  arch/riscv/include/asm/page.h | 16 ++++++++++++++++
+> >  arch/riscv/mm/init.c          | 25 +++++++++++++++++++------
+> >  arch/riscv/mm/physaddr.c      | 16 ++++++++++++++++
+> >  drivers/of/fdt.c              |  7 ++++++-
+> >  4 files changed, 57 insertions(+), 7 deletions(-)
+>
+> [...]
+>
+> > diff --git a/drivers/of/fdt.c b/drivers/of/fdt.c
+> > index 7b571a631639..012554445054 100644
+> > --- a/drivers/of/fdt.c
+> > +++ b/drivers/of/fdt.c
+> > @@ -895,8 +895,13 @@ static void __early_init_dt_declare_initrd(unsigned long start,
+> >          * enabled since __va() is called too early. ARM64 does make use
+> >          * of phys_initrd_start/phys_initrd_size so we can skip this
+> >          * conversion.
+> > +        * On RISCV64, the usage of __va() before the linear mapping exists
+> > +        * is wrong and RISCV64 rightly calls reserve_initrd_mem after it is
+> > +        * available where it actually resets the translation that is done
+> > +        * here and re-computes it.
+>
+> No, I want a single comment that covers both cases (and the next arch
+> we add here). Something like this:
+>
+> __va() is not yet available this early on some platforms. In that
+> case, the platform uses phys_initrd_start/phys_initrd_size instead and
+> does the VA conversion itself.
+
+
+I have just sent the v3, thanks for your reviews,
+
+Alex
+
+>
+>
+> Rob
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
