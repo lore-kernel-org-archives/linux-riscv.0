@@ -4,67 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 625F0C04FDE
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Dec 2022 00:17:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F0D6C4167B
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Dec 2022 00:17:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HO2V15FMyQ+RPHcGmEmPQOeg5UEEwDQYm77MQlQnbEo=; b=41Iw9odw/YaZIH
-	WCGIkS6JdNY3t7p7QKPFpqxFLIP6pLaEU67Yl0sTxBLyOKgW7Fw9I4GmYOUHsT0hHrRpp/GZE7oA2
-	VU4NuEwsG/VOGn4mDn0HNw6KaXgo72P/Lm2YGdOBixbATuOqPzcTuMQ6y8IN94ua4uRX/S8JbStUh
-	iX0zZ/QAKqy1N+Z6uLHraVAJt8XwBwgEIn8ZuXfPJPBEqhpGqNRXlTRzW9iWm4RUn7mqCvHU/6tY/
-	0vLWU5Ii6qTAluGKkL9seb7LQX0TD371SpwVWXGCmv8UBxWtGvC1FaFhzn/gBVIq+laYD0yCE5TGw
-	OZOcJpg3vuh88qJU8Gmg==;
+	List-Owner; bh=A74G0nOK1nmmvp9yb8jVyruQSjeke02Yo4l7fKnQi8s=; b=fX6BV+lgFytiJX
+	DjS99DIqoogzjO6IRWSaJsoXJRtAeLDrwbKTRJazX4sj6Fs2rQOrF/hqVKfNGn6njXapi7JPAymzF
+	Sex69m+9XW3AvT1GwmduXWuIbiGr75i+gWKCh45E6L9U4VaLelzIG2IoNyarCntF2gGHDGw55O6dK
+	7QRWy1pqFfncGipdF9AYIo8utvj+IRKHNy245sGrt7K+/QyHh2LsIN8xaCEcFuphUXgS7iKCPeH++
+	+VN4JO9SCg+PoRfSAT/szmdm7S/ZiphtWtaeoblvAQiMv8rvVkiuPW3owubD3df9xUpt9z+JXrbqM
+	P63nVQsiPVo7c1xz6jDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p4sz4-0089E6-SF; Tue, 13 Dec 2022 00:17:22 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1p4szF-0089II-JA; Tue, 13 Dec 2022 00:17:33 +0000
+Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p4syx-00895r-Pl
-	for linux-riscv@lists.infradead.org; Tue, 13 Dec 2022 00:17:17 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id v16-20020a17090a899000b00219b1f0ddebso1027917pjn.5
-        for <linux-riscv@lists.infradead.org>; Mon, 12 Dec 2022 16:17:07 -0800 (PST)
+	id 1p4syx-00895I-Ue
+	for linux-riscv@lists.infradead.org; Tue, 13 Dec 2022 00:17:19 +0000
+Received: by mail-yb1-xb49.google.com with SMTP id 203-20020a2502d4000000b006f94ab02400so14733241ybc.2
+        for <linux-riscv@lists.infradead.org>; Mon, 12 Dec 2022 16:17:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=google.com; s=20210112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=aL+0YmMhUjGpxjB47w5qgiiQkK7wv4sJmU0mewoCPIk=;
-        b=lXE9d6/lTyMaKAp9TWJ0VTH9OHNc6LWhK3blKtxoKuILCiWADb0CbU6Rsydob/gcil
-         wHxIvfaDWuGlNvVquRWIv4yx5W+yznz7XM7a86CW8GDjqkZqbRCaIw2dz/EezUpsk1tU
-         yj25I60njVb9EbdEvsJxtZS9+k7pDY33PzcH/LvsH4P5XlXsQXH7IoqjcG6Ie7dJ8g9T
-         bujmb8hmgj/76jRObLTv9oiy9I32bf42pKVaFt8Dttopr1DOXN3wMxL93QijMNc8Zro1
-         fKhDmxLqJgYkJDp2BLZwakAToojNx+YfT0/EJedWbNtVv2az4c/koY91ZlwuaKe+3P20
-         zbHw==
+        bh=M8gKXPtvSnujkFWzKh+1TE/D8A+unHwbuyURFcPqV7g=;
+        b=oikR4k/YvNkMbE/UC5Bzf96qpIJXJtiLGFf80pbar3MbSe9xkR02tPegsy1MzPNRR1
+         P/fMWRdmCHGRG+4PJC/RAb6f/NEYb7PQ365rsPpPKl8pDpDF9JnKgjnxoUL5hnPz5Xb6
+         yoMSKg+Y0gISjOVsP4kt5i2sv2hP5zRNYjcFA15TS+vJvIu+ap5a/9+DImee/7HjS/Yb
+         gs0wlNl86pWuU4fl75bzelkmpLN94j1fUy2W233vaON/4saTKkmge9ChxVbDRExK9IYF
+         j5TnBzD4rBnxTOTGDNEtCTlBtPdi3Ztq5EGDj1efhIP6Gb2LPLoX+8LsYHJWr3TQSoEI
+         LNWg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=aL+0YmMhUjGpxjB47w5qgiiQkK7wv4sJmU0mewoCPIk=;
-        b=CcMqhEp6GlT0hVnw3+JEQM18/MMTZ0ankUAPYlX6Z/o8Pbf1jSFFm+Ye7hLz8ikvia
-         osi9f+YuE/0/8WPqaL0W0TZ/coRgQkGMMxUZhvfoFMFhZo1N6szGcNcqXKCrFpSu6sG+
-         KXzLy7RZFmzx2Ke57tw+WUOf44ofI2R5osh4nhSDU8now2a11o3v5aBeZUvbMyLqH1rq
-         p/Sk53AChlFD3ZnTMI9LX5N1xSvbQ8mQqJ6FVhB/ogBEabFv8J++HBtE2Chgyw2cq5Ce
-         hmrnHbodKVlXdJxEffXeVRg6IhFQk/Z/Ke88seh7ejahcsm1NAIoKRrPKsv/rxNOjq5r
-         Kf1Q==
-X-Gm-Message-State: ANoB5pm4flj4egbZju0gO3+R1oMNZq8nns0fn59sv0fa5Vk2moxTln5O
-	KnTkfP6iVZgU2ZskZHeKxBlsSrRG7SI=
-X-Google-Smtp-Source: AA0mqf6x4MZJ4SJmtkdTS02X8t4NKcxtNfIcDJg0D7JOLNgsuOwcq0N0mfjb/DHFRBiMDDUKbvP/3oiNhVU=
+        bh=M8gKXPtvSnujkFWzKh+1TE/D8A+unHwbuyURFcPqV7g=;
+        b=jkf1PbgCMTlYFNarO2oh4ElNHGVc0bl2+gjZFXPALx3vqwLSp/Ys8wbkqo4jq7eVy9
+         xMINmcV17iFuMoD4xIoqNSHEcW8UEntaKLcbIouSX5Yhys4niGiKbuLGAkHSdXEYcO7I
+         rX5XK9pb1Om883P1AQp4x/0mI5k1u11gWNRF0MkRLpa/nqwxeQPtHsgEZi7jkjzOqQ0d
+         PFRkagVyRiht1ft10p8fLXVWs3Y3B2RpRcBLUwjsggrVw15c/kpG62NitmwDlPvX9YP4
+         qTVtmitkGwCKpXd16ZZBPN8R75kaRUc5zBeUu796jwtcgjElBHgbAF792IZCNRQJ49g5
+         cIDg==
+X-Gm-Message-State: ANoB5pmcJjSD+R8AOahbMWsgvz5KIlAyidlRu5aEnv/u2UVzsDnOREX2
+	a1IrXUlhgt6orJ2VpE+qqdn/gL3UCs4=
+X-Google-Smtp-Source: AA0mqf7Q9qI1wDH/dcWjWFM94U57KTqb7jtGhaAh76MhvnBCcz2/FuDXsNQTZH108HtSEVOKNLQckow7PUc=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a17:90b:3556:b0:219:f1a2:b641 with SMTP id
- lt22-20020a17090b355600b00219f1a2b641mr97398pjb.97.1670890626870; Mon, 12 Dec
- 2022 16:17:06 -0800 (PST)
-Date: Tue, 13 Dec 2022 00:16:45 +0000
+ (user=seanjc job=sendgmr) by 2002:a25:50cd:0:b0:707:18f:7226 with SMTP id
+ e196-20020a2550cd000000b00707018f7226mr10335955ybb.505.1670890625378; Mon, 12
+ Dec 2022 16:17:05 -0800 (PST)
+Date: Tue, 13 Dec 2022 00:16:44 +0000
 In-Reply-To: <20221213001653.3852042-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20221213001653.3852042-1-seanjc@google.com>
 X-Mailer: git-send-email 2.39.0.rc1.256.g54fd8350bd-goog
-Message-ID: <20221213001653.3852042-7-seanjc@google.com>
-Subject: [PATCH 06/14] KVM: selftests: Rename UNAME_M to ARCH_DIR, fill
- explicitly for x86
+Message-ID: <20221213001653.3852042-6-seanjc@google.com>
+Subject: [PATCH 05/14] KVM: selftests: Fix a typo in x86-64's kvm_get_cpu_address_width()
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -79,8 +78,9 @@ Cc: James Morse <james.morse@arm.com>, Alexandru Elisei <alexandru.elisei@arm.co
 	Sean Christopherson <seanjc@google.com>, Aaron Lewis <aaronlewis@google.com>, 
 	Raghavendra Rao Ananta <rananta@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221212_161715_860365_D7B4C16E 
-X-CRM114-Status: GOOD (  10.32  )
+X-CRM114-CacheID: sfid-20221212_161716_060771_621BE793 
+X-CRM114-Status: UNSURE (   9.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,90 +98,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Rename UNAME_M to ARCH_DIR and explicitly set it directly for x86.  At
-this point, the name of the arch directory really doesn't have anything
-to do with `uname -m`, and UNAME_M is unnecessarily confusing given that
-its purpose is purely to identify the arch specific directory.
+Fix a == vs. = typo in kvm_get_cpu_address_width() that results in
+@pa_bits being left unset if the CPU doesn't support enumerating its
+MAX_PHY_ADDR.  Flagged by clang's unusued-value warning.
 
+lib/x86_64/processor.c:1034:51: warning: expression result unused [-Wunused-value]
+                *pa_bits == kvm_cpu_has(X86_FEATURE_PAE) ? 36 : 32;
+
+Fixes: 3bd396353d18 ("KVM: selftests: Add X86_FEATURE_PAE and use it calc "fallback" MAXPHYADDR")
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- tools/testing/selftests/kvm/Makefile | 49 +++++++++-------------------
- 1 file changed, 15 insertions(+), 34 deletions(-)
+ tools/testing/selftests/kvm/lib/x86_64/processor.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/tools/testing/selftests/kvm/Makefile b/tools/testing/selftests/kvm/Makefile
-index 947676983da1..d761a77c3a80 100644
---- a/tools/testing/selftests/kvm/Makefile
-+++ b/tools/testing/selftests/kvm/Makefile
-@@ -7,35 +7,16 @@ top_srcdir = ../../../..
- include $(top_srcdir)/scripts/subarch.include
- ARCH            ?= $(SUBARCH)
- 
--# For cross-builds to work, UNAME_M has to map to ARCH and arch specific
--# directories and targets in this Makefile. "uname -m" doesn't map to
--# arch specific sub-directory names.
--#
--# UNAME_M variable to used to run the compiles pointing to the right arch
--# directories and build the right targets for these supported architectures.
--#
--# TEST_GEN_PROGS and LIBKVM are set using UNAME_M variable.
--# LINUX_TOOL_ARCH_INCLUDE is set using ARCH variable.
--#
--# x86_64 targets are named to include x86_64 as a suffix and directories
--# for includes are in x86_64 sub-directory. s390x and aarch64 follow the
--# same convention. "uname -m" doesn't result in the correct mapping for
--# s390x and aarch64.
--#
--# No change necessary for x86_64
--UNAME_M := $(shell uname -m)
--
--# Set UNAME_M for arm64 compile/install to work
--ifeq ($(ARCH),arm64)
--	UNAME_M := aarch64
--endif
--# Set UNAME_M s390x compile/install to work
--ifeq ($(ARCH),s390)
--	UNAME_M := s390x
--endif
--# Set UNAME_M riscv compile/install to work
--ifeq ($(ARCH),riscv)
--	UNAME_M := riscv
-+ifeq ($(ARCH),x86)
-+	ARCH_DIR := x86_64
-+else ifeq ($(ARCH),arm64)
-+	ARCH_DIR := aarch64
-+else ifeq ($(ARCH),s390)
-+	ARCH_DIR := s390x
-+else ifeq ($(ARCH),riscv)
-+	ARCH_DIR := riscv
-+else
-+$(error Unknown architecture '$(ARCH)')
- endif
- 
- LIBKVM += lib/assert.c
-@@ -196,10 +177,10 @@ TEST_GEN_PROGS_riscv += kvm_page_table_test
- TEST_GEN_PROGS_riscv += set_memory_region_test
- TEST_GEN_PROGS_riscv += kvm_binary_stats_test
- 
--TEST_PROGS += $(TEST_PROGS_$(UNAME_M))
--TEST_GEN_PROGS += $(TEST_GEN_PROGS_$(UNAME_M))
--TEST_GEN_PROGS_EXTENDED += $(TEST_GEN_PROGS_EXTENDED_$(UNAME_M))
--LIBKVM += $(LIBKVM_$(UNAME_M))
-+TEST_PROGS += $(TEST_PROGS_$(ARCH_DIR))
-+TEST_GEN_PROGS += $(TEST_GEN_PROGS_$(ARCH_DIR))
-+TEST_GEN_PROGS_EXTENDED += $(TEST_GEN_PROGS_EXTENDED_$(ARCH_DIR))
-+LIBKVM += $(LIBKVM_$(ARCH_DIR))
- 
- INSTALL_HDR_PATH = $(top_srcdir)/usr
- LINUX_HDR_PATH = $(INSTALL_HDR_PATH)/include/
-@@ -212,7 +193,7 @@ endif
- CFLAGS += -Wall -Wstrict-prototypes -Wuninitialized -O2 -g -std=gnu99 \
- 	-fno-stack-protector -fno-PIE -I$(LINUX_TOOL_INCLUDE) \
- 	-I$(LINUX_TOOL_ARCH_INCLUDE) -I$(LINUX_HDR_PATH) -Iinclude \
--	-I$(<D) -Iinclude/$(UNAME_M) -I ../rseq -I.. $(EXTRA_CFLAGS) \
-+	-I$(<D) -Iinclude/$(ARCH_DIR) -I ../rseq -I.. $(EXTRA_CFLAGS) \
- 	$(KHDR_INCLUDES)
- 
- no-pie-option := $(call try-run, echo 'int main() { return 0; }' | \
+diff --git a/tools/testing/selftests/kvm/lib/x86_64/processor.c b/tools/testing/selftests/kvm/lib/x86_64/processor.c
+index c4d368d56cfe..acfa1d01e7df 100644
+--- a/tools/testing/selftests/kvm/lib/x86_64/processor.c
++++ b/tools/testing/selftests/kvm/lib/x86_64/processor.c
+@@ -1031,7 +1031,7 @@ bool is_amd_cpu(void)
+ void kvm_get_cpu_address_width(unsigned int *pa_bits, unsigned int *va_bits)
+ {
+ 	if (!kvm_cpu_has_p(X86_PROPERTY_MAX_PHY_ADDR)) {
+-		*pa_bits == kvm_cpu_has(X86_FEATURE_PAE) ? 36 : 32;
++		*pa_bits = kvm_cpu_has(X86_FEATURE_PAE) ? 36 : 32;
+ 		*va_bits = 32;
+ 	} else {
+ 		*pa_bits = kvm_cpu_property(X86_PROPERTY_MAX_PHY_ADDR);
 -- 
 2.39.0.rc1.256.g54fd8350bd-goog
 
