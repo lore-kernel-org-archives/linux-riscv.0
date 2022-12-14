@@ -4,70 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68ACDC4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Dec 2022 18:40:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC9A1C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Dec 2022 19:42:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:Subject
-	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=84Vv3XjJq3+KygIgbDCXHnrUHxGwO0cndfAnt7+nyuM=; b=H2b6tPweVkJ0Os
-	OUQ06wk1PQRZ7HSpimGPXjaYJtzDXa45MMGh5td78xA8DfKE30vYNVJCHGEcqw0WwHrHlRFbUIT+d
-	emg8ljIom+C6A1aemRUo4534mMSsPzSONFhvRYnBCSafhibNAQ/MO1lwXyOpb9QMiYjN+pbHxQ3CF
-	1Z2qzbo9LgnyjabMFlVe8/FOHdZ5G63YXf1l5GSqRLUtSFzyFKPfWs4fn+V4WSK5O2i4dlpF4bK/s
-	1oxcuChxY2vprsCRkqVf/RA6SwTYIJ+qtEegEym3ExA/49+BnFDXpH+XtpXoHNoNrv54786aa2Y60
-	IegrlOiybHfqgcGM0Qeg==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Ndd+DJiEmC5nFsoACGgZbuVuBdNtkUHV/KA+UQ7z/nY=; b=Si1HptHd1qb2rW
+	w9DvPl0SzvIWBt6EkjR1sTFCSU3XkMO4u37BAIbjRhLJ9v31tokMp2gkH73t4IBqTBepRXwcAMOL0
+	I+sk0qtlim4Bd+dM4Q/olsHDT07AcZiuLJMWl4wixcQ0OywIlJ4VJZj1EyUNlJdp86p3Zw7VYahGZ
+	k/UKITABAs1z3YnjJTak+tavLJzQ50DzixKo0LJ7jiuOJLcv1DPpz8GW2vUMVhogChs+1Q63n/bfu
+	hPHQrIB8cI/JQrIJdLgc1se7wcjhLAheEPRRJGY3NAGGUQHigWgQsyOmEh9R57BGvT+90dOM3331z
+	N77c1q34TQoPUL33sEiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p5Wfx-001k9A-MV; Wed, 14 Dec 2022 18:40:17 +0000
-Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
+	id 1p5XeL-002F1l-I2; Wed, 14 Dec 2022 19:42:41 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p5Wfu-001k2P-Rg
-	for linux-riscv@lists.infradead.org; Wed, 14 Dec 2022 18:40:16 +0000
-Received: by mail-pg1-x530.google.com with SMTP id 142so2590157pga.1
-        for <linux-riscv@lists.infradead.org>; Wed, 14 Dec 2022 10:40:08 -0800 (PST)
+	id 1p5XeH-002Evt-BT
+	for linux-riscv@lists.infradead.org; Wed, 14 Dec 2022 19:42:39 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id n65-20020a17090a2cc700b0021bc5ef7a14so340397pjd.0
+        for <linux-riscv@lists.infradead.org>; Wed, 14 Dec 2022 11:42:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=message-id:to:from:cc:subject:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=28v+Usm1lZe3hhqKtgjE2II+AFu+GpCD77DgUFeOlTo=;
-        b=uj2KhMW5T9Y8LymkemgmORUk4ErSPJC7zYT17cudI++S9qmLQiqnl/odKzLqIyIUEe
-         mgJIkczhK90wcXNCxBA2VItbHP2Yk+CwxkYyYNPccYafV1OZhbv3yffJFJDluFHtXqhH
-         TnrXyPgltxFoiOdTJXUhXoYaLdnuF3Nb+NTotp53C45rwk36P1Ql7bHXg4LXHkv8k3Vq
-         Zw7EOtV1e7E3PzOSgOWVht9ecO51OyEW5JyGV1iMP263N3N2+77T05EgvMoVKUPGGv8M
-         E/oSwcQGKCuDnznbpZD0QUkDfycXcZ/68S6RJtJ5Lbm0WcH8B5h14bu9VUOeDFyuZ5JG
-         sM4Q==
+        d=google.com; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ku5jbuAQtkSIptaPybAlGHrWDUjqz+/sshvQ4yTXVKM=;
+        b=gFMFZTb9mro+iD15z0WKOAxzMvbSbzWPvCwsv8UgFNQWpsUuXMnYS1PD3tfN9vh+X7
+         TxVm4jwzNUIAZ9XHYIdI0sTAawVhxSLk731/QHHR0cEuSWQT3MUJ5gn4LDqw2kfypG1G
+         0bQIwCJGwPZ6AKpAq3T0x0kfjiXwM8lxNtxri7D8qhKTIK3pwuhtPFeLIU9CPCLftyT7
+         N4dlul+9Y12mjdb0gPr7ygr3Diy6uRM/rtN0bgjbPYE8emVLaRsMCD/6CMXfynWZUtV8
+         FUhysphsdX7xRND/cGG0xWBHmRXb2BmyzX1vpYoDF3NQ54Xr6HVNV1VJIIrs+JDUy6J7
+         CZcQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=message-id:to:from:cc:subject:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=28v+Usm1lZe3hhqKtgjE2II+AFu+GpCD77DgUFeOlTo=;
-        b=UuNHvPgZmJJK+OSu/ZV4ntKTVfX8ULTDU4RkzwhPuo89TWQU+srtr6IywhsT0H7SUD
-         p2fYlVLvP/ao2eKnUvy4T7P13luHZ58YvsuZZbOaNfIwueVWFKBZsTpwGYI3N6W3iK/a
-         Uvxtjvpv5b8MJuvDOEks97nkbTgUkOvyKNObvbo5CMxmk6Q0yE5mNypIsclfRMrZ1cZv
-         kOwk9A4uZD0QJdGFi4Dz77blSeGSaYiQBN50CXXBNk802tvLTTG2uCYY9kxx6iuDEYta
-         YCZh8hN5FJIz6UoMDxMym7YDpKz4zXEhT59KKG3UwjQPuTS9vCxyK6LunX6SG/oBxdZV
-         /R+w==
-X-Gm-Message-State: ANoB5pm+rDJve19xGGooBnf7YXEwxP66PNsMlcG+fak97V6CwFb5k1sp
-	oXEVaHtA+LEbfI+/+1HYXsrk78j4de6H9r3c
-X-Google-Smtp-Source: AA0mqf6LQd3O6KXpgz/F2rAfxr3r/Fp9AsCwkHSPl82E/frKyC+4pwLiX+ImCYPqlwzLlDXzri4xbg==
-X-Received: by 2002:a62:17cf:0:b0:577:50c4:6dbe with SMTP id 198-20020a6217cf000000b0057750c46dbemr25180361pfx.4.1671043206751;
-        Wed, 14 Dec 2022 10:40:06 -0800 (PST)
-Received: from localhost ([135.180.226.51])
-        by smtp.gmail.com with ESMTPSA id q8-20020aa78428000000b0057627521e82sm168876pfn.195.2022.12.14.10.40.04
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ku5jbuAQtkSIptaPybAlGHrWDUjqz+/sshvQ4yTXVKM=;
+        b=zU4ER1+in7uIBJMkqSReCxhNvEmXI33tigTnqQFGZA9HLVjfAzenOKDXiU8uTqtGmZ
+         3XvsiqAUKOGEJBAmE5mDxATcMizSj9uwTiIsTuOr19B7bd+ALX0wD9Hpgzr0gm+S2/dp
+         qQx8Vjf2ZRo/q6ZvbAbI62yoBIke4AdvGPzFKUBZS5yc+OXZZGoMd3HfPHLPprWGQcxG
+         gRjBeBzHUl6BxZb9MZL95S8qmYx4+Ls6p6Dml+l0AXowGUH+61Mm3l1/BHh3l0ivZZNu
+         RKz7rlIT2N3sHw7W1INn+lnJzPED4WaNIOBF7NujUgha9fTJlDUzR7Qi/pQQqqzfp10m
+         Csjg==
+X-Gm-Message-State: ANoB5pnMzEFt605QRi5gprtYORICi4iprt1wVVlQcDHp2PZ9dIN1cohd
+	UCr6y9xomuvOID+e6MBgn8ZJWQ==
+X-Google-Smtp-Source: AA0mqf475+T6XuYTtV2Re11WEmkxZATJINn1AOgHBS3Ie2ZV2UqJ+on0NpT5StpdHjXPTHMnUH99rA==
+X-Received: by 2002:a17:90a:2a4f:b0:219:828e:ba2 with SMTP id d15-20020a17090a2a4f00b00219828e0ba2mr871582pjg.0.1671046955097;
+        Wed, 14 Dec 2022 11:42:35 -0800 (PST)
+Received: from google.com (7.104.168.34.bc.googleusercontent.com. [34.168.104.7])
+        by smtp.gmail.com with ESMTPSA id a1-20020a170902710100b0018b025d9a40sm2204215pll.256.2022.12.14.11.42.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 Dec 2022 10:40:05 -0800 (PST)
-Date: Wed, 14 Dec 2022 10:40:05 -0800 (PST)
-X-Google-Original-Date: Wed, 14 Dec 2022 10:39:59 PST (-0800)
-Subject: [GIT PULL] RISC-V Patches for the 6.2 Merge Window, Part 1
-CC: linux-riscv@lists.infradead.org,        linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Message-ID: <mhng-f76eb33c-7cc1-426f-8f29-37f6bb78baec@palmer-ri-x1c9>
+        Wed, 14 Dec 2022 11:42:33 -0800 (PST)
+Date: Wed, 14 Dec 2022 19:42:30 +0000
+From: Sean Christopherson <seanjc@google.com>
+To: Lai Jiangshan <jiangshanlai@gmail.com>
+Cc: David Matlack <dmatlack@google.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	"Yang, Weijiang" <weijiang.yang@intel.com>,
+	Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	"Amit, Nadav" <namit@vmware.com>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Peter Xu <peterx@redhat.com>, xu xin <cgel.zte@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>, Yu Zhao <yuzhao@google.com>,
+	Colin Cross <ccross@google.com>, Hugh Dickins <hughd@google.com>,
+	Ben Gardon <bgardon@google.com>, Mingwei Zhang <mizhang@google.com>,
+	Krish Sadhukhan <krish.sadhukhan@oracle.com>,
+	Ricardo Koller <ricarkol@google.com>,
+	Jing Zhang <jingzhangos@google.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"kvmarm@lists.cs.columbia.edu" <kvmarm@lists.cs.columbia.edu>,
+	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	"kvm-riscv@lists.infradead.org" <kvm-riscv@lists.infradead.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Subject: Re: [RFC PATCH 01/37] KVM: x86/mmu: Store the address space ID
+ directly in kvm_mmu_page_role
+Message-ID: <Y5onJulY3UQJNrmW@google.com>
+References: <20221208193857.4090582-1-dmatlack@google.com>
+ <20221208193857.4090582-2-dmatlack@google.com>
+ <22fe2332-497e-fe30-0155-e026b0eded97@intel.com>
+ <Y5NvYmxpy6BPkmpW@google.com>
+ <CALzav=eju4LYyX=ufNneSww+5sraYJ8cfQSi4LTOHfHWmddX9A@mail.gmail.com>
+ <Y5dnWgJ0ine55/hN@google.com>
+ <CAJhGHyBbjyKVEv3KcoOcPGQ28753FjR_rc9uNDEF3Dd-gNTRGQ@mail.gmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CAJhGHyBbjyKVEv3KcoOcPGQ28753FjR_rc9uNDEF3Dd-gNTRGQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221214_104014_929509_07469753 
-X-CRM114-Status: GOOD (  23.08  )
+X-CRM114-CacheID: sfid-20221214_114237_450215_4056D06A 
+X-CRM114-Status: GOOD (  31.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,234 +124,198 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 9abf2313adc1ca1b6180c508c25f22f9395cc780:
+On Wed, Dec 14, 2022, Lai Jiangshan wrote:
+> On Tue, Dec 13, 2022 at 1:47 AM Sean Christopherson <seanjc@google.com> wrote:
+> 
+> >
+> > My preference would be to leave .smm in x86's page role.  IMO, defining multiple
+> > address spaces to support SMM emulation was a mistake that should be contained to
+> > SMM, i.e. should never be used for any other feature.  And with CONFIG_KVM_SMM,
+> > even x86 can opt out.
+> >
+> 
+> 
+> I think the name ASID in kvm/x86 should be used for vmcb's ASID,
+> vmcs's VPID, and PCID. Using the name ASID for other purposes
+> would only result in unnecessary confusion.
 
-  Linux 6.1-rc1 (2022-10-16 15:36:24 -0700)
+I agree in principle, but at this point fixing the problem would require a lot of
+churn since "as_id" is pervasive throughout the memslots code.
 
-are available in the Git repository at:
+It should be possible though, as I don't think anything in KVM's uAPI explicitly
+takes an as_id, i.e. it's KVM-internal terminology for the most part.
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.2-mw1
+> There is a bug for shadow paging when it uses two separate sets
+> of memslots which are using two sets of rmap and page-tracking.
+> 
+> When SMM world is writing to a non-SMM page which happens to be
+> a guest pagetable in the non-SMM world, the write operation will
+> go smoothly without specially handled and the shadow page for the guest
+> pagetable is neither unshadowed nor marked unsync.  The shadow paging
+> code is unaware that the shadow page has deviated from the guest
+> pagetable.
 
-for you to fetch changes up to 6e66e96e31b81fb08075d18a3e2c201f1e2171da:
+Won't the unsync code work as intended?  for_each_gfn_valid_sp_with_gptes()
+doesn't consume the slot and I don't see any explicit filtering on role.smm,
+i.e. should unsync all SPTEs for the gfn.
 
-  Merge patch series "Documentation: RISC-V: patch-acceptance changes" (2022-12-13 09:38:30 -0800)
+Addressing the page-track case is a bit gross, but doesn't appear to be too
+difficult.  I wouldn't be surprised if there are other SMM => non-SMM bugs lurking
+though.
 
-----------------------------------------------------------------
-RISC-V Patches for the 6.2 Merge Window, Part 1
+---
+ arch/x86/include/asm/kvm_page_track.h |  2 +-
+ arch/x86/kvm/mmu/mmu.c                |  7 +++---
+ arch/x86/kvm/mmu/mmu_internal.h       |  3 ++-
+ arch/x86/kvm/mmu/page_track.c         | 32 +++++++++++++++++++--------
+ arch/x86/kvm/mmu/spte.c               |  2 +-
+ 5 files changed, 31 insertions(+), 15 deletions(-)
 
-* Support for the T-Head PMU via the perf subsystem.
-* ftrace support for rv32.
-* Support for non-volatile memory devices.
-* Various fixes and cleanups.
+diff --git a/arch/x86/include/asm/kvm_page_track.h b/arch/x86/include/asm/kvm_page_track.h
+index eb186bc57f6a..fdd9de31e160 100644
+--- a/arch/x86/include/asm/kvm_page_track.h
++++ b/arch/x86/include/asm/kvm_page_track.h
+@@ -63,7 +63,7 @@ void kvm_slot_page_track_add_page(struct kvm *kvm,
+ void kvm_slot_page_track_remove_page(struct kvm *kvm,
+ 				     struct kvm_memory_slot *slot, gfn_t gfn,
+ 				     enum kvm_page_track_mode mode);
+-bool kvm_slot_page_track_is_active(struct kvm *kvm,
++bool kvm_slot_page_track_is_active(struct kvm_vcpu *vcpu,
+ 				   const struct kvm_memory_slot *slot,
+ 				   gfn_t gfn, enum kvm_page_track_mode mode);
+ 
+diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
+index 254bc46234e0..1c2200042133 100644
+--- a/arch/x86/kvm/mmu/mmu.c
++++ b/arch/x86/kvm/mmu/mmu.c
+@@ -2715,9 +2715,10 @@ static void kvm_unsync_page(struct kvm *kvm, struct kvm_mmu_page *sp)
+  * were marked unsync (or if there is no shadow page), -EPERM if the SPTE must
+  * be write-protected.
+  */
+-int mmu_try_to_unsync_pages(struct kvm *kvm, const struct kvm_memory_slot *slot,
++int mmu_try_to_unsync_pages(struct kvm_vcpu *vcpu, const struct kvm_memory_slot *slot,
+ 			    gfn_t gfn, bool can_unsync, bool prefetch)
+ {
++	struct kvm *kvm = vcpu->kvm;
+ 	struct kvm_mmu_page *sp;
+ 	bool locked = false;
+ 
+@@ -2726,7 +2727,7 @@ int mmu_try_to_unsync_pages(struct kvm *kvm, const struct kvm_memory_slot *slot,
+ 	 * track machinery is used to write-protect upper-level shadow pages,
+ 	 * i.e. this guards the role.level == 4K assertion below!
+ 	 */
+-	if (kvm_slot_page_track_is_active(kvm, slot, gfn, KVM_PAGE_TRACK_WRITE))
++	if (kvm_slot_page_track_is_active(vcpu, slot, gfn, KVM_PAGE_TRACK_WRITE))
+ 		return -EPERM;
+ 
+ 	/*
+@@ -4127,7 +4128,7 @@ static bool page_fault_handle_page_track(struct kvm_vcpu *vcpu,
+ 	 * guest is writing the page which is write tracked which can
+ 	 * not be fixed by page fault handler.
+ 	 */
+-	if (kvm_slot_page_track_is_active(vcpu->kvm, fault->slot, fault->gfn, KVM_PAGE_TRACK_WRITE))
++	if (kvm_slot_page_track_is_active(vcpu, fault->slot, fault->gfn, KVM_PAGE_TRACK_WRITE))
+ 		return true;
+ 
+ 	return false;
+diff --git a/arch/x86/kvm/mmu/mmu_internal.h b/arch/x86/kvm/mmu/mmu_internal.h
+index ac00bfbf32f6..38040ab27986 100644
+--- a/arch/x86/kvm/mmu/mmu_internal.h
++++ b/arch/x86/kvm/mmu/mmu_internal.h
+@@ -156,7 +156,8 @@ static inline bool kvm_mmu_page_ad_need_write_protect(struct kvm_mmu_page *sp)
+ 	return kvm_x86_ops.cpu_dirty_log_size && sp->role.guest_mode;
+ }
+ 
+-int mmu_try_to_unsync_pages(struct kvm *kvm, const struct kvm_memory_slot *slot,
++int mmu_try_to_unsync_pages(struct kvm_vcpu *vcpu,
++			    const struct kvm_memory_slot *slot,
+ 			    gfn_t gfn, bool can_unsync, bool prefetch);
+ 
+ void kvm_mmu_gfn_disallow_lpage(const struct kvm_memory_slot *slot, gfn_t gfn);
+diff --git a/arch/x86/kvm/mmu/page_track.c b/arch/x86/kvm/mmu/page_track.c
+index 2e09d1b6249f..0e9bc837257e 100644
+--- a/arch/x86/kvm/mmu/page_track.c
++++ b/arch/x86/kvm/mmu/page_track.c
+@@ -18,6 +18,7 @@
+ 
+ #include "mmu.h"
+ #include "mmu_internal.h"
++#include "smm.h"
+ 
+ bool kvm_page_track_write_tracking_enabled(struct kvm *kvm)
+ {
+@@ -171,27 +172,40 @@ void kvm_slot_page_track_remove_page(struct kvm *kvm,
+ }
+ EXPORT_SYMBOL_GPL(kvm_slot_page_track_remove_page);
+ 
++static bool __kvm_slot_page_track_is_active(const struct kvm_memory_slot *slot,
++					    gfn_t gfn, enum kvm_page_track_mode mode)
++{
++	int index;
++
++	if (!slot)
++		return false;
++
++	index = gfn_to_index(gfn, slot->base_gfn, PG_LEVEL_4K);
++	return !!READ_ONCE(slot->arch.gfn_track[mode][index]);
++}
++
+ /*
+  * check if the corresponding access on the specified guest page is tracked.
+  */
+-bool kvm_slot_page_track_is_active(struct kvm *kvm,
++bool kvm_slot_page_track_is_active(struct kvm_vcpu *vcpu,
+ 				   const struct kvm_memory_slot *slot,
+ 				   gfn_t gfn, enum kvm_page_track_mode mode)
+ {
+-	int index;
+-
+ 	if (WARN_ON(!page_track_mode_is_valid(mode)))
+ 		return false;
+ 
+-	if (!slot)
+-		return false;
+-
+ 	if (mode == KVM_PAGE_TRACK_WRITE &&
+-	    !kvm_page_track_write_tracking_enabled(kvm))
++	    !kvm_page_track_write_tracking_enabled(vcpu->kvm))
+ 		return false;
+ 
+-	index = gfn_to_index(gfn, slot->base_gfn, PG_LEVEL_4K);
+-	return !!READ_ONCE(slot->arch.gfn_track[mode][index]);
++	if (__kvm_slot_page_track_is_active(slot, gfn, mode))
++		return true;
++
++	if (!is_smm(vcpu))
++		return false;
++
++	return __kvm_slot_page_track_is_active(gfn_to_memslot(vcpu->kvm, gfn),
++					       gfn, mode);
+ }
+ 
+ void kvm_page_track_cleanup(struct kvm *kvm)
+diff --git a/arch/x86/kvm/mmu/spte.c b/arch/x86/kvm/mmu/spte.c
+index c0fd7e049b4e..89ddd113c1b9 100644
+--- a/arch/x86/kvm/mmu/spte.c
++++ b/arch/x86/kvm/mmu/spte.c
+@@ -220,7 +220,7 @@ bool make_spte(struct kvm_vcpu *vcpu, struct kvm_mmu_page *sp,
+ 		 * e.g. it's write-tracked (upper-level SPs) or has one or more
+ 		 * shadow pages and unsync'ing pages is not allowed.
+ 		 */
+-		if (mmu_try_to_unsync_pages(vcpu->kvm, slot, gfn, can_unsync, prefetch)) {
++		if (mmu_try_to_unsync_pages(vcpu, slot, gfn, can_unsync, prefetch)) {
+ 			pgprintk("%s: found shadow page for %llx, marking ro\n",
+ 				 __func__, gfn);
+ 			wrprot = true;
 
-----------------------------------------------------------------
-I didn't have a part 2 planned, but I just stumbled into a build issue with
-the Arm LPAE IOMMU being enabled on rv32, which is worked around via
-https://lore.kernel.org/r/20221214180409.7354-1-palmer@rivosinc.com/ .
-Anything would be a fix, though, as I'm essentially pretending we're in RCs
-aside from what's here.
+base-commit: e0ef1f14e97ff65adf6e2157952dbbd1e482065c
+-- 
 
-I've sent the diffstat against v6.1-rc1, as targeting a recent master produces
-something huge (though still a reasonable shortlog).  I'm not entirely sure
-what's going on there: I have some old merge bases (due to old patch sets) so
-hopefully that's the problem, but it's also my first time seriously using b4 so
-sorry if I've screwed something up.  The only intentionally suspect thing I've
-done is include 5c20a3a9df19 ("RISC-V: Fix compilation without
-RISCV_ISA_ZICBOM") as it fixes a build issue in the following patch set and
-didn't land via the usual flow, but I think that's the cleanest way to do it as
-the patch was already directly on top of rc1.
-
-I'm seeing one merge conflict, here's my resolution if it helps any:
-
-@@@ -161,7 -161,7 +163,8 @@@ CONFIG_VIRTIO_MMIO=
-  CONFIG_RPMSG_CHAR=y
-  CONFIG_RPMSG_CTRL=y
-  CONFIG_RPMSG_VIRTIO=y
- +CONFIG_LIBNVDIMM=y
-+ CONFIG_ARCH_R9A07G043=y
-  CONFIG_EXT4_FS=y
-  CONFIG_EXT4_FS_POSIX_ACL=y
-  CONFIG_EXT4_FS_SECURITY=y
-
-----------------------------------------------------------------
-Alexandre Ghiti (1):
-      riscv: Fix P4D_SHIFT definition for 3-level page table mode
-
-Andrew Bresticker (1):
-      RISC-V: Fix unannoted hardirqs-on in return to userspace slow-path
-
-Andrew Jones (9):
-      RISC-V: Fix compilation without RISCV_ISA_ZICBOM
-      riscv: Don't duplicate __ALTERNATIVE_CFG in __ALTERNATIVE_CFG_2
-      riscv: alternatives: Don't name unused macro parameters
-      riscv: alternatives: Drop the underscores from the assembly macro names
-      riscv: Don't duplicate _ALTERNATIVE_CFG* macros
-      RISC-V: Improve use of isa2hwcap[]
-      RISC-V: Introduce riscv_isa_extension_check
-      RISC-V: Ensure Zicbom has a valid block size
-      riscv: Apply a static assert to riscv_isa_ext_id
-
-Anup Patel (3):
-      RISC-V: Fix MEMREMAP_WB for systems with Svpbmt
-      RISC-V: Implement arch specific PMEM APIs
-      RISC-V: Enable PMEM drivers
-
-Binglei Wang (1):
-      riscv: add riscv rethook implementation
-
-Cleo John (1):
-      riscv: fix styling in ucontext header
-
-Conor Dooley (4):
-      RISC-V: enable sparsemem by default for defconfig
-      irqchip/sifive-plic: remove user selectability of SIFIVE_PLIC
-      irqchip/riscv-intc: remove user selectability of RISCV_INTC
-      RISC-V: stop selecting SIFIVE_PLIC at the SoC level
-
-Guo Ren (3):
-      riscv: stacktrace: Fixup ftrace_graph_ret_addr retp argument
-      riscv: stacktrace: Make walk_stackframe cross pt_regs frame
-      riscv: Fixup compile error with !MMU
-
-Hal Feng (1):
-      RISC-V: defconfig: Enable CONFIG_SERIAL_8250_DW
-
-Heiko Stuebner (2):
-      RISC-V: Cache SBI vendor values
-      drivers/perf: riscv_pmu_sbi: add support for PMU variant on T-Head C9xx cores
-
-Heinrich Schuchardt (1):
-      riscv/vdso: typo therefor
-
-Jamie Iles (4):
-      RISC-V: use REG_S/REG_L for mcount
-      RISC-V: reduce mcount save space on RV32
-      RISC-V: preserve a1 in mcount
-      RISC-V: enable dynamic ftrace for RV32I
-
-Jinyu Tang (1):
-      riscv: support update_mmu_tlb()
-
-Jisheng Zhang (3):
-      riscv: remove special treatment for the link order of head.o
-      riscv: fix race when vmap stack overflow
-      riscv: boot: add zstd support
-
-Lad Prabhakar (1):
-      riscv: Kconfig: Enable cpufreq kconfig menu
-
-Li Huafei (2):
-      RISC-V: kexec: Fix memory leak of fdt buffer
-      RISC-V: kexec: Fix memory leak of elf header buffer
-
-Liu Shixin (2):
-      riscv: Enable HAVE_ARCH_HUGE_VMAP for 64BIT
-      riscv: Enable HAVE_ARCH_HUGE_VMALLOC for 64BIT
-
-Palmer Dabbelt (17):
-      riscv_pmu_sbi: add support for PMU variant on T-Head C9xx cores
-      Merge patch series "RISC-V: Dynamic ftrace support for RV32I"
-      Merge patch series "Support VMCOREINFO export for RISCV64"
-      Merge patch "RISC-V: Fix unannoted hardirqs-on in return to userspace slow-path"
-      Merge patch series "Add PMEM support for RISC-V"
-      Merge patch series "RISC-V interrupt controller select cleanup"
-      Merge patch series "riscv: Fix crash during early errata patching"
-      Merge patch series "RISC-V: Ensure Zicbom has a valid block size"
-      Merge patch series "riscv: alternative-macros.h cleanups"
-      RISC-V: Align the shadow stack
-      RISC-V: Add some comments about the shadow and overflow stacks
-      Merge patch series "RISC-V: Align the shadow stack"
-      Documentation: RISC-V: Fix a typo in patch-acceptance
-      Documentation: RISC-V: Allow patches for non-standard behavior
-      Documentation: RISC-V: Mention the UEFI Standards
-      Documentation: RISC-V: patch-acceptance: s/implementor/implementer
-      Merge patch series "Documentation: RISC-V: patch-acceptance changes"
-
-Qinglin Pan (1):
-      riscv: mm: call best_map_size many times during linear-mapping
-
-Samuel Holland (2):
-      riscv: Fix crash during early errata patching
-      riscv: Move cast inside kernel_mapping_[pv]a_to_[vp]a
-
-Sergey Matyukevich (1):
-      riscv: mm: notify remote harts about mmu cache updates
-
-Tong Tiangen (2):
-      riscv/mm: hugepage's PG_dcache_clean flag is only set in head page
-      riscv/mm: add arch hook arch_clear_hugepage_flags
-
-Xianting Tian (2):
-      RISC-V: Add arch_crash_save_vmcoreinfo support
-      Documentation: kdump: describe VMCOREINFO export for RISCV64
-
- Documentation/admin-guide/kdump/vmcoreinfo.rst     | 29 +++++++
- .../features/vm/huge-vmap/arch-support.txt         |  2 +-
- Documentation/riscv/patch-acceptance.rst           | 22 +++--
- arch/riscv/Kconfig                                 | 19 +++--
- arch/riscv/Kconfig.erratas                         | 13 +++
- arch/riscv/Kconfig.socs                            |  5 --
- arch/riscv/boot/Makefile                           |  3 +
- arch/riscv/configs/defconfig                       |  3 +
- arch/riscv/errata/thead/errata.c                   | 19 +++++
- arch/riscv/include/asm/alternative-macros.h        | 99 +++++++---------------
- arch/riscv/include/asm/asm.h                       |  1 +
- arch/riscv/include/asm/cacheflush.h                | 15 ++--
- arch/riscv/include/asm/errata_list.h               | 16 +++-
- arch/riscv/include/asm/hugetlb.h                   |  6 ++
- arch/riscv/include/asm/hwcap.h                     |  3 +-
- arch/riscv/include/asm/io.h                        |  5 ++
- arch/riscv/include/asm/kexec.h                     |  5 ++
- arch/riscv/include/asm/kprobes.h                   |  2 -
- arch/riscv/include/asm/mmu.h                       |  2 +
- arch/riscv/include/asm/page.h                      | 18 ++--
- arch/riscv/include/asm/pgtable-64.h                |  6 +-
- arch/riscv/include/asm/pgtable.h                   |  5 +-
- arch/riscv/include/asm/sbi.h                       |  5 ++
- arch/riscv/include/asm/tlbflush.h                  | 18 ++++
- arch/riscv/include/asm/vdso.h                      |  2 +-
- arch/riscv/include/asm/vmalloc.h                   | 18 ++++
- arch/riscv/include/uapi/asm/ucontext.h             | 12 ++-
- arch/riscv/kernel/Makefile                         |  1 +
- arch/riscv/kernel/cpu.c                            | 30 ++++++-
- arch/riscv/kernel/cpufeature.c                     | 43 +++++++---
- arch/riscv/kernel/crash_core.c                     | 21 +++++
- arch/riscv/kernel/elf_kexec.c                      | 14 +++
- arch/riscv/kernel/entry.S                          | 34 +++++---
- arch/riscv/kernel/mcount.S                         | 44 +++++-----
- arch/riscv/kernel/probes/Makefile                  |  2 +-
- arch/riscv/kernel/probes/kprobes.c                 | 13 ---
- arch/riscv/kernel/probes/rethook.c                 | 27 ++++++
- arch/riscv/kernel/probes/rethook.h                 |  8 ++
- .../{kprobes_trampoline.S => rethook_trampoline.S} |  6 +-
- arch/riscv/kernel/signal.c                         | 34 +++++---
- arch/riscv/kernel/stacktrace.c                     | 11 ++-
- arch/riscv/kernel/traps.c                          | 30 ++++++-
- arch/riscv/mm/Makefile                             |  2 +
- arch/riscv/mm/cacheflush.c                         | 45 ++++++++++
- arch/riscv/mm/context.c                            | 10 +++
- arch/riscv/mm/dma-noncoherent.c                    | 41 ---------
- arch/riscv/mm/init.c                               | 25 +++---
- arch/riscv/mm/pgtable.c                            | 83 ++++++++++++++++++
- arch/riscv/mm/physaddr.c                           |  2 +-
- arch/riscv/mm/pmem.c                               | 21 +++++
- arch/riscv/mm/tlbflush.c                           | 28 +++---
- drivers/irqchip/Kconfig                            | 21 +----
- drivers/perf/riscv_pmu_sbi.c                       | 34 +++++---
- scripts/head-object-list.txt                       |  1 -
- 54 files changed, 684 insertions(+), 300 deletions(-)
- create mode 100644 arch/riscv/kernel/crash_core.c
- create mode 100644 arch/riscv/kernel/probes/rethook.c
- create mode 100644 arch/riscv/kernel/probes/rethook.h
- rename arch/riscv/kernel/probes/{kprobes_trampoline.S => rethook_trampoline.S} (94%)
- create mode 100644 arch/riscv/mm/pgtable.c
- create mode 100644 arch/riscv/mm/pmem.c
 
 _______________________________________________
 linux-riscv mailing list
