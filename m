@@ -4,126 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0D05C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Dec 2022 11:23:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2738C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Dec 2022 14:33:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lSWQshZH7PwSrjiYcf/87VQdVHfGLPygYjqiDTpoFkE=; b=S2NYRCAWml610d
-	NGlu/nwAdn1E0Ti/uzhb2WhU8AJE91ZR/GB3AvKhoxkB42KBjCh7tRlCgQAE3ETF6fR4Qtd9WZj5N
-	H7WaRo+mUqZf2mtPvjYmUgQ2cUw2+3QO7sjAmWJrLWz6q/t9IlIlcxxaphG32V4yPOhxkWaSNM7cz
-	u5qfk7ZPFaGSa/9wQoQ6/zO18QknGztG9bXVfjrAD75HlgrH9CJCU6OweQZfJ6Skx8ropDNX+DpDi
-	jfw/ZIaUsMV2PbxHCdtIAXgqBRCTq1Jdqk1Wk6SduTLmhsFC8MmiiL1z0qtMmA5i2vpcsvgYv/g9J
-	eW2gywGogQhow5hpBkOQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=dxxx1HVVIPtAXmstmqVvPT9Y9axmqwgm3uJl8W3ETmY=; b=wevr1w3/4qg023
+	AHTqIFRGB70Nt2ysODZOHx5Lo5evKaYMQol81BqkuG+fMh6EzmBGNeOcLrfDKHDyzij5mbrm3wmk/
+	BB7xlHWegJSbFOnZtm/UIjgQ2CBTYZwL93AaajsmIDAHl2NSJRnU0+9DQaoIQcj9g0Of+SuEnye3G
+	P0edvvL0STbwlD/SO5XONeObeJvPYQQs/qsnXJR8xm5JnQlm/LLg0BGMml2mDB4A3v2uBwzR1Qh+L
+	nVzzbg71W+R+IR0uErgzmBm57jOBpw5/9ElH5xO8No8t7q7VltzFwbNvZrjze1hlmha5K4F20IaQ4
+	LwPEFQm3uhULN5KtKVrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p5Pqn-00Fu8M-Tk; Wed, 14 Dec 2022 11:23:01 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1p5Sp9-00HJEg-6O; Wed, 14 Dec 2022 14:33:31 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p5Pql-00Fu6F-Dh
-	for linux-riscv@lists.infradead.org; Wed, 14 Dec 2022 11:23:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1671016975;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=yxc01zNwMiugjthmgVOlTrtXQnLfLvXjRGMFtbZZLpc=;
-	b=TRsRFy5HWKRJqqxwbSC38MkkVL+pzQVaN48RIhRUvbQBZyedt24vDxP9faiB3QhLUvtPSW
-	jUDazLShTTjthZ9qY/reRE4y5Cap5trYiKq0KlvknrQ+4PgoYPXpD9HQWOo6Qg6rAtYfiW
-	/1ZfU7LhfXDdM3IHhUpPVAiJXEkDOlY=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_128_GCM_SHA256) id
- us-mta-526-LiP5xsJ2O2K8CeCZsIakBA-1; Wed, 14 Dec 2022 06:22:54 -0500
-X-MC-Unique: LiP5xsJ2O2K8CeCZsIakBA-1
-Received: by mail-wm1-f71.google.com with SMTP id p14-20020a05600c204e00b003cf4cce4da5so4073188wmg.0
-        for <linux-riscv@lists.infradead.org>; Wed, 14 Dec 2022 03:22:54 -0800 (PST)
+	id 1p5Sp5-00HJ6T-IR
+	for linux-riscv@lists.infradead.org; Wed, 14 Dec 2022 14:33:29 +0000
+Received: by mail-wr1-x430.google.com with SMTP id h7so19504720wrs.6
+        for <linux-riscv@lists.infradead.org>; Wed, 14 Dec 2022 06:33:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=OuqN6i3xDgWDQgdyvZ62ncqNwC02Nmosxvyp2oT1Vek=;
+        b=kA8djj3SxcJzPd/tkyA19nr3VqDPI2W2mU4PabaNpfy0KhdGPok5EOhpPqRRkgHEp7
+         UsKlkYzkhjJsubXy7jcirzMdIKXYiXOt1FzNgYnyMhZf2WV901v4IKLYc71zKUWapzXU
+         BoJpjUXMGDRMpk2qasc76sLgOIB1gJdRcXp9M+rr+1R43dtYejor15lFhGeG+yivQk1/
+         GWsl63/+gB8hodUg9lU56b1NKlQlXMe4xosZ2yPrQCM3Gk4nq2BXfWVb92TW2T0UR1Yy
+         CQQRcoIm4tebkW+I57ebyGM7YG72xZ9njf/560IBLB3nCsNqh9b1JfwCSPBLyo5OU0Df
+         5y5w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:organization:from:references
-         :cc:to:content-language:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=yxc01zNwMiugjthmgVOlTrtXQnLfLvXjRGMFtbZZLpc=;
-        b=imckwhg00Ox0bqx0ImSfg7eqjsS2HUeOmMD77jU7cWY7avh0RO7E6l+krxWphqg3oM
-         ix5ipzUK0UFSv6OOMUzaHCkJKpKOyeOKoahBf76xRaYVKqD+1AQFQcI5Ktv+dwVUTICy
-         aFFsIfJFueyOno8oeMRx8T18WqVthV1ucyT+BBA+8mtYCQ2hiD5/xP+oEu0FeKFMLxgG
-         RcvsN8tcOzwbAqjfk66j7r2sk5+hsAxbWUUWv01ebdeACfIbMy6Zt5NjTPoa3lTZ6jbx
-         fOJrI3YdwuvBbWwBmP+dtcv+14Jy7Uk7Y+FfNOL3eUjIFGb9JTI7BPJMUZnQF6S4NunY
-         CVFA==
-X-Gm-Message-State: ANoB5plf7vl/8eKFOutfB1w8oAeoA6yZ2H8xJ2XaRw5V+OTaIcQi0zqg
-	k152zzYARBhySQKVthG7yrtwnDYIiLcRW3c34vYyv8TVTWHsGypvexTv9M2Ft+/mUr6qZkc3JS/
-	4+iiDiQkvfHwfSI3vsTsIIk4Ft48y
-X-Received: by 2002:a05:600c:1da2:b0:3cf:5fd2:87a0 with SMTP id p34-20020a05600c1da200b003cf5fd287a0mr17488526wms.40.1671016973468;
-        Wed, 14 Dec 2022 03:22:53 -0800 (PST)
-X-Google-Smtp-Source: AA0mqf4UNUk6/OXN07sN3FMRll3MrS2ehO8GnTfEO+JQv3BigUvXvNgLJLKqkas5vWijxjr/1KiucA==
-X-Received: by 2002:a05:600c:1da2:b0:3cf:5fd2:87a0 with SMTP id p34-20020a05600c1da200b003cf5fd287a0mr17488468wms.40.1671016973157;
-        Wed, 14 Dec 2022 03:22:53 -0800 (PST)
-Received: from ?IPV6:2003:cb:c703:7700:dd7c:92f8:481f:b96b? (p200300cbc7037700dd7c92f8481fb96b.dip0.t-ipconnect.de. [2003:cb:c703:7700:dd7c:92f8:481f:b96b])
-        by smtp.gmail.com with ESMTPSA id o3-20020a05600c510300b003cfa3a12660sm8504320wms.1.2022.12.14.03.22.49
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 14 Dec 2022 03:22:52 -0800 (PST)
-Message-ID: <10bd4fc0-4fc0-bd98-6926-7d721a3bb12e@redhat.com>
-Date: Wed, 14 Dec 2022 12:22:49 +0100
+        bh=OuqN6i3xDgWDQgdyvZ62ncqNwC02Nmosxvyp2oT1Vek=;
+        b=ClJ5st4x3I+cWhifKKWLPaUYr6oHU+RSrBGFDC4kbzHhkrWzkxkNguXRVwBxrh6SIq
+         8Cq5YDRW0BOCHjqXVg1SUM8dSFYV0qZPxamA9RzqpnHwR1kDgxURKyBuCQSOFNx7nG4X
+         7l1rtDpaxmAS3sZ1NdhoxOBuRxINIGphipiU7koHx/r99v7Db2PDfd8p7/DKGbnet1xN
+         W6fJt8qnyjEp4Ncay68GKvlx76Zl7Kj4FqHo1Z4iUJq+S0Ig2pnk6BX49pvLxhBnXDMQ
+         M/uNq9FS2AR3ErGcSEOmdxxJ110soXTDtEHlton+Kz/U07l2TVL24JntMf9V2YsyuP/2
+         wXfQ==
+X-Gm-Message-State: ANoB5pk8mU9rOR5xqueOGcLLth9rC8Okbn5TPR/XfQgIP/9GqigAO/r2
+	YkQVRwS2Ttd21ZlUcA8RPDm1IQ==
+X-Google-Smtp-Source: AA0mqf7xIJIgXYZsxK2tSCzIVle8ET5dDH8ooORx5cJ2R6fVlqM69PBiGsZ4kH0G3Q+gQWAxnTgswA==
+X-Received: by 2002:adf:f206:0:b0:242:4b69:883 with SMTP id p6-20020adff206000000b002424b690883mr16140492wro.10.1671028403021;
+        Wed, 14 Dec 2022 06:33:23 -0800 (PST)
+Received: from alex-rivos.ba.rivosinc.com (lfbn-lyo-1-450-160.w2-7.abo.wanadoo.fr. [2.7.42.160])
+        by smtp.gmail.com with ESMTPSA id d22-20020a05600c34d600b003cfa80443a0sm2741896wmq.35.2022.12.14.06.33.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 14 Dec 2022 06:33:22 -0800 (PST)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+To: Jonathan Corbet <corbet@lwn.net>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH] riscv: Allow to downgrade paging mode from the command line
+Date: Wed, 14 Dec 2022 15:33:11 +0100
+Message-Id: <20221214143311.960266-1-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.37.2
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.5.1
-Subject: Re: [PATCH mm-unstable RFC 00/26] mm: support
- __HAVE_ARCH_PTE_SWP_EXCLUSIVE on all architectures with swap PTEs
-To: linux-kernel@vger.kernel.org
-Cc: Andrew Morton <akpm@linux-foundation.org>, Hugh Dickins
- <hughd@google.com>, John Hubbard <jhubbard@nvidia.com>,
- Jason Gunthorpe <jgg@nvidia.com>, Mike Rapoport <rppt@linux.ibm.com>,
- Yang Shi <shy828301@gmail.com>, Vlastimil Babka <vbabka@suse.cz>,
- Nadav Amit <namit@vmware.com>, Andrea Arcangeli <aarcange@redhat.com>,
- Peter Xu <peterx@redhat.com>, linux-mm@kvack.org, x86@kernel.org,
- linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
- linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
- loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org, openrisc@lists.librecores.org,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-um@lists.infradead.org, linux-xtensa@linux-xtensa.org,
- Albert Ou <aou@eecs.berkeley.edu>,
- Anton Ivanov <anton.ivanov@cambridgegreys.com>,
- Borislav Petkov <bp@alien8.de>, Brian Cain <bcain@quicinc.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Chris Zankel <chris@zankel.net>, Dave Hansen <dave.hansen@linux.intel.com>,
- "David S. Miller" <davem@davemloft.net>, Dinh Nguyen <dinguyen@kernel.org>,
- Geert Uytterhoeven <geert@linux-m68k.org>, Greg Ungerer
- <gerg@linux-m68k.org>, Guo Ren <guoren@kernel.org>,
- Helge Deller <deller@gmx.de>, "H. Peter Anvin" <hpa@zytor.com>,
- Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- Johannes Berg <johannes@sipsolutions.net>, Matt Turner <mattst88@gmail.com>,
- Max Filippov <jcmvbkbc@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>,
- Michal Simek <monstr@monstr.eu>, Nicholas Piggin <npiggin@gmail.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Richard Henderson
- <richard.henderson@linaro.org>, Richard Weinberger <richard@nod.at>,
- Rich Felker <dalias@libc.org>, Russell King <linux@armlinux.org.uk>,
- Stafford Horne <shorne@gmail.com>,
- Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Thomas Gleixner <tglx@linutronix.de>, Vineet Gupta <vgupta@kernel.org>,
- WANG Xuerui <kernel@xen0n.name>, Yoshinori Sato <ysato@users.sourceforge.jp>
-References: <20221206144730.163732-1-david@redhat.com>
-From: David Hildenbrand <david@redhat.com>
-Organization: Red Hat
-In-Reply-To: <20221206144730.163732-1-david@redhat.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221214_032259_646005_A9E58DA4 
-X-CRM114-Status: GOOD (  23.01  )
+X-CRM114-CacheID: sfid-20221214_063327_877154_C846C3F0 
+X-CRM114-Status: GOOD (  17.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,70 +87,123 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 06.12.22 15:47, David Hildenbrand wrote:
-> This is the follow-up on [1]:
-> 	[PATCH v2 0/8] mm: COW fixes part 3: reliable GUP R/W FOLL_GET of
-> 	anonymous pages
-> 
-> After we implemented __HAVE_ARCH_PTE_SWP_EXCLUSIVE on most prominent
-> enterprise architectures, implement __HAVE_ARCH_PTE_SWP_EXCLUSIVE on all
-> remaining architectures that support swap PTEs.
-> 
-> This makes sure that exclusive anonymous pages will stay exclusive, even
-> after they were swapped out -- for example, making GUP R/W FOLL_GET of
-> anonymous pages reliable. Details can be found in [1].
-> 
-> This primarily fixes remaining known O_DIRECT memory corruptions that can
-> happen on concurrent swapout, whereby we can lose DMA reads to a page
-> (modifying the user page by writing to it).
-> 
-> To verify, there are two test cases (requiring swap space, obviously):
-> (1) The O_DIRECT+swapout test case [2] from Andrea. This test case tries
->      triggering a race condition.
-> (2) My vmsplice() test case [3] that tries to detect if the exclusive
->      marker was lost during swapout, not relying on a race condition.
-> 
-> 
-> For example, on 32bit x86 (with and without PAE), my test case fails
-> without these patches:
-> 	$ ./test_swp_exclusive
-> 	FAIL: page was replaced during COW
-> But succeeds with these patches:
-> 	$ ./test_swp_exclusive
-> 	PASS: page was not replaced during COW
-> 
-> 
-> Why implement __HAVE_ARCH_PTE_SWP_EXCLUSIVE for all architectures, even
-> the ones where swap support might be in a questionable state? This is the
-> first step towards removing "readable_exclusive" migration entries, and
-> instead using pte_swp_exclusive() also with (readable) migration entries
-> instead (as suggested by Peter). The only missing piece for that is
-> supporting pmd_swp_exclusive() on relevant architectures with THP
-> migration support.
-> 
-> As all relevant architectures now implement __HAVE_ARCH_PTE_SWP_EXCLUSIVE,,
-> we can drop __HAVE_ARCH_PTE_SWP_EXCLUSIVE in the last patch.
-> 
-> 
-> RFC because some of the swap PTE layouts are really tricky and I really
-> need some feedback related to deciphering these layouts and "using yet
-> unused PTE bits in swap PTEs". I tried cross-compiling all relevant setups
-> (phew, I might only miss some power/nohash variants), but only tested on
-> x86 so far.
+Add 2 early command line parameters called "no5lvl" and "no4lvl" (using
+the same naming as x86) to allow a user to downgrade from sv57 (the
+default mode if the hardware supports it) to sv48 or sv39.
 
-As I was messing with sparc64 either way and got debian to boot under 
-QEMU, I verified that the sparc64 change also seems to work as expected 
-(under sun4u).
+Note that going through the device tree to get the kernel command line
+works with ACPI too since the efi stub creates a device tree anyway with
+the command line.
 
+Also, as those params are treated very early in the boot process and we
+use standard device tree functions that may be kasan instrumented, we
+only enable them for !KASAN configurations.
+
+Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+---
+
+Tested on both DT/ACPI kernel successfully
+
+ .../admin-guide/kernel-parameters.txt         |  5 ++-
+ arch/riscv/mm/init.c                          | 43 ++++++++++++++++++-
+ 2 files changed, 45 insertions(+), 3 deletions(-)
+
+diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+index a465d5242774..6741524aa980 100644
+--- a/Documentation/admin-guide/kernel-parameters.txt
++++ b/Documentation/admin-guide/kernel-parameters.txt
+@@ -3548,7 +3548,10 @@
+ 			emulation library even if a 387 maths coprocessor
+ 			is present.
+ 
+-	no5lvl		[X86-64] Disable 5-level paging mode. Forces
++	no4lvl		[RISCV] Disable 4-level paging mode. Forces
++			kernel to use 3-level paging instead.
++
++	no5lvl		[X86-64,RISCV] Disable 5-level paging mode. Forces
+ 			kernel to use 4-level paging instead.
+ 
+ 	nofsgsbase	[X86] Disables FSGSBASE instructions.
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index b56a0a75533f..8140fefe0e57 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -752,12 +752,35 @@ static void __init disable_pgtable_l4(void)
+  * then read SATP to see if the configuration was taken into account
+  * meaning sv48 is supported.
+  */
+-static __init void set_satp_mode(void)
++static __init void set_satp_mode(uintptr_t dtb_pa)
+ {
+ 	u64 identity_satp, hw_satp;
+ 	uintptr_t set_satp_mode_pmd = ((unsigned long)set_satp_mode) & PMD_MASK;
+ 	bool check_l4 = false;
+ 
++#ifndef CONFIG_KASAN
++	/*
++	 * The below fdt functions are kasan instrumented, since at this point
++	 * there is no mapping for the kasan shadow memory, this can't be used
++	 * when kasan is enabled.
++	 */
++	int chosen_node;
++
++	chosen_node = fdt_path_offset((void *)dtb_pa, "/chosen");
++	if (chosen_node >= 0) {
++		const char *cmdline = fdt_getprop((void *)dtb_pa, chosen_node,
++						  "bootargs", NULL);
++		if (strstr(cmdline, "no5lvl")) {
++			disable_pgtable_l5();
++			check_l4 = true;
++		} else if (strstr(cmdline, "no4lvl")) {
++			disable_pgtable_l5();
++			disable_pgtable_l4();
++			return;
++		}
++	}
++#endif
++
+ 	create_p4d_mapping(early_p4d,
+ 			set_satp_mode_pmd, (uintptr_t)early_pud,
+ 			P4D_SIZE, PAGE_TABLE);
+@@ -800,6 +823,22 @@ static __init void set_satp_mode(void)
+ 	memset(early_pud, 0, PAGE_SIZE);
+ 	memset(early_pmd, 0, PAGE_SIZE);
+ }
++
++#ifndef CONFIG_KASAN
++static int __init print_no4lvl(char *p)
++{
++	pr_info("Disabled 4-level and 5-level paging");
++	return 0;
++}
++early_param("no4lvl", print_no4lvl);
++
++static int __init print_no5lvl(char *p)
++{
++	pr_info("Disabled 5-level paging");
++	return 0;
++}
++early_param("no5lvl", print_no5lvl);
++#endif
+ #endif
+ 
+ /*
+@@ -979,7 +1018,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+ #endif
+ 
+ #if defined(CONFIG_64BIT) && !defined(CONFIG_XIP_KERNEL)
+-	set_satp_mode();
++	set_satp_mode(dtb_pa);
+ #endif
+ 
+ 	kernel_map.va_pa_offset = PAGE_OFFSET - kernel_map.phys_addr;
 -- 
-Thanks,
-
-David / dhildenb
+2.37.2
 
 
 _______________________________________________
