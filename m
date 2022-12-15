@@ -4,88 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A0F1C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Dec 2022 18:16:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB20EC4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Dec 2022 18:57:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vvCsuj3ViEWLBNXdZsVQ+XciuIhHkWz4Zmmb+YT1fwU=; b=zAL5vpgPf9z9Lh
-	Qy/UBM4QTd1/Z1rIB/azbw/P7Aef/IjLGYsS5AfyZS6Nkz0JDq04pkdTh314rQTd4AQa7/RWISudt
-	5lH8V9ooSTYJjlU2efGI3SrisgGx3qUanQQoIuhbgCwP7GTYZoltA9f7slsV+8Ru+ECiP+GzczSFF
-	7S7eFHk5J6Mfnz953GpmWGhw60nwH6mLx4YVh/7auZwuRzUWboooi03hYylei2WhMtNkZi1TKbU/h
-	EhMoNlP+d5nF0eeXtigwLFQKWEuWJ8EITtjmKdmveqA0rvwGGgCMobBQGFAepMn0nf5aucU9xdrP2
-	iwjpATw6Jdgmkft/XQhw==;
+	List-Owner; bh=tcvVIqi0jxKSH/XwWmqzZN26W3t//SWzsgdf4WCJAqs=; b=0YwLA1asyfe9Qz
+	WubO05MQIwZAxf8gBJ+NgZPUZPH3R6Zvwj0sKKsSrht2TU2E3IV0VhLk5i0gbYISKfTA+dMCaNnd+
+	afVqcVx05IXoiwr0fCBywPz6ehy/h49P5pDRKI2oD0ovcp1lw/50pe5aOi8kL6dfdaKGqSWJKYjDA
+	9hHiHx4lA0MgbCw/q/o3mnloz/Kmpyv8KIDbsahRHCT5bHCd2RALYDCrKDsk6bncn0ulqpsqdpZu9
+	Ih31kVYfTyr0qt7O73gSVQgcQw9JQa8PaPd0XlCRZdEul+4iff1OJJdtvMh3JnrK6Bcu4UjhuRnbf
+	dB4VR1+AZcZ5Efc+GoPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p5smH-00An5a-DQ; Thu, 15 Dec 2022 18:16:17 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1p5tPz-00AvfO-DY; Thu, 15 Dec 2022 18:57:19 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p5rbj-00ARTt-D1
-	for linux-riscv@lists.infradead.org; Thu, 15 Dec 2022 17:01:22 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id n4so3844037plp.1
-        for <linux-riscv@lists.infradead.org>; Thu, 15 Dec 2022 09:01:18 -0800 (PST)
+	id 1p5tPv-00AvbJ-5H
+	for linux-riscv@lists.infradead.org; Thu, 15 Dec 2022 18:57:17 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id u15-20020a17090a3fcf00b002191825cf02so53993pjm.2
+        for <linux-riscv@lists.infradead.org>; Thu, 15 Dec 2022 10:57:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TA398QcoRw04Vi1tCToQyhK2GccVMIkF9itdIbQrjzg=;
-        b=iCBFE98jjH1B+jWMupgkTrrpBiqryRet5vyKfU7xYz2IrRVevL7rN4/R8A1XGxSdrD
-         S7lP75oLwz8r/CmXjPNMEcn116Bp8Pph6YlSIDoJD9xM/0Y5fCGJ7RDpT5PS4h43v3Az
-         sUmCxrLeGrYguKN7cGHsUksEb4w8uhufJikxuzvkuL7Jhdbrlz/I0lAFSnrI5/aNNVF7
-         tDv74BKoI3m1btLXcPGMdCgjwWFcXVingmbKafWVyv6c4LUftSPSXRnkHh87ucAMEApM
-         ijBLm3eRnw77G8KAHXEW91Fcfhvz+E/HTZKoachHXH/vKtbBaoUYsA3VwkLs26TGRH2j
-         nexw==
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=y+47s1xAdNyBz4g1fVdzMecYrKvurW3RHPdAWqvqDsI=;
+        b=jD+1Cj5gJs2Uf4HQEw1HYFmywinfjK/+FWmh1ciGaQZOyOKJ/Kg5SMANR0RiVLBVUD
+         8RyUkf7pA+EUgU24as+SiX3bnUopfZg+G2Ix4/3ZgoChLbG5uT7LnQFDX8Ra6tZIdUv1
+         nVkhiZ+Y1dN3PnvlSqB2XSsYfUbdbXlTv/VBF8vxdNoiEsGKTnAA2unN6J16A5eKkqB5
+         DHuriSz24tabClN3QcjAHV6H5CJOJtffCAXR+dZmmG8XR6HrD3rMkwwfpkOkMVUhp5tr
+         nK79TnDfdbX8WoUoX/uvzaExU7Aq9PoP0F3n8zJngj6jXEP6Bpnz45W/Yfjn+Hfv/OwK
+         Xiew==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=TA398QcoRw04Vi1tCToQyhK2GccVMIkF9itdIbQrjzg=;
-        b=lfgD7AY0b/y1ONNuJ72MKCyPrl3HQfmQtWnYAqo4uHMySKYze7jMBIe7PbwKOVXyT/
-         rxMsQwNLAm23louBFdYxuUhu7/CGON50sI/d9TbkwvT4Eno/PdWdHTfumgAAOUCj1bpZ
-         JX6TDhrUkf6yag9RrWuKINLBZGnrx32elRjMgR9yCd/4K1h4eSA2AAR4nbLoG/oD087x
-         gt5brlAaJsjJPEX45eJvPLOLWGJmeBLM7VgWAKwuEyy3RAu6Hb3XcKoI9C8lwia0kxsg
-         bq+5wL+8KNNjxKIbw+X/ATNH+3RqpUWOBjXJIIaWUlxCvmstcyolLb3n17IPJDRaHUn4
-         LDSg==
-X-Gm-Message-State: ANoB5pkAQX60aFqjge0PwdmHk6nWQ+Ceg1vQMVlZlFRepbrBl9tKSa92
-	uCAvYPj6/eLgbFBg2uokHzyWCg==
-X-Google-Smtp-Source: AA0mqf47OVooaAtiLeQdMDJXJiy7Bs5Hr2tNJlG8coYqXqFyYi7GgQGyDqsU+jYbG5rwf3pgYZ6MqQ==
-X-Received: by 2002:a17:903:2448:b0:189:f277:3830 with SMTP id l8-20020a170903244800b00189f2773830mr43509522pls.68.1671123677816;
-        Thu, 15 Dec 2022 09:01:17 -0800 (PST)
-Received: from atishp.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id p10-20020a170902780a00b001897bfc9800sm4067449pll.53.2022.12.15.09.01.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 Dec 2022 09:01:17 -0800 (PST)
-From: Atish Patra <atishp@rivosinc.com>
-To: linux-kernel@vger.kernel.org
-Cc: Atish Patra <atishp@rivosinc.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Guo Ren <guoren@kernel.org>,
-	kvm-riscv@lists.infradead.org,
-	kvm@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Sergey Matyukevich <sergey.matyukevich@syntacore.com>,
-	Eric Lin <eric.lin@sifive.com>,
-	Will Deacon <will@kernel.org>
-Subject: [PATCH v2 05/11] RISC-V: KVM: Improve privilege mode filtering for perf
-Date: Thu, 15 Dec 2022 09:00:40 -0800
-Message-Id: <20221215170046.2010255-6-atishp@rivosinc.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20221215170046.2010255-1-atishp@rivosinc.com>
-References: <20221215170046.2010255-1-atishp@rivosinc.com>
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=y+47s1xAdNyBz4g1fVdzMecYrKvurW3RHPdAWqvqDsI=;
+        b=iqYQS7gLYOeOhU0/Wxld31HUrA3D+L0oiapnB3gBfQW3vDaz4s8EnYDZ0KUPWBhmvl
+         E6tImZh6fs7pWK9H47polI2GIX27pRdAd8DhVUdFCMhj8Rt04XQWG9rJhO0BPG1KyA4q
+         YV4whR+QzkvpJTopycZ49WvEBRWwcFwA4M09vB/iOaZUbDG1suOX4VVBhhSppFV3rePj
+         0B8kNK1KnACglAboKgSYaYgmqajJKK6kS49yFgCeaoQEBejd/8zeFbsgBMD1Ll63i4j6
+         +XtTh79sKSmo5xJLUxryxfRyc7llvO94pTyX2vjWTCT44CwzVHjiT4imQNy1a+F2VbpM
+         j17w==
+X-Gm-Message-State: ANoB5pmZ8fEaRdv/RiZMQPoOnwnjAedDJfhJzy6uO80lRMxwgyDYnUXw
+	vFig1udWiMhuORqBTtQ7V53ieA==
+X-Google-Smtp-Source: AA0mqf6ELJjqFjBDGa6oMZGkw0/s5xWSyTm6RxKD01xa2PL7NTHARAmItfZLAU8xB3HuHPlat+DsUA==
+X-Received: by 2002:a17:902:7e47:b0:18f:5bc0:5893 with SMTP id a7-20020a1709027e4700b0018f5bc05893mr22939101pln.0.1671130627861;
+        Thu, 15 Dec 2022 10:57:07 -0800 (PST)
+Received: from [192.168.50.116] (c-24-4-73-83.hsd1.ca.comcast.net. [24.4.73.83])
+        by smtp.gmail.com with ESMTPSA id a3-20020a170902710300b0016d773aae60sm9595pll.19.2022.12.15.10.57.06
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 15 Dec 2022 10:57:07 -0800 (PST)
+Message-ID: <15d902d0-4492-f828-7147-164319d741f9@rivosinc.com>
+Date: Thu, 15 Dec 2022 10:57:05 -0800
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.4.2
+Subject: Re: RISCV Vector unit disabled by default for new task (was Re:
+ [PATCH v12 17/17] riscv: prctl to enable vector commands)
+Content-Language: en-US
+To: Richard Henderson <richard.henderson@linaro.org>,
+ Florian Weimer <fweimer@redhat.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
+ <bjorn@kernel.org>
+Cc: Darius Rad <darius@bluespec.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Andrew Waterman <andrew@sifive.com>, stillson@rivosinc.com,
+ Paul Walmsley <paul.walmsley@sifive.com>, anup@brainfault.org,
+ atishp@atishpatra.org, guoren@kernel.org,
+ Conor Dooley <conor.dooley@microchip.com>, greentime.hu@sifive.com,
+ vincent.chen@sifive.com, andy.chiu@sifive.com, arnd@kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ libc-alpha@sourceware.org, christoph.muellner@vrull.eu,
+ Aaron Durbin <adurbin@rivosinc.com>, linux@rivosinc.com
+References: <mhng-975b1d7b-7b3f-4e88-804c-8b22787f9588@palmer-ri-x1c9>
+ <e9cf13a9-561a-3438-00f0-41fe2631888d@rivosinc.com>
+ <Y5irn63DQkwumfvW@bruce.bluespec.com>
+ <8fe9cfaf-2cbc-8de6-3928-067de9113bfc@rivosinc.com>
+ <Y5qByfCtpV0uNID3@bruce.bluespec.com>
+ <877cysx4yf.fsf@all.your.base.are.belong.to.us>
+ <87h6xwdf5g.fsf@oldenburg.str.redhat.com>
+ <24a1a812-95a9-ed97-abd1-c0ff259726d2@linaro.org>
+From: Vineet Gupta <vineetg@rivosinc.com>
+In-Reply-To: <24a1a812-95a9-ed97-abd1-c0ff259726d2@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221215_090119_463157_65E15B77 
-X-CRM114-Status: GOOD (  14.63  )
+X-CRM114-CacheID: sfid-20221215_105715_230078_26B181B2 
+X-CRM114-Status: GOOD (  17.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,89 +104,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, the host driver doesn't have any method to identify if the
-requested perf event is from kvm or bare metal. As KVM runs in HS
-mode, there are no separate hypervisor privilege mode to distinguish
-between the attributes for guest/host.
-
-Improve the privilege mode filtering by using the event specific
-config1 field.
-
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-Signed-off-by: Atish Patra <atishp@rivosinc.com>
----
- drivers/perf/riscv_pmu_sbi.c   | 27 ++++++++++++++++++++++-----
- include/linux/perf/riscv_pmu.h |  2 ++
- 2 files changed, 24 insertions(+), 5 deletions(-)
-
-diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-index 65d4aa4..df795b7 100644
---- a/drivers/perf/riscv_pmu_sbi.c
-+++ b/drivers/perf/riscv_pmu_sbi.c
-@@ -298,6 +298,27 @@ int riscv_pmu_get_hpm_info(u32 *hw_ctr_width, u32 *num_hw_ctr)
- }
- EXPORT_SYMBOL(riscv_pmu_get_hpm_info);
- 
-+static unsigned long pmu_sbi_get_filter_flags(struct perf_event *event)
-+{
-+	unsigned long cflags = 0;
-+	bool guest_events = false;
-+
-+	if (event->attr.config1 & RISCV_KVM_PMU_CONFIG1_GUEST_EVENTS)
-+		guest_events = true;
-+	if (event->attr.exclude_kernel)
-+		cflags |= guest_events ? SBI_PMU_CFG_FLAG_SET_VSINH : SBI_PMU_CFG_FLAG_SET_SINH;
-+	if (event->attr.exclude_user)
-+		cflags |= guest_events ? SBI_PMU_CFG_FLAG_SET_VUINH : SBI_PMU_CFG_FLAG_SET_UINH;
-+	if (guest_events && event->attr.exclude_hv)
-+		cflags |= SBI_PMU_CFG_FLAG_SET_SINH;
-+	if (event->attr.exclude_host)
-+		cflags |= SBI_PMU_CFG_FLAG_SET_UINH | SBI_PMU_CFG_FLAG_SET_SINH;
-+	if (event->attr.exclude_guest)
-+		cflags |= SBI_PMU_CFG_FLAG_SET_VSINH | SBI_PMU_CFG_FLAG_SET_VUINH;
-+
-+	return cflags;
-+}
-+
- static int pmu_sbi_ctr_get_idx(struct perf_event *event)
- {
- 	struct hw_perf_event *hwc = &event->hw;
-@@ -308,11 +329,7 @@ static int pmu_sbi_ctr_get_idx(struct perf_event *event)
- 	uint64_t cbase = 0;
- 	unsigned long cflags = 0;
- 
--	if (event->attr.exclude_kernel)
--		cflags |= SBI_PMU_CFG_FLAG_SET_SINH;
--	if (event->attr.exclude_user)
--		cflags |= SBI_PMU_CFG_FLAG_SET_UINH;
--
-+	cflags = pmu_sbi_get_filter_flags(event);
- 	/* retrieve the available counter index */
- #if defined(CONFIG_32BIT)
- 	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_CFG_MATCH, cbase,
-diff --git a/include/linux/perf/riscv_pmu.h b/include/linux/perf/riscv_pmu.h
-index a1c3f77..1c42146 100644
---- a/include/linux/perf/riscv_pmu.h
-+++ b/include/linux/perf/riscv_pmu.h
-@@ -26,6 +26,8 @@
- 
- #define RISCV_PMU_STOP_FLAG_RESET 1
- 
-+#define RISCV_KVM_PMU_CONFIG1_GUEST_EVENTS 0x1
-+
- struct cpu_hw_events {
- 	/* currently enabled events */
- 	int			n_events;
--- 
-2.25.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiAxMi8xNS8yMiAwNzozMywgUmljaGFyZCBIZW5kZXJzb24gd3JvdGU6Cj4gT24gMTIvMTUv
+MjIgMDQ6MjgsIEZsb3JpYW4gV2VpbWVyIHZpYSBMaWJjLWFscGhhIHdyb3RlOgo+PiAqIEJqw7Zy
+biBUw7ZwZWw6Cj4+Cj4+Pj4gRm9yIFNWRSwgaXQgaXMgaW4gZmFjdCBkaXNhYmxlZCBieSBkZWZh
+dWx0IGluIHRoZSBrZXJuZWwuwqAgV2hlbiBhIAo+Pj4+IHRocmVhZAo+Pj4+IGV4ZWN1dGVzIHRo
+ZSBmaXJzdCBTVkUgaW5zdHJ1Y3Rpb24sIGl0IHdpbGwgY2F1c2UgYW4gZXhjZXB0aW9uLCB0aGUg
+Cj4+Pj4ga2VybmVsCj4+Pj4gd2lsbCBhbGxvY2F0ZSBtZW1vcnkgZm9yIFNWRSBzdGF0ZSBhbmQg
+ZW5hYmxlIFRJRl9TVkUuIEZ1cnRoZXIgdXNlIAo+Pj4+IG9mIFNWRQo+Pj4+IGluc3RydWN0aW9u
+cyB3aWxsIHByb2NlZWQgd2l0aG91dCBleGNlcHRpb25zLsKgIEFsdGhvdWdoIFNWRSBpcyAKPj4+
+PiBkaXNhYmxlZCBieQo+Pj4+IGRlZmF1bHQsIGl0IGlzIGVuYWJsZWQgYXV0b21hdGljYWxseS7C
+oCBTaW5jZSB0aGlzIGlzIGRvbmUgCj4+Pj4gYXV0b21hdGljYWxseQo+Pj4+IGR1cmluZyBhbiBl
+eGNlcHRpb24gaGFuZGxlciwgdGhlcmUgaXMgbm8gb3Bwb3J0dW5pdHkgZm9yIG1lbW9yeSAKPj4+
+PiBhbGxvY2F0aW9uCj4+Pj4gZXJyb3JzIHRvIGJlIHJlcG9ydGVkLCBhcyB0aGVyZSBhcmUgaW4g
+dGhlIEFNWCBjYXNlLgo+Pj4KPj4+IEdsaWJjIGhhcyBhbiBTVkUgb3B0aW1pemVkIG1lbWNweSwg
+cmlnaHQ/IERvZXNuJ3QgdGhhdCBtZWFuIHRoYXQgcHJldHR5Cj4+PiBtdWNoIGFsbCBwcm9jZXNz
+ZXMgb24gYW4gU1ZFIGNhcGFibGUgc3lzdGVtIHdpbGwgZW5hYmxlIFNWRSAKPj4+IChsYXppbHkp
+PyBJZgo+Pj4gc28sIHRoYXQncyBjbG9zZSB0byAiZW5hYmxlZCBieSBkZWZhdWx0IiAodW5sZXNz
+IFNWRSBpcyBkaXNhYmxlZCBzeXN0ZW0KPj4+IHdpZGUpLgo+Pgo+PiBZZXMsIHNlZSBzeXNkZXBz
+L2FhcmNoNjQvbXVsdGlhcmNoL21lbWNweS5jOgo+Pgo+PiDCoMKgIHN0YXRpYyBpbmxpbmUgX190
+eXBlb2YgKF9fcmVkaXJlY3RfbWVtY3B5KSAqCj4+IMKgwqAgc2VsZWN0X21lbWNweV9pZnVuYyAo
+dm9pZCkKPj4gwqDCoCB7Cj4+IMKgwqDCoMKgIElOSVRfQVJDSCAoKTsKPj4gwqDCoCDCoMKgwqDC
+oCBpZiAoc3ZlICYmIEhBVkVfQUFSQ0g2NF9TVkVfQVNNKQo+PiDCoMKgwqDCoMKgwqAgewo+PiDC
+oMKgwqDCoMKgwqDCoMKgIGlmIChJU19BNjRGWCAobWlkcikpCj4+IMKgwqDCoMKgwqDCoMKgwqDC
+oMKgIHJldHVybiBfX21lbWNweV9hNjRmeDsKPj4gwqDCoMKgwqDCoMKgwqDCoCByZXR1cm4gX19t
+ZW1jcHlfc3ZlOwo+PiDCoMKgwqDCoMKgwqAgfQo+PiDCoMKgIMKgwqDCoMKgIGlmIChJU19USFVO
+REVSWCAobWlkcikpCj4+IMKgwqDCoMKgwqDCoCByZXR1cm4gX19tZW1jcHlfdGh1bmRlcng7Cj4+
+IMKgwqAgwqDCoMKgwqAgaWYgKElTX1RIVU5ERVJYMiAobWlkcikgfHwgSVNfVEhVTkRFUlgyUEEg
+KG1pZHIpKQo+PiDCoMKgwqDCoMKgwqAgcmV0dXJuIF9fbWVtY3B5X3RodW5kZXJ4MjsKPj4gwqDC
+oCDCoMKgwqDCoCBpZiAoSVNfRkFMS09SIChtaWRyKSB8fCBJU19QSEVDREEgKG1pZHIpKQo+PiDC
+oMKgwqDCoMKgwqAgcmV0dXJuIF9fbWVtY3B5X2ZhbGtvcjsKPj4gwqDCoCDCoMKgwqDCoCByZXR1
+cm4gX19tZW1jcHlfZ2VuZXJpYzsKPj4gwqDCoCB9Cj4+IMKgwqAgQW5kIHRoZSBfX21lbWNweV9z
+dmUgaW1wbGVtZW50YXRpb24gYWN0dWFsbHkgdXNlcyBTVkUuCj4+Cj4+IElmIHRoZXJlIHdlcmUg
+YSBwcmN0bCB0byBzZWxlY3QgdGhlIHZlY3RvciB3aWR0aCBhbmQgZW5hYmxlIHRoZSB2ZWN0b3IK
+Pj4gZXh0ZW5zaW9uLCB3ZSdkIGhhdmUgdG8gcGljayBhIHdpZHRoIGluIGdsaWJjIGFueXdheS4K
+Pgo+IFRoZXJlICppcyogYSBwcmN0bCB0byBhZGp1c3QgdGhlIFNWRSB2ZWN0b3Igd2lkdGgsIGJ1
+dCBnbGliYyBkb2VzIG5vdCAKPiBuZWVkIHRvIHNlbGVjdCBiZWNhdXNlIFNWRSBkeW5hbWljYWxs
+eSBhZGp1c3RzIHRvIHRoZSBjdXJyZW50bHkgCj4gZW5hYmxlZCB3aWR0aC7CoCBUaGUga2VybmVs
+IHNlbGVjdHMgYSBkZWZhdWx0IHdpZHRoIHRoYXQgZml0cyB3aXRoaW4gCj4gdGhlIGRlZmF1bHQg
+c2lnbmFsIGZyYW1lIHNpemUuCj4KPiBUaGUgb3RoZXIgdGhpbmcgb2Ygbm90ZSBmb3IgU1ZFIGlz
+IHRoYXQsIHdpdGggdGhlIGRlZmF1bHQgZnVuY3Rpb24gQUJJIAo+IGFsbCBvZiB0aGUgU1ZFIHN0
+YXRlIGlzIGNhbGwtY2xvYmJlcmVkLCB3aGljaCBhbGxvd3MgdGhlIGtlcm5lbCB0byAKPiBkcm9w
+IGluc3RlYWQgb2Ygc2F2ZSBzdGF0ZSBhY3Jvc3Mgc3lzdGVtIGNhbGxzLsKgIChUaGVyZSBpcyBh
+IHNlcGFyYXRlIAo+IHZlY3RvciBmdW5jdGlvbiBjYWxsIEFCSSB3aGVuIFNWRSB0eXBlcyBhcmUg
+dXNlZC4pCgpGb3IgdGhlIFJWIHBzQUJJLCBpdCBpcyBzaW1pbGFyIC0gYWxsIFYgcmVncyBhcmUg
+CmNhbGxlci1zYXZlZC9jYWxsLWNsb2JiZXJlZCBbMV0gYW5kIHN5c2NhbGxzIGFyZSBub3QgcmVx
+dWlyZWQgdG8gCnByZXNlcnZlIFYgcmVncyBbMl0KSG93ZXZlciBsYXN0IEkgY2hlY2tlZCBBUk0g
+ZG9jdW1lbnRhdGlvbiB0aGUgQUJJIGRvYyBzZWVtZWQgdG8gc3VnZ2VzdCAKdGhhdCBzb21lIChw
+YXJ0cykgb2YgdGhlIFNWRSByZWdzIGFyZSBjYWxsZWUtc2F2ZWQgWzNdCgo+Cj4gU28gd2hpbGUg
+c3RyY3B5IG1heSBlbmFibGUgU1ZFIGZvciB0aGUgdGhyZWFkLCB0aGUgbmV4dCBzeXNjYWxsIG1h
+eSAKPiBkaXNhYmxlIGl0IGFnYWluLgoKTmV4dCBzeXNjYWxsIGNvdWxkIHRyYXNoIHRoZW0sIGJ1
+dCB3aWxsIGl0IGRpc2FibGUgU1ZFID8gRGVzcGl0ZSAKc3lzY2FsbC9mdW5jdGlvbi1jYWxsIGNs
+b2JiZXJzLCB1c2luZyBWIGluIHRpZ2h0IGxvb3BzIHN1Y2ggYXMgbWVtKi9zdHIqIApzdGlsbCBp
+cyBhIHdpbi4KCgpbMV0gCmh0dHBzOi8vZ2l0aHViLmNvbS9yaXNjdi1ub24taXNhL3Jpc2N2LWVs
+Zi1wc2FiaS1kb2MvYmxvYi9tYXN0ZXIvcmlzY3YtY2MuYWRvYwpbMl0gCmh0dHBzOi8vZ2l0aHVi
+LmNvbS9yaXNjdi9yaXNjdi12LXNwZWMvYmxvYi9tYXN0ZXIvY2FsbGluZy1jb252ZW50aW9uLmFk
+b2MKWzNdIApodHRwczovL2dpdGh1Yi5jb20vQVJNLXNvZnR3YXJlL2FiaS1hYS9ibG9iLzI5ODJh
+OWYzYjUxMmE1YmZkYzllM2ZlYTVkM2IyOThmOTE2NWMzNmIvYWFwY3M2NC9hYXBjczY0LnJzdCN0
+aGUtYmFzZS1wcm9jZWR1cmUtY2FsbC1zdGFuZGFyZApTZWMgNi4xLjMgIi4uLi4gSW4gb3RoZXIg
+Y2FzZXMgaXQgbmVlZCBvbmx5IHByZXNlcnZlIHRoZSBsb3cgNjQgYml0cyBvZiAKejgtejE1IgoK
+Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJp
+c2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9s
+aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
