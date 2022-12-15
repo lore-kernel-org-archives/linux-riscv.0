@@ -4,78 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1300CC4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Dec 2022 21:11:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47FC4C4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Dec 2022 21:40:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BSPLLVlnRDIi24wSoFsPxS/0FU2Xo46xScm3oWTgYzA=; b=YRYYSSB2I/NCj2
-	GUQom1lBpM+1CXL98USVslWalQy8N0pZqMT372aWg65jL4dP+inS5FHjU96+mbBouuZ0RU7uRx8YZ
-	XEb4Rgahr1f1LyIwmAex5+UfLju1+yx4FVzjVrLZOUM6ZI+T307osbTWZEG9HGWydJoF5oVfoKf0L
-	CTqO/iH2241/kyWC0UYuJ3K86c8vPR5by237JrLi9+hXbjFIDlANppQZZAFAZTYjoKuvGKOad0Eq3
-	3vk5ruU+uVlTixYIYQGalxi/f5LHtLrqWisF5yAv4+VIgSa5hq3uYxc8Ql4aQ68axRZWb0IEghFZn
-	/LKRgddrUjumOJ/QJfUA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=fqBdTOu4qoL6Pk82IuARpDwhcte8w42+e0XAexx3g4o=; b=UcQqrWyqUtI9Nu/b3ZdBU7snB3
+	46CIGDyFC5i/vNTTxNamJQMLLbI2tFWleNWOFM2mT9OYYX3RRg+OdKkbim6GQOxK6VtQ1R1vPxaZE
+	GnRiPji2hwEhOre4PxagIEInTBgZyPebEB2Pm6+3kog6MhpBrZmc410aEtErCLaXkai14tMc+oho5
+	zMaPZp2HpZRbo/lE0oBpOuo3POVW13SmVsbzGyNZe2JbxxhidrMRDKxlis7Ubm9lpuNlGYmZWOij5
+	xfIot9jek6XKeNI8Aevanx1drmqFQZPkRAKZ2FNkvA/ELqpTpAt4IbAL1rS2klV5H/qKoUBwFNpAu
+	ocbEQZ8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p5vVG-00BLQd-15; Thu, 15 Dec 2022 21:10:54 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1p5vy0-00BVVZ-Uc; Thu, 15 Dec 2022 21:40:36 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p5vV8-00BLOo-Mc
-	for linux-riscv@lists.infradead.org; Thu, 15 Dec 2022 21:10:52 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id a14so474249pfa.1
-        for <linux-riscv@lists.infradead.org>; Thu, 15 Dec 2022 13:10:45 -0800 (PST)
+	id 1p5vxw-00BVT9-PX
+	for linux-riscv@lists.infradead.org; Thu, 15 Dec 2022 21:40:34 +0000
+Received: by mail-pl1-x635.google.com with SMTP id g10so330043plo.11
+        for <linux-riscv@lists.infradead.org>; Thu, 15 Dec 2022 13:40:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=sZrvE58QOTgBWHlHruWuhMnmMmIlsVjpWBOdQKuVEhE=;
-        b=B+wQLGNmo5DDX6a6+/9x1SUWJ5P/apfQN7omXyo7YwhzMsanC58dikNfLWTfyR9647
-         BD4ufQdU/DVJH/GgEm6H76L+FR3siMsSWitfctH+/wfRNkzzTeltY63/7gaDmzMsxdul
-         rCEkkF2RnMPE/UHccEBzeXHBbyBqbz1lG90NuofxYSdJIjGrjfK9cWWGjeS/exSRRRfM
-         SDKth9DkDD3ViLRPbcjdn+ek0vJZvxJYClQNi8PbbJdKpdqyYYFTv8LWR8myqgCA2Evr
-         2i8VHzF+/niPS3rFQ38A6QgwaFadfTe31Oa6NuGayRMkqmjaQYVsVCWO2xQ/I/c0MUzr
-         rgkQ==
+        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=6UhQMoGzyPQoO6coVT0IwbZp+PXxQ7bh8ldQshrXNrk=;
+        b=nd6useCy5mDi1KHbA55vHEOJhr8iFu/8qita2tBOeSNjQjOpoh4/MhEQwviPyefNV9
+         AoM5k+Qd2OHhBKM8/hfxqyDcpN4coUzO1cAugUeg96yeY6T0aUfm1YB/41Ja6ohk9pm0
+         vQ1xJt7kLNMRZVaYZatkh14ui8sBry5Uhfamnhts+rG1b39opgFI6iaOXMzdO9WKlMH3
+         w/EwVoaaV5g4c4aZ8ZeE2+pzQy3D61l9pAuyN3dd368yYlq8WkD60l28/Lk8R4IQ0XpR
+         ILzFn6+dDOHXUOrbR/cWXQkJ6lJpXvl0IhkTeHZC1gNmexkLi0+WO+GvC4KChLTpr10G
+         0m9Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=sZrvE58QOTgBWHlHruWuhMnmMmIlsVjpWBOdQKuVEhE=;
-        b=gXR7slYDy3SYc4ulGJTcp8Pz+hBIAe8ur1pR5ccuIKskd8EPtIRt4x8+h7ziA/+UkM
-         sLdyP2fxlxTIjqDNtoCGa0Md8xNGQo2WaTF8UZL+zbhKj1O4dQRdDq8c1F/c0imvQE13
-         c7Oa6yE6Io3wuG948sBk5dlbe8zeD+ICBlJq48p8jpUFNG0KLk0sinFldEjrAvkk3+76
-         mEv33ch9Jpd9Ou27qqIwvCpSf1IVOdtSCGrdwM3ctIKZnptdb5co80vAO3hyfrmtx/4e
-         +EpDgqlmzYX57SLFJ0cFjZAcpv0gPhKtSCn8+tjTjVV79qYlbRGqzvvT4ptG1/Qnse95
-         UXrQ==
-X-Gm-Message-State: ANoB5plfDCVC1w9LzBUazPgixm+9lBBiCkQAusOCz2OMACTaDvZqQpxz
-	63YX/tPHFwBMY/Q+eUQoiZ2P+1zji1pDeJvorhYDeA==
-X-Google-Smtp-Source: AA0mqf45TO4Zw7SWPaGzS8xxvZqKRnNZ9IL/H+CfRI3T2MsI1uygTYHxBBGZ1vZE4NTYHG4rXfIGsF5bFaNpiJYcOOQ=
-X-Received: by 2002:a63:334e:0:b0:479:2227:3aa1 with SMTP id
- z75-20020a63334e000000b0047922273aa1mr1274784pgz.595.1671138644687; Thu, 15
- Dec 2022 13:10:44 -0800 (PST)
-MIME-Version: 1.0
-References: <20221215170046.2010255-1-atishp@rivosinc.com> <20221215170046.2010255-6-atishp@rivosinc.com>
- <Y5uA8CEoTKzIGoSy@dizzy>
-In-Reply-To: <Y5uA8CEoTKzIGoSy@dizzy>
-From: Atish Kumar Patra <atishp@rivosinc.com>
-Date: Thu, 15 Dec 2022 13:10:33 -0800
-Message-ID: <CAHBxVyHFutEuKF=CHFA+7xrpcVEj+72L0PGvh6Hry=4SUW8tug@mail.gmail.com>
-Subject: Re: [PATCH v2 05/11] RISC-V: KVM: Improve privilege mode filtering
- for perf
-To: Conor Dooley <conor@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Andrew Jones <ajones@ventanamicro.com>, 
-	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, Guo Ren <guoren@kernel.org>, 
-	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Sergey Matyukevich <sergey.matyukevich@syntacore.com>, Eric Lin <eric.lin@sifive.com>, 
-	Will Deacon <will@kernel.org>
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6UhQMoGzyPQoO6coVT0IwbZp+PXxQ7bh8ldQshrXNrk=;
+        b=5JbwgOSX/Oh2CTJFqjQnLKdOokYxIpODGV3Ha3Y2+LVZbc+lyB2u90XJJoJhbltRjl
+         e6ST+L2DFTPxTD1XiZOtcnxPXWSTqpaRiR/VxPE39zpT46s1hg6QXMIE56jDOjlCldkM
+         buR3BmCz88wk75c/xOXsRPbCBQ/iu5mtdKn9Swjpfa0aDhllWfVmQpUgWGP4KeDqgSky
+         SO9yM+uB5sy6iN3oYR9oj7FHvvXelI8lMTdixXZzQxyhhCPGISBJiEfpc/zHgQMkGroA
+         JrYg7xgfN1oB4hb27zcPfXnUnRG+din1WQkVt1OcraQQESXkFb1jZOSKFqppmJS2MwJA
+         pbiA==
+X-Gm-Message-State: ANoB5pmURipS5jJLly2cigpCIT7QuWKPsG7x1DgfxBcdaXsmQmXc0TOf
+	z7jUiU9D8VRbS8eVFh4zX5JiHw==
+X-Google-Smtp-Source: AA0mqf5MBUVcNkahTznoohWrAxg1q+3XZ47h2BCnANLg0HowcpfjH7uuG719LdG576kqb0KUKSlDyQ==
+X-Received: by 2002:a17:90a:cf16:b0:219:861a:ac10 with SMTP id h22-20020a17090acf1600b00219861aac10mr30270560pju.6.1671140430425;
+        Thu, 15 Dec 2022 13:40:30 -0800 (PST)
+Received: from localhost ([50.221.140.188])
+        by smtp.gmail.com with ESMTPSA id y1-20020a17090a474100b00218ae9916c4sm3542617pjg.35.2022.12.15.13.40.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 15 Dec 2022 13:40:30 -0800 (PST)
+Date: Thu, 15 Dec 2022 13:40:30 -0800 (PST)
+X-Google-Original-Date: Thu, 15 Dec 2022 13:40:09 PST (-0800)
+Subject: Re: [PATCH v5 6/6] soc: renesas: Add L2 cache management for RZ/Five SoC
+In-Reply-To: <CAMuHMdUO7iFvh73u+m=EXYyxyePXHahJ=OVwQHdt0ap4vWDG4A@mail.gmail.com>
+CC: Conor Dooley <conor@kernel.org>, prabhakar.csengg@gmail.com,
+  Arnd Bergmann <arnd@arndb.de>, Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+  magnus.damm@gmail.com, heiko@sntech.de, Conor Dooley <conor.dooley@microchip.com>,
+  samuel@sholland.org, guoren@kernel.org, robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org,
+  jszhang@kernel.org, Atish Patra <atishp@rivosinc.com>, apatel@ventanamicro.com,
+  ajones@ventanamicro.com, nathan@kernel.org, philipp.tomsich@vrull.eu, devicetree@vger.kernel.org,
+  linux-riscv@lists.infradead.org, linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+  biju.das.jz@bp.renesas.com, prabhakar.mahadev-lad.rj@bp.renesas.com
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: geert@linux-m68k.org, Christoph Hellwig <hch@infradead.org>, soc@kernel.org
+Message-ID: <mhng-6160c058-408a-4ff5-8a7d-4fb2886d3d95@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221215_131050_328605_1847D9BB 
-X-CRM114-Status: GOOD (  27.63  )
+X-CRM114-CacheID: sfid-20221215_134032_840645_EAC304A8 
+X-CRM114-Status: GOOD (  50.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,109 +90,166 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 15, 2022 at 12:18 PM Conor Dooley <conor@kernel.org> wrote:
+On Thu, 15 Dec 2022 12:17:38 PST (-0800), geert@linux-m68k.org wrote:
+> Hi Conor,
 >
-> Hey Atish,
->
-> On Thu, Dec 15, 2022 at 09:00:40AM -0800, Atish Patra wrote:
-> > RISC-V: KVM: Improve privilege mode filtering for perf
->
-> I almost marked this as "not applicable" in patchwork as I was mislead
-> by the $subject. I know our perf driver is a real mixed bag, but should
-> it not be something more like:
-> "perf: RISC-V: Improve privilege mode filtering for KVM"?
+> On Thu, Dec 15, 2022 at 8:54 PM Conor Dooley <conor@kernel.org> wrote:
+>> On Thu, Dec 15, 2022 at 05:46:42PM +0000, Lad, Prabhakar wrote:
+>> > On Thu, Dec 15, 2022 at 11:10 AM Geert Uytterhoeven
+>> > <geert@linux-m68k.org> wrote:
+>> > > On Thu, Dec 15, 2022 at 12:06 PM Lad, Prabhakar
+>> > > <prabhakar.csengg@gmail.com> wrote:
+>> > > > On Thu, Dec 15, 2022 at 10:36 AM Geert Uytterhoeven
+>> > > > <geert@linux-m68k.org> wrote:
+>> > > > > On Mon, Dec 12, 2022 at 12:58 PM Prabhakar <prabhakar.csengg@gmail.com> wrote:
+>> > > > > > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+>> > > > > >
+>> > > > > > I/O Coherence Port (IOCP) provides an AXI interface for connecting
+>> > > > > > external non-caching masters, such as DMA controllers. The accesses
+>> > > > > > from IOCP are coherent with D-Caches and L2 Cache.
+>> > > > > >
+>> > > > > > IOCP is a specification option and is disabled on the Renesas RZ/Five
+>> > > > > > SoC due to this reason IP blocks using DMA will fail.
+>> > > > > >
+>> > > > > > The Andes AX45MP core has a Programmable Physical Memory Attributes (PMA)
+>> > > > > > block that allows dynamic adjustment of memory attributes in the runtime.
+>> > > > > > It contains a configurable amount of PMA entries implemented as CSR
+>> > > > > > registers to control the attributes of memory locations in interest.
+>> > > > > > Below are the memory attributes supported:
+>> > > > > > * Device, Non-bufferable
+>> > > > > > * Device, bufferable
+>> > > > > > * Memory, Non-cacheable, Non-bufferable
+>> > > > > > * Memory, Non-cacheable, Bufferable
+>> > > > > > * Memory, Write-back, No-allocate
+>> > > > > > * Memory, Write-back, Read-allocate
+>> > > > > > * Memory, Write-back, Write-allocate
+>> > > > > > * Memory, Write-back, Read and Write-allocate
+>> > > > > >
+>> > > > > > More info about PMA (section 10.3):
+>> > > > > > Link: http://www.andestech.com/wp-content/uploads/AX45MP-1C-Rev.-5.0.0-Datasheet.pdf
+>> > > > > >
+>> > > > > > As a workaround for SoCs with IOCP disabled CMO needs to be handled by
+>> > > > > > software. Firstly OpenSBI configures the memory region as
+>> > > > > > "Memory, Non-cacheable, Bufferable" and passes this region as a global
+>> > > > > > shared dma pool as a DT node. With DMA_GLOBAL_POOL enabled all DMA
+>> > > > > > allocations happen from this region and synchronization callbacks are
+>> > > > > > implemented to synchronize when doing DMA transactions.
+>> > > > > >
+>> > > > > > Example PMA region passes as a DT node from OpenSBI:
+>> > > > > >     reserved-memory {
+>> > > > > >         #address-cells = <2>;
+>> > > > > >         #size-cells = <2>;
+>> > > > > >         ranges;
+>> > > > > >
+>> > > > > >         pma_resv0@58000000 {
+>> > > > > >             compatible = "shared-dma-pool";
+>> > > > > >             reg = <0x0 0x58000000 0x0 0x08000000>;
+>> > > > > >             no-map;
+>> > > > > >             linux,dma-default;
+>> > > > > >         };
+>> > > > > >     };
+>> > > > > >
+>> > > > > > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+>> > > > >
+>> > > > > Thanks for your patch!
+>> > > > >
+>> > > > > >  arch/riscv/include/asm/cacheflush.h       |   8 +
+>> > > > > >  arch/riscv/include/asm/errata_list.h      |  28 ++-
+>> > > > > >  drivers/soc/renesas/Kconfig               |   6 +
+>> > > > > >  drivers/soc/renesas/Makefile              |   2 +
+>> > > > > >  drivers/soc/renesas/rzfive/Kconfig        |   6 +
+>> > > > > >  drivers/soc/renesas/rzfive/Makefile       |   3 +
+>> > > > > >  drivers/soc/renesas/rzfive/ax45mp_cache.c | 256 ++++++++++++++++++++++
+>> > > > >
+>> > > > > Given this touches arch/riscv/include/asm/, I don't think the
+>> > > > > code belongs under drivers/soc/renesas/.
+>> > > > >
+>> > > > Ok. Do you have any suggestions on where you want me to put this code?
+>> > >
+>> > > As it plugs into core riscv functionality, I think it should be under
+>> > > arch/riscv/.
+>> > > if the RISC-V maintainers object to that, another option is
+>> > > drivers/soc/andestech/ or (new) drivers/cache/
+>> > >
+>> > RISC-V maintainers had already made it clear to not to include vendor
+>> > specific stuff in the arch/riscv folder, so I'll consider putting this
 
-Sure. I will change it in the next version.
+We have vendor-specific behavior in arch/riscv now, and it's even in the 
+policies (the behavior has been there for a while, the policy is new).  
+There's probably a bunch of posts saying otherwise because we used to 
+not take vendor-specific behavior, but that's not the case any more.
 
-> It was only when I noticed that the rest of the series had been marked
-> as "Handled Elsewhere" that I realised that this must not be a KVM patch
-> ;)
+>> > into drivers/cache/ folder to sync with the bindings.
+>> >
+>> > Conor/Palmer - do you have any objections/suggestions?
+>>
+>> I'm not its maintainer so sorta moot what I say, but having drivers in
+>> arch/riscv makes little sense to me..
+
+Some drivers are pretty tightly coupled to an ISA, I'm thinking of 
+things like interrupts/timers where we're writing CSRs.  I could see how 
+cache controllers would fall into that category, doubly so as they get 
+integrated to the memory model.  That leaves us in sort of a grey area 
+and there's certainly ports that have way more drivers in arch so it's 
+not an uncommon way to do things.
+
+I generally lean pretty heavily towards keeping things that could at all 
+be considered out of arch/riscv and instead have them in some sort of 
+driver folder.  That probably results in more total work to do, as we've 
+got to have arch/riscv interfaces with one use case and sync up between 
+multiple trees sometimes to get stuff merged.  I think it also results 
+in better code: being closer to the other drivers makes us more likely 
+to get reviewed by folks who understand the space, and it's generally 
+easier to share code in the subsystems.
+
+>> Putting stuff in drivers/cache does sound like a good idea since the
+>> binding is going there too.
+>>
+>> The SiFive ccache driver is in drivers/soc and it was suggested to me
+>> this week that there's likely going to be a second SiFive cache driver
+>> at some point in the near future. Plus Microchip are going to have to
+>> add cache management stuff to the existing SiFive ccache driver.
+>> Having them be their own thing makes sense in my mind - especially since
+>> they're not tied to SoCs sold by Andes or SiFive.
+>>
+>> I had a quick, and I mean *quick* look through other soc drivers to see
+>> if there were any other cache controller drivers but nothing stood out
+>> to me. Maybe someone else has more of a clue there. Ditto for misc, had
+>> a look but nothing seemed obvious.
 >
-> Thanks,
-> Conor
+> Usually they're under arch/:
+> $ git ls-files -- "arch/*cache*" | wc -l
+> 148
+> $ git ls-files -- "drivers/*cache*" | wc -l
+> 63
 >
-> > Currently, the host driver doesn't have any method to identify if the
-> > requested perf event is from kvm or bare metal. As KVM runs in HS
-> > mode, there are no separate hypervisor privilege mode to distinguish
-> > between the attributes for guest/host.
-> >
-> > Improve the privilege mode filtering by using the event specific
-> > config1 field.
-> >
-> > Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-> > Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> > ---
-> >  drivers/perf/riscv_pmu_sbi.c   | 27 ++++++++++++++++++++++-----
-> >  include/linux/perf/riscv_pmu.h |  2 ++
-> >  2 files changed, 24 insertions(+), 5 deletions(-)
-> >
-> > diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-> > index 65d4aa4..df795b7 100644
-> > --- a/drivers/perf/riscv_pmu_sbi.c
-> > +++ b/drivers/perf/riscv_pmu_sbi.c
-> > @@ -298,6 +298,27 @@ int riscv_pmu_get_hpm_info(u32 *hw_ctr_width, u32 *num_hw_ctr)
-> >  }
-> >  EXPORT_SYMBOL(riscv_pmu_get_hpm_info);
-> >
-> > +static unsigned long pmu_sbi_get_filter_flags(struct perf_event *event)
-> > +{
-> > +     unsigned long cflags = 0;
-> > +     bool guest_events = false;
-> > +
-> > +     if (event->attr.config1 & RISCV_KVM_PMU_CONFIG1_GUEST_EVENTS)
-> > +             guest_events = true;
-> > +     if (event->attr.exclude_kernel)
-> > +             cflags |= guest_events ? SBI_PMU_CFG_FLAG_SET_VSINH : SBI_PMU_CFG_FLAG_SET_SINH;
-> > +     if (event->attr.exclude_user)
-> > +             cflags |= guest_events ? SBI_PMU_CFG_FLAG_SET_VUINH : SBI_PMU_CFG_FLAG_SET_UINH;
-> > +     if (guest_events && event->attr.exclude_hv)
-> > +             cflags |= SBI_PMU_CFG_FLAG_SET_SINH;
-> > +     if (event->attr.exclude_host)
-> > +             cflags |= SBI_PMU_CFG_FLAG_SET_UINH | SBI_PMU_CFG_FLAG_SET_SINH;
-> > +     if (event->attr.exclude_guest)
-> > +             cflags |= SBI_PMU_CFG_FLAG_SET_VSINH | SBI_PMU_CFG_FLAG_SET_VUINH;
-> > +
-> > +     return cflags;
-> > +}
-> > +
-> >  static int pmu_sbi_ctr_get_idx(struct perf_event *event)
-> >  {
-> >       struct hw_perf_event *hwc = &event->hw;
-> > @@ -308,11 +329,7 @@ static int pmu_sbi_ctr_get_idx(struct perf_event *event)
-> >       uint64_t cbase = 0;
-> >       unsigned long cflags = 0;
-> >
-> > -     if (event->attr.exclude_kernel)
-> > -             cflags |= SBI_PMU_CFG_FLAG_SET_SINH;
-> > -     if (event->attr.exclude_user)
-> > -             cflags |= SBI_PMU_CFG_FLAG_SET_UINH;
-> > -
-> > +     cflags = pmu_sbi_get_filter_flags(event);
-> >       /* retrieve the available counter index */
-> >  #if defined(CONFIG_32BIT)
-> >       ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_CFG_MATCH, cbase,
-> > diff --git a/include/linux/perf/riscv_pmu.h b/include/linux/perf/riscv_pmu.h
-> > index a1c3f77..1c42146 100644
-> > --- a/include/linux/perf/riscv_pmu.h
-> > +++ b/include/linux/perf/riscv_pmu.h
-> > @@ -26,6 +26,8 @@
-> >
-> >  #define RISCV_PMU_STOP_FLAG_RESET 1
-> >
-> > +#define RISCV_KVM_PMU_CONFIG1_GUEST_EVENTS 0x1
-> > +
-> >  struct cpu_hw_events {
-> >       /* currently enabled events */
-> >       int                     n_events;
-> > --
-> > 2.25.1
-> >
-> >
+> E.g. arch/arm/mm/cache-l2x0.c.
+
+Above all I like to do things as normally as possible, so if most cache 
+drivers are in arch then I'm OK with.  Looks like we originally had it 
+arch/riscv, though, until 9209fb51896f ("riscv: move sifive_l2_cache.c 
+to drivers/soc") moved it out.
+
+I don't really remember this history/rationale here, at the time the 
+SiFive cache driver wasn't really doing anything all that exciting: it 
+was just way enable and some statistics, we hadn't really planned on 
+using it for the non-coherent stuff that folks are now trying to 
+retrofit it to handle.  That sort of thing makes it a lot more coupled 
+to the ISA.
+
+Given that we already moved the SiFive one out it seems sane to just 
+start with the rest in drivers/soc/$VENDOR.  Looks like it was 
+Christoph's idea to do the move, so I'm adding him in case he's got an 
+opinion (and also the SOC alias, as that seems generally relevant).
+
+> Gr{oetje,eeting}s,
+>
+>                         Geert
 
 _______________________________________________
 linux-riscv mailing list
