@@ -4,100 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72F0DC4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Dec 2022 02:09:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19C1BC4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Dec 2022 07:20:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IUHtvRVUTky0rTN6pDzC2ABKVCjxCeLZ8ymjzdhcHMI=; b=BFr7U6fxdOVvXq
-	F6jw/uEhxwHa2EwLlvle4WgLlywPEgeAvTu9lkmXe4nTDbq6on3TrkvwmZoHz0C5PtENHapPi7NPZ
-	M3YTmCy3OnHhRZA25eutnClYPsAenXMAcvN9gINJeQD4abhEfj4B7C1kCN4eH21uu9WR/oSZK73Ia
-	INy5lXgsB+i++dwW3U6v5Qg+Kmuzzvw69/p1+tiofp38ApJ+BZPvmdojETnXRPgdVUxYzY8HE7om0
-	CGvXXTzjn2/reB0yERWV2OWfr4/e7xtFuMlAm9HpG+H9QqaWGUjXhlFWpFJPduojhlUWtry5/oqOO
-	sm/RcnnYXFW72GIMXvrQ==;
+	List-Owner; bh=GIKQYH+vjmW4pNZlD5jiKlxz0C+dSJgechPb4R+W7+g=; b=tT7/+bcWdVBJMd
+	7NjEhF3dKAzbNv4+XgxjazEpb3ADhVES5aDyAC/In8sHxJV1D/qbbWEnxoy7wjOahzxe3WOKKZAA+
+	GbSDzJjjGks6b8DHNEBMI4Nx5S+P6G7VHQOKykSUVm0DGeCSPR+ryqEOlrvRLA+TMkNVWLtZXcSl+
+	ymUZSdlIOfAu2S6bCIT0XB6cZXhHER/Kr+p8JPBbH1nw2GBoEsmtvH6Mpv6z7VrrzI/w+cx7248hU
+	qQHzIsxbeo6ogsJBLgVCDbtnCJ1I7B9uk6GXvsbnaHqzo0gBFq4Tkj438sWZOOt3UTpdNU8djZCtz
+	h8Z/Ze8HHZRZmTIJPu4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p5dgb-005cOJ-LD; Thu, 15 Dec 2022 02:09:25 +0000
-Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
+	id 1p5iXj-007Aeh-5K; Thu, 15 Dec 2022 07:20:35 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p5dgX-005cMi-K7
-	for linux-riscv@lists.infradead.org; Thu, 15 Dec 2022 02:09:23 +0000
-Received: by mail-qt1-x82e.google.com with SMTP id ay32so4089224qtb.11
-        for <linux-riscv@lists.infradead.org>; Wed, 14 Dec 2022 18:09:20 -0800 (PST)
+	id 1p5iXX-007AaQ-LV; Thu, 15 Dec 2022 07:20:25 +0000
+Received: by mail-pl1-x634.google.com with SMTP id 4so5955271plj.3;
+        Wed, 14 Dec 2022 23:20:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bluespec-com.20210112.gappssmtp.com; s=20210112;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:mail-followup-to:message-id:subject:cc:to
-         :from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=4eDacVPeRCxSHKdGOkoS+IOwT3PA0un8lmYN5+fjPhw=;
-        b=y7057BeXP8Mk6u2/+Eoxa5be8UoreoDppdS/r/OZICVloTQdOTwaMkQbq3qcq3ZOgS
-         IhIc9GjFqKsHtXrK4K+zhdOUbdCmlIs+s6lLZk5zd5HuGWlS8c8mWM9f1vas+tE16DtT
-         7gnd9H/ihmf30zvyBXYUU7O8mhs2tfby4PkfVK09y+fXpJ2w0RiehMNk3voHmeYDDuab
-         eyVpNKXt7TLSUFjaJs15VZer4Pb1tfWqaCPejg1d9QHfE5XhXKm0d0k2OkKOvPLzyR3T
-         rCXCe84Bc23wJ1L+Q1kJTjNYjKuCRAodJb38tiQQ5ec3uWE0uk/HCZo0Z0xPeZ/Cl4Ag
-         3GlQ==
+        d=gmail.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=O4uLeHcZtzofTghZFHPOPuZ9VgdcE81MAIlKpIRuDJg=;
+        b=IwzHNMOm4TvS7kkfFEjAJOWMP9YW2EYrO0MMRKT/jg27AsW0WlwRdcLD96qzPSJcfX
+         pQKKTmr2X2RKIg/BhprlLIqDSoy1+iDp+dtLOqJrP/d7w7qcX7t+OgShWHND/7vTjG4Y
+         Q6Roz1gbwEqC99XkPSrYrtLbCtGCzHEEHyy32bhQJJq29mDQK92h4JXK/pWXTr63KQqu
+         uPGNZzq+TfPKjunZyG//wCHotmbf1a1dg0+rp5OhtojJ9U0XP0ycqNaWuvhj2ywByGMJ
+         ephbpBk6dUwYjaM5jwk8Gg9A/g2U11YxQ9214Uq5KuTh8BUANseKHXTsBT2mFG/2xi52
+         +F7Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:mail-followup-to:message-id:subject:cc:to
-         :from:date:x-gm-message-state:from:to:cc:subject:date:message-id
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=4eDacVPeRCxSHKdGOkoS+IOwT3PA0un8lmYN5+fjPhw=;
-        b=OGoJkVExM2tAAnwKOHOmZPmhuBJ/rAaBixd6aHRd8uBQh2CLlhWfrMP9NV0TwYmr5T
-         ACq6YicvmlkBZeVYVJLEJCLOxfCHkJrPe2lg61ICG58UBablZG/BwHIUAq6gyJmLGQjA
-         vxLvqKPogAfMtoKZ6NM59cID752gSkJLtHjY4p8VlO+vMW/pdKBRTW1RglbOpseB4FDC
-         nBncnNuJF/LGCyr6TuwgQQxMT2B1BjxcLYIi8dYKmUfE8zI13Sw4+h6dcK4TYa1H5ruZ
-         SBDKwM+jSFLmat0rgLLr+YnFqy7gXBe/umQQS88LxVGnn3ytsJUNXGBGOJ4IeOyQuk+c
-         jpzg==
-X-Gm-Message-State: ANoB5pnNceVp3JtEGkwKg3lJzNTgLbCKEt1FyiL6vVMxK0dFCzNI9XA1
-	CBhzz9/DYk/oUeK4c9cP+pMAcCP40sDfqAuvVw==
-X-Google-Smtp-Source: AA0mqf5I2BrheF1m6gxgerTJOGj7W6D5Syqpq0MvS6v7R0LmC1jB9uD9VC1LFaYtkT4QXreRi+4OLA==
-X-Received: by 2002:a05:622a:1a21:b0:3a7:e7e7:566 with SMTP id f33-20020a05622a1a2100b003a7e7e70566mr45474629qtb.66.1671070159263;
-        Wed, 14 Dec 2022 18:09:19 -0800 (PST)
-Received: from bruce.bluespec.com ([38.70.11.124])
-        by smtp.gmail.com with ESMTPSA id h22-20020ac85496000000b0035cd6a4ba3csm2658868qtq.39.2022.12.14.18.09.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 Dec 2022 18:09:18 -0800 (PST)
-Date: Wed, 14 Dec 2022 21:09:13 -0500
-From: Darius Rad <darius@bluespec.com>
-To: Vineet Gupta <vineetg@rivosinc.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, fweimer@redhat.com,
-	Andrew Waterman <andrew@sifive.com>, stillson@rivosinc.com,
-	Paul Walmsley <paul.walmsley@sifive.com>, anup@brainfault.org,
-	atishp@atishpatra.org, guoren@kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>, greentime.hu@sifive.com,
-	vincent.chen@sifive.com, andy.chiu@sifive.com, arnd@kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	bjorn@kernel.org, libc-alpha@sourceware.org,
-	christoph.muellner@vrull.eu, Aaron Durbin <adurbin@rivosinc.com>,
-	linux@rivosinc.com
-Subject: Re: RISCV Vector unit disabled by default for new task (was Re:
- [PATCH v12 17/17] riscv: prctl to enable vector commands)
-Message-ID: <Y5qByfCtpV0uNID3@bruce.bluespec.com>
-Mail-Followup-To: Vineet Gupta <vineetg@rivosinc.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, fweimer@redhat.com,
-	Andrew Waterman <andrew@sifive.com>, stillson@rivosinc.com,
-	Paul Walmsley <paul.walmsley@sifive.com>, anup@brainfault.org,
-	atishp@atishpatra.org, guoren@kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>, greentime.hu@sifive.com,
-	vincent.chen@sifive.com, andy.chiu@sifive.com, arnd@kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	bjorn@kernel.org, libc-alpha@sourceware.org,
-	christoph.muellner@vrull.eu, Aaron Durbin <adurbin@rivosinc.com>,
-	linux@rivosinc.com
-References: <mhng-975b1d7b-7b3f-4e88-804c-8b22787f9588@palmer-ri-x1c9>
- <e9cf13a9-561a-3438-00f0-41fe2631888d@rivosinc.com>
- <Y5irn63DQkwumfvW@bruce.bluespec.com>
- <8fe9cfaf-2cbc-8de6-3928-067de9113bfc@rivosinc.com>
+        bh=O4uLeHcZtzofTghZFHPOPuZ9VgdcE81MAIlKpIRuDJg=;
+        b=w//ZNSmwj8xQd9hcwq72YWQL/h99XEjriAsIBkcTh8qCw4lx8aAnK0NFINocdoBhpP
+         hcxqn6PzTFqXm89LRo2r8HbOEF0fEPFOFAoRvMLyhv42xontMa5lccTeklBp7r3fJCJs
+         DkL05sZsrBObpohKOlOhsyVXDg9Eakal7fXJb77Wf7FkICdRTCVcxamxxi6FHGDw39m0
+         FlBhMmjZw93Ctp5RVg2SkEBgNeFMAnhG/cgsbTdaqGjxSyqk5ZdJ/G7rbpX5JBlkSoaa
+         dUNsFPs6J57R8fkEVChht3L44oBnPn9PztUToVvUHmG1XUltPu4Fbk3DCXVC8sIwb2vj
+         L0CA==
+X-Gm-Message-State: ANoB5pm+8z83R/PeInwNAaGAr9eUEouqICU4KXZq/DN0SryjEfCBmDHV
+	ugMzfr17Z5aeVwYI90WUcX6wnbFd1rzcR/FdnTA=
+X-Google-Smtp-Source: AA0mqf70UYNX/pPo/w6ANwfR+n34rLQhoD2MXPvsGPOcNr9eDBW5vpBxbT/XZ+XrXkJH0q3VVxI89RaN33bsL4wogUY=
+X-Received: by 2002:a17:903:3052:b0:189:651c:f023 with SMTP id
+ u18-20020a170903305200b00189651cf023mr64145214pla.78.1671088821805; Wed, 14
+ Dec 2022 23:20:21 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <8fe9cfaf-2cbc-8de6-3928-067de9113bfc@rivosinc.com>
+References: <20221208193857.4090582-1-dmatlack@google.com> <20221208193857.4090582-2-dmatlack@google.com>
+ <22fe2332-497e-fe30-0155-e026b0eded97@intel.com> <Y5NvYmxpy6BPkmpW@google.com>
+ <CALzav=eju4LYyX=ufNneSww+5sraYJ8cfQSi4LTOHfHWmddX9A@mail.gmail.com>
+ <Y5dnWgJ0ine55/hN@google.com> <CAJhGHyBbjyKVEv3KcoOcPGQ28753FjR_rc9uNDEF3Dd-gNTRGQ@mail.gmail.com>
+ <Y5onJulY3UQJNrmW@google.com>
+In-Reply-To: <Y5onJulY3UQJNrmW@google.com>
+From: Lai Jiangshan <jiangshanlai@gmail.com>
+Date: Thu, 15 Dec 2022 15:20:09 +0800
+Message-ID: <CAJhGHyBKttit3okKbBsG2U7y4Fr8TjVWHVTQWrcCr8JcUcgtSQ@mail.gmail.com>
+Subject: Re: [RFC PATCH 01/37] KVM: x86/mmu: Store the address space ID
+ directly in kvm_mmu_page_role
+To: Sean Christopherson <seanjc@google.com>
+Cc: David Matlack <dmatlack@google.com>, Oliver Upton <oliver.upton@linux.dev>, 
+	"Yang, Weijiang" <weijiang.yang@intel.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>, 
+	Alexandru Elisei <alexandru.elisei@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Huacai Chen <chenhuacai@kernel.org>, 
+	Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>, Anup Patel <anup@brainfault.org>, 
+	Atish Patra <atishp@atishpatra.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Andrew Morton <akpm@linux-foundation.org>, Anshuman Khandual <anshuman.khandual@arm.com>, 
+	"Amit, Nadav" <namit@vmware.com>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, Vlastimil Babka <vbabka@suse.cz>, 
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>, Suren Baghdasaryan <surenb@google.com>, 
+	Peter Xu <peterx@redhat.com>, xu xin <cgel.zte@gmail.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Yu Zhao <yuzhao@google.com>, Colin Cross <ccross@google.com>, Hugh Dickins <hughd@google.com>, 
+	Ben Gardon <bgardon@google.com>, Mingwei Zhang <mizhang@google.com>, 
+	Krish Sadhukhan <krish.sadhukhan@oracle.com>, Ricardo Koller <ricarkol@google.com>, 
+	Jing Zhang <jingzhangos@google.com>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, 
+	"kvmarm@lists.cs.columbia.edu" <kvmarm@lists.cs.columbia.edu>, 
+	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>, 
+	"kvm-riscv@lists.infradead.org" <kvm-riscv@lists.infradead.org>, 
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221214_180921_908053_25DDCA3A 
-X-CRM114-Status: GOOD (  51.43  )
+X-CRM114-CacheID: sfid-20221214_232023_735828_62FB88FF 
+X-CRM114-Status: GOOD (  41.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,140 +104,219 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBEZWMgMTQsIDIwMjIgYXQgMTI6MDc6MDNQTSAtMDgwMCwgVmluZWV0IEd1cHRhIHdy
-b3RlOgo+IE9uIDEyLzEzLzIyIDA4OjQzLCBEYXJpdXMgUmFkIHdyb3RlOgo+ID4gT24gRnJpLCBE
-ZWMgMDksIDIwMjIgYXQgMTE6NDI6MTlBTSAtMDgwMCwgVmluZWV0IEd1cHRhIHdyb3RlOgo+ID4g
-PiBCdXQga2VlcGluZyB0aGUgViB1bml0IGRpc2FibGVkIGJ5IGRlZmF1bHQgYW5kIHVzaW5nIHBy
-Y3RsIGFzIGEgZ2F0ZWtlZXBlcgo+ID4gPiB0byBlbmFibGUgaXQgZmVlbHMgdW5uZWNlc3Nhcnkg
-YW5kIHRlZGlvdXMuCj4gPiA+IEhlcmUncyBteSByZWFzb25pbmcgYmVsb3cgKEknbSBjb2xsYXRp
-bmcgY29tbWVudHMgZnJvbSBwcmlvciBtc2dzIGFzIHdlbGwpLgo+ID4gUGxlYXNlIHJlZmVyZW5j
-ZSB0aGUgcHJldmlvdXMgZGlzY3Vzc2lvbiBbMV0gd2hpY2ggaGFzIGNvdmVyZWQgdG9waWNzIHRo
-YXQKPiA+IGhhdmUgbm90IGJlZW4gZGlzY3Vzc2VkIHJlY2VudGx5Lgo+ID4gCj4gPiBbMV0gaHR0
-cHM6Ly9saXN0cy5pbmZyYWRlYWQub3JnL3BpcGVybWFpbC9saW51eC1yaXNjdi8yMDIxLVNlcHRl
-bWJlci90aHJlYWQuaHRtbCM4MzYxCj4gCj4gSSBzdXJlIHJlYWQgdGhydSB0aGF0IHRocmVhZCwg
-YW5kIG1hbnkgbW9yZSA6LSkgdG8gZ2V0IGNvbnRleHQuCj4gVGhlIGhpZ2hsaWdodCBpcyB3ZSBz
-aG91bGQgc29tZXRoaW5nIGJlY2F1c2UgQVZYL0FNWCBkbyBzbyAob3IgZmFpbGVkIHRvIGRvCj4g
-c28pLgo+IEJ1dCBvbiB0aGUgZmxpcCBzaWRlIEFSTSBTVkUgaXMgbm90IGRpc2FibGluZyB0aGlz
-IGJ5IGRlZmF1bHQuCj4gWW91ciBvdGhlciBjb25jZXJucyBzZWVtcyB0byBiZSBwb3RlbnRpYWwg
-cG93ZXIgaW1wbGljYXRpb25zIGZvciBsZWF2aW5nIGl0Cj4gb24gYW5kIHNoYXJpbmcgb2YgViB1
-bml0IGFjcm9zcyBoYXJ0cyAoc2VlIG1vcmUgb24gdGhhdCBiZWxvdykKPiBNYXliZSBsZWF2aW5n
-IGl0IG9uIGFsbCB0aGUgdGltZSB3aWxsIGJlIG1vdGl2YXRpb24gZm9yIGh3IGRlc2lnbmVycyB0
-byBiZQo+IG1vcmUgY29uc2lkZXJhdGUgb2YgdGhlIGlkbGUgcG93ZXIgZHJhdy4KPiAKClRoYXQg
-aXMgbm90IHF1aXRlIHRoZSBzYW1lIHRha2UgYXdheSBJIGhhZCBmcm9tIHRoZSBBTVggZGlzY3Vz
-c2lvbi4gIEkKd291bGQgYWxzbyBkaXNhZ3JlZSB0aGF0IEFSTSBTVkUgaXMgbm90IGRpc2FibGlu
-ZyB0aGluZ3MgYnkgZGVmYXVsdCwKYWx0aG91Z2ggdGhlIGJlaGF2aW9yIGlzIHNvbWV3aGF0IGRp
-ZmZlcmVudC4KClRoZSBzaWduaWZpY2FudCBwb2ludCB0aGF0IEkgc2VlIGZyb20gdGhhdCBkaXNj
-dXNzaW9uLCB3aGljaCBhbHNvIGFwcGxpZXMKdG8gU1ZFLCBhbmQgYWxzbyBhcHBsaWVzIHRvIFJJ
-U0MtViB2ZWN0b3IsIGlzIHRoYXQgdGhlIGV4dGVuc2lvbiBpcwpuZWNlc3NhcmlseSBkZXBlbmRh
-bnQgdXBvbiBhIGZ1bmN0aW9uYWwgdW5pdCB0aGF0IGlzIHJlYXNvbmFibHkgbGFyZ2Ugd2l0aApy
-ZXNwZWN0IHRvIHRoZSBzaXplIG9mIHRoZSBwcm9jZXNzb3IgYW5kIGhhcyBhIHNpZ25pZmljYW50
-IGFtb3VudCBvZgphZGRpdGlvbmFsIGFyY2hpdGVjdHVyYWwgc3RhdGUuICBUaGUgYXJndW1lbnQg
-dGhlcmUgaXMgdGhhdCBBTVgvU1ZFL1JWViBpcwphIHNpZ25pZmljYW50IHN5c3RlbSByZXNvdXJj
-ZSBhbmQgc2hvdWxkIGJlIHRyZWF0ZWQgYXMgc3VjaDogYnkgaGF2aW5nIHRoZQprZXJuZWwgdHJh
-Y2sgdXNhZ2Ugb2YgaXQgYW5kIGJ5IGhhdmluZyBhIHByb2Nlc3Mgc3BlY2lmaWNhbGx5IHJlcXVl
-c3QKYWNjZXNzIHRvIGl0LgoKRm9yIGFueSBvZiBBTVgvU1ZFL1JWViwgdXNlIG9mIHRoZSBleHRl
-bnNpb24gb3BlcmF0ZXMgYXMgZm9sbG93czoKCiAgMS4gQSBwcm9jZXNzIHJlcXVlc3RzIGFjY2Vz
-cyB0byB0aGUgZXh0ZW5zaW9uLAoKICAyLiBUaGUga2VybmVsIGFsbG9jYXRlcyBtZW1vcnkgZm9y
-IHRoZSBhZGRpdGlvbmFsIHN0YXRlIGZvciB0aGlzIHByb2Nlc3MsCgogIDMuIFRoZSBrZXJuZWwg
-ZW5hYmxlcyB0aGUgZXh0ZW5zaW9uIGZvciB0aGUgcHJvY2VzcywgYW5kIGZpbmFsbHkKCiAgNC4g
-VGhlIHByb2Nlc3MgaXMgYWJsZSB0byB1c2UgdGhlIGluc3RydWN0aW9ucy4KCkkgZG9uJ3QgcmVj
-YWxsIHRoZSBleGFjdCBkZXRhaWxzLCBidXQgbXkgdW5kZXJzdGFuZGluZyBpcyB0aGF0IEFNWCBp
-cyBnb2luZwp0byB1c2UgYW4geDg2IHNwZWNpZmljIG1lY2hhbmlzbSBhbmQgcmVxdWlyZSBhbmQg
-ZXhwbGljdCByZXF1ZXN0IGZyb20gdXNlcgpzcGFjZSB0byByZXF1ZXN0IGFjY2VzcyB0byBBTVgu
-CgpGb3IgU1ZFLCBpdCBpcyBpbiBmYWN0IGRpc2FibGVkIGJ5IGRlZmF1bHQgaW4gdGhlIGtlcm5l
-bC4gIFdoZW4gYSB0aHJlYWQKZXhlY3V0ZXMgdGhlIGZpcnN0IFNWRSBpbnN0cnVjdGlvbiwgaXQg
-d2lsbCBjYXVzZSBhbiBleGNlcHRpb24sIHRoZSBrZXJuZWwKd2lsbCBhbGxvY2F0ZSBtZW1vcnkg
-Zm9yIFNWRSBzdGF0ZSBhbmQgZW5hYmxlIFRJRl9TVkUuICBGdXJ0aGVyIHVzZSBvZiBTVkUKaW5z
-dHJ1Y3Rpb25zIHdpbGwgcHJvY2VlZCB3aXRob3V0IGV4Y2VwdGlvbnMuICBBbHRob3VnaCBTVkUg
-aXMgZGlzYWJsZWQgYnkKZGVmYXVsdCwgaXQgaXMgZW5hYmxlZCBhdXRvbWF0aWNhbGx5LiAgU2lu
-Y2UgdGhpcyBpcyBkb25lIGF1dG9tYXRpY2FsbHkKZHVyaW5nIGFuIGV4Y2VwdGlvbiBoYW5kbGVy
-LCB0aGVyZSBpcyBubyBvcHBvcnR1bml0eSBmb3IgbWVtb3J5IGFsbG9jYXRpb24KZXJyb3JzIHRv
-IGJlIHJlcG9ydGVkLCBhcyB0aGVyZSBhcmUgaW4gdGhlIEFNWCBjYXNlLgoKRm9yIFJWViwgSSBk
-byBub3QgcmVjYWxsIGV2ZXIgc2VlaW5nIExpbnV4IHBhdGNoZXMgdGhhdCBhdXRvbWF0aWNhbGx5
-IGVuYWJsZQp2ZWN0b3IuICBJIGhhdmUgc2VlbiBpdCBlbmFibGVkIHVuY29uZGl0aW9uYWxseSwg
-b3Igd2l0aCBhIG1hbnVhbCBlbmFibGUKKGkuZS4sIHByY3RsKS4KCkl0IGlzIHBvc3NpYmxlIHRv
-IHdyaXRlIGEgcHJvZ3JhbSB0aGF0IGRvZXMgbm90IGV2ZXIgdXNlIEFNWCwgYW5kIHdoZW4gdGhh
-dApwcm9ncmFtIGlzIHJ1biwgdGhlIHByb2Nlc3Mgd2lsbCBub3QgaW5jdXIgdGhlIHBvd2VyIG9y
-IG1lbW9yeSBvdmVyaGVhZCBvZgpBTVguICBJdCBpcyBhbHNvIHBvc3NpYmxlIHRvIGRvIHRoYXQg
-d2l0aCBTVkUuICBUaGlzIGlzIHNpbXBseSBub3QgcG9zc2libGUKaWYgUklTQy1WIHdpbGwsIGJ5
-IGRlZmF1bHQgZm9yIGV2ZXJ5IHByb2Nlc3MsIGVuYWJsZSBhbmQgYWxsb2NhdGUgc3RhdGUKbWVt
-b3J5IGZvciB2ZWN0b3IuCgpTbyBteSB0aG91Z2h0IHdvdWxkIGJlIHdoYXQgaXMgdGhlIG1vdGl2
-YXRpb24gZm9yIGJlaW5nIGV2ZW4gbGVzcyBmbGV4aWJsZQp0aGFuIFNWRSwgaWYgeW91IGZlZWwg
-dGhhdCB0aGUgQU1YIG1lY2hhbmlzbSBpcyB0b28gb25lcm91cz8KCj4gPiAKPiA+ID4gMi4gUGVv
-cGxlIHdhbnQgdGhlIHByY3RsIGdhdGVrZWVwaW5nIGZvciBhYmlsaXR5IHRvIGdyYWNlZnVsbHkg
-aGFuZGxlIG1lbW9yeQo+ID4gPiBhbGxvY2F0aW9uIGZhaWx1cmUgZm9yIHRoZSBleHRyYSBWLXN0
-YXRlIHdpdGhpbiBrZXJuZWwuIEJ1dCB0aGF0IGlzIG9ubHkKPiA+ID4gYWRkaXRpb25hbCA0SyAo
-Zm9yIHR5cGljYWwgMTI4IHdpZGUgViByZWdzKSBwZXIgdGFzay4KPiA+IEJ1dCB2ZWN0b3Igc3Rh
-dGUgc2NhbGVzIHVwIHRvIGFzIG11Y2ggYXMgMjU2ay4gIEFyZSB5b3Ugc3VnZ2VzdGluZyB0aGF0
-Cj4gPiB0aGVyZSBpcyBubyBwb3NzaWJpbGl0eSB0aGF0IGZ1dHVyZSBzeXN0ZW1zIHdvdWxkIHN1
-cHBvcnQgbW9yZSB0aGFuCj4gPiBWTEVOPTEyOD8KPiAKPiBJIG1lbnRpb25lZCAidHlwaWNhbCIu
-IEFuZCBiZWxvdyBhbHNvIHNhaWQgdGhhdCBtZW1vcnkgYWxsb2NhdGlvbiBjb25jZXJucwo+IGFy
-ZSBtb290LCBzaW5jZSBmb3JrL2V4ZWN2ZSBmYWlsdXJlcyBkdWUgdG8gZmFpbGluZyB0byBhbGxv
-Y2F0ZSB3b3VsZCB0YWtlCj4gY2FyZSBvZiB0aG9zZSBhbnl3YXlzLgo+IAoKQnV0IGFnYWluLCB3
-aGF0IGlmIG9uZSB3ZXJlIHVzaW5nIHN1Y2ggYW4gYWRtaXR0ZWRseSBhdHlwaWNhbCBzeXN0ZW0/
-ICBXaHkKc2hvdWxkIHN1Y2ggYSB1c2VyIGJlIGNvbXBlbGxlZCB0byB0YWtlIGEgbWVtb3J5IGhp
-dCBmb3IgZXZlcnkgcHJvY2VzcywKZXZlbiBpZiB0aGV5IHNwZWNpZmljYWxseSBnbyBvdXQgb2Yg
-dGhlaXIgd2F5IHRvIGF2b2lkIHVzaW5nIHZlY3RvcgppbnN0cnVjdGlvbnM/Cgo+ID4gPiBJZiB0
-aGF0IGlzIGZhaWxpbmcsCj4gPiA+IHRoZSBzeXN0ZW0gaXMgbm90IGRvaW5nIHdlbGwgYW55d2F5
-cy4gQmVzaWRlcyBpdCBpcyBub3QgYW4gaXNzdWUgYXQgYWxsCj4gPiA+IHNpbmNlIEVOT01FTSBp
-biBjbG9uZS9leGVjdmUgZm9yIHRoZSBhZGRpdGlvbmFsIHNwYWNlIHNob3VsZCBoYW5kbGUgdGhl
-Cj4gPiA+IGZhaWx1cmUgYW55d2F5cy4gT25seSB2ZXJ5IHNvcGhpc3RpY2F0ZWQgYXBwcyB3b3Vs
-ZCBkb3duZ3JhZGUgZnJvbSBleGVjdXRpbmcKPiA+ID4gViB0byBTY2FsYXIgY29kZSBpZiB0aGUg
-cHJjdGwgZmFpbGVkLgo+ID4gVGhpcyBzZWVtcyB1bmxpa2VseS4gIEFzIHZlY3RvciBzdXBwb3J0
-IGRvZXMgbm90IGV4aXN0IGluIGFueSBwcmVzZW50Cj4gPiBoYXJkd2FyZSwgYW5kIHRoZSB2ZWN0
-b3IgZXh0ZW5zaW9uIGlzIG9ubHkgb3B0aW9uYWwgaW4gdGhlIFJJU0MtViBwcm9maWxlcwo+ID4g
-dGhhdCBpbmNsdWRlIGl0LCBJIHdvdWxkIHRoaW5rIHRoYXQgaXQgaXMgYWxtb3N0IGNlcnRhaW4g
-dGhhdCBhbnkKPiA+IGFwcGxpY2F0aW9uIHRoYXQgc3VwcG9ydHMgViB3b3VsZCBoYXZlIGEgZmFs
-bGJhY2sgcGF0aCBmb3Igd2hlbiB0aGUgVgo+ID4gZXh0ZW5zaW9uIGlzIG5vdCBhdmFpbGFibGUu
-Cj4gCj4gRm9yIHNwZWNpYWxpemVkIGNhc2VzIHN1cmUgd2Ugd291bGQgZXhwZWN0IGZhdCBiaW5h
-cmllcyB3aXRoIElGVU5DIGJhc2VkCj4gZGlzcGF0Y2hlcyAoZ2xpYmMgbWVtKi9zdHIqIGFyZSBv
-YnZpb3VzIGV4YW1wbGVzKS4gQnV0IHdpdGggbmV3ZXIgY29tcGlsZXJzCj4gYXV0b3ZlYyBpcyBp
-bmNyZWFzaW5nIGJlY29taW5nIGRlZmF1bHQgZXZlbiBhdCBtZWRpdW0gb3B0aW1pemF0aW9uIGxl
-dmVscwo+IHN1Y2ggYXMgLU8yLiBTbyBWIGNvZGUgbGl0dGVyZWQgYWxsIG92ZXIgaXMganVzdCBh
-IG1hdHRlciBvZiB0aW1lIGZvciB0aGUKPiBwcm9maWxlcy92YXJpYW50cyB3aGljaCBhbGxvdyBW
-LiBGb3IgbGVzcyBjYXBhYmxlIHN5c3RlbXMgdy9vIFYgdGhpcyBpcyBhbGwKPiBidXQgbW9vdCBk
-aXNjdXNzaW9uIHNpbmNlIGtlcm5lbCBpdHNlbGYgbmVlZCBub3QgYmUgYnVpbHQgd2l0aCBWIGVu
-YWJsZWQuCj4gCgpUbyBtZSwgdGhhdCBzZWVtcyBsaWtlIGEgbG90IG9mIHNwZWN1bGF0aW9uLCBh
-bmQgY2VydGFpbmx5IG5vdCB3b3J0aApyZWx5aW5nIG9uIHRvIGxpbWl0IGZ1bmN0aW9uYWxpdHku
-Cgo+IAo+ID4gQW5vdGhlciBtb3RpdmF0aW9uIGZvciByZXF1aXJpbmcgdGhhdCB1c2VyIHNwYWNl
-IHJlcXVlc3QgdXNlIG9mIHRoZSB2ZWN0b3IKPiA+IGV4dGVuc2lvbiBpcyB0aGF0IHRoZSB2ZWN0
-b3IgdW5pdCBtYXkgYmUgc2hhcmVkIGJldHdlZW4gbXVsdGlwbGUgaGFydHMKPiA+IGFuZC9vciBo
-YXZlIHBvd2VyIG9yIHBlcmZvcm1hbmNlIGltcGxpY2F0aW9ucyBpbiB0aGUgc3lzdGVtLiAgQnkg
-cmVxdWlyaW5nCj4gPiB0aGF0IHVzZXIgc3BhY2UgcmVxdWVzdCBhY2Nlc3MsIGl0IGFsbG93cyB0
-aGUgc3lzdGVtIHRvIGRlY2xpbmUgdGhhdAo+ID4gYWNjZXNzLCBhbmQgdXNlciBzcGFjZSBjYW4g
-aGFuZGxlIHRoaXMgZ3JhY2VmdWxseS4KPiAKPiBCdXQgaW4gdGhpcyBzcGVjaWZpYyBleGFtcGxl
-IHdvbid0IHRoZSBwcmN0bCBjYXVzZSBtb3JlIHBhaW4uIFNvIDIKPiBjb25jdXJyZW50IHByb2Nl
-c3NlcyBvbiAyIGRpZmZlcmVudCBoYXJ0cyB3aXRoIHNoYXJlZCBWIHVuaXQuIE9uZSBzZW5kcwo+
-IHByY3RsIHRvIGVuYWJsZSBhbmQgb3RoZXIgd2FudHMgdG8gZGlzYWJsZSwgd2hhdCB3b3VsZCB0
-aGUga2VybmVsIGRvLiBXaWxsCj4gaXQganVzdCBiZSB3aG9ldmVyIGVuZHMgdXAgcnVubmluZyBs
-YXRlciB3aW5zLiBHcmFudGVkIEknbSBub3QgdG9vIGZhbWlsaWFyCj4gd2l0aCBob3cgc3VjaCBh
-IGNyb3NzLWhhcnQgc2hhcmluZyB3b3VsZCB3b3JrIGluIGEgVmVjdG9yIGluc3RydWN0aW9ucyBi
-ZWluZwo+IHBhcnQgb2YgSVNBwqAgKHZzLiBWZWN0b3IgYWNjZWxlcmF0b3Igd2l0aCBqb2IgcHVz
-aC9wdWxsIGFwcHJvYWNoKQo+IAoKSSB0aGluayB5b3UgYXJlIG1pc3VuZGVyc3RhbmRpbmcgYm90
-aCB0aGUgbWVjaGFuaXNtIGFuZCB0aGUgcG90ZW50aWFsCmltcGxlbWVudGF0aW9uLgoKVGhlIG1l
-Y2hhbmlzbSBpcyBub3QgYSBzd2l0Y2ggcGVyIGhhcnQsIGl0IGlzIGEgc3dpdGNoIHBlciBwcm9j
-ZXNzIChvcgp0aHJlYWQpLiAgSXQgaW5kaWNhdGVzIHRvIHRoZSBrZXJuZWwgdGhhdCB0aGlzIHBy
-b2Nlc3MgKG9yIHRocmVhZCkgaXMgdXNpbmcKdGhlIHJlc291cmNlLCBhbmQgdGhlIGtlcm5lbCB3
-aWxsIGFsbG9jYXRlIG1lbW9yeSwgZW5hYmxlIGluc3RydWN0aW9ucywKZXRjLiwgYXMgbmVlZGVk
-IHdoZW4gdGhhdCBwcm9jZXNzZXMgaXMgc2NoZWR1bGVkIG9uIGEgaGFydC4KClRoZSB0aGVvcmV0
-aWNhbCBpbXBsZW1lbnRhdGlvbiBpcyBzb21ldGhpbmcgbGlrZSB3aGF0IHdhcyBkb25lIHdpdGgK
-ZmxvYXRpbmcgcG9pbnQgaW4gdGhlIEFNRCBCdWxsZG96ZXIgYXJjaGl0ZWN0dXJlLiAgQWxsIHRo
-ZSBzaGFyaW5nIG9mCnJlc291cmNlcyBpcyBkb25lIGF1dG9tYXRpY2FsbHkgaW4gaGFyZHdhcmUs
-IGJ1dCBvYnZpb3VzbHkgcGVyZm9ybWFuY2UKbWVhc3VyZW1lbnRzIGNvdWxkIGRlbW9uc3RyYXRl
-IHRoYXQgZWFjaCB0aHJlYWQvaGFydCBkb2VzIG5vdCBoYXZlIGl0cyBvd24KZXhlY3V0aW9uIHVu
-aXQuICBJIHdvdWxkIGltYWdpbmUgdGhhdCBpbiBzdWNoIGFuIGltcGxlbWVudGF0aW9uLCB0aGUg
-dmVjdG9yCnVuaXQgd291bGQgbm90IGJlIGFibGUgdG8sIGZvciBleGFtcGxlLCBlbnRlciBhIGxv
-dyBwb3dlciBtb2RlIHVubGVzcyBib3RoCmhhcnRzIHRoYXQgZGVwZW5kIG9uIGl0IGFyZSBub3Qg
-dXNpbmcgaXQuICBJIHdvdWxkIGFsc28gaW1hZ2luZSB0aGF0IHNpbmdsZQp0aHJlYWQgcGVyZm9y
-bWFuY2UgZm9yIHZlY3RvciB3b3VsZCBiZSBvcHRpbWl6ZWQgaWYgb25seSBvbmUgdGhyZWFkIHdl
-cmUKdXNpbmcgdGhlIHZlY3RvciB1bml0IGF0IGEgdGltZS4gIElmIHRoZSB2ZWN0b3IgdW5pdCBp
-cyBlbmFibGVkCnVuY29uZGl0aW9uYWxseSBieSBkZWZhdWx0IGZvciBhbGwgcHJvY2Vzc2VzLCB0
-aGlzIGlzIG5vdCBwb3NzaWJsZS4KCi8vIGRhcml1cwoKCl9fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
-aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
-YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Thu, Dec 15, 2022 at 3:42 AM Sean Christopherson <seanjc@google.com> wrote:
+>
+> On Wed, Dec 14, 2022, Lai Jiangshan wrote:
+> > On Tue, Dec 13, 2022 at 1:47 AM Sean Christopherson <seanjc@google.com> wrote:
+> >
+> > >
+> > > My preference would be to leave .smm in x86's page role.  IMO, defining multiple
+> > > address spaces to support SMM emulation was a mistake that should be contained to
+> > > SMM, i.e. should never be used for any other feature.  And with CONFIG_KVM_SMM,
+> > > even x86 can opt out.
+> > >
+> >
+> >
+> > I think the name ASID in kvm/x86 should be used for vmcb's ASID,
+> > vmcs's VPID, and PCID. Using the name ASID for other purposes
+> > would only result in unnecessary confusion.
+>
+> I agree in principle, but at this point fixing the problem would require a lot of
+> churn since "as_id" is pervasive throughout the memslots code.
+>
+> It should be possible though, as I don't think anything in KVM's uAPI explicitly
+> takes an as_id, i.e. it's KVM-internal terminology for the most part.
+>
+> > There is a bug for shadow paging when it uses two separate sets
+> > of memslots which are using two sets of rmap and page-tracking.
+> >
+> > When SMM world is writing to a non-SMM page which happens to be
+> > a guest pagetable in the non-SMM world, the write operation will
+> > go smoothly without specially handled and the shadow page for the guest
+> > pagetable is neither unshadowed nor marked unsync.  The shadow paging
+> > code is unaware that the shadow page has deviated from the guest
+> > pagetable.
+>
+> Won't the unsync code work as intended?  for_each_gfn_valid_sp_with_gptes()
+> doesn't consume the slot and I don't see any explicit filtering on role.smm,
+> i.e. should unsync all SPTEs for the gfn.
+>
+> Addressing the page-track case is a bit gross, but doesn't appear to be too
+> difficult.  I wouldn't be surprised if there are other SMM => non-SMM bugs lurking
+> though.
+>
+> ---
+>  arch/x86/include/asm/kvm_page_track.h |  2 +-
+>  arch/x86/kvm/mmu/mmu.c                |  7 +++---
+>  arch/x86/kvm/mmu/mmu_internal.h       |  3 ++-
+>  arch/x86/kvm/mmu/page_track.c         | 32 +++++++++++++++++++--------
+>  arch/x86/kvm/mmu/spte.c               |  2 +-
+>  5 files changed, 31 insertions(+), 15 deletions(-)
+
+Could you send the patch in a new thread, please?
+
+I will add my reviewed-by then.
+
+It still lacks the parts that do write protection for sp->gfn.
+kvm_vcpu_write_protect_gfn() has to handle the two worlds.
+account_shadowed() and kvm_slot_page_track_add_page() have also
+to handle the two worlds.
+
+And I don't think there is any page-table in SMM-world, so
+kvm_slot_page_track_is_active() can just skip the SMM-world
+and check the non-SMM world only.
+
+Thanks
+Lai
+
+>
+> diff --git a/arch/x86/include/asm/kvm_page_track.h b/arch/x86/include/asm/kvm_page_track.h
+> index eb186bc57f6a..fdd9de31e160 100644
+> --- a/arch/x86/include/asm/kvm_page_track.h
+> +++ b/arch/x86/include/asm/kvm_page_track.h
+> @@ -63,7 +63,7 @@ void kvm_slot_page_track_add_page(struct kvm *kvm,
+>  void kvm_slot_page_track_remove_page(struct kvm *kvm,
+>                                      struct kvm_memory_slot *slot, gfn_t gfn,
+>                                      enum kvm_page_track_mode mode);
+> -bool kvm_slot_page_track_is_active(struct kvm *kvm,
+> +bool kvm_slot_page_track_is_active(struct kvm_vcpu *vcpu,
+>                                    const struct kvm_memory_slot *slot,
+>                                    gfn_t gfn, enum kvm_page_track_mode mode);
+>
+> diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
+> index 254bc46234e0..1c2200042133 100644
+> --- a/arch/x86/kvm/mmu/mmu.c
+> +++ b/arch/x86/kvm/mmu/mmu.c
+> @@ -2715,9 +2715,10 @@ static void kvm_unsync_page(struct kvm *kvm, struct kvm_mmu_page *sp)
+>   * were marked unsync (or if there is no shadow page), -EPERM if the SPTE must
+>   * be write-protected.
+>   */
+> -int mmu_try_to_unsync_pages(struct kvm *kvm, const struct kvm_memory_slot *slot,
+> +int mmu_try_to_unsync_pages(struct kvm_vcpu *vcpu, const struct kvm_memory_slot *slot,
+>                             gfn_t gfn, bool can_unsync, bool prefetch)
+>  {
+> +       struct kvm *kvm = vcpu->kvm;
+>         struct kvm_mmu_page *sp;
+>         bool locked = false;
+>
+> @@ -2726,7 +2727,7 @@ int mmu_try_to_unsync_pages(struct kvm *kvm, const struct kvm_memory_slot *slot,
+>          * track machinery is used to write-protect upper-level shadow pages,
+>          * i.e. this guards the role.level == 4K assertion below!
+>          */
+> -       if (kvm_slot_page_track_is_active(kvm, slot, gfn, KVM_PAGE_TRACK_WRITE))
+> +       if (kvm_slot_page_track_is_active(vcpu, slot, gfn, KVM_PAGE_TRACK_WRITE))
+>                 return -EPERM;
+>
+>         /*
+> @@ -4127,7 +4128,7 @@ static bool page_fault_handle_page_track(struct kvm_vcpu *vcpu,
+>          * guest is writing the page which is write tracked which can
+>          * not be fixed by page fault handler.
+>          */
+> -       if (kvm_slot_page_track_is_active(vcpu->kvm, fault->slot, fault->gfn, KVM_PAGE_TRACK_WRITE))
+> +       if (kvm_slot_page_track_is_active(vcpu, fault->slot, fault->gfn, KVM_PAGE_TRACK_WRITE))
+>                 return true;
+>
+>         return false;
+> diff --git a/arch/x86/kvm/mmu/mmu_internal.h b/arch/x86/kvm/mmu/mmu_internal.h
+> index ac00bfbf32f6..38040ab27986 100644
+> --- a/arch/x86/kvm/mmu/mmu_internal.h
+> +++ b/arch/x86/kvm/mmu/mmu_internal.h
+> @@ -156,7 +156,8 @@ static inline bool kvm_mmu_page_ad_need_write_protect(struct kvm_mmu_page *sp)
+>         return kvm_x86_ops.cpu_dirty_log_size && sp->role.guest_mode;
+>  }
+>
+> -int mmu_try_to_unsync_pages(struct kvm *kvm, const struct kvm_memory_slot *slot,
+> +int mmu_try_to_unsync_pages(struct kvm_vcpu *vcpu,
+> +                           const struct kvm_memory_slot *slot,
+>                             gfn_t gfn, bool can_unsync, bool prefetch);
+>
+>  void kvm_mmu_gfn_disallow_lpage(const struct kvm_memory_slot *slot, gfn_t gfn);
+> diff --git a/arch/x86/kvm/mmu/page_track.c b/arch/x86/kvm/mmu/page_track.c
+> index 2e09d1b6249f..0e9bc837257e 100644
+> --- a/arch/x86/kvm/mmu/page_track.c
+> +++ b/arch/x86/kvm/mmu/page_track.c
+> @@ -18,6 +18,7 @@
+>
+>  #include "mmu.h"
+>  #include "mmu_internal.h"
+> +#include "smm.h"
+>
+>  bool kvm_page_track_write_tracking_enabled(struct kvm *kvm)
+>  {
+> @@ -171,27 +172,40 @@ void kvm_slot_page_track_remove_page(struct kvm *kvm,
+>  }
+>  EXPORT_SYMBOL_GPL(kvm_slot_page_track_remove_page);
+>
+> +static bool __kvm_slot_page_track_is_active(const struct kvm_memory_slot *slot,
+> +                                           gfn_t gfn, enum kvm_page_track_mode mode)
+> +{
+> +       int index;
+> +
+> +       if (!slot)
+> +               return false;
+> +
+> +       index = gfn_to_index(gfn, slot->base_gfn, PG_LEVEL_4K);
+> +       return !!READ_ONCE(slot->arch.gfn_track[mode][index]);
+> +}
+> +
+>  /*
+>   * check if the corresponding access on the specified guest page is tracked.
+>   */
+> -bool kvm_slot_page_track_is_active(struct kvm *kvm,
+> +bool kvm_slot_page_track_is_active(struct kvm_vcpu *vcpu,
+>                                    const struct kvm_memory_slot *slot,
+>                                    gfn_t gfn, enum kvm_page_track_mode mode)
+>  {
+> -       int index;
+> -
+>         if (WARN_ON(!page_track_mode_is_valid(mode)))
+>                 return false;
+>
+> -       if (!slot)
+> -               return false;
+> -
+>         if (mode == KVM_PAGE_TRACK_WRITE &&
+> -           !kvm_page_track_write_tracking_enabled(kvm))
+> +           !kvm_page_track_write_tracking_enabled(vcpu->kvm))
+>                 return false;
+>
+> -       index = gfn_to_index(gfn, slot->base_gfn, PG_LEVEL_4K);
+> -       return !!READ_ONCE(slot->arch.gfn_track[mode][index]);
+> +       if (__kvm_slot_page_track_is_active(slot, gfn, mode))
+> +               return true;
+> +
+> +       if (!is_smm(vcpu))
+> +               return false;
+> +
+> +       return __kvm_slot_page_track_is_active(gfn_to_memslot(vcpu->kvm, gfn),
+> +                                              gfn, mode);
+>  }
+>
+>  void kvm_page_track_cleanup(struct kvm *kvm)
+> diff --git a/arch/x86/kvm/mmu/spte.c b/arch/x86/kvm/mmu/spte.c
+> index c0fd7e049b4e..89ddd113c1b9 100644
+> --- a/arch/x86/kvm/mmu/spte.c
+> +++ b/arch/x86/kvm/mmu/spte.c
+> @@ -220,7 +220,7 @@ bool make_spte(struct kvm_vcpu *vcpu, struct kvm_mmu_page *sp,
+>                  * e.g. it's write-tracked (upper-level SPs) or has one or more
+>                  * shadow pages and unsync'ing pages is not allowed.
+>                  */
+> -               if (mmu_try_to_unsync_pages(vcpu->kvm, slot, gfn, can_unsync, prefetch)) {
+> +               if (mmu_try_to_unsync_pages(vcpu, slot, gfn, can_unsync, prefetch)) {
+>                         pgprintk("%s: found shadow page for %llx, marking ro\n",
+>                                  __func__, gfn);
+>                         wrprot = true;
+>
+> base-commit: e0ef1f14e97ff65adf6e2157952dbbd1e482065c
+> --
+>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
