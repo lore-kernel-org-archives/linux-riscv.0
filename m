@@ -4,83 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AAA3C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Dec 2022 19:54:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D123C4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Dec 2022 19:56:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=75n3MrBPL6/C5if1+Bfr2YXuVj3VZMJeK/USrHekmxo=; b=1Nia8DzElsJq8HY7hr6onQSaFv
-	2s3yvj7b2LqCxKH5MjcNwR9yQELGx7teUZJ49iIFIIsg7RQFQHyBPG/i909kM5AqU244iIZVMMS68
-	NCMBdkIk7ErW+o0aI8ZH9Q2B+4mV+dpfXD4vfLhKAmYhoNGZhjdlgCMAFwYxPnTiTmKdHGfCp5cqr
-	M3mNiwxvzOhTGPM6tnic7ScCDTvaReBtN6WwwQGB0PwPk/EP2Clo+uB6cDQeJY/x4WrrZqqZGmye3
-	mKXJ2/PqDpfyxHsSjefvQwazf8y5htVwBt1cQuBXfnS6htEHY+t+LPewDMEguqQE8TxA/bg3qkPuF
-	9JqAtXuQ==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=cfcltcRvFb42z+8KMxlhYDgMMW5nQ2snIOvsS9q6HrY=; b=LOM1MKjooVbhn9
+	6i5xwCkpNnQyvWM7dHDKYLtUib37E7XXUSOsa0248fR64e0bkY+oZGrtoQQnXKp49i98wXNucXmPv
+	Ru3qtLjCz7DvIEB6iLMcTAolEgYHm6PwUKGiS1NOHBrp7WRQDxRoLD4EZm8dDf3Wg1D3EtlrEyko8
+	zuUIuonibiVQvQJiQyXz3CRpWn3rZpzh2VRSXhnDwd8l5ErlDJeu28+x6quEtZ08rJqlBqHk1W8Cq
+	MV3xO2FuGKrRBCc/4SLVbxpEvtg3Sblsnn0x8lvsN/XCu8hPfII3ZE0oV1V+kaDW+FE293aMhkLok
+	UmWOZwQqaEGB0euqbHuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p5uJS-00B8xI-3n; Thu, 15 Dec 2022 19:54:38 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1p5uL4-00B9Dg-Fw; Thu, 15 Dec 2022 19:56:18 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p5uJP-00B8wm-Dp
-	for linux-riscv@lists.infradead.org; Thu, 15 Dec 2022 19:54:37 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 1952461CFD;
-	Thu, 15 Dec 2022 19:54:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2ECD6C433D2;
-	Thu, 15 Dec 2022 19:54:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1671134073;
-	bh=ckwM35u8cerjGpaLFMeUOx5oE039VsBuJcmMfvvst9M=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=G5nG8iDiZZuL2LPrGytvdfukZKf6P+anpailBuQ2RRlomnbwKP+iuRcgbMAjDaSsZ
-	 v8H3ps4EkdRv2ZquX1bNFPrC8kaeco1orJN/B3yMplh3DxPMZ2HkNDGFARv0/Izfcj
-	 Vi16eeEnv9hEEqR+JxmkmSwNd/c/LmmivxUKsMfz58tumfW4VfNIpSXlTNKmzt7aek
-	 Cdx5IgGdeYC4LCL+D4DDrxnSUjbohaMSRunzR16AG08fp5JK9EEcixMZxdyCVH98qF
-	 c7QKZqBRNVW7aFNhbzk7vS/RonObdL3qV3FaR6fItN6zFcPlD+K2iNvI4nRGX/HeSv
-	 PkFUBafkFo9Zw==
-Date: Thu, 15 Dec 2022 19:54:19 +0000
-From: Conor Dooley <conor@kernel.org>
-To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>, palmer@dabbelt.com,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Arnd Bergmann <arnd@arndb.de>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Samuel Holland <samuel@sholland.org>, Guo Ren <guoren@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Atish Patra <atishp@rivosinc.com>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Philipp Tomsich <philipp.tomsich@vrull.eu>,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: Re: [PATCH v5 6/6] soc: renesas: Add L2 cache management for RZ/Five
- SoC
-Message-ID: <Y5t7a2oZ64McjSSn@dizzy>
-References: <20221212115505.36770-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20221212115505.36770-7-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <CAMuHMdUCkCyLOXbQEJyc7S2F08=ftNtPcEztRN3JWJv_FPmAVw@mail.gmail.com>
- <CA+V-a8vD=SOb6gPOwdPUE=kHeqa+oo2L-rbaW8zGjvw7YyQsqg@mail.gmail.com>
- <CAMuHMdWX4Yd52=Jv8kABtn+1B1V=dC2iXVZ81gNZBWNu4hb_3w@mail.gmail.com>
- <CA+V-a8t3+zzQ4yPftsAa51rkMGHr45NhMO4_2WmZ9BGg0wuQvw@mail.gmail.com>
+	id 1p5uL2-00B9D3-1w
+	for linux-riscv@lists.infradead.org; Thu, 15 Dec 2022 19:56:17 +0000
+Received: by mail-pl1-x630.google.com with SMTP id s7so102933plk.5
+        for <linux-riscv@lists.infradead.org>; Thu, 15 Dec 2022 11:56:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=it0uTRBQhUXDracpaZxA5Z7G29uVq/1PiUNU//RAySE=;
+        b=LeUibo5bBRVt9ARvHtnOzL8dVYOmkno+cXXhc8T9DGWnTtVq4uo3scjYpgTfG5ZZZf
+         PmxQNmQQ0XTPF6MNXh4pYdHI400ISfgkAfc7pTj5cLsBDUR5nhpNPKDZRr7VdpbK0O2A
+         wqfukHETveeeWyb3yUTQag7RQ/lo3X93LVksk6Qitd/KuIzmEt5CPWWshugflKYneENG
+         EepsGWVPtd27YsuuBCsDnxAydFwcfktBhmI1Yxrx7ExrzLMX6YulPeIWjKY1D1pHDxyX
+         TCZPIr0QvlffQqRoATrQxulIn3rFFPTc27c5DEuwNQfpJTvB9EBwa7tHxautBdVex/Re
+         J6Rg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=it0uTRBQhUXDracpaZxA5Z7G29uVq/1PiUNU//RAySE=;
+        b=dbKyexOWu1guYTgGi0tAPsSG8HGywzJR0EB0s8YwsbPwNveVpuZzQQQQWItx0tZjFD
+         gRSfXNxUA1wWVIvNDLfQLRtb+MAftE8/DTGSEVXUo3TnZnFYKgHL/ZxbTD/+FxLdnKqI
+         R+U/81/WhqXeaPCkTyzZVwn6qY7+hByVoBpuCLHDw8QlvTnEpzwp6+RpgwA0tV+OuJM9
+         +prPT1gv/hEmE8WorXc/Mw8wSrKVA7kbRs4uiIkSPWQKxwZQatnhSNNtpzzuztlxqLZ/
+         E3Wu/v14WO5rNN+Xk8OG3Oxx7OyI6Y+eHE9oeFJXxqkERAqnN+E8Z3bC4T80OKPgG/4o
+         IR3Q==
+X-Gm-Message-State: ANoB5plCLZy0bYtNZCtW549juDyGvjjmhEK0GemWEFbMh0Y6orkSfZuX
+	XpR53MDv/i7b2HW/Rh7iVQUBgnrb2FUBXiHp
+X-Google-Smtp-Source: AA0mqf6LDsbWUosYATxNBqxNJIgG35kSDFZiFI0WxSYWYNDRcvMizdUBYVJf30FbwMW6NQPmjtfQSQ==
+X-Received: by 2002:a17:902:b708:b0:189:9dca:65e1 with SMTP id d8-20020a170902b70800b001899dca65e1mr26955860pls.21.1671134175155;
+        Thu, 15 Dec 2022 11:56:15 -0800 (PST)
+Received: from ?IPV6:2602:47:d48c:8101:a80f:54a1:edc3:6cb4? ([2602:47:d48c:8101:a80f:54a1:edc3:6cb4])
+        by smtp.gmail.com with ESMTPSA id f15-20020a170902684f00b00182d25a1e4bsm7816pln.259.2022.12.15.11.56.13
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 15 Dec 2022 11:56:14 -0800 (PST)
+Message-ID: <37dbef55-fd78-91db-33fb-ca1691fe1cc6@linaro.org>
+Date: Thu, 15 Dec 2022 11:56:12 -0800
 MIME-Version: 1.0
-In-Reply-To: <CA+V-a8t3+zzQ4yPftsAa51rkMGHr45NhMO4_2WmZ9BGg0wuQvw@mail.gmail.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.4.2
+Subject: Re: RISCV Vector unit disabled by default for new task (was Re:
+ [PATCH v12 17/17] riscv: prctl to enable vector commands)
+Content-Language: en-US
+To: Vineet Gupta <vineetg@rivosinc.com>, Florian Weimer <fweimer@redhat.com>,
+ =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+Cc: Darius Rad <darius@bluespec.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Andrew Waterman <andrew@sifive.com>, stillson@rivosinc.com,
+ Paul Walmsley <paul.walmsley@sifive.com>, anup@brainfault.org,
+ atishp@atishpatra.org, guoren@kernel.org,
+ Conor Dooley <conor.dooley@microchip.com>, greentime.hu@sifive.com,
+ vincent.chen@sifive.com, andy.chiu@sifive.com, arnd@kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ libc-alpha@sourceware.org, christoph.muellner@vrull.eu,
+ Aaron Durbin <adurbin@rivosinc.com>, linux@rivosinc.com
+References: <mhng-975b1d7b-7b3f-4e88-804c-8b22787f9588@palmer-ri-x1c9>
+ <e9cf13a9-561a-3438-00f0-41fe2631888d@rivosinc.com>
+ <Y5irn63DQkwumfvW@bruce.bluespec.com>
+ <8fe9cfaf-2cbc-8de6-3928-067de9113bfc@rivosinc.com>
+ <Y5qByfCtpV0uNID3@bruce.bluespec.com>
+ <877cysx4yf.fsf@all.your.base.are.belong.to.us>
+ <87h6xwdf5g.fsf@oldenburg.str.redhat.com>
+ <24a1a812-95a9-ed97-abd1-c0ff259726d2@linaro.org>
+ <15d902d0-4492-f828-7147-164319d741f9@rivosinc.com>
+From: Richard Henderson <richard.henderson@linaro.org>
+In-Reply-To: <15d902d0-4492-f828-7147-164319d741f9@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221215_115435_588895_019DC22D 
-X-CRM114-Status: GOOD (  41.08  )
+X-CRM114-CacheID: sfid-20221215_115616_133372_E5AC0957 
+X-CRM114-Status: UNSURE (   9.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,169 +105,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0376095466772734004=="
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============0376095466772734004==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="6r5CB1uLC9RYX2o6"
-Content-Disposition: inline
-
-
---6r5CB1uLC9RYX2o6
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Dec 15, 2022 at 05:46:42PM +0000, Lad, Prabhakar wrote:
-> Hi Geert,
->=20
-> On Thu, Dec 15, 2022 at 11:10 AM Geert Uytterhoeven
-> <geert@linux-m68k.org> wrote:
-> >
-> > Hi Prabhakar,
-> >
-> > On Thu, Dec 15, 2022 at 12:06 PM Lad, Prabhakar
-> > <prabhakar.csengg@gmail.com> wrote:
-> > > On Thu, Dec 15, 2022 at 10:36 AM Geert Uytterhoeven
-> > > <geert@linux-m68k.org> wrote:
-> > > > On Mon, Dec 12, 2022 at 12:58 PM Prabhakar <prabhakar.csengg@gmail.=
-com> wrote:
-> > > > > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> > > > >
-> > > > > I/O Coherence Port (IOCP) provides an AXI interface for connecting
-> > > > > external non-caching masters, such as DMA controllers. The access=
-es
-> > > > > from IOCP are coherent with D-Caches and L2 Cache.
-> > > > >
-> > > > > IOCP is a specification option and is disabled on the Renesas RZ/=
-Five
-> > > > > SoC due to this reason IP blocks using DMA will fail.
-> > > > >
-> > > > > The Andes AX45MP core has a Programmable Physical Memory Attribut=
-es (PMA)
-> > > > > block that allows dynamic adjustment of memory attributes in the =
-runtime.
-> > > > > It contains a configurable amount of PMA entries implemented as C=
-SR
-> > > > > registers to control the attributes of memory locations in intere=
-st.
-> > > > > Below are the memory attributes supported:
-> > > > > * Device, Non-bufferable
-> > > > > * Device, bufferable
-> > > > > * Memory, Non-cacheable, Non-bufferable
-> > > > > * Memory, Non-cacheable, Bufferable
-> > > > > * Memory, Write-back, No-allocate
-> > > > > * Memory, Write-back, Read-allocate
-> > > > > * Memory, Write-back, Write-allocate
-> > > > > * Memory, Write-back, Read and Write-allocate
-> > > > >
-> > > > > More info about PMA (section 10.3):
-> > > > > Link: http://www.andestech.com/wp-content/uploads/AX45MP-1C-Rev.-=
-5.0.0-Datasheet.pdf
-> > > > >
-> > > > > As a workaround for SoCs with IOCP disabled CMO needs to be handl=
-ed by
-> > > > > software. Firstly OpenSBI configures the memory region as
-> > > > > "Memory, Non-cacheable, Bufferable" and passes this region as a g=
-lobal
-> > > > > shared dma pool as a DT node. With DMA_GLOBAL_POOL enabled all DMA
-> > > > > allocations happen from this region and synchronization callbacks=
- are
-> > > > > implemented to synchronize when doing DMA transactions.
-> > > > >
-> > > > > Example PMA region passes as a DT node from OpenSBI:
-> > > > >     reserved-memory {
-> > > > >         #address-cells =3D <2>;
-> > > > >         #size-cells =3D <2>;
-> > > > >         ranges;
-> > > > >
-> > > > >         pma_resv0@58000000 {
-> > > > >             compatible =3D "shared-dma-pool";
-> > > > >             reg =3D <0x0 0x58000000 0x0 0x08000000>;
-> > > > >             no-map;
-> > > > >             linux,dma-default;
-> > > > >         };
-> > > > >     };
-> > > > >
-> > > > > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas=
-=2Ecom>
-> > > >
-> > > > Thanks for your patch!
-> > > >
-> > > > >  arch/riscv/include/asm/cacheflush.h       |   8 +
-> > > > >  arch/riscv/include/asm/errata_list.h      |  28 ++-
-> > > > >  drivers/soc/renesas/Kconfig               |   6 +
-> > > > >  drivers/soc/renesas/Makefile              |   2 +
-> > > > >  drivers/soc/renesas/rzfive/Kconfig        |   6 +
-> > > > >  drivers/soc/renesas/rzfive/Makefile       |   3 +
-> > > > >  drivers/soc/renesas/rzfive/ax45mp_cache.c | 256 ++++++++++++++++=
-++++++
-> > > >
-> > > > Given this touches arch/riscv/include/asm/, I don't think the
-> > > > code belongs under drivers/soc/renesas/.
-> > > >
-> > > Ok. Do you have any suggestions on where you want me to put this code?
-> >
-> > As it plugs into core riscv functionality, I think it should be under
-> > arch/riscv/.
-> > if the RISC-V maintainers object to that, another option is
-> > drivers/soc/andestech/ or (new) drivers/cache/
-> >
-> RISC-V maintainers had already made it clear to not to include vendor
-> specific stuff in the arch/riscv folder, so I'll consider putting this
-> into drivers/cache/ folder to sync with the bindings.
->=20
-> Conor/Palmer - do you have any objections/suggestions?
-
-I'm not its maintainer so sorta moot what I say, but having drivers in
-arch/riscv makes little sense to me..
-Putting stuff in drivers/cache does sound like a good idea since the
-binding is going there too.
-
-The SiFive ccache driver is in drivers/soc and it was suggested to me
-this week that there's likely going to be a second SiFive cache driver
-at some point in the near future. Plus Microchip are going to have to
-add cache management stuff to the existing SiFive ccache driver.
-Having them be their own thing makes sense in my mind - especially since
-they're not tied to SoCs sold by Andes or SiFive.
-
-I had a quick, and I mean *quick* look through other soc drivers to see
-if there were any other cache controller drivers but nothing stood out
-to me. Maybe someone else has more of a clue there. Ditto for misc, had
-a look but nothing seemed obvious.
-
-If we do do drivers/cache & move the SiFive stuff there too, someone
-needs to look after it. I guess I can if noone else feels strongly
-since I seem to be the Responsible Adult for the SiFive ones already?
-
-
---6r5CB1uLC9RYX2o6
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY5t7ZgAKCRB4tDGHoIJi
-0rnuAP9U0I47Qq0z4SYHsxpLE2Y+u93t5qPUcXHSNlAx4Z7qGgD9HPx/YrpFO71+
-sRuKb85le8iGHUV440lqpw1Yckpveg8=
-=8usm
------END PGP SIGNATURE-----
-
---6r5CB1uLC9RYX2o6--
-
-
---===============0376095466772734004==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0376095466772734004==--
-
+T24gMTIvMTUvMjIgMTA6NTcsIFZpbmVldCBHdXB0YSB3cm90ZToKPj4gVGhlIG90aGVyIHRoaW5n
+IG9mIG5vdGUgZm9yIFNWRSBpcyB0aGF0LCB3aXRoIHRoZSBkZWZhdWx0IGZ1bmN0aW9uIEFCSSBh
+bGwgb2YgdGhlIFNWRSAKPj4gc3RhdGUgaXMgY2FsbC1jbG9iYmVyZWQsIHdoaWNoIGFsbG93cyB0
+aGUga2VybmVsIHRvIGRyb3AgaW5zdGVhZCBvZiBzYXZlIHN0YXRlIGFjcm9zcyAKPj4gc3lzdGVt
+IGNhbGxzLsKgIChUaGVyZSBpcyBhIHNlcGFyYXRlIHZlY3RvciBmdW5jdGlvbiBjYWxsIEFCSSB3
+aGVuIFNWRSB0eXBlcyBhcmUgdXNlZC4pCj4gCj4gRm9yIHRoZSBSViBwc0FCSSwgaXQgaXMgc2lt
+aWxhciAtIGFsbCBWIHJlZ3MgYXJlIGNhbGxlci1zYXZlZC9jYWxsLWNsb2JiZXJlZCBbMV0gYW5k
+IAo+IHN5c2NhbGxzIGFyZSBub3QgcmVxdWlyZWQgdG8gcHJlc2VydmUgViByZWdzIFsyXQo+IEhv
+d2V2ZXIgbGFzdCBJIGNoZWNrZWQgQVJNIGRvY3VtZW50YXRpb24gdGhlIEFCSSBkb2Mgc2VlbWVk
+IHRvIHN1Z2dlc3QgdGhhdCBzb21lIChwYXJ0cykgCj4gb2YgdGhlIFNWRSByZWdzIGFyZSBjYWxs
+ZWUtc2F2ZWQgWzNdCgpBcyBQaW5za2kgbWVudGlvbmVkLCBqdXN0IHNvbWUgbG93IGJpdHMgdGhh
+dCBvdmVybGFwIHdpdGggc2NhbGFyIGZwIHN0YXRlOyB0aGUgaGlnaCBiaXRzIAphbmQgdGhlIHBy
+ZWRpY2F0ZSByZWdpc3RlcnMgZ2V0cyB6ZXJvZWQgd2hlbiByZS1lbmFibGluZy4KCgo+PiBTbyB3
+aGlsZSBzdHJjcHkgbWF5IGVuYWJsZSBTVkUgZm9yIHRoZSB0aHJlYWQsIHRoZSBuZXh0IHN5c2Nh
+bGwgbWF5IGRpc2FibGUgaXQgYWdhaW4uCj4gCj4gTmV4dCBzeXNjYWxsIGNvdWxkIHRyYXNoIHRo
+ZW0sIGJ1dCB3aWxsIGl0IGRpc2FibGUgU1ZFID8KClllcy4gIFNlZSBmcF91c2VyX2Rpc2NhcmQo
+KSBpbiBhcmNoL2FybTY0L2tlcm5lbC9zeXNjYWxsLmMuCgoKcn4KCl9fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAps
+aW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
+L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
