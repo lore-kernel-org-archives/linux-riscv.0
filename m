@@ -4,84 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 813E4C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Dec 2022 17:47:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A0F1C4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Dec 2022 18:16:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LQQjV7cfkDPDUeBvlZX9r46SvQe0pzIsIZqgfXgQKVY=; b=iOvqElwWYMJtzQ
-	q2LWNxikpCSdR9AQQO3m+VK/bvIMkuRrHNmz8cDLTJefILrZszIi/WvuxbYwCRRxw+PEs2V6KqdrP
-	am1fOZsmk0Uc8opvP/QSf5z9nJOiSPOyyWM7Jk/1Q9PtSlirnI9OESE1hrBCwzl4KsqQz0EiNO1Kk
-	ZmCyTzPXhpbzmnpk5RCZ1nreuRN+N6bR9fZitTbkddB2v0uUaE5rhrmDmVB+Au66ynPj6wtEFHmv/
-	OVUcMXO61E+/blzVtjO2J5SiFkXCoWbLg/r+QYzTTFtq5S+6A7LREHY+p3TVHXOLAR4jDV9uVtwcN
-	0oN6Mx8nV/2SlQbb8bwA==;
+	List-Owner; bh=vvCsuj3ViEWLBNXdZsVQ+XciuIhHkWz4Zmmb+YT1fwU=; b=zAL5vpgPf9z9Lh
+	Qy/UBM4QTd1/Z1rIB/azbw/P7Aef/IjLGYsS5AfyZS6Nkz0JDq04pkdTh314rQTd4AQa7/RWISudt
+	5lH8V9ooSTYJjlU2efGI3SrisgGx3qUanQQoIuhbgCwP7GTYZoltA9f7slsV+8Ru+ECiP+GzczSFF
+	7S7eFHk5J6Mfnz953GpmWGhw60nwH6mLx4YVh/7auZwuRzUWboooi03hYylei2WhMtNkZi1TKbU/h
+	EhMoNlP+d5nF0eeXtigwLFQKWEuWJ8EITtjmKdmveqA0rvwGGgCMobBQGFAepMn0nf5aucU9xdrP2
+	iwjpATw6Jdgmkft/XQhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p5sKB-00AfIm-QR; Thu, 15 Dec 2022 17:47:15 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1p5smH-00An5a-DQ; Thu, 15 Dec 2022 18:16:17 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p5sK8-00AfEm-7Z
-	for linux-riscv@lists.infradead.org; Thu, 15 Dec 2022 17:47:14 +0000
-Received: by mail-ej1-x636.google.com with SMTP id x22so275648ejs.11
-        for <linux-riscv@lists.infradead.org>; Thu, 15 Dec 2022 09:47:10 -0800 (PST)
+	id 1p5rbj-00ARTt-D1
+	for linux-riscv@lists.infradead.org; Thu, 15 Dec 2022 17:01:22 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id n4so3844037plp.1
+        for <linux-riscv@lists.infradead.org>; Thu, 15 Dec 2022 09:01:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=JGmgZEJwFGxq+tUJYcXII0yBmtBtW32bwyy/70MdbiY=;
-        b=YOKNh+N1K5reV2/yMC6/eEnoXA9e6b9OgVDEXlpOrSbPbyepO1oL6L/45xFN+iNcOQ
-         TTi0gzamLrcbQqkbJnrNUXD+kRoEtCiJKIu8ggiMfz9J2dNjSTBjtSDuB6hPUpng/CEZ
-         F7xAld01tAikhNvW3MuNYhf9DrVEOOoJpGQ61tvqryod7tg3DDYEOni2a+EajvIAqTx/
-         Pwx5kE6SOP3s3VZ1f2EMBUhx5BU3EbfaCxnPUhsh/ofoG1eQK4hiSCk9nbQV2YbspWNX
-         DBSRTagf8xzNGNC3IuaKbncnc35lIjcUrwmVFz8qFA0ok2ius5Jv36EHAIOk8zIwfnMw
-         jeRA==
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=TA398QcoRw04Vi1tCToQyhK2GccVMIkF9itdIbQrjzg=;
+        b=iCBFE98jjH1B+jWMupgkTrrpBiqryRet5vyKfU7xYz2IrRVevL7rN4/R8A1XGxSdrD
+         S7lP75oLwz8r/CmXjPNMEcn116Bp8Pph6YlSIDoJD9xM/0Y5fCGJ7RDpT5PS4h43v3Az
+         sUmCxrLeGrYguKN7cGHsUksEb4w8uhufJikxuzvkuL7Jhdbrlz/I0lAFSnrI5/aNNVF7
+         tDv74BKoI3m1btLXcPGMdCgjwWFcXVingmbKafWVyv6c4LUftSPSXRnkHh87ucAMEApM
+         ijBLm3eRnw77G8KAHXEW91Fcfhvz+E/HTZKoachHXH/vKtbBaoUYsA3VwkLs26TGRH2j
+         nexw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=JGmgZEJwFGxq+tUJYcXII0yBmtBtW32bwyy/70MdbiY=;
-        b=c7gjgPKcfZ9kGaezBI74sQMCVz5uUOgzrjHOdeZmFMg8nPkyhgG4XeOT7MyCgVa1PJ
-         vqqt/tRO3E8p5w7IanmyONoZR1b7XTO6cjn1b5uQ1KduajHRdhJCnhPKtpx2d0rowoQH
-         LX+rZ8opyuCw8gbonF2fV99P8jD54OdMXvFsWNEZK87Wt5ehuoVJIKNIbzCR638MIOBh
-         9iqJT2L1TxKka0Kd7bWohY++RFt4Z/lqcvGe8ooySUDH6vmK1dDOAudqUZV8YCcKol/m
-         dOY0zLfLwkls9VPWmmKKgS7H7aJZ387a6E7DazIZKIFgLvjukPZlFrbvRUUOsGwPkAj8
-         gkEg==
-X-Gm-Message-State: ANoB5pnyDOIoBm7GU2nwGOEkl4HocdPP7Muu5G7IJbhequGpkKM6hfV3
-	lHnjbo5XyW+Yc83zu7LJj7DBcYAWTTWJckOsVsw=
-X-Google-Smtp-Source: AA0mqf7zOOrpIm6ljuWR+UTfR7djRoUjzyIcU1ELgsZnq2JH4S9ddusWL3TvOqNxvdRw1SO4g2Txe60hnnWLZ30C1jg=
-X-Received: by 2002:a17:906:9615:b0:7c0:f459:a0e4 with SMTP id
- s21-20020a170906961500b007c0f459a0e4mr15336359ejx.155.1671126428687; Thu, 15
- Dec 2022 09:47:08 -0800 (PST)
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=TA398QcoRw04Vi1tCToQyhK2GccVMIkF9itdIbQrjzg=;
+        b=lfgD7AY0b/y1ONNuJ72MKCyPrl3HQfmQtWnYAqo4uHMySKYze7jMBIe7PbwKOVXyT/
+         rxMsQwNLAm23louBFdYxuUhu7/CGON50sI/d9TbkwvT4Eno/PdWdHTfumgAAOUCj1bpZ
+         JX6TDhrUkf6yag9RrWuKINLBZGnrx32elRjMgR9yCd/4K1h4eSA2AAR4nbLoG/oD087x
+         gt5brlAaJsjJPEX45eJvPLOLWGJmeBLM7VgWAKwuEyy3RAu6Hb3XcKoI9C8lwia0kxsg
+         bq+5wL+8KNNjxKIbw+X/ATNH+3RqpUWOBjXJIIaWUlxCvmstcyolLb3n17IPJDRaHUn4
+         LDSg==
+X-Gm-Message-State: ANoB5pkAQX60aFqjge0PwdmHk6nWQ+Ceg1vQMVlZlFRepbrBl9tKSa92
+	uCAvYPj6/eLgbFBg2uokHzyWCg==
+X-Google-Smtp-Source: AA0mqf47OVooaAtiLeQdMDJXJiy7Bs5Hr2tNJlG8coYqXqFyYi7GgQGyDqsU+jYbG5rwf3pgYZ6MqQ==
+X-Received: by 2002:a17:903:2448:b0:189:f277:3830 with SMTP id l8-20020a170903244800b00189f2773830mr43509522pls.68.1671123677816;
+        Thu, 15 Dec 2022 09:01:17 -0800 (PST)
+Received: from atishp.ba.rivosinc.com ([66.220.2.162])
+        by smtp.gmail.com with ESMTPSA id p10-20020a170902780a00b001897bfc9800sm4067449pll.53.2022.12.15.09.01.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 15 Dec 2022 09:01:17 -0800 (PST)
+From: Atish Patra <atishp@rivosinc.com>
+To: linux-kernel@vger.kernel.org
+Cc: Atish Patra <atishp@rivosinc.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Guo Ren <guoren@kernel.org>,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Sergey Matyukevich <sergey.matyukevich@syntacore.com>,
+	Eric Lin <eric.lin@sifive.com>,
+	Will Deacon <will@kernel.org>
+Subject: [PATCH v2 05/11] RISC-V: KVM: Improve privilege mode filtering for perf
+Date: Thu, 15 Dec 2022 09:00:40 -0800
+Message-Id: <20221215170046.2010255-6-atishp@rivosinc.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20221215170046.2010255-1-atishp@rivosinc.com>
+References: <20221215170046.2010255-1-atishp@rivosinc.com>
 MIME-Version: 1.0
-References: <20221212115505.36770-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20221212115505.36770-7-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <CAMuHMdUCkCyLOXbQEJyc7S2F08=ftNtPcEztRN3JWJv_FPmAVw@mail.gmail.com>
- <CA+V-a8vD=SOb6gPOwdPUE=kHeqa+oo2L-rbaW8zGjvw7YyQsqg@mail.gmail.com> <CAMuHMdWX4Yd52=Jv8kABtn+1B1V=dC2iXVZ81gNZBWNu4hb_3w@mail.gmail.com>
-In-Reply-To: <CAMuHMdWX4Yd52=Jv8kABtn+1B1V=dC2iXVZ81gNZBWNu4hb_3w@mail.gmail.com>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Thu, 15 Dec 2022 17:46:42 +0000
-Message-ID: <CA+V-a8t3+zzQ4yPftsAa51rkMGHr45NhMO4_2WmZ9BGg0wuQvw@mail.gmail.com>
-Subject: Re: [PATCH v5 6/6] soc: renesas: Add L2 cache management for RZ/Five SoC
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Magnus Damm <magnus.damm@gmail.com>, 
-	Heiko Stuebner <heiko@sntech.de>, Conor Dooley <conor.dooley@microchip.com>, 
-	Samuel Holland <samuel@sholland.org>, Guo Ren <guoren@kernel.org>, 
-	Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Jisheng Zhang <jszhang@kernel.org>, 
-	Atish Patra <atishp@rivosinc.com>, Anup Patel <apatel@ventanamicro.com>, 
-	Andrew Jones <ajones@ventanamicro.com>, Nathan Chancellor <nathan@kernel.org>, 
-	Philipp Tomsich <philipp.tomsich@vrull.eu>, devicetree@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221215_094712_338020_2DC856FD 
-X-CRM114-Status: GOOD (  29.11  )
+X-CRM114-CacheID: sfid-20221215_090119_463157_65E15B77 
+X-CRM114-Status: GOOD (  14.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,95 +102,82 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Geert,
+Currently, the host driver doesn't have any method to identify if the
+requested perf event is from kvm or bare metal. As KVM runs in HS
+mode, there are no separate hypervisor privilege mode to distinguish
+between the attributes for guest/host.
 
-On Thu, Dec 15, 2022 at 11:10 AM Geert Uytterhoeven
-<geert@linux-m68k.org> wrote:
->
-> Hi Prabhakar,
->
-> On Thu, Dec 15, 2022 at 12:06 PM Lad, Prabhakar
-> <prabhakar.csengg@gmail.com> wrote:
-> > On Thu, Dec 15, 2022 at 10:36 AM Geert Uytterhoeven
-> > <geert@linux-m68k.org> wrote:
-> > > On Mon, Dec 12, 2022 at 12:58 PM Prabhakar <prabhakar.csengg@gmail.com> wrote:
-> > > > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> > > >
-> > > > I/O Coherence Port (IOCP) provides an AXI interface for connecting
-> > > > external non-caching masters, such as DMA controllers. The accesses
-> > > > from IOCP are coherent with D-Caches and L2 Cache.
-> > > >
-> > > > IOCP is a specification option and is disabled on the Renesas RZ/Five
-> > > > SoC due to this reason IP blocks using DMA will fail.
-> > > >
-> > > > The Andes AX45MP core has a Programmable Physical Memory Attributes (PMA)
-> > > > block that allows dynamic adjustment of memory attributes in the runtime.
-> > > > It contains a configurable amount of PMA entries implemented as CSR
-> > > > registers to control the attributes of memory locations in interest.
-> > > > Below are the memory attributes supported:
-> > > > * Device, Non-bufferable
-> > > > * Device, bufferable
-> > > > * Memory, Non-cacheable, Non-bufferable
-> > > > * Memory, Non-cacheable, Bufferable
-> > > > * Memory, Write-back, No-allocate
-> > > > * Memory, Write-back, Read-allocate
-> > > > * Memory, Write-back, Write-allocate
-> > > > * Memory, Write-back, Read and Write-allocate
-> > > >
-> > > > More info about PMA (section 10.3):
-> > > > Link: http://www.andestech.com/wp-content/uploads/AX45MP-1C-Rev.-5.0.0-Datasheet.pdf
-> > > >
-> > > > As a workaround for SoCs with IOCP disabled CMO needs to be handled by
-> > > > software. Firstly OpenSBI configures the memory region as
-> > > > "Memory, Non-cacheable, Bufferable" and passes this region as a global
-> > > > shared dma pool as a DT node. With DMA_GLOBAL_POOL enabled all DMA
-> > > > allocations happen from this region and synchronization callbacks are
-> > > > implemented to synchronize when doing DMA transactions.
-> > > >
-> > > > Example PMA region passes as a DT node from OpenSBI:
-> > > >     reserved-memory {
-> > > >         #address-cells = <2>;
-> > > >         #size-cells = <2>;
-> > > >         ranges;
-> > > >
-> > > >         pma_resv0@58000000 {
-> > > >             compatible = "shared-dma-pool";
-> > > >             reg = <0x0 0x58000000 0x0 0x08000000>;
-> > > >             no-map;
-> > > >             linux,dma-default;
-> > > >         };
-> > > >     };
-> > > >
-> > > > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> > >
-> > > Thanks for your patch!
-> > >
-> > > >  arch/riscv/include/asm/cacheflush.h       |   8 +
-> > > >  arch/riscv/include/asm/errata_list.h      |  28 ++-
-> > > >  drivers/soc/renesas/Kconfig               |   6 +
-> > > >  drivers/soc/renesas/Makefile              |   2 +
-> > > >  drivers/soc/renesas/rzfive/Kconfig        |   6 +
-> > > >  drivers/soc/renesas/rzfive/Makefile       |   3 +
-> > > >  drivers/soc/renesas/rzfive/ax45mp_cache.c | 256 ++++++++++++++++++++++
-> > >
-> > > Given this touches arch/riscv/include/asm/, I don't think the
-> > > code belongs under drivers/soc/renesas/.
-> > >
-> > Ok. Do you have any suggestions on where you want me to put this code?
->
-> As it plugs into core riscv functionality, I think it should be under
-> arch/riscv/.
-> if the RISC-V maintainers object to that, another option is
-> drivers/soc/andestech/ or (new) drivers/cache/
->
-RISC-V maintainers had already made it clear to not to include vendor
-specific stuff in the arch/riscv folder, so I'll consider putting this
-into drivers/cache/ folder to sync with the bindings.
+Improve the privilege mode filtering by using the event specific
+config1 field.
 
-Conor/Palmer - do you have any objections/suggestions?
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+Signed-off-by: Atish Patra <atishp@rivosinc.com>
+---
+ drivers/perf/riscv_pmu_sbi.c   | 27 ++++++++++++++++++++++-----
+ include/linux/perf/riscv_pmu.h |  2 ++
+ 2 files changed, 24 insertions(+), 5 deletions(-)
 
-Cheers,
-Prabhakar
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index 65d4aa4..df795b7 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -298,6 +298,27 @@ int riscv_pmu_get_hpm_info(u32 *hw_ctr_width, u32 *num_hw_ctr)
+ }
+ EXPORT_SYMBOL(riscv_pmu_get_hpm_info);
+ 
++static unsigned long pmu_sbi_get_filter_flags(struct perf_event *event)
++{
++	unsigned long cflags = 0;
++	bool guest_events = false;
++
++	if (event->attr.config1 & RISCV_KVM_PMU_CONFIG1_GUEST_EVENTS)
++		guest_events = true;
++	if (event->attr.exclude_kernel)
++		cflags |= guest_events ? SBI_PMU_CFG_FLAG_SET_VSINH : SBI_PMU_CFG_FLAG_SET_SINH;
++	if (event->attr.exclude_user)
++		cflags |= guest_events ? SBI_PMU_CFG_FLAG_SET_VUINH : SBI_PMU_CFG_FLAG_SET_UINH;
++	if (guest_events && event->attr.exclude_hv)
++		cflags |= SBI_PMU_CFG_FLAG_SET_SINH;
++	if (event->attr.exclude_host)
++		cflags |= SBI_PMU_CFG_FLAG_SET_UINH | SBI_PMU_CFG_FLAG_SET_SINH;
++	if (event->attr.exclude_guest)
++		cflags |= SBI_PMU_CFG_FLAG_SET_VSINH | SBI_PMU_CFG_FLAG_SET_VUINH;
++
++	return cflags;
++}
++
+ static int pmu_sbi_ctr_get_idx(struct perf_event *event)
+ {
+ 	struct hw_perf_event *hwc = &event->hw;
+@@ -308,11 +329,7 @@ static int pmu_sbi_ctr_get_idx(struct perf_event *event)
+ 	uint64_t cbase = 0;
+ 	unsigned long cflags = 0;
+ 
+-	if (event->attr.exclude_kernel)
+-		cflags |= SBI_PMU_CFG_FLAG_SET_SINH;
+-	if (event->attr.exclude_user)
+-		cflags |= SBI_PMU_CFG_FLAG_SET_UINH;
+-
++	cflags = pmu_sbi_get_filter_flags(event);
+ 	/* retrieve the available counter index */
+ #if defined(CONFIG_32BIT)
+ 	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_CFG_MATCH, cbase,
+diff --git a/include/linux/perf/riscv_pmu.h b/include/linux/perf/riscv_pmu.h
+index a1c3f77..1c42146 100644
+--- a/include/linux/perf/riscv_pmu.h
++++ b/include/linux/perf/riscv_pmu.h
+@@ -26,6 +26,8 @@
+ 
+ #define RISCV_PMU_STOP_FLAG_RESET 1
+ 
++#define RISCV_KVM_PMU_CONFIG1_GUEST_EVENTS 0x1
++
+ struct cpu_hw_events {
+ 	/* currently enabled events */
+ 	int			n_events;
+-- 
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
