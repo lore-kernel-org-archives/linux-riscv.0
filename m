@@ -4,30 +4,30 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEA7AC4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Dec 2022 06:21:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2E10C001B2
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Dec 2022 06:21:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=KkWB9X/ilBj1r2ZoeCv7AMbKvI96u6APC9FT2oG0+CU=; b=ZiHCxui9UBiaeR
-	JJOgzvnQb7bd9yqncl/kJS3DS/S1QkZsSQ1czc4rcLNcvi792hmCh/vteajgrHs9TMFSk4IGfyLZg
-	+OTJMsXSVZntZUIiGaM1WIAZ1bMjBHmdQrqPppcA/bCP3ko4DBhqm8ro5mP9nWGZqrlOlyyn9R8QS
-	2XBZwcPWFrRukEisqM3/BBx5DLB8YQzaM6teZ34WtlPKDSJPn0IaJuFNrWTTBJKwPgkuZle621Qcu
-	+Mc2glWyo//ReSZXpPN8O8zGcqJHZjlQ1imSkEjt7/o8u77KtIZskoLy7eE2Z5LVe3A4ry+stRZrp
-	ppmWkTxSto+4hHVk1Clg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=GqYrhUSjhiVZT9jc7UexhxyuLzNsfje4UWXdL0ZLdyE=; b=yuBYPhAqCsoYKX
+	xAYnQ4C69lE9YTryDd/bUYkxjEy/8BPybZ8RuC7gAaGXakjSyl0WSHpOAkA8LzwQ/2nGe/Xk33yBI
+	JUjffkywHA2UzH1w0yLmUDpRtWnT+ZkNrL8B4uVrpbcCUDYBnPD7Y7+i5/YcwcPvov+CSCu2HsvHk
+	XUc7dYG0TStbx0UI9dwkPztJtIBMjQCvWzwRnHeu3gwDo/6nKPJ2N7+fvnWrJX+cjSh8AuSnlAGwH
+	iRV9c4t36KL6ROEOJHtuUmDsSnDmDIowzZ/DnZxTtC4NiV6tIMNynqIcpggvl+P7A4nzJymrY+ZDD
+	/NZXImEHBZGUWT8z02SA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p646G-00D8Hf-96; Fri, 16 Dec 2022 06:21:40 +0000
+	id 1p646C-00D8HD-OI; Fri, 16 Dec 2022 06:21:36 +0000
 Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p6468-00D8FM-N7
-	for linux-riscv@lists.infradead.org; Fri, 16 Dec 2022 06:21:36 +0000
+	id 1p6467-00D8FH-OD
+	for linux-riscv@lists.infradead.org; Fri, 16 Dec 2022 06:21:34 +0000
 Received: from localhost.localdomain (unknown [124.16.141.248])
-	by APP-05 (Coremail) with SMTP id zQCowADn7_dfDpxjjnN3Bw--.24737S2;
-	Fri, 16 Dec 2022 14:21:20 +0800 (CST)
+	by APP-05 (Coremail) with SMTP id zQCowADn7_dfDpxjjnN3Bw--.24737S5;
+	Fri, 16 Dec 2022 14:21:24 +0800 (CST)
 From: panqinglin2020@iscas.ac.cn
 To: palmer@dabbelt.com,
 	linux-riscv@lists.infradead.org
@@ -35,34 +35,39 @@ Cc: jeff@riscv.org,
 	xuyinan@ict.ac.cn,
 	conor@kernel.org,
 	ajones@ventanamicro.com,
-	Qinglin Pan <panqinglin2020@iscas.ac.cn>
-Subject: [PATCH v11 0/3] riscv, mm: detect svnapot cpu support at runtime
-Date: Fri, 16 Dec 2022 14:21:06 +0800
-Message-Id: <20221216062109.865573-1-panqinglin2020@iscas.ac.cn>
+	Qinglin Pan <panqinglin2020@iscas.ac.cn>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v11 3/3] riscv: mm: support Svnapot in huge vmap
+Date: Fri, 16 Dec 2022 14:21:09 +0800
+Message-Id: <20221216062109.865573-4-panqinglin2020@iscas.ac.cn>
 X-Mailer: git-send-email 2.37.4
+In-Reply-To: <20221216062109.865573-1-panqinglin2020@iscas.ac.cn>
+References: <20221216062109.865573-1-panqinglin2020@iscas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: zQCowADn7_dfDpxjjnN3Bw--.24737S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxWFWrAF1DKF4xKrWrGFW3Wrg_yoW5Xry7pF
-	W5Grn3GF98Ar93GFsxZr9F9r1rJr1rKFWaqw1xJ34UAwsxtayjvws0kF98C3WkXFWfXr1I
-	yF45ZFy7ua4qv37anT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvl14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r1I6r4UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gr
-	1j6F4UJwAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40E
-	FcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr
-	0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8v
-	x2IErcIFxwAKzVCY07xG64k0F24l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr
-	0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY
-	17CE14v26r126r1DMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcV
-	C0I7IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY
-	6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r1j6r4UYxBIdaVFxhVjvj
-	DU0xZFpf9x0JUBSoJUUUUU=
+X-CM-TRANSID: zQCowADn7_dfDpxjjnN3Bw--.24737S5
+X-Coremail-Antispam: 1UD129KBjvJXoW7ZF1DZryrWw17KF1xXw4fKrg_yoW5JryDpF
+	45Crn7G3yFqryS9rWqyF10van8Xr15uayUJas3JrZ5AwsrJFnxur95Aas0vryUXr95JFy7
+	ArZrXFZ3Wwn8AFJanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPl14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JrWl82xGYIkIc2
+	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
+	Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1l84
+	ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVCY1x0267AKxVW8Jr0_Cr1U
+	M2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64
+	kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm
+	72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYx
+	C7M4kE6xkIj40Ew7xC0wCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC2
+	0s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI
+	0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv2
+	0xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2js
+	IE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZF
+	pf9x0JU9Z23UUUUU=
 X-Originating-IP: [124.16.141.248]
-X-CM-SenderInfo: 5sdq1xpqjox0asqsiq5lvft2wodfhubq/1tbiCQMCDGObzdybhAAAsy
+X-CM-SenderInfo: 5sdq1xpqjox0asqsiq5lvft2wodfhubq/1tbiAxECDGObzeScXwAAsO
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221215_222133_163532_49BB832C 
-X-CRM114-Status: GOOD (  10.42  )
+X-CRM114-CacheID: sfid-20221215_222132_176037_4AAAA3D9 
+X-CRM114-Status: UNSURE (   7.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,73 +86,91 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
 
-Svnapot is a RISC-V extension for marking contiguous 4K pages as a non-4K
-page. This patch set is for using Svnapot in hugetlb fs and huge vmap.
+As HAVE_ARCH_HUGE_VMAP and HAVE_ARCH_HUGE_VMALLOC is supported, we can
+implement arch_vmap_pte_range_map_size and arch_vmap_pte_supported_shift
+for Svnapot to support huge vmap about napot size.
 
-This patchset adds a Kconfig item for using Svnapot in
-"Platform type"->"SVNAPOT extension support". Its default value is on,
-and people can set it off if they don't allow kernel to detect Svnapot
-hardware support and leverage it.
+It can be tested by huge vmap used in pci driver. Huge vmalloc with svnapot
+can be tested by test_vmalloc with [1] applied, and probe this
+module to run fix_size_alloc_test with use_huge true.
 
-Tested on:
-  - qemu rv64 with "Svnapot support" off and svnapot=true.
-  - qemu rv64 with "Svnapot support" on and svnapot=true.
-  - qemu rv64 with "Svnapot support" off and svnapot=false.
-  - qemu rv64 with "Svnapot support" on and svnapot=false.
+[1]https://lore.kernel.org/all/20221212055657.698420-1-panqinglin2020@iscas.ac.cn/
 
+Signed-off-by: Qinglin Pan <panqinglin2020@iscas.ac.cn>
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
-Changes in v2:
-  - detect Svnapot hardware support at boot time.
-Changes in v3:
-  - do linear mapping again if has_svnapot
-Changes in v4:
-  - fix some errors/warns reported by checkpatch.pl, thanks @Conor
-Changes in v5:
-  - modify code according to @Conor and @Heiko
-Changes in v6:
-  - use static key insead of alternative errata
-Changes in v7:
-  - add napot_cont_order for possible more napot order in the future
-  - remove linear mapping related code from this patchset to another patch
-  - refactor hugetlb code for svnapot according to thanks @Andrew @Conor
-  - use tools/testing/selftests/vm/map_hugetlb as hugetlb testing program
-  - support svnapot in huge vmap on newer for-next branch
-Changes in v8:
-  - fix compilation errors in rv32_defconfig
-  - insert some lines of whitespace according to @Conor's suggestion
-Changes in v9:
-  - use alternative to avoid using static branches inside heavily used
-    inline functions
-  - change napot_cont_mask definition
-  - post test_vmalloc modification about testing vmalloc_huge
-Changes in v10:
-  - fix some nits caught by @Andrew
-  - collect Reviewed-by/Acked-by
-  - add memory leak warning in KConfig text
-  - replace test_vmalloc patch link with the standard one
-Changes in v11:
-  - add more detailed warning about HUGETLBFS and SVNAPOT in KConfig text
-  - fix missing reverse-xmas tree
-
-
-Qinglin Pan (3):
-  riscv: mm: modify pte format for Svnapot
-  riscv: mm: support Svnapot in hugetlb page
-  riscv: mm: support Svnapot in huge vmap
-
- arch/riscv/Kconfig                   |  21 +-
- arch/riscv/include/asm/errata_list.h |  15 +-
- arch/riscv/include/asm/hugetlb.h     |  34 ++-
- arch/riscv/include/asm/hwcap.h       |   2 +-
- arch/riscv/include/asm/page.h        |   5 -
- arch/riscv/include/asm/pgtable-64.h  |  34 +++
- arch/riscv/include/asm/pgtable.h     |  43 +++-
- arch/riscv/include/asm/vmalloc.h     |  61 +++++-
- arch/riscv/kernel/cpu.c              |   1 +
- arch/riscv/kernel/cpufeature.c       |  15 ++
- arch/riscv/mm/hugetlbpage.c          | 301 +++++++++++++++++++++++++++
- 11 files changed, 519 insertions(+), 13 deletions(-)
-
+diff --git a/arch/riscv/include/asm/vmalloc.h b/arch/riscv/include/asm/vmalloc.h
+index 48da5371f1e9..58d3e447f191 100644
+--- a/arch/riscv/include/asm/vmalloc.h
++++ b/arch/riscv/include/asm/vmalloc.h
+@@ -17,6 +17,65 @@ static inline bool arch_vmap_pmd_supported(pgprot_t prot)
+ 	return true;
+ }
+ 
+-#endif
++#ifdef CONFIG_RISCV_ISA_SVNAPOT
++#include <linux/pgtable.h>
+ 
++#define arch_vmap_pte_range_map_size arch_vmap_pte_range_map_size
++static inline unsigned long arch_vmap_pte_range_map_size(unsigned long addr, unsigned long end,
++							 u64 pfn, unsigned int max_page_shift)
++{
++	unsigned long map_size = PAGE_SIZE;
++	unsigned long size, order;
++
++	if (!has_svnapot())
++		return map_size;
++
++	for_each_napot_order_rev(order) {
++		if (napot_cont_shift(order) > max_page_shift)
++			continue;
++
++		size = napot_cont_size(order);
++		if (end - addr < size)
++			continue;
++
++		if (!IS_ALIGNED(addr, size))
++			continue;
++
++		if (!IS_ALIGNED(PFN_PHYS(pfn), size))
++			continue;
++
++		map_size = size;
++		break;
++	}
++
++	return map_size;
++}
++
++#define arch_vmap_pte_supported_shift arch_vmap_pte_supported_shift
++static inline int arch_vmap_pte_supported_shift(unsigned long size)
++{
++	int shift = PAGE_SHIFT;
++	unsigned long order;
++
++	if (!has_svnapot())
++		return shift;
++
++	WARN_ON_ONCE(size >= PMD_SIZE);
++
++	for_each_napot_order_rev(order) {
++		if (napot_cont_size(order) > size)
++			continue;
++
++		if (!IS_ALIGNED(size, napot_cont_size(order)))
++			continue;
++
++		shift = napot_cont_shift(order);
++		break;
++	}
++
++	return shift;
++}
++
++#endif /* CONFIG_RISCV_ISA_SVNAPOT */
++#endif /* CONFIG_HAVE_ARCH_HUGE_VMAP */
+ #endif /* _ASM_RISCV_VMALLOC_H */
 -- 
 2.37.4
 
