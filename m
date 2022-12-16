@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42500C4167B
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Dec 2022 07:06:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B4DCC4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Dec 2022 07:06:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UZn/QnVW8m2Xm5hmGuyinaSfs5BiX9hcKeQXqBajdt4=; b=J16HFe+t6JPnTA
-	6CcI2gqXbUMxW37Id7AU7eknREDMjk2Hr5UuJK94VPzSbbq0xo1x48V0x01tM1c5Oi9oi7xvajFEr
-	6LdAlPt5pKclE6IvLAFqls2TOwFmQpevqxgsDUYVC+iqVNl2D/FBaPZJzxDBe4vdd1dgICmQqS16F
-	KJmzAQXo8MhThxzzru/xV2uaQHVTb4fetzBqETcqe82skXAIDV0fktvIPA6wWchKbtnhaXox0qRD2
-	R3Du5zG6Zo6pXK1t72m3fJ4rv0tF071wINlY1iZEOfzQt7LetCuYNBmb+1axPbV0ov23XEH7izWh8
-	8cl6UL7QXuIrUAMvIUkg==;
+	List-Owner; bh=DhcaTFSuS9gnobgTOhKMspvfjNWqvgAf2w2Xpck7bFM=; b=u9luoI38QHMJpf
+	i/DXy5K5lZhBNw3N8wWr11gUNeI3Gk5XGacr1930JsoPvOUgJ/ojkdwwCJmlPFWkCkL4Nq8FEWgb9
+	Og1Ej6um0uIvctJ83EoWua9Ns3Mf18fQ8iaIVLYSpq3tExzUi6LeJKJUPUzLu1D77SVXFA2EcbyOI
+	aBnFskW62w2p+SiaHgZYcKx1bcf21DvPy00K9Vmc9He5i9EWTuff07S92EqsnR1H5YykY8r6wAs9a
+	Si/1dOihP+UUiXYo75gwp1288FuESftrZxRixTsH20Vtu/HXwNMK+rZHK+QptIntCB+CHyU8Ig47K
+	drvmSxLVLRf0MC5v51yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p64nY-00DJOJ-6m; Fri, 16 Dec 2022 07:06:24 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	id 1p64na-00DJPj-0K; Fri, 16 Dec 2022 07:06:26 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p64nT-00DJDM-J5
-	for linux-riscv@lists.infradead.org; Fri, 16 Dec 2022 07:06:20 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	id 1p64nU-00DJDc-Cj
+	for linux-riscv@lists.infradead.org; Fri, 16 Dec 2022 07:06:22 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id B694924E355;
-	Fri, 16 Dec 2022 15:05:40 +0800 (CST)
-Received: from EXMBX173.cuchost.com (172.16.6.93) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 16 Dec
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id DEDCD24E250;
+	Fri, 16 Dec 2022 15:05:39 +0800 (CST)
+Received: from EXMBX173.cuchost.com (172.16.6.93) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 16 Dec
  2022 15:05:40 +0800
 Received: from wyh-VirtualBox.starfivetech.com (171.223.208.138) by
  EXMBX173.cuchost.com (172.16.6.93) with Microsoft SMTP Server (TLS) id
- 15.0.1497.42; Fri, 16 Dec 2022 15:05:39 +0800
+ 15.0.1497.42; Fri, 16 Dec 2022 15:05:38 +0800
 From: Yanhong Wang <yanhong.wang@starfivetech.com>
 To: <linux-riscv@lists.infradead.org>, <netdev@vger.kernel.org>,
 	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
@@ -46,9 +46,9 @@ CC: "David S . Miller" <davem@davemloft.net>, Eric Dumazet
 	Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
 	Heiner Kallweit <hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>,
 	Yanhong Wang <yanhong.wang@starfivetech.com>
-Subject: [PATCH v2 3/9] net: stmmac: platform: Add snps,dwmac-5.20 IP compatible string
-Date: Fri, 16 Dec 2022 15:06:26 +0800
-Message-ID: <20221216070632.11444-4-yanhong.wang@starfivetech.com>
+Subject: [PATCH v2 2/9] dt-bindings: net: snps,dwmac: Update the maxitems number of resets and reset-names
+Date: Fri, 16 Dec 2022 15:06:25 +0800
+Message-ID: <20221216070632.11444-3-yanhong.wang@starfivetech.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20221216070632.11444-1-yanhong.wang@starfivetech.com>
 References: <20221216070632.11444-1-yanhong.wang@starfivetech.com>
@@ -58,8 +58,9 @@ X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX173.cuchost.com
  (172.16.6.93)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221215_230619_838982_B3328BD7 
-X-CRM114-Status: GOOD (  10.64  )
+X-CRM114-CacheID: sfid-20221215_230620_604712_E9960EBB 
+X-CRM114-Status: UNSURE (   8.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,31 +77,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Emil Renner Berthing <kernel@esmil.dk>
+Some boards(such as StarFive VisionFive v2) require more than one value
+which defined by resets property, so the original definition can not
+meet the requirements. In order to adapt to different requirements,
+adjust the maxitems number from 1 to 3..
 
-Add "snps,dwmac-5.20" compatible string for 5.20 version that can avoid
-to define some platform data in the glue layer.
-
-Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
 Signed-off-by: Yanhong Wang <yanhong.wang@starfivetech.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ .../devicetree/bindings/net/snps,dwmac.yaml       | 15 +++++++++++----
+ 1 file changed, 11 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-index 50f6b4a14be4..cc3b701af802 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-@@ -519,7 +519,8 @@ stmmac_probe_config_dt(struct platform_device *pdev, u8 *mac)
- 	if (of_device_is_compatible(np, "snps,dwmac-4.00") ||
- 	    of_device_is_compatible(np, "snps,dwmac-4.10a") ||
- 	    of_device_is_compatible(np, "snps,dwmac-4.20a") ||
--	    of_device_is_compatible(np, "snps,dwmac-5.10a")) {
-+	    of_device_is_compatible(np, "snps,dwmac-5.10a") ||
-+	    of_device_is_compatible(np, "snps,dwmac-5.20")) {
- 		plat->has_gmac4 = 1;
- 		plat->has_gmac = 0;
- 		plat->pmt = 1;
+diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+index e26c3e76ebb7..7870228b4cd3 100644
+--- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
++++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+@@ -133,12 +133,19 @@ properties:
+         - ptp_ref
+ 
+   resets:
+-    maxItems: 1
+-    description:
+-      MAC Reset signal.
++    minItems: 1
++    maxItems: 3
++    additionalItems: true
++    items:
++      - description: MAC Reset signal
+ 
+   reset-names:
+-    const: stmmaceth
++    minItems: 1
++    maxItems: 3
++    additionalItems: true
++    contains:
++      enum:
++        - stmmaceth
+ 
+   power-domains:
+     maxItems: 1
 -- 
 2.17.1
 
