@@ -4,30 +4,30 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2E10C001B2
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Dec 2022 06:21:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1672C4167B
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Dec 2022 06:21:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GqYrhUSjhiVZT9jc7UexhxyuLzNsfje4UWXdL0ZLdyE=; b=yuBYPhAqCsoYKX
-	xAYnQ4C69lE9YTryDd/bUYkxjEy/8BPybZ8RuC7gAaGXakjSyl0WSHpOAkA8LzwQ/2nGe/Xk33yBI
-	JUjffkywHA2UzH1w0yLmUDpRtWnT+ZkNrL8B4uVrpbcCUDYBnPD7Y7+i5/YcwcPvov+CSCu2HsvHk
-	XUc7dYG0TStbx0UI9dwkPztJtIBMjQCvWzwRnHeu3gwDo/6nKPJ2N7+fvnWrJX+cjSh8AuSnlAGwH
-	iRV9c4t36KL6ROEOJHtuUmDsSnDmDIowzZ/DnZxTtC4NiV6tIMNynqIcpggvl+P7A4nzJymrY+ZDD
-	/NZXImEHBZGUWT8z02SA==;
+	List-Owner; bh=dukrGl7jrfKAEEWvcIA7KaufazajnZvJqSEQnP3eZjo=; b=WrOM0UM2uef0uN
+	MEhAjtxCtp4x68Z7qHc74Ebyvx6DOlfRCizrRp+0pbWu17dboomJFl9NBb+c3Z4iZQBR1G+BGpedb
+	khCazOoQFdUDESF30Z/D2IH7tx6ieY2IiE2ncaCbpPPfk8KEV8xi+8qTBZHLZdDWt+Z8+o/loSb9R
+	IUoSQ53dbHP+oMHMxO20Z5Je49SOvehbArffBo+OfLyQEkpyYDpY5PYEybSvEz4W+umFlArlckAub
+	iKTa6rk3aUmvSgovapUeLgVCVJ5FEweB4pwufSK0cr2iE9x2dNkt9VA9L7sEawJ0TGRmI84MC0QB6
+	9Gp3PtvBiTdqkZ3/tuAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p646C-00D8HD-OI; Fri, 16 Dec 2022 06:21:36 +0000
+	id 1p646D-00D8HN-Vq; Fri, 16 Dec 2022 06:21:38 +0000
 Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p6467-00D8FH-OD
+	id 1p6467-00D8FG-NI
 	for linux-riscv@lists.infradead.org; Fri, 16 Dec 2022 06:21:34 +0000
 Received: from localhost.localdomain (unknown [124.16.141.248])
-	by APP-05 (Coremail) with SMTP id zQCowADn7_dfDpxjjnN3Bw--.24737S5;
-	Fri, 16 Dec 2022 14:21:24 +0800 (CST)
+	by APP-05 (Coremail) with SMTP id zQCowADn7_dfDpxjjnN3Bw--.24737S3;
+	Fri, 16 Dec 2022 14:21:22 +0800 (CST)
 From: panqinglin2020@iscas.ac.cn
 To: palmer@dabbelt.com,
 	linux-riscv@lists.infradead.org
@@ -35,39 +35,37 @@ Cc: jeff@riscv.org,
 	xuyinan@ict.ac.cn,
 	conor@kernel.org,
 	ajones@ventanamicro.com,
-	Qinglin Pan <panqinglin2020@iscas.ac.cn>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v11 3/3] riscv: mm: support Svnapot in huge vmap
-Date: Fri, 16 Dec 2022 14:21:09 +0800
-Message-Id: <20221216062109.865573-4-panqinglin2020@iscas.ac.cn>
+	Qinglin Pan <panqinglin2020@iscas.ac.cn>
+Subject: [PATCH v11 1/3] riscv: mm: modify pte format for Svnapot
+Date: Fri, 16 Dec 2022 14:21:07 +0800
+Message-Id: <20221216062109.865573-2-panqinglin2020@iscas.ac.cn>
 X-Mailer: git-send-email 2.37.4
 In-Reply-To: <20221216062109.865573-1-panqinglin2020@iscas.ac.cn>
 References: <20221216062109.865573-1-panqinglin2020@iscas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: zQCowADn7_dfDpxjjnN3Bw--.24737S5
-X-Coremail-Antispam: 1UD129KBjvJXoW7ZF1DZryrWw17KF1xXw4fKrg_yoW5JryDpF
-	45Crn7G3yFqryS9rWqyF10van8Xr15uayUJas3JrZ5AwsrJFnxur95Aas0vryUXr95JFy7
-	ArZrXFZ3Wwn8AFJanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUPl14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JrWl82xGYIkIc2
-	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
-	Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1l84
+X-CM-TRANSID: zQCowADn7_dfDpxjjnN3Bw--.24737S3
+X-Coremail-Antispam: 1UD129KBjvJXoW3AryftFyDWw1xJF4DKr1UAwb_yoWfAFWUpr
+	4kCF9akFs8Gw1fC3yIyrn8Wws5Jw1DWa9xKw1v9r48Jay7AryfA34qk3W3Jr1DXFWvqa48
+	KFZ5XF4S9anxAaUanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPl14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jr4l82xGYIkIc2
+	x26xkF7I0E14v26r1I6r4UM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
+	Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1l84
 	ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVCY1x0267AKxVW8Jr0_Cr1U
 	M2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64
 	kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm
 	72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYx
 	C7M4kE6xkIj40Ew7xC0wCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC2
 	0s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI
-	0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv2
+	0_JF0_Jw1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv2
 	0xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2js
 	IE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZF
-	pf9x0JU9Z23UUUUU=
+	pf9x0JUhdb8UUUUU=
 X-Originating-IP: [124.16.141.248]
-X-CM-SenderInfo: 5sdq1xpqjox0asqsiq5lvft2wodfhubq/1tbiAxECDGObzeScXwAAsO
+X-CM-SenderInfo: 5sdq1xpqjox0asqsiq5lvft2wodfhubq/1tbiAwoCDGObzeQKuAABsl
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221215_222132_176037_4AAAA3D9 
-X-CRM114-Status: UNSURE (   7.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221215_222132_176146_64B5CA55 
+X-CRM114-Status: GOOD (  18.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,91 +84,282 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
 
-As HAVE_ARCH_HUGE_VMAP and HAVE_ARCH_HUGE_VMALLOC is supported, we can
-implement arch_vmap_pte_range_map_size and arch_vmap_pte_supported_shift
-for Svnapot to support huge vmap about napot size.
+Add one alternative to enable/disable svnapot support, enable this static
+key when "svnapot" is in the "riscv,isa" field of fdt and SVNAPOT compile
+option is set. It will influence the behavior of has_svnapot. All code
+dependent on svnapot should make sure that has_svnapot return true firstly.
 
-It can be tested by huge vmap used in pci driver. Huge vmalloc with svnapot
-can be tested by test_vmalloc with [1] applied, and probe this
-module to run fix_size_alloc_test with use_huge true.
-
-[1]https://lore.kernel.org/all/20221212055657.698420-1-panqinglin2020@iscas.ac.cn/
+Modify PTE definition for Svnapot, and creates some functions in pgtable.h
+to mark a PTE as napot and check if it is a Svnapot PTE. Until now, only
+64KB napot size is supported in spec, so some macros has only 64KB version.
 
 Signed-off-by: Qinglin Pan <panqinglin2020@iscas.ac.cn>
 Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
-diff --git a/arch/riscv/include/asm/vmalloc.h b/arch/riscv/include/asm/vmalloc.h
-index 48da5371f1e9..58d3e447f191 100644
---- a/arch/riscv/include/asm/vmalloc.h
-+++ b/arch/riscv/include/asm/vmalloc.h
-@@ -17,6 +17,65 @@ static inline bool arch_vmap_pmd_supported(pgprot_t prot)
- 	return true;
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index e1a9fa47f012..25c230e3bf61 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -397,6 +397,25 @@ config RISCV_ISA_C
+ 
+ 	  If you don't know what to do here, say Y.
+ 
++config RISCV_ISA_SVNAPOT
++	bool "SVNAPOT extension support"
++	depends on 64BIT && MMU
++	select RISCV_ALTERNATIVE
++	default y
++	help
++	  Allow kernel to detect the SVNAPOT ISA-extension dynamically at boot
++	  time and enable its usage.
++
++	  The SVNAPOT extension is used to mark contiguous PTEs as a range
++	  of contiguous virtual-to-physical translations for a naturally
++	  aligned power-of-2 (NAPOT) granularity larger than the base 4KB page
++	  size. When HUGETLBFS is also selected this option unconditionally
++	  allocates some memory for each NAPOT page size supported by the kernel.
++	  When optimizing for low memory consumption and for platforms without
++	  the SVNAPOT extension, it may be better to say N here.
++
++	  If you don't know what to do here, say Y.
++
+ config RISCV_ISA_SVPBMT
+ 	bool "SVPBMT extension support"
+ 	depends on 64BIT && MMU
+diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
+index 4180312d2a70..beadb1126ed9 100644
+--- a/arch/riscv/include/asm/errata_list.h
++++ b/arch/riscv/include/asm/errata_list.h
+@@ -22,9 +22,10 @@
+ #define	ERRATA_THEAD_NUMBER 3
+ #endif
+ 
+-#define	CPUFEATURE_SVPBMT 0
+-#define	CPUFEATURE_ZICBOM 1
+-#define	CPUFEATURE_NUMBER 2
++#define	CPUFEATURE_SVPBMT	0
++#define	CPUFEATURE_ZICBOM	1
++#define	CPUFEATURE_SVNAPOT	2
++#define	CPUFEATURE_NUMBER	3
+ 
+ #ifdef __ASSEMBLY__
+ 
+@@ -156,6 +157,14 @@ asm volatile(ALTERNATIVE(						\
+ 	: "=r" (__ovl) :						\
+ 	: "memory")
+ 
++#define ALT_SVNAPOT(_val)						\
++asm(ALTERNATIVE(							\
++	"li %0, 0",							\
++	"li %0, 1",							\
++		0, CPUFEATURE_SVNAPOT, CONFIG_RISCV_ISA_SVNAPOT)	\
++	: "=r" (_val) :							\
++	: "memory")
++
+ #endif /* __ASSEMBLY__ */
+ 
+ #endif
+diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+index 86328e3acb02..a8f1a390b1a4 100644
+--- a/arch/riscv/include/asm/hwcap.h
++++ b/arch/riscv/include/asm/hwcap.h
+@@ -54,6 +54,7 @@ extern unsigned long elf_hwcap;
+  */
+ enum riscv_isa_ext_id {
+ 	RISCV_ISA_EXT_SSCOFPMF = RISCV_ISA_EXT_BASE,
++	RISCV_ISA_EXT_SVNAPOT,
+ 	RISCV_ISA_EXT_SVPBMT,
+ 	RISCV_ISA_EXT_ZICBOM,
+ 	RISCV_ISA_EXT_ZIHINTPAUSE,
+@@ -88,7 +89,6 @@ static __always_inline int riscv_isa_ext2key(int num)
+ {
+ 	switch (num) {
+ 	case RISCV_ISA_EXT_f:
+-		return RISCV_ISA_EXT_KEY_FPU;
+ 	case RISCV_ISA_EXT_d:
+ 		return RISCV_ISA_EXT_KEY_FPU;
+ 	case RISCV_ISA_EXT_ZIHINTPAUSE:
+diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
+index 9f432c1b5289..24a3dd265183 100644
+--- a/arch/riscv/include/asm/page.h
++++ b/arch/riscv/include/asm/page.h
+@@ -16,11 +16,6 @@
+ #define PAGE_SIZE	(_AC(1, UL) << PAGE_SHIFT)
+ #define PAGE_MASK	(~(PAGE_SIZE - 1))
+ 
+-#ifdef CONFIG_64BIT
+-#define HUGE_MAX_HSTATE		2
+-#else
+-#define HUGE_MAX_HSTATE		1
+-#endif
+ #define HPAGE_SHIFT		PMD_SHIFT
+ #define HPAGE_SIZE		(_AC(1, UL) << HPAGE_SHIFT)
+ #define HPAGE_MASK              (~(HPAGE_SIZE - 1))
+diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
+index 42a042c0e13e..7a5097202e15 100644
+--- a/arch/riscv/include/asm/pgtable-64.h
++++ b/arch/riscv/include/asm/pgtable-64.h
+@@ -78,6 +78,40 @@ typedef struct {
+  */
+ #define _PAGE_PFN_MASK  GENMASK(53, 10)
+ 
++/*
++ * [63] Svnapot definitions:
++ * 0 Svnapot disabled
++ * 1 Svnapot enabled
++ */
++#define _PAGE_NAPOT_SHIFT	63
++#define _PAGE_NAPOT		BIT(_PAGE_NAPOT_SHIFT)
++/*
++ * Only 64KB (order 4) napot ptes supported.
++ */
++#define NAPOT_CONT_ORDER_BASE 4
++enum napot_cont_order {
++	NAPOT_CONT64KB_ORDER = NAPOT_CONT_ORDER_BASE,
++	NAPOT_ORDER_MAX,
++};
++
++#define for_each_napot_order(order)						\
++	for (order = NAPOT_CONT_ORDER_BASE; order < NAPOT_ORDER_MAX; order++)
++#define for_each_napot_order_rev(order)						\
++	for (order = NAPOT_ORDER_MAX - 1;					\
++	     order >= NAPOT_CONT_ORDER_BASE; order--)
++#define napot_cont_order(val)	(__builtin_ctzl((val.pte >> _PAGE_PFN_SHIFT) << 1))
++
++#define napot_cont_shift(order)	((order) + PAGE_SHIFT)
++#define napot_cont_size(order)	BIT(napot_cont_shift(order))
++#define napot_cont_mask(order)	(~(napot_cont_size(order) - 1UL))
++#define napot_pte_num(order)	BIT(order)
++
++#ifdef CONFIG_RISCV_ISA_SVNAPOT
++#define HUGE_MAX_HSTATE		(2 + (NAPOT_ORDER_MAX - NAPOT_CONT_ORDER_BASE))
++#else
++#define HUGE_MAX_HSTATE		2
++#endif
++
+ /*
+  * [62:61] Svpbmt Memory Type definitions:
+  *
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 2359f1f9bda9..07213236b976 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -6,10 +6,12 @@
+ #ifndef _ASM_RISCV_PGTABLE_H
+ #define _ASM_RISCV_PGTABLE_H
+ 
++#include <linux/jump_label.h>
+ #include <linux/mmzone.h>
+ #include <linux/sizes.h>
+ 
+ #include <asm/pgtable-bits.h>
++#include <asm/hwcap.h>
+ 
+ #ifndef CONFIG_MMU
+ #define KERNEL_LINK_ADDR	PAGE_OFFSET
+@@ -264,10 +266,49 @@ static inline pte_t pud_pte(pud_t pud)
+ 	return __pte(pud_val(pud));
  }
  
--#endif
-+#ifdef CONFIG_RISCV_ISA_SVNAPOT
-+#include <linux/pgtable.h>
- 
-+#define arch_vmap_pte_range_map_size arch_vmap_pte_range_map_size
-+static inline unsigned long arch_vmap_pte_range_map_size(unsigned long addr, unsigned long end,
-+							 u64 pfn, unsigned int max_page_shift)
++static __always_inline bool has_svnapot(void)
 +{
-+	unsigned long map_size = PAGE_SIZE;
-+	unsigned long size, order;
++	unsigned int _val;
 +
-+	if (!has_svnapot())
-+		return map_size;
++	ALT_SVNAPOT(_val);
 +
-+	for_each_napot_order_rev(order) {
-+		if (napot_cont_shift(order) > max_page_shift)
-+			continue;
-+
-+		size = napot_cont_size(order);
-+		if (end - addr < size)
-+			continue;
-+
-+		if (!IS_ALIGNED(addr, size))
-+			continue;
-+
-+		if (!IS_ALIGNED(PFN_PHYS(pfn), size))
-+			continue;
-+
-+		map_size = size;
-+		break;
-+	}
-+
-+	return map_size;
++	return _val;
 +}
 +
-+#define arch_vmap_pte_supported_shift arch_vmap_pte_supported_shift
-+static inline int arch_vmap_pte_supported_shift(unsigned long size)
++#ifdef CONFIG_RISCV_ISA_SVNAPOT
++
++static inline unsigned long pte_napot(pte_t pte)
 +{
-+	int shift = PAGE_SHIFT;
-+	unsigned long order;
++	return pte_val(pte) & _PAGE_NAPOT;
++}
 +
-+	if (!has_svnapot())
-+		return shift;
++static inline pte_t pte_mknapot(pte_t pte, unsigned int order)
++{
++	int pos = order - 1 + _PAGE_PFN_SHIFT;
++	unsigned long napot_bit = BIT(pos);
++	unsigned long napot_mask = ~GENMASK(pos, _PAGE_PFN_SHIFT);
 +
-+	WARN_ON_ONCE(size >= PMD_SIZE);
++	return __pte((pte_val(pte) & napot_mask) | napot_bit | _PAGE_NAPOT);
++}
 +
-+	for_each_napot_order_rev(order) {
-+		if (napot_cont_size(order) > size)
-+			continue;
++#else
 +
-+		if (!IS_ALIGNED(size, napot_cont_size(order)))
-+			continue;
-+
-+		shift = napot_cont_shift(order);
-+		break;
-+	}
-+
-+	return shift;
++static inline unsigned long pte_napot(pte_t pte)
++{
++	return 0;
 +}
 +
 +#endif /* CONFIG_RISCV_ISA_SVNAPOT */
-+#endif /* CONFIG_HAVE_ARCH_HUGE_VMAP */
- #endif /* _ASM_RISCV_VMALLOC_H */
++
+ /* Yields the page frame number (PFN) of a page table entry */
+ static inline unsigned long pte_pfn(pte_t pte)
+ {
+-	return __page_val_to_pfn(pte_val(pte));
++	unsigned long res  = __page_val_to_pfn(pte_val(pte));
++
++	if (has_svnapot() && pte_napot(pte))
++		res = res & (res - 1UL);
++
++	return res;
+ }
+ 
+ #define pte_page(x)     pfn_to_page(pte_pfn(x))
+diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+index bf9dd6764bad..88495f5fcafd 100644
+--- a/arch/riscv/kernel/cpu.c
++++ b/arch/riscv/kernel/cpu.c
+@@ -165,6 +165,7 @@ static struct riscv_isa_ext_data isa_ext_arr[] = {
+ 	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
+ 	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
+ 	__RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
++	__RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
+ 	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
+ 	__RISCV_ISA_EXT_DATA(zicbom, RISCV_ISA_EXT_ZICBOM),
+ 	__RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 93e45560af30..60ebe2f22112 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -228,6 +228,7 @@ void __init riscv_fill_hwcap(void)
+ 				SET_ISA_EXT_MAP("zihintpause", RISCV_ISA_EXT_ZIHINTPAUSE);
+ 				SET_ISA_EXT_MAP("sstc", RISCV_ISA_EXT_SSTC);
+ 				SET_ISA_EXT_MAP("svinval", RISCV_ISA_EXT_SVINVAL);
++				SET_ISA_EXT_MAP("svnapot", RISCV_ISA_EXT_SVNAPOT);
+ 			}
+ #undef SET_ISA_EXT_MAP
+ 		}
+@@ -275,6 +276,17 @@ void __init riscv_fill_hwcap(void)
+ }
+ 
+ #ifdef CONFIG_RISCV_ALTERNATIVE
++static bool __init_or_module cpufeature_probe_svnapot(unsigned int stage)
++{
++	if (!IS_ENABLED(CONFIG_RISCV_ISA_SVNAPOT))
++		return false;
++
++	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
++		return false;
++
++	return riscv_isa_extension_available(NULL, SVNAPOT);
++}
++
+ static bool __init_or_module cpufeature_probe_svpbmt(unsigned int stage)
+ {
+ 	if (!IS_ENABLED(CONFIG_RISCV_ISA_SVPBMT))
+@@ -312,6 +324,9 @@ static u32 __init_or_module cpufeature_probe(unsigned int stage)
+ {
+ 	u32 cpu_req_feature = 0;
+ 
++	if (cpufeature_probe_svnapot(stage))
++		cpu_req_feature |= BIT(CPUFEATURE_SVNAPOT);
++
+ 	if (cpufeature_probe_svpbmt(stage))
+ 		cpu_req_feature |= BIT(CPUFEATURE_SVPBMT);
+ 
 -- 
 2.37.4
 
