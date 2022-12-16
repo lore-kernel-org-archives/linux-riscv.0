@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DC1DC001B2
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Dec 2022 16:25:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C794C001B2
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Dec 2022 16:26:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=att3F1ozk/En2ZN83sk3GXdOvFCkLbVqnrHJK6Va+sQ=; b=zSeKFhvVUnLWNr
-	WsfF/ZzQCB/7iyxSKmEKWhM9tja+k+AyUzsrLWpmN0BViDMwWb8cBt7PL6IK2FlaOrsTP0LU84KTR
-	NDUkTucPB2Gsj0t4Niy/R6yTYt+OJmYvxigQrlHHtmSivVIaUKuDshKb/K+X6A51VaRMpeMP8WPu0
-	0o1rPtm5H9rP9Flus6kF6H+dBC2CWSmmP96uoD+F3tX0QicuN64A3afDwQMvHRjuLEHoPj+imnP3L
-	3tEHVyWA6nIUi/wm0hsrIZxTF+rBvSfSjWJU3ZJb+m34R1OJcJgR2y9p+ElQvRY5Om5bEBfHhjkpB
-	id5vRaCVICOWMmZ5h5Zw==;
+	List-Owner; bh=Aj3EWOCYPBcCV9cGbHAwGUxz6Gsy8IpqVmS7LJQvsSE=; b=eGd9Ly9elowsda
+	ilIMrn4cE1wJTyEUnvYvXeJxWhgL7pz2AEff9GsqChGHZEbmKu/RkjDW220Ja3DRDyidsE28sgUHn
+	AVQrmnk7/lkQ8YesRpBB0vPW7/IFFHAjJCNmr6s8gXVNCwLeHQOr3k1SkEBRT7AGraVBLir6oggad
+	oegtNDDVtk8CFn0UEx+OnOMVDVe/7Z9oE3zDypdYf2qlrcdcGHimPOAtto7kHmcm8OdIONfvztdOG
+	IW4HVhVkOQo1VVwPAT7ZD6Ickd3UXOzK+3ZeTG5PcR3+wkJNLlBaf+wCgKCKg+rOqCaKeslDsfJ7K
+	vCd8mV5wASSODwkH8CwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p6DW9-00GPXe-1b; Fri, 16 Dec 2022 16:25:01 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1p6DX8-00GPwd-QB; Fri, 16 Dec 2022 16:26:02 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p6DW6-00GPVF-Ld
-	for linux-riscv@lists.infradead.org; Fri, 16 Dec 2022 16:24:59 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id bi26-20020a05600c3d9a00b003d3404a89faso1657194wmb.1
-        for <linux-riscv@lists.infradead.org>; Fri, 16 Dec 2022 08:24:56 -0800 (PST)
+	id 1p6DX6-00GPtO-CW
+	for linux-riscv@lists.infradead.org; Fri, 16 Dec 2022 16:26:02 +0000
+Received: by mail-wm1-x329.google.com with SMTP id f13-20020a1cc90d000000b003d08c4cf679so2151827wmb.5
+        for <linux-riscv@lists.infradead.org>; Fri, 16 Dec 2022 08:25:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=xKAmpdKbBscT+wI0zsC3ixLztutjRoSSvZIlGNHmM4Q=;
-        b=5zZ212IkhjKj94ipOAPbwYPYOlsIe2Q2iWqZ84pUt+gO3r0Eyarf711NDpKVO1C14q
-         nc7RKDG6tdAFzkDUhRHwpMXM+IdQ7pAncnZIS/bWk/Hi0ReDG9cPXdIIugmvowrmL6wv
-         LMTwApz9J7YrsCYDgOiiPW37lHNWWdAZw1sOVAgSDioakBmFysGZiya7IoZO/Vgqhhwf
-         SLaq/M9LNpwE9S8g2yUbEIti1w6dDDrrElKg7SELhEGIvFdL8X/d9W70ns0APlzb3KLh
-         EyU6JIbiXwoEnIPZ0d5qtYxPEjutK2P0Q/qFUR125kgS+E3BEfl91D5jcEuGMxVOc/Kl
-         QPxw==
+        bh=Ny2TExHkEZdNiam4GgngpmtWZKCcqjrEUo0Wf99rwww=;
+        b=6wp5stVF9wjQFTJ01YMUJ26jEyjMMZ+/S++XQfIRFc1O1EVl2zzZnEEnO5OWQgAVF5
+         MzNxy/fJb9BfqXJ2jywoEtILpRcDGr3989nW2gV9HaQobfOAZLyq573kcT8k9PbwIxlD
+         rEfEkgCBf21a+MAdPaXAQ1LvnNQDg6zZ62KQq5POXUvTz+8Puz8cClo3xalXOrYbN6cr
+         0lvPPE3obyuSWCBTo9fVMa8R1BoUX2yd09ZFEEM5a1ZUT+hbAJ/aCPPbGJxdIlnqjNjY
+         MgB7fCZu7OmcizKUKo30l/oUeCv2w8HY1r0NEzc7JDsx969xBMdZjKH4mfvpwOAZwpuS
+         3Txw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=xKAmpdKbBscT+wI0zsC3ixLztutjRoSSvZIlGNHmM4Q=;
-        b=f6086Hp/N/LxYBoAoZ+K5TNHDWxRKbjQKEePgG3xRryhDsZ97gDiXiiS6t5LHbhmQE
-         zJQ9m0Ew6Qob/TnPYyjgo3BEd8z6xyMzfrRSGMFKGN5nXxszU3OwbGzsUzi0Bc/NvJmp
-         3uEIG93HJDXwijoWJUfvPB8kM229U/cm9c3esa7S9c2e9dQt+5CSEkcJh4nAMwQBg+ss
-         cEZsUTEHLyWrCKhOLDOa8Ex67oBdfSyhzH2SE4E0KnGDXigpwsJnNcbsXnuRK4/Nwue1
-         XrhK16umWERd83R5Db9HhLZ9QonZGf8b8RoFDNATnKmiF1+MkrArr23aoByznqY5J8ah
-         /Pxw==
-X-Gm-Message-State: ANoB5plc0uNBErpcZrgZVZRI0XrqGbaBFCahdZpra03GaaNNEq8bFVNF
-	mJawrTgYmbB3JwnZP2j2mbmjcA==
-X-Google-Smtp-Source: AA0mqf7Kp1ma3mcIhSnx5tq7MByphnU57QGiZGBYUPbdSWTo0NaGRsZNrXC6At0HrKNSMT9J+W//Ew==
-X-Received: by 2002:a05:600c:4f89:b0:3cf:d0be:1231 with SMTP id n9-20020a05600c4f8900b003cfd0be1231mr36102867wmq.13.1671207895040;
-        Fri, 16 Dec 2022 08:24:55 -0800 (PST)
+        bh=Ny2TExHkEZdNiam4GgngpmtWZKCcqjrEUo0Wf99rwww=;
+        b=fDJE6TFjpVNuLLQHy3rkJzkfzo+Nzt/EFHXkY4ec6uTDsyAFk/Hm76au2hw8U+uPCZ
+         TBNnEbQOpdt03WMnkzkOGJTslh59ab4PfJA9+tENBu2SUCNVWQPygTzDtyfv0X7S+A5O
+         lsUMf77TjP2tB+rVMuVmY0XEvXk+jsVHjJ9zPpobJlIc1YCyBCWaxsOVjSLltr0/Rz4t
+         99TxIx45OHs9Q3ruetuvlsCbEx186Wkd5KboMVy/o5S98YHkXulrpVgCsjAtO42vumjK
+         ezVBEG2rTEcXQ0uBY/r9Us2OV3sPSl2QkdekRSz6CFB722Pk6KI5FUr/OWXQ06EmQLV5
+         BBRw==
+X-Gm-Message-State: ANoB5pnzXti++2GdJJlCmEjQEgKMNHbIS0j9vmEmkOqTXbJiGM/dlTk4
+	VacryvkT51QODtRgSyj9MErejQ==
+X-Google-Smtp-Source: AA0mqf5dEDT69p/cpReljdA52jYU0o8ebND2v49EeVDKXljII4pdzHHN/hgOHLaRCYpaiCIh+YKVwg==
+X-Received: by 2002:a05:600c:554b:b0:3d2:1761:3742 with SMTP id iz11-20020a05600c554b00b003d217613742mr20371748wmb.15.1671207955923;
+        Fri, 16 Dec 2022 08:25:55 -0800 (PST)
 Received: from alex-rivos.home (lfbn-lyo-1-450-160.w2-7.abo.wanadoo.fr. [2.7.42.160])
-        by smtp.gmail.com with ESMTPSA id h16-20020a05600c351000b003d23a3b783bsm3450995wmq.10.2022.12.16.08.24.54
+        by smtp.gmail.com with ESMTPSA id j9-20020a05600c190900b003b4cba4ef71sm11838404wmq.41.2022.12.16.08.25.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 16 Dec 2022 08:24:54 -0800 (PST)
+        Fri, 16 Dec 2022 08:25:55 -0800 (PST)
 From: Alexandre Ghiti <alexghiti@rivosinc.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -75,16 +75,16 @@ To: Paul Walmsley <paul.walmsley@sifive.com>,
 	kasan-dev@googlegroups.com,
 	linux-efi@vger.kernel.org
 Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH 3/6] riscv: Move DTB_EARLY_BASE_VA to the kernel address space
-Date: Fri, 16 Dec 2022 17:21:38 +0100
-Message-Id: <20221216162141.1701255-4-alexghiti@rivosinc.com>
+Subject: [PATCH 4/6] riscv: Fix EFI stub usage of KASAN instrumented string functions
+Date: Fri, 16 Dec 2022 17:21:39 +0100
+Message-Id: <20221216162141.1701255-5-alexghiti@rivosinc.com>
 X-Mailer: git-send-email 2.37.2
 In-Reply-To: <20221216162141.1701255-1-alexghiti@rivosinc.com>
 References: <20221216162141.1701255-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221216_082458_734317_8C19E4AB 
-X-CRM114-Status: GOOD (  10.20  )
+X-CRM114-CacheID: sfid-20221216_082600_480449_792C171F 
+X-CRM114-Status: GOOD (  19.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,35 +101,199 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The early virtual address should lie in the kernel address space for
-inline kasan instrumentation to succeed, otherwise kasan tries to
-dereference an address that does not exist in the address space (since
-kasan only maps *kernel* address space, not the userspace).
+The EFI stub must not use any KASAN instrumented code as the kernel
+proper did not initialize the thread pointer and the mapping for the
+KASAN shadow region.
 
-Simply use the very first address of the kernel address space for the
-early fdt mapping.
-
-It allowed an Ubuntu kernel to boot successfully with inline
-instrumentation.
+Avoid using generic string functions by copying stub dependencies from
+lib/string.c to drivers/firmware/efi/libstub/string.c as RISC-V does
+not implement architecture-specific versions of those functions.
 
 Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 ---
- arch/riscv/mm/init.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/riscv/kernel/image-vars.h        |   8 --
+ drivers/firmware/efi/libstub/Makefile |   7 +-
+ drivers/firmware/efi/libstub/string.c | 133 ++++++++++++++++++++++++++
+ 3 files changed, 137 insertions(+), 11 deletions(-)
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 58bcf395efdc..d5aa6ca732f2 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -57,7 +57,7 @@ unsigned long empty_zero_page[PAGE_SIZE / sizeof(unsigned long)]
- EXPORT_SYMBOL(empty_zero_page);
+diff --git a/arch/riscv/kernel/image-vars.h b/arch/riscv/kernel/image-vars.h
+index d6e5f739905e..15616155008c 100644
+--- a/arch/riscv/kernel/image-vars.h
++++ b/arch/riscv/kernel/image-vars.h
+@@ -23,14 +23,6 @@
+  * linked at. The routines below are all implemented in assembler in a
+  * position independent manner
+  */
+-__efistub_memcmp		= memcmp;
+-__efistub_memchr		= memchr;
+-__efistub_strlen		= strlen;
+-__efistub_strnlen		= strnlen;
+-__efistub_strcmp		= strcmp;
+-__efistub_strncmp		= strncmp;
+-__efistub_strrchr		= strrchr;
+-
+ __efistub__start		= _start;
+ __efistub__start_kernel		= _start_kernel;
+ __efistub__end			= _end;
+diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
+index b1601aad7e1a..031d2268bab5 100644
+--- a/drivers/firmware/efi/libstub/Makefile
++++ b/drivers/firmware/efi/libstub/Makefile
+@@ -130,9 +130,10 @@ STUBCOPY_RELOC-$(CONFIG_ARM)	:= R_ARM_ABS
+ # also means that we need to be extra careful to make sure that the stub does
+ # not rely on any absolute symbol references, considering that the virtual
+ # kernel mapping that the linker uses is not active yet when the stub is
+-# executing. So build all C dependencies of the EFI stub into libstub, and do
+-# a verification pass to see if any absolute relocations exist in any of the
+-# object files.
++# executing. In addition, we need to make sure that the stub does not use KASAN
++# instrumented code like the generic string functions. So build all C
++# dependencies of the EFI stub into libstub, and do a verification pass to see
++# if any absolute relocations exist in any of the object files.
+ #
+ STUBCOPY_FLAGS-$(CONFIG_ARM64)	+= --prefix-alloc-sections=.init \
+ 				   --prefix-symbols=__efistub_
+diff --git a/drivers/firmware/efi/libstub/string.c b/drivers/firmware/efi/libstub/string.c
+index 5d13e43869ee..5154ae6e7f10 100644
+--- a/drivers/firmware/efi/libstub/string.c
++++ b/drivers/firmware/efi/libstub/string.c
+@@ -113,3 +113,136 @@ long simple_strtol(const char *cp, char **endp, unsigned int base)
  
- extern char _start[];
--#define DTB_EARLY_BASE_VA      PGDIR_SIZE
-+#define DTB_EARLY_BASE_VA      (ADDRESS_SPACE_END - (PTRS_PER_PGD / 2 * PGDIR_SIZE) + 1)
- void *_dtb_early_va __initdata;
- uintptr_t _dtb_early_pa __initdata;
- 
+ 	return simple_strtoull(cp, endp, base);
+ }
++
++#ifndef __HAVE_ARCH_STRLEN
++/**
++ * strlen - Find the length of a string
++ * @s: The string to be sized
++ */
++size_t strlen(const char *s)
++{
++	const char *sc;
++
++	for (sc = s; *sc != '\0'; ++sc)
++		/* nothing */;
++	return sc - s;
++}
++EXPORT_SYMBOL(strlen);
++#endif
++
++#ifndef __HAVE_ARCH_STRNLEN
++/**
++ * strnlen - Find the length of a length-limited string
++ * @s: The string to be sized
++ * @count: The maximum number of bytes to search
++ */
++size_t strnlen(const char *s, size_t count)
++{
++	const char *sc;
++
++	for (sc = s; count-- && *sc != '\0'; ++sc)
++		/* nothing */;
++	return sc - s;
++}
++EXPORT_SYMBOL(strnlen);
++#endif
++
++#ifndef __HAVE_ARCH_STRCMP
++/**
++ * strcmp - Compare two strings
++ * @cs: One string
++ * @ct: Another string
++ */
++int strcmp(const char *cs, const char *ct)
++{
++	unsigned char c1, c2;
++
++	while (1) {
++		c1 = *cs++;
++		c2 = *ct++;
++		if (c1 != c2)
++			return c1 < c2 ? -1 : 1;
++		if (!c1)
++			break;
++	}
++	return 0;
++}
++EXPORT_SYMBOL(strcmp);
++#endif
++
++#ifndef __HAVE_ARCH_STRRCHR
++/**
++ * strrchr - Find the last occurrence of a character in a string
++ * @s: The string to be searched
++ * @c: The character to search for
++ */
++char *strrchr(const char *s, int c)
++{
++	const char *last = NULL;
++	do {
++		if (*s == (char)c)
++			last = s;
++	} while (*s++);
++	return (char *)last;
++}
++EXPORT_SYMBOL(strrchr);
++#endif
++
++#ifndef __HAVE_ARCH_MEMCMP
++/**
++ * memcmp - Compare two areas of memory
++ * @cs: One area of memory
++ * @ct: Another area of memory
++ * @count: The size of the area.
++ */
++#undef memcmp
++__visible int memcmp(const void *cs, const void *ct, size_t count)
++{
++	const unsigned char *su1, *su2;
++	int res = 0;
++
++#ifdef CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS
++	if (count >= sizeof(unsigned long)) {
++		const unsigned long *u1 = cs;
++		const unsigned long *u2 = ct;
++		do {
++			if (get_unaligned(u1) != get_unaligned(u2))
++				break;
++			u1++;
++			u2++;
++			count -= sizeof(unsigned long);
++		} while (count >= sizeof(unsigned long));
++		cs = u1;
++		ct = u2;
++	}
++#endif
++	for (su1 = cs, su2 = ct; 0 < count; ++su1, ++su2, count--)
++		if ((res = *su1 - *su2) != 0)
++			break;
++	return res;
++}
++EXPORT_SYMBOL(memcmp);
++#endif
++
++#ifndef __HAVE_ARCH_MEMCHR
++/**
++ * memchr - Find a character in an area of memory.
++ * @s: The memory area
++ * @c: The byte to search for
++ * @n: The size of the area.
++ *
++ * returns the address of the first occurrence of @c, or %NULL
++ * if @c is not found
++ */
++void *memchr(const void *s, int c, size_t n)
++{
++	const unsigned char *p = s;
++	while (n-- != 0) {
++		if ((unsigned char)c == *p++) {
++			return (void *)(p - 1);
++		}
++	}
++	return NULL;
++}
++EXPORT_SYMBOL(memchr);
++#endif
 -- 
 2.37.2
 
