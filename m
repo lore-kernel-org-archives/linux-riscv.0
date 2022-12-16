@@ -4,62 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57ED2C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Dec 2022 09:27:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09BC4C4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Dec 2022 11:03:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LmXIGF9415fJkaOD1fMiYR2csF4AWBdaVl5XAWH2b/w=; b=LO+qrWScg101nP
-	3h8E4bPp+8mnPiGCp6FmFXuhPObcOuHNdNBn7hiu5plc7MgmgAFuSPKYXwmQXnKGslVkPXI5yXSv3
-	23OlAfeJS0KUHM4qBN/y0T7JCThk3LRZ4w1xn53h3kxTyaW5lm3+VDnf3h1bV63xwKlE7QLsQe8Pg
-	TpiZud+C3PGQFwaYegdx+Lp0w9THk/YlpzT4Aiy9jt7/BSDMs2nSGowuLv11S3HTe+xA8uycU2IkP
-	GN+MoXFVaFpVqTTRlPuR4cEoil7v2luKKUoXRmit7/5CVUtSZEaCCkoYGpWhKpts4B2a1VAUcXEFY
-	CMkLxTLBPnzG0JXTzL+g==;
+	List-Owner; bh=Wh01y+DRPfVn7r1svCTOjXDBhov0BEqOajIzE98RK6E=; b=MFO7qRzxP2FvK0
+	sERwRY8c2DKY1CngZgBZIOYRQMr+1Ufn/VZ6+ZMYSAStqlOwWpcPgzVY5tjqSv2sJeOfHm95uy0ui
+	ZaTkM8AmYMxuP0KoLRlOUakZETIdOLCuDOZIRvkFdoS0EvySSl97Rv4FPgc6D7lOQ5CIDpMYPhxmg
+	6jB6BO7Z/7UX65vrRZPpGt77dQEXcUw5rhD7zsJoFCkn4+Q/5DE8PHxDClh5eCUx+E6OyrTUs3VhJ
+	e12ZfR3D7sbR67/QrY3CUc7RYd2bSll+6WZrzV58RldRg2R6VXsYokWNjQWWH1cNDvfchkpQX/NiR
+	f4osxQcWP4Ip09+Py89g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p670A-00DnTz-T0; Fri, 16 Dec 2022 09:27:34 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p6707-00DnRf-Iv
-	for linux-riscv@lists.infradead.org; Fri, 16 Dec 2022 09:27:34 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 55FBE24E1AC;
-	Fri, 16 Dec 2022 17:26:58 +0800 (CST)
-Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 16 Dec
- 2022 17:26:58 +0800
-Received: from [192.168.120.55] (171.223.208.138) by EXMBX168.cuchost.com
- (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 16 Dec
- 2022 17:26:57 +0800
-Message-ID: <e704e829-e67c-5458-0808-bc652c1e5620@starfivetech.com>
-Date: Fri, 16 Dec 2022 17:26:57 +0800
+	id 1p68Up-00EJTa-2h; Fri, 16 Dec 2022 11:03:19 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1p68Uk-00EJND-Dz
+	for linux-riscv@lists.infradead.org; Fri, 16 Dec 2022 11:03:16 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id b3so2965004lfv.2
+        for <linux-riscv@lists.infradead.org>; Fri, 16 Dec 2022 03:03:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=d7nxly20Q+LIVX2HmOxQ1kGTZsAtQ7HVnD/+lRVkLcY=;
+        b=vnZVddSwK8YrdASi377ehaE4VrYO3wUPvQFEPjVKRpnAIfCK+XqC0pvzUair0sN2qE
+         iY/b1b+0ou2Q/iBUxcy7H1n9fq/SnuTe6xbbpWKmFoTbi6znOa8tgMqfJuLg9x/DpfNV
+         5lECBlZOsk1XK6QiefewW9dkhuKDPprIbWvls7h47dV/PkrawfzuAVDCvEggpmAZRcFV
+         JfdGdQjnhfR8Od6QqxrGUaoC4ZuzPV555VLxxRF1yCMaajaw42XRxXBoXq5yvU1b6UT2
+         YUf7EO5N0xHcuqM5+PV19XaHVLOrpwFZDwD5r206/lzKvEzB5VbS+rDKPrIrTwQEzvFi
+         7FkQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=d7nxly20Q+LIVX2HmOxQ1kGTZsAtQ7HVnD/+lRVkLcY=;
+        b=79O3LR7/XcJGOmADo+RzthP29CH6sU4bnhjY9Ez3Pb8l/+bA8TZGRi8mbiqxo6KpYf
+         +Wy+fM7gqPa+5shSIP9Q6uTwnV61Avytks+pbT30gXw1ruyd2ksulgOSCVDrOy1zJuni
+         66dOzoEi7QEnzMnX1Vit0UDXxQmbvVveb9K34iNW9+5NhLCa1J8ojFP2jKHYhy5IH6U0
+         zI6qS8uOQ8kB6fLuDVGgk2y28O5uC8ntR9E4VYxB/DbCIjCLFvl1sa++Z8BlbkY3u4Ht
+         j4VuRW1oiOUkHL9XruSjBrLvFmDyEUzjSqAWPR7bGiTNaCVAHqj+rdesu27DPoX4bZsm
+         GNyw==
+X-Gm-Message-State: AFqh2kovIDNWiJVvXpXNYWnH4AxeaIHVbUlerhGN0NrN1pk1URxJzAwN
+	/cQlv1RNfGKw/hTHuGf6paw4DT1i6udpCmxU
+X-Google-Smtp-Source: AMrXdXtzOYGUjuX1gxXuTmAU3msYzGH4XwL6Xg8wCGYSpE/H9JfkksbAt5csrE1WhWp9OYhyGEMCaw==
+X-Received: by 2002:ac2:5a1c:0:b0:4c0:2c1e:1d5b with SMTP id q28-20020ac25a1c000000b004c02c1e1d5bmr439383lfn.63.1671188589735;
+        Fri, 16 Dec 2022 03:03:09 -0800 (PST)
+Received: from [192.168.0.20] (088156142067.dynamic-2-waw-k-3-2-0.vectranet.pl. [88.156.142.67])
+        by smtp.gmail.com with ESMTPSA id g6-20020a056512118600b00494a603953dsm191605lfr.89.2022.12.16.03.03.08
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 16 Dec 2022 03:03:09 -0800 (PST)
+Message-ID: <040b56b1-c65c-34c3-e4a1-5cae4428d1d2@linaro.org>
+Date: Fri, 16 Dec 2022 12:03:08 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.5.1
-Subject: Re: [PATCH v1 0/3] StarFive's SDIO/eMMC driver support
-To: Ulf Hansson <ulf.hansson@linaro.org>
-CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-mmc@vger.kernel.org>, Rob Herring <robh+dt@kernel.org>, "Krzysztof
- Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Jaehoon Chung
-	<jh80.chung@samsung.com>, <linux-kernel@vger.kernel.org>
-References: <20221207131731.1291517-1-william.qiu@starfivetech.com>
- <420d067c-665b-b247-b0cd-8ac242c19924@starfivetech.com>
- <CAPDyKFoosrm9CSi4s=YSxdg4xqv118wOFUAc5QRcOgtMCiX=DA@mail.gmail.com>
+Subject: Re: [PATCH v2 2/9] dt-bindings: net: snps,dwmac: Update the maxitems
+ number of resets and reset-names
 Content-Language: en-US
-From: William Qiu <william.qiu@starfivetech.com>
-In-Reply-To: <CAPDyKFoosrm9CSi4s=YSxdg4xqv118wOFUAc5QRcOgtMCiX=DA@mail.gmail.com>
-X-Originating-IP: [171.223.208.138]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX168.cuchost.com
- (172.16.6.78)
-X-YovoleRuleAgent: yovoleflag
+To: Yanhong Wang <yanhong.wang@starfivetech.com>,
+ linux-riscv@lists.infradead.org, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Cc: "David S . Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Emil Renner Berthing <kernel@esmil.dk>,
+ Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
+ Heiner Kallweit <hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>
+References: <20221216070632.11444-1-yanhong.wang@starfivetech.com>
+ <20221216070632.11444-3-yanhong.wang@starfivetech.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20221216070632.11444-3-yanhong.wang@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221216_012731_933338_FA170BE5 
-X-CRM114-Status: GOOD (  19.68  )
+X-CRM114-CacheID: sfid-20221216_030314_553898_EC62AF2C 
+X-CRM114-Status: GOOD (  12.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,68 +101,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2022/12/16 17:22, Ulf Hansson wrote:
-> On Fri, 16 Dec 2022 at 03:02, William Qiu <william.qiu@starfivetech.com> wrote:
->>
->>
->>
->> On 2022/12/7 21:17, William Qiu wrote:
->> > Hi,
->> >
->> > This patchset adds initial rudimentary support for the StarFive
->> > designware mobile storage host controller driver. And this driver will
->> > be used in StarFive's visionfive-v2 board. The main purpose of adding
->> > this driver is to accommodate the ultra-high speed mode of eMMC.
->> >
->> > The patch series is based on v6.1-rc5.
->> >
->> > -- William
->> >
->> > William Qiu (3):
->> >   dt-bindings: mmc: Add bindings for StarFive
->> >   mmc: starfive: Add sdio/emmc driver support
->> >   riscv: dts: starfive: Add mmc node
->> >
->> >  .../bindings/mmc/starfive,jh7110-sdio.yaml    |  71 +++++++
->> >  MAINTAINERS                                   |   6 +
->> >  .../jh7110-starfive-visionfive-v2.dts         |  25 +++
->> >  arch/riscv/boot/dts/starfive/jh7110.dtsi      |  38 ++++
->> >  drivers/mmc/host/Kconfig                      |  10 +
->> >  drivers/mmc/host/Makefile                     |   1 +
->> >  drivers/mmc/host/dw_mmc-starfive.c            | 197 ++++++++++++++++++
->> >  7 files changed, 348 insertions(+)
->> >  create mode 100644 Documentation/devicetree/bindings/mmc/starfive,jh7110-sdio.yaml
->> >  create mode 100644 drivers/mmc/host/dw_mmc-starfive.c
->> >
->> > --
->> > 2.34.1
->> >
->>
->> Hi Jaehoon/Ulf,
->>
->> Could you please help to review and provide comments on this patch series?
->> Thank you in advance.
+On 16/12/2022 08:06, Yanhong Wang wrote:
+> Some boards(such as StarFive VisionFive v2) require more than one value
+> which defined by resets property, so the original definition can not
+> meet the requirements. In order to adapt to different requirements,
+> adjust the maxitems number from 1 to 3..
 > 
-> Hi William,
+> Signed-off-by: Yanhong Wang <yanhong.wang@starfivetech.com>
+> ---
+>  .../devicetree/bindings/net/snps,dwmac.yaml       | 15 +++++++++++----
+>  1 file changed, 11 insertions(+), 4 deletions(-)
 > 
-> Looks like you have received plenty of good comments already and there
-> are a lot of things for you to update. That said, I think it makes
-> better sense for me to look at the next version instead.
-> 
+> diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+> index e26c3e76ebb7..7870228b4cd3 100644
+> --- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+> +++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+> @@ -133,12 +133,19 @@ properties:
+>          - ptp_ref
+>  
+>    resets:
+> -    maxItems: 1
+> -    description:
+> -      MAC Reset signal.
+> +    minItems: 1
+> +    maxItems: 3
+> +    additionalItems: true
+> +    items:
+> +      - description: MAC Reset signal
+>  
+>    reset-names:
+> -    const: stmmaceth
+> +    minItems: 1
+> +    maxItems: 3
+> +    additionalItems: true
+> +    contains:
+> +      enum:
+> +        - stmmaceth
 
-Fine, I'll do that then.
+No, this is highly unspecific and you know affect all the schemas using
+snps,dwmac.yaml. Both lists must be specific - for your device and for
+others.
 
-Thanks
-William Qiu
+Best regards,
+Krzysztof
 
->>
->> Best regards,
->> William Qiu
-> 
-> Kind regards
-> Uffe
 
 _______________________________________________
 linux-riscv mailing list
