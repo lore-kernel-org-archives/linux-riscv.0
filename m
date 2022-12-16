@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 026E3C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Dec 2022 11:06:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A05FC4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Dec 2022 11:06:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=P3qNe4vqu9SQhbANIuopBMLaXHdZqoO/8+wImHXbdNc=; b=bWWemD4PIJH2x/
-	x/Z5rVRydHqT8fRqwyl7oo64nxuZGViAnKDTUm0BuTDXT+RWa6R7gBWdy9p5vSggULYDeV7K+oE5a
-	IGz1BHc4zW79Uo+fmsnlXYCYJq7J0YKvvUcRR0ZdOfimYbQhKkenFSLYY6B9fKoBgpiCYlR5DPUo5
-	1B5joE5L3EcUrwX2tVxtpK4HYo+hV6qEyA/GrnV61nuohCLkvdHEEGVQTP5LQZXn09jZjsyv8p/a8
-	LMUk0oQGks9AWGKgx5IdfxdZRCmhOAmR87WNFmiq9rX9ago/NIBgCyOCvqvkn7PWN7rySXmmhSpcJ
-	ipnuATuoeKX6/FvJTRmQ==;
+	List-Owner; bh=ohO3S6hkoAp/YaLnB2xvNs2PHHVKjxZIl5EfAD/MhWQ=; b=u8LacTRQGMuXTH
+	ebcw0J0j7aRIY2NlUmLqDjIeMD+FSnZaQjRRBbgPHC/gvuJtknlim57BSPjwYAtHg1BgSPRmQLLch
+	sMubGU/S86sCUCqZorfkHCJktQRYXUbiw8pbQ8SNFFs4eX9e4BMq6R3gQYUKDLF2yU1fyTZyUWkNU
+	fQGX2Gs7TjA0ezK+3dZ6mpcEHl/57beEJDrOmw8+/ayWgIiYCwhyjic0RUyZLGKkApB5bgeEtQ049
+	7vi9m4poAU6jhLNxZsQo7JmpvnOoCtgCWtxIZPCE9vSQxQaRJsLkWksyMTlq6RLNlpVg8lVw+YUXy
+	4nmcCd5CDSdhFCiflX4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p68XI-00EKdU-Ib; Fri, 16 Dec 2022 11:05:52 +0000
-Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
+	id 1p68Xi-00EKs7-Ty; Fri, 16 Dec 2022 11:06:19 +0000
+Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p68XD-00EKaf-Vw
-	for linux-riscv@lists.infradead.org; Fri, 16 Dec 2022 11:05:49 +0000
-Received: by mail-lf1-x134.google.com with SMTP id z26so2926101lfu.8
-        for <linux-riscv@lists.infradead.org>; Fri, 16 Dec 2022 03:05:47 -0800 (PST)
+	id 1p68Xf-00EKoY-5l
+	for linux-riscv@lists.infradead.org; Fri, 16 Dec 2022 11:06:16 +0000
+Received: by mail-lf1-x135.google.com with SMTP id j4so3030269lfk.0
+        for <linux-riscv@lists.infradead.org>; Fri, 16 Dec 2022 03:06:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=linaro.org; s=google;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=4XRGRHsiFCJ4ktT8TNwZgSlFysJO9ZB/tk8ZQbwb5zo=;
-        b=VDIfWnJqJWOX/1OfsOQsHqNcGSxl/2H4LZLbiw5gWSix3Xqpq1mGZhd60FXn562FhN
-         xZNO1k6mtkSw2tvlaGZFhgk/T48P+gr3mqhusbGfGtprxsEanoH6hMTSCZSEpH6EF2eU
-         7Vr60xNbelZZlwuaLDbq6NLBH0EvIUHBhX2EnwqHOU+YqEYkxH/Pfx7qFW8Abv2kGqEh
-         6iO1qplDtmoZBOc0fp6bxEzKR2xTe/LqypQZgpVfI4vcsHvpg9DI79AEihIGtPBWOi3g
-         OL/DKWL6e9Es/wq8Fb0NKKf92p58PVFNMbEAn51Dva11PgtnBMUTmzcR2XVzpNO39ZmV
-         CKFQ==
+        bh=nWwD7yi6dLlMGSUE/zB+/IBPn3bSJ7pcQB2OAC/RxMI=;
+        b=t1mum5FsO1hC6xNYTKNoqOJKipNV7LXcIuH0929xhlqEtUM+n3Km3L8gNCZgCRB9eb
+         CKrXaj5Vn6yykjAZSfjpMDwJ1oXy8SUf3GlXRhN/9Q3n6WtRl5pSAVcHLEkE2S1VQVpW
+         lZi9rur9SvwotSewu+XAwwCZDzJc5zjyuGquIY95K3kx7FIGBHS2Q125GmQ/2AE+iZsP
+         EvYqWVkvzc28aRdHk/T6Od4uhygUHkhV5Vtis1nVDzomH/rJcTTBtyVUG/VeHsTzc6sR
+         VmZrf/x6jCXpTfn4GqYctUDqntucjM9vy5wxgujEc0Chff9eAjPpv4ign2sTr8t9pB2w
+         qH9A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=4XRGRHsiFCJ4ktT8TNwZgSlFysJO9ZB/tk8ZQbwb5zo=;
-        b=agsubbO0DIuOY28Slmi3Nad6kpWKVyZRlWjPfVjf1Z2XaeKL2WcrJH3sc00HHPTrfi
-         YOdROld2LzuzFyHtoSoRxiZ9J6slkC9BCE2+GRMRnd/+EisbnaViRXeKr3LVx0TeqLg4
-         WVDiuyFX9ELqsfaHcOsDVbhj1VwPxla9lnK9F2CWOIMwL2WzxqBwsPDjwOHOYVO1yE9P
-         Qc6JPoGlUqC3jtQw+Vr7FG5q5Pvst7z3vENbJWVQPrBPI5ACfa29le4OpZZiLpLpdrQy
-         7KSdUgshuBr3JW9SW9MRoBSqVoo5wa6iGYDTjYcmNuSwuC0IaRf/+vWpEsU6gPsYAbIy
-         Ju0A==
-X-Gm-Message-State: ANoB5pl2gZAXLWQA/J3w7QKA7CXk7+e6YKu3564zIsD8iFY6RMVtpyhc
-	Ret17Ur00v3J0kZUli9IJIJ6gg==
-X-Google-Smtp-Source: AA0mqf7RjdnDqkGDqcEvhbC2VLnr090341tf7ipweUOZhmZnoOna730rCzSEZXX7WXsJhDwR9sq2ww==
-X-Received: by 2002:a05:6512:16a1:b0:4ad:5fbb:a594 with SMTP id bu33-20020a05651216a100b004ad5fbba594mr12469152lfb.58.1671188746251;
-        Fri, 16 Dec 2022 03:05:46 -0800 (PST)
+        bh=nWwD7yi6dLlMGSUE/zB+/IBPn3bSJ7pcQB2OAC/RxMI=;
+        b=Q9sEGEPO0B2Wgu1HWkVsypeHQzWQX5yfIzthjqgWkq17vS+gbneLVO/CTyA0XGBA4z
+         TL0bokd+I6qmGfHswNIGI4KwwSysZmrdTeh1l1xcJJQjnmYOuiHcSf/sEkY/hs7K8qFD
+         o9nIfKj0C9p1ZTsLWQgxfxNKDj8MC7tePxyX/qWC2yuqXv474XDD5/QRPmPazIo5nqdT
+         GA102gcxFMtNeuALOcEbDklsieU1tRMYDuzJSa7eGNi5MODNN5gDWuYMpyW33eYIMXov
+         ZWqejd5ws41vPPIrU9yDDhS7499Dh2fC9Tq/RlT62ms0qYpzxLkAf0otp6b8RjrW7gN7
+         TM2w==
+X-Gm-Message-State: ANoB5pmTSmqJj+foITbbrRGNUd+Z+fhdqZqiaHzomcPT5EOFV+2hFfBn
+	dFQOFEdOYSHfXCkjDwU0qGWOpA==
+X-Google-Smtp-Source: AA0mqf4wZV02mHd6JVlBfvVxPzAtzLRWGiIk5hcgUumZmOSbhTAExJo0O+ngKichPTF35vO6AkHA1Q==
+X-Received: by 2002:a19:5f5a:0:b0:4b5:9b5b:ae92 with SMTP id a26-20020a195f5a000000b004b59b5bae92mr8827282lfj.10.1671188771594;
+        Fri, 16 Dec 2022 03:06:11 -0800 (PST)
 Received: from [192.168.0.20] (088156142067.dynamic-2-waw-k-3-2-0.vectranet.pl. [88.156.142.67])
-        by smtp.gmail.com with ESMTPSA id h18-20020a19ca52000000b004b55075f813sm189891lfj.227.2022.12.16.03.05.44
+        by smtp.gmail.com with ESMTPSA id m8-20020ac24288000000b004a2c3fd32edsm190452lfh.144.2022.12.16.03.06.10
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 16 Dec 2022 03:05:45 -0800 (PST)
-Message-ID: <2da394a6-411a-ca2b-90d3-7e97f3637d9f@linaro.org>
-Date: Fri, 16 Dec 2022 12:05:44 +0100
+        Fri, 16 Dec 2022 03:06:11 -0800 (PST)
+Message-ID: <a8e09f78-704f-13f0-15ad-6c6dca6997f3@linaro.org>
+Date: Fri, 16 Dec 2022 12:06:10 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.5.1
@@ -82,8 +82,9 @@ References: <20221216070632.11444-1-yanhong.wang@starfivetech.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 In-Reply-To: <20221216070632.11444-5-yanhong.wang@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221216_030548_117026_207F312D 
-X-CRM114-Status: GOOD (  15.05  )
+X-CRM114-CacheID: sfid-20221216_030615_329202_1DA4BA35 
+X-CRM114-Status: UNSURE (   5.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,97 +104,9 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 On 16/12/2022 08:06, Yanhong Wang wrote:
 > Add documentation to describe StarFive dwmac driver(GMAC).
 > 
-> Signed-off-by: Yanhong Wang <yanhong.wang@starfivetech.com>
-> ---
->  .../devicetree/bindings/net/snps,dwmac.yaml   |   1 +
->  .../bindings/net/starfive,jh71x0-dwmac.yaml   | 103 ++++++++++++++++++
->  MAINTAINERS                                   |   5 +
->  3 files changed, 109 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/net/starfive,jh71x0-dwmac.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> index 7870228b4cd3..cdb045d1c618 100644
-> --- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> +++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> @@ -91,6 +91,7 @@ properties:
->          - snps,dwmac-5.20
->          - snps,dwxgmac
->          - snps,dwxgmac-2.10
-> +        - starfive,jh7110-dwmac
->  
->    reg:
->      minItems: 1
-> diff --git a/Documentation/devicetree/bindings/net/starfive,jh71x0-dwmac.yaml b/Documentation/devicetree/bindings/net/starfive,jh71x0-dwmac.yaml
-> new file mode 100644
-> index 000000000000..5cb1272fe959
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/net/starfive,jh71x0-dwmac.yaml
-> @@ -0,0 +1,103 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +# Copyright (C) 2022 StarFive Technology Co., Ltd.
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/net/starfive,jh71x0-dwmac.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: StarFive JH71x0 DWMAC glue layer
-> +
-> +maintainers:
-> +  - Yanhong Wang <yanhong.wang@starfivetech.com>
-> +
-> +select:
-> +  properties:
-> +    compatible:
-> +      contains:
-> +        enum:
-> +          - starfive,jh7110-dwmac
-> +  required:
-> +    - compatible
-> +
-> +allOf:
-> +  - $ref: snps,dwmac.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - enum:
-> +          - starfive,jh7110-dwmac
 
-Is it going to grow with new models? If yes, when? If not, filename does
-not match compatible.
+Subject: drop second, redundant "bindings for".
 
-> +      - const: snps,dwmac-5.20
-> +
-> +  clocks:
-> +    items:
-> +      - description: GMAC main clock
-> +      - description: GMAC AHB clock
-> +      - description: PTP clock
-> +      - description: TX clock
-> +      - description: GTXC clock
-> +      - description: GTX clock
-> +
-> +  clock-names:
-> +    items:
-> +      - const: stmmaceth
-> +      - const: pclk
-> +      - const: ptp_ref
-> +      - const: tx
-> +      - const: gtxc
-> +      - const: gtx
-
-missing resets and reset-names.
-
-> +
-> +required:
-> +  - compatible
-> +  - clocks
-> +  - clock-names
-> +  - resets
-> +  - reset-names
-> +
-> +unevaluatedProperties: false
-> +
 Best regards,
 Krzysztof
 
