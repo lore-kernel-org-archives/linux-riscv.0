@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 035FEC4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Dec 2022 07:06:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE6A8C4167B
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Dec 2022 07:06:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FdUB3tSju9D5lt1h2waKzziSJYIUH0SwIZejfgI3tQY=; b=PBk7X5fNDXpqaW
-	cBXn3EFqpckSqBU3C7/CZct0aGipPrBu1Xbpx3exYrFKF3UX0h1ZSX1oKpbcUYscoxTcraFoypf5i
-	Sh6jSbrGLz3XiQh+Rb3V0bpoIpeY8WNXZezulht+hO4h9z2KX+8YVyhcIJsGo8gi7Zk5eF3Srl5J2
-	Pw+8fyO5Pu4lK4gOOqozfOqqnvADSoEnWbv8WWXLYmv5PFSrNUVpPS6J8GYPZvJacCzF/ZDOY5YIZ
-	tNyr2oNkQtU4Ma83desITey7H2EtGBV8RENvyQQgFUpqt2czmgp30d0FAEvUWiJ7568pg01U4SUAF
-	eBR38rxYIHUp7x0FcAjw==;
+	List-Owner; bh=LJ6NRw/mNC1VzsaDUiHAZdyCAWeUvbTfOt7MQNTuHc8=; b=jiAS5/vi6mWIR8
+	5667yRFhv4pWSuFO3ul0VkrLEEFoQuYW0Ye4H5p0g23H+KM9ZMiQQz8X6veM32sigwsB5EqMSMfE9
+	ZxXXHC/kq8m3UMqWDWBCoNc3D8Y7SvGM2VBHpgTcf41t5npnQqpsRkC+pgRS9UL0WWA/uHlQvCmcI
+	pb/eylkl9Maq4b+Cp5crYmShTFBpk0AxC5BAD4i/8q8/CNghQl37Cf9T70t4RS8D/6IuChdUI+Hch
+	Gz/6gYnSZxS9RuQywnOOJ2SsTLVOR3YvIiUwgs0s/e4H3kiNH6Zk4OWrerFQB53zFYjmy42q2tVkQ
+	OP/HCiYr/hbXu65Hur3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p64ng-00DJUw-EB; Fri, 16 Dec 2022 07:06:32 +0000
+	id 1p64ni-00DJX0-NS; Fri, 16 Dec 2022 07:06:34 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p64nZ-00DJDd-So
-	for linux-riscv@lists.infradead.org; Fri, 16 Dec 2022 07:06:27 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	id 1p64nZ-00DJDe-0y
+	for linux-riscv@lists.infradead.org; Fri, 16 Dec 2022 07:06:28 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 3687D24E275;
-	Fri, 16 Dec 2022 15:05:46 +0800 (CST)
-Received: from EXMBX173.cuchost.com (172.16.6.93) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 16 Dec
- 2022 15:05:46 +0800
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 8F59024E251;
+	Fri, 16 Dec 2022 15:05:43 +0800 (CST)
+Received: from EXMBX173.cuchost.com (172.16.6.93) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 16 Dec
+ 2022 15:05:43 +0800
 Received: from wyh-VirtualBox.starfivetech.com (171.223.208.138) by
  EXMBX173.cuchost.com (172.16.6.93) with Microsoft SMTP Server (TLS) id
- 15.0.1497.42; Fri, 16 Dec 2022 15:05:44 +0800
+ 15.0.1497.42; Fri, 16 Dec 2022 15:05:42 +0800
 From: Yanhong Wang <yanhong.wang@starfivetech.com>
 To: <linux-riscv@lists.infradead.org>, <netdev@vger.kernel.org>,
 	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
@@ -46,9 +46,9 @@ CC: "David S . Miller" <davem@davemloft.net>, Eric Dumazet
 	Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
 	Heiner Kallweit <hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>,
 	Yanhong Wang <yanhong.wang@starfivetech.com>
-Subject: [PATCH v2 9/9] riscv: dts: starfive: visionfive-v2: Add phy clock delay train configuration
-Date: Fri, 16 Dec 2022 15:06:32 +0800
-Message-ID: <20221216070632.11444-10-yanhong.wang@starfivetech.com>
+Subject: [PATCH v2 6/9] net: phy: motorcomm: Add YT8531 phy support
+Date: Fri, 16 Dec 2022 15:06:29 +0800
+Message-ID: <20221216070632.11444-7-yanhong.wang@starfivetech.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20221216070632.11444-1-yanhong.wang@starfivetech.com>
 References: <20221216070632.11444-1-yanhong.wang@starfivetech.com>
@@ -58,9 +58,8 @@ X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX173.cuchost.com
  (172.16.6.93)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221215_230626_127355_FB7857C7 
-X-CRM114-Status: UNSURE (   8.30  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221215_230625_385677_E4211313 
+X-CRM114-Status: GOOD (  22.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,58 +76,293 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In view of the particularity of StarFive JH7110 SoC, the PHY clock delay
-train configuration parameters must be adjusted for StarFive VisionFive
-v2 board.
+This adds basic support for the Motorcomm YT8531
+Gigabit Ethernet PHY.
 
 Signed-off-by: Yanhong Wang <yanhong.wang@starfivetech.com>
 ---
- .../jh7110-starfive-visionfive-v2.dts         | 28 +++++++++++++++++++
- 1 file changed, 28 insertions(+)
+ drivers/net/phy/Kconfig     |   3 +-
+ drivers/net/phy/motorcomm.c | 202 ++++++++++++++++++++++++++++++++++++
+ 2 files changed, 204 insertions(+), 1 deletion(-)
 
-diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-v2.dts b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-v2.dts
-index c8946cf3a268..81329d67ef0f 100644
---- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-v2.dts
-+++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-v2.dts
-@@ -15,6 +15,8 @@
+diff --git a/drivers/net/phy/Kconfig b/drivers/net/phy/Kconfig
+index c57a0262fb64..86399254d9ff 100644
+--- a/drivers/net/phy/Kconfig
++++ b/drivers/net/phy/Kconfig
+@@ -258,9 +258,10 @@ config MICROSEMI_PHY
  
- 	aliases {
- 		serial0 = &uart0;
-+		ethernet0 = &gmac0;
-+		ethernet1 = &gmac1;
- 	};
+ config MOTORCOMM_PHY
+ 	tristate "Motorcomm PHYs"
++	default SOC_STARFIVE
+ 	help
+ 	  Enables support for Motorcomm network PHYs.
+-	  Currently supports the YT8511 gigabit PHY.
++	  Currently supports the YT8511 and YT8531 gigabit PHYs.
  
- 	chosen {
-@@ -114,3 +116,29 @@
- 	pinctrl-0 = <&uart0_pins>;
- 	status = "okay";
+ config NATIONAL_PHY
+ 	tristate "National Semiconductor PHYs"
+diff --git a/drivers/net/phy/motorcomm.c b/drivers/net/phy/motorcomm.c
+index 7e6ac2c5e27e..bca03185b338 100644
+--- a/drivers/net/phy/motorcomm.c
++++ b/drivers/net/phy/motorcomm.c
+@@ -3,13 +3,17 @@
+  * Driver for Motorcomm PHYs
+  *
+  * Author: Peter Geis <pgwipeout@gmail.com>
++ *
+  */
+ 
++#include <linux/bitops.h>
+ #include <linux/kernel.h>
+ #include <linux/module.h>
++#include <linux/of.h>
+ #include <linux/phy.h>
+ 
+ #define PHY_ID_YT8511		0x0000010a
++#define PHY_ID_YT8531		0x4f51e91b
+ 
+ #define YT8511_PAGE_SELECT	0x1e
+ #define YT8511_PAGE		0x1f
+@@ -17,6 +21,10 @@
+ #define YT8511_EXT_DELAY_DRIVE	0x0d
+ #define YT8511_EXT_SLEEP_CTRL	0x27
+ 
++#define YTPHY_EXT_SMI_SDS_PHY		0xa000
++#define YTPHY_EXT_CHIP_CONFIG		0xa001
++#define YTPHY_EXT_RGMII_CONFIG1	0xa003
++
+ /* 2b00 25m from pll
+  * 2b01 25m from xtl *default*
+  * 2b10 62.m from pll
+@@ -38,6 +46,51 @@
+ #define YT8511_DELAY_FE_TX_EN	(0xf << 12)
+ #define YT8511_DELAY_FE_TX_DIS	(0x2 << 12)
+ 
++struct ytphy_reg_field {
++	char *name;
++	u32 mask;
++	u8	dflt;	/* Default value */
++};
++
++struct ytphy_priv_t {
++	u32 tx_inverted_1000;
++	u32 tx_inverted_100;
++	u32 tx_inverted_10;
++};
++
++/* rx_delay_sel: RGMII rx clock delay train configuration, about 150ps per
++ *               step. Delay = 150ps * N
++ *
++ * tx_delay_sel_fe: RGMII tx clock delay train configuration when speed is
++ *                  100Mbps or 10Mbps, it's 150ps per step. Delay = 150ps * N
++ *
++ * tx_delay_sel: RGMII tx clock delay train configuration when speed is
++ *               1000Mbps, it's 150ps per step. Delay = 150ps * N
++ */
++static const struct ytphy_reg_field ytphy_rxtxd_grp[] = {
++	{ "rx_delay_sel", GENMASK(13, 10), 0x0 },
++	{ "tx_delay_sel_fe", GENMASK(7, 4), 0xf },
++	{ "tx_delay_sel", GENMASK(3, 0), 0x1 }
++};
++
++/* tx_inverted_x: Use original or inverted RGMII TX_CLK to drive the RGMII
++ *                TX_CLK delay train configuration when speed is
++ *                xMbps(10/100/1000Mbps).
++ *                0: original,  1: inverted
++ */
++static const struct ytphy_reg_field ytphy_txinver_grp[] = {
++	{ "tx_inverted_1000", BIT(14), 0x0 },
++	{ "tx_inverted_100", BIT(14), 0x0 },
++	{ "tx_inverted_10", BIT(14), 0x0 }
++};
++
++/* rxc_dly_en: RGMII clk 2ns delay control bit.
++ *             0: disable   1: enable
++ */
++static const struct ytphy_reg_field ytphy_rxden_grp[] = {
++	{ "rxc_dly_en", BIT(8), 0x1 }
++};
++
+ static int yt8511_read_page(struct phy_device *phydev)
+ {
+ 	return __phy_read(phydev, YT8511_PAGE_SELECT);
+@@ -48,6 +101,33 @@ static int yt8511_write_page(struct phy_device *phydev, int page)
+ 	return __phy_write(phydev, YT8511_PAGE_SELECT, page);
  };
+ 
++static int ytphy_read_ext(struct phy_device *phydev, u32 regnum)
++{
++	int ret;
++	int val;
 +
-+&gmac0 {
-+	status = "okay";
-+};
++	ret = __phy_write(phydev, YT8511_PAGE_SELECT, regnum);
++	if (ret < 0)
++		return ret;
 +
-+&phy0 {
-+	rxc_dly_en = <1>;
-+	tx_delay_sel_fe = <5>;
-+	tx_delay_sel = <0xa>;
-+	tx_inverted_10 = <0x1>;
-+	tx_inverted_100 = <0x1>;
-+	tx_inverted_1000 = <0x1>;
-+};
++	val = __phy_read(phydev, YT8511_PAGE);
 +
-+&gmac1 {
-+	status = "okay";
-+};
++	return val;
++}
 +
-+&phy1 {
-+	rxc_dly_en = <0>;
-+	tx_delay_sel_fe = <5>;
-+	tx_delay_sel = <0>;
-+	tx_inverted_10 = <0x1>;
-+	tx_inverted_100 = <0x1>;
-+	tx_inverted_1000 = <0x0>;
-+};
++static int ytphy_write_ext(struct phy_device *phydev, u32 regnum, u16 val)
++{
++	int ret;
++
++	ret = __phy_write(phydev, YT8511_PAGE_SELECT, regnum);
++	if (ret < 0)
++		return ret;
++
++	ret = __phy_write(phydev, YT8511_PAGE, val);
++
++	return ret;
++}
++
+ static int yt8511_config_init(struct phy_device *phydev)
+ {
+ 	int oldpage, ret = 0;
+@@ -111,6 +191,116 @@ static int yt8511_config_init(struct phy_device *phydev)
+ 	return phy_restore_page(phydev, oldpage, ret);
+ }
+ 
++static int ytphy_config_init(struct phy_device *phydev)
++{
++	struct device_node *of_node;
++	u32 val;
++	u32 mask;
++	u32 cfg;
++	int ret;
++	int i = 0;
++
++	of_node = phydev->mdio.dev.of_node;
++	if (of_node) {
++		ret = of_property_read_u32(of_node, ytphy_rxden_grp[0].name, &cfg);
++		if (!ret) {
++			mask = ytphy_rxden_grp[0].mask;
++			val = ytphy_read_ext(phydev, YTPHY_EXT_CHIP_CONFIG);
++
++			/* check the cfg overflow or not */
++			cfg = cfg > mask >> (ffs(mask) - 1) ? mask : cfg;
++
++			val &= ~mask;
++			val |= FIELD_PREP(mask, cfg);
++			ytphy_write_ext(phydev, YTPHY_EXT_CHIP_CONFIG, val);
++		}
++
++		val = ytphy_read_ext(phydev, YTPHY_EXT_RGMII_CONFIG1);
++		for (i = 0; i < ARRAY_SIZE(ytphy_rxtxd_grp); i++) {
++			ret = of_property_read_u32(of_node, ytphy_rxtxd_grp[i].name, &cfg);
++			if (!ret) {
++				mask = ytphy_rxtxd_grp[i].mask;
++
++				/* check the cfg overflow or not */
++				cfg = cfg > mask >> (ffs(mask) - 1) ? mask : cfg;
++
++				val &= ~mask;
++				val |= cfg << (ffs(mask) - 1);
++			}
++		}
++		return ytphy_write_ext(phydev, YTPHY_EXT_RGMII_CONFIG1, val);
++	}
++
++	phydev_err(phydev, "Get of node fail\n");
++
++	return -EINVAL;
++}
++
++static void ytphy_link_change_notify(struct phy_device *phydev)
++{
++	u32 val;
++	struct ytphy_priv_t *ytphy_priv = phydev->priv;
++
++	if (phydev->speed < 0)
++		return;
++
++	val = ytphy_read_ext(phydev, YTPHY_EXT_RGMII_CONFIG1);
++	switch (phydev->speed) {
++	case SPEED_1000:
++		val  &= ~ytphy_txinver_grp[0].mask;
++		val |= FIELD_PREP(ytphy_txinver_grp[0].mask,
++				ytphy_priv->tx_inverted_1000);
++		break;
++
++	case SPEED_100:
++		val  &= ~ytphy_txinver_grp[1].mask;
++		val |= FIELD_PREP(ytphy_txinver_grp[1].mask,
++				ytphy_priv->tx_inverted_100);
++		break;
++
++	case SPEED_10:
++		val  &= ~ytphy_txinver_grp[2].mask;
++		val |= FIELD_PREP(ytphy_txinver_grp[2].mask,
++				ytphy_priv->tx_inverted_10);
++		break;
++
++	default:
++		break;
++	}
++
++	ytphy_write_ext(phydev, YTPHY_EXT_RGMII_CONFIG1, val);
++}
++
++static int yt8531_probe(struct phy_device *phydev)
++{
++	struct ytphy_priv_t *priv;
++	const struct device_node *of_node;
++	u32 val;
++	int ret;
++
++	priv = devm_kzalloc(&phydev->mdio.dev, sizeof(*priv), GFP_KERNEL);
++	if (!priv)
++		return -ENOMEM;
++
++	of_node = phydev->mdio.dev.of_node;
++	if (of_node) {
++		ret = of_property_read_u32(of_node, ytphy_txinver_grp[0].name, &val);
++		if (!ret)
++			priv->tx_inverted_1000 = val;
++
++		ret = of_property_read_u32(of_node, ytphy_txinver_grp[1].name, &val);
++		if (!ret)
++			priv->tx_inverted_100 = val;
++
++		ret = of_property_read_u32(of_node, ytphy_txinver_grp[2].name, &val);
++		if (!ret)
++			priv->tx_inverted_10 = val;
++	}
++	phydev->priv = priv;
++
++	return 0;
++}
++
+ static struct phy_driver motorcomm_phy_drvs[] = {
+ 	{
+ 		PHY_ID_MATCH_EXACT(PHY_ID_YT8511),
+@@ -120,6 +310,17 @@ static struct phy_driver motorcomm_phy_drvs[] = {
+ 		.resume		= genphy_resume,
+ 		.read_page	= yt8511_read_page,
+ 		.write_page	= yt8511_write_page,
++	}, {
++		PHY_ID_MATCH_EXACT(PHY_ID_YT8531),
++		.name		= "YT8531 Gigabit Ethernet",
++		.probe		= yt8531_probe,
++		.config_init	= ytphy_config_init,
++		.read_status	= genphy_read_status,
++		.suspend	= genphy_suspend,
++		.resume		= genphy_resume,
++		.read_page	= yt8511_read_page,
++		.write_page	= yt8511_write_page,
++		.link_change_notify = ytphy_link_change_notify,
+ 	},
+ };
+ 
+@@ -131,6 +332,7 @@ MODULE_LICENSE("GPL");
+ 
+ static const struct mdio_device_id __maybe_unused motorcomm_tbl[] = {
+ 	{ PHY_ID_MATCH_EXACT(PHY_ID_YT8511) },
++	{ PHY_ID_MATCH_EXACT(PHY_ID_YT8531) },
+ 	{ /* sentinal */ }
+ };
+ 
 -- 
 2.17.1
 
