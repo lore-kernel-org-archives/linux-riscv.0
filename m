@@ -4,77 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B551C4332F
-	for <linux-riscv@archiver.kernel.org>; Sat, 17 Dec 2022 21:41:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C10DC4332F
+	for <linux-riscv@archiver.kernel.org>; Sat, 17 Dec 2022 22:53:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5XxVmV4ylqaXqzcMszWTbO/4KQd54oBGw4Nd1z8kVl8=; b=zbZ7who2xF3P3pVC+tKTB/zeJ9
-	6FRbSly/c4u5xawEYaIWqkMa1EvYrOtS/Aidis/87KsMp6zdc1dGjPbMKvgMG3vs0ZeAKwc8n9rw1
-	2pS8xe/JMxvKdF3zBErH5fkm1i/OsNd3WNL+QOCiUSbG6tCfVJTgPU79EljccaE2Nye8PitduApCs
-	xrcp/WrV0ISZaiD9ENzefFn6jappupL4IHpEGAx/VEsLCobrhKEQiM/6NAYeNPgtMeL5IOXD/rsTZ
-	SAbPukA6QOtNYnlIlJtZA0qDQPnFRhf7iM8MQ1VEYaWbpn6jryJ8khlGyzjQtRgB62uYVT/+stIM9
-	oWzCs5vA==;
+	bh=CKfZG0CiIlYnBMC7TiexabFzGY0ej0KJoCCjJBpJXWE=; b=jylZO5AEDICIDu7tORzMBqdRDP
+	DjIeowVBt8ttPAa9UTXZIZ0f5l/gk5d4kC1zpfUuE5ZaPTFWZnkHn8DtBIO+9bZnjVS3gqkj7PsId
+	SgmXnWv9B2wIg5Hwgp7/umqPXlS4eYPK1a0eG+zO0bs7Cp4VSJqb1xoW38c9GL4bFGwZyRcMv0+3r
+	Tm4jv0ISsUePy/urp5ytstmm+Y2noYB1uoYpEZ/x5T3khf1GOm0tyt2c0TulQ4kwCofqMjSRm7bQs
+	ys/MPKapJVXWzojxQxh4XnqmX50ZD/ifPphVD1o8tyPwylCEArlDHkFXp4TsO50dhhCf1FqDnSiLT
+	hLOtnvYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p6ewH-00D2Cy-TT; Sat, 17 Dec 2022 21:41:49 +0000
+	id 1p6g3B-00DOcU-Dy; Sat, 17 Dec 2022 22:53:01 +0000
 Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p6ewE-00D25C-Fz
-	for linux-riscv@lists.infradead.org; Sat, 17 Dec 2022 21:41:48 +0000
+	id 1p6g38-00DOM5-Nb
+	for linux-riscv@lists.infradead.org; Sat, 17 Dec 2022 22:53:00 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id B57A8B80A2C;
-	Sat, 17 Dec 2022 21:41:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CBC83C433EF;
-	Sat, 17 Dec 2022 21:41:38 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 1DF4FB80066;
+	Sat, 17 Dec 2022 22:52:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8EC4C433EF;
+	Sat, 17 Dec 2022 22:52:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1671313303;
-	bh=FQfM15omrjyZA4dNcbB7Ai/GYY6dSKSm7z3ucZy747g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Kf2nbSVkMJm05leBFU5yBUdyBRglF/S1CO0UNZeQQ5OZ8uxxAKbHUyMZNEsMSRUxJ
-	 lThDE0WdEw8XKX8p3NXUthYKnpa8Z4q5IO7eELKeCLyDxv+YCC1C1D2Sd0oavTdMCd
-	 H/AJYgPN7Bu4zIIfyZ34z9L78vwJxpOFsapcwc3YUzjEFYmVObYkervQlUuIywM6AT
-	 cghmlLqaKABIm7F1hcYWTj4OP+A3oKBrVmEz79dZ0jyq62QaS46AEUSzSz/QVr8x75
-	 4QW/7HpoHG4KXNcw0oL8mSxqWn6cGudP63b24O+wxH96G6XK+bvbbr1i55MmkHaxuL
-	 lKdXtw1mS2T2w==
-Date: Sat, 17 Dec 2022 21:41:36 +0000
+	s=k20201202; t=1671317575;
+	bh=Ch3US/HKQcH+y5/c6H7bpWBdnZCRxuMofatx7TVmmhc=;
+	h=Date:From:To:List-Id:Cc:Subject:References:In-Reply-To:From;
+	b=ssVIOBLFzgt1c2WDgtVg+5bXEnsKZb2yX5WwI6fZhC4huuCOkW3mHmtFqoaREY8Vt
+	 jyDzVRJK8jhuaCCESym13+y6gr9fX80Jd2/lnflhFiS3m414dTSr+Wg0KnwfvnrJkv
+	 8V9hGcWT6wUp3QG+kSFZhfXeYNIlXpEhRtimKmaWjapyGk82LJF/+b6GN/FRk/9E2z
+	 DGCh5nGo8I5VW9hDPS1RoVTklWzUBwTXvOy6gubtYW6zpccW8jhZyVMmSO4EFzhCNi
+	 BTZ1ZahMj8+5utw5qApJUJQQfUEMsPPtjhIy4TxN8ADvQUoP2jdwdMSRL8HLiz7r3d
+	 EYfkeuDHMl4Mg==
+Date: Sat, 17 Dec 2022 22:52:48 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Prabhakar <prabhakar.csengg@gmail.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-riscv@lists.infradead.org,
+	Geert Uytterhoeven <geert@linux-m68k.org>, soc@kernel.org,
+	Prabhakar <prabhakar.csengg@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
 	Magnus Damm <magnus.damm@gmail.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Samuel Holland <samuel@sholland.org>, Guo Ren <guoren@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
+	"Conor.Dooley" <conor.dooley@microchip.com>,
+	Samuel Holland <samuel@sholland.org>, guoren <guoren@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>, krzysztof.kozlowski+dt@linaro.org,
 	Jisheng Zhang <jszhang@kernel.org>,
 	Atish Patra <atishp@rivosinc.com>,
 	Anup Patel <apatel@ventanamicro.com>,
 	Andrew Jones <ajones@ventanamicro.com>,
 	Nathan Chancellor <nathan@kernel.org>,
 	Philipp Tomsich <philipp.tomsich@vrull.eu>,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: Re: [PATCH v5 1/6] riscv: asm: alternative-macros: Introduce
- ALTERNATIVE_3() macro
-Message-ID: <Y543kM4070CSDtZi@spud>
-References: <20221212115505.36770-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20221212115505.36770-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
+	devicetree@vger.kernel.org,
+	Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
+	linux-kernel@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>,
+	"Lad, Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Christoph Hellwig <hch@infradead.org>
+Subject: Re: [PATCH v5 6/6] soc: renesas: Add L2 cache management for RZ/Five
+ SoC
+Message-ID: <Y55IQIxXw/twcxFx@spud>
+References: <mhng-8b05b6cd-d8a1-4302-af24-2f64a4bf7c32@palmer-ri-x1c9a>
+ <32cf0901-a4a0-48a7-bf42-f2cdb34d1ee7@app.fastmail.com>
 MIME-Version: 1.0
-In-Reply-To: <20221212115505.36770-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
+In-Reply-To: <32cf0901-a4a0-48a7-bf42-f2cdb34d1ee7@app.fastmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221217_134146_849113_C801F51E 
-X-CRM114-Status: GOOD (  26.29  )
+X-CRM114-CacheID: sfid-20221217_145259_076310_3C69E6A5 
+X-CRM114-Status: GOOD (  34.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,185 +88,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1036861045056436337=="
+Content-Type: multipart/mixed; boundary="===============3171137224810827312=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============1036861045056436337==
+--===============3171137224810827312==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="9X66vO0ItE/RH9dw"
+	protocol="application/pgp-signature"; boundary="AVdRAMNp1ZNJqCN3"
 Content-Disposition: inline
 
 
---9X66vO0ItE/RH9dw
+--AVdRAMNp1ZNJqCN3
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Mon, Dec 12, 2022 at 11:55:00AM +0000, Prabhakar wrote:
-> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+On Fri, Dec 16, 2022 at 09:04:20PM +0100, Arnd Bergmann wrote:
+> On Fri, Dec 16, 2022, at 17:32, Palmer Dabbelt wrote:
+> > On Thu, 15 Dec 2022 23:02:58 PST (-0800), Christoph Hellwig wrote:
+> >> On Thu, Dec 15, 2022 at 01:40:30PM -0800, Palmer Dabbelt wrote:
+> >>> Given that we already moved the SiFive one out it seems sane to just =
+start
+> >>> with the rest in drivers/soc/$VENDOR.  Looks like it was Christoph's =
+idea to
+> >>> do the move, so I'm adding him in case he's got an opinion (and also =
+the SOC
+> >>> alias, as that seems generally relevant).
+> >>
+> >> Well, it isn't an integral architecture feature, so it doesn't really
+> >> beloing into arch.  Even the irqchip and timer drivers that are more
+> >> less architectural are in drivers/ as they aren't really core
+> >> architecture code.
+> >
+> > That makes sense to me, it just looks like the SiFive ccache is the onl=
+y=20
+> > one that's in drivers/soc/$VENDOR, the rest are in arch.  It looks like=
+=20
+> > mostly older ports that have vendor-specific cache files in arch (ie,=
+=20
+> > arm has it but arm64 doesn't).  Maybe that's just because the newer=20
+> > architectures sorted out standard ISA interfaces for these and thus=20
+> > don't need the vendor-specific bits?  I think we're likely to end up=20
+> > with quite a few of these vendor-specific cache management schemes on=
+=20
+> > RISC-V.
+> >
+> > I'm always happy to keep stuff out of arch/riscv, though.  So maybe we=
+=20
+> > just buck the trend here and stick to drivers/soc/$VENDOR like we did=
+=20
+> > for the first one?
 >=20
-> Introduce ALTERNATIVE_3() macro.
+> I don't particularly like drivers/soc/ to become more of a dumping
+> ground for random drivers. If there are several SoCs that have the
+> same requirement to do a particular thing, the logical step would
+> be to put them into a proper subsystem, with a well-defined interface
+> to dma-mapping and virtualization frameworks.
 >=20
-> A vendor wants to replace an old_content, but another vendor has used
-> ALTERNATIVE_2() to patch its customized content at the same location.
-> In this case, this vendor can use macro ALTERNATIVE_3() and then replace
-> ALTERNATIVE_2() with ALTERNATIVE_3() to append its customized content.
->=20
-> While at it update comment above ALTERNATIVE_2() macro and make it generic
-> so that the comment holds good for any new addition of ALTERNATIVE_X()
-> macros.
->=20
-> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> ---
-> v4->v5
-> * Rebased the patch on top of Andrew's series (now in Palmers for next-br=
-anch)
-> * Updated comment for ALTERNATIVE_x() as suggested by Heiko
->=20
-> RFC v3 -> v4
-> * New patch
-> ---
->  arch/riscv/include/asm/alternative-macros.h | 46 ++++++++++++++++++---
->  1 file changed, 41 insertions(+), 5 deletions(-)
->=20
-> diff --git a/arch/riscv/include/asm/alternative-macros.h b/arch/riscv/inc=
-lude/asm/alternative-macros.h
-> index 7226e2462584..a5b4691520da 100644
-> --- a/arch/riscv/include/asm/alternative-macros.h
-> +++ b/arch/riscv/include/asm/alternative-macros.h
-> @@ -50,8 +50,17 @@
->  	ALT_NEW_CONTENT \vendor_id_2, \errata_id_2, \enable_2, \new_c_2
->  .endm
-> =20
-> +.macro ALTERNATIVE_CFG_3 old_c, new_c_1, vendor_id_1, errata_id_1, enabl=
-e_1,	\
-> +				new_c_2, vendor_id_2, errata_id_2, enable_2,	\
-> +				new_c_3, vendor_id_3, errata_id_3, enable_3
-> +       ALTERNATIVE_CFG_2 \old_c, \new_c_1, \vendor_id_1, \errata_id_1, \=
-enable_1,	\
-> +                                 \new_c_2, \vendor_id_2, \errata_id_2, \=
-enable_2
-> +       ALT_NEW_CONTENT \vendor_id_3, \errata_id_3, \enable_3, \new_c_3
-> +.endm
-> +
->  #define __ALTERNATIVE_CFG(...)		ALTERNATIVE_CFG __VA_ARGS__
->  #define __ALTERNATIVE_CFG_2(...)	ALTERNATIVE_CFG_2 __VA_ARGS__
-> +#define __ALTERNATIVE_CFG_3(...)	ALTERNATIVE_CFG_3 __VA_ARGS__
-> =20
->  #else /* !__ASSEMBLY__ */
-> =20
-> @@ -98,6 +107,13 @@
->  	__ALTERNATIVE_CFG(old_c, new_c_1, vendor_id_1, errata_id_1, enable_1)	\
->  	ALT_NEW_CONTENT(vendor_id_2, errata_id_2, enable_2, new_c_2)
-> =20
-> +#define __ALTERNATIVE_CFG_3(old_c, new_c_1, vendor_id_1, errata_id_1, en=
-able_1,	\
-> +				   new_c_2, vendor_id_2, errata_id_2, enable_2,	\
-> +				   new_c_3, vendor_id_3, errata_id_3, enable_3)	\
-> +	__ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, errata_id_1, enable_1,=
-	\
-> +                                   new_c_2, vendor_id_2, errata_id_2, en=
-able_2)	\
-> +	ALT_NEW_CONTENT(vendor_id_3, errata_id_3, enable_3, new_c_3)
-> +
->  #endif /* __ASSEMBLY__ */
-> =20
->  #define _ALTERNATIVE_CFG(old_c, new_c, vendor_id, errata_id, CONFIG_k)	\
-> @@ -108,6 +124,13 @@
->  	__ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, errata_id_1, IS_ENABLE=
-D(CONFIG_k_1),	\
->  				   new_c_2, vendor_id_2, errata_id_2, IS_ENABLED(CONFIG_k_2))
-> =20
-> +#define _ALTERNATIVE_CFG_3(old_c, new_c_1, vendor_id_1, errata_id_1, CON=
-FIG_k_1,		\
-> +				  new_c_2, vendor_id_2, errata_id_2, CONFIG_k_2,		\
-> +				  new_c_3, vendor_id_3, errata_id_3, CONFIG_k_3)		\
-> +	__ALTERNATIVE_CFG_3(old_c, new_c_1, vendor_id_1, errata_id_1, IS_ENABLE=
-D(CONFIG_k_1),	\
-> +				   new_c_2, vendor_id_2, errata_id_2, IS_ENABLED(CONFIG_k_2),	\
-> +				   new_c_3, vendor_id_3, errata_id_3, IS_ENABLED(CONFIG_k_3))
-> +
->  #else /* CONFIG_RISCV_ALTERNATIVE */
->  #ifdef __ASSEMBLY__
-> =20
-> @@ -152,15 +175,28 @@
->  	_ALTERNATIVE_CFG(old_content, new_content, vendor_id, errata_id, CONFIG=
-_k)
-> =20
->  /*
-> - * A vendor wants to replace an old_content, but another vendor has used
-> - * ALTERNATIVE() to patch its customized content at the same location. In
-> - * this case, this vendor can create a new macro ALTERNATIVE_2() based
-> - * on the following sample code and then replace ALTERNATIVE() with
-> - * ALTERNATIVE_2() to append its customized content.
-> + * ALTERNATIVE_x macros allow providing multiple replacement options
-> + * for an ALTERNATIVE code section. This is helpful if multiple
-> + * implementation variants for the same functionality exist for
-> + * different cpu cores.
+> The other things we have in drivers/soc/ are usually either
+> soc_device drivers for identifying the system, or they export
+> interfaces used by soc specific drivers.
 
-I think this last sentence should be:
-"This is helpful if multiple implementation variants exist for the same
-functionality."
-I don't think CPU cores is the right level of "granularity".
+Sounds like that's two "not in my back yard" votes from the maintainers
+in question..
+Doing drivers/cache would allow us to co-locate the RISC-V cache
+management bits since it is not just going to be the ax45mp l2 driver
+that will need to have them.
 
-> + *
-> + * Usage:
-> + *   ALTERNATIVE_x(old_content,
-> + *      new_content1, vendor_id1, errata_id1, CONFIG_k1,
-> + *      new_content2, vendor_id2, errata_id2, CONFIG_k2,
-> + *      ...
-> + *      new_contentx, vendor_idx, errata_idx, CONFIG_kx)
->   */
->  #define ALTERNATIVE_2(old_content, new_content_1, vendor_id_1, errata_id=
-_1, CONFIG_k_1,		\
->  				   new_content_2, vendor_id_2, errata_id_2, CONFIG_k_2)		\
->  	_ALTERNATIVE_CFG_2(old_content, new_content_1, vendor_id_1, errata_id_1=
-, CONFIG_k_1,	\
->  					new_content_2, vendor_id_2, errata_id_2, CONFIG_k_2)
-> =20
-> +#define ALTERNATIVE_3(old_content, new_content_1, vendor_id_1, errata_id=
-_1, CONFIG_k_1,		\
-> +				   new_content_2, vendor_id_2, errata_id_2, CONFIG_k_2,		\
-> +				   new_content_3, vendor_id_3, errata_id_3, CONFIG_k_3)		\
-> +       _ALTERNATIVE_CFG_3(old_content, new_content_1, vendor_id_1, errat=
-a_id_1, CONFIG_k_1,	\
-> +                                       new_content_2, vendor_id_2, errat=
-a_id_2, CONFIG_k_2,	\
-> +                                       new_content_3, vendor_id_3, errat=
-a_id_3, CONFIG_k_3)
-
-btw, why is this indented with spaces when the line above it is indented
-with tabs? (At least, that is how it appears in mutt).
-
-With those minor bits & the suggested fixes from Drew/Geert:
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Would it be okay to put this driver in soc/andestech for now & then move
+it, and the SiFive one, once we've got patches posted for cache
+management with that?
 
 Thanks,
 Conor.
 
-> +
->  #endif
-> --=20
-> 2.25.1
->=20
 
---9X66vO0ItE/RH9dw
+--AVdRAMNp1ZNJqCN3
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY543kAAKCRB4tDGHoIJi
-0h+1AQCWYOSiTUMmLEQOWyuSsja8cTBe0s7E75THHhx5ytR1+wD8DH3FlM6csl5t
-HilI1PkreKSHH2mpX6BVpeofVNt0FAQ=
-=VgBI
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY55IQAAKCRB4tDGHoIJi
+0qusAP0a2dfTD6X7ML+t8lFgkHGnfD6rsEPdNdvUTA+/u4OAcAD9HrdOto6jMa+H
+Z0834ZDF+9HV0CdT1zTZVuuunnhfCwk=
+=q/pI
 -----END PGP SIGNATURE-----
 
---9X66vO0ItE/RH9dw--
+--AVdRAMNp1ZNJqCN3--
 
 
---===============1036861045056436337==
+--===============3171137224810827312==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -275,5 +189,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============1036861045056436337==--
+--===============3171137224810827312==--
 
