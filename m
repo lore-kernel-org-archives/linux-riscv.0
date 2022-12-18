@@ -4,126 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52853C4332F
-	for <linux-riscv@archiver.kernel.org>; Sun, 18 Dec 2022 10:00:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA90CC4332F
+	for <linux-riscv@archiver.kernel.org>; Sun, 18 Dec 2022 18:32:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:Subject:From:References:Cc:To:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ppvk/OjA5FMxqKyVP5K1Ms+TigSxJLp6z9BxyLOMwL8=; b=lpVgBDL6u9n+oT
-	24aZXEhYx0W3UEpPmbKc7WZW1QuvamtELMZEqRZYQED8/ZfM7pW1WzqC5AoHn8V7IC7Fg23kOwUM6
-	QEZuibJXOcGsfkGyNgRJ7czlzpE55yip8LNcbrc5m6yvZHmXeIF9HI9gRc6gAPGSdFUqyjd7lIg9o
-	rrrdiKzGrvLBc0jJ3hl6IwQnnijAIic8RjppINVfG18a4OgnBrLYDPPJ4a0lEky9yrXrM6tY4Wk5s
-	MS0Vt6BI8Qmo7FlvMxZFKZvjL3RhNz45NZLH4ZmQdXpX9cfmG/RTbn448Ia7oFJN7ZMFYyDV9Elf+
-	WSP1VQYHCJt3JPZURo4A==;
+	List-Owner; bh=6q0/++GV68fRYUJYZf4DFiECPYf398eZhY5qbBEZSFI=; b=BltlU2/PZl/Fwo
+	nnfRHr/nwQtdxqKNVr8H29QxGx5SzxAqwmf5xJfA/07/BIbjfYiJJwEjjBKKyzFOMMn0Tn29d7kPP
+	dFO6riLAaTNLhpEbBww8CD3wHEYWojTQ3SGAPGgx2LRwsLPHvuxKlv8vX7sgdUU1kLhfLAr3XUscW
+	bcoAP10icvciXyfMsouOQU4hBO7SHRQt7JzoOGuLzOuq1tyuzfiRVByJ5/BALZSNmMrpH0j7WhNpr
+	Ttc0ORVX5YWr2dsdpgV+A7DxDyMfY1W4oQsUSF3aqvDy7vup8LV0dXtJS1jlod4gOA3tpGpzP/oFe
+	NcIZtvnR/DoMte7e9F6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p6qSm-000OSB-7v; Sun, 18 Dec 2022 10:00:08 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1p6ySJ-003hQ7-VD; Sun, 18 Dec 2022 18:32:12 +0000
+Received: from mail-qt1-x835.google.com ([2607:f8b0:4864:20::835])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p6qSd-000ONh-NM
-	for linux-riscv@lists.infradead.org; Sun, 18 Dec 2022 10:00:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1671357597;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=40GRUdlRAtUxb7WD8Kqf+Ugi5NyUS71hS5wP23U0j54=;
-	b=UEwT+YI04qYOQFnWnlpG/AzKvHu0CGS1KpdTvfZjRr93KtehZJYALmVDj04zK0vbUwL1CZ
-	b4WVuQy+yTO0ShZ44EiYIoV8YM1BNTx5FpGXoj38mMKC3ycuN0F8IfD960hmzV78oM0xnb
-	NMzpcgbg25owVrISFS07RgOlp+rLt9c=
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_128_GCM_SHA256) id
- us-mta-155-P6ZJLlw-PV-_aWKIDglUMg-1; Sun, 18 Dec 2022 04:59:54 -0500
-X-MC-Unique: P6ZJLlw-PV-_aWKIDglUMg-1
-Received: by mail-wm1-f70.google.com with SMTP id q6-20020a05600c2e4600b003d211775a99so4375662wmf.1
-        for <linux-riscv@lists.infradead.org>; Sun, 18 Dec 2022 01:59:53 -0800 (PST)
+	id 1p6yS4-003hPG-HF
+	for linux-riscv@lists.infradead.org; Sun, 18 Dec 2022 18:31:58 +0000
+Received: by mail-qt1-x835.google.com with SMTP id a16so6725891qtw.10
+        for <linux-riscv@lists.infradead.org>; Sun, 18 Dec 2022 10:31:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20210112;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=G6KoHvcGTx1RcWeXNiJbyqXJGMqsYoj3r/slahxN0do=;
+        b=AXETmQ2+NJJH9dhNzAPwQ0s/HvEQF7jcqqUCJVlG45c91ucHbLsnCqKo61bi/1AxsV
+         WbR8WRagXpTp0rVjwLIGQM30a1S47wrJW+Z1j9N+MPtFq9WWws7hma6/BRHw66QW8T4q
+         G67j+3VBYBNneXjsrJNhe2zVwMTBr7TMKLIr0VHkXMfEE3awqCSAUF2M6Sc52bhm+mFh
+         YKlC38KVcYTaDIXKmZQdv5bEnmiiBi+jROD5I/dc3yzAGrlFvxG4ikTdVFfY177W3DhC
+         xki87bEvgwQydNUbKwT9qKQ+0846myxixMIMjFqKO6k3hZUiG0ixF+V8OxXRwD2vw8pf
+         FXXw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:subject:organization:from
-         :content-language:references:cc:to:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=40GRUdlRAtUxb7WD8Kqf+Ugi5NyUS71hS5wP23U0j54=;
-        b=RTsu8BDGWSo30SIb3C6qyCtzaonXg9DDOf4/taafHSRxH0204sOPzRyY9iBiuBPl2l
-         oiPISCvF4q9AeS44vga884dH4gFc/vk1DSiiapKXmzevnwpnv7a0r6GnJFlT+adpq8vu
-         lzAePARlEyuocoj+kIQNE2UrXvwSD/fhRC89RP1gt11RdMeme76uu2T4WQg7VO9WGp3M
-         5SFUJEZuEubQ1tfnjz0eVziv+IncBBqBumRqFUnTDQN1GqHw7HtIsR/oRnL7jLpE5A4T
-         MWCH7+Osei54dhELAEBk+m5puuwm2UtE67DlBD6Dco0NE3tBHe9Z9lF09J8GHvKw2201
-         8myw==
-X-Gm-Message-State: ANoB5pm3VBv9kql66f4Kq1dzpxdnvugurOVzL4BysPii17inxo4rlXUK
-	X8r7UNIXOohrwuGdsJOtSDh8KEu75RDOaeDVsyWXLJDW30ZNm4D33VHI11eq7yr9kV9ppTxxKXE
-	xs3sbU6qOjqPrTdl27H2GEnRjT5TY
-X-Received: by 2002:a05:600c:3c9a:b0:3c6:c6c9:d75e with SMTP id bg26-20020a05600c3c9a00b003c6c6c9d75emr40381288wmb.0.1671357592927;
-        Sun, 18 Dec 2022 01:59:52 -0800 (PST)
-X-Google-Smtp-Source: AA0mqf70XdZ3J+8X2dl3DqxLL1m33RuokYuq1g5n3SN2j/YJfgNLpd1gHw4S/kM2L8bQXXp7f0cgIg==
-X-Received: by 2002:a05:600c:3c9a:b0:3c6:c6c9:d75e with SMTP id bg26-20020a05600c3c9a00b003c6c6c9d75emr40381246wmb.0.1671357592548;
-        Sun, 18 Dec 2022 01:59:52 -0800 (PST)
-Received: from ?IPV6:2003:cb:c728:2000:3aca:8d08:a617:1f69? (p200300cbc72820003aca8d08a6171f69.dip0.t-ipconnect.de. [2003:cb:c728:2000:3aca:8d08:a617:1f69])
-        by smtp.gmail.com with ESMTPSA id n17-20020a05600c4f9100b003d351a9db76sm2594565wmq.30.2022.12.18.01.59.49
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 18 Dec 2022 01:59:52 -0800 (PST)
-Message-ID: <b3b90a8e-16e9-a314-8531-e225f8a52817@redhat.com>
-Date: Sun, 18 Dec 2022 10:59:49 +0100
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=G6KoHvcGTx1RcWeXNiJbyqXJGMqsYoj3r/slahxN0do=;
+        b=KgwFGw9qiFaQzVg8azgOPHGQhJMTWSD5qKtBPNgp+cySMzLTcO57JrKjr1ozGAXPgr
+         zkaW9vTfn/T6JZS1c9OkxCC6iRsK9mYCFSIqiqTDw7MilMVVfOlEovzlAkN1poRVCK8R
+         +5gUQ6vtr/RlE21xCvPHAbxAIDo0asdDchbfyaFwHN6/ocu8Ym8QQ8IdmvkbkOgQA2r+
+         q2Xx+X1bPlAFDM06KSYVEjfp9gOperooLaw3hI6yFK18V3DFW8P2Ka8N4NjTpkVn7hFs
+         TEnCoX+YZna9GMyHi2YOB1QsxdExrR1wC/HgqpUBpcyIPlXGrFrgZO84CGzAnseWiCNP
+         5lFQ==
+X-Gm-Message-State: ANoB5plB/IExWcbuxwMXu0QnDnV3HmxvLSfjKb0CzIzOnKV6iMp4Fi8f
+	9JEb7h+so/cxosyuPhmBVCAEPkw30bRdOUyWvpMATA==
+X-Google-Smtp-Source: AA0mqf5ABkKhlDT/MO5rrqjzXb8ZbVq5G52EEI25mfQE+l9Q5TztddrpvmEjk73i7QcTQ8HFrykkl5VMG32NOyDWolA=
+X-Received: by 2002:ac8:754e:0:b0:3a7:e16a:6a7 with SMTP id
+ b14-20020ac8754e000000b003a7e16a06a7mr17572456qtr.288.1671388310693; Sun, 18
+ Dec 2022 10:31:50 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.5.1
-To: Huacai Chen <chenhuacai@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
- Hugh Dickins <hughd@google.com>, John Hubbard <jhubbard@nvidia.com>,
- Jason Gunthorpe <jgg@nvidia.com>, Mike Rapoport <rppt@linux.ibm.com>,
- Yang Shi <shy828301@gmail.com>, Vlastimil Babka <vbabka@suse.cz>,
- Nadav Amit <namit@vmware.com>, Andrea Arcangeli <aarcange@redhat.com>,
- Peter Xu <peterx@redhat.com>, linux-mm@kvack.org, x86@kernel.org,
- linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
- linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
- loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org, openrisc@lists.librecores.org,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-um@lists.infradead.org, linux-xtensa@linux-xtensa.org,
- Albert Ou <aou@eecs.berkeley.edu>,
- Anton Ivanov <anton.ivanov@cambridgegreys.com>,
- Borislav Petkov <bp@alien8.de>, Brian Cain <bcain@quicinc.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Chris Zankel <chris@zankel.net>, Dave Hansen <dave.hansen@linux.intel.com>,
- "David S. Miller" <davem@davemloft.net>, Dinh Nguyen <dinguyen@kernel.org>,
- Geert Uytterhoeven <geert@linux-m68k.org>, Greg Ungerer
- <gerg@linux-m68k.org>, Guo Ren <guoren@kernel.org>,
- Helge Deller <deller@gmx.de>, "H. Peter Anvin" <hpa@zytor.com>,
- Ingo Molnar <mingo@redhat.com>, Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
- "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
- Johannes Berg <johannes@sipsolutions.net>, Matt Turner <mattst88@gmail.com>,
- Max Filippov <jcmvbkbc@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>,
- Michal Simek <monstr@monstr.eu>, Nicholas Piggin <npiggin@gmail.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Richard Henderson
- <richard.henderson@linaro.org>, Richard Weinberger <richard@nod.at>,
- Rich Felker <dalias@libc.org>, Russell King <linux@armlinux.org.uk>,
- Stafford Horne <shorne@gmail.com>,
- Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Thomas Gleixner <tglx@linutronix.de>, Vineet Gupta <vgupta@kernel.org>,
- WANG Xuerui <kernel@xen0n.name>, Yoshinori Sato <ysato@users.sourceforge.jp>
-References: <20221206144730.163732-1-david@redhat.com>
- <CAAhV-H4bU7JnAPyf9Mv1m+WGR5NWmHJLva3d9_CsRd4Q_OHVpg@mail.gmail.com>
-From: David Hildenbrand <david@redhat.com>
-Organization: Red Hat
-Subject: Re: [PATCH mm-unstable RFC 00/26] mm: support
- __HAVE_ARCH_PTE_SWP_EXCLUSIVE on all architectures with swap PTEs
-In-Reply-To: <CAAhV-H4bU7JnAPyf9Mv1m+WGR5NWmHJLva3d9_CsRd4Q_OHVpg@mail.gmail.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+References: <20220830193701.1702962-1-maskray@google.com> <20220910075316.no72fdyqjvunomwm@google.com>
+ <CAFP8O3+OwanSJdzd5V3oGJ_MOJOSVdbn+4iBJJKm2LCR8mCA0Q@mail.gmail.com>
+ <9ce45cd2-dcd8-11f8-e496-7efe3649e241@csgroup.eu> <20221115004625.x4wl6zbg4iiuxl5t@google.com>
+ <CAFP8O3LdSJCChGEwT57e=iZopceYkBFuW9XD=yhO1ZszVZGm4g@mail.gmail.com> <3ec9737e-3d1a-c014-b91a-0e2d406a3b3d@csgroup.eu>
+In-Reply-To: <3ec9737e-3d1a-c014-b91a-0e2d406a3b3d@csgroup.eu>
+From: Fangrui Song <maskray@google.com>
+Date: Sun, 18 Dec 2022 10:31:39 -0800
+Message-ID: <CAFP8O3KZTkSbxXJ2yWt4w-F3xWHY_owCs03wN3Bhss57O-E_JQ@mail.gmail.com>
+Subject: Re: [PATCH] vdso: Improve cmd_vdso_check to check all dynamic relocations
+To: Christophe Leroy <christophe.leroy@csgroup.eu>, Andy Lutomirski <luto@kernel.org>, 
+	Thomas Gleixner <tglx@linutronix.de>, Vincenzo Frascino <vincenzo.frascino@arm.com>
+Cc: "linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>, 
+	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>, 
+	"loongarch@lists.linux.dev" <loongarch@lists.linux.dev>, 
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, 
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221218_015959_957555_CE75AF75 
-X-CRM114-Status: GOOD (  24.56  )
+X-CRM114-CacheID: sfid-20221218_103156_614188_FFA82874 
+X-CRM114-Status: GOOD (  18.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,208 +91,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 18.12.22 04:32, Huacai Chen wrote:
-> Hi, David,
-> 
-> What is the opposite of exclusive here? Shared or inclusive? I prefer
-> pte_swp_mkshared() or pte_swp_mkinclusive() rather than
-> pte_swp_clear_exclusive(). Existing examples: dirty/clean, young/old
-> ...
-
-Hi Huacai,
-
-thanks for having a look!
-
-Please note that this series doesn't add these primitives but merely 
-implements them on all remaining architectures.
-
-Having that said, the semantics are "exclusive" vs. "maybe shared", not 
-"exclusive" vs. "shared" or sth. else. It would have to be 
-pte_swp_mkmaybe_shared().
-
-
-Note that this naming matches just the way we handle it for the other 
-pte_swp_ flags we have, namely:
-
-pte_swp_mksoft_dirty()
-pte_swp_soft_dirty()
-pte_swp_clear_soft_dirty()
-
-and
-
-pte_swp_mkuffd_wp()
-pte_swp_uffd_wp()
-pte_swp_clear_uffd_wp()
-
-
-For example, we also (thankfully) didn't call it pte_mksoft_clean().
-Grepping for "pte_swp.*soft_dirty" gives you the full picture.
-
-Thanks!
-
-David
-
-> 
-> Huacai
-> 
-> On Tue, Dec 6, 2022 at 10:48 PM David Hildenbrand <david@redhat.com> wrote:
->>
->> This is the follow-up on [1]:
->>          [PATCH v2 0/8] mm: COW fixes part 3: reliable GUP R/W FOLL_GET of
->>          anonymous pages
->>
->> After we implemented __HAVE_ARCH_PTE_SWP_EXCLUSIVE on most prominent
->> enterprise architectures, implement __HAVE_ARCH_PTE_SWP_EXCLUSIVE on all
->> remaining architectures that support swap PTEs.
->>
->> This makes sure that exclusive anonymous pages will stay exclusive, even
->> after they were swapped out -- for example, making GUP R/W FOLL_GET of
->> anonymous pages reliable. Details can be found in [1].
->>
->> This primarily fixes remaining known O_DIRECT memory corruptions that can
->> happen on concurrent swapout, whereby we can lose DMA reads to a page
->> (modifying the user page by writing to it).
->>
->> To verify, there are two test cases (requiring swap space, obviously):
->> (1) The O_DIRECT+swapout test case [2] from Andrea. This test case tries
->>      triggering a race condition.
->> (2) My vmsplice() test case [3] that tries to detect if the exclusive
->>      marker was lost during swapout, not relying on a race condition.
->>
->>
->> For example, on 32bit x86 (with and without PAE), my test case fails
->> without these patches:
->>          $ ./test_swp_exclusive
->>          FAIL: page was replaced during COW
->> But succeeds with these patches:
->>          $ ./test_swp_exclusive
->>          PASS: page was not replaced during COW
->>
->>
->> Why implement __HAVE_ARCH_PTE_SWP_EXCLUSIVE for all architectures, even
->> the ones where swap support might be in a questionable state? This is the
->> first step towards removing "readable_exclusive" migration entries, and
->> instead using pte_swp_exclusive() also with (readable) migration entries
->> instead (as suggested by Peter). The only missing piece for that is
->> supporting pmd_swp_exclusive() on relevant architectures with THP
->> migration support.
->>
->> As all relevant architectures now implement __HAVE_ARCH_PTE_SWP_EXCLUSIVE,,
->> we can drop __HAVE_ARCH_PTE_SWP_EXCLUSIVE in the last patch.
->>
->>
->> RFC because some of the swap PTE layouts are really tricky and I really
->> need some feedback related to deciphering these layouts and "using yet
->> unused PTE bits in swap PTEs". I tried cross-compiling all relevant setups
->> (phew, I might only miss some power/nohash variants), but only tested on
->> x86 so far.
->>
->> CCing arch maintainers only on this cover letter and on the respective
->> patch(es).
->>
->>
->> [1] https://lkml.kernel.org/r/20220329164329.208407-1-david@redhat.com
->> [2] https://gitlab.com/aarcange/kernel-testcases-for-v5.11/-/blob/main/page_count_do_wp_page-swap.c
->> [3] https://gitlab.com/davidhildenbrand/scratchspace/-/blob/main/test_swp_exclusive.c
->>
->> David Hildenbrand (26):
->>    mm/debug_vm_pgtable: more pte_swp_exclusive() sanity checks
->>    alpha/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE
->>    arc/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE
->>    arm/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE
->>    csky/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE
->>    hexagon/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE
->>    ia64/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE
->>    loongarch/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE
->>    m68k/mm: remove dummy __swp definitions for nommu
->>    m68k/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE
->>    microblaze/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE
->>    mips/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE
->>    nios2/mm: refactor swap PTE layout
->>    nios2/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE
->>    openrisc/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE
->>    parisc/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE
->>    powerpc/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE on 32bit book3s
->>    powerpc/nohash/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE
->>    riscv/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE
->>    sh/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE
->>    sparc/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE on 32bit
->>    sparc/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE on 64bit
->>    um/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE
->>    x86/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE also on 32bit
->>    xtensa/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE
->>    mm: remove __HAVE_ARCH_PTE_SWP_EXCLUSIVE
->>
->>   arch/alpha/include/asm/pgtable.h              | 40 ++++++++-
->>   arch/arc/include/asm/pgtable-bits-arcv2.h     | 26 +++++-
->>   arch/arm/include/asm/pgtable-2level.h         |  3 +
->>   arch/arm/include/asm/pgtable-3level.h         |  3 +
->>   arch/arm/include/asm/pgtable.h                | 34 ++++++--
->>   arch/arm64/include/asm/pgtable.h              |  1 -
->>   arch/csky/abiv1/inc/abi/pgtable-bits.h        | 13 ++-
->>   arch/csky/abiv2/inc/abi/pgtable-bits.h        | 19 ++--
->>   arch/csky/include/asm/pgtable.h               | 17 ++++
->>   arch/hexagon/include/asm/pgtable.h            | 36 ++++++--
->>   arch/ia64/include/asm/pgtable.h               | 31 ++++++-
->>   arch/loongarch/include/asm/pgtable-bits.h     |  4 +
->>   arch/loongarch/include/asm/pgtable.h          | 38 +++++++-
->>   arch/m68k/include/asm/mcf_pgtable.h           | 35 +++++++-
->>   arch/m68k/include/asm/motorola_pgtable.h      | 37 +++++++-
->>   arch/m68k/include/asm/pgtable_no.h            |  6 --
->>   arch/m68k/include/asm/sun3_pgtable.h          | 38 +++++++-
->>   arch/microblaze/include/asm/pgtable.h         | 44 +++++++---
->>   arch/mips/include/asm/pgtable-32.h            | 86 ++++++++++++++++---
->>   arch/mips/include/asm/pgtable-64.h            | 23 ++++-
->>   arch/mips/include/asm/pgtable.h               | 35 ++++++++
->>   arch/nios2/include/asm/pgtable-bits.h         |  3 +
->>   arch/nios2/include/asm/pgtable.h              | 37 ++++++--
->>   arch/openrisc/include/asm/pgtable.h           | 40 +++++++--
->>   arch/parisc/include/asm/pgtable.h             | 40 ++++++++-
->>   arch/powerpc/include/asm/book3s/32/pgtable.h  | 37 ++++++--
->>   arch/powerpc/include/asm/book3s/64/pgtable.h  |  1 -
->>   arch/powerpc/include/asm/nohash/32/pgtable.h  | 22 +++--
->>   arch/powerpc/include/asm/nohash/32/pte-40x.h  |  6 +-
->>   arch/powerpc/include/asm/nohash/32/pte-44x.h  | 18 +---
->>   arch/powerpc/include/asm/nohash/32/pte-85xx.h |  4 +-
->>   arch/powerpc/include/asm/nohash/64/pgtable.h  | 24 +++++-
->>   arch/powerpc/include/asm/nohash/pgtable.h     | 15 ++++
->>   arch/powerpc/include/asm/nohash/pte-e500.h    |  1 -
->>   arch/riscv/include/asm/pgtable-bits.h         |  3 +
->>   arch/riscv/include/asm/pgtable.h              | 28 ++++--
->>   arch/s390/include/asm/pgtable.h               |  1 -
->>   arch/sh/include/asm/pgtable_32.h              | 53 +++++++++---
->>   arch/sparc/include/asm/pgtable_32.h           | 26 +++++-
->>   arch/sparc/include/asm/pgtable_64.h           | 37 +++++++-
->>   arch/sparc/include/asm/pgtsrmmu.h             | 14 +--
->>   arch/um/include/asm/pgtable.h                 | 36 +++++++-
->>   arch/x86/include/asm/pgtable-2level.h         | 26 ++++--
->>   arch/x86/include/asm/pgtable-3level.h         | 26 +++++-
->>   arch/x86/include/asm/pgtable.h                |  3 -
->>   arch/xtensa/include/asm/pgtable.h             | 31 +++++--
->>   include/linux/pgtable.h                       | 29 -------
->>   mm/debug_vm_pgtable.c                         | 25 +++++-
->>   mm/memory.c                                   |  4 -
->>   mm/rmap.c                                     | 11 ---
->>   50 files changed, 943 insertions(+), 227 deletions(-)
->>
->> --
->> 2.38.1
->>
->>
-> 
-
--- 
-Thanks,
-
-David / dhildenb
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gU3VuLCBEZWMgNCwgMjAyMiBhdCA4OjU4IEFNIENocmlzdG9waGUgTGVyb3kKPGNocmlzdG9w
+aGUubGVyb3lAY3Nncm91cC5ldT4gd3JvdGU6Cj4KPgo+Cj4gTGUgMDQvMTIvMjAyMiDDoCAwNTo1
+MCwgRmFuZ3J1aSBTb25nIGEgw6ljcml0IDoKPiA+IE9uIE1vbiwgTm92IDE0LCAyMDIyIGF0IDQ6
+NDYgUE0gRmFuZ3J1aSBTb25nIDxtYXNrcmF5QGdvb2dsZS5jb20+IHdyb3RlOgo+ID4+Cj4gPj4g
+T24gMjAyMi0xMS0xNCwgQ2hyaXN0b3BoZSBMZXJveSB3cm90ZToKPiA+Pj4KPiA+Pj4KPiA+Pj4g
+TGUgMjgvMDkvMjAyMiDDoCAwNzoyNSwgRmFuZ3J1aSBTb25nIGEgw6ljcml0IDoKPiA+Pj4+IE9u
+IFNhdCwgU2VwIDEwLCAyMDIyIGF0IDEyOjUzIEFNIEZhbmdydWkgU29uZyA8bWFza3JheUBnb29n
+bGUuY29tPiB3cm90ZToKPiA+Pj4+Pgo+ID4+Pj4+IE9uIDIwMjItMDgtMzAsIEZhbmdydWkgU29u
+ZyB3cm90ZToKPiA+Pj4+Pj4gVGhlIGFjdHVhbCBpbnRlbnRpb24gaXMgdGhhdCBubyBkeW5hbWlj
+IHJlbG9jYXRpb24gZXhpc3RzLiBIb3dldmVyLCBzb21lCj4gPj4+Pj4+IEdOVSBsZCBwb3J0cyBw
+cm9kdWNlIHVubmVlZGVkIFJfKl9OT05FLiAoSWYgYSBwb3J0IGlzIG5vdCBjYXJlIGVub3VnaCB0
+bwo+ID4+Pj4+PiBkZXRlcm1pbmUgdGhlIGV4YWN0IC5yZWxbYV0uZHluIHNpemUsIHRoZSB0cmFp
+bGluZyB6ZXJvcyBiZWNvbWUgUl8qX05PTkUKPiA+Pj4+Pj4gcmVsb2NhdGlvbnMuIEUuZy4gcG93
+ZXJwYzY0bGUgbGQgYXMgb2YgMi4zOCBoYXMgdGhlIGlzc3VlIHdpdGgKPiA+Pj4+Pj4gZGVmY29u
+ZmlnLikgUl8qX05PTkUgYXJlIGdlbmVyYWxseSBuby1vcCBpbiB0aGUgZHluYW1pYyBsb2FkZXJz
+LiBTbyBqdXN0Cj4gPj4+Pj4+IGlnbm9yZSB0aGVtLgo+ID4+Pj4+Pgo+ID4+Pj4+PiBXaXRoIHRo
+ZSBjaGFuZ2UsIHdlIGNhbiByZW1vdmUgQVJDSF9SRUxfVFlQRV9BQlMuIEFSQ0hfUkVMX1RZUEVf
+QUJTIGlzIGEKPiA+Pj4+Pj4gYml0IG1pc25vbWVyIGFzIHBvcnRzIG1heSBjaGVjayBSRUxBVkVU
+SVZFL0dMT0JfREFUL0pVTVBfU0xPVCB3aGljaCBhcmUKPiA+Pj4+Pj4gbm90IGNhbGxlZCAiYWJz
+b2x1dGUgcmVsb2NhdGlvbnMiLiAoVGhlIHBhdGNoIGlzIG1vdGl2YXRlZCBieSB0aGUgYXJtNjQK
+PiA+Pj4+Pj4gcG9ydCBtaXNzaW5nIFJfQUFSQ0g2NF9SRUxBVElWRS4pCj4gPj4+Pj4+Cj4gPj4+
+Pj4+IFdoaWxlIGhlcmUsIHJlcGxhY2UgImVncmVwIiB3aXRoICJncmVwIiBhcyAiZWdyZXAiIGlz
+IGRlcHJlY2F0ZWQgaW4gR05VCj4gPj4+Pj4+IGdyZXAgMy43Lgo+ID4+Pj4+Pgo+ID4+Pj4+PiBT
+aWduZWQtb2ZmLWJ5OiBGYW5ncnVpIFNvbmcgPG1hc2tyYXlAZ29vZ2xlLmNvbT4KPiA+Pj4+Pj4g
+LS0tCj4gPj4+Pj4+IFsuLi5dCj4gPj4+Pj4+Cj4gPj4+Pj4KPiA+Pj4+PiBQaW5nLgo+ID4+Pj4K
+PiA+Pj4+IFBpbmdeMiA6KQo+ID4+Pgo+ID4+PiBDYW4geW91IGV4cGxhaW4gd2hpY2ggQVJDSF9S
+RUxfVFlQRV9BQlMgY2FuIGJlIHJlbW92ZWQgd2l0aCB0aGlzIGNoYW5nZSA/Cj4gPj4+IEhvdyBp
+cyB0aGUgdmVyaWZpY2F0aW9uIGRvbmUgaWYgQVJDSF9SRUxfVFlQRV9BQlMgaXMgcmVtb3ZlZCA/
+Cj4gPj4KPiA+PiBBbGwgQVJDSF9SRUxfVFlQRV9BQlMgcmVsb2NhdGlvbiB0eXBlcyBjYW4gYmUg
+cmVtb3ZlZC4gQXMgZXhwbGFpbmVkLCB0aGUKPiA+PiByZWFsIGludGVudGlvbiBpcyB0byBjaGVj
+ayBubyBkeW5hbWljIHJlbG9jYXRpb24sIGFuZCB0aGlzIGlzIGRvbmUgYnkKPiA+PiB0aGUgbmV3
+Cj4KPiBXZWxsLCB0aGVyZSB3YXMgYSB0eXBvIGluIG15IHF1ZXN0aW9uLCBJIHdhbnRlZCB0byBh
+c2sgJ3doeScsIG5vdCAnd2hpY2gnLgo+Cj4gPj4KPiA+PiAgICAgY21kX3Zkc29fY2hlY2sgPSBp
+ZiAkKFJFQURFTEYpIC1yVyAkQCB8IGdyZXAgLXYgX05PTkUgfCBncmVwIC1xICJSX1x3Kl8iOyBc
+Cj4gPj4KPiA+PiBpbiB0aGlzIHBhdGNoLgo+ID4+Cj4gPj4gZ3JlcCAtdiBfTk9ORSBpcyB0byB3
+b3JrIGFyb3VuZCBzb21lIEdOVSBsZCBwb3J0cyAoYW5kIGxpa2VseSBvbGRlciByZWxlYXNlcwo+
+ID4+IG9mIHNvbWUgcG9ydHMgZXZlbiBpZiB0aGVpciBsYXRlc3QgdmVyc2lvbnMgYXJlIGZpeGVk
+KSB3aGljaCBwcm9kdWNlCj4gPj4gdW5uZWVkZWQgUl8qX05PTkUgZHluYW1pYyByZWxvY2F0aW9u
+cy4KPiA+Cj4gPiBQaW5nIDopCj4KPiBPaywgdGhhdCBzZWVtcyB0byB3b3JrIG9uIHBvd2VycGMu
+Cj4KPiBSZXZpZXdlZC1ieTogQ2hyaXN0b3BoZSBMZXJveSA8Y2hyaXN0b3BoZS5sZXJveUBjc2dy
+b3VwLmV1PgoKVGhhbmtzLiBDYW4gYSBtYWludGFpbmVyIHBpY2sgdXAgdGhpcyBjb21taXQ/Cgpf
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
+diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
+dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
