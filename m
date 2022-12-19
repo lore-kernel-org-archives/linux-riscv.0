@@ -4,84 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C075BC4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Dec 2022 13:37:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2F1BC4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Dec 2022 16:58:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dws1PGgKAYAEkMJO4qlP+8CKlOVyOytBCxcOSPCKYs0=; b=Md5Kfccs4eT+16
-	MO2oYzr0XWEtfb0rp1Qzv8iJuiUl7ZC7Z/+OifL6FdxYUORfTmtZETQm/PedbgC7WbpbGiZiqDaug
-	mkTkXThpXAKFB8VljpWItRIAeDwa08mi3JDBh7rCzgVkiDXgYMEaFPg6NOJQvdFalfInxX+E06+Yb
-	j7JbDW1lK7ngczMRUtZq40MRhiew63cioiEjWqPZDgAFEyTdpvnUDbaxE0lFSx1KL3tvdEIZ+Kgak
-	CkUQ5OsFtK+o/RrqQtYmfJQjS1ew33RHSPZeJzjyOeEhBKq7QIhikGlDOfGhsXAb0i8QkcYn9y21j
-	icvUJ8qy1nXluTaFUOdg==;
+	List-Owner; bh=tybnT3DxH+MvxY7+RJp7MQefuh6LwxU+0SV0TWdHUKE=; b=403SZqLU5h9WSw
+	/FTNZJ7YjiUqoYwWVk9tXYNmgMSv84v1YvlnzLklPlapD0zjoT4bAanBZDua/s+ooNqMtnkCa/8nY
+	uKVU7BUzH1Z6MbJ2niXbvPUdLe2bLWuljj1DJuOW6zqJ5IAw1WNTQcehCEu13ScH5DVvQuZVzTVoD
+	6dEtdKvbBOa9L9CwBF81+Y7kGQ0hYUEInjfR8pYwTWRErNQqbugP5wTPtRB0FFCQTdc5jgyZEHVNX
+	lzT6Xi3UEVjy50FEBcCq3Ip+EznpbI8nwKiCFrbj/9yLhqIFjMZAs01/ZVJx1jJleO7yAk541PMSj
+	INbIOpENNlUreyRM4LrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p7GKL-00E6D8-BV; Mon, 19 Dec 2022 13:37:09 +0000
-Received: from [45.249.212.51] (helo=dggsgout11.his.huawei.com)
+	id 1p7JTP-00GPN9-4R; Mon, 19 Dec 2022 16:58:43 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p7GJz-00E5Rc-0o
-	for linux-riscv@lists.infradead.org; Mon, 19 Dec 2022 13:36:51 +0000
-Received: from mail02.huawei.com (unknown [172.30.67.169])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4NbLMc3vxgz4f3p4x
-	for <linux-riscv@lists.infradead.org>; Mon, 19 Dec 2022 21:36:28 +0800 (CST)
-Received: from localhost.localdomain (unknown [10.67.175.61])
-	by APP2 (Coremail) with SMTP id Syh0CgAH++jcaKBjpueTAA--.19298S5;
-	Mon, 19 Dec 2022 21:36:31 +0800 (CST)
-From: Pu Lehui <pulehui@huaweicloud.com>
-To: bpf@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yhs@fb.com>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>,
-	Stanislav Fomichev <sdf@google.com>,
-	Hao Luo <haoluo@google.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Pu Lehui <pulehui@huawei.com>,
-	Pu Lehui <pulehui@huaweicloud.com>
-Subject: [RFC PATCH bpf-next 3/4] riscv, bpf: Add bpf_arch_text_poke support for RV64
-Date: Mon, 19 Dec 2022 21:37:35 +0800
-Message-Id: <20221219133736.1387008-4-pulehui@huaweicloud.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20221219133736.1387008-1-pulehui@huaweicloud.com>
-References: <20221219133736.1387008-1-pulehui@huaweicloud.com>
+	id 1p7Hxe-00FIHr-PR
+	for linux-riscv@lists.infradead.org; Mon, 19 Dec 2022 15:21:52 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id v7so6702070wmn.0
+        for <linux-riscv@lists.infradead.org>; Mon, 19 Dec 2022 07:21:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=ah1XfLb1oRte6SMokDx7hbNvXEAvKr70rzYhUhq1E7Y=;
+        b=ijDMPek0chBV48nDJ22NRicFT+sTyv5d6nyklbgFNwaHDJhYRxoWPpa+RfxeZunQja
+         MeGuhx8KrFtQ+kXi+hrxxqUF5vRB5sBUnN7nFBsM6CrUoDoeSOBSuLjkM5dYf1f836x8
+         BlpVNOmclJhCD7SDoeR/s21zS5FoDZY0ndQkm9C6L/2mP1g/vTcH4dlSeL5YVOd/mTeD
+         vfqjk5zYLO57xT1SDyuQO+/qXPgdShK/l58LQvpolVEdbkYjnZ1VAldJ0acDdJu+rCQ/
+         lpHA1aZFX2TIlla9GEEaOSZCFXR+ToxYWT7wsBatlzsnS7ao1JUzJSPO9AagpUQLw1Xm
+         RMPQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ah1XfLb1oRte6SMokDx7hbNvXEAvKr70rzYhUhq1E7Y=;
+        b=Yk9FSSRaBZCSvsDElcL5lnJ8OrKP8eeJhomLZ0EHVzg7DF2Ok3hOsr9kUpVAfqnXIW
+         nJFuc85zGCtg3cjjIJpeEj2IHUH6I5VSex59qywhqKY35OSPFoOxGYYEqGqAbV9eF9ny
+         ARrt5y5Bdp0lWzXzdqWSTtytw0FvBEbyqUUx9bSWb5ZPAjMB/rpG/uIFcwz7+25RuDa7
+         d5QsrxGzCd/+wKy0gwuP/6Qbe/IEXlWgY7RMIKf1cEkN55XLKDmVbPe74JIP62FMTLnF
+         9JsyWEgtJnspsP8bv5k2Ul2DEpxK/j6Qz3HzMtXhIX2shigV8BAwVLujnYJD36gAClHT
+         o5wQ==
+X-Gm-Message-State: ANoB5pnJNhvgQ3KXzuSVx95vtnkozVl+xg44g6WDYggcgshPCy0YXZla
+	NmkzXqeVPt2T6tlBDh10FV/Ohcwe4b5JjwWV1EBK/g==
+X-Google-Smtp-Source: AA0mqf4IUPBiTbYGN4SrkL+NSourN3QywnwqvdYhkVuocdmUXY+YASSPmrR5bIBRumwhhcl30Waa52cRa+ZI7FcIO5g=
+X-Received: by 2002:a05:600c:1c99:b0:3cf:71e4:75b with SMTP id
+ k25-20020a05600c1c9900b003cf71e4075bmr1615009wms.114.1671463303463; Mon, 19
+ Dec 2022 07:21:43 -0800 (PST)
 MIME-Version: 1.0
-X-CM-TRANSID: Syh0CgAH++jcaKBjpueTAA--.19298S5
-X-Coremail-Antispam: 1UD129KBjvJXoW3Jr4fKF13Aw1xJFW8tFW5Jrb_yoW7uFykpF
-	srKry5ArWkXF4fXFy7Ja1DXr1Ykw4kWFZrGrW5Kw4SyFsFgr93C3Z5Kr43tr95CrW8Cr1I
-	vF4DKFnxuan8AaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUPj14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JrWl82xGYIkIc2
-	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
-	Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJw
-	A2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq3wAS
-	0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2
-	IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0
-	Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2kIc2
-	xKxwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v2
-	6r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2
-	Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_
-	Cr0_Gr1UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8Jw
-	CI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfUojjgUUUU
-	U
-X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
-X-CFilter-Loop: Reflected
+References: <39636675da60fc6c54cc8bbab64ddbac@codethink.co.uk>
+ <mhng-d601613f-1c73-48e0-bb06-7f87acd60cfa@palmer-ri-x1c9a>
+ <CAO8XFHth5tJWi8EYag1FnOgD38i2pDe87G3u2dkkP+-gkYBZkg@mail.gmail.com> <E9917D44-4C61-4806-8A79-7F24AF504DA3@kernel.org>
+In-Reply-To: <E9917D44-4C61-4806-8A79-7F24AF504DA3@kernel.org>
+From: Saleem Abdulrasool <abdulras@google.com>
+Date: Mon, 19 Dec 2022 07:21:32 -0800
+Message-ID: <CAO8XFHvf9UE8abprkjiKx0RvMCDkyGdpc_MSoFk2pQCyA2qmxA@mail.gmail.com>
+Subject: Re: [PATCH] riscv: avoid enabling vectorized code generation
+To: Conor Dooley <conor@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, ben.dooks@codethink.co.uk, ndesaulniers@google.com, 
+	nathan@kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221219_053647_538975_08A8A5FC 
-X-CRM114-Status: GOOD (  17.47  )
+X-CRM114-CacheID: sfid-20221219_072150_940426_0CF5E2EC 
+X-CRM114-Status: GOOD (  29.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,212 +88,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Pu Lehui <pulehui@huawei.com>
+On Fri, Dec 16, 2022 at 6:02 PM Conor Dooley <conor@kernel.org> wrote:
+>
+>
+>
+> On 16 December 2022 12:56:23 GMT-08:00, Saleem Abdulrasool <abdulras@google.com> wrote:
+> >On Fri, Dec 16, 2022 at 11:54 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+> >>
+> >> On Fri, 16 Dec 2022 11:45:21 PST (-0800), ben.dooks@codethink.co.uk wrote:
+> >> >
+> >> >
+> >> > On 2022-12-16 18:50, Saleem Abdulrasool wrote:
+> >> >> The compiler is free to generate vectorized operations for zero'ing
+> >> >> memory.  The kernel does not use the vector unit on RISCV, similar to
+> >> >> architectures such as x86 where we use `-mno-mmx` et al to prevent the
+> >> >> implicit vectorization.  Perform a similar check for
+> >> >> `-mno-implicit-float` to avoid this on RISC-V targets.
+> >> >
+> >> > I'm not sure if we should be emitting either of the vector or floating
+> >> > point instrucitons in the kernel without explicitly marking the section
+> >> > of code which is using them such as specific accelerator blocks.
+> >>
+> >> Yep, we can't let the compiler just blindly enable V or F/D.  V would
+> >> very much break things as we have no support, but even when that's in
+> >> we'll we at roughly the same spot as F/D are now where we need to handle
+> >> the lazy save/restore bits.
+> >>
+> >> This looks like an LLVM-only option, I see at least some handling here
+> >>
+> >> https://github.com/llvm/llvm-project/blob/a72883b7612f5c00b592da85ed2f1fd81258cc08/clang/lib/Driver/ToolChains/Clang.cpp#L2098
+> >>
+> >> but I don't really know LLVM enough to understand if there's some
+> >> default for `-mimplicit-float` and I can't find anything in the docs.
+> >> If it can be turned on by default and that results in F/D/V instructions
+> >> then we'll need to explicitly turn it off, and that would need to be
+> >> backported.
+> >
+> >Yes, this is an LLVM option, but I think that the `cc-option` wrapping
+> >should help ensure that we do not break the gcc build.  This only
+> >recently was added to clang, so an older clang would also miss this
+> >flag.  The `-mimplicit-float` is the default AFAIK, which is why we
+> >needed to add this flag in the first place.  Enabling V exposed this,
+> >which is why the commit message mentions vector.
+>
+> You've said "enabling V" in the comment and here.
+> By that, do you mean when V support is enabled in clang or when it is enabled in Linux?
 
-Implement bpf_arch_text_poke for RV64. For call scenario,
-ftrace framework reserve 4 nops for RV64 kernel function
-as function entry, and use auipc+jalr instructions to call
-kernel or module functions. However, since the auipc+jalr
-call instructions is non-atomic operation, we need to use
-stop-machine to make sure instruction patching in atomic
-context. As for jump scenario, since we only jump inside
-the trampoline, a jal instruction is sufficient.
-
-Signed-off-by: Pu Lehui <pulehui@huawei.com>
----
- arch/riscv/net/bpf_jit.h        |   5 ++
- arch/riscv/net/bpf_jit_comp64.c | 131 +++++++++++++++++++++++++++++++-
- 2 files changed, 134 insertions(+), 2 deletions(-)
-
-diff --git a/arch/riscv/net/bpf_jit.h b/arch/riscv/net/bpf_jit.h
-index d926e0f7ef57..bf9802a63061 100644
---- a/arch/riscv/net/bpf_jit.h
-+++ b/arch/riscv/net/bpf_jit.h
-@@ -573,6 +573,11 @@ static inline u32 rv_fence(u8 pred, u8 succ)
- 	return rv_i_insn(imm11_0, 0, 0, 0, 0xf);
- }
- 
-+static inline u32 rv_nop(void)
-+{
-+	return rv_i_insn(0, 0, 0, 0, 0x13);
-+}
-+
- /* RVC instrutions. */
- 
- static inline u16 rvc_addi4spn(u8 rd, u32 imm10)
-diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
-index bf4721a99a09..fa8b03c52463 100644
---- a/arch/riscv/net/bpf_jit_comp64.c
-+++ b/arch/riscv/net/bpf_jit_comp64.c
-@@ -8,6 +8,8 @@
- #include <linux/bitfield.h>
- #include <linux/bpf.h>
- #include <linux/filter.h>
-+#include <linux/memory.h>
-+#include <linux/stop_machine.h>
- #include "bpf_jit.h"
- 
- #define RV_REG_TCC RV_REG_A6
-@@ -238,7 +240,7 @@ static void __build_epilogue(bool is_tail_call, struct rv_jit_context *ctx)
- 	if (!is_tail_call)
- 		emit_mv(RV_REG_A0, RV_REG_A5, ctx);
- 	emit_jalr(RV_REG_ZERO, is_tail_call ? RV_REG_T3 : RV_REG_RA,
--		  is_tail_call ? 4 : 0, /* skip TCC init */
-+		  is_tail_call ? 20 : 0, /* skip reserved nops and TCC init */
- 		  ctx);
- }
- 
-@@ -615,6 +617,127 @@ static int add_exception_handler(const struct bpf_insn *insn,
- 	return 0;
- }
- 
-+struct text_poke_args {
-+	void *addr;
-+	const void *insns;
-+	size_t len;
-+	atomic_t cpu_count;
-+};
-+
-+static int do_text_poke(void *data)
-+{
-+	int ret = 0;
-+	struct text_poke_args *patch = data;
-+
-+	if (atomic_inc_return(&patch->cpu_count) == num_online_cpus()) {
-+		ret = patch_text_nosync(patch->addr, patch->insns, patch->len);
-+		atomic_inc(&patch->cpu_count);
-+	} else {
-+		while (atomic_read(&patch->cpu_count) <= num_online_cpus())
-+			cpu_relax();
-+		smp_mb();
-+	}
-+
-+	return ret;
-+}
-+
-+static int bpf_text_poke_stop_machine(void *addr, const void *insns, size_t len)
-+{
-+	struct text_poke_args patch = {
-+		.addr = addr,
-+		.insns = insns,
-+		.len = len,
-+		.cpu_count = ATOMIC_INIT(0),
-+	};
-+
-+	return stop_machine(do_text_poke, &patch, cpu_online_mask);
-+}
-+
-+static int gen_call_or_nops(void *target, void *ip, u32 *insns)
-+{
-+	int i, ret;
-+	s64 rvoff;
-+	struct rv_jit_context ctx;
-+
-+	ctx.ninsns = 0;
-+	ctx.insns = (u16 *)insns;
-+
-+	if (!target) {
-+		for (i = 0; i < 4; i++)
-+			emit(rv_nop(), &ctx);
-+		return 0;
-+	}
-+
-+	rvoff = (s64)(target - ip);
-+	emit(rv_sd(RV_REG_SP, -8, RV_REG_RA), &ctx);
-+	ret = emit_jump_and_link(RV_REG_RA, rvoff, false, &ctx);
-+	if (ret)
-+		return ret;
-+	emit(rv_ld(RV_REG_RA, -8, RV_REG_SP), &ctx);
-+
-+	return 0;
-+
-+}
-+
-+static int bpf_text_poke_call(void *ip, void *old_addr, void *new_addr)
-+{
-+	int ret;
-+	u32 old_insns[4], new_insns[4];
-+
-+	ret = gen_call_or_nops(old_addr, ip + 4, old_insns);
-+	if (ret)
-+		return ret;
-+
-+	ret = gen_call_or_nops(new_addr, ip + 4, new_insns);
-+	if (ret)
-+		return ret;
-+
-+	mutex_lock(&text_mutex);
-+	if (memcmp(ip, old_insns, sizeof(old_insns))) {
-+		ret = -EFAULT;
-+		goto out;
-+	}
-+
-+	if (memcmp(ip, new_insns, sizeof(new_insns)))
-+		ret = bpf_text_poke_stop_machine(ip, new_insns, sizeof(new_insns));
-+out:
-+	mutex_unlock(&text_mutex);
-+	return ret;
-+}
-+
-+static int bpf_text_poke_jump(void *ip, void *old_addr, void *new_addr)
-+{
-+	int ret;
-+	u32 old_insn, new_insn;
-+
-+	old_insn = old_addr ? rv_jal(RV_REG_ZERO, (s64)(old_addr - ip) >> 1) : rv_nop();
-+	new_insn = new_addr ? rv_jal(RV_REG_ZERO, (s64)(new_addr - ip) >> 1) : rv_nop();
-+
-+	mutex_lock(&text_mutex);
-+	if (memcmp(ip, &old_insn, sizeof(old_insn))) {
-+		ret = -EFAULT;
-+		goto out;
-+	}
-+
-+	if (memcmp(ip, &new_insn, sizeof(new_insn)))
-+		ret = patch_text_nosync(ip, &new_insn, sizeof(new_insn));
-+out:
-+	mutex_unlock(&text_mutex);
-+	return ret;
-+}
-+
-+int bpf_arch_text_poke(void *ip, enum bpf_text_poke_type poke_type,
-+		       void *old_addr, void *new_addr)
-+{
-+	if (!is_kernel_text((unsigned long)ip) &&
-+	    !is_bpf_text_address((unsigned long)ip))
-+		return -ENOTSUPP;
-+
-+	return poke_type == BPF_MOD_CALL ?
-+	       bpf_text_poke_call(ip, old_addr, new_addr) :
-+	       bpf_text_poke_jump(ip, old_addr, new_addr);
-+}
-+
- int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
- 		      bool extra_pass)
- {
-@@ -1266,7 +1389,7 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
- 
- void bpf_jit_build_prologue(struct rv_jit_context *ctx)
- {
--	int stack_adjust = 0, store_offset, bpf_stack_adjust;
-+	int i, stack_adjust = 0, store_offset, bpf_stack_adjust;
- 	bool is_main_prog = ctx->prog->aux->func_idx == 0;
- 
- 	bpf_stack_adjust = round_up(ctx->prog->aux->stack_depth, 16);
-@@ -1294,6 +1417,10 @@ void bpf_jit_build_prologue(struct rv_jit_context *ctx)
- 
- 	store_offset = stack_adjust - 8;
- 
-+	/* reserve 4 nop insns */
-+	for (i = 0; i < 4; i++)
-+		emit(rv_nop(), ctx);
-+
- 	/* First instruction is always setting the tail-call-counter
- 	 * (TCC) register. This instruction is skipped for tail calls.
- 	 * Force using a 4-byte (non-compressed) instruction.
--- 
-2.25.1
-
+Excellent distinction.  I meant enabled in the compiler, enabling it
+in the kernel is not yet possible without the pending patchset.  This
+makes us robust to when that patchset is merged, but in the meantime,
+this protects against the V extension being enabled in the toolchain.
 
 _______________________________________________
 linux-riscv mailing list
