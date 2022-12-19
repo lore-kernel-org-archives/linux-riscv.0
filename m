@@ -4,62 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FE54C4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Dec 2022 09:44:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0518CC4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Dec 2022 09:44:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CTig+L0Kjv99G3L2UvMi+i1CZcLD3lyr2Dyb3fa5iUg=; b=JTCyfprR6sKLpG
-	nF6WbH5gx64l1qJ/lOqJbN7rFKSjgWGS3y9dwA369azXfpVQ+58aC2bBCxNKuTIv/ZcyFSX6+qkUU
-	B0AgBd1OghMjDA+unohFGQSbM5WMHdauNlD4z6VR0IRo6cB8K6hgdRsGC65BQ5HCp31Du5j35OJXR
-	luReQT7FXaLolpA6P6+DEvq3c3smK2Q6PQvaBjikRBtHPjR192MmR8gj3LU6Gb5LzHpduliVGIG/t
-	NvuGW/q/ji9K9IlY39B8a5/gohYVCfPuxDpveDeCsnZmec8scQJjYLu681P4mRiaVnzDd+4NnrnMv
-	gYE+eZveospoOwjMgItQ==;
+	List-Owner; bh=k5RkaUEdj42Ih40aGcpt8rVtDgXxF2UseHDgaVpV7fY=; b=wqaDA9GOzXEJet
+	uKWQDoyz8kee2YBwg33+hVS7fhB7wtOjm/lKFEseU5bgfpJvMtKxoEeLoZ7Qlv31MGqINEVVnsP7f
+	Ncu7RG1txUM2Dq6xVJiNMPCCHiODxTBXtVnbOT+LpCZNPgg1oid1mE5zABzT066l6WVSje3M7agEk
+	rzpUn0h8yVutt+rnLd23J7SK+TazqoCW4+igHz1cx2Ckw9W8Duz/Re+ewQsG1sMIqmiv+NQvPMvYL
+	A7BBe1kJmEisF6HXH+Pe8OjERU2fp6NAiRotDeZhRmw1elDklMgJlH1GXmxdSbPrH+JQDx8EyfYof
+	10tYK1uHbqkX+z9t0ekQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p7CgX-00BOfh-5x; Mon, 19 Dec 2022 09:43:49 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p7Cg4-00BNum-MV
-	for linux-riscv@lists.infradead.org; Mon, 19 Dec 2022 09:43:26 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 5A8A824E1CE;
-	Mon, 19 Dec 2022 17:42:41 +0800 (CST)
-Received: from EXMBX161.cuchost.com (172.16.6.71) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 19 Dec
- 2022 17:42:41 +0800
-Received: from localhost.localdomain (183.27.97.120) by EXMBX161.cuchost.com
- (172.16.6.71) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 19 Dec
- 2022 17:42:40 +0800
-From: Xingyu Wu <xingyu.wu@starfivetech.com>
-To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-watchdog@vger.kernel.org>, Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Guenter Roeck <linux@roeck-us.net>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>
-CC: Rob Herring <robh+dt@kernel.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Xingyu Wu
-	<xingyu.wu@starfivetech.com>, Samin Guo <samin.guo@starfivetech.com>,
-	<linux-kernel@vger.kernel.org>
-Subject: [PATCH v2 2/3] drivers: watchdog: Add StarFive Watchdog driver
-Date: Mon, 19 Dec 2022 17:42:32 +0800
-Message-ID: <20221219094233.179153-3-xingyu.wu@starfivetech.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20221219094233.179153-1-xingyu.wu@starfivetech.com>
-References: <20221219094233.179153-1-xingyu.wu@starfivetech.com>
+	id 1p7Ch4-00BP9W-PQ; Mon, 19 Dec 2022 09:44:22 +0000
+Received: from sender4-op-o16.zoho.com ([136.143.188.16])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1p7CgQ-00BOVW-Lk; Mon, 19 Dec 2022 09:43:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1671443006; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=LOCrxKOXLVaY82NfhflD3Vz6Bx9kbBbItxvm4Swsr2NOLq+0X/J7UVpUBeT3FaEHur5WLhLK+k40djFLsQw6HNXcnVTv1eb3nznf9s2MmYIO2D/X26ZSv9wL3cVO56KhRTVmGTP3fixzJy6slIGzr9OmwDgXmx8wKSCQPu/oxkc=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1671443006; h=Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:To; 
+	bh=FZkrG/PJzkAi8Kwx1oMn1iqTbZ/7Tzjos6YQM1WqJFY=; 
+	b=XUwegxb8R2YJVYR4e8+ARCHktnvMNiLAigUm0dvPZoQFNlzRHXCen8Z/IqtSm1cN0tT+HE2OC5D5d/2nncmOeHlJwkvenPNNzPMWi2rQviLmrvzV/wbMHTib4RqRyhBXdMyGcV5RGIWJixzauwGWVIN4bylKJ6CJncpRNTsKE1k=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=icenowy.me;
+	spf=pass  smtp.mailfrom=uwu@icenowy.me;
+	dmarc=pass header.from=<uwu@icenowy.me>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1671443006;
+	s=zmail; d=icenowy.me; i=uwu@icenowy.me;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=FZkrG/PJzkAi8Kwx1oMn1iqTbZ/7Tzjos6YQM1WqJFY=;
+	b=Axk3H0JdXqb85gV9+L+mdWtRvkRwZjJcpkjQvmgFJ6TbOLIb03Jf4yDjY21HdRPj
+	b+OP0792RQ8fVFlp559Fua+JJuB4d+6EulQPlS23n518y7w7mrhWnlw7nfNPMQAtiuS
+	/6b23pXET43pyipobTxpKtFle3ux0Ezj/bf8+pV4=
+Received: from edelgard.fodlan.icenowy.me (120.85.99.51 [120.85.99.51]) by mx.zohomail.com
+	with SMTPS id 1671443003083956.9203910325415; Mon, 19 Dec 2022 01:43:23 -0800 (PST)
+Message-ID: <e9428f30cf0c6a239af01c0c2db9c511f3561a8c.camel@icenowy.me>
+Subject: Re: [PATCH v3 00/12] riscv: Allwinner D1/D1s platform support
+From: Icenowy Zheng <uwu@icenowy.me>
+To: Conor Dooley <conor@kernel.org>, Samuel Holland <samuel@sholland.org>
+Cc: Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+  linux-sunxi@lists.linux.dev, Palmer Dabbelt <palmer@dabbelt.com>, 
+ linux-riscv@lists.infradead.org, Jisheng Zhang <jszhang@kernel.org>, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, Krzysztof
+ Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Rob Herring
+ <robh+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ linux-arm-kernel@lists.infradead.org, Andre Przywara
+ <andre.przywara@arm.com>
+Date: Mon, 19 Dec 2022 17:43:17 +0800
+In-Reply-To: <Y53/ruLoggBDXozF@spud>
+References: <20221208090237.20572-1-samuel@sholland.org>
+	 <Y53/ruLoggBDXozF@spud>
+Organization: Anthon Open-Source Community
+User-Agent: Evolution 3.44.4 
 MIME-Version: 1.0
-X-Originating-IP: [183.27.97.120]
-X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX161.cuchost.com
- (172.16.6.71)
-X-YovoleRuleAgent: yovoleflag
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221219_014321_402488_DCAC9B30 
-X-CRM114-Status: GOOD (  26.35  )
+X-CRM114-CacheID: sfid-20221219_014342_857273_3C404031 
+X-CRM114-Status: GOOD (  28.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,807 +78,161 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add watchdog driver for the StarFive JH7110 SoC.
-
-Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
----
- MAINTAINERS                     |   7 +
- drivers/watchdog/Kconfig        |  11 +
- drivers/watchdog/Makefile       |   3 +
- drivers/watchdog/starfive-wdt.c | 720 ++++++++++++++++++++++++++++++++
- 4 files changed, 741 insertions(+)
- create mode 100644 drivers/watchdog/starfive-wdt.c
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index a70c1d0f303e..9c1758e7d034 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -19623,6 +19623,13 @@ F:	Documentation/devicetree/bindings/reset/starfive,jh7100-reset.yaml
- F:	drivers/reset/starfive/
- F:	include/dt-bindings/reset/starfive*
- 
-+STARFIVE JH7110 WATCHDOG DRIVER
-+M:	Xingyu Wu <xingyu.wu@starfivetech.com>
-+M:	Samin Guo <samin.guo@starfivetech.com>
-+S:	Supported
-+F:	Documentation/devicetree/bindings/watchdog/starfive*
-+F:	drivers/watchdog/starfive-wdt.c
-+
- STATIC BRANCH/CALL
- M:	Peter Zijlstra <peterz@infradead.org>
- M:	Josh Poimboeuf <jpoimboe@kernel.org>
-diff --git a/drivers/watchdog/Kconfig b/drivers/watchdog/Kconfig
-index b64bc49c7f30..8eeb0e23e98d 100644
---- a/drivers/watchdog/Kconfig
-+++ b/drivers/watchdog/Kconfig
-@@ -2082,6 +2082,17 @@ config UML_WATCHDOG
- 	tristate "UML watchdog"
- 	depends on UML || COMPILE_TEST
- 
-+# RISCV Architecture
-+
-+config STARFIVE_WATCHDOG
-+	tristate "StarFive Watchdog support"
-+	depends on RISCV
-+	select WATCHDOG_CORE
-+	default SOC_STARFIVE
-+	help
-+	  Say Y here to support the watchdog of StarFive JH7110 SoC.
-+	  This driver can also be built as a module if choose M.
-+
- #
- # ISA-based Watchdog Cards
- #
-diff --git a/drivers/watchdog/Makefile b/drivers/watchdog/Makefile
-index d41e5f830ae7..9c22f1a43d5c 100644
---- a/drivers/watchdog/Makefile
-+++ b/drivers/watchdog/Makefile
-@@ -210,6 +210,9 @@ obj-$(CONFIG_WATCHDOG_SUN4V)		+= sun4v_wdt.o
- # Xen
- obj-$(CONFIG_XEN_WDT) += xen_wdt.o
- 
-+# RISCV Architecture
-+obj-$(CONFIG_STARFIVE_WATCHDOG) += starfive-wdt.o
-+
- # Architecture Independent
- obj-$(CONFIG_BD957XMUF_WATCHDOG) += bd9576_wdt.o
- obj-$(CONFIG_DA9052_WATCHDOG) += da9052_wdt.o
-diff --git a/drivers/watchdog/starfive-wdt.c b/drivers/watchdog/starfive-wdt.c
-new file mode 100644
-index 000000000000..d7fad0a2207c
---- /dev/null
-+++ b/drivers/watchdog/starfive-wdt.c
-@@ -0,0 +1,720 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Starfive Watchdog driver
-+ *
-+ * Copyright (C) 2022 StarFive Technology Co., Ltd.
-+ */
-+
-+#include <linux/clk.h>
-+#include <linux/delay.h>
-+#include <linux/err.h>
-+#include <linux/interrupt.h>
-+#include <linux/io.h>
-+#include <linux/iopoll.h>
-+#include <linux/module.h>
-+#include <linux/moduleparam.h>
-+#include <linux/of.h>
-+#include <linux/of_device.h>
-+#include <linux/platform_device.h>
-+#include <linux/pm_runtime.h>
-+#include <linux/reset.h>
-+#include <linux/reset-controller.h>
-+#include <linux/slab.h>
-+#include <linux/timer.h>
-+#include <linux/types.h>
-+#include <linux/uaccess.h>
-+#include <linux/watchdog.h>
-+
-+/* JH7110 WatchDog register define */
-+#define STARFIVE_WDT_JH7110_LOAD	0x000	/* RW: Watchdog load register */
-+#define STARFIVE_WDT_JH7110_VALUE	0x004	/* RO: The current value for the watchdog counter */
-+#define STARFIVE_WDT_JH7110_CONTROL	0x008	/*
-+						 * RW:
-+						 * [0]: reset enable;
-+						 * [1]: int enable/wdt enable/reload counter;
-+						 * [31:2]: reserve.
-+						 */
-+#define STARFIVE_WDT_JH7110_INTCLR	0x00c	/* WO: clear intterupt && reload the counter */
-+#define STARFIVE_WDT_JH7110_RIS		0x010	/* RO: Raw interrupt status from the counter */
-+#define STARFIVE_WDT_JH7110_IMS		0x014	/* RO: Enabled interrupt status from the counter */
-+#define STARFIVE_WDT_JH7110_LOCK	0xc00	/*
-+						 * RO: Enable write access to all other registers
-+						 * by writing 0x1ACCE551.
-+						 */
-+
-+#define STARFIVE_WDT_JH7110_UNLOCK_KEY		0x1acce551
-+#define STARFIVE_WDT_JH7110_RESEN_SHIFT		1
-+#define STARFIVE_WDT_JH7110_EN_SHIFT		0
-+
-+/* WDOGCONTROL */
-+#define STARFIVE_WDT_ENABLE	0x1
-+#define STARFIVE_WDT_RESET_EN	0x1
-+
-+/* WDOGLOCK */
-+#define STARFIVE_WDT_LOCKED	BIT(0)
-+
-+/* WDOGINTCLR */
-+#define STARFIVE_WDT_INTCLR	0x1
-+
-+#define STARFIVE_WDT_ATBOOT	0x0
-+#define STARFIVE_WDT_MAXCNT	0xffffffff
-+
-+#define STARFIVE_WDT_DEFAULT_TIME	(15)
-+#define STARFIVE_WDT_DELAY_US		0
-+#define STARFIVE_WDT_TIMEOUT_US		10000
-+
-+static bool nowayout = WATCHDOG_NOWAYOUT;
-+static int tmr_margin;
-+static int tmr_atboot = STARFIVE_WDT_ATBOOT;
-+static int soft_noboot;
-+
-+module_param(tmr_margin, int, 0);
-+module_param(tmr_atboot, int, 0);
-+module_param(nowayout, bool, 0);
-+module_param(soft_noboot, int, 0);
-+
-+MODULE_PARM_DESC(tmr_margin, "Watchdog tmr_margin in seconds. (default="
-+		 __MODULE_STRING(STARFIVE_WDT_DEFAULT_TIME) ")");
-+MODULE_PARM_DESC(tmr_atboot,
-+		 "Watchdog is started at boot time if set to 1, default="
-+		 __MODULE_STRING(STARFIVE_WDT_ATBOOT));
-+MODULE_PARM_DESC(nowayout, "Watchdog cannot be stopped once started (default="
-+		 __MODULE_STRING(WATCHDOG_NOWAYOUT) ")");
-+MODULE_PARM_DESC(soft_noboot,
-+		 "Watchdog action, set to 1 to ignore reboots, 0 to reboot (default 0)");
-+
-+struct starfive_wdt_variant {
-+	u32 control;
-+	u32 load;
-+	u32 enable;
-+	u32 value;
-+	u32 int_clr;
-+	u32 unlock;
-+	u32 unlock_key;
-+	u32 irq_is_raise;
-+	u8 enrst_shift;
-+	u8 en_shift;
-+};
-+
-+struct starfive_wdt {
-+	unsigned long freq;
-+	struct device *dev;
-+	struct watchdog_device wdt_device;
-+	struct clk *core_clk;
-+	struct clk *apb_clk;
-+	struct reset_control *rsts;
-+	const struct starfive_wdt_variant *drv_data;
-+	u32 count;	/*count of timeout*/
-+	u32 reload;	/*restore the count*/
-+	void __iomem *base;
-+	spinlock_t lock;	/* spinlock for register handling */
-+};
-+
-+#ifdef CONFIG_OF
-+/* Register bias in JH7110 */
-+static const struct starfive_wdt_variant drv_data_jh7110 = {
-+	.control = STARFIVE_WDT_JH7110_CONTROL,
-+	.load = STARFIVE_WDT_JH7110_LOAD,
-+	.enable = STARFIVE_WDT_JH7110_CONTROL,
-+	.value = STARFIVE_WDT_JH7110_VALUE,
-+	.int_clr = STARFIVE_WDT_JH7110_INTCLR,
-+	.unlock = STARFIVE_WDT_JH7110_LOCK,
-+	.unlock_key = STARFIVE_WDT_JH7110_UNLOCK_KEY,
-+	.irq_is_raise = STARFIVE_WDT_JH7110_IMS,
-+	.enrst_shift = STARFIVE_WDT_JH7110_RESEN_SHIFT,
-+	.en_shift = STARFIVE_WDT_JH7110_EN_SHIFT,
-+};
-+
-+static const struct of_device_id starfive_wdt_match[] = {
-+	{ .compatible = "starfive,jh7110-wdt", .data = &drv_data_jh7110 },
-+	{}
-+};
-+MODULE_DEVICE_TABLE(of, starfive_wdt_match);
-+#endif
-+
-+static const struct platform_device_id starfive_wdt_ids[] = {
-+	{
-+		.name = "starfive-jh7110-wdt",
-+		.driver_data = (unsigned long)&drv_data_jh7110,
-+	},
-+	{}
-+};
-+MODULE_DEVICE_TABLE(platform, starfive_wdt_ids);
-+
-+static int starfive_wdt_get_clock_rate(struct starfive_wdt *wdt)
-+{
-+	if (!IS_ERR(wdt->core_clk)) {
-+		wdt->freq = clk_get_rate(wdt->core_clk);
-+		return 0;
-+	}
-+	dev_err(wdt->dev, "get clock rate failed.\n");
-+
-+	return -ENOENT;
-+}
-+
-+static int starfive_wdt_enable_clock(struct starfive_wdt *wdt)
-+{
-+	int ret = 0;
-+
-+	wdt->apb_clk = devm_clk_get_enabled(wdt->dev, "apb");
-+	if (IS_ERR(wdt->apb_clk)) {
-+		dev_err(wdt->dev, "failed to get and enable apb clock.\n");
-+		ret = PTR_ERR(wdt->apb_clk);
-+		return ret;
-+	}
-+
-+	wdt->core_clk = devm_clk_get_enabled(wdt->dev, "core");
-+	if (IS_ERR(wdt->core_clk)) {
-+		dev_err(wdt->dev, "failed to get and enable core clock.\n");
-+		ret = PTR_ERR(wdt->core_clk);
-+	}
-+
-+	return ret;
-+}
-+
-+static int starfive_wdt_reset_init(struct starfive_wdt *wdt)
-+{
-+	int ret = 0;
-+
-+	wdt->rsts = devm_reset_control_array_get_exclusive(wdt->dev);
-+	if (!IS_ERR(wdt->rsts)) {
-+		ret = reset_control_deassert(wdt->rsts);
-+		if (ret)
-+			dev_err(wdt->dev, "failed to deassert rsts.\n");
-+	} else {
-+		dev_err(wdt->dev, "failed to get rsts error.\n");
-+		ret = PTR_ERR(wdt->rsts);
-+	}
-+
-+	return ret;
-+}
-+
-+static u32 starfive_wdt_ticks_to_sec(struct starfive_wdt *wdt, u32 ticks)
-+{
-+	return DIV_ROUND_CLOSEST(ticks, wdt->freq);
-+}
-+
-+/*
-+ * Write unlock-key to unlock. Write other value to lock. When lock bit is 1,
-+ * external accesses to other watchdog registers are ignored.
-+ */
-+static bool starfive_wdt_is_locked(struct starfive_wdt *wdt)
-+{
-+	u32 val;
-+
-+	val = readl(wdt->base + wdt->drv_data->unlock);
-+	return !!(val & STARFIVE_WDT_LOCKED);
-+}
-+
-+static void starfive_wdt_unlock(struct starfive_wdt *wdt)
-+{
-+	if (starfive_wdt_is_locked(wdt))
-+		writel(wdt->drv_data->unlock_key,
-+		       wdt->base + wdt->drv_data->unlock);
-+}
-+
-+static void starfive_wdt_lock(struct starfive_wdt *wdt)
-+{
-+	if (!starfive_wdt_is_locked(wdt))
-+		writel(~wdt->drv_data->unlock_key,
-+		       wdt->base + wdt->drv_data->unlock);
-+}
-+
-+/* enable watchdog interrupt to reset */
-+static void starfive_wdt_enable_reset(struct starfive_wdt *wdt)
-+{
-+	u32 val;
-+
-+	val = readl(wdt->base + wdt->drv_data->control);
-+	val |= STARFIVE_WDT_RESET_EN << wdt->drv_data->enrst_shift;
-+	writel(val, wdt->base + wdt->drv_data->control);
-+}
-+
-+/* disable watchdog interrupt to reset */
-+static void starfive_wdt_disable_reset(struct starfive_wdt *wdt)
-+{
-+	u32 val;
-+
-+	val = readl(wdt->base + wdt->drv_data->control);
-+	val &= ~(STARFIVE_WDT_RESET_EN << wdt->drv_data->enrst_shift);
-+	writel(val, wdt->base + wdt->drv_data->control);
-+}
-+
-+/* interrupt status whether has been raised from the counter */
-+static bool starfive_wdt_raise_irq_status(struct starfive_wdt *wdt)
-+{
-+	return !!readl(wdt->base + wdt->drv_data->irq_is_raise);
-+}
-+
-+static void starfive_wdt_int_clr(struct starfive_wdt *wdt)
-+{
-+	writel(STARFIVE_WDT_INTCLR, wdt->base + wdt->drv_data->int_clr);
-+}
-+
-+static inline void starfive_wdt_set_count(struct starfive_wdt *wdt, u32 val)
-+{
-+	writel(val, wdt->base + wdt->drv_data->load);
-+}
-+
-+static inline u32 starfive_wdt_get_count(struct starfive_wdt *wdt)
-+{
-+	return readl(wdt->base + wdt->drv_data->value);
-+}
-+
-+static inline void starfive_wdt_enable(struct starfive_wdt *wdt)
-+{
-+	u32 val;
-+
-+	val = readl(wdt->base + wdt->drv_data->enable);
-+	val |= STARFIVE_WDT_ENABLE << wdt->drv_data->en_shift;
-+	writel(val, wdt->base + wdt->drv_data->enable);
-+}
-+
-+static inline void starfive_wdt_disable(struct starfive_wdt *wdt)
-+{
-+	u32 val;
-+
-+	val = readl(wdt->base + wdt->drv_data->enable);
-+	val &= ~(STARFIVE_WDT_ENABLE << wdt->drv_data->en_shift);
-+	writel(val, wdt->base + wdt->drv_data->enable);
-+}
-+
-+static inline void starfive_wdt_set_reload_count(struct starfive_wdt *wdt, u32 count)
-+{
-+	starfive_wdt_set_count(wdt, count);
-+	/* need enable controller to reload counter */
-+	starfive_wdt_enable(wdt);
-+}
-+
-+static void starfive_wdt_mask_and_disable_reset(struct starfive_wdt *wdt, bool mask)
-+{
-+	starfive_wdt_unlock(wdt);
-+
-+	if (mask)
-+		starfive_wdt_disable_reset(wdt);
-+	else
-+		starfive_wdt_enable_reset(wdt);
-+
-+	starfive_wdt_lock(wdt);
-+}
-+
-+static unsigned int starfive_wdt_max_timeout(struct starfive_wdt *wdt)
-+{
-+	return DIV_ROUND_UP(STARFIVE_WDT_MAXCNT, wdt->freq) - 1;
-+}
-+
-+static unsigned int starfive_wdt_get_timeleft(struct watchdog_device *wdd)
-+{
-+	struct starfive_wdt *wdt = watchdog_get_drvdata(wdd);
-+	u32 count;
-+
-+	starfive_wdt_unlock(wdt);
-+	/*
-+	 * Because set half count value,
-+	 * timeleft value should add the count value before first timeout.
-+	 */
-+	count = starfive_wdt_get_count(wdt);
-+	if (!starfive_wdt_raise_irq_status(wdt))
-+		count += wdt->count;
-+
-+	starfive_wdt_lock(wdt);
-+
-+	return starfive_wdt_ticks_to_sec(wdt, count);
-+}
-+
-+static int starfive_wdt_keepalive(struct watchdog_device *wdd)
-+{
-+	struct starfive_wdt *wdt = watchdog_get_drvdata(wdd);
-+
-+	spin_lock(&wdt->lock);
-+
-+	starfive_wdt_unlock(wdt);
-+	starfive_wdt_int_clr(wdt);
-+	starfive_wdt_set_reload_count(wdt, wdt->count);
-+	starfive_wdt_lock(wdt);
-+
-+	spin_unlock(&wdt->lock);
-+
-+	return 0;
-+}
-+
-+static int starfive_wdt_stop(struct watchdog_device *wdd)
-+{
-+	struct starfive_wdt *wdt = watchdog_get_drvdata(wdd);
-+
-+	spin_lock(&wdt->lock);
-+
-+	starfive_wdt_unlock(wdt);
-+	starfive_wdt_int_clr(wdt);
-+	starfive_wdt_disable(wdt);
-+	starfive_wdt_lock(wdt);
-+
-+	spin_unlock(&wdt->lock);
-+
-+	return 0;
-+}
-+
-+static int starfive_wdt_pm_stop(struct watchdog_device *wdd)
-+{
-+	struct starfive_wdt *wdt = watchdog_get_drvdata(wdd);
-+
-+	starfive_wdt_stop(wdd);
-+	pm_runtime_put(wdt->dev);
-+
-+	return 0;
-+}
-+
-+static int starfive_wdt_start(struct watchdog_device *wdd)
-+{
-+	struct starfive_wdt *wdt = watchdog_get_drvdata(wdd);
-+
-+	pm_runtime_get_sync(wdt->dev);
-+
-+	spin_lock(&wdt->lock);
-+
-+	starfive_wdt_unlock(wdt);
-+
-+	if (soft_noboot)
-+		starfive_wdt_disable_reset(wdt);
-+	else
-+		starfive_wdt_enable_reset(wdt);
-+
-+	starfive_wdt_int_clr(wdt);
-+	starfive_wdt_set_count(wdt, wdt->count);
-+	starfive_wdt_enable(wdt);
-+
-+	starfive_wdt_lock(wdt);
-+
-+	spin_unlock(&wdt->lock);
-+
-+	return 0;
-+}
-+
-+static int starfive_wdt_restart(struct watchdog_device *wdd, unsigned long action,
-+				void *data)
-+{
-+	struct starfive_wdt *wdt = watchdog_get_drvdata(wdd);
-+
-+	spin_lock(&wdt->lock);
-+	starfive_wdt_unlock(wdt);
-+	/* disable watchdog, to be safe */
-+	starfive_wdt_disable(wdt);
-+
-+	if (soft_noboot)
-+		starfive_wdt_disable_reset(wdt);
-+	else
-+		starfive_wdt_enable_reset(wdt);
-+
-+	/* put native values into count */
-+	starfive_wdt_set_count(wdt, wdt->count);
-+
-+	/* set the watchdog to go and reset */
-+	starfive_wdt_int_clr(wdt);
-+	starfive_wdt_enable(wdt);
-+
-+	starfive_wdt_lock(wdt);
-+	spin_unlock(&wdt->lock);
-+
-+	return 0;
-+}
-+
-+static int starfive_wdt_set_timeout(struct watchdog_device *wdd,
-+				    unsigned int timeout)
-+{
-+	struct starfive_wdt *wdt = watchdog_get_drvdata(wdd);
-+
-+	unsigned long freq = wdt->freq;
-+	unsigned int count;
-+
-+	spin_lock(&wdt->lock);
-+
-+	if (timeout < wdt->wdt_device.min_timeout)
-+		return -EINVAL;
-+
-+	/*
-+	 * This watchdog takes twice timeouts to reset.
-+	 * In order to reduce time to reset, should set half count value.
-+	 */
-+	count = timeout * freq / 2;
-+
-+	if (count > STARFIVE_WDT_MAXCNT) {
-+		dev_warn(wdt->dev, "timeout %d too big,use the MAX-timeout set.\n",
-+			 timeout);
-+		timeout = starfive_wdt_max_timeout(wdt);
-+		count = timeout * freq;
-+	}
-+
-+	dev_info(wdt->dev, "Heartbeat: timeout=%d, count/2=%d (%08x)\n",
-+		 timeout, count, count);
-+
-+	starfive_wdt_unlock(wdt);
-+	starfive_wdt_disable(wdt);
-+	starfive_wdt_set_reload_count(wdt, count);
-+	starfive_wdt_enable(wdt);
-+	starfive_wdt_lock(wdt);
-+
-+	wdt->count = count;
-+	wdd->timeout = timeout;
-+
-+	spin_unlock(&wdt->lock);
-+
-+	return 0;
-+}
-+
-+#define OPTIONS (WDIOF_SETTIMEOUT | WDIOF_KEEPALIVEPING | WDIOF_MAGICCLOSE)
-+
-+static const struct watchdog_info starfive_wdt_ident = {
-+	.options = OPTIONS,
-+	.firmware_version = 0,
-+	.identity = "StarFive Watchdog",
-+};
-+
-+static const struct watchdog_ops starfive_wdt_ops = {
-+	.owner = THIS_MODULE,
-+	.start = starfive_wdt_start,
-+	.stop = starfive_wdt_pm_stop,
-+	.ping = starfive_wdt_keepalive,
-+	.set_timeout = starfive_wdt_set_timeout,
-+	.restart = starfive_wdt_restart,
-+	.get_timeleft = starfive_wdt_get_timeleft,
-+};
-+
-+static const struct watchdog_device starfive_wdd = {
-+	.info = &starfive_wdt_ident,
-+	.ops = &starfive_wdt_ops,
-+	.timeout = STARFIVE_WDT_DEFAULT_TIME,
-+};
-+
-+static inline const struct starfive_wdt_variant *
-+starfive_wdt_get_drv_data(struct platform_device *pdev)
-+{
-+	const struct starfive_wdt_variant *variant;
-+
-+	variant = of_device_get_match_data(&pdev->dev);
-+	if (!variant) {
-+		/* Device matched by platform_device_id */
-+		variant = (struct starfive_wdt_variant *)
-+			   platform_get_device_id(pdev)->driver_data;
-+	}
-+
-+	return variant;
-+}
-+
-+static int starfive_wdt_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct starfive_wdt *wdt;
-+	int started = 0;
-+	int ret;
-+
-+	pm_runtime_enable(dev);
-+
-+	wdt = devm_kzalloc(dev, sizeof(*wdt), GFP_KERNEL);
-+	if (!wdt)
-+		return -ENOMEM;
-+
-+	wdt->dev = dev;
-+	spin_lock_init(&wdt->lock);
-+	wdt->wdt_device = starfive_wdd;
-+
-+	wdt->drv_data = starfive_wdt_get_drv_data(pdev);
-+
-+	/* get the memory region for the watchdog timer */
-+	wdt->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(wdt->base)) {
-+		ret = PTR_ERR(wdt->base);
-+		return ret;
-+	}
-+
-+	ret = starfive_wdt_enable_clock(wdt);
-+	if (ret)
-+		return ret;
-+
-+	ret = starfive_wdt_get_clock_rate(wdt);
-+	if (ret)
-+		goto err_clk_disable;
-+
-+	ret = starfive_wdt_reset_init(wdt);
-+	if (ret)
-+		goto err_clk_disable;
-+
-+	wdt->wdt_device.min_timeout = 1;
-+	wdt->wdt_device.max_timeout = starfive_wdt_max_timeout(wdt);
-+
-+	watchdog_set_drvdata(&wdt->wdt_device, wdt);
-+
-+	/*
-+	 * see if we can actually set the requested timer margin,
-+	 * and if not, try the default value.
-+	 */
-+	watchdog_init_timeout(&wdt->wdt_device, tmr_margin, dev);
-+
-+	ret = starfive_wdt_set_timeout(&wdt->wdt_device,
-+				       wdt->wdt_device.timeout);
-+	if (ret) {
-+		dev_err(dev, "tmr_margin value out of range, default %d used\n",
-+			STARFIVE_WDT_DEFAULT_TIME);
-+		starfive_wdt_set_timeout(&wdt->wdt_device,
-+					 STARFIVE_WDT_DEFAULT_TIME);
-+	}
-+
-+	watchdog_set_nowayout(&wdt->wdt_device, nowayout);
-+	watchdog_set_restart_priority(&wdt->wdt_device, 128);
-+	watchdog_stop_on_reboot(&wdt->wdt_device);
-+	watchdog_stop_on_unregister(&wdt->wdt_device);
-+
-+	wdt->wdt_device.parent = dev;
-+
-+	ret = watchdog_register_device(&wdt->wdt_device);
-+	if (ret)
-+		goto err_clk_disable;
-+
-+	starfive_wdt_mask_and_disable_reset(wdt, false);
-+
-+	if (tmr_atboot && started == 0) {
-+		starfive_wdt_start(&wdt->wdt_device);
-+	} else if (!tmr_atboot) {
-+		/*
-+		 *if we're not enabling the watchdog, then ensure it is
-+		 * disabled if it has been left running from the bootloader
-+		 * or other source.
-+		 */
-+		starfive_wdt_stop(&wdt->wdt_device);
-+	}
-+
-+#ifdef CONFIG_PM
-+	clk_disable_unprepare(wdt->core_clk);
-+	clk_disable_unprepare(wdt->apb_clk);
-+#endif
-+
-+	platform_set_drvdata(pdev, wdt);
-+
-+	return 0;
-+
-+err_clk_disable:
-+	clk_disable_unprepare(wdt->core_clk);
-+	clk_disable_unprepare(wdt->apb_clk);
-+
-+	return ret;
-+}
-+
-+static int starfive_wdt_remove(struct platform_device *dev)
-+{
-+	struct starfive_wdt *wdt = platform_get_drvdata(dev);
-+
-+	starfive_wdt_mask_and_disable_reset(wdt, true);
-+	watchdog_unregister_device(&wdt->wdt_device);
-+
-+	clk_disable_unprepare(wdt->core_clk);
-+	clk_disable_unprepare(wdt->apb_clk);
-+	pm_runtime_disable(wdt->dev);
-+
-+	return 0;
-+}
-+
-+static void starfive_wdt_shutdown(struct platform_device *dev)
-+{
-+	struct starfive_wdt *wdt = platform_get_drvdata(dev);
-+
-+	starfive_wdt_mask_and_disable_reset(wdt, true);
-+
-+	starfive_wdt_pm_stop(&wdt->wdt_device);
-+}
-+
-+#ifdef CONFIG_PM_SLEEP
-+static int starfive_wdt_suspend(struct device *dev)
-+{
-+	int ret;
-+	struct starfive_wdt *wdt = dev_get_drvdata(dev);
-+
-+	starfive_wdt_unlock(wdt);
-+
-+	/* Save watchdog state, and turn it off. */
-+	wdt->reload = starfive_wdt_get_count(wdt);
-+
-+	starfive_wdt_mask_and_disable_reset(wdt, true);
-+
-+	/* Note that WTCNT doesn't need to be saved. */
-+	starfive_wdt_stop(&wdt->wdt_device);
-+	pm_runtime_force_suspend(dev);
-+
-+	starfive_wdt_lock(wdt);
-+
-+	return 0;
-+}
-+
-+static int starfive_wdt_resume(struct device *dev)
-+{
-+	int ret;
-+	struct starfive_wdt *wdt = dev_get_drvdata(dev);
-+
-+	starfive_wdt_unlock(wdt);
-+
-+	pm_runtime_force_resume(dev);
-+
-+	/* Restore watchdog state. */
-+	starfive_wdt_set_reload_count(wdt, wdt->reload);
-+
-+	starfive_wdt_restart(&wdt->wdt_device, 0, NULL);
-+
-+	starfive_wdt_mask_and_disable_reset(wdt, false);
-+
-+	starfive_wdt_lock(wdt);
-+
-+	return 0;
-+}
-+#endif /* CONFIG_PM_SLEEP */
-+
-+#ifdef CONFIG_PM
-+static int starfive_wdt_runtime_suspend(struct device *dev)
-+{
-+	struct starfive_wdt *wdt = dev_get_drvdata(dev);
-+
-+	clk_disable_unprepare(wdt->apb_clk);
-+	clk_disable_unprepare(wdt->core_clk);
-+
-+	return 0;
-+}
-+
-+static int starfive_wdt_runtime_resume(struct device *dev)
-+{
-+	struct starfive_wdt *wdt = dev_get_drvdata(dev);
-+	int ret;
-+
-+	ret = clk_prepare_enable(wdt->apb_clk);
-+	if (ret) {
-+		dev_err(wdt->dev, "failed to enable apb_clk.\n");
-+		return ret;
-+	}
-+
-+	ret = clk_prepare_enable(wdt->core_clk);
-+	if (ret)
-+		dev_err(wdt->dev, "failed to enable core_clk.\n");
-+
-+	return ret;
-+}
-+#endif /* CONFIG_PM */
-+
-+static const struct dev_pm_ops starfive_wdt_pm_ops = {
-+	SET_RUNTIME_PM_OPS(starfive_wdt_runtime_suspend, starfive_wdt_runtime_resume, NULL)
-+	SET_SYSTEM_SLEEP_PM_OPS(starfive_wdt_suspend, starfive_wdt_resume)
-+};
-+
-+static struct platform_driver starfive_wdt_driver = {
-+	.probe		= starfive_wdt_probe,
-+	.remove		= starfive_wdt_remove,
-+	.shutdown	= starfive_wdt_shutdown,
-+	.id_table	= starfive_wdt_ids,
-+	.driver		= {
-+		.name	= "starfive-wdt",
-+		.pm	= &starfive_wdt_pm_ops,
-+		.of_match_table = of_match_ptr(starfive_wdt_match),
-+	},
-+};
-+
-+module_platform_driver(starfive_wdt_driver);
-+
-+MODULE_AUTHOR("Xingyu Wu <xingyu.wu@starfivetech.com>");
-+MODULE_AUTHOR("Samin Guo <samin.guo@starfivetech.com>");
-+MODULE_DESCRIPTION("StarFive Watchdog Device Driver");
-+MODULE_LICENSE("GPL v2");
--- 
-2.25.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+5ZyoIDIwMjItMTItMTfmmJ/mnJ/lha3nmoQgMTc6NDMgKzAwMDDvvIxDb25vciBEb29sZXnlhpnp
+gZPvvJoKPiBPbiBUaHUsIERlYyAwOCwgMjAyMiBhdCAwMzowMjoyNUFNIC0wNjAwLCBTYW11ZWwg
+SG9sbGFuZCB3cm90ZToKPiA+IFRoaXMgc2VyaWVzIGFkZHMgdGhlIEtjb25maWcvZGVmY29uZmln
+IHBsdW1iaW5nIGFuZCBkZXZpY2V0cmVlcyBmb3IKPiA+IGEKPiA+IHJhbmdlIG9mIEFsbHdpbm5l
+ciBEMSBhbmQgRDFzLWJhc2VkIGJvYXJkcy4gTWFueSBmZWF0dXJlcyBhcmUKPiA+IGFscmVhZHkK
+PiA+IGVuYWJsZWQsIGluY2x1ZGluZyBVU0IsIEV0aGVybmV0LCBhbmQgV2lGaS4KPiA+IAo+ID4g
+VGhlIGRldmljZXRyZWVzIHVzZSBiaW5kaW5ncyBmcm9tIHRoZSBmb2xsb3dpbmcgc2VyaWVzIHdo
+aWNoIGhhdmUKPiA+IG5vdAo+ID4geWV0IGJlZW4gbWVyZ2VkIHRvIGxpbnV4LW5leHQ6Cj4gPiDC
+oC0gSW4tcGFja2FnZSBMRE8gcmVndWxhdG9yczoKPiA+IMKgwqAKPiA+IGh0dHBzOi8vbG9yZS5r
+ZXJuZWwub3JnL2xrbWwvMjAyMjEyMDgwODQxMjcuMTc0NDMtMS1zYW11ZWxAc2hvbGxhbmQub3Jn
+Lwo+ID4gwqAtIEV0aGVybmV0IE1BQyBiaW5kaW5nIGZpeCAobm90IGEgbmV3IGlzc3VlIHdpdGgg
+RDEpOgo+ID4gwqDCoAo+ID4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGttbC8yMDIyMTIwODA2
+MTYxNi43ODA2LTEtc2FtdWVsQHNob2xsYW5kLm9yZy8KPiA+IMKgLSBUSSBBREMxMDFDIEFEQyAo
+YWNjZXB0ZWQsIG5vdCB5ZXQgaW4gbGludXgtbmV4dCk6Cj4gPiDCoMKgCj4gPiBodHRwczovL2xv
+cmUua2VybmVsLm9yZy9sa21sLzIwMjIxMTI1MjIwOTAzLjg2MzItMS1zYW11ZWxAc2hvbGxhbmQu
+b3JnLwo+ID4gCj4gPiBUaGUgb25seSByZW1haW5pbmcgRFQgdmFsaWRhdGlvbiBpc3N1ZSBpcyB0
+aGF0IGdwaW8tZmFuIGlzIG1pc3NpbmcKPiA+IGEKPiA+IFlBTUwgY29udmVyc2lvbiwgYWx0aG91
+Z2ggb25lIGlzIG9uIHRoZSBsaXN0IGhlcmU6Cj4gPiBodHRwczovL2xvcmUua2VybmVsLm9yZy9s
+a21sLzIwMjIwMTI2MjAwMzUwLjM2MzM1NzYtMS1jbGFiYmVAYmF5bGlicmUuY29tLwo+IAo+IFdp
+dGggdGhlIGFib3ZlIDQgaW4gbmV4dDoKPiBBY2tlZC1ieTogQ29ub3IgRG9vbGV5IDxjb25vci5k
+b29sZXlAbWljcm9jaGlwLmNvbT4KPiAKPiBDb3JlbnRpbidzIHBhdGNoIGxvb2tlZCBsaWtlIGl0
+IG5lZWRlZCBvbmx5IG1pbm9yIGNoYW5nZXMuIEkgc2hhbGwgZ28KPiBwaW5nIGl0IDopCgpJbiBh
+ZGRpdGlvbiBJIHRoaW5rIENvcmVudGluJ3MgcGF0Y2ggc2hvdWxkbid0IGJlIGEgYmxvY2tpbmcg
+aXNzdWUuClRoaXMgcGF0Y2hzZXQgZG9lcyBub3QgZGVwZW5kIG9uIERUIGJpbmRpbmcgYmVpbmcg
+Y29udmVydGVkIHRvIFlBTUwsClRYVCBiaW5kaW5nIGlzIGVub3VnaCBhcyBkZXBlbmRlbmN5LgoK
+PiAKPiA+IAo+ID4gJCBtYWtlIEFSQ0g9cmlzY3YgQ1JPU1NfQ09NUElMRT1yaXNjdjY0LWxpbnV4
+LW11c2wtIGR0YnNfY2hlY2sKPiA+IMKgIFNZTkPCoMKgwqAgaW5jbHVkZS9jb25maWcvYXV0by5j
+b25mLmNtZAo+ID4gwqAgTElOVMKgwqDCoCBEb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGlu
+Z3MKPiA+IMKgIENIS0RUwqDCoCBEb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvcHJv
+Y2Vzc2VkLXNjaGVtYS5qc29uCj4gPiDCoCBTQ0hFTUHCoCBEb2N1bWVudGF0aW9uL2RldmljZXRy
+ZWUvYmluZGluZ3MvcHJvY2Vzc2VkLXNjaGVtYS5qc29uCj4gPiDCoCBEVENfQ0hLIGFyY2gvcmlz
+Y3YvYm9vdC9kdHMvYWxsd2lubmVyL3N1bjIwaS1kMS1jbG9ja3dvcmtwaS0KPiA+IHYzLjE0LmR0
+Ygo+ID4gwqAgRFRDX0NISyBhcmNoL3Jpc2N2L2Jvb3QvZHRzL2FsbHdpbm5lci9zdW4yMGktZDEt
+ZGV2dGVybS12My4xNC5kdGIKPiA+IMKgIERUQ19DSEsgYXJjaC9yaXNjdi9ib290L2R0cy9hbGx3
+aW5uZXIvc3VuMjBpLWQxLWRvbmdzaGFuLW5lemhhLQo+ID4gc3R1LmR0Ygo+ID4gwqAgRFRDX0NI
+SyBhcmNoL3Jpc2N2L2Jvb3QvZHRzL2FsbHdpbm5lci9zdW4yMGktZDEtbGljaGVlLXJ2LTg2LQo+
+ID4gcGFuZWwtNDgwcC5kdGIKPiA+IMKgIERUQ19DSEsgYXJjaC9yaXNjdi9ib290L2R0cy9hbGx3
+aW5uZXIvc3VuMjBpLWQxLWxpY2hlZS1ydi04Ni0KPiA+IHBhbmVsLTcyMHAuZHRiCj4gPiDCoCBE
+VENfQ0hLIGFyY2gvcmlzY3YvYm9vdC9kdHMvYWxsd2lubmVyL3N1bjIwaS1kMS1saWNoZWUtcnYt
+Cj4gPiBkb2NrLmR0Ygo+ID4gwqAgRFRDX0NISyBhcmNoL3Jpc2N2L2Jvb3QvZHRzL2FsbHdpbm5l
+ci9zdW4yMGktZDEtbGljaGVlLXJ2LmR0Ygo+ID4gwqAgRFRDX0NISyBhcmNoL3Jpc2N2L2Jvb3Qv
+ZHRzL2FsbHdpbm5lci9zdW4yMGktZDEtbWFuZ29waS1tcS0KPiA+IHByby5kdGIKPiA+IMKgIERU
+Q19DSEsgYXJjaC9yaXNjdi9ib290L2R0cy9hbGx3aW5uZXIvc3VuMjBpLWQxLW5lemhhLmR0Ygo+
+ID4gwqAgRFRDX0NISyBhcmNoL3Jpc2N2L2Jvb3QvZHRzL2FsbHdpbm5lci9zdW4yMGktZDFzLW1h
+bmdvcGktbXEuZHRiCj4gPiBhcmNoL3Jpc2N2L2Jvb3QvZHRzL2FsbHdpbm5lci9zdW4yMGktZDEt
+ZGV2dGVybS12My4xNC5kdGI6MDowOgo+ID4gL2ZhbjogZmFpbGVkIHRvIG1hdGNoIGFueSBzY2hl
+bWEgd2l0aCBjb21wYXRpYmxlOiBbJ2dwaW8tZmFuJ10KPiA+IAo+ID4gTm90ZSB0aGF0IHZhbGlk
+YXRpb24gcmVxdWlyZXMgZHQtc2NoZW1hIHYyMDIyLjEyIG9yIG5ld2VyLgo+ID4gCj4gPiBJIHRl
+c3RlZCB0aGlzIHNlcmllcyAoRE1JQywgRXRoZXJuZXQsIExFRHMsIE1NQywgUE1JQywgdG91Y2gs
+IGFuZAo+ID4gVVNCLAo+ID4gYWxsIHdoZXJlIGF2YWlsYWJsZSkgb24gdGhlIGZvbGxvd2luZyBi
+b2FyZHM6Cj4gPiDCoC0gc3VuMjBpLWQxLWRldnRlcm0tdjMuMTQKPiA+IMKgLSBzdW4yMGktZDEt
+ZG9uZ3NoYW4tbmV6aGEtc3R1Cj4gPiDCoC0gc3VuMjBpLWQxLWxpY2hlZS1ydi04Ni1wYW5lbC00
+ODBwCj4gPiDCoC0gc3VuMjBpLWQxLW1hbmdvcGktbXEtcHJvCj4gPiDCoC0gc3VuMjBpLWQxLW5l
+emhhCj4gPiDCoC0gc3VuMjBpLWQxcy1tYW5nb3BpLW1xCj4gPiAKPiA+IENoYW5nZXMgaW4gdjM6
+Cj4gPiDCoC0gRHJvcCBkdW1teSBEQ1hPIGNsb2NrLWZyZXF1ZW5jeSBwcm9wZXJ0eQo+ID4gwqAt
+IERlY3JlYXNlIHRoZSBQTElDJ3MgcmlzY3YsbmRldiBwcm9wZXJ0eSB0byAxNzUKPiA+IMKgLSBG
+aXggYG1ha2UgVz0xIGR0YnNgIHdhcm5pbmdzICh1bm5lY2Vzc2FyeSAjYWRkcmVzcy8jc2l6ZS1j
+ZWxscykKPiA+IMKgLSBEcm9wIG1tYyBhbGlhc2VzCj4gPiDCoC0gQ2hhbmdlIExFRF9GVU5DVElP
+Tl9CQUNLTElHSFQgdG8gTEVEX0ZVTkNUSU9OX1NUQVRVUyAodGhlCj4gPiBiYWNrbGlnaHQKPiA+
+IMKgwqAgcmVndWxhdG9yIGlzIGRpc2Nvbm5lY3RlZCBieSBkZWZhdWx0LCBzbyB0aGlzIGlzIGEg
+c3RhbmRhbG9uZQo+ID4gTEVEKQo+ID4gwqAtIEZpeCBgbWFrZSBXPTEgZHRic2Agd2FybmluZ3Mg
+KG1pc3NpbmcgcmVnIHByb3BlcnRpZXMpCj4gPiDCoC0gQVJDSF9TVU5YSSBkZXBlbmRzIG9uIE1N
+VSAmJiAhWElQX0tFUk5FTAo+ID4gCj4gPiBDaGFuZ2VzIGluIHYyOgo+ID4gwqAtIEFkZCBNYW5n
+b1BpIE1RIChub24tUHJvKSBib2FyZAo+ID4gwqAtIFNwbGl0IGludG8gc2VwYXJhdGUgZmlsZXMg
+Zm9yIHNoYXJpbmcgd2l0aCBEMXMvUjUyOC9UMTEzCj4gPiDCoC0gVXNlIFNPQ19QRVJJUEhFUkFM
+X0lSUSBtYWNybyBmb3IgaW50ZXJydXB0cwo+ID4gwqAtIFJlbmFtZSBvc2MyNE0gdG8gZGN4byBh
+bmQgbW92ZSB0aGUgZnJlcXVlbmN5IHRvIHRoZSBib2FyZCBEVHMKPiA+IMKgLSBEcm9wIGFuYWxv
+ZyBMRE9zIGR1ZSB0byB0aGUgbWlzc2luZyBiaW5kaW5nCj4gPiDCoC0gQ29ycmVjdCB0Y29uX3Rv
+cCBEU0kgY2xvY2sgcmVmZXJlbmNlCj4gPiDCoC0gQWRkIERNSUMsIERTSSBjb250cm9sbGVyLCBh
+bmQgRFBIWSAoYmluZGluZ3MgYXJlIGluIGxpbnV4LW5leHQpCj4gPiDCoC0gQWRkIENQVSBPUFAg
+dGFibGUKPiA+IMKgLSBDb21tb24gcmVndWxhdG9ycyBtb3ZlZCB0byBNYW5nb1BpIE1RIHBhdGNo
+LCByZW1vdmVkIGFuYWxvZyBMRE9zCj4gPiDCoC0gUmVtb3ZlZCBMUkFEQyAoZGVwZW5kcyBvbiBh
+bmFsb2cgTERPcykKPiA+IMKgLSBBZGRlZCBYUjgyOSBob3N0LXdha2UgaW50ZXJydXB0Cj4gPiDC
+oC0gQWRkZWQgRE1JQyBzb3VuZCBjYXJkIHRvIExpY2hlZSBSViBkb2NrIGFuZCBMaWNoZWUgUlYg
+ODYgUGFuZWwKPiA+IMKgLSBSZW1vdmVkIExSQURDIChkZXBlbmRzIG9uIGFuYWxvZyBMRE9zKQo+
+ID4gwqAtIEFkZGVkIExFRCAoR1BJTyBzaGFyZWQgYmV0d2VlbiBvbmJvYXJkIExFRCBhbmQgYmFj
+a2xpZ2h0Cj4gPiByZWd1bGF0b3IpCj4gPiDCoC0gQWRkZWQgUE1JQyBHUElPIGNvbnRyb2xsZXIg
+bm9kZSAoYmluZGluZyBtZXJnZWQgZm9yIDYuMikKPiA+IMKgLSBTb3J0IEtjb25maWcgYXMgaWYg
+d2UgaGFkIGRvbmUgcy9TT0NfL0FSQ0hfLyBmb3IgZnV0dXJlLXByb29maW5nCj4gPiAKPiA+IFNh
+bXVlbCBIb2xsYW5kICgxMik6Cj4gPiDCoCBNQUlOVEFJTkVSUzogTWF0Y2ggdGhlIHN1bjIwaSBm
+YW1pbHkgb2YgQWxsd2lubmVyIFNvQ3MKPiA+IMKgIGR0LWJpbmRpbmdzOiB2ZW5kb3ItcHJlZml4
+ZXM6IEFkZCBBbGx3aW5uZXIgRDEvRDFzIGJvYXJkIHZlbmRvcnMKPiA+IMKgIGR0LWJpbmRpbmdz
+OiByaXNjdjogQWRkIEFsbHdpbm5lciBEMS9EMXMgYm9hcmQgY29tcGF0aWJsZXMKPiA+IMKgIHJp
+c2N2OiBkdHM6IGFsbHdpbm5lcjogQWRkIHRoZSBEMS9EMXMgU29DIGRldmljZXRyZWUKPiA+IMKg
+IHJpc2N2OiBkdHM6IGFsbHdpbm5lcjogQWRkIE1hbmdvUGkgTVEgZGV2aWNldHJlZQo+ID4gwqAg
+cmlzY3Y6IGR0czogYWxsd2lubmVyOiBBZGQgQWxsd2lubmVyIEQxIE5lemhhIGRldmljZXRyZWUK
+PiA+IMKgIHJpc2N2OiBkdHM6IGFsbHdpbm5lcjogQWRkIFNpcGVlZCBMaWNoZWUgUlYgZGV2aWNl
+dHJlZXMKPiA+IMKgIHJpc2N2OiBkdHM6IGFsbHdpbm5lcjogQWRkIE1hbmdvUGkgTVEgUHJvIGRl
+dmljZXRyZWUKPiA+IMKgIHJpc2N2OiBkdHM6IGFsbHdpbm5lcjogQWRkIERvbmdzaGFuIE5lemhh
+IFNUVSBkZXZpY2V0cmVlCj4gPiDCoCByaXNjdjogZHRzOiBhbGx3aW5uZXI6IEFkZCBDbG9ja3dv
+cmtQaSBhbmQgRGV2VGVybSBkZXZpY2V0cmVlcwo+ID4gwqAgcmlzY3Y6IEFkZCB0aGUgQWxsd2lu
+bmVyIFNvQyBmYW1pbHkgS2NvbmZpZyBvcHRpb24KPiA+IMKgIHJpc2N2OiBkZWZjb25maWc6IEVu
+YWJsZSB0aGUgQWxsd2lubmVyIEQxIHBsYXRmb3JtIGFuZCBkcml2ZXJzCj4gPiAKPiA+IMKgLi4u
+L2RldmljZXRyZWUvYmluZGluZ3MvcmlzY3Yvc3VueGkueWFtbMKgwqDCoMKgwqAgfMKgIDY5ICsr
+Cj4gPiDCoC4uLi9kZXZpY2V0cmVlL2JpbmRpbmdzL3ZlbmRvci1wcmVmaXhlcy55YW1swqAgfMKg
+wqAgNCArCj4gPiDCoE1BSU5UQUlORVJTwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfMKgwqAgMiArLQo+ID4gwqBhcmNo
+L3Jpc2N2L0tjb25maWcuc29jc8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgIHzCoCAxMCArCj4gPiDCoGFyY2gvcmlzY3YvYm9vdC9kdHMvTWFrZWZpbGXCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHzCoMKgIDEgKwo+ID4gwqBhcmNoL3Jpc2N2L2Jv
+b3QvZHRzL2FsbHdpbm5lci9NYWtlZmlsZcKgwqDCoMKgwqDCoMKgIHzCoCAxMSArCj4gPiDCoC4u
+Li9hbGx3aW5uZXIvc3VuMjBpLWNvbW1vbi1yZWd1bGF0b3JzLmR0c2nCoMKgIHzCoCAzNSArCj4g
+PiDCoC4uLi9hbGx3aW5uZXIvc3VuMjBpLWQxLWNsb2Nrd29ya3BpLXYzLjE0LmR0cyB8IDI1MiAr
+KysrKysKPiA+IMKgLi4uL2R0cy9hbGx3aW5uZXIvc3VuMjBpLWQxLWRldnRlcm0tdjMuMTQuZHRz
+IHzCoCAzNiArCj4gPiDCoC4uLi9zdW4yMGktZDEtZG9uZ3NoYW4tbmV6aGEtc3R1LmR0c8KgwqDC
+oMKgwqDCoMKgwqDCoCB8IDExNyArKysKPiA+IMKgLi4uL3N1bjIwaS1kMS1saWNoZWUtcnYtODYt
+cGFuZWwtNDgwcC5kdHPCoMKgwqDCoCB8wqAgMjkgKwo+ID4gwqAuLi4vc3VuMjBpLWQxLWxpY2hl
+ZS1ydi04Ni1wYW5lbC03MjBwLmR0c8KgwqDCoMKgIHzCoCAxMCArCj4gPiDCoC4uLi9zdW4yMGkt
+ZDEtbGljaGVlLXJ2LTg2LXBhbmVsLmR0c2nCoMKgwqDCoMKgwqDCoMKgIHwgMTE5ICsrKwo+ID4g
+wqAuLi4vYWxsd2lubmVyL3N1bjIwaS1kMS1saWNoZWUtcnYtZG9jay5kdHPCoMKgwqAgfMKgIDk3
+ICsrCj4gPiDCoC4uLi9kdHMvYWxsd2lubmVyL3N1bjIwaS1kMS1saWNoZWUtcnYuZHRzwqDCoMKg
+wqAgfMKgIDg3ICsrCj4gPiDCoC4uLi9hbGx3aW5uZXIvc3VuMjBpLWQxLW1hbmdvcGktbXEtcHJv
+LmR0c8KgwqDCoCB8IDE0MiArKysKPiA+IMKgLi4uL2Jvb3QvZHRzL2FsbHdpbm5lci9zdW4yMGkt
+ZDEtbmV6aGEuZHRzwqDCoMKgIHwgMTY2ICsrKysKPiA+IMKgYXJjaC9yaXNjdi9ib290L2R0cy9h
+bGx3aW5uZXIvc3VuMjBpLWQxLmR0c2nCoCB8wqAgNjYgKysKPiA+IMKgLi4uL2R0cy9hbGx3aW5u
+ZXIvc3VuMjBpLWQxcy1tYW5nb3BpLW1xLmR0c8KgwqAgfCAxMzQgKysrCj4gPiDCoGFyY2gvcmlz
+Y3YvYm9vdC9kdHMvYWxsd2lubmVyL3N1bjIwaS1kMXMuZHRzaSB8wqAgNzYgKysKPiA+IMKgLi4u
+L2Jvb3QvZHRzL2FsbHdpbm5lci9zdW54aS1kMS10MTEzLmR0c2nCoMKgwqDCoCB8wqAgMTUgKwo+
+ID4gwqAuLi4vYm9vdC9kdHMvYWxsd2lubmVyL3N1bnhpLWQxcy10MTEzLmR0c2nCoMKgwqAgfCA4
+MzcKPiA+ICsrKysrKysrKysrKysrKysrKwo+ID4gwqBhcmNoL3Jpc2N2L2NvbmZpZ3MvZGVmY29u
+ZmlnwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8wqAgMjIgKy0KPiA+IMKgMjMg
+ZmlsZXMgY2hhbmdlZCwgMjMzNSBpbnNlcnRpb25zKCspLCAyIGRlbGV0aW9ucygtKQo+ID4gwqBj
+cmVhdGUgbW9kZSAxMDA2NDQKPiA+IERvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9y
+aXNjdi9zdW54aS55YW1sCj4gPiDCoGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2Jvb3Qv
+ZHRzL2FsbHdpbm5lci9NYWtlZmlsZQo+ID4gwqBjcmVhdGUgbW9kZSAxMDA2NDQgYXJjaC9yaXNj
+di9ib290L2R0cy9hbGx3aW5uZXIvc3VuMjBpLWNvbW1vbi0KPiA+IHJlZ3VsYXRvcnMuZHRzaQo+
+ID4gwqBjcmVhdGUgbW9kZSAxMDA2NDQgYXJjaC9yaXNjdi9ib290L2R0cy9hbGx3aW5uZXIvc3Vu
+MjBpLWQxLQo+ID4gY2xvY2t3b3JrcGktdjMuMTQuZHRzCj4gPiDCoGNyZWF0ZSBtb2RlIDEwMDY0
+NCBhcmNoL3Jpc2N2L2Jvb3QvZHRzL2FsbHdpbm5lci9zdW4yMGktZDEtCj4gPiBkZXZ0ZXJtLXYz
+LjE0LmR0cwo+ID4gwqBjcmVhdGUgbW9kZSAxMDA2NDQgYXJjaC9yaXNjdi9ib290L2R0cy9hbGx3
+aW5uZXIvc3VuMjBpLWQxLQo+ID4gZG9uZ3NoYW4tbmV6aGEtc3R1LmR0cwo+ID4gwqBjcmVhdGUg
+bW9kZSAxMDA2NDQgYXJjaC9yaXNjdi9ib290L2R0cy9hbGx3aW5uZXIvc3VuMjBpLWQxLWxpY2hl
+ZS0KPiA+IHJ2LTg2LXBhbmVsLTQ4MHAuZHRzCj4gPiDCoGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNo
+L3Jpc2N2L2Jvb3QvZHRzL2FsbHdpbm5lci9zdW4yMGktZDEtbGljaGVlLQo+ID4gcnYtODYtcGFu
+ZWwtNzIwcC5kdHMKPiA+IMKgY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3YvYm9vdC9kdHMv
+YWxsd2lubmVyL3N1bjIwaS1kMS1saWNoZWUtCj4gPiBydi04Ni1wYW5lbC5kdHNpCj4gPiDCoGNy
+ZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2Jvb3QvZHRzL2FsbHdpbm5lci9zdW4yMGktZDEt
+bGljaGVlLQo+ID4gcnYtZG9jay5kdHMKPiA+IMKgY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlz
+Y3YvYm9vdC9kdHMvYWxsd2lubmVyL3N1bjIwaS1kMS1saWNoZWUtCj4gPiBydi5kdHMKPiA+IMKg
+Y3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3YvYm9vdC9kdHMvYWxsd2lubmVyL3N1bjIwaS1k
+MS0KPiA+IG1hbmdvcGktbXEtcHJvLmR0cwo+ID4gwqBjcmVhdGUgbW9kZSAxMDA2NDQgYXJjaC9y
+aXNjdi9ib290L2R0cy9hbGx3aW5uZXIvc3VuMjBpLWQxLQo+ID4gbmV6aGEuZHRzCj4gPiDCoGNy
+ZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2Jvb3QvZHRzL2FsbHdpbm5lci9zdW4yMGktZDEu
+ZHRzaQo+ID4gwqBjcmVhdGUgbW9kZSAxMDA2NDQgYXJjaC9yaXNjdi9ib290L2R0cy9hbGx3aW5u
+ZXIvc3VuMjBpLWQxcy0KPiA+IG1hbmdvcGktbXEuZHRzCj4gPiDCoGNyZWF0ZSBtb2RlIDEwMDY0
+NCBhcmNoL3Jpc2N2L2Jvb3QvZHRzL2FsbHdpbm5lci9zdW4yMGktZDFzLmR0c2kKPiA+IMKgY3Jl
+YXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3YvYm9vdC9kdHMvYWxsd2lubmVyL3N1bnhpLWQxLQo+
+ID4gdDExMy5kdHNpCj4gPiDCoGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2Jvb3QvZHRz
+L2FsbHdpbm5lci9zdW54aS1kMXMtCj4gPiB0MTEzLmR0c2kKPiA+IAo+ID4gLS0gCj4gPiAyLjM3
+LjQKPiA+IAo+ID4gCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
+ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
+aXNjdgo=
