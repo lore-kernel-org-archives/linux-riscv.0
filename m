@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DCF9C4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Dec 2022 10:57:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDF36C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Dec 2022 11:13:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6CC8tVWAP/vKB26VfcAQQvT2G6NEdgGXCETtCWG43gw=; b=AcdqfzzkiJp80v
-	7hKk+y0gf1FqJEc3s1nmiSFUI2CItp2PSeusgJlcoRvWLF7V/kU+5fXP9OPjUwMRNWQpZMxQuZJLi
-	IblPKF75pN8JtXFeGoXCLsWRf/LMIuwJUmB+ddfGjGvInGU0TCsd/wfwJ3U/nYX3AqBL5aBzR/vF7
-	uNnyE3RP79zc/jdJYCWx+2jWyCjw2CZGVrsAkCMo8/VsWBFgg2Ay6m/PQPWEaADUAIVl9Ph0gDzOQ
-	vtXmjyZjBz7N5KmevjrpU/9HP6Ra5neTZqNYvOwrf24lsbx+gX0sl6QbeoFN/Tfx6qkS2DVJiXSVx
-	r12JCSp7RPFQinlbCudQ==;
+	List-Owner; bh=77EU04YJrOGtgpDdIAsZUKvD4ad1RcPFqE+4kY4sFWs=; b=PudA5eB5fGp308
+	FZ0KZ2FRJoTrMqkSsI1Pi04DWqkZDawRwYNVNihoubBhEPRJtL1l2Q7bQ5p4nEzPdpkujMP9bHfDd
+	IEPAyLzQf6vCYSHcZvgjQG5KCOsviDfv2w5TlFz+4AH3J78uDb6rvxTx51byiTkUnKleK35c0nxPx
+	3+MlJBgEonUP+mSvF8atCIsIALiSAHUG4QzbyPnS33D0KUne+8SYC3KVvX1PjvXwDZoHGKddDschp
+	fnd611mUrjKKeIIqNfbf/ji2LrpMAqJz2YNzLrzR3GIdcSRuQiXRQV6GzySYhCR8AwJXaTYAkFAtD
+	pXnl2ix5308qaRSDFQVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p7Dpv-00CF8L-FA; Mon, 19 Dec 2022 10:57:35 +0000
+	id 1p7E5F-00CQ4P-M7; Mon, 19 Dec 2022 11:13:25 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p7Dpl-00CEz8-7t; Mon, 19 Dec 2022 10:57:27 +0000
+	id 1p7E5C-00CQ0x-GN; Mon, 19 Dec 2022 11:13:24 +0000
 Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1p7Dpb-0004km-5j; Mon, 19 Dec 2022 11:57:15 +0100
+	id 1p7E53-0004q6-7Z; Mon, 19 Dec 2022 12:13:13 +0100
 From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
 To: Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, linux-sunxi@lists.linux.dev, Palmer Dabbelt <palmer@dabbelt.com>, Conor Dooley <conor@kernel.org>, linux-riscv@lists.infradead.org, Samuel Holland <samuel@sholland.org>
-Cc: Jisheng Zhang <jszhang@kernel.org>, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Rob Herring <robh+dt@kernel.org>, linux-arm-kernel@lists.infradead.org, Andre Przywara <andre.przywara@arm.com>, Samuel Holland <samuel@sholland.org>, Palmer Dabbelt <palmer@rivosinc.com>, Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v3 04/12] riscv: dts: allwinner: Add the D1/D1s SoC devicetree
-Date: Mon, 19 Dec 2022 11:57:14 +0100
-Message-ID: <2133897.PYKUYFuaPT@diego>
-In-Reply-To: <20221208090237.20572-5-samuel@sholland.org>
-References: <20221208090237.20572-1-samuel@sholland.org> <20221208090237.20572-5-samuel@sholland.org>
+Cc: Jisheng Zhang <jszhang@kernel.org>, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Rob Herring <robh+dt@kernel.org>, linux-arm-kernel@lists.infradead.org, Andre Przywara <andre.przywara@arm.com>, Samuel Holland <samuel@sholland.org>
+Subject: Re: [PATCH v3 00/12] riscv: Allwinner D1/D1s platform support
+Date: Mon, 19 Dec 2022 12:13:12 +0100
+Message-ID: <7683309.EvYhyI6sBW@diego>
+In-Reply-To: <20221208090237.20572-1-samuel@sholland.org>
+References: <20221208090237.20572-1-samuel@sholland.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221219_025725_350045_993A14C9 
-X-CRM114-Status: GOOD (  14.34  )
+X-CRM114-CacheID: sfid-20221219_031322_613328_101FA081 
+X-CRM114-Status: GOOD (  17.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -57,38 +57,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Donnerstag, 8. Dezember 2022, 10:02:29 CET schrieb Samuel Holland:
-> D1 (aka D1-H), D1s (aka F133), R528, and T113 are a family of SoCs based
-> on a single die, or at a pair of dies derived from the same design.
+Am Donnerstag, 8. Dezember 2022, 10:02:25 CET schrieb Samuel Holland:
+> This series adds the Kconfig/defconfig plumbing and devicetrees for a
+> range of Allwinner D1 and D1s-based boards. Many features are already
+> enabled, including USB, Ethernet, and WiFi.
 > 
-> D1 and D1s contain a single T-HEAD Xuantie C906 CPU, whereas R528 and
-> T113 contain a pair of Cortex-A7's. D1 and R528 are the full version of
-> the chip with a BGA package, whereas D1s and T113 are low-pin-count QFP
-> variants.
+> The devicetrees use bindings from the following series which have not
+> yet been merged to linux-next:
+>  - In-package LDO regulators:
+>    https://lore.kernel.org/lkml/20221208084127.17443-1-samuel@sholland.org/
+>  - Ethernet MAC binding fix (not a new issue with D1):
+>    https://lore.kernel.org/lkml/20221208061616.7806-1-samuel@sholland.org/
+>  - TI ADC101C ADC (accepted, not yet in linux-next):
+>    https://lore.kernel.org/lkml/20221125220903.8632-1-samuel@sholland.org/
 > 
-> Because the original design supported both ARM and RISC-V CPUs, some
-> peripherals are duplicated. In addition, all variants except D1s contain
-> a HiFi 4 DSP with its own set of peripherals.
+> The only remaining DT validation issue is that gpio-fan is missing a
+> YAML conversion, although one is on the list here:
+> https://lore.kernel.org/lkml/20220126200350.3633576-1-clabbe@baylibre.com/
 > 
-> The devicetrees are organized to minimize duplication:
->  - Common perhiperals are described in sunxi-d1s-t113.dtsi
->  - DSP-related peripherals are described in sunxi-d1-t113.dtsi
->  - RISC-V specific hardware is described in sun20i-d1s.dtsi
->  - Functionality unique to the D1 variant is described in sun20i-d1.dtsi
+> $ make ARCH=riscv CROSS_COMPILE=riscv64-linux-musl- dtbs_check
+>   SYNC    include/config/auto.conf.cmd
+>   LINT    Documentation/devicetree/bindings
+>   CHKDT   Documentation/devicetree/bindings/processed-schema.json
+>   SCHEMA  Documentation/devicetree/bindings/processed-schema.json
+>   DTC_CHK arch/riscv/boot/dts/allwinner/sun20i-d1-clockworkpi-v3.14.dtb
+>   DTC_CHK arch/riscv/boot/dts/allwinner/sun20i-d1-devterm-v3.14.dtb
+>   DTC_CHK arch/riscv/boot/dts/allwinner/sun20i-d1-dongshan-nezha-stu.dtb
+>   DTC_CHK arch/riscv/boot/dts/allwinner/sun20i-d1-lichee-rv-86-panel-480p.dtb
+>   DTC_CHK arch/riscv/boot/dts/allwinner/sun20i-d1-lichee-rv-86-panel-720p.dtb
+>   DTC_CHK arch/riscv/boot/dts/allwinner/sun20i-d1-lichee-rv-dock.dtb
+>   DTC_CHK arch/riscv/boot/dts/allwinner/sun20i-d1-lichee-rv.dtb
+>   DTC_CHK arch/riscv/boot/dts/allwinner/sun20i-d1-mangopi-mq-pro.dtb
+>   DTC_CHK arch/riscv/boot/dts/allwinner/sun20i-d1-nezha.dtb
+>   DTC_CHK arch/riscv/boot/dts/allwinner/sun20i-d1s-mangopi-mq.dtb
+> arch/riscv/boot/dts/allwinner/sun20i-d1-devterm-v3.14.dtb:0:0: /fan: failed to match any schema with compatible: ['gpio-fan']
 > 
-> The SOC_PERIPHERAL_IRQ macro handles the different #interrupt-cells
-> values between the ARM (GIC) and RISC-V (PLIC) versions of the SoC.
+> Note that validation requires dt-schema v2022.12 or newer.
 > 
-> Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
-> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> Tested-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
-> Signed-off-by: Samuel Holland <samuel@sholland.org>
+> I tested this series (DMIC, Ethernet, LEDs, MMC, PMIC, touch, and USB,
+> all where available) on the following boards:
+>  - sun20i-d1-devterm-v3.14
+>  - sun20i-d1-dongshan-nezha-stu
+>  - sun20i-d1-lichee-rv-86-panel-480p
+>  - sun20i-d1-mangopi-mq-pro
+>  - sun20i-d1-nezha
+>  - sun20i-d1s-mangopi-mq
 
-after spending some more time looking at the devicetree, I'm pretty
-confident that it looks ok, so also
+I've re-tested this series again with the current merge-window state
+(riscv pull already in) and everything still works nicely.
 
-Reviewed-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+So all tags still hold :-)
+
+Thanks
+Heiko
+
+
+
 
 
 
