@@ -4,164 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91E54C4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Dec 2022 20:00:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77877C001B2
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Dec 2022 20:40:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=133jbF4a7OJ+dEW6+34O4EgKnyBoxruMzi2RfH9EQK8=; b=GzvrYfGdzesSTQ
-	hTZRX7FlPJLJNsLll4SWyAoI917Gr7Iq+iSfU+H+4OxvROWZyzKdwCEASm/fn1flGb/5Yfhym2n/N
-	NTf9+ku2KbBkI3FO5n1SbQdq1/MLn4spx6yJR9SrGe/FZQT2dg9l2nN1KBojyqia/p3a4wSk8sUBk
-	Uc1OZUTwJP2re/HpaaHMhFhN3TLNZHroejB5Ck2J50YEgwWMDuN2ZgyrWKGRGqC/s6aVujsTROTFd
-	2J3nqwrOvvrOoVMfbdJd67QPuTrMbWT/ZLu7u40v9uM/48DAUybo3x4Z04ZlFNzGTYsGsXn+sx01n
-	3yLuUSRS8htqU2wN3KKg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cozHuKasSehpbGywQ7RTMUMgM3Jmw3pH3AElnemMozc=; b=N2vqI6TU2d2VLtooPRmhKlv5Yu
+	bWBZbMS595wI0OyNtWZ8+EFc8e+IUpYzASWvl2dCUPKRDNDWYF0OEisLlwt9tTRo/LAkWr/19dCRk
+	1Cut2Wcx/b+dSfRxo3G+dRwaxZDoh9ZupHQFi3zk9bgIO+VSlWgXE72GbQ6KdbjtZ3rJGQDtloEzD
+	h6H9VDXHPASsp9wY4mAD28ZZhgaATeNs0rCCLJAKJuSZZZh3flB+tt9tt1D9oElP0Kvv7ruvIe9YT
+	81wYuRaaqCRD0i0ut1k+vopYId6rsmXN6MUxDLycqhqEtiOx3LYCpQIHRMR9GmccqgCUYi6I9+KgW
+	p079yhOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p7MJI-001YYS-7V; Mon, 19 Dec 2022 20:00:28 +0000
-Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
+	id 1p7MwF-002FIG-VV; Mon, 19 Dec 2022 20:40:44 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p7LjQ-000uQV-Gc
-	for linux-riscv@lists.infradead.org; Mon, 19 Dec 2022 19:23:26 +0000
-Received: from pps.filterd (m0246631.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 2BJIwxkW007687;
-	Mon, 19 Dec 2022 19:22:57 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=date : from : to : cc
- : subject : message-id : references : content-type :
- content-transfer-encoding : in-reply-to : mime-version; s=corp-2022-7-12;
- bh=SlWWY7t2+2YgwdzarOOQstzXkTfP5P21pbnljBQ7tlE=;
- b=0OxptIEqjnm1bseqLKEuUhJpj0/UyLtQI5HyTLM0paRfo701FalT/BEwWv+u8T72aRY1
- 5BKDlPGk8sX3We5PjGSVxfwGESomJFm8K/cqgpRotCtm59h5Tw6467BBTt8DKCzx/55P
- ZUetTmRc6FGwvnXIzoWemRHlbGdS6Xe2i8mBu5cD0Se1OGcmUc4B5fwcRhggvFLmKnzD
- vMqoRGHH36z7Ey1Ma44zfv3GdHrF51yjkhce6eNdzHamlyNnjKV3/cjzIIXTUYexIpgi
- 8Topnv3Nrn9bQxi2S09EBclCVnQWCNSXRsakxuoN4hsdVa6FjYqX9zFJ1MHtjyOUr0TX Bw== 
-Received: from phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta02.appoci.oracle.com [147.154.114.232])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 3mh6tm3pt2-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 19 Dec 2022 19:22:56 +0000
-Received: from pps.filterd (phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
-	by phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (8.17.1.5/8.17.1.5) with ESMTP id 2BJHt6iP003454;
-	Mon, 19 Dec 2022 19:22:55 GMT
-Received: from nam10-mw2-obe.outbound.protection.outlook.com (mail-mw2nam10lp2105.outbound.protection.outlook.com [104.47.55.105])
-	by phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 3mh473yxh2-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 19 Dec 2022 19:22:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=QEukeyVKrTMGl6WR15zDq7yKKP1Xl2ireNnSuFfZesGUtECAKJgAwBodkriSTsKetn2leygfvwVRnJ0pfqizfN83EAQHg27X+z5Btw5Q9LGP8+yEtI/n45Sm5LvS44tVzUBYV3/JrKBsX7wSJ2bmMQkjIdIdCJY1g3gwfDouPqCe4FSpRGVp8Aw9nhwHaZ8J6QSU0k1rmJ9y9kic8hgX77YYJ02rAqsWuTpxmTsStbv7OtEORBYxw7lsHg8Zz3rHgCOuYVRld8xyvGHf4b9YAjZZVAF9JGfkgJL5t8BFl/cyoZ+CB8J0MS1lKy6OHvLLJM9327YXAkQI4IzExPK1cw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CFj8boNVCdt47AAYwo2owRRmTQOIZbkSIZy1UEoRjeg=;
- b=BSAZKQnbirUGALmPEQaAoB2O9jXOpJa8QjogMXJl4tVaXo6PnI6L8gIOMh5UFMHjmeJhMOXB2SIx+iwl6q2LPX1TFpqLwuado7BDToWoS2/kVzdTkBJzR9qTInaU3gFgoM74IRI2C2/l7GqOrHpuVhnheRbQX+AQ4l24qQqLoana62b4m9HT0H1SZcYWCEltrxrFl24ALvC3FDyVSW9wu4YWnCJWMRk2iTRdOap5C4YXkbFH78EB8UBDHD5tyvfpJS7N4aoxgMZpMn88dHQ6JISaB2KvRV/wusFYgJSRIiBi+Z/bMyj0ZhlTHiksK8t1SEwPlsTjtVB5b3Tq6CVEMg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
- dkim=pass header.d=oracle.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=CFj8boNVCdt47AAYwo2owRRmTQOIZbkSIZy1UEoRjeg=;
- b=YQfsu0pq4rUCmVegNHf8B44P2gwb3m7tMKECnDkQyizKUzQJeUIW1HN/yLL3cWwVSMNMNpyt0y2kuOHiQ+XZsdmebaX/V7Y3dH8H+gtFGc1BSE/gIYqzt8ygPjjF4lCHGXRAYtaI9V+kDyZdbQtsvSziZouol+zJmsUM8pzECBk=
-Received: from BY5PR10MB4196.namprd10.prod.outlook.com (2603:10b6:a03:20d::23)
- by SJ0PR10MB4463.namprd10.prod.outlook.com (2603:10b6:a03:2af::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5924.16; Mon, 19 Dec
- 2022 19:22:53 +0000
-Received: from BY5PR10MB4196.namprd10.prod.outlook.com
- ([fe80::8d67:8c42:d124:3721]) by BY5PR10MB4196.namprd10.prod.outlook.com
- ([fe80::8d67:8c42:d124:3721%4]) with mapi id 15.20.5924.016; Mon, 19 Dec 2022
- 19:22:52 +0000
-Date: Mon, 19 Dec 2022 11:22:47 -0800
-From: Mike Kravetz <mike.kravetz@oracle.com>
-To: Michal Hocko <mhocko@suse.com>,
-        =?iso-8859-1?B?Suly9G1l?= Glisse <jglisse@redhat.com>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
-        linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-        linux-s390@vger.kernel.org, netdev@vger.kernel.org,
-        David Hildenbrand <david@redhat.com>, Peter Xu <peterx@redhat.com>,
-        Nadav Amit <nadav.amit@gmail.com>,
-        Matthew Wilcox <willy@infradead.org>, Vlastimil Babka <vbabka@suse.cz>,
-        Rik van Riel <riel@surriel.com>, Will Deacon <will@kernel.org>,
-        Michael Ellerman <mpe@ellerman.id.au>,
-        Palmer Dabbelt <palmer@dabbelt.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Dave Hansen <dave.hansen@linux.intel.com>,
-        Christian Brauner <brauner@kernel.org>,
-        Eric Dumazet <edumazet@google.com>,
-        Andrew Morton <akpm@linux-foundation.org>
-Subject: Re: [RFC PATCH] mm: remove zap_page_range and change callers to use
- zap_vma_page_range
-Message-ID: <Y6C6B08nTWusK3RI@monkey>
-References: <20221216192012.13562-1-mike.kravetz@oracle.com>
- <Y6A6KqXObGKxvDrX@dhcp22.suse.cz>
-Content-Disposition: inline
-In-Reply-To: <Y6A6KqXObGKxvDrX@dhcp22.suse.cz>
-X-ClientProxiedBy: MW4PR03CA0083.namprd03.prod.outlook.com
- (2603:10b6:303:b6::28) To BY5PR10MB4196.namprd10.prod.outlook.com
- (2603:10b6:a03:20d::23)
+	id 1p7MwD-002FAG-30
+	for linux-riscv@lists.infradead.org; Mon, 19 Dec 2022 20:40:43 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 292616115E;
+	Mon, 19 Dec 2022 20:40:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A198C433D2;
+	Mon, 19 Dec 2022 20:40:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1671482439;
+	bh=cbT5wFWYsPUPKcL1TTnyLAY/jF4rBk8dA4rI4vvCkJM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=th8x7h1WaUPImey81a/g9JO9DqhTsAA+p2xidQmyz2XJl4PBpRhUbAVNchTcBlEUP
+	 i3ZUfv69wX7EUOBb1/XAanp42RF9lMC1TOYS8EHeOJVRwDSCc9qz2uhFwl2/4aLix3
+	 0f4lZ9xr7szCUmr1jOHKFT2llzZn1241WFO5AhpujM/ubfLsxbZmTCgNcfwVszMSS+
+	 EJuOTK7lA/iU1OXfYgLl47s2VSfwsRI3r7zVErHfjA61lxvTo0w/KvbcWrT3nIc97S
+	 wHhhVgJLc/qXUv0FVOtsUep8tOCskIwnZvN6hld7O0cYnfuyA2CkYf+h525yyh8TG8
+	 nwRnmQOSkJgDw==
+Date: Mon, 19 Dec 2022 20:40:34 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Walker Chen <walker.chen@starfivetech.com>
+Cc: linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org, Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [RESEND PATCH v2 2/3] soc: starfive: Add StarFive JH71XX pmu
+ driver
+Message-ID: <Y6DMQpGuXfBWHr8L@spud>
+References: <20221208084523.9733-1-walker.chen@starfivetech.com>
+ <20221208084523.9733-3-walker.chen@starfivetech.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BY5PR10MB4196:EE_|SJ0PR10MB4463:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2e1db3a1-9c4b-4cec-562f-08dae1f66bc2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: 	RVA8FuHVq8M6ma2de51gHpPsESP3hciVufbSxkmOdg56EoBV8nPeLc37BteYHjwzWmLxXTz2tADI5FDn8DNByWSVArX+2qiaQlNF55WboLdYrtv/PTouDknIDpyUOxaXnWNTzpoHMGZSxRR9yGnGf3GTxR5+p/ghqXW6JNUaRLjcCJf3NutHtZaMGNb3eVezUGLM+ejhx1tSJU7FUY28ld0l1rzT3GpRdy+PTSzlKd4oKgJswkJ5An7iffSSV79DDlaPirJYTjI4R9Co8UbKFP/B4zhtuu+284QHP8RnR2mmPlPubUb/pRNtNQCHqctiYG2dZHSGG9rFrtCg0P/G/7YpORp8i7Klyv/C2Rq7XbqxGOHaWPEmm17jJh8B1SkNGMcpq9vvpl1SHLAKeQIZPKDx2LaJnxwmXWfHniRM6SIZe+SBka8Kdj09//mBSs6aCERJbReGFoZvFw/iER6Fi63PDTiQMkj26q/iMylj7E+/FkWJrxs5wMVTaIgXN/xzxZHh/2V9PhbdY9Eu75rWwTWxbufYeIvIimI+FsVW7GbdvXADR71fp9AON1cNEuTxN11YHzH9AvHGjuqfuxD5QnLQi1L1XFcYdcLpBkvUSS09AM5cfp9BjSKVQyX88fQEPVcTVF8PRqEk7ox/W71S4XzygxbodN0KMzZhsR+wPZs=
-X-Forefront-Antispam-Report: 	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BY5PR10MB4196.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230022)(7916004)(396003)(366004)(136003)(376002)(39860400002)(346002)(451199015)(8936002)(41300700001)(66574015)(9686003)(186003)(6512007)(110136005)(54906003)(316002)(66946007)(4326008)(44832011)(86362001)(33716001)(38100700002)(83380400001)(7416002)(8676002)(66476007)(66556008)(5660300002)(2906002)(966005)(6486002)(478600001)(53546011)(6506007)(6666004)(26005);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 	=?iso-8859-1?Q?/hVNmuwB9+o9K6QTCPA7AevS8LE04A2rg3/2mFF79DHCbZeXOcyIG8gdO9?=
- =?iso-8859-1?Q?eVBrZr+PbWUI6KDIn2aHLLyj81NWeJ98VLUfo4QxoUXhSovX8vnoyNa++F?=
- =?iso-8859-1?Q?9F3LHpImeEvPvtifvKeIQ5rXNQKPlH4Ljdgz59GXWbbkWmFLJFfsvYnf52?=
- =?iso-8859-1?Q?SCi9zXwt7qb3qP6I+gq1hxqhoVS1fLqcxyXvX4jNa3LwN9E1PNQx5+9GNr?=
- =?iso-8859-1?Q?I+U2LenkB0hPsDUEa3TOGuLKRiiW73W/CG412EdPmcV/od6Ph4Liq12wR2?=
- =?iso-8859-1?Q?k32DZjT1mgkWyCq2/TWA5Bt1V+d0hVS6d8GfT/UBjQt6BzinAT85Lk6xM8?=
- =?iso-8859-1?Q?yYBxCgRFondqXBH6OQE3PesGrVCFf7VdEHnvws327EyEc4+KlwuKxyxqws?=
- =?iso-8859-1?Q?7SLXOIQs60QWWkb0oO2n4oH8Ep9ltjNZUQPU9QCHCPDgVPd6O5TolMIEXV?=
- =?iso-8859-1?Q?LDVOR88BZpvwdS66G+sGPflSeIh6DViVUm4mkGAwZBQDIabJ7mEmALBuYH?=
- =?iso-8859-1?Q?eZpQUjMG9xJnGMsHfTRM8rtUSAcj442qHR4++V7OXpBCH0M1p7DVlWvCI+?=
- =?iso-8859-1?Q?gT9awH+pDgVQwDFuqiNHJX8BXlIMKUmCgyx23JBFLbNx7AHQlGiOuOu58d?=
- =?iso-8859-1?Q?/D4ppWq7D5GrWixQFhEdhHgNEVUAUT56cF75RY2sz+WFvFwn7LsLl2W/jj?=
- =?iso-8859-1?Q?Ldgu88LYPNEP5RleYLjlC+bJtBP50eNlSZ9OJyYw5KZFdUlmTpQbbH57bu?=
- =?iso-8859-1?Q?/LFCYdvnJFpE2kArCLQS3lUic9IHs16yOtyKySoBiEenyZuFdA1nn1ixHQ?=
- =?iso-8859-1?Q?yUbmoY+pKrjy9jmonz2OoyEC84sK8WnZ8HPqDk+PMEXfj9/emMHs2L/BHm?=
- =?iso-8859-1?Q?563GMz1RkNwhYaVFgXlcbAxDEpNsJkG4QP7ktJuGKfshtXHH1v0O7jFL9R?=
- =?iso-8859-1?Q?c35xLObcNbrvj7nOURdghtrH62BJh/L3MOuCUBHjlReUImrv0DhQX6RE+a?=
- =?iso-8859-1?Q?PHo3nDnGLE1MCWE46JSaEw/+IrBnJKgXCX+hNbKWrZuU2hrTvaacY8ybqR?=
- =?iso-8859-1?Q?B1ot+1RBeGv4080bLD3hN7GC2uXChSGvZLIsiuIbuU7uBJo6LVOnoIdlbv?=
- =?iso-8859-1?Q?yokgBls+EjSvZ0X1Fy4GmYStlL04oU4UwJwGWNqmZLMQMXes2RrENXLs6p?=
- =?iso-8859-1?Q?87PQBBfXu00lFFRGdGDW6jUXw8fjjD+NNl6YMdte36Acs9FaMSZmgt5mSk?=
- =?iso-8859-1?Q?s93in/dFoQp6OkQ1085qFSWeUG/sQj24AcUII7ruJ0UoWN5SRZCiQ6dtIc?=
- =?iso-8859-1?Q?6Yj0le3rFWkIK0H8Q28F8D3Gq7nw6Jhucck/AoQG5MUGLPXfQwa3vwk7hf?=
- =?iso-8859-1?Q?1U9aCOk0PZbo+cL+arajdlWWF4sUie14NW9YRxwz99FKbK4jNNX7BJ+oxd?=
- =?iso-8859-1?Q?ANpZHGdjZ3GxOVmvnRkeoZ88b20RhI7ro+YIi4+6xjHLj1X2/u8bCtaIR0?=
- =?iso-8859-1?Q?oIxbjkSybIZJB4pt+RHztHJh6/olzFKACpZLcATXBC/VKeWL2JRx16HLgJ?=
- =?iso-8859-1?Q?MwzMw1H0qW4Jm1X5lsXKDUlialIHPusrWiO4TUe6V639VV+O7AvnK0cCv5?=
- =?iso-8859-1?Q?W/WFx7vtdzFEJA8RZNwhaKK7wBFHQeJ+O1LIXDZTvadkijrSOVVi8qxw?=
- =?iso-8859-1?Q?=3D=3D?=
-X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2e1db3a1-9c4b-4cec-562f-08dae1f66bc2
-X-MS-Exchange-CrossTenant-AuthSource: BY5PR10MB4196.namprd10.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Dec 2022 19:22:51.9805
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ca6o4sLz+HWPiq//yOqMs8dwEVB0205yUdETFnVWAsjwmNrBfVt4pwovsst2v81cis09FFnBx7YR8kIUBMq0uw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR10MB4463
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.205,Aquarius:18.0.923,Hydra:6.0.545,FMLib:17.11.122.1
- definitions=2022-12-19_01,2022-12-15_02,2022-06-22_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 bulkscore=0 phishscore=0 suspectscore=0
- adultscore=0 malwarescore=0 spamscore=0 mlxlogscore=999 mlxscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2212070000
- definitions=main-2212190172
-X-Proofpoint-GUID: 4wAKUmjGiA2Tyfd4C2xWtgZTWvB4HmLf
-X-Proofpoint-ORIG-GUID: 4wAKUmjGiA2Tyfd4C2xWtgZTWvB4HmLf
+In-Reply-To: <20221208084523.9733-3-walker.chen@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221219_112324_689379_B5D34E62 
-X-CRM114-Status: GOOD (  24.76  )
+X-CRM114-CacheID: sfid-20221219_124041_260023_8D9F656F 
+X-CRM114-Status: GOOD (  46.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,75 +73,465 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/mixed; boundary="===============3899476361567146320=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 12/19/22 13:06, Michal Hocko wrote:
-> On Fri 16-12-22 11:20:12, Mike Kravetz wrote:
-> > zap_page_range was originally designed to unmap pages within an address
-> > range that could span multiple vmas.  While working on [1], it was
-> > discovered that all callers of zap_page_range pass a range entirely wit=
-hin
-> > a single vma.  In addition, the mmu notification call within zap_page
-> > range does not correctly handle ranges that span multiple vmas as calls
-> > should be vma specific.
-> =
 
-> Could you spend a sentence or two explaining what is wrong here?
+--===============3899476361567146320==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="SYCjqAld4EPrrPBY"
+Content-Disposition: inline
 
-Hmmmm?  My assumption was that the range passed to mmu_notifier_range_init()
-was supposed to be within the specified vma.  When looking into the notifier
-routines, I could not find any documentation about the usage of the vma wit=
-hin
-the mmu_notifier_range structure.  It was introduced with commit bf198b2b34=
-bf
-"mm/mmu_notifier: pass down vma and reasons why mmu notifier is happening".
-However, I do not see this being used today.
 
-Of course, I could be missing something, so adding J=E9r=F4me.
+--SYCjqAld4EPrrPBY
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> =
+Hey Walker,
 
-> > Instead of fixing zap_page_range, change all callers to use the new
-> > routine zap_vma_page_range.  zap_vma_page_range is just a wrapper around
-> > zap_page_range_single passing in NULL zap details.  The name is also
-> > more in line with other exported routines that operate within a vma.
-> > We can then remove zap_page_range.
-> =
+Hopefully just some minor bits here. Hopefully either Emil who has a
+board, or someone that knows power management stuff better can give this
+a proper review.
 
-> I would stick with zap_page_range_single rather than adding a new
-> wrapper but nothing really critical.
+On Thu, Dec 08, 2022 at 04:45:22PM +0800, Walker Chen wrote:
+> Add pmu driver for the StarFive JH71XX SoC.
+>=20
+> As the power domains provider, the Power Management Unit (PMU) is
+> designed for including multiple PM domains that can be used for power
+> gating of selected IP blocks for power saving by reduced leakage
+> current. It accepts software encourage command to switch the power mode
+> of SoC.
+>=20
+> Signed-off-by: Walker Chen <walker.chen@starfivetech.com>
+> ---
+>  MAINTAINERS                       |  14 ++
+>  drivers/soc/Kconfig               |   1 +
+>  drivers/soc/Makefile              |   1 +
+>  drivers/soc/starfive/Kconfig      |  11 +
+>  drivers/soc/starfive/Makefile     |   3 +
+>  drivers/soc/starfive/jh71xx_pmu.c | 396 ++++++++++++++++++++++++++++++
+>  6 files changed, 426 insertions(+)
+>  create mode 100644 drivers/soc/starfive/Kconfig
+>  create mode 100644 drivers/soc/starfive/Makefile
+>  create mode 100644 drivers/soc/starfive/jh71xx_pmu.c
+>=20
 
-I am fine with doing that as well.  My only reason for the wrapper is that =
-all =
+> +config JH71XX_PMU
+> +	bool "Support PMU for StarFive JH71XX Soc"
+> +	depends on PM && (SOC_STARFIVE || COMPILE_TEST)
 
-callers outside mm/memory.c would pass in NULL zap details.
+Why not just do:
+	depends on PM
+	depends on SOC_STARFIVE || COMPILE_TEST
+I think that way reads a little better.
 
-> =
+> +	default SOC_STARFIVE
+> +	select PM_GENERIC_DOMAINS
+> +	help
+> +	  Say 'y' here to enable support power domain support.
+> +	  In order to meet low power requirements, a Power Management Unit (PMU)
+> +	  is designed for controlling power resources in StarFive JH71XX SoCs.
+> diff --git a/drivers/soc/starfive/Makefile b/drivers/soc/starfive/Makefile
+> new file mode 100644
+> index 000000000000..13b589d6b5f3
+> --- /dev/null
+> +++ b/drivers/soc/starfive/Makefile
+> @@ -0,0 +1,3 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +
+> +obj-$(CONFIG_JH71XX_PMU)	+=3D jh71xx_pmu.o
+> diff --git a/drivers/soc/starfive/jh71xx_pmu.c b/drivers/soc/starfive/jh7=
+1xx_pmu.c
+> new file mode 100644
+> index 000000000000..7a0145779e07
+> --- /dev/null
+> +++ b/drivers/soc/starfive/jh71xx_pmu.c
+> @@ -0,0 +1,396 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +/*
+> + * StarFive JH71XX PMU (Power Management Unit) Controller Driver
+> + *
+> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
+> + */
+> +
+> +#include <linux/interrupt.h>
+> +#include <linux/io.h>
+> +#include <linux/iopoll.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/of_device.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/pm_domain.h>
+> +#include <dt-bindings/power/starfive,jh7110-pmu.h>
+> +
+> +/* register offset */
+> +#define JH71XX_PMU_HW_EVENT_ON		0x04
+> +#define JH71XX_PMU_HW_EVENT_OFF		0x08
+> +#define JH71XX_PMU_SW_TURN_ON_POWER	0x0C
+> +#define JH71XX_PMU_SW_TURN_OFF_POWER	0x10
+> +#define JH71XX_PMU_SW_ENCOURAGE		0x44
+> +#define JH71XX_PMU_INT_MASK		0x48
+> +#define JH71XX_PMU_PCH_BYPASS		0x4C
+> +#define JH71XX_PMU_PCH_PSTATE		0x50
+> +#define JH71XX_PMU_PCH_TIMEOUT		0x54
+> +#define JH71XX_PMU_LP_TIMEOUT		0x58
+> +#define JH71XX_PMU_HW_TURN_ON		0x5C
+> +#define JH71XX_PMU_CURR_POWER_MODE	0x80
+> +#define JH71XX_PMU_EVENT_STATUS		0x88
+> +#define JH71XX_PMU_INT_STATUS		0x8C
+> +
+> +/* sw encourage cfg */
+> +#define JH71XX_PMU_SW_ENCOURAGE_EN_LO	0x05
+> +#define JH71XX_PMU_SW_ENCOURAGE_EN_HI	0x50
+> +#define JH71XX_PMU_SW_ENCOURAGE_DIS_LO	0x0A
+> +#define JH71XX_PMU_SW_ENCOURAGE_DIS_HI	0xA0
+> +#define JH71XX_PMU_SW_ENCOURAGE_ON	0xFF
+> +
+> +/* pmu int status */
+> +#define JH71XX_PMU_INT_SEQ_DONE		BIT(0)
+> +#define JH71XX_PMU_INT_HW_REQ		BIT(1)
+> +#define JH71XX_PMU_INT_SW_FAIL		GENMASK(3, 2)
+> +#define JH71XX_PMU_INT_HW_FAIL		GENMASK(5, 4)
+> +#define JH71XX_PMU_INT_PCH_FAIL		GENMASK(8, 6)
+> +#define JH71XX_PMU_INT_FAIL_MASK	(JH71XX_PMU_INT_SW_FAIL | \
+> +					JH71XX_PMU_INT_HW_FAIL | \
+> +					JH71XX_PMU_INT_PCH_FAIL)
+> +#define JH71XX_PMU_INT_ALL_MASK		(JH71XX_PMU_INT_SEQ_DONE | \
+> +					JH71XX_PMU_INT_HW_REQ | \
+> +					JH71XX_PMU_INT_FAIL_MASK)
+> +
+> +/*
+> + * The time required for switching power status is based on the time
+> + * to turn on the largest domain's power, which is at microsecond level
+> + */
+> +#define JH71XX_PMU_TIMEOUT_US		100
+> +
+> +struct jh71xx_domain_info {
 
-> > Also, change madvise_dontneed_single_vma to use this new routine.
-> > =
+	const char * const name;
+	unsigned int flags;
+	u8 bit;
 
-> > [1] https://lore.kernel.org/linux-mm/20221114235507.294320-2-mike.krave=
-tz@oracle.com/
-> > Suggested-by: Peter Xu <peterx@redhat.com>
-> > Signed-off-by: Mike Kravetz <mike.kravetz@oracle.com>
-> =
+> +};
+> +
+> +struct jh71xx_pmu_match_data {
 
-> Other than that LGTM
-> Acked-by: Michal Hocko <mhocko@suse.com>
-> =
+	const struct jh71xx_domain_info *domain_info;
+	int num_domains;
 
-> Thanks!
+Can you switch these two around like so?
+> +};
+> +
+> +struct jh71xx_pmu {
+> +	struct device *dev;
+> +	const struct jh71xx_pmu_match_data *match_data;
+> +	void __iomem *base;
+> +	spinlock_t lock;	/* protects pmu reg */
+> +	int irq;
+> +	struct genpd_onecell_data genpd_data;
+> +	struct generic_pm_domain **genpd;
+> +};
+> +
+> +struct jh71xx_pmu_dev {
+> +	struct generic_pm_domain genpd;
+> +	const struct jh71xx_domain_info *domain_info;
+> +	struct jh71xx_pmu *pmu;
 
-Thanks for taking a look.
--- =
+And these two too please in the same way.
 
-Mike Kravetz
+> +};
+> +
+> +static int jh71xx_pmu_get_state(struct jh71xx_pmu_dev *pmd, u32 mask, bo=
+ol *is_on)
+> +{
+> +	struct jh71xx_pmu *pmu =3D pmd->pmu;
+> +
+> +	if (!mask) {
+> +		*is_on =3D false;
+> +		return -EINVAL;
+> +	}
+> +
+> +	*is_on =3D readl(pmu->base + JH71XX_PMU_CURR_POWER_MODE) & mask;
+> +
+> +	return 0;
+> +}
+> +
+> +static int jh71xx_pmu_set_state(struct jh71xx_pmu_dev *pmd, u32 mask, bo=
+ol on)
+> +{
+> +	struct jh71xx_pmu *pmu =3D pmd->pmu;
+> +	unsigned long flags;
+> +	u32 val;
+> +	u32 mode;
+> +	u32 encourage_lo;
+> +	u32 encourage_hi;
+> +	bool is_on;
+> +	int ret;
+> +
+> +	ret =3D jh71xx_pmu_get_state(pmd, mask, &is_on);
+> +	if (ret) {
+> +		dev_dbg(pmu->dev, "unable to get current state for %s\n",
+> +			pmd->genpd.name);
+> +		return ret;
+> +	}
+> +
+> +	if (is_on =3D=3D on) {
+> +		dev_dbg(pmu->dev, "pm domain [%s] is already %sable status.\n",
+> +			pmd->genpd.name, on ? "en" : "dis");
+> +		return 0;
+> +	}
+> +
+> +	spin_lock_irqsave(&pmu->lock, flags);
+> +
+> +	/*
+> +	 * The PMU accepts software encourage to switch power mode in the follo=
+wing 2 steps:
+> +	 *
+> +	 * 1. Configure the register SW_TURN_ON_POWER (offset 0x0c), write 1 to
+> +	 *    the bit which power domain will be turn-on, write 0 to the others.
+
+Some grammatical nit picking..
+
+"Configure the register blah (offset 0x0c) by writing 1 to the bit
+corresponding to the power domain that will be turned on and writing
+zero to the others."
+
+Is that a correct correct summation of the operation?
+
+> +	 *    Likewise, configure the register SW_TURN_OFF_POWER (offset 0x10),
+> +	 *    write 1 to the bit which power domain will be turn-off, write 0 t=
+o the others.
+
+
+> +	 */
+> +	if (on) {
+> +		mode =3D JH71XX_PMU_SW_TURN_ON_POWER;
+> +		encourage_lo =3D JH71XX_PMU_SW_ENCOURAGE_EN_LO;
+> +		encourage_hi =3D JH71XX_PMU_SW_ENCOURAGE_EN_HI;
+> +	} else {
+> +		mode =3D JH71XX_PMU_SW_TURN_OFF_POWER;
+> +		encourage_lo =3D JH71XX_PMU_SW_ENCOURAGE_DIS_LO;
+> +		encourage_hi =3D JH71XX_PMU_SW_ENCOURAGE_DIS_HI;
+> +	}
+> +
+> +	writel(mask, pmu->base + mode);
+> +
+> +	/*
+> +	 * 2. Write SW encourage command sequence to the Software Encourage Reg=
+ (offset 0x44)
+> +	 * SW turn-on command sequence: 0xff -> 0x05 -> 0x50
+> +	 * SW turn-off command sequence: 0xff -> 0x0a -> 0xa0
+
+I think you could replace the hard "coded" numbers here with a better
+description idk without looking at the #defines above what these
+correspond to. AFAICT, it'd be something like:
+First write the ...ENCOURAGE_ON to reset the state machine which parses
+the command sequence. It must be written every time.
+Then write the lower bits of the command sequence, followed by the upper
+bits. The sequence differs between powering on & off a domain.
+> +	 *
+> +	 * Note: writing SW_MODE_ENCOURAGE_ON (0xFF) to the SW_ENCOURAGE regist=
+er,
+> +	 * the purpose is to reset the state machine which is going to parse in=
+struction
+> +	 *  sequence. It has to be written every time.
+> +	 */
+> +	writel(JH71XX_PMU_SW_ENCOURAGE_ON, pmu->base + JH71XX_PMU_SW_ENCOURAGE);
+> +	writel(encourage_lo, pmu->base + JH71XX_PMU_SW_ENCOURAGE);
+> +	writel(encourage_hi, pmu->base + JH71XX_PMU_SW_ENCOURAGE);
+> +
+> +	spin_unlock_irqrestore(&pmu->lock, flags);
+> +
+> +	/* Wait for the power domain bit to be enabled / disabled */
+> +	if (on) {
+> +		ret =3D readl_poll_timeout_atomic(pmu->base + JH71XX_PMU_CURR_POWER_MO=
+DE,
+> +						val, val & mask,
+> +						1, JH71XX_PMU_TIMEOUT_US);
+> +	} else {
+> +		ret =3D readl_poll_timeout_atomic(pmu->base + JH71XX_PMU_CURR_POWER_MO=
+DE,
+> +						val, !(val & mask),
+> +						1, JH71XX_PMU_TIMEOUT_US);
+> +	}
+> +
+> +	if (ret) {
+> +		dev_err(pmu->dev, "%s: failed to power %s\n",
+> +			pmd->genpd.name, on ? "on" : "off");
+> +		return -ETIMEDOUT;
+> +	}
+> +
+> +	return 0;
+> +}
+
+> +static int jh71xx_pmu_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev =3D &pdev->dev;
+> +	struct device_node *np =3D dev->of_node;
+> +	const struct jh71xx_pmu_match_data *match_data;
+> +	struct jh71xx_pmu *pmu;
+> +	unsigned int i;
+> +	int ret;
+> +
+> +	pmu =3D devm_kzalloc(dev, sizeof(*pmu), GFP_KERNEL);
+> +	if (!pmu)
+> +		return -ENOMEM;
+> +
+> +	pmu->base =3D devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(pmu->base))
+> +		return PTR_ERR(pmu->base);
+> +
+> +	/* initialize pmu interrupt  */
+
+nit: this comment is ~pointless.
+
+> +	pmu->irq =3D platform_get_irq(pdev, 0);
+> +	if (pmu->irq < 0)
+> +		return pmu->irq;
+> +
+> +	ret =3D devm_request_irq(dev, pmu->irq, jh71xx_pmu_interrupt,
+> +			       0, pdev->name, pmu);
+> +	if (ret)
+> +		dev_err(dev, "request irq failed.\n");
+
+nit: s/request/requesting
+
+Unfortunately I cannot really review the rest of this, but hopefully
+I'll get a board soon and can try it out - or else send me a link to
+your TRM or w/e.
+
+Thanks,
+Conor.
+
+> +
+> +	match_data =3D of_device_get_match_data(dev);
+> +	if (!match_data)
+> +		return -EINVAL;
+> +
+> +	pmu->genpd =3D devm_kcalloc(dev, match_data->num_domains,
+> +				  sizeof(struct generic_pm_domain *),
+> +				  GFP_KERNEL);
+> +	if (!pmu->genpd)
+> +		return -ENOMEM;
+> +
+> +	pmu->dev =3D dev;
+> +	pmu->match_data =3D match_data;
+> +	pmu->genpd_data.domains =3D pmu->genpd;
+> +	pmu->genpd_data.num_domains =3D match_data->num_domains;
+> +
+> +	for (i =3D 0; i < match_data->num_domains; i++) {
+> +		ret =3D jh71xx_pmu_init_domain(pmu, i);
+> +		if (ret) {
+> +			dev_err(dev, "failed to initialize power domain\n");
+> +			return ret;
+> +		}
+> +	}
+> +
+> +	spin_lock_init(&pmu->lock);
+> +	jh71xx_pmu_int_enable(pmu, JH71XX_PMU_INT_ALL_MASK & ~JH71XX_PMU_INT_PC=
+H_FAIL, true);
+> +
+> +	ret =3D of_genpd_add_provider_onecell(np, &pmu->genpd_data);
+> +	if (ret) {
+> +		dev_err(dev, "failed to register genpd driver: %d\n", ret);
+> +		return ret;
+> +	}
+> +
+> +	dev_info(dev, "registered %u power domains\n", i);
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct jh71xx_domain_info jh7110_power_domains[] =3D {
+> +	[JH7110_PD_SYSTOP] =3D {
+> +		.name =3D "SYSTOP",
+> +		.bit =3D 0,
+> +		.flags =3D GENPD_FLAG_ALWAYS_ON,
+> +	},
+> +	[JH7110_PD_CPU] =3D {
+> +		.name =3D "CPU",
+> +		.bit =3D 1,
+> +		.flags =3D GENPD_FLAG_ALWAYS_ON,
+> +	},
+> +	[JH7110_PD_GPUA] =3D {
+> +		.name =3D "GPUA",
+> +		.bit =3D 2,
+> +	},
+> +	[JH7110_PD_VDEC] =3D {
+> +		.name =3D "VDEC",
+> +		.bit =3D 3,
+> +	},
+> +	[JH7110_PD_VOUT] =3D {
+> +		.name =3D "VOUT",
+> +		.bit =3D 4,
+> +	},
+> +	[JH7110_PD_ISP] =3D {
+> +		.name =3D "ISP",
+> +		.bit =3D 5,
+> +	},
+> +	[JH7110_PD_VENC] =3D {
+> +		.name =3D "VENC",
+> +		.bit =3D 6,
+> +	},
+> +};
+> +
+> +static const struct jh71xx_pmu_match_data jh7110_pmu =3D {
+> +	.num_domains =3D ARRAY_SIZE(jh7110_power_domains),
+> +	.domain_info =3D jh7110_power_domains,
+> +};
+> +
+> +static const struct of_device_id jh71xx_pmu_of_match[] =3D {
+> +	{
+> +		.compatible =3D "starfive,jh7110-pmu",
+> +		.data =3D (void *)&jh7110_pmu,
+> +	}, {
+> +		/* sentinel */
+> +	}
+> +};
+> +
+> +static struct platform_driver jh71xx_pmu_driver =3D {
+> +	.driver =3D {
+> +		.name =3D "jh71xx-pmu",
+> +		.of_match_table =3D jh71xx_pmu_of_match,
+> +	},
+> +	.probe  =3D jh71xx_pmu_probe,
+> +};
+> +builtin_platform_driver(jh71xx_pmu_driver);
+> +
+> +MODULE_AUTHOR("Walker Chen <walker.chen@starfivetech.com>");
+> +MODULE_DESCRIPTION("StarFive JH71XX PMU Driver");
+> +MODULE_LICENSE("GPL");
+> --=20
+> 2.17.1
+>=20
+>=20
+
+--SYCjqAld4EPrrPBY
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY6DMQgAKCRB4tDGHoIJi
+0gGfAQDZn5iArS4NP508h5utRHqQG/IjYkHIWH95xRUdAv8LZAD9GeFtdUVcjIl6
+t90goMBY3L4vlIu2rCZVF8sB+GlhtwM=
+=HL3t
+-----END PGP SIGNATURE-----
+
+--SYCjqAld4EPrrPBY--
+
+
+--===============3899476361567146320==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3899476361567146320==--
+
