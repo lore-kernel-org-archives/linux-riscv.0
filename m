@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62B6BC4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Dec 2022 10:21:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FE00C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Dec 2022 10:22:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OLFgKWzsqljDX0ZcEmRpK9nk6N06GMDFIbtRwIm0oqk=; b=L4SbnqbywpwRxX
-	a9XhyZARjxGe27s+pDkCp70LdwkJeunYzKam6JSUpGjCAAnkQAs1e/7jgW0YoHtOEM4ZxLVj+QsXl
-	CPo5wFjoq1UtB2Tdb328j1vF3sAbN9fudFrl/YUPaZYH7Iro3uj7dQ/LyGVE9p91p3wsIZVlIJEoj
-	jsgS4iJTwSz8GBzkB/oJ4HdqImVTwQqD0waza7eR+DzRNQ3q3InhoD45oTBiAmX+bYRm+GI54ztYP
-	feg5yGHrx93sqdSbI+GyC4zUr0tqOudbcEP4tjIDVahWaB1/Gqw7aDVAN1ll3SaML8f4BMQTfkBXA
-	brKQLr8IsnloOiUZO6ZQ==;
+	List-Owner; bh=v6z0wFuKaPy+kCT09rNpcgBpTteK2boCXVQE0mBcVwU=; b=VBPr+eyvxlCfe1
+	neEnEueAHWA181fgyiVBbrzkDrveOZkXupI0JnzNHXJY2El7/KIRcUwEB5mwUV6UowB0Tl9CqKCBf
+	1rStLM6oDpbKTovfYKGIXoFBo02CllfGaAD1+eXvsQFLxjbQqmQmqY9uuSoh0LLtpwNboIGGg+Xm8
+	znZd//aDYNIrnLT+BU3nFt9m7IQ8xUP4A68s8bkoIDMR0+ZVBqhiNzOepMzrNdZjq/U4XzatWvp8s
+	GcEDkubWM0DoZy57JQWObcwqn9LopwHGsyEuMCVtmw8gIAgM+SaupwcWZSFbtrDXQYUmI3JU7XhhO
+	hPhCE5l4hq+CnNlgXQMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p7ZkS-00DFZY-TS; Tue, 20 Dec 2022 10:21:25 +0000
-Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
+	id 1p7Zkv-00DFsi-DS; Tue, 20 Dec 2022 10:21:53 +0000
+Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p7ZVS-00D9nx-VV
-	for linux-riscv@lists.infradead.org; Tue, 20 Dec 2022 10:06:05 +0000
-Received: by mail-lj1-x22b.google.com with SMTP id n6so6251089ljj.11
-        for <linux-riscv@lists.infradead.org>; Tue, 20 Dec 2022 02:05:54 -0800 (PST)
+	id 1p7ZZh-00DBZp-5O
+	for linux-riscv@lists.infradead.org; Tue, 20 Dec 2022 10:10:21 +0000
+Received: by mail-lf1-x132.google.com with SMTP id p36so17800410lfa.12
+        for <linux-riscv@lists.infradead.org>; Tue, 20 Dec 2022 02:10:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=linaro.org; s=google;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=PBMyTgqn80aag6e4czcq9I1jxLK0LYrMKeS+03hzF/Y=;
-        b=y40Wht56aSwxUxYGrzsaqpwCwXSJBVxvzIaOEjkaueFL7y+kex4bJ3QNj+J7nlii6h
-         CrKWdfMAEzNpZ+rEmnVXxuroCklK2+TWlkxSAWnqnHxLlYR2UOhGVxkIvvqy4LTLo1ax
-         Y2/MONjTBIdQv54CHQeeLJuqTlqX0yVCnXgdIusH1frxzKwur2bc7HhMEeRvRgKsdX5E
-         3Ckr8IZFBA3IPGkb0YTwE3lpMx8IBnrc5jhRPmL1tUPD8l0SIy0xBEsvBU2mwGJM6KTc
-         hh30eBWzpUgNVS+0OqLpaXxJ0sOyDUziI8JLn8hPgQ2qVpl5HlH8BK/oXhEwqge+Wl2u
-         MnzA==
+        bh=Q5nIqDU3UUGi3Rg5H51YN1/uE1UBBhaJzW8Igj65Eo0=;
+        b=geKdNRxmbxPQocBMUjegJOuN9Cq+leOpLZZ0P+J2NArfjj/TE3jDUpm9b9lVGkpWEO
+         uQ1RoqOUtIbvtuArjbnV4L+pxEfqEujcv5ynEh8aI+k+Wk9EhycH7zmat8LQuWOEQGgp
+         wUL9F5oaMehJvvxOcGQB2pzFixYys95723dwkxkrGTaKsrSMlhxn0YGs+ZkMiV+qaqur
+         FY+kgcl237aU+YuBwy/DQtEZMOQyqP2BeqPzz0jxVx/HBTk8GA4SjYdIheHWuA2KXlL3
+         QjhQgdknXlYW3PjJ4LHHP172ce7lfaeqDtRhuPoR4X2iJBYxJA4ZT4Wf4/U6Golv+kvr
+         22SA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=PBMyTgqn80aag6e4czcq9I1jxLK0LYrMKeS+03hzF/Y=;
-        b=fuzAeM70TIEKMeaquFXIiEsFkXX/zDv3HhpLTnE9O545MeDPCMaMvVGDycFkDt/6Nh
-         l0q4irtcE1410F6HECB8QscsmF0k+JMQTIn2DMI0EgYG5Xop/kTOj4hPl8+viNAGAdqS
-         PUwWtAXM3C1FRfbmkZ8FwkSpusc6n+5J14uUUtL/Kab63n/luoBT3J7OYusWMedZJtfV
-         X9XC5wvdc1oE+nAmvK6d5D7G18QJX/9I2mDJ3mF4qQ5Lpg3Gg2sh+D2At13YgyI4garn
-         4uM44achnwg5vTSP7PZzmXuYV8BVJp2FZhtgXclUBVN4UobN1vZ+q0FBb7YpuywtalfA
-         c4jA==
-X-Gm-Message-State: ANoB5pkFZ/AMjQi7+k5a7R1gbj/BkCRa9einLflAiW2FXmqyij/qQiZL
-	BzxUbejOiPiKBH1cyVCF5jtBOw==
-X-Google-Smtp-Source: AA0mqf464jb6PUw+DV+OSW7ZY+nzwAFUNzb2Epe91dSCKe8EdfbJlkqEo+cYuIL9Fqj1xovm7LbURw==
-X-Received: by 2002:a2e:984b:0:b0:279:fe95:c353 with SMTP id e11-20020a2e984b000000b00279fe95c353mr11789124ljj.48.1671530753290;
-        Tue, 20 Dec 2022 02:05:53 -0800 (PST)
+        bh=Q5nIqDU3UUGi3Rg5H51YN1/uE1UBBhaJzW8Igj65Eo0=;
+        b=D1+DGdQeoTZ2ybK7b2IGgpr5+fAw5fTWJQ6NedVq/beNjirWtEI4/0Bnw1Vtp9Jj1W
+         iiSgL/83n1j7uERrsbtnPw52cKZpNh2asNN74Py1a5Ky3N5QS//mx9PwKiwIDjcvmcbn
+         6380h0/k0jJyVijR4Ak1IhTLPDY43m67jMFTVfEMI+HCymZgTTwSWV3c0Cxw1AWlLkPZ
+         Ef7MNotx8FbWv8s8ukXH1KHU9Y5CkbcRh91RYVMEz4hFdmK1jfwUFC12djpMRk4dJPMu
+         spyKZs1xTsP4j24MlZ8L7YlLPlFKYy5OtzSAdyQleJRhtthmYxRK4jsu65dUuPmWyURe
+         5tMw==
+X-Gm-Message-State: AFqh2kpMqLjkqiYpnMutYgFuNQUI1nqEDIc4hQA5hFONFut0kHvCdPOc
+	Ip2+HkIU1RFt9TnulhB5SCmTFQ==
+X-Google-Smtp-Source: AMrXdXvMErEP+dfsE5G/puEph/u8A7ysD6PEtYb76Tg/KI5fTVwbPfTulajPAEB3+aHtv3wp29wMIw==
+X-Received: by 2002:a05:6512:3da2:b0:4b9:f5e5:8fb4 with SMTP id k34-20020a0565123da200b004b9f5e58fb4mr784949lfv.3.1671531013165;
+        Tue, 20 Dec 2022 02:10:13 -0800 (PST)
 Received: from [192.168.0.20] (088156142067.dynamic-2-waw-k-3-2-0.vectranet.pl. [88.156.142.67])
-        by smtp.gmail.com with ESMTPSA id b2-20020a056512070200b004c325f34050sm1122604lfs.91.2022.12.20.02.05.51
+        by smtp.gmail.com with ESMTPSA id f2-20020a2eb5a2000000b00279f213302bsm973530ljn.57.2022.12.20.02.10.11
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 20 Dec 2022 02:05:52 -0800 (PST)
-Message-ID: <4c528a35-d3eb-db20-2a1e-3d79d0977d91@linaro.org>
-Date: Tue, 20 Dec 2022 11:05:51 +0100
+        Tue, 20 Dec 2022 02:10:12 -0800 (PST)
+Message-ID: <ebb27bb2-158c-8207-7184-0d5b5ca0ce14@linaro.org>
+Date: Tue, 20 Dec 2022 11:10:11 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.6.0
-Subject: Re: [PATCH v3 1/7] dt-bindings: riscv: Add StarFive JH7110 SoC and
- VisionFive 2 board
+Subject: Re: [PATCH v3 6/7] riscv: dts: starfive: Add initial StarFive JH7110
+ device tree
 Content-Language: en-US
 To: Hal Feng <hal.feng@starfivetech.com>, linux-riscv@lists.infradead.org,
  devicetree@vger.kernel.org
@@ -83,12 +83,12 @@ Cc: Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
  Emil Renner Berthing <emil.renner.berthing@canonical.com>,
  linux-kernel@vger.kernel.org
 References: <20221220011247.35560-1-hal.feng@starfivetech.com>
- <20221220011247.35560-2-hal.feng@starfivetech.com>
+ <20221220011247.35560-7-hal.feng@starfivetech.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20221220011247.35560-2-hal.feng@starfivetech.com>
+In-Reply-To: <20221220011247.35560-7-hal.feng@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221220_020600_440207_2A2F76E6 
-X-CRM114-Status: GOOD (  10.84  )
+X-CRM114-CacheID: sfid-20221220_021018_109138_3367BFBF 
+X-CRM114-Status: GOOD (  17.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,22 +108,337 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 On 20/12/2022 02:12, Hal Feng wrote:
 > From: Emil Renner Berthing <kernel@esmil.dk>
 > 
-> Add device tree bindings for the StarFive JH7110 RISC-V SoC
-> and the VisionFive 2 board equipped with it.
+> Add initial device tree for the JH7110 RISC-V SoC by StarFive
+> Technology Ltd.
 > 
-> VisionFive 2 board has version A and version B, which are
-> different in gmac and phy chip. The version A board has one
-> 1000Mbps and one 100Mbps Ethernet ports while the version B
-> board has two 1000Mbps Ethernet ports.
-> 
-> Link: https://doc-en.rvspace.org/Doc_Center/jh7110.html
-> Link: https://doc-en.rvspace.org/Doc_Center/visionfive_2.html
 > Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+> Co-developed-by: Jianlong Huang <jianlong.huang@starfivetech.com>
+> Signed-off-by: Jianlong Huang <jianlong.huang@starfivetech.com>
+> Co-developed-by: Hal Feng <hal.feng@starfivetech.com>
 > Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+> ---
+>  arch/riscv/boot/dts/starfive/jh7110.dtsi | 411 +++++++++++++++++++++++
+>  1 file changed, 411 insertions(+)
+>  create mode 100644 arch/riscv/boot/dts/starfive/jh7110.dtsi
+> 
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> new file mode 100644
+> index 000000000000..64d260ea1f29
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> @@ -0,0 +1,411 @@
+> +// SPDX-License-Identifier: GPL-2.0 OR MIT
+> +/*
+> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
+> + * Copyright (C) 2022 Emil Renner Berthing <kernel@esmil.dk>
+> + */
+> +
+> +/dts-v1/;
+> +#include <dt-bindings/clock/starfive,jh7110-crg.h>
+> +#include <dt-bindings/reset/starfive,jh7110-crg.h>
+> +
+> +/ {
+> +	compatible = "starfive,jh7110";
+> +	#address-cells = <2>;
+> +	#size-cells = <2>;
+> +
+> +	cpus {
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +
+> +		S76_0: cpu@0 {
+> +			compatible = "sifive,u74-mc", "riscv";
+> +			reg = <0>;
+> +			d-cache-block-size = <64>;
+> +			d-cache-sets = <64>;
+> +			d-cache-size = <8192>;
+> +			d-tlb-sets = <1>;
+> +			d-tlb-size = <40>;
+> +			device_type = "cpu";
+> +			i-cache-block-size = <64>;
+> +			i-cache-sets = <64>;
+> +			i-cache-size = <16384>;
+> +			i-tlb-sets = <1>;
+> +			i-tlb-size = <40>;
+> +			mmu-type = "riscv,sv39";
+> +			next-level-cache = <&ccache>;
+> +			riscv,isa = "rv64imac";
+> +			tlb-split;
+> +			status = "disabled";
+> +
+> +			cpu0_intc: interrupt-controller {
+> +				compatible = "riscv,cpu-intc";
+> +				interrupt-controller;
+> +				#interrupt-cells = <1>;
+> +			};
+> +		};
+> +
+> +		U74_1: cpu@1 {
+> +			compatible = "sifive,u74-mc", "riscv";
+> +			reg = <1>;
+> +			d-cache-block-size = <64>;
+> +			d-cache-sets = <64>;
+> +			d-cache-size = <32768>;
+> +			d-tlb-sets = <1>;
+> +			d-tlb-size = <40>;
+> +			device_type = "cpu";
+> +			i-cache-block-size = <64>;
+> +			i-cache-sets = <64>;
+> +			i-cache-size = <32768>;
+> +			i-tlb-sets = <1>;
+> +			i-tlb-size = <40>;
+> +			mmu-type = "riscv,sv39";
+> +			next-level-cache = <&ccache>;
+> +			riscv,isa = "rv64imafdc";
+> +			tlb-split;
+> +
+> +			cpu1_intc: interrupt-controller {
+> +				compatible = "riscv,cpu-intc";
+> +				interrupt-controller;
+> +				#interrupt-cells = <1>;
+> +			};
+> +		};
+> +
+> +		U74_2: cpu@2 {
+> +			compatible = "sifive,u74-mc", "riscv";
+> +			reg = <2>;
+> +			d-cache-block-size = <64>;
+> +			d-cache-sets = <64>;
+> +			d-cache-size = <32768>;
+> +			d-tlb-sets = <1>;
+> +			d-tlb-size = <40>;
+> +			device_type = "cpu";
+> +			i-cache-block-size = <64>;
+> +			i-cache-sets = <64>;
+> +			i-cache-size = <32768>;
+> +			i-tlb-sets = <1>;
+> +			i-tlb-size = <40>;
+> +			mmu-type = "riscv,sv39";
+> +			next-level-cache = <&ccache>;
+> +			riscv,isa = "rv64imafdc";
+> +			tlb-split;
+> +
+> +			cpu2_intc: interrupt-controller {
+> +				compatible = "riscv,cpu-intc";
+> +				interrupt-controller;
+> +				#interrupt-cells = <1>;
+> +			};
+> +		};
+> +
+> +		U74_3: cpu@3 {
+> +			compatible = "sifive,u74-mc", "riscv";
+> +			reg = <3>;
+> +			d-cache-block-size = <64>;
+> +			d-cache-sets = <64>;
+> +			d-cache-size = <32768>;
+> +			d-tlb-sets = <1>;
+> +			d-tlb-size = <40>;
+> +			device_type = "cpu";
+> +			i-cache-block-size = <64>;
+> +			i-cache-sets = <64>;
+> +			i-cache-size = <32768>;
+> +			i-tlb-sets = <1>;
+> +			i-tlb-size = <40>;
+> +			mmu-type = "riscv,sv39";
+> +			next-level-cache = <&ccache>;
+> +			riscv,isa = "rv64imafdc";
+> +			tlb-split;
+> +
+> +			cpu3_intc: interrupt-controller {
+> +				compatible = "riscv,cpu-intc";
+> +				interrupt-controller;
+> +				#interrupt-cells = <1>;
+> +			};
+> +		};
+> +
+> +		U74_4: cpu@4 {
+> +			compatible = "sifive,u74-mc", "riscv";
+> +			reg = <4>;
+> +			d-cache-block-size = <64>;
+> +			d-cache-sets = <64>;
+> +			d-cache-size = <32768>;
+> +			d-tlb-sets = <1>;
+> +			d-tlb-size = <40>;
+> +			device_type = "cpu";
+> +			i-cache-block-size = <64>;
+> +			i-cache-sets = <64>;
+> +			i-cache-size = <32768>;
+> +			i-tlb-sets = <1>;
+> +			i-tlb-size = <40>;
+> +			mmu-type = "riscv,sv39";
+> +			next-level-cache = <&ccache>;
+> +			riscv,isa = "rv64imafdc";
+> +			tlb-split;
+> +
+> +			cpu4_intc: interrupt-controller {
+> +				compatible = "riscv,cpu-intc";
+> +				interrupt-controller;
+> +				#interrupt-cells = <1>;
+> +			};
+> +		};
+> +
+> +		cpu-map {
+> +			cluster0 {
+> +				core0 {
+> +					cpu = <&S76_0>;
+> +				};
+> +
+> +				core1 {
+> +					cpu = <&U74_1>;
+> +				};
+> +
+> +				core2 {
+> +					cpu = <&U74_2>;
+> +				};
+> +
+> +				core3 {
+> +					cpu = <&U74_3>;
+> +				};
+> +
+> +				core4 {
+> +					cpu = <&U74_4>;
+> +				};
+> +			};
+> +		};
+> +	};
+> +
+> +	osc: osc {
 
-I assume you did not add my tag because of changes?
+Node names should be generic, so why this is "osc" and other oscillators
+are not "osc"?
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
+> +		compatible = "fixed-clock";
+> +		#clock-cells = <0>;
+> +	};
+> +
+> +	rtc_osc: rtc_osc {
+
+No underscores in node names. Generic node names (so each of them
+starting or ending with clock).
+
+> +		compatible = "fixed-clock";
+> +		#clock-cells = <0>;
+> +	};
+> +
+> +	gmac0_rmii_refin: gmac0_rmii_refin {
+
+Same problem... and actually you have way too many fixed clocks which do
+nothing. It looks like you avoid to define proper clock controller.
+What's the point for all these clocks? These are no-op.
+
+> +		compatible = "fixed-clock";
+> +		#clock-cells = <0>;
+> +	};
+> +
+> +	gmac0_rgmii_rxin: gmac0_rgmii_rxin {
+> +		compatible = "fixed-clock";
+> +		#clock-cells = <0>;
+> +	};
+> +
+> +	gmac1_rmii_refin: gmac1_rmii_refin {
+> +		compatible = "fixed-clock";
+> +		#clock-cells = <0>;
+> +	};
+> +
+> +	gmac1_rgmii_rxin: gmac1_rgmii_rxin {
+> +		compatible = "fixed-clock";
+> +		#clock-cells = <0>;
+> +	};
+> +
+> +	i2stx_bclk_ext: i2stx_bclk_ext {
+> +		compatible = "fixed-clock";
+> +		#clock-cells = <0>;
+> +	};
+> +
+> +	i2stx_lrck_ext: i2stx_lrck_ext {
+> +		compatible = "fixed-clock";
+> +		#clock-cells = <0>;
+> +	};
+> +
+> +	i2srx_bclk_ext: i2srx_bclk_ext {
+> +		compatible = "fixed-clock";
+> +		#clock-cells = <0>;
+> +	};
+> +
+> +	i2srx_lrck_ext: i2srx_lrck_ext {
+> +		compatible = "fixed-clock";
+> +		#clock-cells = <0>;
+> +	};
+> +
+> +	tdm_ext: tdm_ext {
+> +		compatible = "fixed-clock";
+> +		#clock-cells = <0>;
+> +	};
+> +
+> +	mclk_ext: mclk_ext {
+> +		compatible = "fixed-clock";
+> +		#clock-cells = <0>;
+> +	};
+> +
+> +	soc {
+> +		compatible = "simple-bus";
+> +		interrupt-parent = <&plic>;
+> +		#address-cells = <2>;
+> +		#size-cells = <2>;
+> +		ranges;
+> +
+> +		clint: clint@2000000 {
+
+Node names should be generic.
+https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+
+> +			compatible = "starfive,jh7110-clint", "sifive,clint0";
+> +			reg = <0x0 0x2000000 0x0 0x10000>;
+> +			interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>,
+> +					      <&cpu1_intc 3>, <&cpu1_intc 7>,
+> +					      <&cpu2_intc 3>, <&cpu2_intc 7>,
+> +					      <&cpu3_intc 3>, <&cpu3_intc 7>,
+> +					      <&cpu4_intc 3>, <&cpu4_intc 7>;
+> +		};
+> +
+> +		plic: plic@c000000 {
+
+Node names should be generic, so interrupt-controller
+https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+
+> +			compatible = "starfive,jh7110-plic", "sifive,plic-1.0.0";
+> +			reg = <0x0 0xc000000 0x0 0x4000000>;
+> +			interrupts-extended = <&cpu0_intc 11>,
+> +					      <&cpu1_intc 11>, <&cpu1_intc 9>,
+> +					      <&cpu2_intc 11>, <&cpu2_intc 9>,
+> +					      <&cpu3_intc 11>, <&cpu3_intc 9>,
+> +					      <&cpu4_intc 11>, <&cpu4_intc 9>;
+> +			interrupt-controller;
+> +			#interrupt-cells = <1>;
+> +			#address-cells = <0>;
+> +			riscv,ndev = <136>;
+> +		};
+> +
+> +		ccache: cache-controller@2010000 {
+> +			compatible = "starfive,jh7110-ccache", "sifive,ccache0", "cache";
+> +			reg = <0x0 0x2010000 0x0 0x4000>;
+> +			interrupts = <1>, <3>, <4>, <2>;
+> +			cache-block-size = <64>;
+> +			cache-level = <2>;
+> +			cache-sets = <2048>;
+> +			cache-size = <2097152>;
+> +			cache-unified;
+> +		};
+> +
+> +		uart0: serial@10000000 {
+> +			compatible = "snps,dw-apb-uart";
+> +			reg = <0x0 0x10000000 0x0 0x10000>;
+> +			clocks = <&syscrg JH7110_SYSCLK_UART0_CORE>,
+> +				 <&syscrg JH7110_SYSCLK_UART0_APB>;
+> +			clock-names = "baudclk", "apb_pclk";
+> +			resets = <&syscrg JH7110_SYSRST_UART0_APB>;
+> +			interrupts = <32>;
+> +			reg-io-width = <4>;
+> +			reg-shift = <2>;
+> +			status = "disabled";
+> +		};
+> +
 
 Best regards,
 Krzysztof
