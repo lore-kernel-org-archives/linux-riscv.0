@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B935C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Dec 2022 01:01:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86557C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Dec 2022 01:01:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ejw+3cc/wixSlnbvaC/RaL4G3aoePmwu6o+igC6IbgA=; b=ILfHLKn2tTTWnn
-	lQJxehiEprTLylKU/ZfCxi1BiSoL4qo3Jkt0yaSHzHvLng/EbU+KMSuhUdEBij0DsxYlfziy1F5V9
-	XZGNHahvDVIJrSyvzvbGmF4/huEDNZXpBkI+nwEgfxgbvFMpEY+xr0XaDArN/WRWIp2qFxbp3Fexm
-	LxH9YiALjekWYUnO8FR6fE62c04X/ecUugpwCSdITOkv5EYI5KQvMaJrvhgG6WKLHZ7EJwtUUa554
-	lxMTXh3nn0ex4XQHWTCePes1p7sKvet2JTXSnQ/JWvI2akRhc4NJ4bPAQKsT8sYisgKnJyLI/dUEm
-	VS9QDPU7dE3gCI1i7BrA==;
+	List-Owner; bh=VIuoWhqVcdfDvVhyuyWjI6kWtq7sRacAs120pCm2J1Y=; b=DmeQlxugqgiqea
+	jQoJHLobVxCt6xayrGuY8kht+lK6tS9RQu1YeV9LV4NrSmMa6KYfIZVCec+d0VoIgCXDgCTnhRWKv
+	7V7RMRxfaTf+1qwDhq7Sz4ZPjLexow9jNJDRLp08YHbJt9haM6/v63sMveCek3yrVyBDRtAagj173
+	kLaT3JhCI7ZnUGQYaMpHfU+O6pzz/MucsewnyndCMX/WuWczEsU/7SqJ/5vhM8t+USY+tLL+0Xmg/
+	wKDqVbmdstyndemmlFtQ9FgkiictEtvl9VP/Jvq7n8lrla9FfPVXmH5m7Fd7FOqGaBuKRPNa3pDd2
+	tecPlpVEcidSMMFmiulA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p7R00-00608M-Rm; Tue, 20 Dec 2022 01:00:52 +0000
+	id 1p7R04-00609w-3C; Tue, 20 Dec 2022 01:00:56 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p7Qv1-005vhU-FY
-	for linux-riscv@lists.infradead.org; Tue, 20 Dec 2022 00:55:46 +0000
+	id 1p7Qv1-005vhR-Fb
+	for linux-riscv@lists.infradead.org; Tue, 20 Dec 2022 00:55:48 +0000
 Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id A21A524E199;
-	Tue, 20 Dec 2022 08:55:34 +0800 (CST)
+	by ex01.ufhost.com (Postfix) with ESMTP id 0526024E17F;
+	Tue, 20 Dec 2022 08:55:32 +0800 (CST)
 Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX165.cuchost.com
  (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 20 Dec
- 2022 08:55:34 +0800
+ 2022 08:55:31 +0800
 Received: from ubuntu.localdomain (183.27.97.120) by EXMBX172.cuchost.com
  (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 20 Dec
- 2022 08:55:33 +0800
+ 2022 08:55:31 +0800
 From: Hal Feng <hal.feng@starfivetech.com>
 To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
 	<linux-gpio@vger.kernel.org>
@@ -46,9 +46,9 @@ CC: Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, "Rob
 	<emil.renner.berthing@canonical.com>, Jianlong Huang
 	<jianlong.huang@starfivetech.com>, Hal Feng <hal.feng@starfivetech.com>,
 	<linux-kernel@vger.kernel.org>
-Subject: [PATCH v3 5/5] pinctrl: starfive: Add StarFive JH7110 aon controller driver
-Date: Tue, 20 Dec 2022 08:55:29 +0800
-Message-ID: <20221220005529.34744-6-hal.feng@starfivetech.com>
+Subject: [PATCH v3 1/5] riscv: dts: starfive: Add StarFive JH7110 pin function definitions
+Date: Tue, 20 Dec 2022 08:55:25 +0800
+Message-ID: <20221220005529.34744-2-hal.feng@starfivetech.com>
 X-Mailer: git-send-email 2.38.1
 In-Reply-To: <20221220005529.34744-1-hal.feng@starfivetech.com>
 References: <20221220005529.34744-1-hal.feng@starfivetech.com>
@@ -58,8 +58,8 @@ X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX172.cuchost.com
  (172.16.6.92)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221219_165544_366715_05FDE843 
-X-CRM114-Status: GOOD (  19.69  )
+X-CRM114-CacheID: sfid-20221219_165544_341057_8780807A 
+X-CRM114-Status: GOOD (  14.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,231 +78,351 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Jianlong Huang <jianlong.huang@starfivetech.com>
 
-Add pinctrl driver for StarFive JH7110 SoC aon pinctrl controller.
+Add pin function definitions for StarFive JH7110 SoC.
 
 Co-developed-by: Emil Renner Berthing <kernel@esmil.dk>
 Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
 Signed-off-by: Jianlong Huang <jianlong.huang@starfivetech.com>
 Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
 ---
- drivers/pinctrl/starfive/Kconfig              |  12 ++
- drivers/pinctrl/starfive/Makefile             |   1 +
- .../starfive/pinctrl-starfive-jh7110-aon.c    | 177 ++++++++++++++++++
- 3 files changed, 190 insertions(+)
- create mode 100644 drivers/pinctrl/starfive/pinctrl-starfive-jh7110-aon.c
+ MAINTAINERS                                   |   4 +-
+ arch/riscv/boot/dts/starfive/jh7110-pinfunc.h | 308 ++++++++++++++++++
+ 2 files changed, 311 insertions(+), 1 deletion(-)
+ create mode 100644 arch/riscv/boot/dts/starfive/jh7110-pinfunc.h
 
-diff --git a/drivers/pinctrl/starfive/Kconfig b/drivers/pinctrl/starfive/Kconfig
-index 453c8a0b3118..8192ac2087fc 100644
---- a/drivers/pinctrl/starfive/Kconfig
-+++ b/drivers/pinctrl/starfive/Kconfig
-@@ -37,3 +37,15 @@ config PINCTRL_STARFIVE_JH7110_SYS
- 	  This also provides an interface to the GPIO pins not used by other
- 	  peripherals supporting inputs, outputs, configuring pull-up/pull-down
- 	  and interrupts on input changes.
-+
-+config PINCTRL_STARFIVE_JH7110_AON
-+	tristate "Always-on pinctrl and GPIO driver for the StarFive JH7110 SoC"
-+	depends on SOC_STARFIVE  || COMPILE_TEST
-+	depends on OF
-+	select PINCTRL_STARFIVE_JH7110
-+	default SOC_STARFIVE
-+	help
-+	  Say yes here to support always-on pin control on the StarFive JH7110 SoC.
-+	  This also provides an interface to the GPIO pins not used by other
-+	  peripherals supporting inputs, outputs, configuring pull-up/pull-down
-+	  and interrupts on input changes.
-diff --git a/drivers/pinctrl/starfive/Makefile b/drivers/pinctrl/starfive/Makefile
-index dc2d1e392314..ee0d32d085cb 100644
---- a/drivers/pinctrl/starfive/Makefile
-+++ b/drivers/pinctrl/starfive/Makefile
-@@ -4,3 +4,4 @@ obj-$(CONFIG_PINCTRL_STARFIVE_JH7100)	+= pinctrl-starfive-jh7100.o
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 7916f2fb7619..e0ffe584030b 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -19640,11 +19640,13 @@ F:	Documentation/devicetree/bindings/clock/starfive,jh71*.yaml
+ F:	drivers/clk/starfive/clk-starfive-jh71*
+ F:	include/dt-bindings/clock/starfive?jh71*.h
  
- obj-$(CONFIG_PINCTRL_STARFIVE_JH7110)		+= pinctrl-starfive-jh7110.o
- obj-$(CONFIG_PINCTRL_STARFIVE_JH7110_SYS)	+= pinctrl-starfive-jh7110-sys.o
-+obj-$(CONFIG_PINCTRL_STARFIVE_JH7110_AON)	+= pinctrl-starfive-jh7110-aon.o
-diff --git a/drivers/pinctrl/starfive/pinctrl-starfive-jh7110-aon.c b/drivers/pinctrl/starfive/pinctrl-starfive-jh7110-aon.c
+-STARFIVE JH7100 PINCTRL DRIVER
++STARFIVE JH71X0 PINCTRL DRIVERS
+ M:	Emil Renner Berthing <kernel@esmil.dk>
++M:	Jianlong Huang <jianlong.huang@starfivetech.com>
+ L:	linux-gpio@vger.kernel.org
+ S:	Maintained
+ F:	Documentation/devicetree/bindings/pinctrl/starfive,jh7100-pinctrl.yaml
++F:	arch/riscv/boot/dts/starfive/jh7110-pinfunc.h
+ F:	drivers/pinctrl/starfive/
+ F:	include/dt-bindings/pinctrl/pinctrl-starfive-jh7100.h
+ 
+diff --git a/arch/riscv/boot/dts/starfive/jh7110-pinfunc.h b/arch/riscv/boot/dts/starfive/jh7110-pinfunc.h
 new file mode 100644
-index 000000000000..8cf28aaed254
+index 000000000000..8e684d63a916
 --- /dev/null
-+++ b/drivers/pinctrl/starfive/pinctrl-starfive-jh7110-aon.c
-@@ -0,0 +1,177 @@
-+// SPDX-License-Identifier: GPL-2.0
++++ b/arch/riscv/boot/dts/starfive/jh7110-pinfunc.h
+@@ -0,0 +1,308 @@
++/* SPDX-License-Identifier: GPL-2.0 OR MIT */
 +/*
-+ * Pinctrl / GPIO driver for StarFive JH7110 SoC aon controller
-+ *
++ * Copyright (C) 2022 Emil Renner Berthing <kernel@esmil.dk>
 + * Copyright (C) 2022 StarFive Technology Co., Ltd.
 + */
 +
-+#include <linux/err.h>
-+#include <linux/gpio/driver.h>
-+#include <linux/init.h>
-+#include <linux/interrupt.h>
-+#include <linux/io.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_device.h>
-+#include <linux/of_irq.h>
-+#include <linux/of_platform.h>
-+#include <linux/pinctrl/pinconf.h>
-+#include <linux/pinctrl/pinconf-generic.h>
-+#include <linux/pinctrl/pinctrl.h>
-+#include <linux/pinctrl/pinmux.h>
-+#include <linux/platform_device.h>
-+#include <linux/pm_runtime.h>
-+#include <linux/regmap.h>
-+#include <linux/slab.h>
++#ifndef __JH7110_PINFUNC_H__
++#define __JH7110_PINFUNC_H__
 +
-+#include <dt-bindings/pinctrl/starfive,jh7110-pinctrl.h>
++/*
++ * mux bits:
++ *  | 31 - 24 | 23 - 16 | 15 - 10 |  9 - 8   |  7 - 0  |
++ *  |  din    |  dout   |  doen   | function | gpio nr |
++ *
++ * dout:     output signal
++ * doen:     output enable signal
++ * din:      optional input signal, 0xff = none
++ * function:
++ * gpio nr:  gpio number, 0 - 63
++ */
++#define GPIOMUX(n, dout, doen, din) ( \
++		(((din)  & 0xff) << 24) | \
++		(((dout) & 0xff) << 16) | \
++		(((doen) & 0x3f) << 10) | \
++		((n) & 0x3f))
 +
-+#include "../core.h"
-+#include "../pinconf.h"
-+#include "../pinmux.h"
-+#include "pinctrl-starfive-jh7110.h"
++#define PINMUX(n, func) ((1 << 10) | (((func) & 0x3) << 8) | ((n) & 0xff))
 +
-+#define JH7110_AON_NGPIO		4
-+#define JH7110_AON_GC_BASE		64
++/* sys_iomux dout */
++#define GPOUT_LOW				0
++#define GPOUT_HIGH				1
++#define GPOUT_SYS_WAVE511_UART_TX		2
++#define GPOUT_SYS_CAN0_STBY			3
++#define GPOUT_SYS_CAN0_TST_NEXT_BIT		4
++#define GPOUT_SYS_CAN0_TST_SAMPLE_POINT		5
++#define GPOUT_SYS_CAN0_TXD			6
++#define GPOUT_SYS_USB_DRIVE_VBUS		7
++#define GPOUT_SYS_QSPI_CS1			8
++#define GPOUT_SYS_SPDIF				9
++#define GPOUT_SYS_HDMI_CEC_SDA			10
++#define GPOUT_SYS_HDMI_DDC_SCL			11
++#define GPOUT_SYS_HDMI_DDC_SDA			12
++#define GPOUT_SYS_WATCHDOG			13
++#define GPOUT_SYS_I2C0_CLK			14
++#define GPOUT_SYS_I2C0_DATA			15
++#define GPOUT_SYS_SDIO0_BACK_END_POWER		16
++#define GPOUT_SYS_SDIO0_CARD_POWER_EN		17
++#define GPOUT_SYS_SDIO0_CCMD_OD_PULLUP_EN	18
++#define GPOUT_SYS_SDIO0_RST			19
++#define GPOUT_SYS_UART0_TX			20
++#define GPOUT_SYS_HIFI4_JTAG_TDO		21
++#define GPOUT_SYS_JTAG_TDO			22
++#define GPOUT_SYS_PDM_MCLK			23
++#define GPOUT_SYS_PWM_CHANNEL0			24
++#define GPOUT_SYS_PWM_CHANNEL1			25
++#define GPOUT_SYS_PWM_CHANNEL2			26
++#define GPOUT_SYS_PWM_CHANNEL3			27
++#define GPOUT_SYS_PWMDAC_LEFT			28
++#define GPOUT_SYS_PWMDAC_RIGHT			29
++#define GPOUT_SYS_SPI0_CLK			30
++#define GPOUT_SYS_SPI0_FSS			31
++#define GPOUT_SYS_SPI0_TXD			32
++#define GPOUT_SYS_GMAC_PHYCLK			33
++#define GPOUT_SYS_I2SRX_BCLK			34
++#define GPOUT_SYS_I2SRX_LRCK			35
++#define GPOUT_SYS_I2STX0_BCLK			36
++#define GPOUT_SYS_I2STX0_LRCK			37
++#define GPOUT_SYS_MCLK				38
++#define GPOUT_SYS_TDM_CLK			39
++#define GPOUT_SYS_TDM_SYNC			40
++#define GPOUT_SYS_TDM_TXD			41
++#define GPOUT_SYS_TRACE_DATA0			42
++#define GPOUT_SYS_TRACE_DATA1			43
++#define GPOUT_SYS_TRACE_DATA2			44
++#define GPOUT_SYS_TRACE_DATA3			45
++#define GPOUT_SYS_TRACE_REF			46
++#define GPOUT_SYS_CAN1_STBY			47
++#define GPOUT_SYS_CAN1_TST_NEXT_BIT		48
++#define GPOUT_SYS_CAN1_TST_SAMPLE_POINT		49
++#define GPOUT_SYS_CAN1_TXD			50
++#define GPOUT_SYS_I2C1_CLK			51
++#define GPOUT_SYS_I2C1_DATA			52
++#define GPOUT_SYS_SDIO1_BACK_END_POWER		53
++#define GPOUT_SYS_SDIO1_CARD_POWER_EN		54
++#define GPOUT_SYS_SDIO1_CLK			55
++#define GPOUT_SYS_SDIO1_CMD_OD_PULLUP_EN	56
++#define GPOUT_SYS_SDIO1_CMD			57
++#define GPOUT_SYS_SDIO1_DATA0			58
++#define GPOUT_SYS_SDIO1_DATA1			59
++#define GPOUT_SYS_SDIO1_DATA2			60
++#define GPOUT_SYS_SDIO1_DATA3			61
++#define GPOUT_SYS_SDIO1_DATA4			63
++#define GPOUT_SYS_SDIO1_DATA5			63
++#define GPOUT_SYS_SDIO1_DATA6			64
++#define GPOUT_SYS_SDIO1_DATA7			65
++#define GPOUT_SYS_SDIO1_RST			66
++#define GPOUT_SYS_UART1_RTS			67
++#define GPOUT_SYS_UART1_TX			68
++#define GPOUT_SYS_I2STX1_SDO0			69
++#define GPOUT_SYS_I2STX1_SDO1			70
++#define GPOUT_SYS_I2STX1_SDO2			71
++#define GPOUT_SYS_I2STX1_SDO3			72
++#define GPOUT_SYS_SPI1_CLK			73
++#define GPOUT_SYS_SPI1_FSS			74
++#define GPOUT_SYS_SPI1_TXD			75
++#define GPOUT_SYS_I2C2_CLK			76
++#define GPOUT_SYS_I2C2_DATA			77
++#define GPOUT_SYS_UART2_RTS			78
++#define GPOUT_SYS_UART2_TX			79
++#define GPOUT_SYS_SPI2_CLK			80
++#define GPOUT_SYS_SPI2_FSS			81
++#define GPOUT_SYS_SPI2_TXD			82
++#define GPOUT_SYS_I2C3_CLK			83
++#define GPOUT_SYS_I2C3_DATA			84
++#define GPOUT_SYS_UART3_TX			85
++#define GPOUT_SYS_SPI3_CLK			86
++#define GPOUT_SYS_SPI3_FSS			87
++#define GPOUT_SYS_SPI3_TXD			88
++#define GPOUT_SYS_I2C4_CLK			89
++#define GPOUT_SYS_I2C4_DATA			90
++#define GPOUT_SYS_UART4_RTS			91
++#define GPOUT_SYS_UART4_TX			92
++#define GPOUT_SYS_SPI4_CLK			93
++#define GPOUT_SYS_SPI4_FSS			94
++#define GPOUT_SYS_SPI4_TXD			95
++#define GPOUT_SYS_I2C5_CLK			96
++#define GPOUT_SYS_I2C5_DATA			97
++#define GPOUT_SYS_UART5_RTS			98
++#define GPOUT_SYS_UART5_TX			99
++#define GPOUT_SYS_SPI5_CLK			100
++#define GPOUT_SYS_SPI5_FSS			101
++#define GPOUT_SYS_SPI5_TXD			102
++#define GPOUT_SYS_I2C6_CLK			103
++#define GPOUT_SYS_I2C6_DATA			104
++#define GPOUT_SYS_SPI6_CLK			105
++#define GPOUT_SYS_SPI6_FSS			106
++#define GPOUT_SYS_SPI6_TXD			107
 +
-+/* registers */
-+#define JH7110_AON_DOEN			0x0
-+#define JH7110_AON_DOUT			0x4
-+#define JH7110_AON_GPI			0x8
-+#define JH7110_AON_GPIOIN		0x2c
++/* aon_iomux dout */
++#define GPOUT_AON_CLK_32K_OUT			2
++#define GPOUT_AON_PTC0_PWM4			3
++#define GPOUT_AON_PTC0_PWM5			4
++#define GPOUT_AON_PTC0_PWM6			5
++#define GPOUT_AON_PTC0_PWM7			6
++#define GPOUT_AON_CLK_GCLK0			7
++#define GPOUT_AON_CLK_GCLK1			8
++#define GPOUT_AON_CLK_GCLK2			9
 +
-+#define JH7110_AON_GPIOEN		0xc
-+#define JH7110_AON_GPIOIS		0x10
-+#define JH7110_AON_GPIOIC		0x14
-+#define JH7110_AON_GPIOIBE		0x18
-+#define JH7110_AON_GPIOIEV		0x1c
-+#define JH7110_AON_GPIOIE		0x20
-+#define JH7110_AON_GPIORIS		0x28
-+#define JH7110_AON_GPIOMIS		0x28
++/* sys_iomux doen */
++#define GPOEN_ENABLE				0
++#define GPOEN_DISABLE				1
++#define GPOEN_SYS_HDMI_CEC_SDA			2
++#define GPOEN_SYS_HDMI_DDC_SCL			3
++#define GPOEN_SYS_HDMI_DDC_SDA			4
++#define GPOEN_SYS_I2C0_CLK			5
++#define GPOEN_SYS_I2C0_DATA			6
++#define GPOEN_SYS_HIFI4_JTAG_TDO		7
++#define GPOEN_SYS_JTAG_TDO			8
++#define GPOEN_SYS_PWM0_CHANNEL0			9
++#define GPOEN_SYS_PWM0_CHANNEL1			10
++#define GPOEN_SYS_PWM0_CHANNEL2			11
++#define GPOEN_SYS_PWM0_CHANNEL3			12
++#define GPOEN_SYS_SPI0_NSSPCTL			13
++#define GPOEN_SYS_SPI0_NSSP			14
++#define GPOEN_SYS_TDM_SYNC			15
++#define GPOEN_SYS_TDM_TXD			16
++#define GPOEN_SYS_I2C1_CLK			17
++#define GPOEN_SYS_I2C1_DATA			18
++#define GPOEN_SYS_SDIO1_CMD			19
++#define GPOEN_SYS_SDIO1_DATA0			20
++#define GPOEN_SYS_SDIO1_DATA1			21
++#define GPOEN_SYS_SDIO1_DATA2			22
++#define GPOEN_SYS_SDIO1_DATA3			23
++#define GPOEN_SYS_SDIO1_DATA4			24
++#define GPOEN_SYS_SDIO1_DATA5			25
++#define GPOEN_SYS_SDIO1_DATA6			26
++#define GPOEN_SYS_SDIO1_DATA7			27
++#define GPOEN_SYS_SPI1_NSSPCTL			28
++#define GPOEN_SYS_SPI1_NSSP			29
++#define GPOEN_SYS_I2C2_CLK			30
++#define GPOEN_SYS_I2C2_DATA			31
++#define GPOEN_SYS_SPI2_NSSPCTL			32
++#define GPOEN_SYS_SPI2_NSSP			33
++#define GPOEN_SYS_I2C3_CLK			34
++#define GPOEN_SYS_I2C3_DATA			35
++#define GPOEN_SYS_SPI3_NSSPCTL			36
++#define GPOEN_SYS_SPI3_NSSP			37
++#define GPOEN_SYS_I2C4_CLK			38
++#define GPOEN_SYS_I2C4_DATA			39
++#define GPOEN_SYS_SPI4_NSSPCTL			40
++#define GPOEN_SYS_SPI4_NSSP			41
++#define GPOEN_SYS_I2C5_CLK			42
++#define GPOEN_SYS_I2C5_DATA			43
++#define GPOEN_SYS_SPI5_NSSPCTL			44
++#define GPOEN_SYS_SPI5_NSSP			45
++#define GPOEN_SYS_I2C6_CLK			46
++#define GPOEN_SYS_I2C6_DATA			47
++#define GPOEN_SYS_SPI6_NSSPCTL			48
++#define GPOEN_SYS_SPI6_NSSP			49
 +
-+#define JH7110_AON_GPO_PDA_0_5_CFG	0x30
++/* aon_iomux doen */
++#define GPOEN_AON_PTC0_OE_N_4			2
++#define GPOEN_AON_PTC0_OE_N_5			3
++#define GPOEN_AON_PTC0_OE_N_6			4
++#define GPOEN_AON_PTC0_OE_N_7			5
 +
-+static const struct pinctrl_pin_desc jh7110_aon_pins[] = {
-+	PINCTRL_PIN(PAD_TESTEN,		"TESTEN"),
-+	PINCTRL_PIN(PAD_RGPIO0,		"RGPIO0"),
-+	PINCTRL_PIN(PAD_RGPIO1,		"RGPIO1"),
-+	PINCTRL_PIN(PAD_RGPIO2,		"RGPIO2"),
-+	PINCTRL_PIN(PAD_RGPIO3,		"RGPIO3"),
-+	PINCTRL_PIN(PAD_RSTN,		"RSTN"),
-+	PINCTRL_PIN(PAD_GMAC0_MDC,	"GMAC0_MDC"),
-+	PINCTRL_PIN(PAD_GMAC0_MDIO,	"GMAC0_MDIO"),
-+	PINCTRL_PIN(PAD_GMAC0_RXD0,	"GMAC0_RXD0"),
-+	PINCTRL_PIN(PAD_GMAC0_RXD1,	"GMAC0_RXD1"),
-+	PINCTRL_PIN(PAD_GMAC0_RXD2,	"GMAC0_RXD2"),
-+	PINCTRL_PIN(PAD_GMAC0_RXD3,	"GMAC0_RXD3"),
-+	PINCTRL_PIN(PAD_GMAC0_RXDV,	"GMAC0_RXDV"),
-+	PINCTRL_PIN(PAD_GMAC0_RXC,	"GMAC0_RXC"),
-+	PINCTRL_PIN(PAD_GMAC0_TXD0,	"GMAC0_TXD0"),
-+	PINCTRL_PIN(PAD_GMAC0_TXD1,	"GMAC0_TXD1"),
-+	PINCTRL_PIN(PAD_GMAC0_TXD2,	"GMAC0_TXD2"),
-+	PINCTRL_PIN(PAD_GMAC0_TXD3,	"GMAC0_TXD3"),
-+	PINCTRL_PIN(PAD_GMAC0_TXEN,	"GMAC0_TXEN"),
-+	PINCTRL_PIN(PAD_GMAC0_TXC,	"GMAC0_TXC"),
-+};
++/* sys_iomux gin */
++#define GPI_NONE				255
 +
-+static int jh7110_aon_set_one_pin_mux(struct jh7110_pinctrl *sfp,
-+				      unsigned int pin,
-+				      unsigned int din, u32 dout,
-+				      u32 doen, u32 func)
-+{
-+	if (pin < sfp->gc.ngpio && func == 0)
-+		jh7110_set_gpiomux(sfp, pin, din, dout, doen);
++#define GPI_SYS_WAVE511_UART_RX			0
++#define GPI_SYS_CAN0_RXD			1
++#define GPI_SYS_USB_OVERCURRENT			2
++#define GPI_SYS_SPDIF				3
++#define GPI_SYS_JTAG_RST			4
++#define GPI_SYS_HDMI_CEC_SDA			5
++#define GPI_SYS_HDMI_DDC_SCL			6
++#define GPI_SYS_HDMI_DDC_SDA			7
++#define GPI_SYS_HDMI_HPD			8
++#define GPI_SYS_I2C0_CLK			9
++#define GPI_SYS_I2C0_DATA			10
++#define GPI_SYS_SDIO0_CD			11
++#define GPI_SYS_SDIO0_INT			12
++#define GPI_SYS_SDIO0_WP			13
++#define GPI_SYS_UART0_RX			14
++#define GPI_SYS_HIFI4_JTAG_TCK			15
++#define GPI_SYS_HIFI4_JTAG_TDI			16
++#define GPI_SYS_HIFI4_JTAG_TMS			17
++#define GPI_SYS_HIFI4_JTAG_RST			18
++#define GPI_SYS_JTAG_TDI			19
++#define GPI_SYS_JTAG_TMS			20
++#define GPI_SYS_PDM_DMIC0			21
++#define GPI_SYS_PDM_DMIC1			22
++#define GPI_SYS_I2SRX_SDIN0			23
++#define GPI_SYS_I2SRX_SDIN1			24
++#define GPI_SYS_I2SRX_SDIN2			25
++#define GPI_SYS_SPI0_CLK			26
++#define GPI_SYS_SPI0_FSS			27
++#define GPI_SYS_SPI0_RXD			28
++#define GPI_SYS_JTAG_TCK			29
++#define GPI_SYS_MCLK_EXT			30
++#define GPI_SYS_I2SRX_BCLK			31
++#define GPI_SYS_I2SRX_LRCK			32
++#define GPI_SYS_I2STX0_BCLK			33
++#define GPI_SYS_I2STX0_LRCK			34
++#define GPI_SYS_TDM_CLK				35
++#define GPI_SYS_TDM_RXD				36
++#define GPI_SYS_TDM_SYNC			37
++#define GPI_SYS_CAN1_RXD			38
++#define GPI_SYS_I2C1_CLK			39
++#define GPI_SYS_I2C1_DATA			40
++#define GPI_SYS_SDIO1_CD			41
++#define GPI_SYS_SDIO1_INT			42
++#define GPI_SYS_SDIO1_WP			43
++#define GPI_SYS_SDIO1_CMD			44
++#define GPI_SYS_SDIO1_DATA0			45
++#define GPI_SYS_SDIO1_DATA1			46
++#define GPI_SYS_SDIO1_DATA2			47
++#define GPI_SYS_SDIO1_DATA3			48
++#define GPI_SYS_SDIO1_DATA4			49
++#define GPI_SYS_SDIO1_DATA5			50
++#define GPI_SYS_SDIO1_DATA6			51
++#define GPI_SYS_SDIO1_DATA7			52
++#define GPI_SYS_SDIO1_STRB			53
++#define GPI_SYS_UART1_CTS			54
++#define GPI_SYS_UART1_RX			55
++#define GPI_SYS_SPI1_CLK			56
++#define GPI_SYS_SPI1_FSS			57
++#define GPI_SYS_SPI1_RXD			58
++#define GPI_SYS_I2C2_CLK			59
++#define GPI_SYS_I2C2_DATA			60
++#define GPI_SYS_UART2_CTS			61
++#define GPI_SYS_UART2_RX			62
++#define GPI_SYS_SPI2_CLK			63
++#define GPI_SYS_SPI2_FSS			64
++#define GPI_SYS_SPI2_RXD			65
++#define GPI_SYS_I2C3_CLK			66
++#define GPI_SYS_I2C3_DATA			67
++#define GPI_SYS_UART3_RX			68
++#define GPI_SYS_SPI3_CLK			69
++#define GPI_SYS_SPI3_FSS			70
++#define GPI_SYS_SPI3_RXD			71
++#define GPI_SYS_I2C4_CLK			72
++#define GPI_SYS_I2C4_DATA			73
++#define GPI_SYS_UART4_CTS			74
++#define GPI_SYS_UART4_RX			75
++#define GPI_SYS_SPI4_CLK			76
++#define GPI_SYS_SPI4_FSS			77
++#define GPI_SYS_SPI4_RXD			78
++#define GPI_SYS_I2C5_CLK			79
++#define GPI_SYS_I2C5_DATA			80
++#define GPI_SYS_UART5_CTS			81
++#define GPI_SYS_UART5_RX			82
++#define GPI_SYS_SPI5_CLK			83
++#define GPI_SYS_SPI5_FSS			84
++#define GPI_SYS_SPI5_RXD			85
++#define GPI_SYS_I2C6_CLK			86
++#define GPI_SYS_I2C6_DATA			87
++#define GPI_SYS_SPI6_CLK			88
++#define GPI_SYS_SPI6_FSS			89
++#define GPI_SYS_SPI6_RXD			90
 +
-+	return 0;
-+}
++/* aon_iomux gin */
++#define GPI_AON_PMU_GPIO_WAKEUP_0		0
++#define GPI_AON_PMU_GPIO_WAKEUP_1		1
++#define GPI_AON_PMU_GPIO_WAKEUP_2		2
++#define GPI_AON_PMU_GPIO_WAKEUP_3		3
 +
-+static int jh7110_aon_get_padcfg_base(struct jh7110_pinctrl *sfp,
-+				      unsigned int pin)
-+{
-+	if (pin < PAD_GMAC0_MDC)
-+		return JH7110_AON_GPO_PDA_0_5_CFG;
-+
-+	return -1;
-+}
-+
-+static void jh7110_aon_irq_handler(struct irq_desc *desc)
-+{
-+	struct jh7110_pinctrl *sfp = jh7110_from_irq_desc(desc);
-+	struct irq_chip *chip = irq_desc_get_chip(desc);
-+	unsigned long mis;
-+	unsigned int pin;
-+
-+	chained_irq_enter(chip, desc);
-+
-+	mis = readl_relaxed(sfp->base + JH7110_AON_GPIOMIS);
-+	for_each_set_bit(pin, &mis, JH7110_AON_NGPIO)
-+		generic_handle_domain_irq(sfp->gc.irq.domain, pin);
-+
-+	chained_irq_exit(chip, desc);
-+}
-+
-+static int jh7110_aon_init_hw(struct gpio_chip *gc)
-+{
-+	struct jh7110_pinctrl *sfp = container_of(gc,
-+			struct jh7110_pinctrl, gc);
-+
-+	/* mask all GPIO interrupts */
-+	writel_relaxed(0, sfp->base + JH7110_AON_GPIOIE);
-+	/* clear edge interrupt flags */
-+	writel_relaxed(0, sfp->base + JH7110_AON_GPIOIC);
-+	writel_relaxed(0x0f, sfp->base + JH7110_AON_GPIOIC);
-+	/* enable GPIO interrupts */
-+	writel_relaxed(1, sfp->base + JH7110_AON_GPIOEN);
-+	return 0;
-+}
-+
-+static const struct jh7110_gpio_irq_reg jh7110_aon_irq_reg = {
-+	.is_reg_base	= JH7110_AON_GPIOIS,
-+	.ic_reg_base	= JH7110_AON_GPIOIC,
-+	.ibe_reg_base	= JH7110_AON_GPIOIBE,
-+	.iev_reg_base	= JH7110_AON_GPIOIEV,
-+	.ie_reg_base	= JH7110_AON_GPIOIE,
-+	.ris_reg_base	= JH7110_AON_GPIORIS,
-+	.mis_reg_base	= JH7110_AON_GPIOMIS,
-+};
-+
-+static const struct jh7110_pinctrl_soc_info jh7110_aon_pinctrl_info = {
-+	.pins		= jh7110_aon_pins,
-+	.npins		= ARRAY_SIZE(jh7110_aon_pins),
-+	.ngpios		= JH7110_AON_NGPIO,
-+	.gc_base	= JH7110_AON_GC_BASE,
-+	.dout_reg_base	= JH7110_AON_DOUT,
-+	.dout_mask	= GENMASK(3, 0),
-+	.doen_reg_base	= JH7110_AON_DOEN,
-+	.doen_mask	= GENMASK(2, 0),
-+	.gpi_reg_base	= JH7110_AON_GPI,
-+	.gpi_mask	= GENMASK(3, 0),
-+	.gpioin_reg_base	   = JH7110_AON_GPIOIN,
-+	.irq_reg		   = &jh7110_aon_irq_reg,
-+	.jh7110_set_one_pin_mux  = jh7110_aon_set_one_pin_mux,
-+	.jh7110_get_padcfg_base  = jh7110_aon_get_padcfg_base,
-+	.jh7110_gpio_irq_handler = jh7110_aon_irq_handler,
-+	.jh7110_gpio_init_hw	 = jh7110_aon_init_hw,
-+};
-+
-+static const struct of_device_id jh7110_aon_pinctrl_of_match[] = {
-+	{
-+		.compatible = "starfive,jh7110-aon-pinctrl",
-+		.data = &jh7110_aon_pinctrl_info,
-+	},
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, jh7110_aon_pinctrl_of_match);
-+
-+static struct platform_driver jh7110_aon_pinctrl_driver = {
-+	.probe = jh7110_pinctrl_probe,
-+	.driver = {
-+		.name = "starfive-jh7110-aon-pinctrl",
-+		.of_match_table = jh7110_aon_pinctrl_of_match,
-+	},
-+};
-+module_platform_driver(jh7110_aon_pinctrl_driver);
-+
-+MODULE_DESCRIPTION("Pinctrl driver for the StarFive JH7110 SoC aon controller");
-+MODULE_AUTHOR("Jianlong Huang <jianlong.huang@starfivetech.com>");
-+MODULE_LICENSE("GPL");
++#endif
 -- 
 2.38.1
 
