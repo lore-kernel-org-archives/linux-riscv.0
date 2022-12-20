@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9E1FC4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Dec 2022 00:57:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6560EC4167B
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Dec 2022 00:57:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4QWgr3iHYgVbB1ZSMlw0nhDfnFQIunU9Ivv6UFBlL1o=; b=fuSxNf+chOk8FN
-	9k0vscCsWJuv0tLtRh71GxR8K/k+LBGwqlLuBboasKeR18VWsC/0PpbY+vSbPxXlzc9p5EpELAPfk
-	IiEf+5n3uZ1bh5bUxXx4PeFFzUk9dFr4igLQM//AaN4tdXDnbX3HAXZIvDu19Kl3SIf9mbgcBBbIj
-	ID4x9jveE4rkfASTKkbsTh0j5/3FPQm1t7Y3ZTyyBIscfXQujZJDuLIHJoIG4evvZevsj6O5s8t4h
-	dVhvduICIYceMTukdLx0zaqXmdC0HANUY1IitYpHl+coW5Rp1swwRdfbhsSSu29TNNbero4hj/5H1
-	34jOA1DX05I++L6QVvrg==;
+	List-Owner; bh=vlFUhfZjRFkNkw5UWimAlK0lv/U2ChjzHcPoiDMQFQg=; b=ICb5g+zmTZM07h
+	Zkmrw86cEL5OkndFhETFQ6ELChrtv9FqXEStRvHUbjPWiPdQCjFYhMSNNT36iwcuWFAY80Kf2Ehgb
+	LB+bU+MADZzsOMjoerC+j0AZhuHlGx4yaP5k2zIeNtWLvYrQ88SboSZIyKaa7Xqm+MjqU/Z7m64V+
+	SLze17leoCmOuUPxZqPxGRugYNfLltgAqosy52G3G0FkdFQibZBInxP4y1GGb3V/gZ6EsTFS9MEPR
+	aeIDPunxw6u0gOhgsqcBIzl1GfsU4LkR8sIYQcUU+zFpixZK3nVLCbdR7Nw4yaw7v9MxKwWW9E+m/
+	dRC66DDJQW4WJ1rxroSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p7QwP-005wp6-Mx; Tue, 20 Dec 2022 00:57:09 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
+	id 1p7QwR-005wrK-RI; Tue, 20 Dec 2022 00:57:11 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p7Qr0-005rmd-TU
+	id 1p7Qr1-005rnW-14
 	for linux-riscv@lists.infradead.org; Tue, 20 Dec 2022 00:51:40 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id BB4FA24E19A;
-	Tue, 20 Dec 2022 08:50:59 +0800 (CST)
-Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 20 Dec
- 2022 08:50:59 +0800
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id CB6C624DFE2;
+	Tue, 20 Dec 2022 08:51:01 +0800 (CST)
+Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 20 Dec
+ 2022 08:51:02 +0800
 Received: from ubuntu.localdomain (183.27.97.120) by EXMBX172.cuchost.com
  (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 20 Dec
- 2022 08:50:58 +0800
+ 2022 08:51:00 +0800
 From: Hal Feng <hal.feng@starfivetech.com>
 To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
 	<linux-clk@vger.kernel.org>
@@ -46,9 +46,9 @@ CC: Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, "Rob
 	<p.zabel@pengutronix.de>, Emil Renner Berthing
 	<emil.renner.berthing@canonical.com>, Hal Feng <hal.feng@starfivetech.com>,
 	<linux-kernel@vger.kernel.org>
-Subject: [PATCH v3 05/11] reset: starfive: Rename "jh7100" to "jh71x0" for the common code
-Date: Tue, 20 Dec 2022 08:50:48 +0800
-Message-ID: <20221220005054.34518-6-hal.feng@starfivetech.com>
+Subject: [PATCH v3 08/11] dt-bindings: clock: Add StarFive JH7110 always-on clock and reset generator
+Date: Tue, 20 Dec 2022 08:50:51 +0800
+Message-ID: <20221220005054.34518-9-hal.feng@starfivetech.com>
 X-Mailer: git-send-email 2.38.1
 In-Reply-To: <20221220005054.34518-1-hal.feng@starfivetech.com>
 References: <20221220005054.34518-1-hal.feng@starfivetech.com>
@@ -58,8 +58,8 @@ X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX172.cuchost.com
  (172.16.6.92)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221219_165135_503270_59893443 
-X-CRM114-Status: GOOD (  15.07  )
+X-CRM114-CacheID: sfid-20221219_165135_566417_3BB78AF8 
+X-CRM114-Status: GOOD (  12.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,169 +78,148 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Emil Renner Berthing <kernel@esmil.dk>
 
-For the common code will be shared with the StarFive JH7110 SoC.
+Add bindings for the always-on clock and reset generator (AONCRG) on the
+JH7110 RISC-V SoC by StarFive Ltd.
 
 Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
 Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
 ---
- .../reset/starfive/reset-starfive-jh7100.c    |  2 +-
- .../reset/starfive/reset-starfive-jh71x0.c    | 50 +++++++++----------
- .../reset/starfive/reset-starfive-jh71x0.h    |  2 +-
- 3 files changed, 27 insertions(+), 27 deletions(-)
+ .../clock/starfive,jh7110-aoncrg.yaml         | 76 +++++++++++++++++++
+ .../dt-bindings/clock/starfive,jh7110-crg.h   | 18 +++++
+ .../dt-bindings/reset/starfive,jh7110-crg.h   | 12 +++
+ 3 files changed, 106 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-aoncrg.yaml
 
-diff --git a/drivers/reset/starfive/reset-starfive-jh7100.c b/drivers/reset/starfive/reset-starfive-jh7100.c
-index 9d7cb4ed8869..5f06e5ae3346 100644
---- a/drivers/reset/starfive/reset-starfive-jh7100.c
-+++ b/drivers/reset/starfive/reset-starfive-jh7100.c
-@@ -51,7 +51,7 @@ static int __init jh7100_reset_probe(struct platform_device *pdev)
- 	if (IS_ERR(base))
- 		return PTR_ERR(base);
+diff --git a/Documentation/devicetree/bindings/clock/starfive,jh7110-aoncrg.yaml b/Documentation/devicetree/bindings/clock/starfive,jh7110-aoncrg.yaml
+new file mode 100644
+index 000000000000..a3cf0570d950
+--- /dev/null
++++ b/Documentation/devicetree/bindings/clock/starfive,jh7110-aoncrg.yaml
+@@ -0,0 +1,76 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/clock/starfive,jh7110-aoncrg.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: StarFive JH7110 Always-On Clock and Reset Generator
++
++maintainers:
++  - Emil Renner Berthing <kernel@esmil.dk>
++
++properties:
++  compatible:
++    const: starfive,jh7110-aoncrg
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: Main Oscillator (24 MHz)
++      - description: RTC Oscillator (32.768 kHz)
++      - description: GMAC0 RMII reference
++      - description: GMAC0 RGMII RX
++      - description: STG AXI/AHB
++      - description: APB Bus
++      - description: GMAC0 GTX
++
++  clock-names:
++    items:
++      - const: osc
++      - const: rtc_osc
++      - const: gmac0_rmii_refin
++      - const: gmac0_rgmii_rxin
++      - const: stg_axiahb
++      - const: apb_bus
++      - const: gmac0_gtxclk
++
++  '#clock-cells':
++    const: 1
++    description:
++      See <dt-bindings/clock/starfive,jh7110-crg.h> for valid indices.
++
++  '#reset-cells':
++    const: 1
++    description:
++      See <dt-bindings/reset/starfive,jh7110-crg.h> for valid indices.
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - '#clock-cells'
++  - '#reset-cells'
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/starfive,jh7110-crg.h>
++
++    clock-controller@17000000 {
++        compatible = "starfive,jh7110-aoncrg";
++        reg = <0x17000000 0x10000>;
++        clocks = <&osc>, <&rtc_osc>,
++                 <&gmac0_rmii_refin>, <&gmac0_rgmii_rxin>,
++                 <&syscrg JH7110_SYSCLK_STG_AXIAHB>,
++                 <&syscrg JH7110_SYSCLK_APB_BUS>,
++                 <&syscrg JH7110_SYSCLK_GMAC0_GTXCLK>;
++        clock-names = "osc", "rtc_osc", "gmac0_rmii_refin",
++                      "gmac0_rgmii_rxin", "stg_axiahb",
++                      "apb_bus", "gmac0_gtxclk";
++        #clock-cells = <1>;
++        #reset-cells = <1>;
++    };
+diff --git a/include/dt-bindings/clock/starfive,jh7110-crg.h b/include/dt-bindings/clock/starfive,jh7110-crg.h
+index cda199084bcf..5e4f21ca0642 100644
+--- a/include/dt-bindings/clock/starfive,jh7110-crg.h
++++ b/include/dt-bindings/clock/starfive,jh7110-crg.h
+@@ -204,4 +204,22 @@
  
--	return reset_starfive_jh7100_register(&pdev->dev, pdev->dev.of_node,
-+	return reset_starfive_jh71x0_register(&pdev->dev, pdev->dev.of_node,
- 					      base + JH7100_RESET_ASSERT0,
- 					      base + JH7100_RESET_STATUS0,
- 					      jh7100_reset_asserted,
-diff --git a/drivers/reset/starfive/reset-starfive-jh71x0.c b/drivers/reset/starfive/reset-starfive-jh71x0.c
-index ee8c28f9bcb5..1f201c612583 100644
---- a/drivers/reset/starfive/reset-starfive-jh71x0.c
-+++ b/drivers/reset/starfive/reset-starfive-jh71x0.c
-@@ -1,6 +1,6 @@
- // SPDX-License-Identifier: GPL-2.0-or-later
- /*
-- * Reset driver for the StarFive JH7100 SoC
-+ * Reset driver for the StarFive JH71X0 SoCs
-  *
-  * Copyright (C) 2021 Emil Renner Berthing <kernel@esmil.dk>
-  */
-@@ -13,7 +13,7 @@
- #include <linux/reset-controller.h>
- #include <linux/spinlock.h>
+ #define JH7110_SYSCLK_END			193
  
--struct jh7100_reset {
-+struct jh71x0_reset {
- 	struct reset_controller_dev rcdev;
- 	/* protect registers against concurrent read-modify-write */
- 	spinlock_t lock;
-@@ -22,16 +22,16 @@ struct jh7100_reset {
- 	const u64 *asserted;
- };
++/* AONCRG clocks */
++#define JH7110_AONCLK_OSC_DIV4			0
++#define JH7110_AONCLK_APB_FUNC			1
++#define JH7110_AONCLK_GMAC0_AHB			2
++#define JH7110_AONCLK_GMAC0_AXI			3
++#define JH7110_AONCLK_GMAC0_RMII_RTX		4
++#define JH7110_AONCLK_GMAC0_TX			5
++#define JH7110_AONCLK_GMAC0_TX_INV		6
++#define JH7110_AONCLK_GMAC0_RX			7
++#define JH7110_AONCLK_GMAC0_RX_INV		8
++#define JH7110_AONCLK_OTPC_APB			9
++#define JH7110_AONCLK_RTC_APB			10
++#define JH7110_AONCLK_RTC_INTERNAL		11
++#define JH7110_AONCLK_RTC_32K			12
++#define JH7110_AONCLK_RTC_CAL			13
++
++#define JH7110_AONCLK_END			14
++
+ #endif /* __DT_BINDINGS_CLOCK_STARFIVE_JH7110_CRG_H__ */
+diff --git a/include/dt-bindings/reset/starfive,jh7110-crg.h b/include/dt-bindings/reset/starfive,jh7110-crg.h
+index b88216a4fe40..d78e38690ceb 100644
+--- a/include/dt-bindings/reset/starfive,jh7110-crg.h
++++ b/include/dt-bindings/reset/starfive,jh7110-crg.h
+@@ -139,4 +139,16 @@
  
--static inline struct jh7100_reset *
--jh7100_reset_from(struct reset_controller_dev *rcdev)
-+static inline struct jh71x0_reset *
-+jh71x0_reset_from(struct reset_controller_dev *rcdev)
- {
--	return container_of(rcdev, struct jh7100_reset, rcdev);
-+	return container_of(rcdev, struct jh71x0_reset, rcdev);
- }
+ #define JH7110_SYSRST_END			126
  
--static int jh7100_reset_update(struct reset_controller_dev *rcdev,
-+static int jh71x0_reset_update(struct reset_controller_dev *rcdev,
- 			       unsigned long id, bool assert)
- {
--	struct jh7100_reset *data = jh7100_reset_from(rcdev);
-+	struct jh71x0_reset *data = jh71x0_reset_from(rcdev);
- 	unsigned long offset = BIT_ULL_WORD(id);
- 	u64 mask = BIT_ULL_MASK(id);
- 	void __iomem *reg_assert = data->assert + offset * sizeof(u64);
-@@ -60,34 +60,34 @@ static int jh7100_reset_update(struct reset_controller_dev *rcdev,
- 	return ret;
- }
- 
--static int jh7100_reset_assert(struct reset_controller_dev *rcdev,
-+static int jh71x0_reset_assert(struct reset_controller_dev *rcdev,
- 			       unsigned long id)
- {
--	return jh7100_reset_update(rcdev, id, true);
-+	return jh71x0_reset_update(rcdev, id, true);
- }
- 
--static int jh7100_reset_deassert(struct reset_controller_dev *rcdev,
-+static int jh71x0_reset_deassert(struct reset_controller_dev *rcdev,
- 				 unsigned long id)
- {
--	return jh7100_reset_update(rcdev, id, false);
-+	return jh71x0_reset_update(rcdev, id, false);
- }
- 
--static int jh7100_reset_reset(struct reset_controller_dev *rcdev,
-+static int jh71x0_reset_reset(struct reset_controller_dev *rcdev,
- 			      unsigned long id)
- {
- 	int ret;
- 
--	ret = jh7100_reset_assert(rcdev, id);
-+	ret = jh71x0_reset_assert(rcdev, id);
- 	if (ret)
- 		return ret;
- 
--	return jh7100_reset_deassert(rcdev, id);
-+	return jh71x0_reset_deassert(rcdev, id);
- }
- 
--static int jh7100_reset_status(struct reset_controller_dev *rcdev,
-+static int jh71x0_reset_status(struct reset_controller_dev *rcdev,
- 			       unsigned long id)
- {
--	struct jh7100_reset *data = jh7100_reset_from(rcdev);
-+	struct jh71x0_reset *data = jh71x0_reset_from(rcdev);
- 	unsigned long offset = BIT_ULL_WORD(id);
- 	u64 mask = BIT_ULL_MASK(id);
- 	void __iomem *reg_status = data->status + offset * sizeof(u64);
-@@ -96,25 +96,25 @@ static int jh7100_reset_status(struct reset_controller_dev *rcdev,
- 	return !((value ^ data->asserted[offset]) & mask);
- }
- 
--static const struct reset_control_ops jh7100_reset_ops = {
--	.assert		= jh7100_reset_assert,
--	.deassert	= jh7100_reset_deassert,
--	.reset		= jh7100_reset_reset,
--	.status		= jh7100_reset_status,
-+static const struct reset_control_ops jh71x0_reset_ops = {
-+	.assert		= jh71x0_reset_assert,
-+	.deassert	= jh71x0_reset_deassert,
-+	.reset		= jh71x0_reset_reset,
-+	.status		= jh71x0_reset_status,
- };
- 
--int reset_starfive_jh7100_register(struct device *dev, struct device_node *of_node,
-+int reset_starfive_jh71x0_register(struct device *dev, struct device_node *of_node,
- 				   void __iomem *assert, void __iomem *status,
- 				   const u64 *asserted, unsigned int nr_resets,
- 				   struct module *owner)
- {
--	struct jh7100_reset *data;
-+	struct jh71x0_reset *data;
- 
- 	data = devm_kzalloc(dev, sizeof(*data), GFP_KERNEL);
- 	if (!data)
- 		return -ENOMEM;
- 
--	data->rcdev.ops = &jh7100_reset_ops;
-+	data->rcdev.ops = &jh71x0_reset_ops;
- 	data->rcdev.owner = owner;
- 	data->rcdev.nr_resets = nr_resets;
- 	data->rcdev.dev = dev;
-@@ -127,4 +127,4 @@ int reset_starfive_jh7100_register(struct device *dev, struct device_node *of_no
- 
- 	return devm_reset_controller_register(dev, &data->rcdev);
- }
--EXPORT_SYMBOL_GPL(reset_starfive_jh7100_register);
-+EXPORT_SYMBOL_GPL(reset_starfive_jh71x0_register);
-diff --git a/drivers/reset/starfive/reset-starfive-jh71x0.h b/drivers/reset/starfive/reset-starfive-jh71x0.h
-index 1fc5a648c8d8..ac9e80dd3f59 100644
---- a/drivers/reset/starfive/reset-starfive-jh71x0.h
-+++ b/drivers/reset/starfive/reset-starfive-jh71x0.h
-@@ -6,7 +6,7 @@
- #ifndef __RESET_STARFIVE_JH71X0_H
- #define __RESET_STARFIVE_JH71X0_H
- 
--int reset_starfive_jh7100_register(struct device *dev, struct device_node *of_node,
-+int reset_starfive_jh71x0_register(struct device *dev, struct device_node *of_node,
- 				   void __iomem *assert, void __iomem *status,
- 				   const u64 *asserted, unsigned int nr_resets,
- 				   struct module *owner);
++/* AONCRG resets */
++#define JH7110_AONRST_GMAC0_AXI			0
++#define JH7110_AONRST_GMAC0_AHB			1
++#define JH7110_AONRST_IOMUX			2
++#define JH7110_AONRST_PMU_APB			3
++#define JH7110_AONRST_PMU_WKUP			4
++#define JH7110_AONRST_RTC_APB			5
++#define JH7110_AONRST_RTC_CAL			6
++#define JH7110_AONRST_RTC_32K			7
++
++#define JH7110_AONRST_END			8
++
+ #endif /* __DT_BINDINGS_RESET_STARFIVE_JH7110_CRG_H__ */
 -- 
 2.38.1
 
