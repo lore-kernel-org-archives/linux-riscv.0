@@ -4,91 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FE00C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Dec 2022 10:22:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7C92C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Dec 2022 11:55:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=v6z0wFuKaPy+kCT09rNpcgBpTteK2boCXVQE0mBcVwU=; b=VBPr+eyvxlCfe1
-	neEnEueAHWA181fgyiVBbrzkDrveOZkXupI0JnzNHXJY2El7/KIRcUwEB5mwUV6UowB0Tl9CqKCBf
-	1rStLM6oDpbKTovfYKGIXoFBo02CllfGaAD1+eXvsQFLxjbQqmQmqY9uuSoh0LLtpwNboIGGg+Xm8
-	znZd//aDYNIrnLT+BU3nFt9m7IQ8xUP4A68s8bkoIDMR0+ZVBqhiNzOepMzrNdZjq/U4XzatWvp8s
-	GcEDkubWM0DoZy57JQWObcwqn9LopwHGsyEuMCVtmw8gIAgM+SaupwcWZSFbtrDXQYUmI3JU7XhhO
-	hPhCE5l4hq+CnNlgXQMg==;
+	List-Owner; bh=DEVl0+Bt54kF7xCUgabHR92PpvL1yeZxC20xJLK0XBw=; b=ND0tAxGtMc3rgl
+	dr70olLkqyWLpYV4Vw6ZqeQs2F2c/7L2kXPGmyD0UaTkW1Bsr1z/F1ogBLv3Q2m/vr6hWct/OYuyt
+	bcRnY5eq5gNvjo70k7lJ+SoB3ZppKdWjPQQwVqY9HEhsO0CA26VV57jCwKn1rM6v2o8mWviwyrphG
+	xNVBT52J/9b36tOjyAGKu8OybPpVk1M+YPgkYbiV4FDCwg53xqVoKW5mFbUYPZh8AG6PiFAh4RGBV
+	w6koxJD5GcT+lsMukVkdsvIGruIirNtDb1klE0Gv2KCrz8K+4X2PbDaZhRtUY7l22I+iQ8aOkF1RW
+	oycaJPlLm8ubCyqX5I3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p7Zkv-00DFsi-DS; Tue, 20 Dec 2022 10:21:53 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1p7bDf-00E9O5-4i; Tue, 20 Dec 2022 11:55:39 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p7ZZh-00DBZp-5O
-	for linux-riscv@lists.infradead.org; Tue, 20 Dec 2022 10:10:21 +0000
-Received: by mail-lf1-x132.google.com with SMTP id p36so17800410lfa.12
-        for <linux-riscv@lists.infradead.org>; Tue, 20 Dec 2022 02:10:14 -0800 (PST)
+	id 1p7b7z-00E4wG-Tx
+	for linux-riscv@lists.infradead.org; Tue, 20 Dec 2022 11:49:49 +0000
+Received: by mail-pl1-x629.google.com with SMTP id s7so12011472plk.5
+        for <linux-riscv@lists.infradead.org>; Tue, 20 Dec 2022 03:49:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Q5nIqDU3UUGi3Rg5H51YN1/uE1UBBhaJzW8Igj65Eo0=;
-        b=geKdNRxmbxPQocBMUjegJOuN9Cq+leOpLZZ0P+J2NArfjj/TE3jDUpm9b9lVGkpWEO
-         uQ1RoqOUtIbvtuArjbnV4L+pxEfqEujcv5ynEh8aI+k+Wk9EhycH7zmat8LQuWOEQGgp
-         wUL9F5oaMehJvvxOcGQB2pzFixYys95723dwkxkrGTaKsrSMlhxn0YGs+ZkMiV+qaqur
-         FY+kgcl237aU+YuBwy/DQtEZMOQyqP2BeqPzz0jxVx/HBTk8GA4SjYdIheHWuA2KXlL3
-         QjhQgdknXlYW3PjJ4LHHP172ce7lfaeqDtRhuPoR4X2iJBYxJA4ZT4Wf4/U6Golv+kvr
-         22SA==
+        d=sifive.com; s=google;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=9RmlljmkUiQ/N0sQ5qjktzv73g5YSuqYv8504U1/k3g=;
+        b=Xy2zxuh5Fm2eybUV7G+NWIEyMSetQV0GP5I+NyPF01gYU9WWztZdxlIaCANUG0qU2l
+         rEhTTOkyxI9jLlweO+bnbuEO16i3Ocq8P7diRvXim2ebgv9erLCynCEtpiP3yBTz0icE
+         mqNcNYHYwq5lEnJBSYc6uIv0Cq5JulSqhWTbQwtiaVBp8zjl+Rh+ealX94XUj4gWyjGH
+         EH41u8FWLlUWRcUfWV4Q8fnpE/S0cMZbepb4ZxmfYOD5AGdp4W55SgLdVPUK8iaD/Lle
+         r2Vdgx17AO+lTO2hmgcvnHuDcV/ljsFpDRgN2PYJ4dlEDZQRHUpPPuAuHO3vQ2Ew0C+i
+         ezUw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Q5nIqDU3UUGi3Rg5H51YN1/uE1UBBhaJzW8Igj65Eo0=;
-        b=D1+DGdQeoTZ2ybK7b2IGgpr5+fAw5fTWJQ6NedVq/beNjirWtEI4/0Bnw1Vtp9Jj1W
-         iiSgL/83n1j7uERrsbtnPw52cKZpNh2asNN74Py1a5Ky3N5QS//mx9PwKiwIDjcvmcbn
-         6380h0/k0jJyVijR4Ak1IhTLPDY43m67jMFTVfEMI+HCymZgTTwSWV3c0Cxw1AWlLkPZ
-         Ef7MNotx8FbWv8s8ukXH1KHU9Y5CkbcRh91RYVMEz4hFdmK1jfwUFC12djpMRk4dJPMu
-         spyKZs1xTsP4j24MlZ8L7YlLPlFKYy5OtzSAdyQleJRhtthmYxRK4jsu65dUuPmWyURe
-         5tMw==
-X-Gm-Message-State: AFqh2kpMqLjkqiYpnMutYgFuNQUI1nqEDIc4hQA5hFONFut0kHvCdPOc
-	Ip2+HkIU1RFt9TnulhB5SCmTFQ==
-X-Google-Smtp-Source: AMrXdXvMErEP+dfsE5G/puEph/u8A7ysD6PEtYb76Tg/KI5fTVwbPfTulajPAEB3+aHtv3wp29wMIw==
-X-Received: by 2002:a05:6512:3da2:b0:4b9:f5e5:8fb4 with SMTP id k34-20020a0565123da200b004b9f5e58fb4mr784949lfv.3.1671531013165;
-        Tue, 20 Dec 2022 02:10:13 -0800 (PST)
-Received: from [192.168.0.20] (088156142067.dynamic-2-waw-k-3-2-0.vectranet.pl. [88.156.142.67])
-        by smtp.gmail.com with ESMTPSA id f2-20020a2eb5a2000000b00279f213302bsm973530ljn.57.2022.12.20.02.10.11
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 20 Dec 2022 02:10:12 -0800 (PST)
-Message-ID: <ebb27bb2-158c-8207-7184-0d5b5ca0ce14@linaro.org>
-Date: Tue, 20 Dec 2022 11:10:11 +0100
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=9RmlljmkUiQ/N0sQ5qjktzv73g5YSuqYv8504U1/k3g=;
+        b=5Sh09XcQ+MRdEOXAyxRJM9YQG2BFb/Zn2v/YZz80lXJOYcaWbfRRTGbsdy7ypy3gsF
+         mF61At0fZ58CdZSJtO51BPemu9gPAKJOVyNRaXay/Fh0X7Bj4JATVVkFRuWtEBh+o1rH
+         K32dV3DspjyrMpYg+KMzRlaVM6z4rYsUK6+ojA3jB4rgeat55sO6l74OLuG1gorbQnqz
+         Gl+Hk/G67j8R0+Su6/GRpUjeczkhLt2WhmaLzRgD0E1cj18mqbcTOtCxDL2FYGCTprLN
+         migyIXIdqtRqaPETaLd54pZrcsZBsrF4ySUsfZ1L+T6xF1WhtyqcM60Ca41gGiC1TNcl
+         FMNw==
+X-Gm-Message-State: ANoB5pk5JkEO+l9CzV6iZmWMgkN2hKr53gmsgg3W82nf3WYd0+x8vsvh
+	or+0hQB53c1c7EiUN18e5Rhcwf3ojRkvA+cXd2U6zEdjgxm1l41U4qnatAJeLngeuvHgabLrZKk
+	W8+g8Ydb+CbmXomVapETPHDIS8u+el7ciBBYl8XEY6UNpjvIp9g49CDCfKx75InqIGide2oYZi4
+	OaMQRE5WvT1mpwkUeAEA==
+X-Google-Smtp-Source: AA0mqf5SdWxvKou4/XuPuB0PJJZkMFYMc3snPAaq9Ieo+FSbkc3Rc4iYsG0MyssXFRNI/PELt7jbKQ==
+X-Received: by 2002:a17:902:ccd2:b0:185:441e:4cfc with SMTP id z18-20020a170902ccd200b00185441e4cfcmr50835882ple.44.1671536986647;
+        Tue, 20 Dec 2022 03:49:46 -0800 (PST)
+Received: from hsinchu36-syssw02.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
+        by smtp.gmail.com with ESMTPSA id l7-20020a170903244700b001894198d0ebsm9197930pls.24.2022.12.20.03.49.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 20 Dec 2022 03:49:46 -0800 (PST)
+From: Ruinland Tsai <ruinland.tsai@sifive.com>
+To: linux-riscv@lists.infradead.org
+Cc: ruinland.tsai@sifive.com,
+	greentime.hu@sifive.com,
+	kito.cheng@sifive.com
+Subject: [RFC PATCH 1/1] arch/riscv : Add support for Zba/Zbb/Zbc/Zbs ext in ISA realization
+Date: Tue, 20 Dec 2022 12:02:36 +0000
+Message-Id: <20221220120236.219804-2-ruinland.tsai@sifive.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20221220120236.219804-1-ruinland.tsai@sifive.com>
+References: <20221220120236.219804-1-ruinland.tsai@sifive.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.6.0
-Subject: Re: [PATCH v3 6/7] riscv: dts: starfive: Add initial StarFive JH7110
- device tree
-Content-Language: en-US
-To: Hal Feng <hal.feng@starfivetech.com>, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org
-Cc: Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Ben Dooks <ben.dooks@sifive.com>, Daniel Lezcano
- <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>,
- Marc Zyngier <maz@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Linus Walleij <linus.walleij@linaro.org>,
- Emil Renner Berthing <emil.renner.berthing@canonical.com>,
- linux-kernel@vger.kernel.org
-References: <20221220011247.35560-1-hal.feng@starfivetech.com>
- <20221220011247.35560-7-hal.feng@starfivetech.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20221220011247.35560-7-hal.feng@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221220_021018_109138_3367BFBF 
-X-CRM114-Status: GOOD (  17.91  )
+X-CRM114-CacheID: sfid-20221220_034948_015635_171B14AF 
+X-CRM114-Status: UNSURE (   9.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,343 +94,120 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 20/12/2022 02:12, Hal Feng wrote:
-> From: Emil Renner Berthing <kernel@esmil.dk>
-> 
-> Add initial device tree for the JH7110 RISC-V SoC by StarFive
-> Technology Ltd.
-> 
-> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
-> Co-developed-by: Jianlong Huang <jianlong.huang@starfivetech.com>
-> Signed-off-by: Jianlong Huang <jianlong.huang@starfivetech.com>
-> Co-developed-by: Hal Feng <hal.feng@starfivetech.com>
-> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
-> ---
->  arch/riscv/boot/dts/starfive/jh7110.dtsi | 411 +++++++++++++++++++++++
->  1 file changed, 411 insertions(+)
->  create mode 100644 arch/riscv/boot/dts/starfive/jh7110.dtsi
-> 
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> new file mode 100644
-> index 000000000000..64d260ea1f29
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> @@ -0,0 +1,411 @@
-> +// SPDX-License-Identifier: GPL-2.0 OR MIT
-> +/*
-> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
-> + * Copyright (C) 2022 Emil Renner Berthing <kernel@esmil.dk>
-> + */
-> +
-> +/dts-v1/;
-> +#include <dt-bindings/clock/starfive,jh7110-crg.h>
-> +#include <dt-bindings/reset/starfive,jh7110-crg.h>
-> +
-> +/ {
-> +	compatible = "starfive,jh7110";
-> +	#address-cells = <2>;
-> +	#size-cells = <2>;
-> +
-> +	cpus {
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +
-> +		S76_0: cpu@0 {
-> +			compatible = "sifive,u74-mc", "riscv";
-> +			reg = <0>;
-> +			d-cache-block-size = <64>;
-> +			d-cache-sets = <64>;
-> +			d-cache-size = <8192>;
-> +			d-tlb-sets = <1>;
-> +			d-tlb-size = <40>;
-> +			device_type = "cpu";
-> +			i-cache-block-size = <64>;
-> +			i-cache-sets = <64>;
-> +			i-cache-size = <16384>;
-> +			i-tlb-sets = <1>;
-> +			i-tlb-size = <40>;
-> +			mmu-type = "riscv,sv39";
-> +			next-level-cache = <&ccache>;
-> +			riscv,isa = "rv64imac";
-> +			tlb-split;
-> +			status = "disabled";
-> +
-> +			cpu0_intc: interrupt-controller {
-> +				compatible = "riscv,cpu-intc";
-> +				interrupt-controller;
-> +				#interrupt-cells = <1>;
-> +			};
-> +		};
-> +
-> +		U74_1: cpu@1 {
-> +			compatible = "sifive,u74-mc", "riscv";
-> +			reg = <1>;
-> +			d-cache-block-size = <64>;
-> +			d-cache-sets = <64>;
-> +			d-cache-size = <32768>;
-> +			d-tlb-sets = <1>;
-> +			d-tlb-size = <40>;
-> +			device_type = "cpu";
-> +			i-cache-block-size = <64>;
-> +			i-cache-sets = <64>;
-> +			i-cache-size = <32768>;
-> +			i-tlb-sets = <1>;
-> +			i-tlb-size = <40>;
-> +			mmu-type = "riscv,sv39";
-> +			next-level-cache = <&ccache>;
-> +			riscv,isa = "rv64imafdc";
-> +			tlb-split;
-> +
-> +			cpu1_intc: interrupt-controller {
-> +				compatible = "riscv,cpu-intc";
-> +				interrupt-controller;
-> +				#interrupt-cells = <1>;
-> +			};
-> +		};
-> +
-> +		U74_2: cpu@2 {
-> +			compatible = "sifive,u74-mc", "riscv";
-> +			reg = <2>;
-> +			d-cache-block-size = <64>;
-> +			d-cache-sets = <64>;
-> +			d-cache-size = <32768>;
-> +			d-tlb-sets = <1>;
-> +			d-tlb-size = <40>;
-> +			device_type = "cpu";
-> +			i-cache-block-size = <64>;
-> +			i-cache-sets = <64>;
-> +			i-cache-size = <32768>;
-> +			i-tlb-sets = <1>;
-> +			i-tlb-size = <40>;
-> +			mmu-type = "riscv,sv39";
-> +			next-level-cache = <&ccache>;
-> +			riscv,isa = "rv64imafdc";
-> +			tlb-split;
-> +
-> +			cpu2_intc: interrupt-controller {
-> +				compatible = "riscv,cpu-intc";
-> +				interrupt-controller;
-> +				#interrupt-cells = <1>;
-> +			};
-> +		};
-> +
-> +		U74_3: cpu@3 {
-> +			compatible = "sifive,u74-mc", "riscv";
-> +			reg = <3>;
-> +			d-cache-block-size = <64>;
-> +			d-cache-sets = <64>;
-> +			d-cache-size = <32768>;
-> +			d-tlb-sets = <1>;
-> +			d-tlb-size = <40>;
-> +			device_type = "cpu";
-> +			i-cache-block-size = <64>;
-> +			i-cache-sets = <64>;
-> +			i-cache-size = <32768>;
-> +			i-tlb-sets = <1>;
-> +			i-tlb-size = <40>;
-> +			mmu-type = "riscv,sv39";
-> +			next-level-cache = <&ccache>;
-> +			riscv,isa = "rv64imafdc";
-> +			tlb-split;
-> +
-> +			cpu3_intc: interrupt-controller {
-> +				compatible = "riscv,cpu-intc";
-> +				interrupt-controller;
-> +				#interrupt-cells = <1>;
-> +			};
-> +		};
-> +
-> +		U74_4: cpu@4 {
-> +			compatible = "sifive,u74-mc", "riscv";
-> +			reg = <4>;
-> +			d-cache-block-size = <64>;
-> +			d-cache-sets = <64>;
-> +			d-cache-size = <32768>;
-> +			d-tlb-sets = <1>;
-> +			d-tlb-size = <40>;
-> +			device_type = "cpu";
-> +			i-cache-block-size = <64>;
-> +			i-cache-sets = <64>;
-> +			i-cache-size = <32768>;
-> +			i-tlb-sets = <1>;
-> +			i-tlb-size = <40>;
-> +			mmu-type = "riscv,sv39";
-> +			next-level-cache = <&ccache>;
-> +			riscv,isa = "rv64imafdc";
-> +			tlb-split;
-> +
-> +			cpu4_intc: interrupt-controller {
-> +				compatible = "riscv,cpu-intc";
-> +				interrupt-controller;
-> +				#interrupt-cells = <1>;
-> +			};
-> +		};
-> +
-> +		cpu-map {
-> +			cluster0 {
-> +				core0 {
-> +					cpu = <&S76_0>;
-> +				};
-> +
-> +				core1 {
-> +					cpu = <&U74_1>;
-> +				};
-> +
-> +				core2 {
-> +					cpu = <&U74_2>;
-> +				};
-> +
-> +				core3 {
-> +					cpu = <&U74_3>;
-> +				};
-> +
-> +				core4 {
-> +					cpu = <&U74_4>;
-> +				};
-> +			};
-> +		};
-> +	};
-> +
-> +	osc: osc {
+This commit adds the ratified RISC-V Bitmanip 1.0.0 extensions
+into the hadrware capability realization procedure.
 
-Node names should be generic, so why this is "osc" and other oscillators
-are not "osc"?
+Thus, the print out of Zba/Zbb/Zbc/Zbs of /proc/cpuinfo could be
+matching the information provided in DT.
 
+Signed-off-by: Ruinland Tsai <ruinland.tsai@sifive.com>
+---
+ arch/riscv/Kconfig             | 24 ++++++++++++++++++++++++
+ arch/riscv/Makefile            |  6 ++++++
+ arch/riscv/include/asm/hwcap.h |  4 ++++
+ arch/riscv/kernel/cpu.c        |  4 ++++
+ arch/riscv/kernel/cpufeature.c |  4 ++++
+ 5 files changed, 42 insertions(+)
 
-> +		compatible = "fixed-clock";
-> +		#clock-cells = <0>;
-> +	};
-> +
-> +	rtc_osc: rtc_osc {
-
-No underscores in node names. Generic node names (so each of them
-starting or ending with clock).
-
-> +		compatible = "fixed-clock";
-> +		#clock-cells = <0>;
-> +	};
-> +
-> +	gmac0_rmii_refin: gmac0_rmii_refin {
-
-Same problem... and actually you have way too many fixed clocks which do
-nothing. It looks like you avoid to define proper clock controller.
-What's the point for all these clocks? These are no-op.
-
-> +		compatible = "fixed-clock";
-> +		#clock-cells = <0>;
-> +	};
-> +
-> +	gmac0_rgmii_rxin: gmac0_rgmii_rxin {
-> +		compatible = "fixed-clock";
-> +		#clock-cells = <0>;
-> +	};
-> +
-> +	gmac1_rmii_refin: gmac1_rmii_refin {
-> +		compatible = "fixed-clock";
-> +		#clock-cells = <0>;
-> +	};
-> +
-> +	gmac1_rgmii_rxin: gmac1_rgmii_rxin {
-> +		compatible = "fixed-clock";
-> +		#clock-cells = <0>;
-> +	};
-> +
-> +	i2stx_bclk_ext: i2stx_bclk_ext {
-> +		compatible = "fixed-clock";
-> +		#clock-cells = <0>;
-> +	};
-> +
-> +	i2stx_lrck_ext: i2stx_lrck_ext {
-> +		compatible = "fixed-clock";
-> +		#clock-cells = <0>;
-> +	};
-> +
-> +	i2srx_bclk_ext: i2srx_bclk_ext {
-> +		compatible = "fixed-clock";
-> +		#clock-cells = <0>;
-> +	};
-> +
-> +	i2srx_lrck_ext: i2srx_lrck_ext {
-> +		compatible = "fixed-clock";
-> +		#clock-cells = <0>;
-> +	};
-> +
-> +	tdm_ext: tdm_ext {
-> +		compatible = "fixed-clock";
-> +		#clock-cells = <0>;
-> +	};
-> +
-> +	mclk_ext: mclk_ext {
-> +		compatible = "fixed-clock";
-> +		#clock-cells = <0>;
-> +	};
-> +
-> +	soc {
-> +		compatible = "simple-bus";
-> +		interrupt-parent = <&plic>;
-> +		#address-cells = <2>;
-> +		#size-cells = <2>;
-> +		ranges;
-> +
-> +		clint: clint@2000000 {
-
-Node names should be generic.
-https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
-
-> +			compatible = "starfive,jh7110-clint", "sifive,clint0";
-> +			reg = <0x0 0x2000000 0x0 0x10000>;
-> +			interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>,
-> +					      <&cpu1_intc 3>, <&cpu1_intc 7>,
-> +					      <&cpu2_intc 3>, <&cpu2_intc 7>,
-> +					      <&cpu3_intc 3>, <&cpu3_intc 7>,
-> +					      <&cpu4_intc 3>, <&cpu4_intc 7>;
-> +		};
-> +
-> +		plic: plic@c000000 {
-
-Node names should be generic, so interrupt-controller
-https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
-
-> +			compatible = "starfive,jh7110-plic", "sifive,plic-1.0.0";
-> +			reg = <0x0 0xc000000 0x0 0x4000000>;
-> +			interrupts-extended = <&cpu0_intc 11>,
-> +					      <&cpu1_intc 11>, <&cpu1_intc 9>,
-> +					      <&cpu2_intc 11>, <&cpu2_intc 9>,
-> +					      <&cpu3_intc 11>, <&cpu3_intc 9>,
-> +					      <&cpu4_intc 11>, <&cpu4_intc 9>;
-> +			interrupt-controller;
-> +			#interrupt-cells = <1>;
-> +			#address-cells = <0>;
-> +			riscv,ndev = <136>;
-> +		};
-> +
-> +		ccache: cache-controller@2010000 {
-> +			compatible = "starfive,jh7110-ccache", "sifive,ccache0", "cache";
-> +			reg = <0x0 0x2010000 0x0 0x4000>;
-> +			interrupts = <1>, <3>, <4>, <2>;
-> +			cache-block-size = <64>;
-> +			cache-level = <2>;
-> +			cache-sets = <2048>;
-> +			cache-size = <2097152>;
-> +			cache-unified;
-> +		};
-> +
-> +		uart0: serial@10000000 {
-> +			compatible = "snps,dw-apb-uart";
-> +			reg = <0x0 0x10000000 0x0 0x10000>;
-> +			clocks = <&syscrg JH7110_SYSCLK_UART0_CORE>,
-> +				 <&syscrg JH7110_SYSCLK_UART0_APB>;
-> +			clock-names = "baudclk", "apb_pclk";
-> +			resets = <&syscrg JH7110_SYSRST_UART0_APB>;
-> +			interrupts = <32>;
-> +			reg-io-width = <4>;
-> +			reg-shift = <2>;
-> +			status = "disabled";
-> +		};
-> +
-
-Best regards,
-Krzysztof
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index e2b656043abf..4f64d02d5208 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -447,6 +447,30 @@ config TOOLCHAIN_HAS_ZIHINTPAUSE
+ 	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zihintpause)
+ 	depends on LLD_VERSION >= 150000 || LD_VERSION >= 23600
+ 
++config TOOLCHAIN_HAS_ZBA
++	bool "Zba extension support for B extension on Address generation"
++	default y
++	depends on !64BIT || $(cc-option,-mabi=lp64 -march=rv64ima_zba)
++	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zba)
++
++config TOOLCHAIN_HAS_ZBB
++	bool "Zbb extension support for B extension on Basic bit-manipulation"
++	default y
++	depends on !64BIT || $(cc-option,-mabi=lp64 -march=rv64ima_zbb)
++	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zbb)
++
++config TOOLCHAIN_HAS_ZBC
++	bool "Zbc extension support for B extension on Carry-less multiplication"
++	default y
++	depends on !64BIT || $(cc-option,-mabi=lp64 -march=rv64ima_zbc)
++	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zbc)
++
++config TOOLCHAIN_HAS_ZBS
++	bool "Zbs extension support for B extension on single-bit instruction"
++	default y
++	depends on !64BIT || $(cc-option,-mabi=lp64 -march=rv64ima_zbs)
++	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zbs)
++
+ config FPU
+ 	bool "FPU support"
+ 	default y
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index faf2c2177094..635fc2642a5e 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -61,6 +61,12 @@ riscv-march-$(toolchain-need-zicsr-zifencei) := $(riscv-march-y)_zicsr_zifencei
+ # Check if the toolchain supports Zicbom extension
+ riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZICBOM) := $(riscv-march-y)_zicbom
+ 
++# Check if the toolchain supports ratified B extensions 
++riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZBA) := $(riscv-march-y)_zba
++riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZBB) := $(riscv-march-y)_zbb
++riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZBC) := $(riscv-march-y)_zbc
++riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZBS) := $(riscv-march-y)_zbs
++
+ # Check if the toolchain supports Zihintpause extension
+ riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZIHINTPAUSE) := $(riscv-march-y)_zihintpause
+ 
+diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+index 86328e3acb02..baa51a282a69 100644
+--- a/arch/riscv/include/asm/hwcap.h
++++ b/arch/riscv/include/asm/hwcap.h
+@@ -55,6 +55,10 @@ extern unsigned long elf_hwcap;
+ enum riscv_isa_ext_id {
+ 	RISCV_ISA_EXT_SSCOFPMF = RISCV_ISA_EXT_BASE,
+ 	RISCV_ISA_EXT_SVPBMT,
++	RISCV_ISA_EXT_ZBA,
++	RISCV_ISA_EXT_ZBB,
++	RISCV_ISA_EXT_ZBC,
++	RISCV_ISA_EXT_ZBS,
+ 	RISCV_ISA_EXT_ZICBOM,
+ 	RISCV_ISA_EXT_ZIHINTPAUSE,
+ 	RISCV_ISA_EXT_SSTC,
+diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+index 1b9a5a66e55a..70361105a612 100644
+--- a/arch/riscv/kernel/cpu.c
++++ b/arch/riscv/kernel/cpu.c
+@@ -166,6 +166,10 @@ static struct riscv_isa_ext_data isa_ext_arr[] = {
+ 	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
+ 	__RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
+ 	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
++	__RISCV_ISA_EXT_DATA(zba, RISCV_ISA_EXT_ZBA),
++	__RISCV_ISA_EXT_DATA(zbb, RISCV_ISA_EXT_ZBB),
++	__RISCV_ISA_EXT_DATA(zbc, RISCV_ISA_EXT_ZBC),
++	__RISCV_ISA_EXT_DATA(zbs, RISCV_ISA_EXT_ZBS),
+ 	__RISCV_ISA_EXT_DATA(zicbom, RISCV_ISA_EXT_ZICBOM),
+ 	__RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
+ 	__RISCV_ISA_EXT_DATA("", RISCV_ISA_EXT_MAX),
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 93e45560af30..ee536e08d197 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -224,6 +224,10 @@ void __init riscv_fill_hwcap(void)
+ 			} else {
+ 				SET_ISA_EXT_MAP("sscofpmf", RISCV_ISA_EXT_SSCOFPMF);
+ 				SET_ISA_EXT_MAP("svpbmt", RISCV_ISA_EXT_SVPBMT);
++				SET_ISA_EXT_MAP("zba", RISCV_ISA_EXT_ZBA);
++				SET_ISA_EXT_MAP("zbb", RISCV_ISA_EXT_ZBB);
++				SET_ISA_EXT_MAP("zbc", RISCV_ISA_EXT_ZBC);
++				SET_ISA_EXT_MAP("zbs", RISCV_ISA_EXT_ZBS);
+ 				SET_ISA_EXT_MAP("zicbom", RISCV_ISA_EXT_ZICBOM);
+ 				SET_ISA_EXT_MAP("zihintpause", RISCV_ISA_EXT_ZIHINTPAUSE);
+ 				SET_ISA_EXT_MAP("sstc", RISCV_ISA_EXT_SSTC);
+-- 
+2.34.1
 
 
 _______________________________________________
