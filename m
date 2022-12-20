@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E28DBC4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Dec 2022 12:53:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF3B4C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Dec 2022 12:55:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UyDTWpXvogdLv5s67A032c9qRDSycSESPFBx0UvdW6s=; b=1cTBFpPQ38Ryq38FGE44lFrryA
-	sygMW45+6l+x4WL3tfc4gi9AXmdwKyKytJvlK3sIreo4ItL19PtzpMifgwN3tS/9HD8oJtecs8efV
-	tAra3NhHmm1sA814UY9A1P5cT928Z+NpkbsvQJyCcP1neRAeSCYUR5BrP61QTAw9OcUXMP33VUhcD
-	5rAEeuAzkHA5kaBymPLF5ckLUSyqqUx/1KLZNh3uMuMJ6MZLhnaVYbOyrxzIoTsutV8rqtBnPIX6/
-	rdL1DOflZP0F00xOnZTrvDpNejMSTyCoiR1jXU2K//dSJJyt13JG72sJLtV60Gb0j/oRg+47diHx6
-	jDuVpnMw==;
+	bh=oY5twwP0mhYyDU3cUmo+eqLaA5f2rC8eBaBW8U6My9E=; b=G9YjHH9RrQ17m0gEVewvHfZ3sh
+	WS+cSq2sG2ZiIBFkEEc54jbL5jFgNLENVFO/z9/WGDmTMAcjQfHa5WBgfKlIVqvarPK5VLUGExvPd
+	YS1BlRGCF5L0MSDqFBoQMdD8MClvaSXnAL9GiFIpoFO5KEkKSH+5exFckUZFx0d7i6ipgB7Rlwclj
+	0rjsZTa/unP9Akf1leuCMVLqp/DjEqjl7WQn6SxZl7prVjBRjT73U3S23znyRx60VURS/lEJFjvfk
+	/zVxFjOpyDYnT2tc+KUA9goJzs1lh7JEo1RyyI9+hvnOULNlXLP9f+7QZou2F1STZkcaDBgUlBjJq
+	doIRDdSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p7c75-00FGt0-K6; Tue, 20 Dec 2022 12:52:55 +0000
+	id 1p7c9g-00FJpB-JP; Tue, 20 Dec 2022 12:55:36 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p7c70-00FGjv-Ic
-	for linux-riscv@lists.infradead.org; Tue, 20 Dec 2022 12:52:52 +0000
+	id 1p7c9b-00FJjZ-AO; Tue, 20 Dec 2022 12:55:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1671540770; x=1703076770;
+  t=1671540931; x=1703076931;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=ibxBQhvl2GF+Tfn1Ut04XXlNZrD98ljScwtCBLdsodk=;
-  b=t0cMf2zoItVbuEomkQ+SlSwt0iQC57bDHAVWaNDkVhta7GCIfXyFXeHj
-   Ui8T5T9s2U7rA1dArsEnyRvFyEg72ztT161t7P1yVJJ6mILSAtbc2VTBo
-   3eMyYJ1i2fX1R4/oJPKnBDGKIe9NvA4X9y2+MQz8AQlb9OwhvcGd/v0tL
-   m9YsJMWV7Vy0h7Echr8KnwphmT62nSl8d9jSdG8hvOl3PhlJOU4PGrvtA
-   FQSC0wIpYB+XdIPTexcdGjVuajyDRDHETaOOvG0ZWfBExsFCBkUB40J5H
-   3mkWachFjoWZLUMBskrrwQFd1qGzyuwk71j3h6spA/e+JwKOMs+0f7tqx
-   A==;
+  bh=tD88JQR8EdgN3Tk0DTOKqMuCno3Q7oQajZZZjhQjQxw=;
+  b=eLhRKNw6YsJvmaMKHwqN8ZnBQkJ5FOlCMoH9h9Ok+TRy8Zi3JhZA95ez
+   cZe7NWhpA+kFu/IFOvBR+xJBpGqrAQ2wM1Bb6c10CehA9QrGuFllUbalu
+   yzBJV5xLGttirOv12jQuthAml/oEflH53hiThnl3sDPzSDiE1G3SLIT6V
+   J7jfqRl2wAy+TAeV0cYCzC7peMLB7k19fArhIr9hVaxfXUgQztIjy/hvx
+   wU/HrEKPddxva2Qx0tv2AW66yKDEz6eFYqQyoLZww/qN0JIGfaFdglokO
+   jqmB8l+WfgslLy2p/ytFOxVBauGD+WutbplSnMy0MKOJuGKwxJFWfVCAS
+   w==;
 X-IronPort-AV: E=Sophos;i="5.96,259,1665471600"; 
-   d="asc'?scan'208";a="192502051"
+   d="asc'?scan'208";a="192503619"
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 20 Dec 2022 05:52:45 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 20 Dec 2022 05:55:30 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
  chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.16; Tue, 20 Dec 2022 05:52:39 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server (version=TLS1_2,
+ 15.1.2507.16; Tue, 20 Dec 2022 05:55:29 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.16 via Frontend
- Transport; Tue, 20 Dec 2022 05:52:38 -0700
-Date: Tue, 20 Dec 2022 12:52:18 +0000
+ Transport; Tue, 20 Dec 2022 05:55:27 -0700
+Date: Tue, 20 Dec 2022 12:55:07 +0000
 From: Conor Dooley <conor.dooley@microchip.com>
-To: Ruinland Tsai <ruinland.tsai@sifive.com>
-CC: <linux-riscv@lists.infradead.org>, <greentime.hu@sifive.com>,
-	<kito.cheng@sifive.com>
-Subject: Re: [RFC PATCH 1/1] arch/riscv : Add support for Zba/Zbb/Zbc/Zbs ext
- in ISA realization
-Message-ID: <Y6GwAkCh9L22N70v@wendy>
-References: <20221220120236.219804-1-ruinland.tsai@sifive.com>
- <20221220120236.219804-2-ruinland.tsai@sifive.com>
+To: Andrew Jones <ajones@ventanamicro.com>
+CC: <linux-riscv@lists.infradead.org>, <kvm-riscv@lists.infradead.org>, Paul
+ Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <apatel@ventanamicro.com>,
+	Heiko Stuebner <heiko@sntech.de>, Atish Patra <atishp@rivosinc.com>, Jisheng
+ Zhang <jszhang@kernel.org>
+Subject: Re: [PATCH 0/9] RISC-V: Apply Zicboz to clear_page and memset
+Message-ID: <Y6Gwq3f6sFa2gBNZ@wendy>
+References: <20221027130247.31634-1-ajones@ventanamicro.com>
 MIME-Version: 1.0
-In-Reply-To: <20221220120236.219804-2-ruinland.tsai@sifive.com>
+In-Reply-To: <20221027130247.31634-1-ajones@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221220_045250_798070_CDEF3EB7 
-X-CRM114-Status: GOOD (  23.02  )
+X-CRM114-CacheID: sfid-20221220_045531_551012_F40EE883 
+X-CRM114-Status: GOOD (  34.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,171 +76,136 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6237940729879997221=="
+Content-Type: multipart/mixed; boundary="===============6843130145198178577=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============6237940729879997221==
+--===============6843130145198178577==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="fWBrYrQpkjpzaPl0"
+	protocol="application/pgp-signature"; boundary="V13zJ2q6N0rDiqi0"
 Content-Disposition: inline
 
---fWBrYrQpkjpzaPl0
+--V13zJ2q6N0rDiqi0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Tue, Dec 20, 2022 at 12:02:36PM +0000, Ruinland Tsai wrote:
-> arch/riscv : Add support for Zba/Zbb/Zbc/Zbs ext in ISA realization
+Hey Drew,
 
-s|arch/riscv :|riscv:
-
-> This commit adds the ratified RISC-V Bitmanip 1.0.0 extensions
-
-"add the ..."
-
-> into the hadrware capability realization procedure.
-
-hardware
-
->=20
-> Thus, the print out of Zba/Zbb/Zbc/Zbs of /proc/cpuinfo could be
-> matching the information provided in DT.
-
-"Thus, the printout of ... from /proc/cpuinfo could match the
-information..."
-
->=20
-> Signed-off-by: Ruinland Tsai <ruinland.tsai@sifive.com>
-> ---
->  arch/riscv/Kconfig             | 24 ++++++++++++++++++++++++
->  arch/riscv/Makefile            |  6 ++++++
->  arch/riscv/include/asm/hwcap.h |  4 ++++
->  arch/riscv/kernel/cpu.c        |  4 ++++
->  arch/riscv/kernel/cpufeature.c |  4 ++++
->  5 files changed, 42 insertions(+)
->=20
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index e2b656043abf..4f64d02d5208 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -447,6 +447,30 @@ config TOOLCHAIN_HAS_ZIHINTPAUSE
->  	depends on !32BIT || $(cc-option,-mabi=3Dilp32 -march=3Drv32ima_zihintp=
-ause)
->  	depends on LLD_VERSION >=3D 150000 || LD_VERSION >=3D 23600
-> =20
-> +config TOOLCHAIN_HAS_ZBA
-> +	bool "Zba extension support for B extension on Address generation"
-> +	default y
-> +	depends on !64BIT || $(cc-option,-mabi=3Dlp64 -march=3Drv64ima_zba)
-> +	depends on !32BIT || $(cc-option,-mabi=3Dilp32 -march=3Drv32ima_zba)
-
-Surely all of these things need to check for linker support too, not
-just cc? Consider a setup where CC is rather new, but the linker is
-quite old. Does this not cause problems for Zb* as it did for
-ZIHINTPAUSE?
-
-> +config TOOLCHAIN_HAS_ZBB
-> +	bool "Zbb extension support for B extension on Basic bit-manipulation"
-> +	default y
-> +	depends on !64BIT || $(cc-option,-mabi=3Dlp64 -march=3Drv64ima_zbb)
-> +	depends on !32BIT || $(cc-option,-mabi=3Dilp32 -march=3Drv32ima_zbb)
-> +
-> +config TOOLCHAIN_HAS_ZBC
-> +	bool "Zbc extension support for B extension on Carry-less multiplicatio=
-n"
-> +	default y
-> +	depends on !64BIT || $(cc-option,-mabi=3Dlp64 -march=3Drv64ima_zbc)
-> +	depends on !32BIT || $(cc-option,-mabi=3Dilp32 -march=3Drv32ima_zbc)
-> +
-> +config TOOLCHAIN_HAS_ZBS
-> +	bool "Zbs extension support for B extension on single-bit instruction"
-> +	default y
-> +	depends on !64BIT || $(cc-option,-mabi=3Dlp64 -march=3Drv64ima_zbs)
-> +	depends on !32BIT || $(cc-option,-mabi=3Dilp32 -march=3Drv32ima_zbs)
-> +
->  config FPU
->  	bool "FPU support"
->  	default y
-> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-> index faf2c2177094..635fc2642a5e 100644
-> --- a/arch/riscv/Makefile
-> +++ b/arch/riscv/Makefile
-> @@ -61,6 +61,12 @@ riscv-march-$(toolchain-need-zicsr-zifencei) :=3D $(ri=
-scv-march-y)_zicsr_zifencei
->  # Check if the toolchain supports Zicbom extension
->  riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZICBOM) :=3D $(riscv-march-y)_zicbom
-> =20
-> +# Check if the toolchain supports ratified B extensions=20
-> +riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZBA) :=3D $(riscv-march-y)_zba
-> +riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZBB) :=3D $(riscv-march-y)_zbb
-> +riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZBC) :=3D $(riscv-march-y)_zbc
-> +riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZBS) :=3D $(riscv-march-y)_zbs
-> +
->  # Check if the toolchain supports Zihintpause extension
->  riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZIHINTPAUSE) :=3D $(riscv-march-y)_zi=
-hintpause
-> =20
-> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwca=
-p.h
-> index 86328e3acb02..baa51a282a69 100644
-> --- a/arch/riscv/include/asm/hwcap.h
-> +++ b/arch/riscv/include/asm/hwcap.h
-> @@ -55,6 +55,10 @@ extern unsigned long elf_hwcap;
->  enum riscv_isa_ext_id {
->  	RISCV_ISA_EXT_SSCOFPMF =3D RISCV_ISA_EXT_BASE,
->  	RISCV_ISA_EXT_SVPBMT,
-> +	RISCV_ISA_EXT_ZBA,
-> +	RISCV_ISA_EXT_ZBB,
-> +	RISCV_ISA_EXT_ZBC,
-> +	RISCV_ISA_EXT_ZBS,
->  	RISCV_ISA_EXT_ZICBOM,
->  	RISCV_ISA_EXT_ZIHINTPAUSE,
->  	RISCV_ISA_EXT_SSTC,
-> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-> index 1b9a5a66e55a..70361105a612 100644
-> --- a/arch/riscv/kernel/cpu.c
-> +++ b/arch/riscv/kernel/cpu.c
-> @@ -166,6 +166,10 @@ static struct riscv_isa_ext_data isa_ext_arr[] =3D {
->  	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
->  	__RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
->  	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
-> +	__RISCV_ISA_EXT_DATA(zba, RISCV_ISA_EXT_ZBA),
-> +	__RISCV_ISA_EXT_DATA(zbb, RISCV_ISA_EXT_ZBB),
-> +	__RISCV_ISA_EXT_DATA(zbc, RISCV_ISA_EXT_ZBC),
-> +	__RISCV_ISA_EXT_DATA(zbs, RISCV_ISA_EXT_ZBS),
->  	__RISCV_ISA_EXT_DATA(zicbom, RISCV_ISA_EXT_ZICBOM),
->  	__RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
->  	__RISCV_ISA_EXT_DATA("", RISCV_ISA_EXT_MAX),
-
-Exactly how uABI-y this array is may be up for debate so I'd rather not
-add a whole load of items in in what may be an "incorrect" order.
-https://lore.kernel.org/all/20221205144525.2148448-1-conor.dooley@microchip=
-=2Ecom/
-I'll make sure to go ping that one once the merge window closes so that
-we have a definitive order in which things must be added.
+I assume you're not gonna respin this one before the xmas holidays etc,
+but a v2 is on the cards, right?
 
 Thanks,
 Conor.
 
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeatur=
-e.c
-> index 93e45560af30..ee536e08d197 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -224,6 +224,10 @@ void __init riscv_fill_hwcap(void)
->  			} else {
->  				SET_ISA_EXT_MAP("sscofpmf", RISCV_ISA_EXT_SSCOFPMF);
->  				SET_ISA_EXT_MAP("svpbmt", RISCV_ISA_EXT_SVPBMT);
-> +				SET_ISA_EXT_MAP("zba", RISCV_ISA_EXT_ZBA);
-> +				SET_ISA_EXT_MAP("zbb", RISCV_ISA_EXT_ZBB);
-> +				SET_ISA_EXT_MAP("zbc", RISCV_ISA_EXT_ZBC);
-> +				SET_ISA_EXT_MAP("zbs", RISCV_ISA_EXT_ZBS);
->  				SET_ISA_EXT_MAP("zicbom", RISCV_ISA_EXT_ZICBOM);
->  				SET_ISA_EXT_MAP("zihintpause", RISCV_ISA_EXT_ZIHINTPAUSE);
->  				SET_ISA_EXT_MAP("sstc", RISCV_ISA_EXT_SSTC);
+On Thu, Oct 27, 2022 at 03:02:38PM +0200, Andrew Jones wrote:
+> When the Zicboz extension is available we can more rapidly zero naturally
+> aligned Zicboz block sized chunks of memory. As pages are always page
+> aligned and are larger than any Zicboz block size will be, then
+> clear_page() appears to be a good candidate for the extension. While cycle
+> count and energy consumption should also be considered, we can be pretty
+> certain that implementing clear_page() with the Zicboz extension is a win
+> by comparing the new dynamic instruction count with its current count[1].
+> Doing so we see that the new count is less than half the old count (see
+> patch4's commit message for more details). Another candidate for the
+> extension is memset(), but, since memset() isn't just used for zeroing
+> memory and it accepts arbitrarily aligned addresses and arbitrary sizes,
+> it's not as obvious if adding support for Zicboz will be an overall win.
+> In order to make a determination, I've done some analysis and wrote my
+> conclusions in the bullets below.
+>=20
+> * When compiling the kernel without CONFIG_RISCV_ISA_ZICBOZ, memset()
+>   doesn't change, so that's fine.
+>=20
+> * The overhead added to memset() when the Zicboz extension isn't present,
+>   but CONFIG_RISCV_ISA_ZICBOZ is selected, is 3 jumps to known targets,
+>   which I believe is fine.
+>=20
+> * The overhead added to a memset() invocation which is not zeroing memory
+>   is 7 instructions, where 3 are branches. This seems fine and,
+>   furthermore, memset() is almost always invoked to zero memory (99% [2]).
+>=20
+> * When memset() is invoked to zero memory, the proposed Zicboz extended
+>   memset() always has a lower dynamic instruction count than the current
+>   memset() as long as the input address is Zicboz block aligned and the
+>   length is >=3D the block size.
+>=20
+> * When memset() is invoked to zero memory, the proposed Zicboz extended
+>   memset() is always worse for unaligned or too small inputs than the
+>   current memset(), but it's only at most a few dozen instructions worse.
+>   I think this is probably fine, especially considering the large majority
+>   of zeroing invocations are 64 bytes or larger and are aligned to a
+>   power-of-2 boundary, 64-byte or larger (77% [2]).
+>=20
+> [1] I ported the functions under test to userspace and linked them with
+>     a test program. Then, I ran them under gdb with a script[3] which
+>     counted instructions by single stepping.
+>=20
+> [2] I wrote bpftrace scripts[4] to count memset() invocations to see the
+>     frequency of it being used to zero memory and have block size aligned
+>     input addresses with block size or larger lengths. The workload was
+>     just random desktop stuff including streaming video and compiling.
+>     While I did run this on my x86 notebook, I still expect the data to
+>     be representative on RISC-V. Note, x86 has clear_page() so the
+>     memset() data regarding alignment and size weren't over inflated by
+>     page zeroing invocations. Grepping also shows the large majority of
+>     memset() calls are to zero memory (93%).
+>=20
+> [3] https://gist.github.com/jones-drew/487791c956ceca8c18adc2847eec9c60
+> [4] https://gist.github.com/jones-drew/1e860692cf6fc0fb2a82a04c9ce720fe
+>=20
+> These patches are based on the following pending series
+>=20
+> 1. "[PATCH v2 0/3] RISC-V: Ensure Zicbom has a valid block size"
+>    20221024091309.406906-1-ajones@ventanamicro.com
+>=20
+> 2. "[PATCH 0/8] riscv: improve boot time isa extensions handling"
+>    20221006070818.3616-1-jszhang@kernel.org
+>    Also including the additional patch proposed here
+>    20221013162038.ehseju2neic2xu5z@kamzik
+>=20
+> The patches are also available here
+> https://github.com/jones-drew/linux/commits/riscv/zicboz
+>=20
+> To test over QEMU this branch may be used to enable Zicboz
+> https://gitlab.com/jones-drew/qemu/-/commits/riscv/zicboz
+>=20
+> To test running a KVM guest with Zicboz this kvmtool branch may be used
+> https://github.com/jones-drew/kvmtool/commits/riscv/zicboz
+>=20
+> Thanks,
+> drew
+>=20
+> Andrew Jones (9):
+>   RISC-V: Factor out body of riscv_init_cbom_blocksize loop
+>   RISC-V: Add Zicboz detection and block size parsing
+>   RISC-V: insn-def: Define cbo.zero
+>   RISC-V: Use Zicboz in clear_page when available
+>   RISC-V: KVM: Provide UAPI for Zicboz block size
+>   RISC-V: KVM: Expose Zicboz to the guest
+>   RISC-V: lib: Improve memset assembler formatting
+>   RISC-V: lib: Use named labels in memset
+>   RISC-V: Use Zicboz in memset when available
+>=20
+>  arch/riscv/Kconfig                  |  13 ++
+>  arch/riscv/include/asm/cacheflush.h |   3 +-
+>  arch/riscv/include/asm/hwcap.h      |   1 +
+>  arch/riscv/include/asm/insn-def.h   |  50 ++++++
+>  arch/riscv/include/asm/page.h       |   6 +-
+>  arch/riscv/include/uapi/asm/kvm.h   |   2 +
+>  arch/riscv/kernel/cpu.c             |   1 +
+>  arch/riscv/kernel/cpufeature.c      |  10 ++
+>  arch/riscv/kernel/setup.c           |   2 +-
+>  arch/riscv/kvm/vcpu.c               |  11 ++
+>  arch/riscv/lib/Makefile             |   1 +
+>  arch/riscv/lib/clear_page.S         |  28 ++++
+>  arch/riscv/lib/memset.S             | 241 +++++++++++++++++++---------
+>  arch/riscv/mm/cacheflush.c          |  64 +++++---
+>  14 files changed, 325 insertions(+), 108 deletions(-)
+>  create mode 100644 arch/riscv/lib/clear_page.S
+>=20
 > --=20
-> 2.34.1
+> 2.37.3
 >=20
 >=20
 > _______________________________________________
@@ -249,21 +214,21 @@ e.c
 > http://lists.infradead.org/mailman/listinfo/linux-riscv
 >=20
 
---fWBrYrQpkjpzaPl0
+--V13zJ2q6N0rDiqi0
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY6GwAgAKCRB4tDGHoIJi
-0q2FAP9WRs18Im4Ty9Z7xW1Gv44gU38n3x4zH4GmRVwstrENYAD/ZilDLrjwiICO
-HVlnNDELIEa9iu6sigJ2GG739RqW4go=
-=Tczl
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY6GwqwAKCRB4tDGHoIJi
+0icLAP95XdX32d/fafDtYXAXx7VX9IoeJuVaQGCTGxf1xBUGdAEAmRnHMf1zdLY3
+mDlCpT0/lw2dQpjpK2TCLzn8kU42ywU=
+=5860
 -----END PGP SIGNATURE-----
 
---fWBrYrQpkjpzaPl0--
+--V13zJ2q6N0rDiqi0--
 
 
---===============6237940729879997221==
+--===============6843130145198178577==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -274,5 +239,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============6237940729879997221==--
+--===============6843130145198178577==--
 
