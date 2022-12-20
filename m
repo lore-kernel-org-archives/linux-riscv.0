@@ -4,64 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A399CC4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Dec 2022 01:13:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3985AC001B2
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Dec 2022 02:12:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=k9zL/ABRKaz8WLsbZaAXNAUaIs6dJc5V7wphQINXdks=; b=0kIXS1R0mQVdIj
-	WWZO4llftNBHhkQq+ATi8dbzxGSDXflbmeKTONNDsrUvDkxV6ogFp9orIcIgx+hTZVuSFCpWCzzSV
-	5rrKbS7FmTSkXtNHlvphgIoXg3hwaZlI5PmJU6a97RaaPQgp+pZdw9xg6RJKV79aeNN+fm8ZbzbDh
-	3jqGldv3WNXBeQyAITcMDwpLA4wulvrs90Vu9ruGNJoi+N9zL1arVV/ETRZPFVB02u2+EVajJzG1M
-	mg6RMSWQUoHVFSBNNwFwPWAEIdnPfW9ArezM8kQqt1WOo0JR1G907LBN1q4pjNo4Oc7Vi7M9PlEL1
-	4Rlo6NB6RxCpSRI0mKtQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Z4rBLJKkRMSm8VouNG9BYQDbCzb6AI62J6faKjqYYc0=; b=j8QN1bI1IHwHeb
+	/kTnZykyDO4w25zxTbzSiM5IQ8Vkau5hx4N6QP7YMJpVR/sjoR40MZBuyFbHrxUkO5+7ie1ohYuCg
+	TVQqa2sUh1JFVj/BJKt7lJKTyQLOg9XpnIWwxLtl9cgDs7QkfT8V/dzNHDAsw0a3EmPIZ15b8lnx/
+	+7r+RzO+vbsX3EZomir2YHMTmO8TnsD0AL3+1sJNiaUHapq99U2cA6n82t4VQDuYMaKitQ7BzDnF4
+	R3/XkPvU5cF96eGxpF8WiIRqNwyOVlxoMSnqkDPUmAIiuyFRJhRty+8Ao6OpQwn8b2N7d/ZXpwJjE
+	E31FPOiN9wz61VxoWn4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p7RCU-0069FM-Om; Tue, 20 Dec 2022 01:13:46 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p7RBx-0068kz-SZ
-	for linux-riscv@lists.infradead.org; Tue, 20 Dec 2022 01:13:25 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id D814324E06F;
-	Tue, 20 Dec 2022 09:12:54 +0800 (CST)
-Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 20 Dec
- 2022 09:12:55 +0800
-Received: from ubuntu.localdomain (183.27.97.120) by EXMBX172.cuchost.com
- (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 20 Dec
- 2022 09:12:53 +0800
-From: Hal Feng <hal.feng@starfivetech.com>
-To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>
-CC: Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, "Rob
- Herring" <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, Ben Dooks
-	<ben.dooks@sifive.com>, Daniel Lezcano <daniel.lezcano@linaro.org>, "Thomas
- Gleixner" <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Stephen Boyd
-	<sboyd@kernel.org>, Michael Turquette <mturquette@baylibre.com>, "Philipp
- Zabel" <p.zabel@pengutronix.de>, Linus Walleij <linus.walleij@linaro.org>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>, Hal Feng
-	<hal.feng@starfivetech.com>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v3 6/7] riscv: dts: starfive: Add initial StarFive JH7110 device tree
-Date: Tue, 20 Dec 2022 09:12:46 +0800
-Message-ID: <20221220011247.35560-7-hal.feng@starfivetech.com>
-X-Mailer: git-send-email 2.38.1
-In-Reply-To: <20221220011247.35560-1-hal.feng@starfivetech.com>
-References: <20221220011247.35560-1-hal.feng@starfivetech.com>
+	id 1p7S7L-006tMg-NX; Tue, 20 Dec 2022 02:12:31 +0000
+Received: from [45.249.212.51] (helo=dggsgout11.his.huawei.com)
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1p7S7E-006t74-D8
+	for linux-riscv@lists.infradead.org; Tue, 20 Dec 2022 02:12:28 +0000
+Received: from mail02.huawei.com (unknown [172.30.67.153])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4Nbg7b1NlYz4f3jZ6
+	for <linux-riscv@lists.infradead.org>; Tue, 20 Dec 2022 10:12:11 +0800 (CST)
+Received: from localhost.localdomain (unknown [10.67.175.61])
+	by APP4 (Coremail) with SMTP id gCh0CgDnT7P6GaFju6m1AA--.8438S2;
+	Tue, 20 Dec 2022 10:12:12 +0800 (CST)
+From: Pu Lehui <pulehui@huaweicloud.com>
+To: bpf@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
+	Luke Nelson <luke.r.nels@gmail.com>,
+	Xi Wang <xi.wang@gmail.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yhs@fb.com>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>,
+	Stanislav Fomichev <sdf@google.com>,
+	Hao Luo <haoluo@google.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Pu Lehui <pulehui@huawei.com>,
+	Pu Lehui <pulehui@huaweicloud.com>
+Subject: [RFC PATCH RESEND bpf-next 0/4] Support bpf trampoline for RV64
+Date: Tue, 20 Dec 2022 10:13:15 +0800
+Message-Id: <20221220021319.1655871-1-pulehui@huaweicloud.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-X-Originating-IP: [183.27.97.120]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX172.cuchost.com
- (172.16.6.92)
-X-YovoleRuleAgent: yovoleflag
+X-CM-TRANSID: gCh0CgDnT7P6GaFju6m1AA--.8438S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7tw17GrWfJw4xAF4fArWDurg_yoW8Gryfpa
+	yFkry3CFyDXFy7Jwnaqa1UZ3WFv3ykX3W3Gw13J3yrCan8Xry7Jr1Yga15t34rCFyfuw1U
+	twn0qr4jkas8Aa7anT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvY14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26w1j6s0DM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
+	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
+	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
+	Y2ka0xkIwI1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4
+	xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5
+	MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I
+	0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWrZr1j6s0DMIIF0xvEx4A2jsIE14v2
+	6r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0J
+	UQvtAUUUUU=
+X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221219_171319_710680_2B8D4F75 
-X-CRM114-Status: GOOD (  10.98  )
+X-CRM114-CacheID: sfid-20221219_181226_465489_AE5E6346 
+X-CRM114-Status: UNSURE (   7.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,440 +98,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Emil Renner Berthing <kernel@esmil.dk>
+BPF trampoline is the critical infrastructure of the bpf
+subsystem, acting as a mediator between kernel functions
+and BPF programs. Numerous important features, such as
+using ebpf program for zero overhead kernel introspection,
+rely on this key component. We can't wait to support bpf
+trampoline on RV64. The implementation of bpf trampoline
+was closely to x86 and arm64 for future development.
 
-Add initial device tree for the JH7110 RISC-V SoC by StarFive
-Technology Ltd.
+As most of riscv cpu support unaligned memory accesses,
+we temporarily use patch [1] to facilitate testing. The
+test results are as follow, and test_verifier with no
+new failure ceses.
 
-Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
-Co-developed-by: Jianlong Huang <jianlong.huang@starfivetech.com>
-Signed-off-by: Jianlong Huang <jianlong.huang@starfivetech.com>
-Co-developed-by: Hal Feng <hal.feng@starfivetech.com>
-Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
----
- arch/riscv/boot/dts/starfive/jh7110.dtsi | 411 +++++++++++++++++++++++
- 1 file changed, 411 insertions(+)
- create mode 100644 arch/riscv/boot/dts/starfive/jh7110.dtsi
+- fexit_test:OK
+- fentry_test:OK
+- fentry_fexit:OK
+- fexit_stress:OK
+- fexit_bpf2bpf:OK
+- dummy_st_ops:OK
+- modify_return:OK
+- get_func_ip_test:OK
+- get_func_args_test:OK
+- trampoline_count:OK
 
-diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-new file mode 100644
-index 000000000000..64d260ea1f29
---- /dev/null
-+++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-@@ -0,0 +1,411 @@
-+// SPDX-License-Identifier: GPL-2.0 OR MIT
-+/*
-+ * Copyright (C) 2022 StarFive Technology Co., Ltd.
-+ * Copyright (C) 2022 Emil Renner Berthing <kernel@esmil.dk>
-+ */
-+
-+/dts-v1/;
-+#include <dt-bindings/clock/starfive,jh7110-crg.h>
-+#include <dt-bindings/reset/starfive,jh7110-crg.h>
-+
-+/ {
-+	compatible = "starfive,jh7110";
-+	#address-cells = <2>;
-+	#size-cells = <2>;
-+
-+	cpus {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		S76_0: cpu@0 {
-+			compatible = "sifive,u74-mc", "riscv";
-+			reg = <0>;
-+			d-cache-block-size = <64>;
-+			d-cache-sets = <64>;
-+			d-cache-size = <8192>;
-+			d-tlb-sets = <1>;
-+			d-tlb-size = <40>;
-+			device_type = "cpu";
-+			i-cache-block-size = <64>;
-+			i-cache-sets = <64>;
-+			i-cache-size = <16384>;
-+			i-tlb-sets = <1>;
-+			i-tlb-size = <40>;
-+			mmu-type = "riscv,sv39";
-+			next-level-cache = <&ccache>;
-+			riscv,isa = "rv64imac";
-+			tlb-split;
-+			status = "disabled";
-+
-+			cpu0_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				interrupt-controller;
-+				#interrupt-cells = <1>;
-+			};
-+		};
-+
-+		U74_1: cpu@1 {
-+			compatible = "sifive,u74-mc", "riscv";
-+			reg = <1>;
-+			d-cache-block-size = <64>;
-+			d-cache-sets = <64>;
-+			d-cache-size = <32768>;
-+			d-tlb-sets = <1>;
-+			d-tlb-size = <40>;
-+			device_type = "cpu";
-+			i-cache-block-size = <64>;
-+			i-cache-sets = <64>;
-+			i-cache-size = <32768>;
-+			i-tlb-sets = <1>;
-+			i-tlb-size = <40>;
-+			mmu-type = "riscv,sv39";
-+			next-level-cache = <&ccache>;
-+			riscv,isa = "rv64imafdc";
-+			tlb-split;
-+
-+			cpu1_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				interrupt-controller;
-+				#interrupt-cells = <1>;
-+			};
-+		};
-+
-+		U74_2: cpu@2 {
-+			compatible = "sifive,u74-mc", "riscv";
-+			reg = <2>;
-+			d-cache-block-size = <64>;
-+			d-cache-sets = <64>;
-+			d-cache-size = <32768>;
-+			d-tlb-sets = <1>;
-+			d-tlb-size = <40>;
-+			device_type = "cpu";
-+			i-cache-block-size = <64>;
-+			i-cache-sets = <64>;
-+			i-cache-size = <32768>;
-+			i-tlb-sets = <1>;
-+			i-tlb-size = <40>;
-+			mmu-type = "riscv,sv39";
-+			next-level-cache = <&ccache>;
-+			riscv,isa = "rv64imafdc";
-+			tlb-split;
-+
-+			cpu2_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				interrupt-controller;
-+				#interrupt-cells = <1>;
-+			};
-+		};
-+
-+		U74_3: cpu@3 {
-+			compatible = "sifive,u74-mc", "riscv";
-+			reg = <3>;
-+			d-cache-block-size = <64>;
-+			d-cache-sets = <64>;
-+			d-cache-size = <32768>;
-+			d-tlb-sets = <1>;
-+			d-tlb-size = <40>;
-+			device_type = "cpu";
-+			i-cache-block-size = <64>;
-+			i-cache-sets = <64>;
-+			i-cache-size = <32768>;
-+			i-tlb-sets = <1>;
-+			i-tlb-size = <40>;
-+			mmu-type = "riscv,sv39";
-+			next-level-cache = <&ccache>;
-+			riscv,isa = "rv64imafdc";
-+			tlb-split;
-+
-+			cpu3_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				interrupt-controller;
-+				#interrupt-cells = <1>;
-+			};
-+		};
-+
-+		U74_4: cpu@4 {
-+			compatible = "sifive,u74-mc", "riscv";
-+			reg = <4>;
-+			d-cache-block-size = <64>;
-+			d-cache-sets = <64>;
-+			d-cache-size = <32768>;
-+			d-tlb-sets = <1>;
-+			d-tlb-size = <40>;
-+			device_type = "cpu";
-+			i-cache-block-size = <64>;
-+			i-cache-sets = <64>;
-+			i-cache-size = <32768>;
-+			i-tlb-sets = <1>;
-+			i-tlb-size = <40>;
-+			mmu-type = "riscv,sv39";
-+			next-level-cache = <&ccache>;
-+			riscv,isa = "rv64imafdc";
-+			tlb-split;
-+
-+			cpu4_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				interrupt-controller;
-+				#interrupt-cells = <1>;
-+			};
-+		};
-+
-+		cpu-map {
-+			cluster0 {
-+				core0 {
-+					cpu = <&S76_0>;
-+				};
-+
-+				core1 {
-+					cpu = <&U74_1>;
-+				};
-+
-+				core2 {
-+					cpu = <&U74_2>;
-+				};
-+
-+				core3 {
-+					cpu = <&U74_3>;
-+				};
-+
-+				core4 {
-+					cpu = <&U74_4>;
-+				};
-+			};
-+		};
-+	};
-+
-+	osc: osc {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+	};
-+
-+	rtc_osc: rtc_osc {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+	};
-+
-+	gmac0_rmii_refin: gmac0_rmii_refin {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+	};
-+
-+	gmac0_rgmii_rxin: gmac0_rgmii_rxin {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+	};
-+
-+	gmac1_rmii_refin: gmac1_rmii_refin {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+	};
-+
-+	gmac1_rgmii_rxin: gmac1_rgmii_rxin {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+	};
-+
-+	i2stx_bclk_ext: i2stx_bclk_ext {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+	};
-+
-+	i2stx_lrck_ext: i2stx_lrck_ext {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+	};
-+
-+	i2srx_bclk_ext: i2srx_bclk_ext {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+	};
-+
-+	i2srx_lrck_ext: i2srx_lrck_ext {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+	};
-+
-+	tdm_ext: tdm_ext {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+	};
-+
-+	mclk_ext: mclk_ext {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+	};
-+
-+	soc {
-+		compatible = "simple-bus";
-+		interrupt-parent = <&plic>;
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		clint: clint@2000000 {
-+			compatible = "starfive,jh7110-clint", "sifive,clint0";
-+			reg = <0x0 0x2000000 0x0 0x10000>;
-+			interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>,
-+					      <&cpu1_intc 3>, <&cpu1_intc 7>,
-+					      <&cpu2_intc 3>, <&cpu2_intc 7>,
-+					      <&cpu3_intc 3>, <&cpu3_intc 7>,
-+					      <&cpu4_intc 3>, <&cpu4_intc 7>;
-+		};
-+
-+		plic: plic@c000000 {
-+			compatible = "starfive,jh7110-plic", "sifive,plic-1.0.0";
-+			reg = <0x0 0xc000000 0x0 0x4000000>;
-+			interrupts-extended = <&cpu0_intc 11>,
-+					      <&cpu1_intc 11>, <&cpu1_intc 9>,
-+					      <&cpu2_intc 11>, <&cpu2_intc 9>,
-+					      <&cpu3_intc 11>, <&cpu3_intc 9>,
-+					      <&cpu4_intc 11>, <&cpu4_intc 9>;
-+			interrupt-controller;
-+			#interrupt-cells = <1>;
-+			#address-cells = <0>;
-+			riscv,ndev = <136>;
-+		};
-+
-+		ccache: cache-controller@2010000 {
-+			compatible = "starfive,jh7110-ccache", "sifive,ccache0", "cache";
-+			reg = <0x0 0x2010000 0x0 0x4000>;
-+			interrupts = <1>, <3>, <4>, <2>;
-+			cache-block-size = <64>;
-+			cache-level = <2>;
-+			cache-sets = <2048>;
-+			cache-size = <2097152>;
-+			cache-unified;
-+		};
-+
-+		uart0: serial@10000000 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x0 0x10000000 0x0 0x10000>;
-+			clocks = <&syscrg JH7110_SYSCLK_UART0_CORE>,
-+				 <&syscrg JH7110_SYSCLK_UART0_APB>;
-+			clock-names = "baudclk", "apb_pclk";
-+			resets = <&syscrg JH7110_SYSRST_UART0_APB>;
-+			interrupts = <32>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			status = "disabled";
-+		};
-+
-+		uart1: serial@10010000 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x0 0x10010000 0x0 0x10000>;
-+			clocks = <&syscrg JH7110_SYSCLK_UART1_CORE>,
-+				 <&syscrg JH7110_SYSCLK_UART1_APB>;
-+			clock-names = "baudclk", "apb_pclk";
-+			resets = <&syscrg JH7110_SYSRST_UART1_APB>;
-+			interrupts = <33>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			status = "disabled";
-+		};
-+
-+		uart2: serial@10020000 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x0 0x10020000 0x0 0x10000>;
-+			clocks = <&syscrg JH7110_SYSCLK_UART2_CORE>,
-+				 <&syscrg JH7110_SYSCLK_UART2_APB>;
-+			clock-names = "baudclk", "apb_pclk";
-+			resets = <&syscrg JH7110_SYSRST_UART2_APB>;
-+			interrupts = <34>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			status = "disabled";
-+		};
-+
-+		uart3: serial@12000000 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x0 0x12000000 0x0 0x10000>;
-+			clocks = <&syscrg JH7110_SYSCLK_UART3_CORE>,
-+				 <&syscrg JH7110_SYSCLK_UART3_APB>;
-+			clock-names = "baudclk", "apb_pclk";
-+			resets = <&syscrg JH7110_SYSRST_UART3_APB>;
-+			interrupts = <45>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			status = "disabled";
-+		};
-+
-+		uart4: serial@12010000 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x0 0x12010000 0x0 0x10000>;
-+			clocks = <&syscrg JH7110_SYSCLK_UART4_CORE>,
-+				 <&syscrg JH7110_SYSCLK_UART4_APB>;
-+			clock-names = "baudclk", "apb_pclk";
-+			resets = <&syscrg JH7110_SYSRST_UART4_APB>;
-+			interrupts = <46>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			status = "disabled";
-+		};
-+
-+		uart5: serial@12020000 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x0 0x12020000 0x0 0x10000>;
-+			clocks = <&syscrg JH7110_SYSCLK_UART5_CORE>,
-+				 <&syscrg JH7110_SYSCLK_UART5_APB>;
-+			clock-names = "baudclk", "apb_pclk";
-+			resets = <&syscrg JH7110_SYSRST_UART5_APB>;
-+			interrupts = <47>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			status = "disabled";
-+		};
-+
-+		syscrg: clock-controller@13020000 {
-+			compatible = "starfive,jh7110-syscrg";
-+			reg = <0x0 0x13020000 0x0 0x10000>;
-+			clocks = <&osc>, <&gmac1_rmii_refin>,
-+				 <&gmac1_rgmii_rxin>,
-+				 <&i2stx_bclk_ext>, <&i2stx_lrck_ext>,
-+				 <&i2srx_bclk_ext>, <&i2srx_lrck_ext>,
-+				 <&tdm_ext>, <&mclk_ext>;
-+			clock-names = "osc", "gmac1_rmii_refin",
-+				      "gmac1_rgmii_rxin",
-+				      "i2stx_bclk_ext", "i2stx_lrck_ext",
-+				      "i2srx_bclk_ext", "i2srx_lrck_ext",
-+				      "tdm_ext", "mclk_ext";
-+			#clock-cells = <1>;
-+			#reset-cells = <1>;
-+		};
-+
-+		gpio: gpio@13040000 {
-+			compatible = "starfive,jh7110-sys-pinctrl";
-+			reg = <0x0 0x13040000 0x0 0x10000>;
-+			clocks = <&syscrg JH7110_SYSCLK_IOMUX_APB>;
-+			resets = <&syscrg JH7110_SYSRST_IOMUX_APB>;
-+			interrupts = <86>;
-+			interrupt-controller;
-+			#interrupt-cells = <2>;
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+		};
-+
-+		aoncrg: clock-controller@17000000 {
-+			compatible = "starfive,jh7110-aoncrg";
-+			reg = <0x0 0x17000000 0x0 0x10000>;
-+			clocks = <&osc>, <&rtc_osc>,
-+				 <&gmac0_rmii_refin>, <&gmac0_rgmii_rxin>,
-+				 <&syscrg JH7110_SYSCLK_STG_AXIAHB>,
-+				 <&syscrg JH7110_SYSCLK_APB_BUS>,
-+				 <&syscrg JH7110_SYSCLK_GMAC0_GTXCLK>;
-+			clock-names = "osc", "rtc_osc", "gmac0_rmii_refin",
-+				      "gmac0_rgmii_rxin", "stg_axiahb",
-+				      "apb_bus", "gmac0_gtxclk";
-+			#clock-cells = <1>;
-+			#reset-cells = <1>;
-+		};
-+
-+		gpioa: gpio@17020000 {
-+			compatible = "starfive,jh7110-aon-pinctrl";
-+			reg = <0x0 0x17020000 0x0 0x10000>;
-+			resets = <&aoncrg JH7110_AONRST_IOMUX>;
-+			interrupts = <85>;
-+			interrupt-controller;
-+			#interrupt-cells = <2>;
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+		};
-+	};
-+};
+[1] https://lore.kernel.org/linux-riscv/20210916130855.4054926-2-chenhuang5@huawei.com/
+
+Pu Lehui (4):
+  bpf: Rollback to text_poke when arch not supported ftrace direct call
+  riscv, bpf: Factor out emit_call for kernel and bpf context
+  riscv, bpf: Add bpf_arch_text_poke support for RV64
+  riscv, bpf: Add bpf trampoline support for RV64
+
+ arch/riscv/net/bpf_jit.h        |   5 +
+ arch/riscv/net/bpf_jit_comp64.c | 483 ++++++++++++++++++++++++++++++--
+ kernel/bpf/trampoline.c         |   8 +-
+ 3 files changed, 471 insertions(+), 25 deletions(-)
+
 -- 
-2.38.1
+2.25.1
 
 
 _______________________________________________
