@@ -4,66 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C91D2C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Dec 2022 18:03:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A54AC4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Dec 2022 20:13:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=efp/7L+ce3W0Yt+rsmC98rXG8TISDi0wSP1jhUUUoj8=; b=xHbtLjCX/MBNkK
-	oaTqf4RO5hNXVTl9ViI/vpNs8EjBNMwjKftLXWi85p6usjvhuW9zDdTwW21212+60pRZzUs9vGXoF
-	RBe4zkYH2dBQdchuxS1Ewf3wqZEn8IomUb70tgslqIkLfaP5u8icsJxMiSYFpEUNgUTPFOj/XxHPN
-	fZ5loOs/QMfMcE078x0SoQ9p8aqZRh7swhPE6Yz56AFctdxsQ0M/hSP/65FB/t0aW6BWFjqddGy3E
-	pGmJMEjPjpbveOERUgBseyd25Zjg3rQO7yfq8Ws+DWrZGIo1l8yet1Nw0+DfO/vFkzoLnaGgxqxVZ
-	E2LnW3GnzgKzMZqqJ13A==;
+	List-Owner; bh=R2UrUuoobb4Yth7T3BH2s2d8BLgr+5GuV5/J/YOk40U=; b=C3ROTP1kD9kuyU
+	kmdX/EbFjDT4RPkYH5RH6YR9rcVZmUa2CxjxL0hRdUZkFIAyqaLsU/l83QcxfXjbeyjM5W7vdChgg
+	jaAm6tOQkTFyymsuZCSWhTUWyvQlUj0rbnbRx9wYtESzrOe3W0HzFn1ogIyi1ji40DWQuEhDSi/dl
+	4ES1nagusW1p8Bj0/8oCtJJzsBDLL1sKHEZBu5TCwkiKjDAD/YEWexBWYPt3hk7ooNZkxCByiox2Y
+	BfGPkHyHvLZEKkXdFCeThrL3HNOWTUcZ1FzOeCkijUE0QQpNSwEjLUwlHTzA4wDLKYHgnF6MDS4qc
+	HL0l5hDUK3jOXibZ6GNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p7gxQ-001qXP-CP; Tue, 20 Dec 2022 18:03:16 +0000
-Received: from mail-oa1-f44.google.com ([209.85.160.44])
+	id 1p7iyx-003jqm-3j; Tue, 20 Dec 2022 20:12:59 +0000
+Received: from mail-oi1-f172.google.com ([209.85.167.172])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p7gxM-001qQe-NG
-	for linux-riscv@lists.infradead.org; Tue, 20 Dec 2022 18:03:14 +0000
-Received: by mail-oa1-f44.google.com with SMTP id 586e51a60fabf-14455716674so16311449fac.7
-        for <linux-riscv@lists.infradead.org>; Tue, 20 Dec 2022 10:03:12 -0800 (PST)
+	id 1p7iyt-003jlJ-HU
+	for linux-riscv@lists.infradead.org; Tue, 20 Dec 2022 20:12:56 +0000
+Received: by mail-oi1-f172.google.com with SMTP id i127so10345793oif.8
+        for <linux-riscv@lists.infradead.org>; Tue, 20 Dec 2022 12:12:46 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=F2YewOJD85WGF20J/8fhEnggBVZALsncIOJvMd3kj/A=;
-        b=lnvmVJnFC1ae+cxr4q8XtCbFRNBEK/NmxEZiecDM2Rxz7yRtJmnjL/wZvdtYWXEYC+
-         YC85fPw9kLaRm62vMpZGvlGj8tqDZuxHWysnUvi+sM74k4FvhpdyWOU8/fnqpw1D9Th1
-         xJWyHn5Ce63uNIQQf4PpxeYxmhaxCA/R5D9eSPAVc2Xk2mSy6gxcFaaudPTLL2ycn5IQ
-         1Qmaj0bWhzBy5uOuKCnH26D5Z/EOFJskeZIq8IcJkLuEcVNOumfuRrlJwLGUL97/iTp1
-         5Nh+TyINZ5aBzeqPdBEqjZPlIofFr8nJpUKcFKyAly+1NuWFJ8FoQm3pPLy+4zAFz2ak
-         Jjhw==
-X-Gm-Message-State: AFqh2kpf3mrtVC8jckiCgWgBAWuu2ExwV/68aAL0OkcG1Lm/U6TbMsZW
-	wnXSqS2gbUfqVZ4wW58xfA==
-X-Google-Smtp-Source: AMrXdXs5h/ALvVWclASR/ucBduXWO9SqzvD24gMo+oK9/jtvt+UcGOfbEMtSOwhOWHrQfYbvwLT0qA==
-X-Received: by 2002:a05:6870:4508:b0:13a:f312:3055 with SMTP id e8-20020a056870450800b0013af3123055mr5845941oao.24.1671559391215;
-        Tue, 20 Dec 2022 10:03:11 -0800 (PST)
+        bh=ruopfQWSYHKaRdGSAx7Dg/pS9EkvkCSETDa10WdoTt4=;
+        b=z1v/y/kFQNtXpqDeUJTMEuEb6hFm7lro+UFrX49+04ORdew5cR53fXXp1EvPh+vrYN
+         rH7nto6lBMJqr7Nh88VuRhzbJbGdyQ87IYM03DR7VOFdbC31UfDvBus7wQXVYjBz6nri
+         8xQNpj5mcBYo3uA3dKgiW7VkPvNrIsKLYrfaDaVX5KzMbwk+bEV9U4g2uE0k1Hqb9EFk
+         dYPKEjIliE09kvCMEKTWijUigI5+R4CfSbyJf6WYPhKgn+g2en7BKzjyZgqHbgs2ToW/
+         gdc+MO3wP7M4TmKYiZZYwPiGfgLa23oL139Dpt2dwoStP/rPDg4NUajiXHA4h45QnD6V
+         pazw==
+X-Gm-Message-State: ANoB5pkLKQEuXsBefKRMC8yOzNRznUPGpIahky0SqHze0De8drkpHxAg
+	QAtCFqfVDwH77dod7I7sLYbGml41yA==
+X-Google-Smtp-Source: AA0mqf4cugXCw45dIuigYdKqlbQQdxQ6XRRSh82vk1TcCXWrfOyDbAEW0xr/gJePiBZs+Vqyjbs6+A==
+X-Received: by 2002:a05:6808:1719:b0:35b:e443:e5d0 with SMTP id bc25-20020a056808171900b0035be443e5d0mr25143898oib.17.1671567166187;
+        Tue, 20 Dec 2022 12:12:46 -0800 (PST)
 Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id o15-20020a056870524f00b0010d7242b623sm6356141oai.21.2022.12.20.10.03.10
+        by smtp.gmail.com with ESMTPSA id q124-20020aca5c82000000b003509cc4ad4esm5872301oib.39.2022.12.20.12.12.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 20 Dec 2022 10:03:10 -0800 (PST)
-Received: (nullmailer pid 827338 invoked by uid 1000);
-	Tue, 20 Dec 2022 18:03:09 -0000
-Date: Tue, 20 Dec 2022 12:03:09 -0600
+        Tue, 20 Dec 2022 12:12:45 -0800 (PST)
+Received: (nullmailer pid 1009718 invoked by uid 1000);
+	Tue, 20 Dec 2022 20:12:44 -0000
+Date: Tue, 20 Dec 2022 14:12:44 -0600
 From: Rob Herring <robh@kernel.org>
-To: Yanhong Wang <yanhong.wang@starfivetech.com>
-Cc: linux-riscv@lists.infradead.org, netdev@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, "David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>, Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>
-Subject: Re: [PATCH v2 4/9] dt-bindings: net: Add bindings for StarFive dwmac
-Message-ID: <20221220180309.GA810622-robh@kernel.org>
-References: <20221216070632.11444-1-yanhong.wang@starfivetech.com>
- <20221216070632.11444-5-yanhong.wang@starfivetech.com>
+To: Hal Feng <hal.feng@starfivetech.com>
+Cc: Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh+dt@kernel.org>, devicetree@vger.kernel.org, Conor Dooley <conor@kernel.org>, linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <emil.renner.berthing@canonical.com>, Philipp Zabel <p.zabel@pengutronix.de>, linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, Michael Turquette <mturquette@baylibre.com>
+Subject: Re: [PATCH v3 07/11] dt-bindings: clock: Add StarFive JH7110 system
+ clock and reset generator
+Message-ID: <167156716420.1009655.13780070128515127974.robh@kernel.org>
+References: <20221220005054.34518-1-hal.feng@starfivetech.com>
+ <20221220005054.34518-8-hal.feng@starfivetech.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20221216070632.11444-5-yanhong.wang@starfivetech.com>
+In-Reply-To: <20221220005054.34518-8-hal.feng@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221220_100312_804143_AF01DECB 
-X-CRM114-Status: GOOD (  15.59  )
+X-CRM114-CacheID: sfid-20221220_121255_644240_A9D0B2EF 
+X-CRM114-Status: UNSURE (   9.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,164 +82,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 16, 2022 at 03:06:27PM +0800, Yanhong Wang wrote:
-> Add documentation to describe StarFive dwmac driver(GMAC).
+
+On Tue, 20 Dec 2022 08:50:50 +0800, Hal Feng wrote:
+> From: Emil Renner Berthing <kernel@esmil.dk>
 > 
-> Signed-off-by: Yanhong Wang <yanhong.wang@starfivetech.com>
+> Add bindings for the system clock and reset generator (SYSCRG) on the
+> JH7110 RISC-V SoC by StarFive Ltd.
+> 
+> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
 > ---
->  .../devicetree/bindings/net/snps,dwmac.yaml   |   1 +
->  .../bindings/net/starfive,jh71x0-dwmac.yaml   | 103 ++++++++++++++++++
->  MAINTAINERS                                   |   5 +
->  3 files changed, 109 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/net/starfive,jh71x0-dwmac.yaml
+>  .../clock/starfive,jh7110-syscrg.yaml         |  80 +++++++
+>  MAINTAINERS                                   |   8 +-
+>  .../dt-bindings/clock/starfive,jh7110-crg.h   | 207 ++++++++++++++++++
+>  .../dt-bindings/reset/starfive,jh7110-crg.h   | 142 ++++++++++++
+>  4 files changed, 434 insertions(+), 3 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
+>  create mode 100644 include/dt-bindings/clock/starfive,jh7110-crg.h
+>  create mode 100644 include/dt-bindings/reset/starfive,jh7110-crg.h
 > 
-> diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> index 7870228b4cd3..cdb045d1c618 100644
-> --- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> +++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> @@ -91,6 +91,7 @@ properties:
->          - snps,dwmac-5.20
->          - snps,dwxgmac
->          - snps,dwxgmac-2.10
-> +        - starfive,jh7110-dwmac
->  
->    reg:
->      minItems: 1
-> diff --git a/Documentation/devicetree/bindings/net/starfive,jh71x0-dwmac.yaml b/Documentation/devicetree/bindings/net/starfive,jh71x0-dwmac.yaml
-> new file mode 100644
-> index 000000000000..5cb1272fe959
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/net/starfive,jh71x0-dwmac.yaml
-> @@ -0,0 +1,103 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +# Copyright (C) 2022 StarFive Technology Co., Ltd.
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/net/starfive,jh71x0-dwmac.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: StarFive JH71x0 DWMAC glue layer
-> +
-> +maintainers:
-> +  - Yanhong Wang <yanhong.wang@starfivetech.com>
-> +
-> +select:
-> +  properties:
-> +    compatible:
-> +      contains:
-> +        enum:
-> +          - starfive,jh7110-dwmac
-> +  required:
-> +    - compatible
-> +
-> +allOf:
-> +  - $ref: snps,dwmac.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - enum:
-> +          - starfive,jh7110-dwmac
-> +      - const: snps,dwmac-5.20
-> +
-> +  clocks:
-> +    items:
-> +      - description: GMAC main clock
-> +      - description: GMAC AHB clock
-> +      - description: PTP clock
-> +      - description: TX clock
-> +      - description: GTXC clock
-> +      - description: GTX clock
-> +
-> +  clock-names:
-> +    items:
-> +      - const: stmmaceth
-> +      - const: pclk
-> +      - const: ptp_ref
-> +      - const: tx
-> +      - const: gtxc
-> +      - const: gtx
-> +
-> +required:
-> +  - compatible
-> +  - clocks
-> +  - clock-names
-> +  - resets
-> +  - reset-names
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    stmmac_axi_setup: stmmac-axi-config {
 
-The schema says put this as a child node of ethernet@16030000.
-
-> +        snps,lpi_en;
-> +        snps,wr_osr_lmt = <4>;
-> +        snps,rd_osr_lmt = <4>;
-> +        snps,blen = <256 128 64 32 0 0 0>;
-> +    };
-> +
-> +    gmac0: ethernet@16030000 {
-
-Drop unused labels.
-
-> +        compatible = "starfive,jh7110-dwmac", "snps,dwmac-5.20";
-> +        reg = <0x16030000 0x10000>;
-> +        clocks = <&clk 3>, <&clk 2>, <&clk 109>,
-> +                 <&clk 5>, <&clk 111>, <&clk 108>;
-> +        clock-names = "stmmaceth", "pclk", "ptp_ref",
-> +                      "tx", "gtxc", "gtx";
-> +        resets = <&rst 1>, <&rst 2>;
-> +        reset-names = "stmmaceth", "ahb";
-> +        interrupts = <7>, <6>, <5>;
-> +        interrupt-names = "macirq", "eth_wake_irq", "eth_lpi";
-> +        phy-mode = "rgmii-id";
-> +        snps,multicast-filter-bins = <64>;
-> +        snps,perfect-filter-entries = <8>;
-> +        rx-fifo-depth = <2048>;
-> +        tx-fifo-depth = <2048>;
-> +        snps,fixed-burst;
-> +        snps,no-pbl-x8;
-> +        snps,tso;
-> +        snps,force_thresh_dma_mode;
-> +        snps,axi-config = <&stmmac_axi_setup>;
-> +        snps,en-tx-lpi-clockgating;
-> +        snps,txpbl = <16>;
-> +        snps,rxpbl = <16>;
-> +        phy-handle = <&phy0>;
-> +
-> +        mdio {
-> +            #address-cells = <1>;
-> +            #size-cells = <0>;
-> +            compatible = "snps,dwmac-mdio";
-> +
-> +            phy0: ethernet-phy@0 {
-> +                reg = <0>;
-> +            };
-> +        };
-> +    };
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index a70c1d0f303e..166b0009f63c 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -19606,6 +19606,11 @@ F:	Documentation/devicetree/bindings/clock/starfive*
->  F:	drivers/clk/starfive/
->  F:	include/dt-bindings/clock/starfive*
->  
-> +STARFIVE DWMAC GLUE LAYER
-> +M:	Yanhong Wang <yanhong.wang@starfivetech.com>
-> +S:	Maintained
-> +F:	Documentation/devicetree/bindings/net/starfive,jh71x0-dwmac.yaml
-> +
->  STARFIVE PINCTRL DRIVER
->  M:	Emil Renner Berthing <kernel@esmil.dk>
->  M:	Jianlong Huang <jianlong.huang@starfivetech.com>
-> -- 
-> 2.17.1
-> 
-> 
+Reviewed-by: Rob Herring <robh@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
