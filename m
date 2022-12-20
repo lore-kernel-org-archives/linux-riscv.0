@@ -4,68 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0522CC4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Dec 2022 20:20:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99475C3DA7A
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Dec 2022 20:22:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Uzo20c6x8+Ku/GezPZNwqdSo2X0IalekDAo4O6KHQxU=; b=LgJDb3/5w/k7iu
-	7ks49iA69mDAjoE2NggVO5LmyZzHR8avedazXb8zuko4Hf+E0QsyoDW0GxyZSeQH4x7FKkWkhqDi6
-	Vdo16WxO/GEJsf22PFWqHmdp5IlSGbFho57boHaDdqh9MtJn8x9Vu1bO2PvJ4qxcO4gyMP23XE1hG
-	yJ49u+Sc8XGlynudF1qPDXAtacLM76yClVrUqiLF7ZJmD9Xoz9dCA9mlPVVRUlwJZcpHNSNles+qR
-	YZWsGGmYabc6lzqM/HaXgzGfNr8zKD5Or/8cppI5/Iri3iH7qYSSgLTlXE7LAxC++26pr5H/ZH+Z5
-	qzTday2SQytzkTf8gT2A==;
+	List-Owner; bh=fC9DVb6HC82fTI2A9m1OhABmAxDJBGA5N5NFa57GzkA=; b=qCrXCMlZIF5qo4
+	qtcrIovQjNmohGcqj2W7CZjYxzjy2PnbJUgKQhZpRIwM291Hf/M6WnnXeGB1XYQJM26zqCHc+bJyH
+	VtQ19n5Sa1HHOe/WpnkaNcudeIUIpXCFn9DhBVj/1+sKoGQSCT822RHmInfA8mrJqBvtzJo2fzCK7
+	HgafeGlp71OdyeongsDLLhZid9iRHfZx+EkgDcJ4II6jNBoRpgUhGfruTJYZGHy2FnaYeQLmad233
+	bxEe+boOImw1COfUNYp79Q3k7L/uPKxdn/Zjh1ciC+kmvRWmvRd/Sn83VcoOJbM2R7w2LADjR+Dsy
+	/ebJ6pvAmf0BF/2wWgaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p7j5v-003nfO-Rh; Tue, 20 Dec 2022 20:20:11 +0000
-Received: from mail-oa1-f45.google.com ([209.85.160.45])
+	id 1p7j7b-003olL-Gj; Tue, 20 Dec 2022 20:21:55 +0000
+Received: from mail-ot1-f45.google.com ([209.85.210.45])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p7j5s-003nbv-4H
-	for linux-riscv@lists.infradead.org; Tue, 20 Dec 2022 20:20:09 +0000
-Received: by mail-oa1-f45.google.com with SMTP id 586e51a60fabf-144bd860fdbso16879409fac.0
-        for <linux-riscv@lists.infradead.org>; Tue, 20 Dec 2022 12:20:06 -0800 (PST)
+	id 1p7j7Z-003ojM-LE
+	for linux-riscv@lists.infradead.org; Tue, 20 Dec 2022 20:21:54 +0000
+Received: by mail-ot1-f45.google.com with SMTP id p17-20020a9d6951000000b00678306ceb94so3232072oto.5
+        for <linux-riscv@lists.infradead.org>; Tue, 20 Dec 2022 12:21:52 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=JPeYdzc9FvSjQnwQpKOSlb+cwbou8KwWYdDez3Iw/jk=;
-        b=mVPNNOloG4ml/GeJfJybsbUIBxRYguAZSxBtiD1psLh/JQaULGj9dbntZkNec8diOj
-         92N9k+7uNL8K44NvaVAyepSo4WYLiBZDHeTwo9NwBHRj31o96KR/YKQeVLTYoHvdYO/P
-         8hdCe9LdOo6/fHE11geG5BdupcL8nbmAshgAkj5jVvhiRXqVjMiCUeEc0zuF2bEoLght
-         AkYC77AoiH+GIJY/J2BQziNwGHewrjUteCq2JrOtKifZjmexDp7t0g1Xk41fVSf+HmwL
-         +opJEmPfUB3azO/zdsuPkmRsXNG5+K/rkBxpWGHyzKUsCyhxyLPfljLAM7GjaARZqO6r
-         VLlA==
-X-Gm-Message-State: ANoB5plAfeH22QCPm6zKBSHV3ElJMGoFemMJIjJ7KGTGQVDgXMV+IRLU
-	QuxysJPWgfbXKoVLyIKbsw==
-X-Google-Smtp-Source: AA0mqf70kKieJ1VKljXtxAEVcFW7fnn2oFjoL/Mkx7cKi1a3tjrtimxtAdfm1Np75u++KaA0pF37FA==
-X-Received: by 2002:a05:6870:9a16:b0:13b:a4fc:cd0 with SMTP id fo22-20020a0568709a1600b0013ba4fc0cd0mr23505636oab.19.1671567605661;
-        Tue, 20 Dec 2022 12:20:05 -0800 (PST)
+        bh=OFQDaUujF8byQHWpFPWAzFnhuOpD56AeF/7WeQ42tZA=;
+        b=rZkdnHQG1PicuinIzEWJLyxdly+3YNggpari/Z1GTs/BDuRRuvOLNKiRWHxq+qAWUz
+         d/bd29iyp1WZ7zFSYk53JHyYmhSQk45un0bfvoqsTUPG7hF1kNOZyw8ZoL6hzYoLmxaB
+         yN0sw7R52Wt5HQ5IzZVKTQsome0phndeiV6Stz8rnTZkHXn0zpTl4hwrapGNqJ8dw/CC
+         YgRb+Rk9/A1b8dniVTNv5vGqKOWGFMWyv/Tj09m6ixLsWP36y2+fEEswvXYj8uYHtq3k
+         jQvp+pr9JXUhDXH8aIyFsjLNcZ7sYLCcLQt6wkAN37yd9L91CeIib4sW3g+aeJwTOjT3
+         ogzg==
+X-Gm-Message-State: ANoB5pkIdnnwAw5KgXQdAeVvQlOFexGUUqRlRNQ1CP8bNC8yg6yjBwNL
+	2iCRe6P4O0HNRTzQOQCClg==
+X-Google-Smtp-Source: AA0mqf5jx4tKuMagJILHfkxT2AHgBM3GhosMHdWv0BYBkjW7e8PhYsE/EvELVZ7dufZDoev+gAd9FA==
+X-Received: by 2002:a05:6830:564:b0:670:4588:f8c4 with SMTP id f4-20020a056830056400b006704588f8c4mr23705639otc.18.1671567712297;
+        Tue, 20 Dec 2022 12:21:52 -0800 (PST)
 Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id kw8-20020a056870ac0800b001431bf4e5a0sm6442102oab.38.2022.12.20.12.20.04
+        by smtp.gmail.com with ESMTPSA id j7-20020a9d7387000000b0066c3ca7b12csm6048869otk.61.2022.12.20.12.21.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 20 Dec 2022 12:20:05 -0800 (PST)
-Received: (nullmailer pid 1019613 invoked by uid 1000);
-	Tue, 20 Dec 2022 20:20:03 -0000
-Date: Tue, 20 Dec 2022 14:20:03 -0600
+        Tue, 20 Dec 2022 12:21:51 -0800 (PST)
+Received: (nullmailer pid 1022017 invoked by uid 1000);
+	Tue, 20 Dec 2022 20:21:50 -0000
+Date: Tue, 20 Dec 2022 14:21:50 -0600
 From: Rob Herring <robh@kernel.org>
 To: Hal Feng <hal.feng@starfivetech.com>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, linux-gpio@vger.kernel.org, Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Linus Walleij <linus.walleij@linaro.org>, Emil Renner Berthing <emil.renner.berthing@canonical.com>, Jianlong Huang <jianlong.huang@starfivetech.com>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 3/5] dt-bindings: pinctrl: Add StarFive JH7110 aon
- pinctrl
-Message-ID: <20221220202003.GA1018798-robh@kernel.org>
-References: <20221220005529.34744-1-hal.feng@starfivetech.com>
- <20221220005529.34744-4-hal.feng@starfivetech.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Daniel Lezcano <daniel.lezcano@linaro.org>, Rob Herring <robh+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>, Emil Renner Berthing <emil.renner.berthing@canonical.com>, linux-riscv@lists.infradead.org, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, Michael Turquette <mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>, Marc Zyngier <maz@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, Ben Dooks <ben.dooks@sifive.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>, Conor Dooley <conor@kernel.org>
+Subject: Re: [PATCH v3 4/7] dt-bindings: sifive,ccache0: Support StarFive
+ JH7110 SoC
+Message-ID: <167156771008.1021954.965078236008496413.robh@kernel.org>
+References: <20221220011247.35560-1-hal.feng@starfivetech.com>
+ <20221220011247.35560-5-hal.feng@starfivetech.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20221220005529.34744-4-hal.feng@starfivetech.com>
+In-Reply-To: <20221220011247.35560-5-hal.feng@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221220_122008_233080_17A1F213 
-X-CRM114-Status: UNSURE (   9.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221220_122153_724246_C0B570A7 
+X-CRM114-Status: GOOD (  10.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,22 +81,20 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 20, 2022 at 08:55:27AM +0800, Hal Feng wrote:
-> From: Jianlong Huang <jianlong.huang@starfivetech.com>
+
+On Tue, 20 Dec 2022 09:12:44 +0800, Hal Feng wrote:
+> From: Emil Renner Berthing <kernel@esmil.dk>
 > 
-> Add pinctrl bindings for StarFive JH7110 SoC aon pinctrl controller.
+> This cache controller is also used on the StarFive JH7110 SoC.
 > 
-> Signed-off-by: Jianlong Huang <jianlong.huang@starfivetech.com>
-> Co-developed-by: Emil Renner Berthing <kernel@esmil.dk>
 > Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
 > Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
 > ---
->  .../pinctrl/starfive,jh7110-aon-pinctrl.yaml  | 126 ++++++++++++++++++
->  .../pinctrl/starfive,jh7110-pinctrl.h         |  22 +++
->  2 files changed, 148 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pinctrl/starfive,jh7110-aon-pinctrl.yaml
+>  .../devicetree/bindings/riscv/sifive,ccache0.yaml        | 9 ++++++++-
+>  1 file changed, 8 insertions(+), 1 deletion(-)
+> 
 
-Same comments in this one.
+Acked-by: Rob Herring <robh@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
