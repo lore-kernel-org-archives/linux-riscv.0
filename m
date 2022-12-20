@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B7D6C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Dec 2022 23:19:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64C01C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Dec 2022 23:39:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=izfLj5mJcy0WRpmWWMWIHdMvjR8qCzK68coS57Q2r40=; b=TyyIAERMqOJ+C6kHZaBmf4vC3q
-	flFQ+i0uwrRUYurTp9YHbZaHSBoMeff3EDHBZKblRBzyqPRtqts8JpuCUUhVMdBg1bxp9yJkp2oDD
-	QqVnxuFJxQjZ+pqrwBvgurEqo7n3pIiLHmDjmBmrgxIRuE29hWAtL0Ax5TcMBb4J3eilFm/lrY6pc
-	CQvfKL72nt50hE36MI5RABJWl46R+EU0LcaSA2T6CctKIpfBlTzej7O/a8PP5IL+GzSvSGeBuwFub
-	Gy6jM1+NFqQ6k1o6XnjHFTyNyrsmj7679/lDlpliebKtYZydAPbeaw0qzJft2B+NxGtuabQZMw8PF
-	D99yt6pQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Lk90ZYijP72o3sNzTePKIizfjHgPrCScOtwFEP4bhws=; b=vQ+EKx319ZhCtj
+	CCqdPbIsvN/SN5yi5YhD0vQeA4IOcf07NHflp1C02mS9ycBtMht/R5/AVOOSl869Cbtvsj+jAs0Aq
+	Xkq2z5+AR4/+7z5zo/zlOH7D0vOAVAXVBbl9PY5ZdXJak3i/tLi9cRkAcxSqGkGqnr43yHyA9VyMy
+	qeBdj61CLJ8eSy1hYF3zV2nlFEzNeWrQko6FzQa4KK26i4yYWGVJAVla+TNWcjV3atVGodb3n/lGj
+	EH57bfp68RfzvnGlfSxrhwL/IzmhGLymPPsa7xfXjYMpjHJKfGKtp0QrXlDTbPRsF9Vr3w6fCN5tZ
+	YezVq+uBZnVJrEugzuKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p7ltF-005lEC-QZ; Tue, 20 Dec 2022 23:19:17 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1p7mCo-005ufe-WE; Tue, 20 Dec 2022 23:39:31 +0000
+Received: from mail-ot1-f43.google.com ([209.85.210.43])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p7ltC-005lA4-Co
-	for linux-riscv@lists.infradead.org; Tue, 20 Dec 2022 23:19:16 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 919D6B81A58;
-	Tue, 20 Dec 2022 23:19:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D797AC433D2;
-	Tue, 20 Dec 2022 23:19:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1671578349;
-	bh=qMUMHQtG6S21x4uF4KO8b+hnyWIfjJB888+0zqmuxAM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mgWiKaioHWClemJ2WCkd0i7zKlWk2cbjoeyTwK2nSgdcgF1YAS62qojUink35rzQ0
-	 4SIhzR47AodUfs5DfPN87n2ksgHHD5JskdAkaSwMiF82BbsU6zP6zdGih/pZo9TOZy
-	 oBGZ13tp5Bdj9sMioswX5LXY+eWwsgl+5Y7zBPUVknTlooOgI98z3dF6VHfPWxwQzn
-	 rZ6BufP85uZZ8ZNSOvKIWuJ03zdIwPlJm1zQjhPt9ui3kAIKJ6VNh6M1eVpNlqu7Lt
-	 RlZYv0MrT/tqkTl17WOeaE4vxJC8j/Gv3dslLRaTNwbEFJNe3Vr/63dwjfatIhExSZ
-	 qh4Rtxlo9nkxw==
-Date: Tue, 20 Dec 2022 23:19:04 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Hal Feng <hal.feng@starfivetech.com>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-clk@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 08/11] dt-bindings: clock: Add StarFive JH7110
- always-on clock and reset generator
-Message-ID: <Y6JC6PZaRMYxZG5Z@spud>
-References: <20221220005054.34518-1-hal.feng@starfivetech.com>
- <20221220005054.34518-9-hal.feng@starfivetech.com>
+	id 1p7mCa-005uYB-52; Tue, 20 Dec 2022 23:39:18 +0000
+Received: by mail-ot1-f43.google.com with SMTP id e17-20020a9d7311000000b00678202573f1so5027267otk.8;
+        Tue, 20 Dec 2022 15:39:14 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6XlyL4eZgxl2gJRdFFgKM+VBWZmuzkyYGsqXR6u61R0=;
+        b=sfIb+LrTz6nC/oAsMvn8HdR1ITbkACayHvo4YJc0wWXeC0NvpV/2kdgyGIoKy8Y6ol
+         BgZkVRd+8sFwfoPpo9ErtCv35e519Y4QclElLMouI1T/4rSgPNExN/+4C0KsUwNQHJ7x
+         VA+9HQYWC3/Ng47/vI43aJKCwTPHRMZJT6rx7+nlUJM4AaE/FAgILJzPBtbpJmCdHliA
+         gpbEMB4q3RLeIeHVe2SKf3qh0kfqPv4ycLXOzWzivwMncvYiYH/lpUxeunTYKEEO4QLp
+         Mb1pxUwEpSDh0Ap+jNPaRATbwHS0+maUmFt7rH+Fj2xDDO6PgZT85juyvQ2E1xZt0zgH
+         sUCg==
+X-Gm-Message-State: ANoB5pl/1fdkJqCJyIkcRqqR2oGd+B8gD3zOCBEdFPejdkxGFUSCJG0H
+	jHKEdM84tk1OM0i5rdv56g==
+X-Google-Smtp-Source: AA0mqf76HhtVIRBeJvzpUAhwT9Xm/qY66R7iSPT7ARjb2LU3Qded5XZ+7SyPF0eEzj0tLE9RivBBUA==
+X-Received: by 2002:a05:6830:2782:b0:661:dfeb:ea5a with SMTP id x2-20020a056830278200b00661dfebea5amr26041265otu.25.1671579553857;
+        Tue, 20 Dec 2022 15:39:13 -0800 (PST)
+Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
+        by smtp.gmail.com with ESMTPSA id t26-20020a05683022fa00b00661ad8741b4sm6299549otc.24.2022.12.20.15.39.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 20 Dec 2022 15:39:13 -0800 (PST)
+Received: (nullmailer pid 1289304 invoked by uid 1000);
+	Tue, 20 Dec 2022 23:39:12 -0000
+Date: Tue, 20 Dec 2022 17:39:12 -0600
+From: Rob Herring <robh@kernel.org>
+To: Pierre Gondois <pierre.gondois@arm.com>
+Cc: linux-kernel@vger.kernel.org, palmer@rivosinc.com, Ionela.Voinescu@arm.com, Conor Dooley <conor.dooley@microchip.com>, Sudeep Holla <sudeep.holla@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jeremy Linton <jeremy.linton@arm.com>, Gavin Shan <gshan@redhat.com>, linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org
+Subject: Re: [PATCH v3 1/5] cacheinfo: Use RISC-V's init_cache_level() as
+ generic OF implementation
+Message-ID: <20221220233912.GA1193943-robh@kernel.org>
+References: <20221209103130.572196-1-pierre.gondois@arm.com>
+ <20221209103130.572196-2-pierre.gondois@arm.com>
 MIME-Version: 1.0
-In-Reply-To: <20221220005054.34518-9-hal.feng@starfivetech.com>
+Content-Disposition: inline
+In-Reply-To: <20221209103130.572196-2-pierre.gondois@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221220_151914_750764_2C5C53D8 
-X-CRM114-Status: GOOD (  18.44  )
+X-CRM114-CacheID: sfid-20221220_153916_236921_4D82E42F 
+X-CRM114-Status: GOOD (  18.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,118 +75,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4072924512452624155=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============4072924512452624155==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="WUqIxYHpBSMPOybA"
-Content-Disposition: inline
-
-
---WUqIxYHpBSMPOybA
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, Dec 20, 2022 at 08:50:51AM +0800, Hal Feng wrote:
-> From: Emil Renner Berthing <kernel@esmil.dk>
->=20
-> Add bindings for the always-on clock and reset generator (AONCRG) on the
-> JH7110 RISC-V SoC by StarFive Ltd.
->=20
-> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
-> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+On Fri, Dec 09, 2022 at 11:31:23AM +0100, Pierre Gondois wrote:
+> RISC-V's implementation of init_of_cache_level() is following
+> the Devicetree Specification v0.3 regarding caches, cf.:
+> - s3.7.3 'Internal (L1) Cache Properties'
+> - s3.8 'Multi-level and Shared Cache Nodes'
+> 
+> Allow reusing the implementation by moving it.
+> 
+> Signed-off-by: Pierre Gondois <pierre.gondois@arm.com>
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
 > ---
->  .../clock/starfive,jh7110-aoncrg.yaml         | 76 +++++++++++++++++++
->  .../dt-bindings/clock/starfive,jh7110-crg.h   | 18 +++++
->  .../dt-bindings/reset/starfive,jh7110-crg.h   | 12 +++
->  3 files changed, 106 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh71=
-10-aoncrg.yaml
->=20
-> diff --git a/Documentation/devicetree/bindings/clock/starfive,jh7110-aonc=
-rg.yaml b/Documentation/devicetree/bindings/clock/starfive,jh7110-aoncrg.ya=
-ml
-> new file mode 100644
-> index 000000000000..a3cf0570d950
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/clock/starfive,jh7110-aoncrg.yaml
-> @@ -0,0 +1,76 @@
-> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/clock/starfive,jh7110-aoncrg.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: StarFive JH7110 Always-On Clock and Reset Generator
-> +
-> +maintainers:
-> +  - Emil Renner Berthing <kernel@esmil.dk>
-> +
-> +properties:
-> +  compatible:
-> +    const: starfive,jh7110-aoncrg
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    items:
-> +      - description: Main Oscillator (24 MHz)
-> +      - description: RTC Oscillator (32.768 kHz)
-> +      - description: GMAC0 RMII reference
-> +      - description: GMAC0 RGMII RX
+>  arch/riscv/kernel/cacheinfo.c | 39 +------------------------------
+>  drivers/base/cacheinfo.c      | 44 +++++++++++++++++++++++++++++++++++
+>  include/linux/cacheinfo.h     |  1 +
+>  3 files changed, 46 insertions(+), 38 deletions(-)
+> 
+> diff --git a/arch/riscv/kernel/cacheinfo.c b/arch/riscv/kernel/cacheinfo.c
+> index 90deabfe63ea..440a3df5944c 100644
+> --- a/arch/riscv/kernel/cacheinfo.c
+> +++ b/arch/riscv/kernel/cacheinfo.c
+> @@ -115,44 +115,7 @@ static void fill_cacheinfo(struct cacheinfo **this_leaf,
+>  
+>  int init_cache_level(unsigned int cpu)
+>  {
+> -	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(cpu);
+> -	struct device_node *np = of_cpu_device_node_get(cpu);
+> -	struct device_node *prev = NULL;
+> -	int levels = 0, leaves = 0, level;
+> -
+> -	if (of_property_read_bool(np, "cache-size"))
+> -		++leaves;
+> -	if (of_property_read_bool(np, "i-cache-size"))
+> -		++leaves;
+> -	if (of_property_read_bool(np, "d-cache-size"))
+> -		++leaves;
+> -	if (leaves > 0)
+> -		levels = 1;
+> -
+> -	prev = np;
+> -	while ((np = of_find_next_cache_node(np))) {
+> -		of_node_put(prev);
+> -		prev = np;
+> -		if (!of_device_is_compatible(np, "cache"))
+> -			break;
+> -		if (of_property_read_u32(np, "cache-level", &level))
+> -			break;
+> -		if (level <= levels)
+> -			break;
+> -		if (of_property_read_bool(np, "cache-size"))
+> -			++leaves;
+> -		if (of_property_read_bool(np, "i-cache-size"))
+> -			++leaves;
+> -		if (of_property_read_bool(np, "d-cache-size"))
+> -			++leaves;
+> -		levels = level;
+> -	}
+> -
+> -	of_node_put(np);
+> -	this_cpu_ci->num_levels = levels;
+> -	this_cpu_ci->num_leaves = leaves;
+> -
+> -	return 0;
+> +	return init_of_cache_level(cpu);
 
-Gotta ask the same question here about the muxing - are all of these
-clocks truly required?
+Not in this patch, but in patch 5, shouldn't riscv init_cache_level() be 
+removed? The topology code already called init_of_cache_level() and 
+RiscV has nothing architectural to add/change. IOW, init_cache_level() 
+should only do architecture defined init, and not anything DT or ACPI 
+related (unless those are non-standard).
 
-> +      - description: STG AXI/AHB
-> +      - description: APB Bus
-> +      - description: GMAC0 GTX
-> +
-> +  clock-names:
-> +    items:
-> +      - const: osc
-> +      - const: rtc_osc
-> +      - const: gmac0_rmii_refin
-> +      - const: gmac0_rgmii_rxin
-> +      - const: stg_axiahb
-> +      - const: apb_bus
-> +      - const: gmac0_gtxclk
-
-And if they are, is this actually needed since the order must be as
-above?
-
-As I said in the previous patch, I've probably missed something...
-
-
---WUqIxYHpBSMPOybA
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY6JC6AAKCRB4tDGHoIJi
-0hj8AP9mlofAGPd6eI/o8Pxq0+Ws0ZQUYZBn4pD5T51KEOWrnAEAqacpXoQxKO46
-3Voprv1hHNQASDRuQJzm1tEZBJNHAwQ=
-=Nwuo
------END PGP SIGNATURE-----
-
---WUqIxYHpBSMPOybA--
-
-
---===============4072924512452624155==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Rob
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4072924512452624155==--
-
