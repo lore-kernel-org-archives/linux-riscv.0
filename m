@@ -4,72 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B3F2C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Dec 2022 16:18:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59674C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Dec 2022 16:26:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TGxebGcdv0wUFxZi20vWOMMGrJu8koV8mtKKY57YfOY=; b=xNeii65+zvDzCa
-	qkMsCpeWQ2mltHK/9dOE/6yK5pnVuG1d9QRhaalDVVhaTCvwWfngJtX4mB1cCFFAwNPmreTAembId
-	fL+GXD7IdRUHNkAVh6Z8jxRboUIboPH4vCwsyPn0GK/dVszmF2BerZq6gUigH2vSZ92p+oL/KcbVu
-	VXcu6iSRcP53xXZBEKtRcniQouzWbW5uUtM1c22lR0EEQxna4V1sAMwAMpU2yg8kAZHfuK/HAgEGh
-	3vRpaKOChefeFN73PqF6KIBxQNl7X7oHwiFG6fYccEXkjuykqBmllsnMzxzw1667dESELPKyFvo1l
-	Xzak8BB+biWcQXFCSC1w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=bt/KStKtJH5YpTmhtodWd+zgvA2D0RzWzEVoDDRu64o=; b=3rpOYWaUk8apgv
+	8KaALyr7bB5ifsau45MVstNiDZwOyteRFbDJTqwYacSL13gOBC3V1NWYd4Vx+anbMx5B6JImHn9SR
+	o9Xatgk4JtkhoMBFB0uF6BYV8V5PlEABB/+zrmKMiY36fVh1GLvW95YOQatTsW39HF1EErFqqrv+w
+	znIdctyyTiS+cRr/WBDv2FIC5ofrhOkM/CxmOvhos4hfQwOaa8UszRsyCuuL+GtddYsESqXOf45hp
+	3HaqO7scNJaLqLJOBXQFBtP9QsNrzP21tPYRx/I3m4AqJGQ/IBKjd2HAEX1RofxKOTYbXSzhRRcbe
+	5ldWzpQTkmRBsdsI8CSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p81n1-00Gy6r-11; Wed, 21 Dec 2022 16:17:55 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	id 1p81vc-00H1LC-OF; Wed, 21 Dec 2022 16:26:48 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p81mU-00GxpV-7T
-	for linux-riscv@lists.infradead.org; Wed, 21 Dec 2022 16:17:23 +0000
-Received: by mail-ej1-x629.google.com with SMTP id n20so38101375ejh.0
-        for <linux-riscv@lists.infradead.org>; Wed, 21 Dec 2022 08:17:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=jCNdpn8GFI0Is0z/59JOfTTLADKxyB9PigrVleL5rjw=;
-        b=kT6xmphJO5ckl4v315yHsSmQHcwASgIJXMzJk2vYFXsiWtX3G5cNYoGZopxeEpgm0l
-         j4u4NL6qZs9ltnFQXoZa0EulkCqDv7ZCWH2M3rgm2SubHiIkBAiv8qvsIuJG6CeZCkhA
-         QA3A5j3KCBWimYhomSVUROCw67iuuJVNxZdxxMVn5aaiAatF+Rdy43Y26tgeL/7mspz1
-         jj5HUxWr/eO1ErC6b1ZN8PoVLTH+jX+4qr8gu5Q2Wpr+CXplyNuPaQyq4XFg1XrcLc2v
-         i2vOAOmhx5KNBsiX7BulEtV1H0o8Kk6mBFdvYFwvlHUOe4F5BOg5Z9RBIKpNQ3k8xgHH
-         r5QA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=jCNdpn8GFI0Is0z/59JOfTTLADKxyB9PigrVleL5rjw=;
-        b=spTNaMBu35VdVH584FsM/Er24NA+pNnW3POUVLd9htZehGHQ6Jy1TpHrMQYRFsWa/N
-         S2Y0Ca9WrHHdLeKaMPppgNy4rtU4Yll65FMeGesVCeSIUkKFYIN0kSUd4Q+bEhG7F5L0
-         6VxEQDsmUJjWMxnJyO1acL/5GwVBNstp8FvZ5x3nVygveCe5ktFVInSOxH6Dm/1laVLb
-         nKYcf5g6RFlcc7/+85cqmgnTHi8VYozfAvtrdjxnlwGuHv2GVIYxPjQRueEOycbLyXCm
-         O5gENZZ2WEsbkK2VbI4Ft/tNF5jmaitBHoybrwpYQgjh/ECBnz8qViKFnhCmyOQ6M7x+
-         oKAA==
-X-Gm-Message-State: AFqh2kr1LS9sVm/Gwmq5/xZaGB5tE96VcDjUcHKjzxqkx8vUw3hQ9yIV
-	CI+hbRNnKheSPWCRfXOqVr8qBmuqwn1Oig5VuMs=
-X-Google-Smtp-Source: AMrXdXufU0qozuoKGH10DXoaVrf/cwlEjKCmPjC3df92wjSI/A87tF6JB9gDwWTeTRvO8P9lVIxPXMLCiehSmhzeUtY=
-X-Received: by 2002:a17:907:ca14:b0:7ad:d7f9:1f88 with SMTP id
- uk20-20020a170907ca1400b007add7f91f88mr135196ejc.217.1671639438585; Wed, 21
- Dec 2022 08:17:18 -0800 (PST)
+	id 1p81vU-00H1HI-Sq
+	for linux-riscv@lists.infradead.org; Wed, 21 Dec 2022 16:26:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1671640000; x=1703176000;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=urUO3lBnUtgO+026vENV9ZHIqNZxZaA6oDAmSzARVN0=;
+  b=ddBAY5XDIDBK0LEIHVPSXwfNUCkwXaFCO/Yv6RlVeota/LqBib9A3FBM
+   7NU2GzLUM5tLty9OzhPjnqzVxc4frn/5g68y5r6mDvy11pjKBrLSqbNOk
+   5mBL/GjVjFdqczkvwkSUl8BQ3nLTOe0VaO1EE0deDb0/x9a2BsKLKVbdf
+   H2NX8XbXRrJHDwhKqPYihdnmKuUO4fO8SDZvrdVjPAo5FIIpTS9DQ5lm2
+   wTUrrb++x+y8qeZPwenndKgvyUIucz+Cme5zICI8CkJyNFlUBwkrQs7l2
+   9ZpVa1sUyXaCLlAbgJ0g7PLCZFuOVfR8J4mPn7vaXjUinbN+ONG7FzXng
+   A==;
+X-IronPort-AV: E=Sophos;i="5.96,262,1665471600"; 
+   d="scan'208";a="204941736"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 21 Dec 2022 09:26:36 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.16; Wed, 21 Dec 2022 09:26:36 -0700
+Received: from daire-X570.emdalo.com (10.10.115.15) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
+ 15.1.2507.16 via Frontend Transport; Wed, 21 Dec 2022 09:26:33 -0700
+From: <daire.mcnamara@microchip.com>
+To: <conor.dooley@microchip.com>, <robh+dt@kernel.org>,
+	<krzysztof.kozlowski+dt@linaro.org>, <paul.walmsley@sifive.com>,
+	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <lpieralisi@kernel.org>,
+	<kw@linux.com>, <bhelgaas@google.com>, <linux-riscv@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-pci@vger.kernel.org>
+CC: Daire McNamara <daire.mcnamara@microchip.com>
+Subject: [PATCH v2 0/9] PCI: microchip: Partition address translations
+Date: Wed, 21 Dec 2022 16:26:21 +0000
+Message-ID: <20221221162630.3632486-1-daire.mcnamara@microchip.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-References: <20221216185012.2342675-1-abdulras@google.com>
-In-Reply-To: <20221216185012.2342675-1-abdulras@google.com>
-From: Bin Meng <bmeng.cn@gmail.com>
-Date: Thu, 22 Dec 2022 00:17:07 +0800
-Message-ID: <CAEUhbmUsFt0H-Dd3XHjuk6sUq0hrV9SFU=1jD2LQ10xywZOZiA@mail.gmail.com>
-Subject: Re: [PATCH] riscv: avoid enabling vectorized code generation
-To: Saleem Abdulrasool <abdulras@google.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221221_081722_345434_46A2BEAD 
-X-CRM114-Status: GOOD (  17.81  )
+X-CRM114-CacheID: sfid-20221221_082641_030693_6AFD36DF 
+X-CRM114-Status: GOOD (  12.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,53 +80,80 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Daire McNamara <daire.mcnamara@microchip.com>
 
-On Sat, Dec 17, 2022 at 3:12 AM Saleem Abdulrasool <abdulras@google.com> wrote:
->
-> The compiler is free to generate vectorized operations for zero'ing
-> memory.  The kernel does not use the vector unit on RISCV, similar to
-> architectures such as x86 where we use `-mno-mmx` et al to prevent the
-> implicit vectorization.  Perform a similar check for
-> `-mno-implicit-float` to avoid this on RISC-V targets.
->
-> Signed-off-by: Saleem Abdulrasool <abdulras@google.com>
-> ---
->  arch/riscv/Makefile | 4 ++++
->  1 file changed, 4 insertions(+)
->
-> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-> index 0d13b597cb55..68433476a96e 100644
-> --- a/arch/riscv/Makefile
-> +++ b/arch/riscv/Makefile
-> @@ -89,6 +89,10 @@ KBUILD_AFLAGS_MODULE += $(call as-option,-Wa$(comma)-mno-relax)
->  # architectures.  It's faster to have GCC emit only aligned accesses.
->  KBUILD_CFLAGS += $(call cc-option,-mstrict-align)
->
-> +# Ensure that we do not vectorize the kernel code when the `v` extension is
-> +# enabled.  This mirrors the `-mno-mmx` et al on x86.
-> +KBUILD_CFLAGS += $(call cc-option,-mno-implicit-float)
+Changes since v1:
+- Removed unused variables causing compile warnings
+- Removed incorrect Signed-off-by: tags
+- Capitalised msi and msi-x
+- Capitalised FIC and respelled busses to buses
+- Capitalised all comments
+- Renamed fabric inter connect to Fabric Interface Controller as per PolarFire SoC TRM
 
-This looks like an LLVM flag, but not GCC.
+Microchip PolarFire SoC is a 64-bit device and has DDR starting at
+0x80000000 and 0x1000000000. Its PCIe rootport is connected to the CPU
+Coreplex via an FPGA fabric. The AXI connections between the Coreplex and
+the fabric are 64-bit and the AXI connections between the fabric and the
+rootport are 32-bit.  For the CPU CorePlex to act as an AXI-Master to the
+PCIe devices and for the PCIe devices to act as bus masters to DDR at these
+base addresses, the fabric can be customised to add/remove offsets for bits
+38-32 in each direction. These offsets, if present, vary with each
+customer's design.
 
-Can you elaborate what exact combination (compiler flag and source)
-would cause an issue?
+To support this variety, the rootport driver must know how much address
+translation (both inbound and outbound) is performed by a particular
+customer design and how much address translation must be provided by the
+rootport.
 
-From your description, I guess it's that when enabling V extension in
-LLVM, the compiler tries to use vector instructions to zero memory,
-correct?
+This patchset contains a parent/child dma-ranges scheme suggested by Rob
+Herring. It creates an FPGA PCIe parent bus which wraps the PCIe rootport
+and implements a parsing scheme where the root port identifies what address
+translations are performed by the FPGA fabric parent bus, and what
+address translations must be done by the rootport itself.
 
-Can you confirm LLVM does not emit any float instructions (like F/D
-extensions) because the flag name suggests something like "float"?
+See https://lore.kernel.org/linux-pci/20220902142202.2437658-1-daire.mcnamara@microchip.com/
+for the relevant previous patch submission discussion.
 
-> +
->  ifeq ($(CONFIG_STACKPROTECTOR_PER_TASK),y)
->  prepare: stack_protector_prepare
->  stack_protector_prepare: prepare0
-> --
+It also re-partitions the probe() and init() functions as suggested by
+Bjorn Helgaas to make them more maintainable as the init() function had
+become too large.
 
-Regards,
-Bin
+It also contains some minor fixes and clean-ups that are pre-requisites:
+- to align register, offset, and mask names with the hardware documentation
+  and to have the register definitions appear in the same order as in the
+  hardware documentation;
+- to harvest the MSI information from the hardware configuration register
+  as these depend on the FPGA fabric design and can vary with different
+  customer designs;
+- to clean up interrupt initialisation to make it more maintainable;
+- to fix SEC and DED interrupt handling.
+
+I expect Conor will take the dts patch via the soc tree once the PCIe parts
+of the series are accepted.
+
+Conor Dooley (1):
+  riscv: dts: microchip: add parent ranges and dma-ranges for IKRD
+    v2022.09
+
+Daire McNamara (8):
+  PCI: microchip: Correct the DED and SEC interrupt bit offsets
+  PCI: microchip: Align register, offset, and mask names with hw docs
+  PCI: microchip: Enable event handlers to access bridge and ctrl ptrs
+  PCI: microchip: Clean up initialisation of interrupts
+  PCI: microchip: Gather MSI information from hardware config registers
+  PCI: microchip: Re-partition code between probe() and init()
+  PCI: microchip: Partition outbound address translation
+  PCI: microchip: Partition inbound address translation
+
+ .../dts/microchip/mpfs-icicle-kit-fabric.dtsi |  62 +-
+ drivers/pci/controller/pcie-microchip-host.c  | 678 +++++++++++++-----
+ 2 files changed, 524 insertions(+), 216 deletions(-)
+
+
+base-commit: 3c1f24109dfc4fb1a3730ed237e50183c6bb26b3
+-- 
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
