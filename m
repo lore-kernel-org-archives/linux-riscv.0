@@ -4,60 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93098C10F1B
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Dec 2022 11:31:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7004AC4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Dec 2022 12:52:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=H7qtaFb8Xatn13rKRpYCxBcYuAZCTc7Rm4Gj4VSFmsw=; b=ewHSLsidK84zvA
-	rlujTz9n/XqsHTuF3BlvrLK0PDfTuqi3dL2GLfdyR1W/rk90I5g7PZNdacjwfrhc+FENFkq3sJa3c
-	n3ByuzsYHb8uMFienW20t+OB0HNvabL0WxQo9qqPztqcsSOA8aHfYvVDWk2GafITTVrheufdGzfB/
-	9DzOtJncvQNtV4h/erwI8zzZTR1QaICryq+mFQQgZBcRLQ7r1Dt1d+3+h+WKQ/Pdia0IuwwiLHx+a
-	lGIRUPjIMm20S6cIG9YC3bWoZJL+WGx5v66G1rrZcUDXm29HUA5YbVY1Q1UQfkvPy5jFc4ngd3C2p
-	9Ni6CS5kZDYx9XH8z67Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
+	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wMoAe2fkYg2md0nNgC8AS9vdBynanMLqxHJCPtunjqk=; b=3bJC9B/FFIycpr0ziBisPreAZV
+	OsfzDrVSRDME4zZRgt8mmqN0RB6Fxg68CQbI4lRNkURUT4V+pLh+MaXtnBoegeWkT2vQZIrc/VxyP
+	xshWgmVbtesrBNC6wX/4XspN14KKbNbcg+tScB4Kj0L0wa5yHW+LdH0SBC/8rLvfmzPRtohfbnsac
+	JnQB6/HiD0HPYzq2RKKG7mXO2nYydstBkyg2Vldfs9eOlvwqYY8SIZ1YO0MmRLNo05PGlE6oyhhVB
+	YrWGGAoKEHctWlc0x7qDixae4gqX2C93SJVAJIpOB6nVT8vDTF6sm3Ta+RbdNnP80yyOYzWVgHVfY
+	3xrMCTLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p7xJm-00EDRe-U9; Wed, 21 Dec 2022 11:31:26 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1p7yaM-00EpQe-LE; Wed, 21 Dec 2022 12:52:38 +0000
+Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p7xIA-00ECin-0o
-	for linux-riscv@lists.infradead.org; Wed, 21 Dec 2022 11:29:48 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by sin.source.kernel.org (Postfix) with ESMTPS id 1A240CE17E1;
-	Wed, 21 Dec 2022 11:29:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B94F1C433D2;
-	Wed, 21 Dec 2022 11:29:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1671622174;
-	bh=443F1rXQ30ch6Cy/GlKbcogz3u7FhMGEWGxIcKOK4t4=;
-	h=From:To:Cc:Subject:Date:From;
-	b=RMQAbseOtZa8WnF7g64duHVqiPvpaz4vk/HCxQcnoF99qtJFZqXyXpMtBDogLXsEU
-	 A5vrCM2HHH1xjU8p5tLDtA5Yx9Yuuf93425ODKcveJ7OcnVykYZKSJ4bgvbj/5mUGj
-	 f3DUUSl4byj9snhlTAQON39F6d4/3Y4ONkYzvl2PuPz9YJHa0xBIlCoXJpc1MKMHhd
-	 6fZIsO41hp/swRnbefRDICf9m390vn0a5QZcC5IBg/7ahN3/jSjCYL17W+uFMhdunD
-	 NVW4+T7mzsbk1DTLXMeRHCYYDiX72OszCzzzYgXAqwiJTIVuOs3UlRWPzbsj1GX2W6
-	 FfYlksOyDMgqA==
-From: Conor Dooley <conor@kernel.org>
-To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Conor Dooley <conor.dooley@microchip.com>
-Cc: Daire McNamara <daire.mcnamara@microchip.com>,
-	linux-kernel@vger.kernel.org,
-	linux-pwm@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v13 0/2] Microchip Soft IP corePWM driver
-Date: Wed, 21 Dec 2022 11:29:11 +0000
-Message-Id: <20221221112912.147210-1-conor@kernel.org>
-X-Mailer: git-send-email 2.38.1
+	id 1p7yWZ-00EnpI-81
+	for linux-riscv@lists.infradead.org; Wed, 21 Dec 2022 12:48:45 +0000
+Received: (Authenticated sender: alex@ghiti.fr)
+	by mail.gandi.net (Postfix) with ESMTPSA id 12746FF80A;
+	Wed, 21 Dec 2022 12:48:32 +0000 (UTC)
+Message-ID: <555f4c90-39fb-3cb9-0b26-1b8af6b4f486@ghiti.fr>
+Date: Wed, 21 Dec 2022 13:48:32 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.4.2
+Subject: Re: [syzbot] riscv/fixes boot error: WARNING in __apply_to_page_range
+ (2)
+Content-Language: en-US
+To: syzbot <syzbot+5702f46b5b22bdb38b7e@syzkaller.appspotmail.com>,
+ andrii@kernel.org, aou@eecs.berkeley.edu, ast@kernel.org, bjorn@kernel.org,
+ bpf@vger.kernel.org, daniel@iogearbox.net, haoluo@google.com,
+ john.fastabend@gmail.com, jolsa@kernel.org, kpsingh@kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ luke.r.nels@gmail.com, martin.lau@linux.dev, palmer@dabbelt.com,
+ paul.walmsley@sifive.com, sdf@google.com, song@kernel.org,
+ syzkaller-bugs@googlegroups.com, xi.wang@gmail.com, yhs@fb.com
+References: <000000000000ea7a5c05f051fd00@google.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <000000000000ea7a5c05f051fd00@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221221_032946_449591_55D9EB59 
-X-CRM114-Status: GOOD (  30.74  )
+X-CRM114-CacheID: sfid-20221221_044843_661149_D65D2CE1 
+X-CRM114-Status: GOOD (  16.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,132 +61,118 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
-
-Hey,
-
-v13 is rebased on top of Uwe's series converting get_state() to return
-int instead of void. Given other changes here, it turns out that I do
-not need it at all unfortunately!
-
-I was wrong about the behaviour of the sync-update bit:
-It /does not/ get cleared at the start of a new period. I did actually
-modify the driver to do a read_poll_timeout() on that bit which seemed
-to work [0], but it turns out that that bit holds it's value until the
-IP block is reset. I'm really not sure how it worked when I tested the
-other week...
-
-I initially implemented a wait with timers and a timeout - but Uwe
-suggested dropping the timeouts entirely & instead going back to
-waiting. The driver now waits in apply() & get_state() for a update to
-have been applied to the waveform before allowing further modification.
-Doing so is required as the applied state doesn't appear in the
-registers until it has appeared at the output.
-I yoinked the msleep/udelay stuff from the sun4i that you mentioned &
-modified it a little as the cost of waiting has been placed on
-subsequent calls.
-
-Other than that, v13 has some minor bits of cleanup that Uwe suggested
-in mchp_core_pwm_apply_locked().
-
-Thanks,
-Conor.
-
-0 - https://lore.kernel.org/linux-riscv/Y3uZY5mt%2FZIWk3sS@wendy/
-
-Changes since v13:
-- couple bits of cleanup to apply_locked(), suggested by Uwe: getting
-  rid of a variable & using unsigned long for another.
-- move the overhead waiting for a change to be applied, for channels
-  with shadow registers, to subsequent calls to apply(). This has the
-  benefit of only waiting when two calls to apply() are close in time
-  rather than eating the delay in every call.
-
-Changes since v11:
-- swap a "bare" multiply & divide for the corresponding helper to
-  prevent overflow
-- factor out duplicate clk rate acquisition & period calculation
-- make the period calculation return void by checking the validity of
-  the clock rate in the caller
-- drop the binding & dt patch, they're on-track for v6.2 via my tree
-
-Changes since v10:
-- reword some comments
-- try to assign the period if a disable is requested
-- drop a cast around a u8 -> u16 conversion
-- fix a check on period_steps that should be on the hw_ variant
-- split up the period calculation in get_state() to fix the result on
-  32 bit
-- add a rate variable in get_state() to only call get_rate() once
-- redo the locking as suggested to make it more straightforward.
-- stop checking for enablement in get_state() that was working around
- intended behaviour of the sysfs interface
-
-Changes since v9:
-- fixed the missing unlock that Dan reported
-
-Changes since v8:
-- fixed a(nother) raw 64 bit division (& built it for riscv32!)
-- added a check to make sure we don't try to sleep for 0 us
-
-Changes since v7:
-- rebased on 6.0-rc1
-- reworded comments you highlighted in v7
-- fixed the overkill sleeping
-- removed the unused variables in calc_duty
-- added some extra comments to explain behaviours you questioned in v7
-- make the mutexes un-interruptible
-- fixed added the 1s you suggested for the if(period_locked) logic
-- added setup of the channel_enabled shadowing
-- fixed the period reporting for the negedge == posedge case in
-  get_state() I had to add the enabled check, as otherwise it broke
-  setting the period for the first time out of reset.
-- added a test for invalid PERIOD_STEPS values, in which case we abort
-  if we cannot fix the period
-
-Changes from v6:
-- Dropped an unused variable that I'd missed
-- Actually check the return values of the mutex lock()s
-- Re-rebased on -next for the MAINTAINERS patch (again...)
-
-Changes from v5:
-- switched to a mutex b/c we must sleep with the lock taken
-- simplified the locking in apply() and added locking to get_state()
-- reworked apply() as requested
-- removed the loop in the period calculation (thanks Uwe!)
-- add a copy of the enable registers in the driver to save on reads.
-- remove the second (useless) write to sync_update
-- added some missing rounding in get_state()
-- couple other minor cleanups as requested in:
-https://lore.kernel.org/linux-riscv/20220709160206.cw5luo7kxdshoiua@pengutronix.de/
-
-Changes from v4:
-- dropped some accidentally added files
-
-Changes before v4:
-https://lore.kernel.org/linux-pwm/20220721172109.941900-1-mail@conchuod.ie
-
-Conor Dooley (2):
-  pwm: add microchip soft ip corePWM driver
-  MAINTAINERS: add pwm to PolarFire SoC entry
-
- MAINTAINERS                      |   1 +
- drivers/pwm/Kconfig              |  10 +
- drivers/pwm/Makefile             |   1 +
- drivers/pwm/pwm-microchip-core.c | 436 +++++++++++++++++++++++++++++++
- 4 files changed, 448 insertions(+)
- create mode 100644 drivers/pwm/pwm-microchip-core.c
-
--- 
-2.38.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+KHJlc2VuZGluZyBhcyB0aGUgZmlyc3QgYW5zd2VyIHdhcyBzZW50IGluIEhUTUwsIHNvcnJ5KQoK
+T24gMTIvMjEvMjIgMDk6MDMsIHN5emJvdCB3cm90ZToKPiBIZWxsbywKPgo+IHN5emJvdCBmb3Vu
+ZCB0aGUgZm9sbG93aW5nIGlzc3VlIG9uOgo+Cj4gSEVBRCBjb21taXQ6ICAgIGViNjdkMjM5ZjNh
+YSBNZXJnZSB0YWcgJ3Jpc2N2LWZvci1saW51cy02LjItbXcxJyBvZiBnaXQ6Ly8uLgo+IGdpdCB0
+cmVlOiAgICAgICBnaXQ6Ly9naXQua2VybmVsLm9yZy9wdWIvc2NtL2xpbnV4L2tlcm5lbC9naXQv
+cmlzY3YvbGludXguZ2l0IGZpeGVzCj4gY29uc29sZSBvdXRwdXQ6IGh0dHBzOi8vc3l6a2FsbGVy
+LmFwcHNwb3QuY29tL3gvbG9nLnR4dD94PTE2NjcyNjgwNDgwMDAwCj4ga2VybmVsIGNvbmZpZzog
+IGh0dHBzOi8vc3l6a2FsbGVyLmFwcHNwb3QuY29tL3gvLmNvbmZpZz94PWJlMTA4YjViY2Y0ZWY4
+MzIKPiBkYXNoYm9hcmQgbGluazogaHR0cHM6Ly9zeXprYWxsZXIuYXBwc3BvdC5jb20vYnVnP2V4
+dGlkPTU3MDJmNDZiNWIyMmJkYjM4YjdlCj4gY29tcGlsZXI6ICAgICAgIHJpc2N2NjQtbGludXgt
+Z251LWdjYyAoRGViaWFuIDEwLjIuMS02KSAxMC4yLjEgMjAyMTAxMTAsIEdOVSBsZCAoR05VIEJp
+bnV0aWxzIGZvciBEZWJpYW4pIDIuMzUuMgo+IHVzZXJzcGFjZSBhcmNoOiByaXNjdjY0Cj4KPiBJ
+TVBPUlRBTlQ6IGlmIHlvdSBmaXggdGhlIGlzc3VlLCBwbGVhc2UgYWRkIHRoZSBmb2xsb3dpbmcg
+dGFnIHRvIHRoZSBjb21taXQ6Cj4gUmVwb3J0ZWQtYnk6IHN5emJvdCs1NzAyZjQ2YjViMjJiZGIz
+OGI3ZUBzeXprYWxsZXIuYXBwc3BvdG1haWwuY29tCj4KPiAtLS0tLS0tLS0tLS1bIGN1dCBoZXJl
+IF0tLS0tLS0tLS0tLS0KPiBXQVJOSU5HOiBDUFU6IDAgUElEOiAyNzYwIGF0IG1tL21lbW9yeS5j
+OjI2MzcgYXBwbHlfdG9fcG1kX3JhbmdlIG1tL21lbW9yeS5jOjI2MzcgW2lubGluZV0KCgpUaGlz
+IGxlYWRzIHRvIHRoZSBmb2xsb3dpbmc6CgppZiAoV0FSTl9PTl9PTkNFKHBtZF9sZWFmKCpwbWQp
+KSkKIMKgwqDCoCByZXR1cm4gLUVJTlZBTDsKCgo+IFdBUk5JTkc6IENQVTogMCBQSUQ6IDI3NjAg
+YXQgbW0vbWVtb3J5LmM6MjYzNyBhcHBseV90b19wdWRfcmFuZ2UgbW0vbWVtb3J5LmM6MjY4MCBb
+aW5saW5lXQo+IFdBUk5JTkc6IENQVTogMCBQSUQ6IDI3NjAgYXQgbW0vbWVtb3J5LmM6MjYzNyBh
+cHBseV90b19wNGRfcmFuZ2UgbW0vbWVtb3J5LmM6MjcxNiBbaW5saW5lXQo+IFdBUk5JTkc6IENQ
+VTogMCBQSUQ6IDI3NjAgYXQgbW0vbWVtb3J5LmM6MjYzNyBfX2FwcGx5X3RvX3BhZ2VfcmFuZ2Ur
+MHg5ODgvMHgxMjEyIG1tL21lbW9yeS5jOjI3NTAKPiBNb2R1bGVzIGxpbmtlZCBpbjoKPiBDUFU6
+IDAgUElEOiAyNzYwIENvbW06IGRoY3BjZCBOb3QgdGFpbnRlZCA2LjEuMC1zeXprYWxsZXItMTM2
+NjItZ2ViNjdkMjM5ZjNhYSAjMAo+IEhhcmR3YXJlIG5hbWU6IHJpc2N2LXZpcnRpbyxxZW11IChE
+VCkKPiBlcGMgOiBhcHBseV90b19wbWRfcmFuZ2UgbW0vbWVtb3J5LmM6MjYzNyBbaW5saW5lXQo+
+IGVwYyA6IGFwcGx5X3RvX3B1ZF9yYW5nZSBtbS9tZW1vcnkuYzoyNjgwIFtpbmxpbmVdCj4gZXBj
+IDogYXBwbHlfdG9fcDRkX3JhbmdlIG1tL21lbW9yeS5jOjI3MTYgW2lubGluZV0KPiBlcGMgOiBf
+X2FwcGx5X3RvX3BhZ2VfcmFuZ2UrMHg5ODgvMHgxMjEyIG1tL21lbW9yeS5jOjI3NTAKPiAgIHJh
+IDogYXBwbHlfdG9fcG1kX3JhbmdlIG1tL21lbW9yeS5jOjI2MzcgW2lubGluZV0KPiAgIHJhIDog
+YXBwbHlfdG9fcHVkX3JhbmdlIG1tL21lbW9yeS5jOjI2ODAgW2lubGluZV0KPiAgIHJhIDogYXBw
+bHlfdG9fcDRkX3JhbmdlIG1tL21lbW9yeS5jOjI3MTYgW2lubGluZV0KPiAgIHJhIDogX19hcHBs
+eV90b19wYWdlX3JhbmdlKzB4OTg4LzB4MTIxMiBtbS9tZW1vcnkuYzoyNzUwCj4gZXBjIDogZmZm
+ZmZmZmY4MDQyYWFjOCByYSA6IGZmZmZmZmZmODA0MmFhYzggc3AgOiBmZjIwMDAwMDA0ZDU3Mjkw
+Cj4gICBncCA6IGZmZmZmZmZmODVjZGQyODAgdHAgOiBmZjYwMDAwMDBlMjA2MjAwIHQwIDogZmY2
+MDAwMDAxMDk4OGEwMAo+ICAgdDEgOiAwMDAwMDAwMDAwMGYwMDAwIHQyIDogZmZmZmZmZmY4MDQ2
+MTZiNCBzMCA6IGZmMjAwMDAwMDRkNTczODAKPiAgIHMxIDogMDAwMDAwMDAwMDAwMDAwNiBhMCA6
+IDAwMDAwMDAwMDAwMDAwMDcgYTEgOiAwMDAwMDAwMDAwMGYwMDAwCj4gICBhMiA6IGZmZmZmZmZm
+ODA0MmFhYzggYTMgOiAwMDAwMDAwMDAwMDAwMDAyIGE0IDogZmY2MDAwMDAwZTIwNzIwMAo+ICAg
+YTUgOiAwMDAwMDAwMDAwMDAwMDAwIGE2IDogMDAwMDAwMDAwMDAwMDAwMyBhNyA6IDAwMDAwMDAw
+MDAwMDAwMDAKPiAgIHMyIDogZmZmZmZmZmVlZjAwMTAwMCBzMyA6IDAwMDAwMDAwMzcxMDAwZTcg
+czQgOiBmZjYwMDAwMDdhNjYwYmMwCj4gICBzNSA6IDAwMDAwMDAwMDAwMDEwMDAgczYgOiBmZmZm
+ZmZmZWVmMDAxMDAwIHM3IDogMDAwMDAwMDAwMDAwMDAwMQo+ICAgczggOiBmZmZmZmZmZjgwNGQ4
+NDg0IHM5IDogMDAwMDAwMDAwMDAwMDAwMCBzMTA6IGZmZmZmZmZlZWYwMDAwMDAKPiAgIHMxMTog
+MDAwMDAwMDAwMDAwMDAwMCB0MyA6IGZmZmZmZmZmZjNmM2YzMDAgdDQgOiBmZmZmZmZmZWYwYTA3
+YzcwCj4gICB0NSA6IGZmZmZmZmZlZjBhMDdjNzEgdDYgOiBmZjYwMDAwMDBlYmNjY2I4Cj4gc3Rh
+dHVzOiAwMDAwMDAwMDAwMDAwMTIwIGJhZGFkZHI6IDAwMDAwMDAwMDAwMDAwMDAgY2F1c2U6IDAw
+MDAwMDAwMDAwMDAwMDMKPiBbPGZmZmZmZmZmODA0MmIzODY+XSBhcHBseV90b19wYWdlX3Jhbmdl
+KzB4MzQvMHg0NiBtbS9tZW1vcnkuYzoyNzY5Cj4gWzxmZmZmZmZmZjgwNGQ4NzJhPl0ga2FzYW5f
+cG9wdWxhdGVfdm1hbGxvYysweDUyLzB4NWUgbW0va2FzYW4vc2hhZG93LmM6MzE1Cj4gWzxmZmZm
+ZmZmZjgwNDYxOWUwPl0gYWxsb2Nfdm1hcF9hcmVhKzB4NGE2LzB4MTYzNiBtbS92bWFsbG9jLmM6
+MTY0Nwo+IFs8ZmZmZmZmZmY4MDQ2MmRlMj5dIF9fZ2V0X3ZtX2FyZWFfbm9kZSsweDI3Mi8weDNi
+MCBtbS92bWFsbG9jLmM6MjUxNQo+IFs8ZmZmZmZmZmY4MDQ2OTE3Yz5dIF9fdm1hbGxvY19ub2Rl
+X3JhbmdlKzB4MjgwLzB4ZGI4IG1tL3ZtYWxsb2MuYzozMTg3Cj4gWzxmZmZmZmZmZjgwMDE5MmMw
+Pl0gYnBmX2ppdF9hbGxvY19leGVjKzB4NDYvMHg1MiBhcmNoL3Jpc2N2L25ldC9icGZfaml0X2Nv
+cmUuYzoxOTAKCgpIZXJlIHdlIGNhbiBzZWUgdGhhdCB3ZSBhcmUgYWxsb2NhdGluZyB0aGUgc2hh
+ZG93IG1lbW9yeSBmb3IgYSBCUEYgCnJlZ2lvbiB3aGljaCBpcyAqdm1hbGxvYy1iYWNrZWQqOiBi
+dXQgdGhlIGN1cnJlbnQgdXBzdHJlYW0gCmltcGxlbWVudGF0aW9uIGRvZXMgcG9wdWxhdGUgdGhl
+IEJQRiByZWdpb24gYXQgaW5pdGlhbGl6YXRpb24sIGl0IGRvZXMgCm5vdCBzaGFsbG93IHBvcHVs
+YXRlIGl0LiBBbmQgd2UgdHJ5IHRvIHVzZSBodWdlIHBhZ2VzIHdoZW4gcG9zc2libGUgc28gCnRo
+YXQgY2FuIHRyaWdnZXIgdGhpcyB3YXJuaW5nIGhlcmUuCgpUaGlzIGlzIHNvbWV0aGluZyB0aGF0
+IEkgZml4ZWQgaW4gdGhlIGZvbGxvd2luZyBzZXJpZXM6IApodHRwczovL3BhdGNod29yay5rZXJu
+ZWwub3JnL3Byb2plY3QvbGludXgtcmlzY3YvbGlzdC8/c2VyaWVzPTcwNTE1MCA6KQoKR2xhZCB0
+byBzZWUgc3l6Ym90IHJ1bm5pbmcgYWdhaW4sIHRoYW5rcwoKQWxleAoKCj4gWzxmZmZmZmZmZjgw
+MjgyZjEwPl0gYnBmX2ppdF9iaW5hcnlfYWxsb2MrMHg5Ni8weDEzYyBrZXJuZWwvYnBmL2NvcmUu
+YzoxMDI3Cj4gWzxmZmZmZmZmZjgwMDE5MDRjPl0gYnBmX2ludF9qaXRfY29tcGlsZSsweDg3YS8w
+eGE4YyBhcmNoL3Jpc2N2L25ldC9icGZfaml0X2NvcmUuYzoxMTIKPiBbPGZmZmZmZmZmODAyODRk
+NzY+XSBicGZfcHJvZ19zZWxlY3RfcnVudGltZSsweDFhMi8weDIyZSBrZXJuZWwvYnBmL2NvcmUu
+YzoyMTkxCj4gWzxmZmZmZmZmZjgyOGE2ODQwPl0gYnBmX21pZ3JhdGVfZmlsdGVyKzB4MjU4LzB4
+MmJlIG5ldC9jb3JlL2ZpbHRlci5jOjEyOTgKPiBbPGZmZmZmZmZmODI4YWNiZWM+XSBicGZfcHJl
+cGFyZV9maWx0ZXIrMHgxMGUvMHgxYjQgbmV0L2NvcmUvZmlsdGVyLmM6MTM0Ngo+IFs8ZmZmZmZm
+ZmY4MjhhY2ZiYz5dIF9fZ2V0X2ZpbHRlcisweDE0OC8weDFhMCBuZXQvY29yZS9maWx0ZXIuYzox
+NTE1Cj4gWzxmZmZmZmZmZjgyOGIzZTdjPl0gc2tfYXR0YWNoX2ZpbHRlcisweDIyLzB4MTFhIG5l
+dC9jb3JlL2ZpbHRlci5jOjE1MzAKPiBbPGZmZmZmZmZmODI3ZjFhZjQ+XSBza19zZXRzb2Nrb3B0
+KzB4MTQ0ZS8weDI3MGMgbmV0L2NvcmUvc29jay5jOjEyOTcKPiBbPGZmZmZmZmZmODI3ZjJkZmE+
+XSBzb2NrX3NldHNvY2tvcHQrMHg0OC8weDU4IG5ldC9jb3JlL3NvY2suYzoxNTQ5Cj4gWzxmZmZm
+ZmZmZjgyN2RmY2M4Pl0gX19zeXNfc2V0c29ja29wdCsweDNmMC8weDQxOCBuZXQvc29ja2V0LmM6
+MjI0Mgo+IFs8ZmZmZmZmZmY4MjdkZmQyYT5dIF9fZG9fc3lzX3NldHNvY2tvcHQgbmV0L3NvY2tl
+dC5jOjIyNTcgW2lubGluZV0KPiBbPGZmZmZmZmZmODI3ZGZkMmE+XSBzeXNfc2V0c29ja29wdCsw
+eDNhLzB4NGMgbmV0L3NvY2tldC5jOjIyNTQKPiBbPGZmZmZmZmZmODAwMDVmZjY+XSByZXRfZnJv
+bV9zeXNjYWxsKzB4MC8weDIKPiBpcnEgZXZlbnQgc3RhbXA6IDk0MAo+IGhhcmRpcnFzIGxhc3Qg
+IGVuYWJsZWQgYXQgKDkzOSk6IFs8ZmZmZmZmZmY4MzM5MDNiMD5dIF9fcmF3X3NwaW5fdW5sb2Nr
+X2lycXJlc3RvcmUgaW5jbHVkZS9saW51eC9zcGlubG9ja19hcGlfc21wLmg6MTUxIFtpbmxpbmVd
+Cj4gaGFyZGlycXMgbGFzdCAgZW5hYmxlZCBhdCAoOTM5KTogWzxmZmZmZmZmZjgzMzkwM2IwPl0g
+X3Jhd19zcGluX3VubG9ja19pcnFyZXN0b3JlKzB4NjgvMHg5OCBrZXJuZWwvbG9ja2luZy9zcGlu
+bG9jay5jOjE5NAo+IGhhcmRpcnFzIGxhc3QgZGlzYWJsZWQgYXQgKDk0MCk6IFs8ZmZmZmZmZmY4
+MDAxMDVlMD5dIF9fdHJhY2VfaGFyZGlycXNfb2ZmKzB4MTgvMHgyMCBhcmNoL3Jpc2N2L2tlcm5l
+bC90cmFjZV9pcnEuYzoyNQo+IHNvZnRpcnFzIGxhc3QgIGVuYWJsZWQgYXQgKDg4OCk6IFs8ZmZm
+ZmZmZmY4MzM5MTA3YT5dIHNvZnRpcnFfaGFuZGxlX2VuZCBrZXJuZWwvc29mdGlycS5jOjQxNCBb
+aW5saW5lXQo+IHNvZnRpcnFzIGxhc3QgIGVuYWJsZWQgYXQgKDg4OCk6IFs8ZmZmZmZmZmY4MzM5
+MTA3YT5dIF9fZG9fc29mdGlycSsweDY0MC8weDkzMCBrZXJuZWwvc29mdGlycS5jOjYwMAo+IHNv
+ZnRpcnFzIGxhc3QgZGlzYWJsZWQgYXQgKDg4Myk6IFs8ZmZmZmZmZmY4MDA2OTE5Mj5dIGRvX3Nv
+ZnRpcnFfb3duX3N0YWNrIGluY2x1ZGUvYXNtLWdlbmVyaWMvc29mdGlycV9zdGFjay5oOjEwIFtp
+bmxpbmVdCj4gc29mdGlycXMgbGFzdCBkaXNhYmxlZCBhdCAoODgzKTogWzxmZmZmZmZmZjgwMDY5
+MTkyPl0gaW52b2tlX3NvZnRpcnEga2VybmVsL3NvZnRpcnEuYzo0NTIgW2lubGluZV0KPiBzb2Z0
+aXJxcyBsYXN0IGRpc2FibGVkIGF0ICg4ODMpOiBbPGZmZmZmZmZmODAwNjkxOTI+XSBfX2lycV9l
+eGl0X3JjdSsweDE1NC8weDFlYSBrZXJuZWwvc29mdGlycS5jOjY1MAo+IC0tLVsgZW5kIHRyYWNl
+IDAwMDAwMDAwMDAwMDAwMDAgXS0tLQo+Cj4KPiAtLS0KPiBUaGlzIHJlcG9ydCBpcyBnZW5lcmF0
+ZWQgYnkgYSBib3QuIEl0IG1heSBjb250YWluIGVycm9ycy4KPiBTZWUgaHR0cHM6Ly9nb28uZ2wv
+dHBzbUVKIGZvciBtb3JlIGluZm9ybWF0aW9uIGFib3V0IHN5emJvdC4KPiBzeXpib3QgZW5naW5l
+ZXJzIGNhbiBiZSByZWFjaGVkIGF0IHN5emthbGxlckBnb29nbGVncm91cHMuY29tLgo+Cj4gc3l6
+Ym90IHdpbGwga2VlcCB0cmFjayBvZiB0aGlzIGlzc3VlLiBTZWU6Cj4gaHR0cHM6Ly9nb28uZ2wv
+dHBzbUVKI3N0YXR1cyBmb3IgaG93IHRvIGNvbW11bmljYXRlIHdpdGggc3l6Ym90Lgo+Cj4gX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPiBsaW51eC1yaXNj
+diBtYWlsaW5nIGxpc3QKPiBsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCj4gaHR0cDov
+L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgoKX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
+bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
+ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
