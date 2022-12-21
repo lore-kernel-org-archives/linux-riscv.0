@@ -4,84 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C3D3C4167B
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Dec 2022 00:31:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3AA8C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Dec 2022 01:17:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+KV5Y00nNYCDrpvjjL5WMiJz3gSWs0WCq/y6sCpD0HI=; b=mCJF2m1d6a9wmr
-	OUH64Rgua8sUN6nnU30CNZS9cFmYq+4bgS4YiMXR0XaoainZuW0BaZxqCkvqhCch9m54UNRxzRAPA
-	0C0kJgFe9KIUfLINE7ouKVcnnJZizdbu4FkKjKdPz7cqY0v0SQEUVkh2bvz+WvE3UIea8cV6DoNvQ
-	eBhFY9CmtmAGfZPQyecY3dzJztKOsZL5i4s2z1n5FZOJ68ePUUe9rHmcDEh+7wQSBg08nBfPh5CLX
-	GbWay0P4aXl2Ln+RjaxHy+3P7ygbKHPZ0k/PDrZFQXKoojAuI121uhEKW0l+JF9QB4wnyLoTSsDq/
-	cNZchEe+er4hv/Uc5yUA==;
+	List-Owner; bh=d1TKCNosfgrDunWG9caDDMvsuGahAx8grEueLZ79ZGo=; b=WajziDgY/Imp2U
+	gnOYvYZCdSTNo4g5csDv7L5r/2m1IBYJPxCsgpJZJL5eEnzgrg5H9uSIfvNN5Myav79GY6AOIo+Tp
+	Q5rWN9mAzDW7ef/p0B+ROc8JOWIt8VcqEejoopmD8CKttUNPdG/2a3f5Z9eoz9nAF0dPQEAcgaGZ6
+	GoLYP9/N+mpBNehFWOc8KD7EyApvxggPB35WBUvZ1gbfq6rK7/s372EbYtqCYgjIFbJlwh/cM9AZL
+	ZBIfkV7fBYxOUlVqSHaqxI/eDvChiMDR5ae6iHPMt1Cygcvx2q0K6nOepln+P3ks9l/4kq0GBabi/
+	3vlJUnD76/yVe8dEwh+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p7n1Q-006Qqv-DM; Wed, 21 Dec 2022 00:31:48 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p7n1N-006QoB-5l
-	for linux-riscv@lists.infradead.org; Wed, 21 Dec 2022 00:31:46 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id a1so4896221edf.5
-        for <linux-riscv@lists.infradead.org>; Tue, 20 Dec 2022 16:31:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=VCqofWIdcRE0wcGcSYV7leS63wz3iWTm3oh5pG3tFkc=;
-        b=ErTUjWAMWzlIL8k4rTRrQFek0BdgPOCmhnjqDcWpWtonCq6c1XTEGzH6sp4pn0lUxz
-         x3z+eUpewj90wgHmbPH3/EgJiZXLKuT8fltUObTY4ZeGXrqq/kCdICQ3ta3JYJ5w9lZv
-         LbmSdH44cxFZgLnTjl96cxPJ2vsx1QSRRkayQwawxQXDXEI+Bk7ncl5SlvTv1ZzF7MkD
-         hvQd2e+Lj3d/lA47bPPz0K0gUAmL5G6iHf5Qq/+uLYvDEb6vo03SWYNjyFgDVcwduge0
-         8B6c3GDvoK23djOrnLLEw9yfz0K/4tqWn/jPN+MkpoN8+Z+X8eMPEn8KSYBwXhg2klHU
-         K5/g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=VCqofWIdcRE0wcGcSYV7leS63wz3iWTm3oh5pG3tFkc=;
-        b=DD+l83WJWfZSLtVujE+rqCLKnIRKcSIT5uBlA9xcu2EzAY4GWgLeMEr+Z4Y/qYD+6I
-         mF325Ktb0Wy3bmldsyV4Li9YQbFNdUiV2QyLqe2WLIYWabTT5Yr2PlSczvIh2jNlOdeg
-         /DC/g9Uocjxtk0Ec2jUOfOBrhmcz1JyqhYGPJaqV85m1442GVwQ7Ix3byAS8yMPNISSq
-         w4z5neQm05CQRDeEEFmJCFUO5UlQ6CBdgb0jBkGGzhhl46zIcHWGh0RzG56NjRAZBDDv
-         vnnfLvVojk4pJcj73dpgVHfzi8NVbcpmrVMP48EhPEmArCPDvDewkYfoye2m0zoxvQLE
-         VO9w==
-X-Gm-Message-State: ANoB5pk25APculkNAx0FkD1h+4xzQsEtvlAKAYwNMKI0XaZW4gQdvo4l
-	s8gyqzE22XwKNYNE/ZGC/MyMucUAohuwslK5O+o=
-X-Google-Smtp-Source: AA0mqf7Vj4LDQTGT2qms5U1xLKxeAG3aN068iuTz4pDqzDHwntSg3DsFDaeiJD2ru6wqI5VUjpTXdMYzkArTY5MWRxQ=
-X-Received: by 2002:aa7:cc08:0:b0:461:8a43:e93 with SMTP id
- q8-20020aa7cc08000000b004618a430e93mr10657639edt.275.1671582702709; Tue, 20
- Dec 2022 16:31:42 -0800 (PST)
+	id 1p7nj5-006sdf-5v; Wed, 21 Dec 2022 01:16:55 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1p7nj1-006sUI-27
+	for linux-riscv@lists.infradead.org; Wed, 21 Dec 2022 01:16:54 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id DFDDC24DBBD;
+	Wed, 21 Dec 2022 09:16:18 +0800 (CST)
+Received: from EXMBX173.cuchost.com (172.16.6.93) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 21 Dec
+ 2022 09:16:18 +0800
+Received: from [192.168.120.49] (171.223.208.138) by EXMBX173.cuchost.com
+ (172.16.6.93) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 21 Dec
+ 2022 09:16:17 +0800
+Message-ID: <e79a71d0-ba97-16ca-1e90-60dbfb701cf3@starfivetech.com>
+Date: Wed, 21 Dec 2022 09:16:17 +0800
 MIME-Version: 1.0
-References: <20221212115505.36770-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20221212115505.36770-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <Y54ycZdMLjU5QVn5@spud> <CA+V-a8sa1H=Hh2SzbKDWhiAO=C+Y2YN7sk9APBeqktBeHf49jA@mail.gmail.com>
- <Y6CPQWHrPLk1O6jB@spud>
-In-Reply-To: <Y6CPQWHrPLk1O6jB@spud>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Wed, 21 Dec 2022 00:31:16 +0000
-Message-ID: <CA+V-a8sZeFgbUuuxHmXGEMKoayB02K22dZuw0TZHHv36UcdcVw@mail.gmail.com>
-Subject: Re: [PATCH v5 3/6] riscv: errata: Add Andes alternative ports
-To: Conor Dooley <conor@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Magnus Damm <magnus.damm@gmail.com>, Heiko Stuebner <heiko@sntech.de>, 
-	Conor Dooley <conor.dooley@microchip.com>, Samuel Holland <samuel@sholland.org>, 
-	Guo Ren <guoren@kernel.org>, Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Jisheng Zhang <jszhang@kernel.org>, 
-	Atish Patra <atishp@rivosinc.com>, Anup Patel <apatel@ventanamicro.com>, 
-	Andrew Jones <ajones@ventanamicro.com>, Nathan Chancellor <nathan@kernel.org>, 
-	Philipp Tomsich <philipp.tomsich@vrull.eu>, devicetree@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.6.0
+Subject: Re: [PATCH v2 6/9] net: phy: motorcomm: Add YT8531 phy support
+To: Heiner Kallweit <hkallweit1@gmail.com>, <linux-riscv@lists.infradead.org>,
+	<netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+CC: "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+	<edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
+	Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
+	Peter Geis <pgwipeout@gmail.com>
+References: <20221216070632.11444-1-yanhong.wang@starfivetech.com>
+ <20221216070632.11444-7-yanhong.wang@starfivetech.com>
+ <2542ec57-9de7-880c-c0d4-35f0aef738bc@gmail.com>
+Content-Language: en-US
+From: yanhong wang <yanhong.wang@starfivetech.com>
+In-Reply-To: <2542ec57-9de7-880c-c0d4-35f0aef738bc@gmail.com>
+X-Originating-IP: [171.223.208.138]
+X-ClientProxiedBy: EXCAS061.cuchost.com (172.16.6.21) To EXMBX173.cuchost.com
+ (172.16.6.93)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221220_163145_251535_72CF7722 
-X-CRM114-Status: GOOD (  34.50  )
+X-CRM114-CacheID: sfid-20221220_171651_620881_07931D95 
+X-CRM114-Status: GOOD (  25.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,73 +80,319 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
 
-On Mon, Dec 19, 2022 at 4:20 PM Conor Dooley <conor@kernel.org> wrote:
->
-> On Mon, Dec 19, 2022 at 11:19:13AM +0000, Lad, Prabhakar wrote:
-> > Hi Conor,
-> >
-> > Thank you for the review.
-> >
-> > On Sat, Dec 17, 2022 at 9:19 PM Conor Dooley <conor@kernel.org> wrote:
-> > >
-> > > On Mon, Dec 12, 2022 at 11:55:02AM +0000, Prabhakar wrote:
-> > > > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> > > >
-> > > > Add required ports of the Alternative scheme for Andes CPU cores.
-> > > >
-> > > > I/O Coherence Port (IOCP) provides an AXI interface for connecting external
-> > > > non-caching masters, such as DMA controllers. IOCP is a specification
-> > > > option and is disabled on the Renesas RZ/Five SoC due to this reason cache
-> > > > management needs a software workaround.
-> > > >
-> > > > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> > > > ---
-> > > > v4 -> v5
-> > > > * Sorted the Kconfig/Makefile/Switch based on Core name
-> > > > * Added a comments
-> > > > * Introduced RZFIVE_SBI_EXT_IOCP_SW_WORKAROUND SBI EXT ID to check if
-> > > >   CMO needs to be applied. Is there a way we can access the DTB while patching
-> > > >   as we can drop this SBI EXT ID and add a DT property instead for cmo?
-> > > >
-<snip>
-> > > Seeing as you need a new version for some of the other bits, I think it
-> > > would be good to add a minor comment here somewhere (be it here or the
-> > > commit message) that links to the SBI specs for this.
-> > > I think this looks pretty good though.
-> > Sure I'll add a comment here.
-> >
-> > I was wondering if we can get rid of this vendor specific extension
-> > here if we get access to the DT here (for example having a DT property
-> > which would indicate if IOCP CMO should be applied or not). Do you
-> > think that would be good approach?  ATM we dont have a pointer here
-> > for FDT whie early patching.
->
-> I dunno. I think it is fine to use the ECALL to be honest - I'd rather
-> that than a property that someone may omit.
->
-Ok, I was so I will stick with the current implementation.
 
-> That said, for the cache management stuff we are gonna need for
-> PolarFire SoC, we will need to have info from the DT AFAICT - marchid
-> etc are all set to zero on our platform so cannot be used.
->
-Aha so while patching you will need a pointer to FDT node.
+On 2022/12/16 19:58, Heiner Kallweit wrote:
+> On 16.12.2022 08:06, Yanhong Wang wrote:
+>> This adds basic support for the Motorcomm YT8531
+>> Gigabit Ethernet PHY.
+>> 
+>> Signed-off-by: Yanhong Wang <yanhong.wang@starfivetech.com>
+>> ---
+>>  drivers/net/phy/Kconfig     |   3 +-
+>>  drivers/net/phy/motorcomm.c | 202 ++++++++++++++++++++++++++++++++++++
+>>  2 files changed, 204 insertions(+), 1 deletion(-)
+>> 
+>> diff --git a/drivers/net/phy/Kconfig b/drivers/net/phy/Kconfig
+>> index c57a0262fb64..86399254d9ff 100644
+>> --- a/drivers/net/phy/Kconfig
+>> +++ b/drivers/net/phy/Kconfig
+>> @@ -258,9 +258,10 @@ config MICROSEMI_PHY
+>>  
+>>  config MOTORCOMM_PHY
+>>  	tristate "Motorcomm PHYs"
+>> +	default SOC_STARFIVE
+> 
+> Both are completely independent. This default should be removed.
+> 
+>>  	help
+>>  	  Enables support for Motorcomm network PHYs.
+>> -	  Currently supports the YT8511 gigabit PHY.
+>> +	  Currently supports the YT8511 and YT8531 gigabit PHYs.
+>>  
+> 
+> This doesn't apply. Parts of your patch exist already in net-next.
+> Support for YT8531S has been added in the meantime. Please rebase
+> your patch on net-next and annotate your patch as net-next.
+> 
 
-> I was thinking about using the compatible instead, but...
-> we've not tried to "forward"-port our stuff from 5.15 yet as we have
-> not yet completed testing testing on our vendor tree (and need some PCI
-> changes accepted upstream first anyway), as a result I have not looked
-> into what's needed there for use with alternatives. We've been using a
-> pre-alternatives version of that patchset from around the 5.15
-> development point in time instead.
->
-Good to know. Let me know if you plan to implement the patching
-mechanism based on FDT soon. I can give it a test.
+Thanks. Parts of this patch exist already, after discussion unanimity was achieved,
+i will remove the parts of YT8531 in the next version.
 
-Cheers,
-Prabhakar
+>>  config NATIONAL_PHY
+>>  	tristate "National Semiconductor PHYs"
+>> diff --git a/drivers/net/phy/motorcomm.c b/drivers/net/phy/motorcomm.c
+>> index 7e6ac2c5e27e..bca03185b338 100644
+>> --- a/drivers/net/phy/motorcomm.c
+>> +++ b/drivers/net/phy/motorcomm.c
+>> @@ -3,13 +3,17 @@
+>>   * Driver for Motorcomm PHYs
+>>   *
+>>   * Author: Peter Geis <pgwipeout@gmail.com>
+>> + *
+>>   */
+>>  
+>> +#include <linux/bitops.h>
+>>  #include <linux/kernel.h>
+>>  #include <linux/module.h>
+>> +#include <linux/of.h>
+>>  #include <linux/phy.h>
+>>  
+>>  #define PHY_ID_YT8511		0x0000010a
+>> +#define PHY_ID_YT8531		0x4f51e91b
+>>  
+>>  #define YT8511_PAGE_SELECT	0x1e
+>>  #define YT8511_PAGE		0x1f
+>> @@ -17,6 +21,10 @@
+>>  #define YT8511_EXT_DELAY_DRIVE	0x0d
+>>  #define YT8511_EXT_SLEEP_CTRL	0x27
+>>  
+>> +#define YTPHY_EXT_SMI_SDS_PHY		0xa000
+>> +#define YTPHY_EXT_CHIP_CONFIG		0xa001
+>> +#define YTPHY_EXT_RGMII_CONFIG1	0xa003
+>> +
+>>  /* 2b00 25m from pll
+>>   * 2b01 25m from xtl *default*
+>>   * 2b10 62.m from pll
+>> @@ -38,6 +46,51 @@
+>>  #define YT8511_DELAY_FE_TX_EN	(0xf << 12)
+>>  #define YT8511_DELAY_FE_TX_DIS	(0x2 << 12)
+>>  
+>> +struct ytphy_reg_field {
+>> +	char *name;
+>> +	u32 mask;
+>> +	u8	dflt;	/* Default value */
+>> +};
+>> +
+>> +struct ytphy_priv_t {
+>> +	u32 tx_inverted_1000;
+>> +	u32 tx_inverted_100;
+>> +	u32 tx_inverted_10;
+>> +};
+>> +
+>> +/* rx_delay_sel: RGMII rx clock delay train configuration, about 150ps per
+>> + *               step. Delay = 150ps * N
+>> + *
+>> + * tx_delay_sel_fe: RGMII tx clock delay train configuration when speed is
+>> + *                  100Mbps or 10Mbps, it's 150ps per step. Delay = 150ps * N
+>> + *
+>> + * tx_delay_sel: RGMII tx clock delay train configuration when speed is
+>> + *               1000Mbps, it's 150ps per step. Delay = 150ps * N
+>> + */
+>> +static const struct ytphy_reg_field ytphy_rxtxd_grp[] = {
+>> +	{ "rx_delay_sel", GENMASK(13, 10), 0x0 },
+>> +	{ "tx_delay_sel_fe", GENMASK(7, 4), 0xf },
+>> +	{ "tx_delay_sel", GENMASK(3, 0), 0x1 }
+>> +};
+>> +
+>> +/* tx_inverted_x: Use original or inverted RGMII TX_CLK to drive the RGMII
+>> + *                TX_CLK delay train configuration when speed is
+>> + *                xMbps(10/100/1000Mbps).
+>> + *                0: original,  1: inverted
+>> + */
+>> +static const struct ytphy_reg_field ytphy_txinver_grp[] = {
+>> +	{ "tx_inverted_1000", BIT(14), 0x0 },
+>> +	{ "tx_inverted_100", BIT(14), 0x0 },
+>> +	{ "tx_inverted_10", BIT(14), 0x0 }
+> 
+> Copy & Paste error that mask is the same for all entries?
+> 
+>> +};
+>> +
+>> +/* rxc_dly_en: RGMII clk 2ns delay control bit.
+>> + *             0: disable   1: enable
+>> + */
+>> +static const struct ytphy_reg_field ytphy_rxden_grp[] = {
+>> +	{ "rxc_dly_en", BIT(8), 0x1 }
+>> +};
+>> +
+>>  static int yt8511_read_page(struct phy_device *phydev)
+>>  {
+>>  	return __phy_read(phydev, YT8511_PAGE_SELECT);
+>> @@ -48,6 +101,33 @@ static int yt8511_write_page(struct phy_device *phydev, int page)
+>>  	return __phy_write(phydev, YT8511_PAGE_SELECT, page);
+>>  };
+>>  
+>> +static int ytphy_read_ext(struct phy_device *phydev, u32 regnum)
+>> +{
+>> +	int ret;
+>> +	int val;
+>> +
+>> +	ret = __phy_write(phydev, YT8511_PAGE_SELECT, regnum);
+>> +	if (ret < 0)
+>> +		return ret;
+>> +
+>> +	val = __phy_read(phydev, YT8511_PAGE);
+>> +
+>> +	return val;
+>> +}
+>> +
+>> +static int ytphy_write_ext(struct phy_device *phydev, u32 regnum, u16 val)
+>> +{
+>> +	int ret;
+>> +
+>> +	ret = __phy_write(phydev, YT8511_PAGE_SELECT, regnum);
+>> +	if (ret < 0)
+>> +		return ret;
+>> +
+>> +	ret = __phy_write(phydev, YT8511_PAGE, val);
+>> +
+>> +	return ret;
+>> +}
+>> +
+>>  static int yt8511_config_init(struct phy_device *phydev)
+>>  {
+>>  	int oldpage, ret = 0;
+>> @@ -111,6 +191,116 @@ static int yt8511_config_init(struct phy_device *phydev)
+>>  	return phy_restore_page(phydev, oldpage, ret);
+>>  }
+>>  
+>> +static int ytphy_config_init(struct phy_device *phydev)
+>> +{
+>> +	struct device_node *of_node;
+>> +	u32 val;
+>> +	u32 mask;
+>> +	u32 cfg;
+>> +	int ret;
+>> +	int i = 0;
+>> +
+>> +	of_node = phydev->mdio.dev.of_node;
+>> +	if (of_node) {
+>> +		ret = of_property_read_u32(of_node, ytphy_rxden_grp[0].name, &cfg);
+>> +		if (!ret) {
+>> +			mask = ytphy_rxden_grp[0].mask;
+>> +			val = ytphy_read_ext(phydev, YTPHY_EXT_CHIP_CONFIG);
+>> +
+>> +			/* check the cfg overflow or not */
+>> +			cfg = cfg > mask >> (ffs(mask) - 1) ? mask : cfg;
+>> +
+>> +			val &= ~mask;
+>> +			val |= FIELD_PREP(mask, cfg);
+>> +			ytphy_write_ext(phydev, YTPHY_EXT_CHIP_CONFIG, val);
+> 
+> This is the unlocked version. MDIO bus locking is missing.
+> 
+>> +		}
+>> +
+>> +		val = ytphy_read_ext(phydev, YTPHY_EXT_RGMII_CONFIG1);
+>> +		for (i = 0; i < ARRAY_SIZE(ytphy_rxtxd_grp); i++) {
+>> +			ret = of_property_read_u32(of_node, ytphy_rxtxd_grp[i].name, &cfg);
+>> +			if (!ret) {
+>> +				mask = ytphy_rxtxd_grp[i].mask;
+>> +
+>> +				/* check the cfg overflow or not */
+>> +				cfg = cfg > mask >> (ffs(mask) - 1) ? mask : cfg;
+>> +
+>> +				val &= ~mask;
+>> +				val |= cfg << (ffs(mask) - 1);
+>> +			}
+>> +		}
+>> +		return ytphy_write_ext(phydev, YTPHY_EXT_RGMII_CONFIG1, val);
+>> +	}
+>> +
+>> +	phydev_err(phydev, "Get of node fail\n");
+>> +
+> 
+> Please consider that the PHY may be used on non-DT systems.
+> 
+>> +	return -EINVAL;
+>> +}
+>> +
+>> +static void ytphy_link_change_notify(struct phy_device *phydev)
+>> +{
+>> +	u32 val;
+>> +	struct ytphy_priv_t *ytphy_priv = phydev->priv;
+>> +
+>> +	if (phydev->speed < 0)
+>> +		return;
+>> +
+>> +	val = ytphy_read_ext(phydev, YTPHY_EXT_RGMII_CONFIG1);
+>> +	switch (phydev->speed) {
+>> +	case SPEED_1000:
+>> +		val  &= ~ytphy_txinver_grp[0].mask;
+>> +		val |= FIELD_PREP(ytphy_txinver_grp[0].mask,
+>> +				ytphy_priv->tx_inverted_1000);
+>> +		break;
+>> +
+>> +	case SPEED_100:
+>> +		val  &= ~ytphy_txinver_grp[1].mask;
+>> +		val |= FIELD_PREP(ytphy_txinver_grp[1].mask,
+>> +				ytphy_priv->tx_inverted_100);
+>> +		break;
+>> +
+>> +	case SPEED_10:
+>> +		val  &= ~ytphy_txinver_grp[2].mask;
+>> +		val |= FIELD_PREP(ytphy_txinver_grp[2].mask,
+>> +				ytphy_priv->tx_inverted_10);
+>> +		break;
+>> +
+>> +	default:
+>> +		break;
+>> +	}
+>> +
+>> +	ytphy_write_ext(phydev, YTPHY_EXT_RGMII_CONFIG1, val);
+>> +}
+>> +
+>> +static int yt8531_probe(struct phy_device *phydev)
+>> +{
+>> +	struct ytphy_priv_t *priv;
+>> +	const struct device_node *of_node;
+>> +	u32 val;
+>> +	int ret;
+>> +
+>> +	priv = devm_kzalloc(&phydev->mdio.dev, sizeof(*priv), GFP_KERNEL);
+>> +	if (!priv)
+>> +		return -ENOMEM;
+>> +
+>> +	of_node = phydev->mdio.dev.of_node;
+>> +	if (of_node) {
+>> +		ret = of_property_read_u32(of_node, ytphy_txinver_grp[0].name, &val);
+>> +		if (!ret)
+>> +			priv->tx_inverted_1000 = val;
+>> +
+>> +		ret = of_property_read_u32(of_node, ytphy_txinver_grp[1].name, &val);
+>> +		if (!ret)
+>> +			priv->tx_inverted_100 = val;
+>> +
+>> +		ret = of_property_read_u32(of_node, ytphy_txinver_grp[2].name, &val);
+>> +		if (!ret)
+>> +			priv->tx_inverted_10 = val;
+>> +	}
+>> +	phydev->priv = priv;
+>> +
+>> +	return 0;
+>> +}
+>> +
+>>  static struct phy_driver motorcomm_phy_drvs[] = {
+>>  	{
+>>  		PHY_ID_MATCH_EXACT(PHY_ID_YT8511),
+>> @@ -120,6 +310,17 @@ static struct phy_driver motorcomm_phy_drvs[] = {
+>>  		.resume		= genphy_resume,
+>>  		.read_page	= yt8511_read_page,
+>>  		.write_page	= yt8511_write_page,
+>> +	}, {
+>> +		PHY_ID_MATCH_EXACT(PHY_ID_YT8531),
+>> +		.name		= "YT8531 Gigabit Ethernet",
+>> +		.probe		= yt8531_probe,
+>> +		.config_init	= ytphy_config_init,
+>> +		.read_status	= genphy_read_status,
+>> +		.suspend	= genphy_suspend,
+>> +		.resume		= genphy_resume,
+>> +		.read_page	= yt8511_read_page,
+>> +		.write_page	= yt8511_write_page,
+>> +		.link_change_notify = ytphy_link_change_notify,
+>>  	},
+>>  };
+>>  
+>> @@ -131,6 +332,7 @@ MODULE_LICENSE("GPL");
+>>  
+>>  static const struct mdio_device_id __maybe_unused motorcomm_tbl[] = {
+>>  	{ PHY_ID_MATCH_EXACT(PHY_ID_YT8511) },
+>> +	{ PHY_ID_MATCH_EXACT(PHY_ID_YT8531) },
+>>  	{ /* sentinal */ }
+>>  };
+>>  
+> 
 
 _______________________________________________
 linux-riscv mailing list
