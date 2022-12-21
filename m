@@ -4,72 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC913C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Dec 2022 17:40:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DB03C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Dec 2022 18:42:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BNJ66/rXocjs7O0vDwxR1HsZJrNDyeeNTNLZG+U+ipU=; b=XqHzCBmK8/Ttbv
-	BMJbNVopXD3K9A/TpyBzC99JrrRE0dYyebTLkwmKPrgZi9sRDabGrNDfNBBoZ+fe9yQmdv96UxEaq
-	iuruWZE2Ge6A38+g/f0RdSs4zINAhLu52aIPsOJBkki30UWDEsN4uqSlbvQ+WkUBVlDm9bqegzFT5
-	4RbjYUCODMuZu0nJU4xxoSqJFrP3D8kTagtWWNCIsjRav2dnYInweXu/gyVbl7g/j9HHm7v38U3Cs
-	TgooeL4mSvFSZi0fKTT9QznwqeRT5VhL3rxCitTik3c9tk9MkMEeKR+pY62YF9JVPR36Wq8i4E12D
-	xDX8c+YVGGC4S0tyQCtg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nEFXY4N1iE69WQIvKsiSflJiS34SLXAP17dWXPkZfK0=; b=ayOs9OtJrWMSjvmcriK5x1kV++
+	dI7fhXDILug/6CdolWdD4nvcoaCPFaRdLzzlVkMKyRmK5fBjFLh4F4uJagI/FB8I/4uWB806MZ4KO
+	kEJ+jbBwjzRvJ8Q8SoYsbbeV+Tgcq0y9X80vToiNjgUSgXlKf8GI/dmcp+0H+926PFXDS6Bvr5cOm
+	5uV551nd+Sx2vshn6VAP3u1JRovrRIc6g+HwNgYyS366XJRAfGSFLg40C/caDl7fcDAxYkKwspC+c
+	w2bWlaM5UGrD8zMxA2elK3Zpvy+oCC0ol75c4WfLWRnyca8E0kTzH/Ru/DaDDUuGUG93QVCzQsUOY
+	WrYYQ1qQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p834i-00Hb7k-CK; Wed, 21 Dec 2022 17:40:16 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1p842V-000gb6-Dn; Wed, 21 Dec 2022 18:42:03 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p833s-00HaWx-Ir
-	for linux-riscv@lists.infradead.org; Wed, 21 Dec 2022 17:39:26 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id f18so15680639wrj.5
-        for <linux-riscv@lists.infradead.org>; Wed, 21 Dec 2022 09:39:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=fR1kbCDUkA9DvVzs/WSk5pBrfny7Vm/0ugw0mQRZKMc=;
-        b=UcpPcCzlTg6O7p4UU3mS50/UlE8ElDXkJVzXxNw0j+PVmRIF0GJYY5QeDNHyqDQ5Pg
-         /SgFNijVGIjIyqOosw9KjkqPExMt6fmY5lCSSmz2zj2r6skVbDAhUTvGB7qAjK2h1qrl
-         hRCi2YmDlYSGUZPn2H1uMzIi2RpwhkkQtyWTlivZR89oX1dAk4QZtY0FQyNrprEu0tUy
-         q9LTJ9yPDZ5NZn8xOGFgdjU0k2pp5tUmutGqzdYTOoKlKCgbLy0kFmyQd3IYdqLlaUIE
-         d0+DpYfwK3ZxbyTHts4i+oJAn96CpHlR+ZF9sVSZz2EJ7bEdLNFx6a9ng5Zz01SggLv8
-         Xesw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=fR1kbCDUkA9DvVzs/WSk5pBrfny7Vm/0ugw0mQRZKMc=;
-        b=L4iv8IHv0UqYsxQS0E8/69lpNubDXRBv3m9hj6Mqv5yYricpBT2UBiQfFlUjsiprMd
-         7nz15Wd8ABg5hR35NJMRn3k4eG3S0O2K3rJ3DPQvEsSmCFs7+lHCfZYts3wwd3e7aRzl
-         pxAcq3oMXr7R5ApHEuFPr9w7gvWlNMlrBY5Wbl9HXuDfNgX2rPGMlD4EX54oBICo/6CZ
-         /gBushEnhVgJFGZQAhlm8gU7iCgExHK1rCSJ8coeDfP7EoKRJXFYK/1MBL9+ul9DT1Yw
-         CufMNqNrgHIapSXYRoC1rm8drddbAPUWpwSqyDKfi5zrUd1ROBcajVmrM7hzFmo7jFj/
-         8H+w==
-X-Gm-Message-State: AFqh2koiibm+s1nsIn05dD6GMXW0vkaB9MtvGDDS/mqIgr4aKiBxht8h
-	0EebEbhN0S6GfXWtpG01g68qrB8wMrLDx0mUtZikgg==
-X-Google-Smtp-Source: AMrXdXvwgkUIHGbRYtwbc3maX91bHhDzczQHQxN9LoNIF9j0O3LJznArds+7tZrUlrS1lITiA7W8NoNZMQJhR8axU6w=
-X-Received: by 2002:adf:eb09:0:b0:242:739d:7f85 with SMTP id
- s9-20020adfeb09000000b00242739d7f85mr75763wrn.407.1671644354463; Wed, 21 Dec
- 2022 09:39:14 -0800 (PST)
+	id 1p83vK-000cV6-GU
+	for linux-riscv@lists.infradead.org; Wed, 21 Dec 2022 18:34:41 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by sin.source.kernel.org (Postfix) with ESMTPS id 1E7ACCE186C;
+	Wed, 21 Dec 2022 18:34:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DFEFEC433D2;
+	Wed, 21 Dec 2022 18:34:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1671647674;
+	bh=GLQhx6ZsY4SD9oYGE61vA0bMJIWaIN9/Bpd6KhS6yto=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=B5xCodok5Yfi/CZNdnpp0LeTqVEGGhrIm9/txEPfaaLKgZEwMJ9N3LZpOwCzzCnRA
+	 3Q2AlW/rwu+GXHbnZIMqfNPBFGzy65XTvqqXe9T1nRmrNo7E+NDbCBh9AIurKIaBGt
+	 kbTCA0WmPqfz4fN6Jgh3G3tbAEgmemN/pu7l6dnBGyCMbkxwxJOVHaMQUugOd0kaGR
+	 r6eYpWV7UAoWox9H/HhYMUFLtTlTsCvHVKQtgvWE8cW+rBU4Ym9PWRHbhkk1nXOjiu
+	 iw5KeULExl/GDN2teDUEghV7CUHQFc7zkTsKDjc442dCUS/aaxEwC9gcpXvFmmBXeo
+	 iu55gXOLHXRzA==
+Date: Wed, 21 Dec 2022 18:34:30 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: Ruinland Tsai <ruinland.tsai@sifive.com>,
+	linux-riscv@lists.infradead.org, greentime.hu@sifive.com,
+	kito.cheng@sifive.com, palmer: dabbelt.com@spud, heiko@sntech.de;
+Subject: Re: [RFC PATCH 0/1] About adding new Z extensions in ISA realization
+Message-ID: <Y6NRtvkmhieBcZYg@spud>
+References: <20221220120236.219804-1-ruinland.tsai@sifive.com>
+ <Y6GsTZRw3Tu6wAGZ@wendy>
 MIME-Version: 1.0
-References: <20221216185012.2342675-1-abdulras@google.com> <CAEUhbmUsFt0H-Dd3XHjuk6sUq0hrV9SFU=1jD2LQ10xywZOZiA@mail.gmail.com>
-In-Reply-To: <CAEUhbmUsFt0H-Dd3XHjuk6sUq0hrV9SFU=1jD2LQ10xywZOZiA@mail.gmail.com>
-From: Saleem Abdulrasool <abdulras@google.com>
-Date: Wed, 21 Dec 2022 09:39:02 -0800
-Message-ID: <CAO8XFHv_wV_oSuS+e412yr6vjm-44Vf2gJuMO4FvgPeodhWQww@mail.gmail.com>
-Subject: Re: [PATCH] riscv: avoid enabling vectorized code generation
-To: Bin Meng <bmeng.cn@gmail.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
+In-Reply-To: <Y6GsTZRw3Tu6wAGZ@wendy>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221221_093924_675288_BB904654 
-X-CRM114-Status: GOOD (  24.78  )
+X-CRM114-CacheID: sfid-20221221_103438_964012_55A61B5D 
+X-CRM114-Status: GOOD (  44.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,76 +68,153 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============0702830359737915275=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 21, 2022 at 8:17 AM Bin Meng <bmeng.cn@gmail.com> wrote:
->
-> Hi,
->
-> On Sat, Dec 17, 2022 at 3:12 AM Saleem Abdulrasool <abdulras@google.com> wrote:
-> >
-> > The compiler is free to generate vectorized operations for zero'ing
-> > memory.  The kernel does not use the vector unit on RISCV, similar to
-> > architectures such as x86 where we use `-mno-mmx` et al to prevent the
-> > implicit vectorization.  Perform a similar check for
-> > `-mno-implicit-float` to avoid this on RISC-V targets.
-> >
-> > Signed-off-by: Saleem Abdulrasool <abdulras@google.com>
-> > ---
-> >  arch/riscv/Makefile | 4 ++++
-> >  1 file changed, 4 insertions(+)
-> >
-> > diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-> > index 0d13b597cb55..68433476a96e 100644
-> > --- a/arch/riscv/Makefile
-> > +++ b/arch/riscv/Makefile
-> > @@ -89,6 +89,10 @@ KBUILD_AFLAGS_MODULE += $(call as-option,-Wa$(comma)-mno-relax)
-> >  # architectures.  It's faster to have GCC emit only aligned accesses.
-> >  KBUILD_CFLAGS += $(call cc-option,-mstrict-align)
-> >
-> > +# Ensure that we do not vectorize the kernel code when the `v` extension is
-> > +# enabled.  This mirrors the `-mno-mmx` et al on x86.
-> > +KBUILD_CFLAGS += $(call cc-option,-mno-implicit-float)
->
-> This looks like an LLVM flag, but not GCC.
 
-Correct, this is a clang flag, though I imagine that GCC will need a
-similar flag once it receives support for the V extension.
-
-> Can you elaborate what exact combination (compiler flag and source)
-> would cause an issue?
-
-The particular case that I was using was simply `clang -target
-riscv64-unknown-linux-musl -march=rv64gcv` off of main.
-
-> From your description, I guess it's that when enabling V extension in
-> LLVM, the compiler tries to use vector instructions to zero memory,
-> correct?
-
-Correct.
-
-> Can you confirm LLVM does not emit any float instructions (like F/D
-> extensions) because the flag name suggests something like "float"?
-
-The `-mno-implicit-float` should disable any such emission.  I assume
-that you are worried about the case without the flag?  I'm not 100%
-certain without this flag, but the RISCV build with this flag has been
-running smoothly locally for a while.
+--===============0702830359737915275==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="3foY3q0mlz2Il6+V"
+Content-Disposition: inline
 
 
-> > +
-> >  ifeq ($(CONFIG_STACKPROTECTOR_PER_TASK),y)
-> >  prepare: stack_protector_prepare
-> >  stack_protector_prepare: prepare0
-> > --
->
-> Regards,
-> Bin
+--3foY3q0mlz2Il6+V
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hey again...
+
++CC Palmer & Heiko like I meant to last time around...
+
+On Tue, Dec 20, 2022 at 12:36:29PM +0000, Conor Dooley wrote:
+> On Tue, Dec 20, 2022 at 12:02:35PM +0000, Ruinland Tsai wrote:
+> > Dear all,
+> > I am wondering about what is the policy on adding new multilettered
+> > extensions into the ISA realization mechanism ?
+>=20
+> There's already been a few added, so it's largely a case of
+> rinse-and-repeat?
+>=20
+> > Currently we have plenty ratified exntensions left un-added, and some
+> > of them are already being used frequently
+>=20
+> Which in-the-wild SoCs actually have support for the unsupported
+> extensions, out of curiosity? It'd be nice to have one with zbb support
+> at the very least.
+>=20
+> > such as the B extension
+> > family - - namely, the zba, zbb, zbc, and zbs.
+>=20
+> Heiko has been working on incorporating zbb support here:
+> https://lore.kernel.org/linux-riscv/20221130225614.1594256-1-heiko@sntech=
+=2Ede/#t
+>=20
+> The first half of this patchset is likely to be applied immediately
+> after -rc1. That half has been split out and is here:
+> https://lore.kernel.org/all/20221207180821.2479987-1-heiko@sntech.de/
+>=20
+> Clearly though that's trying to use zbb in the kernel so is not quite
+> the same as what you are doing here with just adding them to the various
+> structs.
+>=20
+> There was another patchset in June (ignore my & Samuel's confusion about
+> ordering, that's been resolved since) that added some HWCAP stuff for a
+> superset of the extensions you've mentioned here:
+> https://lore.kernel.org/linux-riscv/YqY0i22SdbHjB%2FMX@Sun/
+> That'd need a rebase to apply on current code anyway (and I'd prefer if
+> my patches cleaning up the ordering in those structs got applied before
+> we add more extensions "out of order" to them!)
+>=20
+> There's also been discussion about whether it is sustainable to keep
+> adding stuff to hwcap like this, but I have not been able to find the
+> particular ML posts for that. Palmer spun up a PoC for a syscall & Heiko
+> has said he would look into following up on that work after the inital
+> zbb stuff was ready.
+
+I didn't find the patches but I also didn't look very intently. It's
+here though if you'd like to check it out:
+https://git.kernel.org/pub/scm/linux/kernel/git/palmer/linux.git/log/?h=3Dr=
+iscv-hwprobe-v1
+IIRC it doesn't actually compile in that state though.
+
+> The Higher Powers^TM will have to comment on what the policy is with
+> adding more extensions in the interim. I'll admit it is a bit odd to
+> not at least inform userspace as to what the actual ISA is.
+> Heiko or Palmer, perhaps you've got a better idea of what the craic is
+> there?
+
+I asked Palmer today and cleared it up a little. He's planning on doing
+some more work on the new interface. Until that is ready, we have the
+remainder of HWCAP worth of space for adding new extensions.
+So not unlimited ability to add new extensions, but certainly not a hard
+blocker on adding more.
+
+> > Being unsure about whether I have done it in the right way, hence I
+> > wrote this RFC for adding those extensions.
+> >=20
+> > Also, just as I have inquired on the list before, what about the vendor
+> > extensions?
+>=20
+> Since you didn't link the previous questions, I dunno what they were,
+> but...
+>=20
+> After the discussion at the Plumbers BoF, the policy about vendor
+> behaviour has been changed. The new wording is:
+> <quote>
+> Additionally, the RISC-V specification allows implementers to create
+> their own custom extensions.  These custom extensions aren't required
+> to go through any review or ratification process by the RISC-V
+> Foundation.  To avoid the maintenance complexity and potential
+> performance impact of adding kernel code for implementor-specific
+> RISC-V extensions, we'll only consider patches for extensions that either:
+>=20
+> - Have been officially frozen or ratified by the RISC-V Foundation, or
+> - Have been implemented in hardware that is widely available, per standard
+>   Linux practice.
+> <\quote>
+>=20
+> > If a vendor wants to submit a vendor extensions without
+> > reavealing the detailed sepcs, what will be examined ?
+>=20
+> I can only imagine that this would vary completely depending on what
+> that extension is doing? I'm not sure how you would expect anyone to be
+> able to review something though if you do not provide any information?
+>=20
+> Unless the answer is "no vendor extensions without specs", this sounds
+> like something that could only be answered once code is available.
+>=20
+> Not the answers you were looking for perhaps Ruinland, but hopefully I
+> was at least somewhat helpful.
+
+Thanks,
+Conor.
+
+--3foY3q0mlz2Il6+V
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY6NRtgAKCRB4tDGHoIJi
+0h1tAP915G9GfVTIEiPED/PvAEgXxOd+p81AaeoaJeLWYvHctwEA3JEmJzPQyUmq
+zKnTt6HykKd5njYVy2/m/iaLcscxHgI=
+=HGVC
+-----END PGP SIGNATURE-----
+
+--3foY3q0mlz2Il6+V--
+
+
+--===============0702830359737915275==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0702830359737915275==--
+
