@@ -4,84 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24043C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Dec 2022 09:50:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF831C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Dec 2022 09:54:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=odVqFEwSK4IBY76qBLUwGHNI4yMOl8ex9p6YH2nn3t4=; b=PqF6typntZwTSa
-	Cn2hQAsEG642/Ni6b0ud3Xu4YydIWlFMyFuN4A565PXZmCJ8TjvW6vF3QJ8qsq4I2nmIwCk4KoLrD
-	z4I673prQcxKNZAR7mgO4ftPo91Lsso6bzJHyKOL96E9bfqSCAp65zS2dPD6Rm4N/5SMA/41UXJo4
-	8mMTeD74VGJSrOLmmUsPSsbkgAQRlE8goKCC3oIlnNKx8+s0qha/WHFCG8Q+gT3Mr25X9JgtaC/QE
-	FUg7DLlwhLELm+/iPXhgMD0tB1yGBxp00Y0nqDSsWfulzRlGBWYGnSLgZmV7D83LVBGMR/JSY/FKN
-	VxxTcMwvrHL9zpVPZSFA==;
+	List-Owner; bh=F9ls++QMWLPFZvvt5/HJn6QaafKqehS5O/IXYLs/RwQ=; b=QF7XrirfU1a6en
+	5VZae1biS7c4Ze+zAjHI0i9n7jPUA+Oc6jfEXpg/wJ04faoX8oAFBs0M+U6Bo2BPFMZndbNF7i5MY
+	c1WMbbcnFKfuEABRhnUtjPf4hBl5UNJl/3UaWDbfjctP02f7RFYUXCHvTuJ62RuFESu3iFvNRtV61
+	8SRYjB5z2MV+3aOh+NWkiJT88X+kjTuXJkNoW358LIHbZcv1rJxRbup3ZHNcEYxEAQm7D9bFmoMFq
+	Z+c/mMjlfPVjkQZ/Go7it3N3jVn5mTMzGMVeZx/vI3y64XOdP0oIOmDnsCmxMrivbAAbbwaNFpTAM
+	WMfDglXSWQfEedIBQ00w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p7vju-00D1ti-ES; Wed, 21 Dec 2022 09:50:18 +0000
-Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p7vj3-00D1FA-SB
-	for linux-riscv@lists.infradead.org; Wed, 21 Dec 2022 09:49:27 +0000
-Received: by mail-lj1-x22a.google.com with SMTP id q2so5801146ljp.6
-        for <linux-riscv@lists.infradead.org>; Wed, 21 Dec 2022 01:49:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=j4pOTa7XD14Zbi1zXxlhwo2uq1WAQLtH0H1dvVBr/wM=;
-        b=TatoTF6KDCty9jYvwLHt8LUJBG4EfDHIWY7OIX8gecMCtklkbUY83XvdqNexPWzVHh
-         7aHcj6cell6x9syMMMUvBbd8IhMjN1Ix2O2vsj7WocOoSuFZ648iIhqPZhcTYevUeYdq
-         6oxyrVV/PxZazRP/iKy3JHVjRKyCE5XANvaaI2OcyddGsO58OUrq7Z5T494E2mOB2uqA
-         F1ga1FNHs+RVzr2KiNpV9JxdgiuANgeWGzt978v2rBbuOVX9+jVyPWqwofW5nJEl0mFc
-         2/TqloOr9Aav3Y6Y0mHnlbIVWq9I0gPrYXhF+V/yZ9FLrz0NcxH3wTQIHdsKqLB1okOk
-         uYDQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=j4pOTa7XD14Zbi1zXxlhwo2uq1WAQLtH0H1dvVBr/wM=;
-        b=Fzx3wXXaOp9+IODq1eKwlm8ImNZp7madACuxyiWPlpyJ4mpB+ZTclgPBg/j8Xbs1ga
-         FzoR2JiM/hbYtS/BUJzc+gsbLgdNcsy4y0j/pIPkaDNMKgkKRtGxnoPjS4QY1eoVB3YN
-         dvXKwb1IAYQvM63HtLO8u4nQTZz82+Q4gfjkiX39cQwg7AwQpBZI74Gz/oFqTw7YLr3d
-         /gma2dC2aB9AbnRtjOt3CN4f3VqpElZ5OOdVbPnG3Fhqwkxh9AwvMYG60hlwv5cvPUH8
-         0VM1OIZaaMLdZsYJIDc5cFsEFNteW5SsK5uZsxJofjVGwxxTMVljSxuZn4oj11yjgERh
-         Z94Q==
-X-Gm-Message-State: AFqh2kokqD4C8J06H+WGRfLjaiAkmc7YsDaswRX3UQ5Bq90yjB0RlcWW
-	3lAw/AY0YRNTJR0zNWphYbCuoGNBeNr0Y3fL
-X-Google-Smtp-Source: AMrXdXssO9jKbgSHpDGsWvD2A8uvCkDgxTfqEYUdI6PAsmQUFbP3WJ19muNo/XTSwSkvzcwBi9mWuw==
-X-Received: by 2002:a2e:bc87:0:b0:27f:6978:583f with SMTP id h7-20020a2ebc87000000b0027f6978583fmr419058ljf.44.1671616164053;
-        Wed, 21 Dec 2022 01:49:24 -0800 (PST)
-Received: from [192.168.0.20] (088156142067.dynamic-2-waw-k-3-2-0.vectranet.pl. [88.156.142.67])
-        by smtp.gmail.com with ESMTPSA id g5-20020a2eb5c5000000b00279a7266874sm1273754ljn.98.2022.12.21.01.49.23
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 21 Dec 2022 01:49:23 -0800 (PST)
-Message-ID: <05aaa9f8-7a97-51c9-e18a-1c3753f2006b@linaro.org>
-Date: Wed, 21 Dec 2022 10:49:22 +0100
+	id 1p7vnz-00D4qL-G2; Wed, 21 Dec 2022 09:54:31 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1p7vnE-00D4V6-C4; Wed, 21 Dec 2022 09:53:46 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E543A2F4;
+	Wed, 21 Dec 2022 01:54:18 -0800 (PST)
+Received: from [10.57.44.6] (unknown [10.57.44.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C57AE3F71E;
+	Wed, 21 Dec 2022 01:53:33 -0800 (PST)
+Message-ID: <43780b8b-d358-ba8f-a4af-06165dbbf18a@arm.com>
+Date: Wed, 21 Dec 2022 10:53:24 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.6.0
-Subject: Re: [PATCH 2/3] hwrng: starfive - Add TRNG driver for StarFive SoC
+ Thunderbird/102.4.2
+Subject: Re: [PATCH v3 1/5] cacheinfo: Use RISC-V's init_cache_level() as
+ generic OF implementation
 Content-Language: en-US
-To: Jia Jie Ho <jiajie.ho@starfivetech.com>,
- Olivia Mackall <olivia@selenic.com>, Herbert Xu
- <herbert@gondor.apana.org.au>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
-Cc: Emil Renner Berthing <kernel@esmil.dk>,
- Conor Dooley <conor.dooley@microchip.com>, linux-crypto@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-References: <20221221090819.1259443-1-jiajie.ho@starfivetech.com>
- <20221221090819.1259443-3-jiajie.ho@starfivetech.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20221221090819.1259443-3-jiajie.ho@starfivetech.com>
+To: Rob Herring <robh@kernel.org>
+Cc: linux-kernel@vger.kernel.org, palmer@rivosinc.com,
+ Ionela.Voinescu@arm.com, Conor Dooley <conor.dooley@microchip.com>,
+ Sudeep Holla <sudeep.holla@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jeremy Linton <jeremy.linton@arm.com>, Gavin Shan <gshan@redhat.com>,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-acpi@vger.kernel.org
+References: <20221209103130.572196-1-pierre.gondois@arm.com>
+ <20221209103130.572196-2-pierre.gondois@arm.com>
+ <20221220233912.GA1193943-robh@kernel.org>
+From: Pierre Gondois <pierre.gondois@arm.com>
+In-Reply-To: <20221220233912.GA1193943-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221221_014926_130381_9C3001D0 
-X-CRM114-Status: GOOD (  13.87  )
+X-CRM114-CacheID: sfid-20221221_015344_601245_A136F3CA 
+X-CRM114-Status: GOOD (  20.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,47 +69,108 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 21/12/2022 10:08, Jia Jie Ho wrote:
-> This adds driver support for the hardware random number generator in
-> Starfive SoCs and adds StarFive TRNG entry to MAINTAINERS.
+Hello Rob,
+
+On 12/21/22 00:39, Rob Herring wrote:
+> On Fri, Dec 09, 2022 at 11:31:23AM +0100, Pierre Gondois wrote:
+>> RISC-V's implementation of init_of_cache_level() is following
+>> the Devicetree Specification v0.3 regarding caches, cf.:
+>> - s3.7.3 'Internal (L1) Cache Properties'
+>> - s3.8 'Multi-level and Shared Cache Nodes'
+>>
+>> Allow reusing the implementation by moving it.
+>>
+>> Signed-off-by: Pierre Gondois <pierre.gondois@arm.com>
+>> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+>> Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+>> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+>> ---
+>>   arch/riscv/kernel/cacheinfo.c | 39 +------------------------------
+>>   drivers/base/cacheinfo.c      | 44 +++++++++++++++++++++++++++++++++++
+>>   include/linux/cacheinfo.h     |  1 +
+>>   3 files changed, 46 insertions(+), 38 deletions(-)
+>>
+>> diff --git a/arch/riscv/kernel/cacheinfo.c b/arch/riscv/kernel/cacheinfo.c
+>> index 90deabfe63ea..440a3df5944c 100644
+>> --- a/arch/riscv/kernel/cacheinfo.c
+>> +++ b/arch/riscv/kernel/cacheinfo.c
+>> @@ -115,44 +115,7 @@ static void fill_cacheinfo(struct cacheinfo **this_leaf,
+>>   
+>>   int init_cache_level(unsigned int cpu)
+>>   {
+>> -	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(cpu);
+>> -	struct device_node *np = of_cpu_device_node_get(cpu);
+>> -	struct device_node *prev = NULL;
+>> -	int levels = 0, leaves = 0, level;
+>> -
+>> -	if (of_property_read_bool(np, "cache-size"))
+>> -		++leaves;
+>> -	if (of_property_read_bool(np, "i-cache-size"))
+>> -		++leaves;
+>> -	if (of_property_read_bool(np, "d-cache-size"))
+>> -		++leaves;
+>> -	if (leaves > 0)
+>> -		levels = 1;
+>> -
+>> -	prev = np;
+>> -	while ((np = of_find_next_cache_node(np))) {
+>> -		of_node_put(prev);
+>> -		prev = np;
+>> -		if (!of_device_is_compatible(np, "cache"))
+>> -			break;
+>> -		if (of_property_read_u32(np, "cache-level", &level))
+>> -			break;
+>> -		if (level <= levels)
+>> -			break;
+>> -		if (of_property_read_bool(np, "cache-size"))
+>> -			++leaves;
+>> -		if (of_property_read_bool(np, "i-cache-size"))
+>> -			++leaves;
+>> -		if (of_property_read_bool(np, "d-cache-size"))
+>> -			++leaves;
+>> -		levels = level;
+>> -	}
+>> -
+>> -	of_node_put(np);
+>> -	this_cpu_ci->num_levels = levels;
+>> -	this_cpu_ci->num_leaves = leaves;
+>> -
+>> -	return 0;
+>> +	return init_of_cache_level(cpu);
 > 
-> Co-developed-by: Jenny Zhang <jenny.zhang@starfivetech.com>
-> Signed-off-by: Jenny Zhang <jenny.zhang@starfivetech.com>
-> Signed-off-by: Jia Jie Ho <jiajie.ho@starfivetech.com>
-> ---
->  MAINTAINERS                            |   6 +
->  drivers/char/hw_random/Kconfig         |  11 +
->  drivers/char/hw_random/Makefile        |   1 +
->  drivers/char/hw_random/starfive-trng.c | 403 +++++++++++++++++++++++++
->  4 files changed, 421 insertions(+)
->  create mode 100644 drivers/char/hw_random/starfive-trng.c
+> Not in this patch, but in patch 5, shouldn't riscv init_cache_level() be
+> removed? The topology code already called init_of_cache_level() and
+> RiscV has nothing architectural to add/change. IOW, init_cache_level()
+> should only do architecture defined init, and not anything DT or ACPI
+> related (unless those are non-standard).
 > 
+> Rob
 
-(...)
+I think you are right. Just to re-phrase your point:
+init_of_cache_level() is called through this path:
+init_cpu_topology()
+\-fetch_cache_info()
+   \-init_of_cache_level()
 
-> +static const struct of_device_id trng_dt_ids[] = {
-> +	{ .compatible = "starfive,jh7110-trng" },
-> +	{ }
-> +};
-> +MODULE_DEVICE_TABLE(of, trng_dt_ids);
-> +
-> +static struct platform_driver starfive_trng_driver = {
-> +	.probe	= starfive_trng_probe,
-> +	.driver	= {
-> +		.name		= "starfive-trng",
-> +		.pm		= &starfive_trng_pm_ops,
-> +		.of_match_table	= of_match_ptr(trng_dt_ids),
+If there is missing information in the DT and it's not possible to create the
+cacheinfo, then the arch specific implementation i.e. init_cache_level() is
+called through:
+update_siblings_masks() | cacheinfo_cpu_online()
+\-detect_cache_attributes()
+   \-init_cache_level()
 
-of_match_ptr goes with __maybe_unused. You will have now warnings, so
-please test more your patches (W=1, sparse, smatch).
+This is useful for arm to call init_cache_level() since it is possible
+to extract some information from some registers. For RISC-V, if
+init_of_cache_level() fails, then init_cache_level() will fail again.
+So removing RISC-V's init_cache_level() makes sense.
 
-Best regards,
-Krzysztof
+Regards,
+Pierre
 
 
 _______________________________________________
