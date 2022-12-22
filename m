@@ -4,103 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF7DBC4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Dec 2022 22:33:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B40CC4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Dec 2022 22:41:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MM40YQduzukvdgSDaB5H7x8IgdwqFA3Zy2/qMgIJ5p4=; b=d/lkJz9IY7X3rt
-	ge62rMhkzfngb8nNm1R8NlF35I8wwtRV67is/NnKyv0TnyldnAYExqMT4ElqjMzIrP4+YiwRimw+T
-	x5A9NnsRR+DuPKc2K9P1sn9nbaKpHyS0Hr+Du8nM2Y29Reg+4oP13+QKRMJ4qnpbaLK38+8VUuTHc
-	iQDM/ejsVzP0UqUALRGPfRYKO5uhoViJyCN0k4vam16aEXJJtwwD4hFGdXiRVXhBe3dKqs7G3jdzj
-	/xlgzoMAOMERl0j0mGecREXASs1ZzTmnlXq4ZEw6IzioN8cGwjr1Lt6f8aEntoHml9w66SGs99HZT
-	St0cyuTKjdsxBNiqPOjQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=AjWcSF1JJRD92zj9vJYAy2XDQZaA+XIefJ2sQtokwI0=; b=kkzrmNZT6yAVJL
+	skRElT64VCnkpLaEJ2S24ow4jKNI+HH5w/gdOoyCQxAOdX5UQvCmNKuWT2C15ui2lJ4RbVEb4YQvz
+	Jhjo8DA8/Jt57qW6lWK5AQzj73Zi19OQRnow6dPBBmk8ZGHHEsQ/MXFb8iEmfvSxKc89YLvHpji+x
+	YraF8LEPgSlVDtInJAxeeu99Cm1YgTOXP/uVpoYl/6aqFQBUQ84cuFfOx8O7qIcEX6cevlG2b824a
+	gUcKQHunM8N8jYXoEdFzXttAKm80Cus65hqJC27CKeNYcksjgY78lBZUbyn/mfsFLZFAdkplaHwXP
+	G0bcJ0igdrEmL2wwnYaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8U8D-000AWP-2W; Thu, 22 Dec 2022 22:33:41 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	id 1p8UFl-000GIf-Dn; Thu, 22 Dec 2022 22:41:29 +0000
+Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8U83-000ARo-65
-	for linux-riscv@lists.infradead.org; Thu, 22 Dec 2022 22:33:32 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id o8-20020a17090a9f8800b00223de0364beso7114143pjp.4
-        for <linux-riscv@lists.infradead.org>; Thu, 22 Dec 2022 14:33:29 -0800 (PST)
+	id 1p8UFQ-000G3e-1c
+	for linux-riscv@lists.infradead.org; Thu, 22 Dec 2022 22:41:10 +0000
+Received: by mail-pg1-x52b.google.com with SMTP id e190so2218728pgc.9
+        for <linux-riscv@lists.infradead.org>; Thu, 22 Dec 2022 14:41:07 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=oUqs8vcCeo3WHQ/wZsX/ATHWp0759Uw7X3vsCU3FtHY=;
-        b=DwnHKs3c9lTnGCWPnEzrJd+HhxNJulfG2ievlpH2dXgxDg7pINpzCpKD8PFkAq4lvp
-         OdzF1+9aG+FHTRi9Wa5C0W2LKepu1HbsED+iz/mAlHxrqhOnIcJPcei0dNgfQYTKU0to
-         Sp3/v3vTR/c6mHaDigsc1vtniqXux4MPjatC7soqFopT56aPnWsYQAZVBT3eUtEZtNYD
-         a137DrIn7gCuvJ65bLjneCZ++COlZ1G0hSL52cS7C+ZZWU7p/D327yHiGfei6n5IMzKt
-         oiIp6OUmNScsilZl/rie6tId5bqQlxQRWlukBsTTYJb10kBIuNZfHNur0ymEFVmV/j1d
-         OPzA==
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=SBGdHOhoY5Jv0iqOaJqNuYCDNa4x5g+RkNNsqE54HN4=;
+        b=YsI+xSj64siyBDiJDoQaRXG2GEubKdNEC3BVutPFmTeKVXc/gVeE0QdtLrK1FOt4EM
+         wEhbUQhcVhF/TocvrBC1WRidZIuKHcSAYKgTA+3aosUZ9PCQ0TzaCWJAkjJM48P+eyDY
+         AB3ku7A36FSoC+MXi0h80wuRkC0UAwxyV4N8xub6aQAPaEbNJBeVZWX8Hq65cr/SoG3P
+         aUWGgCiypSTom9vmWb4EnjiUZse0tzcf3HuL7WmWzEhK3jMBPlS2k4v8PyOU2uoAcfkn
+         hmMFOHQdsFvDIUgjYYMiaKW03iec6WPEUufWC2hBSpMtRjzBSnpRPS6nbq4WOs9SyH4h
+         Rvzg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=oUqs8vcCeo3WHQ/wZsX/ATHWp0759Uw7X3vsCU3FtHY=;
-        b=DtPr7C8L7lhv7GVDv/hLxteXH2b/VR2pHtaCTh94is4cEsGDLCuv1F5u2DYc7YUCL0
-         bd0UT+qOA8BMYzC5p/I7zuRf5uUoS7YhgXQ9Ka6igdZLw1EPDwTqyASuL/9NuNG+umug
-         FDXmsb31uApxN2zhgSljAnOsl7ushTBd9n4vMzuxp0Jyzh2/B+/E4NU+IcO2OJLtGZoJ
-         331fG0iIPGgnKVEh+gkN1uXEoC9wJnWUKogPw8dtGp37RjfZ2fcjrSYjsEeQDKYdXliU
-         9x0JkI83jI+2q0GMDNbj7MW481Nd6yi0q0D0Bw6CxrMe/jyt7OUXxqruuDMByZZq3srY
-         QOVQ==
-X-Gm-Message-State: AFqh2kpOCNrXOOymGk543qYjO84c+ltGW/wqxjC41QPSVRKLOI7UXElX
-	n9MaZ/PLeXWJuder3vWn+Oa4omuLAM02anEG
-X-Google-Smtp-Source: AMrXdXtIMyF6DUH+b6qp7alupaBEj70iepcAoTKuZjgt46jEFosCxcG59S9c6rru4hIHDbMvEpz6wA==
-X-Received: by 2002:a17:902:bc45:b0:191:3c3d:86fd with SMTP id t5-20020a170902bc4500b001913c3d86fdmr8146280plz.48.1671748409505;
-        Thu, 22 Dec 2022 14:33:29 -0800 (PST)
-Received: from [192.168.101.16] ([75.147.178.105])
-        by smtp.gmail.com with ESMTPSA id l6-20020a170903120600b00190c6518e30sm961407plh.243.2022.12.22.14.33.27
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 22 Dec 2022 14:33:28 -0800 (PST)
-Message-ID: <68fdb6e2-ed53-32ea-52ca-1e4d913ff7f3@linaro.org>
-Date: Thu, 22 Dec 2022 14:33:25 -0800
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=SBGdHOhoY5Jv0iqOaJqNuYCDNa4x5g+RkNNsqE54HN4=;
+        b=QD4FEHx3ao1QTtqenwFAyM3AGWUR2JzBm0evt0TgcNLdu2VKZxewVX6pzZ9a01iEHS
+         ywFY3iZYZK/RZ9gw+9lZD48Pqxj0VCEQrzZo/0BeAyHwI9iiyZwPHkFKPh0okEtSsyuu
+         agC70YaBbDS6Z4elYliRSmNyvruArCId3AMF7w8thGYehcicf9DrGDo0mSl7BjN39BD7
+         xEvqEY0B2F+6EDb9R6XnxyroyUKr2B5/z/aSf/bb9Nhi/8cluxCV/V7uniiNi03RQQBI
+         ceFsHyqcobWkUQaQLNvvjtbCesA9Axaah83KoV/4XOgMb3OrVo2DZwJBLr9vLUHF0Phy
+         h1tQ==
+X-Gm-Message-State: AFqh2kqzOxfE6+Hp7wqqVS6sE2iQ82Zb15YPhKnUfghr3hoJrhwQQnJG
+	/Bzg2DJBb2D0svifIbtee3PAQc3XDLnnS+CT
+X-Google-Smtp-Source: AMrXdXt4HDdXJaxp8x9kXdiQSzD4Hutq6cE52NonB1+PJ/bivHMpvjTvApZ3ljFaeTjLixIY5F8eXA==
+X-Received: by 2002:a62:1511:0:b0:577:ad:49c5 with SMTP id 17-20020a621511000000b0057700ad49c5mr7223545pfv.9.1671748866689;
+        Thu, 22 Dec 2022 14:41:06 -0800 (PST)
+Received: from vineet-framework.ba.rivosinc.com (c-24-4-73-83.hsd1.ca.comcast.net. [24.4.73.83])
+        by smtp.gmail.com with ESMTPSA id l190-20020a6225c7000000b005771d583893sm1231132pfl.96.2022.12.22.14.41.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 22 Dec 2022 14:41:06 -0800 (PST)
+From: Vineet Gupta <vineetg@rivosinc.com>
+To: linux-riscv@lists.infradead.org
+Cc: linux@rivosinc.com,
+	Vineet Gupta <vineetg@rivosinc.com>
+Subject: [PATCH] riscv: add base extensions to enum riscv_isa_ext_id
+Date: Thu, 22 Dec 2022 14:41:04 -0800
+Message-Id: <20221222224104.3449841-1-vineetg@rivosinc.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.4.2
-Subject: Re: Adding V-ext regs to signal context w/o expanding kernel struct
- sigcontext to avoid glibc ABI break
-Content-Language: en-US
-To: Andy Chiu <andy.chiu@sifive.com>
-Cc: Vineet Gupta <vineetg@rivosinc.com>,
- Vincent Chen <vincent.chen@sifive.com>, Florian Weimer <fweimer@redhat.com>,
- Rich Felker <dalias@libc.org>, Andrew Waterman <andrew@sifive.com>,
- Palmer Dabbelt <palmer@rivosinc.com>, Kito Cheng <kito.cheng@sifive.com>,
- =?UTF-8?Q?Christoph_M=c3=bcllner?= <christoph.muellner@vrull.eu>,
- davidlt@rivosinc.com, Arnd Bergmann <arnd@arndb.de>,
- =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
- Philipp Tomsich <philipp.tomsich@vrull.eu>,
- Szabolcs Nagy <szabolcs.nagy@arm.com>, Greentime Hu
- <greentime.hu@sifive.com>, Aaron Durbin <adurbin@rivosinc.com>,
- Andrew de los Reyes <adlr@rivosinc.com>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- GNU C Library <libc-alpha@sourceware.org>
-References: <1631497278-29829-1-git-send-email-vincent.chen@sifive.com>
- <1631497278-29829-3-git-send-email-vincent.chen@sifive.com>
- <871r5sd1zq.fsf@oldenburg.str.redhat.com>
- <20210913135247.GL13220@brightrain.aerifal.cx>
- <CABvJ_xjGZ3S0oAkT08x4DToQFdcUH06omk2OTT1EHDZRJ-2wKg@mail.gmail.com>
- <87sfy5ndid.fsf@oldenburg.str.redhat.com>
- <CABvJ_xjSREsdemJkCJMGSx+09jrNoSbXCwuxF0zEQmZtHrWMvg@mail.gmail.com>
- <d613968f-0fae-1994-3bee-fb10765167c3@rivosinc.com>
- <73c0124c-4794-6e40-460c-b26df407f322@rivosinc.com>
- <CABvJ_xgDsthnm_h6mYowK03VUKqYk=nZsSZ7R=0BTwFHGKEAMw@mail.gmail.com>
- <50c598a6-e3b3-3062-abe7-23a406067533@rivosinc.com>
- <7430f494-9b43-5e03-c1e9-6b83e2611a11@rivosinc.com>
- <b67238bf-4b5d-dd17-99ff-88b0270ce10a@linaro.org>
- <CABgGipVT9L5p623Q2rbjrm=tTwcnjSr178CRKTNs+WMbm7=+-Q@mail.gmail.com>
-From: Richard Henderson <richard.henderson@linaro.org>
-In-Reply-To: <CABgGipVT9L5p623Q2rbjrm=tTwcnjSr178CRKTNs+WMbm7=+-Q@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221222_143331_316137_A38A7809 
-X-CRM114-Status: GOOD (  10.84  )
+X-CRM114-CacheID: sfid-20221222_144108_347046_62B5EEF6 
+X-CRM114-Status: UNSURE (   7.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,56 +83,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 12/22/22 10:33, Andy Chiu wrote:
-> I wrote a PoC patch for this and it has been pushed into the following git tree:
-> https://github.com/sifive/riscv-linux/tree/dev/andyc/for-next-v13
+This allows for using the enum in general to refer to any extension.
 
-I had a look at your include/uapi/, and it looks good.
-Mere nits:
+Signed-off-by: Vineet Gupta <vineetg@rivosinc.com>
+---
+ arch/riscv/include/asm/hwcap.h | 19 +++++++++----------
+ 1 file changed, 9 insertions(+), 10 deletions(-)
 
-> struct __riscv_q_ext_state {
-> 	__u64 f[64] __attribute__((aligned(16)));
-> 	__u32 fcsr;
-> 	/*
-> 	 * Reserved for expansion of sigcontext structure.  Currently zeroed
-> 	 * upon signal, and must be zero upon sigreturn.
-> 	 */
-> 	__u32 reserved[3];
-> };
-> 
-> struct __riscv_ctx_hdr {
-> 	__u32 magic;
-> 	__u32 size;
-> 	__u32 reserved;
-> };
+diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+index b22525290073..b861e711e3ac 100644
+--- a/arch/riscv/include/asm/hwcap.h
++++ b/arch/riscv/include/asm/hwcap.h
+@@ -26,16 +26,6 @@ enum {
+ 
+ extern unsigned long elf_hwcap;
+ 
+-#define RISCV_ISA_EXT_a		('a' - 'a')
+-#define RISCV_ISA_EXT_c		('c' - 'a')
+-#define RISCV_ISA_EXT_d		('d' - 'a')
+-#define RISCV_ISA_EXT_f		('f' - 'a')
+-#define RISCV_ISA_EXT_h		('h' - 'a')
+-#define RISCV_ISA_EXT_i		('i' - 'a')
+-#define RISCV_ISA_EXT_m		('m' - 'a')
+-#define RISCV_ISA_EXT_s		('s' - 'a')
+-#define RISCV_ISA_EXT_u		('u' - 'a')
+-
+ /*
+  * Increse this to higher value as kernel support more ISA extensions.
+  */
+@@ -53,6 +43,15 @@ extern unsigned long elf_hwcap;
+  * available logical extension id.
+  */
+ enum riscv_isa_ext_id {
++	RISCV_ISA_EXT_a = ('a' - 'a'),
++	RISCV_ISA_EXT_c = ('c' - 'a'),
++	RISCV_ISA_EXT_d = ('d' - 'a'),
++	RISCV_ISA_EXT_f = ('f' - 'a'),
++	RISCV_ISA_EXT_h = ('h' - 'a'),
++	RISCV_ISA_EXT_i = ('i' - 'a'),
++	RISCV_ISA_EXT_m = ('m' - 'a'),
++	RISCV_ISA_EXT_s = ('s' - 'a'),
++	RISCV_ISA_EXT_u = ('u' - 'a'),
+ 	RISCV_ISA_EXT_SSCOFPMF = RISCV_ISA_EXT_BASE,
+ 	RISCV_ISA_EXT_SVPBMT,
+ 	RISCV_ISA_EXT_ZICBOM,
+-- 
+2.34.1
 
-Thinking about the _next_ extension on the chain, perhaps drop the 3rd word from here, so 
-that (&hdr + 1) is 8-byte aligned (which may be enough depending on what the extension 
-contains)?
-
-> struct __riscv_extra_ext_header {
-> 	__u64 ignored[64] __attribute__((aligned(16)));
-> 	__u32 padding;
-> 	/*
-> 	 * Reserved for expansion of sigcontext structure.  Currently zeroed
-> 	 * upon signal, and must be zero upon sigreturn.
-> 	 */
-> 	struct __riscv_ctx_hdr hdr;
-> };
-
-     __u32 __padding[129]
-or
-     __u64 __padding[65]
-
-depending on your answer to the above?
-
-It might reduce confusion to move (or replicate, for redundancy) the aligned(16) from the 
-innermost __riscv_q_ext_state.f[] to the outermost sc_fpregs and/or sigcontext.
 
 _______________________________________________
 linux-riscv mailing list
