@@ -4,62 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08030C4167B
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Dec 2022 23:21:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D3E3C4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Dec 2022 23:35:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j27HQJWtW4HRoFO06e4D+H6gG7ii7y5d/bwPADvsCWA=; b=kqeg7+J8YtWurwH8/kDDlsoGVv
-	515GcBk3FJuocqLh5RQlpxPjdJnQX5hlS8/xYllflvXYNvECykl8Cd1ZvLKDCm7rUtELMJbPgSWcu
-	YBhkHTvTPa5GshVMhm8IzkGRV7W8xqrhTusIlTEeRN4QYdtvh9ytaS+Zf5p+qJvQ/RZiHcxeLtAYl
-	bQ1gkdS4UtaoseHfRd9jYiYLJVZk+ijLFT1k9LoEikKR2QTE2KgllV+a6jY+L3bfB7aaq9DZrn1sI
-	cV7DUFTdCrERATe9Z4oNc3loHkJ++6heYF3O/7LlBuZGZpnDVyL6w4Qk32uXewm7f77kXoj6GOsGB
-	o2sqKKvQ==;
+	bh=wnKIrBjKoPIYOl2fWT3yBiFKCkEkA/Q90w8oIv/tYIo=; b=YjI6hm+xLHMn1JtxmRxMAAU6hF
+	IcSveCup88Gbz//8RKQcPb6woyIH16aDI3OOzrysCu3ddQtKxKqWBvmfq/FisXSAwgjTU6ZFMIzbo
+	uBgIlihxjcM6MMDE7YAAs2pgsZN35WK2mszEOYxa0OtjCl4aYU8HPBdXXuOx8IyuNx0o+am3El3QI
+	Qe83wAjdbYhsjw5kGiy++LHE7qP+aSrTKf/rJeGNOain8yqRnSrOKUaF07QZGbdh1pHC0jG123eTt
+	IESXJQCkRhst0qaWjuie78TkvcbOQ2OyyXCaX2yWHTcvGqJBRQa8TQTjQG9JCLDHULFN7+Srl+WcB
+	WkCQHn6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8UsI-000lSI-BO; Thu, 22 Dec 2022 23:21:18 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1p8V6D-000sbT-MI; Thu, 22 Dec 2022 23:35:41 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8UsE-000lO0-AY
-	for linux-riscv@lists.infradead.org; Thu, 22 Dec 2022 23:21:15 +0000
+	id 1p8V5n-000sC1-A0
+	for linux-riscv@lists.infradead.org; Thu, 22 Dec 2022 23:35:16 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 06EB761D9F;
-	Thu, 22 Dec 2022 23:21:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F2F5C433EF;
-	Thu, 22 Dec 2022 23:21:09 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 5954461D9F;
+	Thu, 22 Dec 2022 23:35:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC5F4C433D2;
+	Thu, 22 Dec 2022 23:35:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1671751271;
-	bh=l6dL2vDSNcL7oYRW+amc2+4KyYkOXC0ok5zluOYGF/g=;
+	s=k20201202; t=1671752113;
+	bh=uRTGfdUSt6JeTxEk5/yQs12pDG8jXKeMzxBjgWoV/N4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Us100g1wlq6MRpiTXSukcbxWLPU4glMHHxSIsSW5tmgjbU5PUCDDOe7gHmx/riPRo
-	 11b3JkF/y8fctAVaiDwp48R6YryN86LM3/dakavL6IHhvpaHZQ0b4swv3BOAPr7fvo
-	 7F+XEEOQFfqZ2QpYVHMkmqSc1cErCWHyB4UGkE5m/op+cMqNmcVhZYSzv9KlAg0M2O
-	 XDLnfVxGNGLh9i5rSzyJ9JBmA00ooCGEmKLQ00O+dQgtPcDuA2W+m6+U1PEex4dmgK
-	 G6dpmmNRPupLBgat3Kg2p733GRAlD3B1K0WJrUrAd7FiVb+INZ43xBbz9SbGeAW23k
-	 6cl5O38+Fl5dg==
-Date: Thu, 22 Dec 2022 23:21:06 +0000
+	b=Og8qzK7OY/DiEylUUjZz43s7kneuFX0VwNbYSrFevOOeuNcUrHeeFcO85j+PxWOau
+	 bWNof3F/8YI8enl7R1CBdDsXA7/qozcMOiOtgdMsSj9iU7Ryy1uNNnE/VeT+IEhkeQ
+	 6y/OgJMg+D9N3OgvlM0UJwCUXh2VtaocO4acfEKSMtMkYMOPT0qNUP+F3LIXvYj2Xu
+	 M7+r+RXRhimrorWZox+fnEhNgpyX9PAKJlckEGK6xvc9bPmLuUNVwEFM15s22yeBZW
+	 SXiHozyVRqFDie1gUYaZz10A3AFP8f91v8xlGjbIGLLn+NoXSBHlldRU7ySO5gne9N
+	 mQg0j3mlWhXjg==
+Date: Thu, 22 Dec 2022 23:35:10 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Frank Rowand <frowand.list@gmail.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arch@vger.kernel.org
-Subject: Re: [PATCH v3] riscv: Use PUD/P4D/PGD pages for the linear mapping
-Message-ID: <Y6TmYjr07W9WJEPn@spud>
-References: <20221213060204.27286-1-alexghiti@rivosinc.com>
+To: Vineet Gupta <vineetg@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, linux@rivosinc.com,
+	Jisheng Zhang <jszhang@kernel.org>
+Subject: Re: [PATCH] riscv: add base extensions to enum riscv_isa_ext_id
+Message-ID: <Y6TprjVBPX6CRvOm@spud>
+References: <20221222224104.3449841-1-vineetg@rivosinc.com>
+ <Y6TgAxg3csoQqaFr@spud>
+ <1cd24228-847f-61a1-2466-07f0cc4c221a@rivosinc.com>
 MIME-Version: 1.0
-In-Reply-To: <20221213060204.27286-1-alexghiti@rivosinc.com>
+In-Reply-To: <1cd24228-847f-61a1-2466-07f0cc4c221a@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221222_152114_505269_E316971E 
-X-CRM114-Status: GOOD (  31.21  )
+X-CRM114-CacheID: sfid-20221222_153515_444298_54017BF8 
+X-CRM114-Status: GOOD (  15.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,102 +68,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2060832682170063726=="
+Content-Type: multipart/mixed; boundary="===============0196210706080795834=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============2060832682170063726==
+--===============0196210706080795834==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="9ftFqcji9/MYD4OZ"
+	protocol="application/pgp-signature"; boundary="GVM1s7mHDhSOMupk"
 Content-Disposition: inline
 
 
---9ftFqcji9/MYD4OZ
+--GVM1s7mHDhSOMupk
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Tue, Dec 13, 2022 at 07:02:04AM +0100, Alexandre Ghiti wrote:
-> During the early page table creation, we used to set the mapping for
-> PAGE_OFFSET to the kernel load address: but the kernel load address is
-> always offseted by PMD_SIZE which makes it impossible to use PUD/P4D/PGD
-> pages as this physical address is not aligned on PUD/P4D/PGD size (whereas
-> PAGE_OFFSET is).
+On Thu, Dec 22, 2022 at 03:13:56PM -0800, Vineet Gupta wrote:
 >=20
-> But actually we don't have to establish this mapping (ie set va_pa_offset)
-> that early in the boot process because:
 >=20
-> - first, setup_vm installs a temporary kernel mapping and among other
->   things, discovers the system memory,
-> - then, setup_vm_final creates the final kernel mapping and takes
->   advantage of the discovered system memory to create the linear
->   mapping.
+> On 12/22/22 14:53, Conor Dooley wrote:
+> > Hi Vineet,
+> >=20
+> > On Thu, Dec 22, 2022 at 02:41:04PM -0800, Vineet Gupta wrote:
+> > > This allows for using the enum in general to refer to any extension.
+> > What is the point of this patch? It's hard to understand the rationale
+> > without having any user, especially...
 >=20
-> During the first phase, we don't know the start of the system memory and
-> then until the second phase is finished, we can't use the linear mapping =
-at
-> all and phys_to_virt/virt_to_phys translations must not be used because it
-> would result in a different translation from the 'real' one once the final
-> mapping is installed.
->=20
-> So here we simply delay the initialization of va_pa_offset to after the
-> system memory discovery. But to make sure noone uses the linear mapping
-> before, we add some guard in the DEBUG_VIRTUAL config.
->=20
-> Finally we can use PUD/P4D/PGD hugepages when possible, which will result
-> in a better TLB utilization.
->=20
-> Note that we rely on the firmware to protect itself using PMP.
->=20
-> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> ---
->=20
-> v3:
-> - Change the comment about initrd_start VA conversion so that it fits
->   ARM64 and RISCV64 (and others in the future if needed), as suggested
->   by Rob
->=20
-> v2:
-> - Add a comment on why RISCV64 does not need to set initrd_start/end that
->   early in the boot process, as asked by Rob
->=20
-> Note that this patch is rebased on top of:
-> [PATCH v1 1/1] riscv: mm: call best_map_size many times during linear-map=
-ping
+> Right I'm trying to build a cpu feature enable API which required handling
+> of all extensions.
 
-Hey Alex, unfortunately I could not get this to apply either (I tried a
-riscv/for-next & Linus' tree).
-The above patch should be in both, so idk:
-git am -3 v3_20221213_alexghiti_riscv_use_pud_p4d_pgd_pages_for_the_linear_=
-mapping.mbx
-Applying: riscv: Use PUD/P4D/PGD pages for the linear mapping
-error: sha1 information is lacking or useless (arch/riscv/mm/init.c).
-error: could not build fake ancestor
-Patch failed at 0001 riscv: Use PUD/P4D/PGD pages for the linear mapping
+Does it matter to you if it's defines or an enum, as long as every
+extension is exposed to you via the same mechanism?
 
-I assume it'll need a rebase after -rc1?
+> Ideally yes this needs to go there. But it seemed more like a cleanup type
+> patch to warrant a standalone submission.
 
-It's really nice to see someone looking at this early code, from the
-bit of digging around that I've done chasing bugs it feels like it needs
-it- so thanks!
+Meh, dw. Not expecting people to know about every patch under the sun.
 
 
---9ftFqcji9/MYD4OZ
+--GVM1s7mHDhSOMupk
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY6TmYgAKCRB4tDGHoIJi
-0izPAP9karoTeNWFNJMv29u3mPiB5aYGZlbcvx9ezsfRYThJLgEAshJH3WY+pdJL
-JZ083PbuMpcDpANbhziGKxUSbknqmQ8=
-=Khpa
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY6TprgAKCRB4tDGHoIJi
+0r+lAP92I1Tmjj7OH1W2hdK99tm3LqmKJrj/H1eIK/m115ryPQEA6z29ZhLKb5gx
+N0rAXqgO7H0jhGV1QeWXfNQ5x+iKDAk=
+=vdDQ
 -----END PGP SIGNATURE-----
 
---9ftFqcji9/MYD4OZ--
+--GVM1s7mHDhSOMupk--
 
 
---===============2060832682170063726==
+--===============0196210706080795834==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -177,5 +132,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============2060832682170063726==--
+--===============0196210706080795834==--
 
