@@ -4,44 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8305C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Dec 2022 14:04:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04556C4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Dec 2022 14:35:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GIW/47UEf01WPj+lXfzMJB4gUWWoEGaSxQ7LstU1w5k=; b=KrORe3lLvYfTOX
-	WbD8xL9YVrY3w54WdYvVe1baGG1BPhhuC9abQQuhB/BcepqzHkOy93wDDw0HE/WH1rfIXdfAZjj7S
-	1volT8jG7HL0R4GRxdgbSGvIyFa+pMQyP2h7c0LbXqEjaG4iGH+qMOhxethEfj9ng6asxwCgn5/G6
-	QjdHu193na4MsIp1wQdKWUnxxDQORVstWA8ZnJxGyZ2ivNULy/lOgxVBqrdsvfdT9xZ9yD+nx07HG
-	HzGhRBohHpXB9QGaMJ0TF8TsrHaARr/bh+3/MjjKhQFjpP+505U5sMJhj8GgRfZVdSWDpIftVGJGs
-	T3sRnjU4xQeCvT540yPQ==;
+	List-Owner; bh=md5jUm+ql0EPPcUgXxEyROR5sAQffqqnoztQwmyWMEo=; b=S+0+3AhdnKhPR9
+	AMsc4dPT2HlmB7rUpMFzSb0XnRQ0tG1pTqBTHV+ohckMT4dMmmUqhTZaWI4zCgdPKkZQgrrIw5rDv
+	0j4/Vk07vhK8LOD8SukNVf4JW/WiOZ3OBZUKyS1J4sscScuk1MAvSG6+sgAws88ZSeE04/lwRP5fC
+	JzdGRJCu4PSTyQvwlCyZmLvCTRuFNH4TzVCQYHrYY6AQa/HDQGBoylMo4CFMZ+WWW4Vu1UTJOos36
+	4xQwvT8tduXXLtAUvjkr53a6ldXab8dKv4ZoJ96RjjHJf76KtNGSOGCQZWWfjdtMQlPgvqtGiMpZa
+	M0QgPO2Cg12Op789Dkhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8MBO-00Ck7w-12; Thu, 22 Dec 2022 14:04:26 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1p8Mfh-00D23Q-On; Thu, 22 Dec 2022 14:35:46 +0000
+Received: from mail-yw1-f170.google.com ([209.85.128.170])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8Luc-00CZUN-OE
-	for linux-riscv@lists.infradead.org; Thu, 22 Dec 2022 13:47:09 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1p8LuV-0006fH-Es; Thu, 22 Dec 2022 14:46:59 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, christoph.muellner@vrull.eu, prabhakar.csengg@gmail.com, conor@kernel.org, philipp.tomsich@vrull.eu, emil.renner.berthing@canonical.com, jszhang@kernel.org
-Subject: Re: [PATCH v4 11/12] RISC-V: add helpers for handling immediates in U-type and I-type pairs
-Date: Thu, 22 Dec 2022 14:46:58 +0100
-Message-ID: <6487607.lOV4Wx5bFT@diego>
-In-Reply-To: <20221208143811.tluvayxdc5g4bw3e@kamzik>
-References: <20221207180821.2479987-1-heiko@sntech.de> <20221207180821.2479987-12-heiko@sntech.de> <20221208143811.tluvayxdc5g4bw3e@kamzik>
+	id 1p8MJH-00Cp3d-PQ; Thu, 22 Dec 2022 14:12:38 +0000
+Received: by mail-yw1-f170.google.com with SMTP id 00721157ae682-3b56782b3f6so27832347b3.13;
+        Thu, 22 Dec 2022 06:12:32 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=DaSeJ7b4XoTWS2Tt6rTxmu6n/STTyq8+F8PwIAXlFPg=;
+        b=EP2netqO83SeCjpen4/V7aw5M+ZzVyMVBdVCpQzkJIYfLqea+yDV+SVBo1XFhjq63H
+         HeNnkVz8ZQna4ttoytGXAS3KFyjXM4XgVT3W0cIpBtAMrz3E2P08+invk0Hdr4p9DULX
+         kYolAPiLa6svS8vWSVxNzd2qOysieFEK4jkdHejO9o2dTNz8a8lyOpn5AKUybnkqw3Mt
+         iCpntaJgdNDf9Vru3KaDLQ/azhEf7ci/XVTnHHSRl7bO0m1kdrF2r8t7ar2+2fRFcPoi
+         JYpWlpLk8w3zu3qkFG2bnjEUOOyuyGPgj2gC/tKV89eWceIod04nD9BBGkYoUi7T94vz
+         RxuA==
+X-Gm-Message-State: AFqh2kqEx7HqU9dipuFPuaFD3j65csJIT0Jko3I9iy4XdW8nuW9TJEzC
+	x9o4R6JjDUdtB7U+JK0CX3RJpWd7J4OADQ==
+X-Google-Smtp-Source: AMrXdXvLYBI+JMO+Wm3kqdXfh5rVa0X+ZxkBSP1FYS2fmdiNHM6HKT+AtvVTO0ybMXQ/qxneMFQW/w==
+X-Received: by 2002:a05:7500:b8e:b0:ea:6282:47fb with SMTP id fx14-20020a0575000b8e00b000ea628247fbmr372784gab.63.1671718351806;
+        Thu, 22 Dec 2022 06:12:31 -0800 (PST)
+Received: from mail-yb1-f170.google.com (mail-yb1-f170.google.com. [209.85.219.170])
+        by smtp.gmail.com with ESMTPSA id y1-20020a37f601000000b006cbe3be300esm359758qkj.12.2022.12.22.06.12.31
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 22 Dec 2022 06:12:31 -0800 (PST)
+Received: by mail-yb1-f170.google.com with SMTP id j206so2097170ybj.1;
+        Thu, 22 Dec 2022 06:12:31 -0800 (PST)
+X-Received: by 2002:a25:d243:0:b0:702:90b4:2e24 with SMTP id
+ j64-20020a25d243000000b0070290b42e24mr417369ybg.365.1671718351056; Thu, 22
+ Dec 2022 06:12:31 -0800 (PST)
 MIME-Version: 1.0
+References: <20221222114635.1251934-1-andrzej.hajda@intel.com>
+In-Reply-To: <20221222114635.1251934-1-andrzej.hajda@intel.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 22 Dec 2022 15:12:19 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdUE-a6SffG1PH=WfrMx-CNLB9EfUr4qmL_USBP31YGoNg@mail.gmail.com>
+Message-ID: <CAMuHMdUE-a6SffG1PH=WfrMx-CNLB9EfUr4qmL_USBP31YGoNg@mail.gmail.com>
+Subject: Re: [PATCH 00/19] Introduce __xchg, non-atomic xchg
+To: Andrzej Hajda <andrzej.hajda@intel.com>
+Cc: linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org, 
+	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org, 
+	linux-mips@vger.kernel.org, openrisc@lists.librecores.org, 
+	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
+	linux-xtensa@linux-xtensa.org, intel-gfx@lists.freedesktop.org, 
+	dri-devel@lists.freedesktop.org, Arnd Bergmann <arnd@arndb.de>, 
+	Rodrigo Vivi <rodrigo.vivi@intel.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Boqun Feng <boqun.feng@gmail.com>, Mark Rutland <mark.rutland@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221222_054706_897381_C875BCE1 
-X-CRM114-Status: GOOD (  22.49  )
+X-CRM114-CacheID: sfid-20221222_061236_058556_0FC2DAE6 
+X-CRM114-Status: GOOD (  26.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,57 +93,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Donnerstag, 8. Dezember 2022, 15:38:11 CET schrieb Andrew Jones:
-> On Wed, Dec 07, 2022 at 07:08:20PM +0100, Heiko Stuebner wrote:
-> > From: Heiko Stuebner <heiko.stuebner@vrull.eu>
-> > 
-> > Used together U-type and I-type instructions can for example be used to
-> > generate bigger jumps (i.e. in auipc+jalr pairs) by splitting the value
-> > into an upper immediate (i.e. auipc) and a 12bit immediate (i.e. jalr).
-> > 
-> > Due to both immediates being considered signed this creates some corner
-> > cases, so add some helper to prevent this from getting duplicated in
-> > different places.
-> > 
-> > Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
-> > ---
-> >  arch/riscv/include/asm/insn.h | 47 +++++++++++++++++++++++++++++++++++
-> >  1 file changed, 47 insertions(+)
-> > 
-> > diff --git a/arch/riscv/include/asm/insn.h b/arch/riscv/include/asm/insn.h
-> > index 2a23890b4577..bb1e6120a560 100644
-> > --- a/arch/riscv/include/asm/insn.h
-> > +++ b/arch/riscv/include/asm/insn.h
-> > @@ -290,3 +290,50 @@ static __always_inline bool riscv_insn_is_branch(u32 code)
-> >  	(RVC_X(x_, RVC_B_IMM_5_OPOFF, RVC_B_IMM_5_MASK) << RVC_B_IMM_5_OFF) | \
-> >  	(RVC_X(x_, RVC_B_IMM_7_6_OPOFF, RVC_B_IMM_7_6_MASK) << RVC_B_IMM_7_6_OFF) | \
-> >  	(RVC_IMM_SIGN(x_) << RVC_B_IMM_SIGN_OFF); })
-> > +
-> > +/*
-> > + * Put together one immediate from a U-type and I-type instruction pair.
-> > + *
-> > + * The U-type contains an upper immediate, meaning bits[31:12] with [11:0]
-> > + * being zero, while the I-type contains a 12bit immediate.
-> > + * Combined these can encode larger 32bit values and are used for example
-> > + * in auipc + jalr pairs to allow larger jumps.
-> > + *
-> > + * @utype_insn: instruction containing the upper immediate
-> > + * @itype_insn: instruction
-> > + * Return: combined immediate
-> > + */
-> > +static inline s32 riscv_insn_extract_utype_itype_imm(u32 utype_insn, u32 itype_insn)
-> 
-> Might be nice to keep the interfaces of these two complementing functions
-> consistent by taking a u32 *insn here, like below. Or, below, taking
-> &utype_insn and &itype_insn, like here.
+Hi Andrzej,
 
-I did go with separating the instructions in the insert function, simply
-because I think it's way nicer to not impose the fixed structure
-(2 u32 array) on every possible caller .
+Thanks for your series!
 
-Heiko
+On Thu, Dec 22, 2022 at 12:49 PM Andrzej Hajda <andrzej.hajda@intel.com> wrote:
+> I hope there will be place for such tiny helper in kernel.
+> Quick cocci analyze shows there is probably few thousands places
+> where it could be useful.
+> I am not sure who is good person to review/ack such patches,
+> so I've used my intuition to construct to/cc lists, sorry for mistakes.
+> This is the 2nd approach of the same idea, with comments addressed[0].
+>
+> The helper is tiny and there are advices we can leave without it, so
+> I want to present few arguments why it would be good to have it:
+>
+> 1. Code readability/simplification/number of lines:
+>
+> Real example from drivers/net/ethernet/mellanox/mlx5/core/esw/qos.c:
+> -       previous_min_rate = evport->qos.min_rate;
+> -       evport->qos.min_rate = min_rate;
+> +       previous_min_rate = __xchg(evport->qos.min_rate, min_rate);
 
+Upon closer look, shouldn't that be
 
+    previous_min_rate = __xchg(&evport->qos.min_rate, min_rate);
+
+?
+
+> For sure the code is more compact, and IMHO more readable.
+>
+> 2. Presence of similar helpers in other somehow related languages/libs:
+>
+> a) Rust[1]: 'replace' from std::mem module, there is also 'take'
+>     helper (__xchg(&x, 0)), which is the same as private helper in
+>     i915 - fetch_and_zero, see latest patch.
+> b) C++ [2]: 'exchange' from utility header.
+>
+> If the idea is OK there are still 2 qestions to answer:
+>
+> 1. Name of the helper, __xchg follows kernel conventions,
+>     but for me Rust names are also OK.
+
+Before I realized the missing "&", I wondered how this is different
+from swap(), so naming is important.
+https://elixir.bootlin.com/linux/latest/source/include/linux/minmax.h#L139
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
