@@ -4,63 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0EF6C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Dec 2022 20:16:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DC5AC4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Dec 2022 20:28:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A2zbgWkFnEcyShMQTHNszwHhRysXEanj6qgPjOexVJw=; b=ssO9r3Kzaz/avcvXU34aMmwLqc
-	26hWa4795b/gesSCjFq6ctdNKpxvpZHnQO8zAJ8ng5J62Go9eQKG6L7e9aYrVf3sfjmhSofN2Tpqm
-	6dLEBdETXYW8Y1j0KgtmROGTO8I4sFwFh1tOQj2hJNqdFna+46Tq5hLkFNxZ54azYXYFvOYrHauWf
-	sADWix5s4CiPZTj86svVMPEACKhRJEk9GNkLqT3TnnVCwavQntteLkLh0TSsPhJ94pyBGN6GUGFqN
-	wLUIDgxMce6A5KfY1lXVVIAUmE0TyFGVjEfOvSlzuvi1o3UqmZ7WD+hxC8Iy61TcSea9SfMkZ7c3+
-	40RQ22Ow==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=xG+jy/zUxYjr3SkYoFDlzUJp5CFx/aMePc0vmc1r3Tg=; b=brnQfKtfwv7MjB
+	EtDZ57i6DcXx9PIwW1mnBLI7XbuGOVhz1LZWxWw2ODlzSU3WYMXyf0Wx+jzg+rtTYTdcd6Oi6cdvA
+	+xMyVpO2pMbLehgcKHndnZ2alKmPR60fhrUWh9bLkkuD4wE8RIKxOzaWMBA7TOYSjhGX8xd5TeNeh
+	HdiKHljKMs78Znm175h3JOaT9JOw+xJ8n0km/0OsHw6fw3zP46oNh6UwURdWgVz5z4uWE4p/Yy+ph
+	vCXKsU08u5quSLOtITeonO/DMrWVcSgzFFk9f4RegQi1nFHRQcOdxwLQI0604qA/O/8v5uGalQALN
+	qW7kbK+6hOFSCey+FUIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8RzQ-00GkkW-Iv; Thu, 22 Dec 2022 20:16:28 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1p8SAj-00GsRA-Vf; Thu, 22 Dec 2022 20:28:10 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8RzN-00Gkar-1j; Thu, 22 Dec 2022 20:16:27 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id C1412B81DB9;
-	Thu, 22 Dec 2022 20:16:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17392C433D2;
-	Thu, 22 Dec 2022 20:16:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1671740181;
-	bh=DMHA3b3oHIoMzIjLooyiE/VarbkUBMVQxKioBAYS5mw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nySFoWQrub2dY++C8/ToiEIR1HqSq6F5Geiaa4u5Scj+P+jEi10a21cF7Mb1wZpXZ
-	 RtVCZKgWak25BFC0ZGHtNzeNh32pb0pIxE9msHl1ufADSSej13HYGO8K8jLHrsZQyI
-	 fyssER6r1dHTpyuQFCUfQRCJ8dcgU7pYwx+aG05OkJLNPHy/m57xMW597IdXx4nNAQ
-	 ptIPs18Uqifua37kpXIuwUWBTAE259+AerS/kkQ6qZbd3otaD0JHwkGed2UJ8dXLXh
-	 NQLozAQRbxr3lfA2fSBXTjhmZA2Evb8arl5+VIZdzmQ13s5AUlD27t0y0U2VbLMRBA
-	 nZ2fJ5ZtAT4+g==
-Date: Thu, 22 Dec 2022 20:16:16 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Atish Kumar Patra <atishp@rivosinc.com>
-Cc: Rob Herring <robh@kernel.org>, krzysztof.kozlowski+dt@linaro.org,
-	palmer@dabbelt.com, Conor Dooley <conor.dooley@microchip.com>,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, apatel@ventanamicro.com,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	opensbi@lists.infradead.org
-Subject: Re: [PATCH v1] dt-bindings: riscv: add SBI PMU event mappings
-Message-ID: <Y6S7ENNXQe42ymTz@spud>
-References: <20221221141548.274408-1-conor@kernel.org>
- <20221222180627.GA1748427-robh@kernel.org>
- <Y6SuyiYC/oLB2VzL@spud>
- <CAHBxVyEZJeH6H00Jdcm2_=z-D2kYxVTgagYhmLoyJ2CPqcFbgg@mail.gmail.com>
+	id 1p8SAg-00GsO5-8v
+	for linux-riscv@lists.infradead.org; Thu, 22 Dec 2022 20:28:08 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id b2so3065488pld.7
+        for <linux-riscv@lists.infradead.org>; Thu, 22 Dec 2022 12:28:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=M5HwyEmiomjboVj/trHaxxWvGfVIfqkNF8FY6xGz8yM=;
+        b=jY9mSbC5JDoPDVS5jt+FpQdnQrUyH/X6wqKUjthZ0lc8LdzMxpIkup1ar6IMmHfbdT
+         gt8hu6IuB5W93JAwfipVoS8l/pmfVSsfBURw84IhCC8i9xyfX7L2kAMZc+TVNQIUweC3
+         qDMqyeSmlJHf6weTcWE9Amt5XK+28Nz3WGkhofGSOO7F6FnUDoFgm74IEnT91dvpcyca
+         Yo52r2fzz3wC4Fp/yQaxKrQtWseoW5Z+NipBWRzs/duPrAwkICCxEakftW3RBmCLPT/F
+         Ldc+WYpa/BNsRbmF7Rm7pgkH+Okx0yyvX5W/516+Z9smTHlsePdZ58ZfTDUipxvXkzcW
+         /BfQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=M5HwyEmiomjboVj/trHaxxWvGfVIfqkNF8FY6xGz8yM=;
+        b=3Gah1o15/G/Ct0Vcpkmq6eSRbqkXOq3GvdwaJXt/DhxSS1xvuPcam2MW35ruvUOVMM
+         ooKk6PecO0Uz3skZ2OXEH0l4IQhczp+YB/jIT3T5DLgwKqf+bmvpDhTnwT9cnPmvXVun
+         hOuXmofXwyrYE4wX1jlpZjC+yqY/TOXndqBbv8C2lMlRdQqic9g+Ys+glFHnQ/bCVkPb
+         hyyk5zIIXoKkpJSYdEHUS3cJBjfN0/tc7IVYe2SQrXCboxbrK4r9P/vZVm8MuJVyFxfr
+         uibc1d9fRcVZIvzcpUwYiOpS4hVNHkZbBDIVs3c5P18ZBSQsSsffLcJPCQ3mUw+diZNh
+         NSkA==
+X-Gm-Message-State: AFqh2krS8tT+qaoXKWJDJxSCDg6ZnsecHBF/kfOLtNyEp+c6g85x0nHB
+	QLTTzd2Kpd6EFTkum2kYd4T1hg==
+X-Google-Smtp-Source: AMrXdXthGIPtKi4Hv9LqMkflOsINub95XAD/fbg+asgyUkDowrE1+/YXEA7iw5vpsvW4sjialdWgbQ==
+X-Received: by 2002:a05:6a21:e301:b0:af:85b4:2397 with SMTP id cb1-20020a056a21e30100b000af85b42397mr9821855pzc.41.1671740881880;
+        Thu, 22 Dec 2022 12:28:01 -0800 (PST)
+Received: from [192.168.50.116] (c-24-4-73-83.hsd1.ca.comcast.net. [24.4.73.83])
+        by smtp.gmail.com with ESMTPSA id t16-20020a634610000000b00473c36ea150sm1060512pga.92.2022.12.22.12.28.00
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 22 Dec 2022 12:28:01 -0800 (PST)
+Message-ID: <91ef3c45-165f-d2b3-7c77-322c01802c41@rivosinc.com>
+Date: Thu, 22 Dec 2022 12:27:59 -0800
 MIME-Version: 1.0
-In-Reply-To: <CAHBxVyEZJeH6H00Jdcm2_=z-D2kYxVTgagYhmLoyJ2CPqcFbgg@mail.gmail.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.4.2
+Subject: Re: Adding V-ext regs to signal context w/o expanding kernel struct
+ sigcontext to avoid glibc ABI break
+Content-Language: en-US
+To: Andy Chiu <andy.chiu@sifive.com>,
+ Richard Henderson <richard.henderson@linaro.org>
+Cc: Vincent Chen <vincent.chen@sifive.com>,
+ Florian Weimer <fweimer@redhat.com>, Rich Felker <dalias@libc.org>,
+ Andrew Waterman <andrew@sifive.com>, Palmer Dabbelt <palmer@rivosinc.com>,
+ Kito Cheng <kito.cheng@sifive.com>,
+ =?UTF-8?Q?Christoph_M=c3=bcllner?= <christoph.muellner@vrull.eu>,
+ davidlt@rivosinc.com, Arnd Bergmann <arnd@arndb.de>,
+ =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
+ Philipp Tomsich <philipp.tomsich@vrull.eu>,
+ Szabolcs Nagy <szabolcs.nagy@arm.com>, Greentime Hu
+ <greentime.hu@sifive.com>, Aaron Durbin <adurbin@rivosinc.com>,
+ Andrew de los Reyes <adlr@rivosinc.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ GNU C Library <libc-alpha@sourceware.org>
+References: <1631497278-29829-1-git-send-email-vincent.chen@sifive.com>
+ <1631497278-29829-3-git-send-email-vincent.chen@sifive.com>
+ <871r5sd1zq.fsf@oldenburg.str.redhat.com>
+ <20210913135247.GL13220@brightrain.aerifal.cx>
+ <CABvJ_xjGZ3S0oAkT08x4DToQFdcUH06omk2OTT1EHDZRJ-2wKg@mail.gmail.com>
+ <87sfy5ndid.fsf@oldenburg.str.redhat.com>
+ <CABvJ_xjSREsdemJkCJMGSx+09jrNoSbXCwuxF0zEQmZtHrWMvg@mail.gmail.com>
+ <d613968f-0fae-1994-3bee-fb10765167c3@rivosinc.com>
+ <73c0124c-4794-6e40-460c-b26df407f322@rivosinc.com>
+ <CABvJ_xgDsthnm_h6mYowK03VUKqYk=nZsSZ7R=0BTwFHGKEAMw@mail.gmail.com>
+ <50c598a6-e3b3-3062-abe7-23a406067533@rivosinc.com>
+ <7430f494-9b43-5e03-c1e9-6b83e2611a11@rivosinc.com>
+ <b67238bf-4b5d-dd17-99ff-88b0270ce10a@linaro.org>
+ <CABgGipVT9L5p623Q2rbjrm=tTwcnjSr178CRKTNs+WMbm7=+-Q@mail.gmail.com>
+From: Vineet Gupta <vineetg@rivosinc.com>
+In-Reply-To: <CABgGipVT9L5p623Q2rbjrm=tTwcnjSr178CRKTNs+WMbm7=+-Q@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221222_121625_418247_DD34DA72 
-X-CRM114-Status: GOOD (  40.98  )
+X-CRM114-CacheID: sfid-20221222_122806_546433_4379CF7D 
+X-CRM114-Status: GOOD (  25.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,211 +113,79 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============9180834094329465324=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============9180834094329465324==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="Z4/XEoq9i0wqaR4N"
-Content-Disposition: inline
 
+On 12/22/22 10:33, Andy Chiu wrote:
+> On Thu, Dec 22, 2022 at 1:32 PM Richard Henderson
+> <richard.henderson@linaro.org> wrote:
+>> E.g.
+>>
+>>       reserved[0] -> magic
+>>       reserved[1] -> displacement to "extension area"
+>>       reserved[2] -> size of "extension area"
+>>
+>> Thus the area can be located anywhere within 4GB and expand to 4GB.
+>> Not that I'd hope any signal frame would require 4GB.  :-)
+>>
+> By encoding the extension magic into fp reserved space, and attaching
+> actual Vector states underneath, it is possible to make no size
+> changes to the sigcontext itself. In fact the comment section of
+> __riscv_q_ext_state specifies those bytes were purposely reserved for
+> sigcontext expansion. If this is the case then maybe we should just
+> use those reserved spaces anyway.
+>
+> struct __riscv_q_ext_state {
+>          __u64 f[64] __attribute__((aligned(16)));
+>          __u32 fcsr;
+>          /*
+>           * Reserved for expansion of sigcontext structure.  Currently zeroed
+>           * upon signal, and must be zero upon sigreturn.
+>           */
+>          __u32 reserved[3];
+> };
+>
+> Here is a way that keeps the size and layout of sigcontext, while it
+> also manages to let the kernel write Vector state into an user's
+> signal stack. This approach also lets the user space leverage existing
+> reserved space to get context from new extensions. We introduce a new
+> struct, __riscv_extra_ext_header, unioning with __riscv_fp_state in
+> sigcontext. __riscv_extra_ext_header is the same size as
+> __riscv_fp_state. The only purpose of the struct is to point to the
+> magic header of a following extension, e.g. Vector, located at the
+> reserved space. If there is no more extension to come, then all of
+> those bytes should be zeros.
+>
+>   struct sigcontext {
+>          struct user_regs_struct sc_regs;
+> -       union __riscv_fp_state sc_fpregs;
+> +       union {
+> +               union __riscv_fp_state sc_fpregs;
+> +               struct __riscv_extra_ext_header sc_extdesc;
+> +       };
+>   };
+>
+> I wrote a PoC patch for this and it has been pushed into the following git tree:
+> https://github.com/sifive/riscv-linux/tree/dev/andyc/for-next-v13
+> I tested it on a rv32 QEMU virt machine and the user space can get/set
+> Vector registers normally. I haven't tested it on rv64 yet but it
+> should be no difference. The patch is not the final version and maybe
+> I missed some basic ideas. But if everyone agrees with this approach
+> then I would like to start formalizing and submit the series.
 
---Z4/XEoq9i0wqaR4N
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+This approach looks perfect. Lets productize it to fold this patch into 
+the respective patch(es).
+We would then need fixups to not unconditionally enable V on fork/execve 
+and hook that up to a prctl.
+Let me work on that and provide something on top of your series.
 
-On Thu, Dec 22, 2022 at 11:55:29AM -0800, Atish Kumar Patra wrote:
-> On Thu, Dec 22, 2022 at 11:24 AM Conor Dooley <conor@kernel.org> wrote:
-> > On Thu, Dec 22, 2022 at 12:06:27PM -0600, Rob Herring wrote:
-> > > On Wed, Dec 21, 2022 at 02:15:49PM +0000, Conor Dooley wrote:
-> > > > From: Conor Dooley <conor.dooley@microchip.com>
-> > > >
-> > > > The SBI PMU extension requires a firmware to be aware of the event =
-to
-> > > > counter/mhpmevent mappings supported by the hardware. OpenSBI may u=
-se
-> > > > DeviceTree to describe the PMU mappings. This binding is currently
-> > > > described in markdown in OpenSBI (since v1.0 in Dec 2021) & used by=
- QEMU
-> > > > since v7.2.0.
-> > > >
-> > > > Import the binding for use while validating dtb dumps from QEMU and
-> > > > upcoming hardware (eg JH7110 SoC) that will make use of the event
-> > > > mapping.
-> > > >
-> > > > Link: https://github.com/riscv-software-src/opensbi/blob/master/doc=
-s/pmu_support.md
-> > > > Co-developed-by: Atish Patra <atishp@rivosinc.com>
-> > > > Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> > > > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> > > > +description: |
-> > > > +  SBI PMU extension supports allow supervisor software to configur=
-e, start &
-> > > > +  stop any performance counter at anytime. Thus, a user can levera=
-ge full
-> > > > +  capability of performance analysis tools such as perf if the SBI=
- PMU
-> > > > +  extension is enabled. The OpenSBI implementation makes the follo=
-wing
-> > > > +  assumptions about the hardware platform:
-> > > > +    MCOUNTINHIBIT CSR must be implemented in the hardware. Otherwi=
-se, the SBI
-> > > > +    PMU extension will not be enabled.
-> > > > +
->=20
-> This is no longer true since OpenSBI commit b28f070. We should remove
-> this from OpenSBI docs as well.
-
-Since you know the detail of it, I volunteer you for that one ;)
-
-> > > > +    The platform must provide information about PMU event to count=
-er mapping
-> > > > +    via device tree or platform specific hooks. Otherwise, the SBI=
- PMU
-> > > > +    extension will not be enabled.
-> > > > +
-> > > > +    The platforms should provide information about the PMU event s=
-elector
-> > > > +    values that should be encoded in the expected value of MHPMEVE=
-NTx while
-> > > > +    configuring MHPMCOUNTERx for that specific event. This can be =
-done via a
-> > > > +    device tree or platform specific hooks. The exact value to be =
-written to
-> > > > +    the MHPMEVENTx is completely dependent on the platform. The ge=
-neric
-> > > > +    platform writes the zero-extended event_idx as the expected va=
-lue for
-> > > > +    hardware cache/generic events as suggested by the SBI specific=
-ation.
-> > > > +
->=20
-> But the larger question is these are OpenSBI implementation specific
-> assumptions. Should it be included in
-> the DT binding?
-
-Probably not. I'll drop it for v2.
-
-> > > > +properties:
-> > > > +  compatible:
-> > > > +    const: riscv,pmu
-> > > > +
-> > > > +  riscv,event-to-mhpmevent:
-> > > > +    $ref: /schemas/types.yaml#/definitions/uint32-matrix
-> > > > +    description:
-> > > > +      Represents an ONE-to-ONE mapping between a PMU event and the=
- event
-> > > > +      selector value that platform expects to be written to the MH=
-PMEVENTx CSR
-> > > > +      for that event.
-> > > > +      The mapping is encoded in an array format where each row rep=
-resents an
-> > >
-> > > s/array/matrix/
-> > >
-> > > > +      event. The first element represents the event idx while the =
-second &
-> > > > +      third elements represent the event selector value that shoul=
-d be encoded
-> > > > +      in the expected value to be written in MHPMEVENTx.
-> > > > +      This property shouldn't encode any raw hardware event.
-> > > > +    minItems: 1
-> > > > +    maxItems: 255
-> >
-> > I copied these 255s from dt-schema somewhere as a sane max.
-> > Atish, is there a cap here or should we allow as many as someone likes?
-> > The md binding doesn't mention any limits - is it in the SBI spec?
-> > The strongest wording I saw there was "limited" & event idx is 20 bits
-> > wide as per the spec [0]. Does that make 2^20 the hard limit here?
-> >
->=20
-> This is for hardware & cache events. The total number of events
-> defined there are 52 (10 HW + 42 Cache) events.
-> So 255 is a sane max that provides enough room for expansion in future
-> if required.
-
-WFM.
-
-> > > > +  riscv,raw-event-to-mhpmcounters:
-> > > > +    $ref: /schemas/types.yaml#/definitions/uint32-matrix
-> > > > +    description:
-> > > > +      Represents an ONE-to-MANY or MANY-to-MANY mapping between th=
-e rawevent(s)
-> > > > +      and all the MHPMCOUNTERx in a bitmap format that can be used=
- to monitor
-> > > > +      that raw event.
-> > > > +      The encoding of the raw events are platform specific. The in=
-formation is
-> > > > +      encoded in an array format where each row represents the spe=
-cific raw
-> > > > +      event(s). The first element is a 64-bit match value where th=
-e invariant
-> > > > +      bits of range of events are set. The second element is a 64-=
-bit mask that
-> > > > +      will have all the variant bits of the range of events cleare=
-d. All other
-> > > > +      bits should be set in the mask. The third element is a 32-bi=
-t value to
-> > > > +      represent bitmap of all MHPMCOUNTERx that can monitor these =
-set of
-> > > > +      event(s). If a platform directly encodes each raw PMU event =
-as a unique
-> > > > +      ID, the value of select_mask must be 0xffffffff_ffffffff.
-> > > > +    minItems: 1
-> > > > +    maxItems: 255
-> > > > +    items:
-> > > > +      $ref: /schemas/types.yaml#/definitions/uint32-array
-> > > > +      maxItems: 5
-> > > > +
-> > > > +required:
-> > > > +  - compatible
-> > >
-> > > I assume at least one of the other properties must be present?
-> >
-> > Atish: (and +CC the OpenSBI list)
-> > Which properties are actually needed here? Or are any? The md binding
-> > in the OpenSBI sources doesn't seem to require anything other than the
-> > compatible?
-> >
->=20
-> That's true. Opensbi allows the platform to define functions
-> to provide the mapping. Now that's an OpenSBI implementation thing.
-> Other implementations may choose to use it differently.
-
-In the case where the platform can define functions, the "bare" node
-with just the compatible is still required though in that case, right?
-
-Thanks,
-Conor.
-
-
---Z4/XEoq9i0wqaR4N
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY6S7EAAKCRB4tDGHoIJi
-0g2vAP9nEuTCVUKqyW74owqbj8+OZMHQcIeLAXuvNmpN4MR1cQD/Tq/Bn3SqRxBH
-OkW3HsXxbS3jEy6nw0LmAuq+6i5lKg4=
-=4o47
------END PGP SIGNATURE-----
-
---Z4/XEoq9i0wqaR4N--
-
-
---===============9180834094329465324==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-Vineet
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============9180834094329465324==--
-
