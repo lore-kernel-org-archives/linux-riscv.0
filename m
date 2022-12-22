@@ -4,84 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F390BC4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Dec 2022 13:52:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1EC3C4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Dec 2022 13:52:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QdzhyNxLMVIPp8rLzA1zW4DrBFRap0+DdSHZgCFiMHE=; b=GX7h1HTfUb1iEm
-	7jo1XDKIje4wJK6Ukj+zc1Gol88DuqgSw+USnkFS0N++Ji3vYG1clpzbVYnt6oNnqjwfMQQ+/VoaZ
-	A4NOy94aE1XEfSo1zS4JXJf4sim8CQh3+MraO9PzJ0erhLTKAvvw+YTWs5HSp4uAJEeSVPsYdEc74
-	uB2yLJHMCg+EG5bLLrL10hPx/GWoCz01VoOhBbl5NjjYqDCdepta+tc8t2q9g48eMmGB8ijTIfe6r
-	j8sKs4KJfjTxVc3b7sJM9fuQxuw8ZeTDNj7kRo5bsrvRdQaj+RO1c1uKLTUoUjy7t0bSd7gakIS0L
-	Ilx+K4lv5B2UYDsEAJDQ==;
+	List-Owner; bh=Yy4O4B2aZ+mxPpJbjQEDA4GOW2hRCuaXXggcuxfUG7U=; b=lpwtNtkIIRhs60
+	xF7B/fb0tqYSGTeHYVbvwsvvYgP70k1jWI9ZWt+F8DfI/xqiICvvI/bGnIeLvRV8N8pTz7wxuxwtz
+	zvnXgzX5k6EUYpmdvQrO+PXvaYTUb+obIBTWFxCYsLXzWxWoFBQYBIoSPnMHpnqjmgQwFLhWlsh95
+	t1HeVgsHC4KxDMlSTIGw/6E3Eat4i+ntGd1u1F1j0xgEC276NCpiPjk/D4O+X2hzrtg22BC5eXEkj
+	fP3z9Tb+riFGCTCZhaasKQANypKGjSFqQr4bnYXOurEg+sahlF95cgqQWGooYQ4EemXYkPan/IYUv
+	uIPdJ8nx0vEvzLN4QoGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8LzH-00CcUx-U8; Thu, 22 Dec 2022 13:51:56 +0000
-Received: from mga03.intel.com ([134.134.136.65])
+	id 1p8Lzf-00Ccjd-Ot; Thu, 22 Dec 2022 13:52:19 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8KzM-00C2Bm-Q1; Thu, 22 Dec 2022 12:47:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1671713276; x=1703249276;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=UPM8RDFaM30ZmFrIb8CKMZ1JANhWUp662jbH45qLr6M=;
-  b=K2etaX872S+4MUR9/eIj4wJsmme9tOOLNeERDeBxFXkNeqawDUM/WuSn
-   usZwU+wyzttHHtW5gO4j1iOXRXmLzGYc3o3sDnHXDtRLL5h4QtCFOgRko
-   gBs4ZO3/yH6Dq2ict8r+HkIx/n5EDCuxIt7OUdE0ehzYxiN1hClBz5XWv
-   WzlynD5sEqa8QwqVtWgN+9IyI6G6RL4TJK9U/nGNTLxTgsUljl5cdFGPI
-   OBfOfX/qbmzFnNzhEbygBpCC7jubYjKiv3IG1kPk+QZmOsxfXioXYwD7g
-   KWZa4R/5MAMpRmndig3VsyHq0xdbH6DEcKhH8dDjcMOzTx1djO4NgW2hV
-   w==;
-X-IronPort-AV: E=McAfee;i="6500,9779,10568"; a="322031546"
-X-IronPort-AV: E=Sophos;i="5.96,265,1665471600"; 
-   d="scan'208";a="322031546"
-Received: from fmsmga006.fm.intel.com ([10.253.24.20])
-  by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Dec 2022 04:47:51 -0800
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6500,9779,10568"; a="897213732"
-X-IronPort-AV: E=Sophos;i="5.96,265,1665471600"; 
-   d="scan'208";a="897213732"
-Received: from smile.fi.intel.com ([10.237.72.54])
-  by fmsmga006.fm.intel.com with ESMTP; 22 Dec 2022 04:47:45 -0800
-Received: from andy by smile.fi.intel.com with local (Exim 4.96)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1p8Kz8-00Duf4-1e;
-	Thu, 22 Dec 2022 14:47:42 +0200
-Date: Thu, 22 Dec 2022 14:47:42 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Andrzej Hajda <andrzej.hajda@intel.com>
-Cc: linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-hexagon@vger.kernel.org,
-	linux-ia64@vger.kernel.org, loongarch@lists.linux.dev,
-	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
-	openrisc@lists.librecores.org, linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-xtensa@linux-xtensa.org,
-	intel-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
-	Arnd Bergmann <arnd@arndb.de>,
-	Rodrigo Vivi <rodrigo.vivi@intel.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	Mark Rutland <mark.rutland@arm.com>
-Subject: Re: [PATCH 18/19] linux/include: add non-atomic version of xchg
-Message-ID: <Y6RR7hPZUN22ytap@smile.fi.intel.com>
-References: <20221222114635.1251934-1-andrzej.hajda@intel.com>
- <20221222114635.1251934-19-andrzej.hajda@intel.com>
+	id 1p8LBh-00C9VM-DO
+	for linux-riscv@lists.infradead.org; Thu, 22 Dec 2022 13:00:43 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 74BDEB81D2C;
+	Thu, 22 Dec 2022 13:00:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7D61C433D2;
+	Thu, 22 Dec 2022 13:00:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1671714036;
+	bh=9W5wvIsudxlyGWjHXQF4tUGsiSCy97rCYsCSM77Fg00=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=dcnzhC9r1DlFOf5fxMK6qAK/mWD0n9P52cyC6lX/n411r5np52AZp3mrqa6wAnRNR
+	 plT+6Mo/k5/VMd7IsD+D0UrZeTmKXhiqypuVaWuj9Uj/EHedpLogBWQ85eUhscJYVb
+	 4/6UL3dLJB2O4Y8Jg2/UKJ+2snswaQhAVvVbYJUVsyOLpoA+2cNXsbUAn/3BSg20dP
+	 HBiipcUVhQtcXkIyHkwDJiMdG5OoOjsFvKQ43S2L0gctF2n7XUkf5qRlPA+Hwy7Wd7
+	 qB31vpwGubOk0lfVBs7e8IJTtxUczi4wA6YvYyuKEsi6xvzS3Caez5j5NShZGQC3Iu
+	 +k02QLKYRa/Qg==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Pu Lehui <pulehui@huaweicloud.com>, bpf@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: Luke Nelson <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>, Alexei
+ Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
+ <martin.lau@linux.dev>, Song Liu <song@kernel.org>, Yonghong Song
+ <yhs@fb.com>, John Fastabend <john.fastabend@gmail.com>, KP Singh
+ <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>, Hao Luo
+ <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Pu Lehui <pulehui@huawei.com>, Pu Lehui
+ <pulehui@huaweicloud.com>
+Subject: Re: [RFC PATCH RESEND bpf-next 0/4] Support bpf trampoline for RV64
+In-Reply-To: <20221220021319.1655871-1-pulehui@huaweicloud.com>
+References: <20221220021319.1655871-1-pulehui@huaweicloud.com>
+Date: Thu, 22 Dec 2022 14:00:33 +0100
+Message-ID: <87ili3a8zy.fsf@all.your.base.are.belong.to.us>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20221222114635.1251934-19-andrzej.hajda@intel.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221222_044756_970198_A5956BCB 
-X-CRM114-Status: GOOD (  18.97  )
+X-CRM114-CacheID: sfid-20221222_050041_938277_C6C96FED 
+X-CRM114-Status: UNSURE (   8.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,62 +76,23 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 22, 2022 at 12:46:34PM +0100, Andrzej Hajda wrote:
-> The pattern of setting variable with new value and returning old
-> one is very common in kernel. Usually atomicity of the operation
-> is not required, so xchg seems to be suboptimal and confusing in
-> such cases.
-
-FWIW,
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-
-> Signed-off-by: Andrzej Hajda <andrzej.hajda@intel.com>
-> ---
->  include/linux/non-atomic/xchg.h | 19 +++++++++++++++++++
->  1 file changed, 19 insertions(+)
->  create mode 100644 include/linux/non-atomic/xchg.h
-> 
-> diff --git a/include/linux/non-atomic/xchg.h b/include/linux/non-atomic/xchg.h
-> new file mode 100644
-> index 00000000000000..f7fa5dd746f37d
-> --- /dev/null
-> +++ b/include/linux/non-atomic/xchg.h
-> @@ -0,0 +1,19 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +#ifndef _LINUX_NON_ATOMIC_XCHG_H
-> +#define _LINUX_NON_ATOMIC_XCHG_H
-> +
-> +/**
-> + * __xchg - set variable pointed by @ptr to @val, return old value
-> + * @ptr: pointer to affected variable
-> + * @val: value to be written
-> + *
-> + * This is non-atomic variant of xchg.
-> + */
-> +#define __xchg(ptr, val) ({		\
-> +	__auto_type __ptr = ptr;	\
-> +	__auto_type __t = *__ptr;	\
-> +	*__ptr = (val);			\
-> +	__t;				\
-> +})
-> +
-> +#endif
-> -- 
-> 2.34.1
-> 
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+UHUgTGVodWkgPHB1bGVodWlAaHVhd2VpY2xvdWQuY29tPiB3cml0ZXM6Cgo+IEJQRiB0cmFtcG9s
+aW5lIGlzIHRoZSBjcml0aWNhbCBpbmZyYXN0cnVjdHVyZSBvZiB0aGUgYnBmCj4gc3Vic3lzdGVt
+LCBhY3RpbmcgYXMgYSBtZWRpYXRvciBiZXR3ZWVuIGtlcm5lbCBmdW5jdGlvbnMKPiBhbmQgQlBG
+IHByb2dyYW1zLiBOdW1lcm91cyBpbXBvcnRhbnQgZmVhdHVyZXMsIHN1Y2ggYXMKPiB1c2luZyBl
+YnBmIHByb2dyYW0gZm9yIHplcm8gb3ZlcmhlYWQga2VybmVsIGludHJvc3BlY3Rpb24sCj4gcmVs
+eSBvbiB0aGlzIGtleSBjb21wb25lbnQuIFdlIGNhbid0IHdhaXQgdG8gc3VwcG9ydCBicGYKPiB0
+cmFtcG9saW5lIG9uIFJWNjQuIFRoZSBpbXBsZW1lbnRhdGlvbiBvZiBicGYgdHJhbXBvbGluZQo+
+IHdhcyBjbG9zZWx5IHRvIHg4NiBhbmQgYXJtNjQgZm9yIGZ1dHVyZSBkZXZlbG9wbWVudC4KClRo
+YW5rIHlvdSBmb3Igd29ya2luZyBvbiB0aGlzISBCUEYgdHJhbXBvbGluZSBpcyB0aGUgIm1pc3Np
+bmcgcGllY2UiCmZyb20gZ2V0dGluZyBwcm9wZXIga2Z1bmMgc3VwcG9ydC4KClVuZm9ydHVuYXRl
+bHksIEkgd29udCBiZSBhYmxlIHRvIGRvIGEgcHJvcGVyIHJldmlldyB1bnRpbCBuZXh0IHdlZWsu
+CgoKSGFwcHkgaG9saWRheXMsCkJqw7ZybgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
+c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
+aW5mby9saW51eC1yaXNjdgo=
