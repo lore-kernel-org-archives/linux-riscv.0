@@ -4,68 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1D37C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Dec 2022 09:38:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60B99C4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Dec 2022 09:41:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=h3w35kImTr4iDhOyZpoi2QtbkI1hmpUEItF/klmCc4g=; b=DVxWTPMve8HLYG
-	n2Tup8sVx4XVP+nuaTXO6KbeelbEawqqOuQwIhW1Uv+H1jdMmPiOor+23JmtHa2lN19CyMnsW4K7u
-	kSMVQ4YiqRq5vmwS6eyM8Eqcu97Mefpl+MRwhqlRGJdabTkLFAwpVKt+FPd8/PjsP/gctaI54txoa
-	dBlkZnRv1GOWdLYopET3YA3CIGdJSdxC6gqfrItHjsnXSmPZeENv/ZyU3mjr2KhQWZea2/K+nbYJE
-	dhklCbwyxIwXXPxEXKI9tg3ZgcFK0BP0S1yUqT0foeZG/W3vzjSeU8y3o7qXtlETHEQnWOwa1lmL1
-	zs+MfQq4RsBbMcrUl6OQ==;
+	List-Owner; bh=oA9fkrL/IXmNmc8hTXmm8wjm2sJsuUc70fszGNGcF+w=; b=xLWilC9t1uElk3
+	zpP+iqkFhQSFYkSNK+e7FaI+fEOaRuhyOQlVmTEYPh34AiMCDft4PZLLBMnQpBM/Y75wjV5MiucLG
+	7qGa7eGJBbNa4VunaeYr2lCly0prcgjFGHmWSpnRQfh5GQz43P/uXxvs4xA1t88WBxFeConzi12ue
+	mjmpbry2Vu0H/jTBlAob7zqVPikSWaHhxBilD7IJQFz+/b9H6Lr7lw0Qyb1jdHGugtF77kq2HY63Q
+	mWNBwVOQ/jEkg7tUHjc/xfgtHZSc6ALoS7rRJAKfbvFdgos7RDjk0xvMYZADQyB4FdbiOfoLWDMQQ
+	1QDiZ31gdGZYB8w4VIXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8I1Q-00A2uB-AG; Thu, 22 Dec 2022 09:37:52 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8HzH-00A2Pt-Ub
-	for linux-riscv@lists.infradead.org; Thu, 22 Dec 2022 09:35:42 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 33E1224E346;
-	Thu, 22 Dec 2022 17:35:09 +0800 (CST)
-Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 22 Dec
- 2022 17:35:09 +0800
-Received: from EXMBX168.cuchost.com ([fe80::3c2d:dee5:4938:3fc4]) by
- EXMBX168.cuchost.com ([fe80::3c2d:dee5:4938:3fc4%16]) with mapi id
- 15.00.1497.044; Thu, 22 Dec 2022 17:35:09 +0800
-From: JiaJie Ho <jiajie.ho@starfivetech.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Olivia Mackall
-	<olivia@selenic.com>, Herbert Xu <herbert@gondor.apana.org.au>, Rob Herring
-	<robh+dt@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
-CC: Emil Renner Berthing <kernel@esmil.dk>, Conor Dooley
-	<conor.dooley@microchip.com>, "linux-crypto@vger.kernel.org"
-	<linux-crypto@vger.kernel.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>
-Subject: RE: [PATCH 2/3] hwrng: starfive - Add TRNG driver for StarFive SoC
-Thread-Topic: [PATCH 2/3] hwrng: starfive - Add TRNG driver for StarFive SoC
-Thread-Index: AQHZFRwx15kE4gLKu0uxN2CW96B+Oa53kqwAgAIT3RA=
-Date: Thu, 22 Dec 2022 09:35:08 +0000
-Message-ID: <69dca1be673a40729d750c00d927b437@EXMBX168.cuchost.com>
-References: <20221221090819.1259443-1-jiajie.ho@starfivetech.com>
- <20221221090819.1259443-3-jiajie.ho@starfivetech.com>
- <05aaa9f8-7a97-51c9-e18a-1c3753f2006b@linaro.org>
-In-Reply-To: <05aaa9f8-7a97-51c9-e18a-1c3753f2006b@linaro.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [161.142.229.243]
-x-yovoleruleagent: yovoleflag
+	id 1p8I4w-00A3vf-H4; Thu, 22 Dec 2022 09:41:30 +0000
+Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1p8I4V-00A3o2-7z
+	for linux-riscv@lists.infradead.org; Thu, 22 Dec 2022 09:41:04 +0000
+Received: by mail-ej1-x630.google.com with SMTP id tz12so3564375ejc.9
+        for <linux-riscv@lists.infradead.org>; Thu, 22 Dec 2022 01:41:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=T5sljJc4I7u6hP7ibi4k54gj9SUSXUqTx/yNLLzCW5g=;
+        b=O82v71gHFwz87qQJ6ygWvpIa8c8tKKIAbowaSnSYoWYqvo+4GQzq25o+VykzKvGF4O
+         U9Vp1MmiGD1TqMeF+jzthu2CtWoI4a1i4hy/qXeL1gLA4dJlivXa2tXYPuyzCAiemNs7
+         J/iibWlAP4fVuWZycAITlPgk2A/TlO6OLOjCbqNcvQ42eHOadcCCcyltT4ltCoF1TS+s
+         WveVh6DfouxUdVQMx6PMKZfxDoErywjMwDz2tT5JXMyWv/z/JBonexQazvFpUQeP3gKQ
+         HfxDN7ArHvNyhQHW7J4zLHr8r8J9fbKdnqv/MCUxysacJ3Ge3xoIHnPSHU6ROzbdQWXW
+         yh2A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=T5sljJc4I7u6hP7ibi4k54gj9SUSXUqTx/yNLLzCW5g=;
+        b=fOBYswe3hsJXMp0bdM+QL7Q1nyYD98bLwT6xJqPD2fKuBKSlkfYQGfNgqohb3RPKUU
+         U1fb8brqDyOLZxU47p65OLJSPWqnkf1tTQWHbKjomVFQv+8Ma86wheu7+DF7ljzlsaI5
+         kET8eK84j0l+QhYE0TU8t8IxEDCti+o7NhPUq0OlfRvCuud7D+SOb2Q1gJLr+V8XNnEt
+         s8lwT2PkI3rULI6q5nRsiKthVsMa9d8pQL7DM8hJWnA2D42sSzxF65D5++yypBg/lQYb
+         vTTrdAhNG7lclXmVmmyAK1NX5Zt2jtlrKvHrn6A4QKKC4tNwyX+4Iq5520BgQMNl8yH3
+         i2Fg==
+X-Gm-Message-State: AFqh2kpFyXpb7WlkLaGs4EVLU6v0EiVe3tMti1p9+4M+lI6C79Sigah+
+	pcU5uPtXw0WUnLgOIw57SKDFHbAGBq7NbZcmAeE=
+X-Google-Smtp-Source: AMrXdXtw+ao2n/b9tn3M3QtnM8+Y7ro93LfJirJJUBkOaUE2OomJOpQ2qCq5uD5uUsjx4EgJEGnXmKPhhnzM46uDkKA=
+X-Received: by 2002:a17:906:68c9:b0:7c1:a0d:dd2c with SMTP id
+ y9-20020a17090668c900b007c10a0ddd2cmr536671ejr.26.1671702060751; Thu, 22 Dec
+ 2022 01:41:00 -0800 (PST)
 MIME-Version: 1.0
+References: <20221216185012.2342675-1-abdulras@google.com> <CAEUhbmUsFt0H-Dd3XHjuk6sUq0hrV9SFU=1jD2LQ10xywZOZiA@mail.gmail.com>
+ <CAO8XFHv_wV_oSuS+e412yr6vjm-44Vf2gJuMO4FvgPeodhWQww@mail.gmail.com>
+In-Reply-To: <CAO8XFHv_wV_oSuS+e412yr6vjm-44Vf2gJuMO4FvgPeodhWQww@mail.gmail.com>
+From: Bin Meng <bmeng.cn@gmail.com>
+Date: Thu, 22 Dec 2022 17:40:50 +0800
+Message-ID: <CAEUhbmX6PE_E8PCEp4mo8Fpjtc-Pm-tmpxws0UKCp715qB+qRg@mail.gmail.com>
+Subject: Re: [PATCH] riscv: avoid enabling vectorized code generation
+To: Saleem Abdulrasool <abdulras@google.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221222_013540_368254_C281F6E7 
-X-CRM114-Status: GOOD (  22.43  )
+X-CRM114-CacheID: sfid-20221222_014103_396178_709FBE69 
+X-CRM114-Status: GOOD (  34.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,90 +87,89 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
-
-> -----Original Message-----
-> From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> Sent: Wednesday, December 21, 2022 5:49 PM
-> To: JiaJie Ho <jiajie.ho@starfivetech.com>; Olivia Mackall
-> <olivia@selenic.com>; Herbert Xu <herbert@gondor.apana.org.au>; Rob
-> Herring <robh+dt@kernel.org>; Krzysztof Kozlowski
-> <krzysztof.kozlowski+dt@linaro.org>
-> Cc: Emil Renner Berthing <kernel@esmil.dk>; Conor Dooley
-> <conor.dooley@microchip.com>; linux-crypto@vger.kernel.org;
-> devicetree@vger.kernel.org; linux-kernel@vger.kernel.org; linux-
-> riscv@lists.infradead.org
-> Subject: Re: [PATCH 2/3] hwrng: starfive - Add TRNG driver for StarFive SoC
-> 
-> On 21/12/2022 10:08, Jia Jie Ho wrote:
-> > This adds driver support for the hardware random number generator in
-> > Starfive SoCs and adds StarFive TRNG entry to MAINTAINERS.
+On Thu, Dec 22, 2022 at 1:39 AM Saleem Abdulrasool <abdulras@google.com> wrote:
+>
+> On Wed, Dec 21, 2022 at 8:17 AM Bin Meng <bmeng.cn@gmail.com> wrote:
 > >
-> > Co-developed-by: Jenny Zhang <jenny.zhang@starfivetech.com>
-> > Signed-off-by: Jenny Zhang <jenny.zhang@starfivetech.com>
-> > Signed-off-by: Jia Jie Ho <jiajie.ho@starfivetech.com>
-> > ---
-> >  MAINTAINERS                            |   6 +
-> >  drivers/char/hw_random/Kconfig         |  11 +
-> >  drivers/char/hw_random/Makefile        |   1 +
-> >  drivers/char/hw_random/starfive-trng.c | 403
-> > +++++++++++++++++++++++++
-> >  4 files changed, 421 insertions(+)
-> >  create mode 100644 drivers/char/hw_random/starfive-trng.c
+> > Hi,
 > >
-> 
-> (...)
-> 
-> > +static const struct of_device_id trng_dt_ids[] = {
-> > +	{ .compatible = "starfive,jh7110-trng" },
-> > +	{ }
-> > +};
-> > +MODULE_DEVICE_TABLE(of, trng_dt_ids);
-> > +
-> > +static struct platform_driver starfive_trng_driver = {
-> > +	.probe	= starfive_trng_probe,
-> > +	.driver	= {
-> > +		.name		= "starfive-trng",
-> > +		.pm		= &starfive_trng_pm_ops,
-> > +		.of_match_table	= of_match_ptr(trng_dt_ids),
-> 
-> of_match_ptr goes with __maybe_unused. You will have now warnings, so
-> please test more your patches (W=1, sparse, smatch).
-> 
+> > On Sat, Dec 17, 2022 at 3:12 AM Saleem Abdulrasool <abdulras@google.com> wrote:
+> > >
+> > > The compiler is free to generate vectorized operations for zero'ing
+> > > memory.  The kernel does not use the vector unit on RISCV, similar to
+> > > architectures such as x86 where we use `-mno-mmx` et al to prevent the
+> > > implicit vectorization.  Perform a similar check for
+> > > `-mno-implicit-float` to avoid this on RISC-V targets.
+> > >
+> > > Signed-off-by: Saleem Abdulrasool <abdulras@google.com>
+> > > ---
+> > >  arch/riscv/Makefile | 4 ++++
+> > >  1 file changed, 4 insertions(+)
+> > >
+> > > diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+> > > index 0d13b597cb55..68433476a96e 100644
+> > > --- a/arch/riscv/Makefile
+> > > +++ b/arch/riscv/Makefile
+> > > @@ -89,6 +89,10 @@ KBUILD_AFLAGS_MODULE += $(call as-option,-Wa$(comma)-mno-relax)
+> > >  # architectures.  It's faster to have GCC emit only aligned accesses.
+> > >  KBUILD_CFLAGS += $(call cc-option,-mstrict-align)
+> > >
+> > > +# Ensure that we do not vectorize the kernel code when the `v` extension is
+> > > +# enabled.  This mirrors the `-mno-mmx` et al on x86.
+> > > +KBUILD_CFLAGS += $(call cc-option,-mno-implicit-float)
+> >
+> > This looks like an LLVM flag, but not GCC.
+>
+> Correct, this is a clang flag, though I imagine that GCC will need a
+> similar flag once it receives support for the V extension.
+>
+> > Can you elaborate what exact combination (compiler flag and source)
+> > would cause an issue?
+>
+> The particular case that I was using was simply `clang -target
+> riscv64-unknown-linux-musl -march=rv64gcv` off of main.
+>
+> > From your description, I guess it's that when enabling V extension in
+> > LLVM, the compiler tries to use vector instructions to zero memory,
+> > correct?
+>
+> Correct.
 
-Hi Krzysztof,
+Thanks for the confirmation.
 
-Thanks for reviewing this patch.
-How do I properly handle __maybe_unused functions in this scenario?
-Will it help if I add #define as follows:
+>
+> > Can you confirm LLVM does not emit any float instructions (like F/D
+> > extensions) because the flag name suggests something like "float"?
+>
+> The `-mno-implicit-float` should disable any such emission.  I assume
+> that you are worried about the case without the flag?  I'm not 100%
+> certain without this flag, but the RISCV build with this flag has been
+> running smoothly locally for a while.
+>
+>
 
-#ifdef CONFIG_PM
-#define STARFIVE_RNG_PM_OPS (&starfive_rng_pm_ops)
-#else
-#define STARFIVE_RNG_PM_OPS NULL
-#endif
+I still have some questions about the `-mno-implicit-float` option's behavior.
 
-static struct platform_driver starfive_trng_driver = {
-        .probe  = starfive_trng_probe,
-        .driver = {
-                .name           = "starfive-trng",
-                .pm             = STARFIVE_RNG_PM_OPS,
-                .of_match_table = of_match_ptr(trng_dt_ids),
-        },
-};
+- If this option is not on, does the compiler emit any F/D extension
+instruction for zero'ing memory when -march=rv64g? I want to know
+whether the `-mno-implicit-float` option only takes effect when "v"
+appears on the -march string.
+- If the answer to the above question is no, I wonder why the option
+is called `-mno-implicit-float` as float suggests the FPU usage, but
+actually it is about vectorization. The Clang documentation says
+almost nothing about this option.
 
-I did build the patches with the tools mentioned but did not get warnings.
-Do I need a specific version, or have I done something wrong?
-
-make C=2 drivers/char/hw_random/
-  CHECK   scripts/mod/empty.c
-  CALL    scripts/checksyscalls.sh
-  CHECK   arch/riscv/kernel/vdso/vgettimeofday.c
-  CHECK   drivers/char/hw_random/core.c
-  CHECK   drivers/char/hw_random/starfive-trng.c
+> > > +
+> > >  ifeq ($(CONFIG_STACKPROTECTOR_PER_TASK),y)
+> > >  prepare: stack_protector_prepare
+> > >  stack_protector_prepare: prepare0
+> > > --
 
 Regards,
-Jia Jie
+Bin
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
