@@ -4,88 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1900C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Dec 2022 12:31:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02960C4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Dec 2022 13:28:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XApDdyjhExNMhpEW0LbFBORAMq4GmeOIMaZa7L5diqo=; b=GNl1lvZiQiatSW
-	zovJU+tMoUZffd1abPC+LQZswBLvQOm6f6NKvtncUdoiriqbxWcsxZHWMP64bGWCHKZ2ZS0LWItvP
-	OKdc00uJQaF1dxemOEuCbcejBILmlL5L//amS7WvznxCjqC6psLNKAssuhsUepLYKIrTqo/Q9siKV
-	V0LkPtrqgIhgsChMILb11g18cijmuROfIo9dKsSfTrD+UJcSeYVs6o0+//yP5eKR70k2XLUpwHPmG
-	w/4axZBnM6tPE/mwixYyBZMoqbBrrA28FXwHxlGXRmQcP2Y5OOtv3/ZF2fzOmkAhtIyxyMJeRHCPJ
-	/H/TB/OuqJ59iZtLIJww==;
+	List-Owner; bh=+pQ5Kdv4CKx2kJrj8OVjdmYfxqg62uIbKB0CyGuaH6k=; b=hbf2MOzVbMwwlm
+	1ovvIfE0UvVzfxyZFw/XEoBUL0PEDmY7Pw/GZPWgNFY56RNa3FKmAgpkJEVO8n2iiu2jacocCLM5h
+	5LQ2md+N0i8neBJw34wnWbbcCjXlOZLjSOnLhGV4jfzCWr4sJgkyxROiGyKnBji2GTudxWRBXsn39
+	bFmGsrRpFsKmdddr/0UwtPumwitRQohL3+Z4UFWROpGIZkhfSjfSKTC7fQSfwAp7u5PtsvaCfMZmT
+	xensejQ3fOp7+zoFe53QK29zYs1soEAA5LJ4HDUHtxlpFJ95nUe0O4zH0uTAm4mIMLccgotATKPtq
+	2+w/ut8BmQH0PIW6vigw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8KjW-00Bsjf-BR; Thu, 22 Dec 2022 12:31:34 +0000
-Received: from mga04.intel.com ([192.55.52.120])
+	id 1p8Lcc-00COjJ-JY; Thu, 22 Dec 2022 13:28:30 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8K4X-00BWfl-4w; Thu, 22 Dec 2022 11:49:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1671709753; x=1703245753;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=tIRocWwFeyLnkMyWNI6V183GDJq3vxxO+e0RyrK1iBA=;
-  b=dnRQbvgKFGhPswUk8vFkjePyZPKIVjSmtsVioD7FCUk26tE9tj0FC2al
-   YC28XUfKFU64LaQThPC0EoGptZwVdCbTVxTTZgoaCMHRrBVaFJq9W26kP
-   3xti6CpH2FSPNfSB3y/b5WMqCYCU07p7ZkqXraHIxZg7czoKodKVbFmPS
-   zscAJVF+3fjgH51fnPwTnDgkW9J5WM7vadm+7f8x6ZuZ867zJN84jO2px
-   +XFWiTNJowo1YqrDYfvS6A6M7zZjlOyIlKTkcvmzDCSjH6D/XqAMll3Bg
-   jk/8p95GEznm0fyG1iy5+knk4J0rP+hFQDYc50iq24hUegZBGnsaOS7mV
-   A==;
-X-IronPort-AV: E=McAfee;i="6500,9779,10568"; a="318804950"
-X-IronPort-AV: E=Sophos;i="5.96,265,1665471600"; 
-   d="scan'208";a="318804950"
-Received: from orsmga006.jf.intel.com ([10.7.209.51])
-  by fmsmga104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Dec 2022 03:49:12 -0800
-X-IronPort-AV: E=McAfee;i="6500,9779,10568"; a="629504949"
-X-IronPort-AV: E=Sophos;i="5.96,265,1665471600"; 
-   d="scan'208";a="629504949"
-Received: from lab-ah.igk.intel.com ([10.91.215.196])
-  by orsmga006-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Dec 2022 03:49:06 -0800
-From: Andrzej Hajda <andrzej.hajda@intel.com>
-To: linux-alpha@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-hexagon@vger.kernel.org,
-	linux-ia64@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org,
-	openrisc@lists.librecores.org,
-	linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	linux-xtensa@linux-xtensa.org,
-	intel-gfx@lists.freedesktop.org,
-	dri-devel@lists.freedesktop.org
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Rodrigo Vivi <rodrigo.vivi@intel.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	Mark Rutland <mark.rutland@arm.com>
-Subject: [PATCH 18/19] linux/include: add non-atomic version of xchg
-Date: Thu, 22 Dec 2022 12:46:34 +0100
-Message-Id: <20221222114635.1251934-19-andrzej.hajda@intel.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20221222114635.1251934-1-andrzej.hajda@intel.com>
-References: <20221222114635.1251934-1-andrzej.hajda@intel.com>
+	id 1p8Kbj-00Bobx-AS
+	for linux-riscv@lists.infradead.org; Thu, 22 Dec 2022 12:23:33 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d3so1844880plr.10
+        for <linux-riscv@lists.infradead.org>; Thu, 22 Dec 2022 04:23:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=CdDJgwcsu5IyO/nuycFje+XP9l7MwqwDfx8pJnx7g2s=;
+        b=TbbkdmEquZ8ax5xCrAzKcVDlsBIaTTf22DVcmgmUFw8mZd7+B/9Cz1EMXOraEfYMqf
+         4B9oSbeoPU9eAEQytGfErllWh4mntzrLqCYI5PyMEfiNqoPSevXWpC3zTJZZjKUOgm1r
+         XB3JI6MkHl0Orysi3+Q631izlGY4bFSMlO+YzEjxd4LJw9CtGDrGL7QprDwbSMF4OiCS
+         G1JyotmRXYDscPd25UAJY/6kiSQU2Hz5BYpoCwoXNlKDSjtJ+XFwOC38g9PcINnpPLZi
+         JemXbGaXgt+fhScPxbd7cTaOkf0FKu+nHxpaVhwob1sFDyUYWG1ggZZHlUeKkrr7qIKl
+         070Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=CdDJgwcsu5IyO/nuycFje+XP9l7MwqwDfx8pJnx7g2s=;
+        b=Lboksqoreoi851hDV1k2W7b+hIaeQVipWHnsP9iwXOuQyPrWN3TEoMUazzBde94gVe
+         87IM13/Lvu+vUOyQ9pClViUonmnjy0H9gIECXi9yBhCGcnHo+zafPV3pCGV8OKN6iJhC
+         QcW7vm4gGCxOI6LdjqGaEzKUb+0vPzMqhe8bsCFULkqW37mtD2t7Vh2N2338FcqVBvda
+         u6Gl0UiCi4tdNJTXnAZ37ZmLbnFWLHbDtbCm4mYvAhC0KT9tPO+gxzbkTrqiB8kth8U8
+         3FgTD+vE3ByJY7JyjKrcAk48Cv+wCBOVUOJ81n5TVjC4dScwhEZVAcIHmmTqaLofC4lB
+         LD+Q==
+X-Gm-Message-State: AFqh2krdxadyTbNhJOwyhBHGbG6raimOTlNevMo7GqmIbg/+IuMDY7d1
+	82GEwYRVpL7mincp4DdsSP8=
+X-Google-Smtp-Source: AMrXdXvUgAJCEXRg2JsQw1FsDW8qth/OvPTUYapUPOTmEwnfbwOlkUP+po2PO2z/JQh09iPbbBMTlg==
+X-Received: by 2002:a17:90a:9606:b0:219:f7e5:cb56 with SMTP id v6-20020a17090a960600b00219f7e5cb56mr6329664pjo.20.1671711808368;
+        Thu, 22 Dec 2022 04:23:28 -0800 (PST)
+Received: from mail.google.com ([103.135.102.144])
+        by smtp.gmail.com with ESMTPSA id f10-20020a63510a000000b004351358f056sm636149pgb.85.2022.12.22.04.23.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 22 Dec 2022 04:23:27 -0800 (PST)
+Date: Thu, 22 Dec 2022 20:23:26 +0800
+From: Changbin Du <changbin.du@gmail.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Changbin Du <changbin.du@gmail.com>, Guo Ren <guoren@kernel.org>,
+	Conor Dooley <conor.dooley@microchip.com>, palmer@dabbelt.com,
+	paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
+	mhiramat@kernel.org, changbin.du@intel.com, zong.li@sifive.com,
+	rostedt@goodmis.org, boqun.feng@gmail.com,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH V2] riscv: patch: Fixup lockdep warning in stop_machine
+Message-ID: <20221222122326.4ephcsa76lmrsfxw@mail.google.com>
+References: <20221120101049.2078117-1-guoren@kernel.org>
+ <Y3tPEDvM3aVJmVxF@wendy>
+ <CAJF2gTS0FDgV3toa9wZxPhK2G+f4vCtrru7q3R4FXnMkxYmu-w@mail.gmail.com>
+ <20221222001902.zcbwlvqaitvsfb33@mail.google.com>
+ <5CA9DB64-CE90-490A-835B-0FC4550E5D9A@kernel.org>
 MIME-Version: 1.0
-Organization: Intel Technology Poland sp. z o.o. - ul. Slowackiego 173, 80-298 Gdansk - KRS 101882 - NIP 957-07-52-316
+Content-Disposition: inline
+In-Reply-To: <5CA9DB64-CE90-490A-835B-0FC4550E5D9A@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221222_034913_588924_69E4B1D5 
-X-CRM114-Status: GOOD (  11.58  )
+X-CRM114-CacheID: sfid-20221222_042331_445683_72B64D84 
+X-CRM114-Status: GOOD (  21.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,45 +97,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The pattern of setting variable with new value and returning old
-one is very common in kernel. Usually atomicity of the operation
-is not required, so xchg seems to be suboptimal and confusing in
-such cases.
+On Thu, Dec 22, 2022 at 12:29:56AM +0000, Conor Dooley wrote:
+> 
+> 
+> On 22 December 2022 00:19:02 GMT, Changbin Du <changbin.du@gmail.com> wrote:
+> >Hello,
+> >Does this patch get merged into riscv tree now? This problem has been there for a long
+> >time. (I suppose you have received my previous reponse.)
+> 
+> As far as I can tell, this patch is still missing a sign-off from you.
+> There's nothing in response to this thread that I can see which provides one.
+> 
+Just replied the patch and added my SoB. Thanks!
 
-Signed-off-by: Andrzej Hajda <andrzej.hajda@intel.com>
----
- include/linux/non-atomic/xchg.h | 19 +++++++++++++++++++
- 1 file changed, 19 insertions(+)
- create mode 100644 include/linux/non-atomic/xchg.h
+> >
+> >On Mon, Nov 21, 2022 at 07:09:45PM +0800, Guo Ren wrote:
+> >> On Mon, Nov 21, 2022 at 6:13 PM Conor Dooley <conor.dooley@microchip.com> wrote:
+> >> >
+> >> > On Sun, Nov 20, 2022 at 05:10:49AM -0500, guoren@kernel.org wrote:
+> >> > > From: Changbin Du <changbin.du@gmail.com>
+> >> >
+> >> > > Fixes: 0ff7c3b33127 ("riscv: Use text_mutex instead of patch_lock")
+> >> > > Cc: Changbin Du <changbin.du@gmail.com>
+> >> > > Co-developed-by: Guo Ren <guoren@kernel.org>
+> >> > > Signed-off-by: Guo Ren <guoren@kernel.org>
+> >> > > Cc: Zong Li <zong.li@sifive.com>
+> >> > > Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> >> > > ---
+> >> >
+> >> > Hey Guo Ren,
+> >> >
+> >> > FYI you're missing a SoB from Chanbin on this patch. They gave one in
+> >> > their v1 though so you should be able to re-use that?
+> >> I'm waiting for his SoB. I don't think I could directly use his SoB in
+> >> v1. I need him to confirm my rewritten commit log for lockdep
+> >> analysis.
+> >> 
+> >> >
+> >> > Thanks,
+> >> > Conor.
+> >> >
+> >> > > Changes in v2:
+> >> > >  - Rewrite commit log with lockdep explanation [Guo Ren]
+> >> > >  - Rebase on v6.1 [Guo Ren]
+> >> > >
+> >> > > v1:
+> >> > > https://lore.kernel.org/linux-riscv/20210417023532.354714-1-changbin.du@gmail.com/
+> >> >
+> >> 
+> >> 
+> >> -- 
+> >> Best Regards
+> >>  Guo Ren
+> >
 
-diff --git a/include/linux/non-atomic/xchg.h b/include/linux/non-atomic/xchg.h
-new file mode 100644
-index 00000000000000..f7fa5dd746f37d
---- /dev/null
-+++ b/include/linux/non-atomic/xchg.h
-@@ -0,0 +1,19 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef _LINUX_NON_ATOMIC_XCHG_H
-+#define _LINUX_NON_ATOMIC_XCHG_H
-+
-+/**
-+ * __xchg - set variable pointed by @ptr to @val, return old value
-+ * @ptr: pointer to affected variable
-+ * @val: value to be written
-+ *
-+ * This is non-atomic variant of xchg.
-+ */
-+#define __xchg(ptr, val) ({		\
-+	__auto_type __ptr = ptr;	\
-+	__auto_type __t = *__ptr;	\
-+	*__ptr = (val);			\
-+	__t;				\
-+})
-+
-+#endif
 -- 
-2.34.1
-
+Cheers,
+Changbin Du
 
 _______________________________________________
 linux-riscv mailing list
