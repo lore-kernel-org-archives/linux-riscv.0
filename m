@@ -4,86 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7577C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Dec 2022 19:55:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40592C001B2
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Dec 2022 19:55:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TajHWqGtgdWBIBAxODN5ecyjyljYw0cokK6YkadpGFA=; b=xdJGcYLErgk5WN
-	gHGTu6Fhe+1n52rLd3GzoWyHCvMH19he8hlkWwy3Ky/0RMB3jBvZQnqtFR6ptVfrh3JEINVi2kG51
-	2lQH5Z9+ISrjsIniGjQCHLMSK5XaCqkXIE9vZhQBiMLLyl+38ws658VYMkuFhsUKBAi734lkFXXAu
-	uV0Fey/wisLFceVY+XvVYo6oO0777/5WoGq2B0xOmxldQUfi6QBuj0emVogoqdp6vRyskSNmYgr/P
-	WYI8Mr2OIWxRjPnGhGifSKuYU/qodnsxcimgtz8kZGKdYktrK/xjTnmGjqHA1CRy8wedVhWAIbuBC
-	27/7YxV1W3uEF7TEWRHw==;
+	List-Owner; bh=eDoG8WMMqkYetU78Mwt05+qZOLBVFjpkCY0kZaeO11k=; b=ZblUi805Dl1+P1
+	OtQJuMMy8iMPoTWsbjp/ZZf0N7mlKRDeYraRctuNMX/szEHcogyU+hb3KrgSvNXZWU0Ro5Ts+GVCk
+	iTT5YUtZdzjT4R0wDMyCgdShVEoo4GJOCsKdvgx1ZfK0TozoTXvAd8Y49FRGCFmIK7uPr6hsY+gzv
+	+stEo5GG5WuKTQIyvr9esIN9SXeKsQKhuWvQEj4Mn8oRBqw+3enroyaSKI5jy5RX/8zhP+0ErAkDY
+	wQ69vp9LpFh0M/tpSgfUUtdXfnRo8+G7PAUrug2U6lTg1SQWc11IqUFbxZFAyyUM5EeviSKsqxj0b
+	uB5rMF2FbZBfqPaSUo1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8ReZ-00GFMM-0i; Thu, 22 Dec 2022 19:54:55 +0000
-Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
+	id 1p8RfQ-00GGOJ-9M; Thu, 22 Dec 2022 19:55:48 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8ReU-00GF8R-DW
-	for linux-riscv@lists.infradead.org; Thu, 22 Dec 2022 19:54:53 +0000
-Received: by mail-lf1-x130.google.com with SMTP id b3so4281765lfv.2
-        for <linux-riscv@lists.infradead.org>; Thu, 22 Dec 2022 11:54:43 -0800 (PST)
+	id 1p8RfJ-00GGIu-PV
+	for linux-riscv@lists.infradead.org; Thu, 22 Dec 2022 19:55:44 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id k88-20020a17090a4ce100b00219d0b857bcso2945704pjh.1
+        for <linux-riscv@lists.infradead.org>; Thu, 22 Dec 2022 11:55:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=dH2KW/edcbzPpSC2tU07KowFP0diaoHGZDq4+7zvt7o=;
-        b=aswaI4KKw9vHJnhzziyLkGgpzvPxWxRtMZXSX1DMzSN/fpA657RK/JENEK0oEL8ic/
-         WpuZ/rRPqCgMGkZMe3ePHpT2Ui7i7YODU3mTLGA0QuzdM30TwVk4awoJ/2eVjxJgzV8w
-         +wGvaikOZwk1SNJo3z9nC9PAqAxKsAT40Bbdbqw9s0eezUUgwAnAfucVhrTQCoSwa0/m
-         3Z1bazLtIuAiDbEJ7KQuhPjEMR1EAl0OocDpGy+hknJZ7QEvg6uKaQUAugG2Z77akPzn
-         f/xyglH9S+dxinhJSqnYH31RXf7yFDDkO1jMDmEVp3t91dmRaTreAvMU+w0SMMO+sN96
-         zgfA==
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=qENgK5bMvxidfmAY/CbHWGvtCRrxRzra8Ekw+yNOLus=;
+        b=hQ8lX61uJO7AZn8IOJCsnlmGTG9MYx5KJKbShwl4MqZkwr0n017fsTkynykRWRh7xT
+         KwbzEHh0hdoHrJKIjGUK9dyqdn3OGd0x+yjJJdU1nnB/h8zah7RKyfWVQbGVDX8bSTGB
+         rPOhWVuXaIJxc29S7Tjsj48SawemSzhyBfoFeElw0sR7Nt+VEVR7RKr9DX5WRh+NdW66
+         SN/wSiTWdVqfi/XwF1E8UJWhsGYSqrj82Na4yTS8ELa9cJSEB4E9M1uZQgp6dHdENlGu
+         ZsLudF+kmh4bFCL5ZFqzClgHwLW7tZpBDyN43VrI/zcLR0xrQu/Ls7TCicCxzLecPjch
+         jDHw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=dH2KW/edcbzPpSC2tU07KowFP0diaoHGZDq4+7zvt7o=;
-        b=yslmma/WkC/5Sjd9AyngiH34fYn8jqZs8ybmDcN8/GHcGreiLlKY60aHRYhCKlyeOM
-         sdT5+ZBxhXZtjZiqJM+KxS7FPJGvcLDHrLuYRRLwg82JQMz0PO1qgOcI8t5EQbe8iB0Q
-         xFktMlzhoPLPkKr8tewZnNC10KiyFkC+0CAdVVCx2FA2GHj7DGaiDGxOyYnivlFN9LMa
-         iWqXEiPlEkFTGZgdN/LA/msgc6uieA3i0gqH7yMGTTvk0cHTFasWXFNOLhamkJSeg4QJ
-         jbrTkcxQ54+P4y296b/klAiG2SizRfoGIxmrC8ywuINOGJd9sIf3NBgvyDMYXRkNvrZ6
-         Iovg==
-X-Gm-Message-State: AFqh2kqtFRpE7LkaZaNtDHSwbtioDcjwI0yonyR76DBxd+4MxUs94Kvw
-	/XiYbs1pGwakQ07LfC10/QA=
-X-Google-Smtp-Source: AMrXdXv+S8BKnnBVi9VQhdOmC71jlSYEPHIYCyws0T0lj1MJX8GOustfocyrWGLmLZPF2W7Q2j7Owg==
-X-Received: by 2002:a05:6512:3d93:b0:4a4:68b8:c2df with SMTP id k19-20020a0565123d9300b004a468b8c2dfmr2162090lfv.54.1671738881627;
-        Thu, 22 Dec 2022 11:54:41 -0800 (PST)
-Received: from curiosity ([5.188.167.245])
-        by smtp.gmail.com with ESMTPSA id g2-20020a056512118200b004b5831b69dcsm184568lfr.140.2022.12.22.11.54.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 Dec 2022 11:54:40 -0800 (PST)
-Date: Thu, 22 Dec 2022 22:54:38 +0300
-From: Sergey Matyukevich <geomatsi@gmail.com>
-To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Cc: linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
-	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@rivosinc.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Guo Ren <guoren@kernel.org>,
-	Alexandre Ghiti <alexandre.ghiti@canonical.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Sergey Matyukevich <sergey.matyukevich@syntacore.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Conor Dooley <Conor.Dooley@microchip.com>
-Subject: Re: [RFC PATCH 1/1] riscv: mm: notify remote harts about mmu cache
- updates
-Message-ID: <Y6S1/kROC0p5CboA@curiosity>
-References: <20220829205219.283543-1-geomatsi@gmail.com>
- <CA+V-a8uLmp33PSYGmJjf9FupJ0M8Hf7ef7A1G4va8GDL_61Qyw@mail.gmail.com>
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=qENgK5bMvxidfmAY/CbHWGvtCRrxRzra8Ekw+yNOLus=;
+        b=RLmiZFZy5OyUcw2Z0pW1xcLI+rBo0q95cr92Vo5remdtHadgT1qoM28W8kI5iGskxA
+         QvScSJopW6DDVgBIgGRzCoeCgWnXbdocf2daGAmmcUVR9nDe7P/BOFYq+yC4M8g1BNGt
+         PRV7MHDfUjkq6BZG7fnZVMvZMJyTb0SbGCHLbO5urXKB+f8/Vr3YC2XSEZ66q5YxuKSa
+         IwUxJ0HLx4rzXom6sAh4j6zsYpNiisxPAIdBNZ44OX76HiaF/MBi3IrENpdJ8iWTIq6Z
+         BhJ6FX/Xfy+s0hGXnP0q0R0EDmJME9V/jkklNVKos43rEUfplDfS5UmvYxI9UTG+CFOR
+         GE0A==
+X-Gm-Message-State: AFqh2kr8hx3wSy+awrcnYMbNnhaTbrtgjz6CGdLO5kizcRFqriRFMeve
+	S9lF0lraXazSYn9BXrwdih3ZRS6T+N53fITcwFmIUw==
+X-Google-Smtp-Source: AMrXdXsVqoeRc7k2ZV58wwtc9SPaZAwyII5hfb2lvf4rXI7Hm3dv6bgqAnfpZcaY+LHOWmPptKYy9yv2LI3GmSY64O8=
+X-Received: by 2002:a17:902:b592:b0:189:e924:e27d with SMTP id
+ a18-20020a170902b59200b00189e924e27dmr379022pls.167.1671738940683; Thu, 22
+ Dec 2022 11:55:40 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CA+V-a8uLmp33PSYGmJjf9FupJ0M8Hf7ef7A1G4va8GDL_61Qyw@mail.gmail.com>
+References: <20221221141548.274408-1-conor@kernel.org> <20221222180627.GA1748427-robh@kernel.org>
+ <Y6SuyiYC/oLB2VzL@spud>
+In-Reply-To: <Y6SuyiYC/oLB2VzL@spud>
+From: Atish Kumar Patra <atishp@rivosinc.com>
+Date: Thu, 22 Dec 2022 11:55:29 -0800
+Message-ID: <CAHBxVyEZJeH6H00Jdcm2_=z-D2kYxVTgagYhmLoyJ2CPqcFbgg@mail.gmail.com>
+Subject: Re: [PATCH v1] dt-bindings: riscv: add SBI PMU event mappings
+To: Conor Dooley <conor@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com, 
+	Conor Dooley <conor.dooley@microchip.com>, devicetree@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	apatel@ventanamicro.com, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, opensbi@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221222_115450_494687_729EF8BF 
-X-CRM114-Status: GOOD (  27.23  )
+X-CRM114-CacheID: sfid-20221222_115541_852038_EB319D4E 
+X-CRM114-Status: GOOD (  60.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,366 +89,224 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, Dec 22, 2022 at 11:24 AM Conor Dooley <conor@kernel.org> wrote:
+>
+> Hey Rob,
+>
+> On Thu, Dec 22, 2022 at 12:06:27PM -0600, Rob Herring wrote:
+> > On Wed, Dec 21, 2022 at 02:15:49PM +0000, Conor Dooley wrote:
+> > > From: Conor Dooley <conor.dooley@microchip.com>
+> > >
+> > > The SBI PMU extension requires a firmware to be aware of the event to
+> > > counter/mhpmevent mappings supported by the hardware. OpenSBI may use
+> > > DeviceTree to describe the PMU mappings. This binding is currently
+> > > described in markdown in OpenSBI (since v1.0 in Dec 2021) & used by QEMU
+> > > since v7.2.0.
+> > >
+> > > Import the binding for use while validating dtb dumps from QEMU and
+> > > upcoming hardware (eg JH7110 SoC) that will make use of the event
+> > > mapping.
+> > >
+> > > Link: https://github.com/riscv-software-src/opensbi/blob/master/docs/pmu_support.md
+> > > Co-developed-by: Atish Patra <atishp@rivosinc.com>
+> > > Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> > > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> > > ---
+> > > I asked Rob on IRC about these bindings a few weeks ago & he said he
+> > > would be willing to take them. I have modified wording slightly in the
+> > > descriptions, but have mostly left things as close to the OpenSBI
+> > > documentation as possible.
+> >
+> > Please CC the perf maintainers. Might be crickets, but so they at least
+> > have a chance to see it.
+>
+> Yah, I was kinda unsure who to CC. It does list them as being
+> specifically ARM so I probably made the wrong choice about inclusion.
+> I've added them now.
+>
+> > > I'm not super sure about what I've done with the properties being
+> > > correct type wise, I went digging in bindings and am sorta using the
+> > > first thing that "fit".
+> > >
+> > > Since you wrote the md doc Atish, I put your co-developed-by. OpenSBI
+> > > is BSD-2-Clause licensed so I am also unsure as to what license I can
+> > > use for this binding since that's where I took it from.
+> > > ---
+> > >  .../devicetree/bindings/perf/riscv,pmu.yaml   | 158 ++++++++++++++++++
+> > >  1 file changed, 158 insertions(+)
+> > >  create mode 100644 Documentation/devicetree/bindings/perf/riscv,pmu.yaml
+> > >
+> > > diff --git a/Documentation/devicetree/bindings/perf/riscv,pmu.yaml b/Documentation/devicetree/bindings/perf/riscv,pmu.yaml
+> > > new file mode 100644
+> > > index 000000000000..d65f937680af
+> > > --- /dev/null
+> > > +++ b/Documentation/devicetree/bindings/perf/riscv,pmu.yaml
+> > > @@ -0,0 +1,158 @@
+> > > +# SPDX-License-Identifier: BSD-2-Clause
+> > > +%YAML 1.2
+> > > +---
+> > > +$id: http://devicetree.org/schemas/perf/riscv,pmu.yaml#
+> > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > > +
+> > > +title: RISC-V SBI PMU events
+> > > +
+> > > +maintainers:
+> > > +  - Atish Patra <atishp@rivosinc.com>
+> > > +
+> > > +description: |
+> > > +  SBI PMU extension supports allow supervisor software to configure, start &
+> > > +  stop any performance counter at anytime. Thus, a user can leverage full
+> > > +  capability of performance analysis tools such as perf if the SBI PMU
+> > > +  extension is enabled. The OpenSBI implementation makes the following
+> > > +  assumptions about the hardware platform:
+> > > +    MCOUNTINHIBIT CSR must be implemented in the hardware. Otherwise, the SBI
+> > > +    PMU extension will not be enabled.
+> > > +
 
-Hi Prabhakar,
+This is no longer true since OpenSBI commit b28f070. We should remove
+this from OpenSBI docs as well.
 
-> Hi Sergey,
-> 
-> On Mon, Aug 29, 2022 at 9:53 PM Sergey Matyukevich <geomatsi@gmail.com> wrote:
-> >
-> > From: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
-> >
-> > Current implementation of update_mmu_cache function performs local TLB
-> > flush. It does not take into account ASID information. Besides, it does
-> > not take into account other harts currently running the same mm context
-> > or possible migration of the running context to other harts. Meanwhile
-> > TLB flush is not performed for every context switch if ASID support
-> > is enabled.
-> >
-> > Patch [1] proposed to add ASID support to update_mmu_cache to avoid
-> > flushing local TLB entirely. This patch takes into account other
-> > harts currently running the same mm context as well as possible
-> > migration of this context to other harts.
-> >
-> > For this purpose the approach from flush_icache_mm is reused. Remote
-> > harts currently running the same mm context are informed via SBI calls
-> > that they need to flush their local TLBs. All the other harts are marked
-> > as needing a deferred TLB flush when this mm context runs on them.
-> >
-> > [1] https://lore.kernel.org/linux-riscv/20220821013926.8968-1-tjytimi@163.com/
-> >
-> > Signed-off-by: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
-> > ---
-> >  arch/riscv/include/asm/mmu.h      |  2 ++
-> >  arch/riscv/include/asm/pgtable.h  |  2 +-
-> >  arch/riscv/include/asm/tlbflush.h | 18 ++++++++++++++++++
-> >  arch/riscv/mm/context.c           | 10 ++++++++++
-> >  arch/riscv/mm/tlbflush.c          | 28 +++++++++++-----------------
-> >  5 files changed, 42 insertions(+), 18 deletions(-)
-> >
-> I couldn't find your latest patch in my mailbox so I'm replying to this one.
-> 
-> I merged Palmer's for-next branch and when running tests on eMMC with
-> bonnie++ on the Renesas RZ/Five SoC I am seeing the below issues:
-> 
-> root@smarc-rzfive:/lava-testing# ./emmc_t_002.sh
-> 
-> Welcome to fdisk (util-linux 2.35.1).
-> Changes will remain in memory only, until you decide to write them.
-> Be careful before using the write command.
-> 
-> [   40.809677]  mmcblk0: p1
-> 
-> Command (m for help): Created a new DOS disklabel with disk identifier
-> 0xf4682ae9.
-> 
-> Command (m for help): Partition type
->    p   primary (0 primary, 0 extended, 4 free)
->    e   extended (container for logical partitions)
-> Select (default p): Partition number (1-4, default 1): First sector
-> (2048-124321791, default 2048): Last sector, +/-sectors or
-> +/-size{K,M,G,T,P} (2048-124321791, default 124321791):
-> Created a new partition 1 of type 'Linux' and of size 59.3 GiB.
-> Partition #1 contains a ext4 signature.
-> 
-> Command (m for help):
-> The partition table has been altered.
-> Calling ioctl() to re-read partition table.
-> [   40.945583]  mmcblk0: p1
-> Syncing disks.
-> 
-> mke2fs 1.45.7 (28-Jan-2021)
-> /dev/mmcblk0p1 contains a ext4 file system
->         last mounted on /tmp/tmp.PDgTkhohqt/mnt on Fri Dec 16 19:48:34 2022
-> Discarding device blocks: done
-> Creating filesystem with 15539968 4k blocks and 3891200 inodes
-> Filesystem UUID: 6effbf47-2d7a-4eb8-b2dc-1333b848e449
-> Superblock backups stored on blocks:
->         32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208,
->         4096000, 7962624, 11239424
-> 
-> Allocating group tables: done
-> Writing inode tables: done
-> Creating journal (65536 blocks): done
-> Writing superblocks and filesystem accounting information: done
-> 
-> e2fsck 1.45.7 (28-Jan-2021)
-> Pass 1: Checking inodes, blocks, and sizes
-> Pass 2: Checking directory structure
-> Pass 3: Checking directory connectivity
-> Pass 4: Checking reference counts
-> Pass 5: Checking group summary information
-> /dev/mmcblk0p1: 11/3891200 files (0.0% non-contiguous), 323121/15539968 blocks
-> [   91.521828] EXT4-fs (mmcblk0p1): mounted filesystem
-> 6effbf47-2d7a-4eb8-b2dc-1333b848e449 with ordered data mode. Quota
-> mode: disabled.
-> Using uid:0, gid:0.
-> Writing with putc()...[  131.775220] do_trap: 3 callbacks suppressed
-> [  131.775245] sd-resolve[128]: unhandled signal 11 code 0x1 at
-> 0x0000000000000060 in libpthread-2.28.so[3fa6d80000+13000]
-> [  131.790382] CPU: 0 PID: 128 Comm: sd-resolve Not tainted
-> 6.1.0-11009-gf4e9a8cdc25b #167
-> [  131.798386] Hardware name: Renesas SMARC EVK based on r9a07g043f01 (DT)
-> [  131.804999] epc : 0000003fa6d8eeac ra : 0000003fa6f4a76c sp :
-> 0000003fa6b8c330
-> [  131.812214]  gp : 0000002aacc1cb88 tp : 0000003fa6b92810 t0 :
-> 0000000000000022
-> [  131.819432]  t1 : 0000003fa6e7f0ec t2 : 0000003fa6b8b290 s0 :
-> 0000003fa6b8c850
-> [  131.826669]  s1 : 0000002aacc1f430 a0 : 000000000000000a a1 :
-> 0000003fa6b8c3b8
-> [  131.833891]  a2 : 0000000000004000 a3 : 0000000000000000 a4 :
-> 0000000000000020
-> [  131.841110]  a5 : 0000000000000002 a6 : 0000003fa6b8c360 a7 :
-> 0000000000000007
-> [  131.848328]  s2 : ffffffffffffb000 s3 : ffffffffffffd3d0 s4 :
-> 0000003fa6fe0918
-> [  131.855561]  s5 : 0000003fa6b8ec20 s6 : 0000003fa6b8c440 s7 :
-> fffffffffffffffd
-> [  131.862783]  s8 : 0000003fa6b8c420 s9 : 000000000000000a s10:
-> 0000000000000000
-> [  131.870001]  s11: 0000003fa6fe2090 t3 : 0000003fa6d8eeaa t4 :
-> 00000009a331f45c
-> [  131.877219]  t5 : 000000000000003f t6 : 0000000000000000
-> [  131.882548] status: 8000000200006020 badaddr: 0000000000000060
-> cause: 000000000000000d
-> [  131.891349] systemd-journal[87]: unhandled signal 11 code 0x1 at
-> 0x00000000000000c8 in systemd-journald[2abd710000+1b000]
-> [  131.902382] CPU: 0 PID: 87 Comm: systemd-journal Not tainted
-> 6.1.0-11009-gf4e9a8cdc25b #167
-> [  131.910731] Hardware name: Renesas SMARC EVK based on r9a07g043f01 (DT)
-> [  131.917359] epc : 0000002abd7167e0 ra : 0000002abd7179e4 sp :
-> 0000003fd65416c0
-> [  131.924578]  gp : 0000002abd72e120 tp : 0000003fbea1f720 t0 :
-> 3534616138333466
-> [  131.931796]  t1 : ffffffffffffe000 t2 : 000000000000000d s0 :
-> 0000003fd65416c0
-> [  131.939014]  s1 : 0000003fd65437a8 a0 : 0000000000000009 a1 :
-> 0000003fd65416c0
-> [  131.946232]  a2 : 0000000000002000 a3 : 0000003fd65437a8 a4 :
-> 0000003fd65436c8
-> [  131.953450]  a5 : 0000003fd65436d0 a6 : 0000000000000083 a7 :
-> 0000000000000018
-> [  131.960668]  s2 : 0000003fbee6c918 s3 : 0000003fd6543708 s4 :
-> 0000003fd6543700
-> [  131.967885]  s5 : 0000002abd724718 s6 : 0000002abd7247d8 s7 :
-> 0000000000000000
-> [  131.975102]  s8 : ffffffffffffffff s9 : 0000002ad2397120 s10:
-> 0000000000000000
-> [  131.982319]  s11: 0000003fe5aad418 t3 : 0000003fbed75364 t4 :
-> 00000009a7934adc
-> [  131.989564]  t5 : 00000000001ea8b0 t6 : 3463396363613637
-> [  131.994883] status: 0000000200004020 badaddr: 00000000000000c8
-> cause: 000000000000000d
-> [  132.003911] audit: type=1701 audit(1671220069.615:11):
-> auid=4294967295 uid=0 gid=0 ses=4294967295 pid=87
-> comm="systemd-journal" exe="/lib/systemd/systemd-journald" sig=11
-> res=1
-> [  132.024142] systemd[1]: unhandled signal 11 code 0x1 at
-> 0xffffffac2b2a2928 in ld-2.28.so[3f83a6e000+17000]
-> [  132.033946] CPU: 0 PID: 1 Comm: systemd Not tainted
-> 6.1.0-11009-gf4e9a8cdc25b #167
-> [  132.041563] Hardware name: Renesas SMARC EVK based on r9a07g043f01 (DT)
-> [  132.048198] epc : 0000003f83a7a81c ra : 0000003f83a7a992 sp :
-> 0000003fe5aad570
-> [  132.055419]  gp : 0000002ad234ad28 tp : 0000003f83628e70 t0 :
-> 0000000000a9919e
-> [  132.062635]  t1 : 0000003f8391f7dc t2 : 0000000000000000 s0 :
-> 0000003f83a664d0
-> [  132.069852]  s1 : 0000003f83a85918 a0 : 0000000000000001 a1 :
-> 0000003f83a20940
-> [  132.077068]  a2 : 0000003f83629680 a3 : 0000000000000073 a4 :
-> 0000000000000001
-> [  132.084284]  a5 : 0000003f83a87090 a6 : 000000000000002f a7 :
-> 0000000000062164
-> [  132.091501]  s2 : 0000002ad22cdce0 s3 : 0000003f83a85918 s4 :
-> 0000000000000006
-> [  132.098722]  s5 : 0000000000000002 s6 : 0000003f83a85918 s7 :
-> 0000000000001000
-> [  132.105939]  s8 : 0000003fe5aad750 s9 : 0000003fe5aad9e0 s10:
-> 0000002ad22fdd60
-> [  132.113155]  s11: 2f2e2d2c2b2a2928 t3 : 0000003f83a7a9cc t4 :
-> 0000000000000068
-> [  132.120371]  t5 : 0000000052d19905 t6 : 0000000000d19905
-> [  132.125686] status: 0000000200004020 badaddr: ffffffac2b2a2928
-> cause: 000000000000000d
-> [  132.145321] audit: type=1701 audit(1671220069.747:12):
-> auid=4294967295 uid=995 gid=994 ses=4294967295 pid=126
-> comm="sd-resolve" exe="/lib/systemd/systemd-timesyncd" sig=11 res=1
-> [  132.161689] systemd[1]: unhandled signal 11 code 0x1 at 0x0000006c6b6a6968
-> [  132.168714] CPU: 0 PID: 1 Comm: systemd Not tainted
-> 6.1.0-11009-gf4e9a8cdc25b #167
-> [  132.176293] Hardware name: Renesas SMARC EVK based on r9a07g043f01 (DT)
-> [  132.182906] epc : 0000006c6b6a6968 ra : 0000003f838630b2 sp :
-> 0000003fe5aace60
-> [  132.190125]  gp : 0000002ad234ad28 tp : 0000003f83628e70 t0 :
-> 0000000000a9919e
-> [  132.197357]  t1 : 0000003f838595fc t2 : 0000000000000000 s0 :
-> 0000003fe5aad050
-> [  132.204574]  s1 : 0000000000000000 a0 : 0000003fe5aace70 a1 :
-> 0000003fe5aad058
-> [  132.211791]  a2 : 0000000000000080 a3 : 0000000000000010 a4 :
-> 0000000000000001
-> [  132.219007]  a5 : 0000003f839a1784 a6 : 0000000000000000 a7 :
-> 0000000000000000
-> [  132.226223]  s2 : 0000000000000011 s3 : 000000000000000b s4 :
-> 0000000000000006
-> [  132.233439]  s5 : 0000000000000002 s6 : 0000003f83a85918 s7 :
-> 0000000000001000
-> [  132.240655]  s8 : 0000003fe5aad750 s9 : 0000003fe5aad9e0 s10:
-> 0000002ad22fdd60
-> [  132.247872]  s11: 2f2e2d2c2b2a2928 t3 : 6f6e6d6c6b6a6968 t4 :
-> 0000000000000068
-> [  132.255088]  t5 : 0000000052d19905 t6 : 0000000000d19905
-> [  132.260403] status: 0000000200004020 badaddr: 0000006c6b6a6968
-> cause: 000000000000000c
-> [  132.269759] systemd[1]: unhandled signal 11 code 0x1 at 0x0000006c6b6a6968
-> [  132.276708] CPU: 0 PID: 1 Comm: systemd Not tainted
-> 6.1.0-11009-gf4e9a8cdc25b #167
-> [  132.284283] Hardware name: Renesas SMARC EVK based on r9a07g043f01 (DT)
-> [  132.290895] epc : 0000006c6b6a6968 ra : 0000003f838630b2 sp :
-> 0000003fe5aac750
-> [  132.298113]  gp : 0000002ad234ad28 tp : 0000003f83628e70 t0 :
-> 0000000000a9919e
-> [  132.305363]  t1 : 0000003f838595fc t2 : 0000000000000000 s0 :
-> 0000003fe5aac940
-> [  132.312580]  s1 : 0000000000000000 a0 : 0000003fe5aac760 a1 :
-> 0000003fe5aac948
-> [  132.319796]  a2 : 0000000000000080 a3 : 0000000000000010 a4 :
-> 0000000000000001
-> [  132.327013]  a5 : 0000003f839a1784 a6 : 0000000000000000 a7 :
-> 0000000000000000
-> [  132.334229]  s2 : 0000000000000011 s3 : 000000000000000b s4 :
-> 0000000000000006
-> [  132.341444]  s5 : 0000000000000002 s6 : 0000003f83a85918 s7 :
-> 0000000000001000
-> [  132.348660]  s8 : 0000003fe5aad750 s9 : 0000003fe5aad9e0 s10:
-> 0000002ad22fdd60
-> [  132.355877]  s11: 2f2e2d2c2b2a2928 t3 : 6f6e6d6c6b6a6968 t4 :
-> 0000000000000068
-> [  132.363093]  t5 : 0000000052d19905 t6 : 0000000000d19905
-> [  132.368408] status: 0000000200004020 badaddr: 0000006c6b6a6968
-> cause: 000000000000000c
-> [  132.377123] systemd[1]: unhandled signal 11 code 0x1 at 0x0000006c6b6a6968
-> [  132.384078] CPU: 0 PID: 1 Comm: systemd Not tainted
-> 6.1.0-11009-gf4e9a8cdc25b #167
-> [  132.391652] Hardware name: Renesas SMARC EVK based on r9a07g043f01 (DT)
-> [  132.398262] epc : 0000006c6b6a6968 ra : 0000003f838630b2 sp :
-> 0000003fe5aac040
-> [  132.405479]  gp : 0000002ad234ad28 tp : 0000003f83628e70 t0 :
-> 0000000000a9919e
-> [  132.412745]  t1 : 0000003f838595fc t2 : 0000000000000000 s0 :
-> 0000003fe5aac230
-> [  132.419967]  s1 : 0000000000000000 a0 : 0000003fe5aac050 a1 :
-> 0000003fe5aac238
-> [  132.427184]  a2 : 0000000000000080 a3 : 0000000000000010 a4 :
-> 0000000000000001
-> [  132.434401]  a5 : 0000003f839a1784 a6 : 0000000000000000 a7 :
-> 0000000000000000
-> [  132.441618]  s2 : 0000000000000011 s3 : 000000000000000b s4 :
-> 0000000000000006
-> [  132.448833]  s5 : 0000000000000002 s6 : 0000003f83a85918 s7 :
-> 0000000000001000
-> [  132.456049]  s8 : 0000003fe5aad750 s9 : 0000003fe5aad9e0 s10:
-> 0000002ad22fdd60
-> [  132.463265]  s11: 2f2e2d2c2b2a2928 t3 : 6f6e6d6c6b6a6968 t4 :
-> 0000000000000068
-> [  132.470480]  t5 : 0000000052d19905 t6 : 0000000000d19905
-> [  132.475804] status: 0000000200004020 badaddr: 0000006c6b6a6968
-> cause: 000000000000000c
-> [  132.496855] systemd[1]: unhandled signal 11 code 0x1 at 0x0000006c6b6a6968
-> [  132.503842] CPU: 0 PID: 1 Comm: systemd Not tainted
-> 6.1.0-11009-gf4e9a8cdc25b #167
-> [  132.511415] Hardware name: Renesas SMARC EVK based on r9a07g043f01 (DT)
-> [  132.518027] epc : 0000006c6b6a6968 ra : 0000003f838630b2 sp :
-> 0000003fe5aab930
-> [  132.525244]  gp : 0000002ad234ad28 tp : 0000003f83628e70 t0 :
-> 0000000000a9919e
-> [  132.532462]  t1 : 0000003f838595fc t2 : 0000000000000000 s0 :
-> 0000003fe5aabb20
-> [  132.539678]  s1 : 0000000000000000 a0 : 0000003fe5aab940 a1 :
-> 0000003fe5aabb28
-> [  132.546939]  a2 : 0000000000000080 a3 : 0000000000000010 a4 :
-> 0000000000000001
-> [  132.554161]  a5 : 0000003f839a1784 a6 : 0000000000000000 a7 :
-> 0000000000000000
-> [  132.561378]  s2 : 0000000000000011 s3 : 000000000000000b s4 :
-> 0000000000000006
-> [  132.568595]  s5 : 0000000000000002 s6 : 0000003f83a85918 s7 :
-> 0000000000001000
-> [  132.575812]  s8 : 0000003fe5aad750 s9 : 0000003fe5aad9e0 s10:
-> 0000002ad22fdd60
-> [  132.583029]  s11: 2f2e2d2c2b2a2928 t3 : 6f6e6d6c6b6a6968 t4 :
-> 0000000000000068
-> [  132.590246]  t5 : 0000000052d19905 t6 : 0000000000d19905
-> [  132.595561] status: 0000000200004020 badaddr: 0000006c6b6a6968
-> cause: 000000000000000c
-> [  132.604448] systemd[1]: unhandled signal 11 code 0x1 at 0x0000006c6b6a6968
-> [  132.611424] CPU: 0 PID: 1 Comm: systemd Not tainted
-> 6.1.0-11009-gf4e9a8cdc25b #167
-> [  132.618987] Hardware name: Renesas SMARC EVK based on r9a07g043f01 (DT)
-> [  132.625606] epc : 0000006c6b6a6968 ra : 0000003f838630b2 sp :
-> 0000003fe5aab220
-> [  132.632818]  gp : 0000002ad234ad28 tp : 0000003f83628e70 t0 :
-> 0000000000a9919e
-> [  132.640035]  t1 : 0000003f838595fc t2 : 0000000000000000 s0 :
-> 0000003fe5aab410
-> [  132.647252]  s1 : 0000000000000000 a0 : 0000003fe5aab230 a1 :
-> 0000003fe5aab418
-> [  132.654467]  a2 : 0000000000000080 a3 : 0000000000000010 a4 :
-> 0000000000000001
-> [  132.661682]  a5 : 0000003f839a1784 a6 : 0000000000000000 a7 :
-> 0000000000000000
-> [  132.668898]  s2 : 0000000000000011 s3 : 000000000000000b s4 :
-> 0000000000000006
-> [  132.676113]  s5 : 0000000000000002 s6 : 0000003f83a85918 s7 :
-> 0000000000001000
-> [  132.683329]  s8 : 0000003fe5aad750 s9 : 0000003fe5aad9e0 s10:
-> 0000002ad22fdd60
-> [  132.690556]  s11: 2f2e2d2c2b2a2928 t3 : 6f6e6d6c6b6a6968 t4 :
-> 0000000000000068
-> [  132.697773]  t5 : 0000000052d19905 t6 : 0000000000d19905
-> [  132.703086] status: 0000000200004020 badaddr: 0000006c6b6a6968
-> cause: 000000000000000c
-> [  132.993558] Kernel panic - not syncing: Attempted to kill init!
-> exitcode=0x0000000b
-> [  133.001210] CPU: 0 PID: 1 Comm: systemd Not tainted
-> 6.1.0-11009-gf4e9a8cdc25b #167
-> [  133.008752] Hardware name: Renesas SMARC EVK based on r9a07g043f01 (DT)
-> [  133.015338] Call Trace:
-> [  133.017778] [<ffffffff800055cc>] dump_backtrace+0x1c/0x24
-> [  133.023174] [<ffffffff80776836>] show_stack+0x2c/0x38
-> [  133.028214] [<ffffffff80780244>] dump_stack_lvl+0x3c/0x54
-> [  133.033597] [<ffffffff80780270>] dump_stack+0x14/0x1c
-> [  133.038633] [<ffffffff80776c00>] panic+0x102/0x29a
-> [  133.043409] [<ffffffff800137ba>] do_exit+0x704/0x70a
-> [  133.048362] [<ffffffff8001390e>] do_group_exit+0x24/0x70
-> [  133.053659] [<ffffffff8001de54>] get_signal+0x68a/0x6dc
-> [  133.058874] [<ffffffff8000494e>] do_work_pending+0xd6/0x44e
-> [  133.064427] [<ffffffff800036c2>] resume_userspace_slow+0x8/0xa
-> [  133.070249] ---[ end Kernel panic - not syncing: Attempted to kill
-> init! exitcode=0x0000000b ]---
-> 
-> If I revert this patch [0] bonnie++ works as expected.
-> 
-> Any pointers on what could be the issue here?
-> 
-> [0] https://git.kernel.org/pub/scm/linux/kernel/git/palmer/linux.git/commit/?h=for-next&id=4bd1d80efb5af640f99157f39b50fb11326ce641
-> 
-> Cheers,
-> Prabhakar
+> > > +    The platform must provide information about PMU event to counter mapping
+> > > +    via device tree or platform specific hooks. Otherwise, the SBI PMU
+> > > +    extension will not be enabled.
+> > > +
+> > > +    The platforms should provide information about the PMU event selector
+> > > +    values that should be encoded in the expected value of MHPMEVENTx while
+> > > +    configuring MHPMCOUNTERx for that specific event. This can be done via a
+> > > +    device tree or platform specific hooks. The exact value to be written to
+> > > +    the MHPMEVENTx is completely dependent on the platform. The generic
+> > > +    platform writes the zero-extended event_idx as the expected value for
+> > > +    hardware cache/generic events as suggested by the SBI specification.
+> > > +
 
-Good catch. Thanks for reporting ! Discussion around the issue and
-possible ways to fix it can be found in the following email thread:
+But the larger question is these are OpenSBI implementation specific
+assumptions. Should it be included in
+the DT binding ?
 
-https://lore.kernel.org/linux-riscv/20221111075902.798571-1-guoren@kernel.org/
+> > > +properties:
+> > > +  compatible:
+> > > +    const: riscv,pmu
+> > > +
+> > > +  riscv,event-to-mhpmevent:
+> > > +    $ref: /schemas/types.yaml#/definitions/uint32-matrix
+> > > +    description:
+> > > +      Represents an ONE-to-ONE mapping between a PMU event and the event
+> > > +      selector value that platform expects to be written to the MHPMEVENTx CSR
+> > > +      for that event.
+> > > +      The mapping is encoded in an array format where each row represents an
+> >
+> > s/array/matrix/
+> >
+> > > +      event. The first element represents the event idx while the second &
+> > > +      third elements represent the event selector value that should be encoded
+> > > +      in the expected value to be written in MHPMEVENTx.
+> > > +      This property shouldn't encode any raw hardware event.
+> > > +    minItems: 1
+> > > +    maxItems: 255
+>
+> I copied these 255s from dt-schema somewhere as a sane max.
+> Atish, is there a cap here or should we allow as many as someone likes?
+> The md binding doesn't mention any limits - is it in the SBI spec?
+> The strongest wording I saw there was "limited" & event idx is 20 bits
+> wide as per the spec [0]. Does that make 2^20 the hard limit here?
+>
 
-Could you please apply the patch from Guo Ren instead of [0] and check
-if you have any issues with your test ? Besides, could you please share
-your kernel configuration and the actual bonnie++ params from emmc_t_002.sh script ?
+This is for hardware & cache events. The total number of events
+defined there are 52 (10 HW + 42 Cache) events.
+So 255 is a sane max that provides enough room for expansion in future
+if required.
 
-Regards,
-Sergey
+> 0 - https://github.com/riscv-non-isa/riscv-sbi-doc/blob/master/riscv-sbi.adoc#11-performance-monitoring-unit-extension-eid-0x504d55-pmu
+>
+> > > +    items:
+> > > +      $ref: /schemas/types.yaml#/definitions/uint32-array
+> >
+> > Huh? A property can only have 1 type. I wonder what the tools do with
+> > this...
+>
+> I suppose I left this over (by accident) from when I had it arranged
+> slightly differently. I guess I never actually noticed as the tools
+> don't appear to complain. Now dropped :)
+>
+> > > +      maxItems: 3
+> >
+> > Better to do:
+> >
+> >          items:
+> >            - description: what's in the 1st word
+> >            - description: what's in the 2nd word
+> >            - description: what's in the 3rd word
+> >
+> > And rework the overall description to not say the same thing.
+>
+> Yah, good idea. I'll do that for the next version.
+>
+> > > +  riscv,event-to-mhpmcounters:
+> > > +    $ref: /schemas/types.yaml#/definitions/uint32-matrix
+> > > +    description:
+> > > +      Represents a MANY-to-MANY mapping between a range of events and all the
+> > > +      MHPMCOUNTERx in a bitmap format that can be used to monitor these range
+> > > +      of events. The information is encoded in an array format where each
+> > > +      row represents a certain range of events and corresponding counters.
+> > > +      The first element represents starting of the pmu event id and 2nd column
+> > > +      represents the end of the pmu event id. The third element represent a
+> > > +      bitmap of all the MHPMCOUNTERx.
+> > > +      This property is mandatory if event-to-mhpmevent is present. Otherwise,
+> > > +      it can be omitted.
+> >
+> > No need to state this in freeform text, use 'dependencies'.
+>
+> Oh! I didn't know that that existed. I was going to go and do some sort
+> of required properties dance but perhaps that's not needed now (at least
+> to the same extent).
+>
+> > > +      This property shouldn't encode any raw event.
+> > > +    minItems: 1
+> > > +    maxItems: 255
+> > > +    items:
+> > > +      $ref: /schemas/types.yaml#/definitions/uint32-array
+> > > +      maxItems: 3
+> > > +
+> > > +  riscv,raw-event-to-mhpmcounters:
+> > > +    $ref: /schemas/types.yaml#/definitions/uint32-matrix
+> > > +    description:
+> > > +      Represents an ONE-to-MANY or MANY-to-MANY mapping between the rawevent(s)
+> > > +      and all the MHPMCOUNTERx in a bitmap format that can be used to monitor
+> > > +      that raw event.
+> > > +      The encoding of the raw events are platform specific. The information is
+> > > +      encoded in an array format where each row represents the specific raw
+> > > +      event(s). The first element is a 64-bit match value where the invariant
+> > > +      bits of range of events are set. The second element is a 64-bit mask that
+> > > +      will have all the variant bits of the range of events cleared. All other
+> > > +      bits should be set in the mask. The third element is a 32-bit value to
+> > > +      represent bitmap of all MHPMCOUNTERx that can monitor these set of
+> > > +      event(s). If a platform directly encodes each raw PMU event as a unique
+> > > +      ID, the value of select_mask must be 0xffffffff_ffffffff.
+> > > +    minItems: 1
+> > > +    maxItems: 255
+> > > +    items:
+> > > +      $ref: /schemas/types.yaml#/definitions/uint32-array
+> > > +      maxItems: 5
+> > > +
+> > > +required:
+> > > +  - compatible
+> >
+> > I assume at least one of the other properties must be present?
+>
+> Atish: (and +CC the OpenSBI list)
+> Which properties are actually needed here? Or are any? The md binding
+> in the OpenSBI sources doesn't seem to require anything other than the
+> compatible?
+>
+
+That's true. Opensbi allows the platform to define functions
+to provide the mapping. Now that's an OpenSBI implementation thing.
+Other implementations may choose to use it differently.
+
+
+> Thanks Rob,
+> Conor.
+>
 
 _______________________________________________
 linux-riscv mailing list
