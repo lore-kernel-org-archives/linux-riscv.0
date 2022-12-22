@@ -4,78 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A267C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Dec 2022 13:35:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F390BC4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Dec 2022 13:52:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=s5Jb1epFkDZ/iOXL/XEO379YSsYsw7V50EOfq4arrzs=; b=kLsLVEH0Bqt/BZ
-	EquIvjuRUEi6PdymQCXfQKuWRKW11icAf5/zS96EM0XdfLBWDEqruTerq7zv2qjrmd5aFUjEXbz4V
-	xlW8cxxJwGlvPAeu1mDqfyoOYqE/knB93QmMRM31rhhkkTVI0s/C0RNJwfRepxF6xKZIkQX1DiWTY
-	flAE+Mci5WJqCJGtDCKqvdfU3r9XczTsaQ0NXjRcMLuQd0xuBEOr/yG6aoV3cV9jM9TRnK85oa4tm
-	gl5dzqDTqT/TVJWiIWImBJodVysFMD0GEQJttI+R0hA4shhTjqNR7o+sH8s+PqVGPeCg0Y66UV2qR
-	/80GC/5Hu/ag7zSBAxwQ==;
+	List-Owner; bh=QdzhyNxLMVIPp8rLzA1zW4DrBFRap0+DdSHZgCFiMHE=; b=GX7h1HTfUb1iEm
+	7jo1XDKIje4wJK6Ukj+zc1Gol88DuqgSw+USnkFS0N++Ji3vYG1clpzbVYnt6oNnqjwfMQQ+/VoaZ
+	A4NOy94aE1XEfSo1zS4JXJf4sim8CQh3+MraO9PzJ0erhLTKAvvw+YTWs5HSp4uAJEeSVPsYdEc74
+	uB2yLJHMCg+EG5bLLrL10hPx/GWoCz01VoOhBbl5NjjYqDCdepta+tc8t2q9g48eMmGB8ijTIfe6r
+	j8sKs4KJfjTxVc3b7sJM9fuQxuw8ZeTDNj7kRo5bsrvRdQaj+RO1c1uKLTUoUjy7t0bSd7gakIS0L
+	Ilx+K4lv5B2UYDsEAJDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8LjW-00CSlO-GD; Thu, 22 Dec 2022 13:35:38 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	id 1p8LzH-00CcUx-U8; Thu, 22 Dec 2022 13:51:56 +0000
+Received: from mga03.intel.com ([134.134.136.65])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8KaT-00Bnzv-SD
-	for linux-riscv@lists.infradead.org; Thu, 22 Dec 2022 12:22:15 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id z8-20020a17090abd8800b00219ed30ce47so5530307pjr.3
-        for <linux-riscv@lists.infradead.org>; Thu, 22 Dec 2022 04:22:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=/4Ai+7/9tsJEaKUGjCwWP2+aABMhRcTmi+u/34V2hQw=;
-        b=nvZY/9YpTr6jdTc70zjaWMLJZUKjioAcdLd/4C8tX6ze7rKLdE852vscXOkFqjlaF9
-         pLYIIy8ifrTQe4D2zsv5ltsg0oCwZ3z5qsDwuds5IV3RrFOB2/RiwXIBPYnPifCI3AEc
-         VRT0rEkxIZBT9v4PExPhWXtNlfKkYqOqD222D4MRuvJYXjsS5JxNAK4W7oVZDeZoFeAs
-         fx9jdR90hqF7s87xDjQCbnr/X+YNeLT6CywbuOVR1QuqtjKc3SpRtC9txaPtqdTqPGrL
-         8gQBIQRaMrKKgy20xASCXrna+tkY3p2xP1uR+mV3O4VXBS+NkrPvAp4LVsDIM9QnMW+y
-         c7Dw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/4Ai+7/9tsJEaKUGjCwWP2+aABMhRcTmi+u/34V2hQw=;
-        b=QtkMCT6E5g9WgtdazmbqBA3qCoWxNbFafA2GZ8wH3/YxegwovA5OK2VTp7U/QfThi3
-         jUYbXymZ0/WmiHLvx74zgycRb/+j1/I2O0gm4odBrxYoIojAeU5dAW05LPjHH2Fm99AD
-         eYsf55F9F3uA5YuMWCimbg+W/BaFzMsvdbT/e26Q8I7bhycDxXXt0D53/HVeNrtsKWPa
-         iiJlfVFSNoTCDeaoS+6FPglXfY0aC7eeYhfwU7zkFn6gpvua0SCcbXrs3n5k3vRbElCt
-         8k6zqBWR6ycxHbkgEq8fawsYMOYb2p2sIsQLOKfCpWs6DGo9gHHlsWocSyJYefHWv8SH
-         D6jw==
-X-Gm-Message-State: AFqh2koy9QT4ngaIFA80JH2WxYSl7F4hTmumR+pzgFrrvmNz9tthaQiE
-	fEHDcJ0rMbXUeIK3zncedhI=
-X-Google-Smtp-Source: AMrXdXsYS0wAj3OWoSeexDWjyc/7PlVD9Fr/gxFxH6GG3j+D09BnjecoB8a4irEUWi+h3ICNtoWfYg==
-X-Received: by 2002:a17:902:9043:b0:189:bc50:b93b with SMTP id w3-20020a170902904300b00189bc50b93bmr4937485plz.3.1671711729735;
-        Thu, 22 Dec 2022 04:22:09 -0800 (PST)
-Received: from mail.google.com ([103.135.102.144])
-        by smtp.gmail.com with ESMTPSA id b8-20020a1709027e0800b00189a7fbfd44sm378005plm.211.2022.12.22.04.22.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 Dec 2022 04:22:09 -0800 (PST)
-Date: Thu, 22 Dec 2022 20:22:07 +0800
-From: Changbin Du <changbin.du@gmail.com>
-To: guoren@kernel.org
-Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
-	mhiramat@kernel.org, changbin.du@intel.com, zong.li@sifive.com,
-	rostedt@goodmis.org, boqun.feng@gmail.com,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Changbin Du <changbin.du@gmail.com>
-Subject: Re: [PATCH V2] riscv: patch: Fixup lockdep warning in stop_machine
-Message-ID: <20221222122207.3ycdew6azfg6cqwy@mail.google.com>
-References: <20221120101049.2078117-1-guoren@kernel.org>
+	id 1p8KzM-00C2Bm-Q1; Thu, 22 Dec 2022 12:47:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1671713276; x=1703249276;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=UPM8RDFaM30ZmFrIb8CKMZ1JANhWUp662jbH45qLr6M=;
+  b=K2etaX872S+4MUR9/eIj4wJsmme9tOOLNeERDeBxFXkNeqawDUM/WuSn
+   usZwU+wyzttHHtW5gO4j1iOXRXmLzGYc3o3sDnHXDtRLL5h4QtCFOgRko
+   gBs4ZO3/yH6Dq2ict8r+HkIx/n5EDCuxIt7OUdE0ehzYxiN1hClBz5XWv
+   WzlynD5sEqa8QwqVtWgN+9IyI6G6RL4TJK9U/nGNTLxTgsUljl5cdFGPI
+   OBfOfX/qbmzFnNzhEbygBpCC7jubYjKiv3IG1kPk+QZmOsxfXioXYwD7g
+   KWZa4R/5MAMpRmndig3VsyHq0xdbH6DEcKhH8dDjcMOzTx1djO4NgW2hV
+   w==;
+X-IronPort-AV: E=McAfee;i="6500,9779,10568"; a="322031546"
+X-IronPort-AV: E=Sophos;i="5.96,265,1665471600"; 
+   d="scan'208";a="322031546"
+Received: from fmsmga006.fm.intel.com ([10.253.24.20])
+  by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Dec 2022 04:47:51 -0800
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6500,9779,10568"; a="897213732"
+X-IronPort-AV: E=Sophos;i="5.96,265,1665471600"; 
+   d="scan'208";a="897213732"
+Received: from smile.fi.intel.com ([10.237.72.54])
+  by fmsmga006.fm.intel.com with ESMTP; 22 Dec 2022 04:47:45 -0800
+Received: from andy by smile.fi.intel.com with local (Exim 4.96)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1p8Kz8-00Duf4-1e;
+	Thu, 22 Dec 2022 14:47:42 +0200
+Date: Thu, 22 Dec 2022 14:47:42 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Andrzej Hajda <andrzej.hajda@intel.com>
+Cc: linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-hexagon@vger.kernel.org,
+	linux-ia64@vger.kernel.org, loongarch@lists.linux.dev,
+	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+	openrisc@lists.librecores.org, linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-xtensa@linux-xtensa.org,
+	intel-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+	Arnd Bergmann <arnd@arndb.de>,
+	Rodrigo Vivi <rodrigo.vivi@intel.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Mark Rutland <mark.rutland@arm.com>
+Subject: Re: [PATCH 18/19] linux/include: add non-atomic version of xchg
+Message-ID: <Y6RR7hPZUN22ytap@smile.fi.intel.com>
+References: <20221222114635.1251934-1-andrzej.hajda@intel.com>
+ <20221222114635.1251934-19-andrzej.hajda@intel.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20221120101049.2078117-1-guoren@kernel.org>
+In-Reply-To: <20221222114635.1251934-19-andrzej.hajda@intel.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221222_042213_960386_7402FBE7 
-X-CRM114-Status: GOOD (  22.38  )
+X-CRM114-CacheID: sfid-20221222_044756_970198_A5956BCB 
+X-CRM114-Status: GOOD (  18.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,106 +98,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Nov 20, 2022 at 05:10:49AM -0500, guoren@kernel.org wrote:
-> From: Changbin Du <changbin.du@gmail.com>
-> 
-> The task of ftrace_arch_code_modify(_post)_prepare() caller is
-> stop_machine, whose caller and work thread are different tasks. The
-> lockdep checker needs the same task context, or it's wrong. That means
-> it's a bug here to use lockdep_assert_held because we don't guarantee
-> the same task context.
-> 
-> kernel/locking/lockdep.c:
-> int __lock_is_held(const struct lockdep_map *lock, int read)
-> {
->         struct task_struct *curr = current;
->         int i;
-> 
->         for (i = 0; i < curr->lockdep_depth; i++) {
-> 			^^^^^^^^^^^^^^^^^^^
->                 struct held_lock *hlock = curr->held_locks + i;
-> 					  ^^^^^^^^^^^^^^^^
->                 if (match_held_lock(hlock, lock)) {
->                         if (read == -1 || !!hlock->read == read)
->                                 return LOCK_STATE_HELD;
-> 
-> The __lock_is_held depends on current held_locks records; if
-> stop_machine makes the checker runing on another task, that's wrong.
-> 
-> Here is the log:
-> [   15.761523] ------------[ cut here ]------------
-> [   15.762125] WARNING: CPU: 0 PID: 15 at arch/riscv/kernel/patch.c:63 patch_insn_write+0x72/0x364
-> [   15.763258] Modules linked in:
-> [   15.764154] CPU: 0 PID: 15 Comm: migration/0 Not tainted 6.1.0-rc1-00014-g66924be85884-dirty #377
-> [   15.765339] Hardware name: riscv-virtio,qemu (DT)
-> [   15.765985] Stopper: multi_cpu_stop+0x0/0x192 <- stop_cpus.constprop.0+0x90/0xe2
-> [   15.766711] epc : patch_insn_write+0x72/0x364
-> [   15.767011]  ra : patch_insn_write+0x70/0x364
-> [   15.767276] epc : ffffffff8000721e ra : ffffffff8000721c sp : ff2000000067bca0
-> [   15.767622]  gp : ffffffff81603f90 tp : ff60000002432a00 t0 : 7300000000000000
-> [   15.767919]  t1 : 0000000000000000 t2 : 73695f6b636f6c5f s0 : ff2000000067bcf0
-> [   15.768238]  s1 : 0000000000000008 a0 : 0000000000000000 a1 : 0000000000000000
-> [   15.768537]  a2 : 0000000000000000 a3 : 0000000000000000 a4 : 0000000000000000
-> [   15.768837]  a5 : 0000000000000000 a6 : 0000000000000000 a7 : 0000000000000000
-> [   15.769139]  s2 : ffffffff80009faa s3 : ff2000000067bd10 s4 : ffffffffffffffff
-> [   15.769447]  s5 : 0000000000000001 s6 : 0000000000000001 s7 : 0000000000000003
-> [   15.769740]  s8 : 0000000000000002 s9 : 0000000000000004 s10: 0000000000000003
-> [   15.770027]  s11: 0000000000000002 t3 : 0000000000000000 t4 : ffffffff819af097
-> [   15.770323]  t5 : ffffffff819af098 t6 : ff2000000067ba28
-> [   15.770574] status: 0000000200000100 badaddr: 0000000000000000 cause: 0000000000000003
-> [   15.771102] [<ffffffff80007520>] patch_text_nosync+0x10/0x3a
-> [   15.771421] [<ffffffff80009c66>] ftrace_update_ftrace_func+0x74/0x10a
-> [   15.771704] [<ffffffff800fa17e>] ftrace_modify_all_code+0xb0/0x16c
-> [   15.771958] [<ffffffff800fa24c>] __ftrace_modify_code+0x12/0x1c
-> [   15.772196] [<ffffffff800e110e>] multi_cpu_stop+0x14a/0x192
-> [   15.772454] [<ffffffff800e0a34>] cpu_stopper_thread+0x96/0x14c
-> [   15.772699] [<ffffffff8003f4ea>] smpboot_thread_fn+0xf8/0x1cc
-> [   15.772945] [<ffffffff8003ac9c>] kthread+0xe2/0xf8
-> [   15.773160] [<ffffffff80003e98>] ret_from_exception+0x0/0x14
-> [   15.773471] ---[ end trace 0000000000000000 ]---
-> 
-> Fixes: 0ff7c3b33127 ("riscv: Use text_mutex instead of patch_lock")
-> Cc: Changbin Du <changbin.du@gmail.com>
-> Co-developed-by: Guo Ren <guoren@kernel.org>
-> Signed-off-by: Guo Ren <guoren@kernel.org>
-> Cc: Zong Li <zong.li@sifive.com>
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+On Thu, Dec 22, 2022 at 12:46:34PM +0100, Andrzej Hajda wrote:
+> The pattern of setting variable with new value and returning old
+> one is very common in kernel. Usually atomicity of the operation
+> is not required, so xchg seems to be suboptimal and confusing in
+> such cases.
+
+FWIW,
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+
+> Signed-off-by: Andrzej Hajda <andrzej.hajda@intel.com>
 > ---
-> Changes in v2:
->  - Rewrite commit log with lockdep explanation [Guo Ren]
->  - Rebase on v6.1 [Guo Ren]
+>  include/linux/non-atomic/xchg.h | 19 +++++++++++++++++++
+>  1 file changed, 19 insertions(+)
+>  create mode 100644 include/linux/non-atomic/xchg.h
 > 
-> v1:
-> https://lore.kernel.org/linux-riscv/20210417023532.354714-1-changbin.du@gmail.com/
-> ---
->  arch/riscv/kernel/patch.c | 7 -------
->  1 file changed, 7 deletions(-)
-> 
-> diff --git a/arch/riscv/kernel/patch.c b/arch/riscv/kernel/patch.c
-> index 765004b60513..8619706f8dfd 100644
-> --- a/arch/riscv/kernel/patch.c
-> +++ b/arch/riscv/kernel/patch.c
-> @@ -55,13 +55,6 @@ static int patch_insn_write(void *addr, const void *insn, size_t len)
->  	bool across_pages = (((uintptr_t) addr & ~PAGE_MASK) + len) > PAGE_SIZE;
->  	int ret;
->  
-> -	/*
-> -	 * Before reaching here, it was expected to lock the text_mutex
-> -	 * already, so we don't need to give another lock here and could
-> -	 * ensure that it was safe between each cores.
-> -	 */
-> -	lockdep_assert_held(&text_mutex);
-> -
->  	if (across_pages)
->  		patch_map(addr + len, FIX_TEXT_POKE1);
->  
+> diff --git a/include/linux/non-atomic/xchg.h b/include/linux/non-atomic/xchg.h
+> new file mode 100644
+> index 00000000000000..f7fa5dd746f37d
+> --- /dev/null
+> +++ b/include/linux/non-atomic/xchg.h
+> @@ -0,0 +1,19 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +#ifndef _LINUX_NON_ATOMIC_XCHG_H
+> +#define _LINUX_NON_ATOMIC_XCHG_H
+> +
+> +/**
+> + * __xchg - set variable pointed by @ptr to @val, return old value
+> + * @ptr: pointer to affected variable
+> + * @val: value to be written
+> + *
+> + * This is non-atomic variant of xchg.
+> + */
+> +#define __xchg(ptr, val) ({		\
+> +	__auto_type __ptr = ptr;	\
+> +	__auto_type __t = *__ptr;	\
+> +	*__ptr = (val);			\
+> +	__t;				\
+> +})
+> +
+> +#endif
 > -- 
-> 2.36.1
+> 2.34.1
 > 
 
-Signed-off-by: Changbin Du <changbin.du@gmail.com>
+-- 
+With Best Regards,
+Andy Shevchenko
 
-Thanks!
+
 
 _______________________________________________
 linux-riscv mailing list
