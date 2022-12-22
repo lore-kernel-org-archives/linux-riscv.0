@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90D12C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Dec 2022 08:13:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1D37C4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Dec 2022 09:38:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=w4W2nWhiXP5wLfV7DbZEikIRgds3jMRDjE36cbTBlA4=; b=nRfClCgCpy2DqS
-	re/BNY/56ykAoRzwezZoPyz3Pzoo7RmQ1MYaXEdmTztVIwpk/4a+u+kL9qdl3kHTnrRWMKa1pF4Gg
-	EkyVJyUuzMTRrIeB3GdrdUpqIMg66L3XsV9Is/p79WUSJ36CF0CLVn6L5gwuBLWRLrk+TXDOzrXMr
-	QoljvnYDvxUBCVSf2EpYzX7ndApn8QPDwR/+fhmVdHH7PgVAEMbybPbQoYtTklMTDekJKnD4aTuCs
-	zvXj/bmSuZXqwW9R4KV09A9BTtFtIU3hLST+TqVkp6scLhp6bin4qy0Ru+NnNDvGz5rHmJ8XknZ92
-	8uNY2osLzRv2F9n0GAnA==;
+	List-Owner; bh=h3w35kImTr4iDhOyZpoi2QtbkI1hmpUEItF/klmCc4g=; b=DVxWTPMve8HLYG
+	n2Tup8sVx4XVP+nuaTXO6KbeelbEawqqOuQwIhW1Uv+H1jdMmPiOor+23JmtHa2lN19CyMnsW4K7u
+	kSMVQ4YiqRq5vmwS6eyM8Eqcu97Mefpl+MRwhqlRGJdabTkLFAwpVKt+FPd8/PjsP/gctaI54txoa
+	dBlkZnRv1GOWdLYopET3YA3CIGdJSdxC6gqfrItHjsnXSmPZeENv/ZyU3mjr2KhQWZea2/K+nbYJE
+	dhklCbwyxIwXXPxEXKI9tg3ZgcFK0BP0S1yUqT0foeZG/W3vzjSeU8y3o7qXtlETHEQnWOwa1lmL1
+	zs+MfQq4RsBbMcrUl6OQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8Ghc-008qD3-Fo; Thu, 22 Dec 2022 08:13:20 +0000
+	id 1p8I1Q-00A2uB-AG; Thu, 22 Dec 2022 09:37:52 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8GhS-008q6O-Dc
-	for linux-riscv@lists.infradead.org; Thu, 22 Dec 2022 08:13:12 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	id 1p8HzH-00A2Pt-Ub
+	for linux-riscv@lists.infradead.org; Thu, 22 Dec 2022 09:35:42 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 9C3D324E342;
-	Thu, 22 Dec 2022 16:12:44 +0800 (CST)
-Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 22 Dec
- 2022 16:12:44 +0800
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 33E1224E346;
+	Thu, 22 Dec 2022 17:35:09 +0800 (CST)
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 22 Dec
+ 2022 17:35:09 +0800
 Received: from EXMBX168.cuchost.com ([fe80::3c2d:dee5:4938:3fc4]) by
  EXMBX168.cuchost.com ([fe80::3c2d:dee5:4938:3fc4%16]) with mapi id
- 15.00.1497.044; Thu, 22 Dec 2022 16:12:44 +0800
+ 15.00.1497.044; Thu, 22 Dec 2022 17:35:09 +0800
 From: JiaJie Ho <jiajie.ho@starfivetech.com>
 To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Olivia Mackall
 	<olivia@selenic.com>, Herbert Xu <herbert@gondor.apana.org.au>, Rob Herring
@@ -46,15 +46,15 @@ CC: Emil Renner Berthing <kernel@esmil.dk>, Conor Dooley
 	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
 	<linux-kernel@vger.kernel.org>, "linux-riscv@lists.infradead.org"
 	<linux-riscv@lists.infradead.org>
-Subject: RE: [PATCH 1/3] dt-bindings: rng: Add StarFive TRNG module
-Thread-Topic: [PATCH 1/3] dt-bindings: rng: Add StarFive TRNG module
-Thread-Index: AQHZFRxUoXQEQibksUW9iWQOWN1q6q53kkEAgAH9dkA=
-Date: Thu, 22 Dec 2022 08:12:44 +0000
-Message-ID: <3fe5be6168b94f62b2c9ce078e5e954a@EXMBX168.cuchost.com>
+Subject: RE: [PATCH 2/3] hwrng: starfive - Add TRNG driver for StarFive SoC
+Thread-Topic: [PATCH 2/3] hwrng: starfive - Add TRNG driver for StarFive SoC
+Thread-Index: AQHZFRwx15kE4gLKu0uxN2CW96B+Oa53kqwAgAIT3RA=
+Date: Thu, 22 Dec 2022 09:35:08 +0000
+Message-ID: <69dca1be673a40729d750c00d927b437@EXMBX168.cuchost.com>
 References: <20221221090819.1259443-1-jiajie.ho@starfivetech.com>
- <20221221090819.1259443-2-jiajie.ho@starfivetech.com>
- <3a26c733-6573-5954-f4e5-8a1f8abba140@linaro.org>
-In-Reply-To: <3a26c733-6573-5954-f4e5-8a1f8abba140@linaro.org>
+ <20221221090819.1259443-3-jiajie.ho@starfivetech.com>
+ <05aaa9f8-7a97-51c9-e18a-1c3753f2006b@linaro.org>
+In-Reply-To: <05aaa9f8-7a97-51c9-e18a-1c3753f2006b@linaro.org>
 Accept-Language: en-US
 Content-Language: en-US
 X-MS-Has-Attach: 
@@ -64,8 +64,8 @@ x-originating-ip: [161.142.229.243]
 x-yovoleruleagent: yovoleflag
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221222_001310_807403_228DEA6C 
-X-CRM114-Status: GOOD (  12.43  )
+X-CRM114-CacheID: sfid-20221222_013540_368254_C281F6E7 
+X-CRM114-Status: GOOD (  22.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,7 +86,7 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 > -----Original Message-----
 > From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> Sent: Wednesday, December 21, 2022 5:48 PM
+> Sent: Wednesday, December 21, 2022 5:49 PM
 > To: JiaJie Ho <jiajie.ho@starfivetech.com>; Olivia Mackall
 > <olivia@selenic.com>; Herbert Xu <herbert@gondor.apana.org.au>; Rob
 > Herring <robh+dt@kernel.org>; Krzysztof Kozlowski
@@ -95,32 +95,77 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 > <conor.dooley@microchip.com>; linux-crypto@vger.kernel.org;
 > devicetree@vger.kernel.org; linux-kernel@vger.kernel.org; linux-
 > riscv@lists.infradead.org
-> Subject: Re: [PATCH 1/3] dt-bindings: rng: Add StarFive TRNG module
+> Subject: Re: [PATCH 2/3] hwrng: starfive - Add TRNG driver for StarFive SoC
 > 
 > On 21/12/2022 10:08, Jia Jie Ho wrote:
-> > Add documentation to describe Starfive true random number generator
-> > module.
+> > This adds driver support for the hardware random number generator in
+> > Starfive SoCs and adds StarFive TRNG entry to MAINTAINERS.
 > >
 > > Co-developed-by: Jenny Zhang <jenny.zhang@starfivetech.com>
 > > Signed-off-by: Jenny Zhang <jenny.zhang@starfivetech.com>
 > > Signed-off-by: Jia Jie Ho <jiajie.ho@starfivetech.com>
 > > ---
-> >  .../bindings/rng/starfive,jh7110-trng.yaml    | 55 +++++++++++++++++++
-> >  1 file changed, 55 insertions(+)
-> >  create mode 100644
-> > Documentation/devicetree/bindings/rng/starfive,jh7110-trng.yaml
+> >  MAINTAINERS                            |   6 +
+> >  drivers/char/hw_random/Kconfig         |  11 +
+> >  drivers/char/hw_random/Makefile        |   1 +
+> >  drivers/char/hw_random/starfive-trng.c | 403
+> > +++++++++++++++++++++++++
+> >  4 files changed, 421 insertions(+)
+> >  create mode 100644 drivers/char/hw_random/starfive-trng.c
 > >
 > 
+> (...)
 > 
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> > +static const struct of_device_id trng_dt_ids[] = {
+> > +	{ .compatible = "starfive,jh7110-trng" },
+> > +	{ }
+> > +};
+> > +MODULE_DEVICE_TABLE(of, trng_dt_ids);
+> > +
+> > +static struct platform_driver starfive_trng_driver = {
+> > +	.probe	= starfive_trng_probe,
+> > +	.driver	= {
+> > +		.name		= "starfive-trng",
+> > +		.pm		= &starfive_trng_pm_ops,
+> > +		.of_match_table	= of_match_ptr(trng_dt_ids),
 > 
+> of_match_ptr goes with __maybe_unused. You will have now warnings, so
+> please test more your patches (W=1, sparse, smatch).
+> 
+
 Hi Krzysztof,
 
-Thank you for spending time reviewing this patch.
+Thanks for reviewing this patch.
+How do I properly handle __maybe_unused functions in this scenario?
+Will it help if I add #define as follows:
 
-Best regards,
+#ifdef CONFIG_PM
+#define STARFIVE_RNG_PM_OPS (&starfive_rng_pm_ops)
+#else
+#define STARFIVE_RNG_PM_OPS NULL
+#endif
+
+static struct platform_driver starfive_trng_driver = {
+        .probe  = starfive_trng_probe,
+        .driver = {
+                .name           = "starfive-trng",
+                .pm             = STARFIVE_RNG_PM_OPS,
+                .of_match_table = of_match_ptr(trng_dt_ids),
+        },
+};
+
+I did build the patches with the tools mentioned but did not get warnings.
+Do I need a specific version, or have I done something wrong?
+
+make C=2 drivers/char/hw_random/
+  CHECK   scripts/mod/empty.c
+  CALL    scripts/checksyscalls.sh
+  CHECK   arch/riscv/kernel/vdso/vgettimeofday.c
+  CHECK   drivers/char/hw_random/core.c
+  CHECK   drivers/char/hw_random/starfive-trng.c
+
+Regards,
 Jia Jie
-
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
