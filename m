@@ -4,76 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD699C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Dec 2022 20:39:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 612DDC4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Dec 2022 21:15:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hGmGGcg1mHceLIaKSW+I+X/dtARPPjIObWrGgzcQQ10=; b=IR6lSDY9BapDds
-	anfVzhFTtR8tKrb3jQDRvBBqNij1gXMg4GWmdGZzSlu6CrUW078h2USJRpiy3CR/exooGy0/1DIOk
-	6sUr6NT6GvwP3kmrZMunPnN7ynF6tZNfchv8qpz73mxo+LPwqRES9PjR3ovHk9ng50I3awQPL0lAa
-	9pmNoQURllonaXifc4f8H8wAqYBm8UEHfmFsyrXwc2T7lSS8/2p2zZ5ldtZfkn5Ro3TtyENvvAuSB
-	x0oK+QlpkZdAc6XuxXHFVa/fTWth0wHKtuT84In3rui+oN46P1vaDiECh9dp++Hxcrz6VvCdQP/0n
-	i2t9rhT/1t0v1sOX4huA==;
+	List-Owner; bh=30nL0ababrU1fPWYIT5B7DE/LiBiUZ+fp5j5uOo6Q9w=; b=BCz0FzQ4zASBKe
+	/xl2hocfDqWR6BRX/5ENPqU1rGXN3RmHwZljlHJJVJsyaNu7FV8H3QXUjlyw+TAPoeev3gPVNAH/M
+	eW4zo5tTI5C5xYFCcY999N2vFQ5t4Eb3cyo0rjP1awfl6eJnqhMw4lMgIz4R09G526yexkFctug4q
+	P8gi0N8H/t9uhUYZs8UcURKU6BGyaf8wHgye7V/F4bWeMyU1ZS0z9s+4lxSCxPt2Gz34oDNwaX31+
+	u3dox9VB/pjkhxIyf7CMCAf1ZaqVqhVOjDa910NpHHR15d8s8ny/7aTHM+sg1Ygtuw9LE2PEjI7pp
+	ewvSYKfqYGIZ4p2IMtKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8SM0-00Gyus-Uj; Thu, 22 Dec 2022 20:39:48 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1p8SuN-00HGvo-3i; Thu, 22 Dec 2022 21:15:19 +0000
+Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8SLx-00Gyrl-B7
-	for linux-riscv@lists.infradead.org; Thu, 22 Dec 2022 20:39:47 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id u15-20020a17090a3fcf00b002191825cf02so3046839pjm.2
-        for <linux-riscv@lists.infradead.org>; Thu, 22 Dec 2022 12:39:42 -0800 (PST)
+	id 1p8Su1-00HGiS-QQ
+	for linux-riscv@lists.infradead.org; Thu, 22 Dec 2022 21:14:59 +0000
+Received: by mail-lf1-x133.google.com with SMTP id b3so4533982lfv.2
+        for <linux-riscv@lists.infradead.org>; Thu, 22 Dec 2022 13:14:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=J3zLUjblmA5mKEiIe8j3yE4p+xtYnnjTwcILFpQqr1k=;
-        b=tRr0fSrAlAuA+8qQlf6oLPg79UCe7ol6ReGxgZcf4SGnzupfE2aHJbFlqo/Xdf1ZpD
-         EUhGSYp97two/lSMQCeGDZH1GJNsVxsXvMvvD38+DHu7Sq5eZ1BFW2XhwLCo+2ha0JyD
-         lgIjSKg7xcoL+s7mNNqu0XAT3rWGWibvbgNhJS4B2c+Y9rFJlbENBKxLwacYLZZ98Rfy
-         dcOj9x0Wv+BHTGC8cFhNxffMDG4HFzfjSWLF5dCt8a8t80FD7Rv2ieahh0fmB+Jki8iJ
-         d3IIXbNN1o2w8UX1LR8UD94QBRR1YJ8RZKLgnWorYG0np4Vki6JI3y0u+BpljqkAiSQU
-         nYkg==
+        d=gmail.com; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=HW2+bjL5qcgLG9JdMLBo7XGDnVwRZtk+Ec2M0tEXUp8=;
+        b=pSB8tZnCe08Sqg9lkNhtlglRmDf/Z7I+XnwHDLWGwn45nh89IgReiIWx95oH4RtONS
+         kNo7+Bfz8ZgjeZvBoF64FJeC3VEUqUFLNUf4CAzJxw8B+jkLqPcVfMkA4Z3R4tyLbYcJ
+         i7lxHlKJ25KaAZGUv5I77Q9mxncJV+5CI/bi7IqDDTbrFZP88mBtRqJl7xf5srlpdoUW
+         +q63Mdsx5/43rXF/W22Eyo9UsOY1xid9i+wE5YEWAB8LVej6yNjaqrL+u2rYq9RUnsJL
+         wHLLWiEkKCHAfCO8xu0Ore2yRkLaAEAd6BKDpKBN4+T5395BCcSNL/yXJLBxfjBdR0QM
+         5ZIQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=J3zLUjblmA5mKEiIe8j3yE4p+xtYnnjTwcILFpQqr1k=;
-        b=7cMEwlFIqiWwM5bFHUI9gnJf9tmVfJr6Vr4vOj5OkqmlqpQk+1kO957sN76LFN34DZ
-         4lZ/sWzXba7GLMX/hmmkYK8hOM5G/KdMMKgfBVRHgJP/tsV2HW7GWiLFdr98pMOXacqS
-         nbPuhWZqm2AqZ5Srzq5rt7Pr6Wu7Ic+lHxiA15bmduZiE/AUPLML3kjrLd5eeXRjZvrZ
-         2pc2vFSOkjq41hx+AV02uVd2GicFLk1eqGNVKHAyyTCYb6Ve1S45HKOFydgFDN9cD+kA
-         z2wb84sQhPyxzTvTmErcK81SL1AWXU+xt1wKIF22xr+wODuF425J4o5BPL3KjZrOkQBp
-         zogA==
-X-Gm-Message-State: AFqh2kpWMwNtm7wstx4NhVoU4e6cZWM2SKsf5iB6YHbcxLm9ZmQ7mhn1
-	uYy+sFF7e2wZLEUnPtexVp6JFf730cPmPm7Qcmwnlw==
-X-Google-Smtp-Source: AMrXdXs1KzVo1N9EgMkuU6lriJgDH0QGtfzhY/506RNYcwO3uIbIeNNlqQOdmKSv6PYn7R0RUAZgCGWR6PQQY3jYAqY=
-X-Received: by 2002:a17:903:2154:b0:186:a394:aef7 with SMTP id
- s20-20020a170903215400b00186a394aef7mr453138ple.79.1671741582290; Thu, 22 Dec
- 2022 12:39:42 -0800 (PST)
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=HW2+bjL5qcgLG9JdMLBo7XGDnVwRZtk+Ec2M0tEXUp8=;
+        b=Mw/Inoy70IJpZUgBSWWpbFgAhGn8fxI6OP2k0Fp8A5evht0h/B96Fio6V1NH91Jjt0
+         aXwGqRE+sl9uixKltPBMppwic/qi5etcxSMD7TLjQ0RFCixQcObHJ6wwSc6oomP1tdCo
+         o00Ukgj/8K/wIJO368Wuzti6c8Fu+QV9R+ChE8LlsafrFi8Zs0jtUVf0/MDWlZt/kcDI
+         yzDEyPlModhq0mcEXGowe8gY3yInRqFqqBasYn7wD+igH6fRWHsW6FG2AEIYdEONLzSI
+         YTtcYaKqKT5W3RvR9czkW20gTuVHJ9B4IoUC6AicNACrSlt5NdICww2M39NA0pHJNIhC
+         W6WQ==
+X-Gm-Message-State: AFqh2kqsPNeJD/LIKhXtdE1l7+d1aH+6DEX0uIhP9aWqQhXmQjL5PQxk
+	SftAw5q2WYNO/5ApFOZcRzk=
+X-Google-Smtp-Source: AMrXdXtrBKXawCl7/HCZlX1zZ4k9HkLiMK4L6fhINmlvAo5rK7FWVP6wuYlnXuG40+NPHGOOJ5DQug==
+X-Received: by 2002:a05:6512:b14:b0:4ca:f5a1:8896 with SMTP id w20-20020a0565120b1400b004caf5a18896mr78728lfu.37.1671743693633;
+        Thu, 22 Dec 2022 13:14:53 -0800 (PST)
+Received: from curiosity ([5.188.167.245])
+        by smtp.gmail.com with ESMTPSA id q16-20020a194310000000b004b5634f9b9dsm208206lfa.115.2022.12.22.13.14.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 22 Dec 2022 13:14:52 -0800 (PST)
+Date: Fri, 23 Dec 2022 00:14:51 +0300
+From: Sergey Matyukevich <geomatsi@gmail.com>
+To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Cc: linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
+	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@rivosinc.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Guo Ren <guoren@kernel.org>,
+	Alexandre Ghiti <alexandre.ghiti@canonical.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Sergey Matyukevich <sergey.matyukevich@syntacore.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Conor Dooley <Conor.Dooley@microchip.com>
+Subject: Re: [RFC PATCH 1/1] riscv: mm: notify remote harts about mmu cache
+ updates
+Message-ID: <Y6TIywUWZ3nrPeon@curiosity>
+References: <20220829205219.283543-1-geomatsi@gmail.com>
+ <CA+V-a8uLmp33PSYGmJjf9FupJ0M8Hf7ef7A1G4va8GDL_61Qyw@mail.gmail.com>
+ <Y6S1/kROC0p5CboA@curiosity>
+ <CA+V-a8u0qUF81RUTF9+4T4F1GxW3=4P7RMTTjjsaMq4MiiQSMQ@mail.gmail.com>
 MIME-Version: 1.0
-References: <20221221141548.274408-1-conor@kernel.org> <20221222180627.GA1748427-robh@kernel.org>
- <Y6SuyiYC/oLB2VzL@spud> <CAHBxVyEZJeH6H00Jdcm2_=z-D2kYxVTgagYhmLoyJ2CPqcFbgg@mail.gmail.com>
- <Y6S7ENNXQe42ymTz@spud>
-In-Reply-To: <Y6S7ENNXQe42ymTz@spud>
-From: Atish Kumar Patra <atishp@rivosinc.com>
-Date: Thu, 22 Dec 2022 12:39:31 -0800
-Message-ID: <CAHBxVyHn7NEYCJTCJYU3Pu4=t7TGssog3ywaxfd1TFXXF9f9+Q@mail.gmail.com>
-Subject: Re: [PATCH v1] dt-bindings: riscv: add SBI PMU event mappings
-To: Conor Dooley <conor@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com, 
-	Conor Dooley <conor.dooley@microchip.com>, devicetree@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	apatel@ventanamicro.com, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, opensbi@lists.infradead.org
+Content-Disposition: inline
+In-Reply-To: <CA+V-a8u0qUF81RUTF9+4T4F1GxW3=4P7RMTTjjsaMq4MiiQSMQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221222_123945_436517_C7E080D0 
-X-CRM114-Status: GOOD (  40.70  )
+X-CRM114-CacheID: sfid-20221222_131457_922875_992076F0 
+X-CRM114-Status: GOOD (  29.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,145 +102,87 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 22, 2022 at 12:16 PM Conor Dooley <conor@kernel.org> wrote:
->
-> On Thu, Dec 22, 2022 at 11:55:29AM -0800, Atish Kumar Patra wrote:
-> > On Thu, Dec 22, 2022 at 11:24 AM Conor Dooley <conor@kernel.org> wrote:
-> > > On Thu, Dec 22, 2022 at 12:06:27PM -0600, Rob Herring wrote:
-> > > > On Wed, Dec 21, 2022 at 02:15:49PM +0000, Conor Dooley wrote:
-> > > > > From: Conor Dooley <conor.dooley@microchip.com>
-> > > > >
-> > > > > The SBI PMU extension requires a firmware to be aware of the event to
-> > > > > counter/mhpmevent mappings supported by the hardware. OpenSBI may use
-> > > > > DeviceTree to describe the PMU mappings. This binding is currently
-> > > > > described in markdown in OpenSBI (since v1.0 in Dec 2021) & used by QEMU
-> > > > > since v7.2.0.
-> > > > >
-> > > > > Import the binding for use while validating dtb dumps from QEMU and
-> > > > > upcoming hardware (eg JH7110 SoC) that will make use of the event
-> > > > > mapping.
-> > > > >
-> > > > > Link: https://github.com/riscv-software-src/opensbi/blob/master/docs/pmu_support.md
-> > > > > Co-developed-by: Atish Patra <atishp@rivosinc.com>
-> > > > > Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> > > > > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> > > > > +description: |
-> > > > > +  SBI PMU extension supports allow supervisor software to configure, start &
-> > > > > +  stop any performance counter at anytime. Thus, a user can leverage full
-> > > > > +  capability of performance analysis tools such as perf if the SBI PMU
-> > > > > +  extension is enabled. The OpenSBI implementation makes the following
-> > > > > +  assumptions about the hardware platform:
-> > > > > +    MCOUNTINHIBIT CSR must be implemented in the hardware. Otherwise, the SBI
-> > > > > +    PMU extension will not be enabled.
-> > > > > +
-> >
-> > This is no longer true since OpenSBI commit b28f070. We should remove
-> > this from OpenSBI docs as well.
->
-> Since you know the detail of it, I volunteer you for that one ;)
->
+Hi Prabhakar,
 
-Done.
-
-> > > > > +    The platform must provide information about PMU event to counter mapping
-> > > > > +    via device tree or platform specific hooks. Otherwise, the SBI PMU
-> > > > > +    extension will not be enabled.
-> > > > > +
-> > > > > +    The platforms should provide information about the PMU event selector
-> > > > > +    values that should be encoded in the expected value of MHPMEVENTx while
-> > > > > +    configuring MHPMCOUNTERx for that specific event. This can be done via a
-> > > > > +    device tree or platform specific hooks. The exact value to be written to
-> > > > > +    the MHPMEVENTx is completely dependent on the platform. The generic
-> > > > > +    platform writes the zero-extended event_idx as the expected value for
-> > > > > +    hardware cache/generic events as suggested by the SBI specification.
-> > > > > +
-> >
-> > But the larger question is these are OpenSBI implementation specific
-> > assumptions. Should it be included in
-> > the DT binding?
->
-> Probably not. I'll drop it for v2.
->
-> > > > > +properties:
-> > > > > +  compatible:
-> > > > > +    const: riscv,pmu
-> > > > > +
-> > > > > +  riscv,event-to-mhpmevent:
-> > > > > +    $ref: /schemas/types.yaml#/definitions/uint32-matrix
-> > > > > +    description:
-> > > > > +      Represents an ONE-to-ONE mapping between a PMU event and the event
-> > > > > +      selector value that platform expects to be written to the MHPMEVENTx CSR
-> > > > > +      for that event.
-> > > > > +      The mapping is encoded in an array format where each row represents an
+> > > > From: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
 > > > >
-> > > > s/array/matrix/
+> > > > Current implementation of update_mmu_cache function performs local TLB
+> > > > flush. It does not take into account ASID information. Besides, it does
+> > > > not take into account other harts currently running the same mm context
+> > > > or possible migration of the running context to other harts. Meanwhile
+> > > > TLB flush is not performed for every context switch if ASID support
+> > > > is enabled.
 > > > >
-> > > > > +      event. The first element represents the event idx while the second &
-> > > > > +      third elements represent the event selector value that should be encoded
-> > > > > +      in the expected value to be written in MHPMEVENTx.
-> > > > > +      This property shouldn't encode any raw hardware event.
-> > > > > +    minItems: 1
-> > > > > +    maxItems: 255
-> > >
-> > > I copied these 255s from dt-schema somewhere as a sane max.
-> > > Atish, is there a cap here or should we allow as many as someone likes?
-> > > The md binding doesn't mention any limits - is it in the SBI spec?
-> > > The strongest wording I saw there was "limited" & event idx is 20 bits
-> > > wide as per the spec [0]. Does that make 2^20 the hard limit here?
-> > >
-> >
-> > This is for hardware & cache events. The total number of events
-> > defined there are 52 (10 HW + 42 Cache) events.
-> > So 255 is a sane max that provides enough room for expansion in future
-> > if required.
->
-> WFM.
->
-> > > > > +  riscv,raw-event-to-mhpmcounters:
-> > > > > +    $ref: /schemas/types.yaml#/definitions/uint32-matrix
-> > > > > +    description:
-> > > > > +      Represents an ONE-to-MANY or MANY-to-MANY mapping between the rawevent(s)
-> > > > > +      and all the MHPMCOUNTERx in a bitmap format that can be used to monitor
-> > > > > +      that raw event.
-> > > > > +      The encoding of the raw events are platform specific. The information is
-> > > > > +      encoded in an array format where each row represents the specific raw
-> > > > > +      event(s). The first element is a 64-bit match value where the invariant
-> > > > > +      bits of range of events are set. The second element is a 64-bit mask that
-> > > > > +      will have all the variant bits of the range of events cleared. All other
-> > > > > +      bits should be set in the mask. The third element is a 32-bit value to
-> > > > > +      represent bitmap of all MHPMCOUNTERx that can monitor these set of
-> > > > > +      event(s). If a platform directly encodes each raw PMU event as a unique
-> > > > > +      ID, the value of select_mask must be 0xffffffff_ffffffff.
-> > > > > +    minItems: 1
-> > > > > +    maxItems: 255
-> > > > > +    items:
-> > > > > +      $ref: /schemas/types.yaml#/definitions/uint32-array
-> > > > > +      maxItems: 5
-> > > > > +
-> > > > > +required:
-> > > > > +  - compatible
+> > > > Patch [1] proposed to add ASID support to update_mmu_cache to avoid
+> > > > flushing local TLB entirely. This patch takes into account other
+> > > > harts currently running the same mm context as well as possible
+> > > > migration of this context to other harts.
 > > > >
-> > > > I assume at least one of the other properties must be present?
+> > > > For this purpose the approach from flush_icache_mm is reused. Remote
+> > > > harts currently running the same mm context are informed via SBI calls
+> > > > that they need to flush their local TLBs. All the other harts are marked
+> > > > as needing a deferred TLB flush when this mm context runs on them.
+> > > >
+> > > > [1] https://lore.kernel.org/linux-riscv/20220821013926.8968-1-tjytimi@163.com/
+> > > >
+> > > > Signed-off-by: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
+> > > > ---
+> > > >  arch/riscv/include/asm/mmu.h      |  2 ++
+> > > >  arch/riscv/include/asm/pgtable.h  |  2 +-
+> > > >  arch/riscv/include/asm/tlbflush.h | 18 ++++++++++++++++++
+> > > >  arch/riscv/mm/context.c           | 10 ++++++++++
+> > > >  arch/riscv/mm/tlbflush.c          | 28 +++++++++++-----------------
+> > > >  5 files changed, 42 insertions(+), 18 deletions(-)
+> > > >
+> <snip>
+> > > [  133.008752] Hardware name: Renesas SMARC EVK based on r9a07g043f01 (DT)
+> > > [  133.015338] Call Trace:
+> > > [  133.017778] [<ffffffff800055cc>] dump_backtrace+0x1c/0x24
+> > > [  133.023174] [<ffffffff80776836>] show_stack+0x2c/0x38
+> > > [  133.028214] [<ffffffff80780244>] dump_stack_lvl+0x3c/0x54
+> > > [  133.033597] [<ffffffff80780270>] dump_stack+0x14/0x1c
+> > > [  133.038633] [<ffffffff80776c00>] panic+0x102/0x29a
+> > > [  133.043409] [<ffffffff800137ba>] do_exit+0x704/0x70a
+> > > [  133.048362] [<ffffffff8001390e>] do_group_exit+0x24/0x70
+> > > [  133.053659] [<ffffffff8001de54>] get_signal+0x68a/0x6dc
+> > > [  133.058874] [<ffffffff8000494e>] do_work_pending+0xd6/0x44e
+> > > [  133.064427] [<ffffffff800036c2>] resume_userspace_slow+0x8/0xa
+> > > [  133.070249] ---[ end Kernel panic - not syncing: Attempted to kill
+> > > init! exitcode=0x0000000b ]---
 > > >
-> > > Atish: (and +CC the OpenSBI list)
-> > > Which properties are actually needed here? Or are any? The md binding
-> > > in the OpenSBI sources doesn't seem to require anything other than the
-> > > compatible?
+> > > If I revert this patch [0] bonnie++ works as expected.
 > > >
+> > > Any pointers on what could be the issue here?
+> > >
+> > > [0] https://git.kernel.org/pub/scm/linux/kernel/git/palmer/linux.git/commit/?h=for-next&id=4bd1d80efb5af640f99157f39b50fb11326ce641
+> > >
+> > > Cheers,
+> > > Prabhakar
 > >
-> > That's true. Opensbi allows the platform to define functions
-> > to provide the mapping. Now that's an OpenSBI implementation thing.
-> > Other implementations may choose to use it differently.
->
-> In the case where the platform can define functions, the "bare" node
-> with just the compatible is still required though in that case, right?
->
+> > Good catch. Thanks for reporting ! Discussion around the issue and
+> > possible ways to fix it can be found in the following email thread:
+> >
+> > https://lore.kernel.org/linux-riscv/20221111075902.798571-1-guoren@kernel.org/
+> >
+> > Could you please apply the patch from Guo Ren instead of [0] and check
+> > if you have any issues with your test ? Besides, could you please share
+> > your kernel configuration and the actual bonnie++ params from emmc_t_002.sh script ?
+> >
+> Thanks for the pointer, I'll undo my changes and test Guo's patch.
+> 
+> I have pasted the script here [0] and attached config.
+> 
+> [0] https://paste.debian.net/hidden/a7a769b5/
 
-Yup.
+Thanks for the script and config. Could you please also share the
+following information:
+- how many cores your system has
+- does your system support ASID
 
-> Thanks,
-> Conor.
->
+
+Regards,
+Sergey
+
 
 _______________________________________________
 linux-riscv mailing list
