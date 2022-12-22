@@ -4,65 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 203DAC4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Dec 2022 18:07:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D47E7C4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Dec 2022 18:34:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jXHVJT7W7ze1UxRTEZ2enxe8c3uR2I5WvgjkwQ5WqhQ=; b=yCfVKzV+0N28vl
-	KpMDyBBYa1RyWsX5gasmvYsSyrUX3xubq31nWSGK49JItpTU9G0YmB781Y/lNV6LGVk3HAkeqrvvU
-	GpdgTDo9GJXoQbKw3U4rF9WTemseFPjjPlOt8K/6e5TGZ5zkA0gWOVjGXgLezXO7VZbLzTjjgcPWU
-	0pPzxfg5cbnAFu2CV28D96AJKV22kas5Snun5dC1sNaWQjo7MGGtWLvA2H0q2C/T5yny4SFUepHqz
-	1Ue28f0YvT4rGkO5kbFYsWIeixchcGHU6fG+B8CaARtfJElQ7g+VH7HwOzpltE4UC3ersugw0qHAg
-	JM70YdUcofycpyV3nPrw==;
+	List-Owner; bh=oO3wWf0Fx2/EQvJdLaiY9ZjP7XcItezWdVT5z7lrYs8=; b=WTJZWxv7NEFmFB
+	peWXn7isQn0rXzdE5NnhSBhrCuJ6MA9bdrDOFtkPIlaLsJON5Gaeu91QWLzFsYr/z7cezu5CSuyX2
+	l3QvkZrGkH2WnTFOnM6cq6jBxuD4tAeiSnWR7EfK/GRhzDoT1mR+aNyz2niSJPi/5iRsbvihDUrJS
+	OGnIcYaabegwvHbEdW748BNwwCvLPk8kYnyCiSI28FY0hW6KH9lEXyH0re9qLD+nqIZfXiM6W+w9/
+	VcQr0Yr562+br2pHA2w9V5BdP8+tu1wgAIssJOOo0RPCyLZV0q/i6A/XeMcoTMiF4+n9AX5rl4IZM
+	sZGAcAIUIKSBEigzqNXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8Py2-00FPiz-KW; Thu, 22 Dec 2022 18:06:54 +0000
-Received: from mail-oi1-f177.google.com ([209.85.167.177])
+	id 1p8QOC-00FWUk-00; Thu, 22 Dec 2022 18:33:56 +0000
+Received: from mail-yb1-xb30.google.com ([2607:f8b0:4864:20::b30])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8Pxe-00FPco-NR
-	for linux-riscv@lists.infradead.org; Thu, 22 Dec 2022 18:06:32 +0000
-Received: by mail-oi1-f177.google.com with SMTP id e205so2555049oif.11
-        for <linux-riscv@lists.infradead.org>; Thu, 22 Dec 2022 10:06:29 -0800 (PST)
+	id 1p8QNx-00FWQ9-Hy
+	for linux-riscv@lists.infradead.org; Thu, 22 Dec 2022 18:33:43 +0000
+Received: by mail-yb1-xb30.google.com with SMTP id j206so2976000ybj.1
+        for <linux-riscv@lists.infradead.org>; Thu, 22 Dec 2022 10:33:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=zgQ7/HyilgHg8E9BFXKxaOdfSKQizyd/42UYLpvYwXY=;
+        b=akTL9yqyIFNp2iIdYC5PHjy1YAfRW8nyNonh70NkM4bBKC//4ZKCq79oMjnCyxbV81
+         /f/Nv5leA8JsALRPdLmEMfJSXWnmNpcTV13z6/uuL2FA9sV4xdAHaZm+DzpU70B0Ixr0
+         9Sw8vzCkbUkP67qYDZWggLZaFfxFHWb29qIQvLEFgFikoebkwD361mEm4w7Lmxd+Y5t7
+         MoOYEFFupGShcUBqgcinQh24tGXDBO83w/1okjXT3TaHogM28l5ybGPaqo308v8xtahZ
+         He2nNbOvJ59l5V8j1EMraisF9SNuvMBeUoJPyTRtgOPVStoJzDtyL7HPIfTPHi8EywXS
+         6YdA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=lnwlcEHISNopnq+CmFljTGKvcGCFq1+OvWw4yrNda2k=;
-        b=d8tCEiLR9bObnRIlPIqM3wxGoJMqDmeJojUu+ej05LkMLKdMwi2xw4Qw4ekHEbJCih
-         FNEjQj+NLSPboatuH1Yw/mrLDLVVKUKG3ZhOomeIn2504mggQswzUWWyin/98KifRwak
-         Lrz6cYVKAD4zRyVdYjtYJOXGdJGAL13dqggfNLOLKw6Iv5MLGCZAoduf5TYVGlkeByfu
-         gA36A1au0YLFLzfKK25zEyMhgTxO0W9o6sj7LlByZXt2WC+Z/r83c8LNX/ymseH8fQyI
-         53bBdoVT5BOJ4w9wQ4fYcbX1UIb837e+DP7nb4FwaVXMUZU7krIzdXVJAHi6hGMOJuuY
-         JzEA==
-X-Gm-Message-State: AFqh2kpmGcxBGFCITDC2G/OKvq0MnE/4W7rIRNJ12rG8dxQPaOeJ5uRm
-	itKfAFUG4ZtaErez2ODQOw==
-X-Google-Smtp-Source: AMrXdXtk+Mko16yvalIZW/LDiiAqzitC2SvlNmtRx2poVHSuQ4sMiV+x+LWhDW3u3x4vmThZkw7aiw==
-X-Received: by 2002:a05:6808:2197:b0:360:d8ca:b809 with SMTP id be23-20020a056808219700b00360d8cab809mr12491600oib.28.1671732388461;
-        Thu, 22 Dec 2022 10:06:28 -0800 (PST)
-Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id m1-20020a05683026c100b0067c87f23476sm596245otu.57.2022.12.22.10.06.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 Dec 2022 10:06:28 -0800 (PST)
-Received: (nullmailer pid 1797084 invoked by uid 1000);
-	Thu, 22 Dec 2022 18:06:27 -0000
-Date: Thu, 22 Dec 2022 12:06:27 -0600
-From: Rob Herring <robh@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com, atishp@rivosinc.com, Conor Dooley <conor.dooley@microchip.com>, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, apatel@ventanamicro.com
-Subject: Re: [PATCH v1] dt-bindings: riscv: add SBI PMU event mappings
-Message-ID: <20221222180627.GA1748427-robh@kernel.org>
-References: <20221221141548.274408-1-conor@kernel.org>
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=zgQ7/HyilgHg8E9BFXKxaOdfSKQizyd/42UYLpvYwXY=;
+        b=CFnUmTaApILjasjlT7KjrfIHxnnummurGZnypYzj/3XBab0pwlAR28ux+mKgI12PYI
+         MXRMSmXPOHewv4M26Nbj9whOiGUT+NFo/TvhVSKV1VaP4x+QPwi2GGdQe9+9uLnsD7Ia
+         Fk1fbOE4XE3mvrvTMnijkfyP0/ZXx90eW+xwImQC9bx5UzEZcLvjrDotvcm6uvQnJ+kG
+         WVUbY8insiKkwO9Lg7B903buTzqlpqwFZfRmtWTl9eZwSV73NezHIky+UlDaUagftc6u
+         mHJ+VG8i24xQmwhEjfMDcUtZCvXbAiD+0CXLmuUxEOp5yFhNqINPHQ89innmOzm9n2Y3
+         PxmA==
+X-Gm-Message-State: AFqh2kqFQRxC6B0WPjFmh/aroDKMDAiwdnD+jSKGc7b/FV73bed+c4zb
+	FjyJ19OHiLwfV12+E3A7vTNTepGVD36C2YsNut/TUw==
+X-Google-Smtp-Source: AMrXdXsm02GTbuCyR6H9SG5ET6+z6HWVhYCUwJqYxCLfh0jMinpWaZPXbEzYeEB0Bn1IXhJn8zqveBqV0oWjihdfq5E=
+X-Received: by 2002:a25:9744:0:b0:71f:d74e:f3f with SMTP id
+ h4-20020a259744000000b0071fd74e0f3fmr798816ybo.75.1671734017626; Thu, 22 Dec
+ 2022 10:33:37 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20221221141548.274408-1-conor@kernel.org>
+References: <1631497278-29829-1-git-send-email-vincent.chen@sifive.com>
+ <1631497278-29829-3-git-send-email-vincent.chen@sifive.com>
+ <871r5sd1zq.fsf@oldenburg.str.redhat.com> <20210913135247.GL13220@brightrain.aerifal.cx>
+ <CABvJ_xjGZ3S0oAkT08x4DToQFdcUH06omk2OTT1EHDZRJ-2wKg@mail.gmail.com>
+ <87sfy5ndid.fsf@oldenburg.str.redhat.com> <CABvJ_xjSREsdemJkCJMGSx+09jrNoSbXCwuxF0zEQmZtHrWMvg@mail.gmail.com>
+ <d613968f-0fae-1994-3bee-fb10765167c3@rivosinc.com> <73c0124c-4794-6e40-460c-b26df407f322@rivosinc.com>
+ <CABvJ_xgDsthnm_h6mYowK03VUKqYk=nZsSZ7R=0BTwFHGKEAMw@mail.gmail.com>
+ <50c598a6-e3b3-3062-abe7-23a406067533@rivosinc.com> <7430f494-9b43-5e03-c1e9-6b83e2611a11@rivosinc.com>
+ <b67238bf-4b5d-dd17-99ff-88b0270ce10a@linaro.org>
+In-Reply-To: <b67238bf-4b5d-dd17-99ff-88b0270ce10a@linaro.org>
+From: Andy Chiu <andy.chiu@sifive.com>
+Date: Fri, 23 Dec 2022 02:33:26 +0800
+Message-ID: <CABgGipVT9L5p623Q2rbjrm=tTwcnjSr178CRKTNs+WMbm7=+-Q@mail.gmail.com>
+Subject: Re: Adding V-ext regs to signal context w/o expanding kernel struct
+ sigcontext to avoid glibc ABI break
+To: Richard Henderson <richard.henderson@linaro.org>
+Cc: Vineet Gupta <vineetg@rivosinc.com>, Vincent Chen <vincent.chen@sifive.com>, 
+	Florian Weimer <fweimer@redhat.com>, Rich Felker <dalias@libc.org>, 
+	Andrew Waterman <andrew@sifive.com>, Palmer Dabbelt <palmer@rivosinc.com>, 
+	Kito Cheng <kito.cheng@sifive.com>, =?UTF-8?Q?Christoph_M=C3=BCllner?= <christoph.muellner@vrull.eu>, 
+	davidlt@rivosinc.com, Arnd Bergmann <arnd@arndb.de>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, 
+	Philipp Tomsich <philipp.tomsich@vrull.eu>, Szabolcs Nagy <szabolcs.nagy@arm.com>, 
+	Greentime Hu <greentime.hu@sifive.com>, Aaron Durbin <adurbin@rivosinc.com>, 
+	Andrew de los Reyes <adlr@rivosinc.com>, linux-riscv <linux-riscv@lists.infradead.org>, 
+	GNU C Library <libc-alpha@sourceware.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221222_100630_802962_340059ED 
-X-CRM114-Status: GOOD (  45.36  )
+X-CRM114-CacheID: sfid-20221222_103341_652370_596C0A3B 
+X-CRM114-Status: GOOD (  16.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,236 +101,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 21, 2022 at 02:15:49PM +0000, Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
-> 
-> The SBI PMU extension requires a firmware to be aware of the event to
-> counter/mhpmevent mappings supported by the hardware. OpenSBI may use
-> DeviceTree to describe the PMU mappings. This binding is currently
-> described in markdown in OpenSBI (since v1.0 in Dec 2021) & used by QEMU
-> since v7.2.0.
-> 
-> Import the binding for use while validating dtb dumps from QEMU and
-> upcoming hardware (eg JH7110 SoC) that will make use of the event
-> mapping.
-> 
-> Link: https://github.com/riscv-software-src/opensbi/blob/master/docs/pmu_support.md
-> Co-developed-by: Atish Patra <atishp@rivosinc.com>
-> Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
-> I asked Rob on IRC about these bindings a few weeks ago & he said he
-> would be willing to take them. I have modified wording slightly in the
-> descriptions, but have mostly left things as close to the OpenSBI
-> documentation as possible.
+On Thu, Dec 22, 2022 at 1:32 PM Richard Henderson
+<richard.henderson@linaro.org> wrote:
+> E.g.
+>
+>      reserved[0] -> magic
+>      reserved[1] -> displacement to "extension area"
+>      reserved[2] -> size of "extension area"
+>
+> Thus the area can be located anywhere within 4GB and expand to 4GB.
+> Not that I'd hope any signal frame would require 4GB.  :-)
+>
 
-Please CC the perf maintainers. Might be crickets, but so they at least 
-have a chance to see it.
+By encoding the extension magic into fp reserved space, and attaching
+actual Vector states underneath, it is possible to make no size
+changes to the sigcontext itself. In fact the comment section of
+__riscv_q_ext_state specifies those bytes were purposely reserved for
+sigcontext expansion. If this is the case then maybe we should just
+use those reserved spaces anyway.
 
-> 
-> I'm not super sure about what I've done with the properties being
-> correct type wise, I went digging in bindings and am sorta using the
-> first thing that "fit".
-> 
-> Since you wrote the md doc Atish, I put your co-developed-by. OpenSBI
-> is BSD-2-Clause licensed so I am also unsure as to what license I can
-> use for this binding since that's where I took it from.
-> ---
->  .../devicetree/bindings/perf/riscv,pmu.yaml   | 158 ++++++++++++++++++
->  1 file changed, 158 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/perf/riscv,pmu.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/perf/riscv,pmu.yaml b/Documentation/devicetree/bindings/perf/riscv,pmu.yaml
-> new file mode 100644
-> index 000000000000..d65f937680af
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/perf/riscv,pmu.yaml
-> @@ -0,0 +1,158 @@
-> +# SPDX-License-Identifier: BSD-2-Clause
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/perf/riscv,pmu.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: RISC-V SBI PMU events
-> +
-> +maintainers:
-> +  - Atish Patra <atishp@rivosinc.com>
-> +
-> +description: |
-> +  SBI PMU extension supports allow supervisor software to configure, start &
-> +  stop any performance counter at anytime. Thus, a user can leverage full
-> +  capability of performance analysis tools such as perf if the SBI PMU
-> +  extension is enabled. The OpenSBI implementation makes the following
-> +  assumptions about the hardware platform:
-> +    MCOUNTINHIBIT CSR must be implemented in the hardware. Otherwise, the SBI
-> +    PMU extension will not be enabled.
-> +
-> +    The platform must provide information about PMU event to counter mapping
-> +    via device tree or platform specific hooks. Otherwise, the SBI PMU
-> +    extension will not be enabled.
-> +
-> +    The platforms should provide information about the PMU event selector
-> +    values that should be encoded in the expected value of MHPMEVENTx while
-> +    configuring MHPMCOUNTERx for that specific event. This can be done via a
-> +    device tree or platform specific hooks. The exact value to be written to
-> +    the MHPMEVENTx is completely dependent on the platform. The generic
-> +    platform writes the zero-extended event_idx as the expected value for
-> +    hardware cache/generic events as suggested by the SBI specification.
-> +
-> +properties:
-> +  compatible:
-> +    const: riscv,pmu
-> +
-> +  riscv,event-to-mhpmevent:
-> +    $ref: /schemas/types.yaml#/definitions/uint32-matrix
-> +    description:
-> +      Represents an ONE-to-ONE mapping between a PMU event and the event
-> +      selector value that platform expects to be written to the MHPMEVENTx CSR
-> +      for that event.
-> +      The mapping is encoded in an array format where each row represents an
+struct __riscv_q_ext_state {
+        __u64 f[64] __attribute__((aligned(16)));
+        __u32 fcsr;
+        /*
+         * Reserved for expansion of sigcontext structure.  Currently zeroed
+         * upon signal, and must be zero upon sigreturn.
+         */
+        __u32 reserved[3];
+};
 
-s/array/matrix/
+Here is a way that keeps the size and layout of sigcontext, while it
+also manages to let the kernel write Vector state into an user's
+signal stack. This approach also lets the user space leverage existing
+reserved space to get context from new extensions. We introduce a new
+struct, __riscv_extra_ext_header, unioning with __riscv_fp_state in
+sigcontext. __riscv_extra_ext_header is the same size as
+__riscv_fp_state. The only purpose of the struct is to point to the
+magic header of a following extension, e.g. Vector, located at the
+reserved space. If there is no more extension to come, then all of
+those bytes should be zeros.
 
-> +      event. The first element represents the event idx while the second &
-> +      third elements represent the event selector value that should be encoded
-> +      in the expected value to be written in MHPMEVENTx.
-> +      This property shouldn't encode any raw hardware event.
-> +    minItems: 1
-> +    maxItems: 255
-> +    items:
-> +      $ref: /schemas/types.yaml#/definitions/uint32-array
+ struct sigcontext {
+        struct user_regs_struct sc_regs;
+-       union __riscv_fp_state sc_fpregs;
++       union {
++               union __riscv_fp_state sc_fpregs;
++               struct __riscv_extra_ext_header sc_extdesc;
++       };
+ };
 
-Huh? A property can only have 1 type. I wonder what the tools do with 
-this...
-
-> +      maxItems: 3
-
-Better to do:
-
-         items:
-           - description: what's in the 1st word
-           - description: what's in the 2nd word
-           - description: what's in the 3rd word
-
-And rework the overall description to not say the same thing.
-
-> +
-> +  riscv,event-to-mhpmcounters:
-> +    $ref: /schemas/types.yaml#/definitions/uint32-matrix
-> +    description:
-> +      Represents a MANY-to-MANY mapping between a range of events and all the
-> +      MHPMCOUNTERx in a bitmap format that can be used to monitor these range
-> +      of events. The information is encoded in an array format where each
-> +      row represents a certain range of events and corresponding counters.
-> +      The first element represents starting of the pmu event id and 2nd column
-> +      represents the end of the pmu event id. The third element represent a
-> +      bitmap of all the MHPMCOUNTERx.
-> +      This property is mandatory if event-to-mhpmevent is present. Otherwise,
-> +      it can be omitted.
-
-No need to state this in freeform text, use 'dependencies'.
-
-> +      This property shouldn't encode any raw event.
-> +    minItems: 1
-> +    maxItems: 255
-> +    items:
-> +      $ref: /schemas/types.yaml#/definitions/uint32-array
-> +      maxItems: 3
-> +
-> +  riscv,raw-event-to-mhpmcounters:
-> +    $ref: /schemas/types.yaml#/definitions/uint32-matrix
-> +    description:
-> +      Represents an ONE-to-MANY or MANY-to-MANY mapping between the rawevent(s)
-> +      and all the MHPMCOUNTERx in a bitmap format that can be used to monitor
-> +      that raw event.
-> +      The encoding of the raw events are platform specific. The information is
-> +      encoded in an array format where each row represents the specific raw
-> +      event(s). The first element is a 64-bit match value where the invariant
-> +      bits of range of events are set. The second element is a 64-bit mask that
-> +      will have all the variant bits of the range of events cleared. All other
-> +      bits should be set in the mask. The third element is a 32-bit value to
-> +      represent bitmap of all MHPMCOUNTERx that can monitor these set of
-> +      event(s). If a platform directly encodes each raw PMU event as a unique
-> +      ID, the value of select_mask must be 0xffffffff_ffffffff.
-> +    minItems: 1
-> +    maxItems: 255
-> +    items:
-> +      $ref: /schemas/types.yaml#/definitions/uint32-array
-> +      maxItems: 5
-> +
-> +required:
-> +  - compatible
-
-I assume at least one of the other properties must be present?
-
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    pmu {
-> +        compatible = "riscv,pmu";
-> +        riscv,event-to-mhpmevent = <0x0000B 0x0000 0x0001>;
-> +        riscv,event-to-mhpmcounters = <0x00001 0x00001 0x00000001>,
-> +                                      <0x00002 0x00002 0x00000004>,
-> +                                      <0x00003 0x0000A 0x00000ff8>,
-> +                                      <0x10000 0x10033 0x000ff000>;
-> +        riscv,raw-event-to-mhpmcounters =
-> +            /* For event ID 0x0002 */
-> +            <0x0000 0x0002 0xffffffff 0xffffffff 0x00000f8>,
-> +            /* For event ID 0-4 */
-> +            <0x0 0x0 0xffffffff 0xfffffff0 0x00000ff0>,
-> +            /* For event ID 0xffffffff0000000f - 0xffffffff000000ff */
-> +            <0xffffffff 0x0 0xffffffff 0xffffff0f 0x00000ff0>;
-> +    };
-> +
-> +  - |
-> +    /*
-> +     * For HiFive Unmatched board the encodings can be found here
-> +     * https://sifive.cdn.prismic.io/sifive/1a82e600-1f93-4f41-b2d8-86ed8b16acba_fu740-c000-manual-v1p6.pdf
-> +     * This example also binds standard SBI PMU hardware id's to U74 PMU event
-> +     * codes, U74 uses a bitfield for events encoding, so several U74 events
-> +     * can be bound to single perf id.
-> +     * See SBI PMU hardware id's in OpenSBI's include/sbi/sbi_ecall_interface.h
-> +     */
-> +    pmu {
-> +          compatible = "riscv,pmu";
-> +          riscv,event-to-mhpmevent =
-> +              /* SBI_PMU_HW_CACHE_REFERENCES -> Instruction or Data cache/ITIM busy */
-> +              <0x00003 0x00000000 0x1801>,
-> +              /* SBI_PMU_HW_CACHE_MISSES -> Instruction or Data cache miss or MMIO access */
-> +              <0x00004 0x00000000 0x0302>,
-> +              /* SBI_PMU_HW_BRANCH_INSTRUCTIONS -> Conditional branch retired */
-> +              <0x00005 0x00000000 0x4000>,
-> +              /* SBI_PMU_HW_BRANCH_MISSES -> Branch or jump misprediction */
-> +              <0x00006 0x00000000 0x6001>,
-> +              /* L1D_READ_MISS -> Data cache miss or MMIO access */
-> +              <0x10001 0x00000000 0x0202>,
-> +              /* L1D_WRITE_ACCESS -> Data cache write-back */
-> +              <0x10002 0x00000000 0x0402>,
-> +              /* L1I_READ_ACCESS -> Instruction cache miss */
-> +              <0x10009 0x00000000 0x0102>,
-> +              /* LL_READ_MISS -> UTLB miss */
-> +              <0x10011 0x00000000 0x2002>,
-> +              /* DTLB_READ_MISS -> Data TLB miss */
-> +              <0x10019 0x00000000 0x1002>,
-> +              /* ITLB_READ_MISS-> Instruction TLB miss */
-> +              <0x10021 0x00000000 0x0802>;
-> +          riscv,event-to-mhpmcounters = <0x00003 0x00006 0x18>,
-> +                                        <0x10001 0x10002 0x18>,
-> +                                        <0x10009 0x10009 0x18>,
-> +                                        <0x10011 0x10011 0x18>,
-> +                                        <0x10019 0x10019 0x18>,
-> +                                        <0x10021 0x10021 0x18>;
-> +          riscv,raw-event-to-mhpmcounters = <0x0 0x0 0xffffffff 0xfc0000ff 0x18>,
-> +                                            <0x0 0x1 0xffffffff 0xfff800ff 0x18>,
-> +                                            <0x0 0x2 0xffffffff 0xffffe0ff 0x18>;
-> +    };
-> -- 
-> 2.38.1
-> 
-> 
+I wrote a PoC patch for this and it has been pushed into the following git tree:
+https://github.com/sifive/riscv-linux/tree/dev/andyc/for-next-v13
+I tested it on a rv32 QEMU virt machine and the user space can get/set
+Vector registers normally. I haven't tested it on rv64 yet but it
+should be no difference. The patch is not the final version and maybe
+I missed some basic ideas. But if everyone agrees with this approach
+then I would like to start formalizing and submit the series.
 
 _______________________________________________
 linux-riscv mailing list
