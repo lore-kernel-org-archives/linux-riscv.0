@@ -4,90 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F12B4C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Dec 2022 22:20:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF7DBC4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Dec 2022 22:33:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0UdWhqSB0eBachOM02fuZXuVRRh2IHPFrqP9jCrOPhg=; b=zDPNlPMgn84Jls
-	gH9mj6YtwHK0VhVnBne3rtsqHq9mQauEirysJ5+tVRPojysbVAGjqjeHoESfoKIbpHzsS2w/AUXOG
-	IsyJvHOqswaITKS3tAKsqh8XClFwWJ/Qi4EA+zCBrm+zSXwFiqCIkpR5KcICjw0W7f6afLCJW9qNL
-	6pKyhkAG6hYsCG68CFozKlX19Zs0eFDQul6PPyDzKshvhgOePILbuiq510wUOhInzRJzQOr6E9ajt
-	h9IpqnEd9mOrVX0/ogGieW7NaP6OOAiEHy2lqi5H1Qhb8pPvrhEd93OlgKBsxEjLq+1syaLOanxcm
-	ve48eE3tNrBKOAtA7Oyg==;
+	List-Owner; bh=MM40YQduzukvdgSDaB5H7x8IgdwqFA3Zy2/qMgIJ5p4=; b=d/lkJz9IY7X3rt
+	ge62rMhkzfngb8nNm1R8NlF35I8wwtRV67is/NnKyv0TnyldnAYExqMT4ElqjMzIrP4+YiwRimw+T
+	x5A9NnsRR+DuPKc2K9P1sn9nbaKpHyS0Hr+Du8nM2Y29Reg+4oP13+QKRMJ4qnpbaLK38+8VUuTHc
+	iQDM/ejsVzP0UqUALRGPfRYKO5uhoViJyCN0k4vam16aEXJJtwwD4hFGdXiRVXhBe3dKqs7G3jdzj
+	/xlgzoMAOMERl0j0mGecREXASs1ZzTmnlXq4ZEw6IzioN8cGwjr1Lt6f8aEntoHml9w66SGs99HZT
+	St0cyuTKjdsxBNiqPOjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8Tvh-0005CW-Uf; Thu, 22 Dec 2022 22:20:45 +0000
-Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
+	id 1p8U8D-000AWP-2W; Thu, 22 Dec 2022 22:33:41 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8Tvd-0005Aa-VZ
-	for linux-riscv@lists.infradead.org; Thu, 22 Dec 2022 22:20:43 +0000
-Received: by mail-lf1-x130.google.com with SMTP id o6so4700536lfi.5
-        for <linux-riscv@lists.infradead.org>; Thu, 22 Dec 2022 14:20:40 -0800 (PST)
+	id 1p8U83-000ARo-65
+	for linux-riscv@lists.infradead.org; Thu, 22 Dec 2022 22:33:32 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id o8-20020a17090a9f8800b00223de0364beso7114143pjp.4
+        for <linux-riscv@lists.infradead.org>; Thu, 22 Dec 2022 14:33:29 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=HHE1uDVV02aTXLSeA7SUTgkt7ugOAsRPACu2QGMqouM=;
-        b=IRoIBeH+iqDW5myZjHqQ9CShQ1eRuDYCvZSlz8EJYitUxJLmg7Qy8qXefVjV1+DJnK
-         01syJVkK/YNj72iDD+f4Unp+otYlJbx51T5Cx7rt4RHJTafehnRnjcXSI3hb9hr7NLvB
-         x2JUhr2nLjRKhxQYcirGqLGGRJ3bGtCPpb+CDrEPyW/xgwsvyxcpJpP0rz6OZVbvW+3J
-         zKILvDWT4p4C4/tDAVB4VvropnOJHOhvsTS0AJTDdNU9RY/76FCXGXamwT5Bq2eRLpl4
-         klCsRwLWUmr4iE5bdDrn2wKdlf39Id176HJzSTEg3fuV2HpDMdBcJcJ9fo1pc5/NqjVP
-         bT3g==
+        d=linaro.org; s=google;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=oUqs8vcCeo3WHQ/wZsX/ATHWp0759Uw7X3vsCU3FtHY=;
+        b=DwnHKs3c9lTnGCWPnEzrJd+HhxNJulfG2ievlpH2dXgxDg7pINpzCpKD8PFkAq4lvp
+         OdzF1+9aG+FHTRi9Wa5C0W2LKepu1HbsED+iz/mAlHxrqhOnIcJPcei0dNgfQYTKU0to
+         Sp3/v3vTR/c6mHaDigsc1vtniqXux4MPjatC7soqFopT56aPnWsYQAZVBT3eUtEZtNYD
+         a137DrIn7gCuvJ65bLjneCZ++COlZ1G0hSL52cS7C+ZZWU7p/D327yHiGfei6n5IMzKt
+         oiIp6OUmNScsilZl/rie6tId5bqQlxQRWlukBsTTYJb10kBIuNZfHNur0ymEFVmV/j1d
+         OPzA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=HHE1uDVV02aTXLSeA7SUTgkt7ugOAsRPACu2QGMqouM=;
-        b=IFBZ/lDhA215zTNYY6DgzQ1c8qIRVKUgoOEajTMhdn0F7Aztn5M/4fH86p0zjRWfcR
-         PMSVwi2f0gnBDVV1Bs/ar4v65vdkUCbs+3QJz+EQVpS0RgbgCynvrWuTq0DvjEILqyej
-         vN5z4NXbU2Aa8BknALp5pdnEEFY6gn4ilVvURy3JV3pWDvfF5WpJSsVP47mZKldqWc6A
-         63I8pq61qJ1MCz9xe6yq6hSRWbRORyUiQ70LDxNVGmpZtl/EBuGEBmg76mSZwe6BNZeU
-         7lmMULqJMYm+YvCrv0T3WNTiR24MUvzbXWIf1vENdU6crJcG61Zl3Afy8oUMkmTArye3
-         1gXw==
-X-Gm-Message-State: AFqh2kpnfa+S2BNUzMQMn9otP12B4UoNDb3oJH5xMINJVg+9KdHLZF8H
-	UYZVMU+Q547dZYW6E3cH+n4=
-X-Google-Smtp-Source: AMrXdXte/tuq0ApayS0uJzuE9x6BLxk8fVRrAORwutJ+90epsia47vuqhm7ihU5kviqbW323ycHorQ==
-X-Received: by 2002:a05:6512:b28:b0:4ca:f42f:c6a4 with SMTP id w40-20020a0565120b2800b004caf42fc6a4mr370306lfu.36.1671747639146;
-        Thu, 22 Dec 2022 14:20:39 -0800 (PST)
-Received: from curiosity ([5.188.167.245])
-        by smtp.gmail.com with ESMTPSA id s6-20020a056512314600b004bb766e01a4sm224541lfi.245.2022.12.22.14.20.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 Dec 2022 14:20:37 -0800 (PST)
-Date: Fri, 23 Dec 2022 01:20:36 +0300
-From: Sergey Matyukevich <geomatsi@gmail.com>
-To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Cc: linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
-	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@rivosinc.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Guo Ren <guoren@kernel.org>,
-	Alexandre Ghiti <alexandre.ghiti@canonical.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Sergey Matyukevich <sergey.matyukevich@syntacore.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Conor Dooley <Conor.Dooley@microchip.com>
-Subject: Re: [RFC PATCH 1/1] riscv: mm: notify remote harts about mmu cache
- updates
-Message-ID: <Y6TYNBgqgWuxhhHJ@curiosity>
-References: <20220829205219.283543-1-geomatsi@gmail.com>
- <CA+V-a8uLmp33PSYGmJjf9FupJ0M8Hf7ef7A1G4va8GDL_61Qyw@mail.gmail.com>
- <Y6S1/kROC0p5CboA@curiosity>
- <CA+V-a8u0qUF81RUTF9+4T4F1GxW3=4P7RMTTjjsaMq4MiiQSMQ@mail.gmail.com>
- <Y6TIywUWZ3nrPeon@curiosity>
- <CA+V-a8tMQ-RaaXD5209HxT77VoiOanvjdbFCPsdWpDYswuY+ZQ@mail.gmail.com>
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=oUqs8vcCeo3WHQ/wZsX/ATHWp0759Uw7X3vsCU3FtHY=;
+        b=DtPr7C8L7lhv7GVDv/hLxteXH2b/VR2pHtaCTh94is4cEsGDLCuv1F5u2DYc7YUCL0
+         bd0UT+qOA8BMYzC5p/I7zuRf5uUoS7YhgXQ9Ka6igdZLw1EPDwTqyASuL/9NuNG+umug
+         FDXmsb31uApxN2zhgSljAnOsl7ushTBd9n4vMzuxp0Jyzh2/B+/E4NU+IcO2OJLtGZoJ
+         331fG0iIPGgnKVEh+gkN1uXEoC9wJnWUKogPw8dtGp37RjfZ2fcjrSYjsEeQDKYdXliU
+         9x0JkI83jI+2q0GMDNbj7MW481Nd6yi0q0D0Bw6CxrMe/jyt7OUXxqruuDMByZZq3srY
+         QOVQ==
+X-Gm-Message-State: AFqh2kpOCNrXOOymGk543qYjO84c+ltGW/wqxjC41QPSVRKLOI7UXElX
+	n9MaZ/PLeXWJuder3vWn+Oa4omuLAM02anEG
+X-Google-Smtp-Source: AMrXdXtIMyF6DUH+b6qp7alupaBEj70iepcAoTKuZjgt46jEFosCxcG59S9c6rru4hIHDbMvEpz6wA==
+X-Received: by 2002:a17:902:bc45:b0:191:3c3d:86fd with SMTP id t5-20020a170902bc4500b001913c3d86fdmr8146280plz.48.1671748409505;
+        Thu, 22 Dec 2022 14:33:29 -0800 (PST)
+Received: from [192.168.101.16] ([75.147.178.105])
+        by smtp.gmail.com with ESMTPSA id l6-20020a170903120600b00190c6518e30sm961407plh.243.2022.12.22.14.33.27
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 22 Dec 2022 14:33:28 -0800 (PST)
+Message-ID: <68fdb6e2-ed53-32ea-52ca-1e4d913ff7f3@linaro.org>
+Date: Thu, 22 Dec 2022 14:33:25 -0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CA+V-a8tMQ-RaaXD5209HxT77VoiOanvjdbFCPsdWpDYswuY+ZQ@mail.gmail.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.4.2
+Subject: Re: Adding V-ext regs to signal context w/o expanding kernel struct
+ sigcontext to avoid glibc ABI break
+Content-Language: en-US
+To: Andy Chiu <andy.chiu@sifive.com>
+Cc: Vineet Gupta <vineetg@rivosinc.com>,
+ Vincent Chen <vincent.chen@sifive.com>, Florian Weimer <fweimer@redhat.com>,
+ Rich Felker <dalias@libc.org>, Andrew Waterman <andrew@sifive.com>,
+ Palmer Dabbelt <palmer@rivosinc.com>, Kito Cheng <kito.cheng@sifive.com>,
+ =?UTF-8?Q?Christoph_M=c3=bcllner?= <christoph.muellner@vrull.eu>,
+ davidlt@rivosinc.com, Arnd Bergmann <arnd@arndb.de>,
+ =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
+ Philipp Tomsich <philipp.tomsich@vrull.eu>,
+ Szabolcs Nagy <szabolcs.nagy@arm.com>, Greentime Hu
+ <greentime.hu@sifive.com>, Aaron Durbin <adurbin@rivosinc.com>,
+ Andrew de los Reyes <adlr@rivosinc.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ GNU C Library <libc-alpha@sourceware.org>
+References: <1631497278-29829-1-git-send-email-vincent.chen@sifive.com>
+ <1631497278-29829-3-git-send-email-vincent.chen@sifive.com>
+ <871r5sd1zq.fsf@oldenburg.str.redhat.com>
+ <20210913135247.GL13220@brightrain.aerifal.cx>
+ <CABvJ_xjGZ3S0oAkT08x4DToQFdcUH06omk2OTT1EHDZRJ-2wKg@mail.gmail.com>
+ <87sfy5ndid.fsf@oldenburg.str.redhat.com>
+ <CABvJ_xjSREsdemJkCJMGSx+09jrNoSbXCwuxF0zEQmZtHrWMvg@mail.gmail.com>
+ <d613968f-0fae-1994-3bee-fb10765167c3@rivosinc.com>
+ <73c0124c-4794-6e40-460c-b26df407f322@rivosinc.com>
+ <CABvJ_xgDsthnm_h6mYowK03VUKqYk=nZsSZ7R=0BTwFHGKEAMw@mail.gmail.com>
+ <50c598a6-e3b3-3062-abe7-23a406067533@rivosinc.com>
+ <7430f494-9b43-5e03-c1e9-6b83e2611a11@rivosinc.com>
+ <b67238bf-4b5d-dd17-99ff-88b0270ce10a@linaro.org>
+ <CABgGipVT9L5p623Q2rbjrm=tTwcnjSr178CRKTNs+WMbm7=+-Q@mail.gmail.com>
+From: Richard Henderson <richard.henderson@linaro.org>
+In-Reply-To: <CABgGipVT9L5p623Q2rbjrm=tTwcnjSr178CRKTNs+WMbm7=+-Q@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221222_142042_103154_8919CC6F 
-X-CRM114-Status: GOOD (  35.73  )
+X-CRM114-CacheID: sfid-20221222_143331_316137_A38A7809 
+X-CRM114-Status: GOOD (  10.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,111 +112,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 22, 2022 at 09:26:07PM +0000, Lad, Prabhakar wrote:
-> Hi Sergey,
-> 
-> On Thu, Dec 22, 2022 at 9:14 PM Sergey Matyukevich <geomatsi@gmail.com> wrote:
-> >
-> > Hi Prabhakar,
-> >
-> > > > > > From: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
-> > > > > >
-> > > > > > Current implementation of update_mmu_cache function performs local TLB
-> > > > > > flush. It does not take into account ASID information. Besides, it does
-> > > > > > not take into account other harts currently running the same mm context
-> > > > > > or possible migration of the running context to other harts. Meanwhile
-> > > > > > TLB flush is not performed for every context switch if ASID support
-> > > > > > is enabled.
-> > > > > >
-> > > > > > Patch [1] proposed to add ASID support to update_mmu_cache to avoid
-> > > > > > flushing local TLB entirely. This patch takes into account other
-> > > > > > harts currently running the same mm context as well as possible
-> > > > > > migration of this context to other harts.
-> > > > > >
-> > > > > > For this purpose the approach from flush_icache_mm is reused. Remote
-> > > > > > harts currently running the same mm context are informed via SBI calls
-> > > > > > that they need to flush their local TLBs. All the other harts are marked
-> > > > > > as needing a deferred TLB flush when this mm context runs on them.
-> > > > > >
-> > > > > > [1] https://lore.kernel.org/linux-riscv/20220821013926.8968-1-tjytimi@163.com/
-> > > > > >
-> > > > > > Signed-off-by: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
-> > > > > > ---
-> > > > > >  arch/riscv/include/asm/mmu.h      |  2 ++
-> > > > > >  arch/riscv/include/asm/pgtable.h  |  2 +-
-> > > > > >  arch/riscv/include/asm/tlbflush.h | 18 ++++++++++++++++++
-> > > > > >  arch/riscv/mm/context.c           | 10 ++++++++++
-> > > > > >  arch/riscv/mm/tlbflush.c          | 28 +++++++++++-----------------
-> > > > > >  5 files changed, 42 insertions(+), 18 deletions(-)
-> > > > > >
-> > > <snip>
-> > > > > [  133.008752] Hardware name: Renesas SMARC EVK based on r9a07g043f01 (DT)
-> > > > > [  133.015338] Call Trace:
-> > > > > [  133.017778] [<ffffffff800055cc>] dump_backtrace+0x1c/0x24
-> > > > > [  133.023174] [<ffffffff80776836>] show_stack+0x2c/0x38
-> > > > > [  133.028214] [<ffffffff80780244>] dump_stack_lvl+0x3c/0x54
-> > > > > [  133.033597] [<ffffffff80780270>] dump_stack+0x14/0x1c
-> > > > > [  133.038633] [<ffffffff80776c00>] panic+0x102/0x29a
-> > > > > [  133.043409] [<ffffffff800137ba>] do_exit+0x704/0x70a
-> > > > > [  133.048362] [<ffffffff8001390e>] do_group_exit+0x24/0x70
-> > > > > [  133.053659] [<ffffffff8001de54>] get_signal+0x68a/0x6dc
-> > > > > [  133.058874] [<ffffffff8000494e>] do_work_pending+0xd6/0x44e
-> > > > > [  133.064427] [<ffffffff800036c2>] resume_userspace_slow+0x8/0xa
-> > > > > [  133.070249] ---[ end Kernel panic - not syncing: Attempted to kill
-> > > > > init! exitcode=0x0000000b ]---
-> > > > >
-> > > > > If I revert this patch [0] bonnie++ works as expected.
-> > > > >
-> > > > > Any pointers on what could be the issue here?
-> > > > >
-> > > > > [0] https://git.kernel.org/pub/scm/linux/kernel/git/palmer/linux.git/commit/?h=for-next&id=4bd1d80efb5af640f99157f39b50fb11326ce641
-> > > > >
-> > > > > Cheers,
-> > > > > Prabhakar
-> > > >
-> > > > Good catch. Thanks for reporting ! Discussion around the issue and
-> > > > possible ways to fix it can be found in the following email thread:
-> > > >
-> > > > https://lore.kernel.org/linux-riscv/20221111075902.798571-1-guoren@kernel.org/
-> > > >
-> > > > Could you please apply the patch from Guo Ren instead of [0] and check
-> > > > if you have any issues with your test ? Besides, could you please share
-> > > > your kernel configuration and the actual bonnie++ params from emmc_t_002.sh script ?
-> > > >
-> > > Thanks for the pointer, I'll undo my changes and test Guo's patch.
-> > >
-> > > I have pasted the script here [0] and attached config.
-> > >
-> > > [0] https://paste.debian.net/hidden/a7a769b5/
-> >
-> > Thanks for the script and config. Could you please also share the
-> > following information:
-> > - how many cores your system has
-> The Renesas RZ/Five SoC has a single Andes AX45MP core.
-> 
-> > - does your system support ASID
-> >
-> With a quick look at [0] It does support ASID, unless there is a way
-> to disable it.
-> 
-> [0] http://www.andestech.com/wp-content/uploads/AX45MP-1C-Rev.-5.0.0-Datasheet.pdf
+On 12/22/22 10:33, Andy Chiu wrote:
+> I wrote a PoC patch for this and it has been pushed into the following git tree:
+> https://github.com/sifive/riscv-linux/tree/dev/andyc/for-next-v13
 
-So you have a single-core system, but your kernel configuration enables
-CONFIG_SMP. Additional 'deferred TLB flush' logic is dropped at build
-time if CONFIG_SMP is disabled. On the other hand, system should not
-fail that way even if SMP is enabled.
+I had a look at your include/uapi/, and it looks good.
+Mere nits:
 
-Let me double-check if anything can go wrong if cpumasks may have only
-a single cpu. Another suspect is a change in update_mmu_cache: probably
-making it asid-specific (and thus more granular) was a bad idea.
+> struct __riscv_q_ext_state {
+> 	__u64 f[64] __attribute__((aligned(16)));
+> 	__u32 fcsr;
+> 	/*
+> 	 * Reserved for expansion of sigcontext structure.  Currently zeroed
+> 	 * upon signal, and must be zero upon sigreturn.
+> 	 */
+> 	__u32 reserved[3];
+> };
+> 
+> struct __riscv_ctx_hdr {
+> 	__u32 magic;
+> 	__u32 size;
+> 	__u32 reserved;
+> };
 
-Regards,
-Sergey
+Thinking about the _next_ extension on the chain, perhaps drop the 3rd word from here, so 
+that (&hdr + 1) is 8-byte aligned (which may be enough depending on what the extension 
+contains)?
+
+> struct __riscv_extra_ext_header {
+> 	__u64 ignored[64] __attribute__((aligned(16)));
+> 	__u32 padding;
+> 	/*
+> 	 * Reserved for expansion of sigcontext structure.  Currently zeroed
+> 	 * upon signal, and must be zero upon sigreturn.
+> 	 */
+> 	struct __riscv_ctx_hdr hdr;
+> };
+
+     __u32 __padding[129]
+or
+     __u64 __padding[65]
+
+depending on your answer to the above?
+
+It might reduce confusion to move (or replicate, for redundancy) the aligned(16) from the 
+innermost __riscv_q_ext_state.f[] to the outermost sc_fpregs and/or sigcontext.
 
 _______________________________________________
 linux-riscv mailing list
