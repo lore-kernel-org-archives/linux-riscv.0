@@ -4,85 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCDCAC4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Dec 2022 03:37:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 923C5C4167B
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Dec 2022 05:33:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jsLt0kbG4dQOoHi/7drpjrlvuutN+7i9tMp/wmdflXs=; b=03gFT+UArXbKZY
-	TOSWGt0lw2LdEKytYwrA0/vF30uKcisbmgdCnxG+CVC6/hPyNUcoI0bLFcmpJ9apARcqRZ4AiSj/b
-	BFVb5TwQ0PPHTptwZOt0euFDcI0H5xJ1e3dcZFWc0oSk5LP6oCc9uL2y1el3Q2XVVt0PHXPgJgyTC
-	4OyNoesLIcy5lsm7PFg8cGHUAlLZX2JjfbGjlHwlIMEbnV+8LDhirRBR+nMecjNtyruLvO9hy75T+
-	U5D7jOIn9W4HxaSXyAav0kBSW7UGdQa2D9OSPD6Y0La3utTRjEUfAFTJCyrjgqD8UPJm+CRAU8Pr8
-	d6lbX3Fy8NtyunkGJbHw==;
+	List-Owner; bh=ZaWbMzT3BFmnlPIIT5wvBj05LNPpnPmsBwf+JnpppSs=; b=sYdcZ7gnYNuhZD
+	hqvcfHPm0z8Kg7JcJfYSm3oOibuzJwcPnavfM4dlmf+4CXFkETBuMbHLNk5P3e6EPdmw8XDFU8xpq
+	MqWUqNiM+hbFlbyrJjwr7bPTVbQpp6BmrY3OCqpzkwDlCKVpbv37i0m4DvxmN5IafWRFmxxhL/VZI
+	w9nQvgkwIDoTmT7rke17krutdNkdAeNrDDTGuG1pS5fghgep6PSQMcmqIKLwCrIkV42iiaJR/TR3K
+	qvC7BchouJgOQQ5NF3LkQL+CEZCQOkj19gCSuxy+2Dprm9wvmhJC2lkPNx/FwwmxeAFJC/LauO1gg
+	EFlmwFgjCpDlAme4ZVnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8COu-006Ygk-8y; Thu, 22 Dec 2022 03:37:44 +0000
-Received: from mail-vs1-xe31.google.com ([2607:f8b0:4864:20::e31])
+	id 1p8ECT-007FHh-Vi; Thu, 22 Dec 2022 05:33:02 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8COr-006Yfh-8I
-	for linux-riscv@lists.infradead.org; Thu, 22 Dec 2022 03:37:42 +0000
-Received: by mail-vs1-xe31.google.com with SMTP id m2so603709vsv.9
-        for <linux-riscv@lists.infradead.org>; Wed, 21 Dec 2022 19:37:39 -0800 (PST)
+	id 1p8ECP-007FG7-Ix
+	for linux-riscv@lists.infradead.org; Thu, 22 Dec 2022 05:32:59 +0000
+Received: by mail-pl1-x630.google.com with SMTP id 4so1019196plj.3
+        for <linux-riscv@lists.infradead.org>; Wed, 21 Dec 2022 21:32:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=R/vuKASG7W9bgoDHU50sqLq1DsBHxj4D4/J7WpqGZVw=;
-        b=fxhs6k1yqOJPEMXnjAFGEwzyyQHjKHBEgAjuEM55V6a+RuRG7NNcWN5bnJ8N4niVRh
-         nCC1QK2k+SMts+YQ+TKPb7gx3CIdTvnFQOr8LbDdVziZvGUYWYjsYvlSOj5c+9SwkWE+
-         4KBJuLlnFu/ERJ0ifwjRIxnO+waISi7O0Ua02ULVrBZn79gGB9RaNsllI3Cu5+F+tI8m
-         tCxVwsrkLtIY/w7jgwSAiULiWshJjDmhkG2CxYlOY8am/r5ZLtzf/EYuPUjjjJNWj/4W
-         w8GTXXGlzGZjm88fxoMOAwGa1jmWHoikwIdzZI6kPFxXjCgvOSAKVr9gkla4geQhfkiG
-         I0UA==
+        d=linaro.org; s=google;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Eu29fG3f+7YAspRkfHmhlvcLA9unjimxDV2WGeyIfAQ=;
+        b=OQlLH7dfBS7CrWRapBdlamhi4y17+k7pmnhPa5dlgmYB/MZ2GgqCfeSgDl2nFEW4vW
+         crevkFvB6WCsxoIHb3UqXtXvx2J2Vuglc7Szt8+APxZDho+LdZUIyM5BC9nTc+6xn0Np
+         KzKYk4hBPY6Dpi6avJnTFfV9rBmaTS9CK13NkqxamZRxg2PUkcs7luVBEchh7aCcCcl2
+         /e4f+EMHs93/S9yrPJYQIycD35t8bGv2myy27Pd7KVDjOseaUxJOR/sgL69MNw5iJW9V
+         p8L3UmzlgMlp9L7uJgifXEwhQlg7CIGXc1TMMXdnyYwQ3KqDYj9kmQ6LhLtbSuP4QuXJ
+         lN9g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=R/vuKASG7W9bgoDHU50sqLq1DsBHxj4D4/J7WpqGZVw=;
-        b=MdtYTg9HZLJYFpXiT4bkqYXXjxq7dixH2uoRSemjJiNnPZeuiGis3r7i+Rzbk6Tecv
-         07lPIT+Iacs1gJnSWqQdKHqo27znn1AfTzvfOW9VVJjiYvkUO2BCMQBX+Mo17B0Rk8/S
-         HtQtIv5JbisXdDQqzZDy5D1X2lP3rv/jwSfy1JiOE3N9mYxmSJthQHlgw1Fmfl3Zzjii
-         YJh9gi+0nV7ZgTl3W4LoM0g1fvKdKAy/WoXayoAxbiNppVEMDcsIpezt9Z8I2cTJZYjq
-         2sxeEb/Zw2ZRBSMCZ3LDn/fVp675bG9LEIFGfz2HHVf+XLVK2UclV8eJt4MdAbceNZwE
-         nFFA==
-X-Gm-Message-State: AFqh2kol9nX190gmQ3WVh4npyP6W7WNb6nMOYR+1KQRIrGvcVAqtMMeH
-	zQfgMSyVLwVsr3B1OfXD3Q6XrlCmr6HrnrUlc7QlfQ==
-X-Google-Smtp-Source: AMrXdXsKgxNkBo8IUlCPqOpd8FbH8N2IevLDsBsbpBQPxj/k9xUqy2Kn/utTzEaTyjyBxOGA0gq81sEWEUOJgRLNGf4=
-X-Received: by 2002:a05:6102:510e:b0:3b1:2b83:1861 with SMTP id
- bm14-20020a056102510e00b003b12b831861mr502162vsb.10.1671680258707; Wed, 21
- Dec 2022 19:37:38 -0800 (PST)
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Eu29fG3f+7YAspRkfHmhlvcLA9unjimxDV2WGeyIfAQ=;
+        b=KtRTj3RuhUpmoiLgKl/p0wBD4l65dXeEbxYpYngHC+q36hx6HQu7oxs6c0ZYyzGW0D
+         S141mxjpHqLRt6Y4U4evrD8LaC4NOMLMkwlPGX/q0jyhy35u+qn5ZjVfknI/kRPATycT
+         l1HLzp6c4xyLyVAOxFkxtWvNZURLb66Z7VmNjBB8VKxBM2n6dih5/vebVFNYECjngD9f
+         FrRTeJFxoBB3OW9HiH3Bl3EdoR4F6va7O0ErFytaGL51wqGh1bVOpZBAG34LTAMAsPUc
+         cuWqTnFa0C4v5jUhGgxyrxZuCiPMtwa+rrpxzLsy1VrxlDnErdetc6fBL5poQOQyG4nt
+         a45A==
+X-Gm-Message-State: AFqh2kqIgDRSFEW02GWPjnsxghtjOJB3HF3/9hwdjb7wTm0ccXgZFx7b
+	jJRje0LWyeQKI6oEtf5htTG3yg==
+X-Google-Smtp-Source: AMrXdXtdMADeU7OKpTbjIQ6RMUIrdUHWJE7iWDrTvMpa8G4Z24aqdq/bTyQDx/X4qA4YDO9lmzUjCg==
+X-Received: by 2002:a17:902:7c89:b0:188:59e2:5f91 with SMTP id y9-20020a1709027c8900b0018859e25f91mr4226319pll.59.1671687174556;
+        Wed, 21 Dec 2022 21:32:54 -0800 (PST)
+Received: from ?IPV6:2602:47:d48c:8101:716e:2242:a3b5:8079? ([2602:47:d48c:8101:716e:2242:a3b5:8079])
+        by smtp.gmail.com with ESMTPSA id k15-20020a170902c40f00b001869b988d93sm12432107plk.187.2022.12.21.21.32.53
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 21 Dec 2022 21:32:54 -0800 (PST)
+Message-ID: <b67238bf-4b5d-dd17-99ff-88b0270ce10a@linaro.org>
+Date: Wed, 21 Dec 2022 21:32:51 -0800
 MIME-Version: 1.0
-References: <1631497278-29829-1-git-send-email-vincent.chen@sifive.com>
- <1631497278-29829-3-git-send-email-vincent.chen@sifive.com>
- <871r5sd1zq.fsf@oldenburg.str.redhat.com> <20210913135247.GL13220@brightrain.aerifal.cx>
- <CABvJ_xjGZ3S0oAkT08x4DToQFdcUH06omk2OTT1EHDZRJ-2wKg@mail.gmail.com>
- <87sfy5ndid.fsf@oldenburg.str.redhat.com> <CABvJ_xjSREsdemJkCJMGSx+09jrNoSbXCwuxF0zEQmZtHrWMvg@mail.gmail.com>
- <d613968f-0fae-1994-3bee-fb10765167c3@rivosinc.com> <73c0124c-4794-6e40-460c-b26df407f322@rivosinc.com>
- <CABvJ_xgDsthnm_h6mYowK03VUKqYk=nZsSZ7R=0BTwFHGKEAMw@mail.gmail.com>
- <50c598a6-e3b3-3062-abe7-23a406067533@rivosinc.com> <7430f494-9b43-5e03-c1e9-6b83e2611a11@rivosinc.com>
-In-Reply-To: <7430f494-9b43-5e03-c1e9-6b83e2611a11@rivosinc.com>
-From: Vincent Chen <vincent.chen@sifive.com>
-Date: Thu, 22 Dec 2022 11:37:27 +0800
-Message-ID: <CABvJ_xg--0Gia9Za9endcz5kaqfDugrcdpkg-f1u=2mt7AE2cA@mail.gmail.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.4.2
 Subject: Re: Adding V-ext regs to signal context w/o expanding kernel struct
  sigcontext to avoid glibc ABI break
-To: Vineet Gupta <vineetg@rivosinc.com>
-Cc: Florian Weimer <fweimer@redhat.com>, Rich Felker <dalias@libc.org>, 
-	Andrew Waterman <andrew@sifive.com>, Palmer Dabbelt <palmer@rivosinc.com>, 
-	Kito Cheng <kito.cheng@sifive.com>, =?UTF-8?Q?Christoph_M=C3=BCllner?= <christoph.muellner@vrull.eu>, 
-	davidlt@rivosinc.com, Arnd Bergmann <arnd@arndb.de>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, 
-	Philipp Tomsich <philipp.tomsich@vrull.eu>, Szabolcs Nagy <szabolcs.nagy@arm.com>, 
-	Andy Chiu <andy.chiu@sifive.com>, Greentime Hu <greentime.hu@sifive.com>, 
-	Aaron Durbin <adurbin@rivosinc.com>, Andrew de los Reyes <adlr@rivosinc.com>, 
-	linux-riscv <linux-riscv@lists.infradead.org>, GNU C Library <libc-alpha@sourceware.org>
+To: Vineet Gupta <vineetg@rivosinc.com>,
+ Vincent Chen <vincent.chen@sifive.com>
+Cc: Florian Weimer <fweimer@redhat.com>, Rich Felker <dalias@libc.org>,
+ Andrew Waterman <andrew@sifive.com>, Palmer Dabbelt <palmer@rivosinc.com>,
+ Kito Cheng <kito.cheng@sifive.com>,
+ =?UTF-8?Q?Christoph_M=c3=bcllner?= <christoph.muellner@vrull.eu>,
+ davidlt@rivosinc.com, Arnd Bergmann <arnd@arndb.de>,
+ =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
+ Philipp Tomsich <philipp.tomsich@vrull.eu>,
+ Szabolcs Nagy <szabolcs.nagy@arm.com>, Andy Chiu <andy.chiu@sifive.com>,
+ Greentime Hu <greentime.hu@sifive.com>, Aaron Durbin <adurbin@rivosinc.com>,
+ Andrew de los Reyes <adlr@rivosinc.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ GNU C Library <libc-alpha@sourceware.org>
+References: <1631497278-29829-1-git-send-email-vincent.chen@sifive.com>
+ <1631497278-29829-3-git-send-email-vincent.chen@sifive.com>
+ <871r5sd1zq.fsf@oldenburg.str.redhat.com>
+ <20210913135247.GL13220@brightrain.aerifal.cx>
+ <CABvJ_xjGZ3S0oAkT08x4DToQFdcUH06omk2OTT1EHDZRJ-2wKg@mail.gmail.com>
+ <87sfy5ndid.fsf@oldenburg.str.redhat.com>
+ <CABvJ_xjSREsdemJkCJMGSx+09jrNoSbXCwuxF0zEQmZtHrWMvg@mail.gmail.com>
+ <d613968f-0fae-1994-3bee-fb10765167c3@rivosinc.com>
+ <73c0124c-4794-6e40-460c-b26df407f322@rivosinc.com>
+ <CABvJ_xgDsthnm_h6mYowK03VUKqYk=nZsSZ7R=0BTwFHGKEAMw@mail.gmail.com>
+ <50c598a6-e3b3-3062-abe7-23a406067533@rivosinc.com>
+ <7430f494-9b43-5e03-c1e9-6b83e2611a11@rivosinc.com>
+Content-Language: en-US
+From: Richard Henderson <richard.henderson@linaro.org>
+In-Reply-To: <7430f494-9b43-5e03-c1e9-6b83e2611a11@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221221_193741_395598_57F3655D 
-X-CRM114-Status: GOOD (  19.02  )
+X-CRM114-CacheID: sfid-20221221_213257_742280_E0F2E047 
+X-CRM114-Status: GOOD (  10.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,43 +110,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 22, 2022 at 3:52 AM Vineet Gupta <vineetg@rivosinc.com> wrote:
->
->
->
-> On 12/21/22 11:45, Vineet Gupta wrote:
-> >
-> > 4. Kernel with RVV support + user program using original Glibc sigcontext
-> > In this case, the kernel needs to save vector registers context to
-> > memory. The user program may encounter memory issues if the user space
-> > does not reserve enough memory size for the kernel to create the
-> > sigcontext. However, we can't seem to avoid this case since there is
-> > no flexible memory area in struct sigcontext for future expansion.
->
-> This is not an issue, if we don't change sigcontext (in kernel and
-> glibc) - it is essentially the case of existing binaries.
-> kernel still saves regs on user stack, in rt_sigframe, its just that
-> userspace is not able to access them in SA_SIGINFO signal handers.
-> aarch64 have this implemented this approach and it is likely they can't
-> do that either for SVE regs.
+On 12/21/22 11:52, Vineet Gupta wrote:
+> This is not an issue, if we don't change sigcontext (in kernel and glibc) - it is 
+> essentially the case of existing binaries. kernel still saves regs on user stack, in
+> rt_sigframe, its just that userspace is not able to access them in SA_SIGINFO signal
+> handers. aarch64 have this implemented this approach and it is likely they can't do
+> that either for SVE regs.
 
-Sorry, I don't clearly describe the case. As you mentioned, the kernel
-will save the vector registers to the user stack or user-specified
-memory region by struct rt_sigframe in your patch. But, if there is an
-existing binary compiled with the original sigcontext.h, it will
-assume that the kernel only occupies the sizeof(struct sigcontext) to
-save these registers. It will not aware the RVV extension is supported
-and not expect that the kernel with RVV support needs an extra huge
-memory region on its stack or specified memory region to save vector
-registers context. In this case, the user program will encounter
-memory corruption issues if the size of the memory region specified by
-the user program is not enough to store these vector registers'
-context.
+aarch64 can certainly access the SVE regs on the signal stack.  It simply requires that 
+you parse the chain of extensions within __reserved to find it.
+It's quite well designed, really.
+
+What you can't do is "only" declare a sigcontext_t and be able to construct a new context, 
+nor copy the entire context via structure assignment.
+
+There is room within the risc-v context for a similar scheme, via
+
+     sigcontext.sc_fpregs.q.reserved[3]
+
+E.g.
+
+     reserved[0] -> magic
+     reserved[1] -> displacement to "extension area"
+     reserved[2] -> size of "extension area"
+
+Thus the area can be located anywhere within 4GB and expand to 4GB.
+Not that I'd hope any signal frame would require 4GB.  :-)
+
+
+r~
 
 _______________________________________________
 linux-riscv mailing list
