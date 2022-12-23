@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90CFEC3DA7D
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jan 2023 18:56:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54B14C3DA7D
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jan 2023 18:56:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e/YD62eJ6DuQYiEXukTQRhG77pJsujIsBVcs8Bs0ndk=; b=E6yMct8uRYMCk9QwNMCvH0dTxg
-	EBOhZCCz4T9VPCGGN7KvoFLhhfcNwtWyqPzufS3/VnUzxNcSQ/ykqksOJfbJAgAb3owkQqepuYYCY
-	4X6X0WB9/XBfmLwkHOFXuQVRIyjFJlmSQio1AQ9ThT1lZ5Ygvi9is8FXZjQLedwDDWEVLhH1JHtfQ
-	IXTp0JqSSCuReMOGSnR25cvRM7eyFiDaVMVm2AXcLiR7SGg9lFVviW+JXQl+04hi1nWNKFIK+coQn
-	OVA8ObC9qe2HrIYYujcvkCh17gBMvDCV90f2DKUz3lV/7lk6buxs/R0I8yd0oOhiwwA2vUswO6YBm
-	0mxa/PbQ==;
+	bh=vN9/qrQxyvjdd3ena4j+syQrPu6JPoGmcP7hP0GU0DU=; b=Zhntj1vr6PgX6GwzuRnhT7Q0Cf
+	FCmXfmnSRO6L04NkwLF9l+HB7e4RoNRYKm9Bt90iPPci0FOODN7+GbRqnUL0EwoXtLt+TvxRMagr/
+	1i2catnYdTvXpLbtYlIgYnJRw4DZcTCKU0+XFCHqBcnReogFOix6Kcw6s/O/Qr7ufIJs2V0KNsodp
+	M8LYmlutAMDJYBkwMDXTvSi+Era9Fl1SiRbiANJDMqTj1bb67J5pt6OkQ4wB6f87ptT8JEqyO2gFW
+	rxFccwz55IFfLhcchDddDRXWB53AQalycVT4HJO5SNNBhPBs5EIAXq4SWrQC4SdVLDaD9T0vqgXib
+	verNcNdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCmSM-0047K7-Mq; Tue, 03 Jan 2023 18:56:15 +0000
+	id 1pCmSo-0047Xf-7E; Tue, 03 Jan 2023 18:56:42 +0000
 Received: from mga03.intel.com ([134.134.136.65])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8gEp-007Em4-9c
-	for linux-riscv@lists.infradead.org; Fri, 23 Dec 2022 11:29:25 +0000
+	id 1p8hKd-0081WK-5q
+	for linux-riscv@lists.infradead.org; Fri, 23 Dec 2022 12:39:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1671794959; x=1703330959;
+  t=1671799163; x=1703335163;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=M64BoyElDLh0i5mYEi4Kgzhxy9Vjkb+T+C4J9otbG4A=;
-  b=BykC9oe3AqmE36HJ8m2ickLjgTleTRq3UHtZmfxFImjPavnV91D5BMFz
-   7twcasXv8qXX5EPrskKRiymoGxyXx2Qw+1wNmQ9P8hHdGN1DZ/be3/86a
-   /JP5u9CsmbGoxgQQEzJkOXK79PwgCAZNblqroo0b+5nZdMqZBZ4XqfEU9
-   hd1I9s23soHJr/TFPRAZgCNOXZjDDQMS8oGT++5gvTjB6YOYY43vNILf0
-   NtjeqmNar84jfJvTahcH+MIry0CXI4AlOTb+tCRbHbNLg+Fk2WP/2OVZ1
-   TVyLbycpwkgVGBcNJszr0JOW7JDTo6l3CjQpt3pblsLSPmeh3Juv2qFLw
+  bh=6yaXZI64f3y+rwH7AK5yXNKaTZY+0RgF8zuQN91XH2Q=;
+  b=OOI0Gdbht0L29J2lxuhBm2UQcz9HSK+xtrkevElJaLjU9gV5gXDUcST5
+   XZo9p7WsmsQ6hK9+xKauJtwMoyZtod+/9KEeLqencEjY1SffZRnOyvMwG
+   BzUN9W7a5PsPjgnlbXWPLZs8vBmJxr+RJoSQphZvQskjKTS4MDBsg40eD
+   swBrsI5G4sp6Vjy7DY+5zEvnHDdpHs71InPYoF3WK9syMJZfKZ8/aVb6I
+   kx292jaO8C+AD46D9ZO4GbnQn1WBktAiC54WTJkJsbNAV0jUBCmVWe/Np
+   eV68Y+3zpgtxM5x9tnKAmLXaf9IdlzOI2mmDHErEQ7HXXGeZI4Lrb63b8
    A==;
-X-IronPort-AV: E=McAfee;i="6500,9779,10569"; a="322258990"
+X-IronPort-AV: E=McAfee;i="6500,9779,10569"; a="322266981"
 X-IronPort-AV: E=Sophos;i="5.96,268,1665471600"; 
-   d="scan'208";a="322258990"
+   d="scan'208";a="322266981"
 Received: from fmsmga005.fm.intel.com ([10.253.24.32])
-  by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Dec 2022 03:29:16 -0800
+  by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Dec 2022 04:39:17 -0800
 X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6500,9779,10569"; a="980918685"
+X-IronPort-AV: E=McAfee;i="6500,9779,10569"; a="980929943"
 X-IronPort-AV: E=Sophos;i="5.96,268,1665471600"; 
-   d="scan'208";a="980918685"
+   d="scan'208";a="980929943"
 Received: from lkp-server01.sh.intel.com (HELO b5d47979f3ad) ([10.239.97.150])
-  by fmsmga005.fm.intel.com with ESMTP; 23 Dec 2022 03:29:12 -0800
+  by fmsmga005.fm.intel.com with ESMTP; 23 Dec 2022 04:39:12 -0800
 Received: from kbuild by b5d47979f3ad with local (Exim 4.96)
 	(envelope-from <lkp@intel.com>)
-	id 1p8gEh-000CeR-0f;
-	Fri, 23 Dec 2022 11:29:11 +0000
-Date: Fri, 23 Dec 2022 19:28:30 +0800
+	id 1p8hKR-000Cfn-2t;
+	Fri, 23 Dec 2022 12:39:11 +0000
+Date: Fri, 23 Dec 2022 20:39:10 +0800
 From: kernel test robot <lkp@intel.com>
 To: Hal Feng <hal.feng@starfivetech.com>, linux-riscv@lists.infradead.org,
 	devicetree@vger.kernel.org, linux-clk@vger.kernel.org
@@ -66,14 +66,14 @@ Cc: oe-kbuild-all@lists.linux.dev, Conor Dooley <conor@kernel.org>,
 	Philipp Zabel <p.zabel@pengutronix.de>,
 	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
 	Hal Feng <hal.feng@starfivetech.com>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 10/11] clk: starfive: Add StarFive JH7110 always-on
- clock driver
-Message-ID: <202212231920.K8BOyDD7-lkp@intel.com>
-References: <20221220005054.34518-11-hal.feng@starfivetech.com>
+Subject: Re: [PATCH v3 11/11] reset: starfive: Add StarFive JH7110 reset
+ driver
+Message-ID: <202212232032.42wLb2oa-lkp@intel.com>
+References: <20221220005054.34518-12-hal.feng@starfivetech.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="oq0u/oECtGfRV5oJ"
+Content-Type: multipart/mixed; boundary="yeZktoWIa8mdhM4j"
 Content-Disposition: inline
-In-Reply-To: <20221220005054.34518-11-hal.feng@starfivetech.com>
+In-Reply-To: <20221220005054.34518-12-hal.feng@starfivetech.com>
 X-Mailman-Approved-At: Tue, 03 Jan 2023 10:22:00 -0800
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,7 +90,7 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---oq0u/oECtGfRV5oJ
+--yeZktoWIa8mdhM4j
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 
@@ -102,8 +102,8 @@ I love your patch! Perhaps something to improve:
 
 url:    https://github.com/intel-lab-lkp/linux/commits/Hal-Feng/Basic-clock-and-reset-support-for-StarFive-JH7110-RISC-V-SoC/20221220-090131
 base:   830b3c68c1fb1e9176028d02ef86f3cf76aa2476
-patch link:    https://lore.kernel.org/r/20221220005054.34518-11-hal.feng%40starfivetech.com
-patch subject: [PATCH v3 10/11] clk: starfive: Add StarFive JH7110 always-on clock driver
+patch link:    https://lore.kernel.org/r/20221220005054.34518-12-hal.feng%40starfivetech.com
+patch subject: [PATCH v3 11/11] reset: starfive: Add StarFive JH7110 reset driver
 config: riscv-randconfig-s042-20221218
 compiler: riscv64-linux-gcc (GCC) 12.1.0
 reproduce:
@@ -111,104 +111,50 @@ reproduce:
         chmod +x ~/bin/make.cross
         # apt-get install sparse
         # sparse version: v0.6.4-39-gce1a6720-dirty
-        # https://github.com/intel-lab-lkp/linux/commit/e30705645d46071dc6c7ce5485b5ebf3aeeaa59c
+        # https://github.com/intel-lab-lkp/linux/commit/01106ff009ef6db1a17d842f97f5b0c2522a5e23
         git remote add linux-review https://github.com/intel-lab-lkp/linux
         git fetch --no-tags linux-review Hal-Feng/Basic-clock-and-reset-support-for-StarFive-JH7110-RISC-V-SoC/20221220-090131
-        git checkout e30705645d46071dc6c7ce5485b5ebf3aeeaa59c
+        git checkout 01106ff009ef6db1a17d842f97f5b0c2522a5e23
         # save the config file
         mkdir build_dir && cp config build_dir/.config
         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.1.0 make.cross C=1 CF='-fdiagnostic-prefix -D__CHECK_ENDIAN__' O=build_dir ARCH=riscv olddefconfig
-        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.1.0 make.cross C=1 CF='-fdiagnostic-prefix -D__CHECK_ENDIAN__' O=build_dir ARCH=riscv SHELL=/bin/bash drivers/clk/starfive/ drivers/reset/starfive/
+        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.1.0 make.cross C=1 CF='-fdiagnostic-prefix -D__CHECK_ENDIAN__' O=build_dir ARCH=riscv SHELL=/bin/bash drivers/reset/starfive/
 
 If you fix the issue, kindly add following tag where applicable
 | Reported-by: kernel test robot <lkp@intel.com>
 
 sparse warnings: (new ones prefixed by >>)
    WARNING: invalid argument to '-march': '_zihintpause'
->> drivers/clk/starfive/clk-starfive-jh7110-aon.c:86:40: sparse: sparse: incorrect type in argument 2 (different address spaces) @@     expected void *data @@     got void [noderef] __iomem *base @@
-   drivers/clk/starfive/clk-starfive-jh7110-aon.c:86:40: sparse:     expected void *data
-   drivers/clk/starfive/clk-starfive-jh7110-aon.c:86:40: sparse:     got void [noderef] __iomem *base
+>> drivers/reset/starfive/reset-starfive-jh7110.c:18:45: sparse: sparse: incorrect type in initializer (different address spaces) @@     expected void [noderef] __iomem *base @@     got void * @@
+   drivers/reset/starfive/reset-starfive-jh7110.c:18:45: sparse:     expected void [noderef] __iomem *base
+   drivers/reset/starfive/reset-starfive-jh7110.c:18:45: sparse:     got void *
 
-vim +86 drivers/clk/starfive/clk-starfive-jh7110-aon.c
+vim +18 drivers/reset/starfive/reset-starfive-jh7110.c
 
-    67	
-    68	static int jh7110_aoncrg_probe(struct platform_device *pdev)
-    69	{
-    70		struct jh71x0_clk_priv *priv;
-    71		unsigned int idx;
-    72		int ret;
-    73	
-    74		priv = devm_kzalloc(&pdev->dev,
-    75				    struct_size(priv, reg, JH7110_AONCLK_END),
-    76				    GFP_KERNEL);
-    77		if (!priv)
-    78			return -ENOMEM;
-    79	
-    80		spin_lock_init(&priv->rmw_lock);
-    81		priv->dev = &pdev->dev;
-    82		priv->base = devm_platform_ioremap_resource(pdev, 0);
-    83		if (IS_ERR(priv->base))
-    84			return PTR_ERR(priv->base);
-    85	
-  > 86		dev_set_drvdata(priv->dev, priv->base);
-    87	
-    88		for (idx = 0; idx < JH7110_AONCLK_END; idx++) {
-    89			u32 max = jh7110_aonclk_data[idx].max;
-    90			struct clk_parent_data parents[4] = {};
-    91			struct clk_init_data init = {
-    92				.name = jh7110_aonclk_data[idx].name,
-    93				.ops = starfive_jh71x0_clk_ops(max),
-    94				.parent_data = parents,
-    95				.num_parents =
-    96					((max & JH71X0_CLK_MUX_MASK) >> JH71X0_CLK_MUX_SHIFT) + 1,
-    97				.flags = jh7110_aonclk_data[idx].flags,
-    98			};
-    99			struct jh71x0_clk *clk = &priv->reg[idx];
-   100			unsigned int i;
-   101	
-   102			for (i = 0; i < init.num_parents; i++) {
-   103				unsigned int pidx = jh7110_aonclk_data[idx].parents[i];
-   104	
-   105				if (pidx < JH7110_AONCLK_END)
-   106					parents[i].hw = &priv->reg[pidx].hw;
-   107				else if (pidx == JH7110_AONCLK_OSC)
-   108					parents[i].fw_name = "osc";
-   109				else if (pidx == JH7110_AONCLK_RTC_OSC)
-   110					parents[i].fw_name = "rtc_osc";
-   111				else if (pidx == JH7110_AONCLK_GMAC0_RMII_REFIN)
-   112					parents[i].fw_name = "gmac0_rmii_refin";
-   113				else if (pidx == JH7110_AONCLK_GMAC0_RGMII_RXIN)
-   114					parents[i].fw_name = "gmac0_rgmii_rxin";
-   115				else if (pidx == JH7110_AONCLK_STG_AXIAHB)
-   116					parents[i].fw_name = "stg_axiahb";
-   117				else if (pidx == JH7110_AONCLK_APB_BUS)
-   118					parents[i].fw_name = "apb_bus";
-   119				else if (pidx == JH7110_AONCLK_GMAC0_GTXCLK)
-   120					parents[i].fw_name = "gmac0_gtxclk";
-   121			}
-   122	
-   123			clk->hw.init = &init;
-   124			clk->idx = idx;
-   125			clk->max_div = max & JH71X0_CLK_DIV_MASK;
-   126	
-   127			ret = devm_clk_hw_register(&pdev->dev, &clk->hw);
-   128			if (ret)
-   129				return ret;
-   130		}
-   131	
-   132		ret = devm_of_clk_add_hw_provider(&pdev->dev, jh7110_aonclk_get, priv);
-   133		if (ret)
-   134			return ret;
-   135	
-   136		return jh7110_reset_controller_register(priv, "reset-aon", 1);
-   137	}
-   138	
+    13	
+    14	static int jh7110_reset_probe(struct auxiliary_device *adev,
+    15				      const struct auxiliary_device_id *id)
+    16	{
+    17		struct reset_info *info = (struct reset_info *)(id->driver_data);
+  > 18		void __iomem *base = dev_get_drvdata(adev->dev.parent);
+    19	
+    20		if (!info || !base)
+    21			return -ENODEV;
+    22	
+    23		return reset_starfive_jh71x0_register(&adev->dev, adev->dev.parent->of_node,
+    24						      base + info->assert_offset,
+    25						      base + info->status_offset,
+    26						      NULL,
+    27						      info->nr_resets,
+    28						      NULL);
+    29	}
+    30	
 
 -- 
 0-DAY CI Kernel Test Service
 https://01.org/lkp
 
---oq0u/oECtGfRV5oJ
+--yeZktoWIa8mdhM4j
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: attachment; filename=config
 
@@ -6593,6 +6539,7 @@ CONFIG_RESET_UNIPHIER_GLUE=m
 # CONFIG_RESET_ZYNQ is not set
 CONFIG_RESET_STARFIVE_JH71X0=y
 CONFIG_RESET_STARFIVE_JH7100=y
+CONFIG_RESET_STARFIVE_JH7110=y
 # CONFIG_COMMON_RESET_HI3660 is not set
 CONFIG_COMMON_RESET_HI6220=y
 
@@ -7820,7 +7767,7 @@ CONFIG_ARCH_USE_MEMTEST=y
 CONFIG_WARN_ABI_ERRORS=y
 # end of Kernel hacking
 
---oq0u/oECtGfRV5oJ
+--yeZktoWIa8mdhM4j
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -7831,5 +7778,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---oq0u/oECtGfRV5oJ--
+--yeZktoWIa8mdhM4j--
 
