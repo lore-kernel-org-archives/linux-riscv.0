@@ -4,86 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35909C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Dec 2022 02:28:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93B2CC4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Dec 2022 03:22:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QJLYs9j7qxVQUf0sGGbxpkOu9mc0/VquBcVAeua/ZMA=; b=pDYWqHhGB1KV2d
-	b4mAyhZLVb9S0QDZzbCd4/jTo35jXHNcbvh6mCfO5pC7hmWwBwrzTRUqz2l+CwD0+q+E2Yjv9KbKV
-	Hwcom4OwQvSmUf+RvC8jfCGvUUFMyDuboeLTZqrb7FF2mXDKWXPbb3no0GGfZpXXccGM8ktpHB9rK
-	/4Sm4hTvo7ftveaeNMXsX8VAJ8eUGwMbhf68GxS2gqfjTBvMPpOGtug3bSLQlV6ZkmnxDwKzedRJv
-	FoG4gOpxMmsk3vcG5Z3M2ax2aTqFD7qs5ezYwDTzyB+zyIcOUxMigA5aOsqsDqrVG407k2dGims+Y
-	O6YmD0OGYDxOcLDD/q6g==;
+	List-Owner; bh=WMsNgKZiYXuJsyLrDzLlohXDjCG7//Rx0bhRz9ShonY=; b=WyJ7ly+8JGG8Ge
+	TVze/1jdcxY9yaQ+jLjiHvnpzgZivrkU+iuADn+ryWj0MThqIDsQA1ToFk+lV93uI/t7J1Q3dW1Z4
+	pMqyQFzj+EqUI7HSFuPfPXOmC+DjgtR7cjaYtstbFa1kOpqMza6WtMcq1+TSYvC0k1E8ASg6DqKim
+	BCXfqc5dkqlOHl3lFUFepDFd+x/8xiqWd1YuirtDVABtdxWVFydkYjTPo76dHmpNyHPaCLJYMPp30
+	kXPe3xyoFnQIClzwkoQfTI1K4eHwaLJPeqEPj5VAAt1cCCRTBJRbWv3uflPYcAiIfVJRbnP+6da6S
+	+X4wcC1437wk11jHsHCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8Xmt-0023IZ-NC; Fri, 23 Dec 2022 02:27:55 +0000
-Received: from mail-ua1-x932.google.com ([2607:f8b0:4864:20::932])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8Xmr-0023Gd-6W
-	for linux-riscv@lists.infradead.org; Fri, 23 Dec 2022 02:27:54 +0000
-Received: by mail-ua1-x932.google.com with SMTP id j1so805471uan.1
-        for <linux-riscv@lists.infradead.org>; Thu, 22 Dec 2022 18:27:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=T5uMSrtLuu9RORD8OGsSVOlpmTM1AJbSU+v28i5O2jc=;
-        b=Jgkq2vT6Nv4Mj5Qx8YcJGsd2E16MF+OnlXNeCVIxPGz7EqovjRVVkPA1RdoJ6gBpyh
-         CYjbRNGL55SHXLkTt7C7HafAUyP6vTTwkbWDPl+R6O65PG6AMngKwTKoL4u+G3TP2JOs
-         jdX8QmEy/+4gF/aJdV5NXi4mmEbmNFixm5i0EkmbqBSCePcgYD1oZkjthFGVr4SQzwdv
-         9uQ0sSo7BsXGBU6Qds1S0tLC7qTnCLI0cWwjgFJqvNUGKkl/GKKvg2N90y/nQwKM7Eay
-         JFPlxU7s6LiFX5IUc2yVnuHTWPgCXoc9dJSUHlzQ1SSdnLqkl9vPpMW9e9Au9aYO84W7
-         Txcw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=T5uMSrtLuu9RORD8OGsSVOlpmTM1AJbSU+v28i5O2jc=;
-        b=jcQtqASRmO+0vJhk4h5M1QWCo66nDkfmrr8tlM9FmWtdDd6SOaJOhPiXfIBntf/nit
-         xWhALLVEEwJMZVP04hk1qakPSFQ39uLs1dTWUHmEXfe2QftmZv31hzQ5uBdABVbU7a5N
-         S3V91b+QzdLljLdBYKexMn6bXIPzxIVSdJ3Hs3ku8Hf5BgS6q0XsKrERzhhJvVEnPhPG
-         n/zvY+oI7YbHcm9pFO4UoGDN6b9ITLR7QAm4arK/SKpCab1IecEqV1ZPlUVIZ26HqNBR
-         d3MPTDckgINS263OwYs+Re+iHmQCJB6f+92GrE1kFp+nQ3lQSnSCenmGJD6PhDzKHfO/
-         /ACw==
-X-Gm-Message-State: AFqh2koLLzwri0QenOdGcWCrgctwuLLciA/EZ6v3umMTxvtNSMD0U2IV
-	vBRy0tj5NBsn8RK7k1A2x5iYfnDJwU+i/UhVYTmOhg==
-X-Google-Smtp-Source: AMrXdXuoglMLlAMWmT5MjunC88drKtLEW3p/9VX5wFKbukFrLvBz0VrvHImZZRFKebrgIzXx29wT72oxd5OyB2PadeM=
-X-Received: by 2002:ab0:1c44:0:b0:419:9e81:21fd with SMTP id
- o4-20020ab01c44000000b004199e8121fdmr782371uaj.3.1671762470670; Thu, 22 Dec
- 2022 18:27:50 -0800 (PST)
+	id 1p8Ydu-002cqN-4b; Fri, 23 Dec 2022 03:22:42 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1p8YTj-002Wrb-Uq
+	for linux-riscv@lists.infradead.org; Fri, 23 Dec 2022 03:12:14 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 60A3C24E023;
+	Fri, 23 Dec 2022 11:11:32 +0800 (CST)
+Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 23 Dec
+ 2022 11:11:32 +0800
+Received: from [192.168.125.65] (183.27.97.120) by EXMBX172.cuchost.com
+ (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 23 Dec
+ 2022 11:11:31 +0800
+Message-ID: <94c90f3f-0ca7-7cfb-4d4f-8f90e3300e16@starfivetech.com>
+Date: Fri, 23 Dec 2022 11:12:34 +0800
 MIME-Version: 1.0
-References: <1631497278-29829-1-git-send-email-vincent.chen@sifive.com>
- <1631497278-29829-3-git-send-email-vincent.chen@sifive.com>
- <871r5sd1zq.fsf@oldenburg.str.redhat.com> <20210913135247.GL13220@brightrain.aerifal.cx>
- <CABvJ_xjGZ3S0oAkT08x4DToQFdcUH06omk2OTT1EHDZRJ-2wKg@mail.gmail.com>
- <87sfy5ndid.fsf@oldenburg.str.redhat.com> <CABvJ_xjSREsdemJkCJMGSx+09jrNoSbXCwuxF0zEQmZtHrWMvg@mail.gmail.com>
- <d613968f-0fae-1994-3bee-fb10765167c3@rivosinc.com> <73c0124c-4794-6e40-460c-b26df407f322@rivosinc.com>
- <CABvJ_xgDsthnm_h6mYowK03VUKqYk=nZsSZ7R=0BTwFHGKEAMw@mail.gmail.com>
- <50c598a6-e3b3-3062-abe7-23a406067533@rivosinc.com> <7430f494-9b43-5e03-c1e9-6b83e2611a11@rivosinc.com>
- <CABvJ_xg--0Gia9Za9endcz5kaqfDugrcdpkg-f1u=2mt7AE2cA@mail.gmail.com> <fa18d2a8-92bd-8e01-fce2-d5af9455558e@rivosinc.com>
-In-Reply-To: <fa18d2a8-92bd-8e01-fce2-d5af9455558e@rivosinc.com>
-From: Vincent Chen <vincent.chen@sifive.com>
-Date: Fri, 23 Dec 2022 10:27:39 +0800
-Message-ID: <CABvJ_xjXAj+d2hr4yY821+YDYkbJMNppOeG1c6dJWeh4fVwydg@mail.gmail.com>
-Subject: Re: Adding V-ext regs to signal context w/o expanding kernel struct
- sigcontext to avoid glibc ABI break
-To: Vineet Gupta <vineetg@rivosinc.com>
-Cc: Florian Weimer <fweimer@redhat.com>, Rich Felker <dalias@libc.org>, 
-	Andrew Waterman <andrew@sifive.com>, Palmer Dabbelt <palmer@rivosinc.com>, 
-	Kito Cheng <kito.cheng@sifive.com>, =?UTF-8?Q?Christoph_M=C3=BCllner?= <christoph.muellner@vrull.eu>, 
-	davidlt@rivosinc.com, Arnd Bergmann <arnd@arndb.de>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, 
-	Philipp Tomsich <philipp.tomsich@vrull.eu>, Szabolcs Nagy <szabolcs.nagy@arm.com>, 
-	Andy Chiu <andy.chiu@sifive.com>, Greentime Hu <greentime.hu@sifive.com>, 
-	Aaron Durbin <adurbin@rivosinc.com>, Andrew de los Reyes <adlr@rivosinc.com>, 
-	linux-riscv <linux-riscv@lists.infradead.org>, GNU C Library <libc-alpha@sourceware.org>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.3.2
+Subject: Re: [PATCH v3 7/7] riscv: dts: starfive: Add StarFive JH7110
+ VisionFive 2 board device tree
+Content-Language: en-US
+To: Conor Dooley <conor@kernel.org>
+CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Palmer
+ Dabbelt" <palmer@dabbelt.com>, Rob Herring <robh+dt@kernel.org>, "Krzysztof
+ Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, Ben Dooks
+	<ben.dooks@sifive.com>, Daniel Lezcano <daniel.lezcano@linaro.org>, "Thomas
+ Gleixner" <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Stephen Boyd
+	<sboyd@kernel.org>, Michael Turquette <mturquette@baylibre.com>, "Philipp
+ Zabel" <p.zabel@pengutronix.de>, Linus Walleij <linus.walleij@linaro.org>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	<linux-kernel@vger.kernel.org>
+References: <20221220011247.35560-1-hal.feng@starfivetech.com>
+ <20221220011247.35560-8-hal.feng@starfivetech.com> <Y6Iob3csmKMl0rB/@spud>
+From: Hal Feng <hal.feng@starfivetech.com>
+In-Reply-To: <Y6Iob3csmKMl0rB/@spud>
+X-Originating-IP: [183.27.97.120]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX172.cuchost.com
+ (172.16.6.92)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221222_182753_357051_A480A230 
-X-CRM114-Status: GOOD (  27.45  )
+X-CRM114-CacheID: sfid-20221222_191212_352191_1FB7A9DD 
+X-CRM114-Status: GOOD (  23.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,62 +82,113 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 23, 2022 at 3:25 AM Vineet Gupta <vineetg@rivosinc.com> wrote:
->
->
-> On 12/21/22 19:37, Vincent Chen wrote:
-> > On Thu, Dec 22, 2022 at 3:52 AM Vineet Gupta <vineetg@rivosinc.com> wrote:
-> >>
-> >>
-> >> On 12/21/22 11:45, Vineet Gupta wrote:
-> >>> 4. Kernel with RVV support + user program using original Glibc sigcontext
-> >>> In this case, the kernel needs to save vector registers context to
-> >>> memory. The user program may encounter memory issues if the user space
-> >>> does not reserve enough memory size for the kernel to create the
-> >>> sigcontext. However, we can't seem to avoid this case since there is
-> >>> no flexible memory area in struct sigcontext for future expansion.
-> >> This is not an issue, if we don't change sigcontext (in kernel and
-> >> glibc) - it is essentially the case of existing binaries.
-> >> kernel still saves regs on user stack, in rt_sigframe, its just that
-> >> userspace is not able to access them in SA_SIGINFO signal handers.
-> >> aarch64 have this implemented this approach and it is likely they can't
-> >> do that either for SVE regs.
-> > Sorry, I don't clearly describe the case. As you mentioned, the kernel
-> > will save the vector registers to the user stack or user-specified
-> > memory region by struct rt_sigframe in your patch. But, if there is an
-> > existing binary compiled with the original sigcontext.h, it will
-> > assume that the kernel only occupies the sizeof(struct sigcontext) to
-> > save these registers. It will not aware the RVV extension is supported
-> > and not expect that the kernel with RVV support needs an extra huge
-> > memory region on its stack or specified memory region to save vector
-> > registers context. In this case, the user program will encounter
-> > memory corruption issues if the size of the memory region specified by
-> > the user program is not enough to store these vector registers'
-> > context.
->
-> No, it will not. In this scheme struct sigcontext remains same as
-> before. Kernel is copying the RVV context not in sigcontext, but beyond
-> the canonical sigcontext, in layout specified in the rt_sigframe. Please
-> take a look at my patch again. It works.
+On Tue, 20 Dec 2022 21:26:07 +0000, Conor Dooley wrote:
+> On Tue, Dec 20, 2022 at 09:12:47AM +0800, Hal Feng wrote:
+> > From: Emil Renner Berthing <kernel@esmil.dk>
+> > 
+> > Add a minimal device tree for StarFive JH7110 VisionFive 2 board
+> > which has version A and version B. Support booting and basic
+> > clock/reset/pinctrl/uart drivers.
+> > 
+> > Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+> > Co-developed-by: Jianlong Huang <jianlong.huang@starfivetech.com>
+> > Signed-off-by: Jianlong Huang <jianlong.huang@starfivetech.com>
+> > Co-developed-by: Hal Feng <hal.feng@starfivetech.com>
+> > Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+> > ---
+> >  arch/riscv/boot/dts/starfive/Makefile         |   1 +
+> >  .../jh7110-starfive-visionfive-2-va.dts       |  13 ++
+> >  .../jh7110-starfive-visionfive-2-vb.dts       |  13 ++
+> >  .../jh7110-starfive-visionfive-2.dtsi         | 111 ++++++++++++++++++
+> >  4 files changed, 138 insertions(+)
+> >  create mode 100644 arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-va.dts
+> >  create mode 100644 arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-vb.dts
+> >  create mode 100644 arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+> > 
+> > diff --git a/arch/riscv/boot/dts/starfive/Makefile b/arch/riscv/boot/dts/starfive/Makefile
+> > index 0ea1bc15ab30..79e925a4a227 100644
+> > --- a/arch/riscv/boot/dts/starfive/Makefile
+> > +++ b/arch/riscv/boot/dts/starfive/Makefile
+> > @@ -1,2 +1,3 @@
+> >  # SPDX-License-Identifier: GPL-2.0
+> >  dtb-$(CONFIG_SOC_STARFIVE) += jh7100-beaglev-starlight.dtb
+> > +dtb-$(CONFIG_SOC_STARFIVE) += jh7110-starfive-visionfive-2-va.dtb jh7110-starfive-visionfive-2-vb.dtb
+> 
+> Could you rebase on top of v6.2-rc1 when you submit your next version
 
-If I understand correctly, in your patch, the kernel uses rt_sigframe
-to back up all register contexts in the user space, including RVV
-registers. Therefore, the user program needs to reserve enough memory
-space for the kernel, which enough size of this memory space is the
-sizeof(rt_sigframe) plus rvv_sc_size. However, the rvv_sc_size is
-unexpected to existing RISC-V programs. Therefore, some memory of the
-existing program may be corrupted by the kernel when the kernel backs
-up the RVV registers context.
+Sure.
 
->
-> Again I don't care what scheme we follow, I just want o make forward
-> progress.
->
+> squash this in please (unless Emil hates it):
+> diff --git a/arch/riscv/boot/dts/starfive/Makefile b/arch/riscv/boot/dts/starfive/Makefile
+> index c38a9ade7f48..b3744420253a 100644
+> --- a/arch/riscv/boot/dts/starfive/Makefile
+> +++ b/arch/riscv/boot/dts/starfive/Makefile
+> @@ -1,3 +1,5 @@
+>  # SPDX-License-Identifier: GPL-2.0
+> -dtb-$(CONFIG_SOC_STARFIVE) += jh7100-beaglev-starlight.dtb jh7100-starfive-visionfive-v1.dtb
+> -dtb-$(CONFIG_SOC_STARFIVE) += jh7110-starfive-visionfive-2-va.dtb jh7110-starfive-visionfive-2-vb.dtb
+> +dtb-$(CONFIG_SOC_STARFIVE) += jh7100-beaglev-starlight.dtb
+> +dtb-$(CONFIG_SOC_STARFIVE) += jh7100-starfive-visionfive-v1.dtb
+> +dtb-$(CONFIG_SOC_STARFIVE) += jh7110-starfive-visionfive-2-va.dtb
+> +dtb-$(CONFIG_SOC_STARFIVE) += jh7110-starfive-visionfive-2-vb.dtb
+> 
+> I'd rather have more, but easier to read lines than long ones.
 
- I understand your thoughts and I sincerely appreciate everything you do.
+I'm fine with this change. If no objection, I will modify it.
 
-> -Vineet
->
+Best regards,
+Hal
+
+> 
+> > diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+> > new file mode 100644
+> > index 000000000000..c60280b89c73
+> > --- /dev/null
+> > +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+> > @@ -0,0 +1,111 @@
+> > +// SPDX-License-Identifier: GPL-2.0 OR MIT
+> > +/*
+> > + * Copyright (C) 2022 StarFive Technology Co., Ltd.
+> > + * Copyright (C) 2022 Emil Renner Berthing <kernel@esmil.dk>
+> > + */
+> > +
+> > +/dts-v1/;
+> > +#include "jh7110.dtsi"
+> > +#include "jh7110-pinfunc.h"
+> > +#include <dt-bindings/gpio/gpio.h>
+> > +
+> > +/ {
+> > +	aliases {
+> > +		serial0 = &uart0;
+> > +	};
+> > +
+> > +	chosen {
+> > +		stdout-path = "serial0:115200n8";
+> > +	};
+> > +
+> > +	cpus {
+> > +		timebase-frequency = <4000000>;
+> > +	};
+> > +
+> > +	memory@40000000 {
+> > +		device_type = "memory";
+> > +		reg = <0x0 0x40000000 0x1 0x0>;
+> 
+> Is this a good idea when you have SKUs with 2, 4 & 8 GiB of DDR?
+
+The VisionFive 2 board only has 4GB version and 8GB version now. Before
+linux startup, we will change this property in dtb through u-boot to
+make sure the board can boot up with the correct memory size.
+
+Best regards,
+Hal
+
+> 
+> Anyways, I can't review this as I've got neither board nor
+> documentation, so with the above stuff sorted out:
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> I'll not apply it until the clock binding header is in my tree.
+
 
 _______________________________________________
 linux-riscv mailing list
