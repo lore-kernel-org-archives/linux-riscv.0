@@ -4,85 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2545C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Dec 2022 10:35:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B13DEC4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Dec 2022 12:54:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ACQRPXXLQDZ8yVNaasKdqt9KA+p89Tx04dNZ1ybL8hU=; b=kMG8sCuAzD+6iR
-	S194he/b5GZMMfrcV9kVqxKBykqZrsptnJmeEYX4KP1yrCQffD6no1EJTGi4lBDwcJRZABpRAc4sE
-	k0Fo4V7RLtLLWgdknp3dUEBDypetRFtCxIVIMIygB6OCnxlW07J+AIx8j4QnFBLY7LsgDVioFUl0v
-	YDsHg7cH7CjSUNo77U+so7oYJdGvqvnX31I4WPB0utlJGRXh+RNxWD+oKauwW4kJ+0owscTMC9L4H
-	jB+IUDRJ0hvnmr+F/+0ncY4VYBmUEpf4USN+UmxSxripKt4YNVud8sZpBRzb7C7k3J8/QEXdShyl9
-	LH3lM8Ju7TysOSMxWCYA==;
+	List-Owner; bh=5xNpbpp+/Wfr7eJ/9tzuXffTXImTg0mdXSVmxCbWH4g=; b=Q1TneJ+4VTf0U2
+	wP4UidQKsgGWXL3QvFNNY7CnvdVqHOE+Ywzv4H5TeCtoo4AwvbHvQ1UZGjmzmm47xawrNTbR5mbuA
+	DYp+9a10/Frj6jEy4e7a28+lM30XUO6ZrySW0JKKSvAkVhgQPXEMXPZRTPowcdNORh5e3JG1poGMX
+	lBDFUmMVKtCQBnliMAKokGLEzfetf4zKJx9Rft3Y4u76FhMDHh+6z2uSz4gWAXvN0oiTvCmDmnJ1L
+	+tlibYY6mq7dHe73RQqRb3baRk5dyY/uK0XAXBjyYn1ZmjtRuFaSzAyXJoBKlaqpH7MyXSZ/Z3On3
+	oAlLknxzXoKZVJiBJnzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8fOZ-006TbX-78; Fri, 23 Dec 2022 10:35:19 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	id 1p8hYg-0089MZ-LQ; Fri, 23 Dec 2022 12:53:54 +0000
+Received: from mail-yb1-xb33.google.com ([2607:f8b0:4864:20::b33])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8fEo-006Mxq-L7
-	for linux-riscv@lists.infradead.org; Fri, 23 Dec 2022 10:25:16 +0000
-Received: by mail-lf1-x135.google.com with SMTP id b3so6583914lfv.2
-        for <linux-riscv@lists.infradead.org>; Fri, 23 Dec 2022 02:25:14 -0800 (PST)
+	id 1p8hYa-0089HH-Bf
+	for linux-riscv@lists.infradead.org; Fri, 23 Dec 2022 12:53:50 +0000
+Received: by mail-yb1-xb33.google.com with SMTP id 83so4330123yba.11
+        for <linux-riscv@lists.infradead.org>; Fri, 23 Dec 2022 04:53:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Qp7d3U94zoNgKH8Si35nk2bX1fIT5hDmVOTvD+2+xiI=;
-        b=a3ULL3KPekXKim5IREGJDUsn1quNjynauNOaAghWct3ih2A4vxASjkyY6wPjt04RtX
-         Q3AjFmIl7yo0PQ8hzApg7fj9xmTj1z635ssGsJ47EZawHIfne8i146+urbheMecDQH5S
-         SvUd335pD022tMegpq9jS8Ej5SA3af3lsSaQJpkNZLHZpQ2d4NQIPEdGZPXDPDyXIcUD
-         7mkhis/VlcF2dZ3yM8aA14gu0DsfD9/QgT6JQUIDVMZNnhWxycAne2BGhieDPq/eVK/y
-         r52AGEFWG8n+iS8dFQHahkDolvqcA90Izkog4mRVps/eGTZB3A2U/cyfhRPBhcjbDimv
-         BwGA==
+        d=gmail.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ddwl2eXurQm27aQuatUeFHpduWH+gP/YWJaFq+Y/k28=;
+        b=kQltr/P0KxpXcfOlYI0CzgzhH/bAsWjzhykkDJJ+xgVS32fgPJfoMw2A0SCZtxc94o
+         fF9RFLXeMNCQVOUUzcOtWgltNc9JswVzufQ/vV8llRhR5NrbtXnzgylmEY+mNv5OCKKX
+         DwiEL4neDqZWWl2KvIyWuGxwPYzk31V/1RBHRud6OddWqqFYJvHR6tDwyNuBoLT6DQrC
+         F0UKtbpNkwRtmTmWAnXmjQTpdacAyHsEJVssDI8KK2C8Z0MVgdKjEMAj3OPPoLNbiLKZ
+         Hxk++a9sR+IhV+YUyQsnMzdij6Fjk/l8oX1HIoKbhjO3+56UxeJJXIszHv5cc7L/SjD8
+         8RMw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Qp7d3U94zoNgKH8Si35nk2bX1fIT5hDmVOTvD+2+xiI=;
-        b=K9+fF/CFieFpeJXjTee4mmb4jBdEGdp+WrHMQ9es+I1Ve1RSOVeE+oakDI39F95wXQ
-         7lXP6lKWYNcUyFPw6G2TgtZVtsQvgiPFNMnB8iiTYz7Sw6g/4KDDA44ZDuTR/cAawXnY
-         JIu14UiKhHkhJ2MuVEWY8egYppc846gv6XBKdpM40+ZcwCQhP4KSbRqFRD1XRt3Sp3Bt
-         FRz+vsyQicI2KBwQLBB7/CZjvw9RKD4qS96grI5a9AFXLOLBvwHsI7bCCiLX9mQypTPZ
-         YxPawGAVqqth3pxjOD+sSvtyIzqqmptHmVdRVyb2PM1wtzqpiEhL/NKqCkkui8T1kEyY
-         kg8Q==
-X-Gm-Message-State: AFqh2ko6p3XpXpVRfMPr2OW6dM2iiXqUS1NBs0bFJAYu+nURWDRM4rl8
-	aOfFrkBHer0O9O58yOeAtvhvnQ==
-X-Google-Smtp-Source: AMrXdXtmvRecxvsCwLnWMZT22Fb49dhaElQD52LdPUWmeeJ8sDPLBSeNLZ4a44nht9Y4xxtkSEfCvw==
-X-Received: by 2002:ac2:5589:0:b0:4b5:5c9b:18c with SMTP id v9-20020ac25589000000b004b55c9b018cmr2361943lfg.34.1671791112607;
-        Fri, 23 Dec 2022 02:25:12 -0800 (PST)
-Received: from [192.168.0.20] (088156142067.dynamic-2-waw-k-3-2-0.vectranet.pl. [88.156.142.67])
-        by smtp.gmail.com with ESMTPSA id m14-20020a056512358e00b004a4754c5db5sm471219lfr.244.2022.12.23.02.25.11
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 23 Dec 2022 02:25:12 -0800 (PST)
-Message-ID: <179e66a8-c6c0-6d3e-4f4a-6b884f532572@linaro.org>
-Date: Fri, 23 Dec 2022 11:25:11 +0100
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Ddwl2eXurQm27aQuatUeFHpduWH+gP/YWJaFq+Y/k28=;
+        b=GnPO04ho8277IUYW2HX6L/ZZexnKLKPjpNUs9doGOOBikeMDrqWhtlTrMesm1BF9HD
+         n57gMGO6BpzySgBfmEfeqhe9jYSzVVJZ/7i0Pozoa5o2JPV/CrizkQC/z7rPPuHHTBAp
+         OYqZKBUha7hHBHwOH5kL/sMhfUpU9d+9v0GxJ5LuKCVCQX+8FSPp8SMYC5UrXjmCF2nJ
+         XhA3dDoOprWrNVv2EY0g8Fyi86KZOSVRFDDjtSPwz3TblHrbeSaNF3x1Y6KPIRSAZrIk
+         9RKRb5H9asoCHrPI+GqENX/xAjG3lNWzDfg1QY1dM7Na+EiK3NPIG1Wk7JgempZSXVCh
+         iGDg==
+X-Gm-Message-State: AFqh2krqrgJ43SoLnK/7x05fYLI+qD2QH+y6SYsEGQD58NMfs7Ou9z2C
+	Qka1QQvo9dZYL/pmRWhrNMDrhwdb3nTn0ATLdGk=
+X-Google-Smtp-Source: AMrXdXuPNjW1/ValhDj6KqDhCWENtVPP90a7xAg83ZTdS2f4qyMJUYCiBo3F4LGH8LvJ8b38FEf/kqGNuCzly1FcPfg=
+X-Received: by 2002:a25:d311:0:b0:6fa:40a8:5952 with SMTP id
+ e17-20020a25d311000000b006fa40a85952mr981148ybf.594.1671800026317; Fri, 23
+ Dec 2022 04:53:46 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.6.0
-Subject: Re: [PATCH v1 1/3] dt-bindings: timer: Add timer for StarFive JH7110
- SoC
-Content-Language: en-US
-To: Xingyu Wu <xingyu.wu@starfivetech.com>, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, Daniel Lezcano <daniel.lezcano@linaro.org>,
- Thomas Gleixner <tglx@linutronix.de>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
-Cc: Rob Herring <robh+dt@kernel.org>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>,
- Samin Guo <samin.guo@starfivetech.com>, linux-kernel@vger.kernel.org
-References: <20221223094801.181315-1-xingyu.wu@starfivetech.com>
- <20221223094801.181315-2-xingyu.wu@starfivetech.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20221223094801.181315-2-xingyu.wu@starfivetech.com>
+References: <20221111075902.798571-1-guoren@kernel.org>
+In-Reply-To: <20221111075902.798571-1-guoren@kernel.org>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Fri, 23 Dec 2022 12:53:19 +0000
+Message-ID: <CA+V-a8tbFhefuYF0UrGNrKZn6CpHEUhOvsf4GNmdLza0gWvf=w@mail.gmail.com>
+Subject: Re: [PATCH V3] riscv: asid: Fixup stale TLB entry cause application crash
+To: guoren@kernel.org
+Cc: anup@brainfault.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
+	conor.dooley@microchip.com, heiko@sntech.de, philipp.tomsich@vrull.eu, 
+	alex@ghiti.fr, hch@lst.de, ajones@ventanamicro.com, gary@garyguo.net, 
+	jszhang@kernel.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>, 
+	Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt <palmer@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221223_022514_839175_46E1DF69 
-X-CRM114-Status: GOOD (  17.28  )
+X-CRM114-CacheID: sfid-20221223_045348_424051_89336FF4 
+X-CRM114-Status: GOOD (  38.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,134 +89,168 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 23/12/2022 10:47, Xingyu Wu wrote:
-> Add bindings for the timer on the JH7110
-> RISC-V SoC by StarFive Technology Ltd.
+Hi Guo,
 
-Please wrap commit message according to Linux coding style / submission
-process (neither too early nor over the limit):
-https://elixir.bootlin.com/linux/v5.18-rc4/source/Documentation/process/submitting-patches.rst#L586
+Thank you for the patch.
 
-
-> 
-> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+On Fri, Nov 11, 2022 at 8:00 AM <guoren@kernel.org> wrote:
+>
+> From: Guo Ren <guoren@linux.alibaba.com>
+>
+> After use_asid_allocator is enabled, the userspace application will
+> crash by stale TLB entries. Because only using cpumask_clear_cpu without
+> local_flush_tlb_all couldn't guarantee CPU's TLB entries were fresh.
+> Then set_mm_asid would cause the user space application to get a stale
+> value by stale TLB entry, but set_mm_noasid is okay.
+>
+> Here is the symptom of the bug:
+> unhandled signal 11 code 0x1 (coredump)
+>    0x0000003fd6d22524 <+4>:     auipc   s0,0x70
+>    0x0000003fd6d22528 <+8>:     ld      s0,-148(s0) # 0x3fd6d92490
+> => 0x0000003fd6d2252c <+12>:    ld      a5,0(s0)
+> (gdb) i r s0
+> s0          0x8082ed1cc3198b21       0x8082ed1cc3198b21
+> (gdb) x /2x 0x3fd6d92490
+> 0x3fd6d92490:   0xd80ac8a8      0x0000003f
+> The core dump file shows that register s0 is wrong, but the value in
+> memory is correct. Because 'ld s0, -148(s0)' used a stale mapping entry
+> in TLB and got a wrong result from an incorrect physical address.
+>
+> When the task ran on CPU0, which loaded/speculative-loaded the value of
+> address(0x3fd6d92490), then the first version of the mapping entry was
+> PTWed into CPU0's TLB.
+> When the task switched from CPU0 to CPU1 (No local_tlb_flush_all here by
+> asid), it happened to write a value on the address (0x3fd6d92490). It
+> caused do_page_fault -> wp_page_copy -> ptep_clear_flush ->
+> ptep_get_and_clear & flush_tlb_page.
+> The flush_tlb_page used mm_cpumask(mm) to determine which CPUs need TLB
+> flush, but CPU0 had cleared the CPU0's mm_cpumask in the previous
+> switch_mm. So we only flushed the CPU1 TLB and set the second version
+> mapping of the PTE. When the task switched from CPU1 to CPU0 again, CPU0
+> still used a stale TLB mapping entry which contained a wrong target
+> physical address. It raised a bug when the task happened to read that
+> value.
+>
+>    CPU0                               CPU1
+>    - switch 'task' in
+>    - read addr (Fill stale mapping
+>      entry into TLB)
+>    - switch 'task' out (no tlb_flush)
+>                                       - switch 'task' in (no tlb_flush)
+>                                       - write addr cause pagefault
+>                                         do_page_fault() (change to
+>                                         new addr mapping)
+>                                           wp_page_copy()
+>                                             ptep_clear_flush()
+>                                               ptep_get_and_clear()
+>                                               & flush_tlb_page()
+>                                         write new value into addr
+>                                       - switch 'task' out (no tlb_flush)
+>    - switch 'task' in (no tlb_flush)
+>    - read addr again (Use stale
+>      mapping entry in TLB)
+>      get wrong value from old phyical
+>      addr, BUG!
+>
+> The solution is to keep all CPUs' footmarks of cpumask(mm) in switch_mm,
+> which could guarantee to invalidate all stale TLB entries during TLB
+> flush.
+>
+> Fixes: 65d4b9c53017 ("RISC-V: Implement ASID allocator")
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> Signed-off-by: Guo Ren <guoren@kernel.org>
+> Cc: Anup Patel <apatel@ventanamicro.com>
+> Cc: Palmer Dabbelt <palmer@rivosinc.com>
 > ---
->  .../timer/starfive,jh7110-timers.yaml         | 105 ++++++++++++++++++
->  1 file changed, 105 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/timer/starfive,jh7110-timers.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/timer/starfive,jh7110-timers.yaml b/Documentation/devicetree/bindings/timer/starfive,jh7110-timers.yaml
-> new file mode 100644
-> index 000000000000..fe58dc056313
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/timer/starfive,jh7110-timers.yaml
-> @@ -0,0 +1,105 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/timer/starfive,jh7110-timers.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: StarFive Timers
+> Changes in v3:
+>  - Move set/clear cpumask(mm) into set_mm (Make code more pretty
+>    with Andrew's advice)
+>  - Optimize comment description
+>
+> Changes in v2:
+>  - Fixup nommu compile problem (Thx Conor, Also Reported-by: kernel
+>    test robot <lkp@intel.com>)
+>  - Keep cpumask_clear_cpu for noasid
+> ---
+>  arch/riscv/mm/context.c | 30 ++++++++++++++++++++----------
+>  1 file changed, 20 insertions(+), 10 deletions(-)
+>
+As reported on the patch [0] I was seeing consistent failures on the
+RZ/Five SoC while running bonnie++ utility. After applying this patch
+on top of Palmer's for-next branch (eb67d239f3aa) I am no longer
+seeing this issue.
 
+Tested-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-Not enough, really not enough. Describe the hardware.
+[0] https://patchwork.kernel.org/project/linux-riscv/patch/20220829205219.283543-1-geomatsi@gmail.com/
 
-> +
-> +maintainers:
-> +  - Samin Guo <samin.guo@starfivetech.com>
-> +  - Xingyu Wu <xingyu.wu@starfivetech.com>
-> +
-> +properties:
-> +  compatible:
-> +    const: starfive,jh7110-timers
+Cheers,
+Prabhakar
 
-Why plural "timers", not "timer"? The module is usually called timer -
-see other hardware that type.
-
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    items:
-> +      - description: timer channel 0 interrupt
-> +      - description: timer channel 1 interrupt
-> +      - description: timer channel 2 interrupt
-> +      - description: timer channel 3 interrupt
-> +
-> +  interrupt-names:
-> +    items:
-> +      - const: timer0
-> +      - const: timer1
-> +      - const: timer2
-> +      - const: timer3
-
-I would just drop the names, not really useful. Unless you plan to add
-here some generic interrupt (like you did for clock-names)?
-
-> +
-> +  clocks:
-> +    items:
-> +      - description: timer channel 0 clock
-> +      - description: timer channel 1 clock
-> +      - description: timer channel 2 clock
-> +      - description: timer channel 3 clock
-> +      - description: APB clock
-> +
-> +  clock-names:
-> +    items:
-> +      - const: timer0
-> +      - const: timer1
-> +      - const: timer2
-> +      - const: timer3
-> +      - const: apb
-> +
-> +  resets:
-> +    items:
-> +      - description: timer channel 0 reset
-> +      - description: timer channel 1 reset
-> +      - description: timer channel 2 reset
-> +      - description: timer channel 3 reset
-> +      - description: APB reset
-> +
-> +  reset-names:
-> +    items:
-> +      - const: timer0
-> +      - const: timer1
-> +      - const: timer2
-> +      - const: timer3
-> +      - const: apb
-> +
-> +  clock-frequency:
-> +    description: The frequency of the clock that drives the counter, in Hz.
-
-Why do you need it? Use common clk framework to get that frequency.
-
-Also, sort the nodes somehow, e.g.
-compatible/reg/clocks/clock-frequency/interrupts/resets.
-
-
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupts
-> +  - interrupt-names
-> +  - clocks
-> +  - clock-names
-> +  - resets
-> +  - reset-names
-> +  - clock-frequency
-> +
-> +unevaluatedProperties: false
-
-Did you test the binding?
-
-
-Best regards,
-Krzysztof
-
+> diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
+> index 7acbfbd14557..0f784e3d307b 100644
+> --- a/arch/riscv/mm/context.c
+> +++ b/arch/riscv/mm/context.c
+> @@ -205,12 +205,24 @@ static void set_mm_noasid(struct mm_struct *mm)
+>         local_flush_tlb_all();
+>  }
+>
+> -static inline void set_mm(struct mm_struct *mm, unsigned int cpu)
+> +static inline void set_mm(struct mm_struct *prev,
+> +                         struct mm_struct *next, unsigned int cpu)
+>  {
+> -       if (static_branch_unlikely(&use_asid_allocator))
+> -               set_mm_asid(mm, cpu);
+> -       else
+> -               set_mm_noasid(mm);
+> +       /*
+> +        * The mm_cpumask indicates which harts' TLBs contain the virtual
+> +        * address mapping of the mm. Compared to noasid, using asid
+> +        * can't guarantee that stale TLB entries are invalidated because
+> +        * the asid mechanism wouldn't flush TLB for every switch_mm for
+> +        * performance. So when using asid, keep all CPUs footmarks in
+> +        * cpumask() until mm reset.
+> +        */
+> +       cpumask_set_cpu(cpu, mm_cpumask(next));
+> +       if (static_branch_unlikely(&use_asid_allocator)) {
+> +               set_mm_asid(next, cpu);
+> +       } else {
+> +               cpumask_clear_cpu(cpu, mm_cpumask(prev));
+> +               set_mm_noasid(next);
+> +       }
+>  }
+>
+>  static int __init asids_init(void)
+> @@ -264,7 +276,8 @@ static int __init asids_init(void)
+>  }
+>  early_initcall(asids_init);
+>  #else
+> -static inline void set_mm(struct mm_struct *mm, unsigned int cpu)
+> +static inline void set_mm(struct mm_struct *prev,
+> +                         struct mm_struct *next, unsigned int cpu)
+>  {
+>         /* Nothing to do here when there is no MMU */
+>  }
+> @@ -317,10 +330,7 @@ void switch_mm(struct mm_struct *prev, struct mm_struct *next,
+>          */
+>         cpu = smp_processor_id();
+>
+> -       cpumask_clear_cpu(cpu, mm_cpumask(prev));
+> -       cpumask_set_cpu(cpu, mm_cpumask(next));
+> -
+> -       set_mm(next, cpu);
+> +       set_mm(prev, next, cpu);
+>
+>         flush_icache_deferred(next, cpu);
+>  }
+> --
+> 2.36.1
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
