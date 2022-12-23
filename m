@@ -4,162 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3913BC4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Dec 2022 21:23:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31198C4167B
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Dec 2022 22:17:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5yPFtzoR98krO4Peny/1bt9LyodlaNLxLY2LaxCo3Kg=; b=eQCh0JFwRRzaqe
-	yEqhqUVhZOIxud5KV/fT/l4VbncvqEJttx2jib3+44uAPnQ0wd7XB+Vzfd/d5gvGvBqo24s6uTAv4
-	wXhKzA8yqjfi7km4Wy7Jq11c6h+MiIav6NAGdfwh4xq9rOz4F/hRzTM8jzHwRiDzWs/2M5z3aADHN
-	x3dWEnQyp7PM4eBLsKoA/hnreEkg+KQggSD/4injtgIWPh59egog8mEUAEWRN+4lAn1jiKnEpc+hO
-	KQn7PUZNMjsCjd4ebDJkIiSapEsD10mRFkZ1HCTBNvzE/sOvmUDc8922Sh5FR9rILB5dgZRiq9Psr
-	IQ7xIYJ8eKqswFFnysoQ==;
+	List-Owner; bh=rUTMyiz5wBuTrKiZL/LJubKSvLvBnooLwqfjOF4HS8Q=; b=o7lVLUhV46ZUtY
+	+Zkipe+7WSzU4bOs/HZWO0XoNnTOnMYR9II5apHCivp/yuzGX4cI7KNvJEvNUJ2HDS84cYz+R/v7A
+	aBDNLHG1axFBGR27Cg+Hfs3WrUcQVsey5MnLBiL+1NOycYmDoYrbUbcrxTTUEYX+RJNVLeAxPbRGH
+	gsRdtu5P/E30bSuWKWqRuaIu8paF4whniYA1a6SAzib331tkfcwI93Ye3G7L7jFNDo/xpGZQONpQ4
+	+RxAN5zIgtKFV1qSDUjslQZmQvWR8LDPJSdkZGiOkeZuihoVG3DDYzWvBg0w5SUwh3hGlTZHR8Xmb
+	RwPzxdn8z3oNubmpuVTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8pVQ-00CL6v-IH; Fri, 23 Dec 2022 21:23:04 +0000
-Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
+	id 1p8qLV-00CfYt-TA; Fri, 23 Dec 2022 22:16:53 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8pV6-00CL2o-Oe
-	for linux-riscv@lists.infradead.org; Fri, 23 Dec 2022 21:22:46 +0000
-Received: from pps.filterd (m0246629.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 2BNKxwdn004605;
-	Fri, 23 Dec 2022 21:22:15 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=date : from : to : cc
- : subject : message-id : references : content-type : in-reply-to :
- mime-version; s=corp-2022-7-12;
- bh=DpXfFoCfcdwC0+fZT8B7NKRcXetd9iXc1+xmDnnJjhA=;
- b=nYH8FmrETAXZs2UXeV/l/GfAI4bNsHnA00Twlq0opLqSvFvbWAfLroBXZv/Mg86Rixbb
- UPipZR0virLDH6pmerYPhkIHN29cRLCgP3lNpUuR+r+qEQeBtkmi2cutdsdySeBzxmOX
- zcRb7fikvwcnBDCWZjvjL/QBLRd1KBl31VE4Z7Mf2Bcj2g3w+1HY5o6MwV1AQ+y2slEj
- I+mtpCoqr8ZuHzrgQ2HvZ2TA87fSh6r0DXUN7jvhayf9VaPosxBU//oA8lfW0534Yb+8
- npPfSeA9kuhXfr98PhPCnEaTj/Vu3zVXfLzE/6eL0sMg5ln4VmKBO2gc4ysah1dIp/1p fw== 
-Received: from iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta01.appoci.oracle.com [130.35.100.223])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 3mh6tpexcn-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 23 Dec 2022 21:22:15 +0000
-Received: from pps.filterd (iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
-	by iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (8.17.1.5/8.17.1.5) with ESMTP id 2BNKXbVX004045;
-	Fri, 23 Dec 2022 21:22:13 GMT
-Received: from nam11-bn8-obe.outbound.protection.outlook.com (mail-bn8nam11lp2168.outbound.protection.outlook.com [104.47.58.168])
-	by iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 3mh47g17r6-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 23 Dec 2022 21:22:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=lUPa2C5ppJnKkO07vhEs60XL8SYlkf/qjdMXSsABiBwDuUHpo59XKH+3AZoIP0ZgX+xP/iywurU9evCrpuQ/vUfxwVuM8topFVnDSbLBkjMGz2t+vi/KNSLx7g7XQpALtj3MhlGeC9okIQC+mz27jU5Hjp4jZKnqhpg+VX19QChoZGKr50PRDI271rWQGYuaS3c5voW4hzvUNHEjTwNZaipeQPpO7gWnACwNvViHKAPOBPOL6q0pqei25zjQ0FT3hhC0DvaQVnNy9wvrJ0qlzjlzgN9F/FpgUybY/Rzuhq9IhV/9ohKD5XWNDro7I7mDSK5TAnnWZ8o9qClvoy8wOQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=DpXfFoCfcdwC0+fZT8B7NKRcXetd9iXc1+xmDnnJjhA=;
- b=E4NvFqawNR1+TxKxtXfj9o9hrlxmdnTG21ho7oz7am4T4ca/qVTvNnUyzYW5Z9L9J70CCYC5XpUh5OZB9oyWvX7/guDtlwhV0YZY2cRHAAZzBW+scaHaeC4vzYN6w7TOXKHcii5zdmDao2j15Lb5FjiZugFVS7U6sj0DNSmD8ztHrha+CVvLbumXfrHrY7onYfjvGwV/VY/Xdrh/Yzdmt8a+UB2Bb1KL2ob7Gf5/IdIKTX4iI/eEqRbk/e+5VOvrh0nZReI8JnFSCvsfJVrCB+utmAvkVoh2RLZ3+a3GFj1yja3OWr2Q0EGAl6czRfkYXB42sqszDzH1kgbGH/cjtA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
- dkim=pass header.d=oracle.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=DpXfFoCfcdwC0+fZT8B7NKRcXetd9iXc1+xmDnnJjhA=;
- b=vOpr6kvhWmIn1HELqGa3a018udkMTW+lVF9iwblbODmE1Tb3MMSut5YfGm3SbVTOGNSnHy9wrM/ozOtOFadamKyns+4TdTnlC+UA6KfskcIZk02/QkvbiUMJtS9k5IAnjFelGBWYXqXy37IjKcFVl36FRSM0MK/zgK15+2HvQGA=
-Received: from BY5PR10MB4196.namprd10.prod.outlook.com (2603:10b6:a03:20d::23)
- by SN7PR10MB6522.namprd10.prod.outlook.com (2603:10b6:806:2a5::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5924.16; Fri, 23 Dec
- 2022 21:22:11 +0000
-Received: from BY5PR10MB4196.namprd10.prod.outlook.com
- ([fe80::3a1:b634:7903:9d14]) by BY5PR10MB4196.namprd10.prod.outlook.com
- ([fe80::3a1:b634:7903:9d14%7]) with mapi id 15.20.5944.012; Fri, 23 Dec 2022
- 21:22:11 +0000
-Date: Fri, 23 Dec 2022 13:22:08 -0800
-From: Mike Kravetz <mike.kravetz@oracle.com>
-To: Christoph Hellwig <hch@infradead.org>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
-        linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-        linux-s390@vger.kernel.org, netdev@vger.kernel.org,
-        David Hildenbrand <david@redhat.com>, Michal Hocko <mhocko@suse.com>,
-        Peter Xu <peterx@redhat.com>, Nadav Amit <nadav.amit@gmail.com>,
-        Matthew Wilcox <willy@infradead.org>, Vlastimil Babka <vbabka@suse.cz>,
-        Rik van Riel <riel@surriel.com>, Will Deacon <will@kernel.org>,
-        Michael Ellerman <mpe@ellerman.id.au>,
-        Palmer Dabbelt <palmer@dabbelt.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Dave Hansen <dave.hansen@linux.intel.com>,
-        Christian Brauner <brauner@kernel.org>,
-        Eric Dumazet <edumazet@google.com>,
-        Andrew Morton <akpm@linux-foundation.org>
-Subject: Re: [RFC PATCH] mm: remove zap_page_range and change callers to use
- zap_vma_page_range
-Message-ID: <Y6YcAKT+vVIyWTkF@monkey>
-References: <20221216192012.13562-1-mike.kravetz@oracle.com>
- <Y6XW3hMtB7PrTSM5@infradead.org>
-Content-Disposition: inline
-In-Reply-To: <Y6XW3hMtB7PrTSM5@infradead.org>
-X-ClientProxiedBy: MW4PR03CA0015.namprd03.prod.outlook.com
- (2603:10b6:303:8f::20) To BY5PR10MB4196.namprd10.prod.outlook.com
- (2603:10b6:a03:20d::23)
+	id 1p8qKp-00CfMd-7n
+	for linux-riscv@lists.infradead.org; Fri, 23 Dec 2022 22:16:26 +0000
+Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=phil.lan)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1p8qId-0002Hc-3G; Fri, 23 Dec 2022 23:13:55 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com
+Cc: christoph.muellner@vrull.eu,
+	prabhakar.csengg@gmail.com,
+	conor@kernel.org,
+	philipp.tomsich@vrull.eu,
+	ajones@ventanamicro.com,
+	heiko@sntech.de,
+	emil.renner.berthing@canonical.com,
+	jszhang@kernel.org,
+	Heiko Stuebner <heiko.stuebner@vrull.eu>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH v5 12/12] RISC-V: fix auipc-jalr addresses in patched alternatives
+Date: Fri, 23 Dec 2022 23:13:32 +0100
+Message-Id: <20221223221332.4127602-13-heiko@sntech.de>
+X-Mailer: git-send-email 2.35.1
+In-Reply-To: <20221223221332.4127602-1-heiko@sntech.de>
+References: <20221223221332.4127602-1-heiko@sntech.de>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BY5PR10MB4196:EE_|SN7PR10MB6522:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9c5ac313-d715-4560-c032-08dae52bc100
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: 	SQp4TBaXimoGvwWqiPH69+Vj7KGh024JVyuPhyRhgWtnyRF73nCGYoDvjlI1Xpa9UFvVev4XqoPop8wLF8TMOH21gaNCD/p9qUDl3hZUuw1bpQVTgy9cYOJ+6ZJFFB8bQcAee500aA3RkkxbUjONNz5LyBdzfZApDmbXjd14P0kh2sI1B7clMtIy7OCyynUfK5XsOv1Wv103O64aSuzEIotH4AQZvFVRBrAWegbe4q45bxdZncxfYNpt60kMcDZgfvLk26ISKbqDUVMnRNXqz2Iz8Ii2Q2dQrHMz72/t2rWPovGiD5rd90UNCr+mifVJo7irVcWRUe5m8PV87un9+F0sVnMXB75g9sVQN45pMtGP/eSiGXC9Oq8oQUg5eO/WPr2qeAlQaZ7eELE7tUvpqm6Jz6wOBx46c+y0Tg5pcNsphyC1c/fPn9pvTXbCfUU2Rqe00ijqQ1zjmPnWvtTNRSbQPwCzalrzXs6iOcfBkcN4RU2oj8yjJETHmqHCDxAITTm/7s++ImzTqU7JeQhnT8P8mIIl8ZhZc4EhaZ2tskkOoyuA7octItEssqzCz33zvnpRXqswZmOa3GRIwrVILMK4pkzSEJOninGcuAhFANi4fp2Zi1RkHTBSDoVG1CXiuxC/Pp2aesGnD3/Cs3E+p4qI/OBM0tqSuspTgKWYp6VZIQNYC87Jc4Qd09irmgoo
-X-Forefront-Antispam-Report: 	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BY5PR10MB4196.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230022)(7916004)(376002)(346002)(39860400002)(136003)(396003)(366004)(451199015)(8676002)(41300700001)(38100700002)(5660300002)(7416002)(8936002)(2906002)(33716001)(53546011)(4326008)(44832011)(478600001)(6666004)(6486002)(86362001)(54906003)(316002)(6916009)(6506007)(186003)(66556008)(66946007)(26005)(6512007)(9686003)(66476007)(67856001);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 	=?us-ascii?Q?zo7vqLWEY58VihFZ7RdJ3LXXgUP0NYY9ob7WJOLRG4RiD9Vg9eSvaLDc89Rw?=
- =?us-ascii?Q?jDx+JP6qF5BQopiOmm0hq8IfQiLtSsOXyHzFG7mS3JA6eMkQ8Y0uH6W04k6S?=
- =?us-ascii?Q?Mn7vS4dLcMYGhTEGN3yRZtP2ncGISH8X8z9LPSFkmUTnsxpwj8y7dOYt0Db9?=
- =?us-ascii?Q?6+3G2WCxnYcatwTz4NWaI2DnUd6bbhb+nRF4W+4a8nDZhJ/12eZx4E855p+Z?=
- =?us-ascii?Q?8rWCILuOfgZbPR7/GYzHlddAsjyyAW48uxRFi1HtLP6mOXXU7di9F5ErM0RQ?=
- =?us-ascii?Q?NOX7he4jyVvXZq5kL4oLtg2G3G7/UTRIfOeuMYbrKVY04WgA3kKGXEj6WZCA?=
- =?us-ascii?Q?tG3vxJjY7ucNvfvj2OEpjjfJruVTQ9jUyzxJIw7t55gv9cvnskIPks+aVgjM?=
- =?us-ascii?Q?/KH7Qod5fXnZqK9GlbYACQVNgelUkiKFatHWil7iJ+PmzYMwFvElcUryUKHT?=
- =?us-ascii?Q?q35bOVBPsZJGtiHhMmx4c23iRKaREmXAsDEuIsgpKKl7F9P61Z+TrhxFbep1?=
- =?us-ascii?Q?1aN7zmahiEpzBhld2jDd6i6LhvO+UBm5qJYR/jBDOflDnyajUsR76F2lGnys?=
- =?us-ascii?Q?bYZOKzcgHgTNz2b8H9FhYpSED5atoDM/oqANCuW0tvGFnD5ws2cvCLO2Ev10?=
- =?us-ascii?Q?KHDd+wwSx+4sOHFVI7kb8n9K6Gmu4geVCb//xTrOX20dkZb/xx7DKc3p090q?=
- =?us-ascii?Q?GDACvbj+sPXMrpmxdvHvKvsNlfDxHykWxI4Mk65bqAAAcgTTmq3W9yCi6H9m?=
- =?us-ascii?Q?ghe/F6gkNzLkZVP1thj6WjAZ5VnnjrpIoQAJgPXX/SQ2Etl0Zi2BAokbqHUG?=
- =?us-ascii?Q?w71ig5qtNGahHWtQA3zz6ZsPx/x72H5EfNzW7ao19uaZ+hQSRwSajr17HrEw?=
- =?us-ascii?Q?KEqBiqXxIfCCKdktTsdQnGtJuHldSnkxmZXzaUYlfOqXDeDDiSvTmAQJVaGB?=
- =?us-ascii?Q?iFobxZLIC3Mtnxc6qK7V8NmhYgj5tsZJwzPhHbTe1b2FCJQUSMuQ4Sx0Slw7?=
- =?us-ascii?Q?eg7onm9lJYIIsbkpF6aF9aTGHtLIWIssdPL5+UNa+4E/mn7ynJxtfC5O5DAc?=
- =?us-ascii?Q?UICwGtZ++VTnjlKaR/JI7HqzkS2/zw+d/9XWsTf7OqDimAQPncGOhe1IKXWS?=
- =?us-ascii?Q?vrQfTBve9IA71Txwu5F+OVz5vkF/Iyh4Qu8tire/3L879FhRfV3s+EZ/VnRB?=
- =?us-ascii?Q?qR2t24whSmM+Myigqj9UX29TiBJvGltCsu7lKiFysBwXvMojYhomj/uzbnRg?=
- =?us-ascii?Q?cHkBOkMCOVoOR4Fwa7Z6zqbtV1dKwji8qQiis2zsPdnw4Fh58bYecv3sFn36?=
- =?us-ascii?Q?49YJXSMPc+OzaeF6gTb7qPi66Ihxr/Gljbp6ELFrm7yrM0X3GEMVccwgis7H?=
- =?us-ascii?Q?HZQ/FNTO2m/MymYsry1kIDUL3TgS63ngZmMk2DiuLdtHWJzOw35hD9x9TjlS?=
- =?us-ascii?Q?n57xVSeU5elzFFAcmfiw0XS9fx5Apawgmw0msbnvDpBCsC9JbcCESh4CL12H?=
- =?us-ascii?Q?XaAALMaK0VNl42tbxvdcrWBSaKFONtYx9nhc+NQFPKmbC5DTQ2/3Tsn1nb2f?=
- =?us-ascii?Q?SJ2xvz1OVTTpZywzcrHYwH5vEIvKlNghQLZHHzN1nvHzLVWshtzkuC5rzCCg?=
- =?us-ascii?Q?SQ=3D=3D?=
-X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9c5ac313-d715-4560-c032-08dae52bc100
-X-MS-Exchange-CrossTenant-AuthSource: BY5PR10MB4196.namprd10.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Dec 2022 21:22:11.3096
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: hJUt25Q0xuyN3JdiX8QD5hMDg7x/LjPCT7S9F4XuKYCEWP2yYZo6ZKshB3BQkeuWxntv2yIpAJwTja2CzP8cCA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR10MB6522
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.205,Aquarius:18.0.923,Hydra:6.0.545,FMLib:17.11.122.1
- definitions=2022-12-23_08,2022-12-23_01,2022-06-22_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 suspectscore=0 mlxlogscore=999
- phishscore=0 bulkscore=0 malwarescore=0 spamscore=0 adultscore=0
- mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2212070000 definitions=main-2212230178
-X-Proofpoint-GUID: TindufSzVaaX12-dPvfre_Qe4CneRmZ_
-X-Proofpoint-ORIG-GUID: TindufSzVaaX12-dPvfre_Qe4CneRmZ_
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221223_132244_878343_5BA8EB9B 
-X-CRM114-Status: GOOD (  17.86  )
+X-CRM114-CacheID: sfid-20221223_141611_365939_3FBC0829 
+X-CRM114-Status: GOOD (  21.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,39 +70,132 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 12/23/22 08:27, Christoph Hellwig wrote:
-> >  		unsigned long size = vma->vm_end - vma->vm_start;
-> >  
-> >  		if (vma_is_special_mapping(vma, vdso_info[VDSO_ABI_AA64].dm))
-> > -			zap_page_range(vma, vma->vm_start, size);
-> > +			zap_vma_page_range(vma, vma->vm_start, size);
-> >  #ifdef CONFIG_COMPAT_VDSO
-> >  		if (vma_is_special_mapping(vma, vdso_info[VDSO_ABI_AA32].dm))
-> > -			zap_page_range(vma, vma->vm_start, size);
-> > +			zap_vma_page_range(vma, vma->vm_start, size);
-> >  #endif
-> 
-> So for something called zap_vma_page_range I'd expect to just pass
-> the vma and zap all of it, which this and many other callers want
-> anyway.
-> 
-> > +++ b/arch/s390/mm/gmap.c
-> > @@ -722,7 +722,7 @@ void gmap_discard(struct gmap *gmap, unsigned long from, unsigned long to)
-> >  		if (is_vm_hugetlb_page(vma))
-> >  			continue;
-> >  		size = min(to - gaddr, PMD_SIZE - (gaddr & ~PMD_MASK));
-> > -		zap_page_range(vma, vmaddr, size);
-> > +		zap_vma_page_range(vma, vmaddr, size);
-> 
-> And then just call zap_page_range_single directly for those that
-> don't want to zap the entire vma.
+From: Heiko Stuebner <heiko.stuebner@vrull.eu>
 
-Thanks!
+Alternatives live in a different section, so addresses used by call
+functions will point to wrong locations after the patch got applied.
 
-This sounds like a good idea and I will incorporate in a new patch.
+Similar to arm64, adjust the location to consider that offset.
 
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+Reviewed-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Tested-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+---
+ arch/riscv/include/asm/alternative.h |  3 ++
+ arch/riscv/kernel/alternative.c      | 56 ++++++++++++++++++++++++++++
+ arch/riscv/kernel/cpufeature.c       |  5 ++-
+ 3 files changed, 63 insertions(+), 1 deletion(-)
+
+diff --git a/arch/riscv/include/asm/alternative.h b/arch/riscv/include/asm/alternative.h
+index 6511dd73e812..1bd4027d34ca 100644
+--- a/arch/riscv/include/asm/alternative.h
++++ b/arch/riscv/include/asm/alternative.h
+@@ -27,6 +27,9 @@ void __init apply_boot_alternatives(void);
+ void __init apply_early_boot_alternatives(void);
+ void apply_module_alternatives(void *start, size_t length);
+ 
++void riscv_alternative_fix_offsets(void *alt_ptr, unsigned int len,
++				   int patch_offset);
++
+ struct alt_entry {
+ 	void *old_ptr;		 /* address of original instruciton or data  */
+ 	void *alt_ptr;		 /* address of replacement instruction or data */
+diff --git a/arch/riscv/kernel/alternative.c b/arch/riscv/kernel/alternative.c
+index a7d26a00beea..6212ea0eed72 100644
+--- a/arch/riscv/kernel/alternative.c
++++ b/arch/riscv/kernel/alternative.c
+@@ -15,6 +15,8 @@
+ #include <asm/vendorid_list.h>
+ #include <asm/sbi.h>
+ #include <asm/csr.h>
++#include <asm/insn.h>
++#include <asm/patch.h>
+ 
+ struct cpu_manufacturer_info_t {
+ 	unsigned long vendor_id;
+@@ -53,6 +55,60 @@ static void __init_or_module riscv_fill_cpu_mfr_info(struct cpu_manufacturer_inf
+ 	}
+ }
+ 
++static u32 riscv_instruction_at(void *p)
++{
++	u16 *parcel = p;
++
++	return (u32)parcel[0] | (u32)parcel[1] << 16;
++}
++
++static void riscv_alternative_fix_auipc_jalr(void *ptr, u32 auipc_insn,
++					     u32 jalr_insn, int patch_offset)
++{
++	u32 call[2] = { auipc_insn, jalr_insn };
++	s32 imm;
++
++	/* get and adjust new target address */
++	imm = riscv_insn_extract_utype_itype_imm(auipc_insn, jalr_insn);
++	imm -= patch_offset;
++
++	/* update instructions */
++	riscv_insn_insert_utype_itype_imm(&call[0], &call[1], imm);
++
++	/* patch the call place again */
++	patch_text_nosync(ptr, call, sizeof(u32) * 2);
++}
++
++void riscv_alternative_fix_offsets(void *alt_ptr, unsigned int len,
++				      int patch_offset)
++{
++	int num_insn = len / sizeof(u32);
++	int i;
++
++	for (i = 0; i < num_insn; i++) {
++		u32 insn = riscv_instruction_at(alt_ptr + i * sizeof(u32));
++
++		/*
++		 * May be the start of an auipc + jalr pair
++		 * Needs to check that at least one more instruction
++		 * is in the list.
++		 */
++		if (riscv_insn_is_auipc(insn) && i < num_insn - 1) {
++			u32 insn2 = riscv_instruction_at(alt_ptr + (i + 1) * sizeof(u32));
++
++			if (!riscv_insn_is_jalr(insn2))
++				continue;
++
++			/* if instruction pair is a call, it will use the ra register */
++			if (RV_EXTRACT_RD_REG(insn) != 1)
++				continue;
++
++			riscv_alternative_fix_auipc_jalr(alt_ptr + i * sizeof(u32),
++							 insn, insn2, patch_offset);
++		}
++	}
++}
++
+ /*
+  * This is called very early in the boot process (directly after we run
+  * a feature detect on the boot CPU). No need to worry about other CPUs
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 93e45560af30..205bbd6b1fce 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -339,8 +339,11 @@ void __init_or_module riscv_cpufeature_patch_func(struct alt_entry *begin,
+ 		}
+ 
+ 		tmp = (1U << alt->errata_id);
+-		if (cpu_req_feature & tmp)
++		if (cpu_req_feature & tmp) {
+ 			patch_text_nosync(alt->old_ptr, alt->alt_ptr, alt->alt_len);
++			riscv_alternative_fix_offsets(alt->old_ptr, alt->alt_len,
++						      alt->old_ptr - alt->alt_ptr);
++		}
+ 	}
+ }
+ #endif
 -- 
-Mike Kravetz
+2.35.1
+
 
 _______________________________________________
 linux-riscv mailing list
