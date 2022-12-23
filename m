@@ -4,100 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B6D5C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Dec 2022 23:59:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDEA0C4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Dec 2022 00:03:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KYGaY1QBf/hm9TJhSt/ip588bL0v4rzARuz4wEwNc9s=; b=m6zcN8vUcP7FLQ
-	ciFtT7Giufv0TY2Mwpg0pd9VILGzw05buN7GC9fNgu3NAqk5iEDy1cuJK99aL3GmapEsnFyHDolEF
-	rGEnvKWyN3UENvVj4t/TtLHWLpEzRMbqkCh7kQN7XPMZaFQc7yH1/Y9DZR79vGBMWZfr+aB+3ZPo7
-	3Qe0JIF1loXGs6rvKSB6tvix6gKan5LHR5SZSoa4UYEORZRKyyOdxkcKI+DsND/d0arXItPLF2mRF
-	m+69EsXWIB3LLQgFZcgH/YuXLMGNWRY4ElxJfflSKs6lPJdG414MhDOwQ8lv8Agmty4kM2Nrh64/G
-	4DswqGYh2XgJ3Tol8UOQ==;
+	List-Owner; bh=zfX1kwV7CzwlkZ9vKczg8/lnZTvWpptduw41/fLsOO0=; b=LiTtqD0ExiCkDa
+	t9FNhwr/eoVzYWT3Agz/pxBh3hrmd9T/ytTOP40y7tUfRDOHmIyB9OfzDTdcQR1Cown07zyF1T46U
+	9XQGxwQ5OYsSwICiIL5MA0PRpzPjsyHv5JhNlofpvcklcsuBIeelXP5iAFfdJxSLaeAYy8AUekMt1
+	bWtNcZmbFKm86nyV8U/UYEuvlIZP8FLC4zDqCtqzLXLZf1w+lKbyc5VtKD6sWQaJ18EsNKyjIf5ZC
+	hQO0mZdj1EJJfJ0BAJ/OLqIL0WlTgT+u1gqLJBgWSJaPmHHpexdfPnAQm4nXnj9UMRNCyib0R6e3H
+	nHtMEs79Urth2/Ok3JUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8VSt-0017Ei-Ml; Thu, 22 Dec 2022 23:59:07 +0000
-Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
+	id 1p8VX5-0018oN-3w; Fri, 23 Dec 2022 00:03:27 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8VSZ-00177s-C7
-	for linux-riscv@lists.infradead.org; Thu, 22 Dec 2022 23:58:49 +0000
-Received: by mail-pj1-x1033.google.com with SMTP id p4so3457655pjk.2
-        for <linux-riscv@lists.infradead.org>; Thu, 22 Dec 2022 15:58:46 -0800 (PST)
+	id 1p8VX1-0018m3-EG
+	for linux-riscv@lists.infradead.org; Fri, 23 Dec 2022 00:03:25 +0000
+Received: by mail-pl1-x634.google.com with SMTP id jn22so3440833plb.13
+        for <linux-riscv@lists.infradead.org>; Thu, 22 Dec 2022 16:03:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=wuQb18hsH3PVKKhlNX3iIN37M1+/+r0ie7whgaMIAuI=;
-        b=JWTRj/CS6QleDMkVnOcUuDhwl4FBxyuEcl1DJkuBzancbxmUVcaJCRv5n96N7pB+AS
-         V5sZLbwaURsOe0GW0gnWnMgTKAFu70S8L2Dwy5tNUeI3gjz4ZbHTJbbBgG7jSXE3ew0/
-         cYjcUDnZKVeD5sWWgjtwO/6WCXfnhs5DZrC5sTSf6C07bakGHzjMGWQMRQWAM6KbleBH
-         PW7GnMhx8uJESRYt1W3pcNAXlK9NQD0MIGQeWbFJ6mpU8Px18T07tZWBxqLOblatcCQT
-         LtlExVx+eJvlYWOUaDejAHT3sENc9kbxMJcthmAjNjJ9YVVZd3a6x6oP46+nxoktP2mW
-         dvRw==
+        bh=heHkQsknG7rsIP7257jLHshZGHxMGkLPE4gJfI3iQu4=;
+        b=3safF1xHFUqnqN14ZNJPPrg1zobsluqvGjwMoKuPZsxflERvZacsrAkG8TXNJSrMe4
+         gg7Ii+k64JhbTkxX/TMV4bCkcTztoijhuDjPjgYi3waL/Li6lxuy77O22Djp7qtIEOta
+         Mibijwat8VZksMwBcs8CcsgA7CHoKDAXW+PfKC2WazH4xqseqCeIsMvxc4WQkB21Xpx0
+         aRJICf/UtKXWq55COTzYuq32Nn8hH81nQLABrac6m0b0qUkbBOQmVaZDxnEXggAe0Zxq
+         i9d/6157PiGCfZVTcHg4jdSKVQkph69IuTw1hUZYmqIWBRcaeiSTw9fdiok6Hejvl/iJ
+         JhKA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=wuQb18hsH3PVKKhlNX3iIN37M1+/+r0ie7whgaMIAuI=;
-        b=qSLnHVFmUYSsNWj+dL6RRmIN6pSdWQuXrpyU19g+m0fy6a1ygQ1/kKT2B+bCMii2PF
-         0Eb3m8ENU80SWDEGoC5EAEb+7VYd7vyxhGftftqcDbAZCMQQ0IbYU6942IXt3GWB7j2d
-         Ndu9MKVE8XpkJyfxC/9a0frmMvhFR1PkiIzMZCB45zixdWMkFXz9d1hZ9s2B+qr2kug3
-         ndbLXUusR0KUNkm7AAjNEM7gElHw1cIJSaug8+OWyuBg6Fpry2lC0cCMkadmvQqVpQ20
-         4UhVvhg9dVxw+siJgGvbDH5xswxQ3ElQ/LSkHIzBKKaf4ywbbAEabMtQRVHMPGulW+wl
-         WxYQ==
-X-Gm-Message-State: AFqh2kp3ZkqgIDBA8ZhkftO6TJtUzMATj00geuk4ksm+MoGrWGJnfqM3
-	cLMRVCwe/5lsh/+1lNKg73WfbQ==
-X-Google-Smtp-Source: AMrXdXuSxui2eZcxC12b3uNSSsVrt7hM2p8XGfKziz4RHlFkfHTJw7jHoXHNI/kfX52FFs4bn9lpMA==
-X-Received: by 2002:a05:6a20:698b:b0:a5:35f1:95d1 with SMTP id t11-20020a056a20698b00b000a535f195d1mr11822531pzk.35.1671753525608;
-        Thu, 22 Dec 2022 15:58:45 -0800 (PST)
+        bh=heHkQsknG7rsIP7257jLHshZGHxMGkLPE4gJfI3iQu4=;
+        b=BpQeDG+g7cPUIWNv1TFrSbqbJlUKxsV8LrRvKQh7La04dqmNCji577bl5SNelpp3Kf
+         4PLD91Foj9HRml8lX+3KGfLxDgTFCtKhjTXYz+0Ags1iM77aM6J8+dWmXzQOo10CCEi7
+         PeoxbKxg6Yg7SUDxwLyewvynkvPJ98tlrZ1xycY9QLRB89iTjdnGiE7mpVbpt5OPqB5S
+         reuhEUwgAjEhFl+DsEnhLk9Ekc21H9OMK15h26zKfE7WFwC7xP9+p69IEx1LcxWv5mQl
+         EgiQLpCE/GsQw+QlXo2zv9r4WgV6+HZykRiiqK6Ux911otBEnbivWGYc8m+U+NIoF+Og
+         KJjw==
+X-Gm-Message-State: AFqh2kroOPV+xi5MwZJ6YCQ9K9xfePZlLinFOYmX0C1luSmUjc+afMZk
+	dyYlweKLH2w84aA6a9h9UER+lw==
+X-Google-Smtp-Source: AMrXdXvNRkdEbE2wHldGLvzesw+/+f0C3cJ48jPY4jcocCh09lvUxS5zpxsNojAr/y5xRK56YhUXmQ==
+X-Received: by 2002:a17:902:ccc1:b0:189:5ff5:eb92 with SMTP id z1-20020a170902ccc100b001895ff5eb92mr9601784ple.39.1671753800255;
+        Thu, 22 Dec 2022 16:03:20 -0800 (PST)
 Received: from [192.168.50.116] (c-24-4-73-83.hsd1.ca.comcast.net. [24.4.73.83])
-        by smtp.gmail.com with ESMTPSA id j186-20020a6255c3000000b00576259507c0sm1242500pfb.100.2022.12.22.15.58.43
+        by smtp.gmail.com with ESMTPSA id u4-20020a17090341c400b001868bf6a7b8sm1071869ple.146.2022.12.22.16.03.19
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 22 Dec 2022 15:58:45 -0800 (PST)
-Message-ID: <56d98923-7b74-f8c9-b65d-a4942071c92d@rivosinc.com>
-Date: Thu, 22 Dec 2022 15:58:42 -0800
+        Thu, 22 Dec 2022 16:03:19 -0800 (PST)
+Message-ID: <18228ba9-464b-d4c1-f8b9-8de1b0e6a64f@rivosinc.com>
+Date: Thu, 22 Dec 2022 16:03:18 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.4.2
-Subject: Re: Adding V-ext regs to signal context w/o expanding kernel struct
- sigcontext to avoid glibc ABI break
+Subject: Re: [PATCH] riscv: add base extensions to enum riscv_isa_ext_id
 Content-Language: en-US
-To: Conor Dooley <conor@kernel.org>, Andy Chiu <andy.chiu@sifive.com>
-Cc: Richard Henderson <richard.henderson@linaro.org>,
- Vincent Chen <vincent.chen@sifive.com>, Florian Weimer <fweimer@redhat.com>,
- Rich Felker <dalias@libc.org>, Andrew Waterman <andrew@sifive.com>,
- Palmer Dabbelt <palmer@rivosinc.com>, Kito Cheng <kito.cheng@sifive.com>,
- =?UTF-8?Q?Christoph_M=c3=bcllner?= <christoph.muellner@vrull.eu>,
- davidlt@rivosinc.com, Arnd Bergmann <arnd@arndb.de>,
- =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
- Philipp Tomsich <philipp.tomsich@vrull.eu>,
- Szabolcs Nagy <szabolcs.nagy@arm.com>, Greentime Hu
- <greentime.hu@sifive.com>, Aaron Durbin <adurbin@rivosinc.com>,
- Andrew de los Reyes <adlr@rivosinc.com>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- GNU C Library <libc-alpha@sourceware.org>
-References: <CABvJ_xjGZ3S0oAkT08x4DToQFdcUH06omk2OTT1EHDZRJ-2wKg@mail.gmail.com>
- <87sfy5ndid.fsf@oldenburg.str.redhat.com>
- <CABvJ_xjSREsdemJkCJMGSx+09jrNoSbXCwuxF0zEQmZtHrWMvg@mail.gmail.com>
- <d613968f-0fae-1994-3bee-fb10765167c3@rivosinc.com>
- <73c0124c-4794-6e40-460c-b26df407f322@rivosinc.com>
- <CABvJ_xgDsthnm_h6mYowK03VUKqYk=nZsSZ7R=0BTwFHGKEAMw@mail.gmail.com>
- <50c598a6-e3b3-3062-abe7-23a406067533@rivosinc.com>
- <7430f494-9b43-5e03-c1e9-6b83e2611a11@rivosinc.com>
- <b67238bf-4b5d-dd17-99ff-88b0270ce10a@linaro.org>
- <CABgGipVT9L5p623Q2rbjrm=tTwcnjSr178CRKTNs+WMbm7=+-Q@mail.gmail.com>
- <Y6Tsn3RZ4tt8k/2m@spud>
+To: Conor Dooley <conor@kernel.org>
+Cc: linux-riscv@lists.infradead.org, linux@rivosinc.com,
+ Jisheng Zhang <jszhang@kernel.org>
+References: <20221222224104.3449841-1-vineetg@rivosinc.com>
+ <Y6TgAxg3csoQqaFr@spud> <1cd24228-847f-61a1-2466-07f0cc4c221a@rivosinc.com>
+ <Y6TprjVBPX6CRvOm@spud>
 From: Vineet Gupta <vineetg@rivosinc.com>
-In-Reply-To: <Y6Tsn3RZ4tt8k/2m@spud>
+In-Reply-To: <Y6TprjVBPX6CRvOm@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221222_155847_710125_9EC7A2B5 
-X-CRM114-Status: GOOD (  12.98  )
+X-CRM114-CacheID: sfid-20221222_160323_833769_C5B490FC 
+X-CRM114-Status: GOOD (  12.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,25 +96,34 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 
-On 12/22/22 15:47, Conor Dooley wrote:
-> On Fri, Dec 23, 2022 at 02:33:26AM +0800, Andy Chiu wrote:
->   
->> I wrote a PoC patch for this and it has been pushed into the following git tree:
->> https://github.com/sifive/riscv-linux/tree/dev/andyc/for-next-v13
->> I tested it on a rv32 QEMU virt machine and the user space can get/set
->> Vector registers normally. I haven't tested it on rv64 yet but it
->> should be no difference. The patch is not the final version and maybe
->> I missed some basic ideas.
->> But if everyone agrees with this approach
->> then I would like to start formalizing and submit the series.
-> Between yourself and the Rivos folk, you should probably sort out who is
-> doing what with the series at the very least, so that you're not both
-> working on "competing" v13s...
+On 12/22/22 15:35, Conor Dooley wrote:
+> On Thu, Dec 22, 2022 at 03:13:56PM -0800, Vineet Gupta wrote:
+>>
+>> On 12/22/22 14:53, Conor Dooley wrote:
+>>> Hi Vineet,
+>>>
+>>> On Thu, Dec 22, 2022 at 02:41:04PM -0800, Vineet Gupta wrote:
+>>>> This allows for using the enum in general to refer to any extension.
+>>> What is the point of this patch? It's hard to understand the rationale
+>>> without having any user, especially...
+>> Right I'm trying to build a cpu feature enable API which required handling
+>> of all extensions.
+> Does it matter to you if it's defines or an enum, as long as every
+> extension is exposed to you via the same mechanism?
 
-No we are not competing ;-)
-I'm mostly facilitating since this got stuck in a stalemate and original 
-contributors had gone radio silent for a while.
+No, I just went with what v6.1 release code base had.
 
+>
+>> Ideally yes this needs to go there. But it seemed more like a cleanup type
+>> patch to warrant a standalone submission.
+> Meh, dw. Not expecting people to know about every patch under the sun.
+
+No this patch doesn't require people to know what series it facilitates 
+since IMO it is a trivial cleanup - fixing 2 disparate ways of defining 
+extensions.
+And as I said it is not urgent, specially with other changes in flight.
+
+Thx,
 -Vineet
 
 _______________________________________________
