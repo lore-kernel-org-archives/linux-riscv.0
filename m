@@ -4,65 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30859C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Dec 2022 07:48:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD4FDC4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Dec 2022 09:14:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BqxngA3Psx/JVQRI/n4BqGXJCPT+fKJ+hHAiBNyTwuM=; b=IPdEMXJm+R/L9P
-	l1G11eUXVY1l1bz5jRRMt3p67XP2fyI5X22+m/Z4xaybjfh9ut5FigC2XWTvNytP/0tEwUyPts2vF
-	CHJDPfo/uqxVIVLU7k+0PmXBnD0vbFGO/9HplNLzE76fGKKtqsvgZS2g87q0FacHsxIYPSoaC/3VG
-	XlLVaQMDwB6I+cZVdvSePwaEFoQ1NKx7glomzXhUX9wXkaUlwe4YC6nxj227KBkXOvrDwimY/9pNC
-	sdC3TplPT8cewv+wBX07uoVplfoFXvvxVOmfEByAwg/3GX2Z7OseMWzjpBsLJK81f4icTrCXmVvHk
-	jJnLC8rf167gsxmQIWeg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Reply-To:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Cc:Subject:To:From:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F58BhH1Z7Mj9tzB6tqQlrTiUajjOoT+dDWyU2DH/hVQ=; b=J1rY7r5VAJKmY4DJrtcog0yGUK
+	jwY20Zs6EFe5F84ek59MW9MoXC2endujWB7L0Zm5GVp3bO1hr+ZKhj9jHi/kh0/H0eYBhc20kXRuw
+	sj7yS6czaa4Qu4SFOgCLNkoZDzrUbHmpO0x0IrdXjFgMbBg93eK7Qdkcdfnyj3O68IPjCc1m3iPNZ
+	gyqAJvRAHpHf6Rp9LvNNaMzmuRf1STBmWHtwwFSSexCUjBl7VbqRxjUoUt+Qa1A0dQhdOiJNsM4hF
+	yhqs/wdRPROj8EWRC/6UhpWyPC/dV97sQZfrmEJ9DxuJCiwXn75tiKB2fclqNEnNxIg5VXzLX9GZR
+	PgDItprA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8cnE-004vPN-8m; Fri, 23 Dec 2022 07:48:36 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8cnB-004vN4-09
-	for linux-riscv@lists.infradead.org; Fri, 23 Dec 2022 07:48:35 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 4DAB624E20C;
-	Fri, 23 Dec 2022 15:48:12 +0800 (CST)
-Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 23 Dec
- 2022 15:48:12 +0800
-Received: from [192.168.125.65] (183.27.97.120) by EXMBX172.cuchost.com
- (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 23 Dec
- 2022 15:48:11 +0800
-Message-ID: <fc0ec71a-89f9-f201-c4e6-b5594bfc0c35@starfivetech.com>
-Date: Fri, 23 Dec 2022 15:49:14 +0800
+	id 1p8e7w-005aTw-6S; Fri, 23 Dec 2022 09:14:04 +0000
+Received: from bg4.exmail.qq.com ([43.154.221.58])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1p8e6G-005ZdT-I7; Fri, 23 Dec 2022 09:12:23 +0000
+X-QQ-mid: bizesmtp81t1671786703twus74c8
+Received: from [192.168.3.2] ( [111.196.135.79])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 23 Dec 2022 17:11:41 +0800 (CST)
+X-QQ-SSF: 01200000002000C0C000B00A0000000
+X-QQ-FEAT: Qawnk02X7V/3XgZ2fM/jaE0BV64IhsybXxGbCgGgdSjq/pQgCE9fY4YxKS69I
+	lDjwVxohnmpJtxN9bWL0Y5nR8nj2NtA0rw4Hxb2AjPqO+R1Ck65jLpoRASyyBBuqOjhXI0o
+	bTNSgmMn0vS6HN5AfKKREc1jChYjO1pBJLE+Z+29XjVr6DbqivZoWNsZ3UnLf5XQmr+G/ft
+	w3snpVgKBYGtqmYA7Lcs59ndbseq90J9dRVcaemaRNSJpOS1ZsP0pNwvMTtinmQwH+D4iPu
+	DImOuCqmvDV8VsLzo0SNgk2vHCJ+rWdoJ0rWrZxXQjIBDZj9nk9VxKe9JxFz33/o/8KDYiV
+	MsY1vptl+ym8KpBypAMM+t6v7Jf46ypq+O+WNkK
+X-QQ-GoodBg: 0
+From: "Bin Meng" <bmeng@tinylab.org>
+To: "Sergey Matyukevich" <geomatsi@gmail.com>
+Subject: Re: [PATCH v3 0/3] serial: Add RISC-V support to the earlycon semihost driver
+Cc: linux-kernel <linux-kernel@vger.kernel.org>, linux-riscv
+ <linux-riscv@lists.infradead.org>, linux-serial
+ <linux-serial@vger.kernel.org>, aou <aou@eecs.berkeley.edu>, "catalin.marinas"
+ <catalin.marinas@arm.com>, gregkh <gregkh@linuxfoundation.org>, jirislaby
+ <jirislaby@kernel.org>, palmer <palmer@dabbelt.com>, "paul.walmsley"
+ <paul.walmsley@sifive.com>, linux <linux@armlinux.org.uk>, will
+ <will@kernel.org>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
+Date: Fri, 23 Dec 2022 09:11:42 +0000
+Message-Id: <em1edb1bed-77fc-4deb-9de1-7f35bc962d0e@a9022134.com>
+In-Reply-To: <Y6S4v7t0n0BI1P7d@curiosity>
+References: <20221209150437.795918-1-bmeng@tinylab.org> <Y6S4v7t0n0BI1P7d@curiosity>
+User-Agent: eM_Client/9.2.1222.0
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.2
-Subject: Re: [PATCH v3 04/11] reset: starfive: Factor out common JH71X0 reset
- code
-Content-Language: en-US
-To: Conor Dooley <conor@kernel.org>
-CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-clk@vger.kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring
-	<robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Stephen Boyd <sboyd@kernel.org>,
-	"Michael Turquette" <mturquette@baylibre.com>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Emil Renner Berthing
-	<emil.renner.berthing@canonical.com>, <linux-kernel@vger.kernel.org>
-References: <20221220005054.34518-1-hal.feng@starfivetech.com>
- <20221220005054.34518-5-hal.feng@starfivetech.com> <Y6I3IPsmz1YTC3IV@spud>
-From: Hal Feng <hal.feng@starfivetech.com>
-In-Reply-To: <Y6I3IPsmz1YTC3IV@spud>
-X-Originating-IP: [183.27.97.120]
-X-ClientProxiedBy: EXCAS061.cuchost.com (172.16.6.21) To EXMBX172.cuchost.com
- (172.16.6.92)
-X-YovoleRuleAgent: yovoleflag
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:tinylab.org:qybglogicsvr:qybglogicsvr3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221222_234833_221839_D8072C20 
-X-CRM114-Status: GOOD (  11.53  )
+X-CRM114-CacheID: sfid-20221223_011220_973498_82198531 
+X-CRM114-Status: GOOD (  11.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,29 +68,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
+Reply-To: Bin Meng <bmeng@tinylab.org>
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 20 Dec 2022 22:28:48 +0000, Conor Dooley wrote:
-> On Tue, Dec 20, 2022 at 08:50:47AM +0800, Hal Feng wrote:
-> > From: Emil Renner Berthing <kernel@esmil.dk>
-> > 
-> > The StarFive JH7100 SoC has additional reset controllers for audio and
-> > video, but the registers follow the same structure. On the JH7110 the
-> > reset registers don't get their own memory range, but instead follow the
-> > clock control registers. The registers still follow the same structure
-> > though, so let's factor out the common code to handle all these cases.
-> 
-> Is it a bit ornery to want to see this as a movement and an extraction
-> in two different patches? Would prob be easier to follow that way.
+Hi Sergey,
 
-Definitely, it will be more readable and easier to review. OK, I split it
-in the next version.
+On 2022/12/23 4:06:23, "Sergey Matyukevich" <geomatsi@gmail.com> wrote:
 
-Best regards,
-Hal
+>Hi Bin,
+>
+>>  RISC-V semihosting spec [1] is built on top of the existing Arm one;
+>>  we can add RISC-V earlycon semihost driver easily.
+>>
+>>  This series refactors the existing driver a little bit, to move smh_putc()
+>>  variants in respective arch's semihost.h, then we can implement RISC-V's
+>>  version in the riscv arch directory.
+>>
+>>  Link: https://github.com/riscv/riscv-semihosting-spec/blob/main/riscv-semihosting-spec.adoc [1]
+>>
+>>  Changes in v3:
+>>  - add #ifdef in the header to prevent from multiple inclusion
+>>  - add forward-declare struct uart_port
+>>  - add a Link tag in the commit message
+>>
+>>  Changes in v2:
+>>  - new patch: "serial: earlycon-arm-semihost: Move smh_putc() variants in respective arch's semihost.h"
+>>  - Move the RISC-V implementation to semihost.h
+>>
+>>  Bin Meng (3):
+>>    serial: earlycon-arm-semihost: Move smh_putc() variants in respective
+>>      arch's semihost.h
+>>    riscv: Implement semihost.h for earlycon semihost driver
+>>    serial: Rename earlycon semihost driver
+>>
+>>   arch/arm/include/asm/semihost.h               | 30 +++++++++++++++++++
+>>   arch/arm64/include/asm/semihost.h             | 24 +++++++++++++++
+>>   arch/riscv/include/asm/semihost.h             | 26 ++++++++++++++++
+>>   drivers/tty/serial/Kconfig                    | 14 ++++-----
+>>   drivers/tty/serial/Makefile                   |  2 +-
+>>   ...con-arm-semihost.c => earlycon-semihost.c} | 25 +---------------
+>>   6 files changed, 89 insertions(+), 32 deletions(-)
+>>   create mode 100644 arch/arm/include/asm/semihost.h
+>>   create mode 100644 arch/arm64/include/asm/semihost.h
+>>   create mode 100644 arch/riscv/include/asm/semihost.h
+>>   rename drivers/tty/serial/{earlycon-arm-semihost.c => earlycon-semihost.c} (57%)
+>
+>Tested-by: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
+>
+>Applied the patches on top of Linux 6.1 and tested earlycon logs from
+>RISC-V target in OpenOCD.
+>
+
+Thanks for your testing!
+
+Regards,
+Bin
 
 _______________________________________________
 linux-riscv mailing list
