@@ -4,79 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68DABC4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Dec 2022 13:02:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 266C5C4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Dec 2022 14:23:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=V9c1dnclA6bsUMmuKA2N9zN9DJudG3xs13pAohhrqNU=; b=kYPB6yYy2m3XZr
-	jAsK7acy1+N1LuHWN6Hy1vXx/QZmU5r7foP+QJl1zPnOMTgE5NwC9XOQ1X+dU6t2fy2eMZe/ms/Lr
-	ZXeu6xhalmv0g1+lBJnvvy2l+4bfLXKOSiY1lOwmjs4cjw/uwFRNW12UNLjvDxE0NrMKgZ3fhM0+R
-	P57VibOotFgdY91VfchTQd1v373hjeg7cymJndMoUXt+QbSXFpRV+yUq/7kzRKF3dGK9D5j1RZk5t
-	+RTZZF5cruHFtlLeagzrzbiAtHHNfEl+qN8/3IshUAs+Xs+dUKfraDoWX0x0rn42/RKDR6YQBUwRP
-	VCOoOnnm2Yp84c3HuBUw==;
+	List-Owner; bh=GnmssOwP9FbT79dcnjwshbYObfvdybULiwuMFRpdifM=; b=G2WG0aKKdlVNfc
+	AgR1ExZcYc0MkhGQSYTgbpbM4U6jRqSIg6+YUjmbeEzW+YQLm21skF3vHlO7nceXi7RAjS6FH76KL
+	cNqvhL/9klJ5hnEtTH9AHfh2opBqseyFw+yBR5lN5dgu5ZKionf00wgNpVkl0dgQjnXpmNX6sC14+
+	st/0AgOAUQc2qyFV9IDf1JtNMQ2Wl5DgFNq72l02ynTDydWhoKjHz8n06sJmQtvb+JmMx3NQ7OzVi
+	7o1XEKnksQ/PaWtm0JR596ELoIIeaXRufofFfQUzLK26uuopY4ZnPKL3G9AIihyzm+AKSrob2Xj0R
+	cGNBBTIKbUgRIsz6h1gA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8hhI-008DuW-Bx; Fri, 23 Dec 2022 13:02:48 +0000
-Received: from mail-yb1-xb34.google.com ([2607:f8b0:4864:20::b34])
+	id 1p8ixa-008p2m-OH; Fri, 23 Dec 2022 14:23:42 +0000
+Received: from mga03.intel.com ([134.134.136.65])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8hhA-008Dms-9n
-	for linux-riscv@lists.infradead.org; Fri, 23 Dec 2022 13:02:42 +0000
-Received: by mail-yb1-xb34.google.com with SMTP id i186so5197579ybc.9
-        for <linux-riscv@lists.infradead.org>; Fri, 23 Dec 2022 05:02:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=FgGdDK2lz6RD6lHxgpy8IA0EMFwDimB1CVAciou4PrA=;
-        b=oTH4Pnq/W2nLZO77k8pog9TAxJBEpRvEMJtoC3fGyzsw/J558C2lOKy/v3kw8nOwHl
-         HDpJ1OLlSr4Uva0yLTG7ffyPbRR2HwOvCYFbWecyxHjBe22zgNOhoGMMbtYYm76LYmvK
-         g9DZ/rhkq0WBR2a29z3ptQCXs7rMHf0JebtOssHGgtS5mQP7YBeCbthLj7X7W+NLnlEs
-         zsaDt0RAchYS9NpsKc1/JvXH3tZzunvbWO07q8rjoHXooEr7GAHEnI4NHTP1xPyqWpPc
-         OnGIhA06NQlliAnDTnb/29eE9ylHQbClGrBLy/Z4bA3ZHePEWIzYOutK5VUORfwuBHpZ
-         H0CA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=FgGdDK2lz6RD6lHxgpy8IA0EMFwDimB1CVAciou4PrA=;
-        b=E6kiJFrvlAOhrAV+m+ii12zfpBhtUKS6Jna33WtlK79Xm/+guWkjQivqUAHCX5L2LR
-         5/QH96QXFMmEKYae0P4VeFwmCVfNtfDRMPzrIv+8G8q6k7fWd/u1A7JIavUeP8yvlxED
-         xbHfO3ba+unYr2lHgNu0vCixIeX6KhcfzbXdoVVuAZoTDxbMYDMgTEEdmLO1obUSe0C0
-         8NlxR3wW5fOXoy164jj06GDdSEAXMYWPNylO+YpDa2ilZ/M74ft90YvcSNV5EDQ4mm+G
-         /3x16BlDH0W4tqKlD3SwiWvBMgUr0pM7CxjWPdz+RwAwyK0AIumduMk68aJdc2cxQHwc
-         G0kQ==
-X-Gm-Message-State: AFqh2krByfbKyAwIfe5J1I2Hev55o9YeIUDp+i0qMnAZPXTG2+3OuoqM
-	N6o81TgogSJzLkREpOseVgBT0N66grvAD9dICv8=
-X-Google-Smtp-Source: AMrXdXvXC8OHBwH1Xsd6UcBj7Z+CDB9gdjQwmVPQGEiKa4NVWsHAPIcb5I2Xdq846MbGQRt6Y7gdtRe/Lf+4zg2gX8w=
-X-Received: by 2002:a25:7650:0:b0:74a:79e2:3ab with SMTP id
- r77-20020a257650000000b0074a79e203abmr1022064ybc.119.1671800556006; Fri, 23
- Dec 2022 05:02:36 -0800 (PST)
+	id 1p8ixH-008osg-PP; Fri, 23 Dec 2022 14:23:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1671805403; x=1703341403;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=ELTp1mLG7Y9aCL8aO+3yggqOoksNOYkU+LC/pmwgzyA=;
+  b=AtSBPKuz3XgJdXNdETTMmwGGeKw993xnm5eTaZj4ngCeJRsIXYGc9vqV
+   GIkiK+loR5vpmtjalL5LLjkjyD58NwPFb4y5f8U37y5xams7TQfL10raX
+   7lBuzpz9IIiobDuMJs1RSvvA2gIpfnPQk+ZmBZeXP9UZiB+Uc66a5UC3B
+   Mk50UWQgWdhYGIg3oJ7KAKothd8y0FEgIAj7J9BbwOJbLXdBlST/swzNq
+   GIeMOe1fclETI4Y5WFY5x34ioMsbRUv2hFSdhpW8+gWQf+l+ESMv8D8oh
+   +eKuxPtmte8appSO+Rpv5h/1P9JlO6P5ECj/t4JAiHNQaNE5/hDnJUVlT
+   A==;
+X-IronPort-AV: E=McAfee;i="6500,9779,10570"; a="322279544"
+X-IronPort-AV: E=Sophos;i="5.96,268,1665471600"; 
+   d="scan'208";a="322279544"
+Received: from fmsmga006.fm.intel.com ([10.253.24.20])
+  by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Dec 2022 06:23:18 -0800
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6500,9779,10570"; a="897539227"
+X-IronPort-AV: E=Sophos;i="5.96,268,1665471600"; 
+   d="scan'208";a="897539227"
+Received: from irvmail001.ir.intel.com ([10.43.11.63])
+  by fmsmga006.fm.intel.com with ESMTP; 23 Dec 2022 06:23:13 -0800
+Received: from newjersey.igk.intel.com (newjersey.igk.intel.com [10.102.20.203])
+	by irvmail001.ir.intel.com (8.14.3/8.13.6/MailSET/Hub) with ESMTP id 2BNENBXm013561;
+	Fri, 23 Dec 2022 14:23:11 GMT
+From: Alexander Lobakin <alexandr.lobakin@intel.com>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Alexander Lobakin <alexandr.lobakin@intel.com>,
+        Andrzej Hajda <andrzej.hajda@intel.com>, linux-alpha@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org, linux-hexagon@vger.kernel.org,
+        linux-ia64@vger.kernel.org, loongarch@lists.linux.dev,
+        linux-m68k@vger.kernel.org, linux-mips@vger.kernel.org,
+        openrisc@lists.librecores.org, linux-parisc@vger.kernel.org,
+        linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+        linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+        sparclinux@vger.kernel.org, linux-xtensa@linux-xtensa.org,
+        intel-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+        Arnd Bergmann <arnd@arndb.de>, Rodrigo Vivi <rodrigo.vivi@intel.com>,
+        Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+        Peter Zijlstra <peterz@infradead.org>,
+        Boqun Feng <boqun.feng@gmail.com>, Mark Rutland <mark.rutland@arm.com>
+Subject: Re: [PATCH 00/19] Introduce __xchg, non-atomic xchg
+Date: Fri, 23 Dec 2022 15:23:00 +0100
+Message-Id: <20221223142300.1820652-1-alexandr.lobakin@intel.com>
+X-Mailer: git-send-email 2.38.1
+In-Reply-To: <20221222092147.d2bb177c67870884f2e59a9b@linux-foundation.org>
+References: <20221222114635.1251934-1-andrzej.hajda@intel.com> <20221222092147.d2bb177c67870884f2e59a9b@linux-foundation.org>
 MIME-Version: 1.0
-References: <20220829205219.283543-1-geomatsi@gmail.com> <CA+V-a8uLmp33PSYGmJjf9FupJ0M8Hf7ef7A1G4va8GDL_61Qyw@mail.gmail.com>
- <Y6S1/kROC0p5CboA@curiosity> <CA+V-a8u0qUF81RUTF9+4T4F1GxW3=4P7RMTTjjsaMq4MiiQSMQ@mail.gmail.com>
- <Y6TIywUWZ3nrPeon@curiosity> <CA+V-a8tMQ-RaaXD5209HxT77VoiOanvjdbFCPsdWpDYswuY+ZQ@mail.gmail.com>
- <Y6TYNBgqgWuxhhHJ@curiosity>
-In-Reply-To: <Y6TYNBgqgWuxhhHJ@curiosity>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Fri, 23 Dec 2022 13:02:10 +0000
-Message-ID: <CA+V-a8tDi79M8cS7rVoby3sopQ4AwXXcNggfHYXW-W2wtEgQ4g@mail.gmail.com>
-Subject: Re: [RFC PATCH 1/1] riscv: mm: notify remote harts about mmu cache updates
-To: Sergey Matyukevich <geomatsi@gmail.com>
-Cc: linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org, 
-	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@rivosinc.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Guo Ren <guoren@kernel.org>, 
-	Alexandre Ghiti <alexandre.ghiti@canonical.com>, Heiko Stuebner <heiko@sntech.de>, 
-	Sergey Matyukevich <sergey.matyukevich@syntacore.com>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Conor Dooley <Conor.Dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221223_050240_455938_622623AE 
-X-CRM114-Status: GOOD (  37.82  )
+X-CRM114-CacheID: sfid-20221223_062323_912228_D0877028 
+X-CRM114-Status: GOOD (  26.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,120 +94,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Sergey,
+From: Andrew Morton <akpm@linux-foundation.org>
+Date: Thu, 22 Dec 2022 09:21:47 -0800
 
-On Thu, Dec 22, 2022 at 10:20 PM Sergey Matyukevich <geomatsi@gmail.com> wrote:
->
-> On Thu, Dec 22, 2022 at 09:26:07PM +0000, Lad, Prabhakar wrote:
-> > Hi Sergey,
-> >
-> > On Thu, Dec 22, 2022 at 9:14 PM Sergey Matyukevich <geomatsi@gmail.com> wrote:
-> > >
-> > > Hi Prabhakar,
-> > >
-> > > > > > > From: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
-> > > > > > >
-> > > > > > > Current implementation of update_mmu_cache function performs local TLB
-> > > > > > > flush. It does not take into account ASID information. Besides, it does
-> > > > > > > not take into account other harts currently running the same mm context
-> > > > > > > or possible migration of the running context to other harts. Meanwhile
-> > > > > > > TLB flush is not performed for every context switch if ASID support
-> > > > > > > is enabled.
-> > > > > > >
-> > > > > > > Patch [1] proposed to add ASID support to update_mmu_cache to avoid
-> > > > > > > flushing local TLB entirely. This patch takes into account other
-> > > > > > > harts currently running the same mm context as well as possible
-> > > > > > > migration of this context to other harts.
-> > > > > > >
-> > > > > > > For this purpose the approach from flush_icache_mm is reused. Remote
-> > > > > > > harts currently running the same mm context are informed via SBI calls
-> > > > > > > that they need to flush their local TLBs. All the other harts are marked
-> > > > > > > as needing a deferred TLB flush when this mm context runs on them.
-> > > > > > >
-> > > > > > > [1] https://lore.kernel.org/linux-riscv/20220821013926.8968-1-tjytimi@163.com/
-> > > > > > >
-> > > > > > > Signed-off-by: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
-> > > > > > > ---
-> > > > > > >  arch/riscv/include/asm/mmu.h      |  2 ++
-> > > > > > >  arch/riscv/include/asm/pgtable.h  |  2 +-
-> > > > > > >  arch/riscv/include/asm/tlbflush.h | 18 ++++++++++++++++++
-> > > > > > >  arch/riscv/mm/context.c           | 10 ++++++++++
-> > > > > > >  arch/riscv/mm/tlbflush.c          | 28 +++++++++++-----------------
-> > > > > > >  5 files changed, 42 insertions(+), 18 deletions(-)
-> > > > > > >
-> > > > <snip>
-> > > > > > [  133.008752] Hardware name: Renesas SMARC EVK based on r9a07g043f01 (DT)
-> > > > > > [  133.015338] Call Trace:
-> > > > > > [  133.017778] [<ffffffff800055cc>] dump_backtrace+0x1c/0x24
-> > > > > > [  133.023174] [<ffffffff80776836>] show_stack+0x2c/0x38
-> > > > > > [  133.028214] [<ffffffff80780244>] dump_stack_lvl+0x3c/0x54
-> > > > > > [  133.033597] [<ffffffff80780270>] dump_stack+0x14/0x1c
-> > > > > > [  133.038633] [<ffffffff80776c00>] panic+0x102/0x29a
-> > > > > > [  133.043409] [<ffffffff800137ba>] do_exit+0x704/0x70a
-> > > > > > [  133.048362] [<ffffffff8001390e>] do_group_exit+0x24/0x70
-> > > > > > [  133.053659] [<ffffffff8001de54>] get_signal+0x68a/0x6dc
-> > > > > > [  133.058874] [<ffffffff8000494e>] do_work_pending+0xd6/0x44e
-> > > > > > [  133.064427] [<ffffffff800036c2>] resume_userspace_slow+0x8/0xa
-> > > > > > [  133.070249] ---[ end Kernel panic - not syncing: Attempted to kill
-> > > > > > init! exitcode=0x0000000b ]---
-> > > > > >
-> > > > > > If I revert this patch [0] bonnie++ works as expected.
-> > > > > >
-> > > > > > Any pointers on what could be the issue here?
-> > > > > >
-> > > > > > [0] https://git.kernel.org/pub/scm/linux/kernel/git/palmer/linux.git/commit/?h=for-next&id=4bd1d80efb5af640f99157f39b50fb11326ce641
-> > > > > >
-> > > > > > Cheers,
-> > > > > > Prabhakar
-> > > > >
-> > > > > Good catch. Thanks for reporting ! Discussion around the issue and
-> > > > > possible ways to fix it can be found in the following email thread:
-> > > > >
-> > > > > https://lore.kernel.org/linux-riscv/20221111075902.798571-1-guoren@kernel.org/
-> > > > >
-> > > > > Could you please apply the patch from Guo Ren instead of [0] and check
-> > > > > if you have any issues with your test ? Besides, could you please share
-> > > > > your kernel configuration and the actual bonnie++ params from emmc_t_002.sh script ?
-> > > > >
-> > > > Thanks for the pointer, I'll undo my changes and test Guo's patch.
-> > > >
-> > > > I have pasted the script here [0] and attached config.
-> > > >
-> > > > [0] https://paste.debian.net/hidden/a7a769b5/
-> > >
-> > > Thanks for the script and config. Could you please also share the
-> > > following information:
-> > > - how many cores your system has
-> > The Renesas RZ/Five SoC has a single Andes AX45MP core.
-> >
-> > > - does your system support ASID
-> > >
-> > With a quick look at [0] It does support ASID, unless there is a way
-> > to disable it.
-> >
-> > [0] http://www.andestech.com/wp-content/uploads/AX45MP-1C-Rev.-5.0.0-Datasheet.pdf
->
-> So you have a single-core system, but your kernel configuration enables
-> CONFIG_SMP. Additional 'deferred TLB flush' logic is dropped at build
-> time if CONFIG_SMP is disabled. On the other hand, system should not
-> fail that way even if SMP is enabled.
->
-I enabled CONFIG_SMP while doing some testing of PMA code and indeed
-enabling this config should not introduce a failure.
+> On Thu, 22 Dec 2022 12:46:16 +0100 Andrzej Hajda <andrzej.hajda@intel.com> wrote:
+> 
+> > Hi all,
+> > 
+> > I hope there will be place for such tiny helper in kernel.
+> > Quick cocci analyze shows there is probably few thousands places
+> > where it could be useful.
+> 
+> So to clarify, the intent here is a simple readability cleanup for
+> existing open-coded exchange operations.  The intent is *not* to
+> identify existing xchg() sites which are unnecessarily atomic and to
+> optimize them by using the non-atomic version.
+> 
+> Have you considered the latter?
+> 
+> > I am not sure who is good person to review/ack such patches,
+> 
+> I can take 'em.
+> 
+> > so I've used my intuition to construct to/cc lists, sorry for mistakes.
+> > This is the 2nd approach of the same idea, with comments addressed[0].
+> > 
+> > The helper is tiny and there are advices we can leave without it, so
+> > I want to present few arguments why it would be good to have it:
+> > 
+> > 1. Code readability/simplification/number of lines:
+> > 
+> > Real example from drivers/net/ethernet/mellanox/mlx5/core/esw/qos.c:
+> > -       previous_min_rate = evport->qos.min_rate;
+> > -       evport->qos.min_rate = min_rate;
+> > +       previous_min_rate = __xchg(evport->qos.min_rate, min_rate);
+> > 
+> > For sure the code is more compact, and IMHO more readable.
+> > 
+> > 2. Presence of similar helpers in other somehow related languages/libs:
+> > 
+> > a) Rust[1]: 'replace' from std::mem module, there is also 'take'
+> >     helper (__xchg(&x, 0)), which is the same as private helper in
+> >     i915 - fetch_and_zero, see latest patch.
+> > b) C++ [2]: 'exchange' from utility header.
+> > 
+> > If the idea is OK there are still 2 qestions to answer:
+> > 
+> > 1. Name of the helper, __xchg follows kernel conventions,
+> >     but for me Rust names are also OK.
+> 
+> I like replace(), or, shockingly, exchange().
+> 
+> But...   Can we simply make swap() return the previous value?
+> 
+> 	previous_min_rate = swap(&evport->qos.min_rate, min_rate);
 
-> Let me double-check if anything can go wrong if cpumasks may have only
-> a single cpu. Another suspect is a change in update_mmu_cache: probably
-> making it asid-specific (and thus more granular) was a bad idea.
->
-Thanks.
+Unforunately, swap()'s arguments get passed by names, not as
+pointers, so you can't do
 
-BTW I tested the patch [0] which you pointed out and that fixes the
-issues seen earlier.
+	swap(some_ptr, NULL);
 
-[0] https://patchwork.kernel.org/project/linux-riscv/patch/20221111075902.798571-1-guoren@kernel.org/
+ -- pretty common pattern for xchg.
 
-Cheers,
-Prabhakar
+Thanks,
+Olek
 
 _______________________________________________
 linux-riscv mailing list
