@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5649BC4708D
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jan 2023 18:56:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90CFEC3DA7D
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jan 2023 18:56:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iQ1+N7dZ6ez/ANo89CVfFKgoNSozyoebVd8q34SDS8A=; b=XtNsZU7PENb77rf+8EewUAz8cW
-	A6yUoMHqgrgYMjLz1dcqsEBv29kyHJJkMbW1t6jKVmhKlsaLDUthqmVKwAj95Q5mrP8AMlo5NvpLS
-	MoyJVfvQT7Vz/JB4ZZkejCmupSXdTTen7CmdbPzJt/UgqWkPWUNFIJHRriAK5sFddtIdoM+Y2VEgy
-	vMkbwfPV1GKhKTHBA20jKgdVmJkFiMkAs63BJCv0en0kfZ76HvPl+FA0Jukx3GCsPpdnb2PZKdYXa
-	4QVAAaom+ubt30go3u16iZpLxTY79Ig/RjI4AV/h2HpOoTpytq3GEXZXG9Ezz1tq/TBHuWIhaD9he
-	Eobrl+jA==;
+	bh=e/YD62eJ6DuQYiEXukTQRhG77pJsujIsBVcs8Bs0ndk=; b=E6yMct8uRYMCk9QwNMCvH0dTxg
+	EBOhZCCz4T9VPCGGN7KvoFLhhfcNwtWyqPzufS3/VnUzxNcSQ/ykqksOJfbJAgAb3owkQqepuYYCY
+	4X6X0WB9/XBfmLwkHOFXuQVRIyjFJlmSQio1AQ9ThT1lZ5Ygvi9is8FXZjQLedwDDWEVLhH1JHtfQ
+	IXTp0JqSSCuReMOGSnR25cvRM7eyFiDaVMVm2AXcLiR7SGg9lFVviW+JXQl+04hi1nWNKFIK+coQn
+	OVA8ObC9qe2HrIYYujcvkCh17gBMvDCV90f2DKUz3lV/7lk6buxs/R0I8yd0oOhiwwA2vUswO6YBm
+	0mxa/PbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCmRx-00476Q-Kk; Tue, 03 Jan 2023 18:55:50 +0000
-Received: from mga01.intel.com ([192.55.52.88])
+	id 1pCmSM-0047K7-Mq; Tue, 03 Jan 2023 18:56:15 +0000
+Received: from mga03.intel.com ([134.134.136.65])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8eok-0063mx-4w
-	for linux-riscv@lists.infradead.org; Fri, 23 Dec 2022 09:58:28 +0000
+	id 1p8gEp-007Em4-9c
+	for linux-riscv@lists.infradead.org; Fri, 23 Dec 2022 11:29:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1671789498; x=1703325498;
+  t=1671794959; x=1703330959;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=Vzn/jjoI81Yw1/W7i6l5SV3M3d88Y8Aa8/ZdixrsSj4=;
-  b=Mp/b71WjHLoOHULgHnS+bTWcH28AWAuDUOvcy/mwzbYdKN2W//YR2ZFE
-   oR3yyJ9X7NhxkQ56HDTIoPHNtRCwlkLXy5R6HWPhgCU7Rv2XXZnL+DAEa
-   jpMQZtTI754BAcwuXXzA4zhjsf0q13uQGt67fDC/aoPw4FU5rf1ddcoDd
-   lKIZDt3gfM1QXdbCYVpa10fZqm3wZAV5iZQrshfdkTwQJgnPxap+eo/BF
-   TcEGjhoM7blqvV5GsZLCJWuzq6wfc1lZKW+SpNM0xTQsqNT1CNhbLzddn
-   fafTqXL1hWqmINXASWRR8feYbmOkYYqOEdkWKmg/x7rOWydqBENU/j4wX
+  bh=M64BoyElDLh0i5mYEi4Kgzhxy9Vjkb+T+C4J9otbG4A=;
+  b=BykC9oe3AqmE36HJ8m2ickLjgTleTRq3UHtZmfxFImjPavnV91D5BMFz
+   7twcasXv8qXX5EPrskKRiymoGxyXx2Qw+1wNmQ9P8hHdGN1DZ/be3/86a
+   /JP5u9CsmbGoxgQQEzJkOXK79PwgCAZNblqroo0b+5nZdMqZBZ4XqfEU9
+   hd1I9s23soHJr/TFPRAZgCNOXZjDDQMS8oGT++5gvTjB6YOYY43vNILf0
+   NtjeqmNar84jfJvTahcH+MIry0CXI4AlOTb+tCRbHbNLg+Fk2WP/2OVZ1
+   TVyLbycpwkgVGBcNJszr0JOW7JDTo6l3CjQpt3pblsLSPmeh3Juv2qFLw
    A==;
-X-IronPort-AV: E=McAfee;i="6500,9779,10569"; a="347463821"
+X-IronPort-AV: E=McAfee;i="6500,9779,10569"; a="322258990"
 X-IronPort-AV: E=Sophos;i="5.96,268,1665471600"; 
-   d="scan'208";a="347463821"
-Received: from orsmga007.jf.intel.com ([10.7.209.58])
-  by fmsmga101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Dec 2022 01:58:13 -0800
+   d="scan'208";a="322258990"
+Received: from fmsmga005.fm.intel.com ([10.253.24.32])
+  by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Dec 2022 03:29:16 -0800
 X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6500,9779,10569"; a="645539429"
+X-IronPort-AV: E=McAfee;i="6500,9779,10569"; a="980918685"
 X-IronPort-AV: E=Sophos;i="5.96,268,1665471600"; 
-   d="scan'208";a="645539429"
+   d="scan'208";a="980918685"
 Received: from lkp-server01.sh.intel.com (HELO b5d47979f3ad) ([10.239.97.150])
-  by orsmga007.jf.intel.com with ESMTP; 23 Dec 2022 01:58:08 -0800
+  by fmsmga005.fm.intel.com with ESMTP; 23 Dec 2022 03:29:12 -0800
 Received: from kbuild by b5d47979f3ad with local (Exim 4.96)
 	(envelope-from <lkp@intel.com>)
-	id 1p8eoa-000CbX-0F;
-	Fri, 23 Dec 2022 09:58:08 +0000
-Date: Fri, 23 Dec 2022 17:57:38 +0800
+	id 1p8gEh-000CeR-0f;
+	Fri, 23 Dec 2022 11:29:11 +0000
+Date: Fri, 23 Dec 2022 19:28:30 +0800
 From: kernel test robot <lkp@intel.com>
 To: Hal Feng <hal.feng@starfivetech.com>, linux-riscv@lists.infradead.org,
 	devicetree@vger.kernel.org, linux-clk@vger.kernel.org
@@ -66,14 +66,14 @@ Cc: oe-kbuild-all@lists.linux.dev, Conor Dooley <conor@kernel.org>,
 	Philipp Zabel <p.zabel@pengutronix.de>,
 	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
 	Hal Feng <hal.feng@starfivetech.com>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 09/11] clk: starfive: Add StarFive JH7110 system clock
- driver
-Message-ID: <202212231726.ZYGFg045-lkp@intel.com>
-References: <20221220005054.34518-10-hal.feng@starfivetech.com>
+Subject: Re: [PATCH v3 10/11] clk: starfive: Add StarFive JH7110 always-on
+ clock driver
+Message-ID: <202212231920.K8BOyDD7-lkp@intel.com>
+References: <20221220005054.34518-11-hal.feng@starfivetech.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="Muz8L7oj9wELg7Wl"
+Content-Type: multipart/mixed; boundary="oq0u/oECtGfRV5oJ"
 Content-Disposition: inline
-In-Reply-To: <20221220005054.34518-10-hal.feng@starfivetech.com>
+In-Reply-To: <20221220005054.34518-11-hal.feng@starfivetech.com>
 X-Mailman-Approved-At: Tue, 03 Jan 2023 10:22:00 -0800
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,7 +90,7 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---Muz8L7oj9wELg7Wl
+--oq0u/oECtGfRV5oJ
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 
@@ -102,8 +102,8 @@ I love your patch! Perhaps something to improve:
 
 url:    https://github.com/intel-lab-lkp/linux/commits/Hal-Feng/Basic-clock-and-reset-support-for-StarFive-JH7110-RISC-V-SoC/20221220-090131
 base:   830b3c68c1fb1e9176028d02ef86f3cf76aa2476
-patch link:    https://lore.kernel.org/r/20221220005054.34518-10-hal.feng%40starfivetech.com
-patch subject: [PATCH v3 09/11] clk: starfive: Add StarFive JH7110 system clock driver
+patch link:    https://lore.kernel.org/r/20221220005054.34518-11-hal.feng%40starfivetech.com
+patch subject: [PATCH v3 10/11] clk: starfive: Add StarFive JH7110 always-on clock driver
 config: riscv-randconfig-s042-20221218
 compiler: riscv64-linux-gcc (GCC) 12.1.0
 reproduce:
@@ -111,10 +111,10 @@ reproduce:
         chmod +x ~/bin/make.cross
         # apt-get install sparse
         # sparse version: v0.6.4-39-gce1a6720-dirty
-        # https://github.com/intel-lab-lkp/linux/commit/59e8d6aa846044f03cd50f806a9ed0577d1a6b70
+        # https://github.com/intel-lab-lkp/linux/commit/e30705645d46071dc6c7ce5485b5ebf3aeeaa59c
         git remote add linux-review https://github.com/intel-lab-lkp/linux
         git fetch --no-tags linux-review Hal-Feng/Basic-clock-and-reset-support-for-StarFive-JH7110-RISC-V-SoC/20221220-090131
-        git checkout 59e8d6aa846044f03cd50f806a9ed0577d1a6b70
+        git checkout e30705645d46071dc6c7ce5485b5ebf3aeeaa59c
         # save the config file
         mkdir build_dir && cp config build_dir/.config
         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.1.0 make.cross C=1 CF='-fdiagnostic-prefix -D__CHECK_ENDIAN__' O=build_dir ARCH=riscv olddefconfig
@@ -125,114 +125,90 @@ If you fix the issue, kindly add following tag where applicable
 
 sparse warnings: (new ones prefixed by >>)
    WARNING: invalid argument to '-march': '_zihintpause'
->> drivers/clk/starfive/clk-starfive-jh7110-sys.c:359:40: sparse: sparse: incorrect type in argument 2 (different address spaces) @@     expected void *data @@     got void [noderef] __iomem *base @@
-   drivers/clk/starfive/clk-starfive-jh7110-sys.c:359:40: sparse:     expected void *data
-   drivers/clk/starfive/clk-starfive-jh7110-sys.c:359:40: sparse:     got void [noderef] __iomem *base
+>> drivers/clk/starfive/clk-starfive-jh7110-aon.c:86:40: sparse: sparse: incorrect type in argument 2 (different address spaces) @@     expected void *data @@     got void [noderef] __iomem *base @@
+   drivers/clk/starfive/clk-starfive-jh7110-aon.c:86:40: sparse:     expected void *data
+   drivers/clk/starfive/clk-starfive-jh7110-aon.c:86:40: sparse:     got void [noderef] __iomem *base
 
-vim +359 drivers/clk/starfive/clk-starfive-jh7110-sys.c
+vim +86 drivers/clk/starfive/clk-starfive-jh7110-aon.c
 
-   340	
-   341	static int __init jh7110_syscrg_probe(struct platform_device *pdev)
-   342	{
-   343		struct jh71x0_clk_priv *priv;
-   344		unsigned int idx;
-   345		int ret;
-   346	
-   347		priv = devm_kzalloc(&pdev->dev,
-   348				    struct_size(priv, reg, JH7110_SYSCLK_PLL0_OUT),
-   349				    GFP_KERNEL);
-   350		if (!priv)
-   351			return -ENOMEM;
-   352	
-   353		spin_lock_init(&priv->rmw_lock);
-   354		priv->dev = &pdev->dev;
-   355		priv->base = devm_platform_ioremap_resource(pdev, 0);
-   356		if (IS_ERR(priv->base))
-   357			return PTR_ERR(priv->base);
-   358	
- > 359		dev_set_drvdata(priv->dev, priv->base);
-   360	
-   361		/* 24MHz -> 1250.0MHz */
-   362		priv->pll[0] = devm_clk_hw_register_fixed_factor(priv->dev, "pll0_out",
-   363								 "osc", 0, 625, 12);
-   364		if (IS_ERR(priv->pll[0]))
-   365			return PTR_ERR(priv->pll[0]);
-   366	
-   367		/* 24MHz -> 1066.0MHz */
-   368		priv->pll[1] = devm_clk_hw_register_fixed_factor(priv->dev, "pll1_out",
-   369								 "osc", 0, 533, 12);
-   370		if (IS_ERR(priv->pll[1]))
-   371			return PTR_ERR(priv->pll[1]);
-   372	
-   373		/* 24MHz -> 1188.0MHz */
-   374		priv->pll[2] = devm_clk_hw_register_fixed_factor(priv->dev, "pll2_out",
-   375								 "osc", 0, 99, 2);
-   376		if (IS_ERR(priv->pll[2]))
-   377			return PTR_ERR(priv->pll[2]);
-   378	
-   379		for (idx = 0; idx < JH7110_SYSCLK_PLL0_OUT; idx++) {
-   380			u32 max = jh7110_sysclk_data[idx].max;
-   381			struct clk_parent_data parents[4] = {};
-   382			struct clk_init_data init = {
-   383				.name = jh7110_sysclk_data[idx].name,
-   384				.ops = starfive_jh71x0_clk_ops(max),
-   385				.parent_data = parents,
-   386				.num_parents =
-   387					((max & JH71X0_CLK_MUX_MASK) >> JH71X0_CLK_MUX_SHIFT) + 1,
-   388				.flags = jh7110_sysclk_data[idx].flags,
-   389			};
-   390			struct jh71x0_clk *clk = &priv->reg[idx];
-   391			unsigned int i;
-   392	
-   393			for (i = 0; i < init.num_parents; i++) {
-   394				unsigned int pidx = jh7110_sysclk_data[idx].parents[i];
-   395	
-   396				if (pidx < JH7110_SYSCLK_PLL0_OUT)
-   397					parents[i].hw = &priv->reg[pidx].hw;
-   398				else if (pidx < JH7110_SYSCLK_END)
-   399					parents[i].hw = priv->pll[pidx - JH7110_SYSCLK_PLL0_OUT];
-   400				else if (pidx == JH7110_SYSCLK_OSC)
-   401					parents[i].fw_name = "osc";
-   402				else if (pidx == JH7110_SYSCLK_GMAC1_RMII_REFIN)
-   403					parents[i].fw_name = "gmac1_rmii_refin";
-   404				else if (pidx == JH7110_SYSCLK_GMAC1_RGMII_RXIN)
-   405					parents[i].fw_name = "gmac1_rgmii_rxin";
-   406				else if (pidx == JH7110_SYSCLK_I2STX_BCLK_EXT)
-   407					parents[i].fw_name = "i2stx_bclk_ext";
-   408				else if (pidx == JH7110_SYSCLK_I2STX_LRCK_EXT)
-   409					parents[i].fw_name = "i2stx_lrck_ext";
-   410				else if (pidx == JH7110_SYSCLK_I2SRX_BCLK_EXT)
-   411					parents[i].fw_name = "i2srx_bclk_ext";
-   412				else if (pidx == JH7110_SYSCLK_I2SRX_LRCK_EXT)
-   413					parents[i].fw_name = "i2srx_lrck_ext";
-   414				else if (pidx == JH7110_SYSCLK_TDM_EXT)
-   415					parents[i].fw_name = "tdm_ext";
-   416				else if (pidx == JH7110_SYSCLK_MCLK_EXT)
-   417					parents[i].fw_name = "mclk_ext";
-   418			}
-   419	
-   420			clk->hw.init = &init;
-   421			clk->idx = idx;
-   422			clk->max_div = max & JH71X0_CLK_DIV_MASK;
-   423	
-   424			ret = devm_clk_hw_register(&pdev->dev, &clk->hw);
-   425			if (ret)
-   426				return ret;
-   427		}
-   428	
-   429		ret = devm_of_clk_add_hw_provider(&pdev->dev, jh7110_sysclk_get, priv);
-   430		if (ret)
-   431			return ret;
-   432	
-   433		return jh7110_reset_controller_register(priv, "reset-sys", 0);
-   434	}
-   435	
+    67	
+    68	static int jh7110_aoncrg_probe(struct platform_device *pdev)
+    69	{
+    70		struct jh71x0_clk_priv *priv;
+    71		unsigned int idx;
+    72		int ret;
+    73	
+    74		priv = devm_kzalloc(&pdev->dev,
+    75				    struct_size(priv, reg, JH7110_AONCLK_END),
+    76				    GFP_KERNEL);
+    77		if (!priv)
+    78			return -ENOMEM;
+    79	
+    80		spin_lock_init(&priv->rmw_lock);
+    81		priv->dev = &pdev->dev;
+    82		priv->base = devm_platform_ioremap_resource(pdev, 0);
+    83		if (IS_ERR(priv->base))
+    84			return PTR_ERR(priv->base);
+    85	
+  > 86		dev_set_drvdata(priv->dev, priv->base);
+    87	
+    88		for (idx = 0; idx < JH7110_AONCLK_END; idx++) {
+    89			u32 max = jh7110_aonclk_data[idx].max;
+    90			struct clk_parent_data parents[4] = {};
+    91			struct clk_init_data init = {
+    92				.name = jh7110_aonclk_data[idx].name,
+    93				.ops = starfive_jh71x0_clk_ops(max),
+    94				.parent_data = parents,
+    95				.num_parents =
+    96					((max & JH71X0_CLK_MUX_MASK) >> JH71X0_CLK_MUX_SHIFT) + 1,
+    97				.flags = jh7110_aonclk_data[idx].flags,
+    98			};
+    99			struct jh71x0_clk *clk = &priv->reg[idx];
+   100			unsigned int i;
+   101	
+   102			for (i = 0; i < init.num_parents; i++) {
+   103				unsigned int pidx = jh7110_aonclk_data[idx].parents[i];
+   104	
+   105				if (pidx < JH7110_AONCLK_END)
+   106					parents[i].hw = &priv->reg[pidx].hw;
+   107				else if (pidx == JH7110_AONCLK_OSC)
+   108					parents[i].fw_name = "osc";
+   109				else if (pidx == JH7110_AONCLK_RTC_OSC)
+   110					parents[i].fw_name = "rtc_osc";
+   111				else if (pidx == JH7110_AONCLK_GMAC0_RMII_REFIN)
+   112					parents[i].fw_name = "gmac0_rmii_refin";
+   113				else if (pidx == JH7110_AONCLK_GMAC0_RGMII_RXIN)
+   114					parents[i].fw_name = "gmac0_rgmii_rxin";
+   115				else if (pidx == JH7110_AONCLK_STG_AXIAHB)
+   116					parents[i].fw_name = "stg_axiahb";
+   117				else if (pidx == JH7110_AONCLK_APB_BUS)
+   118					parents[i].fw_name = "apb_bus";
+   119				else if (pidx == JH7110_AONCLK_GMAC0_GTXCLK)
+   120					parents[i].fw_name = "gmac0_gtxclk";
+   121			}
+   122	
+   123			clk->hw.init = &init;
+   124			clk->idx = idx;
+   125			clk->max_div = max & JH71X0_CLK_DIV_MASK;
+   126	
+   127			ret = devm_clk_hw_register(&pdev->dev, &clk->hw);
+   128			if (ret)
+   129				return ret;
+   130		}
+   131	
+   132		ret = devm_of_clk_add_hw_provider(&pdev->dev, jh7110_aonclk_get, priv);
+   133		if (ret)
+   134			return ret;
+   135	
+   136		return jh7110_reset_controller_register(priv, "reset-aon", 1);
+   137	}
+   138	
 
 -- 
 0-DAY CI Kernel Test Service
 https://01.org/lkp
 
---Muz8L7oj9wELg7Wl
+--oq0u/oECtGfRV5oJ
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: attachment; filename=config
 
@@ -5629,6 +5605,7 @@ CONFIG_CLK_STARFIVE_JH71X0=y
 CONFIG_CLK_STARFIVE_JH7100=y
 CONFIG_CLK_STARFIVE_JH7100_AUDIO=m
 CONFIG_CLK_STARFIVE_JH7110_SYS=y
+CONFIG_CLK_STARFIVE_JH7110_AON=y
 # CONFIG_CLK_SUNXI is not set
 CONFIG_SUNXI_CCU=y
 CONFIG_SUNIV_F1C100S_CCU=y
@@ -7843,7 +7820,7 @@ CONFIG_ARCH_USE_MEMTEST=y
 CONFIG_WARN_ABI_ERRORS=y
 # end of Kernel hacking
 
---Muz8L7oj9wELg7Wl
+--oq0u/oECtGfRV5oJ
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -7854,5 +7831,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---Muz8L7oj9wELg7Wl--
+--oq0u/oECtGfRV5oJ--
 
