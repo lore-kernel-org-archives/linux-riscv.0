@@ -4,45 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B34A1C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Dec 2022 16:39:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8858AC4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Dec 2022 17:00:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Subject:From:To:MIME-Version:Date:Message-ID:
-	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=O/k2GEH9+0bJd7gHiwLnpq1XKe4nC613nVNaao8WW2w=; b=LoyRR6tY0IRRtC
-	KBb30jqF0alNoo0G18rwReYP0Cbaiwk/vQePJalLpqoQIFec9NGLWMxRtN2CAaJqy7KZjUui0rrZn
-	hF9DWPm9xOfpYBVe3owLECH5aZVamJTg7AwsS9aYHNirhKNn6T2hCkgvBgEhIFwohQ25WQPFnvT/D
-	/Lp3wOdHAcH/R2q76UvspJCll/6t4KlSLnoXC9S8CYghnU/P4J8z3h84skRPih5n49ynpIdqpjJIH
-	MwImpON8OoP0bYfykmmo3rs921hiV50PFKyKozwFlL/le86fg82SrATWXaYkoaTBpy3yvsJdFsG2c
-	rbscmdIsZCx61GZ6zu8A==;
+	List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:MIME-Version:
+	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LjJ8OagpellcdHs9ABKsIAK/Wf3kN7CZXByxV2tokTI=; b=rEDjqmoxSx5Bi0VF+C7b/Pkt+N
+	NeofH2Cv+FIGcOE0ZNYdiccmuAvi3u7LYE6NE+0unw3jxjCTWLiX5fRn+BH6Wr22RdZPnr9XIWcdG
+	0dswEJiQfQPegXdGqWwYtDub6rjHcLjVCY2AAwvIWMwMf5cOrqBbO+WyTlNCmnpNVhM5WIAoXkn8I
+	hYaoSSnRURkUx4RzX8R3ikrN9MB68xv2EbmI7DJ0l0TObyl7HatIwVp9QQgMGvf8xT3rqE4GOsvwF
+	ukWczsoyPz+nxURwEw+UXzDVkMAuHlae3icxC9OXTE1IiDqC9Vht0p83gpWwg3sAFjwhgqekG0SFK
+	0kdJTlsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8l4R-00A2qF-4O; Fri, 23 Dec 2022 16:38:55 +0000
+	id 1p8lOp-00ABBy-Ku; Fri, 23 Dec 2022 16:59:59 +0000
 Received: from imap4.hz.codethink.co.uk ([188.40.203.114])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8l4N-00A2nW-DS
-	for linux-riscv@lists.infradead.org; Fri, 23 Dec 2022 16:38:53 +0000
+	id 1p8lOk-00AB80-QP
+	for linux-riscv@lists.infradead.org; Fri, 23 Dec 2022 16:59:57 +0000
 Received: from cpc152649-stkp13-2-0-cust121.10-2.cable.virginm.net ([86.15.83.122] helo=[192.168.0.17])
 	by imap4.hz.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
-	id 1p8l4J-00AbY9-Em; Fri, 23 Dec 2022 16:38:47 +0000
-Message-ID: <6a1d6ad7-89b6-8d67-ffcb-fc1a4a1033ee@codethink.co.uk>
-Date: Fri, 23 Dec 2022 16:38:46 +0000
+	id 1p8lOh-00Abwz-Ro; Fri, 23 Dec 2022 16:59:51 +0000
+Message-ID: <a00241eb-fa43-f53b-16b0-a77625aded49@codethink.co.uk>
+Date: Fri, 23 Dec 2022 16:59:51 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.5.1
+Subject: Re: undefined symbol in modpost "zero"
 Content-Language: en-GB
+From: Ben Dooks <ben.dooks@codethink.co.uk>
 To: linux-riscv <linux-riscv@lists.infradead.org>,
  Jisheng Zhang <jszhang@kernel.org>, "Emil Renner Berthing <kernel"@esmil.dk
-From: Ben Dooks <ben.dooks@codethink.co.uk>
-Subject: undefined symbol in modpost "zero"
+References: <6a1d6ad7-89b6-8d67-ffcb-fc1a4a1033ee@codethink.co.uk>
 Organization: Codethink Limited.
+In-Reply-To: <6a1d6ad7-89b6-8d67-ffcb-fc1a4a1033ee@codethink.co.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221223_083851_567077_E7550537 
-X-CRM114-Status: UNSURE (   8.43  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221223_085954_921610_435FFAB5 
+X-CRM114-Status: GOOD (  18.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -54,105 +55,96 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-I'm getting the following error from modpost:
-
-ERROR: modpost: "zero" [arch/riscv/kvm/kvm.ko] undefined!
-ERROR: modpost: "zero" [drivers/gpu/drm/drm.ko] undefined!
-ERROR: modpost: "zero" [drivers/nvme/host/nvme.ko] undefined!
-ERROR: modpost: "zero" [drivers/i2c/algos/i2c-algo-bit.ko] undefined!
-
-This seems to be coming from arch/riscv/include/asm/jump_label.h
-with the arch_static_branch_jump() assembling some code:
-
->     40  {
->     41          asm_volatile_goto(
->     42                  "       .option push                            \n\t"
->     43                  "       .option norelax                         \n\t"
->     44                  "       .option norvc                           \n\t"
->     45                  "1:     jal             zero, %l[label]         \n\t"
->     46                  "       .option pop                             \n\t"
->     47                  "       .pushsection    __jump_table, \"aw\"    \n\t"
->     48                  "       .align          " RISCV_LGPTR "         \n\t"
->     49                  "       .long           1b - ., %l[label] - .   \n\t"
->     50                  "       " RISCV_PTR "   %0 - .                  \n\t"
->     51                  "       .popsection                             \n\t"
->     52                  :  :  "i"(&((char *)key)[branch]) :  : label);
->     53
->     54          return false;
->     55  label:
->     56          return true;
->     57  }
-> 
-
-Changing the jal zero to jal x0 doesn't fix it, it just comes up with
-"x0" being undefined.
-
-gcc version 12.2.0 (Debian 12.2.0-9)
-GNU assembler version 2.39.50 (riscv64-linux-gnu) using BFD version (GNU 
-Binutils for Debian) 2.39.50.20221208
-
-I suspect this is a gas bug where it means to assemble a J instruction
-to the label without outputting the unused symbol "zero" into the symbol
-table. Is the right thing to fix gas, or can the kernel be changed?
-
-FYI:
-
-tmp.s:
-      1          .text
-      2
-      3  1:
-      4          jal zero, 1b
-
-
-produces:
-
-0000000000000000 <.L1^B1>:
-    0:   0000006f                j       0 <.L1^B1>
-                         0: R_RISCV_JAL  .L1^B1
-
-and
-
-$ riscv64-linux-gnu-nm -a tmp.o
-0000000000000000 b .bss
-0000000000000000 d .data
-0000000000000000 n .riscv.attributes
-0000000000000000 t .text
-                  U zero
-
-Current fix is to:
-
-
-diff --git a/arch/riscv/include/asm/jump_label.h 
-b/arch/riscv/include/asm/jump_label.h
-index 6d58bbb5da46..a4abbacd0b62 100644
---- a/arch/riscv/include/asm/jump_label.h
-+++ b/arch/riscv/include/asm/jump_label.h
-@@ -42,7 +42,7 @@ static __always_inline bool 
-arch_static_branch_jump(struct static_key * const ke
-                 "       .option push                            \n\t"
-                 "       .option norelax                         \n\t"
-                 "       .option norvc                           \n\t"
--               "1:     jal             zero, %l[label]         \n\t"
-+               "1:     j               %l[label]               \n\t"
-                 "       .option pop                             \n\t"
-                 "       .pushsection    __jump_table, \"aw\"    \n\t"
-                 "       .align          " RISCV_LGPTR "         \n\t"
-
-
-This fixes modpost, not sure if this should be applied or not.
-
--- 
-Ben Dooks				http://www.codethink.co.uk/
-Senior Engineer				Codethink - Providing Genius
-
-https://www.codethink.co.uk/privacy.html
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMjMvMTIvMjAyMiAxNjozOCwgQmVuIERvb2tzIHdyb3RlOgo+IEknbSBnZXR0aW5nIHRoZSBm
+b2xsb3dpbmcgZXJyb3IgZnJvbSBtb2Rwb3N0Ogo+IAo+IEVSUk9SOiBtb2Rwb3N0OiAiemVybyIg
+W2FyY2gvcmlzY3Yva3ZtL2t2bS5rb10gdW5kZWZpbmVkIQo+IEVSUk9SOiBtb2Rwb3N0OiAiemVy
+byIgW2RyaXZlcnMvZ3B1L2RybS9kcm0ua29dIHVuZGVmaW5lZCEKPiBFUlJPUjogbW9kcG9zdDog
+Inplcm8iIFtkcml2ZXJzL252bWUvaG9zdC9udm1lLmtvXSB1bmRlZmluZWQhCj4gRVJST1I6IG1v
+ZHBvc3Q6ICJ6ZXJvIiBbZHJpdmVycy9pMmMvYWxnb3MvaTJjLWFsZ28tYml0LmtvXSB1bmRlZmlu
+ZWQhCj4gCj4gVGhpcyBzZWVtcyB0byBiZSBjb21pbmcgZnJvbSBhcmNoL3Jpc2N2L2luY2x1ZGUv
+YXNtL2p1bXBfbGFiZWwuaAo+IHdpdGggdGhlIGFyY2hfc3RhdGljX2JyYW5jaF9qdW1wKCkgYXNz
+ZW1ibGluZyBzb21lIGNvZGU6Cj4gCj4+IMKgwqDCoCA0MMKgIHsKPj4gwqDCoMKgIDQxwqDCoMKg
+wqDCoMKgwqDCoMKgIGFzbV92b2xhdGlsZV9nb3RvKAo+PiDCoMKgwqAgNDLCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgICLCoMKgwqDCoMKgwqAgLm9wdGlvbiAKPj4gcHVzaMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBcblx0Igo+
+PiDCoMKgwqAgNDPCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgICLCoMKgwqDCoMKg
+wqAgLm9wdGlvbiAKPj4gbm9yZWxheMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoCBcblx0Igo+PiDCoMKgwqAgNDTCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgICLCoMKgwqDCoMKgwqAgLm9wdGlvbiAKPj4gbm9ydmPCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIFxuXHQiCj4+IMKgwqDCoCA0NcKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgIjE6wqDCoMKgwqAgamFswqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgIHplcm8sIAo+PiAlbFtsYWJlbF3CoMKgwqDCoMKgwqDCoMKgIFxuXHQi
+Cj4+IMKgwqDCoCA0NsKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgIsKgwqDCoMKg
+wqDCoCAub3B0aW9uIAo+PiBwb3DCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoCBcblx0Igo+PiDCoMKgwqAgNDfCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgICLCoMKgwqDCoMKgwqAgLnB1c2hzZWN0aW9uwqDCoMKgIF9fanVtcF90
+YWJsZSwgCj4+IFwiYXdcIsKgwqDCoCBcblx0Igo+PiDCoMKgwqAgNDjCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgICLCoMKgwqDCoMKgwqAgLmFsaWduwqDCoMKgwqDCoMKgwqDCoMKg
+ICIgUklTQ1ZfTEdQVFIgCj4+ICLCoMKgwqDCoMKgwqDCoMKgIFxuXHQiCj4+IMKgwqDCoCA0OcKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgIsKgwqDCoMKgwqDCoCAubG9uZ8KgwqDC
+oMKgwqDCoMKgwqDCoMKgIDFiIC0gLiwgJWxbbGFiZWxdIC0gCj4+IC7CoMKgIFxuXHQiCj4+IMKg
+wqDCoCA1MMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgIsKgwqDCoMKgwqDCoCAi
+IFJJU0NWX1BUUiAiwqDCoCAlMCAtIAo+PiAuwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoCBcblx0Igo+PiDCoMKgwqAgNTHCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+ICIgICAgICAgCj4+IC5wb3BzZWN0aW9uwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgXG5cdCIKPj4gwqDCoMKgIDUywqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoCA6wqAgOsKgICJpIigmKChjaGFyICopa2V5KVticmFuY2hdKSA6
+wqAgOiBsYWJlbCk7Cj4+IMKgwqDCoCA1Mwo+PiDCoMKgwqAgNTTCoMKgwqDCoMKgwqDCoMKgwqAg
+cmV0dXJuIGZhbHNlOwo+PiDCoMKgwqAgNTXCoCBsYWJlbDoKPj4gwqDCoMKgIDU2wqDCoMKgwqDC
+oMKgwqDCoMKgIHJldHVybiB0cnVlOwo+PiDCoMKgwqAgNTfCoCB9Cj4+Cj4gCj4gQ2hhbmdpbmcg
+dGhlIGphbCB6ZXJvIHRvIGphbCB4MCBkb2Vzbid0IGZpeCBpdCwgaXQganVzdCBjb21lcyB1cCB3
+aXRoCj4gIngwIiBiZWluZyB1bmRlZmluZWQuCj4gCj4gZ2NjIHZlcnNpb24gMTIuMi4wIChEZWJp
+YW4gMTIuMi4wLTkpCj4gR05VIGFzc2VtYmxlciB2ZXJzaW9uIDIuMzkuNTAgKHJpc2N2NjQtbGlu
+dXgtZ251KSB1c2luZyBCRkQgdmVyc2lvbiAoR05VIAo+IEJpbnV0aWxzIGZvciBEZWJpYW4pIDIu
+MzkuNTAuMjAyMjEyMDgKPiAKPiBJIHN1c3BlY3QgdGhpcyBpcyBhIGdhcyBidWcgd2hlcmUgaXQg
+bWVhbnMgdG8gYXNzZW1ibGUgYSBKIGluc3RydWN0aW9uCj4gdG8gdGhlIGxhYmVsIHdpdGhvdXQg
+b3V0cHV0dGluZyB0aGUgdW51c2VkIHN5bWJvbCAiemVybyIgaW50byB0aGUgc3ltYm9sCj4gdGFi
+bGUuIElzIHRoZSByaWdodCB0aGluZyB0byBmaXggZ2FzLCBvciBjYW4gdGhlIGtlcm5lbCBiZSBj
+aGFuZ2VkPwo+IAo+IEZZSToKPiAKPiB0bXAuczoKPiAgwqDCoMKgwqAgMcKgwqDCoMKgwqDCoMKg
+wqDCoCAudGV4dAo+ICDCoMKgwqDCoCAyCj4gIMKgwqDCoMKgIDPCoCAxOgo+ICDCoMKgwqDCoCA0
+wqDCoMKgwqDCoMKgwqDCoMKgIGphbCB6ZXJvLCAxYgo+IAo+IAo+IHByb2R1Y2VzOgo+IAo+IDAw
+MDAwMDAwMDAwMDAwMDAgPC5MMV5CMT46Cj4gIMKgwqAgMDrCoMKgIDAwMDAwMDZmwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgIGrCoMKgwqDCoMKgwqAgMCA8LkwxXkIxPgo+ICDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIDA6IFJfUklTQ1ZfSkFMwqAg
+LkwxXkIxCj4gCj4gYW5kCj4gCj4gJCByaXNjdjY0LWxpbnV4LWdudS1ubSAtYSB0bXAubwo+IDAw
+MDAwMDAwMDAwMDAwMDAgYiAuYnNzCj4gMDAwMDAwMDAwMDAwMDAwMCBkIC5kYXRhCj4gMDAwMDAw
+MDAwMDAwMDAwMCBuIC5yaXNjdi5hdHRyaWJ1dGVzCj4gMDAwMDAwMDAwMDAwMDAwMCB0IC50ZXh0
+Cj4gIMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIFUgemVybwo+IAo+IEN1cnJlbnQg
+Zml4IGlzIHRvOgo+IAo+IAo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2p1
+bXBfbGFiZWwuaCAKPiBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vanVtcF9sYWJlbC5oCj4gaW5k
+ZXggNmQ1OGJiYjVkYTQ2Li5hNGFiYmFjZDBiNjIgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9p
+bmNsdWRlL2FzbS9qdW1wX2xhYmVsLmgKPiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2p1
+bXBfbGFiZWwuaAo+IEBAIC00Miw3ICs0Miw3IEBAIHN0YXRpYyBfX2Fsd2F5c19pbmxpbmUgYm9v
+bCAKPiBhcmNoX3N0YXRpY19icmFuY2hfanVtcChzdHJ1Y3Qgc3RhdGljX2tleSAqIGNvbnN0IGtl
+Cj4gIMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAiwqDCoMKgwqDCoMKgIC5vcHRpb24g
+cHVzaMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oCBcblx0Igo+ICDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgIsKgwqDCoMKgwqDCoCAu
+b3B0aW9uIG5vcmVsYXjCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqAgXG5cdCIKPiAgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgICLCoMKgwqDCoMKg
+wqAgLm9wdGlvbiBub3J2Y8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqAgXG5cdCIKPiAtwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAiMTrCoMKg
+wqDCoCBqYWzCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgemVybywgJWxbbGFiZWxdwqDCoMKgwqDC
+oMKgwqDCoCBcblx0Igo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgICIxOsKgwqDCoMKg
+IGrCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgICVsW2xhYmVsXcKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqAgXG5cdCIKPiAgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgICLCoMKg
+wqDCoMKgwqAgLm9wdGlvbiBwb3DCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoCBcblx0Igo+ICDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqAgIsKgwqDCoMKgwqDCoCAucHVzaHNlY3Rpb27CoMKgwqAgX19qdW1wX3RhYmxlLCBcImF3XCLC
+oMKgwqAgXG5cdCIKPiAgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgICLCoMKgwqDCoMKg
+wqAgLmFsaWduwqDCoMKgwqDCoMKgwqDCoMKgICIgUklTQ1ZfTEdQVFIgIsKgwqDCoMKgwqDCoMKg
+wqAgXG5cdCIKPiAKPiAKPiBUaGlzIGZpeGVzIG1vZHBvc3QsIG5vdCBzdXJlIGlmIHRoaXMgc2hv
+dWxkIGJlIGFwcGxpZWQgb3Igbm90Lgo+IAoKSSBqdXN0IGNoZWNrZWQgcmlzY3Y2NC1saW51eC1n
+bnUtbm0gdm1saW51eC5vIGFuZCBpdCBoYXMKCiAgICAgICAgICAgICAgICAgIFUgemVybwoKClNv
+IEkgZ3Vlc3MgdGhlIGxpbmtlciBqdXN0IGlnbm9yZXMgdGhpcyB1bmRlZmluZWQgc3ltYm9sIGFz
+IGl0IGlzIG5ldmVyCmFjdHVhbGx5IHVzZWQgZm9yIGEgcmVsb2NhdGlvbi4KCi0tIApCZW4gRG9v
+a3MJCQkJaHR0cDovL3d3dy5jb2RldGhpbmsuY28udWsvClNlbmlvciBFbmdpbmVlcgkJCQlDb2Rl
+dGhpbmsgLSBQcm92aWRpbmcgR2VuaXVzCgpodHRwczovL3d3dy5jb2RldGhpbmsuY28udWsvcHJp
+dmFjeS5odG1sCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
+cmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNj
+dgo=
