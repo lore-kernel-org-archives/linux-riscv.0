@@ -4,78 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C704C4332F
-	for <linux-riscv@archiver.kernel.org>; Sat, 24 Dec 2022 07:34:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0589CC4332F
+	for <linux-riscv@archiver.kernel.org>; Sat, 24 Dec 2022 15:12:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nRAjcR1dBmmATi7h6/uU+N57VQLutdz7xR7Sit2SApg=; b=sovyEMbjAOg1Fl
-	/2qXWKbs+9qqKFSYsvD9WXbyELKPCmRUd0f7d7y1pIqriEcLOFExXmaZGdeBA9Yw4R+THqa+Zgck3
-	wTlesk3YG4NuYC3wWeyay84qYfpsZ+HJpgozYo2E3TyzF4sPp9A9X5hmcUz7sFKtWku/6+hmT+1Od
-	r4syWZ8OnNcFo8xNuZqs7MKTtH6oGo0BfrLXKbtfwJs34Rv2X+Qk4wUaoXxsu3KRNuYvmgkdpclq9
-	Ibg2aZxRsznIY6TQm8eWoB60qJbI1IMnyiQoYwN5YsODvC5ZABXry6AhEJzQlLHbcjKhQ0XN6E221
-	wAbVwpgJ+eP9tcpyD2hw==;
+	List-Owner; bh=OLrMONC/pfmgV3nnRenkkXggDVvEL9uliGKAOfWzBsc=; b=kUcjDsZjF3bHgA
+	fdsNxscGKmPJLuDqt4raJjbhZhC03O30AxOdWzlgUNp6bA8fHzWcW2/quSEeUT4W8kWXZWbVSkfe3
+	wzDFQbb5B5zggwpBqHY7zSkHOE7UjbDIAwQ2LYHppPlHSz2QohLl8zwxI5qxN2JKyYVzDp0dVycWh
+	QcGRKcKtO53qFbOjno5Qc5hxwWNgqdjbgHRyLc5PmJUE8hPihiMvOOwVRGpGOEs/gyXICpgMHoN+8
+	GnMjgjoqE1XyNlYFTQ9W1Ps52tuk5NGCFLhwUT+QviXKyNnawyh3xojUrbbVasPGNw/B54Clf418B
+	8FvYW3mhmnPl/ouwjmOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8z2s-00G1Ym-PL; Sat, 24 Dec 2022 07:34:14 +0000
-Received: from dggsgout11.his.huawei.com ([45.249.212.51])
+	id 1p96Bw-000xZm-9b; Sat, 24 Dec 2022 15:12:04 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p8xwG-00FVut-FP
-	for linux-riscv@lists.infradead.org; Sat, 24 Dec 2022 06:24:04 +0000
-Received: from mail02.huawei.com (unknown [172.30.67.169])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4NfDW62qhJz4f3p10
-	for <linux-riscv@lists.infradead.org>; Sat, 24 Dec 2022 14:22:58 +0800 (CST)
-Received: from [10.67.109.184] (unknown [10.67.109.184])
-	by APP2 (Coremail) with SMTP id Syh0CgC3XevBmqZjip+oAQ--.41973S2;
-	Sat, 24 Dec 2022 14:22:59 +0800 (CST)
-Message-ID: <b3fb772a-db85-05ca-a1bf-4781526fae1d@huaweicloud.com>
-Date: Sat, 24 Dec 2022 14:22:57 +0800
+	id 1p90Zt-00GcFV-C8
+	for linux-riscv@lists.infradead.org; Sat, 24 Dec 2022 09:12:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1671873143;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=K/8A/i9y6rIvKCnypgiTdopbEh62sIZ4224f2Kvswms=;
+	b=SQEbp+wAX3Iz2zBTlRZXno/jf3xP8zgWso1HLoyFAb1mnTUQyTO7qW+V01RShqqjRok3gA
+	OHuCUrpNmnO9NWrzdnV2N8kEUtezqnDnImyLk7a2GRCHsKm4lLCYaGRtHCACIWdpJlBed7
+	WSCX5k54dvxRhUEH/fm4ynfSU3DA/10=
+Received: from mail-ed1-f69.google.com (mail-ed1-f69.google.com
+ [209.85.208.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_128_GCM_SHA256) id
+ us-mta-31-hl88XGplNl6LyfK0RLyuWQ-1; Sat, 24 Dec 2022 04:12:22 -0500
+X-MC-Unique: hl88XGplNl6LyfK0RLyuWQ-1
+Received: by mail-ed1-f69.google.com with SMTP id e14-20020a056402190e00b0047005d4c3e9so4890380edz.2
+        for <linux-riscv@lists.infradead.org>; Sat, 24 Dec 2022 01:12:21 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=K/8A/i9y6rIvKCnypgiTdopbEh62sIZ4224f2Kvswms=;
+        b=SKsltUgzJ08kAJlqSuib7eX0H2sTx/VSe7JaBC8mzB6tx1TTGUcvob7tYBAbXWjzAd
+         gvyJoHuKdzqc2tf3jBt1m2c3UFZCjkEKBvpyIoAQI+Ng90CxxzRj6fxF+SdEYrFR+wnq
+         e3ZSpFNVBGGYVNu9Wj4myNda6WTKu9PJzqlc50dZW9MXepKizmFSIx4HAvX+JXjouuc1
+         Ceci6us/eL3InnYaL27586u5YNHDjUDVthvpPtfVi7hcwVDaumnG9EudTLLz9VboKNhr
+         jeuJNA5GKz9vzrZGW/CEEKWrbxEuzpDDL83pyPVrxdanMDggpgrZT26fqD9l5dgPZH1R
+         bcrQ==
+X-Gm-Message-State: AFqh2kqCq+e6cUz5BUaJjRTRByP1WPHVyN33KLcyoNwrTL8HC5byyzje
+	aCrEUwQZl1Ah8K5BMI8E7VzEst6zQx/WzQQQZkLrAZXGlUXF2VPFLylH62Qmt7CNAvAuAsqNiml
+	8A0v5o4YMQL6qKY1VwCsAhjETJTHs
+X-Received: by 2002:a17:906:4894:b0:7c0:beee:2f06 with SMTP id v20-20020a170906489400b007c0beee2f06mr10450180ejq.52.1671873141000;
+        Sat, 24 Dec 2022 01:12:21 -0800 (PST)
+X-Google-Smtp-Source: AMrXdXvlm/vA6G01U45Ww3rRE/hpJxyrrrVFeI3NtGzIAEN1d8PbapEpyn4qgCdB7ow6B9vpaz9eng==
+X-Received: by 2002:a17:906:4894:b0:7c0:beee:2f06 with SMTP id v20-20020a170906489400b007c0beee2f06mr10450165ejq.52.1671873140745;
+        Sat, 24 Dec 2022 01:12:20 -0800 (PST)
+Received: from ?IPV6:2001:b07:6468:f312:63a7:c72e:ea0e:6045? ([2001:b07:6468:f312:63a7:c72e:ea0e:6045])
+        by smtp.googlemail.com with ESMTPSA id 10-20020a170906218a00b0073d796a1043sm2321829eju.123.2022.12.24.01.12.18
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 24 Dec 2022 01:12:19 -0800 (PST)
+Message-ID: <a03fb002-ef66-e9ea-7447-baf3d3aff1d9@redhat.com>
+Date: Sat, 24 Dec 2022 10:12:09 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.0
-Subject: Re: [RFC PATCH RESEND bpf-next 0/4] Support bpf trampoline for RV64
-Content-Language: en-US
-To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, bpf@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: Luke Nelson <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
- <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
- Yonghong Song <yhs@fb.com>, John Fastabend <john.fastabend@gmail.com>,
- KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>,
- Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.5.1
+Subject: Re: [PATCH 06/14] KVM: selftests: Rename UNAME_M to ARCH_DIR, fill
+ explicitly for x86
+To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
  Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
  <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Pu Lehui <pulehui@huawei.com>
-References: <20221220021319.1655871-1-pulehui@huaweicloud.com>
- <87ili3a8zy.fsf@all.your.base.are.belong.to.us>
-From: Pu Lehui <pulehui@huaweicloud.com>
-In-Reply-To: <87ili3a8zy.fsf@all.your.base.are.belong.to.us>
-X-CM-TRANSID: Syh0CgC3XevBmqZjip+oAQ--.41973S2
-X-Coremail-Antispam: 1UD129KBjvdXoW7XrW3Jr4fCF1kGFyUZw1rCrg_yoWfZrgEkr
-	ZxtrySvr45ta1Dtw1Ygw43urZxXr40qFyvyrWUXFZ2k395ZF1kXFn8u39xArWfZ3ySqFnx
-	tF98AFyxAasFvjkaLaAFLSUrUUUUUb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbIxYFVCjjxCrM7AC8VAFwI0_Xr0_Wr1l1xkIjI8I6I8E6xAIw20E
-	Y4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM28CjxkF64kEwV
-	A0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW7JVWDJwA2z4x0Y4vE2Ix0cI8IcVCY1x02
-	67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I
-	0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40E
-	x7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x
-	0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7I2V7IY0VAS
-	07AlzVAYIcxG8wCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c
-	02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_
-	WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7
-	CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6rW3Jr0E3s1lIxAIcVC2z280aVAF
-	wI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa
-	7IU13rcDUUUUU==
-X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
-X-CFilter-Loop: Reflected
+ Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <ndesaulniers@google.com>
+Cc: James Morse <james.morse@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Tom Rix <trix@redhat.com>,
+ kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, kvmarm@lists.cs.columbia.edu,
+ linux-riscv@lists.infradead.org, llvm@lists.linux.dev,
+ linux-kernel@vger.kernel.org, Ricardo Koller <ricarkol@google.com>,
+ Aaron Lewis <aaronlewis@google.com>,
+ Raghavendra Rao Ananta <rananta@google.com>
+References: <20221213001653.3852042-1-seanjc@google.com>
+ <20221213001653.3852042-7-seanjc@google.com>
+From: Paolo Bonzini <pbonzini@redhat.com>
+In-Reply-To: <20221213001653.3852042-7-seanjc@google.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221223_222320_739150_0C1F9476 
-X-CRM114-Status: UNSURE (   6.38  )
+X-CRM114-CacheID: sfid-20221224_011225_537161_7A9CB550 
+X-CRM114-Status: UNSURE (   7.38  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,28 +110,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiAyMDIyLzEyLzIyIDIxOjAwLCBCasO2cm4gVMO2cGVsIHdyb3RlOgo+IFB1IExlaHVpIDxw
-dWxlaHVpQGh1YXdlaWNsb3VkLmNvbT4gd3JpdGVzOgo+IAo+PiBCUEYgdHJhbXBvbGluZSBpcyB0
-aGUgY3JpdGljYWwgaW5mcmFzdHJ1Y3R1cmUgb2YgdGhlIGJwZgo+PiBzdWJzeXN0ZW0sIGFjdGlu
-ZyBhcyBhIG1lZGlhdG9yIGJldHdlZW4ga2VybmVsIGZ1bmN0aW9ucwo+PiBhbmQgQlBGIHByb2dy
-YW1zLiBOdW1lcm91cyBpbXBvcnRhbnQgZmVhdHVyZXMsIHN1Y2ggYXMKPj4gdXNpbmcgZWJwZiBw
-cm9ncmFtIGZvciB6ZXJvIG92ZXJoZWFkIGtlcm5lbCBpbnRyb3NwZWN0aW9uLAo+PiByZWx5IG9u
-IHRoaXMga2V5IGNvbXBvbmVudC4gV2UgY2FuJ3Qgd2FpdCB0byBzdXBwb3J0IGJwZgo+PiB0cmFt
-cG9saW5lIG9uIFJWNjQuIFRoZSBpbXBsZW1lbnRhdGlvbiBvZiBicGYgdHJhbXBvbGluZQo+PiB3
-YXMgY2xvc2VseSB0byB4ODYgYW5kIGFybTY0IGZvciBmdXR1cmUgZGV2ZWxvcG1lbnQuCj4gCj4g
-VGhhbmsgeW91IGZvciB3b3JraW5nIG9uIHRoaXMhIEJQRiB0cmFtcG9saW5lIGlzIHRoZSAibWlz
-c2luZyBwaWVjZSIKPiBmcm9tIGdldHRpbmcgcHJvcGVyIGtmdW5jIHN1cHBvcnQuCj4gCj4gVW5m
-b3J0dW5hdGVseSwgSSB3b250IGJlIGFibGUgdG8gZG8gYSBwcm9wZXIgcmV2aWV3IHVudGlsIG5l
-eHQgd2Vlay4KPiAKClRha2UgeW91ciB0aW1lLCBpdCBtaWdodCB0YWtlIHNldmVyYWwgcm91bmRz
-IG9mIG9wdGltaXphdGlvbi4gWWVwLCByaXNjdiAKYnBmIHdpbGwgbG9vayBtb3JlIGNvbXBsZXRl
-IHdoZW4gYnBmIHRyYW1wb2xpbmUgYW5kIGtmdW5jIGFyZSBzdXBwb3J0ZWQuCgpBbnl3YXksIGhh
-dmUgYSBuaWNlIGNocmlzdG1hcyBob2xpZGF5cy7wn5iECgpMZWh1aQoKPiAKPiBIYXBweSBob2xp
-ZGF5cywKPiBCasO2cm4KCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
-ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
-LXJpc2N2Cg==
+On 12/13/22 01:16, Sean Christopherson wrote:
+> -ifeq ($(ARCH),riscv)
+> -	UNAME_M := riscv
+> +ifeq ($(ARCH),x86)
+> +	ARCH_DIR := x86_64
+> +else ifeq ($(ARCH),arm64)
+> +	ARCH_DIR := aarch64
+> +else ifeq ($(ARCH),s390)
+> +	ARCH_DIR := s390x
+> +else ifeq ($(ARCH),riscv)
+> +	ARCH_DIR := riscv
+> +else
+> +$(error Unknown architecture '$(ARCH)')
+>   endif
+
+$(error) would break compiling via tools/testing/selftests/Makefile, so 
+I am squashing this:
+
+diff --git a/tools/testing/selftests/kvm/Makefile 
+b/tools/testing/selftests/kvm/Makefile
+index d761a77c3a80..59f3eb53c932 100644
+--- a/tools/testing/selftests/kvm/Makefile
++++ b/tools/testing/selftests/kvm/Makefile
+@@ -13,10 +13,8 @@ else ifeq ($(ARCH),arm64)
+  	ARCH_DIR := aarch64
+  else ifeq ($(ARCH),s390)
+  	ARCH_DIR := s390x
+-else ifeq ($(ARCH),riscv)
+-	ARCH_DIR := riscv
+  else
+-$(error Unknown architecture '$(ARCH)')
++	ARCH_DIR := $(ARCH)
+  endif
+
+  LIBKVM += lib/assert.c
+
+Then the aarch64 and s390x directories can be renamed---x86 too, but the 
+ifeq needs to stay (just changed to do x86_64->x86 instead of the other 
+way round).
+
+Paolo
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
