@@ -4,94 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 287D1C4332F
-	for <linux-riscv@archiver.kernel.org>; Sat, 24 Dec 2022 15:25:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EC33C4332F
+	for <linux-riscv@archiver.kernel.org>; Sat, 24 Dec 2022 17:26:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fDm49razCwmeb6AwMcxhfqmI9Nx7LtDYA1+WXIgAcmY=; b=JoXzymkHGf8TMU
-	Je9eGA6oC2Ne3kJYShuQInfWn/PS+wuJHq8HkYCrdeBVQNt+J3J1mDVBQX3RCiMrPcAkrBLvychJF
-	3CPRMBonGWQaPyVzc5stzpnM++Oz9KdgOYIJ8lqUo5NvQIV9Iowcp8gxsWpsAVDPZMKNkVwoo44D2
-	akId8wQN4fqBoLm4QQZZUXjVlSRKOykYQNW8Xigx7cjwlr/xj8h16PfG9wO3STMFf0ghiixWN1KaS
-	2cAeiKufdPe7/dpoFJmeJexpsxFlaWxsQJysV9R7j422/TLhvsw2ZJroE1EooOX17LOYpWhD634M8
-	ZGtToZmYJViZxXHHbU2g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XIreKImQAmA+5kKJabOsTGdwgXVMeI2HMbZJMp62vvI=; b=b++M1TQS3ORJ+dYL0qklivn5tn
+	3AG+2xblp8eh5LDli9OSWiTrNZjaWcJ0YGv3zZDtQUb61Cd/WnvF0IYanZ/wSKt0PiZFe8Ne/190f
+	krTgsfNpWelKcHivSGG60ZxU4qoS3XDjVt6/a02X4ATOCqBJBfXnq5Mv0//g2IR40dvuKSUpIHktk
+	N+FMQK5UJlWZq2fhtfpEyMoCKomLGzSBAsloPC0hvSpzHF7aoM7okEQPv4Wf+UM/DfQ8+J5bDwoLi
+	a5ywJY1ae01tbnkEWoG+hPgxlPIqoI2EAI/d1PA9jPXAxBKpmSlSCNP52l5DPgSQ9xW7iGPa2/Alg
+	VnflpjYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p96OI-0014Oj-L9; Sat, 24 Dec 2022 15:24:50 +0000
-Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
+	id 1p98HX-0020Zu-17; Sat, 24 Dec 2022 17:25:59 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p930X-00H6wf-Hf
-	for linux-riscv@lists.infradead.org; Sat, 24 Dec 2022 11:48:07 +0000
-Received: by mail-lf1-x12e.google.com with SMTP id o6so10206207lfi.5
-        for <linux-riscv@lists.infradead.org>; Sat, 24 Dec 2022 03:48:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ukiode13upAuOopb72PAs48UojpAkxLKmmquZz2y5sU=;
-        b=CCmZ/IJwI00Ym6/4vaJUdJDAH0NB+u9O43/CiR++W3apCv55texUvwzGDjh2fykdeG
-         Sg0+JrLbfmsCFceBLS1Emxu4whItx54t2ZyloSSdXlRDxr0eocdGlbNqim/1f64NArAL
-         q2F2K0CZLplMEWyMEpj4c3vFy4n5NYTBafQWcjJ66kH0NOsK7Wt0HkRQrMRFq6rSbybf
-         ijRCKojxsv9Bvao81xzrf78HOW3hqVCfd+DeF/ZoH+9oSOMVb9Hly5OOEcP0jLRUs/sh
-         u+tS2WdrBu19axEku0ZyFrcxAsQLFBQ9+e8lb5U1oJRs9M8BuLPANy0iJ5/Axgkm9iOH
-         de2A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ukiode13upAuOopb72PAs48UojpAkxLKmmquZz2y5sU=;
-        b=aFwN3etdmm3pvK617ynUmeoXjv7VAXxLK/ysyxPpD6/orYraFj0qqgXMO43siYL1lo
-         djX3ZFHB9KLQFc3f7VIxIRQFU/9GApYgZGA3dFAvKTVZMeZFWH2yDcrbrCyQkTE42+c+
-         06MY4d0BOvTKGiTWDRgLKi/jhdUbJ7ylfPu52ABdZSB4VKqTjm6qpYT8lWQvCOE7mEdE
-         yLUZpbT/CXFPpRTqozwGLFU7cAhsjq6sor0WYDzo+1b22lr92LtgC/yfee4glDKuZnz7
-         mQNp/dkFwiBSzILKGZq07mUa3F4GbqOQ8pA7gUEXg5NlTQz+S/kCjR+RwmJFwL6CBiZf
-         eB7A==
-X-Gm-Message-State: AFqh2krVmwATPkTHH267UHRzSzOB2yd3SSDRbaTTtYlnQOq37qLteKqo
-	SAQ/cMfuMT9WwiPNKeOh3sM=
-X-Google-Smtp-Source: AMrXdXuC+k0Nq4Er3uwrWw4rCEfVQ5kJDFAocYYzKZlNczJGRIr6F3y8NkgjyPFxt/WC96NfWirxmA==
-X-Received: by 2002:a05:6512:401f:b0:4ab:1cb7:473e with SMTP id br31-20020a056512401f00b004ab1cb7473emr4406661lfb.4.1671882482744;
-        Sat, 24 Dec 2022 03:48:02 -0800 (PST)
-Received: from curiosity ([5.188.167.245])
-        by smtp.gmail.com with ESMTPSA id u20-20020a05651220d400b004949f7cbb6esm914420lfr.79.2022.12.24.03.48.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 24 Dec 2022 03:48:01 -0800 (PST)
-Date: Sat, 24 Dec 2022 14:48:00 +0300
-From: Sergey Matyukevich <geomatsi@gmail.com>
-To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Cc: linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
-	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@rivosinc.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Guo Ren <guoren@kernel.org>,
-	Alexandre Ghiti <alexandre.ghiti@canonical.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Sergey Matyukevich <sergey.matyukevich@syntacore.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Conor Dooley <Conor.Dooley@microchip.com>
-Subject: Re: [RFC PATCH 1/1] riscv: mm: notify remote harts about mmu cache
- updates
-Message-ID: <Y6bm8KIsHhFq1RFR@curiosity>
-References: <20220829205219.283543-1-geomatsi@gmail.com>
- <CA+V-a8uLmp33PSYGmJjf9FupJ0M8Hf7ef7A1G4va8GDL_61Qyw@mail.gmail.com>
- <Y6S1/kROC0p5CboA@curiosity>
- <CA+V-a8u0qUF81RUTF9+4T4F1GxW3=4P7RMTTjjsaMq4MiiQSMQ@mail.gmail.com>
- <Y6TIywUWZ3nrPeon@curiosity>
- <CA+V-a8tMQ-RaaXD5209HxT77VoiOanvjdbFCPsdWpDYswuY+ZQ@mail.gmail.com>
- <Y6TYNBgqgWuxhhHJ@curiosity>
- <CA+V-a8tDi79M8cS7rVoby3sopQ4AwXXcNggfHYXW-W2wtEgQ4g@mail.gmail.com>
- <Y6Xjwg1dDYnwRbni@curiosity>
- <CA+V-a8uwmwriyoSZ1ftVQ1L1_uTL3k=VSs7Cid7++XEshq1RsQ@mail.gmail.com>
+	id 1p96RY-0016Az-Li
+	for linux-riscv@lists.infradead.org; Sat, 24 Dec 2022 15:28:15 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 89944601D9;
+	Sat, 24 Dec 2022 15:28:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11A20C433EF;
+	Sat, 24 Dec 2022 15:28:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1671895689;
+	bh=jfuBcYrnqx172IOKnD97f/jtSHLQIaUxHFRRdk1kIXM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ny3i9sq8KVxNseyST9h3KMHXw/JqK5+/gXssjSopwCTmMnaPH4IohV5ehXV5U25RV
+	 KWm6VZKLI58Hb2slDfbEvYvB1GxQP44uxq61rI1bzoiWV0skX+nvcPI6oNf+79FBa2
+	 TJYfgY/HUYHySdQ5+pHnpQjua5lH3D94ogMcZKjILUsfJLbalfwmkKQBDtR3jlsnDi
+	 rKrBQJkyPQaVmwSCE1qtsfS9DZpjMpu2WGTnAGhIfFPQiMqeJ1XdP9nTDcKpNu2yHO
+	 s3AyP/qk3quq8UuFxfc6DG7Opdtc80GqjKl4QaT+f3QZ6GWGmFZoCucQFk+R+osi1g
+	 X4rtRIbihR+Uw==
+Date: Sat, 24 Dec 2022 15:28:06 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Ben Dooks <ben.dooks@codethink.co.uk>
+Cc: linux-riscv <linux-riscv@lists.infradead.org>,
+	Jisheng Zhang <jszhang@kernel.org>
+Subject: Re: undefined symbol in modpost "zero"
+Message-ID: <Y6cahpBbfBVtboq7@spud>
+References: <6a1d6ad7-89b6-8d67-ffcb-fc1a4a1033ee@codethink.co.uk>
+ <a00241eb-fa43-f53b-16b0-a77625aded49@codethink.co.uk>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CA+V-a8uwmwriyoSZ1ftVQ1L1_uTL3k=VSs7Cid7++XEshq1RsQ@mail.gmail.com>
+In-Reply-To: <a00241eb-fa43-f53b-16b0-a77625aded49@codethink.co.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221224_034805_660766_B4CF25C1 
-X-CRM114-Status: GOOD (  45.12  )
+X-CRM114-CacheID: sfid-20221224_072813_738907_D514C8A4 
+X-CRM114-Status: GOOD (  27.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,143 +67,208 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5904732178986068313=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Prabhakar,
 
-> > > > > > > > > > Current implementation of update_mmu_cache function performs local TLB
-> > > > > > > > > > flush. It does not take into account ASID information. Besides, it does
-> > > > > > > > > > not take into account other harts currently running the same mm context
-> > > > > > > > > > or possible migration of the running context to other harts. Meanwhile
-> > > > > > > > > > TLB flush is not performed for every context switch if ASID support
-> > > > > > > > > > is enabled.
-> > > > > > > > > >
-> > > > > > > > > > Patch [1] proposed to add ASID support to update_mmu_cache to avoid
-> > > > > > > > > > flushing local TLB entirely. This patch takes into account other
-> > > > > > > > > > harts currently running the same mm context as well as possible
-> > > > > > > > > > migration of this context to other harts.
-> > > > > > > > > >
-> > > > > > > > > > For this purpose the approach from flush_icache_mm is reused. Remote
-> > > > > > > > > > harts currently running the same mm context are informed via SBI calls
-> > > > > > > > > > that they need to flush their local TLBs. All the other harts are marked
-> > > > > > > > > > as needing a deferred TLB flush when this mm context runs on them.
-> > > > > > > > > >
-> > > > > > > > > > [1] https://lore.kernel.org/linux-riscv/20220821013926.8968-1-tjytimi@163.com/
-> > > > > > > > > >
-> > > > > > > > > > Signed-off-by: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
-> > > > > > > > > > ---
-> > > > > > > > > >  arch/riscv/include/asm/mmu.h      |  2 ++
-> > > > > > > > > >  arch/riscv/include/asm/pgtable.h  |  2 +-
-> > > > > > > > > >  arch/riscv/include/asm/tlbflush.h | 18 ++++++++++++++++++
-> > > > > > > > > >  arch/riscv/mm/context.c           | 10 ++++++++++
-> > > > > > > > > >  arch/riscv/mm/tlbflush.c          | 28 +++++++++++-----------------
-> > > > > > > > > >  5 files changed, 42 insertions(+), 18 deletions(-)
-> > > > > > > > > >
-> > > > > > > <snip>
-> > > > > > > > > [  133.008752] Hardware name: Renesas SMARC EVK based on r9a07g043f01 (DT)
-> > > > > > > > > [  133.015338] Call Trace:
-> > > > > > > > > [  133.017778] [<ffffffff800055cc>] dump_backtrace+0x1c/0x24
-> > > > > > > > > [  133.023174] [<ffffffff80776836>] show_stack+0x2c/0x38
-> > > > > > > > > [  133.028214] [<ffffffff80780244>] dump_stack_lvl+0x3c/0x54
-> > > > > > > > > [  133.033597] [<ffffffff80780270>] dump_stack+0x14/0x1c
-> > > > > > > > > [  133.038633] [<ffffffff80776c00>] panic+0x102/0x29a
-> > > > > > > > > [  133.043409] [<ffffffff800137ba>] do_exit+0x704/0x70a
-> > > > > > > > > [  133.048362] [<ffffffff8001390e>] do_group_exit+0x24/0x70
-> > > > > > > > > [  133.053659] [<ffffffff8001de54>] get_signal+0x68a/0x6dc
-> > > > > > > > > [  133.058874] [<ffffffff8000494e>] do_work_pending+0xd6/0x44e
-> > > > > > > > > [  133.064427] [<ffffffff800036c2>] resume_userspace_slow+0x8/0xa
-> > > > > > > > > [  133.070249] ---[ end Kernel panic - not syncing: Attempted to kill
-> > > > > > > > > init! exitcode=0x0000000b ]---
-> > > > > > > > >
-> > > > > > > > > If I revert this patch [0] bonnie++ works as expected.
-> > > > > > > > >
-> > > > > > > > > Any pointers on what could be the issue here?
-> > > > > > > > >
-> > > > > > > > > [0] https://git.kernel.org/pub/scm/linux/kernel/git/palmer/linux.git/commit/?h=for-next&id=4bd1d80efb5af640f99157f39b50fb11326ce641
-> > > > > > > > >
-> > > > > > > > > Cheers,
-> > > > > > > > > Prabhakar
-> > > > > > > >
-> > > > > > > > Good catch. Thanks for reporting ! Discussion around the issue and
-> > > > > > > > possible ways to fix it can be found in the following email thread:
-> > > > > > > >
-> > > > > > > > https://lore.kernel.org/linux-riscv/20221111075902.798571-1-guoren@kernel.org/
-> > > > > > > >
-> > > > > > > > Could you please apply the patch from Guo Ren instead of [0] and check
-> > > > > > > > if you have any issues with your test ? Besides, could you please share
-> > > > > > > > your kernel configuration and the actual bonnie++ params from emmc_t_002.sh script ?
-> > > > > > > >
-> > > > > > > Thanks for the pointer, I'll undo my changes and test Guo's patch.
-> > > > > > >
-> > > > > > > I have pasted the script here [0] and attached config.
-> > > > > > >
-> > > > > > > [0] https://paste.debian.net/hidden/a7a769b5/
-> > > > > >
-> > > > > > Thanks for the script and config. Could you please also share the
-> > > > > > following information:
-> > > > > > - how many cores your system has
-> > > > > The Renesas RZ/Five SoC has a single Andes AX45MP core.
-> > > > >
-> > > > > > - does your system support ASID
-> > > > > >
-> > > > > With a quick look at [0] It does support ASID, unless there is a way
-> > > > > to disable it.
-> > > > >
-> > > > > [0] http://www.andestech.com/wp-content/uploads/AX45MP-1C-Rev.-5.0.0-Datasheet.pdf
-> > > >
-> > > > So you have a single-core system, but your kernel configuration enables
-> > > > CONFIG_SMP. Additional 'deferred TLB flush' logic is dropped at build
-> > > > time if CONFIG_SMP is disabled. On the other hand, system should not
-> > > > fail that way even if SMP is enabled.
-> > > >
-> > > I enabled CONFIG_SMP while doing some testing of PMA code and indeed
-> > > enabling this config should not introduce a failure.
-> > >
-> > > > Let me double-check if anything can go wrong if cpumasks may have only
-> > > > a single cpu. Another suspect is a change in update_mmu_cache: probably
-> > > > making it asid-specific (and thus more granular) was a bad idea.
-> > > >
-> > > Thanks.
-> > >
-> > > BTW I tested the patch [0] which you pointed out and that fixes the
-> > > issues seen earlier.
-> > >
-> > > [0] https://patchwork.kernel.org/project/linux-riscv/patch/20221111075902.798571-1-guoren@kernel.org/
-> >
-> > All looks good with cpumasks in the single-core case. So deferred TLB
-> > flush logic is not even executed in your case. So the root cause
-> > should be in update_mmu_cache change.
-> >
-> > May I ask you to repeat the original emmc test on your platform from
-> > for-next (i.e. with [0] and without [1]) with the following partial revert:
-> >
-> > : diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> > : index ec6fb83349ce..92ec2d9d7273 100644
-> > : --- a/arch/riscv/include/asm/pgtable.h
-> > : +++ b/arch/riscv/include/asm/pgtable.h
-> > : @@ -415,7 +415,7 @@ static inline void update_mmu_cache(struct vm_area_struct *vma,
-> > :        * Relying on flush_tlb_fix_spurious_fault would suffice, but
-> > :        * the extra traps reduce performance.  So, eagerly SFENCE.VMA.
-> > :        */
-> > : -     flush_tlb_page(vma, address);
-> > : +     local_flush_tlb_page(address);
-> > :  }
-> > :
-> > :  static inline void update_mmu_cache_pmd(struct vm_area_struct *vma,
-> >
-> I tested your above proposed changes and I am no longer seeing an
-> issue on my platform.
+--===============5904732178986068313==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="2glXbnNfAVM4HWB1"
+Content-Disposition: inline
 
-Great. I will send a fixup after I double-check on several other
-hardware platforms. Thanks for testing ! 
 
-Regards,
-Sergey
+--2glXbnNfAVM4HWB1
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Fri, Dec 23, 2022 at 04:59:51PM +0000, Ben Dooks wrote:
+> On 23/12/2022 16:38, Ben Dooks wrote:
+> > I'm getting the following error from modpost:
+> >=20
+> > ERROR: modpost: "zero" [arch/riscv/kvm/kvm.ko] undefined!
+> > ERROR: modpost: "zero" [drivers/gpu/drm/drm.ko] undefined!
+> > ERROR: modpost: "zero" [drivers/nvme/host/nvme.ko] undefined!
+> > ERROR: modpost: "zero" [drivers/i2c/algos/i2c-algo-bit.ko] undefined!
+> >=20
+> > This seems to be coming from arch/riscv/include/asm/jump_label.h
+> > with the arch_static_branch_jump() assembling some code:
+> >=20
+> > > =A0=A0=A0 40=A0 {
+> > > =A0=A0=A0 41=A0=A0=A0=A0=A0=A0=A0=A0=A0 asm_volatile_goto(
+> > > =A0=A0=A0 42=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 "=A0=
+=A0=A0=A0=A0=A0 .option
+> > > push=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
+=A0=A0=A0=A0=A0=A0 \n\t"
+> > > =A0=A0=A0 43=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 "=A0=
+=A0=A0=A0=A0=A0 .option
+> > > norelax=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
+=A0=A0=A0=A0 \n\t"
+> > > =A0=A0=A0 44=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 "=A0=
+=A0=A0=A0=A0=A0 .option
+> > > norvc=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
+=A0=A0=A0=A0=A0 \n\t"
+> > > =A0=A0=A0 45=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 "1:=
+=A0=A0=A0=A0 jal=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 zero,
+> > > %l[label]=A0=A0=A0=A0=A0=A0=A0=A0 \n\t"
+> > > =A0=A0=A0 46=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 "=A0=
+=A0=A0=A0=A0=A0 .option
+> > > pop=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
+=A0=A0=A0=A0=A0=A0 \n\t"
+> > > =A0=A0=A0 47=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 "=A0=
+=A0=A0=A0=A0=A0 .pushsection=A0=A0=A0 __jump_table,
+> > > \"aw\"=A0=A0=A0 \n\t"
+> > > =A0=A0=A0 48=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 "=A0=
+=A0=A0=A0=A0=A0 .align=A0=A0=A0=A0=A0=A0=A0=A0=A0 " RISCV_LGPTR
+> > > "=A0=A0=A0=A0=A0=A0=A0=A0 \n\t"
+> > > =A0=A0=A0 49=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 "=A0=
+=A0=A0=A0=A0=A0 .long=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 1b - ., %l[label] -
+> > > .=A0=A0 \n\t"
+> > > =A0=A0=A0 50=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 "=A0=
+=A0=A0=A0=A0=A0 " RISCV_PTR "=A0=A0 %0 -
+> > > .=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 \n\t"
+> > > =A0=A0=A0 51=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 "
+> > > .popsection=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
+=A0=A0=A0=A0=A0=A0=A0=A0=A0 \n\t"
+> > > =A0=A0=A0 52=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 :=A0 =
+:=A0 "i"(&((char *)key)[branch]) :=A0 : label);
+> > > =A0=A0=A0 53
+> > > =A0=A0=A0 54=A0=A0=A0=A0=A0=A0=A0=A0=A0 return false;
+> > > =A0=A0=A0 55=A0 label:
+> > > =A0=A0=A0 56=A0=A0=A0=A0=A0=A0=A0=A0=A0 return true;
+> > > =A0=A0=A0 57=A0 }
+> > >=20
+> >=20
+> > Changing the jal zero to jal x0 doesn't fix it, it just comes up with
+> > "x0" being undefined.
+> >=20
+> > gcc version 12.2.0 (Debian 12.2.0-9)
+> > GNU assembler version 2.39.50 (riscv64-linux-gnu) using BFD version (GNU
+> > Binutils for Debian) 2.39.50.20221208
+
+Hey Ben, said I'd give it a run yesterday but didnt...
+
+gcc version 12.2.0 2ee5e430018 ("Update ChangeLog and version files for rel=
+ease")
+binutils 2.39 74340608801 (24/12/22)
+
+So that's gcc @ the 12.2 tag & binutils at the tip of the 2.39 branch.
+Kernel is from today too:
+72a85e2b0a1e ("Merge tag 'spi-fix-v6.2-rc1' of git://git.kernel.org/pub/scm=
+/linux/kernel/git/broonie/spi")
+
+I did my usual defconfig (which builds kvm as a module) and allmodconfig
+but I see nothing odd out of modpost.
+
+Could you share your config perhaps, or point out what I may be
+overlooking setup wise?
+
+> > I suspect this is a gas bug where it means to assemble a J instruction
+> > to the label without outputting the unused symbol "zero" into the symbol
+> > table. Is the right thing to fix gas, or can the kernel be changed?
+> >=20
+> > FYI:
+> >=20
+> > tmp.s:
+> >  =A0=A0=A0=A0 1=A0=A0=A0=A0=A0=A0=A0=A0=A0 .text
+> >  =A0=A0=A0=A0 2
+> >  =A0=A0=A0=A0 3=A0 1:
+> >  =A0=A0=A0=A0 4=A0=A0=A0=A0=A0=A0=A0=A0=A0 jal zero, 1b
+> >=20
+> >=20
+> > produces:
+> >=20
+> > 0000000000000000 <.L1^B1>:
+> >  =A0=A0 0:=A0=A0 0000006f=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 =
+j=A0=A0=A0=A0=A0=A0 0 <.L1^B1>
+> >  =A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 =
+0: R_RISCV_JAL=A0 .L1^B1
+> >=20
+> > and
+> >=20
+> > $ riscv64-linux-gnu-nm -a tmp.o
+> > 0000000000000000 b .bss
+> > 0000000000000000 d .data
+> > 0000000000000000 n .riscv.attributes
+> > 0000000000000000 t .text
+> >  =A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 U zero
+> >=20
+> > Current fix is to:
+> >=20
+> >=20
+> > diff --git a/arch/riscv/include/asm/jump_label.h
+> > b/arch/riscv/include/asm/jump_label.h
+> > index 6d58bbb5da46..a4abbacd0b62 100644
+> > --- a/arch/riscv/include/asm/jump_label.h
+> > +++ b/arch/riscv/include/asm/jump_label.h
+> > @@ -42,7 +42,7 @@ static __always_inline bool
+> > arch_static_branch_jump(struct static_key * const ke
+> >  =A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 "=A0=A0=A0=A0=A0=A0 .opt=
+ion push=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
+=A0=A0=A0=A0=A0 \n\t"
+> >  =A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 "=A0=A0=A0=A0=A0=A0 .opt=
+ion norelax=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
+=A0=A0=A0 \n\t"
+> >  =A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 "=A0=A0=A0=A0=A0=A0 .opt=
+ion norvc=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
+=A0=A0=A0=A0 \n\t"
+> > -=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 "1:=A0=A0=A0=A0 jal=A0=A0=
+=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 zero, %l[label]=A0=A0=A0=A0=A0=A0=A0=A0 \n\t"
+> > +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 "1:=A0=A0=A0=A0 j=A0=A0=A0=
+=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 %l[label]=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
+=A0=A0=A0=A0 \n\t"
+> >  =A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 "=A0=A0=A0=A0=A0=A0 .opt=
+ion pop=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
+=A0=A0=A0=A0=A0=A0 \n\t"
+> >  =A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 "=A0=A0=A0=A0=A0=A0 .pus=
+hsection=A0=A0=A0 __jump_table, \"aw\"=A0=A0=A0 \n\t"
+> >  =A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 "=A0=A0=A0=A0=A0=A0 .ali=
+gn=A0=A0=A0=A0=A0=A0=A0=A0=A0 " RISCV_LGPTR "=A0=A0=A0=A0=A0=A0=A0=A0 \n\t"
+> >=20
+> >=20
+> > This fixes modpost, not sure if this should be applied or not.
+> >=20
+>=20
+> I just checked riscv64-linux-gnu-nm vmlinux.o and it has
+>=20
+>                  U zero
+
+I checked the output of nm on my allmodconfig kernel and I do not see
+this symbol. Ditto for my regular defconfig that I use.
+You mentioned on IRC that you did a rebase on top of Linus' tree, what
+is in the extra content on top of that?
+
+>=20
+>=20
+> So I guess the linker just ignores this undefined symbol as it is never
+> actually used for a relocation.
+
+
+--2glXbnNfAVM4HWB1
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY6cahgAKCRB4tDGHoIJi
+0ub0AP4lYqsVm5EPuc5sc1EkeWEGYVxf0ZgJ4gzVhRwFLALnAAD+PFO+7GwPgk+n
+h/sUkEkjNw2zs7xHAxB3EATA0UrjkQk=
+=yIHz
+-----END PGP SIGNATURE-----
+
+--2glXbnNfAVM4HWB1--
+
+
+--===============5904732178986068313==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5904732178986068313==--
+
