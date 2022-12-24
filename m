@@ -4,71 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50B12C4332F
-	for <linux-riscv@archiver.kernel.org>; Sat, 24 Dec 2022 15:24:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 287D1C4332F
+	for <linux-riscv@archiver.kernel.org>; Sat, 24 Dec 2022 15:25:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uCAaSFmXAE2oPw0mT1wuTXkJJA09P0rKThf7Sy4zsN4=; b=DcgtDJUh0mvdJZ
-	UgJc39gtfXjHD2x+kdBHu1CntxXXljNoln8Rb6vrZhHn0MEzUZxUsf4cOnU2+PKyHFOyuN6DProsx
-	aVFv6f4AfERXtnJdbb9K9pSDUzRYye7SvbT7rd6i2ifwD5InoAOoNYtfmtrpSEdnyp1C/fYtXGDAG
-	YcZjJPSgzztgEvUPstnUcx3Dq16jreRabWGA/3AaDSLxdtKPo0QfLS9KNLfnCB0FC+iqSuKV4JxOP
-	chwg5TBMnjlFTCBKUUNCkx6pG6Se/dTwC+O8/L7CaQYunEsEUwrMN5WSjHNxUkysjvI/gkmPHgaV4
-	ti0L5JOYFCIZN9AsNuRA==;
+	List-Owner; bh=fDm49razCwmeb6AwMcxhfqmI9Nx7LtDYA1+WXIgAcmY=; b=JoXzymkHGf8TMU
+	Je9eGA6oC2Ne3kJYShuQInfWn/PS+wuJHq8HkYCrdeBVQNt+J3J1mDVBQX3RCiMrPcAkrBLvychJF
+	3CPRMBonGWQaPyVzc5stzpnM++Oz9KdgOYIJ8lqUo5NvQIV9Iowcp8gxsWpsAVDPZMKNkVwoo44D2
+	akId8wQN4fqBoLm4QQZZUXjVlSRKOykYQNW8Xigx7cjwlr/xj8h16PfG9wO3STMFf0ghiixWN1KaS
+	2cAeiKufdPe7/dpoFJmeJexpsxFlaWxsQJysV9R7j422/TLhvsw2ZJroE1EooOX17LOYpWhD634M8
+	ZGtToZmYJViZxXHHbU2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p96Nu-0014AL-86; Sat, 24 Dec 2022 15:24:26 +0000
-Received: from smtp23.cstnet.cn ([159.226.251.23] helo=cstnet.cn)
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p92wO-00H5ui-PF
-	for linux-riscv@lists.infradead.org; Sat, 24 Dec 2022 11:43:58 +0000
-Received: from cgk-Precision-3650-Tower.. (unknown [219.141.235.82])
-	by APP-03 (Coremail) with SMTP id rQCowABXXpbf5aZj9dVkCA--.18955S5;
-	Sat, 24 Dec 2022 19:43:27 +0800 (CST)
-From: Chen Guokai <chenguokai17@mails.ucas.ac.cn>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	rostedt@goodmis.org,
-	mingo@redhat.com,
-	sfr@canb.auug.org.au
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	liaochang1@huawei.com,
-	Chen Guokai <chenguokai17@mails.ucas.ac.cn>
-Subject: [PATCH v5 1/9] riscv/kprobe: Prepare the skeleton to implement RISCV OPTPROBES feature
-Date: Sat, 24 Dec 2022 19:43:07 +0800
-Message-Id: <20221224114315.850130-2-chenguokai17@mails.ucas.ac.cn>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20221224114315.850130-1-chenguokai17@mails.ucas.ac.cn>
-References: <20221224114315.850130-1-chenguokai17@mails.ucas.ac.cn>
+	id 1p96OI-0014Oj-L9; Sat, 24 Dec 2022 15:24:50 +0000
+Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1p930X-00H6wf-Hf
+	for linux-riscv@lists.infradead.org; Sat, 24 Dec 2022 11:48:07 +0000
+Received: by mail-lf1-x12e.google.com with SMTP id o6so10206207lfi.5
+        for <linux-riscv@lists.infradead.org>; Sat, 24 Dec 2022 03:48:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ukiode13upAuOopb72PAs48UojpAkxLKmmquZz2y5sU=;
+        b=CCmZ/IJwI00Ym6/4vaJUdJDAH0NB+u9O43/CiR++W3apCv55texUvwzGDjh2fykdeG
+         Sg0+JrLbfmsCFceBLS1Emxu4whItx54t2ZyloSSdXlRDxr0eocdGlbNqim/1f64NArAL
+         q2F2K0CZLplMEWyMEpj4c3vFy4n5NYTBafQWcjJ66kH0NOsK7Wt0HkRQrMRFq6rSbybf
+         ijRCKojxsv9Bvao81xzrf78HOW3hqVCfd+DeF/ZoH+9oSOMVb9Hly5OOEcP0jLRUs/sh
+         u+tS2WdrBu19axEku0ZyFrcxAsQLFBQ9+e8lb5U1oJRs9M8BuLPANy0iJ5/Axgkm9iOH
+         de2A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ukiode13upAuOopb72PAs48UojpAkxLKmmquZz2y5sU=;
+        b=aFwN3etdmm3pvK617ynUmeoXjv7VAXxLK/ysyxPpD6/orYraFj0qqgXMO43siYL1lo
+         djX3ZFHB9KLQFc3f7VIxIRQFU/9GApYgZGA3dFAvKTVZMeZFWH2yDcrbrCyQkTE42+c+
+         06MY4d0BOvTKGiTWDRgLKi/jhdUbJ7ylfPu52ABdZSB4VKqTjm6qpYT8lWQvCOE7mEdE
+         yLUZpbT/CXFPpRTqozwGLFU7cAhsjq6sor0WYDzo+1b22lr92LtgC/yfee4glDKuZnz7
+         mQNp/dkFwiBSzILKGZq07mUa3F4GbqOQ8pA7gUEXg5NlTQz+S/kCjR+RwmJFwL6CBiZf
+         eB7A==
+X-Gm-Message-State: AFqh2krVmwATPkTHH267UHRzSzOB2yd3SSDRbaTTtYlnQOq37qLteKqo
+	SAQ/cMfuMT9WwiPNKeOh3sM=
+X-Google-Smtp-Source: AMrXdXuC+k0Nq4Er3uwrWw4rCEfVQ5kJDFAocYYzKZlNczJGRIr6F3y8NkgjyPFxt/WC96NfWirxmA==
+X-Received: by 2002:a05:6512:401f:b0:4ab:1cb7:473e with SMTP id br31-20020a056512401f00b004ab1cb7473emr4406661lfb.4.1671882482744;
+        Sat, 24 Dec 2022 03:48:02 -0800 (PST)
+Received: from curiosity ([5.188.167.245])
+        by smtp.gmail.com with ESMTPSA id u20-20020a05651220d400b004949f7cbb6esm914420lfr.79.2022.12.24.03.48.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 24 Dec 2022 03:48:01 -0800 (PST)
+Date: Sat, 24 Dec 2022 14:48:00 +0300
+From: Sergey Matyukevich <geomatsi@gmail.com>
+To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Cc: linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
+	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@rivosinc.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Guo Ren <guoren@kernel.org>,
+	Alexandre Ghiti <alexandre.ghiti@canonical.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Sergey Matyukevich <sergey.matyukevich@syntacore.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Conor Dooley <Conor.Dooley@microchip.com>
+Subject: Re: [RFC PATCH 1/1] riscv: mm: notify remote harts about mmu cache
+ updates
+Message-ID: <Y6bm8KIsHhFq1RFR@curiosity>
+References: <20220829205219.283543-1-geomatsi@gmail.com>
+ <CA+V-a8uLmp33PSYGmJjf9FupJ0M8Hf7ef7A1G4va8GDL_61Qyw@mail.gmail.com>
+ <Y6S1/kROC0p5CboA@curiosity>
+ <CA+V-a8u0qUF81RUTF9+4T4F1GxW3=4P7RMTTjjsaMq4MiiQSMQ@mail.gmail.com>
+ <Y6TIywUWZ3nrPeon@curiosity>
+ <CA+V-a8tMQ-RaaXD5209HxT77VoiOanvjdbFCPsdWpDYswuY+ZQ@mail.gmail.com>
+ <Y6TYNBgqgWuxhhHJ@curiosity>
+ <CA+V-a8tDi79M8cS7rVoby3sopQ4AwXXcNggfHYXW-W2wtEgQ4g@mail.gmail.com>
+ <Y6Xjwg1dDYnwRbni@curiosity>
+ <CA+V-a8uwmwriyoSZ1ftVQ1L1_uTL3k=VSs7Cid7++XEshq1RsQ@mail.gmail.com>
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowABXXpbf5aZj9dVkCA--.18955S5
-X-Coremail-Antispam: 1UD129KBjvJXoW3XrykCF1UCr4UJry7JryrJFb_yoW7KFy7pF
-	s5Cwn5WrWkA3s3G3y3A3WkurWFqan5Wa17KrWDZry5Jw45tr45Awn2grWUXrWxJrs0gryf
-	WF1Fyry5Cry3X3DanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUmK14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jr4l82xGYIkIc2
-	x26xkF7I0E14v26r1I6r4UM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
-	Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1l84
-	ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I0E14v26F4UJVW0owAa
-	c4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzV
-	Aqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S
-	6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxw
-	ACI402YVCY1x02628vn2kIc2xKxwCY02Avz4vE14v_Gw4l42xK82IYc2Ij64vIr41l4I8I
-	3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxV
-	WUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAF
-	wI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcI
-	k0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j
-	6r4UJbIYCTnIWIevJa73UjIFyTuYvjfU0c_-DUUUU
-X-Originating-IP: [219.141.235.82]
-X-CM-SenderInfo: xfkh0w5xrntxyrx6ztxlovh3xfdvhtffof0/1tbiCQYKE2OmnPBfhgABsn
+Content-Disposition: inline
+In-Reply-To: <CA+V-a8uwmwriyoSZ1ftVQ1L1_uTL3k=VSs7Cid7++XEshq1RsQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221224_034349_269104_557D1D5F 
-X-CRM114-Status: GOOD (  15.88  )
+X-CRM114-CacheID: sfid-20221224_034805_660766_B4CF25C1 
+X-CRM114-Status: GOOD (  45.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,180 +108,136 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Liao Chang <liaochang1@huawei.com>
+Hi Prabhakar,
 
-Prepare skeleton to implement optimized kprobe on RISCV, it is consist
-of Makfile, Kconfig and some architecture specific files: kprobe.h and
-opt.c opt.c include some macro, type definition and functions required
-by kprobe framework, opt_trampoline.S provide a piece of assembly code
-template used to construct the detour buffer as the target of long jump
-instruction(s) for each optimzed kprobe.
+> > > > > > > > > > Current implementation of update_mmu_cache function performs local TLB
+> > > > > > > > > > flush. It does not take into account ASID information. Besides, it does
+> > > > > > > > > > not take into account other harts currently running the same mm context
+> > > > > > > > > > or possible migration of the running context to other harts. Meanwhile
+> > > > > > > > > > TLB flush is not performed for every context switch if ASID support
+> > > > > > > > > > is enabled.
+> > > > > > > > > >
+> > > > > > > > > > Patch [1] proposed to add ASID support to update_mmu_cache to avoid
+> > > > > > > > > > flushing local TLB entirely. This patch takes into account other
+> > > > > > > > > > harts currently running the same mm context as well as possible
+> > > > > > > > > > migration of this context to other harts.
+> > > > > > > > > >
+> > > > > > > > > > For this purpose the approach from flush_icache_mm is reused. Remote
+> > > > > > > > > > harts currently running the same mm context are informed via SBI calls
+> > > > > > > > > > that they need to flush their local TLBs. All the other harts are marked
+> > > > > > > > > > as needing a deferred TLB flush when this mm context runs on them.
+> > > > > > > > > >
+> > > > > > > > > > [1] https://lore.kernel.org/linux-riscv/20220821013926.8968-1-tjytimi@163.com/
+> > > > > > > > > >
+> > > > > > > > > > Signed-off-by: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
+> > > > > > > > > > ---
+> > > > > > > > > >  arch/riscv/include/asm/mmu.h      |  2 ++
+> > > > > > > > > >  arch/riscv/include/asm/pgtable.h  |  2 +-
+> > > > > > > > > >  arch/riscv/include/asm/tlbflush.h | 18 ++++++++++++++++++
+> > > > > > > > > >  arch/riscv/mm/context.c           | 10 ++++++++++
+> > > > > > > > > >  arch/riscv/mm/tlbflush.c          | 28 +++++++++++-----------------
+> > > > > > > > > >  5 files changed, 42 insertions(+), 18 deletions(-)
+> > > > > > > > > >
+> > > > > > > <snip>
+> > > > > > > > > [  133.008752] Hardware name: Renesas SMARC EVK based on r9a07g043f01 (DT)
+> > > > > > > > > [  133.015338] Call Trace:
+> > > > > > > > > [  133.017778] [<ffffffff800055cc>] dump_backtrace+0x1c/0x24
+> > > > > > > > > [  133.023174] [<ffffffff80776836>] show_stack+0x2c/0x38
+> > > > > > > > > [  133.028214] [<ffffffff80780244>] dump_stack_lvl+0x3c/0x54
+> > > > > > > > > [  133.033597] [<ffffffff80780270>] dump_stack+0x14/0x1c
+> > > > > > > > > [  133.038633] [<ffffffff80776c00>] panic+0x102/0x29a
+> > > > > > > > > [  133.043409] [<ffffffff800137ba>] do_exit+0x704/0x70a
+> > > > > > > > > [  133.048362] [<ffffffff8001390e>] do_group_exit+0x24/0x70
+> > > > > > > > > [  133.053659] [<ffffffff8001de54>] get_signal+0x68a/0x6dc
+> > > > > > > > > [  133.058874] [<ffffffff8000494e>] do_work_pending+0xd6/0x44e
+> > > > > > > > > [  133.064427] [<ffffffff800036c2>] resume_userspace_slow+0x8/0xa
+> > > > > > > > > [  133.070249] ---[ end Kernel panic - not syncing: Attempted to kill
+> > > > > > > > > init! exitcode=0x0000000b ]---
+> > > > > > > > >
+> > > > > > > > > If I revert this patch [0] bonnie++ works as expected.
+> > > > > > > > >
+> > > > > > > > > Any pointers on what could be the issue here?
+> > > > > > > > >
+> > > > > > > > > [0] https://git.kernel.org/pub/scm/linux/kernel/git/palmer/linux.git/commit/?h=for-next&id=4bd1d80efb5af640f99157f39b50fb11326ce641
+> > > > > > > > >
+> > > > > > > > > Cheers,
+> > > > > > > > > Prabhakar
+> > > > > > > >
+> > > > > > > > Good catch. Thanks for reporting ! Discussion around the issue and
+> > > > > > > > possible ways to fix it can be found in the following email thread:
+> > > > > > > >
+> > > > > > > > https://lore.kernel.org/linux-riscv/20221111075902.798571-1-guoren@kernel.org/
+> > > > > > > >
+> > > > > > > > Could you please apply the patch from Guo Ren instead of [0] and check
+> > > > > > > > if you have any issues with your test ? Besides, could you please share
+> > > > > > > > your kernel configuration and the actual bonnie++ params from emmc_t_002.sh script ?
+> > > > > > > >
+> > > > > > > Thanks for the pointer, I'll undo my changes and test Guo's patch.
+> > > > > > >
+> > > > > > > I have pasted the script here [0] and attached config.
+> > > > > > >
+> > > > > > > [0] https://paste.debian.net/hidden/a7a769b5/
+> > > > > >
+> > > > > > Thanks for the script and config. Could you please also share the
+> > > > > > following information:
+> > > > > > - how many cores your system has
+> > > > > The Renesas RZ/Five SoC has a single Andes AX45MP core.
+> > > > >
+> > > > > > - does your system support ASID
+> > > > > >
+> > > > > With a quick look at [0] It does support ASID, unless there is a way
+> > > > > to disable it.
+> > > > >
+> > > > > [0] http://www.andestech.com/wp-content/uploads/AX45MP-1C-Rev.-5.0.0-Datasheet.pdf
+> > > >
+> > > > So you have a single-core system, but your kernel configuration enables
+> > > > CONFIG_SMP. Additional 'deferred TLB flush' logic is dropped at build
+> > > > time if CONFIG_SMP is disabled. On the other hand, system should not
+> > > > fail that way even if SMP is enabled.
+> > > >
+> > > I enabled CONFIG_SMP while doing some testing of PMA code and indeed
+> > > enabling this config should not introduce a failure.
+> > >
+> > > > Let me double-check if anything can go wrong if cpumasks may have only
+> > > > a single cpu. Another suspect is a change in update_mmu_cache: probably
+> > > > making it asid-specific (and thus more granular) was a bad idea.
+> > > >
+> > > Thanks.
+> > >
+> > > BTW I tested the patch [0] which you pointed out and that fixes the
+> > > issues seen earlier.
+> > >
+> > > [0] https://patchwork.kernel.org/project/linux-riscv/patch/20221111075902.798571-1-guoren@kernel.org/
+> >
+> > All looks good with cpumasks in the single-core case. So deferred TLB
+> > flush logic is not even executed in your case. So the root cause
+> > should be in update_mmu_cache change.
+> >
+> > May I ask you to repeat the original emmc test on your platform from
+> > for-next (i.e. with [0] and without [1]) with the following partial revert:
+> >
+> > : diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> > : index ec6fb83349ce..92ec2d9d7273 100644
+> > : --- a/arch/riscv/include/asm/pgtable.h
+> > : +++ b/arch/riscv/include/asm/pgtable.h
+> > : @@ -415,7 +415,7 @@ static inline void update_mmu_cache(struct vm_area_struct *vma,
+> > :        * Relying on flush_tlb_fix_spurious_fault would suffice, but
+> > :        * the extra traps reduce performance.  So, eagerly SFENCE.VMA.
+> > :        */
+> > : -     flush_tlb_page(vma, address);
+> > : +     local_flush_tlb_page(address);
+> > :  }
+> > :
+> > :  static inline void update_mmu_cache_pmd(struct vm_area_struct *vma,
+> >
+> I tested your above proposed changes and I am no longer seeing an
+> issue on my platform.
 
-Since the jump range of PC-relative instruction JAL is +/-2M, that is
-too small to reach the detour buffer, hence the foudamental idea to
-address OPTPROBES on RISCV is replace 'EBREAK' with 'AUIPC/JALR'. which
-means it needs to clobber one more instruction beside the kprobe
-instruction, furthermore, RISCV supports hybird RVI and RVC in single
-kernel binary, so in theory a pair of 'AUIPC/JALR' is about to clobber
-10 bytes(3 RVC and 1 RVI, 2 bytes is padding for alignment) at worst
-case. The second hardsome problem is looking for one integer register as
-the destination of 'AUIPC/JALR' without any side-effect.
+Great. I will send a fixup after I double-check on several other
+hardware platforms. Thanks for testing ! 
 
-Signed-off-by: Liao Chang <liaochang1@huawei.com>
-Co-developed-by: Chen Guokai <chenguokai17@mails.ucas.ac.cn>
-Signed-off-by: Chen Guokai <chenguokai17@mails.ucas.ac.cn>
----
- arch/riscv/Kconfig                        |  1 +
- arch/riscv/include/asm/kprobes.h          | 32 ++++++++++++++
- arch/riscv/kernel/probes/Makefile         |  1 +
- arch/riscv/kernel/probes/opt.c            | 51 +++++++++++++++++++++++
- arch/riscv/kernel/probes/opt_trampoline.S | 12 ++++++
- 5 files changed, 97 insertions(+)
- create mode 100644 arch/riscv/kernel/probes/opt.c
- create mode 100644 arch/riscv/kernel/probes/opt_trampoline.S
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index e2b656043abf..5fa3094d55bc 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -103,6 +103,7 @@ config RISCV
- 	select HAVE_KPROBES_ON_FTRACE if !XIP_KERNEL
- 	select HAVE_KRETPROBES if !XIP_KERNEL
- 	select HAVE_RETHOOK if !XIP_KERNEL
-+	select HAVE_OPTPROBES if !XIP_KERNEL
- 	select HAVE_MOVE_PMD
- 	select HAVE_MOVE_PUD
- 	select HAVE_PCI
-diff --git a/arch/riscv/include/asm/kprobes.h b/arch/riscv/include/asm/kprobes.h
-index e7882ccb0fd4..e85130c9112f 100644
---- a/arch/riscv/include/asm/kprobes.h
-+++ b/arch/riscv/include/asm/kprobes.h
-@@ -41,5 +41,37 @@ int kprobe_fault_handler(struct pt_regs *regs, unsigned int trapnr);
- bool kprobe_breakpoint_handler(struct pt_regs *regs);
- bool kprobe_single_step_handler(struct pt_regs *regs);
- 
-+#ifdef CONFIG_OPTPROBES
-+
-+/* optinsn template addresses */
-+extern __visible kprobe_opcode_t optprobe_template_entry[];
-+extern __visible kprobe_opcode_t optprobe_template_end[];
-+
-+#define MAX_OPTINSN_SIZE				\
-+	((unsigned long)optprobe_template_end -		\
-+	 (unsigned long)optprobe_template_entry)
-+
-+/*
-+ * For RVI and RVC hybird encoding kernel, althought long jump just needs
-+ * 2 RVI instructions(AUIPC+JALR), optimized instructions is 10 bytes long
-+ * at most to ensure no RVI would be truncated actually, so it means four
-+ * combinations:
-+ * - 2 RVI
-+ * - 4 RVC
-+ * - 2 RVC + 1 RVI
-+ * - 3 RVC + 1 RVI (truncated, need padding)
-+ */
-+#define MAX_COPIED_INSN		4
-+#define MAX_OPTIMIZED_LENGTH	10
-+
-+struct arch_optimized_insn {
-+	kprobe_opcode_t copied_insn[MAX_COPIED_INSN];
-+	/* detour code buffer */
-+	kprobe_opcode_t *insn;
-+	unsigned long length;
-+	int rd;
-+};
-+
-+#endif /* CONFIG_OPTPROBES */
- #endif /* CONFIG_KPROBES */
- #endif /* _ASM_RISCV_KPROBES_H */
-diff --git a/arch/riscv/kernel/probes/Makefile b/arch/riscv/kernel/probes/Makefile
-index c40139e9ca47..3d837eb5f9be 100644
---- a/arch/riscv/kernel/probes/Makefile
-+++ b/arch/riscv/kernel/probes/Makefile
-@@ -3,4 +3,5 @@ obj-$(CONFIG_KPROBES)		+= kprobes.o decode-insn.o simulate-insn.o
- obj-$(CONFIG_RETHOOK)		+= rethook.o rethook_trampoline.o
- obj-$(CONFIG_KPROBES_ON_FTRACE)	+= ftrace.o
- obj-$(CONFIG_UPROBES)		+= uprobes.o decode-insn.o simulate-insn.o
-+obj-$(CONFIG_OPTPROBES)		+= opt.o opt_trampoline.o
- CFLAGS_REMOVE_simulate-insn.o = $(CC_FLAGS_FTRACE)
-diff --git a/arch/riscv/kernel/probes/opt.c b/arch/riscv/kernel/probes/opt.c
-new file mode 100644
-index 000000000000..56c8a227c857
---- /dev/null
-+++ b/arch/riscv/kernel/probes/opt.c
-@@ -0,0 +1,51 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ *  Kernel Probes Jump Optimization (Optprobes)
-+ *
-+ * Copyright (C) Guokai Chen, 2022
-+ * Author: Guokai Chen chenguokai17@mails.ucas.ac.cn
-+ */
-+
-+#define pr_fmt(fmt)	"optprobe: " fmt
-+
-+#include <linux/kprobes.h>
-+#include <asm/kprobes.h>
-+
-+int arch_prepared_optinsn(struct arch_optimized_insn *optinsn)
-+{
-+	return 0;
-+}
-+
-+int arch_check_optimized_kprobe(struct optimized_kprobe *op)
-+{
-+	return 0;
-+}
-+
-+int arch_prepare_optimized_kprobe(struct optimized_kprobe *op,
-+				  struct kprobe *orig)
-+{
-+	return 0;
-+}
-+
-+void arch_remove_optimized_kprobe(struct optimized_kprobe *op)
-+{
-+}
-+
-+void arch_optimize_kprobes(struct list_head *oplist)
-+{
-+}
-+
-+void arch_unoptimize_kprobes(struct list_head *oplist,
-+			     struct list_head *done_list)
-+{
-+}
-+
-+void arch_unoptimize_kprobe(struct optimized_kprobe *op)
-+{
-+}
-+
-+int arch_within_optimized_kprobe(struct optimized_kprobe *op,
-+				 kprobe_opcode_t *addr)
-+{
-+	return 0;
-+}
-diff --git a/arch/riscv/kernel/probes/opt_trampoline.S b/arch/riscv/kernel/probes/opt_trampoline.S
-new file mode 100644
-index 000000000000..16160c4367ff
---- /dev/null
-+++ b/arch/riscv/kernel/probes/opt_trampoline.S
-@@ -0,0 +1,12 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2022 Guokai Chen
-+ */
-+
-+#include <linux/linkage.h>
-+
-+#incldue <asm/csr.h>
-+#include <asm/asm-offsets.h>
-+
-+SYM_ENTRY(optprobe_template_entry, SYM_L_GLOBAL, SYM_A_NONE)
-+SYM_ENTRY(optprobe_template_end, SYM_L_GLOBAL, SYM_A_NONE)
--- 
-2.34.1
-
+Regards,
+Sergey
 
 _______________________________________________
 linux-riscv mailing list
