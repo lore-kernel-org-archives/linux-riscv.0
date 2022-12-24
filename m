@@ -4,30 +4,30 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5B60C4332F
-	for <linux-riscv@archiver.kernel.org>; Sat, 24 Dec 2022 15:22:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30961C4332F
+	for <linux-riscv@archiver.kernel.org>; Sat, 24 Dec 2022 15:22:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XlKPf/ul8CSWk8aDQ7T+fJcEhR0BIEPSAbYRxwAbrgY=; b=AjyaKIRGsIxASq
-	Bq5u89/SsZH5vmbPu0QSQNtpgKmvCqcLk7K00k2Mv3uKIxk4D9Tp0d8iX3mT4zG+w+0UVIDzu+iQz
-	RINIfVDLsMwiri22ITPZVSoRHLAjUYcp48PRKkKeo5nAeaWjbgdANWaVt4feq+L9/0z+MpYXnrmeG
-	4yLN4Qlg7xsCGJGHndUjWAJP6yVEwewCrkvximlH0Ab5hJIWnHQebLEgTMz9pVk2fKcuHHirRCYxH
-	Bj77kidc5J0/0EPypW8OSqCqeNxXVV+eE2xhTQ4FyEDAbjP5FpGKf3AJa+71SE6gjYR/JjCOW5Hc6
-	9+ZTGssGiCvaFzCccI9g==;
+	List-Owner; bh=a31PTAYz5tNvNi7+mO3x8aOE/F4USM5WduNBNBVMt6I=; b=JJtvi4NPWsaDeN
+	xeOFxQuC5DbD3NotNjjNbV1NpqnV5a0u2iP37LasMVnXHDNmzmpEjtAlSyvGsBgfO+K8I1SaHMsBV
+	/lvtDIpfau+dQfeTuA7NnZgYtyn6oAJmerlZCfSmZYKAl9rUwr8aW3qLmqK8KTGN3cv5Muk+d0YM4
+	P5NvO6W+xxlMki5qHTn2goarg7/x+5guT4EMXD+mJ0Gi1jzTmMDfArby9Ii/LOL0ue43LWe3a9/og
+	c9J1nnhb+/FWIJapKVVXiE5b8+vIxT8VNmg1h6f9z+0cRA23aLywakNTr8f96nkVNNEvIezYkcz1y
+	ATKJ2WJA7lbug0aWDBWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p96LP-0012jc-8E; Sat, 24 Dec 2022 15:21:51 +0000
+	id 1p96Le-0012rI-DU; Sat, 24 Dec 2022 15:22:06 +0000
 Received: from smtp23.cstnet.cn ([159.226.251.23] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p92wO-00H5uj-IY
-	for linux-riscv@lists.infradead.org; Sat, 24 Dec 2022 11:43:53 +0000
+	id 1p92wO-00H5uh-JP
+	for linux-riscv@lists.infradead.org; Sat, 24 Dec 2022 11:43:55 +0000
 Received: from cgk-Precision-3650-Tower.. (unknown [219.141.235.82])
-	by APP-03 (Coremail) with SMTP id rQCowABXXpbf5aZj9dVkCA--.18955S9;
-	Sat, 24 Dec 2022 19:43:28 +0800 (CST)
+	by APP-03 (Coremail) with SMTP id rQCowABXXpbf5aZj9dVkCA--.18955S12;
+	Sat, 24 Dec 2022 19:43:29 +0800 (CST)
 From: Chen Guokai <chenguokai17@mails.ucas.ac.cn>
 To: paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
@@ -39,36 +39,36 @@ Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	liaochang1@huawei.com,
 	Chen Guokai <chenguokai17@mails.ucas.ac.cn>
-Subject: [PATCH v5 5/9] riscv/kprobe: Search free register(s) to clobber for 'AUIPC/JALR'
-Date: Sat, 24 Dec 2022 19:43:11 +0800
-Message-Id: <20221224114315.850130-6-chenguokai17@mails.ucas.ac.cn>
+Subject: [PATCH v5 8/9] riscv/kprobe: Patch AUIPC/JALR pair to optimize kprobe
+Date: Sat, 24 Dec 2022 19:43:14 +0800
+Message-Id: <20221224114315.850130-9-chenguokai17@mails.ucas.ac.cn>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20221224114315.850130-1-chenguokai17@mails.ucas.ac.cn>
 References: <20221224114315.850130-1-chenguokai17@mails.ucas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowABXXpbf5aZj9dVkCA--.18955S9
-X-Coremail-Antispam: 1UD129KBjvJXoWfJry3uryfWFy5Kr1kJryxXwb_yoWDAr15pF
-	ZxGw4rtF4Utrs5W3y3tF1kJrWSgFs3Grs8Ar15t3yUZw43G3ySqFWvga43Zr1DCF13Zr48
-	Jr4Y9rWI9r4DAFDanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUQF14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+X-CM-TRANSID: rQCowABXXpbf5aZj9dVkCA--.18955S12
+X-Coremail-Antispam: 1UD129KBjvJXoW3JFW8JrW7Xw4ruF4fWr18uFg_yoW7CryrpF
+	s8GwnxJrWYkFn2grZxAws5ur1rKwsYyay3K3yDGrWfArsrJrs8Wwnakwn8Zr15GF1Fgr13
+	ArnYkryruay7JFJanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUQ214x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
 	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JF0E3s1l82xGYI
 	kIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2
-	z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr
-	1UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVWxJr0_
-	GcWlnxkEFVAIw20F6cxK64vIFxWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2
-	IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4U
-	McvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I64
-	8v4I1lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc2xSY4AK67AK6r4kMxAIw28IcxkI7VAKI48J
-	MxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwV
-	AFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv2
-	0xvE14v26r1I6r4UMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWxJVW8Jr1lIxAIcVCF04k26c
-	xKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAF
-	wI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUSApnUUUUU=
+	z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F
+	4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Cr1j
+	6rxdM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4
+	xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8
+	JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20V
+	AGYxC7M4IIrI8v6xkF7I0E8cxan2IY04v7MxkIecxEwVAFwVW8KwCF04k20xvY0x0EwIxG
+	rwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4
+	vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IY
+	x2IY67AKxVWUCVW8JwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1UMIIF0xvE42xK8V
+	AvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E
+	14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfUeSoGDUUUU
 X-Originating-IP: [219.141.235.82]
-X-CM-SenderInfo: xfkh0w5xrntxyrx6ztxlovh3xfdvhtffof0/1tbiBwUKE2OmnMtouAAAsZ
+X-CM-SenderInfo: xfkh0w5xrntxyrx6ztxlovh3xfdvhtffof0/1tbiCQMKE2OmnPBm9AAAso
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221224_034349_051247_C4EC6E74 
-X-CRM114-Status: GOOD (  27.74  )
+X-CRM114-CacheID: sfid-20221224_034349_183482_D8BE3DB2 
+X-CRM114-Status: GOOD (  14.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,318 +87,182 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Liao Chang <liaochang1@huawei.com>
 
-This patch implement the algorithm of searching free register(s) to
-form a long-jump instruction pair.
-
-AUIPC/JALR instruction pair is introduced with a much wider jump range
-(4GB), where auipc loads the upper 20 bits to a free register and jalr
-appends the lower 12 bits to form a 32 bit immediate. Since kprobes can
-be instrumented at anywhere in kernel space, hence the free register
-should be found in a generic way, not depending on the calling convention
-or any other regulations.
-
-The algorithm for finding the free register is inspired by the register
-renaming in modern processors. From the perspective of register renaming,
-a register could be represented as two different registers if two neighbour
-instructions both write to it but no one ever reads. Extending this fact,
-a register is considered to be free if there is no read before its next
-write in the execution flow. We are free to change its value without
-interfering normal execution.
-
-In order to do jump optimization, it needs to search two free registers,
-the first one is used to form AUIPC/JALR jumping to detour buffer, the
-second one is used to form JR jumping back from detour buffer. If first
-one never been updated by any instructions replaced by 'AUIPC/JALR',
-both register supposes to the same one.
-
-Let's use the example below to explain how the algorithm work. Given
-kernel is RVI and RCV hybrid binary, and one kprobe is instrumented at
-the entry of function idle_dummy.
-
-Before			Optimized		Detour buffer
-<idle_dummy>:					...
- #1 add  sp,sp,-16	auipc a0, #?		add  sp,sp,-16
- #2 sd   s0,8(sp)				sd   s0,8(sp)
- #3 addi s0,sp,16	jalr  a0, #?(a0)	addi s0,sp,16
- #4 ld   s0,8(sp)				ld   s0,8(sp)
- #5 li   a0,0		li   a0,0		auipc a0, #?
- #6 addi sp,sp,16	addi sp,sp,16		jr    x0, #?(a0)
- #7 ret			ret
-
-For regular kprobe, it is trival to replace the first instruction with
-C.EREABK, no more instruction and register will be clobber, in order to
-optimize kprobe with long-jump, it used to patch the first 8 bytes with
-AUIPC/JALR, and a0 will be chosen to save the address jumping to,
-because from #1 to #7, a0 is the only one register that satifies two
-conditions: (1) No read before write (2) Never been updated in detour
-buffer. While s0 has been used as the source register at #2, so it is
-not free to clobber.
-
-The searching starts from the kprobe and stop at the last instruction of
-function or the first branch/jump instruction, it decodes out the 'rs'
-and 'rd' part of each visited instruction. If the 'rd' never been read
-before, then record it to bitmask 'write'; if the 'rs' never been
-written before, then record it to another bitmask 'read'. When searching
-stops, the remaining bits of 'write' are the free registers to form
-AUIPC/JALR or JR.
+The patch optimize 'EBREAK' with 'AUIPC/JALR', introduce new patching
+function to modify multiple instructions.
 
 Signed-off-by: Liao Chang <liaochang1@huawei.com>
 Co-developed-by: Chen Guokai <chenguokai17@mails.ucas.ac.cn>
 Signed-off-by: Chen Guokai <chenguokai17@mails.ucas.ac.cn>
 ---
- arch/riscv/kernel/probes/opt.c | 223 +++++++++++++++++++++++++++++++++
- 1 file changed, 223 insertions(+)
+ arch/riscv/include/asm/patch.h |  1 +
+ arch/riscv/kernel/patch.c      | 23 ++++++++++---
+ arch/riscv/kernel/probes/opt.c | 63 ++++++++++++++++++++++++++++++++--
+ 3 files changed, 81 insertions(+), 6 deletions(-)
 
-diff --git a/arch/riscv/kernel/probes/opt.c b/arch/riscv/kernel/probes/opt.c
-index a4271e6033ba..a0d2ab39e3fa 100644
---- a/arch/riscv/kernel/probes/opt.c
-+++ b/arch/riscv/kernel/probes/opt.c
-@@ -12,6 +12,9 @@
- #include <asm/kprobes.h>
- #include <asm/patch.h>
+diff --git a/arch/riscv/include/asm/patch.h b/arch/riscv/include/asm/patch.h
+index 9a7d7346001e..ee31539de65f 100644
+--- a/arch/riscv/include/asm/patch.h
++++ b/arch/riscv/include/asm/patch.h
+@@ -8,5 +8,6 @@
  
-+#include "simulate-insn.h"
-+#include "decode-insn.h"
-+
- static inline int in_auipc_jalr_range(long val)
+ int patch_text_nosync(void *addr, const void *insns, size_t len);
+ int patch_text(void *addr, u32 insn);
++int patch_text_batch(void *addr, const void *insn, size_t size);
+ 
+ #endif /* _ASM_RISCV_PATCH_H */
+diff --git a/arch/riscv/kernel/patch.c b/arch/riscv/kernel/patch.c
+index 765004b60513..ce324b6a6998 100644
+--- a/arch/riscv/kernel/patch.c
++++ b/arch/riscv/kernel/patch.c
+@@ -15,7 +15,8 @@
+ 
+ struct patch_insn {
+ 	void *addr;
+-	u32 insn;
++	const void *insn;
++	size_t size;
+ 	atomic_t cpu_count;
+ };
+ 
+@@ -106,8 +107,7 @@ static int patch_text_cb(void *data)
+ 
+ 	if (atomic_inc_return(&patch->cpu_count) == num_online_cpus()) {
+ 		ret =
+-		    patch_text_nosync(patch->addr, &patch->insn,
+-					    GET_INSN_LENGTH(patch->insn));
++		    patch_text_nosync(patch->addr, patch->insn, patch->size);
+ 		atomic_inc(&patch->cpu_count);
+ 	} else {
+ 		while (atomic_read(&patch->cpu_count) <= num_online_cpus())
+@@ -123,7 +123,8 @@ int patch_text(void *addr, u32 insn)
  {
- #ifdef CONFIG_ARCH_RV32I
-@@ -37,15 +40,235 @@ static void prepare_detour_buffer(kprobe_opcode_t *code, kprobe_opcode_t *slot,
- {
+ 	struct patch_insn patch = {
+ 		.addr = addr,
+-		.insn = insn,
++		.insn = &insn,
++		.size = GET_INSN_LENGTH(insn),
+ 		.cpu_count = ATOMIC_INIT(0),
+ 	};
+ 
+@@ -131,3 +132,17 @@ int patch_text(void *addr, u32 insn)
+ 				       &patch, cpu_online_mask);
  }
- 
-+/* Registers the first usage of which is the destination of instruction */
-+#define WRITE_ON(reg)	\
-+	(*write |= (((*read >> (reg)) ^ 1UL) & 1) << (reg))
-+/* Registers the first usage of which is the source of instruction */
-+#define READ_ON(reg)	\
-+	(*read |= (((*write >> (reg)) ^ 1UL) & 1) << (reg))
+ NOKPROBE_SYMBOL(patch_text);
 +
- /*
-  * In RISC-V ISA, AUIPC/JALR clobber one register to form target address,
-  * by inspired by register renaming in OoO processor, this involves search
-  * backwards that is not previously used as a source register and is used
-  * as a destination register before any branch or jump instruction.
-  */
-+static void find_register(unsigned long start, unsigned long end,
-+			  unsigned long *write, unsigned long *read)
++int patch_text_batch(void *addr, const void *insn, size_t size)
 +{
-+	kprobe_opcode_t insn;
-+	unsigned long addr, offset = 0UL;
++	struct patch_insn patch = {
++		.addr = addr,
++		.insn = insn,
++		.size = size,
++		.cpu_count = ATOMIC_INIT(0),
++	};
 +
-+	for (addr = start; addr < end; addr += offset) {
-+		insn = *(kprobe_opcode_t *)addr;
-+		offset = GET_INSN_LENGTH(insn);
-+
-+#ifdef CONFIG_RISCV_ISA_C
-+		if (offset == RVI_INSN_LEN)
-+			goto is_rvi;
-+
-+		insn &= __COMPRESSED_INSN_MASK;
-+		/* Stop searching until any control transfer instruction */
-+		if (riscv_insn_is_c_ebreak(insn) || riscv_insn_is_c_j(insn))
-+			break;
-+
-+		if (riscv_insn_is_c_jal(insn)) {
-+			/* The rd of C.JAL is x1 by default */
-+			WRITE_ON(1);
-+			break;
-+		}
-+
-+		if (riscv_insn_is_c_jr(insn)) {
-+			READ_ON(rvc_r_rs1(insn));
-+			break;
-+		}
-+
-+		if (riscv_insn_is_c_jalr(insn)) {
-+			READ_ON(rvc_r_rs1(insn));
-+			/* The rd of C.JALR is x1 by default */
-+			WRITE_ON(1);
-+			break;
-+		}
-+
-+		if (riscv_insn_is_c_beqz(insn) || riscv_insn_is_c_bnez(insn)) {
-+			READ_ON(rvc_b_rs(insn));
-+			break;
-+		}
-+
-+		/*
-+		 * Decode RVC instructions that encode integer registers, try
-+		 * to find out some destination register, the number of which
-+		 * are equal with 'least' and never be used as source register.
-+		 */
-+		if (riscv_insn_is_c_sub(insn) || riscv_insn_is_c_subw(insn)) {
-+			READ_ON(rvc_a_rs1(insn));
-+			READ_ON(rvc_a_rs2(insn));
-+			continue;
-+		} else if (riscv_insn_is_c_sq(insn) ||
-+			   riscv_insn_is_c_sw(insn) ||
-+			   riscv_insn_is_c_sd(insn)) {
-+			READ_ON(rvc_s_rs1(insn));
-+			READ_ON(rvc_s_rs2(insn));
-+			continue;
-+		} else if (riscv_insn_is_c_addi16sp(insn) ||
-+			   riscv_insn_is_c_addi(insn) ||
-+			   riscv_insn_is_c_addiw(insn) ||
-+			   riscv_insn_is_c_slli(insn)) {
-+			READ_ON(rvc_i_rs1(insn));
-+			continue;
-+		} else if (riscv_insn_is_c_sri(insn) ||
-+			   riscv_insn_is_c_andi(insn)) {
-+			READ_ON(rvc_b_rs(insn));
-+			continue;
-+		} else if (riscv_insn_is_c_sqsp(insn) ||
-+			   riscv_insn_is_c_swsp(insn) ||
-+			   riscv_insn_is_c_sdsp(insn)) {
-+			READ_ON(rvc_ss_rs2(insn));
-+			/* The rs2 of C.SQSP/SWSP/SDSP are x2 by default */
-+			READ_ON(2);
-+			continue;
-+		} else if (riscv_insn_is_c_mv(insn)) {
-+			READ_ON(rvc_r_rs2(insn));
-+			WRITE_ON(rvc_r_rd(insn));
-+		} else if (riscv_insn_is_c_addi4spn(insn)) {
-+			/* The rs of C.ADDI4SPN is x2 by default */
-+			READ_ON(2);
-+			WRITE_ON(rvc_l_rd(insn));
-+		} else if (riscv_insn_is_c_lq(insn) ||
-+			   riscv_insn_is_c_lw(insn) ||
-+			   riscv_insn_is_c_ld(insn)) {
-+			/* FIXME: c.lw/c.ld share opcode with c.flw/c.fld */
-+			READ_ON(rvc_l_rs(insn));
-+			WRITE_ON(rvc_l_rd(insn));
-+		} else if (riscv_insn_is_c_lqsp(insn) ||
-+			   riscv_insn_is_c_lwsp(insn) ||
-+			   riscv_insn_is_c_ldsp(insn)) {
-+			/*
-+			 * FIXME: c.lwsp/c.ldsp share opcode with c.flwsp/c.fldsp
-+			 * The rs of C.LQSP/C.LWSP/C.LDSP is x2 by default.
-+			 */
-+			READ_ON(2);
-+			WRITE_ON(rvc_i_rd(insn));
-+		} else if (riscv_insn_is_c_li(insn) ||
-+			   riscv_insn_is_c_lui(insn)) {
-+			WRITE_ON(rvc_i_rd(insn));
-+		}
-+
-+		if ((*write > 1UL) && __builtin_ctzl(*write & ~1UL))
-+			return;
-+is_rvi:
-+#endif
-+		/* Stop searching until any control transfer instruction */
-+		if (riscv_insn_is_branch(insn)) {
-+			READ_ON(rvi_rs1(insn));
-+			READ_ON(rvi_rs2(insn));
-+			break;
-+		}
-+
-+		if (riscv_insn_is_jal(insn)) {
-+			WRITE_ON(rvi_rd(insn));
-+			break;
-+		}
-+
-+		if (riscv_insn_is_jalr(insn)) {
-+			READ_ON(rvi_rs1(insn));
-+			WRITE_ON(rvi_rd(insn));
-+			break;
-+		}
-+
-+		if (riscv_insn_is_system(insn)) {
-+			/* csrrw, csrrs, csrrc */
-+			if (rvi_rs1(insn))
-+				READ_ON(rvi_rs1(insn));
-+			/* csrrwi, csrrsi, csrrci, csrrw, csrrs, csrrc */
-+			if (rvi_rd(insn))
-+				WRITE_ON(rvi_rd(insn));
-+			break;
-+		}
-+
-+		/*
-+		 * Decode RVC instructions that has rd and rs, try to find out
-+		 * some rd, the number of which are equal with 'least' and never
-+		 * be used as rs.
-+		 */
-+		if (riscv_insn_is_lui(insn) || riscv_insn_is_auipc(insn)) {
-+			WRITE_ON(rvi_rd(insn));
-+		} else if (riscv_insn_is_arith_ri(insn) ||
-+			   riscv_insn_is_load(insn)) {
-+			READ_ON(rvi_rs1(insn));
-+			WRITE_ON(rvi_rd(insn));
-+		} else if (riscv_insn_is_arith_rr(insn) ||
-+			   riscv_insn_is_store(insn) ||
-+			   riscv_insn_is_amo(insn)) {
-+			READ_ON(rvi_rs1(insn));
-+			READ_ON(rvi_rs2(insn));
-+			WRITE_ON(rvi_rd(insn));
-+		}
-+
-+		if ((*write > 1UL) && __builtin_ctzl(*write & ~1UL))
-+			return;
-+	}
++	return stop_machine_cpuslocked(patch_text_cb, &patch, cpu_online_mask);
 +}
 +
- static void find_free_registers(struct kprobe *kp, struct optimized_kprobe *op,
- 				int *rd, int *ra)
++NOKPROBE_SYMBOL(patch_text_batch);
+diff --git a/arch/riscv/kernel/probes/opt.c b/arch/riscv/kernel/probes/opt.c
+index bc232fce5b39..1c0e9d218f6f 100644
+--- a/arch/riscv/kernel/probes/opt.c
++++ b/arch/riscv/kernel/probes/opt.c
+@@ -448,11 +448,19 @@ static bool can_optimize(unsigned long paddr, struct optimized_kprobe *op)
+ 
+ int arch_prepared_optinsn(struct arch_optimized_insn *optinsn)
  {
-+	unsigned long start, end;
-+	/*
-+	 * Searching algorithm explanation:
-+	 *
-+	 * 1. Define two types of instruction area firstly:
-+	 *
-+	 * +-----+
-+	 * +     +
-+	 * +     + ---> instrunctions modified by optprobe, named 'O-Area'.
-+	 * +     +
-+	 * +-----+
-+	 * +     +
-+	 * +     + ---> instructions after optprobe, named 'K-Area'.
-+	 * +     +
-+	 * +  ~  +
-+	 *
-+	 * 2. There are two usages for each GPR in given instruction area.
-+	 *
-+	 *   - W: GPR is used as the RD oprand at first emergence.
-+	 *   - R: GPR is used as the RS oprand at first emergence.
-+	 *
-+	 * Then there are 4 different usages for each GPR totally:
-+	 *
-+	 *   1. Used as W in O-Area, Used as W in K-Area.
-+	 *   2. Used as W in O-Area, Used as R in K-Area.
-+	 *   3. Used as R in O-Area, Used as W in K-Area.
-+	 *   4. Used as R in O-Area, Used as R in K-Area.
-+	 *
-+	 * All registers satisfy #1 or #3 could be chosen to form 'AUIPC/JALR'
-+	 * jumping to detour buffer.
-+	 *
-+	 * All registers satisfy #1 or #2, could be chosen to form 'JR' jumping
-+	 * back from detour buffer.
-+	 */
-+	unsigned long kw = 0UL, kr = 0UL, ow = 0UL, or = 0UL;
-+
-+	/* Search one free register used to form AUIPC/JALR */
-+	start = (unsigned long)&kp->opcode;
-+	end = start + GET_INSN_LENGTH(kp->opcode);
-+	find_register(start, end, &ow, &or);
-+
-+	start = (unsigned long)kp->addr + GET_INSN_LENGTH(kp->opcode);
-+	end = (unsigned long)kp->addr + op->optinsn.length;
-+	find_register(start, end, &ow, &or);
-+
-+	/* Search one free register used to form JR */
-+	find_register(end, (unsigned long)_end, &kw, &kr);
-+
-+	if ((kw & ow) > 1UL) {
-+		*rd = __builtin_ctzl((kw & ow) & ~1UL);
-+		*ra = *rd;
-+		return;
-+	}
-+
-+	*rd = ((kw | ow) == 1UL) ? 0 : __builtin_ctzl((kw | ow) & ~1UL);
-+	*ra = (kw == 1UL) ? 0 : __builtin_ctzl(kw & ~1UL);
+-	return 0;
++	return optinsn->length;
  }
  
- /*
+ int arch_check_optimized_kprobe(struct optimized_kprobe *op)
+ {
++	unsigned long i;
++	struct kprobe *p;
++
++	for (i = RVC_INSN_LEN; i < op->optinsn.length; i += RVC_INSN_LEN) {
++		p = get_kprobe(op->kp.addr + i);
++		if (p && !kprobe_disabled(p))
++			return -EEXIST;
++	}
+ 	return 0;
+ }
+ 
+@@ -521,23 +529,74 @@ int arch_prepare_optimized_kprobe(struct optimized_kprobe *op,
+ 
+ void arch_remove_optimized_kprobe(struct optimized_kprobe *op)
+ {
++	if (op->optinsn.insn) {
++		free_optinsn_slot(op->optinsn.insn, 1);
++		op->optinsn.insn = NULL;
++		op->optinsn.length = 0;
++	}
+ }
+ 
+ void arch_optimize_kprobes(struct list_head *oplist)
+ {
++	long offs;
++	kprobe_opcode_t insn[3];
++	struct optimized_kprobe *op, *tmp;
++
++	list_for_each_entry_safe(op, tmp, oplist, list) {
++		WARN_ON(kprobe_disabled(&op->kp));
++
++		/* Backup instructions which will be replaced by jump address */
++		memcpy(op->optinsn.copied_insn,
++		       DETOUR_ADDR(op->kp.addr, GET_INSN_LENGTH(op->kp.opcode)),
++		       op->optinsn.length - GET_INSN_LENGTH(op->kp.opcode));
++
++		/*
++		 * After patch, it should be:
++		 * auipc free_register, %hi(detour_buffer)
++		 * jalr free_register, free_register, %lo(detour_buffer)
++		 * where free_register will eventually save the return address
++		 */
++		offs = (unsigned long)op->optinsn.insn -
++		       (unsigned long)op->kp.addr;
++		insn[0] = rv_auipc(op->optinsn.rd, (offs + (1 << 11)) >> 12);
++		insn[1] = rv_jalr(op->optinsn.rd, op->optinsn.rd, offs & 0xFFF);
++		/* For 3 RVC + 1 RVI scenario, need C.NOP for padding */
++		if (op->optinsn.length > 2 * RVI_INSN_LEN)
++			insn[2] = rvc_addi(0, 0);
++
++		patch_text_batch(op->kp.addr, insn, op->optinsn.length);
++		if (memcmp(op->kp.addr, insn, op->optinsn.length))
++			continue;
++
++		list_del_init(&op->list);
++	}
+ }
+ 
+ void arch_unoptimize_kprobes(struct list_head *oplist,
+ 			     struct list_head *done_list)
+ {
++	struct optimized_kprobe *op, *tmp;
++
++	list_for_each_entry_safe(op, tmp, oplist, list) {
++		arch_unoptimize_kprobe(op);
++		list_move(&op->list, done_list);
++	}
+ }
+ 
+ void arch_unoptimize_kprobe(struct optimized_kprobe *op)
+ {
++	kprobe_opcode_t buf[MAX_COPIED_INSN];
++	unsigned long offset = GET_INSN_LENGTH(op->kp.opcode);
++
++	buf[0] = (offset == RVI_INSN_LEN) ? __BUG_INSN_32 : __BUG_INSN_16;
++	memcpy(DETOUR_ADDR(buf, offset), op->optinsn.copied_insn,
++	       op->optinsn.length - offset);
++	patch_text_batch(op->kp.addr, buf, op->optinsn.length);
+ }
+ 
+ int arch_within_optimized_kprobe(struct optimized_kprobe *op,
+ 				 kprobe_opcode_t *addr)
+ {
+-	return 0;
++	return (op->kp.addr <= addr &&
++		op->kp.addr + op->optinsn.length > addr);
+ }
 -- 
 2.34.1
 
