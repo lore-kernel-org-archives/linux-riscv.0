@@ -4,101 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0589CC4332F
-	for <linux-riscv@archiver.kernel.org>; Sat, 24 Dec 2022 15:12:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E6E3C4332F
+	for <linux-riscv@archiver.kernel.org>; Sat, 24 Dec 2022 15:12:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OLrMONC/pfmgV3nnRenkkXggDVvEL9uliGKAOfWzBsc=; b=kUcjDsZjF3bHgA
-	fdsNxscGKmPJLuDqt4raJjbhZhC03O30AxOdWzlgUNp6bA8fHzWcW2/quSEeUT4W8kWXZWbVSkfe3
-	wzDFQbb5B5zggwpBqHY7zSkHOE7UjbDIAwQ2LYHppPlHSz2QohLl8zwxI5qxN2JKyYVzDp0dVycWh
-	QcGRKcKtO53qFbOjno5Qc5hxwWNgqdjbgHRyLc5PmJUE8hPihiMvOOwVRGpGOEs/gyXICpgMHoN+8
-	GnMjgjoqE1XyNlYFTQ9W1Ps52tuk5NGCFLhwUT+QviXKyNnawyh3xojUrbbVasPGNw/B54Clf418B
-	8FvYW3mhmnPl/ouwjmOg==;
+	List-Owner; bh=lTfcDRQ1uVE7wNvzUxQi1Zut1FZuripgZBn0eSHTNr8=; b=GbFN12tVqNjLmO
+	ScmIGXQh/5JcmxyoEHsXzLmb4Ptu7lS+NuOorYLJlEt3wZ0zGU9pF7t5RASvGyaKrRr68MDEH7wkr
+	ASMP0rcFg85+cfBImrzEvPus57cbb3+eUp3C12Ehw7NUOYQZbU6RZosWjWiGOTtQpMOPrG8vRadQx
+	Zpip3PnrDfqXf4uNGZRlyknmnvIy9z9OYeudFWuZws4Bpzt1MXd1oXktrFqufp2wXrutNMR6i27yc
+	ia1i6Xo99NBdpkMykBzGjt/yTgAkBVSQfobSjM3QBqA5P9eLvW2AaJNke+diHHUTH4y82joGxhCd9
+	zzzDtF87PEQVGH5+8+CQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p96Bw-000xZm-9b; Sat, 24 Dec 2022 15:12:04 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1p96Bs-000xYm-N2; Sat, 24 Dec 2022 15:12:01 +0000
+Received: from mail-yb1-xb2f.google.com ([2607:f8b0:4864:20::b2f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p90Zt-00GcFV-C8
-	for linux-riscv@lists.infradead.org; Sat, 24 Dec 2022 09:12:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1671873143;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=K/8A/i9y6rIvKCnypgiTdopbEh62sIZ4224f2Kvswms=;
-	b=SQEbp+wAX3Iz2zBTlRZXno/jf3xP8zgWso1HLoyFAb1mnTUQyTO7qW+V01RShqqjRok3gA
-	OHuCUrpNmnO9NWrzdnV2N8kEUtezqnDnImyLk7a2GRCHsKm4lLCYaGRtHCACIWdpJlBed7
-	WSCX5k54dvxRhUEH/fm4ynfSU3DA/10=
-Received: from mail-ed1-f69.google.com (mail-ed1-f69.google.com
- [209.85.208.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_128_GCM_SHA256) id
- us-mta-31-hl88XGplNl6LyfK0RLyuWQ-1; Sat, 24 Dec 2022 04:12:22 -0500
-X-MC-Unique: hl88XGplNl6LyfK0RLyuWQ-1
-Received: by mail-ed1-f69.google.com with SMTP id e14-20020a056402190e00b0047005d4c3e9so4890380edz.2
-        for <linux-riscv@lists.infradead.org>; Sat, 24 Dec 2022 01:12:21 -0800 (PST)
+	id 1p90BY-00GXpl-Ch
+	for linux-riscv@lists.infradead.org; Sat, 24 Dec 2022 08:47:18 +0000
+Received: by mail-yb1-xb2f.google.com with SMTP id 192so7368771ybt.6
+        for <linux-riscv@lists.infradead.org>; Sat, 24 Dec 2022 00:47:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=ojdIoHtA8qRrSJH0IqbM6/hdw/qvVnURVzM4Y/Ji5XY=;
+        b=ClboHjVO8qHK6/LsGtS7Gq+265uWJvU4yUhzopkrXmsYRDcLEckfvufGvne6ejswi8
+         drCgwYGAC75kEXoW9bD9MYbqMrKC4FR67lVsL8a4wFk0PhGMD9xJNrifpNjjx1hNTC25
+         Jw/9gk1bL2NqeJm/jeZAyjowobiMujFb6RNAluoLZMaDCc2gfb+SqhpC5bXDGVyiI50+
+         a7nVTOOfXphSj8oXFRHTFPw7Mo8Azo95+HE3q+s9EaK58ZjZP9J9IIK4TbNluE3uxwvw
+         E1zj8rMgwbAFCcnT9J+IposLXMIB+5HY+tdsjA9vyJE//XPL+7JtoFY9LeYEudfzeFo5
+         HsKw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=K/8A/i9y6rIvKCnypgiTdopbEh62sIZ4224f2Kvswms=;
-        b=SKsltUgzJ08kAJlqSuib7eX0H2sTx/VSe7JaBC8mzB6tx1TTGUcvob7tYBAbXWjzAd
-         gvyJoHuKdzqc2tf3jBt1m2c3UFZCjkEKBvpyIoAQI+Ng90CxxzRj6fxF+SdEYrFR+wnq
-         e3ZSpFNVBGGYVNu9Wj4myNda6WTKu9PJzqlc50dZW9MXepKizmFSIx4HAvX+JXjouuc1
-         Ceci6us/eL3InnYaL27586u5YNHDjUDVthvpPtfVi7hcwVDaumnG9EudTLLz9VboKNhr
-         jeuJNA5GKz9vzrZGW/CEEKWrbxEuzpDDL83pyPVrxdanMDggpgrZT26fqD9l5dgPZH1R
-         bcrQ==
-X-Gm-Message-State: AFqh2kqCq+e6cUz5BUaJjRTRByP1WPHVyN33KLcyoNwrTL8HC5byyzje
-	aCrEUwQZl1Ah8K5BMI8E7VzEst6zQx/WzQQQZkLrAZXGlUXF2VPFLylH62Qmt7CNAvAuAsqNiml
-	8A0v5o4YMQL6qKY1VwCsAhjETJTHs
-X-Received: by 2002:a17:906:4894:b0:7c0:beee:2f06 with SMTP id v20-20020a170906489400b007c0beee2f06mr10450180ejq.52.1671873141000;
-        Sat, 24 Dec 2022 01:12:21 -0800 (PST)
-X-Google-Smtp-Source: AMrXdXvlm/vA6G01U45Ww3rRE/hpJxyrrrVFeI3NtGzIAEN1d8PbapEpyn4qgCdB7ow6B9vpaz9eng==
-X-Received: by 2002:a17:906:4894:b0:7c0:beee:2f06 with SMTP id v20-20020a170906489400b007c0beee2f06mr10450165ejq.52.1671873140745;
-        Sat, 24 Dec 2022 01:12:20 -0800 (PST)
-Received: from ?IPV6:2001:b07:6468:f312:63a7:c72e:ea0e:6045? ([2001:b07:6468:f312:63a7:c72e:ea0e:6045])
-        by smtp.googlemail.com with ESMTPSA id 10-20020a170906218a00b0073d796a1043sm2321829eju.123.2022.12.24.01.12.18
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 24 Dec 2022 01:12:19 -0800 (PST)
-Message-ID: <a03fb002-ef66-e9ea-7447-baf3d3aff1d9@redhat.com>
-Date: Sat, 24 Dec 2022 10:12:09 +0100
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ojdIoHtA8qRrSJH0IqbM6/hdw/qvVnURVzM4Y/Ji5XY=;
+        b=jDTqk9EazENHN/XrPa1Rb2AuheiaNIH+6HVtjVz4tDXmj4obmhbHWVpsnOvEmbQ8sz
+         zH7U/ZkmdUFEyC8+bMHPJwZqY0TQE6Xuf7ycPJi4Kl8hqvJVeY4QPazxixrY77YrAuZr
+         +CQSthnIzoNMMatBG6iFt0Z8nfOsvjggoGuDL81nSD3b+m10o/5iLg+GmsYT/1Rt+lbt
+         94aub3H+NL6+hfzJTvVSR84Yf/P9iuxMNAy6iW7fSQwrlgNoI4rYfCc2lAHrj+Yvsl5G
+         J7wVigrOUTG9yCA9GSolDFj4Vor7o2+E5GWydcy+4+oKpv914IIOgsKw744PN9grHVh1
+         1flw==
+X-Gm-Message-State: AFqh2kpOev/SevEqcg9D4Gbcq9ClTejw00rsSxUhx5gapwq7M4fFiPKw
+	m+pVZSuJm5Y6pUvad38DqI1zh+OzkQr5lxG03MQ=
+X-Google-Smtp-Source: AMrXdXshUWllo895j6Lz02ae/aESMYuatKqF66HHlEvP2aJ8hnZ8iGOJpgIQ7rpFcfUL68G2rPFTg4codEdUK762Mxk=
+X-Received: by 2002:a25:aaaa:0:b0:737:75f9:e0e6 with SMTP id
+ t39-20020a25aaaa000000b0073775f9e0e6mr1516555ybi.535.1671871633633; Sat, 24
+ Dec 2022 00:47:13 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.5.1
-Subject: Re: [PATCH 06/14] KVM: selftests: Rename UNAME_M to ARCH_DIR, fill
- explicitly for x86
-To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Nathan Chancellor <nathan@kernel.org>,
- Nick Desaulniers <ndesaulniers@google.com>
-Cc: James Morse <james.morse@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Tom Rix <trix@redhat.com>,
- kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, kvmarm@lists.cs.columbia.edu,
- linux-riscv@lists.infradead.org, llvm@lists.linux.dev,
- linux-kernel@vger.kernel.org, Ricardo Koller <ricarkol@google.com>,
- Aaron Lewis <aaronlewis@google.com>,
- Raghavendra Rao Ananta <rananta@google.com>
-References: <20221213001653.3852042-1-seanjc@google.com>
- <20221213001653.3852042-7-seanjc@google.com>
-From: Paolo Bonzini <pbonzini@redhat.com>
-In-Reply-To: <20221213001653.3852042-7-seanjc@google.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+References: <20220829205219.283543-1-geomatsi@gmail.com> <CA+V-a8uLmp33PSYGmJjf9FupJ0M8Hf7ef7A1G4va8GDL_61Qyw@mail.gmail.com>
+ <Y6S1/kROC0p5CboA@curiosity> <CA+V-a8u0qUF81RUTF9+4T4F1GxW3=4P7RMTTjjsaMq4MiiQSMQ@mail.gmail.com>
+ <Y6TIywUWZ3nrPeon@curiosity> <CA+V-a8tMQ-RaaXD5209HxT77VoiOanvjdbFCPsdWpDYswuY+ZQ@mail.gmail.com>
+ <Y6TYNBgqgWuxhhHJ@curiosity> <CA+V-a8tDi79M8cS7rVoby3sopQ4AwXXcNggfHYXW-W2wtEgQ4g@mail.gmail.com>
+ <Y6Xjwg1dDYnwRbni@curiosity>
+In-Reply-To: <Y6Xjwg1dDYnwRbni@curiosity>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Sat, 24 Dec 2022 08:46:47 +0000
+Message-ID: <CA+V-a8uwmwriyoSZ1ftVQ1L1_uTL3k=VSs7Cid7++XEshq1RsQ@mail.gmail.com>
+Subject: Re: [RFC PATCH 1/1] riscv: mm: notify remote harts about mmu cache updates
+To: Sergey Matyukevich <geomatsi@gmail.com>
+Cc: linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org, 
+	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@rivosinc.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Guo Ren <guoren@kernel.org>, 
+	Alexandre Ghiti <alexandre.ghiti@canonical.com>, Heiko Stuebner <heiko@sntech.de>, 
+	Sergey Matyukevich <sergey.matyukevich@syntacore.com>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Conor Dooley <Conor.Dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221224_011225_537161_7A9CB550 
-X-CRM114-Status: UNSURE (   7.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221224_004716_487452_8FA1866F 
+X-CRM114-Status: GOOD (  45.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,53 +89,156 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 12/13/22 01:16, Sean Christopherson wrote:
-> -ifeq ($(ARCH),riscv)
-> -	UNAME_M := riscv
-> +ifeq ($(ARCH),x86)
-> +	ARCH_DIR := x86_64
-> +else ifeq ($(ARCH),arm64)
-> +	ARCH_DIR := aarch64
-> +else ifeq ($(ARCH),s390)
-> +	ARCH_DIR := s390x
-> +else ifeq ($(ARCH),riscv)
-> +	ARCH_DIR := riscv
-> +else
-> +$(error Unknown architecture '$(ARCH)')
->   endif
+Hi Sergey,
 
-$(error) would break compiling via tools/testing/selftests/Makefile, so 
-I am squashing this:
+On Fri, Dec 23, 2022 at 5:22 PM Sergey Matyukevich <geomatsi@gmail.com> wrote:
+>
+> Hi Prabhakar,
+>
+> On Fri, Dec 23, 2022 at 01:02:10PM +0000, Lad, Prabhakar wrote:
+> > Hi Sergey,
+> >
+> > On Thu, Dec 22, 2022 at 10:20 PM Sergey Matyukevich <geomatsi@gmail.com> wrote:
+> > >
+> > > On Thu, Dec 22, 2022 at 09:26:07PM +0000, Lad, Prabhakar wrote:
+> > > > Hi Sergey,
+> > > >
+> > > > On Thu, Dec 22, 2022 at 9:14 PM Sergey Matyukevich <geomatsi@gmail.com> wrote:
+> > > > >
+> > > > > Hi Prabhakar,
+> > > > >
+> > > > > > > > > From: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
+> > > > > > > > >
+> > > > > > > > > Current implementation of update_mmu_cache function performs local TLB
+> > > > > > > > > flush. It does not take into account ASID information. Besides, it does
+> > > > > > > > > not take into account other harts currently running the same mm context
+> > > > > > > > > or possible migration of the running context to other harts. Meanwhile
+> > > > > > > > > TLB flush is not performed for every context switch if ASID support
+> > > > > > > > > is enabled.
+> > > > > > > > >
+> > > > > > > > > Patch [1] proposed to add ASID support to update_mmu_cache to avoid
+> > > > > > > > > flushing local TLB entirely. This patch takes into account other
+> > > > > > > > > harts currently running the same mm context as well as possible
+> > > > > > > > > migration of this context to other harts.
+> > > > > > > > >
+> > > > > > > > > For this purpose the approach from flush_icache_mm is reused. Remote
+> > > > > > > > > harts currently running the same mm context are informed via SBI calls
+> > > > > > > > > that they need to flush their local TLBs. All the other harts are marked
+> > > > > > > > > as needing a deferred TLB flush when this mm context runs on them.
+> > > > > > > > >
+> > > > > > > > > [1] https://lore.kernel.org/linux-riscv/20220821013926.8968-1-tjytimi@163.com/
+> > > > > > > > >
+> > > > > > > > > Signed-off-by: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
+> > > > > > > > > ---
+> > > > > > > > >  arch/riscv/include/asm/mmu.h      |  2 ++
+> > > > > > > > >  arch/riscv/include/asm/pgtable.h  |  2 +-
+> > > > > > > > >  arch/riscv/include/asm/tlbflush.h | 18 ++++++++++++++++++
+> > > > > > > > >  arch/riscv/mm/context.c           | 10 ++++++++++
+> > > > > > > > >  arch/riscv/mm/tlbflush.c          | 28 +++++++++++-----------------
+> > > > > > > > >  5 files changed, 42 insertions(+), 18 deletions(-)
+> > > > > > > > >
+> > > > > > <snip>
+> > > > > > > > [  133.008752] Hardware name: Renesas SMARC EVK based on r9a07g043f01 (DT)
+> > > > > > > > [  133.015338] Call Trace:
+> > > > > > > > [  133.017778] [<ffffffff800055cc>] dump_backtrace+0x1c/0x24
+> > > > > > > > [  133.023174] [<ffffffff80776836>] show_stack+0x2c/0x38
+> > > > > > > > [  133.028214] [<ffffffff80780244>] dump_stack_lvl+0x3c/0x54
+> > > > > > > > [  133.033597] [<ffffffff80780270>] dump_stack+0x14/0x1c
+> > > > > > > > [  133.038633] [<ffffffff80776c00>] panic+0x102/0x29a
+> > > > > > > > [  133.043409] [<ffffffff800137ba>] do_exit+0x704/0x70a
+> > > > > > > > [  133.048362] [<ffffffff8001390e>] do_group_exit+0x24/0x70
+> > > > > > > > [  133.053659] [<ffffffff8001de54>] get_signal+0x68a/0x6dc
+> > > > > > > > [  133.058874] [<ffffffff8000494e>] do_work_pending+0xd6/0x44e
+> > > > > > > > [  133.064427] [<ffffffff800036c2>] resume_userspace_slow+0x8/0xa
+> > > > > > > > [  133.070249] ---[ end Kernel panic - not syncing: Attempted to kill
+> > > > > > > > init! exitcode=0x0000000b ]---
+> > > > > > > >
+> > > > > > > > If I revert this patch [0] bonnie++ works as expected.
+> > > > > > > >
+> > > > > > > > Any pointers on what could be the issue here?
+> > > > > > > >
+> > > > > > > > [0] https://git.kernel.org/pub/scm/linux/kernel/git/palmer/linux.git/commit/?h=for-next&id=4bd1d80efb5af640f99157f39b50fb11326ce641
+> > > > > > > >
+> > > > > > > > Cheers,
+> > > > > > > > Prabhakar
+> > > > > > >
+> > > > > > > Good catch. Thanks for reporting ! Discussion around the issue and
+> > > > > > > possible ways to fix it can be found in the following email thread:
+> > > > > > >
+> > > > > > > https://lore.kernel.org/linux-riscv/20221111075902.798571-1-guoren@kernel.org/
+> > > > > > >
+> > > > > > > Could you please apply the patch from Guo Ren instead of [0] and check
+> > > > > > > if you have any issues with your test ? Besides, could you please share
+> > > > > > > your kernel configuration and the actual bonnie++ params from emmc_t_002.sh script ?
+> > > > > > >
+> > > > > > Thanks for the pointer, I'll undo my changes and test Guo's patch.
+> > > > > >
+> > > > > > I have pasted the script here [0] and attached config.
+> > > > > >
+> > > > > > [0] https://paste.debian.net/hidden/a7a769b5/
+> > > > >
+> > > > > Thanks for the script and config. Could you please also share the
+> > > > > following information:
+> > > > > - how many cores your system has
+> > > > The Renesas RZ/Five SoC has a single Andes AX45MP core.
+> > > >
+> > > > > - does your system support ASID
+> > > > >
+> > > > With a quick look at [0] It does support ASID, unless there is a way
+> > > > to disable it.
+> > > >
+> > > > [0] http://www.andestech.com/wp-content/uploads/AX45MP-1C-Rev.-5.0.0-Datasheet.pdf
+> > >
+> > > So you have a single-core system, but your kernel configuration enables
+> > > CONFIG_SMP. Additional 'deferred TLB flush' logic is dropped at build
+> > > time if CONFIG_SMP is disabled. On the other hand, system should not
+> > > fail that way even if SMP is enabled.
+> > >
+> > I enabled CONFIG_SMP while doing some testing of PMA code and indeed
+> > enabling this config should not introduce a failure.
+> >
+> > > Let me double-check if anything can go wrong if cpumasks may have only
+> > > a single cpu. Another suspect is a change in update_mmu_cache: probably
+> > > making it asid-specific (and thus more granular) was a bad idea.
+> > >
+> > Thanks.
+> >
+> > BTW I tested the patch [0] which you pointed out and that fixes the
+> > issues seen earlier.
+> >
+> > [0] https://patchwork.kernel.org/project/linux-riscv/patch/20221111075902.798571-1-guoren@kernel.org/
+>
+> All looks good with cpumasks in the single-core case. So deferred TLB
+> flush logic is not even executed in your case. So the root cause
+> should be in update_mmu_cache change.
+>
+> May I ask you to repeat the original emmc test on your platform from
+> for-next (i.e. with [0] and without [1]) with the following partial revert:
+>
+> : diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> : index ec6fb83349ce..92ec2d9d7273 100644
+> : --- a/arch/riscv/include/asm/pgtable.h
+> : +++ b/arch/riscv/include/asm/pgtable.h
+> : @@ -415,7 +415,7 @@ static inline void update_mmu_cache(struct vm_area_struct *vma,
+> :        * Relying on flush_tlb_fix_spurious_fault would suffice, but
+> :        * the extra traps reduce performance.  So, eagerly SFENCE.VMA.
+> :        */
+> : -     flush_tlb_page(vma, address);
+> : +     local_flush_tlb_page(address);
+> :  }
+> :
+> :  static inline void update_mmu_cache_pmd(struct vm_area_struct *vma,
+>
+I tested your above proposed changes and I am no longer seeing an
+issue on my platform.
 
-diff --git a/tools/testing/selftests/kvm/Makefile 
-b/tools/testing/selftests/kvm/Makefile
-index d761a77c3a80..59f3eb53c932 100644
---- a/tools/testing/selftests/kvm/Makefile
-+++ b/tools/testing/selftests/kvm/Makefile
-@@ -13,10 +13,8 @@ else ifeq ($(ARCH),arm64)
-  	ARCH_DIR := aarch64
-  else ifeq ($(ARCH),s390)
-  	ARCH_DIR := s390x
--else ifeq ($(ARCH),riscv)
--	ARCH_DIR := riscv
-  else
--$(error Unknown architecture '$(ARCH)')
-+	ARCH_DIR := $(ARCH)
-  endif
-
-  LIBKVM += lib/assert.c
-
-Then the aarch64 and s390x directories can be renamed---x86 too, but the 
-ifeq needs to stay (just changed to do x86_64->x86 instead of the other 
-way round).
-
-Paolo
-
+Cheers,
+Prabhakar
 
 _______________________________________________
 linux-riscv mailing list
