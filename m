@@ -4,30 +4,30 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72807C4332F
-	for <linux-riscv@archiver.kernel.org>; Sat, 24 Dec 2022 15:22:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 183DBC4332F
+	for <linux-riscv@archiver.kernel.org>; Sat, 24 Dec 2022 15:22:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=tzNNstHjmej/fX2IIa9A2NfypXr961f+6B1K9n8RMD0=; b=1aNmiYUqX8+DV1
-	WvaXf6+JqshDqbUmICIyZJDNvQhtcSvpTTMHQkOhEnx50lPh3FA14HPoWC3NzoRuDLuTtpv0aaK/t
-	MutE/bJl/zzijExxMZojpGKc9dlbjzWEk2wKaIwadA/JEGq4LzVd8drClKiWPh9QKsi9DhX3CdeT9
-	NsGaKmJeCQPli07PBTG5n/2JcT6y9c412QcXfHyiGnrXIzj1jwLIBhHF0DjCqIZuXfGh2zec3TtcJ
-	EccjQ9NksCIVOkK+FL4TbCZEgtP3Q0GAn9DyheXh9kUHZJv5eo2oDuHiJIvVb/KhumOCVm3+aj6U5
-	G+ZVsachMq8tDNuha22g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=/e9GPyEmrXJvfx4yzAZfifCPcSdc5fqzFpXmKOkQoc0=; b=C2KAgXGRpEoFie
+	7DcdPiewhuPcIkDHQiMvJAfarK8ltOujoPuMH5MpLXiUNa2VVaN+HQFleA6TdoJstjcPlnm+1B42X
+	/pY+9tZuIAo+dVH0PoPrNy/rouTm8Xcj4Z/odfrdb+994NqDFrICGcjLK9D2fJkF9H0KFJc6ZtEez
+	+9Cgz9S5kkBtVBV5xWGodXhEr50/D73ZqgyqXQoWSx1jsOVzpknKV5q2i6BsaCzjqNpwIu6YtZDe7
+	BeCqBFixswO1pzfLdV4b2rjkApeAZjFnlQYgZC4VflPHqAW6WsL/i7PiFdFUs2Ae2Eh3+bw8FxBnQ
+	85Ye/si12Hr+WHQtB9Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p96Lw-00131G-Kj; Sat, 24 Dec 2022 15:22:24 +0000
+	id 1p96MB-00139d-UT; Sat, 24 Dec 2022 15:22:40 +0000
 Received: from smtp23.cstnet.cn ([159.226.251.23] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p92wO-00H5uk-K9
-	for linux-riscv@lists.infradead.org; Sat, 24 Dec 2022 11:43:55 +0000
+	id 1p92wO-00H5um-KD
+	for linux-riscv@lists.infradead.org; Sat, 24 Dec 2022 11:43:56 +0000
 Received: from cgk-Precision-3650-Tower.. (unknown [219.141.235.82])
-	by APP-03 (Coremail) with SMTP id rQCowABXXpbf5aZj9dVkCA--.18955S4;
-	Sat, 24 Dec 2022 19:43:27 +0800 (CST)
+	by APP-03 (Coremail) with SMTP id rQCowABXXpbf5aZj9dVkCA--.18955S7;
+	Sat, 24 Dec 2022 19:43:28 +0800 (CST)
 From: Chen Guokai <chenguokai17@mails.ucas.ac.cn>
 To: paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
@@ -39,33 +39,36 @@ Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	liaochang1@huawei.com,
 	Chen Guokai <chenguokai17@mails.ucas.ac.cn>
-Subject: [PATCH v5 0/9] Add OPTPROBES feature on RISCV
-Date: Sat, 24 Dec 2022 19:43:06 +0800
-Message-Id: <20221224114315.850130-1-chenguokai17@mails.ucas.ac.cn>
+Subject: [PATCH v5 3/9] riscv/kprobe: Prepare the skeleton to prepare optimized kprobe
+Date: Sat, 24 Dec 2022 19:43:09 +0800
+Message-Id: <20221224114315.850130-4-chenguokai17@mails.ucas.ac.cn>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20221224114315.850130-1-chenguokai17@mails.ucas.ac.cn>
+References: <20221224114315.850130-1-chenguokai17@mails.ucas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowABXXpbf5aZj9dVkCA--.18955S4
-X-Coremail-Antispam: 1UD129KBjvJXoWxWrWkAw1fZF4rAw45tr4fKrg_yoWrWr48pF
-	WkKw45ArWDJr43CrW3Jw4kuFySkan3Gw43ur1DX34rJw45JryFy3ZagFWDZF1xCF4Y934j
-	qFn09ryvkFy5A3DanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9K14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVWxJr
-	0_GcWlnxkEFVAIw20F6cxK64vIFxWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xv
-	F2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r
-	4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I
-	648v4I1lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc2xSY4AK67AK6r4kMxAIw28IcxkI7VAKI4
-	8JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xv
-	wVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjx
-	v20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20E
-	Y4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267
-	AKxVWUJVW8JbIYCTnIWIevJa73UjIFyTuYvjfU5UDJDUUUU
+X-CM-TRANSID: rQCowABXXpbf5aZj9dVkCA--.18955S7
+X-Coremail-Antispam: 1UD129KBjvJXoWxGrWDZw13XF1UJw1DWFy3Jwb_yoWrtw13pF
+	s3C3W5trWDJayfurWfZwsYqrySkFsYqr47CrWUJ34rZr13JrZ0vas7Kr4YvF98GrWS9rW3
+	JrsYvry5uF43ZrJanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUmE14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JrWl82xGYIkIc2
+	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
+	Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1UM2
+	8EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVWxJr0_GcWl
+	nxkEFVAIw20F6cxK64vIFxWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4
+	CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvj
+	eVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I
+	1lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc2xSY4AK67AK6r4kMxAIw28IcxkI7VAKI48JMxC2
+	0s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI
+	0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE
+	14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20x
+	vaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8
+	JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUjEdgPUUUUU==
 X-Originating-IP: [219.141.235.82]
-X-CM-SenderInfo: xfkh0w5xrntxyrx6ztxlovh3xfdvhtffof0/1tbiCQAKE2OmnPBm8wAAss
+X-CM-SenderInfo: xfkh0w5xrntxyrx6ztxlovh3xfdvhtffof0/1tbiAxAKE2OmnOhnLQAAsx
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221224_034349_198862_EC74DCE0 
-X-CRM114-Status: GOOD (  13.44  )
+X-CRM114-CacheID: sfid-20221224_034349_241210_E90A2C29 
+X-CRM114-Status: GOOD (  18.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,113 +80,94 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add jump optimization support for RISC-V.
-
-Replaces ebreak instructions used by normal kprobes with an
-auipc+jalr instruction pair, at the aim of suppressing the probe-hit
-overhead.
-
-All known optprobe-capable RISC architectures have been using a single
-jump or branch instructions while this patch chooses not. RISC-V has a
-quite limited jump range (4KB or 2MB) for both its branch and jump
-instructions, which prevent optimizations from supporting probes that
-spread all over the kernel.
-
-Auipc-jalr instruction pair is introduced with a much wider jump range
-(4GB), where auipc loads the upper 12 bits to a free register and jalr
-Deaconappends the lower 20 bits to form a 32 bit immediate. Note that
-returns from probe handler requires another free register. As kprobes
-can appear almost anywhere inside the kernel, the free register should
-be found in a generic way, not depending on calling convention or any
-other regulations.
-
-The algorithm for finding the free register is inspired by the register
-renaming in modern processors. From the perspective of register
-renaming,
-a register could be represented as two different registers if two
-neighbour
-instructions both write to it but no one ever reads. Extending this
-fact,
-a register is considered to be free if there is no read before its next
-write in the execution flow. We are free to change its value without
-interfering normal execution.
-
-Static analysis shows that 51% instructions of the kernel (default
-config)
-is capable of being replaced i.e. one free register can be found at both
-the start and end of replaced instruction pairs while the replaced
-instructions can be directly executed. We also made an efficiency test
-on Gem 5 RISCV which shows a more than 5x speedup on breakpoint-based
-implementation.
-
-Contribution:
-Chen Guokai invents the algorithm of searching free register, evaluate
-the ratio of optimizaion, the basic function support RVI kernel binary.
-Liao Chang adds the support for hybrid RVI and RVC kernel binary, fix
-some bugs with different kernel configure, refactor out entire feature
-into some individual patches.
-
-v5:
-1. Correct known nits
-2. Enable the usage of unused caller-saved registers
-3. Append an efficiency test result on Gem 5
-
-v4:
-Correct the sequence of Signed-off-by and Co-developed-by.
-
-v3:
-1. Support of hybrid RVI and RVC kernel binary.
-2. Refactor out entire feature into some individual patches.
-
-v2:
-1. Adjust comments
-2. Remove improper copyright
-3. Clean up format issues that is no common practice
-4. Extract common definition of instruction decoder
-5. Fix race issue in SMP platform.
-
-v1:
-Chen Guokai contribute the basic functionality code.
-
-Chen Guokai (1):
-  riscv/kprobe: Search free registers from unused caller-saved ones
-
-Liao Chang (8):
-  riscv/kprobe: Prepare the skeleton to implement RISCV OPTPROBES
-    feature
-  riscv/kprobe: Allocate detour buffer from module area
-  riscv/kprobe: Prepare the skeleton to prepare optimized kprobe
-  riscv/kprobe: Add common RVI and RVC instruction decoder code
-  riscv/kprobe: Search free register(s) to clobber for 'AUIPC/JALR'
-  riscv/kprobe: Add code to check if kprobe can be optimized
-  riscv/kprobe: Prepare detour buffer for optimized kprobe
-  riscv/kprobe: Patch AUIPC/JALR pair to optimize kprobe
-
- arch/riscv/Kconfig                        |   1 +
- arch/riscv/include/asm/bug.h              |   5 +-
- arch/riscv/include/asm/kprobes.h          |  49 ++
- arch/riscv/include/asm/patch.h            |   1 +
- arch/riscv/kernel/patch.c                 |  23 +-
- arch/riscv/kernel/probes/Makefile         |   1 +
- arch/riscv/kernel/probes/decode-insn.h    | 153 +++++
- arch/riscv/kernel/probes/kprobes.c        |  24 +
- arch/riscv/kernel/probes/opt.c            | 693 ++++++++++++++++++++++
- arch/riscv/kernel/probes/opt_trampoline.S | 137 +++++
- arch/riscv/kernel/probes/simulate-insn.h  |  41 ++
- 11 files changed, 1123 insertions(+), 5 deletions(-)
- create mode 100644 arch/riscv/kernel/probes/opt.c
- create mode 100644 arch/riscv/kernel/probes/opt_trampoline.S
-
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogTGlhbyBDaGFuZyA8bGlhb2NoYW5nMUBodWF3ZWkuY29tPgoKVGhpcyBwYXRjaCBwcm92
+aWRlIGEgc2tlbGV0b24gdG8gcHJlcGFyZSBvcHRpbWl6ZWQga3Byb2JlIGluc3RydWN0aW9uCnNs
+b3QsIGl0IGlzIGNvbnNpc3Qgb2YgdHdvIG1ham9yIHBhcnRzLCB0aGUgZmlyc3QgcGFydCBpcyBj
+aGVjayBpZgpjdXJyZW50IGtwcm9iZSBzYXRpZmllcyB0aGUgcmVxdWlyZW1lbnQgdG8gb3B0aW1p
+emUuIFRoZSBrcHJvYmUgYmFzZXMgb24KYnJlYWtwb2ludCBqdXN0IHJlcXVpcmUgdGhlIGluc3Ry
+dW1lbnRlZCBpbnN0cnVjdGlvbiBzdXBwb3J0cyBleGVjdXRlCm91dC1vZi1saW5lIG9yIHNpbXVs
+YXRpb24sIGhvd2V2ZXIgb3B0aW1pemVkIGtwcm9iZSBiYXNlcyBvbiBsb25nLWp1bXAKbmVlZHMg
+bW9yZSByZXF1aXJlbWVudHMsIGl0IGluY2x1ZGVzOgoKIC0gVGhlIHRhcmdldCBvZiBsb25nLWp1
+bXAgaW4gdGhlIHJhbmdlIG9mICdBVUlQQy9KQUxSJy4KIC0gTm8gbmVhciBpbnN0cnVjdGlvbiBq
+dW1wIHRvIGFueSBpbnN0cnVjdGlvbiByZXBsYWNlZCBieSAnQVVJUEMvSkFMUicKIC0gSXQgbWFu
+YWdlZCB0byBmaW5kIG9uZSBmcmVlIHJlZ2lzdGVyIHRvIGZvcm0gJ0FVSVBDL0pBTFInIGp1bXBp
+bmcgdG8KICAgZGV0b3VyIGJ1ZmZlci4KIC0gSXQgbWFuYWdlZCB0byBmaW5kIG9uZSBmcmVlIHJl
+Z2lzdGVyIHRvIGZvcm0gJ0pSJyBqdW1waW5nIGJhY2sgZnJvbQogICBkZXRvdXIgYnVmZmVyCgpU
+aGUgc2Vjb25kIHBhcnQgaXMgYWxsb2NhdGUgYSBsYXJnZXIgaW5zdHJ1Y3Rpb24gc2xvdCBmb3Ig
+ZWFjaCBvcHRpbWl6ZWQKa3Byb2JlLCB0aGUgcGF5bG9hZCBvZiB3aGljaCBpcyBwYXRjaGVkIHdp
+dGggdGhlIGFzc2VtYmx5IGNvZGUgZGVmaW5lZAppbiBvcHRfdHJhbXBvbGluZS5TLCBhIGNhbGwg
+dG8ga3Byb2JlIHByZV9oYW5kbGVyIGFuZCB0aGVzZSBpbnN0cnVjdGlvbnMKcmVwbGFjZWQgYnkg
+J0FVSVBDL0pBTFInLgoKU2lnbmVkLW9mZi1ieTogTGlhbyBDaGFuZyA8bGlhb2NoYW5nMUBodWF3
+ZWkuY29tPgpDby1kZXZlbG9wZWQtYnk6IENoZW4gR3Vva2FpIDxjaGVuZ3Vva2FpMTdAbWFpbHMu
+dWNhcy5hYy5jbj4KU2lnbmVkLW9mZi1ieTogQ2hlbiBHdW9rYWkgPGNoZW5ndW9rYWkxN0BtYWls
+cy51Y2FzLmFjLmNuPgotLS0KIGFyY2gvcmlzY3Yva2VybmVsL3Byb2Jlcy9vcHQuYyB8IDEwNyAr
+KysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKy0KIDEgZmlsZSBjaGFuZ2VkLCAxMDYgaW5z
+ZXJ0aW9ucygrKSwgMSBkZWxldGlvbigtKQoKZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVs
+L3Byb2Jlcy9vcHQuYyBiL2FyY2gvcmlzY3Yva2VybmVsL3Byb2Jlcy9vcHQuYwppbmRleCA1NmM4
+YTIyN2M4NTcuLmE0MjcxZTYwMzNiYSAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvcHJv
+YmVzL29wdC5jCisrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3Byb2Jlcy9vcHQuYwpAQCAtMTAsNiAr
+MTAsNTQgQEAKIAogI2luY2x1ZGUgPGxpbnV4L2twcm9iZXMuaD4KICNpbmNsdWRlIDxhc20va3By
+b2Jlcy5oPgorI2luY2x1ZGUgPGFzbS9wYXRjaC5oPgorCitzdGF0aWMgaW5saW5lIGludCBpbl9h
+dWlwY19qYWxyX3JhbmdlKGxvbmcgdmFsKQoreworI2lmZGVmIENPTkZJR19BUkNIX1JWMzJJCisJ
+cmV0dXJuIDE7CisjZWxzZQorCS8qCisJICogTm90ZSB0aGF0IHRoZSBzZXQgb2YgYWRkcmVzcyBv
+ZmZzZXRzIHRoYXQgY2FuIGJlIGZvcm1lZAorCSAqIGJ5IHBhaXJpbmcgTFVJIHdpdGggTEQsIEFV
+SVBDIHdpdGggSkFMUiwgZXRjLiBpbiBSVjY0SSBpcworCSAqIFviiJIyXjMx4oiSMl4xMSwgMl4z
+MeKIkjJeMTHiiJIxXS4KKwkgKi8KKwlyZXR1cm4gKCgtKDFMIDw8IDMxKSAtICgxTCA8PCAxMSkp
+IDw9IHZhbCkgJiYKKwkgICAgICAgKHZhbCA8ICgoMUwgPDwgMzEpIC0gKDFMIDw8IDExKSkpOwor
+I2VuZGlmCit9CisKKy8qCisgKiBDb3B5IG9wdHByb2JlIGFzc2VtYmx5IGNvZGUgdGVtcGxhdGUg
+aW50byBkZXRvdXIgYnVmZmVyIGFuZCBtb2RpZnkgc29tZQorICogaW5zdHJ1Y3Rpb25zIGZvciBl
+YWNoIGtwcm9iZS4KKyAqLworc3RhdGljIHZvaWQgcHJlcGFyZV9kZXRvdXJfYnVmZmVyKGtwcm9i
+ZV9vcGNvZGVfdCAqY29kZSwga3Byb2JlX29wY29kZV90ICpzbG90LAorCQkJCSAgaW50IHJkLCBz
+dHJ1Y3Qgb3B0aW1pemVkX2twcm9iZSAqb3AsCisJCQkJICBrcHJvYmVfb3Bjb2RlX3Qgb3Bjb2Rl
+KQoreworfQorCisvKgorICogSW4gUklTQy1WIElTQSwgQVVJUEMvSkFMUiBjbG9iYmVyIG9uZSBy
+ZWdpc3RlciB0byBmb3JtIHRhcmdldCBhZGRyZXNzLAorICogYnkgaW5zcGlyZWQgYnkgcmVnaXN0
+ZXIgcmVuYW1pbmcgaW4gT29PIHByb2Nlc3NvciwgdGhpcyBpbnZvbHZlcyBzZWFyY2gKKyAqIGJh
+Y2t3YXJkcyB0aGF0IGlzIG5vdCBwcmV2aW91c2x5IHVzZWQgYXMgYSBzb3VyY2UgcmVnaXN0ZXIg
+YW5kIGlzIHVzZWQKKyAqIGFzIGEgZGVzdGluYXRpb24gcmVnaXN0ZXIgYmVmb3JlIGFueSBicmFu
+Y2ggb3IganVtcCBpbnN0cnVjdGlvbi4KKyAqLworc3RhdGljIHZvaWQgZmluZF9mcmVlX3JlZ2lz
+dGVycyhzdHJ1Y3Qga3Byb2JlICprcCwgc3RydWN0IG9wdGltaXplZF9rcHJvYmUgKm9wLAorCQkJ
+CWludCAqcmQsIGludCAqcmEpCit7Cit9CisKKy8qCisgKiBJZiB0d28gZnJlZSByZWdpc3RlcnMg
+Y2FuIGJlIGZvdW5kIGF0IHRoZSBiZWdpbm5pbmcgb2YgYm90aAorICogdGhlIHN0YXJ0IGFuZCB0
+aGUgZW5kIG9mIHJlcGxhY2VkIGNvZGUsIGl0IGNhbiBiZSBvcHRpbWl6ZWQKKyAqIEFsc28sIGlu
+LWZ1bmN0aW9uIGp1bXBzIG5lZWQgdG8gYmUgY2hlY2tlZCB0byBtYWtlIHN1cmUgdGhhdAorICog
+dGhlcmUgaXMgbm8ganVtcCB0byB0aGUgc2Vjb25kIGluc3RydWN0aW9uIHRvIGJlIHJlcGxhY2Vk
+CisgKi8KK3N0YXRpYyBib29sIGNhbl9vcHRpbWl6ZSh1bnNpZ25lZCBsb25nIHBhZGRyLCBzdHJ1
+Y3Qgb3B0aW1pemVkX2twcm9iZSAqb3ApCit7CisJcmV0dXJuIGZhbHNlOworfQogCiBpbnQgYXJj
+aF9wcmVwYXJlZF9vcHRpbnNuKHN0cnVjdCBhcmNoX29wdGltaXplZF9pbnNuICpvcHRpbnNuKQog
+ewpAQCAtMjQsNyArNzIsNjQgQEAgaW50IGFyY2hfY2hlY2tfb3B0aW1pemVkX2twcm9iZShzdHJ1
+Y3Qgb3B0aW1pemVkX2twcm9iZSAqb3ApCiBpbnQgYXJjaF9wcmVwYXJlX29wdGltaXplZF9rcHJv
+YmUoc3RydWN0IG9wdGltaXplZF9rcHJvYmUgKm9wLAogCQkJCSAgc3RydWN0IGtwcm9iZSAqb3Jp
+ZykKIHsKLQlyZXR1cm4gMDsKKwlsb25nIHJlbDsKKwlpbnQgcmQsIHJhLCByZXQ7CisJa3Byb2Jl
+X29wY29kZV90ICpjb2RlID0gTlVMTCwgKnNsb3QgPSBOVUxMOworCisJaWYgKCFjYW5fb3B0aW1p
+emUoKHVuc2lnbmVkIGxvbmcpb3JpZy0+YWRkciwgb3ApKQorCQlyZXR1cm4gLUVJTFNFUTsKKwor
+CWNvZGUgPSBremFsbG9jKE1BWF9PUFRJTlNOX1NJWkUsIEdGUF9LRVJORUwpOworCXNsb3QgPSBn
+ZXRfb3B0aW5zbl9zbG90KCk7CisJaWYgKCFjb2RlIHx8ICFzbG90KSB7CisJCXJldCA9IC1FTk9N
+RU07CisJCWdvdG8gb25fZXJyb3I7CisJfQorCisJLyoKKwkgKiBWZXJpZnkgaWYgdGhlIGFkZHJl
+c3MgZ2FwIGlzIHdpdGhpbiA0R0IgcmFuZ2UsIGJlY2F1c2UgdGhpcyB1c2VzCisJICogYSBhdWlw
+YytqYWxyIHBhaXIuCisJICovCisJcmVsID0gKHVuc2lnbmVkIGxvbmcpc2xvdCAtICh1bnNpZ25l
+ZCBsb25nKW9yaWctPmFkZHI7CisJaWYgKCFpbl9hdWlwY19qYWxyX3JhbmdlKHJlbCkpIHsKKwkJ
+LyoKKwkJICogRGlmZmVyZW50IGZyb20geDg2LCB3ZSBmcmVlIGNvZGUgYnVmIGRpcmVjdGx5IGlu
+c3RlYWQgb2YKKwkJICogY2FsbGluZyBfX2FyY2hfcmVtb3ZlX29wdGltaXplZF9rcHJvYmUoKSBi
+ZWNhdXNlCisJCSAqIHdlIGhhdmUgbm90IGZpbGwgYW55IGZpZWxkIGluIG9wLgorCQkgKi8KKwkJ
+cmV0ID0gLUVSQU5HRTsKKwkJZ290byBvbl9lcnJvcjsKKwl9CisKKwkvKgorCSAqIFNlYXJjaCB0
+d28gZnJlZSByZWdpc3RlcnMsIHJkIGlzIHVzZWQgYXMgdG8gZm9ybSBBVUlQQy9KQUxSIGp1bXBp
+bmcKKwkgKiB0byBkZXRvdXIgYnVmZmVyLCByYSBpcyB1c2VkIGFzIHRvIGZvcm0gSlIganVtcGlu
+ZyBiYWNrIGZyb20gZGV0b3VyCisJICogYnVmZmVyLgorCSAqLworCWZpbmRfZnJlZV9yZWdpc3Rl
+cnMob3JpZywgb3AsICZyZCwgJnJhKTsKKwlpZiAocmQgPT0gMCB8fCByYSA9PSAwKSB7CisJCXJl
+dCA9IC1FSUxTRVE7CisJCWdvdG8gb25fZXJyb3I7CisJfQorCisJb3AtPm9wdGluc24ucmQgPSBy
+ZDsKKwlwcmVwYXJlX2RldG91cl9idWZmZXIoY29kZSwgc2xvdCwgcmEsIG9wLCBvcmlnLT5vcGNv
+ZGUpOworCisJcmV0ID0gcGF0Y2hfdGV4dF9ub3N5bmMoKHZvaWQgKilzbG90LCBjb2RlLCBNQVhf
+T1BUSU5TTl9TSVpFKTsKKwlpZiAoIXJldCkgeworCQlvcC0+b3B0aW5zbi5pbnNuID0gc2xvdDsK
+KwkJa2ZyZWUoY29kZSk7CisJCXJldHVybiAwOworCX0KKworb25fZXJyb3I6CisJaWYgKHNsb3Qp
+IHsKKwkJZnJlZV9vcHRpbnNuX3Nsb3Qoc2xvdCwgMCk7CisJCW9wLT5vcHRpbnNuLmluc24gPSBO
+VUxMOworCQlvcC0+b3B0aW5zbi5sZW5ndGggPSAwOworCX0KKwlrZnJlZShjb2RlKTsKKwlyZXR1
+cm4gcmV0OwogfQogCiB2b2lkIGFyY2hfcmVtb3ZlX29wdGltaXplZF9rcHJvYmUoc3RydWN0IG9w
+dGltaXplZF9rcHJvYmUgKm9wKQotLSAKMi4zNC4xCgoKX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
+c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
+bi9saXN0aW5mby9saW51eC1yaXNjdgo=
