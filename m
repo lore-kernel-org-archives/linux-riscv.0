@@ -4,68 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB0BFC3DA7A
-	for <linux-riscv@archiver.kernel.org>; Sun, 25 Dec 2022 15:42:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 384E2C3DA7A
+	for <linux-riscv@archiver.kernel.org>; Sun, 25 Dec 2022 16:56:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:CC:To:Subject:
-	From:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ue0+d0/ogwNcQo3TLL548s0Srx/HbwBNgqqWi3vCoDE=; b=yGMnAHvJp3/m8G
-	GY/vBAbfseRX941JawDVDXR4uAp5NRNXsrEFF1IXcgukSFNLFAHt2E6BoSjAqnX5hOIzdyRWcUjyk
-	MIbLfG74sEPVf6SlDehBsWAAvWWx7G5QPSbY/+L4aTr2377rcV4oXrYUAzj/Qwyg1FfjDdFcTJl73
-	CZY2DDB+xl5JMPyOijsTHGE6oqflqhrgVE+zGptRqHeuYUIIEtRVjxSHaLO5P9nOzM29qcuNTvPH6
-	qee4fELjXpu110D9SKephGTx4U9u1oue3XAMTXaTrbPzbNsCC843JRsgucaOG6r2NBDJ8AUZ7E4F5
-	nUoRYRpA9ekpcC85xLIg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JNq6YHsiFwLCIY+ZLw0XsW6rFFzHhE+OdZ6nJ62Pj3k=; b=GEGZX3TxKobsvW5+cUxg0NrLjV
+	frJQ0xSG4UOntEjwwySMsDBHpvywZ72c9dqtXvdy7esWgn7HeTtPezscZZd4FDZcK7iVorjUeHay/
+	YXCMh1gTtyi+px/vei5QcPQqFtoXH9V0ZR3R650jNG/+RtaWhJ/aLkDnIDmtYkLhUGzetnpfmAQ+r
+	cMKkj7jsyiIeTnN9cQ54n1IOXYOMbYl062pS9cxtOngtOp9fZRTPiGpuPm3IIQwJ/5wrnAZhMuPuW
+	E/k/4vjlwWX145ICZonsTMKAQMDvemuulnlDA8BS0C5WiaXJl6TwLjPdjaXOP7WTV7qeeJnmqoa/u
+	ls6aQdsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p9T8G-00Cec1-O2; Sun, 25 Dec 2022 15:41:48 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p9S2z-00ByzJ-Qs
-	for linux-riscv@lists.infradead.org; Sun, 25 Dec 2022 14:32:21 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id C1C7424DFCE;
-	Sun, 25 Dec 2022 22:31:44 +0800 (CST)
-Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Sun, 25 Dec
- 2022 22:31:44 +0800
-Received: from [192.168.2.237] (113.72.145.114) by EXMBX172.cuchost.com
- (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Sun, 25 Dec
- 2022 22:31:43 +0800
-Message-ID: <e23460e8-0ca4-b20b-e48e-faeca4f30e88@starfivetech.com>
-Date: Sun, 25 Dec 2022 22:31:41 +0800
+	id 1p9UIc-00DLrM-Qh; Sun, 25 Dec 2022 16:56:34 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1p9SlZ-00CRRJ-OK; Sun, 25 Dec 2022 15:18:23 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 03328B802C8;
+	Sun, 25 Dec 2022 15:18:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D797C433F0;
+	Sun, 25 Dec 2022 15:18:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1671981498;
+	bh=VpGs+wgQvn4nopc1zVna92m+pXcpav9pdxWW3SwSjoc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Jh7FT5QwpZXqUGxdeuVAKyjWHlRu4LXncDmnDxCbaDPyX1b37ve16iwxcm7vaxFiD
+	 2jc0JH45sRXbFdmROBBxj+pCyoOAQRiNPkFEFY8jH9W16YK46aMVjwHe9qd3v0iVUW
+	 8D1hwAzIyjeCHNXmjqbolb9Lh5XviXOdDAH2dTfN+ppfQ08hxsRah8bHKRh7kvI5ac
+	 imH0UGSJF4Y6C9VqJw3Bj7rDa+bcddaoyA9tILTNYWBzPG1Uwp+W5tskgsOoyH10IQ
+	 4w0lpgyOR6j9PO7nSVYwX8qDCbL91D7rPzX936LOBKdFGa2Q/2ANoAKDoNbiwyABSI
+	 lSSEiYyaK8mhQ==
+Date: Sun, 25 Dec 2022 15:18:12 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Masahiro Yamada <masahiroy@kernel.org>
+Cc: linux-arch@vger.kernel.org, linux-kbuild@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
+	Thorsten Leemhuis <regressions@leemhuis.info>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, Dennis Gilmore <dennis@ausil.us>,
+	Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Nicolas Schier <nicolas@fjasle.eu>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>
+Subject: Re: [PATCH] arch: fix broken BuildID for arm64 and riscv
+Message-ID: <Y6hptEk8FmISixLS@spud>
+References: <20221224192751.810363-1-masahiroy@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.2
-From: Hal Feng <hal.feng@starfivetech.com>
-Subject: Re: [PATCH v3 6/7] riscv: dts: starfive: Add initial StarFive JH7110
- device tree
-To: Conor Dooley <conor@kernel.org>
-CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Palmer
- Dabbelt" <palmer@dabbelt.com>, Rob Herring <robh+dt@kernel.org>, "Krzysztof
- Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, Ben Dooks
-	<ben.dooks@sifive.com>, Daniel Lezcano <daniel.lezcano@linaro.org>, "Thomas
- Gleixner" <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Stephen Boyd
-	<sboyd@kernel.org>, Michael Turquette <mturquette@baylibre.com>, "Philipp
- Zabel" <p.zabel@pengutronix.de>, Linus Walleij <linus.walleij@linaro.org>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	<linux-kernel@vger.kernel.org>
-References: <20221220011247.35560-1-hal.feng@starfivetech.com>
- <20221220011247.35560-7-hal.feng@starfivetech.com> <Y6Ipv0BUummgqNaw@spud>
-Content-Language: en-US
-In-Reply-To: <Y6Ipv0BUummgqNaw@spud>
-X-Originating-IP: [113.72.145.114]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX172.cuchost.com
- (172.16.6.92)
-X-YovoleRuleAgent: yovoleflag
+In-Reply-To: <20221224192751.810363-1-masahiroy@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221225_063218_297626_A51AB073 
-X-CRM114-Status: GOOD (  13.44  )
+X-CRM114-CacheID: sfid-20221225_071822_310751_04A9D052 
+X-CRM114-Status: GOOD (  27.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,95 +74,140 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5904679935325191455=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 20 Dec 2022 21:31:43 +0000, Conor Dooley wrote:
-> On Tue, Dec 20, 2022 at 09:12:46AM +0800, Hal Feng wrote:
-> > From: Emil Renner Berthing <kernel@esmil.dk>
-> > 
-> > Add initial device tree for the JH7110 RISC-V SoC by StarFive
-> > Technology Ltd.
-> > 
-> > Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
-> > Co-developed-by: Jianlong Huang <jianlong.huang@starfivetech.com>
-> > Signed-off-by: Jianlong Huang <jianlong.huang@starfivetech.com>
-> > Co-developed-by: Hal Feng <hal.feng@starfivetech.com>
-> > Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
-> > ---
-> 
-> FWIW, this cpu-map is now the default in linux, so you no longer *need*
-> to add it for that purpose - but there's obviously no harm in being
-> explicit for other operating systems etc. (IOW, don't remove it!)
-> 
-> > +		cpu-map {
-> > +			cluster0 {
-> > +				core0 {
-> > +					cpu = <&S76_0>;
-> > +				};
-> > +
-> > +				core1 {
-> > +					cpu = <&U74_1>;
-> > +				};
-> > +
-> > +				core2 {
-> > +					cpu = <&U74_2>;
-> > +				};
-> > +
-> > +				core3 {
-> > +					cpu = <&U74_3>;
-> > +				};
-> > +
-> > +				core4 {
-> > +					cpu = <&U74_4>;
-> > +				};
-> > +			};
-> > +		};
-> > +	};
-> 
-> > +		syscrg: clock-controller@13020000 {
-> 
-> For obvious reasons, I cannot apply this until both the clock & pinctrl
-> bindings are in my tree - but you know that already.
-> 
-> > +			compatible = "starfive,jh7110-syscrg";
-> > +			reg = <0x0 0x13020000 0x0 0x10000>;
-> > +			clocks = <&osc>, <&gmac1_rmii_refin>,
-> > +				 <&gmac1_rgmii_rxin>,
-> > +				 <&i2stx_bclk_ext>, <&i2stx_lrck_ext>,
-> > +				 <&i2srx_bclk_ext>, <&i2srx_lrck_ext>,
-> > +				 <&tdm_ext>, <&mclk_ext>;
-> 
-> As Krzk asked - are these clocks really all inputs to the SoC?
 
-Yes, they are all external clock sources inputted to the SoC. They are
-used as root clocks or optional parent clocks in clock tree.
+--===============5904679935325191455==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="K+NAhlStwZgY8Rt3"
+Content-Disposition: inline
 
-> 
-> > +			clock-names = "osc", "gmac1_rmii_refin",
-> > +				      "gmac1_rgmii_rxin",
-> > +				      "i2stx_bclk_ext", "i2stx_lrck_ext",
-> > +				      "i2srx_bclk_ext", "i2srx_lrck_ext",
-> > +				      "tdm_ext", "mclk_ext";
-> > +			#clock-cells = <1>;
-> > +			#reset-cells = <1>;
-> > +		};
-> > +
-> > +		gpio: gpio@13040000 {
-> 
-> > +		gpioa: gpio@17020000 {
-> 
-> Out of curiousity, why gpio & gpioa?
 
-Oh, is it easier to read if I change "gpio" and "gpioa"
-to "sysgpio" and "aongpio"? Thanks.
+--K+NAhlStwZgY8Rt3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Best regards,
-Hal
+On Sun, Dec 25, 2022 at 04:27:51AM +0900, Masahiro Yamada wrote:
+> Dennis Gilmore reports that the BuildID is missing in the arm64 vmlinux
+> since commit 994b7ac1697b ("arm64: remove special treatment for the
+> link order of head.o").
+>=20
+> The issue is that the type of .notes section, which contains the BuildID,
+> changed from NOTES to PROGBITS.
+>=20
+> Ard Biesheuvel figured out that whichever object gets linked first gets
+> to decide the type of a section, and the PROGBITS type is the result of
+> the compiler emitting .note.GNU-stack as PROGBITS rather than NOTE.
+>=20
+> While Ard provided a fix for arm64, I want to fix this globally because
+> the same issue is happening on riscv since commit 2348e6bf4421 ("riscv:
+> remove special treatment for the link order of head.o"). This problem
+> will happen in general for other architectures if they start to drop
+> unneeded entries from scripts/head-object-list.txt.
+>=20
+> Discard .note.GNU-stack in include/asm-generic/vmlinux.lds.h.
+>=20
+> riscv needs to change its linker script so that DISCARDS comes before
+> the .notes section.
+
+Hey Mashiro,
+
+No idea why I decided to look at patchwork today, but this seems to
+break the build on RISC-V, there's a whole load of the following in the
+output:
+`.LPFE4' referenced in section `__patchable_function_entries' of kernel/tra=
+ce/trace_selftest_dynamic.o: defined in discarded section `.text.exit' of k=
+ernel/trace/trace_selftest_dynamic.o
+
+I assume that's what's doing it, but given the day that's in it - I
+haven't looked into this any further, nor gone and fished the logs out of
+the builder.
+
+Thanks,
+Conor.
+
+>=20
+> Link: https://lore.kernel.org/lkml/CAABkxwuQoz1CTbyb57n0ZX65eSYiTonFCU8-L=
+CQc=3D74D=3DxE=3DrA@mail.gmail.com/
+> Fixes: 994b7ac1697b ("arm64: remove special treatment for the link order =
+of head.o")
+> Fixes: 2348e6bf4421 ("riscv: remove special treatment for the link order =
+of head.o")
+> Reported-by: Dennis Gilmore <dennis@ausil.us>
+> Suggested-by: Ard Biesheuvel <ardb@kernel.org>
+> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+> ---
+>=20
+>  arch/riscv/kernel/vmlinux.lds.S   | 4 ++--
+>  include/asm-generic/vmlinux.lds.h | 1 +
+>  2 files changed, 3 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.=
+lds.S
+> index 4e6c88aa4d87..1865a258e560 100644
+> --- a/arch/riscv/kernel/vmlinux.lds.S
+> +++ b/arch/riscv/kernel/vmlinux.lds.S
+> @@ -31,6 +31,8 @@ PECOFF_FILE_ALIGNMENT =3D 0x200;
+> =20
+>  SECTIONS
+>  {
+> +	DISCARDS
+> +
+>  	/* Beginning of code and text segment */
+>  	. =3D LOAD_OFFSET;
+>  	_start =3D .;
+> @@ -141,7 +143,5 @@ SECTIONS
+>  	STABS_DEBUG
+>  	DWARF_DEBUG
+>  	ELF_DETAILS
+> -
+> -	DISCARDS
+>  }
+>  #endif /* CONFIG_XIP_KERNEL */
+> diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmli=
+nux.lds.h
+> index a94219e9916f..2993b790fe98 100644
+> --- a/include/asm-generic/vmlinux.lds.h
+> +++ b/include/asm-generic/vmlinux.lds.h
+> @@ -1007,6 +1007,7 @@
+>  	*(.modinfo)							\
+>  	/* ld.bfd warns about .gnu.version* even when not emitted */	\
+>  	*(.gnu.version*)						\
+> +	*(.note.GNU-stack)	/* emitted as PROGBITS */
+> =20
+>  #define DISCARDS							\
+>  	/DISCARD/ : {							\
+> --=20
+> 2.34.1
+>=20
+
+--K+NAhlStwZgY8Rt3
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY6hprwAKCRB4tDGHoIJi
+0l9RAQDXyhrQnr6kGR3PoaIXcvTa5dsQBWOMb61JO0FkgzjwYAEAkDzn+fYdakxz
+5UB/bAYVBrV22oXa0H/xak2PwjZ+AQA=
+=xIjn
+-----END PGP SIGNATURE-----
+
+--K+NAhlStwZgY8Rt3--
+
+
+--===============5904679935325191455==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5904679935325191455==--
+
