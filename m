@@ -4,83 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 214F9C4332F
-	for <linux-riscv@archiver.kernel.org>; Sat, 24 Dec 2022 20:24:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E141C4332F
+	for <linux-riscv@archiver.kernel.org>; Sun, 25 Dec 2022 11:14:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=LbJ4x7h2sN817cTBkHgp+oZW6lQdZ5d8rFwXMP7Wpq8=; b=JGwKrwrdPgiXDB
-	GEUYJ7Z/bh7NQRyE3RVD2sAJQ7VeOJHEzA43RAAIyBcsgqcaBQWtWy55YflN6b9IvsF33mVt2JHcZ
-	nWHHA3VlBPG3c3/y06CRj8p3ICrR+w5QVjXV6+ctSzpx0m08rpOQuM9eM7Gz1Sb5SZdHS0QEtCeLQ
-	lH6pI9Mmz50WtzEBsrDgtrDzzbB77ObRulPDvGlOqqFwV098SVphrSR+/AgGwoafg+soZIIOPDgAI
-	dRQdLmCmi4tW2TjoT0QMii7yh+Kq7dLX3bPv9J+ksAM5Pi7xsWv8kGiNfYWxkNTxkPMlU8lOcGhGN
-	pJ96jl5t9py6CDxBvC1w==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=PQjo2834doF9V9jFbp2zYDsX4iAjq2H4I0NNVnHzePQ=; b=s07XNq+M3/i4SF
+	rTbEMXDikXiDWepHWVTw5eLsUyhL6wZtNRtZbny6KQXesVCpOEYDP5CP9g/Y3VKK3+oY0jKO9SSTo
+	KerXg8zPX0uanjPRF40GU3iVRmIVY8O58GNhkQmh7AZyPwTVVDWrwIg2upIgrlc01Jl+1DROhpDGH
+	i0o84tYY1Wf+9eCFu7h9AXc+Y3Zyr2lQ1NCU1wu1W9GBUnHwP6O+xLNaQJ3Gayqn86iaSLhblqFhV
+	14PhwCkRRFMD3Kl5jRSIkqljk7AaYcIY89fVM8YojHAw6aNPn89H886/FCePumnOjvsDg8KJ5BgWn
+	RuMEhAk0NuVlzt96+bWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p9B3Z-00319d-Mx; Sat, 24 Dec 2022 20:23:45 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p9B3L-00316d-KM; Sat, 24 Dec 2022 20:23:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=IX/nQu0mKtFFYmJ5Rvz+J89r1jcmS6i1Kk+78EcU4SE=; b=kQLbAGzpyXNdc74dGLSXLGnECe
-	erjpEPZIv6oXqu8J0XVIHVwlecCZV0eOt7QarI4GlWPQK4qEuCyMwWJUI2yT0b1P9tDcriexpfXlf
-	xFU75FotA6qeDxYNzmmsnu0eYuRbjo++dJt8kwbvf84V1Irg/vobGtZqiPQJBB21xxswvcnxInHpG
-	GZjYgf1UfmRTF3fZhE9X5+KDxrBB8andDFaChXd+sY4MZDh7aflkWpfALwCVaHRE1ZOG35w7AVbns
-	566esOoiP6yABlCirEP9l+d9uCSQuW1J28Lw2mJsiU75Z306sN3Jz5JLCy6l3D/Z7i43NoqoQTbe8
-	opkoZwNw==;
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
-	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1p9ABu-00EhFJ-2b;
-	Sat, 24 Dec 2022 19:28:36 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 16751B802C0;
-	Sat, 24 Dec 2022 19:28:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74A0CC433EF;
-	Sat, 24 Dec 2022 19:28:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1671910092;
-	bh=UQnfmGWpjZxvdevhblki0v7ZzFcxxRalPcpyLzVn6JI=;
-	h=From:To:Cc:Subject:Date:From;
-	b=Z5QB2B9WNLl5VOrzUNo0txpZ6VIJYGVDHCH+nwR9luPwWds2mSlHGNBIJO7lozNhO
-	 rdFdovyAsB8iRmKcwBjULiwQCbK3avqS0A6tQc7lu4SPb0m0ThZmLLMTjhPQylrGcA
-	 BbNoZh4CnJ9T6EKJEAENiUfDk8GfMBn6rJWde6vjhr7FWCwAeOw5dQ804F4M/ZDkXR
-	 65k9Y0tgUoGpzCSK+LlqI2CLA4kXFmBWcPEfmKWnT6hIZxpd77+lxGYLDzIhXW5LYG
-	 nsxJWyNmGQmKvPj12ADF7gzCtbrkH2gHdznoidrqiuOo+Bc0OnHF48JPsAJa2dgbwR
-	 rs5qlsrB9UaRw==
-From: Masahiro Yamada <masahiroy@kernel.org>
-To: linux-arch@vger.kernel.org,
-	linux-kbuild@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Thorsten Leemhuis <regressions@leemhuis.info>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Dennis Gilmore <dennis@ausil.us>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Nicolas Schier <nicolas@fjasle.eu>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>
-Subject: [PATCH] arch: fix broken BuildID for arm64 and riscv
-Date: Sun, 25 Dec 2022 04:27:51 +0900
-Message-Id: <20221224192751.810363-1-masahiroy@kernel.org>
-X-Mailer: git-send-email 2.34.1
+	id 1p9Owu-00AMkU-VK; Sun, 25 Dec 2022 11:13:49 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1p9OHn-00A1a7-Bw
+	for linux-riscv@lists.infradead.org; Sun, 25 Dec 2022 10:31:25 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 23A8D24DFCE;
+	Sun, 25 Dec 2022 18:30:27 +0800 (CST)
+Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Sun, 25 Dec
+ 2022 18:30:27 +0800
+Received: from [192.168.125.65] (113.72.146.158) by EXMBX172.cuchost.com
+ (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Sun, 25 Dec
+ 2022 18:30:25 +0800
+Message-ID: <d81cabc8-0229-1acf-03da-9a988a53a890@starfivetech.com>
+Date: Sun, 25 Dec 2022 18:31:31 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.3.2
+Subject: Re: [PATCH v3 6/7] riscv: dts: starfive: Add initial StarFive JH7110
+ device tree
+Content-Language: en-US
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>
+CC: Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, "Rob
+ Herring" <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, Ben Dooks
+	<ben.dooks@sifive.com>, Daniel Lezcano <daniel.lezcano@linaro.org>, "Thomas
+ Gleixner" <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Stephen Boyd
+	<sboyd@kernel.org>, Michael Turquette <mturquette@baylibre.com>, "Philipp
+ Zabel" <p.zabel@pengutronix.de>, Linus Walleij <linus.walleij@linaro.org>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	<linux-kernel@vger.kernel.org>
+References: <20221220011247.35560-1-hal.feng@starfivetech.com>
+ <20221220011247.35560-7-hal.feng@starfivetech.com>
+ <ebb27bb2-158c-8207-7184-0d5b5ca0ce14@linaro.org>
+From: Hal Feng <hal.feng@starfivetech.com>
+In-Reply-To: <ebb27bb2-158c-8207-7184-0d5b5ca0ce14@linaro.org>
+X-Originating-IP: [113.72.146.158]
+X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX172.cuchost.com
+ (172.16.6.92)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221224_192819_093529_44EFF910 
-X-CRM114-Status: GOOD (  16.21  )
+X-CRM114-CacheID: sfid-20221225_023119_768353_A7C7D9BB 
+X-CRM114-Status: GOOD (  15.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,76 +84,357 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Dennis Gilmore reports that the BuildID is missing in the arm64 vmlinux
-since commit 994b7ac1697b ("arm64: remove special treatment for the
-link order of head.o").
+On Tue, 20 Dec 2022 11:10:11 +0100, Krzysztof Kozlowski wrote:
+> On 20/12/2022 02:12, Hal Feng wrote:
+>> From: Emil Renner Berthing <kernel@esmil.dk>
+>> 
+>> Add initial device tree for the JH7110 RISC-V SoC by StarFive
+>> Technology Ltd.
+>> 
+>> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+>> Co-developed-by: Jianlong Huang <jianlong.huang@starfivetech.com>
+>> Signed-off-by: Jianlong Huang <jianlong.huang@starfivetech.com>
+>> Co-developed-by: Hal Feng <hal.feng@starfivetech.com>
+>> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+>> ---
+>>  arch/riscv/boot/dts/starfive/jh7110.dtsi | 411 +++++++++++++++++++++++
+>>  1 file changed, 411 insertions(+)
+>>  create mode 100644 arch/riscv/boot/dts/starfive/jh7110.dtsi
+>> 
+>> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+>> new file mode 100644
+>> index 000000000000..64d260ea1f29
+>> --- /dev/null
+>> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+>> @@ -0,0 +1,411 @@
+>> +// SPDX-License-Identifier: GPL-2.0 OR MIT
+>> +/*
+>> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
+>> + * Copyright (C) 2022 Emil Renner Berthing <kernel@esmil.dk>
+>> + */
+>> +
+>> +/dts-v1/;
+>> +#include <dt-bindings/clock/starfive,jh7110-crg.h>
+>> +#include <dt-bindings/reset/starfive,jh7110-crg.h>
+>> +
+>> +/ {
+>> +	compatible = "starfive,jh7110";
+>> +	#address-cells = <2>;
+>> +	#size-cells = <2>;
+>> +
+>> +	cpus {
+>> +		#address-cells = <1>;
+>> +		#size-cells = <0>;
+>> +
+>> +		S76_0: cpu@0 {
+>> +			compatible = "sifive,u74-mc", "riscv";
+>> +			reg = <0>;
+>> +			d-cache-block-size = <64>;
+>> +			d-cache-sets = <64>;
+>> +			d-cache-size = <8192>;
+>> +			d-tlb-sets = <1>;
+>> +			d-tlb-size = <40>;
+>> +			device_type = "cpu";
+>> +			i-cache-block-size = <64>;
+>> +			i-cache-sets = <64>;
+>> +			i-cache-size = <16384>;
+>> +			i-tlb-sets = <1>;
+>> +			i-tlb-size = <40>;
+>> +			mmu-type = "riscv,sv39";
+>> +			next-level-cache = <&ccache>;
+>> +			riscv,isa = "rv64imac";
+>> +			tlb-split;
+>> +			status = "disabled";
+>> +
+>> +			cpu0_intc: interrupt-controller {
+>> +				compatible = "riscv,cpu-intc";
+>> +				interrupt-controller;
+>> +				#interrupt-cells = <1>;
+>> +			};
+>> +		};
+>> +
+>> +		U74_1: cpu@1 {
+>> +			compatible = "sifive,u74-mc", "riscv";
+>> +			reg = <1>;
+>> +			d-cache-block-size = <64>;
+>> +			d-cache-sets = <64>;
+>> +			d-cache-size = <32768>;
+>> +			d-tlb-sets = <1>;
+>> +			d-tlb-size = <40>;
+>> +			device_type = "cpu";
+>> +			i-cache-block-size = <64>;
+>> +			i-cache-sets = <64>;
+>> +			i-cache-size = <32768>;
+>> +			i-tlb-sets = <1>;
+>> +			i-tlb-size = <40>;
+>> +			mmu-type = "riscv,sv39";
+>> +			next-level-cache = <&ccache>;
+>> +			riscv,isa = "rv64imafdc";
+>> +			tlb-split;
+>> +
+>> +			cpu1_intc: interrupt-controller {
+>> +				compatible = "riscv,cpu-intc";
+>> +				interrupt-controller;
+>> +				#interrupt-cells = <1>;
+>> +			};
+>> +		};
+>> +
+>> +		U74_2: cpu@2 {
+>> +			compatible = "sifive,u74-mc", "riscv";
+>> +			reg = <2>;
+>> +			d-cache-block-size = <64>;
+>> +			d-cache-sets = <64>;
+>> +			d-cache-size = <32768>;
+>> +			d-tlb-sets = <1>;
+>> +			d-tlb-size = <40>;
+>> +			device_type = "cpu";
+>> +			i-cache-block-size = <64>;
+>> +			i-cache-sets = <64>;
+>> +			i-cache-size = <32768>;
+>> +			i-tlb-sets = <1>;
+>> +			i-tlb-size = <40>;
+>> +			mmu-type = "riscv,sv39";
+>> +			next-level-cache = <&ccache>;
+>> +			riscv,isa = "rv64imafdc";
+>> +			tlb-split;
+>> +
+>> +			cpu2_intc: interrupt-controller {
+>> +				compatible = "riscv,cpu-intc";
+>> +				interrupt-controller;
+>> +				#interrupt-cells = <1>;
+>> +			};
+>> +		};
+>> +
+>> +		U74_3: cpu@3 {
+>> +			compatible = "sifive,u74-mc", "riscv";
+>> +			reg = <3>;
+>> +			d-cache-block-size = <64>;
+>> +			d-cache-sets = <64>;
+>> +			d-cache-size = <32768>;
+>> +			d-tlb-sets = <1>;
+>> +			d-tlb-size = <40>;
+>> +			device_type = "cpu";
+>> +			i-cache-block-size = <64>;
+>> +			i-cache-sets = <64>;
+>> +			i-cache-size = <32768>;
+>> +			i-tlb-sets = <1>;
+>> +			i-tlb-size = <40>;
+>> +			mmu-type = "riscv,sv39";
+>> +			next-level-cache = <&ccache>;
+>> +			riscv,isa = "rv64imafdc";
+>> +			tlb-split;
+>> +
+>> +			cpu3_intc: interrupt-controller {
+>> +				compatible = "riscv,cpu-intc";
+>> +				interrupt-controller;
+>> +				#interrupt-cells = <1>;
+>> +			};
+>> +		};
+>> +
+>> +		U74_4: cpu@4 {
+>> +			compatible = "sifive,u74-mc", "riscv";
+>> +			reg = <4>;
+>> +			d-cache-block-size = <64>;
+>> +			d-cache-sets = <64>;
+>> +			d-cache-size = <32768>;
+>> +			d-tlb-sets = <1>;
+>> +			d-tlb-size = <40>;
+>> +			device_type = "cpu";
+>> +			i-cache-block-size = <64>;
+>> +			i-cache-sets = <64>;
+>> +			i-cache-size = <32768>;
+>> +			i-tlb-sets = <1>;
+>> +			i-tlb-size = <40>;
+>> +			mmu-type = "riscv,sv39";
+>> +			next-level-cache = <&ccache>;
+>> +			riscv,isa = "rv64imafdc";
+>> +			tlb-split;
+>> +
+>> +			cpu4_intc: interrupt-controller {
+>> +				compatible = "riscv,cpu-intc";
+>> +				interrupt-controller;
+>> +				#interrupt-cells = <1>;
+>> +			};
+>> +		};
+>> +
+>> +		cpu-map {
+>> +			cluster0 {
+>> +				core0 {
+>> +					cpu = <&S76_0>;
+>> +				};
+>> +
+>> +				core1 {
+>> +					cpu = <&U74_1>;
+>> +				};
+>> +
+>> +				core2 {
+>> +					cpu = <&U74_2>;
+>> +				};
+>> +
+>> +				core3 {
+>> +					cpu = <&U74_3>;
+>> +				};
+>> +
+>> +				core4 {
+>> +					cpu = <&U74_4>;
+>> +				};
+>> +			};
+>> +		};
+>> +	};
+>> +
+>> +	osc: osc {
+> 
+> Node names should be generic, so why this is "osc" and other oscillators
+> are not "osc"?
 
-The issue is that the type of .notes section, which contains the BuildID,
-changed from NOTES to PROGBITS.
+Only "osc" and "rtc_osc" are oscillators, the rest are clock sources provided
+through gpio. I will modify the node names according to your link below. So
 
-Ard Biesheuvel figured out that whichever object gets linked first gets
-to decide the type of a section, and the PROGBITS type is the result of
-the compiler emitting .note.GNU-stack as PROGBITS rather than NOTE.
+	osc: oscillator {
 
-While Ard provided a fix for arm64, I want to fix this globally because
-the same issue is happening on riscv since commit 2348e6bf4421 ("riscv:
-remove special treatment for the link order of head.o"). This problem
-will happen in general for other architectures if they start to drop
-unneeded entries from scripts/head-object-list.txt.
+> 
+> 
+>> +		compatible = "fixed-clock";
+>> +		#clock-cells = <0>;
+>> +	};
+>> +
+>> +	rtc_osc: rtc_osc {
+> 
+> No underscores in node names. Generic node names (so each of them
+> starting or ending with clock).
 
-Discard .note.GNU-stack in include/asm-generic/vmlinux.lds.h.
+Will change this line to
 
-riscv needs to change its linker script so that DISCARDS comes before
-the .notes section.
+	rtc_osc: oscillator {
 
-Link: https://lore.kernel.org/lkml/CAABkxwuQoz1CTbyb57n0ZX65eSYiTonFCU8-LCQc=74D=xE=rA@mail.gmail.com/
-Fixes: 994b7ac1697b ("arm64: remove special treatment for the link order of head.o")
-Fixes: 2348e6bf4421 ("riscv: remove special treatment for the link order of head.o")
-Reported-by: Dennis Gilmore <dennis@ausil.us>
-Suggested-by: Ard Biesheuvel <ardb@kernel.org>
-Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
----
+> 
+>> +		compatible = "fixed-clock";
+>> +		#clock-cells = <0>;
+>> +	};
+>> +
+>> +	gmac0_rmii_refin: gmac0_rmii_refin {
+> 
+> Same problem... and actually you have way too many fixed clocks which do
 
- arch/riscv/kernel/vmlinux.lds.S   | 4 ++--
- include/asm-generic/vmlinux.lds.h | 1 +
- 2 files changed, 3 insertions(+), 2 deletions(-)
+Will change the node names as follows.
 
-diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
-index 4e6c88aa4d87..1865a258e560 100644
---- a/arch/riscv/kernel/vmlinux.lds.S
-+++ b/arch/riscv/kernel/vmlinux.lds.S
-@@ -31,6 +31,8 @@ PECOFF_FILE_ALIGNMENT = 0x200;
- 
- SECTIONS
- {
-+	DISCARDS
-+
- 	/* Beginning of code and text segment */
- 	. = LOAD_OFFSET;
- 	_start = .;
-@@ -141,7 +143,5 @@ SECTIONS
- 	STABS_DEBUG
- 	DWARF_DEBUG
- 	ELF_DETAILS
--
--	DISCARDS
- }
- #endif /* CONFIG_XIP_KERNEL */
-diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmlinux.lds.h
-index a94219e9916f..2993b790fe98 100644
---- a/include/asm-generic/vmlinux.lds.h
-+++ b/include/asm-generic/vmlinux.lds.h
-@@ -1007,6 +1007,7 @@
- 	*(.modinfo)							\
- 	/* ld.bfd warns about .gnu.version* even when not emitted */	\
- 	*(.gnu.version*)						\
-+	*(.note.GNU-stack)	/* emitted as PROGBITS */
- 
- #define DISCARDS							\
- 	/DISCARD/ : {							\
--- 
-2.34.1
+	gmac0_rmii_refin: clock {
+		...
+	};
 
+	gmac0_rgmii_rxin: clock {
+		...
+	};
+	...
+
+> nothing. It looks like you avoid to define proper clock controller.
+> What's the point for all these clocks? These are no-op.
+
+These are all external fixed rate clocks inputted to the SoC. They are the root
+clocks of the clock tree made by clock drivers. Their ops are provided in
+drivers/clk/clk-fixed-rate.c.
+
+> 
+>> +		compatible = "fixed-clock";
+>> +		#clock-cells = <0>;
+>> +	};
+>> +
+>> +	gmac0_rgmii_rxin: gmac0_rgmii_rxin {
+>> +		compatible = "fixed-clock";
+>> +		#clock-cells = <0>;
+>> +	};
+>> +
+>> +	gmac1_rmii_refin: gmac1_rmii_refin {
+>> +		compatible = "fixed-clock";
+>> +		#clock-cells = <0>;
+>> +	};
+>> +
+>> +	gmac1_rgmii_rxin: gmac1_rgmii_rxin {
+>> +		compatible = "fixed-clock";
+>> +		#clock-cells = <0>;
+>> +	};
+>> +
+>> +	i2stx_bclk_ext: i2stx_bclk_ext {
+>> +		compatible = "fixed-clock";
+>> +		#clock-cells = <0>;
+>> +	};
+>> +
+>> +	i2stx_lrck_ext: i2stx_lrck_ext {
+>> +		compatible = "fixed-clock";
+>> +		#clock-cells = <0>;
+>> +	};
+>> +
+>> +	i2srx_bclk_ext: i2srx_bclk_ext {
+>> +		compatible = "fixed-clock";
+>> +		#clock-cells = <0>;
+>> +	};
+>> +
+>> +	i2srx_lrck_ext: i2srx_lrck_ext {
+>> +		compatible = "fixed-clock";
+>> +		#clock-cells = <0>;
+>> +	};
+>> +
+>> +	tdm_ext: tdm_ext {
+>> +		compatible = "fixed-clock";
+>> +		#clock-cells = <0>;
+>> +	};
+>> +
+>> +	mclk_ext: mclk_ext {
+>> +		compatible = "fixed-clock";
+>> +		#clock-cells = <0>;
+>> +	};
+>> +
+>> +	soc {
+>> +		compatible = "simple-bus";
+>> +		interrupt-parent = <&plic>;
+>> +		#address-cells = <2>;
+>> +		#size-cells = <2>;
+>> +		ranges;
+>> +
+>> +		clint: clint@2000000 {
+> 
+> Node names should be generic.
+> https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+
+Change it to 
+
+		clint: timer@2000000 {
+
+> 
+>> +			compatible = "starfive,jh7110-clint", "sifive,clint0";
+>> +			reg = <0x0 0x2000000 0x0 0x10000>;
+>> +			interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>,
+>> +					      <&cpu1_intc 3>, <&cpu1_intc 7>,
+>> +					      <&cpu2_intc 3>, <&cpu2_intc 7>,
+>> +					      <&cpu3_intc 3>, <&cpu3_intc 7>,
+>> +					      <&cpu4_intc 3>, <&cpu4_intc 7>;
+>> +		};
+>> +
+>> +		plic: plic@c000000 {
+> 
+> Node names should be generic, so interrupt-controller
+> https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+
+Change it to 
+
+		plic: interrupt-controller@c000000 {
+
+Best regards,
+Hal
+
+> 
+>> +			compatible = "starfive,jh7110-plic", "sifive,plic-1.0.0";
+>> +			reg = <0x0 0xc000000 0x0 0x4000000>;
+>> +			interrupts-extended = <&cpu0_intc 11>,
+>> +					      <&cpu1_intc 11>, <&cpu1_intc 9>,
+>> +					      <&cpu2_intc 11>, <&cpu2_intc 9>,
+>> +					      <&cpu3_intc 11>, <&cpu3_intc 9>,
+>> +					      <&cpu4_intc 11>, <&cpu4_intc 9>;
+>> +			interrupt-controller;
+>> +			#interrupt-cells = <1>;
+>> +			#address-cells = <0>;
+>> +			riscv,ndev = <136>;
+>> +		};
 
 _______________________________________________
 linux-riscv mailing list
