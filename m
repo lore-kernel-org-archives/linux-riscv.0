@@ -4,64 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 120D8C3DA79
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Dec 2022 22:46:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0343DC3DA79
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Dec 2022 23:02:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TvLDoDtnVKYEVLgfhllyirrLG5Plosn9UaQy1+lPzG4=; b=dl3+gjXo9SGrbH
-	FRAQ1L5obOp+5+g5PCoxjGO56Fme1Q2YSls5d59/sVicLsRrERVKfpCnYqoegzm/msOI7XtsFJfb5
-	+qjbx+LvSzsdm6/JiuPsUtrMibX0W5vIYlTH8Tgfg6y+ssTewsaKO9xTeS9AZDo4uc/i1tfGeM2uD
-	6TFKs9wU3AV6XSkWufyRbDt7nr00nUYXBCKSkuPjr3lOFIqpg/4ztLj8OQW/p9KL9pmblgnVp2Y/b
-	OK4zx5U4vh/l++EGZ4VHBbFj1j9wpAhM8mWIuC/5w4RZzbLEnVYUXIa1aWC0HwEQJ355ajuK6jkyY
-	TKD3ZjaDdRO4ULGg+5/A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Cq7Mcc2FOTnumRQJgnm6Bf/anDPKBZofcDsDng/0+5Y=; b=yJ8/2XafbOMTa+jXqwz1Nf+gdn
+	0DkHEN9jP+cMjzMZWGuo7nHMscIC313jzXnQgJYaSGhUQUsE+Q+HsJibIfj2YV+8dr1yIVgklPHTJ
+	D+pJV+irrkq0kCgAcXqRoPBPHoEfKol/DqWFJWaxaCD0anSTEAbW7ubWPBwlItbgzHwz/PYhj5x5V
+	0GySz8wh4soQgv4U5EHB9RDBZzXlrTbLonuYhVnXs6VYNXgOhId+N+FSIXWVya1YYVanzoY1t5t6D
+	/h4709VfDX+9XPjhA0nDB5JB6Iw5+mi4TvhBm3lALPCp/UvPe47PDmEEopRY3GVrBJaBFLruVdZd+
+	nrH0s86A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p9wF4-0080vC-Qw; Mon, 26 Dec 2022 22:46:46 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1p9wTr-0086Yu-Br; Mon, 26 Dec 2022 23:02:03 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p9wF1-0080tU-2w
-	for linux-riscv@lists.infradead.org; Mon, 26 Dec 2022 22:46:44 +0000
+	id 1p9wTo-0086XX-C7
+	for linux-riscv@lists.infradead.org; Mon, 26 Dec 2022 23:02:01 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 6ABA060E94;
-	Mon, 26 Dec 2022 22:46:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5EAB0C433D2;
-	Mon, 26 Dec 2022 22:46:39 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id C43D1B80DC2;
+	Mon, 26 Dec 2022 23:01:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DF9CC433F0;
+	Mon, 26 Dec 2022 23:01:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1672094800;
-	bh=xn7lV3m68/eeONQwiMztfwZqj6zMswJJ8qyPz2b3NKM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Iduqg0hWk02rYp6tm+m3J/LyJ4KyJroVheh/aomdXIvPZo6Xkr0R97uFACGmqON/9
-	 QRArJSR8uBmRKKqcCOTLj2TxgF0GUA2tXHxm19plpAld9yvK5aVuIetFekZ424PcTi
-	 0KhdPmulEw+I6i4ozZ7IAMuWxT5squUJ4a53uaebcbJhPygMmdIkDduzfmBHlWmwhY
-	 9HiNCGi5tVzTuIv+9P8tFmgIdHt+55XOnukK0FDECfp0xwdxXj8X/Y8/jGdBPkThbz
-	 Zu4fTihreuiTutJnb57G8vXK9PggJFTq7olrvbUwcG1ZQs8kpSx2/1vh5Ooi80d4wr
-	 k/PsNKL012aRw==
+	s=k20201202; t=1672095717;
+	bh=SX0BmzYTkCHs1PHSbj2Sqc0jerZcZXqTrHn2k8779eM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JwGcph3jDWpdUjn8PKQaR9ejzHI5fqrV9b9P06X97nG5sMCTGDO9HQEg4Pr2/eI/o
+	 26/EW4ZJtG/QB2pl8o7gVPQlUMO4rlXHGuWslxcfAjdDTwnowdgwEh2YLgjJhz+j9W
+	 rS2UUxD1E2L4jO0YsAF7YCBGUvCBJNAVcNc7CicZ79UdXix73w1xxENYjX06V5aflU
+	 OreCAkz3XI3DbWaFkU72O8EXH/OqtM7aSMxClJqxr+OIl01r4PXSJxpCesBTKPixtt
+	 M+CLKKuDRxlnj3AJc9/fJP31FSrDJpk5Ox0gYpzJ3QEsJv+lHzr6r1qKjy0aG2LqxT
+	 eMcMcjS8+O7QQ==
+Date: Mon, 26 Dec 2022 23:01:51 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Conor Dooley <conor@kernel.org>,
-	Jassi Brar <jassisinghbrar@gmail.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	linux-riscv@lists.infradead.org,
-	Daire McNamara <daire.mcnamara@microchip.com>,
+To: Hal Feng <hal.feng@starfivetech.com>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Ben Dooks <ben.dooks@sifive.com>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
 	linux-kernel@vger.kernel.org
-Subject: Re: (subset) [PATCH v3 0/2] mpfs: fix handling failed service requests
-Date: Mon, 26 Dec 2022 22:46:28 +0000
-Message-Id: <167209401166.1237431.3681693527005638710.b4-ty@microchip.com>
-X-Mailer: git-send-email 2.38.1
-In-Reply-To: <20221123175652.327859-1-conor@kernel.org>
-References: <20221123175652.327859-1-conor@kernel.org>
+Subject: Re: [PATCH v3 0/7] Basic device tree support for StarFive JH7110
+ RISC-V SoC
+Message-ID: <Y6on34WC2u3PSBHl@spud>
+References: <20221220011247.35560-1-hal.feng@starfivetech.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=533; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=7ZyLo9pw4ngtdXWCQmsbO+VBc6xMj4XuwSVXhASX+OA=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDMmrVBxVFpwpVfx4y6Hg3B9X+6U2uq9WTot0mLX77JyLc5e2 F6TVdpSyMIhxMMiKKbIk3u5rkVr/x2WHc89bmDmsTCBDGLg4BWAie6cy/FN9lX//18ujDZt+Ga75s3 99U/78rX9PVt7ONkpM5EzZ1qrA8L/y5d7j7zRuXf+y56J3o/f2zms7mr6U3tpYxL8oyPtL1xoeAA==
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+In-Reply-To: <20221220011247.35560-1-hal.feng@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221226_144643_543996_C2F9652D 
-X-CRM114-Status: UNSURE (   9.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221226_150200_578049_1A976712 
+X-CRM114-Status: GOOD (  14.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,32 +79,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5619056363200789951=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
 
-On Wed, 23 Nov 2022 17:56:50 +0000, Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
-> 
-> As things stand, if a service request fails, we never know about it as
-> the status register is not read. This is quite obviously far from ideal,
-> as we would be reading garbage from the mailbox if a service was to
-> fail.
-> 
-> [...]
+--===============5619056363200789951==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="f/iFEOT8SIj34xAh"
+Content-Disposition: inline
 
-Applied to riscv-soc-fixes, thanks!
 
-[1/2] soc: microchip: mpfs: handle failed system service requests
-      https://git.kernel.org/conor/c/730892135b7d
+--f/iFEOT8SIj34xAh
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+On Tue, Dec 20, 2022 at 09:12:40AM +0800, Hal Feng wrote:
+> This patch series adds basic device tree support for StarFive JH7110 SoC.
+> This patch series depends on series [1] and [2]. You can simply get or
+> review the patches at the link [3].
+> Emil Renner Berthing (7):
+>   dt-bindings: riscv: Add StarFive JH7110 SoC and VisionFive 2 board
+
+I've applied this one to riscv-dt-for-next
+https://git.kernel.org/conor/c/97b7ed072784
+
+>   dt-bindings: timer: Add StarFive JH7110 clint
+>   dt-bindings: interrupt-controller: Add StarFive JH7110 plic
+
+>   dt-bindings: sifive,ccache0: Support StarFive JH7110 SoC
+>   soc: sifive: ccache: Add StarFive JH7110 support
+
+And these two to riscv-soc-for-next
+https://git.kernel.org/conor/c/1caf002efa22
+https://git.kernel.org/conor/c/6635e91648ce
+
+>   riscv: dts: starfive: Add initial StarFive JH7110 device tree
+>   riscv: dts: starfive: Add StarFive JH7110 VisionFive 2 board device
+>     tree
+
+The rest I can take with maintainer Acks alongside the DT, or they can
+go via subsystem trees.
+The DT is waiting for the clock/reset & pinctrl binding headers anyway,
+so IDC which it is.
 
 Thanks,
 Conor.
+
+
+--f/iFEOT8SIj34xAh
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY6on3wAKCRB4tDGHoIJi
+0tjwAP9w54bxRzyxyIptYDA+Fq7fMvb7SJHNF9qgWs6aGwBT1gD+OOPrBoNFXa9g
+/EJQoDkPAke1E2T/1IuPwS5c7HAnUgU=
+=r4lC
+-----END PGP SIGNATURE-----
+
+--f/iFEOT8SIj34xAh--
+
+
+--===============5619056363200789951==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5619056363200789951==--
+
