@@ -4,79 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E66BBC4167B
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Dec 2022 19:19:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F707C4167B
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Dec 2022 22:02:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=weYT7wBZf0tDvVShmXGL06tNcrUE8YuJNCP2dmOxig8=; b=kTxmJWKAC7GCZT
-	tPUUjM0c2XMeGh+hDhdMYxAo6lA4/1vTB4btuH5NemZDZp2cZGv22yu2VtkM34kYxk2J5NwSHH6/7
-	NlqN807o0gG8bUB5u9hRAuTh5kRrNVjFha4j9MvKjBLOKQeqJ6o7ZVCEq7WqYNoqmBJAg1QBHO2zR
-	H8GQiFbVJZ9IudZHK7kfzpMFPsD4GhWwIGwsZ/7sjo1jHrxrI8BoxY6PbqKtfuztDm8K/F//X137Y
-	+si+k7EFaL8xEDdLl88VXwHB656+4z+EodaSxYk7YNLLik40PtJSMS09g6RJRL915OvWd8ku2xp4u
-	VWFSYd/j4JWcwme8sOLg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4L7qPihC3XBnzoZAlD0ZUaBChkdhdeCKxJWNeLhYFG4=; b=h0q9jcoHogFfZZRXNRJMDBPULp
+	Q7d65IQoccOU66pLcYFpeTkyvxfiz/wueFfz9wQq6hCGVqFXibrsK+V+LGnvZAvN/BHdPKxCyyZ1y
+	2HqrUOhCNOE04jRJG4tB991iHham7+zpaAxxn5AVUUjDCE420y8lZLjNGJVnVAoIqW5l9diAxFTiX
+	nNUzBh0gTq/Tk/3i7JloPUnP+Jei4jrFcCAQm1FR3IpQKmh5r0tzEHIr5+NLY4iqpKg/wFB73Ueom
+	C9Y1HKBXCwzlY2AKbfglrzeRLVugw2a5xj1jnV7C8G9iN5luVIc+kS7KGUnn7D7L/GybwU9qoqgw2
+	2w0oLIMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p9t0V-006doW-UQ; Mon, 26 Dec 2022 19:19:31 +0000
-Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
+	id 1p9vYJ-007jRt-W2; Mon, 26 Dec 2022 22:02:36 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p9t0S-006dnJ-Vv
-	for linux-riscv@lists.infradead.org; Mon, 26 Dec 2022 19:19:30 +0000
-Received: by mail-ej1-x62c.google.com with SMTP id t17so27582994eju.1
-        for <linux-riscv@lists.infradead.org>; Mon, 26 Dec 2022 11:19:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=IswFThAcgimEglWvx4Cd58NiatVnDCYGqZisMYNWnKg=;
-        b=Wkj0OHEV9MWxiI/f7K1l34Q90YidiiIylXiym4PzjFCkP/ibtmHonEuRrmLPdHkCr5
-         chab+8yKzx+ep3erPrLI5Vbc7XUxx7Pr0b7/m6AE8ann/h8pcXVxyijeP5zNsxnLm+3m
-         /6DCli1GGop1e+0sPyCBVWqtUaaEr8mjHQ/GTHFoAC8hvlHNAZxEpPC8Y75nozuH5Wh7
-         A8znHYSNLWQjyFgIWGniP2DENjhqjUZ0R825GcdfbStvjxpuAdycTLBv/B/mUC+M+jLl
-         xT15+egCh3hiuvtgW5oBw5X8MXiWiJe8U1uatlwoFQjP+6p6Od1FcuXDW/wrs02V1VrH
-         Ht9w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=IswFThAcgimEglWvx4Cd58NiatVnDCYGqZisMYNWnKg=;
-        b=Sxny7nX5HidfVk6mDdNMpou30fxs6Vr7EueKPn75UL/MFovzCeBRh23VpqkTKZXgsj
-         nYyoafNz2Lbi5Aguc1joGrvowibTLApYTvvmzQrGKkfS6VJwPPr/xDT6tnwxUlVW+fIy
-         qxRpN9E8QMuC8cUFwYsjnTM1ZwKHfoXPxvb4WtE6R9iYisPRwVM5xW0wKmbSJ0scCRQj
-         bLQiHiGiFFgnVN0ldaLrFa6xobw5oq4D9eL5aXjsTLEdJvMBgGot1YSb/rFCbuHv8iAP
-         xr9TQhXNlNK1FVg5bDPOGuNebUE29tQ2jhX4Q1fDjlbY5PXE6RtkwwCMZdRjpuClvDjs
-         ijmg==
-X-Gm-Message-State: AFqh2kpNifS2AAyzdqg5d9cvpe1E+PcVAFZfxKTI0+Mfd0eATYgF8rKS
-	fnTz9tFijGTu3kYqrRG42aSPlw==
-X-Google-Smtp-Source: AMrXdXsCD6bnbPFi7RV3oN36KxudVt4eBCJ86IEmpPAbyidNSs44+mj0uHqIc3p5JX1CFz/7rXowHA==
-X-Received: by 2002:a17:907:b684:b0:7c0:a99c:485c with SMTP id vm4-20020a170907b68400b007c0a99c485cmr17499714ejc.68.1672082366743;
-        Mon, 26 Dec 2022 11:19:26 -0800 (PST)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id 23-20020a170906309700b00809e33ba33dsm5219050ejv.19.2022.12.26.11.19.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Dec 2022 11:19:26 -0800 (PST)
-Date: Mon, 26 Dec 2022 20:19:25 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: panqinglin2020@iscas.ac.cn, palmer@dabbelt.com,
-	linux-riscv@lists.infradead.org, jeff@riscv.org, xuyinan@ict.ac.cn
-Subject: Re: [PATCH v11 1/3] riscv: mm: modify pte format for Svnapot
-Message-ID: <20221226191925.5crjqnpinsawfwc4@orel>
-References: <20221216062109.865573-1-panqinglin2020@iscas.ac.cn>
- <20221216062109.865573-2-panqinglin2020@iscas.ac.cn>
- <Y6Dc4XNQmKtTsXom@spud>
- <20221226152213.crknhcpysonhq63c@orel>
- <Y6nql5IUhFnHv9sr@spud>
+	id 1p9vY6-007jLx-Li; Mon, 26 Dec 2022 22:02:24 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by sin.source.kernel.org (Postfix) with ESMTPS id ADA14CE0C47;
+	Mon, 26 Dec 2022 22:02:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1732C433EF;
+	Mon, 26 Dec 2022 22:02:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1672092137;
+	bh=ry6lx+uexHhl+KAnI+uFm4EaQ8KJmvU/sxNXOfCYXu0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jsdalTDD884x4PWJj5rh7s/dUmy4mcwNC7yb8uxB7yOFTwR+SVlYpUnv9rWhbU4QM
+	 UtcPcWhnl+4bs17JHduLwRWmBk/zp9fBW4+NisAuun//upx7NJE8GCS3P1JSX6B2qI
+	 s+wc4Za+v28XorBxEVu4xqKa8oZEl30bpl35bGiOMF/h7U1mIPIYmVLlybWALoj49+
+	 Zyd13FmdEFRGngRKL0AT85sRbazxODqx2WTz3b1lr91PpRlAt7Oo1iFanVxrUCYE/6
+	 yHhTmViJlhlbgMBGJREvC69nIkaoINMO+qqoXlcHLHQa8CbepamcSzfBDXRsPv3axd
+	 cw2nqaCZetXEg==
+Date: Mon, 26 Dec 2022 22:02:11 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Masahiro Yamada <masahiroy@kernel.org>
+Cc: linux-arch@vger.kernel.org, linux-kbuild@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
+	Thorsten Leemhuis <regressions@leemhuis.info>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, Dennis Gilmore <dennis@ausil.us>,
+	Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Nicolas Schier <nicolas@fjasle.eu>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>
+Subject: Re: [PATCH] arch: fix broken BuildID for arm64 and riscv
+Message-ID: <Y6oZ40fEArg7MJGo@spud>
+References: <20221224192751.810363-1-masahiroy@kernel.org>
+ <Y6hptEk8FmISixLS@spud>
+ <CAK7LNAT39aZEw=0209ovYZ2kxtOaA2a51=XD9=LqYHjkTOEK4g@mail.gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Y6nql5IUhFnHv9sr@spud>
+In-Reply-To: <CAK7LNAT39aZEw=0209ovYZ2kxtOaA2a51=XD9=LqYHjkTOEK4g@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221226_111929_048587_9053CA49 
-X-CRM114-Status: GOOD (  33.06  )
+X-CRM114-CacheID: sfid-20221226_140223_117358_7FF1ACB0 
+X-CRM114-Status: GOOD (  31.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,84 +76,122 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8160055462241367762=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 26, 2022 at 06:40:23PM +0000, Conor Dooley wrote:
-> On Mon, Dec 26, 2022 at 05:01:29PM +0100, Andrew Jones wrote:
-> > On Mon, Dec 19, 2022 at 09:51:29PM +0000, Conor Dooley wrote:
-> > > On Fri, Dec 16, 2022 at 02:21:07PM +0800, panqinglin2020@iscas.ac.cn wrote:
-> > > > From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
-> > > > 
-> > > > Add one alternative to enable/disable svnapot support, enable this static
-> > > > key when "svnapot" is in the "riscv,isa" field of fdt and SVNAPOT compile
-> > > > option is set. It will influence the behavior of has_svnapot. All code
-> > > > dependent on svnapot should make sure that has_svnapot return true firstly.
-> > > > 
-> > > > Modify PTE definition for Svnapot, and creates some functions in pgtable.h
-> > > > to mark a PTE as napot and check if it is a Svnapot PTE. Until now, only
-> > > > 64KB napot size is supported in spec, so some macros has only 64KB version.
-> > > > 
-> > > > Signed-off-by: Qinglin Pan <panqinglin2020@iscas.ac.cn>
-> > > > Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-> > > > 
-> > > > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > > > index e1a9fa47f012..25c230e3bf61 100644
-> > > > --- a/arch/riscv/Kconfig
-> > > > +++ b/arch/riscv/Kconfig
-> > > > @@ -397,6 +397,25 @@ config RISCV_ISA_C
-> > > >  
-> > > >  	  If you don't know what to do here, say Y.
-> > > >  
-> > > > +config RISCV_ISA_SVNAPOT
-> > > > +	bool "SVNAPOT extension support"
-> > > > +	depends on 64BIT && MMU
-> > > > +	select RISCV_ALTERNATIVE
-> > > > +	default y
-> > > > +	help
-> > > > +	  Allow kernel to detect the SVNAPOT ISA-extension dynamically at boot
-> > > > +	  time and enable its usage.
-> > > > +
-> > > > +	  The SVNAPOT extension is used to mark contiguous PTEs as a range
-> > > > +	  of contiguous virtual-to-physical translations for a naturally
-> > > > +	  aligned power-of-2 (NAPOT) granularity larger than the base 4KB page
-> > > > +	  size. When HUGETLBFS is also selected this option unconditionally
-> > > > +	  allocates some memory for each NAPOT page size supported by the kernel.
-> > > > +	  When optimizing for low memory consumption and for platforms without
-> > > 
-> > > nit: Does this make more sense as "When optimising for low memory
-> > > consumption on platforms without the SVNAPOT extension"...?
-> > > Or does disabling Svnapot save memory on Svnapot capable systems too?
-> > 
-> > Depends on how we define "save". Disabling RISCV_ISA_SVNAPOT on HUGETLBFS
-> > enabled systems will reduce memory consumption whether the svnapot
-> > extension is present or not. When the extension is present, the memory
-> > consumed may serve a purpose, whereas, on systems without svnapot, the
-> > memory consumed cannot serve a purpose.
-> 
-> Right, thanks for the explanation. I'm sorry to be a bore here, but should
-> it be reworded then to "When optimising for low memory consumption on
-> platforms without SVNAPOT, or if HUGETLBFS is enabled, say N here"?
 
-I'd prefer we keep the instructions as simple as possible. Basically,
-"Turn this off if you don't plan to use it and if you care about memory
-consumption", which, IMHO, is how the text more or less already reads.
-But...
+--===============8160055462241367762==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="3A7DtNG3krRkXmgE"
+Content-Disposition: inline
 
-> 
-> I don't really care either way to be perfectly honest, so as I said in
-> my other reply "don't bother resubmitting unless someone else asks for
-> meaningful changes" ;)
 
-...I'm not too worried about it either, so I won't complain if Qinglin
-respins with your suggestion.
+--3A7DtNG3krRkXmgE
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Thanks,
-drew
+Hey Masahiro,
+
+On Tue, Dec 27, 2022 at 04:06:35AM +0900, Masahiro Yamada wrote:
+> On Mon, Dec 26, 2022 at 12:18 AM Conor Dooley <conor@kernel.org> wrote:
+> > On Sun, Dec 25, 2022 at 04:27:51AM +0900, Masahiro Yamada wrote:
+> > > Dennis Gilmore reports that the BuildID is missing in the arm64 vmlin=
+ux
+> > > since commit 994b7ac1697b ("arm64: remove special treatment for the
+> > > link order of head.o").
+> > >
+> > > The issue is that the type of .notes section, which contains the Buil=
+dID,
+> > > changed from NOTES to PROGBITS.
+> > >
+> > > Ard Biesheuvel figured out that whichever object gets linked first ge=
+ts
+> > > to decide the type of a section, and the PROGBITS type is the result =
+of
+> > > the compiler emitting .note.GNU-stack as PROGBITS rather than NOTE.
+> > >
+> > > While Ard provided a fix for arm64, I want to fix this globally becau=
+se
+> > > the same issue is happening on riscv since commit 2348e6bf4421 ("risc=
+v:
+> > > remove special treatment for the link order of head.o"). This problem
+> > > will happen in general for other architectures if they start to drop
+> > > unneeded entries from scripts/head-object-list.txt.
+> > >
+> > > Discard .note.GNU-stack in include/asm-generic/vmlinux.lds.h.
+> > >
+> > > riscv needs to change its linker script so that DISCARDS comes before
+> > > the .notes section.
+> >
+> > No idea why I decided to look at patchwork today, but this seems to
+> > break the build on RISC-V, there's a whole load of the following in the
+> > output:
+> > `.LPFE4' referenced in section `__patchable_function_entries' of kernel=
+/trace/trace_selftest_dynamic.o: defined in discarded section `.text.exit' =
+of kernel/trace/trace_selftest_dynamic.o
+> >
+> > I assume that's what's doing it, but given the day that's in it - I
+> > haven't looked into this any further, nor gone and fished the logs out =
+of
+> > the builder.
+>=20
+>=20
+> arch/riscv/kernel/vmlinux.lds.S clearly says:
+> /* we have to discard exit text and such at runtime, not link time */
+>=20
+> riscv already relies on the linker not discarding EXIT_{TEXT,DATA}
+> so riscv should define RUNTIME_DISCARD_EXIT like x86, arm64.
+
+Huh, fair enough. The diff for that appears to be trivial, but I was not
+able to correctly determine a fixes tag. I may have erred in my
+history-diving, but it's a wee bit hard to determine the correct fixes
+tag. That comment about runtime discards appears to date back to
+commit fbe934d69eb7 ("RISC-V: Build Infrastructure") in 2017 -
+apparently pre-dating the addition of the define in the first place.
+
+Commit 84d5f77fc2ee ("x86, vmlinux.lds: Add RUNTIME_DISCARD_EXIT to
+generic DISCARDS") added it to x86 but not to arm64 - but it seems like
+it was added to arm during a later reword. Does that make 84d5f77fc2ee
+the correct one to mark it as a fix of & riscv was just overlooked when
+the define was added?
+
+
+> Anyway, I came up with a simpler patch, so I do not need to
+> touch around arch linker scripts.
+>=20
+> I sent v2.
+> https://lore.kernel.org/lkml/20221226184537.744960-1-masahiroy@kernel.org=
+/T/#u
+
+Sweet, thanks. Hopefully the automation likes that version better :)
+
+
+--3A7DtNG3krRkXmgE
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY6oZ4wAKCRB4tDGHoIJi
+0vx8AP9KqS1+Wa8jonc1+vZRskZt+Z6ZPC4i6vIUI3Y9GBVSwgEApJRM44pmtZPa
+H1qE+gJ/vNyix6QqYiMlLy5OV2vFwQo=
+=FbKh
+-----END PGP SIGNATURE-----
+
+--3A7DtNG3krRkXmgE--
+
+
+--===============8160055462241367762==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8160055462241367762==--
+
