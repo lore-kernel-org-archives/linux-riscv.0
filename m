@@ -4,69 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CBC9C4167B
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Dec 2022 18:46:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6CE4C4167B
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Dec 2022 18:57:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=PmmYDB49+tmgYRGyxS+WhgsfdUt3GH6iYqLnui6uCE0=; b=dgnLEdlw/q6J9p
-	NLKmv12jDNHaTEJ7DvzLiTYj+lCQ1+o/RH2t4H82Rp9GUn+XJYZWSe6BhIcUGwvC0Mns7VyDhEiok
-	bOhV4jwHKkfjhgA8UG70a0wutHw9JMemLhG2gFHB3IzFrcn79fZQFRaAruzqJEEd9NLFgjqjLvUat
-	SrGssWmz/7cIua/6RgbXv/f2+iOyetFRVZnAnBEVhwhXpoKNRCGBqTYTz129GjSMVdXXPKDajl3dk
-	M+/Ymr/eTEjJprbRyjUKFA8Iv4EVvcWdmZjeCJ6/tfOE4v2ODdH75zQfWU/Ru1wtdqZpiKwqy6wEn
-	ffC6DV/s6ZKgC2Ailkew==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=PEyyszMMqx2D9bz+Bpcy8hc+JxLfAWJDEuix4mg92K0=; b=iQCT4nPe72FDzg
+	BArdwOM80XNFOOw28Puw65jdC0Qu07pzrqulYAJb8sArhdMjgm8oxvre3tWZDIwfu5FPqDAGmM12q
+	bGE3RJwBtqDPt360/A3NivtClxaDmVNLHYSfv7Y8t2XlJC1gg/7evLfUK+3jOiaOtXTcUiziXfJfm
+	pj4ReYsVRBl+sMFxbk7CcRykjYuyanK7f2KR6ewlcq56V/tZ8ByUj4Ov/7vLR3zh2aGkGGiLSoVoT
+	Nc5c/EETaVrDdaxVkBWUHgjfUQmaEgrbWcOkBg4u1GeNyeHrqzZQXQwBNltqLMSrRe8Qi1x3G4Uz6
+	14X9I4SI8Q/PGiqBp/NA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p9sUP-006QkC-C3; Mon, 26 Dec 2022 18:46:21 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1p9sei-006VAW-7y; Mon, 26 Dec 2022 18:57:00 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p9sU9-006Qds-0c; Mon, 26 Dec 2022 18:46:06 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 320F560ECD;
-	Mon, 26 Dec 2022 18:46:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C8DDC433EF;
-	Mon, 26 Dec 2022 18:45:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1672080361;
-	bh=11fqsHGDwlwZxXJ1I41qluVDDxZF3poiwCovlkcoHk8=;
-	h=From:To:Cc:Subject:Date:From;
-	b=FYKcKWr0aibziaNfZxLDzsqJAbxmWqPqNL9fzxTN/GiM2Es+IyAru6i78RMDQBZLE
-	 AJUFihUysrNIL0HrQ7zpLpvvkdPgE0VYc5vBp4fKBFnNNQlMhrbm00lvDfpgtSLKKg
-	 eim1FHPTBoPExSY3hwYvEfmjXyOtt1Dj67HK9QqTjVJo+p9qc5cgbAewgJVrZCOzT4
-	 0tHVbx22psxKKIAqN+WZbenpOIcf+3onOeOwXutik0uK8+veuaP18Ac4NPX6bRlKWt
-	 SyA2x9mAeRdasCG3zdQ0tBnmM0ej0+jVoZ/9M/lHcope8kbXIpFPT6m44J+tUvdMjC
-	 F/6LEe+RzHNJg==
-From: Masahiro Yamada <masahiroy@kernel.org>
-To: linux-arch@vger.kernel.org,
-	linux-kbuild@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Thorsten Leemhuis <regressions@leemhuis.info>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	Dennis Gilmore <dennis@ausil.us>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Nicolas Schier <nicolas@fjasle.eu>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
+	id 1p9sef-006V7r-CO
+	for linux-riscv@lists.infradead.org; Mon, 26 Dec 2022 18:56:59 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id b88so9104430edf.6
+        for <linux-riscv@lists.infradead.org>; Mon, 26 Dec 2022 10:56:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=GfCnnoAGgjzwPpqoKuAj1ZV+GDHoQdmZkThZmqHghgI=;
+        b=FOT0OHphKYxMkZqfSupo7yvTzvVN61crh1r+3mhptzyRCc+rMkDsjxpUIg2PHCBSci
+         Hla/tiQukGnWuW0EILMsBu5CwPkbOG5+sSnrHlbidwDQVNTXq1ygGeogEmsahJTYQ7w1
+         5N2MSxgd/jIYwiRKV3K6ixAOVZ69B3/c8SCFWjr6RpvcOcTB6NU2h51ezjI6WumBwvNH
+         0wsYL1URg9KimPgeG8Fb5UgqVnFHbQ28OAl2VvgNZQFjRsYXgpckpolWajRyvZIF3pkr
+         TjwHhHxnIwNNIZ60b3yVvnrXLJDcU/0iGD9fWsk7lk+drYx61fEJ1l4ZiEMwGFCMr5dp
+         tcVA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GfCnnoAGgjzwPpqoKuAj1ZV+GDHoQdmZkThZmqHghgI=;
+        b=QcnUDxL898/owutzatzf4cYl5+VJOwwj8iogYkqovnin/dIqpYl13WGvlHvyLmfjB8
+         fyS0Qj+Q+R+qvqy7p2789wF6tXvRBcGNfo3nDwZ0SdhCCJ77RZR8KGtHeXV4ThVKJkTI
+         bsjpZL/x9JkzFeXNOQizJeeJ9X+lNh/YQ3bP30G+INgUI57dMIW3eGdT6nCbPQvoyoDN
+         QuKbOVG/DIxkNVdXFMf2Uy6tG5gV0IGw96YUYp8Dvy1UHZtkZzWoMfz8mFlavr//Aid+
+         KSmwY6crCzlsnYVf3UbENbTp888YuqYY8yM+XkdnWSTrpqtMz2gfgjzukhmaBgaB2mU0
+         yQBg==
+X-Gm-Message-State: AFqh2krNIwlC8RDGJQg3hTiHalCa95fHsvD32DG59A04dG5q3f4L8R0j
+	kf/jIRHo19wvnabhHACuz3qBQw==
+X-Google-Smtp-Source: AMrXdXvj2+W1ooBXh/018ROTdRhtNwb5ROLhFSzySIC3nZTWA74HcDlBL1OnU4KW677g3+IzoW5kzg==
+X-Received: by 2002:a05:6402:1298:b0:46c:a43d:5e23 with SMTP id w24-20020a056402129800b0046ca43d5e23mr16989123edv.28.1672081015467;
+        Mon, 26 Dec 2022 10:56:55 -0800 (PST)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id kw18-20020a170907771200b0077077c62cadsm5091396ejc.31.2022.12.26.10.56.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 26 Dec 2022 10:56:55 -0800 (PST)
+Date: Mon, 26 Dec 2022 19:56:53 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Masahiro Yamada <masahiroy@kernel.org>
-Subject: [PATCH v2] arch: fix broken BuildID for arm64 and riscv
-Date: Tue, 27 Dec 2022 03:45:37 +0900
-Message-Id: <20221226184537.744960-1-masahiroy@kernel.org>
-X-Mailer: git-send-email 2.34.1
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Heiko Stuebner <heiko@sntech.de>, Atish Patra <atishp@rivosinc.com>,
+	Jisheng Zhang <jszhang@kernel.org>
+Subject: Re: [PATCH 0/9] RISC-V: Apply Zicboz to clear_page and memset
+Message-ID: <20221226185653.f4lsko7e5mblfjg4@orel>
+References: <20221027130247.31634-1-ajones@ventanamicro.com>
+ <Y6Gwq3f6sFa2gBNZ@wendy>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <Y6Gwq3f6sFa2gBNZ@wendy>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221226_104605_139184_9149A7A1 
-X-CRM114-Status: GOOD (  13.72  )
+X-CRM114-CacheID: sfid-20221226_105657_482284_95591933 
+X-CRM114-Status: GOOD (  42.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,59 +95,139 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Dennis Gilmore reports that the BuildID is missing in the arm64 vmlinux
-since commit 994b7ac1697b ("arm64: remove special treatment for the
-link order of head.o").
+On Tue, Dec 20, 2022 at 12:55:07PM +0000, Conor Dooley wrote:
+> Hey Drew,
+> 
+> I assume you're not gonna respin this one before the xmas holidays etc,
+> but a v2 is on the cards, right?
 
-The issue is that the type of .notes section, which contains the BuildID,
-changed from NOTES to PROGBITS.
+Hi Conor,
 
-Ard Biesheuvel figured out that whichever object gets linked first gets
-to decide the type of a section. The PROGBITS type is the result of the
-compiler emitting .note.GNU-stack as PROGBITS rather than NOTE.
+A v2 is definitely on my TODO. I'll try to get one out soon.
 
-While Ard provided a fix for arm64, I want to fix this globally because
-the same issue is happening on riscv since commit 2348e6bf4421 ("riscv:
-remove special treatment for the link order of head.o"). This problem
-will happen in general for other architectures if they start to drop
-unneeded entries from scripts/head-object-list.txt.
+Thanks,
+drew
 
-Discard .note.GNU-stack in include/asm-generic/vmlinux.lds.h.
+> 
+> Thanks,
+> Conor.
+> 
+> On Thu, Oct 27, 2022 at 03:02:38PM +0200, Andrew Jones wrote:
+> > When the Zicboz extension is available we can more rapidly zero naturally
+> > aligned Zicboz block sized chunks of memory. As pages are always page
+> > aligned and are larger than any Zicboz block size will be, then
+> > clear_page() appears to be a good candidate for the extension. While cycle
+> > count and energy consumption should also be considered, we can be pretty
+> > certain that implementing clear_page() with the Zicboz extension is a win
+> > by comparing the new dynamic instruction count with its current count[1].
+> > Doing so we see that the new count is less than half the old count (see
+> > patch4's commit message for more details). Another candidate for the
+> > extension is memset(), but, since memset() isn't just used for zeroing
+> > memory and it accepts arbitrarily aligned addresses and arbitrary sizes,
+> > it's not as obvious if adding support for Zicboz will be an overall win.
+> > In order to make a determination, I've done some analysis and wrote my
+> > conclusions in the bullets below.
+> > 
+> > * When compiling the kernel without CONFIG_RISCV_ISA_ZICBOZ, memset()
+> >   doesn't change, so that's fine.
+> > 
+> > * The overhead added to memset() when the Zicboz extension isn't present,
+> >   but CONFIG_RISCV_ISA_ZICBOZ is selected, is 3 jumps to known targets,
+> >   which I believe is fine.
+> > 
+> > * The overhead added to a memset() invocation which is not zeroing memory
+> >   is 7 instructions, where 3 are branches. This seems fine and,
+> >   furthermore, memset() is almost always invoked to zero memory (99% [2]).
+> > 
+> > * When memset() is invoked to zero memory, the proposed Zicboz extended
+> >   memset() always has a lower dynamic instruction count than the current
+> >   memset() as long as the input address is Zicboz block aligned and the
+> >   length is >= the block size.
+> > 
+> > * When memset() is invoked to zero memory, the proposed Zicboz extended
+> >   memset() is always worse for unaligned or too small inputs than the
+> >   current memset(), but it's only at most a few dozen instructions worse.
+> >   I think this is probably fine, especially considering the large majority
+> >   of zeroing invocations are 64 bytes or larger and are aligned to a
+> >   power-of-2 boundary, 64-byte or larger (77% [2]).
+> > 
+> > [1] I ported the functions under test to userspace and linked them with
+> >     a test program. Then, I ran them under gdb with a script[3] which
+> >     counted instructions by single stepping.
+> > 
+> > [2] I wrote bpftrace scripts[4] to count memset() invocations to see the
+> >     frequency of it being used to zero memory and have block size aligned
+> >     input addresses with block size or larger lengths. The workload was
+> >     just random desktop stuff including streaming video and compiling.
+> >     While I did run this on my x86 notebook, I still expect the data to
+> >     be representative on RISC-V. Note, x86 has clear_page() so the
+> >     memset() data regarding alignment and size weren't over inflated by
+> >     page zeroing invocations. Grepping also shows the large majority of
+> >     memset() calls are to zero memory (93%).
+> > 
+> > [3] https://gist.github.com/jones-drew/487791c956ceca8c18adc2847eec9c60
+> > [4] https://gist.github.com/jones-drew/1e860692cf6fc0fb2a82a04c9ce720fe
+> > 
+> > These patches are based on the following pending series
+> > 
+> > 1. "[PATCH v2 0/3] RISC-V: Ensure Zicbom has a valid block size"
+> >    20221024091309.406906-1-ajones@ventanamicro.com
+> > 
+> > 2. "[PATCH 0/8] riscv: improve boot time isa extensions handling"
+> >    20221006070818.3616-1-jszhang@kernel.org
+> >    Also including the additional patch proposed here
+> >    20221013162038.ehseju2neic2xu5z@kamzik
+> > 
+> > The patches are also available here
+> > https://github.com/jones-drew/linux/commits/riscv/zicboz
+> > 
+> > To test over QEMU this branch may be used to enable Zicboz
+> > https://gitlab.com/jones-drew/qemu/-/commits/riscv/zicboz
+> > 
+> > To test running a KVM guest with Zicboz this kvmtool branch may be used
+> > https://github.com/jones-drew/kvmtool/commits/riscv/zicboz
+> > 
+> > Thanks,
+> > drew
+> > 
+> > Andrew Jones (9):
+> >   RISC-V: Factor out body of riscv_init_cbom_blocksize loop
+> >   RISC-V: Add Zicboz detection and block size parsing
+> >   RISC-V: insn-def: Define cbo.zero
+> >   RISC-V: Use Zicboz in clear_page when available
+> >   RISC-V: KVM: Provide UAPI for Zicboz block size
+> >   RISC-V: KVM: Expose Zicboz to the guest
+> >   RISC-V: lib: Improve memset assembler formatting
+> >   RISC-V: lib: Use named labels in memset
+> >   RISC-V: Use Zicboz in memset when available
+> > 
+> >  arch/riscv/Kconfig                  |  13 ++
+> >  arch/riscv/include/asm/cacheflush.h |   3 +-
+> >  arch/riscv/include/asm/hwcap.h      |   1 +
+> >  arch/riscv/include/asm/insn-def.h   |  50 ++++++
+> >  arch/riscv/include/asm/page.h       |   6 +-
+> >  arch/riscv/include/uapi/asm/kvm.h   |   2 +
+> >  arch/riscv/kernel/cpu.c             |   1 +
+> >  arch/riscv/kernel/cpufeature.c      |  10 ++
+> >  arch/riscv/kernel/setup.c           |   2 +-
+> >  arch/riscv/kvm/vcpu.c               |  11 ++
+> >  arch/riscv/lib/Makefile             |   1 +
+> >  arch/riscv/lib/clear_page.S         |  28 ++++
+> >  arch/riscv/lib/memset.S             | 241 +++++++++++++++++++---------
+> >  arch/riscv/mm/cacheflush.c          |  64 +++++---
+> >  14 files changed, 325 insertions(+), 108 deletions(-)
+> >  create mode 100644 arch/riscv/lib/clear_page.S
+> > 
+> > -- 
+> > 2.37.3
+> > 
+> > 
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+> > 
 
-Link: https://lore.kernel.org/lkml/CAABkxwuQoz1CTbyb57n0ZX65eSYiTonFCU8-LCQc=74D=xE=rA@mail.gmail.com/
-Fixes: 994b7ac1697b ("arm64: remove special treatment for the link order of head.o")
-Fixes: 2348e6bf4421 ("riscv: remove special treatment for the link order of head.o")
-Reported-by: Dennis Gilmore <dennis@ausil.us>
-Suggested-by: Ard Biesheuvel <ardb@kernel.org>
-Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
----
-
-Changes in v2:
-  - discard .note.GNU-stack before .notes because many architectures
-    call DISCARDS at the end of their linker scripts
-
- include/asm-generic/vmlinux.lds.h | 5 +++++
- 1 file changed, 5 insertions(+)
-
-diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmlinux.lds.h
-index a94219e9916f..659bf3b31c91 100644
---- a/include/asm-generic/vmlinux.lds.h
-+++ b/include/asm-generic/vmlinux.lds.h
-@@ -891,7 +891,12 @@
- #define PRINTK_INDEX
- #endif
- 
-+/*
-+ * Discard .note.GNU-stack, which is emitted as PROGBITS by the compiler.
-+ * Otherwise, the type of .notes section would become PROGBITS instead of NOTES.
-+ */
- #define NOTES								\
-+	/DISCARD/ : { *(.note.GNU-stack) }				\
- 	.notes : AT(ADDR(.notes) - LOAD_OFFSET) {			\
- 		BOUNDED_SECTION_BY(.note.*, _notes)			\
- 	} NOTES_HEADERS							\
--- 
-2.34.1
 
 
 _______________________________________________
