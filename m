@@ -4,70 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0343DC3DA79
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Dec 2022 23:02:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2EB6C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Dec 2022 02:48:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cq7Mcc2FOTnumRQJgnm6Bf/anDPKBZofcDsDng/0+5Y=; b=yJ8/2XafbOMTa+jXqwz1Nf+gdn
-	0DkHEN9jP+cMjzMZWGuo7nHMscIC313jzXnQgJYaSGhUQUsE+Q+HsJibIfj2YV+8dr1yIVgklPHTJ
-	D+pJV+irrkq0kCgAcXqRoPBPHoEfKol/DqWFJWaxaCD0anSTEAbW7ubWPBwlItbgzHwz/PYhj5x5V
-	0GySz8wh4soQgv4U5EHB9RDBZzXlrTbLonuYhVnXs6VYNXgOhId+N+FSIXWVya1YYVanzoY1t5t6D
-	/h4709VfDX+9XPjhA0nDB5JB6Iw5+mi4TvhBm3lALPCp/UvPe47PDmEEopRY3GVrBJaBFLruVdZd+
-	nrH0s86A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=xqmNgZ2PmSr/pCO8RvDxH3Vl+ZGSd0/ciH1q2pf+KkY=; b=ZFjdpgMkcMSaCa
+	5Vbm1wyXXVDXjjFQKb7Cr0hxPbeocmf7Q3VWo/BRATNdiZZteTRtWx96WBd1i6ux4QBq4t40+ENVD
+	xgUPhtbB7FPOR99BrouC4PDSX4lUN+y/BQjo0Ej3G9l+tcdkDGeGhzcTHx1cxXNivMkK+MCc7MTwa
+	Yer5jsjNZNYXCd+45LJWsRgZJWIGd3mOGUSaPxog85hoVDbxp5iHyCAzxqG9xZuwsZ5Fg5Lyt3I8r
+	OxKYo4q1M2SA3LALln695olBK7iXA60Z+KpnK58PeDDX1oBDeOKSP+ghpqJyiBK/u9jzzok1sIlpe
+	QHYaWdNr/yeGwMV7a1lA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p9wTr-0086Yu-Br; Mon, 26 Dec 2022 23:02:03 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1pA00M-009Pb8-Bk; Tue, 27 Dec 2022 02:47:50 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p9wTo-0086XX-C7
-	for linux-riscv@lists.infradead.org; Mon, 26 Dec 2022 23:02:01 +0000
+	id 1pA00J-009PZp-8h
+	for linux-riscv@lists.infradead.org; Tue, 27 Dec 2022 02:47:48 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id C43D1B80DC2;
-	Mon, 26 Dec 2022 23:01:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DF9CC433F0;
-	Mon, 26 Dec 2022 23:01:53 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id D2E1660F89
+	for <linux-riscv@lists.infradead.org>; Tue, 27 Dec 2022 02:47:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B4B2C433F1
+	for <linux-riscv@lists.infradead.org>; Tue, 27 Dec 2022 02:47:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1672095717;
-	bh=SX0BmzYTkCHs1PHSbj2Sqc0jerZcZXqTrHn2k8779eM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JwGcph3jDWpdUjn8PKQaR9ejzHI5fqrV9b9P06X97nG5sMCTGDO9HQEg4Pr2/eI/o
-	 26/EW4ZJtG/QB2pl8o7gVPQlUMO4rlXHGuWslxcfAjdDTwnowdgwEh2YLgjJhz+j9W
-	 rS2UUxD1E2L4jO0YsAF7YCBGUvCBJNAVcNc7CicZ79UdXix73w1xxENYjX06V5aflU
-	 OreCAkz3XI3DbWaFkU72O8EXH/OqtM7aSMxClJqxr+OIl01r4PXSJxpCesBTKPixtt
-	 M+CLKKuDRxlnj3AJc9/fJP31FSrDJpk5Ox0gYpzJ3QEsJv+lHzr6r1qKjy0aG2LqxT
-	 eMcMcjS8+O7QQ==
-Date: Mon, 26 Dec 2022 23:01:51 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Hal Feng <hal.feng@starfivetech.com>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Ben Dooks <ben.dooks@sifive.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 0/7] Basic device tree support for StarFive JH7110
- RISC-V SoC
-Message-ID: <Y6on34WC2u3PSBHl@spud>
-References: <20221220011247.35560-1-hal.feng@starfivetech.com>
+	s=k20201202; t=1672109265;
+	bh=oRMGUMlgunHooW71GZYStFhBEOASFjUHuzyMLPFO5nI=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=sWA9GVrGqs4e3Y5+Kl2jqEBRl4eu8CO0PdGIDjicGvBgyGkgX6OP9efEV9YScvhyu
+	 CoPGiEaEf5Tbg2DgOSFWHbYygi8eDBq/1mI/1mZ+w1x0/6UGol3QPm45RDfv1WhL9+
+	 i7YQpSFb/uEsHDHiaaiz7oRr8nKW/d1sT4CQ+ZnIl4ZkXKdE6xnXbbp3oLrXjTIpGB
+	 qrnXvctpfRvyRFUe0ErQJplAWNvgNs+6cKAjMhnBwIsKQMlFrNCdFtIk3a76RWs2vm
+	 YP4MbW7LHrz9hOWw69OoO7b+7tmx+8INs9nxBgp2CjTc74HYuWVZ1Y7CKYPpTGw23A
+	 8yB5g1HTCQbwg==
+Received: by mail-ej1-f47.google.com with SMTP id bj12so29201505ejb.13
+        for <linux-riscv@lists.infradead.org>; Mon, 26 Dec 2022 18:47:45 -0800 (PST)
+X-Gm-Message-State: AFqh2koyaEwCPM0pmRflm9xwrwJTXyj65JYel6ihYfJqigN4ztOTYeVb
+	nbHnE7GDGC7srNkePwVrZSYRRWt8LwfKTOjtOKU=
+X-Google-Smtp-Source: AMrXdXthsdPTILqUKdwYJbA6dO5Mg2riMPD3ExObckEClQ8JKtfwUxkDwiocogZDo29fnoQw7dNbmSuVWY9OPVWl844=
+X-Received: by 2002:a17:906:a20c:b0:814:356f:91a8 with SMTP id
+ r12-20020a170906a20c00b00814356f91a8mr1126860ejy.74.1672109263267; Mon, 26
+ Dec 2022 18:47:43 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <20221220011247.35560-1-hal.feng@starfivetech.com>
+References: <20221227020258.303900-1-uwu@icenowy.me>
+In-Reply-To: <20221227020258.303900-1-uwu@icenowy.me>
+From: Guo Ren <guoren@kernel.org>
+Date: Tue, 27 Dec 2022 10:47:31 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTSGvEnTqEqR9f+zU8T3VS8FoCtsgSk=9hz6cWxAL630zQ@mail.gmail.com>
+Message-ID: <CAJF2gTSGvEnTqEqR9f+zU8T3VS8FoCtsgSk=9hz6cWxAL630zQ@mail.gmail.com>
+Subject: Re: [PATCH 1/2] riscv: errata: fix T-Head dcache.cva encoding
+To: Icenowy Zheng <uwu@icenowy.me>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Heiko Stuebner <heiko@sntech.de>, 
+	Nathan Chancellor <nathan@kernel.org>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221226_150200_578049_1A976712 
-X-CRM114-Status: GOOD (  14.36  )
+X-CRM114-CacheID: sfid-20221226_184747_428008_1BC76E59 
+X-CRM114-Status: GOOD (  24.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,78 +77,106 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5619056363200789951=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Good catch. But I hope c906/910 can directly use paddr here. It's
+unnecessary to cause software translation & mmu translation here.
 
---===============5619056363200789951==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="f/iFEOT8SIj34xAh"
-Content-Disposition: inline
+diff --git a/arch/riscv/mm/dma-noncoherent.c b/arch/riscv/mm/dma-noncoherent.c
+index b0add983530a..30650a0c4481 100644
+--- a/arch/riscv/mm/dma-noncoherent.c
++++ b/arch/riscv/mm/dma-noncoherent.c
+@@ -24,13 +24,13 @@ void arch_sync_dma_for_device(phys_addr_t paddr,
+size_t size,
+
+        switch (dir) {
+        case DMA_TO_DEVICE:
+-               ALT_CMO_OP(clean, vaddr, size, riscv_cbom_block_size);
++               ALT_CMO_OP(clean, vaddr, paddr, size, riscv_cbom_block_size);
+                break;
+        case DMA_FROM_DEVICE:
+-               ALT_CMO_OP(clean, vaddr, size, riscv_cbom_block_size);
++               ALT_CMO_OP(clean, vaddr, paddr, size, riscv_cbom_block_size);
+                break;
+        case DMA_BIDIRECTIONAL:
+-               ALT_CMO_OP(flush, vaddr, size, riscv_cbom_block_size);
++               ALT_CMO_OP(flush, vaddr, paddr, size, riscv_cbom_block_size);
+                break;
+        default:
+                break;
+@@ -47,7 +47,7 @@ void arch_sync_dma_for_cpu(phys_addr_t paddr, size_t size,
+                break;
+        case DMA_FROM_DEVICE:
+        case DMA_BIDIRECTIONAL:
+-               ALT_CMO_OP(flush, vaddr, size, riscv_cbom_block_size);
++               ALT_CMO_OP(flush, vaddr, paddr, size, riscv_cbom_block_size);
+                break;
+        default:
+                break;
+@@ -57,8 +57,9 @@ void arch_sync_dma_for_cpu(phys_addr_t paddr, size_t size,
+ void arch_dma_prep_coherent(struct page *page, size_t size)
+ {
+        void *flush_addr = page_address(page);
++       phys_addr_t paddr = PFN_PHYS(page_to_pfn(x));
+
+-       ALT_CMO_OP(flush, flush_addr, size, riscv_cbom_block_size);
++       ALT_CMO_OP(flush, flush_addr, paddr, size, riscv_cbom_block_size);
+ }
+
+On Tue, Dec 27, 2022 at 10:03 AM Icenowy Zheng <uwu@icenowy.me> wrote:
+>
+> The dcache.cva encoding shown in the comments are wrong, it's for
+> dcache.cval1 (which is restricted to L1) instead.
+>
+> Fix this in the comment and in the hardcoded instruction.
+>
+> Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
+> ---
+> The code is tested on a LiteX SoC with OpenC906 core, and it
+> successfully boots to Systemd on a SD card connected to LiteSDCard.
+>
+> This change should be not noticable on C906, but on multi-core C910
+> cluster it should fixes something. Unfortunately TH1520 seems to be not
+> so ready to test mainline patches on.
+>
+>  arch/riscv/include/asm/errata_list.h | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
+> index 4180312d2a70..605800bd390e 100644
+> --- a/arch/riscv/include/asm/errata_list.h
+> +++ b/arch/riscv/include/asm/errata_list.h
+> @@ -102,7 +102,7 @@ asm volatile(ALTERNATIVE(                                           \
+>   * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
+>   *   0000001    01001      rs1       000      00000  0001011
+>   * dcache.cva rs1 (clean, virtual address)
+> - *   0000001    00100      rs1       000      00000  0001011
+> + *   0000001    00101      rs1       000      00000  0001011
+>   *
+>   * dcache.cipa rs1 (clean then invalidate, physical address)
+>   * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
+> @@ -115,7 +115,7 @@ asm volatile(ALTERNATIVE(                                           \
+>   *   0000000    11001     00000      000      00000  0001011
+>   */
+>  #define THEAD_inval_A0 ".long 0x0265000b"
+> -#define THEAD_clean_A0 ".long 0x0245000b"
+> +#define THEAD_clean_A0 ".long 0x0255000b"
+>  #define THEAD_flush_A0 ".long 0x0275000b"
+>  #define THEAD_SYNC_S   ".long 0x0190000b"
+>
+> --
+> 2.38.1
+>
 
 
---f/iFEOT8SIj34xAh
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-On Tue, Dec 20, 2022 at 09:12:40AM +0800, Hal Feng wrote:
-> This patch series adds basic device tree support for StarFive JH7110 SoC.
-> This patch series depends on series [1] and [2]. You can simply get or
-> review the patches at the link [3].
-> Emil Renner Berthing (7):
->   dt-bindings: riscv: Add StarFive JH7110 SoC and VisionFive 2 board
-
-I've applied this one to riscv-dt-for-next
-https://git.kernel.org/conor/c/97b7ed072784
-
->   dt-bindings: timer: Add StarFive JH7110 clint
->   dt-bindings: interrupt-controller: Add StarFive JH7110 plic
-
->   dt-bindings: sifive,ccache0: Support StarFive JH7110 SoC
->   soc: sifive: ccache: Add StarFive JH7110 support
-
-And these two to riscv-soc-for-next
-https://git.kernel.org/conor/c/1caf002efa22
-https://git.kernel.org/conor/c/6635e91648ce
-
->   riscv: dts: starfive: Add initial StarFive JH7110 device tree
->   riscv: dts: starfive: Add StarFive JH7110 VisionFive 2 board device
->     tree
-
-The rest I can take with maintainer Acks alongside the DT, or they can
-go via subsystem trees.
-The DT is waiting for the clock/reset & pinctrl binding headers anyway,
-so IDC which it is.
-
-Thanks,
-Conor.
-
-
---f/iFEOT8SIj34xAh
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY6on3wAKCRB4tDGHoIJi
-0tjwAP9w54bxRzyxyIptYDA+Fq7fMvb7SJHNF9qgWs6aGwBT1gD+OOPrBoNFXa9g
-/EJQoDkPAke1E2T/1IuPwS5c7HAnUgU=
-=r4lC
------END PGP SIGNATURE-----
-
---f/iFEOT8SIj34xAh--
-
-
---===============5619056363200789951==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+Best Regards
+ Guo Ren
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5619056363200789951==--
-
