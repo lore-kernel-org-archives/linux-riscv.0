@@ -4,69 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8275C10F1B
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Dec 2022 07:49:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BA43C10F1B
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Dec 2022 07:58:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5qiB/OZgCrl9PeHyafKpayedKZJuP2MsG1orjEkeqPw=; b=bPe5/UG3tOAF4R
-	biaMzb7bG6/1l8+nZmaBz+WlgUt5MSIGXy0KVdXYA6r0jDU3iKLtk4bsPVlPgIBOioWGWInj3xpyz
-	rN53KAVvKiNISC8bDlveHlfEou27JvzJJmlNgwfS3gGR6bwubWZVOwqkmWMEvOHaIWFN318W6UbgA
-	mG+1GCTbZB9VP/dazwQrpypBZ4Od2J/aEhhRRTi3f5NyKQVxzzn/9JxuyL9u4yjQ1KH4M6bP01ytQ
-	qOZSAOA/C4rujun8OPs1KFkGWW5rjLCfchDOqugkOsolVOufL5ZTj3Jhj69Wo0/caKB9LsdrCIiss
-	m+XQ3q+b5DDXLKAG8L2w==;
+	List-Owner; bh=w2J7+c4CDydt7uPl62iAA1XzvvcEdiRY/b8g+uU9cj0=; b=rwClZXLsQJ9TLo
+	kP3/7ZogN+1UeZZ/K/5Jc0/80QpTgJ0LogEPAy+BrK6PqtXaXc7PxXKILhGbju9lPnW+ilt8tMWY7
+	yflGGMA2K1hTURn1MK9K05IrHHsf/T5HICnh1LDpmqNnWksOTrTP6nuxkd0T02GRn670a4THEwe0y
+	LJlIDV2m21TVFh/tVrGryZ/ZgqMrDpfEQvWdweOdLlotL76vXcJbmP6zKP4EXAG/pcu/SL39iA3u/
+	qLPmd8WqLavmqj7U6ZZSWPgLWYsLk161iiqd0vMLTaYaDN7qcnN4J7DzR10RgZZYlDH9qzvtYj+Qs
+	mnPIokYtdfVSA0TuL3lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pA4hn-00B5Gr-JX; Tue, 27 Dec 2022 07:48:59 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pA4hi-00B57J-Fc
-	for linux-riscv@lists.infradead.org; Tue, 27 Dec 2022 07:48:57 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id B471C24E2B2;
-	Tue, 27 Dec 2022 15:48:21 +0800 (CST)
-Received: from EXMBX173.cuchost.com (172.16.6.93) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 27 Dec
- 2022 15:48:21 +0800
-Received: from [192.168.120.49] (171.223.208.138) by EXMBX173.cuchost.com
- (172.16.6.93) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 27 Dec
- 2022 15:48:20 +0800
-Message-ID: <25fce6e7-604e-6c07-3ff1-b65a5115a491@starfivetech.com>
-Date: Tue, 27 Dec 2022 15:48:18 +0800
+	id 1pA4qr-00B8h3-0K; Tue, 27 Dec 2022 07:58:21 +0000
+Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pA4qb-00B8YI-PM
+	for linux-riscv@lists.infradead.org; Tue, 27 Dec 2022 07:58:07 +0000
+Received: by mail-lj1-x236.google.com with SMTP id u12so9338175ljj.11
+        for <linux-riscv@lists.infradead.org>; Mon, 26 Dec 2022 23:58:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=2+G/BwEPrVr7kfmXq62oK9q5XBGcDyHuv32x7f8Pzz0=;
+        b=TdMOqT/WbdxTC0C3myt7u6Vzj07cRGNtTV5MhtkEDtv8Vv28iOoZrFpR4Ih9GGlxnb
+         UNtlb9kRgKh27VqVsnrtzE+9BofIPAZfE9wX4dLbrgFQkixGsBfFt2pPG6H/uLEJLzMI
+         b1uJXEMX9fpQL5jtX+jI7UnCgoNElREap3EecJroFBpa9gAK3s2Q1Yf7WxJAot/AmiKy
+         JdOj73K5I8n5aohgk1UHH6qsWdxQ1VU933YJyq4jbH8PNhXAwze35Nmm/M/QMB6iKOSv
+         mVWqKelmPaac2E1mQd2FzTK0JPlfllKUN1jGBZLW03l1l0hUr3LpkdtnIea4hSJihCpm
+         /t+w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=2+G/BwEPrVr7kfmXq62oK9q5XBGcDyHuv32x7f8Pzz0=;
+        b=aJLFVG1cXwNeqHuPUa2RY1c300W3yMb4tzrKEBIlrTQQHhFIa7U1Uw+W8hB4Yo9Iqk
+         Iqu0GoLgQnKTyBhME4ybHAJ4/1TyaiQIwAZUMLJ1J7Hxx859puRU7y642lQJ7c2Vgm2/
+         TXmq/a++6bD2kzsBMJCEYzAt41SXRQTIowl9GpajTYFc+KQ1xhGRlcRZ/GyL6lrUUTjb
+         7Iz9iy5gRIY1nbLILzNykWGHS2QHNgtumGt/r+xr0Is4lgq/YQRGgZP7Q/YSYyf1YcRS
+         vBHKoOLdHbSTZqskA+cQsgaPISQZgTPZ8UA/yCqxyYfDoe4Usp/yHjTbQ9lYBfTu0hn0
+         SoDg==
+X-Gm-Message-State: AFqh2koE0OD7RmQCYDVfNG8AkbVEVtVjO57h/KyKS33ZW7eLalqCfbvV
+	W9LjtBbTZIq87SylAuYuuN7S2w==
+X-Google-Smtp-Source: AMrXdXuHCaNuAEieKb4FdTEY/qPfC0zFtnG1so9DeugSmsD70B2SP0LyMVbYvK/Oo5RCW08JI0AhKA==
+X-Received: by 2002:a05:651c:510:b0:27f:bc6c:c4f4 with SMTP id o16-20020a05651c051000b0027fbc6cc4f4mr2144837ljp.9.1672127883564;
+        Mon, 26 Dec 2022 23:58:03 -0800 (PST)
+Received: from [192.168.0.20] (088156142067.dynamic-2-waw-k-3-2-0.vectranet.pl. [88.156.142.67])
+        by smtp.gmail.com with ESMTPSA id r26-20020a2e80da000000b0027fbc128189sm677945ljg.131.2022.12.26.23.58.02
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 26 Dec 2022 23:58:03 -0800 (PST)
+Message-ID: <7cc1078e-744a-c68f-98d2-6c68d2784df2@linaro.org>
+Date: Tue, 27 Dec 2022 08:58:01 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.6.1
-Subject: Re: [PATCH v2 2/9] dt-bindings: net: snps,dwmac: Update the maxitems
- number of resets and reset-names
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	<linux-riscv@lists.infradead.org>, <netdev@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-CC: "David S . Miller" <davem@davemloft.net>, Eric Dumazet
-	<edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
-	Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>
-References: <20221216070632.11444-1-yanhong.wang@starfivetech.com>
- <20221216070632.11444-3-yanhong.wang@starfivetech.com>
- <040b56b1-c65c-34c3-e4a1-5cae4428d1d2@linaro.org>
- <7f4339df-6616-120f-f16a-cd38a2b6ea1d@starfivetech.com>
- <1a696768-45ef-0144-07f3-d356af9659e5@linaro.org>
+Subject: Re: [PATCH v3 0/7] Basic device tree support for StarFive JH7110
+ RISC-V SoC
 Content-Language: en-US
-From: yanhong wang <yanhong.wang@starfivetech.com>
-In-Reply-To: <1a696768-45ef-0144-07f3-d356af9659e5@linaro.org>
-X-Originating-IP: [171.223.208.138]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX173.cuchost.com
- (172.16.6.93)
-X-YovoleRuleAgent: yovoleflag
+To: Conor Dooley <conor@kernel.org>, Hal Feng <hal.feng@starfivetech.com>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+ Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Ben Dooks <ben.dooks@sifive.com>, Daniel Lezcano
+ <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Marc Zyngier <maz@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+ linux-kernel@vger.kernel.org
+References: <20221220011247.35560-1-hal.feng@starfivetech.com>
+ <Y6on34WC2u3PSBHl@spud>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <Y6on34WC2u3PSBHl@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221226_234854_951168_26322850 
-X-CRM114-Status: GOOD (  12.94  )
+X-CRM114-CacheID: sfid-20221226_235805_961513_055B2123 
+X-CRM114-Status: UNSURE (   8.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,113 +105,15 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 27/12/2022 00:01, Conor Dooley wrote:
+> On Tue, Dec 20, 2022 at 09:12:40AM +0800, Hal Feng wrote:
+> The DT is waiting for the clock/reset & pinctrl binding headers anyway,
 
+Which were sent with build warnings/errors...
 
-On 2022/12/20 17:21, Krzysztof Kozlowski wrote:
-> On 20/12/2022 07:48, yanhong wang wrote:
-> 
->>>> diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
->>>> index e26c3e76ebb7..7870228b4cd3 100644
->>>> --- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
->>>> +++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
->>>> @@ -133,12 +133,19 @@ properties:
->>>>          - ptp_ref
->>>>  
->>>>    resets:
->>>> -    maxItems: 1
->>>> -    description:
->>>> -      MAC Reset signal.
->>>> +    minItems: 1
->>>> +    maxItems: 3
->>>> +    additionalItems: true
->>>> +    items:
->>>> +      - description: MAC Reset signal
->>>>  
->>>>    reset-names:
->>>> -    const: stmmaceth
->>>> +    minItems: 1
->>>> +    maxItems: 3
->>>> +    additionalItems: true
->>>> +    contains:
->>>> +      enum:
->>>> +        - stmmaceth
->>>
->>> No, this is highly unspecific and you know affect all the schemas using
->>> snps,dwmac.yaml. Both lists must be specific - for your device and for
->>> others.
->>>
->> 
->> I have tried to define the resets in "starfive,jh71x0-dwmac.yaml", but it can not over-write the maxItems limit in "snps,dwmac.yaml",therefore, it will report error "reset-names: ['stmmaceth', 'ahb'] is too long"  running "make dt_binding_check". Do you have any suggestions to deal with this situation?
-> 
-> The solution is not to affect all schemas with allowing anything as reset.
-> 
-> If you need more items for your case, you can change snps,dwmac.yaml and
-> add constraints in allOf:if:then: allowing it only for your compatible.
-> There are plenty of examples how this is done, e.g.:
-> 
-> https://elixir.bootlin.com/linux/v5.19-rc6/source/Documentation/devicetree/bindings/clock/samsung,exynos7-clock.yaml#L57
-> 
+Best regards,
+Krzysztof
 
-Thanks. Refer to the definition in the example and update the definition as follows:
-
-snps,dwmac.yaml[Partial Content]:
-
-properties:
-  resets:
-    maxItems: 1
-    description:
-      MAC Reset signal.
-
-  reset-names:
-    const: stmmaceth
-
-allOf:
-  - if:
-      properties:
-        compatible:
-          contains:
-            const: starfive,jh7110-dwmac
-
-    then:
-      properties:
-        resets:
-          minItems: 2
-          maxItems: 2
-        reset-names:
-          items:
-            - const: stmmaceth
-            - const: ahb
-      required:
-        - resets
-        - reset-names
-
-
-starfive,jh7110-dwmac.yaml[Partial Content]:
-
-properties:
-  resets:
-    items:
-      - description: MAC Reset signal.
-      - description: AHB Reset signal.
-
-  reset-names:
-    items:
-      - const: stmmaceth
-      - const: ahb
-
-allOf:
-  - $ref: snps,dwmac.yaml#
-
-It will also report error "reset-names: ['stmmaceth', 'ahb'] is too long"  running "make dt_binding_check" with 'starfive,jh7110-dwmac.yaml'. Do you have any better suggestions to solve this problem?
-
->> 
->>> Best regards,
->>> Krzysztof
->>>
-> 
-> Best regards,
-> Krzysztof
-> 
 
 _______________________________________________
 linux-riscv mailing list
