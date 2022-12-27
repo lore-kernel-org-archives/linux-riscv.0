@@ -4,72 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 408FBC10F1B
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Dec 2022 08:54:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E15BAC10F1B
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Dec 2022 09:39:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=W+ynxcJqh8ECnQZFzpb8MDilt3SYxdo+lebpAlufgo4=; b=Ra59QMPUT2TMdB
-	8MAyC4fOD0N5tPVm8KKFL235U2cUP/eCnQurl/0LrLqrwYntJfcGjIJ5BZtsEdV3EvMZMxwvAhBiI
-	Xw+DoqMr64BVwN4FF40GsS+wEZyikGJD54DKFDN4tcPsO1ulHE9pAeYOKWQ+6F9R9+PBDAIXirHrV
-	7T4Wo37CHHnR4Co+j7H+9rBO7+9buh8q2BRBEURLAULU0deUfEh6C5Xiwaok5MGVT2xFRI1N+5mxd
-	f+hHN1hcMDMnZr1+c+d1HwEfCI/eRpWI5uEBcrYYM0VmkpjGfuWMQLJ718uNnq/Hz6XNd3SyisSmY
-	CpazyjGDSewsqomBhV4g==;
+	List-Owner; bh=a/FTO7voLJB8ehoZ6JV+Q+TOORlaOpA9p/qy6HRO3UY=; b=qWPqdGypQujAmJ
+	+NAKArbiZRamNfUPP7T4ZEO5ACN5Ia2mUsxWDQf0DdFAgbpRZ8fgAd2CU+qY+bmoqCw4fP/OJPvMJ
+	qm1UdeN9bjBs7EghJfxxuV3NVAnM/XTKo3JY+45/QllZICNuWjm2zGPyjny3LQ35Oh/Csx/FKTCTM
+	km5+9H3lacMdgLD1RNRqLfDMfT34Ro7wlhCH7JXKnendboCKzOLZzjJ9yr7Uyz9jLYYk8kRbNnTZV
+	/ouPeIBd7Av9K1EqoBVMXcYWIS5zcjzmULom0VIS0FDg5ewHTLY3sttwyHJfQCotm4w+bpXVS0bpy
+	eCPiOSrujQMQ74acHQ+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pA5iW-00BYSu-3W; Tue, 27 Dec 2022 08:53:48 +0000
-Received: from mta-02.yadro.com ([89.207.88.252] helo=mta-01.yadro.com)
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pA5el-00BWWZ-8d
-	for linux-riscv@lists.infradead.org; Tue, 27 Dec 2022 08:49:59 +0000
-Received: from mta-01.yadro.com (localhost.localdomain [127.0.0.1])
-	by mta-01.yadro.com (Proxmox) with ESMTP id 200EA34138A;
-	Tue, 27 Dec 2022 11:49:47 +0300 (MSK)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yadro.com; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=mta-01; bh=nUAZXagPuZ8UjJFXfq
-	GMxmIgVGXOk0EcH+b7dyPn6ug=; b=Z4dldRIG3Qj0hQeIwQsZ7g4Shpd6Z30PK/
-	yfe0TGACBVbRCB307b59+tYpO7FPgtIoowCKAr9+aQUPJ//PMdNiLrKG+yMh4QfW
-	6c8hqBI8t7ipbzkHSfXPOdcd+t7M7HzaNcFoq7vaG79tmnhq6Ff2V5G5icof0rJD
-	7tmTUcQOQ=
-Received: from T-EXCH-08.corp.yadro.com (unknown [172.17.10.14])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mta-01.yadro.com (Proxmox) with ESMTPS id 12B96341265;
-	Tue, 27 Dec 2022 11:49:47 +0300 (MSK)
-Received: from [10.199.21.212] (10.199.21.212) by T-EXCH-08.corp.yadro.com
- (172.17.11.58) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id 15.2.1118.9; Tue, 27 Dec
- 2022 11:49:46 +0300
-Message-ID: <d7d5730b-ebef-68e5-5046-e763e1ee6164@yadro.com>
-Date: Tue, 27 Dec 2022 11:49:46 +0300
+	id 1pA6QN-00BoaI-Ii; Tue, 27 Dec 2022 09:39:07 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pA6QH-00BoTW-TA
+	for linux-riscv@lists.infradead.org; Tue, 27 Dec 2022 09:39:05 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 0E8D324E052;
+	Tue, 27 Dec 2022 17:38:33 +0800 (CST)
+Received: from EXMBX173.cuchost.com (172.16.6.93) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 27 Dec
+ 2022 17:38:33 +0800
+Received: from [192.168.120.49] (171.223.208.138) by EXMBX173.cuchost.com
+ (172.16.6.93) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 27 Dec
+ 2022 17:38:31 +0800
+Message-ID: <134a2ead-e272-c32e-b14f-a9e98c8924ac@starfivetech.com>
+Date: Tue, 27 Dec 2022 17:38:30 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.4.2
-Subject: Re: [PATCH -next V5 3/7] riscv: ftrace: Reduce the detour code size
- to half
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.6.1
+Subject: Re: [PATCH v2 5/9] dt-bindings: net: motorcomm: add support for
+ Motorcomm YT8531
 Content-Language: en-US
-To: Guo Ren <guoren@kernel.org>
-CC: <anup@brainfault.org>, <andy.chiu@sifive.com>, <suagrfillet@gmail.com>,
-	<jpoimboe@kernel.org>, <jolsa@redhat.com>, <rostedt@goodmis.org>,
-	<bp@suse.de>, <paul.walmsley@sifive.com>, <mhiramat@kernel.org>,
-	<palmer@dabbelt.com>, <heiko@sntech.de>, <conor.dooley@microchip.com>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, Guo Ren
-	<guoren@linux.alibaba.com>, <linux@yadro.com>
-References: <20221208091244.203407-1-guoren@kernel.org>
- <20221208091244.203407-4-guoren@kernel.org>
-From: Evgenii Shatokhin <e.shatokhin@yadro.com>
-In-Reply-To: <20221208091244.203407-4-guoren@kernel.org>
-X-Originating-IP: [10.199.21.212]
-X-ClientProxiedBy: T-EXCH-01.corp.yadro.com (172.17.10.101) To
- T-EXCH-08.corp.yadro.com (172.17.11.58)
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	<linux-riscv@lists.infradead.org>, <netdev@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+CC: "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+	<edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
+	Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>
+References: <20221216070632.11444-1-yanhong.wang@starfivetech.com>
+ <20221216070632.11444-6-yanhong.wang@starfivetech.com>
+ <994718d8-f3ee-af5e-bda7-f913f66597ce@linaro.org>
+From: yanhong wang <yanhong.wang@starfivetech.com>
+In-Reply-To: <994718d8-f3ee-af5e-bda7-f913f66597ce@linaro.org>
+X-Originating-IP: [171.223.208.138]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX173.cuchost.com
+ (172.16.6.93)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221227_004956_267972_CF7D2EF4 
-X-CRM114-Status: GOOD (  32.36  )
+X-CRM114-CacheID: sfid-20221227_013902_297507_E51D6272 
+X-CRM114-Status: GOOD (  22.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,480 +76,171 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 08.12.2022 12:12, guoren@kernel.org wrote:
-> From: Guo Ren <guoren@linux.alibaba.com>
-> 
-> Use a temporary register to reduce the size of detour code from
-> 16 bytes to 8 bytes. The previous implementation is from
-> afc76b8b8011 ("riscv: Using PATCHABLE_FUNCTION_ENTRY instead of
-> MCOUNT").
-> 
-> Before the patch:
-> <func_prolog>:
->   0: REG_S  ra, -SZREG(sp)
->   4: auipc  ra, ?
->   8: jalr   ?(ra)
-> 12: REG_L  ra, -SZREG(sp)
->   (func_boddy)
-> 
-> After the patch:
-> <func_prolog>:
->   0: auipc  t0, ?
->   4: jalr   t0, ?(t0)
->   (func_boddy)
-> 
-
-This patch not just reduces the size of detour code, but also fixes an 
-important issue.
-
-An Ftrace callback registered with FTRACE_OPS_FL_IPMODIFY flag can 
-actually change the instruction pointer, e.g. to "replace" the given 
-kernel function with a new one, which is needed for livepatching, etc.
-
-In this case, the trampoline (ftrace_regs_caller) would not return to 
-<func_prolog+12> but would rather jump to the new function. So, "REG_L 
-ra, -SZREG(sp)" would not run and the original return address would not 
-be restored. The kernel is likely to hang or crash as a result.
-
-This can be easily demonstrated if one tries to "replace", say, 
-cmdline_proc_show() with a new function with the same signature using 
-instruction_pointer_set(&fregs->regs, new_func_addr) in the Ftrace callback.
-
-Your patch fixes the issue, and such "function replacement" starts 
-working, which is great.
-
-> Link: https://lore.kernel.org/linux-riscv/20221122075440.1165172-1-suagrfillet@gmail.com/
-> Co-developed-by: Song Shuai <suagrfillet@gmail.com>
-> Signed-off-by: Song Shuai <suagrfillet@gmail.com>
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Signed-off-by: Guo Ren <guoren@kernel.org>
-> ---
-> Changes in v4:
->   - Add Sob of Song Shuai
-> 
-> Changes in v3:
->   - Fixup ftrace_modify_call without "caller = rec->ip + 4". [Song Shuai]
->   - Optimize .macro make_call_ra & make_call_t0
-> ---
->   arch/riscv/Makefile             |  4 +-
->   arch/riscv/include/asm/ftrace.h | 50 +++++++++++++++++++------
->   arch/riscv/kernel/ftrace.c      | 65 ++++++++++-----------------------
->   arch/riscv/kernel/mcount-dyn.S  | 43 +++++++++-------------
->   4 files changed, 76 insertions(+), 86 deletions(-)
-> 
-> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-> index 36cc609c5d03..d60939e2c596 100644
-> --- a/arch/riscv/Makefile
-> +++ b/arch/riscv/Makefile
-> @@ -12,9 +12,9 @@ ifeq ($(CONFIG_DYNAMIC_FTRACE),y)
->          LDFLAGS_vmlinux := --no-relax
->          KBUILD_CPPFLAGS += -DCC_USING_PATCHABLE_FUNCTION_ENTRY
->   ifeq ($(CONFIG_RISCV_ISA_C),y)
-> -       CC_FLAGS_FTRACE := -fpatchable-function-entry=8
-> -else
->          CC_FLAGS_FTRACE := -fpatchable-function-entry=4
-> +else
-> +       CC_FLAGS_FTRACE := -fpatchable-function-entry=2
->   endif
->   endif
-> 
-> diff --git a/arch/riscv/include/asm/ftrace.h b/arch/riscv/include/asm/ftrace.h
-> index 04dad3380041..9e73922e1e2e 100644
-> --- a/arch/riscv/include/asm/ftrace.h
-> +++ b/arch/riscv/include/asm/ftrace.h
-> @@ -42,6 +42,14 @@ struct dyn_arch_ftrace {
->    * 2) jalr: setting low-12 offset to ra, jump to ra, and set ra to
->    *          return address (original pc + 4)
->    *
-> + *<ftrace enable>:
-> + * 0: auipc  t0/ra, 0x?
-> + * 4: jalr   t0/ra, ?(t0/ra)
-> + *
-> + *<ftrace disable>:
-> + * 0: nop
-> + * 4: nop
-> + *
->    * Dynamic ftrace generates probes to call sites, so we must deal with
->    * both auipc and jalr at the same time.
->    */
-> @@ -52,25 +60,43 @@ struct dyn_arch_ftrace {
->   #define AUIPC_OFFSET_MASK      (0xfffff000)
->   #define AUIPC_PAD              (0x00001000)
->   #define JALR_SHIFT             20
-> -#define JALR_BASIC             (0x000080e7)
-> -#define AUIPC_BASIC            (0x00000097)
-> +#define JALR_RA                        (0x000080e7)
-> +#define AUIPC_RA               (0x00000097)
-> +#define JALR_T0                        (0x000282e7)
-> +#define AUIPC_T0               (0x00000297)
->   #define NOP4                   (0x00000013)
-> 
-> -#define make_call(caller, callee, call)                                        \
-> +#define to_jalr_t0(offset)                                             \
-> +       (((offset & JALR_OFFSET_MASK) << JALR_SHIFT) | JALR_T0)
-> +
-> +#define to_auipc_t0(offset)                                            \
-> +       ((offset & JALR_SIGN_MASK) ?                                    \
-> +       (((offset & AUIPC_OFFSET_MASK) + AUIPC_PAD) | AUIPC_T0) :       \
-> +       ((offset & AUIPC_OFFSET_MASK) | AUIPC_T0))
-> +
-> +#define make_call_t0(caller, callee, call)                             \
->   do {                                                                   \
-> -       call[0] = to_auipc_insn((unsigned int)((unsigned long)callee -  \
-> -                               (unsigned long)caller));                \
-> -       call[1] = to_jalr_insn((unsigned int)((unsigned long)callee -   \
-> -                              (unsigned long)caller));                 \
-> +       unsigned int offset =                                           \
-> +               (unsigned long) callee - (unsigned long) caller;        \
-> +       call[0] = to_auipc_t0(offset);                                  \
-> +       call[1] = to_jalr_t0(offset);                                   \
->   } while (0)
-> 
-> -#define to_jalr_insn(offset)                                           \
-> -       (((offset & JALR_OFFSET_MASK) << JALR_SHIFT) | JALR_BASIC)
-> +#define to_jalr_ra(offset)                                             \
-> +       (((offset & JALR_OFFSET_MASK) << JALR_SHIFT) | JALR_RA)
-> 
-> -#define to_auipc_insn(offset)                                          \
-> +#define to_auipc_ra(offset)                                            \
->          ((offset & JALR_SIGN_MASK) ?                                    \
-> -       (((offset & AUIPC_OFFSET_MASK) + AUIPC_PAD) | AUIPC_BASIC) :    \
-> -       ((offset & AUIPC_OFFSET_MASK) | AUIPC_BASIC))
-> +       (((offset & AUIPC_OFFSET_MASK) + AUIPC_PAD) | AUIPC_RA) :       \
-> +       ((offset & AUIPC_OFFSET_MASK) | AUIPC_RA))
-> +
-> +#define make_call_ra(caller, callee, call)                             \
-> +do {                                                                   \
-> +       unsigned int offset =                                           \
-> +               (unsigned long) callee - (unsigned long) caller;        \
-> +       call[0] = to_auipc_ra(offset);                                  \
-> +       call[1] = to_jalr_ra(offset);                                   \
-> +} while (0)
-> 
->   /*
->    * Let auipc+jalr be the basic *mcount unit*, so we make it 8 bytes here.
-> diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
-> index 2086f6585773..61b24d767e2e 100644
-> --- a/arch/riscv/kernel/ftrace.c
-> +++ b/arch/riscv/kernel/ftrace.c
-> @@ -55,12 +55,15 @@ static int ftrace_check_current_call(unsigned long hook_pos,
->   }
-> 
->   static int __ftrace_modify_call(unsigned long hook_pos, unsigned long target,
-> -                               bool enable)
-> +                               bool enable, bool ra)
->   {
->          unsigned int call[2];
->          unsigned int nops[2] = {NOP4, NOP4};
-> 
-> -       make_call(hook_pos, target, call);
-> +       if (ra)
-> +               make_call_ra(hook_pos, target, call);
-> +       else
-> +               make_call_t0(hook_pos, target, call);
-> 
->          /* Replace the auipc-jalr pair at once. Return -EPERM on write error. */
->          if (patch_text_nosync
-> @@ -70,42 +73,13 @@ static int __ftrace_modify_call(unsigned long hook_pos, unsigned long target,
->          return 0;
->   }
-> 
-> -/*
-> - * Put 5 instructions with 16 bytes at the front of function within
-> - * patchable function entry nops' area.
-> - *
-> - * 0: REG_S  ra, -SZREG(sp)
-> - * 1: auipc  ra, 0x?
-> - * 2: jalr   -?(ra)
-> - * 3: REG_L  ra, -SZREG(sp)
-> - *
-> - * So the opcodes is:
-> - * 0: 0xfe113c23 (sd)/0xfe112e23 (sw)
-> - * 1: 0x???????? -> auipc
-> - * 2: 0x???????? -> jalr
-> - * 3: 0xff813083 (ld)/0xffc12083 (lw)
-> - */
-> -#if __riscv_xlen == 64
-> -#define INSN0  0xfe113c23
-> -#define INSN3  0xff813083
-> -#elif __riscv_xlen == 32
-> -#define INSN0  0xfe112e23
-> -#define INSN3  0xffc12083
-> -#endif
-> -
-> -#define FUNC_ENTRY_SIZE        16
-> -#define FUNC_ENTRY_JMP 4
-> -
->   int ftrace_make_call(struct dyn_ftrace *rec, unsigned long addr)
->   {
-> -       unsigned int call[4] = {INSN0, 0, 0, INSN3};
-> -       unsigned long target = addr;
-> -       unsigned long caller = rec->ip + FUNC_ENTRY_JMP;
-> +       unsigned int call[2];
-> 
-> -       call[1] = to_auipc_insn((unsigned int)(target - caller));
-> -       call[2] = to_jalr_insn((unsigned int)(target - caller));
-> +       make_call_t0(rec->ip, addr, call);
-> 
-> -       if (patch_text_nosync((void *)rec->ip, call, FUNC_ENTRY_SIZE))
-> +       if (patch_text_nosync((void *)rec->ip, call, 8))
-
-A small nit: how about using sizeof(call) or MCOUNT_INSN_SIZE here 
-rather than 8?
-
-Besides, adding BUILD_BUG_ON(sizeof(call) != MCOUNT_INSN_SIZE) would 
-help catch the errors if someone changes the sizes in the future.
-
->                  return -EPERM;
-> 
->          return 0;
-> @@ -114,15 +88,14 @@ int ftrace_make_call(struct dyn_ftrace *rec, unsigned long addr)
->   int ftrace_make_nop(struct module *mod, struct dyn_ftrace *rec,
->                      unsigned long addr)
->   {
-> -       unsigned int nops[4] = {NOP4, NOP4, NOP4, NOP4};
-> +       unsigned int nops[2] = {NOP4, NOP4};
-> 
-> -       if (patch_text_nosync((void *)rec->ip, nops, FUNC_ENTRY_SIZE))
-> +       if (patch_text_nosync((void *)rec->ip, nops, MCOUNT_INSN_SIZE))
->                  return -EPERM;
-> 
->          return 0;
->   }
-> 
-> -
->   /*
->    * This is called early on, and isn't wrapped by
->    * ftrace_arch_code_modify_{prepare,post_process}() and therefor doesn't hold
-> @@ -144,10 +117,10 @@ int ftrace_init_nop(struct module *mod, struct dyn_ftrace *rec)
->   int ftrace_update_ftrace_func(ftrace_func_t func)
->   {
->          int ret = __ftrace_modify_call((unsigned long)&ftrace_call,
-> -                                      (unsigned long)func, true);
-> +                                      (unsigned long)func, true, true);
->          if (!ret) {
->                  ret = __ftrace_modify_call((unsigned long)&ftrace_regs_call,
-> -                                          (unsigned long)func, true);
-> +                                          (unsigned long)func, true, true);
->          }
-> 
->          return ret;
-> @@ -159,16 +132,16 @@ int ftrace_modify_call(struct dyn_ftrace *rec, unsigned long old_addr,
->                         unsigned long addr)
->   {
->          unsigned int call[2];
-> -       unsigned long caller = rec->ip + FUNC_ENTRY_JMP;
-> +       unsigned long caller = rec->ip;
->          int ret;
-> 
-> -       make_call(caller, old_addr, call);
-> +       make_call_t0(caller, old_addr, call);
->          ret = ftrace_check_current_call(caller, call);
-> 
->          if (ret)
->                  return ret;
-> 
-> -       return __ftrace_modify_call(caller, addr, true);
-> +       return __ftrace_modify_call(caller, addr, true, false);
->   }
->   #endif
-> 
-> @@ -203,12 +176,12 @@ int ftrace_enable_ftrace_graph_caller(void)
->          int ret;
-> 
->          ret = __ftrace_modify_call((unsigned long)&ftrace_graph_call,
-> -                                   (unsigned long)&prepare_ftrace_return, true);
-> +                                   (unsigned long)&prepare_ftrace_return, true, true);
->          if (ret)
->                  return ret;
-> 
->          return __ftrace_modify_call((unsigned long)&ftrace_graph_regs_call,
-> -                                   (unsigned long)&prepare_ftrace_return, true);
-> +                                   (unsigned long)&prepare_ftrace_return, true, true);
->   }
-> 
->   int ftrace_disable_ftrace_graph_caller(void)
-> @@ -216,12 +189,12 @@ int ftrace_disable_ftrace_graph_caller(void)
->          int ret;
-> 
->          ret = __ftrace_modify_call((unsigned long)&ftrace_graph_call,
-> -                                   (unsigned long)&prepare_ftrace_return, false);
-> +                                   (unsigned long)&prepare_ftrace_return, false, true);
->          if (ret)
->                  return ret;
-> 
->          return __ftrace_modify_call((unsigned long)&ftrace_graph_regs_call,
-> -                                   (unsigned long)&prepare_ftrace_return, false);
-> +                                   (unsigned long)&prepare_ftrace_return, false, true);
->   }
->   #endif /* CONFIG_DYNAMIC_FTRACE */
->   #endif /* CONFIG_FUNCTION_GRAPH_TRACER */
-> diff --git a/arch/riscv/kernel/mcount-dyn.S b/arch/riscv/kernel/mcount-dyn.S
-> index d171eca623b6..64bc79816f5e 100644
-> --- a/arch/riscv/kernel/mcount-dyn.S
-> +++ b/arch/riscv/kernel/mcount-dyn.S
-> @@ -13,8 +13,8 @@
-> 
->          .text
-> 
-> -#define FENTRY_RA_OFFSET       12
-> -#define ABI_SIZE_ON_STACK      72
-> +#define FENTRY_RA_OFFSET       8
-> +#define ABI_SIZE_ON_STACK      80
->   #define ABI_A0                 0
->   #define ABI_A1                 8
->   #define ABI_A2                 16
-> @@ -23,10 +23,10 @@
->   #define ABI_A5                 40
->   #define ABI_A6                 48
->   #define ABI_A7                 56
-> -#define ABI_RA                 64
-> +#define ABI_T0                 64
-> +#define ABI_RA                 72
-> 
->          .macro SAVE_ABI
-> -       addi    sp, sp, -SZREG
->          addi    sp, sp, -ABI_SIZE_ON_STACK
-> 
->          REG_S   a0, ABI_A0(sp)
-> @@ -37,6 +37,7 @@
->          REG_S   a5, ABI_A5(sp)
->          REG_S   a6, ABI_A6(sp)
->          REG_S   a7, ABI_A7(sp)
-> +       REG_S   t0, ABI_T0(sp)
->          REG_S   ra, ABI_RA(sp)
->          .endm
-> 
-> @@ -49,24 +50,18 @@
->          REG_L   a5, ABI_A5(sp)
->          REG_L   a6, ABI_A6(sp)
->          REG_L   a7, ABI_A7(sp)
-> +       REG_L   t0, ABI_T0(sp)
->          REG_L   ra, ABI_RA(sp)
-> 
->          addi    sp, sp, ABI_SIZE_ON_STACK
-> -       addi    sp, sp, SZREG
->          .endm
-> 
->   #ifdef CONFIG_DYNAMIC_FTRACE_WITH_REGS
->          .macro SAVE_ALL
-> -       addi    sp, sp, -SZREG
->          addi    sp, sp, -PT_SIZE_ON_STACK
-> 
-> -       REG_S x1,  PT_EPC(sp)
-> -       addi    sp, sp, PT_SIZE_ON_STACK
-> -       REG_L x1,  (sp)
-> -       addi    sp, sp, -PT_SIZE_ON_STACK
-> +       REG_S t0,  PT_EPC(sp)
->          REG_S x1,  PT_RA(sp)
-> -       REG_L x1,  PT_EPC(sp)
-> -
->          REG_S x2,  PT_SP(sp)
->          REG_S x3,  PT_GP(sp)
->          REG_S x4,  PT_TP(sp)
-> @@ -100,11 +95,8 @@
->          .endm
-> 
->          .macro RESTORE_ALL
-> +       REG_L t0,  PT_EPC(sp)
->          REG_L x1,  PT_RA(sp)
-> -       addi    sp, sp, PT_SIZE_ON_STACK
-> -       REG_S x1,  (sp)
-> -       addi    sp, sp, -PT_SIZE_ON_STACK
-> -       REG_L x1,  PT_EPC(sp)
->          REG_L x2,  PT_SP(sp)
->          REG_L x3,  PT_GP(sp)
->          REG_L x4,  PT_TP(sp)
-> @@ -137,17 +129,16 @@
->          REG_L x31, PT_T6(sp)
-> 
->          addi    sp, sp, PT_SIZE_ON_STACK
-> -       addi    sp, sp, SZREG
->          .endm
->   #endif /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
-> 
->   ENTRY(ftrace_caller)
->          SAVE_ABI
-> 
-> -       addi    a0, ra, -FENTRY_RA_OFFSET
-> +       addi    a0, t0, -FENTRY_RA_OFFSET
->          la      a1, function_trace_op
->          REG_L   a2, 0(a1)
-> -       REG_L   a1, ABI_SIZE_ON_STACK(sp)
-> +       mv      a1, ra
->          mv      a3, sp
-> 
->   ftrace_call:
-> @@ -155,8 +146,8 @@ ftrace_call:
->          call    ftrace_stub
-> 
->   #ifdef CONFIG_FUNCTION_GRAPH_TRACER
-> -       addi    a0, sp, ABI_SIZE_ON_STACK
-> -       REG_L   a1, ABI_RA(sp)
-> +       addi    a0, sp, ABI_RA
-> +       REG_L   a1, ABI_T0(sp)
->          addi    a1, a1, -FENTRY_RA_OFFSET
->   #ifdef HAVE_FUNCTION_GRAPH_FP_TEST
->          mv      a2, s0
-> @@ -166,17 +157,17 @@ ftrace_graph_call:
->          call    ftrace_stub
->   #endif
->          RESTORE_ABI
-> -       ret
-> +       jr t0
->   ENDPROC(ftrace_caller)
-> 
->   #ifdef CONFIG_DYNAMIC_FTRACE_WITH_REGS
->   ENTRY(ftrace_regs_caller)
->          SAVE_ALL
-> 
-> -       addi    a0, ra, -FENTRY_RA_OFFSET
-> +       addi    a0, t0, -FENTRY_RA_OFFSET
->          la      a1, function_trace_op
->          REG_L   a2, 0(a1)
-> -       REG_L   a1, PT_SIZE_ON_STACK(sp)
-> +       REG_L   a1, PT_RA(sp)
-
-ra contains the original return address at this point, so, I think, you 
-can load it into a1 directly, like you do in ftrace_caller:
-
-	mv      a1, ra
-
->          mv      a3, sp
-> 
->   ftrace_regs_call:
-> @@ -185,7 +176,7 @@ ftrace_regs_call:
-> 
->   #ifdef CONFIG_FUNCTION_GRAPH_TRACER
->          addi    a0, sp, PT_RA
-> -       REG_L   a1, PT_EPC(sp)
-> +       REG_L   a1, PT_T0(sp)
->          addi    a1, a1, -FENTRY_RA_OFFSET
->   #ifdef HAVE_FUNCTION_GRAPH_FP_TEST
->          mv      a2, s0
-> @@ -196,6 +187,6 @@ ftrace_graph_regs_call:
->   #endif
-> 
->          RESTORE_ALL
-> -       ret
-> +       jr t0
->   ENDPROC(ftrace_regs_caller)
->   #endif /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
-> --
-> 2.36.1
-
-Regards,
-Evgenii
 
 
+On 2022/12/16 19:15, Krzysztof Kozlowski wrote:
+> On 16/12/2022 08:06, Yanhong Wang wrote:
+>> Add support for Motorcomm Technology YT8531 10/100/1000 Ethernet PHY.
+>> The document describe details of clock delay train configuration.
+>> 
+>> Signed-off-by: Yanhong Wang <yanhong.wang@starfivetech.com>
+> 
+> Missing vendor prefix documentation. I don't think you tested this at
+> all with checkpatch and dt_binding_check.
+> 
+>> ---
+>>  .../bindings/net/motorcomm,yt8531.yaml        | 111 ++++++++++++++++++
+>>  MAINTAINERS                                   |   1 +
+>>  2 files changed, 112 insertions(+)
+>>  create mode 100644 Documentation/devicetree/bindings/net/motorcomm,yt8531.yaml
+>> 
+>> diff --git a/Documentation/devicetree/bindings/net/motorcomm,yt8531.yaml b/Documentation/devicetree/bindings/net/motorcomm,yt8531.yaml
+>> new file mode 100644
+>> index 000000000000..c5b8a09a78bb
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/net/motorcomm,yt8531.yaml
+>> @@ -0,0 +1,111 @@
+>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/net/motorcomm,yt8531.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: Motorcomm YT8531 Gigabit Ethernet PHY
+>> +
+>> +maintainers:
+>> +  - Yanhong Wang <yanhong.wang@starfivetech.com>
+>> +
+> 
+> Why there is no reference to ethernet-phy.yaml?
+> 
+>> +select:
+>> +  properties:
+>> +    $nodename:
+>> +      pattern: "^ethernet-phy(@[a-f0-9]+)?$"
+> 
+> I don't think that's correct approach. You know affect all phys.
+> 
+>> +
+>> +  required:
+>> +    - $nodename
+>> +
+>> +properties:
+>> +  $nodename:
+>> +    pattern: "^ethernet-phy(@[a-f0-9]+)?$"
+> 
+> Just reference ethernet-phy.yaml.
+> 
+>> +
+>> +  reg:
+>> +    minimum: 0
+>> +    maximum: 31
+>> +    description:
+>> +      The ID number for the PHY.
+> 
+> Drop duplicated properties.
+> 
+>> +
+>> +  rxc_dly_en:
+> 
+> No underscores in node names. Missing vendor prefix. Both apply to all
+> your other custom properties, unless they are not custom but generic.
+> 
+> Missing ref.
+> 
+>> +    description: |
+>> +      RGMII Receive PHY Clock Delay defined with fixed 2ns.This is used for
+> 
+> After every full stop goes space.
+> 
+>> +      PHY that have configurable RX internal delays. If this property set
+>> +      to 1, then automatically add 2ns delay pad for Receive PHY clock.
+> 
+> Nope, this is wrong. You wrote now boolean property as enum.
+> 
+>> +    enum: [0, 1]
+>> +    default: 0
+>> +
+>> +  rx_delay_sel:
+>> +    description: |
+>> +      This is supplement to rxc_dly_en property,and it can
+>> +      be specified in 150ps(pico seconds) steps. The effective
+>> +      delay is: 150ps * N.
+> 
+> Nope. Use proper units and drop all this register stuff.
+> 
+>> +    minimum: 0
+>> +    maximum: 15
+>> +    default: 0
+>> +
+>> +  tx_delay_sel_fe:
+>> +    description: |
+>> +      RGMII Transmit PHY Clock Delay defined in pico seconds.This is used for
+>> +      PHY's that have configurable TX internal delays when speed is 100Mbps
+>> +      or 10Mbps. It can be specified in 150ps steps, the effective delay
+>> +      is: 150ps * N.
+> 
+> The binding is in very poor shape. Please look carefully in
+> example-schema. All my previous comments apply everywhere.
+> 
+>> +    minimum: 0
+>> +    maximum: 15
+>> +    default: 15
+>> +
+>> +  tx_delay_sel:
+>> +    description: |
+>> +      RGMII Transmit PHY Clock Delay defined in pico seconds.This is used for
+>> +      PHY's that have configurable TX internal delays when speed is 1000Mbps.
+>> +      It can be specified in 150ps steps, the effective delay is: 150ps * N.
+>> +    minimum: 0
+>> +    maximum: 15
+>> +    default: 1
+>> +
+>> +  tx_inverted_10:
+>> +    description: |
+>> +      Use original or inverted RGMII Transmit PHY Clock to drive the RGMII
+>> +      Transmit PHY Clock delay train configuration when speed is 10Mbps.
+>> +      0: original   1: inverted
+>> +    enum: [0, 1]
+>> +    default: 0
+>> +
+>> +  tx_inverted_100:
+>> +    description: |
+>> +      Use original or inverted RGMII Transmit PHY Clock to drive the RGMII
+>> +      Transmit PHY Clock delay train configuration when speed is 100Mbps.
+>> +      0: original   1: inverted
+>> +    enum: [0, 1]
+>> +    default: 0
+>> +
+>> +  tx_inverted_1000:
+>> +    description: |
+>> +      Use original or inverted RGMII Transmit PHY Clock to drive the RGMII
+>> +      Transmit PHY Clock delay train configuration when speed is 1000Mbps.
+>> +      0: original   1: inverted
+>> +    enum: [0, 1]
+>> +    default: 0
+>> +
+>> +required:
+>> +  - reg
+>> +
+>> +additionalProperties: true
+> 
+> This must be false. After referencing ethernet-phy this should be
+> unevaluatedProperties: false.
+> 
+> 
 
+Thanks. Parts of this patch exist already, after discussion unanimity was achieved,
+i will remove the parts of YT8531 in the next version.
+
+> Best regards,
+> Krzysztof
+> 
 
 _______________________________________________
 linux-riscv mailing list
