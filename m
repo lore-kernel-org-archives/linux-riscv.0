@@ -4,59 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A17CFC4167B
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Dec 2022 12:25:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43E11C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Dec 2022 13:09:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5pbuZVtNSL55GcKVVhOD+yEJNTM4uURKkHTS9++14fY=; b=3vjYIT07Vn6cgH
-	CY/xT0LaxWSWUsYNLASFzz5z3Ho+n5CkQ2hlcY9QHHpBoruqg8Z9hat8G+dveoOaIiTvJqnWuv6kf
-	gdfezls/600P0FgrZVmLi/aUhCloNj9sWwjKU22jF5AyA/FvH7V1Bq556C/YjdeeFSRv6TRlLeRSW
-	S3hfiLCDS1+yHe8KULxEuqNVImkjjMsa+CPamvfhQy0qteuDoMoXDh00kjce4wO6RF561krnWbXBx
-	EHlpIlHu4W6/0fJTt/v3CqK3P9Wb5Ke8scMTDucMlRz3m6swf75J+VGabiNSelDnj9EjS2pgTF9rj
-	BUIErgy9UfaTHT5RPJYQ==;
+	List-Owner; bh=iaLVaTDW5BMwuO7x303Y73poOBRv5BhM6QVLOFcs8V0=; b=zM8Ale6LVEBJfH
+	EM98GMgPpOMl2Rms47opY8+JHZCAxR7eaoioniysRvZK8S6jY1e3BUj4CB8oRRlbHcpvD0p6I2Rba
+	sUpAmlS4ZOhLIZMtordXK98Bp9AL9nvvzVEnZVC9VlZA+q9v8l5MwErcruY2W0t/023OPQi3jrpMZ
+	6/v5srhVN+jIqs32K+N7IKVBYVJ9V7ubv9h9MSjC7JW0GvoklCUWEKvJfURnkm7SSSLW2mf1RqT5k
+	cdGXezUu7477FA+701eJLqKyQQyF+4gXZwR7E0YoA3c+1EYr9cXc3nneLJ7J16Y5hEeVaCr1dhKvL
+	2TGT2+l5j0YAsh53lHkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pA91H-00CqBM-Fk; Tue, 27 Dec 2022 12:25:23 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pA8ys-00Covs-S5
-	for linux-riscv@lists.infradead.org; Tue, 27 Dec 2022 12:23:03 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id B487124E1CE;
-	Tue, 27 Dec 2022 20:22:30 +0800 (CST)
-Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 27 Dec
- 2022 20:22:30 +0800
-Received: from williamqiu-virtual-machine.starfivetech.com (171.223.208.138)
- by EXMBX168.cuchost.com (172.16.6.78) with Microsoft SMTP Server (TLS) id
- 15.0.1497.42; Tue, 27 Dec 2022 20:22:29 +0800
-From: William Qiu <william.qiu@starfivetech.com>
-To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-mmc@vger.kernel.org>
-CC: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Jaehoon Chung <jh80.chung@samsung.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>, William Qiu
-	<william.qiu@starfivetech.com>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v2 2/3] mmc: starfive: Add sdio/emmc driver support
-Date: Tue, 27 Dec 2022 20:22:26 +0800
-Message-ID: <20221227122227.460921-3-william.qiu@starfivetech.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20221227122227.460921-1-william.qiu@starfivetech.com>
-References: <20221227122227.460921-1-william.qiu@starfivetech.com>
+	id 1pA9hW-00D8ly-CS; Tue, 27 Dec 2022 13:09:02 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pA9cQ-00D6Ss-6V
+	for linux-riscv@lists.infradead.org; Tue, 27 Dec 2022 13:03:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1672146224;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=itmwXqUo01mTV85no/9ZNLho2BNM+XUgesQju+SpFwM=;
+	b=XbTpjkD3Wc+2vldeq6o4q41wOeKbSLN0bVKMh+HX+ZQG55vzEQMzXNPTciIFWFP5uTARUR
+	lhPELZRVeyUZ1Bf9CVX2oLDrPGd7afyx1NdO2TDsJfUTN0KISXqgIJO/l9omzE1uHNWciO
+	M4mV+s5XG11NgyoS/dQdd1E461iFmoc=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ us-mta-359-al1j6ULROiyc5y_rGIER3A-1; Tue, 27 Dec 2022 08:03:41 -0500
+X-MC-Unique: al1j6ULROiyc5y_rGIER3A-1
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com [10.11.54.8])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id C26A0101A521;
+	Tue, 27 Dec 2022 13:03:38 +0000 (UTC)
+Received: from virtlab701.virt.lab.eng.bos.redhat.com (virtlab701.virt.lab.eng.bos.redhat.com [10.19.152.228])
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 2C14DC15BA0;
+	Tue, 27 Dec 2022 13:03:37 +0000 (UTC)
+From: Paolo Bonzini <pbonzini@redhat.com>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Marc Zyngier <maz@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
+	Anup Patel <anup@brainfault.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	Matthew Rosato <mjrosato@linux.ibm.com>,
+	Eric Farman <farman@linux.ibm.com>,
+	Vitaly Kuznetsov <vkuznets@redhat.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Paul Durrant <paul@xen.org>,
+	James Morse <james.morse@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Atish Patra <atishp@atishpatra.org>,
+	David Hildenbrand <david@redhat.com>,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	kvmarm@lists.cs.columbia.edu,
+	linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Yuan Yao <yuan.yao@intel.com>,
+	Cornelia Huck <cohuck@redhat.com>,
+	Isaku Yamahata <isaku.yamahata@intel.com>,
+	=?UTF-8?q?Philippe=20Mathieu-Daud=C3=A9?= <philmd@linaro.org>,
+	Fabiano Rosas <farosas@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Kai Huang <kai.huang@intel.com>,
+	Chao Gao <chao.gao@intel.com>,
+	Thomas Gleixner <tglx@linutronix.de>
+Subject: Re: [PATCH v2 00/50] KVM: Rework kvm_init() and hardware enabling
+Date: Tue, 27 Dec 2022 08:02:50 -0500
+Message-Id: <20221227130249.1650197-1-pbonzini@redhat.com>
+In-Reply-To: <20221130230934.1014142-1-seanjc@google.com>
+References: 
 MIME-Version: 1.0
-X-Originating-IP: [171.223.208.138]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX168.cuchost.com
- (172.16.6.78)
-X-YovoleRuleAgent: yovoleflag
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.8
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221227_042255_389002_FBE8C525 
-X-CRM114-Status: GOOD (  26.00  )
+X-CRM114-CacheID: sfid-20221227_050346_387178_737862DB 
+X-CRM114-Status: UNSURE (   6.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,260 +117,12 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add sdio/emmc driver support for StarFive JH7110 soc.
+Queued, thanks.  I will leave this in kvm/queue after testing everything
+else and moving it to kvm/next; this way, we can wait for test results
+on other architectures.
 
-Signed-off-by: William Qiu <william.qiu@starfivetech.com>
----
- MAINTAINERS                        |   6 +
- drivers/mmc/host/Kconfig           |  10 ++
- drivers/mmc/host/Makefile          |   1 +
- drivers/mmc/host/dw_mmc-starfive.c | 185 +++++++++++++++++++++++++++++
- 4 files changed, 202 insertions(+)
- create mode 100644 drivers/mmc/host/dw_mmc-starfive.c
+Paolo
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index a70c1d0f303e..2b46ef07f5dc 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -19623,6 +19623,12 @@ F:	Documentation/devicetree/bindings/reset/starfive,jh7100-reset.yaml
- F:	drivers/reset/starfive/
- F:	include/dt-bindings/reset/starfive*
- 
-+STARFIVE JH7110 MMC/SD/SDIO DRIVER
-+M:	William Qiu <william.qiu@starfivetech.com>
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/mmc/starfive*
-+F:	drivers/mmc/dw_mmc-starfive.c
-+
- STATIC BRANCH/CALL
- M:	Peter Zijlstra <peterz@infradead.org>
- M:	Josh Poimboeuf <jpoimboe@kernel.org>
-diff --git a/drivers/mmc/host/Kconfig b/drivers/mmc/host/Kconfig
-index fb1062a6394c..b87262503403 100644
---- a/drivers/mmc/host/Kconfig
-+++ b/drivers/mmc/host/Kconfig
-@@ -871,6 +871,16 @@ config MMC_DW_ROCKCHIP
- 	  Synopsys DesignWare Memory Card Interface driver. Select this option
- 	  for platforms based on RK3066, RK3188 and RK3288 SoC's.
- 
-+config MMC_DW_STARFIVE
-+	tristate "StarFive specific extensions for Synopsys DW Memory Card Interface"
-+	depends on SOC_STARFIVE
-+	depends on MMC_DW
-+	select MMC_DW_PLTFM
-+	help
-+	  This selects support for StarFive JH7110 SoC specific extensions to the
-+	  Synopsys DesignWare Memory Card Interface driver. Select this option
-+	  for platforms based on StarFive JH7110 SoC.
-+
- config MMC_SH_MMCIF
- 	tristate "SuperH Internal MMCIF support"
- 	depends on SUPERH || ARCH_RENESAS || COMPILE_TEST
-diff --git a/drivers/mmc/host/Makefile b/drivers/mmc/host/Makefile
-index 4e4ceb32c4b4..32c0e5564b9a 100644
---- a/drivers/mmc/host/Makefile
-+++ b/drivers/mmc/host/Makefile
-@@ -56,6 +56,7 @@ obj-$(CONFIG_MMC_DW_HI3798CV200) += dw_mmc-hi3798cv200.o
- obj-$(CONFIG_MMC_DW_K3)		+= dw_mmc-k3.o
- obj-$(CONFIG_MMC_DW_PCI)	+= dw_mmc-pci.o
- obj-$(CONFIG_MMC_DW_ROCKCHIP)	+= dw_mmc-rockchip.o
-+obj-$(CONFIG_MMC_DW_STARFIVE)	+= dw_mmc-starfive.o
- obj-$(CONFIG_MMC_SH_MMCIF)	+= sh_mmcif.o
- obj-$(CONFIG_MMC_JZ4740)	+= jz4740_mmc.o
- obj-$(CONFIG_MMC_VUB300)	+= vub300.o
-diff --git a/drivers/mmc/host/dw_mmc-starfive.c b/drivers/mmc/host/dw_mmc-starfive.c
-new file mode 100644
-index 000000000000..e4d0bdb40d12
---- /dev/null
-+++ b/drivers/mmc/host/dw_mmc-starfive.c
-@@ -0,0 +1,185 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * StarFive Designware Mobile Storage Host Controller Driver
-+ *
-+ * Copyright (c) 2022 StarFive Technology Co., Ltd.
-+ */
-+
-+#include <linux/clk.h>
-+#include <linux/delay.h>
-+#include <linux/mfd/syscon.h>
-+#include <linux/mmc/host.h>
-+#include <linux/module.h>
-+#include <linux/of_address.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+
-+#include "dw_mmc.h"
-+#include "dw_mmc-pltfm.h"
-+
-+#define ALL_INT_CLR		0x1ffff
-+#define MAX_DELAY_CHAIN		32
-+
-+struct starfive_priv {
-+	struct device *dev;
-+	struct regmap *reg_syscon;
-+	u32 syscon_offset;
-+	u32 syscon_shift;
-+	u32 syscon_mask;
-+};
-+
-+static void dw_mci_starfive_set_ios(struct dw_mci *host, struct mmc_ios *ios)
-+{
-+	int ret;
-+	unsigned int clock;
-+
-+	if (ios->timing == MMC_TIMING_MMC_DDR52 || ios->timing == MMC_TIMING_UHS_DDR50) {
-+		clock = (ios->clock > 50000000 && ios->clock <= 52000000) ? 100000000 : ios->clock;
-+		ret = clk_set_rate(host->ciu_clk, clock);
-+		if (ret)
-+			dev_dbg(host->dev, "Use an external frequency divider %uHz\n", ios->clock);
-+		host->bus_hz = clk_get_rate(host->ciu_clk);
-+	} else {
-+		dev_dbg(host->dev, "Using the internal divider\n");
-+	}
-+}
-+
-+static int dw_mci_starfive_execute_tuning(struct dw_mci_slot *slot,
-+					     u32 opcode)
-+{
-+	static const int grade  = MAX_DELAY_CHAIN;
-+	struct dw_mci *host = slot->host;
-+	struct starfive_priv *priv = host->priv;
-+	int rise_point = -1, fall_point = -1;
-+	int err, prev_err;
-+	int i;
-+	bool found = 0;
-+	u32 regval;
-+
-+	/* Use grade as the max delay chain, and use the rise_point and 
-+	 * fall_point to ensure the best sampling point of a data input
-+	 * signals.
-+	 */
-+	for (i = 0; i < grade; i++) {
-+		regval = i << priv->syscon_shift;
-+		err = regmap_update_bits(priv->reg_syscon, priv->syscon_offset,
-+						priv->syscon_mask, regval);
-+		if (err)
-+			return err;
-+		mci_writel(host, RINTSTS, ALL_INT_CLR);
-+
-+		err = mmc_send_tuning(slot->mmc, opcode, NULL);
-+		if (!err)
-+			found = 1;
-+
-+		if (i > 0) {
-+			if (err && !prev_err)
-+				fall_point = i - 1;
-+			if (!err && prev_err)
-+				rise_point = i;
-+		}
-+
-+		if (rise_point != -1 && fall_point != -1)
-+			goto tuning_out;
-+
-+		prev_err = err;
-+		err = 0;
-+	}
-+
-+tuning_out:
-+	if (found) {
-+		if (rise_point == -1)
-+			rise_point = 0;
-+		if (fall_point == -1)
-+			fall_point = grade - 1;
-+		if (fall_point < rise_point) {
-+			if ((rise_point + fall_point) >
-+			    (grade - 1))
-+				i = fall_point / 2;
-+			else
-+				i = (rise_point + grade - 1) / 2;
-+		} else {
-+			i = (rise_point + fall_point) / 2;
-+		}
-+
-+		regval = i << priv->syscon_shift;
-+		err = regmap_update_bits(priv->reg_syscon, priv->syscon_offset,
-+						priv->syscon_mask, regval);
-+		if (err)
-+			return err;
-+		mci_writel(host, RINTSTS, ALL_INT_CLR);
-+
-+		dev_info(host->dev, "Found valid delay chain! use it [delay=%d]\n", i);
-+	} else {
-+		dev_err(host->dev, "No valid delay chain! use default\n");
-+		err = -EINVAL;
-+	}
-+
-+	mci_writel(host, RINTSTS, ALL_INT_CLR);
-+	return err;
-+}
-+
-+static int dw_mci_starfive_parse_dt(struct dw_mci *host)
-+{
-+	struct of_phandle_args args;
-+	struct starfive_priv *priv;
-+	int ret;
-+
-+	priv = devm_kzalloc(host->dev, sizeof(*priv), GFP_KERNEL);
-+	if (!priv)
-+		return -ENOMEM;
-+
-+	ret = of_parse_phandle_with_fixed_args(host->dev->of_node,
-+						"starfive,syscon", 3, 0, &args);
-+	if (ret) {
-+		dev_err(host->dev, "Failed to parse starfive,syscon\n");
-+		return -EINVAL;
-+	}
-+
-+	priv->reg_syscon = syscon_node_to_regmap(args.np);
-+	of_node_put(args.np);
-+	if (IS_ERR(priv->reg_syscon))
-+		return PTR_ERR(priv->reg_syscon);
-+
-+	priv->syscon_offset = args.args[0];
-+	priv->syscon_shift  = args.args[1];
-+	priv->syscon_mask   = args.args[2];
-+
-+	host->priv = priv;
-+
-+	return 0;
-+}
-+
-+static const struct dw_mci_drv_data starfive_data = {
-+	.common_caps 		= MMC_CAP_CMD23,
-+	.set_ios 		= dw_mci_starfive_set_ios,
-+	.parse_dt 		= dw_mci_starfive_parse_dt,
-+	.execute_tuning 	= dw_mci_starfive_execute_tuning,
-+};
-+
-+static const struct of_device_id dw_mci_starfive_match[] = {
-+	{ .compatible = "starfive,jh7110-mmc",
-+		.data = &starfive_data },
-+	{},
-+};
-+MODULE_DEVICE_TABLE(of, dw_mci_starfive_match);
-+
-+static int dw_mci_starfive_probe(struct platform_device *pdev)
-+{	
-+	return dw_mci_pltfm_register(pdev, &starfive_data);;
-+}
-+
-+static struct platform_driver dw_mci_starfive_driver = {
-+	.probe = dw_mci_starfive_probe,
-+	.remove = dw_mci_pltfm_remove,
-+	.driver = {
-+		.name = "dwmmc_starfive",
-+		.probe_type = PROBE_PREFER_ASYNCHRONOUS,
-+		.of_match_table = dw_mci_starfive_match,
-+	},
-+};
-+module_platform_driver(dw_mci_starfive_driver);
-+
-+MODULE_DESCRIPTION("StarFive JH7110 Specific DW-MSHC Driver Extension");
-+MODULE_LICENSE("GPL");
-+MODULE_ALIAS("platform:dwmmc_starfive");
--- 
-2.34.1
 
 
 _______________________________________________
