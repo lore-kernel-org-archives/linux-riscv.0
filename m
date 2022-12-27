@@ -4,72 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99373C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Dec 2022 14:21:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8A5AC4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Dec 2022 15:27:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+wrLSZhjhLxhKhuKMmXR7hbm57oaf6feDvRjx7QCbMU=; b=jP60PNAYk0THVeTK9qp1vGlFUX
-	uIFlJGxM0WchoFae8WMTDT5H2le8pm2ust8kswwF79RDzMcKJsOlrfR0Afk+P8WKCA/xkX4jCosWg
-	gbvcs2nHcAqyDAsHfhmXX60VCHWJ7ySyg5PdR5E13JGBfqXU5WQ2puGxKlIPCG+AhQnCYiHqZAjQS
-	5ryzBRx62lPtCFydusgodVyLfhn/QGEBPvLMGpu0CEmhUmqFRwCzA4nak1+oWf9era0cSrZMJTfLT
-	NgIPjdmk6zy7Y3XFgteA72UOW0R6yC08RlnoQYedaH5yAj+cNVYxPU3ifKMwKbEZ883Ds8DOV3xC+
-	3WUiFHAA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=VQAfBZbOBtvN5wwtNV7EIIVeXa9151RNe0AOVyspi+Y=; b=eWt5ylXgoziDob
+	KgxpA7RMJbOOq6HfYYqLuAQ6jaAi9hB5cyGqz93+FXxvc+psjiVnX07KweKw21Nm8uiPpxBDfqMPp
+	07KXGMSlgpxaZS1GDzgNS6+lA25cmIhSxwHjTS6SWnS8/LPbLj2iFNLzlKXNZhBvRPg3ooYQFAHH2
+	UAhKeHr8i7lPP5kp7XtrwCq0I4fRN7+0yw49blXfOZ0JM1snkVXrmS64+jUVVneuuB1ni/rOlvRwA
+	sxepMAMggbKN1zg+/IaOaqoQ/uKeLVG0u2Wa6fUg6k+2qX4bx12W3qYy1VJV6Xd3pV9zf/Gsr3o4n
+	DpS34TwBLgsAATz2rEZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pAAp8-00Dbtx-NW; Tue, 27 Dec 2022 14:20:58 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pABrJ-00E1Ak-LH; Tue, 27 Dec 2022 15:27:17 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pAAp3-00Dbr7-CB
-	for linux-riscv@lists.infradead.org; Tue, 27 Dec 2022 14:20:54 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 413146115D;
-	Tue, 27 Dec 2022 14:20:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC432C433EF;
-	Tue, 27 Dec 2022 14:20:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1672150851;
-	bh=eszlHNnwyNqenWwhKzQ+6Bi2gaQg/fCsFC2uNABjCnU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YjNkSZobSLITUsrFDYjjw5wWsL5+U+K1fNc+qPZLS4I3pTDDKea1l7/BVRuqMabBH
-	 IYcUeJVMXeF2SourDqOTfpVeitr9w3SEGC3Exx5duAKS1ePBqb3JgtGnOhuIBFBp/y
-	 m5651OY2LIOGPN4G9tw7k4lTgLsyS5zVKroND//oZFHNUILRaPj8+liO7kXw08+Em4
-	 yCIPvOmAa5p0lvMvIaFHRtO/aC0io+9/ye7yo2S95nXy3LLRbGGXeQ0ljbdCONj+1Q
-	 nhmHBf9DA6yZ7mbIykq02XytDyrR9xAtblDkOJxOCijvRhKm00X70eLFqD5XD0dT/J
-	 tHB1wVY+Yjd2A==
-Date: Tue, 27 Dec 2022 14:20:45 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Hal Feng <hal.feng@starfivetech.com>, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Ben Dooks <ben.dooks@sifive.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 0/7] Basic device tree support for StarFive JH7110
- RISC-V SoC
-Message-ID: <Y6r/Pa6mxzIiYnuC@spud>
-References: <20221220011247.35560-1-hal.feng@starfivetech.com>
- <Y6on34WC2u3PSBHl@spud>
- <7cc1078e-744a-c68f-98d2-6c68d2784df2@linaro.org>
+	id 1pABoP-00DzrQ-Mt
+	for linux-riscv@lists.infradead.org; Tue, 27 Dec 2022 15:24:19 +0000
+Received: by mail-wm1-x336.google.com with SMTP id b24-20020a05600c4a9800b003d21efdd61dso9507010wmp.3
+        for <linux-riscv@lists.infradead.org>; Tue, 27 Dec 2022 07:24:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=u5v670RnvXQHaK7BPqiIorVRaX1GKbnuWfqnGGHIrUc=;
+        b=KWtwIE/xKjJGRYwgHdjbJ5oEzE297qgQsTfpzrqj12loSnHqlNKP1boQLyH7R60JR3
+         la78PHUE2+17kraDPhWdaJ5BP5bWtz4vRzQXO/yEp0OXN9EBNmn9xLt1fB338+WYK3np
+         Sj8ULTe7gLrKgI+m719GD6Tr9/QUt0rNo39poULiwdEES6STbJUvH0JxS3QBWXB8bv9o
+         3YHdML0W28K69r+1vyvZPbAwqcVK9EzyOj1tsu2rD24hVzm4I17POvf8OiviWyuA2vUG
+         Br/xZQEmaulbVqREv02ootcl4vxuvqxNaKRwwnV9TXLLCPU5RDprNHi+zfe4bAJCE598
+         cV4w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=u5v670RnvXQHaK7BPqiIorVRaX1GKbnuWfqnGGHIrUc=;
+        b=i+QDXc8zQht+RlCA/YDx93LMUe9kXUNW74fWfBY7exxvG4kVCXC3JIB8rX8uPdt3xV
+         zldZoghlqzoTUZZ3EmwYpyvU0/KqOdhSsaIEICsSTIhGBbtI9ilIY3S9UNJHkq8pOE9e
+         3juk4jDSnOtLmAMQRbP7g9jpVtbjDm0lIR9oeIYqrLQBpcWovIYxdlEyDmH5J3dOar0E
+         WYPjuvgeu6QSUQm6sJHQxEldt+DM/Ueoad7i8CxfpA+baXL0Kno1yiYbniwhMKJgy9rK
+         nwl1L26M277/7nzROBJaeXDxr4rpZ+it1QCj0jM3nVchSPyzoVQr1oE5oNlIV0EraoO1
+         TdLw==
+X-Gm-Message-State: AFqh2kpGVWkYl6SGlc56/Kxu2aOz4biAwC3qV2diiCxgCDnYKqBHZOsp
+	zi1u4L2bQtOqyvYU7yl6vYrNw+C7/I6Wc+Ne6J52Fw==
+X-Google-Smtp-Source: AMrXdXuSzwDoJ6X1Bn+x9aZGRPKQGOV8eYes2ofQx8kntRsc5q0KLBhVUSL9B/zcJemMH05hBJCv15ApC7D4l1DTnoo=
+X-Received: by 2002:a05:600c:1c86:b0:3cf:71e4:75b with SMTP id
+ k6-20020a05600c1c8600b003cf71e4075bmr1650214wms.114.1672154652376; Tue, 27
+ Dec 2022 07:24:12 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <7cc1078e-744a-c68f-98d2-6c68d2784df2@linaro.org>
+References: <20221216185012.2342675-1-abdulras@google.com> <CAEUhbmUsFt0H-Dd3XHjuk6sUq0hrV9SFU=1jD2LQ10xywZOZiA@mail.gmail.com>
+ <CAO8XFHv_wV_oSuS+e412yr6vjm-44Vf2gJuMO4FvgPeodhWQww@mail.gmail.com>
+ <CAEUhbmX6PE_E8PCEp4mo8Fpjtc-Pm-tmpxws0UKCp715qB+qRg@mail.gmail.com>
+ <CAO8XFHvrbj86gcBpN7z7n_cGk2wLHND=t0k+QtYgzZGMQOLpsA@mail.gmail.com> <CAEUhbmW-EH4tQr4sXQAJ6iuwO31iWEE=XQXpTMVBp8fX66LDxg@mail.gmail.com>
+In-Reply-To: <CAEUhbmW-EH4tQr4sXQAJ6iuwO31iWEE=XQXpTMVBp8fX66LDxg@mail.gmail.com>
+From: Saleem Abdulrasool <abdulras@google.com>
+Date: Tue, 27 Dec 2022 07:24:00 -0800
+Message-ID: <CAO8XFHsjciBKho-9Kzw7v8anBZm1+DD5ZnMLmhZNxUUYZTU-FQ@mail.gmail.com>
+Subject: Re: [PATCH] riscv: avoid enabling vectorized code generation
+To: Bin Meng <bmeng.cn@gmail.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221227_062053_667948_2858CD36 
-X-CRM114-Status: GOOD (  12.95  )
+X-CRM114-CacheID: sfid-20221227_072417_877015_F56D295C 
+X-CRM114-Status: GOOD (  48.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,60 +84,141 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1525202904864884454=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, Dec 22, 2022 at 10:57 PM Bin Meng <bmeng.cn@gmail.com> wrote:
+>
+> Hi,
+>
+> On Thu, Dec 22, 2022 at 11:23 PM Saleem Abdulrasool <abdulras@google.com> wrote:
+> >
+> > On Thu, Dec 22, 2022 at 1:41 AM Bin Meng <bmeng.cn@gmail.com> wrote:
+> > >
+> > > Hi,
+> > >
+> > > On Thu, Dec 22, 2022 at 1:39 AM Saleem Abdulrasool <abdulras@google.com> wrote:
+> > > >
+> > > > On Wed, Dec 21, 2022 at 8:17 AM Bin Meng <bmeng.cn@gmail.com> wrote:
+> > > > >
+> > > > > Hi,
+> > > > >
+> > > > > On Sat, Dec 17, 2022 at 3:12 AM Saleem Abdulrasool <abdulras@google.com> wrote:
+> > > > > >
+> > > > > > The compiler is free to generate vectorized operations for zero'ing
+> > > > > > memory.  The kernel does not use the vector unit on RISCV, similar to
+> > > > > > architectures such as x86 where we use `-mno-mmx` et al to prevent the
+> > > > > > implicit vectorization.  Perform a similar check for
+> > > > > > `-mno-implicit-float` to avoid this on RISC-V targets.
+> > > > > >
+> > > > > > Signed-off-by: Saleem Abdulrasool <abdulras@google.com>
+> > > > > > ---
+> > > > > >  arch/riscv/Makefile | 4 ++++
+> > > > > >  1 file changed, 4 insertions(+)
+> > > > > >
+> > > > > > diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+> > > > > > index 0d13b597cb55..68433476a96e 100644
+> > > > > > --- a/arch/riscv/Makefile
+> > > > > > +++ b/arch/riscv/Makefile
+> > > > > > @@ -89,6 +89,10 @@ KBUILD_AFLAGS_MODULE += $(call as-option,-Wa$(comma)-mno-relax)
+> > > > > >  # architectures.  It's faster to have GCC emit only aligned accesses.
+> > > > > >  KBUILD_CFLAGS += $(call cc-option,-mstrict-align)
+> > > > > >
+> > > > > > +# Ensure that we do not vectorize the kernel code when the `v` extension is
+> > > > > > +# enabled.  This mirrors the `-mno-mmx` et al on x86.
+> > > > > > +KBUILD_CFLAGS += $(call cc-option,-mno-implicit-float)
+> > > > >
+> > > > > This looks like an LLVM flag, but not GCC.
+> > > >
+> > > > Correct, this is a clang flag, though I imagine that GCC will need a
+> > > > similar flag once it receives support for the V extension.
+> > > >
+> > > > > Can you elaborate what exact combination (compiler flag and source)
+> > > > > would cause an issue?
+> > > >
+> > > > The particular case that I was using was simply `clang -target
+> > > > riscv64-unknown-linux-musl -march=rv64gcv` off of main.
+> > > >
+> > > > > From your description, I guess it's that when enabling V extension in
+> > > > > LLVM, the compiler tries to use vector instructions to zero memory,
+> > > > > correct?
+> > > >
+> > > > Correct.
+> > >
+> > > Thanks for the confirmation.
+> > >
+> > > >
+> > > > > Can you confirm LLVM does not emit any float instructions (like F/D
+> > > > > extensions) because the flag name suggests something like "float"?
+> > > >
+> > > > The `-mno-implicit-float` should disable any such emission.  I assume
+> > > > that you are worried about the case without the flag?  I'm not 100%
+> > > > certain without this flag, but the RISCV build with this flag has been
+> > > > running smoothly locally for a while.
+> > > >
+> > > >
+> > >
+> > > I still have some questions about the `-mno-implicit-float` option's behavior.
+> > >
+> > > - If this option is not on, does the compiler emit any F/D extension
+> > > instruction for zero'ing memory when -march=rv64g? I want to know
+> > > whether the `-mno-implicit-float` option only takes effect when "v"
+> > > appears on the -march string.
+> >
+> > AFAIK, and from a quick test, no, it will not.  That also makes sense
+> > since the F/D/Q handling is not as likely to be useful for generating
+> > a 0-filled array.  No, the use of `-mno-implicit-float` is not guarded
+> > by the use of the vector extension, but it does only impact the
+> > vectorized code generation (the loop vectorizer, load/store
+> > vectorizer, and SLP vectorizer).
+>
+> Thank you. The quick test you did seems to match what the LLVM commit [1] says:
+>
+>     "It also disables implicit uses of scalar FP, but I don't know if
+> we have any of those for RISC-V."
+>
+> [1] https://github.com/llvm/llvm-project/commit/549231d38e10de7371adb85f5452d42ad42f4201
+>
+> >
+> > > - If the answer to the above question is no, I wonder why the option
+> > > is called `-mno-implicit-float` as float suggests the FPU usage, but
+> > > actually it is about vectorization. The Clang documentation says
+> > > almost nothing about this option.
+> >
+> > The flag itself is from GCC, it was added for the ARM architecture, to
+> > prefer using the scalar core over the VFP register set as ARM uses the
+> > VFP for vectorized operations.  As it so happens, internally in LLVM,
+> > the loop vectorizer uses the (internal) `NoImplicitFloat` function
+> > attribute to prevent the loop from being vectorized, and the flag that
+> > controls this is exposed as `-mimplicit-float` and
+> > `-mno-implicit-float`.
+> >
+>
+> It seems GCC does not have such a flag. Thanks for the history
+> introduction. It was introduced on Arm to disable vectorized operation
+> using VFP, hence it was named as -no-implict-float. But IMHO the
+> option is badly named. Maybe -no-implicit-vectorization better fits
+> what it really does.
 
---===============1525202904864884454==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="FU7aTXDCvLLRKW0J"
-Content-Disposition: inline
+The option is present on ARM GCC, but not RISC-V GCC.  Sure, the
+option could be better named - personally, I'd prefer
+`-mgeneral-regs-only` to match the x86 convention which leaves it
+sufficiently generalised that future extensions would easily fit into
+the behavioural control.  Much like the Linux kernel's prime
+directive: "we do not break userspace'', the LLVM toolchain has a
+similar view point: options which have shipped are considered
+permanent.  Even if renamed, it would be an alias and the old option
+sticks around in near perpetuity.
 
-
---FU7aTXDCvLLRKW0J
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, Dec 27, 2022 at 08:58:01AM +0100, Krzysztof Kozlowski wrote:
-> On 27/12/2022 00:01, Conor Dooley wrote:
-> > On Tue, Dec 20, 2022 at 09:12:40AM +0800, Hal Feng wrote:
-> > The DT is waiting for the clock/reset & pinctrl binding headers anyway,
->=20
-> Which were sent with build warnings/errors...
-
-Yah, DW chief - I'm not in a rush. Figure it'll take a few more
-iterations.
-
-Errors/warnings aside, responding to the clock series again is in my
-todo list, not convinced by the clock binding itself.
-
-
---FU7aTXDCvLLRKW0J
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY6r/HgAKCRB4tDGHoIJi
-0gYeAQCeWz9Cz2cqX8w05FRvSFr+0vhC8blylBRMdd0k4kNzCwD/RcbCjRaC4y1l
-3MMyFlRE9sQKhQSovtr0C9rIztbO9wI=
-=anTB
------END PGP SIGNATURE-----
-
---FU7aTXDCvLLRKW0J--
-
-
---===============1525202904864884454==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> FWIW,
+> Reviewed-by: Bin Meng <bmeng.cn@gmail.com>
+>
+> Regards,
+> Bin
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1525202904864884454==--
-
