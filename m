@@ -4,95 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FE9AC10F1B
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Dec 2022 01:38:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC0B9C10F1B
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Dec 2022 02:10:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:Cc:References:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:CC:To:Subject:
+	From:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HBIhy5/ID0vm0DsYGEppDLPtCOUXeQBVtekr+uc39Ss=; b=g0/2QZ6B85trlM
-	5voLw2uljRK07RptnFu2NF1D6IpxVg8C2+/VJoOiBNgCCaC8dbBvXkUgEgRSDRL+GVaN/RhkstMY6
-	h1wzm7fH8hbnTGcyBDEx+MtusIs92gLhzkJLBzU7N05Q9BwLcg4/w1k0LnbsuleaxfS9m7hJvIUi+
-	xAufnup/P0ELacxuErWLVCyeu2ZnzNY4Kobo761p1/SpUgFj9f93uf4JJUfo6TuoUrjiyWNw2Qpca
-	C8p9+AuKzxdIFJUVW5L1EER+DZtChnwN5QGG7j2kKsTE2ewg3a8Mr+IdMRf26tFmATJrj3j1MT7ls
-	7TMVSgrgmCwuqqX4rA7Q==;
+	List-Owner; bh=ZQMmm0jwIYb3zxoDVDdj08HHACzmgRNEhtw+Es5dRTg=; b=K+uqZ4NUpaO4ap
+	bPPrVIgkMqJadV6NIIZhqHl86KCSvfGemmlnkvenmbu3poSnHX3qi+JVruZwWUI20HF0YbUIobQ4+
+	QK1IffR/EanYPJv3aqFweZBg+pKvEi8hh690o3jmGwVmCI0+WIX3aWtC9RV8sklXxc+alQB2OBWhY
+	Y6GZB7xlIrpwVCEnBJtBcBuh31T35R7fg4ebwm96tyajp8gMkHbRP8478qhGhC7ipROK4EcGCAgu5
+	NTaIC4MUL/xQ4GrY2JjrPjQ2XwqFTMIrK90D4XThs1dE41mwZL1yRHs4iWzFtv9vbG7neHqnZwkvS
+	vHa2QV+5nJGCKdpyLL6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pALP4-000VJ4-R1; Wed, 28 Dec 2022 01:38:46 +0000
-Received: from out3-smtp.messagingengine.com ([66.111.4.27])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pALP1-000VGi-G8
-	for linux-riscv@lists.infradead.org; Wed, 28 Dec 2022 01:38:45 +0000
-Received: from compute3.internal (compute3.nyi.internal [10.202.2.43])
-	by mailout.nyi.internal (Postfix) with ESMTP id D26AD5C00AE;
-	Tue, 27 Dec 2022 20:38:42 -0500 (EST)
-Received: from mailfrontend1 ([10.202.2.162])
-  by compute3.internal (MEProxy); Tue, 27 Dec 2022 20:38:42 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
-	cc:cc:content-transfer-encoding:content-type:date:date:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:sender:subject:subject:to:to; s=fm3; t=1672191522; x=
-	1672277922; bh=iC1a58fopLg2dyidRFyFPZOZXaXL0ZruSKVGJ6/nOig=; b=E
-	4w5GwRQ+8JtzSAznWScl6ANpSNTjAR+dZdPBmXkUxKOxPUKBvBTmcTyi63N5kKT7
-	H1963AjYxTST5hYfg15Tu3+OOWKXIh15dyJuisJVNytsv93pnA0ZAVFN5JmiJAtn
-	z8uPTmwonvlgkAIBOEVputB9tKYEwKmXKHgJz1vAhGYWIJYcDp3474+w62ZfXNgq
-	T6xaC8eR3smBS/r3Y5xjSztycCyBj67yMmr1mLzR2TOMIlhi+A9ep3ZBnFiE7PwH
-	j8+AUT1bmwH/si70iqIx0swW/vF+fYN4+ejARZD2sOofT+E380VoiArSVBObC+qN
-	KhrYdgMFB12Z9rvw/1NAQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:sender:subject:subject:to:to:x-me-proxy:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1672191522; x=
-	1672277922; bh=iC1a58fopLg2dyidRFyFPZOZXaXL0ZruSKVGJ6/nOig=; b=I
-	cteJ0wEdzCTJFIm693Mp4YyQCI8l/LyY2LVrrKKqnmlteO3PMjNrEYrZI5CTtvCF
-	9SWl09pJ7NnkfDGOPS8xJIyLgH95IstiYl8GJAdqgEpsUvXAsDHjKxFmtPyvJCdw
-	foijtjsJ/i8pQsoSYHBR+/xt9la3IQKXXlSc+m42tteJeqOfBeQlf+uulfKGjtmi
-	Oq+Ts2yQ8RSma6RI4fx5aC6n2RHG/CNolSglPQiz/Oncz8CMsgZLOyfRZd4Fsvt+
-	I/KaftcoNbaMjA/m9ZYon7K+xWmiWBi48/vrnGIqLxMraJ8kaJrQ0oNY/8IkTNLs
-	9aZasQs0C5YV83pL5LuEg==
-X-ME-Sender: <xms:Ip6rY86Hc6PfiZorb-ViYn7cNsgRiihh9R7R33UgMPXDgjO4aqJfnw>
-    <xme:Ip6rY94CEoJ_6ykeqyIPHootVw0AH3sNJXM-zOCi-pUA0Dc3etv6lAudQ_kV4JBWH
-    U8AY5SnV3Uakbw64g>
-X-ME-Received: <xmr:Ip6rY7cER7AJqKJEMsP9Ncx65pyKHt8M-0sphpSR0tOfhOgImORxG5pB6NtKDpXzwSaZbLJPJErZi4bSEyK86Zvv9uZkfuQpB9FzBSpgGdE5FSsYK09mHly0lw>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedriedugdefkecutefuodetggdotefrodftvf
-    curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
-    uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
-    fjughrpefkffggfgfuvfhfvefhjggtgfesthejredttdefjeenucfhrhhomhepufgrmhhu
-    vghlucfjohhllhgrnhguuceoshgrmhhuvghlsehshhholhhlrghnugdrohhrgheqnecugg
-    ftrfgrthhtvghrnhepjeegjeejteeftedvgfdtlefgveelgedugeelheeuudeigeejjeef
-    jeelkeffvedvnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrh
-    homhepshgrmhhuvghlsehshhholhhlrghnugdrohhrgh
-X-ME-Proxy: <xmx:Ip6rYxLYECx36W0zOVc1NHzxPgXH_frOUR53fxfeS385DymiHcQ-PQ>
-    <xmx:Ip6rYwLwJ-7liOxx2WSKJ1R7fL9sycFYmRGedr5AsVW7g_w7_ETyOQ>
-    <xmx:Ip6rYyyZYce9HaGHafCHt4Bmua1nOgrAUqVtfEDflxEzd6DkoM6Y6w>
-    <xmx:Ip6rY1UhNBd3iVCNH7Pu8J_R9vIFbDPEX6lkL72oWO2KIKYzIziqig>
-Feedback-ID: i0ad843c9:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
- 27 Dec 2022 20:38:41 -0500 (EST)
-Message-ID: <cedd59be-e194-aef9-6249-aa6a15a53842@sholland.org>
-Date: Tue, 27 Dec 2022 19:38:41 -0600
+	id 1pALtD-000iYD-OH; Wed, 28 Dec 2022 02:09:55 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pALt7-000iHS-5G
+	for linux-riscv@lists.infradead.org; Wed, 28 Dec 2022 02:09:53 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 73AA024E00A;
+	Wed, 28 Dec 2022 10:08:57 +0800 (CST)
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 28 Dec
+ 2022 10:08:57 +0800
+Received: from [192.168.125.71] (113.72.146.158) by EXMBX168.cuchost.com
+ (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 28 Dec
+ 2022 10:08:56 +0800
+Message-ID: <83899ba9-dff0-a678-e319-565101f71157@starfivetech.com>
+Date: Wed, 28 Dec 2022 10:08:55 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux ppc64le; rv:102.0) Gecko/20100101
- Thunderbird/102.3.3
-Subject: Re: [PATCH v3] riscv: Use PUD/P4D/PGD pages for the linear mapping
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.6.1
+From: Walker Chen <walker.chen@starfivetech.com>
+Subject: Re: [RESEND PATCH v2 2/3] soc: starfive: Add StarFive JH71XX pmu
+ driver
+To: Conor Dooley <conor@kernel.org>
+CC: <linux-riscv@lists.infradead.org>, <linux-pm@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, Rob Herring <robh+dt@kernel.org>, "Krzysztof
+ Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
+	<conor.dooley@microchip.com>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, "Rafael J . Wysocki"
+	<rafael@kernel.org>, <linux-kernel@vger.kernel.org>
+References: <20221208084523.9733-1-walker.chen@starfivetech.com>
+ <20221208084523.9733-3-walker.chen@starfivetech.com> <Y6DMQpGuXfBWHr8L@spud>
 Content-Language: en-US
-To: Alexandre Ghiti <alexghiti@rivosinc.com>,
- Palmer Dabbelt <palmer@dabbelt.com>
-References: <20221213060204.27286-1-alexghiti@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
- Rob Herring <robh+dt@kernel.org>, Frank Rowand <frowand.list@gmail.com>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arch@vger.kernel.org
-From: Samuel Holland <samuel@sholland.org>
-In-Reply-To: <20221213060204.27286-1-alexghiti@rivosinc.com>
+In-Reply-To: <Y6DMQpGuXfBWHr8L@spud>
+X-Originating-IP: [113.72.146.158]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX168.cuchost.com
+ (172.16.6.78)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221227_173843_786059_E0E8753E 
-X-CRM114-Status: GOOD (  25.43  )
+X-CRM114-CacheID: sfid-20221227_180949_900765_974581B1 
+X-CRM114-Status: GOOD (  40.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,66 +78,337 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 12/13/22 00:02, Alexandre Ghiti wrote:
-> During the early page table creation, we used to set the mapping for
-> PAGE_OFFSET to the kernel load address: but the kernel load address is
-> always offseted by PMD_SIZE which makes it impossible to use PUD/P4D/PGD
-> pages as this physical address is not aligned on PUD/P4D/PGD size (whereas
-> PAGE_OFFSET is).
+On 2022/12/20 4:40, Conor Dooley wrote:
+> Hey Walker,
 > 
-> But actually we don't have to establish this mapping (ie set va_pa_offset)
-> that early in the boot process because:
+> Hopefully just some minor bits here. Hopefully either Emil who has a
+> board, or someone that knows power management stuff better can give this
+> a proper review.
 > 
-> - first, setup_vm installs a temporary kernel mapping and among other
->   things, discovers the system memory,
-> - then, setup_vm_final creates the final kernel mapping and takes
->   advantage of the discovered system memory to create the linear
->   mapping.
+> On Thu, Dec 08, 2022 at 04:45:22PM +0800, Walker Chen wrote:
+>> Add pmu driver for the StarFive JH71XX SoC.
+>> 
+>> As the power domains provider, the Power Management Unit (PMU) is
+>> designed for including multiple PM domains that can be used for power
+>> gating of selected IP blocks for power saving by reduced leakage
+>> current. It accepts software encourage command to switch the power mode
+>> of SoC.
+>> 
+>> Signed-off-by: Walker Chen <walker.chen@starfivetech.com>
+>> ---
+>>  MAINTAINERS                       |  14 ++
+>>  drivers/soc/Kconfig               |   1 +
+>>  drivers/soc/Makefile              |   1 +
+>>  drivers/soc/starfive/Kconfig      |  11 +
+>>  drivers/soc/starfive/Makefile     |   3 +
+>>  drivers/soc/starfive/jh71xx_pmu.c | 396 ++++++++++++++++++++++++++++++
+>>  6 files changed, 426 insertions(+)
+>>  create mode 100644 drivers/soc/starfive/Kconfig
+>>  create mode 100644 drivers/soc/starfive/Makefile
+>>  create mode 100644 drivers/soc/starfive/jh71xx_pmu.c
+>> 
 > 
-> During the first phase, we don't know the start of the system memory and
-> then until the second phase is finished, we can't use the linear mapping at
-> all and phys_to_virt/virt_to_phys translations must not be used because it
-> would result in a different translation from the 'real' one once the final
-> mapping is installed.
+>> +config JH71XX_PMU
+>> +	bool "Support PMU for StarFive JH71XX Soc"
+>> +	depends on PM && (SOC_STARFIVE || COMPILE_TEST)
 > 
-> So here we simply delay the initialization of va_pa_offset to after the
-> system memory discovery. But to make sure noone uses the linear mapping
-> before, we add some guard in the DEBUG_VIRTUAL config.
-> 
-> Finally we can use PUD/P4D/PGD hugepages when possible, which will result
-> in a better TLB utilization.
-> 
-> Note that we rely on the firmware to protect itself using PMP.
-> 
-> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> ---
-> 
-> v3:
-> - Change the comment about initrd_start VA conversion so that it fits
->   ARM64 and RISCV64 (and others in the future if needed), as suggested
->   by Rob
-> 
-> v2:
-> - Add a comment on why RISCV64 does not need to set initrd_start/end that
->   early in the boot process, as asked by Rob
-> 
-> Note that this patch is rebased on top of:
-> [PATCH v1 1/1] riscv: mm: call best_map_size many times during linear-mapping
-> 
->  arch/riscv/include/asm/page.h | 16 ++++++++++++++++
->  arch/riscv/mm/init.c          | 25 +++++++++++++++++++------
->  arch/riscv/mm/physaddr.c      | 16 ++++++++++++++++
->  drivers/of/fdt.c              | 11 ++++++-----
->  4 files changed, 57 insertions(+), 11 deletions(-)
+> Why not just do:
+> 	depends on PM
+> 	depends on SOC_STARFIVE || COMPILE_TEST
+> I think that way reads a little better.
 
-This works nicely on D1! Before:
-	MemTotal:         490680 kB
-after:
-	MemTotal:         492472 kB
-and I tested booting with CONFIG_DEBUG_VIRTUAL without issue as well.
+No problem, will be changed like this way.
 
-Reviewed-by: Samuel Holland <samuel@sholland.org>
-Tested-by: Samuel Holland <samuel@sholland.org>
+> 
+>> +	default SOC_STARFIVE
+>> +	select PM_GENERIC_DOMAINS
+>> +	help
+>> +	  Say 'y' here to enable support power domain support.
+>> +	  In order to meet low power requirements, a Power Management Unit (PMU)
+>> +	  is designed for controlling power resources in StarFive JH71XX SoCs.
+>> diff --git a/drivers/soc/starfive/Makefile b/drivers/soc/starfive/Makefile
+>> new file mode 100644
+>> index 000000000000..13b589d6b5f3
+>> --- /dev/null
+>> +++ b/drivers/soc/starfive/Makefile
+>> @@ -0,0 +1,3 @@
+>> +# SPDX-License-Identifier: GPL-2.0
+>> +
+>> +obj-$(CONFIG_JH71XX_PMU)	+= jh71xx_pmu.o
+>> diff --git a/drivers/soc/starfive/jh71xx_pmu.c b/drivers/soc/starfive/jh71xx_pmu.c
+>> new file mode 100644
+>> index 000000000000..7a0145779e07
+>> --- /dev/null
+>> +++ b/drivers/soc/starfive/jh71xx_pmu.c
+>> @@ -0,0 +1,396 @@
+>> +// SPDX-License-Identifier: GPL-2.0-or-later
+>> +/*
+>> + * StarFive JH71XX PMU (Power Management Unit) Controller Driver
+>> + *
+>> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
+>> + */
+>> +
+>> +#include <linux/interrupt.h>
+>> +#include <linux/io.h>
+>> +#include <linux/iopoll.h>
+>> +#include <linux/module.h>
+>> +#include <linux/of.h>
+>> +#include <linux/of_device.h>
+>> +#include <linux/platform_device.h>
+>> +#include <linux/pm_domain.h>
+>> +#include <dt-bindings/power/starfive,jh7110-pmu.h>
+>> +
+>> +/* register offset */
+>> +#define JH71XX_PMU_HW_EVENT_ON		0x04
+>> +#define JH71XX_PMU_HW_EVENT_OFF		0x08
+>> +#define JH71XX_PMU_SW_TURN_ON_POWER	0x0C
+>> +#define JH71XX_PMU_SW_TURN_OFF_POWER	0x10
+>> +#define JH71XX_PMU_SW_ENCOURAGE		0x44
+>> +#define JH71XX_PMU_INT_MASK		0x48
+>> +#define JH71XX_PMU_PCH_BYPASS		0x4C
+>> +#define JH71XX_PMU_PCH_PSTATE		0x50
+>> +#define JH71XX_PMU_PCH_TIMEOUT		0x54
+>> +#define JH71XX_PMU_LP_TIMEOUT		0x58
+>> +#define JH71XX_PMU_HW_TURN_ON		0x5C
+>> +#define JH71XX_PMU_CURR_POWER_MODE	0x80
+>> +#define JH71XX_PMU_EVENT_STATUS		0x88
+>> +#define JH71XX_PMU_INT_STATUS		0x8C
+>> +
+>> +/* sw encourage cfg */
+>> +#define JH71XX_PMU_SW_ENCOURAGE_EN_LO	0x05
+>> +#define JH71XX_PMU_SW_ENCOURAGE_EN_HI	0x50
+>> +#define JH71XX_PMU_SW_ENCOURAGE_DIS_LO	0x0A
+>> +#define JH71XX_PMU_SW_ENCOURAGE_DIS_HI	0xA0
+>> +#define JH71XX_PMU_SW_ENCOURAGE_ON	0xFF
+>> +
+>> +/* pmu int status */
+>> +#define JH71XX_PMU_INT_SEQ_DONE		BIT(0)
+>> +#define JH71XX_PMU_INT_HW_REQ		BIT(1)
+>> +#define JH71XX_PMU_INT_SW_FAIL		GENMASK(3, 2)
+>> +#define JH71XX_PMU_INT_HW_FAIL		GENMASK(5, 4)
+>> +#define JH71XX_PMU_INT_PCH_FAIL		GENMASK(8, 6)
+>> +#define JH71XX_PMU_INT_FAIL_MASK	(JH71XX_PMU_INT_SW_FAIL | \
+>> +					JH71XX_PMU_INT_HW_FAIL | \
+>> +					JH71XX_PMU_INT_PCH_FAIL)
+>> +#define JH71XX_PMU_INT_ALL_MASK		(JH71XX_PMU_INT_SEQ_DONE | \
+>> +					JH71XX_PMU_INT_HW_REQ | \
+>> +					JH71XX_PMU_INT_FAIL_MASK)
+>> +
+>> +/*
+>> + * The time required for switching power status is based on the time
+>> + * to turn on the largest domain's power, which is at microsecond level
+>> + */
+>> +#define JH71XX_PMU_TIMEOUT_US		100
+>> +
+>> +struct jh71xx_domain_info {
+> 
+> 	const char * const name;
+> 	unsigned int flags;
+> 	u8 bit;
+> 
+>> +};
+>> +
+>> +struct jh71xx_pmu_match_data {
+> 
+> 	const struct jh71xx_domain_info *domain_info;
+> 	int num_domains;
+> 
+> Can you switch these two around like so?
+
+Should be no problem.
+
+>> +};
+>> +
+>> +struct jh71xx_pmu {
+>> +	struct device *dev;
+>> +	const struct jh71xx_pmu_match_data *match_data;
+>> +	void __iomem *base;
+>> +	spinlock_t lock;	/* protects pmu reg */
+>> +	int irq;
+>> +	struct genpd_onecell_data genpd_data;
+>> +	struct generic_pm_domain **genpd;
+>> +};
+>> +
+>> +struct jh71xx_pmu_dev {
+>> +	struct generic_pm_domain genpd;
+>> +	const struct jh71xx_domain_info *domain_info;
+>> +	struct jh71xx_pmu *pmu;
+> 
+> And these two too please in the same way.
+
+Nice :)
+
+> 
+>> +};
+>> +
+>> +static int jh71xx_pmu_get_state(struct jh71xx_pmu_dev *pmd, u32 mask, bool *is_on)
+>> +{
+>> +	struct jh71xx_pmu *pmu = pmd->pmu;
+>> +
+>> +	if (!mask) {
+>> +		*is_on = false;
+>> +		return -EINVAL;
+>> +	}
+>> +
+>> +	*is_on = readl(pmu->base + JH71XX_PMU_CURR_POWER_MODE) & mask;
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static int jh71xx_pmu_set_state(struct jh71xx_pmu_dev *pmd, u32 mask, bool on)
+>> +{
+>> +	struct jh71xx_pmu *pmu = pmd->pmu;
+>> +	unsigned long flags;
+>> +	u32 val;
+>> +	u32 mode;
+>> +	u32 encourage_lo;
+>> +	u32 encourage_hi;
+>> +	bool is_on;
+>> +	int ret;
+>> +
+>> +	ret = jh71xx_pmu_get_state(pmd, mask, &is_on);
+>> +	if (ret) {
+>> +		dev_dbg(pmu->dev, "unable to get current state for %s\n",
+>> +			pmd->genpd.name);
+>> +		return ret;
+>> +	}
+>> +
+>> +	if (is_on == on) {
+>> +		dev_dbg(pmu->dev, "pm domain [%s] is already %sable status.\n",
+>> +			pmd->genpd.name, on ? "en" : "dis");
+>> +		return 0;
+>> +	}
+>> +
+>> +	spin_lock_irqsave(&pmu->lock, flags);
+>> +
+>> +	/*
+>> +	 * The PMU accepts software encourage to switch power mode in the following 2 steps:
+>> +	 *
+>> +	 * 1. Configure the register SW_TURN_ON_POWER (offset 0x0c), write 1 to
+>> +	 *    the bit which power domain will be turn-on, write 0 to the others.
+> 
+> Some grammatical nit picking..
+> 
+> "Configure the register blah (offset 0x0c) by writing 1 to the bit
+> corresponding to the power domain that will be turned on and writing
+> zero to the others."
+> 
+> Is that a correct correct summation of the operation?
+
+Yes, maybe your description is better easy-to-understand.
+
+> 
+>> +	 *    Likewise, configure the register SW_TURN_OFF_POWER (offset 0x10),
+>> +	 *    write 1 to the bit which power domain will be turn-off, write 0 to the others.
+> 
+> 
+>> +	 */
+>> +	if (on) {
+>> +		mode = JH71XX_PMU_SW_TURN_ON_POWER;
+>> +		encourage_lo = JH71XX_PMU_SW_ENCOURAGE_EN_LO;
+>> +		encourage_hi = JH71XX_PMU_SW_ENCOURAGE_EN_HI;
+>> +	} else {
+>> +		mode = JH71XX_PMU_SW_TURN_OFF_POWER;
+>> +		encourage_lo = JH71XX_PMU_SW_ENCOURAGE_DIS_LO;
+>> +		encourage_hi = JH71XX_PMU_SW_ENCOURAGE_DIS_HI;
+>> +	}
+>> +
+>> +	writel(mask, pmu->base + mode);
+>> +
+>> +	/*
+>> +	 * 2. Write SW encourage command sequence to the Software Encourage Reg (offset 0x44)
+>> +	 * SW turn-on command sequence: 0xff -> 0x05 -> 0x50
+>> +	 * SW turn-off command sequence: 0xff -> 0x0a -> 0xa0
+> 
+> I think you could replace the hard "coded" numbers here with a better
+> description idk without looking at the #defines above what these
+> correspond to. AFAICT, it'd be something like:
+> First write the ...ENCOURAGE_ON to reset the state machine which parses
+> the command sequence. It must be written every time.
+> Then write the lower bits of the command sequence, followed by the upper
+> bits. The sequence differs between powering on & off a domain.
+
+Thank you for correction for these description. Because English is not my native language,
+so not very good in some sentences. I'll take your advice.
+
+>> +	 *
+>> +	 * Note: writing SW_MODE_ENCOURAGE_ON (0xFF) to the SW_ENCOURAGE register,
+>> +	 * the purpose is to reset the state machine which is going to parse instruction
+>> +	 *  sequence. It has to be written every time.
+>> +	 */
+>> +	writel(JH71XX_PMU_SW_ENCOURAGE_ON, pmu->base + JH71XX_PMU_SW_ENCOURAGE);
+>> +	writel(encourage_lo, pmu->base + JH71XX_PMU_SW_ENCOURAGE);
+>> +	writel(encourage_hi, pmu->base + JH71XX_PMU_SW_ENCOURAGE);
+>> +
+>> +	spin_unlock_irqrestore(&pmu->lock, flags);
+>> +
+>> +	/* Wait for the power domain bit to be enabled / disabled */
+>> +	if (on) {
+>> +		ret = readl_poll_timeout_atomic(pmu->base + JH71XX_PMU_CURR_POWER_MODE,
+>> +						val, val & mask,
+>> +						1, JH71XX_PMU_TIMEOUT_US);
+>> +	} else {
+>> +		ret = readl_poll_timeout_atomic(pmu->base + JH71XX_PMU_CURR_POWER_MODE,
+>> +						val, !(val & mask),
+>> +						1, JH71XX_PMU_TIMEOUT_US);
+>> +	}
+>> +
+>> +	if (ret) {
+>> +		dev_err(pmu->dev, "%s: failed to power %s\n",
+>> +			pmd->genpd.name, on ? "on" : "off");
+>> +		return -ETIMEDOUT;
+>> +	}
+>> +
+>> +	return 0;
+>> +}
+> 
+>> +static int jh71xx_pmu_probe(struct platform_device *pdev)
+>> +{
+>> +	struct device *dev = &pdev->dev;
+>> +	struct device_node *np = dev->of_node;
+>> +	const struct jh71xx_pmu_match_data *match_data;
+>> +	struct jh71xx_pmu *pmu;
+>> +	unsigned int i;
+>> +	int ret;
+>> +
+>> +	pmu = devm_kzalloc(dev, sizeof(*pmu), GFP_KERNEL);
+>> +	if (!pmu)
+>> +		return -ENOMEM;
+>> +
+>> +	pmu->base = devm_platform_ioremap_resource(pdev, 0);
+>> +	if (IS_ERR(pmu->base))
+>> +		return PTR_ERR(pmu->base);
+>> +
+>> +	/* initialize pmu interrupt  */
+> 
+> nit: this comment is ~pointless.
+
+Will be dropped.
+
+> 
+>> +	pmu->irq = platform_get_irq(pdev, 0);
+>> +	if (pmu->irq < 0)
+>> +		return pmu->irq;
+>> +
+>> +	ret = devm_request_irq(dev, pmu->irq, jh71xx_pmu_interrupt,
+>> +			       0, pdev->name, pmu);
+>> +	if (ret)
+>> +		dev_err(dev, "request irq failed.\n");
+> 
+> nit: s/request/requesting
+
+Will be fixed.
+
+> 
+> Unfortunately I cannot really review the rest of this, but hopefully
+> I'll get a board soon and can try it out - or else send me a link to
+> your TRM or w/e.
+
+Anyway, I would like to thank you very much for your time.
+
+
+Best regards,
+Walker
 
 
 _______________________________________________
