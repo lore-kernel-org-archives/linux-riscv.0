@@ -4,100 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAB47C10F1B
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Dec 2022 23:38:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85BF8C10F1B
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Dec 2022 00:45:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Subject:From:References:Cc:
-	To:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HvnLRxtcYnA38jt+nQEIbhyV0G9SXbmdXOTNQe9L94U=; b=fleDHP09s82VV7
-	2CeSMgXYqJd5zOB1VJi7NZsUWXMzTp28s/ogVj8E1jV6wFe04EFs+oBgVHsZ9ETKofTrZxYUlBHWn
-	kILCI1Ex8P8oYYlWMg1YD1rilRNWBHC+5cNzZChu/r88ACQNuONlvRcdpOzjTn7KUZsd+sHgZFN7h
-	M7+DWLVZ4aNBB/j6welMg4TNGDCwGKlLyuS2GJ6q7bZOvXykOlIVtO6otuHdwRxs/jaiDvBQQHvn0
-	QuDoSRPoWM17UXCGl9lgEf8CwrId83EIU7mt5nHTY8XJtNYOOaAeDlpygVeAWmdbxwoZR8d4f66ik
-	V2TYujsMmNoTvOWDnunw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=tsn2QjJiTJE5yv0zTHQkmwj1ePyuJ/HPvrKW/sjjxtI=; b=1rDRTnR2aau8/a
+	0QGwx8g/J+GkyWlmSYkWEKbriuLvdEPB6SOv6fXcd2i9xPo5ZYZ5KAmyayHmidwkeU/76WRq9kppA
+	YI/mRgzPELlErhCWLtZj32JoJBZlWO3qO2+Z7QwsWpqc3S0mAQbxnEnEaxp7JZYW7Po3AzzWtbwur
+	qoehsBxyTPLWRXa3KSZmcprO8i3513EParHB0qUPuL2Nkvd1FrcSyvshH+ABHN/6dFtdt1o5i5jS9
+	Zkab6w3tje13+i/Gk4FPLvJTXyhy/CegRkWYBaaXp1RhFYUN9V1P24ClncmE0IBLbQ4/+mQqU/vIs
+	lu2VxZ3vYjunvdn1Ko9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pAJWA-00HKKi-Ri; Tue, 27 Dec 2022 23:37:58 +0000
-Received: from wout4-smtp.messagingengine.com ([64.147.123.20])
+	id 1pAKYw-000Ceg-OX; Wed, 28 Dec 2022 00:44:54 +0000
+Received: from out3-smtp.messagingengine.com ([66.111.4.27])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pAJCW-00HB38-8e
-	for linux-riscv@lists.infradead.org; Tue, 27 Dec 2022 23:17:43 +0000
-Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
-	by mailout.west.internal (Postfix) with ESMTP id 2CB2D320092B;
-	Tue, 27 Dec 2022 18:17:32 -0500 (EST)
-Received: from mailfrontend1 ([10.202.2.162])
-  by compute5.internal (MEProxy); Tue, 27 Dec 2022 18:17:33 -0500
+	id 1pAKYt-000Cay-RX
+	for linux-riscv@lists.infradead.org; Wed, 28 Dec 2022 00:44:53 +0000
+Received: from compute2.internal (compute2.nyi.internal [10.202.2.46])
+	by mailout.nyi.internal (Postfix) with ESMTP id D7B5B5C00CC;
+	Tue, 27 Dec 2022 19:44:46 -0500 (EST)
+Received: from mailfrontend2 ([10.202.2.163])
+  by compute2.internal (MEProxy); Tue, 27 Dec 2022 19:44:46 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
-	cc:cc:content-transfer-encoding:content-type:date:date:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:sender:subject:subject:to:to; s=fm3; t=1672183051; x=
-	1672269451; bh=F0QkIAB41jYkIimhGOo727aX99iPc7fnfFYfTCyrtmQ=; b=F
-	EHq+Z3SDZCwyUwik5ZqJiMj8VI6ZVsoMptvjIEq7gnI2sgvdJBHAIfFSxIlY4Cjo
-	VS4pXKz/1jK0iywBvo8389upTi/pT/vkHm15x+D/16ji7EOGxf5rCgbABz0xSuel
-	DiI0oEEw3K26LRvpQJ5xzXye7uP6PRDVNKXo/0ZTquMLmG7apirqOuwP5ZPKO0Pt
-	3EN5DykvH2sYLG4woBNbSG3CqrNxJAfyRnm4M6N6o07mpcso1MrGUTgjqqbntNYy
-	9fq2nv3xipEGYr7n8zOeRhtZZE9aLo6f1Gbwui51IyodnrQ2ZGzFlyrm+OaLEGQw
-	SAa6aIcB8JKWMN+YpwOWg==
+	cc:cc:content-transfer-encoding:date:date:from:from:in-reply-to
+	:message-id:mime-version:reply-to:sender:subject:subject:to:to;
+	 s=fm3; t=1672188286; x=1672274686; bh=lJKh5hLUSVyNtGb27sEl8iKUo
+	pQtksa0I8JjuVzm/jY=; b=zsXQvkbc4qvvStb1M0jQ5bPd3f+tBhq0STct4u3nu
+	QFwp83KoW0i4X//TVOFdjcNsGpo1Oc38whYYa4fcxGZZ2eckTsIBQzascSQqMPP8
+	6OVXIpr4QS8lrMMTycvQ91m6h4MABLc40u0OqDZrJBcGVSwkIfn+8Ccw333WRn/o
+	OKeY58lnAe0WBBFmQeUQFR4qZzeXq7m4JcZlPBMBwtsb30OK9N8DOfDdvrlofZtM
+	PaYpS2orM7rveegfgrhS8t5AIsR+VvHlMG/64g7Eu8EEkiqSvkapcpYnVuxzuOtO
+	wltFE3GW16yFFeXEIMF+HykbGcx2QWkWNG51VzbZTeSdw==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:sender:subject:subject:to:to:x-me-proxy:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1672183051; x=
-	1672269451; bh=F0QkIAB41jYkIimhGOo727aX99iPc7fnfFYfTCyrtmQ=; b=J
-	vHsP8T+NeP72LDLuGIbnHrkmmpx0juGLiMirKf3bB3SAEoB0hgp7sl/COdrFI/bk
-	juy+I8zib07iQoiinUu5h2Sp3TGhE1Urgg3nyR2IktWwZ5F5fqf7kb9DuUgv5Lii
-	dxJGgqG168H9d/hew8fGm7Pm56rZZUkOrr4kXGQCmvVxSXZU7cDVnj63ZqZHZT3Q
-	QWa6+gh6GcknBCQuISNc8geedJSYFSz+EW88577IAgY68R3hPd/i7f3oQGyvgMzH
-	331Yb5KaDXdcIOeEzZvazd5l8vVu90nQTGBFRSpr1NUDLucfWFYrff4A7k6xjTv7
-	RFdyeM3vib95KKANvvfIg==
-X-ME-Sender: <xms:Cn2rY5KScurZ-Y83olgZbqhjcWYliStHDsBX3ipyDuepR1f_xDN8wA>
-    <xme:Cn2rY1KwBcVlosR1r2UDVCfpVMS2gKKrLlogcEU4hw1RQme3W7Gr1-1KjDN3LEmyO
-    qaU95lpqYChv3Gkhg>
-X-ME-Received: <xmr:Cn2rYxsXzp4cA1wOl4Slf9f37tYQ0FlXK8BiwG2J7MgShuoX3jS2mImBpZ1D5EHIbhr2QXkRB3LGDbqSGLVs8lt7gBkABASAocWC56R8bF7Dc6SbE5bGTpiaOw>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedriedugddtlecutefuodetggdotefrodftvf
+	messagingengine.com; h=cc:cc:content-transfer-encoding:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:message-id
+	:mime-version:reply-to:sender:subject:subject:to:to:x-me-proxy
+	:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=
+	1672188286; x=1672274686; bh=lJKh5hLUSVyNtGb27sEl8iKUopQtksa0I8J
+	juVzm/jY=; b=jpUgIno+86qYFaeGQn5+s30NUnkg/CCRVzjVp9GW/E0dR7mLEL6
+	0DZXdgLmi4IMPbDCHBE6s3l6QB+KlxDqkQernCkEGU2ihv+i16/qN+hh+qornvRW
+	iFBeM82wFAPlLX4qBIGjFMdw3ttGCWogLIZoXxqtEM2fEHC/r5Fg5EzdEBMf8lLV
+	0DRy/AoepLZX1Gdu93AduwHcuDl1i957/hv5Es+1pO6bFDj34JJty1Af5u5HfPdF
+	qbkN18LEkOeCeLS54EDRbc9ELnnqA8p7qMbMtdxFAKtYA+m/eQlKTsStnCSvhrOL
+	aT/WId0KvRn/4djCWMHJxr8BoTi89658xVg==
+X-ME-Sender: <xms:fpGrYwPR4xuCgO4e8y3P4kgryvMjk42PLPqwkWkoMEUIv3yhqZ5w0Q>
+    <xme:fpGrY2_Mgh6SUqXB3ZIOmu2p2OjixDgn19CWxyBsVtHs3SKDvCDgW-jpLL_dugSev
+    Pd_XqC8j6VxseP_hg>
+X-ME-Received: <xmr:fpGrY3QdETEsIgjk2Ux7Dl81HunUTSYYv6VmsQTyWSeYgQ58vR-14Tv6BeEuJHSIP7YX_dYVHSb0qiLGdqbCW_3sULwLMM941T22UNW1VjW0fAFXaWEVWGinr7qTtQOzWC2YNA>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedriedugddvjecutefuodetggdotefrodftvf
     curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
     uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
-    fjughrpefkffggfgfvvehfhffujggtgfesthejredttdefjeenucfhrhhomhepufgrmhhu
-    vghlucfjohhllhgrnhguuceoshgrmhhuvghlsehshhholhhlrghnugdrohhrgheqnecugg
-    ftrfgrthhtvghrnhepjefgfffhudejfedtuedugeeutdetgfeiteffffehjeeugfeuvdeh
-    jeetfedtffdtnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrh
-    homhepshgrmhhuvghlsehshhholhhlrghnugdrohhrgh
-X-ME-Proxy: <xmx:Cn2rY6aEScJsbKgmyYpnN6EDPjmFcNkm7TYhPESYL4U7WQUlu1IOdQ>
-    <xmx:Cn2rYwZjxj-k5GRiSQT4wTsYghJvjV2-q3te8pYoCyYBWBlOxCDRUQ>
-    <xmx:Cn2rY-Ap3mJGjMh-XGYt_iQ2LBtNwe_cYU3U5uFgwNPnKlEN9fALNg>
-    <xmx:C32rYwr28Jbu8ruDwkMGxtYfDTOybqHw0B5LEeBgGYnmsHy0qS_mAQ>
+    fjughrpefhvfevufffkffoggfgsedtkeertdertddtnecuhfhrohhmpefurghmuhgvlhcu
+    jfholhhlrghnugcuoehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhgqeenucggtffrrg
+    htthgvrhhnpeekveelhfejueelleetvdejvdeffeetgeelheeujeffhefgffefkeehhffh
+    keekgeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpe
+    hsrghmuhgvlhesshhhohhllhgrnhgurdhorhhg
+X-ME-Proxy: <xmx:fpGrY4suk0hdHM_fE1N5dEqeRltOyr9UMHDbkEc3qJa3vTaFnMv_wA>
+    <xmx:fpGrY4d349C_7MaAlYDu9H52k22l5DFzr0D5ndAdsyDjxF0N6r2nLQ>
+    <xmx:fpGrY83KlxEYWxV4AhgP7btqrSfpWVu29JBVjUs1vfimRgLwes5UBg>
+    <xmx:fpGrY2tQhPmgQHCdvI7buI3rSUz3bXzdEKsHeUnnZLA2DefNNoaDMQ>
 Feedback-ID: i0ad843c9:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
- 27 Dec 2022 18:17:29 -0500 (EST)
-Message-ID: <a92eda53-90ed-718d-6925-0d9afbb029c5@sholland.org>
-Date: Tue, 27 Dec 2022 17:17:28 -0600
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux ppc64le; rv:102.0) Gecko/20100101
- Thunderbird/102.3.3
-Content-Language: en-US
-To: Prabhakar <prabhakar.csengg@gmail.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Thomas Gleixner <tglx@linutronix.de>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Conor Dooley <conor.dooley@microchip.com>, Heiko Stuebner <heiko@sntech.de>
-Cc: linux-riscv@lists.infradead.org, Anup Patel <anup@brainfault.org>,
- linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
- Biju Das <biju.das.jz@bp.renesas.com>,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-References: <20221211215843.24024-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ 27 Dec 2022 19:44:45 -0500 (EST)
 From: Samuel Holland <samuel@sholland.org>
-Subject: Re: [RFC PATCH] clocksource/drivers/riscv: Get rid of
- clocksource_arch_init() callback
-In-Reply-To: <20221211215843.24024-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>
+Cc: Prabhakar Lad <prabhakar.csengg@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH] clocksource/drivers/riscv: Increase the clock source rating
+Date: Tue, 27 Dec 2022 18:44:44 -0600
+Message-Id: <20221228004444.61568-1-samuel@sholland.org>
+X-Mailer: git-send-email 2.37.4
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221227_151741_327508_AF2AD934 
-X-CRM114-Status: GOOD (  22.14  )
+X-CRM114-CacheID: sfid-20221227_164452_588378_07397065 
+X-CRM114-Status: GOOD (  10.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,107 +105,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 12/11/22 15:58, Prabhakar wrote:
-> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> 
-> Having a clocksource_arch_init() callback always sets vdso_clock_mode to
-> VDSO_CLOCKMODE_ARCHTIMER if GENERIC_GETTIMEOFDAY is enabled, this is
-> required for the riscv-timer.
-> 
-> This works for platforms where just riscv-timer clocksource is present.
-> On platforms where other clock sources are available we want them to
-> register with vdso_clock_mode set to VDSO_CLOCKMODE_NONE.
-> 
-> On the Renesas RZ/Five SoC OSTM block can be used as clocksource [0], to
-> avoid multiple clock sources being registered as VDSO_CLOCKMODE_ARCHTIMER
-> move setting of vdso_clock_mode in the riscv-timer driver instead of doing
-> this in clocksource_arch_init() callback as done similarly for ARM/64
-> architecture.
+RISC-V provides an architectural clock source via the time CSR. This
+clock source exposes a 64-bit counter synchronized across all CPUs.
+Because it is accessed using a CSR, it is much more efficient to read
+than MMIO clock sources. For example, on the Allwinner D1, reading the
+sun4i timer in a loop takes 131 cycles/iteration, while reading the
+RISC-V time CSR takes only 5 cycles/iteration.
 
-This is definitely a good change to make, but shouldn't we still prefer
-the architectural CSR-based clocksource over an MMIO-based clocksource?
-It has double the number of bits, and reading it should have less
-overhead. So I think we also want to increase the rating of
-riscv_clocksource.
+Adjust the RISC-V clock source rating so it is preferred over the
+various platform-specific MMIO clock sources.
 
-D1 is in the same situation, as timer-sun4i.c registers a clocksource
-with a higher rating than riscv_clocksource. Without this patch,
-tools/testing/selftests/vDSO/vdso_test_correctness fails. With this
-patch, it passes, so:
+Signed-off-by: Samuel Holland <samuel@sholland.org>
+---
 
-Tested-by: Samuel Holland <samuel@sholland.org>
+ drivers/clocksource/timer-riscv.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-> [0] drivers/clocksource/renesas-ostm.c
-> 
-> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> ---
->  arch/riscv/Kconfig                | 1 -
->  arch/riscv/kernel/time.c          | 9 ---------
->  drivers/clocksource/timer-riscv.c | 7 +++++++
->  3 files changed, 7 insertions(+), 10 deletions(-)
-> 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 7ea12de636bd..b269e062c1b1 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -12,7 +12,6 @@ config 32BIT
->  
->  config RISCV
->  	def_bool y
-> -	select ARCH_CLOCKSOURCE_INIT
->  	select ARCH_ENABLE_HUGEPAGE_MIGRATION if HUGETLB_PAGE && MIGRATION
->  	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
->  	select ARCH_HAS_BINFMT_FLAT
-> diff --git a/arch/riscv/kernel/time.c b/arch/riscv/kernel/time.c
-> index 8217b0f67c6c..42bee305e997 100644
-> --- a/arch/riscv/kernel/time.c
-> +++ b/arch/riscv/kernel/time.c
-> @@ -30,12 +30,3 @@ void __init time_init(void)
->  	of_clk_init(NULL);
->  	timer_probe();
->  }
-> -
-> -void clocksource_arch_init(struct clocksource *cs)
-> -{
-> -#ifdef CONFIG_GENERIC_GETTIMEOFDAY
-> -	cs->vdso_clock_mode = VDSO_CLOCKMODE_ARCHTIMER;
-> -#else
-> -	cs->vdso_clock_mode = VDSO_CLOCKMODE_NONE;
-> -#endif
-> -}
-> diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
-> index 969a552da8d2..7ec9668cd36d 100644
-> --- a/drivers/clocksource/timer-riscv.c
-> +++ b/drivers/clocksource/timer-riscv.c
-> @@ -29,6 +29,12 @@
->  
->  static DEFINE_STATIC_KEY_FALSE(riscv_sstc_available);
->  
-> +#ifdef CONFIG_GENERIC_GETTIMEOFDAY
-> +static enum vdso_clock_mode vdso_default = VDSO_CLOCKMODE_ARCHTIMER;
-> +#else
-> +static enum vdso_clock_mode vdso_default = VDSO_CLOCKMODE_NONE;
-> +#endif /* CONFIG_GENERIC_GETTIMEOFDAY */
-
-We don't have any workarounds like arm_arch_timer, so we do not need
-this indirection through vdso_default. You can set .vdso_clock_mode
-directly in the declaration of riscv_clocksource.
-
-Regards,
-Samuel
-
-> +
->  static int riscv_clock_next_event(unsigned long delta,
->  		struct clock_event_device *ce)
->  {
-> @@ -158,6 +164,7 @@ static int __init riscv_timer_init_dt(struct device_node *n)
->  		return -ENODEV;
->  	}
->  
-> +	riscv_clocksource.vdso_clock_mode = vdso_default;
->  	pr_info("%s: Registering clocksource cpuid [%d] hartid [%lu]\n",
->  	       __func__, cpuid, hartid);
->  	error = clocksource_register_hz(&riscv_clocksource, riscv_timebase);
+diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
+index a0d66fabf073..55dad7965f43 100644
+--- a/drivers/clocksource/timer-riscv.c
++++ b/drivers/clocksource/timer-riscv.c
+@@ -73,7 +73,7 @@ static u64 notrace riscv_sched_clock(void)
+ 
+ static struct clocksource riscv_clocksource = {
+ 	.name		= "riscv_clocksource",
+-	.rating		= 300,
++	.rating		= 400,
+ 	.mask		= CLOCKSOURCE_MASK(64),
+ 	.flags		= CLOCK_SOURCE_IS_CONTINUOUS,
+ 	.read		= riscv_clocksource_rdtime,
+-- 
+2.37.4
 
 
 _______________________________________________
