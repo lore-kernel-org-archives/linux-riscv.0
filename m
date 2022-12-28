@@ -4,91 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85BF8C10F1B
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Dec 2022 00:45:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17F78C10F1B
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Dec 2022 01:36:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=tsn2QjJiTJE5yv0zTHQkmwj1ePyuJ/HPvrKW/sjjxtI=; b=1rDRTnR2aau8/a
-	0QGwx8g/J+GkyWlmSYkWEKbriuLvdEPB6SOv6fXcd2i9xPo5ZYZ5KAmyayHmidwkeU/76WRq9kppA
-	YI/mRgzPELlErhCWLtZj32JoJBZlWO3qO2+Z7QwsWpqc3S0mAQbxnEnEaxp7JZYW7Po3AzzWtbwur
-	qoehsBxyTPLWRXa3KSZmcprO8i3513EParHB0qUPuL2Nkvd1FrcSyvshH+ABHN/6dFtdt1o5i5jS9
-	Zkab6w3tje13+i/Gk4FPLvJTXyhy/CegRkWYBaaXp1RhFYUN9V1P24ClncmE0IBLbQ4/+mQqU/vIs
-	lu2VxZ3vYjunvdn1Ko9A==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=X8jFK1nVE8hUTb7LK7+b2YgtRdJd8KY25H72WsOE5cE=; b=VxSDSf5GtG5F/D
+	RiXG1R+kiH7mOSJykxWnM+oKZZ9uV/GShN+620QYk8LUVAKS2yHdx+5yYahozzPOwu2RvMwKTMM5u
+	1wRhLb9xU02nwJFH00tHdIyTYc8gIfkrJxCXF3XDkxib/BobZykLJHSAduC/nZLu5DtAqnKJ8PwFG
+	mkeADUw6sPQ0+Vt7esHr6cNvJUDDVe1ODaevK6BjtR8GBpF9ptVltUH98Ha2QTDc9xdVpusQ4/KlP
+	aZWXqczl8wuhUDw5NSprYyGDm4OfnwncnOv2FiSDANBvjXf9BQt+Se6qh5xiCu631+zvkr7hPffXO
+	1Jj2cU1O0iYLccy1CcVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pAKYw-000Ceg-OX; Wed, 28 Dec 2022 00:44:54 +0000
+	id 1pALMa-000UFH-0E; Wed, 28 Dec 2022 01:36:12 +0000
 Received: from out3-smtp.messagingengine.com ([66.111.4.27])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pAKYt-000Cay-RX
-	for linux-riscv@lists.infradead.org; Wed, 28 Dec 2022 00:44:53 +0000
-Received: from compute2.internal (compute2.nyi.internal [10.202.2.46])
-	by mailout.nyi.internal (Postfix) with ESMTP id D7B5B5C00CC;
-	Tue, 27 Dec 2022 19:44:46 -0500 (EST)
-Received: from mailfrontend2 ([10.202.2.163])
-  by compute2.internal (MEProxy); Tue, 27 Dec 2022 19:44:46 -0500
+	id 1pALMW-000UD8-OL
+	for linux-riscv@lists.infradead.org; Wed, 28 Dec 2022 01:36:10 +0000
+Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
+	by mailout.nyi.internal (Postfix) with ESMTP id C8B725C00B5;
+	Tue, 27 Dec 2022 20:36:06 -0500 (EST)
+Received: from mailfrontend1 ([10.202.2.162])
+  by compute6.internal (MEProxy); Tue, 27 Dec 2022 20:36:06 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
-	cc:cc:content-transfer-encoding:date:date:from:from:in-reply-to
-	:message-id:mime-version:reply-to:sender:subject:subject:to:to;
-	 s=fm3; t=1672188286; x=1672274686; bh=lJKh5hLUSVyNtGb27sEl8iKUo
-	pQtksa0I8JjuVzm/jY=; b=zsXQvkbc4qvvStb1M0jQ5bPd3f+tBhq0STct4u3nu
-	QFwp83KoW0i4X//TVOFdjcNsGpo1Oc38whYYa4fcxGZZ2eckTsIBQzascSQqMPP8
-	6OVXIpr4QS8lrMMTycvQ91m6h4MABLc40u0OqDZrJBcGVSwkIfn+8Ccw333WRn/o
-	OKeY58lnAe0WBBFmQeUQFR4qZzeXq7m4JcZlPBMBwtsb30OK9N8DOfDdvrlofZtM
-	PaYpS2orM7rveegfgrhS8t5AIsR+VvHlMG/64g7Eu8EEkiqSvkapcpYnVuxzuOtO
-	wltFE3GW16yFFeXEIMF+HykbGcx2QWkWNG51VzbZTeSdw==
+	cc:cc:content-transfer-encoding:content-type:date:date:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:sender:subject:subject:to:to; s=fm3; t=1672191366; x=
+	1672277766; bh=rGmjN/Zp6wsSXxFVU1GiemrfxEb1GghLPn/O3CM4LCI=; b=0
+	tHnb8enKTn6h2VSCBz/zkz/xBrtkRlHfBqDZlKqezt/pHVAw6SmabtQObnR3VJXW
+	gaqflSfRHL0ufdy6I9VFokpELuuKFi8SwcxwBjV8zAeziXlk4nhsOj8NJP41rmwr
+	1n2dShlQCozuJMyqZqO4pwulSuTwZEExg41tm/1aIrjlXhSUfrSXX3xN5vp/pcBP
+	pqczAgF2CMOVuIO7F/+XAvKbJysoA7IUtlQxCq6/8/DxzPyNbQk640axo0lUrdP/
+	SB3BWgCjV3cfDImBjqZ2xcbCOsaroZG+T8PDIxwePfk/MMz9VLQLPbUdYh3+R0oX
+	Z65jiP13IyAzAL0IEaegA==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:message-id
-	:mime-version:reply-to:sender:subject:subject:to:to:x-me-proxy
-	:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=
-	1672188286; x=1672274686; bh=lJKh5hLUSVyNtGb27sEl8iKUopQtksa0I8J
-	juVzm/jY=; b=jpUgIno+86qYFaeGQn5+s30NUnkg/CCRVzjVp9GW/E0dR7mLEL6
-	0DZXdgLmi4IMPbDCHBE6s3l6QB+KlxDqkQernCkEGU2ihv+i16/qN+hh+qornvRW
-	iFBeM82wFAPlLX4qBIGjFMdw3ttGCWogLIZoXxqtEM2fEHC/r5Fg5EzdEBMf8lLV
-	0DRy/AoepLZX1Gdu93AduwHcuDl1i957/hv5Es+1pO6bFDj34JJty1Af5u5HfPdF
-	qbkN18LEkOeCeLS54EDRbc9ELnnqA8p7qMbMtdxFAKtYA+m/eQlKTsStnCSvhrOL
-	aT/WId0KvRn/4djCWMHJxr8BoTi89658xVg==
-X-ME-Sender: <xms:fpGrYwPR4xuCgO4e8y3P4kgryvMjk42PLPqwkWkoMEUIv3yhqZ5w0Q>
-    <xme:fpGrY2_Mgh6SUqXB3ZIOmu2p2OjixDgn19CWxyBsVtHs3SKDvCDgW-jpLL_dugSev
-    Pd_XqC8j6VxseP_hg>
-X-ME-Received: <xmr:fpGrY3QdETEsIgjk2Ux7Dl81HunUTSYYv6VmsQTyWSeYgQ58vR-14Tv6BeEuJHSIP7YX_dYVHSb0qiLGdqbCW_3sULwLMM941T22UNW1VjW0fAFXaWEVWGinr7qTtQOzWC2YNA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedriedugddvjecutefuodetggdotefrodftvf
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:sender:subject:subject:to:to:x-me-proxy:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1672191366; x=
+	1672277766; bh=rGmjN/Zp6wsSXxFVU1GiemrfxEb1GghLPn/O3CM4LCI=; b=d
+	TebGABsW4bWxo7t02h2arQyHHhOI9iuK9g9G81XKVemWjMSbi9ctY+q+nudZxTmD
+	fQHLFGavekstDooNg+R0X55Q9c81H6hjwNR7IXzGwhg23TMbEnkXrWrFVS1FXWKf
+	NkB5Q4UPuvIMtozahLntRU857XbgVsl65vTBWBAybTQ5DL5m1p0QF0bJ31w5iVaa
+	KXrlbSYP+LzES7ddJ82sP9y2zKjQK+A4QGMV52VbF0BKlZvZ6OWqzJ3NDNN8chuA
+	KSahD/xj4wwS37wjgREJYTsBdMPb0G8ki1KiYwwev6y1kC0qy86/GbnBUfquP/N3
+	48cbOyONtyDoBmWF/BjQA==
+X-ME-Sender: <xms:hp2rYxHd80icm3eGLczM_hq1nfa-IVazMlZnjWOLVvwQrSKzrTB0pw>
+    <xme:hp2rY2WCFPqDKyvuMblRgsO1szVDnuip-ASBFPpc5DtJAJbYnrt_gzUpYNr2ZjonU
+    0wtU6HrVVhcKkGeJQ>
+X-ME-Received: <xmr:hp2rYzKbXqrGkg8OaMqrxEkqHPHvdCawSIsUeqWVW2zXR1hujT_Y0x80CCQL6pekDzdCwHZZmDSCOGJxAhTd-XnFQVnKRO91K511ONFnF8n2TOIzutN9J9slCw>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedriedugdefkecutefuodetggdotefrodftvf
     curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
     uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
-    fjughrpefhvfevufffkffoggfgsedtkeertdertddtnecuhfhrohhmpefurghmuhgvlhcu
-    jfholhhlrghnugcuoehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhgqeenucggtffrrg
-    htthgvrhhnpeekveelhfejueelleetvdejvdeffeetgeelheeujeffhefgffefkeehhffh
-    keekgeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpe
-    hsrghmuhgvlhesshhhohhllhgrnhgurdhorhhg
-X-ME-Proxy: <xmx:fpGrY4suk0hdHM_fE1N5dEqeRltOyr9UMHDbkEc3qJa3vTaFnMv_wA>
-    <xmx:fpGrY4d349C_7MaAlYDu9H52k22l5DFzr0D5ndAdsyDjxF0N6r2nLQ>
-    <xmx:fpGrY83KlxEYWxV4AhgP7btqrSfpWVu29JBVjUs1vfimRgLwes5UBg>
-    <xmx:fpGrY2tQhPmgQHCdvI7buI3rSUz3bXzdEKsHeUnnZLA2DefNNoaDMQ>
+    fjughrpefkffggfgfuvfevfhfhjggtgfesthejredttdefjeenucfhrhhomhepufgrmhhu
+    vghlucfjohhllhgrnhguuceoshgrmhhuvghlsehshhholhhlrghnugdrohhrgheqnecugg
+    ftrfgrthhtvghrnhepkeejleelfeeitdfhtdfgkeeghedufeduueegffdvhfdukeelleef
+    tdetjeehuddtnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrh
+    homhepshgrmhhuvghlsehshhholhhlrghnugdrohhrgh
+X-ME-Proxy: <xmx:hp2rY3Fssjzf8ZeS7qFPL8SOiE-AxvG1IQe01nwxXX4DoIfLx0p_mQ>
+    <xmx:hp2rY3V21Vfo1X6ryFOVJLpjcoKidxuBKi6lpCQ73Vbfh4lgfk86OQ>
+    <xmx:hp2rYyMqE1nSIsI44o_ID0ucQ2D5LxtJYQvmBs_C6fO1VZkoIc9USw>
+    <xmx:hp2rYwOQihVNCRrZkc842rELvmv163HV0ue4oymSC9GcXcCraG6w0Q>
 Feedback-ID: i0ad843c9:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
- 27 Dec 2022 19:44:45 -0500 (EST)
-From: Samuel Holland <samuel@sholland.org>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>
-Cc: Prabhakar Lad <prabhakar.csengg@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH] clocksource/drivers/riscv: Increase the clock source rating
-Date: Tue, 27 Dec 2022 18:44:44 -0600
-Message-Id: <20221228004444.61568-1-samuel@sholland.org>
-X-Mailer: git-send-email 2.37.4
+ 27 Dec 2022 20:36:04 -0500 (EST)
+Message-ID: <8f82ddb6-cd3a-c7f7-5a20-427403d8600c@sholland.org>
+Date: Tue, 27 Dec 2022 19:36:03 -0600
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux ppc64le; rv:102.0) Gecko/20100101
+ Thunderbird/102.3.3
+Subject: Re: [PATCH v3] riscv: Use PUD/P4D/PGD pages for the linear mapping
+Content-Language: en-US
+To: Conor Dooley <conor@kernel.org>, Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Guo Ren <guoren@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+ Frank Rowand <frowand.list@gmail.com>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arch@vger.kernel.org
+References: <20221213060204.27286-1-alexghiti@rivosinc.com>
+ <Y6TmYjr07W9WJEPn@spud>
+From: Samuel Holland <samuel@sholland.org>
+In-Reply-To: <Y6TmYjr07W9WJEPn@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221227_164452_588378_07397065 
-X-CRM114-Status: GOOD (  10.39  )
+X-CRM114-CacheID: sfid-20221227_173608_916542_D49F7A36 
+X-CRM114-Status: GOOD (  22.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,37 +110,71 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RISC-V provides an architectural clock source via the time CSR. This
-clock source exposes a 64-bit counter synchronized across all CPUs.
-Because it is accessed using a CSR, it is much more efficient to read
-than MMIO clock sources. For example, on the Allwinner D1, reading the
-sun4i timer in a loop takes 131 cycles/iteration, while reading the
-RISC-V time CSR takes only 5 cycles/iteration.
+On 12/22/22 17:21, Conor Dooley wrote:
+> On Tue, Dec 13, 2022 at 07:02:04AM +0100, Alexandre Ghiti wrote:
+>> During the early page table creation, we used to set the mapping for
+>> PAGE_OFFSET to the kernel load address: but the kernel load address is
+>> always offseted by PMD_SIZE which makes it impossible to use PUD/P4D/PGD
+>> pages as this physical address is not aligned on PUD/P4D/PGD size (whereas
+>> PAGE_OFFSET is).
+>>
+>> But actually we don't have to establish this mapping (ie set va_pa_offset)
+>> that early in the boot process because:
+>>
+>> - first, setup_vm installs a temporary kernel mapping and among other
+>>   things, discovers the system memory,
+>> - then, setup_vm_final creates the final kernel mapping and takes
+>>   advantage of the discovered system memory to create the linear
+>>   mapping.
+>>
+>> During the first phase, we don't know the start of the system memory and
+>> then until the second phase is finished, we can't use the linear mapping at
+>> all and phys_to_virt/virt_to_phys translations must not be used because it
+>> would result in a different translation from the 'real' one once the final
+>> mapping is installed.
+>>
+>> So here we simply delay the initialization of va_pa_offset to after the
+>> system memory discovery. But to make sure noone uses the linear mapping
+>> before, we add some guard in the DEBUG_VIRTUAL config.
+>>
+>> Finally we can use PUD/P4D/PGD hugepages when possible, which will result
+>> in a better TLB utilization.
+>>
+>> Note that we rely on the firmware to protect itself using PMP.
+>>
+>> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+>> ---
+>>
+>> v3:
+>> - Change the comment about initrd_start VA conversion so that it fits
+>>   ARM64 and RISCV64 (and others in the future if needed), as suggested
+>>   by Rob
+>>
+>> v2:
+>> - Add a comment on why RISCV64 does not need to set initrd_start/end that
+>>   early in the boot process, as asked by Rob
+>>
+>> Note that this patch is rebased on top of:
+>> [PATCH v1 1/1] riscv: mm: call best_map_size many times during linear-mapping
+> 
+> Hey Alex, unfortunately I could not get this to apply either (I tried a
+> riscv/for-next & Linus' tree).
+> The above patch should be in both, so idk:
+> git am -3 v3_20221213_alexghiti_riscv_use_pud_p4d_pgd_pages_for_the_linear_mapping.mbx
+> Applying: riscv: Use PUD/P4D/PGD pages for the linear mapping
+> error: sha1 information is lacking or useless (arch/riscv/mm/init.c).
+> error: could not build fake ancestor
+> Patch failed at 0001 riscv: Use PUD/P4D/PGD pages for the linear mapping
 
-Adjust the RISC-V clock source rating so it is preferred over the
-various platform-specific MMIO clock sources.
+That's because my CONFIG_DEBUG_VIRTUAL fix got applied first. This patch
+applies cleanly after:
 
-Signed-off-by: Samuel Holland <samuel@sholland.org>
----
+	git revert -m1 61b2f0bdaa3c7e6956fdac0a7c1e8284b9b81d1d
 
- drivers/clocksource/timer-riscv.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+though you'll get one trivial conflict if you try to undo the revert.
 
-diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
-index a0d66fabf073..55dad7965f43 100644
---- a/drivers/clocksource/timer-riscv.c
-+++ b/drivers/clocksource/timer-riscv.c
-@@ -73,7 +73,7 @@ static u64 notrace riscv_sched_clock(void)
- 
- static struct clocksource riscv_clocksource = {
- 	.name		= "riscv_clocksource",
--	.rating		= 300,
-+	.rating		= 400,
- 	.mask		= CLOCKSOURCE_MASK(64),
- 	.flags		= CLOCK_SOURCE_IS_CONTINUOUS,
- 	.read		= riscv_clocksource_rdtime,
--- 
-2.37.4
+Regards,
+Samuel
 
 
 _______________________________________________
