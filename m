@@ -4,72 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4090DC4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Dec 2022 09:25:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80220C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Dec 2022 10:41:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cGHDrOmPqIhG5l5qYNRaE51N2IWXzd+g7Q9VXsVz45Y=; b=xaaN0oTPNCs0Nu
-	rCfJVPIxSCY1ZkevNQF6U5gqwTauKmc8RvkjJkUTBGCj1p+g8uVjxCPlJwgot0DCnRRErqQzcHD2c
-	mmMRzT1KyNrIO/87OriuX6eCgrHGjMrVk8X4flZBy12Qtejtb6vIkVpwdQQ5FbYwkxtI6EJFzLVkT
-	g3VfVglJexx3m8A4zudCBq/GrhddAzwIKfyHZcLGJp2d+fYPyFcp6b5wEeHdqQIKTZXt0t5skd3WY
-	r0roXgM4G6pNcMRKoEj2CH7E5tCtabYcElnQRrN3XzV9oSabSvPofKgA/4Qs6brxqPOAWojMDqPfO
-	nFXamthAEgqjVw/j4l9A==;
+	List-Owner; bh=TfQI2Yj00avDPbrqVoVz5DmzzN/qxKLR+CWdb/qNbIc=; b=fG3QTRUDTYge9j
+	ngBGIM69vSD0yDPQ9n4/fuN3QTtAI1Jemj4mYkz6YcsFJrlTzQsWMzjuQDlJi3Ls7pn16QzzRGFdC
+	0pIVtRHZ5LVFR8rsE06wwkNI4UMR/HzTTc1L+vbml8km4JIDnYRP93tBfjG4gfHR6376+Sf4nUmaP
+	1b1yyxJWbSVu8TAiUDDPQOFnV3iXNslxCup419GmkNUFiWJZrJY1sWtX+oaRgzrfMpxpFI6iSslzy
+	cvNYLh0sewhZfhDxvjKR8f7GDlaN/ms6nHR1+LyYwS1nA8DG0Cqz+UPmFu+MFERmLA7WuEPU9Uo7Q
+	hJJ9SlaKfQ8aWipq475w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pASh2-003fFR-9X; Wed, 28 Dec 2022 09:25:48 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
+	id 1pATrq-0049zI-3H; Wed, 28 Dec 2022 10:41:02 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pASgy-003evN-5O
-	for linux-riscv@lists.infradead.org; Wed, 28 Dec 2022 09:25:47 +0000
+	id 1pATri-0049uO-L3
+	for linux-riscv@lists.infradead.org; Wed, 28 Dec 2022 10:40:58 +0000
 Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 6589624E19A;
-	Wed, 28 Dec 2022 17:24:53 +0800 (CST)
-Received: from EXMBX173.cuchost.com (172.16.6.93) by EXMBX166.cuchost.com
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 66CF424E102;
+	Wed, 28 Dec 2022 18:40:19 +0800 (CST)
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX166.cuchost.com
  (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 28 Dec
- 2022 17:24:53 +0800
-Received: from [192.168.120.49] (171.223.208.138) by EXMBX173.cuchost.com
- (172.16.6.93) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 28 Dec
- 2022 17:24:51 +0800
-Message-ID: <dd1a55b7-d05a-0ea8-6042-25b80befec22@starfivetech.com>
-Date: Wed, 28 Dec 2022 17:24:50 +0800
+ 2022 18:40:19 +0800
+Received: from [192.168.120.55] (171.223.208.138) by EXMBX168.cuchost.com
+ (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 28 Dec
+ 2022 18:40:18 +0800
+Message-ID: <4cb26636-8f65-b801-9374-e8b7e9fff2fe@starfivetech.com>
+Date: Wed, 28 Dec 2022 18:40:18 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
  Thunderbird/102.6.1
-Subject: Re: [PATCH v2 5/9] dt-bindings: net: motorcomm: add support for
- Motorcomm YT8531
-Content-Language: en-US
+Subject: Re: [PATCH v2 1/3] dt-bindings: mmc: Add bindings for StarFive
 To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	<linux-riscv@lists.infradead.org>, <netdev@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-CC: "David S . Miller" <davem@davemloft.net>, Eric Dumazet
-	<edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
-	Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>
-References: <20221216070632.11444-1-yanhong.wang@starfivetech.com>
- <20221216070632.11444-6-yanhong.wang@starfivetech.com>
- <994718d8-f3ee-af5e-bda7-f913f66597ce@linaro.org>
- <134a2ead-e272-c32e-b14f-a9e98c8924ac@starfivetech.com>
- <c296cf6b-6c50-205d-d5f5-6095c0a6c523@linaro.org>
- <e03fb7bc-b196-bc8a-b396-fab8686d396b@starfivetech.com>
- <9b098bf9-59d7-e58d-aba3-a8055af053c6@linaro.org>
-From: yanhong wang <yanhong.wang@starfivetech.com>
-In-Reply-To: <9b098bf9-59d7-e58d-aba3-a8055af053c6@linaro.org>
+	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-mmc@vger.kernel.org>
+CC: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Jaehoon Chung <jh80.chung@samsung.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>, <linux-kernel@vger.kernel.org>
+References: <20221227122227.460921-1-william.qiu@starfivetech.com>
+ <20221227122227.460921-2-william.qiu@starfivetech.com>
+ <fc5866ef-4eea-bc15-7cbe-d2e00c37e282@linaro.org>
+Content-Language: en-US
+From: William Qiu <william.qiu@starfivetech.com>
+In-Reply-To: <fc5866ef-4eea-bc15-7cbe-d2e00c37e282@linaro.org>
 X-Originating-IP: [171.223.208.138]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX173.cuchost.com
- (172.16.6.93)
+X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX168.cuchost.com
+ (172.16.6.78)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221228_012544_627961_4C06316F 
-X-CRM114-Status: UNSURE (   8.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221228_024055_068462_E7023FA0 
+X-CRM114-Status: GOOD (  20.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,38 +79,113 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 
-On 2022/12/28 17:11, Krzysztof Kozlowski wrote:
-> On 28/12/2022 04:23, yanhong wang wrote:
->> 
->> 
->> On 2022/12/27 17:52, Krzysztof Kozlowski wrote:
->>> On 27/12/2022 10:38, yanhong wang wrote:
->>>>>
->>>>> This must be false. After referencing ethernet-phy this should be
->>>>> unevaluatedProperties: false.
->>>>>
->>>>>
->>>>
->>>> Thanks. Parts of this patch exist already, after discussion unanimity was achieved,
->>>> i will remove the parts of YT8531 in the next version.
->>>
->>> I don't understand what does it mean. You sent duplicated patch? If so,
->>> please do not... you waste reviewers time.
->>>
->>> Anyway this entire patch does not meet criteria for submission at all,
->>> so please start over from example-schema.
->>>
->> 
->> Sorry, maybe I didn't make it clear, which led to misunderstanding. Motorcomm Inc is also 
->> carrying out the upstream of YT8531, and my patch will be duplicated and conflicted 
->> with their submission. By communicating with the developers of Motorcomm Inc, the part 
->> of YT8531 will be submitted by Motorcomm Inc, so my submission about YT8531 will be withdrawn.
+On 2022/12/27 21:05, Krzysztof Kozlowski wrote:
+> On 27/12/2022 13:22, William Qiu wrote:
+>> Add documentation to describe StarFive
+>> designware mobile storage host controller driver.
 > 
-> Are they going to apply the feedback received for this series?
+> Please wrap commit message according to Linux coding style / submission
+> process (neither too early nor over the limit):
+> https://elixir.bootlin.com/linux/v5.18-rc4/source/Documentation/process/submitting-patches.rst#L586
+> 
+> The subject is a bit redundant and not precise. No need to mention
+> "bindings" twice but "StarFive" is really too generic. Do you add now
+> all possible devices from StarFive? I see only one. Rephrase (use git
+> log to find examples).
 > 
 
-Yes, they support not only YT8531, but also other models of their company.
+Will update
 
+>> 
+>> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
+>> ---
+>>  .../bindings/mmc/starfive,jh7110-mmc.yaml     | 72 +++++++++++++++++++
+>>  1 file changed, 72 insertions(+)
+>>  create mode 100644 Documentation/devicetree/bindings/mmc/starfive,jh7110-mmc.yaml
+>> 
+>> diff --git a/Documentation/devicetree/bindings/mmc/starfive,jh7110-mmc.yaml b/Documentation/devicetree/bindings/mmc/starfive,jh7110-mmc.yaml
+>> new file mode 100644
+>> index 000000000000..430dd5f24933
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/mmc/starfive,jh7110-mmc.yaml
+>> @@ -0,0 +1,72 @@
+>> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/mmc/starfive,jh7110-mmc.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: StarFive Designware Mobile Storage Host Controller
+>> +
+>> +description:
+>> +  StarFive uses the Synopsys designware mobile storage host controller
+>> +  to interface a SoC with storage medium such as eMMC or SD/MMC cards.
+>> +
+>> +allOf:
+>> +  - $ref: synopsys-dw-mshc-common.yaml#
+>> +
+>> +maintainers:
+>> +  - William Qiu <william.qiu@starfivetech.com>
+>> +
+>> +properties:
+>> +  compatible:
+>> +    const: starfive,jh7110-mmc
+>> +
+>> +  reg:
+>> +    maxItems: 1
+>> +
+>> +  clocks:
+>> +    items:
+>> +      - description: biu clock
+>> +      - description: ciu clock
+>> +
+>> +  clock-names:
+>> +    items:
+>> +      - const: biu
+>> +      - const: ciu
+>> +
+>> +  interrupts:
+>> +    maxItems: 1
+>> +
+>> +  starfive,syscon:
+> 
+> Name is not specific enough. What is syscon? Any syscon? This needs to
+> be specific.
+> 
+
+Will update.
+
+>> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+>> +    description:
+>> +      arg0:arg0 is syscon.
+> 
+> What is syscon?
+> 
+
+Will update.
+
+>> +      arg1:arg1 is syscon register offset, used to enable MMC function.
+> 
+> Describe the argument, not what it is used for, e.g. "offset of XXX YYY ZZZ"
+> 
+>> +      arg2:arg2 is used to enable the register shift of the MMC function.
+>> +      arg3:arg3 is used to enable the register mask of the MMC function.
+> 
+> That's not how the phandle array is described. Instead:
+> 
+> https://elixir.bootlin.com/linux/v5.18-rc1/source/Documentation/devicetree/bindings/soc/samsung/exynos-usi.yaml#L42
+> 
+
+Hi Krzysztof,
+
+Thank you for taking time to review and provide helpful comments for this patch.
+I will fix all the above issues in the next version.
+
+Best Regards,
+William Qiu
+
+> 
+> 
 > Best regards,
 > Krzysztof
 > 
