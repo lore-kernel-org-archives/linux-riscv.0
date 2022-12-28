@@ -4,70 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1C3FC4167B
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Dec 2022 18:30:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C438C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Dec 2022 18:56:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GgA2efilEgVVFYfsfciB8FImv/wQF7hxXJDOSUrpPig=; b=H6WEVu1+cvCkG1o8h9lFeziWMU
-	7G2owFFx1hc0PvKQuE+oo/qB5WQfNfyFeKDfP8XIwNmtLKu3opGrdzorE/NCLE1gjTtuckqTSYHxi
-	Tu0zQY0QYFoxhP+zutkRSG2aqpk9pxluFDA3wM7Bbrv8Miek46YZgL6fBc/90O0uQsYOguM5WQqMi
-	fniDuYU3Mx7FSR7ty5xBiORowjxox2IzA1YUURoOKcbf95gegnO2z6ENELZJW+EEUMxfxnjC/Qq0p
-	WyJBbk0U1jKzawSL8HnHdgm7pGkW9JuCnylYE9gP63kdbhemReybdo5mWgws5v0xeaVmV9mvH2yqq
-	17qv0k9g==;
+	MIME-Version:Message-ID:Subject:To:From:Date:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=XZ96Kp7adNA9DF0gBSfyj+Az+38z17rveuVxm+To/VQ=; b=dEG
+	2ptYr9ULT2vYJG32cMr02nFj0aKh2GCxzlXzxyMgKa217hEmeNSaFqzJGGlZgCOf6H2V/dOLXaPk4
+	hHiD/irnxM3/SRCOo6rQOM9BfcCzfQoEmiRvROrs5uyQIWkhVUPGPezJS9vw2eZITYhNJsbCWriDg
+	3WR6ynuSdv0/KGaStoL2iqE1C/nO6qJFGXBhceJYX/AWSzCvnY3pWi4XzpMzZ2qc7ymJnSj/eUw3t
+	cYiBrEsCd0qZNQPtbk54Tq/SJz3nE8ftsBVmMloxCkxHawuxG5r9fcB4YX7SJhdemoX97ysTVtD4f
+	o6823S15uulvJ4YWG7rf58uONI6GF+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pAbC4-007DBu-46; Wed, 28 Dec 2022 18:30:24 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pAbbF-007NP8-RX; Wed, 28 Dec 2022 18:56:25 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pAbC0-007D9V-QL
-	for linux-riscv@lists.infradead.org; Wed, 28 Dec 2022 18:30:22 +0000
+	id 1pAbbC-007NLo-Ex
+	for linux-riscv@lists.infradead.org; Wed, 28 Dec 2022 18:56:24 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id AA88261582;
-	Wed, 28 Dec 2022 18:30:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2C18C433EF;
-	Wed, 28 Dec 2022 18:30:14 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id A862CB8162F;
+	Wed, 28 Dec 2022 18:56:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA8AEC433D2;
+	Wed, 28 Dec 2022 18:56:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1672252218;
-	bh=8GdpfCPYNbZ7pONcybw0AZexxDzJ9PmxSxjOD45MToI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cMN8sn2qVZcrzRNGqHFFHegiRkzijJ7lgl63Nluh/32moJDMxsjBBpdfOHtOU2m/P
-	 JUZxv0u0XGMe/kTDCobfG+b7TcBZvMm0Q4s1a2Oha7ctEXj9ryy2aC97Mt2O9Qfz4p
-	 EM4BdlRjung9oxz/0osT1n6rkrsrTazQ2xn77BQSgRROGcMA5Wh8s4mXvCSowlG+o4
-	 8ZJcLZrcVfEyr0IZLvSdIEwTzpcRbGOGIXq4q/Sffb+OMU6WW4gPwa7Cz+haYYqKaJ
-	 cm0n6r4+pJi0//NsLGHYXoaXer2sWhqyFJize9T7g27HkcJ+U31DzSwh0WR25lDlIn
-	 4Iu49epuwIBPQ==
-Date: Wed, 28 Dec 2022 18:30:11 +0000
+	s=k20201202; t=1672253779;
+	bh=VC1vP1EXnqaFD9hXB9IG9HaW3s2Kl92Jnopz0Y9C2HY=;
+	h=Date:From:To:Subject:From;
+	b=Qj2wLMC8YcSy9yXHGcR6tHhxZgXcb3nPvz0O4elTIFRiz8BzNwPv/3X0cjQn6jIQF
+	 9kyeTj5pCEovK7o5uy+FJ77TiwRyZfzT4I2Mnk7Q7Ys0TtMhKzrScNYAsyu0R8ouRM
+	 Kb5SECI97UNlZtGAzJ50pZJbMJzUfL3e1Fcxyv1TehbnCJqF/It6Z+U8UYA6ghYmuu
+	 A+xp5G4Fpy+fb96qdMfzwZGE/onH4bsjF2JeVS868WxQtuhAPkpbbcc27TZ9KJ2t9E
+	 83WzN944v0Va4o/J/H4sH9si1uIdcMoEgY3dQ3uW1jyIa+LSmYvCBqu7Er8X95iaqd
+	 rK/jh5QDW8uHQ==
+Date: Wed, 28 Dec 2022 18:56:16 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Samuel Holland <samuel@sholland.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
-	Dmitry Osipenko <dmitry.osipenko@collabora.com>,
-	"Rafael J . Wysocki" <rafael.j.wysocki@intel.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Atish Patra <atishp@rivosinc.com>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Kai-Heng Feng <kai.heng.feng@canonical.com>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Petr Mladek <pmladek@suse.com>, YueHaibing <yuehaibing@huawei.com>,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	tangmeng <tangmeng@uniontech.com>
-Subject: Re: [PATCH 0/3] riscv: sbi: Switch to the sys-off handler API
-Message-ID: <Y6yLMwhSypqp5+Ir@spud>
-References: <20221228161915.13194-1-samuel@sholland.org>
+To: palmer@dabbelt.com, linux-riscv@lists.infradead.org
+Subject: [GIT PULL] kconfig.socs symbol conversion
+Message-ID: <Y6yRULqZa+NtkcjP@spud>
 MIME-Version: 1.0
-In-Reply-To: <20221228161915.13194-1-samuel@sholland.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221228_103020_935880_A5DCAADC 
-X-CRM114-Status: GOOD (  18.45  )
+X-CRM114-CacheID: sfid-20221228_105622_864500_BA04DE52 
+X-CRM114-Status: GOOD (  15.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,71 +62,109 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0876298737658204877=="
+Content-Type: multipart/mixed; boundary="===============7728534401801400295=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============0876298737658204877==
+--===============7728534401801400295==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="ATLP0lEXvRX45tso"
+	protocol="application/pgp-signature"; boundary="3x3z+Q1wAsImrJnV"
 Content-Disposition: inline
 
 
---ATLP0lEXvRX45tso
+--3x3z+Q1wAsImrJnV
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-Hey Samuel,
+Hey Palmer,
 
-On Wed, Dec 28, 2022 at 10:19:12AM -0600, Samuel Holland wrote:
-> I want to convert the axp20x PMIC poweroff handler to use the sys-off
-> API, so it can be used as a fallback for if the SBI poweroff handler
-> is unavailable. But the SBI poweroff handler still uses pm_power_off, so
-> done alone, this would cause the axp20x callback to be called first,
-> before the SBI poweroff handler has a chance to run.
->=20
-> In order to prevent this change in behavior, the SBI poweroff handler
-> needs to be converted to the sys-off API first, at a higher priority.
->=20
-> This series performs the conversion, after accounting for the fact that
-> the SBI poweroff handler is registered quite early during boot.
->=20
-> The first patch is a dependency for both this series and the PSCI
-> series[1], so I would like to get at least patch 1 merged soon.
->=20
-> [1]: https://lore.kernel.org/lkml/20221105214841.7828-1-samuel@sholland.o=
-rg/
->=20
->=20
-> Samuel Holland (3):
->   kernel/reboot: Use the static sys-off handler for any priority
->   riscv: sbi: Share the code for unsupported extension warnings
->   riscv: sbi: Switch to the sys-off handler API
+Please pull part 1 of the Kconfig.socs cleanup work.
 
-Not what other stuff has reboot support, so I gave it a whirl on
-PolarFire SoC & it seemed to work as expected:
-Tested-by: Conor Dooley <conor.dooley@microchip.com>
+This PR adds ARCH_FOO copies of SOC_FOO symbols, so that from v6.3
+onwards I can convert the users of the old symbols to the new ones.
+I've also gone and converted the various bits of Kbuild infra over to
+the new symbols which I will merge into my dt-for-next branch, hence the
+PR.
+
+Part N will probably arrive this time next year, once an LTS has been
+released with the ARCH_FOO symbols in it. That seems like a fair way to
+make sure the ARCH_FOO symbols propagate to whatever out of tree
+defconfigs that exist.
+
+I've included the rest of my "RISC-V: kconfig.socs cleanup, part 1",
+series in this tag/PR as it depends on the earlier patches. I won't be
+merging those bits into my dt tree though as they're not needed there.
 
 Thanks,
 Conor.
 
---ATLP0lEXvRX45tso
+The following changes since commit 1b929c02afd37871d5afb9d498426f83432e71c2:
+
+  Linux 6.2-rc1 (2022-12-25 13:41:39 -0800)
+
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ tags/soc2arch-immutable
+
+for you to fetch changes up to 3af577f9826fdddefac42b35fc5eb3912c5b7d85:
+
+  RISC-V: stop directly selecting drivers for SOC_CANAAN (2022-12-27 18:01:40 +0000)
+
+----------------------------------------------------------------
+SOC_FOO to ARCH_FOO conversion for RISC-V
+
+RISC-V is an outlier in using SOC_FOO rather than ARCH_FOO for
+vendors/micro-archs. SOC_FOO may make more sense (I personally prefer
+it), but the rest of the "world" uses ARCH_FOO. That'd be fine, with
+with an increasing number of existing SoC vendors moving to RISC-V,
+unifying our symbol names with the expectations of the rest of the world
+makes sense.
+Folks did not seem keen on changing the world (and they can't really be
+blamed for that) so convert RISC-V over to match.
+
+Add some ARCH_FOO stubs alongside the existing SOC_FOO ones, which will
+be removed once all users of SOC_FOO have been converted*, and convert
+the DT bits of RISC-V kbuild over to the new symbols.
+
+* It may be best to wait until after the next LTS to remove the SOC_FOO
+  ones, for the sake of external users.
+
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+
+----------------------------------------------------------------
+Conor Dooley (6):
+      RISC-V: introduce ARCH_FOO kconfig aliases for SOC_FOO symbols
+      RISC-V: kconfig.socs: convert usage of SOC_CANAAN to ARCH_CANAAN
+      RISC-V: kbuild: convert all use of SOC_FOO to ARCH_FOO
+      RISC-V: stop selecting the PolarFire SoC clock driver
+      RISC-V: stop selecting SiFive clock and serial drivers directly
+      RISC-V: stop directly selecting drivers for SOC_CANAAN
+
+ arch/riscv/Kconfig.socs                | 39 ++++++++++++++++++++++++++-------------
+ arch/riscv/Makefile                    |  2 +-
+ arch/riscv/boot/dts/Makefile           |  2 +-
+ arch/riscv/boot/dts/canaan/Makefile    | 14 +++++++-------
+ arch/riscv/boot/dts/microchip/Makefile |  8 ++++----
+ arch/riscv/boot/dts/sifive/Makefile    |  4 ++--
+ arch/riscv/boot/dts/starfive/Makefile  |  2 +-
+ 7 files changed, 42 insertions(+), 29 deletions(-)
+
+--3x3z+Q1wAsImrJnV
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY6yLMwAKCRB4tDGHoIJi
-0ivzAP9+SH0Lql0XKHnaLv07MiLUmZWgUzA9fyFMuC2SL6mJvAEA+nzYanZ4TgWy
-B8EyY10df0N49zc5ohweBmmjHCZz3A0=
-=7zvo
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY6yRUAAKCRB4tDGHoIJi
+0vFHAQC4NsE3f34JArygPgMGGaoh/+IqTnrMrCsvwZkMXDZdTQEA0x+Ys9WWy7rM
+DfJ+EusKadtcZ00d82Ka7xKjUQCVkwY=
+=Cw9W
 -----END PGP SIGNATURE-----
 
---ATLP0lEXvRX45tso--
+--3x3z+Q1wAsImrJnV--
 
 
---===============0876298737658204877==
+--===============7728534401801400295==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -154,5 +175,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============0876298737658204877==--
+--===============7728534401801400295==--
 
