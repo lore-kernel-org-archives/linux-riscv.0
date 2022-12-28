@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73FD5C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Dec 2022 22:50:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40B37C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Dec 2022 23:30:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2yMZg/9uR41OkEksAPbZ6U1IKI3Wdp7g0N3OFSS+deo=; b=W5gsP7d2qFwKkMwsB0H8BpoTD2
-	tu7UCsG7ipNMsdGXcQP12XVOzBqPFck7EpbAGnOnu26O0hatwXXtae8ME7C+WUUvvSW57iAKkblUD
-	NDynRjU5e3Bfdvp62Y7IqF6uNjiFBoHf3ONeKtzRnvNt8/pHy4ZK+7cOXTVYF4COGUj8Vtv8dtadW
-	CtYZ97mpyPduuRP4mCjj3AKTSyILovUBhFTLnQw7jI5TY59z9iKu41ac2ixeuJ5+najVOeBUWFpnM
-	k8biWh736Zpa18b/Q7kx4dWaUXSTs8VontHCK7kkSlaGluuhSWEPG49Enifv0BTrp2dOWMAAQMu3/
-	LAIEv03Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ZfLH3m0KH/lr1l3ssmIRRfVRSmZipop7sklaegC9YIg=; b=nkzSvuJx1BP8Ha
+	6VmGbV1pwu6d2YW5uiVs/8CoLkviZCbzNY2T8vmFIDrz/B+8lEaVGo1b68gPU4PDQahiN5yGe8Tdm
+	9/iRyxC9jm8W90nbxK2iWc1bdVi2BPsSAEiue+/axwxNZygG8/U39hCIy69uhZiX+vb9A8gZmOAye
+	EbrCjsok4Vvow3NvMAUvMg2VM1cydlF3Ehda1JtU8+EmHWbDf9hXXVW6E+DwN/jDlEBB+aKl5dmM6
+	XHqSOQ7w1bqdSWKGSFFyLA3WuTKs7KTn9QJK4eQY3FvEcPHAsTP3thdExhzDlrBT0ztgbRsceqd4Z
+	JnUHHCm6Ks/B4uuyFl3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pAfFP-008xst-1d; Wed, 28 Dec 2022 22:50:07 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pAfsE-009Ihk-UZ; Wed, 28 Dec 2022 23:30:15 +0000
+Received: from mail-yw1-x112e.google.com ([2607:f8b0:4864:20::112e])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pAfFK-008xoP-2p
-	for linux-riscv@lists.infradead.org; Wed, 28 Dec 2022 22:50:03 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id A17F661631;
-	Wed, 28 Dec 2022 22:49:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 903F4C433EF;
-	Wed, 28 Dec 2022 22:49:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1672267798;
-	bh=eKpTMGHSO/ZTiq4eGqbwHQljT2nRfrSmDBVcf8nJCYI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZXpJJnxOYfx1zvBUjyx9GEH+2hTVRek2WMdMyP+RQl8OiGWzkwrq5GdTM82ZFyS6e
-	 fzVLwa0jK6yhYivq7y4tsnxPKJ9G3FevsX2ZhoyBgeAXEfmkKA67V0839PmTKAUXHC
-	 0AzKeJnExpNBUHdLjcscNXvKSzoSAERPh8vb//oHp3h335yAshQz5+kq3enT1GTTfq
-	 aKYlPOOn8EGC8XQ570ilGBn1FVE0KxLoOLPOZN6S7YFtNrPmb4Tnrw4Gnm56qWIVRb
-	 NMdTtg07SzUo+xkOWdDthrDKohLeUS7IHPlXnl+ozdVtRAvzm92EIZ2RZkg0ZNEHzo
-	 R1viICb+35LbA==
-Date: Wed, 28 Dec 2022 22:49:52 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Hal Feng <hal.feng@starfivetech.com>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Ben Dooks <ben.dooks@sifive.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 7/7] riscv: dts: starfive: Add StarFive JH7110
- VisionFive 2 board device tree
-Message-ID: <Y6zIEMZJUW6CsPNS@spud>
-References: <20221220011247.35560-1-hal.feng@starfivetech.com>
- <20221220011247.35560-8-hal.feng@starfivetech.com>
- <Y6Iob3csmKMl0rB/@spud>
- <94c90f3f-0ca7-7cfb-4d4f-8f90e3300e16@starfivetech.com>
+	id 1pAfsB-009Ido-WD
+	for linux-riscv@lists.infradead.org; Wed, 28 Dec 2022 23:30:13 +0000
+Received: by mail-yw1-x112e.google.com with SMTP id 00721157ae682-48641a481dfso66997977b3.11
+        for <linux-riscv@lists.infradead.org>; Wed, 28 Dec 2022 15:30:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=kJfpsuGmkRtYVHaS0jk9a9geCrWPkqTErNlvnVy7Oyo=;
+        b=WxJtATyOD4OIRpZx7krCFnAd+CpK6cDQR2tbagDrzy77BZCbPEZydAV3rx+LbQGJwv
+         hORrcoY6fb0ohy8fjUVzwQlrDNhbgWs1BdSyx05NBZF/2jOlzO/HHWXg6Qc8GADgQELw
+         SSiZ/edoZOzRt/jjtTTzbU6ZuE06ykAb5c18rQpN83FgZZIRApp8hYvmKuiG8U6402+i
+         vLAGySHaOiMAW1RB9C5/9BEhQ/u+pauK2bz5d6lAHXCqoJVwBPCblp/qMSOwjT2GEyjL
+         MYWDqNQbeRUNjFOWdWQPTeKVvwamfvxzGGZ+l6EbTApwaNqyTlL1H4L0B/dobLPsbgKp
+         xpeA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=kJfpsuGmkRtYVHaS0jk9a9geCrWPkqTErNlvnVy7Oyo=;
+        b=HxB/7CqZc3MNNVzm6vWLgwB7UBUBkVNQ20lQY/mxR6pYJ+b1ofLFOS1hO976ZLoaqa
+         4RDPlSE2MFFN6K0wLZUslJZwZBqkTfrnplDlx+jNB95MQa8rd9LLRQmg00cJ2p8n+B/c
+         pN+8iNEiSPmvZSakmOGQSl4uk4eXd4AuqtyI4gCn4w0rxw+rVa9XmrSV0iPwfAdXd8Aq
+         XYJPn9Qr527TZho1avpe+a1cWTHkC6hHEh8yZkElvSuRB3ZesLUK/38TZu+orKlq/AB3
+         plYT6nYDtqtxmVVRPfEEJVLeMYKyL5IsDxpsj8rr0FImXTkiPBMAEYbB+AD3ZNt41wZz
+         wpNA==
+X-Gm-Message-State: AFqh2kpVLcc3uKr+dqcbsjIFCCSweCGx6SenIdWWhnGx0taYYYFgyBYW
+	Y5fIEoUW3EIbkVtCGWSqqGdJW0XhzGQpipqBQu0=
+X-Google-Smtp-Source: AMrXdXt+whyfBdIz20L32St7MHdPXiMGOmwCGGnuNkHC1oGLlDYrUVHg6UnzAE/waSW8hu8c/N/ONhO5/dE+1inDjcY=
+X-Received: by 2002:a81:1495:0:b0:465:d978:9724 with SMTP id
+ 143-20020a811495000000b00465d9789724mr3223519ywu.249.1672270209780; Wed, 28
+ Dec 2022 15:30:09 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <94c90f3f-0ca7-7cfb-4d4f-8f90e3300e16@starfivetech.com>
+References: <20221228004444.61568-1-samuel@sholland.org>
+In-Reply-To: <20221228004444.61568-1-samuel@sholland.org>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Wed, 28 Dec 2022 23:29:43 +0000
+Message-ID: <CA+V-a8t6pL-LrtwZzicUzC67yzZgE3hzHH+MNvdj5LuH7g3s6w@mail.gmail.com>
+Subject: Re: [PATCH] clocksource/drivers/riscv: Increase the clock source rating
+To: Samuel Holland <samuel@sholland.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
+	Thomas Gleixner <tglx@linutronix.de>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221228_145002_267846_9EA05FDD 
-X-CRM114-Status: GOOD (  21.83  )
+X-CRM114-CacheID: sfid-20221228_153012_093996_D757114C 
+X-CRM114-Status: GOOD (  17.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,106 +82,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7640924361661295823=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Samuel,
 
---===============7640924361661295823==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="0TJGFiimdGLWYNPZ"
-Content-Disposition: inline
+Thank you for the patch.
 
+On Wed, Dec 28, 2022 at 12:44 AM Samuel Holland <samuel@sholland.org> wrote:
+>
+> RISC-V provides an architectural clock source via the time CSR. This
+> clock source exposes a 64-bit counter synchronized across all CPUs.
+> Because it is accessed using a CSR, it is much more efficient to read
+> than MMIO clock sources. For example, on the Allwinner D1, reading the
+> sun4i timer in a loop takes 131 cycles/iteration, while reading the
+> RISC-V time CSR takes only 5 cycles/iteration.
+>
+> Adjust the RISC-V clock source rating so it is preferred over the
+> various platform-specific MMIO clock sources.
+>
+> Signed-off-by: Samuel Holland <samuel@sholland.org>
+> ---
+>
+>  drivers/clocksource/timer-riscv.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+Reviewed-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
---0TJGFiimdGLWYNPZ
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Cheers,
+Prabhakar
 
-On Fri, Dec 23, 2022 at 11:12:34AM +0800, Hal Feng wrote:
-> On Tue, 20 Dec 2022 21:26:07 +0000, Conor Dooley wrote:
-> > On Tue, Dec 20, 2022 at 09:12:47AM +0800, Hal Feng wrote:
-> > > From: Emil Renner Berthing <kernel@esmil.dk>
-> > >=20
-> > > Add a minimal device tree for StarFive JH7110 VisionFive 2 board
-> > > which has version A and version B. Support booting and basic
-> > > clock/reset/pinctrl/uart drivers.
-> > >=20
-> > > Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
-> > > Co-developed-by: Jianlong Huang <jianlong.huang@starfivetech.com>
-> > > Signed-off-by: Jianlong Huang <jianlong.huang@starfivetech.com>
-> > > Co-developed-by: Hal Feng <hal.feng@starfivetech.com>
-> > > Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
-> > > ---
-
-> > > diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-=
-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> > > new file mode 100644
-> > > index 000000000000..c60280b89c73
-> > > --- /dev/null
-> > > +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> > > @@ -0,0 +1,111 @@
-> > > +// SPDX-License-Identifier: GPL-2.0 OR MIT
-> > > +/*
-> > > + * Copyright (C) 2022 StarFive Technology Co., Ltd.
-> > > + * Copyright (C) 2022 Emil Renner Berthing <kernel@esmil.dk>
-> > > + */
-> > > +
-> > > +/dts-v1/;
-> > > +#include "jh7110.dtsi"
-> > > +#include "jh7110-pinfunc.h"
-> > > +#include <dt-bindings/gpio/gpio.h>
-> > > +
-> > > +/ {
-> > > +	aliases {
-> > > +		serial0 =3D &uart0;
-> > > +	};
-> > > +
-> > > +	chosen {
-> > > +		stdout-path =3D "serial0:115200n8";
-> > > +	};
-> > > +
-> > > +	cpus {
-> > > +		timebase-frequency =3D <4000000>;
-> > > +	};
-> > > +
-> > > +	memory@40000000 {
-> > > +		device_type =3D "memory";
-> > > +		reg =3D <0x0 0x40000000 0x1 0x0>;
-> >=20
-> > Is this a good idea when you have SKUs with 2, 4 & 8 GiB of DDR?
->=20
-> The VisionFive 2 board only has 4GB version and 8GB version now. Before
-> linux startup, we will change this property in dtb through u-boot to
-> make sure the board can boot up with the correct memory size.
-
-Ah I see. Thanks.
-
-
---0TJGFiimdGLWYNPZ
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY6zIDwAKCRB4tDGHoIJi
-0gMNAQCvOfHtZr3PoXFX2+mCzgr6JsCjRiW7PbUqOVqUw8b9dgD/clvylp+cEFHt
-ztVMWXpjCLcWCFgDniZe/S3nBDLNmQA=
-=tziJ
------END PGP SIGNATURE-----
-
---0TJGFiimdGLWYNPZ--
-
-
---===============7640924361661295823==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
+> index a0d66fabf073..55dad7965f43 100644
+> --- a/drivers/clocksource/timer-riscv.c
+> +++ b/drivers/clocksource/timer-riscv.c
+> @@ -73,7 +73,7 @@ static u64 notrace riscv_sched_clock(void)
+>
+>  static struct clocksource riscv_clocksource = {
+>         .name           = "riscv_clocksource",
+> -       .rating         = 300,
+> +       .rating         = 400,
+>         .mask           = CLOCKSOURCE_MASK(64),
+>         .flags          = CLOCK_SOURCE_IS_CONTINUOUS,
+>         .read           = riscv_clocksource_rdtime,
+> --
+> 2.37.4
+>
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7640924361661295823==--
-
