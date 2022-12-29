@@ -4,78 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17BB8C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Dec 2022 23:44:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D68FEC4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Dec 2022 05:25:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VE8yE+/mKsnTKS96zSS2ToaBQGxLMtKUvJO3jgjV+U0=; b=2c0nWrbqaOmnRx
-	jqngFHdukOSg5m5c/iINp6tMX8p1SKntsygWNhpQHyijg9vXD6Kr1ugryOZP5oc+WOTLT/bodPyAk
-	CHzXDqKXn9GAhKcalycregl9mT16bqP0NJ12UnkotZVF0NpNHV/bGjd256D2qnMLDHUeu8nTI8f1n
-	TFyPMk8srg7AjEd+Hw5ANiSCBLDsPHA8TfCxc+Qn4KfwaxaqaHj7WsZmKvETUtcZcZGoGQLwnLuSO
-	SUklN1Mee7d2r7V6pI11gzNahbEBN050RGiU+getTcu2UR4M/Bk7AIzGMk7DxpadcNMrzHv04J0Sc
-	Q8EBv3/5plRL8YSNoBow==;
+	List-Owner; bh=GUfXriaNORnXcGDNJyf6z4B3OSDZtbULrZuY39HaUHI=; b=yB194gsnd6MphA
+	P6htpNR+i8EnRG+mYlZKBwZeZgza0bLqVClJcs+9x+CRhtDtw5zWXlqXdiiCZWVUBJczp5Ya53wNE
+	MUEhb8oTvYTnlhdj+3e8LXShQyF4Yz2deN+OwqHkTGaXkxwpkvO7oHpdm7L4Rsy4t8aB7kSp9+CN+
+	GU/rkQaHlPLUaHICUOLSOLCqVMwWajVp2Hii3i6ZWklrJHEebTx/3PlbtHkKW4fML+WmB1C8uc+cs
+	Fti0wJ7LAde3JeQ5CQeuhVCc4FDrFpOlBEr109SZpCBEl/JolMq5GaZvCRO4vH3P74Fj7AeYg40OF
+	D2bVgCYJdwvktZoH2+kQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pAg6H-009Psp-Ne; Wed, 28 Dec 2022 23:44:45 +0000
-Received: from mail-yw1-x112c.google.com ([2607:f8b0:4864:20::112c])
+	id 1pAlPs-00CGRv-IH; Thu, 29 Dec 2022 05:25:20 +0000
+Received: from sender4-op-o18.zoho.com ([136.143.188.18])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pAg69-009Pop-UC
-	for linux-riscv@lists.infradead.org; Wed, 28 Dec 2022 23:44:39 +0000
-Received: by mail-yw1-x112c.google.com with SMTP id 00721157ae682-482363a1232so86218107b3.3
-        for <linux-riscv@lists.infradead.org>; Wed, 28 Dec 2022 15:44:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=NbGhLufIgqXDdb1BN5HzkBQRvTU9efkD5B+p/KhTdLo=;
-        b=S93e4U7AJgIp/1cRRpi8jqaGy6dMUpEYkKtGlP2nl964lAgj68R54yOQxMweYq+e5b
-         AoZh5EUHn99Hln3b7DxkLhig5piBVh7mVacLc0IwQTwUo+mWg8TA54mjjz4iPRzDG1BP
-         llZ6xofNgj5fczbyZsbpDionw/fZf3c2FnTs9CLYR1wUpulRn2eMZkJeBAGCyKOELbxr
-         8lHUbonYbpdSX0LhiLVoI8Nv5qGjBnU2r7ZxfQTyYI3ZvtmZc8tMgvenEhnXEgjTkWPW
-         lUWsySNYtc9/L1+9y9TNs71n/FM9GJdQ7xnSewOJd97hOMlSpZTISDAZzVCucnp6A9SK
-         089A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=NbGhLufIgqXDdb1BN5HzkBQRvTU9efkD5B+p/KhTdLo=;
-        b=occhjjKntX3Th35eR+NJHWtlA3soKNEJ7SzY7SzNA1xEACvsykW7pJJRw9boDzjW7q
-         Bd1BtTs4e8aJAP7gD5dWCOCaHOA28VlMlTjLq5xja9o8wCikuh5qFPPB4HEFz4wx3cXq
-         dz5DS1RVvkrm8LUSAqu+hllZMh6a3zc4efYyS0WSpUuqVItrsh+rbJ6mvLykPW8OlQZf
-         jAF88WV6BlyVnrNhgaCg569pHF/Hozb40Uo7FVu9CTI6oVf28Le2SAl/O/UM0yU7OlK2
-         KGDSIjWoP9nt3iEPfUNY3NaTAKUWFwjL5VstvLaiBLL+uKFW2tAtCVbgUQFqdu97N8zH
-         UhJA==
-X-Gm-Message-State: AFqh2koszPOnnb/fh/QmuyU2768pOMaI4DCpNRM4hW3Zd+3aTru3+ueK
-	g4ZxiUaOm5tJDyCB/s04xbLCgZZvvu/LRK09tPA=
-X-Google-Smtp-Source: AMrXdXurW45CCPloviW/gcdr6IUKvd7hSti4zW1PmI1pK0x+q6NVPKN9/xSVaH46yCH2O/LewYQF32/cvLWvnx6YMjY=
-X-Received: by 2002:a81:9e41:0:b0:3b7:1b8a:6024 with SMTP id
- n1-20020a819e41000000b003b71b8a6024mr2944186ywj.421.1672271074846; Wed, 28
- Dec 2022 15:44:34 -0800 (PST)
+	id 1pAlPo-00CGOT-Bg
+	for linux-riscv@lists.infradead.org; Thu, 29 Dec 2022 05:25:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1672291509; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=m10Ebk3aFUEusqoGNLlpxwFQi/8DWKYjXTyCjzzUmTqFMZmjNpWfDKNC9fKP71nd5wp65652FwCMj1zADIDPHZtxmZfOHvFypRgCxe39X2oZHRiQk21ox8XULir8yvAKoD21J0qR9/oD3NsiZ0qLC7TV5KuctKRIqvayKsz6f2M=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1672291509; h=Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:To; 
+	bh=NAS0fK/e8lDKFjnrjwgoQpECmXMWsHoHrb0rCyC3ck8=; 
+	b=m5QMiVBDG47IPeFiPZ6fqnZrucNYwFmMPy4eTsUYOgSavo3xVXRgZVMkkkYGCwWwvF36woBrlux3WkRpaREj6Rs4at/0Phsd3kI9Q1PrdifCsb6GUonuytgoh65luSDZUkqw2z1DAnEy8q6I+4glebk0TGu4xQIZ92A0AnOx6qE=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=icenowy.me;
+	spf=pass  smtp.mailfrom=uwu@icenowy.me;
+	dmarc=pass header.from=<uwu@icenowy.me>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1672291509;
+	s=zmail; d=icenowy.me; i=uwu@icenowy.me;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=NAS0fK/e8lDKFjnrjwgoQpECmXMWsHoHrb0rCyC3ck8=;
+	b=cGLVsoIm5IqTfymLYR8j58s+Fhe8ELb7z3A30/tu0vULQJE8rPUslmMsBvBvjh6L
+	lao5aSRTcPvgs+wYYg8hLTDnKTgKuc7a9s9KMxY9U67K3NCvOqWWTdH+A1ugQ8/rxEQ
+	NtVIt/At77P6bUxO5S2sdro4PjJP10QbL0RLYaWI=
+Received: from edelgard.fodlan.icenowy.me (120.85.98.122 [120.85.98.122]) by mx.zohomail.com
+	with SMTPS id 1672291506328914.6557228533895; Wed, 28 Dec 2022 21:25:06 -0800 (PST)
+Message-ID: <dda144a8397a175f3ce092485f08896c9a66d232.camel@icenowy.me>
+Subject: Re: [PATCH v3 6/7] riscv: dts: starfive: Add initial StarFive
+ JH7110 device tree
+From: Icenowy Zheng <uwu@icenowy.me>
+To: Conor Dooley <conor@kernel.org>, Hal Feng <hal.feng@starfivetech.com>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, Palmer
+ Dabbelt <palmer@dabbelt.com>, Rob Herring <robh+dt@kernel.org>, Krzysztof
+ Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
+ <paul.walmsley@sifive.com>,  Albert Ou <aou@eecs.berkeley.edu>, Ben Dooks
+ <ben.dooks@sifive.com>, Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas
+ Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Stephen Boyd
+ <sboyd@kernel.org>, Michael Turquette <mturquette@baylibre.com>, Philipp
+ Zabel <p.zabel@pengutronix.de>, Linus Walleij <linus.walleij@linaro.org>,
+ Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
+ linux-kernel@vger.kernel.org
+Date: Thu, 29 Dec 2022 13:25:00 +0800
+In-Reply-To: <Y6zHy9oL4xzl+6Rd@spud>
+References: <20221220011247.35560-1-hal.feng@starfivetech.com>
+	 <20221220011247.35560-7-hal.feng@starfivetech.com> <Y6zHy9oL4xzl+6Rd@spud>
+Organization: Anthon Open-Source Community
+User-Agent: Evolution 3.44.4 
 MIME-Version: 1.0
-References: <20221211215843.24024-1-prabhakar.mahadev-lad.rj@bp.renesas.com> <a92eda53-90ed-718d-6925-0d9afbb029c5@sholland.org>
-In-Reply-To: <a92eda53-90ed-718d-6925-0d9afbb029c5@sholland.org>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Wed, 28 Dec 2022 23:44:08 +0000
-Message-ID: <CA+V-a8vLtmo7VjQfZAnvLvjBADF_Zk3TNM62VJQnyxSBwjVDnQ@mail.gmail.com>
-Subject: Re: [RFC PATCH] clocksource/drivers/riscv: Get rid of
- clocksource_arch_init() callback
-To: Samuel Holland <samuel@sholland.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
-	Thomas Gleixner <tglx@linutronix.de>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Conor Dooley <conor.dooley@microchip.com>, Heiko Stuebner <heiko@sntech.de>, 
-	linux-riscv@lists.infradead.org, Anup Patel <anup@brainfault.org>, 
-	linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Biju Das <biju.das.jz@bp.renesas.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221228_154438_138164_800C5FFD 
-X-CRM114-Status: GOOD (  28.69  )
+X-CRM114-CacheID: sfid-20221228_212516_547514_F155E7D0 
+X-CRM114-Status: GOOD (  24.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,111 +82,109 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Samuel,
-
-Thank you for the review.
-
-On Tue, Dec 27, 2022 at 11:17 PM Samuel Holland <samuel@sholland.org> wrote:
->
-> On 12/11/22 15:58, Prabhakar wrote:
-> > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> >
-> > Having a clocksource_arch_init() callback always sets vdso_clock_mode to
-> > VDSO_CLOCKMODE_ARCHTIMER if GENERIC_GETTIMEOFDAY is enabled, this is
-> > required for the riscv-timer.
-> >
-> > This works for platforms where just riscv-timer clocksource is present.
-> > On platforms where other clock sources are available we want them to
-> > register with vdso_clock_mode set to VDSO_CLOCKMODE_NONE.
-> >
-> > On the Renesas RZ/Five SoC OSTM block can be used as clocksource [0], to
-> > avoid multiple clock sources being registered as VDSO_CLOCKMODE_ARCHTIMER
-> > move setting of vdso_clock_mode in the riscv-timer driver instead of doing
-> > this in clocksource_arch_init() callback as done similarly for ARM/64
-> > architecture.
->
-> This is definitely a good change to make, but shouldn't we still prefer
-> the architectural CSR-based clocksource over an MMIO-based clocksource?
-> It has double the number of bits, and reading it should have less
-> overhead. So I think we also want to increase the rating of
-> riscv_clocksource.
->
-For which now you have already have a patch posted.
-
-> D1 is in the same situation, as timer-sun4i.c registers a clocksource
-> with a higher rating than riscv_clocksource. Without this patch,
-> tools/testing/selftests/vDSO/vdso_test_correctness fails. With this
-> patch, it passes, so:
->
-> Tested-by: Samuel Holland <samuel@sholland.org>
->
-> > [0] drivers/clocksource/renesas-ostm.c
-> >
-> > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> > ---
-> >  arch/riscv/Kconfig                | 1 -
-> >  arch/riscv/kernel/time.c          | 9 ---------
-> >  drivers/clocksource/timer-riscv.c | 7 +++++++
-> >  3 files changed, 7 insertions(+), 10 deletions(-)
-> >
-> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > index 7ea12de636bd..b269e062c1b1 100644
-> > --- a/arch/riscv/Kconfig
-> > +++ b/arch/riscv/Kconfig
-> > @@ -12,7 +12,6 @@ config 32BIT
-> >
-> >  config RISCV
-> >       def_bool y
-> > -     select ARCH_CLOCKSOURCE_INIT
-> >       select ARCH_ENABLE_HUGEPAGE_MIGRATION if HUGETLB_PAGE && MIGRATION
-> >       select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
-> >       select ARCH_HAS_BINFMT_FLAT
-> > diff --git a/arch/riscv/kernel/time.c b/arch/riscv/kernel/time.c
-> > index 8217b0f67c6c..42bee305e997 100644
-> > --- a/arch/riscv/kernel/time.c
-> > +++ b/arch/riscv/kernel/time.c
-> > @@ -30,12 +30,3 @@ void __init time_init(void)
-> >       of_clk_init(NULL);
-> >       timer_probe();
-> >  }
-> > -
-> > -void clocksource_arch_init(struct clocksource *cs)
-> > -{
-> > -#ifdef CONFIG_GENERIC_GETTIMEOFDAY
-> > -     cs->vdso_clock_mode = VDSO_CLOCKMODE_ARCHTIMER;
-> > -#else
-> > -     cs->vdso_clock_mode = VDSO_CLOCKMODE_NONE;
-> > -#endif
-> > -}
-> > diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
-> > index 969a552da8d2..7ec9668cd36d 100644
-> > --- a/drivers/clocksource/timer-riscv.c
-> > +++ b/drivers/clocksource/timer-riscv.c
-> > @@ -29,6 +29,12 @@
-> >
-> >  static DEFINE_STATIC_KEY_FALSE(riscv_sstc_available);
-> >
-> > +#ifdef CONFIG_GENERIC_GETTIMEOFDAY
-> > +static enum vdso_clock_mode vdso_default = VDSO_CLOCKMODE_ARCHTIMER;
-> > +#else
-> > +static enum vdso_clock_mode vdso_default = VDSO_CLOCKMODE_NONE;
-> > +#endif /* CONFIG_GENERIC_GETTIMEOFDAY */
->
-> We don't have any workarounds like arm_arch_timer, so we do not need
-> this indirection through vdso_default. You can set .vdso_clock_mode
-> directly in the declaration of riscv_clocksource.
->
-Agreed, I'll do that in v2.
-
-Cheers,
-Prabhakar
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+5ZyoIDIwMjItMTItMjjmmJ/mnJ/kuInnmoQgMjI6NDggKzAwMDDvvIxDb25vciBEb29sZXnlhpnp
+gZPvvJoKPiBIZXksCj4gCj4gT24gVHVlLCBEZWMgMjAsIDIwMjIgYXQgMDk6MTI6NDZBTSArMDgw
+MCwgSGFsIEZlbmcgd3JvdGU6Cj4gPiBGcm9tOiBFbWlsIFJlbm5lciBCZXJ0aGluZyA8a2VybmVs
+QGVzbWlsLmRrPgo+ID4gCj4gPiBBZGQgaW5pdGlhbCBkZXZpY2UgdHJlZSBmb3IgdGhlIEpINzEx
+MCBSSVNDLVYgU29DIGJ5IFN0YXJGaXZlCj4gPiBUZWNobm9sb2d5IEx0ZC4KPiA+IAo+ID4gU2ln
+bmVkLW9mZi1ieTogRW1pbCBSZW5uZXIgQmVydGhpbmcgPGtlcm5lbEBlc21pbC5kaz4KPiA+IENv
+LWRldmVsb3BlZC1ieTogSmlhbmxvbmcgSHVhbmcgPGppYW5sb25nLmh1YW5nQHN0YXJmaXZldGVj
+aC5jb20+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBKaWFubG9uZyBIdWFuZyA8amlhbmxvbmcuaHVhbmdA
+c3RhcmZpdmV0ZWNoLmNvbT4KPiA+IENvLWRldmVsb3BlZC1ieTogSGFsIEZlbmcgPGhhbC5mZW5n
+QHN0YXJmaXZldGVjaC5jb20+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBIYWwgRmVuZyA8aGFsLmZlbmdA
+c3RhcmZpdmV0ZWNoLmNvbT4KPiA+IC0tLQo+ID4gwqBhcmNoL3Jpc2N2L2Jvb3QvZHRzL3N0YXJm
+aXZlL2poNzExMC5kdHNpIHwgNDExCj4gPiArKysrKysrKysrKysrKysrKysrKysrKwo+ID4gwqAx
+IGZpbGUgY2hhbmdlZCwgNDExIGluc2VydGlvbnMoKykKPiA+IMKgY3JlYXRlIG1vZGUgMTAwNjQ0
+IGFyY2gvcmlzY3YvYm9vdC9kdHMvc3RhcmZpdmUvamg3MTEwLmR0c2kKPiA+IAo+ID4gZGlmZiAt
+LWdpdCBhL2FyY2gvcmlzY3YvYm9vdC9kdHMvc3RhcmZpdmUvamg3MTEwLmR0c2kKPiA+IGIvYXJj
+aC9yaXNjdi9ib290L2R0cy9zdGFyZml2ZS9qaDcxMTAuZHRzaQo+ID4gbmV3IGZpbGUgbW9kZSAx
+MDA2NDQKPiA+IGluZGV4IDAwMDAwMDAwMDAwMC4uNjRkMjYwZWExZjI5Cj4gPiAtLS0gL2Rldi9u
+dWxsCj4gPiArKysgYi9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3N0YXJmaXZlL2poNzExMC5kdHNpCj4g
+PiBAQCAtMCwwICsxLDQxMSBAQAo+ID4gKy8vIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBHUEwt
+Mi4wIE9SIE1JVAo+ID4gKy8qCj4gPiArICogQ29weXJpZ2h0IChDKSAyMDIyIFN0YXJGaXZlIFRl
+Y2hub2xvZ3kgQ28uLCBMdGQuCj4gPiArICogQ29weXJpZ2h0IChDKSAyMDIyIEVtaWwgUmVubmVy
+IEJlcnRoaW5nIDxrZXJuZWxAZXNtaWwuZGs+Cj4gPiArICovCj4gPiArCj4gPiArL2R0cy12MS87
+Cj4gPiArI2luY2x1ZGUgPGR0LWJpbmRpbmdzL2Nsb2NrL3N0YXJmaXZlLGpoNzExMC1jcmcuaD4K
+PiA+ICsjaW5jbHVkZSA8ZHQtYmluZGluZ3MvcmVzZXQvc3RhcmZpdmUsamg3MTEwLWNyZy5oPgo+
+ID4gKwo+ID4gKy8gewo+ID4gK8KgwqDCoMKgwqDCoMKgY29tcGF0aWJsZSA9ICJzdGFyZml2ZSxq
+aDcxMTAiOwo+ID4gK8KgwqDCoMKgwqDCoMKgI2FkZHJlc3MtY2VsbHMgPSA8Mj47Cj4gPiArwqDC
+oMKgwqDCoMKgwqAjc2l6ZS1jZWxscyA9IDwyPjsKPiA+ICsKPiA+ICvCoMKgwqDCoMKgwqDCoGNw
+dXMgewo+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCNhZGRyZXNzLWNlbGxzID0g
+PDE+Owo+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCNzaXplLWNlbGxzID0gPDA+
+Owo+ID4gKwo+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoFM3Nl8wOiBjcHVAMCB7
+Cj4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGNvbXBh
+dGlibGUgPSAic2lmaXZlLHU3NC1tYyIsICJyaXNjdiI7Cj4gCj4gVGhlIGxhYmVsIGhlcmUgc2F5
+cyBTNzYgYnV0IHRoZSBjb21wYXRpYmxlIHNheXMgdTc0LW1jLgo+IFdoaWNoIGlzIGNvcnJlY3Q/
+IFlvdXIgZG9jcyBzYXkgUzcgYW5kIFM3Niwgc28gSSB3b3VsZCBpbWFnaW5lIHRoYXQKPiBpdAo+
+IGlzIGFjdHVhbGx5IGFuIFM3Nj8KPiAKPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgcmVnID0gPDA+Owo+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBkLWNhY2hlLWJsb2NrLXNpemUgPSA8NjQ+Owo+ID4gK8Kg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBkLWNhY2hlLXNldHMg
+PSA8NjQ+Owo+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqBkLWNhY2hlLXNpemUgPSA8ODE5Mj47Cj4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoGQtdGxiLXNldHMgPSA8MT47Cj4gPiArwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGQtdGxiLXNpemUgPSA8NDA+Owo+ID4gK8Kg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBkZXZpY2VfdHlwZSA9
+ICJjcHUiOwo+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqBpLWNhY2hlLWJsb2NrLXNpemUgPSA8NjQ+Owo+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBpLWNhY2hlLXNldHMgPSA8NjQ+Owo+ID4gK8KgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBpLWNhY2hlLXNpemUgPSA8MTYz
+ODQ+Owo+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBp
+LXRsYi1zZXRzID0gPDE+Owo+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqBpLXRsYi1zaXplID0gPDQwPjsKPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgbW11LXR5cGUgPSAicmlzY3Ysc3YzOSI7Cj4gPiArwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoG5leHQtbGV2ZWwtY2Fj
+aGUgPSA8JmNjYWNoZT47Cj4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoHJpc2N2LGlzYSA9ICJydjY0aW1hYyI7Cj4gCj4gV2hpbGUgSSB3YXMgcG9raW5n
+IGFyb3VuZCB0cnlpbmcgdG8gc2VlIGlmIHRoZXJlIHdhcyBzb21lIGxvZ2ljCj4gYmVoaW5kCj4g
+dGhhdCBjb21wYXRpYmxlLCBJIG5vdGljZWQgdGhhdCBTaUZpdmUncyBkb2NzIGZvciB0aGUgUzc2
+IHNheSBpdCBpcwo+IFJWNjRHQkMgKmJ1dCogdGhlIGRvY3MgZm9yIHRoZSB1NzQtbWMgc2F5ICI0
+eFJWNjRHQkMgYW5kIDF4UlY2NElNQUMiLgo+IEkgYXNzdW1lIHRoYXQgcnY2NGltYWMgaXMgdGhl
+IGNvcnJlY3Qgb25lIGhlcmU/Cj4gCj4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoHRsYi1zcGxpdDsKPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgc3RhdHVzID0gImRpc2FibGVkIjsKPiA+ICsKPiA+ICvCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgY3B1MF9pbnRjOiBpbnRl
+cnJ1cHQtY29udHJvbGxlciB7Cj4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBjb21wYXRpYmxlID0gInJpc2N2LGNwdS1pbnRj
+IjsKPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoGludGVycnVwdC1jb250cm9sbGVyOwo+ID4gK8KgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgI2ludGVycnVwdC1j
+ZWxscyA9IDwxPjsKPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgfTsKPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqB9Owo+ID4gKwo+ID4g
+K8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoFU3NF8xOiBjcHVAMSB7Cj4gPiArwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGNvbXBhdGlibGUgPSAic2lm
+aXZlLHU3NC1tYyIsICJyaXNjdiI7Cj4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoHJlZyA9IDwxPjsKPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgZC1jYWNoZS1ibG9jay1zaXplID0gPDY0PjsKPiA+ICvCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgZC1jYWNoZS1zZXRzID0g
+PDY0PjsKPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+ZC1jYWNoZS1zaXplID0gPDMyNzY4PjsKPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgZC10bGItc2V0cyA9IDwxPjsKPiA+ICvCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgZC10bGItc2l6ZSA9IDw0MD47Cj4gPiArwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGRldmljZV90eXBlID0g
+ImNwdSI7Cj4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oGktY2FjaGUtYmxvY2stc2l6ZSA9IDw2ND47Cj4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoGktY2FjaGUtc2V0cyA9IDw2ND47Cj4gPiArwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGktY2FjaGUtc2l6ZSA9IDwzMjc2
+OD47Cj4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGkt
+dGxiLXNldHMgPSA8MT47Cj4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoGktdGxiLXNpemUgPSA8NDA+Owo+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBtbXUtdHlwZSA9ICJyaXNjdixzdjM5IjsKPiA+ICvCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgbmV4dC1sZXZlbC1jYWNo
+ZSA9IDwmY2NhY2hlPjsKPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgcmlzY3YsaXNhID0gInJ2NjRpbWFmZGMiOwo+IAo+IFRoYXQgYWxzbyBiZWdzIHRo
+ZSBxdWVzdGlvbjoKPiBEbyB5b3VyIHU3NHMgc3VwcG9ydCBSVjY0R0JDLCBhcyB0aGUgKGN1cnJl
+bnQpIFNpRml2ZSBkb2N1bWVudGF0aW9uCj4gc3VnZ2VzdHM/CgpJdCBzdXBwb3J0cyBSVjY0R0Na
+YmFaYmIuCgpCIGlzIG5vdCBhIHdlbGwtZGVmaW5lZCB0aGluZyBieSBzcGVjaWZpY2F0aW9ucywg
+c28gaXQgc2hvdWxkIGJlCnByZXZlbnRlZCBoZXJlLgoKPiAKPiBUaGFua3MsCj4gQ29ub3IuCj4g
+Cj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPiBsaW51
+eC1yaXNjdiBtYWlsaW5nIGxpc3QKPiBsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCj4g
+aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgoK
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
+Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
+c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
