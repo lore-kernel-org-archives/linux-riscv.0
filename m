@@ -4,111 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A91DC3DA79
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Dec 2022 20:52:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 231DCC3DA79
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Dec 2022 22:50:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mbcYUXHk5aybRgPqIpoohhQtLLvKfQQp7X15Ci8a+rI=; b=hT55LSejOcoZIJ
-	8K94pu6bheeFcpP0mM+Vwa0J7KlfY7amxx6X+Ti2oUxlZ8Zp0aUSNnuyZWEgHoWQm5fOO2b97jsJ/
-	RXsThCrtylzuK4sv+bTDK/24GciQpsaoTzF2SZSzPk+izIDuRSlpcu79VGF83uVvdMEiJ1yp9WCub
-	p0i2HMy0jt3NgpXWPT9GD4IBLrZSLIov0h8zXXr7pV6fXhF4NRW6YG7S3Y3VhUeVu5wI0c2e0gP7V
-	Fmr3llRN7HhtnLHJsY1NOYMJr/upjCXAbI4+yzi0TcI/EcP7Bhv+cSMUCSzQDBmUCLoviJifEksTE
-	5vu7/O0EZOVEN472Wpeg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=tajnLdy+l0Q7eQuAh/+7WXDZ5yI3zFRHsrIcwlU+PZk=; b=bCFOB1QLukCybw
+	h8l630+pAkPKQpjBt0JsPiP3S2EsJwfM3Vjac5ppQBW7nuiYW8RHPpw8TM2HBxOvf5fBDS7JYghy9
+	pKY5ha+yRZajZ2AqOFK0Ft/7s8NCHAX0+xuiDNMe0CNBFkYSR8z4otPU9/vj0phXRf/VT6vMlssuz
+	Wo/0KE0QDeddNxJUCN/ZouzSwEwhuR2fvAN7UNUwSLU8iXvyMJXMDeeX4N1jL4wAa9NjdKYLYF4nS
+	YewAfqg/YT4yDniAxg02m6Z/ZZFiAkl5YRdNLrvCRBotIZQXdo/1kADJPd6Gd1J8aw3diM7XxEv3n
+	/AKIzLgODu6+ZQw9mlOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pAztH-001xjh-EJ; Thu, 29 Dec 2022 20:52:39 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1pB1jJ-002qDB-Gg; Thu, 29 Dec 2022 22:50:29 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pAztB-001xfp-In
-	for linux-riscv@lists.infradead.org; Thu, 29 Dec 2022 20:52:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1672347150;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=DeG05ASAQvY/FceYSGJdKCGQ3OFwx25lz4jlpRPWbnU=;
-	b=QJH//pN0eriMw29BgTFdy3xXOZkd0KsWLZc0RKSSyhIp9aCQ/1/l6acP4s75XKeOi3Q8b6
-	/LUt1hGUVVxOba69F3in9Evnw6L0yYqMaNV4LnLOQDGQiB5uBhucyx2x5sNMmL3jRIncOp
-	hi7zJCrusT0uso7jtPKm/f8qw9n9L/E=
-Received: from mail-ed1-f71.google.com (mail-ed1-f71.google.com
- [209.85.208.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_128_GCM_SHA256) id
- us-mta-14-cHQDCbUHM42QoKw3cG7JLA-1; Thu, 29 Dec 2022 15:52:27 -0500
-X-MC-Unique: cHQDCbUHM42QoKw3cG7JLA-1
-Received: by mail-ed1-f71.google.com with SMTP id z20-20020a05640240d400b0047028edd264so13603622edb.20
-        for <linux-riscv@lists.infradead.org>; Thu, 29 Dec 2022 12:52:27 -0800 (PST)
+	id 1pB1j6-002q9s-41
+	for linux-riscv@lists.infradead.org; Thu, 29 Dec 2022 22:50:18 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id h16so18444830wrz.12
+        for <linux-riscv@lists.infradead.org>; Thu, 29 Dec 2022 14:50:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=9pHkqivt6f67irNbuQhpHiA1tWMOcGwgyjN35gn979k=;
+        b=Yli7mHNFzGQhoCn7aw91t3u9/1u5SB02O1NkR7W+efSrpymfrp0zw5IHjDnlN2dYMp
+         uiKSjApGAPXeupU3PEceX0aMiGVx0fxpn8o+LMW7P0ANKAPKhpAGS3yIxWIxi3wZ7SCZ
+         JZ8BB/6V6Cre5SbPEDl5BX9rKf2JBipH+DkmhDku+IjvjW2Q1fC/ogDFAvbGSFPKMVaX
+         JEZtrEuGbhxeJTuuFOM1BB+ggSwhH7Vj1yDCDaXxPyvIRt+hYxEjzbd9OiZouVYIGH7Z
+         J//1hzHm5FznN7yksxVTTSItoUd1YHMl7GN/OKZalmshaujHERrh33pxRATlQFYPyXWY
+         X6OQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=DeG05ASAQvY/FceYSGJdKCGQ3OFwx25lz4jlpRPWbnU=;
-        b=sq/gy695Pr6ugxfTaKXMebTlY6h51j4qn9UQ4SdbTVpm94mlh8D0iLZTZa1O2T1x/H
-         yrEo7mCpc6qY0USAtPiZ/ERItLrwJLBo81xMYkn+tKeIayyZxQjOGXgUdtgQAmIP08GU
-         7iIz6QWxa0u9S8bvgMiLUmpjnTDDgRBRHR509eSMjiyanOYXX0preEvLQ84QomFhLiY2
-         yoF1ecTKnZOVb1zEtzD4Z+RM2cChmH9au/5UB9gBrwY5hbl5+uQxLNbgHo4DTIP6xFKo
-         eqjpuqbkFshERcZBKmwDT2s8d1xIEzTTUW1kbNIhKuc8aYnDrv3dh4tSWzphjJZmaKSU
-         X1UQ==
-X-Gm-Message-State: AFqh2kpVsMJd4yVkQY+nZ2/a7I93NB0bItR3zbqAIqNWbho3Wd6r31vZ
-	3Tl7WwZimYBV/yguyyeaOSbwGR3YkAz3g7z1PvH/c2XZkcMDKvGcIF1HQqyPih9opRIIIwTZAZ1
-	mCZDYCY2MkgzaY3saCeojCwB2v4VH
-X-Received: by 2002:a17:907:6f09:b0:7c1:37:6d5e with SMTP id sy9-20020a1709076f0900b007c100376d5emr4872290ejc.2.1672347146350;
-        Thu, 29 Dec 2022 12:52:26 -0800 (PST)
-X-Google-Smtp-Source: AMrXdXuAZx8SHyajJmJ++QT23AGJAvs5IxosEfN11APvih7Pbj5KPIpkonmPHiwyMLfqMEbO8Dqn3Q==
-X-Received: by 2002:a17:907:6f09:b0:7c1:37:6d5e with SMTP id sy9-20020a1709076f0900b007c100376d5emr4872244ejc.2.1672347146101;
-        Thu, 29 Dec 2022 12:52:26 -0800 (PST)
-Received: from ?IPV6:2001:b07:6468:f312::529? ([2001:b07:6468:f312::529])
-        by smtp.googlemail.com with ESMTPSA id 23-20020a170906301700b0084c90164a56sm1096571ejz.29.2022.12.29.12.52.22
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 29 Dec 2022 12:52:25 -0800 (PST)
-Message-ID: <4d73d1b9-2c28-ab6a-2963-579bcc7a9e67@redhat.com>
-Date: Thu, 29 Dec 2022 21:52:21 +0100
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=9pHkqivt6f67irNbuQhpHiA1tWMOcGwgyjN35gn979k=;
+        b=q1kEJ6dN1m67hFeEBldkOSSayg9xEwt54a9QWFwvfguj0yU1bAB9iTeWOGerruF21M
+         uJlFsSGeY7tYAkLzlo6sHMYNijbnmv6pXxW7Mio2P5euWk0s9HM3DAsLjnS2KNs/zbuJ
+         lBMH97te04K+sdzrGPH+fqntFJGQ2Wu1RpsQLjJP/P7/LOB3JURzPoDBNFrtMS7obxVw
+         UmMWqfEOyDyz9RKhRkfkNqLXKqgvyPqAfosIsTgbvd+VGrMGvdINUoz+4ORdWj5vVsVz
+         INST0URy9uTE0cq/xW7rGMsQe7gciCsLDqhCd3eOaH0xz9ujZuFmnBa3WAWJOQgM2LGH
+         8Djg==
+X-Gm-Message-State: AFqh2kpgEDrA7dv/v0QsVpMbd29Uzy/7/ZT7y5gtpHNZTZaqUB0hmtB5
+	wJ46Dl7d1OhsVZVDNHyZqbs=
+X-Google-Smtp-Source: AMrXdXuAHURvza0jONNVDbmBntBXkmiTXZBHq9TEUxwwGlnr1ut7EMqEA3bQIVslZNW9Su6lxo5Q1g==
+X-Received: by 2002:a5d:6e0c:0:b0:27d:a1ea:dcfa with SMTP id h12-20020a5d6e0c000000b0027da1eadcfamr9450830wrz.19.1672354213671;
+        Thu, 29 Dec 2022 14:50:13 -0800 (PST)
+Received: from prasmi.home ([2a00:23c8:2501:c701:88e9:3a08:4328:85c4])
+        by smtp.gmail.com with ESMTPSA id o2-20020a5d58c2000000b0026a4bb75477sm18497702wrf.28.2022.12.29.14.50.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 29 Dec 2022 14:50:12 -0800 (PST)
+From: Prabhakar <prabhakar.csengg@gmail.com>
+X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>
+Cc: linux-riscv@lists.infradead.org,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	linux-kernel@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	Prabhakar <prabhakar.csengg@gmail.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Samuel Holland <samuel@sholland.org>
+Subject: [PATCH v2] clocksource/drivers/riscv: Get rid of clocksource_arch_init() callback
+Date: Thu, 29 Dec 2022 22:46:01 +0000
+Message-Id: <20221229224601.103851-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.5.1
-Subject: Re: [PATCH v2 00/50] KVM: Rework kvm_init() and hardware enabling
-To: Marc Zyngier <maz@kernel.org>
-Cc: Sean Christopherson <seanjc@google.com>,
- Huacai Chen <chenhuacai@kernel.org>,
- Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
- Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Janosch Frank <frankja@linux.ibm.com>,
- Claudio Imbrenda <imbrenda@linux.ibm.com>,
- Matthew Rosato <mjrosato@linux.ibm.com>, Eric Farman <farman@linux.ibm.com>,
- Vitaly Kuznetsov <vkuznets@redhat.com>, David Woodhouse
- <dwmw2@infradead.org>, Paul Durrant <paul@xen.org>,
- James Morse <james.morse@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Atish Patra <atishp@atishpatra.org>,
- David Hildenbrand <david@redhat.com>, kvm@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- kvmarm@lists.cs.columbia.edu, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-kernel@vger.kernel.org, Yuan Yao <yuan.yao@intel.com>,
- Cornelia Huck <cohuck@redhat.com>, Isaku Yamahata
- <isaku.yamahata@intel.com>, =?UTF-8?Q?Philippe_Mathieu-Daud=c3=a9?=
- <philmd@linaro.org>, Fabiano Rosas <farosas@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Kai Huang <kai.huang@intel.com>,
- Chao Gao <chao.gao@intel.com>, Thomas Gleixner <tglx@linutronix.de>
-References: <20221227130249.1650197-1-pbonzini@redhat.com>
- <9acea262dec3511e9cf63081506f0bd7@kernel.org>
-From: Paolo Bonzini <pbonzini@redhat.com>
-In-Reply-To: <9acea262dec3511e9cf63081506f0bd7@kernel.org>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221229_125233_906612_71DE362B 
-X-CRM114-Status: GOOD (  11.25  )
+X-CRM114-CacheID: sfid-20221229_145016_390253_910E2032 
+X-CRM114-Status: GOOD (  12.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,20 +92,95 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMTIvMjgvMjIgMTI6MjIsIE1hcmMgWnluZ2llciB3cm90ZToKPiAKPj4gUXVldWVkLCB0aGFu
-a3MuwqAgSSB3aWxsIGxlYXZlIHRoaXMgaW4ga3ZtL3F1ZXVlIGFmdGVyIHRlc3RpbmcgZXZlcnl0
-aGluZwo+PiBlbHNlIGFuZCBtb3ZpbmcgaXQgdG8ga3ZtL25leHQ7IHRoaXMgd2F5LCB3ZSBjYW4g
-d2FpdCBmb3IgdGVzdCByZXN1bHRzCj4+IG9uIG90aGVyIGFyY2hpdGVjdHVyZXMuCj4gCj4gQ2Fu
-IHlvdSBwbGVhc2UgbWFrZSB0aGlzIGEgdG9waWMgYnJhbmNoLCBhbmQgaWYgcG9zc2libGUgYmFz
-ZWQKPiBvbiBhIHJlbGVhc2VkIC1yYz8gSXQgd291bGQgbWFrZSBpdCBhIGxvdCBlYXNpZXIgZm9y
-IGV2ZXJ5b25lLgoKVGhpcyBpcyBub3cgcmVmcy9oZWFkcy9rdm0taHctZW5hYmxlLXJlZmFjdG9y
-IGluIApodHRwczovL2dpdC5rZXJuZWwub3JnL3B1Yi9zY20vdmlydC9rdm0va3ZtLmdpdC4KClRo
-ZSBjb21taXRzIGZvciB0aGlzIHNlcmllcyBzdGFydCBhdCBoYXNoIGZjNDcxZTgzMTAxNi4KClBh
-b2xvCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
-dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
-cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+
+Having a clocksource_arch_init() callback always sets vdso_clock_mode to
+VDSO_CLOCKMODE_ARCHTIMER if GENERIC_GETTIMEOFDAY is enabled, this is
+required for the riscv-timer.
+
+This works for platforms where just riscv-timer clocksource is present.
+On platforms where other clock sources are available we want them to
+register with vdso_clock_mode set to VDSO_CLOCKMODE_NONE.
+
+On the Renesas RZ/Five SoC OSTM block can be used as clocksource [0], to
+avoid multiple clock sources being registered as VDSO_CLOCKMODE_ARCHTIMER
+move setting of vdso_clock_mode in the riscv-timer driver instead of doing
+this in clocksource_arch_init() callback as done similarly for ARM/64
+architecture.
+
+[0] drivers/clocksource/renesas-ostm.c
+
+Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Tested-by: Samuel Holland <samuel@sholland.org>
+---
+RFC -> v2
+* Dropped vdso_default static global variable
+* Used IS_ENABLED() macro
+* Included Tested-by from Samuel
+
+RFC:
+https://patchwork.kernel.org/project/linux-renesas-soc/patch/20221211215843.24024-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
+---
+ arch/riscv/Kconfig                | 1 -
+ arch/riscv/kernel/time.c          | 9 ---------
+ drivers/clocksource/timer-riscv.c | 5 +++++
+ 3 files changed, 5 insertions(+), 10 deletions(-)
+
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index e2b656043abf..9c687da7756d 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -12,7 +12,6 @@ config 32BIT
+ 
+ config RISCV
+ 	def_bool y
+-	select ARCH_CLOCKSOURCE_INIT
+ 	select ARCH_ENABLE_HUGEPAGE_MIGRATION if HUGETLB_PAGE && MIGRATION
+ 	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
+ 	select ARCH_HAS_BINFMT_FLAT
+diff --git a/arch/riscv/kernel/time.c b/arch/riscv/kernel/time.c
+index 8217b0f67c6c..42bee305e997 100644
+--- a/arch/riscv/kernel/time.c
++++ b/arch/riscv/kernel/time.c
+@@ -30,12 +30,3 @@ void __init time_init(void)
+ 	of_clk_init(NULL);
+ 	timer_probe();
+ }
+-
+-void clocksource_arch_init(struct clocksource *cs)
+-{
+-#ifdef CONFIG_GENERIC_GETTIMEOFDAY
+-	cs->vdso_clock_mode = VDSO_CLOCKMODE_ARCHTIMER;
+-#else
+-	cs->vdso_clock_mode = VDSO_CLOCKMODE_NONE;
+-#endif
+-}
+diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
+index 55dad7965f43..c416e5e934bf 100644
+--- a/drivers/clocksource/timer-riscv.c
++++ b/drivers/clocksource/timer-riscv.c
+@@ -77,6 +77,11 @@ static struct clocksource riscv_clocksource = {
+ 	.mask		= CLOCKSOURCE_MASK(64),
+ 	.flags		= CLOCK_SOURCE_IS_CONTINUOUS,
+ 	.read		= riscv_clocksource_rdtime,
++#if IS_ENABLED(CONFIG_GENERIC_GETTIMEOFDAY)
++	.vdso_clock_mode = VDSO_CLOCKMODE_ARCHTIMER,
++#else
++	.vdso_clock_mode = VDSO_CLOCKMODE_NONE,
++#endif
+ };
+ 
+ static int riscv_timer_starting_cpu(unsigned int cpu)
+-- 
+2.25.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
