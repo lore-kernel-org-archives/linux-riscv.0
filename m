@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF139C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Dec 2022 16:24:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 670FCC4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Dec 2022 16:24:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=mggS5iWovXxG/4evYMtOhfUjepE+HOdbBgZeRV6smPI=; b=Z1pnQ9AnrSwAEExcAUbW5sRPZc
-	vvB3hr1PoKoxQbJ5JMp7Q9V6wbQvDNcGgQlUgNOdb3wMoTurlvQB4S3rzxo6TzyV+w6zSrpdJWImF
-	xC15iRzd2sKfAmpKTw5jyTojtLgyAZ73yBcKkvcs4b2DFUwirNa73Npwj+AVottGNrC8QtfKkSPSg
-	wj6YluSF0PMwAyfY/+/yMvb/NZzRRQxvVfYloU5tsbtPiT183JyjTDDlEST44gD5oL6WPj9MQuACc
-	13OtEu858eA/6JZGJgH2VKy1ndIgMRnDt76YEnnDvtZ6DNNCAzoCrhHs+xb40RAkKt/tDC5XoNbTT
-	t2G4A4rQ==;
+	bh=H5hRT5L7rEDiVZ/nqmVGk0qySxadz5pqBIciNdYtPyM=; b=LVYHuIdKOh3a194tx3ymgWarx7
+	ogU6QBf+r5s1euzLWyryny6AKGyxSAQr4SyW/zLP8mjl6VqzCp+VBbqWjrPPsktm24xbmlKmD3SJu
+	o4N/lBbzKiAjHrAylaEBrYBUDDG7Gn+Rx8IqBb6wBjIGZXFuHYlKGPM+wSxUpPGv5t8XXzjaPiofB
+	VDu3SKTWMitZeQxMW1tNtf6uoaUpnQWSc53jzh5A0+OoAvLGImbQuEAhCzkd4EShKyA4SgVqCGQDT
+	qQdY7k4fGLXUR0HmUeh62OiRmh3QKdEz1brG2FefMJl/Xud6zc230aq3/+dFm41OWpdbu0cxyeUUF
+	xI2G0cOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pAvhK-00HQko-6v; Thu, 29 Dec 2022 16:24:03 +0000
-Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
+	id 1pAvhX-00HQse-8p; Thu, 29 Dec 2022 16:24:15 +0000
+Received: from mail-pl1-f172.google.com ([209.85.214.172])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pAvfq-00HPzT-Ec
-	for linux-riscv@lists.infradead.org; Thu, 29 Dec 2022 16:22:35 +0000
-Received: by mail-pg1-x52d.google.com with SMTP id d10so12644051pgm.13
-        for <linux-riscv@lists.infradead.org>; Thu, 29 Dec 2022 08:22:25 -0800 (PST)
+	id 1pAvfr-00HQ0a-4h
+	for linux-riscv@lists.infradead.org; Thu, 29 Dec 2022 16:22:36 +0000
+Received: by mail-pl1-f172.google.com with SMTP id y19so332526plb.2
+        for <linux-riscv@lists.infradead.org>; Thu, 29 Dec 2022 08:22:28 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=lGyrD0+PhkAL5dbAeObFs9RwoqBo5ONG0NwovuaDsrM=;
-        b=dahVygbdXamhJiKEgN7Jyg1lXYgvfTSo1DMUkYl6yXrdIMvfnyRS0HpjAJGhYD3IFg
-         E+JY0GnUUwwkM2h9ox2Zgy/UxJJ4gx7kMRbUi8BoQs1MkH7ANMKs27AnO7PEO784TqXp
-         ruuAqGepnkn93qVt3OFjdbG1AsqdvffnpusA3lSTC6zFKd8HiqB0qYg9fELjUJN4UbO/
-         3lnm7IU3UfXKaT3AUgnmQMHaYpOZ2VZND7TcbraC5FIjkTHVAEIVzHPRo5TQwNIMJbMP
-         q3kZJpTtujX11O+tGSd8oHpehkbK7CbScXp9TvIT0cj2FcWn3tOzaHwI3gNMSd/9wBDx
-         rNGw==
+        bh=LJWl3hQjQi1Q2dj4b8EWt43Qd/L5DvONqc85eLA2p84=;
+        b=4zYH9voiUehp/MZKaq6EtNACAh0H6KL+NcDR1+JWFT9el9nBtDDy5s/Grp35vcGLTn
+         mC4yxUvNQT9ZHM/fnM3ClqhCBAi/pKFY7/Qcu/cmUds0jUkq+e/XBfn4BWaXWCqY8mV0
+         SJi5SWKcJyTnLbjM9Coh6TiX5jV0jGo7LzJ8aCPVGuaxSKC5AEbZE9P5wGvOIEplpmyQ
+         /B+8dZfJYMOKYTZX0K2rz9JP3kktm/MRb4BQdxtt9nWP/c6GeDq0vU4lcn/xhf45s6Kd
+         3BfqoRQirN2XyS81sZAEXUkf0HbsZruvKJkP4Nh6YrifVS51/U4OZ6ZA39eqwDvVSK9n
+         qsNw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=lGyrD0+PhkAL5dbAeObFs9RwoqBo5ONG0NwovuaDsrM=;
-        b=H4NMDccjhHhX0750y6WFAZkOOTzY4Sc0JqPaQEmzwFYnj8/RAub5T8HJspAU9QGhbU
-         HrMfR5fz2+1HVC7MWDuZp4vy+fceDiA8Fz1HOCodJ8GhPW9VO0scr2m34VBlqw9ftA0j
-         IT22lPsnymaP76GI95fmhmr3jN82h7sYjiwQO7gjDnKrEFp3SixXTRwI5n5DNERjZkLG
-         eeIgPRDwHLKpgcSCRVGDLylX3KvUr7i1UKfjgyf1ejimsO+ckoS3hJphRVMDX9R/tTx4
-         XtpKGd3sZ1uff0xRpHAr9hO9YsSU91ea2MQdVGMfpqODflFWtzsRWAfcnAwJB1vVJMdH
-         s9xw==
-X-Gm-Message-State: AFqh2krLUY8+tfUw609Y8W+N8juEUcUNdu7EtUd+Z1mpoBAZSR8vpw5w
-	iyX3eRPL2nDF2LKQOboo90eGnA==
-X-Google-Smtp-Source: AMrXdXvpdMbR8CMYmi4dUk/9PgGNumQG+p4T2pa56FD3JYpViB2+8Ov5fWBEh9VYECa0d3vj+bwoEw==
-X-Received: by 2002:aa7:99cb:0:b0:580:d188:f516 with SMTP id v11-20020aa799cb000000b00580d188f516mr22924872pfi.19.1672330945228;
-        Thu, 29 Dec 2022 08:22:25 -0800 (PST)
+        bh=LJWl3hQjQi1Q2dj4b8EWt43Qd/L5DvONqc85eLA2p84=;
+        b=zSAxpHfChJaV2/wUkzAmRlF+RYFcSSjyZdF71jBDPir8TXyASzz1Ne+cJwAF1dKhXM
+         Y+2EcPuU2bvXxOx6iJ7xDd/hY50hWINqOTwRgjtAiZFEHf0YQpYQrJO9noMTLiZBXcbu
+         AwbdNdhdkIdSMqZ9yxM3dCzqLz/lg2ipFA9h4gYxwk02w+14DeXEO/BFRDtDkJen/qd2
+         a2zQGE+ZcI8SavFBLcLALgF+DKAySuD/6IwAboYtsCEDHsb8R5alNlj3I1HFuUJayWte
+         r1ASSGc7azfrXI/tz38J+12EuyWPNvrS9LydUnXYS7wBgW+S+LDY00VyZ0ei+6g33Dgx
+         ziaw==
+X-Gm-Message-State: AFqh2krjtYqr3HgRueFTxxQ/4sQOzBSc34L6fR8JTjvpWEtNCYon0639
+	c8Xw/2w6gkJa03LzPY99PIPsPQ==
+X-Google-Smtp-Source: AMrXdXusHRJt1gPOTWh0ukRoRRYv3CsTOwvtO5tJuONXzHi84yKZLmsYPBOK0toLmCX+j9QDQYJoeQ==
+X-Received: by 2002:a17:902:e2d1:b0:191:cd3:aa6c with SMTP id l17-20020a170902e2d100b001910cd3aa6cmr39371632plc.34.1672330947985;
+        Thu, 29 Dec 2022 08:22:27 -0800 (PST)
 Received: from localhost ([135.180.226.51])
-        by smtp.gmail.com with ESMTPSA id x185-20020a6286c2000000b0056bfebfa6e4sm12277463pfd.190.2022.12.29.08.22.24
+        by smtp.gmail.com with ESMTPSA id o9-20020a170903210900b001782398648dsm13165941ple.8.2022.12.29.08.22.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 Dec 2022 08:22:24 -0800 (PST)
-Date: Thu, 29 Dec 2022 08:22:24 -0800 (PST)
-X-Google-Original-Date: Thu, 29 Dec 2022 07:53:04 PST (-0800)
-Subject: Re: [PATCH v2] vdso: Improve cmd_vdso_check to check all dynamic relocations
-In-Reply-To: <20221221235147.45lkqmosndritfpe@google.com>
-CC: christophe.leroy@csgroup.eu, luto@kernel.org, tglx@linutronix.de,
-  vincenzo.frascino@arm.com, Arnd Bergmann <arnd@arndb.de>, linux-s390@vger.kernel.org,
-  linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org, linux-mips@vger.kernel.org,
-  loongarch@lists.linux.dev, linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-  linux-arm-kernel@lists.infradead.org
+        Thu, 29 Dec 2022 08:22:27 -0800 (PST)
+Date: Thu, 29 Dec 2022 08:22:27 -0800 (PST)
+X-Google-Original-Date: Thu, 29 Dec 2022 07:54:30 PST (-0800)
+Subject: Re: [PATCH v2] arch: fix broken BuildID for arm64 and riscv
+In-Reply-To: <20221226184537.744960-1-masahiroy@kernel.org>
+CC: linux-arch@vger.kernel.org, linux-kbuild@vger.kernel.org,
+  linux-kernel@vger.kernel.org, ardb@kernel.org, regressions@leemhuis.info, catalin.marinas@arm.com,
+  Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+  dennis@ausil.us, aou@eecs.berkeley.edu, Arnd Bergmann <arnd@arndb.de>, jszhang@kernel.org,
+  nicolas@fjasle.eu, Paul Walmsley <paul.walmsley@sifive.com>, masahiroy@kernel.org
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: maskray@google.com
-Message-ID: <mhng-17d41c33-7f33-4a1c-8af2-ae7d07134e8c@palmer-ri-x1c9>
+To: masahiroy@kernel.org
+Message-ID: <mhng-7ae63e3d-9a40-42ed-94c3-72fc9217ac20@palmer-ri-x1c9>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221229_082230_653054_182284A0 
-X-CRM114-Status: GOOD (  21.84  )
+X-CRM114-CacheID: sfid-20221229_082231_271989_2121EF55 
+X-CRM114-Status: GOOD (  22.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,58 +92,60 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 21 Dec 2022 15:51:47 PST (-0800), maskray@google.com wrote:
-> The actual intention is that no dynamic relocation exists. However, some
-> GNU ld ports produce unneeded R_*_NONE. (If a port fails to determine
-> the exact .rel[a].dyn size, the trailing zeros become R_*_NONE
-> relocations. E.g. ld's powerpc port recently fixed
-> https://sourceware.org/bugzilla/show_bug.cgi?id=29540) R_*_NONE are
-> generally no-op in the dynamic loaders. So just ignore them.
+On Mon, 26 Dec 2022 10:45:37 PST (-0800), masahiroy@kernel.org wrote:
+> Dennis Gilmore reports that the BuildID is missing in the arm64 vmlinux
+> since commit 994b7ac1697b ("arm64: remove special treatment for the
+> link order of head.o").
 >
-> With the change, we can remove ARCH_REL_TYPE_ABS. ARCH_REL_TYPE_ABS is a
-> bit misnomer as ports may check RELAVETIVE/GLOB_DAT/JUMP_SLOT which are
-> not called "absolute relocations". (The patch is motivated by the arm64
-> port missing R_AARCH64_RELATIVE.)
+> The issue is that the type of .notes section, which contains the BuildID,
+> changed from NOTES to PROGBITS.
 >
-> Signed-off-by: Fangrui Song <maskray@google.com>
-> Reviewed-by: Christophe Leroy <christophe.leroy@csgroup.eu>
+> Ard Biesheuvel figured out that whichever object gets linked first gets
+> to decide the type of a section. The PROGBITS type is the result of the
+> compiler emitting .note.GNU-stack as PROGBITS rather than NOTE.
+>
+> While Ard provided a fix for arm64, I want to fix this globally because
+> the same issue is happening on riscv since commit 2348e6bf4421 ("riscv:
+> remove special treatment for the link order of head.o"). This problem
+> will happen in general for other architectures if they start to drop
+> unneeded entries from scripts/head-object-list.txt.
+>
+> Discard .note.GNU-stack in include/asm-generic/vmlinux.lds.h.
+>
+> Link: https://lore.kernel.org/lkml/CAABkxwuQoz1CTbyb57n0ZX65eSYiTonFCU8-LCQc=74D=xE=rA@mail.gmail.com/
+> Fixes: 994b7ac1697b ("arm64: remove special treatment for the link order of head.o")
+> Fixes: 2348e6bf4421 ("riscv: remove special treatment for the link order of head.o")
+> Reported-by: Dennis Gilmore <dennis@ausil.us>
+> Suggested-by: Ard Biesheuvel <ardb@kernel.org>
+> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
 > ---
-> Change from v1:
-> * rebase after 8ac3b5cd3e0521d92f9755e90d140382fc292510 (lib/vdso: use "grep -E" instead of "egrep")
-> * change the commit message to mention an example GNU ld bug; no longer say the patch fixes a deprecated egrep use
-> ---
->   arch/arm/vdso/Makefile            |  3 ---
->   arch/arm64/kernel/vdso/Makefile   |  3 ---
->   arch/arm64/kernel/vdso32/Makefile |  3 ---
->   arch/csky/kernel/vdso/Makefile    |  3 ---
->   arch/loongarch/vdso/Makefile      |  3 ---
->   arch/mips/vdso/Makefile           |  3 ---
->   arch/powerpc/kernel/vdso/Makefile |  1 -
->   arch/riscv/kernel/vdso/Makefile   |  3 ---
->   arch/s390/kernel/vdso32/Makefile  |  2 --
->   arch/s390/kernel/vdso64/Makefile  |  2 --
->   arch/x86/entry/vdso/Makefile      |  4 ----
->   lib/vdso/Makefile                 | 13 ++++---------
->   12 files changed, 4 insertions(+), 39 deletions(-)
-
-[snip]
-
-> diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
-> index 06e6b27f3bcc..d85c37e11b21 100644
-> --- a/arch/riscv/kernel/vdso/Makefile
-> +++ b/arch/riscv/kernel/vdso/Makefile
-> @@ -1,9 +1,6 @@
->   # SPDX-License-Identifier: GPL-2.0-only
->   # Copied from arch/tile/kernel/vdso/Makefile
 >
-> -# Absolute relocation type $(ARCH_REL_TYPE_ABS) needs to be defined before
-> -# the inclusion of generic Makefile.
-> -ARCH_REL_TYPE_ABS := R_RISCV_32|R_RISCV_64|R_RISCV_JUMP_SLOT
->   include $(srctree)/lib/vdso/Makefile
->   # Symbols present in the vdso
->   vdso-syms  = rt_sigreturn
+> Changes in v2:
+>   - discard .note.GNU-stack before .notes because many architectures
+>     call DISCARDS at the end of their linker scripts
+>
+>  include/asm-generic/vmlinux.lds.h | 5 +++++
+>  1 file changed, 5 insertions(+)
+>
+> diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmlinux.lds.h
+> index a94219e9916f..659bf3b31c91 100644
+> --- a/include/asm-generic/vmlinux.lds.h
+> +++ b/include/asm-generic/vmlinux.lds.h
+> @@ -891,7 +891,12 @@
+>  #define PRINTK_INDEX
+>  #endif
+>
+> +/*
+> + * Discard .note.GNU-stack, which is emitted as PROGBITS by the compiler.
+> + * Otherwise, the type of .notes section would become PROGBITS instead of NOTES.
+> + */
+>  #define NOTES								\
+> +	/DISCARD/ : { *(.note.GNU-stack) }				\
+>  	.notes : AT(ADDR(.notes) - LOAD_OFFSET) {			\
+>  		BOUNDED_SECTION_BY(.note.*, _notes)			\
+>  	} NOTES_HEADERS							\
 
-Acked-by: Palmer Dabbelt <palmer@rivosinc.com> # RISC-V
+Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
 
 Thanks!
 
