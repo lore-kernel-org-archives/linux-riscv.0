@@ -4,88 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2CCDC4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Dec 2022 11:35:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 236DEC4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Dec 2022 14:06:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
+	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ba9kV6Hy1bcgHstmQccr1FWCGm8yavh2o8D6r5AdIFI=; b=oUWdvLlJJzdQBL
-	2jDgVWLZPvIUmGA0BL4ie/nhzTNdNiT6IcPofkeCL0HI3QTeFs2iByeagCN2keXuMAJLWyJc/5IJZ
-	3ydwsFhtIP4RvRk5RnnlZbrcolGYcpP2K7/0NaxL0HzuESWJK3rZfCcAxeAVYt4X1i1DQ6VwmFISU
-	dH3v7hkSZ+e0f75RnYL+UTSeh63fQ6oETrH8GGbMZLRmyRT9JVFPZV+44U5lAJ1xLYozrluVN1OWs
-	41fQfkSXO14C+XVnN+pImK6co9mOKkvhjX3XzsJRXYoZnSQE0UeeukeYpgNlwZkW2uxu8lAJmFoIA
-	5KDDD4KbAtm3Z6AIefow==;
+	List-Owner; bh=zrXmYwlRfF/DYBjMtulg/0vh5xp+3FmALJyo3NMumXI=; b=0Xvg0bVtFhC1UR
+	mX8rTfhCi0Uf9VXH9LZd11XPt4VZXGlgetZPFGsyhSHuK+z4v3POXCJnNOiKXrI0HQn8bgrTg6FoY
+	rxmubOpOwn5/hpk+p7fPNVG4ZIhvZGH9FQ5dtgul1ESGUcl0mD+0ztFUgqY3q1ZeC3PmydzZRn5EN
+	7EuPI0aSuZziGzIqEDvak2nI42Ak+Zy7k9ke5OW+Mhhsw7MvATu6TH/wJoHSyX+68B1gOH/gm0QPu
+	nvUxMHq0tf+CGKMtjSLGGXbhKID56FymEJCi2EtDG2syeuWvANA4nRHEGcoj34M2inp4aHsOCJWnW
+	O+jIB76mduIMpEosp4Lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pArBc-00F9mK-33; Thu, 29 Dec 2022 11:35:00 +0000
-Received: from mga03.intel.com ([134.134.136.65])
+	id 1pAtXu-00GOUK-2V; Thu, 29 Dec 2022 14:06:10 +0000
+Received: from out4-smtp.messagingengine.com ([66.111.4.28])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pArAy-00F9Xy-U4; Thu, 29 Dec 2022 11:34:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1672313660; x=1703849660;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=LESkw7cTmJ8vMdubNYi7qBDUafIvx+wwSE7U9XVcM8g=;
-  b=oHbyMQNzyTbzXaGgUm/Px236/5PAK9L/327papsSmCS4qcsRBy7QRgVo
-   0pTGbMBKwKP0BCQDqGT9Gj5YGsYKnDhHVWIE2czRY616LHQ08qHzSG6R/
-   B2AA7dbPwvLRyJovrOsOhXAJ+i1uYQvg5li8h5QABLvKb9Wrml5921wZg
-   JSBsa7fMRRJho6W1czeYXnMXt8AWMJ15Vj+hwhkluSkKgSgHVrxuzZ8w8
-   l2LmIUxVKBleb2AhVxeWb2KFhcBH0/SW/i8bXSkeyiEdEjtiN4NlYhHRF
-   lW4IHz+pBExaic/Ht0vBt/DLaXrX/QqdiB2MTwUJ1x0Uzt3Csb2Yed0BO
-   A==;
-X-IronPort-AV: E=McAfee;i="6500,9779,10574"; a="323010602"
-X-IronPort-AV: E=Sophos;i="5.96,283,1665471600"; 
-   d="scan'208";a="323010602"
-Received: from orsmga007.jf.intel.com ([10.7.209.58])
-  by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Dec 2022 03:34:17 -0800
-X-IronPort-AV: E=McAfee;i="6500,9779,10574"; a="646987953"
-X-IronPort-AV: E=Sophos;i="5.96,283,1665471600"; 
-   d="scan'208";a="646987953"
-Received: from lab-ah.igk.intel.com ([10.91.215.196])
-  by orsmga007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Dec 2022 03:34:11 -0800
-From: Andrzej Hajda <andrzej.hajda@intel.com>
-To: linux-alpha@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-hexagon@vger.kernel.org,
-	linux-ia64@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org,
-	openrisc@lists.librecores.org,
-	linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	linux-xtensa@linux-xtensa.org,
-	intel-gfx@lists.freedesktop.org,
-	dri-devel@lists.freedesktop.org
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Rodrigo Vivi <rodrigo.vivi@intel.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	Mark Rutland <mark.rutland@arm.com>
-Subject: [PATCH v2] arch: rename all internal names __xchg to __arch_xchg
-Date: Thu, 29 Dec 2022 12:33:38 +0100
-Message-Id: <20221229113338.2436892-1-andrzej.hajda@intel.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <78b23407-bdd0-4b1b-bf6e-ecd4c00294ab@app.fastmail.com>
-References: <78b23407-bdd0-4b1b-bf6e-ecd4c00294ab@app.fastmail.com>
-MIME-Version: 1.0
-Organization: Intel Technology Poland sp. z o.o. - ul. Slowackiego 173, 80-298 Gdansk - KRS 101882 - NIP 957-07-52-316
+	id 1pAtXn-00GOO0-0V
+	for linux-riscv@lists.infradead.org; Thu, 29 Dec 2022 14:06:07 +0000
+Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
+	by mailout.nyi.internal (Postfix) with ESMTP id 51CB55C009C;
+	Thu, 29 Dec 2022 09:05:59 -0500 (EST)
+Received: from imap51 ([10.202.2.101])
+  by compute6.internal (MEProxy); Thu, 29 Dec 2022 09:05:59 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-type:date:date:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:sender:subject
+	:subject:to:to; s=fm1; t=1672322759; x=1672409159; bh=YrObHqLUZX
+	ojkNm97IkZC/z6Y0VXxiZy8VywJIHip2I=; b=EihVn2yqPJgTkNJUYLt5HEq6So
+	v7fLFzBBmYgT4lLtwOBVx4k/bfGt7/lG6DMCwdcyuBAEwnCF7xWE16JMPFsuA/6d
+	y4GaS7TgqvCpVT5vqX3c4sI3Gnbqe8uVvn09nmUlVcmKfPd2CgVG+sFIQfj7Y05q
+	AKYdEYyJaW7VpmJdikF3evf9Y8kOLrDePmNJltUDHEZGNLlcRFFQLTz9VhKPp/vo
+	sKxQnsSjnj6E5NAJF/hrc2Qh7rDS5Ya1IPCD4ADAmc4d+aaWQ5lbxNPFJxfo/BNY
+	iR8Gn+0AasaeeRfQ2fJCKlNJMMTOcJTAZCav2/6hWCtH6wW+C+vmoZjir2OA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:date:date:feedback-id
+	:feedback-id:from:from:in-reply-to:in-reply-to:message-id
+	:mime-version:references:reply-to:sender:subject:subject:to:to
+	:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm2; t=1672322759; x=1672409159; bh=YrObHqLUZXojkNm97IkZC/z6Y0VX
+	xiZy8VywJIHip2I=; b=JQTTJLSBLzA3pe3NW11WYmdZB2XibIhibGuLVbSJ1E5t
+	2wlUOGtN0te2S50OA0SZqbFa3zA5BLKRsn4OaAIsfRvaf1av0OfosjuB7DacicQv
+	x9ydzspIu9/rih9Ii5lkLFYPz/W1YZAYuwnoYn+SDbi76H9qA58cPE72QvDa2Tcm
+	Pob8fLXk6tFh0LyJY+3a9HwI+sUwwHnkzeWfs1hWoGWc1oNx6Hkbk0Uqocc61bBs
+	hFxBxpIlUng0jqL3r+6ABWk8v4zBNxTxCNSVmT94wztZqjVcb8N+WhudfLps2anJ
+	CRjhMfurmHeFBgiIcws83Oavr/k50WT4bxtM+NPU8Q==
+X-ME-Sender: <xms:xZ6tY0zcaTMo2j14BCVdcYKvM9buMKoux4lC4M62IPZ-0W3p0PpphA>
+    <xme:xZ6tY4QwBUZWTi83XIWfjp70A1A7XDgmpYE5EdvFxBR9hqECVO9o3nQS7qUoCsiuq
+    91QEtTnsVbvm2Op-4Q>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrieeggdeitdcutefuodetggdotefrodftvf
+    curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
+    uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
+    fjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdetrhhn
+    ugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtth
+    gvrhhnpeffheeugeetiefhgeethfejgfdtuefggeejleehjeeutefhfeeggefhkedtkeet
+    ffenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrh
+    hnugesrghrnhgusgdruggv
+X-ME-Proxy: <xmx:xZ6tY2WY3KKnHU_5hY-uZiwJ0-Ghu6zxIqRTU352ezsRPFmY22p_hA>
+    <xmx:xZ6tYygN1-Cvd7iE_esYN76B52-B82kmOgNvfcjnn_JV57X63ZwoKQ>
+    <xmx:xZ6tY2BOhv6gXLfzeYcH8AuUL07RtoJVjqHFdEiJfXuYvZgUQgDaPw>
+    <xmx:x56tYwyReFwuuTl1NJpDYWxbHLvAVsNgIe4HVIfTPXeY81rOPYUL4w>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+	id B1E33B60086; Thu, 29 Dec 2022 09:05:57 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.7.0-alpha0-1185-g841157300a-fm-20221208.002-g84115730
+Mime-Version: 1.0
+Message-Id: <bb350709-e29a-402c-8e7e-37fd9c452c6d@app.fastmail.com>
+In-Reply-To: <Y55IQIxXw/twcxFx@spud>
+References: <mhng-8b05b6cd-d8a1-4302-af24-2f64a4bf7c32@palmer-ri-x1c9a>
+ <32cf0901-a4a0-48a7-bf42-f2cdb34d1ee7@app.fastmail.com>
+ <Y55IQIxXw/twcxFx@spud>
+Date: Thu, 29 Dec 2022 15:05:37 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Conor Dooley" <conor@kernel.org>
+Cc: linux-riscv@lists.infradead.org,
+ "Geert Uytterhoeven" <geert@linux-m68k.org>, soc@kernel.org,
+ Prabhakar <prabhakar.csengg@gmail.com>,
+ "Paul Walmsley" <paul.walmsley@sifive.com>,
+ "Albert Ou" <aou@eecs.berkeley.edu>,
+ "Magnus Damm" <magnus.damm@gmail.com>,
+ =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+ "Conor.Dooley" <conor.dooley@microchip.com>,
+ "Samuel Holland" <samuel@sholland.org>, guoren <guoren@kernel.org>,
+ "Rob Herring" <robh+dt@kernel.org>, krzysztof.kozlowski+dt@linaro.org,
+ "Jisheng Zhang" <jszhang@kernel.org>,
+ "Atish Patra" <atishp@rivosinc.com>,
+ "Anup Patel" <apatel@ventanamicro.com>,
+ "Andrew Jones" <ajones@ventanamicro.com>,
+ "Nathan Chancellor" <nathan@kernel.org>,
+ "Philipp Tomsich" <philipp.tomsich@vrull.eu>, devicetree@vger.kernel.org,
+ Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
+ linux-kernel@vger.kernel.org, "Biju Das" <biju.das.jz@bp.renesas.com>,
+ "Lad, Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>,
+ "Christoph Hellwig" <hch@infradead.org>
+Subject: Re: [PATCH v5 6/6] soc: renesas: Add L2 cache management for RZ/Five SoC
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221229_033421_184058_156EFD6B 
-X-CRM114-Status: GOOD (  16.09  )
+X-CRM114-CacheID: sfid-20221229_060603_376081_FCF90F6D 
+X-CRM114-Status: GOOD (  23.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,485 +122,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-__xchg will be used for non-atomic xchg macro.
+On Sat, Dec 17, 2022, at 23:52, Conor Dooley wrote:
+> On Fri, Dec 16, 2022 at 09:04:20PM +0100, Arnd Bergmann wrote:
+>> On Fri, Dec 16, 2022, at 17:32, Palmer Dabbelt wrote:
+>> > On Thu, 15 Dec 2022 23:02:58 PST (-0800), Christoph Hellwig wrote:
+>>
+>> I don't particularly like drivers/soc/ to become more of a dumping
+>> ground for random drivers. If there are several SoCs that have the
+>> same requirement to do a particular thing, the logical step would
+>> be to put them into a proper subsystem, with a well-defined interface
+>> to dma-mapping and virtualization frameworks.
+>> 
+>> The other things we have in drivers/soc/ are usually either
+>> soc_device drivers for identifying the system, or they export
+>> interfaces used by soc specific drivers.
+>
+> Sounds like that's two "not in my back yard" votes from the maintainers
+> in question..
+> Doing drivers/cache would allow us to co-locate the RISC-V cache
+> management bits since it is not just going to be the ax45mp l2 driver
+> that will need to have them.
+>
+> Would it be okay to put this driver in soc/andestech for now & then move
+> it, and the SiFive one, once we've got patches posted for cache
+> management with that?
 
-Signed-off-by: Andrzej Hajda <andrzej.hajda@intel.com>
-Reviewed-by: Arnd Bergmann <arnd@arndb.de>
----
- arch/alpha/include/asm/cmpxchg.h     | 6 +++---
- arch/arc/include/asm/cmpxchg.h       | 4 ++--
- arch/arm/include/asm/cmpxchg.h       | 4 ++--
- arch/arm64/include/asm/cmpxchg.h     | 4 ++--
- arch/hexagon/include/asm/cmpxchg.h   | 6 +++---
- arch/ia64/include/asm/cmpxchg.h      | 2 +-
- arch/ia64/include/uapi/asm/cmpxchg.h | 4 ++--
- arch/loongarch/include/asm/cmpxchg.h | 4 ++--
- arch/m68k/include/asm/cmpxchg.h      | 6 +++---
- arch/mips/include/asm/cmpxchg.h      | 4 ++--
- arch/openrisc/include/asm/cmpxchg.h  | 4 ++--
- arch/parisc/include/asm/cmpxchg.h    | 4 ++--
- arch/powerpc/include/asm/cmpxchg.h   | 4 ++--
- arch/riscv/include/asm/atomic.h      | 2 +-
- arch/riscv/include/asm/cmpxchg.h     | 4 ++--
- arch/s390/include/asm/cmpxchg.h      | 4 ++--
- arch/sh/include/asm/cmpxchg.h        | 4 ++--
- arch/sparc/include/asm/cmpxchg_32.h  | 4 ++--
- arch/sparc/include/asm/cmpxchg_64.h  | 4 ++--
- arch/xtensa/include/asm/cmpxchg.h    | 4 ++--
- 20 files changed, 41 insertions(+), 41 deletions(-)
+I actually had a look at both of these drivers now and
+found that they do entirely different things, so I would
+revise what I had said earlier. Sorry for not having paid
+enough attention at first.
 
-diff --git a/arch/alpha/include/asm/cmpxchg.h b/arch/alpha/include/asm/cmpxchg.h
-index 6e0a850aa9d38c..40e8159ef6e794 100644
---- a/arch/alpha/include/asm/cmpxchg.h
-+++ b/arch/alpha/include/asm/cmpxchg.h
-@@ -6,7 +6,7 @@
-  * Atomic exchange routines.
-  */
- 
--#define ____xchg(type, args...)		__xchg ## type ## _local(args)
-+#define ____xchg(type, args...)		__arch_xchg ## type ## _local(args)
- #define ____cmpxchg(type, args...)	__cmpxchg ## type ## _local(args)
- #include <asm/xchg.h>
- 
-@@ -34,7 +34,7 @@
- 
- #undef ____xchg
- #undef ____cmpxchg
--#define ____xchg(type, args...)		__xchg ##type(args)
-+#define ____xchg(type, args...)		__arch_xchg ##type(args)
- #define ____cmpxchg(type, args...)	__cmpxchg ##type(args)
- #include <asm/xchg.h>
- 
-@@ -48,7 +48,7 @@
- 	__typeof__(*(ptr)) _x_ = (x);					\
- 	smp_mb();							\
- 	__ret = (__typeof__(*(ptr)))					\
--		__xchg((ptr), (unsigned long)_x_, sizeof(*(ptr)));	\
-+		__arch_xchg((ptr), (unsigned long)_x_, sizeof(*(ptr)));	\
- 	smp_mb();							\
- 	__ret;								\
- })
-diff --git a/arch/arc/include/asm/cmpxchg.h b/arch/arc/include/asm/cmpxchg.h
-index c5b544a5fe8106..e138fde067dea5 100644
---- a/arch/arc/include/asm/cmpxchg.h
-+++ b/arch/arc/include/asm/cmpxchg.h
-@@ -85,7 +85,7 @@
-  */
- #ifdef CONFIG_ARC_HAS_LLSC
- 
--#define __xchg(ptr, val)						\
-+#define __arch_xchg(ptr, val)						\
- ({									\
- 	__asm__ __volatile__(						\
- 	"	ex  %0, [%1]	\n"	/* set new value */	        \
-@@ -102,7 +102,7 @@
- 									\
- 	switch(sizeof(*(_p_))) {					\
- 	case 4:								\
--		_val_ = __xchg(_p_, _val_);				\
-+		_val_ = __arch_xchg(_p_, _val_);			\
- 		break;							\
- 	default:							\
- 		BUILD_BUG();						\
-diff --git a/arch/arm/include/asm/cmpxchg.h b/arch/arm/include/asm/cmpxchg.h
-index 4dfe538dfc689b..6953fc05a97886 100644
---- a/arch/arm/include/asm/cmpxchg.h
-+++ b/arch/arm/include/asm/cmpxchg.h
-@@ -25,7 +25,7 @@
- #define swp_is_buggy
- #endif
- 
--static inline unsigned long __xchg(unsigned long x, volatile void *ptr, int size)
-+static inline unsigned long __arch_xchg(unsigned long x, volatile void *ptr, int size)
- {
- 	extern void __bad_xchg(volatile void *, int);
- 	unsigned long ret;
-@@ -115,7 +115,7 @@ static inline unsigned long __xchg(unsigned long x, volatile void *ptr, int size
- }
- 
- #define arch_xchg_relaxed(ptr, x) ({					\
--	(__typeof__(*(ptr)))__xchg((unsigned long)(x), (ptr),		\
-+	(__typeof__(*(ptr)))__arch_xchg((unsigned long)(x), (ptr),		\
- 				   sizeof(*(ptr)));			\
- })
- 
-diff --git a/arch/arm64/include/asm/cmpxchg.h b/arch/arm64/include/asm/cmpxchg.h
-index 497acf134d9923..3a36ba58e8c2ef 100644
---- a/arch/arm64/include/asm/cmpxchg.h
-+++ b/arch/arm64/include/asm/cmpxchg.h
-@@ -62,7 +62,7 @@ __XCHG_CASE( ,  ,  mb_, 64, dmb ish, nop,  , a, l, "memory")
- #undef __XCHG_CASE
- 
- #define __XCHG_GEN(sfx)							\
--static __always_inline  unsigned long __xchg##sfx(unsigned long x,	\
-+static __always_inline  unsigned long __arch_xchg##sfx(unsigned long x,	\
- 					volatile void *ptr,		\
- 					int size)			\
- {									\
-@@ -93,7 +93,7 @@ __XCHG_GEN(_mb)
- ({									\
- 	__typeof__(*(ptr)) __ret;					\
- 	__ret = (__typeof__(*(ptr)))					\
--		__xchg##sfx((unsigned long)(x), (ptr), sizeof(*(ptr))); \
-+		__arch_xchg##sfx((unsigned long)(x), (ptr), sizeof(*(ptr))); \
- 	__ret;								\
- })
- 
-diff --git a/arch/hexagon/include/asm/cmpxchg.h b/arch/hexagon/include/asm/cmpxchg.h
-index cdb705e1496af8..92dc5e5f836f3b 100644
---- a/arch/hexagon/include/asm/cmpxchg.h
-+++ b/arch/hexagon/include/asm/cmpxchg.h
-@@ -9,7 +9,7 @@
- #define _ASM_CMPXCHG_H
- 
- /*
-- * __xchg - atomically exchange a register and a memory location
-+ * __arch_xchg - atomically exchange a register and a memory location
-  * @x: value to swap
-  * @ptr: pointer to memory
-  * @size:  size of the value
-@@ -19,7 +19,7 @@
-  * Note:  there was an errata for V2 about .new's and memw_locked.
-  *
-  */
--static inline unsigned long __xchg(unsigned long x, volatile void *ptr,
-+static inline unsigned long __arch_xchg(unsigned long x, volatile void *ptr,
- 				   int size)
- {
- 	unsigned long retval;
-@@ -42,7 +42,7 @@ static inline unsigned long __xchg(unsigned long x, volatile void *ptr,
-  * Atomically swap the contents of a register with memory.  Should be atomic
-  * between multiple CPU's and within interrupts on the same CPU.
-  */
--#define arch_xchg(ptr, v) ((__typeof__(*(ptr)))__xchg((unsigned long)(v), (ptr), \
-+#define arch_xchg(ptr, v) ((__typeof__(*(ptr)))__arch_xchg((unsigned long)(v), (ptr), \
- 	sizeof(*(ptr))))
- 
- /*
-diff --git a/arch/ia64/include/asm/cmpxchg.h b/arch/ia64/include/asm/cmpxchg.h
-index 94ef844298431a..8b2e644ef6a14e 100644
---- a/arch/ia64/include/asm/cmpxchg.h
-+++ b/arch/ia64/include/asm/cmpxchg.h
-@@ -5,7 +5,7 @@
- #include <uapi/asm/cmpxchg.h>
- 
- #define arch_xchg(ptr, x)	\
--({(__typeof__(*(ptr))) __xchg((unsigned long) (x), (ptr), sizeof(*(ptr)));})
-+({(__typeof__(*(ptr))) __arch_xchg((unsigned long) (x), (ptr), sizeof(*(ptr)));})
- 
- #define arch_cmpxchg(ptr, o, n)		cmpxchg_acq((ptr), (o), (n))
- #define arch_cmpxchg64(ptr, o, n)	cmpxchg_acq((ptr), (o), (n))
-diff --git a/arch/ia64/include/uapi/asm/cmpxchg.h b/arch/ia64/include/uapi/asm/cmpxchg.h
-index ca2e0268534384..3fec9b037051bb 100644
---- a/arch/ia64/include/uapi/asm/cmpxchg.h
-+++ b/arch/ia64/include/uapi/asm/cmpxchg.h
-@@ -27,7 +27,7 @@
-  */
- extern void ia64_xchg_called_with_bad_pointer(void);
- 
--#define __xchg(x, ptr, size)						\
-+#define __arch_xchg(x, ptr, size)					\
- ({									\
- 	unsigned long __xchg_result;					\
- 									\
-@@ -55,7 +55,7 @@ extern void ia64_xchg_called_with_bad_pointer(void);
- 
- #ifndef __KERNEL__
- #define xchg(ptr, x)							\
--({(__typeof__(*(ptr))) __xchg((unsigned long) (x), (ptr), sizeof(*(ptr)));})
-+({(__typeof__(*(ptr))) __arch_xchg((unsigned long) (x), (ptr), sizeof(*(ptr)));})
- #endif
- 
- /*
-diff --git a/arch/loongarch/include/asm/cmpxchg.h b/arch/loongarch/include/asm/cmpxchg.h
-index ecfa6cf79806e6..979fde61bba8a4 100644
---- a/arch/loongarch/include/asm/cmpxchg.h
-+++ b/arch/loongarch/include/asm/cmpxchg.h
-@@ -62,7 +62,7 @@ static inline unsigned int __xchg_small(volatile void *ptr, unsigned int val,
- }
- 
- static __always_inline unsigned long
--__xchg(volatile void *ptr, unsigned long x, int size)
-+__arch_xchg(volatile void *ptr, unsigned long x, int size)
- {
- 	switch (size) {
- 	case 1:
-@@ -87,7 +87,7 @@ __xchg(volatile void *ptr, unsigned long x, int size)
- 	__typeof__(*(ptr)) __res;					\
- 									\
- 	__res = (__typeof__(*(ptr)))					\
--		__xchg((ptr), (unsigned long)(x), sizeof(*(ptr)));	\
-+		__arch_xchg((ptr), (unsigned long)(x), sizeof(*(ptr)));	\
- 									\
- 	__res;								\
- })
-diff --git a/arch/m68k/include/asm/cmpxchg.h b/arch/m68k/include/asm/cmpxchg.h
-index 6cf464cdab067e..d7f3de9c5d6f79 100644
---- a/arch/m68k/include/asm/cmpxchg.h
-+++ b/arch/m68k/include/asm/cmpxchg.h
-@@ -9,7 +9,7 @@
- extern unsigned long __invalid_xchg_size(unsigned long, volatile void *, int);
- 
- #ifndef CONFIG_RMW_INSNS
--static inline unsigned long __xchg(unsigned long x, volatile void * ptr, int size)
-+static inline unsigned long __arch_xchg(unsigned long x, volatile void * ptr, int size)
- {
- 	unsigned long flags, tmp;
- 
-@@ -40,7 +40,7 @@ static inline unsigned long __xchg(unsigned long x, volatile void * ptr, int siz
- 	return x;
- }
- #else
--static inline unsigned long __xchg(unsigned long x, volatile void * ptr, int size)
-+static inline unsigned long __arch_xchg(unsigned long x, volatile void * ptr, int size)
- {
- 	switch (size) {
- 	case 1:
-@@ -75,7 +75,7 @@ static inline unsigned long __xchg(unsigned long x, volatile void * ptr, int siz
- }
- #endif
- 
--#define arch_xchg(ptr,x) ({(__typeof__(*(ptr)))__xchg((unsigned long)(x),(ptr),sizeof(*(ptr)));})
-+#define arch_xchg(ptr,x) ({(__typeof__(*(ptr)))__arch_xchg((unsigned long)(x),(ptr),sizeof(*(ptr)));})
- 
- #include <asm-generic/cmpxchg-local.h>
- 
-diff --git a/arch/mips/include/asm/cmpxchg.h b/arch/mips/include/asm/cmpxchg.h
-index 7ec9493b28614f..feed343ad483a9 100644
---- a/arch/mips/include/asm/cmpxchg.h
-+++ b/arch/mips/include/asm/cmpxchg.h
-@@ -68,7 +68,7 @@ extern unsigned long __xchg_small(volatile void *ptr, unsigned long val,
- 				  unsigned int size);
- 
- static __always_inline
--unsigned long __xchg(volatile void *ptr, unsigned long x, int size)
-+unsigned long __arch_xchg(volatile void *ptr, unsigned long x, int size)
- {
- 	switch (size) {
- 	case 1:
-@@ -102,7 +102,7 @@ unsigned long __xchg(volatile void *ptr, unsigned long x, int size)
- 		smp_mb__before_llsc();					\
- 									\
- 	__res = (__typeof__(*(ptr)))					\
--		__xchg((ptr), (unsigned long)(x), sizeof(*(ptr)));	\
-+		__arch_xchg((ptr), (unsigned long)(x), sizeof(*(ptr)));	\
- 									\
- 	smp_llsc_mb();							\
- 									\
-diff --git a/arch/openrisc/include/asm/cmpxchg.h b/arch/openrisc/include/asm/cmpxchg.h
-index 79fd16162ccb6d..5725e22e10683b 100644
---- a/arch/openrisc/include/asm/cmpxchg.h
-+++ b/arch/openrisc/include/asm/cmpxchg.h
-@@ -147,7 +147,7 @@ static inline unsigned long __cmpxchg(volatile void *ptr, unsigned long old,
- extern unsigned long __xchg_called_with_bad_pointer(void)
- 	__compiletime_error("Bad argument size for xchg");
- 
--static inline unsigned long __xchg(volatile void *ptr, unsigned long with,
-+static inline unsigned long __arch_xchg(volatile void *ptr, unsigned long with,
- 		int size)
- {
- 	switch (size) {
-@@ -163,7 +163,7 @@ static inline unsigned long __xchg(volatile void *ptr, unsigned long with,
- 
- #define arch_xchg(ptr, with) 						\
- 	({								\
--		(__typeof__(*(ptr))) __xchg((ptr),			\
-+		(__typeof__(*(ptr))) __arch_xchg((ptr),			\
- 					    (unsigned long)(with),	\
- 					    sizeof(*(ptr)));		\
- 	})
-diff --git a/arch/parisc/include/asm/cmpxchg.h b/arch/parisc/include/asm/cmpxchg.h
-index 5f274be105671e..c1d776bb16b4ed 100644
---- a/arch/parisc/include/asm/cmpxchg.h
-+++ b/arch/parisc/include/asm/cmpxchg.h
-@@ -22,7 +22,7 @@ extern unsigned long __xchg64(unsigned long, volatile unsigned long *);
- 
- /* optimizer better get rid of switch since size is a constant */
- static inline unsigned long
--__xchg(unsigned long x, volatile void *ptr, int size)
-+__arch_xchg(unsigned long x, volatile void *ptr, int size)
- {
- 	switch (size) {
- #ifdef CONFIG_64BIT
-@@ -49,7 +49,7 @@ __xchg(unsigned long x, volatile void *ptr, int size)
- 	__typeof__(*(ptr)) __ret;					\
- 	__typeof__(*(ptr)) _x_ = (x);					\
- 	__ret = (__typeof__(*(ptr)))					\
--		__xchg((unsigned long)_x_, (ptr), sizeof(*(ptr)));	\
-+		__arch_xchg((unsigned long)_x_, (ptr), sizeof(*(ptr)));	\
- 	__ret;								\
- })
- 
-diff --git a/arch/powerpc/include/asm/cmpxchg.h b/arch/powerpc/include/asm/cmpxchg.h
-index d0ea0571e79ab5..dbb50c06f0bf4d 100644
---- a/arch/powerpc/include/asm/cmpxchg.h
-+++ b/arch/powerpc/include/asm/cmpxchg.h
-@@ -229,7 +229,7 @@ __xchg_local(void *ptr, unsigned long x, unsigned int size)
- 		return __xchg_u64_local(ptr, x);
- #endif
- 	}
--	BUILD_BUG_ON_MSG(1, "Unsupported size for __xchg");
-+	BUILD_BUG_ON_MSG(1, "Unsupported size for __xchg_local");
- 	return x;
- }
- 
-@@ -248,7 +248,7 @@ __xchg_relaxed(void *ptr, unsigned long x, unsigned int size)
- 		return __xchg_u64_relaxed(ptr, x);
- #endif
- 	}
--	BUILD_BUG_ON_MSG(1, "Unsupported size for __xchg_local");
-+	BUILD_BUG_ON_MSG(1, "Unsupported size for __xchg_relaxed");
- 	return x;
- }
- #define arch_xchg_local(ptr,x)						     \
-diff --git a/arch/riscv/include/asm/atomic.h b/arch/riscv/include/asm/atomic.h
-index 0dfe9d857a762b..bba472928b5393 100644
---- a/arch/riscv/include/asm/atomic.h
-+++ b/arch/riscv/include/asm/atomic.h
-@@ -261,7 +261,7 @@ c_t arch_atomic##prefix##_xchg_release(atomic##prefix##_t *v, c_t n)	\
- static __always_inline							\
- c_t arch_atomic##prefix##_xchg(atomic##prefix##_t *v, c_t n)		\
- {									\
--	return __xchg(&(v->counter), n, size);				\
-+	return __arch_xchg(&(v->counter), n, size);			\
- }									\
- static __always_inline							\
- c_t arch_atomic##prefix##_cmpxchg_relaxed(atomic##prefix##_t *v,	\
-diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
-index 12debce235e52d..2f4726d3cfcc25 100644
---- a/arch/riscv/include/asm/cmpxchg.h
-+++ b/arch/riscv/include/asm/cmpxchg.h
-@@ -114,7 +114,7 @@
- 					    _x_, sizeof(*(ptr)));	\
- })
- 
--#define __xchg(ptr, new, size)						\
-+#define __arch_xchg(ptr, new, size)					\
- ({									\
- 	__typeof__(ptr) __ptr = (ptr);					\
- 	__typeof__(new) __new = (new);					\
-@@ -143,7 +143,7 @@
- #define arch_xchg(ptr, x)						\
- ({									\
- 	__typeof__(*(ptr)) _x_ = (x);					\
--	(__typeof__(*(ptr))) __xchg((ptr), _x_, sizeof(*(ptr)));	\
-+	(__typeof__(*(ptr))) __arch_xchg((ptr), _x_, sizeof(*(ptr)));	\
- })
- 
- #define xchg32(ptr, x)							\
-diff --git a/arch/s390/include/asm/cmpxchg.h b/arch/s390/include/asm/cmpxchg.h
-index 84c3f0d576c5b1..efc16f4aac8643 100644
---- a/arch/s390/include/asm/cmpxchg.h
-+++ b/arch/s390/include/asm/cmpxchg.h
-@@ -14,7 +14,7 @@
- 
- void __xchg_called_with_bad_pointer(void);
- 
--static __always_inline unsigned long __xchg(unsigned long x,
-+static __always_inline unsigned long __arch_xchg(unsigned long x,
- 					    unsigned long address, int size)
- {
- 	unsigned long old;
-@@ -77,7 +77,7 @@ static __always_inline unsigned long __xchg(unsigned long x,
- 	__typeof__(*(ptr)) __ret;					\
- 									\
- 	__ret = (__typeof__(*(ptr)))					\
--		__xchg((unsigned long)(x), (unsigned long)(ptr),	\
-+		__arch_xchg((unsigned long)(x), (unsigned long)(ptr),	\
- 		       sizeof(*(ptr)));					\
- 	__ret;								\
- })
-diff --git a/arch/sh/include/asm/cmpxchg.h b/arch/sh/include/asm/cmpxchg.h
-index 0ed9b3f4a57796..288f6f38d98fb4 100644
---- a/arch/sh/include/asm/cmpxchg.h
-+++ b/arch/sh/include/asm/cmpxchg.h
-@@ -22,7 +22,7 @@
- 
- extern void __xchg_called_with_bad_pointer(void);
- 
--#define __xchg(ptr, x, size)				\
-+#define __arch_xchg(ptr, x, size)				\
- ({							\
- 	unsigned long __xchg__res;			\
- 	volatile void *__xchg_ptr = (ptr);		\
-@@ -46,7 +46,7 @@ extern void __xchg_called_with_bad_pointer(void);
- })
- 
- #define arch_xchg(ptr,x)	\
--	((__typeof__(*(ptr)))__xchg((ptr),(unsigned long)(x), sizeof(*(ptr))))
-+	((__typeof__(*(ptr)))__arch_xchg((ptr),(unsigned long)(x), sizeof(*(ptr))))
- 
- /* This function doesn't exist, so you'll get a linker error
-  * if something tries to do an invalid cmpxchg(). */
-diff --git a/arch/sparc/include/asm/cmpxchg_32.h b/arch/sparc/include/asm/cmpxchg_32.h
-index 27a57a3a7597eb..7a1339533d1d7e 100644
---- a/arch/sparc/include/asm/cmpxchg_32.h
-+++ b/arch/sparc/include/asm/cmpxchg_32.h
-@@ -15,7 +15,7 @@
- unsigned long __xchg_u32(volatile u32 *m, u32 new);
- void __xchg_called_with_bad_pointer(void);
- 
--static inline unsigned long __xchg(unsigned long x, __volatile__ void * ptr, int size)
-+static inline unsigned long __arch_xchg(unsigned long x, __volatile__ void * ptr, int size)
- {
- 	switch (size) {
- 	case 4:
-@@ -25,7 +25,7 @@ static inline unsigned long __xchg(unsigned long x, __volatile__ void * ptr, int
- 	return x;
- }
- 
--#define arch_xchg(ptr,x) ({(__typeof__(*(ptr)))__xchg((unsigned long)(x),(ptr),sizeof(*(ptr)));})
-+#define arch_xchg(ptr,x) ({(__typeof__(*(ptr)))__arch_xchg((unsigned long)(x),(ptr),sizeof(*(ptr)));})
- 
- /* Emulate cmpxchg() the same way we emulate atomics,
-  * by hashing the object address and indexing into an array
-diff --git a/arch/sparc/include/asm/cmpxchg_64.h b/arch/sparc/include/asm/cmpxchg_64.h
-index 12d00a42c0a3ed..4c22fd9110c945 100644
---- a/arch/sparc/include/asm/cmpxchg_64.h
-+++ b/arch/sparc/include/asm/cmpxchg_64.h
-@@ -55,7 +55,7 @@ static inline unsigned long xchg64(__volatile__ unsigned long *m, unsigned long
- #define arch_xchg(ptr,x)							\
- ({	__typeof__(*(ptr)) __ret;					\
- 	__ret = (__typeof__(*(ptr)))					\
--		__xchg((unsigned long)(x), (ptr), sizeof(*(ptr)));	\
-+		__arch_xchg((unsigned long)(x), (ptr), sizeof(*(ptr)));	\
- 	__ret;								\
- })
- 
-@@ -87,7 +87,7 @@ xchg16(__volatile__ unsigned short *m, unsigned short val)
- 	return (load32 & mask) >> bit_shift;
- }
- 
--static inline unsigned long __xchg(unsigned long x, __volatile__ void * ptr,
-+static inline unsigned long __arch_xchg(unsigned long x, __volatile__ void * ptr,
- 				       int size)
- {
- 	switch (size) {
-diff --git a/arch/xtensa/include/asm/cmpxchg.h b/arch/xtensa/include/asm/cmpxchg.h
-index eb87810357ad88..675a11ea8de76b 100644
---- a/arch/xtensa/include/asm/cmpxchg.h
-+++ b/arch/xtensa/include/asm/cmpxchg.h
-@@ -170,7 +170,7 @@ static inline unsigned long xchg_u32(volatile int * m, unsigned long val)
- }
- 
- #define arch_xchg(ptr,x) \
--	((__typeof__(*(ptr)))__xchg((unsigned long)(x),(ptr),sizeof(*(ptr))))
-+	((__typeof__(*(ptr)))__arch_xchg((unsigned long)(x),(ptr),sizeof(*(ptr))))
- 
- static inline u32 xchg_small(volatile void *ptr, u32 x, int size)
- {
-@@ -203,7 +203,7 @@ static inline u32 xchg_small(volatile void *ptr, u32 x, int size)
- extern void __xchg_called_with_bad_pointer(void);
- 
- static __inline__ unsigned long
--__xchg(unsigned long x, volatile void * ptr, int size)
-+__arch_xchg(unsigned long x, volatile void * ptr, int size)
- {
- 	switch (size) {
- 	case 1:
--- 
-2.34.1
+The Sifive L2 cache driver handles an interrupt from the
+cache controller that is trigger by data corruption
+(corectable or uncorrectable). This is used as an
+implementation detail of drivers/edac/sifive_edac.c
+and could probably just be merged into that file.
 
+The Andes cache driver in this series on the other hand
+does not do EDAC at all but instead handles cache maintenance
+for the dma-mapping interface by hooking into the
+inline-asm implementation details of arch/riscv/mm/dma-noncoherent.c
+as an errata fix. If we expect more nonstandard ways
+to manage cache controllers for this, I think this
+needs a proper interface in arch/riscv or drivers/cache.
+
+This could be done the same way as arch/arm/include/asm/cacheflush.h
+with CPU specific cache management callback pointers, but
+can't really be a separate device driver without interacting
+with low-level architecture code.
+
+     Arnd
 
 _______________________________________________
 linux-riscv mailing list
