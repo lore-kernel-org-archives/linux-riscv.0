@@ -4,88 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC0ADC4167B
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Dec 2022 14:19:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EB2BC4167B
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Dec 2022 16:23:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MjTpf/K3S9FoHgU0E9cl16nFjBcYzAG/ziPB5i3EErQ=; b=4nTOUNjSrT9uJs
-	UB2P4+5qcz86eLrqN7EMMqzaVNRorK+tuGBg4WQD7JplhkkxuNYlzKXRHmG0sdUoxsRi1SaUhPaW+
-	Y2YS3MXAUy8zpdIrL0Y1q5dnSHIYEnzN1gqLVqzlGSzJCLYX4uMgKDlGApTFvhHwYYg743GGwRoRO
-	fFkIaaxg2islQXlIjexNGIGLYCMg9VCIAeZuRex3rJbyepKHsRqC2KhMtrz/D912zLfnrEYRzrKhc
-	13vkZpHWah9aQExo61lpBQH+Aj9DRbSzGYLruNhy7Kh+nPm8wxRE4nZ/i8C/llE7miQ/+mPCD6G+p
-	7N6U6zpMn3IygsthufBg==;
+	List-Owner; bh=mDCKOklRnUvUF/wIFZ0RYOXmlbM08m7e0hM4iDzkwdc=; b=cXVAhJC6152b7T
+	nfook2Cg8OwKhGO7TtG681PeuK3ySfjuIn3JRkqoeW2HaYAy+QMHg2OoibdscXiwGrGZPJGvXzWj2
+	SuJKlxu2atuMKMQrA3y6gctIizQ9Ztt+5pU/gSjkIPKKt3EQ4bktRaFhvSas2EN4ZNI/JBqUkVMeZ
+	XjavfYoHqofDBtHxssPbAcAdAnaIpXwRTvouBX+y1ubx06z5W/lPlB1FSSd/149M2FPgZLZLa769T
+	djq4zpovaoXfmkKziwDn9z6dofhxRKU0XAxCU1bvwx5z1sIC2TKOxForN1QKs1sVt+Xb+TQUBFkYv
+	W6pD17EwdVF8bGcIUxyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pBGEb-009siO-Fd; Fri, 30 Dec 2022 14:19:45 +0000
-Received: from mga03.intel.com ([134.134.136.65])
+	id 1pBI9t-00Az6a-On; Fri, 30 Dec 2022 16:23:01 +0000
+Received: from mail-yw1-x112e.google.com ([2607:f8b0:4864:20::112e])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pBGBR-009qSX-92; Fri, 30 Dec 2022 14:16:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1672409789; x=1703945789;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=UmiYFWfwxYLv9h+CpZP7WpdPpUBEjHJSuaZ7aY7p7G4=;
-  b=AtHFEMq6tAbwRQ/PrnJJHUehBNjHzh5x4OYFKht7LNIKxeP/iO67GUGz
-   RG6t+1oA6NQsFAlaLrGkGbH5Vt8IevitXlV01cDOX9WRe1F5yNTptZubD
-   eFGwQo30fBMU3eiHTXhFjhNRGyIvuwwW0rLolpLgdZw8OykfAeJ9RWCHq
-   0yMVtPHqaRjNilcGm+2u0kOaZF4qtHYrCPgv2amzLu3b8I+LQUMmQ29kH
-   WguhiU/JSgJ3m8SLIBjSBnl0e8sRkVGa8nT4MzJwRc3q18OsBwOhchnR2
-   LFg+paWe4gYgkp22ruHPmE/6NcJEe29rbpV/csyCBu7YZSG0LuKON0zSX
-   g==;
-X-IronPort-AV: E=McAfee;i="6500,9779,10576"; a="323196787"
-X-IronPort-AV: E=Sophos;i="5.96,287,1665471600"; 
-   d="scan'208";a="323196787"
-Received: from fmsmga001.fm.intel.com ([10.253.24.23])
-  by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Dec 2022 06:16:22 -0800
-X-IronPort-AV: E=McAfee;i="6500,9779,10576"; a="796237279"
-X-IronPort-AV: E=Sophos;i="5.96,287,1665471600"; 
-   d="scan'208";a="796237279"
-Received: from lab-ah.igk.intel.com ([10.91.215.196])
-  by fmsmga001-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Dec 2022 06:16:17 -0800
-From: Andrzej Hajda <andrzej.hajda@intel.com>
-To: linux-alpha@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-hexagon@vger.kernel.org,
-	linux-ia64@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org,
-	openrisc@lists.librecores.org,
-	linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	linux-xtensa@linux-xtensa.org,
-	intel-gfx@lists.freedesktop.org,
-	dri-devel@lists.freedesktop.org
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Rodrigo Vivi <rodrigo.vivi@intel.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	Mark Rutland <mark.rutland@arm.com>
-Subject: [PATCH v3] arch: rename all internal names __xchg to __arch_xchg
-Date: Fri, 30 Dec 2022 15:15:52 +0100
-Message-Id: <20221230141552.128508-1-andrzej.hajda@intel.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <202212300642.6pdgegGO-lkp@intel.com>
-References: <202212300642.6pdgegGO-lkp@intel.com>
+	id 1pBI3J-00AwaO-9i
+	for linux-riscv@lists.infradead.org; Fri, 30 Dec 2022 16:16:15 +0000
+Received: by mail-yw1-x112e.google.com with SMTP id 00721157ae682-43ea87d0797so302742217b3.5
+        for <linux-riscv@lists.infradead.org>; Fri, 30 Dec 2022 08:16:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=FnbzJ38SiTMk4847/vwLYPGHC/qFlBB6CHAWt+Sx6jU=;
+        b=HJfvsBEzTBP/BxwBvEdQyzNMUgAlsDyG6SXDo+qyExU5ctM0d9wj7NqfFaT2B8AXRI
+         2jm4ZWDBLtTEqPZuKaO2WsQfEUIVZE+e2ycMELhAS4+XUsO2FktVj2Ubj3xGGP4UleCB
+         eCKJ4EjqEIOQhPNJGw1LYwzXhQ81IitFOr5xvU0W/9vC65/Tn+lr6vGmVlADXBKYuXlm
+         yHDGubayghoMOSPAFVdRtA7n8aVu9sNWCo38LzJF6UaAip4Wfc2ojpXFa0UoNEqSfX5x
+         /ikIOcP+JMbPsEtiAO2hsUPmD336b8H0broOpycJPKH8Ne9q7QtBEpusqwET6jl0Wb4F
+         elPA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=FnbzJ38SiTMk4847/vwLYPGHC/qFlBB6CHAWt+Sx6jU=;
+        b=W7mCrdT3ZqGi3t1lLmK++vJjivrCrrO9YLERC78vuIdxy+mm4lmZDuUk5dV0gGUIJW
+         if5+DVIvOESTCi91bXgx0d2WY6Tfiqifiox+JzSgabA6bZWcXH20MvjSoGvuQR1M0i+f
+         63I12P3/w/AO1WISmXM5eTC4nSttU0w40LzrmEx0r6Ao1xUDbMSPRUUUkrc6npQIb1hC
+         L6jyB1al9GeD0HAuEU/g8DoKrnd1yH4lbMP+xZ+ZR3CJL6quvUHHnI04lK1K0oTF/JNF
+         lgL/im0f94qJaHJnzKZKjpRfCame1kz70yOWDsCr3Y+kaIjTVRLEhGQaxktKEWY9buzN
+         YaeA==
+X-Gm-Message-State: AFqh2konNjfs3M9fVePuCKCZhGGlq9DLc06Es4KkZTfwL/hOJOGcAKzX
+	Ud1HEUDASPXLzJOB+WJ9U0VoLXQIuxuMPMExdNE=
+X-Google-Smtp-Source: AMrXdXuCkHZ3DWflaIvrxe7Cf05vdnMjYH02YAXYvvvd5YNWHZo4sZIP5vT2TNt8L4lR9pAyna/CFeODawxtXhq9dOM=
+X-Received: by 2002:a81:844f:0:b0:47a:a99f:9da9 with SMTP id
+ u76-20020a81844f000000b0047aa99f9da9mr1858518ywf.258.1672416966188; Fri, 30
+ Dec 2022 08:16:06 -0800 (PST)
 MIME-Version: 1.0
-Organization: Intel Technology Poland sp. z o.o. - ul. Slowackiego 173, 80-298 Gdansk - KRS 101882 - NIP 957-07-52-316
+References: <20220829205219.283543-1-geomatsi@gmail.com> <CA+V-a8uLmp33PSYGmJjf9FupJ0M8Hf7ef7A1G4va8GDL_61Qyw@mail.gmail.com>
+ <Y6S1/kROC0p5CboA@curiosity> <CA+V-a8u0qUF81RUTF9+4T4F1GxW3=4P7RMTTjjsaMq4MiiQSMQ@mail.gmail.com>
+ <Y6TIywUWZ3nrPeon@curiosity> <CA+V-a8tMQ-RaaXD5209HxT77VoiOanvjdbFCPsdWpDYswuY+ZQ@mail.gmail.com>
+ <Y6TYNBgqgWuxhhHJ@curiosity> <CA+V-a8tDi79M8cS7rVoby3sopQ4AwXXcNggfHYXW-W2wtEgQ4g@mail.gmail.com>
+ <Y6Xjwg1dDYnwRbni@curiosity> <CA+V-a8uwmwriyoSZ1ftVQ1L1_uTL3k=VSs7Cid7++XEshq1RsQ@mail.gmail.com>
+ <Y6bm8KIsHhFq1RFR@curiosity>
+In-Reply-To: <Y6bm8KIsHhFq1RFR@curiosity>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Fri, 30 Dec 2022 16:15:39 +0000
+Message-ID: <CA+V-a8scDWmqqAXp1hOUYFcn-4Zaj3MBqeQs7QZy5WBwyXPjxQ@mail.gmail.com>
+Subject: Re: [RFC PATCH 1/1] riscv: mm: notify remote harts about mmu cache updates
+To: Sergey Matyukevich <geomatsi@gmail.com>
+Cc: linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org, 
+	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@rivosinc.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Guo Ren <guoren@kernel.org>, 
+	Alexandre Ghiti <alexandre.ghiti@canonical.com>, Heiko Stuebner <heiko@sntech.de>, 
+	Sergey Matyukevich <sergey.matyukevich@syntacore.com>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Conor Dooley <Conor.Dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221230_061629_548218_556DF6E3 
-X-CRM114-Status: GOOD (  16.72  )
+X-CRM114-CacheID: sfid-20221230_081613_376703_B89F3985 
+X-CRM114-Status: GOOD (  47.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,496 +95,185 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-__xchg will be used for non-atomic xchg macro.
+Hi Sergey,
 
-Signed-off-by: Andrzej Hajda <andrzej.hajda@intel.com>
-Reviewed-by: Arnd Bergmann <arnd@arndb.de>
----
-v2: squashed all arch patches into one
-v3: fixed alpha/xchg_local, thx to lkp@intel.com
----
- arch/alpha/include/asm/cmpxchg.h     | 8 ++++----
- arch/arc/include/asm/cmpxchg.h       | 4 ++--
- arch/arm/include/asm/cmpxchg.h       | 4 ++--
- arch/arm64/include/asm/cmpxchg.h     | 4 ++--
- arch/hexagon/include/asm/cmpxchg.h   | 6 +++---
- arch/ia64/include/asm/cmpxchg.h      | 2 +-
- arch/ia64/include/uapi/asm/cmpxchg.h | 4 ++--
- arch/loongarch/include/asm/cmpxchg.h | 4 ++--
- arch/m68k/include/asm/cmpxchg.h      | 6 +++---
- arch/mips/include/asm/cmpxchg.h      | 4 ++--
- arch/openrisc/include/asm/cmpxchg.h  | 4 ++--
- arch/parisc/include/asm/cmpxchg.h    | 4 ++--
- arch/powerpc/include/asm/cmpxchg.h   | 4 ++--
- arch/riscv/include/asm/atomic.h      | 2 +-
- arch/riscv/include/asm/cmpxchg.h     | 4 ++--
- arch/s390/include/asm/cmpxchg.h      | 4 ++--
- arch/sh/include/asm/cmpxchg.h        | 4 ++--
- arch/sparc/include/asm/cmpxchg_32.h  | 4 ++--
- arch/sparc/include/asm/cmpxchg_64.h  | 4 ++--
- arch/xtensa/include/asm/cmpxchg.h    | 4 ++--
- 20 files changed, 42 insertions(+), 42 deletions(-)
+On Sat, Dec 24, 2022 at 11:48 AM Sergey Matyukevich <geomatsi@gmail.com> wrote:
+>
+> Hi Prabhakar,
+>
+> > > > > > > > > > > Current implementation of update_mmu_cache function performs local TLB
+> > > > > > > > > > > flush. It does not take into account ASID information. Besides, it does
+> > > > > > > > > > > not take into account other harts currently running the same mm context
+> > > > > > > > > > > or possible migration of the running context to other harts. Meanwhile
+> > > > > > > > > > > TLB flush is not performed for every context switch if ASID support
+> > > > > > > > > > > is enabled.
+> > > > > > > > > > >
+> > > > > > > > > > > Patch [1] proposed to add ASID support to update_mmu_cache to avoid
+> > > > > > > > > > > flushing local TLB entirely. This patch takes into account other
+> > > > > > > > > > > harts currently running the same mm context as well as possible
+> > > > > > > > > > > migration of this context to other harts.
+> > > > > > > > > > >
+> > > > > > > > > > > For this purpose the approach from flush_icache_mm is reused. Remote
+> > > > > > > > > > > harts currently running the same mm context are informed via SBI calls
+> > > > > > > > > > > that they need to flush their local TLBs. All the other harts are marked
+> > > > > > > > > > > as needing a deferred TLB flush when this mm context runs on them.
+> > > > > > > > > > >
+> > > > > > > > > > > [1] https://lore.kernel.org/linux-riscv/20220821013926.8968-1-tjytimi@163.com/
+> > > > > > > > > > >
+> > > > > > > > > > > Signed-off-by: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
+> > > > > > > > > > > ---
+> > > > > > > > > > >  arch/riscv/include/asm/mmu.h      |  2 ++
+> > > > > > > > > > >  arch/riscv/include/asm/pgtable.h  |  2 +-
+> > > > > > > > > > >  arch/riscv/include/asm/tlbflush.h | 18 ++++++++++++++++++
+> > > > > > > > > > >  arch/riscv/mm/context.c           | 10 ++++++++++
+> > > > > > > > > > >  arch/riscv/mm/tlbflush.c          | 28 +++++++++++-----------------
+> > > > > > > > > > >  5 files changed, 42 insertions(+), 18 deletions(-)
+> > > > > > > > > > >
+> > > > > > > > <snip>
+> > > > > > > > > > [  133.008752] Hardware name: Renesas SMARC EVK based on r9a07g043f01 (DT)
+> > > > > > > > > > [  133.015338] Call Trace:
+> > > > > > > > > > [  133.017778] [<ffffffff800055cc>] dump_backtrace+0x1c/0x24
+> > > > > > > > > > [  133.023174] [<ffffffff80776836>] show_stack+0x2c/0x38
+> > > > > > > > > > [  133.028214] [<ffffffff80780244>] dump_stack_lvl+0x3c/0x54
+> > > > > > > > > > [  133.033597] [<ffffffff80780270>] dump_stack+0x14/0x1c
+> > > > > > > > > > [  133.038633] [<ffffffff80776c00>] panic+0x102/0x29a
+> > > > > > > > > > [  133.043409] [<ffffffff800137ba>] do_exit+0x704/0x70a
+> > > > > > > > > > [  133.048362] [<ffffffff8001390e>] do_group_exit+0x24/0x70
+> > > > > > > > > > [  133.053659] [<ffffffff8001de54>] get_signal+0x68a/0x6dc
+> > > > > > > > > > [  133.058874] [<ffffffff8000494e>] do_work_pending+0xd6/0x44e
+> > > > > > > > > > [  133.064427] [<ffffffff800036c2>] resume_userspace_slow+0x8/0xa
+> > > > > > > > > > [  133.070249] ---[ end Kernel panic - not syncing: Attempted to kill
+> > > > > > > > > > init! exitcode=0x0000000b ]---
+> > > > > > > > > >
+> > > > > > > > > > If I revert this patch [0] bonnie++ works as expected.
+> > > > > > > > > >
+> > > > > > > > > > Any pointers on what could be the issue here?
+> > > > > > > > > >
+> > > > > > > > > > [0] https://git.kernel.org/pub/scm/linux/kernel/git/palmer/linux.git/commit/?h=for-next&id=4bd1d80efb5af640f99157f39b50fb11326ce641
+> > > > > > > > > >
+> > > > > > > > > > Cheers,
+> > > > > > > > > > Prabhakar
+> > > > > > > > >
+> > > > > > > > > Good catch. Thanks for reporting ! Discussion around the issue and
+> > > > > > > > > possible ways to fix it can be found in the following email thread:
+> > > > > > > > >
+> > > > > > > > > https://lore.kernel.org/linux-riscv/20221111075902.798571-1-guoren@kernel.org/
+> > > > > > > > >
+> > > > > > > > > Could you please apply the patch from Guo Ren instead of [0] and check
+> > > > > > > > > if you have any issues with your test ? Besides, could you please share
+> > > > > > > > > your kernel configuration and the actual bonnie++ params from emmc_t_002.sh script ?
+> > > > > > > > >
+> > > > > > > > Thanks for the pointer, I'll undo my changes and test Guo's patch.
+> > > > > > > >
+> > > > > > > > I have pasted the script here [0] and attached config.
+> > > > > > > >
+> > > > > > > > [0] https://paste.debian.net/hidden/a7a769b5/
+> > > > > > >
+> > > > > > > Thanks for the script and config. Could you please also share the
+> > > > > > > following information:
+> > > > > > > - how many cores your system has
+> > > > > > The Renesas RZ/Five SoC has a single Andes AX45MP core.
+> > > > > >
+> > > > > > > - does your system support ASID
+> > > > > > >
+> > > > > > With a quick look at [0] It does support ASID, unless there is a way
+> > > > > > to disable it.
+> > > > > >
+> > > > > > [0] http://www.andestech.com/wp-content/uploads/AX45MP-1C-Rev.-5.0.0-Datasheet.pdf
+> > > > >
+> > > > > So you have a single-core system, but your kernel configuration enables
+> > > > > CONFIG_SMP. Additional 'deferred TLB flush' logic is dropped at build
+> > > > > time if CONFIG_SMP is disabled. On the other hand, system should not
+> > > > > fail that way even if SMP is enabled.
+> > > > >
+> > > > I enabled CONFIG_SMP while doing some testing of PMA code and indeed
+> > > > enabling this config should not introduce a failure.
+> > > >
+> > > > > Let me double-check if anything can go wrong if cpumasks may have only
+> > > > > a single cpu. Another suspect is a change in update_mmu_cache: probably
+> > > > > making it asid-specific (and thus more granular) was a bad idea.
+> > > > >
+> > > > Thanks.
+> > > >
+> > > > BTW I tested the patch [0] which you pointed out and that fixes the
+> > > > issues seen earlier.
+> > > >
+> > > > [0] https://patchwork.kernel.org/project/linux-riscv/patch/20221111075902.798571-1-guoren@kernel.org/
+> > >
+> > > All looks good with cpumasks in the single-core case. So deferred TLB
+> > > flush logic is not even executed in your case. So the root cause
+> > > should be in update_mmu_cache change.
+> > >
+> > > May I ask you to repeat the original emmc test on your platform from
+> > > for-next (i.e. with [0] and without [1]) with the following partial revert:
+> > >
+> > > : diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> > > : index ec6fb83349ce..92ec2d9d7273 100644
+> > > : --- a/arch/riscv/include/asm/pgtable.h
+> > > : +++ b/arch/riscv/include/asm/pgtable.h
+> > > : @@ -415,7 +415,7 @@ static inline void update_mmu_cache(struct vm_area_struct *vma,
+> > > :        * Relying on flush_tlb_fix_spurious_fault would suffice, but
+> > > :        * the extra traps reduce performance.  So, eagerly SFENCE.VMA.
+> > > :        */
+> > > : -     flush_tlb_page(vma, address);
+> > > : +     local_flush_tlb_page(address);
+> > > :  }
+> > > :
+> > > :  static inline void update_mmu_cache_pmd(struct vm_area_struct *vma,
+> > >
+> > I tested your above proposed changes and I am no longer seeing an
+> > issue on my platform.
+>
+> Great. I will send a fixup after I double-check on several other
+> hardware platforms. Thanks for testing !
+>
+Actuall, I did hit an issue now with your proposed changes with bonnie++ again!
 
-diff --git a/arch/alpha/include/asm/cmpxchg.h b/arch/alpha/include/asm/cmpxchg.h
-index 6e0a850aa9d38c..e0cb5b5c1c54b9 100644
---- a/arch/alpha/include/asm/cmpxchg.h
-+++ b/arch/alpha/include/asm/cmpxchg.h
-@@ -6,14 +6,14 @@
-  * Atomic exchange routines.
-  */
- 
--#define ____xchg(type, args...)		__xchg ## type ## _local(args)
-+#define ____xchg(type, args...)		__arch_xchg ## type ## _local(args)
- #define ____cmpxchg(type, args...)	__cmpxchg ## type ## _local(args)
- #include <asm/xchg.h>
- 
- #define xchg_local(ptr, x)						\
- ({									\
- 	__typeof__(*(ptr)) _x_ = (x);					\
--	(__typeof__(*(ptr))) __xchg_local((ptr), (unsigned long)_x_,	\
-+	(__typeof__(*(ptr))) __arch_xchg_local((ptr), (unsigned long)_x_,\
- 				       sizeof(*(ptr)));			\
- })
- 
-@@ -34,7 +34,7 @@
- 
- #undef ____xchg
- #undef ____cmpxchg
--#define ____xchg(type, args...)		__xchg ##type(args)
-+#define ____xchg(type, args...)		__arch_xchg ##type(args)
- #define ____cmpxchg(type, args...)	__cmpxchg ##type(args)
- #include <asm/xchg.h>
- 
-@@ -48,7 +48,7 @@
- 	__typeof__(*(ptr)) _x_ = (x);					\
- 	smp_mb();							\
- 	__ret = (__typeof__(*(ptr)))					\
--		__xchg((ptr), (unsigned long)_x_, sizeof(*(ptr)));	\
-+		__arch_xchg((ptr), (unsigned long)_x_, sizeof(*(ptr)));	\
- 	smp_mb();							\
- 	__ret;								\
- })
-diff --git a/arch/arc/include/asm/cmpxchg.h b/arch/arc/include/asm/cmpxchg.h
-index c5b544a5fe8106..e138fde067dea5 100644
---- a/arch/arc/include/asm/cmpxchg.h
-+++ b/arch/arc/include/asm/cmpxchg.h
-@@ -85,7 +85,7 @@
-  */
- #ifdef CONFIG_ARC_HAS_LLSC
- 
--#define __xchg(ptr, val)						\
-+#define __arch_xchg(ptr, val)						\
- ({									\
- 	__asm__ __volatile__(						\
- 	"	ex  %0, [%1]	\n"	/* set new value */	        \
-@@ -102,7 +102,7 @@
- 									\
- 	switch(sizeof(*(_p_))) {					\
- 	case 4:								\
--		_val_ = __xchg(_p_, _val_);				\
-+		_val_ = __arch_xchg(_p_, _val_);			\
- 		break;							\
- 	default:							\
- 		BUILD_BUG();						\
-diff --git a/arch/arm/include/asm/cmpxchg.h b/arch/arm/include/asm/cmpxchg.h
-index 4dfe538dfc689b..6953fc05a97886 100644
---- a/arch/arm/include/asm/cmpxchg.h
-+++ b/arch/arm/include/asm/cmpxchg.h
-@@ -25,7 +25,7 @@
- #define swp_is_buggy
- #endif
- 
--static inline unsigned long __xchg(unsigned long x, volatile void *ptr, int size)
-+static inline unsigned long __arch_xchg(unsigned long x, volatile void *ptr, int size)
- {
- 	extern void __bad_xchg(volatile void *, int);
- 	unsigned long ret;
-@@ -115,7 +115,7 @@ static inline unsigned long __xchg(unsigned long x, volatile void *ptr, int size
- }
- 
- #define arch_xchg_relaxed(ptr, x) ({					\
--	(__typeof__(*(ptr)))__xchg((unsigned long)(x), (ptr),		\
-+	(__typeof__(*(ptr)))__arch_xchg((unsigned long)(x), (ptr),		\
- 				   sizeof(*(ptr)));			\
- })
- 
-diff --git a/arch/arm64/include/asm/cmpxchg.h b/arch/arm64/include/asm/cmpxchg.h
-index 497acf134d9923..3a36ba58e8c2ef 100644
---- a/arch/arm64/include/asm/cmpxchg.h
-+++ b/arch/arm64/include/asm/cmpxchg.h
-@@ -62,7 +62,7 @@ __XCHG_CASE( ,  ,  mb_, 64, dmb ish, nop,  , a, l, "memory")
- #undef __XCHG_CASE
- 
- #define __XCHG_GEN(sfx)							\
--static __always_inline  unsigned long __xchg##sfx(unsigned long x,	\
-+static __always_inline  unsigned long __arch_xchg##sfx(unsigned long x,	\
- 					volatile void *ptr,		\
- 					int size)			\
- {									\
-@@ -93,7 +93,7 @@ __XCHG_GEN(_mb)
- ({									\
- 	__typeof__(*(ptr)) __ret;					\
- 	__ret = (__typeof__(*(ptr)))					\
--		__xchg##sfx((unsigned long)(x), (ptr), sizeof(*(ptr))); \
-+		__arch_xchg##sfx((unsigned long)(x), (ptr), sizeof(*(ptr))); \
- 	__ret;								\
- })
- 
-diff --git a/arch/hexagon/include/asm/cmpxchg.h b/arch/hexagon/include/asm/cmpxchg.h
-index cdb705e1496af8..92dc5e5f836f3b 100644
---- a/arch/hexagon/include/asm/cmpxchg.h
-+++ b/arch/hexagon/include/asm/cmpxchg.h
-@@ -9,7 +9,7 @@
- #define _ASM_CMPXCHG_H
- 
- /*
-- * __xchg - atomically exchange a register and a memory location
-+ * __arch_xchg - atomically exchange a register and a memory location
-  * @x: value to swap
-  * @ptr: pointer to memory
-  * @size:  size of the value
-@@ -19,7 +19,7 @@
-  * Note:  there was an errata for V2 about .new's and memw_locked.
-  *
-  */
--static inline unsigned long __xchg(unsigned long x, volatile void *ptr,
-+static inline unsigned long __arch_xchg(unsigned long x, volatile void *ptr,
- 				   int size)
- {
- 	unsigned long retval;
-@@ -42,7 +42,7 @@ static inline unsigned long __xchg(unsigned long x, volatile void *ptr,
-  * Atomically swap the contents of a register with memory.  Should be atomic
-  * between multiple CPU's and within interrupts on the same CPU.
-  */
--#define arch_xchg(ptr, v) ((__typeof__(*(ptr)))__xchg((unsigned long)(v), (ptr), \
-+#define arch_xchg(ptr, v) ((__typeof__(*(ptr)))__arch_xchg((unsigned long)(v), (ptr), \
- 	sizeof(*(ptr))))
- 
- /*
-diff --git a/arch/ia64/include/asm/cmpxchg.h b/arch/ia64/include/asm/cmpxchg.h
-index 94ef844298431a..8b2e644ef6a14e 100644
---- a/arch/ia64/include/asm/cmpxchg.h
-+++ b/arch/ia64/include/asm/cmpxchg.h
-@@ -5,7 +5,7 @@
- #include <uapi/asm/cmpxchg.h>
- 
- #define arch_xchg(ptr, x)	\
--({(__typeof__(*(ptr))) __xchg((unsigned long) (x), (ptr), sizeof(*(ptr)));})
-+({(__typeof__(*(ptr))) __arch_xchg((unsigned long) (x), (ptr), sizeof(*(ptr)));})
- 
- #define arch_cmpxchg(ptr, o, n)		cmpxchg_acq((ptr), (o), (n))
- #define arch_cmpxchg64(ptr, o, n)	cmpxchg_acq((ptr), (o), (n))
-diff --git a/arch/ia64/include/uapi/asm/cmpxchg.h b/arch/ia64/include/uapi/asm/cmpxchg.h
-index ca2e0268534384..3fec9b037051bb 100644
---- a/arch/ia64/include/uapi/asm/cmpxchg.h
-+++ b/arch/ia64/include/uapi/asm/cmpxchg.h
-@@ -27,7 +27,7 @@
-  */
- extern void ia64_xchg_called_with_bad_pointer(void);
- 
--#define __xchg(x, ptr, size)						\
-+#define __arch_xchg(x, ptr, size)					\
- ({									\
- 	unsigned long __xchg_result;					\
- 									\
-@@ -55,7 +55,7 @@ extern void ia64_xchg_called_with_bad_pointer(void);
- 
- #ifndef __KERNEL__
- #define xchg(ptr, x)							\
--({(__typeof__(*(ptr))) __xchg((unsigned long) (x), (ptr), sizeof(*(ptr)));})
-+({(__typeof__(*(ptr))) __arch_xchg((unsigned long) (x), (ptr), sizeof(*(ptr)));})
- #endif
- 
- /*
-diff --git a/arch/loongarch/include/asm/cmpxchg.h b/arch/loongarch/include/asm/cmpxchg.h
-index ecfa6cf79806e6..979fde61bba8a4 100644
---- a/arch/loongarch/include/asm/cmpxchg.h
-+++ b/arch/loongarch/include/asm/cmpxchg.h
-@@ -62,7 +62,7 @@ static inline unsigned int __xchg_small(volatile void *ptr, unsigned int val,
- }
- 
- static __always_inline unsigned long
--__xchg(volatile void *ptr, unsigned long x, int size)
-+__arch_xchg(volatile void *ptr, unsigned long x, int size)
- {
- 	switch (size) {
- 	case 1:
-@@ -87,7 +87,7 @@ __xchg(volatile void *ptr, unsigned long x, int size)
- 	__typeof__(*(ptr)) __res;					\
- 									\
- 	__res = (__typeof__(*(ptr)))					\
--		__xchg((ptr), (unsigned long)(x), sizeof(*(ptr)));	\
-+		__arch_xchg((ptr), (unsigned long)(x), sizeof(*(ptr)));	\
- 									\
- 	__res;								\
- })
-diff --git a/arch/m68k/include/asm/cmpxchg.h b/arch/m68k/include/asm/cmpxchg.h
-index 6cf464cdab067e..d7f3de9c5d6f79 100644
---- a/arch/m68k/include/asm/cmpxchg.h
-+++ b/arch/m68k/include/asm/cmpxchg.h
-@@ -9,7 +9,7 @@
- extern unsigned long __invalid_xchg_size(unsigned long, volatile void *, int);
- 
- #ifndef CONFIG_RMW_INSNS
--static inline unsigned long __xchg(unsigned long x, volatile void * ptr, int size)
-+static inline unsigned long __arch_xchg(unsigned long x, volatile void * ptr, int size)
- {
- 	unsigned long flags, tmp;
- 
-@@ -40,7 +40,7 @@ static inline unsigned long __xchg(unsigned long x, volatile void * ptr, int siz
- 	return x;
- }
- #else
--static inline unsigned long __xchg(unsigned long x, volatile void * ptr, int size)
-+static inline unsigned long __arch_xchg(unsigned long x, volatile void * ptr, int size)
- {
- 	switch (size) {
- 	case 1:
-@@ -75,7 +75,7 @@ static inline unsigned long __xchg(unsigned long x, volatile void * ptr, int siz
- }
- #endif
- 
--#define arch_xchg(ptr,x) ({(__typeof__(*(ptr)))__xchg((unsigned long)(x),(ptr),sizeof(*(ptr)));})
-+#define arch_xchg(ptr,x) ({(__typeof__(*(ptr)))__arch_xchg((unsigned long)(x),(ptr),sizeof(*(ptr)));})
- 
- #include <asm-generic/cmpxchg-local.h>
- 
-diff --git a/arch/mips/include/asm/cmpxchg.h b/arch/mips/include/asm/cmpxchg.h
-index 7ec9493b28614f..feed343ad483a9 100644
---- a/arch/mips/include/asm/cmpxchg.h
-+++ b/arch/mips/include/asm/cmpxchg.h
-@@ -68,7 +68,7 @@ extern unsigned long __xchg_small(volatile void *ptr, unsigned long val,
- 				  unsigned int size);
- 
- static __always_inline
--unsigned long __xchg(volatile void *ptr, unsigned long x, int size)
-+unsigned long __arch_xchg(volatile void *ptr, unsigned long x, int size)
- {
- 	switch (size) {
- 	case 1:
-@@ -102,7 +102,7 @@ unsigned long __xchg(volatile void *ptr, unsigned long x, int size)
- 		smp_mb__before_llsc();					\
- 									\
- 	__res = (__typeof__(*(ptr)))					\
--		__xchg((ptr), (unsigned long)(x), sizeof(*(ptr)));	\
-+		__arch_xchg((ptr), (unsigned long)(x), sizeof(*(ptr)));	\
- 									\
- 	smp_llsc_mb();							\
- 									\
-diff --git a/arch/openrisc/include/asm/cmpxchg.h b/arch/openrisc/include/asm/cmpxchg.h
-index 79fd16162ccb6d..5725e22e10683b 100644
---- a/arch/openrisc/include/asm/cmpxchg.h
-+++ b/arch/openrisc/include/asm/cmpxchg.h
-@@ -147,7 +147,7 @@ static inline unsigned long __cmpxchg(volatile void *ptr, unsigned long old,
- extern unsigned long __xchg_called_with_bad_pointer(void)
- 	__compiletime_error("Bad argument size for xchg");
- 
--static inline unsigned long __xchg(volatile void *ptr, unsigned long with,
-+static inline unsigned long __arch_xchg(volatile void *ptr, unsigned long with,
- 		int size)
- {
- 	switch (size) {
-@@ -163,7 +163,7 @@ static inline unsigned long __xchg(volatile void *ptr, unsigned long with,
- 
- #define arch_xchg(ptr, with) 						\
- 	({								\
--		(__typeof__(*(ptr))) __xchg((ptr),			\
-+		(__typeof__(*(ptr))) __arch_xchg((ptr),			\
- 					    (unsigned long)(with),	\
- 					    sizeof(*(ptr)));		\
- 	})
-diff --git a/arch/parisc/include/asm/cmpxchg.h b/arch/parisc/include/asm/cmpxchg.h
-index 5f274be105671e..c1d776bb16b4ed 100644
---- a/arch/parisc/include/asm/cmpxchg.h
-+++ b/arch/parisc/include/asm/cmpxchg.h
-@@ -22,7 +22,7 @@ extern unsigned long __xchg64(unsigned long, volatile unsigned long *);
- 
- /* optimizer better get rid of switch since size is a constant */
- static inline unsigned long
--__xchg(unsigned long x, volatile void *ptr, int size)
-+__arch_xchg(unsigned long x, volatile void *ptr, int size)
- {
- 	switch (size) {
- #ifdef CONFIG_64BIT
-@@ -49,7 +49,7 @@ __xchg(unsigned long x, volatile void *ptr, int size)
- 	__typeof__(*(ptr)) __ret;					\
- 	__typeof__(*(ptr)) _x_ = (x);					\
- 	__ret = (__typeof__(*(ptr)))					\
--		__xchg((unsigned long)_x_, (ptr), sizeof(*(ptr)));	\
-+		__arch_xchg((unsigned long)_x_, (ptr), sizeof(*(ptr)));	\
- 	__ret;								\
- })
- 
-diff --git a/arch/powerpc/include/asm/cmpxchg.h b/arch/powerpc/include/asm/cmpxchg.h
-index d0ea0571e79ab5..dbb50c06f0bf4d 100644
---- a/arch/powerpc/include/asm/cmpxchg.h
-+++ b/arch/powerpc/include/asm/cmpxchg.h
-@@ -229,7 +229,7 @@ __xchg_local(void *ptr, unsigned long x, unsigned int size)
- 		return __xchg_u64_local(ptr, x);
- #endif
- 	}
--	BUILD_BUG_ON_MSG(1, "Unsupported size for __xchg");
-+	BUILD_BUG_ON_MSG(1, "Unsupported size for __xchg_local");
- 	return x;
- }
- 
-@@ -248,7 +248,7 @@ __xchg_relaxed(void *ptr, unsigned long x, unsigned int size)
- 		return __xchg_u64_relaxed(ptr, x);
- #endif
- 	}
--	BUILD_BUG_ON_MSG(1, "Unsupported size for __xchg_local");
-+	BUILD_BUG_ON_MSG(1, "Unsupported size for __xchg_relaxed");
- 	return x;
- }
- #define arch_xchg_local(ptr,x)						     \
-diff --git a/arch/riscv/include/asm/atomic.h b/arch/riscv/include/asm/atomic.h
-index 0dfe9d857a762b..bba472928b5393 100644
---- a/arch/riscv/include/asm/atomic.h
-+++ b/arch/riscv/include/asm/atomic.h
-@@ -261,7 +261,7 @@ c_t arch_atomic##prefix##_xchg_release(atomic##prefix##_t *v, c_t n)	\
- static __always_inline							\
- c_t arch_atomic##prefix##_xchg(atomic##prefix##_t *v, c_t n)		\
- {									\
--	return __xchg(&(v->counter), n, size);				\
-+	return __arch_xchg(&(v->counter), n, size);			\
- }									\
- static __always_inline							\
- c_t arch_atomic##prefix##_cmpxchg_relaxed(atomic##prefix##_t *v,	\
-diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
-index 12debce235e52d..2f4726d3cfcc25 100644
---- a/arch/riscv/include/asm/cmpxchg.h
-+++ b/arch/riscv/include/asm/cmpxchg.h
-@@ -114,7 +114,7 @@
- 					    _x_, sizeof(*(ptr)));	\
- })
- 
--#define __xchg(ptr, new, size)						\
-+#define __arch_xchg(ptr, new, size)					\
- ({									\
- 	__typeof__(ptr) __ptr = (ptr);					\
- 	__typeof__(new) __new = (new);					\
-@@ -143,7 +143,7 @@
- #define arch_xchg(ptr, x)						\
- ({									\
- 	__typeof__(*(ptr)) _x_ = (x);					\
--	(__typeof__(*(ptr))) __xchg((ptr), _x_, sizeof(*(ptr)));	\
-+	(__typeof__(*(ptr))) __arch_xchg((ptr), _x_, sizeof(*(ptr)));	\
- })
- 
- #define xchg32(ptr, x)							\
-diff --git a/arch/s390/include/asm/cmpxchg.h b/arch/s390/include/asm/cmpxchg.h
-index 84c3f0d576c5b1..efc16f4aac8643 100644
---- a/arch/s390/include/asm/cmpxchg.h
-+++ b/arch/s390/include/asm/cmpxchg.h
-@@ -14,7 +14,7 @@
- 
- void __xchg_called_with_bad_pointer(void);
- 
--static __always_inline unsigned long __xchg(unsigned long x,
-+static __always_inline unsigned long __arch_xchg(unsigned long x,
- 					    unsigned long address, int size)
- {
- 	unsigned long old;
-@@ -77,7 +77,7 @@ static __always_inline unsigned long __xchg(unsigned long x,
- 	__typeof__(*(ptr)) __ret;					\
- 									\
- 	__ret = (__typeof__(*(ptr)))					\
--		__xchg((unsigned long)(x), (unsigned long)(ptr),	\
-+		__arch_xchg((unsigned long)(x), (unsigned long)(ptr),	\
- 		       sizeof(*(ptr)));					\
- 	__ret;								\
- })
-diff --git a/arch/sh/include/asm/cmpxchg.h b/arch/sh/include/asm/cmpxchg.h
-index 0ed9b3f4a57796..288f6f38d98fb4 100644
---- a/arch/sh/include/asm/cmpxchg.h
-+++ b/arch/sh/include/asm/cmpxchg.h
-@@ -22,7 +22,7 @@
- 
- extern void __xchg_called_with_bad_pointer(void);
- 
--#define __xchg(ptr, x, size)				\
-+#define __arch_xchg(ptr, x, size)				\
- ({							\
- 	unsigned long __xchg__res;			\
- 	volatile void *__xchg_ptr = (ptr);		\
-@@ -46,7 +46,7 @@ extern void __xchg_called_with_bad_pointer(void);
- })
- 
- #define arch_xchg(ptr,x)	\
--	((__typeof__(*(ptr)))__xchg((ptr),(unsigned long)(x), sizeof(*(ptr))))
-+	((__typeof__(*(ptr)))__arch_xchg((ptr),(unsigned long)(x), sizeof(*(ptr))))
- 
- /* This function doesn't exist, so you'll get a linker error
-  * if something tries to do an invalid cmpxchg(). */
-diff --git a/arch/sparc/include/asm/cmpxchg_32.h b/arch/sparc/include/asm/cmpxchg_32.h
-index 27a57a3a7597eb..7a1339533d1d7e 100644
---- a/arch/sparc/include/asm/cmpxchg_32.h
-+++ b/arch/sparc/include/asm/cmpxchg_32.h
-@@ -15,7 +15,7 @@
- unsigned long __xchg_u32(volatile u32 *m, u32 new);
- void __xchg_called_with_bad_pointer(void);
- 
--static inline unsigned long __xchg(unsigned long x, __volatile__ void * ptr, int size)
-+static inline unsigned long __arch_xchg(unsigned long x, __volatile__ void * ptr, int size)
- {
- 	switch (size) {
- 	case 4:
-@@ -25,7 +25,7 @@ static inline unsigned long __xchg(unsigned long x, __volatile__ void * ptr, int
- 	return x;
- }
- 
--#define arch_xchg(ptr,x) ({(__typeof__(*(ptr)))__xchg((unsigned long)(x),(ptr),sizeof(*(ptr)));})
-+#define arch_xchg(ptr,x) ({(__typeof__(*(ptr)))__arch_xchg((unsigned long)(x),(ptr),sizeof(*(ptr)));})
- 
- /* Emulate cmpxchg() the same way we emulate atomics,
-  * by hashing the object address and indexing into an array
-diff --git a/arch/sparc/include/asm/cmpxchg_64.h b/arch/sparc/include/asm/cmpxchg_64.h
-index 12d00a42c0a3ed..4c22fd9110c945 100644
---- a/arch/sparc/include/asm/cmpxchg_64.h
-+++ b/arch/sparc/include/asm/cmpxchg_64.h
-@@ -55,7 +55,7 @@ static inline unsigned long xchg64(__volatile__ unsigned long *m, unsigned long
- #define arch_xchg(ptr,x)							\
- ({	__typeof__(*(ptr)) __ret;					\
- 	__ret = (__typeof__(*(ptr)))					\
--		__xchg((unsigned long)(x), (ptr), sizeof(*(ptr)));	\
-+		__arch_xchg((unsigned long)(x), (ptr), sizeof(*(ptr)));	\
- 	__ret;								\
- })
- 
-@@ -87,7 +87,7 @@ xchg16(__volatile__ unsigned short *m, unsigned short val)
- 	return (load32 & mask) >> bit_shift;
- }
- 
--static inline unsigned long __xchg(unsigned long x, __volatile__ void * ptr,
-+static inline unsigned long __arch_xchg(unsigned long x, __volatile__ void * ptr,
- 				       int size)
- {
- 	switch (size) {
-diff --git a/arch/xtensa/include/asm/cmpxchg.h b/arch/xtensa/include/asm/cmpxchg.h
-index eb87810357ad88..675a11ea8de76b 100644
---- a/arch/xtensa/include/asm/cmpxchg.h
-+++ b/arch/xtensa/include/asm/cmpxchg.h
-@@ -170,7 +170,7 @@ static inline unsigned long xchg_u32(volatile int * m, unsigned long val)
- }
- 
- #define arch_xchg(ptr,x) \
--	((__typeof__(*(ptr)))__xchg((unsigned long)(x),(ptr),sizeof(*(ptr))))
-+	((__typeof__(*(ptr)))__arch_xchg((unsigned long)(x),(ptr),sizeof(*(ptr))))
- 
- static inline u32 xchg_small(volatile void *ptr, u32 x, int size)
- {
-@@ -203,7 +203,7 @@ static inline u32 xchg_small(volatile void *ptr, u32 x, int size)
- extern void __xchg_called_with_bad_pointer(void);
- 
- static __inline__ unsigned long
--__xchg(unsigned long x, volatile void * ptr, int size)
-+__arch_xchg(unsigned long x, volatile void * ptr, int size)
- {
- 	switch (size) {
- 	case 1:
--- 
-2.34.1
+[ 1873.355279] EXT4-fs (sda1): mounted filesystem
+050ad3b9-b571-4b4c-9500-db56feed01ab with ordered data mode. Quota
+mode: disabled.
+Using uid:0, gid:0.
+Writing with putc()...done
+Writing intelligently...done
+Rewriting...done
+Reading with getc()...[ 2682.180114] sd-resolve[126]: unhandled signal
+11 code 0x1 at 0x0000000000000000 in libc-2.28.so[3fbe503000+ff000]
+[ 2682.190552] CPU: 0 PID: 126 Comm: sd-resolve Not tainted
+6.2.0-rc1-00111-g7bcd7d932cf6 #189
+[ 2682.198917] Hardware name: Renesas SMARC EVK based on r9a07g043f01 (DT)
+[ 2682.205536] epc : 0000003fbe568004 ra : 0000003fbe569440 sp :
+0000003fbe417b10
+[ 2682.212770]  gp : 0000002ab8d18b88 tp : 0000003fbe41e810 t0 :
+0000000000000022
+[ 2682.219987]  t1 : 0000003fbdbf1e4c t2 : 0000003fbe417290 s0 :
+00000000000000e0
+[ 2682.227219]  s1 : 0000000000000000 a0 : 0000000000000000 a1 :
+8080808080808080
+[ 2682.234433]  a2 : 0000003fb80019f0 a3 : 0000003fbe41e8f0 a4 :
+0000000000000008
+[ 2682.241648]  a5 : 0000000000000000 a6 : fefefefefefefeff a7 :
+0000000000000039
+[ 2682.248863]  s2 : 0000003fbe417b37 s3 : 0000003fbe417e48 s4 :
+0000000000000001
+[ 2682.256082]  s5 : 0000003fbe417eb0 s6 : 00000000000000e0 s7 :
+0000003fbdbf2f2a
+[ 2682.263297]  s8 : ffffffffffffffff s9 : fffffffffffffffd s10:
+ffffffffffffffff
+[ 2682.270511]  s11: fffffffffffffffe t3 : 0000000000000000 t4 :
+000000077ce2ea37
+[ 2682.277733]  t5 : 000000000000003f t6 : 0000000000000000
+[ 2682.283046] status: 0000000200004020 badaddr: 0000000000000000
+cause: 000000000000000d
+[ 2682.441183] audit: type=1701 audit(1671222620.403:17):
+auid=4294967295 uid=995 gid=994 ses=4294967295 pid=124
+comm="sd-resolve" exe="/lib/systemd/systemd-timesyncd" sig=11 res=1
+done
+Reading intelligently...done
 
+Let me know if you want me to share my branch.
+
+Cheers,
+Prabhakar
 
 _______________________________________________
 linux-riscv mailing list
