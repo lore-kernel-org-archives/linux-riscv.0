@@ -4,67 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97282C4332F
-	for <linux-riscv@archiver.kernel.org>; Sat, 31 Dec 2022 04:36:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDCBDC4332F
+	for <linux-riscv@archiver.kernel.org>; Sat, 31 Dec 2022 05:28:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kIYTwm4vmcxuJcTF40oXHe1lY4HFS0wp6RDwRJOaQPI=; b=HRYMsf3PKYc+Qx
-	Z/r7M5QGV44sGWWfILRNJWGP/fqtq40xb+e6O70aH9x63azD5HXGaPb/P0kMhzPlotIrq8XIclZLS
-	gDtwjw13upm6r/8FZZwR7hMATwmeGBseaGcJ5amVJmsvPDeL29syXVQzmj+UE97APyARcsQ3pwRt/
-	7Iniav8Ct6+SQkWMUQVKtakmAE3hYaTAIYVS4MLdxTv7VwX5Q1YYPF+JTnx7va2YQHEvEU7eOJTkg
-	rl0hHUBeYoKxiLFVFJS70E6ttNCHjMKgX3mEL+Z8Ji9EfD6CBLueB8GMEbNt00mWIYEyX11QufYHf
-	5iJ/gN4RX/DdbObOcQrQ==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=pNVdFhE1/OkWLD8QcbqeEiGDUjQGqjA6G46oTeJQaxo=; b=AS8cOvLCcj2jdz
+	UINrnGbT+MarsH0ulDZO5sYEKb8yqqtm19/EHyyMg20QQ9wjjVcpL3smnxtw0ZHSkLmaiO6fXfn6z
+	50joTbqT5utH/MGXwlGbV7T5SCNcgzGPRqQsXZud8wHuc/BvMshw2ulQ17GHAj/aF4JdtglU7ZY9C
+	fCuHahVx4Cmt6YSJtFL2pbADnxHJmecdskvSXeQoNwZHUszK5jHtrA3nTaCmT+Yq0UGgfJbSW775q
+	eyQd6/OJWTOYeJRdc5RMYRL6/hI7P5S3CZhHwjBmfWLbxd1Z4QoOv+zLK/HL9GK62X1EGXrWjp4vW
+	VpC2r9IXBUxNFmbF1pog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pBTbh-000SxY-CL; Sat, 31 Dec 2022 04:36:29 +0000
-Received: from sender4-op-o18.zoho.com ([136.143.188.18])
+	id 1pBUPd-000rtI-Vp; Sat, 31 Dec 2022 05:28:06 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pBTbd-000St9-HU
-	for linux-riscv@lists.infradead.org; Sat, 31 Dec 2022 04:36:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1672461372; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=JQdUWp1o75bn5Cm6C7l8IRKkaAqi68sc936SBl6G1IK4mNvCmGGe/lPLTCja8CWImORj2rOE0TowDYRu/AGGfHyYyDlQduBx00MeCWbHJLkAEYoG6sK5hpG7G0ZFD9Pc/HUwd+OftRioA9bKt7NLhm4niKFF5ZV53GeWwWh0Qio=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1672461372; h=Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:To; 
-	bh=UZUtlTKpQdPfubcQzf2LyoQlsOR8ISvYrlk080SW5kw=; 
-	b=VNykuMGWFgnD0l92ENbYSiYzHz3Hn2xd2Wqxp30ctE6hHvcp3KSwbala7ssa7VoNe6o1MXE/hoHkFI+eZ40V/ctlXQ96VahywGYcGfIUtKzC9OtMaUKaM9FD9VaJ9g0eA961RoBSO0rCHXxS7C0D+aaS3YDiOMJAHXl12Q69Osg=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=icenowy.me;
-	spf=pass  smtp.mailfrom=uwu@icenowy.me;
-	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1672461372;
-	s=zmail; d=icenowy.me; i=uwu@icenowy.me;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=UZUtlTKpQdPfubcQzf2LyoQlsOR8ISvYrlk080SW5kw=;
-	b=Z3C94yCn3uAtN7rcoUjw4ddTfVUjfEroMCME1T4QtV0QWBmFJaPJlqr3CysNZB7C
-	kwXV5U1l6R5QdCnc7y8eHmkBqIgnKffQvTfNAZwBSt0ey4MDnnGvNP1QlHKPCZcCYSl
-	Sz7rtFnSzGHFVnf1+Is5f6nAArDfCAKQ/pQE6H/4=
-Received: from edelgard.fodlan.icenowy.me (120.85.97.2 [120.85.97.2]) by mx.zohomail.com
-	with SMTPS id 1672461369384205.65724335826928; Fri, 30 Dec 2022 20:36:09 -0800 (PST)
-Message-ID: <5818a83e644eb9c868d4cf65117983e08ba1c17f.camel@icenowy.me>
-Subject: Re: [PATCH 1/2] riscv: errata: fix T-Head dcache.cva encoding
-From: Icenowy Zheng <uwu@icenowy.me>
-To: Sergey Matyukevich <geomatsi@gmail.com>
-Cc: Guo Ren <guoren@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Heiko Stuebner <heiko@sntech.de>,  Nathan Chancellor <nathan@kernel.org>,
- linux-riscv@lists.infradead.org,  linux-kernel@vger.kernel.org
-Date: Sat, 31 Dec 2022 12:36:04 +0800
-In-Reply-To: <Y69iNMQ60gXYkKus@curiosity>
-References: <20221227020258.303900-1-uwu@icenowy.me>
-	 <CAJF2gTSGvEnTqEqR9f+zU8T3VS8FoCtsgSk=9hz6cWxAL630zQ@mail.gmail.com>
-	 <Y69iNMQ60gXYkKus@curiosity>
-Organization: Anthon Open-Source Community
-User-Agent: Evolution 3.44.4 
-MIME-Version: 1.0
-X-ZohoMailClient: External
+	id 1pBUPX-000rkl-Qn
+	for linux-riscv@lists.infradead.org; Sat, 31 Dec 2022 05:28:01 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id j8-20020a17090a3e0800b00225fdd5007fso13674676pjc.2
+        for <linux-riscv@lists.infradead.org>; Fri, 30 Dec 2022 21:27:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google;
+        h=message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=qvXUYwi5ZyU74DKdX9d8zZyO8Ta/Eto0kB/925S6woI=;
+        b=eNVSgI8Iffys1qMsVkR5qdhv5aDN9L6WgHnk771KmegnIxIojGrOuyoK/H7l8rlrbe
+         z0JsinNRo5iAZWKrEsqQciRzTfvRVJgkoU+6yj+lRCms6MsO96Dk8b1OweA28AWQ2yXt
+         amtxjM4FZx0K5IU7pwXWQoEBARvZH9eB/XAwfkIpcfcEzgoSS6zW0PMOEmAm1mvgbnuA
+         0Le//8Qj0wF2vhZ7Gn77N5TDY4GFreoykrkMxUn2vQrnSwnOFdYXiGC3Prvz8+NNRTLh
+         jYTVbxpg5Y1eiDnab3Q7O1Oe2zt5yiT2BHkJ6RW/N4BPQ9x4SRw4xvSUxCn0X/BL44m+
+         8FUQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=qvXUYwi5ZyU74DKdX9d8zZyO8Ta/Eto0kB/925S6woI=;
+        b=vI0K5aWH31AnA28t6swmftlKnVvMht8CT0hDBsxjNF2djSKKlx/3n++lqMVGavVetX
+         DiS9beTg7vgGZZ4tm3SLLwL7gDuKt00LT54cTHLctQPV3q7ScmM8XtbwRKlJ0vJpqBsd
+         OVnwKy908FC58YyEKsMrwNy/3r/JlKgCxVm484hfS5Y5ea5TYoZqkUVk+MkcdUiluxcO
+         HvKI2QFcud2xB7BRe2Tf1ceSUIUDRhHJSwxHCq8IkI/sydRuIyoWQVApTVFwZeiF4Je/
+         /dsKEIyidnPIGDdJTQ0hgcxkn7vzOSh+udzfr4g4T/v6OIypG3CRSD/twbnhScgVNwk2
+         yLaQ==
+X-Gm-Message-State: AFqh2koOzBP7EuZYlLLoqDBvH84w3gjZwvtatgH4J/kRVOPBQrTINWbT
+	TbUOp7T7rFUaq8W5/rBPzTR+Tw==
+X-Google-Smtp-Source: AMrXdXsGSF4DED03XvcK7I2wPfr7RidesmY8h4auVFQgGrgKL5ewV9ZB6jZlmLnBYUDjvl/EKf/KIw==
+X-Received: by 2002:a17:903:40cb:b0:192:8502:77f9 with SMTP id t11-20020a17090340cb00b00192850277f9mr18853159pld.27.1672464477035;
+        Fri, 30 Dec 2022 21:27:57 -0800 (PST)
+Received: from hsinchu26.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
+        by smtp.gmail.com with ESMTPSA id c16-20020a170903235000b0016d773aae60sm15836612plh.19.2022.12.30.21.27.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 30 Dec 2022 21:27:56 -0800 (PST)
+From: Eric Lin <eric.lin@sifive.com>
+To: peterz@infradead.org,
+	acme@kernel.org,
+	alexander.shishkin@linux.intel.com,
+	jolsa@kernel.org,
+	namhyung@kernel.org,
+	palmer@dabbelt.com,
+	linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Cc: paul.walmsley@sifive.com,
+	greentime.hu@sifive.com,
+	vincent.chen@sifive.com,
+	Eric Lin <eric.lin@sifive.com>
+Subject: [PATCH] perf tools riscv: Fix perf tool build error on riscv
+Date: Sat, 31 Dec 2022 05:27:31 +0000
+Message-Id: <20221231052731.24908-1-eric.lin@sifive.com>
+X-Mailer: git-send-email 2.17.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221230_203625_697670_FDF5DFB2 
-X-CRM114-Status: GOOD (  24.25  )
+X-CRM114-CacheID: sfid-20221230_212759_976264_102ED107 
+X-CRM114-Status: GOOD (  11.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,62 +90,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-5ZyoIDIwMjItMTItMzHmmJ/mnJ/lha3nmoQgMDE6MTIgKzAzMDDvvIxTZXJnZXkgTWF0eXVrZXZp
-Y2jlhpnpgZPvvJoKPiA+ID4gVGhlIGRjYWNoZS5jdmEgZW5jb2Rpbmcgc2hvd24gaW4gdGhlIGNv
-bW1lbnRzIGFyZSB3cm9uZywgaXQncyBmb3IKPiA+ID4gZGNhY2hlLmN2YWwxICh3aGljaCBpcyBy
-ZXN0cmljdGVkIHRvIEwxKSBpbnN0ZWFkLgo+ID4gPiAKPiA+ID4gRml4IHRoaXMgaW4gdGhlIGNv
-bW1lbnQgYW5kIGluIHRoZSBoYXJkY29kZWQgaW5zdHJ1Y3Rpb24uCj4gPiA+IAo+ID4gPiBTaWdu
-ZWQtb2ZmLWJ5OiBJY2Vub3d5IFpoZW5nIDx1d3VAaWNlbm93eS5tZT4KPiA+ID4gLS0tCj4gPiA+
-IFRoZSBjb2RlIGlzIHRlc3RlZCBvbiBhIExpdGVYIFNvQyB3aXRoIE9wZW5DOTA2IGNvcmUsIGFu
-ZCBpdAo+ID4gPiBzdWNjZXNzZnVsbHkgYm9vdHMgdG8gU3lzdGVtZCBvbiBhIFNEIGNhcmQgY29u
-bmVjdGVkIHRvCj4gPiA+IExpdGVTRENhcmQuCj4gPiA+IAo+ID4gPiBUaGlzIGNoYW5nZSBzaG91
-bGQgYmUgbm90IG5vdGljYWJsZSBvbiBDOTA2LCBidXQgb24gbXVsdGktY29yZQo+ID4gPiBDOTEw
-Cj4gPiA+IGNsdXN0ZXIgaXQgc2hvdWxkIGZpeGVzIHNvbWV0aGluZy4gVW5mb3J0dW5hdGVseSBU
-SDE1MjAgc2VlbXMgdG8KPiA+ID4gYmUgbm90Cj4gPiA+IHNvIHJlYWR5IHRvIHRlc3QgbWFpbmxp
-bmUgcGF0Y2hlcyBvbi4KPiA+ID4gCj4gPiA+IMKgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9lcnJh
-dGFfbGlzdC5oIHwgNCArKy0tCj4gPiA+IMKgMSBmaWxlIGNoYW5nZWQsIDIgaW5zZXJ0aW9ucygr
-KSwgMiBkZWxldGlvbnMoLSkKPiA+ID4gCj4gPiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2lu
-Y2x1ZGUvYXNtL2VycmF0YV9saXN0LmgKPiA+ID4gYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2Vy
-cmF0YV9saXN0LmgKPiA+ID4gaW5kZXggNDE4MDMxMmQyYTcwLi42MDU4MDBiZDM5MGUgMTAwNjQ0
-Cj4gPiA+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vZXJyYXRhX2xpc3QuaAo+ID4gPiAr
-KysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2VycmF0YV9saXN0LmgKPiA+ID4gQEAgLTEwMiw3
-ICsxMDIsNyBAQCBhc20KPiA+ID4gdm9sYXRpbGUoQUxURVJOQVRJVkUowqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgIFwKPiA+ID4gwqAgKiB8IDMxIC0gMjUgfCAyNCAtIDIwIHwgMTkgLSAxNSB8
-IDE0IC0gMTIgfCAxMSAtIDcgfCA2IC0gMCB8Cj4gPiA+IMKgICrCoMKgIDAwMDAwMDHCoMKgwqAg
-MDEwMDHCoMKgwqDCoMKgIHJzMcKgwqDCoMKgwqDCoCAwMDDCoMKgwqDCoMKgIDAwMDAwwqAgMDAw
-MTAxMQo+ID4gPiDCoCAqIGRjYWNoZS5jdmEgcnMxIChjbGVhbiwgdmlydHVhbCBhZGRyZXNzKQo+
-ID4gPiAtICrCoMKgIDAwMDAwMDHCoMKgwqAgMDAxMDDCoMKgwqDCoMKgIHJzMcKgwqDCoMKgwqDC
-oCAwMDDCoMKgwqDCoMKgIDAwMDAwwqAgMDAwMTAxMQo+ID4gPiArICrCoMKgIDAwMDAwMDHCoMKg
-wqAgMDAxMDHCoMKgwqDCoMKgIHJzMcKgwqDCoMKgwqDCoCAwMDDCoMKgwqDCoMKgIDAwMDAwwqAg
-MDAwMTAxMQo+ID4gPiDCoCAqCj4gPiA+IMKgICogZGNhY2hlLmNpcGEgcnMxIChjbGVhbiB0aGVu
-IGludmFsaWRhdGUsIHBoeXNpY2FsIGFkZHJlc3MpCj4gPiA+IMKgICogfCAzMSAtIDI1IHwgMjQg
-LSAyMCB8IDE5IC0gMTUgfCAxNCAtIDEyIHwgMTEgLSA3IHwgNiAtIDAgfAo+ID4gPiBAQCAtMTE1
-LDcgKzExNSw3IEBAIGFzbQo+ID4gPiB2b2xhdGlsZShBTFRFUk5BVElWRSjCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqAgXAo+ID4gPiDCoCAqwqDCoCAwMDAwMDAwwqDCoMKgIDExMDAxwqDCoMKg
-wqAgMDAwMDDCoMKgwqDCoMKgIDAwMMKgwqDCoMKgwqAgMDAwMDDCoCAwMDAxMDExCj4gPiA+IMKg
-ICovCj4gPiA+IMKgI2RlZmluZSBUSEVBRF9pbnZhbF9BMCAiLmxvbmcgMHgwMjY1MDAwYiIKPiA+
-ID4gLSNkZWZpbmUgVEhFQURfY2xlYW5fQTAgIi5sb25nIDB4MDI0NTAwMGIiCj4gPiA+ICsjZGVm
-aW5lIFRIRUFEX2NsZWFuX0EwICIubG9uZyAweDAyNTUwMDBiIgo+ID4gPiDCoCNkZWZpbmUgVEhF
-QURfZmx1c2hfQTAgIi5sb25nIDB4MDI3NTAwMGIiCj4gPiA+IMKgI2RlZmluZSBUSEVBRF9TWU5D
-X1PCoMKgICIubG9uZyAweDAxOTAwMDBiIgo+IAo+IE5pY2UgY2F0Y2ggISBJIGV4cGVyaW1lbnRl
-ZCB3aXRoIFQtSGVhZCBSVkItSUNFIGJvYXJkIG9uIHRoZSB1cC10by0KPiBkYXRlCj4gdXBzdHJl
-YW0ga2VybmVsLCB1c2luZyBkZXZpY2UgdHJlZSBhbmQgc29tZSBvdGhlciBiaXRzIGZyb20gdGhl
-Cj4gdmVuZG9yCj4ga2VybmVsIFsxXS4gV2l0aG91dCB0aGlzIHBhdGNoLCBlbW1jIG9uIHRoaXMg
-Ym9hcmQgZG9lcyBub3Qgd29yawo+IHNpbmNlCj4gbm9uY29oZXJlbnQgZG1hIHN5bmMgb3BlcmF0
-aW9ucyB1c2UgaW5jb3JyZWN0ICdjbGVhbicgaW5zdHJ1Y3Rpb24uCj4gQXBwbHlpbmcgdGhpcyBw
-YXRjaCBmaXhlcyBlbW1jIG9wZXJhdGlvbnMsIHNvCgpUaGFua3MgZm9yIHRlc3Rpbmcgb24gQzkx
-MCEgSSBkb24ndCB0aGluayB0aGlzIHBhdGNoIHdpbGwgbWFrZSBhCnNpZ25pZmljYW50IGRpZmZl
-cmVuY2Ugb24gQzkwNiwgc28gaXQncyB2YWx1YWJsZSEKCj4gCj4gVGVzdGVkLWJ5OiBTZXJnZXkg
-TWF0eXVrZXZpY2ggPHNlcmdleS5tYXR5dWtldmljaEBzeW50YWNvcmUuY29tPgo+IAo+IFsxXSBo
-dHRwczovL2dpdGh1Yi5jb20vVC1oZWFkLVNlbWkvbGludXgvdHJlZS9saW51eC01LjEwLjQKPiAK
-PiBSZWdhcmRzLAo+IFNlcmdleQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
-bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
-bGludXgtcmlzY3YK
+Since the definition of 'struct perf_sample' has been moved to sample.h,
+we need to include this header file to fix the build error as follows:
+
+arch/riscv/util/unwind-libdw.c: In function 'libdw__arch_set_initial_registers':
+arch/riscv/util/unwind-libdw.c:12:50: error: invalid use of undefined type 'struct perf_sample'
+   12 |         struct regs_dump *user_regs = &ui->sample->user_regs;
+      |                                                  ^~
+
+Fixes: 9823147da6c8 ("perf tools: Move 'struct perf_sample' to a separate header file to disentangle headers")
+Signed-off-by: Eric Lin <eric.lin@sifive.com>
+---
+ tools/perf/arch/riscv/util/unwind-libdw.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tools/perf/arch/riscv/util/unwind-libdw.c b/tools/perf/arch/riscv/util/unwind-libdw.c
+index 19536e172850..54a198714eb8 100644
+--- a/tools/perf/arch/riscv/util/unwind-libdw.c
++++ b/tools/perf/arch/riscv/util/unwind-libdw.c
+@@ -4,7 +4,7 @@
+ #include <elfutils/libdwfl.h>
+ #include "../../util/unwind-libdw.h"
+ #include "../../util/perf_regs.h"
+-#include "../../util/event.h"
++#include "../../util/sample.h"
+ 
+ bool libdw__arch_set_initial_registers(Dwfl_Thread *thread, void *arg)
+ {
+-- 
+2.17.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
