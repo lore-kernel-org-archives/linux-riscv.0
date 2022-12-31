@@ -4,104 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DDC0C4332F
-	for <linux-riscv@archiver.kernel.org>; Sat, 31 Dec 2022 16:50:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3238C4332F
+	for <linux-riscv@archiver.kernel.org>; Sat, 31 Dec 2022 19:06:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YnqfrQ3a7z0QbTx7p4sbZEwBg51TuSHSQGlBI0nO5TE=; b=So86brLDXVusV/
-	69UydL24ecPSGmXjI19VVqq4LlQfO2jF6iCqHX3xx0oML7wwZN4BinUuOIqRYcQEKwQKi0Eo+r0UE
-	z6Yw/V2ySnrpjMFvqShdJdXuHMssRBO8YzRDpJVhIGBsP04kGG1iHDg0YxMAOR1ZhJi9qCdGy6g8M
-	frP2pHP9XyRxq+10iQXa8GDdor3DbRIDkqoFBnCaSdOsMRGoBWcWpGt5tgMCm/LDsTg9Xu82IVvzN
-	e3FrSjw+7xdJU64flmNoopqyUIPbnN3nebhgiABiWJ9mS0JFrA1QWfvhAuWomMM3PBCQJmI3u0qf1
-	OoC9i5+UlrFRj0ehYcSg==;
+	List-Owner; bh=WOduWov2FnI9MLVLj16VDTb4q3IpuZ6seVmdF+Fz7C4=; b=rXLpbLNVRKYThl
+	0NdeJDUbOSabyYwrILeqy5Qf9v2tJH6M+p+e5wRXtz9ISSQ22dsaa/KpVrlt7LN0G/HI6wsB2l+tJ
+	WozLrocbw5CHIu3u4Ezvg0QkjDHZJcnb/D/IJzleR24T464xw9kW6v3cKh2kHi0cHMy0hKgghR0ci
+	mKNDGYQOrhYBQdK7C671e8+Ma9HUh9obN/+TzFG2jQZm66D9qQUZywIVFBT9FCOZzienoTnKp/NoU
+	CUrh4KOeSzamy5echePlqox3Qd0/qnU3DnHAke6jlgWlHym+u/WA9oD0gEQLz9nr/IbbxKHoLunID
+	OI/TpVH/jrrGJInotmQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pBf3s-007g0s-A2; Sat, 31 Dec 2022 16:50:20 +0000
-Received: from out2-smtp.messagingengine.com ([66.111.4.26])
+	id 1pBhBY-009Bi3-0y; Sat, 31 Dec 2022 19:06:24 +0000
+Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pBf0H-007djL-Ik; Sat, 31 Dec 2022 16:46:39 +0000
-Received: from compute3.internal (compute3.nyi.internal [10.202.2.43])
-	by mailout.nyi.internal (Postfix) with ESMTP id D038F5C009F;
-	Sat, 31 Dec 2022 11:46:36 -0500 (EST)
-Received: from mailfrontend1 ([10.202.2.162])
-  by compute3.internal (MEProxy); Sat, 31 Dec 2022 11:46:36 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
-	cc:cc:content-transfer-encoding:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:sender
-	:subject:subject:to:to; s=fm3; t=1672505196; x=1672591596; bh=7u
-	QYAURCHALofBgFqai+eJUuH83j/8j81wXB1dd11us=; b=Z1Lc/KcetaEibwX0dY
-	JySItRjpdvUAyueivr0diViUBCr7DukMgltIDO350pBO8e2zlGGPBi1ZM5K6g8RI
-	ijpH54flxMKeCD+p9jAfaJ0FAmyxb53KCENakMz5YEBliQNhlEMIkDhuoeu8S9Kx
-	0ZU71TiJ9ihY5p3RqTU5E1eGPmsbGRQIlPSmy5UfBDioxvFyWAcw+ymVNPuhdUg7
-	PlhhqSmJXojzy2B9WJQhvC4fp0yiCVFGchz+ncWlPl8EUYzI4b2wx83efps03v1q
-	/ebkfvz+wTjFkm6Th29cL1rBogtMpAm/l97JaaA9UCqyrd+y46LkuxUpOVdqEarR
-	grCg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:sender:subject
-	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
-	:x-sasl-enc; s=fm2; t=1672505196; x=1672591596; bh=7uQYAURCHALof
-	BgFqai+eJUuH83j/8j81wXB1dd11us=; b=uEtyUlqWQIP6KQnLbF7xCXwWgQnnI
-	Q+68oZS1Q2BfaaSRj05sI6nC5Gb98mtUISzPKUuxFMVcN17GMeOmU8Qd1avNLwXE
-	REPaCDhAB8os+3Zt19Ni0I+jAO3e4xjy5AStkBwIPX/DmINi5N9eDEw5jXvcp9R9
-	lEofGkOsxzCviMJZVT7Tl5PXJMx0wiBedsC2ME82wRjhU6iTbs/AncZErANh/bj/
-	olZlQlAyZmcBe19ZbWsPh4FRGOjndpg0dlmHmFR29vttM6Tnfumyyi93OIuFdcsp
-	9/5Vs+lk2WeZrkPAv/GTX5DlC3Vh56lMiOBCblzOfkcm1jf+WrZq6ShuQ==
-X-ME-Sender: <xms:bGewY2YyJsoB9GYtcd0Y7RbeHn6f28O36fil5Bk07AXHPEc4tVYFPQ>
-    <xme:bGewY5Y1iZVeifPFRNJqGQbS80D47FmmWiyWe_osuVhTIcbTeXCMOlLIegRGwuQN5
-    SlrDz-VkV3i3kJ2gw>
-X-ME-Received: <xmr:bGewYw_tOGNGkqnPQfb69c_rE2IQtIqo0DZAH4GgJtnlcw5BupJRS1bI5t6IFkpGd1HRlFKtTt8L8aMgT-qMaeR53ovVSK0Rlor8EoRQ1mquSpfLdd3BZkjE3I6f4j5rqi_d7Q>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrieekgdelfecutefuodetggdotefrodftvf
-    curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
-    uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
-    fjughrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpefurghmuhgv
-    lhcujfholhhlrghnugcuoehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhgqeenucggtf
-    frrghtthgvrhhnpedukeetueduhedtleetvefguddvvdejhfefudelgfduveeggeehgfdu
-    feeitdevteenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhroh
-    hmpehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhg
-X-ME-Proxy: <xmx:bGewY4rV7zQaxG2__glQcVtFLQp82ebxc280fvp_8943ZTBp1AxmZw>
-    <xmx:bGewYxqsc8d2IjOpXGlF5GEy2pJwTFaUISDLQeg3uPNPOTj7y7QEQA>
-    <xmx:bGewY2Q_vo2xQr8FYEHn3nEa79tQoZzMt4Qrus7v3zUGF5dpgZ4loQ>
-    <xmx:bGewY2if-Uz-np-3MUQ1eFvqDpKhjalu6n3Z6JZ2ftPjoU-txNTSHA>
-Feedback-ID: i0ad843c9:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sat,
- 31 Dec 2022 11:46:35 -0500 (EST)
-From: Samuel Holland <samuel@sholland.org>
-To: Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Paul Kocialkowski <paul.kocialkowski@bootlin.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
-Cc: Samuel Holland <samuel@sholland.org>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Conor Dooley <conor@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Maxime Ripard <mripard@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-staging@lists.linux.dev,
-	linux-sunxi@lists.linux.dev
-Subject: [PATCH 4/4] riscv: dts: allwinner: d1: Add video engine node
-Date: Sat, 31 Dec 2022 10:46:27 -0600
-Message-Id: <20221231164628.19688-5-samuel@sholland.org>
-X-Mailer: git-send-email 2.37.4
-In-Reply-To: <20221231164628.19688-1-samuel@sholland.org>
-References: <20221231164628.19688-1-samuel@sholland.org>
+	id 1pBhBC-009BRF-SS
+	for linux-riscv@lists.infradead.org; Sat, 31 Dec 2022 19:06:04 +0000
+Received: by mail-lf1-x129.google.com with SMTP id bq39so28439472lfb.0
+        for <linux-riscv@lists.infradead.org>; Sat, 31 Dec 2022 11:06:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=jIySvWkaHMhvHNet3xt7JxoPX9peCF4NsB4XrthbUdQ=;
+        b=DqhzdZ8GMGONjk1/mTp01nVTS73jara4hArPcV1nK4bXiYc9TbLAiKNZt4Q46wLOk3
+         kUHVSzEfgAcdS6QoYjWNP2xExsCibkI4td+Z5kxheIMrxM9HNsJ04aQQyn+bFksXompC
+         ZtkhNHUXgLBKEcUICB4qz6yqnrbPza3Ksaz5GJ+iDSp9b3gFIssULh1nr+83YqAgkRkJ
+         EHPniaYDfdhwqccTrNmJ0ma/NUu/qFZcYHIsrePpconOOeQxnZn21Rc4uKx2ZaPAtECN
+         Tg/UHmUXAMxMzNKxPghUA/NQ3uEsw67KOrlk1e8tOQg9ZBmlUnkGqRh0Yip6MAX2JIcf
+         mLTw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=jIySvWkaHMhvHNet3xt7JxoPX9peCF4NsB4XrthbUdQ=;
+        b=zKxi210PQDzWJiuxDox1iNyVYCMlgDmiEJvmYYAfIxg3BYSQNzbOLj1s8b0gj/enzL
+         EzuPY9cC6UNpArJZ4Kxn70c2KDVUJbPCacPZBRv0JH3PB+ke/Ajy9+duoGZVi38PrfCg
+         xsG8+Lsv1j3/2+AgO4XGPF7aHimrWTE8WGtHLC59kWTzawpsTsTay/m/B3iGRHKzfluA
+         xhWEwkyOMkzcLet3gwpYs5rb+e2FjtrepeZeWilayQwkRgJPBGMHHkgYgzBiNDvOErpt
+         OKkyBuRnrwjtzEZCkvq8npKRkx11gYxR2x7gYDLj5Yse1PryWuMjnBnAS6EvlhrOj43c
+         7nEQ==
+X-Gm-Message-State: AFqh2kokBGIUWDaYV0ZKOJcGCX3CmwYe0NgM5gA2f2XuR7xf9bUiqano
+	3ThHXqsFGY7VKKhCaQB1sgqKYg==
+X-Google-Smtp-Source: AMrXdXuTfgdQbhaGaIjJutw1ngrQ/aadPT4CRRlOEuJUlZU1qHVVzJzumSK1QyfcO5SFZUTpCaL1Gg==
+X-Received: by 2002:a19:f001:0:b0:4b6:e4c8:8a48 with SMTP id p1-20020a19f001000000b004b6e4c88a48mr11142739lfc.63.1672513559388;
+        Sat, 31 Dec 2022 11:05:59 -0800 (PST)
+Received: from [192.168.0.20] (088156142067.dynamic-2-waw-k-3-2-0.vectranet.pl. [88.156.142.67])
+        by smtp.gmail.com with ESMTPSA id o11-20020a05651205cb00b004cb34b81150sm80316lfo.282.2022.12.31.11.05.57
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 31 Dec 2022 11:05:58 -0800 (PST)
+Message-ID: <ea18d873-29a2-2311-d10f-ed3f82d2a46c@linaro.org>
+Date: Sat, 31 Dec 2022 20:05:57 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.6.1
+Subject: Re: [PATCH 1/4] media: dt-bindings: cedrus: Allow power domain
+ references
+Content-Language: en-US
+To: Samuel Holland <samuel@sholland.org>, Chen-Yu Tsai <wens@csie.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Paul Kocialkowski <paul.kocialkowski@bootlin.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
+ <robh+dt@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Maxime Ripard <mripard@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-media@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-staging@lists.linux.dev, linux-sunxi@lists.linux.dev
+References: <20221231164628.19688-1-samuel@sholland.org>
+ <20221231164628.19688-2-samuel@sholland.org>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20221231164628.19688-2-samuel@sholland.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221231_084637_900346_9F723EFD 
-X-CRM114-Status: UNSURE (   8.62  )
+X-CRM114-CacheID: sfid-20221231_110603_005754_13945E3B 
+X-CRM114-Status: UNSURE (   7.43  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -119,38 +104,16 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-D1 contains a video engine which is supported by the Cedrus driver.
+On 31/12/2022 17:46, Samuel Holland wrote:
+> The Allwinner D1 SoC contains a separate power domain for its video
+> engine, controlled via the "PPU" power controller. Allow the
 
-Signed-off-by: Samuel Holland <samuel@sholland.org>
----
+"PPU" is not a nickname, so just PPU.
 
- arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-diff --git a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
-index dff363a3c934..4bd374279155 100644
---- a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
-+++ b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
-@@ -34,6 +34,17 @@ soc {
- 		#address-cells = <1>;
- 		#size-cells = <1>;
- 
-+		ve: video-codec@1c0e000 {
-+			compatible = "allwinner,sun20i-d1-video-engine";
-+			reg = <0x1c0e000 0x2000>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(66) IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_VE>,
-+				 <&ccu CLK_VE>,
-+				 <&ccu CLK_MBUS_VE>;
-+			clock-names = "ahb", "mod", "ram";
-+			resets = <&ccu RST_BUS_VE>;
-+		};
-+
- 		pio: pinctrl@2000000 {
- 			compatible = "allwinner,sun20i-d1-pinctrl";
- 			reg = <0x2000000 0x800>;
--- 
-2.37.4
+Best regards,
+Krzysztof
 
 
 _______________________________________________
