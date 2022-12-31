@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09ABEC4332F
-	for <linux-riscv@archiver.kernel.org>; Sat, 31 Dec 2022 23:20:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87301C4332F
+	for <linux-riscv@archiver.kernel.org>; Sat, 31 Dec 2022 23:22:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pZ2aUtkV2dN+YyvQhxLaf+a8733kmZnJjPBYmOP3oSU=; b=zFGF9udg0+GXUM
-	DhOGfYRgUbs1fYX9WB5gL6QtQS6+btg5PPzNN2v+n3Ea7de0hpG/xrr8ooxPwYWOVZ3vHWJ8O6d5l
-	Arr4/r2zF8GUA5+rO7kEdrRB0RqOr7zV1o6+EJlODZR4eza05Q79kJBvQ0nTonGCE2V7N1gnA3HcG
-	iDQgmFV+/6rY5rNaos2Kr8Z3wSgZhN3BlZhd5uk1rOenSKOVNMH53uGV9xHeZkcSQkt8kuP9LPcG9
-	rHo5ZJ7GmSNuDF1VGiWfrnDgHnRrg3lXyx7elIEAtW1/gWJ5KBQ4tEbwFxujFyDbj4ljTus98l60J
-	b3FrUJaKYcpQLTumniZw==;
+	List-Owner; bh=5SurNN/8QIlhSyIca0Awqj4aR46njNRj9oMvf0fOaZI=; b=knciWl5ma3yF1S
+	xDqaHYVAAJ5wuPtVd98ESA5BR5Ksr7RYMbM0tObs2B5pkWuCeCcosAkicNnyI+1WdaIvlonGJKkqU
+	tP76C9Hv/3PgbwzSskgXI736RxaWTI7odDNtkiA85xz98JQgjNTkI1cqsb5TFgCJgJKD/BA2zIRE7
+	cHH9UUrAzXUr5Q1JhhwUuO0dcsP0QG2uzCUFt4fvsG+D/HyaDTGPnt7Pg+2Rw6lugFmwI6Q/reB0u
+	b+jAUxqPQwbbuwTXiN9Ue8tAA7wmFXi3Tigt4lDW0Q8uCOwpll3K1BtYeRQOkOfXhuQCRiMBf6U18
+	lXkWE8DURCtBc9n3cnBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pBl9A-00BPWW-Jw; Sat, 31 Dec 2022 23:20:12 +0000
+	id 1pBlAs-00BQGZ-67; Sat, 31 Dec 2022 23:21:58 +0000
 Received: from out3-smtp.messagingengine.com ([66.111.4.27])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pBl3j-00BNAW-NH; Sat, 31 Dec 2022 23:14:40 +0000
+	id 1pBl3o-00BNEJ-0Z; Sat, 31 Dec 2022 23:14:41 +0000
 Received: from compute1.internal (compute1.nyi.internal [10.202.2.41])
-	by mailout.nyi.internal (Postfix) with ESMTP id A1BE85C00B1;
-	Sat, 31 Dec 2022 18:14:33 -0500 (EST)
+	by mailout.nyi.internal (Postfix) with ESMTP id 5CAEF5C00B3;
+	Sat, 31 Dec 2022 18:14:39 -0500 (EST)
 Received: from mailfrontend1 ([10.202.2.162])
-  by compute1.internal (MEProxy); Sat, 31 Dec 2022 18:14:33 -0500
+  by compute1.internal (MEProxy); Sat, 31 Dec 2022 18:14:39 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
 	cc:cc:content-transfer-encoding:date:date:from:from:in-reply-to
 	:in-reply-to:message-id:mime-version:references:reply-to:sender
-	:subject:subject:to:to; s=fm3; t=1672528473; x=1672614873; bh=Do
-	u7u3aeb59O4P7EkROntoPwMutjzat+qW1iePMNlRs=; b=zj5vXL7t+Thnz/ljCB
-	Imqe1QaXcHJRjPHBrJh0Lpe+dt9grVbQQfZpsK3VbfjXqgYFjYZtLHoeOu8ke1ID
-	lTL9iT8ie6NUAQvMdDqkVxFH5l/r4lMI0s++z8UOlvrYMpYU6bnVEhWtWdEYhXQk
-	sC8wayo+K18DoAaALwGegt7Yogp0eDaRXDWYEy0kumgF1Iitp6Yqb4jLsewW9xMi
-	shj6pJ+xp1aPk33fNZaTV/b25qmXrd1ZWhpf0oeFenkpDHG7qlIphLcN/ilmLTSW
-	1uFBczyGg81322qjz4tX2KA7l1k/UGagZZ7+YISF1IAx08B0k+2Aukxq/zIcxIiH
-	X1Hw==
+	:subject:subject:to:to; s=fm3; t=1672528479; x=1672614879; bh=pg
+	xRkLVAeO8dCA2lni0EjX3wjL3SuhpZ2d2IUeSoyX4=; b=uWwnaU0FUJybKnzekx
+	7GvVkb3zmMP4lUfD0rIW437xXNPx7wE2O1L6nz/EySfo0VwTMGjqO/ocDYxdNxi8
+	oeCP4A9XYFE6Od+lEqwukZawvIsD7h509NdAqQAJctJC0chA+2o6BsojKgXoAash
+	afSzVaecBM+sicUFhSaqHB1ewgIOdSXGJaDZyiDiP27vEf0yXAFQ9cJQGDkkXhTz
+	srCcKzxomOKUpwbEKgU2L69cbislukLbTXC7+golOfuW9NuDqNBHslubAjDi3leI
+	P2A9uMecpGzMJRfK4Pdc46zrrrQu9/VfL5eUkH/RpfCYm5s/sxTvWAi+SsBmMZ8l
+	pXIQ==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding:date:date
 	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
 	:message-id:mime-version:references:reply-to:sender:subject
 	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
-	:x-sasl-enc; s=fm2; t=1672528473; x=1672614873; bh=Dou7u3aeb59O4
-	P7EkROntoPwMutjzat+qW1iePMNlRs=; b=gHSqze1qPTrPd40g1qJx1IdX7ZAhV
-	yDYP7INxhyfqRMi+aGSowfwCjf3zmjHT/MBYKYW3w6DbpHMsntuCOpApGZoCkouu
-	SCB8L/dAJ2z4Xfe+gfQeyVcRwq3LuZFlpdwXOGZ/98zBFs7NTXgr+T79/mWh8/dr
-	xKYR3yLi6hDLDM8uu6iMMbgd677a38mGpu4rdVv3Rfbsi0BNKQBNc0AF4XkmAUnC
-	UVRBIM7SY3Z95wDCw/5fNWLtxW/IsZenXGr4kH1b/66EUaEXkbZei9kVD4Syp+om
-	+oQgJjCXtcXAREleKDr+Hiy9lTk0NT1JhT7PDElilIJK/l0ZkkD5BAcBQ==
-X-ME-Sender: <xms:WcKwYzOTaDkpLyXQOUt22rV_luAN22j2qFzy5zUzLbcgs-8w9hL5IA>
-    <xme:WcKwY9-awJrXsF596hnoQx3POoOasDYFHmNZ48dPlL1giFkaqJcPClnzYlFyXllt3
-    BQ8y6LMavFkgT6vSg>
-X-ME-Received: <xmr:WcKwYySjGg7uJ54-mb1wShVKmsaSe3oSn5tkIqNhpVBmnpPJV6FIk9dgJNL0Y9IJzli3XzSy5e0GjwHho5YPrsIzbhy_Ol8ChlqKcd7REV2tdAzTAb8xIeY3iTilnRKSFTtLdg>
+	:x-sasl-enc; s=fm2; t=1672528479; x=1672614879; bh=pgxRkLVAeO8dC
+	A2lni0EjX3wjL3SuhpZ2d2IUeSoyX4=; b=l/TuFeE4R9matdLE6FArCbqPjLdac
+	P6b8eiEbMOTVxvW5InqH9CjNuzr9UzoAHkBRqcCrOPcXvN/NIsa/hYjNkffExMRm
+	xdmL0MA022oOvU8WJ0K/q7LiGdW06AbGo+u2+vOsTs5ED39SEpaoJn72PXscQQfa
+	ViJeRm2/yj/vDgBbkDgQu0ti062iPfZ8hp9Ri2MlCUcx6Yy7/9qoNSo89ly6itmq
+	OFjiGEfCeNGehKlx1t0/lVMv0RrDXUdbzIn8jvvk/wo5OQ1XmXbMNaSUWuoIuIcK
+	PWh2RGIICUwSqW6LJ55pPmAmil9No4rV6wCnVJld/EjSNORKN41vAY8Kg==
+X-ME-Sender: <xms:X8KwYwxWQ_Y1KxWOhITxlHfDBkj4Ib9nXYl6bVjussY-LVpmIlwtfA>
+    <xme:X8KwY0SHAF2XW6O4DkDDGOXH0iTpG1hurMyATF3N6fpaVZ5ET_yPVtc2I_X_UR_3S
+    o1xxajGRpDIhmM4cg>
+X-ME-Received: <xmr:X8KwYyUI0bTe8GZTuXIS3ZRvb7pl4TlSGIRzErK4tgMwC968K7wovob4JnWYo6xXv3QnhKth-4_nMR2qo4thidrFySqYubRyO--kg-SjvCnOFMNmn_ter1cFMHXS0ID_mhauAw>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrieelgddtkecutefuodetggdotefrodftvf
     curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
     uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
     fjughrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpefurghmuhgv
     lhcujfholhhlrghnugcuoehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhgqeenucggtf
     frrghtthgvrhhnpedukeetueduhedtleetvefguddvvdejhfefudelgfduveeggeehgfdu
-    feeitdevteenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhroh
+    feeitdevteenucevlhhushhtvghrufhiiigvpedunecurfgrrhgrmhepmhgrihhlfhhroh
     hmpehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhg
-X-ME-Proxy: <xmx:WcKwY3s6_dEZkLjPUr-zW9O5jVgSVz_fGL6gREIQd6hK_pD5beyLoQ>
-    <xmx:WcKwY7csBLsFeGkL6ygwjVjK37ru0sxSsSKzCQGhfJEQ1ntkgd69Yg>
-    <xmx:WcKwYz0Qjsx0xd01lUmUno7pRorWpiwATyus5V9x5u3DH2bTvhqX2A>
-    <xmx:WcKwYz8HmXpdZTMbsTRkZVIq50IkJ-Vv0V6iZ3aZnhHWcm1K6PK5wA>
+X-ME-Proxy: <xmx:X8KwY-ghUad1MtJqSqSQ4IiLKhSCXRd2kHBBvOp83BdSpB8nsS5Q-w>
+    <xmx:X8KwYyCkJdDpKZLYRLjWbrEvrVSA14fQBoW0deVIa4uRthTYNMCBMQ>
+    <xmx:X8KwY_I94v9zX9kps3R65XN5zCRri19Z_kVEbGLJBkqIeOx0eq9KUw>
+    <xmx:X8KwY62yi8Uez1pwDpsdEOr1hky3CoSnMhWwAf2iL0XUegc9hp4C6A>
 Feedback-ID: i0ad843c9:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sat,
- 31 Dec 2022 18:14:32 -0500 (EST)
+ 31 Dec 2022 18:14:38 -0500 (EST)
 From: Samuel Holland <samuel@sholland.org>
 To: Chen-Yu Tsai <wens@csie.org>,
 	Jernej Skrabec <jernej.skrabec@gmail.com>,
@@ -88,17 +88,19 @@ Cc: Samuel Holland <samuel@sholland.org>,
 	linux-clk@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	linux-sunxi@lists.linux.dev
-Subject: [PATCH v2 2/6] clk: sunxi-ng: Move SoC driver conditions to dependencies
-Date: Sat, 31 Dec 2022 17:14:25 -0600
-Message-Id: <20221231231429.18357-3-samuel@sholland.org>
+	linux-sunxi@lists.linux.dev,
+	Fabien Poussin <fabien.poussin@gmail.com>,
+	Andre Przywara <andre.przywara@arm.com>
+Subject: [PATCH v2 6/6] clk: sunxi-ng: d1: Add CAN bus gates and resets
+Date: Sat, 31 Dec 2022 17:14:29 -0600
+Message-Id: <20221231231429.18357-7-samuel@sholland.org>
 X-Mailer: git-send-email 2.37.4
 In-Reply-To: <20221231231429.18357-1-samuel@sholland.org>
 References: <20221231231429.18357-1-samuel@sholland.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221231_151436_545456_9C0C805B 
-X-CRM114-Status: GOOD (  10.21  )
+X-CRM114-CacheID: sfid-20221231_151440_187929_12EEE5E0 
+X-CRM114-Status: GOOD (  13.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,164 +117,79 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Do not duplicate the same expression on the `default` line, so the two
-lines do not need to be kept in sync. Drivers stay disabled under
-COMPILE_TEST because of the `default ARCH_SUNXI` applied to SUNXI_CCU.
+From: Fabien Poussin <fabien.poussin@gmail.com>
 
-Three drivers had no conditions.
- - SUN6I_RTC_CCU and SUN8I_DE2_CCU are used on current hardware
-   regardless of CPU architecture.
- - SUN8I_R_CCU is only used on pre-H6 SoCs, which means no RISCV SoCs.
+The D1 CCU contains gates and resets for two CAN buses. While the CAN
+bus controllers are only documented for the T113 SoC, the CCU is the
+same across all SoC variants.
 
-Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+Signed-off-by: Fabien Poussin <fabien.poussin@gmail.com>
+Reviewed-by: Andre Przywara <andre.przywara@arm.com>
 Signed-off-by: Samuel Holland <samuel@sholland.org>
 ---
 
-(no changes since v1)
+Changes in v2:
+ - Move dt-bindings header changes to a separate patch
 
- drivers/clk/sunxi-ng/Kconfig | 46 +++++++++++++++++++-----------------
- 1 file changed, 24 insertions(+), 22 deletions(-)
+ drivers/clk/sunxi-ng/ccu-sun20i-d1.c | 11 +++++++++++
+ drivers/clk/sunxi-ng/ccu-sun20i-d1.h |  2 +-
+ 2 files changed, 12 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/clk/sunxi-ng/Kconfig b/drivers/clk/sunxi-ng/Kconfig
-index 64cfa022e320..78deee2996ce 100644
---- a/drivers/clk/sunxi-ng/Kconfig
-+++ b/drivers/clk/sunxi-ng/Kconfig
-@@ -9,111 +9,113 @@ if SUNXI_CCU
+diff --git a/drivers/clk/sunxi-ng/ccu-sun20i-d1.c b/drivers/clk/sunxi-ng/ccu-sun20i-d1.c
+index c5a7df93602c..48a8fb2c43b7 100644
+--- a/drivers/clk/sunxi-ng/ccu-sun20i-d1.c
++++ b/drivers/clk/sunxi-ng/ccu-sun20i-d1.c
+@@ -469,6 +469,11 @@ static SUNXI_CCU_GATE_HWS(bus_i2c2_clk, "bus-i2c2", apb1_hws,
+ static SUNXI_CCU_GATE_HWS(bus_i2c3_clk, "bus-i2c3", apb1_hws,
+ 			  0x91c, BIT(3), 0);
  
- config SUNIV_F1C100S_CCU
- 	tristate "Support for the Allwinner newer F1C100s CCU"
--	default MACH_SUNIV
-+	default y
- 	depends on MACH_SUNIV || COMPILE_TEST
++static SUNXI_CCU_GATE_HWS(bus_can0_clk, "bus-can0", apb1_hws,
++			  0x92c, BIT(0), 0);
++static SUNXI_CCU_GATE_HWS(bus_can1_clk, "bus-can1", apb1_hws,
++			  0x92c, BIT(1), 0);
++
+ static const struct clk_parent_data spi_parents[] = {
+ 	{ .fw_name = "hosc" },
+ 	{ .hw = &pll_periph0_clk.hw },
+@@ -997,6 +1002,8 @@ static struct ccu_common *sun20i_d1_ccu_clks[] = {
+ 	&bus_i2c1_clk.common,
+ 	&bus_i2c2_clk.common,
+ 	&bus_i2c3_clk.common,
++	&bus_can0_clk.common,
++	&bus_can1_clk.common,
+ 	&spi0_clk.common,
+ 	&spi1_clk.common,
+ 	&bus_spi0_clk.common,
+@@ -1147,6 +1154,8 @@ static struct clk_hw_onecell_data sun20i_d1_hw_clks = {
+ 		[CLK_BUS_I2C1]		= &bus_i2c1_clk.common.hw,
+ 		[CLK_BUS_I2C2]		= &bus_i2c2_clk.common.hw,
+ 		[CLK_BUS_I2C3]		= &bus_i2c3_clk.common.hw,
++		[CLK_BUS_CAN0]		= &bus_can0_clk.common.hw,
++		[CLK_BUS_CAN1]		= &bus_can1_clk.common.hw,
+ 		[CLK_SPI0]		= &spi0_clk.common.hw,
+ 		[CLK_SPI1]		= &spi1_clk.common.hw,
+ 		[CLK_BUS_SPI0]		= &bus_spi0_clk.common.hw,
+@@ -1252,6 +1261,8 @@ static struct ccu_reset_map sun20i_d1_ccu_resets[] = {
+ 	[RST_BUS_I2C1]		= { 0x91c, BIT(17) },
+ 	[RST_BUS_I2C2]		= { 0x91c, BIT(18) },
+ 	[RST_BUS_I2C3]		= { 0x91c, BIT(19) },
++	[RST_BUS_CAN0]		= { 0x92c, BIT(16) },
++	[RST_BUS_CAN1]		= { 0x92c, BIT(17) },
+ 	[RST_BUS_SPI0]		= { 0x96c, BIT(16) },
+ 	[RST_BUS_SPI1]		= { 0x96c, BIT(17) },
+ 	[RST_BUS_EMAC]		= { 0x97c, BIT(16) },
+diff --git a/drivers/clk/sunxi-ng/ccu-sun20i-d1.h b/drivers/clk/sunxi-ng/ccu-sun20i-d1.h
+index e303176f0d4e..b14da36e2537 100644
+--- a/drivers/clk/sunxi-ng/ccu-sun20i-d1.h
++++ b/drivers/clk/sunxi-ng/ccu-sun20i-d1.h
+@@ -10,6 +10,6 @@
+ #include <dt-bindings/clock/sun20i-d1-ccu.h>
+ #include <dt-bindings/reset/sun20i-d1-ccu.h>
  
- config SUN20I_D1_CCU
- 	tristate "Support for the Allwinner D1 CCU"
--	default RISCV
-+	default y
- 	depends on RISCV || COMPILE_TEST
+-#define CLK_NUMBER		(CLK_FANOUT2 + 1)
++#define CLK_NUMBER		(CLK_BUS_CAN1 + 1)
  
- config SUN20I_D1_R_CCU
- 	tristate "Support for the Allwinner D1 PRCM CCU"
--	default RISCV
-+	default y
- 	depends on RISCV || COMPILE_TEST
- 
- config SUN50I_A64_CCU
- 	tristate "Support for the Allwinner A64 CCU"
--	default ARM64
-+	default y
- 	depends on ARM64 || COMPILE_TEST
- 
- config SUN50I_A100_CCU
- 	tristate "Support for the Allwinner A100 CCU"
--	default ARM64
-+	default y
- 	depends on ARM64 || COMPILE_TEST
- 
- config SUN50I_A100_R_CCU
- 	tristate "Support for the Allwinner A100 PRCM CCU"
--	default ARM64
-+	default y
- 	depends on ARM64 || COMPILE_TEST
- 
- config SUN50I_H6_CCU
- 	tristate "Support for the Allwinner H6 CCU"
--	default ARM64
-+	default y
- 	depends on ARM64 || COMPILE_TEST
- 
- config SUN50I_H616_CCU
- 	tristate "Support for the Allwinner H616 CCU"
--	default ARM64
-+	default y
- 	depends on ARM64 || COMPILE_TEST
- 
- config SUN50I_H6_R_CCU
- 	tristate "Support for the Allwinner H6 and H616 PRCM CCU"
--	default ARM64
-+	default y
- 	depends on ARM64 || COMPILE_TEST
- 
- config SUN4I_A10_CCU
- 	tristate "Support for the Allwinner A10/A20 CCU"
--	default MACH_SUN4I
--	default MACH_SUN7I
-+	default y
- 	depends on MACH_SUN4I || MACH_SUN7I || COMPILE_TEST
- 
- config SUN5I_CCU
- 	bool "Support for the Allwinner sun5i family CCM"
--	default MACH_SUN5I
-+	default y
- 	depends on MACH_SUN5I || COMPILE_TEST
- 	depends on SUNXI_CCU=y
- 
- config SUN6I_A31_CCU
- 	tristate "Support for the Allwinner A31/A31s CCU"
--	default MACH_SUN6I
-+	default y
- 	depends on MACH_SUN6I || COMPILE_TEST
- 
- config SUN6I_RTC_CCU
- 	tristate "Support for the Allwinner H616/R329 RTC CCU"
- 	default y
-+	depends on MACH_SUN8I || ARM64 || RISCV || COMPILE_TEST
- 
- config SUN8I_A23_CCU
- 	tristate "Support for the Allwinner A23 CCU"
--	default MACH_SUN8I
-+	default y
- 	depends on MACH_SUN8I || COMPILE_TEST
- 
- config SUN8I_A33_CCU
- 	tristate "Support for the Allwinner A33 CCU"
--	default MACH_SUN8I
-+	default y
- 	depends on MACH_SUN8I || COMPILE_TEST
- 
- config SUN8I_A83T_CCU
- 	tristate "Support for the Allwinner A83T CCU"
--	default MACH_SUN8I
-+	default y
- 	depends on MACH_SUN8I || COMPILE_TEST
- 
- config SUN8I_H3_CCU
- 	tristate "Support for the Allwinner H3 CCU"
--	default MACH_SUN8I || ARM64
-+	default y
- 	depends on MACH_SUN8I || ARM64 || COMPILE_TEST
- 
- config SUN8I_V3S_CCU
- 	tristate "Support for the Allwinner V3s CCU"
--	default MACH_SUN8I
-+	default y
- 	depends on MACH_SUN8I || COMPILE_TEST
- 
- config SUN8I_DE2_CCU
- 	tristate "Support for the Allwinner SoCs DE2 CCU"
--	default MACH_SUN8I || ARM64
-+	default y
-+	depends on MACH_SUN8I || ARM64 || RISCV || COMPILE_TEST
- 
- config SUN8I_R40_CCU
- 	tristate "Support for the Allwinner R40 CCU"
--	default MACH_SUN8I
-+	default y
- 	depends on MACH_SUN8I || COMPILE_TEST
- 
- config SUN9I_A80_CCU
- 	tristate "Support for the Allwinner A80 CCU"
--	default MACH_SUN9I
-+	default y
- 	depends on MACH_SUN9I || COMPILE_TEST
- 
- config SUN8I_R_CCU
- 	tristate "Support for Allwinner SoCs' PRCM CCUs"
--	default MACH_SUN8I || ARM64
-+	default y
-+	depends on MACH_SUN8I || ARM64 || COMPILE_TEST
- 
- endif
+ #endif /* _CCU_SUN20I_D1_H_ */
 -- 
 2.37.4
 
