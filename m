@@ -4,79 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F67EC4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Dec 2022 22:12:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97282C4332F
+	for <linux-riscv@archiver.kernel.org>; Sat, 31 Dec 2022 04:36:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wKJP0jpCHb2lgT/Fpa4Kb2y468EBZr489J/k3H1CW08=; b=nuDfH3UWuZr4xn
-	z8OKg7O/1WsFFImLsJttZyv7/Vu1wKHzO+WmEoI3dhzz5Gwy5QSSveIw6+qlnyG/zXy3YJ+gyNGS6
-	lMIRSkQfb6+/xCqK2p9UeTGRpop458/33NEKzD9dN1SQw/2GHNRBy7GKGXlRzfwylaRyT/4OTlZLE
-	sbZzw+54GkzYvuUdovd16uPUcBvVRV70wQRwPQJ/8JumvHHyz8+MiCFOgzuyM3ogt4g9ElhcIFlVN
-	OLR7ZaMNK1DgQTBivR7htQpg9RupiMwkKtTiWii1OSNFQbDm8F+OTGdVByO7uzuc8ak5ClY0eJlMJ
-	wyIgsAxyHZ3apzdn0Llw==;
+	List-Owner; bh=kIYTwm4vmcxuJcTF40oXHe1lY4HFS0wp6RDwRJOaQPI=; b=HRYMsf3PKYc+Qx
+	Z/r7M5QGV44sGWWfILRNJWGP/fqtq40xb+e6O70aH9x63azD5HXGaPb/P0kMhzPlotIrq8XIclZLS
+	gDtwjw13upm6r/8FZZwR7hMATwmeGBseaGcJ5amVJmsvPDeL29syXVQzmj+UE97APyARcsQ3pwRt/
+	7Iniav8Ct6+SQkWMUQVKtakmAE3hYaTAIYVS4MLdxTv7VwX5Q1YYPF+JTnx7va2YQHEvEU7eOJTkg
+	rl0hHUBeYoKxiLFVFJS70E6ttNCHjMKgX3mEL+Z8Ji9EfD6CBLueB8GMEbNt00mWIYEyX11QufYHf
+	5iJ/gN4RX/DdbObOcQrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pBNbo-00E6HB-53; Fri, 30 Dec 2022 22:12:12 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	id 1pBTbh-000SxY-CL; Sat, 31 Dec 2022 04:36:29 +0000
+Received: from sender4-op-o18.zoho.com ([136.143.188.18])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pBNbl-00E6Ed-K0
-	for linux-riscv@lists.infradead.org; Fri, 30 Dec 2022 22:12:11 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id bt23so16608029lfb.5
-        for <linux-riscv@lists.infradead.org>; Fri, 30 Dec 2022 14:12:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=hpuawFo1QryumZl9aqxUrtpkYD+9l4HMQlvhPEkbBZ4=;
-        b=QFbwHGTzXUFD6JakV9JZvxSJXCAHYNNMnJFJPUD/Di8lCLRqfZxe3LaRNFtHHhkvyU
-         6KjIwxSUHS/JXPfRxMOreMMxRNOl+zE3zBK+V9RKAU4Y9VtDfVIZ0JMxmhR7RRfASQcF
-         +faCwgfE1EhEj070V4Maxq0DuyTynB05bzreVW0TDDxNSDzJJ/Q0B/XERv/i/hEmivpe
-         0XxZgAPLcnF+Vp+Ly4FofuASkvDEvxvjOEyDO3ZtBBJvOR0TTh/VhxsxkUQEY5izzLtF
-         mv4IO383wPoFLOXUzv1cYtFVoPPNWGZlZvA2ecjY3p4k/0Bxt7mpp9AQfdugGKqds5EI
-         cQwg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=hpuawFo1QryumZl9aqxUrtpkYD+9l4HMQlvhPEkbBZ4=;
-        b=K5K8tqI3AflaU74+RyoHDqx51DZSuGjbY9WI26MuYwVO5sjTjl0dAbhYCR8Jb3VFw7
-         27j/LXqtK5U+PhqTArveckq3sKeH7B0aPk3/8cYA5SqexLMtoRajTz4qRnuLl3st+xLE
-         TPc72MoD6Mm3okCD+ScRCXQvO20nr1yriTTobNiPdFEYABUUxfDu0UdRzhQlfUbCEA0l
-         JLGvH1Ub2C8FoRSsg3qaipxnMToojzLPBIEkDYOc8ZbRrSZZKlLMFY9joSvMauXH437b
-         S48kYRoAcJ7G4Y9IehPxotrUryJcQwkmuTTNFDJcS7E8DaPVCo4kMzS4YI4XIJCj6s2J
-         yf3g==
-X-Gm-Message-State: AFqh2koKWgWRGwalM9pBj7DGdx29apxwUh+6VLe4CfHeBDSioKOkS+N5
-	+OyKvAV7XRLSkk38xRfjj/8=
-X-Google-Smtp-Source: AMrXdXtYKIpCc3pFJcBPgY/PHdBRKzVXrrerQEtak+qK6HorvL54qWfN7H8mI7WOXOxmR4ofQebKwg==
-X-Received: by 2002:a05:6512:3683:b0:4b5:b46d:e52 with SMTP id d3-20020a056512368300b004b5b46d0e52mr8204019lfs.50.1672438326052;
-        Fri, 30 Dec 2022 14:12:06 -0800 (PST)
-Received: from curiosity ([5.188.167.245])
-        by smtp.gmail.com with ESMTPSA id u1-20020ac243c1000000b004b18163476esm3608728lfl.112.2022.12.30.14.12.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 30 Dec 2022 14:12:05 -0800 (PST)
-Date: Sat, 31 Dec 2022 01:12:04 +0300
-From: Sergey Matyukevich <geomatsi@gmail.com>
-To: Icenowy Zheng <uwu@icenowy.me>
-Cc: Guo Ren <guoren@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Heiko Stuebner <heiko@sntech.de>,
-	Nathan Chancellor <nathan@kernel.org>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+	id 1pBTbd-000St9-HU
+	for linux-riscv@lists.infradead.org; Sat, 31 Dec 2022 04:36:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1672461372; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=JQdUWp1o75bn5Cm6C7l8IRKkaAqi68sc936SBl6G1IK4mNvCmGGe/lPLTCja8CWImORj2rOE0TowDYRu/AGGfHyYyDlQduBx00MeCWbHJLkAEYoG6sK5hpG7G0ZFD9Pc/HUwd+OftRioA9bKt7NLhm4niKFF5ZV53GeWwWh0Qio=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1672461372; h=Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:To; 
+	bh=UZUtlTKpQdPfubcQzf2LyoQlsOR8ISvYrlk080SW5kw=; 
+	b=VNykuMGWFgnD0l92ENbYSiYzHz3Hn2xd2Wqxp30ctE6hHvcp3KSwbala7ssa7VoNe6o1MXE/hoHkFI+eZ40V/ctlXQ96VahywGYcGfIUtKzC9OtMaUKaM9FD9VaJ9g0eA961RoBSO0rCHXxS7C0D+aaS3YDiOMJAHXl12Q69Osg=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=icenowy.me;
+	spf=pass  smtp.mailfrom=uwu@icenowy.me;
+	dmarc=pass header.from=<uwu@icenowy.me>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1672461372;
+	s=zmail; d=icenowy.me; i=uwu@icenowy.me;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=UZUtlTKpQdPfubcQzf2LyoQlsOR8ISvYrlk080SW5kw=;
+	b=Z3C94yCn3uAtN7rcoUjw4ddTfVUjfEroMCME1T4QtV0QWBmFJaPJlqr3CysNZB7C
+	kwXV5U1l6R5QdCnc7y8eHmkBqIgnKffQvTfNAZwBSt0ey4MDnnGvNP1QlHKPCZcCYSl
+	Sz7rtFnSzGHFVnf1+Is5f6nAArDfCAKQ/pQE6H/4=
+Received: from edelgard.fodlan.icenowy.me (120.85.97.2 [120.85.97.2]) by mx.zohomail.com
+	with SMTPS id 1672461369384205.65724335826928; Fri, 30 Dec 2022 20:36:09 -0800 (PST)
+Message-ID: <5818a83e644eb9c868d4cf65117983e08ba1c17f.camel@icenowy.me>
 Subject: Re: [PATCH 1/2] riscv: errata: fix T-Head dcache.cva encoding
-Message-ID: <Y69iNMQ60gXYkKus@curiosity>
+From: Icenowy Zheng <uwu@icenowy.me>
+To: Sergey Matyukevich <geomatsi@gmail.com>
+Cc: Guo Ren <guoren@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Heiko Stuebner <heiko@sntech.de>,  Nathan Chancellor <nathan@kernel.org>,
+ linux-riscv@lists.infradead.org,  linux-kernel@vger.kernel.org
+Date: Sat, 31 Dec 2022 12:36:04 +0800
+In-Reply-To: <Y69iNMQ60gXYkKus@curiosity>
 References: <20221227020258.303900-1-uwu@icenowy.me>
- <CAJF2gTSGvEnTqEqR9f+zU8T3VS8FoCtsgSk=9hz6cWxAL630zQ@mail.gmail.com>
+	 <CAJF2gTSGvEnTqEqR9f+zU8T3VS8FoCtsgSk=9hz6cWxAL630zQ@mail.gmail.com>
+	 <Y69iNMQ60gXYkKus@curiosity>
+Organization: Anthon Open-Source Community
+User-Agent: Evolution 3.44.4 
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAJF2gTSGvEnTqEqR9f+zU8T3VS8FoCtsgSk=9hz6cWxAL630zQ@mail.gmail.com>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221230_141209_697326_E736F8AF 
-X-CRM114-Status: GOOD (  22.80  )
+X-CRM114-CacheID: sfid-20221230_203625_697670_FDF5DFB2 
+X-CRM114-Status: GOOD (  24.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,64 +76,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> > The dcache.cva encoding shown in the comments are wrong, it's for
-> > dcache.cval1 (which is restricted to L1) instead.
-> >
-> > Fix this in the comment and in the hardcoded instruction.
-> >
-> > Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
-> > ---
-> > The code is tested on a LiteX SoC with OpenC906 core, and it
-> > successfully boots to Systemd on a SD card connected to LiteSDCard.
-> >
-> > This change should be not noticable on C906, but on multi-core C910
-> > cluster it should fixes something. Unfortunately TH1520 seems to be not
-> > so ready to test mainline patches on.
-> >
-> >  arch/riscv/include/asm/errata_list.h | 4 ++--
-> >  1 file changed, 2 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
-> > index 4180312d2a70..605800bd390e 100644
-> > --- a/arch/riscv/include/asm/errata_list.h
-> > +++ b/arch/riscv/include/asm/errata_list.h
-> > @@ -102,7 +102,7 @@ asm volatile(ALTERNATIVE(                                           \
-> >   * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
-> >   *   0000001    01001      rs1       000      00000  0001011
-> >   * dcache.cva rs1 (clean, virtual address)
-> > - *   0000001    00100      rs1       000      00000  0001011
-> > + *   0000001    00101      rs1       000      00000  0001011
-> >   *
-> >   * dcache.cipa rs1 (clean then invalidate, physical address)
-> >   * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
-> > @@ -115,7 +115,7 @@ asm volatile(ALTERNATIVE(                                           \
-> >   *   0000000    11001     00000      000      00000  0001011
-> >   */
-> >  #define THEAD_inval_A0 ".long 0x0265000b"
-> > -#define THEAD_clean_A0 ".long 0x0245000b"
-> > +#define THEAD_clean_A0 ".long 0x0255000b"
-> >  #define THEAD_flush_A0 ".long 0x0275000b"
-> >  #define THEAD_SYNC_S   ".long 0x0190000b"
-
-Nice catch ! I experimented with T-Head RVB-ICE board on the up-to-date
-upstream kernel, using device tree and some other bits from the vendor
-kernel [1]. Without this patch, emmc on this board does not work since
-noncoherent dma sync operations use incorrect 'clean' instruction.
-Applying this patch fixes emmc operations, so
-
-Tested-by: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
-
-[1] https://github.com/T-head-Semi/linux/tree/linux-5.10.4
-
-Regards,
-Sergey
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+5ZyoIDIwMjItMTItMzHmmJ/mnJ/lha3nmoQgMDE6MTIgKzAzMDDvvIxTZXJnZXkgTWF0eXVrZXZp
+Y2jlhpnpgZPvvJoKPiA+ID4gVGhlIGRjYWNoZS5jdmEgZW5jb2Rpbmcgc2hvd24gaW4gdGhlIGNv
+bW1lbnRzIGFyZSB3cm9uZywgaXQncyBmb3IKPiA+ID4gZGNhY2hlLmN2YWwxICh3aGljaCBpcyBy
+ZXN0cmljdGVkIHRvIEwxKSBpbnN0ZWFkLgo+ID4gPiAKPiA+ID4gRml4IHRoaXMgaW4gdGhlIGNv
+bW1lbnQgYW5kIGluIHRoZSBoYXJkY29kZWQgaW5zdHJ1Y3Rpb24uCj4gPiA+IAo+ID4gPiBTaWdu
+ZWQtb2ZmLWJ5OiBJY2Vub3d5IFpoZW5nIDx1d3VAaWNlbm93eS5tZT4KPiA+ID4gLS0tCj4gPiA+
+IFRoZSBjb2RlIGlzIHRlc3RlZCBvbiBhIExpdGVYIFNvQyB3aXRoIE9wZW5DOTA2IGNvcmUsIGFu
+ZCBpdAo+ID4gPiBzdWNjZXNzZnVsbHkgYm9vdHMgdG8gU3lzdGVtZCBvbiBhIFNEIGNhcmQgY29u
+bmVjdGVkIHRvCj4gPiA+IExpdGVTRENhcmQuCj4gPiA+IAo+ID4gPiBUaGlzIGNoYW5nZSBzaG91
+bGQgYmUgbm90IG5vdGljYWJsZSBvbiBDOTA2LCBidXQgb24gbXVsdGktY29yZQo+ID4gPiBDOTEw
+Cj4gPiA+IGNsdXN0ZXIgaXQgc2hvdWxkIGZpeGVzIHNvbWV0aGluZy4gVW5mb3J0dW5hdGVseSBU
+SDE1MjAgc2VlbXMgdG8KPiA+ID4gYmUgbm90Cj4gPiA+IHNvIHJlYWR5IHRvIHRlc3QgbWFpbmxp
+bmUgcGF0Y2hlcyBvbi4KPiA+ID4gCj4gPiA+IMKgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9lcnJh
+dGFfbGlzdC5oIHwgNCArKy0tCj4gPiA+IMKgMSBmaWxlIGNoYW5nZWQsIDIgaW5zZXJ0aW9ucygr
+KSwgMiBkZWxldGlvbnMoLSkKPiA+ID4gCj4gPiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2lu
+Y2x1ZGUvYXNtL2VycmF0YV9saXN0LmgKPiA+ID4gYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2Vy
+cmF0YV9saXN0LmgKPiA+ID4gaW5kZXggNDE4MDMxMmQyYTcwLi42MDU4MDBiZDM5MGUgMTAwNjQ0
+Cj4gPiA+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vZXJyYXRhX2xpc3QuaAo+ID4gPiAr
+KysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2VycmF0YV9saXN0LmgKPiA+ID4gQEAgLTEwMiw3
+ICsxMDIsNyBAQCBhc20KPiA+ID4gdm9sYXRpbGUoQUxURVJOQVRJVkUowqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgIFwKPiA+ID4gwqAgKiB8IDMxIC0gMjUgfCAyNCAtIDIwIHwgMTkgLSAxNSB8
+IDE0IC0gMTIgfCAxMSAtIDcgfCA2IC0gMCB8Cj4gPiA+IMKgICrCoMKgIDAwMDAwMDHCoMKgwqAg
+MDEwMDHCoMKgwqDCoMKgIHJzMcKgwqDCoMKgwqDCoCAwMDDCoMKgwqDCoMKgIDAwMDAwwqAgMDAw
+MTAxMQo+ID4gPiDCoCAqIGRjYWNoZS5jdmEgcnMxIChjbGVhbiwgdmlydHVhbCBhZGRyZXNzKQo+
+ID4gPiAtICrCoMKgIDAwMDAwMDHCoMKgwqAgMDAxMDDCoMKgwqDCoMKgIHJzMcKgwqDCoMKgwqDC
+oCAwMDDCoMKgwqDCoMKgIDAwMDAwwqAgMDAwMTAxMQo+ID4gPiArICrCoMKgIDAwMDAwMDHCoMKg
+wqAgMDAxMDHCoMKgwqDCoMKgIHJzMcKgwqDCoMKgwqDCoCAwMDDCoMKgwqDCoMKgIDAwMDAwwqAg
+MDAwMTAxMQo+ID4gPiDCoCAqCj4gPiA+IMKgICogZGNhY2hlLmNpcGEgcnMxIChjbGVhbiB0aGVu
+IGludmFsaWRhdGUsIHBoeXNpY2FsIGFkZHJlc3MpCj4gPiA+IMKgICogfCAzMSAtIDI1IHwgMjQg
+LSAyMCB8IDE5IC0gMTUgfCAxNCAtIDEyIHwgMTEgLSA3IHwgNiAtIDAgfAo+ID4gPiBAQCAtMTE1
+LDcgKzExNSw3IEBAIGFzbQo+ID4gPiB2b2xhdGlsZShBTFRFUk5BVElWRSjCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqAgXAo+ID4gPiDCoCAqwqDCoCAwMDAwMDAwwqDCoMKgIDExMDAxwqDCoMKg
+wqAgMDAwMDDCoMKgwqDCoMKgIDAwMMKgwqDCoMKgwqAgMDAwMDDCoCAwMDAxMDExCj4gPiA+IMKg
+ICovCj4gPiA+IMKgI2RlZmluZSBUSEVBRF9pbnZhbF9BMCAiLmxvbmcgMHgwMjY1MDAwYiIKPiA+
+ID4gLSNkZWZpbmUgVEhFQURfY2xlYW5fQTAgIi5sb25nIDB4MDI0NTAwMGIiCj4gPiA+ICsjZGVm
+aW5lIFRIRUFEX2NsZWFuX0EwICIubG9uZyAweDAyNTUwMDBiIgo+ID4gPiDCoCNkZWZpbmUgVEhF
+QURfZmx1c2hfQTAgIi5sb25nIDB4MDI3NTAwMGIiCj4gPiA+IMKgI2RlZmluZSBUSEVBRF9TWU5D
+X1PCoMKgICIubG9uZyAweDAxOTAwMDBiIgo+IAo+IE5pY2UgY2F0Y2ggISBJIGV4cGVyaW1lbnRl
+ZCB3aXRoIFQtSGVhZCBSVkItSUNFIGJvYXJkIG9uIHRoZSB1cC10by0KPiBkYXRlCj4gdXBzdHJl
+YW0ga2VybmVsLCB1c2luZyBkZXZpY2UgdHJlZSBhbmQgc29tZSBvdGhlciBiaXRzIGZyb20gdGhl
+Cj4gdmVuZG9yCj4ga2VybmVsIFsxXS4gV2l0aG91dCB0aGlzIHBhdGNoLCBlbW1jIG9uIHRoaXMg
+Ym9hcmQgZG9lcyBub3Qgd29yawo+IHNpbmNlCj4gbm9uY29oZXJlbnQgZG1hIHN5bmMgb3BlcmF0
+aW9ucyB1c2UgaW5jb3JyZWN0ICdjbGVhbicgaW5zdHJ1Y3Rpb24uCj4gQXBwbHlpbmcgdGhpcyBw
+YXRjaCBmaXhlcyBlbW1jIG9wZXJhdGlvbnMsIHNvCgpUaGFua3MgZm9yIHRlc3Rpbmcgb24gQzkx
+MCEgSSBkb24ndCB0aGluayB0aGlzIHBhdGNoIHdpbGwgbWFrZSBhCnNpZ25pZmljYW50IGRpZmZl
+cmVuY2Ugb24gQzkwNiwgc28gaXQncyB2YWx1YWJsZSEKCj4gCj4gVGVzdGVkLWJ5OiBTZXJnZXkg
+TWF0eXVrZXZpY2ggPHNlcmdleS5tYXR5dWtldmljaEBzeW50YWNvcmUuY29tPgo+IAo+IFsxXSBo
+dHRwczovL2dpdGh1Yi5jb20vVC1oZWFkLVNlbWkvbGludXgvdHJlZS9saW51eC01LjEwLjQKPiAK
+PiBSZWdhcmRzLAo+IFNlcmdleQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
+bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
+bGludXgtcmlzY3YK
