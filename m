@@ -4,132 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A5F1C46467
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Jan 2023 09:09:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B93AC3DA7A
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Jan 2023 10:06:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:
-	References:Cc:To:Subject:Date:Message-ID:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=KcwgvWjdNzNcW6kVQ6nPPEvjQXhPKPbfES8lI6CHsgE=; b=H6wLDjADLA9M81hr+jxr9FksDw
-	KOi6Ws9IehHoBc2ROf3p3vG+vvw5WFfUHAUE1ylt13kHgFzjYjAl9ENrEzDArWyviyHDCutvMmvMx
-	czAxiGGV1Ljidvd2v9HV0zhwmPxaFNSI9H4vLybkbGXpF6610AkeEbrLfA23M9OQtbM17xVXXnNVM
-	BhOkG3G7fBb+4lq2ZgrlwTrcC30uGygD2zEOQxWOY0/R/oy7olYhnUu6EKHmS28IECGG3J/cJFfvz
-	jl8W1PvDOugeQc+/EReaW/OT0fj3KZhj+A2kzPrugAf2zRa+BCHkCC70ceD5xtOVdax9LSViZCBLx
-	Tyr1m13w==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Jvu1rQeinpCrJXLPLgRTKYIViMK+kuMbvosSj7Hg4mA=; b=RCeu28JofZnKZL
+	tEiwP6RZKqVv+mwpGNgsC1KigxG3pYU/Tt8Es7zTblEOcxeSlXXiPqm4AHCcxN3nvIpOpA57p2JF/
+	koehdAX/SDEf5f+5aV6X11wvvM3HzYbSsnIYu/BquZfEPDeJbOTEYMRPZ++tpAGpAKUaSl/mrOpwu
+	Hvu3evBEb4rikXmzheFN+yVi9wJxhTiJFd/yZTG/Q+7S2boMX+qMleaiB/OMi60tLZEp0en1h46ZF
+	TlMPKyFFYFF7MD/t0lWmFb6upl0LdjK3l6dAJe4MFWHez2MhAYAzIeEqVzaIKey9eTL6COApNL9XA
+	XX0XBvNZvH4qud0Y/Z2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCGox-009hv8-No; Mon, 02 Jan 2023 09:09:27 +0000
-Received: from mail-vi1eur04on2080.outbound.protection.outlook.com ([40.107.8.80] helo=EUR04-VI1-obe.outbound.protection.outlook.com)
+	id 1pCHi0-00AELt-NA; Mon, 02 Jan 2023 10:06:20 +0000
+Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCGoh-009hjT-KS
-	for linux-riscv@lists.infradead.org; Mon, 02 Jan 2023 09:09:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=k7Td/xzKuZxURMyWDgYdT3r3yP/Qwy2IBAifR2bqllXEgan52QJLXPWXNHSs4n5zkZzNgcXVJYpsPitarpNJcAfxV+0kPCxuNc8VYo0XxW9QmnIIfBo1ix7mQMwFFM2kXW9G5ZbU+kPLi6Htk55SLbxbC7+n3IpmXjzBEzKoPqJojlW26wSPnEONcMpqiNPiu29LHQojPqAwaxzSfL/GZ9MsmKlm8br/W8vZIafqBOuZ2ykpuEBZrIbIZmq7ReS9ls/hlZkqx/DuWqq+gxLWJM/1FfocQhrxopHfBhpPsS/6SsJoxenvPNqjMDt7X3oIkh+bbt31XW2q8LsIONX8yA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gbylX+XHhd6SHcb5CjIqlAdk+kHMr1oxE/EtNSNK2kU=;
- b=eH9YrxabXOSzrYQDQEvWV75EhOwqYZpSU42CT8CX6LD+sxx3OlejPRnUmnGulrHz0BXsLClAs/citmzmPtXmfeGIDhR1qNW20iqUP6esW629PnKH0dLgulVM4Ijz1i3EF843QampOkEK526wyLjxFK1iJUs1YZQ4UKKw6fXv8Iaopa+OoLiIGrCAjFVdE4u134efbvGC/fd0u2XX7ssjgwsTLyvWEyu2m96rKEKwNGvZop1m5AX2+hdAWZg3G1zzgRiO+Z4MrQBKb9bT7Q69jekexZ60p627idZmFkud7044Ag2QOGcZVSjMYBWG89y6toEmOToGRuSpMie3bNh2IA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=siemens.com; dmarc=pass action=none header.from=siemens.com;
- dkim=pass header.d=siemens.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=siemens.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gbylX+XHhd6SHcb5CjIqlAdk+kHMr1oxE/EtNSNK2kU=;
- b=Rt+7eJXhVlBmDt4rViwLzDke3aLKpa2LmiUMRUazKyWpb2jsGYA//SBopah87BGiwcEBTdp5sVSraiO5u2NwQp+sXFpU2PfRHp7cCdlXd2pAWvZRoObsBhCZG40bDeNY9gpiLJO4PALDsBmDEoWJt/4HZGo7xszek1MFA7hsqkQGmJHAndU7H/rRcg7D5a5kz8DxCyQBH0xKK/UFukK/FR3g3ZZabHN5yiCxvFhZp8ws13/kLwH9fXuxaPSq/VqT1RksWPu05bxjOeAbjW1IEAxkTc+EHHaWuPFMBuV1q9UkkU11lSxovndaKN+y4nZ4YeQVEx1tEPVEAdt/O4xYCw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=siemens.com;
-Received: from AS4PR10MB6181.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:588::19)
- by DB8PR10MB3740.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:113::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5944.19; Mon, 2 Jan
- 2023 09:09:04 +0000
-Received: from AS4PR10MB6181.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::2957:50e8:8ce6:124a]) by AS4PR10MB6181.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::2957:50e8:8ce6:124a%9]) with mapi id 15.20.5944.019; Mon, 2 Jan 2023
- 09:09:03 +0000
-Message-ID: <98eb5bc7-dee4-b36e-a219-17b1e08d85f6@siemens.com>
-Date: Mon, 2 Jan 2023 10:09:01 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.6.1
-Subject: Re: [PATCH v5] scripts/gdb: add lx_current support for riscv
-Content-Language: en-US
-To: Deepak Gupta <debug@rivosinc.com>, conor.dooley@microchip.com
-Cc: ajones@ventanamicro.com, aou@eecs.berkeley.edu, kbingham@kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- palmer@dabbelt.com, paul.walmsley@sifive.com
-References: <d65bddf3-c58a-1420-bff9-8333c10edb56@microchip.com>
- <20221115221051.1871569-1-debug@rivosinc.com>
-From: Jan Kiszka <jan.kiszka@siemens.com>
-In-Reply-To: <20221115221051.1871569-1-debug@rivosinc.com>
-X-ClientProxiedBy: FR3P281CA0076.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:1f::14) To AS4PR10MB6181.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:20b:588::19)
+	id 1pCHhC-00ADv1-GY
+	for linux-riscv@lists.infradead.org; Mon, 02 Jan 2023 10:05:33 +0000
+Received: by mail-ed1-x532.google.com with SMTP id c17so39285871edj.13
+        for <linux-riscv@lists.infradead.org>; Mon, 02 Jan 2023 02:05:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=e9DCTB5Dm2pkFs6CSTyKZLl1xWQvMdJFV8QOYePkMmc=;
+        b=b+OJbReIPVeZKxutNL/Ola0tNRzwQseF5QunIE0o10+Ll8f6gKLTnW4VYHRAJ65TEF
+         ueNs1zvDPZTHKuI2hmwIeQO0ZOSecFzObBRgZyf9++q6ZYAwUWJDyFaQNF8ssIrLWv+s
+         qnhHLzvXDSLRfuVRQtvevHtbi3GMOHaM3E7Mwb8cNxiCQOBei7JLb/aPGjzPqjucmRj3
+         F13uSiU2Sz0m/TO4ECvVeodw1n1ABxzgDKHjySTDLaCw/a5FDDpt/YqdyYGXTr5Lb3dH
+         Y7IHPhvQMQPArHvErxkLzjl5E2GUAEtzUWXkdr8584aB3HAOrZ0+SZbbFlCGF5B1O4dX
+         Y4rA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=e9DCTB5Dm2pkFs6CSTyKZLl1xWQvMdJFV8QOYePkMmc=;
+        b=VP+wVeaz1YbgB0Vrj1zIZwgsp3BXRGWiQ7S81B9imm31PwjBWPrE8Plzogrn6F9EDH
+         gZThyU+30mI8oYTJhU5J4PgfZLASCXovSXDOexrjo0NgBtTdI64aX7ogklg2LrG4xkzT
+         auVh+P7v2SOTrrxJQCA1c3unTiAFz0kRruDEIqkvPz2/neHDSkHyjI/+sACrV34yhdic
+         f/3mYssL2mZKEwnFWoXNl7xfWboMu6IRMdVpZEcvpx7WtBwqAYfU3szj3v+H9Eg84KFz
+         WlcHvwk+bJw9zA/2w+Rlj8EOBnLrgnAo9SEaVEqUL8uKayoDN/9gKMKh1/+Pq9T2hvPD
+         /A5A==
+X-Gm-Message-State: AFqh2krb7CD77mnvi7ehhLb/svhXZdo5BRd0SykpShK+4d1tEqWDDTjN
+	3tldr7zYaD2Vv8Gc8cYG847SNGPvNOhxLwJ+akcwXw==
+X-Google-Smtp-Source: AMrXdXutBl5gu8eTZ2szcpSPfsr6smT0M6Rt7kVdaTvHuuYxPL3DpDNJ24bpZ7CrLDEWJdUaE38DDnrELD7nyO4oPxo=
+X-Received: by 2002:a05:6402:1f11:b0:479:aa95:bb9c with SMTP id
+ b17-20020a0564021f1100b00479aa95bb9cmr3358085edb.150.1672653926887; Mon, 02
+ Jan 2023 02:05:26 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS4PR10MB6181:EE_|DB8PR10MB3740:EE_
-X-MS-Office365-Filtering-Correlation-Id: 333d95cc-0740-4612-697b-08daeca0feb4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: 	H4HLxANDuv29hll3lUhh174Jj3pcs4e6zxaCPi2YLoWBl3mCfDZPhghVisfOzQXpOh8nAjLtMicyfZ6ls/g3WYW2N6xE3JB/kl7XHpPcMjEBDj8nnR+F8MAA+0Y5WPaUqqTm9F6JiAuqOAiAR9nlkrvJODOejsOTTE1pwj0ek42cMYug5oWrzs/Lc8LsxU/oBaY2S8EXnLD+nlcoUN9qPeIRrbxX8hgVP7JsS/Ib5Iqg3X7i/JHOoLr5LMhcHLpuo626M2W8pz9iAfHOTkd9T4k6xKOV4K09mJm9e3oW/+pQ2WxMAXFBatwSOAzmgu91rnzwE/z17/moKH6QroUc7vKF9XMZJHV4l/xGaMdbB7m8tfO0FMGLMRjyc8r6cml0OD3SOq4FsT6KzAGXR6K18MGSI6dQpeCE2LKspvZTBbwODNfj23B3I5JDegdjhjXbJ0zFH5ItWIlgT+CuIrO/S7ojFpn4OdfP+A+Wq9yi4ZejUVr0YgQvqPJm6r81Sz/pXbfjINftp9VuFFEbrgi6QAlV6DvMkVmsutkF14cTXDa7e8W/o8VlPrJlotrpUwVXty88McTQJ9GfW7Ebzz5Dhz9AZdevX8hrxO8YzSqVYin8jks+MIcGjyqvo1qo0omUeWdJyTcrnSa7S0MEiM6g0ThJEZpr/tEjJTS/GWMFHnkkDXEE1wvqHmpM+ASHex76SIP0G13USYjEQ2QXDUvthPjL0nV9iyrsIqlFnShk6mDZYA4pwt1Fosm3h9/pympoQefMnGA92UaCDS+f+syhwA==
-X-Forefront-Antispam-Report: 	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR10MB6181.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230022)(4636009)(346002)(396003)(136003)(39860400002)(376002)(366004)(451199015)(83380400001)(2616005)(31696002)(86362001)(36756003)(38100700002)(82960400001)(66556008)(8676002)(66476007)(8936002)(4326008)(2906002)(44832011)(5660300002)(316002)(66946007)(6512007)(53546011)(6506007)(186003)(31686004)(26005)(41300700001)(6486002)(478600001)(22166006)(43740500002)(45980500001);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 	=?utf-8?B?ejZOOW9DVTMxb3VQSmJKT05LaXBXcThEZ0hNSUhuT1RIOXBrOXc5MFJhQ3Ir?=
- =?utf-8?B?WnRBKzJqTlBxSGJVL29OZXROZ3dLUXhxeHVPSUJDbzYwS21SN3VOVGlTR1pO?=
- =?utf-8?B?MTg3N2NKZEI0OSt1azIwdWNZaUR1bzU5cmVsWDBUUEVIaW9sbXkvOCtCay9F?=
- =?utf-8?B?d3dqK2JQSGhXczZ1M1RvNlpvdVh3M250ZzVvMFFGdHFjNnkzNlJKSFhkRlVz?=
- =?utf-8?B?eHNBQ3prNnd2cXRLVTRzL0UzUGgraW5PbVBJTlRpdEhLQy9yQU5zVkJmUGhF?=
- =?utf-8?B?OVI3dDlwejdzdW9EdFY1ZlB2UFRWRFVFMkk5OHBZSnlFazhmQnJmOXY5YUxw?=
- =?utf-8?B?N1ZhMm5raFJrRk5sRGd4Q1ZkMDBnTWJiZ21CQXZHdUlIdlVxbWpmTFFXdXdp?=
- =?utf-8?B?TWxPcGlUVUJYZWQyUU5lbWlNNDhNRmVBeXBKZWtiMlJFbHE4d2hhb2FGdExm?=
- =?utf-8?B?dFJJaHowM3JmLy9WVnBOSm9NcGhOTzhoVWR6a1puNjhnSDBZa2VZdWVOaHVC?=
- =?utf-8?B?WUd4cHAwUERaSVp3b0d1NFNKcHgvVExLaDBlT0dIQ2xLcFQ0NjlydTJOazBQ?=
- =?utf-8?B?UDdJUG9RVVZoZ1c0VzdGU1NISXkvOXg5TmhMcFNpa2hLanoyL2kzbzRtR3By?=
- =?utf-8?B?c3EyakZ4ajA4MFVMYjA4bnE1Q0U2eFlIMXRYaE9vWlpaRlU4Ylhha2lLeWla?=
- =?utf-8?B?eFJndTZkVituUDMwZEZOQ1Vkcm1nVS9EUU1Xbm53RGljVkZsWWhDb3NVTFFD?=
- =?utf-8?B?NCsvbW5NSnNmeUMwVXFQMW5xbmFHUVluN3VZdGg0V1J0UE5uVXcxaWNUY3I2?=
- =?utf-8?B?RG1vVkg1aVdMRjY5VW9XdS83VXcyeTZkTzVHR3hZamN3d1BJdGFkK1pULzk5?=
- =?utf-8?B?Y3VSYzRySGErbzlpb2FYSnA0TndDNDNOMzBDWEhrSXd2d2t2bVFmUy9TaUJz?=
- =?utf-8?B?VnpqTW1wTUc5V1FZN3d1NG1pblI4a3N3L1puTFl5d3g2YU5wNlMxNXhDZmdh?=
- =?utf-8?B?RG5CWVpNZjR2RDVSZWpvSjgzWE1OUGtQZ2dWUHVNNlVtdWdKVzFCUkc4OFRN?=
- =?utf-8?B?NThBMHdJUG04MHhqdXJEQUthUTRXclJYTkxLNWs2Z2tLcndKMXIwR1FENXR2?=
- =?utf-8?B?M1FmQWhCaFNTMnZHWUlHdGFsMEVZWjhWVTdrUUNVZEdOenYwNUhDeTZsdnhv?=
- =?utf-8?B?cXh0bW8xWGNTeit3Y2lKUGdaK1BGUnRKdGVwU1pTMGxCdnBhcSt1QVNjY2pq?=
- =?utf-8?B?Yzh1SWxPdmRkM2txUE9KZEZUd0pmeGhKQ3c4NFI4KzE1RVNXaGR5Z2JWV3Nw?=
- =?utf-8?B?cVJDc1pXSmF3N1RlMThCNVdPNndqNWhJNTRqVEJDNEF5Ky92L2dPdmo3c2kw?=
- =?utf-8?B?M2lycU82UU5TLzYzQ1ZENUpJTHZlelNmYTNVanUzRWN0K25PRFFjMTF3WitV?=
- =?utf-8?B?eGcvTjlKMnRlYmFXZjEzSG8vdWxveG12UGc3R3JCaHM4R2JRZ1BhNSt5NEt0?=
- =?utf-8?B?QStMcnZYQ3VpWGM2aW50YWJFNDVBM0dRb0NUS3NVVnBDVXR6VngvMGhNbzds?=
- =?utf-8?B?V1NoZzUyRTA1QkxhSHBoRTNHS3daaFdFMUVDQ2Uxc1NzVG5FcmN1U0I2d0Iv?=
- =?utf-8?B?Tlpqd3E0YkV1VW1jcWVKWVlOV24wTVhBUGJsZnRkL2dvSXMreXU1eUIvZ00r?=
- =?utf-8?B?dS80UEM2L3lKN1hCakcyOHR0K0NFUlJFaTRPWDFHZDZqWS9wUTNzdXBsYSsx?=
- =?utf-8?B?ZnByRXVUYWV4dHBXQndJeG1ZUEFxM1d3emxVOUlMMUxtMnlYRTJGTHcyYVFO?=
- =?utf-8?B?VjE0aldwajZXOTN3NGlDdXBkYTcrelRiMXFycE4veDN6UTFaczVqZmRqaWkw?=
- =?utf-8?B?ZEliT0pEQ3BuTXVtR2VXWVcvUno0ZzBhNUk0SnJ0R0kraVBqeXBtUEZWYk1G?=
- =?utf-8?B?WVhuN0pMNGxoMGJMaEtRenpHMk9lQjdQaXFjQzNtaTlIOUhTdkR0Z01hNG4r?=
- =?utf-8?B?Zm11ZEtFMy9JaVlrREdBeXRkVTQrd0JTZFZMenQxaWM1WlMvdTlyaDhFZUFI?=
- =?utf-8?B?TnRIOHppTVZBQ05pMm1Za3FLbmJ6cjVPSmdaR3JjV0lqcjZUMWpYUEJBbi92?=
- =?utf-8?B?WGp1NTRoME9ORGVGL2ZDWndDL1NZM3J0UXNyaXFJZzhobERyTGcwOWhMTDJu?=
- =?utf-8?B?UlE9PQ==?=
-X-OriginatorOrg: siemens.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 333d95cc-0740-4612-697b-08daeca0feb4
-X-MS-Exchange-CrossTenant-AuthSource: AS4PR10MB6181.EURPRD10.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jan 2023 09:09:03.9442
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 38ae3bcd-9579-4fd4-adda-b42e1495d55a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: +CtdKOoNL5uh3Yai8LZtxUID/XXGzolqWPMi2fnO9985WZ+LFZcDlUOzBSNRcbuSvpO2YiL94kInex1jyGqWOg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR10MB3740
+References: <20221111044207.1478350-1-apatel@ventanamicro.com> <CAOnJCULbRSSjYvQP_2bysj1jd0_ywNjQ+gH7eteU7uJWZZ2KiQ@mail.gmail.com>
+In-Reply-To: <CAOnJCULbRSSjYvQP_2bysj1jd0_ywNjQ+gH7eteU7uJWZZ2KiQ@mail.gmail.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Mon, 2 Jan 2023 15:35:15 +0530
+Message-ID: <CAAhSdy3SArqEEGeMNyVFk1MAAXSCXfav9_JRN236PWxKE3UR5Q@mail.gmail.com>
+Subject: Re: [PATCH 0/9] Linux RISC-V AIA Support
+To: Atish Patra <atishp@atishpatra.org>
+Cc: Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, 
+	Marc Zyngier <maz@kernel.org>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+	Alistair Francis <Alistair.Francis@wdc.com>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230102_010912_300241_94E01CBE 
-X-CRM114-Status: GOOD (  28.40  )
+X-CRM114-CacheID: sfid-20230102_020530_947540_8F78BCBA 
+X-CRM114-Status: GOOD (  25.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,116 +89,152 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 15.11.22 23:10, Deepak Gupta wrote:
-> csr_sscratch CSR holds current task_struct address when hart is in
-> user space. Trap handler on entry spills csr_sscratch into "tp" (x2)
-> register and zeroes out csr_sscratch CSR. Trap handler on exit reloads
-> "tp" with expected user mode value and place current task_struct address
-> again in csr_sscratch CSR.
-> 
-> This patch assumes "tp" is pointing to task_struct. If value in
-> csr_sscratch is numerically greater than "tp" then it assumes csr_sscratch
-> is correct address of current task_struct. This logic holds when
->    - hart is in user space, "tp" will be less than csr_sscratch.
->    - hart is in kernel space but not in trap handler, "tp" will be more
->      than csr_sscratch (csr_sscratch being equal to 0).
->    - hart is executing trap handler
->        - "tp" is still pointing to user mode but csr_sscratch contains
->           ptr to task_struct. Thus numerically higher.
->        - "tp" is  pointing to task_struct but csr_sscratch now contains
->           either 0 or numerically smaller value (transiently holds
->           user mode tp)
-> 
-> Patch also adds new cached type "ulong" in scripts/gdb/linux/utils.py
-> 
-> Signed-off-by: Deepak Gupta <debug@rivosinc.com>
-> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-> 
-> ---
-> Since patch has changed a little bit from v1 and I didn't include
-> changelog earlier, here it is.
-> 
-> v1 --> v2:
->  - added logic to locate task_struct irrespective of priv
->  - made locating task_struct agnostic to bitness(32 vs 64).
->  - added caching of ulong type in scripts/gdb/linux/utils.py
->  - added more descriptive commit message
-> 
-> v2 --> v3:
->  - amended commit message and source line to fit column width
-> 
-> v3 --> v4:
->  - amended commit message and remove whitespace in source
->  - added Reviewed-by for reviewers
-> 
-> v4 --> v5:
->  - changing the order of changelog and sign off/review tags in commit
-> ---
-> ---
->  scripts/gdb/linux/cpus.py  | 15 +++++++++++++++
->  scripts/gdb/linux/utils.py |  5 +++++
->  2 files changed, 20 insertions(+)
-> 
-> diff --git a/scripts/gdb/linux/cpus.py b/scripts/gdb/linux/cpus.py
-> index 15fc4626d236..14c22f82449b 100644
-> --- a/scripts/gdb/linux/cpus.py
-> +++ b/scripts/gdb/linux/cpus.py
-> @@ -173,6 +173,21 @@ def get_current_task(cpu):
->           else:
->               raise gdb.GdbError("Sorry, obtaining the current task is not allowed "
->                                  "while running in userspace(EL0)")
-> +    elif utils.is_target_arch("riscv"):
-> +         current_tp = gdb.parse_and_eval("$tp")
-> +         scratch_reg = gdb.parse_and_eval("$sscratch")
-> +
-> +         # by default tp points to current task
-> +         current_task = current_tp.cast(task_ptr_type)
-> +
-> +         # scratch register is set 0 in trap handler after entering kernel.
-> +         # When hart is in user mode, scratch register is pointing to task_struct.
-> +         # and tp is used by user mode. So when scratch register holds larger value
-> +         # (negative address as ulong is larger value) than tp, then use scratch register.
-> +         if (scratch_reg.cast(utils.get_ulong_type()) > current_tp.cast(utils.get_ulong_type())):
-> +             current_task = scratch_reg.cast(task_ptr_type)
+On Fri, Nov 11, 2022 at 2:37 PM Atish Patra <atishp@atishpatra.org> wrote:
+>
+> On Thu, Nov 10, 2022 at 8:42 PM Anup Patel <apatel@ventanamicro.com> wrote:
+> >
+> > The RISC-V AIA specification is now frozen as-per the RISC-V international
+> > process. The latest frozen specifcation can be found at:
+> > https://github.com/riscv/riscv-aia/releases/download/1.0-RC1/riscv-interrupts-1.0-RC1.pdf
+> >
+> > At a high-level, the AIA specification adds three things:
+> > 1) AIA CSRs
+> >    - Improved local interrupt support
+> > 2) Incoming Message Signaled Interrupt Controller (IMSIC)
+> >    - Per-HART MSI controller
+> >    - Support MSI virtualization
+> >    - Support IPI along with virtualization
+> > 3) Advanced Platform-Level Interrupt Controller (APLIC)
+> >    - Wired interrupt controller
+> >    - In MSI-mode, converts wired interrupt into MSIs (i.e. MSI generator)
+> >    - In Direct-mode, injects external interrupts directly into HARTs
+> >
+> > For an overview of the AIA specification, refer the recent AIA virtualization
+> > talk at KVM Forum 2022:
+> > https://static.sched.com/hosted_files/kvmforum2022/a1/AIA_Virtualization_in_KVM_RISCV_final.pdf
+> > https://www.youtube.com/watch?v=r071dL8Z0yo
+> >
+> > This series adds required Linux irqchip drivers for AIA and it depends on
+> > the recent "RISC-V IPI Improvements".
+> > (Refer, https://lore.kernel.org/lkml/20221101143400.690000-1-apatel@ventanamicro.com/t/)
+> >
+> > To test this series, use QEMU v7.1 (or higher) and OpenSBI v1.1 (or higher).
+> >
+> > These patches can also be found in the riscv_aia_v1 branch at:
+> > https://github.com/avpatel/linux.git
+> >
+> > Anup Patel (9):
+> >   RISC-V: Add AIA related CSR defines
+> >   RISC-V: Detect AIA CSRs from ISA string
+> >   irqchip/riscv-intc: Add support for RISC-V AIA
+> >   dt-bindings: Add RISC-V incoming MSI controller bindings
+> >   irqchip: Add RISC-V incoming MSI controller driver
+> >   dt-bindings: Add RISC-V advanced PLIC bindings
+> >   irqchip: Add RISC-V advanced PLIC driver
+> >   RISC-V: Select APLIC and IMSIC drivers for QEMU virt machine
+> >   MAINTAINERS: Add entry for RISC-V AIA drivers
+> >
+> >  .../interrupt-controller/riscv,aplic.yaml     |  136 ++
+> >  .../interrupt-controller/riscv,imsic.yaml     |  174 +++
+> >  MAINTAINERS                                   |   12 +
+> >  arch/riscv/Kconfig.socs                       |    2 +
+> >  arch/riscv/include/asm/csr.h                  |   92 ++
+> >  arch/riscv/include/asm/hwcap.h                |    8 +
+> >  arch/riscv/kernel/cpu.c                       |    2 +
+> >  arch/riscv/kernel/cpufeature.c                |    2 +
+> >  drivers/irqchip/Kconfig                       |   32 +-
+> >  drivers/irqchip/Makefile                      |    2 +
+> >  drivers/irqchip/irq-riscv-aplic.c             |  656 +++++++++
+> >  drivers/irqchip/irq-riscv-imsic.c             | 1207 +++++++++++++++++
+> >  drivers/irqchip/irq-riscv-intc.c              |   37 +-
+> >  include/linux/irqchip/riscv-aplic.h           |  117 ++
+> >  include/linux/irqchip/riscv-imsic.h           |   92 ++
+> >  15 files changed, 2564 insertions(+), 7 deletions(-)
+> >  create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml
+> >  create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,imsic.yaml
+> >  create mode 100644 drivers/irqchip/irq-riscv-aplic.c
+> >  create mode 100644 drivers/irqchip/irq-riscv-imsic.c
+> >  create mode 100644 include/linux/irqchip/riscv-aplic.h
+> >  create mode 100644 include/linux/irqchip/riscv-imsic.h
+> >
+> > --
+> > 2.34.1
+> >
+>
+> I am seeing the following boot failure with your branch and upstream
+> qemu (tag: v7.2.0-rc0).
+> It seems IPIs are probably not getting delivered after a point. I saw
+> that IPIs are delivered in the same path earlier (via gdb).
+>
+> [    0.990152] NET: Registered PF_INET6 protocol family
+> [    1.004885] Segment Routing with IPv6
+> [    1.005385] In-situ OAM (IOAM) with IPv6
+> [    1.006371] sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+> [    1.011609] NET: Registered PF_PACKET protocol family
+> [    1.014877] 9pnet: Installing 9P2000 support
+> [    1.015603] Key type dns_resolver registered
+> [    1.026396] debug_vm_pgtable: [debug_vm_pgtable         ]:
+> Validating architecture page table helpers
+> [    1.144097] EXT4-fs (vda2): recovery complete
+> [    1.146345] EXT4-fs (vda2): mounted filesystem with ordered data
+> mode. Quota mode: disabled.
+> [    1.147020] VFS: Mounted root (ext4 filesystem) on device 254:2.
+> [    1.152238] devtmpfs: mounted
+> [    1.183914] Freeing unused kernel image (initmem) memory: 2176K
+> [    1.185898] Run /sbin/init as init process
+> [   29.412287] rcu: INFO: rcu_sched self-detected stall on CPU
+> [   29.412992] rcu:     3-....: (5250 ticks this GP)
+> idle=fc3c/1/0x4000000000000002 softirq=78/78 fqs=2230
+> [   29.413427]  (t=5251 jiffies g=-1047 q=3 ncpus=8)
+> [   29.414199] CPU: 3 PID: 1 Comm: init Not tainted
+> 6.1.0-rc4-00024-g5b711f2d7b91 #198
+> [   29.414578] Hardware name: riscv-virtio,qemu (DT)
+> [   29.414896] epc : smp_call_function_many_cond+0x138/0x372
+> [   29.415157]  ra : smp_call_function_many_cond+0x154/0x372
+> [   29.415318] epc : ffffffff8008d2e6 ra : ffffffff8008d302 sp :
+> ff2000000004bb40
+> [   29.415512]  gp : ffffffff812e9eb0 tp : ff600000016d8000 t0 :
+> ff6000007ed88610
+> [   29.415686]  t1 : 00000000000000ff t2 : 0000000000000002 s0 :
+> ff2000000004bc00
+> [   29.415837]  s1 : ff6000007ed85448 a0 : 0000000000000007 a1 :
+> 00000000000000f7
+> [   29.416008]  a2 : 0000000000000000 a3 : 0000000000000000 a4 :
+> ff6000007edd1780
+> [   29.416188]  a5 : 0000000000000001 a6 : ffffffff812eb1c0 a7 :
+> ff600000016d8000
+> [   29.416613]  s2 : ffffffff81323c30 s3 : ffffffff812e9964 s4 :
+> 0000000000000000
+> [   29.416810]  s5 : 0000000000000000 s6 : ff6000007ed85440 s7 :
+> 0000000000000038
+> [   29.416997]  s8 : 0000000000000003 s9 : ffffffff81323c30 s10:
+> ff6000007ed85448
+> [   29.417159]  s11: 0000000000000008 t3 : 00ffffffad08a000 t4 :
+> ff60000001613e0c
+> [   29.417331]  t5 : 0000000000000000 t6 : 00ffffffad177fff
+> [   29.417482] status: 0000000200000120 badaddr: 0000000000000000
+> cause: 8000000000000005
+> [   29.417939] [<ffffffff8008d590>] on_each_cpu_cond_mask+0x20/0x32
+> [   29.418179] [<ffffffff80008d32>] flush_icache_all+0x38/0x40
+> [   29.418324] [<ffffffff80008eb2>] flush_icache_pte+0x4a/0x7a
+> [   29.418442] [<ffffffff80139e00>] do_set_pte+0x132/0x192
+> [   29.418594] [<ffffffff8010b42e>] filemap_map_pages+0x178/0x3a0
+> [   29.418738] [<ffffffff8013ad00>] __handle_mm_fault+0x992/0xbac
+> [   29.418876] [<ffffffff8013afde>] handle_mm_fault+0xc4/0x1d4
+> [   29.419010] [<ffffffff80008372>] do_page_fault+0x120/0x326
+> [   29.419145] [<ffffffff800033e6>] ret_from_exception+0x0/0xc
 
-Why not if-else for the assignment here?
+This has been addressed in the RISC-V IPI improvement series.
 
-> +
-> +         return current_task.dereference()
->      else:
->          raise gdb.GdbError("Sorry, obtaining the current task is not yet "
->                             "supported with this arch")
-> diff --git a/scripts/gdb/linux/utils.py b/scripts/gdb/linux/utils.py
-> index 1553f68716cc..ddaf3089170d 100644
-> --- a/scripts/gdb/linux/utils.py
-> +++ b/scripts/gdb/linux/utils.py
-> @@ -35,12 +35,17 @@ class CachedType:
->  
->  
->  long_type = CachedType("long")
-> +ulong_type = CachedType("ulong")
->  atomic_long_type = CachedType("atomic_long_t")
->  
->  def get_long_type():
->      global long_type
->      return long_type.get_type()
->  
-> +def get_ulong_type():
-> +    global ulong_type
-> +    return ulong_type.get_type()
-> +
->  def offset_of(typeobj, field):
->      element = gdb.Value(0).cast(typeobj)
->      return int(str(element[field].address).split()[0], 16)
+Regards,
+Anup
 
-Looks good to me otherwise.
-
-Jan
-
--- 
-Siemens AG, Technology
-Competence Center Embedded Linux
-
+>
+>
+>
+> --
+> Regards,
+> Atish
 
 _______________________________________________
 linux-riscv mailing list
