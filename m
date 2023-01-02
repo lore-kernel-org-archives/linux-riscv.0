@@ -4,68 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 874F4C4708D
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Jan 2023 18:19:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DDB9C3DA7A
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Jan 2023 20:33:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uLk7JqnKvFfqDtIRoqJnnJQNdjxhBD4PYYnwSbFMt7U=; b=4e59s6gyMwaTkETfJGMVomCvNf
-	/RWuy2nMCCNK0Sy7OTGrOt2XLYRwcInX8E2F6w8Plf0DwgdPPgKYGP3dC45F7Mza/6Ji9QfT4SQAW
-	0/kEv7GJ69YGqk6Fh51byjniiCZfgNIBr4LBWkah8EL5ZLEUueEU53U1XQfufUpDHdqV7Dntk1amI
-	gVPfTMbxSty5XfeB0QTGbIdbmV3qqNyw/O22Ss3YNzewmmn5/4Sq6OqdRVe57EpmzK7ALP3v/Ud8D
-	wXNew5JBPJPlZX4QOMCbn8T8C7xmwYGphQIhqYTiFax+RbriQXRrKN4Ekv6vSI05Y5tFhYng1Lny8
-	a/lkvpJA==;
+	bh=fniwxnOKtOSDsypm1YkgZzXnGEBpMjEcOS0UyRsUyVU=; b=DI5rrQmlGJA8+naQKJn6Bv4YiC
+	q4cowAp2UL2BNFfwLVPzP+rqt3NK4Nsic8c9W3vaskNvWPVuUqK9l7iyZs0mrdbN85TayhgR9d1Fj
+	IH7htd+QLAuYC/z5ikgaG7reO1gVn88vFJYAxpt1QAP8+uL/7JUw5xIaHp++lrEJqM+CmlGi6Fp7P
+	c/urwMnnBowOwS8MFy4BknFRv/f/FtzAcydw8Mp8wR05g8EbiRgXKAbBUeRkZ/DpCexhmUtkWp75F
+	EndxqOMPmU9xLvg+TtcwVczoLgI6lhOEhThoV7MMozF4knLktVA1pLx6YRJ9vFrBQecTyYOfcKeKZ
+	9hlYwQNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCPOi-00DOpg-IP; Mon, 02 Jan 2023 18:18:56 +0000
+	id 1pCRUE-00E5To-ID; Mon, 02 Jan 2023 20:32:46 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCPOK-00DOhc-35
-	for linux-riscv@lists.infradead.org; Mon, 02 Jan 2023 18:18:33 +0000
+	id 1pCRT3-00E5GJ-Gb
+	for linux-riscv@lists.infradead.org; Mon, 02 Jan 2023 20:31:36 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 3F5906108F;
-	Mon,  2 Jan 2023 18:18:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 591AEC433EF;
-	Mon,  2 Jan 2023 18:18:09 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 0EA9C61123;
+	Mon,  2 Jan 2023 20:31:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F6BBC433D2;
+	Mon,  2 Jan 2023 20:31:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1672683510;
-	bh=89S45z/8Tm/wRkpmUZ1bW+UDgb3zPm1RefIO82Il6MQ=;
+	s=k20201202; t=1672691491;
+	bh=dBZ79ZS65SsdqLWl+ytWpYgrm/9T6xr5xkyeaJ0IYNc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QN/9HLIBOoPzp3rwuXEcMvcqkyeoiHhfTryjSCgsvA2U7HG/MXUsjnzGIoWv96o8R
-	 C0nyz8ubHwMVLSUe9nSv14vlM5UPjz+S6Mosv9hYUmrtuEVxNo2qmxoU2LlWD+MQLE
-	 0XKEctxnBRFp4BE8j7xvY4lCTNBFuxKIVe8y65RcQ0QPSpWm6XSGSqZHd4FcJQSbqL
-	 /hgcKJ0Wd7nKQY6eA1zsgw6ZCzKfuuVj58vduDL0I56WTLH5l3yL/xx1IfNKJOnA7h
-	 Tt/w8bHVhD6sKoZpeVuWOC2m+5rHivfzkhAwdVZDXTa63Wy1psN/BAC71zo3n+47Fy
-	 eFBWobXg5eeQA==
-Date: Mon, 2 Jan 2023 18:17:45 +0000
+	b=gKntLNsz60+f+K5l0L7V5T7SOG/RzNteswjWnudkIoSk5OEngciVMVqhX8Mm17Crx
+	 wqPPosDnuPOs1ZcbzLyhXuT0Yk2ofZFgKWDh5AUOgIYOn2cfft+zC5v23nVmCzHtad
+	 P7nj6y3KynrETQO47N4FLANkPeIF/VX0FExi6N6WTd/n9ueYELocBNneAiY1RfKpKj
+	 5RkUYJobOTi2xAZzvyYBKIwRrYc0Cp9pcMrHEgKg9Q1ldGyNdVblUpOya5n38/0RLp
+	 iIMoPgDRBwm+6xxYmIFXNtcah769joIv8RKatLlEkAbOdrHGzGAdb34jCpoATV5igi
+	 TmUbYu9f+LrqQ==
+Date: Mon, 2 Jan 2023 20:31:26 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Anup Patel <anup@brainfault.org>
-Cc: Anup Patel <apatel@ventanamicro.com>,
+To: =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Alistair Francis <Alistair.Francis@wdc.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH 6/9] dt-bindings: Add RISC-V advanced PLIC bindings
-Message-ID: <Y7MfyZBAErYGMZBK@spud>
-References: <20221111044207.1478350-1-apatel@ventanamicro.com>
- <20221111044207.1478350-7-apatel@ventanamicro.com>
- <Y3EQ4JU7uGbIMGiW@spud>
- <CAAhSdy2UAMmX+W5Cm3DuTJzZ0jJ3=CW4PhjctQNdfeS+4hqWqg@mail.gmail.com>
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	Guo Ren <guoren@kernel.org>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv, kprobes: Stricter c.jr/c.jalr decoding
+Message-ID: <Y7M/HlcF3u0qWIDJ@spud>
+References: <20230102160748.1307289-1-bjorn@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <CAAhSdy2UAMmX+W5Cm3DuTJzZ0jJ3=CW4PhjctQNdfeS+4hqWqg@mail.gmail.com>
+In-Reply-To: <20230102160748.1307289-1-bjorn@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230102_101832_261335_A9768608 
-X-CRM114-Status: GOOD (  32.21  )
+X-CRM114-CacheID: sfid-20230102_123135_354646_661A5039 
+X-CRM114-Status: GOOD (  21.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,151 +70,114 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1591923317380668136=="
+Content-Type: multipart/mixed; boundary="===============0025756229714623646=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============1591923317380668136==
+--===============0025756229714623646==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="TQVrb+7+nS5b2faU"
+	protocol="application/pgp-signature"; boundary="8sp2DkIA9MjAU0eb"
 Content-Disposition: inline
 
 
---TQVrb+7+nS5b2faU
-Content-Type: text/plain; charset=us-ascii
+--8sp2DkIA9MjAU0eb
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Mon, Jan 02, 2023 at 10:20:48PM +0530, Anup Patel wrote:
-> On Sun, Nov 13, 2022 at 9:14 PM Conor Dooley <conor@kernel.org> wrote:
+Hey Bjorn,
 
-> > > +  domain.
-> > > +
-> > > +allOf:
-> > > +  - $ref: /schemas/interrupt-controller.yaml#
-> > > +
-> > > +properties:
-> > > +  compatible:
-> > > +    items:
-> > > +      - enum:
-> > > +          - vendor,chip-aplic
-> >
-> > Same comment here about the validity of this placeholder.
+On Mon, Jan 02, 2023 at 05:07:48PM +0100, Bj=F6rn T=F6pel wrote:
+> From: Bj=F6rn T=F6pel <bjorn@rivosinc.com>
 >=20
-> Okay, I will add "riscv,qemu-aplic" as QEMU specific compatible string.
-
-Ah neat. I think that's a fair compromise.
-
-> > > +      - const: riscv,aplic
-
-> > > +  msi-parent:
-> > > +    description:
-> > > +      The presence of this property implies that given APLIC domain =
-forwards
-> > > +      wired interrupts as MSIs to a AIA incoming message signaled in=
-terrupt
-> > > +      controller (IMSIC). This property should be considered only wh=
-en the
-> > > +      interrupts-extended property is absent.
-> >
-> > This mutual exclusion can be represented, can't it?
-> > IIRC it is some sort of oneOf thing, somewhat like below:
-> > oneOf:
-> >   - required:
-> >       - msi-parent
-> >   - required:
-> >       - interrupts-extended
-> >
-> > AFAIR from doing the i2c ocores binding, this will force the addition of
-> > one, but not both, to a node.
-> >
-> > Or is this not actually mutually exclusive & the msi-parent property is
-> > permitted but just left unused if interrupts-extended is present?
+> In the compressed instruction extension, c.jr, c.jalr, c.mv, and c.add
+> is encoded the following way (each instruction is 16b):
 >=20
-> If both are present then interrupts-extended is preferred.
-
-Perhaps I am making a fool of myself here, but why would someone include
-both of them at once, if only one is going to be used?
-It would appear that making them explicitly mutually exclusive would
-make the binding easier to understand.
-What am I missing?
-
-> > > +  riscv,children:
-> > > +    $ref: '/schemas/types.yaml#/definitions/phandle-array'
-> > > +    minItems: 1
-> > > +    maxItems: 1024
-> > > +    description:
-> > > +      This property represents a list of child APLIC domains for the=
- given
-> > > +      APLIC domain. Each child APLIC domain is assigned child index =
-in
-> > > +      increasing order with the first child APLIC domain assigned ch=
-ild
-> > > +      index 0. The APLIC domain child index is used by firmware to d=
-elegate
-> > > +      interrupts from the given APLIC domain to a particular child A=
-PLIC
-> > > +      domain.
-> > > +
-> > > +  riscv,delegate:
-> > > +    $ref: '/schemas/types.yaml#/definitions/phandle-array'
-> > > +    minItems: 1
-> > > +    maxItems: 1024
-> > > +    description:
-> > > +      This property represents a interrupt delegation list where eac=
-h entry
-> > > +      is a triple consisting of child APLIC domain phandle, first in=
-terrupt
-> > > +      number, and last interrupt number. The firmware will configure=
- interrupt
-> > > +      delegation registers based on interrupt delegation list.
-> >
-> > What is the inter dependence of the children and delegate?
-> > Is it valid to have a delegate property without children?
-> > Can the firmware delegate interrupts without the delegation list, based
-> > on the children property alone? Or is it effectively useless without a
-> > children property?
+> ---+-+-----------+-----------+--
+> 100 0 rs1[4:0]!=3D0       00000 10 : c.jr
+> 100 1 rs1[4:0]!=3D0       00000 10 : c.jalr
+> 100 0  rd[4:0]!=3D0 rs2[4:0]!=3D0 10 : c.mv
+> 100 1  rd[4:0]!=3D0 rs2[4:0]!=3D0 10 : c.add
 >=20
-> Both properties convey different information. The "riscv,childen" describ=
-es
-> the association of child indexes with child APLIC domains whereas the
-> "riscv,delegate" describes the interrupt delegation to few of the child
-> APLIC domains.
+> The following logic is used to decode c.jr and c.jalr:
 >=20
+>   insn & 0xf007 =3D=3D 0x8002 =3D> instruction is an c.jr
+>   insn & 0xf007 =3D=3D 0x9002 =3D> instruction is an c.jalr
 >=20
-> >
-> > In your examples, the second has msi-parent but neither of these custom
-> > properties. Do the children/delegate properties have a meaning in the
-> > msi-parent case?
+> When 0xf007 is used to mask the instruction, c.mv can be incorrectly
+> decoded as c.jr, and c.add as c.jalr.
 >=20
-> The "riscv,childern" and "riscv,delegate" are only useful when we have
-> hierarchy of multiple APLIC domains. The second example only has
-> one APLIC domain hence these custom properties are absent.
+> Correct the decoding by changing the mask from 0xf007 to 0xf07f.
+>=20
+> Fixes: c22b0bcb1dd0 ("riscv: Add kprobes supported")
+> Signed-off-by: Bj=F6rn T=F6pel <bjorn@rivosinc.com>
+> ---
+>  arch/riscv/kernel/probes/simulate-insn.h | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/arch/riscv/kernel/probes/simulate-insn.h b/arch/riscv/kernel=
+/probes/simulate-insn.h
+> index cb6ff7dccb92..de8474146a9b 100644
+> --- a/arch/riscv/kernel/probes/simulate-insn.h
+> +++ b/arch/riscv/kernel/probes/simulate-insn.h
+> @@ -31,9 +31,9 @@ __RISCV_INSN_FUNCS(fence,	0x7f, 0x0f);
+>  	} while (0)
+> =20
+>  __RISCV_INSN_FUNCS(c_j,		0xe003, 0xa001);
+> -__RISCV_INSN_FUNCS(c_jr,	0xf007, 0x8002);
 
-It'd be great if you could include an example that explains the
-difference as, IIRC, both Rob and I both were kinda confused as to how
-the properties differ.
+Hmm, I wonder where the mask originally came from!
+I had a look at the compressed spec, of which the version google gave to
+me was v1.9 [1], and Table 1.6 in that (Instruction listing for RVC,
+Quadrant 2) seems to list them all together.
+Tedious it may be, but future instruction decoding bits probably need
+more scrutiny as Drew found another clearly wrong bit a few weeks ago
+[2].
 
-Thanks,
-Conor.
+Anyways, I checked against the doc and the new versions look good to
+me. How'd you spot this, and did you check the other masks?
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
+[1] - https://riscv.org/wp-content/uploads/2015/11/riscv-compressed-spec-v1=
+=2E9.pdf
+[2] - https://lore.kernel.org/linux-riscv/20221223221332.4127602-2-heiko@sn=
+tech.de/
 
---TQVrb+7+nS5b2faU
+> +__RISCV_INSN_FUNCS(c_jr,	0xf07f, 0x8002);
+>  __RISCV_INSN_FUNCS(c_jal,	0xe003, 0x2001);
+> -__RISCV_INSN_FUNCS(c_jalr,	0xf007, 0x9002);
+> +__RISCV_INSN_FUNCS(c_jalr,	0xf07f, 0x9002);
+>  __RISCV_INSN_FUNCS(c_beqz,	0xe003, 0xc001);
+>  __RISCV_INSN_FUNCS(c_bnez,	0xe003, 0xe001);
+>  __RISCV_INSN_FUNCS(c_ebreak,	0xffff, 0x9002);
+
+Worth noting that this code is gone in riscv/for-next thanks to Heiko's
+de-duplication:
+https://lore.kernel.org/linux-riscv/20221223221332.4127602-7-heiko@sntech.d=
+e/
+
+>=20
+> base-commit: 1b929c02afd37871d5afb9d498426f83432e71c2
+> --=20
+> 2.37.2
+>=20
+
+--8sp2DkIA9MjAU0eb
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY7MfyQAKCRB4tDGHoIJi
-0thjAP99pOOK7i02KGfJvyYLevP0789k8SS2zN0cOk0Ie++/vwEA1hE5jLKlaIxR
-MNgh209EnpK++6FWUk87WgaAxdmY0gg=
-=gLSk
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY7M/HgAKCRB4tDGHoIJi
+0g3uAQCrIqCVSY2Ner5nVfbrgXxXUgzZBnB1WJgV/h3Gy/yWCwEAzgIqIInoxLDh
+6A0Nb+FbZWE5HQN8llxfGWsWsO89yAM=
+=dd46
 -----END PGP SIGNATURE-----
 
---TQVrb+7+nS5b2faU--
+--8sp2DkIA9MjAU0eb--
 
 
---===============1591923317380668136==
+--===============0025756229714623646==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -232,5 +188,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============1591923317380668136==--
+--===============0025756229714623646==--
 
