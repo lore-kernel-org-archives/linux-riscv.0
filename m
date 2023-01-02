@@ -4,58 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 745EFC3DA7A
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Jan 2023 14:56:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52739C3DA7A
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Jan 2023 15:24:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SFTrKhNwRlaioONkBiFjUAo2VtSNFtzsb8RY1WH14Is=; b=v8P89F7ISt/rY5
-	p0lhGu7fPPlSMCOSWLi3CD6X+lELbQJyiCs7iKGpM0+EQ0xVzC5Dddl/XG1CEPwzpvO8atyHMj6ty
-	dfRPaJSXUKNWFAmdP3ayNB3mEkBKr306GYN4ACQdXzIkdNpVFpgW7lHRARB7lNNy8NjiHX2GdfQkL
-	zNnBp2XQ+MXDK9zzW5Vz3MFycpZohZxftpCJg2paWEbYC/j5+j5sA8HQUHWDb4WWPIBwCs5V4kN4z
-	ev2ylPF8fS8MqkaFFztmIjdzw2lbB2kWSvKI6qrQwVB4rrYFYg+CtON6Nt6Dp2oURISd90BLSNmQl
-	tSmDr9DS6Qbw7mdDtoOA==;
+	List-Owner; bh=s4NJPh/KznErm5U/+2M/jLqvYKRBFMiWAupbyrBpfYM=; b=H0ZdbkEITFrOtG
+	Kqd80FCYyzpzt7jex2xDFIrcmQ0KNcf4qqID+uZWazRp0QbLVVLW24hTfX8RCNxsQarJSv+V9WA/q
+	2DRS5B1Y0UEFjVMWwHnxf0bQFWBcUAZ+NMJPOykljpNferIRO4LPU3RJBizkTH2+laHZUQmXLyYjw
+	EDWJ+/79TEO8mR9QMjNA1rLKVOP4e4yuaOz2K6wT3sdq/3uVWMFtNBnmgiketX0EUKDOdcPkCbN72
+	qO4m6c8B5+TQY/sV8HikuIUhj9pO4lQ5c//8f2thbQqpLBdzvOC7oxWednkHGH0G4h3RlLqaJGwH5
+	GuQMHJdmgVzN0gy4KlWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCMEC-00BwCk-7w; Mon, 02 Jan 2023 14:55:53 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1pCMfc-00CAsd-Pq; Mon, 02 Jan 2023 15:24:13 +0000
+Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCM8h-00BtL2-Mf
-	for linux-riscv@bombadil.infradead.org; Mon, 02 Jan 2023 14:50:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=8SJCKU8fTbFd8vJQ1sfvHwmKeW7oaWpD8QTI8/i2jyU=; b=WELv3uCCjWVG0rom/tDODfiPIJ
-	Pluof2INQGBVGajHSDSX4fXwtrjRS6ong4SMJkm1pjtkwkNjWi9JVU3rNmiscVaZld6+CEfV+RJ77
-	VwBPA+H6/KnROnbMKXuebTXB8tLzuC78xmQwmXhONek6mYexGHjirzA/CA4eGQ22vp+WxZVLEdJHg
-	aQGfTq72lVgLe5ogV37pheoibBL0k/OZgi4K63IVWI8b3PLqGqBk7QzuRfAHbo3I8kB8QCcyVTBcd
-	jHzTFbvw5SQQ9zkAUrxprR8LB1Wd3zTM+IGmlcT5OdPQKkZcFzP0pp7aBUd6FhQIj6JUNPMM9LlNl
-	tynymW9w==;
-Received: from [187.19.237.165] (helo=quaco.ghostprotocols.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.96 #2 (Red Hat Linux))
-	id 1pCM8Y-000HcP-2G;
-	Mon, 02 Jan 2023 14:50:04 +0000
-Received: by quaco.ghostprotocols.net (Postfix, from userid 1000)
-	id 8332D40468; Mon,  2 Jan 2023 11:50:05 -0300 (-03)
-Date: Mon, 2 Jan 2023 11:50:05 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Eric Lin <eric.lin@sifive.com>
-Cc: peterz@infradead.org, alexander.shishkin@linux.intel.com,
-	jolsa@kernel.org, namhyung@kernel.org, palmer@dabbelt.com,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
-	greentime.hu@sifive.com, vincent.chen@sifive.com
-Subject: Re: [PATCH] perf tools riscv: Fix perf tool build error on riscv
-Message-ID: <Y7LvHY/V6pME33I6@kernel.org>
-References: <20221231052731.24908-1-eric.lin@sifive.com>
+	id 1pCMfM-00CAhK-8W
+	for linux-riscv@lists.infradead.org; Mon, 02 Jan 2023 15:23:58 +0000
+Received: from ptx.hi.pengutronix.de ([2001:67c:670:100:1d::c0])
+	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <pza@pengutronix.de>)
+	id 1pCMf4-0005r2-4U; Mon, 02 Jan 2023 16:23:38 +0100
+Received: from pza by ptx.hi.pengutronix.de with local (Exim 4.92)
+	(envelope-from <pza@pengutronix.de>)
+	id 1pCMf0-0007z1-VD; Mon, 02 Jan 2023 16:23:34 +0100
+Date: Mon, 2 Jan 2023 16:23:34 +0100
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Samuel Holland <samuel@sholland.org>
+Cc: Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Rob Herring <robh+dt@kernel.org>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	Andre Przywara <andre.przywara@arm.com>
+Subject: Re: [PATCH v2 5/6] dt-bindings: clock: Add D1 CAN bus gates and
+ resets
+Message-ID: <20230102152334.GB30338@pengutronix.de>
+References: <20221231231429.18357-1-samuel@sholland.org>
+ <20221231231429.18357-6-samuel@sholland.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20221231052731.24908-1-eric.lin@sifive.com>
-X-Url: http://acmel.wordpress.com
+In-Reply-To: <20221231231429.18357-6-samuel@sholland.org>
+X-Sent-From: Pengutronix Hildesheim
+X-URL: http://www.pengutronix.de/
+X-Accept-Language: de,en
+X-Accept-Content-Type: text/plain
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-SA-Exim-Connect-IP: 2001:67c:670:100:1d::c0
+X-SA-Exim-Mail-From: pza@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20230102_072356_496107_5057CB16 
+X-CRM114-Status: GOOD (  14.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,45 +83,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Em Sat, Dec 31, 2022 at 05:27:31AM +0000, Eric Lin escreveu:
-> Since the definition of 'struct perf_sample' has been moved to sample.h,
-> we need to include this header file to fix the build error as follows:
+On Sat, Dec 31, 2022 at 05:14:28PM -0600, Samuel Holland wrote:
+> The D1 CCU contains gates and resets for two CAN buses. While the CAN
+> bus controllers are only documented for the T113 SoC, the CCU is the
+> same across all SoC variants.
 > 
-> arch/riscv/util/unwind-libdw.c: In function 'libdw__arch_set_initial_registers':
-> arch/riscv/util/unwind-libdw.c:12:50: error: invalid use of undefined type 'struct perf_sample'
->    12 |         struct regs_dump *user_regs = &ui->sample->user_regs;
->       |                                                  ^~
+> Reviewed-by: Andre Przywara <andre.przywara@arm.com>
+> Signed-off-by: Samuel Holland <samuel@sholland.org>
+[...]
+> diff --git a/include/dt-bindings/reset/sun20i-d1-ccu.h b/include/dt-bindings/reset/sun20i-d1-ccu.h
+> index de9ff5203239..f8001cf50bf1 100644
+> --- a/include/dt-bindings/reset/sun20i-d1-ccu.h
+> +++ b/include/dt-bindings/reset/sun20i-d1-ccu.h
+> @@ -73,5 +73,7 @@
+>  #define RST_BUS_DSP_CFG		63
+>  #define RST_BUS_DSP_DBG		64
+>  #define RST_BUS_RISCV_CFG	65
+> +#define RST_BUS_CAN0		66
+> +#define RST_BUS_CAN1		67
 
-Thanks, applied.
+Acked-by: Philipp Zabel <p.zabel@pengutronix.de>
 
-- Arnaldo
-
- 
-> Fixes: 9823147da6c8 ("perf tools: Move 'struct perf_sample' to a separate header file to disentangle headers")
-> Signed-off-by: Eric Lin <eric.lin@sifive.com>
-> ---
->  tools/perf/arch/riscv/util/unwind-libdw.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/tools/perf/arch/riscv/util/unwind-libdw.c b/tools/perf/arch/riscv/util/unwind-libdw.c
-> index 19536e172850..54a198714eb8 100644
-> --- a/tools/perf/arch/riscv/util/unwind-libdw.c
-> +++ b/tools/perf/arch/riscv/util/unwind-libdw.c
-> @@ -4,7 +4,7 @@
->  #include <elfutils/libdwfl.h>
->  #include "../../util/unwind-libdw.h"
->  #include "../../util/perf_regs.h"
-> -#include "../../util/event.h"
-> +#include "../../util/sample.h"
->  
->  bool libdw__arch_set_initial_registers(Dwfl_Thread *thread, void *arg)
->  {
-> -- 
-> 2.17.1
-
--- 
-
-- Arnaldo
+regards
+Philipp
 
 _______________________________________________
 linux-riscv mailing list
