@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D264C3DA7A
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Jan 2023 22:24:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5FD0C3DA7A
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Jan 2023 22:28:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=GcenOplCqKvVOzYiqF65SExwnt5e8MJbJ6dwCkFP1ko=; b=blZbr3gofe7KK2
-	1Or7R71YVUG6yYV8gMqkc0N53l+KnVAOiaiPlCH3MiiupzBY4Ar4X9+h6T1P0PiVts3wEk3BTetUm
-	3PhCRlgGczLDJq4nt9zL1sFcfDYTrd1gQSYsHgl3FtNZqGUoyo+O4vV/7UUCgAKHloNT9dKuHkKhl
-	CijAagVGO/hQ5fhMcItliBXQ0YJOVmQA2VxOk9v4ML/HzA8drIvBv6HO3A7Q/05iK65g/Gkz11NRq
-	grsOkCGSReWUuc8tLe38uOpEqG/4UE97ysQ+Ye3QDyNGKGkFuF1HmfZyFTU4QK7anWSxXx+fWkSUn
-	jck2GgCh/rC6UErtvT3Q==;
+	List-Owner; bh=KTD5u8gnL9Djoydj6FQWzqxDXszFZe6xd4nWKHuMCJ8=; b=PKuF3dLxGxFeiC
+	9MhP2zbaGgjqp1BLa4dx26hRqiFBayo0JCid0D919v6Z6fZTZ4GKonFtRhZv5D68KMUuOJlQwOjgN
+	pXhfHlNS03UCzFeqLj0A0FDP8ssgfFJUgB4ARIio9UIVqCkMMdQowfT3ehRMChcyBP/4+HSJV9uXW
+	t547r3a1nxcEQjhVIojCM+46m6/kDHPD0NmOR3kVgK5T+kJ9wVkmZp8oGwf9XGFEi3X2rjz94MJJP
+	QWa5cwZLw1CYS32us84PD2z6EALu0lVtD2kQqkWglJoBXm40y4Jgx+BEi2Qx5gAZbkUDJNqyoVywO
+	KVOqokluIPhG1eSMWDUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCTEK-00EZL1-17; Mon, 02 Jan 2023 22:24:28 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1pCTI9-00EaSn-Ub; Mon, 02 Jan 2023 22:28:25 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCTCl-00EZ7d-6R
-	for linux-riscv@lists.infradead.org; Mon, 02 Jan 2023 22:22:52 +0000
-Received: by mail-wm1-x329.google.com with SMTP id m3so12546140wmq.0
-        for <linux-riscv@lists.infradead.org>; Mon, 02 Jan 2023 14:22:49 -0800 (PST)
+	id 1pCTH9-00Ea5G-7z
+	for linux-riscv@lists.infradead.org; Mon, 02 Jan 2023 22:27:25 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id h16so27550243wrz.12
+        for <linux-riscv@lists.infradead.org>; Mon, 02 Jan 2023 14:27:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20210112;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=hzAhGjXaHPnQR3DC+YI7zHhPYNDOaj+LjnPkK+FZLFE=;
-        b=j0ZQqW2uJDkWbhQ45/bqKldlVp4tBWD6gzWQPbPpR1V6AFZ5Ihrs4OZNBzpQgps/m4
-         rTXaS/c0hFcCPZ4WfkHw/8Fqj/GQW3bwjF0yKbbdbo2f4nsXaGbw4firdjzZa6aHeiCq
-         H0BUBRvG5b6LlzAwcmLoAOXuThD9YsZyLMnTEaIUqrKhc5bbDJy6jCSgD+z411j9YKZw
-         eaVjDBNtWH27us9LIe1++zF0/urLoVxZYOsx/BNrxcXNyW2E3DWYJ1WZRyi6kR91zuXe
-         yU1X4KVExp5RBj5pYF+QZPiIP5/Kz1guSKUYVWW6EFB+SWEAwa1qhY3K2NWgmlRhQvCw
-         DiKw==
+        bh=7wtP7E2/yHl02046h04PnnDHRMQAylX/VciI7feb4uc=;
+        b=XYlFT3Q3gY1UCrytvXj2iKmGX3LlIliu5asqtmjrPwaXmHvtudON3zx4M+A28yNMvs
+         dRHNCj/GtDG69GekRpiGhCLUNKom1z55XXESugsG5G50xQoOkRzMijKqwxZ811lFS2Aq
+         nuz52UsvkiTUEBZt6dr8KHPJwWMGoCCzRap+ZXeOFvzDQWZRunGZ/DOAWJghLVdfN/KC
+         AANSi+CdzSqyfU6+Rmf+uaoUhrhZu9O+lcBwAAvt9L7io5sdtS1ImqbvecObwVuFfzqs
+         /8NwZ358JAO2VhODXhaOWi2wOKS2cELCLtn3HJNEVTROeWHdRS50HhRLlBH0KQ+sTtyr
+         42KA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=hzAhGjXaHPnQR3DC+YI7zHhPYNDOaj+LjnPkK+FZLFE=;
-        b=HssCcPdrNIcrYNN20538bSplN/OOJk1TJE4jZm4SMhkUsHJObYksCXFtNwSM3jlEA1
-         k8ThPiTKvRIGdSHpcwM2pVEMfSYwj3wK0DSjPhBtQ6ir06iu2Qwwy+kHBfMTnUbio7I/
-         +EPouMufCPPTtYEqNlPyviJa9Gppm+0NAEkRCHI4kMnCKBym11tBW0hVgKtig4DaFH4A
-         wlTPybV4r5BOer7jrAW90oLtrXD2b2UGMI9Z1ZKFVeimvaxMhexWKGUr2udmAxDs9Im+
-         1JQGhzezCeNB1Km2JbY8Ml8ElYQhtE4U7hw7YlbxYOLAGuYzkrpqu3RxVnz4joVNRVpR
-         fsfw==
-X-Gm-Message-State: AFqh2koDlw5XzfPRAHBGVk/jTKH2lHQDAAGZtvjgh4k02Rj/JSvB0qLt
-	gXGzU8oJ1oEYpJglJi6yOxQ=
-X-Google-Smtp-Source: AMrXdXvs149q2RLwB0ZezqErfp0NhNZDzNbvUCbH1XcRYTqw/I6EeHFpBoeR9KbtNh2ItGEhDMU+3Q==
-X-Received: by 2002:a05:600c:510e:b0:3d3:5885:4d21 with SMTP id o14-20020a05600c510e00b003d358854d21mr29134502wms.17.1672698168250;
-        Mon, 02 Jan 2023 14:22:48 -0800 (PST)
+        bh=7wtP7E2/yHl02046h04PnnDHRMQAylX/VciI7feb4uc=;
+        b=iMaSrOK9jdTzQmoCE9z6DE/m3KV64IlgUC0MgGarc709W0KAZSIzXBVb9qTrJ85se7
+         rzLEKV+eU3SQCAD3x8TB2nRR+NAILy+4kVxmNPnxKwXh16jE2AiSOr+t5bTsaszEc4oN
+         1+vtpe9TXyC0OZONEN8KqCcOJwvVPjiXetOJVJFrxkNkQJexLKuaMUtH9kFLA4H48+80
+         TUiE94MxUT7Nm442PrLxvLKmykMBWkw+6GKh2kOIZTbDFnvwP4y3LeX4StDL+zxEyHjB
+         zZXBsDQ4MC0gcwTM1SLpp3cAvJWVCedhyMuoLcPcEG6Olp12u8/FJoPtCt18LH9HPq1L
+         JgIA==
+X-Gm-Message-State: AFqh2kqlfuXqfFfb1jGxpKUcj1a376LoY2zsGg/FvSVRINPitjZyNXIr
+	wj/2/lFNVxn/HcNt7qCGsxc=
+X-Google-Smtp-Source: AMrXdXuAdYrxMskOHbOTNuRZtKsmI9gENs7lCNTVa9gUFGSdMVP1y8CGfWRhragy70StL+hWnqdgLw==
+X-Received: by 2002:a5d:4687:0:b0:289:552f:ed13 with SMTP id u7-20020a5d4687000000b00289552fed13mr11682705wrq.25.1672698441013;
+        Mon, 02 Jan 2023 14:27:21 -0800 (PST)
 Received: from prasmi.home ([2a00:23c8:2501:c701:8a7:e535:b020:566a])
-        by smtp.gmail.com with ESMTPSA id f18-20020a05600c4e9200b003d35c845cbbsm50341636wmq.21.2023.01.02.14.22.47
+        by smtp.gmail.com with ESMTPSA id h6-20020a056000000600b002423dc3b1a9sm28298184wrx.52.2023.01.02.14.27.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Jan 2023 14:22:47 -0800 (PST)
+        Mon, 02 Jan 2023 14:27:20 -0800 (PST)
 From: Prabhakar <prabhakar.csengg@gmail.com>
 X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 To: Geert Uytterhoeven <geert@linux-m68k.org>,
@@ -77,15 +77,14 @@ Cc: linux-renesas-soc@vger.kernel.org,
 	Prabhakar <prabhakar.csengg@gmail.com>,
 	Biju Das <biju.das.jz@bp.renesas.com>,
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH v2] riscv: dts: renesas: rzfive-smarc-som: Enable OSTM nodes
-Date: Mon,  2 Jan 2023 22:22:33 +0000
-Message-Id: <20230102222233.274021-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH] riscv: dts: renesas: rzfive-smarc-som: Drop PHY interrupt support for ETH{0,1}
+Date: Mon,  2 Jan 2023 22:27:08 +0000
+Message-Id: <20230102222708.274369-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230102_142251_278038_3F41FB9E 
-X-CRM114-Status: UNSURE (   9.23  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230102_142723_359558_DE0C3203 
+X-CRM114-Status: GOOD (  10.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,43 +103,49 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-Enable OSTM{1,2} nodes on RZ/Five SMARC SoM.
-
-Note, OSTM{1,2} nodes are enabled in the RZ/G2UL SMARC SoM DTSI [0] hence
-deleting the disabled nodes from RZ/Five SMARC SoM DTSI enables it here
-too as we include [0] in RZ/Five SMARC SoM DTSI.
-
-[0] arch/arm64/boot/dts/renesas/rzg2ul-smarc-som.dtsi
+IRQC support for RZ/Five is still missing so drop the interrupts and
+interrupt-parent properties from the PHY nodes of ETH{0,1}.
 
 Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 ---
-v1->v2
-* Rebased patch on top of [0]
+Hi All,
 
-[0] https://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel.git/log/?h=renesas-riscv-dt-for-v6.3
+This patch is to avoid build issues due to patch series [0]. This patch
+applies on top of [1]
+
+[0] https://patchwork.kernel.org/project/linux-renesas-soc/cover/20230102221815.273719-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
+[1] https://patchwork.kernel.org/project/linux-renesas-soc/patch/20221229230300.104524-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
+
+Cheers,Prabhakar
 ---
- arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi | 8 --------
- 1 file changed, 8 deletions(-)
+ arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
 diff --git a/arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi b/arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi
-index fdfd7cd2792b..73941a5f844d 100644
+index 73941a5f844d..d6f18754eb5d 100644
 --- a/arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi
 +++ b/arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi
-@@ -30,14 +30,6 @@ &eth1 {
+@@ -24,10 +24,20 @@ &dmac {
+ 
+ &eth0 {
  	status = "disabled";
++
++	phy0: ethernet-phy@7 {
++		/delete-property/ interrupt-parent;
++		/delete-property/ interrupts;
++	};
  };
  
--&ostm1 {
--	status = "disabled";
--};
--
--&ostm2 {
--	status = "disabled";
--};
--
- &sdhi0 {
+ &eth1 {
  	status = "disabled";
++
++	phy1: ethernet-phy@7 {
++		/delete-property/ interrupt-parent;
++		/delete-property/ interrupts;
++	};
  };
+ 
+ &sdhi0 {
 -- 
 2.25.1
 
