@@ -4,68 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E06BC3DA7A
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Jan 2023 16:58:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10A6EC3DA7A
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Jan 2023 17:20:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=LVAt7TD9T1bXZnMr6l2JGpDK31qK/qhbOdouGFWunMc=; b=fLSDJaPOOTjbTq
-	sY8cXaAtdfiukL34+mCEP0omgwOf1u+3MdcB6Y6RDbXP/+Jb+eIE6/mMKzqAwfJ5rRg7nZrDocf0Q
-	WeD39ignzurjMNBZeozJNIFLekEmv7JbqCgvwepTfRyPflxj4CjKEyyO7xm3wbLawWkk4k6VpP3gC
-	E1gbBSLFFYcwdiDsUQpM0HkpcAdo7dGB76OlUfjP3+RNtPALq7FLH9zu5WzDZ6GzWMYOsVc9202fv
-	ftqITP4s+Obdc/bePVg40DFreqh09OaHh0DmsQkqOLYCRlfSlcHXBDw+h/+RtQB+oj2vxdKIX0kla
-	NTH9GODLMJ+lYd6UAkhA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=MEkGxxo6bUcazWteCBP3Grbf0YpjOebpCCvND5I4XIw=; b=b5508vQr9OxaXm
+	HS3HY4qQD9a/GnmB0sfeTieUVKKmC1TeZ3RoK0g0ryaxJ0ezi5lphrILfN1GFAmloLMQ7dvb7EAJc
+	zo/ofWNfyimcmIWsk1a+mMm8rA57fFg7H336F9WoLseSVxBRP5+aJRXOK+IBCsKcG4zcAlRv/kiNl
+	SCzhk3kFBokOgwHZhAVd5GPlY6dsCjB4szVuuaVsQensyZPzoAhEHu35E2m8SpQlYe648Rx7aTIhb
+	2WOtgLKX6GSDku3HOtBUBAAeGMrFrgzO2sNZI2xOUap5voANMDzzVcJ9xMVjaeVy8ALNXsKJh+uUp
+	OxhG+AL44a0kbWzf07+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCO8F-00Cuac-AY; Mon, 02 Jan 2023 16:57:51 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pCOTt-00D3M7-Nw; Mon, 02 Jan 2023 17:20:13 +0000
+Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCO6j-00CtwS-89; Mon, 02 Jan 2023 16:56:19 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 6065060018;
-	Mon,  2 Jan 2023 16:56:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 014C9C433EF;
-	Mon,  2 Jan 2023 16:56:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1672678575;
-	bh=BWMsSOT1lO7eK3qmI7rq2XZZ/Kw52CLFkySh9EVNcK8=;
-	h=From:To:Cc:Subject:Date:From;
-	b=uytx4Cwa6W8QIG6Z0OVZpZ0sYZzEoELk9Yk9ik5rMp2o8A1CTqPuVaqeE9/xxFBwI
-	 Ruln5ZlFuYBRH4nq103W6Ib3iglaxhJl9yll2K2CFYesl/z/tzYFujKpjXsYYA635I
-	 1b3htqzslaX8EqijYVcFO14HEbEd42pSVpU1tu2Mkj6omGxyYVklqEjwM9oOhYx/JK
-	 pAC0wIYSWhbGsy32s10VIXfLnhxU4hQ/KgLuycYSoUi8qgqOZwZPy9MUnTFoVfhOcs
-	 soqGvDgkPDOT/x4Mq/79GjpOA6BpZ0bssbP7Jmm9xBKjcjSb05lU5ws4XB4d+iZ1Nl
-	 l3Np/6Ovic49g==
-From: Conor Dooley <conor@kernel.org>
-To: conor@kernel.org,
-	robh+dt@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org,
-	palmer@dabbelt.com,
-	atishp@rivosinc.com
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	apatel@ventanamicro.com,
-	will@kernel.org,
-	mark.rutland@arm.com,
-	opensbi@lists.infradead.org,
-	samuel@sholland.org
-Subject: [PATCH v3] dt-bindings: riscv: add SBI PMU event mappings
-Date: Mon,  2 Jan 2023 16:55:51 +0000
-Message-Id: <20230102165551.1564960-1-conor@kernel.org>
-X-Mailer: git-send-email 2.39.0
+	id 1pCOSG-00D2pU-3W
+	for linux-riscv@lists.infradead.org; Mon, 02 Jan 2023 17:18:48 +0000
+Received: by mail-ej1-x630.google.com with SMTP id x22so67901946ejs.11
+        for <linux-riscv@lists.infradead.org>; Mon, 02 Jan 2023 09:18:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=1TMZ0x9PqurByAgv4IaQ4yW9+aLQK0OBu3LDtfMFSsg=;
+        b=w3fJ2NVy3ybW4J12RYpo6AuPi5mn32czSWBXEVbNXs4w0q0iNt+QeXpZXeH1RX5KN1
+         97nFkdOdU/by3MN81JgOvnuFZBRo326LiQfllIyefyoQydINXQPAL5+iTwIfrolvjNIu
+         bZ2dbpXEwv6ChVXyBaoR4i+GELUUECfx3doT+0x/mLuoZIbPmNdlZdTkttkxBiIjGipN
+         JG2gaPfcDIF6skQIuqUw1gk7t5P4uNN0yNyBAs4/rhpz4nrKcPB7ekxakNtWaX9FMI+d
+         Dqlutmz3tpNsemkxJ1rtyZHweIiffIiMxZJjc+Le7P7+a+Hf6nmnOogR0Ej2QlBsFntS
+         bGJQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=1TMZ0x9PqurByAgv4IaQ4yW9+aLQK0OBu3LDtfMFSsg=;
+        b=R6G/A9WQjB0vAxJRMpWzgjRCGmbFCqeBhi3yb2yRGvkXhyad8JuTx71taqJckUwj4t
+         w95NU+RrD5Phkqoy2Kvq8VPOI7DKQSFZQ7hjUmJhpWyga03WpsBjbWcb8l9HyoWEj/Zj
+         2cPfKi6uZ9vC3OWv7t3YcBgU/fXOOBmFiXDIedXkH9YDTV9Dg0jxg03I4sso89wTNlYJ
+         ZZOoMGJIRKw9CdnXy2U5273+TTHnQY6nxZOzdSazLsuQHeIdGcUj6p2n7wvCuZVPg6cp
+         llFPQrtNVCATdLFrNLcm3c0kbE6FqjSwrUiPu8Eo4tVhGbIbKkM293O5t5OiAUej/04E
+         USaA==
+X-Gm-Message-State: AFqh2kqxYcy1WcPZzDOF9UEr0rGz8uB7s9CmjJsXLdJpA1iawRBaa5nt
+	Wfai5ZKsF1utbsGKEhmjWSFuYPIygpGzoAIGIEshUQ==
+X-Google-Smtp-Source: AMrXdXutiBd/Xq4LFn6w0DCoNgQtytv0Gx4gzk/hzQo1b3LTpVg/ZK5UuclH+SgA0jMzpAnnUSNinCG1Ma6lBJE607E=
+X-Received: by 2002:a17:907:76f4:b0:7c0:c836:e586 with SMTP id
+ kg20-20020a17090776f400b007c0c836e586mr3093627ejc.750.1672679907904; Mon, 02
+ Jan 2023 09:18:27 -0800 (PST)
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=9655; i=conor.dooley@microchip.com; h=from:subject; bh=hQKC54584euMsi2sYjgpLrzK+2bzu6FbNcf6eO8V7uA=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDMmbeab+786JLvv3t3VDuc/EY1vjt6d7eV/4Mj+17E6oU+fh POXgjlIWBjEOBlkxRZbE230tUuv/uOxw7nkLM4eVCWQIAxenAExkljwjw/f4jL7kjUfC+5s7ZzFkX9 Tcz7p6h3eXC9v8ts9/r/iwKTMyzE33Mis6ZNYs/i/4eIOp4b5WJWV1d7bQPFuJfM71eZ0cAA==
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+References: <20221111044207.1478350-1-apatel@ventanamicro.com>
+ <20221111044207.1478350-7-apatel@ventanamicro.com> <20221116192759.GA743769-robh@kernel.org>
+In-Reply-To: <20221116192759.GA743769-robh@kernel.org>
+From: Anup Patel <anup@brainfault.org>
+Date: Mon, 2 Jan 2023 22:48:16 +0530
+Message-ID: <CAAhSdy20DgoNLRtPw2TgTJSupxuco1NWWOWMN-97tpsnx9DLqg@mail.gmail.com>
+Subject: Re: [PATCH 6/9] dt-bindings: Add RISC-V advanced PLIC bindings
+To: Rob Herring <robh@kernel.org>
+Cc: Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, 
+	Marc Zyngier <maz@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+	Atish Patra <atishp@atishpatra.org>, Alistair Francis <Alistair.Francis@wdc.com>, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230102_085617_461485_9213DE38 
-X-CRM114-Status: GOOD (  29.14  )
+X-CRM114-CacheID: sfid-20230102_091832_698006_EB502DFB 
+X-CRM114-Status: GOOD (  31.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,217 +90,208 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+On Thu, Nov 17, 2022 at 12:57 AM Rob Herring <robh@kernel.org> wrote:
+>
+> On Fri, Nov 11, 2022 at 10:12:04AM +0530, Anup Patel wrote:
+> > We add DT bindings document for RISC-V advanced platform level interrupt
+> > controller (APLIC) defined by the RISC-V advanced interrupt architecture
+> > (AIA) specification.
+> >
+> > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> > ---
+> >  .../interrupt-controller/riscv,aplic.yaml     | 136 ++++++++++++++++++
+> >  1 file changed, 136 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml
+> >
+> > diff --git a/Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml b/Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml
+> > new file mode 100644
+> > index 000000000000..0aa48571f3bc
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml
+> > @@ -0,0 +1,136 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/interrupt-controller/riscv,aplic.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: RISC-V Advancded Platform Level Interrupt Controller (APLIC)
+> > +
+> > +maintainers:
+> > +  - Anup Patel <anup@brainfault.org>
+> > +
+> > +description:
+> > +  The RISC-V advanced interrupt architecture (AIA) defines advanced platform
+> > +  level interrupt controller (APLIC) for handling wired interrupts in a
+> > +  RISC-V platform. The RISC-V AIA specification can be found at
+> > +  https://github.com/riscv/riscv-aia.
+> > +
+> > +  The RISC-V APLIC is implemented as hierarchical APLIC domains where all
+> > +  interrupt sources connect to the root domain which can further delegate
+> > +  interrupts to child domains. We have one device tree node for each APLIC
+> > +  domain.
+> > +
+> > +allOf:
+> > +  - $ref: /schemas/interrupt-controller.yaml#
+> > +
+> > +properties:
+> > +  compatible:
+> > +    items:
+> > +      - enum:
+> > +          - vendor,chip-aplic
+> > +      - const: riscv,aplic
+> > +
+> > +  reg:
+> > +    maxItems: 1
+> > +
+> > +  interrupt-controller: true
+> > +
+> > +  "#interrupt-cells":
+> > +    const: 2
+> > +
+> > +  interrupts-extended:
+> > +    minItems: 1
+> > +    maxItems: 16384
+> > +    description:
+> > +      The presence of this property implies that given APLIC domain directly
+> > +      injects external interrupts to a set of RISC-V HARTS (or CPUs). Each
+> > +      node pointed to should be a riscv,cpu-intc node, which has a riscv node
+> > +      (i.e. RISC-V HART) as parent.
+> > +
+> > +  msi-parent:
+> > +    description:
+> > +      The presence of this property implies that given APLIC domain forwards
+> > +      wired interrupts as MSIs to a AIA incoming message signaled interrupt
+> > +      controller (IMSIC). This property should be considered only when the
+> > +      interrupts-extended property is absent.
+> > +
+> > +  riscv,num-sources:
+> > +    $ref: "/schemas/types.yaml#/definitions/uint32"
+> > +    minimum: 1
+> > +    maximum: 1023
+> > +    description:
+> > +      Specifies how many wired interrupts are supported by this APLIC domain.
+> > +
+> > +  riscv,children:
+> > +    $ref: '/schemas/types.yaml#/definitions/phandle-array'
+> > +    minItems: 1
+> > +    maxItems: 1024
+>
+> As each entry is a single phandle:
+>
+>        items:
+>          maxItems: 1
 
-The SBI PMU extension requires a firmware to be aware of the event to
-counter/mhpmevent mappings supported by the hardware. OpenSBI may use
-DeviceTree to describe the PMU mappings. This binding is currently
-described in markdown in OpenSBI (since v1.0 in Dec 2021) & used by QEMU
-since v7.2.0.
+Okay, I will update.
 
-Import the binding for use while validating dtb dumps from QEMU and
-upcoming hardware (eg JH7110 SoC) that will make use of the event
-mapping.
+>
+> > +    description:
+> > +      This property represents a list of child APLIC domains for the given
+> > +      APLIC domain. Each child APLIC domain is assigned child index in
+> > +      increasing order with the first child APLIC domain assigned child
+> > +      index 0. The APLIC domain child index is used by firmware to delegate
+> > +      interrupts from the given APLIC domain to a particular child APLIC
+> > +      domain.
+> > +
+> > +  riscv,delegate:
+> > +    $ref: '/schemas/types.yaml#/definitions/phandle-array'
+> > +    minItems: 1
+> > +    maxItems: 1024
+>
+>        items:
+>          items:
+>            - description: child APLIC domain phandle
+>            - description: ...
+>            - description: ...
 
-Link: https://github.com/riscv-software-src/opensbi/blob/master/docs/pmu_support.md
-Link: https://github.com/riscv-non-isa/riscv-sbi-doc/blob/master/riscv-sbi.adoc # Performance Monitoring Unit Extension
-Co-developed-by: Atish Patra <atishp@rivosinc.com>
-Signed-off-by: Atish Patra <atishp@rivosinc.com>
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
-Changes in v3:
-- align descriptions to SBI spec (and fix a misinterpretation of mine)
-- switch to a nested items description, since the descriptions are for
-  the elements of each entry, not the entries themselves
+Okay, I will update.
 
-Changes in v2:
-- use the schema mechanism for dependancies between properties
-- +CC perf maintainers...
-- move the matrix element descriptions into regular item descriptions
-  rather than doing so freeform in the property description
-- drop some description text that no longer applies since changes were
-  made to the SBI spec
-- drop mention of the "generic platform" which is OpenSBI specific
-- drop the min/max items from the matrices, they don't appear to be
-  needed?
+>
+> > +    description:
+> > +      This property represents a interrupt delegation list where each entry
+> > +      is a triple consisting of child APLIC domain phandle, first interrupt
+> > +      number, and last interrupt number. The firmware will configure interrupt
+> > +      delegation registers based on interrupt delegation list.
+>
+> First and last are inclusive?
 
-Note:
-OpenSBI is BSD-2-Clause licensed so I am unsure as to whether I can
-submit it with a dual license.
----
- .../devicetree/bindings/perf/riscv,pmu.yaml   | 160 ++++++++++++++++++
- 1 file changed, 160 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/perf/riscv,pmu.yaml
+Yes, first and last are inclusive. I will clarify this in the description.
 
-diff --git a/Documentation/devicetree/bindings/perf/riscv,pmu.yaml b/Documentation/devicetree/bindings/perf/riscv,pmu.yaml
-new file mode 100644
-index 000000000000..87a47e365311
---- /dev/null
-+++ b/Documentation/devicetree/bindings/perf/riscv,pmu.yaml
-@@ -0,0 +1,160 @@
-+# SPDX-License-Identifier: BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/perf/riscv,pmu.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: RISC-V SBI PMU events
-+
-+maintainers:
-+  - Atish Patra <atishp@rivosinc.com>
-+
-+description: |
-+  SBI PMU extension supports allow supervisor software to configure, start &
-+  stop any performance counter at anytime. Thus, a user can leverage full
-+  capability of performance analysis tools such as perf if the SBI PMU
-+  extension is enabled. The OpenSBI implementation makes the following
-+  assumptions about the hardware platform:
-+
-+    The platform must provide information about PMU event to counter mapping
-+    via device tree or platform specific hooks. Otherwise, the SBI PMU
-+    extension will not be enabled.
-+
-+    The platforms should provide information about the PMU event selector
-+    values that should be encoded in the expected value of MHPMEVENTx while
-+    configuring MHPMCOUNTERx for that specific event. This can be done via a
-+    device tree or platform specific hooks. The exact value to be written to
-+    the MHPMEVENTx is completely dependent on the platform.
-+
-+    For information on the SBI specification see the section "Performance
-+    Monitoring Unit Extension" of:
-+      https://github.com/riscv-non-isa/riscv-sbi-doc/blob/master/riscv-sbi.adoc
-+
-+properties:
-+  compatible:
-+    const: riscv,pmu
-+
-+  riscv,event-to-mhpmevent:
-+    $ref: /schemas/types.yaml#/definitions/uint32-matrix
-+    description:
-+      Represents an ONE-to-ONE mapping between a PMU event and the event
-+      selector value that platform expects to be written to the MHPMEVENTx CSR
-+      for that event.
-+      The mapping is encoded in an matrix format where each element represents
-+      an event.
-+      This property shouldn't encode any raw hardware event.
-+    items:
-+      items:
-+        - description: event_idx, a 20-bit wide encoding of the event type and
-+            code. Refer to the SBI specification for a complete description of
-+            the event types and codes.
-+        - description: upper 32 bits of the event selector value for MHPMEVENTx
-+        - description: lower 32 bits of the event selector value for MHPMEVENTx
-+
-+  riscv,event-to-mhpmcounters:
-+    $ref: /schemas/types.yaml#/definitions/uint32-matrix
-+    description:
-+      Represents a MANY-to-MANY mapping between a range of events and all the
-+      MHPMCOUNTERx in a bitmap format that can be used to monitor these range
-+      of events. The information is encoded in an matrix format where each
-+      element represents a certain range of events and corresponding counters.
-+      This property shouldn't encode any raw event.
-+    items:
-+      items:
-+        - description: first event_idx of the range of events
-+        - description: last event_idx of the range of events
-+        - description: bitmap of MHPMCOUNTERx for this event
-+
-+  riscv,raw-event-to-mhpmcounters:
-+    $ref: /schemas/types.yaml#/definitions/uint32-matrix
-+    description:
-+      Represents an ONE-to-MANY or MANY-to-MANY mapping between the rawevent(s)
-+      and all the MHPMCOUNTERx in a bitmap format that can be used to monitor
-+      that raw event.
-+      The encoding of the raw events are platform specific. The information is
-+      encoded in a matrix format where each element represents the specific raw
-+      event(s).
-+      If a platform directly encodes each raw PMU event as a unique ID, the
-+      value of variant must be 0xffffffff_ffffffff.
-+    items:
-+      items:
-+        - description:
-+            upper 32 invariant bits for the range of events
-+        - description:
-+            lower 32 invariant bits for the range of events
-+        - description:
-+            upper 32 bits of the variant bit mask for the range of events
-+        - description:
-+            lower 32 bits of the variant bit mask for the range of events
-+        - description:
-+            bitmap of all MHPMCOUNTERx that can monitor the range of events
-+
-+dependencies:
-+  "riscv,event-to-mhpmevent": [ "riscv,event-to-mhpmcounters" ]
-+  "riscv,event-to-mhpmcounters": [ "riscv,event-to-mhpmevent" ]
-+
-+required:
-+  - compatible
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    pmu {
-+        compatible = "riscv,pmu";
-+        riscv,event-to-mhpmevent = <0x0000B 0x0000 0x0001>;
-+        riscv,event-to-mhpmcounters = <0x00001 0x00001 0x00000001>,
-+                                      <0x00002 0x00002 0x00000004>,
-+                                      <0x00003 0x0000A 0x00000ff8>,
-+                                      <0x10000 0x10033 0x000ff000>;
-+        riscv,raw-event-to-mhpmcounters =
-+            /* For event ID 0x0002 */
-+            <0x0000 0x0002 0xffffffff 0xffffffff 0x00000f8>,
-+            /* For event ID 0-4 */
-+            <0x0 0x0 0xffffffff 0xfffffff0 0x00000ff0>,
-+            /* For event ID 0xffffffff0000000f - 0xffffffff000000ff */
-+            <0xffffffff 0x0 0xffffffff 0xffffff0f 0x00000ff0>;
-+    };
-+
-+  - |
-+    /*
-+     * For HiFive Unmatched board the encodings can be found here
-+     * https://sifive.cdn.prismic.io/sifive/1a82e600-1f93-4f41-b2d8-86ed8b16acba_fu740-c000-manual-v1p6.pdf
-+     * This example also binds standard SBI PMU hardware id's to U74 PMU event
-+     * codes, U74 uses a bitfield for events encoding, so several U74 events
-+     * can be bound to single perf id.
-+     * See SBI PMU hardware id's in OpenSBI's include/sbi/sbi_ecall_interface.h
-+     */
-+    pmu {
-+          compatible = "riscv,pmu";
-+          riscv,event-to-mhpmevent =
-+              /* SBI_PMU_HW_CACHE_REFERENCES -> Instruction or Data cache/ITIM busy */
-+              <0x00003 0x00000000 0x1801>,
-+              /* SBI_PMU_HW_CACHE_MISSES -> Instruction or Data cache miss or MMIO access */
-+              <0x00004 0x00000000 0x0302>,
-+              /* SBI_PMU_HW_BRANCH_INSTRUCTIONS -> Conditional branch retired */
-+              <0x00005 0x00000000 0x4000>,
-+              /* SBI_PMU_HW_BRANCH_MISSES -> Branch or jump misprediction */
-+              <0x00006 0x00000000 0x6001>,
-+              /* L1D_READ_MISS -> Data cache miss or MMIO access */
-+              <0x10001 0x00000000 0x0202>,
-+              /* L1D_WRITE_ACCESS -> Data cache write-back */
-+              <0x10002 0x00000000 0x0402>,
-+              /* L1I_READ_ACCESS -> Instruction cache miss */
-+              <0x10009 0x00000000 0x0102>,
-+              /* LL_READ_MISS -> UTLB miss */
-+              <0x10011 0x00000000 0x2002>,
-+              /* DTLB_READ_MISS -> Data TLB miss */
-+              <0x10019 0x00000000 0x1002>,
-+              /* ITLB_READ_MISS-> Instruction TLB miss */
-+              <0x10021 0x00000000 0x0802>;
-+          riscv,event-to-mhpmcounters = <0x00003 0x00006 0x18>,
-+                                        <0x10001 0x10002 0x18>,
-+                                        <0x10009 0x10009 0x18>,
-+                                        <0x10011 0x10011 0x18>,
-+                                        <0x10019 0x10019 0x18>,
-+                                        <0x10021 0x10021 0x18>;
-+          riscv,raw-event-to-mhpmcounters = <0x0 0x0 0xffffffff 0xfc0000ff 0x18>,
-+                                            <0x0 0x1 0xffffffff 0xfff800ff 0x18>,
-+                                            <0x0 0x2 0xffffffff 0xffffe0ff 0x18>;
-+    };
--- 
-2.39.0
+>
+> Couldn't riscv,children and riscv,delegate be combined? How would they
+> be different? If some children don't have any delegated interrupts, you
+> could use -1 for the cells for example.
 
+The "riscv,children" describes the hierarchy of APLIC domains in HW
+whereas "riscv,delegate" describes the system choices of delegating
+interrupts from a parent APLIC domain to one of its children. I feel
+it's not natural to combine these two properties.
+
+>
+> An example showing the need would be nice.
+>
+> > +
+> > +additionalProperties: false
+> > +
+> > +required:
+> > +  - compatible
+> > +  - reg
+> > +  - interrupt-controller
+> > +  - "#interrupt-cells"
+> > +  - riscv,num-sources
+> > +
+> > +examples:
+> > +  - |
+> > +    // Example 1 (APIC domain directly injecting interrupt to HARTs):
+>
+> Is than an x86 APIC or a typo?
+>
+> > +
+> > +    aplic0: interrupt-controller@c000000 {
+> > +      compatible = "vendor,chip-aplic", "riscv,aplic";
+> > +      interrupts-extended = <&cpu1_intc 11>,
+> > +                            <&cpu2_intc 11>,
+> > +                            <&cpu3_intc 11>,
+> > +                            <&cpu4_intc 11>;
+> > +      reg = <0xc000000 0x4080>;
+> > +      interrupt-controller;
+> > +      #interrupt-cells = <2>;
+> > +      riscv,num-sources = <63>;
+> > +      riscv,children = <&aplic1>;
+> > +      riscv,delegate = <&aplic1 1 63>;
+> > +    };
+> > +
+> > +    aplic1: interrupt-controller@d000000 {
+> > +      compatible = "vendor,chip-aplic", "riscv,aplic";
+> > +      interrupts-extended = <&cpu1_intc 9>,
+> > +                            <&cpu2_intc 9>,
+> > +                            <&cpu3_intc 9>,
+> > +                            <&cpu4_intc 9>;
+> > +      reg = <0xd000000 0x4080>;
+> > +      interrupt-controller;
+> > +      #interrupt-cells = <2>;
+> > +      riscv,num-sources = <63>;
+> > +    };
+> > +
+> > +  - |
+> > +    // Example 2 (APIC domain forwarding interrupts as MSIs):
+> > +
+> > +    interrupt-controller@d000000 {
+> > +      compatible = "vendor,chip-aplic", "riscv,aplic";
+> > +      msi-parent = <&imsics>;
+> > +      reg = <0xd000000 0x4000>;
+> > +      interrupt-controller;
+> > +      #interrupt-cells = <2>;
+> > +      riscv,num-sources = <63>;
+> > +    };
+> > +...
+> > --
+> > 2.34.1
+> >
+> >
+
+Regards,
+Anup
 
 _______________________________________________
 linux-riscv mailing list
