@@ -4,61 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DDB9C3DA7A
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Jan 2023 20:33:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D264C3DA7A
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Jan 2023 22:24:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fniwxnOKtOSDsypm1YkgZzXnGEBpMjEcOS0UyRsUyVU=; b=DI5rrQmlGJA8+naQKJn6Bv4YiC
-	q4cowAp2UL2BNFfwLVPzP+rqt3NK4Nsic8c9W3vaskNvWPVuUqK9l7iyZs0mrdbN85TayhgR9d1Fj
-	IH7htd+QLAuYC/z5ikgaG7reO1gVn88vFJYAxpt1QAP8+uL/7JUw5xIaHp++lrEJqM+CmlGi6Fp7P
-	c/urwMnnBowOwS8MFy4BknFRv/f/FtzAcydw8Mp8wR05g8EbiRgXKAbBUeRkZ/DpCexhmUtkWp75F
-	EndxqOMPmU9xLvg+TtcwVczoLgI6lhOEhThoV7MMozF4knLktVA1pLx6YRJ9vFrBQecTyYOfcKeKZ
-	9hlYwQNQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=GcenOplCqKvVOzYiqF65SExwnt5e8MJbJ6dwCkFP1ko=; b=blZbr3gofe7KK2
+	1Or7R71YVUG6yYV8gMqkc0N53l+KnVAOiaiPlCH3MiiupzBY4Ar4X9+h6T1P0PiVts3wEk3BTetUm
+	3PhCRlgGczLDJq4nt9zL1sFcfDYTrd1gQSYsHgl3FtNZqGUoyo+O4vV/7UUCgAKHloNT9dKuHkKhl
+	CijAagVGO/hQ5fhMcItliBXQ0YJOVmQA2VxOk9v4ML/HzA8drIvBv6HO3A7Q/05iK65g/Gkz11NRq
+	grsOkCGSReWUuc8tLe38uOpEqG/4UE97ysQ+Ye3QDyNGKGkFuF1HmfZyFTU4QK7anWSxXx+fWkSUn
+	jck2GgCh/rC6UErtvT3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCRUE-00E5To-ID; Mon, 02 Jan 2023 20:32:46 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pCTEK-00EZL1-17; Mon, 02 Jan 2023 22:24:28 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCRT3-00E5GJ-Gb
-	for linux-riscv@lists.infradead.org; Mon, 02 Jan 2023 20:31:36 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 0EA9C61123;
-	Mon,  2 Jan 2023 20:31:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F6BBC433D2;
-	Mon,  2 Jan 2023 20:31:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1672691491;
-	bh=dBZ79ZS65SsdqLWl+ytWpYgrm/9T6xr5xkyeaJ0IYNc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gKntLNsz60+f+K5l0L7V5T7SOG/RzNteswjWnudkIoSk5OEngciVMVqhX8Mm17Crx
-	 wqPPosDnuPOs1ZcbzLyhXuT0Yk2ofZFgKWDh5AUOgIYOn2cfft+zC5v23nVmCzHtad
-	 P7nj6y3KynrETQO47N4FLANkPeIF/VX0FExi6N6WTd/n9ueYELocBNneAiY1RfKpKj
-	 5RkUYJobOTi2xAZzvyYBKIwRrYc0Cp9pcMrHEgKg9Q1ldGyNdVblUpOya5n38/0RLp
-	 iIMoPgDRBwm+6xxYmIFXNtcah769joIv8RKatLlEkAbOdrHGzGAdb34jCpoATV5igi
-	 TmUbYu9f+LrqQ==
-Date: Mon, 2 Jan 2023 20:31:26 +0000
-From: Conor Dooley <conor@kernel.org>
-To: =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	id 1pCTCl-00EZ7d-6R
+	for linux-riscv@lists.infradead.org; Mon, 02 Jan 2023 22:22:52 +0000
+Received: by mail-wm1-x329.google.com with SMTP id m3so12546140wmq.0
+        for <linux-riscv@lists.infradead.org>; Mon, 02 Jan 2023 14:22:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=hzAhGjXaHPnQR3DC+YI7zHhPYNDOaj+LjnPkK+FZLFE=;
+        b=j0ZQqW2uJDkWbhQ45/bqKldlVp4tBWD6gzWQPbPpR1V6AFZ5Ihrs4OZNBzpQgps/m4
+         rTXaS/c0hFcCPZ4WfkHw/8Fqj/GQW3bwjF0yKbbdbo2f4nsXaGbw4firdjzZa6aHeiCq
+         H0BUBRvG5b6LlzAwcmLoAOXuThD9YsZyLMnTEaIUqrKhc5bbDJy6jCSgD+z411j9YKZw
+         eaVjDBNtWH27us9LIe1++zF0/urLoVxZYOsx/BNrxcXNyW2E3DWYJ1WZRyi6kR91zuXe
+         yU1X4KVExp5RBj5pYF+QZPiIP5/Kz1guSKUYVWW6EFB+SWEAwa1qhY3K2NWgmlRhQvCw
+         DiKw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=hzAhGjXaHPnQR3DC+YI7zHhPYNDOaj+LjnPkK+FZLFE=;
+        b=HssCcPdrNIcrYNN20538bSplN/OOJk1TJE4jZm4SMhkUsHJObYksCXFtNwSM3jlEA1
+         k8ThPiTKvRIGdSHpcwM2pVEMfSYwj3wK0DSjPhBtQ6ir06iu2Qwwy+kHBfMTnUbio7I/
+         +EPouMufCPPTtYEqNlPyviJa9Gppm+0NAEkRCHI4kMnCKBym11tBW0hVgKtig4DaFH4A
+         wlTPybV4r5BOer7jrAW90oLtrXD2b2UGMI9Z1ZKFVeimvaxMhexWKGUr2udmAxDs9Im+
+         1JQGhzezCeNB1Km2JbY8Ml8ElYQhtE4U7hw7YlbxYOLAGuYzkrpqu3RxVnz4joVNRVpR
+         fsfw==
+X-Gm-Message-State: AFqh2koDlw5XzfPRAHBGVk/jTKH2lHQDAAGZtvjgh4k02Rj/JSvB0qLt
+	gXGzU8oJ1oEYpJglJi6yOxQ=
+X-Google-Smtp-Source: AMrXdXvs149q2RLwB0ZezqErfp0NhNZDzNbvUCbH1XcRYTqw/I6EeHFpBoeR9KbtNh2ItGEhDMU+3Q==
+X-Received: by 2002:a05:600c:510e:b0:3d3:5885:4d21 with SMTP id o14-20020a05600c510e00b003d358854d21mr29134502wms.17.1672698168250;
+        Mon, 02 Jan 2023 14:22:48 -0800 (PST)
+Received: from prasmi.home ([2a00:23c8:2501:c701:8a7:e535:b020:566a])
+        by smtp.gmail.com with ESMTPSA id f18-20020a05600c4e9200b003d35c845cbbsm50341636wmq.21.2023.01.02.14.22.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 02 Jan 2023 14:22:47 -0800 (PST)
+From: Prabhakar <prabhakar.csengg@gmail.com>
+X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+To: Geert Uytterhoeven <geert@linux-m68k.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	Guo Ren <guoren@kernel.org>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv, kprobes: Stricter c.jr/c.jalr decoding
-Message-ID: <Y7M/HlcF3u0qWIDJ@spud>
-References: <20230102160748.1307289-1-bjorn@kernel.org>
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-renesas-soc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Prabhakar <prabhakar.csengg@gmail.com>,
+	Biju Das <biju.das.jz@bp.renesas.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH v2] riscv: dts: renesas: rzfive-smarc-som: Enable OSTM nodes
+Date: Mon,  2 Jan 2023 22:22:33 +0000
+Message-Id: <20230102222233.274021-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-In-Reply-To: <20230102160748.1307289-1-bjorn@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230102_123135_354646_661A5039 
-X-CRM114-Status: GOOD (  21.68  )
+X-CRM114-CacheID: sfid-20230102_142251_278038_3F41FB9E 
+X-CRM114-Status: UNSURE (   9.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,123 +97,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0025756229714623646=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
---===============0025756229714623646==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="8sp2DkIA9MjAU0eb"
-Content-Disposition: inline
+Enable OSTM{1,2} nodes on RZ/Five SMARC SoM.
 
+Note, OSTM{1,2} nodes are enabled in the RZ/G2UL SMARC SoM DTSI [0] hence
+deleting the disabled nodes from RZ/Five SMARC SoM DTSI enables it here
+too as we include [0] in RZ/Five SMARC SoM DTSI.
 
---8sp2DkIA9MjAU0eb
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+[0] arch/arm64/boot/dts/renesas/rzg2ul-smarc-som.dtsi
 
-Hey Bjorn,
+Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+---
+v1->v2
+* Rebased patch on top of [0]
 
-On Mon, Jan 02, 2023 at 05:07:48PM +0100, Bj=F6rn T=F6pel wrote:
-> From: Bj=F6rn T=F6pel <bjorn@rivosinc.com>
->=20
-> In the compressed instruction extension, c.jr, c.jalr, c.mv, and c.add
-> is encoded the following way (each instruction is 16b):
->=20
-> ---+-+-----------+-----------+--
-> 100 0 rs1[4:0]!=3D0       00000 10 : c.jr
-> 100 1 rs1[4:0]!=3D0       00000 10 : c.jalr
-> 100 0  rd[4:0]!=3D0 rs2[4:0]!=3D0 10 : c.mv
-> 100 1  rd[4:0]!=3D0 rs2[4:0]!=3D0 10 : c.add
->=20
-> The following logic is used to decode c.jr and c.jalr:
->=20
->   insn & 0xf007 =3D=3D 0x8002 =3D> instruction is an c.jr
->   insn & 0xf007 =3D=3D 0x9002 =3D> instruction is an c.jalr
->=20
-> When 0xf007 is used to mask the instruction, c.mv can be incorrectly
-> decoded as c.jr, and c.add as c.jalr.
->=20
-> Correct the decoding by changing the mask from 0xf007 to 0xf07f.
->=20
-> Fixes: c22b0bcb1dd0 ("riscv: Add kprobes supported")
-> Signed-off-by: Bj=F6rn T=F6pel <bjorn@rivosinc.com>
-> ---
->  arch/riscv/kernel/probes/simulate-insn.h | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->=20
-> diff --git a/arch/riscv/kernel/probes/simulate-insn.h b/arch/riscv/kernel=
-/probes/simulate-insn.h
-> index cb6ff7dccb92..de8474146a9b 100644
-> --- a/arch/riscv/kernel/probes/simulate-insn.h
-> +++ b/arch/riscv/kernel/probes/simulate-insn.h
-> @@ -31,9 +31,9 @@ __RISCV_INSN_FUNCS(fence,	0x7f, 0x0f);
->  	} while (0)
-> =20
->  __RISCV_INSN_FUNCS(c_j,		0xe003, 0xa001);
-> -__RISCV_INSN_FUNCS(c_jr,	0xf007, 0x8002);
+[0] https://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel.git/log/?h=renesas-riscv-dt-for-v6.3
+---
+ arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi | 8 --------
+ 1 file changed, 8 deletions(-)
 
-Hmm, I wonder where the mask originally came from!
-I had a look at the compressed spec, of which the version google gave to
-me was v1.9 [1], and Table 1.6 in that (Instruction listing for RVC,
-Quadrant 2) seems to list them all together.
-Tedious it may be, but future instruction decoding bits probably need
-more scrutiny as Drew found another clearly wrong bit a few weeks ago
-[2].
+diff --git a/arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi b/arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi
+index fdfd7cd2792b..73941a5f844d 100644
+--- a/arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi
++++ b/arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi
+@@ -30,14 +30,6 @@ &eth1 {
+ 	status = "disabled";
+ };
+ 
+-&ostm1 {
+-	status = "disabled";
+-};
+-
+-&ostm2 {
+-	status = "disabled";
+-};
+-
+ &sdhi0 {
+ 	status = "disabled";
+ };
+-- 
+2.25.1
 
-Anyways, I checked against the doc and the new versions look good to
-me. How'd you spot this, and did you check the other masks?
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
-[1] - https://riscv.org/wp-content/uploads/2015/11/riscv-compressed-spec-v1=
-=2E9.pdf
-[2] - https://lore.kernel.org/linux-riscv/20221223221332.4127602-2-heiko@sn=
-tech.de/
-
-> +__RISCV_INSN_FUNCS(c_jr,	0xf07f, 0x8002);
->  __RISCV_INSN_FUNCS(c_jal,	0xe003, 0x2001);
-> -__RISCV_INSN_FUNCS(c_jalr,	0xf007, 0x9002);
-> +__RISCV_INSN_FUNCS(c_jalr,	0xf07f, 0x9002);
->  __RISCV_INSN_FUNCS(c_beqz,	0xe003, 0xc001);
->  __RISCV_INSN_FUNCS(c_bnez,	0xe003, 0xe001);
->  __RISCV_INSN_FUNCS(c_ebreak,	0xffff, 0x9002);
-
-Worth noting that this code is gone in riscv/for-next thanks to Heiko's
-de-duplication:
-https://lore.kernel.org/linux-riscv/20221223221332.4127602-7-heiko@sntech.d=
-e/
-
->=20
-> base-commit: 1b929c02afd37871d5afb9d498426f83432e71c2
-> --=20
-> 2.37.2
->=20
-
---8sp2DkIA9MjAU0eb
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY7M/HgAKCRB4tDGHoIJi
-0g3uAQCrIqCVSY2Ner5nVfbrgXxXUgzZBnB1WJgV/h3Gy/yWCwEAzgIqIInoxLDh
-6A0Nb+FbZWE5HQN8llxfGWsWsO89yAM=
-=dd46
------END PGP SIGNATURE-----
-
---8sp2DkIA9MjAU0eb--
-
-
---===============0025756229714623646==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0025756229714623646==--
-
