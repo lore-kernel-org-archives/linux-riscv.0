@@ -4,86 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C399AC3DA7D
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jan 2023 09:10:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27304C3DA7D
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jan 2023 09:24:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=h+joLpFIc0yRCMbJC/393cwlotEgxC/4qZw9Ym/x65o=; b=dHGr/0bRYsO1+j
-	/stRm7rpsGx7oDvTMeV5NsXDYxh33fn4e67SW9BgNmqBW0uY61zINzh1BBuqkTY4TVRxyoYo0inwR
-	/yjQ33s90wo64+Rk8KVCHQzG0L+WFNK9N8YiU2hBZQ5jQUHALM9JbsiNo9aahR4muWdSl/qhnTQu6
-	jYAUiMWlXqSnvTpXagK8D/IKDfgK3Sey932xYZJAVmG3KCWwZVXbn7sals0SBfHLTnDGnJ/aiguYG
-	nsMc2U6xjYchmLpPt/sHpTANQ/fH8BLixg7EMu82xRjII63t1a0gH7igHgM0D26Xomd8pbY5gLCYO
-	3MVxUuoCTVEt6gClrdkA==;
+	List-Owner; bh=tbp178u47R0rP7bdx+aOehsTfOWbkQLJ5CmEUbm1XRE=; b=gwN+wWiLXmNTnQ
+	Z/1XNFaSw9D8icAW4ZWeVXHiAmAbX7PP/RuPz6YKFfJ+6rpLwrIogTGwTyBaZqvpWTQCmZIj6Zf3u
+	pCnJ+jZsqNEE6PE9+o7dDo8U3GV0L9iH99ntPdksKkDP4BiTNxnKBRsW2vKaejapGf119nCuwSia5
+	iY1z/O6F684hmnYe9JK4qTu2oP4pePdtvq5Rlb6BrLFmcMUce6f8aIiBz+6Wekm097fV5/JjpznUq
+	UuGuWXKIEOppw6VVKjD6PiuSP+v1v0AAy7z2ZMblKNctHTZOidW0MAtnsPosQ8cN/OAyUZVhmK8GU
+	GP4szBd6a2SKzftBg1Zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCdJi-000PbC-9J; Tue, 03 Jan 2023 09:10:42 +0000
-Received: from dggsgout11.his.huawei.com ([45.249.212.51])
+	id 1pCdWa-000RpO-OJ; Tue, 03 Jan 2023 09:24:00 +0000
+Received: from relay9-d.mail.gandi.net ([217.70.183.199])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCdFw-000Osg-Jg
-	for linux-riscv@lists.infradead.org; Tue, 03 Jan 2023 09:06:54 +0000
-Received: from mail02.huawei.com (unknown [172.30.67.153])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4NmRgC6kjzz4f3wYB
-	for <linux-riscv@lists.infradead.org>; Tue,  3 Jan 2023 17:06:31 +0800 (CST)
-Received: from localhost.localdomain (unknown [10.67.175.61])
-	by APP4 (Coremail) with SMTP id gCh0CgAn3bAV8LNj9H0UBA--.54080S6;
-	Tue, 03 Jan 2023 17:06:34 +0800 (CST)
-From: Pu Lehui <pulehui@huaweicloud.com>
-To: bpf@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
-	Luke Nelson <luke.r.nels@gmail.com>,
-	Xi Wang <xi.wang@gmail.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yhs@fb.com>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>,
-	Stanislav Fomichev <sdf@google.com>,
-	Hao Luo <haoluo@google.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Pu Lehui <pulehui@huawei.com>,
-	Pu Lehui <pulehui@huaweicloud.com>
-Subject: [RFC PATCH bpf-next v2 4/4] riscv, bpf: Add bpf trampoline support for RV64
-Date: Tue,  3 Jan 2023 17:07:56 +0800
-Message-Id: <20230103090756.1993820-5-pulehui@huaweicloud.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20230103090756.1993820-1-pulehui@huaweicloud.com>
-References: <20230103090756.1993820-1-pulehui@huaweicloud.com>
+	id 1pCdL8-000Q2I-RY
+	for linux-riscv@lists.infradead.org; Tue, 03 Jan 2023 09:12:13 +0000
+Received: (Authenticated sender: alex@ghiti.fr)
+	by mail.gandi.net (Postfix) with ESMTPSA id DFA53FF80E;
+	Tue,  3 Jan 2023 09:11:56 +0000 (UTC)
+Message-ID: <36314eb6-e41d-30b9-9ac4-12b88a108b7b@ghiti.fr>
+Date: Tue, 3 Jan 2023 10:11:56 +0100
 MIME-Version: 1.0
-X-CM-TRANSID: gCh0CgAn3bAV8LNj9H0UBA--.54080S6
-X-Coremail-Antispam: 1UD129KBjvJXoW3ur4fCw15AryfZw4kCrW5trb_yoWDXw1Upa
-	nrKrW3AFW0qF4FqaykXF1UXF4aka1qvFnIkFy3Grnayr45XrZYkw1rKF4Yvr98Crn5Zr1f
-	JFs0ya90kF17WrJanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUPI14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JF0E3s1l82xGYI
-	kIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2
-	z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F
-	4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq
-	3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7
-	IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4U
-	M4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2
-	kIc2xKxwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E
-	14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIx
-	kGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAF
-	wI0_Gr1j6F4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr
-	0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUQ
-	SdkUUUUU=
-X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
-X-CFilter-Loop: Reflected
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.4.2
+Subject: Re: [PATCH -next V12 3/7] riscv: entry: Add noinstr to prevent
+ instrumentation inserted
+Content-Language: en-US
+To: guoren@kernel.org, arnd@arndb.de, palmer@rivosinc.com,
+ tglx@linutronix.de, peterz@infradead.org, luto@kernel.org,
+ conor.dooley@microchip.com, heiko@sntech.de, jszhang@kernel.org,
+ lazyparser@gmail.com, falcon@tinylab.org, chenhuacai@kernel.org,
+ apatel@ventanamicro.com, atishp@atishpatra.org, mark.rutland@arm.com,
+ ben@decadent.org.uk, bjorn@kernel.org
+Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Guo Ren <guoren@linux.alibaba.com>,
+ =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>
+References: <20230103033531.2011112-1-guoren@kernel.org>
+ <20230103033531.2011112-4-guoren@kernel.org>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20230103033531.2011112-4-guoren@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230103_010649_101851_7AACB832 
-X-CRM114-Status: GOOD (  19.55  )
+X-CRM114-CacheID: sfid-20230103_011211_101221_CDC4F37C 
+X-CRM114-Status: GOOD (  20.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,366 +63,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Pu Lehui <pulehui@huawei.com>
-
-BPF trampoline is the critical infrastructure of the bpf
-subsystem, acting as a mediator between kernel functions
-and BPF programs. Numerous important features, such as
-using ebpf program for zero overhead kernel introspection,
-rely on this key component. We can't wait to support bpf
-trampoline on RV64. The implementation of bpf trampoline
-was closely to x86 and arm64 for future development. The
-related tests have passed, as well as the test_verifier
-with no new failure ceses.
-
-Signed-off-by: Pu Lehui <pulehui@huawei.com>
----
- arch/riscv/net/bpf_jit_comp64.c | 322 ++++++++++++++++++++++++++++++++
- 1 file changed, 322 insertions(+)
-
-diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
-index 2e6f1f39831d..742770edcb1e 100644
---- a/arch/riscv/net/bpf_jit_comp64.c
-+++ b/arch/riscv/net/bpf_jit_comp64.c
-@@ -738,6 +738,328 @@ int bpf_arch_text_poke(void *ip, enum bpf_text_poke_type poke_type,
- 	       bpf_text_poke_jump(ip, old_addr, new_addr);
- }
- 
-+static void store_args(int nregs, int args_off, struct rv_jit_context *ctx)
-+{
-+	int i;
-+
-+	for (i = 0; i < nregs; i++) {
-+		emit_sd(RV_REG_FP, -args_off, RV_REG_A0 + i, ctx);
-+		args_off -= 8;
-+	}
-+}
-+
-+static void restore_args(int nregs, int args_off, struct rv_jit_context *ctx)
-+{
-+	int i;
-+
-+	for (i = 0; i < nregs; i++) {
-+		emit_ld(RV_REG_A0 + i, -args_off, RV_REG_FP, ctx);
-+		args_off -= 8;
-+	}
-+}
-+
-+static int invoke_bpf_prog(struct bpf_tramp_link *l, int args_off, int retval_off,
-+			   int run_ctx_off, bool save_ret, struct rv_jit_context *ctx)
-+{
-+	u32 insn;
-+	int ret, branch_off, offset;
-+	struct bpf_prog *p = l->link.prog;
-+	int cookie_off = offsetof(struct bpf_tramp_run_ctx, bpf_cookie);
-+
-+	if (l->cookie) {
-+		emit_imm(RV_REG_T1, l->cookie, ctx);
-+		emit_sd(RV_REG_FP, -run_ctx_off + cookie_off, RV_REG_T1, ctx);
-+	} else {
-+		emit_sd(RV_REG_FP, -run_ctx_off + cookie_off, RV_REG_ZERO, ctx);
-+	}
-+
-+	/* arg1: prog */
-+	emit_imm(RV_REG_A0, (const s64)p, ctx);
-+	/* arg2: &run_ctx */
-+	emit_addi(RV_REG_A1, RV_REG_FP, -run_ctx_off, ctx);
-+	ret = emit_call((const u64)bpf_trampoline_enter(p), true, ctx);
-+	if (ret)
-+		return ret;
-+
-+	/* if (__bpf_prog_enter(prog) == 0)
-+	 *	goto skip_exec_of_prog;
-+	 */
-+	branch_off = ctx->ninsns;
-+	/* nop reserved for conditional jump */
-+	emit(rv_nop(), ctx);
-+
-+	/* store prog start time */
-+	emit_mv(RV_REG_S1, RV_REG_A0, ctx);
-+
-+	/* arg1: &args_off */
-+	emit_addi(RV_REG_A0, RV_REG_FP, -args_off, ctx);
-+	if (!p->jited)
-+		/* arg2: progs[i]->insnsi for interpreter */
-+		emit_imm(RV_REG_A1, (const s64)p->insnsi, ctx);
-+	ret = emit_call((const u64)p->bpf_func, true, ctx);
-+	if (ret)
-+		return ret;
-+
-+	if (save_ret)
-+		emit_sd(RV_REG_FP, -retval_off, regmap[BPF_REG_0], ctx);
-+
-+	/* update branch with beqz */
-+	offset = ninsns_rvoff(ctx->ninsns - branch_off);
-+	insn = rv_beq(RV_REG_A0, RV_REG_ZERO, offset >> 1);
-+	*(u32 *)(ctx->insns + branch_off) = insn;
-+
-+	/* arg1: prog */
-+	emit_imm(RV_REG_A0, (const s64)p, ctx);
-+	/* arg2: prog start time */
-+	emit_mv(RV_REG_A1, RV_REG_S1, ctx);
-+	/* arg3: &run_ctx */
-+	emit_addi(RV_REG_A2, RV_REG_FP, -run_ctx_off, ctx);
-+	ret = emit_call((const u64)bpf_trampoline_exit(p), true, ctx);
-+
-+	return ret;
-+}
-+
-+static int invoke_bpf_mod_ret(struct bpf_tramp_links *tl, int args_off, int retval_off,
-+			      int run_ctx_off, int *branches_off, struct rv_jit_context *ctx)
-+{
-+	int i, ret;
-+
-+	/* cleanup to avoid garbage return value confusion */
-+	emit_sd(RV_REG_FP, -retval_off, RV_REG_ZERO, ctx);
-+	for (i = 0; i < tl->nr_links; i++) {
-+		ret = invoke_bpf_prog(tl->links[i], args_off, retval_off,
-+				run_ctx_off, true, ctx);
-+		if (ret)
-+			return ret;
-+		emit_ld(RV_REG_T1, -retval_off, RV_REG_FP, ctx);
-+		branches_off[i] = ctx->ninsns;
-+		/* nop reserved for conditional jump */
-+		emit(rv_nop(), ctx);
-+	}
-+
-+	return 0;
-+}
-+
-+static int __arch_prepare_bpf_trampoline(struct bpf_tramp_image *im,
-+					 const struct btf_func_model *m,
-+					 struct bpf_tramp_links *tlinks,
-+					 void *func_addr, u32 flags,
-+					 struct rv_jit_context *ctx)
-+{
-+	int i, ret, offset;
-+	int *branches_off = NULL;
-+	int stack_size = 0, nregs = m->nr_args;
-+	int retaddr_off, fp_off, retval_off, args_off;
-+	int nregs_off, ip_off, run_ctx_off, sreg_off;
-+	struct bpf_tramp_links *fentry = &tlinks[BPF_TRAMP_FENTRY];
-+	struct bpf_tramp_links *fexit = &tlinks[BPF_TRAMP_FEXIT];
-+	struct bpf_tramp_links *fmod_ret = &tlinks[BPF_TRAMP_MODIFY_RETURN];
-+	void *orig_call = func_addr;
-+	bool save_ret;
-+	u32 insn;
-+
-+	/* Generated trampoline stack layout:
-+	 *
-+	 * FP - 8	    [ RA of parent func	] return address of parent
-+	 *					  function
-+	 * FP - retaddr_off [ RA of traced func	] return address of traced
-+	 *					  function
-+	 * FP - fp_off	    [ FP of parent func ]
-+	 *
-+	 * FP - retval_off  [ return value      ] BPF_TRAMP_F_CALL_ORIG or
-+	 *					  BPF_TRAMP_F_RET_FENTRY_RET
-+	 *                  [ argN              ]
-+	 *                  [ ...               ]
-+	 * FP - args_off    [ arg1              ]
-+	 *
-+	 * FP - nregs_off   [ regs count        ]
-+	 *
-+	 * FP - ip_off      [ traced func	] BPF_TRAMP_F_IP_ARG
-+	 *
-+	 * FP - run_ctx_off [ bpf_tramp_run_ctx ]
-+	 *
-+	 * FP - sreg_off    [ callee saved reg	]
-+	 *
-+	 *		    [ pads              ] pads for 16 bytes alignment
-+	 */
-+
-+	if (flags & (BPF_TRAMP_F_ORIG_STACK | BPF_TRAMP_F_SHARE_IPMODIFY))
-+		return -ENOTSUPP;
-+
-+	/* extra regiters for struct arguments */
-+	for (i = 0; i < m->nr_args; i++)
-+		if (m->arg_flags[i] & BTF_FMODEL_STRUCT_ARG)
-+			nregs += round_up(m->arg_size[i], 8) / 8 - 1;
-+
-+	/* 8 arguments passed by registers */
-+	if (nregs > 8)
-+		return -ENOTSUPP;
-+
-+	/* room for parent function return address */
-+	stack_size += 8;
-+
-+	stack_size += 8;
-+	retaddr_off = stack_size;
-+
-+	stack_size += 8;
-+	fp_off = stack_size;
-+
-+	save_ret = flags & (BPF_TRAMP_F_CALL_ORIG | BPF_TRAMP_F_RET_FENTRY_RET);
-+	if (save_ret) {
-+		stack_size += 8;
-+		retval_off = stack_size;
-+	}
-+
-+	stack_size += nregs * 8;
-+	args_off = stack_size;
-+
-+	stack_size += 8;
-+	nregs_off = stack_size;
-+
-+	if (flags & BPF_TRAMP_F_IP_ARG) {
-+		stack_size += 8;
-+		ip_off = stack_size;
-+	}
-+
-+	stack_size += round_up(sizeof(struct bpf_tramp_run_ctx), 8);
-+	run_ctx_off = stack_size;
-+
-+	stack_size += 8;
-+	sreg_off = stack_size;
-+
-+	stack_size = round_up(stack_size, 16);
-+
-+	emit_addi(RV_REG_SP, RV_REG_SP, -stack_size, ctx);
-+
-+	emit_sd(RV_REG_SP, stack_size - retaddr_off, RV_REG_RA, ctx);
-+	emit_sd(RV_REG_SP, stack_size - fp_off, RV_REG_FP, ctx);
-+
-+	emit_addi(RV_REG_FP, RV_REG_SP, stack_size, ctx);
-+
-+	/* callee saved register S1 to pass start time */
-+	emit_sd(RV_REG_FP, -sreg_off, RV_REG_S1, ctx);
-+
-+	/* store ip address of the traced function */
-+	if (flags & BPF_TRAMP_F_IP_ARG) {
-+		emit_imm(RV_REG_T1, (const s64)func_addr, ctx);
-+		emit_sd(RV_REG_FP, -ip_off, RV_REG_T1, ctx);
-+	}
-+
-+	emit_li(RV_REG_T1, nregs, ctx);
-+	emit_sd(RV_REG_FP, -nregs_off, RV_REG_T1, ctx);
-+
-+	store_args(nregs, args_off, ctx);
-+
-+	/* skip to actual body of traced function */
-+	if (flags & BPF_TRAMP_F_SKIP_FRAME)
-+		orig_call += 16;
-+
-+	if (flags & BPF_TRAMP_F_CALL_ORIG) {
-+		emit_imm(RV_REG_A0, (const s64)im, ctx);
-+		ret = emit_call((const u64)__bpf_tramp_enter, true, ctx);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	for (i = 0; i < fentry->nr_links; i++) {
-+		ret = invoke_bpf_prog(fentry->links[i], args_off, retval_off, run_ctx_off,
-+				      flags & BPF_TRAMP_F_RET_FENTRY_RET, ctx);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	if (fmod_ret->nr_links) {
-+		branches_off = kcalloc(fmod_ret->nr_links, sizeof(int), GFP_KERNEL);
-+		if (!branches_off)
-+			return -ENOMEM;
-+
-+		ret = invoke_bpf_mod_ret(fmod_ret, args_off, retval_off, run_ctx_off,
-+					 branches_off, ctx);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	if (flags & BPF_TRAMP_F_CALL_ORIG) {
-+		restore_args(nregs, args_off, ctx);
-+		ret = emit_call((const u64)orig_call, true, ctx);
-+		if (ret)
-+			return ret;
-+		emit_sd(RV_REG_FP, -retval_off, RV_REG_A0, ctx);
-+		/* nop reserved for bpf_tramp_image_put */
-+		im->ip_after_call = ctx->insns + ctx->ninsns;
-+		emit(rv_nop(), ctx);
-+	}
-+
-+	/* update branches saved in invoke_bpf_mod_ret with bnez */
-+	for (i = 0; i < fmod_ret->nr_links; i++) {
-+		offset = ninsns_rvoff(ctx->ninsns - branches_off[i]);
-+		insn = rv_bne(RV_REG_T1, RV_REG_ZERO, offset >> 1);
-+		*(u32 *)(ctx->insns + branches_off[i]) = insn;
-+	}
-+
-+	for (i = 0; i < fexit->nr_links; i++) {
-+		ret = invoke_bpf_prog(fexit->links[i], args_off, retval_off,
-+				      run_ctx_off, false, ctx);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	if (flags & BPF_TRAMP_F_CALL_ORIG) {
-+		im->ip_epilogue = ctx->insns + ctx->ninsns;
-+		emit_imm(RV_REG_A0, (const s64)im, ctx);
-+		ret = emit_call((const u64)__bpf_tramp_exit, true, ctx);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	if (flags & BPF_TRAMP_F_RESTORE_REGS)
-+		restore_args(nregs, args_off, ctx);
-+
-+	if (save_ret)
-+		emit_ld(RV_REG_A0, -retval_off, RV_REG_FP, ctx);
-+
-+	emit_ld(RV_REG_S1, -sreg_off, RV_REG_FP, ctx);
-+
-+	if (flags & BPF_TRAMP_F_SKIP_FRAME)
-+		/* return address of parent function */
-+		emit_ld(RV_REG_RA, stack_size - 8, RV_REG_SP, ctx);
-+	else
-+		/* return address of traced function */
-+		emit_ld(RV_REG_RA, stack_size - retaddr_off, RV_REG_SP, ctx);
-+
-+	emit_ld(RV_REG_FP, stack_size - fp_off, RV_REG_SP, ctx);
-+	emit_addi(RV_REG_SP, RV_REG_SP, stack_size, ctx);
-+
-+	emit_jalr(RV_REG_ZERO, RV_REG_RA, 0, ctx);
-+
-+	bpf_flush_icache(ctx->insns, ctx->insns + ctx->ninsns);
-+
-+	kfree(branches_off);
-+
-+	return ctx->ninsns;
-+
-+}
-+
-+int arch_prepare_bpf_trampoline(struct bpf_tramp_image *im, void *image,
-+				void *image_end, const struct btf_func_model *m,
-+				u32 flags, struct bpf_tramp_links *tlinks,
-+				void *func_addr)
-+{
-+	int ret;
-+	struct rv_jit_context ctx;
-+
-+	ctx.ninsns = 0;
-+	ctx.insns = image;
-+	ret = __arch_prepare_bpf_trampoline(im, m, tlinks, func_addr, flags, &ctx);
-+	if (ret < 0)
-+		return ret;
-+
-+	if (ninsns_rvoff(ret) > (long)image_end - (long)image)
-+		return -EFBIG;
-+
-+	return ninsns_rvoff(ret);
-+}
-+
- int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
- 		      bool extra_pass)
- {
--- 
-2.25.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgR3VvLAoKT24gMS8zLzIzIDA0OjM1LCBndW9yZW5Aa2VybmVsLm9yZyB3cm90ZToKPiBGcm9t
+OiBHdW8gUmVuIDxndW9yZW5AbGludXguYWxpYmFiYS5jb20+Cj4KPiBXaXRob3V0IG5vaW5zdHIg
+dGhlIGNvbXBpbGVyIGlzIGZyZWUgdG8gaW5zZXJ0IGluc3RydW1lbnRhdGlvbiAodGhpbmsKPiBh
+bGwgdGhlIGsqU0FOLCBLQ292LCBHQ292LCBmdHJhY2UgZXRjLi4pIHdoaWNoIGNhbiBjYWxsIGNv
+ZGUgd2UncmUgbm90Cj4geWV0IHJlYWR5IHRvIHJ1biB0aGlzIGVhcmx5IGluIHRoZSBlbnRyeSBw
+YXRoLCBmb3IgaW5zdGFuY2UgaXQgY291bGQKPiByZWx5IG9uIFJDVSB3aGljaCBpc24ndCBvbiB5
+ZXQsIG9yIGV4cGVjdCBsb2NrZGVwIHN0YXRlLiAoYnkgcGV0ZXJ6KQo+Cj4gTGluazogaHR0cHM6
+Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcmlzY3YvWXhjUTZOb1BmM0FIMEVYZUBoaXJlei5wcm9n
+cmFtbWluZy5raWNrcy1hc3MubmV0Lwo+IFJldmlld2VkLWJ5OiBCasO2cm4gVMO2cGVsIDxiam9y
+bkByaXZvc2luYy5jb20+Cj4gU3VnZ2VzdGVkLWJ5OiBQZXRlciBaaWpsc3RyYSA8cGV0ZXJ6QGlu
+ZnJhZGVhZC5vcmc+Cj4gVGVzdGVkLWJ5OiBKaXNoZW5nIFpoYW5nIDxqc3poYW5nQGtlcm5lbC5v
+cmc+Cj4gU2lnbmVkLW9mZi1ieTogR3VvIFJlbiA8Z3VvcmVuQGxpbnV4LmFsaWJhYmEuY29tPgo+
+IFNpZ25lZC1vZmYtYnk6IEd1byBSZW4gPGd1b3JlbkBrZXJuZWwub3JnPgo+IC0tLQo+ICAgYXJj
+aC9yaXNjdi9rZXJuZWwvdHJhcHMuYyB8IDQgKystLQo+ICAgYXJjaC9yaXNjdi9tbS9mYXVsdC5j
+ICAgICB8IDIgKy0KPiAgIDIgZmlsZXMgY2hhbmdlZCwgMyBpbnNlcnRpb25zKCspLCAzIGRlbGV0
+aW9ucygtKQo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL3RyYXBzLmMgYi9hcmNo
+L3Jpc2N2L2tlcm5lbC90cmFwcy5jCj4gaW5kZXggNTQ5YmRlNWM5NzBhLi45NmVjNzZjNTRmZjIg
+MTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvdHJhcHMuYwo+ICsrKyBiL2FyY2gvcmlz
+Y3Yva2VybmVsL3RyYXBzLmMKPiBAQCAtOTUsOSArOTUsOSBAQCBzdGF0aWMgdm9pZCBkb190cmFw
+X2Vycm9yKHN0cnVjdCBwdF9yZWdzICpyZWdzLCBpbnQgc2lnbm8sIGludCBjb2RlLAo+ICAgfQo+
+ICAgCj4gICAjaWYgZGVmaW5lZChDT05GSUdfWElQX0tFUk5FTCkgJiYgZGVmaW5lZChDT05GSUdf
+UklTQ1ZfQUxURVJOQVRJVkUpCj4gLSNkZWZpbmUgX190cmFwX3NlY3Rpb24JCV9fc2VjdGlvbigi
+LnhpcC50cmFwcyIpCj4gKyNkZWZpbmUgX190cmFwX3NlY3Rpb24gX19ub2luc3RyX3NlY3Rpb24o
+Ii54aXAudHJhcHMiKQo+ICAgI2Vsc2UKPiAtI2RlZmluZSBfX3RyYXBfc2VjdGlvbgo+ICsjZGVm
+aW5lIF9fdHJhcF9zZWN0aW9uIG5vaW5zdHIKPiAgICNlbmRpZgo+ICAgI2RlZmluZSBET19FUlJP
+Ul9JTkZPKG5hbWUsIHNpZ25vLCBjb2RlLCBzdHIpCQkJCVwKPiAgIGFzbWxpbmthZ2UgX192aXNp
+YmxlIF9fdHJhcF9zZWN0aW9uIHZvaWQgbmFtZShzdHJ1Y3QgcHRfcmVncyAqcmVncykJXAo+IGRp
+ZmYgLS1naXQgYS9hcmNoL3Jpc2N2L21tL2ZhdWx0LmMgYi9hcmNoL3Jpc2N2L21tL2ZhdWx0LmMK
+PiBpbmRleCBkODZmN2NlYmQ0YTcuLmIyNmY2OGVhYzYxYyAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jp
+c2N2L21tL2ZhdWx0LmMKPiArKysgYi9hcmNoL3Jpc2N2L21tL2ZhdWx0LmMKPiBAQCAtMjA0LDcg
+KzIwNCw3IEBAIHN0YXRpYyBpbmxpbmUgYm9vbCBhY2Nlc3NfZXJyb3IodW5zaWduZWQgbG9uZyBj
+YXVzZSwgc3RydWN0IHZtX2FyZWFfc3RydWN0ICp2bWEpCj4gICAgKiBUaGlzIHJvdXRpbmUgaGFu
+ZGxlcyBwYWdlIGZhdWx0cy4gIEl0IGRldGVybWluZXMgdGhlIGFkZHJlc3MgYW5kIHRoZQo+ICAg
+ICogcHJvYmxlbSwgYW5kIHRoZW4gcGFzc2VzIGl0IG9mZiB0byBvbmUgb2YgdGhlIGFwcHJvcHJp
+YXRlIHJvdXRpbmVzLgo+ICAgICovCj4gLWFzbWxpbmthZ2Ugdm9pZCBkb19wYWdlX2ZhdWx0KHN0
+cnVjdCBwdF9yZWdzICpyZWdzKQo+ICthc21saW5rYWdlIHZvaWQgbm9pbnN0ciBkb19wYWdlX2Zh
+dWx0KHN0cnVjdCBwdF9yZWdzICpyZWdzKQoKCihJIGR1ZyB0aGUgYXJjaGl2ZSBidXQgY2FuJ3Qg
+ZmluZCB0aGUgc2VyaWVzIGJlZm9yZSB2NCwgc28gc29ycnkgaWYgaXQgCndhcyBhbHJlYWR5IGFu
+c3dlcmVkKQoKSSB0aGluayB3ZSBzaG91bGQgbm90IGRpc2FibGUgdGhlIGluc3RydW1lbnRhdGlv
+biBvZiB0aG9zZSB0cmFwIGhhbmRsZXJzIAphcyBhdCBsZWFzdCBwcm9maWxpbmcgdGhlbSB3aXRo
+IGZ0cmFjZSB3b3VsZCBwcm92aWRlIHZhbHVhYmxlIAppbmZvcm1hdGlvbiAoYW5kIGdjb3Ygd291
+bGQgYmUgbmljZSB0b28pOiB3aHkgZG8gd2UgbmVlZCB0byBkbyB0aGF0PyBBIAp0cmFwIHZlcnkg
+ZWFybHkgaW4gdGhlIGJvb3QgcHJvY2VzcyBpcyBub3QgcmVjb3ZlcmFibGUgYW55d2F5LgoKQW5k
+IEkgdG9vayBhIGxvb2sgYXQgb3RoZXIgYXJjaGl0ZWN0dXJlcywgbm9uZSBvZiB0aGVtIGRpc2Fi
+bGVzIHRoZSAKaW5zdHJ1bWVudGF0aW9uIG9uIGRvX3BhZ2VfZmF1bHQuCgoKPiAgIHsKPiAgIAlz
+dHJ1Y3QgdGFza19zdHJ1Y3QgKnRzazsKPiAgIAlzdHJ1Y3Qgdm1fYXJlYV9zdHJ1Y3QgKnZtYTsK
+Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJp
+c2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9s
+aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
