@@ -4,76 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9A8CC3DA7D
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jan 2023 09:02:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E77DC3DA7D
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jan 2023 09:07:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tTKjzEG3/MqtMrw7Bm4v7CRBd9qr8b1hUDe7+DqiZY4=; b=FbbNG1RTE+5tpz
-	LyFcHbJpXJW5H+DZ4Xk+KChjydBjLfPbr7bPrxczebViIxGPz2TKILCJwPyEVzcFMfEVQoNiai+x5
-	qOjRAGCOn8vHhKqnM0r2BmOeYMsrUcExxSiGBrGrQH8sW7uhN9rBasIkPjPtIVOx3/PHexbW5IpZ2
-	i+9z9LbromFdXVurHRp3Zjm8+FiPHvaeJv9GP43FX2XDqhYE+erHfJ2e9W//RtZQlJ0JkAZHPC8fx
-	XNdxE0Gw7irZ4NcMmcsJM3O58HPQ10nYfRfmwvOWfFpbV0Gs9HLPv4deqWnsml+b6W2zNkIqIC3Os
-	TqHBUWt3RhP0B3JNimQw==;
+	List-Owner; bh=i7lbrjEk2taM1eKen3+s+DEOODqxLLsuxgG+W+9FRzU=; b=NuYY8dh3PHjjir
+	0NmFQ/Z7W/9LGpJ9oNqIgoSIfT7rIwvaXYlq001ro454SeNeVktb5yn32wrLZLLvcP5YnG+HQUaPX
+	P2DDWxAvXuDnjqBiAd56Ux3IGl9tFjIkzX4XHCxBQRRRERsOmG32z34qu+kRAWnlctU5HBa+ykpoT
+	Sj/wRZlJ2pCcgCs5TXqNZwFfIxI8TvJaJCeDhGxEa5wPQimRmMXOZq0mG9LOh+5/sdNEILuClkdO8
+	4FWrYf5rPwH3DsqKE0sDTkBVnnjwffsABuEEXEmH8xrGbere/fYq6byfZ+3w/bS3kixWSKHN64z5Z
+	X+MUyGv66M7Pa2IvB85w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCdBJ-000OBR-JT; Tue, 03 Jan 2023 09:02:01 +0000
-Received: from mail-qt1-f170.google.com ([209.85.160.170])
+	id 1pCdGj-000P3u-9t; Tue, 03 Jan 2023 09:07:37 +0000
+Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCd4i-000NHH-Ht
-	for linux-riscv@lists.infradead.org; Tue, 03 Jan 2023 08:55:15 +0000
-Received: by mail-qt1-f170.google.com with SMTP id z12so24094570qtv.5
-        for <linux-riscv@lists.infradead.org>; Tue, 03 Jan 2023 00:55:10 -0800 (PST)
+	id 1pCd8g-000No2-6g
+	for linux-riscv@lists.infradead.org; Tue, 03 Jan 2023 08:59:19 +0000
+Received: by mail-lf1-x131.google.com with SMTP id p36so44753854lfa.12
+        for <linux-riscv@lists.infradead.org>; Tue, 03 Jan 2023 00:59:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=CU2+WCtX132tL/fh6bJF3ka2kMaMnHZImYWVwAwJcNg=;
+        b=jnXRGe2Jocg1Et6CPXmA0ayhtQyqcs/lFZ9v9hbhDS1roPksNnHbq/UdAYy2DOvag3
+         1WOjGyo76716wwQbD2OOBm/yoOZFeF9njwqT+CkoZjMkDpo8+0cxTUR+SQMsLUv8WSyO
+         w+Q+AujQ2T4WWSUGOR8+wS5E7H/xMFFsNLUJ7yTk+DCZ/sem9SHuCz1YDHFlIXi6pjLx
+         YIz/rXPcStFY4+wx84+xMUGl78EUw/kYa+hvTUj2zdk8//N22qDbpijD676GEArsM6pN
+         4oiQzfWe/Dg7AuYLk7Z91jEauegvCS3k6znTJnMMdeeE8qrQHQ70iugxYkeRktkvSCsT
+         lBiw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=poZkD94G6LXE4+Lm/TBono3GS6hWH1AHLJnWJtULzYM=;
-        b=Y7+HQYIlo4nfJJI+zFVc8iKEzkBkSH8RnRVeGyafQ0WTkWS2XZ7Sr8HsmLXPXKzyDy
-         e61R5I2XfXH1Pk25IGWP/fWQr0Rlv5hfZ1Dzl2lwWZIy3L3ByGgkAnthSOPtTiPa2Twl
-         WLd2wTH2V7MBkGCvv02GH8yKMuC3V+9EWbQHiWtIu6bsFoSlM0EPre1OKTrgCXxLC2Nn
-         P4v5mkvPDdEVY3ebif0skSwygSFNMBnAovjWJP2AXVXH8R4NesfOmYh+R4/T0g5jGMsi
-         GRzzOkKFSR+GjvBwwsU8yhvgVZVBRudmw+5bcPOkGsMN35raRWIIn/LfXSNrg1kHUWem
-         Lplw==
-X-Gm-Message-State: AFqh2koxV65eKHuNYiKVHWVUEoUaB/Zj/WmrOPbEC9yHfzFaqxYrPE6C
-	jU39MB8FR3QlnSJ+QfUimgCaH17GB1PBUA==
-X-Google-Smtp-Source: AMrXdXs/RynaN2RsH5X60DtNHhB83rJMtGchPNhuDZYb/P9Jg+efSD7invdDdTEgEmdNnUMI7RhBIA==
-X-Received: by 2002:ac8:534c:0:b0:3a9:8183:6a04 with SMTP id d12-20020ac8534c000000b003a981836a04mr70492760qto.54.1672736109616;
-        Tue, 03 Jan 2023 00:55:09 -0800 (PST)
-Received: from mail-yb1-f182.google.com (mail-yb1-f182.google.com. [209.85.219.182])
-        by smtp.gmail.com with ESMTPSA id bp13-20020a05620a458d00b006fefa5f7fc9sm21684785qkb.134.2023.01.03.00.55.08
-        for <linux-riscv@lists.infradead.org>
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=CU2+WCtX132tL/fh6bJF3ka2kMaMnHZImYWVwAwJcNg=;
+        b=5abGNT9fkC+iDkJv69pI+ZlXh/ZNsiMDMC5mix03Q0KOsWWJkmWd3RA/uvp1Cy3YPc
+         vKN3X22AfVygjyTMZT+NoloUHn3hrPr3DSVu+Bf4q+WWz1Qvr0d0AevQXCmEaLpeYhK6
+         fn1caEJdQyF3OlvD8Drc80sJj/nxx/VMTp7kO2eoV/WNBSds452w9a4tzpVCZXBSeoLl
+         i6UTYitQfpByHdQjnhjFxJwf+iA4djhTKgHHyOIoLnFDAy3WNG7kRXQa1bwYyzeCT+Gu
+         rrZjY2zLmmVoe+y/xv1jwiQmBcAA/4wazWQOxlpMrOZhSp1NnoF5TXgjShws1hQ6JbGw
+         o/zQ==
+X-Gm-Message-State: AFqh2ko61ZxVifzOf4Fq9iBTLmgVyzI3AT2v70Ay8KtBz01JBls1BXoI
+	D5Omy1iZ4DEtAd38Z/SfEQPfIg==
+X-Google-Smtp-Source: AMrXdXu9HYqwwCox3GXFGttfDpq2qBsn94BYzOx9Wk/R+XJGEb1EUFh/MBYkFyYmIWneezkJokov3Q==
+X-Received: by 2002:a05:6512:e9d:b0:4b5:5476:4c27 with SMTP id bi29-20020a0565120e9d00b004b554764c27mr15897513lfb.43.1672736346664;
+        Tue, 03 Jan 2023 00:59:06 -0800 (PST)
+Received: from [192.168.0.20] (088156142067.dynamic-2-waw-k-3-2-0.vectranet.pl. [88.156.142.67])
+        by smtp.gmail.com with ESMTPSA id w5-20020ac24425000000b004cb0256116csm3733546lfl.26.2023.01.03.00.59.05
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 03 Jan 2023 00:55:08 -0800 (PST)
-Received: by mail-yb1-f182.google.com with SMTP id 203so32335786yby.10
-        for <linux-riscv@lists.infradead.org>; Tue, 03 Jan 2023 00:55:08 -0800 (PST)
-X-Received: by 2002:a25:aae1:0:b0:6fc:1c96:c9fe with SMTP id
- t88-20020a25aae1000000b006fc1c96c9femr5618399ybi.36.1672736107872; Tue, 03
- Jan 2023 00:55:07 -0800 (PST)
+        Tue, 03 Jan 2023 00:59:06 -0800 (PST)
+Message-ID: <082eb006-75b8-dead-c014-9ba41a697e50@linaro.org>
+Date: Tue, 3 Jan 2023 09:59:04 +0100
 MIME-Version: 1.0
-References: <20221228161915.13194-1-samuel@sholland.org> <20221228161915.13194-3-samuel@sholland.org>
-In-Reply-To: <20221228161915.13194-3-samuel@sholland.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 3 Jan 2023 09:54:56 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdXx3MZBHdeD3HrTx0740CF48+7j70NvFmVsJBOePJbbXQ@mail.gmail.com>
-Message-ID: <CAMuHMdXx3MZBHdeD3HrTx0740CF48+7j70NvFmVsJBOePJbbXQ@mail.gmail.com>
-Subject: Re: [PATCH 2/3] riscv: sbi: Share the code for unsupported extension warnings
-To: Samuel Holland <samuel@sholland.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Dmitry Osipenko <dmitry.osipenko@collabora.com>, 
-	"Rafael J . Wysocki" <rafael.j.wysocki@intel.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Anup Patel <apatel@ventanamicro.com>, Atish Patra <atishp@rivosinc.com>, 
-	Heiko Stuebner <heiko@sntech.de>, Kai-Heng Feng <kai.heng.feng@canonical.com>, 
-	Luis Chamberlain <mcgrof@kernel.org>, "Paul E. McKenney" <paulmck@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Petr Mladek <pmladek@suse.com>, 
-	YueHaibing <yuehaibing@huawei.com>, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, tangmeng <tangmeng@uniontech.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.6.1
+Subject: Re: [PATCH 6/9] dt-bindings: Add RISC-V advanced PLIC bindings
+Content-Language: en-US
+To: Anup Patel <anup@brainfault.org>, Conor Dooley <conor@kernel.org>
+Cc: Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+ Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Atish Patra <atishp@atishpatra.org>,
+ Alistair Francis <Alistair.Francis@wdc.com>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org
+References: <20221111044207.1478350-1-apatel@ventanamicro.com>
+ <20221111044207.1478350-7-apatel@ventanamicro.com> <Y3EQ4JU7uGbIMGiW@spud>
+ <CAAhSdy2UAMmX+W5Cm3DuTJzZ0jJ3=CW4PhjctQNdfeS+4hqWqg@mail.gmail.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <CAAhSdy2UAMmX+W5Cm3DuTJzZ0jJ3=CW4PhjctQNdfeS+4hqWqg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230103_005512_650294_B9A389F4 
-X-CRM114-Status: GOOD (  16.26  )
+X-CRM114-CacheID: sfid-20230103_005918_305714_D5DD5229 
+X-CRM114-Status: UNSURE (   8.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,24 +102,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 28, 2022 at 5:19 PM Samuel Holland <samuel@sholland.org> wrote:
-> This reduces the code size by sharing most of the code and the format
-> string across all affected extensions.
->
-> Signed-off-by: Samuel Holland <samuel@sholland.org>
+On 02/01/2023 17:50, Anup Patel wrote:
+> On Sun, Nov 13, 2022 at 9:14 PM Conor Dooley <conor@kernel.org> wrote:
+>>
+>> Hey Anup,
+>>
+>> Ditto the $subject nit here.
+> 
+> Adding "interrupt-controller:" to subject makes it longer than 80 characters.
 
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+Because you added redundant double "bindings". Subject line is precious,
+so do not add useless words.
 
-Gr{oetje,eeting}s,
 
-                        Geert
+Best regards,
+Krzysztof
 
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
