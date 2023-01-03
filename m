@@ -4,58 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DF57C46467
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jan 2023 13:04:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 187ABC46467
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jan 2023 15:35:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QDEdRpwBSXGeLrLk/PpYl24huE4tcVwA+a3uKvWUo5w=; b=Kxs2+Nli/J4ywFhWoaNTJoadtU
-	aAzmSefuTt9uiQBWTnLIPgqb29ke7VfaCn3jB+8MJkFs1yWI02Acwk44KaNcB3pwaYrf8BNaDCIIg
-	KhDpDbvyxEuuP/Qk6ZIjtD90YDZIbwEhC1Nm1kn58wBNyhYo/4xUORaLtxki3plU2O5KMpSA6S15m
-	pJ1TN0CH32ozPsLmFZxyN1Rt1YHb5TTzgIfu4VpFqQguhMMPw4VRX5gMCIa1/+MPH7SOwwsXJtdfr
-	1vuz3LPQlNQqRTCUEh7dYrtetFDAy17VbJYAJTXstJKxdH7AWkyPrUhno6slCJosfX4qBWKPy0apO
-	HSAmKOrA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=NfUjUNz2lmPXhDViKDml+Xlvq8ZJgdtDLUR8wJO3w8w=; b=TCL89lygO1j/xV
+	9ZfKXyzF6Uc6GwFcIOitR0mJ4R+6KWP/4WihwwZQp3ndu6WTZs9uxjPJfK1yrqzNuDBhX6KjBNxVD
+	8pdVWbbmjLGWYAJG5CzBRTMeEFIfoU6G2bylKK+/kBDF/muaEzYFZiWY4k3eirKeuAckFVUOW6e0k
+	MyBmlORwVFYMFOCTp4kKLVsoi2uLysmFcA1sAoqwKa13SHdZx2PSMGOvKvXtLVC6piv7KrgDl9FsJ
+	yLSFPO+j1a8kcy9+2p8HjWJNC95v+RmbedgCjfVA9h4UwbAODZr7/gpwvv+Bf0WXJPVC/S5IN7nXg
+	Yx9Lq0hUtTOwQuQuxYkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCgxF-001Ndw-Kp; Tue, 03 Jan 2023 13:03:45 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCeNj-000g0T-7T
-	for linux-riscv@lists.infradead.org; Tue, 03 Jan 2023 10:18:57 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 9185B6120E;
-	Tue,  3 Jan 2023 10:18:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDA7CC433EF;
-	Tue,  3 Jan 2023 10:18:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1672741134;
-	bh=HSkVcDE93TTwdgQxX+NA/uwZL5WLjZtqGQP1f8SU5p4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=agDOiY9giFZqyqoG3aX1QNO2DsCG6ek4ASaFfVcZKSsPpBPaioUkl+2uUMGUC15L/
-	 4IHlfN8H0PS2uvrpzIBZfK6QApOSQPNvGVPxXUE7TbvTW2PzcRmBmK6+NsUGBzePXI
-	 htwc/2oRapfGIZv0ZSnT//3WVwCLjEj+FwbgARQsYhWYVexmank2TaBYKThcBQ0m2a
-	 goB5v27HnyHmT6/rleh344S3IwvZnJ4FtwAu05i+iZk/zWRUN3ucJKj++LeG66qhtY
-	 jsegLAStQZI4KzVYDdp8HjiXxy6JOC7hgEJ5nDfy0HqTEJK3ILq6N0nLognr1QC5WS
-	 bBNETEftCZ+3A==
-Date: Tue, 3 Jan 2023 10:18:49 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>, uwu@icenowy.me
-Subject: Re: [PATCH RESEND 2/2] riscv: errata: prefix T-Head mnemonics with
- th.
-Message-ID: <Y7QBCeqh96rKmZvf@spud>
-References: <20230103062610.69704-1-uwu@icenowy.me>
- <20230103062610.69704-2-uwu@icenowy.me>
- <5641668.DvuYhMxLoT@diego>
+	id 1pCjJl-002UPV-Pq; Tue, 03 Jan 2023 15:35:09 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pCf7d-000teE-Ju; Tue, 03 Jan 2023 11:06:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 532541516;
+	Tue,  3 Jan 2023 03:06:59 -0800 (PST)
+Received: from donnerap.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8D7763F663;
+	Tue,  3 Jan 2023 03:06:15 -0800 (PST)
+Date: Tue, 3 Jan 2023 11:06:13 +0000
+From: Andre Przywara <andre.przywara@arm.com>
+To: Samuel Holland <samuel@sholland.org>
+Cc: Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org, Rob Herring
+ <robh+dt@kernel.org>, Jisheng Zhang <jszhang@kernel.org>,
+ linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski
+ <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor@kernel.org>,
+ linux-kernel@vger.kernel.org, Heiko Stuebner <heiko@sntech.de>, Palmer
+ Dabbelt <palmer@rivosinc.com>, Conor Dooley <conor.dooley@microchip.com>,
+ Heiko Stuebner <heiko.stuebner@vrull.eu>
+Subject: Re: [PATCH v4 04/12] riscv: dts: allwinner: Add the D1/D1s SoC
+ devicetree
+Message-ID: <20230103110613.725f6fa4@donnerap.cambridge.arm.com>
+In-Reply-To: <20221231233851.24923-5-samuel@sholland.org>
+References: <20221231233851.24923-1-samuel@sholland.org>
+	<20221231233851.24923-5-samuel@sholland.org>
+Organization: ARM
+X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
 MIME-Version: 1.0
-In-Reply-To: <5641668.DvuYhMxLoT@diego>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230103_021855_488226_CDFE4392 
-X-CRM114-Status: GOOD (  11.07  )
+X-CRM114-CacheID: sfid-20230103_030621_860102_9F9ED3B4 
+X-CRM114-Status: GOOD (  18.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,72 +65,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org, Nathan Chancellor <nathan@kernel.org>, Guo Ren <guoren@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org
-Content-Type: multipart/mixed; boundary="===============8438472899497970995=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Sat, 31 Dec 2022 17:38:43 -0600
+Samuel Holland <samuel@sholland.org> wrote:
 
---===============8438472899497970995==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="hAPl3w13QUb7Di8T"
-Content-Disposition: inline
+Hi,
 
+> D1 (aka D1-H), D1s (aka F133), R528, and T113 are a family of SoCs based
+> on a single die, or at a pair of dies derived from the same design.
+> 
+> D1 and D1s contain a single T-HEAD Xuantie C906 CPU, whereas R528 and
+> T113 contain a pair of Cortex-A7's. D1 and R528 are the full version of
+> the chip with a BGA package, whereas D1s and T113 are low-pin-count QFP
+> variants.
+> 
+> Because the original design supported both ARM and RISC-V CPUs, some
+> peripherals are duplicated. In addition, all variants except D1s contain
+> a HiFi 4 DSP with its own set of peripherals.
+> 
+> The devicetrees are organized to minimize duplication:
+>  - Common perhiperals are described in sunxi-d1s-t113.dtsi
+>  - DSP-related peripherals are described in sunxi-d1-t113.dtsi
+>  - RISC-V specific hardware is described in sun20i-d1s.dtsi
+>  - Functionality unique to the D1 variant is described in sun20i-d1.dtsi
+> 
+> The SOC_PERIPHERAL_IRQ macro handles the different #interrupt-cells
+> values between the ARM (GIC) and RISC-V (PLIC) versions of the SoC.
 
---hAPl3w13QUb7Di8T
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+I compared to the v2 post (which I already checked against the T113-s
+manual) and did not find any extra changes apart from those mentioned in
+the changelog below. As my two questions from v2 are answered:
 
-> T-Head now maintains some specification for their extended instructions
-> at [1], in which all instructions are prefixed "th.".
->=20
-> Follow this practice in the kernel comments.
->=20
-> [1] https://github.com/T-head-Semi/thead-extension-spec
->=20
-> Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
+Reviewed-by: Andre Przywara <andre.przywara@arm.com>
 
-Hey Icenowy,
-This (yet again) appears to not have made it to the list.
-It's not on patchwork, nor lore:
-https://lore.kernel.org/linux-riscv/2668919.mvXUDI8C0e@diego/T/#t
-https://lore.kernel.org/all/2668919.mvXUDI8C0e@diego/T/#t
+Many thanks,
+Andre
 
-Since you CCed lkml & not just linux-riscv, but it is not showing idk
-what's wrong..
-Your reply to me the other day came through:
-https://lore.kernel.org/all/dda144a8397a175f3ce092485f08896c9a66d232.camel@=
-icenowy.me/
-
-Thanks,
-Conor.
-
-
---hAPl3w13QUb7Di8T
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY7QBCQAKCRB4tDGHoIJi
-0tAGAPsFQ8k9MUuX4iWMfvfLGnFocl2dh5/008Fu0QoDJl3+aAD9G/mDs4wbC+hu
-PcisOihXXbQQPYBicsUO15UAgnF7Tgo=
-=Q0QQ
------END PGP SIGNATURE-----
-
---hAPl3w13QUb7Di8T--
-
-
---===============8438472899497970995==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> 
+> Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> Reviewed-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+> Tested-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+> Signed-off-by: Samuel Holland <samuel@sholland.org>
+> ---
+> 
+> (no changes since v3)
+> 
+> Changes in v3:
+>  - Drop dummy DCXO clock-frequency property
+>  - Decrease the PLIC's riscv,ndev property to 175
+>  - Fix `make W=1 dtbs` warnings (unnecessary #address/#size-cells)
+> 
+> Changes in v2:
+>  - Split into separate files for sharing with D1s/R528/T113
+>  - Use SOC_PERIPHERAL_IRQ macro for interrupts
+>  - Rename osc24M to dcxo and move the frequency to the board DTs
+>  - Drop analog LDOs due to the missing binding
+>  - Correct tcon_top DSI clock reference
+>  - Add DMIC, DSI controller, and DPHY (bindings are in linux-next)
+>  - Add CPU OPP table
+> 
+>  arch/riscv/boot/dts/allwinner/sun20i-d1.dtsi  |  66 ++
+>  arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi |  76 ++
+>  .../boot/dts/allwinner/sunxi-d1-t113.dtsi     |  15 +
+>  .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    | 837 ++++++++++++++++++
+>  4 files changed, 994 insertions(+)
+>  create mode 100644 arch/riscv/boot/dts/allwinner/sun20i-d1.dtsi
+>  create mode 100644 arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
+>  create mode 100644 arch/riscv/boot/dts/allwinner/sunxi-d1-t113.dtsi
+>  create mode 100644 arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
+> 
+...
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8438472899497970995==--
-
