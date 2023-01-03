@@ -4,105 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1E4DC3DA7D
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jan 2023 06:51:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E86A0C3DA7D
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jan 2023 06:56:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cLJ8jubw4xGG+GyjtyhXFbpLmGF2c+dpJzBc0p5zbrQ=; b=wmAc6WOKOlRbyB
-	oEojdkctMNVGFXPwg3PHNP9niuZ9oq6HtvuekiVrlBNOJKnQw1WebZjxJuPX8ekLqDB4VSIIa/za4
-	BhvtE2CQIR/fkkU7QkBi6MbP6OoDHBvrq/KsuyTSrMjD0wvP0Qpz73uXgu3fKE7k/ZJpqvDlNiauz
-	sSjzBvuALk16liWKoX/6zN+kz8vWT6tM31vOhjszvLVLktTHEONSLbfsz/jKUo+ayF0t80KHwrq1A
-	pJzpAKOMUwvdzAAzOazV0I/5wyCzc3hj9kV8pWSh3VCpWX87+zZ9ocunUmR/QUMzNs1oMbtxBMdde
-	M0S3q5AhDz0hLgqGgVKw==;
+	List-Owner; bh=D7IlSn1PxDI/pQkucvLfLwNZT53XqI2Z4eK43htSpZA=; b=cQmF01vaEMhnC4
+	nk8ieHWFcgO7mBAXmyIAR+I+I1G7212KtnjaQHzWyZacCoQGgaa8OxYsdwUrCoDEXJDzWVNHx/HCH
+	C0rcF8YrJHWB3SFS5p9a/dLeUVLczR7WPlpdRITZcv/tK/SEn1g/1aqUyrdH9ZwQyfgqeeRlzmLhX
+	Lwtiz8SxjNnXGrCWeJo+snakznIxc/qlpUtynC7mtScANbWe7ucE1ESv+9CvSWWNOlXY1L0xEfKQw
+	VGHTO25441Ugm0Ggq1GMmXgZ2vRkYZXhhZn1oC1fAVTWsZTpLyTvrwbxwa2Msb7hzk9YN1N3k6aXd
+	oHa6qPXPKzxVBLurF7TQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCb9B-00HGUD-Eb; Tue, 03 Jan 2023 06:51:41 +0000
-Received: from fllv0015.ext.ti.com ([198.47.19.141])
+	id 1pCbDN-00HI7h-B1; Tue, 03 Jan 2023 06:56:01 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCb4X-00HEzd-Qu; Tue, 03 Jan 2023 06:47:03 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by fllv0015.ext.ti.com (8.15.2/8.15.2) with ESMTP id 3036kLwp036782;
-	Tue, 3 Jan 2023 00:46:21 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1672728381;
-	bh=b0z+/hBdGdVLdLi21sE8VV0IYVdDrIzO1ouT2JZpjtM=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=BCFc5nTBx+vUGLfqxyuBUAEwmYbBXBfffMPEV2nyqZF5VYthxYtOkcB/9gZIooWq4
-	 CSAiwIeqhZudz9LbENd71VEOQI6zbF4J7ia3cKTGjNelcqL1IFV9x988A+j/z0SGUA
-	 IiWqhEAgrTW6PIq0nBxTWwCMbJahAMcChHGH5dXM=
-Received: from DFLE110.ent.ti.com (dfle110.ent.ti.com [10.64.6.31])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 3036kLZ0077095
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 3 Jan 2023 00:46:21 -0600
-Received: from DFLE112.ent.ti.com (10.64.6.33) by DFLE110.ent.ti.com
- (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.16; Tue, 3
- Jan 2023 00:46:21 -0600
-Received: from fllv0039.itg.ti.com (10.64.41.19) by DFLE112.ent.ti.com
- (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.16 via
- Frontend Transport; Tue, 3 Jan 2023 00:46:21 -0600
-Received: from localhost (ileaxei01-snat.itg.ti.com [10.180.69.5])
-	by fllv0039.itg.ti.com (8.15.2/8.15.2) with ESMTP id 3036kKAR085946;
-	Tue, 3 Jan 2023 00:46:20 -0600
-From: Aradhya Bhatia <a-bhatia1@ti.com>
-To: Rob Herring <robh+dt@kernel.org>,
-        Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>,
-        Tomi Valkeinen <tomba@kernel.org>, Jyri
- Sarha <jyri.sarha@iki.fi>,
-        David Airlie <airlied@gmail.com>, Daniel Vetter
-	<daniel@ffwll.ch>,
-        Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-        Thierry Reding <thierry.reding@gmail.com>,
-        Sam Ravnborg <sam@ravnborg.org>, Maxime Ripard <maxime@cerno.tech>,
-        Liam Girdwood <lgirdwood@gmail.com>, Mark
- Brown <broonie@kernel.org>,
-        Lad Prabhakar
-	<prabhakar.mahadev-lad.rj@bp.renesas.com>,
-        Paul Walmsley
-	<paul.walmsley@sifive.com>,
-        Palmer Dabbelt <palmer@dabbelt.com>,
-        Albert Ou
-	<aou@eecs.berkeley.edu>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        Guo Ren
-	<guoren@kernel.org>
-CC: DRI Development List <dri-devel@lists.freedesktop.org>,
-        Devicetree List
-	<devicetree@vger.kernel.org>,
-        Linux Kernel List
-	<linux-kernel@vger.kernel.org>,
-        Linux RISC-V List
-	<linux-riscv@lists.infradead.org>,
-        Linux ARM Kernel List
-	<linux-arm-kernel@lists.infradead.org>,
-        Linux Mediatek List
-	<linux-mediatek@lists.infradead.org>,
-        Linux C-SKY Arch List
-	<linux-csky@vger.kernel.org>,
-        Nishanth Menon <nm@ti.com>, Vignesh Raghavendra
-	<vigneshr@ti.com>,
-        Rahul T R <r-ravikumar@ti.com>, Devarsh Thakkar
-	<devarsht@ti.com>,
-        Jai Luthra <j-luthra@ti.com>, Jayesh Choudhary
-	<j-choudhary@ti.com>,
-        Aradhya Bhatia <a-bhatia1@ti.com>
-Subject: [RFC PATCH 3/4] dt-bindings: panel: Introduce dual-link LVDS panel
-Date: Tue, 3 Jan 2023 12:16:14 +0530
-Message-ID: <20230103064615.5311-4-a-bhatia1@ti.com>
-X-Mailer: git-send-email 2.39.0
-In-Reply-To: <20230103064615.5311-1-a-bhatia1@ti.com>
-References: <20230103064615.5311-1-a-bhatia1@ti.com>
+	id 1pCbBh-00HHGr-6l
+	for linux-riscv@lists.infradead.org; Tue, 03 Jan 2023 06:54:20 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id r26so37393192edc.5
+        for <linux-riscv@lists.infradead.org>; Mon, 02 Jan 2023 22:54:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=MYKrmSOx2pt3469lia8FKNW80E8qGEbATC3jLzux/4g=;
+        b=SSxZ1bYYpZK8rXkVsCOw5nzTeGVkoJYmeKeFwWPJv3fj2uIFovL0NSLtWF2O+SJwsf
+         8tF4sJXRBtbmNt67kAYtyXTuDXLLWoyOt4kbP7jxAgASa9srvQotdlRfrZWNm/6Q3DAU
+         buNZZjGu+rTKqwebaXmiTOHafRcQ+OGK17esT1uFHKiWfgoO3fm6W5Kq8uGkLd9mOc7k
+         JaBbKuVP4wO/R9tSGQ9WC+tL6TnSaEVUDF7zRJt06rLoGJWkdr47nesKxIqfA03L/GKf
+         KKZFmPEv46EKWhkFyddQXxPjgYjQnOexVICxpzi2c+JvQlf6Jt7+m6nkLewV0L/DZWFp
+         2Cbw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=MYKrmSOx2pt3469lia8FKNW80E8qGEbATC3jLzux/4g=;
+        b=AX5Cd/36+JHJtnx3peVi2cJBhg2cR31P/rJBZNjhOq6VBDXa4khzHNk5uNyhVYj+FX
+         NLDtFC7+hsF4n9gM79biBrg4eZpXLt1rzHW66WPo62Tt8b5a+zd3x9paGPG9gDQK+sFD
+         kyUa1hjlLvo1jIaWOMOXBIRN4POj9lVjHKh6gsAptTv5bvL2nvvmg+TAIFfIEzrCYnNH
+         UPV6jK8m+sRQCpda1XJzv7ALNP8GmOhgyalWLro8xggg0F6o5IOMl35lmaKTWm8d6VRF
+         s4BSkP1We61eXBzJL1jQkY9t3BSOiAYVfkLLK0FaYEeWWXSZG7sZeZYTFl5/mjpb3rc1
+         hMbw==
+X-Gm-Message-State: AFqh2kpJwZH6pezM9MFLEQb6yVQfhL9/XmCb6Z4GowsY/ktN5yE8vusb
+	YNovYbTHhcGU9G1Ub96Jltl69A==
+X-Google-Smtp-Source: AMrXdXu92FyFlIGfkykwuOeY3JtGSV7RcNkNZqccocQOHoSdmZ08R39/NWRxZWCQMrXbRGmsKqmQjA==
+X-Received: by 2002:a05:6402:22ad:b0:488:6003:24b6 with SMTP id cx13-20020a05640222ad00b00488600324b6mr8981767edb.40.1672728852621;
+        Mon, 02 Jan 2023 22:54:12 -0800 (PST)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id cf30-20020a0564020b9e00b0048db3e85cdcsm2400559edb.85.2023.01.02.22.54.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 02 Jan 2023 22:54:12 -0800 (PST)
+Date: Tue, 3 Jan 2023 07:54:11 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Ley Foon Tan <lftan.linux@gmail.com>
+Subject: Re: [PATCH] riscv: Move call to init_cpu_topology() to later
+ initialization stage
+Message-ID: <20230103065411.2l7k6r57v4phrnos@orel>
+References: <20230103035316.3841303-1-leyfoon.tan@starfivetech.com>
 MIME-Version: 1.0
-X-EXCLAIMER-MD-CONFIG: e1e8a2fd-e40a-4ac6-ac9b-f7e9cc9ee180
+Content-Disposition: inline
+In-Reply-To: <20230103035316.3841303-1-leyfoon.tan@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230102_224658_736065_F70AF8C1 
-X-CRM114-Status: GOOD (  17.89  )
+X-CRM114-CacheID: sfid-20230102_225417_327041_12211F52 
+X-CRM114-Status: GOOD (  18.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,199 +92,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Dual-link LVDS interfaces have 2 links, with even pixels traveling on
-one link, and odd pixels on the other. These panels are also generic in
-nature, with no documented constraints, much like their single-link
-counterparts, "panel-lvds".
+On Tue, Jan 03, 2023 at 11:53:16AM +0800, Ley Foon Tan wrote:
+> topology_parse_cpu_capacity() is failed to allocate memory with kcalloc()
+> after read "capacity-dmips-mhz" DT parameter in CPU DT nodes. This
+> topology_parse_cpu_capacity() is called from init_cpu_topology(), move
+> call to init_cpu_topology() to later initialization  stage (after memory
+> allocation is available).
+> 
+> Note, this refers to ARM64 implementation, call init_cpu_topology() in
+> smp_prepare_cpus().
+> 
+> Tested on Qemu platform.
 
-Add a new compatible, "panel-dual-lvds", and a dt-binding document for
-these panels.
+Hi Ley,
 
-Signed-off-by: Aradhya Bhatia <a-bhatia1@ti.com>
----
- .../display/panel/panel-dual-lvds.yaml        | 157 ++++++++++++++++++
- MAINTAINERS                                   |   1 +
- 2 files changed, 158 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/display/panel/panel-dual-lvds.yaml
+Can you provide the topologies (command lines) tested?
 
-diff --git a/Documentation/devicetree/bindings/display/panel/panel-dual-lvds.yaml b/Documentation/devicetree/bindings/display/panel/panel-dual-lvds.yaml
-new file mode 100644
-index 000000000000..88a7aa2410be
---- /dev/null
-+++ b/Documentation/devicetree/bindings/display/panel/panel-dual-lvds.yaml
-@@ -0,0 +1,157 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/display/panel/panel-dual-lvds.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Generic Dual-Link LVDS Display Panel
-+
-+maintainers:
-+  - Aradhya Bhatia <a-bhatia1@ti.com>
-+  - Thierry Reding <thierry.reding@gmail.com>
-+
-+description: |
-+  A dual-LVDS interface is a dual-link connection with the even pixels
-+  traveling on one link, and the odd pixels traveling on the other.
-+
-+allOf:
-+  - $ref: panel-common.yaml#
-+  - $ref: /schemas/display/lvds.yaml/#
-+
-+properties:
-+  compatible:
-+    oneOf:
-+      - items:
-+          - enum:
-+              - lincolntech,lcd185-101ct
-+              - microtips,13-101hieb0hf0-s
-+          - const: panel-dual-lvds
-+      - const: panel-dual-lvds
-+
-+  ports:
-+    $ref: /schemas/graph.yaml#/properties/ports
-+
-+    properties:
-+      port@0:
-+        $ref: /schemas/graph.yaml#/$defs/port-base
-+        unevaluatedProperties: false
-+        description: The sink for first set of LVDS pixels.
-+
-+        properties:
-+          dual-lvds-odd-pixels:
-+            type: boolean
-+
-+          dual-lvds-even-pixels:
-+            type: boolean
-+
-+        oneOf:
-+          - required: [dual-lvds-odd-pixels]
-+          - required: [dual-lvds-even-pixels]
-+
-+      port@1:
-+        $ref: /schemas/graph.yaml#/$defs/port-base
-+        unevaluatedProperties: false
-+        description: The sink for second set of LVDS pixels.
-+
-+        properties:
-+          dual-lvds-even-pixels:
-+            type: boolean
-+
-+          dual-lvds-odd-pixels:
-+            type: boolean
-+
-+        oneOf:
-+          - required: [dual-lvds-even-pixels]
-+          - required: [dual-lvds-odd-pixels]
-+
-+    allOf:
-+      - if:
-+          properties:
-+            port@0:
-+              properties:
-+                dual-lvds-odd-pixels: true
-+              required:
-+                - dual-lvds-odd-pixels
-+        then:
-+          properties:
-+            port@1:
-+              properties:
-+                dual-lvds-even-pixels: true
-+                dual-lvds-odd-pixels: false
-+
-+      - if:
-+          properties:
-+            port@0:
-+              properties:
-+                dual-lvds-even-pixels: true
-+              required:
-+                - dual-lvds-even-pixels
-+        then:
-+          properties:
-+            port@1:
-+              properties:
-+                dual-lvds-odd-pixels: true
-+                dual-lvds-even-pixels: false
-+
-+    required:
-+      - port@0
-+      - port@1
-+
-+  port: false
-+
-+unevaluatedProperties: false
-+
-+required:
-+  - compatible
-+  - width-mm
-+  - height-mm
-+  - data-mapping
-+  - panel-timing
-+  - ports
-+
-+examples:
-+  - |+
-+    panel-dual-lvds {
-+      compatible = "microtips,13-101hieb0hf0-s", "panel-dual-lvds";
-+
-+      width-mm = <217>;
-+      height-mm = <136>;
-+
-+      data-mapping = "vesa-24";
-+
-+      panel-timing {
-+        clock-frequency = <150275000>;
-+        hactive = <1920>;
-+        vactive = <1200>;
-+        hfront-porch = <32>;
-+        hsync-len = <52>;
-+        hback-porch = <24>;
-+        vfront-porch = <24>;
-+        vsync-len = <8>;
-+        vback-porch = <3>;
-+        de-active = <1>;
-+      };
-+
-+      ports {
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+
-+        port@0 {
-+          reg = <0>;
-+          dual-lvds-odd-pixels;
-+          lcd_in0: endpoint {
-+            remote-endpoint = <&oldi_out0>;
-+          };
-+        };
-+
-+        port@1 {
-+          reg = <1>;
-+          dual-lvds-even-pixels;
-+          lcd_in1: endpoint {
-+            remote-endpoint = <&oldi_out1>;
-+          };
-+        };
-+      };
-+    };
-+
-+...
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 7f86d02cb427..c13f24293ab1 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -6595,6 +6595,7 @@ T:	git git://anongit.freedesktop.org/drm/drm-misc
- S:	Maintained
- F:	drivers/gpu/drm/panel/panel-lvds.c
- F:	Documentation/devicetree/bindings/display/lvds.yaml
-+F:	Documentation/devicetree/bindings/display/panel/panel-dual-lvds.yaml
- F:	Documentation/devicetree/bindings/display/panel/panel-lvds.yaml
- 
- DRM DRIVER FOR MANTIX MLAF057WE51 PANELS
--- 
-2.39.0
+> 
+> Signed-off-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
 
+Fixes tag?
+
+> 
+> ---
+> 
+> In drivers/base/arch_topology.c: topology_parse_cpu_capacity():
+> 
+> 	ret = of_property_read_u32(cpu_node, "capacity-dmips-mhz",
+> 				   &cpu_capacity);
+> 	if (!ret) {
+> 		if (!raw_capacity) {
+> 			raw_capacity = kcalloc(num_possible_cpus(),
+> 					       sizeof(*raw_capacity),
+> 					       GFP_KERNEL);
+> 			if (!raw_capacity) {
+> 				cap_parsing_failed = true;
+> 				return false;
+> 			}
+> ---
+>  arch/riscv/kernel/smpboot.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
+> index 3373df413c88..ddb2afba6d25 100644
+> --- a/arch/riscv/kernel/smpboot.c
+> +++ b/arch/riscv/kernel/smpboot.c
+> @@ -39,7 +39,6 @@ static DECLARE_COMPLETION(cpu_running);
+>  
+>  void __init smp_prepare_boot_cpu(void)
+>  {
+> -	init_cpu_topology();
+>  }
+>  
+>  void __init smp_prepare_cpus(unsigned int max_cpus)
+> @@ -48,6 +47,8 @@ void __init smp_prepare_cpus(unsigned int max_cpus)
+>  	int ret;
+>  	unsigned int curr_cpuid;
+>  
+> +	init_cpu_topology();
+> +
+>  	curr_cpuid = smp_processor_id();
+>  	store_cpu_topology(curr_cpuid);
+>  	numa_store_cpu_info(curr_cpuid);
+> -- 
+> 2.25.1
+>
+
+Otherwise,
+
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
