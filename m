@@ -4,56 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 187ABC46467
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jan 2023 15:35:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EC16C46467
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jan 2023 15:52:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NfUjUNz2lmPXhDViKDml+Xlvq8ZJgdtDLUR8wJO3w8w=; b=TCL89lygO1j/xV
-	9ZfKXyzF6Uc6GwFcIOitR0mJ4R+6KWP/4WihwwZQp3ndu6WTZs9uxjPJfK1yrqzNuDBhX6KjBNxVD
-	8pdVWbbmjLGWYAJG5CzBRTMeEFIfoU6G2bylKK+/kBDF/muaEzYFZiWY4k3eirKeuAckFVUOW6e0k
-	MyBmlORwVFYMFOCTp4kKLVsoi2uLysmFcA1sAoqwKa13SHdZx2PSMGOvKvXtLVC6piv7KrgDl9FsJ
-	yLSFPO+j1a8kcy9+2p8HjWJNC95v+RmbedgCjfVA9h4UwbAODZr7/gpwvv+Bf0WXJPVC/S5IN7nXg
-	Yx9Lq0hUtTOwQuQuxYkg==;
+	List-Owner; bh=7kL6L8U34QlCQLYH1saV42MURLanGUlsN99b+nbIeQA=; b=JOJ9uezMBdsysU
+	95yjlprjT4h6JmOu86NB4yC26SekWzHsdysFTUufGl4ZYFAYoBwbuFR1sDW6ZLC4N6iRlISrzdrIr
+	eObLshFEstR7ZHi24HYuWAOK0SQyAwio/kibMAxytaNuthIRCPvUqvhNYuKUvp7Dwyq/IvulNTuJH
+	WZKcMefs4CcWDx7K416D39y6yPlhnsEBJjK6FdUfpfQy8o064GXpX/1NJMJaKf5wgFeMrwNxP+t+V
+	efqprqDkfgY8fxTkYQ5VGeaojF1p8BLLZeDdkSWr/tQ3p1K5IAEy9pMJSoVSwPi7f/szAJBaj+uuZ
+	iOD86iKL3FKBM0iWt+gQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCjJl-002UPV-Pq; Tue, 03 Jan 2023 15:35:09 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCf7d-000teE-Ju; Tue, 03 Jan 2023 11:06:24 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 532541516;
-	Tue,  3 Jan 2023 03:06:59 -0800 (PST)
-Received: from donnerap.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8D7763F663;
-	Tue,  3 Jan 2023 03:06:15 -0800 (PST)
-Date: Tue, 3 Jan 2023 11:06:13 +0000
-From: Andre Przywara <andre.przywara@arm.com>
-To: Samuel Holland <samuel@sholland.org>
-Cc: Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org, Rob Herring
- <robh+dt@kernel.org>, Jisheng Zhang <jszhang@kernel.org>,
- linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski
- <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor@kernel.org>,
- linux-kernel@vger.kernel.org, Heiko Stuebner <heiko@sntech.de>, Palmer
- Dabbelt <palmer@rivosinc.com>, Conor Dooley <conor.dooley@microchip.com>,
- Heiko Stuebner <heiko.stuebner@vrull.eu>
-Subject: Re: [PATCH v4 04/12] riscv: dts: allwinner: Add the D1/D1s SoC
- devicetree
-Message-ID: <20230103110613.725f6fa4@donnerap.cambridge.arm.com>
-In-Reply-To: <20221231233851.24923-5-samuel@sholland.org>
-References: <20221231233851.24923-1-samuel@sholland.org>
-	<20221231233851.24923-5-samuel@sholland.org>
-Organization: ARM
-X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
+	id 1pCjan-002eDE-30; Tue, 03 Jan 2023 15:52:45 +0000
+Received: from madras.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e5ab])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pCfpi-0014Ox-BP; Tue, 03 Jan 2023 11:52:00 +0000
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by madras.collabora.co.uk (Postfix) with ESMTPSA id 659896602CE7;
+	Tue,  3 Jan 2023 11:51:48 +0000 (GMT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1672746709;
+	bh=6chUOuhMbPwhQBYMQBmnbgN9yec/HXnOChceMVGoqic=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=gG9UbXrrgSVeMwXELIxIuwXvRhEU35Fb89KnSK5SmwjjhQ9O3wB7j+BDd3lS8jkhk
+	 IXgHZgJELX2+QlzUlyCHHifndDkJ/2C1gc/F9rNweTIPXZBgR/cStGIXLdTInfoLBt
+	 fqAq68aomRHY5F6Agw7R+3syaZLI8BGtsv5gRrLWVFzk/aOzdA/QNPtdMRApVusFr8
+	 wja6kGf3ePZt9CQfJkUIc1/xZxeB5SrDZ5kqIlna9JDTABicClm3FJzZX0XJIsahmP
+	 JAvAje3oGDflWCSLKcHLAvKvlArcK3wtj7nt16E5ROG0/Em2+bgbSRcE6Rq7SdWvIW
+	 i1+Njg4yfhRbQ==
+Message-ID: <09f1ca83-c7d5-a186-6fa6-09cdd7a0b9cc@collabora.com>
+Date: Tue, 3 Jan 2023 12:51:45 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.6.0
+Subject: Re: [RFC PATCH 3/4] dt-bindings: panel: Introduce dual-link LVDS
+ panel
+Content-Language: en-US
+To: Aradhya Bhatia <a-bhatia1@ti.com>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Tomi Valkeinen <tomba@kernel.org>, Jyri Sarha <jyri.sarha@iki.fi>,
+ David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Thierry Reding <thierry.reding@gmail.com>, Sam Ravnborg <sam@ravnborg.org>,
+ Maxime Ripard <maxime@cerno.tech>, Liam Girdwood <lgirdwood@gmail.com>,
+ Mark Brown <broonie@kernel.org>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Matthias Brugger <matthias.bgg@gmail.com>, Guo Ren <guoren@kernel.org>
+Cc: DRI Development List <dri-devel@lists.freedesktop.org>,
+ Devicetree List <devicetree@vger.kernel.org>,
+ Linux Kernel List <linux-kernel@vger.kernel.org>,
+ Linux RISC-V List <linux-riscv@lists.infradead.org>,
+ Linux ARM Kernel List <linux-arm-kernel@lists.infradead.org>,
+ Linux Mediatek List <linux-mediatek@lists.infradead.org>,
+ Linux C-SKY Arch List <linux-csky@vger.kernel.org>,
+ Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Rahul T R <r-ravikumar@ti.com>, Devarsh Thakkar <devarsht@ti.com>,
+ Jai Luthra <j-luthra@ti.com>, Jayesh Choudhary <j-choudhary@ti.com>
+References: <20230103064615.5311-1-a-bhatia1@ti.com>
+ <20230103064615.5311-4-a-bhatia1@ti.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20230103064615.5311-4-a-bhatia1@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230103_030621_860102_9F9ED3B4 
-X-CRM114-Status: GOOD (  18.57  )
+X-CRM114-CacheID: sfid-20230103_035155_105635_98E945BF 
+X-CRM114-Status: GOOD (  21.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,82 +89,116 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 31 Dec 2022 17:38:43 -0600
-Samuel Holland <samuel@sholland.org> wrote:
-
-Hi,
-
-> D1 (aka D1-H), D1s (aka F133), R528, and T113 are a family of SoCs based
-> on a single die, or at a pair of dies derived from the same design.
+Il 03/01/23 07:46, Aradhya Bhatia ha scritto:
+> Dual-link LVDS interfaces have 2 links, with even pixels traveling on
+> one link, and odd pixels on the other. These panels are also generic in
+> nature, with no documented constraints, much like their single-link
+> counterparts, "panel-lvds".
 > 
-> D1 and D1s contain a single T-HEAD Xuantie C906 CPU, whereas R528 and
-> T113 contain a pair of Cortex-A7's. D1 and R528 are the full version of
-> the chip with a BGA package, whereas D1s and T113 are low-pin-count QFP
-> variants.
+> Add a new compatible, "panel-dual-lvds", and a dt-binding document for
+> these panels.
 > 
-> Because the original design supported both ARM and RISC-V CPUs, some
-> peripherals are duplicated. In addition, all variants except D1s contain
-> a HiFi 4 DSP with its own set of peripherals.
-> 
-> The devicetrees are organized to minimize duplication:
->  - Common perhiperals are described in sunxi-d1s-t113.dtsi
->  - DSP-related peripherals are described in sunxi-d1-t113.dtsi
->  - RISC-V specific hardware is described in sun20i-d1s.dtsi
->  - Functionality unique to the D1 variant is described in sun20i-d1.dtsi
-> 
-> The SOC_PERIPHERAL_IRQ macro handles the different #interrupt-cells
-> values between the ARM (GIC) and RISC-V (PLIC) versions of the SoC.
-
-I compared to the v2 post (which I already checked against the T113-s
-manual) and did not find any extra changes apart from those mentioned in
-the changelog below. As my two questions from v2 are answered:
-
-Reviewed-by: Andre Przywara <andre.przywara@arm.com>
-
-Many thanks,
-Andre
-
-> 
-> Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
-> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> Reviewed-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
-> Tested-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
-> Signed-off-by: Samuel Holland <samuel@sholland.org>
+> Signed-off-by: Aradhya Bhatia <a-bhatia1@ti.com>
 > ---
+>   .../display/panel/panel-dual-lvds.yaml        | 157 ++++++++++++++++++
+>   MAINTAINERS                                   |   1 +
+>   2 files changed, 158 insertions(+)
+>   create mode 100644 Documentation/devicetree/bindings/display/panel/panel-dual-lvds.yaml
 > 
-> (no changes since v3)
-> 
-> Changes in v3:
->  - Drop dummy DCXO clock-frequency property
->  - Decrease the PLIC's riscv,ndev property to 175
->  - Fix `make W=1 dtbs` warnings (unnecessary #address/#size-cells)
-> 
-> Changes in v2:
->  - Split into separate files for sharing with D1s/R528/T113
->  - Use SOC_PERIPHERAL_IRQ macro for interrupts
->  - Rename osc24M to dcxo and move the frequency to the board DTs
->  - Drop analog LDOs due to the missing binding
->  - Correct tcon_top DSI clock reference
->  - Add DMIC, DSI controller, and DPHY (bindings are in linux-next)
->  - Add CPU OPP table
-> 
->  arch/riscv/boot/dts/allwinner/sun20i-d1.dtsi  |  66 ++
->  arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi |  76 ++
->  .../boot/dts/allwinner/sunxi-d1-t113.dtsi     |  15 +
->  .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    | 837 ++++++++++++++++++
->  4 files changed, 994 insertions(+)
->  create mode 100644 arch/riscv/boot/dts/allwinner/sun20i-d1.dtsi
->  create mode 100644 arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
->  create mode 100644 arch/riscv/boot/dts/allwinner/sunxi-d1-t113.dtsi
->  create mode 100644 arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
-> 
-...
+> diff --git a/Documentation/devicetree/bindings/display/panel/panel-dual-lvds.yaml b/Documentation/devicetree/bindings/display/panel/panel-dual-lvds.yaml
+> new file mode 100644
+> index 000000000000..88a7aa2410be
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/display/panel/panel-dual-lvds.yaml
+> @@ -0,0 +1,157 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/display/panel/panel-dual-lvds.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Generic Dual-Link LVDS Display Panel
+> +
+> +maintainers:
+> +  - Aradhya Bhatia <a-bhatia1@ti.com>
+> +  - Thierry Reding <thierry.reding@gmail.com>
+> +
+> +description: |
+> +  A dual-LVDS interface is a dual-link connection with the even pixels
+> +  traveling on one link, and the odd pixels traveling on the other.
+> +
+> +allOf:
+> +  - $ref: panel-common.yaml#
+> +  - $ref: /schemas/display/lvds.yaml/#
+> +
+> +properties:
+> +  compatible:
+> +    oneOf:
+> +      - items:
+> +          - enum:
+> +              - lincolntech,lcd185-101ct
+> +              - microtips,13-101hieb0hf0-s
+> +          - const: panel-dual-lvds
+> +      - const: panel-dual-lvds
+> +
+> +  ports:
+> +    $ref: /schemas/graph.yaml#/properties/ports
+> +
+> +    properties:
+> +      port@0:
+> +        $ref: /schemas/graph.yaml#/$defs/port-base
+> +        unevaluatedProperties: false
+> +        description: The sink for first set of LVDS pixels.
+> +
+> +        properties:
+> +          dual-lvds-odd-pixels:
+> +            type: boolean
+> +
+> +          dual-lvds-even-pixels:
+> +            type: boolean
+> +
+> +        oneOf:
+> +          - required: [dual-lvds-odd-pixels]
+
+One question: why do we need a "panel-dual-lvds" compatible?
+A Dual-LVDS panel is a LVDS panel using two ports, hence still a panel-lvds.
+
+If you're doing this to clearly distinguish, for human readability purposes,
+single-link vs dual-link panels, I think that this would still be clear even
+if we use panel-lvds alone because dual-link panels, as you wrote in this
+binding, does *require* two ports, with "dual-lvds-{odd,even}-pixels" properties.
+
+So... the devicetree node would look like this:
+
+panel {
+	compatible = "vendor,panel", "panel-lvds";
+	....
+	ports {
+		port@0 {
+			.....
+			-> dual-lvds-odd-pixels <-
+		}
+
+		port@1 {
+			.....
+			-> dual-lvds-even-pixels <-
+		};
+	};
+};
+
+> +          - required: [dual-lvds-even-pixels]
+
+...Though, if you expect dual-lvds panels to get other quirks in the future,
+that's a whole different story and you may actually need the panel-dual-lvds
+compatible.
+
+Regards,
+Angelo
 
 _______________________________________________
 linux-riscv mailing list
