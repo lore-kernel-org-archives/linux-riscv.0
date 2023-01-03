@@ -4,80 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EC16C46467
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jan 2023 15:52:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 622E1C46467
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jan 2023 16:00:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7kL6L8U34QlCQLYH1saV42MURLanGUlsN99b+nbIeQA=; b=JOJ9uezMBdsysU
-	95yjlprjT4h6JmOu86NB4yC26SekWzHsdysFTUufGl4ZYFAYoBwbuFR1sDW6ZLC4N6iRlISrzdrIr
-	eObLshFEstR7ZHi24HYuWAOK0SQyAwio/kibMAxytaNuthIRCPvUqvhNYuKUvp7Dwyq/IvulNTuJH
-	WZKcMefs4CcWDx7K416D39y6yPlhnsEBJjK6FdUfpfQy8o064GXpX/1NJMJaKf5wgFeMrwNxP+t+V
-	efqprqDkfgY8fxTkYQ5VGeaojF1p8BLLZeDdkSWr/tQ3p1K5IAEy9pMJSoVSwPi7f/szAJBaj+uuZ
-	iOD86iKL3FKBM0iWt+gQ==;
+	List-Owner; bh=4g7CSzF/0mmA7sooNFiB1J+8zCYuXB3t7/k7oabt7H8=; b=rwGEh4ajymHmNX
+	mbEFpXNxZQziQJvUynFm9R52jTSrcwrwmtiRJes6OlUuZS4/obX6yoV3UmypeHHWFsQdWsibDfZiR
+	stZhIZTqn9HOUhhUt59cJIFQkyi8J75zGZehTfPh4l2MhOfudOI1dj/qEeR5/zYiaFg/Qwhcjq2TO
+	G3u8Z8ZLVMDm+vualGHONuI5e0GDFluxsMG3Oy/4uzS+HOrK3fwkqcR7va+oqpnBU3vFXbIg7EpRu
+	IlgHzEXnE6uU/tEjD8w43ei3lwKXU617CzFZcWylH/ktrgoCu67HGN4v78j6UjIVCzAY2lxHDHuRC
+	2JuvTLZLCF258ul+pjnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCjan-002eDE-30; Tue, 03 Jan 2023 15:52:45 +0000
-Received: from madras.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e5ab])
+	id 1pCjhk-002i8y-2A; Tue, 03 Jan 2023 15:59:56 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCfpi-0014Ox-BP; Tue, 03 Jan 2023 11:52:00 +0000
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	id 1pCfzs-0017Sm-9O
+	for linux-riscv@lists.infradead.org; Tue, 03 Jan 2023 12:02:26 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by madras.collabora.co.uk (Postfix) with ESMTPSA id 659896602CE7;
-	Tue,  3 Jan 2023 11:51:48 +0000 (GMT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1672746709;
-	bh=6chUOuhMbPwhQBYMQBmnbgN9yec/HXnOChceMVGoqic=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=gG9UbXrrgSVeMwXELIxIuwXvRhEU35Fb89KnSK5SmwjjhQ9O3wB7j+BDd3lS8jkhk
-	 IXgHZgJELX2+QlzUlyCHHifndDkJ/2C1gc/F9rNweTIPXZBgR/cStGIXLdTInfoLBt
-	 fqAq68aomRHY5F6Agw7R+3syaZLI8BGtsv5gRrLWVFzk/aOzdA/QNPtdMRApVusFr8
-	 wja6kGf3ePZt9CQfJkUIc1/xZxeB5SrDZ5kqIlna9JDTABicClm3FJzZX0XJIsahmP
-	 JAvAje3oGDflWCSLKcHLAvKvlArcK3wtj7nt16E5ROG0/Em2+bgbSRcE6Rq7SdWvIW
-	 i1+Njg4yfhRbQ==
-Message-ID: <09f1ca83-c7d5-a186-6fa6-09cdd7a0b9cc@collabora.com>
-Date: Tue, 3 Jan 2023 12:51:45 +0100
+	by ams.source.kernel.org (Postfix) with ESMTPS id E44F0B80E81
+	for <linux-riscv@lists.infradead.org>; Tue,  3 Jan 2023 12:02:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3266FC43396
+	for <linux-riscv@lists.infradead.org>; Tue,  3 Jan 2023 12:02:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1672747341;
+	bh=u09dmYLA0SDPWsgNwZ9uhqIUCV6VVDIbZmE7qi9Ae2k=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=GXo+LdxTU093+n9amq3pGlFQHldCgP69AWWKrfXC/udm27V+iUqH+p8kQKYhfXQRF
+	 q2S9aZM+FZF6fQmfQGteCk/6UEnFwH5Y85vGSjlz3Y5cNUvyuH+XCceenL7vVzpHt+
+	 fH8AFL/2EIVpYycZZP2GAhyQvsQ1QNsX2QkquKBzqTW8cJsW2+dPYvZBiwE75OVhtH
+	 R1y61aFDnRxkI/xeRZg1PKMz/TLY4yCwZyL6LGPUpSQiUl4Jg2TvB+zKFpIGz5jlw6
+	 an+PB3xa6+VEtnj/eHtFTJVWKenx5sASGzfrNzcxIlYs3I+T5cFSuDuy+snoR1CFCj
+	 Q03mOTZBlnZaw==
+Received: by mail-ej1-f52.google.com with SMTP id x22so73012985ejs.11
+        for <linux-riscv@lists.infradead.org>; Tue, 03 Jan 2023 04:02:21 -0800 (PST)
+X-Gm-Message-State: AFqh2kp9GTfU5wMpySLkA9wG7HtUkoQeKZuD0N90kOL2kkixdtZkyf8O
+	tM7HDLHYJ3hek54qeHnqss8Mk/DtxOwtvKPelLQ=
+X-Google-Smtp-Source: AMrXdXsMBhSpsz7iv9ITErqmE108Ci0Q3c6egXKkT6WOdkwE62RHbex3+RfKS5QYoi/M8W/9aaXEAB6h2vf6HeQ6H2o=
+X-Received: by 2002:a17:906:cc87:b0:7c4:ec55:59e with SMTP id
+ oq7-20020a170906cc8700b007c4ec55059emr2584461ejb.611.1672747339331; Tue, 03
+ Jan 2023 04:02:19 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.6.0
-Subject: Re: [RFC PATCH 3/4] dt-bindings: panel: Introduce dual-link LVDS
- panel
-Content-Language: en-US
-To: Aradhya Bhatia <a-bhatia1@ti.com>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Tomi Valkeinen <tomba@kernel.org>, Jyri Sarha <jyri.sarha@iki.fi>,
- David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Thierry Reding <thierry.reding@gmail.com>, Sam Ravnborg <sam@ravnborg.org>,
- Maxime Ripard <maxime@cerno.tech>, Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Matthias Brugger <matthias.bgg@gmail.com>, Guo Ren <guoren@kernel.org>
-Cc: DRI Development List <dri-devel@lists.freedesktop.org>,
- Devicetree List <devicetree@vger.kernel.org>,
- Linux Kernel List <linux-kernel@vger.kernel.org>,
- Linux RISC-V List <linux-riscv@lists.infradead.org>,
- Linux ARM Kernel List <linux-arm-kernel@lists.infradead.org>,
- Linux Mediatek List <linux-mediatek@lists.infradead.org>,
- Linux C-SKY Arch List <linux-csky@vger.kernel.org>,
- Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
- Rahul T R <r-ravikumar@ti.com>, Devarsh Thakkar <devarsht@ti.com>,
- Jai Luthra <j-luthra@ti.com>, Jayesh Choudhary <j-choudhary@ti.com>
-References: <20230103064615.5311-1-a-bhatia1@ti.com>
- <20230103064615.5311-4-a-bhatia1@ti.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-In-Reply-To: <20230103064615.5311-4-a-bhatia1@ti.com>
+References: <20230103062610.69704-1-uwu@icenowy.me>
+In-Reply-To: <20230103062610.69704-1-uwu@icenowy.me>
+From: Guo Ren <guoren@kernel.org>
+Date: Tue, 3 Jan 2023 20:02:07 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQkd_it0msNvUV_jBf8ei0N7-TVLO1LqwC3SQc=wipvgw@mail.gmail.com>
+Message-ID: <CAJF2gTQkd_it0msNvUV_jBf8ei0N7-TVLO1LqwC3SQc=wipvgw@mail.gmail.com>
+Subject: Re: [PATCH RESEND 1/2] riscv: errata: fix T-Head dcache.cva encoding
+To: Icenowy Zheng <uwu@icenowy.me>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Heiko Stuebner <heiko@sntech.de>, 
+	Nathan Chancellor <nathan@kernel.org>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, 
+	Sergey Matyukevich <sergey.matyukevich@syntacore.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230103_035155_105635_98E945BF 
-X-CRM114-Status: GOOD (  21.21  )
+X-CRM114-CacheID: sfid-20230103_040224_772332_E19D8839 
+X-CRM114-Status: GOOD (  18.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,116 +78,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Il 03/01/23 07:46, Aradhya Bhatia ha scritto:
-> Dual-link LVDS interfaces have 2 links, with even pixels traveling on
-> one link, and odd pixels on the other. These panels are also generic in
-> nature, with no documented constraints, much like their single-link
-> counterparts, "panel-lvds".
-> 
-> Add a new compatible, "panel-dual-lvds", and a dt-binding document for
-> these panels.
-> 
-> Signed-off-by: Aradhya Bhatia <a-bhatia1@ti.com>
+Reviewed-by: Guo Ren <guoren@kernel.org>
+
+On Tue, Jan 3, 2023 at 2:26 PM Icenowy Zheng <uwu@icenowy.me> wrote:
+>
+> The dcache.cva encoding shown in the comments are wrong, it's for
+> dcache.cval1 (which is restricted to L1) instead.
+>
+> Fix this in the comment and in the hardcoded instruction.
+>
+> Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
+> Tested-by: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
 > ---
->   .../display/panel/panel-dual-lvds.yaml        | 157 ++++++++++++++++++
->   MAINTAINERS                                   |   1 +
->   2 files changed, 158 insertions(+)
->   create mode 100644 Documentation/devicetree/bindings/display/panel/panel-dual-lvds.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/display/panel/panel-dual-lvds.yaml b/Documentation/devicetree/bindings/display/panel/panel-dual-lvds.yaml
-> new file mode 100644
-> index 000000000000..88a7aa2410be
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/display/panel/panel-dual-lvds.yaml
-> @@ -0,0 +1,157 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/display/panel/panel-dual-lvds.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Generic Dual-Link LVDS Display Panel
-> +
-> +maintainers:
-> +  - Aradhya Bhatia <a-bhatia1@ti.com>
-> +  - Thierry Reding <thierry.reding@gmail.com>
-> +
-> +description: |
-> +  A dual-LVDS interface is a dual-link connection with the even pixels
-> +  traveling on one link, and the odd pixels traveling on the other.
-> +
-> +allOf:
-> +  - $ref: panel-common.yaml#
-> +  - $ref: /schemas/display/lvds.yaml/#
-> +
-> +properties:
-> +  compatible:
-> +    oneOf:
-> +      - items:
-> +          - enum:
-> +              - lincolntech,lcd185-101ct
-> +              - microtips,13-101hieb0hf0-s
-> +          - const: panel-dual-lvds
-> +      - const: panel-dual-lvds
-> +
-> +  ports:
-> +    $ref: /schemas/graph.yaml#/properties/ports
-> +
-> +    properties:
-> +      port@0:
-> +        $ref: /schemas/graph.yaml#/$defs/port-base
-> +        unevaluatedProperties: false
-> +        description: The sink for first set of LVDS pixels.
-> +
-> +        properties:
-> +          dual-lvds-odd-pixels:
-> +            type: boolean
-> +
-> +          dual-lvds-even-pixels:
-> +            type: boolean
-> +
-> +        oneOf:
-> +          - required: [dual-lvds-odd-pixels]
+> Included when resending:
+> - Sergey's Tested-by tag.
+>
+>  arch/riscv/include/asm/errata_list.h | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
+> index 4180312d2a70..605800bd390e 100644
+> --- a/arch/riscv/include/asm/errata_list.h
+> +++ b/arch/riscv/include/asm/errata_list.h
+> @@ -102,7 +102,7 @@ asm volatile(ALTERNATIVE(                                           \
+>   * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
+>   *   0000001    01001      rs1       000      00000  0001011
+>   * dcache.cva rs1 (clean, virtual address)
+> - *   0000001    00100      rs1       000      00000  0001011
+> + *   0000001    00101      rs1       000      00000  0001011
+>   *
+>   * dcache.cipa rs1 (clean then invalidate, physical address)
+>   * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
+> @@ -115,7 +115,7 @@ asm volatile(ALTERNATIVE(                                           \
+>   *   0000000    11001     00000      000      00000  0001011
+>   */
+>  #define THEAD_inval_A0 ".long 0x0265000b"
+> -#define THEAD_clean_A0 ".long 0x0245000b"
+> +#define THEAD_clean_A0 ".long 0x0255000b"
+>  #define THEAD_flush_A0 ".long 0x0275000b"
+>  #define THEAD_SYNC_S   ".long 0x0190000b"
+>
+> --
+> 2.38.1
+>
 
-One question: why do we need a "panel-dual-lvds" compatible?
-A Dual-LVDS panel is a LVDS panel using two ports, hence still a panel-lvds.
 
-If you're doing this to clearly distinguish, for human readability purposes,
-single-link vs dual-link panels, I think that this would still be clear even
-if we use panel-lvds alone because dual-link panels, as you wrote in this
-binding, does *require* two ports, with "dual-lvds-{odd,even}-pixels" properties.
-
-So... the devicetree node would look like this:
-
-panel {
-	compatible = "vendor,panel", "panel-lvds";
-	....
-	ports {
-		port@0 {
-			.....
-			-> dual-lvds-odd-pixels <-
-		}
-
-		port@1 {
-			.....
-			-> dual-lvds-even-pixels <-
-		};
-	};
-};
-
-> +          - required: [dual-lvds-even-pixels]
-
-...Though, if you expect dual-lvds panels to get other quirks in the future,
-that's a whole different story and you may actually need the panel-dual-lvds
-compatible.
-
-Regards,
-Angelo
+-- 
+Best Regards
+ Guo Ren
 
 _______________________________________________
 linux-riscv mailing list
