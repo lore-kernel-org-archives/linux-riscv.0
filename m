@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F6D9C4708E
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jan 2023 21:09:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0936C3DA7D
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jan 2023 21:11:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qs4RDc0T6JtUcyM4ANrtq3wEM81CEDlhDXmekf6XXbo=; b=KU1nod9RwFXdLf
-	lHujwG3hBXH3QrJ9AGZSRiX8sOh90TZQmZ6oU6oRDtgKagprlJd5DXXfo8UoxOX+G0VtOLXQRbmDd
-	ZoErFwxGGxc34W08nfR3MHbBAOSCr5B2J4rbWbfNwjyaeP8s/wryhRSicxUqV9jL8t17zIXyeGfqC
-	2HTtn1NtptCwhcDP9wSln+fe76d5GdYy/eJVOfyh0tP2PgILUQD7RRTQEEZ8DH+m8dSnORc5wTc/4
-	earY2YBQThA3/Wm7RL/WaVOktZhxoQA03JdipFg3+2fc9Jk6j3ugDnkXpNjtr45NzBdAlM2rvhWXx
-	oC1IQTxo4C0yyatJRcAw==;
+	List-Owner; bh=2XQmWY8ITjtnVEMKQY+l3PECozrslPxDPlMFOJGH7AQ=; b=GsEmvb14CrmjJN
+	p4eRCYJXcGkB1gmkqDHne9E0m4SVRhPb5SfiJV6oXs3NqfrhE/e5BEMq1MmZ2raOX2RjjDgVWx2hi
+	bF6zC2Kp1QmIvm75Yc9LGg/mqqEN/KwKafcp3R87xdmo1u4kNsOOiSYPIgB1pDCm54LgP/LqIC8fA
+	as385B/DlDhukL/UMyZ4QtbGneZ5U28iy02p4wsr8C48Yh0uHd9tlwAtKfpfZbE/3C8wDxd4tmrav
+	DWyIoT6EgJWYdD9xdqLO3z1o1S1tG+eBdHU5ufTKEYkv8hGtyVNs/+byIa9dTOnNZPu2iC1cW66wt
+	oe9/TbHh8N/KjFnhpj8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCoXJ-004zv9-Iy; Tue, 03 Jan 2023 21:09:29 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pCoZ9-0050hh-Tg; Tue, 03 Jan 2023 21:11:23 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCoT2-004xuh-79
-	for linux-riscv@lists.infradead.org; Tue, 03 Jan 2023 21:05:16 +0000
+	id 1pCoSs-004xno-6i
+	for linux-riscv@lists.infradead.org; Tue, 03 Jan 2023 21:04:57 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 548766150B;
-	Tue,  3 Jan 2023 21:05:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90B55C433EF;
-	Tue,  3 Jan 2023 21:04:57 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id D392DB81107;
+	Tue,  3 Jan 2023 21:04:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BAA1C433EF;
+	Tue,  3 Jan 2023 21:04:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1672779902;
-	bh=JSvers6ooGj7S89bt0SV5sdIoChbgErqxdTQvu7gK5U=;
+	s=k20201202; t=1672779891;
+	bh=gbW76aZ9HGuqGjsmnFp+/NvAvQvLy+7M6AdSPdrCtKo=;
 	h=From:To:List-Id:Cc:Subject:Date:In-Reply-To:References:From;
-	b=GebX3SAxQluwud3ZPlEcg0kkeorC+KoKK01hemyEScmZJ45JBQM06Lj5XsCBVB+tI
-	 cQAMScwqzcuAnjO4e3shm7Z9/lek8237K6YQIr3bblOy2XnGKt0ySwNLuxZG/YKBWQ
-	 p8QUXXHmPKl83jPsfGe2RsvTWofd5XvoxdYA+crJz172IiCj/x/+ZXn0QnblIaNM+R
-	 mpZCkPlbJ/giCK3SpU2ykIJK3zKr4xtawCwaQ1PTxHVZ6PD5R/U7+WrG5XluQOkRsm
-	 QsN2uEawFZIo2fzoA9vE0+Ri7I90BAp0kqMQSFeZfjvA4JsM/uQwzqeU9MctMED5OM
-	 bapMqpu5x015A==
+	b=LcC0yCDwMR7PZS0esb/VHxJezgq0SJORsh+B/QxOrs3kw816IdMvDu4g1/v2jnudn
+	 PJFoGUxSYfNCCVmNuurLtMNHvExWnzAExsIY1sQ4WN7x7l5Ow/xMdLdZdeTt2kP37z
+	 SkzzgyceMgfJqgdtlUv2Xhw7Kd5GCaXn+8mIjhty3L9C70/HR+X5F5cmTOCpnGlYSL
+	 lTixXFvNVUNFjenqZzqmge8fiEeS+/7Y1XZDvO7qg4SmlP2ISTcoeVYnwGCKPj4GoZ
+	 UFsWy1wrxHFLM+3vRptn992u2cyIVPRp/DYbzsL2oSJIsMQBsbyYsPAMQlrSGI8U8d
+	 xkPP8eBdsMFxA==
 From: Conor Dooley <conor@kernel.org>
 To: conor@kernel.org,
 	arnd@arndb.de,
@@ -71,18 +71,18 @@ Cc: Conor Dooley <conor.dooley@microchip.com>,
 	robh+dt@kernel.org,
 	samuel@sholland.org,
 	soc@kernel.org
-Subject: [RFC v5.1 8/9] soc: renesas: Add L2 cache management for RZ/Five SoC
-Date: Tue,  3 Jan 2023 21:04:00 +0000
-Message-Id: <20230103210400.3500626-9-conor@kernel.org>
+Subject: [RFC v5.1 6/9] cache,soc: Move SiFive CCache driver & create drivers/cache
+Date: Tue,  3 Jan 2023 21:03:58 +0000
+Message-Id: <20230103210400.3500626-7-conor@kernel.org>
 X-Mailer: git-send-email 2.39.0
 In-Reply-To: <Y62nOqzyuUKqYDpq@spud>
 References: <Y62nOqzyuUKqYDpq@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=13665; i=conor.dooley@microchip.com; h=from:subject; bh=UgbJwiazn4htwD36u3aLhV+P7EIpC/n0AX0SnME6DEg=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDMlbZlhuqry5P+Xl8Xcf+VVk5h874LB3YpNVk0+piOXB2BIb Q7NvHaUsDGIcDLJiiiyJt/tapNb/cdnh3PMWZg4rE8gQBi5OAZhI/iRGhm2m8jeEtvZ5Phe4/WK9pl 9ApnTMad2G/up+EZ6GNfbR2Qz/FB+YCbq/EfGe+GY1m3lfdePZyIvWryuSal78m+WnxXeQAQA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5910; i=conor.dooley@microchip.com; h=from:subject; bh=HN4eTseXEkj6xdKUBkDIWyi7p3BRkjUx7UVap+uWM7c=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDMlbZlimT2H/ufuDGW9yvuhPtqefzqla/Ul4EaH8kj/1YmVy 3v+ujlIWBjEOBlkxRZbE230tUuv/uOxw7nkLM4eVCWQIAxenAExE4h3Df79W78b81JfScx0W2/bemn 71WZxH6gq1Bb9mP1awWFgblMDwP6nidsr+W37aDXOL5MyfTkidEsV19VzQFGnX3BWyEb5inAA=
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230103_130511_219255_AEF2279B 
-X-CRM114-Status: GOOD (  29.15  )
+X-CRM114-CacheID: sfid-20230103_130454_595395_29077B9B 
+X-CRM114-Status: GOOD (  13.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,429 +99,177 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+From: Conor Dooley <conor.dooley@microchip.com>
 
-I/O Coherence Port (IOCP) provides an AXI interface for connecting
-external non-caching masters, such as DMA controllers. The accesses
-from IOCP are coherent with D-Caches and L2 Cache.
+The Zicbo* set of extensions for cache maintenance arrived too late &
+several SoCs exist without them that require non-coherent DMA.
+As things stand, the StarFive JH7100, Microchip PolarFire SoC & Renesas
+RZ/Five all require cache maintenance and lack instructions for this
+purpose.
+Create a subsystem for cache drivers so that vendor specific behaviour
+can be isolated from arch code, but keep the interfaces etc consistent.
+Move the existing SiFive CCache driver to create drivers/cache.
 
-IOCP is a specification option and is disabled on the Renesas RZ/Five
-SoC due to this reason IP blocks using DMA will fail.
-
-The Andes AX45MP core has a Programmable Physical Memory Attributes (PMA)
-block that allows dynamic adjustment of memory attributes in the runtime.
-It contains a configurable amount of PMA entries implemented as CSR
-registers to control the attributes of memory locations in interest.
-Below are the memory attributes supported:
-* Device, Non-bufferable
-* Device, bufferable
-* Memory, Non-cacheable, Non-bufferable
-* Memory, Non-cacheable, Bufferable
-* Memory, Write-back, No-allocate
-* Memory, Write-back, Read-allocate
-* Memory, Write-back, Write-allocate
-* Memory, Write-back, Read and Write-allocate
-
-More info about PMA (section 10.3):
-Link: http://www.andestech.com/wp-content/uploads/AX45MP-1C-Rev.-5.0.0-Datasheet.pdf
-
-As a workaround for SoCs with IOCP disabled CMO needs to be handled by
-software. Firstly OpenSBI configures the memory region as
-"Memory, Non-cacheable, Bufferable" and passes this region as a global
-shared dma pool as a DT node. With DMA_GLOBAL_POOL enabled all DMA
-allocations happen from this region and synchronization callbacks are
-implemented to synchronize when doing DMA transactions.
-
-Example PMA region passes as a DT node from OpenSBI:
-    reserved-memory {
-        #address-cells = <2>;
-        #size-cells = <2>;
-        ranges;
-
-        pma_resv0@58000000 {
-            compatible = "shared-dma-pool";
-            reg = <0x0 0x58000000 0x0 0x08000000>;
-            no-map;
-            linux,dma-default;
-        };
-    };
-
-Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-[Conor: moved the driver to drivers/cache]
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- arch/riscv/include/asm/errata_list.h |  28 ++-
- drivers/cache/Kconfig                |   9 +
- drivers/cache/Makefile               |   2 +
- drivers/cache/ax45mp_cache.c         | 253 +++++++++++++++++++++++++++
- drivers/soc/renesas/Kconfig          |   4 +
- 5 files changed, 290 insertions(+), 6 deletions(-)
- create mode 100644 drivers/cache/ax45mp_cache.c
+ MAINTAINERS                                   | 15 ++++++++-------
+ drivers/Kconfig                               |  2 ++
+ drivers/Makefile                              |  2 ++
+ drivers/{soc/sifive => cache}/Kconfig         |  8 +++++++-
+ drivers/{soc/sifive => cache}/Makefile        |  0
+ drivers/{soc/sifive => cache}/sifive_ccache.c |  2 +-
+ drivers/edac/sifive_edac.c                    |  2 +-
+ drivers/soc/Kconfig                           |  1 -
+ drivers/soc/Makefile                          |  1 -
+ include/{soc/sifive => cache}/sifive_ccache.h |  0
+ 10 files changed, 21 insertions(+), 12 deletions(-)
+ rename drivers/{soc/sifive => cache}/Kconfig (56%)
+ rename drivers/{soc/sifive => cache}/Makefile (100%)
+ rename drivers/{soc/sifive => cache}/sifive_ccache.c (99%)
+ rename include/{soc/sifive => cache}/sifive_ccache.h (100%)
 
-diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
-index 48e899a8e7a9..7636b83c1ecb 100644
---- a/arch/riscv/include/asm/errata_list.h
-+++ b/arch/riscv/include/asm/errata_list.h
-@@ -125,8 +125,8 @@ asm volatile(ALTERNATIVE(						\
- #define THEAD_SYNC_S	".long 0x0190000b"
+diff --git a/MAINTAINERS b/MAINTAINERS
+index f61eb221415b..4437e96a657b 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -19054,13 +19054,6 @@ S:	Maintained
+ F:	Documentation/devicetree/bindings/dma/sifive,fu540-c000-pdma.yaml
+ F:	drivers/dma/sf-pdma/
  
- #define ALT_CMO_OP(_op, _start, _size, _cachesize, _dir, _ops)		\
--asm volatile(ALTERNATIVE_2(						\
--	__nops(6),							\
-+asm volatile(ALTERNATIVE_3(						\
-+	__nops(14),							\
- 	"mv a0, %1\n\t"							\
- 	"j 2f\n\t"							\
- 	"3:\n\t"							\
-@@ -134,7 +134,7 @@ asm volatile(ALTERNATIVE_2(						\
- 	"add a0, a0, %0\n\t"						\
- 	"2:\n\t"							\
- 	"bltu a0, %2, 3b\n\t"						\
--	"nop", 0, CPUFEATURE_ZICBOM, CONFIG_RISCV_ISA_ZICBOM,		\
-+	__nops(9), 0, CPUFEATURE_ZICBOM, CONFIG_RISCV_ISA_ZICBOM,	\
- 	"mv a0, %1\n\t"							\
- 	"j 2f\n\t"							\
- 	"3:\n\t"							\
-@@ -142,8 +142,24 @@ asm volatile(ALTERNATIVE_2(						\
- 	"add a0, a0, %0\n\t"						\
- 	"2:\n\t"							\
- 	"bltu a0, %2, 3b\n\t"						\
--	THEAD_SYNC_S, THEAD_VENDOR_ID,					\
--			ERRATA_THEAD_CMO, CONFIG_ERRATA_THEAD_CMO)	\
-+	THEAD_SYNC_S "\n\t"						\
-+	__nops(8), THEAD_VENDOR_ID,					\
-+			ERRATA_THEAD_CMO, CONFIG_ERRATA_THEAD_CMO,	\
-+	"addi sp,sp,-16\n\t"						\
-+	"sd s0,0(sp)\n\t"						\
-+	"sd ra,8(sp)\n\t"						\
-+	"addi s0,sp,16\n\t"						\
-+	"mv a4,%6\n\t"							\
-+	"mv a3,%5\n\t"							\
-+	"mv a2,%4\n\t"							\
-+	"mv a1,%3\n\t"							\
-+	"mv a0,%0\n\t"							\
-+	"call cmo_patchfunc\n\t"					\
-+	"ld ra,8(sp)\n\t"						\
-+	"ld s0,0(sp)\n\t"						\
-+	"addi sp,sp,16\n\t",						\
-+	ANDESTECH_VENDOR_ID, ERRATA_ANDESTECH_NO_IOCP,			\
-+	CONFIG_ERRATA_ANDES_CMO)					\
- 	: : "r"(_cachesize),						\
- 	    "r"((unsigned long)(_start) & ~((_cachesize) - 1UL)),	\
- 	    "r"((unsigned long)(_start) + (_size)),			\
-@@ -151,7 +167,7 @@ asm volatile(ALTERNATIVE_2(						\
- 	    "r"((unsigned long)(_size)),				\
- 	    "r"((unsigned long)(_dir)),					\
- 	    "r"((unsigned long)(_ops))					\
--	: "a0")
-+	: "a0", "a1", "a2", "a3", "a4", "memory")
+-SIFIVE SOC DRIVERS
+-M:	Conor Dooley <conor@kernel.org>
+-L:	linux-riscv@lists.infradead.org
+-S:	Maintained
+-T:	git https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/
+-F:	drivers/soc/sifive/
+-
+ SILEAD TOUCHSCREEN DRIVER
+ M:	Hans de Goede <hdegoede@redhat.com>
+ L:	linux-input@vger.kernel.org
+@@ -19873,6 +19866,14 @@ S:	Supported
+ T:	git git://git.kernel.org/pub/scm/linux/kernel/git/gregkh/staging.git
+ F:	drivers/staging/
  
- #define THEAD_C9XX_RV_IRQ_PMU			17
- #define THEAD_C9XX_CSR_SCOUNTEROF		0x5c5
-diff --git a/drivers/cache/Kconfig b/drivers/cache/Kconfig
-index bc852f005c10..e3309a668d1b 100644
---- a/drivers/cache/Kconfig
-+++ b/drivers/cache/Kconfig
-@@ -6,6 +6,15 @@ menuconfig CACHE_CONTROLLER
- 
- if CACHE_CONTROLLER
- 
-+config AX45MP_L2_CACHE
-+	bool "Andes Technology AX45MP L2 Cache controller"
-+	depends on RISCV
-+	depends on RISCV_SBI
-+	default y
-+	help
-+	  Support for the L2 cache controller on Andes Technology AX45MP
-+	  platforms.
++STANDALONE CACHE CONTROLLER DRIVERS
++M:	Conor Dooley <conor@kernel.org>
++L:	linux-riscv@lists.infradead.org
++S:	Maintained
++T:	git https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/
++F:	drivers/cache
++F:	include/cache
 +
- config SIFIVE_CCACHE
- 	bool "Sifive Composable Cache controller"
- 	depends on RISCV
-diff --git a/drivers/cache/Makefile b/drivers/cache/Makefile
-index 1f5dc339bf82..f175d16d8611 100644
---- a/drivers/cache/Makefile
-+++ b/drivers/cache/Makefile
-@@ -1,3 +1,5 @@
+ STARFIRE/DURALAN NETWORK DRIVER
+ M:	Ion Badulescu <ionut@badula.org>
+ S:	Odd Fixes
+diff --git a/drivers/Kconfig b/drivers/Kconfig
+index 968bd0a6fd78..e592ba5276ae 100644
+--- a/drivers/Kconfig
++++ b/drivers/Kconfig
+@@ -241,4 +241,6 @@ source "drivers/peci/Kconfig"
+ 
+ source "drivers/hte/Kconfig"
+ 
++source "drivers/cache/Kconfig"
++
+ endmenu
+diff --git a/drivers/Makefile b/drivers/Makefile
+index bdf1c66141c9..6ff60cf21823 100644
+--- a/drivers/Makefile
++++ b/drivers/Makefile
+@@ -38,6 +38,8 @@ obj-y				+= clk/
+ # really early.
+ obj-$(CONFIG_DMADEVICES)	+= dma/
+ 
++obj-y				+= cache/
++
+ # SOC specific infrastructure drivers.
+ obj-y				+= soc/
+ 
+diff --git a/drivers/soc/sifive/Kconfig b/drivers/cache/Kconfig
+similarity index 56%
+rename from drivers/soc/sifive/Kconfig
+rename to drivers/cache/Kconfig
+index ed4c571f8771..bc852f005c10 100644
+--- a/drivers/soc/sifive/Kconfig
++++ b/drivers/cache/Kconfig
+@@ -1,9 +1,15 @@
  # SPDX-License-Identifier: GPL-2.0
  
+-if SOC_SIFIVE
++menuconfig CACHE_CONTROLLER
++	bool "Cache controller driver support"
++	default y if RISCV
 +
-+obj-$(CONFIG_AX45MP_L2_CACHE)	+= ax45mp_cache.o
- obj-$(CONFIG_SIFIVE_CCACHE)	+= sifive_ccache.o
-diff --git a/drivers/cache/ax45mp_cache.c b/drivers/cache/ax45mp_cache.c
-new file mode 100644
-index 000000000000..a488b85b9eea
---- /dev/null
-+++ b/drivers/cache/ax45mp_cache.c
-@@ -0,0 +1,253 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * non-coherent cache functions for Andes AX45MP
-+ *
-+ * Copyright (C) 2022 Renesas Electronics Corp.
-+ */
-+
-+#include <linux/cacheflush.h>
-+#include <linux/cacheinfo.h>
-+#include <linux/dma-direction.h>
-+#include <linux/of_address.h>
-+#include <linux/of_platform.h>
-+
-+#include <asm/cacheflush.h>
-+#include <asm/sbi.h>
-+
-+/* L2 cache registers */
-+#define AX45MP_L2C_REG_CTL_OFFSET		0x8
-+
-+#define AX45MP_L2C_REG_C0_CMD_OFFSET		0x40
-+#define AX45MP_L2C_REG_C0_ACC_OFFSET		0x48
-+#define AX45MP_L2C_REG_STATUS_OFFSET		0x80
-+
-+/* D-cache operation */
-+#define AX45MP_CCTL_L1D_VA_INVAL		0
-+#define AX45MP_CCTL_L1D_VA_WB			1
-+
-+/* L2 CCTL status */
-+#define AX45MP_CCTL_L2_STATUS_IDLE		0
-+
-+/* L2 CCTL status cores mask */
-+#define AX45MP_CCTL_L2_STATUS_C0_MASK		0xf
-+
-+/* L2 cache operation */
-+#define AX45MP_CCTL_L2_PA_INVAL			0x8
-+#define AX45MP_CCTL_L2_PA_WB			0x9
-+
-+#define AX45MP_L2C_REG_PER_CORE_OFFSET		0x10
-+#define AX45MP_CCTL_L2_STATUS_PER_CORE_OFFSET	4
-+
-+#define AX45MP_L2C_REG_CN_CMD_OFFSET(n)	\
-+	(AX45MP_L2C_REG_C0_CMD_OFFSET + ((n) * AX45MP_L2C_REG_PER_CORE_OFFSET))
-+#define AX45MP_L2C_REG_CN_ACC_OFFSET(n)	\
-+	(AX45MP_L2C_REG_C0_ACC_OFFSET + ((n) * AX45MP_L2C_REG_PER_CORE_OFFSET))
-+#define AX45MP_CCTL_L2_STATUS_CN_MASK(n)	\
-+	(AX45MP_CCTL_L2_STATUS_C0_MASK << ((n) * AX45MP_CCTL_L2_STATUS_PER_CORE_OFFSET))
-+
-+#define AX45MP_CCTL_REG_UCCTLBEGINADDR_NUM	0x80b
-+#define AX45MP_CCTL_REG_UCCTLCOMMAND_NUM	0x80c
-+
-+#define AX45MP_CACHE_LINE_SIZE			64
-+
-+struct ax45mp_priv {
-+	void __iomem *l2c_base;
-+	u32 ax45mp_cache_line_size;
-+};
-+
-+static struct ax45mp_priv *ax45mp_priv;
-+static struct riscv_cache_maint_ops ax45mp_cmos;
-+
-+/* L2 Cache operations */
-+static inline uint32_t ax45mp_cpu_l2c_get_cctl_status(void)
-+{
-+	return readl(ax45mp_priv->l2c_base + AX45MP_L2C_REG_STATUS_OFFSET);
-+}
-+
-+/*
-+ * Software trigger CCTL operation (cache maintenance operations) by writing
-+ * to ucctlcommand and ucctlbeginaddr registers and write-back an L2 cache
-+ * entry.
-+ */
-+static void ax45mp_cpu_dcache_wb_range(void *start, void *end, int line_size)
-+{
-+	void __iomem *base = ax45mp_priv->l2c_base;
-+	int mhartid = smp_processor_id();
-+	unsigned long pa;
-+
-+	while (end > start) {
-+		csr_write(AX45MP_CCTL_REG_UCCTLBEGINADDR_NUM, start);
-+		csr_write(AX45MP_CCTL_REG_UCCTLCOMMAND_NUM, AX45MP_CCTL_L1D_VA_WB);
-+
-+		pa = virt_to_phys(start);
-+		writel(pa, base + AX45MP_L2C_REG_CN_ACC_OFFSET(mhartid));
-+		writel(AX45MP_CCTL_L2_PA_WB,
-+		       base + AX45MP_L2C_REG_CN_CMD_OFFSET(mhartid));
-+		while ((ax45mp_cpu_l2c_get_cctl_status() &
-+			AX45MP_CCTL_L2_STATUS_CN_MASK(mhartid)) !=
-+			AX45MP_CCTL_L2_STATUS_IDLE)
-+			;
-+
-+		start += line_size;
-+	}
-+}
-+
-+/*
-+ * Software trigger CCTL operation by writing to ucctlcommand and ucctlbeginaddr
-+ * registers and invalidate the L2 cache entry.
-+ */
-+static void ax45mp_cpu_dcache_inval_range(void *start, void *end, int line_size)
-+{
-+	void __iomem *base = ax45mp_priv->l2c_base;
-+	int mhartid = smp_processor_id();
-+	unsigned long pa;
-+
-+	while (end > start) {
-+		csr_write(AX45MP_CCTL_REG_UCCTLBEGINADDR_NUM, start);
-+		csr_write(AX45MP_CCTL_REG_UCCTLCOMMAND_NUM, AX45MP_CCTL_L1D_VA_INVAL);
-+
-+		pa = virt_to_phys(start);
-+		writel(pa, base + AX45MP_L2C_REG_CN_ACC_OFFSET(mhartid));
-+		writel(AX45MP_CCTL_L2_PA_INVAL,
-+		       base + AX45MP_L2C_REG_CN_CMD_OFFSET(mhartid));
-+		while ((ax45mp_cpu_l2c_get_cctl_status() &
-+			AX45MP_CCTL_L2_STATUS_CN_MASK(mhartid)) !=
-+			AX45MP_CCTL_L2_STATUS_IDLE)
-+			;
-+
-+		start += line_size;
-+	}
-+}
-+
-+static void ax45mp_cpu_dma_inval_range(void *vaddr, size_t size)
-+{
-+	char cache_buf[2][AX45MP_CACHE_LINE_SIZE];
-+	unsigned long start = (unsigned long)vaddr;
-+	unsigned long end = start + size;
-+	unsigned long old_start = start;
-+	unsigned long old_end = end;
-+	unsigned long line_size;
-+	unsigned long flags;
-+
-+	if (unlikely(start == end))
-+		return;
-+
-+	line_size = ax45mp_priv->ax45mp_cache_line_size;
-+
-+	memset(&cache_buf, 0x0, sizeof(cache_buf));
-+	start = start & (~(line_size - 1));
-+	end = ((end + line_size - 1) & (~(line_size - 1)));
-+
-+	local_irq_save(flags);
-+	if (unlikely(start != old_start))
-+		memcpy(&cache_buf[0][0], (void *)start, line_size);
-+
-+	if (unlikely(end != old_end))
-+		memcpy(&cache_buf[1][0], (void *)(old_end & (~(line_size - 1))), line_size);
-+
-+	ax45mp_cpu_dcache_inval_range(vaddr, (void *)end, line_size);
-+
-+	if (unlikely(start != old_start))
-+		memcpy((void *)start, &cache_buf[0][0], (old_start & (line_size - 1)));
-+
-+	local_irq_restore(flags);
-+}
-+
-+static void ax45mp_cpu_dma_wb_range(void *vaddr, size_t size)
-+{
-+	unsigned long start = (unsigned long)vaddr;
-+	unsigned long end = start + size;
-+	unsigned long line_size;
-+	unsigned long flags;
-+
-+	line_size = ax45mp_priv->ax45mp_cache_line_size;
-+	local_irq_save(flags);
-+	start = start & (~(line_size - 1));
-+	ax45mp_cpu_dcache_wb_range(vaddr, (void *)end, line_size);
-+	local_irq_restore(flags);
-+}
-+
-+static void ax45mp_no_iocp_cmo(unsigned int cache_size, void *vaddr, size_t size, int dir, int ops)
-+{
-+	if (ops == NON_COHERENT_DMA_PREP)
-+		return;
-+
-+	if (ops == NON_COHERENT_SYNC_DMA_FOR_DEVICE) {
-+		switch (dir) {
-+		case DMA_FROM_DEVICE:
-+			ax45mp_cpu_dma_inval_range(vaddr, size);
-+			break;
-+		case DMA_TO_DEVICE:
-+		case DMA_BIDIRECTIONAL:
-+			ax45mp_cpu_dma_wb_range(vaddr, size);
-+			break;
-+		default:
-+			break;
-+		}
-+		return;
-+	}
-+
-+	/* op == NON_COHERENT_SYNC_DMA_FOR_CPU */
-+	if (dir == DMA_BIDIRECTIONAL || dir == DMA_FROM_DEVICE)
-+		ax45mp_cpu_dma_inval_range(vaddr, size);
-+}
-+
-+static void ax45mp_configure_l2_cache(struct platform_device *pdev)
-+{
-+	struct device_node *np = pdev->dev.of_node;
-+	struct device *dev = &pdev->dev;
-+	int ret;
-+
-+	ret = of_property_read_u32(np, "cache-line-size", &ax45mp_priv->ax45mp_cache_line_size);
-+	if (ret) {
-+		dev_err(dev, "Failed to get cache-line-size, defaulting to 64 bytes\n");
-+		ax45mp_priv->ax45mp_cache_line_size = AX45MP_CACHE_LINE_SIZE;
-+	}
-+
-+	if (ax45mp_priv->ax45mp_cache_line_size != AX45MP_CACHE_LINE_SIZE) {
-+		dev_err(dev, "Expected cache-line-size to be 64 bytes (found:%u). Defaulting to 64 bytes\n",
-+			ax45mp_priv->ax45mp_cache_line_size);
-+		ax45mp_priv->ax45mp_cache_line_size = AX45MP_CACHE_LINE_SIZE;
-+	}
-+}
-+
-+static int ax45mp_l2c_probe(struct platform_device *pdev)
-+{
-+	ax45mp_priv = devm_kzalloc(&pdev->dev, sizeof(*ax45mp_priv), GFP_KERNEL);
-+	if (!ax45mp_priv)
-+		return -ENOMEM;
-+
-+	ax45mp_priv->l2c_base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(ax45mp_priv->l2c_base))
-+		return PTR_ERR(ax45mp_priv->l2c_base);
-+
-+	ax45mp_configure_l2_cache(pdev);
-+
-+	ax45mp_cmos.cmo_patchfunc = ax45mp_no_iocp_cmo;
-+	riscv_set_cache_maint_ops(&ax45mp_cmos);
-+
-+	return 0;
-+}
-+
-+static const struct of_device_id ax45mp_cache_ids[] = {
-+	{ .compatible = "andestech,ax45mp-cache" },
-+	{ /* sentinel */ }
-+};
-+
-+static struct platform_driver ax45mp_l2c_driver = {
-+	.driver = {
-+		.name = "ax45mp-l2c",
-+		.of_match_table = ax45mp_cache_ids,
-+	},
-+	.probe = ax45mp_l2c_probe,
-+};
-+
-+static int __init ax45mp_cache_init(void)
-+{
-+	return platform_driver_register(&ax45mp_l2c_driver);
-+}
-+arch_initcall(ax45mp_cache_init);
-+
-+MODULE_AUTHOR("Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>");
-+MODULE_DESCRIPTION("Andes AX45MP L2 cache driver");
-+MODULE_LICENSE("GPL");
-diff --git a/drivers/soc/renesas/Kconfig b/drivers/soc/renesas/Kconfig
-index 660498252ec5..c3475c084685 100644
---- a/drivers/soc/renesas/Kconfig
-+++ b/drivers/soc/renesas/Kconfig
-@@ -340,6 +340,10 @@ if RISCV
- config ARCH_R9A07G043
- 	bool "RISC-V Platform support for RZ/Five"
- 	select ARCH_RZG2L
-+	select AX45MP_L2_CACHE
-+	select DMA_GLOBAL_POOL
-+	select ERRATA_ANDES
-+	select ERRATA_ANDES_CMO
- 	help
- 	  This enables support for the Renesas RZ/Five SoC.
++if CACHE_CONTROLLER
  
+ config SIFIVE_CCACHE
+ 	bool "Sifive Composable Cache controller"
++	depends on RISCV
++	default y
+ 	help
+ 	  Support for the composable cache controller on SiFive platforms.
+ 
+diff --git a/drivers/soc/sifive/Makefile b/drivers/cache/Makefile
+similarity index 100%
+rename from drivers/soc/sifive/Makefile
+rename to drivers/cache/Makefile
+diff --git a/drivers/soc/sifive/sifive_ccache.c b/drivers/cache/sifive_ccache.c
+similarity index 99%
+rename from drivers/soc/sifive/sifive_ccache.c
+rename to drivers/cache/sifive_ccache.c
+index 3684f5b40a80..47e7d6557f85 100644
+--- a/drivers/soc/sifive/sifive_ccache.c
++++ b/drivers/cache/sifive_ccache.c
+@@ -15,7 +15,7 @@
+ #include <linux/device.h>
+ #include <linux/bitfield.h>
+ #include <asm/cacheinfo.h>
+-#include <soc/sifive/sifive_ccache.h>
++#include <cache/sifive_ccache.h>
+ 
+ #define SIFIVE_CCACHE_DIRECCFIX_LOW 0x100
+ #define SIFIVE_CCACHE_DIRECCFIX_HIGH 0x104
+diff --git a/drivers/edac/sifive_edac.c b/drivers/edac/sifive_edac.c
+index b844e2626fd5..9276839d58c2 100644
+--- a/drivers/edac/sifive_edac.c
++++ b/drivers/edac/sifive_edac.c
+@@ -10,7 +10,7 @@
+ #include <linux/edac.h>
+ #include <linux/platform_device.h>
+ #include "edac_module.h"
+-#include <soc/sifive/sifive_ccache.h>
++#include <cache/sifive_ccache.h>
+ 
+ #define DRVNAME "sifive_edac"
+ 
+diff --git a/drivers/soc/Kconfig b/drivers/soc/Kconfig
+index 5dbb09f843f7..240455963565 100644
+--- a/drivers/soc/Kconfig
++++ b/drivers/soc/Kconfig
+@@ -21,7 +21,6 @@ source "drivers/soc/qcom/Kconfig"
+ source "drivers/soc/renesas/Kconfig"
+ source "drivers/soc/rockchip/Kconfig"
+ source "drivers/soc/samsung/Kconfig"
+-source "drivers/soc/sifive/Kconfig"
+ source "drivers/soc/sunxi/Kconfig"
+ source "drivers/soc/tegra/Kconfig"
+ source "drivers/soc/ti/Kconfig"
+diff --git a/drivers/soc/Makefile b/drivers/soc/Makefile
+index fff513bd522d..9ed2e27bbb64 100644
+--- a/drivers/soc/Makefile
++++ b/drivers/soc/Makefile
+@@ -27,7 +27,6 @@ obj-y				+= qcom/
+ obj-y				+= renesas/
+ obj-y				+= rockchip/
+ obj-$(CONFIG_SOC_SAMSUNG)	+= samsung/
+-obj-$(CONFIG_SOC_SIFIVE)	+= sifive/
+ obj-y				+= sunxi/
+ obj-$(CONFIG_ARCH_TEGRA)	+= tegra/
+ obj-y				+= ti/
+diff --git a/include/soc/sifive/sifive_ccache.h b/include/cache/sifive_ccache.h
+similarity index 100%
+rename from include/soc/sifive/sifive_ccache.h
+rename to include/cache/sifive_ccache.h
 -- 
 2.39.0
 
