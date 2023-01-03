@@ -4,77 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1105AC3DA7D
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jan 2023 05:11:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66A3FC3DA7D
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jan 2023 06:45:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4s2ehAMU5SiRwo+nCXxADzgIZS4ETdsBbkf056jj1Cc=; b=JkSMCNNKQzCkm/
-	grbFWOH9Hmr+JVc/lbCZ9E2TlI0JjPA/K5/Vy5zh9eo1IDeGKq8eYUZYpLrbXj+4+F6KiBppNkFZx
-	M8AMWc4wwE6UT/u8sQ37nAYG8T748LSVRCzxzA9TmU76wVunLJOe4E2MuBEIU2BoQa/LJZTtSty0b
-	4gIl/7C3sBokHVf15zNh0FPkZb4tNn68nT1jbm7ZY1sasgbKnSwDhh3ahhn1D+xoG5Mbz+ebC+sOe
-	Uqf3GJxZKf60TI52cj7I7oExoZu85hFCqB73VuavAXj10FA4YAohdYVhl/l1FsnQi64i2kg6rjM2u
-	GcmEAHZOC6uHiWRoE3xg==;
+	List-Owner; bh=rQoSScuK4tc59ULXGNS/49vl9PeMernEsBueudTjBsE=; b=gB52en3mwthCSK
+	39dQg9sONB+N6ECjfWE67gJzEutOVuMvWSG8VRV2VPGl4QsvfYFoCr4bzjbmnq7AU/a+pIO6c089N
+	pCP9jXuIOgMXnuX8ri49hFYMrj/Je1iiszcM6OFsoSvdRy1OO24EyJOdrrtEXG6xWDptaArgQgS7k
+	Y8gyK4GoxjqoU1mAbu/gOHh8bA8t9xHd/x8kuZd6Ap9BGo4diCcYU5MIiBTA01Zr6boFluNDndlkD
+	MmVamFUxkP5HJwQk2gp/aL3qAhjboxkvy8GPLi6hzkDV6r/lye8MEEHj8Uw0xme9aOpXv5PaGjHhJ
+	cU0elsSQeC7J/0S2RlzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCZZn-00GdzZ-Ht; Tue, 03 Jan 2023 05:11:03 +0000
-Received: from mail-vk1-xa32.google.com ([2607:f8b0:4864:20::a32])
+	id 1pCb36-00HDgi-Fg; Tue, 03 Jan 2023 06:45:24 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCZZc-00Gdv8-O9
-	for linux-riscv@lists.infradead.org; Tue, 03 Jan 2023 05:10:54 +0000
-Received: by mail-vk1-xa32.google.com with SMTP id n205so7805579vkf.13
-        for <linux-riscv@lists.infradead.org>; Mon, 02 Jan 2023 21:10:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=G1lF+uQj+FQsqhODd3DjLZyHBCSILu/V4r6YB+47iCA=;
-        b=R4naHoGAnjr4w90CecJAm62X3fhC3J8oS6g5fRqtT1ap4xcepx+v9BGDMaDsVmDhnd
-         f8W68HvcCLB/Vp8eyQgnfImvPKFqYlk2bBC8fUb09rqHRbt1U4nMEYhLBhrx+2gGQxWg
-         CcDFDyLGVSLsMxP4Ad9Q9/e7MWD5LMYYtDRe81pBL0eC8ywRV5Y7m/G2x9+UKNNYrhuP
-         3zAbZtisGYN4olRPjtBtEifauiPo1D1PD7EyI1zbJrI3elFDblsyP45oXXD6c5Z/CY2Y
-         f0C+6adIEZfc8qfFOIEhm9OoyiWKdM1/HNQSOm3387gm9czDviOvHcT7EVCV39Vm70nh
-         DPcw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=G1lF+uQj+FQsqhODd3DjLZyHBCSILu/V4r6YB+47iCA=;
-        b=A3WwWZCd8Iszx28pixcvxabI3T8I0d6Kbtrr5SsoTtKoujGvEBYaMl7AOP0NSd+Vm/
-         kR+AXacSzjIh5YP/mnU0eRbam3DxvxAgLjGTxdj+08gBE6+MtVCWCcgssBUtgKIdcY1c
-         wQfLAbexF678T9OIQPmfnQme453dDJRmA5ujfULhZCdqRyUNmDB1SXlmjAUM3kAfb+3q
-         LQmEZRANvt/1K507u/0Vc+TeDV6yEf/3lL0XZPQzKZmxwNCfOG2O1wKe5ZL3zRCZ8Kwm
-         Yy2jtAltStN8NJbK6+raZ7U2z4lNJ/66IuNt34nsk8j/zD8XrhM3NUYosuSqWHFNUwVh
-         jtqQ==
-X-Gm-Message-State: AFqh2kpvg4wnsLJxkBW/j9WHm87xfl6Z8cW4xsw6Gf1SYv4V0knuuDo4
-	BSDjsagp9YoyEoBzflak1ugQ4v39T0Tm9JvQ7WFT5Q==
-X-Google-Smtp-Source: AMrXdXslkxL7UBNfkOhYC3B8zZdJn9HFotr+MwajcwvZmQTG61DbbRtZtGg7pjiZG0uYr4oy2I+EySvFDHjgctf1gGI=
-X-Received: by 2002:a1f:c345:0:b0:3b8:2d76:434d with SMTP id
- t66-20020a1fc345000000b003b82d76434dmr4520082vkf.31.1672722648007; Mon, 02
- Jan 2023 21:10:48 -0800 (PST)
-MIME-Version: 1.0
-References: <20221111044207.1478350-1-apatel@ventanamicro.com>
- <20221111044207.1478350-7-apatel@ventanamicro.com> <Y3EQ4JU7uGbIMGiW@spud>
- <CAAhSdy2UAMmX+W5Cm3DuTJzZ0jJ3=CW4PhjctQNdfeS+4hqWqg@mail.gmail.com> <Y7MfyZBAErYGMZBK@spud>
-In-Reply-To: <Y7MfyZBAErYGMZBK@spud>
-From: Anup Patel <apatel@ventanamicro.com>
-Date: Tue, 3 Jan 2023 10:40:35 +0530
-Message-ID: <CAK9=C2WoFZBmnqpNGUZWATMqd22TiHpQehAYbW+DNX8ejHU=RA@mail.gmail.com>
-Subject: Re: [PATCH 6/9] dt-bindings: Add RISC-V advanced PLIC bindings
+	id 1pCb2c-00HDOI-3R
+	for linux-riscv@lists.infradead.org; Tue, 03 Jan 2023 06:44:57 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 92566611AD;
+	Tue,  3 Jan 2023 06:44:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85993C433D2;
+	Tue,  3 Jan 2023 06:44:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1672728292;
+	bh=/5lMFYxeFk4tjVM5Sh1D4dpCcs4gKL4U7mbXKFl9Uh8=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=XZ/vpsOESYRh8ZWz0uxpiUANHiIBRN71wk6PU5xY4tprr93vWqFQlUKy3GQS9ryA3
+	 aN4b16a9Lo9jjGmWnl9abxUjVJzve6Rhy0a45zfdoNuJCbxvYlKH6y/8vHnTbxAHsG
+	 286P8RV389ST+mFodfka7ZfNAgIko5hR6IOYE8SJRaEX/AYDFK16fXbihXO3oj/sWN
+	 XvrU0EZqstjhw9egLIFzD8Wk43BXu2c3K44OvFkA7M/nQmekRyw9Y1nwnkTxGl3xKv
+	 TBoMcEFYbWc62ULPdu4TWxAJ7fZl81ZX4jkP2yEKOCbbQg28N2v6p7OHSCw6j6Ckse
+	 YlB7iYDZnikvg==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
 To: Conor Dooley <conor@kernel.org>
-Cc: Anup Patel <anup@brainfault.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, 
-	Marc Zyngier <maz@kernel.org>, Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Atish Patra <atishp@atishpatra.org>, 
-	Alistair Francis <Alistair.Francis@wdc.com>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv@lists.infradead.org, Guo Ren <guoren@kernel.org>,
+ =?utf-8?B?QmrDtnJuIFTDtnBlbA==?=
+ <bjorn@rivosinc.com>, linux-kernel@vger.kernel.org,
+ linux-trace-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv, kprobes: Stricter c.jr/c.jalr decoding
+In-Reply-To: <Y7M/HlcF3u0qWIDJ@spud>
+References: <20230102160748.1307289-1-bjorn@kernel.org> <Y7M/HlcF3u0qWIDJ@spud>
+Date: Tue, 03 Jan 2023 07:44:49 +0100
+Message-ID: <87sfgsp15q.fsf@all.your.base.are.belong.to.us>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230102_211052_869067_BD153325 
-X-CRM114-Status: GOOD (  33.12  )
+X-CRM114-CacheID: sfid-20230102_224454_281202_BD2123A0 
+X-CRM114-Status: GOOD (  19.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,122 +70,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 2, 2023 at 11:48 PM Conor Dooley <conor@kernel.org> wrote:
->
-> On Mon, Jan 02, 2023 at 10:20:48PM +0530, Anup Patel wrote:
-> > On Sun, Nov 13, 2022 at 9:14 PM Conor Dooley <conor@kernel.org> wrote:
->
-> > > > +  domain.
-> > > > +
-> > > > +allOf:
-> > > > +  - $ref: /schemas/interrupt-controller.yaml#
-> > > > +
-> > > > +properties:
-> > > > +  compatible:
-> > > > +    items:
-> > > > +      - enum:
-> > > > +          - vendor,chip-aplic
-> > >
-> > > Same comment here about the validity of this placeholder.
-> >
-> > Okay, I will add "riscv,qemu-aplic" as QEMU specific compatible string.
->
-> Ah neat. I think that's a fair compromise.
->
-> > > > +      - const: riscv,aplic
->
-> > > > +  msi-parent:
-> > > > +    description:
-> > > > +      The presence of this property implies that given APLIC domain forwards
-> > > > +      wired interrupts as MSIs to a AIA incoming message signaled interrupt
-> > > > +      controller (IMSIC). This property should be considered only when the
-> > > > +      interrupts-extended property is absent.
-> > >
-> > > This mutual exclusion can be represented, can't it?
-> > > IIRC it is some sort of oneOf thing, somewhat like below:
-> > > oneOf:
-> > >   - required:
-> > >       - msi-parent
-> > >   - required:
-> > >       - interrupts-extended
-> > >
-> > > AFAIR from doing the i2c ocores binding, this will force the addition of
-> > > one, but not both, to a node.
-> > >
-> > > Or is this not actually mutually exclusive & the msi-parent property is
-> > > permitted but just left unused if interrupts-extended is present?
-> >
-> > If both are present then interrupts-extended is preferred.
->
-> Perhaps I am making a fool of myself here, but why would someone include
-> both of them at once, if only one is going to be used?
-> It would appear that making them explicitly mutually exclusive would
-> make the binding easier to understand.
-> What am I missing?
-
-If both "interrupts-extended" and "msi-parent" are present then it means
-the APLIC domain supports both MSI mode and Direct mode in HW. In this
-case, the APLIC driver has to choose between MSI mode or Direct mode.
-
->
-> > > > +  riscv,children:
-> > > > +    $ref: '/schemas/types.yaml#/definitions/phandle-array'
-> > > > +    minItems: 1
-> > > > +    maxItems: 1024
-> > > > +    description:
-> > > > +      This property represents a list of child APLIC domains for the given
-> > > > +      APLIC domain. Each child APLIC domain is assigned child index in
-> > > > +      increasing order with the first child APLIC domain assigned child
-> > > > +      index 0. The APLIC domain child index is used by firmware to delegate
-> > > > +      interrupts from the given APLIC domain to a particular child APLIC
-> > > > +      domain.
-> > > > +
-> > > > +  riscv,delegate:
-> > > > +    $ref: '/schemas/types.yaml#/definitions/phandle-array'
-> > > > +    minItems: 1
-> > > > +    maxItems: 1024
-> > > > +    description:
-> > > > +      This property represents a interrupt delegation list where each entry
-> > > > +      is a triple consisting of child APLIC domain phandle, first interrupt
-> > > > +      number, and last interrupt number. The firmware will configure interrupt
-> > > > +      delegation registers based on interrupt delegation list.
-> > >
-> > > What is the inter dependence of the children and delegate?
-> > > Is it valid to have a delegate property without children?
-> > > Can the firmware delegate interrupts without the delegation list, based
-> > > on the children property alone? Or is it effectively useless without a
-> > > children property?
-> >
-> > Both properties convey different information. The "riscv,childen" describes
-> > the association of child indexes with child APLIC domains whereas the
-> > "riscv,delegate" describes the interrupt delegation to few of the child
-> > APLIC domains.
-> >
-> >
-> > >
-> > > In your examples, the second has msi-parent but neither of these custom
-> > > properties. Do the children/delegate properties have a meaning in the
-> > > msi-parent case?
-> >
-> > The "riscv,childern" and "riscv,delegate" are only useful when we have
-> > hierarchy of multiple APLIC domains. The second example only has
-> > one APLIC domain hence these custom properties are absent.
->
-> It'd be great if you could include an example that explains the
-> difference as, IIRC, both Rob and I both were kinda confused as to how
-> the properties differ.
-
-Okay, I will try to improve the examples.
-
-Regards,
-Anup
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Q29ub3IgRG9vbGV5IDxjb25vckBrZXJuZWwub3JnPiB3cml0ZXM6Cgo+IEhleSBCam9ybiwKPgo+
+IE9uIE1vbiwgSmFuIDAyLCAyMDIzIGF0IDA1OjA3OjQ4UE0gKzAxMDAsIEJqw7ZybiBUw7ZwZWwg
+d3JvdGU6Cj4+IEZyb206IEJqw7ZybiBUw7ZwZWwgPGJqb3JuQHJpdm9zaW5jLmNvbT4KPj4gCj4+
+IEluIHRoZSBjb21wcmVzc2VkIGluc3RydWN0aW9uIGV4dGVuc2lvbiwgYy5qciwgYy5qYWxyLCBj
+Lm12LCBhbmQgYy5hZGQKPj4gaXMgZW5jb2RlZCB0aGUgZm9sbG93aW5nIHdheSAoZWFjaCBpbnN0
+cnVjdGlvbiBpcyAxNmIpOgo+PiAKPj4gLS0tKy0rLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0rLS0K
+Pj4gMTAwIDAgcnMxWzQ6MF0hPTAgICAgICAgMDAwMDAgMTAgOiBjLmpyCj4+IDEwMCAxIHJzMVs0
+OjBdIT0wICAgICAgIDAwMDAwIDEwIDogYy5qYWxyCj4+IDEwMCAwICByZFs0OjBdIT0wIHJzMls0
+OjBdIT0wIDEwIDogYy5tdgo+PiAxMDAgMSAgcmRbNDowXSE9MCByczJbNDowXSE9MCAxMCA6IGMu
+YWRkCj4+IAo+PiBUaGUgZm9sbG93aW5nIGxvZ2ljIGlzIHVzZWQgdG8gZGVjb2RlIGMuanIgYW5k
+IGMuamFscjoKPj4gCj4+ICAgaW5zbiAmIDB4ZjAwNyA9PSAweDgwMDIgPT4gaW5zdHJ1Y3Rpb24g
+aXMgYW4gYy5qcgo+PiAgIGluc24gJiAweGYwMDcgPT0gMHg5MDAyID0+IGluc3RydWN0aW9uIGlz
+IGFuIGMuamFscgo+PiAKPj4gV2hlbiAweGYwMDcgaXMgdXNlZCB0byBtYXNrIHRoZSBpbnN0cnVj
+dGlvbiwgYy5tdiBjYW4gYmUgaW5jb3JyZWN0bHkKPj4gZGVjb2RlZCBhcyBjLmpyLCBhbmQgYy5h
+ZGQgYXMgYy5qYWxyLgo+PiAKPj4gQ29ycmVjdCB0aGUgZGVjb2RpbmcgYnkgY2hhbmdpbmcgdGhl
+IG1hc2sgZnJvbSAweGYwMDcgdG8gMHhmMDdmLgo+PiAKPj4gRml4ZXM6IGMyMmIwYmNiMWRkMCAo
+InJpc2N2OiBBZGQga3Byb2JlcyBzdXBwb3J0ZWQiKQo+PiBTaWduZWQtb2ZmLWJ5OiBCasO2cm4g
+VMO2cGVsIDxiam9ybkByaXZvc2luYy5jb20+Cj4+IC0tLQo+PiAgYXJjaC9yaXNjdi9rZXJuZWwv
+cHJvYmVzL3NpbXVsYXRlLWluc24uaCB8IDQgKystLQo+PiAgMSBmaWxlIGNoYW5nZWQsIDIgaW5z
+ZXJ0aW9ucygrKSwgMiBkZWxldGlvbnMoLSkKPj4gCj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2
+L2tlcm5lbC9wcm9iZXMvc2ltdWxhdGUtaW5zbi5oIGIvYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVz
+L3NpbXVsYXRlLWluc24uaAo+PiBpbmRleCBjYjZmZjdkY2NiOTIuLmRlODQ3NDE0NmE5YiAxMDA2
+NDQKPj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL3NpbXVsYXRlLWluc24uaAo+PiAr
+KysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMvc2ltdWxhdGUtaW5zbi5oCj4+IEBAIC0zMSw5
+ICszMSw5IEBAIF9fUklTQ1ZfSU5TTl9GVU5DUyhmZW5jZSwJMHg3ZiwgMHgwZik7Cj4+ICAJfSB3
+aGlsZSAoMCkKPj4gIAo+PiAgX19SSVNDVl9JTlNOX0ZVTkNTKGNfaiwJCTB4ZTAwMywgMHhhMDAx
+KTsKPj4gLV9fUklTQ1ZfSU5TTl9GVU5DUyhjX2pyLAkweGYwMDcsIDB4ODAwMik7Cj4KPiBIbW0s
+IEkgd29uZGVyIHdoZXJlIHRoZSBtYXNrIG9yaWdpbmFsbHkgY2FtZSBmcm9tIQoKSSB0aGluayBp
+dCdzIGp1c3QgYSBzaW1wbGUgYnVnIC0tIG1pc3NpbmcgdGhhdCAicnMyIiBtdXN0IGJlIHplcm8u
+Cgo+IEkgaGFkIGEgbG9vayBhdCB0aGUgY29tcHJlc3NlZCBzcGVjLCBvZiB3aGljaCB0aGUgdmVy
+c2lvbiBnb29nbGUgZ2F2ZSB0bwo+IG1lIHdhcyB2MS45IFsxXSwgYW5kIFRhYmxlIDEuNiBpbiB0
+aGF0IChJbnN0cnVjdGlvbiBsaXN0aW5nIGZvciBSVkMsCj4gUXVhZHJhbnQgMikgc2VlbXMgdG8g
+bGlzdCB0aGVtIGFsbCB0b2dldGhlci4KPiBUZWRpb3VzIGl0IG1heSBiZSwgYnV0IGZ1dHVyZSBp
+bnN0cnVjdGlvbiBkZWNvZGluZyBiaXRzIHByb2JhYmx5IG5lZWQKPiBtb3JlIHNjcnV0aW55IGFz
+IERyZXcgZm91bmQgYW5vdGhlciBjbGVhcmx5IHdyb25nIGJpdCBhIGZldyB3ZWVrcyBhZ28KPiBb
+Ml0uCj4KPiBBbnl3YXlzLCBJIGNoZWNrZWQgYWdhaW5zdCB0aGUgZG9jIGFuZCB0aGUgbmV3IHZl
+cnNpb25zIGxvb2sgZ29vZCB0bwo+IG1lLiBIb3cnZCB5b3Ugc3BvdCB0aGlzLCBhbmQgZGlkIHlv
+dSBjaGVjayB0aGUgb3RoZXIgbWFza3M/CgpJIGdvdCBoaXQgYnkgaXQgd2hlbiB0ZXN0aW5nIHRo
+ZSBvcHRwcm9iZSBzZXJpZXMgKGMubXYgd2FzIHJlamVjdGVkIGFzCmMuanIpLgoKU2tpbW1lZCB0
+aGUgb3RoZXIgbWFza3MgcXVpY2tseSwgYnV0IHdpbGwgdGFrZSBhbm90aGVyIGxvb2suCgo+IFJl
+dmlld2VkLWJ5OiBDb25vciBEb29sZXkgPGNvbm9yLmRvb2xleUBtaWNyb2NoaXAuY29tPgo+Cj4g
+WzFdIC0KPiBodHRwczovL3Jpc2N2Lm9yZy93cC1jb250ZW50L3VwbG9hZHMvMjAxNS8xMS9yaXNj
+di1jb21wcmVzc2VkLXNwZWMtdjEuOS5wZGYKCkMtZXh0IGlzIHBhcnQgb2YgdGhlIHVucHJpdiBz
+cGVjOgpodHRwczovL2dpdGh1Yi5jb20vcmlzY3YvcmlzY3YtaXNhLW1hbnVhbC9yZWxlYXNlcwoK
+PiBbMl0gLSBodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNjdi8yMDIyMTIyMzIyMTMz
+Mi40MTI3NjAyLTItaGVpa29Ac250ZWNoLmRlLwo+Cj4+ICtfX1JJU0NWX0lOU05fRlVOQ1MoY19q
+ciwJMHhmMDdmLCAweDgwMDIpOwo+PiAgX19SSVNDVl9JTlNOX0ZVTkNTKGNfamFsLAkweGUwMDMs
+IDB4MjAwMSk7Cj4+IC1fX1JJU0NWX0lOU05fRlVOQ1MoY19qYWxyLAkweGYwMDcsIDB4OTAwMik7
+Cj4+ICtfX1JJU0NWX0lOU05fRlVOQ1MoY19qYWxyLAkweGYwN2YsIDB4OTAwMik7Cj4+ICBfX1JJ
+U0NWX0lOU05fRlVOQ1MoY19iZXF6LAkweGUwMDMsIDB4YzAwMSk7Cj4+ICBfX1JJU0NWX0lOU05f
+RlVOQ1MoY19ibmV6LAkweGUwMDMsIDB4ZTAwMSk7Cj4+ICBfX1JJU0NWX0lOU05fRlVOQ1MoY19l
+YnJlYWssCTB4ZmZmZiwgMHg5MDAyKTsKPgo+IFdvcnRoIG5vdGluZyB0aGF0IHRoaXMgY29kZSBp
+cyBnb25lIGluIHJpc2N2L2Zvci1uZXh0IHRoYW5rcyB0byBIZWlrbydzCj4gZGUtZHVwbGljYXRp
+b246Cj4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcmlzY3YvMjAyMjEyMjMyMjEzMzIu
+NDEyNzYwMi03LWhlaWtvQHNudGVjaC5kZS8KCllheSEKCgpCasO2cm4KCl9fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
+dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
+b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
