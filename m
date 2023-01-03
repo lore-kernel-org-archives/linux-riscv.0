@@ -4,71 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFDFFC3DA7D
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jan 2023 12:04:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A8E3C3DA7D
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jan 2023 12:06:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h22+6lz5wazyYRE+LdFN5bTM7xtcXJNhx0GBU5mP5JQ=; b=O0GeGrpKS8nEFh8kZbugC6MVNw
-	5aU9zHammkwJN0gmWvT244aA/mHs31mdKr39rC80uIRM1i/Z78gy07GuXyIpwm2WKlFmxAMaYzcbV
-	wyM7Ktl2xpa0+AAj4P+pHe87nbRvU+aLoiayEacp3eGRbzWlvoCIJr8ogZHQgW2nZ+cq34cYLobA5
-	NKMUOhOiGR7s5hR1y5cuyV+/cmLJUUcMT/f9FBuVrdd84DRbvnspbfa1YNir6CiOTG1fWs/OlNlZg
-	CLbEjGyljSyJ236JTpZyPd3h53alnkn0sLaAvzRbWgNX6VG/iMeNZrUoZesAa4K9Ap5IuuXqDdFOh
-	BY+Oo1+w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=xWelHeBVWhVhAP1AayGO8usNN0GhO/E7tISJz5n0suY=; b=WC5S5j65Q8AfAb
+	mMbhva59Vw0dwSw6uOIEmV3FinyEHnFOXBhDY5d0fJlrkFAc4FG4mdMRLjqmqvJ7XOF1XJzuEMOG9
+	oXKGkARHogLj8UOMBHrs9ehiyzXYtfgcegpgVmsnYeWCcz2kFcu3J+EY/td1+Kjgl1/LMq4LI8GOa
+	3mjA6KdaGEwicDzBljXc4KB3vWIyEOIBio0iWumZjGXssADVetf7dFmpySSylHR92GgqbdUOyk2Wu
+	iHuP1dBs/DI7uk2omZvqK1ZNMHbkeMVDhOM+pW5sK1B1Sjkoy7XlTFQxzKj0JnWXmyMdK5kw6H046
+	0acZ7SL+V9lncklv7ZfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCg1Q-0017qz-Ij; Tue, 03 Jan 2023 12:04:00 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1pCg3l-0018g6-TM; Tue, 03 Jan 2023 12:06:26 +0000
+Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCewf-000qQT-4F
-	for linux-riscv@lists.infradead.org; Tue, 03 Jan 2023 10:55:05 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by sin.source.kernel.org (Postfix) with ESMTPS id 00660CE10CC;
-	Tue,  3 Jan 2023 10:54:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D02EAC433D2;
-	Tue,  3 Jan 2023 10:54:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1672743294;
-	bh=sWxywAmA3iT6Hg1imz0WMwNxq0Cs4LLATsivcCc+QW8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=VeVQqIlzGiVZWzBhGkkCBfpFlIBtW5EdfD1QOxvUUoWCxCHFILUCD4mAarM5gcO46
-	 y4OOW9iEg8OPNI0T11JJXPCBfCQmiP9GaFIp2426HcSzddGmdZ1h7LIh21jU0hGx/L
-	 CWNLtm8eYyyy48i0eG/rGdpbntrlskKqWEdVDOxpv5zSAAQAhdDx57nCn6+z4mnxhC
-	 MBaRP5T9qN0ceAn7D2HGboPvY37X4x0CqFIyzvL8K+5Lo4FPDH5W9MOQSIg6RXsMsa
-	 yz9beXa+40HSgZGspMcSPrrYBJmw2pPu58aPNvoY+dNuq9sMTyBaiv8Y6W2mSdfyPf
-	 NFu/e0JZmUIRg==
-Date: Tue, 3 Jan 2023 10:54:48 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Samuel Holland <samuel@sholland.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
-	Dmitry Osipenko <dmitry.osipenko@collabora.com>,
-	"Rafael J . Wysocki" <rafael.j.wysocki@intel.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Atish Patra <atishp@rivosinc.com>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Kai-Heng Feng <kai.heng.feng@canonical.com>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Petr Mladek <pmladek@suse.com>, YueHaibing <yuehaibing@huawei.com>,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	tangmeng <tangmeng@uniontech.com>
-Subject: Re: [PATCH 0/3] riscv: sbi: Switch to the sys-off handler API
-Message-ID: <Y7QJeOj+rDnXzhFm@spud>
-References: <20221228161915.13194-1-samuel@sholland.org>
- <Y6yLMwhSypqp5+Ir@spud>
+	id 1pCfSr-000xnr-KE
+	for linux-riscv@lists.infradead.org; Tue, 03 Jan 2023 11:28:19 +0000
+Received: by mail-lf1-x129.google.com with SMTP id m6so34872748lfj.11
+        for <linux-riscv@lists.infradead.org>; Tue, 03 Jan 2023 03:28:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=kE4qqRxLpxxCedBuUJYA+jounttnp3G/CGQUAy2owUc=;
+        b=Ill95URu0ok8mTKcTGS2lBtZw4eZqXOgHuXYKVuUbo61K1thYXNo+Ruh9Glym7puZ0
+         zX+XPzU9HkF5NtDV9G9rXGtsfzmAOJikoXWin/OvNxtIq8uqfGhYmtrAPSEAsiU7V1Y5
+         oLVnULMbddELmoYJH5P78lCIHYZt6Xd4d5rGEnQ+jRQhTspmocjmECdaqb2f976PdL2z
+         TzHa+su9MOIZrwYWj4CqUurmPyIyctOCVXkevmsCzEw1W+ZEN/+9kvMz0UXZ0GelNyM3
+         ylERXrH6lkJrnMQzYqxWIvb8GHGOvWjgDwWntvVljGUDLd3hptx9gakn71TA3mAo2Yrd
+         L9gA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=kE4qqRxLpxxCedBuUJYA+jounttnp3G/CGQUAy2owUc=;
+        b=UABMHOkQjd2ez4V2jUYQo3YkkRdFQGRKcprsC1nrsUSHgLwLt13AO1l7uUiTo8liis
+         rG9eyh0VMLqej83mauV7u1fqo8qrR2ZqToEv0eYqug559CuyxGzFgbrzRLLOMWb/ZtJx
+         Q5+FUsuCot8mVrBE2wj3GAluy6wjhXq/dJouHaij7krNDo2RgJmu5L6wv72RKFDKNwUa
+         SiNcZszOZkKGJ07h17AYLysjP+kAb036z7TSaCgQhNy9dHXmMlOegnYcPFilvVRX/Ejn
+         pZ6fSq4dt0chZiWfMrh0XeRz9RwPY1akNETAMNQXE6FjkNl7LRUk3+M7SP8SZMn3ISgJ
+         16Bg==
+X-Gm-Message-State: AFqh2kr4BoM4aOJtQLSJsXTXoGX5ijvrk1ZX8NmPZgB6VuUXRStDOr/k
+	/jeBNCcSPbhyUNUxW4+6nIleIQ==
+X-Google-Smtp-Source: AMrXdXvivJCiSvdg7M62GVqjA581ZqA/tb1WZnOzpgmcCBvtTZ9QkS3notudi/QiV+FIM4Pn1tKE8Q==
+X-Received: by 2002:a05:6512:3601:b0:4b7:13b:259d with SMTP id f1-20020a056512360100b004b7013b259dmr10839992lfs.48.1672745293524;
+        Tue, 03 Jan 2023 03:28:13 -0800 (PST)
+Received: from [192.168.0.20] (088156142067.dynamic-2-waw-k-3-2-0.vectranet.pl. [88.156.142.67])
+        by smtp.gmail.com with ESMTPSA id o10-20020ac24e8a000000b004b4fefacd89sm4798236lfr.139.2023.01.03.03.28.11
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 03 Jan 2023 03:28:13 -0800 (PST)
+Message-ID: <30423568-df03-1d72-81fe-3a4b33214e5c@linaro.org>
+Date: Tue, 3 Jan 2023 12:28:11 +0100
 MIME-Version: 1.0
-In-Reply-To: <Y6yLMwhSypqp5+Ir@spud>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.6.1
+Subject: Re: [RFC PATCH 3/4] dt-bindings: panel: Introduce dual-link LVDS
+ panel
+Content-Language: en-US
+To: Aradhya Bhatia <a-bhatia1@ti.com>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Tomi Valkeinen <tomba@kernel.org>, Jyri Sarha <jyri.sarha@iki.fi>,
+ David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Thierry Reding <thierry.reding@gmail.com>, Sam Ravnborg <sam@ravnborg.org>,
+ Maxime Ripard <maxime@cerno.tech>, Liam Girdwood <lgirdwood@gmail.com>,
+ Mark Brown <broonie@kernel.org>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Matthias Brugger <matthias.bgg@gmail.com>, Guo Ren <guoren@kernel.org>
+Cc: DRI Development List <dri-devel@lists.freedesktop.org>,
+ Devicetree List <devicetree@vger.kernel.org>,
+ Linux Kernel List <linux-kernel@vger.kernel.org>,
+ Linux RISC-V List <linux-riscv@lists.infradead.org>,
+ Linux ARM Kernel List <linux-arm-kernel@lists.infradead.org>,
+ Linux Mediatek List <linux-mediatek@lists.infradead.org>,
+ Linux C-SKY Arch List <linux-csky@vger.kernel.org>,
+ Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Rahul T R <r-ravikumar@ti.com>, Devarsh Thakkar <devarsht@ti.com>,
+ Jai Luthra <j-luthra@ti.com>, Jayesh Choudhary <j-choudhary@ti.com>
+References: <20230103064615.5311-1-a-bhatia1@ti.com>
+ <20230103064615.5311-4-a-bhatia1@ti.com>
+ <85837957-f6d2-4722-7693-98c6cf932096@linaro.org>
+ <32d66fb7-6c63-0985-222f-0bd3c36c165d@ti.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <32d66fb7-6c63-0985-222f-0bd3c36c165d@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230103_025503_528380_E6A6A848 
-X-CRM114-Status: GOOD (  24.69  )
+X-CRM114-CacheID: sfid-20230103_032817_755332_AA75EACA 
+X-CRM114-Status: GOOD (  19.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,87 +110,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1939741364640712510=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 03/01/2023 12:02, Aradhya Bhatia wrote:
+> But this is throwing an error. I am confused what else could be done.
+> Can you please suggest what might be a more accurate check here?
+> 
+>>
+>>> +              required:
+>>> +                - dual-lvds-odd-pixels
+>>> +        then:
+>>> +          properties:
+>>> +            port@1:
+>>> +              properties:
+>>> +                dual-lvds-even-pixels: true
+>>> +                dual-lvds-odd-pixels: false
+>>
+>> Why do you need this? Your oneOf before already solves it.
+> 
+> I agree with your comment here. It makes sense to only have
+> 
+> 	dual-lvds-even-pixels: true
+> 
+> and have the oneOf condition take care of the other. But, I just tested
+> this and it was unable to pick-up this intentionally-added error.
+> 
+> I added 'dual-lvds-odd-pixels' property to both the nodes, and
+> dt_binding_check passes successfully (which it should have not.)
+> 
+> Instead, if I only keep this,
+> 
+> 	dual-lvds-odd-pixels: false
+> 
+> then the dt_binding_check detects the error as it should.
+> 
+> Regardless, I am curious why the first method doesn't work. Will try to
+> explore more on that.
 
---===============1939741364640712510==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="uM3g/cThuDJq0xJr"
-Content-Disposition: inline
+The check for presence of properties is only against required:, but you
+added there properties. Like this:
 
-
---uM3g/cThuDJq0xJr
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, Dec 28, 2022 at 06:30:11PM +0000, Conor Dooley wrote:
-> Hey Samuel,
->=20
-> On Wed, Dec 28, 2022 at 10:19:12AM -0600, Samuel Holland wrote:
-> > I want to convert the axp20x PMIC poweroff handler to use the sys-off
-> > API, so it can be used as a fallback for if the SBI poweroff handler
-> > is unavailable. But the SBI poweroff handler still uses pm_power_off, so
-> > done alone, this would cause the axp20x callback to be called first,
-> > before the SBI poweroff handler has a chance to run.
-> >=20
-> > In order to prevent this change in behavior, the SBI poweroff handler
-> > needs to be converted to the sys-off API first, at a higher priority.
-> >=20
-> > This series performs the conversion, after accounting for the fact that
-> > the SBI poweroff handler is registered quite early during boot.
-> >=20
-> > The first patch is a dependency for both this series and the PSCI
-> > series[1], so I would like to get at least patch 1 merged soon.
-> >=20
-> > [1]: https://lore.kernel.org/lkml/20221105214841.7828-1-samuel@sholland=
-=2Eorg/
-> >=20
-> >=20
-> > Samuel Holland (3):
-> >   kernel/reboot: Use the static sys-off handler for any priority
-> >   riscv: sbi: Share the code for unsupported extension warnings
-> >   riscv: sbi: Switch to the sys-off handler API
->=20
-> Not what other stuff has reboot support, so I gave it a whirl on
-
-I happened to see this today and could barely understand what I wrote.
-s/Not what/Not sure what"
-
-> PolarFire SoC & it seemed to work as expected:
-> Tested-by: Conor Dooley <conor.dooley@microchip.com>
->=20
-> Thanks,
-> Conor.
+https://elixir.bootlin.com/linux/v5.17-rc2/source/Documentation/devicetree/bindings/mfd/samsung,s5m8767.yaml#L155
 
 
+Other way is to drop your both oneOf and entire allOf from ports and use:
 
---uM3g/cThuDJq0xJr
-Content-Type: application/pgp-signature; name="signature.asc"
+oneOf:
+  - properties:
+      ports:
+        $ref: /schemas/graph.yaml#/properties/ports
+        properties:
+          port@0:
+            required:
+              - dual-lvds-odd-pixels
+          port@1:
+            required:
+              - dual-lvds-even-pixels
+  - properties:
+      ports:
+        $ref: /schemas/graph.yaml#/properties/ports
+        properties:
+          port@1:
+            required:
+              - dual-lvds-odd-pixels
+          port@0:
+            required:
+              - dual-lvds-even-pixels
 
------BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY7QJeAAKCRB4tDGHoIJi
-0nXSAQDaMeufEd7ejOdgNH13SEKuhv7tu2IlGvzJWSdg2bSWWQEA3ffySTJbn0PB
-mD3bZmsio+Kk5ty/XaAjoP6WUfFbHQs=
-=ip+Q
------END PGP SIGNATURE-----
+Best regards,
+Krzysztof
 
---uM3g/cThuDJq0xJr--
-
-
---===============1939741364640712510==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1939741364640712510==--
-
