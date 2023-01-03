@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60A64C5479D
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jan 2023 21:13:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4A26C3DA7D
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jan 2023 21:16:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5LzwCb80D4Z2NRquz+KQPY6jcOVthGRN9wvetL62aFo=; b=zrLsNySFQdcUL4
-	aPypHSCYZkCZrWD8/Dux5/DrLRx9FZW8YroAyvxhUJDanQzvVlgzAOzWy9GZAy86K4ihgAa77R1Gr
-	qxUbzT2SL918Gk1LJTvFbrJrsf2p1GEjvOysIu9ia8UpMDMDz0NHFcoExWJZt1vqFYcZrA/c5jGNZ
-	cvllWKyB1+8Dx8ElrpGdMKYQ34wg4wkKQ1JB5UN0jgyx/gOZZMmFytigxzSiTJbQmWe1zMWJD+ezE
-	SODivKU0mcs6UuDrWVfIuOWaxJC/BQ1YQ+V67eXUs9fks4PEgPdMb878QPAlmdfe0EOUIL3RfLwKo
-	IRwz8xejxytNK6wS1H7Q==;
+	List-Owner; bh=L6ZSdGOdU9yJi7waZRYW5aSbw8ExKEVO9GnVVDou7dc=; b=NvqkCaydltp4le
+	0lgM5C/FDC/kxopP+s3LZxDSHUL/bhGyFsDxrT4zYv3QCrTaFVt8rrpl5MhPbNFJBuq76kNUmaN2A
+	DsqRcTNFO25plCsUiPUf+/qV/pfe9VGQAqOgepHpxyJOVt8/S2JhS3aK+ayuRJrAhqW945CqV+exw
+	ob0B9MRXRuyhdDtQ7V3uT8dtCwt9l5dHoKqPTJ44Pu7SQGKJK3gl5Yst21VjkUxWKNtJZ8DiHLBzz
+	59+sW2whbE0ZFYaR63CIy1/CmB17Nt43BzPZod3yKu7WRg8psYocOUxErtiV/UIlS4x+3tUdU23QI
+	5JjTw5dMAi6L6NFxVYsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCob4-0051Yh-KD; Tue, 03 Jan 2023 21:13:22 +0000
+	id 1pCodl-0052dd-VJ; Tue, 03 Jan 2023 21:16:10 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCoSl-004xkO-5h
-	for linux-riscv@lists.infradead.org; Tue, 03 Jan 2023 21:04:49 +0000
+	id 1pCoSM-004xUk-2Q
+	for linux-riscv@lists.infradead.org; Tue, 03 Jan 2023 21:04:24 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 7E7866151B;
-	Tue,  3 Jan 2023 21:04:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90EE1C4339B;
-	Tue,  3 Jan 2023 21:04:40 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 0B0A961518;
+	Tue,  3 Jan 2023 21:04:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 477B4C433EF;
+	Tue,  3 Jan 2023 21:04:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1672779885;
-	bh=TeAvLOxoTQn0nEJ8uC/RQuHSguklAU7dAQ8PGikIe1k=;
+	s=k20201202; t=1672779857;
+	bh=+a4GknzPZkuXqBn656i7Wlb1eFqC8Z9LcgenqXot4Jc=;
 	h=From:To:List-Id:Cc:Subject:Date:In-Reply-To:References:From;
-	b=MhUPuJn/Xjsx8N902zoaJrDyyq63z0xd8hZ3ieh/ygqPuVkviZArgP2PlH79lxrO0
-	 pnVofL6HYScy4RthNjLTbcwliMDmfgfq73fwC/i2ax/E+ux9sedQg/ZniVAGryAnd2
-	 n2q9oB3tdYS7+sYLhoqldZkGQFeP1Lo/4v1Xc0wf52XzcsLrdu38+HSCqcdda/XcNJ
-	 /MJJ2IW55CwUSUN1g7VA3j606iFUUy64slgH7Osts6lgEazFPxjAzI3KLrt/6LXqgH
-	 qxB5UpYDSFsg19xmOJKrBCmc8umTngQZTRvkc7dgQjMotIzhZ6MMe1xhlUOsqTzoCS
-	 mzX/LbQLB+qLA==
+	b=F9ntzGAXtEnJ9ec9847PhJqorpKgHZqyhBmP5kxP+gww/HimmqswFaTTMYuwOzivL
+	 5zho4d0Xf3T9KNajmSw9lcolFTYoG88gjrYkXK4JSvY2ZQzKzzdXWh966iXb3jYDhl
+	 eyKhoLmfjkZzZw2bdn8te0Qm8BCBinaK1+lD0vzl2+lb7ax/KnHCEjIhom8opEUcMG
+	 Zu5IhHHoYx4hEk6hOLsdM4mcQ0jeMl6EFR16NycmePWSRkhxUX6GEODBYrYHaWaf1w
+	 nc5ClDao8U1YOQaqDg4tRdtSCRcLN1XuynSgmJBZTVun/9Lfl1lpG+4OcxfhiZCMND
+	 UQNRK5xSOM9rA==
 From: Conor Dooley <conor@kernel.org>
 To: conor@kernel.org,
 	arnd@arndb.de,
@@ -70,20 +70,19 @@ Cc: Conor Dooley <conor.dooley@microchip.com>,
 	prabhakar.mahadev-lad.rj@bp.renesas.com,
 	robh+dt@kernel.org,
 	samuel@sholland.org,
-	soc@kernel.org,
-	Rob Herring <robh@kernel.org>
-Subject: [RFC v5.1 5/9] dt-bindings: cache: r9a07g043f-l2-cache: Add DT binding documentation for L2 cache controller
-Date: Tue,  3 Jan 2023 21:03:57 +0000
-Message-Id: <20230103210400.3500626-6-conor@kernel.org>
+	soc@kernel.org
+Subject: [RFC v5.1 0/9] Generic function based cache management operations (was Re: [PATCH v5 6/6] soc: renesas: Add L2 cache management for RZ/Five SoC)
+Date: Tue,  3 Jan 2023 21:03:52 +0000
+Message-Id: <20230103210400.3500626-1-conor@kernel.org>
 X-Mailer: git-send-email 2.39.0
 In-Reply-To: <Y62nOqzyuUKqYDpq@spud>
 References: <Y62nOqzyuUKqYDpq@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2784; i=conor.dooley@microchip.com; h=from:subject; bh=ojZMybQ173ye6s1UxliDW9zuCUAcQZtR9biIzGoAxqw=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDMlbZlgwK0gqekWu0U6fXJT9YNpboQQfub5VkpsjrFsWlzMa hG3uKGVhEONgkBVTZEm83dcitf6Pyw7nnrcwc1iZQIYwcHEKwEQUOhj+SrXZeYbtvG116jZr7aHWE+ bRCXy2uQxtOgHcf4uj0r6vYWS4fTXBwVzVsyXUjOt34vUDIY8U1ffcv8nzyKyAwcHg/gQeAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5698; i=conor.dooley@microchip.com; h=from:subject; bh=ml9qI4wIsVqAaRr3oVwB9iuAe68WB7bPF35ZiNhQRtI=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDMlbZliskpCyseMwuBf3oWL6qpvTry+dFaGcn18VqrXkt6ZD gr9hRykLgxgHg6yYIkvi7b4WqfV/XHY497yFmcPKBDKEgYtTACbiw8nwhyP/zaUj0paFweUOtvHsU6 2/uzBe9uA88npF7BSRT59SLRgZFryoPcIWK8b1cfmjU8d9Dv4s+pVtZnCe5d6fyI+TnTslGQE=
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230103_130447_407314_CACDAE9B 
-X-CRM114-Status: GOOD (  13.94  )
+X-CRM114-CacheID: sfid-20230103_130422_250400_E628D2F9 
+X-CRM114-Status: GOOD (  26.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,109 +99,123 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+From: Conor Dooley <conor.dooley@microchip.com>
 
-Add DT binding documentation for L2 cache controller found on RZ/Five SoC.
+Hey all, hopefully the $subject arrived intact!
 
-The Renesas RZ/Five microprocessor includes a RISC-V CPU Core (AX45MP
-Single) from Andes. The AX45MP core has an L2 cache controller, this patch
-describes the L2 cache block.
+See here for prior discussion:
+https://lore.kernel.org/linux-riscv/Y62nOqzyuUKqYDpq@spud/#R
 
-Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Reviewed-by: Rob Herring <robh@kernel.org>
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
- .../cache/andestech,ax45mp-cache.yaml         | 81 +++++++++++++++++++
- 1 file changed, 81 insertions(+)
+Rather than continue that back and forth about where these drivers
+belonged, I've gone and created a mock-up for what it would look like
+if we picked drivers/cache.
+
+IMO, doing drivers/cache for the detail of vendor behaviour makes sense
+as it'll keep 'em out of arch/riscv while keeping the drivers
+together.
+I've taken v5 of Prabhakar's patchset & hacked at it a bit, so here
+is a tyre-kicked (more) generic implementation of cache management stuff
+via functions.
+I initially went and moved both the ax45mp and ccache drivers to
+drivers/cache & created a "subsystem" like interface, but quickly
+realised it was all far too trivial to exist & was intrinsically tied to
+the ALT_CMO_OP alternative setup on RISC-V.
+I trashed that so, and instead copied the interface currently used by
+riscv_set_cacheinfo_ops(), and created a corollary which registers cache
+management operations. Or maintenance, IDC which.
+Instead of having the vendor specific cache controller function in the
+errata, the generic one is there instead, which then calls the one
+registered by the vendor driver.
+I figure that even if no other non-coherent implementation ends up making
+it upstream, ax45mp is not going to be the only Andestech product that
+has a "no-iocp" variant...
+
+I sent this over the Prabhakar the other day & it works for him, so I am
+now sending this here as RFC. I've not yet tested it on PolarFire SoC,
+as we have to sort out some "fun" where archid etc are all zero.
+We'll require some massaging before we can use the alternatives framework
+as is, so that'll have to come at a later date. I included a patch, but
+it's marked "DON'T APPLY" for a reason ;)
+
+Notably, I have not fixed up any comments which were left against v5,
+bar a rebase on top of riscv/for-next. I blindly "fixed" the pmem issue,
+so that needs to be fixed properly for a v6, alongside the other couple
+bits.
+
+The other thing that is missing, and I could not think immediately of a
+way to do it, is a way to add additional users of this type of CMO to
+the alternative without having to add a specific entry for each vendor.
+I had first thought about using archid of 0, but that runs into problems
+pretty quickly as that "archid" is what we use for enabling CPU_FEATURE
+stuff, like Zicbom itself.
+Since archid uses the JEDEC IDs, perhaps we could squat on either a
+continuation code (or some vendor that won't make a RISC-V CPU, like
+Actel *cough*).
+I didn't go through with mocking that up, as until we sort out PolarFire
+SoC, there's only one user for this that I, at least, would like to have
+supported properly.
+So if anyone has ideas that are in any way less hacky than that, I am all
+ears.
+
+Thanks,
+Conor.
+
+Conor Dooley (2):
+  cache,soc: Move SiFive CCache driver & create drivers/cache
+  RISC-V: create a function based cache management interface
+
+Daire McNamara (1):
+  [DON'T APPLY] cache: sifive-ccache: add cache flushing capability
+
+Lad Prabhakar (6):
+  riscv: asm: alternative-macros: Introduce ALTERNATIVE_3() macro
+  riscv: asm: vendorid_list: Add Andes Technology to the vendors list
+  riscv: errata: Add Andes alternative ports
+  riscv: mm: dma-noncoherent: Pass direction and operation to
+    ALT_CMO_OP()
+  dt-bindings: cache: r9a07g043f-l2-cache: Add DT binding documentation
+    for L2 cache controller
+  soc: renesas: Add L2 cache management for RZ/Five SoC
+
+ .../cache/andestech,ax45mp-cache.yaml         |  81 ++++++
+ MAINTAINERS                                   |  15 +-
+ arch/riscv/Kconfig.erratas                    |  26 ++
+ arch/riscv/errata/Makefile                    |   1 +
+ arch/riscv/errata/andes/Makefile              |   1 +
+ arch/riscv/errata/andes/errata.c              |  93 +++++++
+ arch/riscv/include/asm/alternative-macros.h   |  46 +++-
+ arch/riscv/include/asm/alternative.h          |   3 +
+ arch/riscv/include/asm/cacheflush.h           |  23 ++
+ arch/riscv/include/asm/errata_list.h          |  41 ++-
+ arch/riscv/include/asm/vendorid_list.h        |   1 +
+ arch/riscv/kernel/alternative.c               |   5 +
+ arch/riscv/mm/dma-noncoherent.c               |  36 ++-
+ arch/riscv/mm/pmem.c                          |   4 +-
+ drivers/Kconfig                               |   2 +
+ drivers/Makefile                              |   2 +
+ drivers/cache/Kconfig                         |  25 ++
+ drivers/{soc/sifive => cache}/Makefile        |   2 +
+ drivers/cache/ax45mp_cache.c                  | 253 ++++++++++++++++++
+ drivers/{soc/sifive => cache}/sifive_ccache.c |  47 +++-
+ drivers/edac/sifive_edac.c                    |   2 +-
+ drivers/soc/Kconfig                           |   1 -
+ drivers/soc/Makefile                          |   1 -
+ drivers/soc/renesas/Kconfig                   |   4 +
+ drivers/soc/sifive/Kconfig                    |  10 -
+ include/{soc/sifive => cache}/sifive_ccache.h |   0
+ 26 files changed, 684 insertions(+), 41 deletions(-)
  create mode 100644 Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
+ create mode 100644 arch/riscv/errata/andes/Makefile
+ create mode 100644 arch/riscv/errata/andes/errata.c
+ create mode 100644 drivers/cache/Kconfig
+ rename drivers/{soc/sifive => cache}/Makefile (62%)
+ create mode 100644 drivers/cache/ax45mp_cache.c
+ rename drivers/{soc/sifive => cache}/sifive_ccache.c (86%)
+ delete mode 100644 drivers/soc/sifive/Kconfig
+ rename include/{soc/sifive => cache}/sifive_ccache.h (100%)
 
-diff --git a/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml b/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
-new file mode 100644
-index 000000000000..9f0be4835ad7
---- /dev/null
-+++ b/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
-@@ -0,0 +1,81 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+# Copyright (C) 2022 Renesas Electronics Corp.
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/cache/andestech,ax45mp-cache.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Andestech AX45MP L2 Cache Controller
-+
-+maintainers:
-+  - Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-+
-+description:
-+  A level-2 cache (L2C) is used to improve the system performance by providing
-+  a large amount of cache line entries and reasonable access delays. The L2C
-+  is shared between cores, and a non-inclusive non-exclusive policy is used.
-+
-+select:
-+  properties:
-+    compatible:
-+      contains:
-+        enum:
-+          - andestech,ax45mp-cache
-+
-+  required:
-+    - compatible
-+
-+properties:
-+  compatible:
-+    items:
-+      - const: andestech,ax45mp-cache
-+      - const: cache
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  cache-line-size:
-+    const: 64
-+
-+  cache-level:
-+    const: 2
-+
-+  cache-sets:
-+    const: 1024
-+
-+  cache-size:
-+    enum: [131072, 262144, 524288, 1048576, 2097152]
-+
-+  cache-unified: true
-+
-+  next-level-cache: true
-+
-+additionalProperties: false
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - cache-line-size
-+  - cache-level
-+  - cache-sets
-+  - cache-size
-+  - cache-unified
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+
-+    cache-controller@2010000 {
-+        compatible = "andestech,ax45mp-cache", "cache";
-+        reg = <0x13400000 0x100000>;
-+        interrupts = <508 IRQ_TYPE_LEVEL_HIGH>;
-+        cache-line-size = <64>;
-+        cache-level = <2>;
-+        cache-sets = <1024>;
-+        cache-size = <262144>;
-+        cache-unified;
-+    };
+
+base-commit: b07de94d4501c61a3015cb0035227e449c51d87e
 -- 
 2.39.0
 
