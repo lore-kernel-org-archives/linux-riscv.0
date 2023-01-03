@@ -4,99 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1F52C3DA7D
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jan 2023 08:42:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56E6AC3DA7D
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jan 2023 08:52:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=owxENeiBkO436IMCVtymRca3lemLwXWyUA1DmROL514=; b=Qr3ChuX55jh8Ot
-	OcdPd9KeVRBKPPFwKabBCOyrvPtKQQXHg7YqoKXYeJX7adDI+rsJqss78U83I2zMtEmexGg+4NJb1
-	1y1vf5NXqYvM43brJUBnGs7sYVknwLLuHk/VCBbyWQT18LyWgFsgDqItBAxUJ+p/2r7WpCDUUCZe4
-	RdQajacLGuiRnhxRlnfeoQqU37cMQpRvSooPFTec3dXy/UtgWzFzo4k81yMkSBhRCCIv3mwA80X2v
-	V7SQFDfPx6xP0St0CQ36aHX02GpQKEINEFVP7pi4mifSjBOnzwv6HSahcPPfEwg0i7hvhgVngfPEG
-	Jqbf2pcGPKLfMnmwFmxg==;
+	List-Owner; bh=zr40IeJg7LDih+suThjnEvlUUYADYhhw9RSSWpnkCE8=; b=VGBqqiW/KDWK0G
+	kOS+xickBzsPqJOGo7KtSQ+JaHMWR/Zn8jq2lC4GTPw8y9POjbAM080PSJhYc+v/t+XVehfIIUFF/
+	V4l5mrVrs6rXfKZGPs06bCJg+57bCljELY4WNtnCGIQjf+P0nl9esBYjpnxzj7OaD98osfwleVt3a
+	9b2v8waKRBbKE4bOHK6IV3HQTe9VKURjl8+diZ1wd+xU9B6IVwItYH8ahrnD7cvLfyeNMfu/osDYP
+	DfYjKJGHbjef8PQ2sRJ3VGXiKx+AWkU/239gXBDUEbGFkaW+uux//8d7cxNoKN4B/sde+9r7gyIWJ
+	5K+pwO7gtM4Uvbe/ZxAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCcsY-000G7I-LF; Tue, 03 Jan 2023 08:42:38 +0000
-Received: from mail-lj1-x230.google.com ([2a00:1450:4864:20::230])
+	id 1pCd1t-000Mpp-AV; Tue, 03 Jan 2023 08:52:17 +0000
+Received: from szxga03-in.huawei.com ([45.249.212.189])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCciY-000BiA-8X
-	for linux-riscv@lists.infradead.org; Tue, 03 Jan 2023 08:32:21 +0000
-Received: by mail-lj1-x230.google.com with SMTP id q2so31120416ljp.6
-        for <linux-riscv@lists.infradead.org>; Tue, 03 Jan 2023 00:32:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=+eQuzBlsYHsLGCB8bOG5IW6L2kvDsW6xtprRoZMICuU=;
-        b=tmr45XwFeEugin61Rnftw28ni6bHN0sEbHxVWVWq+J4OVvg/AlM1rrw+gIQUqGnU1Z
-         JYyJFmdeo0DMfQ02tNVOkFPo6OEy+GJ1H6pTCbS0FoBxFa/0JNxZf9ZTy6an06BSniiI
-         gIaQ8ozWSRcvyf+qVmdoASAjj6KmIK3dFVM6KqQahH3uiX7WinVX53Cu0fcU099v/1R0
-         oYbWkHacnBUD+fxQ2Q6AVDc9FRZoYQ8or2dTrRm6Q/9lBeT3DRuVMijPCpVpxOKfFj1C
-         QoKk5Zg67+jTD8ahyRydOHtrOIAhE0PjYHj+RZfr+xmh9YYQ0QVqyIeD2AzBRnSJfQle
-         DwgA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+eQuzBlsYHsLGCB8bOG5IW6L2kvDsW6xtprRoZMICuU=;
-        b=7vwHbcU7pQUfwz4zcD/RSMDwiPDKdpX6X/MBvlfCM3v2bxOk+kdAe+KJdJHYpB+zCZ
-         we8ZbQ2sNe8KEfo+ABJK0NW6C7T4+zXK9R8zJinB65Erl7p3aFY+Y2XhQoun8IzsSo0b
-         LMlYLKP1PgaMW9Xs6b5iqSsoI9YeiKWAl4MuR01/f2b4fvqVc5CxN4N1FZE21zPPM+WL
-         zAvSpjPcw0KBVj566EM59EB7lgtIdPL5RE9YpxHOSL5er7MOeIEZ87BRnbQ7sNBFx/6+
-         fuZKqGP+9xacxT1fxd5g+BsrgRj54JZGIFIFI0UuWknIhi+tjmda/Inxy7Zx8LeXblSB
-         KQ9g==
-X-Gm-Message-State: AFqh2kpuF3UR3piSEhKDSlbQdhQoKdLi1RP9wslF78519j7req5u+KSN
-	5/ZO3StQH52/3iGPlxFpIJCuuw==
-X-Google-Smtp-Source: AMrXdXsA9XjC9cfI2AczZE2h0DMdZ39MbWCjrc47B4sm8jNdTVX0eh4KTY7ZYYepdPoUjflQRgjQtg==
-X-Received: by 2002:a2e:bd0c:0:b0:27f:aa2b:61da with SMTP id n12-20020a2ebd0c000000b0027faa2b61damr10160611ljq.14.1672734736218;
-        Tue, 03 Jan 2023 00:32:16 -0800 (PST)
-Received: from [192.168.0.20] (088156142067.dynamic-2-waw-k-3-2-0.vectranet.pl. [88.156.142.67])
-        by smtp.gmail.com with ESMTPSA id c20-20020a2ebf14000000b0027fffd54dadsm42145ljr.73.2023.01.03.00.32.14
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 03 Jan 2023 00:32:15 -0800 (PST)
-Message-ID: <85837957-f6d2-4722-7693-98c6cf932096@linaro.org>
-Date: Tue, 3 Jan 2023 09:32:14 +0100
+	id 1pCcpm-000EfT-LU
+	for linux-riscv@lists.infradead.org; Tue, 03 Jan 2023 08:39:49 +0000
+Received: from kwepemi500020.china.huawei.com (unknown [172.30.72.55])
+	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4NmQzh4gJHzJpXn;
+	Tue,  3 Jan 2023 16:35:44 +0800 (CST)
+Received: from [10.67.109.184] (10.67.109.184) by
+ kwepemi500020.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.34; Tue, 3 Jan 2023 16:39:42 +0800
+Message-ID: <09763a5e-22c9-513d-ca51-9234478b9c67@huawei.com>
+Date: Tue, 3 Jan 2023 16:39:42 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.6.1
-Subject: Re: [RFC PATCH 3/4] dt-bindings: panel: Introduce dual-link LVDS
- panel
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.3.0
+Subject: Re: [RFC PATCH bpf-next 3/4] riscv, bpf: Add bpf_arch_text_poke
+ support for RV64
 Content-Language: en-US
-To: Aradhya Bhatia <a-bhatia1@ti.com>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Tomi Valkeinen <tomba@kernel.org>, Jyri Sarha <jyri.sarha@iki.fi>,
- David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Thierry Reding <thierry.reding@gmail.com>, Sam Ravnborg <sam@ravnborg.org>,
- Maxime Ripard <maxime@cerno.tech>, Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Matthias Brugger <matthias.bgg@gmail.com>, Guo Ren <guoren@kernel.org>
-Cc: DRI Development List <dri-devel@lists.freedesktop.org>,
- Devicetree List <devicetree@vger.kernel.org>,
- Linux Kernel List <linux-kernel@vger.kernel.org>,
- Linux RISC-V List <linux-riscv@lists.infradead.org>,
- Linux ARM Kernel List <linux-arm-kernel@lists.infradead.org>,
- Linux Mediatek List <linux-mediatek@lists.infradead.org>,
- Linux C-SKY Arch List <linux-csky@vger.kernel.org>,
- Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
- Rahul T R <r-ravikumar@ti.com>, Devarsh Thakkar <devarsht@ti.com>,
- Jai Luthra <j-luthra@ti.com>, Jayesh Choudhary <j-choudhary@ti.com>
-References: <20230103064615.5311-1-a-bhatia1@ti.com>
- <20230103064615.5311-4-a-bhatia1@ti.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20230103064615.5311-4-a-bhatia1@ti.com>
+To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, Pu Lehui
+	<pulehui@huaweicloud.com>, <bpf@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+CC: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
+	<daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
+	<martin.lau@linux.dev>, Song Liu <song@kernel.org>, Yonghong Song
+	<yhs@fb.com>, John Fastabend <john.fastabend@gmail.com>, KP Singh
+	<kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>, Hao Luo
+	<haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>
+References: <20221219133736.1387008-1-pulehui@huaweicloud.com>
+ <20221219133736.1387008-4-pulehui@huaweicloud.com>
+ <87v8looypd.fsf@all.your.base.are.belong.to.us>
+ <713f9f26-da42-eda8-c804-338d61b1557c@huawei.com>
+ <877cy4xc2l.fsf@all.your.base.are.belong.to.us>
+From: Pu Lehui <pulehui@huawei.com>
+In-Reply-To: <877cy4xc2l.fsf@all.your.base.are.belong.to.us>
+X-Originating-IP: [10.67.109.184]
+X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
+ kwepemi500020.china.huawei.com (7.221.188.8)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230103_003218_475588_62208663 
-X-CRM114-Status: GOOD (  21.54  )
+X-CRM114-CacheID: sfid-20230103_003946_957152_70D61A21 
+X-CRM114-Status: UNSURE (   7.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,176 +77,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 03/01/2023 07:46, Aradhya Bhatia wrote:
-> Dual-link LVDS interfaces have 2 links, with even pixels traveling on
-> one link, and odd pixels on the other. These panels are also generic in
-> nature, with no documented constraints, much like their single-link
-> counterparts, "panel-lvds".
-> 
-> Add a new compatible, "panel-dual-lvds", and a dt-binding document for
-> these panels.
-> 
-> Signed-off-by: Aradhya Bhatia <a-bhatia1@ti.com>
-> ---
->  .../display/panel/panel-dual-lvds.yaml        | 157 ++++++++++++++++++
->  MAINTAINERS                                   |   1 +
->  2 files changed, 158 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/display/panel/panel-dual-lvds.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/display/panel/panel-dual-lvds.yaml b/Documentation/devicetree/bindings/display/panel/panel-dual-lvds.yaml
-> new file mode 100644
-> index 000000000000..88a7aa2410be
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/display/panel/panel-dual-lvds.yaml
-> @@ -0,0 +1,157 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/display/panel/panel-dual-lvds.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Generic Dual-Link LVDS Display Panel
-> +
-> +maintainers:
-> +  - Aradhya Bhatia <a-bhatia1@ti.com>
-> +  - Thierry Reding <thierry.reding@gmail.com>
-> +
-> +description: |
-> +  A dual-LVDS interface is a dual-link connection with the even pixels
-> +  traveling on one link, and the odd pixels traveling on the other.
-> +
-> +allOf:
-> +  - $ref: panel-common.yaml#
-> +  - $ref: /schemas/display/lvds.yaml/#
-
-Drop trailing /
-
-> +
-> +properties:
-> +  compatible:
-> +    oneOf:
-> +      - items:
-> +          - enum:
-> +              - lincolntech,lcd185-101ct
-> +              - microtips,13-101hieb0hf0-s
-> +          - const: panel-dual-lvds
-> +      - const: panel-dual-lvds
-
-You cannot have this compatible alone.
-
-> +
-> +  ports:
-> +    $ref: /schemas/graph.yaml#/properties/ports
-> +
-> +    properties:
-> +      port@0:
-> +        $ref: /schemas/graph.yaml#/$defs/port-base
-> +        unevaluatedProperties: false
-> +        description: The sink for first set of LVDS pixels.
-> +
-> +        properties:
-> +          dual-lvds-odd-pixels:
-> +            type: boolean
-> +
-> +          dual-lvds-even-pixels:
-> +            type: boolean
-> +
-> +        oneOf:
-> +          - required: [dual-lvds-odd-pixels]
-> +          - required: [dual-lvds-even-pixels]
-> +
-> +      port@1:
-> +        $ref: /schemas/graph.yaml#/$defs/port-base
-> +        unevaluatedProperties: false
-> +        description: The sink for second set of LVDS pixels.
-> +
-> +        properties:
-> +          dual-lvds-even-pixels:
-> +            type: boolean
-> +
-> +          dual-lvds-odd-pixels:
-> +            type: boolean
-> +
-> +        oneOf:
-> +          - required: [dual-lvds-even-pixels]
-> +          - required: [dual-lvds-odd-pixels]
-> +
-> +    allOf:
-> +      - if:
-> +          properties:
-> +            port@0:
-> +              properties:
-> +                dual-lvds-odd-pixels: true
-
-That's not correct clause. It has no effect.
-
-> +              required:
-> +                - dual-lvds-odd-pixels
-> +        then:
-> +          properties:
-> +            port@1:
-> +              properties:
-> +                dual-lvds-even-pixels: true
-> +                dual-lvds-odd-pixels: false
-
-Why do you need this? Your oneOf before already solves it.
-
-> +
-> +      - if:
-> +          properties:
-> +            port@0:
-> +              properties:
-> +                dual-lvds-even-pixels: true
-> +              required:
-> +                - dual-lvds-even-pixels
-> +        then:
-> +          properties:
-> +            port@1:
-> +              properties:
-> +                dual-lvds-odd-pixels: true
-> +                dual-lvds-even-pixels: false
-> +
-> +    required:
-> +      - port@0
-> +      - port@1
-> +
-> +  port: false
-> +
-> +unevaluatedProperties: false
-> +
-> +required:
-> +  - compatible
-> +  - width-mm
-> +  - height-mm
-> +  - data-mapping
-> +  - panel-timing
-> +  - ports
-> +
-> +examples:
-> +  - |+
-
-Drop +
-
-> +    panel-dual-lvds {
-
-Just "panel". Node names should be generic.
-
-> +      compatible = "microtips,13-101hieb0hf0-s", "panel-dual-lvds";
-> +
-> +      width-mm = <217>;
-> +      height-mm = <136>;
-> +
-
-Best regards,
-Krzysztof
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiAyMDIzLzEvMyAxNjoyMSwgQmrDtnJuIFTDtnBlbCB3cm90ZToKPiBQdSBMZWh1aSA8cHVs
+ZWh1aUBodWF3ZWkuY29tPiB3cml0ZXM6Cj4gCj4+IE9uIDIwMjMvMS8zIDE1OjM3LCBCasO2cm4g
+VMO2cGVsIHdyb3RlOgo+Pj4gUHUgTGVodWkgPHB1bGVodWlAaHVhd2VpY2xvdWQuY29tPiB3cml0
+ZXM6Cj4+Pgo+Pj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L25ldC9icGZfaml0X2NvbXA2NC5j
+IGIvYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb21wNjQuYwo+Pj4+IGluZGV4IGJmNDcyMWE5OWEw
+OS4uZmE4YjAzYzUyNDYzIDEwMDY0NAo+Pj4+IC0tLSBhL2FyY2gvcmlzY3YvbmV0L2JwZl9qaXRf
+Y29tcDY0LmMKPj4+PiArKysgYi9hcmNoL3Jpc2N2L25ldC9icGZfaml0X2NvbXA2NC5jCj4+Pgo+
+Pj4+IEBAIC0xMjY2LDcgKzEzODksNyBAQCBpbnQgYnBmX2ppdF9lbWl0X2luc24oY29uc3Qgc3Ry
+dWN0IGJwZl9pbnNuICppbnNuLCBzdHJ1Y3QgcnZfaml0X2NvbnRleHQgKmN0eCwKPj4+PiAgICAK
+Pj4+PiAgICB2b2lkIGJwZl9qaXRfYnVpbGRfcHJvbG9ndWUoc3RydWN0IHJ2X2ppdF9jb250ZXh0
+ICpjdHgpCj4+Pj4gICAgewo+Pj4+IC0JaW50IHN0YWNrX2FkanVzdCA9IDAsIHN0b3JlX29mZnNl
+dCwgYnBmX3N0YWNrX2FkanVzdDsKPj4+PiArCWludCBpLCBzdGFja19hZGp1c3QgPSAwLCBzdG9y
+ZV9vZmZzZXQsIGJwZl9zdGFja19hZGp1c3Q7Cj4+Pj4gICAgCWJvb2wgaXNfbWFpbl9wcm9nID0g
+Y3R4LT5wcm9nLT5hdXgtPmZ1bmNfaWR4ID09IDA7Cj4+Pgo+Pj4gVGhpcyBsaW5lIG1hZ2ljYWxs
+eSBhcHBlYXJlZCwgYW5kIG1ha2VzIGl0IGhhcmQgdG8gYXBwbHkgdGhlIHNlcmllcwo+Pj4gd2l0
+aG91dCBoYWNraW5nIHRoZSBwYXRjaGVzIG1hbnVhbGx5LiBHb2luZyBmb3J3YXJkLCBwbGVhc2Ug
+c3VwcGx5IGEKPj4+IGJhc2UgdHJlZSBjb21taXQgdG8gdGhlIHNlcmllcyAob3IgYSBsaW5rIHRv
+IGEgY29tcGxldGUgZ2l0IHRyZWUpLgo+Pj4KPj4KPj4gQSByZWJhc2UgdmVyc2lvbiBoYXMgYmVl
+biByZXNlbmQgYXMgZm9sbG93Ogo+Pgo+PiBodHRwczovL2xvcmUua2VybmVsLm9yZy9icGYvMjAy
+MjEyMjAwMjEzMTkuMTY1NTg3MS0xLXB1bGVodWlAaHVhd2VpY2xvdWQuY29tLwo+IAo+IFllcywg
+YnV0IHdpdGggdGhlIHNhbWUgaXNzdWU6Cj4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvYnBmLzIw
+MjIxMjIwMDIxMzE5LjE2NTU4NzEtNC1wdWxlaHVpQGh1YXdlaWNsb3VkLmNvbS8KPiAKPiBUaGUg
+ImlzX21haW5fcHJvZyIgbGluZSBpcyBzdGlsbCBhcm91bmQgaW4gdGhlIHJlc2VuZC4KPiAKCk9v
+cHMsIHNvbWV0aGluZyB3YXMgbGVmdCB3aGVuIGRlYnVnZ2luZyBtaXhpbmcgYnBmMmJwZiBhbmQg
+dGFpbGNhbGxzLiAKU29ycnksIHdpbGwgc2VuZCB2Mi4KCj4gCj4gQmrDtnJuCgpfX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
+IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
+ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
