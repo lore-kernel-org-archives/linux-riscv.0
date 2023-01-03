@@ -4,101 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A8E3C3DA7D
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jan 2023 12:06:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DF57C46467
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jan 2023 13:04:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xWelHeBVWhVhAP1AayGO8usNN0GhO/E7tISJz5n0suY=; b=WC5S5j65Q8AfAb
-	mMbhva59Vw0dwSw6uOIEmV3FinyEHnFOXBhDY5d0fJlrkFAc4FG4mdMRLjqmqvJ7XOF1XJzuEMOG9
-	oXKGkARHogLj8UOMBHrs9ehiyzXYtfgcegpgVmsnYeWCcz2kFcu3J+EY/td1+Kjgl1/LMq4LI8GOa
-	3mjA6KdaGEwicDzBljXc4KB3vWIyEOIBio0iWumZjGXssADVetf7dFmpySSylHR92GgqbdUOyk2Wu
-	iHuP1dBs/DI7uk2omZvqK1ZNMHbkeMVDhOM+pW5sK1B1Sjkoy7XlTFQxzKj0JnWXmyMdK5kw6H046
-	0acZ7SL+V9lncklv7ZfQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QDEdRpwBSXGeLrLk/PpYl24huE4tcVwA+a3uKvWUo5w=; b=Kxs2+Nli/J4ywFhWoaNTJoadtU
+	aAzmSefuTt9uiQBWTnLIPgqb29ke7VfaCn3jB+8MJkFs1yWI02Acwk44KaNcB3pwaYrf8BNaDCIIg
+	KhDpDbvyxEuuP/Qk6ZIjtD90YDZIbwEhC1Nm1kn58wBNyhYo/4xUORaLtxki3plU2O5KMpSA6S15m
+	pJ1TN0CH32ozPsLmFZxyN1Rt1YHb5TTzgIfu4VpFqQguhMMPw4VRX5gMCIa1/+MPH7SOwwsXJtdfr
+	1vuz3LPQlNQqRTCUEh7dYrtetFDAy17VbJYAJTXstJKxdH7AWkyPrUhno6slCJosfX4qBWKPy0apO
+	HSAmKOrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCg3l-0018g6-TM; Tue, 03 Jan 2023 12:06:26 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1pCgxF-001Ndw-Kp; Tue, 03 Jan 2023 13:03:45 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCfSr-000xnr-KE
-	for linux-riscv@lists.infradead.org; Tue, 03 Jan 2023 11:28:19 +0000
-Received: by mail-lf1-x129.google.com with SMTP id m6so34872748lfj.11
-        for <linux-riscv@lists.infradead.org>; Tue, 03 Jan 2023 03:28:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=kE4qqRxLpxxCedBuUJYA+jounttnp3G/CGQUAy2owUc=;
-        b=Ill95URu0ok8mTKcTGS2lBtZw4eZqXOgHuXYKVuUbo61K1thYXNo+Ruh9Glym7puZ0
-         zX+XPzU9HkF5NtDV9G9rXGtsfzmAOJikoXWin/OvNxtIq8uqfGhYmtrAPSEAsiU7V1Y5
-         oLVnULMbddELmoYJH5P78lCIHYZt6Xd4d5rGEnQ+jRQhTspmocjmECdaqb2f976PdL2z
-         TzHa+su9MOIZrwYWj4CqUurmPyIyctOCVXkevmsCzEw1W+ZEN/+9kvMz0UXZ0GelNyM3
-         ylERXrH6lkJrnMQzYqxWIvb8GHGOvWjgDwWntvVljGUDLd3hptx9gakn71TA3mAo2Yrd
-         L9gA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=kE4qqRxLpxxCedBuUJYA+jounttnp3G/CGQUAy2owUc=;
-        b=UABMHOkQjd2ez4V2jUYQo3YkkRdFQGRKcprsC1nrsUSHgLwLt13AO1l7uUiTo8liis
-         rG9eyh0VMLqej83mauV7u1fqo8qrR2ZqToEv0eYqug559CuyxGzFgbrzRLLOMWb/ZtJx
-         Q5+FUsuCot8mVrBE2wj3GAluy6wjhXq/dJouHaij7krNDo2RgJmu5L6wv72RKFDKNwUa
-         SiNcZszOZkKGJ07h17AYLysjP+kAb036z7TSaCgQhNy9dHXmMlOegnYcPFilvVRX/Ejn
-         pZ6fSq4dt0chZiWfMrh0XeRz9RwPY1akNETAMNQXE6FjkNl7LRUk3+M7SP8SZMn3ISgJ
-         16Bg==
-X-Gm-Message-State: AFqh2kr4BoM4aOJtQLSJsXTXoGX5ijvrk1ZX8NmPZgB6VuUXRStDOr/k
-	/jeBNCcSPbhyUNUxW4+6nIleIQ==
-X-Google-Smtp-Source: AMrXdXvivJCiSvdg7M62GVqjA581ZqA/tb1WZnOzpgmcCBvtTZ9QkS3notudi/QiV+FIM4Pn1tKE8Q==
-X-Received: by 2002:a05:6512:3601:b0:4b7:13b:259d with SMTP id f1-20020a056512360100b004b7013b259dmr10839992lfs.48.1672745293524;
-        Tue, 03 Jan 2023 03:28:13 -0800 (PST)
-Received: from [192.168.0.20] (088156142067.dynamic-2-waw-k-3-2-0.vectranet.pl. [88.156.142.67])
-        by smtp.gmail.com with ESMTPSA id o10-20020ac24e8a000000b004b4fefacd89sm4798236lfr.139.2023.01.03.03.28.11
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 03 Jan 2023 03:28:13 -0800 (PST)
-Message-ID: <30423568-df03-1d72-81fe-3a4b33214e5c@linaro.org>
-Date: Tue, 3 Jan 2023 12:28:11 +0100
+	id 1pCeNj-000g0T-7T
+	for linux-riscv@lists.infradead.org; Tue, 03 Jan 2023 10:18:57 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 9185B6120E;
+	Tue,  3 Jan 2023 10:18:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDA7CC433EF;
+	Tue,  3 Jan 2023 10:18:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1672741134;
+	bh=HSkVcDE93TTwdgQxX+NA/uwZL5WLjZtqGQP1f8SU5p4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=agDOiY9giFZqyqoG3aX1QNO2DsCG6ek4ASaFfVcZKSsPpBPaioUkl+2uUMGUC15L/
+	 4IHlfN8H0PS2uvrpzIBZfK6QApOSQPNvGVPxXUE7TbvTW2PzcRmBmK6+NsUGBzePXI
+	 htwc/2oRapfGIZv0ZSnT//3WVwCLjEj+FwbgARQsYhWYVexmank2TaBYKThcBQ0m2a
+	 goB5v27HnyHmT6/rleh344S3IwvZnJ4FtwAu05i+iZk/zWRUN3ucJKj++LeG66qhtY
+	 jsegLAStQZI4KzVYDdp8HjiXxy6JOC7hgEJ5nDfy0HqTEJK3ILq6N0nLognr1QC5WS
+	 bBNETEftCZ+3A==
+Date: Tue, 3 Jan 2023 10:18:49 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>, uwu@icenowy.me
+Subject: Re: [PATCH RESEND 2/2] riscv: errata: prefix T-Head mnemonics with
+ th.
+Message-ID: <Y7QBCeqh96rKmZvf@spud>
+References: <20230103062610.69704-1-uwu@icenowy.me>
+ <20230103062610.69704-2-uwu@icenowy.me>
+ <5641668.DvuYhMxLoT@diego>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.6.1
-Subject: Re: [RFC PATCH 3/4] dt-bindings: panel: Introduce dual-link LVDS
- panel
-Content-Language: en-US
-To: Aradhya Bhatia <a-bhatia1@ti.com>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Tomi Valkeinen <tomba@kernel.org>, Jyri Sarha <jyri.sarha@iki.fi>,
- David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Thierry Reding <thierry.reding@gmail.com>, Sam Ravnborg <sam@ravnborg.org>,
- Maxime Ripard <maxime@cerno.tech>, Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Matthias Brugger <matthias.bgg@gmail.com>, Guo Ren <guoren@kernel.org>
-Cc: DRI Development List <dri-devel@lists.freedesktop.org>,
- Devicetree List <devicetree@vger.kernel.org>,
- Linux Kernel List <linux-kernel@vger.kernel.org>,
- Linux RISC-V List <linux-riscv@lists.infradead.org>,
- Linux ARM Kernel List <linux-arm-kernel@lists.infradead.org>,
- Linux Mediatek List <linux-mediatek@lists.infradead.org>,
- Linux C-SKY Arch List <linux-csky@vger.kernel.org>,
- Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
- Rahul T R <r-ravikumar@ti.com>, Devarsh Thakkar <devarsht@ti.com>,
- Jai Luthra <j-luthra@ti.com>, Jayesh Choudhary <j-choudhary@ti.com>
-References: <20230103064615.5311-1-a-bhatia1@ti.com>
- <20230103064615.5311-4-a-bhatia1@ti.com>
- <85837957-f6d2-4722-7693-98c6cf932096@linaro.org>
- <32d66fb7-6c63-0985-222f-0bd3c36c165d@ti.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <32d66fb7-6c63-0985-222f-0bd3c36c165d@ti.com>
+In-Reply-To: <5641668.DvuYhMxLoT@diego>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230103_032817_755332_AA75EACA 
-X-CRM114-Status: GOOD (  19.68  )
+X-CRM114-CacheID: sfid-20230103_021855_488226_CDFE4392 
+X-CRM114-Status: GOOD (  11.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,82 +67,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org, Nathan Chancellor <nathan@kernel.org>, Guo Ren <guoren@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org
+Content-Type: multipart/mixed; boundary="===============8438472899497970995=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 03/01/2023 12:02, Aradhya Bhatia wrote:
-> But this is throwing an error. I am confused what else could be done.
-> Can you please suggest what might be a more accurate check here?
-> 
->>
->>> +              required:
->>> +                - dual-lvds-odd-pixels
->>> +        then:
->>> +          properties:
->>> +            port@1:
->>> +              properties:
->>> +                dual-lvds-even-pixels: true
->>> +                dual-lvds-odd-pixels: false
->>
->> Why do you need this? Your oneOf before already solves it.
-> 
-> I agree with your comment here. It makes sense to only have
-> 
-> 	dual-lvds-even-pixels: true
-> 
-> and have the oneOf condition take care of the other. But, I just tested
-> this and it was unable to pick-up this intentionally-added error.
-> 
-> I added 'dual-lvds-odd-pixels' property to both the nodes, and
-> dt_binding_check passes successfully (which it should have not.)
-> 
-> Instead, if I only keep this,
-> 
-> 	dual-lvds-odd-pixels: false
-> 
-> then the dt_binding_check detects the error as it should.
-> 
-> Regardless, I am curious why the first method doesn't work. Will try to
-> explore more on that.
 
-The check for presence of properties is only against required:, but you
-added there properties. Like this:
-
-https://elixir.bootlin.com/linux/v5.17-rc2/source/Documentation/devicetree/bindings/mfd/samsung,s5m8767.yaml#L155
+--===============8438472899497970995==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="hAPl3w13QUb7Di8T"
+Content-Disposition: inline
 
 
-Other way is to drop your both oneOf and entire allOf from ports and use:
+--hAPl3w13QUb7Di8T
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-oneOf:
-  - properties:
-      ports:
-        $ref: /schemas/graph.yaml#/properties/ports
-        properties:
-          port@0:
-            required:
-              - dual-lvds-odd-pixels
-          port@1:
-            required:
-              - dual-lvds-even-pixels
-  - properties:
-      ports:
-        $ref: /schemas/graph.yaml#/properties/ports
-        properties:
-          port@1:
-            required:
-              - dual-lvds-odd-pixels
-          port@0:
-            required:
-              - dual-lvds-even-pixels
+> T-Head now maintains some specification for their extended instructions
+> at [1], in which all instructions are prefixed "th.".
+>=20
+> Follow this practice in the kernel comments.
+>=20
+> [1] https://github.com/T-head-Semi/thead-extension-spec
+>=20
+> Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
+
+Hey Icenowy,
+This (yet again) appears to not have made it to the list.
+It's not on patchwork, nor lore:
+https://lore.kernel.org/linux-riscv/2668919.mvXUDI8C0e@diego/T/#t
+https://lore.kernel.org/all/2668919.mvXUDI8C0e@diego/T/#t
+
+Since you CCed lkml & not just linux-riscv, but it is not showing idk
+what's wrong..
+Your reply to me the other day came through:
+https://lore.kernel.org/all/dda144a8397a175f3ce092485f08896c9a66d232.camel@=
+icenowy.me/
+
+Thanks,
+Conor.
 
 
-Best regards,
-Krzysztof
+--hAPl3w13QUb7Di8T
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY7QBCQAKCRB4tDGHoIJi
+0tAGAPsFQ8k9MUuX4iWMfvfLGnFocl2dh5/008Fu0QoDJl3+aAD9G/mDs4wbC+hu
+PcisOihXXbQQPYBicsUO15UAgnF7Tgo=
+=Q0QQ
+-----END PGP SIGNATURE-----
+
+--hAPl3w13QUb7Di8T--
+
+
+--===============8438472899497970995==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8438472899497970995==--
+
