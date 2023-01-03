@@ -4,85 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4A26C3DA7D
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jan 2023 21:16:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7717C3DA7D
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jan 2023 21:26:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=L6ZSdGOdU9yJi7waZRYW5aSbw8ExKEVO9GnVVDou7dc=; b=NvqkCaydltp4le
-	0lgM5C/FDC/kxopP+s3LZxDSHUL/bhGyFsDxrT4zYv3QCrTaFVt8rrpl5MhPbNFJBuq76kNUmaN2A
-	DsqRcTNFO25plCsUiPUf+/qV/pfe9VGQAqOgepHpxyJOVt8/S2JhS3aK+ayuRJrAhqW945CqV+exw
-	ob0B9MRXRuyhdDtQ7V3uT8dtCwt9l5dHoKqPTJ44Pu7SQGKJK3gl5Yst21VjkUxWKNtJZ8DiHLBzz
-	59+sW2whbE0ZFYaR63CIy1/CmB17Nt43BzPZod3yKu7WRg8psYocOUxErtiV/UIlS4x+3tUdU23QI
-	5JjTw5dMAi6L6NFxVYsQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=hmkQoYLtqAw2o+GpOm1f2ujRLOeCG/AKssHur782jk0=; b=GFNrWRLLCpzLzCU9wJk7ewbuLV
+	kcMiLwidw0EvvHof9lhkr2Q99tpAsFQztaUh+LTtCtGvRkHr7mV0uX/A/4A8byGdKYZRY4i0G89uf
+	8n0az2uf8eMpDdTnLSkWCaiVhlZIkuxW0UFr1BDvn2Z6Fc9wX8RcNUCuPpGVluW7ufHHvNkJoQd2Y
+	HeRdhy8qOHjHnl3yTLi+hVVk/xbvpEii8COaNszhyzrsStk5UVUKnyXbfYcYBmUezWz48UEKwZMSF
+	WyVyhSC2SCviz0vkjf5PVXcFKLQZo/Gw01jBS6kj0kf9TXunq7TmVHwfbKEGlH/02EC/LI0D684cH
+	ZuaspW8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCodl-0052dd-VJ; Tue, 03 Jan 2023 21:16:10 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pCont-005762-Df; Tue, 03 Jan 2023 21:26:37 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCoSM-004xUk-2Q
-	for linux-riscv@lists.infradead.org; Tue, 03 Jan 2023 21:04:24 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 0B0A961518;
-	Tue,  3 Jan 2023 21:04:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 477B4C433EF;
-	Tue,  3 Jan 2023 21:04:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1672779857;
-	bh=+a4GknzPZkuXqBn656i7Wlb1eFqC8Z9LcgenqXot4Jc=;
-	h=From:To:List-Id:Cc:Subject:Date:In-Reply-To:References:From;
-	b=F9ntzGAXtEnJ9ec9847PhJqorpKgHZqyhBmP5kxP+gww/HimmqswFaTTMYuwOzivL
-	 5zho4d0Xf3T9KNajmSw9lcolFTYoG88gjrYkXK4JSvY2ZQzKzzdXWh966iXb3jYDhl
-	 eyKhoLmfjkZzZw2bdn8te0Qm8BCBinaK1+lD0vzl2+lb7ax/KnHCEjIhom8opEUcMG
-	 Zu5IhHHoYx4hEk6hOLsdM4mcQ0jeMl6EFR16NycmePWSRkhxUX6GEODBYrYHaWaf1w
-	 nc5ClDao8U1YOQaqDg4tRdtSCRcLN1XuynSgmJBZTVun/9Lfl1lpG+4OcxfhiZCMND
-	 UQNRK5xSOM9rA==
-From: Conor Dooley <conor@kernel.org>
-To: conor@kernel.org,
-	arnd@arndb.de,
-	palmer@dabbelt.com,
-	prabhakar.csengg@gmail.com
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	ajones@ventanamicro.com,
-	aou@eecs.berkeley.edu,
-	apatel@ventanamicro.com,
-	atishp@rivosinc.com,
-	biju.das.jz@bp.renesas.com,
-	devicetree@vger.kernel.org,
-	geert@linux-m68k.org,
-	guoren@kernel.org,
-	hch@infradead.org,
-	heiko@sntech.de,
-	jszhang@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org,
-	linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	magnus.damm@gmail.com,
-	nathan@kernel.org,
-	paul.walmsley@sifive.com,
-	philipp.tomsich@vrull.eu,
-	prabhakar.mahadev-lad.rj@bp.renesas.com,
-	robh+dt@kernel.org,
-	samuel@sholland.org,
-	soc@kernel.org
-Subject: [RFC v5.1 0/9] Generic function based cache management operations (was Re: [PATCH v5 6/6] soc: renesas: Add L2 cache management for RZ/Five SoC)
-Date: Tue,  3 Jan 2023 21:03:52 +0000
-Message-Id: <20230103210400.3500626-1-conor@kernel.org>
-X-Mailer: git-send-email 2.39.0
-In-Reply-To: <Y62nOqzyuUKqYDpq@spud>
-References: <Y62nOqzyuUKqYDpq@spud>
-MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5698; i=conor.dooley@microchip.com; h=from:subject; bh=ml9qI4wIsVqAaRr3oVwB9iuAe68WB7bPF35ZiNhQRtI=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDMlbZliskpCyseMwuBf3oWL6qpvTry+dFaGcn18VqrXkt6ZD gr9hRykLgxgHg6yYIkvi7b4WqfV/XHY497yFmcPKBDKEgYtTACbiw8nwhyP/zaUj0paFweUOtvHsU6 2/uzBe9uA88npF7BSRT59SLRgZFryoPcIWK8b1cfmjU8d9Dv4s+pVtZnCe5d6fyI+TnTslGQE=
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+	id 1pComz-0056jm-T9
+	for linux-riscv@lists.infradead.org; Tue, 03 Jan 2023 21:25:45 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d3so33974890plr.10
+        for <linux-riscv@lists.infradead.org>; Tue, 03 Jan 2023 13:25:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ZUKV8XtdR9Wi29R6eAEUNYjmfBZwpc26xLflVPTdF70=;
+        b=hmzLco5GkMI78m65rJOjtshDE9OHs4WUD+ZoV6soHzsge2ezP/QV71N7ohi4JjzpDS
+         y3UOikUsRzLX6ubOwcdbnZjV0HuLQQChjawrybAiNFhEojD3bbj/e2SIdBh4GEQDydVa
+         K5jcW2K0wGVIlRbXlhfY4PpLhs3xMCrfXx+a8W9bi2em7OVAgdWaC2xe1WCSzi0p+N4M
+         XhCVIMVP9KkjmyHvmKYV/euzUPRLIBTxSnMkWUFsqArFVwkGR3VhrUtUB+XLKYwEFKnZ
+         cmtUL0biyXB4rkAvbBTyTph9RAIMs6qWzc+d7PI6SzEOnJ11+LBK0ZHnQNW6TzMf3WN0
+         Q/jw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ZUKV8XtdR9Wi29R6eAEUNYjmfBZwpc26xLflVPTdF70=;
+        b=j998lO2TF2atEo6tGo6BjR8gO1MuwLyCmGHQ0enVz5UV3XFn6KYUFsyvkbLVAaAvNc
+         N4kl74lZLxRVEbxMPLJhKwFFW7POQGDjjgeatSnrsnieFnDFZchd9mGXGuVITJzY4PxH
+         YBjh7swTRJfK6G4SjNd0qVN/Jsy1yXiZQoTBweScq1Pq8KAIQ3jDi8hml6qzlj/NZ1OW
+         oFXq/sl6tyV6Dr2qrv89X159brwPfLngIRB6hW57orODkkM3M30h9HVNetcjf2MvBxhr
+         OrDz04YlJB6cJNINKFBo8Wny6feWNrSIVDgkry0XYeNJRhBXYNp7sgNO1qaMaXoxLi9G
+         PuKg==
+X-Gm-Message-State: AFqh2kpWPN77tZP6HcnWgIWx6KdqBt/1I59PNnpDasOYLwbg4utusd6e
+	MixQHVj+th8hNL8Nm7utliyelw==
+X-Google-Smtp-Source: AMrXdXtSvMcBjakJm9BjhwFaZ8Ms1gtQxe0RsBhSPiFjUg//ODcQyEurfazTSl5cYA2O7TD2fHDrqA==
+X-Received: by 2002:a17:90a:558c:b0:226:1189:ad3e with SMTP id c12-20020a17090a558c00b002261189ad3emr25556131pji.27.1672781137514;
+        Tue, 03 Jan 2023 13:25:37 -0800 (PST)
+Received: from localhost ([135.180.226.51])
+        by smtp.gmail.com with ESMTPSA id y11-20020a634b0b000000b00477a442d450sm1734161pga.16.2023.01.03.13.25.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 03 Jan 2023 13:25:36 -0800 (PST)
+Date: Tue, 03 Jan 2023 13:25:36 -0800 (PST)
+X-Google-Original-Date: Tue, 03 Jan 2023 13:25:31 PST (-0800)
+Subject: Re: [RFC v5.1 9/9] [DON'T APPLY] cache: sifive-ccache: add cache flushing capability
+In-Reply-To: <20230103210400.3500626-10-conor@kernel.org>
+CC: Conor Dooley <conor@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+  prabhakar.csengg@gmail.com, Conor Dooley <conor.dooley@microchip.com>, ajones@ventanamicro.com,
+  aou@eecs.berkeley.edu, apatel@ventanamicro.com, Atish Patra <atishp@rivosinc.com>,
+  biju.das.jz@bp.renesas.com, devicetree@vger.kernel.org, geert@linux-m68k.org, guoren@kernel.org,
+  Christoph Hellwig <hch@infradead.org>, heiko@sntech.de, jszhang@kernel.org, krzysztof.kozlowski+dt@linaro.org,
+  linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org, linux-riscv@lists.infradead.org,
+  magnus.damm@gmail.com, nathan@kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
+  philipp.tomsich@vrull.eu, prabhakar.mahadev-lad.rj@bp.renesas.com, robh+dt@kernel.org,
+  samuel@sholland.org, soc@kernel.org, daire.mcnamara@microchip.com
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Conor Dooley <conor@kernel.org>
+Message-ID: <mhng-6e6653fa-4efc-49c4-bd70-320c63327c2b@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230103_130422_250400_E628D2F9 
-X-CRM114-Status: GOOD (  26.74  )
+X-CRM114-CacheID: sfid-20230103_132542_624869_8378B2E8 
+X-CRM114-Status: GOOD (  29.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,131 +91,124 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+On Tue, 03 Jan 2023 13:04:01 PST (-0800), Conor Dooley wrote:
+> From: Daire McNamara <daire.mcnamara@microchip.com>
+>
+> SiFive L2 cache controller can flush L2 cache. Expose this capability via
 
-Hey all, hopefully the $subject arrived intact!
+Do you have a pointer to the datasheet for whatever L2 controller is in 
+the PFSOC?  IIRC whether it's possible to correctly flush the cache is 
+kind of subtle, as it depends on what else is floating around the SOC.
 
-See here for prior discussion:
-https://lore.kernel.org/linux-riscv/Y62nOqzyuUKqYDpq@spud/#R
-
-Rather than continue that back and forth about where these drivers
-belonged, I've gone and created a mock-up for what it would look like
-if we picked drivers/cache.
-
-IMO, doing drivers/cache for the detail of vendor behaviour makes sense
-as it'll keep 'em out of arch/riscv while keeping the drivers
-together.
-I've taken v5 of Prabhakar's patchset & hacked at it a bit, so here
-is a tyre-kicked (more) generic implementation of cache management stuff
-via functions.
-I initially went and moved both the ax45mp and ccache drivers to
-drivers/cache & created a "subsystem" like interface, but quickly
-realised it was all far too trivial to exist & was intrinsically tied to
-the ALT_CMO_OP alternative setup on RISC-V.
-I trashed that so, and instead copied the interface currently used by
-riscv_set_cacheinfo_ops(), and created a corollary which registers cache
-management operations. Or maintenance, IDC which.
-Instead of having the vendor specific cache controller function in the
-errata, the generic one is there instead, which then calls the one
-registered by the vendor driver.
-I figure that even if no other non-coherent implementation ends up making
-it upstream, ax45mp is not going to be the only Andestech product that
-has a "no-iocp" variant...
-
-I sent this over the Prabhakar the other day & it works for him, so I am
-now sending this here as RFC. I've not yet tested it on PolarFire SoC,
-as we have to sort out some "fun" where archid etc are all zero.
-We'll require some massaging before we can use the alternatives framework
-as is, so that'll have to come at a later date. I included a patch, but
-it's marked "DON'T APPLY" for a reason ;)
-
-Notably, I have not fixed up any comments which were left against v5,
-bar a rebase on top of riscv/for-next. I blindly "fixed" the pmem issue,
-so that needs to be fixed properly for a v6, alongside the other couple
-bits.
-
-The other thing that is missing, and I could not think immediately of a
-way to do it, is a way to add additional users of this type of CMO to
-the alternative without having to add a specific entry for each vendor.
-I had first thought about using archid of 0, but that runs into problems
-pretty quickly as that "archid" is what we use for enabling CPU_FEATURE
-stuff, like Zicbom itself.
-Since archid uses the JEDEC IDs, perhaps we could squat on either a
-continuation code (or some vendor that won't make a RISC-V CPU, like
-Actel *cough*).
-I didn't go through with mocking that up, as until we sort out PolarFire
-SoC, there's only one user for this that I, at least, would like to have
-supported properly.
-So if anyone has ideas that are in any way less hacky than that, I am all
-ears.
-
-Thanks,
-Conor.
-
-Conor Dooley (2):
-  cache,soc: Move SiFive CCache driver & create drivers/cache
-  RISC-V: create a function based cache management interface
-
-Daire McNamara (1):
-  [DON'T APPLY] cache: sifive-ccache: add cache flushing capability
-
-Lad Prabhakar (6):
-  riscv: asm: alternative-macros: Introduce ALTERNATIVE_3() macro
-  riscv: asm: vendorid_list: Add Andes Technology to the vendors list
-  riscv: errata: Add Andes alternative ports
-  riscv: mm: dma-noncoherent: Pass direction and operation to
-    ALT_CMO_OP()
-  dt-bindings: cache: r9a07g043f-l2-cache: Add DT binding documentation
-    for L2 cache controller
-  soc: renesas: Add L2 cache management for RZ/Five SoC
-
- .../cache/andestech,ax45mp-cache.yaml         |  81 ++++++
- MAINTAINERS                                   |  15 +-
- arch/riscv/Kconfig.erratas                    |  26 ++
- arch/riscv/errata/Makefile                    |   1 +
- arch/riscv/errata/andes/Makefile              |   1 +
- arch/riscv/errata/andes/errata.c              |  93 +++++++
- arch/riscv/include/asm/alternative-macros.h   |  46 +++-
- arch/riscv/include/asm/alternative.h          |   3 +
- arch/riscv/include/asm/cacheflush.h           |  23 ++
- arch/riscv/include/asm/errata_list.h          |  41 ++-
- arch/riscv/include/asm/vendorid_list.h        |   1 +
- arch/riscv/kernel/alternative.c               |   5 +
- arch/riscv/mm/dma-noncoherent.c               |  36 ++-
- arch/riscv/mm/pmem.c                          |   4 +-
- drivers/Kconfig                               |   2 +
- drivers/Makefile                              |   2 +
- drivers/cache/Kconfig                         |  25 ++
- drivers/{soc/sifive => cache}/Makefile        |   2 +
- drivers/cache/ax45mp_cache.c                  | 253 ++++++++++++++++++
- drivers/{soc/sifive => cache}/sifive_ccache.c |  47 +++-
- drivers/edac/sifive_edac.c                    |   2 +-
- drivers/soc/Kconfig                           |   1 -
- drivers/soc/Makefile                          |   1 -
- drivers/soc/renesas/Kconfig                   |   4 +
- drivers/soc/sifive/Kconfig                    |  10 -
- include/{soc/sifive => cache}/sifive_ccache.h |   0
- 26 files changed, 684 insertions(+), 41 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
- create mode 100644 arch/riscv/errata/andes/Makefile
- create mode 100644 arch/riscv/errata/andes/errata.c
- create mode 100644 drivers/cache/Kconfig
- rename drivers/{soc/sifive => cache}/Makefile (62%)
- create mode 100644 drivers/cache/ax45mp_cache.c
- rename drivers/{soc/sifive => cache}/sifive_ccache.c (86%)
- delete mode 100644 drivers/soc/sifive/Kconfig
- rename include/{soc/sifive => cache}/sifive_ccache.h (100%)
-
-
-base-commit: b07de94d4501c61a3015cb0035227e449c51d87e
--- 
-2.39.0
-
+> driver.
+>
+> Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
+> [Conor: rebase on top of move to cache subsystem]
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+> This commit needs more work, and a way to enable it from errata. I've
+> not gone and done this as PolarFire SoC has archid etc all set to zero.
+> So we need to go figure out a workaround for this, before adding in
+> errata enabling code for this. I've included it here as a second user of
+> the cache management stuff, since what's currently upstream for the
+> ccache driver does not do any cache management.
+> ---
+>  drivers/cache/sifive_ccache.c | 45 +++++++++++++++++++++++++++++++++++
+>  1 file changed, 45 insertions(+)
+>
+> diff --git a/drivers/cache/sifive_ccache.c b/drivers/cache/sifive_ccache.c
+> index 47e7d6557f85..3c00f205bace 100644
+> --- a/drivers/cache/sifive_ccache.c
+> +++ b/drivers/cache/sifive_ccache.c
+> @@ -9,12 +9,14 @@
+>  #define pr_fmt(fmt) "CCACHE: " fmt
+>
+>  #include <linux/debugfs.h>
+> +#include <linux/dma-direction.h>
+>  #include <linux/interrupt.h>
+>  #include <linux/of_irq.h>
+>  #include <linux/of_address.h>
+>  #include <linux/device.h>
+>  #include <linux/bitfield.h>
+>  #include <asm/cacheinfo.h>
+> +#include <asm/cacheflush.h>
+>  #include <cache/sifive_ccache.h>
+>
+>  #define SIFIVE_CCACHE_DIRECCFIX_LOW 0x100
+> @@ -42,11 +44,15 @@
+>  #define SIFIVE_CCACHE_WAYENABLE 0x08
+>  #define SIFIVE_CCACHE_ECCINJECTERR 0x40
+>
+> +#define SIFIVE_CCACHE_FLUSH64 0x200
+> +#define SIFIVE_CCACHE_FLUSH32 0x240
+> +
+>  #define SIFIVE_CCACHE_MAX_ECCINTR 4
+>
+>  static void __iomem *ccache_base;
+>  static int g_irq[SIFIVE_CCACHE_MAX_ECCINTR];
+>  static struct riscv_cacheinfo_ops ccache_cache_ops;
+> +static struct riscv_cache_maint_ops ccache_cmos;
+>  static int level;
+>
+>  enum {
+> @@ -205,6 +211,42 @@ static irqreturn_t ccache_int_handler(int irq, void *device)
+>  	return IRQ_HANDLED;
+>  }
+>
+> +static void sifive_ccache_dma_wback_inv(void* vaddr, unsigned long size)
+> +{
+> +	void * __iomem flush = ccache_base + SIFIVE_CCACHE_FLUSH64;
+> +	phys_addr_t start = virt_to_phys(vaddr);
+> +	phys_addr_t aligned_start = start & ~0x3f;
+> +	u64 addr;
+> +	u64 end;
+> +	u64 aligned_end;
+> +
+> +	size += start - aligned_start;
+> +	end = start + size;
+> +	aligned_end = end += 0x3f;
+> +	aligned_end &= ~0x3f;
+> +
+> +	for (addr = aligned_start; addr < aligned_end; addr += 64)
+> +		writeq(addr, flush);
+> +}
+> +
+> +static void sifive_ccache_cmo(unsigned int cache_size, void *vaddr, size_t size,
+> +			      int dir, int ops)
+> +{
+> +	switch (dir) {
+> +	case DMA_TO_DEVICE:
+> +		sifive_ccache_dma_wback_inv(vaddr, size);
+> +		break;
+> +	case DMA_FROM_DEVICE:
+> +		sifive_ccache_dma_wback_inv(vaddr, size);
+> +		break;
+> +	case DMA_BIDIRECTIONAL:
+> +		sifive_ccache_dma_wback_inv(vaddr, size);
+> +		break;
+> +	default:
+> +		break;
+> +	}
+> +}
+> +
+>  static int __init sifive_ccache_init(void)
+>  {
+>  	struct device_node *np;
+> @@ -254,6 +296,9 @@ static int __init sifive_ccache_init(void)
+>  	ccache_cache_ops.get_priv_group = ccache_get_priv_group;
+>  	riscv_set_cacheinfo_ops(&ccache_cache_ops);
+>
+> +	ccache_cmos.cmo_patchfunc = sifive_ccache_cmo;
+> +	riscv_set_cache_maint_ops(&ccache_cmos);
+> +
+>  #ifdef CONFIG_DEBUG_FS
+>  	setup_sifive_debug();
+>  #endif
 
 _______________________________________________
 linux-riscv mailing list
