@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE09DC53210
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jan 2023 01:35:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79033C53210
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jan 2023 01:35:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RM0CYpgLiekSJEjgw67r5uNmsoq8fnNPEqIHNv2i81E=; b=IeZrXh55ZFGw+o
-	a10+EA6Rf7UDdRkC6h0BOskMABUzpEwOBXWnbHp7xRR/E9E/4v4amZelRhrbNjCfLYyBzJHN8ZeBD
-	J0GaAMYT+yEW0fVcYcqZwDcTDfYI9nMXrJA3y0Jy/MVmn7EJjqnO+EY4naSL/fOQxBDAGqMU6zpat
-	unxCSD6rOTegNiXpCTNhvEmdl/+97aJmrQyydBw0wD/GlFWAo7uH/IFXznJ99DUK3Cw2Mbt16JSlT
-	DkHT/GxgbLmyh5Zs2f8SVMxRm5Yl412iehB92W46aiSnJ3XREm1pulb40wrpSWJ5edcwa20CFoaTo
-	cVTmJj0Gu5i2W76FU2/A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=M92qPYMPkAut4piD0jyAKrEGYoB6X6V2pOXE0FoxsC4=; b=CsXdPRlKKWB54+
+	c4f4YHFrKh8LuhBWskuSHQTA/gMh+WyPrwJ1gHCedV0AYH/F16pLtWDP3S6vYSXUE8PgymMeAva6l
+	c64jPAb6Fb+OkKONNSno36zChQ0xTD4plIaazqZyd1dHXr00FJziErFKtI85uoLSz0qLLQlN7AyNQ
+	BU4bgHh57m8up4r36G9BdjrvAtNDYw89J7vK5JN4TV+W2QORMsp4ODxxQoL9CQ3RUdrhztRmZ/p9P
+	p3IKpKjr4YYGsnV/Z8QnTQuIfwdlJlpzrutpgC41l6nc79NGD4zAcQKRQPS1nq4jVAI9DefMcgOUm
+	fI3yNjZ3kluimEhrDF9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCWCt-00FbyU-RN; Tue, 03 Jan 2023 01:35:11 +0000
+	id 1pCWCx-00Fc0l-Ks; Tue, 03 Jan 2023 01:35:15 +0000
 Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCWAA-00FbID-Qc
-	for linux-riscv@lists.infradead.org; Tue, 03 Jan 2023 01:32:25 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	id 1pCWAL-00FbIB-Kx
+	for linux-riscv@lists.infradead.org; Tue, 03 Jan 2023 01:32:35 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id DDBE324E035;
-	Tue,  3 Jan 2023 09:31:51 +0800 (CST)
-Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 3 Jan
- 2023 09:31:51 +0800
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 3B73924DF03;
+	Tue,  3 Jan 2023 09:31:49 +0800 (CST)
+Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 3 Jan
+ 2023 09:31:49 +0800
 Received: from ubuntu.localdomain (113.72.146.202) by EXMBX172.cuchost.com
  (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 3 Jan
- 2023 09:31:51 +0800
+ 2023 09:31:48 +0800
 From: Hal Feng <hal.feng@starfivetech.com>
 To: <linux-hwmon@vger.kernel.org>, <linux-doc@vger.kernel.org>,
 	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>
@@ -46,21 +46,18 @@ CC: Jean Delvare <jdelvare@suse.com>, Guenter Roeck <linux@roeck-us.net>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing
 	<emil.renner.berthing@canonical.com>, Hal Feng <hal.feng@starfivetech.com>,
 	<linux-kernel@vger.kernel.org>
-Subject: [PATCH v1 3/4] riscv: dts: starfive: jh7110: Add temperature sensor node
-Date: Tue, 3 Jan 2023 09:31:44 +0800
-Message-ID: <20230103013145.9570-4-hal.feng@starfivetech.com>
+Subject: [PATCH v1 0/4] Temperature sensor support for StarFive JH7110 RISC-V SoC
+Date: Tue, 3 Jan 2023 09:31:41 +0800
+Message-ID: <20230103013145.9570-1-hal.feng@starfivetech.com>
 X-Mailer: git-send-email 2.38.1
-In-Reply-To: <20230103013145.9570-1-hal.feng@starfivetech.com>
-References: <20230103013145.9570-1-hal.feng@starfivetech.com>
 MIME-Version: 1.0
 X-Originating-IP: [113.72.146.202]
 X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX172.cuchost.com
  (172.16.6.92)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230102_173223_178984_960419D9 
-X-CRM114-Status: UNSURE (   9.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230102_173234_105987_DC9498FB 
+X-CRM114-Status: GOOD (  10.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,40 +74,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Emil Renner Berthing <kernel@esmil.dk>
+This patch series adds temperature sensor support for StarFive JH7110 SoC.
+The last two patches depend on series [1].
 
-Add temperature sensor support for StarFive JH7110 SoC.
+[1]: https://lore.kernel.org/all/20221220011247.35560-1-hal.feng@starfivetech.com/
 
-Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
-Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
----
- arch/riscv/boot/dts/starfive/jh7110.dtsi | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
+Emil Renner Berthing (4):
+  dt-bindings: hwmon: Add starfive,jh71x0-temp
+  hwmon: (sfctemp) Add StarFive JH71x0 temperature sensor
+  riscv: dts: starfive: jh7110: Add temperature sensor node
+  riscv: dts: starfive: visionfive-2: Add thermal-zones
 
-diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-index 64d260ea1f29..793ae26bf72d 100644
---- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-@@ -353,6 +353,19 @@ uart5: serial@12020000 {
- 			status = "disabled";
- 		};
- 
-+		sfctemp: tmon@120e0000  {
-+			compatible = "starfive,jh7110-temp";
-+			reg = <0x0 0x120e0000 0x0 0x10000>;
-+			clocks = <&syscrg JH7110_SYSCLK_TEMP_CORE>,
-+				 <&syscrg JH7110_SYSCLK_TEMP_APB>;
-+			clock-names = "sense", "bus";
-+			resets = <&syscrg JH7110_SYSRST_TEMP_CORE>,
-+				 <&syscrg JH7110_SYSRST_TEMP_APB>;
-+			reset-names = "sense", "bus";
-+			interrupts = <81>;
-+			#thermal-sensor-cells = <0>;
-+		};
-+
- 		syscrg: clock-controller@13020000 {
- 			compatible = "starfive,jh7110-syscrg";
- 			reg = <0x0 0x13020000 0x0 0x10000>;
+ .../bindings/hwmon/starfive,jh71x0-temp.yaml  |  75 ++++
+ Documentation/hwmon/index.rst                 |   1 +
+ Documentation/hwmon/sfctemp.rst               |  33 ++
+ MAINTAINERS                                   |   8 +
+ .../jh7110-starfive-visionfive-2.dtsi         |  28 ++
+ arch/riscv/boot/dts/starfive/jh7110.dtsi      |  13 +
+ drivers/hwmon/Kconfig                         |  10 +
+ drivers/hwmon/Makefile                        |   1 +
+ drivers/hwmon/sfctemp.c                       | 350 ++++++++++++++++++
+ 9 files changed, 519 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/hwmon/starfive,jh71x0-temp.yaml
+ create mode 100644 Documentation/hwmon/sfctemp.rst
+ create mode 100644 drivers/hwmon/sfctemp.c
+
+
+base-commit: 830b3c68c1fb1e9176028d02ef86f3cf76aa2476
+prerequisite-patch-id: 4dc515731ce237184553c1606ffb3afaeb51c3d8
+prerequisite-patch-id: 09c98554df52d17ba5fd604125f8cdd62cbe80d1
+prerequisite-patch-id: a798370d170dc2bcc79ed86f741c21c1e6d87c78
+prerequisite-patch-id: bd9fd8b5cb2376dc7a5e08e1a1fbb969cf475926
+prerequisite-patch-id: c57ebb83bc43ccd2a8366ff166eb499da1e1d2cf
+prerequisite-patch-id: a1673a9e9f19d6fab5a51abb721e54e36636f067
+prerequisite-patch-id: 94860423c7acc9025249d4bb36652a585bd0a797
+prerequisite-patch-id: b5084253283929d9a6d0e66c350400c7c85d034d
+prerequisite-patch-id: 6e369dbe9dca2785e4ea7d0b80e525e227a90a6e
+prerequisite-patch-id: e08806183c152714c563f3a21c6d7b2f539c4d6e
+prerequisite-patch-id: 79db8036abdc48fd36da227652ec62627a6b548b
+prerequisite-patch-id: 06971b8e6bddc0e87e63bfdb0ce8bfb653bd73aa
+prerequisite-patch-id: 16309a0e23811a2c55d2e56886de3e8eccc51554
+prerequisite-patch-id: bf4f7ab0b6cfa90b6e49e66c7d75ed2eaaebbe78
+prerequisite-patch-id: 38468d532e87867990055d3320679f18c5f52278
+prerequisite-patch-id: 4710f2ac22dca0bdd9ff5d744d2c37cab3c74515
+prerequisite-patch-id: 6bb9a780c62af3bcc2368dfd20303c7b1bc91e23
+prerequisite-patch-id: 258ea5f9b8bf41b6981345dcc81795f25865d38f
+prerequisite-patch-id: 8b6f2c9660c0ac0ee4e73e4c21aca8e6b75e81b9
+prerequisite-patch-id: e3b986b9c60b2b93b7812ec174c9e1b4cfb14c97
+prerequisite-patch-id: a2b3a9cff8a683422eb0ccf3a0850091401812d4
+prerequisite-patch-id: e0ba7af0f8d3d41844da9fbcba14b548cbc18f55
+prerequisite-patch-id: bc0176325c11a632c6abaa83e54e891cc92d1c74
 -- 
 2.38.1
 
