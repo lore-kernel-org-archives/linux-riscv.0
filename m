@@ -4,49 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEB93C4708E
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jan 2023 21:43:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E039BC3DA7D
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jan 2023 22:10:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=If431Krg7czFXFer1X2jnkgR3MvsDJXl3k6U5eZauFY=; b=XZis/Htr0RDabf
-	ZIvXAjVgWb/whUK85hWnWx66GTsz87w0O1LEohrfxUk9EfCqJD6bKkoY3xYKxRU7OeuAicv3bk0xj
-	WlCtcAqLQAgH62gXelsM7s7SEUzIAEkdOzh+zHi6Wezm2ncAI5ZLW7irarrz9lfl8XWOl0/36S4M8
-	uU7cw3rEGCsOZ7+0zxmuYhG/q42P0CfyqW/9jATHg41thPn5d4sp7kFiYaxiK6nV9pvOc1wvwBXLq
-	/MVcTb2SarfPfXsEcNPm1n5gzPyc6ba/WRBo6XqSSh0zF1rMFSDVHMO5OiXjjTbmR0k00zqCj1FO9
-	RraGCuibdRaN8jyrn9Dg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=cslq4gYpYOXg9k59NKmmkrYGEoLyF5PJFdltyeDCpp0=; b=J8EGelERra0J/S
+	gdQ8ke+wrB28vO2e8AnGQRD5yTfHBOzRs5uObJpXK+sawZvcQFpQ+3T3A7k8OMYOKSY3EeX03eORA
+	1MO0Gv2tIsF7Y+G1O+eRUbIFKyLxZYYd6lHLSQGESNCB1vl39zw2SbNaUeap9cx4RzN77VkxADxl1
+	2uPNpLEKYcCQmI6zXt0Sye/YZtZ9IKkWIh0d07IauI/CXdO/ouAVnzk2VZk9Wf2pi1E7r+cN6zV+A
+	7F6BgBoMD20PWPKryiRofmK6jFyeAPpoPtvy9v4VHY3BO3CRmPGrrosPBlI0tKm0OMj+5QXwj93M6
+	DqGPFVPBrAAr0aEZdHaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCp4X-005Gl1-DK; Tue, 03 Jan 2023 21:43:49 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1pCpUS-005M2v-Fg; Tue, 03 Jan 2023 22:10:36 +0000
+Received: from mail-oi1-x22f.google.com ([2607:f8b0:4864:20::22f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCp3M-005FrX-Fl
-	for linux-riscv@lists.infradead.org; Tue, 03 Jan 2023 21:42:38 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=phil.lan)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1pCp3I-0001oQ-6R; Tue, 03 Jan 2023 22:42:32 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com
-Cc: christoph.muellner@vrull.eu,
-	conor@kernel.org,
-	philipp.tomsich@vrull.eu,
-	ajones@ventanamicro.com,
-	heiko@sntech.de,
-	Heiko Stuebner <heiko.stuebner@vrull.eu>
-Subject: [PATCH] RISC-V: fix compile error from decuplicated __ALTERNATIVE_CFG_2
-Date: Tue,  3 Jan 2023 22:42:28 +0100
-Message-Id: <20230103214228.841297-1-heiko@sntech.de>
-X-Mailer: git-send-email 2.35.1
+	id 1pCpUD-005M0L-5i
+	for linux-riscv@lists.infradead.org; Tue, 03 Jan 2023 22:10:23 +0000
+Received: by mail-oi1-x22f.google.com with SMTP id d127so26853696oif.12
+        for <linux-riscv@lists.infradead.org>; Tue, 03 Jan 2023 14:10:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=cgm6PevOu4SaEp689m62kLO8X6SAzD/KfVsAqPH4asY=;
+        b=Ny8KE8QA6XEcEI5DmfDoiEfJextN+n4yfBW+MKWfvRcoO2//PqH4cvLutY9hr6aqGg
+         oz9LJc7+iLd/rNdpUYf9O2R3aO3ZC9tzMyLvpNhi3UWYeba9HrNoVEZW+FE1np8Qi2Si
+         Zej0xHlb5SUXZlwvXP8th0Buzai9RO3Bl3XmX4B840SED5oxNyNtyne99aojLh5bXmEd
+         y50n/9Z107BrhBnF/r/z7VekPKPXYCvEJ/WBp9Ync2OFe+OQmGaeADpT2iicz1qVrgiP
+         OLWsi0ejJrNCxXaWto2DfHtqrIAxjtMGitdexP8VmouT1HNgj3RH53b+u/bnA7MkBboq
+         Vbcg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=cgm6PevOu4SaEp689m62kLO8X6SAzD/KfVsAqPH4asY=;
+        b=clJY0PQbI5nKJF2yS76HjdML9L9aAS7U9hZbsrniOh/X5t8sVuQRFKqkcgKlV5AFPy
+         kMfBqiPVhEZIgwRH5i4+mK/yK77mFju0zH/7E8cpPnL8qnbYZ4Xskpt/4XPk3AvP4fUh
+         VENFEHSxz0OjgyVaxiWMBmFbe6ylW9tIYjAEcb+ldt2HR68aOMdEPUHuCJDfv8DEcfC/
+         aK0hnToG7SBtI5hfxWq/Hx7FaHhqv+ct2WVeW77xG/sUwCLEKvLN2EHaGixOM9pfEO5V
+         YRN5qrE6LyAK9mAAaXxUvvdYiTdVB9rl1BdjkM4tCtrJVeIAFUWlB5cOlw3k2zFgKILV
+         f9Zg==
+X-Gm-Message-State: AFqh2kocWDXcDCAdq9hBuZanwl0EAMRxoIpJJtOxjBUtru7B9aeAcNe4
+	Y1bOf5vlsgY3kK6qFN4ULVE=
+X-Google-Smtp-Source: AMrXdXutk4Rft4cMNtxqoyFbps7PK3GMeY6ng1G1lzDbXARFKd6vTNyF/1dmlX4+dfz7l/qjmgRQ+w==
+X-Received: by 2002:aca:db42:0:b0:360:f4ef:f3fe with SMTP id s63-20020acadb42000000b00360f4eff3femr17642722oig.58.1672783819410;
+        Tue, 03 Jan 2023 14:10:19 -0800 (PST)
+Received: from server.roeck-us.net ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
+        by smtp.gmail.com with ESMTPSA id q12-20020a9d630c000000b006718a823321sm15745070otk.41.2023.01.03.14.10.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 03 Jan 2023 14:10:18 -0800 (PST)
+Date: Tue, 3 Jan 2023 14:10:17 -0800
+From: Guenter Roeck <linux@roeck-us.net>
+To: Hal Feng <hal.feng@starfivetech.com>
+Cc: linux-hwmon@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	Jean Delvare <jdelvare@suse.com>, Jonathan Corbet <corbet@lwn.net>,
+	Conor Dooley <conor@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 2/4] hwmon: (sfctemp) Add StarFive JH71x0 temperature
+ sensor
+Message-ID: <20230103221017.GA217155@roeck-us.net>
+References: <20230103013145.9570-1-hal.feng@starfivetech.com>
+ <20230103013145.9570-3-hal.feng@starfivetech.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230103013145.9570-3-hal.feng@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230103_134236_589208_1D4A9265 
-X-CRM114-Status: GOOD (  12.63  )
+X-CRM114-CacheID: sfid-20230103_141021_314493_E7ECD113 
+X-CRM114-Status: GOOD (  43.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,69 +100,510 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Heiko Stuebner <heiko.stuebner@vrull.eu>
+On Tue, Jan 03, 2023 at 09:31:43AM +0800, Hal Feng wrote:
+> From: Emil Renner Berthing <kernel@esmil.dk>
+> 
+> Register definitions and conversion constants based on sfctemp driver by
+> Samin in the StarFive 5.10 kernel.
+> 
+> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+> Co-developed-by: Samin Guo <samin.guo@starfivetech.com>
+> Signed-off-by: Samin Guo <samin.guo@starfivetech.com>
+> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
 
-On the non-assembler-side wrapping alternative-macros inside other macros
-to prevent duplication of code works, as the end result will just be a
-string that gets fed to the asm instruction.
+This is obviously version 4 of the previous patch series,
+with various enhancements. Please do not "sell" that as
+v1 of a new patch series. Submit it as next version,
+and provide a change log.
 
-In real assembler code, wrapping .macro blocks inside other .macro blocks
-brings more restrictions on usage and the optimization done by
-commit 2ba8c7dc71c0 ("riscv: Don't duplicate __ALTERNATIVE_CFG in __ALTERNATIVE_CFG_2")
-results in a compile error like:
+> ---
+>  Documentation/hwmon/index.rst   |   1 +
+>  Documentation/hwmon/sfctemp.rst |  33 +++
+>  MAINTAINERS                     |   8 +
+>  drivers/hwmon/Kconfig           |  10 +
+>  drivers/hwmon/Makefile          |   1 +
+>  drivers/hwmon/sfctemp.c         | 350 ++++++++++++++++++++++++++++++++
+>  6 files changed, 403 insertions(+)
+>  create mode 100644 Documentation/hwmon/sfctemp.rst
+>  create mode 100644 drivers/hwmon/sfctemp.c
+> 
+> diff --git a/Documentation/hwmon/index.rst b/Documentation/hwmon/index.rst
+> index c1d11cf13eef..f7ede608b6e3 100644
+> --- a/Documentation/hwmon/index.rst
+> +++ b/Documentation/hwmon/index.rst
+> @@ -179,6 +179,7 @@ Hardware Monitoring Kernel Drivers
+>     sch5627
+>     sch5636
+>     scpi-hwmon
+> +   sfctemp
+>     sht15
+>     sht21
+>     sht3x
+> diff --git a/Documentation/hwmon/sfctemp.rst b/Documentation/hwmon/sfctemp.rst
+> new file mode 100644
+> index 000000000000..9fbd5bb1f356
+> --- /dev/null
+> +++ b/Documentation/hwmon/sfctemp.rst
+> @@ -0,0 +1,33 @@
+> +.. SPDX-License-Identifier: GPL-2.0
+> +
+> +Kernel driver sfctemp
+> +=====================
+> +
+> +Supported chips:
+> + - StarFive JH7100
+> + - StarFive JH7110
+> +
+> +Authors:
+> + - Emil Renner Berthing <kernel@esmil.dk>
+> +
+> +Description
+> +-----------
+> +
+> +This driver adds support for reading the built-in temperature sensor on the
+> +JH7100 and JH7110 RISC-V SoCs by StarFive Technology Co. Ltd.
+> +
+> +``sysfs`` interface
+> +-------------------
+> +
+> +The temperature sensor can be enabled, disabled and queried via the standard
+> +hwmon interface in sysfs under ``/sys/class/hwmon/hwmonX`` for some value of
+> +``X``:
+> +
+> +================ ==== =============================================
+> +Name             Perm Description
+> +================ ==== =============================================
+> +temp1_enable     RW   Enable or disable temperature sensor.
+> +                      Automatically enabled by the driver,
+> +                      but may be disabled to save power.
+> +temp1_input      RO   Temperature reading in milli-degrees Celsius.
+> +================ ==== =============================================
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 85e8f83161d7..ab3cd5827b26 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -18661,6 +18661,14 @@ L:	netdev@vger.kernel.org
+>  S:	Supported
+>  F:	drivers/net/ethernet/sfc/
+>  
+> +SFCTEMP HWMON DRIVER
+> +M:	Emil Renner Berthing <kernel@esmil.dk>
+> +L:	linux-hwmon@vger.kernel.org
+> +S:	Maintained
+> +F:	Documentation/devicetree/bindings/hwmon/starfive,jh71x0-temp.yaml
+> +F:	Documentation/hwmon/sfctemp.rst
+> +F:	drivers/hwmon/sfctemp.c
+> +
+>  SFF/SFP/SFP+ MODULE SUPPORT
+>  M:	Russell King <linux@armlinux.org.uk>
+>  L:	netdev@vger.kernel.org
+> diff --git a/drivers/hwmon/Kconfig b/drivers/hwmon/Kconfig
+> index 7ac3daaf59ce..c6bbfcca3a14 100644
+> --- a/drivers/hwmon/Kconfig
+> +++ b/drivers/hwmon/Kconfig
+> @@ -1910,6 +1910,16 @@ config SENSORS_STTS751
+>  	  This driver can also be built as a module. If so, the module
+>  	  will be called stts751.
+>  
+> +config SENSORS_SFCTEMP
+> +	tristate "Starfive JH71x0 temperature sensor"
+> +	depends on SOC_STARFIVE || COMPILE_TEST
+> +	help
+> +	  If you say yes here you get support for temperature sensor
+> +	  on the Starfive JH71x0 SoCs.
+> +
+> +	  This driver can also be built as a module.  If so, the module
+> +	  will be called sfctemp.
+> +
+>  config SENSORS_SMM665
+>  	tristate "Summit Microelectronics SMM665"
+>  	depends on I2C
+> diff --git a/drivers/hwmon/Makefile b/drivers/hwmon/Makefile
+> index 11d076cad8a2..5a4a02c5535c 100644
+> --- a/drivers/hwmon/Makefile
+> +++ b/drivers/hwmon/Makefile
+> @@ -179,6 +179,7 @@ obj-$(CONFIG_SENSORS_SBRMI)	+= sbrmi.o
+>  obj-$(CONFIG_SENSORS_SCH56XX_COMMON)+= sch56xx-common.o
+>  obj-$(CONFIG_SENSORS_SCH5627)	+= sch5627.o
+>  obj-$(CONFIG_SENSORS_SCH5636)	+= sch5636.o
+> +obj-$(CONFIG_SENSORS_SFCTEMP)	+= sfctemp.o
+>  obj-$(CONFIG_SENSORS_SL28CPLD)	+= sl28cpld-hwmon.o
+>  obj-$(CONFIG_SENSORS_SHT15)	+= sht15.o
+>  obj-$(CONFIG_SENSORS_SHT21)	+= sht21.o
+> diff --git a/drivers/hwmon/sfctemp.c b/drivers/hwmon/sfctemp.c
+> new file mode 100644
+> index 000000000000..e56716ad9587
+> --- /dev/null
+> +++ b/drivers/hwmon/sfctemp.c
+> @@ -0,0 +1,350 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (C) 2021 Emil Renner Berthing <kernel@esmil.dk>
+> + * Copyright (C) 2021 Samin Guo <samin.guo@starfivetech.com>
+> + */
+> +#include <linux/clk.h>
+> +#include <linux/completion.h>
+> +#include <linux/delay.h>
+> +#include <linux/hwmon.h>
+> +#include <linux/interrupt.h>
+> +#include <linux/io.h>
+> +#include <linux/module.h>
+> +#include <linux/mutex.h>
+> +#include <linux/of.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/reset.h>
+> +
+> +/*
+> + * TempSensor reset. The RSTN can be de-asserted once the analog core has
+> + * powered up. Trst(min 100ns)
+> + * 0:reset  1:de-assert
+> + */
+> +#define SFCTEMP_RSTN	BIT(0)
 
-../arch/riscv/lib/strcmp.S: Assembler messages:
-../arch/riscv/lib/strcmp.S:15: Error: too many positional arguments
-../arch/riscv/lib/strcmp.S:15: Error: backward ref to unknown label "886:"
-../arch/riscv/lib/strcmp.S:15: Error: backward ref to unknown label "887:"
-../arch/riscv/lib/strcmp.S:15: Error: backward ref to unknown label "886:"
-../arch/riscv/lib/strcmp.S:15: Error: backward ref to unknown label "887:"
-../arch/riscv/lib/strcmp.S:15: Error: backward ref to unknown label "886:"
-../arch/riscv/lib/strcmp.S:15: Error: attempt to move .org backwards
+Missing include of linux/bits.h
 
-Going back to the original code for the non-assembler-part makes that
-code work again. So this reverts the #ifdef ASSEMBLY part of that commit
-to the previous variant with duplicated base.
+> +
+> +/*
+> + * TempSensor analog core power down. The analog core will be powered up
+> + * Tpu(min 50us) after PD is de-asserted. RSTN should be held low until the
+> + * analog core is powered up.
+> + * 0:power up  1:power down
+> + */
+> +#define SFCTEMP_PD	BIT(1)
+> +
+> +/*
+> + * TempSensor start conversion enable.
+> + * 0:disable  1:enable
+> + */
+> +#define SFCTEMP_RUN	BIT(2)
+> +
+> +/*
+> + * TempSensor conversion value output.
+> + * Temp(C)=DOUT*Y/4094 - K
+> + */
+> +#define SFCTEMP_DOUT_POS	16
+> +#define SFCTEMP_DOUT_MSK	GENMASK(27, 16)
+> +
+> +/* DOUT to Celcius conversion constants */
+> +#define SFCTEMP_Y1000	237500L
+> +#define SFCTEMP_Z	4094L
+> +#define SFCTEMP_K1000	81100L
+> +
+> +struct sfctemp {
+> +	/* serialize access to hardware register and enabled below */
+> +	struct mutex lock;
+> +	struct completion conversion_done;
+> +	void __iomem *regs;
+> +	struct clk *clk_sense;
+> +	struct clk *clk_bus;
+> +	struct reset_control *rst_sense;
+> +	struct reset_control *rst_bus;
+> +	bool enabled;
+> +};
+> +
+> +static irqreturn_t sfctemp_isr(int irq, void *data)
+> +{
+> +	struct sfctemp *sfctemp = data;
+> +
+> +	complete(&sfctemp->conversion_done);
+> +	return IRQ_HANDLED;
+> +}
+> +
+> +static void sfctemp_power_up(struct sfctemp *sfctemp)
+> +{
+> +	/* make sure we're powered down first */
+> +	writel(SFCTEMP_PD, sfctemp->regs);
+> +	udelay(1);
+> +
+> +	writel(0, sfctemp->regs);
+> +	/* wait t_pu(50us) + t_rst(100ns) */
+> +	usleep_range(60, 200);
+> +
+> +	/* de-assert reset */
+> +	writel(SFCTEMP_RSTN, sfctemp->regs);
+> +	udelay(1); /* wait t_su(500ps) */
+> +}
+> +
+> +static void sfctemp_power_down(struct sfctemp *sfctemp)
+> +{
+> +	writel(SFCTEMP_PD, sfctemp->regs);
+> +}
+> +
+> +static void sfctemp_run_single(struct sfctemp *sfctemp)
+> +{
+> +	writel(SFCTEMP_RSTN | SFCTEMP_RUN, sfctemp->regs);
+> +	udelay(1);
+> +	writel(SFCTEMP_RSTN, sfctemp->regs);
 
-Fixes: 2ba8c7dc71c0 ("riscv: Don't duplicate __ALTERNATIVE_CFG in __ALTERNATIVE_CFG_2")
-Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
----
-I was of two minds about either to revert the full patch, or doing just
-this partial one for the ASSEMBLY part. I did go with this variant, as I
-still like the idea of deduplicating as much as possible :-)
+The datasheet (or, rather, programming manual) does not appear
+to be public, so I have to guess here.
 
- arch/riscv/include/asm/alternative-macros.h | 13 ++++++++++++-
- 1 file changed, 12 insertions(+), 1 deletion(-)
+The code suggests that running a single conversion may be a choice,
+not a requirement. If it is indeed a choice, the reasoning needs to be
+explained since it adds a lot of complexity and dependencies to the
+driver (for example, interrupt support is only mandatory or even needed
+due to this choice). It also adds a significant delay to temperature
+read operations, which may have practical impact on thermal control
+software.
 
-diff --git a/arch/riscv/include/asm/alternative-macros.h b/arch/riscv/include/asm/alternative-macros.h
-index 7226e2462584..e7bdb2a510a4 100644
---- a/arch/riscv/include/asm/alternative-macros.h
-+++ b/arch/riscv/include/asm/alternative-macros.h
-@@ -44,9 +44,20 @@
- 	ALT_NEW_CONTENT \vendor_id, \errata_id, \enable, \new_c
- .endm
- 
-+/*
-+ * Using ALTERNATIVE_CFG inside ALTERNATIVE_CFG_2 results in compile errors.
-+ * So the common code needs to stay duplicated.
-+ */
- .macro ALTERNATIVE_CFG_2 old_c, new_c_1, vendor_id_1, errata_id_1, enable_1,	\
- 				new_c_2, vendor_id_2, errata_id_2, enable_2
--	ALTERNATIVE_CFG \old_c, \new_c_1, \vendor_id_1, \errata_id_1, \enable_1
-+886 :
-+	.option push
-+	.option norvc
-+	.option norelax
-+	\old_c
-+	.option pop
-+887 :
-+	ALT_NEW_CONTENT \vendor_id_1, \errata_id_1, \enable_1, \new_c_1
- 	ALT_NEW_CONTENT \vendor_id_2, \errata_id_2, \enable_2, \new_c_2
- .endm
- 
--- 
-2.35.1
+If the chip only supports single temperature readings, that needs to be
+explained as well (and why SFCTEMP_RUN has to be reset in that case).
 
+> +}
+> +
+> +static int sfctemp_enable(struct sfctemp *sfctemp)
+> +{
+> +	int ret = 0;
+> +
+> +	mutex_lock(&sfctemp->lock);
+> +	if (sfctemp->enabled)
+> +		goto done;
+> +
+> +	ret = clk_prepare_enable(sfctemp->clk_bus);
+> +	if (ret)
+> +		goto err;
+> +	ret = reset_control_deassert(sfctemp->rst_bus);
+> +	if (ret)
+> +		goto err_disable_bus;
+> +
+> +	ret = clk_prepare_enable(sfctemp->clk_sense);
+> +	if (ret)
+> +		goto err_assert_bus;
+> +	ret = reset_control_deassert(sfctemp->rst_sense);
+> +	if (ret)
+> +		goto err_disable_sense;
+> +
+> +	sfctemp_power_up(sfctemp);
+> +	sfctemp->enabled = true;
+> +done:
+> +	mutex_unlock(&sfctemp->lock);
+> +	return ret;
+> +
+> +err_disable_sense:
+> +	clk_disable_unprepare(sfctemp->clk_sense);
+> +err_assert_bus:
+> +	reset_control_assert(sfctemp->rst_bus);
+> +err_disable_bus:
+> +	clk_disable_unprepare(sfctemp->clk_bus);
+> +err:
+> +	mutex_unlock(&sfctemp->lock);
+> +	return ret;
+> +}
+> +
+> +static int sfctemp_disable(struct sfctemp *sfctemp)
+> +{
+> +	mutex_lock(&sfctemp->lock);
+> +	if (!sfctemp->enabled)
+> +		goto done;
+> +
+> +	sfctemp_power_down(sfctemp);
+> +	reset_control_assert(sfctemp->rst_sense);
+> +	clk_disable_unprepare(sfctemp->clk_sense);
+> +	reset_control_assert(sfctemp->rst_bus);
+> +	clk_disable_unprepare(sfctemp->clk_bus);
+> +	sfctemp->enabled = false;
+> +done:
+> +	mutex_unlock(&sfctemp->lock);
+> +	return 0;
+> +}
+> +
+> +static void sfctemp_disable_action(void *data)
+> +{
+> +	sfctemp_disable(data);
+> +}
+> +
+> +static int sfctemp_convert(struct sfctemp *sfctemp, long *val)
+> +{
+> +	int ret;
+> +
+> +	mutex_lock(&sfctemp->lock);
+> +	if (!sfctemp->enabled) {
+> +		ret = -ENODATA;
+> +		goto out;
+> +	}
+> +
+> +	sfctemp_run_single(sfctemp);
+> +
+> +	ret = wait_for_completion_interruptible_timeout(&sfctemp->conversion_done,
+> +							msecs_to_jiffies(10));
+> +	if (ret <= 0) {
+> +		if (ret == 0)
+> +			ret = -ETIMEDOUT;
+> +		goto out;
+> +	}
+> +
+> +	/* calculate temperature in milli Celcius */
+> +	*val = (long)((readl(sfctemp->regs) & SFCTEMP_DOUT_MSK) >> SFCTEMP_DOUT_POS)
+> +		* SFCTEMP_Y1000 / SFCTEMP_Z - SFCTEMP_K1000;
+> +
+> +	ret = 0;
+> +out:
+> +	mutex_unlock(&sfctemp->lock);
+> +	return ret;
+> +}
+> +
+> +static umode_t sfctemp_is_visible(const void *data, enum hwmon_sensor_types type,
+> +				  u32 attr, int channel)
+> +{
+> +	switch (type) {
+> +	case hwmon_temp:
+> +		switch (attr) {
+> +		case hwmon_temp_enable:
+> +			return 0644;
+> +		case hwmon_temp_input:
+> +			return 0444;
+> +		}
+> +		return 0;
+> +	default:
+> +		return 0;
+> +	}
+> +}
+> +
+> +static int sfctemp_read(struct device *dev, enum hwmon_sensor_types type,
+> +			u32 attr, int channel, long *val)
+> +{
+> +	struct sfctemp *sfctemp = dev_get_drvdata(dev);
+> +
+> +	switch (type) {
+> +	case hwmon_temp:
+> +		switch (attr) {
+> +		case hwmon_temp_enable:
+> +			*val = sfctemp->enabled;
+> +			return 0;
+> +		case hwmon_temp_input:
+> +			return sfctemp_convert(sfctemp, val);
+> +		}
+> +		return -EINVAL;
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +}
+> +
+> +static int sfctemp_write(struct device *dev, enum hwmon_sensor_types type,
+> +			 u32 attr, int channel, long val)
+> +{
+> +	struct sfctemp *sfctemp = dev_get_drvdata(dev);
+> +
+> +	switch (type) {
+> +	case hwmon_temp:
+> +		switch (attr) {
+> +		case hwmon_temp_enable:
+> +			if (val == 0)
+> +				return sfctemp_disable(sfctemp);
+> +			if (val == 1)
+> +				return sfctemp_enable(sfctemp);
+> +			break;
+> +		}
+> +		return -EINVAL;
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +}
+> +
+> +static const struct hwmon_channel_info *sfctemp_info[] = {
+> +	HWMON_CHANNEL_INFO(chip, HWMON_C_REGISTER_TZ),
+> +	HWMON_CHANNEL_INFO(temp, HWMON_T_ENABLE | HWMON_T_INPUT),
+> +	NULL
+> +};
+> +
+> +static const struct hwmon_ops sfctemp_hwmon_ops = {
+> +	.is_visible = sfctemp_is_visible,
+> +	.read = sfctemp_read,
+> +	.write = sfctemp_write,
+> +};
+> +
+> +static const struct hwmon_chip_info sfctemp_chip_info = {
+> +	.ops = &sfctemp_hwmon_ops,
+> +	.info = sfctemp_info,
+> +};
+> +
+> +static int sfctemp_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct device *hwmon_dev;
+> +	struct sfctemp *sfctemp;
+> +	int ret;
+> +
+> +	sfctemp = devm_kzalloc(dev, sizeof(*sfctemp), GFP_KERNEL);
+> +	if (!sfctemp)
+> +		return -ENOMEM;
+> +
+> +	dev_set_drvdata(dev, sfctemp);
+> +	mutex_init(&sfctemp->lock);
+> +	init_completion(&sfctemp->conversion_done);
+> +
+> +	sfctemp->regs = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(sfctemp->regs))
+> +		return PTR_ERR(sfctemp->regs);
+> +
+> +	sfctemp->clk_sense = devm_clk_get(dev, "sense");
+> +	if (IS_ERR(sfctemp->clk_sense))
+> +		return dev_err_probe(dev, PTR_ERR(sfctemp->clk_sense),
+> +				     "error getting sense clock\n");
+> +
+> +	sfctemp->clk_bus = devm_clk_get(dev, "bus");
+> +	if (IS_ERR(sfctemp->clk_bus))
+> +		return dev_err_probe(dev, PTR_ERR(sfctemp->clk_bus),
+> +				     "error getting bus clock\n");
+> +
+> +	sfctemp->rst_sense = devm_reset_control_get_exclusive(dev, "sense");
+> +	if (IS_ERR(sfctemp->rst_sense))
+> +		return dev_err_probe(dev, PTR_ERR(sfctemp->rst_sense),
+> +				     "error getting sense reset\n");
+> +
+> +	sfctemp->rst_bus = devm_reset_control_get_exclusive(dev, "bus");
+> +	if (IS_ERR(sfctemp->rst_bus))
+> +		return dev_err_probe(dev, PTR_ERR(sfctemp->rst_bus),
+> +				     "error getting busreset\n");
+> +
+> +	ret = reset_control_assert(sfctemp->rst_sense);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "error asserting sense reset\n");
+> +
+> +	ret = reset_control_assert(sfctemp->rst_bus);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "error asserting bus reset\n");
+> +
+> +	ret = platform_get_irq(pdev, 0);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	ret = devm_request_irq(dev, ret, sfctemp_isr, 0, pdev->name, sfctemp);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "error requesting irq\n");
+> +
+> +	ret = devm_add_action(dev, sfctemp_disable_action, sfctemp);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = sfctemp_enable(sfctemp);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "error enabling temperature sensor: %d\n", ret);
+> +
+> +	hwmon_dev = devm_hwmon_device_register_with_info(dev, pdev->name, sfctemp,
+> +							 &sfctemp_chip_info, NULL);
+> +	return PTR_ERR_OR_ZERO(hwmon_dev);
+> +}
+> +
+> +static const struct of_device_id sfctemp_of_match[] = {
+> +	{ .compatible = "starfive,jh7100-temp" },
+> +	{ .compatible = "starfive,jh7110-temp" },
+> +	{ /* sentinel */ }
+> +};
+> +MODULE_DEVICE_TABLE(of, sfctemp_of_match);
+> +
+> +static struct platform_driver sfctemp_driver = {
+> +	.probe  = sfctemp_probe,
+> +	.driver = {
+> +		.name = "sfctemp",
+> +		.of_match_table = sfctemp_of_match,
+> +	},
+> +};
+> +module_platform_driver(sfctemp_driver);
+> +
+> +MODULE_AUTHOR("Emil Renner Berthing");
+> +MODULE_DESCRIPTION("StarFive JH71x0 temperature sensor driver");
+> +MODULE_LICENSE("GPL");
 
 _______________________________________________
 linux-riscv mailing list
