@@ -4,80 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13846C3DA7D
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jan 2023 09:44:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FC2BC46467
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jan 2023 10:08:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TYSWFmCZbvJlx3xtzbQTOa9vIuCKS0i7jZ7FnnRU73I=; b=1Epz/aFfgC2DUj
-	EQZmY2tTYSsbwXi8scFN0vy3WftQzMfopp3jMkwnjV7JvJJMjE5gCQwFAi/FuiWnRkgA6lL9BdZ7g
-	ueocKCcN/cgUekI9ha4n6GItVtKwYb6meCS05g2GkVueR1aNuukwBupxK7KXqWM5RGqyVYfcIu4V1
-	WB7tbOFePt7bQzz2Dvyui9yprmFtGYXmPELtnjzFITUIKH31KJsTp/01rhlVliMrCzeYEiXmKbjZW
-	s0OFyUHpaSOdbE3Kmb3B0afPDfcwhHQKbEn7R0jFuDpsgx3eglRbyAbEw2DxamOIoBEgtSLqw+N+N
-	ci1SBkAWkFtE5JY/whAg==;
+	List-Owner; bh=tAnduk/UuVB28nkKp3/Y60oNcPHGWXvK2n/hQ5DraeQ=; b=XVGfBmkhUjcnVl
+	OVnsQhAS5ZZxczkDfhBbVrJ9ugpo0yXgmvhn0dZ4gnvGAL/x/PrGiv15VNv/zHveXewIdr5CrnCqz
+	ySKvBp8sprTi7YFrsmnmL6SEqhxHYSVIN9Ln8P5UNl8gnu0dx/3HMZyrP+GOEr6TYuOfuRXHmFdO3
+	2hZEWP0ZzCxCfgBvQfxyiRVKrOIHkSzOzuErU2K4lJ5RieJSRenxK75vznnnAmEQos69O4mLKIlEO
+	u6RsSRYmDEGWAMpJfuKnj3ICpuBc/8xEzMIwTXq7sNf2IQjv4gtdkzZTli9a7x3zSB6CDBj90gj8u
+	2VXT2hNGadv0/ozzQZaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCdq2-000VdA-JM; Tue, 03 Jan 2023 09:44:06 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1pCeDt-000d6u-FE; Tue, 03 Jan 2023 10:08:45 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCdap-000SXb-MY
-	for linux-riscv@lists.infradead.org; Tue, 03 Jan 2023 09:28:30 +0000
-Received: by mail-ej1-x633.google.com with SMTP id fc4so72142132ejc.12
-        for <linux-riscv@lists.infradead.org>; Tue, 03 Jan 2023 01:28:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=5mgqDuS8VoPnxTMSPcm7TpLYp2N0+QhDeUosiaeGlAQ=;
-        b=jI/aqMlSZ4ihEbxh/jpd1/8EwC4bVazjEnJK/d1Usdmbw6TdFinU1ihj4IKVyC+DUN
-         EbqWXvjfpgpckskLspI6IkDrIlPIwsp7MgFL9j3YjdO+O2Z65q0gNMoWKvYhh4fpmqz3
-         0BY3TXXa+O/YqhneJznw2f0BermYrexrSA+6rTJVVOgYQ9MGrcBqkYZ/6ME21BFDZ67x
-         123/I3ic7YpGFgq3X3Blf9kxDsLNHubj1SjoZTwu/ogFAigJhbHerNJLPaY/PeLEdUT2
-         2btdpe448ZkrzRHXAWgIGBRjRHznrl91KsEYQgXJGrdeH+9PyLeW4P/otKl+KcHzZZqE
-         Tyvw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5mgqDuS8VoPnxTMSPcm7TpLYp2N0+QhDeUosiaeGlAQ=;
-        b=AUAIB50rdtayLU2RzqUkFQs84HVTLM9o3acM4Yu8Cpuz2oQg2jnLrCjU1ykGoZH3hq
-         +vv4HCv3y32BbnaVhC9EW072mrDlJkhmbBUW+8Pgs1p5ZChflbO5BlraBH3HMhPXs1on
-         A2bjARjL/fp7beyKQFVKcf6rIZGeF9J4t3Ddnp6pw57iiVwvvEgENOJF24lrfuodzKpY
-         HJtXaeTCC3gQcgQbv2ZpnQSu6sQjAaE++P2H9lAKHo9Qt6oxbZYuxU6/Ky+KtwSB0zvc
-         ysy29+vJhtjxAMqVmCnArJfu4E+9HRgGlzd1wCkED8TcuBPKmTAgMIycBpqhy6SHHEzY
-         2s6w==
-X-Gm-Message-State: AFqh2ko53cvlEiSmTBvPmyrnZuIB8rd6kBQbgfI2GaLn88JE9FqhSj4P
-	ABhocBuiu4AxwZGuITdlngyoGg==
-X-Google-Smtp-Source: AMrXdXs3XUHe1hUgCDEUf7lvvDVgT0ChF67TCWmNPS+mrZc3trzhsWbC44DLAwLWKjfGj6X2q2/jnw==
-X-Received: by 2002:a17:906:2813:b0:7c0:f9ef:23a2 with SMTP id r19-20020a170906281300b007c0f9ef23a2mr47667065ejc.30.1672738097556;
-        Tue, 03 Jan 2023 01:28:17 -0800 (PST)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id u2-20020a1709061da200b0083f91a32131sm13808062ejh.0.2023.01.03.01.28.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Jan 2023 01:28:17 -0800 (PST)
-Date: Tue, 3 Jan 2023 10:28:16 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org,
-	palmer@dabbelt.com, atishp@rivosinc.com,
-	Conor Dooley <conor.dooley@microchip.com>,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, apatel@ventanamicro.com,
-	will@kernel.org, mark.rutland@arm.com, opensbi@lists.infradead.org,
-	samuel@sholland.org
-Subject: Re: [PATCH v3] dt-bindings: riscv: add SBI PMU event mappings
-Message-ID: <20230103092816.w6hknvd4caeahdo4@orel>
-References: <20230102165551.1564960-1-conor@kernel.org>
+	id 1pCe5E-000aSJ-VK
+	for linux-riscv@lists.infradead.org; Tue, 03 Jan 2023 09:59:56 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id C92A46123F
+	for <linux-riscv@lists.infradead.org>; Tue,  3 Jan 2023 09:59:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C0A3C433F2
+	for <linux-riscv@lists.infradead.org>; Tue,  3 Jan 2023 09:59:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1672739987;
+	bh=K3GNdh0iSKVs4cxHbbMFC6QCnRMk4vyTA2omm3ALejE=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=s1knHPqbkH7hlnM/m2D9Hj1wBaYLROgZ0vWB17OegTZcHFUhfFTMGjijqVogryHkf
+	 PwIYftn7jclRTnQmNvitI578qvf3d8l2U1GW9YCcQ1g0cc1ZxzpIi4uormiWctxVd8
+	 4ijcD1hwqub9bvsMEiA65wZb9ZFrV/xupotZCIIzelvY5/dreDDYVrB3jMHTS1fBjP
+	 QZo7YCgdHhEly2Qov/UlMKbuL/glPxUYdFUvgclP1agwJDf/3/yQhreMoigbXgkQTN
+	 723b29wsh137zszJDNpjRK9aCUcVBx8ErN13PHlVkUx864RMcN5k88znh2jHNTQW7N
+	 xCGR9zDycUJLA==
+Received: by mail-ej1-f49.google.com with SMTP id u9so72496954ejo.0
+        for <linux-riscv@lists.infradead.org>; Tue, 03 Jan 2023 01:59:47 -0800 (PST)
+X-Gm-Message-State: AFqh2kpwTmX/TFurorNHbBYew/tzAWJwnTK8VWTj6FK60Xym14Zqq30N
+	u3L4liGoWW1Eycj+s4fo8Tfc7KS0Ce9yNn3yMqU=
+X-Google-Smtp-Source: AMrXdXs6X1KS2ScftLdukmy7fbm+oYnh2kNUOaxOawhAHpBi8S0P7w9c/T56eT42XKAb8tDbpox74vUvReqk46aTokU=
+X-Received: by 2002:a17:906:33d4:b0:7c0:f7af:7c5e with SMTP id
+ w20-20020a17090633d400b007c0f7af7c5emr2862143eja.406.1672739985408; Tue, 03
+ Jan 2023 01:59:45 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230102165551.1564960-1-conor@kernel.org>
+References: <20230102160748.1307289-1-bjorn@kernel.org>
+In-Reply-To: <20230102160748.1307289-1-bjorn@kernel.org>
+From: Guo Ren <guoren@kernel.org>
+Date: Tue, 3 Jan 2023 17:59:33 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTTF9_J__Qk+ppg5c1V+1PeFbZ-xf7DEbo=DXBRpQu1L=A@mail.gmail.com>
+Message-ID: <CAJF2gTTF9_J__Qk+ppg5c1V+1PeFbZ-xf7DEbo=DXBRpQu1L=A@mail.gmail.com>
+Subject: Re: [PATCH] riscv, kprobes: Stricter c.jr/c.jalr decoding
+To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org, 
+	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
+	linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230103_012823_821979_2008B948 
-X-CRM114-Status: GOOD (  42.42  )
+X-CRM114-CacheID: sfid-20230103_015953_164416_5B61631F 
+X-CRM114-Status: GOOD (  19.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,256 +77,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 02, 2023 at 04:55:51PM +0000, Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
-> 
-> The SBI PMU extension requires a firmware to be aware of the event to
-> counter/mhpmevent mappings supported by the hardware. OpenSBI may use
-> DeviceTree to describe the PMU mappings. This binding is currently
-> described in markdown in OpenSBI (since v1.0 in Dec 2021) & used by QEMU
-> since v7.2.0.
-> 
-> Import the binding for use while validating dtb dumps from QEMU and
-> upcoming hardware (eg JH7110 SoC) that will make use of the event
-> mapping.
-> 
-> Link: https://github.com/riscv-software-src/opensbi/blob/master/docs/pmu_support.md
-> Link: https://github.com/riscv-non-isa/riscv-sbi-doc/blob/master/riscv-sbi.adoc # Performance Monitoring Unit Extension
-> Co-developed-by: Atish Patra <atishp@rivosinc.com>
-> Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
-> Changes in v3:
-> - align descriptions to SBI spec (and fix a misinterpretation of mine)
-> - switch to a nested items description, since the descriptions are for
->   the elements of each entry, not the entries themselves
-> 
-> Changes in v2:
-> - use the schema mechanism for dependancies between properties
-> - +CC perf maintainers...
-> - move the matrix element descriptions into regular item descriptions
->   rather than doing so freeform in the property description
-> - drop some description text that no longer applies since changes were
->   made to the SBI spec
-> - drop mention of the "generic platform" which is OpenSBI specific
-> - drop the min/max items from the matrices, they don't appear to be
->   needed?
-> 
-> Note:
-> OpenSBI is BSD-2-Clause licensed so I am unsure as to whether I can
-> submit it with a dual license.
-> ---
->  .../devicetree/bindings/perf/riscv,pmu.yaml   | 160 ++++++++++++++++++
->  1 file changed, 160 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/perf/riscv,pmu.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/perf/riscv,pmu.yaml b/Documentation/devicetree/bindings/perf/riscv,pmu.yaml
-> new file mode 100644
-> index 000000000000..87a47e365311
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/perf/riscv,pmu.yaml
-> @@ -0,0 +1,160 @@
-> +# SPDX-License-Identifier: BSD-2-Clause
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/perf/riscv,pmu.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: RISC-V SBI PMU events
-> +
-> +maintainers:
-> +  - Atish Patra <atishp@rivosinc.com>
-> +
-> +description: |
-> +  SBI PMU extension supports allow supervisor software to configure, start &
-
-support allows
-
-I'd replace '&' with 'and'
-
-> +  stop any performance counter at anytime. Thus, a user can leverage full
-> +  capability of performance analysis tools such as perf if the SBI PMU
-
-s/full capability/all capabilities/
-
-> +  extension is enabled. The OpenSBI implementation makes the following
-                               ^ Shouldn't we drop references to OpenSBI? 
-
-> +  assumptions about the hardware platform:
-> +
-> +    The platform must provide information about PMU event to counter mapping
-
-mappings
-
-> +    via device tree or platform specific hooks. Otherwise, the SBI PMU
-> +    extension will not be enabled.
-> +
-> +    The platforms should provide information about the PMU event selector
-> +    values that should be encoded in the expected value of MHPMEVENTx while
-> +    configuring MHPMCOUNTERx for that specific event. This can be done via a
-> +    device tree or platform specific hooks. The exact value to be written to
-> +    the MHPMEVENTx is completely dependent on the platform.
-> +
-> +    For information on the SBI specification see the section "Performance
-> +    Monitoring Unit Extension" of:
-> +      https://github.com/riscv-non-isa/riscv-sbi-doc/blob/master/riscv-sbi.adoc
-> +
-> +properties:
-> +  compatible:
-> +    const: riscv,pmu
-> +
-> +  riscv,event-to-mhpmevent:
-> +    $ref: /schemas/types.yaml#/definitions/uint32-matrix
-> +    description:
-> +      Represents an ONE-to-ONE mapping between a PMU event and the event
-> +      selector value that platform expects to be written to the MHPMEVENTx CSR
-                            ^ the
-> +      for that event.
-> +      The mapping is encoded in an matrix format where each element represents
-> +      an event.
-> +      This property shouldn't encode any raw hardware event.
-> +    items:
-> +      items:
-> +        - description: event_idx, a 20-bit wide encoding of the event type and
-> +            code. Refer to the SBI specification for a complete description of
-> +            the event types and codes.
-> +        - description: upper 32 bits of the event selector value for MHPMEVENTx
-> +        - description: lower 32 bits of the event selector value for MHPMEVENTx
-> +
-> +  riscv,event-to-mhpmcounters:
-> +    $ref: /schemas/types.yaml#/definitions/uint32-matrix
-> +    description:
-> +      Represents a MANY-to-MANY mapping between a range of events and all the
-> +      MHPMCOUNTERx in a bitmap format that can be used to monitor these range
-> +      of events. The information is encoded in an matrix format where each
-> +      element represents a certain range of events and corresponding counters.
-> +      This property shouldn't encode any raw event.
-> +    items:
-> +      items:
-> +        - description: first event_idx of the range of events
-> +        - description: last event_idx of the range of events
-> +        - description: bitmap of MHPMCOUNTERx for this event
-> +
-> +  riscv,raw-event-to-mhpmcounters:
-> +    $ref: /schemas/types.yaml#/definitions/uint32-matrix
-> +    description:
-> +      Represents an ONE-to-MANY or MANY-to-MANY mapping between the rawevent(s)
-> +      and all the MHPMCOUNTERx in a bitmap format that can be used to monitor
-> +      that raw event.
-> +      The encoding of the raw events are platform specific. The information is
-> +      encoded in a matrix format where each element represents the specific raw
-> +      event(s).
-> +      If a platform directly encodes each raw PMU event as a unique ID, the
-> +      value of variant must be 0xffffffff_ffffffff.
-> +    items:
-> +      items:
-> +        - description:
-> +            upper 32 invariant bits for the range of events
-> +        - description:
-> +            lower 32 invariant bits for the range of events
-> +        - description:
-> +            upper 32 bits of the variant bit mask for the range of events
-> +        - description:
-> +            lower 32 bits of the variant bit mask for the range of events
-> +        - description:
-> +            bitmap of all MHPMCOUNTERx that can monitor the range of events
-> +
-> +dependencies:
-> +  "riscv,event-to-mhpmevent": [ "riscv,event-to-mhpmcounters" ]
-> +  "riscv,event-to-mhpmcounters": [ "riscv,event-to-mhpmevent" ]
-> +
-> +required:
-> +  - compatible
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    pmu {
-> +        compatible = "riscv,pmu";
-> +        riscv,event-to-mhpmevent = <0x0000B 0x0000 0x0001>;
-> +        riscv,event-to-mhpmcounters = <0x00001 0x00001 0x00000001>,
-> +                                      <0x00002 0x00002 0x00000004>,
-> +                                      <0x00003 0x0000A 0x00000ff8>,
-> +                                      <0x10000 0x10033 0x000ff000>;
-> +        riscv,raw-event-to-mhpmcounters =
-> +            /* For event ID 0x0002 */
-> +            <0x0000 0x0002 0xffffffff 0xffffffff 0x00000f8>,
-> +            /* For event ID 0-4 */
-> +            <0x0 0x0 0xffffffff 0xfffffff0 0x00000ff0>,
-> +            /* For event ID 0xffffffff0000000f - 0xffffffff000000ff */
-> +            <0xffffffff 0x0 0xffffffff 0xffffff0f 0x00000ff0>;
-> +    };
-> +
-> +  - |
-> +    /*
-> +     * For HiFive Unmatched board the encodings can be found here
-> +     * https://sifive.cdn.prismic.io/sifive/1a82e600-1f93-4f41-b2d8-86ed8b16acba_fu740-c000-manual-v1p6.pdf
-
-I'd add a blank line here in this comment block.
-
-> +     * This example also binds standard SBI PMU hardware id's to U74 PMU event
-
-IDs
-
-> +     * codes, U74 uses a bitfield for events encoding, so several U74 events
-> +     * can be bound to single perf id.
-                                ^ a   ID
-
-> +     * See SBI PMU hardware id's in OpenSBI's include/sbi/sbi_ecall_interface.h
-
-IDs
-
-Linux has its own copy of enum sbi_pmu_hw_generic_events_t in
-arch/riscv/include/asm/sbi.h which can be referenced.
-
-> +     */
-> +    pmu {
-> +          compatible = "riscv,pmu";
-> +          riscv,event-to-mhpmevent =
-> +              /* SBI_PMU_HW_CACHE_REFERENCES -> Instruction or Data cache/ITIM busy */
-> +              <0x00003 0x00000000 0x1801>,
-> +              /* SBI_PMU_HW_CACHE_MISSES -> Instruction or Data cache miss or MMIO access */
-> +              <0x00004 0x00000000 0x0302>,
-> +              /* SBI_PMU_HW_BRANCH_INSTRUCTIONS -> Conditional branch retired */
-> +              <0x00005 0x00000000 0x4000>,
-> +              /* SBI_PMU_HW_BRANCH_MISSES -> Branch or jump misprediction */
-> +              <0x00006 0x00000000 0x6001>,
-> +              /* L1D_READ_MISS -> Data cache miss or MMIO access */
-> +              <0x10001 0x00000000 0x0202>,
-> +              /* L1D_WRITE_ACCESS -> Data cache write-back */
-> +              <0x10002 0x00000000 0x0402>,
-> +              /* L1I_READ_ACCESS -> Instruction cache miss */
-> +              <0x10009 0x00000000 0x0102>,
-> +              /* LL_READ_MISS -> UTLB miss */
-> +              <0x10011 0x00000000 0x2002>,
-> +              /* DTLB_READ_MISS -> Data TLB miss */
-> +              <0x10019 0x00000000 0x1002>,
-> +              /* ITLB_READ_MISS-> Instruction TLB miss */
-> +              <0x10021 0x00000000 0x0802>;
-> +          riscv,event-to-mhpmcounters = <0x00003 0x00006 0x18>,
-> +                                        <0x10001 0x10002 0x18>,
-> +                                        <0x10009 0x10009 0x18>,
-> +                                        <0x10011 0x10011 0x18>,
-> +                                        <0x10019 0x10019 0x18>,
-> +                                        <0x10021 0x10021 0x18>;
-> +          riscv,raw-event-to-mhpmcounters = <0x0 0x0 0xffffffff 0xfc0000ff 0x18>,
-> +                                            <0x0 0x1 0xffffffff 0xfff800ff 0x18>,
-> +                                            <0x0 0x2 0xffffffff 0xffffe0ff 0x18>;
-> +    };
-> -- 
-> 2.39.0
->
-
-Thanks,
-drew
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+VGh4IGZvciBjYXRjaGluZyBpdC4KCk9uIFR1ZSwgSmFuIDMsIDIwMjMgYXQgMTI6MDcgQU0gQmrD
+tnJuIFTDtnBlbCA8Ympvcm5Aa2VybmVsLm9yZz4gd3JvdGU6Cj4KPiBGcm9tOiBCasO2cm4gVMO2
+cGVsIDxiam9ybkByaXZvc2luYy5jb20+Cj4KPiBJbiB0aGUgY29tcHJlc3NlZCBpbnN0cnVjdGlv
+biBleHRlbnNpb24sIGMuanIsIGMuamFsciwgYy5tdiwgYW5kIGMuYWRkCj4gaXMgZW5jb2RlZCB0
+aGUgZm9sbG93aW5nIHdheSAoZWFjaCBpbnN0cnVjdGlvbiBpcyAxNmIpOgo+Cj4gLS0tKy0rLS0t
+LS0tLS0tLS0rLS0tLS0tLS0tLS0rLS0KPiAxMDAgMCByczFbNDowXSE9MCAgICAgICAwMDAwMCAx
+MCA6IGMuanIKPiAxMDAgMSByczFbNDowXSE9MCAgICAgICAwMDAwMCAxMCA6IGMuamFscgo+IDEw
+MCAwICByZFs0OjBdIT0wIHJzMls0OjBdIT0wIDEwIDogYy5tdgo+IDEwMCAxICByZFs0OjBdIT0w
+IHJzMls0OjBdIT0wIDEwIDogYy5hZGQKWWVzLCBJIGZvcmdvdCB0aGUgYy5tdiAmIGMuYWRkIGVm
+ZmVjdC4KClJldmlld2VkLWJ5OiBHdW8gUmVuIDxndW9yZW5Aa2VybmVsLm9yZz4KCj4KPiBUaGUg
+Zm9sbG93aW5nIGxvZ2ljIGlzIHVzZWQgdG8gZGVjb2RlIGMuanIgYW5kIGMuamFscjoKPgo+ICAg
+aW5zbiAmIDB4ZjAwNyA9PSAweDgwMDIgPT4gaW5zdHJ1Y3Rpb24gaXMgYW4gYy5qcgo+ICAgaW5z
+biAmIDB4ZjAwNyA9PSAweDkwMDIgPT4gaW5zdHJ1Y3Rpb24gaXMgYW4gYy5qYWxyCj4KPiBXaGVu
+IDB4ZjAwNyBpcyB1c2VkIHRvIG1hc2sgdGhlIGluc3RydWN0aW9uLCBjLm12IGNhbiBiZSBpbmNv
+cnJlY3RseQo+IGRlY29kZWQgYXMgYy5qciwgYW5kIGMuYWRkIGFzIGMuamFsci4KPgo+IENvcnJl
+Y3QgdGhlIGRlY29kaW5nIGJ5IGNoYW5naW5nIHRoZSBtYXNrIGZyb20gMHhmMDA3IHRvIDB4ZjA3
+Zi4KPgo+IEZpeGVzOiBjMjJiMGJjYjFkZDAgKCJyaXNjdjogQWRkIGtwcm9iZXMgc3VwcG9ydGVk
+IikKPiBTaWduZWQtb2ZmLWJ5OiBCasO2cm4gVMO2cGVsIDxiam9ybkByaXZvc2luYy5jb20+Cj4g
+LS0tCj4gIGFyY2gvcmlzY3Yva2VybmVsL3Byb2Jlcy9zaW11bGF0ZS1pbnNuLmggfCA0ICsrLS0K
+PiAgMSBmaWxlIGNoYW5nZWQsIDIgaW5zZXJ0aW9ucygrKSwgMiBkZWxldGlvbnMoLSkKPgo+IGRp
+ZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMvc2ltdWxhdGUtaW5zbi5oIGIvYXJj
+aC9yaXNjdi9rZXJuZWwvcHJvYmVzL3NpbXVsYXRlLWluc24uaAo+IGluZGV4IGNiNmZmN2RjY2I5
+Mi4uZGU4NDc0MTQ2YTliIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL3Byb2Jlcy9z
+aW11bGF0ZS1pbnNuLmgKPiArKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMvc2ltdWxhdGUt
+aW5zbi5oCj4gQEAgLTMxLDkgKzMxLDkgQEAgX19SSVNDVl9JTlNOX0ZVTkNTKGZlbmNlLCAgICAg
+MHg3ZiwgMHgwZik7Cj4gICAgICAgICB9IHdoaWxlICgwKQo+Cj4gIF9fUklTQ1ZfSU5TTl9GVU5D
+UyhjX2osICAgICAgICAgICAgICAgIDB4ZTAwMywgMHhhMDAxKTsKPiAtX19SSVNDVl9JTlNOX0ZV
+TkNTKGNfanIsICAgICAgIDB4ZjAwNywgMHg4MDAyKTsKPiArX19SSVNDVl9JTlNOX0ZVTkNTKGNf
+anIsICAgICAgIDB4ZjA3ZiwgMHg4MDAyKTsKPiAgX19SSVNDVl9JTlNOX0ZVTkNTKGNfamFsLCAg
+ICAgIDB4ZTAwMywgMHgyMDAxKTsKPiAtX19SSVNDVl9JTlNOX0ZVTkNTKGNfamFsciwgICAgIDB4
+ZjAwNywgMHg5MDAyKTsKPiArX19SSVNDVl9JTlNOX0ZVTkNTKGNfamFsciwgICAgIDB4ZjA3Ziwg
+MHg5MDAyKTsKPiAgX19SSVNDVl9JTlNOX0ZVTkNTKGNfYmVxeiwgICAgIDB4ZTAwMywgMHhjMDAx
+KTsKPiAgX19SSVNDVl9JTlNOX0ZVTkNTKGNfYm5leiwgICAgIDB4ZTAwMywgMHhlMDAxKTsKPiAg
+X19SSVNDVl9JTlNOX0ZVTkNTKGNfZWJyZWFrLCAgIDB4ZmZmZiwgMHg5MDAyKTsKPgo+IGJhc2Ut
+Y29tbWl0OiAxYjkyOWMwMmFmZDM3ODcxZDVhZmI5ZDQ5ODQyNmY4MzQzMmU3MWMyCj4gLS0KPiAy
+LjM3LjIKPgoKCi0tIApCZXN0IFJlZ2FyZHMKIEd1byBSZW4KCl9fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
+eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
+aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
