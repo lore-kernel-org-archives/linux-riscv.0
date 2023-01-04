@@ -4,75 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFA73C3DA7D
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Jan 2023 01:56:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 646FAC4708D
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Jan 2023 05:37:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-version:In-Reply-To:References:
-	Message-ID:CC:To:From:Subject:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3kd/8+BHsM3S5XJFwigwV2VNTwl1bKoIgA7Zb8iS+bU=; b=Y4jRYvliBbILeU
-	qd8UDHxuq1dKty7JbWxzpcHpbLLEbK7NW8LK1GxozNtSLcYZXXMFvQlvCg8C8sx9qimu6psMzpJbi
-	B1suq0BlMIPdL0uoBcABfHqVPcUVa3bu2X+alznP0Q/48jFtJdhTimIOoxX1i9KSZjoXW7pdagkC1
-	KC8zMrUdaRe6jTfFCGv2rYILs5e0ZCDrwXlZdNZP8bRonCIo52D106vZAsH3ph2xVz7N+mMomPb0R
-	lSBDDgPmqxPVQ3YasNFN9xpaKQJ8KbNL9EVLfehcCrfqbFJHE8wIw1JSAt7PgwvFcxHZ3QZ8TV7ts
-	cqxgCu6SCAuvnZq18lYw==;
+	List-Owner; bh=CxN1s/CPDcKayz84VM0tXcxS57/A5cda7dI2p7GW6p0=; b=VM+hcKVBI5H1iY
+	jf9RtXVsuXrmXFHN0XUB5xvn+KLwZkBZXksCVItTpqTJvxxa1fNozlX1/h0kVt7J8Hd3oJDllTtBF
+	6lD08yXUq4qETzqlgvyfwmBUXiinMepol+y3smjma1IUvefNbOvq1/r/VMvedprZ6LMQ39qUw31AA
+	eUyL803IWsTO9ty9l7Lf7O/Ipb5dHs2wjAHK6F2mBN91ek+qTKhJbSHNW4GPDAfrI5oQPthhr6aZv
+	uxF04SkHRfSwyY4nEUNQg0G01MVgHwPeZ6h03kC/vKcur8hJ2qr4uVR7eUpN3RNEH53Gtevye6QY7
+	pcV/T412BqsfQkHoQOkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCt1L-006HOY-8S; Wed, 04 Jan 2023 01:56:47 +0000
-Received: from bg4.exmail.qq.com ([43.155.65.254])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCt0X-006HFI-Kb
-	for linux-riscv@lists.infradead.org; Wed, 04 Jan 2023 01:56:00 +0000
-X-QQ-mid: bizesmtp80t1672797303tpxq3we0
-Received: from [172.24.140.10] ( [1.202.165.115])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 04 Jan 2023 09:55:00 +0800 (CST)
-X-QQ-SSF: 00000000000000205000000A0000000
-X-QQ-FEAT: kExHUVduNfMHXYoAZ0KwordvHWIS8zW8ykQ1uHIaKwO6NGGijqcCUgQN0DrdQ
-	l8d/bG7BCFKtphlIojBeiwGMriuC3L+o+8cMGXf7oSaSi9vuHMrHJjCBF0hBq/FJQRxWDO7
-	HPdNNhSEh/EppxubL8H4SFiXL4kjZ/WBQ3SHKVxxGZmvK9xJaCBFJliBVxgkSQQayaO0yuH
-	u346JiXohp9+dgzg5ynFlCkulLL0ezmGcpQfhr567evjLy/hXC3EMFPnQAGf08yW7d/4b5o
-	5/zC7wd2TYz/OnP+FG4HNzT/cJAlH5mb1Hl6oLoL6hp32FZEfBmGcpg2ENpAyAl0uZRQn7C
-	H6mZqfp46KYrBNxj2Dam/vcpx/qEnLNo/s5TFR6
-X-QQ-GoodBg: 0
-User-Agent: Microsoft-MacOutlook/16.66.22102801
-Date: Wed, 04 Jan 2023 09:54:59 +0800
-Subject: Re: [bpf-next v1] bpf: drop deprecated bpf_jit_enable == 2
-From: Tonghao Zhang <xxmy@infragraf.org>
-To: Daniel Borkmann <daniel@iogearbox.net>,
-	<bpf@vger.kernel.org>,
-	<netdev@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.or>,
-	<loongarch@lists.linux.dev>,
-	<linux-mips@vger.kernel.org>,
-	<linuxppc-dev@lists.ozlabs.org>,
-	<linux-riscv@lists.infradead.org>,
-	<linux-s390@vger.kernel.org>,
-	<sparclinux@vger.kernel.org>
-CC: Alexei Starovoitov <ast@kernel.org>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yhs@fb.com>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>,
-	Stanislav Fomichev <sdf@google.com>,
-	Hao Luo <haoluo@google.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Hou Tao <houtao1@huawei.com>
-Message-ID: <95D9D9F97BCE5963+4FF780FB-E30D-44F1-A7B4-BB40E96E4515@infragraf.org>
-Thread-Topic: [bpf-next v1] bpf: drop deprecated bpf_jit_enable == 2
-References: <20230103132454.94242-1-xxmy@infragraf.org>
- <cf475fe0-9961-d768-fae3-04f640855dab@iogearbox.net>
-In-Reply-To: <cf475fe0-9961-d768-fae3-04f640855dab@iogearbox.net>
-Mime-version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:infragraf.org:qybglogicsvr:qybglogicsvr6
+	id 1pCwSe-006ypR-J4; Wed, 04 Jan 2023 05:37:12 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pCwRy-006yeq-Ht
+	for linux-riscv@lists.infradead.org; Wed, 04 Jan 2023 05:36:34 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id EFB6024E311;
+	Wed,  4 Jan 2023 13:35:41 +0800 (CST)
+Received: from EXMBX163.cuchost.com (172.16.7.73) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 4 Jan
+ 2023 13:35:42 +0800
+Received: from EXMBX161.cuchost.com (172.16.6.71) by EXMBX163.cuchost.com
+ (172.16.6.73) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 4 Jan
+ 2023 13:35:41 +0800
+Received: from EXMBX161.cuchost.com ([fe80::f152:b9a3:2243:db3c]) by
+ EXMBX161.cuchost.com ([fe80::f152:b9a3:2243:db3c%15]) with mapi id
+ 15.00.1497.044; Wed, 4 Jan 2023 13:35:41 +0800
+From: Leyfoon Tan <leyfoon.tan@starfivetech.com>
+To: Conor Dooley <conor@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>
+CC: Andrew Jones <ajones@ventanamicro.com>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, Ley Foon Tan <lftan.linux@gmail.com>
+Subject: RE: [PATCH] riscv: Move call to init_cpu_topology() to later
+ initialization stage
+Thread-Topic: [PATCH] riscv: Move call to init_cpu_topology() to later
+ initialization stage
+Thread-Index: AQHZH0BUA1ZpH2MfF0y2uzSNVn9yRK6MUX9QgAAVqICAATb70A==
+Date: Wed, 4 Jan 2023 05:35:41 +0000
+Message-ID: <672440143ab04d3dbcc6de0a16bab3e1@EXMBX161.cuchost.com>
+References: <20230103035316.3841303-1-leyfoon.tan@starfivetech.com>
+ <20230103065411.2l7k6r57v4phrnos@orel>
+ <efed8f35ae8c4901ba01702bcc07b511@EXMBX161.cuchost.com>
+ <Y7Rg28suWh1RUbkU@spud>
+In-Reply-To: <Y7Rg28suWh1RUbkU@spud>
+Accept-Language: en-US, zh-CN
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [202.188.176.82]
+x-yovoleruleagent: yovoleflag
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230103_175558_024307_FF7D4743 
-X-CRM114-Status: GOOD (  20.72  )
+X-CRM114-CacheID: sfid-20230103_213631_534847_6C2D687F 
+X-CRM114-Status: GOOD (  36.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,117 +80,143 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Cgrvu7/lnKggMjAyMy8xLzMg5LiL5Y2IMTE6NDLvvIzigJxEYW5pZWwgQm9ya21hbm7igJ08ZGFu
-aWVsQGlvZ2VhcmJveC5uZXQ+IOWGmeWFpToKCiAgICBPbiAxLzMvMjMgMjoyNCBQTSwgeHhteUBp
-bmZyYWdyYWYub3JnIHdyb3RlOgogICAgPiBGcm9tOiBUb25naGFvIFpoYW5nIDx4eG15QGluZnJh
-Z3JhZi5vcmc+CiAgICA+IAogICAgPiBUaGUgeDg2XzY0IGNhbid0IGR1bXAgdGhlIHZhbGlkIGlu
-c24gaW4gdGhpcyB3YXkuIEEgdGVzdCBCUEYgcHJvZwogICAgPiB3aGljaCBpbmNsdWRlIHN1YnBy
-b2c6CiAgICA+IAogICAgPiAkIGxsdm0tb2JqZHVtcCAtZCBzdWJwcm9nLm8KICAgID4gRGlzYXNz
-ZW1ibHkgb2Ygc2VjdGlvbiAudGV4dDoKICAgID4gMDAwMDAwMDAwMDAwMDAwMCA8c3VicHJvZz46
-CiAgICA+ICAgICAgICAgMDoJMTggMDEgMDAgMDAgNzMgNzUgNjIgNzAgMDAgMDAgMDAgMDAgNzIg
-NmYgNjcgMDAJcjEgPSAyOTExNDQ1OTkwMzY1MzIzNSBsbAogICAgPiAgICAgICAgIDI6CTdiIDFh
-IGY4IGZmIDAwIDAwIDAwIDAwCSoodTY0ICopKHIxMCAtIDgpID0gcjEKICAgID4gICAgICAgICAz
-OgliZiBhMSAwMCAwMCAwMCAwMCAwMCAwMAlyMSA9IHIxMAogICAgPiAgICAgICAgIDQ6CTA3IDAx
-IDAwIDAwIGY4IGZmIGZmIGZmCXIxICs9IC04CiAgICA+ICAgICAgICAgNToJYjcgMDIgMDAgMDAg
-MDggMDAgMDAgMDAJcjIgPSA4CiAgICA+ICAgICAgICAgNjoJODUgMDAgMDAgMDAgMDYgMDAgMDAg
-MDAJY2FsbCA2CiAgICA+ICAgICAgICAgNzoJOTUgMDAgMDAgMDAgMDAgMDAgMDAgMDAJZXhpdAog
-ICAgPiBEaXNhc3NlbWJseSBvZiBzZWN0aW9uIHJhd190cC9zeXNfZW50ZXI6CiAgICA+IDAwMDAw
-MDAwMDAwMDAwMDAgPGVudHJ5PjoKICAgID4gICAgICAgICAwOgk4NSAxMCAwMCAwMCBmZiBmZiBm
-ZiBmZgljYWxsIC0xCiAgICA+ICAgICAgICAgMToJYjcgMDAgMDAgMDAgMDAgMDAgMDAgMDAJcjAg
-PSAwCiAgICA+ICAgICAgICAgMjoJOTUgMDAgMDAgMDAgMDAgMDAgMDAgMDAJZXhpdAogICAgPiAK
-ICAgID4ga2VybmVsIHByaW50IG1lc3NhZ2U6CiAgICA+IFsgIDU4MC43NzUzODddIGZsZW49OCBw
-cm9nbGVuPTUxIHBhc3M9MyBpbWFnZT1mZmZmZmZmZmEwMDBjMjBjIGZyb209a3Byb2JlLWxvYWQg
-cGlkPTE2NDMKICAgID4gWyAgNTgwLjc3NzIzNl0gSklUIGNvZGU6IDAwMDAwMDAwOiBjYyBjYyBj
-YyBjYyBjYyBjYyBjYyBjYyBjYyBjYyBjYyBjYyBjYyBjYyBjYyBjYwogICAgPiBbICA1ODAuNzc5
-MDM3XSBKSVQgY29kZTogMDAwMDAwMTA6IGNjIGNjIGNjIGNjIGNjIGNjIGNjIGNjIGNjIGNjIGNj
-IGNjIGNjIGNjIGNjIGNjCiAgICA+IFsgIDU4MC43ODA3NjddIEpJVCBjb2RlOiAwMDAwMDAyMDog
-Y2MgY2MgY2MgY2MgY2MgY2MgY2MgY2MgY2MgY2MgY2MgY2MgY2MgY2MgY2MgY2MKICAgID4gWyAg
-NTgwLjc4MjU2OF0gSklUIGNvZGU6IDAwMDAwMDMwOiBjYyBjYyBjYwogICAgPiAKICAgID4gJCBi
-cGZfaml0X2Rpc2FzbQogICAgPiA1MSBieXRlcyBlbWl0dGVkIGZyb20gSklUIGNvbXBpbGVyIChw
-YXNzOjMsIGZsZW46OCkKICAgID4gZmZmZmZmZmZhMDAwYzIwYyArIDx4PjoKICAgID4gICAgIDA6
-CWludDMKICAgID4gICAgIDE6CWludDMKICAgID4gICAgIDI6CWludDMKICAgID4gICAgIDM6CWlu
-dDMKICAgID4gICAgIDQ6CWludDMKICAgID4gICAgIDU6CWludDMKICAgID4gICAgIC4uLgogICAg
-PiAKICAgID4gVW50aWwgYnBmX2ppdF9iaW5hcnlfcGFja19maW5hbGl6ZSBpcyBpbnZva2VkLCB3
-ZSBjb3B5IHJ3X2hlYWRlciB0byBoZWFkZXIKICAgID4gYW5kIHRoZW4gaW1hZ2UvaW5zbiBpcyB2
-YWxpZC4gQlRXLCB3ZSBjYW4gdXNlIHRoZSAiYnBmdG9vbCBwcm9nIGR1bXAiIEpJVGVkIGluc3Ry
-dWN0aW9ucy4KICAgID4gCiAgICA+ICogY2xlYW4gdXAgdGhlIGRvYwogICAgPiAqIHJlbW92ZSBi
-cGZfaml0X2Rpc2FzbSB0b29sCiAgICA+ICogc2V0IGJwZl9qaXRfZW5hYmxlIG9ubHkgMCBvciAx
-LgogICAgPiAKICAgID4gU2lnbmVkLW9mZi1ieTogVG9uZ2hhbyBaaGFuZyA8eHhteUBpbmZyYWdy
-YWYub3JnPgogICAgPiBTdWdnZXN0ZWQtYnk6IEFsZXhlaSBTdGFyb3ZvaXRvdiA8YXN0QGtlcm5l
-bC5vcmc+CiAgICA+IENjOiBBbGV4ZWkgU3Rhcm92b2l0b3YgPGFzdEBrZXJuZWwub3JnPgogICAg
-PiBDYzogRGFuaWVsIEJvcmttYW5uIDxkYW5pZWxAaW9nZWFyYm94Lm5ldD4KICAgID4gQ2M6IEFu
-ZHJpaSBOYWtyeWlrbyA8YW5kcmlpQGtlcm5lbC5vcmc+CiAgICA+IENjOiBNYXJ0aW4gS2FGYWkg
-TGF1IDxtYXJ0aW4ubGF1QGxpbnV4LmRldj4KICAgID4gQ2M6IFNvbmcgTGl1IDxzb25nQGtlcm5l
-bC5vcmc+CiAgICA+IENjOiBZb25naG9uZyBTb25nIDx5aHNAZmIuY29tPgogICAgPiBDYzogSm9o
-biBGYXN0YWJlbmQgPGpvaG4uZmFzdGFiZW5kQGdtYWlsLmNvbT4KICAgID4gQ2M6IEtQIFNpbmdo
-IDxrcHNpbmdoQGtlcm5lbC5vcmc+CiAgICA+IENjOiBTdGFuaXNsYXYgRm9taWNoZXYgPHNkZkBn
-b29nbGUuY29tPgogICAgPiBDYzogSGFvIEx1byA8aGFvbHVvQGdvb2dsZS5jb20+CiAgICA+IENj
-OiBKaXJpIE9sc2EgPGpvbHNhQGtlcm5lbC5vcmc+CiAgICA+IENjOiBIb3UgVGFvIDxob3V0YW8x
-QGh1YXdlaS5jb20+CiAgICA+IC0tLQogICAgPiAgIERvY3VtZW50YXRpb24vYWRtaW4tZ3VpZGUv
-c3lzY3RsL25ldC5yc3QgfCAgIDIgKy0KICAgID4gICBEb2N1bWVudGF0aW9uL25ldHdvcmtpbmcv
-ZmlsdGVyLnJzdCAgICAgIHwgIDk4ICstLS0tLS0KICAgID4gICBhcmNoL2FybS9uZXQvYnBmX2pp
-dF8zMi5jICAgICAgICAgICAgICAgIHwgICA0IC0KICAgID4gICBhcmNoL2FybTY0L25ldC9icGZf
-aml0X2NvbXAuYyAgICAgICAgICAgIHwgICA0IC0KICAgID4gICBhcmNoL2xvb25nYXJjaC9uZXQv
-YnBmX2ppdC5jICAgICAgICAgICAgIHwgICA0IC0KICAgID4gICBhcmNoL21pcHMvbmV0L2JwZl9q
-aXRfY29tcC5jICAgICAgICAgICAgIHwgICAzIC0KICAgID4gICBhcmNoL3Bvd2VycGMvbmV0L2Jw
-Zl9qaXRfY29tcC5jICAgICAgICAgIHwgIDExIC0KICAgID4gICBhcmNoL3Jpc2N2L25ldC9icGZf
-aml0X2NvcmUuYyAgICAgICAgICAgIHwgICAzIC0KICAgID4gICBhcmNoL3MzOTAvbmV0L2JwZl9q
-aXRfY29tcC5jICAgICAgICAgICAgIHwgICA0IC0KICAgID4gICBhcmNoL3NwYXJjL25ldC9icGZf
-aml0X2NvbXBfMzIuYyAgICAgICAgIHwgICAzIC0KICAgID4gICBhcmNoL3NwYXJjL25ldC9icGZf
-aml0X2NvbXBfNjQuYyAgICAgICAgIHwgIDEzIC0KICAgID4gICBhcmNoL3g4Ni9uZXQvYnBmX2pp
-dF9jb21wLmMgICAgICAgICAgICAgIHwgICAzIC0KICAgID4gICBhcmNoL3g4Ni9uZXQvYnBmX2pp
-dF9jb21wMzIuYyAgICAgICAgICAgIHwgICAzIC0KICAgID4gICBuZXQvY29yZS9zeXNjdGxfbmV0
-X2NvcmUuYyAgICAgICAgICAgICAgIHwgIDE0ICstCiAgICA+ICAgdG9vbHMvYnBmLy5naXRpZ25v
-cmUgICAgICAgICAgICAgICAgICAgICB8ICAgMSAtCiAgICA+ICAgdG9vbHMvYnBmL01ha2VmaWxl
-ICAgICAgICAgICAgICAgICAgICAgICB8ICAxMCArLQogICAgPiAgIHRvb2xzL2JwZi9icGZfaml0
-X2Rpc2FzbS5jICAgICAgICAgICAgICAgfCAzMzIgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KICAg
-ID4gICAxNyBmaWxlcyBjaGFuZ2VkLCA4IGluc2VydGlvbnMoKyksIDUwNCBkZWxldGlvbnMoLSkK
-ICAgID4gICBkZWxldGUgbW9kZSAxMDA2NDQgdG9vbHMvYnBmL2JwZl9qaXRfZGlzYXNtLmMKICAg
-ID4gCiAgICA+IGRpZmYgLS1naXQgYS9Eb2N1bWVudGF0aW9uL2FkbWluLWd1aWRlL3N5c2N0bC9u
-ZXQucnN0IGIvRG9jdW1lbnRhdGlvbi9hZG1pbi1ndWlkZS9zeXNjdGwvbmV0LnJzdAogICAgPiBp
-bmRleCA2Mzk0ZjVkYzIzMDMuLjQ1ZDNkOTY1Mjc2YyAxMDA2NDQKICAgID4gLS0tIGEvRG9jdW1l
-bnRhdGlvbi9hZG1pbi1ndWlkZS9zeXNjdGwvbmV0LnJzdAogICAgPiArKysgYi9Eb2N1bWVudGF0
-aW9uL2FkbWluLWd1aWRlL3N5c2N0bC9uZXQucnN0CiAgICA+IEBAIC04Nyw3ICs4Nyw3IEBAIFZh
-bHVlczoKICAgID4gICAKICAgID4gICAJLSAwIC0gZGlzYWJsZSB0aGUgSklUIChkZWZhdWx0IHZh
-bHVlKQogICAgPiAgIAktIDEgLSBlbmFibGUgdGhlIEpJVAogICAgPiAtCS0gMiAtIGVuYWJsZSB0
-aGUgSklUIGFuZCBhc2sgdGhlIGNvbXBpbGVyIHRvIGVtaXQgdHJhY2VzIG9uIGtlcm5lbCBsb2cu
-CiAgICA+ICsJLSAyIC0gZGVwcmVjYXRlZCBpbiBsaW51eCA2LjIKCiAgICBJJ2QgbWFrZSBpdCBt
-b3JlIGNsZWFyIGluIHRoZSBkb2NzIGFuZCByZXdvcmQgaXQgYXMgZm9sbG93cyAoYWxzbywgaXQn
-bGwgYmUgaW4gNi4zLCBub3QgNi4yKToKCiAgICAJLSAyIC0gZW5hYmxlIHRoZSBKSVQgYW5kIGFz
-ayB0aGUgY29tcGlsZXIgdG8gZW1pdCB0cmFjZXMgb24ga2VybmVsIGxvZy4KICAgIAkgICAgICAo
-ZGVwcmVjYXRlZCBzaW5jZSB2Ni4zLCB1c2UgYGBicGZ0b29sIHByb2cgZHVtcCBqaXRlZCBpZCA8
-aWQ+YGAgaW5zdGVhZCkKCiAgICA+ICAgCiAgICA+ICAgYnBmX2ppdF9oYXJkZW4KICAgID4gICAt
-LS0tLS0tLS0tLS0tLQogICAgWy4uLl0KICAgID4gZGlmZiAtLWdpdCBhL25ldC9jb3JlL3N5c2N0
-bF9uZXRfY29yZS5jIGIvbmV0L2NvcmUvc3lzY3RsX25ldF9jb3JlLmMKICAgID4gaW5kZXggNWIx
-Y2U2NTZiYWExLi43MzFhMmViMGY2OGUgMTAwNjQ0CiAgICA+IC0tLSBhL25ldC9jb3JlL3N5c2N0
-bF9uZXRfY29yZS5jCiAgICA+ICsrKyBiL25ldC9jb3JlL3N5c2N0bF9uZXRfY29yZS5jCiAgICA+
-IEBAIC0yNzUsMTYgKzI3NSw4IEBAIHN0YXRpYyBpbnQgcHJvY19kb2ludHZlY19taW5tYXhfYnBm
-X2VuYWJsZShzdHJ1Y3QgY3RsX3RhYmxlICp0YWJsZSwgaW50IHdyaXRlLAogICAgPiAgIAogICAg
-PiAgIAl0bXAuZGF0YSA9ICZqaXRfZW5hYmxlOwogICAgPiAgIAlyZXQgPSBwcm9jX2RvaW50dmVj
-X21pbm1heCgmdG1wLCB3cml0ZSwgYnVmZmVyLCBsZW5wLCBwcG9zKTsKICAgID4gLQlpZiAod3Jp
-dGUgJiYgIXJldCkgewogICAgPiAtCQlpZiAoaml0X2VuYWJsZSA8IDIgfHwKICAgID4gLQkJICAg
-IChqaXRfZW5hYmxlID09IDIgJiYgYnBmX2R1bXBfcmF3X29rKGN1cnJlbnRfY3JlZCgpKSkpIHsK
-ICAgID4gLQkJCSooaW50ICopdGFibGUtPmRhdGEgPSBqaXRfZW5hYmxlOwogICAgPiAtCQkJaWYg
-KGppdF9lbmFibGUgPT0gMikKICAgID4gLQkJCQlwcl93YXJuKCJicGZfaml0X2VuYWJsZSA9IDIg
-d2FzIHNldCEgTkVWRVIgdXNlIHRoaXMgaW4gcHJvZHVjdGlvbiwgb25seSBmb3IgSklUIGRlYnVn
-Z2luZyFcbiIpOwogICAgPiAtCQl9IGVsc2UgewogICAgPiAtCQkJcmV0ID0gLUVQRVJNOwogICAg
-PiAtCQl9CiAgICA+IC0JfQogICAgPiArCWlmICh3cml0ZSAmJiAhcmV0KQogICAgPiArCQkqKGlu
-dCAqKXRhYmxlLT5kYXRhID0gaml0X2VuYWJsZTsKICAgID4gICAKICAgID4gICAJaWYgKHdyaXRl
-ICYmIHJldCAmJiBtaW4gPT0gbWF4KQogICAgPiAgIAkJcHJfaW5mb19vbmNlKCJDT05GSUdfQlBG
-X0pJVF9BTFdBWVNfT04gaXMgZW5hYmxlZCwgYnBmX2ppdF9lbmFibGUgaXMgcGVybWFuZW50bHkg
-c2V0IHRvIDEuXG4iKTsKICAgID4gQEAgLTM5NSw3ICszODcsNyBAQCBzdGF0aWMgc3RydWN0IGN0
-bF90YWJsZSBuZXRfY29yZV90YWJsZVtdID0gewogICAgPiAgIAkJLmV4dHJhMgkJPSBTWVNDVExf
-T05FLAogICAgPiAgICMgZWxzZQogICAgPiAgIAkJLmV4dHJhMQkJPSBTWVNDVExfWkVSTywKICAg
-ID4gLQkJLmV4dHJhMgkJPSBTWVNDVExfVFdPLAogICAgPiArCQkuZXh0cmEyCQk9IFNZU0NUTF9P
-TkUsCgogICAgSSdkIGxlYXZlIGl0IGF0IFNZU0NUTF9UV08gdG8gYXZvaWQgYnJlYWthZ2UsIGp1
-c3QgdGhhdCB0aGUgc2VtYW50aWNzIG9mIDIgd2lsbCBiZSB0aGUgc2FtZQogICAgYXMgMSBnb2lu
-ZyBmb3J3YXJkLgpUaGFua3MgRGFuaWVsLCB2MiB3aWxsIGZpeCB0aGF0LgogICAgPiAgICMgZW5k
-aWYKICAgID4gICAJfSwKICAgID4gICAjIGlmZGVmIENPTkZJR19IQVZFX0VCUEZfSklUCgoKCgpf
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
-diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
-dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+
+> -----Original Message-----
+> From: Conor Dooley <conor@kernel.org>
+> Sent: Wednesday, 4 January, 2023 1:08 AM
+> To: Leyfoon Tan <leyfoon.tan@starfivetech.com>; Sudeep Holla
+> <sudeep.holla@arm.com>
+> Cc: Andrew Jones <ajones@ventanamicro.com>; Palmer Dabbelt
+> <palmer@dabbelt.com>; Paul Walmsley <paul.walmsley@sifive.com>; Albert
+> Ou <aou@eecs.berkeley.edu>; linux-riscv@lists.infradead.org; linux-
+> kernel@vger.kernel.org; Ley Foon Tan <lftan.linux@gmail.com>
+> Subject: Re: [PATCH] riscv: Move call to init_cpu_topology() to later
+> initialization stage
+> 
+> Hello!
+> 
+> Couple comments for you.
+> 
+> +CC Sudeep: I've got a question for you below.
+> 
+> On Tue, Jan 03, 2023 at 07:53:38AM +0000, Leyfoon Tan wrote:
+> > > From: Andrew Jones <ajones@ventanamicro.com>
+> > > Subject: Re: [PATCH] riscv: Move call to init_cpu_topology() to
+> > > later initialization stage On Tue, Jan 03, 2023 at 11:53:16AM +0800,
+> > > Ley Foon Tan wrote:
+> > > > topology_parse_cpu_capacity() is failed to allocate memory with
+> > > > kcalloc() after read "capacity-dmips-mhz" DT parameter in CPU DT
+> 
+> Uhh, so where did this "capacity-dmips-mhz" property actually come from?
+> I had a quick check of qemu with grep & I don't see anything there that
+> would add this property.
+> This property should not be valid on anything other than arm AFAICT.
+
+This DT parameter is not in default Qemu. I've added it for testing (see test steps in below). 
+This is preparation to support asymmetric CPU topology for RISC-V.
+
+> 
+> > > > nodes. This
+> > > > topology_parse_cpu_capacity() is called from init_cpu_topology(),
+> > > > move call to init_cpu_topology() to later initialization  stage
+> > > > (after memory allocation is available).
+> > > >
+> > > > Note, this refers to ARM64 implementation, call
+> > > > init_cpu_topology() in smp_prepare_cpus().
+> > > >
+> > > > Tested on Qemu platform.
+> > >
+> > > Hi Ley,
+> > >
+> > > Can you provide the topologies (command lines) tested?
+> > 2 clusters with 2 CPU cores each.
+> 
+> What's the actual commandline for this? I'm not the best with QEMU, so it'd
+> really be appreciated, given the above.
+I used the Qemu to dump the DTS for 'virt' machine from Qemu, then add the "capacity-dmips-mhz" DT parameter and modify the CPU topology for clusters.
+
+1. Dump the dtb for 'virt' machine:
+qemu-system-riscv64 -cpu rv64 -smp 4 -m 2048M -M virt,dumpdtb=qemu_virt.dtb
+
+2. Convert dtb to dts
+dtc -I dtb -O dts qemu_virt.dtb > qemu_virt.dts
+
+3. Modifying qemu_virt.dts
+
+4. Compile dts to dtb
+dtc -I dts -O dtb qemu_virt.dts > qemu_virt.dtb
+
+5. Pass in "-dtb qemu_virt.dtb" as one of Qemu's argument.
+
+> 
+> > > > Signed-off-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+> > >
+> > > Fixes tag?
+> > Okay, will send out next revision with Fixes tag.
+> 
+> Please don't just send versions to add tags, Palmer can pick them up if/when
+> he applies the patch.
+Okay. Will let Palmer add tag below if he applies the patch.
+
+Fixes: 03f11f03dbfe ("RISC-V: Parse cpu topology during boot. ")
+
+
+> 
+> > > >  arch/riscv/kernel/smpboot.c | 3 ++-
+> > > >  1 file changed, 2 insertions(+), 1 deletion(-)
+> > > >
+> > > > diff --git a/arch/riscv/kernel/smpboot.c
+> > > > b/arch/riscv/kernel/smpboot.c index 3373df413c88..ddb2afba6d25
+> > > > 100644
+> > > > --- a/arch/riscv/kernel/smpboot.c
+> > > > +++ b/arch/riscv/kernel/smpboot.c
+> > > > @@ -39,7 +39,6 @@ static DECLARE_COMPLETION(cpu_running);
+> > > >
+> > > >  void __init smp_prepare_boot_cpu(void)  {
+> > > > -	init_cpu_topology();
+> > > >  }
+> > > >
+> > > >  void __init smp_prepare_cpus(unsigned int max_cpus) @@ -48,6
+> > > > +47,8
+> > > @@
+> > > > void __init smp_prepare_cpus(unsigned int max_cpus)
+> > > >  	int ret;
+> > > >  	unsigned int curr_cpuid;
+> > > >
+> > > > +	init_cpu_topology();
+> 
+> I know arm64 does this, but there is any real reason for us to do so?
+> @Sudeep, do you know why arm64 calls that each time?
+> Or if it is worth "saving" that call on riscv, since arm64 is clearly happily calling
+> it for many years & calling it later would likely head off a good few allocation
+> issues (like the one we saw with the topology reworking a few months ago).
+> 
+> Thanks,
+> Conor.
+> 
+> > > > +
+> > > >  	curr_cpuid = smp_processor_id();
+> > > >  	store_cpu_topology(curr_cpuid);
+> > > >  	numa_store_cpu_info(curr_cpuid);
+> > > > --
+> > > > 2.25.1
+> > > >
+> > >
+> > > Otherwise,
+> > >
+> > > Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+
+Regards
+Ley Foon
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
