@@ -4,75 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF7F4C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Jan 2023 16:19:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 947DEC4708D
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Jan 2023 16:48:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=D3XKpVa3Tfti0gStmUeGgxuIrqt32OCxIuRZyP0WUQ4=; b=In4c+k3QzpTdGI
-	5p/Hq4rKHKUR6CjUGSp4DsVZPmL7oZDU3OYWihGV4LLzl1696x5pVoSlHyvnMNkOd1a/+TYhjTVcp
-	KmNgJMMbBGdx40VtwnH7VKp1lkjasLoPKPcazIARCk79wd89YpO3vcSjCNcYvIEQHiC35q4wsoCeO
-	Scszg4EzM+afIty3ZOYb9iPja94LHojFaETv9oYaQ3R9xV4AN2K2mebSLGQ0ftW8a5TvuWL3m2liH
-	g7OO/Fx369NKFizrrR+J4z1zsnfZjEP0H9gS0OnBeu/5ouSiLhLUSTRLzsog7BanRt2E0afsSUkPS
-	JTlSk337U6ek2sDMJnIQ==;
+	List-Owner; bh=bg2bpBuaWc5IHnxsTfkrshFj3WBhYPEWXKBUw6zI8HU=; b=qo6cZb69ugwnU6
+	ZCrKYmXPQl9nkH5XdR15FDkEuaFRm9vbefocQyuwSyxFjnNBz7XubSwYtYZCD+O/fyKg4bRbjMb+q
+	JNJpcFDc9epV6+5pSJUn7oPvEK/Yzb9MbydWKf2lVmZCSg3S50uV4q8xMzYKLp+GE/yNktzg8YxrX
+	AqOza+0BnxkF5/aEfdcrppnurRwWjkqGyFfgCO58nfv0c5lK5BaYjy3/l/kolB7jKowDLN9z5MD2w
+	+4Nav4PfhTeySXDeg6yAmNaCzXKJ1f3Y9Hmz4wYTxJVtsRTE8MoDZkyY1j+6KpojEN3hTL8mK2Kjq
+	dRufIHhLPww3Y+TxnGAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pD6UL-00ALnx-5g; Wed, 04 Jan 2023 16:19:37 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1pD6vv-00AUg0-53; Wed, 04 Jan 2023 16:48:07 +0000
+Received: from mail-yw1-x112f.google.com ([2607:f8b0:4864:20::112f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pD6Ho-00AIIH-UU
-	for linux-riscv@lists.infradead.org; Wed, 04 Jan 2023 16:06:42 +0000
-Received: by mail-pl1-x629.google.com with SMTP id b2so36295228pld.7
-        for <linux-riscv@lists.infradead.org>; Wed, 04 Jan 2023 08:06:27 -0800 (PST)
+	id 1pD6iY-00AOSI-Q1
+	for linux-riscv@lists.infradead.org; Wed, 04 Jan 2023 16:34:20 +0000
+Received: by mail-yw1-x112f.google.com with SMTP id 00721157ae682-4a0d6cb12c5so154620527b3.7
+        for <linux-riscv@lists.infradead.org>; Wed, 04 Jan 2023 08:34:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
+        d=sifive.com; s=google;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=qoMsanQfdrnJNpK+VHphw12WDh7b/ImX3dHhODz+IvA=;
-        b=xTS8w7m0XrsQQYE15w0Gmn+j7j9adCpRTTi1yI86BOf1Ey2uLEUmfrH0yoZbFjVWm4
-         fBDOTqraLqcuSMaiYFb+uZTm6Mx/iXsvbHPX39ZfeQ6LH/TDkKKGYHhpa7h8zfXP/KQI
-         LW6AkV7EJFtzd4tcPol6Fi6Ccr/Wn8Y6lXp0hPjXaeNq06WyHnQqS+5Ffq+/cQ54+5BB
-         AABHT07Lj8MP0y84HSwyBxZbzwTPfDdbb2xBoftOlDMJUWlzz/El7TNjP01HnxhavgJK
-         hYavH+0i8lleDyhCGaSc6eZP8JaiUlPaFGr1ES6R7f55/zMgM37q94e2/rD7Po/ypTg4
-         LFJg==
+        bh=LqdqQlesspNDXGGnijlTI3oVDhi9FDWDU+bglzO3AE8=;
+        b=eoMKaO5cljcPF4UPuHN+cPVIEBEnCFD6LXiE26/nR8baZdQ1u2th/lBRpZ34uC1XK0
+         bb/azslGjCwJgQIX0WX0uKLX9tzbt9OfEa8alFy6QXZrHrBPrTujiQFVpax//bEwyV8a
+         Gej9nh6UIgkDOvwkFoye/eAmkY/SPMBL5tD3tIoMw1pyp/6KqcoPpvYiaIiRVinqPmAw
+         GaSkETXzcNdJMaxhkvs7Ef5wcC5mG7iGbzpWKOeme0pWcyaRxjxhVdElxNucVZCmRtsa
+         R/XrcvctHHv0iAdQpEhTuaXikU8oXrKySQf+6ASW8W12xorLBvU14RMziIuHyZbg2XUs
+         /kdQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=qoMsanQfdrnJNpK+VHphw12WDh7b/ImX3dHhODz+IvA=;
-        b=T6L+OYCKEWsKMIxWgPl6Tgm7x55RKS0+8cSB68OlnlKhGh5BO2DUvklmUDR4yyW8bW
-         Ty3Ho/J/UNwo61fTvkRk+lED0HNy43YqeEkj2t1iBd62WFFoh/puMeeLRSOwCShe77jm
-         J9i5wtiYd3efos6SuS+0M9QIuT1gs6KkaWldBakrn1Op5LiLbT37tjNG+TyOoTqYtYEG
-         HIQylxVdwBraPXv9Rx0VUFyiPpA3tiXIom8fLGOT9Oo4uCB6+F/xxLgftiAAA3mz/Tt9
-         iCPP6wTPyRr5lYBYElrc5rvUsECaLWK9cGQjY9ZFnkMIAURFqPv8L7MCDKbwP+EXDZf7
-         w2bA==
-X-Gm-Message-State: AFqh2kpy/4lZ99qm/uAYYIJtZ+rGvR6cRvj1i+6XVS27hTvOXeo/bu3W
-	080k/m+TRGIrf6wPQQXJwYx9QRrDuLeLn/Vu+0fvrw==
-X-Google-Smtp-Source: AMrXdXu0Zkm98NSEmToInkvbeoOiqHqFC2u77W6RRb8vCi1vUtqqdRNIozRRUc8NnGm/zSv0I6VrewLi0U1sjbVAX7E=
-X-Received: by 2002:a17:90a:c083:b0:226:6c53:fc27 with SMTP id
- o3-20020a17090ac08300b002266c53fc27mr877853pjs.202.1672848387129; Wed, 04 Jan
- 2023 08:06:27 -0800 (PST)
+        bh=LqdqQlesspNDXGGnijlTI3oVDhi9FDWDU+bglzO3AE8=;
+        b=lcruE0n4RbobvLin9UH9R15C5rnSckEybk6YmDx+MJ/fKVtGcaCTnNyDXGHTWuMTLs
+         WPPyG71pUkh1us+O9o4+jw6O7yas2wHuhRCZqmvstydU1PFaGQsGnMWhl8sChpvTtF8j
+         r3QbzFOHWN6scVbbuTsl+ojbHtC0vLM/ZJTZvSlMetozksFnNtGPSh8v6L43PrdMqXJt
+         Ya5ugxMGnRDzBO6YzGrKGoSl8Nn6i7A8PsxAfQsjPdFeJF4i46jXeU+HcoRlZWDUSwpH
+         kXn9pG+EAHUugBdWk6e+yh0WWZxf7QHzUApXUeybr9ToDoVMF/iWIkcDv8QTzMWHMG5b
+         5CAw==
+X-Gm-Message-State: AFqh2krtOAglro+D3ocMNkZrN4/8afVe3oUdkV4EpNK8IzE3TUXIepT3
+	gwS8YHQvpxhYinimLcT9REFjcWK1VtE4ovdt/fzCzw==
+X-Google-Smtp-Source: AMrXdXu5Hut/VnWhTG0E3fIf/ZB19TwzTMVbJSeVN4gYVuVK9YYO9pF+KMFU8O4jlcDTjiB+jjCOgsQcmG3E+r56cxI=
+X-Received: by 2002:a81:7343:0:b0:484:a94f:210 with SMTP id
+ o64-20020a817343000000b00484a94f0210mr3516351ywc.129.1672850055789; Wed, 04
+ Jan 2023 08:34:15 -0800 (PST)
 MIME-Version: 1.0
-References: <20221227122227.460921-1-william.qiu@starfivetech.com>
- <20221227122227.460921-4-william.qiu@starfivetech.com> <CAPDyKFqziA+PB__v8nJzgkTuM9ZszW8X2U-akvRFv0_qwZ22OA@mail.gmail.com>
- <14433b44-8359-b9e8-446c-bb49e86bf48f@starfivetech.com>
-In-Reply-To: <14433b44-8359-b9e8-446c-bb49e86bf48f@starfivetech.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Wed, 4 Jan 2023 17:05:50 +0100
-Message-ID: <CAPDyKFrH=U-Sz1Kx2AJ+X_FXi9GcEdHXjO+aC=MXpGP_+xgOsQ@mail.gmail.com>
-Subject: Re: [PATCH v2 3/3] riscv: dts: starfive: Add mmc node
-To: William Qiu <william.qiu@starfivetech.com>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-mmc@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Jaehoon Chung <jh80.chung@samsung.com>, 
-	linux-kernel@vger.kernel.org
+References: <1631497278-29829-1-git-send-email-vincent.chen@sifive.com>
+ <1631497278-29829-3-git-send-email-vincent.chen@sifive.com>
+ <871r5sd1zq.fsf@oldenburg.str.redhat.com> <20210913135247.GL13220@brightrain.aerifal.cx>
+ <CABvJ_xjGZ3S0oAkT08x4DToQFdcUH06omk2OTT1EHDZRJ-2wKg@mail.gmail.com>
+ <87sfy5ndid.fsf@oldenburg.str.redhat.com> <CABvJ_xjSREsdemJkCJMGSx+09jrNoSbXCwuxF0zEQmZtHrWMvg@mail.gmail.com>
+ <d613968f-0fae-1994-3bee-fb10765167c3@rivosinc.com> <73c0124c-4794-6e40-460c-b26df407f322@rivosinc.com>
+ <CABvJ_xgDsthnm_h6mYowK03VUKqYk=nZsSZ7R=0BTwFHGKEAMw@mail.gmail.com>
+ <50c598a6-e3b3-3062-abe7-23a406067533@rivosinc.com> <7430f494-9b43-5e03-c1e9-6b83e2611a11@rivosinc.com>
+ <b67238bf-4b5d-dd17-99ff-88b0270ce10a@linaro.org> <CABgGipVT9L5p623Q2rbjrm=tTwcnjSr178CRKTNs+WMbm7=+-Q@mail.gmail.com>
+ <91ef3c45-165f-d2b3-7c77-322c01802c41@rivosinc.com> <CABgGipXqEkasz2HTC4y6otCP6pFMmyEdYabA+OkUruUOfwypHg@mail.gmail.com>
+ <18465ca3-934f-5b3e-170c-1ff0edea3a89@rivosinc.com>
+In-Reply-To: <18465ca3-934f-5b3e-170c-1ff0edea3a89@rivosinc.com>
+From: Andy Chiu <andy.chiu@sifive.com>
+Date: Thu, 5 Jan 2023 00:34:04 +0800
+Message-ID: <CABgGipW66rdMnC99-h9ccuR+E+7fnaMfmzt=1ehGZnvxO34PwQ@mail.gmail.com>
+Subject: Re: Adding V-ext regs to signal context w/o expanding kernel struct
+ sigcontext to avoid glibc ABI break
+To: Vineet Gupta <vineetg@rivosinc.com>
+Cc: Richard Henderson <richard.henderson@linaro.org>, Vincent Chen <vincent.chen@sifive.com>, 
+	Florian Weimer <fweimer@redhat.com>, Rich Felker <dalias@libc.org>, 
+	Andrew Waterman <andrew@sifive.com>, Palmer Dabbelt <palmer@rivosinc.com>, 
+	Kito Cheng <kito.cheng@sifive.com>, =?UTF-8?Q?Christoph_M=C3=BCllner?= <christoph.muellner@vrull.eu>, 
+	davidlt@rivosinc.com, Arnd Bergmann <arnd@arndb.de>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, 
+	Philipp Tomsich <philipp.tomsich@vrull.eu>, Szabolcs Nagy <szabolcs.nagy@arm.com>, 
+	Greentime Hu <greentime.hu@sifive.com>, Aaron Durbin <adurbin@rivosinc.com>, 
+	Andrew de los Reyes <adlr@rivosinc.com>, linux-riscv <linux-riscv@lists.infradead.org>, 
+	GNU C Library <libc-alpha@sourceware.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230104_080641_108989_E3A92931 
-X-CRM114-Status: GOOD (  27.52  )
+X-CRM114-CacheID: sfid-20230104_083419_098076_CACE4E1E 
+X-CRM114-Status: GOOD (  12.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,125 +103,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 4 Jan 2023 at 07:08, William Qiu <william.qiu@starfivetech.com> wrote:
->
->
->
-> On 2023/1/2 22:03, Ulf Hansson wrote:
-> > On Tue, 27 Dec 2022 at 13:22, William Qiu <william.qiu@starfivetech.com> wrote:
-> >>
-> >> This adds the mmc node for the StarFive JH7110 SoC.
-> >> Set sdioo node to emmc and set sdio1 node to sd.
-> >>
-> >> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
-> >> ---
-> >>  .../jh7110-starfive-visionfive-v2.dts         | 25 ++++++++++++
-> >>  arch/riscv/boot/dts/starfive/jh7110.dtsi      | 38 +++++++++++++++++++
-> >>  2 files changed, 63 insertions(+)
-> >>
-> >> diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-v2.dts b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-v2.dts
-> >> index c8946cf3a268..d8244fd1f5a0 100644
-> >> --- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-v2.dts
-> >> +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-v2.dts
-> >> @@ -47,6 +47,31 @@ &clk_rtc {
-> >>         clock-frequency = <32768>;
-> >>  };
-> >>
-> >> +&mmc0 {
-> >> +       max-frequency = <100000000>;
-> >> +       card-detect-delay = <300>;
-> >
-> > Nitpick:  This seems redundant for a non-removable card!?
-> >
->
-> Will drop
->
-> >> +       bus-width = <8>;
-> >> +       cap-mmc-highspeed;
-> >> +       mmc-ddr-1_8v;
-> >> +       mmc-hs200-1_8v;
-> >> +       non-removable;
-> >> +       cap-mmc-hw-reset;
-> >> +       post-power-on-delay-ms = <200>;
-> >> +       status = "okay";
-> >> +};
-> >> +
-> >> +&mmc1 {
-> >> +       max-frequency = <100000000>;
-> >> +       card-detect-delay = <300>;
-> >
-> > Nitpick: This looks redundant for polling based card detection
-> > (broken-cd is set a few lines below).
-> >
->
-> Will drop
->
-> >> +       bus-width = <4>;
-> >> +       no-sdio;
-> >> +       no-mmc;
-> >> +       broken-cd;
-> >> +       cap-sd-highspeed;
-> >> +       post-power-on-delay-ms = <200>;
-> >> +       status = "okay";
-> >> +};
-> >> +
-> >>  &gmac0_rmii_refin {
-> >>         clock-frequency = <50000000>;
-> >>  };
-> >> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> >> index c22e8f1d2640..08a780d2c0f4 100644
-> >> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> >> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> >> @@ -331,6 +331,11 @@ aoncrg: clock-controller@17000000 {
-> >>                         #reset-cells = <1>;
-> >>                 };
-> >>
-> >> +               syscon: syscon@13030000 {
-> >> +                       compatible = "starfive,syscon", "syscon";
-> >> +                       reg = <0x0 0x13030000 0x0 0x1000>;
-> >> +               };
-> >> +
-> >>                 gpio: gpio@13040000 {
-> >>                         compatible = "starfive,jh7110-sys-pinctrl";
-> >>                         reg = <0x0 0x13040000 0x0 0x10000>;
-> >> @@ -433,5 +438,38 @@ uart5: serial@12020000 {
-> >>                         reg-shift = <2>;
-> >>                         status = "disabled";
-> >>                 };
-> >> +
-> >> +               /* unremovable emmc as mmcblk0 */
-> >
-> > Don't confuse the mmc0 node name with mmcblk0. There is no guarantee
-> > that this is true, unless you also specify an alias.
-> >
->
-> Hi Ulf,
->
-> Thank you for taking time to review and provide helpful comments for this patch.
-> Actually we define mmc0 as eMMC, which is mmcblk0 in the kernel, and define mmc1 as SDIO,
-> which is mmcblk1 in the kernel, so it's not confuse.
->
+Hi Vineet,
 
-My point is, mmc0 from DT node perspective doesn't necessarily need to
-map to mmc0, as that depends on the "probe" order of the devices. At
-least for the Linux kernel, mmc0 from DT point of view, could end up
-being mmc1.
+On Wed, Jan 4, 2023 at 3:17 AM Vineet Gupta <vineetg@rivosinc.com> wrote:
+> The prctl support in there is really rudimentary and incomplete. There's
+> more work needed to use the dynamic state of enablement - for say signal
+> frame etc.
+Yes, I agree that signal and ptrace need special handling if we'd turn
+off Vector with prctl. For example, we may not need to save/restore
+vector context on context switches and signal handlings. And we may
+have to prevent ptrace from setting/getting vector context in such
+case. I can implement this into the series if this is what you're
+looking for. Or you could share the code somewhere so that I could
+merge it.
 
-To avoid confusion, please drop the "mmcblk*" here. It's anyway a
-Linux specific thing. Don't get me wrong, feel free to keep the
-information about eMMC and SDIO for the corresponding mmc controller
-node.
+> The new Kconfig CONFIG_RISCV_VSTATE_INIT_ALL seems like a
+> hack bolted on top.
+IIUC, most opinions suggested that we should keep the default Vector
+state to ON in thread:
+https://lore.kernel.org/all/20220921214439.1491510-17-stillson@rivosinc.com/T/#u
+So IMHO adding a build option to those who prefer not to
+unconditionally enable V should be sufficient.
 
-Moreover, if you can't use PARTID/UUID to find the rootfs device -
-then you may use an aliases node, to let mmc0 to be enumerated as
-mmc0, for example. See below.
+> I would also suggesting dropping the 2 patches for in-kernel enablement
+> for your submission as it might require some more thinking/design and
+> builds naturally on top of the baseline patches.
+Yes, I agree. Those patches were heavily copied from arm neon, which
+will not benefit from hardware feature on riscv-V. I will refine those
+patches and submit independently, on top of the baseline patch.
 
-aliases {
-     mmc0 = &mmc0;
-}
-
-Kind regards
-Uffe
+Thanks,
+Andy
 
 _______________________________________________
 linux-riscv mailing list
