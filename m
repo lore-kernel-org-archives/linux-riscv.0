@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A9C6C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Jan 2023 15:40:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A9B5C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Jan 2023 15:48:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AP9yH5RCPUJHUGqZ5oqsISMFyY52o1Nxdd2UkR0S8LM=; b=VcNU1GHzP67bH3
-	wzQ9CYWkLRNBA7DFaIOGqK6y/VVDcj6oUrt4nCTD9iyYywKQdrKYymwzjT+U9v6XyNmH7sjLNgRFA
-	wDaNLdXv+ccQh9uqt8+5zHVpO8azdcsxKdWpETVB2rSVePug0LcwyrRPxuyeQRNuJdQ/DJhjUMoYr
-	iBPFb4bhrNssrht9nLC4t/KOaRi2QEWQlmablBDAPdgh3qACr43t/V6yq0ViH5RD0YzYhh3YgWoz2
-	c3u3CQU4+jcH49kN2A/Fj7xOkEeNwPDcimpfW3sdD+WwKSze/onFDC3/EHfHBC2Ui+KB23IrFNYLo
-	IPfsA1S85hTcGJCn9FrQ==;
+	List-Owner; bh=Wrqrh+CDFO59eKWj1cI3m/ND2vaVU5lOP1VLL1SMITs=; b=T77pejjhqYL5rh
+	M+apoFid4XMIJArn/EZWnOitpYxdMJnZJ+g0x6+AIWoAdfERPbZ+W6h6CBnUSsYQUs6Xverbtiysr
+	k4puAykX21tKpAJdUeiVHzsMmwMDr4KLpu50j3WP4/ym6xIMFykoYIlfHSRkijOBUtVoDyYP6yS0u
+	Iq8bE3qiQegWyJHdJ/7Qc6i1q9LPtqgR5fUfmfx8LBOPHttnKq4ANHw59fLpt/rDwKwgGAoICWnaP
+	maAJZ+BIaXOLM2e0WRHagp84sCUYIPq4gFzRSHvGf0nGm+zbqfL71t8n4zPjdXI0N+7aAyxfuEvEn
+	L7kDDVLSzvmRhmkL0egQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pD5s7-00ABsq-5c; Wed, 04 Jan 2023 15:40:07 +0000
+	id 1pD60V-00AEqo-1J; Wed, 04 Jan 2023 15:48:47 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pD5qG-00AAvt-TF
-	for linux-riscv@lists.infradead.org; Wed, 04 Jan 2023 15:38:14 +0000
+	id 1pD5kX-00A8ad-8J
+	for linux-riscv@lists.infradead.org; Wed, 04 Jan 2023 15:32:19 +0000
 Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1pD5qA-0007gv-QA; Wed, 04 Jan 2023 16:38:06 +0100
+	id 1pD5kR-0007eN-UP; Wed, 04 Jan 2023 16:32:11 +0100
 From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Andrey Ryabinin <ryabinin.a.a@gmail.com>, Alexander Potapenko <glider@google.com>, Andrey Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>, Vincenzo Frascino <vincenzo.frascino@arm.com>, Ard Biesheuvel <ardb@kernel.org>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com, linux-efi@vger.kernel.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>, Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: Re: [PATCH 4/6] riscv: Fix EFI stub usage of KASAN instrumented string functions
-Date: Wed, 04 Jan 2023 16:38:05 +0100
-Message-ID: <10490920.nUPlyArG6x@diego>
-In-Reply-To: <20221216162141.1701255-5-alexghiti@rivosinc.com>
-References: <20221216162141.1701255-1-alexghiti@rivosinc.com> <20221216162141.1701255-5-alexghiti@rivosinc.com>
+To: Ard Biesheuvel <ardb@kernel.org>, Andrew Jones <ajones@ventanamicro.com>
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, christoph.muellner@vrull.eu, prabhakar.csengg@gmail.com, conor@kernel.org, philipp.tomsich@vrull.eu, emil.renner.berthing@canonical.com, linux-efi@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, alexghiti@rivosinc.com
+Subject: Re: [PATCH v3 12/14] efi/riscv: libstub: mark when compiling libstub
+Date: Wed, 04 Jan 2023 16:32:11 +0100
+Message-ID: <3495322.aeNJFYEL58@diego>
+In-Reply-To: <20230104152153.ae7zki6iofc7ugbs@orel>
+References: <20221130225614.1594256-1-heiko@sntech.de> <CAMj1kXGBSLf4ppjA5_F4Ork+ZJ45Sk0w6SnPc3eDcWbTMkj3SQ@mail.gmail.com> <20230104152153.ae7zki6iofc7ugbs@orel>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230104_073813_026713_FD782378 
-X-CRM114-Status: GOOD (  10.84  )
+X-CRM114-CacheID: sfid-20230104_073217_404080_3E841084 
+X-CRM114-Status: GOOD (  30.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -53,28 +53,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Freitag, 16. Dezember 2022, 17:21:39 CET schrieb Alexandre Ghiti:
-> The EFI stub must not use any KASAN instrumented code as the kernel
-> proper did not initialize the thread pointer and the mapping for the
-> KASAN shadow region.
-> 
-> Avoid using generic string functions by copying stub dependencies from
-> lib/string.c to drivers/firmware/efi/libstub/string.c as RISC-V does
-> not implement architecture-specific versions of those functions.
-> 
-> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Am Mittwoch, 4. Januar 2023, 16:21:53 CET schrieb Andrew Jones:
+> On Fri, Dec 02, 2022 at 05:37:16PM +0100, Ard Biesheuvel wrote:
+> > On Thu, 1 Dec 2022 at 23:39, Heiko St=FCbner <heiko@sntech.de> wrote:
+> > >
+> > > Hi Ard,
+> > >
+> > > Am Donnerstag, 1. Dezember 2022, 21:57:00 CET schrieb Ard Biesheuvel:
+> > > > On Thu, 1 Dec 2022 at 20:35, Andrew Jones <ajones@ventanamicro.com>=
+ wrote:
+> > > > >
+> > > > > On Wed, Nov 30, 2022 at 11:56:12PM +0100, Heiko Stuebner wrote:
+> > > > > > From: Heiko Stuebner <heiko.stuebner@vrull.eu>
+> > > > > >
+> > > > > > We may want to runtime-optimize some core functions (str*, mem*=
+),
+> > > > > > but not have this leak into libstub and cause build issues.
+> > > > > > Instead libstub, for the short while it's running, should just =
+use
+> > > > > > the generic implementation.
+> > > > > >
+> > > > > > So, to be able to determine whether functions, that are used bo=
+th in
+> > > > > > libstub and the main kernel, are getting compiled as part of li=
+bstub or
+> > > > > > not, add a compile-flag we can check via #ifdef.
+> > > > > >
+> > > > > > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> > > > > > Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+> > > >
+> > > > I think it would be better to update arch/riscv/kernel/image-vars.h=
+ so
+> > > > that only these generic implementations are exposed to the stub in =
+the
+> > > > first place.
+> > >
+> > =
 
-I think a similar change already went into 6.2-rc1 [0],
-though it seems to leave strcmp in place in image-vars.h
+> > Actually, all references to string and memory functions are going away
+> > from the stub. This is already in -next.
+> > =
+
+> > EFI now has zboot support, which means you can create a EFI bootable
+> > kernel image that carries the actual kernel in compressed form rather
+> > than as a hybrid EFI/bare metal image.
+> =
+
+> While chatting about EFI stub string functions again in the context of [1]
+> we recalled this comment that states the references should be going away
+> anyway. I'm just replying here with interested parties on CC to try and
+> bring it back to the forefront.
+> =
+
+> [1] https://lore.kernel.org/all/20221216162141.1701255-5-alexghiti@rivosi=
+nc.com/
+
+I'm currently following Ard's other suggestion and am using a more
+traditional model for str* functions (aka non-inline).
+
+One thing I found on the new EFI parts was that while it provides it's own
+implementations, it does not provide it's own prototype.
+
+On the real kernel-side all the HAVE_ARCH_* blocks do wrap around
+both the generic implementation as well as the prototype in string.h,
+and there _are_ other implementations of str* or mem* functions
+done as inline, on other arches. So that may be something that might
+need fixing on the EFI-side.
 
 
-
-[0] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=da8dd0c75b3f82eb366eb1745fb473ea92c8c087
+Heiko
 
 
 
