@@ -4,66 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F7BBC46467
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Jan 2023 22:17:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09E9FC54E76
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Jan 2023 22:38:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sa9ORH0iHdW3nvVI0v47ETxfkbM795DrO5nvTHXhjn0=; b=ufBfs2JAG05FXcjwNXdWtIO/Pm
-	VLQFIo/L0k2/73ozOsbXFPJWKz91StH3LUTf9Q+e/u06ZNyni+ikhgfFNxKdWFBEKU6o2RcK6kJ5p
-	Hw96LgcWMog+rkOtplXKdq7dd3XKWobFjQPi5s887bMxWYG/VeFBPqTdVjthV0QDOJ+7k6a1sawak
-	xqarb65Rd8JtkxVecC8X6lWpi5RZ0J9MlzOazs4xkpQLRlH2PIr7ERYEgPsOw7+Ihy3H3PnaIQICI
-	8fYMCiEetR2idSTB6q8Vl2j6TM/p7plndyVpVUlTMJ3Uzrzk1CpDLFR9hzewLu5vVtQMktWvL5+1t
-	SNGV5Hyw==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ITSZSx/STG+3tcQJs1jwc4PWOXp0yjDqeaoCq29tlGE=; b=tBuid3vT5ljojy
+	BahK5u62DKBV33qVDUFpUZXPVozCEtHuzTSD4HQpuGST47SLievLRk/duakJK29FcAcNxc7zYn6X+
+	HCzTMgueYfyiKtTscwmYK6Il/P8ytfLaAyr8updRnsc6kEvy8qfo//CJtxSk8WzON9R2l7TE8ss1E
+	FBopUBzbrwoGGHKoOZRCUY74bHFgXEsbR+if3x8t0XDizqoGhnOXrCEE7HaLBurYx+HqK1aVi2fpx
+	j3YX06xG6tBBv36SY/VClWyzlDCwF3UOtOXIzwN6FXxaNLvFw+e+Cfgd75M5WcphNVh8hrJHWTx/j
+	qZC/3p2iqea0kSFBqOSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pDC4K-00CStU-1k; Wed, 04 Jan 2023 22:17:08 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pDCPF-00CkAO-H5; Wed, 04 Jan 2023 22:38:45 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pDC4G-00CSrG-JS
-	for linux-riscv@lists.infradead.org; Wed, 04 Jan 2023 22:17:06 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 2F83861857;
-	Wed,  4 Jan 2023 22:17:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE9CCC43392;
-	Wed,  4 Jan 2023 22:17:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1672870623;
-	bh=nTOZE+n1x/HPxCpxyWWYLQviHIqmDTpR/4NccwtHT+U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=IoJlp+b1uXIaXFHUxj+Ce2apRzAZDrapooHr9EBzBVf9qXgfCSTbbmlb8q/1UPgi1
-	 DJLeY67pw21s2QLNCimRumKSVcikEtJBKJrIFgOCMF1IxWY4fUDa5R7nrkzr/DRTuL
-	 yKUtHutzxz0QbWy19JidFkwfHfESoNqco1tRCcKdfHQ0GuvlkS8uslWj/OPvhsJEzn
-	 1FwkjijYTga8XPpRorWH5Z69r+aQnoVdt6bb6CK0yCS5jXchwcKbcEIjLjOHx4Ub3b
-	 9/ks/XYDKey4/5wBoO+8YeSIbcNZIz8xCYG9rI4RQ7eEaSnIUXbcrOUZ4MdBcNjc79
-	 UecqYixuIVYaA==
-Date: Wed, 4 Jan 2023 22:16:58 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Alistair Francis <Alistair.Francis@wdc.com>,
-	Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v2 6/9] dt-bindings: interrupt-controller: Add RISC-V
- advanced PLIC
-Message-ID: <Y7X62v5Zp6+thx5A@spud>
-References: <20230103141409.772298-1-apatel@ventanamicro.com>
- <20230103141409.772298-7-apatel@ventanamicro.com>
+	id 1pDCG1-00Ca2z-N6
+	for linux-riscv@lists.infradead.org; Wed, 04 Jan 2023 22:29:15 +0000
+Received: by mail-wm1-x329.google.com with SMTP id o15so26734933wmr.4
+        for <linux-riscv@lists.infradead.org>; Wed, 04 Jan 2023 14:29:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=KqEImEb3zxFSZLJK5O28PW5QmA8rmOHB2VVdmPKgTSM=;
+        b=nc2poSArYIkrQ9l7v8cc3glR6yoUpg0wzCRnHEeAW1jw5rZKve3Hf4XVvYWcL+2Aj8
+         uIayBj1Xt7oKb7rooG/M+EIFXmPl3ad2RRuj99IB/S3PZDzrw67vGNGl1aKKVE5itRAv
+         QA/eft6/1JfkusHMmTjnFE/xXSBOjzVWD53S0EKSgTwBJLYM7YbREXcJt0/PrQXt4G4J
+         qIVS4kar4A1TJR9eifi6N/0kbTFbC0tM7Zsakh9IOGmAtS0+yjMXm6i+jaO/IBTtSyPa
+         YnDRLSJMYsYLhexVmeiBk0qNgH2FEozlsQiDjh/895jyh2Qtz+Huum3RdVjssGdHs4td
+         lGQw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=KqEImEb3zxFSZLJK5O28PW5QmA8rmOHB2VVdmPKgTSM=;
+        b=rtiHn/NHDfbnmbTGfm3k2TsC+RGOi2X8tVoHUGToSV4U2uEQ7BTxghXwNSGzDn6rDv
+         6njIPEoyZupczmLs25h82TK2tu6SuM9QhKcylEWnS+2zzXVsI6X7ibtkw0jywTZAik86
+         Y+pkeP1GgxUK4vvi7Lwb1aKYmlwlr8fOKJ72EAyIVJ3lXf4oXUxWqghZvGwNNrObZBNs
+         GPqShnTxLKjd5A8F18Se7sZUGYzKea/50foKf+nKxIxQX37WZ+pzjB/6C5UIh8SFaAjL
+         uQwrgbximvhaAzZCmWd9+v1p98NHRecubB0cnSNTMgdsEox+0KsDtp/q71mAjX1iHsF1
+         vfXw==
+X-Gm-Message-State: AFqh2kosj+VTrZdZv488gwMvtDDdmybIC6pAwd7xoDOjwxTmEBmx7c1P
+	R/tYoIAB/hp8zwfi0wvYKFN0Xw==
+X-Google-Smtp-Source: AMrXdXvosSW2IMXk+/+QjecXpbDsWIG5+bgibat8r06Du8mLR1UfEgwY7dPUUYm2db8dJYYS1As+5g==
+X-Received: by 2002:a05:600c:34d1:b0:3d7:72e3:f437 with SMTP id d17-20020a05600c34d100b003d772e3f437mr35584965wmq.21.1672871348065;
+        Wed, 04 Jan 2023 14:29:08 -0800 (PST)
+Received: from [192.168.10.46] (146725694.box.freepro.com. [130.180.211.218])
+        by smtp.googlemail.com with ESMTPSA id bg41-20020a05600c3ca900b003d1e34bcbb2sm236756wmb.13.2023.01.04.14.29.07
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 04 Jan 2023 14:29:07 -0800 (PST)
+Message-ID: <a9dba647-b307-e60f-c31a-3ef7f949d23e@linaro.org>
+Date: Wed, 4 Jan 2023 23:29:06 +0100
 MIME-Version: 1.0
-In-Reply-To: <20230103141409.772298-7-apatel@ventanamicro.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.4.2
+Subject: Re: [PATCH] clocksource/drivers/riscv: Increase the clock source
+ rating
+Content-Language: en-US
+To: Samuel Holland <samuel@sholland.org>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Thomas Gleixner <tglx@linutronix.de>
+Cc: Prabhakar Lad <prabhakar.csengg@gmail.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+References: <20221228004444.61568-1-samuel@sholland.org>
+From: Daniel Lezcano <daniel.lezcano@linaro.org>
+In-Reply-To: <20221228004444.61568-1-samuel@sholland.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230104_141704_741009_E3DFF2E5 
-X-CRM114-Status: GOOD (  26.34  )
+X-CRM114-CacheID: sfid-20230104_142914_070345_A080883D 
+X-CRM114-Status: UNSURE (   9.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,189 +91,27 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7138617967886669470=="
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============7138617967886669470==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="CM+OG7HiznyhPXQ1"
-Content-Disposition: inline
-
-
---CM+OG7HiznyhPXQ1
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hey Anup,
-
-On Tue, Jan 03, 2023 at 07:44:06PM +0530, Anup Patel wrote:
-> We add DT bindings document for RISC-V advanced platform level
-> interrupt controller (APLIC) defined by the RISC-V advanced
-> interrupt architecture (AIA) specification.
->=20
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> ---
->  .../interrupt-controller/riscv,aplic.yaml     | 159 ++++++++++++++++++
->  1 file changed, 159 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/interrupt-controlle=
-r/riscv,aplic.yaml
-
-> +  interrupts-extended:
-> +    minItems: 1
-> +    maxItems: 16384
-> +    description:
-> +      Given APLIC domain directly injects external interrupts to a set of
-> +      RISC-V HARTS (or CPUs). Each node pointed to should be a riscv,cpu=
--intc
-> +      node, which has a riscv node (i.e. RISC-V HART) as parent.
-> +
-> +  msi-parent:
-> +    description:
-> +      Given APLIC domain forwards wired interrupts as MSIs to a AIA inco=
-ming
-> +      message signaled interrupt controller (IMSIC). This property shoul=
-d be
-> +      considered only when the interrupts-extended property is absent.
-
-Considered by what?
-On v1 you said:
-<quote>
-If both "interrupts-extended" and "msi-parent" are present then it means
-the APLIC domain supports both MSI mode and Direct mode in HW. In this
-case, the APLIC driver has to choose between MSI mode or Direct mode.
-<\quote>
-
-The description is still pretty ambiguous IMO. Perhaps incorporate
-some of that expanded comment into the property description?
-Say, "If both foo and bar are present, the APLIC domain has hardware
-support for both MSI and direct mode. Software may then chose either
-mode".
-Have I misunderstood your comment on v1? It read as if having both
-present indicated that both were possible & that "should be considered
-only..." was more of a suggestion and a comment about the Linux driver's
-behaviour.
-Apologies if I have misunderstood, but I suppose if I have then the
-binding's description could be improved!!
-
-> +  riscv,children:
-> +    $ref: /schemas/types.yaml#/definitions/phandle-array
-> +    minItems: 1
-> +    maxItems: 1024
-> +    items:
-> +      maxItems: 1
-> +    description:
-> +      A list of child APLIC domains for the given APLIC domain. Each chi=
-ld
-> +      APLIC domain is assigned child index in increasing order with the
-
-btw, missing article before child (& a comma after order I think).
-
-> +      first child APLIC domain assigned child index 0. The APLIC domain
-> +      child index is used by firmware to delegate interrupts from the
-> +      given APLIC domain to a particular child APLIC domain.
-> +
-> +  riscv,delegate:
-> +    $ref: /schemas/types.yaml#/definitions/phandle-array
-> +    minItems: 1
-> +    maxItems: 1024
-
-Is it valid to have a delegate property without children? If not, the
-binding should reflect that dependency IMO.
-
-> +    items:
-> +      items:
-> +        - description: child APLIC domain phandle
-> +        - description: first interrupt number (inclusive)
-> +        - description: last interrupt number (inclusive)
-> +    description:
-> +      A interrupt delegation list where each entry is a triple consisting
-> +      of child APLIC domain phandle, first interrupt number, and last
-> +      interrupt number. The firmware will configure interrupt delegation
-
-btw, drop the article before firmware here.
-Also, "firmware will" or "firmware must"? Semantics perhaps, but they
-are different!
-
-Kinda for my own curiosity here, but do you expect these properties to
-generally be dynamically filled in by the bootloader or read by the
-bootloader to set up the configuration?
-
-> +      registers based on interrupt delegation list.
-
-I'm sorry Anup, but this child versus delegate thing is still not clear
-to me binding wise. See below.
-
-> +    aplic0: interrupt-controller@c000000 {
-> +      compatible =3D "riscv,qemu-aplic", "riscv,aplic";
-> +      interrupts-extended =3D <&cpu1_intc 11>,
-> +                            <&cpu2_intc 11>,
-> +                            <&cpu3_intc 11>,
-> +                            <&cpu4_intc 11>;
-> +      reg =3D <0xc000000 0x4080>;
-> +      interrupt-controller;
-> +      #interrupt-cells =3D <2>;
-> +      riscv,num-sources =3D <63>;
-> +      riscv,children =3D <&aplic1>, <&aplic2>;
-> +      riscv,delegate =3D <&aplic1 1 63>;
-
-Is aplic2 here for demonstrative purposes only, since it has not been
-delegated any interrupts?
-I suppose it is hardware present on the SoC that is not being used by
-the current configuration?
-
-Thanks,
-Conor.
-
-> +    };
-> +
-> +    aplic1: interrupt-controller@d000000 {
-> +      compatible =3D "riscv,qemu-aplic", "riscv,aplic";
-> +      interrupts-extended =3D <&cpu1_intc 9>,
-> +                            <&cpu2_intc 9>;
-> +      reg =3D <0xd000000 0x4080>;
-> +      interrupt-controller;
-> +      #interrupt-cells =3D <2>;
-> +      riscv,num-sources =3D <63>;
-> +    };
-> +
-> +    aplic2: interrupt-controller@e000000 {
-> +      compatible =3D "riscv,qemu-aplic", "riscv,aplic";
-> +      interrupts-extended =3D <&cpu3_intc 9>,
-> +                            <&cpu4_intc 9>;
-> +      reg =3D <0xe000000 0x4080>;
-> +      interrupt-controller;
-> +      #interrupt-cells =3D <2>;
-> +      riscv,num-sources =3D <63>;
-> +    };
-
-
---CM+OG7HiznyhPXQ1
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY7X62gAKCRB4tDGHoIJi
-0jdPAQDE7jaXqDBSHkYz30DfCDF68e8vHV/nGNfwySX74TqkmAEA8kiQVjEAphNj
-VrxoMV535/dnuFew0/H+emA4BYc1swU=
-=Whsj
------END PGP SIGNATURE-----
-
---CM+OG7HiznyhPXQ1--
-
-
---===============7138617967886669470==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7138617967886669470==--
-
+T24gMjgvMTIvMjAyMiAwMTo0NCwgU2FtdWVsIEhvbGxhbmQgd3JvdGU6Cj4gUklTQy1WIHByb3Zp
+ZGVzIGFuIGFyY2hpdGVjdHVyYWwgY2xvY2sgc291cmNlIHZpYSB0aGUgdGltZSBDU1IuIFRoaXMK
+PiBjbG9jayBzb3VyY2UgZXhwb3NlcyBhIDY0LWJpdCBjb3VudGVyIHN5bmNocm9uaXplZCBhY3Jv
+c3MgYWxsIENQVXMuCj4gQmVjYXVzZSBpdCBpcyBhY2Nlc3NlZCB1c2luZyBhIENTUiwgaXQgaXMg
+bXVjaCBtb3JlIGVmZmljaWVudCB0byByZWFkCj4gdGhhbiBNTUlPIGNsb2NrIHNvdXJjZXMuIEZv
+ciBleGFtcGxlLCBvbiB0aGUgQWxsd2lubmVyIEQxLCByZWFkaW5nIHRoZQo+IHN1bjRpIHRpbWVy
+IGluIGEgbG9vcCB0YWtlcyAxMzEgY3ljbGVzL2l0ZXJhdGlvbiwgd2hpbGUgcmVhZGluZyB0aGUK
+PiBSSVNDLVYgdGltZSBDU1IgdGFrZXMgb25seSA1IGN5Y2xlcy9pdGVyYXRpb24uCj4gCj4gQWRq
+dXN0IHRoZSBSSVNDLVYgY2xvY2sgc291cmNlIHJhdGluZyBzbyBpdCBpcyBwcmVmZXJyZWQgb3Zl
+ciB0aGUKPiB2YXJpb3VzIHBsYXRmb3JtLXNwZWNpZmljIE1NSU8gY2xvY2sgc291cmNlcy4KPiAK
+PiBTaWduZWQtb2ZmLWJ5OiBTYW11ZWwgSG9sbGFuZCA8c2FtdWVsQHNob2xsYW5kLm9yZz4KPiAt
+LS0KQXBwbGllZCwgdGhhbmtzCgotLSAKPGh0dHA6Ly93d3cubGluYXJvLm9yZy8+IExpbmFyby5v
+cmcg4pSCIE9wZW4gc291cmNlIHNvZnR3YXJlIGZvciBBUk0gU29DcwoKRm9sbG93IExpbmFybzog
+IDxodHRwOi8vd3d3LmZhY2Vib29rLmNvbS9wYWdlcy9MaW5hcm8+IEZhY2Vib29rIHwKPGh0dHA6
+Ly90d2l0dGVyLmNvbS8jIS9saW5hcm9vcmc+IFR3aXR0ZXIgfAo8aHR0cDovL3d3dy5saW5hcm8u
+b3JnL2xpbmFyby1ibG9nLz4gQmxvZwoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
+cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
+Zm8vbGludXgtcmlzY3YK
