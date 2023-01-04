@@ -4,108 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E799CC4332F
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Jan 2023 18:10:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30E8BC4332F
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Jan 2023 18:31:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=g8u06deaKJ1rTIxwEHhmp80Gv69mVqHZpE0YsAr3FvA=; b=YZPTyHUZlDvWVN
-	sqvBNNSW7uOM3LsUBBt0L1gaGhthWbHPTENkV3NDSR/5hB9ZBGumb86b8/QvN01sY2ukgUCGe7nhT
-	byoV3P1/171KRLK6U+hQLUnFBx6/FAlzTTqbvXzjLgAopj4PIkKxvirxOfDoKRUFoSaFWgcnz9d6x
-	2lqmtcaw/kTfzqTDz79x4srHp5FNAa556BdyN9twb7E5vMQqXyRXM6i9Ke0Nie8ETJdGp9l7XHOCE
-	WhVxh9omLyhuDTktNTaNmQoMTXZSdXJ+RgetrjGXEbbdO8MTmGtekMuFzrLhv2TH9l2hvLPyz7HP1
-	DTtHztFMGQ7TxpN66e8A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=xqEzc/w9EFH9TokY66wFQEOaOvX0utgCfQCWw2MSBuM=; b=nozr3mBHTwFQ5N
+	hYBzK42IOdrfqlTeBnO9r08/MON4ByZ20yq+5eSHrmAlifYFAOtimhw9NGDBJyoOP1nHOn3Uq7OYs
+	KAm4U0dVX7PTBtJ/I9sRDcwR/x40KnlSDSMJfrNkaqFRa8LKV+bQURihPvnPJVkyrnuDvK+WIBaKc
+	m2P00xGuO6ZP8p4SyBb5GYZXVl/5nvuPCOJVV/kOQneCr6retzM4A1IzZSzsF8FyheOLvZjW4/EMb
+	XKN76gL9FjtWN2UwDWJJ7EpoJHwa8IjcgB4CXhVmn1EpNwdNocoUByqtWfiK21FE406cAkaV+xkBm
+	tDmT/ISjaUfXZX82n4cQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pD8Di-00Arp3-DE; Wed, 04 Jan 2023 18:10:34 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pD8Dc-00Arlc-H7
-	for linux-riscv@lists.infradead.org; Wed, 04 Jan 2023 18:10:29 +0000
-Received: from pps.filterd (m0098396.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 304HUcG8032586;
-	Wed, 4 Jan 2023 18:09:53 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=date : from : to : cc :
- subject : message-id : references : content-type : in-reply-to :
- mime-version; s=pp1; bh=7GBPF88wzdVZ7ar1F+eZ3hgfidY5D8srQT8J/QpDwvc=;
- b=fyiW6W2UUN8LX92+pUjeVSnvz51f7TnyzFENkpC9v/GweDqnRwuxyoh215RVbC/DJ/AQ
- 2wbVM+EzRWCEAmzmwiojm3CpchC0Y8ZmWUr1x10H5LHQra4UxToTRms7RUKFtnV9AOT/
- Nb1EvDzNT8pngUWXgk/d80u62D8s23dr5qfuFmBlayG9GXKDrOZVg3URBzBXPtLQBjAm
- POr66aqy4XecphxqgSsuXd3HzdYxrH1T1/If1l4gIJ0mkfKSF51Yi2sMMITiJbHYqDg/
- mUP2q/DTQrLrpbJM2eyJGE7hMsZNxNfDs5JzW+bUeZyXPTic79NtgHeaIb5XEvYJuVWR 2A== 
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3mwdwy0xas-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 04 Jan 2023 18:09:53 +0000
-Received: from m0098396.ppops.net (m0098396.ppops.net [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 304I7i4V017758;
-	Wed, 4 Jan 2023 18:09:53 GMT
-Received: from ppma06ams.nl.ibm.com (66.31.33a9.ip4.static.sl-reverse.com [169.51.49.102])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3mwdwy0x9d-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 04 Jan 2023 18:09:52 +0000
-Received: from pps.filterd (ppma06ams.nl.ibm.com [127.0.0.1])
-	by ppma06ams.nl.ibm.com (8.17.1.19/8.17.1.19) with ESMTP id 30486XjM001864;
-	Wed, 4 Jan 2023 18:09:50 GMT
-Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
-	by ppma06ams.nl.ibm.com (PPS) with ESMTPS id 3mtcbfdpdt-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 04 Jan 2023 18:09:50 +0000
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 304I9l4M48759224
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 4 Jan 2023 18:09:47 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id B830520043;
-	Wed,  4 Jan 2023 18:09:47 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 6E85E20040;
-	Wed,  4 Jan 2023 18:09:46 +0000 (GMT)
-Received: from osiris (unknown [9.179.28.126])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Wed,  4 Jan 2023 18:09:46 +0000 (GMT)
-Date: Wed, 4 Jan 2023 19:09:44 +0100
-From: Heiko Carstens <hca@linux.ibm.com>
-To: Mike Kravetz <mike.kravetz@oracle.com>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
-        linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-        linux-s390@vger.kernel.org, netdev@vger.kernel.org,
-        Christoph Hellwig <hch@infradead.org>,
-        David Hildenbrand <david@redhat.com>, Michal Hocko <mhocko@suse.com>,
-        Peter Xu <peterx@redhat.com>, Nadav Amit <nadav.amit@gmail.com>,
-        Matthew Wilcox <willy@infradead.org>, Vlastimil Babka <vbabka@suse.cz>,
-        Rik van Riel <riel@surriel.com>, Will Deacon <will@kernel.org>,
-        Michael Ellerman <mpe@ellerman.id.au>,
-        Palmer Dabbelt <palmer@dabbelt.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Dave Hansen <dave.hansen@linux.intel.com>,
-        Christian Brauner <brauner@kernel.org>,
-        Eric Dumazet <edumazet@google.com>,
-        Andrew Morton <akpm@linux-foundation.org>
-Subject: Re: [PATCH] mm: remove zap_page_range and create zap_vma_pages
-Message-ID: <Y7XA6JEUOgOkz988@osiris>
-References: <20230104002732.232573-1-mike.kravetz@oracle.com>
-Content-Disposition: inline
-In-Reply-To: <20230104002732.232573-1-mike.kravetz@oracle.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: k9qXecJ4RRKrWMjkiEzD557REdxr7RO2
-X-Proofpoint-GUID: QiYQILsN1_8J76fc1D6yWsOXcnh_ZlS9
-X-Proofpoint-UnRewURL: 0 URL was un-rewritten
+	id 1pD8YA-00AxWH-Sk; Wed, 04 Jan 2023 18:31:42 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pD8Xl-00AxRi-H6; Wed, 04 Jan 2023 18:31:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B09FB1063;
+	Wed,  4 Jan 2023 10:31:53 -0800 (PST)
+Received: from pierre123.arm.com (unknown [10.57.44.105])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 706893F663;
+	Wed,  4 Jan 2023 10:31:08 -0800 (PST)
+From: Pierre Gondois <pierre.gondois@arm.com>
+To: linux-kernel@vger.kernel.org
+Cc: Pierre Gondois <pierre.gondois@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Gavin Shan <gshan@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-acpi@vger.kernel.org
+Subject: [PATCH v4 0/6]  arch_topology: Build cacheinfo from primary CPU
+Date: Wed,  4 Jan 2023 19:30:23 +0100
+Message-Id: <20230104183033.755668-1-pierre.gondois@arm.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.205,Aquarius:18.0.923,Hydra:6.0.545,FMLib:17.11.122.1
- definitions=2023-01-04_07,2023-01-04_02,2022-06-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1011
- priorityscore=1501 malwarescore=0 impostorscore=0 spamscore=0 adultscore=0
- bulkscore=0 suspectscore=0 mlxlogscore=999 phishscore=0 lowpriorityscore=0
- mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2212070000 definitions=main-2301040151
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230104_101028_582058_D076D763 
-X-CRM114-Status: GOOD (  19.36  )
+X-CRM114-CacheID: sfid-20230104_103117_691615_A5E0E116 
+X-CRM114-Status: GOOD (  12.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,47 +72,108 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 03, 2023 at 04:27:32PM -0800, Mike Kravetz wrote:
-> zap_page_range was originally designed to unmap pages within an address
-> range that could span multiple vmas.  While working on [1], it was
-> discovered that all callers of zap_page_range pass a range entirely within
-> a single vma.  In addition, the mmu notification call within zap_page
-> range does not correctly handle ranges that span multiple vmas.  When
-> crossing a vma boundary, a new mmu_notifier_range_init/end call pair
-> with the new vma should be made.
-> 
-> Instead of fixing zap_page_range, do the following:
-> - Create a new routine zap_vma_pages() that will remove all pages within
->   the passed vma.  Most users of zap_page_range pass the entire vma and
->   can use this new routine.
-> - For callers of zap_page_range not passing the entire vma, instead call
->   zap_page_range_single().
-> - Remove zap_page_range.
-> 
-> [1] https://lore.kernel.org/linux-mm/20221114235507.294320-2-mike.kravetz@oracle.com/
-> Suggested-by: Peter Xu <peterx@redhat.com>
-> Signed-off-by: Mike Kravetz <mike.kravetz@oracle.com>
-> ---
-> RFC->v1 Created zap_vma_pages to zap entire vma (Christoph Hellwig)
->         Did not add Acked-by's as routine was changed.
-> 
->  arch/arm64/kernel/vdso.c                |  6 ++---
->  arch/powerpc/kernel/vdso.c              |  4 +---
->  arch/powerpc/platforms/book3s/vas-api.c |  2 +-
->  arch/powerpc/platforms/pseries/vas.c    |  3 +--
->  arch/riscv/kernel/vdso.c                |  6 ++---
->  arch/s390/kernel/vdso.c                 |  4 +---
->  arch/s390/mm/gmap.c                     |  2 +-
->  arch/x86/entry/vdso/vma.c               |  4 +---
->  drivers/android/binder_alloc.c          |  2 +-
->  include/linux/mm.h                      |  7 ++++--
->  mm/memory.c                             | 30 -------------------------
->  mm/page-writeback.c                     |  2 +-
->  net/ipv4/tcp.c                          |  7 +++---
->  13 files changed, 21 insertions(+), 58 deletions(-)
+v2:
+ - Applied renaming/formatting comments from v1.
+ - Check CACHE_TYPE_VALID flag in pppt.c.
+v3:
+ - Applied Sudeep's suggestions (for patch 5/5):
+   - Renaming allocate_cache_info() -> fecth_cache_info()
+   - Updated error message
+   - Extract an inline allocate_cache_info() function
+ - Re-run checkpatch with --strict option
+v4:
+ - Remove RISC-V's implementation of init_cache_level() as not
+   necessary.
+ - Add patch: 'cacheinfo: Check 'cache-unified' property to count
+   cache leaves' to increase the number of leaves at a cache level
+   when no cache-size property is found.
+ - In cacheinfo: Use RISC-V's init_cache_level() [...],
+   make 'levels', 'leaves' and 'level' unsigned int to match
+   of_property_read_u32()'s parameters signedness.
 
-For s390:
-Acked-by: Heiko Carstens <hca@linux.ibm.com>
+Note:
+This patchset requires the following patch to be applied first in
+order to avoid the same bug described in the commit message:
+https://lore.kernel.org/all/20221116094958.2141072-1-pierre.gondois@arm.com/
+
+[1] and [2] build the CPU topology from the cacheinfo information for
+both DT/ACPI based systems and remove (struct cpu_topology).llc_id
+which was used by ACPI only.
+
+Creating the cacheinfo for secondary CPUs is done during early boot.
+Preemption and interrupts are disabled at this stage. On PREEMPT_RT
+kernels, allocating memory (and parsing the PPTT table for ACPI based
+systems) triggers a:
+  'BUG: sleeping function called from invalid context' [4]
+
+To prevent this bug, allocate the cacheinfo from the primary CPU when
+preemption and interrupts are enabled and before booting secondary
+CPUs. The cache levels/leaves are computed from DT/ACPI PPTT information
+only, without relying on the arm64 CLIDR_EL1 register.
+If no cache information is found in the DT/ACPI PPTT, then fallback
+to the current state, triggering [4] on PREEMPT_RT kernels.
+
+Patches to update the arm64 device trees that have incomplete cacheinfo
+(mostly for missing the 'cache-level' or 'cache-unified' property)
+have been sent at [3].
+
+Tested platforms:
+- ACPI + PPTT: Ampere Altra, Ampere eMAG, Cavium ThunderX2,
+  Kunpeng 920, Juno-r2
+- DT: rb5, db845c, Juno-r2
+
+[1] https://lore.kernel.org/all/20220704101605.1318280-1-sudeep.holla@arm.com/
+[2] https://lore.kernel.org/all/20220720-arch_topo_fixes-v3-0-43d696288e84@arm.com/
+[3] https://lore.kernel.org/all/20221107155825.1644604-1-pierre.gondois@arm.com/
+[4] On an Ampere Altra, with PREEMPT_RT kernel based on v6.0.0-rc4:
+
+
+[    7.560791] BUG: sleeping function called from invalid context at kernel/locking/spinlock_rt.c:46
+[    7.560794] in_atomic(): 1, irqs_disabled(): 128, non_block: 0, pid: 0, name: swapper/111
+[    7.560796] preempt_count: 1, expected: 0
+[    7.560797] RCU nest depth: 1, expected: 1
+[    7.560799] 3 locks held by swapper/111/0:
+[    7.560800]  #0: ffff403e406cae98 (&pcp->lock){+.+.}-{3:3}, at: get_page_from_freelist+0x218/0x12c8
+[    7.560811]  #1: ffffc5f8ed09f8e8 (rcu_read_lock){....}-{1:3}, at: rt_spin_trylock+0x48/0xf0
+[    7.560820]  #2: ffff403f400b4fd8 (&zone->lock){+.+.}-{3:3}, at: rmqueue_bulk+0x64/0xa80
+[    7.560824] irq event stamp: 0
+[    7.560825] hardirqs last  enabled at (0): [<0000000000000000>] 0x0
+[    7.560827] hardirqs last disabled at (0): [<ffffc5f8e9f7d594>] copy_process+0x5dc/0x1ab8
+[    7.560830] softirqs last  enabled at (0): [<ffffc5f8e9f7d594>] copy_process+0x5dc/0x1ab8
+[    7.560833] softirqs last disabled at (0): [<0000000000000000>] 0x0
+[    7.560834] Preemption disabled at:
+[    7.560835] [<ffffc5f8e9fd3c28>] migrate_enable+0x30/0x130
+[    7.560838] CPU: 111 PID: 0 Comm: swapper/111 Tainted: G        W          6.0.0-rc4-[...]
+[    7.560841] Call trace:
+[...]
+[    7.560870]  __kmalloc+0xbc/0x1e8
+[    7.560873]  detect_cache_attributes+0x2d4/0x5f0
+[    7.560876]  update_siblings_masks+0x30/0x368
+[    7.560880]  store_cpu_topology+0x78/0xb8
+[    7.560883]  secondary_start_kernel+0xd0/0x198
+[    7.560885]  __secondary_switched+0xb0/0xb4
+
+Pierre Gondois (6):
+  cacheinfo: Use RISC-V's init_cache_level() as generic OF
+    implementation
+  cacheinfo: Return error code in init_of_cache_level()
+  cacheinfo: Check 'cache-unified' property to count cache leaves
+  ACPI: PPTT: Remove acpi_find_cache_levels()
+  ACPI: PPTT: Update acpi_find_last_cache_level() to
+    acpi_get_cache_info()
+  arch_topology: Build cacheinfo from primary CPU
+
+ arch/arm64/kernel/cacheinfo.c |  11 ++-
+ arch/riscv/kernel/cacheinfo.c |  42 -----------
+ drivers/acpi/pptt.c           |  93 +++++++++++++----------
+ drivers/base/arch_topology.c  |  12 ++-
+ drivers/base/cacheinfo.c      | 134 +++++++++++++++++++++++++++++-----
+ include/linux/cacheinfo.h     |  11 ++-
+ 6 files changed, 196 insertions(+), 107 deletions(-)
+
+-- 
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
