@@ -4,60 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E78B3C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Jan 2023 15:11:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ADBDC46467
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Jan 2023 15:11:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H2F4j+BLa1xyhLU6SzJcyytZkfgTZygiOscKlbMpRwY=; b=qEvzw1/jubl7h+
-	R0c2HVzDz8pEzYDYZL+9GkNBsAu8imf3xeLxW2uWoZeyMCOyyo+kp5KOn0AF/AOAc14wQ3iUVUGKv
-	IwNsLo/l17brl6B1qZdM+csO4rW/N7yAUrIZInBsVZ5+E2RLLaul5SuFAnXylQI3zF7nZyXEPtVE/
-	AFCj5lo/d/RV05t5fiQ8a0mITOkH8BhCaz/UGp8XznxFrn9xNojm4OuAmIC1t7UWGjQrJSJjUKFGd
-	QDXkgQ1f3ITWrytjlgb1bmJCoLv4S3TYFCDeqOVptCrcrjeWuSp5LsfJz35hMbjGIdPW+GoNS1nat
-	m8oLjhH2Z7OLFPaayglw==;
+	List-Owner; bh=PSPj5hLIBvAFB5ofstGMTY38T9tvLi9V/3Cj+dSMjN4=; b=hW1SzyweZLL+DB
+	ZPTLBRngEov8i/MaP2YN4FSzw/OfQvhrp9XxnPpySxJtyhNPG2x98UG9MVSdUX4LJTqtFKeSH3fw8
+	MP4ZPVK5BVgZeXuAHGFX7sYW0Vpj8rof/rIYuszzNNvmDtNA5ueGcExHu2zDL7Ge9J+rippKcBV6+
+	VpkTjm0YVzOWKleWX4BfE3AXP/+864FTSWbsSw4c9I3gMnvopNkPihFCIQpLQbsOzIpnAztREvLfX
+	T+9RLJPWXTPVKEf9zDz3YLvq8gLBrIilfJ5OUd5E24RDNzCQ+NCwFj61iSzi2zVxrkTTGJOMdvKQI
+	SPK3nwVFtANQCPCUZINQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pD5QA-009yn6-2P; Wed, 04 Jan 2023 15:11:14 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pD1KU-008XDx-KG
-	for linux-riscv@lists.infradead.org; Wed, 04 Jan 2023 10:49:09 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9F5B21FB;
-	Wed,  4 Jan 2023 02:49:46 -0800 (PST)
-Received: from bogus (unknown [10.163.75.27])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ED2553F587;
-	Wed,  4 Jan 2023 02:49:00 -0800 (PST)
-Date: Wed, 4 Jan 2023 10:49:00 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: Leyfoon Tan <leyfoon.tan@starfivetech.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
+	id 1pD5QD-009yoD-3N; Wed, 04 Jan 2023 15:11:17 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pD25O-008ogI-R8
+	for linux-riscv@lists.infradead.org; Wed, 04 Jan 2023 11:37:36 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 3DCACB8162A;
+	Wed,  4 Jan 2023 11:37:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3AA1C433EF;
+	Wed,  4 Jan 2023 11:37:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1672832250;
+	bh=ifZwfrhIkTGIQJEEvqcP0bIoc8pO2AK8DydzKJqXHo4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=nSfA2ISPrHXkRmB4FnqNjYPJVLu7CqJqDLc+3I3BJ12HetiZraycDjom0q0Xt9szC
+	 INZUSjxQoYcW5KJDMVxE99EAy16q5fCyYjxxjv8Fq9ZGxbbTerfjOk7FLZ5txZDA/Z
+	 xeANQpk7lP+aC2Lw3KmrUChI9zyfSySS4Bh6ZPxT/QwiC+ZQDrV1+MjRnh21kZWogc
+	 n/tsMfEoKuqteOM3xQnZdhfcqrK3aU8+84xqomL1bPiZbmUW9sgSqf27CAToNns0u/
+	 bWmxyxX18ZK8u/yZVcuvTWCNGDmRKlSKH4IizVmUUJxUhbWWm5jQWpGM3CrsDddiif
+	 OMf1yBaQH/FTw==
+Date: Wed, 4 Jan 2023 13:37:12 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Yann Sionneau <ysionneau@kalray.eu>
+Cc: Will Deacon <will@kernel.org>,
+	"Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Nick Piggin <npiggin@gmail.com>,
+	Peter Zijlstra <peterz@infradead.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	Ley Foon Tan <lftan.linux@gmail.com>
-Subject: Re: [PATCH] riscv: Move call to init_cpu_topology() to later
- initialization stage
-Message-ID: <20230104104900.aohsn6zemfllub7r@bogus>
-References: <20230103035316.3841303-1-leyfoon.tan@starfivetech.com>
- <20230103065411.2l7k6r57v4phrnos@orel>
- <efed8f35ae8c4901ba01702bcc07b511@EXMBX161.cuchost.com>
- <Y7Rg28suWh1RUbkU@spud>
- <672440143ab04d3dbcc6de0a16bab3e1@EXMBX161.cuchost.com>
- <F86CD957-8B7C-46B9-A14B-AAE67E43CD71@kernel.org>
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org,
+	Clement Leger <clement.leger@bootlin.com>,
+	Guillaume Thouvenin <gthouvenin@kalray.eu>,
+	Jean-Christophe Pince <jcpince@gmail.com>,
+	Jules Maselbas <jmaselbas@kalray.eu>,
+	Julian Vetter <jvetter@kalray.eu>,
+	Julien Hascoet <jhascoet@kalray.eu>,
+	Louis Morhet <lmorhet@kalray.eu>,
+	Marc =?iso-8859-1?Q?Poulhi=E8s?= <dkm@kataplop.net>,
+	Marius Gligor <mgligor@kalray.eu>,
+	Vincent Chardon <vincent.chardon@elsys-design.com>
+Subject: Re: [RFC PATCH 11/25] kvx: Add memory management
+Message-ID: <Y7Vk6K5GS5yCkXOZ@kernel.org>
+References: <20230103164359.24347-1-ysionneau@kalray.eu>
+ <20230103164359.24347-12-ysionneau@kalray.eu>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <F86CD957-8B7C-46B9-A14B-AAE67E43CD71@kernel.org>
+In-Reply-To: <20230103164359.24347-12-ysionneau@kalray.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230104_024907_095078_70191286 
-X-CRM114-Status: GOOD (  23.31  )
+X-CRM114-CacheID: sfid-20230104_033735_264628_C9B23957 
+X-CRM114-Status: GOOD (  15.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,49 +86,100 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBKYW4gMDQsIDIwMjMgYXQgMDk6NDk6NDhBTSArMDAwMCwgQ29ub3IgRG9vbGV5IHdy
-b3RlOgoKWy4uLl0KCj4gPj4gVWhoLCBzbyB3aGVyZSBkaWQgdGhpcyAiY2FwYWNpdHktZG1pcHMt
-bWh6IiBwcm9wZXJ0eSBhY3R1YWxseSBjb21lIGZyb20/Cj4gPj4gSSBoYWQgYSBxdWljayBjaGVj
-ayBvZiBxZW11IHdpdGggZ3JlcCAmIEkgZG9uJ3Qgc2VlIGFueXRoaW5nIHRoZXJlIHRoYXQKPiA+
-PiB3b3VsZCBhZGQgdGhpcyBwcm9wZXJ0eS4KPiA+PiBUaGlzIHByb3BlcnR5IHNob3VsZCBub3Qg
-YmUgdmFsaWQgb24gYW55dGhpbmcgb3RoZXIgdGhhbiBhcm0gQUZBSUNULgo+ID4KPiA+VGhpcyBE
-VCBwYXJhbWV0ZXIgaXMgbm90IGluIGRlZmF1bHQgUWVtdS4gSSd2ZSBhZGRlZCBpdCBmb3IgdGVz
-dGluZyAoc2VlIHRlc3Qgc3RlcHMgaW4gYmVsb3cpLiAKPiA+VGhpcyBpcyBwcmVwYXJhdGlvbiB0
-byBzdXBwb3J0IGFzeW1tZXRyaWMgQ1BVIHRvcG9sb2d5IGZvciBSSVNDLVYuCj4gCj4gVGhlIHBy
-b3BlcnR5IGlzIG9ubHkgdmFsaWQgb24gYXJtLCBzbyBob3cgZG9lcyBhcm02NCBkZWFsIHdpdGgg
-c3VjaAo+IGFzeW1tZXRyaWMgdG9wb2xvZ2llcyB3aXRob3V0IGl0PwoKSSBkb24ndCB0aGluayB3
-ZSBjYW4gZGVhbCB3aXRoIGFzeW1tZXRyaWMgdG9wb2xvZ2llcyB3aXRob3V0IHRoaXMuClllcyB3
-ZSBjYW4gZGV0ZWN0IHRoZSBkaWZmZXJlbmNlIGluIHRoZSBDUFUgdHlwZXMgYnV0IHdlIGNhbiBv
-bmx5IGFzc3VtZQp0aGVyZSBhcmUgc3ltbWV0cmljIGluIHRlcm1zIG9mIHBlcmZvcm1hbmNlIGlu
-IGFic2VuY2Ugb2YgdGhpcyBwcm9wZXJ0eS4KCj4gV2h5IHNob3VsZCB3ZSAiZml4IiBzb21ldGhp
-bmcgdGhhdCBtYXkgbmV2ZXIgYmUgYSB2YWxpZCBkdHM/Cj4KCkkgd291bGQgbm90IHNheSBpbnZh
-bGlkLiBCdXQgc3VyZWx5IGFic2VuY2Ugb2YgaXQgbXVzdCBiZSBoYW5kbGVkIGFuZAp3ZSBkbyB0
-aGF0IGZvciBzdXJlLiBJSVJDLCBoZXJlIHRoZSBwcmVzZW5jZSBvZiBpdCBpcyBjYXVzaW5nIHRo
-ZSBpc3N1ZS4KQW5kIGlmIGl0IGlzIHByZXNlbnQgbWVhbnMgc29tZW9uZSBpcyB0cnlpbmcgdG8g
-YnVpbGQgaXQoSSBkbyB1bmRlcnN0YW5kCnRoaXMgaXMgUWVtdSBidXQgaXMgcXVpdGUgY29tbW9u
-IHRoZXNlIGRheXMgZm9yIHBvd2VyIGFuZCBwZXJmb3JtYW5jZQpiYWxhbmNlIGluIG1hbnkgU29D
-KQoKClsuLi5dCgo+ID4+IAo+ID4+IEkga25vdyBhcm02NCBkb2VzIHRoaXMsIGJ1dCB0aGVyZSBp
-cyBhbnkgcmVhbCByZWFzb24gZm9yIHVzIHRvIGRvIHNvPwo+ID4+IEBTdWRlZXAsIGRvIHlvdSBr
-bm93IHdoeSBhcm02NCBjYWxscyB0aGF0IGVhY2ggdGltZT8KPiAKPiBJIGdvdCBteXNlbGYgbWl4
-ZWQgdXAgYmV0d2VlbiBwbGFjZXMgSSBmaWRkbGVkIHdpdGggc3RvcmluZyB0aGUgdG9wb2xvZ3ks
-IHNvIHlvdSBjYW4gaWdub3JlIHRoYXQgcXVlc3Rpb24gU3VkZWVwLgo+IENsZWFybHkgaXQncyB0
-aGUgb25lIGluIHNtcF9jYWxsaW4oKSB0aGF0IGdldHMgY2FsbGVkIGZvciBlYWNoIENQVS4KPiBX
-b29wcy4KPiAKCkhtbSBJIHNob3VsZCBoYXZlIHJlYWQgYWxsIHRoZSBtZXNzYWdlcyBpbiB0aGUg
-dGhyZWFkLiBEb2luZyBieSBkYXRlL3RpbWUKZGlkbid0IHdvcmsgd2VsbCBmb3IgbWUg8J+YhC4K
-Cj4gPj4gT3IgaWYgaXQgaXMgd29ydGggInNhdmluZyIgdGhhdCBjYWxsIG9uIHJpc2N2LCBzaW5j
-ZSBhcm02NCBpcyBjbGVhcmx5IGhhcHBpbHkgY2FsbGluZwo+ID4+IGl0IGZvciBtYW55IHllYXJz
-ICYgY2FsbGluZyBpdCBsYXRlciB3b3VsZCBsaWtlbHkgaGVhZCBvZmYgYSBnb29kIGZldyBhbGxv
-Y2F0aW9uCj4gPj4gaXNzdWVzIChsaWtlIHRoZSBvbmUgd2Ugc2F3IHdpdGggdGhlIHRvcG9sb2d5
-IHJld29ya2luZyBhIGZldyBtb250aHMgYWdvKS4KPiAKPiAuLi5idXQgaXMgaXQgc3RpbGwgd29y
-dGggbW92aW5nIHRoZSBmdW5jdGlvbiBjYWxsIGxhdGVyIHRvIGhlYWQgb2ZmIGFueSBhbGxvY2F0
-aW9uIGZhaWx1cmVzIGlmIGNvcmUgdG9wb2xvZ3kgY29kZSBjaGFuZ2VzPwo+CgpBZ3JlZWQsIGdp
-dmVuIGhvdyB3ZSBmYWNlZCBzaW1pbGFyIGlzc3VlcyB3aXRoIGNhY2hlaW5mbyBvbiBmZXcgUklT
-Qy1WCnBsYXRmb3Jtcy4KCgotLSAKUmVnYXJkcywKU3VkZWVwCgpfX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
-dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
-YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Tue, Jan 03, 2023 at 05:43:45PM +0100, Yann Sionneau wrote:
+> Add memory management support for kvx, including: cache and tlb
+> management, page fault handling, ioremap/mmap and streaming dma support.
+> =
+
+> CC: Will Deacon <will@kernel.org>
+> CC: "Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>
+> CC: Andrew Morton <akpm@linux-foundation.org>
+> CC: Nick Piggin <npiggin@gmail.com>
+> CC: Peter Zijlstra <peterz@infradead.org>
+> CC: Paul Walmsley <paul.walmsley@sifive.com>
+> CC: Palmer Dabbelt <palmer@dabbelt.com>
+> CC: Albert Ou <aou@eecs.berkeley.edu>
+> CC: linux-kernel@vger.kernel.org
+> CC: linux-arch@vger.kernel.org
+> CC: linux-mm@kvack.org
+> CC: linux-riscv@lists.infradead.org
+> Co-developed-by: Clement Leger <clement.leger@bootlin.com>
+> Signed-off-by: Clement Leger <clement.leger@bootlin.com>
+> Co-developed-by: Guillaume Thouvenin <gthouvenin@kalray.eu>
+> Signed-off-by: Guillaume Thouvenin <gthouvenin@kalray.eu>
+> Co-developed-by: Jean-Christophe Pince <jcpince@gmail.com>
+> Signed-off-by: Jean-Christophe Pince <jcpince@gmail.com>
+> Co-developed-by: Jules Maselbas <jmaselbas@kalray.eu>
+> Signed-off-by: Jules Maselbas <jmaselbas@kalray.eu>
+> Co-developed-by: Julian Vetter <jvetter@kalray.eu>
+> Signed-off-by: Julian Vetter <jvetter@kalray.eu>
+> Co-developed-by: Julien Hascoet <jhascoet@kalray.eu>
+> Signed-off-by: Julien Hascoet <jhascoet@kalray.eu>
+> Co-developed-by: Louis Morhet <lmorhet@kalray.eu>
+> Signed-off-by: Louis Morhet <lmorhet@kalray.eu>
+> Co-developed-by: Marc Poulhi=E8s <dkm@kataplop.net>
+> Signed-off-by: Marc Poulhi=E8s <dkm@kataplop.net>
+> Co-developed-by: Marius Gligor <mgligor@kalray.eu>
+> Signed-off-by: Marius Gligor <mgligor@kalray.eu>
+> Co-developed-by: Vincent Chardon <vincent.chardon@elsys-design.com>
+> Signed-off-by: Vincent Chardon <vincent.chardon@elsys-design.com>
+> Co-developed-by: Yann Sionneau <ysionneau@kalray.eu>
+> Signed-off-by: Yann Sionneau <ysionneau@kalray.eu>
+> ---
+>  arch/kvx/include/asm/cache.h         |  46 +++
+>  arch/kvx/include/asm/cacheflush.h    | 181 +++++++++
+>  arch/kvx/include/asm/fixmap.h        |  47 +++
+>  arch/kvx/include/asm/hugetlb.h       |  36 ++
+>  arch/kvx/include/asm/l2_cache.h      |  75 ++++
+>  arch/kvx/include/asm/l2_cache_defs.h |  64 ++++
+>  arch/kvx/include/asm/mem_map.h       |  44 +++
+>  arch/kvx/include/asm/mmu.h           | 296 +++++++++++++++
+>  arch/kvx/include/asm/mmu_context.h   | 156 ++++++++
+>  arch/kvx/include/asm/mmu_stats.h     |  38 ++
+>  arch/kvx/include/asm/page.h          | 187 ++++++++++
+>  arch/kvx/include/asm/page_size.h     |  29 ++
+>  arch/kvx/include/asm/pgalloc.h       | 101 +++++
+>  arch/kvx/include/asm/pgtable-bits.h  | 102 ++++++
+>  arch/kvx/include/asm/pgtable.h       | 451 +++++++++++++++++++++++
+>  arch/kvx/include/asm/rm_fw.h         |  16 +
+>  arch/kvx/include/asm/sparsemem.h     |  15 +
+>  arch/kvx/include/asm/symbols.h       |  16 +
+>  arch/kvx/include/asm/tlb.h           |  24 ++
+>  arch/kvx/include/asm/tlb_defs.h      | 131 +++++++
+>  arch/kvx/include/asm/tlbflush.h      |  58 +++
+>  arch/kvx/include/asm/vmalloc.h       |  10 +
+>  arch/kvx/mm/cacheflush.c             | 154 ++++++++
+>  arch/kvx/mm/dma-mapping.c            |  95 +++++
+>  arch/kvx/mm/extable.c                |  24 ++
+>  arch/kvx/mm/fault.c                  | 264 ++++++++++++++
+>  arch/kvx/mm/hugetlbpage.c            | 317 ++++++++++++++++
+>  arch/kvx/mm/init.c                   | 527 +++++++++++++++++++++++++++
+>  arch/kvx/mm/kernel_rwx.c             | 228 ++++++++++++
+>  arch/kvx/mm/mmap.c                   |  31 ++
+>  arch/kvx/mm/mmu.c                    | 204 +++++++++++
+>  arch/kvx/mm/mmu_stats.c              |  94 +++++
+>  arch/kvx/mm/tlb.c                    | 433 ++++++++++++++++++++++
+>  33 files changed, 4494 insertions(+)
+
+Please strip functionality that's not essential for boot and the re-add it
+after the very core code is merged. I'd say multiple page size, hugetlb and
+strict RWX are not necessary to start with.
+
+I'd also suggest to have separate patches for different parts, like cache
+and tlb management, page tables and page fault fault handling, ioremap/mmap
+and streaming dma support.
+
+-- =
+
+Sincerely yours,
+Mike.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
