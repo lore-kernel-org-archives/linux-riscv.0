@@ -4,62 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B58BDC4332F
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Jan 2023 06:09:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3C73C4708D
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Jan 2023 07:46:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CeyzeFJvQEwV+kMgSq+kEnuF/hZH71X9y9+RRWN6WM8=; b=jPt+IYiq3D+c6J
-	oLg+DTDKA7on+xNhbdkL5Vec8s6BW8KcSoZyTYBcTgxAxgP0+o5GIaKzydF2CGvS3KbsvBo9jJ3B7
-	9aZ/3uT/s5SrJo2TJtTFw+A68tJOe7/JBHuDZyBpPNoTTYp36A+rOTJXmQc5FnBt15Xub9xAZyCdY
-	SVh7uVWEFdqCGx9ZIMLrOBDiISdWTd1WnLIl5fHNUpI4ZPrIxdfdi0Flrad7Cf/2cZ6cl4MOrXSPX
-	+zo6+pFgGiwqNiYJPS4VSkiPSlvRWOKcieqA/kA7eIrvwAs49GheuvQ/IapdMG+lcHl40upbczGia
-	uqnJRo9dTusQz74HsRkg==;
+	List-Owner; bh=tP5j4+05utB9fr7wiSAf3M9kAb+C142RMYOlLT8U3gA=; b=2AI4pEzBUe3W+9
+	PRs5Hn3LBE62xTzTpX9sNxF6eWBeOvW3qrDvzZRbWk+M0df0cpOxfw9ESeAILJGMPy4rSYTbX+pSJ
+	AfwcHk1pbztHEOtejhkdjw7kuAOP8nenNHdpzkRx5Ue5sSar7Ul//KQ/zcbJZr3vbPMIo12UgeZi6
+	5fL/+yseqaKLZX/l9HmGDwWczm/91ro0c1QYY/9LL0h8+0aePSr/b3VE/hOeQg8qE63BdlOfGsSJL
+	QFWdm4genGyDipl4RcmTH44IEcijjuG7qJ9Kil8Dh/eVG0OWIiyBsEpraiHnD+GC0EJmhQEkx/54X
+	lgpMH9ZJUKJDfHQfIZZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCwxW-0076a3-DC; Wed, 04 Jan 2023 06:09:06 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pCwxO-0076VD-My
-	for linux-riscv@lists.infradead.org; Wed, 04 Jan 2023 06:09:01 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id E235724E1F3;
-	Wed,  4 Jan 2023 14:08:32 +0800 (CST)
-Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 4 Jan
- 2023 14:08:32 +0800
-Received: from [192.168.120.55] (171.223.208.138) by EXMBX168.cuchost.com
- (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 4 Jan
- 2023 14:08:32 +0800
-Message-ID: <14433b44-8359-b9e8-446c-bb49e86bf48f@starfivetech.com>
-Date: Wed, 4 Jan 2023 14:08:31 +0800
+	id 1pCyTt-007UCe-Qj; Wed, 04 Jan 2023 07:46:37 +0000
+Received: from smtp-out1.suse.de ([195.135.220.28])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pCyTk-007U1L-TC
+	for linux-riscv@lists.infradead.org; Wed, 04 Jan 2023 07:46:30 +0000
+Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id B3AAE38CE3;
+	Wed,  4 Jan 2023 07:46:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
+	t=1672818382; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=AlUS4rFMq/APir3cFferSBeDNPK/ORyz2z3RjBS+Um4=;
+	b=kveBcYfoIUBtm3F0Ar3Wt0T3ZwXS220F+aCXcfEt2trlB9EBAJ7qi0tZCSyVz9Jy394vRi
+	bIuf4P+Yn+4Jd+aASe+doB5O3LBOQ7JR8s7BLXkkgluwrr98grKK2n4HmMHlAGF69yc/5M
+	zuCrK+UYdOn2OzeZlK/la6hCRvOh7Cc=
+Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
+	(No client certificate requested)
+	by imap2.suse-dmz.suse.de (Postfix) with ESMTPS id 93117133D1;
+	Wed,  4 Jan 2023 07:46:22 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([192.168.254.65])
+	by imap2.suse-dmz.suse.de with ESMTPSA
+	id LFCDIM4utWORBgAAMHmgww
+	(envelope-from <mhocko@suse.com>); Wed, 04 Jan 2023 07:46:22 +0000
+Date: Wed, 4 Jan 2023 08:46:21 +0100
+From: Michal Hocko <mhocko@suse.com>
+To: Mike Kravetz <mike.kravetz@oracle.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, netdev@vger.kernel.org,
+	Christoph Hellwig <hch@infradead.org>,
+	David Hildenbrand <david@redhat.com>, Peter Xu <peterx@redhat.com>,
+	Nadav Amit <nadav.amit@gmail.com>,
+	Matthew Wilcox <willy@infradead.org>,
+	Vlastimil Babka <vbabka@suse.cz>, Rik van Riel <riel@surriel.com>,
+	Will Deacon <will@kernel.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Christian Brauner <brauner@kernel.org>,
+	Eric Dumazet <edumazet@google.com>,
+	Andrew Morton <akpm@linux-foundation.org>
+Subject: Re: [PATCH] mm: remove zap_page_range and create zap_vma_pages
+Message-ID: <Y7UuzV94Yo59PwTa@dhcp22.suse.cz>
+References: <20230104002732.232573-1-mike.kravetz@oracle.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.6.1
-Subject: Re: [PATCH v2 3/3] riscv: dts: starfive: Add mmc node
-To: Ulf Hansson <ulf.hansson@linaro.org>
-CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-mmc@vger.kernel.org>, Rob Herring <robh+dt@kernel.org>, "Krzysztof
- Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Jaehoon Chung
-	<jh80.chung@samsung.com>, <linux-kernel@vger.kernel.org>
-References: <20221227122227.460921-1-william.qiu@starfivetech.com>
- <20221227122227.460921-4-william.qiu@starfivetech.com>
- <CAPDyKFqziA+PB__v8nJzgkTuM9ZszW8X2U-akvRFv0_qwZ22OA@mail.gmail.com>
-Content-Language: en-US
-From: William Qiu <william.qiu@starfivetech.com>
-In-Reply-To: <CAPDyKFqziA+PB__v8nJzgkTuM9ZszW8X2U-akvRFv0_qwZ22OA@mail.gmail.com>
-X-Originating-IP: [171.223.208.138]
-X-ClientProxiedBy: EXCAS063.cuchost.com (172.16.6.23) To EXMBX168.cuchost.com
- (172.16.6.78)
-X-YovoleRuleAgent: yovoleflag
+Content-Disposition: inline
+In-Reply-To: <20230104002732.232573-1-mike.kravetz@oracle.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230103_220859_106289_EF9B1F3E 
-X-CRM114-Status: GOOD (  17.83  )
+X-CRM114-CacheID: sfid-20230103_234629_165305_7EF58C73 
+X-CRM114-Status: GOOD (  17.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,140 +93,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2023/1/2 22:03, Ulf Hansson wrote:
-> On Tue, 27 Dec 2022 at 13:22, William Qiu <william.qiu@starfivetech.com> wrote:
->>
->> This adds the mmc node for the StarFive JH7110 SoC.
->> Set sdioo node to emmc and set sdio1 node to sd.
->>
->> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
->> ---
->>  .../jh7110-starfive-visionfive-v2.dts         | 25 ++++++++++++
->>  arch/riscv/boot/dts/starfive/jh7110.dtsi      | 38 +++++++++++++++++++
->>  2 files changed, 63 insertions(+)
->>
->> diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-v2.dts b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-v2.dts
->> index c8946cf3a268..d8244fd1f5a0 100644
->> --- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-v2.dts
->> +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-v2.dts
->> @@ -47,6 +47,31 @@ &clk_rtc {
->>         clock-frequency = <32768>;
->>  };
->>
->> +&mmc0 {
->> +       max-frequency = <100000000>;
->> +       card-detect-delay = <300>;
+On Tue 03-01-23 16:27:32, Mike Kravetz wrote:
+> zap_page_range was originally designed to unmap pages within an address
+> range that could span multiple vmas.  While working on [1], it was
+> discovered that all callers of zap_page_range pass a range entirely within
+> a single vma.  In addition, the mmu notification call within zap_page
+> range does not correctly handle ranges that span multiple vmas.  When
+> crossing a vma boundary, a new mmu_notifier_range_init/end call pair
+> with the new vma should be made.
 > 
-> Nitpick:  This seems redundant for a non-removable card!?
+> Instead of fixing zap_page_range, do the following:
+> - Create a new routine zap_vma_pages() that will remove all pages within
+>   the passed vma.  Most users of zap_page_range pass the entire vma and
+>   can use this new routine.
+> - For callers of zap_page_range not passing the entire vma, instead call
+>   zap_page_range_single().
+> - Remove zap_page_range.
 > 
+> [1] https://lore.kernel.org/linux-mm/20221114235507.294320-2-mike.kravetz@oracle.com/
+> Suggested-by: Peter Xu <peterx@redhat.com>
+> Signed-off-by: Mike Kravetz <mike.kravetz@oracle.com>
 
-Will drop
+This looks even better than the previous version.
+Acked-by: Michal Hocko <mhocko@suse.com>
 
->> +       bus-width = <8>;
->> +       cap-mmc-highspeed;
->> +       mmc-ddr-1_8v;
->> +       mmc-hs200-1_8v;
->> +       non-removable;
->> +       cap-mmc-hw-reset;
->> +       post-power-on-delay-ms = <200>;
->> +       status = "okay";
->> +};
->> +
->> +&mmc1 {
->> +       max-frequency = <100000000>;
->> +       card-detect-delay = <300>;
-> 
-> Nitpick: This looks redundant for polling based card detection
-> (broken-cd is set a few lines below).
-> 
+minor nit
 
-Will drop
+[...]
+> diff --git a/mm/page-writeback.c b/mm/page-writeback.c
+> index ad608ef2a243..ffa36cfe5884 100644
+> --- a/mm/page-writeback.c
+> +++ b/mm/page-writeback.c
+> @@ -2713,7 +2713,7 @@ void folio_account_cleaned(struct folio *folio, struct bdi_writeback *wb)
+>   *
+>   * The caller must hold lock_page_memcg().  Most callers have the folio
+>   * locked.  A few have the folio blocked from truncation through other
+> - * means (eg zap_page_range() has it mapped and is holding the page table
+> + * means (eg zap_vma_pages() has it mapped and is holding the page table
+>   * lock).  This can also be called from mark_buffer_dirty(), which I
+>   * cannot prove is always protected against truncate.
 
->> +       bus-width = <4>;
->> +       no-sdio;
->> +       no-mmc;
->> +       broken-cd;
->> +       cap-sd-highspeed;
->> +       post-power-on-delay-ms = <200>;
->> +       status = "okay";
->> +};
->> +
->>  &gmac0_rmii_refin {
->>         clock-frequency = <50000000>;
->>  };
->> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
->> index c22e8f1d2640..08a780d2c0f4 100644
->> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
->> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
->> @@ -331,6 +331,11 @@ aoncrg: clock-controller@17000000 {
->>                         #reset-cells = <1>;
->>                 };
->>
->> +               syscon: syscon@13030000 {
->> +                       compatible = "starfive,syscon", "syscon";
->> +                       reg = <0x0 0x13030000 0x0 0x1000>;
->> +               };
->> +
->>                 gpio: gpio@13040000 {
->>                         compatible = "starfive,jh7110-sys-pinctrl";
->>                         reg = <0x0 0x13040000 0x0 0x10000>;
->> @@ -433,5 +438,38 @@ uart5: serial@12020000 {
->>                         reg-shift = <2>;
->>                         status = "disabled";
->>                 };
->> +
->> +               /* unremovable emmc as mmcblk0 */
-> 
-> Don't confuse the mmc0 node name with mmcblk0. There is no guarantee
-> that this is true, unless you also specify an alias.
-> 
-
-Hi Ulf,
-
-Thank you for taking time to review and provide helpful comments for this patch.
-Actually we define mmc0 as eMMC, which is mmcblk0 in the kernel, and define mmc1 as SDIO,
-which is mmcblk1 in the kernel, so it's not confuse.
-
-Best Regards
-William Qiu
->> +               mmc0: mmc@16010000 {
->> +                       compatible = "starfive,jh7110-mmc";
->> +                       reg = <0x0 0x16010000 0x0 0x10000>;
->> +                       clocks = <&syscrg JH7110_SYSCLK_SDIO0_AHB>,
->> +                                <&syscrg JH7110_SYSCLK_SDIO0_SDCARD>;
->> +                       clock-names = "biu","ciu";
->> +                       resets = <&syscrg JH7110_SYSRST_SDIO0_AHB>;
->> +                       reset-names = "reset";
->> +                       interrupts = <74>;
->> +                       fifo-depth = <32>;
->> +                       fifo-watermark-aligned;
->> +                       data-addr = <0>;
->> +                       starfive,syscon = <&syscon 0x14 0x1a 0x7c000000>;
->> +                       status = "disabled";
->> +               };
->> +
->> +               mmc1: mmc@16020000 {
->> +                       compatible = "starfive,jh7110-mmc";
->> +                       reg = <0x0 0x16020000 0x0 0x10000>;
->> +                       clocks = <&syscrg JH7110_SYSCLK_SDIO1_AHB>,
->> +                                <&syscrg JH7110_SYSCLK_SDIO1_SDCARD>;
->> +                       clock-names = "biu","ciu";
->> +                       resets = <&syscrg JH7110_SYSRST_SDIO1_AHB>;
->> +                       reset-names = "reset";
->> +                       interrupts = <75>;
->> +                       fifo-depth = <32>;
->> +                       fifo-watermark-aligned;
->> +                       data-addr = <0>;
->> +                       starfive,syscon = <&syscon 0x9c 0x1 0x3e>;
->> +                       status = "disabled";
->> +               };
->>         };
->>  };
-> 
-> Kind regards
-> Uffe
+strictly speaking this should be unmap_page_range
+-- 
+Michal Hocko
+SUSE Labs
 
 _______________________________________________
 linux-riscv mailing list
