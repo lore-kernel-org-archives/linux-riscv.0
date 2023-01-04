@@ -4,62 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CAA8C4708D
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Jan 2023 15:19:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A4C3C46467
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Jan 2023 15:19:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SkI4iNUQB35o/ErM/snVPAfcBjmjBGKZYhfp7L8RcUY=; b=Wg1G9takBg4FGD
-	ewCkP0AEm83PrNfPXKC9Wwi9iTxQDZF+jqNHh3VczsuXpgAdZ0+lm5IgioF5bdRWSIQv8/EWI1NHG
-	thg6cb2ypNowf4+rhgwFrkkNkVyya7APFRmPVcIXm8SiVmy+XPZX++ftpiW+GOXigMp4+Hc+ZxJ/b
-	HUZt7neJ7sdv940LrXsr6ONENSr6hN8hvw6xwJTrhPQJRFB1YlzcN6VmPBArIjHkBvWVfupjmPV+m
-	FYd9alCZt/Pk41xEbhDKjpfAwckJw6Oabwa4Mx0wvl+F1H0dT2mZ1IXj+ExLelTjM4Vt9nxVp8T02
-	dFp8MuvOyrYVevze4vHQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i+zW5rpq26jZgNvcqhqZLLZKN1wq5jU4Iv5vQ6Mqid4=; b=TTVxuJ6T2hVl0N0Nc2ZwJirqLX
+	j0mCbplvgYQortTiD9EJiXggsSAKC+BHAbnqut8DSbndflD6h9uWA1LmP2XKEyTQfIsNl9x/LHNBa
+	1Ead1GkFXQQ6tAp6b9QN1sRmxJC7Dd69TipTSK66noXsL8a7FEe37z/j6+n3hcV4uoz5zvijWOyKQ
+	ZVKSKLzasLjaZbnU210LTGB0XGKiki0vnTC6ZY2zMxEm2YsX5ja4qeWIdsZEu0RV0JI9aGKJc6Kbx
+	ZHlckvhabhfuYYLnCOp13x1ApnPC1NrmnPF7JKJlzTaIDZR+yjvkYbf3PFKf4xxrTuOJiuybT6iTv
+	B9ffw6xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pD5Xu-00A35l-Jw; Wed, 04 Jan 2023 15:19:15 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pD3Jv-009AsP-Qf
-	for linux-riscv@lists.infradead.org; Wed, 04 Jan 2023 12:56:41 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D11261042;
-	Wed,  4 Jan 2023 04:57:16 -0800 (PST)
-Received: from bogus (unknown [10.163.75.162])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B3BB63F587;
-	Wed,  4 Jan 2023 04:56:31 -0800 (PST)
-Date: Wed, 4 Jan 2023 12:56:32 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: Leyfoon Tan <leyfoon.tan@starfivetech.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
+	id 1pD5Y6-00A3CC-1e; Wed, 04 Jan 2023 15:19:26 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pD3Nm-009Bd9-Ax
+	for linux-riscv@lists.infradead.org; Wed, 04 Jan 2023 13:00:40 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id C257AB8162B;
+	Wed,  4 Jan 2023 13:00:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE597C433EF;
+	Wed,  4 Jan 2023 13:00:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1672837235;
+	bh=aINReqP5sO7hUDTxAOXJWJ1lezkfPWFHYacE2WLSAIM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=d13CxfskSSa47ik9YFbYTqnfy5hGnxfMFm1eHx8Vy+gys0g8NN+ivnn+0YcvqqkjF
+	 5aSk+zyLaBBA2wMGRh1vPFxiaNwhaO7PAwOshw5pajnl3ogH+F2CDg+RomRWToFeeY
+	 eUhzKbCE8Eqlsrkqu36gBSZur6+7lQ3sILvWW93jFkLVCoyaqPUEOZCdORmyJfQuFM
+	 2A1vFpAkpDDsIjKdOSsGeRD+/EmmtvFh/9sRzV0PlhbD0RoQQ4rPvrqVSyTqaXTde+
+	 8sPl3pBCorhERsGhXJxVHY3NZjE8LjAKBdXyvyTlFHP+Trf2fcE50MHB3JsQ1elJjg
+	 uVEKxWmyjNGmA==
+Date: Wed, 4 Jan 2023 13:00:31 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	Ley Foon Tan <lftan.linux@gmail.com>
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Ley Foon Tan <lftan.linux@gmail.com>
 Subject: Re: [PATCH] riscv: Move call to init_cpu_topology() to later
  initialization stage
-Message-ID: <20230104125632.ktoyt7mxjjxq5udm@bogus>
+Message-ID: <Y7V4byskevAWKM3G@spud>
 References: <20230103035316.3841303-1-leyfoon.tan@starfivetech.com>
- <20230103065411.2l7k6r57v4phrnos@orel>
- <efed8f35ae8c4901ba01702bcc07b511@EXMBX161.cuchost.com>
- <Y7Rg28suWh1RUbkU@spud>
- <672440143ab04d3dbcc6de0a16bab3e1@EXMBX161.cuchost.com>
- <F86CD957-8B7C-46B9-A14B-AAE67E43CD71@kernel.org>
- <20230104104900.aohsn6zemfllub7r@bogus>
- <Y7VulIcGwuXvBES6@spud>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Y7VulIcGwuXvBES6@spud>
+In-Reply-To: <20230103035316.3841303-1-leyfoon.tan@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230104_045639_975769_260AA09E 
-X-CRM114-Status: GOOD (  32.93  )
+X-CRM114-CacheID: sfid-20230104_050039_048284_3D788772 
+X-CRM114-Status: GOOD (  23.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,68 +69,133 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6991909195038589798=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 04, 2023 at 12:18:28PM +0000, Conor Dooley wrote:
-> Hey Sudeep,
-> 
-> On Wed, Jan 04, 2023 at 10:49:00AM +0000, Sudeep Holla wrote:
-> > On Wed, Jan 04, 2023 at 09:49:48AM +0000, Conor Dooley wrote:
-> > 
-> > [...]
-> > 
-> > > >> Uhh, so where did this "capacity-dmips-mhz" property actually come from?
-> > > >> I had a quick check of qemu with grep & I don't see anything there that
-> > > >> would add this property.
-> > > >> This property should not be valid on anything other than arm AFAICT.
-> > > >
-> > > >This DT parameter is not in default Qemu. I've added it for testing (see test steps in below). 
-> > > >This is preparation to support asymmetric CPU topology for RISC-V.
-> > > 
-> > > The property is only valid on arm, so how does arm64 deal with such
-> > > asymmetric topologies without it?
-> > 
-> > I don't think we can deal with asymmetric topologies without this.
-> > Yes we can detect the difference in the CPU types but we can only assume
-> > there are symmetric in terms of performance in absence of this property.
-> 
-> 
-> I looked at the bindings for it and forgot that the arm directory of
-> bindings applies to both arm and arm64. I see now that it is also used
-> on arm64.
-> 
-> > 
-> > > Why should we "fix" something that may never be a valid dts?
-> > >
-> > 
-> > I would not say invalid. But surely absence of it must be handled and
-> > we do that for sure. IIRC, here the presence of it is causing the issue.
-> > And if it is present means someone is trying to build it(I do understand
-> > this is Qemu but is quite common these days for power and performance
-> > balance in many SoC)
-> 
-> I said "invalid" as the binding is defined for arm{,64} in arm/cpus.yaml
-> & documented in the same directory in cpu-capacity.txt, but not yet on
-> riscv. All bets are off if your cpu node is using invalid properties
-> IMO, at least this one will fail to boot!
-> 
-> However, I see no reason (at this point) that we should deviate from
-> what arm{,64} is doing & that documenation should probably move to a
-> shared location at some point.
->
 
-I prefer making this binding generic rather than patching to handle RISC-V
-differently in the generic code. Since it is optional, the platform
-need not use it if it is not needed.
+--===============6991909195038589798==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="upFcVDVkXP8V4qFX"
+Content-Disposition: inline
 
--- 
-Regards,
-Sudeep
+
+--upFcVDVkXP8V4qFX
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hey Ley Foon Tan,
+
+Apologies for my various bits of confusion.
+
+On Tue, Jan 03, 2023 at 11:53:16AM +0800, Ley Foon Tan wrote:
+> topology_parse_cpu_capacity() is failed to allocate memory with kcalloc()
+> after read "capacity-dmips-mhz" DT parameter in CPU DT nodes. This
+> topology_parse_cpu_capacity() is called from init_cpu_topology(), move
+> call to init_cpu_topology() to later initialization  stage (after memory
+> allocation is available).
+>=20
+> Note, this refers to ARM64 implementation, call init_cpu_topology() in
+> smp_prepare_cpus().
+>=20
+> Tested on Qemu platform.
+
+I'd like to suggest a change to the commit message:
+```
+If "capacity-dmips-mhz" is present in a CPU DT node,
+topology_parse_cpu_capacity() will fail to allocate memory.
+arm64, with which this code path is shared, does not call
+topology_parse_cpu_capacity() until later in boot where memory
+allocation is available.
+While "capacity-dmips-mhz" is not yet a valid property on RISC-V,
+invalid properties should be ignored rather than cause issues.
+Move init_cpu_topology(), which calls topology_parse_cpu_capacity(),
+to a later initialization stage, to match arm64.
+
+As a side effect of this change, RISC-V is "protected" from changes to
+core topology code that would work on arm64 where memory allocation is
+safe but on RISC-V isn't.
+```
+
+You don't need to use exactly that, but with something along those
+lines:
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+
+Thanks,
+Conor.
+
+>=20
+> Signed-off-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+>=20
+> ---
+>=20
+> In drivers/base/arch_topology.c: topology_parse_cpu_capacity():
+>=20
+> 	ret =3D of_property_read_u32(cpu_node, "capacity-dmips-mhz",
+> 				   &cpu_capacity);
+> 	if (!ret) {
+> 		if (!raw_capacity) {
+> 			raw_capacity =3D kcalloc(num_possible_cpus(),
+> 					       sizeof(*raw_capacity),
+> 					       GFP_KERNEL);
+> 			if (!raw_capacity) {
+> 				cap_parsing_failed =3D true;
+> 				return false;
+> 			}
+> ---
+>  arch/riscv/kernel/smpboot.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
+> index 3373df413c88..ddb2afba6d25 100644
+> --- a/arch/riscv/kernel/smpboot.c
+> +++ b/arch/riscv/kernel/smpboot.c
+> @@ -39,7 +39,6 @@ static DECLARE_COMPLETION(cpu_running);
+> =20
+>  void __init smp_prepare_boot_cpu(void)
+>  {
+> -	init_cpu_topology();
+>  }
+> =20
+>  void __init smp_prepare_cpus(unsigned int max_cpus)
+> @@ -48,6 +47,8 @@ void __init smp_prepare_cpus(unsigned int max_cpus)
+>  	int ret;
+>  	unsigned int curr_cpuid;
+> =20
+> +	init_cpu_topology();
+> +
+>  	curr_cpuid =3D smp_processor_id();
+>  	store_cpu_topology(curr_cpuid);
+>  	numa_store_cpu_info(curr_cpuid);
+> --=20
+> 2.25.1
+>=20
+
+--upFcVDVkXP8V4qFX
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY7V4bwAKCRB4tDGHoIJi
+0o0PAP9HD9PLqgsCZxfFPCseSIFNVy2GxrDM9AOY7oa7VqDuPgD/cAkklAAE+I71
+MIeO+K6gmi6G4ENFCyIG/KlgIrjdkAU=
+=kUSK
+-----END PGP SIGNATURE-----
+
+--upFcVDVkXP8V4qFX--
+
+
+--===============6991909195038589798==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6991909195038589798==--
+
