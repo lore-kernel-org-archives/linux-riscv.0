@@ -4,78 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7867FC4332F
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Jan 2023 15:13:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53E82C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Jan 2023 15:13:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gaTV9gFZOYfQIPAa/Q1L+Wg1DHZ08t2cX8iBZfugXPc=; b=AvmsMb8HbelrUl
-	l/NMAXp2cCajNy6NcLz7a53TpS1VFy9Ni/aDGugLiLd5AFO6dxyeew9Mvdlsc2XBMOFPZqUhc66lu
-	LS4a3Jtw8UE6tOuh5dMszvWarsq5xGRmlgSGUPsojZLoiQdgmLoduQn0XZvQe7sb7QE7JUcWyLOfM
-	AFP78bg5lQm4mDDIPZ25jFuFpNzEchXqkLkwxucXGMduu9xv8LKAYPNug3eN6IByEirRby4q7YVp8
-	GpyI6afSQXT3OZiSW56uA+ix6AVcrexxAukyAbktDmyZp9zRWZr12VNVnGp9/HM6lJFpEg+jxlV1Z
-	UwgG3eMQ6TCtwXdKkZdg==;
+	List-Owner; bh=InMI1MU2IwfzxgfdkGC4MR8j7WUnK1rvtCm2cDWywhw=; b=y5HTSpB/F5VBJR
+	eA1blr6leya5JkOZ2bF7FTG1n8cMJP5efVIFt4wZn2zl6jeBPZP4pZTGECMhnzFHjXBzX/DoprhCj
+	zVTWAlWOkKWO9kRutDKvmUKNZiur9/K3Lc6U2qdvUUqyEGR0ZTtNUr/ZVtcLBqPp4GTkyJLFqDiFf
+	3FrYg2Zc8nevAdIVPBMJCKThtTXFFoL8uV46xIMyctG1/IVZCGfS3BZ5B9MzYZoOmlPmQfxKDF2pF
+	1BFyncU1mh1FIuJL0uPx1959dn5wZ47dLjwitr68hh8e2XItKxiBJLUtS8Xpy9bJWVmCLAUSmRDAK
+	ZWy4udlCCJ+EpxHhjF+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pD5SC-009zzy-E3; Wed, 04 Jan 2023 15:13:20 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1pD5ST-00A09O-V8; Wed, 04 Jan 2023 15:13:38 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pD4Rb-009aSh-Cc
-	for linux-riscv@lists.infradead.org; Wed, 04 Jan 2023 14:08:41 +0000
-Received: by mail-ej1-x631.google.com with SMTP id jo4so82872092ejb.7
-        for <linux-riscv@lists.infradead.org>; Wed, 04 Jan 2023 06:08:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Zcal7rN8nmM+ZJoGg9jtNeC1LO+XM2qL/mzuTnrlICI=;
-        b=iOByBljTxscI4KKf7ngHSpqeKigRVvRL9BX87Usr85wrijpgs7Kgfcy5utZIH/xObV
-         kn3RcUr4faEKthGi/ZE29xgVJD9FILlhFAcne+xWleONoa+MfRsiVrig/I3podYAy5d0
-         XrXqyrZynuwor1SrZXRn0A1L7+o4RV/nnzqs7iO3r60+rxFGpSoZ8vCbtF//FdtsoaRO
-         +h8lSioP59ESDM8HscTw3/FDr7t/65bmVsvdvFG5NPK/vO7b/Hy8AebGO8cKovw1Evig
-         svMgw2Dv8mCj7bgxEveDSetBHHg1UE3IIgMMtZYftOXIAy0Bs2dR5V9ih6gWEoYmUjtk
-         No9Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Zcal7rN8nmM+ZJoGg9jtNeC1LO+XM2qL/mzuTnrlICI=;
-        b=YA05vlyjuH6qNcGaSmX3zYA6Fzw97Y0P3oSZFKYX29BnN2oiA/hZyEEE12ZXcsUFdF
-         3JyibB/PbFsZyBeMrfnQCyGmZx5Y+ZB4GZ3Zr1z9gTHWjulM8vIo/uuixxK1C97+dzWb
-         rmh8ru9WoHd8YqnRjmDJL8HMw7xnUHxZSz7PKVEwrNbdhT8Wdebh+EtOiadseOV1ZkW/
-         6vcGH0ERtFJUf+Xq+yfok76PhgTQLl7vYmiDsgEfliiFPLLPjTk3Z5ZnWOxBPtHUzKuh
-         LW1f4Wgm9Qi/cyE+qHTxR9xbQJemwbg1fknVn+PcI/mMiMmUCnmcxkE2veqgGbbdZHBn
-         ehCg==
-X-Gm-Message-State: AFqh2koACLJLy0pnkZl6zyi6XOQBij3Xj1FBiNSwLeqeKKUgVhhHR0kk
-	mIQPJdoFWRsD6UX3CWZcsYgOkg==
-X-Google-Smtp-Source: AMrXdXuyq0RCg4kgtGT1NmBxNB1lmsRp6Pka2J4FWjwlduF8YqyZa64xsto+SaySZEu2xyXAd6UYXQ==
-X-Received: by 2002:a17:906:3095:b0:7be:fb2c:c112 with SMTP id 21-20020a170906309500b007befb2cc112mr39417592ejv.66.1672841315119;
-        Wed, 04 Jan 2023 06:08:35 -0800 (PST)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id k3-20020a17090632c300b00781dbdb292asm15332555ejk.155.2023.01.04.06.08.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Jan 2023 06:08:34 -0800 (PST)
-Date: Wed, 4 Jan 2023 15:08:33 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: Heiko Stuebner <heiko@sntech.de>, palmer@dabbelt.com,
-	linux-riscv@lists.infradead.org, christoph.muellner@vrull.eu,
-	philipp.tomsich@vrull.eu, Heiko Stuebner <heiko.stuebner@vrull.eu>
-Subject: Re: [PATCH] RISC-V: fix compile error from decuplicated
- __ALTERNATIVE_CFG_2
-Message-ID: <20230104140833.nbulmdsgcm5x7d47@orel>
-References: <20230103214228.841297-1-heiko@sntech.de>
- <Y7V/NZdDf4TpPBh9@spud>
+	id 1pD4UZ-009bb6-Tp
+	for linux-riscv@lists.infradead.org; Wed, 04 Jan 2023 14:11:45 +0000
+Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1pD4UV-00074M-0O; Wed, 04 Jan 2023 15:11:39 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, christoph.muellner@vrull.eu, conor@kernel.org, philipp.tomsich@vrull.eu
+Subject: Re: [PATCH] RISC-V: fix compile error from decuplicated __ALTERNATIVE_CFG_2
+Date: Wed, 04 Jan 2023 15:11:38 +0100
+Message-ID: <5923098.DvuYhMxLoT@diego>
+In-Reply-To: <20230104100629.oyfn6ns7ezhpc6ek@orel>
+References: <20230103214228.841297-1-heiko@sntech.de> <20230104100629.oyfn6ns7ezhpc6ek@orel>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Y7V/NZdDf4TpPBh9@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230104_060839_479143_3EB403B9 
-X-CRM114-Status: GOOD (  35.05  )
+X-CRM114-CacheID: sfid-20230104_061144_018391_1B85AF71 
+X-CRM114-Status: GOOD (  35.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,42 +58,12 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 04, 2023 at 01:29:25PM +0000, Conor Dooley wrote:
+Hi Andrew,
+
+Am Mittwoch, 4. Januar 2023, 11:06:29 CET schrieb Andrew Jones:
 > On Tue, Jan 03, 2023 at 10:42:28PM +0100, Heiko Stuebner wrote:
 > > From: Heiko Stuebner <heiko.stuebner@vrull.eu>
-> 
-> > RISC-V: fix compile error from decuplicated __ALTERNATIVE_CFG_2
-> 
-> Hey Heiko/Palmer,
-> 
-> Was a little hard to tell from Drew's mail if he was objecting to this
-> variant of the patch, but FWIW s/decup/dedup/ if this gets applied
-> as-is.
-
-I wasn't completely objecting, but rather suggesting we still try to
-factor out what we can. However, after reading a bit more about macros
-I tried this
-
- .macro ALTERNATIVE_CFG_2 old_c, new_c_1, vendor_id_1, errata_id_1, enable_1,   \
-                                new_c_2, vendor_id_2, errata_id_2, enable_2
--       ALTERNATIVE_CFG \old_c, \new_c_1, \vendor_id_1, \errata_id_1, \enable_1
-+       ALTERNATIVE_CFG "\old_c", "\new_c_1", \vendor_id_1, \errata_id_1, \enable_1
-        ALT_NEW_CONTENT \vendor_id_2, \errata_id_2, \enable_2, \new_c_2
- .endm
-
-which appears to work for my simple test. Does that work for you too,
-Heiko? If so, then I think I'd prefer we do that. Also, we may want to add
-quotes to all macro arguments which may contain spaces, even if things
-seem to work now, e.g. the \new_c_2 argument passed to ALT_NEW_CONTENT.
-
-Thanks,
-drew
-
-
-> 
-> Thanks,
-> Conor.
-> 
+> > 
 > > On the non-assembler-side wrapping alternative-macros inside other macros
 > > to prevent duplication of code works, as the end result will just be a
 > > string that gets fed to the asm instruction.
@@ -145,6 +81,17 @@ drew
 > > ../arch/riscv/lib/strcmp.S:15: Error: backward ref to unknown label "887:"
 > > ../arch/riscv/lib/strcmp.S:15: Error: backward ref to unknown label "886:"
 > > ../arch/riscv/lib/strcmp.S:15: Error: attempt to move .org backwards
+> 
+> Ouch. I thought I had tested that, but looking now at my test code I see I
+> only bothered to test ALTERNATIVE(), not ALTERNATIVE_2(). Adding the
+> ALTERNATIVE_2() test, I can reproduce this.
+> 
+> It appears the issue is that as macro arguments may be separated by commas
+> or spaces, the old and new instruction macro arguments, which have spaces
+> between their instructions and operands, get interpreted as extra macro
+> arguments. There's probably no way to convince the macro otherwise,
+> unfortunately.
+> 
 > > 
 > > Going back to the original code for the non-assembler-part makes that
 > > code work again. So this reverts the #ifdef ASSEMBLY part of that commit
@@ -182,18 +129,60 @@ drew
 > > +	\old_c
 > > +	.option pop
 > > +887 :
-> > +	ALT_NEW_CONTENT \vendor_id_1, \errata_id_1, \enable_1, \new_c_1
-> >  	ALT_NEW_CONTENT \vendor_id_2, \errata_id_2, \enable_2, \new_c_2
-> >  .endm
-> >  
-> > -- 
-> > 2.35.1
-> > 
-> > 
-> > _______________________________________________
-> > linux-riscv mailing list
-> > linux-riscv@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+> 
+> We could still share this by creating another macro which only takes old_c,
+> and then invoke that from both ALTERNATIVE_CFG and ALTERNATIVE_CFG_2, I
+> think.
+
+hmm, so I was trying the change below, but then even ALTERNATIVE_CFG fails.
+I was looking for quite a while for some sort of typo I may have in that
+change, but so far haven't found any.
+
+Did you have a different solution in mind that may work?
+
+
+Heiko
+
+------------- 8< -------------
+diff --git a/arch/riscv/include/asm/alternative-macros.h b/arch/riscv/include/asm/alternative-macros.h
+index e7bdb2a510a4..49c67fd94c57 100644
+--- a/arch/riscv/include/asm/alternative-macros.h
++++ b/arch/riscv/include/asm/alternative-macros.h
+@@ -33,13 +33,17 @@
+        .endif
+ .endm
+ 
+-.macro ALTERNATIVE_CFG old_c, new_c, vendor_id, errata_id, enable
+-886 :
++.macro ALT_OLD_CONTENT old_c
+        .option push
+        .option norvc
+        .option norelax
+        \old_c
+        .option pop
++.endm
++
++.macro ALTERNATIVE_CFG old_c, new_c, vendor_id, errata_id, enable
++886 :
++       ALT_OLD_CONTENT \old_c
+ 887 :
+        ALT_NEW_CONTENT \vendor_id, \errata_id, \enable, \new_c
+ .endm
+@@ -51,11 +55,7 @@
+ .macro ALTERNATIVE_CFG_2 old_c, new_c_1, vendor_id_1, errata_id_1, enable_1,   \
+                                new_c_2, vendor_id_2, errata_id_2, enable_2
+ 886 :
+-       .option push
+-       .option norvc
+-       .option norelax
+-       \old_c
+-       .option pop
++       ALT_OLD_CONTENT \old_c
+ 887 :
+        ALT_NEW_CONTENT \vendor_id_1, \errata_id_1, \enable_1, \new_c_1
+        ALT_NEW_CONTENT \vendor_id_2, \errata_id_2, \enable_2, \new_c_2
+
+
 
 
 
