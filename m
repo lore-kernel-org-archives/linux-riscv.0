@@ -4,38 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7356C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Jan 2023 18:33:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB432C4708D
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Jan 2023 18:33:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=o/hcMlvwQeSRbpufaejR+DxGSrpk2YKnfMchzspgamQ=; b=GbxbqVmb85gsUC
-	kNIjPM2vDrXWnY6Z3u6UCuQXhoaEPm7UNmGrjKCbJ5BHfz6PO1ujiiYjrUAaF1sGV1DoTqJGqmE8F
-	IxxpwUeItBTmhsvJ3/l8c4BFOrCjpnykZhPCp9Z4mNKzxkveyEST5gMuH+jFPJwtVJC7vMzei72bk
-	OkC/xMY8Qn3MuA+Og4+XHLH3eqAr1q1IKTSvwMAGXk0swQ7wSNFiBDUX1gwuKXZ1urFXzs03fLEel
-	i6oPKdHwIUSH+B29rWQxOyXathyCCRzimuuQyUCAr/5n9zoGTOTVu/zCDkZzo2hG6v2LepP6/PIba
-	RNenkJ5CGPOqGmV56gPA==;
+	List-Owner; bh=hso0P+eZG/wikSSLnA6Etaabj1uCjx6zJ1KW1YMh+Co=; b=252O3pQ715Lk1u
+	gxzwiX2MJCUN9fQZVz2k19kJXrWDhkm8gZJah7PA7CCtHfC396XYpFwxNIxc17xDPq0jEpyzrWfUZ
+	hatO4aC7t+uzWEidSnipnXVGBVg97xzp4o9t0IJ5fUGSjuOBFfTrxFNJugSEbFyJ+LIHfQXjtAkEu
+	vOYtEdMLY3qb87d/VoPfT3y+hCBOiwKQ4rpLHJsM0M3KE/9/WJ+YgUNNjBLmbWwswe+h8Zac1hW/T
+	X7JLbRv2CiumkCmtNKABzb7y931/FOB1RTPGT5xwqgrjX8Y0bUtgItDjUqUkMvv27r0Fm2pkNcEMS
+	2WNsTNdTJH6xOLxgBgzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pD8ZP-00AyKv-PU; Wed, 04 Jan 2023 18:32:59 +0000
+	id 1pD8Zh-00AyUb-4C; Wed, 04 Jan 2023 18:33:17 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pD8YO-00AxbJ-Ja; Wed, 04 Jan 2023 18:31:58 +0000
+	id 1pD8YW-00Axcm-Hb; Wed, 04 Jan 2023 18:32:07 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2E4691063;
-	Wed,  4 Jan 2023 10:32:37 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 104691063;
+	Wed,  4 Jan 2023 10:32:45 -0800 (PST)
 Received: from pierre123.arm.com (unknown [10.57.44.105])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 560783F663;
-	Wed,  4 Jan 2023 10:31:51 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 0DA793F663;
+	Wed,  4 Jan 2023 10:31:59 -0800 (PST)
 From: Pierre Gondois <pierre.gondois@arm.com>
 To: linux-kernel@vger.kernel.org
 Cc: Pierre Gondois <pierre.gondois@arm.com>,
-	Jeremy Linton <jeremy.linton@arm.com>,
 	Sudeep Holla <sudeep.holla@arm.com>,
-	"Rafael J . Wysocki" <rafael.j.wysocki@intel.com>,
 	Palmer Dabbelt <palmer@rivosinc.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
@@ -50,16 +48,16 @@ Cc: Pierre Gondois <pierre.gondois@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
 	linux-acpi@vger.kernel.org
-Subject: [PATCH v4 5/6] ACPI: PPTT: Update acpi_find_last_cache_level() to acpi_get_cache_info()
-Date: Wed,  4 Jan 2023 19:30:28 +0100
-Message-Id: <20230104183033.755668-6-pierre.gondois@arm.com>
+Subject: [PATCH v4 6/6] arch_topology: Build cacheinfo from primary CPU
+Date: Wed,  4 Jan 2023 19:30:29 +0100
+Message-Id: <20230104183033.755668-7-pierre.gondois@arm.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20230104183033.755668-1-pierre.gondois@arm.com>
 References: <20230104183033.755668-1-pierre.gondois@arm.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230104_103156_774313_9AD8C2BC 
-X-CRM114-Status: GOOD (  27.73  )
+X-CRM114-CacheID: sfid-20230104_103204_940144_AFCA4686 
+X-CRM114-Status: GOOD (  24.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,263 +74,243 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-acpi_find_last_cache_level() allows to find the last level of cache
-for a given CPU. The function is only called on arm64 ACPI based
-platforms to check for cache information that would be missing in
-the CLIDR_EL1 register.
-To allow populating (struct cpu_cacheinfo).num_leaves by only parsing
-a PPTT, update acpi_find_last_cache_level() to get the 'split_levels',
-i.e. the number of cache levels being split in data/instruction
-caches.
+commit 3fcbf1c77d08 ("arch_topology: Fix cache attributes detection
+in the CPU hotplug path")
+adds a call to detect_cache_attributes() to populate the cacheinfo
+before updating the siblings mask. detect_cache_attributes() allocates
+memory and can take the PPTT mutex (on ACPI platforms). On PREEMPT_RT
+kernels, on secondary CPUs, this triggers a:
+  'BUG: sleeping function called from invalid context' [1]
+as the code is executed with preemption and interrupts disabled.
 
-It is assumed that there will not be data/instruction caches above a
-unified cache.
-If a split level consist of one data cache and no instruction cache
-(or opposite), then the missing cache will still be populated
-by default with minimal cache information, and maximal cpumask
-(all non-existing caches have the same fw_token).
+The primary CPU was previously storing the cache information using
+the now removed (struct cpu_topology).llc_id:
+commit 5b8dc787ce4a ("arch_topology: Drop LLC identifier stash from
+the CPU topology")
 
-Suggested-by: Jeremy Linton <jeremy.linton@arm.com>
+allocate_cache_info() tries to build the cacheinfo from the primary
+CPU prior secondary CPUs boot, if the DT/ACPI description
+contains cache information.
+If allocate_cache_info() fails, then fallback to the current state
+for the cacheinfo allocation. [1] will be triggered in such case.
+
+When unplugging a CPU, the cacheinfo memory cannot be freed. If it
+was, then the memory would be allocated early by the re-plugged
+CPU and would trigger [1].
+
+Note that populate_cache_leaves() might be called multiple times
+due to populate_leaves being moved up. This is required since
+detect_cache_attributes() might be called with per_cpu_cacheinfo(cpu)
+being allocated but not populated.
+
+[1]:
+[    7.560791] BUG: sleeping function called from invalid context at kernel/locking/spinlock_rt.c:46
+[    7.560794] in_atomic(): 1, irqs_disabled(): 128, non_block: 0, pid: 0, name: swapper/111
+[    7.560796] preempt_count: 1, expected: 0
+[    7.560797] RCU nest depth: 1, expected: 1
+[    7.560799] 3 locks held by swapper/111/0:
+[    7.560800]  #0: ffff403e406cae98 (&pcp->lock){+.+.}-{3:3}, at: get_page_from_freelist+0x218/0x12c8
+[    7.560811]  #1: ffffc5f8ed09f8e8 (rcu_read_lock){....}-{1:3}, at: rt_spin_trylock+0x48/0xf0
+[    7.560820]  #2: ffff403f400b4fd8 (&zone->lock){+.+.}-{3:3}, at: rmqueue_bulk+0x64/0xa80
+[    7.560824] irq event stamp: 0
+[    7.560825] hardirqs last  enabled at (0): [<0000000000000000>] 0x0
+[    7.560827] hardirqs last disabled at (0): [<ffffc5f8e9f7d594>] copy_process+0x5dc/0x1ab8
+[    7.560830] softirqs last  enabled at (0): [<ffffc5f8e9f7d594>] copy_process+0x5dc/0x1ab8
+[    7.560833] softirqs last disabled at (0): [<0000000000000000>] 0x0
+[    7.560834] Preemption disabled at:
+[    7.560835] [<ffffc5f8e9fd3c28>] migrate_enable+0x30/0x130
+[    7.560838] CPU: 111 PID: 0 Comm: swapper/111 Tainted: G        W          6.0.0-rc4-rt6-[...]
+[    7.560841] Call trace:
+[...]
+[    7.560870]  __kmalloc+0xbc/0x1e8
+[    7.560873]  detect_cache_attributes+0x2d4/0x5f0
+[    7.560876]  update_siblings_masks+0x30/0x368
+[    7.560880]  store_cpu_topology+0x78/0xb8
+[    7.560883]  secondary_start_kernel+0xd0/0x198
+[    7.560885]  __secondary_switched+0xb0/0xb4
+
 Signed-off-by: Pierre Gondois <pierre.gondois@arm.com>
-Reviewed-by: Jeremy Linton <jeremy.linton@arm.com>
 Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
-Acked-by: Rafael J. Wysocki  <rafael.j.wysocki@intel.com>
 Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
 ---
- arch/arm64/kernel/cacheinfo.c | 11 +++--
- drivers/acpi/pptt.c           | 76 +++++++++++++++++++++++------------
- include/linux/cacheinfo.h     |  9 +++--
- 3 files changed, 63 insertions(+), 33 deletions(-)
+ arch/riscv/kernel/cacheinfo.c |  5 ---
+ drivers/base/arch_topology.c  | 12 +++++-
+ drivers/base/cacheinfo.c      | 71 ++++++++++++++++++++++++++---------
+ include/linux/cacheinfo.h     |  1 +
+ 4 files changed, 65 insertions(+), 24 deletions(-)
 
-diff --git a/arch/arm64/kernel/cacheinfo.c b/arch/arm64/kernel/cacheinfo.c
-index 97c42be71338..36c3b07cdf2d 100644
---- a/arch/arm64/kernel/cacheinfo.c
-+++ b/arch/arm64/kernel/cacheinfo.c
-@@ -46,7 +46,7 @@ static void ci_leaf_init(struct cacheinfo *this_leaf,
- int init_cache_level(unsigned int cpu)
+diff --git a/arch/riscv/kernel/cacheinfo.c b/arch/riscv/kernel/cacheinfo.c
+index 440a3df5944c..3a13113f1b29 100644
+--- a/arch/riscv/kernel/cacheinfo.c
++++ b/arch/riscv/kernel/cacheinfo.c
+@@ -113,11 +113,6 @@ static void fill_cacheinfo(struct cacheinfo **this_leaf,
+ 	}
+ }
+ 
+-int init_cache_level(unsigned int cpu)
+-{
+-	return init_of_cache_level(cpu);
+-}
+-
+ int populate_cache_leaves(unsigned int cpu)
  {
- 	unsigned int ctype, level, leaves;
--	int fw_level;
-+	int fw_level, ret;
  	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(cpu);
+diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
+index e7d6e6657ffa..b1c1dd38ab01 100644
+--- a/drivers/base/arch_topology.c
++++ b/drivers/base/arch_topology.c
+@@ -736,7 +736,7 @@ void update_siblings_masks(unsigned int cpuid)
  
- 	for (level = 1, leaves = 0; level <= MAX_CACHE_LEVEL; level++) {
-@@ -59,10 +59,13 @@ int init_cache_level(unsigned int cpu)
- 		leaves += (ctype == CACHE_TYPE_SEPARATE) ? 2 : 1;
+ 	ret = detect_cache_attributes(cpuid);
+ 	if (ret && ret != -ENOENT)
+-		pr_info("Early cacheinfo failed, ret = %d\n", ret);
++		pr_info("Early cacheinfo allocation failed, ret = %d\n", ret);
+ 
+ 	/* update core and thread sibling masks */
+ 	for_each_online_cpu(cpu) {
+@@ -825,7 +825,7 @@ __weak int __init parse_acpi_topology(void)
+ #if defined(CONFIG_ARM64) || defined(CONFIG_RISCV)
+ void __init init_cpu_topology(void)
+ {
+-	int ret;
++	int cpu, ret;
+ 
+ 	reset_cpu_topology();
+ 	ret = parse_acpi_topology();
+@@ -840,6 +840,14 @@ void __init init_cpu_topology(void)
+ 		reset_cpu_topology();
+ 		return;
  	}
- 
--	if (acpi_disabled)
-+	if (acpi_disabled) {
- 		fw_level = of_find_last_cache_level(cpu);
--	else
--		fw_level = acpi_find_last_cache_level(cpu);
-+	} else {
-+		ret = acpi_get_cache_info(cpu, &fw_level, NULL);
-+		if (ret < 0)
-+			return ret;
-+	}
- 
- 	if (fw_level < 0)
- 		return fw_level;
-diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
-index 97c1d33822d1..10975bb603fb 100644
---- a/drivers/acpi/pptt.c
-+++ b/drivers/acpi/pptt.c
-@@ -81,6 +81,7 @@ static inline bool acpi_pptt_match_type(int table_type, int type)
-  * acpi_pptt_walk_cache() - Attempt to find the requested acpi_pptt_cache
-  * @table_hdr: Pointer to the head of the PPTT table
-  * @local_level: passed res reflects this cache level
-+ * @split_levels: Number of split cache levels (data/instruction).
-  * @res: cache resource in the PPTT we want to walk
-  * @found: returns a pointer to the requested level if found
-  * @level: the requested cache level
-@@ -100,6 +101,7 @@ static inline bool acpi_pptt_match_type(int table_type, int type)
-  */
- static unsigned int acpi_pptt_walk_cache(struct acpi_table_header *table_hdr,
- 					 unsigned int local_level,
-+					 unsigned int *split_levels,
- 					 struct acpi_subtable_header *res,
- 					 struct acpi_pptt_cache **found,
- 					 unsigned int level, int type)
-@@ -113,8 +115,17 @@ static unsigned int acpi_pptt_walk_cache(struct acpi_table_header *table_hdr,
- 	while (cache) {
- 		local_level++;
- 
-+		if (!(cache->flags & ACPI_PPTT_CACHE_TYPE_VALID)) {
-+			cache = fetch_pptt_cache(table_hdr, cache->next_level_of_cache);
-+			continue;
++
++	for_each_possible_cpu(cpu) {
++		ret = fetch_cache_info(cpu);
++		if (ret) {
++			pr_err("Early cacheinfo failed, ret = %d\n", ret);
++			break;
 +		}
-+
-+		if (split_levels &&
-+		    (acpi_pptt_match_type(cache->attributes, ACPI_PPTT_CACHE_TYPE_DATA) ||
-+		     acpi_pptt_match_type(cache->attributes, ACPI_PPTT_CACHE_TYPE_INSTR)))
-+			*split_levels = local_level;
-+
- 		if (local_level == level &&
--		    cache->flags & ACPI_PPTT_CACHE_TYPE_VALID &&
- 		    acpi_pptt_match_type(cache->attributes, type)) {
- 			if (*found != NULL && cache != *found)
- 				pr_warn("Found duplicate cache level/type unable to determine uniqueness\n");
-@@ -135,8 +146,8 @@ static unsigned int acpi_pptt_walk_cache(struct acpi_table_header *table_hdr,
- static struct acpi_pptt_cache *
- acpi_find_cache_level(struct acpi_table_header *table_hdr,
- 		      struct acpi_pptt_processor *cpu_node,
--		      unsigned int *starting_level, unsigned int level,
--		      int type)
-+		      unsigned int *starting_level, unsigned int *split_levels,
-+		      unsigned int level, int type)
- {
- 	struct acpi_subtable_header *res;
- 	unsigned int number_of_levels = *starting_level;
-@@ -149,7 +160,8 @@ acpi_find_cache_level(struct acpi_table_header *table_hdr,
- 		resource++;
- 
- 		local_level = acpi_pptt_walk_cache(table_hdr, *starting_level,
--						   res, &ret, level, type);
-+						   split_levels, res, &ret,
-+						   level, type);
- 		/*
- 		 * we are looking for the max depth. Since its potentially
- 		 * possible for a given node to have resources with differing
-@@ -165,29 +177,29 @@ acpi_find_cache_level(struct acpi_table_header *table_hdr,
++	}
  }
  
- /**
-- * acpi_count_levels() - Given a PPTT table, and a CPU node, count the caches
-+ * acpi_count_levels() - Given a PPTT table, and a CPU node, count the cache
-+ * levels and split cache levels (data/instruction).
-  * @table_hdr: Pointer to the head of the PPTT table
-  * @cpu_node: processor node we wish to count caches for
-+ * @levels: Number of levels if success.
-+ * @split_levels:	Number of split cache levels (data/instruction) if
-+ *			success. Can by NULL.
-  *
-  * Given a processor node containing a processing unit, walk into it and count
-  * how many levels exist solely for it, and then walk up each level until we hit
-  * the root node (ignore the package level because it may be possible to have
-- * caches that exist across packages). Count the number of cache levels that
-- * exist at each level on the way up.
-- *
-- * Return: Total number of levels found.
-+ * caches that exist across packages). Count the number of cache levels and
-+ * split cache levels (data/instruction) that exist at each level on the way
-+ * up.
-  */
--static int acpi_count_levels(struct acpi_table_header *table_hdr,
--			     struct acpi_pptt_processor *cpu_node)
-+static void acpi_count_levels(struct acpi_table_header *table_hdr,
-+			      struct acpi_pptt_processor *cpu_node,
-+			      unsigned int *levels, unsigned int *split_levels)
- {
--	int total_levels = 0;
+ void store_cpu_topology(unsigned int cpuid)
+diff --git a/drivers/base/cacheinfo.c b/drivers/base/cacheinfo.c
+index 339cd1e3d5af..b57fbd0d7114 100644
+--- a/drivers/base/cacheinfo.c
++++ b/drivers/base/cacheinfo.c
+@@ -386,10 +386,6 @@ static void free_cache_attributes(unsigned int cpu)
+ 		return;
+ 
+ 	cache_shared_cpu_map_remove(cpu);
 -
- 	do {
--		acpi_find_cache_level(table_hdr, cpu_node, &total_levels, 0, 0);
-+		acpi_find_cache_level(table_hdr, cpu_node, levels, split_levels, 0, 0);
- 		cpu_node = fetch_pptt_node(table_hdr, cpu_node->parent);
- 	} while (cpu_node);
--
--	return total_levels;
+-	kfree(per_cpu_cacheinfo(cpu));
+-	per_cpu_cacheinfo(cpu) = NULL;
+-	cache_leaves(cpu) = 0;
  }
  
- /**
-@@ -321,7 +333,7 @@ static struct acpi_pptt_cache *acpi_find_cache_node(struct acpi_table_header *ta
- 
- 	while (cpu_node && !found) {
- 		found = acpi_find_cache_level(table_hdr, cpu_node,
--					      &total_levels, level, acpi_type);
-+					      &total_levels, NULL, level, acpi_type);
- 		*node = cpu_node;
- 		cpu_node = fetch_pptt_node(table_hdr, cpu_node->parent);
- 	}
-@@ -589,36 +601,48 @@ static int check_acpi_cpu_flag(unsigned int cpu, int rev, u32 flag)
+ int __weak init_cache_level(unsigned int cpu)
+@@ -402,29 +398,71 @@ int __weak populate_cache_leaves(unsigned int cpu)
+ 	return -ENOENT;
  }
  
- /**
-- * acpi_find_last_cache_level() - Determines the number of cache levels for a PE
-+ * acpi_get_cache_info() - Determine the number of cache levels and
-+ * split cache levels (data/instruction) and for a PE.
-  * @cpu: Kernel logical CPU number
-+ * @levels: Number of levels if success.
-+ * @split_levels:	Number of levels being split (i.e. data/instruction)
-+ *			if success. Can by NULL.
-  *
-  * Given a logical CPU number, returns the number of levels of cache represented
-  * in the PPTT. Errors caused by lack of a PPTT table, or otherwise, return 0
-  * indicating we didn't find any cache levels.
-  *
-- * Return: Cache levels visible to this core.
-+ * Return: -ENOENT if no PPTT table or no PPTT processor struct found.
-+ *	   0 on success.
-  */
--int acpi_find_last_cache_level(unsigned int cpu)
-+int acpi_get_cache_info(unsigned int cpu, unsigned int *levels,
-+			unsigned int *split_levels)
- {
- 	struct acpi_pptt_processor *cpu_node;
- 	struct acpi_table_header *table;
--	int number_of_levels = 0;
- 	u32 acpi_cpu_id;
- 
-+	*levels = 0;
-+	if (split_levels)
-+		*split_levels = 0;
-+
- 	table = acpi_get_pptt();
- 	if (!table)
- 		return -ENOENT;
- 
--	pr_debug("Cache Setup find last level CPU=%d\n", cpu);
-+	pr_debug("Cache Setup: find cache levels for CPU=%d\n", cpu);
- 
- 	acpi_cpu_id = get_acpi_id_for_cpu(cpu);
- 	cpu_node = acpi_find_processor_node(table, acpi_cpu_id);
--	if (cpu_node)
--		number_of_levels = acpi_count_levels(table, cpu_node);
-+	if (!cpu_node)
-+		return -ENOENT;
- 
--	pr_debug("Cache Setup find last level level=%d\n", number_of_levels);
-+	acpi_count_levels(table, cpu_node, levels, split_levels);
- 
--	return number_of_levels;
-+	pr_debug("Cache Setup: last_level=%d split_levels=%d\n",
-+		 *levels, split_levels ? *split_levels : -1);
++static inline
++int allocate_cache_info(int cpu)
++{
++	per_cpu_cacheinfo(cpu) = kcalloc(cache_leaves(cpu),
++					 sizeof(struct cacheinfo), GFP_ATOMIC);
++	if (!per_cpu_cacheinfo(cpu)) {
++		cache_leaves(cpu) = 0;
++		return -ENOMEM;
++	}
 +
 +	return 0;
- }
++}
++
++int fetch_cache_info(unsigned int cpu)
++{
++	struct cpu_cacheinfo *this_cpu_ci;
++	unsigned int levels, split_levels;
++	int ret;
++
++	if (acpi_disabled) {
++		ret = init_of_cache_level(cpu);
++		if (ret < 0)
++			return ret;
++	} else {
++		ret = acpi_get_cache_info(cpu, &levels, &split_levels);
++		if (ret < 0)
++			return ret;
++
++		this_cpu_ci = get_cpu_cacheinfo(cpu);
++		this_cpu_ci->num_levels = levels;
++		/*
++		 * This assumes that:
++		 * - there cannot be any split caches (data/instruction)
++		 *   above a unified cache
++		 * - data/instruction caches come by pair
++		 */
++		this_cpu_ci->num_leaves = levels + split_levels;
++	}
++	if (!cache_leaves(cpu))
++		return -ENOENT;
++
++	return allocate_cache_info(cpu);
++}
++
+ int detect_cache_attributes(unsigned int cpu)
+ {
+ 	int ret;
  
- /**
+-	/* Since early detection of the cacheinfo is allowed via this
+-	 * function and this also gets called as CPU hotplug callbacks via
+-	 * cacheinfo_cpu_online, the initialisation can be skipped and only
+-	 * CPU maps can be updated as the CPU online status would be update
+-	 * if called via cacheinfo_cpu_online path.
++	/* Since early initialization/allocation of the cacheinfo is allowed
++	 * via fetch_cache_info() and this also gets called as CPU hotplug
++	 * callbacks via cacheinfo_cpu_online, the init/alloc can be skipped
++	 * as it will happen only once (the cacheinfo memory is never freed).
++	 * Just populate the cacheinfo.
+ 	 */
+ 	if (per_cpu_cacheinfo(cpu))
+-		goto update_cpu_map;
++		goto populate_leaves;
+ 
+ 	if (init_cache_level(cpu) || !cache_leaves(cpu))
+ 		return -ENOENT;
+ 
+-	per_cpu_cacheinfo(cpu) = kcalloc(cache_leaves(cpu),
+-					 sizeof(struct cacheinfo), GFP_ATOMIC);
+-	if (per_cpu_cacheinfo(cpu) == NULL) {
+-		cache_leaves(cpu) = 0;
+-		return -ENOMEM;
+-	}
++	ret = allocate_cache_info(cpu);
++	if (ret)
++		return ret;
+ 
++populate_leaves:
+ 	/*
+ 	 * populate_cache_leaves() may completely setup the cache leaves and
+ 	 * shared_cpu_map or it may leave it partially setup.
+@@ -433,7 +471,6 @@ int detect_cache_attributes(unsigned int cpu)
+ 	if (ret)
+ 		goto free_ci;
+ 
+-update_cpu_map:
+ 	/*
+ 	 * For systems using DT for cache hierarchy, fw_token
+ 	 * and shared_cpu_map will be set up here only if they are
 diff --git a/include/linux/cacheinfo.h b/include/linux/cacheinfo.h
-index ff0328f3fbb0..00d8e7f9d1c6 100644
+index 00d8e7f9d1c6..dfef57077cd0 100644
 --- a/include/linux/cacheinfo.h
 +++ b/include/linux/cacheinfo.h
-@@ -88,19 +88,22 @@ bool last_level_cache_is_shared(unsigned int cpu_x, unsigned int cpu_y);
+@@ -85,6 +85,7 @@ int populate_cache_leaves(unsigned int cpu);
+ int cache_setup_acpi(unsigned int cpu);
+ bool last_level_cache_is_valid(unsigned int cpu);
+ bool last_level_cache_is_shared(unsigned int cpu_x, unsigned int cpu_y);
++int fetch_cache_info(unsigned int cpu);
  int detect_cache_attributes(unsigned int cpu);
  #ifndef CONFIG_ACPI_PPTT
  /*
-- * acpi_find_last_cache_level is only called on ACPI enabled
-+ * acpi_get_cache_info() is only called on ACPI enabled
-  * platforms using the PPTT for topology. This means that if
-  * the platform supports other firmware configuration methods
-  * we need to stub out the call when ACPI is disabled.
-  * ACPI enabled platforms not using PPTT won't be making calls
-  * to this function so we need not worry about them.
-  */
--static inline int acpi_find_last_cache_level(unsigned int cpu)
-+static inline
-+int acpi_get_cache_info(unsigned int cpu,
-+			unsigned int *levels, unsigned int *split_levels)
- {
- 	return 0;
- }
- #else
--int acpi_find_last_cache_level(unsigned int cpu);
-+int acpi_get_cache_info(unsigned int cpu,
-+			unsigned int *levels, unsigned int *split_levels);
- #endif
- 
- const struct attribute_group *cache_get_priv_group(struct cacheinfo *this_leaf);
 -- 
 2.25.1
 
