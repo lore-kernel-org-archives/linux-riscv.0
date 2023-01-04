@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4C13C46467
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Jan 2023 15:11:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E78B3C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Jan 2023 15:11:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1/eij+cdhVOyGxG2NCv6lGKYqqiGj2YznnDmnVy5RSk=; b=Pn+e+FiW1ZOBhw
-	ObO50Emje1f3ympVriL/o2S5WSU7njsa9iSKXcQBhl5zjL6p1DUxqm3znhJoVhwhrdPbLs6txnYiv
-	uaYRSNfcvgQoPqnhE9SrcOBmVg7ZN6wDJLokoGTzI507ZwVuaSO1mfipt+nISCAPrBbBXoWzUSP00
-	OSDdp+oX3ej8tUl+8104QDBT0F7uhGCYQi8iFewe/K8kbWwKRoxePv6g/StjCfSBShc798Ag3ilnt
-	3KBJiuE4hfVs+/7mQN9n5hXvIwxhnLoFv92A/cgEbs5HQdiXurrRy6EWvUHmtt0HobDiGk4fno1cX
-	+xawf4LNNI5Mf1c3MjaQ==;
+	List-Owner; bh=H2F4j+BLa1xyhLU6SzJcyytZkfgTZygiOscKlbMpRwY=; b=qEvzw1/jubl7h+
+	R0c2HVzDz8pEzYDYZL+9GkNBsAu8imf3xeLxW2uWoZeyMCOyyo+kp5KOn0AF/AOAc14wQ3iUVUGKv
+	IwNsLo/l17brl6B1qZdM+csO4rW/N7yAUrIZInBsVZ5+E2RLLaul5SuFAnXylQI3zF7nZyXEPtVE/
+	AFCj5lo/d/RV05t5fiQ8a0mITOkH8BhCaz/UGp8XznxFrn9xNojm4OuAmIC1t7UWGjQrJSJjUKFGd
+	QDXkgQ1f3ITWrytjlgb1bmJCoLv4S3TYFCDeqOVptCrcrjeWuSp5LsfJz35hMbjGIdPW+GoNS1nat
+	m8oLjhH2Z7OLFPaayglw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pD5Q7-009ylt-Cp; Wed, 04 Jan 2023 15:11:11 +0000
+	id 1pD5QA-009yn6-2P; Wed, 04 Jan 2023 15:11:14 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pD1D5-008TC8-BW
-	for linux-riscv@lists.infradead.org; Wed, 04 Jan 2023 10:41:29 +0000
+	id 1pD1KU-008XDx-KG
+	for linux-riscv@lists.infradead.org; Wed, 04 Jan 2023 10:49:09 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3C11A1063;
-	Wed,  4 Jan 2023 02:42:02 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9F5B21FB;
+	Wed,  4 Jan 2023 02:49:46 -0800 (PST)
 Received: from bogus (unknown [10.163.75.27])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B0AC33F71A;
-	Wed,  4 Jan 2023 02:41:16 -0800 (PST)
-Date: Wed, 4 Jan 2023 10:41:16 +0000
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ED2553F587;
+	Wed,  4 Jan 2023 02:49:00 -0800 (PST)
+Date: Wed, 4 Jan 2023 10:49:00 +0000
 From: Sudeep Holla <sudeep.holla@arm.com>
 To: Conor Dooley <conor@kernel.org>
 Cc: Leyfoon Tan <leyfoon.tan@starfivetech.com>,
@@ -45,17 +45,19 @@ Cc: Leyfoon Tan <leyfoon.tan@starfivetech.com>,
 	Ley Foon Tan <lftan.linux@gmail.com>
 Subject: Re: [PATCH] riscv: Move call to init_cpu_topology() to later
  initialization stage
-Message-ID: <20230104104116.ob666fm6agkoildy@bogus>
+Message-ID: <20230104104900.aohsn6zemfllub7r@bogus>
 References: <20230103035316.3841303-1-leyfoon.tan@starfivetech.com>
  <20230103065411.2l7k6r57v4phrnos@orel>
  <efed8f35ae8c4901ba01702bcc07b511@EXMBX161.cuchost.com>
  <Y7Rg28suWh1RUbkU@spud>
+ <672440143ab04d3dbcc6de0a16bab3e1@EXMBX161.cuchost.com>
+ <F86CD957-8B7C-46B9-A14B-AAE67E43CD71@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <Y7Rg28suWh1RUbkU@spud>
+In-Reply-To: <F86CD957-8B7C-46B9-A14B-AAE67E43CD71@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230104_024127_516373_8F62B972 
-X-CRM114-Status: GOOD (  27.50  )
+X-CRM114-CacheID: sfid-20230104_024907_095078_70191286 
+X-CRM114-Status: GOOD (  23.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,84 +69,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 03, 2023 at 05:07:39PM +0000, Conor Dooley wrote:
-> Hello!
-> 
-> Couple comments for you.
-> 
-> +CC Sudeep: I've got a question for you below.
-> 
-> On Tue, Jan 03, 2023 at 07:53:38AM +0000, Leyfoon Tan wrote:
-> > > From: Andrew Jones <ajones@ventanamicro.com>
-> > > Subject: Re: [PATCH] riscv: Move call to init_cpu_topology() to later
-> > > initialization stage
-> > > On Tue, Jan 03, 2023 at 11:53:16AM +0800, Ley Foon Tan wrote:
-> > > > topology_parse_cpu_capacity() is failed to allocate memory with
-> > > > kcalloc() after read "capacity-dmips-mhz" DT parameter in CPU DT
-> 
-> Uhh, so where did this "capacity-dmips-mhz" property actually come from?
-> I had a quick check of qemu with grep & I don't see anything there that
-> would add this property.
-
-From the DT properties.
-
-> This property should not be valid on anything other than arm AFAICT.
->
-
-Not sure if we restrict that on arm/arm64 only, but yes it is mostly used
-on asymmetric CPU systems.
-
-
-[...]
-
-> > > > diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-> > > > index 3373df413c88..ddb2afba6d25 100644
-> > > > --- a/arch/riscv/kernel/smpboot.c
-> > > > +++ b/arch/riscv/kernel/smpboot.c
-> > > > @@ -39,7 +39,6 @@ static DECLARE_COMPLETION(cpu_running);
-> > > >
-> > > >  void __init smp_prepare_boot_cpu(void)  {
-> > > > -	init_cpu_topology();
-> > > >  }
-> > > >
-> > > >  void __init smp_prepare_cpus(unsigned int max_cpus) @@ -48,6 +47,8
-> > > @@
-> > > > void __init smp_prepare_cpus(unsigned int max_cpus)
-> > > >  	int ret;
-> > > >  	unsigned int curr_cpuid;
-> > > >
-> > > > +	init_cpu_topology();
-> 
-> I know arm64 does this, but there is any real reason for us to do so?
-> @Sudeep, do you know why arm64 calls that each time?
-
-Not sure what you are referring as called each time. IIUC smp_prepare_cpus()
-must be called only once on the primary during the boot to prepare for
-the secondary boot. The difference is by this stage we know the max possible
-CPU and supply the same to the call.
-
-> Or if it is worth "saving" that call on riscv, since arm64 is clearly
-> happily calling it for many years & calling it later would likely head
-> off a good few allocation issues (like the one we saw with the topology
-> reworking a few months ago).
->
-
-Yes the failure seems like similar issue we saw with cacheinfo and early
-allocation on RISC-V. However I can't recall why we have done this way
-on arm64 and not in smp_prepare_boot_cpu() like in RISC-V.
-
-Not sure if that was any helpful.
-
--- 
-Regards,
-Sudeep
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBKYW4gMDQsIDIwMjMgYXQgMDk6NDk6NDhBTSArMDAwMCwgQ29ub3IgRG9vbGV5IHdy
+b3RlOgoKWy4uLl0KCj4gPj4gVWhoLCBzbyB3aGVyZSBkaWQgdGhpcyAiY2FwYWNpdHktZG1pcHMt
+bWh6IiBwcm9wZXJ0eSBhY3R1YWxseSBjb21lIGZyb20/Cj4gPj4gSSBoYWQgYSBxdWljayBjaGVj
+ayBvZiBxZW11IHdpdGggZ3JlcCAmIEkgZG9uJ3Qgc2VlIGFueXRoaW5nIHRoZXJlIHRoYXQKPiA+
+PiB3b3VsZCBhZGQgdGhpcyBwcm9wZXJ0eS4KPiA+PiBUaGlzIHByb3BlcnR5IHNob3VsZCBub3Qg
+YmUgdmFsaWQgb24gYW55dGhpbmcgb3RoZXIgdGhhbiBhcm0gQUZBSUNULgo+ID4KPiA+VGhpcyBE
+VCBwYXJhbWV0ZXIgaXMgbm90IGluIGRlZmF1bHQgUWVtdS4gSSd2ZSBhZGRlZCBpdCBmb3IgdGVz
+dGluZyAoc2VlIHRlc3Qgc3RlcHMgaW4gYmVsb3cpLiAKPiA+VGhpcyBpcyBwcmVwYXJhdGlvbiB0
+byBzdXBwb3J0IGFzeW1tZXRyaWMgQ1BVIHRvcG9sb2d5IGZvciBSSVNDLVYuCj4gCj4gVGhlIHBy
+b3BlcnR5IGlzIG9ubHkgdmFsaWQgb24gYXJtLCBzbyBob3cgZG9lcyBhcm02NCBkZWFsIHdpdGgg
+c3VjaAo+IGFzeW1tZXRyaWMgdG9wb2xvZ2llcyB3aXRob3V0IGl0PwoKSSBkb24ndCB0aGluayB3
+ZSBjYW4gZGVhbCB3aXRoIGFzeW1tZXRyaWMgdG9wb2xvZ2llcyB3aXRob3V0IHRoaXMuClllcyB3
+ZSBjYW4gZGV0ZWN0IHRoZSBkaWZmZXJlbmNlIGluIHRoZSBDUFUgdHlwZXMgYnV0IHdlIGNhbiBv
+bmx5IGFzc3VtZQp0aGVyZSBhcmUgc3ltbWV0cmljIGluIHRlcm1zIG9mIHBlcmZvcm1hbmNlIGlu
+IGFic2VuY2Ugb2YgdGhpcyBwcm9wZXJ0eS4KCj4gV2h5IHNob3VsZCB3ZSAiZml4IiBzb21ldGhp
+bmcgdGhhdCBtYXkgbmV2ZXIgYmUgYSB2YWxpZCBkdHM/Cj4KCkkgd291bGQgbm90IHNheSBpbnZh
+bGlkLiBCdXQgc3VyZWx5IGFic2VuY2Ugb2YgaXQgbXVzdCBiZSBoYW5kbGVkIGFuZAp3ZSBkbyB0
+aGF0IGZvciBzdXJlLiBJSVJDLCBoZXJlIHRoZSBwcmVzZW5jZSBvZiBpdCBpcyBjYXVzaW5nIHRo
+ZSBpc3N1ZS4KQW5kIGlmIGl0IGlzIHByZXNlbnQgbWVhbnMgc29tZW9uZSBpcyB0cnlpbmcgdG8g
+YnVpbGQgaXQoSSBkbyB1bmRlcnN0YW5kCnRoaXMgaXMgUWVtdSBidXQgaXMgcXVpdGUgY29tbW9u
+IHRoZXNlIGRheXMgZm9yIHBvd2VyIGFuZCBwZXJmb3JtYW5jZQpiYWxhbmNlIGluIG1hbnkgU29D
+KQoKClsuLi5dCgo+ID4+IAo+ID4+IEkga25vdyBhcm02NCBkb2VzIHRoaXMsIGJ1dCB0aGVyZSBp
+cyBhbnkgcmVhbCByZWFzb24gZm9yIHVzIHRvIGRvIHNvPwo+ID4+IEBTdWRlZXAsIGRvIHlvdSBr
+bm93IHdoeSBhcm02NCBjYWxscyB0aGF0IGVhY2ggdGltZT8KPiAKPiBJIGdvdCBteXNlbGYgbWl4
+ZWQgdXAgYmV0d2VlbiBwbGFjZXMgSSBmaWRkbGVkIHdpdGggc3RvcmluZyB0aGUgdG9wb2xvZ3ks
+IHNvIHlvdSBjYW4gaWdub3JlIHRoYXQgcXVlc3Rpb24gU3VkZWVwLgo+IENsZWFybHkgaXQncyB0
+aGUgb25lIGluIHNtcF9jYWxsaW4oKSB0aGF0IGdldHMgY2FsbGVkIGZvciBlYWNoIENQVS4KPiBX
+b29wcy4KPiAKCkhtbSBJIHNob3VsZCBoYXZlIHJlYWQgYWxsIHRoZSBtZXNzYWdlcyBpbiB0aGUg
+dGhyZWFkLiBEb2luZyBieSBkYXRlL3RpbWUKZGlkbid0IHdvcmsgd2VsbCBmb3IgbWUg8J+YhC4K
+Cj4gPj4gT3IgaWYgaXQgaXMgd29ydGggInNhdmluZyIgdGhhdCBjYWxsIG9uIHJpc2N2LCBzaW5j
+ZSBhcm02NCBpcyBjbGVhcmx5IGhhcHBpbHkgY2FsbGluZwo+ID4+IGl0IGZvciBtYW55IHllYXJz
+ICYgY2FsbGluZyBpdCBsYXRlciB3b3VsZCBsaWtlbHkgaGVhZCBvZmYgYSBnb29kIGZldyBhbGxv
+Y2F0aW9uCj4gPj4gaXNzdWVzIChsaWtlIHRoZSBvbmUgd2Ugc2F3IHdpdGggdGhlIHRvcG9sb2d5
+IHJld29ya2luZyBhIGZldyBtb250aHMgYWdvKS4KPiAKPiAuLi5idXQgaXMgaXQgc3RpbGwgd29y
+dGggbW92aW5nIHRoZSBmdW5jdGlvbiBjYWxsIGxhdGVyIHRvIGhlYWQgb2ZmIGFueSBhbGxvY2F0
+aW9uIGZhaWx1cmVzIGlmIGNvcmUgdG9wb2xvZ3kgY29kZSBjaGFuZ2VzPwo+CgpBZ3JlZWQsIGdp
+dmVuIGhvdyB3ZSBmYWNlZCBzaW1pbGFyIGlzc3VlcyB3aXRoIGNhY2hlaW5mbyBvbiBmZXcgUklT
+Qy1WCnBsYXRmb3Jtcy4KCgotLSAKUmVnYXJkcywKU3VkZWVwCgpfX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
+dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
+YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
