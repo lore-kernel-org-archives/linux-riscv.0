@@ -4,69 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51DC8C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Jan 2023 09:46:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5937FC46467
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Jan 2023 09:50:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=p5ZZ+MNFTX2bKU0uvZ1YV6+5LZkYBt8IszIYPKrvra8=; b=jhu0ujUNXsX2Fp
-	lU8HPJIBEccVCiIpHhLmwbdnUe6OgCxkf1RGPA6KoVkadJYNDjjPFrb0mpTGc9NwQLJHxi0Mbcr6v
-	Oc0c/RTr2euHh8bEOMj4+JI86gV1Aa7WkpX4HXj8QiDlt8v45OG9mF869cj5qdAeAFUxJs4xnGLX6
-	ThKTk9pzg8miQfTp3c+LKWqWR5NJg0k5mpyuxHhpxMJx8ZuNkuaDP4ALAvU6Nsf+bXPUWh5VfwEXV
-	XVv9hTea0AijgoRL9WiQWMJzMqOIFSO+hzMU1/p399PLLoTQ1h4o4LjbE/4eBzMI+4xxijwwaS3UL
-	UAOIct/KhLwp7xQfmofQ==;
+	List-Owner; bh=47VSPP91cSutGxEa83AMl53eoS/OzcKN2gppA4qq2F4=; b=F6fg4nWNrTdfwX
+	vNGzq0BuQ6x6DLbpi0CyC2OTwdD6fqdzcNBYUGFxLm+OVhj5drpKLEDEcaOKhN4bbLe3OoyaVhmNF
+	/mDQGgAd0ZYcIsHyEAmCew6gTgJev6JSpXnSmLTBKjUTKcQq1d+qB6O2R3D6ANV1ehAIEgUqvaWA+
+	v2r8c9PRhbe283rTjqJqf9a5UCQrZokmN3Q/Da7NKyukwvFX+STuDAm9ndLU199GU5FrxCSl0N4R2
+	qVAYmWa4WUQX3CbXKNKvUBlW3tYeWVg8Cl6cil7/plI22xUltEtnH69NZkOBVNJ0UR6hO8q2qlsGo
+	OYE8hAo3wF1cMSplXf9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pD0Lr-008CBZ-6E; Wed, 04 Jan 2023 09:46:27 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1pD0Po-008DtE-Qf; Wed, 04 Jan 2023 09:50:32 +0000
+Received: from imap4.hz.codethink.co.uk ([188.40.203.114])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pD00d-00819b-Ue
-	for linux-riscv@lists.infradead.org; Wed, 04 Jan 2023 09:24:35 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by sin.source.kernel.org (Postfix) with ESMTPS id 1662DCE1033
-	for <linux-riscv@lists.infradead.org>; Wed,  4 Jan 2023 09:24:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C071EC43398
-	for <linux-riscv@lists.infradead.org>; Wed,  4 Jan 2023 09:24:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1672824266;
-	bh=GvYqWw4SE9AcM8QrU4Qwt+om53eTrQ5s18qUblcdkWQ=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=mPszRvtkBs16pd6Wpj9MpuXjPIr2EmyWwDv6NMH2JPZ84xbQY0GrUEoAZiSWSlm4J
-	 NxevIKpmCiFK4l5Qe06ZBIarsxvmeG7oReGpXA2amo3i3pRYbD1p5ri6F7tvZ4v38v
-	 tK58zKlz5/L40f6J9VrgRucGIRTecXzNRDdgfoOGoIxfjdk8nAntphVsFKk73bwfV+
-	 v6pfMDO4uDq4+GZ7bflnAu0emOKYUlAqfBHyXGCKjU2iu5QpFUxs9iOMJc3jsdOxRN
-	 CY5alF37K7u+lSpvGlDRqBabvz94w51Y18l5pTdllf+60M98GAp6vdRCCRSeq5R34V
-	 AfT5rYNHWgSqw==
-Received: by mail-ej1-f54.google.com with SMTP id kw15so81006329ejc.10
-        for <linux-riscv@lists.infradead.org>; Wed, 04 Jan 2023 01:24:26 -0800 (PST)
-X-Gm-Message-State: AFqh2kppE0IXmu18f2pf/MlXsPRfKRMvnb78BDqDdPeE0Kll1O9ju5/k
-	L4OCFqHBhpUboKS8sFaKWloXSoKeVY+j+lECiJw=
-X-Google-Smtp-Source: AMrXdXsFW2us9z5yyQvDN4SKkyjvd+/elktZohLGuvFc4Vz2/ctRKDH6MpNv1ejW9uoVH6PY8/KE4gpl5FlETL0waDA=
-X-Received: by 2002:a17:907:1de4:b0:7c0:dab0:d722 with SMTP id
- og36-20020a1709071de400b007c0dab0d722mr2522829ejc.353.1672824264944; Wed, 04
- Jan 2023 01:24:24 -0800 (PST)
+	id 1pD0LP-008C1T-9c
+	for linux-riscv@lists.infradead.org; Wed, 04 Jan 2023 09:46:02 +0000
+Received: from cpc152649-stkp13-2-0-cust121.10-2.cable.virginm.net ([86.15.83.122] helo=[192.168.0.17])
+	by imap4.hz.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
+	id 1pD0Kx-00G7tJ-Mm; Wed, 04 Jan 2023 09:45:31 +0000
+Message-ID: <6ef122f6-12fa-777f-b4e7-a02531380391@codethink.co.uk>
+Date: Wed, 4 Jan 2023 09:45:30 +0000
 MIME-Version: 1.0
-References: <20230104074146.578485-1-uwu@icenowy.me> <20230104074146.578485-3-uwu@icenowy.me>
- <CAJF2gTSb4qEPHw8hy1ro+UMoyKQaoQESNGveSGLdPL=cXac8jQ@mail.gmail.com> <a2a8c7522b9b57f074d6962511b6d779cfd4b56b.camel@icenowy.me>
-In-Reply-To: <a2a8c7522b9b57f074d6962511b6d779cfd4b56b.camel@icenowy.me>
-From: Guo Ren <guoren@kernel.org>
-Date: Wed, 4 Jan 2023 17:24:13 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTTO3jx8FqMVRmfgkjO02sCVx2SVbe-Sn1uKXojyn8RDaA@mail.gmail.com>
-Message-ID: <CAJF2gTTO3jx8FqMVRmfgkjO02sCVx2SVbe-Sn1uKXojyn8RDaA@mail.gmail.com>
-Subject: Re: [RFC PATCH 2/3] riscv: use VA+PA variant of CMO macros for DMA synchorization
-To: Icenowy Zheng <uwu@icenowy.me>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Heiko Stuebner <heiko@sntech.de>, 
-	Samuel Holland <samuel@sholland.org>, Conor Dooley <conor.dooley@microchip.com>, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.6.0
+Subject: Re: [RFC v5.1 9/9] [DON'T APPLY] cache: sifive-ccache: add cache
+ flushing capability
+Content-Language: en-GB
+To: Conor Dooley <conor@kernel.org>, arnd@arndb.de, palmer@dabbelt.com,
+ prabhakar.csengg@gmail.com
+Cc: Conor Dooley <conor.dooley@microchip.com>, ajones@ventanamicro.com,
+ aou@eecs.berkeley.edu, apatel@ventanamicro.com, atishp@rivosinc.com,
+ biju.das.jz@bp.renesas.com, devicetree@vger.kernel.org,
+ geert@linux-m68k.org, guoren@kernel.org, hch@infradead.org, heiko@sntech.de,
+ jszhang@kernel.org, krzysztof.kozlowski+dt@linaro.org,
+ linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+ linux-riscv@lists.infradead.org, magnus.damm@gmail.com, nathan@kernel.org,
+ paul.walmsley@sifive.com, philipp.tomsich@vrull.eu,
+ prabhakar.mahadev-lad.rj@bp.renesas.com, robh+dt@kernel.org,
+ samuel@sholland.org, soc@kernel.org,
+ Daire McNamara <daire.mcnamara@microchip.com>
+References: <Y62nOqzyuUKqYDpq@spud>
+ <20230103210400.3500626-10-conor@kernel.org>
+From: Ben Dooks <ben.dooks@codethink.co.uk>
+Organization: Codethink Limited.
+In-Reply-To: <20230103210400.3500626-10-conor@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230104_012433_996160_4FD7B89E 
-X-CRM114-Status: GOOD (  21.66  )
+X-CRM114-CacheID: sfid-20230104_014600_453291_DB997A15 
+X-CRM114-Status: GOOD (  29.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,59 +68,152 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBKYW4gNCwgMjAyMyBhdCA0OjU5IFBNIEljZW5vd3kgWmhlbmcgPHV3dUBpY2Vub3d5
-Lm1lPiB3cm90ZToKPgo+IOWcqCAyMDIzLTAxLTA05pif5pyf5LiJ55qEIDE2OjUwICswODAw77yM
-R3VvIFJlbuWGmemBk++8mgo+ID4gT24gV2VkLCBKYW4gNCwgMjAyMyBhdCAzOjQzIFBNIEljZW5v
-d3kgWmhlbmcgPHV3dUBpY2Vub3d5Lm1lPiB3cm90ZToKPiA+ID4KPiA+ID4gRE1BIHN5bmNob3Jp
-emF0aW9uIGlzIGRvbmUgb24gUEEgYW5kIHRoZSBWQSBpcyBjYWxjdWxhdGVkIGZyb20gdGhlCj4g
-PiA+IFBBLgo+ID4gPgo+ID4gPiBVc2UgdGhlIGFsdGVybmF0aXZlIG1hY3JvIHZhcmlhbnQgdGhh
-dCB0YWtlcyBib3RoIFZBIGFuZCBQQSBhcwo+ID4gPiBwYXJhbWV0ZXJzLCB0aHVzIGluIGNhc2Ug
-dGhlIElTQSBleHRlbnNpb24gdXNlZCBzdXBwb3J0IFBBCj4gPiA+IGRpcmVjdGx5LCB0aGUKPiA+
-ID4gb3ZlcmhlYWQgZm9yIHJlLWNvbnZlcnRpbmcgVkEgdG8gUEEgY2FuIGJlIG9taXR0ZWQuCj4g
-PiA+Cj4gPiA+IFN1Z2dlc3RlZC1ieTogR3VvIFJlbiA8Z3VvcmVuQGtlcm5lbC5vcmc+Cj4gPiA+
-IFNpZ25lZC1vZmYtYnk6IEljZW5vd3kgWmhlbmcgPHV3dUBpY2Vub3d5Lm1lPgo+ID4gPiAtLS0K
-PiA+ID4gIGFyY2gvcmlzY3YvbW0vZG1hLW5vbmNvaGVyZW50LmMgfCA4ICsrKystLS0tCj4gPiA+
-ICAxIGZpbGUgY2hhbmdlZCwgNCBpbnNlcnRpb25zKCspLCA0IGRlbGV0aW9ucygtKQo+ID4gPgo+
-ID4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9tbS9kbWEtbm9uY29oZXJlbnQuYyBiL2FyY2gv
-cmlzY3YvbW0vZG1hLQo+ID4gPiBub25jb2hlcmVudC5jCj4gPiA+IGluZGV4IGQ5MTllZmFiNmVi
-YS4uYTc1MWY0YWVjZTYyIDEwMDY0NAo+ID4gPiAtLS0gYS9hcmNoL3Jpc2N2L21tL2RtYS1ub25j
-b2hlcmVudC5jCj4gPiA+ICsrKyBiL2FyY2gvcmlzY3YvbW0vZG1hLW5vbmNvaGVyZW50LmMKPiA+
-ID4gQEAgLTE5LDEzICsxOSwxMyBAQCB2b2lkIGFyY2hfc3luY19kbWFfZm9yX2RldmljZShwaHlz
-X2FkZHJfdAo+ID4gPiBwYWRkciwgc2l6ZV90IHNpemUsCj4gPiA+Cj4gPiA+ICAgICAgICAgc3dp
-dGNoIChkaXIpIHsKPiA+ID4gICAgICAgICBjYXNlIERNQV9UT19ERVZJQ0U6Cj4gPiA+IC0gICAg
-ICAgICAgICAgICBBTFRfQ01PX09QKGNsZWFuLCB2YWRkciwgc2l6ZSwKPiA+ID4gcmlzY3ZfY2Jv
-bV9ibG9ja19zaXplKTsKPiA+ID4gKyAgICAgICAgICAgICAgIEFMVF9DTU9fT1BfVlBBKGNsZWFu
-LCB2YWRkciwgcGFkZHIsIHNpemUsCj4gPiA+IHJpc2N2X2Nib21fYmxvY2tfc2l6ZSk7Cj4gPiBB
-TFRfQ01PX09QIC0+IEFMVF9DTU9fT1BfVlBBLCBpcyB0aGUgcmVuYW1pbmcgbmVjZXNzYXJ5Pwo+
-Cj4gSSBkaWRuJ3QgcmVuYW1lIHRoZSBvcmlnaW5hbCBBTFRfQ01PX09QLCBBTFRfQ01PX09QX1ZQ
-QSBpcyBzb21ldGhpbmcKPiBuZXcuClRoZSAjI19WUEEgaXMgcmVhbGx5IHN0cmFuZ2UuCgpIb3cg
-YWJvdXQ6CkFMVF9DTU9fT1AgICAgICAgICAgLT4gQUxUX0NNT19PUF9WQQpBTFRfQ01PX09QX1ZQ
-QSAtPiBBTFRfQ01PX09QCgo+Cj4gPgo+ID4gT3RoZXJzOgo+ID4gUmV2aWV3ZWQtYnk6IEd1byBS
-ZW4gPGd1b3JlbkBrZXJuZWwub3JnPgo+ID4KPiA+ID4gICAgICAgICAgICAgICAgIGJyZWFrOwo+
-ID4gPiAgICAgICAgIGNhc2UgRE1BX0ZST01fREVWSUNFOgo+ID4gPiAtICAgICAgICAgICAgICAg
-QUxUX0NNT19PUChjbGVhbiwgdmFkZHIsIHNpemUsCj4gPiA+IHJpc2N2X2Nib21fYmxvY2tfc2l6
-ZSk7Cj4gPiA+ICsgICAgICAgICAgICAgICBBTFRfQ01PX09QX1ZQQShjbGVhbiwgdmFkZHIsIHBh
-ZGRyLCBzaXplLAo+ID4gPiByaXNjdl9jYm9tX2Jsb2NrX3NpemUpOwo+ID4gPiAgICAgICAgICAg
-ICAgICAgYnJlYWs7Cj4gPiA+ICAgICAgICAgY2FzZSBETUFfQklESVJFQ1RJT05BTDoKPiA+ID4g
-LSAgICAgICAgICAgICAgIEFMVF9DTU9fT1AoZmx1c2gsIHZhZGRyLCBzaXplLAo+ID4gPiByaXNj
-dl9jYm9tX2Jsb2NrX3NpemUpOwo+ID4gPiArICAgICAgICAgICAgICAgQUxUX0NNT19PUF9WUEEo
-Zmx1c2gsIHZhZGRyLCBwYWRkciwgc2l6ZSwKPiA+ID4gcmlzY3ZfY2JvbV9ibG9ja19zaXplKTsK
-PiA+ID4gICAgICAgICAgICAgICAgIGJyZWFrOwo+ID4gPiAgICAgICAgIGRlZmF1bHQ6Cj4gPiA+
-ICAgICAgICAgICAgICAgICBicmVhazsKPiA+ID4gQEAgLTQyLDcgKzQyLDcgQEAgdm9pZCBhcmNo
-X3N5bmNfZG1hX2Zvcl9jcHUocGh5c19hZGRyX3QgcGFkZHIsCj4gPiA+IHNpemVfdCBzaXplLAo+
-ID4gPiAgICAgICAgICAgICAgICAgYnJlYWs7Cj4gPiA+ICAgICAgICAgY2FzZSBETUFfRlJPTV9E
-RVZJQ0U6Cj4gPiA+ICAgICAgICAgY2FzZSBETUFfQklESVJFQ1RJT05BTDoKPiA+ID4gLSAgICAg
-ICAgICAgICAgIEFMVF9DTU9fT1AoZmx1c2gsIHZhZGRyLCBzaXplLAo+ID4gPiByaXNjdl9jYm9t
-X2Jsb2NrX3NpemUpOwo+ID4gPiArICAgICAgICAgICAgICAgQUxUX0NNT19PUF9WUEEoZmx1c2gs
-IHZhZGRyLCBwYWRkciwgc2l6ZSwKPiA+ID4gcmlzY3ZfY2JvbV9ibG9ja19zaXplKTsKPiA+ID4g
-ICAgICAgICAgICAgICAgIGJyZWFrOwo+ID4gPiAgICAgICAgIGRlZmF1bHQ6Cj4gPiA+ICAgICAg
-ICAgICAgICAgICBicmVhazsKPiA+ID4gLS0KPiA+ID4gMi4zOC4xCj4gPiA+Cj4gPgo+ID4KPgoK
-Ci0tIApCZXN0IFJlZ2FyZHMKIEd1byBSZW4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
-aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
-dGluZm8vbGludXgtcmlzY3YK
+On 03/01/2023 21:04, Conor Dooley wrote:
+> From: Daire McNamara <daire.mcnamara@microchip.com>
+> 
+> SiFive L2 cache controller can flush L2 cache. Expose this capability via
+> driver.
+> 
+> Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
+> [Conor: rebase on top of move to cache subsystem]
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+> This commit needs more work, and a way to enable it from errata. I've
+> not gone and done this as PolarFire SoC has archid etc all set to zero.
+> So we need to go figure out a workaround for this, before adding in
+> errata enabling code for this. I've included it here as a second user of
+> the cache management stuff, since what's currently upstream for the
+> ccache driver does not do any cache management.
+
+I think errata isn't the right word here, it's more of a system 
+requirement for anything that isn't coherent. All the SiFive systems
+I have are coherent so won't need this.
+
+> ---
+>   drivers/cache/sifive_ccache.c | 45 +++++++++++++++++++++++++++++++++++
+>   1 file changed, 45 insertions(+)
+> 
+> diff --git a/drivers/cache/sifive_ccache.c b/drivers/cache/sifive_ccache.c
+> index 47e7d6557f85..3c00f205bace 100644
+> --- a/drivers/cache/sifive_ccache.c
+> +++ b/drivers/cache/sifive_ccache.c
+> @@ -9,12 +9,14 @@
+>   #define pr_fmt(fmt) "CCACHE: " fmt
+>   
+>   #include <linux/debugfs.h>
+> +#include <linux/dma-direction.h>
+>   #include <linux/interrupt.h>
+>   #include <linux/of_irq.h>
+>   #include <linux/of_address.h>
+>   #include <linux/device.h>
+>   #include <linux/bitfield.h>
+>   #include <asm/cacheinfo.h>
+> +#include <asm/cacheflush.h>
+>   #include <cache/sifive_ccache.h>
+>   
+>   #define SIFIVE_CCACHE_DIRECCFIX_LOW 0x100
+> @@ -42,11 +44,15 @@
+>   #define SIFIVE_CCACHE_WAYENABLE 0x08
+>   #define SIFIVE_CCACHE_ECCINJECTERR 0x40
+>   
+> +#define SIFIVE_CCACHE_FLUSH64 0x200
+> +#define SIFIVE_CCACHE_FLUSH32 0x240
+> +
+>   #define SIFIVE_CCACHE_MAX_ECCINTR 4
+>   
+>   static void __iomem *ccache_base;
+>   static int g_irq[SIFIVE_CCACHE_MAX_ECCINTR];
+>   static struct riscv_cacheinfo_ops ccache_cache_ops;
+> +static struct riscv_cache_maint_ops ccache_cmos;
+>   static int level;
+>   
+>   enum {
+> @@ -205,6 +211,42 @@ static irqreturn_t ccache_int_handler(int irq, void *device)
+>   	return IRQ_HANDLED;
+>   }
+>   
+> +static void sifive_ccache_dma_wback_inv(void* vaddr, unsigned long size)
+> +{
+> +	void * __iomem flush = ccache_base + SIFIVE_CCACHE_FLUSH64;
+> +	phys_addr_t start = virt_to_phys(vaddr);
+> +	phys_addr_t aligned_start = start & ~0x3f;
+> +	u64 addr;
+> +	u64 end;
+> +	u64 aligned_end;
+> +
+> +	size += start - aligned_start;
+> +	end = start + size;
+> +	aligned_end = end += 0x3f;
+
+I think you meant + 0x3f here. There is an align macro in the kernel
+headers, and I'm not sure by inspection if you'd miss the last line
+with this code.
+
+> +	aligned_end &= ~0x3f;
+> +
+> +	for (addr = aligned_start; addr < aligned_end; addr += 64)
+> +		writeq(addr, flush);
+> +}
+
+The p550 manual states that the zero device flush method is quicker for
+any large area flush. However not sure what that level is and whether it
+is worth dealing with here? If so we need to have the L3 zero are mapped.
+
+> +
+> +static void sifive_ccache_cmo(unsigned int cache_size, void *vaddr, size_t size,
+> +			      int dir, int ops)
+> +{
+
+technically dir should have been of type "enum dma_data_direction"
+
+> +	switch (dir) {
+> +	case DMA_TO_DEVICE:
+> +		sifive_ccache_dma_wback_inv(vaddr, size);
+> +		break;
+> +	case DMA_FROM_DEVICE:
+> +		sifive_ccache_dma_wback_inv(vaddr, size);
+> +		break;
+> +	case DMA_BIDIRECTIONAL:
+> +		sifive_ccache_dma_wback_inv(vaddr, size);
+> +		break;
+> +	default:
+> +		break;
+> +	}
+> +}
+
+I'm not sure why you'd bother checking the dir here, the cache can
+only be flushed (I hope DMA_FROM_DEVICE is done /before/ the DMA op).
+
+You could have saved yourself an include if just ignoring dir.
+
+> +
+>   static int __init sifive_ccache_init(void)
+>   {
+>   	struct device_node *np;
+> @@ -254,6 +296,9 @@ static int __init sifive_ccache_init(void)
+>   	ccache_cache_ops.get_priv_group = ccache_get_priv_group;
+>   	riscv_set_cacheinfo_ops(&ccache_cache_ops);
+>   
+> +	ccache_cmos.cmo_patchfunc = sifive_ccache_cmo;
+> +	riscv_set_cache_maint_ops(&ccache_cmos);
+> +
+>   #ifdef CONFIG_DEBUG_FS
+>   	setup_sifive_debug();
+>   #endif
+
+-- 
+Ben Dooks				http://www.codethink.co.uk/
+Senior Engineer				Codethink - Providing Genius
+
+https://www.codethink.co.uk/privacy.html
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
