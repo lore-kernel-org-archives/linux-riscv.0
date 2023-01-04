@@ -4,55 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 080FCC4332F
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Jan 2023 15:11:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D27EC4332F
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Jan 2023 15:11:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UZqB2ZuZi+o+/EM33UOn79cag6v19qeLIwuc1WSxTb0=; b=TOsFKm9Fk220AB
-	MsXylnB9VtFCfHhRUQLTdo/BjkwktlhCmF7Taf+OnnGQiZDfpISzp6tZmQh3dKUPNCzwZzOJotHkv
-	l3VycZKjcyd3yLkM2qDDqLb2zeT2dnX6iJhrYLCxu/MabsIBxdRMRnY/0PzooMQXP4+oWE6RqPyVv
-	DsxM1BfjvRXTpjyq1OQfOBihk7klzAVHRSy8RzCvQOYSOoiKw7rjt30dYF7Nn2m44b/S9BOFreBtF
-	SwpDCEXALBVw4UOjCXhurXClkn8vTteIULexwiprmnyfoHtIwy8AVrtbGKAjJrlUUUSLw0f0NWXAZ
-	1jh9MpZZPbKN9nPz+o+A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Q85RzRE9B0mkr7UfkbYORMKoLlcy3LriLN/p8HpYQ1k=; b=jQTrvslIbXjk3eIOQwrqs91/Yc
+	Ey1FIAguN4QmY6iCLASdh/e/pKSG3MeVhFCE+FM3gL40iAcQzABHxQl64+xNW+qcRQTcHuKNiYcOp
+	nysrKzk39NX8FjvEbA/ny0MQnpT/CBfuWiccNV/CzJrSQZT2OkhY6hy9p3/GzOFyX0VEJjnXj0G8t
+	Hd7sm9zeCPXI6k6+WeSAQT7jvXjOrVXGK7Y4sb3lMoIjNwuoCmpuIF3uwWElIrmQseccc+aV5+5It
+	EoMWlvw7Sgad2jXgMbNKdfN47YnlIIP8Uso/C9yx30i9U2xk4eAYO3FjOr2x57DCNHybAVs1SSTDH
+	oQePmG8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pD5QH-009ypk-Gy; Wed, 04 Jan 2023 15:11:21 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pD2N7-008vDT-12
-	for linux-riscv@lists.infradead.org; Wed, 04 Jan 2023 11:55:55 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7EBD51042;
-	Wed,  4 Jan 2023 03:56:28 -0800 (PST)
-Received: from FVFF77S0Q05N (unknown [10.57.37.146])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C49E53F587;
-	Wed,  4 Jan 2023 03:55:43 -0800 (PST)
-Date: Wed, 4 Jan 2023 11:55:35 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: guoren@kernel.org
-Cc: arnd@arndb.de, palmer@rivosinc.com, tglx@linutronix.de,
-	peterz@infradead.org, luto@kernel.org, conor.dooley@microchip.com,
-	heiko@sntech.de, jszhang@kernel.org, lazyparser@gmail.com,
-	falcon@tinylab.org, chenhuacai@kernel.org, apatel@ventanamicro.com,
-	atishp@atishpatra.org, ben@decadent.org.uk, bjorn@kernel.org,
-	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, Guo Ren <guoren@linux.alibaba.com>,
-	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>
-Subject: Re: [PATCH -next V12 3/7] riscv: entry: Add noinstr to prevent
- instrumentation inserted
-Message-ID: <Y7VpN/fFjqGJbxPu@FVFF77S0Q05N>
-References: <20230103033531.2011112-1-guoren@kernel.org>
- <20230103033531.2011112-4-guoren@kernel.org>
+	id 1pD5QL-009yrl-Rh; Wed, 04 Jan 2023 15:11:25 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pD2O1-008vYe-Ku
+	for linux-riscv@lists.infradead.org; Wed, 04 Jan 2023 11:56:51 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id E28DA6137B;
+	Wed,  4 Jan 2023 11:56:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27C48C433EF;
+	Wed,  4 Jan 2023 11:56:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1672833408;
+	bh=VL7oF+AzyQYXaF7PH+uXZqx2tFpD8C3uCsVxv0/bqww=;
+	h=Date:From:To:List-Id:Cc:Subject:References:In-Reply-To:From;
+	b=snNYvwMD22vsBIeoG4X1zfKQiNyxOKRsIG0AM8Fo9hipTx2wEj2WcuVb1s2nGZ5yx
+	 QCsJjpUXRPGrEg2mVQLDYNxEzUj0CxfMmMbtwYGC/o7rfEQYLERNr/btfysRK7pNEq
+	 /pY+1iK+meOv/ITnrsxxerbJ0x10Y7JRWswKi/3JGLHC3G9ptI2ZbMNZsw5L9PJcw2
+	 v/u862REQdWih6LAlxeF4aWYjUks7OYtxMLL9O8o5Lv7KQUrzd8YHlWFDUzIUktlFZ
+	 ib6yq/2FrQ0SPIC5GRHQ8KkTk2mEN6Ct88bcKBKp3KMSLkDq6ti2IdveaUYne48rTL
+	 eIKIxuqnYok+Q==
+Date: Wed, 4 Jan 2023 11:56:40 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+	Prabhakar <prabhakar.csengg@gmail.com>,
+	"Conor.Dooley" <conor.dooley@microchip.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Atish Patra <atishp@rivosinc.com>,
+	Biju Das <biju.das.jz@bp.renesas.com>, devicetree@vger.kernel.org,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	guoren <guoren@kernel.org>, Christoph Hellwig <hch@infradead.org>,
+	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	krzysztof.kozlowski+dt@linaro.org, linux-kernel@vger.kernel.org,
+	Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
+	linux-riscv@lists.infradead.org,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Philipp Tomsich <philipp.tomsich@vrull.eu>,
+	"Lad, Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Samuel Holland <samuel@sholland.org>, soc@kernel.org,
+	Daire McNamara <daire.mcnamara@microchip.com>
+Subject: Re: [RFC v5.1 9/9] [DON'T APPLY] cache: sifive-ccache: add cache
+ flushing capability
+Message-ID: <Y7VpeK48nslxklkF@spud>
+References: <Y62nOqzyuUKqYDpq@spud>
+ <20230103210400.3500626-10-conor@kernel.org>
+ <b5712732-40a2-4e29-b29f-e0ab5516d518@app.fastmail.com>
+ <Y7TBh+CJdZPJ6Xzl@spud>
+ <ed198390-1bde-44ec-9f3f-b0e016b4b24c@app.fastmail.com>
+ <CFB874A3-3E6F-4C5B-B47D-381EB1E07C02@kernel.org>
+ <43aee000-5b89-4d94-98d2-b37b1a18a83e@app.fastmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230103033531.2011112-4-guoren@kernel.org>
+In-Reply-To: <43aee000-5b89-4d94-98d2-b37b1a18a83e@app.fastmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230104_035553_154668_CD7D20EB 
-X-CRM114-Status: GOOD (  18.18  )
+X-CRM114-CacheID: sfid-20230104_035649_906356_2125BC33 
+X-CRM114-Status: GOOD (  29.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,53 +94,131 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============7485245650042558920=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBKYW4gMDIsIDIwMjMgYXQgMTA6MzU6MjdQTSAtMDUwMCwgZ3VvcmVuQGtlcm5lbC5v
-cmcgd3JvdGU6Cj4gRnJvbTogR3VvIFJlbiA8Z3VvcmVuQGxpbnV4LmFsaWJhYmEuY29tPgo+IAo+
-IFdpdGhvdXQgbm9pbnN0ciB0aGUgY29tcGlsZXIgaXMgZnJlZSB0byBpbnNlcnQgaW5zdHJ1bWVu
-dGF0aW9uICh0aGluawo+IGFsbCB0aGUgaypTQU4sIEtDb3YsIEdDb3YsIGZ0cmFjZSBldGMuLikg
-d2hpY2ggY2FuIGNhbGwgY29kZSB3ZSdyZSBub3QKPiB5ZXQgcmVhZHkgdG8gcnVuIHRoaXMgZWFy
-bHkgaW4gdGhlIGVudHJ5IHBhdGgsIGZvciBpbnN0YW5jZSBpdCBjb3VsZAo+IHJlbHkgb24gUkNV
-IHdoaWNoIGlzbid0IG9uIHlldCwgb3IgZXhwZWN0IGxvY2tkZXAgc3RhdGUuIChieSBwZXRlcnop
-CgpUaGF0J3MgZ2VuZXJhbGx5IHRydWUsIGFuZCBtYWtlcyBzZW5zZSB0byBtZSwgYnV0IC4uLi4K
-Cj4gTGluazogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcmlzY3YvWXhjUTZOb1BmM0FI
-MEVYZUBoaXJlei5wcm9ncmFtbWluZy5raWNrcy1hc3MubmV0Lwo+IFJldmlld2VkLWJ5OiBCasO2
-cm4gVMO2cGVsIDxiam9ybkByaXZvc2luYy5jb20+Cj4gU3VnZ2VzdGVkLWJ5OiBQZXRlciBaaWps
-c3RyYSA8cGV0ZXJ6QGluZnJhZGVhZC5vcmc+Cj4gVGVzdGVkLWJ5OiBKaXNoZW5nIFpoYW5nIDxq
-c3poYW5nQGtlcm5lbC5vcmc+Cj4gU2lnbmVkLW9mZi1ieTogR3VvIFJlbiA8Z3VvcmVuQGxpbnV4
-LmFsaWJhYmEuY29tPgo+IFNpZ25lZC1vZmYtYnk6IEd1byBSZW4gPGd1b3JlbkBrZXJuZWwub3Jn
-Pgo+IC0tLQo+ICBhcmNoL3Jpc2N2L2tlcm5lbC90cmFwcy5jIHwgNCArKy0tCj4gIGFyY2gvcmlz
-Y3YvbW0vZmF1bHQuYyAgICAgfCAyICstCj4gIDIgZmlsZXMgY2hhbmdlZCwgMyBpbnNlcnRpb25z
-KCspLCAzIGRlbGV0aW9ucygtKQo+IAo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC90
-cmFwcy5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvdHJhcHMuYwo+IGluZGV4IDU0OWJkZTVjOTcwYS4u
-OTZlYzc2YzU0ZmYyIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL3RyYXBzLmMKPiAr
-KysgYi9hcmNoL3Jpc2N2L2tlcm5lbC90cmFwcy5jCj4gQEAgLTk1LDkgKzk1LDkgQEAgc3RhdGlj
-IHZvaWQgZG9fdHJhcF9lcnJvcihzdHJ1Y3QgcHRfcmVncyAqcmVncywgaW50IHNpZ25vLCBpbnQg
-Y29kZSwKPiAgfQo+ICAKPiAgI2lmIGRlZmluZWQoQ09ORklHX1hJUF9LRVJORUwpICYmIGRlZmlu
-ZWQoQ09ORklHX1JJU0NWX0FMVEVSTkFUSVZFKQo+IC0jZGVmaW5lIF9fdHJhcF9zZWN0aW9uCQlf
-X3NlY3Rpb24oIi54aXAudHJhcHMiKQo+ICsjZGVmaW5lIF9fdHJhcF9zZWN0aW9uIF9fbm9pbnN0
-cl9zZWN0aW9uKCIueGlwLnRyYXBzIikKPiAgI2Vsc2UKPiAtI2RlZmluZSBfX3RyYXBfc2VjdGlv
-bgo+ICsjZGVmaW5lIF9fdHJhcF9zZWN0aW9uIG5vaW5zdHIKPiAgI2VuZGlmCj4gICNkZWZpbmUg
-RE9fRVJST1JfSU5GTyhuYW1lLCBzaWdubywgY29kZSwgc3RyKQkJCQlcCj4gIGFzbWxpbmthZ2Ug
-X192aXNpYmxlIF9fdHJhcF9zZWN0aW9uIHZvaWQgbmFtZShzdHJ1Y3QgcHRfcmVncyAqcmVncykJ
-XAo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L21tL2ZhdWx0LmMgYi9hcmNoL3Jpc2N2L21tL2Zh
-dWx0LmMKPiBpbmRleCBkODZmN2NlYmQ0YTcuLmIyNmY2OGVhYzYxYyAxMDA2NDQKPiAtLS0gYS9h
-cmNoL3Jpc2N2L21tL2ZhdWx0LmMKPiArKysgYi9hcmNoL3Jpc2N2L21tL2ZhdWx0LmMKPiBAQCAt
-MjA0LDcgKzIwNCw3IEBAIHN0YXRpYyBpbmxpbmUgYm9vbCBhY2Nlc3NfZXJyb3IodW5zaWduZWQg
-bG9uZyBjYXVzZSwgc3RydWN0IHZtX2FyZWFfc3RydWN0ICp2bWEpCj4gICAqIFRoaXMgcm91dGlu
-ZSBoYW5kbGVzIHBhZ2UgZmF1bHRzLiAgSXQgZGV0ZXJtaW5lcyB0aGUgYWRkcmVzcyBhbmQgdGhl
-Cj4gICAqIHByb2JsZW0sIGFuZCB0aGVuIHBhc3NlcyBpdCBvZmYgdG8gb25lIG9mIHRoZSBhcHBy
-b3ByaWF0ZSByb3V0aW5lcy4KPiAgICovCj4gLWFzbWxpbmthZ2Ugdm9pZCBkb19wYWdlX2ZhdWx0
-KHN0cnVjdCBwdF9yZWdzICpyZWdzKQo+ICthc21saW5rYWdlIHZvaWQgbm9pbnN0ciBkb19wYWdl
-X2ZhdWx0KHN0cnVjdCBwdF9yZWdzICpyZWdzKQoKLi4uIHdoeSBkbyB5b3UgbmVlZCB0aGF0IGZv
-ciBkb19wYWdlX2ZhdWx0PyBUaGF0IGRvZXNuJ3QgKGN1cnJlbnRseSkgZG8gYW55CmVudHJ5L2V4
-aXQgbG9naWMsIHNvIHRoaXMgc2VlbXMgdW5uZWNlc3NhcnkgcGVyIHRoZSBjb21taXQgZGVzY3Jp
-cHRpb24uCgpUaGFua3MsCk1hcmsuCgo+ICB7Cj4gIAlzdHJ1Y3QgdGFza19zdHJ1Y3QgKnRzazsK
-PiAgCXN0cnVjdCB2bV9hcmVhX3N0cnVjdCAqdm1hOwo+IC0tIAo+IDIuMzYuMQo+IAoKX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
-bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
-ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+
+--===============7485245650042558920==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="Tdud8ZJ0IxlakT31"
+Content-Disposition: inline
+
+
+--Tdud8ZJ0IxlakT31
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hey Arnd,
+
+On Wed, Jan 04, 2023 at 11:19:44AM +0100, Arnd Bergmann wrote:
+> On Wed, Jan 4, 2023, at 10:23, Conor Dooley wrote:
+> >>Right, no need to touch the existing file as part of this series,
+> >>it probably just gets in the way of defining a good interface here.
+> >
+> > Sure. Can leave it where it was & I'll sort it out later when it's=20
+> > errata etc get added.
+> >
+> > Btw, would you mind pointing out where you wanted to have that if/else=
+=20
+> > you mentioned on IRC?
+>=20
+> I meant replacing both of the runtime patching indirections in
+> arch_sync_dma_for_device(). At the moment, this function calls
+> ALT_CMO_OP(), which is patched to either call the ZICBOM or the
+> THEAD variant, and if I read this right you add a third case
+> there with another level of indirection using static_branch.
+
+Yah, pretty much.
+
+> I would try to replace both of these indirections and instead
+> handle it all from C code in arch_sync_dma_for_device() directly,
+> for the purpose of readability and maintainability.
+> static inline void dma_cache_clean(void *vaddr, size_t size)
+> {
+>         if (!cache_maint_ops.clean)
+>                zicbom_cache_clean(vaddr, size, riscv_cbom_block_size);
+
+And I figure that this function is effectively a wrapper around ALT_CMO_OP(=
+)?
+
+>         else
+>                cache_maint_ops.clean(vaddr, size, riscv_cbom_block_size);
+
+And this one gets registered by the driver using an interface like the
+one I already proposed, just with the cache_maint_ops struct expanded?
+
+Extrapolating, with these changes having an errata would not even be
+needed in order to do cache maintenance.
+Since the ALT_CMO_OP() version would only be used inside
+zicbom_cache_clean(), assuming I understood correctly, a driver could
+just register cache_maint_ops for a given platform without having to
+muck around with errata.
+If so, that seems like a distinct improvement over my suggestion & gets
+around the thing I mentioned in 0/9 about a shared case in the
+alternative application code.
+
+Again, assuming I understood correctly, I like this a lot.
+
+> }
+>=20
+> void arch_sync_dma_for_device(phys_addr_t paddr, size_t size,
+>                               enum dma_data_direction dir)
+> {
+>         void *vaddr =3D phys_to_virt(paddr);
+>=20
+>         switch (dir) {
+>         case DMA_TO_DEVICE:
+>         case DMA_FROM_DEVICE:
+>                 dma_cache_clean(vaddr, size);
+>                 break;
+>         case DMA_BIDIRECTIONAL:
+>                 dma_cache_flush(vaddr, size);
+>                 break;
+>         default:
+>                 break;
+>         }
+> }
+>=20
+> which then makes it very clear what the actual code path
+> is, while leaving the zicbom case free of indirect function
+> calls. You can still use a static_branch() to optimize the
+> conditional, but I would try to avoid any extra indirection
+> levels or errata checks.
+
+The other thing that I like about this is we can then remove the various
+calls to ALT_CMO_OP() that are scattered around arch/riscv now & replace
+them with functions that have more understandable names.
+
+Thanks Arnd!
+Conor.
+
+
+--Tdud8ZJ0IxlakT31
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY7VpeAAKCRB4tDGHoIJi
+0qQsAQDomY43mfhf5tuVslNFGbFLsI5DjkZPO/5jL23g3ssjogD+ML7u3JxZU2n5
+d/kCqDu2vZUi/C+qFucg7GEUjr4QPQU=
+=hh3j
+-----END PGP SIGNATURE-----
+
+--Tdud8ZJ0IxlakT31--
+
+
+--===============7485245650042558920==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7485245650042558920==--
+
