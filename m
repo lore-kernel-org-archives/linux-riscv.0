@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D428C4708E
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Jan 2023 20:07:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9FBAC3DA7A
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Jan 2023 20:10:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jOUoPJrMMuLxVe+JharLfg9Dutry+Fa4zU2rRCiy2Rs=; b=X1QrflEYea+tHidTmHra3lD8nQ
-	5xPimVI35OsDTRAGfeja250Z4SlmsYi/lSm8LqrpuZRQx0MLUrxBUT9ucG8SEd+b9G/NPEIo19qY0
-	+jlqoDR8IXznQh+F90sOEK8VP1PoiRtNZq5Y2UhI43Winoni1q5ch2hF+MKDTbdFGUsHIJCY1wxbs
-	RaP5fvLpAVWEVeg2nLj6+2e0we5jUaTCfs8StmJDjNPK+/Qu8v6DiNuTgg375cJSBUMVrfZy5BLbx
-	8c55x5WLIQxF997A7/ptH1i3GGrw9NMaXinXrrOwUFN8uFyBN9fB35c+W+cXK8tUE8sckDZqq6q/C
-	q0Jj1/3w==;
+	bh=NORXzICKfSHy+GxYhg4BmeU5YSPpKdjWDUEJVUJuuW0=; b=4CTXDX+FzibXBf30IJMDHwCH5/
+	txugy9/BfKQWcFUdl0rZdlOkHfpRoHkiajuSXQKNk0ifsASlYrqU1xDz3Z6N4wKvvejt3R06Clf4k
+	sShaE/MRupWA/UA4QOANEETG/0fz9zoyDfEomLuDrkKBnVOO4ZEtaL9gaIxZn17Qy78ffIgMzjc37
+	SKJQQ869vRBELJegBxmB/VWSzoBGmzqiMZp8jBb0zEUNP+4hYJBi1g4Tjv+Uz7xiv4EwhH2fSDqbs
+	ETyP/Qg5xSCUNzWnxoR/sn+kdqKdALMzJrxDXc7bIzIzBZY0actuKRVAxREQVpN8rQA/IccO3vipX
+	YNoszdlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pDWWQ-00ENn4-Cc; Thu, 05 Jan 2023 20:07:30 +0000
-Received: from relay4-d.mail.gandi.net ([217.70.183.196])
+	id 1pDWYz-00EP4z-6S; Thu, 05 Jan 2023 20:10:09 +0000
+Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pDN4o-00AAJz-N9; Thu, 05 Jan 2023 10:02:24 +0000
+	id 1pDNEC-00ALK6-Dm; Thu, 05 Jan 2023 10:12:07 +0000
 Received: (Authenticated sender: paul.kocialkowski@bootlin.com)
-	by mail.gandi.net (Postfix) with ESMTPSA id 2EF42E000E;
-	Thu,  5 Jan 2023 10:02:12 +0000 (UTC)
+	by mail.gandi.net (Postfix) with ESMTPSA id 745C94000D;
+	Thu,  5 Jan 2023 10:11:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1672912937;
+	t=1672913516;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=QZFL3qyTfHdN27paTVk6oqvr7A5Y7FRlExyKi8NGY5A=;
-	b=o4lTnWDk/szT4G1LfYqkSGS/fTFhsasemGRIT4uKl+cIl4ndNTOnOPODlQma6sxBn/SJdb
-	08+0rToEL+FASQlNczHSf/1WUG4hz1DtEu1/DU8vNgmtk0j5WnhFdrDWpsV8huqsTBk0yj
-	npDIoEJCvzLHraUFlV4XvQCDsYlPVStQSiRFFF+4M+DF9w6rdTjjVHFSR89IwCoKn6rf6F
-	t5MiJ5qpno8DJMczerKiyshDJ1lcuwEWPhxtGQREq5kdu5s0hShD3qicJ9CwhNAfRkZHP3
-	zE0pbq8+87tEUeKEmscQ5nfAPD1HNcLYZ88iZFFp5HT/egQnJgo8z/7T+viUYw==
-Date: Thu, 5 Jan 2023 11:02:12 +0100
+	bh=HcbHSpYObowCaPT4UZ67tf0/71I4pFvPVyqK6Lz3L44=;
+	b=jXzx+L6tMjJ/USRyD6sSJATAagtFUQ4jkgSTOgGoJn4Gwcyvp4mF8bUmipoeszJb48ECR0
+	pfK7EITgdG0LtJ+xY9uNyVKlJ6Pz5w1BK6x82rh5BSM7I4dhBROudBF6FEbt2VZ+nnkohR
+	+1b4RgGssBKe9cfJAq33LDfZm6FKRS45r2s9/SKq+9aSKhpr9HnHZu6vYRgRAJCJ/5fR0d
+	N7aJu9yYvUsLYHXHIo9FhEmlkCLgP5PjGMlwA+cJKBIfvUb2SMV3ItTV6vXXBp8l51zWEx
+	QL5m4YB0sWbk1uIFDlePYihSEAp83TsknTSdEX9BgQwlFfbrMEgFn7GkAQggyA==
+Date: Thu, 5 Jan 2023 11:11:49 +0100
 From: Paul Kocialkowski <paul.kocialkowski@bootlin.com>
 To: Samuel Holland <samuel@sholland.org>
 Cc: Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
@@ -54,15 +54,15 @@ Cc: Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
 	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
 	linux-riscv@lists.infradead.org, linux-staging@lists.linux.dev,
 	linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH 3/4] media: cedrus: Make SRAM section claiming optional
-Message-ID: <Y7agJBFqcvqyLNhK@aptenodytes>
+Subject: Re: [PATCH 4/4] riscv: dts: allwinner: d1: Add video engine node
+Message-ID: <Y7aiZdjI8L5h1Ca3@aptenodytes>
 References: <20221231164628.19688-1-samuel@sholland.org>
- <20221231164628.19688-4-samuel@sholland.org>
+ <20221231164628.19688-5-samuel@sholland.org>
 MIME-Version: 1.0
-In-Reply-To: <20221231164628.19688-4-samuel@sholland.org>
+In-Reply-To: <20221231164628.19688-5-samuel@sholland.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230105_020223_079885_53AF6F23 
-X-CRM114-Status: GOOD (  19.76  )
+X-CRM114-CacheID: sfid-20230105_021205_629633_F8974E16 
+X-CRM114-Status: GOOD (  16.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,18 +74,18 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4378132310740290833=="
+Content-Type: multipart/mixed; boundary="===============3100873494392735522=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============4378132310740290833==
+--===============3100873494392735522==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="8/6s3dcqSbgka7v/"
+	protocol="application/pgp-signature"; boundary="uvNAlR/ImeHHAZfH"
 Content-Disposition: inline
 
 
---8/6s3dcqSbgka7v/
+--uvNAlR/ImeHHAZfH
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
@@ -93,41 +93,44 @@ Content-Transfer-Encoding: quoted-printable
 Hi Samuel,
 
 On Sat 31 Dec 22, 10:46, Samuel Holland wrote:
-> The video engine in the D1 family of SoCs does not have a switchable
-> SRAM section. Allow the driver to probe even when the SRAM section
-> reference is missing.
->=20
-> Signed-off-by: Samuel Holland <samuel@sholland.org>
+> D1 contains a video engine which is supported by the Cedrus driver.
 
-Looks good, I've also just checked that calling sunxi_sram_release with no
-reference to the SRAM held is fine (maybe a word about it in the commit log
-would be nice, but probably not worth making a v2 just for that).
-
-Reviewed-by: Paul Kocialkowski <paul.kocialkowski@bootlin.com>
+Does it work "outside the box" without power domain management?
+If not, it might be a bit confusing to add the node at this point.
 
 Cheers,
 
 Paul
-
+=20
+> Signed-off-by: Samuel Holland <samuel@sholland.org>
 > ---
 >=20
->  drivers/staging/media/sunxi/cedrus/cedrus_hw.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi | 11 +++++++++++
+>  1 file changed, 11 insertions(+)
 >=20
-> diff --git a/drivers/staging/media/sunxi/cedrus/cedrus_hw.c b/drivers/sta=
-ging/media/sunxi/cedrus/cedrus_hw.c
-> index fa86a658fdc6..11e859617932 100644
-> --- a/drivers/staging/media/sunxi/cedrus/cedrus_hw.c
-> +++ b/drivers/staging/media/sunxi/cedrus/cedrus_hw.c
-> @@ -257,7 +257,7 @@ int cedrus_hw_probe(struct cedrus_dev *dev)
->  	}
+> diff --git a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi b/arch/ris=
+cv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
+> index dff363a3c934..4bd374279155 100644
+> --- a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
+> +++ b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
+> @@ -34,6 +34,17 @@ soc {
+>  		#address-cells =3D <1>;
+>  		#size-cells =3D <1>;
 > =20
->  	ret =3D sunxi_sram_claim(dev->dev);
-> -	if (ret) {
-> +	if (ret && ret !=3D -ENOENT) {
->  		dev_err(dev->dev, "Failed to claim SRAM\n");
-> =20
->  		goto err_mem;
+> +		ve: video-codec@1c0e000 {
+> +			compatible =3D "allwinner,sun20i-d1-video-engine";
+> +			reg =3D <0x1c0e000 0x2000>;
+> +			interrupts =3D <SOC_PERIPHERAL_IRQ(66) IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks =3D <&ccu CLK_BUS_VE>,
+> +				 <&ccu CLK_VE>,
+> +				 <&ccu CLK_MBUS_VE>;
+> +			clock-names =3D "ahb", "mod", "ram";
+> +			resets =3D <&ccu RST_BUS_VE>;
+> +		};
+> +
+>  		pio: pinctrl@2000000 {
+>  			compatible =3D "allwinner,sun20i-d1-pinctrl";
+>  			reg =3D <0x2000000 0x800>;
 > --=20
 > 2.37.4
 >=20
@@ -137,25 +140,25 @@ Paul Kocialkowski, Bootlin
 Embedded Linux and kernel engineering
 https://bootlin.com
 
---8/6s3dcqSbgka7v/
+--uvNAlR/ImeHHAZfH
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAEBCAAdFiEEJZpWjZeIetVBefti3cLmz3+fv9EFAmO2oCQACgkQ3cLmz3+f
-v9GdzQf7BBo2ZY1agypl/4WFck7Oxw+wz2H294juvEYfBbZWII+esDVDHiBUiZaw
-+iQVeT7ZGMum5E0Mvg+oaLduGhB271eZKHNY/YnEM3NHlwwUvy9TUJhR0iuKrX1H
-rLf4NGQrmXAfBVnrnlW2ROIC3kz9DcRwC/busmLyMk025CMM54AlmY0Y8XaiMThq
-ic6BTgL9b8a17lwg5G66A9OMNB8ee4WCfssFQ7kriVmFH644tTgtrFS8azGBCsI1
-cxA7JGvZJWuJEm9L8PDMDvOm3IAC0djIgJ9gqkbJdCaJqW9H5c6iJBoFOJID6g2l
-1SmqmlYcNehm79PXDFiAc9Xpq+Brfw==
-=2Hd+
+iQEzBAEBCAAdFiEEJZpWjZeIetVBefti3cLmz3+fv9EFAmO2omUACgkQ3cLmz3+f
+v9HoZQf/dl3gdDFnL9ptToBux9CndvEW3DuATq08dsu8Tuomejp5iBjKgLFwl1qW
+B5pIbqJw3GD3OKjU0qHE5Y0bjYg9wWKVQf48VY5tAE5xnM+uae1Rijw64Rvj1ZM0
+zjUCHo39JknTfE6kH8lXOkK1oxRfwqHs7oaAps/jZ2CPs/DBOPYhx/OhhvWqfui2
+QvZHgD/PqhGuYS9a7+G4mczarvORKkG36ICiHmBh5JxLkpvG/5B+KEH6CE5wyAdt
+E846talSC/BKaiMBngOwgQxLCHsVuROOBsxyfhVpgsWmQpyvDLmqLK+Ak0dgKby6
+9PH3omA3Vc7/cGWT64Yd1JglMkiD8w==
+=EMF0
 -----END PGP SIGNATURE-----
 
---8/6s3dcqSbgka7v/--
+--uvNAlR/ImeHHAZfH--
 
 
---===============4378132310740290833==
+--===============3100873494392735522==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -166,5 +169,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============4378132310740290833==--
+--===============3100873494392735522==--
 
