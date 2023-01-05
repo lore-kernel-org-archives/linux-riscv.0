@@ -4,44 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73888C3DA7A
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Jan 2023 23:28:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 208B1C4708E
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Jan 2023 23:45:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Date:Message-Id
+	:Subject:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Z8F6q/6ydn2E1GZ+yUws2W7sMXEEXRZCVInPevg09XQ=; b=rXy/uq+EnVB5Jw
-	OOyS7dDR+bseBKQZhz/KYyXRp0y+qWVktBokHSJcCP6fU8DQjNrsV598AtGBcB5SlapCfRcWLkwn2
-	Fmt0sjFH/igQa6WlWKCu1GuUyIxRRInUq+BkXeCewsJFQrrIqr4dcvPfDI8CaDebYIHUx2LYZkF9h
-	9Kr8vF/zcAbZgaBd+g/HIjGa0cNEx7CDDaHDSEFqJ1TBL6QwfXyAlwLVEK6erNh5aXPZynFDD/J9N
-	heBfDhdPwlw9FzmYfJQSBjXLvxG82NJy3HVyLM1P0r0qF48gOBzAPozDhRGqEd3E0nVDx022zTELD
-	h+HxqSQhLjHTQ620bGDw==;
+	List-Owner; bh=WMTs1plOqPIEeo9xUqbe8ZgFBigmQsbM79Sppiw3QD4=; b=4iO7qjAe73r7L8
+	Cvb/d8EesNTBMB4+e7Y98zl9yGwt2e7ZtXbN8uZfNYMoZ1yROudrPt+zmLhw3a/cghwnfQXMoOo9r
+	Zg76FodMqlCgdt5ay7GJpKDCIyIjtunjeWRgdbN0kbX8lVx9iJtnLbnmEtFdDhLBJTFhwkHGG8b5h
+	oAaAumMu6/OsJbZKZFRD/Y9xkc/GlViOuBswxfcxuCETQfFQ9VPjP7yjJz2yCqRmWf3uRg+P53WdG
+	mCnhdU8uZkflpGhWBtrwZZ7Jdt68yTDA9mpcZ6XeHfIJ8sUIFcHIEPRVNtRjSV7hwotZRqQabhhvB
+	FbGgrGUndipo+l4J7/9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pDZew-00G8tV-M2; Thu, 05 Jan 2023 23:28:30 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1pDZvC-00GHtS-Mn; Thu, 05 Jan 2023 23:45:18 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pDXSS-00EutK-PH
-	for linux-riscv@lists.infradead.org; Thu, 05 Jan 2023 21:07:30 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1pDXSQ-0002l9-3p; Thu, 05 Jan 2023 22:07:26 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: linux-riscv@lists.infradead.org, christoph.muellner@vrull.eu, Conor Dooley <conor@kernel.org>, philipp.tomsich@vrull.eu, ajones@ventanamicro.com
-Subject: Re: [PATCH v2] RISC-V: fix compile error from deduplicated __ALTERNATIVE_CFG_2
-Date: Thu, 05 Jan 2023 22:07:25 +0100
-Message-ID: <2446503.NgBsaNRSFp@diego>
-In-Reply-To: <mhng-025b9fe5-fa23-4930-997a-e4aca277fe47@palmer-ri-x1c9>
-References: <mhng-025b9fe5-fa23-4930-997a-e4aca277fe47@palmer-ri-x1c9>
+	id 1pDZ6O-00FoXV-AF
+	for linux-riscv@lists.infradead.org; Thu, 05 Jan 2023 22:52:50 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id o8-20020a17090a9f8800b00223de0364beso3461059pjp.4
+        for <linux-riscv@lists.infradead.org>; Thu, 05 Jan 2023 14:52:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
+         :subject:references:in-reply-to:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=9xPqcqfP+R6cjTpKSXy+DepcDvWCHJ3HLtdtMjkOD6M=;
+        b=YRIId0z7Z0OkM4tG4tdh3zD2dljBTMRjBXAyHPsTQZgXNs46ltuRwZp2aM72+imZSW
+         9eNMnTj2dL29Xlazz8Kw3JYvcAuQPPexbmOu1+M+iJx2mOA6569s9LvK9b9BHyi0auhr
+         jyRdOEqmbJ+ykw7LMc98YGvwPpfcZFYXeZlQx2VkgsaSDHy9tidmyaBA8QGlV2ljA6s0
+         xo7UXhIrNwb/USwJhvit18Pf0ACvh1r71Cd+yS5SAUf5GC7vzz3tplSAMDhV3QPYl8Ww
+         9thDd916CbpSjGwuPxcJtPIwdU6JsMDiJMkY7UP35v0PBC3Hciat8yp20f8b98wRyJ5a
+         /B9Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
+         :subject:references:in-reply-to:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=9xPqcqfP+R6cjTpKSXy+DepcDvWCHJ3HLtdtMjkOD6M=;
+        b=jj1YmShOwKXBZRoKHYqEK3GKtmlfP37FG7DsoM4HiZZwadS5h6yRsxh5X9dMGlcwMk
+         HH/XoxaF3dyTVlpzrpA1ggx4wTkcHUueCgyD6X2B/Mh05Rs6nMmyPpinQHwotxA1fMXp
+         C5C1Ve+b/mG+3dSJvwobFul5NxxFAK94ajr3E9RZ4FNgaDfBYR4TOPLZozgXBITYASGl
+         IQ+6UM4tGgapxXQgA2EC2N79ZezTdrmQ3uNO3gq6XMtRPEzabuhVMgPQ3goYaI68vyHw
+         HTXDmUVRtxLSYi/V0V8nBdbjN2pBJMerm9XjpXkqkYuvI48qV5RnjAXK+3lplktRGHOH
+         fvbQ==
+X-Gm-Message-State: AFqh2kpTEMhlgVdAmp3Bp2lVMGI0deSTIBzV3xGjHEP6Xj4b0p+ysFWe
+	dPas8pfuLH0tnVghc1JYYCf08Q==
+X-Google-Smtp-Source: AMrXdXtMPfooQy8XylDqs8MZsmVKorBkMZnwp9WoCqDpjmQ99IUOSg4mgyA3gmLTFTH+56Wg1hp56w==
+X-Received: by 2002:a17:902:c9d2:b0:192:ee98:664c with SMTP id q18-20020a170902c9d200b00192ee98664cmr5971034pld.54.1672959165689;
+        Thu, 05 Jan 2023 14:52:45 -0800 (PST)
+Received: from localhost ([135.180.226.51])
+        by smtp.gmail.com with ESMTPSA id n5-20020a170903110500b00186b86ed450sm26600496plh.156.2023.01.05.14.52.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 05 Jan 2023 14:52:45 -0800 (PST)
+In-Reply-To: <20230102160748.1307289-1-bjorn@kernel.org>
+References: <20230102160748.1307289-1-bjorn@kernel.org>
+Subject: Re: [PATCH] riscv, kprobes: Stricter c.jr/c.jalr decoding
+Message-Id: <167295914582.11542.7858478388954477018.b4-ty@rivosinc.com>
+Date: Thu, 05 Jan 2023 14:52:25 -0800
 MIME-Version: 1.0
+X-Mailer: b4 0.11.0-dev-e660e
+Cc: linux-kernel@vger.kernel.org, Björn Töpel <bjorn@rivosinc.com>,
+  linux-trace-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Guo Ren <guoren@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+  Albert Ou <aou@eecs.berkeley.edu>, Björn Töpel <bjorn@kernel.org>, linux-riscv@lists.infradead.org,
+  Paul Walmsley <paul.walmsley@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230105_130728_901858_68C20681 
-X-CRM114-Status: GOOD (  24.58  )
+X-CRM114-CacheID: sfid-20230105_145248_617589_18EAD55C 
+X-CRM114-Status: UNSURE (   5.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -53,82 +88,22 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Donnerstag, 5. Januar 2023, 21:47:47 CET schrieb Palmer Dabbelt:
-> On Thu, 05 Jan 2023 11:26:10 PST (-0800), heiko@sntech.de wrote:
-> > From: Heiko Stuebner <heiko.stuebner@vrull.eu>
-> >
-> > On the non-assembler-side wrapping alternative-macros inside other macros
-> > to prevent duplication of code works, as the end result will just be a
-> > string that gets fed to the asm instruction.
-> >
-> > In real assembler code, wrapping .macro blocks inside other .macro blocks
-> > brings more restrictions on usage it seems and the optimization done by
-> > commit 2ba8c7dc71c0 ("riscv: Don't duplicate __ALTERNATIVE_CFG in __ALTERNATIVE_CFG_2")
-> > results in a compile error like:
-> >
-> > ../arch/riscv/lib/strcmp.S: Assembler messages:
-> > ../arch/riscv/lib/strcmp.S:15: Error: too many positional arguments
-> > ../arch/riscv/lib/strcmp.S:15: Error: backward ref to unknown label "886:"
-> > ../arch/riscv/lib/strcmp.S:15: Error: backward ref to unknown label "887:"
-> > ../arch/riscv/lib/strcmp.S:15: Error: backward ref to unknown label "886:"
-> > ../arch/riscv/lib/strcmp.S:15: Error: backward ref to unknown label "887:"
-> > ../arch/riscv/lib/strcmp.S:15: Error: backward ref to unknown label "886:"
-> > ../arch/riscv/lib/strcmp.S:15: Error: attempt to move .org backwards
-> >
-> > Wrapping the variables containing assembler code in quotes solves this issue,
-> > compilation and the code in question still works and objdump also shows sane
-> > decompiled results of the affected code.
-> >
-> > Fixes: 2ba8c7dc71c0 ("riscv: Don't duplicate __ALTERNATIVE_CFG in __ALTERNATIVE_CFG_2")
-> > Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
-> > ---
-> > changes in v2:
-> > - don't revert the affected cleanup but use quotes around the parts
-> >
-> > Tested on qemu + Allwinner D1 + specially created test-cases using
-> > ALTERNATIVE_2 in full assembler .S files
-> >
-> >  arch/riscv/include/asm/alternative-macros.h | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> >
-> > diff --git a/arch/riscv/include/asm/alternative-macros.h b/arch/riscv/include/asm/alternative-macros.h
-> > index 7226e2462584..2c0f4c887289 100644
-> > --- a/arch/riscv/include/asm/alternative-macros.h
-> > +++ b/arch/riscv/include/asm/alternative-macros.h
-> > @@ -46,7 +46,7 @@
-> >
-> >  .macro ALTERNATIVE_CFG_2 old_c, new_c_1, vendor_id_1, errata_id_1, enable_1,	\
-> >  				new_c_2, vendor_id_2, errata_id_2, enable_2
-> > -	ALTERNATIVE_CFG \old_c, \new_c_1, \vendor_id_1, \errata_id_1, \enable_1
-> > +	ALTERNATIVE_CFG "\old_c", "\new_c_1", \vendor_id_1, \errata_id_1, \enable_1
-> >  	ALT_NEW_CONTENT \vendor_id_2, \errata_id_2, \enable_2, \new_c_2
-> >  .endm
-> 
-> Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
-> 
-> I'm going to hold off on this one for this week, though -- at least to 
-> give it some time on the lists, but it appears this hasn't landed at 
-> lore/patchwork yet and thus might be stuck.  It is in the mailman 
-> archives...
-
-No worries - there isn't any real-word breakage happening with 6.2-rc
-So we're in no particular rush to fix somebodies broken boardfarm :-)
-
-Heiko
-
-> http://lists.infradead.org/pipermail/linux-riscv/2023-January/024682.html
-> 
-
-
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCAyIEphbiAyMDIzIDE3OjA3OjQ4ICswMTAwLCBCasO2cm4gVMO2cGVsIHdyb3RlOgo+
+IEZyb206IEJqw7ZybiBUw7ZwZWwgPGJqb3JuQHJpdm9zaW5jLmNvbT4KPiAKPiBJbiB0aGUgY29t
+cHJlc3NlZCBpbnN0cnVjdGlvbiBleHRlbnNpb24sIGMuanIsIGMuamFsciwgYy5tdiwgYW5kIGMu
+YWRkCj4gaXMgZW5jb2RlZCB0aGUgZm9sbG93aW5nIHdheSAoZWFjaCBpbnN0cnVjdGlvbiBpcyAx
+NmIpOgo+IAo+IC0tLSstKy0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tKy0tCj4gMTAwIDAgcnMxWzQ6
+MF0hPTAgICAgICAgMDAwMDAgMTAgOiBjLmpyCj4gMTAwIDEgcnMxWzQ6MF0hPTAgICAgICAgMDAw
+MDAgMTAgOiBjLmphbHIKPiAxMDAgMCAgcmRbNDowXSE9MCByczJbNDowXSE9MCAxMCA6IGMubXYK
+PiAxMDAgMSAgcmRbNDowXSE9MCByczJbNDowXSE9MCAxMCA6IGMuYWRkCj4gCj4gWy4uLl0KCkFw
+cGxpZWQsIHRoYW5rcyEKClsxLzFdIHJpc2N2LCBrcHJvYmVzOiBTdHJpY3RlciBjLmpyL2MuamFs
+ciBkZWNvZGluZwogICAgICBodHRwczovL2dpdC5rZXJuZWwub3JnL3BhbG1lci9jL2IyZDQ3M2E2
+MDE5ZQoKQmVzdCByZWdhcmRzLAotLSAKUGFsbWVyIERhYmJlbHQgPHBhbG1lckByaXZvc2luYy5j
+b20+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
+eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
+Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
