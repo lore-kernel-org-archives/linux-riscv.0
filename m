@@ -4,123 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F5CCC3DA7A
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Jan 2023 21:51:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25F58C4708E
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Jan 2023 21:57:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hjcdx7v3YamyK62VFw/4/s6sPsfA8eLgzgX2Cri64kk=; b=pAuoode/Ywxdju
-	ZVn2Sc++EY87HvhR1tgJuAzXAZa1+kCO1PLgzy5n+i3jz9FgbEdCF8TAeeQhHJgR640Oetnd2aIy0
-	8iDo9Tj1cb/DWeePS2IjBhb+6SvnibtiqJ6onKyEHIvE5rRAQLZOwV2Dpm9IodocvJxY3pfvhuUxH
-	fN2ulahwQzEza720/UT12yaKYl+9dNWo3SJ3vb6xbY6tB6PQwjixkQJlX3ynz7EdqmZ814zBwFwZ3
-	gD3IhmQKdTpZSzI5qA2V8hF9BAH9BcuvVSUyKCRLoL9vVNAqnAUEVTNjvohYvQJwoCTxqxnkIEt7U
-	uVcP1tpd72P26/CV0EDQ==;
+	List-Owner; bh=JDJi7shlXiR7wtLnjiifUAKoh9Dz0mUkMlSD7hExzGQ=; b=MUIkN/uUg65Dv8
+	bcOStMCMAsTDHhzdFv2UQoB0xmRMilxXFhsYGb1xwUhbJGhHN0m6Rd9yvj1hCWjBG/LwEVRMSx6Ac
+	J1By618kPdnFbf8MYsOUJR7r/0FBR/m0lRGM7D5OLCG7dHR5bnRqAW6D+0Jv8er5Gw2WtIlc4wJ/X
+	VKnRsE2uuuv6YEFYWfTkxnqk7220WuQEywgZtVOsWQuW7FK0ZKE3RIRDHJMIYqNXGcDgDp5gkNbYz
+	q1phfo7R5KiNAtD15k5KxvTmRim3iCyylz8x0QJpwRpALFLn7wdHVo8ZkpkOPJUYbrBLMvd7KZ8d6
+	qNkCFTQq8twvZQ3sp7EA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pDY98-00FIVJ-5t; Thu, 05 Jan 2023 21:51:34 +0000
+	id 1pDYEX-00FLHD-5t; Thu, 05 Jan 2023 21:57:09 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pDV4W-00DfZy-5T
-	for linux-riscv@bombadil.infradead.org; Thu, 05 Jan 2023 18:34:36 +0000
+	id 1pDV68-00DgqI-4y; Thu, 05 Jan 2023 18:36:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=hriix7PNjl3Fx5Lwj5vGvmpV6J+F4oqIBHmzWDNV1zY=; b=A8eHbdBUPh/YCfSaH/yMoyEvrl
-	r9FfcZLXrsb5GPtjiJZmPYLleAmhCoeo8Tr0qjIM4AT4wCybp8c7Wz8r+ueW3EmFpHdNiC1sPhP2Q
-	U44tNnUdY/KzT1WWUEpnl+Y91Z/18rSXl6cbLi8eA72bESp039LyRxMk9W3aELmMaaE/Y1W+BOTKx
-	JX+MGpB7k95hLVg4uMVi4AHpop4gpMcaDP6HBQELqPKuMry6VcYTuMMvV1ZsFmVMaw2M8kwmhwI2w
-	EcM3qt3/xWEfnBLSU/jzqdrU33mP0QUtQwzNav37SfiQbx8umzNsyxd7cVe4VsnY+G0NXSE3nv9ei
-	hDA+us3g==;
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	bh=Qg9Z/ezQ2VP1OzBT9xNik8ur6PBM8ZeCnIkxjvkNCdA=; b=Z40cXr6huxOVVqXRYbz1yI4s5E
+	EsphLsSWeF2EPPnKs/H/Az4nQ7IyuLFyhM+NlsULRpXskStGKXkpSZAnXD8uDdm+4ethA9bwQGgLE
+	jQQuxpQDTNPxmPGE+XKwJb1yLQPKqIzgC26uNpaana3fzy67a6Rj4m4V5bsIzP7VHeTYrjsKWM8g2
+	DENuRNMJMM/WCh6jGadWpb8KpYKs9RG1Gu2BrY9UNh44SRZHhj52FsvCfcWDIl9eLHOaBAK0nuFQr
+	uOsMXvzVpbB6pqxqWdRgLVpA7DBHlPI/RfRFGRRrJP4fXit4AckD2nVKf4XEuQPk1yA2dT+QYIWBb
+	isQEdhfQ==;
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pDT7l-001U2u-30
-	for linux-riscv@lists.infradead.org;
-	Thu, 05 Jan 2023 16:29:52 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id d4so28687198wrw.6
-        for <linux-riscv@lists.infradead.org>; Thu, 05 Jan 2023 08:29:55 -0800 (PST)
+	id 1pDSwL-001Tk3-0m;
+	Thu, 05 Jan 2023 16:18:03 +0000
+Received: by mail-wm1-x332.google.com with SMTP id fm16-20020a05600c0c1000b003d96fb976efso1675148wmb.3;
+        Thu, 05 Jan 2023 08:18:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ffwll.ch; s=google;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:mail-followup-to:message-id:subject:cc:to
-         :from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=hriix7PNjl3Fx5Lwj5vGvmpV6J+F4oqIBHmzWDNV1zY=;
-        b=Xkf28zaruVrLmqa0GfGmuAvqQQX+dB8u4vBIZu3Zqzswl7V0McjDKsYjGqvgAnDPVt
-         JAfXVw2P8vm4NtD5ER0v9cpo5fq34lBw+gZ7lyOmQSBDrvgtT42XqrYiXIz43PC1aoqp
-         dm4offnZy34FIeCS0B3FEa0zUz3dEn5dYFCKk=
+        d=gmail.com; s=20210112;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Qg9Z/ezQ2VP1OzBT9xNik8ur6PBM8ZeCnIkxjvkNCdA=;
+        b=ZVjIz5m0hX8PlIXMGahJ6x/Csgadc5GJ9Zd+rVumUwtBq99GX7dkkYFL7AZQF1oj9T
+         y5ICbFMI9cC6zeXuhiqA9Sacw3BcWcoDBtJ5ON/+Eo5Jq9Vsl4zsRz3qwg3CmjEW2e4w
+         W0+bhDkAhXoq22eOKduRjSnsct8jj+IZuszeti+y2cFQnnrmg1tG82ezdd2P0oKcxWXJ
+         vFQ6FOezDrkrdLRGk/ZHZLkFZad+7zFnZjbvNVriYgMzTBayde0OMF0UDmoCzDMHrLsc
+         O5SkLRr5FLGl+wYpoCxFP5t2txoq+xnRzk4UCXCmxvGjpr4IF7kSWqsFGv4VRXabVJqt
+         poBA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:mail-followup-to:message-id:subject:cc:to
-         :from:date:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=hriix7PNjl3Fx5Lwj5vGvmpV6J+F4oqIBHmzWDNV1zY=;
-        b=oB/uU2OEvKGQqGsZRqZu5KAnIiLPXhH0JZu4J5YmSyKnMMtoF7IR/8W0+LLc4oIfjJ
-         obl9y4RCNiB3K1M5jddI5KzAzq2gWSZR3gMQN+Ztr/6E0C+m0lMVBgpY8aFj2Ifc1DmK
-         IzelXqMTOMP6zylHupf9+nOtLgcYIQni1Y0r2q9JElMT2I4U3JCC+4VT+eoqYP0kZ9Hd
-         509T9cza2Hh3aKxWhDhLs4VEDhzf5yguP03MKnan+g5NBpEpbPZXn54P83ZnmuYTQQY4
-         7hyCSskN/pySYL1Zksv68ch87bA0O7fagV1h6WE6Ci5ayhulhw0/D+5CGy7ILFz/ujlX
-         rbdQ==
-X-Gm-Message-State: AFqh2krPT2aijYA7nG4763LqSAVIvW0nTn9KLZ6NosSWiXwo8pNjjmMk
-	xA73LAQYm9aRdwP0FiBAkpGjXA==
-X-Google-Smtp-Source: AMrXdXvytt3BictUpSrNMsVMjqYxBg9ULQXEcgl2Nkqae4pxiPmHRRghamOTQFr1zyRYajkEyGj8ag==
-X-Received: by 2002:adf:f9cb:0:b0:285:d0ba:92e2 with SMTP id w11-20020adff9cb000000b00285d0ba92e2mr22521193wrr.47.1672936194547;
-        Thu, 05 Jan 2023 08:29:54 -0800 (PST)
-Received: from phenom.ffwll.local ([2a02:168:57f4:0:efd0:b9e5:5ae6:c2fa])
-        by smtp.gmail.com with ESMTPSA id x15-20020a5d490f000000b00236883f2f5csm36488463wrq.94.2023.01.05.08.29.52
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Qg9Z/ezQ2VP1OzBT9xNik8ur6PBM8ZeCnIkxjvkNCdA=;
+        b=UbXVgul8uBF5A9jSvaBbddJqcq+L6kp+w14Wihi/w/jZN/3GE5EcwCZH+8QV+t6OjH
+         0G2dcWwIn2sqQdDDcrdlzNQ/BegfFOKm0HwZk7SeZ84yE0P2Nncial1be4jYCUCr8Yij
+         MZ2lLl7kbXfdlvMt1eHtNeNtELHNsQTlxCkqoFaYQBBQpBwzyqRkB8E/sIvKxpjhYlBK
+         Cb+NajataAAq7oVumj4UmEJK9kAR6RWAQR67dNKDZf6bas8zTy8PHJq6JhWmAC7EKeo8
+         KVr5bJxhmD32be+AmCfybcZx3bDV7QpraSKrq3dYAgU/kLnwl7ObMvXUW/xVP+KEiAY1
+         wn3w==
+X-Gm-Message-State: AFqh2krJCiu4IjA78XQKszSsPd09nVcJhHAFfInqvnUBtsUSFxJ9jpiU
+	fqwijqNb4FHP5tu9O7N0YUo=
+X-Google-Smtp-Source: AMrXdXvGqO38SjpeDx+nQ5mO3gltv5DwVHr3T+e4+/rn3MECG1cCKPkwM5HXIKyWHVlh4HQG9zupiA==
+X-Received: by 2002:a05:600c:4e13:b0:3c6:e63d:fcfc with SMTP id b19-20020a05600c4e1300b003c6e63dfcfcmr36682966wmq.35.1672935484869;
+        Thu, 05 Jan 2023 08:18:04 -0800 (PST)
+Received: from jernej-laptop.localnet (82-149-19-102.dynamic.telemach.net. [82.149.19.102])
+        by smtp.gmail.com with ESMTPSA id he11-20020a05600c540b00b003d359aa353csm2779923wmb.45.2023.01.05.08.18.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Jan 2023 08:29:53 -0800 (PST)
-Date: Thu, 5 Jan 2023 17:29:51 +0100
-From: Daniel Vetter <daniel@ffwll.ch>
-To: Andrzej Hajda <andrzej.hajda@intel.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Mark Rutland <mark.rutland@arm.com>, linux-m68k@vger.kernel.org,
-	linux-ia64@vger.kernel.org, linux-sh@vger.kernel.org,
-	Peter Zijlstra <peterz@infradead.org>,
-	dri-devel@lists.freedesktop.org, linux-mips@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-hexagon@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	Boqun Feng <boqun.feng@gmail.com>, linux-xtensa@linux-xtensa.org,
-	Arnd Bergmann <arnd@arndb.de>, intel-gfx@lists.freedesktop.org,
-	openrisc@lists.librecores.org, loongarch@lists.linux.dev,
-	Rodrigo Vivi <rodrigo.vivi@intel.com>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	linux-arm-kernel@lists.infradead.org, linux-parisc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org
-Subject: Re: [PATCH 00/19] Introduce __xchg, non-atomic xchg
-Message-ID: <Y7b6/7coJEVlTVxK@phenom.ffwll.local>
-Mail-Followup-To: Andrzej Hajda <andrzej.hajda@intel.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Mark Rutland <mark.rutland@arm.com>, linux-m68k@vger.kernel.org,
-	linux-ia64@vger.kernel.org, linux-sh@vger.kernel.org,
-	Peter Zijlstra <peterz@infradead.org>,
-	dri-devel@lists.freedesktop.org, linux-mips@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-hexagon@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	Boqun Feng <boqun.feng@gmail.com>, linux-xtensa@linux-xtensa.org,
-	Arnd Bergmann <arnd@arndb.de>, intel-gfx@lists.freedesktop.org,
-	openrisc@lists.librecores.org, loongarch@lists.linux.dev,
-	Rodrigo Vivi <rodrigo.vivi@intel.com>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	linux-arm-kernel@lists.infradead.org, linux-parisc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org
-References: <20221222114635.1251934-1-andrzej.hajda@intel.com>
- <20221222092147.d2bb177c67870884f2e59a9b@linux-foundation.org>
- <6e727952-3ad0-fcc3-82f1-c465dcffd56f@intel.com>
+        Thu, 05 Jan 2023 08:18:04 -0800 (PST)
+From: Jernej =?utf-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: Chen-Yu Tsai <wens@csie.org>,
+ Paul Kocialkowski <paul.kocialkowski@bootlin.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Samuel Holland <samuel@sholland.org>
+Cc: Samuel Holland <samuel@sholland.org>, Albert Ou <aou@eecs.berkeley.edu>,
+ Conor Dooley <conor@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Maxime Ripard <mripard@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-media@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-staging@lists.linux.dev, linux-sunxi@lists.linux.dev
+Subject:  Re: [PATCH 1/4] media: dt-bindings: cedrus: Allow power domain references
+Date: Thu, 05 Jan 2023 17:18:02 +0100
+Message-ID: <5891785.lOV4Wx5bFT@jernej-laptop>
+In-Reply-To: <20221231164628.19688-2-samuel@sholland.org>
+References:  <20221231164628.19688-1-samuel@sholland.org>
+ <20221231164628.19688-2-samuel@sholland.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <6e727952-3ad0-fcc3-82f1-c465dcffd56f@intel.com>
-X-Operating-System: Linux phenom 5.19.0-2-amd64 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230105_162950_273528_BA8C4370 
-X-CRM114-Status: GOOD (  40.10  )
+X-CRM114-CacheID: sfid-20230105_161801_507651_5E88E8F5 
+X-CRM114-Status: GOOD (  14.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,131 +108,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 29, 2022 at 10:54:50AM +0100, Andrzej Hajda wrote:
-> Forgive me late response - Holidays,
-> =
+Dne sobota, 31. december 2022 ob 17:46:24 CET je Samuel Holland napisal(a):
+> The Allwinner D1 SoC contains a separate power domain for its video
+> engine, controlled via the "PPU" power controller. Allow the
+> power-domains property so this can be represented in the devicetree.
+> 
+> Signed-off-by: Samuel Holland <samuel@sholland.org>
+> ---
+> 
+>  .../bindings/media/allwinner,sun4i-a10-video-engine.yaml       | 3 +++
+>  1 file changed, 3 insertions(+)
+> 
+> diff --git
+> a/Documentation/devicetree/bindings/media/allwinner,sun4i-a10-video-engine.
+> yaml
+> b/Documentation/devicetree/bindings/media/allwinner,sun4i-a10-video-engine.
+> yaml index 541325f900a1..d5be7f604e8c 100644
+> ---
+> a/Documentation/devicetree/bindings/media/allwinner,sun4i-a10-video-engine.
+> yaml +++
+> b/Documentation/devicetree/bindings/media/allwinner,sun4i-a10-video-engine.
+> yaml @@ -63,6 +63,9 @@ properties:
+>        CMA pool to use for buffers allocation instead of the default
+>        CMA pool.
+> 
+> +  power-domains:
+> +    maxItems: 1
 
-> On 22.12.2022 18:21, Andrew Morton wrote:
-> > On Thu, 22 Dec 2022 12:46:16 +0100 Andrzej Hajda <andrzej.hajda@intel.c=
-om> wrote:
-> > =
+Please add check if it's needed based on compatible. This yaml is one of the 
+few for sunxi platform which doesn't have strict checks. Same goes for sram 
+property.
 
-> > > Hi all,
-> > > =
+Best regards,
+Jernej
 
-> > > I hope there will be place for such tiny helper in kernel.
-> > > Quick cocci analyze shows there is probably few thousands places
-> > > where it could be useful.
-> > So to clarify, the intent here is a simple readability cleanup for
-> > existing open-coded exchange operations.
-> =
-
-> And replace private helpers with common one, see the last patch - the
-> ultimate goal
-> would be to replace all occurrences of fetch_and_zero with __xchg.
-> =
-
-> > The intent is *not* to
-> > identify existing xchg() sites which are unnecessarily atomic and to
-> > optimize them by using the non-atomic version.
-> > =
-
-> > Have you considered the latter?
-> =
-
-> If you mean some way of (semi-)automatic detection of such cases, then no.
-> Anyway this could be quite interesting challenge.
-
-My take is that unless there is very clear demand for this macro from
-outside of i915, it's not worth it. All that fetch_and_zero zero achieved
-is make i915 code a lot more confusing to read for people who don't know
-this thing. And it replaces 2 entirely standard lines of 0, every often
-clearing pointers in data structures where you really want the verbosity
-to have a reminder and thinking about the locking.
-
-Plus it smells way too much like the cmpxchg family of atomic functions,
-addig further to the locking confuion.
-
-Imo the right approach is to just open code this macro in i915 and then
-drop it. Again, unless enough people outside of i915 really really want
-this, and want to lift this to a kernel idiom.
--Daniel
-
-> =
-
-> > =
-
-> > > I am not sure who is good person to review/ack such patches,
-> > I can take 'em.
-> > =
-
-> > > so I've used my intuition to construct to/cc lists, sorry for mistake=
-s.
-> > > This is the 2nd approach of the same idea, with comments addressed[0].
-> > > =
-
-> > > The helper is tiny and there are advices we can leave without it, so
-> > > I want to present few arguments why it would be good to have it:
-> > > =
-
-> > > 1. Code readability/simplification/number of lines:
-> > > =
-
-> > > Real example from drivers/net/ethernet/mellanox/mlx5/core/esw/qos.c:
-> > > -       previous_min_rate =3D evport->qos.min_rate;
-> > > -       evport->qos.min_rate =3D min_rate;
-> > > +       previous_min_rate =3D __xchg(evport->qos.min_rate, min_rate);
-> > > =
-
-> > > For sure the code is more compact, and IMHO more readable.
-> > > =
-
-> > > 2. Presence of similar helpers in other somehow related languages/lib=
-s:
-> > > =
-
-> > > a) Rust[1]: 'replace' from std::mem module, there is also 'take'
-> > >      helper (__xchg(&x, 0)), which is the same as private helper in
-> > >      i915 - fetch_and_zero, see latest patch.
-> > > b) C++ [2]: 'exchange' from utility header.
-> > > =
-
-> > > If the idea is OK there are still 2 qestions to answer:
-> > > =
-
-> > > 1. Name of the helper, __xchg follows kernel conventions,
-> > >      but for me Rust names are also OK.
-> > I like replace(), or, shockingly, exchange().
-> > =
-
-> > But...   Can we simply make swap() return the previous value?
-> > =
-
-> > 	previous_min_rate =3D swap(&evport->qos.min_rate, min_rate);
-> =
-
-> As Alexander already pointed out, swap requires 'references' to two
-> variables,
-> in contrast to xchg which requires reference to variable and value.
-> So we cannot use swap for cases:
-> =A0=A0=A0 old_value =3D __xchg(&x, new_value);
-> =
-
-> Regards
-> Andrzej
-> =
+> +
+>  required:
+>    - compatible
+>    - reg
 
 
--- =
 
-Daniel Vetter
-Software Engineer, Intel Corporation
-http://blog.ffwll.ch
+
 
 _______________________________________________
 linux-riscv mailing list
