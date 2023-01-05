@@ -4,98 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0828BC4708E
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Jan 2023 19:12:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 123FBC3DA7A
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Jan 2023 19:48:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
+	Date:References:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gmL7n0x0vIwyXQkm7cdVl11uyP5/2uXgFKRCzw4N5aE=; b=1GMfVbTzU5z+wd
-	tb/K7Ep8h/7JDwS9BaySyEeOCHPe7ExuxLPm+0Lywoxyo/pyOT06HtcK7mzxFjQW0yy8+QPyToNEs
-	aeq2Ye5UZI8Tx1DuUfqhhP1HsI34GH4npW2fb23y8Klfg65Eb7g2J9Du5ShL7z1khmAmLNAog3lPE
-	fSu0ZhIZtv0gEodDEOPTaAqkKSHlhLY6tRvZvICoxm9YCSNY+oF+Im4emlktsl7+Xll4UxaavaLVp
-	IP4trtf5xlzXvS3EQjwFtimW51AvcIkvTPlwqp/u1dzjWiSJoadI3Xttxi+PmzuAotJnhcGuC/STf
-	rd4/vTzkYXmqS3Z3JJRw==;
+	List-Owner; bh=z86IyhTzfZMO8n8lurRjfEfmOS+9XNegBH0N4V+WS94=; b=NbSKq+5Y0Z2np+
+	HxFP/DT09ldPZLjf8UKIjivgX2koUt9Lj3jFhpAD8sHTPzdKCwZqeKCvVlpgEMug1+8Kh4UdGo7Cg
+	bKB3bzV7olDUDLwedkTtNzEciZwFeYv+iRqFUenVM1iFW1vSeZ0kM8WXi+mRcqkECMzYcdJ6DRdyj
+	dqSPUEkcW7mFtl7CRGN3i2XXvToFvhrkXUStCjWX3RS7yf6l9DSEH0obDSN+whCxsm8pWGwckBT7l
+	a4eexXDrJnOrEZNw3cV5c6fldP4vWY2NOz2r5VUujBHiOVu19lQi1xiavXdBJOMYxROiTMUe5g0r4
+	4VPf/FFIc/hWMzHgZcLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pDVex-00E0A3-KK; Thu, 05 Jan 2023 19:12:15 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5] helo=mx0a-001b2d01.pphosted.com)
+	id 1pDWDj-00EF8q-R4; Thu, 05 Jan 2023 19:48:11 +0000
+Received: from mail-out.m-online.net ([2001:a60:0:28:0:1:25:1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pDL8L-0089Ma-BX
-	for linux-riscv@lists.infradead.org; Thu, 05 Jan 2023 07:57:55 +0000
-Received: from pps.filterd (m0098416.ppops.net [127.0.0.1])
-	by mx0b-001b2d01.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 3057kFpV005404;
-	Thu, 5 Jan 2023 07:57:36 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=date : from : to : cc :
- subject : message-id : references : content-type : in-reply-to :
- mime-version; s=pp1; bh=leoUKZpjBHE4UPcagQvr1kAX5H/JI6p/RG60UJCclyY=;
- b=IgqTN/kEfTI7+A7L5Ni6SoM3wyHh/SoDM7MZuFvaTui7AExDcmQM8ShIfks4dkSw1Kn3
- SavU0leS0JioOtMzNHNgxqASkKcLr5roGdEUCnFKS7dWKyBRn6G/sFrEfrGKxW1Ra0ny
- kDC+f++MCBNuw4nUaFFsesfnzK9I/LL4Roe2ZEjsfys2isF8yN+ChuEeRQYKRxZ2IGH8
- TL0gatz/W+c9dKjugYwEKHjAofscNLjl1/W5/VanvF/uBnVvfyeic3hN9wUJcmeCcy+d
- /q7QQc2xpZ8UA3yVieCLbm6kBx4V05gAGrkQ6K/WT6MLUO7Is5du17ku1UXyldQpHaGW 7Q== 
-Received: from ppma06ams.nl.ibm.com (66.31.33a9.ip4.static.sl-reverse.com [169.51.49.102])
-	by mx0b-001b2d01.pphosted.com (PPS) with ESMTPS id 3mwtf186kf-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 05 Jan 2023 07:57:36 +0000
-Received: from pps.filterd (ppma06ams.nl.ibm.com [127.0.0.1])
-	by ppma06ams.nl.ibm.com (8.17.1.19/8.17.1.19) with ESMTP id 3054pLZu001428;
-	Thu, 5 Jan 2023 07:57:34 GMT
-Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
-	by ppma06ams.nl.ibm.com (PPS) with ESMTPS id 3mtcbfee38-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 05 Jan 2023 07:57:34 +0000
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 3057vTph20906728
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 5 Jan 2023 07:57:30 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id E06712004E;
-	Thu,  5 Jan 2023 07:57:29 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 0DD7720040;
-	Thu,  5 Jan 2023 07:57:29 +0000 (GMT)
-Received: from osiris (unknown [9.171.68.186])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Thu,  5 Jan 2023 07:57:28 +0000 (GMT)
-Date: Thu, 5 Jan 2023 08:57:27 +0100
-From: Heiko Carstens <hca@linux.ibm.com>
+	id 1pDMR8-009TF8-6y; Thu, 05 Jan 2023 09:21:33 +0000
+Received: from frontend03.mail.m-online.net (unknown [192.168.6.182])
+	by mail-out.m-online.net (Postfix) with ESMTP id 4Nngv62wn5z1s89H;
+	Thu,  5 Jan 2023 10:21:06 +0100 (CET)
+Received: from localhost (dynscan3.mnet-online.de [192.168.6.84])
+	by mail.m-online.net (Postfix) with ESMTP id 4Nngv558R4z1qqlR;
+	Thu,  5 Jan 2023 10:21:05 +0100 (CET)
+X-Virus-Scanned: amavisd-new at mnet-online.de
+Received: from mail.mnet-online.de ([192.168.8.182])
+	by localhost (dynscan3.mail.m-online.net [192.168.6.84]) (amavisd-new, port 10024)
+	with ESMTP id BAUSzBWqsYNC; Thu,  5 Jan 2023 10:21:03 +0100 (CET)
+X-Auth-Info: ULmWuHDbYpDzw7fgn9yZLoIMWYSx2BoKlnKiH1/oFq17cjDTOLj3zE3OV4yRXdz9
+Received: from igel.home (aftr-62-216-205-97.dynamic.mnet-online.de [62.216.205.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.mnet-online.de (Postfix) with ESMTPSA;
+	Thu,  5 Jan 2023 10:21:03 +0100 (CET)
+Received: by igel.home (Postfix, from userid 1000)
+	id 881052C126D; Thu,  5 Jan 2023 10:21:03 +0100 (CET)
+From: Andreas Schwab <schwab@linux-m68k.org>
 To: Masahiro Yamada <masahiroy@kernel.org>
-Cc: Vasily Gorbik <gor@linux.ibm.com>,
-        Alexander Gordeev <agordeev@linux.ibm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Sven Schnelle <svens@linux.ibm.com>, linux-s390@vger.kernel.org,
-        linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
-        linux-kbuild@vger.kernel.org, Nathan Chancellor <nathan@kernel.org>,
-        Albert Ou <aou@eecs.berkeley.edu>,
-        Josh Poimboeuf <jpoimboe@kernel.org>,
-        Palmer Dabbelt <palmer@dabbelt.com>,
-        Paul Walmsley <paul.walmsley@sifive.com>,
-        linux-riscv@lists.infradead.org
-Subject: Re: [PATCH] s390: define RUNTIME_DISCARD_EXIT to fix link error with
- GNU ld < 2.36
-Message-ID: <Y7aC50LZK1t8Eysg@osiris>
-References: <20230105031306.1455409-1-masahiroy@kernel.org>
-Content-Disposition: inline
-In-Reply-To: <20230105031306.1455409-1-masahiroy@kernel.org>
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: kCFQebmxhKqPUH_Qcm2PDBEL4M6DeUEX
-X-Proofpoint-ORIG-GUID: kCFQebmxhKqPUH_Qcm2PDBEL4M6DeUEX
-X-Proofpoint-UnRewURL: 0 URL was un-rewritten
+Cc: Nathan Chancellor <nathan@kernel.org>,  linux-arch@vger.kernel.org,
+  linux-kbuild@vger.kernel.org,  linux-kernel@vger.kernel.org,  Ard
+ Biesheuvel <ardb@kernel.org>,  Thorsten Leemhuis
+ <regressions@leemhuis.info>,  Catalin Marinas <catalin.marinas@arm.com>,
+  Will Deacon <will@kernel.org>,  linux-arm-kernel@lists.infradead.org,
+  linux-riscv@lists.infradead.org,  Dennis Gilmore <dennis@ausil.us>,
+  Albert Ou <aou@eecs.berkeley.edu>,  Arnd Bergmann <arnd@arndb.de>,
+  Jisheng Zhang <jszhang@kernel.org>,  Nicolas Schier <nicolas@fjasle.eu>,
+  Palmer Dabbelt <palmer@dabbelt.com>,  Paul Walmsley
+ <paul.walmsley@sifive.com>,  llvm@lists.linux.dev
+Subject: Re: [PATCH v2] arch: fix broken BuildID for arm64 and riscv
+References: <20221226184537.744960-1-masahiroy@kernel.org>
+	<Y7Jal56f6UBh1abE@dev-arch.thelio-3990X>
+	<CAK7LNAQ-MWhbiTX=phy3uzmNn+6ABZmi49D6d1n1-k-jxcQzgA@mail.gmail.com>
+X-Yow: BEEP-BEEP!!  I'm a '49 STUDEBAKER!!
+Date: Thu, 05 Jan 2023 10:21:03 +0100
+In-Reply-To: <CAK7LNAQ-MWhbiTX=phy3uzmNn+6ABZmi49D6d1n1-k-jxcQzgA@mail.gmail.com>
+	(Masahiro Yamada's message of "Thu, 5 Jan 2023 12:22:50 +0900")
+Message-ID: <87fscp2v7k.fsf@igel.home>
+User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/28.2 (gnu/linux)
 MIME-Version: 1.0
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.205,Aquarius:18.0.923,Hydra:6.0.545,FMLib:17.11.122.1
- definitions=2023-01-05_02,2023-01-04_02,2022-06-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
- clxscore=1011 phishscore=0 mlxlogscore=999 impostorscore=0 spamscore=0
- suspectscore=0 adultscore=0 lowpriorityscore=0 malwarescore=0 bulkscore=0
- mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2212070000 definitions=main-2301050062
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230104_235753_705218_7A7F5147 
-X-CRM114-Status: GOOD (  25.02  )
+X-CRM114-CacheID: sfid-20230105_012122_439446_DA78C1C2 
+X-CRM114-Status: GOOD (  13.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,55 +85,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 05, 2023 at 12:13:06PM +0900, Masahiro Yamada wrote:
-> Nathan Chancellor reports that the s390 vmlinux fails to link with
-> GNU ld < 2.36 since commit 99cb0d917ffa ("arch: fix broken BuildID
-> for arm64 and riscv").
-> 
-> It happens for defconfig, or more specifically for CONFIG_EXPOLINE=y.
-> 
->   $ s390x-linux-gnu-ld --version | head -n1
->   GNU ld (GNU Binutils for Debian) 2.35.2
->   $ make -s ARCH=s390 CROSS_COMPILE=s390x-linux-gnu- allnoconfig
->   $ ./scripts/config -e CONFIG_EXPOLINE
->   $ make -s ARCH=s390 CROSS_COMPILE=s390x-linux-gnu- olddefconfig
->   $ make -s ARCH=s390 CROSS_COMPILE=s390x-linux-gnu-
->   `.exit.text' referenced in section `.s390_return_reg' of drivers/base/dd.o: defined in discarded section `.exit.text' of drivers/base/dd.o
->   make[1]: *** [scripts/Makefile.vmlinux:34: vmlinux] Error 1
->   make: *** [Makefile:1252: vmlinux] Error 2
-> 
-> arch/s390/kernel/vmlinux.lds.S wants to keep EXIT_TEXT:
-> 
->         .exit.text : {
->                 EXIT_TEXT
->         }
-> 
-> But, at the same time, EXIT_TEXT is thrown away by DISCARD because
-> s390 does not define RUNTIME_DISCARD_EXIT.
-> 
-> I still do not understand why the latter wins after 99cb0d917ffa,
-> but defining RUNTIME_DISCARD_EXIT seems correct because the comment
-> line in arch/s390/kernel/vmlinux.lds.S says:
-> 
->         /*
->          * .exit.text is discarded at runtime, not link time,
->          * to deal with references from __bug_table
->          */
-> 
-> Nathan also found that binutils commit 21401fc7bf67 ("Duplicate output
-> sections in scripts") cured this issue, so we cannot reproduce it with
-> binutils 2.36+, but it is better to not rely on it.
-> 
-> Fixes: 99cb0d917ffa ("arch: fix broken BuildID for arm64 and riscv")
-> Link: https://lore.kernel.org/all/Y7Jal56f6UBh1abE@dev-arch.thelio-3990X/
-> Reported-by: Nathan Chancellor <nathan@kernel.org>
-> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
-> ---
-> 
->  arch/s390/kernel/vmlinux.lds.S | 2 ++
->  1 file changed, 2 insertions(+)
+On Jan 05 2023, Masahiro Yamada wrote:
 
-Applied, thanks!
+> I do not understand why 99cb0d917ffa affected this.
+>
+>
+> I submitted a fix to shoot the error message "discarded section .exit.text"
+>
+> https://lore.kernel.org/all/20230105031306.1455409-1-masahiroy@kernel.org/T/#u
+>
+> I do not understand the binutils commit either,
+> but it might have made something good
+> because EXIT_TEXT appears twice, in .exit.text, and /DISCARD/.
+
+I think the issue is that the introdution of a second /DISCARD/
+directive early in script changes the order of evaluation of the other
+/DISCARD/ directive when binutils < 2.36 is used, so that the missing
+RUNTIME_DISCARD_EXIT started to become relevant.  As long as /DISCARD/
+only appears last, the effect of EXIT_TEXT inside it is always
+overridden by its occurence in the .exit.exit output section directive.
+When another /DISCARD/ occurs early (and binutils < 2.36 is used) the
+effect of EXIT_TEXT inside the second /DISCARD/ (when merged with the
+first) overrides its occurence in the .exit.text directive.  The
+binutils commit changed that because the new /DISCARD/ directive no
+longer affects the order of evaluation of the rest of the directives.
+
+-- 
+Andreas Schwab, schwab@linux-m68k.org
+GPG Key fingerprint = 7578 EB47 D4E5 4D69 2510  2552 DF73 E780 A9DA AEC1
+"And now for something completely different."
 
 _______________________________________________
 linux-riscv mailing list
