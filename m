@@ -4,62 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7451EC3DA7A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94D3CC54E76
 	for <linux-riscv@archiver.kernel.org>; Fri,  6 Jan 2023 01:01:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Date:Message-Id
+	:Subject:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nGKTtKP2OHyc6V6H+BZoOGadZYSKksTng5mu3wcVPDM=; b=j8wMr+ag15L/Ju
-	wRbukePwXViz+wt1ujiAnZvT4opceeK7siLTMz35pUrMmXZTJcv+zCog8TIlW3qlKLqxKQ8NgL65J
-	b8UebnhH1PtDcwUB5aHEYn+mZTQTLFRQUAJAATLWl08CP4yc7ionzxdY7NnKc2VBK/VwX87zd3Rdn
-	R9aE9w6XiEjkYjQ9S840I3RHq35wClotv8p6fWeV+l4hKs7AIfUsi0BkGtP+pyZhiM4Efylh/ILii
-	pDw5erGvJ8jHpQO/G20HuV6w7dHna0X3AauiwHobEejgieD6cJOIftuV/8Cig1oJVN0Z77YWOlhcB
-	jYYPk+38lysqJ3CFzLUg==;
+	List-Owner; bh=6S4Fs3/nM28b1xwNU38TI7/8TdOTUBgCJyDOpPqI80I=; b=I1nHYuJeXu+Yr6
+	4QNwHse26zuK5y1EFfj4fOMG7Y3sqFsBMaBbKYMQj/IfTlHhpzEeyx/7HbaDH6oEwRDkQp/pEMckI
+	4z3M0405cPNvCywuZ5vhYh/o96foGUMhdvUZpX4WnLx7170JNOgQYQftyXm/w6ZyGIOiPErXLEUsi
+	5J7S1UWhqfx1bEa1W8bLFRDP4PyDid6c+B5h7h8JyBpdrt2PpMGtAfTx9DDSMVLJsJ60jtFCtxGNg
+	ehxeiG13tLLXYVVf9DN4Ean9XEjBVcsOEKgTwrCgmOMKVZv1M4FJCz54hWK6Q90V3NQ64CapHyl//
+	5pYFzfEWvmln3xPTcusQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pDZvx-00GIOw-AA; Thu, 05 Jan 2023 23:46:05 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1pDZvI-00GHwy-Eo; Thu, 05 Jan 2023 23:45:24 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pDZDf-00Fsw4-Lo
-	for linux-riscv@lists.infradead.org; Thu, 05 Jan 2023 23:00:21 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 91E80B81B07;
-	Thu,  5 Jan 2023 23:00:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 3B454C433EF;
-	Thu,  5 Jan 2023 23:00:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1672959616;
-	bh=BGCX8lkKaNvfirMazSGGcGK0Qxa9sByloCjt7nCQRoU=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=UQ3+MksAZC20zTZVswmy3PregvLQZdaeYZs8A5z3DKvw6Ze/WJd6yhQkdL8UL5h17
-	 FDeL/IU59lLMN1VNZD/wZ5JsUzceszNW2zQnSMtyYQsTisxyP1rFwlS1p+R8k+lUfW
-	 lvuc/peDABG/kaNGeQ563UP7tGkYsRUcl16XFaUen5w5qUrLGGJzKMrOXs3otODo3Q
-	 SPw721PUS9Rx/EqmZzWKTzXtr2wyRL3+VWtQfnKhfNBGl0wd4Toss8GakYwBxd0xrp
-	 rJ3j4dEJ09WTRAzvmMyWAPuPEdCsIbDET27C2OW2SMdcOb60p8u0zegR9k9986ol4B
-	 SMMdTWvBOGYEg==
-Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 23419E5724A;
-	Thu,  5 Jan 2023 23:00:16 +0000 (UTC)
+	id 1pDZ6O-00FoY9-UI
+	for linux-riscv@lists.infradead.org; Thu, 05 Jan 2023 22:52:52 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9so24132776pll.9
+        for <linux-riscv@lists.infradead.org>; Thu, 05 Jan 2023 14:52:47 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
+         :subject:references:in-reply-to:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=t+1Y716yohfg2jJGDpC9Mm0+rOnzxTQAu/sHCuPL2KM=;
+        b=cSFo5FtDyzZrfSrtCo1vjOfuJZcmya6aX4EMIfNS1PiiCCw8R8o6I4HXTDYLIFPD7G
+         l6oqGMbt8PyZ6OwKyzxMZfbegOurfyE/nUvQwzhwpYrbXneMJHC7wMS6T688rCg3BHQq
+         ILn9lAG7Tl7mqlTkmwqzx0WU2uUPUWJRYYefxW3UqcEjt710QNf5GoYxx4Aj3sVlKihE
+         zSt5dylARz/0v5Cr4sZDwibB0ttSeZDIXpL9HhwsGN1TBaRbHC4AMOe6qpo7Ivgp29Mu
+         /zy4X3C2I8XT42IZoAOT57ZN9grxz3SLI/yK2+ksRsmHZiTSQqiYeqtIjmQMPsXN7CTa
+         Gspw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
+         :subject:references:in-reply-to:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=t+1Y716yohfg2jJGDpC9Mm0+rOnzxTQAu/sHCuPL2KM=;
+        b=tMijQEnn7mcQGrr2QTNHgvTgIh4ymBrdyWJV6jBRsWlYAe+hAw/HtKv7kY3u+uSzfY
+         VFmtkUsyXwZP0LsfeDOtoJplKCgO+UrZsqyrOvdkqYdWvi8zK2fOk+fH04L5Ap+O3o8E
+         7fCU2my22rcgy5dPqAcYED+edQWpBAHz/5b8sxbragJNqGWnwURADfzSZ5TTrwlyDDAs
+         KJv+vZmlRFcS+8k0AG9MrLHjnusrnAEmQR8Q24VTnZ9PmNAaRL95Yy4MYQCU1uLzlSyG
+         5/KHeVuYNPaCSv8yP7MONb1JbeoUfvIxRwBTe3ShA+MpYgtnGVVeoJYcppzc+xj7vK/d
+         5yjw==
+X-Gm-Message-State: AFqh2krq1GAGinN3s9CYrzWetkH154oK89neqqV9gxyrxvbxPJTuQn3t
+	RM0anVL97rio3xzb8+qx2S9AgA==
+X-Google-Smtp-Source: AMrXdXsoKJStIchx2BZIfo8Eg67U5VNU3bl12wCIA53l5gcY0eYpsbkfTpGyQx0osjXFjVIhrppiVQ==
+X-Received: by 2002:a17:903:50e:b0:189:bda4:4a39 with SMTP id jn14-20020a170903050e00b00189bda44a39mr52342354plb.49.1672959166962;
+        Thu, 05 Jan 2023 14:52:46 -0800 (PST)
+Received: from localhost ([135.180.226.51])
+        by smtp.gmail.com with ESMTPSA id j2-20020a170902758200b0019269969d14sm23675642pll.282.2023.01.05.14.52.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 05 Jan 2023 14:52:46 -0800 (PST)
+In-Reply-To: <20221229170545.718264-1-ben-linux@fluff.org>
+References: <20221229170545.718264-1-ben-linux@fluff.org>
+Subject: Re: [PATCH] riscv: uaccess: fix type of 0 variable on error in get_user()
+Message-Id: <167295914585.11542.3959390296046499334.b4-ty@rivosinc.com>
+Date: Thu, 05 Jan 2023 14:52:25 -0800
 MIME-Version: 1.0
-Subject: Re: [PATCH] riscv, kprobes: Stricter c.jr/c.jalr decoding
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id:  <167295961613.27641.13795817742406776564.git-patchwork-notify@kernel.org>
-Date: Thu, 05 Jan 2023 23:00:16 +0000
-References: <20230102160748.1307289-1-bjorn@kernel.org>
-In-Reply-To: <20230102160748.1307289-1-bjorn@kernel.org>
-To: =?utf-8?b?QmrDtnJuIFTDtnBlbCA8Ympvcm5Aa2VybmVsLm9yZz4=?=@ci.codeaurora.org
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, guoren@kernel.org,
- bjorn@rivosinc.com, linux-kernel@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org
+X-Mailer: b4 0.11.0-dev-e660e
+Cc: aou@eecs.berkeley.edu, Paul Walmsley <paul.walmsley@sifive.com>,
+  linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: linux-riscv@lists.infradead.org, Ben Dooks <ben-linux@fluff.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230105_150019_965887_B76ACC46 
-X-CRM114-Status: UNSURE (   9.13  )
+X-CRM114-CacheID: sfid-20230105_145249_014201_052CFE14 
+X-CRM114-Status: UNSURE (   7.42  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -72,25 +86,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGVsbG86CgpUaGlzIHBhdGNoIHdhcyBhcHBsaWVkIHRvIHJpc2N2L2xpbnV4LmdpdCAoZml4ZXMp
-CmJ5IFBhbG1lciBEYWJiZWx0IDxwYWxtZXJAcml2b3NpbmMuY29tPjoKCk9uIE1vbiwgIDIgSmFu
-IDIwMjMgMTc6MDc6NDggKzAxMDAgeW91IHdyb3RlOgo+IEZyb206IEJqw7ZybiBUw7ZwZWwgPGJq
-b3JuQHJpdm9zaW5jLmNvbT4KPiAKPiBJbiB0aGUgY29tcHJlc3NlZCBpbnN0cnVjdGlvbiBleHRl
-bnNpb24sIGMuanIsIGMuamFsciwgYy5tdiwgYW5kIGMuYWRkCj4gaXMgZW5jb2RlZCB0aGUgZm9s
-bG93aW5nIHdheSAoZWFjaCBpbnN0cnVjdGlvbiBpcyAxNmIpOgo+IAo+IC0tLSstKy0tLS0tLS0t
-LS0tKy0tLS0tLS0tLS0tKy0tCj4gMTAwIDAgcnMxWzQ6MF0hPTAgICAgICAgMDAwMDAgMTAgOiBj
-LmpyCj4gMTAwIDEgcnMxWzQ6MF0hPTAgICAgICAgMDAwMDAgMTAgOiBjLmphbHIKPiAxMDAgMCAg
-cmRbNDowXSE9MCByczJbNDowXSE9MCAxMCA6IGMubXYKPiAxMDAgMSAgcmRbNDowXSE9MCByczJb
-NDowXSE9MCAxMCA6IGMuYWRkCj4gCj4gWy4uLl0KCkhlcmUgaXMgdGhlIHN1bW1hcnkgd2l0aCBs
-aW5rczoKICAtIHJpc2N2LCBrcHJvYmVzOiBTdHJpY3RlciBjLmpyL2MuamFsciBkZWNvZGluZwog
-ICAgaHR0cHM6Ly9naXQua2VybmVsLm9yZy9yaXNjdi9jL2IyZDQ3M2E2MDE5ZQoKWW91IGFyZSBh
-d2Vzb21lLCB0aGFuayB5b3UhCi0tIApEZWV0LWRvb3QtZG90LCBJIGFtIGEgYm90LgpodHRwczov
-L2tvcmcuZG9jcy5rZXJuZWwub3JnL3BhdGNod29yay9wd2JvdC5odG1sCgoKCl9fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
-bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
-YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Thu, 29 Dec 2022 17:05:45 +0000, Ben Dooks wrote:
+> If the get_user(x, ptr) has x as a pointer, then the setting
+> of (x) = 0 is going to produce the following sparse warning,
+> so fix this by forcing the type of 'x' when access_ok() fails.
+> 
+> fs/aio.c:2073:21: warning: Using plain integer as NULL pointer
+> 
+> 
+> [...]
+
+Applied, thanks!
+
+[1/1] riscv: uaccess: fix type of 0 variable on error in get_user()
+      https://git.kernel.org/palmer/c/b9b916aee671
+
+Best regards,
+-- 
+Palmer Dabbelt <palmer@rivosinc.com>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
