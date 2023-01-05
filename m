@@ -4,87 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C9A5C3DA7A
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Jan 2023 22:02:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C01FC4708E
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Jan 2023 22:20:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YQYtZ2hnl8fsRusaRa/l2D2QAjEF+UeuT6vA25MiBV8=; b=FW1za4Pgpf8sfq
-	te19okCv4LGR4lm2ZVuJrPzIee7nxH6tCsIJEbXDilml+us1ekqMWeXUXbe+a3s2Dn0U62HwsJfuP
-	mhYzfRPx9frn/5B+hxjw/jyhzll6o7hAFgIH3VWO/Rbu8MRt2Cm0zrpx8OBw9n71dV2cWAzOGLqfq
-	Mi62DQSVmR07BUXvETt2EFEn3krp6Vw5YcWA/FAdFrR/Qu6npWEpzkFrWgV1mOq5yeL8cm+g6pl8j
-	nb5LU6d11yYmaeiugiC+4FIPRZs1b5qZCD3hlXwo8e7kwTs3fWTZYY3Y7HjjfOmAHcKskrhlI58Nr
-	UdifPxv/WAI7mYpKXuLQ==;
+	List-Owner; bh=CqUw86ODWI19bBWSKo8UQmJkeoaLqmexzF6ASXbNPEw=; b=UvDti+DIVSEMcZ
+	gT/khWs9UttYEDBNbsZpq/7mo33b1GmQpMKLS6qE0et9XQec7slfszPBKChiVRuZ0mbk3Ag3Zbm3F
+	hEz+8SBePnbugg7/w+8mI6yIAp8pIMRc6Ax+Igkfx/oV9UR2ibGR0BoIRFzOzlczJ6LjmU7VI6Odc
+	onE1PIQb7mqfPoODm4S7nV/pCnImulSxa98MC6uGpisX9FHyXBrzhigd6Y7m/ndKd5NLcA0mQ2NcZ
+	nsfL3U0g+4MDMKZB+D7LDig34G0o+oMPxQsT5pARoMzHLD+G1KYwomHAdCMe4tr2l3HogineorfBJ
+	Vv/CVxsFyub25F+Hyq1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pDYJt-00FO1M-7P; Thu, 05 Jan 2023 22:02:41 +0000
+	id 1pDYaZ-00FWdN-Vk; Thu, 05 Jan 2023 22:19:56 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pDV8E-00DiPu-5n; Thu, 05 Jan 2023 18:38:26 +0000
+	id 1pDVEN-00Dmuq-QF
+	for linux-riscv@bombadil.infradead.org; Thu, 05 Jan 2023 18:44:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
-	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=BBHlHFjvBOpIfsbcY2ZKG4d9UzzxTv3MkxdumEwPTwM=; b=V8SEDixXnUYlAhVMmIXhPFziJk
-	ecsYLVl8zE/PmdsAKea5rQPmAmwJbTSPoGMRCK04Z3uu042aHbJ97n8xTNp4e56gysEiN9+rOILYs
-	3SOKFZ0h9Kig85B+QkeNOkRUTP0n6hD5hMHMPS7eg6mUKdkLI8y84cJlFqeL91zFppkn+dXEy4P/0
-	JJYqbGSsrzhDI4PoUor6tekktKAR88lkokn0cinOZ7mvbyAbzMjmFkovQEC7c+oQJ9jSqBUBnKMgl
-	TV3jhgpLmRgWeJ39anqQJqXIK0dTDIMmz6CNCHCtpSU3CgbG825mZJlp8iW36z91iZIr94kGFIiYa
-	pkEE9T9w==;
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=eORmBwNQAesO9AcSinEDm05/pdBlXMbb+3YQtNK7hbE=; b=GDJdqgrz72COOhSXh+K+rfFcc3
+	bwz0XOaI6BZdJgTCP0edxFPNsCd2P/uWytjAooSmCnXKvqoLZVWqpa5CrRLhiiYaQZuVPcLsmg+ng
+	XUkmfOa+GpUqwaWgQioA395iY1MHvnlFSXBTJwNpnHX8bITLZO9R5fRv6PVgmFJJ8tJ+iMjbu9PJI
+	CiaV+qQnG5gXJM7iHXOUe0bRK42w4FsItX3yM/Cc9PmF3YzaaKDALXcStV5btKktxSPQIrHAl+9TP
+	cvM8rYxjXW78pjnZvpr/XFG9NQHJlYwu+Hu/hFvmKrXwsM8d9wInL9l7+nrWwLG9/egifESMctNz/
+	GVDKO3kg==;
+Received: from gloria.sntech.de ([185.11.138.130])
 	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pDQdT-001MLt-0R;
-	Thu, 05 Jan 2023 13:50:25 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 397A5B81AE8;
-	Thu,  5 Jan 2023 13:50:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C940C43398;
-	Thu,  5 Jan 2023 13:50:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1672926623;
-	bh=9rsuUbz5CFNU3FwjG7vhE4crM2pZKjhb8A7QPVly1mA=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=sMNHJLA1AOuvHY4rKQLB05My6d9puPX+E16ZcLmQYery0xzrUtkasYGUUvZSw/2Gq
-	 iP8FseZ8M+ZTiyBokv3MfF+UUnVR6GdBzMg1R+wIqcwCqhWdc9pqu7YKFhmuxUM/uI
-	 RfZ9f8U4Vt07XRsdueVEO7W4zf0Uc781pkqLmYk/W+bQgZ/5XZs938GEhXCk3UXKSQ
-	 RptMX4nmwUyj0pZdhCir3ZuMs3E7r5NrwqQ3TqAGGmsvLYlFtLTBrxYLPTdbYXMtL0
-	 17Oi+YHcFv4pATeaiVhmhiUW/nZF4uAPDfc8ojr1giiRRAc6OlytnhbZOQSEp/Lk4C
-	 615SVG6DEl1DQ==
-Received: by mail-oi1-f174.google.com with SMTP id e205so31972482oif.11;
-        Thu, 05 Jan 2023 05:50:23 -0800 (PST)
-X-Gm-Message-State: AFqh2kqBN8XJbEvyr1mrZt/Pyp0+9txKRuDmSTsJOFwfo8EnnC88ic66
-	O9JFIB25T/xCh+OUjClGd5HYGmX/i2x4hvvHomI=
-X-Google-Smtp-Source: AMrXdXsQ8eHuE5T9wbS/TSFR1VCmUEYQReFWODFWTDVkrBErc+HlOKeIJraKJb0jPNiJNVbMRBUU85Biyah+tr4UtiE=
-X-Received: by 2002:aca:3755:0:b0:35e:7c55:b015 with SMTP id
- e82-20020aca3755000000b0035e7c55b015mr2913154oia.287.1672926622568; Thu, 05
- Jan 2023 05:50:22 -0800 (PST)
+	id 1pDSsr-001Tct-1q
+	for linux-riscv@lists.infradead.org;
+	Thu, 05 Jan 2023 16:14:27 +0000
+Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1pDSss-0000bl-60; Thu, 05 Jan 2023 17:14:26 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: Conor Dooley <conor@kernel.org>, palmer@dabbelt.com, linux-riscv@lists.infradead.org, christoph.muellner@vrull.eu, philipp.tomsich@vrull.eu
+Subject: Re: [PATCH] RISC-V: fix compile error from decuplicated __ALTERNATIVE_CFG_2
+Date: Thu, 05 Jan 2023 17:14:25 +0100
+Message-ID: <2687391.jE0xQCEvom@diego>
+In-Reply-To: <20230105150045.ksqcqsypnog425gi@orel>
+References: <20230103214228.841297-1-heiko@sntech.de> <2035002.VLH7GnMWUR@diego> <20230105150045.ksqcqsypnog425gi@orel>
 MIME-Version: 1.0
-References: <20221226184537.744960-1-masahiroy@kernel.org> <Y7Jal56f6UBh1abE@dev-arch.thelio-3990X>
- <CAK7LNAQ-MWhbiTX=phy3uzmNn+6ABZmi49D6d1n1-k-jxcQzgA@mail.gmail.com>
- <87fscp2v7k.fsf@igel.home> <CAMj1kXGD3wQUPsRhvD7bO9xBJ6NR=Z+y8wXmKSCs57Oeh3MzGw@mail.gmail.com>
-In-Reply-To: <CAMj1kXGD3wQUPsRhvD7bO9xBJ6NR=Z+y8wXmKSCs57Oeh3MzGw@mail.gmail.com>
-From: Masahiro Yamada <masahiroy@kernel.org>
-Date: Thu, 5 Jan 2023 22:49:46 +0900
-X-Gmail-Original-Message-ID: <CAK7LNASX4oJO+ciA6RRW35qDgD+39iWDVhW0LX_eQne+PDBVgA@mail.gmail.com>
-Message-ID: <CAK7LNASX4oJO+ciA6RRW35qDgD+39iWDVhW0LX_eQne+PDBVgA@mail.gmail.com>
-Subject: Re: [PATCH v2] arch: fix broken BuildID for arm64 and riscv
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Andreas Schwab <schwab@linux-m68k.org>, Nathan Chancellor <nathan@kernel.org>, linux-arch@vger.kernel.org, 
-	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Thorsten Leemhuis <regressions@leemhuis.info>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, Dennis Gilmore <dennis@ausil.us>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>, 
-	Jisheng Zhang <jszhang@kernel.org>, Nicolas Schier <nicolas@fjasle.eu>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, llvm@lists.linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230105_135023_264675_7330071F 
-X-CRM114-Status: GOOD (  22.06  )
+X-CRM114-CacheID: sfid-20230105_161425_682242_1B761C19 
+X-CRM114-Status: GOOD (  27.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,64 +68,95 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 5, 2023 at 6:27 PM Ard Biesheuvel <ardb@kernel.org> wrote:
->
-> On Thu, 5 Jan 2023 at 10:21, Andreas Schwab <schwab@linux-m68k.org> wrote:
-> >
-> > On Jan 05 2023, Masahiro Yamada wrote:
-> >
-> > > I do not understand why 99cb0d917ffa affected this.
-> > >
-> > >
-> > > I submitted a fix to shoot the error message "discarded section .exit.text"
-> > >
-> > > https://lore.kernel.org/all/20230105031306.1455409-1-masahiroy@kernel.org/T/#u
-> > >
-> > > I do not understand the binutils commit either,
-> > > but it might have made something good
-> > > because EXIT_TEXT appears twice, in .exit.text, and /DISCARD/.
-> >
-> > I think the issue is that the introdution of a second /DISCARD/
-> > directive early in script changes the order of evaluation of the other
-> > /DISCARD/ directive when binutils < 2.36 is used, so that the missing
-> > RUNTIME_DISCARD_EXIT started to become relevant.  As long as /DISCARD/
-> > only appears last, the effect of EXIT_TEXT inside it is always
-> > overridden by its occurence in the .exit.exit output section directive.
-> > When another /DISCARD/ occurs early (and binutils < 2.36 is used) the
-> > effect of EXIT_TEXT inside the second /DISCARD/ (when merged with the
-> > first) overrides its occurence in the .exit.text directive.  The
-> > binutils commit changed that because the new /DISCARD/ directive no
-> > longer affects the order of evaluation of the rest of the directives.
-> >
->
-> Exactly. The binutils change mentions output section merging, which
-> apparently applies to the /DISCARD/ pseudo section as well.
->
-> However, powerpc was also affected by this, and I suggested another
-> fix in the thread below
->
-> https://lore.kernel.org/all/20230103014535.GA313835@roeck-us.net/
+Am Donnerstag, 5. Januar 2023, 16:00:45 CET schrieb Andrew Jones:
+> On Wed, Jan 04, 2023 at 04:58:00PM +0100, Heiko St=FCbner wrote:
+> > Hi again,
+> > =
+
+> > Am Mittwoch, 4. Januar 2023, 15:08:33 CET schrieb Andrew Jones:
+> > > On Wed, Jan 04, 2023 at 01:29:25PM +0000, Conor Dooley wrote:
+> > > > On Tue, Jan 03, 2023 at 10:42:28PM +0100, Heiko Stuebner wrote:
+> > > > > From: Heiko Stuebner <heiko.stuebner@vrull.eu>
+> > > > =
+
+> > > > > RISC-V: fix compile error from decuplicated __ALTERNATIVE_CFG_2
+> > > > =
+
+> > > > Hey Heiko/Palmer,
+> > > > =
+
+> > > > Was a little hard to tell from Drew's mail if he was objecting to t=
+his
+> > > > variant of the patch, but FWIW s/decup/dedup/ if this gets applied
+> > > > as-is.
+> > > =
+
+> > > I wasn't completely objecting, but rather suggesting we still try to
+> > > factor out what we can. However, after reading a bit more about macros
+> > > I tried this
+> > > =
+
+> > >  .macro ALTERNATIVE_CFG_2 old_c, new_c_1, vendor_id_1, errata_id_1, e=
+nable_1,   \
+> > >                                 new_c_2, vendor_id_2, errata_id_2, en=
+able_2
+> > > -       ALTERNATIVE_CFG \old_c, \new_c_1, \vendor_id_1, \errata_id_1,=
+ \enable_1
+> > > +       ALTERNATIVE_CFG "\old_c", "\new_c_1", \vendor_id_1, \errata_i=
+d_1, \enable_1
+> > >         ALT_NEW_CONTENT \vendor_id_2, \errata_id_2, \enable_2, \new_c=
+_2
+> > >  .endm
+> > > =
+
+> > > which appears to work for my simple test. Does that work for you too,
+> > > Heiko? If so, then I think I'd prefer we do that. Also, we may want t=
+o add
+> > > quotes to all macro arguments which may contain spaces, even if things
+> > > seem to work now, e.g. the \new_c_2 argument passed to ALT_NEW_CONTEN=
+T.
+> > =
+
+> > Yay ... adding quotes really seems to work - at least a GNU toolchain
+> =
+
+> clang isn't complaining for my test either.
+
+Nice =
 
 
-Thanks for the pointer.
+> =
 
-(and sorry, I did not notice that thread, and missed to reply promptly)
+> > =
+
+> > I guess that may have been the reason to move new_c at the end and maki=
+ng
+> > it vararg in ALT_NEW_CONTENT originally.
+> > =
+
+> > And in fact with added quotes the varargs argument wouldn't be necessary
+> > anymore.
+> > =
+
+> > Just removing the varargs argument alone results in
+> > 	Error: too many positional arguments
+> > erros, but wrapping the "\new_c*" in quotes lets it compile again.
+> =
+
+> Excellent news. Do you plan to post the patch? Or should I post with your
+> Reported-by tag?
+
+I was planning on posting this today. Did the v2 an hour ago :-)
 
 
-Your fix will work globally.
-I left some comments in that thread.
+Heiko
 
 
-
-
--- 
-Best Regards
-Masahiro Yamada
 
 _______________________________________________
 linux-riscv mailing list
