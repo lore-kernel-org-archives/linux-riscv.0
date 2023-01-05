@@ -4,96 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1478C54EBC
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Jan 2023 21:12:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54DA9C3DA7A
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Jan 2023 21:16:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aIVMuUGgEzhizv00Xqrb6gRFshDb8e8+5NoAhDuRNz4=; b=I+uVuThpnQXlXK
-	3meR/EkXMesUU5u0wR2/YBlqr9Z9ckzD3b5AY+N+MsN3cr6+FIM/lUG677HTITX1nG1wqAxSC0YxQ
-	b28eyTm01S0mWxPcSfOj7pTwJTP3N/FapK28E2yS02450wPfwhgWr81xfp4Rg9FWIfY20/d7L8LrG
-	Je9QS/ZfokMZ804HM12UMNU6fO7gv4EfcjjPglAnHOsKyV1Qw5n6ULAND0/lW7UiYXPrnyuOXrMgr
-	MEEYtECAelWKcNhHny9WRIJ3s4LdWQOD/sdJpgGnscmlTaflIDZjcaIgpBOhx5o47LPBymxqIERrY
-	7RTSgz+Um87/mZr66lsA==;
+	List-Owner; bh=4NOh+CEUXmlWdh4+YMTuC4vPkI8DNWVuEm4Wo43Xod4=; b=u3ZHgs4DDXnMV9
+	OKyqSWLXxccEaxjBimkK2yAv20iVk3xSNAE0EOyFpUOssp6gVwxyOyiQO25oes//lBnculiCjB6X+
+	D5tvgB5kAR7LMyJSSJLQ+xiXikcuMLURW3NK/bzRFvghKRJuUjjz/f94bwfDRGMa97jEJ8jczepb3
+	07Fotjt4KAvBgfStO8l64AEiBbjlTpdnS2ACIE2MCj75SGWApDAQcTzfZSXn8YV6BiLbj7qu2+Ju/
+	wrk6bCDQm0d/ATVLJkyMeLs454qVDGeGCdfLm23GLBvPwtQNmWAkuwLlzPjvK7gcXxBftvx80ZJSm
+	x51X03coL1l10kuS+jHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pDXWp-00ExOd-If; Thu, 05 Jan 2023 21:11:59 +0000
+	id 1pDXbC-00Ezok-TV; Thu, 05 Jan 2023 21:16:30 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pDUoT-00DTJB-Cj
-	for linux-riscv@bombadil.infradead.org; Thu, 05 Jan 2023 18:18:01 +0000
+	id 1pDUqW-00DUnZ-W6; Thu, 05 Jan 2023 18:20:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=IUMik6OP1WSOi7B4ycd8iNPwGDffJZx2uMiF5G9HMxg=; b=FnCmXPT2PfGVH/DJBcWrIVQZlE
-	51QHHCbGR3WV9iwx6zDhLITC3Gf77UNBMXH0P/ByN1mqZVPsygppT4ctUHXSZPpOHpygJ9k8Xuj2f
-	+/cJvZJuN5KuQmvjROguaTKMd0QOICnHXsLD+YYZnoX+nttgx0hdMObT3iMNWaTSEfiiFYuRTdAiB
-	fuXOhFrs68lSz3vb7YxJmBNdA+XiZ0p1OE08XA6ErBFTYxdqPzyR51xTxkixXWgUh3QE1cWxzB0kX
-	ZT094K/BYbpRcOrmgmHRl25tY+p1PVlm6c7HoCbH6RFIKwIMto32RaCv6aqC4sNi2A8wvAqY2tDoK
-	O9r99raw==;
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	bh=0tRpqumuzD4A8ScE1T7chaSBsFg3IHBj12rmSPS7UQk=; b=cHauAg5W/CAbRE3m6Jae6LtgDG
+	6YMFaFjNbvgXsBFhI04JRRlH4/reDeZdfky8iJcY/0M+EhxSai5GZypAIukECOTsj8jyscEanBgtf
+	S6tmxF14sGsKQibpmM09quEh/I3emIPCL5/Kg+dl0SimmmjjSP0BHsdthres/XZJzTVo02/beRGyG
+	JBYkUnlo0RCg78HkMgYkTqTx6VKDmQ8BsqLSyvfBoou5C1zReDNHHaVBj4R4B5yTcnpdOlYaa53bg
+	oXhHVVHY4y+B9MBUzL4Y2UZIpPqa4/H12tP1LIzSG3UUyoCmojll8SQj7xjY0dyfUEGlQXdu4AemY
+	gMfKgnvw==;
+Received: from wout1-smtp.messagingengine.com ([64.147.123.24])
 	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pDRjW-001PMM-2q
-	for linux-riscv@lists.infradead.org;
-	Thu, 05 Jan 2023 15:00:44 +0000
-Received: by mail-wr1-x435.google.com with SMTP id co23so36422974wrb.4
-        for <linux-riscv@lists.infradead.org>; Thu, 05 Jan 2023 07:00:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=IUMik6OP1WSOi7B4ycd8iNPwGDffJZx2uMiF5G9HMxg=;
-        b=HupsC+BYGN9XspL55XKODEbECmTzBw81o6X54RNl/b7VMK1qlFvmBvdRPHDwIiZSKi
-         zoV/sFuEym9QySF5udKPQBwFoTV8CmGsj+ot1U9XXSADHwKaDAA0dPz9qFHioevF9Agz
-         mp/RbhozRY/5iFXlskY/vM39ZZaj4a1KUVg4fnW/CU4Sy+mVlG6B8SiOTwi1pKwrUGdn
-         fE/SVw+zeeteTbw6Lja5s+tvVoLHB4toNDBsCoJy3w37TWJtci/Ex4RGsuAQLMFBBQgd
-         0GO74Gg9ThMbTSnEyRNheS1++XnnJHhN4Ogiuzr2MU7h4tePwxC4kEb9IxKhrWSowfyj
-         juUA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=IUMik6OP1WSOi7B4ycd8iNPwGDffJZx2uMiF5G9HMxg=;
-        b=ccipNFEZ6Px+RCs/+fcEGgvlZN6b8AH97mbKZo5UUbdqLxRlGqxpmlEav1Nt78hHUT
-         9JcNmPSVeNX2dk8C5uBTisvcRbQVS2PWLxNHt0xrhIg6R4H2wntjgljfeJdkSs6ECwrp
-         MYlsTBKpiBV1j7k8EdcvSwtNLkCoGoxOuVZk5AiW4SpCIRX6kRR/0IN8OFXc0AKacrsI
-         SVvl714QrORqL5DTjr3PrKwsc58IxSOwKipkRus76fR/heYLgEP9n2w/vm26fvQ82GWN
-         TKdoQuk7Wm+h2t/1BXJiYd9eqKHChBna0QnONgiSZaJ1LMMFGIrms5XmNb+KWOh94O7B
-         JtWw==
-X-Gm-Message-State: AFqh2kqS1iUwmruWINcc7mVYgwAN/v/XxpfsV3v2gMu9w8X+iBCvyofk
-	1hqcPqLKa1WXI3dI5A0KUQJrSg==
-X-Google-Smtp-Source: AMrXdXtDhzTAtUXL41SCyf9C3BfxFxfi4LqkeWrH7goo0HhOqvklNoBOX0bTJoMzhe7kIxtp2beNUg==
-X-Received: by 2002:adf:ec43:0:b0:280:cc12:2827 with SMTP id w3-20020adfec43000000b00280cc122827mr23052343wrn.21.1672930846595;
-        Thu, 05 Jan 2023 07:00:46 -0800 (PST)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id i13-20020a5d438d000000b0029e1aa67fd2sm8198003wrq.115.2023.01.05.07.00.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Jan 2023 07:00:46 -0800 (PST)
-Date: Thu, 5 Jan 2023 16:00:45 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>
-Cc: Conor Dooley <conor@kernel.org>, palmer@dabbelt.com,
-	linux-riscv@lists.infradead.org, christoph.muellner@vrull.eu,
-	philipp.tomsich@vrull.eu
-Subject: Re: [PATCH] RISC-V: fix compile error from decuplicated
- __ALTERNATIVE_CFG_2
-Message-ID: <20230105150045.ksqcqsypnog425gi@orel>
-References: <20230103214228.841297-1-heiko@sntech.de>
- <Y7V/NZdDf4TpPBh9@spud>
- <20230104140833.nbulmdsgcm5x7d47@orel>
- <2035002.VLH7GnMWUR@diego>
+	id 1pDROI-001OHE-0q;
+	Thu, 05 Jan 2023 14:38:48 +0000
+Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
+	by mailout.west.internal (Postfix) with ESMTP id B05A13200921;
+	Thu,  5 Jan 2023 09:38:40 -0500 (EST)
+Received: from mailfrontend1 ([10.202.2.162])
+  by compute5.internal (MEProxy); Thu, 05 Jan 2023 09:38:42 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
+	cc:cc:content-transfer-encoding:content-type:date:date:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:sender:subject:subject:to:to; s=fm3; t=1672929520; x=
+	1673015920; bh=0tRpqumuzD4A8ScE1T7chaSBsFg3IHBj12rmSPS7UQk=; b=d
+	4XVP0hfu/F6/aqVt3l7KnXcKsYzGCyPkegPh5cMb6DGQjil4x5jP/7hc8l4l/ZYr
+	dmW6ZFITa0tZjR4/RMJk2iVJQ/CwzSINlKcXCmiXdin90n2cK8pnCanUi0MD24Be
+	zcl0lb4i82jOmJ3e85hZigrGZoBe+t5jwX33lNdmBA+YnzNufMNu7XmeIbGhYU0f
+	c/XinqxdlpWh5ln3p+G+ikkrZ5px+5fkskZ4yXSc/sCI3CLR1ZIvENpADgRXltBn
+	hLzwEaWUGw/lpLASPwL6GWgdsG0X6zodJ+DX4iBGKyCE0Zc1JTid/+VkP+KA5Xrk
+	9JZVID+ykBC4TgsdGk9qw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:sender:subject:subject:to:to:x-me-proxy:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1672929520; x=
+	1673015920; bh=0tRpqumuzD4A8ScE1T7chaSBsFg3IHBj12rmSPS7UQk=; b=Q
+	mQFZigQXsGb4r6btUJAczAkvrtBumokULURZYr9BGtsdKHGAhQuRmIsGKhhnbvC+
+	LjhBx/EnM5c1+Ov0HfGPAD2Mz8/6SPy0zV69+M7LDAr/n9H1dhINb5cQ5CrrL+4r
+	y1b+a8UCf/oFhnf832zSQcFvRKwGLXCjq9yi0vRlNA0IYVHfojbfw9DlqVO4b0SB
+	T6YI5eKHwcttLLGw6nIiT8JZ15cxtT4SgC32TXlFEU0lDlhb6BSWja79zAwMEqHe
+	gt9z8iWjSka1bTuLTQ8lk5aEQOd+ak+5EAaZBlEv3z6xka+1eGCOepNq+2ySMXLc
+	PIyaqHsm9Ss57ukPytCqw==
+X-ME-Sender: <xms:7-C2Y5pDpDdwzZ9i1c8ziDXeBnxnpPMJEv30DfLvp6tDjYJQIrNvQw>
+    <xme:7-C2Y7pAm2sM3PGdZZXvzn8WrKomMEc-zUSYuMvCvo4A9vc1OKr4HvfHTNfqNf4PC
+    1pUnki5hMqTbkAxEA>
+X-ME-Received: <xmr:7-C2Y2MDGjw_4EF4JjqLYeISZ9wH4Pz46PsKY12SANCHdYIiSDeZC45ei0IXcnNMzSoKN47vArjirjMi6kgFpv1Sw7iUUfh9KHGHC0GOleWUO0h1T2hrH8byEQ>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrjeekgdeikecutefuodetggdotefrodftvf
+    curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
+    uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
+    fjughrpefkffggfgfuvfevfhfhjggtgfesthejredttdefjeenucfhrhhomhepufgrmhhu
+    vghlucfjohhllhgrnhguuceoshgrmhhuvghlsehshhholhhlrghnugdrohhrgheqnecugg
+    ftrfgrthhtvghrnhepkeejleelfeeitdfhtdfgkeeghedufeduueegffdvhfdukeelleef
+    tdetjeehuddtnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrh
+    homhepshgrmhhuvghlsehshhholhhlrghnugdrohhrgh
+X-ME-Proxy: <xmx:7-C2Y07PRTSiCseNNHcdHN-fhBrwQUshcyconVZGhlx2XWYqiFxH8Q>
+    <xmx:7-C2Y44cJfaJdZEI7LHg5qIGEmGoOBe5DWlejR7aihYkkRlkrfS9GA>
+    <xmx:7-C2Y8hYQx225tPwiImxWhzHqlmVmoFMQ15_h04c-vsnwMmjY9xH-w>
+    <xmx:8OC2Y1O802ea8_p3G5yF6B-Pb7YVl7CFQQl1QE3UHG0IC2NxFoQd_g>
+Feedback-ID: i0ad843c9:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 5 Jan 2023 09:38:37 -0500 (EST)
+Message-ID: <3b6ec431-70ac-cf68-6f46-9dc0affb1e68@sholland.org>
+Date: Thu, 5 Jan 2023 08:38:36 -0600
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <2035002.VLH7GnMWUR@diego>
+User-Agent: Mozilla/5.0 (X11; Linux ppc64le; rv:102.0) Gecko/20100101
+ Thunderbird/102.3.3
+Subject: Re: [PATCH 4/4] riscv: dts: allwinner: d1: Add video engine node
+Content-Language: en-US
+To: Paul Kocialkowski <paul.kocialkowski@bootlin.com>
+Cc: Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
+ <robh+dt@kernel.org>, Krzysztof Kozlowski
+ <krzysztof.kozlowski+dt@linaro.org>, Albert Ou <aou@eecs.berkeley.edu>,
+ Conor Dooley <conor@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Maxime Ripard <mripard@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-media@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-staging@lists.linux.dev, linux-sunxi@lists.linux.dev
+References: <20221231164628.19688-1-samuel@sholland.org>
+ <20221231164628.19688-5-samuel@sholland.org> <Y7aiZdjI8L5h1Ca3@aptenodytes>
+From: Samuel Holland <samuel@sholland.org>
+In-Reply-To: <Y7aiZdjI8L5h1Ca3@aptenodytes>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230105_150043_150296_F58DB9EF 
-X-CRM114-Status: GOOD (  23.83  )
+X-CRM114-CacheID: sfid-20230105_143846_514081_B468D812 
+X-CRM114-Status: GOOD (  15.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,79 +123,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 04, 2023 at 04:58:00PM +0100, Heiko St=FCbner wrote:
-> Hi again,
-> =
+Hi Paul,
 
-> Am Mittwoch, 4. Januar 2023, 15:08:33 CET schrieb Andrew Jones:
-> > On Wed, Jan 04, 2023 at 01:29:25PM +0000, Conor Dooley wrote:
-> > > On Tue, Jan 03, 2023 at 10:42:28PM +0100, Heiko Stuebner wrote:
-> > > > From: Heiko Stuebner <heiko.stuebner@vrull.eu>
-> > > =
+On 1/5/23 04:11, Paul Kocialkowski wrote:
+> On Sat 31 Dec 22, 10:46, Samuel Holland wrote:
+>> D1 contains a video engine which is supported by the Cedrus driver.
+> 
+> Does it work "outside the box" without power domain management?
+> If not, it might be a bit confusing to add the node at this point.
 
-> > > > RISC-V: fix compile error from decuplicated __ALTERNATIVE_CFG_2
-> > > =
+Yes, it does. All of the power domains are enabled by default. However,
+if the PPU series is merged first, I will respin this to include the
+power-domains property from the beginning.
 
-> > > Hey Heiko/Palmer,
-> > > =
+Regards,
+Samuel
 
-> > > Was a little hard to tell from Drew's mail if he was objecting to this
-> > > variant of the patch, but FWIW s/decup/dedup/ if this gets applied
-> > > as-is.
-> > =
+>> Signed-off-by: Samuel Holland <samuel@sholland.org>
+>> ---
+>>
+>>  arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi | 11 +++++++++++
+>>  1 file changed, 11 insertions(+)
+>>
+>> diff --git a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
+>> index dff363a3c934..4bd374279155 100644
+>> --- a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
+>> +++ b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
+>> @@ -34,6 +34,17 @@ soc {
+>>  		#address-cells = <1>;
+>>  		#size-cells = <1>;
+>>  
+>> +		ve: video-codec@1c0e000 {
+>> +			compatible = "allwinner,sun20i-d1-video-engine";
+>> +			reg = <0x1c0e000 0x2000>;
+>> +			interrupts = <SOC_PERIPHERAL_IRQ(66) IRQ_TYPE_LEVEL_HIGH>;
+>> +			clocks = <&ccu CLK_BUS_VE>,
+>> +				 <&ccu CLK_VE>,
+>> +				 <&ccu CLK_MBUS_VE>;
+>> +			clock-names = "ahb", "mod", "ram";
+>> +			resets = <&ccu RST_BUS_VE>;
+>> +		};
+>> +
+>>  		pio: pinctrl@2000000 {
+>>  			compatible = "allwinner,sun20i-d1-pinctrl";
+>>  			reg = <0x2000000 0x800>;
+>> -- 
+>> 2.37.4
+>>
+> 
 
-> > I wasn't completely objecting, but rather suggesting we still try to
-> > factor out what we can. However, after reading a bit more about macros
-> > I tried this
-> > =
-
-> >  .macro ALTERNATIVE_CFG_2 old_c, new_c_1, vendor_id_1, errata_id_1, ena=
-ble_1,   \
-> >                                 new_c_2, vendor_id_2, errata_id_2, enab=
-le_2
-> > -       ALTERNATIVE_CFG \old_c, \new_c_1, \vendor_id_1, \errata_id_1, \=
-enable_1
-> > +       ALTERNATIVE_CFG "\old_c", "\new_c_1", \vendor_id_1, \errata_id_=
-1, \enable_1
-> >         ALT_NEW_CONTENT \vendor_id_2, \errata_id_2, \enable_2, \new_c_2
-> >  .endm
-> > =
-
-> > which appears to work for my simple test. Does that work for you too,
-> > Heiko? If so, then I think I'd prefer we do that. Also, we may want to =
-add
-> > quotes to all macro arguments which may contain spaces, even if things
-> > seem to work now, e.g. the \new_c_2 argument passed to ALT_NEW_CONTENT.
-> =
-
-> Yay ... adding quotes really seems to work - at least a GNU toolchain
-
-clang isn't complaining for my test either.
-
-> =
-
-> I guess that may have been the reason to move new_c at the end and making
-> it vararg in ALT_NEW_CONTENT originally.
-> =
-
-> And in fact with added quotes the varargs argument wouldn't be necessary
-> anymore.
-> =
-
-> Just removing the varargs argument alone results in
-> 	Error: too many positional arguments
-> erros, but wrapping the "\new_c*" in quotes lets it compile again.
-
-Excellent news. Do you plan to post the patch? Or should I post with your
-Reported-by tag?
-
-Thanks,
-drew
 
 _______________________________________________
 linux-riscv mailing list
