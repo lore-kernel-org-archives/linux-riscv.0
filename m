@@ -4,48 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13764C3DA7A
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Jan 2023 10:28:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE7E0C3DA7A
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Jan 2023 11:07:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hlWJfclqhbrm4Wno4sTuVS5qYLALYiRD3KoSA9tIFes=; b=Pbv3xTLXG7REb8
-	7ZbzxMZGHbEUTR1eHQbTD6sCxIxIHZs5K5KVJpvSCyMJ/inc1103/pwaX087aKES1gW+Va82tlUor
-	R7uBr8NKh+wMN4FzSRdQ2gWDuh3hhUayA/6sF7VZZcVbjbxuHMeXmxAYc03RbJslOvkiH7iFpsM3e
-	bhwM9UfXvBlSfoct6b8df8wImpoRrlQFNlNrq9dtrp5YI2BMCPJmQxRqAcVDSQ0tDOZNXDz0dPvro
-	rbAb+h4SbmgvcYmrr1cuM9o8dXnA1QOYhn2MN3hTuEZKpBsckJ939A58/rPMbTzkrNhH+yITWyEGO
-	zC3ZwtEwabzROp7b6IBA==;
+	List-Owner; bh=RIgpIKhe6iYCtr5uVpg4hWd3P7AfPHP1SNsSwka+I9Y=; b=HsAOfWIhP4ucLA
+	0fg0c7MuUkfl4vMXPNF3TpBTuTs+xNu9ej9L7nzZB0QMIm51p6uBVfIsqw5wzSjWT5pm1DiNAiQJs
+	LmYNrY5poLFXDYJFEhXvtapp525j4mtUlpfUrZb6Ud6HELU6BZ5LieQQot6GBV3SjhISla38C2vwM
+	a+iDiBa2L42a4O6nJBAma3HG9N5//C/I4qG9lO17OllLQDPrAmJZ96XjUSijtihzk1Kb+q+OiAST1
+	E7waOgT6ELQ03hMDtrIMFsYPk0P1h0xz/mNpWyZRb7gqOXH3w93h/uLgaHVCfIfDuX0qCbvSn0T51
+	avN2u+9hV7JRK2dkdQRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pDjxW-007Re3-L7; Fri, 06 Jan 2023 10:28:22 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pDjxL-007RWg-IX; Fri, 06 Jan 2023 10:28:13 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EFDEB11FB;
-	Fri,  6 Jan 2023 02:28:50 -0800 (PST)
-Received: from donnerap.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2DCF83F23F;
-	Fri,  6 Jan 2023 02:28:07 -0800 (PST)
-Date: Fri, 6 Jan 2023 10:28:03 +0000
-From: Andre Przywara <andre.przywara@arm.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH 3/4] dt-bindings: arm: sunxi: document MangoPi MQ-R
- board name
-Message-ID: <20230106102803.3e905d1c@donnerap.cambridge.arm.com>
-In-Reply-To: <4d6aec55-c53e-0aba-1168-8a9a80a3b598@linaro.org>
-References: <20230106010155.26868-1-andre.przywara@arm.com>
-	<20230106010155.26868-4-andre.przywara@arm.com>
-	<4d6aec55-c53e-0aba-1168-8a9a80a3b598@linaro.org>
-Organization: ARM
-X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
+	id 1pDkZh-007eD4-2O; Fri, 06 Jan 2023 11:07:49 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pDkZW-007e96-N2
+	for linux-riscv@lists.infradead.org; Fri, 06 Jan 2023 11:07:39 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id b24-20020a05600c4a9800b003d21efdd61dso830705wmp.3
+        for <linux-riscv@lists.infradead.org>; Fri, 06 Jan 2023 03:07:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ZY/0HK5vhWq1atET0Bpv4+WgmiEnLmZw9upWsDYoJe0=;
+        b=PRH4h0KL0RGYsGtinEt5uGvc6yYjP2pMeE+oPGF9McFxEnYc0ZDgmzvz/k23/MOAPo
+         WFcj8l0PV1k2XjUUOpSwHakFQzJXJJFMBY1uW6lKbNd5KXQPqgeIcfobd8o3mMC8BZXZ
+         K2FW2/KL16WtuL4lGcSLo0I2OZBw6Aph3e9h3W/TEBC4bVOD0j0wJlus0S1MO5xuSTVd
+         XQVx7NEmkytMub8399S5u5/aMsUVjxNxa3sYsdKnFlD5r4yjZVe/SQaA/aHK015HWNlv
+         H+xRU/NrzNoNdeg/xKKq51dAcnb9/MsvgK+fO6Misr9OxcWwQ2/VPntOKPDt78bR1Esr
+         Yg3A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZY/0HK5vhWq1atET0Bpv4+WgmiEnLmZw9upWsDYoJe0=;
+        b=MznAPW+IYqqv0VuB6ArhSP67vGo8fdQ0r1Jw5GXOkyoGsA9GdBtxy9LGpJIfoIrPFu
+         cZE8RNG+tymnTXuanu8NVBQTfsJZwi0DwzlUtIASSyqJ+wxGXQdRyMNDmESIe+69E5Qz
+         PSnFoA+TjSt7/iMqFHkbQ4X5Xs5Yi/YGumi9OWNb5UaLvfaAj4N7Tz7obObJAImdNY5r
+         B/Ji0IohMrCrfFLzWOz/6eYBdtSiggqP2ixDl7HsEUHMKzYjMHLL/xDG7E2jeuk6h+SH
+         O8EYL9E5k23Htvu9026SQH8HezRtTp6Vw/JZ6Uh+OYzP68HcT876HFBTUzVjv+Bxf48V
+         o1yg==
+X-Gm-Message-State: AFqh2koNLs01KZUqLcSQ/i8OdHeismg9bTEqHqhIBTPHLTfgF/fzXyiv
+	56eeTFIR7KdjKnb85IsUfqoZRg==
+X-Google-Smtp-Source: AMrXdXuhrDzIoOs4ugbIUgNEN4hS46pqg+RXmxWlx7qeJfIhwodH1pzfIbnE0OeoKrRikOwmN57Xtw==
+X-Received: by 2002:a05:600c:1d03:b0:3d3:4aa6:4fe6 with SMTP id l3-20020a05600c1d0300b003d34aa64fe6mr37858456wms.3.1673003256258;
+        Fri, 06 Jan 2023 03:07:36 -0800 (PST)
+Received: from [192.168.1.102] ([178.197.216.144])
+        by smtp.gmail.com with ESMTPSA id p9-20020a05600c358900b003cffd3c3d6csm1502418wmq.12.2023.01.06.03.07.34
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 06 Jan 2023 03:07:35 -0800 (PST)
+Message-ID: <8d1c49e0-1aa2-b08d-b68a-64d9beed54e3@linaro.org>
+Date: Fri, 6 Jan 2023 12:07:32 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.6.1
+Subject: Re: [PATCH 3/4] dt-bindings: arm: sunxi: document MangoPi MQ-R board
+ name
+To: Andre Przywara <andre.przywara@arm.com>,
+ Samuel Holland <samuel@sholland.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>, Chen-Yu Tsai <wens@csie.org>,
+ Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
+References: <20230106010155.26868-1-andre.przywara@arm.com>
+ <20230106010155.26868-4-andre.przywara@arm.com>
+Content-Language: en-US
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20230106010155.26868-4-andre.przywara@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230106_022811_694848_1F699486 
-X-CRM114-Status: GOOD (  16.07  )
+X-CRM114-CacheID: sfid-20230106_030738_757176_591AEBDF 
+X-CRM114-Status: UNSURE (   8.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -57,54 +92,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, Samuel Holland <samuel@sholland.org>, Fabien Poussin <fabien.poussin@gmail.com>, linux-kernel@vger.kernel.org, Jernej Skrabec <jernej.skrabec@gmail.com>, Chen-Yu Tsai <wens@csie.org>, Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, =?UTF-8?B?QW5kcsOhcyBTemVtesO2?= <szemzo.andras@gmail.com>
+Cc: devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, Fabien Poussin <fabien.poussin@gmail.com>, linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, =?UTF-8?B?QW5kcsOhcyBTemVtesO2?= <szemzo.andras@gmail.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 6 Jan 2023 10:21:04 +0100
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org> wrote:
-
-> On 06/01/2023 02:01, Andre Przywara wrote:
-> > The MangoPi MQ-R board is a close relative to its Allwinner D1/D1s
-> > siblings, but features two Arm Cortex-A7 cores instead of a RISC-V core.
-> > 
-> > Add the board/SoC compatible string pair to the list of known boards.
-> > 
-> > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> > ---
-> >  Documentation/devicetree/bindings/arm/sunxi.yaml | 5 +++++
-> >  1 file changed, 5 insertions(+)
-> > 
-> > diff --git a/Documentation/devicetree/bindings/arm/sunxi.yaml b/Documentation/devicetree/bindings/arm/sunxi.yaml
-> > index 3ad1cd50e3fe0..ce445c5ed81c8 100644
-> > --- a/Documentation/devicetree/bindings/arm/sunxi.yaml
-> > +++ b/Documentation/devicetree/bindings/arm/sunxi.yaml
-> > @@ -843,6 +843,11 @@ properties:
-> >            - const: wexler,tab7200
-> >            - const: allwinner,sun7i-a20
-> >  
-> > +      - description: MangoPi MQ-R board
-> > +        items:
-> > +          - const: widora,mangopi-mq-r  
+On 06/01/2023 02:01, Andre Przywara wrote:
+> The MangoPi MQ-R board is a close relative to its Allwinner D1/D1s
+> siblings, but features two Arm Cortex-A7 cores instead of a RISC-V core.
 > 
-> Not documented vendor prefix.
+> Add the board/SoC compatible string pair to the list of known boards.
+> 
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> ---
+>  Documentation/devicetree/bindings/arm/sunxi.yaml | 5 +++++
 
-Yes, after sending I realised that I forgot to mention that this
-series relies on Samuel's D1/D1s DT series[1], which adds the basic .dtsi
-this builds on, but also adds this vendor string[2].
-Functionality-wise this also relies on the R528/T113-s clock series[3].
 
-Cheers,
-Andre
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-[1]
-https://lore.kernel.org/linux-arm-kernel/20221231233851.24923-1-samuel@sholland.org/
-[2]
-https://lore.kernel.org/linux-arm-kernel/20221231233851.24923-3-samuel@sholland.org/
-[3]
-https://lore.kernel.org/linux-arm-kernel/20221231231429.18357-1-samuel@sholland.org/
+Best regards,
+Krzysztof
+
 
 _______________________________________________
 linux-riscv mailing list
