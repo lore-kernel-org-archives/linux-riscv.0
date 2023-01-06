@@ -4,83 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE7E0C3DA7A
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Jan 2023 11:07:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D68B5C4708D
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Jan 2023 11:32:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RIgpIKhe6iYCtr5uVpg4hWd3P7AfPHP1SNsSwka+I9Y=; b=HsAOfWIhP4ucLA
-	0fg0c7MuUkfl4vMXPNF3TpBTuTs+xNu9ej9L7nzZB0QMIm51p6uBVfIsqw5wzSjWT5pm1DiNAiQJs
-	LmYNrY5poLFXDYJFEhXvtapp525j4mtUlpfUrZb6Ud6HELU6BZ5LieQQot6GBV3SjhISla38C2vwM
-	a+iDiBa2L42a4O6nJBAma3HG9N5//C/I4qG9lO17OllLQDPrAmJZ96XjUSijtihzk1Kb+q+OiAST1
-	E7waOgT6ELQ03hMDtrIMFsYPk0P1h0xz/mNpWyZRb7gqOXH3w93h/uLgaHVCfIfDuX0qCbvSn0T51
-	avN2u+9hV7JRK2dkdQRQ==;
+	List-Owner; bh=TDoatjUBM6BLKmlSphWnTIsgRtb5Gx1oIBwMilR+1Q8=; b=ml3XcpAE0q52XV
+	r1miEEGStg1eE+RoXzj0YmhXek02z+cCczU6YOFvhyGqecVv4qoxr3WU5auYWnFAjXv3MuQLgjH4k
+	lun673IHC9m169EBuQcKz1Yin8WEFJ66+pdVh5eCAsJohbSMgXdye7gd9nWuyObcwvOWAk0ZftjUr
+	OlsqeInT15wltYJpLJi4AZfeanhQsNUAkiovMgY7T5XbQPx2zTSSxtW/nmtjjig1JduJbvIABX0QE
+	jKfMrcyG74DV9nd6NSicoVQ/xFTEI5fcEJqGWx3gDew6s7NpUCF2pnUGRd6mXOrQ50WDOzes0S2t5
+	C1aVOAQ12q0vtdQrs+BQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pDkZh-007eD4-2O; Fri, 06 Jan 2023 11:07:49 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1pDkxT-007lDw-Ic; Fri, 06 Jan 2023 11:32:23 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pDkZW-007e96-N2
-	for linux-riscv@lists.infradead.org; Fri, 06 Jan 2023 11:07:39 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id b24-20020a05600c4a9800b003d21efdd61dso830705wmp.3
-        for <linux-riscv@lists.infradead.org>; Fri, 06 Jan 2023 03:07:37 -0800 (PST)
+	id 1pDkxQ-007lCh-Ls
+	for linux-riscv@lists.infradead.org; Fri, 06 Jan 2023 11:32:22 +0000
+Received: by mail-wm1-x331.google.com with SMTP id m3so885430wmq.0
+        for <linux-riscv@lists.infradead.org>; Fri, 06 Jan 2023 03:32:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=ZY/0HK5vhWq1atET0Bpv4+WgmiEnLmZw9upWsDYoJe0=;
-        b=PRH4h0KL0RGYsGtinEt5uGvc6yYjP2pMeE+oPGF9McFxEnYc0ZDgmzvz/k23/MOAPo
-         WFcj8l0PV1k2XjUUOpSwHakFQzJXJJFMBY1uW6lKbNd5KXQPqgeIcfobd8o3mMC8BZXZ
-         K2FW2/KL16WtuL4lGcSLo0I2OZBw6Aph3e9h3W/TEBC4bVOD0j0wJlus0S1MO5xuSTVd
-         XQVx7NEmkytMub8399S5u5/aMsUVjxNxa3sYsdKnFlD5r4yjZVe/SQaA/aHK015HWNlv
-         H+xRU/NrzNoNdeg/xKKq51dAcnb9/MsvgK+fO6Misr9OxcWwQ2/VPntOKPDt78bR1Esr
-         Yg3A==
+        d=ventanamicro.com; s=google;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=veYKYT3Zlc2jd95XpXnQUyDG08gQqDPN7Wr/YJO2Cmg=;
+        b=UIJfSmKQW71JiA/aY5bIztFBJXPY7yiYMok/FuMYhUIxDlmsPvPwCwutPoV9KIb1Ik
+         Orfw5htNqevDnh/fdeDARoPZLYhO61713J1d5koVCdAF3nOL0xjm1I0XYdu+WLDJhbvT
+         cpi0Rf9AZuhRCIfLS7hQHWoQuN6eJkyO6Ra4kmt32ItUvNUJDiZDeuE46qaKwSqG8AEo
+         iDiYsguQD0QoT36DvMDORcJkcgYcYUfTh/tkkmAFBTpFDW+FrOwLbfxekjVhmsQM2tXH
+         +mQeLQQXZ2DDQ6nYQz/sR+fNTmgKZP6/xE4yYeFMzU0FTG2pLtQGxH7wDrmpbR/5hZ96
+         SbRA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZY/0HK5vhWq1atET0Bpv4+WgmiEnLmZw9upWsDYoJe0=;
-        b=MznAPW+IYqqv0VuB6ArhSP67vGo8fdQ0r1Jw5GXOkyoGsA9GdBtxy9LGpJIfoIrPFu
-         cZE8RNG+tymnTXuanu8NVBQTfsJZwi0DwzlUtIASSyqJ+wxGXQdRyMNDmESIe+69E5Qz
-         PSnFoA+TjSt7/iMqFHkbQ4X5Xs5Yi/YGumi9OWNb5UaLvfaAj4N7Tz7obObJAImdNY5r
-         B/Ji0IohMrCrfFLzWOz/6eYBdtSiggqP2ixDl7HsEUHMKzYjMHLL/xDG7E2jeuk6h+SH
-         O8EYL9E5k23Htvu9026SQH8HezRtTp6Vw/JZ6Uh+OYzP68HcT876HFBTUzVjv+Bxf48V
-         o1yg==
-X-Gm-Message-State: AFqh2koNLs01KZUqLcSQ/i8OdHeismg9bTEqHqhIBTPHLTfgF/fzXyiv
-	56eeTFIR7KdjKnb85IsUfqoZRg==
-X-Google-Smtp-Source: AMrXdXuhrDzIoOs4ugbIUgNEN4hS46pqg+RXmxWlx7qeJfIhwodH1pzfIbnE0OeoKrRikOwmN57Xtw==
-X-Received: by 2002:a05:600c:1d03:b0:3d3:4aa6:4fe6 with SMTP id l3-20020a05600c1d0300b003d34aa64fe6mr37858456wms.3.1673003256258;
-        Fri, 06 Jan 2023 03:07:36 -0800 (PST)
-Received: from [192.168.1.102] ([178.197.216.144])
-        by smtp.gmail.com with ESMTPSA id p9-20020a05600c358900b003cffd3c3d6csm1502418wmq.12.2023.01.06.03.07.34
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 06 Jan 2023 03:07:35 -0800 (PST)
-Message-ID: <8d1c49e0-1aa2-b08d-b68a-64d9beed54e3@linaro.org>
-Date: Fri, 6 Jan 2023 12:07:32 +0100
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=veYKYT3Zlc2jd95XpXnQUyDG08gQqDPN7Wr/YJO2Cmg=;
+        b=qJk7ul5j81tMSONiEnNYojvBxYUDQy9gVX8SDucentBIMQ2tbmBNuDzLc6ydUuXR11
+         r7IRc/R1CNJ5HCI9qyoKhdXl0BLvcJ1xZlsdk+t0Xeslcq7K3IoUNKB6KjeiMGbaIVBS
+         KdcHnFVIwgwiQyq6p9gAcI3r2jVRxJIGUJ986BQmfiXiZwRl4dT1ABYDhli2L23z3jgZ
+         yI916Vm9thjUiB9/GUTFZxhZ2NYrcYyxDCoo/vSKCK1PzedyvT2r18YyMlSNvBOSxgGY
+         palJK2JMzE9YC7vAlplVYZCsiow31305p2W5QGoxqrZLv5fA/SC7eBmsw7IaVwG1Xr4y
+         qPyA==
+X-Gm-Message-State: AFqh2krDA+TVlGNYAg1qZQgKEwwkUZJkglyJkfOK1xyJHmozyw1NeDX7
+	aiYkI5F4fmq6XXSqB8h66+YJ3kHRG6czcg5y
+X-Google-Smtp-Source: AMrXdXu9KzztjFI1m+7fRb2ij0PCCVLcPKjg6p0WKIXmukeS25oGEViPctvm4IxI3L5eOCCTsXRp4Q==
+X-Received: by 2002:a7b:cd99:0:b0:3d3:5506:1bac with SMTP id y25-20020a7bcd99000000b003d355061bacmr39629367wmj.30.1673004739089;
+        Fri, 06 Jan 2023 03:32:19 -0800 (PST)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id m18-20020a05600c4f5200b003c6b70a4d69sm1602829wmq.42.2023.01.06.03.32.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 06 Jan 2023 03:32:18 -0800 (PST)
+From: Andrew Jones <ajones@ventanamicro.com>
+To: linux-riscv@lists.infradead.org
+Cc: 'Anup Patel ' <apatel@ventanamicro.com>,
+	'Albert Ou ' <aou@eecs.berkeley.edu>,
+	'Paul Walmsley ' <paul.walmsley@sifive.com>,
+	'Sia Jee Heng ' <jeeheng.sia@starfivetech.com>,
+	'Palmer Dabbelt ' <palmer@dabbelt.com>,
+	'Ley Foon Tan ' <leyfoon.tan@starfivetech.com>
+Subject: [RFC PATCH 1/1] riscv: sbi: Introduce system suspend support
+Date: Fri,  6 Jan 2023 12:32:16 +0100
+Message-Id: <20230106113216.443057-2-ajones@ventanamicro.com>
+X-Mailer: git-send-email 2.39.0
+In-Reply-To: <20230106113216.443057-1-ajones@ventanamicro.com>
+References: <20230106113216.443057-1-ajones@ventanamicro.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.6.1
-Subject: Re: [PATCH 3/4] dt-bindings: arm: sunxi: document MangoPi MQ-R board
- name
-To: Andre Przywara <andre.przywara@arm.com>,
- Samuel Holland <samuel@sholland.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>, Chen-Yu Tsai <wens@csie.org>,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
-References: <20230106010155.26868-1-andre.przywara@arm.com>
- <20230106010155.26868-4-andre.przywara@arm.com>
-Content-Language: en-US
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20230106010155.26868-4-andre.przywara@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230106_030738_757176_591AEBDF 
-X-CRM114-Status: UNSURE (   8.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230106_033220_733941_87A75E42 
+X-CRM114-Status: GOOD (  13.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,27 +89,135 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, Fabien Poussin <fabien.poussin@gmail.com>, linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, =?UTF-8?B?QW5kcsOhcyBTemVtesO2?= <szemzo.andras@gmail.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 06/01/2023 02:01, Andre Przywara wrote:
-> The MangoPi MQ-R board is a close relative to its Allwinner D1/D1s
-> siblings, but features two Arm Cortex-A7 cores instead of a RISC-V core.
-> 
-> Add the board/SoC compatible string pair to the list of known boards.
-> 
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> ---
->  Documentation/devicetree/bindings/arm/sunxi.yaml | 5 +++++
+When the SUSP SBI extension is present it implies that the standard
+"suspend to RAM" type is available. Wire it up to the generic
+platform suspend support, also applying the already present support
+for non-retentive CPU suspend. When the kernel is built with
+CONFIG_SUSPEND, one can do 'echo mem > /sys/power/state' to suspend.
+Resumption will occur when a platform-specific wake-up event arrives.
 
+Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+---
+ arch/riscv/Kconfig           |  5 ++++-
+ arch/riscv/include/asm/sbi.h |  9 ++++++++
+ arch/riscv/kernel/suspend.c  | 41 ++++++++++++++++++++++++++++++++++++
+ 3 files changed, 54 insertions(+), 1 deletion(-)
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
-Best regards,
-Krzysztof
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index e2b656043abf..a53d94c1953e 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -52,7 +52,7 @@ config RISCV
+ 	select CLONE_BACKWARDS
+ 	select CLINT_TIMER if !MMU
+ 	select COMMON_CLK
+-	select CPU_PM if CPU_IDLE
++	select CPU_PM if (SUSPEND || CPU_IDLE)
+ 	select EDAC_SUPPORT
+ 	select GENERIC_ARCH_TOPOLOGY
+ 	select GENERIC_ATOMIC64 if !64BIT
+@@ -686,6 +686,9 @@ config PORTABLE
+ 	select OF
+ 	select MMU
+ 
++config ARCH_SUSPEND_POSSIBLE
++	def_bool y
++
+ menu "Power management options"
+ 
+ source "kernel/power/Kconfig"
+diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+index 4ca7fbacff42..9834ba4ce3e4 100644
+--- a/arch/riscv/include/asm/sbi.h
++++ b/arch/riscv/include/asm/sbi.h
+@@ -29,6 +29,7 @@ enum sbi_ext_id {
+ 	SBI_EXT_RFENCE = 0x52464E43,
+ 	SBI_EXT_HSM = 0x48534D,
+ 	SBI_EXT_SRST = 0x53525354,
++	SBI_EXT_SUSP = 0x53555350,
+ 	SBI_EXT_PMU = 0x504D55,
+ 
+ 	/* Experimentals extensions must lie within this range */
+@@ -113,6 +114,14 @@ enum sbi_srst_reset_reason {
+ 	SBI_SRST_RESET_REASON_SYS_FAILURE,
+ };
+ 
++enum sbi_ext_susp_fid {
++	SBI_EXT_SUSP_SUSPEND = 0,
++};
++
++enum sbi_ext_susp_sleep_type {
++	SBI_SUSP_SLEEP_TYPE_SUSPEND = 0,
++};
++
+ enum sbi_ext_pmu_fid {
+ 	SBI_EXT_PMU_NUM_COUNTERS = 0,
+ 	SBI_EXT_PMU_COUNTER_GET_INFO,
+diff --git a/arch/riscv/kernel/suspend.c b/arch/riscv/kernel/suspend.c
+index 9ba24fb8cc93..bc26e9ae4782 100644
+--- a/arch/riscv/kernel/suspend.c
++++ b/arch/riscv/kernel/suspend.c
+@@ -4,8 +4,12 @@
+  * Copyright (c) 2022 Ventana Micro Systems Inc.
+  */
+ 
++#define pr_fmt(fmt) "suspend: " fmt
++
+ #include <linux/ftrace.h>
++#include <linux/suspend.h>
+ #include <asm/csr.h>
++#include <asm/sbi.h>
+ #include <asm/suspend.h>
+ 
+ static void suspend_save_csrs(struct suspend_context *context)
+@@ -85,3 +89,40 @@ int cpu_suspend(unsigned long arg,
+ 
+ 	return rc;
+ }
++
++static int sbi_system_suspend(unsigned long sleep_type,
++			      unsigned long resume_addr,
++			      unsigned long opaque)
++{
++	struct sbiret ret;
++
++	ret = sbi_ecall(SBI_EXT_SUSP, SBI_EXT_SUSP_SUSPEND,
++			sleep_type, resume_addr, opaque, 0, 0, 0);
++	if (ret.error)
++		return sbi_err_map_linux_errno(ret.error);
++
++	return ret.value;
++}
++
++static int sbi_system_suspend_enter(suspend_state_t state)
++{
++	return cpu_suspend(SBI_SUSP_SLEEP_TYPE_SUSPEND, sbi_system_suspend);
++}
++
++static const struct platform_suspend_ops sbi_system_suspend_ops = {
++	.valid = suspend_valid_only_mem,
++	.enter = sbi_system_suspend_enter,
++};
++
++static int __init sbi_system_suspend_init(void)
++{
++	if (!sbi_spec_is_0_1() && sbi_probe_extension(SBI_EXT_SUSP) > 0) {
++		pr_info("SBI SUSP extension detected\n");
++		if (IS_ENABLED(CONFIG_SUSPEND))
++			suspend_set_ops(&sbi_system_suspend_ops);
++	}
++
++	return 0;
++}
++
++arch_initcall(sbi_system_suspend_init);
+-- 
+2.39.0
 
 
 _______________________________________________
