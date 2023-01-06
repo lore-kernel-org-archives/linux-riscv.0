@@ -4,70 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4562FC3DA7A
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Jan 2023 07:39:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C7C5C3DA7A
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Jan 2023 08:18:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=N7p6g/9VJjNlWsfagYstQ+wViSmiG6nliUaATM1K6tA=; b=TH30NRlxcuwD8/
-	qrUnTIOGDvN6H5aLbusetrLkV/l8FolrADSJF60EpZ4kKko8fW5AjVYoHyF8tHGRtCJc+GpKsyJeK
-	kF8VsSS84SuntlYFqOMJQEn+kT4cDIJHhj13JiCWcFr8ppriXRgX8IjzpvkMRLkwtVUwFsmn0xrrF
-	o0VJ7HfxXJQSBLyrU32rmoP/uqFb5vYCbuAOzErOZEhbEYVSnvGg4xeKhExVIur1dsJ5M4eN9PqQH
-	mfFSvtvQ/OwVOvVxLNhGWb8t2sIs6O6u5LPmOOWtBQU0qn/BT+nX//4tfYiS1S4NoWgpkJvKhAAUH
-	U5DQORwJ97FxDQKUGmJQ==;
+	List-Owner; bh=0a1tlev2jIw+pHe3wULwwRS/8khmzhKF55/NAxsswAo=; b=XGgoo5P7OtJXid
+	D25LTM/i4WFfoF/tQb5D1peD9oF4WGnj296nM6v4paQw1FHe0MV54U+M0NNKphZQOfZA/FCDp02ds
+	gjW5akXkzgGLnrhXaxb9x3RFVdc/Xx3Ow0331MqTUwklJUZ4cF/rLdjPQOpWC8QRxR/KCdi52QSw4
+	Qwl6NSkSK/QXayXuuySqq3W2N/evsCfoc+GBpr0SXha+/ybVoUl6HqUDlyop2fjmcyrHwjes0Dq1K
+	oonQxwmiuEt2pGbZiNQrQMX1MwQg+G+nae5eSdn2vakfIxgrbtZqdv+FBJS2AG5CDEByceQgULqVB
+	26FEQSDZGsY5R41HB9kA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pDhJU-006Orl-7b; Fri, 06 Jan 2023 07:38:52 +0000
-Received: from sender4-op-o16.zoho.com ([136.143.188.16])
+	id 1pDhw6-006Y5g-9K; Fri, 06 Jan 2023 08:18:46 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pDhJQ-006Opv-8T
-	for linux-riscv@lists.infradead.org; Fri, 06 Jan 2023 07:38:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1672990719; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=dumhgiwWnO5896HhtI0bgKFJN7PINS0ZjvMEkcSjaacedaxbIvMWNVE75KRkdB0MJNEWgk5luzmKaqSrY3wiNDRiwnQCPrWSJskUQ23Fl9JxE0qdHA+F2flHklixZfajXE5RJHJWqX43SSv9/rpgBRUhIUVIlJ8yUzg+jyfUXqs=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1672990719; h=Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:To; 
-	bh=TioKn5CO8tJoob2wJhuL1JbsftJhJzptZqlgXBEAeJE=; 
-	b=G9XKNIOLCc220iEQgGqtOaVhAC1/mgMQKK8ER9AjTEhg4NJTBl04zbVrvudR/B2w5iceAm1+FbjeLeJnaI/jLAfYTiAzKE7ADxiCCP9TORWe4VPQZVpIXIGZ0nL3iheth65Y4nIA30PyJzZZpV5ZycQU4HqkkWiHd+6R6QCuAgc=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=icenowy.me;
-	spf=pass  smtp.mailfrom=uwu@icenowy.me;
-	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1672990719;
-	s=zmail; d=icenowy.me; i=uwu@icenowy.me;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=TioKn5CO8tJoob2wJhuL1JbsftJhJzptZqlgXBEAeJE=;
-	b=fZdYvtD1+TeKBEcaVMLM+wngttu+IXYG5lDFY6FDeBwujMjZDTe9JkEyakehPnV0
-	N6joYFh6VX7K/8piO4aisF4u9WJpB1oohZgnMr4ZhNcugxEnh+iQqxZ59z2VwsLKH0H
-	f/s1KxG/RRVfyGKojAqkzXac9J2gfZVk5RvqAjsw=
-Received: from edelgard.fodlan.icenowy.me (120.85.96.143 [120.85.96.143]) by mx.zohomail.com
-	with SMTPS id 1672990717981580.103026584164; Thu, 5 Jan 2023 23:38:37 -0800 (PST)
-Message-ID: <fa4342510fdf93f809671239fe1a1df68b378357.camel@icenowy.me>
-Subject: Re: [RFC PATCH 2/3] riscv: use VA+PA variant of CMO macros for DMA
- synchorization
-From: Icenowy Zheng <uwu@icenowy.me>
-To: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>, Guo Ren
-	 <guoren@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
-	 <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Samuel Holland
-	 <samuel@sholland.org>, Conor Dooley <conor.dooley@microchip.com>, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Fri, 06 Jan 2023 15:38:33 +0800
-In-Reply-To: <2135147.irdbgypaU6@diego>
-References: <20230104074146.578485-1-uwu@icenowy.me>
-	 <CAJF2gTTO3jx8FqMVRmfgkjO02sCVx2SVbe-Sn1uKXojyn8RDaA@mail.gmail.com>
-	 <bcce507a31662004262fa3bbe911f1b1ff7f27af.camel@icenowy.me>
-	 <2135147.irdbgypaU6@diego>
-Organization: Anthon Open-Source Community
-User-Agent: Evolution 3.44.4 
+	id 1pDhvv-006Xxj-0X; Fri, 06 Jan 2023 08:18:36 +0000
+Received: by mail-wm1-x330.google.com with SMTP id z8-20020a05600c220800b003d33b0bda11so3508631wml.0;
+        Fri, 06 Jan 2023 00:18:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=mtUcosCaiFsfOQ0fA0ahQY5pppeLiBLD4KCC5VXYb5U=;
+        b=icRvW+Tr534VNRNBW5UTaAWPROkQHPaEQX/kRQllBk4WaLtMTbOvvt2+5GkqGvKwjk
+         HMWXJQY72dSisDrmj5+XPNK4An0gYEbTyo1Izuw28K9NsQ1ZzJiOBh/qYCMC82mT2dSa
+         XxZJloj1ZfhjaHunElL4zXEeJoKkxP22C9aR3f0QPYlooVtja02LbDwx367DjGDivev0
+         N4OX1MHSB/+cUvxZOURfVofVvz6++3NbyK3W9oy7XmrqvQRpAdiOBp7pTKW+XHTtBPOf
+         DULzmHwJkBrQkDOXKCCF4w4d0EJsgRIubwO9B4upphDSzYAyl7RBPrAww4OFbHh37aJR
+         lIRw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=mtUcosCaiFsfOQ0fA0ahQY5pppeLiBLD4KCC5VXYb5U=;
+        b=D6tPlk8Mdu4RlbDxsXz/dw9qT6vR3HjH0O/JZ/yvHXs5HrXkUOA7bHPEL2cp3KYPCF
+         qupr1zJP5lie3ghENM7FlayQzXX5JrOydZk0j1rfagQNmUaIEW20TVN9NMXlcMIMzn5k
+         t8ADx+IuxuejxWiI+lkTCoT7/T0t/bdFqusUgF3LhROMkYh3DwcCQgvqrd1YnikrrBh4
+         hb+6TgJ6haZ7cUj+SzAVtzks0T/n7WgdjElTZ4umqhYAfgNIp3M+ARv6ZqIWPoGqDPMW
+         uCfaCkgHhZdDgB5UsSueeNit3zo6S12CtwF9O00/8iJNgrGZjlFxEPsWXU/jFp1dumE6
+         ah5Q==
+X-Gm-Message-State: AFqh2koosrvaJYFsK9I9akX5m3U9MM2/JqXUDrICTYw2HbVLMj5LQzlW
+	elpVSSNcHfUknssBuYW1twY=
+X-Google-Smtp-Source: AMrXdXvsRPiGLVmsJAtakcDFnG5+z9snPhbHZVsbxbv8NbhCBxCcgQosTNbJtylk0gcVpgxRnvAITg==
+X-Received: by 2002:a05:600c:a51:b0:3d3:513c:240b with SMTP id c17-20020a05600c0a5100b003d3513c240bmr38839263wmq.7.1672993109084;
+        Fri, 06 Jan 2023 00:18:29 -0800 (PST)
+Received: from Red ([2a01:cb1d:3d5:a100:4a02:2aff:fe07:1efc])
+        by smtp.googlemail.com with ESMTPSA id o21-20020a1c7515000000b003d995a704fdsm797856wmc.33.2023.01.06.00.18.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 06 Jan 2023 00:18:28 -0800 (PST)
+Date: Fri, 6 Jan 2023 09:18:24 +0100
+From: Corentin Labbe <clabbe.montjoie@gmail.com>
+To: Samuel Holland <samuel@sholland.org>
+Cc: Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S . Miller" <davem@davemloft.net>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Rob Herring <robh+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
+	Conor Dooley <conor@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v2 2/3] crypto: sun8i-ce - Add TRNG clock to the D1
+ variant
+Message-ID: <Y7fZUDSWaZhpL0hc@Red>
+References: <20221231220146.646-1-samuel@sholland.org>
+ <20221231220146.646-3-samuel@sholland.org>
 MIME-Version: 1.0
-X-ZohoMailClient: External
+Content-Disposition: inline
+In-Reply-To: <20221231220146.646-3-samuel@sholland.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230105_233848_354885_F92EA24D 
-X-CRM114-Status: GOOD (  28.27  )
+X-CRM114-CacheID: sfid-20230106_001835_092577_0237D877 
+X-CRM114-Status: GOOD (  11.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,65 +96,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-5ZyoIDIwMjMtMDEtMDTmmJ/mnJ/kuInnmoQgMTM6MTYgKzAxMDDvvIxIZWlrbyBTdMO8Ym5lcuWG
-memBk++8mgo+IEhpLAo+IAo+IEFtIE1pdHR3b2NoLCA0LiBKYW51YXIgMjAyMywgMTA6Mjc6NTMg
-Q0VUIHNjaHJpZWIgSWNlbm93eSBaaGVuZzoKPiA+IOWcqCAyMDIzLTAxLTA05pif5pyf5LiJ55qE
-IDE3OjI0ICswODAw77yMR3VvIFJlbuWGmemBk++8mgo+ID4gPiBPbiBXZWQsIEphbiA0LCAyMDIz
-IGF0IDQ6NTkgUE0gSWNlbm93eSBaaGVuZyA8dXd1QGljZW5vd3kubWU+Cj4gPiA+IHdyb3RlOgo+
-ID4gPiA+IAo+ID4gPiA+IOWcqCAyMDIzLTAxLTA05pif5pyf5LiJ55qEIDE2OjUwICswODAw77yM
-R3VvIFJlbuWGmemBk++8mgo+ID4gPiA+ID4gT24gV2VkLCBKYW4gNCwgMjAyMyBhdCAzOjQzIFBN
-IEljZW5vd3kgWmhlbmcgPHV3dUBpY2Vub3d5Lm1lPgo+ID4gPiA+ID4gd3JvdGU6Cj4gPiA+ID4g
-PiA+IAo+ID4gPiA+ID4gPiBETUEgc3luY2hvcml6YXRpb24gaXMgZG9uZSBvbiBQQSBhbmQgdGhl
-IFZBIGlzIGNhbGN1bGF0ZWQKPiA+ID4gPiA+ID4gZnJvbQo+ID4gPiA+ID4gPiB0aGUKPiA+ID4g
-PiA+ID4gUEEuCj4gPiA+ID4gPiA+IAo+ID4gPiA+ID4gPiBVc2UgdGhlIGFsdGVybmF0aXZlIG1h
-Y3JvIHZhcmlhbnQgdGhhdCB0YWtlcyBib3RoIFZBIGFuZCBQQQo+ID4gPiA+ID4gPiBhcwo+ID4g
-PiA+ID4gPiBwYXJhbWV0ZXJzLCB0aHVzIGluIGNhc2UgdGhlIElTQSBleHRlbnNpb24gdXNlZCBz
-dXBwb3J0IFBBCj4gPiA+ID4gPiA+IGRpcmVjdGx5LCB0aGUKPiA+ID4gPiA+ID4gb3ZlcmhlYWQg
-Zm9yIHJlLWNvbnZlcnRpbmcgVkEgdG8gUEEgY2FuIGJlIG9taXR0ZWQuCj4gPiA+ID4gPiA+IAo+
-ID4gPiA+ID4gPiBTdWdnZXN0ZWQtYnk6IEd1byBSZW4gPGd1b3JlbkBrZXJuZWwub3JnPgo+ID4g
-PiA+ID4gPiBTaWduZWQtb2ZmLWJ5OiBJY2Vub3d5IFpoZW5nIDx1d3VAaWNlbm93eS5tZT4KPiA+
-ID4gPiA+ID4gLS0tCj4gPiA+ID4gPiA+IMKgYXJjaC9yaXNjdi9tbS9kbWEtbm9uY29oZXJlbnQu
-YyB8IDggKysrKy0tLS0KPiA+ID4gPiA+ID4gwqAxIGZpbGUgY2hhbmdlZCwgNCBpbnNlcnRpb25z
-KCspLCA0IGRlbGV0aW9ucygtKQo+ID4gPiA+ID4gPiAKPiA+ID4gPiA+ID4gZGlmZiAtLWdpdCBh
-L2FyY2gvcmlzY3YvbW0vZG1hLW5vbmNvaGVyZW50LmMKPiA+ID4gPiA+ID4gYi9hcmNoL3Jpc2N2
-L21tL2RtYS0KPiA+ID4gPiA+ID4gbm9uY29oZXJlbnQuYwo+ID4gPiA+ID4gPiBpbmRleCBkOTE5
-ZWZhYjZlYmEuLmE3NTFmNGFlY2U2MiAxMDA2NDQKPiA+ID4gPiA+ID4gLS0tIGEvYXJjaC9yaXNj
-di9tbS9kbWEtbm9uY29oZXJlbnQuYwo+ID4gPiA+ID4gPiArKysgYi9hcmNoL3Jpc2N2L21tL2Rt
-YS1ub25jb2hlcmVudC5jCj4gPiA+ID4gPiA+IEBAIC0xOSwxMyArMTksMTMgQEAgdm9pZAo+ID4g
-PiA+ID4gPiBhcmNoX3N5bmNfZG1hX2Zvcl9kZXZpY2UocGh5c19hZGRyX3QKPiA+ID4gPiA+ID4g
-cGFkZHIsIHNpemVfdCBzaXplLAo+ID4gPiA+ID4gPiAKPiA+ID4gPiA+ID4gwqDCoMKgwqDCoMKg
-wqAgc3dpdGNoIChkaXIpIHsKPiA+ID4gPiA+ID4gwqDCoMKgwqDCoMKgwqAgY2FzZSBETUFfVE9f
-REVWSUNFOgo+ID4gPiA+ID4gPiAtwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBBTFRfQ01P
-X09QKGNsZWFuLCB2YWRkciwgc2l6ZSwKPiA+ID4gPiA+ID4gcmlzY3ZfY2JvbV9ibG9ja19zaXpl
-KTsKPiA+ID4gPiA+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgQUxUX0NNT19PUF9W
-UEEoY2xlYW4sIHZhZGRyLCBwYWRkciwgc2l6ZSwKPiA+ID4gPiA+ID4gcmlzY3ZfY2JvbV9ibG9j
-a19zaXplKTsKPiA+ID4gPiA+IEFMVF9DTU9fT1AgLT4gQUxUX0NNT19PUF9WUEEsIGlzIHRoZSBy
-ZW5hbWluZyBuZWNlc3Nhcnk/Cj4gPiA+ID4gCj4gPiA+ID4gSSBkaWRuJ3QgcmVuYW1lIHRoZSBv
-cmlnaW5hbCBBTFRfQ01PX09QLCBBTFRfQ01PX09QX1ZQQSBpcwo+ID4gPiA+IHNvbWV0aGluZwo+
-ID4gPiA+IG5ldy4KPiA+ID4gVGhlICMjX1ZQQSBpcyByZWFsbHkgc3RyYW5nZS4KPiA+ID4gCj4g
-PiA+IEhvdyBhYm91dDoKPiA+ID4gQUxUX0NNT19PUMKgwqDCoMKgwqDCoMKgwqDCoCAtPiBBTFRf
-Q01PX09QX1ZBCj4gPiA+IEFMVF9DTU9fT1BfVlBBIC0+IEFMVF9DTU9fT1AKPiA+IAo+ID4gSXQn
-cyB0aHVzIGEgbXVjaCBiaWdnZXIgY2hhbmdlLgo+ID4gCj4gPiBJZiB5b3UgYXJlIG5vdCBmb25k
-IG9mIF9WUEEsIEkgY2FuIHJlbmFtZSBpdCB0byBfVkFfUEEuCj4gCj4gYmVmb3JlIHlvdSBzcGVu
-ZCB0b28gbXVjaCB0aW1lIG9uIHRoaXMsIHRoZXJlIGlzIGN1cnJlbnRseSBhIHBhcmFsbGVsCj4g
-ZGlzY3Vzc2lvbiBydW5uaW5nIGFib3V0IGluY2x1ZGluZyBhbGwgdGhlIG90aGVyIGRpZmZlcmVu
-dCB2ZW5kb3ItCj4gc3BlY2lmaWMgY2FjaGUgbWFuYWdlbWVudC4KPiAKPiBTZWUgWzBdIGFuZCB0
-aGUgdGhyZWFkIGJlZm9yZSB0aGF0IGZvciByZWZlcmVuY2UuCgpUaGUgY29kZSBzaG93biBoZXJl
-IHNlZW1zIHRvIGJlIG9ubHkgYSBkcmFmdCwgYW5kIG5vdCBldmVuIHRlc3RhYmxlLgoKPiAKPiBU
-aGUgY29uc2Vuc3VzIHNlZW1zIHRvIGJlIHRoYXQgY2FjaGUtaGFuZGxpbmcgaXRzZWxmIGlzIG5v
-dCBmYXN0Cj4gYW55d2F5LAo+IGFuZCB0aGVyZWZvcmUgdG8gcmVkdWNlIGNvbXBsZXhpdHkgZm9y
-IHRoZSBjYWNoZSBoYW5kbGluZyBhbmQgbW92ZQo+IG5vbi16aWNib20gY2FjaGUtaGFuZGxpbmcg
-aW50byBhIGluZGlyZWN0IGZ1bmN0aW9uIGNhbGwgdGhhdCB0aGUgY2FuCj4gYmUKPiBvdmVycmlk
-ZGVuIGF0IHJ1bnRpbWUuCgpXZWxsIHllcyBJIHRlc3RlZCB0aGlzIHBhdGNoc2V0IG9uIG15IExp
-dGVYIHdpdGggT3BlbkM5MDYsIGFuZCBpdCBkb2VzCm5vdCBoZWxwIGF0IGFsbCBvbiBMaXRlRVRI
-IHRocm91Z2h0cHV0LiBTbyBtYXliZSB0aGlzIGlzIG9ubHkgc29tZQp0aGVvcnRpY2FsIGdhaW4u
-Cgo+IAo+IAo+IEhlaWtvCj4gCj4gWzBdCj4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvYWxsLzQz
-YWVlMDAwLTViODktNGQ5NC05OGQyLWIzN2IxYTE4YTgzZUBhcHAuZmFzdG1haWwuY29tLwo+IAo+
-IAoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4
-LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6
-Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Le Sat, Dec 31, 2022 at 04:01:44PM -0600, Samuel Holland a =E9crit :
+> At least the D1 variant requires a separate clock for the TRNG.
+> Without this clock enabled, reading from /dev/hwrng reports:
+> =
+
+>    sun8i-ce 3040000.crypto: DMA timeout for TRNG (tm=3D96) on flow 3
+> =
+
+> Experimentation shows that the necessary clock is the SoC's internal
+> RC oscillator. This makes sense, as noise from the oscillator can be
+> used as a source of entropy.
+> =
+
+> Signed-off-by: Samuel Holland <samuel@sholland.org>
+> ---
+> =
+
+
+Acked-by: Corentin Labbe <clabbe.montjoie@gmail.com>
+
+Thanks
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
