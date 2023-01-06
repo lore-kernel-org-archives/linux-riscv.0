@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8E8CC3DA7A
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Jan 2023 01:04:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25C6BC4708E
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Jan 2023 01:04:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=So6vMP+EKcFe4Mh0SwpEKX/vhFfAW4Y/QcX0pO23Sfc=; b=S/sHa+npylZE5u
-	ym5ut9Wz7DMlwJZPBYYR9U/i+dlfJ39r0OLWtsDk8YrxPplYYqwC0TZhPVtftwtwu93Sg0w5uzqmY
-	Z3+on2MXgJCTXvEK1kw9ta7TDlEA0oMvYIeMSqZbbLb9LuD22dBSpTfFL/zTpuJ9m76biYLdFqoBE
-	/H9VQ46w56rbYZcniaib3m+R6O6aFObqsFrf+8ZouGZ2QLv14Vwv6axPuHof9WGI4cv8U0KKUyZmL
-	G2P3FiVfPeYSAjfUfwjfYyY8iJnCtPjKQ5JksP6pVrg4kSa+uhwFfuwcxzukLAuZRMsMip0Gd925x
-	tReUhOWcqSq4xjt3AHlg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=8r8UVoahfILh8clMmWtAGeCIrq3CnAtRKeVpWiJ+u2w=; b=yo94vPLSiNf8r4
+	3+ZA3ur1YdK1UwiDPqLoLv2Msf6hc2hS3reSz3CGgKk4wUQwo0xgSbuubyXlVvoh5gjVGZlV28p0f
+	W2MEQyN4K3Gr5q2DMItzDieAdFjzq/tGkBsgA1YgOITXcy1xgg5PN2/X8otNICCGyw3mYDT9/TmYa
+	05etMpLOwp2NABq3nk4eT36XNqeiEsioOWrkXMQqzb6F1Wxt7lOmaSNGITMxHhCSxLEKAWweSNYGc
+	rxkZoA0P8HVp7OzuXQtcX8ER1buU7eLzcPRUPneHTy2lb40oXwTCktgh3le5IMteIkz3ljwt342Gy
+	C0BA6HH5tdG4nexdvOXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pDb9d-00GhK6-JF; Fri, 06 Jan 2023 01:04:17 +0000
+	id 1pDb9n-00GhPf-FL; Fri, 06 Jan 2023 01:04:27 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pDb9I-00Gh4q-SZ; Fri, 06 Jan 2023 01:03:58 +0000
+	id 1pDb9J-00Gh80-2P; Fri, 06 Jan 2023 01:04:00 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8589811FB;
-	Thu,  5 Jan 2023 17:04:30 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0D72B15DB;
+	Thu,  5 Jan 2023 17:04:36 -0800 (PST)
 Received: from slackpad.fritz.box (unknown [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4D3243F23F;
-	Thu,  5 Jan 2023 17:03:46 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C53793F23F;
+	Thu,  5 Jan 2023 17:03:51 -0800 (PST)
 From: Andre Przywara <andre.przywara@arm.com>
 To: Samuel Holland <samuel@sholland.org>,
 	Jernej Skrabec <jernej.skrabec@gmail.com>,
@@ -47,14 +47,16 @@ Cc: Icenowy Zheng <uwu@icenowy.me>,
 	linux-sunxi@lists.linux.dev,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 0/4] ARM: dts: sunxi: Add MangoPi MQ-R board support
-Date: Fri,  6 Jan 2023 01:01:51 +0000
-Message-Id: <20230106010155.26868-1-andre.przywara@arm.com>
+Subject: [PATCH 2/4] ARM: dts: sunxi: add Allwinner T113-s SoC .dtsi
+Date: Fri,  6 Jan 2023 01:01:53 +0000
+Message-Id: <20230106010155.26868-3-andre.przywara@arm.com>
 X-Mailer: git-send-email 2.35.5
+In-Reply-To: <20230106010155.26868-1-andre.przywara@arm.com>
+References: <20230106010155.26868-1-andre.przywara@arm.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230105_170357_008490_44B30E82 
-X-CRM114-Status: GOOD (  12.70  )
+X-CRM114-CacheID: sfid-20230105_170357_177151_BB6ADD71 
+X-CRM114-Status: GOOD (  12.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,43 +73,85 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The MangoPi MQ-R is a small SBC with the Allwinner T113-s3 SoC. That is
-a very close relative to the Allwinner D1/D1s SoCs, but with Arm
-Cortex-A7 cores, and 128 MB of SIP co-packaged DDR3 DRAM.
+The Allwinner T113-s SoC is apparently using the same (or at least a very
+similar) die as the D1/D1s, but replaces the single RISC-V core with
+two Arm Cortex-A7 cores.
+Since the D1 core .dtsi already describes all common peripherals, we
+just need a DT describing the ARM specific peripherals: the CPU cores,
+the Generic Timer, the GIC and the PMU.
+We include the core .dtsi directly from the riscv DT directory.
 
-This series introduces the missing T113-s .dtsi, which builds on top of
-the D1/D1s .dtsi, but adds the ARM specific peripherals, like the CPU
-cores, the arch timer, the GIC and the PMU.
-This requires to add a symlink to the RISC-V DT directory in patch 1/4,
-to be able to easily reference the base .dtsi from other architecture
-directories.
-
-After I had written most of the board .dts, I realised that the
-MangoPi MQ is almost the same, minus the RISC-V/ARM difference. I am a
-bit unsure if we should share more of the board .dts, though, as this
-would go cross architectures. I am open to any comments here.
-
-Please have a look!
-
-Cheers,
-Andre
-
-Andre Przywara (4):
-  dts: add riscv include prefix link
-  ARM: dts: sunxi: add Allwinner T113-s SoC .dtsi
-  dt-bindings: arm: sunxi: document MangoPi MQ-R board name
-  ARM: dts: sunxi: add MangoPi MQ-R board
-
- .../devicetree/bindings/arm/sunxi.yaml        |   5 +
- arch/arm/boot/dts/Makefile                    |   1 +
- .../arm/boot/dts/sun8i-t113s-mangopi-mq-r.dts | 160 ++++++++++++++++++
- arch/arm/boot/dts/sun8i-t113s.dtsi            |  59 +++++++
- scripts/dtc/include-prefixes/riscv            |   1 +
- 5 files changed, 226 insertions(+)
- create mode 100644 arch/arm/boot/dts/sun8i-t113s-mangopi-mq-r.dts
+Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+---
+ arch/arm/boot/dts/sun8i-t113s.dtsi | 59 ++++++++++++++++++++++++++++++
+ 1 file changed, 59 insertions(+)
  create mode 100644 arch/arm/boot/dts/sun8i-t113s.dtsi
- create mode 120000 scripts/dtc/include-prefixes/riscv
 
+diff --git a/arch/arm/boot/dts/sun8i-t113s.dtsi b/arch/arm/boot/dts/sun8i-t113s.dtsi
+new file mode 100644
+index 0000000000000..804aa197a24f8
+--- /dev/null
++++ b/arch/arm/boot/dts/sun8i-t113s.dtsi
+@@ -0,0 +1,59 @@
++// SPDX-License-Identifier: (GPL-2.0+ or MIT)
++// Copyright (C) 2022 Arm Ltd.
++
++#define SOC_PERIPHERAL_IRQ(nr) GIC_SPI nr
++
++#include <dt-bindings/interrupt-controller/arm-gic.h>
++#include <riscv/allwinner/sunxi-d1s-t113.dtsi>
++#include <riscv/allwinner/sunxi-d1-t113.dtsi>
++
++/ {
++	interrupt-parent = <&gic>;
++
++	cpus {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		cpu0: cpu@0 {
++			compatible = "arm,cortex-a7";
++			device_type = "cpu";
++			reg = <0>;
++			clocks = <&ccu CLK_CPUX>;
++			clock-names = "cpu";
++		};
++
++		cpu1: cpu@1 {
++			compatible = "arm,cortex-a7";
++			device_type = "cpu";
++			reg = <1>;
++			clocks = <&ccu CLK_CPUX>;
++			clock-names = "cpu";
++		};
++	};
++
++	gic: interrupt-controller@1c81000 {
++		compatible = "arm,gic-400";
++		reg = <0x03021000 0x1000>,
++		      <0x03022000 0x2000>,
++		      <0x03024000 0x2000>,
++		      <0x03026000 0x2000>;
++		interrupts = <GIC_PPI 9 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>;
++		interrupt-controller;
++		#interrupt-cells = <3>;
++	};
++
++	timer {
++		compatible = "arm,armv7-timer";
++		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
++			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
++			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
++			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>;
++	};
++
++	pmu {
++		compatible = "arm,cortex-a7-pmu";
++		interrupts = <GIC_SPI 172 IRQ_TYPE_LEVEL_HIGH>,
++			     <GIC_SPI 173 IRQ_TYPE_LEVEL_HIGH>;
++		interrupt-affinity = <&cpu0>, <&cpu1>;
++	};
++};
 -- 
 2.35.5
 
