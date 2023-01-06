@@ -4,62 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D56FC4708E
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Jan 2023 01:05:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EED0CC4708E
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Jan 2023 01:12:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MQJ3SE5xKrNHKGrRfNgjkHC254A4OYSgt/USBacXHns=; b=FxcMLaywXEnDfn
-	DDGDb1XzaSaK3EwaKPBG4StMkoZAXhm418TNfo4sZaInfd43bGXUG6uWsPRZEVbRCulHIc9QQ4KGb
-	BGfCVRI4GKJpJhb7CK+3oJ8UmTLB8PG9WEya9wi61GCGtOPgiW2fdbusiRcyhilLkJRoPJVR5XtFo
-	e85jiE1ZKWX2/Awcc1HDIfOfjE98BCCigjv4Gah3HHkINf1oM39uNb3P4e0/r7PJlv9JnOVT7i/+z
-	2OxKw+7T9VN/syEBpGO8Iz9EAC93xbtLeVQfq87wPGqT1h+OGZukuo4tU1CIph6vMwu+LBIShiaVF
-	3JwnlulFx0mYXxBifHgg==;
+	List-Owner; bh=2KGy0U1y9OZEsH8VO7FBhfe1W7t2izdHlnzu9ArsBLk=; b=GqD6rY/bnmYTO6
+	1LzQbqhRBreUCvDirRl4AFCompvGe/eexziB1mkRmCxY8tizBwCoKR0CzxjKhRCYy5UuHgi84hcIJ
+	2F6zkgvYKfbfMC1daHhrJaOCueYuYhROWxkvzsZiITVhu6ROaWyebYS5Qt+8dL04bKjxp/rOrSxSE
+	WMSYz0YWqEe4g32KgvRgBIi4MZtCbnqlPVVvapI7dddOoVe+IzqIOZlj4ztqB5gmm97FNamsioQDu
+	GiBbZGO85oDL4QKpLrUXIcK/PagvxiJQzAzhAxJBxy4xSU4ach/fXX4DGeshQo3waP6uudBoVsETU
+	mpxK3QuA5yhqJiMuKNRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pDbAF-00GhpQ-Dw; Fri, 06 Jan 2023 01:04:55 +0000
-Received: from foss.arm.com ([217.140.110.172])
+	id 1pDbHt-00Gm5g-WE; Fri, 06 Jan 2023 01:12:50 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pDb9N-00GhAJ-59; Fri, 06 Jan 2023 01:04:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D397611FB;
-	Thu,  5 Jan 2023 17:04:41 -0800 (PST)
-Received: from slackpad.fritz.box (unknown [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3EF243F23F;
-	Thu,  5 Jan 2023 17:03:57 -0800 (PST)
-From: Andre Przywara <andre.przywara@arm.com>
-To: Samuel Holland <samuel@sholland.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
-Cc: Icenowy Zheng <uwu@icenowy.me>,
-	=?UTF-8?q?Andr=C3=A1s=20Szemz=C3=B6?= <szemzo.andras@gmail.com>,
-	Fabien Poussin <fabien.poussin@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Arnd Bergmann <arnd@arndb.de>,
-	Olof Johansson <olof@lixom.net>,
-	soc@kernel.org
-Subject: [PATCH 4/4] ARM: dts: sunxi: add MangoPi MQ-R board
-Date: Fri,  6 Jan 2023 01:01:55 +0000
-Message-Id: <20230106010155.26868-5-andre.przywara@arm.com>
-X-Mailer: git-send-email 2.35.5
-In-Reply-To: <20230106010155.26868-1-andre.przywara@arm.com>
-References: <20230106010155.26868-1-andre.przywara@arm.com>
+	id 1pDbHp-00Glrn-H9
+	for linux-riscv@lists.infradead.org; Fri, 06 Jan 2023 01:12:48 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 4B76424DBC0;
+	Fri,  6 Jan 2023 09:11:57 +0800 (CST)
+Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 6 Jan
+ 2023 09:11:57 +0800
+Received: from [192.168.2.237] (183.27.98.121) by EXMBX172.cuchost.com
+ (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 6 Jan
+ 2023 09:11:55 +0800
+Message-ID: <2286c916-c54c-bdda-b1d9-b704813b6fec@starfivetech.com>
+Date: Fri, 6 Jan 2023 09:11:53 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.3.2
+Subject: Re: [PATCH v1 0/4] Temperature sensor support for StarFive JH7110
+ RISC-V SoC
+To: Guenter Roeck <linux@roeck-us.net>
+CC: <linux-hwmon@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, Jean Delvare
+	<jdelvare@suse.com>, Jonathan Corbet <corbet@lwn.net>, Conor Dooley
+	<conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Rob Herring
+	<robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, <linux-kernel@vger.kernel.org>
+References: <20230103013145.9570-1-hal.feng@starfivetech.com>
+ <20230103015601.GB313835@roeck-us.net>
+Content-Language: en-US
+From: Hal Feng <hal.feng@starfivetech.com>
+In-Reply-To: <20230103015601.GB313835@roeck-us.net>
+X-Originating-IP: [183.27.98.121]
+X-ClientProxiedBy: EXCAS061.cuchost.com (172.16.6.21) To EXMBX172.cuchost.com
+ (172.16.6.92)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230105_170401_326658_B1E6A55E 
-X-CRM114-Status: GOOD (  14.28  )
+X-CRM114-CacheID: sfid-20230105_171245_884890_27821C62 
+X-CRM114-Status: GOOD (  17.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,201 +80,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The MangoPi MQ-R is a small SBC with the Allwinner T113-s3 SoC.
-The SoC features two Arm Cortex-A7 cores and 128 MB of co-packaged DDR3
-DRAM. The board adds mostly connectors and the required regulators, plus
-a Realtek RTL8189FTV WiFi chip.
-Power comes in via a USB-C connector wired as a peripheral, and there is
-a second USB-C connector usable as a host port.
+On Mon, 2 Jan 2023 17:56:01 -0800, Guenter Roeck wrote:
+> On Tue, Jan 03, 2023 at 09:31:41AM +0800, Hal Feng wrote:
+> > This patch series adds temperature sensor support for StarFive JH7110 SoC.
+> > The last two patches depend on series [1].
+> > 
+> > [1]: https://lore.kernel.org/all/20221220011247.35560-1-hal.feng@starfivetech.com/
+> > 
+> > Emil Renner Berthing (4):
+> >   dt-bindings: hwmon: Add starfive,jh71x0-temp
+> >   hwmon: (sfctemp) Add StarFive JH71x0 temperature sensor
+> >   riscv: dts: starfive: jh7110: Add temperature sensor node
+> >   riscv: dts: starfive: visionfive-2: Add thermal-zones
+> > 
+> 
+> The hardware monitoring driver is obviously either the same
+> or derived from the previous series at
+> https://patchwork.kernel.org/project/linux-hwmon/list/?series=&submitter=&state=*&q=starfive
+> 
+> Why is this not submitted as v4 of the original series ?
+> What has changed, and what is the rationale for (re-)submitting
+> it as v1 ?
 
-Signed-off-by: Andre Przywara <andre.przywara@arm.com>
----
- arch/arm/boot/dts/Makefile                    |   1 +
- .../arm/boot/dts/sun8i-t113s-mangopi-mq-r.dts | 160 ++++++++++++++++++
- 2 files changed, 161 insertions(+)
- create mode 100644 arch/arm/boot/dts/sun8i-t113s-mangopi-mq-r.dts
+Sorry for the late reply. I feel sorry to say that I didn't know
+the submitting history of this patch series and Emil forgot to
+tell me maybe. After comparing with the previous series, I find
+the changes between this one and the previous one can be concluded
+as below.
 
-diff --git a/arch/arm/boot/dts/Makefile b/arch/arm/boot/dts/Makefile
-index d08a3c450ce72..39fd893682924 100644
---- a/arch/arm/boot/dts/Makefile
-+++ b/arch/arm/boot/dts/Makefile
-@@ -1390,6 +1390,7 @@ dtb-$(CONFIG_MACH_SUN8I) += \
- 	sun8i-s3-elimo-initium.dtb \
- 	sun8i-s3-lichee-zero-plus.dtb \
- 	sun8i-s3-pinecube.dtb \
-+	sun8i-t113s-mangopi-mq-r.dtb \
- 	sun8i-t3-cqa3t-bv3.dtb \
- 	sun8i-v3-sl631-imx179.dtb \
- 	sun8i-v3s-licheepi-zero.dtb \
-diff --git a/arch/arm/boot/dts/sun8i-t113s-mangopi-mq-r.dts b/arch/arm/boot/dts/sun8i-t113s-mangopi-mq-r.dts
-new file mode 100644
-index 0000000000000..ed4d5217d7b0d
---- /dev/null
-+++ b/arch/arm/boot/dts/sun8i-t113s-mangopi-mq-r.dts
-@@ -0,0 +1,160 @@
-+// SPDX-License-Identifier: (GPL-2.0+ or MIT)
-+// Copyright (C) 2022 Arm Ltd.
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/leds/common.h>
-+
-+/dts-v1/;
-+
-+#include "sun8i-t113s.dtsi"
-+
-+/ {
-+	model = "MangoPi MQ-R";
-+	compatible = "widora,mangopi-mq-r", "allwinner,sun8i-t113s";
-+
-+	aliases {
-+		ethernet0 = &rtl8189ftv;
-+		serial3 = &uart3;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial3:115200n8";
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+
-+		led-0 {
-+			color = <LED_COLOR_ID_BLUE>;
-+			function = LED_FUNCTION_STATUS;
-+			gpios = <&pio 3 22 GPIO_ACTIVE_LOW>; /* PD22 */
-+		};
-+	};
-+
-+	/* board wide 5V supply directly from the USB-C socket */
-+	reg_vcc5v: vcc5v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc-5v";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-always-on;
-+	};
-+
-+	/* SY8008 DC/DC regulator on the board */
-+	reg_3v3: regulator-3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc-3v3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&reg_vcc5v>;
-+	};
-+
-+	/* SY8008 DC/DC regulator on the board, also supplying VDD-SYS */
-+	reg_vcc_core: regulator-core {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc-core";
-+		regulator-min-microvolt = <880000>;
-+		regulator-max-microvolt = <880000>;
-+		vin-supply = <&reg_vcc5v>;
-+	};
-+
-+	/* XC6206 LDO on the board */
-+	reg_avdd2v8: regulator-avdd {
-+		compatible = "regulator-fixed";
-+		regulator-name = "avdd2v8";
-+		regulator-min-microvolt = <2800000>;
-+		regulator-max-microvolt = <2800000>;
-+		vin-supply = <&reg_3v3>;
-+	};
-+
-+	wifi_pwrseq: wifi-pwrseq {
-+		compatible = "mmc-pwrseq-simple";
-+		reset-gpios = <&pio 6 12 GPIO_ACTIVE_LOW>; /* PG12 */
-+	};
-+};
-+
-+&cpu0 {
-+	cpu-supply = <&reg_vcc_core>;
-+};
-+
-+&cpu1 {
-+	cpu-supply = <&reg_vcc_core>;
-+};
-+
-+&dcxo {
-+	clock-frequency = <24000000>;
-+};
-+
-+&ehci1 {
-+	status = "okay";
-+};
-+
-+&mmc0 {
-+	pinctrl-0 = <&mmc0_pins>;
-+	pinctrl-names = "default";
-+	vmmc-supply = <&reg_3v3>;
-+	cd-gpios = <&pio 5 6 GPIO_ACTIVE_LOW>;
-+	disable-wp;
-+	bus-width = <4>;
-+	status = "okay";
-+};
-+
-+&mmc1 {
-+	pinctrl-0 = <&mmc1_pins>;
-+	pinctrl-names = "default";
-+	vmmc-supply = <&reg_3v3>;
-+	non-removable;
-+	bus-width = <4>;
-+	mmc-pwrseq = <&wifi_pwrseq>;
-+	status = "okay";
-+
-+	rtl8189ftv: wifi@1 {
-+		reg = <1>;
-+		interrupt-parent = <&pio>;
-+		interrupts = <6 10 IRQ_TYPE_LEVEL_LOW>; /* PG10 = WL_WAKE_AP */
-+		interrupt-names = "host-wake";
-+	};
-+};
-+
-+&ohci1 {
-+	status = "okay";
-+};
-+
-+&pio {
-+	vcc-pb-supply = <&reg_3v3>;
-+	vcc-pd-supply = <&reg_3v3>;
-+	vcc-pe-supply = <&reg_avdd2v8>;
-+	vcc-pf-supply = <&reg_3v3>;
-+	vcc-pg-supply = <&reg_3v3>;
-+};
-+
-+&reg_ldoa {
-+	regulator-always-on;
-+	regulator-name = "vcc-1v8";
-+	regulator-min-microvolt = <1800000>;
-+	regulator-max-microvolt = <1800000>;
-+	ldo-in-supply = <&reg_3v3>;
-+};
-+
-+&reg_ldob {
-+	regulator-name = "vcc-dram";
-+	regulator-always-on;
-+	ldo-in-supply = <&reg_3v3>;
-+};
-+
-+&uart3 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart3_pb_pins>;
-+	status = "okay";
-+};
-+
-+/* The USB-C socket has its CC pins pulled to GND, so is hardwired as a UFP. */
-+&usb_otg {
-+	dr_mode = "peripheral";
-+	status = "okay";
-+};
-+
-+&usbphy {
-+	usb1_vbus-supply = <&reg_vcc5v>;
-+	status = "okay";
-+};
--- 
-2.35.5
+Change log:
+- Added support for StarFive JH7110 SoC besides JH7100.
+- Added clock and reset support in dt-bindings and driver.
+- Added two patches for adding nodes in JH7110 and VisionFive 2 dts
+  which were being reviewed.
 
+Thank you for your kindly reminding. I will resend this patch
+series as version 4 and add the change log.
+
+Best regards,
+Hal
 
 _______________________________________________
 linux-riscv mailing list
