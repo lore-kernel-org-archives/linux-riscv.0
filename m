@@ -4,77 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FC0DC4708D
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Jan 2023 11:32:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C428C3DA7A
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Jan 2023 12:37:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=7oMDYRFRtofs7tdGuBtEZtzv4X1mEx4S3UyFOcBxjPk=; b=mEfCuqW6sLIL9M
-	D8WUA1mP5t2rT7D9ZhcP4NGuZrT5/56LnItegnH2+JGUNO19nDldj8xyzLP9nU9cbGfTiHBEaRuun
-	sWzehP4YnDRAb/aZ+gYE50GTa8SrmmkiU5gbjovOxiD8nRIzzs3WbTQ9vT6crtSCowyWIjOLxI/6v
-	mf5S3lzqTdfhS5tEWpGDe3wLy+rhhbQQMKWXisE4m7cD3koKfEh+NtcopH52ihr9MKTfDM4ySLmiF
-	Gqh/UCqKhQpEGz5aSXu1SerUFF8/LGRDEOP/kQvmtBUH51LyYu+kE3mSn2FKM1VHdjlEPoW2sMjBf
-	uiDAjmGyH6V6bXQOnvqg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=+oNGE1i6R9zJqutW7kUl4VgMzsDrZ6TXEdGwIw1+9EM=; b=TRUoCw6bydEFOW
+	F2s9Yp2DMZ+TUvJU4hxNSq1AnsNQE7zP76jdXdymKCH8HAUcjUPRwBj2VKFknr/xWOeKsf7lb9Zc1
+	A1MpR6NCNbia4p1NbGrnh/ozQJCtnBdpFuIdTH0t6diSaOehgo8/EEdquMpLQuOaJ3YjJb84/j7+1
+	fTbwKvhycHrMPm8IQJplkMTXD10lV2CX0qRVfmbGN+sk0580FdrzIEHDv3WnC+q6e0IJ+UGibEEwN
+	YplIFq1aH6pJGo8Og+zrnU0T/FQSE7GSGR1NGbG+oBpaui6cVXhsrzf1uHtHNvq9ar0iBBC87L+XO
+	aDupSOoIlC0JEmmEfT7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pDkxV-007lEH-3I; Fri, 06 Jan 2023 11:32:25 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1pDlyF-0087B5-Ad; Fri, 06 Jan 2023 12:37:15 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pDkxR-007lCY-L7
-	for linux-riscv@lists.infradead.org; Fri, 06 Jan 2023 11:32:23 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id o15so858235wmr.4
-        for <linux-riscv@lists.infradead.org>; Fri, 06 Jan 2023 03:32:18 -0800 (PST)
+	id 1pDlyB-00877p-BU
+	for linux-riscv@lists.infradead.org; Fri, 06 Jan 2023 12:37:12 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id m3so986081wmq.0
+        for <linux-riscv@lists.infradead.org>; Fri, 06 Jan 2023 04:37:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=0yuXVUGh4ukmDqrI7Vx2oBw82/pBGU2yDOfMF7UQXmY=;
-        b=K4XUpx5+nAewRWe3m0uXLL4lHUMGpIwDcW27NDvMumVpWPx8XqYOj8zTO5MD4YW40E
-         KtkYL2M4QIr2Mp+dlS4E7CufwhPEubeLNzpJZeFA7PLDchoSIQhmPpLe4LcGRPzbELPh
-         bptZjdbeN04YjPO3BPDr8sd7IzApIhcsOI9C0D5V1z4EFUvkWhAmszetxGzDZAHsnha7
-         vQBuxgWjguy2pdUk7Y8Mzv4pvWAJU6ZvacaLco74spSzaToIuaegrOQPuIAZGg1bsvBu
-         pveEVg380PQ4M322OTVREkFICZtoKzqD7xwvaO/wGOxZKCJBYAw7roABFK+qZvbDYvFu
-         N0vA==
+        d=linaro.org; s=google;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=JfkdNWtaqfWf7qUFl/BGUV8KbJ5Fivhd3o6PbjSCcN8=;
+        b=lP5AwIEjAC+3lfJNrf+S9HB/EoC0nnqsOeX2OpUVaCtd9m0t6N/SekUoj2S8/8a+oV
+         3NDmOlZMPf/4H3gxlYzHbOKgYJbG1pAxkZU/IqDmP7gocWJYV6gw0qalGrw2uHDEa8ja
+         t67SacSBAMqh8FhuwPMJsfsbaoEecUf/BhehB0RKihXqv/G+IKY59+9XVEDygULYFkvF
+         MAs/IPzgz9TVNckMPf8yqsx24mYCQj7kzB7BZJNp+JLs3tqji7vbAiE5PvLDfKgerU1g
+         AofBPUiNukfD4l5WoaQV8uFQ280d6gilfsIJQFcP14ZXCKqgN59C2j332NGhsr8QcgQ9
+         CuUA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=0yuXVUGh4ukmDqrI7Vx2oBw82/pBGU2yDOfMF7UQXmY=;
-        b=YJtIf/MeH7GYs2Mn3TEDBcy/x2b/BUiWEpieSlPZENdwCgFzD2xauWcwfT+8vKuBIc
-         lbabQjGbKoKIzUa+j0lNii1BvVThVTOdr1/Epla9kraa/eaqcN9W8QGEKZnD8Pv+J66Z
-         DExlRWFRr5KMrYn6PHQwpINO2gqZSk7r6QGOKRxXwNaPPsH+UsAyhjBDn/+wE/OJRpYD
-         KUtvXnDBTc7Ujc+VSnIJd8cn2HFaoGdIoI0BNpgr8gNFum64q6Yx+0AkigotwMGg/euS
-         Kvphpb04fmIaRYSmUQHfrC8xh0uBDQRAz9xBGEFglaxzNLDun/735GksR0+gTwFWodQ6
-         z9Zw==
-X-Gm-Message-State: AFqh2kowQ1jQA2l7ifO0lUj1IePAsj3+v3Ph2p0ow8UMqUqg7Nya7RFE
-	/xgTf4Fxc0J+IimKzNukAx2+wQzotdPZANB6
-X-Google-Smtp-Source: AMrXdXvNYCnrTGZAOY64I5B1iSr25VyETSrIFvlNeEYtcT9YRrd/t7wfi4yLYaoz+Jz1hK5I40U8jg==
-X-Received: by 2002:a05:600c:5014:b0:3d3:446a:b46a with SMTP id n20-20020a05600c501400b003d3446ab46amr42149373wmr.38.1673004737637;
-        Fri, 06 Jan 2023 03:32:17 -0800 (PST)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id l14-20020a05600c4f0e00b003d96c811d6dsm6327156wmq.30.2023.01.06.03.32.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 06 Jan 2023 03:32:17 -0800 (PST)
-From: Andrew Jones <ajones@ventanamicro.com>
-To: linux-riscv@lists.infradead.org
-Cc: 'Anup Patel ' <apatel@ventanamicro.com>,
-	'Albert Ou ' <aou@eecs.berkeley.edu>,
-	'Paul Walmsley ' <paul.walmsley@sifive.com>,
-	'Sia Jee Heng ' <jeeheng.sia@starfivetech.com>,
-	'Palmer Dabbelt ' <palmer@dabbelt.com>,
-	'Ley Foon Tan ' <leyfoon.tan@starfivetech.com>
-Subject: [RFC PATCH 0/1] riscv: Introduce system suspend support
-Date: Fri,  6 Jan 2023 12:32:15 +0100
-Message-Id: <20230106113216.443057-1-ajones@ventanamicro.com>
-X-Mailer: git-send-email 2.39.0
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=JfkdNWtaqfWf7qUFl/BGUV8KbJ5Fivhd3o6PbjSCcN8=;
+        b=RyEAUZT6dIHDEeOzDPOJ4GQthsgY8lQcFGTDenfLe8Nb7Bo0vU7wWUjMuQGOeb4TFg
+         EYddJUsmDzcDVPVlboie1HewgVbdOpvnXJoyNwVX6ZiC1iGzwkZzVe3YwN2FLaRyKY1v
+         Id+SKhlSmZsRLKfRIyjl7bqqb2p0fdKWvnnDJr65NHQ72S/KMBX8zbWxLZE0+RbIf+dN
+         ZO8LQ21CSukZ+JzqTzN9QqvB+6wzDNR2G9Z0iEj/G63VElc4r0wmI/L51TVBLj9tK4dS
+         PKQY7fHpC0kJyn4Qqn32xfWcJ13xc5gwgg/yVnG8Cc+PA+mM9l7qHZGyHJzz9LyI3I+p
+         yLnQ==
+X-Gm-Message-State: AFqh2kqx/l940wbol4RHcXHMcI4Vh1peD7h/gs40MkXVaFj5+UCWfGZe
+	LjCT2B7FJDklBJla7k/q9pczAg==
+X-Google-Smtp-Source: AMrXdXt4SwoPX7N00J959R6a9X52m1stIfhnB9gX7yMTUn+jnioUf0KQclnbmOfsHkl40kkFhoLvcA==
+X-Received: by 2002:a05:600c:b4d:b0:3d3:49db:d84 with SMTP id k13-20020a05600c0b4d00b003d349db0d84mr38422517wmr.20.1673008627610;
+        Fri, 06 Jan 2023 04:37:07 -0800 (PST)
+Received: from [192.168.1.102] ([178.197.216.144])
+        by smtp.gmail.com with ESMTPSA id fc14-20020a05600c524e00b003a3442f1229sm6903655wmb.29.2023.01.06.04.37.06
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 06 Jan 2023 04:37:07 -0800 (PST)
+Message-ID: <e501df1b-93ac-b56e-cb57-8059fe251536@linaro.org>
+Date: Fri, 6 Jan 2023 13:37:05 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.6.1
+Subject: Re: [PATCH v3 1/7] dt-bindings: net: snps,dwmac: Add dwmac-5.20
+ version
+Content-Language: en-US
+To: Yanhong Wang <yanhong.wang@starfivetech.com>,
+ linux-riscv@lists.infradead.org, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Cc: "David S . Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Emil Renner Berthing <kernel@esmil.dk>,
+ Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
+ Heiner Kallweit <hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>
+References: <20230106030001.1952-1-yanhong.wang@starfivetech.com>
+ <20230106030001.1952-2-yanhong.wang@starfivetech.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20230106030001.1952-2-yanhong.wang@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230106_033221_707422_B112E38C 
-X-CRM114-Status: UNSURE (   9.57  )
+X-CRM114-CacheID: sfid-20230106_043711_431514_A240A727 
+X-CRM114-Status: UNSURE (   6.58  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,36 +102,20 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Booting with an OpenSBI including the RFC series[1] implementing the
-draft proposal for SBI system suspend[2] we can add system support to
-Linux. This support implements "suspend-to-RAM", which means when a
-kernel is built with CONFIG_SUSPEND 'echo mem > /sys/power/state' will
-initiate a suspension.
+On 06/01/2023 03:59, Yanhong Wang wrote:
+> From: Emil Renner Berthing <kernel@esmil.dk>
+> 
+> Add dwmac-5.20 IP version to snps.dwmac.yaml
+> 
+> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+> Signed-off-by: Yanhong Wang <yanhong.wang@starfivetech.com>
+> ---
 
-This has only been tested on QEMU using the OpenSBI system suspend
-test. The test just waits 5 seconds and then resumes. To truly use
-system suspend a platform must have a low-level firmware implementation
-and provide at least one wake-up event, such as from a wakeup-capable
-RTC alarm, to resume.
 
-[1] https://github.com/jones-drew/opensbi/commits/susp-rfc
-    Posting: http://lists.infradead.org/pipermail/opensbi/2023-January/004091.html
-[2] https://github.com/jones-drew/riscv-sbi-doc/commit/d9e43e9a938fc3eb510e023c3f352462876f7785
-    Posting: https://lists.riscv.org/g/tech-prs/message/75
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-This patch is also available at
-https://github.com/jones-drew/linux/commits/riscv/sbi-susp-rfc
-
-Andrew Jones (1):
-  riscv: sbi: Introduce system suspend support
-
- arch/riscv/Kconfig           |  5 ++++-
- arch/riscv/include/asm/sbi.h |  9 ++++++++
- arch/riscv/kernel/suspend.c  | 41 ++++++++++++++++++++++++++++++++++++
- 3 files changed, 54 insertions(+), 1 deletion(-)
-
--- 
-2.39.0
+Best regards,
+Krzysztof
 
 
 _______________________________________________
