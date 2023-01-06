@@ -4,66 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4D40C6379F
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Jan 2023 21:19:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D7CAC54EBD
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Jan 2023 21:45:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tENfBMvAPbGUpdvSG59EDeM4b2ICmpP1SIgUKo7wdnU=; b=hkm4hyRV+hHGZa
-	t5jsH6wNxOnhl8nF2ujJsAWXGI6HwL6+3+tRV01Dcki3kINBEfCOAU8YwbiMnAZ38c+ZaYA5l2G9L
-	FUvwEPxBG3kuTEC7+BZhuonsBHuFcYki2ZybYvNFBDhUU4RgkrzZikgo5Lt/Ynp1sPn8GQL1GO7M2
-	pZWoyNakQEMYmJN5I5rR/t6W/6qw392qiHtWrSh/g1B6DHKRMiVngX/4dyERhA2/QmzFGEbI8dzXf
-	bIrJDLDo6sn/jpQDK2eCKAnVwY1leHcc721Owz0zJKrLdBj+6gCvvedeErjACK1A+pRZRzWshOD5k
-	6PAHsnGA+Azt54hdOvXw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Xe8E9xdwhPKU865/iKyhq66e8IqgtLqnPiq63/RsTDA=; b=D/bX1UzdddWA43V3/rmd/cOqhs
+	WW23x1CHK8cHpN1//oy3x96su9WAfojlnrxJMxMijz/NApGajRli4rCIFXjbXY7fCUT9uBRNsc23m
+	D0ykojaIghoHjas0ZDv7gm9oriUbdQdoVv/G73rP6UEAgjI6ZUdO5oSbf4o9nLOdHvao/bOfdIcrC
+	TK4YmhXkjw/ojQNaVBwV+84AeiJVfbMJO5EZ7ieY4ueCwjJ6WJhqMQ3L9Iyq0fNFdcvavtRuScrdv
+	dlaIkfifFYHGUaP+z3cfNgIypposxJdotp/HVuD5TjE6i2khBJBmwdDGwfgmVsuhJ3RLss4LcP2Qs
+	YkV2oVbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pDu7K-00F0Lm-Gh; Fri, 06 Jan 2023 21:19:10 +0000
+	id 1pDuWI-00F7LF-6L; Fri, 06 Jan 2023 21:44:58 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pDu7H-00F0K2-4q
-	for linux-riscv@lists.infradead.org; Fri, 06 Jan 2023 21:19:08 +0000
+	id 1pDuWG-00F7Ju-2y
+	for linux-riscv@lists.infradead.org; Fri, 06 Jan 2023 21:44:57 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id F316461F8B;
-	Fri,  6 Jan 2023 21:19:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id EA110C43396;
-	Fri,  6 Jan 2023 21:19:04 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 0DDBC61F8C;
+	Fri,  6 Jan 2023 21:44:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23669C433EF;
+	Fri,  6 Jan 2023 21:44:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1673039945;
-	bh=yVLNkZQT3F6G5kW3KNji6w44vsBmJ17vxiKfBp5M8bc=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
-	b=WJd1TrEFaBmJgQGfDaP07uScusWM/RPM5ugjz9oXgRNSvQqe3/MhMjbRMEFA4j0/9
-	 BZX453i1j0zYtdfi7ICjRNVCcoNX6Rw/qYEcWXNIfZpEi1Br8PsgaKrek7ChdgtlMY
-	 xbqy8DVGx0ltFhA1z9G/ufzRp1KNjYSklDXHca/D5gPvUrTOpWnzeaxXbXLSb9h4+/
-	 Tv7Y9J/knI+VZm3ymb0oXqOkAhUV7v/3u1kwk+22gegmk3uh7awp4Ecf9HtgXaJFWT
-	 sTDRt3pd6ciWqgZS2QihByGA6Mj/sk4fQiAzZR6MA5+BNP6OswYAN4TC/ZhZcpQhcD
-	 CjMsXFODfpqHA==
-Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id D04EFE270ED;
-	Fri,  6 Jan 2023 21:19:04 +0000 (UTC)
-Subject: Re: [GIT PULL] RISC-V Fixes for 6.2-rc3
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <mhng-96b62708-327b-4721-a0ef-49ef52a1b3c2@palmer-ri-x1c9>
-References: <mhng-96b62708-327b-4721-a0ef-49ef52a1b3c2@palmer-ri-x1c9>
-X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
-X-PR-Tracked-Message-Id: <mhng-96b62708-327b-4721-a0ef-49ef52a1b3c2@palmer-ri-x1c9>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.2-rc3
-X-PR-Tracked-Commit-Id: b9b916aee6715cd7f3318af6dc360c4729417b94
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: a389e54642a86c91d683b2f0b248f1d2f4e52611
-Message-Id: <167303994484.10294.2900232298703872108.pr-tracker-bot@kernel.org>
-Date: Fri, 06 Jan 2023 21:19:04 +0000
-To: Palmer Dabbelt <palmer@rivosinc.com>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+	s=k20201202; t=1673041493;
+	bh=S6o14xUMpNWT1FgKozp+8Mj2OtyQejRW1OZhSS08KNM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PaXnKMegaaP8z9ayDQcvrAUoCm6q92bglcPk8+v4XdHgqBfWpX8/c7mIncuC7ZPho
+	 8INfXpMJNIhSCG72NGM3///9N6KJ1Rbxhg8r9i9vguk2uFn9hTbwVZx4o32zo2t5Oj
+	 kL41IACjKWCbf98FhpuXG0+S73YkTqnOLzWqb3tlRJlIHd3lakCeaCQ37G2pnUB5wQ
+	 lKFXYZ955FGncx/r01DjVLO6b2p14tp+Ho+tQqoWHFzNFS4b7KBQMFbEvhvoMJeP3A
+	 rk23L8zlMc5hO6W4stjqdZHOkpenZQtdvzPZa5BIOtVE0FkRaDu0B8/I/sJgDsQFQG
+	 cPf+lSTSscrkQ==
+Date: Fri, 6 Jan 2023 21:44:47 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Prabhakar <prabhakar.csengg@gmail.com>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Heiko Stuebner <heiko@sntech.de>, Guo Ren <guoren@kernel.org>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	"open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	devicetree@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Philipp Tomsich <philipp.tomsich@vrull.eu>,
+	Jisheng Zhang <jszhang@kernel.org>
+Subject: Re: [PATCH v6 3/6] riscv: errata: Add Andes alternative ports
+Message-ID: <Y7iWTwZwNLiU8USP@spud>
+References: <20230106185526.260163-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20230106185526.260163-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
+MIME-Version: 1.0
+In-Reply-To: <20230106185526.260163-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230106_131907_253097_46B8673F 
-X-CRM114-Status: UNSURE (   4.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230106_134456_231305_8EEFCEBE 
+X-CRM114-Status: GOOD (  25.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,26 +79,126 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4761099716744604112=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Fri, 06 Jan 2023 10:13:09 -0800 (PST):
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.2-rc3
+--===============4761099716744604112==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="Zd9zzwISgem4Gol8"
+Content-Disposition: inline
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/a389e54642a86c91d683b2f0b248f1d2f4e52611
 
-Thank you!
+--Zd9zzwISgem4Gol8
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+On Fri, Jan 06, 2023 at 06:55:23PM +0000, Prabhakar wrote:
+> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+>=20
+> Add required ports of the Alternative scheme for Andes CPU cores.
+>=20
+> I/O Coherence Port (IOCP) provides an AXI interface for connecting extern=
+al
+> non-caching masters, such as DMA controllers. IOCP is a specification
+> option and is disabled on the Renesas RZ/Five SoC due to this reason cache
+> management needs a software workaround.
+>=20
+> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> ---
+> v5 -> v6
+> * Dropped patching alternative and now just probing IOCP
+>=20
+> v4 -> v5
+> * Sorted the Kconfig/Makefile/Switch based on Core name
+> * Added a comments
+> * Introduced RZFIVE_SBI_EXT_IOCP_SW_WORKAROUND SBI EXT ID to check if
+>   CMO needs to be applied. Is there a way we can access the DTB while pat=
+ching
+>   as we can drop this SBI EXT ID and add a DT property instead for cmo?
+>=20
+> RFC v3 -> v4
+> * New patch
+> ---
+>  arch/riscv/Kconfig.erratas           | 22 +++++++++
+>  arch/riscv/errata/Makefile           |  1 +
+>  arch/riscv/errata/andes/Makefile     |  1 +
+>  arch/riscv/errata/andes/errata.c     | 71 ++++++++++++++++++++++++++++
+>  arch/riscv/include/asm/alternative.h |  3 ++
+>  arch/riscv/kernel/alternative.c      |  5 ++
+>  6 files changed, 103 insertions(+)
+>  create mode 100644 arch/riscv/errata/andes/Makefile
+>  create mode 100644 arch/riscv/errata/andes/errata.c
+>=20
+> diff --git a/arch/riscv/Kconfig.erratas b/arch/riscv/Kconfig.erratas
+> index 69621ae6d647..f0f0c1abd52b 100644
+> --- a/arch/riscv/Kconfig.erratas
+> +++ b/arch/riscv/Kconfig.erratas
+> @@ -1,5 +1,27 @@
+>  menu "CPU errata selection"
+> =20
+> +config ERRATA_ANDES
+> +	bool "Andes AX45MP errata"
+> +	depends on !XIP_KERNEL
+> +	select RISCV_ALTERNATIVE
+> +	help
+> +	  All Andes errata Kconfig depend on this Kconfig. Disabling
+> +	  this Kconfig will disable all Andes errata. Please say "Y"
+> +	  here if your platform uses Andes CPU cores.
+> +
+> +	  Otherwise, please say "N" here to avoid unnecessary overhead.
+> +
+> +config ERRATA_ANDES_CMO
+> +	bool "Apply Andes cache management errata"
+> +	depends on ERRATA_ANDES && MMU && ARCH_R9A07G043
+> +	select RISCV_DMA_NONCOHERENT
+> +	default y
+> +	help
+> +	  This will apply the cache management errata to handle the
+> +	  non-standard handling on non-coherent operations on Andes cores.
+> +
+> +	  If you don't know what to do here, say "Y".
+
+Ideally we would not need errata to turn this stuff on at all, but, as
+you pointed out to me off-list, arch_setup_dma_ops() complains if we
+have not set up.
+
+I'm happy to commit to trying to sort that out in follow on work w/ MPFS,
+since in that case it really isn't errata, and not require it for this
+series as you do fit that particular bill IMO.
+
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+
+Thanks,
+Conor.
+
+
+--Zd9zzwISgem4Gol8
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY7iWTwAKCRB4tDGHoIJi
+0olEAPoCdBHN/hX+YSUm1Fjy2xwp6TNGBBXu8o1krE1zIfywRAD/Zgo9xhRo3YEq
+gijazhkKQDRtERVdc8B/eqvdErFkDgo=
+=DDRQ
+-----END PGP SIGNATURE-----
+
+--Zd9zzwISgem4Gol8--
+
+
+--===============4761099716744604112==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4761099716744604112==--
+
