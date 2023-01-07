@@ -4,74 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1333EC54EBC
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Jan 2023 09:58:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1218BC46467
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Jan 2023 11:05:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZbmMWhgW3KNqOqTcWxEhODCIOt3OOMZrhjX9f7re61k=; b=MHkdjDOAd9ADGS
-	26kFA39f4zQCWk2RCS7ogycX1v4OlC+k8UsHljcAtueqOoA/IUN+Ak7pO42yQ8vwvYxaXrRYD2S7q
-	cMdWe0xUdC/kSkcYyGZ3sG5EnTdh4JPlvr8ryc8DZiLFPhfh8p1XUdtvv4Hrv0orJEj/mOZ0vorCk
-	FNwBN9c8w9+akYzFg7vFpV4eySXpJNucs+JrKfYEO62lYT4xFsm11huM1wVIyWBwMqJnd4wPAYbk8
-	U/ldjWW0Hofho6NUFcFGbgpr0vhOyb3LdQhUaiXzsE0btdmeDtlNmYwqIFukXDY+v/cnHCdn/ZWa9
-	gRbTz3t25Tj9Zz65Bwwg==;
+	List-Owner; bh=gE8B+PEWTEMNIVmMjwk0uLy3ZF3eeMTdvoDvVsmPdBs=; b=XiM58ZLPV9OiVa
+	Uz2Mo2JQ3gq0o3DilSu3otOygy8lsgZGHq8Eqr/++GyouIk6gus/Jaws/Sg6dGPHQ3v5eBTR215H4
+	U0UzoQ6GaJIkxARE4r/xtDwfaxTQx8GQj7pKkZcyo+XzUQbBXEjVVYHdHCR7C580D3tsLPXIipoI/
+	w4c/2Zeldtp1MVNaXJ5QR3/3pAAQgjg7Qfzmvr/Lobc8S+JfZN6qdeWhTNqNN/17REhPSa5s33X42
+	q9Ra33OnTVW+Mwd6Fp7GTtoZDJFVN4O5FP4rmF8wYo0Y3w2KRB8fhCoJGvQ52cD7ZI37gIBIutKRq
+	EibFaomCEMAly3tbHTLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pE5y5-00421l-JI; Sat, 07 Jan 2023 09:58:25 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1pE70e-004Lz9-5q; Sat, 07 Jan 2023 11:05:08 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pE5y2-0041zX-C1
-	for linux-riscv@lists.infradead.org; Sat, 07 Jan 2023 09:58:23 +0000
-Received: by mail-ed1-x530.google.com with SMTP id s5so5381327edc.12
-        for <linux-riscv@lists.infradead.org>; Sat, 07 Jan 2023 01:58:19 -0800 (PST)
+	id 1pE70S-004Ls4-2x; Sat, 07 Jan 2023 11:04:57 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id o15so2686414wmr.4;
+        Sat, 07 Jan 2023 03:04:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=/G9FcPlsL/ZYj6GpUzWdxZcsGx3VidjRMEnUyipGwTQ=;
-        b=ycWZqSuFZ74To3dd3tRCQ6yRVxeq0UgluFKJfCwP7NMrAi4WhtdoXJFHq0fmn1PcGZ
-         BidASz6yKHGfquMRO74r2wrv8n+3X0DaZHkvkUeed47LjYLFsCzlUSCcaNFJrkFwxmoe
-         XAHqOJ+UooXB9uvMJr8qlJIPmNmP37tWffvmpi4nX/A3FuNHaVXj1ce3Qn+8CeG8GX3Y
-         MbyMb8D/6efptMLg4LLEfs6zzrHmW6u41Vva+hK3pWH/RbLaTmU0G1JtluVSjaq/fitt
-         rTRyEpJadF8DorfLe9vcUfJby2JEfhmaVxAxCymp+VXVioibcnYNPo8pOZlOma6G5xX6
-         DZ9Q==
+        d=gmail.com; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=jV2yBF+mbkDE0BvyOwe05ARE6EO7XhtOfB/KJLMsfFA=;
+        b=BzPTx+ODS2RwGu5d9Av3CGI6XJ0NbmKP1pStUzg0M0m6+VF6wu2vf0tqTwK0k6q0qV
+         Fbx7Y4Wluy9p+k8PZjL3FOoLufHJHxtq2K/BaarEwd/dPtd/DgO4uDiDqLUXCcfzSy4g
+         Wd0wz4xfpZYGbxR/O6enZWRjIhs25ZrrKgwvTGouDcupcbkSfLeRveiApotbcr4XMgph
+         w/4+08uhP/RwKAozhcyw6lYPvScMk8zL6fmWwbkyxQOkT9WdSUz8lze9ta3Mlh7zLg9k
+         cM2v76pe7iQT/2ZR+EkGweLVXlhhfTIoWJwjo2u32vXfi3qjeDrWte72tROnSs3wxhtS
+         1Wwg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=/G9FcPlsL/ZYj6GpUzWdxZcsGx3VidjRMEnUyipGwTQ=;
-        b=JNWP5BjDTNml6//az3jh0C2mIYqVWr9dl7um0NurgQJT5RiO4bOkWifV6vTEQ3XyQO
-         8Op3vfa5ajp741kx/6t1H3s3Iw9V+/q7JkAzBbaaCbHbnCULXqoHqBDagj0oDJU69FuQ
-         O0oGp4kUFa+5lGnDV3DlAksQ8dr2ux/R5GVsngU4DDz89clWVoOoX+315b+3782SVapM
-         i0G/Cli7IeIKZqeYCtiH1kKux5zw6sm8ZuexgxH7bOY0De9FRhEIZgxNYuuDDLxXWonf
-         AcNlgthj2qLB9+t+mOVtumQOukSlFeWtpWonPKXQVSUGEN3P6GWp1zXv2idDoUv8gx/8
-         mL0g==
-X-Gm-Message-State: AFqh2koq5KbG3/W+n9ixXpYwO9P6HuF3mwIcOYhpjw7tLQWpkyyukb7G
-	pRJJnxNsnTh1wYwI80ejvD1E+ZNQFljvKbZwJ6z0tQ==
-X-Google-Smtp-Source: AMrXdXtLzFeJ9Ad5w+6FMr/1aURZJ28sV0J+AoE7j06eU9sJC8r/2qmYF8xl4P6NBEVpO98LES7s9yYkIY+u5wURJzM=
-X-Received: by 2002:a05:6402:43cf:b0:48d:5b18:b009 with SMTP id
- p15-20020a05640243cf00b0048d5b18b009mr2154665edc.49.1673085498197; Sat, 07
- Jan 2023 01:58:18 -0800 (PST)
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=jV2yBF+mbkDE0BvyOwe05ARE6EO7XhtOfB/KJLMsfFA=;
+        b=ySwtjwBZeLxIbOfl0AMj0zv7153oPDutsOoJjb/y/66jRAomMeSBuSGqk6Fm93L7dx
+         +B6BPJ0sVf6y3PkzW1fm89FqjLOw74nGGnEuU7GQzmVY0aw7MfF6W4Rv3F6b6ZJP0U0K
+         +4GUNlxkV1PojPyeElol5rV6TyUx+zbqvlpN3AWQbW21MAyC/9h1cpYBc5m96PISH1IT
+         2OdqVtzwaaQueBH94zgJHl+6H8JgkJbdnDTvu5XMupUQkXk3uWlCJkPrR7gXSqB0z5OC
+         rrTBQP3eHiIeznPlIm5kL5w8PwDDVDahVdl9Qs2W381abj01U6IABi8Dqfbgp5rhez5S
+         1iMA==
+X-Gm-Message-State: AFqh2kqaOCJebIsCNdhawlo0RscMCKSbaxtMGoF71HPyLkKpzjP12YBq
+	5wng67e0suFtcFA+HsTO1O4=
+X-Google-Smtp-Source: AMrXdXuUafS1AFxogNrZXZJj6k6oC1QjVGeJmfZCRFdf2sgwNHMbrVBUD4+y7GGme2gWJhcqxBhA0A==
+X-Received: by 2002:a05:600c:601e:b0:3c6:e61e:ae71 with SMTP id az30-20020a05600c601e00b003c6e61eae71mr50341357wmb.1.1673089493118;
+        Sat, 07 Jan 2023 03:04:53 -0800 (PST)
+Received: from gmail.com (1F2EF507.nat.pool.telekom.hu. [31.46.245.7])
+        by smtp.gmail.com with ESMTPSA id o9-20020a05600c510900b003c6f8d30e40sm10657278wms.31.2023.01.07.03.04.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 07 Jan 2023 03:04:50 -0800 (PST)
+Date: Sat, 7 Jan 2023 12:04:47 +0100
+From: Ingo Molnar <mingo@kernel.org>
+To: Valentin Schneider <vschneid@redhat.com>
+Cc: linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+	openrisc@lists.librecores.org, linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-xtensa@linux-xtensa.org,
+	x86@kernel.org, Steven Rostedt <rostedt@goodmis.org>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Daniel Bristot de Oliveira <bristot@redhat.com>,
+	Marcelo Tosatti <mtosatti@redhat.com>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>, Marc Zyngier <maz@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Nicholas Piggin <npiggin@gmail.com>, Guo Ren <guoren@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>
+Subject: Re: [PATCH v3 3/8] sched, smp: Trace IPIs sent via
+ send_call_function_single_ipi()
+Message-ID: <Y7lRz7oCaAmAhoqS@gmail.com>
+References: <20221202155817.2102944-1-vschneid@redhat.com>
+ <20221202155817.2102944-4-vschneid@redhat.com>
 MIME-Version: 1.0
-References: <20230105003759.GA1769545@paulmck-ThinkPad-P17-Gen-1> <20230105003813.1770367-5-paulmck@kernel.org>
-In-Reply-To: <20230105003813.1770367-5-paulmck@kernel.org>
-From: Anup Patel <anup@brainfault.org>
-Date: Sat, 7 Jan 2023 15:28:06 +0530
-Message-ID: <CAAhSdy1VsT48WPQHZ5Pj5WNZRPUQvciFPF2LySawVv27tehD+g@mail.gmail.com>
-Subject: Re: [PATCH rcu 05/27] arch/riscv/kvm: Remove "select SRCU"
-To: "Paul E. McKenney" <paulmck@kernel.org>
-Cc: rcu@vger.kernel.org, linux-kernel@vger.kernel.org, kernel-team@meta.com, 
-	rostedt@goodmis.org, Atish Patra <atishp@atishpatra.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org
+Content-Disposition: inline
+In-Reply-To: <20221202155817.2102944-4-vschneid@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230107_015822_438871_BEEAC63F 
-X-CRM114-Status: GOOD (  13.63  )
+X-CRM114-CacheID: sfid-20230107_030456_193633_9E66E5DD 
+X-CRM114-Status: GOOD (  13.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,47 +114,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 5, 2023 at 6:08 AM Paul E. McKenney <paulmck@kernel.org> wrote:
->
-> Now that the SRCU Kconfig option is unconditionally selected, there is
-> no longer any point in selecting it.  Therefore, remove the "select SRCU"
-> Kconfig statements.
->
-> Signed-off-by: Paul E. McKenney <paulmck@kernel.org>
-> Cc: Anup Patel <anup@brainfault.org>
-> Cc: Atish Patra <atishp@atishpatra.org>
-> Cc: Paul Walmsley <paul.walmsley@sifive.com>
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> Cc: Albert Ou <aou@eecs.berkeley.edu>
-> Cc: <kvm@vger.kernel.org>
-> Cc: <kvm-riscv@lists.infradead.org>
-> Cc: <linux-riscv@lists.infradead.org>
 
-For KVM RISC-V:
-Acked-by: Anup Patel <anup@brainfault.org>
+* Valentin Schneider <vschneid@redhat.com> wrote:
+
+> send_call_function_single_ipi() is the thing that sends IPIs at the bottom
+> of smp_call_function*() via either generic_exec_single() or
+> smp_call_function_many_cond(). Give it an IPI-related tracepoint.
+> 
+> Note that this ends up tracing any IPI sent via __smp_call_single_queue(),
+> which covers __ttwu_queue_wakelist() and irq_work_queue_on() "for free".
+> 
+> Signed-off-by: Valentin Schneider <vschneid@redhat.com>
+> Reviewed-by: Steven Rostedt (Google) <rostedt@goodmis.org>
+
+Acked-by: Ingo Molnar <mingo@kernel.org>
+
+Patch series logistics:
+
+ - No objections from the scheduler side, this feature looks pretty useful.
+
+ - Certain patches are incomplete, others are noted as being merged 
+   separately, so I presume you'll send an updated/completed series 
+   eventually?
+
+ - We can merge this via the scheduler tree I suspect, as most callbacks 
+   affected relate to tip:sched/core and tmp:smp/core - but if you have 
+   some other preferred tree that's fine too.
 
 Thanks,
-Anup
 
-> ---
->  arch/riscv/kvm/Kconfig | 1 -
->  1 file changed, 1 deletion(-)
->
-> diff --git a/arch/riscv/kvm/Kconfig b/arch/riscv/kvm/Kconfig
-> index f36a737d5f96d..6bc9b290c1283 100644
-> --- a/arch/riscv/kvm/Kconfig
-> +++ b/arch/riscv/kvm/Kconfig
-> @@ -27,7 +27,6 @@ config KVM
->         select KVM_XFER_TO_GUEST_WORK
->         select HAVE_KVM_VCPU_ASYNC_IOCTL
->         select HAVE_KVM_EVENTFD
-> -       select SRCU
->         help
->           Support hosting virtualized guest machines.
->
-> --
-> 2.31.1.189.g2e36527f23
->
+	Ingo
 
 _______________________________________________
 linux-riscv mailing list
