@@ -4,70 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC8F1C54EBC
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Jan 2023 19:38:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A768FC46467
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Jan 2023 20:45:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bZFmbFgTO1W0R1kIA/afsi6AqLbf9j84RUi3r2WfVkM=; b=B+8VECWzTHkaO5
-	UsqQCzRQv9O4lGi654AWeUa+lJAKzMZSm0l1sXnrFlKjAz8bJqaTLEcRpTX8s29zoJ2z+yGe+sJNp
-	eP3wYgjrln94Jy2qImxOZDiWV9M6x6ozX2V8wNhGb03r9eKQwAOK5Gz9eKQW1aRmQlJvD6MO6TrQF
-	x3FivZheAlmB4hPS4U8penv2x+BTkTnFDAb+oISGaqg2gPRiI5pwQYc4kk7e86rVR9AhLd4jYbH9t
-	Pb2prIKMd4BTuXSECiieZsXzgH43lgSg5o7I55FenWxJkYCnOMJXCK0RwpW06DaIfvFJDGyQKELQg
-	+082GqKMLyt2RLCWhT8w==;
+	List-Owner; bh=cyLSyus3srCKvWOqygEzNkDS8MF+lLfSoQy2kcRkrFU=; b=RN7D4AeZU8wj/Y
+	XPJ5TWFf9S+D/YWutN7Tc9b3L6atjvgcl9WNcVn1I/EiOoM6eFi69dStWY48RsxTGgIxIgjs1jqBU
+	7bx2ywDL4y/3Kxrd3nz6glv+jaGvL9r8hfz4SpkXj+htBfG10UTcQncURut48dkxNk8pzvaY1+TWh
+	eAAJ1rS2CEIQIqrjNaNSuV2e6m8/YFvDwtEbk3q47WPq0dsBQVILrWqNqyBzJIi6+wzua1BUqfFTq
+	Zgp4OUbCe3jKOTdegQ2Cc2k6UX5wbalA2pZVUu+0lqcr9ZRY+fFfIymZ6jcU17HqjnA5H3wvOFeeq
+	+gumm5yWNdIcBF/GtKdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pEF0o-008BVU-Ay; Sat, 07 Jan 2023 19:37:50 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1pEG3Y-008Kff-I8; Sat, 07 Jan 2023 20:44:46 +0000
+Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pEF0a-008BTR-2R
-	for linux-riscv@lists.infradead.org; Sat, 07 Jan 2023 19:37:37 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 05B06B802C4;
-	Sat,  7 Jan 2023 19:37:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20EB6C433D2;
-	Sat,  7 Jan 2023 19:37:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1673120250;
-	bh=fVL00j/8O9tGd6A6KSF3mGxZ0GZgukS1psA3N+BQmSU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=HdZIjsunrrX2YsmSmKN2PzwzYp31NXEV71E74pIpapd+sfdRVkzCIujqdrg0k9iNP
-	 8YsTeRM5K4RDblkRTP3XiMO7CGP2ltPzYDnt3u44oyNH3waIb+yakeo9bh8Iu9rGPe
-	 +oyLYHZuH0QWyn8KjdtjZ6ARx1CZ1oOz1z/7rwPgXP5qdQOvyU54q3z9tlCyP1hBLT
-	 tLcKaIMKnJHr32pRyUVptUeep1tHHW51dOM0BVls2b+1lsLCmpnJXW2LQMvyZoFC5A
-	 OtmSUp/grmbgtqrkxh5Fru0Aoj2D5mSS5F2ir+2ArS7BoNjH2TZuJgG5+aB5JLqseg
-	 /S/QWI/wOfgqw==
-From: Conor Dooley <conor@kernel.org>
-To: devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Ben Dooks <ben.dooks@codethink.co.uk>
-Cc: conor@kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	robh+dt@kernel.org,
-	palmer@dabbelt.com,
-	krzysztof.kozlowski+dt@linaro.org,
-	zong.li@sifive.com,
-	linux-kernel@lists.codethink.co.uk,
-	sudip.mukherjee@codethink.co.uk,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Greentime Hu <greentime.hu@sifive.com>
-Subject: Re: [PATCH] riscv: dts: fu740: fix size of pcie 32bit memory
-Date: Sat,  7 Jan 2023 19:37:07 +0000
-Message-Id: <167311996687.855922.17515622188982373442.b4-ty@microchip.com>
-X-Mailer: git-send-email 2.39.0
-In-Reply-To: <20230106134456.265891-1-ben.dooks@codethink.co.uk>
-References: <20230106134456.265891-1-ben.dooks@codethink.co.uk>
+	id 1pEG3I-008KeR-4o
+	for linux-riscv@lists.infradead.org; Sat, 07 Jan 2023 20:44:29 +0000
+Received: by mail-qk1-x72c.google.com with SMTP id h8so2365736qkk.8
+        for <linux-riscv@lists.infradead.org>; Sat, 07 Jan 2023 12:44:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=v91NOW33Yw4ld/8hrWNvp88PBg4HhV/z+jC8/6Hxg/g=;
+        b=fZ54oarpBPjAErlsUXRhoViKjxS+Cn/Z4UkwKhEcRGsQDW4RJIJGXfbAoqE2KMfT5Z
+         mtzUWGbDpzL+U2fJAyQ2Bc5Ccei++KTSWP4KT2QaNJWASRx9wjAjBuNsppuntANxPDE5
+         EBGIcqdIoSm3nvswcInG0XGOIAG/LpLwfpYjM0PKqfMVyBbegDMMI2EsM7YRWsr8PYB0
+         bt9AxzZ3WSvpTveM6PESRVHeCr6l83+hi0j7+0vyjo7U9JiX3VmUHpBErsd/rI37PUSc
+         vTP8BDwvD6Fq8izxU3I0okzgZLMeFfe9VLSubS+S/xXzegRG4FuY4VtCFEzJfJc2Zi0g
+         Q8EQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=v91NOW33Yw4ld/8hrWNvp88PBg4HhV/z+jC8/6Hxg/g=;
+        b=rvxTVdPJYnpI5lWpC5rkRibcqkz8VpDjXpeR9nl1wQXDR6az6VeCHwXOf4zBV31GkB
+         tYIPfr+cpomAqMPw831hqf0np5OkLcBc7Dev9lGVAAsIwX3p+4qWrkCqz+873dD84oA3
+         boin3HtwisblxdeEEA/oaCeJ0fptNflNeYS22Q+1v0WUpfnTqTzuOmK1nu8EexF5EpNE
+         JLA3hI5S1Ihw9WkPCMwPHCLwZnq0E3Tl3wuBSHFxWMsmCasfHmjh/IgDS+cw14Pj8wO/
+         yvnSiFdSdVWi/6SU6KudyD5L2ubpazSaEfGn3Bx+GsXh0G1ySki3zPZeJoJl4f079sYg
+         RcXQ==
+X-Gm-Message-State: AFqh2kq8g/RDmyGsX43mbnm8THrkCYwBPWmHbEnOQ0fYDXjrLbxPYUCo
+	gp2XdnFpOPhheIDicl/VTMKJz1V0kDycX97kN/I=
+X-Google-Smtp-Source: AMrXdXueMgeOelADEFUHqX0SiYMVBoF5mWwpL5jyMWhIhE/iVeSWmNE99SCl+Gxh0Q60C5zbuPWE2aryRDkuCqQ+oa0=
+X-Received: by 2002:a37:38f:0:b0:6ff:b5c2:9c88 with SMTP id
+ 137-20020a37038f000000b006ffb5c29c88mr2926548qkd.575.1673124265987; Sat, 07
+ Jan 2023 12:44:25 -0800 (PST)
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=969; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=dxSZXyG8JNR1EB7MnPTNY7y7g+e2wmkJ7/30kO6IgCY=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDMk7T95brxqyfn6z3mHjny2Ob5Pk1A2m1z1b1tBQXhKndbsp Ts+to5SFQYyDQVZMkSXxdl+L1Po/Ljuce97CzGFlAhnCwMUpABPZ9oOR4cKyx5P5njovfKj92PGpiE rK1vUzL/7c4LnvRtz+t/Lfig4z/K9du7J/x5KGp7WPBEOvmB17sNYl4F/1Ib61BvJ7fMPnlLEDAA==
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+References: <20230106185526.260163-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20230106185526.260163-5-prabhakar.mahadev-lad.rj@bp.renesas.com> <Y7iYZqKcoRycsoTg@spud>
+In-Reply-To: <Y7iYZqKcoRycsoTg@spud>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Sat, 7 Jan 2023 20:43:59 +0000
+Message-ID: <CA+V-a8uBDx42o12UUwP=bBjeGzJJSP=jPcQr0xgkvkkoA7_vFA@mail.gmail.com>
+Subject: Re: [PATCH v6 4/6] dt-bindings: cache: r9a07g043f-l2-cache: Add DT
+ binding documentation for L2 cache controller
+To: Conor Dooley <conor@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Arnd Bergmann <arnd@arndb.de>, Conor Dooley <conor.dooley@microchip.com>, 
+	Heiko Stuebner <heiko@sntech.de>, Guo Ren <guoren@kernel.org>, 
+	Andrew Jones <ajones@ventanamicro.com>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>, 
+	linux-riscv@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
+	Rob Herring <robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230107_113736_395331_96764FF8 
-X-CRM114-Status: GOOD (  12.44  )
+X-CRM114-CacheID: sfid-20230107_124428_230173_31C281CE 
+X-CRM114-Status: GOOD (  23.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,33 +93,91 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+Hi Conor,
 
-On Fri, 06 Jan 2023 13:44:56 +0000, Ben Dooks wrote:
-> The 32-bit memory resource is needed for non-prefetchable memory
-> allocations on the PCIe bus, however with some cards (such as the
-> SM768) the system fails to allocate memory from this.
-> 
-> Checking the allocation against the datasheet, it looks like there
-> has been a mis-calcualation of the resource for the first memory
-> region (0x0060090000..0x0070ffffff) which in the data-sheet for
-> the fu740 (v1p2) is from 0x0060000000..0x007fffffff. Changing
-> this to allocate from 0x0060090000..0x007fffffff fixes the probing
-> issues.
-> 
-> [...]
+Thank you for the review.
 
-Applied to riscv-dt-fixes, thanks!
+On Fri, Jan 6, 2023 at 9:53 PM Conor Dooley <conor@kernel.org> wrote:
+>
+> On Fri, Jan 06, 2023 at 06:55:24PM +0000, Prabhakar wrote:
+> > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> >
+> > Add DT binding documentation for L2 cache controller found on RZ/Five SoC.
+> >
+> > The Renesas RZ/Five microprocessor includes a RISC-V CPU Core (AX45MP
+> > Single) from Andes. The AX45MP core has an L2 cache controller, this patch
+> > describes the L2 cache block.
+> >
+> > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> > Reviewed-by: Rob Herring <robh@kernel.org>
+> > ---
+> > v5 -> v6
+> > * Included RB tag from Geert
+>
+> I think not!
+>
+Sorry that was a typo. I meant Rob  :)
 
-[1/1] riscv: dts: fu740: fix size of pcie 32bit memory
-	https://git.kernel.org/conor/c/43d5f5d63699724d47f0d9e0eae516a260d232b4
+> > v4 -> v5
+> > * Dropped L2 cache configuration properties
+> > * Dropped PMA configuration properties
+> > * Ordered the required list to match the properties list
+> >
+> > RFC v3 -> v4
+> > * Dropped l2 cache configuration parameters
+> > * s/larger/large
+> > * Added minItems/maxItems for andestech,pma-regions
+> > ---
+> >  .../cache/andestech,ax45mp-cache.yaml         | 81 +++++++++++++++++++
+> >  1 file changed, 81 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
+> >
+> > diff --git a/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml b/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
+> > new file mode 100644
+> > index 000000000000..9f0be4835ad7
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
+> > @@ -0,0 +1,81 @@
+> > +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> > +# Copyright (C) 2022 Renesas Electronics Corp.
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/cache/andestech,ax45mp-cache.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: Andestech AX45MP L2 Cache Controller
+> > +
+> > +maintainers:
+> > +  - Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> > +
+> > +description:
+> > +  A level-2 cache (L2C) is used to improve the system performance by providing
+> > +  a large amount of cache line entries and reasonable access delays. The L2C
+> > +  is shared between cores, and a non-inclusive non-exclusive policy is used.
+> > +
+> > +select:
+> > +  properties:
+> > +    compatible:
+> > +      contains:
+> > +        enum:
+> > +          - andestech,ax45mp-cache
+> > +
+> > +  required:
+> > +    - compatible
+> > +
+> > +properties:
+> > +  compatible:
+> > +    items:
+> > +      - const: andestech,ax45mp-cache
+> > +      - const: cache
+>
+> You might find value in a specific compatible for your SoC & enforce
+> constraints for it. Or you might not & I don't care either way :)
+>
+Good point actually. Geert what do you think?
 
-I checked the numbers and they look correct per the v1p2 doc.
-I added a T-b from IRC for Ron, added the cc: stable and fixed the
-fixes tag while I was at it.
-
-Thanks,
-Conor.
+Cheers,
+Prabhakar
 
 _______________________________________________
 linux-riscv mailing list
