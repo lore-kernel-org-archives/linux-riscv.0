@@ -4,64 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76629C54EBE
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Jan 2023 09:11:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1333EC54EBC
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Jan 2023 09:58:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6D6vhBoYF/4p5WlOL26OCtts9DzmOBbklvg2P3FRWA8=; b=fpMerUWIP8LdyU
-	P2oKBuBWD8P55oPdtcVuwD1tWY4nLn4rmTqp6BpPtnUkFv4/gsSQ9plwMIxnfA7rmRgi6zbqJgNqQ
-	A1wFW+ISEkyVXFZaQRJgZxvf81QKMV+mjrZDdMciJ4b97W71rR3XdIWDWrZa4gK8yEGmRT1dVplNk
-	kp62a6eDsKe6uhFd301bszp8GUAIPOXU+Js+xm9NcRD6gHrLHFRCXHLpn0Q86nCmasZtEicuZffWg
-	TG8XCDNnYRe6L+6z4w48E8cV6fyN2vadXzzFclgNwjRUOjb0LLBn118j11+oGr0WVPb/CcQD1H0Pl
-	lSjMhds7NhQU6Agt65zQ==;
+	List-Owner; bh=ZbmMWhgW3KNqOqTcWxEhODCIOt3OOMZrhjX9f7re61k=; b=MHkdjDOAd9ADGS
+	26kFA39f4zQCWk2RCS7ogycX1v4OlC+k8UsHljcAtueqOoA/IUN+Ak7pO42yQ8vwvYxaXrRYD2S7q
+	cMdWe0xUdC/kSkcYyGZ3sG5EnTdh4JPlvr8ryc8DZiLFPhfh8p1XUdtvv4Hrv0orJEj/mOZ0vorCk
+	FNwBN9c8w9+akYzFg7vFpV4eySXpJNucs+JrKfYEO62lYT4xFsm11huM1wVIyWBwMqJnd4wPAYbk8
+	U/ldjWW0Hofho6NUFcFGbgpr0vhOyb3LdQhUaiXzsE0btdmeDtlNmYwqIFukXDY+v/cnHCdn/ZWa9
+	gRbTz3t25Tj9Zz65Bwwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pE5EP-003lrM-M7; Sat, 07 Jan 2023 09:11:13 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pE5EK-003lhk-MI
-	for linux-riscv@lists.infradead.org; Sat, 07 Jan 2023 09:11:11 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 8922224E004;
-	Sat,  7 Jan 2023 17:10:24 +0800 (CST)
-Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Sat, 7 Jan
- 2023 17:10:24 +0800
-Received: from EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f]) by
- EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f%17]) with mapi id
- 15.00.1497.044; Sat, 7 Jan 2023 17:10:24 +0800
-From: JeeHeng Sia <jeeheng.sia@starfivetech.com>
-To: Conor Dooley <conor@kernel.org>, "paul.walmsley@sifive.com"
-	<paul.walmsley@sifive.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>,
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>
-CC: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Leyfoon Tan
-	<leyfoon.tan@starfivetech.com>, Mason Huo <mason.huo@starfivetech.com>
-Subject: RE: [PATCH 0/3] RISC-V Hibernation Support
-Thread-Topic: [PATCH 0/3] RISC-V Hibernation Support
-Thread-Index: AQHZIZTqwYypoX0My0ChYWYlFtUmh66Qm80AgAG96pA=
-Date: Sat, 7 Jan 2023 09:10:24 +0000
-Message-ID: <31b303a394f24b04b3aa81c64be6855f@EXMBX066.cuchost.com>
-References: <20230106060535.104321-1-jeeheng.sia@starfivetech.com>
- <E0CEA20A-7D53-4766-AB5D-48A06D7E3991@kernel.org>
-In-Reply-To: <E0CEA20A-7D53-4766-AB5D-48A06D7E3991@kernel.org>
-Accept-Language: en-US, zh-CN
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [172.16.6.8]
-x-yovoleruleagent: yovoleflag
+	id 1pE5y5-00421l-JI; Sat, 07 Jan 2023 09:58:25 +0000
+Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pE5y2-0041zX-C1
+	for linux-riscv@lists.infradead.org; Sat, 07 Jan 2023 09:58:23 +0000
+Received: by mail-ed1-x530.google.com with SMTP id s5so5381327edc.12
+        for <linux-riscv@lists.infradead.org>; Sat, 07 Jan 2023 01:58:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=/G9FcPlsL/ZYj6GpUzWdxZcsGx3VidjRMEnUyipGwTQ=;
+        b=ycWZqSuFZ74To3dd3tRCQ6yRVxeq0UgluFKJfCwP7NMrAi4WhtdoXJFHq0fmn1PcGZ
+         BidASz6yKHGfquMRO74r2wrv8n+3X0DaZHkvkUeed47LjYLFsCzlUSCcaNFJrkFwxmoe
+         XAHqOJ+UooXB9uvMJr8qlJIPmNmP37tWffvmpi4nX/A3FuNHaVXj1ce3Qn+8CeG8GX3Y
+         MbyMb8D/6efptMLg4LLEfs6zzrHmW6u41Vva+hK3pWH/RbLaTmU0G1JtluVSjaq/fitt
+         rTRyEpJadF8DorfLe9vcUfJby2JEfhmaVxAxCymp+VXVioibcnYNPo8pOZlOma6G5xX6
+         DZ9Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=/G9FcPlsL/ZYj6GpUzWdxZcsGx3VidjRMEnUyipGwTQ=;
+        b=JNWP5BjDTNml6//az3jh0C2mIYqVWr9dl7um0NurgQJT5RiO4bOkWifV6vTEQ3XyQO
+         8Op3vfa5ajp741kx/6t1H3s3Iw9V+/q7JkAzBbaaCbHbnCULXqoHqBDagj0oDJU69FuQ
+         O0oGp4kUFa+5lGnDV3DlAksQ8dr2ux/R5GVsngU4DDz89clWVoOoX+315b+3782SVapM
+         i0G/Cli7IeIKZqeYCtiH1kKux5zw6sm8ZuexgxH7bOY0De9FRhEIZgxNYuuDDLxXWonf
+         AcNlgthj2qLB9+t+mOVtumQOukSlFeWtpWonPKXQVSUGEN3P6GWp1zXv2idDoUv8gx/8
+         mL0g==
+X-Gm-Message-State: AFqh2koq5KbG3/W+n9ixXpYwO9P6HuF3mwIcOYhpjw7tLQWpkyyukb7G
+	pRJJnxNsnTh1wYwI80ejvD1E+ZNQFljvKbZwJ6z0tQ==
+X-Google-Smtp-Source: AMrXdXtLzFeJ9Ad5w+6FMr/1aURZJ28sV0J+AoE7j06eU9sJC8r/2qmYF8xl4P6NBEVpO98LES7s9yYkIY+u5wURJzM=
+X-Received: by 2002:a05:6402:43cf:b0:48d:5b18:b009 with SMTP id
+ p15-20020a05640243cf00b0048d5b18b009mr2154665edc.49.1673085498197; Sat, 07
+ Jan 2023 01:58:18 -0800 (PST)
 MIME-Version: 1.0
+References: <20230105003759.GA1769545@paulmck-ThinkPad-P17-Gen-1> <20230105003813.1770367-5-paulmck@kernel.org>
+In-Reply-To: <20230105003813.1770367-5-paulmck@kernel.org>
+From: Anup Patel <anup@brainfault.org>
+Date: Sat, 7 Jan 2023 15:28:06 +0530
+Message-ID: <CAAhSdy1VsT48WPQHZ5Pj5WNZRPUQvciFPF2LySawVv27tehD+g@mail.gmail.com>
+Subject: Re: [PATCH rcu 05/27] arch/riscv/kvm: Remove "select SRCU"
+To: "Paul E. McKenney" <paulmck@kernel.org>
+Cc: rcu@vger.kernel.org, linux-kernel@vger.kernel.org, kernel-team@meta.com, 
+	rostedt@goodmis.org, Atish Patra <atishp@atishpatra.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230107_011109_062740_A64963C9 
-X-CRM114-Status: GOOD (  21.61  )
+X-CRM114-CacheID: sfid-20230107_015822_438871_BEEAC63F 
+X-CRM114-Status: GOOD (  13.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,95 +88,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, Jan 5, 2023 at 6:08 AM Paul E. McKenney <paulmck@kernel.org> wrote:
+>
+> Now that the SRCU Kconfig option is unconditionally selected, there is
+> no longer any point in selecting it.  Therefore, remove the "select SRCU"
+> Kconfig statements.
+>
+> Signed-off-by: Paul E. McKenney <paulmck@kernel.org>
+> Cc: Anup Patel <anup@brainfault.org>
+> Cc: Atish Patra <atishp@atishpatra.org>
+> Cc: Paul Walmsley <paul.walmsley@sifive.com>
+> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> Cc: Albert Ou <aou@eecs.berkeley.edu>
+> Cc: <kvm@vger.kernel.org>
+> Cc: <kvm-riscv@lists.infradead.org>
+> Cc: <linux-riscv@lists.infradead.org>
 
+For KVM RISC-V:
+Acked-by: Anup Patel <anup@brainfault.org>
 
-> -----Original Message-----
-> From: Conor Dooley <conor@kernel.org>
-> Sent: Friday, 6 January, 2023 5:38 PM
-> To: JeeHeng Sia <jeeheng.sia@starfivetech.com>; paul.walmsley@sifive.com;
-> palmer@dabbelt.com; aou@eecs.berkeley.edu
-> Cc: linux-riscv@lists.infradead.org; linux-kernel@vger.kernel.org; JeeHeng Sia
-> <jeeheng.sia@starfivetech.com>; Leyfoon Tan
-> <leyfoon.tan@starfivetech.com>; Mason Huo
-> <mason.huo@starfivetech.com>
-> Subject: Re: [PATCH 0/3] RISC-V Hibernation Support
-> 
-> Hey folks,
-> Just passing on some issues that automation picked up.
-Thanks. Will submit a new patches series to address the issues.
-> 
-> 
-> On 6 January 2023 06:05:32 GMT, Sia Jee Heng
-> <jeeheng.sia@starfivetech.com> wrote:
-> >This series adds RISC-V Hibernation/suspend to disk support.
-> >Low level Arch functions were created to support hibernation.
-> >swsusp_arch_suspend() relies code from __cpu_suspend_enter() to write
-> >cpu state onto the stack, then calling swsusp_save() to save the memory
-> >image.
-> >
-> >arch_hibernation_header_restore() and arch_hibernation_header_save()
-> >functions are implemented to prevent kernel crash when resume,
-> >the kernel built version is saved into the hibernation image header
-> >to making sure only the same kernel is restore when resume.
-> >
-> >swsusp_arch_resume() creates a temporary page table that covering only
-> >the linear map, copies the restore code to a 'safe' page, then start to
-> >restore the memory image. Once completed, it restores the original
-> >kernel's page table. It then calls into __hibernate_cpu_resume()
-> >to restore the CPU context. Finally, it follows the normal hibernation
-> >path back to the hibernation core.
-> >
-> >To enable hibernation/suspend to disk into RISCV, the below config
-> >need to be enabled:
-> >- CONFIG_ARCH_HIBERNATION_HEADER
-> >- CONFIG_ARCH_HIBERNATION_POSSIBLE
-> >
-> >
-> >At high-level, this series includes the following changes:
-> >1) Change suspend_save_csrs() and suspend_restore_csrs()
-> >   to public function as these functions are common to
-> >   suspend/hibernation. (patch 1)
-> >2) Enhance kernel_page_present() function to support huge page. (patch 2)
-> >3) Add arch/riscv low level functions to support
-> >   hibernation/suspend to disk. (patch 3)
-> >
-> >The above patches are based on kernel v6.2-rc2 and are tested on
-> >Starfive VF2 SBC board.
-> >
-> >Sia Jee Heng (3):
-> >  RISC-V: Change suspend_save_csrs and suspend_restore_csrs to public
-> >    function
-> >  RISC-V: mm: Enable huge page support to kernel_page_present() function
-> 
-> Unfortunately this breaks rv32_defconfig
-> https://patchwork.kernel.org/project/linux-
-> riscv/patch/20230106060535.104321-3-jeeheng.sia@starfivetech.com/
-> 
-> >  RISC-V: Add arch functions to support hibernation/suspend-to-disk
-> 
-> This one then breaks rv64 allmodconfig too :/
-> 
-> https://patchwork.kernel.org/project/linux-
-> riscv/patch/20230106060535.104321-4-jeeheng.sia@starfivetech.com/
-> 
-> Thanks,
-> Conor.
-> 
-> >
-> > arch/riscv/Kconfig                |   7 +
-> > arch/riscv/include/asm/suspend.h  |  23 ++
-> > arch/riscv/kernel/Makefile        |   2 +-
-> > arch/riscv/kernel/asm-offsets.c   |   5 +
-> > arch/riscv/kernel/hibernate-asm.S | 123 +++++++++++
-> > arch/riscv/kernel/hibernate.c     | 353 ++++++++++++++++++++++++++++++
-> > arch/riscv/kernel/suspend.c       |   4 +-
-> > arch/riscv/mm/pageattr.c          |   6 +
-> > 8 files changed, 520 insertions(+), 3 deletions(-)
-> > create mode 100644 arch/riscv/kernel/hibernate-asm.S
-> > create mode 100644 arch/riscv/kernel/hibernate.c
-> >
-> >
-> >base-commit: 1f5abbd77e2c1787e74b7c2caffac97def78ba52
+Thanks,
+Anup
+
+> ---
+>  arch/riscv/kvm/Kconfig | 1 -
+>  1 file changed, 1 deletion(-)
+>
+> diff --git a/arch/riscv/kvm/Kconfig b/arch/riscv/kvm/Kconfig
+> index f36a737d5f96d..6bc9b290c1283 100644
+> --- a/arch/riscv/kvm/Kconfig
+> +++ b/arch/riscv/kvm/Kconfig
+> @@ -27,7 +27,6 @@ config KVM
+>         select KVM_XFER_TO_GUEST_WORK
+>         select HAVE_KVM_VCPU_ASYNC_IOCTL
+>         select HAVE_KVM_EVENTFD
+> -       select SRCU
+>         help
+>           Support hosting virtualized guest machines.
+>
+> --
+> 2.31.1.189.g2e36527f23
+>
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
