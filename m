@@ -4,81 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A853C54EBD
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Jan 2023 00:10:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2AACC54EBD
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Jan 2023 03:13:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f1GXPqZWz4SRwvmMbKy1gd/vtR1+pPqrKeufJskGgbU=; b=RHpI6mY53wv1Ynw8yIehzwDliv
-	MLcMcxjl8+DZ2cNQ3E2HGFL6RCRQmBavpmE3kJaRd6wqhGC3rWdDeXwbOHViyb/eoS8Z4Xkh0hbaR
-	IZT7J1pyMDosh2apAGO7yK9OpMEWtkSR32XcaSghlN5fXooFIucX9xMW4Nwf/HGSxuF2HeAKw+QdY
-	yvhG0bGYQOYZbqVlNSq8XnGZcIS+F4GhaaJDLFmW89ygdQO3F6bqQ8JmMx/C9CgPtksI/s//l9BPD
-	Wh9VxJAYaFEVz323TkcsOTHzSVtkM0j+XpjtvrxtA8V8zm2DXxn8xZnLKNiWYPyd5BrP4Yc3cXcGj
-	xWm/kbDg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=WslJqhSUHM1NHS3/+5yS6k5apgOvoL9lPYn40yn350Q=; b=K5er3rbw6e18Y3
+	bpkH/cHXBIg7+x48jl6Qa6HqLw0lALD7QQ52I87i5IOuDc7ipt9T0QWS7jjwGvgOrBzkTs79mXk2w
+	h8eHMfvqjtU/23/tc6kjjf1nrbQcyhcd1oSVVAt28lkMO6mtKSSpfU9Q24c27BnXgA/gmDDstX0/6
+	KVS6QiOWFY/1u357iUPZImYAGvbOUwS2InR96q4xVmf1bTcxQruBbW9vnoamNGbvtrIoT3u0BUvNi
+	8etOLgXTDo8AtZ0LtxE3IlNbYSDdBPSY9fH7O9RX4jTexTll7MRwIKsFsOR/4vTNThT1LT5MHQFJo
+	6/oDTz7wk1xKxYkv24qQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pDwmX-00FqqU-Ke; Sat, 07 Jan 2023 00:09:53 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pDzeP-00H957-IE; Sat, 07 Jan 2023 03:13:41 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pDwmT-00FqoX-Tt
-	for linux-riscv@lists.infradead.org; Sat, 07 Jan 2023 00:09:51 +0000
+	id 1pDzeM-00H92y-KA
+	for linux-riscv@lists.infradead.org; Sat, 07 Jan 2023 03:13:40 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id C683761FA5;
-	Sat,  7 Jan 2023 00:09:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E01E4C433EF;
-	Sat,  7 Jan 2023 00:09:41 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 9FC03B81F48
+	for <linux-riscv@lists.infradead.org>; Sat,  7 Jan 2023 03:13:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51C77C433F2
+	for <linux-riscv@lists.infradead.org>; Sat,  7 Jan 2023 03:13:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1673050187;
-	bh=m6PnPs8IPNxdzKfMtMy1rvaf+NNUmxloEl6Q0gnALuI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iAQ6yuvd8TJMpyLzDU/c1nhFXVgRCvZqUc0VjayfEdnGeVaI3fQQdouqefVGVF6VS
-	 JyVztY9Lmg9MAak2r5ZkgOh0sQb5Mi7Mk3DGptvxlFY1LDP77mNDtFWj8dMap/9UDI
-	 zxtd+KD8MpZEI22Gin5bXMx/S7IXtriIfD/6kFKZVd9uITUGTHmHTsSQRT77g5im7O
-	 sfyeNaD2LErrFT+R9dZ1PjaE1hBZFUIsrvLrkSh1obAIuKmxK8v24rGguBkmynxeBK
-	 /LqlmP/l0av86Sip59hT0pXgqDTS2avw/5Jm1u+MrPhA9T2YTjQSNCJt+F3V0QaFaj
-	 Nuv6dIm5IJSRQ==
-Date: Sat, 7 Jan 2023 00:09:39 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Prabhakar <prabhakar.csengg@gmail.com>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Heiko Stuebner <heiko@sntech.de>, Guo Ren <guoren@kernel.org>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	open list <linux-kernel@vger.kernel.org>,
-	"open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
-	devicetree@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Bart Van Assche <bvanassche@acm.org>,
-	"Martin K. Petersen" <martin.petersen@oracle.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Dipen Patel <dipenp@nvidia.com>, Oded Gabbay <ogabbay@kernel.org>,
-	Iwona Winiarska <iwona.winiarska@intel.com>,
-	"Fabio M. De Francesco" <fmdefrancesco@gmail.com>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Jason M Bills <jason.m.bills@linux.intel.com>,
-	Yicong Yang <yangyicong@hisilicon.com>,
-	Dan Williams <dan.j.williams@intel.com>
-Subject: Re: [PATCH v6 5/6] cache: Add L2 cache management for Andes AX45MP
- RISC-V core
-Message-ID: <Y7i4Q3CAbiCzvGS/@spud>
-References: <20230106185526.260163-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20230106185526.260163-6-prabhakar.mahadev-lad.rj@bp.renesas.com>
+	s=k20201202; t=1673061214;
+	bh=kHYtHRHGn7twJkIe2cynHtKyyDevJdUo628b3VfPG1s=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=cPmrnN9wGzbPkN/CM+lMFG7sPDzhiqyKzxMruys0bSUzFKBJvVtE5oFiOBatjp4Dl
+	 1UeBBKuIo9qH4RzKHPrJBcfpo+rHTv+yojN2/968kn0V6bMocH68yIs6mrfmAMeZuv
+	 G91k139rNbglkfx6LMAbFUS38pTM1lvl0TX59a9Ts1Lp+H6p0eGIkNaZLvHAHgwWRl
+	 uHp2K1fCE4qdA8LtmrZi3kQ9kAYv4V/EM9tzuei2z0jGpWEeRfn9VE+AfUAyluK9dw
+	 QRVaDS3mou75SSCV5Z7P0YuYfGI5BT3nt+kiLLoxSIahAHbTKFyoVnXfuYAwPnDCBL
+	 ml2W4O75n6gEg==
+Received: by mail-ed1-f49.google.com with SMTP id v10so3491880edi.8
+        for <linux-riscv@lists.infradead.org>; Fri, 06 Jan 2023 19:13:34 -0800 (PST)
+X-Gm-Message-State: AFqh2kpmcUFJ8s6J/+m2pAtTCAXzH3aT2SqtbtFh857XeFp1gCbepCA0
+	9zbPlQufRhKO9/BzQ6gKAIEvu2BJ9vjDvsZHrAg=
+X-Google-Smtp-Source: AMrXdXtTiVczT8IADpqw8kgoiJmJBEiH9C7QTwy2SBSC8cHolHS29dg6CbH0/ykUXzVuTBb1ZIwVbtyslDTt4QC7QP4=
+X-Received: by 2002:aa7:dc05:0:b0:47f:b4f3:6dc3 with SMTP id
+ b5-20020aa7dc05000000b0047fb4f36dc3mr5147537edu.340.1673061212566; Fri, 06
+ Jan 2023 19:13:32 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <20230106185526.260163-6-prabhakar.mahadev-lad.rj@bp.renesas.com>
+References: <20230106161213.2374093-1-masahiroy@kernel.org>
+In-Reply-To: <20230106161213.2374093-1-masahiroy@kernel.org>
+From: Guo Ren <guoren@kernel.org>
+Date: Sat, 7 Jan 2023 11:13:21 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTRor=2FwY2ZesZribpSQkneh8OYMph7unP6_toa2k=S2g@mail.gmail.com>
+Message-ID: <CAJF2gTRor=2FwY2ZesZribpSQkneh8OYMph7unP6_toa2k=S2g@mail.gmail.com>
+Subject: Re: [PATCH] riscv: fix -Wundef warning for CONFIG_RISCV_BOOT_SPINWAIT
+To: Masahiro Yamada <masahiroy@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Alexandre Ghiti <alexandre.ghiti@canonical.com>, 
+	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@rivosinc.com>, 
+	Jisheng Zhang <jszhang@kernel.org>, Myrtle Shah <gatecat@ds0.me>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230106_160950_062531_4963430E 
-X-CRM114-Status: GOOD (  34.88  )
+X-CRM114-CacheID: sfid-20230106_191338_865664_9EAAF698 
+X-CRM114-Status: GOOD (  16.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,197 +78,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4352295117162502769=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Sat, Jan 7, 2023 at 12:12 AM Masahiro Yamada <masahiroy@kernel.org> wrote:
+>
+> Since commit 80b6093b55e3 ("kbuild: add -Wundef to KBUILD_CPPFLAGS
+> for W=1 builds"), building with W=1 detects misuse of #if.
+>
+>   $ make W=1 ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu- arch/riscv/kernel/
+>     [snip]
+>     AS      arch/riscv/kernel/head.o
+>   arch/riscv/kernel/head.S:329:5: warning: "CONFIG_RISCV_BOOT_SPINWAIT" is not defined, evaluates to 0 [-Wundef]
+>     329 | #if CONFIG_RISCV_BOOT_SPINWAIT
+>         |     ^~~~~~~~~~~~~~~~~~~~~~~~~~
+>
+> CONFIG_RISCV_BOOT_SPINWAIT is a bool option. #ifdef should be used.
+Fixes: 2ffc48fc7071 ("RISC-V: Move spinwait booting method to its own config")
 
---===============4352295117162502769==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="8K7N8HqoZq1rFis2"
-Content-Disposition: inline
+Right?
 
-
---8K7N8HqoZq1rFis2
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Jan 06, 2023 at 06:55:25PM +0000, Prabhakar wrote:
-> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
->=20
-> I/O Coherence Port (IOCP) provides an AXI interface for connecting
-> external non-caching masters, such as DMA controllers. The accesses
-> from IOCP are coherent with D-Caches and L2 Cache.
->=20
-> IOCP is a specification option and is disabled on the Renesas RZ/Five
-> SoC due to this reason IP blocks using DMA will fail.
->=20
-> The Andes AX45MP core has a Programmable Physical Memory Attributes (PMA)
-> block that allows dynamic adjustment of memory attributes in the runtime.
-> It contains a configurable amount of PMA entries implemented as CSR
-> registers to control the attributes of memory locations in interest.
-> Below are the memory attributes supported:
-> * Device, Non-bufferable
-> * Device, bufferable
-> * Memory, Non-cacheable, Non-bufferable
-> * Memory, Non-cacheable, Bufferable
-> * Memory, Write-back, No-allocate
-> * Memory, Write-back, Read-allocate
-> * Memory, Write-back, Write-allocate
-> * Memory, Write-back, Read and Write-allocate
->=20
-> More info about PMA (section 10.3):
-> Link: http://www.andestech.com/wp-content/uploads/AX45MP-1C-Rev.-5.0.0-Da=
-tasheet.pdf
->=20
-> As a workaround for SoCs with IOCP disabled CMO needs to be handled by
-> software. Firstly OpenSBI configures the memory region as
-> "Memory, Non-cacheable, Bufferable" and passes this region as a global
-> shared dma pool as a DT node. With DMA_GLOBAL_POOL enabled all DMA
-> allocations happen from this region and synchronization callbacks are
-> implemented to synchronize when doing DMA transactions.
->=20
-> Example PMA region passes as a DT node from OpenSBI:
->     reserved-memory {
->         #address-cells =3D <2>;
->         #size-cells =3D <2>;
->         ranges;
->=20
->         pma_resv0@58000000 {
->             compatible =3D "shared-dma-pool";
->             reg =3D <0x0 0x58000000 0x0 0x08000000>;
->             no-map;
->             linux,dma-default;
->         };
->     };
->=20
-> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-
-> diff --git a/drivers/cache/ax45mp_cache.c b/drivers/cache/ax45mp_cache.c
-> new file mode 100644
-> index 000000000000..556e6875627c
-> --- /dev/null
-> +++ b/drivers/cache/ax45mp_cache.c
-> @@ -0,0 +1,279 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * non-coherent cache functions for Andes AX45MP
-> + *
-> + * Copyright (C) 2022 Renesas Electronics Corp.
-> + */
-> +
-> +#include <asm/dma-noncoherent.h>
-> +#include <linux/cacheflush.h>
-> +#include <linux/cacheinfo.h>
-> +#include <linux/dma-direction.h>
-> +#include <linux/of_address.h>
-> +#include <linux/of_platform.h>
-> +
-> +#include <asm/cacheflush.h>
-> +#include <asm/sbi.h>
-
-You don't actually need this anymore, do you?
-
-> +static int ax45mp_l2c_probe(struct platform_device *pdev)
-> +{
-> +	struct riscv_cache_ops ax45mp_cmo_ops;
-> +
-> +	/*
-> +	 * riscv_cbom_block_size is set very much earlier so we can
-> +	 * definitely rely on it and only if its being set we continue
-> +	 * further in the probe path.
-> +	 */
-> +	if (!riscv_cbom_block_size)
-> +		return 0;
-
-Return 0? That's because we may actually have the IOCP & do not want to
-install ops, right?
-If so, please add that to the comment.
-
-> +
-> +	ax45mp_priv =3D devm_kzalloc(&pdev->dev, sizeof(*ax45mp_priv), GFP_KERN=
-EL);
-> +	if (!ax45mp_priv)
-> +		return -ENOMEM;
-> +
-> +	ax45mp_priv->l2c_base =3D devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(ax45mp_priv->l2c_base))
-> +		return PTR_ERR(ax45mp_priv->l2c_base);
-> +
-> +	ax45mp_get_l2_line_size(pdev);
-> +
-> +	memset(&ax45mp_cmo_ops, 0x0, sizeof(ax45mp_cmo_ops));
-> +	ax45mp_cmo_ops.riscv_dma_noncoherent_cmo_ops =3D &ax45mp_no_iocp_cmo;
-
-Yah, drop this dance and use a static struct foo_ops construct please.
-
-With those two, I'm happy with this I guess..
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
-> +	riscv_noncoherent_register_cache_ops(&ax45mp_cmo_ops);
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct of_device_id ax45mp_cache_ids[] =3D {
-> +	{ .compatible =3D "andestech,ax45mp-cache" },
-> +	{ /* sentinel */ }
-> +};
-> +
-> +static struct platform_driver ax45mp_l2c_driver =3D {
-> +	.driver =3D {
-> +		.name =3D "ax45mp-l2c",
-> +		.of_match_table =3D ax45mp_cache_ids,
-> +	},
-> +	.probe =3D ax45mp_l2c_probe,
-> +};
-> +
-> +static int __init ax45mp_cache_init(void)
-> +{
-> +	return platform_driver_register(&ax45mp_l2c_driver);
-> +}
-> +arch_initcall(ax45mp_cache_init);
-> +
-> +MODULE_AUTHOR("Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>");
-> +MODULE_DESCRIPTION("Andes AX45MP L2 cache driver");
-> +MODULE_LICENSE("GPL");
-
-BTW, I think these are surplus-to-requirements since this is never going
-to be built as a module.
-
-If you resurrect the directory level maintainers entry from my v5.1, you
-can also add:
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-
-Thanks,
-Conor.
+>
+> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+> ---
+>
+>  arch/riscv/kernel/head.S | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+> index b865046e4dbb..4bf6c449d78b 100644
+> --- a/arch/riscv/kernel/head.S
+> +++ b/arch/riscv/kernel/head.S
+> @@ -326,7 +326,7 @@ clear_bss_done:
+>         call soc_early_init
+>         tail start_kernel
+>
+> -#if CONFIG_RISCV_BOOT_SPINWAIT
+> +#ifdef CONFIG_RISCV_BOOT_SPINWAIT
+>  .Lsecondary_start:
+>         /* Set trap vector to spin forever to help debug */
+>         la a3, .Lsecondary_park
+> --
+> 2.34.1
+>
 
 
---8K7N8HqoZq1rFis2
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY7i4QwAKCRB4tDGHoIJi
-0kkgAQC+HuesMdtYYrATDJSUb/hkmgjShlN7xrvaSTXquTxaSgD/YLkLJtFZklda
-U5JJAd2XROeK1C01js1TXGoi/MDOsgE=
-=XvPJ
------END PGP SIGNATURE-----
-
---8K7N8HqoZq1rFis2--
-
-
---===============4352295117162502769==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+Best Regards
+ Guo Ren
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4352295117162502769==--
-
