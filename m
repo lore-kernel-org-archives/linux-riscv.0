@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 808A2C54EBC
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Jan 2023 13:36:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E5C2C54EBD
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Jan 2023 13:36:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yRAGKk1ewQAnD3wL1I6jo/aU/uFQFmilmlv7T917RPI=; b=dTjY07xASn7ZB+
-	E8LoSbcNXTbQic8r5pfvWfK4xHdQ50eE7BNowzUidUUNtdmkkO5bHTBYES2YpwxHY+qICJy3fC2nL
-	dW1YazQMHNs4IyZoGjZsF4l9h6gkaddiOfoYNRY/M0A6URsnLsrcIRcGTFpqhm+cCox0d9hkMNoeJ
-	oSNAgV7B/+u0fiaqAecZxI9qQJ0WhimEoJJ3cDeRnLHG5ZKvNe79OewkjUmiQjkstco/bjy5gEK/0
-	HYySgd3zz0K06lFg4F5Yu5S20BLxsLQfBq8+conqNn/ngo0jY8GAUmbWGZ9jl86roIFTQYxgwZwX2
-	nV7Pcol7nDhVeZBO1yoA==;
+	List-Owner; bh=uixl3JzwKpukJX8YAxBk5Pii4hN6el/nd/C19qdSg5k=; b=Mk7vp/VM+3Kisk
+	GAvMmIrvADYoIKniSQR9yc5QCLEN7Hv0fudNkgrWkV1jAEG93Jf9Rg0JAanBZcN7JV2F0DRC62UP1
+	joWR4A2C2zn6UVhxGwLu89i4Viga5Gr/hDqRp7OYwAEh1DFDwcEVa5RnQTZ2k+TAnLZA1JuHsjOSS
+	i8U8ZnbB3cCvU4JbQsT05RVbxKb2aXatuiebkxCILUpuO7wTTSJvxEINF7tYEOGzNyc7byLfwIDHI
+	CotgE2J/J795HnyvpfLvTI8nGr6mGs00Faq8dPfv1vpHYeReSBp+kSs5CPxVjphS9t/MdVhN3xzax
+	DhVURfBDM23yz1Eqot+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pE9Mr-005KhF-2Z; Sat, 07 Jan 2023 13:36:16 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pE9NG-005KtV-64; Sat, 07 Jan 2023 13:36:38 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pE9Mn-005Kfr-CC
-	for linux-riscv@lists.infradead.org; Sat, 07 Jan 2023 13:36:10 +0000
+	id 1pE9N6-005Knw-E0
+	for linux-riscv@lists.infradead.org; Sat, 07 Jan 2023 13:36:35 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id E30BA60C09;
-	Sat,  7 Jan 2023 13:36:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6882AC433F1;
-	Sat,  7 Jan 2023 13:36:03 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 1C000B810AD;
+	Sat,  7 Jan 2023 13:36:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7F51C43392;
+	Sat,  7 Jan 2023 13:36:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1673098568;
-	bh=V792wXFwxvPtjCh6mve4UN0IqpgiVRIo4oWLOTpVhcc=;
+	s=k20201202; t=1673098585;
+	bh=+WY0ZZ7kn9btqTkXdVxs7WtslgQoWZYMoTJ+XWNBI98=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=s7tw01/FJa7C+JS9FZn2vOZ1EHRhzYsw4UqVMHAqi+KSlSeQe11jXV0Z0nBNBHqUq
-	 lgt/sMmwoJSGgpgzejN67lpJZYcSogDUvOGDUXWwVIT4DgT/cRD16fPc9UTPCmi+M3
-	 LXQc5TwDcZqfJmuhyWwCYXbCbdaXZRZtxGZrDaotUQjfmSzMfrtgKyLnx/c0z1QlvW
-	 SlCvNWugTwm827ZEnjOS9zXnUeUmAPZmAG4/tr6Ra6Ne1jM2RMlo9eDIxJn/XVp+jW
-	 IM5OA0GxZjo74KJ36V6CHx9C+G9PFmAUJPuZ7ZDQb39yb+hZ4RBUViYyGBNvu7V6nl
-	 0CjAy+71op0kA==
+	b=cM5mKBBOi26YRA7KCHvGnzs5C98PBpofhWtvIwwcWydDd4GsRrVgYoxMO3ZOFjSX2
+	 x1Q0JLxb59/aXr28UGetayp3ZQseEgkfEObIC9XBHlrrq32+rn2KiPwsb6AXXcInfp
+	 DSTog4ldyECdMryodaL/nkV5qrMGjdV236s6cqCaizB2F1XaplWz9Z3nZCLmwhkBWV
+	 bk8ENbH1atNgeV5c5FoIqYPkrN8uixB01rzadQTESTGITJHzGjhSvkTU8PYHqr01t3
+	 STE/SUREohV0jETOP+Qa5DfdBznN29dmAPiDtP4iEzlc6xZCxutOMhAHb/hNWZaRR8
+	 HR8rlBuZMixFA==
 From: guoren@kernel.org
 To: anup@brainfault.org,
 	paul.walmsley@sifive.com,
@@ -59,16 +59,16 @@ To: anup@brainfault.org,
 	guoren@kernel.org
 Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH -next V6 1/7] riscv: ftrace: Fixup panic by disabling preemption
-Date: Sat,  7 Jan 2023 08:35:43 -0500
-Message-Id: <20230107133549.4192639-2-guoren@kernel.org>
+Subject: [PATCH -next V6 4/7] riscv: ftrace: Add ftrace_graph_func
+Date: Sat,  7 Jan 2023 08:35:46 -0500
+Message-Id: <20230107133549.4192639-5-guoren@kernel.org>
 X-Mailer: git-send-email 2.36.1
 In-Reply-To: <20230107133549.4192639-1-guoren@kernel.org>
 References: <20230107133549.4192639-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230107_053609_484749_A8CC9D04 
-X-CRM114-Status: GOOD (  12.82  )
+X-CRM114-CacheID: sfid-20230107_053634_554248_CA90DAE7 
+X-CRM114-Status: GOOD (  12.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,49 +85,100 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Andy Chiu <andy.chiu@sifive.com>
+From: Song Shuai <suagrfillet@gmail.com>
 
-In RISCV, we must use an AUIPC + JALR pair to encode an immediate,
-forming a jump that jumps to an address over 4K. This may cause errors
-if we want to enable kernel preemption and remove dependency from
-patching code with stop_machine(). For example, if a task was switched
-out on auipc. And, if we changed the ftrace function before it was
-switched back, then it would jump to an address that has updated 11:0
-bits mixing with previous XLEN:12 part.
+Here implements ftrace_graph_func as the function graph tracing function
+with FTRACE_WITH_REGS defined.
 
-p: patched area performed by dynamic ftrace
-ftrace_prologue:
-p|      REG_S   ra, -SZREG(sp)
-p|      auipc   ra, 0x? ------------> preempted
-					...
-				change ftrace function
-					...
-p|      jalr    -?(ra) <------------- switched back
-p|      REG_L   ra, -SZREG(sp)
-func:
-	xxx
-	ret
+function_graph_func gets the point of the parent IP and the frame pointer
+from fregs and call prepare_ftrace_return for function graph tracing.
 
-Fixes: afc76b8b8011 ("riscv: Using PATCHABLE_FUNCTION_ENTRY instead of MCOUNT")
-Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
+If FTRACE_WITH_REGS isn't defined, the enable/disable helpers of
+ftrace_graph_[regs]_call are revised for serving only ftrace_graph_call
+in the !FTRACE_WITH_REGS version ftrace_caller.
+
+Signed-off-by: Song Shuai <suagrfillet@gmail.com>
+Tested-by: Guo Ren <guoren@kernel.org>
 Signed-off-by: Guo Ren <guoren@kernel.org>
 ---
- arch/riscv/Kconfig | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/riscv/include/asm/ftrace.h | 13 +++++++++++--
+ arch/riscv/kernel/ftrace.c      | 30 +++++++++++++-----------------
+ 2 files changed, 24 insertions(+), 19 deletions(-)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index e2b656043abf..ee0d39b26794 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -138,7 +138,7 @@ config RISCV
- 	select HAVE_DYNAMIC_FTRACE_WITH_REGS if HAVE_DYNAMIC_FTRACE
- 	select HAVE_FTRACE_MCOUNT_RECORD if !XIP_KERNEL
- 	select HAVE_FUNCTION_GRAPH_TRACER
--	select HAVE_FUNCTION_TRACER if !XIP_KERNEL
-+	select HAVE_FUNCTION_TRACER if !XIP_KERNEL && !PREEMPTION
+diff --git a/arch/riscv/include/asm/ftrace.h b/arch/riscv/include/asm/ftrace.h
+index 9e73922e1e2e..84f856a3286e 100644
+--- a/arch/riscv/include/asm/ftrace.h
++++ b/arch/riscv/include/asm/ftrace.h
+@@ -107,8 +107,17 @@ do {									\
+ struct dyn_ftrace;
+ int ftrace_init_nop(struct module *mod, struct dyn_ftrace *rec);
+ #define ftrace_init_nop ftrace_init_nop
+-#endif
  
- config ARCH_MMAP_RND_BITS_MIN
- 	default 18 if 64BIT
+-#endif
++#ifdef CONFIG_DYNAMIC_FTRACE_WITH_REGS
++struct ftrace_ops;
++struct ftrace_regs;
++void ftrace_graph_func(unsigned long ip, unsigned long parent_ip,
++		       struct ftrace_ops *op, struct ftrace_regs *fregs);
++#define ftrace_graph_func ftrace_graph_func
++#endif /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
++
++#endif /* __ASSEMBLY__ */
++
++#endif /* CONFIG_DYNAMIC_FTRACE */
+ 
+ #endif /* _ASM_RISCV_FTRACE_H */
+diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
+index 5bff37af4770..95e14d8161a4 100644
+--- a/arch/riscv/kernel/ftrace.c
++++ b/arch/riscv/kernel/ftrace.c
+@@ -169,32 +169,28 @@ void prepare_ftrace_return(unsigned long *parent, unsigned long self_addr,
+ }
+ 
+ #ifdef CONFIG_DYNAMIC_FTRACE
++#ifdef CONFIG_DYNAMIC_FTRACE_WITH_REGS
++void ftrace_graph_func(unsigned long ip, unsigned long parent_ip,
++		       struct ftrace_ops *op, struct ftrace_regs *fregs)
++{
++	struct pt_regs *regs = arch_ftrace_get_regs(fregs);
++	unsigned long *parent = (unsigned long *)&regs->ra;
++
++	prepare_ftrace_return(parent, ip, frame_pointer(regs));
++}
++#else /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
+ extern void ftrace_graph_call(void);
+-extern void ftrace_graph_regs_call(void);
+ int ftrace_enable_ftrace_graph_caller(void)
+ {
+-	int ret;
+-
+-	ret = __ftrace_modify_call((unsigned long)&ftrace_graph_call,
+-				    (unsigned long)&prepare_ftrace_return, true, true);
+-	if (ret)
+-		return ret;
+-
+-	return __ftrace_modify_call((unsigned long)&ftrace_graph_regs_call,
++	return __ftrace_modify_call((unsigned long)&ftrace_graph_call,
+ 				    (unsigned long)&prepare_ftrace_return, true, true);
+ }
+ 
+ int ftrace_disable_ftrace_graph_caller(void)
+ {
+-	int ret;
+-
+-	ret = __ftrace_modify_call((unsigned long)&ftrace_graph_call,
+-				    (unsigned long)&prepare_ftrace_return, false, true);
+-	if (ret)
+-		return ret;
+-
+-	return __ftrace_modify_call((unsigned long)&ftrace_graph_regs_call,
++	return __ftrace_modify_call((unsigned long)&ftrace_graph_call,
+ 				    (unsigned long)&prepare_ftrace_return, false, true);
+ }
++#endif /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
+ #endif /* CONFIG_DYNAMIC_FTRACE */
+ #endif /* CONFIG_FUNCTION_GRAPH_TRACER */
 -- 
 2.36.1
 
