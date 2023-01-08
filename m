@@ -4,68 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99530C53210
-	for <linux-riscv@archiver.kernel.org>; Sun,  8 Jan 2023 06:22:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FD7EC53210
+	for <linux-riscv@archiver.kernel.org>; Sun,  8 Jan 2023 06:57:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3vDHOIDXcueeEL7FsaEDGP5Ie2keBXwRvE8zmsd2kQc=; b=voAUZuk9XSb/U8
-	2aMoQAEJwZibxyNmmdtyVh4tGJY8dU8ig51OsCeW+iOHtW8TTBjqPPuB0QBJaGXBQOLSVCRRRZPNd
-	VUtDAshofnOEncdMepHDLWf9JNA2aW7RtuC0MHbuL6AI3IAA2eCFmL3mUBJa1q258mjcHS+nAoUci
-	VXp7NzMyAUPnWcg9V76Wk4XhtzZ8ZeTcvIHwXdsTEmgLhli/dQ0VDHuz/LeD36bZfAO5GtLRkr92r
-	JIkuJvTRidHm+xCoAbT0eImBIfW2v8qitTgnpue8LcSfAsppiFGRJonmXAznJ546IszqK0HDQ2Sv/
-	Shs70W80YwUlC2JtrpPw==;
+	List-Owner; bh=/Lb1Dc+sm6UUGVpe4Mo1ybBYL+sE3kBb81RE13Qi4K8=; b=gLlHi/byq9jRtG
+	c7TiSERqiHMCdUzYw2Gno/slyXnqCM08dIPGRd6YwnPybnk4t+zPkD9HljCqJLOTXxZIcnj/OTIZ5
+	OQVxbkvPyt1FFLrufR0uNcTlQ+c3rqKh81Ij25DlTaRonzy7LltFXlCR+4ZJFylwOF12LaN74LN9K
+	UWX7H1x3EpNiZh8NrCKcseL20CTNhG1wVdO/rtXwLJVFgIim2lfRBshaLAnr9IHlYZks0lDsD7T3P
+	u2xqS7M2SP8hAbCy9BE0cZAzOXNPFQ2B4yEutncln3kCOtmJpI6QcJeuXrIxYOC1fNWgM+k1bdFq4
+	u1lmaA7t+gX4rOl8cjxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pEP46-00BnFj-Gi; Sun, 08 Jan 2023 06:21:54 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pEP41-00BnDo-4I
-	for linux-riscv@lists.infradead.org; Sun, 08 Jan 2023 06:21:52 +0000
-Received: from [192.168.31.95] (unknown [36.249.208.21])
-	by APP-05 (Coremail) with SMTP id zQCowACnyM3sYLpje8akCw--.58823S2;
-	Sun, 08 Jan 2023 14:21:33 +0800 (CST)
-Message-ID: <c0da09f3-8439-dc0c-234f-e851bcffd07b@iscas.ac.cn>
-Date: Sun, 8 Jan 2023 14:21:31 +0800
+	id 1pEPcT-00Bsnk-Hv; Sun, 08 Jan 2023 06:57:25 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pEPcG-00Bsjp-O0; Sun, 08 Jan 2023 06:57:14 +0000
+Received: from pendragon.ideasonboard.com (213-243-189-158.bb.dnainternet.fi [213.243.189.158])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id EAF8E6CF;
+	Sun,  8 Jan 2023 07:57:02 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1673161023;
+	bh=bt40o19/YEKXIIGOmDN9pFrfQRCF+UbVIZKIlIuqMq4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=S93UmhWNIOX8OvzH6D94A0tVnB1K66wFo2R398CVhoDr470LXNaeACkoeIYSCNhlP
+	 +U2U9p48BPV42uNRcWmQgK+7ycmaApKesNBSt0BTr4GyucR+QRJ9NRrq2kVD6oMFiN
+	 irtCSEpkD+5j5V7xUWZv1fKUYBXNk8KTKzTOaYpY=
+Date: Sun, 8 Jan 2023 08:56:59 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Aradhya Bhatia <a-bhatia1@ti.com>
+Cc: Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Tomi Valkeinen <tomba@kernel.org>, Jyri Sarha <jyri.sarha@iki.fi>,
+	David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Sam Ravnborg <sam@ravnborg.org>, Maxime Ripard <maxime@cerno.tech>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Guo Ren <guoren@kernel.org>,
+	DRI Development List <dri-devel@lists.freedesktop.org>,
+	Devicetree List <devicetree@vger.kernel.org>,
+	Linux Kernel List <linux-kernel@vger.kernel.org>,
+	Linux RISC-V List <linux-riscv@lists.infradead.org>,
+	Linux ARM Kernel List <linux-arm-kernel@lists.infradead.org>,
+	Linux Mediatek List <linux-mediatek@lists.infradead.org>,
+	Linux C-SKY Arch List <linux-csky@vger.kernel.org>,
+	Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+	Rahul T R <r-ravikumar@ti.com>, Devarsh Thakkar <devarsht@ti.com>,
+	Jai Luthra <j-luthra@ti.com>, Jayesh Choudhary <j-choudhary@ti.com>
+Subject: Re: [RFC PATCH 3/4] dt-bindings: panel: Introduce dual-link LVDS
+ panel
+Message-ID: <Y7ppO8nZFw7ZKdOi@pendragon.ideasonboard.com>
+References: <20230103064615.5311-1-a-bhatia1@ti.com>
+ <20230103064615.5311-4-a-bhatia1@ti.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:102.0)
- Gecko/20100101 Thunderbird/102.6.0
-Subject: Re: [PATCH v11 1/3] riscv: mm: modify pte format for Svnapot
-To: Andrew Jones <ajones@ventanamicro.com>, Conor Dooley <conor@kernel.org>
-Cc: palmer@dabbelt.com, linux-riscv@lists.infradead.org, jeff@riscv.org,
- xuyinan@ict.ac.cn
-References: <20221216062109.865573-1-panqinglin2020@iscas.ac.cn>
- <20221216062109.865573-2-panqinglin2020@iscas.ac.cn> <Y6Dc4XNQmKtTsXom@spud>
- <20221226152213.crknhcpysonhq63c@orel> <Y6nql5IUhFnHv9sr@spud>
- <20221226191925.5crjqnpinsawfwc4@orel>
-Content-Language: en-US
-From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
-In-Reply-To: <20221226191925.5crjqnpinsawfwc4@orel>
-X-CM-TRANSID: zQCowACnyM3sYLpje8akCw--.58823S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxuF13Xr45WryftFykWw43Awb_yoWrJryDpr
-	W8t3WIkF4Dtr1fArZ2qw18XF1Syw4fKF4UXr98tr98C3sIyr13GrsxtFy5uFykZr4rGr1j
-	vFZY9asrZ3Z8AaDanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvmb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwV
-	C2z280aVCY1x0267AKxVW8Jr0_Cr1UM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq
-	07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r
-	18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41l
-	c7I2V7IY0VAS07AlzVAYIcxG8wCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJV
-	W8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF
-	1VAFwI0_JF0_Jw1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6x
-	IIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvE
-	x4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Jr0_GrUvcSsGvfC2KfnxnU
-	UI43ZEXa7IU5QyCtUUUUU==
-X-Originating-IP: [36.249.208.21]
-X-CM-SenderInfo: 5sdq1xpqjox0asqsiq5lvft2wodfhubq/1tbiBwIFDGO5fNNhmgABsD
+Content-Disposition: inline
+In-Reply-To: <20230103064615.5311-4-a-bhatia1@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230107_222149_619260_0C9DFFCE 
-X-CRM114-Status: GOOD (  21.77  )
+X-CRM114-CacheID: sfid-20230107_225712_971105_58DFFF06 
+X-CRM114-Status: GOOD (  21.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,96 +83,216 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew and Conor,
+Hi Aradhya,
 
-On 2022/12/27 03:19, Andrew Jones wrote:
-> On Mon, Dec 26, 2022 at 06:40:23PM +0000, Conor Dooley wrote:
->> On Mon, Dec 26, 2022 at 05:01:29PM +0100, Andrew Jones wrote:
->>> On Mon, Dec 19, 2022 at 09:51:29PM +0000, Conor Dooley wrote:
->>>> On Fri, Dec 16, 2022 at 02:21:07PM +0800, panqinglin2020@iscas.ac.cn wrote:
->>>>> From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
->>>>>
->>>>> Add one alternative to enable/disable svnapot support, enable this static
->>>>> key when "svnapot" is in the "riscv,isa" field of fdt and SVNAPOT compile
->>>>> option is set. It will influence the behavior of has_svnapot. All code
->>>>> dependent on svnapot should make sure that has_svnapot return true firstly.
->>>>>
->>>>> Modify PTE definition for Svnapot, and creates some functions in pgtable.h
->>>>> to mark a PTE as napot and check if it is a Svnapot PTE. Until now, only
->>>>> 64KB napot size is supported in spec, so some macros has only 64KB version.
->>>>>
->>>>> Signed-off-by: Qinglin Pan <panqinglin2020@iscas.ac.cn>
->>>>> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
->>>>>
->>>>> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
->>>>> index e1a9fa47f012..25c230e3bf61 100644
->>>>> --- a/arch/riscv/Kconfig
->>>>> +++ b/arch/riscv/Kconfig
->>>>> @@ -397,6 +397,25 @@ config RISCV_ISA_C
->>>>>   
->>>>>   	  If you don't know what to do here, say Y.
->>>>>   
->>>>> +config RISCV_ISA_SVNAPOT
->>>>> +	bool "SVNAPOT extension support"
->>>>> +	depends on 64BIT && MMU
->>>>> +	select RISCV_ALTERNATIVE
->>>>> +	default y
->>>>> +	help
->>>>> +	  Allow kernel to detect the SVNAPOT ISA-extension dynamically at boot
->>>>> +	  time and enable its usage.
->>>>> +
->>>>> +	  The SVNAPOT extension is used to mark contiguous PTEs as a range
->>>>> +	  of contiguous virtual-to-physical translations for a naturally
->>>>> +	  aligned power-of-2 (NAPOT) granularity larger than the base 4KB page
->>>>> +	  size. When HUGETLBFS is also selected this option unconditionally
->>>>> +	  allocates some memory for each NAPOT page size supported by the kernel.
->>>>> +	  When optimizing for low memory consumption and for platforms without
->>>>
->>>> nit: Does this make more sense as "When optimising for low memory
->>>> consumption on platforms without the SVNAPOT extension"...?
->>>> Or does disabling Svnapot save memory on Svnapot capable systems too?
->>>
->>> Depends on how we define "save". Disabling RISCV_ISA_SVNAPOT on HUGETLBFS
->>> enabled systems will reduce memory consumption whether the svnapot
->>> extension is present or not. When the extension is present, the memory
->>> consumed may serve a purpose, whereas, on systems without svnapot, the
->>> memory consumed cannot serve a purpose.
->>
->> Right, thanks for the explanation. I'm sorry to be a bore here, but should
->> it be reworded then to "When optimising for low memory consumption on
->> platforms without SVNAPOT, or if HUGETLBFS is enabled, say N here"?
+Thank you for the patch.
+
+On Tue, Jan 03, 2023 at 12:16:14PM +0530, Aradhya Bhatia wrote:
+> Dual-link LVDS interfaces have 2 links, with even pixels traveling on
+> one link, and odd pixels on the other. These panels are also generic in
+> nature, with no documented constraints, much like their single-link
+> counterparts, "panel-lvds".
 > 
-> I'd prefer we keep the instructions as simple as possible. Basically,
-
-Sorry for slow reply.
-
-I agree with Andrew, we should keep it as simple as possible. :)
-So I will keep it unchanged unless any new suggestions about this
-patchset is given.
-
-Thanks,
-Qinglin
-
-> "Turn this off if you don't plan to use it and if you care about memory
-> consumption", which, IMHO, is how the text more or less already reads.
-> But...
+> Add a new compatible, "panel-dual-lvds", and a dt-binding document for
+> these panels.
 > 
->>
->> I don't really care either way to be perfectly honest, so as I said in
->> my other reply "don't bother resubmitting unless someone else asks for
->> meaningful changes" ;)
+> Signed-off-by: Aradhya Bhatia <a-bhatia1@ti.com>
+> ---
+>  .../display/panel/panel-dual-lvds.yaml        | 157 ++++++++++++++++++
+>  MAINTAINERS                                   |   1 +
+>  2 files changed, 158 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/display/panel/panel-dual-lvds.yaml
 > 
-> ...I'm not too worried about it either, so I won't complain if Qinglin
-> respins with your suggestion.
-> 
-> Thanks,
-> drew
+> diff --git a/Documentation/devicetree/bindings/display/panel/panel-dual-lvds.yaml b/Documentation/devicetree/bindings/display/panel/panel-dual-lvds.yaml
+> new file mode 100644
+> index 000000000000..88a7aa2410be
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/display/panel/panel-dual-lvds.yaml
+> @@ -0,0 +1,157 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/display/panel/panel-dual-lvds.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Generic Dual-Link LVDS Display Panel
+> +
+> +maintainers:
+> +  - Aradhya Bhatia <a-bhatia1@ti.com>
+> +  - Thierry Reding <thierry.reding@gmail.com>
+> +
+> +description: |
+> +  A dual-LVDS interface is a dual-link connection with the even pixels
+> +  traveling on one link, and the odd pixels traveling on the other.
+> +
+> +allOf:
+> +  - $ref: panel-common.yaml#
+> +  - $ref: /schemas/display/lvds.yaml/#
+> +
+> +properties:
+> +  compatible:
+> +    oneOf:
+> +      - items:
+> +          - enum:
+> +              - lincolntech,lcd185-101ct
+> +              - microtips,13-101hieb0hf0-s
+> +          - const: panel-dual-lvds
+> +      - const: panel-dual-lvds
 
+A device-specific compatible string should be required,
+"panel-dual-lvds" alone shouldn't be allowed. Otherwise it won't be
+possible to tell different models apart later should this be required.
+
+> +
+> +  ports:
+> +    $ref: /schemas/graph.yaml#/properties/ports
+> +
+> +    properties:
+> +      port@0:
+> +        $ref: /schemas/graph.yaml#/$defs/port-base
+> +        unevaluatedProperties: false
+> +        description: The sink for first set of LVDS pixels.
+> +
+> +        properties:
+> +          dual-lvds-odd-pixels:
+> +            type: boolean
+> +
+> +          dual-lvds-even-pixels:
+> +            type: boolean
+> +
+> +        oneOf:
+> +          - required: [dual-lvds-odd-pixels]
+> +          - required: [dual-lvds-even-pixels]
+> +
+> +      port@1:
+> +        $ref: /schemas/graph.yaml#/$defs/port-base
+> +        unevaluatedProperties: false
+> +        description: The sink for second set of LVDS pixels.
+> +
+> +        properties:
+> +          dual-lvds-even-pixels:
+> +            type: boolean
+> +
+> +          dual-lvds-odd-pixels:
+> +            type: boolean
+> +
+> +        oneOf:
+> +          - required: [dual-lvds-even-pixels]
+> +          - required: [dual-lvds-odd-pixels]
+> +
+> +    allOf:
+> +      - if:
+> +          properties:
+> +            port@0:
+> +              properties:
+> +                dual-lvds-odd-pixels: true
+> +              required:
+> +                - dual-lvds-odd-pixels
+> +        then:
+> +          properties:
+> +            port@1:
+> +              properties:
+> +                dual-lvds-even-pixels: true
+> +                dual-lvds-odd-pixels: false
+> +
+> +      - if:
+> +          properties:
+> +            port@0:
+> +              properties:
+> +                dual-lvds-even-pixels: true
+> +              required:
+> +                - dual-lvds-even-pixels
+> +        then:
+> +          properties:
+> +            port@1:
+> +              properties:
+> +                dual-lvds-odd-pixels: true
+> +                dual-lvds-even-pixels: false
+> +
+> +    required:
+> +      - port@0
+> +      - port@1
+> +
+> +  port: false
+> +
+> +unevaluatedProperties: false
+> +
+> +required:
+> +  - compatible
+> +  - width-mm
+> +  - height-mm
+> +  - data-mapping
+> +  - panel-timing
+> +  - ports
+> +
+> +examples:
+> +  - |+
+> +    panel-dual-lvds {
+> +      compatible = "microtips,13-101hieb0hf0-s", "panel-dual-lvds";
+> +
+> +      width-mm = <217>;
+> +      height-mm = <136>;
+> +
+> +      data-mapping = "vesa-24";
+> +
+> +      panel-timing {
+> +        clock-frequency = <150275000>;
+> +        hactive = <1920>;
+> +        vactive = <1200>;
+> +        hfront-porch = <32>;
+> +        hsync-len = <52>;
+> +        hback-porch = <24>;
+> +        vfront-porch = <24>;
+> +        vsync-len = <8>;
+> +        vback-porch = <3>;
+> +        de-active = <1>;
+> +      };
+> +
+> +      ports {
+> +        #address-cells = <1>;
+> +        #size-cells = <0>;
+> +
+> +        port@0 {
+> +          reg = <0>;
+> +          dual-lvds-odd-pixels;
+> +          lcd_in0: endpoint {
+> +            remote-endpoint = <&oldi_out0>;
+> +          };
+> +        };
+> +
+> +        port@1 {
+> +          reg = <1>;
+> +          dual-lvds-even-pixels;
+> +          lcd_in1: endpoint {
+> +            remote-endpoint = <&oldi_out1>;
+> +          };
+> +        };
+> +      };
+> +    };
+> +
+> +...
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 7f86d02cb427..c13f24293ab1 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -6595,6 +6595,7 @@ T:	git git://anongit.freedesktop.org/drm/drm-misc
+>  S:	Maintained
+>  F:	drivers/gpu/drm/panel/panel-lvds.c
+>  F:	Documentation/devicetree/bindings/display/lvds.yaml
+> +F:	Documentation/devicetree/bindings/display/panel/panel-dual-lvds.yaml
+>  F:	Documentation/devicetree/bindings/display/panel/panel-lvds.yaml
+>  
+>  DRM DRIVER FOR MANTIX MLAF057WE51 PANELS
+
+-- 
+Regards,
+
+Laurent Pinchart
 
 _______________________________________________
 linux-riscv mailing list
