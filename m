@@ -4,55 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64814C53210
-	for <linux-riscv@archiver.kernel.org>; Sun,  8 Jan 2023 17:16:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81231C53210
+	for <linux-riscv@archiver.kernel.org>; Sun,  8 Jan 2023 17:24:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W5AQvuptTFlO+jUKgZ33rxm2sGK1tzQHL6jQYzSz2CI=; b=4Uyx4JglLKlnROmuj0fzToSOry
-	RK0rfbBqRI6eAX8xpWKClApu4/We77VRwS3/FUc2XUCUU4kLUcmAR6iKTGV8cSXMVXdmHSK4AGBM4
-	o0EMyQz6fLEWLFsK0iet9yD3CRTjJ636Cbbelsrs4j/My8xx8Nz1NXDwTZliWcDSnEblOoLztsXkx
-	sPKJ0o0/g5CUWuOG3sZ3YIs8k3Z0BaPdBBgB/BjjQaXlHy1S3N1HZOamutqeFqww2WS06xHj3g2uC
-	Px3yGTQy3Qo2c/oOro/bd5F91oHjkp/B1Z6BQCOSIjuZogDpW4Y1VQG0C2g9T5FP1TIyDNsUg+Qxd
-	6tEU57lg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=qPvZIRZud5X+gJgy9k363sDZASRO0byaH/TCQbH6CE0=; b=lvaYbPlbgeqpIp
+	VwheZCJ9u4dk+pKQ5TgYiT+brm4Kz9OH/zTKWPeUxvqRXEwyoHAIAKHiQOFED66BorpIu0toOYr0P
+	AFnoCJoerBg7JyN2S1PNcn9fMr7JJKkuHRk+tP1L910MG+/gSMvkHScaU03fNRWFz/fPf092syW1I
+	nOlGeZA+W8cUfcGbwuEGIko9S9ePGbaBQayd6gibFg6L3ngEZSlXoqdr5clRvkS4LLnWMt1bYrENN
+	T3YeSXCWh1lfGGoD9b3UrytGxRYLIswdr7wLgVdviF3Vi5qz8pJ9siC50X7myl2zsbZ7wC0LBEaK8
+	VQHMldLlmhXGddL7IAmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pEZHN-00EVmT-Fc; Sun, 08 Jan 2023 17:16:17 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pEZHA-00EVhr-9M; Sun, 08 Jan 2023 17:16:06 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 5BC3C60C88;
-	Sun,  8 Jan 2023 17:16:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B7F4C433EF;
-	Sun,  8 Jan 2023 17:15:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1673198162;
-	bh=fzAgiRFGHR3+GZQIA6FSB7Y5pqtCmssmPkzfvI9PDik=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ugSoSfG8YK4MiPNvmgHKQd2u6R4hYWSQLpNXxOlfys/IgPDiESDl9ClGuf7f5HnwX
-	 oKT6HIzSPf2QaYW7AWi6o2YyMSU+Tn+0cndHgC+c2ZUvp569FJkmm8ZJ4v1WVLnN/g
-	 vJc1njobRAXmHxjvEd0uMJqGhBLEx4srmrk0neSSo45BUDzYBNj478/Ct66UhElPee
-	 zDSpsuuwxgDujKFt51c8olpbMG2jhMuq0ziBhA9E0/wm45RZkYlb8XvEguUQlaOP/2
-	 5ZympTpJVqbXSk26pGg0H9KR6fjluZ0CDyYJH6cQsY3bJYgDF+AO06iy4c2KdnS5mn
-	 z4l7KJR12SL+w==
-Date: Sun, 8 Jan 2023 17:15:56 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Andre Przywara <andre.przywara@arm.com>
-Subject: Re: [PATCH 1/4] dts: add riscv include prefix link
-Message-ID: <Y7r6TLTm1r+IlrYj@spud>
-References: <20230106010155.26868-1-andre.przywara@arm.com>
- <20230106010155.26868-2-andre.przywara@arm.com>
+	id 1pEZPe-00EZ9f-Nh; Sun, 08 Jan 2023 17:24:50 +0000
+Received: from hch by bombadil.infradead.org with local (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pEZPZ-00EZ7r-S9; Sun, 08 Jan 2023 17:24:45 +0000
+Date: Sun, 8 Jan 2023 09:24:45 -0800
+From: Christoph Hellwig <hch@infradead.org>
+To: Mike Kravetz <mike.kravetz@oracle.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, netdev@vger.kernel.org,
+	Christoph Hellwig <hch@infradead.org>,
+	David Hildenbrand <david@redhat.com>,
+	Michal Hocko <mhocko@suse.com>, Peter Xu <peterx@redhat.com>,
+	Nadav Amit <nadav.amit@gmail.com>,
+	Matthew Wilcox <willy@infradead.org>,
+	Vlastimil Babka <vbabka@suse.cz>, Rik van Riel <riel@surriel.com>,
+	Will Deacon <will@kernel.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Christian Brauner <brauner@kernel.org>,
+	Eric Dumazet <edumazet@google.com>,
+	Andrew Morton <akpm@linux-foundation.org>
+Subject: Re: [PATCH] mm: remove zap_page_range and create zap_vma_pages
+Message-ID: <Y7r8XRLIOHADjdrz@infradead.org>
+References: <20230104002732.232573-1-mike.kravetz@oracle.com>
 MIME-Version: 1.0
-In-Reply-To: <20230106010155.26868-2-andre.przywara@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230108_091604_388971_2D8A66A0 
-X-CRM114-Status: GOOD (  16.88  )
+Content-Disposition: inline
+In-Reply-To: <20230104002732.232573-1-mike.kravetz@oracle.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,80 +60,22 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, Samuel Holland <samuel@sholland.org>, Fabien Poussin <fabien.poussin@gmail.com>, linux-kernel@vger.kernel.org, Jernej Skrabec <jernej.skrabec@gmail.com>, Chen-Yu Tsai <wens@csie.org>, Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Frank Rowand <frowand.list@gmail.com>, linux-sunxi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, =?iso-8859-1?Q?Andr=E1s_Szemz=F6?= <szemzo.andras@gmail.com>
-Content-Type: multipart/mixed; boundary="===============1705987708395605168=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+I would have split this into one patch that adds the new
+zap_vma_pages helper, and one to remove zap_page_range to split the
+separate changes.
 
---===============1705987708395605168==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="0sHedhGUJCjd0u9E"
-Content-Disposition: inline
+But the overall result looks fine, so feel free to add:
 
+Reviewed-by: Christoph Hellwig <hch@lst.de>
 
---0sHedhGUJCjd0u9E
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Jan 06, 2023 at 01:01:52AM +0000, Andre Przywara wrote:
-> The Allwinner D1/D1s SoCs (with a RISC-V core) use an (almost?) identical
-> die as their R528/T113-s siblings with ARM Cortex-A7 cores.
->=20
-> To allow sharing the basic SoC .dtsi files across those two
-> architectures as well, introduce a symlink to the RISC-V DT directory.
-
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
-Thanks,
-Conor.
-
->=20
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> ---
->  scripts/dtc/include-prefixes/riscv | 1 +
->  1 file changed, 1 insertion(+)
->  create mode 120000 scripts/dtc/include-prefixes/riscv
->=20
-> diff --git a/scripts/dtc/include-prefixes/riscv b/scripts/dtc/include-pre=
-fixes/riscv
-> new file mode 120000
-> index 0000000000000..2025094189380
-> --- /dev/null
-> +++ b/scripts/dtc/include-prefixes/riscv
-> @@ -0,0 +1 @@
-> +../../../arch/riscv/boot/dts
-> \ No newline at end of file
-> --=20
-> 2.35.5
->=20
->=20
-
---0sHedhGUJCjd0u9E
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY7r6TAAKCRB4tDGHoIJi
-0svYAQDfXmAfIvPLwZWb79WQkRX17ndbEOGiAWczgPvcsZVEYQD9Gh9E4PYzuC6e
-4QRB0vH6i/fo3SyEvyVctlyGY+JOpwE=
-=5fRf
------END PGP SIGNATURE-----
-
---0sHedhGUJCjd0u9E--
-
-
---===============1705987708395605168==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+to this or the split patches.
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1705987708395605168==--
-
