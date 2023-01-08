@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 919BBC63797
-	for <linux-riscv@archiver.kernel.org>; Sun,  8 Jan 2023 16:34:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44AB2C54EBD
+	for <linux-riscv@archiver.kernel.org>; Sun,  8 Jan 2023 16:34:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TKGNx8q7cL9ZvIWZCLm/SYUzZ690IR3gZ0q2x5GpQ8k=; b=dNFQoixDV9oc9N
-	27+TAsdx3RipubgdE4Sh+761Qa/6mmAD6lzApxT5RFXp42PThdkrEEHEuh/2KxCqk4B2caf5TQnvU
-	sd38S0cdSTafqySkMZwcgi4+mwabYWbrCtWKKyoC+Zi72j6O8vBEAtUALPxPq5VftPeD9D0OrKDmH
-	O0ky+3izxsmNoiy6FhuxJZsnhZZYNNAXMIcP4tQZhtefHDayiWVuL0xk7/b+LV4kTWHQvnDeysa3C
-	oG6+6qF6Tgp86VaTcoybZfVkk7G8d9udnz8DCKctnjq3Z4Zdt+bNZU+NID16KaoNvtpkUz7YE8oTQ
-	akHz3vgt1a3eyIcOk37Q==;
+	List-Owner; bh=isSA28+MIvWz97kExPj49UuOWEXDcHRIAIaqHS2TwGI=; b=mUs+AF4hC5eNOv
+	yG0UIGlTCOrxR0LToBTFuxrpfSCbEi51LwE8bpMB1ySm4YVA9MeWjlNKGJ1oGGE1Xr/6DqPwAi25m
+	80OFowf3ywDP670bJbKMtQXk7Lv7F3c8qjUqeV9nvfgLKvkpiot+hAEqcuOEdqR+23JuTJ4ufd9by
+	PbvQcv7274ZUrlBQPBZsEmqJRXzSJBcwWN5bs0Eb1BQoLBDXValzXvN43ZHD8jd8fckuwIiqVKbAt
+	F6xcuYR5AlsDQe5AIdhMdReNgZAAwZ8JoePlljz/93cJh8ncV4YS1Htnge9tZVrsmYZDgsPHGZPxD
+	2eElTPw3GpI/kfEesx9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pEYd3-00EMZi-Mx; Sun, 08 Jan 2023 16:34:37 +0000
+	id 1pEYd2-00EMYn-4L; Sun, 08 Jan 2023 16:34:36 +0000
 Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pEYcz-00EMX0-Lr
-	for linux-riscv@lists.infradead.org; Sun, 08 Jan 2023 16:34:35 +0000
+	id 1pEYcx-00EMWT-29
+	for linux-riscv@lists.infradead.org; Sun, 08 Jan 2023 16:34:32 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 5E9D3B80B4F;
-	Sun,  8 Jan 2023 16:34:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6637C433F1;
-	Sun,  8 Jan 2023 16:34:28 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id B8116B801BB;
+	Sun,  8 Jan 2023 16:34:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AC0BC433F2;
+	Sun,  8 Jan 2023 16:34:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1673195671;
-	bh=/waf9UjWx+ALUN0kbtig3a8OqNW49/7BA50sh5A7xBk=;
+	s=k20201202; t=1673195668;
+	bh=tNzGcvrEpUUTCaU+avvscIqbkTKoFlaDy2MR8riCxj0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=G/79xZ5qidfFnxWgpefnBriUT8Fvm9XBL6194AonqkavHeLF8KIP8BYJxigvrxpTq
-	 d6CzsdEu04wmkaqD9D5Iz/P/68sfEinwW6v/o8todxB+ggEf28rfI/VwbcxiRfxTe0
-	 vq/uAQ3p+QjCe1YxWcBN6isA1a+HKmcIQMt+X9CCrQPQ8oLZf9KT35CalvLYjTvrLY
-	 FjbHV2aeyiTEEdFJfgFmBVGd9zLHqjAnCGaub9AL0LU5WuLW2vYZX1T23ylNzC78vl
-	 ygvzsTPDgLbs8DdYMm1cD0IFxbjLPLGqqVlDvNUs+gZKfu2Ws92a5qssun3AglSPxV
-	 ghvHtvtIig/HA==
+	b=QVtYDA3/7p5bWI0mk4pC6zwWunVUR0vuWjnQUkmXJZ5d181rWUr9tYYVrkj5L/Oae
+	 kKbCi9PkIjoaxO+t/bVC216OOGpbbG7MvsuqFKjxC03n5PqbMWwg3twHd+UFpT15ht
+	 vySpT/laUXPvaRPZXYaiGkxcFJx+9iGt37YYa3HCUrhi93+hEibheoT9Vj6xgPYY4a
+	 lQv3ymgCyhXF8E9HCsnRXjH6oRlCdI5LGJli3BJSOFF8lLF+ATevwD4bfCqGIX/VFF
+	 XzklPC4ILUcFKnB/keQQ1t690+18tXG20EJ538ga+wSnihh7SJEt3BHdlEgTjbLa3p
+	 NYDnT5k0bocTg==
 From: Conor Dooley <conor@kernel.org>
 To: palmer@dabbelt.com
 Cc: conor@kernel.org,
@@ -53,16 +53,16 @@ Cc: conor@kernel.org,
 	Andrew Jones <ajones@ventanamicro.com>,
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH v1 3/3] RISC-V: remove toolchain version checks for Zicbom
-Date: Sun,  8 Jan 2023 16:33:56 +0000
-Message-Id: <20230108163356.3063839-4-conor@kernel.org>
+Subject: [PATCH v1 2/3] RISC-V: replace cbom instructions with an insn-def
+Date: Sun,  8 Jan 2023 16:33:55 +0000
+Message-Id: <20230108163356.3063839-3-conor@kernel.org>
 X-Mailer: git-send-email 2.39.0
 In-Reply-To: <20230108163356.3063839-1-conor@kernel.org>
 References: <20230108163356.3063839-1-conor@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230108_083433_996956_A68A0F84 
-X-CRM114-Status: GOOD (  11.81  )
+X-CRM114-CacheID: sfid-20230108_083431_310265_FF95D4AB 
+X-CRM114-Status: GOOD (  12.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,56 +81,60 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-Commit b8c86872d1dc ("riscv: fix detection of toolchain Zicbom
-support") fixed building on systems where Zicbom was supported by the
-compiler/assembler but not by the linker in an easily backportable
-manner.
-Now that the we have insn-defs for the 3 instructions, toolchain support
-is no longer required for Zicbom.
-Stop emitting "_zicbom" in -march when Zicbom is enabled & drop the
-version checks entirely.
+Using the cbom instructions directly in ALT_CMO_OP, requires toolchain
+support for the instructions. Using an insn-def will allow for removal
+of toolchain version checks in the build system & simplification of the
+proposed [1] function-based CMO scheme.
 
+Link: https://lore.kernel.org/linux-riscv/fb3b34ae-e35e-4dc2-a8f4-19984a2f58a8@app.fastmail.com/ [1]
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- arch/riscv/Kconfig  | 8 --------
- arch/riscv/Makefile | 3 ---
- 2 files changed, 11 deletions(-)
+ arch/riscv/include/asm/errata_list.h |  3 ++-
+ arch/riscv/include/asm/insn-def.h    | 12 ++++++++++++
+ 2 files changed, 14 insertions(+), 1 deletion(-)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index e2b656043abf..33bbdc33cef8 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -416,16 +416,8 @@ config RISCV_ISA_SVPBMT
+diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
+index 4180312d2a70..b71e3ccd3110 100644
+--- a/arch/riscv/include/asm/errata_list.h
++++ b/arch/riscv/include/asm/errata_list.h
+@@ -7,6 +7,7 @@
  
- 	   If you don't know what to do here, say Y.
+ #include <asm/alternative.h>
+ #include <asm/csr.h>
++#include <asm/insn-def.h>
+ #include <asm/vendorid_list.h>
  
--config TOOLCHAIN_HAS_ZICBOM
--	bool
--	default y
--	depends on !64BIT || $(cc-option,-mabi=lp64 -march=rv64ima_zicbom)
--	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zicbom)
--	depends on LLD_VERSION >= 150000 || LD_VERSION >= 23800
--
- config RISCV_ISA_ZICBOM
- 	bool "Zicbom extension support for non-coherent DMA operation"
--	depends on TOOLCHAIN_HAS_ZICBOM
- 	depends on !XIP_KERNEL && MMU
- 	select RISCV_DMA_NONCOHERENT
- 	select RISCV_ALTERNATIVE
-diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-index 12d91b0a73d8..f9ba78ddb5c6 100644
---- a/arch/riscv/Makefile
-+++ b/arch/riscv/Makefile
-@@ -58,9 +58,6 @@ riscv-march-$(CONFIG_RISCV_ISA_C)	:= $(riscv-march-y)c
- toolchain-need-zicsr-zifencei := $(call cc-option-yn, -march=$(riscv-march-y)_zicsr_zifencei)
- riscv-march-$(toolchain-need-zicsr-zifencei) := $(riscv-march-y)_zicsr_zifencei
+ #ifdef CONFIG_ERRATA_SIFIVE
+@@ -125,7 +126,7 @@ asm volatile(ALTERNATIVE_2(						\
+ 	"mv a0, %1\n\t"							\
+ 	"j 2f\n\t"							\
+ 	"3:\n\t"							\
+-	"cbo." __stringify(_op) " (a0)\n\t"				\
++	CBO_##_op(a0)							\
+ 	"add a0, a0, %0\n\t"						\
+ 	"2:\n\t"							\
+ 	"bltu a0, %2, 3b\n\t"						\
+diff --git a/arch/riscv/include/asm/insn-def.h b/arch/riscv/include/asm/insn-def.h
+index 39f9e0893564..e01ab51f50d2 100644
+--- a/arch/riscv/include/asm/insn-def.h
++++ b/arch/riscv/include/asm/insn-def.h
+@@ -180,4 +180,16 @@
+ 	INSN_R(OPCODE_SYSTEM, FUNC3(0), FUNC7(51),		\
+ 	       __RD(0), RS1(gaddr), RS2(vmid))
  
--# Check if the toolchain supports Zicbom extension
--riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZICBOM) := $(riscv-march-y)_zicbom
--
- # Check if the toolchain supports Zihintpause extension
- riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZIHINTPAUSE) := $(riscv-march-y)_zihintpause
- 
++#define CBO_inval(base)						\
++	INSN_I(OPCODE_MISC_MEM, FUNC3(2), __RD(0),		\
++	       RS1(base), SIMM12(0))
++
++#define CBO_clean(base)						\
++	INSN_I(OPCODE_MISC_MEM, FUNC3(2), __RD(0),		\
++	       RS1(base), SIMM12(1))
++
++#define CBO_flush(base)						\
++	INSN_I(OPCODE_MISC_MEM, FUNC3(2), __RD(0),		\
++	       RS1(base), SIMM12(2))
++
+ #endif /* __ASM_INSN_DEF_H */
 -- 
 2.39.0
 
