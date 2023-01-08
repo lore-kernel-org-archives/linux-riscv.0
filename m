@@ -4,105 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 721EDC54EBC
-	for <linux-riscv@archiver.kernel.org>; Sun,  8 Jan 2023 00:08:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99530C53210
+	for <linux-riscv@archiver.kernel.org>; Sun,  8 Jan 2023 06:22:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
-	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9ztl1ZQhhe/ChYgTxO8U9OXZi+NxlWmFZBN4DMo2eQg=; b=TpQPo7+tUDpd+U
-	2fI4X9vZf1IrHPUyPpb89DreO83x3O/ghm1fxcYQnptAhPhAZKxXpakeIwdSkEfrulfKWAALwz6Bj
-	TclRgeaDWpvPlnxzB06JSFej/Wp+qkSO+XR5yFIXSCLmEc9nVhH4cf/rZGDrBuVFVdgLz9+xkxr4t
-	fQNNJ6LxiLxx1b5t8F0ajw457ISgZ6r7vKMrUSl5mwn8GoInKYNc6z4hLoEw6nfDicAYstmDHUUY+
-	zyUJ+EvTYRGi9trLnJanT9IWytGl9ciESOs0+mTHTEAdv7yNgpNIvwmZh9GwDduyX+cC5DKKIxVng
-	mGMBL8lp0wMY61AIEJHA==;
+	List-Owner; bh=3vDHOIDXcueeEL7FsaEDGP5Ie2keBXwRvE8zmsd2kQc=; b=voAUZuk9XSb/U8
+	2aMoQAEJwZibxyNmmdtyVh4tGJY8dU8ig51OsCeW+iOHtW8TTBjqPPuB0QBJaGXBQOLSVCRRRZPNd
+	VUtDAshofnOEncdMepHDLWf9JNA2aW7RtuC0MHbuL6AI3IAA2eCFmL3mUBJa1q258mjcHS+nAoUci
+	VXp7NzMyAUPnWcg9V76Wk4XhtzZ8ZeTcvIHwXdsTEmgLhli/dQ0VDHuz/LeD36bZfAO5GtLRkr92r
+	JIkuJvTRidHm+xCoAbT0eImBIfW2v8qitTgnpue8LcSfAsppiFGRJonmXAznJ546IszqK0HDQ2Sv/
+	Shs70W80YwUlC2JtrpPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pEJEf-0093Ki-3V; Sun, 08 Jan 2023 00:08:25 +0000
-Received: from out5-smtp.messagingengine.com ([66.111.4.29])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pEJEV-0093HV-BZ
-	for linux-riscv@lists.infradead.org; Sun, 08 Jan 2023 00:08:18 +0000
-Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
-	by mailout.nyi.internal (Postfix) with ESMTP id D339E5C007D;
-	Sat,  7 Jan 2023 19:08:10 -0500 (EST)
-Received: from imap51 ([10.202.2.101])
-  by compute6.internal (MEProxy); Sat, 07 Jan 2023 19:08:10 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-type:date:date:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:sender:subject
-	:subject:to:to; s=fm2; t=1673136490; x=1673222890; bh=w6+aDVc5tr
-	2uIs4oPoROJd4fXpjR6GDvnU6vXcUl8+E=; b=cp64SsHubAH99xcKXc31E50owr
-	wlsfwwUfDFasgRONy24xanJJNwofyBrCQqq9yrDSayVGnfvqKHD8N5J8mJ1zsjMk
-	m2HbIOo0QgUqKJDUoekJs0ZvySSR8ZynasP6zia1kY5qGTsWYi1JD1ipfD3GP9Q/
-	FAUQ1u9x7k/Ev1jVOG80iHbowRRMSeQkdpVvp22gh5e/69eW0NBGKFYS9V6+GHFJ
-	C4hHjhy/3p80AYxUb/JFgEVxtQnRx6aCTDHQoILBz/NWhFRD/ho24bBB7lHGuVx/
-	chuK/pREqTqrM15AI5vS8397gk/YVLPsKflFCTO7f8NC3xOOyyAbFK9TEEQw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:date:date:feedback-id
-	:feedback-id:from:from:in-reply-to:in-reply-to:message-id
-	:mime-version:references:reply-to:sender:subject:subject:to:to
-	:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm2; t=1673136490; x=1673222890; bh=w6+aDVc5tr2uIs4oPoROJd4fXpjR
-	6GDvnU6vXcUl8+E=; b=SBqtoaNdbDoKgboEpLb+w8tienE1p0Z5u9EOif9FMYLL
-	gjkQ2YAh+3v8zpK2Fksde3wHXh5Hnj6Z/dv/QEVXbG01tyV3ImVYSTr4DNa5ATnR
-	4mFmhWKLEnYJ3Ce8XIItTkjRrbEgm05DJMfFqkpMWIcCxz6huTNffz9sl6zevzd0
-	YyjqLKJHjVSAAxySj5Ow1OnicIN3aTVy2zu26qhvSGkh5bl5ggCloCCo+SCljGQs
-	XvVbEv4ZuywZrF5TgOVlOWVQvtXX5aIvGkMhPmnWscQ/xV+0+lVyWd8pbUKt+B4R
-	fdHYcpY/CSFVzOTPxnrNnrdR0IUtARA+w4kHIRbeDQ==
-X-ME-Sender: <xms:aQm6Y4_ryqD8BpqAQQcuSQ21_xzOSl1ISNuu3-QA49AIm0uKE17rXw>
-    <xme:aQm6Ywvi0jeQJcua8t31x9QB-B-Ay11huBm5prp4LPDMi0budjHGIXW26uRhfR_z9
-    xMfU-MkOxStiwCYphQ>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrkeefgddukecutefuodetggdotefrodftvf
-    curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
-    uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
-    fjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdetrhhn
-    ugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtth
-    gvrhhnpeffheeugeetiefhgeethfejgfdtuefggeejleehjeeutefhfeeggefhkedtkeet
-    ffenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrh
-    hnugesrghrnhgusgdruggv
-X-ME-Proxy: <xmx:aQm6Y-B4ZB89sZ7EKIiSHGOVdE1LqS9AHBXIbnwKxJBL0XaRlU7g2g>
-    <xmx:aQm6Y4cjxJXsG45Fj_Mnht2OgohcwF5K28V9PvytOe8jqG87Ale0bQ>
-    <xmx:aQm6Y9MuJgu2AOYLAsn9T38V5S1zGjUSIFfNYIl7CBmBrrlLvfVO1A>
-    <xmx:agm6Y4FI8JHKzIIkHWeSYWwUhqj16ZmlP57-fZ_V5jzLUc3TuxOemg>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id 3FA10B60086; Sat,  7 Jan 2023 19:08:09 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.7.0-alpha0-1185-g841157300a-fm-20221208.002-g84115730
-Mime-Version: 1.0
-Message-Id: <9017adf0-acd4-4c43-8aea-3579b214b477@app.fastmail.com>
-In-Reply-To:  <CA+V-a8uF1s+dwKC_+apL+CBiHN8w_J0n_G2dqsgiAUZVEibfqg@mail.gmail.com>
-References: <20230106185526.260163-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20230106185526.260163-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <6f7d06ef-d74d-4dfc-9b77-6ae83e0d7816@app.fastmail.com>
- <CA+V-a8uF1s+dwKC_+apL+CBiHN8w_J0n_G2dqsgiAUZVEibfqg@mail.gmail.com>
-Date: Sun, 08 Jan 2023 01:07:48 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: Prabhakar <prabhakar.csengg@gmail.com>
-Cc: "Conor.Dooley" <conor.dooley@microchip.com>,
- "Geert Uytterhoeven" <geert+renesas@glider.be>,
- =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, guoren <guoren@kernel.org>,
- "Andrew Jones" <ajones@ventanamicro.com>,
- "Paul Walmsley" <paul.walmsley@sifive.com>,
- "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
- "open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
- "open list" <linux-kernel@vger.kernel.org>, devicetree@vger.kernel.org,
- Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
- "Lad, Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- "Philipp Tomsich" <philipp.tomsich@vrull.eu>,
- "Nathan Chancellor" <nathan@kernel.org>, "Atish Patra" <atishp@rivosinc.com>,
- "Anup Patel" <apatel@ventanamicro.com>,
- "Tsukasa OI" <research_trasio@irq.a4lg.com>,
- "Jisheng Zhang" <jszhang@kernel.org>,
- "Mayuresh Chitale" <mchitale@ventanamicro.com>
-Subject: Re: [RFC PATCH v6 1/6] riscv: mm: dma-noncoherent: Switch using function
- pointers for cache management
+	id 1pEP46-00BnFj-Gi; Sun, 08 Jan 2023 06:21:54 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pEP41-00BnDo-4I
+	for linux-riscv@lists.infradead.org; Sun, 08 Jan 2023 06:21:52 +0000
+Received: from [192.168.31.95] (unknown [36.249.208.21])
+	by APP-05 (Coremail) with SMTP id zQCowACnyM3sYLpje8akCw--.58823S2;
+	Sun, 08 Jan 2023 14:21:33 +0800 (CST)
+Message-ID: <c0da09f3-8439-dc0c-234f-e851bcffd07b@iscas.ac.cn>
+Date: Sun, 8 Jan 2023 14:21:31 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:102.0)
+ Gecko/20100101 Thunderbird/102.6.0
+Subject: Re: [PATCH v11 1/3] riscv: mm: modify pte format for Svnapot
+To: Andrew Jones <ajones@ventanamicro.com>, Conor Dooley <conor@kernel.org>
+Cc: palmer@dabbelt.com, linux-riscv@lists.infradead.org, jeff@riscv.org,
+ xuyinan@ict.ac.cn
+References: <20221216062109.865573-1-panqinglin2020@iscas.ac.cn>
+ <20221216062109.865573-2-panqinglin2020@iscas.ac.cn> <Y6Dc4XNQmKtTsXom@spud>
+ <20221226152213.crknhcpysonhq63c@orel> <Y6nql5IUhFnHv9sr@spud>
+ <20221226191925.5crjqnpinsawfwc4@orel>
+Content-Language: en-US
+From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
+In-Reply-To: <20221226191925.5crjqnpinsawfwc4@orel>
+X-CM-TRANSID: zQCowACnyM3sYLpje8akCw--.58823S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxuF13Xr45WryftFykWw43Awb_yoWrJryDpr
+	W8t3WIkF4Dtr1fArZ2qw18XF1Syw4fKF4UXr98tr98C3sIyr13GrsxtFy5uFykZr4rGr1j
+	vFZY9asrZ3Z8AaDanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvmb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwV
+	C2z280aVCY1x0267AKxVW8Jr0_Cr1UM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq
+	07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r
+	18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41l
+	c7I2V7IY0VAS07AlzVAYIcxG8wCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJV
+	W8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF
+	1VAFwI0_JF0_Jw1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6x
+	IIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvE
+	x4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Jr0_GrUvcSsGvfC2KfnxnU
+	UI43ZEXa7IU5QyCtUUUUU==
+X-Originating-IP: [36.249.208.21]
+X-CM-SenderInfo: 5sdq1xpqjox0asqsiq5lvft2wodfhubq/1tbiBwIFDGO5fNNhmgABsD
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230107_160816_411899_98C39A30 
-X-CRM114-Status: GOOD (  20.57  )
+X-CRM114-CacheID: sfid-20230107_222149_619260_0C9DFFCE 
+X-CRM114-Status: GOOD (  21.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,84 +77,96 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jan 7, 2023, at 23:10, Lad, Prabhakar wrote:
+Hi Andrew and Conor,
 
->> > +
->> > +     memset(&thead_cmo_ops, 0x0, sizeof(thead_cmo_ops));
->> > +     if (IS_ENABLED(CONFIG_ERRATA_THEAD_CMO)) {
->> > +             thead_cmo_ops.clean_range = &thead_cmo_clean_range;
->> > +             thead_cmo_ops.inv_range = &thead_cmo_inval_range;
->> > +             thead_cmo_ops.flush_range = &thead_cmo_flush_range;
->> > +             riscv_noncoherent_register_cache_ops(&thead_cmo_ops);
->> > +     }
+On 2022/12/27 03:19, Andrew Jones wrote:
+> On Mon, Dec 26, 2022 at 06:40:23PM +0000, Conor Dooley wrote:
+>> On Mon, Dec 26, 2022 at 05:01:29PM +0100, Andrew Jones wrote:
+>>> On Mon, Dec 19, 2022 at 09:51:29PM +0000, Conor Dooley wrote:
+>>>> On Fri, Dec 16, 2022 at 02:21:07PM +0800, panqinglin2020@iscas.ac.cn wrote:
+>>>>> From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
+>>>>>
+>>>>> Add one alternative to enable/disable svnapot support, enable this static
+>>>>> key when "svnapot" is in the "riscv,isa" field of fdt and SVNAPOT compile
+>>>>> option is set. It will influence the behavior of has_svnapot. All code
+>>>>> dependent on svnapot should make sure that has_svnapot return true firstly.
+>>>>>
+>>>>> Modify PTE definition for Svnapot, and creates some functions in pgtable.h
+>>>>> to mark a PTE as napot and check if it is a Svnapot PTE. Until now, only
+>>>>> 64KB napot size is supported in spec, so some macros has only 64KB version.
+>>>>>
+>>>>> Signed-off-by: Qinglin Pan <panqinglin2020@iscas.ac.cn>
+>>>>> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+>>>>>
+>>>>> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+>>>>> index e1a9fa47f012..25c230e3bf61 100644
+>>>>> --- a/arch/riscv/Kconfig
+>>>>> +++ b/arch/riscv/Kconfig
+>>>>> @@ -397,6 +397,25 @@ config RISCV_ISA_C
+>>>>>   
+>>>>>   	  If you don't know what to do here, say Y.
+>>>>>   
+>>>>> +config RISCV_ISA_SVNAPOT
+>>>>> +	bool "SVNAPOT extension support"
+>>>>> +	depends on 64BIT && MMU
+>>>>> +	select RISCV_ALTERNATIVE
+>>>>> +	default y
+>>>>> +	help
+>>>>> +	  Allow kernel to detect the SVNAPOT ISA-extension dynamically at boot
+>>>>> +	  time and enable its usage.
+>>>>> +
+>>>>> +	  The SVNAPOT extension is used to mark contiguous PTEs as a range
+>>>>> +	  of contiguous virtual-to-physical translations for a naturally
+>>>>> +	  aligned power-of-2 (NAPOT) granularity larger than the base 4KB page
+>>>>> +	  size. When HUGETLBFS is also selected this option unconditionally
+>>>>> +	  allocates some memory for each NAPOT page size supported by the kernel.
+>>>>> +	  When optimizing for low memory consumption and for platforms without
+>>>>
+>>>> nit: Does this make more sense as "When optimising for low memory
+>>>> consumption on platforms without the SVNAPOT extension"...?
+>>>> Or does disabling Svnapot save memory on Svnapot capable systems too?
+>>>
+>>> Depends on how we define "save". Disabling RISCV_ISA_SVNAPOT on HUGETLBFS
+>>> enabled systems will reduce memory consumption whether the svnapot
+>>> extension is present or not. When the extension is present, the memory
+>>> consumed may serve a purpose, whereas, on systems without svnapot, the
+>>> memory consumed cannot serve a purpose.
 >>
->> The implementation here looks reasonable, just wonder whether
->> the classification as an 'errata' makes sense. I would probably
->> consider this a 'driver' at this point, but that's just
->> a question of personal preference.
+>> Right, thanks for the explanation. I'm sorry to be a bore here, but should
+>> it be reworded then to "When optimising for low memory consumption on
+>> platforms without SVNAPOT, or if HUGETLBFS is enabled, say N here"?
+> 
+> I'd prefer we keep the instructions as simple as possible. Basically,
+
+Sorry for slow reply.
+
+I agree with Andrew, we should keep it as simple as possible. :)
+So I will keep it unchanged unless any new suggestions about this
+patchset is given.
+
+Thanks,
+Qinglin
+
+> "Turn this off if you don't plan to use it and if you care about memory
+> consumption", which, IMHO, is how the text more or less already reads.
+> But...
+> 
 >>
-> zicbom is a CPU feature that doesn't have any DT node and hence no
-> driver and similarly for T-HEAD SoC.
+>> I don't really care either way to be perfectly honest, so as I said in
+>> my other reply "don't bother resubmitting unless someone else asks for
+>> meaningful changes" ;)
+> 
+> ...I'm not too worried about it either, so I won't complain if Qinglin
+> respins with your suggestion.
+> 
+> Thanks,
+> drew
 
-A driver does not have to be a 'struct platform_driver' that
-matches to a device node, my point was more about what to
-name it, regardless of how the code is entered.
-
-> Also the arch_setup_dma_ops()
-> happens quite early before driver probing due to which we get WARN()
-> messages during bootup hence I have implemented it as errata; as
-> errata patching happens quite early.
-
-But there is no more patching here, just setting the
-function pointers, right?
-
->> > +struct riscv_cache_ops {
->> > +     void (*clean_range)(unsigned long addr, unsigned long size);
->> > +     void (*inv_range)(unsigned long addr, unsigned long size);
->> > +     void (*flush_range)(unsigned long addr, unsigned long size);
->> > +     void (*riscv_dma_noncoherent_cmo_ops)(void *vaddr, size_t size,
->> > +                                           enum dma_data_direction dir,
->> > +                                           enum dma_noncoherent_ops ops);
->> > +};
->>
->> I don't quite see how the fourth operation is used here.
->> Are there cache controllers that need something beyond
->> clean/inv/flush?
->>
-> This is for platforms that dont follow standard cache operations (like
-> done in patch 5/6) and there drivers decide on the operations
-> depending on the ops and dir.
-
-My feeling is that the set of operations that get called should
-not depend on the cache controller but at best the CPU. I tried to
-enumerate how zicbom and ax45 differ here, and how that compares
-to other architectures:
-
-                  zicbom      ax45,mips,arc      arm           arm64
-fromdevice      clean/flush   inval/inval   inval/inval   clean/inval
-todevice        clean/-       clean/-       clean/-       clean/-
-bidi            flush/flush   flush/inval   clean/inval   clean/inval
-
-So everyone does the same operation for DMA_TO_DEVICE, but
-they differ in the DMA_FROM_DEVICE handling, for reasons I
-don't quite see:
-
-Your ax45 code does the same as arc and mips. arm and
-arm64 skip invalidating the cache before bidi mappings,
-but arm has a FIXME comment about that. arm64 does a
-'clean' instead of 'inval' when mapping a fromdevice
-page, which seems valid but slower than necessary.
-
-Could the zicbom operations be changed to do the same
-things as the ax45/mips/arc ones, or are there specific
-details in the zicbom spec that require this?
-
-     Arnd
 
 _______________________________________________
 linux-riscv mailing list
