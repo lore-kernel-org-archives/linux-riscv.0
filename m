@@ -4,51 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81231C53210
-	for <linux-riscv@archiver.kernel.org>; Sun,  8 Jan 2023 17:24:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 533CEC54EBD
+	for <linux-riscv@archiver.kernel.org>; Sun,  8 Jan 2023 18:42:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Subject:From:References:Cc:
+	To:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qPvZIRZud5X+gJgy9k363sDZASRO0byaH/TCQbH6CE0=; b=lvaYbPlbgeqpIp
-	VwheZCJ9u4dk+pKQ5TgYiT+brm4Kz9OH/zTKWPeUxvqRXEwyoHAIAKHiQOFED66BorpIu0toOYr0P
-	AFnoCJoerBg7JyN2S1PNcn9fMr7JJKkuHRk+tP1L910MG+/gSMvkHScaU03fNRWFz/fPf092syW1I
-	nOlGeZA+W8cUfcGbwuEGIko9S9ePGbaBQayd6gibFg6L3ngEZSlXoqdr5clRvkS4LLnWMt1bYrENN
-	T3YeSXCWh1lfGGoD9b3UrytGxRYLIswdr7wLgVdviF3Vi5qz8pJ9siC50X7myl2zsbZ7wC0LBEaK8
-	VQHMldLlmhXGddL7IAmA==;
+	List-Owner; bh=dHwWuni+PV9qZuEX1iYo+73s08Q+8CRRy9OA0IEyZ0w=; b=H67566wdzBq6F+
+	PfSbUUT+O36oVpYOLS80rqvS9Mj4CjQLT9++aHhkURdaU7Dy3Re5Fin9zTc4MB/uy1W85tjHzUaX5
+	KU7xW7ohMKE26LNcoWfGrlzRZNJaIlXzrphwNmPMleEP4xc+XgqSDmPB48a7jg1DHCwEcivE1j507
+	REl8kkPLtFst50fDod+nk4F6mL1/EvuwJ4e9c8iSWUMuWmUVjAOZcF8QsD9Kchp6Im0qgNguOLVIp
+	xVDFiG+r6W/Nv7ZR9brznBf/f+cED0Ku1ri01wYQRrvCzZD95hwSw6e10KSNH7YXjRR7kmw+eJ5YK
+	QtKs+XthHfJ8+ymYlOFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pEZPe-00EZ9f-Nh; Sun, 08 Jan 2023 17:24:50 +0000
-Received: from hch by bombadil.infradead.org with local (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pEZPZ-00EZ7r-S9; Sun, 08 Jan 2023 17:24:45 +0000
-Date: Sun, 8 Jan 2023 09:24:45 -0800
-From: Christoph Hellwig <hch@infradead.org>
-To: Mike Kravetz <mike.kravetz@oracle.com>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, netdev@vger.kernel.org,
-	Christoph Hellwig <hch@infradead.org>,
-	David Hildenbrand <david@redhat.com>,
-	Michal Hocko <mhocko@suse.com>, Peter Xu <peterx@redhat.com>,
-	Nadav Amit <nadav.amit@gmail.com>,
-	Matthew Wilcox <willy@infradead.org>,
-	Vlastimil Babka <vbabka@suse.cz>, Rik van Riel <riel@surriel.com>,
-	Will Deacon <will@kernel.org>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Christian Brauner <brauner@kernel.org>,
-	Eric Dumazet <edumazet@google.com>,
-	Andrew Morton <akpm@linux-foundation.org>
-Subject: Re: [PATCH] mm: remove zap_page_range and create zap_vma_pages
-Message-ID: <Y7r8XRLIOHADjdrz@infradead.org>
-References: <20230104002732.232573-1-mike.kravetz@oracle.com>
+	id 1pEad4-00FKOz-O4; Sun, 08 Jan 2023 18:42:46 +0000
+Received: from wout3-smtp.messagingengine.com ([64.147.123.19])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pEacp-00FKET-Fe; Sun, 08 Jan 2023 18:42:33 +0000
+Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
+	by mailout.west.internal (Postfix) with ESMTP id D6ADE320051E;
+	Sun,  8 Jan 2023 13:42:23 -0500 (EST)
+Received: from mailfrontend1 ([10.202.2.162])
+  by compute6.internal (MEProxy); Sun, 08 Jan 2023 13:42:25 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
+	cc:cc:content-transfer-encoding:content-type:date:date:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:sender:subject:subject:to:to; s=fm1; t=1673203343; x=
+	1673289743; bh=4HxaoxSmL2YgQvvfelQ6b5kuPAJv1CjzGJUleFxKIpw=; b=Y
+	o9uxpsF0+1PzZqxaq1zv3Sp3KhJL0k70tP1taomF6bh3Hci5zHRp9C31rJooYu6b
+	qPndPSo4tIq/i8CFO8Q4LYadC/LkqBHUVxhPuih2T4BeB3XaAgf7yk5MKy07S8kX
+	p4mSvjGTIwpBvSqACB4eUHqtnnzz0LDS86nnON6nUubsLkgUP/Gh4fDEl+aM6Lt6
+	x010wN/jLbEe79pyFjkcOmfJ4n68FoADEziBRqHYbSH+9vFfS9EZvTWdzrP+kv17
+	lGHtk42qZO2GTmVyn12+pBWj5bAdXonqou8iN53mGarV2/bChbHqszD1bmFgkRLb
+	i/NU0zxw0lD2U5m92dDuw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:sender:subject:subject:to:to:x-me-proxy:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1673203343; x=
+	1673289743; bh=4HxaoxSmL2YgQvvfelQ6b5kuPAJv1CjzGJUleFxKIpw=; b=Q
+	0bRs+tFJ65qD/ayXF3gBchdZDL5v8ltnehU0+7Ji27PShAOm090RhHeGvKJtI0hB
+	sqRDj7psWKjmBy86jLlnFOuQyatKrqARbKuGg/BjdCpTpx9RzWr6D8dIaKFR2Tr2
+	nOjZ1LaUd38LOuUNRlR+J58Vso7XTFLeKK+KIL2N72xqBlYu59y1f5LOXeNAa8Sr
+	KwTS7PJ6hFwiZgkG9jTvJYyfvJDCI9BRJmhCSzuZmbH26Vu2GoTpqX3Od82bsbd7
+	q/kDP4Y4FsMhPN7ENIoYORbXI7egItIEYayOA1xsOuLaYPa6mSmT+feaARw6g9+M
+	7h5oHrKqnc6hdFPoVPgUg==
+X-ME-Sender: <xms:jg67Y7-N5CD-ZEGT6j6ZDqH0_UgBac0unneKBUSqKyboP-2vGCk4nA>
+    <xme:jg67Y3sQtO6gNjvrNbkaUFjO77GVqD5_6A1gnmLXSGqfUMVfq_IGLGIGVrR1MD9NW
+    l87IOmAwpv_Efq2Fg>
+X-ME-Received: <xmr:jg67Y5DePTyEmcKTC8Rweu5dFblhBqCm2wHwDF-93TmiWzI7v2PHJWXvAoEWI4aMfp0TwTcwrdi4RSAehCC2PZicULHRZIbs1e2fCginm2h52Dh6NLqjZ7oTFw>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrkeeggdduudekucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+    cujfgurhepkfffgggfvfevfhfhufgjtgfgsehtjeertddtfeejnecuhfhrohhmpefurghm
+    uhgvlhcujfholhhlrghnugcuoehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhgqeenuc
+    ggtffrrghtthgvrhhnpeejgfffhfdujeeftdeuudeguedttefgieetffffheejuefguedv
+    heejteeftdfftdenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfh
+    hrohhmpehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhg
+X-ME-Proxy: <xmx:jg67Y3eP8I1A_p3acOoucyt1y2qqML3199db1xRkDdXAO2SbQWvXmA>
+    <xmx:jg67YwPESUDJzGkkECrouMBx5OAllm8s8vkaqqPZCiYX1uHz6aou7A>
+    <xmx:jg67Y5nDLXMDn-Dn25NXA36oUQIlBQlFRLODkkE8Hru1UuBgnPWYGQ>
+    <xmx:jw67Y3kgA6b40v_-Woj3CmTYPlRaMhdiYeFqIxv_Iz06x9pA27k6zw>
+Feedback-ID: i0ad843c9:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
+ 8 Jan 2023 13:42:21 -0500 (EST)
+Message-ID: <05c1ee07-0750-d40e-8498-55ea07b52ab1@sholland.org>
+Date: Sun, 8 Jan 2023 12:42:20 -0600
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230104002732.232573-1-mike.kravetz@oracle.com>
+User-Agent: Mozilla/5.0 (X11; Linux ppc64le; rv:102.0) Gecko/20100101
+ Thunderbird/102.3.3
+Content-Language: en-US
+To: Paul Kocialkowski <paul.kocialkowski@bootlin.com>
+Cc: Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org,
+ Rob Herring <robh+dt@kernel.org>, Jisheng Zhang <jszhang@kernel.org>,
+ linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ Andre Przywara <andre.przywara@arm.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Krzysztof Kozlowski
+ <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor@kernel.org>,
+ linux-kernel@vger.kernel.org, Heiko Stuebner <heiko@sntech.de>,
+ Palmer Dabbelt <palmer@rivosinc.com>
+References: <20221231233851.24923-1-samuel@sholland.org>
+ <20221231233851.24923-8-samuel@sholland.org> <Y7bW32i3EUmGHqSK@aptenodytes>
+From: Samuel Holland <samuel@sholland.org>
+Subject: Re: [PATCH v4 07/12] riscv: dts: allwinner: Add Sipeed Lichee RV
+ devicetrees
+In-Reply-To: <Y7bW32i3EUmGHqSK@aptenodytes>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20230108_104231_588489_23ADB557 
+X-CRM114-Status: GOOD (  12.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,15 +113,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-I would have split this into one patch that adds the new
-zap_vma_pages helper, and one to remove zap_page_range to split the
-separate changes.
+Hi Paul,
 
-But the overall result looks fine, so feel free to add:
+On 1/5/23 07:55, Paul Kocialkowski wrote:
+> Hi Samuel,
+> 
+> On Sat 31 Dec 22, 17:38, Samuel Holland wrote:
+>> Sipeed manufactures a "Lichee RV" system-on-module, which provides a
+>> minimal working system on its own, as well as a few carrier boards. The
+>> "Dock" board provides audio, USB, and WiFi. The "86 Panel" additionally
+>> provides 100M Ethernet and a built-in display panel.
+>>
+>> The 86 Panel repurposes the USB ID and VBUS detection GPIOs for its RGB
+>> panel interface, since the USB OTG port is inaccessible inside the case.
+> 
+> Looks like the panel-enabled variants would better be described as device-tree
+> overlays as they are not specific devices but are peripheral extensions.
+> 
+> What do you think?
 
-Reviewed-by: Christoph Hellwig <hch@lst.de>
+I don't agree. The Lichee RV 86 Panel is sold as a complete unit, with
+the SoM+board and LCD pre-assembled inside a case. It is not possible to
+purchase the board without a panel, so the panel-enabled variants are
+the only variants.
 
-to this or the split patches.
+Regards,
+Samuel
+
 
 _______________________________________________
 linux-riscv mailing list
