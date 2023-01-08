@@ -4,65 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44AB2C54EBD
-	for <linux-riscv@archiver.kernel.org>; Sun,  8 Jan 2023 16:34:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A601DC54EBD
+	for <linux-riscv@archiver.kernel.org>; Sun,  8 Jan 2023 16:38:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=isSA28+MIvWz97kExPj49UuOWEXDcHRIAIaqHS2TwGI=; b=mUs+AF4hC5eNOv
-	yG0UIGlTCOrxR0LToBTFuxrpfSCbEi51LwE8bpMB1ySm4YVA9MeWjlNKGJ1oGGE1Xr/6DqPwAi25m
-	80OFowf3ywDP670bJbKMtQXk7Lv7F3c8qjUqeV9nvfgLKvkpiot+hAEqcuOEdqR+23JuTJ4ufd9by
-	PbvQcv7274ZUrlBQPBZsEmqJRXzSJBcwWN5bs0Eb1BQoLBDXValzXvN43ZHD8jd8fckuwIiqVKbAt
-	F6xcuYR5AlsDQe5AIdhMdReNgZAAwZ8JoePlljz/93cJh8ncV4YS1Htnge9tZVrsmYZDgsPHGZPxD
-	2eElTPw3GpI/kfEesx9g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8sy5Tx8kCN6Iq7S46tOx2Fjku4guONng9PNaUVB02eU=; b=csU1cG72crMnJuuSqvHAouKTXO
+	ruCor2PV7bN2RxbgkerNN7QxHXQ2Q5/+hWOBnX5cMXUkGJK7WbeYNHv71tRcG9ei5NI97OTt4sU8Z
+	aZ8Et74a2dz+HPpghomuoZpJB0cmCyAZW3uiRwEOUQrVQ311zF13oF49Z2NnaMgJoeSw/uSWtUZW+
+	WsxcKwmTBDtvt3u4ocd6zCXFahERRslbKsMDWV8ODXMgbV940HRV//E2nI8wLZdSoEkhEu2wRNs7T
+	NlSz39ikr2YTaT5zf7ZVu1n4aZG1rXZo9/7jOG3HZRnT1ilb+JkgCdY0HSqj7gdV4TIZFGtdGu2TO
+	b1DB9xKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pEYd2-00EMYn-4L; Sun, 08 Jan 2023 16:34:36 +0000
+	id 1pEYgH-00ENVM-Ib; Sun, 08 Jan 2023 16:37:57 +0000
 Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pEYcx-00EMWT-29
-	for linux-riscv@lists.infradead.org; Sun, 08 Jan 2023 16:34:32 +0000
+	id 1pEYgE-00ENUP-UA
+	for linux-riscv@lists.infradead.org; Sun, 08 Jan 2023 16:37:56 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id B8116B801BB;
-	Sun,  8 Jan 2023 16:34:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AC0BC433F2;
-	Sun,  8 Jan 2023 16:34:26 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 73CDFB80B4E;
+	Sun,  8 Jan 2023 16:37:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DCE04C433D2;
+	Sun,  8 Jan 2023 16:37:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1673195668;
-	bh=tNzGcvrEpUUTCaU+avvscIqbkTKoFlaDy2MR8riCxj0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=QVtYDA3/7p5bWI0mk4pC6zwWunVUR0vuWjnQUkmXJZ5d181rWUr9tYYVrkj5L/Oae
-	 kKbCi9PkIjoaxO+t/bVC216OOGpbbG7MvsuqFKjxC03n5PqbMWwg3twHd+UFpT15ht
-	 vySpT/laUXPvaRPZXYaiGkxcFJx+9iGt37YYa3HCUrhi93+hEibheoT9Vj6xgPYY4a
-	 lQv3ymgCyhXF8E9HCsnRXjH6oRlCdI5LGJli3BJSOFF8lLF+ATevwD4bfCqGIX/VFF
-	 XzklPC4ILUcFKnB/keQQ1t690+18tXG20EJ538ga+wSnihh7SJEt3BHdlEgTjbLa3p
-	 NYDnT5k0bocTg==
+	s=k20201202; t=1673195872;
+	bh=fO7WILHy96bpYmLsV6EJE8l8P4rzMoGtSglPfFWyyZk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=BkpmXJUec77Ct4qyTRMxHlDFF912yQ8lHfjCoQghpfy7WP4XnsBdrZrB0LOdBzNNU
+	 iKiQ9UuSLIyorj5ft5hlChk7sLsSPxjkA+h7lLTLMq3yeMgoeti5TTJNj4rdnahJub
+	 lChKxbRMuP1jzVHieuv5QYRi8U10UL+ss760XU7g04Icrhgf68nZl/wm9w7SEkLVxc
+	 Yh3l7CdSAceHD6MW3JafVfEnktt+8t2lR2kgAihYVrmFWscIVulDhGPRHETZLhItEE
+	 4E7OXFAkXBu4heTWKLybIRU4sk7yFS7hKMWHAW3jThmCklimFULQThZ9MhjWXqY9Dm
+	 R3pLWgiTGQF0g==
+Date: Sun, 8 Jan 2023 16:37:45 +0000
 From: Conor Dooley <conor@kernel.org>
-To: palmer@dabbelt.com
-Cc: conor@kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Arnd Bergmann <arnd@arndb.de>,
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Prabhakar <prabhakar.csengg@gmail.com>,
+	"Conor.Dooley" <conor.dooley@microchip.com>,
 	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Guo Ren <guoren@kernel.org>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v1 2/3] RISC-V: replace cbom instructions with an insn-def
-Date: Sun,  8 Jan 2023 16:33:55 +0000
-Message-Id: <20230108163356.3063839-3-conor@kernel.org>
-X-Mailer: git-send-email 2.39.0
-In-Reply-To: <20230108163356.3063839-1-conor@kernel.org>
-References: <20230108163356.3063839-1-conor@kernel.org>
+	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
+	guoren <guoren@kernel.org>, Andrew Jones <ajones@ventanamicro.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	"open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	devicetree@vger.kernel.org,
+	Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
+	"Lad, Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Philipp Tomsich <philipp.tomsich@vrull.eu>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Atish Patra <atishp@rivosinc.com>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Tsukasa OI <research_trasio@irq.a4lg.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Mayuresh Chitale <mchitale@ventanamicro.com>
+Subject: Re: [RFC PATCH v6 1/6] riscv: mm: dma-noncoherent: Switch using
+ function pointers for cache management
+Message-ID: <Y7rxWau/WrRmjaDX@spud>
+References: <20230106185526.260163-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20230106185526.260163-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <6f7d06ef-d74d-4dfc-9b77-6ae83e0d7816@app.fastmail.com>
+ <Y7iu0RC9jgWh7hfJ@spud>
+ <fb3b34ae-e35e-4dc2-a8f4-19984a2f58a8@app.fastmail.com>
+ <Y7nwgEs3n8kzPq5X@spud>
 MIME-Version: 1.0
+In-Reply-To: <Y7nwgEs3n8kzPq5X@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230108_083431_310265_FF95D4AB 
-X-CRM114-Status: GOOD (  12.66  )
+X-CRM114-CacheID: sfid-20230108_083755_289583_A5046B62 
+X-CRM114-Status: GOOD (  31.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,72 +90,133 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3077708118462361802=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
 
-Using the cbom instructions directly in ALT_CMO_OP, requires toolchain
-support for the instructions. Using an insn-def will allow for removal
-of toolchain version checks in the build system & simplification of the
-proposed [1] function-based CMO scheme.
+--===============3077708118462361802==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="Uo+3eNsq3cPFx1XC"
+Content-Disposition: inline
 
-Link: https://lore.kernel.org/linux-riscv/fb3b34ae-e35e-4dc2-a8f4-19984a2f58a8@app.fastmail.com/ [1]
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
- arch/riscv/include/asm/errata_list.h |  3 ++-
- arch/riscv/include/asm/insn-def.h    | 12 ++++++++++++
- 2 files changed, 14 insertions(+), 1 deletion(-)
 
-diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
-index 4180312d2a70..b71e3ccd3110 100644
---- a/arch/riscv/include/asm/errata_list.h
-+++ b/arch/riscv/include/asm/errata_list.h
-@@ -7,6 +7,7 @@
- 
- #include <asm/alternative.h>
- #include <asm/csr.h>
-+#include <asm/insn-def.h>
- #include <asm/vendorid_list.h>
- 
- #ifdef CONFIG_ERRATA_SIFIVE
-@@ -125,7 +126,7 @@ asm volatile(ALTERNATIVE_2(						\
- 	"mv a0, %1\n\t"							\
- 	"j 2f\n\t"							\
- 	"3:\n\t"							\
--	"cbo." __stringify(_op) " (a0)\n\t"				\
-+	CBO_##_op(a0)							\
- 	"add a0, a0, %0\n\t"						\
- 	"2:\n\t"							\
- 	"bltu a0, %2, 3b\n\t"						\
-diff --git a/arch/riscv/include/asm/insn-def.h b/arch/riscv/include/asm/insn-def.h
-index 39f9e0893564..e01ab51f50d2 100644
---- a/arch/riscv/include/asm/insn-def.h
-+++ b/arch/riscv/include/asm/insn-def.h
-@@ -180,4 +180,16 @@
- 	INSN_R(OPCODE_SYSTEM, FUNC3(0), FUNC7(51),		\
- 	       __RD(0), RS1(gaddr), RS2(vmid))
- 
-+#define CBO_inval(base)						\
-+	INSN_I(OPCODE_MISC_MEM, FUNC3(2), __RD(0),		\
-+	       RS1(base), SIMM12(0))
-+
-+#define CBO_clean(base)						\
-+	INSN_I(OPCODE_MISC_MEM, FUNC3(2), __RD(0),		\
-+	       RS1(base), SIMM12(1))
-+
-+#define CBO_flush(base)						\
-+	INSN_I(OPCODE_MISC_MEM, FUNC3(2), __RD(0),		\
-+	       RS1(base), SIMM12(2))
-+
- #endif /* __ASM_INSN_DEF_H */
--- 
-2.39.0
+--Uo+3eNsq3cPFx1XC
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
+On Sat, Jan 07, 2023 at 10:21:52PM +0000, Conor Dooley wrote:
+> On Sat, Jan 07, 2023 at 10:52:55PM +0100, Arnd Bergmann wrote:
+> > On Sat, Jan 7, 2023, at 00:29, Conor Dooley wrote:
+> > > On Fri, Jan 06, 2023 at 11:31:33PM +0100, Arnd Bergmann wrote:
+> > >> On Fri, Jan 6, 2023, at 19:55, Prabhakar wrote:
+> > >> > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> > >> > +struct riscv_cache_ops zicbom_cmo_ops =3D {
+> > >> > +	.clean_range =3D &zicbom_cmo_clean_range,
+> > >> > +	.inv_range =3D &zicbom_cmo_inval_range,
+> > >> > +	.flush_range =3D &zicbom_cmo_flush_range,
+> > >> > +};
+> > >> > +#else
+> > >> > +struct riscv_cache_ops zicbom_cmo_ops =3D {
+> > >> > +	.clean_range =3D NULL,
+> > >> > +	.inv_range =3D NULL,
+> > >> > +	.flush_range =3D NULL,
+> > >> > +	.riscv_dma_noncoherent_cmo_ops =3D NULL,
+> > >> > +};
+> > >> > +#endif
+> > >> > +EXPORT_SYMBOL(zicbom_cmo_ops);
+> > >>=20
+> > >> Same here: If the ZICBOM ISA is disabled, nothing should
+> > >> reference zicbom_cmo_ops.
+> > >
+> > >> Also, since ZICBOM is a standard
+> > >> extension, I think it makes sense to always have it enabled,
+> > >> at least whenever noncoherent DMA is supported, that way
+> > >> it can be the default that gets used in the absence of any
+> > >> nonstandard cache controller.
+> > >
+> > > While I think of it, this is not possible as Zicbom requires toolchain
+> > > support whereas the alternative methods for non-coherent DMA do not.
+> >=20
+> > Ah, I see. Would it be possible to use the same .long trick
+> > as in the other ones though? Something like
+> >=20
+> > #if CONFIG_AS_VERSION >=3D 23600 /* or whichever version */
+>=20
+>=20
+> >      /* proper inline asm */
+> > #else
+> >      /* .long hack */
+> > #endif
+> >=20
+> > That way everyone can use it, and the hack would automatically
+> > go away in a few years after linux requires a newer toolchain.
+>=20
+> > Alternatively, the entire noncoherent-dma support could be
+> > made to depend on whichever toolchain introduced Zicbom.
+>=20
+> Ehh, I don't think that's a great idea. It'd require far too recent a
+> toolchain IMO.
+>=20
+> Ideally, in my opinion, we'd just do something like what Drew has
+> proposed for Zicboz, negating the need for a check at all:
+> https://lore.kernel.org/linux-riscv/20221027130247.31634-4-ajones@ventana=
+micro.com/
+>=20
+> Been waiting for that to be re-spun and Palmer to accept it before doing
+> the same thing for Zicbom. At present we have this in the arch Kconfig:
+>=20
+> config TOOLCHAIN_HAS_ZICBOM
+> 	bool
+> 	default y
+> 	depends on !64BIT || $(cc-option,-mabi=3Dlp64 -march=3Drv64ima_zicbom)
+> 	depends on !32BIT || $(cc-option,-mabi=3Dilp32 -march=3Drv32ima_zicbom)
+> 	depends on LLD_VERSION >=3D 150000 || LD_VERSION >=3D 23800
+>=20
+> config RISCV_ISA_ZICBOM
+> 	bool "Zicbom extension support for non-coherent DMA operation"
+> 	depends on TOOLCHAIN_HAS_ZICBOM
+>=20
+> The linker version check is entirely due to the linker having issues if
+> it sees zicbom in the ISA string in object files.
+>=20
+> I'd been intending to do that for Zicbom anyway, so I guess I'll just go
+> do it & Prabhakar can attach it to his v7..
+
+Should pop up here in a few minutes..
+https://lore.kernel.org/linux-riscv/20230108163356.3063839-1-conor@kernel.o=
+rg/
+
+Hopefully that both works & makes life easier. Certainly from a CI
+coverage point of view, relaxing toolchain requirements makes *my* life
+easier!
+
+
+--Uo+3eNsq3cPFx1XC
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY7rxWQAKCRB4tDGHoIJi
+0ryGAQCWKOi3NHzJDMDfxuTDnh3ne6XEYr/c/TROBg8/5hibCAEA46nbu1SNDiOk
+LTkEJviTUBDND7tJdI8BwpGvy0eD0Q8=
+=KtoJ
+-----END PGP SIGNATURE-----
+
+--Uo+3eNsq3cPFx1XC--
+
+
+--===============3077708118462361802==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3077708118462361802==--
+
