@@ -4,73 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9469EC54EBC
-	for <linux-riscv@archiver.kernel.org>; Sun,  8 Jan 2023 07:04:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90223C53210
+	for <linux-riscv@archiver.kernel.org>; Sun,  8 Jan 2023 10:49:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GJCLPPGUxITeK7c1yHOlv297bBemU1pSAIJUXTDBGRA=; b=Qc0XHWevnYDUNR
-	/OibmO7SSEpj51zWob7LMeJOQqK4eBfiwKrd3cg2M7QK9jr3MihslYn747jsWqJu/Gl2P7dpjJFeZ
-	g1c58HRcXAJC5oST0nJ5pD4VfWpKPvt1hj0m8hk5H6iNXP7MkCqYdqwDQ9r2BoF/fB45Gcn/djxbc
-	YVhixBLMm82yi0KsoOekhsF0unA47CSLqWUgfNsIhFs1XqCbVi3W8x8fREQBDe4jEbUAF+FFG1ZLh
-	Qfd0G3sYPayJH8X/u36Y5kXNVydPZ3RgnQaLrE2o8TB7VKlMxTNAOiprKmu1yQMwSMbhGXODV31py
-	jAHZckYPifJfdhdX+cgw==;
+	List-Owner; bh=dJlDHIbzeHyfpXLbFsASDQb5EHU1QJaPB/3wJRPc1mo=; b=jzqgVy+BCWQccQ
+	JDkquqi+FG/7eep936D+COIlv9kMygRJwECh/UafRYjrn+/joR0FUcXFj/1BXG2seFc1w/uSVjZGy
+	2MWCs5t9dj+NCiiRjoBT7fEy+MmLmVBKktkX9jc965zTpvQH0GRBbYFZxCnXr/w0fcNkjn/fD7dBC
+	+MUuRyR7HCINk1cIEsc+3RSYZyiJ8hn+q8yveOAb5BeZfyRyhVfV4ilMtbyDcUoVxf1wP/kfZ6bo4
+	IE4ML9bn7pBTliCMn8+nQ9J2XXxf3D06iumpY3i91e9rtzgsYM1ifQrWz5J4iu7xqofo/xhNL1bsD
+	WJyR0EWU6YyO5+UN9sAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pEPik-00BuYj-HF; Sun, 08 Jan 2023 07:03:54 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1pETEi-00CeBm-Iu; Sun, 08 Jan 2023 10:49:08 +0000
+Received: from mail-vk1-xa2c.google.com ([2607:f8b0:4864:20::a2c])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pEPiX-00BuTn-Pf; Sun, 08 Jan 2023 07:03:43 +0000
-Received: from pendragon.ideasonboard.com (213-243-189-158.bb.dnainternet.fi [213.243.189.158])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 320A6AD0;
-	Sun,  8 Jan 2023 08:03:40 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1673161420;
-	bh=SgTISQ/SukTle7e0xStwxxuBquT6G6FT4fVXqIU5d10=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tlXxdsB3tJL9Nji6j8zDKL9EWhQUzr8iu5jWbl6Tse/m5CDXieZqiK4On7683PoFM
-	 ae4Eb7vAGRwjdUVc9X+lCUrmY7lIhXwKf4geA/s+nXmKRhKwDnk31Wa7pSknV121on
-	 Y3Rhykpy8wACbezlvreFxkLb9EA+VBC/AXtjFaMU=
-Date: Sun, 8 Jan 2023 09:03:36 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Aradhya Bhatia <a-bhatia1@ti.com>
-Cc: Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Tomi Valkeinen <tomba@kernel.org>, Jyri Sarha <jyri.sarha@iki.fi>,
-	David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Sam Ravnborg <sam@ravnborg.org>, Maxime Ripard <maxime@cerno.tech>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Guo Ren <guoren@kernel.org>,
-	DRI Development List <dri-devel@lists.freedesktop.org>,
-	Devicetree List <devicetree@vger.kernel.org>,
-	Linux Kernel List <linux-kernel@vger.kernel.org>,
-	Linux RISC-V List <linux-riscv@lists.infradead.org>,
-	Linux ARM Kernel List <linux-arm-kernel@lists.infradead.org>,
-	Linux Mediatek List <linux-mediatek@lists.infradead.org>,
-	Linux C-SKY Arch List <linux-csky@vger.kernel.org>,
-	Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-	Rahul T R <r-ravikumar@ti.com>, Devarsh Thakkar <devarsht@ti.com>,
-	Jai Luthra <j-luthra@ti.com>, Jayesh Choudhary <j-choudhary@ti.com>
-Subject: Re: [RFC PATCH 2/4] dt-bindings: vendor-prefixes: Add lincolntech
-Message-ID: <Y7pqyKKvjINno7W/@pendragon.ideasonboard.com>
-References: <20230103064615.5311-1-a-bhatia1@ti.com>
- <20230103064615.5311-3-a-bhatia1@ti.com>
+	id 1pETEX-00Ce4Z-CZ; Sun, 08 Jan 2023 10:48:58 +0000
+Received: by mail-vk1-xa2c.google.com with SMTP id bk19so2640675vkb.11;
+        Sun, 08 Jan 2023 02:48:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=o+ulyHY5t1vIQHRPkJRkZkMsVhYDzl0Wi1NRRdUXX9E=;
+        b=khZsRl3/h6xFPtV+trGF8SoZlhUH7CXOkbNSVy0ph0vcxdY2POtEBg03zxNX8NOjKd
+         tk0nBaNgQ7Qkcbndq/9sUu9/ASJ7jbK4uYDbK/bTz5OlmFXDU8glJgzuEEv6Z/s6NMfA
+         mp4rpznbR52Td9JIJd+jemR2waWnWqaR5O+5xO3DbdqK/ncWuaOvXDjz4YwzrATW6+AT
+         M8+n4X/t1ZgquFU/5c+wBFLYST09b1qKcf+ZPYUk9m3W2UOYcUJY3wtRak73CebxOF2s
+         Srav0OegoVZNvk1eaPYqXHoJyRanQU2FIyrTJWyfZ4nP8ieu3yAmmAtAsqqtCCVbv2RA
+         wVmw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=o+ulyHY5t1vIQHRPkJRkZkMsVhYDzl0Wi1NRRdUXX9E=;
+        b=pU7QjlT7pvwzh9xOMmmxM0OkFUevF6GDvKVsDV2Y4p8qRBAykXmO0icJJHdfMGPoj2
+         hbIS7mtZTb+2W6haeuLRpkyrlfRzQMueh8fC/y5SsK//8XsI7egPxkW5SqvYF7cozD1l
+         SfiivVzPrIlsU41yv7siVUnFAu+fg2iT+cqGGPZFOTL2cS5PZsTdg5tY7PyePxJTRZV/
+         NbCvbbdQ/38CRwKmODzaX+JjH49oeEQXyupBhHsw2j2hhglBavd3o8EbGt8mu6bwUVqk
+         HEFoLM562OQs7t7Eey/4ff4UX32jJ418QDqDzmAzPy8+epazfaoIVl/fRKJfIpZYjK1/
+         5KeQ==
+X-Gm-Message-State: AFqh2kre7M2WDn5LaXNnQxXEkV+Ki/00jCdn3YWNt6NCpt1Qa/gEl5wQ
+	regx0yytaEv6MY37Qo2PPGN7xoAiVeulpYCI3Jw=
+X-Google-Smtp-Source: AMrXdXsC9zjoSX3JUJXUNKpbqfCGbJ5sLgu3n0p9Rc2JNm9GFnGoyDe1ACeN5YOtUEET51RrQuI/o6A4avtvFhehWBM=
+X-Received: by 2002:a1f:2e4e:0:b0:3d5:5ea6:ccb9 with SMTP id
+ u75-20020a1f2e4e000000b003d55ea6ccb9mr6218898vku.7.1673174933379; Sun, 08 Jan
+ 2023 02:48:53 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230103064615.5311-3-a-bhatia1@ti.com>
+References: <20221117082648.47526-1-yangyicong@huawei.com> <20221117082648.47526-3-yangyicong@huawei.com>
+ <Y7cToj5mWd1ZbMyQ@arm.com>
+In-Reply-To: <Y7cToj5mWd1ZbMyQ@arm.com>
+From: Barry Song <21cnbao@gmail.com>
+Date: Sun, 8 Jan 2023 18:48:41 +0800
+Message-ID: <CAGsJ_4yC0i6MYwvosRSrdQ1iT7n88ypmK3aOQJkuusqNKtddtg@mail.gmail.com>
+Subject: Re: [PATCH v7 2/2] arm64: support batched/deferred tlb shootdown
+ during page reclamation
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Yicong Yang <yangyicong@huawei.com>, akpm@linux-foundation.org, linux-mm@kvack.org, 
+	linux-arm-kernel@lists.infradead.org, x86@kernel.org, will@kernel.org, 
+	anshuman.khandual@arm.com, linux-doc@vger.kernel.org, corbet@lwn.net, 
+	peterz@infradead.org, arnd@arndb.de, punit.agrawal@bytedance.com, 
+	linux-kernel@vger.kernel.org, darren@os.amperecomputing.com, 
+	yangyicong@hisilicon.com, huzhanyuan@oppo.com, lipeifeng@oppo.com, 
+	zhangshiming@oppo.com, guojian@oppo.com, realmz6@gmail.com, 
+	linux-mips@vger.kernel.org, openrisc@lists.librecores.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
+	linux-s390@vger.kernel.org, wangkefeng.wang@huawei.com, 
+	xhao@linux.alibaba.com, prime.zeng@hisilicon.com, 
+	Barry Song <v-songbaohua@oppo.com>, Nadav Amit <namit@vmware.com>, Mel Gorman <mgorman@suse.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230107_230341_995269_C61EF47B 
-X-CRM114-Status: GOOD (  13.29  )
+X-CRM114-CacheID: sfid-20230108_024857_494155_013FB3BB 
+X-CRM114-Status: GOOD (  20.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,40 +96,82 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Aradhya,
+On Fri, Jan 6, 2023 at 2:15 AM Catalin Marinas <catalin.marinas@arm.com> wrote:
+>
+> On Thu, Nov 17, 2022 at 04:26:48PM +0800, Yicong Yang wrote:
+> > It is tested on 4,8,128 CPU platforms and shows to be beneficial on
+> > large systems but may not have improvement on small systems like on
+> > a 4 CPU platform. So make ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH depends
+> > on CONFIG_EXPERT for this stage and make this disabled on systems
+> > with less than 8 CPUs. User can modify this threshold according to
+> > their own platforms by CONFIG_NR_CPUS_FOR_BATCHED_TLB.
+>
+> What's the overhead of such batching on systems with 4 or fewer CPUs? If
+> it isn't noticeable, I'd rather have it always on than some number
+> chosen on whichever SoC you tested.
 
-Thank you for the patch.
+On the one hand, tlb flush is cheap on a small system. so batching tlb flush
+helps very minorly.
 
-On Tue, Jan 03, 2023 at 12:16:13PM +0530, Aradhya Bhatia wrote:
-> Add document vendor prefix for Lincoln Technology Solutions
-> (lincolntech).
-> 
-> Signed-off-by: Aradhya Bhatia <a-bhatia1@ti.com>
+On the other hand, since we have batched the tlb flush, new PTEs might be
+invisible to others before the final broadcast is done and Ack-ed. thus, there
+is a risk someone else might do mprotect or similar things  on those deferred
+pages which will ask for read-modify-write on those deferred PTEs. in this
+case, mm will do an explicit flush by flush_tlb_batched_pending which is
+not required if tlb flush is not deferred. the code is in:
 
-Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+static unsigned long change_pte_range(struct mmu_gather *tlb,
+struct vm_area_struct *vma, pmd_t *pmd, unsigned long addr,
+unsigned long end, pgprot_t newprot, unsigned long cp_flags)
+{
+        ...
 
-> ---
->  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> index 516134cbcb3c..82427a6ddf97 100644
-> --- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> +++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> @@ -729,6 +729,8 @@ patternProperties:
->      description: Lichee Pi
->    "^linaro,.*":
->      description: Linaro Limited
-> +  "^lincolntech,.*":
-> +    description: Lincoln Technology Solutions
->    "^linksprite,.*":
->      description: LinkSprite Technologies, Inc.
->    "^linksys,.*":
+      pte = pte_offset_map_lock(vma->vm_mm, pmd, addr, &ptl);
 
--- 
-Regards,
+      flush_tlb_batched_pending(vma->vm_mm);
+      arch_enter_lazy_mmu_mode();
+      do {
+                oldpte = *pte;
+                if (pte_present(oldpte)) {
+                           pte_t ptent;
+                ...
+}
 
-Laurent Pinchart
+since we don't have the mechanism to record which pages should be
+flushed in flush_tlb_batched_pending(), flush_tlb_batched_pending()
+is flushing the whole process,
+
+void flush_tlb_batched_pending(struct mm_struct *mm)
+{
+       int batch = atomic_read(&mm->tlb_flush_batched);
+       int pending = batch & TLB_FLUSH_BATCH_PENDING_MASK;
+       int flushed = batch >> TLB_FLUSH_BATCH_FLUSHED_SHIFT;
+
+       if (pending != flushed) {
+               flush_tlb_mm(mm);
+        /*
+         * If the new TLB flushing is pending during flushing, leave
+         * mm->tlb_flush_batched as is, to avoid losing flushing.
+        */
+      atomic_cmpxchg(&mm->tlb_flush_batched, batch,
+           pending | (pending << TLB_FLUSH_BATCH_FLUSHED_SHIFT));
+     }
+}
+
+I guess mprotect things won't be that often for a running process especially
+when the system has begun to reclaim its memory. it might be more often
+only during the initialization of a process. And x86 has enabled this feature
+for a long time, probably this concurrency doesn't matter too much.
+
+but it is still case by case. That is why we have decided to be more
+conservative
+on globally enabling this feature and why it also depends on CONFIG_EXPERT.
+
+I believe Anshuman has contributed many points on this in those previous
+discussions.
+
+Thanks
+Barry
 
 _______________________________________________
 linux-riscv mailing list
