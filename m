@@ -4,66 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34003C54EBD
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Jan 2023 01:14:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B15EC54EBC
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Jan 2023 02:59:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YNbHkNkl84FW7QUmIqgUadwLJUfeBMqAl+qMA/xZ1TI=; b=xwvUiLwdToLgn/
-	VQFS2E0ej/NoGsDyfhRC6g26uRo/nX+DVNLRajrTpSAtKnYNFG/vZJCZxVXzu17Ebmb0huy6cj5X+
-	SI9P6Uu1AkNdx9uDl4TKE/gkptrU9cVuRkM0t8uXDQ3EiDF6ycUhZrJXOGPu57LQu2fvUOzMHx10S
-	RCCY6dVA3FEMSLj6mtALY7zIfHGMQhmRSQMHFN/WhUJ/WZAvVP5xSMCr5nyarWKbyy5pStzAFyPKh
-	6l7nL8Hysbj7IS3gcNoOvj0SB/Z8p3oEK2+2zruuO6wwx8CElCLUvEB84P3sYMC+cLLBUMOppW4kW
-	uni3kc1skRsSxRoZrZGw==;
+	List-Owner; bh=qt96rm49lz7jH6hS5/aIfN4mx570Na/fhI3j/XxeKCU=; b=YKPPXhhKZe8drf
+	9MoLVYQyjpva9RQrrF0dSxXSaYUwqzztA7Iv9VNcgKBHTSl+mrDQhJ2tMuiUJHJXoTueMJ/0XFNel
+	J5qhq5Ks0RXOxLUOLNuB6vi1Tc6OD3BFOr9EHzoou3rDgjcDruN/VAZ1hzMDmEXH3osgvbx9Thzn2
+	+MSXd1YTPW/d70/q7b9W38/AbsUkpKRUcKyj5joBX4nnNQdqBKEr0VzUXYlNs5Et/+sdJv6r+vw2t
+	ufeAwwMsUDU5dO92Ek/N3D+4PuCIghHdftlnbkhiXrKuqv3cYZmfI6RopL9+SrIHypxE53FPRtBFp
+	1aBuE/BsoE7yl+9CBydQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pEgk5-00Gc0w-Jz; Mon, 09 Jan 2023 01:14:25 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
+	id 1pEiNB-00Gxp4-2D; Mon, 09 Jan 2023 02:58:53 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pEgk1-00Gbul-1i
-	for linux-riscv@lists.infradead.org; Mon, 09 Jan 2023 01:14:24 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	id 1pEiN5-00Gxmr-VD
+	for linux-riscv@lists.infradead.org; Mon, 09 Jan 2023 02:58:50 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 792FB24E0FC;
-	Mon,  9 Jan 2023 09:13:30 +0800 (CST)
-Received: from EXMBX173.cuchost.com (172.16.6.93) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 9 Jan
- 2023 09:13:30 +0800
-Received: from [192.168.120.49] (171.223.208.138) by EXMBX173.cuchost.com
- (172.16.6.93) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 9 Jan
- 2023 09:13:28 +0800
-Message-ID: <cfa385a6-50d4-a2c3-907a-0bc0647467ec@starfivetech.com>
-Date: Mon, 9 Jan 2023 09:13:27 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.6.1
-Subject: Re: [PATCH v3 5/7] net: stmmac: Add glue layer for StarFive JH7110
- SoCs
-To: <Arun.Ramadoss@microchip.com>, <netdev@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<devicetree@vger.kernel.org>
-CC: <andrew@lunn.ch>, <robh+dt@kernel.org>, <pgwipeout@gmail.com>,
-	<kernel@esmil.dk>, <kuba@kernel.org>, <pabeni@redhat.com>,
-	<edumazet@google.com>, <richardcochran@gmail.com>,
-	<krzysztof.kozlowski+dt@linaro.org>, <davem@davemloft.net>,
-	<hkallweit1@gmail.com>
-References: <20230106030001.1952-1-yanhong.wang@starfivetech.com>
- <20230106030001.1952-6-yanhong.wang@starfivetech.com>
- <720bffcd0dde99d6a87aea6baa8b5ccefe65a178.camel@microchip.com>
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id AD34324E161;
+	Mon,  9 Jan 2023 10:58:14 +0800 (CST)
+Received: from EXMBX064.cuchost.com (172.16.6.64) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 9 Jan
+ 2023 10:58:14 +0800
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX064.cuchost.com
+ (172.16.6.64) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 9 Jan
+ 2023 10:58:14 +0800
+Received: from EXMBX168.cuchost.com ([fe80::3c2d:dee5:4938:3fc4]) by
+ EXMBX168.cuchost.com ([fe80::3c2d:dee5:4938:3fc4%16]) with mapi id
+ 15.00.1497.044; Mon, 9 Jan 2023 10:58:14 +0800
+From: JiaJie Ho <jiajie.ho@starfivetech.com>
+To: Herbert Xu <herbert@gondor.apana.org.au>
+CC: Olivia Mackall <olivia@selenic.com>, Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing
+	<kernel@esmil.dk>, Conor Dooley <conor.dooley@microchip.com>,
+	"linux-crypto@vger.kernel.org" <linux-crypto@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Subject: RE: [PATCH v2 2/3] hwrng: starfive - Add TRNG driver for StarFive SoC
+Thread-Topic: [PATCH v2 2/3] hwrng: starfive - Add TRNG driver for StarFive
+ SoC
+Thread-Index: AQHZGoveBWEVWeSp5UqGtlmGFQKs8K6QmY4AgATZceA=
+Date: Mon, 9 Jan 2023 02:58:14 +0000
+Message-ID: <7c2cc6e9cdf241318fc73162a5ec221d@EXMBX168.cuchost.com>
+References: <20221228071103.91797-1-jiajie.ho@starfivetech.com>
+ <20221228071103.91797-3-jiajie.ho@starfivetech.com>
+ <Y7fePDme5E3yhPhQ@gondor.apana.org.au>
+In-Reply-To: <Y7fePDme5E3yhPhQ@gondor.apana.org.au>
+Accept-Language: en-US
 Content-Language: en-US
-From: yanhong wang <yanhong.wang@starfivetech.com>
-In-Reply-To: <720bffcd0dde99d6a87aea6baa8b5ccefe65a178.camel@microchip.com>
-X-Originating-IP: [171.223.208.138]
-X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX173.cuchost.com
- (172.16.6.93)
-X-YovoleRuleAgent: yovoleflag
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [202.190.108.220]
+x-yovoleruleagent: yovoleflag
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230108_171421_430617_5BA8D665 
-X-CRM114-Status: GOOD (  17.73  )
+X-CRM114-CacheID: sfid-20230108_185848_194163_96A90E04 
+X-CRM114-Status: GOOD (  12.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,164 +87,34 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 
-On 2023/1/8 19:11, Arun.Ramadoss@microchip.com wrote:
-> Hi Yanhong,
+> -----Original Message-----
+> From: Herbert Xu <herbert@gondor.apana.org.au>
+> Sent: 6 January, 2023 4:39 PM
+> To: JiaJie Ho <jiajie.ho@starfivetech.com>
+> Cc: Olivia Mackall <olivia@selenic.com>; Rob Herring <robh+dt@kernel.org>;
+> Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>; Emil Renner
+> Berthing <kernel@esmil.dk>; Conor Dooley <conor.dooley@microchip.com>;
+> linux-crypto@vger.kernel.org; devicetree@vger.kernel.org; linux-
+> kernel@vger.kernel.org; linux-riscv@lists.infradead.org
+> Subject: Re: [PATCH v2 2/3] hwrng: starfive - Add TRNG driver for StarFive
+> SoC
 > 
-> On Fri, 2023-01-06 at 10:59 +0800, Yanhong Wang wrote:
->> This adds StarFive dwmac driver support on the StarFive JH7110 SoCs.
->> 
->> Signed-off-by: Yanhong Wang <yanhong.wang@starfivetech.com>
->> Co-developed-by: Emil Renner Berthing <kernel@esmil.dk>
->> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
->> ---
->>  MAINTAINERS                                   |   1 +
->>  drivers/net/ethernet/stmicro/stmmac/Kconfig   |  12 ++
->>  drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
->>  .../stmicro/stmmac/dwmac-starfive-plat.c      | 123
->> ++++++++++++++++++
->>  4 files changed, 137 insertions(+)
->>  create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-
->> starfive-plat.c
->> 
->> 
->> 
->> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive-
->> plat.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive-plat.c
->> new file mode 100644
->> index 000000000000..910095b10fe4
->> --- /dev/null
->> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive-plat.c
->> @@ -0,0 +1,123 @@
->> +// SPDX-License-Identifier: GPL-2.0+
->> +/*
->> + * StarFive DWMAC platform driver
->> + *
->> + * Copyright(C) 2022 StarFive Technology Co., Ltd.
->> + *
->> + */
->> +
->> +#include <linux/of_device.h>
+> On Wed, Dec 28, 2022 at 03:11:02PM +0800, Jia Jie Ho wrote:
+> > +static int starfive_trng_read(struct hwrng *rng, void *buf, size_t
+> > +max, bool wait)
 > 
-> Blank line between header with <  > and " "
+> You should respect the wait argument and not do polling/sleeping if it is false.
 > 
 
-Thanks, i will fix.
+Hi Herbert, 
 
->> +#include "stmmac_platform.h"
->> +
->> +struct starfive_dwmac {
->> +	struct device *dev;
->> +	struct clk *clk_tx;
->> +	struct clk *clk_gtx;
->> +	struct clk *clk_gtxc;
->> +};
->> +
->> +static void starfive_eth_plat_fix_mac_speed(void *priv, unsigned int
->> speed)
->> +{
->> +	struct starfive_dwmac *dwmac = priv;
->> +	unsigned long rate;
->> +	int err;
->> +
->> +	switch (speed) {
->> +	case SPEED_1000:
->> +		rate = 125000000;
->> +		break;
->> +	case SPEED_100:
->> +		rate = 25000000;
->> +		break;
->> +	case SPEED_10:
->> +		rate = 2500000;
->> +		break;
->> +	default:
->> +		dev_err(dwmac->dev, "invalid speed %u\n", speed);
->> +		return;
-> 
-> Do we need to return value, since it is invalid speed. But the return
-> value of function is void.
-> 
+My trng device requires sending a generate new number cmd before each read.
+It then only populates the data registers with new random number and raise an interrupt when ready.
+If user choose to not wait, they will always get stale bits. 
+Is it okay to always return error if wait=false ?
 
-I will fix.
-
->> +	}
->> +
->> +	err = clk_set_rate(dwmac->clk_gtx, rate);
->> +	if (err)
->> +		dev_err(dwmac->dev, "failed to set tx rate %lu\n",
->> rate);
->> +}
->> +
->> +static int starfive_eth_plat_probe(struct platform_device *pdev)
->> +{
->> +	struct plat_stmmacenet_data *plat_dat;
->> +	struct stmmac_resources stmmac_res;
->> +	struct starfive_dwmac *dwmac;
->> +	int (*syscon_init)(struct device *dev);
-> 
-> Reverse christmas tree.
-> 
-
-I will delete the unused variable syscon_init.
-
->> +	int err;
->> +
->> +	err = stmmac_get_platform_resources(pdev, &stmmac_res);
->> +	if (err)
->> +		return err;
->> +
->> +	plat_dat = stmmac_probe_config_dt(pdev, stmmac_res.mac);
->> +	if (IS_ERR(plat_dat)) {
->> +		dev_err(&pdev->dev, "dt configuration failed\n");
->> +		return PTR_ERR(plat_dat);
->> +	}
->> +
->> +	dwmac = devm_kzalloc(&pdev->dev, sizeof(*dwmac), GFP_KERNEL);
->> +	if (!dwmac)
->> +		return -ENOMEM;
->> +
->> +	syscon_init = of_device_get_match_data(&pdev->dev);
->> +	if (syscon_init) {
->> +		err = syscon_init(&pdev->dev);
->> +		if (err)
->> +			return err;
->> +	}
->> +
->> +	dwmac->clk_tx = devm_clk_get_enabled(&pdev->dev, "tx");
->> +	if (IS_ERR(dwmac->clk_tx))
->> +		return dev_err_probe(&pdev->dev, PTR_ERR(dwmac-
->> >clk_tx),
->> +						"error getting tx
->> clock\n");
->> +
->> +	dwmac->clk_gtx = devm_clk_get_enabled(&pdev->dev, "gtx");
->> +	if (IS_ERR(dwmac->clk_gtx))
->> +		return dev_err_probe(&pdev->dev, PTR_ERR(dwmac-
->> >clk_gtx),
->> +						"error getting gtx
->> clock\n");
->> +
->> +	dwmac->clk_gtxc = devm_clk_get_enabled(&pdev->dev, "gtxc");
->> +	if (IS_ERR(dwmac->clk_gtxc))
->> +		return dev_err_probe(&pdev->dev, PTR_ERR(dwmac-
->> >clk_gtxc),
->> +						"error getting gtxc
->> clock\n");
->> +
->> +	dwmac->dev = &pdev->dev;
->> +	plat_dat->fix_mac_speed = starfive_eth_plat_fix_mac_speed;
->> +	plat_dat->init = NULL;
->> +	plat_dat->bsp_priv = dwmac;
->> +	plat_dat->dma_cfg->dche = true;
->> +
->> +	err = stmmac_dvr_probe(&pdev->dev, plat_dat, &stmmac_res);
->> +	if (err) {
->> +		stmmac_remove_config_dt(pdev, plat_dat);
->> +		return err;
->> +	}
->> +
->> +	return 0;
->> +}
->> +
+Thanks
+Jia Jie
 
 _______________________________________________
 linux-riscv mailing list
