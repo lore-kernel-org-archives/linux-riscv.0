@@ -4,62 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BA93C54EBD
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Jan 2023 19:46:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18C4EC54EBD
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Jan 2023 19:50:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vZszz9ZizGbrCXgHvv4mEJoQiCUwoik26uQiqWBiLKc=; b=G965lrJW6bNg+/pg3WCCqnMXbG
-	lXf2vAwIMU/Y+mhFArCj/ZbnW0WaOlr/rsjQROD9bJ88XwhfTGnosZSFL7ZgdjYhsFXLItU/hN3Cd
-	uGZ45UF9fViWhnRVtl+bU25Rqc6gHripmGWdpE7YibYcD1sfeJ1hmAzqnmAw09jtXSZb+AiMiR5cJ
-	b3Bo16ncNIUIiYjUENP8+YLL189PeIE5rWM6JdjCvdB+Chs+V8IpvuIInLH60hm/FOpgtmH7OHsvI
-	go+dQDh5Jwyos9aHH3Kf5DDraybVmIDQAy7i0wuSzWJ7fLc3/Tl7llFP/u04DsA1giAn8FEWo/r0B
-	WDNAgSqw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=nLEOQiHZNeFgd1l9TuuZxABbfFwgXTqPFrUFX3op4tY=; b=nUjB6Xf3J3rkWa
+	Bzhjr60VJGvj/C6g7eMmRdyIY58Yrdaquy8xFHRKBfxCB975u/QF7zAHKpomj4AHWQI7qNkRe/xiR
+	XY40K8BWqn9Ot33mWSwzXDDZxMClKTpGZRfdpfOMyjAZZ2Q//kJoZI/og/+GkdWsiPMkt5vlP4t91
+	NL5+K07pjiZsHTtqo+czvOsIQHCQZZjvCqJXVWvgF+YlfM4EEJRZ170acmslhCIsWck0+dPcELTkn
+	rXUARp2NdPQhRqNy51XhAc/ijZhv9y7inrQbs0tmRZYGmxuCbOp5F02sEwlH/FSI3xgPwf1AokpdF
+	RV1qnIbOD7gsWYPuYGbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pEy64-003iOQ-9w; Mon, 09 Jan 2023 19:46:16 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1pEyAP-003jLx-GY; Mon, 09 Jan 2023 19:50:45 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pEy60-003iMu-UE
-	for linux-riscv@lists.infradead.org; Mon, 09 Jan 2023 19:46:14 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by sin.source.kernel.org (Postfix) with ESMTPS id C76EBCE0F95;
-	Mon,  9 Jan 2023 19:46:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37066C433D2;
-	Mon,  9 Jan 2023 19:46:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1673293569;
-	bh=hhpFMtEwC7+bjpDcSFBG5j75Z8R1xgpJe/q4zRbnu/o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lkW5aT8ViBhn1t9Vk+8YIJ8iYR+2SaXunLqJIzsHWAM1+TY+HM6d3I56nj4yRUtde
-	 Pbu+b6d+yPavtzrUGsuUqo3oepftg4kOobL3eZ+JJo77kWPrxhdNhP0yeLn6kV15Ph
-	 6tPap/A80n5YU/Rzla52ZtWCxTmTkZZ5heQt7nHfQDgdbPWiVpci2Uagky+828Kr81
-	 wE9T8UfAOlMZnhR3bT/qB9PMlivWQ+m1DDO0v6bnTy/kIP1RD9E7GauRUeNnQycCZw
-	 VIbd0TBQZtA1bK8hsedr9qGxVNF/Pt8CWBgOKf03MAgr+WX20hZ+RMFLmENeuLvS4s
-	 vf2rLjPgHd3mQ==
-Date: Mon, 9 Jan 2023 19:46:04 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: Sia Jee Heng <jeeheng.sia@starfivetech.com>, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	leyfoon.tan@starfivetech.com, mason.huo@starfivetech.com
-Subject: Re: [PATCH v2 3/3] RISC-V: Add arch functions to support
- hibernation/suspend-to-disk
-Message-ID: <Y7xu/Oj07F7/e8F1@spud>
-References: <20230109062407.3235-1-jeeheng.sia@starfivetech.com>
- <20230109062407.3235-4-jeeheng.sia@starfivetech.com>
- <20230109193624.iiuguwgimpn7zbyw@orel>
+	id 1pEyAM-003jKD-S5
+	for linux-riscv@lists.infradead.org; Mon, 09 Jan 2023 19:50:44 +0000
+Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1pEyAH-0006Kp-CW; Mon, 09 Jan 2023 20:50:37 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Andrew Jones <ajones@ventanamicro.com>, palmer@dabbelt.com, Conor Dooley <conor@kernel.org>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v1 0/5] RISC-V Hardware Probing User Interface
+Date: Mon, 09 Jan 2023 20:50:36 +0100
+Message-ID: <2876870.k3LOHGUjKi@diego>
+In-Reply-To: <Y7xhNSmlh6miWuZw@spud>
+References: <20221013163551.6775-1-palmer@rivosinc.com> <20221201160614.xpomlqq2fzpzfmcm@kamzik> <Y7xhNSmlh6miWuZw@spud>
 MIME-Version: 1.0
-In-Reply-To: <20230109193624.iiuguwgimpn7zbyw@orel>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230109_114613_782612_6CA8C2F9 
-X-CRM114-Status: GOOD (  13.15  )
+X-CRM114-CacheID: sfid-20230109_115042_944314_F468021B 
+X-CRM114-Status: GOOD (  58.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,66 +53,147 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6299702625337706682=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hey,
 
---===============6299702625337706682==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="fH41y5PUQ8JO9uEa"
-Content-Disposition: inline
+Am Montag, 9. Januar 2023, 19:47:17 CET schrieb Conor Dooley:
+> Hey!
+> 
+> Just bringing this up somewhere a bit more visible than the weekly pw
+> sync-up yoke!
+> I just got my VisionFive2 today & I see Heiko has just posted another
+> version of Zbb support series, right as I had started typing this in
+> fact, so I'm curious where we stand. There's gonna be quite a few
+> people with Zba/Zbb capable hardware soon by the looks of things, so
+> it'd be nice to have something we can point people at that actually
+> applies to recent kernels.
+> 
+> I know Palmer you said you'd do some work on it over Christmas, but
+> since that didn't materialise - are you still planning on spinning up a
+> v2?
+> Some thoughts on Drew's sysfs suggestion below would probably be useful
+> if you aren't.
 
+from my further optimization pov, I just rebased Palmer's v1 forward,
+as I essentially only want the has-fast-unaligned property from it ;-) .
 
---fH41y5PUQ8JO9uEa
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+The series I posted today is essentially the basics for "everyone with zbb"
+and I have a second part on top of that and Palmers hw-probing series
+that then does the further case.
 
-On Mon, Jan 09, 2023 at 08:36:24PM +0100, Andrew Jones wrote:
-> On Mon, Jan 09, 2023 at 02:24:07PM +0800, Sia Jee Heng wrote:
-
-> > To enable hibernation/suspend to disk into RISCV, the below config
-> > need to be enabled:
-> > - CONFIG_ARCH_HIBERNATION_HEADER
-> > - CONFIG_ARCH_HIBERNATION_POSSIBLE
-> > - CONFIG_ARCH_RV64I
-> > - CONFIG_64BIT
-
-> What's blocking this for being for both 32-bit and 64-bit?
-
-Just from checking with b4 diff, it's because I told them they broke the
-rv32 build with their v1 implementation.
-
-I'd rather they fixed whatever the issue was with rv32 than ignored it.
-
-Thanks,
-Conor.
+I do hope to get that finalized tomorrow or wednesday.
 
 
---fH41y5PUQ8JO9uEa
-Content-Type: application/pgp-signature; name="signature.asc"
+Heiko
 
------BEGIN PGP SIGNATURE-----
+> On Thu, Dec 01, 2022 at 05:06:14PM +0100, Andrew Jones wrote:
+> > On Thu, Oct 13, 2022 at 09:35:46AM -0700, Palmer Dabbelt wrote:
+> > > These are very much up for discussion, as it's a pretty big new user
+> > > interface and it's quite a bit different from how we've historically
+> > > done things: this isn't just providing an ISA string to userspace, this
+> > > has its own format for providing information to userspace.
+> > > 
+> > > There's been a bunch of off-list discussions about this, including at
+> > > Plumbers.  The original plan was to do something involving providing an
+> > > ISA string to userspace, but ISA strings just aren't sufficient for a
+> > > stable ABI any more: in order to parse an ISA string users need the
+> > > version of the specifications that the string is written to, the version
+> > > of each extension (sometimes at a finer granularity than the RISC-V
+> > > releases/versions encode), and the expected use case for the ISA string
+> > > (ie, is it a U-mode or M-mode string).  That's a lot of complexity to
+> > > try and keep ABI compatible and it's probably going to continue to grow,
+> > > as even if there's no more complexity in the specifications we'll have
+> > > to deal with the various ISA string parsing oddities that end up all
+> > > over userspace.
+> > > 
+> > > Instead this patch set takes a very different approach and provides a se
+> > > of key/value pairs that encode various bits about the system.  The big
+> > > advantage here is that we can clearly define what these mean so we can
+> > > ensure ABI stability, but it also allows us to encode information that's
+> > > unlikely to ever appear in an ISA string (see the misaligned access
+> > > performance, for example).  The resulting interface looks a lot like
+> > > what arm64 and x86 do, and will hopefully fit well into something like
+> > > ACPI in the future.
+> > > 
+> > > The actual user interface is a syscall.  I'm not really sure that's the
+> > > right way to go about this, but it makes for flexible prototying.
+> > > Various other approaches have been talked about like making HWCAP2 a
+> > > pointer, having a VDSO routine, or exposing this via sysfs. 
+> > 
+> > Hi Palmer,
+> > 
+> > To throw my two cents into the penny jar, I'd vote for sysfs. It handles
+> > the heterogeneous CPU case since cpu feature nodes can be hung off each
+> > cpu node. It also avoids yet another encoding. If we enumerate extensions
+> > and their properties then we need to maintain that enumeration in both
+> > the kernel space and userspace. If, OTOH, we use sysfs node names for
+> > the encoding, then, when we match the spec naming exactly, e.g.
+> > 
+> >  .../features/zicbom
+> >  .../features/zihintpause
+> >  .../features/sscofpmf
+> > 
+> > userspace can look for features by name. Userspace libraries can even
+> > lead the kernel in development, since the encoding (the spec name) is
+> > already agreed.
+> > 
+> > Properties of extensions are just sub-nodes, some with standard names,
+> > like
+> > 
+> >  .../features/zicbom/major
+> >  .../features/zicbom/minor
+> > 
+> > and others, which are cpu feature specific, like
+> > 
+> >  .../features/zicbom/block_size
+> > 
+> > I used 'features' in the above examples for the node name, rather than
+> > 'isa', since not all features map to isa extensions, but it should be
+> > possible to fit non-isa features into the same framework.
+> > 
+> > Thanks,
+> > drew
+> > 
+> > 
+> > > Those seem
+> > > like generally reasonable approaches, but I've yet to figure out a way
+> > > to get the general case working without a syscall as that's the only way
+> > > I've come up with to deal with the heterogenous CPU case.  Happy to hear
+> > > if someone has a better idea, though, as I don't really want to add a
+> > > syscall if we can avoid it.
+> > > 
+> > > I threw this together during the conferences so I would be surprised if
+> > > it's not broken, but I figured it'd be best to just get something on the
+> > > lists sooner rather that later.  Happy to have someone go fix my code,
+> > > but the new uABI is really going to be the tricky bit here.  There's
+> > > some test code included, but I haven't even booted a kernel with these
+> > > patches so YMMV.
+> > > 
+> > > These are also up at kernel.org/palmer/linux/riscv-hwprobe-v1 in case
+> > > that's easier for folks.
+> > > 
+> > > 
+> > > 
+> > > _______________________________________________
+> > > linux-riscv mailing list
+> > > linux-riscv@lists.infradead.org
+> > > http://lists.infradead.org/mailman/listinfo/linux-riscv
+> > 
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+> 
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY7xu/AAKCRB4tDGHoIJi
-0rbHAQC/EoLOn3l9FXeFdNHGzV2XbStGO7oAZevQkCdxwu85EgD8C139RXfKcavb
-BgwsCyV/74ABSmP/cr/hrLi/vb3EXgc=
-=rPlV
------END PGP SIGNATURE-----
-
---fH41y5PUQ8JO9uEa--
 
 
---===============6299702625337706682==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6299702625337706682==--
-
