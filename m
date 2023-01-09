@@ -4,117 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 878CAC54EBD
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Jan 2023 15:31:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70FA3C54EBD
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Jan 2023 15:50:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Oy6CdLMC9XslGAhizjzzW+2+vspztJyNZjpLDi6Cu8M=; b=DJZ9lWdfZyrtjk
-	J/wdpToVGdToKRTyJj0CVl2ip3+GMJZq8IOCeZ+icfnrZOcBACZGOikjP4upywGNHiuQar2G+5JNO
-	yxp0Ilw+9gjEccWY2yJCyICSHyCJi+kqZqWcz6DgwN6OsSdLCKx+COl1X8jdjGs53EH6yc8GVMLs1
-	TiGuYAShOT7EfYvSG2HGpLK2VCn4QQGq4tonkSppwFtG/NkL+dLVgppqI6GC1aKYsI/WxRnq0Y/HT
-	hrj9yb5pA37IymAgoN16kkI1VTFfbE3uiIXtPzIrOjXflWCy29JfuoYaZ+ScMpOZt01ARFcKcLEvQ
-	5wllaF8/MERrdIPbTFvQ==;
+	List-Owner; bh=FapnRXe2a5LNGQT5DN3BNafl7BktMwmBBCGRPC2pbCo=; b=fGVhrs96GoKbvW
+	IkV76Lcvn7P4NKGVlrG6X6iVBMmkldEf1r5u3TNuGZa4cP2lU8dJnBejfdQfcfUISKEleqCQELmU0
+	uCTw9D6llehG2z+rduvx/TKP6e/YLf8PmZiBH6nlOin66T52R0Y9FLPSM4ne7IWOPVUmOfaXAsWlt
+	cGUoOjT7tfmmdELJGNsspPx6YUofz9jeBfvVLBnHEmzuuYcY5Fpfb4H19YFsV3N6Nmj1V/CO9Tvd1
+	f/T6XON73Oo0hCt3yYFNvMAwrSCTmWPEP9yLZ7WieHAQz1f9h34ahJn+BT8SN8SPr48m0a1AgqM5c
+	mC8CtTw6Ry/No5BQ+Ejw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pEu72-002Fwk-FZ; Mon, 09 Jan 2023 15:31:00 +0000
-Received: from smtpout30.security-mail.net ([85.31.212.34] helo=fx304.security-mail.net)
+	id 1pEuPP-002PF5-2W; Mon, 09 Jan 2023 15:49:59 +0000
+Received: from fllv0015.ext.ti.com ([198.47.19.141])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pEu6x-002FsJ-Jc
-	for linux-riscv@lists.infradead.org; Mon, 09 Jan 2023 15:30:57 +0000
-Received: from localhost (localhost [127.0.0.1])
-	by fx304.security-mail.net (Postfix) with ESMTP id D23FB9D0CE
-	for <linux-riscv@lists.infradead.org>; Mon,  9 Jan 2023 16:30:52 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kalray.eu;
-	s=sec-sig-email; t=1673278252;
-	bh=2Ol4WvfIDv/pCXWodkK/JAf2l0CqXaG0EOhqPlCz5xY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=kz8ddZYg0nJtow93ucAH7WnT8Vqwhr3lvi4IHN8OoSZGNmOScb2xcOeU4ahhPcX9+
-	 p9CNBdA/jH2f4K049TrCPM610wwO1NQ4J9xx87Kmzbu7GXz0K8YSAee6gE4pfS7J3i
-	 nAosaoMAGS6mHOvc8xjvjf4lK/Nd1xrz4y1l10bc=
-Received: from fx304 (localhost [127.0.0.1]) by fx304.security-mail.net
- (Postfix) with ESMTP id 642369D072; Mon,  9 Jan 2023 16:30:52 +0100 (CET)
-Received: from zimbra2.kalray.eu (unknown [217.181.231.53]) by
- fx304.security-mail.net (Postfix) with ESMTPS id C72639D077; Mon,  9 Jan
- 2023 16:30:51 +0100 (CET)
-Received: from zimbra2.kalray.eu (localhost [127.0.0.1]) by
- zimbra2.kalray.eu (Postfix) with ESMTPS id 800FA27E03FF; Mon,  9 Jan 2023
- 16:30:51 +0100 (CET)
-Received: from localhost (localhost [127.0.0.1]) by zimbra2.kalray.eu
- (Postfix) with ESMTP id 4D6D327E0401; Mon,  9 Jan 2023 16:30:51 +0100 (CET)
-Received: from zimbra2.kalray.eu ([127.0.0.1]) by localhost
- (zimbra2.kalray.eu [127.0.0.1]) (amavisd-new, port 10026) with ESMTP id
- NjE5sn82VCRv; Mon,  9 Jan 2023 16:30:51 +0100 (CET)
-Received: from [192.168.37.161] (unknown [192.168.37.161]) by
- zimbra2.kalray.eu (Postfix) with ESMTPSA id 8E4D827E03FE; Mon,  9 Jan 2023
- 16:30:50 +0100 (CET)
-X-Virus-Scanned: E-securemail
-Secumail-id: <af88.63bc332b.c5f73.0>
-DKIM-Filter: OpenDKIM Filter v2.10.3 zimbra2.kalray.eu 4D6D327E0401
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kalray.eu;
- s=32AE1B44-9502-11E5-BA35-3734643DEF29; t=1673278251;
- bh=AQRkX8OfPpkm9ao22SwrZcjsHp5YTFXu85Lp04m+1A0=;
- h=Message-ID:Date:MIME-Version:To:From;
- b=Nw9h4dkzOwPn5vuhGKIyNNJs3P3x4pfdYEE7ckz9lL13tSkmK4nwamwpUjampl3D6
- LDhJg2t6qBuoBWDfEIexbrFwLh9D9VyJiOWUlwmQC+1j7iIHZ+vEfgfvPWRc9vt9zD
- PN1+BJeuI0U91Om91ZCvoSBebX3S3D5TsBEjM/tE=
-Message-ID: <bccad498-3af2-08f1-8264-cf7b438732d3@kalray.eu>
-Date: Mon, 9 Jan 2023 16:30:50 +0100
+	id 1pEuPL-002PCG-Tn; Mon, 09 Jan 2023 15:49:57 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by fllv0015.ext.ti.com (8.15.2/8.15.2) with ESMTP id 309FnKbk021502;
+	Mon, 9 Jan 2023 09:49:20 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1673279360;
+	bh=tHZZefyYne34nwtHlmcO9279ZiTFZKklHDR4wSaraLs=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=MPUiZGBLs/Ku6SlSm3Fh+yFJcoGIXbBdA2icjuIIZ3bG28Lf4hxlbusjtBtW3r+j1
+	 d+ESwERr6zuKSVhU4PuUTfDVFIQp3yL6qzK+Rp5rdyZvl3hNXAGClH9q8f6DuClU8d
+	 KyAqikzfsRBeqcXaHluWkpbzVG7Qm/XmCoIq+OSg=
+Received: from DFLE112.ent.ti.com (dfle112.ent.ti.com [10.64.6.33])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 309FnKl1105964
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 9 Jan 2023 09:49:20 -0600
+Received: from DFLE114.ent.ti.com (10.64.6.35) by DFLE112.ent.ti.com
+ (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.16; Mon, 9
+ Jan 2023 09:49:19 -0600
+Received: from lelv0327.itg.ti.com (10.180.67.183) by DFLE114.ent.ti.com
+ (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.16 via
+ Frontend Transport; Mon, 9 Jan 2023 09:49:19 -0600
+Received: from [10.250.234.21] (ileaxei01-snat2.itg.ti.com [10.180.69.6])
+	by lelv0327.itg.ti.com (8.15.2/8.15.2) with ESMTP id 309Fn9qV038794;
+	Mon, 9 Jan 2023 09:49:10 -0600
+Message-ID: <784cc3a5-8b10-aed3-b151-77cedb531f25@ti.com>
+Date: Mon, 9 Jan 2023 21:19:08 +0530
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.4.2
-Subject: Re: [RFC PATCH 00/25] Upstream kvx Linux port
-Content-Language: en-us
-To: Jeff Xie <xiehuan09@gmail.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, Andrew Morton
- <akpm@linux-foundation.org>, "Aneesh Kumar K.V"
- <aneesh.kumar@linux.ibm.com>, Ard Biesheuvel <ardb@kernel.org>, Arnaldo
- Carvalho de Melo <acme@kernel.org>, Boqun Feng <boqun.feng@gmail.com>,
- bpf@vger.kernel.org, Christian Brauner <brauner@kernel.org>,
- devicetree@vger.kernel.org, Eric Biederman <ebiederm@xmission.com>, Eric
- Paris <eparis@redhat.com>, Ingo Molnar <mingo@redhat.com>, Jan Kiszka
- <jan.kiszka@siemens.com>, Jason Baron <jbaron@akamai.com>, Jiri Olsa
- <jolsa@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Josh Poimboeuf
- <jpoimboe@kernel.org>, Kees Cook <keescook@chromium.org>, Kieran Bingham
- <kbingham@kernel.org>, Krzysztof Kozlowski
- <krzysztof.kozlowski+dt@linaro.org>, linux-arch@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-audit@redhat.com,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-mm@kvack.org,
- linux-perf-users@vger.kernel.org, linux-pm@vger.kernel.org,
- linux-riscv@lists.infradead.org, Marc Zyngier <maz@kernel.org>, Mark Rutland
- <mark.rutland@arm.com>, Masami Hiramatsu <mhiramat@kernel.org>, Namhyung Kim
- <namhyung@kernel.org>, Nick Piggin <npiggin@gmail.com>, Oleg Nesterov
- <oleg@redhat.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Moore
- <paul@paul-moore.com>, Paul Walmsley <paul.walmsley@sifive.com>, Peter
- Zijlstra <peterz@infradead.org>, Rob Herring <robh+dt@kernel.org>, Sebastian
- Reichel <sre@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, Thomas
- Gleixner <tglx@linutronix.de>, Waiman Long <longman@redhat.com>, Will Deacon
- <will@kernel.org>, Alex Michon <amichon@kalray.eu>, Ashley Lesdalons
- <alesdalons@kalray.eu>, Benjamin Mugnier <mugnier.benjamin@gmail.com>,
- Clement Leger <clement.leger@bootlin.com>, Guillaume Missonnier
- <gmissonnier@kalray.eu>, Guillaume Thouvenin <gthouvenin@kalray.eu>,
- Jean-Christophe Pince <jcpince@gmail.com>, Jonathan Borne
- <jborne@kalray.eu>, Jules Maselbas <jmaselbas@kalray.eu>, Julian Vetter
- <jvetter@kalray.eu>, Julien Hascoet <jhascoet@kalray.eu>, Julien Villette
- <jvillette@kalray.eu>, Louis Morhet <lmorhet@kalray.eu>, Luc Michel
- <lmichel@kalray.eu>, Marc =?utf-8?b?UG91bGhpw6hz?= <dkm@kataplop.net>,
- Marius Gligor <mgligor@kalray.eu>, Samuel Jones <sjones@kalray.eu>, Thomas
- Costis <tcostis@kalray.eu>, Vincent Chardon
- <vincent.chardon@elsys-design.com>
-References: <20230103164359.24347-1-ysionneau@kalray.eu>
- <CAEr6+ECRh_9App18zmcS6FUR81YYhR=n4kGdeZAtQBsdMB55_A@mail.gmail.com>
- <6570d22d-ee19-f8b1-6fb4-bf8865ec4142@kalray.eu>
- <CAEr6+ECPFeokSULpWzYEYLROYHXNA0PtvdUchT37d4_qVA-PKQ@mail.gmail.com>
-From: Yann Sionneau <ysionneau@kalray.eu>
-In-Reply-To: <CAEr6+ECPFeokSULpWzYEYLROYHXNA0PtvdUchT37d4_qVA-PKQ@mail.gmail.com>
-X-ALTERMIMEV2_out: done
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.6.1
+Subject: Re: [RFC PATCH 3/4] dt-bindings: panel: Introduce dual-link LVDS
+ panel
+Content-Language: en-US
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+        Rob Herring
+	<robh+dt@kernel.org>,
+        Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>,
+        Tomi Valkeinen <tomba@kernel.org>, Jyri
+ Sarha <jyri.sarha@iki.fi>,
+        David Airlie <airlied@gmail.com>, Daniel Vetter
+	<daniel@ffwll.ch>,
+        Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+        Thierry Reding <thierry.reding@gmail.com>,
+        Sam Ravnborg <sam@ravnborg.org>, Maxime Ripard <maxime@cerno.tech>,
+        Liam Girdwood <lgirdwood@gmail.com>, Mark
+ Brown <broonie@kernel.org>,
+        Lad Prabhakar
+	<prabhakar.mahadev-lad.rj@bp.renesas.com>,
+        Paul Walmsley
+	<paul.walmsley@sifive.com>,
+        Palmer Dabbelt <palmer@dabbelt.com>,
+        Albert Ou
+	<aou@eecs.berkeley.edu>,
+        Matthias Brugger <matthias.bgg@gmail.com>,
+        Guo Ren
+	<guoren@kernel.org>
+CC: DRI Development List <dri-devel@lists.freedesktop.org>,
+        Devicetree List
+	<devicetree@vger.kernel.org>,
+        Linux Kernel List
+	<linux-kernel@vger.kernel.org>,
+        Linux RISC-V List
+	<linux-riscv@lists.infradead.org>,
+        Linux ARM Kernel List
+	<linux-arm-kernel@lists.infradead.org>,
+        Linux Mediatek List
+	<linux-mediatek@lists.infradead.org>,
+        Linux C-SKY Arch List
+	<linux-csky@vger.kernel.org>,
+        Nishanth Menon <nm@ti.com>, Vignesh Raghavendra
+	<vigneshr@ti.com>,
+        Rahul T R <r-ravikumar@ti.com>, Devarsh Thakkar
+	<devarsht@ti.com>,
+        Jai Luthra <j-luthra@ti.com>, Jayesh Choudhary
+	<j-choudhary@ti.com>
+References: <20230103064615.5311-1-a-bhatia1@ti.com>
+ <20230103064615.5311-4-a-bhatia1@ti.com>
+ <85837957-f6d2-4722-7693-98c6cf932096@linaro.org>
+ <32d66fb7-6c63-0985-222f-0bd3c36c165d@ti.com>
+ <30423568-df03-1d72-81fe-3a4b33214e5c@linaro.org>
+From: Aradhya Bhatia <a-bhatia1@ti.com>
+In-Reply-To: <30423568-df03-1d72-81fe-3a4b33214e5c@linaro.org>
+X-EXCLAIMER-MD-CONFIG: e1e8a2fd-e40a-4ac6-ac9b-f7e9cc9ee180
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230109_073055_807392_AE91FB90 
-X-CRM114-Status: GOOD (  19.97  )
+X-CRM114-CacheID: sfid-20230109_074956_085319_C253B420 
+X-CRM114-Status: GOOD (  17.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,51 +122,90 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgSmVmZiwKCk9uIDEvOS8yMyAxNjoxMSwgSmVmZiBYaWUgd3JvdGU6Cj4gT24gTW9uLCBKYW4g
-OSwgMjAyMyBhdCA5OjIxIFBNIFlhbm4gU2lvbm5lYXUgPHlzaW9ubmVhdUBrYWxyYXkuZXU+IHdy
-b3RlOgo+PiBIaSBKZWZmLAo+Pgo+PiBPbiAxLzcvMjMgMDc6MjUsIEplZmYgWGllIHdyb3RlOgo+
-Pj4gSGksCj4+Pgo+Pj4gT24gV2VkLCBKYW4gNCwgMjAyMyBhdCAxOjAxIEFNIFlhbm4gU2lvbm5l
-YXUgPHlzaW9ubmVhdUBrYWxyYXkuZXU+IHdyb3RlOgo+Pj4+IFtzbmlwXQo+Pj4+Cj4+Pj4gQSBr
-dnggdG9vbGNoYWluIGNhbiBiZSBidWlsdCB1c2luZzoKPj4+PiAjIGluc3RhbGwgZGVwZW5kZW5j
-aWVzOiB0ZXhpbmZvIGJpc29uIGZsZXggbGliZ21wLWRldiBsaWJtcGMtZGV2IGxpYm1wZnItZGV2
-Cj4+Pj4gJCBnaXQgY2xvbmUgaHR0cHM6Ly9naXRodWIuY29tL2thbHJheS9idWlsZC1zY3JpcHRz
-Cj4+Pj4gJCBjZCBidWlsZC1zY3JpcHRzCj4+Pj4gJCBzb3VyY2UgbGFzdC5yZWZzCj4+Pj4gJCAu
-L2J1aWxkLWt2eC14Z2NjLnNoIG91dHB1dAo+Pj4gSSB3b3VsZCBsaWtlIHRvIGJ1aWxkIHRoZSBr
-dngteGdjYyB0byBjb21waWxlIGFuZCB0ZXN0IHRoZSBsaW51eAo+Pj4ga2VybmVsLCBidXQgaXQg
-cmVwb3J0ZWQgYSBjb21waWxlIGVycm9yLgo+Pj4gSSB3b25kZXIgd2hhdCB2ZXJzaW9uIG9mIGdj
-YyB5b3UgYXJlIHVzaW5nLgo+Pj4KPj4+IE15IGJ1aWxkIGVudmlyb25tZW50Ogo+Pj4gVkVSU0lP
-Tj0iMjAuMDQuMiBMVFMgKEZvY2FsIEZvc3NhKSIKPj4+IGdjYyB2ZXJzaW9uIDkuMy4wIChVYnVu
-dHUgOS4zLjAtMTd1YnVudHUxfjIwLjA0KQo+Pj4KPj4+Cj4+PiBDb21waWxlIGVycm9yOgo+Pj4g
-JCAuL2J1aWxkLWt2eC14Z2NjLnNoIG91dHB1dAo+Pj4KPj4+IC4uLy4uL2JpbnV0aWxzL2xpYmli
-ZXJ0eS9maWJoZWFwLmM6IEluIGZ1bmN0aW9uIOKAmGZpYmhlYXBfcmVwbGFjZV9rZXlfZGF0YeKA
-mToKPj4+IC4uLy4uL2JpbnV0aWxzL2xpYmliZXJ0eS9maWJoZWFwLmM6Mzg6MjQ6IGVycm9yOiDi
-gJhMT05HX01JTuKAmSB1bmRlY2xhcmVkCj4+PiAoZmlyc3QgdXNlIGluIHRoaXMgZnVuY3Rpb24p
-Cj4+PiAgICAgIDM4IHwgI2RlZmluZSBGSUJIRUFQS0VZX01JTiBMT05HX01JTgo+Pj4gICAgICAg
-ICB8ICAgICAgICAgICAgICAgICAgICAgICAgXn5+fn5+fn4KPj4+IFtzbmlwXQo+PiBXaGF0IFNI
-QTEgb2YgaHR0cHM6Ly9naXRodWIuY29tL2thbHJheS9idWlsZC1zY3JpcHRzIGFyZSB5b3UgdXNp
-bmc/Cj4gSSBoYXZlIGV4ZWN1dGVkIHRoZSAic291cmNlIGxhc3QucmVmcyIKCkkgd2FzIHJlZmVy
-cmluZyB0byB0aGUgU0hBMSBvZiB0aGUgcmVwbyBpdHNlbGYgKGJ1aWxkLXNjcmlwdHMpLgoKYGxh
-c3QucmVmc2AgaXMgYSBzeW1ib2xpYyBsaW5rIHdoaWNoIGNhbiBwb2ludCB0byBzZXZlcmFsIHJl
-bGVhc2VzLCAKZGVwZW5kaW5nIG9uICJ3aGVuIiB5b3UgZGlkIHRoZSBjbG9uZS4KCkkgYW0gYXNr
-aW5nIHRoaXMgYmVjYXVzZSB3ZSByZWNlbnRseSBwdWJsaXNoZWQgbmV3IHRvb2xjaGFpbnMuCgpJ
-IHdhbnQgdG8gbWFrZSBzdXJlIHdoaWNoIG9uZSB5b3UgYXJlIHRyeWluZyB0byBidWlsZC4KCj4+
-IFdlIGFyZSBidWlsZGluZyBvdXIgdG9vbGNoYWluIG9uIFVidW50dSAxOC4wNCAvIDIwLjA0IGFu
-ZCAyMi4wNCB3aXRob3V0Cj4+IGlzc3VlcywgSSBkb24ndCB1bmRlcnN0YW5kIHdoeSBpdCBkb2Vz
-IG5vdCB3b3JrIGZvciB5b3UsIGFsdGhvdWdoIGluZGVlZAo+PiB0aGUgZXJyb3IgbG9nIHlvdSBh
-cmUgaGF2aW5nIHBvcHMgb3V0IG9uIG15IHNlYXJjaCBlbmdpbmUgYW5kIHNlZW1zIHRvCj4+IGJl
-IHNvbWUgd2VsbCBrbm93biBpc3N1ZS4KPiBZZXMsIHRoZXJlIGFyZSBtYW55IGFuc3dlcnMgb24g
-dGhlIHdlYiwgYnV0IG5vbmUgb2YgdGhlbSBzb2x2ZSB0aGlzIHByb2JsZW0uCj4KPj4gSWYgdGhl
-IGJ1aWxkLXNjcmlwdCBkb2VzIG5vdCB3b3JrIGZvciB5b3UsIHlvdSBjYW4gc3RpbGwgdXNlIHRo
-ZQo+PiBwcmUtYnVpbHQgdG9vbGNoYWlucyBnZW5lcmF0ZWQgYnkgdGhlIEdpdEh1YiBhdXRvbWF0
-ZWQgYWN0aW9uczoKPj4gaHR0cHM6Ly9naXRodWIuY29tL2thbHJheS9idWlsZC1zY3JpcHRzL3Jl
-bGVhc2VzL3RhZy92NC4xMS4xICgibGF0ZXN0Igo+PiBtZWFucyAyMi4wNCkKPiBUaGFua3MsIHRo
-aXMgaXMgdGhlIGZpbmFsIHNvbHV0aW9uIDstKQpHb29kIHRvIHNlZSBpdCBoZWxwZWQgOikKClJl
-Z2FyZHMsCgotLSAKCllhbm4KCgoKCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
-LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
-by9saW51eC1yaXNjdgo=
+Hi Krzysztof,
+
+On 03-Jan-23 16:58, Krzysztof Kozlowski wrote:
+> On 03/01/2023 12:02, Aradhya Bhatia wrote:
+>> But this is throwing an error. I am confused what else could be done.
+>> Can you please suggest what might be a more accurate check here?
+>>
+>>>
+>>>> +              required:
+>>>> +                - dual-lvds-odd-pixels
+>>>> +        then:
+>>>> +          properties:
+>>>> +            port@1:
+>>>> +              properties:
+>>>> +                dual-lvds-even-pixels: true
+>>>> +                dual-lvds-odd-pixels: false
+>>>
+>>> Why do you need this? Your oneOf before already solves it.
+>>
+>> I agree with your comment here. It makes sense to only have
+>>
+>> 	dual-lvds-even-pixels: true
+>>
+>> and have the oneOf condition take care of the other. But, I just tested
+>> this and it was unable to pick-up this intentionally-added error.
+>>
+>> I added 'dual-lvds-odd-pixels' property to both the nodes, and
+>> dt_binding_check passes successfully (which it should have not.)
+>>
+>> Instead, if I only keep this,
+>>
+>> 	dual-lvds-odd-pixels: false
+>>
+>> then the dt_binding_check detects the error as it should.
+>>
+>> Regardless, I am curious why the first method doesn't work. Will try to
+>> explore more on that.
+> 
+> The check for presence of properties is only against required:, but you
+> added there properties. Like this:
+> 
+> https://elixir.bootlin.com/linux/v5.17-rc2/source/Documentation/devicetree/bindings/mfd/samsung,s5m8767.yaml#L155
+> 
+> 
+> Other way is to drop your both oneOf and entire allOf from ports and use:
+> 
+> oneOf:
+>    - properties:
+>        ports:
+>          $ref: /schemas/graph.yaml#/properties/ports
+>          properties:
+>            port@0:
+>              required:
+>                - dual-lvds-odd-pixels
+>            port@1:
+>              required:
+>                - dual-lvds-even-pixels
+>    - properties:
+>        ports:
+>          $ref: /schemas/graph.yaml#/properties/ports
+>          properties:
+>            port@1:
+>              required:
+>                - dual-lvds-odd-pixels
+>            port@0:
+>              required:
+>                - dual-lvds-even-pixels
+> 
+
+Thank you for the suggestions.
+I tested the both of them, and they seem to be working as expected.
+
+V2 will reflect all the required fixes.
+
+
+Regards
+Aradhya
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
