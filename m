@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3351C5479D
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Jan 2023 17:57:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CB33C54EBD
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Jan 2023 18:06:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9MppwYYvK5AlNsuJ6q4Xt4Fw8/AkGD1QeL+v9ujozPo=; b=UxeBFHF5mDoJHTIbrxtfRUBudx
-	Q18gFfQKoi1uOONfu1HBL30LAJ0+a27aIDSqrVmEt2Xw5upz/0zDMPL9o5uLOlT/+Dk8u8aqls7Fu
-	7uTwu75ii3N4c/pIJtgWVJE+QHtUkJOK3rZP90zxdHBCeruKaBOHvF1D1WR2a2vNB+8In49p92Iet
-	xGLTGnSU/G03z63XVE98urXh/4hrlJg+7WwkQqvoxXstOHtwKcLqJyZwXQTDMMEZ3YBYsZNvJ68ev
-	DRCVN9E84xzYwjcoBa/iquXRlECN1lzcVU1xg9wM/xPPLsBRvUofwuuQ/DlzOrP7JkW7+gzPcxb/8
-	28uRr93Q==;
+	bh=t7N9Jhl3ig3Clbw5zmWcZUrfp5e/B106R6g6a9ynRp8=; b=GHRvzCQvrTMxVqsbkWRM66UFS6
+	K9FiLhL88oPniruK+b/1QDs6Cv7u6dKFIstw/gGP6kGDDLsz6bL+YwX3xDxdGRPg4xIa+r9WJ7edN
+	IiTS/U/IugqnSptkf7okm8ah+4QRU6mH7oNFSdxO9WhaoQIj3MaKj4vahB5ivFg0PnI8VXShTzoqI
+	3ySH1TbNaK5fAUq6pVDRapHs+nhGEmXWjfUSW3jmlsYwmVwTGC5L/T2E0Yaz6CTJqiWsGE3iK4/FX
+	KBgDZLpAR9xLMnz6x/ibH65T5aGk2hatczLFUzRIQF2UZpFqzHolBi7sN+zULhhKmP3CMs+dHvg74
+	FoQTV06w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pEwOy-0034cd-VG; Mon, 09 Jan 2023 17:57:41 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pEwX4-0038MI-SU; Mon, 09 Jan 2023 18:06:08 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pEwLs-0033C4-A6
-	for linux-riscv@lists.infradead.org; Mon, 09 Jan 2023 17:54:29 +0000
+	id 1pEwTi-0036jv-MK
+	for linux-riscv@lists.infradead.org; Mon, 09 Jan 2023 18:02:42 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 8776961255;
-	Mon,  9 Jan 2023 17:54:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81EA3C433F0;
-	Mon,  9 Jan 2023 17:54:24 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id DEEAF612BB;
+	Mon,  9 Jan 2023 18:02:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA426C433EF;
+	Mon,  9 Jan 2023 18:02:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1673286866;
-	bh=ouqlx8GtcRbTh2qvs77h0nDGF3C0ShrvNQhaxu3JhEM=;
+	s=k20201202; t=1673287353;
+	bh=yf5mr/XUHMGP26V3S8whUabC4LgE+gULhklh2fekhqM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PGewov7Zum8VwN8zfqe3itpWo+MPuj1+EIsUDQ2dLNnrWqu91dgUX7aZFV94WMzdp
-	 txp2GUYVcUxas6MfpKQC8zgjgKhMyrhS2tbDSFezL9go3NWVmRYKGr52aVm+n9dO/3
-	 aVod6B30F1gAUcDUibhsmukSrNiSJKaMP+x5XCXrRfcIbEG0Omx+5sbALb1LuGzVkD
-	 4OJPrFUEjn4gslIcxluiNzZ44GGW3dqShSIhaM/HQTtk6xYqVIPUqHup6qYwN+zztv
-	 r0iE2suS6Db37sUrs18xZrFQEdR1tbfhxrdKvd7rZSATX6QCrjLMkAGU2sTlYuDh7g
-	 zkuYDLVjKntYw==
-Date: Mon, 9 Jan 2023 17:54:22 +0000
+	b=tiKWcPvN2EP9szwQsYz8wiktbRFB/Vvb73jkesKsu/8tsSCKdOBPIdAzDuujQtsW3
+	 qWxpR1JnsqQSlsveciFG6w6eRqIjuoINTlKiAQaWslGgzSKYhFcdqsrk3ge8JB72IU
+	 LbM51uM+GdmIaJGCmYJFjZTirYfdv21Pw7TfddEMK3tR5E2PzJ9ZhL2+s1pB/iZgYW
+	 W9mISuZ8B783dusHCq2VfeGxmhr/ZCyJ8yM2+Y4WJsbgDUsao+E3P2sXRI0ZNlkQn3
+	 ElHr5mQMgNs4dw0VsjuCwKLv28kSl+Q5rIp7Q/0AZE9SVPWCFHkumYINasEetSqL2Z
+	 XSKMJkdlsT5Lg==
+Date: Mon, 9 Jan 2023 18:02:28 +0000
 From: Conor Dooley <conor@kernel.org>
 To: Jia Jie Ho <jiajie.ho@starfivetech.com>
 Cc: Olivia Mackall <olivia@selenic.com>,
@@ -53,16 +53,16 @@ Cc: Olivia Mackall <olivia@selenic.com>,
 	Conor Dooley <conor.dooley@microchip.com>,
 	linux-crypto@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 1/3] dt-bindings: rng: Add StarFive TRNG module
-Message-ID: <Y7xUztHGvc/j5VHk@spud>
+Subject: Re: [PATCH v3 3/3] riscv: dts: starfive: Add TRNG node for
+ VisionFive 2
+Message-ID: <Y7xWtFZO/Y7GaYRQ@spud>
 References: <20230109165249.110279-1-jiajie.ho@starfivetech.com>
- <20230109165249.110279-2-jiajie.ho@starfivetech.com>
+ <20230109165249.110279-4-jiajie.ho@starfivetech.com>
 MIME-Version: 1.0
-In-Reply-To: <20230109165249.110279-2-jiajie.ho@starfivetech.com>
+In-Reply-To: <20230109165249.110279-4-jiajie.ho@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230109_095428_431547_315CFFBF 
-X-CRM114-Status: UNSURE (   7.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230109_100241_239470_CCDEEC92 
+X-CRM114-Status: GOOD (  16.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,38 +74,89 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0826471551696652435=="
+Content-Type: multipart/mixed; boundary="===============3911082465578620683=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============0826471551696652435==
+--===============3911082465578620683==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="mMDiE/m6P+Qrq0i/"
+	protocol="application/pgp-signature"; boundary="JVAKPLOcMe7iVNga"
 Content-Disposition: inline
 
 
---mMDiE/m6P+Qrq0i/
+--JVAKPLOcMe7iVNga
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Hey folks,
 
---mMDiE/m6P+Qrq0i/
+On Tue, Jan 10, 2023 at 12:52:49AM +0800, Jia Jie Ho wrote:
+> Adding StarFive TRNG controller node to VisionFive 2 SoC.
+>=20
+> Co-developed-by: Jenny Zhang <jenny.zhang@starfivetech.com>
+> Signed-off-by: Jenny Zhang <jenny.zhang@starfivetech.com>
+> Signed-off-by: Jia Jie Ho <jiajie.ho@starfivetech.com>
+> ---
+>  arch/riscv/boot/dts/starfive/jh7110.dtsi | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
+>=20
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/d=
+ts/starfive/jh7110.dtsi
+> index 4ac159d79d66..3c29e0bc6246 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> @@ -455,5 +455,15 @@ uart5: serial@12020000 {
+>  			reg-shift =3D <2>;
+>  			status =3D "disabled";
+>  		};
+> +
+> +		rng: rng@1600c000 {
+> +			compatible =3D "starfive,jh7110-trng";
+> +			reg =3D <0x0 0x1600C000 0x0 0x4000>;
+> +			clocks =3D <&stgcrg JH7110_STGCLK_SEC_HCLK>,
+> +				 <&stgcrg JH7110_STGCLK_SEC_MISCAHB>;
+
+Which clock source is this? I see syscrg and aoncrg in the v3
+devicetree:
+https://lore.kernel.org/linux-riscv/20221220011247.35560-7-hal.feng@starfiv=
+etech.com/
+
+Have a missed a patchset which adds support for this particular clock
+controller? At the very least, I don't think one has reached the
+linux-riscv mailing list.
+The clock driver patchset only has aoncrg & syscrg:
+https://lore.kernel.org/linux-riscv/20221220005054.34518-1-hal.feng@starfiv=
+etech.com/
+
+
+> +			clock-names =3D "hclk", "ahb";
+> +			resets =3D <&stgcrg JH7110_STGRST_SEC_TOP_HRESETN>;
+> +			interrupts =3D <30>;
+> +		};
+>  	};
+>  };
+
+Thanks,
+Conor.
+
+
+--JVAKPLOcMe7iVNga
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY7xUzQAKCRB4tDGHoIJi
-0qVXAP0UxXRirQU2Z4dgTlIcAFAV2RQWkdEm0PYG4jzntTJ57gEApAszKyseZMpS
-aq+Xvm5rWXRTEPj9Wp1gfr29HM6tPA8=
-=T3G5
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY7xWtAAKCRB4tDGHoIJi
+0uNDAP9jdeHkVB4dTr5svGhfs6/VBx1ob6hYWtNCnd0OmytrFQEA/69ADWZjFeQG
+DA1v1P6YpTm6kYvzkrt0UNumEQ3suAo=
+=V4up
 -----END PGP SIGNATURE-----
 
---mMDiE/m6P+Qrq0i/--
+--JVAKPLOcMe7iVNga--
 
 
---===============0826471551696652435==
+--===============3911082465578620683==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -116,5 +167,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============0826471551696652435==--
+--===============3911082465578620683==--
 
