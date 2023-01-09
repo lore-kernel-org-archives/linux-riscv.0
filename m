@@ -4,82 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB6BCC54EBE
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Jan 2023 13:17:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91BC3C54EBE
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Jan 2023 13:22:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Qstqb2P2a8ckNZR2jhrHDGGqLLG7esCQXKgljklPYDc=; b=Wcqf6oJoXNBcfv
-	elSvi4PHBtBIUaj5umJPxsiD0jPqnfLzC3cpLCu+Drd+J05rjP5udGy6wAkFghyEmMuSgB9LRRgH/
-	Yldd/1Wxia3BSJWmjY8Lrw9QQs6ICOAYtMy1qAiGjr19Aa+BHzm3R//xHoqy64LH3+Fi6vDEpWlgX
-	0il2LHOF7PNwm0dQHT4I3HkWW31JlYRdBKTNTJGrtCrR8B30M1YdJkV5z12x3yLHJq/onviTYwQ1O
-	VMCvxv+48xLdbmQu2ZcjGPjM0k5DEYn7nyxRDeJo5hoZAyQ7UPmXn47Kc3gcfqnrproAelP8/5MUY
-	nV9Y+2U6SVCek0ykmz/A==;
+	List-Owner; bh=DV0fqvjcR+3YgYG0AasgR48zj03C/XXcjzNWzUe2foI=; b=kv0iqXcMu7OnUr
+	oEB5doG6K2Hf337B+wrgXcbKwLp9uFW/u3voewiNyvEc/+OgAayCEGra9vhm7/V925sUvOMuk3KsP
+	Q6eLcLOfeo0ROn/29ieMcpxHbKQelwqfO83wbgnsdz9RKIubM6F/DpJwHOpFdi6bVdaidOEeOGa0i
+	wO2m19hhBv9oPd31i8XyR3hWY2gizY+FdHv5x7IjmEDR4L88rHER7uoRECzZTW43yv1+ebi+CUCnQ
+	XeivNnLj2vABaC5NA1C6fth/QXPEKdEoGyEf5j0V70B5iUQNamtzhg7dIrEnYrTIZnub5P6kKNG64
+	xY2fZM+NiRffVlBR/baw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pEs1x-001W23-1Y; Mon, 09 Jan 2023 13:17:37 +0000
-Received: from mail-qk1-x72b.google.com ([2607:f8b0:4864:20::72b])
+	id 1pEs6I-001Y1X-8Z; Mon, 09 Jan 2023 13:22:06 +0000
+Received: from smtpout30.security-mail.net ([85.31.212.35] helo=fx305.security-mail.net)
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pErzh-001Uhz-8f
-	for linux-riscv@lists.infradead.org; Mon, 09 Jan 2023 13:15:21 +0000
-Received: by mail-qk1-x72b.google.com with SMTP id pa22so4100395qkn.9
-        for <linux-riscv@lists.infradead.org>; Mon, 09 Jan 2023 05:15:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=LSUdLrxzBijeq6n48AhMiENVGSCtgGd+6QTQeX7bjt0=;
-        b=i15/5pAnOcrMuZG6TH8IDmEatOjPjSJxynun1QFaUHMUnv4KFgPkixClqPMY8ugIm2
-         F6PNxnHPH7LSS1huO3m4RaW2sbq34Ty6HiowH54ckk6NVwTVKB1e9nrwl5jnbzKeBO4A
-         osKtHruej3BJU2mHpuIpxmNcDl/ZrpOtaq8nrrjBEE+8YJ4hQFycFw/B/wgCiKC/pqou
-         4z9c5qT5EJtqEooAeU5oQsAD9u7g06mT0H52sFGG3PBRR2q6dvr4idqPM3bGdo3TTlkt
-         6m7S9dm5S22hPE37pmUbM8A3zx2/EvFQ8sGjG8j2h0hpKm7caFHqmm34ng9bVrqUY05H
-         WoLA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=LSUdLrxzBijeq6n48AhMiENVGSCtgGd+6QTQeX7bjt0=;
-        b=rygornfem+v3AkvX+uN40iTNJj9U4H3K8nCv8cxX3BC6VFlddsy+kOvQUZswoqDzcU
-         x/7mTUWjsn1S1YyxbkeSSvpJ39CmF4sqT04V28XE20NAm4hRX5V9TPUWDhbM/uzExfI2
-         adykKVmjdeJjsIwGl6dFd5fLrAVHrbY2OTvEP/Fln2mCFsXMJt6F/aIpXsMovrNbHTnV
-         toJcYajtSvHUvGaIy4gpyt8z6LqibStnHhn3zFHiCuRaby+M4STFehIdT0RWU4uxDOk9
-         PiXIp5YesckpopKMFIUnfA7Gm4TcOZOnWamiP1qS9SROAUW9gI6cIxoAdYHfSeIdvgQ5
-         OT1g==
-X-Gm-Message-State: AFqh2kpXOXZfQgR2MVjuH8Nx/XfeYx2yEFfGuPRcggXlij+DUtFikmcn
-	1umB/+1uzDgXgee1929xy3xhePhZEF7CGywti2E=
-X-Google-Smtp-Source: AMrXdXv7Wrf4SKRpoq5GquZxdfjtOOA2B5uMATxEShJibRpqIsfDIdqFzs/nC7U+IKbrIe+IdeULTg1ZL3KZJ5EU/HU=
-X-Received: by 2002:a05:620a:1651:b0:704:dd59:a1b2 with SMTP id
- c17-20020a05620a165100b00704dd59a1b2mr3145507qko.477.1673270115115; Mon, 09
- Jan 2023 05:15:15 -0800 (PST)
+	id 1pEs5c-001Xbi-6D
+	for linux-riscv@lists.infradead.org; Mon, 09 Jan 2023 13:21:26 +0000
+Received: from localhost (fx305.security-mail.net [127.0.0.1])
+	by fx305.security-mail.net (Postfix) with ESMTP id 4482130FE7F
+	for <linux-riscv@lists.infradead.org>; Mon,  9 Jan 2023 14:21:18 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kalray.eu;
+	s=sec-sig-email; t=1673270478;
+	bh=VTyAgBvawac4uHB7eMyMDicCX2xLvVfQ11WRs4OqUgg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=YZ+jS6/1Ma7JCmcJ3+OEDQF6/jdcWUhHaMCMCUIMiS/QRA3hvieFeCchl43TWG6g4
+	 8uzP1OQwFTqJST5NGfflnAynHPXH43mmkQhylk6XZiFnOpe64YOUPMjH/EHaBa+r6X
+	 XNQwFD9kMcy8gj0OVjfaZ+Y+swU0mq962ckt9ZPA=
+Received: from fx305 (fx305.security-mail.net [127.0.0.1]) by
+ fx305.security-mail.net (Postfix) with ESMTP id 06FF630FDE8; Mon,  9 Jan
+ 2023 14:21:18 +0100 (CET)
+Received: from zimbra2.kalray.eu (unknown [217.181.231.53]) by
+ fx305.security-mail.net (Postfix) with ESMTPS id 4C4CE30FD9E; Mon,  9 Jan
+ 2023 14:21:17 +0100 (CET)
+Received: from zimbra2.kalray.eu (localhost [127.0.0.1]) by
+ zimbra2.kalray.eu (Postfix) with ESMTPS id 02D7627E03FA; Mon,  9 Jan 2023
+ 14:21:17 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1]) by zimbra2.kalray.eu
+ (Postfix) with ESMTP id C36D627E03FE; Mon,  9 Jan 2023 14:21:16 +0100 (CET)
+Received: from zimbra2.kalray.eu ([127.0.0.1]) by localhost
+ (zimbra2.kalray.eu [127.0.0.1]) (amavisd-new, port 10026) with ESMTP id
+ o0bmnrw4djyi; Mon,  9 Jan 2023 14:21:16 +0100 (CET)
+Received: from [192.168.37.161] (unknown [192.168.37.161]) by
+ zimbra2.kalray.eu (Postfix) with ESMTPSA id 46FC927E03F5; Mon,  9 Jan 2023
+ 14:21:16 +0100 (CET)
+X-Virus-Scanned: E-securemail
+Secumail-id: <155f.63bc14cd.4a998.0>
+DKIM-Filter: OpenDKIM Filter v2.10.3 zimbra2.kalray.eu C36D627E03FE
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kalray.eu;
+ s=32AE1B44-9502-11E5-BA35-3734643DEF29; t=1673270476;
+ bh=pFwL+Y0S0qo0MF7wO/awAfpxvBk+/1wXJh5pVmIIW2g=;
+ h=Message-ID:Date:MIME-Version:To:From;
+ b=XjT0yLLBY18QxivMgV9uczq9z+HpKf5TnyecD/FGL3y5WOfaxlypJyAxpZ8saNN2c
+ xkoB4C8EPYxurJyqIoGRHgJxE+LjZeyAAIvw8YYk1DjcyoP679xtmnwZh9BbBCh3Ku
+ YVP4+a/ZNoUFvoUsbRjrSO4n7fz2l6dahOcJsTh0=
+Message-ID: <6570d22d-ee19-f8b1-6fb4-bf8865ec4142@kalray.eu>
+Date: Mon, 9 Jan 2023 14:21:15 +0100
 MIME-Version: 1.0
-References: <20230106185526.260163-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20230106185526.260163-5-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <Y7iYZqKcoRycsoTg@spud> <CA+V-a8uBDx42o12UUwP=bBjeGzJJSP=jPcQr0xgkvkkoA7_vFA@mail.gmail.com>
- <CAMuHMdW7bfJXo4FujuwEOOzNsdEWB60VYurdFdbO8GwTMwb5yA@mail.gmail.com>
-In-Reply-To: <CAMuHMdW7bfJXo4FujuwEOOzNsdEWB60VYurdFdbO8GwTMwb5yA@mail.gmail.com>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Mon, 9 Jan 2023 13:14:47 +0000
-Message-ID: <CA+V-a8vHe5cjxQusxmnXKouw76gxGFdHL1g+n6-5JWFkhVECaA@mail.gmail.com>
-Subject: Re: [PATCH v6 4/6] dt-bindings: cache: r9a07g043f-l2-cache: Add DT
- binding documentation for L2 cache controller
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Conor Dooley <conor@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Conor Dooley <conor.dooley@microchip.com>, Heiko Stuebner <heiko@sntech.de>, 
-	Guo Ren <guoren@kernel.org>, Andrew Jones <ajones@ventanamicro.com>, 
-	Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>, 
-	linux-riscv@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
-	Rob Herring <robh@kernel.org>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.4.2
+Subject: Re: [RFC PATCH 00/25] Upstream kvx Linux port
+Content-Language: en-us
+To: Jeff Xie <xiehuan09@gmail.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, Andrew Morton
+ <akpm@linux-foundation.org>, "Aneesh Kumar K.V"
+ <aneesh.kumar@linux.ibm.com>, Ard Biesheuvel <ardb@kernel.org>, Arnaldo
+ Carvalho de Melo <acme@kernel.org>, Boqun Feng <boqun.feng@gmail.com>,
+ bpf@vger.kernel.org, Christian Brauner <brauner@kernel.org>,
+ devicetree@vger.kernel.org, Eric Biederman <ebiederm@xmission.com>, Eric
+ Paris <eparis@redhat.com>, Ingo Molnar <mingo@redhat.com>, Jan Kiszka
+ <jan.kiszka@siemens.com>, Jason Baron <jbaron@akamai.com>, Jiri Olsa
+ <jolsa@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Josh Poimboeuf
+ <jpoimboe@kernel.org>, Kees Cook <keescook@chromium.org>, Kieran Bingham
+ <kbingham@kernel.org>, Krzysztof Kozlowski
+ <krzysztof.kozlowski+dt@linaro.org>, linux-arch@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-audit@redhat.com,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+ linux-perf-users@vger.kernel.org, linux-pm@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Marc Zyngier <maz@kernel.org>, Mark Rutland
+ <mark.rutland@arm.com>, Masami Hiramatsu <mhiramat@kernel.org>, Namhyung Kim
+ <namhyung@kernel.org>, Nick Piggin <npiggin@gmail.com>, Oleg Nesterov
+ <oleg@redhat.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Moore
+ <paul@paul-moore.com>, Paul Walmsley <paul.walmsley@sifive.com>, Peter
+ Zijlstra <peterz@infradead.org>, Rob Herring <robh+dt@kernel.org>, Sebastian
+ Reichel <sre@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, Thomas
+ Gleixner <tglx@linutronix.de>, Waiman Long <longman@redhat.com>, Will Deacon
+ <will@kernel.org>, Alex Michon <amichon@kalray.eu>, Ashley Lesdalons
+ <alesdalons@kalray.eu>, Benjamin Mugnier <mugnier.benjamin@gmail.com>,
+ Clement Leger <clement.leger@bootlin.com>, Guillaume Missonnier
+ <gmissonnier@kalray.eu>, Guillaume Thouvenin <gthouvenin@kalray.eu>,
+ Jean-Christophe Pince <jcpince@gmail.com>, Jonathan Borne
+ <jborne@kalray.eu>, Jules Maselbas <jmaselbas@kalray.eu>, Julian Vetter
+ <jvetter@kalray.eu>, Julien Hascoet <jhascoet@kalray.eu>, Julien Villette
+ <jvillette@kalray.eu>, Louis Morhet <lmorhet@kalray.eu>, Luc Michel
+ <lmichel@kalray.eu>, Marc =?utf-8?b?UG91bGhpw6hz?= <dkm@kataplop.net>,
+ Marius Gligor <mgligor@kalray.eu>, Samuel Jones <sjones@kalray.eu>, Thomas
+ Costis <tcostis@kalray.eu>, Vincent Chardon
+ <vincent.chardon@elsys-design.com>
+References: <20230103164359.24347-1-ysionneau@kalray.eu>
+ <CAEr6+ECRh_9App18zmcS6FUR81YYhR=n4kGdeZAtQBsdMB55_A@mail.gmail.com>
+From: Yann Sionneau <ysionneau@kalray.eu>
+In-Reply-To: <CAEr6+ECRh_9App18zmcS6FUR81YYhR=n4kGdeZAtQBsdMB55_A@mail.gmail.com>
+X-ALTERMIMEV2_out: done
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230109_051517_438285_B615C155 
-X-CRM114-Status: GOOD (  22.80  )
+X-CRM114-CacheID: sfid-20230109_052124_758407_133BD5FB 
+X-CRM114-Status: GOOD (  18.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,87 +125,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Geert,
-
-Thanks for the feedback.
-
-On Mon, Jan 9, 2023 at 12:15 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
->
-> Hi Prabhakar,
->
-> On Sat, Jan 7, 2023 at 9:47 PM Lad, Prabhakar
-> <prabhakar.csengg@gmail.com> wrote:
-> > On Fri, Jan 6, 2023 at 9:53 PM Conor Dooley <conor@kernel.org> wrote:
-> > > On Fri, Jan 06, 2023 at 06:55:24PM +0000, Prabhakar wrote:
-> > > > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> > > >
-> > > > Add DT binding documentation for L2 cache controller found on RZ/Five SoC.
-> > > >
-> > > > The Renesas RZ/Five microprocessor includes a RISC-V CPU Core (AX45MP
-> > > > Single) from Andes. The AX45MP core has an L2 cache controller, this patch
-> > > > describes the L2 cache block.
-> > > >
-> > > > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> > > > Reviewed-by: Rob Herring <robh@kernel.org>
->
-> > > > --- /dev/null
-> > > > +++ b/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
-> > > > @@ -0,0 +1,81 @@
-> > > > +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> > > > +# Copyright (C) 2022 Renesas Electronics Corp.
-> > > > +%YAML 1.2
-> > > > +---
-> > > > +$id: http://devicetree.org/schemas/cache/andestech,ax45mp-cache.yaml#
-> > > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > > +
-> > > > +title: Andestech AX45MP L2 Cache Controller
-> > > > +
-> > > > +maintainers:
-> > > > +  - Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> > > > +
-> > > > +description:
-> > > > +  A level-2 cache (L2C) is used to improve the system performance by providing
-> > > > +  a large amount of cache line entries and reasonable access delays. The L2C
-> > > > +  is shared between cores, and a non-inclusive non-exclusive policy is used.
-> > > > +
-> > > > +select:
-> > > > +  properties:
-> > > > +    compatible:
-> > > > +      contains:
-> > > > +        enum:
-> > > > +          - andestech,ax45mp-cache
-> > > > +
-> > > > +  required:
-> > > > +    - compatible
-> > > > +
-> > > > +properties:
-> > > > +  compatible:
-> > > > +    items:
-> > > > +      - const: andestech,ax45mp-cache
-> > > > +      - const: cache
-> > >
-> > > You might find value in a specific compatible for your SoC & enforce
-> > > constraints for it. Or you might not & I don't care either way :)
-> > >
-> > Good point actually. Geert what do you think?
->
-> That might be prudent, to cater for the way the standard AX45MP cache
-> block is integrated into the RZ/Five (or any other) SoC.
->
-> Still, in the absence of an SoC-specific compatible value, you can
-> handle integration issues using soc_device_match().
->
-Agreed,  I'll continue with the current DT bindings.
-
-Cheers,
-Prabhakar
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgSmVmZiwKCk9uIDEvNy8yMyAwNzoyNSwgSmVmZiBYaWUgd3JvdGU6Cj4gSGksCj4KPiBPbiBX
+ZWQsIEphbiA0LCAyMDIzIGF0IDE6MDEgQU0gWWFubiBTaW9ubmVhdSA8eXNpb25uZWF1QGthbHJh
+eS5ldT4gd3JvdGU6Cj4+IFtzbmlwXQo+Pgo+PiBBIGt2eCB0b29sY2hhaW4gY2FuIGJlIGJ1aWx0
+IHVzaW5nOgo+PiAjIGluc3RhbGwgZGVwZW5kZW5jaWVzOiB0ZXhpbmZvIGJpc29uIGZsZXggbGli
+Z21wLWRldiBsaWJtcGMtZGV2IGxpYm1wZnItZGV2Cj4+ICQgZ2l0IGNsb25lIGh0dHBzOi8vZ2l0
+aHViLmNvbS9rYWxyYXkvYnVpbGQtc2NyaXB0cwo+PiAkIGNkIGJ1aWxkLXNjcmlwdHMKPj4gJCBz
+b3VyY2UgbGFzdC5yZWZzCj4+ICQgLi9idWlsZC1rdngteGdjYy5zaCBvdXRwdXQKPiBJIHdvdWxk
+IGxpa2UgdG8gYnVpbGQgdGhlIGt2eC14Z2NjIHRvIGNvbXBpbGUgYW5kIHRlc3QgdGhlIGxpbnV4
+Cj4ga2VybmVsLCBidXQgaXQgcmVwb3J0ZWQgYSBjb21waWxlIGVycm9yLgo+IEkgd29uZGVyIHdo
+YXQgdmVyc2lvbiBvZiBnY2MgeW91IGFyZSB1c2luZy4KPgo+IE15IGJ1aWxkIGVudmlyb25tZW50
+Ogo+IFZFUlNJT049IjIwLjA0LjIgTFRTIChGb2NhbCBGb3NzYSkiCj4gZ2NjIHZlcnNpb24gOS4z
+LjAgKFVidW50dSA5LjMuMC0xN3VidW50dTF+MjAuMDQpCj4KPgo+IENvbXBpbGUgZXJyb3I6Cj4g
+JCAuL2J1aWxkLWt2eC14Z2NjLnNoIG91dHB1dAo+Cj4gLi4vLi4vYmludXRpbHMvbGliaWJlcnR5
+L2ZpYmhlYXAuYzogSW4gZnVuY3Rpb24g4oCYZmliaGVhcF9yZXBsYWNlX2tleV9kYXRh4oCZOgo+
+IC4uLy4uL2JpbnV0aWxzL2xpYmliZXJ0eS9maWJoZWFwLmM6Mzg6MjQ6IGVycm9yOiDigJhMT05H
+X01JTuKAmSB1bmRlY2xhcmVkCj4gKGZpcnN0IHVzZSBpbiB0aGlzIGZ1bmN0aW9uKQo+ICAgICAz
+OCB8ICNkZWZpbmUgRklCSEVBUEtFWV9NSU4gTE9OR19NSU4KPiAgICAgICAgfCAgICAgICAgICAg
+ICAgICAgICAgICAgIF5+fn5+fn5+Cj4gW3NuaXBdCgpXaGF0IFNIQTEgb2YgaHR0cHM6Ly9naXRo
+dWIuY29tL2thbHJheS9idWlsZC1zY3JpcHRzIGFyZSB5b3UgdXNpbmc/CgpXZSBhcmUgYnVpbGRp
+bmcgb3VyIHRvb2xjaGFpbiBvbiBVYnVudHUgMTguMDQgLyAyMC4wNCBhbmQgMjIuMDQgd2l0aG91
+dCAKaXNzdWVzLCBJIGRvbid0IHVuZGVyc3RhbmQgd2h5IGl0IGRvZXMgbm90IHdvcmsgZm9yIHlv
+dSwgYWx0aG91Z2ggaW5kZWVkIAp0aGUgZXJyb3IgbG9nIHlvdSBhcmUgaGF2aW5nIHBvcHMgb3V0
+IG9uIG15IHNlYXJjaCBlbmdpbmUgYW5kIHNlZW1zIHRvIApiZSBzb21lIHdlbGwga25vd24gaXNz
+dWUuCgpJZiB0aGUgYnVpbGQtc2NyaXB0IGRvZXMgbm90IHdvcmsgZm9yIHlvdSwgeW91IGNhbiBz
+dGlsbCB1c2UgdGhlIApwcmUtYnVpbHQgdG9vbGNoYWlucyBnZW5lcmF0ZWQgYnkgdGhlIEdpdEh1
+YiBhdXRvbWF0ZWQgYWN0aW9uczogCmh0dHBzOi8vZ2l0aHViLmNvbS9rYWxyYXkvYnVpbGQtc2Ny
+aXB0cy9yZWxlYXNlcy90YWcvdjQuMTEuMSAoImxhdGVzdCIgCm1lYW5zIDIyLjA0KQoKSSBob3Bl
+IGl0IHdpbGwgd29yayBmb3IgeW91LgoKUmVnYXJkcywKCi0tIAoKWWFubgoKCgoKCgpfX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
+aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
+cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
