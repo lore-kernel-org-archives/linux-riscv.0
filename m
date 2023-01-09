@@ -4,84 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98DA2C5479D
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Jan 2023 21:41:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70F5EC5479D
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Jan 2023 21:51:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Uvc7emeThJsG0bvAu/IuF8bncthsciMBG/8Xlt6Jbc4=; b=vzvlF5e5JnqSsW
-	fKd9jfsdeTVQoFBHJhwt/wcqashTlmhYr1N/P1gpyKucGqtCLBu0fixTIUB6buhTvAZhcc4+AGQN6
-	mGoG/1VZGTedLuTs0XznGm/TlzYQEeaONptxCdPWvb/rEe4xFxbxmhHfP0wVOmnYclDzgnkVi/AW2
-	ZaWbD0mtYsRs3fgQwIloQTPWIYmP8ALMzrCTA099bERrvxib+lBaznE0P9wpwH6XDN0dVm4eW/91T
-	I7xB3fcwgO2wiGoh8yCAi59AhgPY172kC2hpVIatVAViQJu74vNka+pClFnjXBqu9BWIPXih3PS5J
-	N+eSS1mIu/U1rXg1yZkg==;
+	List-Owner; bh=N7PijODGiS8qfby3Wv4f22yU5s1zC064esiCBS2V+uc=; b=mRarUsNg8r1hJw
+	r+W1tu/1AYQhZYCawV7iFtOqkrYyNWlGtJneQzxlB/g5mQEAFSvquVL3J8x7KAB3UXKjUdXurRvO1
+	hj7tWXThtbxvjnghDLbn3k+Z1e59ZYMf5HInzrzR6plctRHVqNbFlu4ZUq7Z2vkCkqPp63ITOnUE2
+	3LPe2ZeV4YJAhFBk3HWI5qHoFWzznGH+3bTb1kL6k2a7gPbf2S/cO9zu6OLfPxxC5dy65TWXrqQT5
+	wUTchaupKrSaBvz4HSea3YUjH5Vvc82csfmJOW9ZeSDfPjr2hWwBvgVVffVR9ebqY6pcH3ySBhZYD
+	T3LxJVPLAH9z7XIveqJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pEztb-004IL8-3d; Mon, 09 Jan 2023 21:41:31 +0000
-Received: from mail-vs1-xe31.google.com ([2607:f8b0:4864:20::e31])
+	id 1pF02u-004Lor-QC; Mon, 09 Jan 2023 21:51:08 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pEzhi-004DqU-89; Mon, 09 Jan 2023 21:29:16 +0000
-Received: by mail-vs1-xe31.google.com with SMTP id v127so5836068vsb.12;
-        Mon, 09 Jan 2023 13:29:08 -0800 (PST)
+	id 1pEzom-004GRx-50
+	for linux-riscv@lists.infradead.org; Mon, 09 Jan 2023 21:36:34 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d15so11026664pls.6
+        for <linux-riscv@lists.infradead.org>; Mon, 09 Jan 2023 13:36:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
+        d=atishpatra.org; s=google;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=unEz8Po80qyvgT7TDUJc75ZwwHShIf6/y2xqGnG0MLw=;
-        b=iCotF84fyU6WecJRaYkXs3vK3d7x9b8Nj+HbTmHBstmHAOMZ6wu+fHC/f2BCes33RA
-         5Fex5jkaX4wZyn1EVHLh4oXxBe3d0BIv3ScUHRW8XjHZwT6wW1BIxT9WOy2NCE0uv+xi
-         PLlTpj1j71eEzTVt4GNqWdM4k/zlutRaSDhJ+huyga2k/sVU947d+CQcmJ0o2Kn/wWrh
-         N3ZH599DUjSeyBwoo+dD7R3dzvW99iMSiiHe5FTO+O6oNTGlVY2PLme/QJwE/M+iFpJZ
-         ou86QYiECR/qaRGKBBSprOValMlbWr0mGDwDFYrVmap0Q30KY9DkgX3d+50qdeKqpyZB
-         YkBg==
+        bh=XQWJ6Cr4IImJL6zlxqosQINLILCXhpE6Qg/8UMNu6m4=;
+        b=M9R9bE9rVQWpi71VTT8izHtCpN0eyRyeYdZK/eCdyXJtkqhTwVbhK/iVBschylObSm
+         PnmzFdmE41k3PMDKxveFDOcC7/QB4cGyGIXLeR8hpJVFzIgzTzmn0DlF6kG2BccsV/kv
+         UWtxlY0xHabBPyiUfwByOsz2dVez1SdUmS7tM=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=unEz8Po80qyvgT7TDUJc75ZwwHShIf6/y2xqGnG0MLw=;
-        b=D+WcvHnEhM1bprcq2SVtzkdJikxuWVLvMYODKTCceTJiJwfEqiH6sgMknSTafQV4qo
-         dG+vzyA9kho1ufl43PxKoNrTh4F3b0pOsuX9uDyaLiMilTx5MxWpIDB9fn/cR6ENgpp3
-         XaCpmLwdouQKgMOhcExE95i/YG9/3bN7s0CAn6k46NQBAqXOUbQlfeECrm58GPwpXSX4
-         YEHotqWSC8FAE17EJiqVx2YSOrjulKS9W4wSlczBfRr+dlfkZZmWjz5H4q9xaeDkAhIf
-         B2QTGD7bEo1Wv9tQLY48luOKT/b1BnD5ndaC6jVXA0sHA8Tbb3w+4ZQ1V7cCs/vKzK5x
-         ONhw==
-X-Gm-Message-State: AFqh2kruc6qnpGRZFPfnFJ74SeW5RgoPJiXjRjCOvBFx+beudrtrQ8vN
-	Cj7+d1paWmvypYz14cq+payczkB2EBM2MHYG68A=
-X-Google-Smtp-Source: AMrXdXsg6Ko/alWOI1aCE8iGkx65RtschN8kfdrjibAvlZRKWqyjgef2aFot9xS0Y4dCZHNtV0kQ5ZBQglrZ6/auzas=
-X-Received: by 2002:a67:5e01:0:b0:3ce:d776:30b6 with SMTP id
- s1-20020a675e01000000b003ced77630b6mr3170503vsb.33.1673299747173; Mon, 09 Jan
- 2023 13:29:07 -0800 (PST)
+        bh=XQWJ6Cr4IImJL6zlxqosQINLILCXhpE6Qg/8UMNu6m4=;
+        b=ThUMNTjWdqcqUTOLEb1KCROeQit91sLDc4E1mwwZ4L5fec0Zn6AnBeg4mJwxGVqmQm
+         korJFYJ5sX7K7oo4FlKYFWrwRFB5J7Jg0IrRWuGxjuLsyhS7azbE2jtiVOHkZWBJZKuW
+         GLwRb+cs9GB2UHKAvbaMQWo4Z8xuzg7umeoTA2mO4zV2Wg86mldlrWcMQTGXKH7+1PlN
+         O2Z8t/f6NADix2PgFuGCrAuDV40vSSnoz4JqTHYmm3yDXvkoXzBS6HKIE+/MXCVXFwW9
+         9r03/zrmt5FvNOmV9KrRxncTTRiuXw5yMI90l8BD8jeJsVE16tcOA5Lj51DCGZAbGZ3Y
+         wfRQ==
+X-Gm-Message-State: AFqh2kqECS2Tne1QXfa5WNg8sUDyU4x/QYfqbdSrWfK/+fPJkoNNC9yz
+	MftZT5bQfewZxHK4sdx11coiNlnQhWEKUYikop6o
+X-Google-Smtp-Source: AMrXdXvWWUsWUWXZOJID137JCYPjYorrUW7Yb0R8SUea6RrsFVbpKQXNtb2bAvCBWVga2pBRkAsIUfAXCp8kbbOkedw=
+X-Received: by 2002:a17:902:d645:b0:193:150e:a8ef with SMTP id
+ y5-20020a170902d64500b00193150ea8efmr1222338plh.71.1673300190704; Mon, 09 Jan
+ 2023 13:36:30 -0800 (PST)
 MIME-Version: 1.0
-References: <20221117082648.47526-1-yangyicong@huawei.com> <20221117082648.47526-3-yangyicong@huawei.com>
- <Y7cToj5mWd1ZbMyQ@arm.com> <CAGsJ_4yC0i6MYwvosRSrdQ1iT7n88ypmK3aOQJkuusqNKtddtg@mail.gmail.com>
- <Y7xMhPTAwcUT4O6b@arm.com>
-In-Reply-To: <Y7xMhPTAwcUT4O6b@arm.com>
-From: Barry Song <21cnbao@gmail.com>
-Date: Tue, 10 Jan 2023 05:28:55 +0800
-Message-ID: <CAGsJ_4zrff5vtS0WP4Q8VH8vhBma8bzMqyY5c0mxjQ_qjFbO-Q@mail.gmail.com>
-Subject: Re: [PATCH v7 2/2] arm64: support batched/deferred tlb shootdown
- during page reclamation
-To: Catalin Marinas <catalin.marinas@arm.com>, Nadav Amit <namit@vmware.com>, 
-	Mel Gorman <mgorman@suse.de>
-Cc: Yicong Yang <yangyicong@huawei.com>, akpm@linux-foundation.org, linux-mm@kvack.org, 
-	linux-arm-kernel@lists.infradead.org, x86@kernel.org, will@kernel.org, 
-	anshuman.khandual@arm.com, linux-doc@vger.kernel.org, corbet@lwn.net, 
-	peterz@infradead.org, arnd@arndb.de, punit.agrawal@bytedance.com, 
-	linux-kernel@vger.kernel.org, darren@os.amperecomputing.com, 
-	yangyicong@hisilicon.com, huzhanyuan@oppo.com, lipeifeng@oppo.com, 
-	zhangshiming@oppo.com, guojian@oppo.com, realmz6@gmail.com, 
-	linux-mips@vger.kernel.org, openrisc@lists.librecores.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org, wangkefeng.wang@huawei.com, 
-	xhao@linux.alibaba.com, prime.zeng@hisilicon.com, 
-	Barry Song <v-songbaohua@oppo.com>
+References: <mhng-72f383f6-a85f-4587-9fa6-f85fb9f27ec8@palmer-ri-x1c9a>
+ <87359wpy9y.fsf@meer.lwn.net> <87y1rooje8.fsf@meer.lwn.net> <Y4srdBCmYJFx+ypW@spud>
+In-Reply-To: <Y4srdBCmYJFx+ypW@spud>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Mon, 9 Jan 2023 13:36:19 -0800
+Message-ID: <CAOnJCU+DhxcPjgftMspWAzhsms_8sXnGS++vbp1iJDB0XcOxLQ@mail.gmail.com>
+Subject: Re: [PATCH] Documentation: riscv: note that counter access is part of
+ the uABI
+To: Conor Dooley <conor@kernel.org>
+Cc: Jonathan Corbet <corbet@lwn.net>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Conor Dooley <conor.dooley@microchip.com>, linux-doc@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230109_132915_106591_B6D0D06A 
-X-CRM114-Status: GOOD (  43.76  )
+X-CRM114-CacheID: sfid-20230109_133632_531683_4CD7937F 
+X-CRM114-Status: GOOD (  25.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,118 +85,87 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 10, 2023 at 1:19 AM Catalin Marinas <catalin.marinas@arm.com> wrote:
+On Sat, Dec 3, 2022 at 2:57 AM Conor Dooley <conor@kernel.org> wrote:
 >
-> On Sun, Jan 08, 2023 at 06:48:41PM +0800, Barry Song wrote:
-> > On Fri, Jan 6, 2023 at 2:15 AM Catalin Marinas <catalin.marinas@arm.com> wrote:
-> > > On Thu, Nov 17, 2022 at 04:26:48PM +0800, Yicong Yang wrote:
-> > > > It is tested on 4,8,128 CPU platforms and shows to be beneficial on
-> > > > large systems but may not have improvement on small systems like on
-> > > > a 4 CPU platform. So make ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH depends
-> > > > on CONFIG_EXPERT for this stage and make this disabled on systems
-> > > > with less than 8 CPUs. User can modify this threshold according to
-> > > > their own platforms by CONFIG_NR_CPUS_FOR_BATCHED_TLB.
+> On Sat, Dec 03, 2022 at 03:45:35AM -0700, Jonathan Corbet wrote:
+> > Jonathan Corbet <corbet@lwn.net> writes:
+> >
+> > > Palmer Dabbelt <palmer@dabbelt.com> writes:
+> > >> Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
+> > >> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+> > >>
+> > >> I think I merged the last one of these, but if the doc folks pick it up
+> > >> that's fine with me.  Otherwise I'll take it when it comes back around,
+> > >> so folks have time to take a look.
 > > >
-> > > What's the overhead of such batching on systems with 4 or fewer CPUs? If
-> > > it isn't noticeable, I'd rather have it always on than some number
-> > > chosen on whichever SoC you tested.
+> > > "Doc folks" applied it, thanks. :)
 > >
-> > On the one hand, tlb flush is cheap on a small system. so batching tlb flush
-> > helps very minorly.
->
-> Yes, it probably won't help on small systems but I don't like config
-> options choosing the threshold, which may be different from system to
-> system even if they have the same number of CPUs. A run-time tunable
-> would be a better option.
->
-> > On the other hand, since we have batched the tlb flush, new PTEs might be
-> > invisible to others before the final broadcast is done and Ack-ed.
->
-> The new PTEs could indeed be invisible at the TLB level but not at the
-> memory (page table) level since this is done under the PTL IIUC.
->
-> > thus, there
-> > is a risk someone else might do mprotect or similar things  on those deferred
-> > pages which will ask for read-modify-write on those deferred PTEs.
->
-> And this should be fine, we have things like the PTL in place for the
-> actual memory access to the page table.
->
-> > in this
-> > case, mm will do an explicit flush by flush_tlb_batched_pending which is
-> > not required if tlb flush is not deferred.
->
-> I don't fully understand why it's needed, or at least why it would be
-> needed on arm64. At the end of an mprotect(), we have the final PTEs in
-> place and we just need to issue a TLBI for that range.
-> change_pte_range() for example has a tlb_flush_pte_range() if the PTE
-> was present and that won't be done lazily. If there are other TLBIs
-> pending for the same range, they'll be done later though likely
-> unnecessarily but still cheaper than issuing a flush_tlb_mm().
-
-Thanks! I'd like to ask for some comments from Nadav and Mel from the x86 side.
-Revisiting the code of flush_tlb_batched_pending shows we still have races even
-under PTL.
-
-/*
- * Reclaim unmaps pages under the PTL but do not flush the TLB prior to
- * releasing the PTL if TLB flushes are batched. It's possible for a parallel
- * operation such as mprotect or munmap to race between reclaim unmapping
- * the page and flushing the page. If this race occurs, it potentially allows
- * access to data via a stale TLB entry. Tracking all mm's that have TLB
- * batching in flight would be expensive during reclaim so instead track
- * whether TLB batching occurred in the past and if so then do a flush here
- * if required. This will cost one additional flush per reclaim cycle paid
- * by the first operation at risk such as mprotect and mumap.
- *
- * This must be called under the PTL so that an access to tlb_flush_batched
- * that is potentially a "reclaim vs mprotect/munmap/etc" race will synchronise
- * via the PTL.
- */
-void flush_tlb_batched_pending(struct mm_struct *mm)
-{
-}
-
-According to Catalin's comment, it seems over-cautious since we can make sure
-people see updated TLB after mprotect and munmap are done as they have tlb
-flush.  We can also make sure mprotect see updated "memory" of PTEs from
-reclamation though pte is not visible in TLB level.
-
-Hi Mel, Nadav, would you please help clarify the exact sequence of how this race
-is going to happen?
-
->
-> > void flush_tlb_batched_pending(struct mm_struct *mm)
-> > {
-> >        int batch = atomic_read(&mm->tlb_flush_batched);
-> >        int pending = batch & TLB_FLUSH_BATCH_PENDING_MASK;
-> >        int flushed = batch >> TLB_FLUSH_BATCH_FLUSHED_SHIFT;
+> > Actually, I take that back.  I'd missed this part from the patch:
 > >
-> >        if (pending != flushed) {
-> >                flush_tlb_mm(mm);
-> >         /*
-> >          * If the new TLB flushing is pending during flushing, leave
-> >          * mm->tlb_flush_batched as is, to avoid losing flushing.
-> >         */
-> >       atomic_cmpxchg(&mm->tlb_flush_batched, batch,
-> >            pending | (pending << TLB_FLUSH_BATCH_FLUSHED_SHIFT));
-> >      }
-> > }
+> > > Based on an, as yet, unsent v2 of my other uABI changes. I don't expect
+> > > it to be applicable, just getting a patch into patchwork while I don't
+> > > forget about this.
+> >
+> > ...but b4 happily picked up a couple of *other* patches from this thread
+> > and applied them instead; I've now undone that.  Sorry for the noise.
 >
-> I guess this works on x86 better as it avoids the IPIs if this flush
-> already happened. But on arm64 we already issued the TLBI, we just
-> didn't wait for it to complete via a DSB.
+> Huh, I accidentally put an "in-reply-to" header on this patch. I have
+> been updating some of my submission helper scripts & I must have left
+> the field populated from sending another set by accident:
+> https://lore.kernel.org/linux-riscv/20221129144742.2935581-1-conor.dooley@microchip.com/
 >
-> > I believe Anshuman has contributed many points on this in those previous
-> > discussions.
->
-> Yeah, I should re-read the old threads.
->
-> --
-> Catalin
 
-Thanks
-Barry
+I don't see the patch upstream. Is this patch merged already ?
+If not, please hold on merging this for now. We had some discussions
+around this in the perf community.
+Here is the thread
+https://lore.kernel.org/lkml/Y7gN32eHJNyWBvVD@FVFF77S0Q05N/T/
+
+TLDR; Even though x86 allows unrestricted access through rdpmc (not
+default), it still reads zero unless a privileged root user modifies
+the MSR interface exposed by the kernel.
+
+Quoting PeterZ
+
+"RDPMC is only useful if you read counters you own on yourself -- IOW
+selfmonitoring, using the interface outlined in uapi/linux/perf_events.h
+near struct perf_event_mmap_page.
+
+Any other usage -- you get to keep the pieces."
+
+"Anyway, given RISC-V being a very young platform, I would try really
+*really* *REALLY* hard to stomp on these applications and get them to
+change in order to reclaim the PMU usage."
+
+We need to decide what's the best approach for RISC-V. The current
+text in uABI will let users assume that
+cycle/instret can be read without any issues which is wrong.
+
+There are few options what we can do for RISC-V:
+
+1. We can trap n emulate and report 0 always as suggested by Mark in
+that thread.
+2. Continue to allow the user to read the counters directly but
+expects the garbage value depending on the other activities
+on the system. Hopefully, folks will fix their application by that time.
+
+Once we have the procfs interface, we enforce the behavior by breaking
+the application.
+
+In either case, the uABI needs to be updated accordingly.
+
+> Apologies!
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+
+
+--
+Regards,
+Atish
 
 _______________________________________________
 linux-riscv mailing list
