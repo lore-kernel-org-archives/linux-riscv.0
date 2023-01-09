@@ -4,80 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACB1CC5479D
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Jan 2023 12:16:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A709BC5479D
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Jan 2023 12:59:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
+	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GTqvXbiPtN/+Is0rEf2CemdqXSndx8WrBNQeIxaad3w=; b=2ibj0DxLi/q7cM
-	tTMh8ASp6pgzIgSxJEFzuOLvnv9KH3UgTx03MJ/hvZtLatOgGJC6oF2dgzI6l63fqXEaxJBJ+wJuc
-	V8FwZSbXzqS1qa4kD9oLsd5yJlKyHZH2Ru6uyGQ4yFQbkNLLwkqJGMXmSEgOFbEzofkBkpxliv6M+
-	CMZlxeWxFcBnSs1JRyykj9IEE2TugtLtNz8Cxlwmb6MWFY8nkilpoo2tDRYGsEzmXeSWyPf8Qc+sH
-	QvquMmzfKwbOuyrVLoCU8TVFOjms4sP8XSiG6/ONmYHJSyqrMkBvCx8+UvKAqwU8Oy5J6WWM7d+Pr
-	ywcqk8u4kB8g8V/FwdyA==;
+	List-Owner; bh=f1YstUCw8Kr7xiPxa3RvIm7e/B+689FSkQeHQ6YKqvI=; b=llgRtvoOPbppts
+	m6YhM4dpNsG31Ivg01/MwvUQGRQiccCJGqEmCa9VD3gWQ3dcYjmAruCEsir+iyEy5AfIzVyDd3aiC
+	zAraAMWMV+OuoAjjGaqn2KDV26fS0sl/hl3oNtfvXTL2SKJL6nn03q+4DMDev+CpEJlCdjXXdqBKA
+	vo841PmPxjkJozJkDMlX8Q84lhdYgMCMUQuMjP1L6h0EKJkaqz3A4Jg82gz2+2JUJmaFrXzR4jTau
+	8D6Nx9AOn77MZhpCiClFVUYBwS+yPs71A679wEAUb8WmUBVubPYaNtDYVZOCQwFA/HiIUzNKQj3Hz
+	27B3wQRVVQyDwaOodixg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pEr4J-001B6Y-BP; Mon, 09 Jan 2023 12:15:59 +0000
-Received: from mail-vk1-f178.google.com ([209.85.221.178])
+	id 1pErkj-001OQ8-H8; Mon, 09 Jan 2023 12:59:49 +0000
+Received: from wout1-smtp.messagingengine.com ([64.147.123.24])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pEr4F-001B4j-Ji
-	for linux-riscv@lists.infradead.org; Mon, 09 Jan 2023 12:15:57 +0000
-Received: by mail-vk1-f178.google.com with SMTP id l185so610909vke.2
-        for <linux-riscv@lists.infradead.org>; Mon, 09 Jan 2023 04:15:54 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=/v56FuzTOF65NQx86r40RWrRUL/Au3qdgwGh4dAhX/Q=;
-        b=1i4EASqT765p70JRzBiM8fr1FrGgra1/LEpi1fyyA8ABxE7m2Sv38yufvBNTRq5925
-         /NF+JJLoZkuKGA8j5MENyZ7hwI2idPWBN3YDm6l0y9wurcO0A0rD//5zyLzPluW73w/q
-         38tRMFEFjdufwffAMmjSxr9ZVOtqw9ZE2DPRVodzqC2RoSWiwnzsqgc5jEINlGDozfe4
-         jT1F24/+fStFxTwph3SKRX/rmr+MkWc/6TaIvn8OFKnDXm1m2OklQFyaYcAp6MR1w3Af
-         yWtDLpjq4zQV/RhqphnsrZq2w/Ol9J9H1OQ21ZDcsfDoR6yFwNaRCaTWGuALcVBE2cQX
-         S2fg==
-X-Gm-Message-State: AFqh2kq6/bnCnQ0+vp5cO6DFfovbtNDH75vBU7heG3nrEbOrqUcKRbwj
-	TtgQ1HkQfp5Qolg+ZdijLttzmHVgDhPX8A==
-X-Google-Smtp-Source: AMrXdXvGW1gmGiEW4kFdKYlC+KyRBXcNmu2xEvBh3UXV5df3gYj6WreemK0VCPU7GdVyPvDvNxSBcg==
-X-Received: by 2002:a05:6122:c4c:b0:3d5:ecf7:71ea with SMTP id i12-20020a0561220c4c00b003d5ecf771eamr11118497vkr.14.1673266552972;
-        Mon, 09 Jan 2023 04:15:52 -0800 (PST)
-Received: from mail-yw1-f169.google.com (mail-yw1-f169.google.com. [209.85.128.169])
-        by smtp.gmail.com with ESMTPSA id br31-20020a05620a461f00b006fa2cc1b0fbsm5222121qkb.11.2023.01.09.04.15.52
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 09 Jan 2023 04:15:52 -0800 (PST)
-Received: by mail-yw1-f169.google.com with SMTP id 00721157ae682-4c15c4fc8ccso110174307b3.4
-        for <linux-riscv@lists.infradead.org>; Mon, 09 Jan 2023 04:15:52 -0800 (PST)
-X-Received: by 2002:a05:690c:c02:b0:48d:1334:6e38 with SMTP id
- cl2-20020a05690c0c0200b0048d13346e38mr4982292ywb.316.1673266551917; Mon, 09
- Jan 2023 04:15:51 -0800 (PST)
-MIME-Version: 1.0
+	id 1pErkf-001ONF-P9
+	for linux-riscv@lists.infradead.org; Mon, 09 Jan 2023 12:59:48 +0000
+Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
+	by mailout.west.internal (Postfix) with ESMTP id 732823200900;
+	Mon,  9 Jan 2023 07:59:39 -0500 (EST)
+Received: from imap51 ([10.202.2.101])
+  by compute6.internal (MEProxy); Mon, 09 Jan 2023 07:59:41 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-type:date:date:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:sender:subject
+	:subject:to:to; s=fm2; t=1673269179; x=1673355579; bh=QHyVDTSeBQ
+	Usc679p5SSBNeodDyOr47mIwbZVEkPd4g=; b=o4U8vEUBt5mELqQoEclx4o57G8
+	c6NtloZo+fIDDvqhu76woxJwlxAA5hK+qXOq9HCqyEGUIbdMZdSkCEl2MQH9qlYR
+	Q10f2+t5J+TfFPEsqHSPHhQpX7D5jE8Ui0HGGKhEi5EoLDR84BFetU/4Gw4jD6An
+	gGzf4n6fsVzbn5RVE+zHAzXGcfX0kG5Rtb42tBcug4k4I+hZ7fQ4QaJmpV7bsa20
+	ON0flyNcXfJxXiBp1QSxNrANS5jl+ewa0j5mWjjyA5UuhOvNRc0cMcZc1PWXyCTJ
+	xF+8k2rxHksQ/o3Dk9uA4dM8V6fkeKkVKYNMibpl1hFKw4lwYow6904NA1vw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:date:date:feedback-id
+	:feedback-id:from:from:in-reply-to:in-reply-to:message-id
+	:mime-version:references:reply-to:sender:subject:subject:to:to
+	:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm3; t=1673269179; x=1673355579; bh=QHyVDTSeBQUsc679p5SSBNeodDyO
+	r47mIwbZVEkPd4g=; b=msd59zkgkATHCZWq0Fg/AW17cXKjoj+KNdUYRUcomfAu
+	qOT48jV+a8Cx1m+WoVDVCKLjlDghAkYjRqX7cy12kwmhFhpLf7wt1Q0uVzfeTS0I
+	Am7Htw6JHQnsbTI4epRZn9Wz2qp3jSoJ4+nA3T6n6BZV+lvS5Ni/PvoWBWrQtzD/
+	DP7KrchYaq8yyebf1vsG9fdoO6MLfDCB7nOax5wVp7fu6u+Vnup4q64IcFEYi726
+	EGhNwZc1rAsc/uCxMT+/euXvhHFIl/2vbkzbD5bRamxLj7tS2VTAcYvhw4zVqSGw
+	D5I+HaJRqK/0rqdc7rQMp8l0brW6JBEJtCDnbo9FfQ==
+X-ME-Sender: <xms:uA-8Y6lLnlIc14O2ih-LfqHwT8g5bydabYMrUxruSvB4ET4evCQpSg>
+    <xme:uA-8Yx0pIvsaFYFjgpRZ38exYx1rPDq_by9S3FquiiPRxVoBaEX3a5rizjo1xRhbJ
+    s9PU1rwmPhblYu1pnY>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrkeeigdegvdcutefuodetggdotefrodftvf
+    curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
+    uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
+    fjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdetrhhn
+    ugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtth
+    gvrhhnpeevhfffledtgeehfeffhfdtgedvheejtdfgkeeuvefgudffteettdekkeeufeeh
+    udenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrhfuihiivgeptd
+    enucfrrghrrghmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvg
+X-ME-Proxy: <xmx:uA-8Y4rnl6JJOpyKNg3SM4ka7TBNmJBnokvtaJW79uaemQ6-G0wecw>
+    <xmx:uA-8Y-n9zhjmUG4Py202QCNMwapdpuwFJW_-hHuScNuugahoyZFmqQ>
+    <xmx:uA-8Y402UeUcdP8DrfTqtJeIoFqCL1XiPxYB0keY-gm6zRrZV-uKBQ>
+    <xmx:uw-8YyWWJX4csRKHR1p9dWMu88JOAfiwZx3JGY9OizVxtkEGRmTydg>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+	id BCAFBB60086; Mon,  9 Jan 2023 07:59:36 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.7.0-alpha0-1185-g841157300a-fm-20221208.002-g84115730
+Mime-Version: 1.0
+Message-Id: <45d6eb0c-cbe3-4a83-aa12-3483638473ae@app.fastmail.com>
+In-Reply-To:  <CA+V-a8u6jvR=EDeE3mAbDr6-06NoBJ7mwmi_Y9qVyHT+aC-9rg@mail.gmail.com>
 References: <20230106185526.260163-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20230106185526.260163-5-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <Y7iYZqKcoRycsoTg@spud> <CA+V-a8uBDx42o12UUwP=bBjeGzJJSP=jPcQr0xgkvkkoA7_vFA@mail.gmail.com>
-In-Reply-To: <CA+V-a8uBDx42o12UUwP=bBjeGzJJSP=jPcQr0xgkvkkoA7_vFA@mail.gmail.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 9 Jan 2023 13:15:39 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdW7bfJXo4FujuwEOOzNsdEWB60VYurdFdbO8GwTMwb5yA@mail.gmail.com>
-Message-ID: <CAMuHMdW7bfJXo4FujuwEOOzNsdEWB60VYurdFdbO8GwTMwb5yA@mail.gmail.com>
-Subject: Re: [PATCH v6 4/6] dt-bindings: cache: r9a07g043f-l2-cache: Add DT
- binding documentation for L2 cache controller
-To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Cc: Conor Dooley <conor@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Conor Dooley <conor.dooley@microchip.com>, Heiko Stuebner <heiko@sntech.de>, 
-	Guo Ren <guoren@kernel.org>, Andrew Jones <ajones@ventanamicro.com>, 
-	Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>, 
-	linux-riscv@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
-	Rob Herring <robh@kernel.org>
+ <20230106185526.260163-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <6f7d06ef-d74d-4dfc-9b77-6ae83e0d7816@app.fastmail.com>
+ <CA+V-a8uF1s+dwKC_+apL+CBiHN8w_J0n_G2dqsgiAUZVEibfqg@mail.gmail.com>
+ <9017adf0-acd4-4c43-8aea-3579b214b477@app.fastmail.com>
+ <CA+V-a8u6jvR=EDeE3mAbDr6-06NoBJ7mwmi_Y9qVyHT+aC-9rg@mail.gmail.com>
+Date: Mon, 09 Jan 2023 13:59:12 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: Prabhakar <prabhakar.csengg@gmail.com>
+Cc: "Conor.Dooley" <conor.dooley@microchip.com>,
+ "Geert Uytterhoeven" <geert+renesas@glider.be>,
+ =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, guoren <guoren@kernel.org>,
+ "Andrew Jones" <ajones@ventanamicro.com>,
+ "Paul Walmsley" <paul.walmsley@sifive.com>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
+ "open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
+ "open list" <linux-kernel@vger.kernel.org>, devicetree@vger.kernel.org,
+ Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
+ "Lad, Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ "Philipp Tomsich" <philipp.tomsich@vrull.eu>,
+ "Nathan Chancellor" <nathan@kernel.org>, "Atish Patra" <atishp@rivosinc.com>,
+ "Anup Patel" <apatel@ventanamicro.com>,
+ "Tsukasa OI" <research_trasio@irq.a4lg.com>,
+ "Jisheng Zhang" <jszhang@kernel.org>,
+ "Mayuresh Chitale" <mchitale@ventanamicro.com>,
+ "Christoph Hellwig" <hch@lst.de>, "Will Deacon" <will@kernel.org>
+Subject: Re: [RFC PATCH v6 1/6] riscv: mm: dma-noncoherent: Switch using function
+ pointers for cache management
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230109_041555_684972_60F53E24 
-X-CRM114-Status: GOOD (  27.96  )
+X-CRM114-CacheID: sfid-20230109_045946_142236_56BBADC2 
+X-CRM114-Status: GOOD (  19.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,80 +122,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Prabhakar,
+On Mon, Jan 9, 2023, at 13:03, Lad, Prabhakar wrote:
+> On Sun, Jan 8, 2023 at 12:08 AM Arnd Bergmann <arnd@arndb.de> wrote:
+>> >> > +struct riscv_cache_ops {
+>> >> > +     void (*clean_range)(unsigned long addr, unsigned long size);
+>> >> > +     void (*inv_range)(unsigned long addr, unsigned long size);
+>> >> > +     void (*flush_range)(unsigned long addr, unsigned long size);
+>> >> > +     void (*riscv_dma_noncoherent_cmo_ops)(void *vaddr, size_t size,
+>> >> > +                                           enum dma_data_direction dir,
+>> >> > +                                           enum dma_noncoherent_ops ops);
+>> >> > +};
+>> >>
+>> >> I don't quite see how the fourth operation is used here.
+>> >> Are there cache controllers that need something beyond
+>> >> clean/inv/flush?
+>> >>
+>> > This is for platforms that dont follow standard cache operations (like
+>> > done in patch 5/6) and there drivers decide on the operations
+>> > depending on the ops and dir.
+>>
+>> My feeling is that the set of operations that get called should
+>> not depend on the cache controller but at best the CPU. I tried to
+>> enumerate how zicbom and ax45 differ here, and how that compares
+>> to other architectures:
+>>
+>>                   zicbom      ax45,mips,arc      arm           arm64
+>> fromdevice      clean/flush   inval/inval   inval/inval   clean/inval
+>> todevice        clean/-       clean/-       clean/-       clean/-
+>> bidi            flush/flush   flush/inval   clean/inval   clean/inval
+>>
+>> So everyone does the same operation for DMA_TO_DEVICE, but
+>> they differ in the DMA_FROM_DEVICE handling, for reasons I
+>> don't quite see:
+>>
+>> Your ax45 code does the same as arc and mips. arm and
+>> arm64 skip invalidating the cache before bidi mappings,
+>> but arm has a FIXME comment about that. arm64 does a
+>> 'clean' instead of 'inval' when mapping a fromdevice
+>> page, which seems valid but slower than necessary.
+>>
+>> Could the zicbom operations be changed to do the same
+>> things as the ax45/mips/arc ones, or are there specific
+>> details in the zicbom spec that require this?
+>>
+> I'll let the RISC-V experts respond here.
 
-On Sat, Jan 7, 2023 at 9:47 PM Lad, Prabhakar
-<prabhakar.csengg@gmail.com> wrote:
-> On Fri, Jan 6, 2023 at 9:53 PM Conor Dooley <conor@kernel.org> wrote:
-> > On Fri, Jan 06, 2023 at 06:55:24PM +0000, Prabhakar wrote:
-> > > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> > >
-> > > Add DT binding documentation for L2 cache controller found on RZ/Five SoC.
-> > >
-> > > The Renesas RZ/Five microprocessor includes a RISC-V CPU Core (AX45MP
-> > > Single) from Andes. The AX45MP core has an L2 cache controller, this patch
-> > > describes the L2 cache block.
-> > >
-> > > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> > > Reviewed-by: Rob Herring <robh@kernel.org>
+Adding Christoph Hellwig and Will Deacon to Cc as well.
 
-> > > --- /dev/null
-> > > +++ b/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
-> > > @@ -0,0 +1,81 @@
-> > > +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> > > +# Copyright (C) 2022 Renesas Electronics Corp.
-> > > +%YAML 1.2
-> > > +---
-> > > +$id: http://devicetree.org/schemas/cache/andestech,ax45mp-cache.yaml#
-> > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > +
-> > > +title: Andestech AX45MP L2 Cache Controller
-> > > +
-> > > +maintainers:
-> > > +  - Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> > > +
-> > > +description:
-> > > +  A level-2 cache (L2C) is used to improve the system performance by providing
-> > > +  a large amount of cache line entries and reasonable access delays. The L2C
-> > > +  is shared between cores, and a non-inclusive non-exclusive policy is used.
-> > > +
-> > > +select:
-> > > +  properties:
-> > > +    compatible:
-> > > +      contains:
-> > > +        enum:
-> > > +          - andestech,ax45mp-cache
-> > > +
-> > > +  required:
-> > > +    - compatible
-> > > +
-> > > +properties:
-> > > +  compatible:
-> > > +    items:
-> > > +      - const: andestech,ax45mp-cache
-> > > +      - const: cache
-> >
-> > You might find value in a specific compatible for your SoC & enforce
-> > constraints for it. Or you might not & I don't care either way :)
-> >
-> Good point actually. Geert what do you think?
+I had another look at the arm64 side, which (like the zicbom
+variant) uses 'clean' on dma_sync_single_for_device(DMA_FROM_DEVICE),
+as that has changed not that long ago, see
 
-That might be prudent, to cater for the way the standard AX45MP cache
-block is integrated into the RZ/Five (or any other) SoC.
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c50f11c6196f45c92ca48b16a5071615d4ae0572
 
-Still, in the absence of an SoC-specific compatible value, you can
-handle integration issues using soc_device_match().
+I'm still not sure what the correct set of operations has
+to be, but nothing in that patch description sounds ISA
+or even microarchitecture specific.
 
-Gr{oetje,eeting}s,
-
-                        Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+    Arnd
 
 _______________________________________________
 linux-riscv mailing list
