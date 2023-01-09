@@ -4,63 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89094C54EBD
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Jan 2023 17:19:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0579FC5479D
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Jan 2023 17:20:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4SgGJ/RwAdkeuco+ZkJvLr8dENTMuQH4OI9VJGCsFvY=; b=s+J/yekkHeTKP7
-	BndiL0jrPKyOO41avqyIjkSSwjChqxrFdmYqjqvYcUa88freGRhEqvFfJE91tWbitBwMfjWiRiasn
-	ZTSmxcsvyICvRpBbQzIyxVCDL4xhUJV7lWp3SFuOCWpcUk1GehqOrdNcQD03McPX/tUpblHsMsQ2u
-	EIR5yusfKNGlPeoSTKb25+XQ9vOm8f9P5vRcJuPaID/9x5IDSVLLDirn6OsP2NLiy6EZm+LgQT0z4
-	iGq6Xt2mlakIJv0OHemaB1kl6j4UBXEpqVs0VSpkO3AgnhMjvqFmgdJgZNQVxLicoe1SgW1y5YjWK
-	bV4cvz3PChuz0Ab/SR9w==;
+	List-Owner; bh=NiXriLDFrTgvqtPSScNvrHb23pXBJaMBY37XU7Qb1mA=; b=B1aJ+dYHWob0fi
+	msWKl0o/309wAYmBM1w30yNFQ8Q3pBq/SuhDr8VAh6Oib/m12L2goK1qeHbw1aly4BheXR/T1z8n6
+	0KAl5/ui7S/JLvS6hPgE6veAnWthTVJWlVQgWiyCkBWLasM43gC/iJqIgOruXdezt7P1YXV8SXKPn
+	VNARSPIA5MrwruVE0VvDV9TvZ87PpY2ENzhbL6LPjH5dVAkPClNfR/FNk1YyNq3aZiwKPX6YLI5oi
+	Xf22zJrhLr5Br2VayBjDHkWy/6sVXGTRnwZfW+NriTmLwiq5jclkXSuiQmVng8dkLKTZ+/WlP/qsl
+	4WNAXsjUUVgKTNXR/POQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pEvnx-002rvU-3F; Mon, 09 Jan 2023 17:19:25 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pEvni-002rns-0o; Mon, 09 Jan 2023 17:19:11 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id DD342611CA;
-	Mon,  9 Jan 2023 17:19:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 167BBC433F0;
-	Mon,  9 Jan 2023 17:19:02 +0000 (UTC)
-Date: Mon, 9 Jan 2023 17:19:00 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Barry Song <21cnbao@gmail.com>
-Cc: Yicong Yang <yangyicong@huawei.com>, akpm@linux-foundation.org,
-	linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
-	x86@kernel.org, will@kernel.org, anshuman.khandual@arm.com,
-	linux-doc@vger.kernel.org, corbet@lwn.net, peterz@infradead.org,
-	arnd@arndb.de, punit.agrawal@bytedance.com,
-	linux-kernel@vger.kernel.org, darren@os.amperecomputing.com,
-	yangyicong@hisilicon.com, huzhanyuan@oppo.com, lipeifeng@oppo.com,
-	zhangshiming@oppo.com, guojian@oppo.com, realmz6@gmail.com,
-	linux-mips@vger.kernel.org, openrisc@lists.librecores.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, wangkefeng.wang@huawei.com,
-	xhao@linux.alibaba.com, prime.zeng@hisilicon.com,
-	Barry Song <v-songbaohua@oppo.com>, Nadav Amit <namit@vmware.com>,
-	Mel Gorman <mgorman@suse.de>
-Subject: Re: [PATCH v7 2/2] arm64: support batched/deferred tlb shootdown
- during page reclamation
-Message-ID: <Y7xMhPTAwcUT4O6b@arm.com>
-References: <20221117082648.47526-1-yangyicong@huawei.com>
- <20221117082648.47526-3-yangyicong@huawei.com>
- <Y7cToj5mWd1ZbMyQ@arm.com>
- <CAGsJ_4yC0i6MYwvosRSrdQ1iT7n88ypmK3aOQJkuusqNKtddtg@mail.gmail.com>
+	id 1pEvoe-002sCs-9D; Mon, 09 Jan 2023 17:20:08 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pEvob-002sBV-D2
+	for linux-riscv@lists.infradead.org; Mon, 09 Jan 2023 17:20:06 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E193FC14;
+	Mon,  9 Jan 2023 09:20:43 -0800 (PST)
+Received: from FVFF77S0Q05N (unknown [10.57.37.246])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7C9DC3F587;
+	Mon,  9 Jan 2023 09:19:59 -0800 (PST)
+Date: Mon, 9 Jan 2023 17:19:56 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: guoren@kernel.org
+Cc: anup@brainfault.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
+	conor.dooley@microchip.com, heiko@sntech.de, rostedt@goodmis.org,
+	mhiramat@kernel.org, jolsa@redhat.com, bp@suse.de,
+	jpoimboe@kernel.org, suagrfillet@gmail.com, andy.chiu@sifive.com,
+	e.shatokhin@yadro.com, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH -next V6 1/7] riscv: ftrace: Fixup panic by disabling
+ preemption
+Message-ID: <Y7xMvAJXjHaus0Bm@FVFF77S0Q05N>
+References: <20230107133549.4192639-1-guoren@kernel.org>
+ <20230107133549.4192639-2-guoren@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAGsJ_4yC0i6MYwvosRSrdQ1iT7n88ypmK3aOQJkuusqNKtddtg@mail.gmail.com>
+In-Reply-To: <20230107133549.4192639-2-guoren@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230109_091910_183892_41DEA25D 
-X-CRM114-Status: GOOD (  29.82  )
+X-CRM114-CacheID: sfid-20230109_092005_578311_C768E808 
+X-CRM114-Status: GOOD (  18.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,81 +67,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jan 08, 2023 at 06:48:41PM +0800, Barry Song wrote:
-> On Fri, Jan 6, 2023 at 2:15 AM Catalin Marinas <catalin.marinas@arm.com> wrote:
-> > On Thu, Nov 17, 2022 at 04:26:48PM +0800, Yicong Yang wrote:
-> > > It is tested on 4,8,128 CPU platforms and shows to be beneficial on
-> > > large systems but may not have improvement on small systems like on
-> > > a 4 CPU platform. So make ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH depends
-> > > on CONFIG_EXPERT for this stage and make this disabled on systems
-> > > with less than 8 CPUs. User can modify this threshold according to
-> > > their own platforms by CONFIG_NR_CPUS_FOR_BATCHED_TLB.
-> >
-> > What's the overhead of such batching on systems with 4 or fewer CPUs? If
-> > it isn't noticeable, I'd rather have it always on than some number
-> > chosen on whichever SoC you tested.
+On Sat, Jan 07, 2023 at 08:35:43AM -0500, guoren@kernel.org wrote:
+> From: Andy Chiu <andy.chiu@sifive.com>
 > 
-> On the one hand, tlb flush is cheap on a small system. so batching tlb flush
-> helps very minorly.
-
-Yes, it probably won't help on small systems but I don't like config
-options choosing the threshold, which may be different from system to
-system even if they have the same number of CPUs. A run-time tunable
-would be a better option.
-
-> On the other hand, since we have batched the tlb flush, new PTEs might be
-> invisible to others before the final broadcast is done and Ack-ed.
-
-The new PTEs could indeed be invisible at the TLB level but not at the
-memory (page table) level since this is done under the PTL IIUC.
-
-> thus, there
-> is a risk someone else might do mprotect or similar things  on those deferred
-> pages which will ask for read-modify-write on those deferred PTEs.
-
-And this should be fine, we have things like the PTL in place for the
-actual memory access to the page table.
-
-> in this
-> case, mm will do an explicit flush by flush_tlb_batched_pending which is
-> not required if tlb flush is not deferred.
-
-I don't fully understand why it's needed, or at least why it would be
-needed on arm64. At the end of an mprotect(), we have the final PTEs in
-place and we just need to issue a TLBI for that range.
-change_pte_range() for example has a tlb_flush_pte_range() if the PTE
-was present and that won't be done lazily. If there are other TLBIs
-pending for the same range, they'll be done later though likely
-unnecessarily but still cheaper than issuing a flush_tlb_mm().
-
-> void flush_tlb_batched_pending(struct mm_struct *mm)
-> {
->        int batch = atomic_read(&mm->tlb_flush_batched);
->        int pending = batch & TLB_FLUSH_BATCH_PENDING_MASK;
->        int flushed = batch >> TLB_FLUSH_BATCH_FLUSHED_SHIFT;
+> In RISCV, we must use an AUIPC + JALR pair to encode an immediate,
+> forming a jump that jumps to an address over 4K. This may cause errors
+> if we want to enable kernel preemption and remove dependency from
+> patching code with stop_machine(). For example, if a task was switched
+> out on auipc. And, if we changed the ftrace function before it was
+> switched back, then it would jump to an address that has updated 11:0
+> bits mixing with previous XLEN:12 part.
 > 
->        if (pending != flushed) {
->                flush_tlb_mm(mm);
->         /*
->          * If the new TLB flushing is pending during flushing, leave
->          * mm->tlb_flush_batched as is, to avoid losing flushing.
->         */
->       atomic_cmpxchg(&mm->tlb_flush_batched, batch,
->            pending | (pending << TLB_FLUSH_BATCH_FLUSHED_SHIFT));
->      }
-> }
+> p: patched area performed by dynamic ftrace
+> ftrace_prologue:
+> p|      REG_S   ra, -SZREG(sp)
+> p|      auipc   ra, 0x? ------------> preempted
+> 					...
+> 				change ftrace function
+> 					...
+> p|      jalr    -?(ra) <------------- switched back
+> p|      REG_L   ra, -SZREG(sp)
+> func:
+> 	xxx
+> 	ret
 
-I guess this works on x86 better as it avoids the IPIs if this flush
-already happened. But on arm64 we already issued the TLBI, we just
-didn't wait for it to complete via a DSB.
+What happens on SMP but not !PREEMPTION; can't a CPU be in the middle of this
+while you're patching the sequence?
 
-> I believe Anshuman has contributed many points on this in those previous
-> discussions.
+Do you have any guarantee as to the atomicity and ordering of instruction
+fetches?
 
-Yeah, I should re-read the old threads.
+Thanks,
+Mark.
 
--- 
-Catalin
+> 
+> Fixes: afc76b8b8011 ("riscv: Using PATCHABLE_FUNCTION_ENTRY instead of MCOUNT")
+> Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
+> Signed-off-by: Guo Ren <guoren@kernel.org>
+> ---
+>  arch/riscv/Kconfig | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index e2b656043abf..ee0d39b26794 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -138,7 +138,7 @@ config RISCV
+>  	select HAVE_DYNAMIC_FTRACE_WITH_REGS if HAVE_DYNAMIC_FTRACE
+>  	select HAVE_FTRACE_MCOUNT_RECORD if !XIP_KERNEL
+>  	select HAVE_FUNCTION_GRAPH_TRACER
+> -	select HAVE_FUNCTION_TRACER if !XIP_KERNEL
+> +	select HAVE_FUNCTION_TRACER if !XIP_KERNEL && !PREEMPTION
+>  
+>  config ARCH_MMAP_RND_BITS_MIN
+>  	default 18 if 64BIT
+> -- 
+> 2.36.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
