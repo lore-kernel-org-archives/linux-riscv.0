@@ -4,64 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7A81C54EBE
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jan 2023 07:01:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB235C46467
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jan 2023 07:23:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bJwx33CizEQUuW0ACqx3kNnoEi68niblfRR56Di73yo=; b=K2wB8hELtSLQ0d
-	ltPNOOXPSfnTfwpoS29NEf1DdjXOnLL/9PxLpC8BfNB75IuUokRBRfVbCgKEsM7tln/j+QanUPcqj
-	IoRDoWu2V8RyH+ZOxFCKvaBmwQJTvHnT49qOv1OAA6rim2DeRPlJITuAOM0Yz0ENh4E5FZbfrEGkI
-	WVztQU3FNQJgsAGT7qKDdgpLTBBBdYMap53jCHiwwLrYqqfPVFkta1PVjDuhQWxKJKHuQlS92k7kX
-	m5mYCgCymqtAECj5XuIhSuByhNtgRG/rKofej/vkd8WcmA8CRRDd+4iVYxeY8HwS09gnxcDbJObyE
-	zoL8R44oHQpY0wuiIFew==;
+	List-Owner; bh=9Q5ugk9PxX3Z0oxHEo/fTwKB1oGSMD/jNjzL36STEjU=; b=Jy3P7t3uTVwxl1
+	L+4732DRk161PjcnirUGydod+Cu6QjTKAVrFD+bS9QRFiepK7HCzsa4hEw4v4y2xt8nliGlP2wwbj
+	unhsSWZ6XOKs/L5bjULTOn//vYRFapRS7DUIlMT9S6XPhdLT4/ZFX4F3EJPHNiMaFOMELP/oWMHwn
+	9+LQoczWfi39NxZbrPp6Pw+QXuUTkmJBEh1f56rXmsQrokkWXp8ABNx98W0ATSvXzyozUkZTCicTl
+	ThKIAWPxYPK5YaxU50NmXsPuZqrVqMF2Uqgf7fFV7PSrTUPvaE9ky9dBWtbXbUZNwlC0QIBNFzFih
+	S837twIHJKcaHK6SfHbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pF8ds-005Z63-0e; Tue, 10 Jan 2023 07:01:52 +0000
-Received: from verein.lst.de ([213.95.11.211])
+	id 1pF8yG-005bkX-St; Tue, 10 Jan 2023 07:22:56 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pF8dp-005Z55-Tv
-	for linux-riscv@lists.infradead.org; Tue, 10 Jan 2023 07:01:51 +0000
-Received: by verein.lst.de (Postfix, from userid 2407)
-	id 32C1768BFE; Tue, 10 Jan 2023 08:01:45 +0100 (CET)
-Date: Tue, 10 Jan 2023 08:01:44 +0100
-From: Christoph Hellwig <hch@lst.de>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Prabhakar <prabhakar.csengg@gmail.com>,
-	"Conor.Dooley" <conor.dooley@microchip.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
-	guoren <guoren@kernel.org>, Andrew Jones <ajones@ventanamicro.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	"open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>,
-	devicetree@vger.kernel.org,
-	Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
-	"Lad, Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Philipp Tomsich <philipp.tomsich@vrull.eu>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Atish Patra <atishp@rivosinc.com>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Tsukasa OI <research_trasio@irq.a4lg.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Mayuresh Chitale <mchitale@ventanamicro.com>,
-	Christoph Hellwig <hch@lst.de>, Will Deacon <will@kernel.org>
-Subject: Re: [RFC PATCH v6 1/6] riscv: mm: dma-noncoherent: Switch using
- function pointers for cache management
-Message-ID: <20230110070144.GG10289@lst.de>
-References: <20230106185526.260163-1-prabhakar.mahadev-lad.rj@bp.renesas.com> <20230106185526.260163-2-prabhakar.mahadev-lad.rj@bp.renesas.com> <6f7d06ef-d74d-4dfc-9b77-6ae83e0d7816@app.fastmail.com> <CA+V-a8uF1s+dwKC_+apL+CBiHN8w_J0n_G2dqsgiAUZVEibfqg@mail.gmail.com> <9017adf0-acd4-4c43-8aea-3579b214b477@app.fastmail.com> <CA+V-a8u6jvR=EDeE3mAbDr6-06NoBJ7mwmi_Y9qVyHT+aC-9rg@mail.gmail.com> <45d6eb0c-cbe3-4a83-aa12-3483638473ae@app.fastmail.com>
+	id 1pF8yD-005biv-Mb
+	for linux-riscv@lists.infradead.org; Tue, 10 Jan 2023 07:22:54 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id m3so8088646wmq.0
+        for <linux-riscv@lists.infradead.org>; Mon, 09 Jan 2023 23:22:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=1yzQ3j4TmqF8Cm/sfXHUUAfEUTHBzXvGd1lVdd2sPyA=;
+        b=bBcjHXfK5dT9Iu4HkcOAUovMpWYLht1OfdbnlhWDvHZA/+azWYiOpzZFtbpcuH3Jei
+         R/uvEC1DxwCZzmJFIqwAdDbC0UY/MGTt6Sj6laZJBsBd7PbO0IBcRVjd5ulk1zSp6BnA
+         30xAsWAVt5H9a+j3FSn9KOBqAM6fxAocoxDR3zymeV5welDJue/WhJuAk80n7htsZoWA
+         hkpIxlzLknNZ3jP5HsSy3ZU4bQcVpAHF9Ei2xlX8P990kcitL4Q641Magx69Znr7DIK/
+         QwphxanaE2Cgzixrga8dtFEloZiUa2I/GA3SM8pbpveI2SIFrwikqvDxTD1O7mPoNI5D
+         OeKA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1yzQ3j4TmqF8Cm/sfXHUUAfEUTHBzXvGd1lVdd2sPyA=;
+        b=Vo1OQIL73hUkNKV/kERWJMzFU8NO84xRLEQB7VIISDW+nCwUCpIem/9bMO73BEancd
+         ZOwIuQD2w6uV/sOX4CeRZ5URzVKMvMcEb5GQPxsHnZyQKYII36E6f5IjQlUWmBBH2RZb
+         PuOvH3n6YkcG+wRb4bDbl4jH950SYbp+ZZeFqKdof980BOjWrugTygVFsMY+5TtDtu1V
+         ixVC0DhG62Tje19UjOyamj5wNOJ/1sBKlAETQ46o+WkQCB/OwtRnNN5THRKAYgCq1IeX
+         V7XY/+73SKXjVW4UMUDMEuewQS7/3YXAB+ubho8YW+ef0E+kNilUAYUaVmysSBOTYSUi
+         QXEw==
+X-Gm-Message-State: AFqh2kppB8aOLfHiUuWOVuoqiT8KH6MchnojIdVDjf4pKri/F19AkWzt
+	eBfBE5w6y1TQXjkmRj7bDoC4SA==
+X-Google-Smtp-Source: AMrXdXuNeeP7o90r06Zmki9dKcq5KHqdu3zDOlKt8N7T1bhug9L3jZ7kKeejVOsoBrZ1Tt+kye7CmQ==
+X-Received: by 2002:a05:600c:3506:b0:3cf:803b:d7cc with SMTP id h6-20020a05600c350600b003cf803bd7ccmr51526311wmq.33.1673335368347;
+        Mon, 09 Jan 2023 23:22:48 -0800 (PST)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id hg9-20020a05600c538900b003cfa622a18asm18081219wmb.3.2023.01.09.23.22.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 09 Jan 2023 23:22:48 -0800 (PST)
+Date: Tue, 10 Jan 2023 08:22:47 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: JeeHeng Sia <jeeheng.sia@starfivetech.com>
+Cc: Conor Dooley <conor@kernel.org>,
+	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
+	"palmer@dabbelt.com" <palmer@dabbelt.com>,
+	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
+	Mason Huo <mason.huo@starfivetech.com>
+Subject: Re: [PATCH v2 3/3] RISC-V: Add arch functions to support
+ hibernation/suspend-to-disk
+Message-ID: <20230110072247.xtptnodxjshbfh5s@orel>
+References: <20230109062407.3235-1-jeeheng.sia@starfivetech.com>
+ <20230109062407.3235-4-jeeheng.sia@starfivetech.com>
+ <20230109193624.iiuguwgimpn7zbyw@orel>
+ <Y7xu/Oj07F7/e8F1@spud>
+ <d03e4bf7832f48d7aabd07dfd13a3e92@EXMBX066.cuchost.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <45d6eb0c-cbe3-4a83-aa12-3483638473ae@app.fastmail.com>
-User-Agent: Mutt/1.5.17 (2007-11-01)
+In-Reply-To: <d03e4bf7832f48d7aabd07dfd13a3e92@EXMBX066.cuchost.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230109_230150_122850_138E80CC 
-X-CRM114-Status: GOOD (  15.75  )
+X-CRM114-CacheID: sfid-20230109_232253_758451_69609176 
+X-CRM114-Status: GOOD (  17.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,27 +100,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 09, 2023 at 01:59:12PM +0100, Arnd Bergmann wrote:
-> I had another look at the arm64 side, which (like the zicbom
-> variant) uses 'clean' on dma_sync_single_for_device(DMA_FROM_DEVICE),
-> as that has changed not that long ago, see
+On Tue, Jan 10, 2023 at 07:00:38AM +0000, JeeHeng Sia wrote:
 > 
-> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c50f11c6196f45c92ca48b16a5071615d4ae0572
+> 
+> > -----Original Message-----
+> > From: Conor Dooley <conor@kernel.org>
+> > Sent: Tuesday, 10 January, 2023 3:46 AM
+> > To: Andrew Jones <ajones@ventanamicro.com>
+> > Cc: JeeHeng Sia <jeeheng.sia@starfivetech.com>; paul.walmsley@sifive.com;
+> > palmer@dabbelt.com; aou@eecs.berkeley.edu; linux-
+> > riscv@lists.infradead.org; linux-kernel@vger.kernel.org; Leyfoon Tan
+> > <leyfoon.tan@starfivetech.com>; Mason Huo
+> > <mason.huo@starfivetech.com>
+> > Subject: Re: [PATCH v2 3/3] RISC-V: Add arch functions to support
+> > hibernation/suspend-to-disk
+> > 
+> > On Mon, Jan 09, 2023 at 08:36:24PM +0100, Andrew Jones wrote:
+> > > On Mon, Jan 09, 2023 at 02:24:07PM +0800, Sia Jee Heng wrote:
+> > 
+> > > > To enable hibernation/suspend to disk into RISCV, the below config
+> > > > need to be enabled:
+> > > > - CONFIG_ARCH_HIBERNATION_HEADER
+> > > > - CONFIG_ARCH_HIBERNATION_POSSIBLE
+> > > > - CONFIG_ARCH_RV64I
+> > > > - CONFIG_64BIT
+> > 
+> > > What's blocking this for being for both 32-bit and 64-bit?
+> > 
+> > Just from checking with b4 diff, it's because I told them they broke the
+> > rv32 build with their v1 implementation.
+> > 
+> > I'd rather they fixed whatever the issue was with rv32 than ignored it.
+> The main reason is because I don't have a rv32 system to verify the rv32 hibernation.
 
-which IIRC has been reverted recently.
+QEMU?
 
-> I'm still not sure what the correct set of operations has
-> to be, but nothing in that patch description sounds ISA
-> or even microarchitecture specific.
-
-Nothing is ISA specific, and the only micro architecture related thing
-is if the specific core can speculate memory accesses.  See the table
-in arch/arc/mm/dma.c for details.
-
-And as commented on the arm64 patch I really hate architectures getting
-creative here, as I'd much prefer to move the choice of primitives to
-the core DMA code and just provide helpers to invalidate/writeback/
-writeback+invalidate from the architectures eventually.
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
