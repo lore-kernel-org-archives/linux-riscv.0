@@ -4,86 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB235C46467
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jan 2023 07:23:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC91FC46467
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jan 2023 07:37:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:References:
+	In-Reply-To:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9Q5ugk9PxX3Z0oxHEo/fTwKB1oGSMD/jNjzL36STEjU=; b=Jy3P7t3uTVwxl1
-	L+4732DRk161PjcnirUGydod+Cu6QjTKAVrFD+bS9QRFiepK7HCzsa4hEw4v4y2xt8nliGlP2wwbj
-	unhsSWZ6XOKs/L5bjULTOn//vYRFapRS7DUIlMT9S6XPhdLT4/ZFX4F3EJPHNiMaFOMELP/oWMHwn
-	9+LQoczWfi39NxZbrPp6Pw+QXuUTkmJBEh1f56rXmsQrokkWXp8ABNx98W0ATSvXzyozUkZTCicTl
-	ThKIAWPxYPK5YaxU50NmXsPuZqrVqMF2Uqgf7fFV7PSrTUPvaE9ky9dBWtbXbUZNwlC0QIBNFzFih
-	S837twIHJKcaHK6SfHbw==;
+	List-Owner; bh=EsoZFdVEuhDmdzLlLUaA3JguF8d9bFml57YZCi1JCYc=; b=MUEy6KLlRxIOEc
+	UPA3eHGsqDOzxuIEoVLVyWMiH89qmwIe3SulWbcXMVoKBGa/mS+L2wyZMfDD+Kjr2B6k4w2MUTQKK
+	J8C+j4GxbynOBQNFfsB/Wuf01YdOhVfUbKSwrft9ZalV9Zb3WPJQ9WcMvpW52bphglbf5Vrf/dwhD
+	jsyyJImWZFU7G9LlL6SnT+AJd7rwP4HzwivFOGkgoHZrWTn/tCEsiAEA45nBwMTZHF/F4sI0GUDDk
+	telw3x/B0vsIV2vEp70KKPTtQNaJBs/HYQfNdioISKPZ2I9FFK/bFXO7Vx+i/ovr1iSMRW04ors1n
+	hWgACrZPnL9LgdZEiBlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pF8yG-005bkX-St; Tue, 10 Jan 2023 07:22:56 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1pF9CW-005dGP-31; Tue, 10 Jan 2023 07:37:40 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pF8yD-005biv-Mb
-	for linux-riscv@lists.infradead.org; Tue, 10 Jan 2023 07:22:54 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id m3so8088646wmq.0
-        for <linux-riscv@lists.infradead.org>; Mon, 09 Jan 2023 23:22:49 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=1yzQ3j4TmqF8Cm/sfXHUUAfEUTHBzXvGd1lVdd2sPyA=;
-        b=bBcjHXfK5dT9Iu4HkcOAUovMpWYLht1OfdbnlhWDvHZA/+azWYiOpzZFtbpcuH3Jei
-         R/uvEC1DxwCZzmJFIqwAdDbC0UY/MGTt6Sj6laZJBsBd7PbO0IBcRVjd5ulk1zSp6BnA
-         30xAsWAVt5H9a+j3FSn9KOBqAM6fxAocoxDR3zymeV5welDJue/WhJuAk80n7htsZoWA
-         hkpIxlzLknNZ3jP5HsSy3ZU4bQcVpAHF9Ei2xlX8P990kcitL4Q641Magx69Znr7DIK/
-         QwphxanaE2Cgzixrga8dtFEloZiUa2I/GA3SM8pbpveI2SIFrwikqvDxTD1O7mPoNI5D
-         OeKA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1yzQ3j4TmqF8Cm/sfXHUUAfEUTHBzXvGd1lVdd2sPyA=;
-        b=Vo1OQIL73hUkNKV/kERWJMzFU8NO84xRLEQB7VIISDW+nCwUCpIem/9bMO73BEancd
-         ZOwIuQD2w6uV/sOX4CeRZ5URzVKMvMcEb5GQPxsHnZyQKYII36E6f5IjQlUWmBBH2RZb
-         PuOvH3n6YkcG+wRb4bDbl4jH950SYbp+ZZeFqKdof980BOjWrugTygVFsMY+5TtDtu1V
-         ixVC0DhG62Tje19UjOyamj5wNOJ/1sBKlAETQ46o+WkQCB/OwtRnNN5THRKAYgCq1IeX
-         V7XY/+73SKXjVW4UMUDMEuewQS7/3YXAB+ubho8YW+ef0E+kNilUAYUaVmysSBOTYSUi
-         QXEw==
-X-Gm-Message-State: AFqh2kppB8aOLfHiUuWOVuoqiT8KH6MchnojIdVDjf4pKri/F19AkWzt
-	eBfBE5w6y1TQXjkmRj7bDoC4SA==
-X-Google-Smtp-Source: AMrXdXuNeeP7o90r06Zmki9dKcq5KHqdu3zDOlKt8N7T1bhug9L3jZ7kKeejVOsoBrZ1Tt+kye7CmQ==
-X-Received: by 2002:a05:600c:3506:b0:3cf:803b:d7cc with SMTP id h6-20020a05600c350600b003cf803bd7ccmr51526311wmq.33.1673335368347;
-        Mon, 09 Jan 2023 23:22:48 -0800 (PST)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id hg9-20020a05600c538900b003cfa622a18asm18081219wmb.3.2023.01.09.23.22.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 09 Jan 2023 23:22:48 -0800 (PST)
-Date: Tue, 10 Jan 2023 08:22:47 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: JeeHeng Sia <jeeheng.sia@starfivetech.com>
-Cc: Conor Dooley <conor@kernel.org>,
-	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>,
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
-	Mason Huo <mason.huo@starfivetech.com>
-Subject: Re: [PATCH v2 3/3] RISC-V: Add arch functions to support
- hibernation/suspend-to-disk
-Message-ID: <20230110072247.xtptnodxjshbfh5s@orel>
-References: <20230109062407.3235-1-jeeheng.sia@starfivetech.com>
- <20230109062407.3235-4-jeeheng.sia@starfivetech.com>
- <20230109193624.iiuguwgimpn7zbyw@orel>
- <Y7xu/Oj07F7/e8F1@spud>
- <d03e4bf7832f48d7aabd07dfd13a3e92@EXMBX066.cuchost.com>
+	id 1pF9CS-005dFw-HC
+	for linux-riscv@lists.infradead.org; Tue, 10 Jan 2023 07:37:38 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 9F3BE614B0;
+	Tue, 10 Jan 2023 07:37:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F676C433EF;
+	Tue, 10 Jan 2023 07:37:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1673336254;
+	bh=yyBOKFhrCvYd11DKsv7H9EdXoPHAesnTP8S2RO2fISM=;
+	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
+	b=V63Eu2pOQj2CNEJEp7UxZxAmbxUNKrHlTIeriGOqqdUZbZPdzgD5kz078zJkTycPs
+	 VMc8vDYmBzyjQVGnzZj4W0Lkzd14+vcOVAMCwIewgcrXG1MDaeF1YZH2wEZGp7RTlB
+	 wuYYTo/+oSKYpFJM1Jww1QxPboFpc85nU6IjecaT4ifVGWWe/lYyB7wIsXBH1KHjLr
+	 4I8/5suum23hAIwuZJX83JJd0cvWocvrn1t9rdft9Bo12OudKlcLPG2ldOe7N/NuzV
+	 qut4qEpX6n46Vxn627A4sy/Y9zA8kxcSiPGFdo7rrBZzWfkHT5ThF1nnvn44Uc019r
+	 oj68fsnDJ1j/A==
+Date: Tue, 10 Jan 2023 07:37:29 +0000
+From: Conor Dooley <conor@kernel.org>
+To: JiaJie Ho <jiajie.ho@starfivetech.com>
+CC: Olivia Mackall <olivia@selenic.com>, Herbert Xu <herbert@gondor.apana.org.au>,
+ Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Emil Renner Berthing <kernel@esmil.dk>,
+ Conor Dooley <conor.dooley@microchip.com>,
+ "linux-crypto@vger.kernel.org" <linux-crypto@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Subject: =?US-ASCII?Q?RE=3A_=5BPATCH_v3_3/3=5D_riscv=3A_dts=3A_star?= =?US-ASCII?Q?five=3A_Add_TRNG_node_for_VisionFive_2?=
+User-Agent: K-9 Mail for Android
+In-Reply-To: <31f6c05b2836450d86560c3efda4abf2@EXMBX168.cuchost.com>
+References: <20230109165249.110279-1-jiajie.ho@starfivetech.com> <20230109165249.110279-4-jiajie.ho@starfivetech.com> <Y7xWtFZO/Y7GaYRQ@spud> <31f6c05b2836450d86560c3efda4abf2@EXMBX168.cuchost.com>
+Message-ID: <50178BB5-4698-4A52-AD89-7235C3802411@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <d03e4bf7832f48d7aabd07dfd13a3e92@EXMBX066.cuchost.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230109_232253_758451_69609176 
-X-CRM114-Status: GOOD (  17.32  )
+X-CRM114-CacheID: sfid-20230109_233736_689856_8FADA146 
+X-CRM114-Status: GOOD (  19.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,43 +79,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 10, 2023 at 07:00:38AM +0000, JeeHeng Sia wrote:
-> 
-> 
-> > -----Original Message-----
-> > From: Conor Dooley <conor@kernel.org>
-> > Sent: Tuesday, 10 January, 2023 3:46 AM
-> > To: Andrew Jones <ajones@ventanamicro.com>
-> > Cc: JeeHeng Sia <jeeheng.sia@starfivetech.com>; paul.walmsley@sifive.com;
-> > palmer@dabbelt.com; aou@eecs.berkeley.edu; linux-
-> > riscv@lists.infradead.org; linux-kernel@vger.kernel.org; Leyfoon Tan
-> > <leyfoon.tan@starfivetech.com>; Mason Huo
-> > <mason.huo@starfivetech.com>
-> > Subject: Re: [PATCH v2 3/3] RISC-V: Add arch functions to support
-> > hibernation/suspend-to-disk
-> > 
-> > On Mon, Jan 09, 2023 at 08:36:24PM +0100, Andrew Jones wrote:
-> > > On Mon, Jan 09, 2023 at 02:24:07PM +0800, Sia Jee Heng wrote:
-> > 
-> > > > To enable hibernation/suspend to disk into RISCV, the below config
-> > > > need to be enabled:
-> > > > - CONFIG_ARCH_HIBERNATION_HEADER
-> > > > - CONFIG_ARCH_HIBERNATION_POSSIBLE
-> > > > - CONFIG_ARCH_RV64I
-> > > > - CONFIG_64BIT
-> > 
-> > > What's blocking this for being for both 32-bit and 64-bit?
-> > 
-> > Just from checking with b4 diff, it's because I told them they broke the
-> > rv32 build with their v1 implementation.
-> > 
-> > I'd rather they fixed whatever the issue was with rv32 than ignored it.
-> The main reason is because I don't have a rv32 system to verify the rv32 hibernation.
 
-QEMU?
+
+On 10 January 2023 00:59:58 GMT, JiaJie Ho <jiajie.ho@starfivetech.com> wrote:
+>
+>
+>> -----Original Message-----
+>> From: Conor Dooley <conor@kernel.org>
+>> Sent: 10 January, 2023 2:02 AM
+>> To: JiaJie Ho <jiajie.ho@starfivetech.com>
+>> Cc: Olivia Mackall <olivia@selenic.com>; Herbert Xu
+>> <herbert@gondor.apana.org.au>; Rob Herring <robh+dt@kernel.org>;
+>> Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>; Emil Renner
+>> Berthing <kernel@esmil.dk>; Conor Dooley <conor.dooley@microchip.com>;
+>> linux-crypto@vger.kernel.org; devicetree@vger.kernel.org; linux-
+>> kernel@vger.kernel.org; linux-riscv@lists.infradead.org
+>> Subject: Re: [PATCH v3 3/3] riscv: dts: starfive: Add TRNG node for VisionFive
+>> 2
+>> 
+>> Hey folks,
+>> 
+>> On Tue, Jan 10, 2023 at 12:52:49AM +0800, Jia Jie Ho wrote:
+>> > Adding StarFive TRNG controller node to VisionFive 2 SoC.
+>> >
+>> > Co-developed-by: Jenny Zhang <jenny.zhang@starfivetech.com>
+>> > Signed-off-by: Jenny Zhang <jenny.zhang@starfivetech.com>
+>> > Signed-off-by: Jia Jie Ho <jiajie.ho@starfivetech.com>
+>> > ---
+>> >  arch/riscv/boot/dts/starfive/jh7110.dtsi | 10 ++++++++++
+>> >  1 file changed, 10 insertions(+)
+>> >
+>> > diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi
+>> > b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+>> > index 4ac159d79d66..3c29e0bc6246 100644
+>> > --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
+>> > +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+>> > @@ -455,5 +455,15 @@ uart5: serial@12020000 {
+>> >  			reg-shift = <2>;
+>> >  			status = "disabled";
+>> >  		};
+>> > +
+>> > +		rng: rng@1600c000 {
+>> > +			compatible = "starfive,jh7110-trng";
+>> > +			reg = <0x0 0x1600C000 0x0 0x4000>;
+>> > +			clocks = <&stgcrg JH7110_STGCLK_SEC_HCLK>,
+>> > +				 <&stgcrg JH7110_STGCLK_SEC_MISCAHB>;
+>> 
+>> Which clock source is this? I see syscrg and aoncrg in the v3
+>> devicetree:
+>> https://lore.kernel.org/linux-riscv/20221220011247.35560-7-
+>> hal.feng@starfivetech.com/
+>> 
+>> Have a missed a patchset which adds support for this particular clock
+>> controller? At the very least, I don't think one has reached the linux-riscv
+>> mailing list.
+>> The clock driver patchset only has aoncrg & syscrg:
+>> https://lore.kernel.org/linux-riscv/20221220005054.34518-1-
+>> hal.feng@starfivetech.com/
+>> 
+>
+>Hi Conor,
+>
+>Thanks for reviewing the patches.
+>Yes, the patch for stg domain hasn't been submitted yet.
+>In this case should I drop this patch from the series until the related patches reach the mailing list?
+
+Since it doesn't apply anyway, no harm keeping it IMO.
+Having the dts can make it easier, although not in this case, to look at the binding and driver.
+Just mention it in the cover letter if/when you send another version.
 
 Thanks,
-drew
+Conor.
+
 
 _______________________________________________
 linux-riscv mailing list
