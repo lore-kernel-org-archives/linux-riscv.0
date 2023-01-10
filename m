@@ -4,84 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6AA2C54EBC
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jan 2023 22:17:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94201C54EBC
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jan 2023 22:23:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=l50P2p1EsNjjsAUYTaEeuQnSK+d64Al6v6wiQd8gLN0=; b=PVX+4A/5oenoVd
-	N6WOc8XNERYCtJW0RZgS/heywasjzUZ4hgfUt5ZmlcUeVUhaHDs8nktLtcLFTMqUc6gq+Hq0oDcQt
-	lOHgG902HsOYraaxINppgvfRYoXXcKGk7bn7y//3J6ckBATZCXsEzsEVHVM+tskmBzSG3m9+oKaRU
-	r0jfhM9eu24MZUZj1BSr/a96v0w1w65MbrvFEUu/R+YKuO1egcA6m++1I3YS3U51Tlvkltjawvvjc
-	vNrl2iHs9Tc0Kw9XoDsILDPWjgdAsMJKiFS4OQvP1XGUlRbErJHgHv9/dSQ/dx++LAYvQeUtCV0ve
-	JRFvEvfO+P6cCCsL2Eeg==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6EMkAwnUNSyaQVLzvmI8ZUBA3F/jXtwPRncXqdRExPs=; b=uqeiLv7EqiBQSNioIUk3kHTFl4
+	uApbxID8cHPvFSqAeu3dv7tcGVfnDazhSOnmtUP0sjjM83r3pY+7uWBIfRgeBmMayT8c9rP0Qwph8
+	oZ2Nm++BgmH7iVBHVkgn94AhienE5sneL4id8zuRpxDt9KxYvs+kS+zWrlgXoWHGn42P0MrMRIzGL
+	gSSoQXdae6g4g58C8wCtp3UoMo7VGqG4UoNkRCKudKvbEr10FWQXwlnIjHOhC7ZDLKyykv7tfmCvr
+	KUPMuhcNKt260YOBb3Vqc3xsCp7Xx7iiAQpYh7jx8e93vYBKG8I/h5lELih1TxqPtfdF14d24DkJo
+	tZ03xOyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFMvf-008kYI-9W; Tue, 10 Jan 2023 22:17:11 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1pFN1R-008lMB-1W; Tue, 10 Jan 2023 22:23:09 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFMvc-008kWe-05
-	for linux-riscv@lists.infradead.org; Tue, 10 Jan 2023 22:17:09 +0000
-Received: by mail-pl1-x632.google.com with SMTP id jn22so14687599plb.13
-        for <linux-riscv@lists.infradead.org>; Tue, 10 Jan 2023 14:17:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=eubwlTjLbS6LF+xfl33NbO6mIr60CrwQo+9xM2e1vEk=;
-        b=EJb7Z2t8LBtTrIg200Hh0oR4ECKefbV35wQRUANpaQ8/omu0woJIaIkvFZui8ud5Ul
-         UfPEn21ivY0IreFexZxhYWIjupEiN8TOuRPEEFbaNwSVq2yj2erHV8mcxrFt30Jc96J0
-         U5jR6rnd0asP7A3LBBW4oorCqDCiJdBSi3h+/LniYjaZ9jP6c2jlwdjJlnZlAE6F2r1p
-         6/2ThDIE5fRzEbg1tIWHBYVob6HSJqOsJlLwSkTAtdAFXUZf3L4J1TgvPGuMSEOS3aJ4
-         bVXBz5b6IvlU0EllxfZKD+Few4X2gYt0ppUzgB6E5Sr0r7vYwC89kKbfumM0QaKGGpZJ
-         EZmw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=eubwlTjLbS6LF+xfl33NbO6mIr60CrwQo+9xM2e1vEk=;
-        b=UsmVBylqF2UMo8MnRXzWzvRrLrnzfqzXJD1kMcq+nJV1Zp+BOQ9nsOBYdcE7/VurmB
-         MdI28qIpxqyCXqaBrztak8rwAcbFHzi5pMze/4J+fEFS3nXD6fZjxRKz1wU2eqy+kuak
-         M/EXGn/AYKvXVPvZCs3ncWJowRBHSRJji4djBcuzuha9S5/pQ+rm2nOK2b7Likhw00AV
-         UXGUxl9IaYAaajCf3e2qLL2kW3VUVIXlYXrVmXOkBm3mxOroOSzxxLpVL7mXOGU5RM9e
-         WKu0lIGgI6fHmxa+k+Ky90lhItyg0QYe8iPjZabe4JKdg+++79eJXU9SZ9PYHNMeAwID
-         e31A==
-X-Gm-Message-State: AFqh2krhQO4FO7+2JR9s9qQVUObHePhSjr11qCSF1cDYfNbWHjUW4w2S
-	mP0cTqkZkyVHLC+NNx5DMpAP7w==
-X-Google-Smtp-Source: AMrXdXsQ3V3JH7+Exzn6JcXoAWs2LZbt43xeVAwEtFJlR4eMzp1QGQLiCG+YQdNyHdHFTT7HtjNbbA==
-X-Received: by 2002:a17:90a:62c1:b0:226:d7e8:e11f with SMTP id k1-20020a17090a62c100b00226d7e8e11fmr19174103pjs.12.1673389020392;
-        Tue, 10 Jan 2023 14:17:00 -0800 (PST)
-Received: from [192.168.50.116] (c-24-4-73-83.hsd1.ca.comcast.net. [24.4.73.83])
-        by smtp.gmail.com with ESMTPSA id k15-20020a17090a3ccf00b002195819d541sm9593528pjd.8.2023.01.10.14.16.59
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 10 Jan 2023 14:17:00 -0800 (PST)
-Message-ID: <dfffd3ab-d607-9b1f-92a5-24a798807849@rivosinc.com>
-Date: Tue, 10 Jan 2023 14:16:58 -0800
+	id 1pFN1N-008lKd-OJ
+	for linux-riscv@lists.infradead.org; Tue, 10 Jan 2023 22:23:07 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 08F8B6191A;
+	Tue, 10 Jan 2023 22:23:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF51FC43396;
+	Tue, 10 Jan 2023 22:23:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1673389384;
+	bh=M0cogaXVZ3oi8wpvRMESXcGHX5OCa0Z6QBOqzPiMvp0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=frdxX4r2eAhoDeXklarls2PWIFCc9cWaeKa2vTTphjE8FqSazkkmwsDNAXrPGleAh
+	 LRO0Pr/qlU8ZaIxk+3DDPmrk2t+Vsv8viO+u1mP9RBdpjqaPr98Y96m0dAWH52RMqb
+	 Ji3iwHGsl6WCrgvaIlF6YEnfp96CAJo8kJ656M9gHJMU+1HRRPb41GATAqCH9gi1Qw
+	 VBe3I49ZCgF86nAml7r0dO05IMjcLfYblCMxchS/eBTInFHiPTHIVETNxc2ho/PnoK
+	 26FPbJfQZ1YYkxJUPZ28bIRJ+8VUbPlL7zmKB2UTTkXf0vYfro4KPtsbI6+GDEer62
+	 AC6C9bhqXHhjA==
+Date: Tue, 10 Jan 2023 22:23:00 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: linux-riscv@lists.infradead.org,
+	'Anup Patel ' <apatel@ventanamicro.com>,
+	'Albert Ou ' <aou@eecs.berkeley.edu>,
+	'Paul Walmsley ' <paul.walmsley@sifive.com>,
+	'Sia Jee Heng ' <jeeheng.sia@starfivetech.com>,
+	'Palmer Dabbelt ' <palmer@dabbelt.com>,
+	'Ley Foon Tan ' <leyfoon.tan@starfivetech.com>
+Subject: Re: [RFC PATCH 1/1] riscv: sbi: Introduce system suspend support
+Message-ID: <Y73lRNHDstKHL3vn@spud>
+References: <20230106113216.443057-1-ajones@ventanamicro.com>
+ <20230106113216.443057-2-ajones@ventanamicro.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.4.2
-Subject: Re: [PATCH] riscv: elf: add .riscv.attributes parsing
-Content-Language: en-US
-To: Conor Dooley <conor@kernel.org>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- palmer@rivosinc.com, Paul Walmsley <paul.walmsley@sifive.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Eric Biederman <ebiederm@xmission.com>,
- Kees Cook <keescook@chromium.org>, Guo Ren <guoren@kernel.org>,
- Greentime Hu <greentime.hu@sifive.com>,
- Conor Dooley <conor.dooley@microchip.com>, linux@rivosinc.com,
- kernel test robot <lkp@intel.com>
-References: <20230110201841.2069353-1-vineetg@rivosinc.com>
- <Y73g/nkDe7Sfp9ps@spud>
-From: Vineet Gupta <vineetg@rivosinc.com>
-In-Reply-To: <Y73g/nkDe7Sfp9ps@spud>
+In-Reply-To: <20230106113216.443057-2-ajones@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230110_141708_094249_36FC6B94 
-X-CRM114-Status: GOOD (  18.81  )
+X-CRM114-CacheID: sfid-20230110_142305_891906_A94F29DF 
+X-CRM114-Status: GOOD (  30.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,98 +72,200 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============2083247862354750880=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On 1/10/23 14:04, Conor Dooley wrote:
-> Hey Vineet,
->
-> While you're at it with Jess' concerns, couple nitpicks for you.
-> May as well say them now rather than while a v2 comes around.
+--===============2083247862354750880==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="mVkXtNLJQ05Li45D"
+Content-Disposition: inline
 
-Thx for quick peek.
 
-> On Tue, Jan 10, 2023 at 12:18:41PM -0800, Vineet Gupta wrote:
->
->> Reported-by: kernel test robot <lkp@intel.com>  # code under CONFIG_COMPAT
-> You can drop this, even if it reported against a private branch AFAIU,
-> just like its complaints about patches. As Greg would say, LKP didn't
-> report a feature!
+--mVkXtNLJQ05Li45D
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-OK. Personally I tend to add Tested-by (vs. Reported-by for the same 
-reasons) to still give them the credit for finding some issue.
-I can certainly drop it.
+Hey Drew!
 
->
->> diff --git a/arch/riscv/kernel/elf-attr.c b/arch/riscv/kernel/elf-attr.c
->> +// SPDX-License-Identifier: GPL-2.0
->> +/*
->> + * Copyright (C) 2023-24 Rivos Inc.
-> s/-24//
+On Fri, Jan 06, 2023 at 12:32:16PM +0100, Andrew Jones wrote:
+> When the SUSP SBI extension is present it implies that the standard
+> "suspend to RAM" type is available. Wire it up to the generic
+> platform suspend support, also applying the already present support
+> for non-retentive CPU suspend. When the kernel is built with
+> CONFIG_SUSPEND, one can do 'echo mem > /sys/power/state' to suspend.
+> Resumption will occur when a platform-specific wake-up event arrives.
+>=20
+> Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
 
-Fixed.
+First things first, anything SBI depends on !m-mode, so you've gotta add
+some sort of gating unfortunately around those ECALLs. But I figure you
+may have already seen the build failures on patchwork for nommu?
 
->
->> +static u64
->> +decode_uleb128(unsigned char **dpp)
-> Surely that fits inside 80?
+Also, when there's an actual spec would you mind doing a Link: spec.pdf?
 
-Fixed.
+> ---
+>  arch/riscv/Kconfig           |  5 ++++-
+>  arch/riscv/include/asm/sbi.h |  9 ++++++++
+>  arch/riscv/kernel/suspend.c  | 41 ++++++++++++++++++++++++++++++++++++
+>  3 files changed, 54 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index e2b656043abf..a53d94c1953e 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -52,7 +52,7 @@ config RISCV
+>  	select CLONE_BACKWARDS
+>  	select CLINT_TIMER if !MMU
+>  	select COMMON_CLK
+> -	select CPU_PM if CPU_IDLE
+> +	select CPU_PM if (SUSPEND || CPU_IDLE)
+>  	select EDAC_SUPPORT
+>  	select GENERIC_ARCH_TOPOLOGY
+>  	select GENERIC_ATOMIC64 if !64BIT
+> @@ -686,6 +686,9 @@ config PORTABLE
+>  	select OF
+>  	select MMU
+> =20
+> +config ARCH_SUSPEND_POSSIBLE
+> +	def_bool y
 
->> +static int rv_parse_elf_attributes(struct file *f, const struct elf_phdr *phdr,
->> +				   struct arch_elf_state *state)
->> +{
->> +	unsigned char buf[RV_ATTR_SEC_SZ];
->> +	unsigned char *p;
->> +	ssize_t n;
->> +	int ret = 0;
->> +	loff_t pos;
->> +
->> +	pr_debug("Section .riscv.attributes found\n");
->> +
->> +	/* Assume a reasonable size for now */
->> +	if (phdr->p_filesz > sizeof(buf))
->> +		return -ENOEXEC;
->> +
->> +	memset(buf, 0, RV_ATTR_SEC_SZ);
->> +	pos = phdr->p_offset;
->> +	n = kernel_read(f, &buf, phdr->p_filesz, &pos);
->> +
->> +	if (n < 0)
->> +		return -EIO;
->> +
->> +	p = buf;
->> +	p++;				/* format-version (1B) */
->> +
->> +	while ((p - buf) < n) {
->> +
-> While I'm already passing through, checkpatch isn't the biggest fan of
-> your whitespace after open braces:
->
-> https://gist.github.com/conor-pwbot/a572e395763916c7716cab9c870df4f3
+Since the content you're adding depends on having an SBI extention,
+does this need to be s/y/RISCV_SBI/?
 
-I swear this patch was checkpatch clean. Fixed now anyways.
+>  menu "Power management options"
+> =20
+>  source "kernel/power/Kconfig"
+> diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+> index 4ca7fbacff42..9834ba4ce3e4 100644
+> --- a/arch/riscv/include/asm/sbi.h
+> +++ b/arch/riscv/include/asm/sbi.h
+> @@ -29,6 +29,7 @@ enum sbi_ext_id {
+>  	SBI_EXT_RFENCE =3D 0x52464E43,
+>  	SBI_EXT_HSM =3D 0x48534D,
+>  	SBI_EXT_SRST =3D 0x53525354,
+> +	SBI_EXT_SUSP =3D 0x53555350,
+>  	SBI_EXT_PMU =3D 0x504D55,
+> =20
+>  	/* Experimentals extensions must lie within this range */
+> @@ -113,6 +114,14 @@ enum sbi_srst_reset_reason {
+>  	SBI_SRST_RESET_REASON_SYS_FAILURE,
+>  };
+> =20
+> +enum sbi_ext_susp_fid {
+> +	SBI_EXT_SUSP_SUSPEND =3D 0,
+> +};
+> +
+> +enum sbi_ext_susp_sleep_type {
+> +	SBI_SUSP_SLEEP_TYPE_SUSPEND =3D 0,
+> +};
+> +
+>  enum sbi_ext_pmu_fid {
+>  	SBI_EXT_PMU_NUM_COUNTERS =3D 0,
+>  	SBI_EXT_PMU_COUNTER_GET_INFO,
+> diff --git a/arch/riscv/kernel/suspend.c b/arch/riscv/kernel/suspend.c
+> index 9ba24fb8cc93..bc26e9ae4782 100644
+> --- a/arch/riscv/kernel/suspend.c
+> +++ b/arch/riscv/kernel/suspend.c
+> @@ -4,8 +4,12 @@
+>   * Copyright (c) 2022 Ventana Micro Systems Inc.
+>   */
+> =20
+> +#define pr_fmt(fmt) "suspend: " fmt
+> +
+>  #include <linux/ftrace.h>
+> +#include <linux/suspend.h>
+>  #include <asm/csr.h>
+> +#include <asm/sbi.h>
+>  #include <asm/suspend.h>
+> =20
+>  static void suspend_save_csrs(struct suspend_context *context)
+> @@ -85,3 +89,40 @@ int cpu_suspend(unsigned long arg,
+> =20
+>  	return rc;
+>  }
 
->
->> +		unsigned char *vendor_start;
->> +		u32 len;
->> +
->> +		/*
->> +		 * Organized as "vendor" sub-section(s).
->> +		 * Current only 1 specified "riscv"
-> Is it worth having a comment like this that may rapidly go out of date?
+And then from here down needs to be #ifdef RISCV_SBI?
 
-Rapid may be an overstatement given this is a psABI thing. Besides for a 
-new vendor subsection, more code will need to be added to sanity check etc.
-But I can drop this from comment and instead mention this in the changelog.
+Anyways, probably stating the obvious on an RFC, but =C2=AF\_(=E3=83=84)_/=
+=C2=AF
 
-Thx,
--Vineet
+Thanks,
+Conor.
+
+> +
+> +static int sbi_system_suspend(unsigned long sleep_type,
+> +			      unsigned long resume_addr,
+> +			      unsigned long opaque)
+> +{
+> +	struct sbiret ret;
+> +
+> +	ret =3D sbi_ecall(SBI_EXT_SUSP, SBI_EXT_SUSP_SUSPEND,
+> +			sleep_type, resume_addr, opaque, 0, 0, 0);
+> +	if (ret.error)
+> +		return sbi_err_map_linux_errno(ret.error);
+> +
+> +	return ret.value;
+> +}
+> +
+> +static int sbi_system_suspend_enter(suspend_state_t state)
+> +{
+> +	return cpu_suspend(SBI_SUSP_SLEEP_TYPE_SUSPEND, sbi_system_suspend);
+> +}
+> +
+> +static const struct platform_suspend_ops sbi_system_suspend_ops =3D {
+> +	.valid =3D suspend_valid_only_mem,
+> +	.enter =3D sbi_system_suspend_enter,
+> +};
+> +
+> +static int __init sbi_system_suspend_init(void)
+> +{
+> +	if (!sbi_spec_is_0_1() && sbi_probe_extension(SBI_EXT_SUSP) > 0) {
+> +		pr_info("SBI SUSP extension detected\n");
+> +		if (IS_ENABLED(CONFIG_SUSPEND))
+> +			suspend_set_ops(&sbi_system_suspend_ops);
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +arch_initcall(sbi_system_suspend_init);
+> --=20
+> 2.39.0
+>=20
+>=20
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+>=20
+
+--mVkXtNLJQ05Li45D
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY73lRAAKCRB4tDGHoIJi
+0mxCAP9+xKzGOZMUi2oXIu17X338SAWMb4iu5iSRB+ZPPySmUwD7Bojz/fuN6h33
+0redvLwEfzQ+BTJUyHFSJrxd2eY0MgQ=
+=6TW4
+-----END PGP SIGNATURE-----
+
+--mVkXtNLJQ05Li45D--
+
+
+--===============2083247862354750880==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2083247862354750880==--
+
