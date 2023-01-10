@@ -4,86 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B2F6C46467
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jan 2023 15:11:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 257AAC46467
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jan 2023 15:52:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=M7UeX7gs0fEkHuNVMBNFFJCWyyfpdsc8a9Hnwkp47XI=; b=vDH0Y0QFzpf5et
-	TJdAvA4c9ARjCaitrlwFJrlyoKBXobNgOuklxjg6GcELUygXbUVTmBKPN0I68rtBoM7ST6kzdlb0O
-	Js6uuVanDDvffPeKNon08wVze/doLPsw8CbW8spSdnutuZbd1NOA3tAJlRD0LF8RwYh4oW3IUZpdk
-	DQj81c9kqpsUjXS//OBXWVARYzYsQZtpl50EBsRlcWDFDKkFhNPpH5i/embqfVsNfqir1FuIDCe3u
-	oXE/nwpySCcsH+JOU2gi0CAPtvbWwNfprBF+zL8u/s5g5GphP67kPNKuYdkAChoOoMNrlgHvDvsn2
-	yPxDYtWXwGK18F6/QCwQ==;
+	List-Owner; bh=JMTpnPH3UppXWWt8SUKzBxfGl8jchZWKMrDKiyoa9lE=; b=D+RBigom/QXwLB
+	6uKCVbYWCkJfSHNp/xwWXtZCRvXXhRokDeL7PdUE8B84v8GcMujVBY6fhQZQw/sXQo3r9Ol3KiAjd
+	9OfunOU55G/BBgOeupamdvr9ucc5I6QvTxH5EktOnYxitxzjr4HsVnzII93HV/gJIT5Rq6YBD6HBs
+	/IaqfxHzPl2kRLgNxy4hRPLR4FR9NO+I+SFt7rFMwfP+KVLDi19p0iixKWL2AczeaYCRFytrG/Uaz
+	yijqzkVu1Ilrrk9lG0Rq/0FL8zFPGSAoWsNM3ETCFFq6RiThos7cLr23RWLyUFRaNeaiYsi20y6ZA
+	1Vi6zT82nq2J/12m6Mjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFGHm-007VxX-Ki; Tue, 10 Jan 2023 15:11:34 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pFGvZ-007fLk-Ar; Tue, 10 Jan 2023 15:52:41 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFGHk-007Vv8-1e
-	for linux-riscv@lists.infradead.org; Tue, 10 Jan 2023 15:11:33 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id A2E396177A;
-	Tue, 10 Jan 2023 15:11:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 383B7C433EF;
-	Tue, 10 Jan 2023 15:11:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1673363488;
-	bh=uKrtRn6CDrdTBnWrc0AschRz5jiayfkSvYCIjkppPHQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pdF0lCsEFYZpu4mxGFlTO0ahbX8LHqTV7NEYRJEBBh+C2qhCkIwgCoR/x4C9avokB
-	 3ss3e/Q1hq3fAN7hq4OS2m91Sm+jMc78d2yAv4KL73z8Ml/7zVqwg8H8K9WW0afZsE
-	 3HvXIxNn9QVb2rAhneAxn8MTA9hnAf6KGlmvCAis/JuQ5/1OBfs7ioJecEKspWjF+n
-	 87x8wx8RgGnqA+nJA+k5JFPxlcuuRaTm5AX+4XO3IKqkvcxC37NRn/lIOxnxn5/dsj
-	 oO/Z7sGXLoaO7w2rss9wtYhrUyVikTEslbYoeamv8Hwkb2+ZUwMXRY67UtYNU8TWOd
-	 zrMWLsyc2vMWQ==
-Date: Tue, 10 Jan 2023 15:11:20 +0000
-From: Will Deacon <will@kernel.org>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Christoph Hellwig <hch@lst.de>, Prabhakar <prabhakar.csengg@gmail.com>,
-	"Conor.Dooley" <conor.dooley@microchip.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
-	guoren <guoren@kernel.org>, Andrew Jones <ajones@ventanamicro.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	"open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>,
-	devicetree@vger.kernel.org,
-	Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
-	"Lad, Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Philipp Tomsich <philipp.tomsich@vrull.eu>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Atish Patra <atishp@rivosinc.com>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Tsukasa OI <research_trasio@irq.a4lg.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Mayuresh Chitale <mchitale@ventanamicro.com>
-Subject: Re: [RFC PATCH v6 1/6] riscv: mm: dma-noncoherent: Switch using
- function pointers for cache management
-Message-ID: <20230110151119.GA9436@willie-the-truck>
-References: <20230106185526.260163-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20230106185526.260163-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <6f7d06ef-d74d-4dfc-9b77-6ae83e0d7816@app.fastmail.com>
- <CA+V-a8uF1s+dwKC_+apL+CBiHN8w_J0n_G2dqsgiAUZVEibfqg@mail.gmail.com>
- <9017adf0-acd4-4c43-8aea-3579b214b477@app.fastmail.com>
- <CA+V-a8u6jvR=EDeE3mAbDr6-06NoBJ7mwmi_Y9qVyHT+aC-9rg@mail.gmail.com>
- <45d6eb0c-cbe3-4a83-aa12-3483638473ae@app.fastmail.com>
- <20230110070144.GG10289@lst.de>
- <02988e70-b099-46fd-b260-2d537c50543a@app.fastmail.com>
+	id 1pFGvX-007fJI-8L
+	for linux-riscv@lists.infradead.org; Tue, 10 Jan 2023 15:52:40 +0000
+Received: by mail-wr1-x429.google.com with SMTP id bk16so12232304wrb.11
+        for <linux-riscv@lists.infradead.org>; Tue, 10 Jan 2023 07:52:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=yW6pSygwaRFLykMNVfFhYMtkRvNlw3uJaphCvSAWUAo=;
+        b=kYvIhgG2sDWlPTVvf4eObZi7PYH1ZhLIAqeyiQwBQdvrouTO3pPQfsnFU4Oe9OQ+GI
+         /qeZDbMEb08P+q4K5JfK56UsPkB+wXo3V14ISQR6bWcD1poY+IdwN6TmjQs21YFP5Pgs
+         /Fu1d4K4JvnMKg9BLFnk4Jt6/gKG1v2z4vnoUN4RMopI4bKecOI3Sh5/7F+V/MxPTQrK
+         zxHl6VvnAp2IIDDvpN0F6W+AFzeHgZtHIyn+5RxlYnL7mR9CQCPC3EREaIii9PqkIBfO
+         /8CsBHt7HlP45Nyib046cTQQYxU+bmzaeM3n2ioRQpc7dHJuCWTDFFjZl1DqsXqsmNkJ
+         Sfog==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=yW6pSygwaRFLykMNVfFhYMtkRvNlw3uJaphCvSAWUAo=;
+        b=rdgUdfSKOMdaXm4/L13zQkeYdA09my7PzkeCOktNWHuD8DtevzLJVHh79iMsi9f8/y
+         x1AsMT5zehZyXYIcGZkp3uymDvXBM4G8fU04dVHBCszKW2PeGefjcNT/4vO5fvjCMbi9
+         fxJbYS4EBY3sGAQcwVPKhj00+XuJYA55i9eJUf0FrBj3hD9vZYXjtmAZHzVtqghhoAPN
+         GFXfftbmuFkl5vMc2HazsMP8NiiD9E84m+uMPRAE6amiExHJXeVz8MHPXjtBUlUUrtO5
+         qL3UV487AMDZI0JTmv+aCemAUMfyUeE/fTg19CL1kTX7wcJzFApY7LDIyEatLoVnGmT7
+         xqnw==
+X-Gm-Message-State: AFqh2kptbWYEPnnszswATnhhxGu8aa38ZZNBEDwtYZWUED/C+XjKsdGX
+	/RpVQ/ZKrbXRHW3oMeHj2/Ug+A==
+X-Google-Smtp-Source: AMrXdXt3ch1ld23BUvHXlzUHAv2eXtfxEAQgycLKPdxeKGRBB8TFXkcU7bdTbwvPaWjuJBogp3W7SA==
+X-Received: by 2002:adf:e787:0:b0:294:7be9:8740 with SMTP id n7-20020adfe787000000b002947be98740mr21403875wrm.21.1673365954003;
+        Tue, 10 Jan 2023 07:52:34 -0800 (PST)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id f7-20020a5d6647000000b002bbeb700c38sm6423724wrw.91.2023.01.10.07.52.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 10 Jan 2023 07:52:33 -0800 (PST)
+Date: Tue, 10 Jan 2023 16:52:32 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Leyfoon Tan <leyfoon.tan@starfivetech.com>
+Cc: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	'Anup Patel ' <apatel@ventanamicro.com>,
+	'Albert Ou ' <aou@eecs.berkeley.edu>,
+	'Paul Walmsley ' <paul.walmsley@sifive.com>,
+	JeeHeng Sia <jeeheng.sia@starfivetech.com>,
+	'Palmer Dabbelt ' <palmer@dabbelt.com>
+Subject: Re: [RFC PATCH 1/1] riscv: sbi: Introduce system suspend support
+Message-ID: <20230110155232.oildjprzhk65cnls@orel>
+References: <20230106113216.443057-1-ajones@ventanamicro.com>
+ <20230106113216.443057-2-ajones@ventanamicro.com>
+ <739948a9f799485da88e0d7ed9f956e8@EXMBX161.cuchost.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <02988e70-b099-46fd-b260-2d537c50543a@app.fastmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <739948a9f799485da88e0d7ed9f956e8@EXMBX161.cuchost.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230110_071132_212573_3BDE0ADD 
-X-CRM114-Status: GOOD (  19.73  )
+X-CRM114-CacheID: sfid-20230110_075239_317261_B33480A9 
+X-CRM114-Status: GOOD (  13.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,37 +95,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 10, 2023 at 04:03:06PM +0100, Arnd Bergmann wrote:
-> On Tue, Jan 10, 2023, at 08:01, Christoph Hellwig wrote:
-> > On Mon, Jan 09, 2023 at 01:59:12PM +0100, Arnd Bergmann wrote:
-> >> I had another look at the arm64 side, which (like the zicbom
-> >> variant) uses 'clean' on dma_sync_single_for_device(DMA_FROM_DEVICE),
-> >> as that has changed not that long ago, see
-> >> 
-> >> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c50f11c6196f45c92ca48b16a5071615d4ae0572
-> >
-> > which IIRC has been reverted recently.
+On Tue, Jan 10, 2023 at 02:55:20PM +0000, Leyfoon Tan wrote:
 > 
-> To clarify: I was looking at arch_sync_dma_for_device(), which
-> changed from 'invalidate' to 'clean' last June in commit
-> c50f11c6196f ("arm64: mm: Don't invalidate FROM_DEVICE buffers
-> at start of DMA transfer"). I don't see  a revert for that.
+> > 
+> >  source "kernel/power/Kconfig"
+> > diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h index
+> > 4ca7fbacff42..9834ba4ce3e4 100644
+> > --- a/arch/riscv/include/asm/sbi.h
+> > +++ b/arch/riscv/include/asm/sbi.h
+> > @@ -29,6 +29,7 @@ enum sbi_ext_id {
+> >  	SBI_EXT_RFENCE = 0x52464E43,
+> >  	SBI_EXT_HSM = 0x48534D,
+> >  	SBI_EXT_SRST = 0x53525354,
+> > +	SBI_EXT_SUSP = 0x53555350,
+> >  	SBI_EXT_PMU = 0x504D55,
+> > 
+> >  	/* Experimentals extensions must lie within this range */ @@ -113,6
+> > +114,14 @@ enum sbi_srst_reset_reason {
+> >  	SBI_SRST_RESET_REASON_SYS_FAILURE,
+> >  };
+> > 
+> > +enum sbi_ext_susp_fid {
+> > +	SBI_EXT_SUSP_SUSPEND = 0,
 > 
-> The one that was reverted recently is arch_dma_prep_coherent, which
-> was changed and reverted in
-> 
-> c44094eee32 Aug 23 2022 flush->clean
-> b7d9aae4048 Dec 6  2022 clean->flush
-> 
-> I'm primarily interested in the streaming mappings (arch_sync_*)
-> at the moment.
+> Macro name with "*_SYSTEM_SUSPEND" is better? Avoid confusing with CPU suspend.
 
-Just as an FYI, but we plan to revert the revert (i.e. go back to 'clean')
-here once Qualcomm's modem firmware loader has been updated:
+The _SUSP_ part should cover that, but I'm OK with adding SYSTEM as well.
 
-https://lore.kernel.org/r/20230109034843.23759-1-quic_sibis@quicinc.com
+> 
+> > +};
+> > +
+> > +enum sbi_ext_susp_sleep_type {
+> > +	SBI_SUSP_SLEEP_TYPE_SUSPEND = 0,
+> This should be SBI_SUSP_SLEEP_TYPE_SUSPEND_TO_RAM?
 
-Will
+Yes, that would be better. I'll change that for the next version.
+
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
