@@ -4,86 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDF7AC54EBC
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jan 2023 13:52:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAC3DC54EBC
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jan 2023 14:56:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=w+xfFkDmD8cfaAlaamFkz/WwMau0frSclDkEhnQRJO0=; b=AzVJCnF7qQ27LZ
-	4DafmM1LwK4eBTJePczFxcwg4dxEGeCLc/rX+eqOWPsfBRhy9OIvJEvfL08H0DO+ncVQXuksfFRQV
-	5rwfa4vDk+3jQTjFkJVTo8EGTEvRXm0SKj/q/pCkQN0ugvjAgjCG4PZM2zXeGFTkzRj/IqLVtBvtY
-	ip0ZA5SyG/gvRNFB8jwS1SQCCGTFSMJL0KD6n/wn5Gnh3hY5K2RxLzngCwkNAuYFX+n7iXI9zGxir
-	acAWOvPWog5oXygrPtKtdcwe6YBDa/m4TLAWEc449FAXlyyuKP01CtSw0tW50yLYX83hNwTba4lIw
-	qxmABYSAhnImK39NICfg==;
+	List-Owner; bh=bK6uIG5N483nAIG28BeSh9fAwcFROoX11ArKdhuv2jU=; b=QOrwuwVq3wwXtv
+	+1WhSugcovGbrSsfn0/pAm2T5RhnYq51Q2ku2NviKGMOzi5dWHwfbLLjvfD60PKxtmgusw/7bGk7V
+	J07WZ13Fl2VTJ+6kahUl0KlVSaIAWf3f/LmvbZ1lt5a5Ee62oj6BreNo+7+QGljStVkQrsihKtiYY
+	oxRk+maf1AokmYclpreixG7amO98IkfrwlanH+pOu4mYbbob60kI85tc0D0nzJ2pox4ABw+YWgbF7
+	4p/g2XFW4/za23ZxgxKl7GtNZR+JZhYaR7qruUhOVLA8zGLSNSH0xADMFdTME3JwfwbJVdvT7vAVD
+	5wtJ4XWWnyVHK+D5TuqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFF3d-0078kY-2K; Tue, 10 Jan 2023 13:52:53 +0000
-Received: from mga07.intel.com ([134.134.136.100])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFF3L-0078dC-9t; Tue, 10 Jan 2023 13:52:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1673358755; x=1704894755;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Tp8Z9Ay/HrlqQE0qDFK7p4Fost9+vU0ggkXvi/hfbkY=;
-  b=VVgix+pLiGRkzcympQ9gA+z6YdwdWEZRsYbGZcddr+yOd5qurq6xVqVb
-   ai5z1p4Yg3wD2XI0seGCY3K9IP+jaO9TCl0reIHeHLcmv/PoCs547CNrQ
-   q9z/FcJakx8omb4sJAAZgJD1CR7AfwpayxeYEPCEERuPMtTLzj8bPVzNd
-   WY04eWRkrupZHIeQ/s6TeKkg6jpoZOk/God2rI5rnVlTAD84mZbMVbQei
-   EuH8lVoPZqIW6Roqy3sQGqVXsjVWKGHG2lqJN/U+5v6/Dm/E4Y6+QV/js
-   P459z9R3UETUeRVzFDfF6+5yAdRxvIBELBFWn4wDpjLaI+rIb3tDrN1td
-   A==;
-X-IronPort-AV: E=McAfee;i="6500,9779,10585"; a="387599283"
-X-IronPort-AV: E=Sophos;i="5.96,315,1665471600"; 
-   d="scan'208";a="387599283"
-Received: from orsmga005.jf.intel.com ([10.7.209.41])
-  by orsmga105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Jan 2023 05:52:31 -0800
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6500,9779,10585"; a="830995823"
-X-IronPort-AV: E=Sophos;i="5.96,315,1665471600"; 
-   d="scan'208";a="830995823"
-Received: from smile.fi.intel.com ([10.237.72.54])
-  by orsmga005.jf.intel.com with ESMTP; 10 Jan 2023 05:52:23 -0800
-Received: from andy by smile.fi.intel.com with local (Exim 4.96)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1pFF36-0073E7-37;
-	Tue, 10 Jan 2023 15:52:20 +0200
-Date: Tue, 10 Jan 2023 15:52:20 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Andrzej Hajda <andrzej.hajda@intel.com>
-Cc: Mark Rutland <mark.rutland@arm.com>, linux-ia64@vger.kernel.org,
-	linux-sh@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>,
-	dri-devel@lists.freedesktop.org, linux-mips@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-hexagon@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	Boqun Feng <boqun.feng@gmail.com>, linux-xtensa@linux-xtensa.org,
-	Arnd Bergmann <arnd@arndb.de>, intel-gfx@lists.freedesktop.org,
-	linux-m68k@lists.linux-m68k.org, openrisc@lists.librecores.org,
-	loongarch@lists.linux.dev, Rodrigo Vivi <rodrigo.vivi@intel.com>,
-	linux-arm-kernel@lists.infradead.org, linux-parisc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Daniel Vetter <daniel@ffwll.ch>,
-	linux-alpha@vger.kernel.org,
-	Andrew Morton <akpm@linux-foundation.org>,
-	linuxppc-dev@lists.ozlabs.org
-Subject: Re: [Intel-gfx] [RFC DO NOT MERGE] treewide: use __xchg in most
- obvious places
-Message-ID: <Y71tlG23t0gH9K1t@smile.fi.intel.com>
-References: <Y7b6/7coJEVlTVxK@phenom.ffwll.local>
- <20230110105306.3973122-1-andrzej.hajda@intel.com>
- <Y71G1tkmUzM4BLxn@smile.fi.intel.com>
- <1bfae3d0-8c0b-ea83-7184-db847a4a969f@intel.com>
+	id 1pFG2a-007QOC-BA; Tue, 10 Jan 2023 14:55:52 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pFG2V-007QHL-TI
+	for linux-riscv@lists.infradead.org; Tue, 10 Jan 2023 14:55:50 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id E4ADD24E154;
+	Tue, 10 Jan 2023 22:55:20 +0800 (CST)
+Received: from EXMBX163.cuchost.com (172.16.7.73) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 10 Jan
+ 2023 22:55:20 +0800
+Received: from EXMBX161.cuchost.com (172.16.6.71) by EXMBX163.cuchost.com
+ (172.16.6.73) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 10 Jan
+ 2023 22:55:20 +0800
+Received: from EXMBX161.cuchost.com ([fe80::f152:b9a3:2243:db3c]) by
+ EXMBX161.cuchost.com ([fe80::f152:b9a3:2243:db3c%15]) with mapi id
+ 15.00.1497.044; Tue, 10 Jan 2023 22:55:20 +0800
+From: Leyfoon Tan <leyfoon.tan@starfivetech.com>
+To: Andrew Jones <ajones@ventanamicro.com>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>
+CC: 'Anup Patel ' <apatel@ventanamicro.com>, 'Albert Ou '
+	<aou@eecs.berkeley.edu>, 'Paul Walmsley ' <paul.walmsley@sifive.com>, JeeHeng
+ Sia <jeeheng.sia@starfivetech.com>, 'Palmer Dabbelt ' <palmer@dabbelt.com>
+Subject: RE: [RFC PATCH 1/1] riscv: sbi: Introduce system suspend support
+Thread-Topic: [RFC PATCH 1/1] riscv: sbi: Introduce system suspend support
+Thread-Index: AQHZIcK6ZsWD3JJ42kmqEJAMT7JYfq6Xwm3g
+Date: Tue, 10 Jan 2023 14:55:20 +0000
+Message-ID: <739948a9f799485da88e0d7ed9f956e8@EXMBX161.cuchost.com>
+References: <20230106113216.443057-1-ajones@ventanamicro.com>
+ <20230106113216.443057-2-ajones@ventanamicro.com>
+In-Reply-To: <20230106113216.443057-2-ajones@ventanamicro.com>
+Accept-Language: en-US, zh-CN
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [60.49.44.179]
+x-yovoleruleagent: yovoleflag
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <1bfae3d0-8c0b-ea83-7184-db847a4a969f@intel.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230110_055235_444065_4D2D9905 
-X-CRM114-Status: GOOD (  15.12  )
+X-CRM114-CacheID: sfid-20230110_065548_233455_7F6E3D0B 
+X-CRM114-Status: UNSURE (   8.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,39 +81,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 10, 2023 at 01:46:37PM +0100, Andrzej Hajda wrote:
-> On 10.01.2023 12:07, Andy Shevchenko wrote:
-> > On Tue, Jan 10, 2023 at 11:53:06AM +0100, Andrzej Hajda wrote:
 
-...
-
-> > > +	return __xchg(&p_chain->p_prod_elem,
-> > > +		      (void *)(((u8 *)p_chain->p_prod_elem) + p_chain->elem_size));
-> > 
-> > Wondering if you still need a (void *) casting after the change. Ditto for the
-> > rest of similar cases.
 > 
-> IMHO it is not needed also before the change and IIRC gcc has an extension
-> which allows to drop (u8 *) cast as well [1].
-
-I guess you can drop at least the former one.
-
-> [1]: https://gcc.gnu.org/onlinedocs/gcc/Pointer-Arith.html
-
-...
-
-> > Btw, is it done by coccinelle? If no, why not providing the script?
+>  source "kernel/power/Kconfig"
+> diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h index
+> 4ca7fbacff42..9834ba4ce3e4 100644
+> --- a/arch/riscv/include/asm/sbi.h
+> +++ b/arch/riscv/include/asm/sbi.h
+> @@ -29,6 +29,7 @@ enum sbi_ext_id {
+>  	SBI_EXT_RFENCE = 0x52464E43,
+>  	SBI_EXT_HSM = 0x48534D,
+>  	SBI_EXT_SRST = 0x53525354,
+> +	SBI_EXT_SUSP = 0x53555350,
+>  	SBI_EXT_PMU = 0x504D55,
 > 
-> Yes I have used cocci. My cocci skills are far from perfect, so I did not
-> want to share my dirty code, but this is nothing secret:
+>  	/* Experimentals extensions must lie within this range */ @@ -113,6
+> +114,14 @@ enum sbi_srst_reset_reason {
+>  	SBI_SRST_RESET_REASON_SYS_FAILURE,
+>  };
+> 
+> +enum sbi_ext_susp_fid {
+> +	SBI_EXT_SUSP_SUSPEND = 0,
 
-Thank you! It's not about secrecy, it's about automation / error proofness.
+Macro name with "*_SYSTEM_SUSPEND" is better? Avoid confusing with CPU suspend.
 
--- 
-With Best Regards,
-Andy Shevchenko
+> +};
+> +
+> +enum sbi_ext_susp_sleep_type {
+> +	SBI_SUSP_SLEEP_TYPE_SUSPEND = 0,
+This should be SBI_SUSP_SLEEP_TYPE_SUSPEND_TO_RAM?
 
 
+Regards
+Ley Foon
 
 _______________________________________________
 linux-riscv mailing list
