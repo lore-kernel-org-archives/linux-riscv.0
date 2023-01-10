@@ -4,81 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 257AAC46467
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jan 2023 15:52:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EA5BC54EBC
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jan 2023 15:58:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JMTpnPH3UppXWWt8SUKzBxfGl8jchZWKMrDKiyoa9lE=; b=D+RBigom/QXwLB
-	6uKCVbYWCkJfSHNp/xwWXtZCRvXXhRokDeL7PdUE8B84v8GcMujVBY6fhQZQw/sXQo3r9Ol3KiAjd
-	9OfunOU55G/BBgOeupamdvr9ucc5I6QvTxH5EktOnYxitxzjr4HsVnzII93HV/gJIT5Rq6YBD6HBs
-	/IaqfxHzPl2kRLgNxy4hRPLR4FR9NO+I+SFt7rFMwfP+KVLDi19p0iixKWL2AczeaYCRFytrG/Uaz
-	yijqzkVu1Ilrrk9lG0Rq/0FL8zFPGSAoWsNM3ETCFFq6RiThos7cLr23RWLyUFRaNeaiYsi20y6ZA
-	1Vi6zT82nq2J/12m6Mjw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0z0+jy8HIj2B5egiLewjEruKrgPEBwzZ/H3lPFi0uSQ=; b=W+tYO/OvbEXm+tZMHbGb1aU7Rp
+	RtwH6BkgSxIR1na17m0mHD+y+I53Syt5lpmNJ1x0hnSBdKPiQGuJgQ0W1ZeIvXs/0Pxq/1j9azXC1
+	D1EKjQcbHFe/Xo9D7uNbpD5T2lIj98UOWRCxcQE+DPmoea/HC/urpyS3PcfCYHX+jaaNiaBd9AghB
+	9PMhHMthlNuTPyFrSakMuJiF2LGLeXC6ujEQdrtnQGxm3M2RtNX0RJs76yQdcP1VyiX8ix9moM8GD
+	N82jp+w8rp2Hfr809PTA/qEGaBSSF4bQv55XXMXghWCS2+8O7aXOXxbfIiC9pk2ZLyWxjrZEyUQto
+	l8cmRuAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFGvZ-007fLk-Ar; Tue, 10 Jan 2023 15:52:41 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1pFH1E-007hSf-EB; Tue, 10 Jan 2023 15:58:32 +0000
+Received: from relay11.mail.gandi.net ([217.70.178.231])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFGvX-007fJI-8L
-	for linux-riscv@lists.infradead.org; Tue, 10 Jan 2023 15:52:40 +0000
-Received: by mail-wr1-x429.google.com with SMTP id bk16so12232304wrb.11
-        for <linux-riscv@lists.infradead.org>; Tue, 10 Jan 2023 07:52:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=yW6pSygwaRFLykMNVfFhYMtkRvNlw3uJaphCvSAWUAo=;
-        b=kYvIhgG2sDWlPTVvf4eObZi7PYH1ZhLIAqeyiQwBQdvrouTO3pPQfsnFU4Oe9OQ+GI
-         /qeZDbMEb08P+q4K5JfK56UsPkB+wXo3V14ISQR6bWcD1poY+IdwN6TmjQs21YFP5Pgs
-         /Fu1d4K4JvnMKg9BLFnk4Jt6/gKG1v2z4vnoUN4RMopI4bKecOI3Sh5/7F+V/MxPTQrK
-         zxHl6VvnAp2IIDDvpN0F6W+AFzeHgZtHIyn+5RxlYnL7mR9CQCPC3EREaIii9PqkIBfO
-         /8CsBHt7HlP45Nyib046cTQQYxU+bmzaeM3n2ioRQpc7dHJuCWTDFFjZl1DqsXqsmNkJ
-         Sfog==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=yW6pSygwaRFLykMNVfFhYMtkRvNlw3uJaphCvSAWUAo=;
-        b=rdgUdfSKOMdaXm4/L13zQkeYdA09my7PzkeCOktNWHuD8DtevzLJVHh79iMsi9f8/y
-         x1AsMT5zehZyXYIcGZkp3uymDvXBM4G8fU04dVHBCszKW2PeGefjcNT/4vO5fvjCMbi9
-         fxJbYS4EBY3sGAQcwVPKhj00+XuJYA55i9eJUf0FrBj3hD9vZYXjtmAZHzVtqghhoAPN
-         GFXfftbmuFkl5vMc2HazsMP8NiiD9E84m+uMPRAE6amiExHJXeVz8MHPXjtBUlUUrtO5
-         qL3UV487AMDZI0JTmv+aCemAUMfyUeE/fTg19CL1kTX7wcJzFApY7LDIyEatLoVnGmT7
-         xqnw==
-X-Gm-Message-State: AFqh2kptbWYEPnnszswATnhhxGu8aa38ZZNBEDwtYZWUED/C+XjKsdGX
-	/RpVQ/ZKrbXRHW3oMeHj2/Ug+A==
-X-Google-Smtp-Source: AMrXdXt3ch1ld23BUvHXlzUHAv2eXtfxEAQgycLKPdxeKGRBB8TFXkcU7bdTbwvPaWjuJBogp3W7SA==
-X-Received: by 2002:adf:e787:0:b0:294:7be9:8740 with SMTP id n7-20020adfe787000000b002947be98740mr21403875wrm.21.1673365954003;
-        Tue, 10 Jan 2023 07:52:34 -0800 (PST)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id f7-20020a5d6647000000b002bbeb700c38sm6423724wrw.91.2023.01.10.07.52.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Jan 2023 07:52:33 -0800 (PST)
-Date: Tue, 10 Jan 2023 16:52:32 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Leyfoon Tan <leyfoon.tan@starfivetech.com>
-Cc: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	'Anup Patel ' <apatel@ventanamicro.com>,
-	'Albert Ou ' <aou@eecs.berkeley.edu>,
-	'Paul Walmsley ' <paul.walmsley@sifive.com>,
-	JeeHeng Sia <jeeheng.sia@starfivetech.com>,
-	'Palmer Dabbelt ' <palmer@dabbelt.com>
-Subject: Re: [RFC PATCH 1/1] riscv: sbi: Introduce system suspend support
-Message-ID: <20230110155232.oildjprzhk65cnls@orel>
-References: <20230106113216.443057-1-ajones@ventanamicro.com>
- <20230106113216.443057-2-ajones@ventanamicro.com>
- <739948a9f799485da88e0d7ed9f956e8@EXMBX161.cuchost.com>
+	id 1pFH10-007hMK-JH; Tue, 10 Jan 2023 15:58:20 +0000
+Received: (Authenticated sender: paul.kocialkowski@bootlin.com)
+	by mail.gandi.net (Postfix) with ESMTPSA id 9DCC2100007;
+	Tue, 10 Jan 2023 15:58:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1673366291;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ls2ZHhB4etdhWoWPPLqYUa/37vhJl28tR8qb5hvwZ/s=;
+	b=Fm2cxqae7qTWtMWT0LqewzuhPawG7GgGOlqOXEaY6yzG5ygk09t/nSmIMN3jfeCOUA+Ubt
+	/zddmJrMmKoYhcjsi4azTVvtDH1YviODyTOc0szzDibgkXbgp8b2NOgVIuhh1tUg1Zz0D4
+	8cP3FU3Fi/UoxXvfB/oYdiQKYfnBlEUPVuPbLJNby5H+/l+AhxTdmz+ajjLoEuWMaFXExY
+	xTuV4jurbPXEe8o1k0nt0mS/QKPugy73i2WjyPGA31V0yla1yWL+oh3Z4JXk3fok3rlIJM
+	tMG8GMkr1VIoD2/JcH7XIBKkw8dMqnVCMnt5/IUjISFXg448Se0uPrHen3OnoA==
+Date: Tue, 10 Jan 2023 16:58:06 +0100
+From: Paul Kocialkowski <paul.kocialkowski@bootlin.com>
+To: Samuel Holland <samuel@sholland.org>
+Cc: Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+	linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org,
+	Rob Herring <robh+dt@kernel.org>,
+	Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	Andre Przywara <andre.przywara@arm.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor@kernel.org>, linux-kernel@vger.kernel.org,
+	Heiko Stuebner <heiko@sntech.de>,
+	Palmer Dabbelt <palmer@rivosinc.com>
+Subject: Re: [PATCH v4 07/12] riscv: dts: allwinner: Add Sipeed Lichee RV
+ devicetrees
+Message-ID: <Y72LDlIOYo/I8dii@aptenodytes>
+References: <20221231233851.24923-1-samuel@sholland.org>
+ <20221231233851.24923-8-samuel@sholland.org>
+ <Y7bW32i3EUmGHqSK@aptenodytes>
+ <05c1ee07-0750-d40e-8498-55ea07b52ab1@sholland.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <739948a9f799485da88e0d7ed9f956e8@EXMBX161.cuchost.com>
+In-Reply-To: <05c1ee07-0750-d40e-8498-55ea07b52ab1@sholland.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230110_075239_317261_B33480A9 
-X-CRM114-Status: GOOD (  13.67  )
+X-CRM114-CacheID: sfid-20230110_075818_935349_921454A1 
+X-CRM114-Status: GOOD (  19.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,51 +75,93 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6434101456606403526=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 10, 2023 at 02:55:20PM +0000, Leyfoon Tan wrote:
-> 
-> > 
-> >  source "kernel/power/Kconfig"
-> > diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h index
-> > 4ca7fbacff42..9834ba4ce3e4 100644
-> > --- a/arch/riscv/include/asm/sbi.h
-> > +++ b/arch/riscv/include/asm/sbi.h
-> > @@ -29,6 +29,7 @@ enum sbi_ext_id {
-> >  	SBI_EXT_RFENCE = 0x52464E43,
-> >  	SBI_EXT_HSM = 0x48534D,
-> >  	SBI_EXT_SRST = 0x53525354,
-> > +	SBI_EXT_SUSP = 0x53555350,
-> >  	SBI_EXT_PMU = 0x504D55,
-> > 
-> >  	/* Experimentals extensions must lie within this range */ @@ -113,6
-> > +114,14 @@ enum sbi_srst_reset_reason {
-> >  	SBI_SRST_RESET_REASON_SYS_FAILURE,
-> >  };
-> > 
-> > +enum sbi_ext_susp_fid {
-> > +	SBI_EXT_SUSP_SUSPEND = 0,
-> 
-> Macro name with "*_SYSTEM_SUSPEND" is better? Avoid confusing with CPU suspend.
 
-The _SUSP_ part should cover that, but I'm OK with adding SYSTEM as well.
+--===============6434101456606403526==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="ARnt4yApiZMkzLk7"
+Content-Disposition: inline
 
-> 
-> > +};
-> > +
-> > +enum sbi_ext_susp_sleep_type {
-> > +	SBI_SUSP_SLEEP_TYPE_SUSPEND = 0,
-> This should be SBI_SUSP_SLEEP_TYPE_SUSPEND_TO_RAM?
 
-Yes, that would be better. I'll change that for the next version.
+--ARnt4yApiZMkzLk7
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Thanks,
-drew
+Hi Samuel,
+
+On Sun 08 Jan 23, 12:42, Samuel Holland wrote:
+> Hi Paul,
+>=20
+> On 1/5/23 07:55, Paul Kocialkowski wrote:
+> > Hi Samuel,
+> >=20
+> > On Sat 31 Dec 22, 17:38, Samuel Holland wrote:
+> >> Sipeed manufactures a "Lichee RV" system-on-module, which provides a
+> >> minimal working system on its own, as well as a few carrier boards. The
+> >> "Dock" board provides audio, USB, and WiFi. The "86 Panel" additionally
+> >> provides 100M Ethernet and a built-in display panel.
+> >>
+> >> The 86 Panel repurposes the USB ID and VBUS detection GPIOs for its RGB
+> >> panel interface, since the USB OTG port is inaccessible inside the cas=
+e.
+> >=20
+> > Looks like the panel-enabled variants would better be described as devi=
+ce-tree
+> > overlays as they are not specific devices but are peripheral extensions.
+> >=20
+> > What do you think?
+>=20
+> I don't agree. The Lichee RV 86 Panel is sold as a complete unit, with
+> the SoM+board and LCD pre-assembled inside a case. It is not possible to
+> purchase the board without a panel, so the panel-enabled variants are
+> the only variants.
+
+Oh my bad, I didn't go as far as actually checking what it looks like.
+So yeah if it's an individual device on its own I agree it deserves its
+own dedicated device-tree.
+
+Cheers,
+
+Paul
+
+
+--=20
+Paul Kocialkowski, Bootlin
+Embedded Linux and kernel engineering
+https://bootlin.com
+
+--ARnt4yApiZMkzLk7
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCAAdFiEEJZpWjZeIetVBefti3cLmz3+fv9EFAmO9iw0ACgkQ3cLmz3+f
+v9Gixwf/bUuAN5mWXtPd6SPwUdDiuGj3HtcGDNKL8Buq00SJTlZQyMbyz3F3TYcm
+bQ0/KlisJFv5fPbJW8aRI2TqOpFDnGtAGSkQ5JgyeJhiQbYjKBtHjvesPiDMsBxV
+ri99hwxNmZuFw+AswqPtGC4mbau4lnRJFC34lvZL02vlzxHYTapOsbPR1CtWb+Ww
+xL6bPOYB1pRzRHpR5i8fxDcxbW0/l36BwJf1UivHjFtxvYZcjI79Lr/1E33ZAbGg
+VJekuVkb7+v78TVIiN7YBYuZdYEydq62ARy8WP/VnExZLpWXvv6vNMSgfCSIPu9u
+Psc6c5fjpitNLgprsqst0bobNwUoWQ==
+=/4VV
+-----END PGP SIGNATURE-----
+
+--ARnt4yApiZMkzLk7--
+
+
+--===============6434101456606403526==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6434101456606403526==--
+
