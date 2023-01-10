@@ -4,74 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB5B7C677F1
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jan 2023 21:15:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA297C46467
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jan 2023 21:40:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JVy+Ac5VWFF1GVYnQb4T2aAPFdJrkGa2QVmza1V5mtA=; b=LJ8hRHSmS2xZVU
-	K0FQ+KS7Hh6zeUNXKbFOw3mSqq9PBU9tTU7V4om23olTMMDu65OuCkD7a3PgLfgWG5t/DklBpaFTG
-	+p70GqOmd6tO0br9HPH1UXwN3QfnJG/HUS7r18vZ7fkqQ9o3VtJiZppb+It7jiYeeh2z0mNIGg4Td
-	ow0bsvTvuaFvbnXuf68vTtifYuxA9zACROEyoX5Bo9m3/3ZcJ9q7FmzuVNSAAszD2J8dlpgAoHqg+
-	A7mPp94Px3PCizjclJO6soXcssdCkPM9fEsWTXzgYi6gWr6VOa/9PgXsjBh3JkGP8SIzSdrpK7LtD
-	Wvbe9jT4WpiV0PbcnU5g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Uw73UCQuQAKpRRHkmZ0/gPolQUH974hy36ZwKPG44EU=; b=SKT3T8xidZgPFvx62Y8dV6q4ak
+	EFUP4eoXW9jDCw/tGJsZb5uWUVBUhiECQbvWU/6jeQS5c3uphR86ZfFWSKtAeNG4V4I7YJfF/TOsX
+	BogLyr0gV8iLyVNtkqb34b88Om8WO929HBA1Ga/Ob1urTwMdGQGMeovPOwt5wEIqqrQlRCbwv77GD
+	wmd8uJyaDguCEhtwytV23mb1j9u2Yd69f9oHsI8Zdfazw3K+At7upC8wD893KJdPjR04aEklokj5G
+	vGC/xBx61AP80j/+17beegc3RUZNcZbnX9PKSRMsm4sp6UMqNInebfwYFtl2eErTe75Lzz84ys9Ng
+	zlOXRM6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFLxd-008aMt-Sm; Tue, 10 Jan 2023 21:15:09 +0000
-Received: from mail-qv1-f53.google.com ([209.85.219.53])
+	id 1pFMLg-008deu-15; Tue, 10 Jan 2023 21:40:00 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFLxa-008aLj-GD
-	for linux-riscv@lists.infradead.org; Tue, 10 Jan 2023 21:15:08 +0000
-Received: by mail-qv1-f53.google.com with SMTP id p17so9389764qvn.1
-        for <linux-riscv@lists.infradead.org>; Tue, 10 Jan 2023 13:15:05 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=VTwrAlOkb4T+2AUPT7ynzTkpDD8WxyWMcBCwyeuWNno=;
-        b=iuc4wksoGzRHKoFuo63ZX9i+x6HDSqtc147+FZtyyqgPlVWLWH2pOkONPadl3vfpje
-         QTOv+IxU4IrHL2oBXo+OGDZ1PaX0j76NX0evguZI4xchit31SUYdcA2ivGIL2aFb7m/A
-         es7xTsRlBaabqbZX8bjuA/0l970NCZOUKBINGzfp6ly2wZmT3siz5Ln1US6wK0NAfgRD
-         XjgvGnCst8y8PaHJFzeIkVtAU8SgOFedHChFStX2+ZUM2LhirCQ27fKjlOAMGJv6EF64
-         u5VdPnCT2c+xpIJ4nHzGILsu9mCDnK/z9XekTU8MC5RNO1p9Gw1c+3Ux6T5A7MNYxsyO
-         jt2Q==
-X-Gm-Message-State: AFqh2kqTV/o+QRT4CgbcuXCuh7hc+dvuCXFTZwh+gTW5GvPB4vzefcIw
-	UshyundJ0kjmDZqjXJb4J5uxhfiS+OFEEA==
-X-Google-Smtp-Source: AMrXdXs1LnfURpM9iFjModCrp3c3vXJWbjTv/+3QM1VE1RwuHSc1GUdnvxMUXHzwTHOzej4Hhg2pKQ==
-X-Received: by 2002:a05:6214:21c9:b0:532:2900:c5cb with SMTP id d9-20020a05621421c900b005322900c5cbmr24766110qvh.29.1673385304376;
-        Tue, 10 Jan 2023 13:15:04 -0800 (PST)
-Received: from mail-yb1-f176.google.com (mail-yb1-f176.google.com. [209.85.219.176])
-        by smtp.gmail.com with ESMTPSA id h9-20020a05620a244900b006cf38fd659asm7904194qkn.103.2023.01.10.13.15.03
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 10 Jan 2023 13:15:03 -0800 (PST)
-Received: by mail-yb1-f176.google.com with SMTP id t15so13127912ybq.4
-        for <linux-riscv@lists.infradead.org>; Tue, 10 Jan 2023 13:15:03 -0800 (PST)
-X-Received: by 2002:a25:5189:0:b0:7bf:d201:60cb with SMTP id
- f131-20020a255189000000b007bfd20160cbmr515258ybb.365.1673385303381; Tue, 10
- Jan 2023 13:15:03 -0800 (PST)
-MIME-Version: 1.0
-References: <20221121221414.109965-1-conor@kernel.org> <20221121221414.109965-2-conor@kernel.org>
-In-Reply-To: <20221121221414.109965-2-conor@kernel.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 10 Jan 2023 22:14:51 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdVoMzox6FdPFsR515nnEYXtCt-Xs5qBgGQigzL2=Q7kPg@mail.gmail.com>
-Message-ID: <CAMuHMdVoMzox6FdPFsR515nnEYXtCt-Xs5qBgGQigzL2=Q7kPg@mail.gmail.com>
+	id 1pFMLd-008ddp-BL
+	for linux-riscv@lists.infradead.org; Tue, 10 Jan 2023 21:39:58 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id B1665618EB;
+	Tue, 10 Jan 2023 21:39:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C8BAC433EF;
+	Tue, 10 Jan 2023 21:39:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1673386796;
+	bh=qVXKtBBQ1X0h82PMOewWn1J+Aaea3cCP4S+M/idQd4M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NxEQqlEA/7mSxD9IK7usRt4DFRMznJc52DA4fsmXcGN5J4RMOtxmPrRFjD62ZJBnB
+	 bR/k9og6cUxkqNVIOYmb3BZX656GlQ9HsKI884yMRuZokkUKan36INvlTd0UC6IkH9
+	 hC2y9bNnVv2w+1V5ElhexdxQZtf7LJfTJWpgRVka+KC0O+/CFchxLjicdb6VawHJn+
+	 fI5z7/BFwCTSE6Izdf0JvYYvhle9M919R/gM6+6aNO6GAxZr4VuF8F0+3tEKmfkbKd
+	 5c3IODgvRh271Wgl250unFleX/rXwRQlkp+af9EwG/IBqvwi2WR65YRwg8lGqT/5YM
+	 63q+ICbeig/PQ==
+Date: Tue, 10 Jan 2023 21:39:51 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: linux-riscv@lists.infradead.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Christoph Hellwig <hch@infradead.org>,
+	Damien Le Moal <damien.lemoal@opensource.wdc.com>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Samuel Holland <samuel@sholland.org>
 Subject: Re: [PATCH v1 1/7] RISC-V: introduce ARCH_FOO kconfig aliases for
  SOC_FOO symbols
-To: Conor Dooley <conor@kernel.org>
-Cc: linux-riscv@lists.infradead.org, Conor Dooley <conor.dooley@microchip.com>, 
-	Arnd Bergmann <arnd@arndb.de>, Christoph Hellwig <hch@infradead.org>, 
-	Damien Le Moal <damien.lemoal@opensource.wdc.com>, 
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>, Heiko Stuebner <heiko@sntech.de>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Samuel Holland <samuel@sholland.org>
+Message-ID: <Y73bJ/kKYo1xJPDK@spud>
+References: <20221121221414.109965-1-conor@kernel.org>
+ <20221121221414.109965-2-conor@kernel.org>
+ <CAMuHMdVoMzox6FdPFsR515nnEYXtCt-Xs5qBgGQigzL2=Q7kPg@mail.gmail.com>
+MIME-Version: 1.0
+In-Reply-To: <CAMuHMdVoMzox6FdPFsR515nnEYXtCt-Xs5qBgGQigzL2=Q7kPg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230110_131506_573429_22A65C24 
-X-CRM114-Status: GOOD (  23.10  )
+X-CRM114-CacheID: sfid-20230110_133957_477736_60AD556D 
+X-CRM114-Status: GOOD (  30.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,69 +76,131 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6482466124515145057=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
 
-On Mon, Nov 21, 2022 at 11:18 PM Conor Dooley <conor@kernel.org> wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
->
-> To facilitate a transfer from SOC_FOO to ARCH_FOO, over a release cycle,
-> introduce some aliases so that drivers etc that use the SOC_FOO symbols
-> can be converted.
->
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+--===============6482466124515145057==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="ZJmyUoI6n8jHUvLu"
+Content-Disposition: inline
 
-Thanks for your patch, which is now commit fc43211939bb6874
-("RISC-V: kconfig.socs: convert usage of SOC_CANAAN to
-ARCH_CANAAN") in riscv/for-next
 
-> --- a/arch/riscv/Kconfig.socs
-> +++ b/arch/riscv/Kconfig.socs
+--ZJmyUoI6n8jHUvLu
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> @@ -73,6 +91,9 @@ config SOC_CANAAN_K210_DTB_BUILTIN
->           This option should be selected if no bootloader is being used.
->           If unsure, say Y.
->
-> +config ARCH_CANAAN_K210_DTB_SOURCE
-> +       def_bool SOC_CANAAN_K210_DTB_SOURCE
+Hi Geert...
 
-This is not correct, as SOC_CANAAN_K210_DTB_SOURCE below is
-not a bool, but a string.
+On Tue, Jan 10, 2023 at 10:14:51PM +0100, Geert Uytterhoeven wrote:
+> On Mon, Nov 21, 2022 at 11:18 PM Conor Dooley <conor@kernel.org> wrote:
+> > From: Conor Dooley <conor.dooley@microchip.com>
+> >
+> > To facilitate a transfer from SOC_FOO to ARCH_FOO, over a release cycle,
+> > introduce some aliases so that drivers etc that use the SOC_FOO symbols
+> > can be converted.
+> >
+> > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+>=20
+> Thanks for your patch, which is now commit fc43211939bb6874
+> ("RISC-V: kconfig.socs: convert usage of SOC_CANAAN to
+> ARCH_CANAAN") in riscv/for-next
 
-> +
->  config SOC_CANAAN_K210_DTB_SOURCE
->         string "Source file for the Canaan Kendryte K210 builtin DTB"
->         depends on SOC_CANAAN
+I see this and I immediately know it is going to be bad news!
 
-Hence
+> > --- a/arch/riscv/Kconfig.socs
+> > +++ b/arch/riscv/Kconfig.socs
+>=20
+> > @@ -73,6 +91,9 @@ config SOC_CANAAN_K210_DTB_BUILTIN
+> >           This option should be selected if no bootloader is being used.
+> >           If unsure, say Y.
+> >
+> > +config ARCH_CANAAN_K210_DTB_SOURCE
+> > +       def_bool SOC_CANAAN_K210_DTB_SOURCE
+>=20
+> This is not correct, as SOC_CANAAN_K210_DTB_SOURCE below is
+> not a bool, but a string.
+>=20
+> > +
+> >  config SOC_CANAAN_K210_DTB_SOURCE
+> >         string "Source file for the Canaan Kendryte K210 builtin DTB"
+> >         depends on SOC_CANAAN
+>=20
+> Hence
+>=20
+>     obj-$(CONFIG_ARCH_CANAAN_K210_DTB_BUILTIN) +=3D $(addsuffix .dtb.o,
+> $(CONFIG_ARCH_CANAAN_K210_DTB_SOURCE))
+>=20
+> will do the wrong thing later, and I get a non-bootable system (no output)
+> on my MAiX-BiT.
+>=20
+> Unfortunately there is no def_string, so I don't think we can fix this
+> in a backwards-compatible way, and have to replace all
+> SOC_CANAAN_K210_DTB_SOURCE by ARCH_CANAAN_K210_DTB_SOURCE,
+> and urging users to update their .config manually.
 
-    obj-$(CONFIG_ARCH_CANAAN_K210_DTB_BUILTIN) += $(addsuffix .dtb.o,
-$(CONFIG_ARCH_CANAAN_K210_DTB_SOURCE))
+That sucks. I'm not sure how I missed this - I had tested originally on
+my k210, but evidently there was something wrong with how I had done it.
+I must have not tested a subsequent revision on the k210. Mea cupla.
 
-will do the wrong thing later, and I get a non-bootable system (no output)
-on my MAiX-BiT.
+As it wasn't my intention to inflict this change without time for the
+symbols to appear in configs, my immediate feeling is that this part of
+the change should be reverted.
 
-Unfortunately there is no def_string, so I don't think we can fix this
-in a backwards-compatible way, and have to replace all
-SOC_CANAAN_K210_DTB_SOURCE by ARCH_CANAAN_K210_DTB_SOURCE,
-and urging users to update their .config manually.
+Of course, we could so something like:
+diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+index 34a54e5310a1..d36a5f39f13a 100644
+--- a/arch/riscv/Kconfig.socs
++++ b/arch/riscv/Kconfig.socs
+@@ -79,7 +79,8 @@ config SOC_CANAAN_K210_DTB_BUILTIN
+          If unsure, say Y.
+=20
+ config ARCH_CANAAN_K210_DTB_SOURCE
+-       def_bool SOC_CANAAN_K210_DTB_SOURCE
++       string
++       default SOC_CANAAN_K210_DTB_SOURCE
+=20
+ config SOC_CANAAN_K210_DTB_SOURCE
+        string "Source file for the Canaan Kendryte K210 builtin DTB"
 
-Gr{oetje,eeting}s,
+But I am not sure of how that interacts with the various methods of
+updating ones config.
+=46rom, admittedly limited, testing it does get updated if
+SOC_CANAAN_K210_DTB_SOURCE is changed using menuconfig. Similarly, if
+one alters that symbol and does olddefconfig it also gets updated.
 
-                        Geert
+I'm sure I am overlooking something here though, what is it?
 
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+Thanks & apologies,
+Conor.
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+
+--ZJmyUoI6n8jHUvLu
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY73bJwAKCRB4tDGHoIJi
+0qLaAP90hrV10NYQLMM2oCOU3qBdCW5SUhTNI4IlG3b0ja3lCQEApFUfEoyNni6X
+UAV07x8iDhu6alw4HN0FQGpSv4CZlQY=
+=9odq
+-----END PGP SIGNATURE-----
+
+--ZJmyUoI6n8jHUvLu--
+
+
+--===============6482466124515145057==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6482466124515145057==--
+
