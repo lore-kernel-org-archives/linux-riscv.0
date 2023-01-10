@@ -4,78 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22B8DC46467
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jan 2023 09:28:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E729C54EBE
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jan 2023 09:39:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vtn5/MiX7yGN2L/idleg2lCRK3j+F5Sy/zYXb9p+LhM=; b=s5Q1BG6bJFV6Vk
-	KqbSCLP9DS4K2J53d3q0M8z36QXRKQ9ImqO4kxsdXr8PIJImbwXiuBWCdoXBCFBl/SHZ17HeE/VCY
-	o0rg4tX6iA2OWQ3NcYuz3nHJ7NKmImrircU1Ju5lSZ/vTma0dkpoHwdcsHKvDJiU8NyaBgMJFYJjs
-	gcqyslkyQJw+/Imx5OvwrsqMMt0eScmjHuDlzyovlJEItMPwLvGcrgj5ARBX1eIpfLg1OJ7+yOB+g
-	CbqGyor7nfgv+2JW3CIb5Szt4Q9A3PVMij5hynl3YYb6qp8W0M7o/KX3UyrEPLeAsyQbSiCszJyAk
-	VbZA+pPSxNyCKjdXxrmw==;
+	List-Owner; bh=wddWS/ziSjgk4fVU9vpJYpn1ChrxPWYjGXB1WYs24mw=; b=PUrbnDIyORTSR+
+	ky6F1Z+SHP+noU4a3nLVLGRzKvWKEjT4nPjTLt+2h/4YLRPFe0BlMB0n1PEoQeIQdX2APOA22SuKJ
+	KRsFBVlJSQes+0iuqDw3Xk+UshY+SxyZWCH3dcP/TUrv7a8hiEMl19hptw6PRfRfTj1M3oZ60ERsL
+	XkL+0VsVBHGZR6+13ChBBnMLGt6/e5zqHVkc/lyRh4nBI6RWX3y9um+KfCzaUw8Erc1mJNS8ej4HM
+	NHo6GTqONW26JC+OKgr69Gs+F6gsKCzTydrE91T3TSJxhUQ5Zv1LYRymf82uxFKrYSbxNfMvHJFnE
+	LbZT/F1WNSm1iRVXQ5KA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFAvZ-006682-UI; Tue, 10 Jan 2023 09:28:17 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1pFB6h-006ADF-CO; Tue, 10 Jan 2023 09:39:47 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFAvX-00666Q-3p
-	for linux-riscv@lists.infradead.org; Tue, 10 Jan 2023 09:28:16 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id ay40so8301524wmb.2
-        for <linux-riscv@lists.infradead.org>; Tue, 10 Jan 2023 01:28:11 -0800 (PST)
+	id 1pFB6d-006A9o-F8
+	for linux-riscv@lists.infradead.org; Tue, 10 Jan 2023 09:39:45 +0000
+Received: by mail-wm1-x335.google.com with SMTP id j16-20020a05600c1c1000b003d9ef8c274bso4990200wms.0
+        for <linux-riscv@lists.infradead.org>; Tue, 10 Jan 2023 01:39:39 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=ventanamicro.com; s=google;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=efQ9lXI0mEpe03gYvHlDhOcfBvws8vPR7MGf/CL20FE=;
-        b=hgERtYL3zeLGMpvoCeiE0Am60cSojPo5gfn7vpzZO7l3a/YngEZnsXOemiKQV961Rq
-         rne8mzaDU5JO+usNitN+mm3+z8eCcEXHY70H9Nu21vDxhqVZ6Z5kuclPDrFoh62XcpRT
-         +4gQPOYw7RFN/YKDe4VcgBpNyZGL7x8TYO1w9KlJHIVuaxp8x/mh7Zw8yOurxFJYe3SN
-         1DR7zvLAxzPkwiLbT/cS+SKycn0fsm24siuYN9Df4Uto4GXCIm7aiFnu7K7o10Ppr8S+
-         4OtAGLC68gIFGozZNyEm7vwSHdoyydmntBR5lT13fS8jjTDuLYznhV9+sX1XD/RRGurp
-         XWlA==
+        bh=MNHMeRpPglY0pXrcQupdNDeDexX44wkA5x1qWpudWkE=;
+        b=fXEMtaKQsIJGcJdmzLTWPlkyFUiSlwt7yUhW56xUHNM6BTYjIPTWIV/upJ9epmFnzi
+         +DwI+2hNOgdua77H61g8VJ1RLfplCcBw9gsW9znmL1sToWFYstTBOUDXpPLVt+HkSzHk
+         J+tq96nttoxpKKKMC9TIpPo5us6zxZeH+1EP+8LtEg0pf3w3D8SdqCF61ZU7a7swCZgY
+         ublMr0l9XqJVlCYDh1Io7OR6Rfp0NtgZbr1RZEJtskrsrAxBCvouQNlSbK4gl6Sjd5Tw
+         kDbqa1JJdJw8C2CL4R2HHpgmTy2bWwC7lkXbD4usgcHNLmA2+ag1BqL4RafOplBfiDQA
+         mx0Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=efQ9lXI0mEpe03gYvHlDhOcfBvws8vPR7MGf/CL20FE=;
-        b=OoRjpkWHJ86Zl1hYJZtw48e0cQkFSsGkurUuT/PTXKqzFFvsf17tYXqmsuIwhkuopS
-         0cAu8VkIDDYWNniU0cOH6J/cGP3hx+uHD8rKnopHOGmjn0KvpSdlW4BF/UW/xaBwhb3a
-         5oosIwRpuQUmxh8ikwV9sqyaFKVMcfW+y7JqoDl0ayxEv8OamKOya3NRIBzqcJ0X9h1u
-         UmDaCjDK5ME8YAnSoaz3ZKotEsfiinY4IKj+WwrEgSgS4nfEHlYaAjUXHhDiBy8i4fi+
-         VSFp4KPL0Jemh2ov2mb9PXUpY0d6mC3JW+jkNZ2wQYI1yGEj/sq5fyfJiMsHs7oQj41p
-         MfCg==
-X-Gm-Message-State: AFqh2kpRHjwB5/zujflxFzzFXkp8auaaeOGaO2PRBUoWGm/hCsboBTrw
-	jx2daa9RMYNkEkm6SGUFvf9tiw==
-X-Google-Smtp-Source: AMrXdXtVYXNv3CaentoF1Ns/xr/iRE5ico6s7lRkb8sajQaJ7/DntaPI6XZhMx4pp2joQFR1OklMHg==
-X-Received: by 2002:a1c:7c14:0:b0:3d1:f74d:4f60 with SMTP id x20-20020a1c7c14000000b003d1f74d4f60mr52386845wmc.22.1673342890605;
-        Tue, 10 Jan 2023 01:28:10 -0800 (PST)
+        bh=MNHMeRpPglY0pXrcQupdNDeDexX44wkA5x1qWpudWkE=;
+        b=O/NlIg0rE7moojnVwqCcupkoqAPshe81GBEMZhqrCONIHWSOc1dSXcB5G8HHd6Qeow
+         XwM14YJKYwZGivtp3K5t8Phc7/CgXhIscG9PrOxRanWTtfp9OZelVgfFrnu63xoFooge
+         vg4FPtOiXqVB+mOa2ROg5e5v++s6GOoxzwxysdliEjAgjXTEfvPgYZzNOidIAFKEA+yV
+         xpNyj9PRUvVU7Aax83oTIcgU2NM1TMcXz3/mByh5dSTOUQccKOoit8mjyNZl5wQQUEMB
+         hIdL+uCf9BpYJuI1uCzAvDRk+g52WHlLOJZ7ebSHgy3Q/X9GLzXXQIx40ailXd9R2VVo
+         RiWg==
+X-Gm-Message-State: AFqh2krWCiGivob1yggWzqDqbY90Ptrvzo+sACFQBEcROw32UrIt+T4x
+	3aBq+qXSg0xh3Jfn4phn01pvDQ==
+X-Google-Smtp-Source: AMrXdXsg5Q1kK/Fu4pLUC8JkLLvL7Eewrb5CsDIT4/4CxTxMxQO7dPPvvXdo5ZsbItb9gk+wx2T/zA==
+X-Received: by 2002:a05:600c:4a9b:b0:3d1:dc6f:b1a4 with SMTP id b27-20020a05600c4a9b00b003d1dc6fb1a4mr58915320wmp.5.1673343577999;
+        Tue, 10 Jan 2023 01:39:37 -0800 (PST)
 Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id r5-20020a05600c35c500b003d98f92692fsm15616366wmq.17.2023.01.10.01.28.10
+        by smtp.gmail.com with ESMTPSA id o9-20020a05600c510900b003c6f8d30e40sm21103053wms.31.2023.01.10.01.39.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Jan 2023 01:28:10 -0800 (PST)
-Date: Tue, 10 Jan 2023 10:28:09 +0100
+        Tue, 10 Jan 2023 01:39:37 -0800 (PST)
+Date: Tue, 10 Jan 2023 10:39:36 +0100
 From: Andrew Jones <ajones@ventanamicro.com>
 To: Heiko Stuebner <heiko@sntech.de>
 Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
 	christoph.muellner@vrull.eu, conor@kernel.org,
 	philipp.tomsich@vrull.eu, jszhang@kernel.org,
 	Heiko Stuebner <heiko.stuebner@vrull.eu>
-Subject: Re: [PATCH v4 3/5] RISC-V: fix jal addresses in patched alternatives
-Message-ID: <20230110092809.nvad7vac2liivqs3@orel>
+Subject: Re: [PATCH v4 4/5] RISC-V: add infrastructure to allow different
+ str* implementations
+Message-ID: <20230110093936.nzc3nkrkqkkzxkaq@orel>
 References: <20230109181755.2383085-1-heiko@sntech.de>
- <20230109181755.2383085-4-heiko@sntech.de>
+ <20230109181755.2383085-5-heiko@sntech.de>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230109181755.2383085-4-heiko@sntech.de>
+In-Reply-To: <20230109181755.2383085-5-heiko@sntech.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230110_012815_176864_DB8D43FB 
-X-CRM114-Status: GOOD (  23.79  )
+X-CRM114-CacheID: sfid-20230110_013943_536578_3D62AE99 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,82 +93,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 09, 2023 at 07:17:53PM +0100, Heiko Stuebner wrote:
+On Mon, Jan 09, 2023 at 07:17:54PM +0100, Heiko Stuebner wrote:
 > From: Heiko Stuebner <heiko.stuebner@vrull.eu>
 > 
-> Alternatives live in a different section, so addresses used by jal
-> instructions will point to wrong locations after the patch got applied.
+> Depending on supported extensions on specific RISC-V cores,
+> optimized str* functions might make sense.
 > 
-> Similar to arm64, adjust the location to consider that offset.
+> This adds basic infrastructure to allow patching the function calls
+> via alternatives later on.
 > 
-> Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
-> ---
->  arch/riscv/kernel/alternative.c | 27 +++++++++++++++++++++++++++
->  1 file changed, 27 insertions(+)
-> 
-> diff --git a/arch/riscv/kernel/alternative.c b/arch/riscv/kernel/alternative.c
-> index 6212ea0eed72..985c284fe9f4 100644
-> --- a/arch/riscv/kernel/alternative.c
-> +++ b/arch/riscv/kernel/alternative.c
-> @@ -79,6 +79,21 @@ static void riscv_alternative_fix_auipc_jalr(void *ptr, u32 auipc_insn,
->  	patch_text_nosync(ptr, call, sizeof(u32) * 2);
->  }
->  
-> +static void riscv_alternative_fix_jal(void *ptr, u32 jal_insn, int patch_offset)
-> +{
-> +	s32 imm;
-> +
-> +	/* get and adjust new target address */
-> +	imm = riscv_insn_extract_jtype_imm(jal_insn);
-> +	imm -= patch_offset;
-> +
-> +	/* update instructions */
+> The Linux kernel provides standard implementations for string functions
+> but when architectures want to extend them, they need to provide their
+> own.
 
-instruction
-
-> +	riscv_insn_insert_jtype_imm(&jal_insn, imm);
-> +
-> +	/* patch the call place again */
-> +	patch_text_nosync(ptr, &jal_insn, sizeof(u32));
-> +}
-> +
->  void riscv_alternative_fix_offsets(void *alt_ptr, unsigned int len,
->  				      int patch_offset)
->  {
-> @@ -106,6 +121,18 @@ void riscv_alternative_fix_offsets(void *alt_ptr, unsigned int len,
->  			riscv_alternative_fix_auipc_jalr(alt_ptr + i * sizeof(u32),
->  							 insn, insn2, patch_offset);
-
-I think we should add an i++ here. There's not a problem now, since we're
-only adding a fixup for jal, not jalr, but we should future-proof this and
-there's no reason to revisit an already fixed-up instruction anyway.
-
->  		}
-> +
-> +		if (riscv_insn_is_jal(insn)) {
-> +			s32 imm = riscv_insn_extract_jtype_imm(insn);
-> +
-> +			/* don't modify jumps inside the alternative block */
-
-Don't
-
-> +			if ((alt_ptr + i * sizeof(u32) + imm) >= alt_ptr &&
-> +			    (alt_ptr + i * sizeof(u32) + imm) < (alt_ptr + len))
-> +				continue;
-> +
-> +			riscv_alternative_fix_jal(alt_ptr + i * sizeof(u32),
-> +						  insn, patch_offset);
-> +		}
->  	}
->  }
->  
-> -- 
-> 2.35.1
->
-
-Otherwise
-
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+And the compiler provides builtins. In the previous series it appeared
+to be a bad idea to compile the kernel with the compiler's builtins
+disabled. How will the optimized string functions which will be based
+on this patch be selected?
 
 Thanks,
 drew
