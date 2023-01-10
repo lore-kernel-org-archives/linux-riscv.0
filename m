@@ -4,87 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43433C54EBE
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jan 2023 08:25:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2101FC46467
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jan 2023 08:32:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=F7YAPgSh7zXABFdeutdf0/pxf4SisbnWXJdSQBz8Yzc=; b=aMXPxI41V7Ok4K
-	crrvsXcZOVtnxxn96xKZG3hXeTCz+oi6wQFdZzGpkQC2frEt3T9GO10v8TEBoBqm32qBMdeBRONxc
-	8+EPHTk3bFmYctCpiccqTW/JuwBOvGl1/8lDDw1hhciFDrvGMlrwp1Gz6I/ceMZhhzJqSe6B3ulO4
-	ZmUAp8RAKj5+uMOFIeYnbYwzWKtN5WprKrku0QguEI29wqK/4I8jtP3uIQSqL2XHuI1mhRm+gtxnd
-	NCIw0iJGb5Kdi54UQQ4nhkG/8nHA9zVpnUXkp82UyFKc9UsSDOQGtB3RO43WfTVs1D1/9NN7soaeb
-	kDCcjKaIs5mTSKlCW/dw==;
+	List-Owner; bh=DAc7ED1HWleDH9KZJ/AH1poqeV4P5373tEJ3VGSINfw=; b=tD6OETB6FyMp6Q
+	4VZxuxHMCxUzH3f4xAG04zDlL5IP3TLr93EbjH9ttr7qSdFl8H6LOHuTob7MnLl5Fv6d2y6N4rZk3
+	SUTjbTa4S42iHgacnBe98JcGe41m2x1NfF4aA8fzomgjKJA56bK+6vmWXSzfWK475Ry8fAnBdTK6P
+	zY39Guz4XL6M2mpt1w4Syh/Wlal/tCayrymABrSLpILygQs132D/yyyc8SRqogQSgxKLqF3g0kQks
+	qf7fe6c0Z/HjQoCAj8Gmqrncx6vfARr45TGi7EjTtUi/iRQqJMCMTDJfpbCyGHC9wHt6PsySbmzBd
+	px4AycwWSZtCmN/iH3QA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pF9wQ-005nBZ-UA; Tue, 10 Jan 2023 08:25:06 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1pFA3T-005oyC-Jo; Tue, 10 Jan 2023 08:32:23 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pF9wN-005nAA-Jp
-	for linux-riscv@lists.infradead.org; Tue, 10 Jan 2023 08:25:05 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id ja17so8171062wmb.3
-        for <linux-riscv@lists.infradead.org>; Tue, 10 Jan 2023 00:25:02 -0800 (PST)
+	id 1pFA3R-005owu-S4
+	for linux-riscv@lists.infradead.org; Tue, 10 Jan 2023 08:32:23 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id bk16so10875454wrb.11
+        for <linux-riscv@lists.infradead.org>; Tue, 10 Jan 2023 00:32:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=KMoqZy8lL6lKnv3mK+SHjAH6f5V4KXyJJY9vMCQj/VM=;
-        b=TV/zP38nT/DV77mwIwJKMtCilXcLYKNqFaSt4ttTXejVQPETGHaTze/gAgtQUETvZh
-         x8MuR/5XO92gVTfPK4sbIgmeJ1giXD0x8jCqPRETWfHCEpPfi2VxeU+Jkw37+IgzYzNJ
-         aDaD8rJzgn0485gyM4LgU0Ityeo5tL8MVyZ7lj1FZkCTZ4rH6Xf1lPaR3u6rKtqQfgGs
-         EDGjisRz/4hvrQDBOkWvyIQMnAw+KRLExidd/YoMBJhrX8LTX8Yx5WFWLnE8QcW4UqS3
-         P1XQq9wx/lbuw+k9lbrnrWglair+kGIjSphEoBBUrsPUIQdtXyWN09igCGzqQz7OcHoR
-         w46Q==
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=zgBO6+9PGIY7gG3EwbYAW3dCBxJ4oWi8pqGXEjwv8w4=;
+        b=fRY2blI7y1/KRiC37HSHNJYMIzBk5K6t9QpoOiGA3wX8gniUs1y4/hAL5g5UZxY1+o
+         T0by85aswqqqZW8QJGoG+se1CSU0WTjy5QwRjkYh2VWfTgi9LqIS9d9SySQaX0C6wgwU
+         I4p7e7jPzoSWz5h8hQnkW9sRG4zjTOnLxf+CgqmPG31wZ472qBHlrDgOlcSKnSAoOqZx
+         YESwr0plD4VqnbPvP8F80CiJbvuMF2Yo5ap13OkZHmk1Dj2cSIISN93CZir6zxxRL1/N
+         DJsYpJW43gGc5LI+udIlPgww0k5swFjNhpZr67tmLbzuz3ohOJ1H8vaT/Zb/3BIEdwjU
+         OVJA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=KMoqZy8lL6lKnv3mK+SHjAH6f5V4KXyJJY9vMCQj/VM=;
-        b=JCkRj5hpfeT8ttXgvj0MAUlzc9TglFiNyEbT7RTgztNj0s97+9rBJhV8xkx6//X9FH
-         e5148p3dD0aCWaYoCFpLG2CsPMDcG0DgjRbYI+6kukUFdPSNwgo2iu02lkq2ZPS2ajsT
-         0+eH2WQm0Naamle28a7CxR8xI0194eBdfZWf44tLAjIloyP7rDG2YTUzLYP5COl61oOh
-         hASFxs7vc22lcpkzr6grJAa1mt60UXJ7C+QrOkpvV5NL40Rsw7IzYySYA021d3SU/z9Y
-         uL/r3RvaVYZHxlYksCD9lArciW7XvSZnZtVyxRrJi0Hrfk6jrG+cJ19sR9D59LGSmgu8
-         qJbQ==
-X-Gm-Message-State: AFqh2kotDJq3tp/K1lob/qFtlkmHydt8BKkbUX/r4eBtwi0x5aOyPggx
-	gsP3Gl5NwfpUFdZvt4+HRhdvPbiW/jg4++ru
-X-Google-Smtp-Source: AMrXdXs5LDxIeadvFOYauvtpjU/gcobZo9BXdvfHf5RlHyauK1UfZsK3bydJnx2PQECskqIfaSL1Ig==
-X-Received: by 2002:a05:600c:1f18:b0:3cf:5583:8b3f with SMTP id bd24-20020a05600c1f1800b003cf55838b3fmr47116237wmb.20.1673339100837;
-        Tue, 10 Jan 2023 00:25:00 -0800 (PST)
-Received: from [192.168.1.109] ([178.197.216.144])
-        by smtp.gmail.com with ESMTPSA id m18-20020a05600c4f5200b003c6b70a4d69sm15783317wmq.42.2023.01.10.00.24.59
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 10 Jan 2023 00:25:00 -0800 (PST)
-Message-ID: <6f1c38fc-9586-8ed5-8403-947ed6863b03@linaro.org>
-Date: Tue, 10 Jan 2023 09:24:58 +0100
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=zgBO6+9PGIY7gG3EwbYAW3dCBxJ4oWi8pqGXEjwv8w4=;
+        b=SBOflU4bGunBQ1L0YZ0i70E+xp71g3F65M9pjNAG+9PVdEV3PJ5BMoTIla4dNC3wyI
+         Kglitk8kjAP1F2la9c05vouR1090SPlOvoOwpoj1O7lPtPLv7k9eS56IRJO7Q3YK27tG
+         rMc3KWhGuil7d2VNuBpf64TY+PhHy/FD5GlsxkzOHz4w57mcES/d85Q5hm5PyhHtWNbL
+         y+Wqgj6cxvxxbIXgGH4MnbHDWlgwexeCQ9OKobT7d0xE0LBPOv8FpXSqVCORG0m6zL6G
+         IHEdWdBb3+mOVC9CstU+OLESlbBpj/ExrRt/VO792vp8YmyIBOHWOWGmGp1JLEMRl5zo
+         Au1g==
+X-Gm-Message-State: AFqh2kox2vln/oyMno33GbbO+0mj+RFbS8BEr0IrIIXGdwh9hVuaLePg
+	MOgWcQ4wmRX5WXEVBylEuuu8qruve7VJy8yo
+X-Google-Smtp-Source: AMrXdXv8EDtq5SMrjEXtQZiVtkTcawhtiPoNQ3TiMLAStMzqBdbG4Cq06NTdalB61e8ucMsn1aGzxg==
+X-Received: by 2002:a5d:6f07:0:b0:296:a81e:3bb5 with SMTP id ay7-20020a5d6f07000000b00296a81e3bb5mr25121283wrb.30.1673339537021;
+        Tue, 10 Jan 2023 00:32:17 -0800 (PST)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id s1-20020a5d4ec1000000b002882600e8a0sm10608246wrv.12.2023.01.10.00.32.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 10 Jan 2023 00:32:16 -0800 (PST)
+Date: Tue, 10 Jan 2023 09:32:15 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
+	christoph.muellner@vrull.eu, conor@kernel.org,
+	philipp.tomsich@vrull.eu, jszhang@kernel.org,
+	Heiko Stuebner <heiko.stuebner@vrull.eu>
+Subject: Re: [PATCH v4 1/5] RISC-V: move some stray __RISCV_INSN_FUNCS
+ definitions from kprobes
+Message-ID: <20230110083215.tvfjjelddywna4lx@orel>
+References: <20230109181755.2383085-1-heiko@sntech.de>
+ <20230109181755.2383085-2-heiko@sntech.de>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.6.1
-Subject: Re: [PATCH v1 1/3] dt-bindings: timer: Add timer for StarFive JH7110
- SoC
-To: Xingyu Wu <xingyu.wu@starfivetech.com>
-Cc: Rob Herring <robh+dt@kernel.org>, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, Daniel Lezcano <daniel.lezcano@linaro.org>,
- Thomas Gleixner <tglx@linutronix.de>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Samin Guo <samin.guo@starfivetech.com>, linux-kernel@vger.kernel.org
-References: <20221223094801.181315-1-xingyu.wu@starfivetech.com>
- <20221223094801.181315-2-xingyu.wu@starfivetech.com>
- <179e66a8-c6c0-6d3e-4f4a-6b884f532572@linaro.org>
- <4febeef1-a42a-7d6f-d1af-d8fe19582822@starfivetech.com>
-Content-Language: en-US
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <4febeef1-a42a-7d6f-d1af-d8fe19582822@starfivetech.com>
+Content-Disposition: inline
+In-Reply-To: <20230109181755.2383085-2-heiko@sntech.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230110_002503_693042_0F0006EC 
-X-CRM114-Status: GOOD (  22.37  )
+X-CRM114-CacheID: sfid-20230110_003221_927393_3BE61D90 
+X-CRM114-Status: GOOD (  13.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,161 +93,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/01/2023 03:14, Xingyu Wu wrote:
-> On 2022/12/23 18:25, Krzysztof Kozlowski wrote:
->> On 23/12/2022 10:47, Xingyu Wu wrote:
->>> Add bindings for the timer on the JH7110
->>> RISC-V SoC by StarFive Technology Ltd.
->>
->> Please wrap commit message according to Linux coding style / submission
->> process (neither too early nor over the limit):
->> https://elixir.bootlin.com/linux/v5.18-rc4/source/Documentation/process/submitting-patches.rst#L586
->>
->>
->>>
->>> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
->>> ---
->>>  .../timer/starfive,jh7110-timers.yaml         | 105 ++++++++++++++++++
->>>  1 file changed, 105 insertions(+)
->>>  create mode 100644 Documentation/devicetree/bindings/timer/starfive,jh7110-timers.yaml
->>>
->>> diff --git a/Documentation/devicetree/bindings/timer/starfive,jh7110-timers.yaml b/Documentation/devicetree/bindings/timer/starfive,jh7110-timers.yaml
->>> new file mode 100644
->>> index 000000000000..fe58dc056313
->>> --- /dev/null
->>> +++ b/Documentation/devicetree/bindings/timer/starfive,jh7110-timers.yaml
->>> @@ -0,0 +1,105 @@
->>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->>> +%YAML 1.2
->>> +---
->>> +$id: http://devicetree.org/schemas/timer/starfive,jh7110-timers.yaml#
->>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->>> +
->>> +title: StarFive Timers
->>
->>
->> Not enough, really not enough. Describe the hardware.
+On Mon, Jan 09, 2023 at 07:17:51PM +0100, Heiko Stuebner wrote:
+> From: Heiko Stuebner <heiko.stuebner@vrull.eu>
 > 
-> Will add. Thanks.
+> The __RISCV_INSN_FUNCS originally declared riscv_insn_is_* functions inside
+> the kprobes implementation. This got moved into a central header in
+> commit ec5f90877516 ("RISC-V: Move riscv_insn_is_* macros into a common header").
 > 
->>
->>> +
->>> +maintainers:
->>> +  - Samin Guo <samin.guo@starfivetech.com>
->>> +  - Xingyu Wu <xingyu.wu@starfivetech.com>
->>> +
->>> +properties:
->>> +  compatible:
->>> +    const: starfive,jh7110-timers
->>
->> Why plural "timers", not "timer"? The module is usually called timer -
->> see other hardware that type.
->>
+> Though it looks like I overlooked two of them, so fix that. FENCE itself is
+> an instruction defined directly by its own opcode, while the created
+> riscv_isn_is_system function covers all instructions defined under the SYSTEM
+> opcode.
 > 
-> Will fix. Thanks.
-> 
->>> +
->>> +  reg:
->>> +    maxItems: 1
->>> +
->>> +  interrupts:
->>> +    items:
->>> +      - description: timer channel 0 interrupt
->>> +      - description: timer channel 1 interrupt
->>> +      - description: timer channel 2 interrupt
->>> +      - description: timer channel 3 interrupt
->>> +
->>> +  interrupt-names:
->>> +    items:
->>> +      - const: timer0
->>> +      - const: timer1
->>> +      - const: timer2
->>> +      - const: timer3
->>
->> I would just drop the names, not really useful. Unless you plan to add
->> here some generic interrupt (like you did for clock-names)?
-> 
-> Will drop. Thanks.
-> 
->>
->>> +
->>> +  clocks:
->>> +    items:
->>> +      - description: timer channel 0 clock
->>> +      - description: timer channel 1 clock
->>> +      - description: timer channel 2 clock
->>> +      - description: timer channel 3 clock
->>> +      - description: APB clock
->>> +
->>> +  clock-names:
->>> +    items:
->>> +      - const: timer0
->>> +      - const: timer1
->>> +      - const: timer2
->>> +      - const: timer3
->>> +      - const: apb
->>> +
->>> +  resets:
->>> +    items:
->>> +      - description: timer channel 0 reset
->>> +      - description: timer channel 1 reset
->>> +      - description: timer channel 2 reset
->>> +      - description: timer channel 3 reset
->>> +      - description: APB reset
->>> +
->>> +  reset-names:
->>> +    items:
->>> +      - const: timer0
->>> +      - const: timer1
->>> +      - const: timer2
->>> +      - const: timer3
->>> +      - const: apb
->>> +
->>> +  clock-frequency:
->>> +    description: The frequency of the clock that drives the counter, in Hz.
->>
->> Why do you need it? Use common clk framework to get that frequency.
-> 
-> Because normally this timer driver is loaded earlier than the clock tree driver, it won't get
-> that frequency by clk framework and this 'clock-frequency' node is used instead.
+> Fixes: ec5f90877516 ("RISC-V: Move riscv_insn_is_* macros into a common header")
+> Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+> ---
+>  arch/riscv/include/asm/insn.h            | 10 ++++++++++
+>  arch/riscv/kernel/probes/simulate-insn.h |  3 ---
+>  2 files changed, 10 insertions(+), 3 deletions(-)
+>
 
-I don't think that clk framework or fixed clocks are not available at
-this time... of_clk_init is before timer.
-
-> 
->>
->> Also, sort the nodes somehow, e.g.
->> compatible/reg/clocks/clock-frequency/interrupts/resets.
-> 
-> Will reorder. Thanks.
-> 
->>
->>
->>> +
->>> +required:
->>> +  - compatible
->>> +  - reg
->>> +  - interrupts
->>> +  - interrupt-names
->>> +  - clocks
->>> +  - clock-names
->>> +  - resets
->>> +  - reset-names
->>> +  - clock-frequency
->>> +
->>> +unevaluatedProperties: false
->>
->> Did you test the binding?
-> 
-> Yes, I had tested by 'dt_binding_check'. Do you mean the 'unevaluatedProperties' is wrong
-> and use 'additionalProperties'?
-
-Yes, previously it was generating a warning but I do not see Rob's bot
-answer so maybe something changed.
-
-Best regards,
-Krzysztof
-
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
 _______________________________________________
 linux-riscv mailing list
