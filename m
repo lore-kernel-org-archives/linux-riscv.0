@@ -4,44 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E85C5C5479D
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Jan 2023 23:31:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A751C54EBD
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jan 2023 01:00:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TnHo69OFdvrc+VhzdFaxIU3pxtv5wp65k0y3Ryga5MY=; b=09O7J6H3MUorKH
-	JCREOtbVlc5CxahtL1lQ4X2q3CeXT1J2DZDkIlQCtaMk8lxxaOClNEXTp3ljvRi3KAHyl/chIHeHI
-	YWR3Ca9dMU2YgZWO//XYrHliqEllKH3Owb2cjcSoUVVe0EHM9EJpoeEybEICAQUscFZvrYlFcMTvq
-	3/0BPXJjna6JeipLPFCwtusS2HxxFRoJqQgI9HlgYmaE0RngEC4LKsHOYBl7KC9T5l5y4E81+pl/7
-	uNGLox+9yyxrOPElgBAKml3KsPnrHkB1FhU2t+Rbu2qBQSySuQtaEC+DH8wSKX/pzKxzHc0CSvTJh
-	liWIkfaCiOH92h6WxJgw==;
+	List-Owner; bh=FeATII29iIjaaiguvudufRBKmYPkGoHhXiY1lKiJQVA=; b=sIgwB78xcTUKuH
+	2xGEI78vJv33Mib96Bit+O1E1B0dMMjcAkVqxrph+HofpEjdPzHl+AQXgr4YR2BnvznHCp1uGuSV5
+	Ee2mFGeIZDBYrxWIZXUaGXEJ/i4Mv9iZ8BzWQL3aaiZqh0I8Kizsi220I+LnQ+wsRdm9kUNQ5a3z5
+	aaGYbIxUkAzcSa6JWGUY9QLzDY8IwCcGD4T0hyem5LkbjHHhqtzdrzIJ4trPsiLU/lzTagkIBE1Ap
+	Rb9DXiuu+eVRpZN0b4E57g+lO7AipLzgFVLqjKUovxp9lTE5j0Rq5b+Ix3TbQrB2A9J5U5vu0K6/x
+	lXsVQ2+qPLM5xjQAkbvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pF1cA-004d8k-SR; Mon, 09 Jan 2023 23:31:38 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pF1c7-004d7P-HW
-	for linux-riscv@lists.infradead.org; Mon, 09 Jan 2023 23:31:37 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1pF1c3-0007vL-9g; Tue, 10 Jan 2023 00:31:31 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+	id 1pF30K-004niO-Em; Tue, 10 Jan 2023 01:00:40 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pF30G-004nfs-Fq
+	for linux-riscv@lists.infradead.org; Tue, 10 Jan 2023 01:00:39 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 98EBA24E10F;
+	Tue, 10 Jan 2023 08:59:58 +0800 (CST)
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 10 Jan
+ 2023 08:59:58 +0800
+Received: from EXMBX168.cuchost.com ([fe80::3c2d:dee5:4938:3fc4]) by
+ EXMBX168.cuchost.com ([fe80::3c2d:dee5:4938:3fc4%16]) with mapi id
+ 15.00.1497.044; Tue, 10 Jan 2023 08:59:58 +0800
+From: JiaJie Ho <jiajie.ho@starfivetech.com>
 To: Conor Dooley <conor@kernel.org>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, christoph.muellner@vrull.eu, philipp.tomsich@vrull.eu, ajones@ventanamicro.com, jszhang@kernel.org
-Subject: Re: [PATCH v4 4/5] RISC-V: add infrastructure to allow different str* implementations
-Date: Tue, 10 Jan 2023 00:31:30 +0100
-Message-ID: <2059459.3VsfAaAtOV@diego>
-In-Reply-To: <Y7yXOfIAKj9ct1SD@spud>
-References: <20230109181755.2383085-1-heiko@sntech.de> <20230109181755.2383085-5-heiko@sntech.de> <Y7yXOfIAKj9ct1SD@spud>
+CC: Olivia Mackall <olivia@selenic.com>, Herbert Xu
+	<herbert@gondor.apana.org.au>, Rob Herring <robh+dt@kernel.org>, "Krzysztof
+ Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing
+	<kernel@esmil.dk>, Conor Dooley <conor.dooley@microchip.com>,
+	"linux-crypto@vger.kernel.org" <linux-crypto@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Subject: RE: [PATCH v3 3/3] riscv: dts: starfive: Add TRNG node for VisionFive
+ 2
+Thread-Topic: [PATCH v3 3/3] riscv: dts: starfive: Add TRNG node for
+ VisionFive 2
+Thread-Index: AQHZJEs2/69byV6q60qz9odnDfnRWq6V2l8AgAD5KdA=
+Date: Tue, 10 Jan 2023 00:59:58 +0000
+Message-ID: <31f6c05b2836450d86560c3efda4abf2@EXMBX168.cuchost.com>
+References: <20230109165249.110279-1-jiajie.ho@starfivetech.com>
+ <20230109165249.110279-4-jiajie.ho@starfivetech.com> <Y7xWtFZO/Y7GaYRQ@spud>
+In-Reply-To: <Y7xWtFZO/Y7GaYRQ@spud>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [202.190.108.220]
+x-yovoleruleagent: yovoleflag
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230109_153135_751660_3A95DD79 
-X-CRM114-Status: GOOD (  28.95  )
+X-CRM114-CacheID: sfid-20230109_170036_917620_14C499C7 
+X-CRM114-Status: GOOD (  21.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,269 +83,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Montag, 9. Januar 2023, 23:37:45 CET schrieb Conor Dooley:
-> On Mon, Jan 09, 2023 at 07:17:54PM +0100, Heiko Stuebner wrote:
-> > From: Heiko Stuebner <heiko.stuebner@vrull.eu>
-> > 
-> > Depending on supported extensions on specific RISC-V cores,
-> > optimized str* functions might make sense.
-> > 
-> > This adds basic infrastructure to allow patching the function calls
-> > via alternatives later on.
-> > 
-> > The Linux kernel provides standard implementations for string functions
-> > but when architectures want to extend them, they need to provide their
-> > own.
-> > 
-> > The added generic string functions are done in assembler (taken from
-> > disassembling the main-kernel functions for now) to allow us to control
-> > the used registers and extend them with optimized variants.
-> > 
-> > Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+
+
+> -----Original Message-----
+> From: Conor Dooley <conor@kernel.org>
+> Sent: 10 January, 2023 2:02 AM
+> To: JiaJie Ho <jiajie.ho@starfivetech.com>
+> Cc: Olivia Mackall <olivia@selenic.com>; Herbert Xu
+> <herbert@gondor.apana.org.au>; Rob Herring <robh+dt@kernel.org>;
+> Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>; Emil Renner
+> Berthing <kernel@esmil.dk>; Conor Dooley <conor.dooley@microchip.com>;
+> linux-crypto@vger.kernel.org; devicetree@vger.kernel.org; linux-
+> kernel@vger.kernel.org; linux-riscv@lists.infradead.org
+> Subject: Re: [PATCH v3 3/3] riscv: dts: starfive: Add TRNG node for VisionFive
+> 2
 > 
-> asm looks the same as what I previously provided a review for, but I
-> assume you dropped cos of the EFI stub stuff? You can have it back I
-> suppose..
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
-That was the
-
-| Technically patch4 got a review from Andrew, but that was still with
-| the inline approach, so I didn't bring it over to v4.
-
-part in the cover-letter, thanks for bringing the rb back :-)
-
-
-Heiko
-
+> Hey folks,
+> 
+> On Tue, Jan 10, 2023 at 12:52:49AM +0800, Jia Jie Ho wrote:
+> > Adding StarFive TRNG controller node to VisionFive 2 SoC.
+> >
+> > Co-developed-by: Jenny Zhang <jenny.zhang@starfivetech.com>
+> > Signed-off-by: Jenny Zhang <jenny.zhang@starfivetech.com>
+> > Signed-off-by: Jia Jie Ho <jiajie.ho@starfivetech.com>
 > > ---
-> >  arch/riscv/include/asm/string.h | 10 +++++++++
-> >  arch/riscv/kernel/riscv_ksyms.c |  3 +++
-> >  arch/riscv/lib/Makefile         |  3 +++
-> >  arch/riscv/lib/strcmp.S         | 37 ++++++++++++++++++++++++++++++
-> >  arch/riscv/lib/strlen.S         | 28 +++++++++++++++++++++++
-> >  arch/riscv/lib/strncmp.S        | 40 +++++++++++++++++++++++++++++++++
-> >  arch/riscv/purgatory/Makefile   | 13 +++++++++++
-> >  7 files changed, 134 insertions(+)
-> >  create mode 100644 arch/riscv/lib/strcmp.S
-> >  create mode 100644 arch/riscv/lib/strlen.S
-> >  create mode 100644 arch/riscv/lib/strncmp.S
-> > 
-> > diff --git a/arch/riscv/include/asm/string.h b/arch/riscv/include/asm/string.h
-> > index 909049366555..a96b1fea24fe 100644
-> > --- a/arch/riscv/include/asm/string.h
-> > +++ b/arch/riscv/include/asm/string.h
-> > @@ -18,6 +18,16 @@ extern asmlinkage void *__memcpy(void *, const void *, size_t);
-> >  #define __HAVE_ARCH_MEMMOVE
-> >  extern asmlinkage void *memmove(void *, const void *, size_t);
-> >  extern asmlinkage void *__memmove(void *, const void *, size_t);
+> >  arch/riscv/boot/dts/starfive/jh7110.dtsi | 10 ++++++++++
+> >  1 file changed, 10 insertions(+)
+> >
+> > diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> > b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> > index 4ac159d79d66..3c29e0bc6246 100644
+> > --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> > +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> > @@ -455,5 +455,15 @@ uart5: serial@12020000 {
+> >  			reg-shift = <2>;
+> >  			status = "disabled";
+> >  		};
 > > +
-> > +#define __HAVE_ARCH_STRCMP
-> > +extern asmlinkage int strcmp(const char *cs, const char *ct);
-> > +
-> > +#define __HAVE_ARCH_STRLEN
-> > +extern asmlinkage __kernel_size_t strlen(const char *);
-> > +
-> > +#define __HAVE_ARCH_STRNCMP
-> > +extern asmlinkage int strncmp(const char *cs, const char *ct, size_t count);
-> > +
-> >  /* For those files which don't want to check by kasan. */
-> >  #if defined(CONFIG_KASAN) && !defined(__SANITIZE_ADDRESS__)
-> >  #define memcpy(dst, src, len) __memcpy(dst, src, len)
-> > diff --git a/arch/riscv/kernel/riscv_ksyms.c b/arch/riscv/kernel/riscv_ksyms.c
-> > index 5ab1c7e1a6ed..a72879b4249a 100644
-> > --- a/arch/riscv/kernel/riscv_ksyms.c
-> > +++ b/arch/riscv/kernel/riscv_ksyms.c
-> > @@ -12,6 +12,9 @@
-> >  EXPORT_SYMBOL(memset);
-> >  EXPORT_SYMBOL(memcpy);
-> >  EXPORT_SYMBOL(memmove);
-> > +EXPORT_SYMBOL(strcmp);
-> > +EXPORT_SYMBOL(strlen);
-> > +EXPORT_SYMBOL(strncmp);
-> >  EXPORT_SYMBOL(__memset);
-> >  EXPORT_SYMBOL(__memcpy);
-> >  EXPORT_SYMBOL(__memmove);
-> > diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
-> > index 25d5c9664e57..6c74b0bedd60 100644
-> > --- a/arch/riscv/lib/Makefile
-> > +++ b/arch/riscv/lib/Makefile
-> > @@ -3,6 +3,9 @@ lib-y			+= delay.o
-> >  lib-y			+= memcpy.o
-> >  lib-y			+= memset.o
-> >  lib-y			+= memmove.o
-> > +lib-y			+= strcmp.o
-> > +lib-y			+= strlen.o
-> > +lib-y			+= strncmp.o
-> >  lib-$(CONFIG_MMU)	+= uaccess.o
-> >  lib-$(CONFIG_64BIT)	+= tishift.o
-> >  
-> > diff --git a/arch/riscv/lib/strcmp.S b/arch/riscv/lib/strcmp.S
-> > new file mode 100644
-> > index 000000000000..94440fb8390c
-> > --- /dev/null
-> > +++ b/arch/riscv/lib/strcmp.S
-> > @@ -0,0 +1,37 @@
-> > +/* SPDX-License-Identifier: GPL-2.0-only */
-> > +
-> > +#include <linux/linkage.h>
-> > +#include <asm/asm.h>
-> > +#include <asm-generic/export.h>
-> > +
-> > +/* int strcmp(const char *cs, const char *ct) */
-> > +SYM_FUNC_START(strcmp)
-> > +	/*
-> > +	 * Returns
-> > +	 *   a0 - comparison result, value like strcmp
-> > +	 *
-> > +	 * Parameters
-> > +	 *   a0 - string1
-> > +	 *   a1 - string2
-> > +	 *
-> > +	 * Clobbers
-> > +	 *   t0, t1, t2
-> > +	 */
-> > +	mv	t2, a1
-> > +1:
-> > +	lbu	t1, 0(a0)
-> > +	lbu	t0, 0(a1)
-> > +	addi	a0, a0, 1
-> > +	addi	a1, a1, 1
-> > +	beq	t1, t0, 3f
-> > +	li	a0, 1
-> > +	bgeu	t1, t0, 2f
-> > +	li	a0, -1
-> > +2:
-> > +	mv	a1, t2
-> > +	ret
-> > +3:
-> > +	bnez	t1, 1b
-> > +	li	a0, 0
-> > +	j	2b
-> > +SYM_FUNC_END(strcmp)
-> > diff --git a/arch/riscv/lib/strlen.S b/arch/riscv/lib/strlen.S
-> > new file mode 100644
-> > index 000000000000..09a7aaff26c8
-> > --- /dev/null
-> > +++ b/arch/riscv/lib/strlen.S
-> > @@ -0,0 +1,28 @@
-> > +/* SPDX-License-Identifier: GPL-2.0-only */
-> > +
-> > +#include <linux/linkage.h>
-> > +#include <asm/asm.h>
-> > +#include <asm-generic/export.h>
-> > +
-> > +/* int strlen(const char *s) */
-> > +SYM_FUNC_START(strlen)
-> > +	/*
-> > +	 * Returns
-> > +	 *   a0 - string length
-> > +	 *
-> > +	 * Parameters
-> > +	 *   a0 - String to measure
-> > +	 *
-> > +	 * Clobbers:
-> > +	 *   t0, t1
-> > +	 */
-> > +	mv	t1, a0
-> > +1:
-> > +	lbu	t0, 0(t1)
-> > +	bnez	t0, 2f
-> > +	sub	a0, t1, a0
-> > +	ret
-> > +2:
-> > +	addi	t1, t1, 1
-> > +	j	1b
-> > +SYM_FUNC_END(strlen)
-> > diff --git a/arch/riscv/lib/strncmp.S b/arch/riscv/lib/strncmp.S
-> > new file mode 100644
-> > index 000000000000..493ab6febcb2
-> > --- /dev/null
-> > +++ b/arch/riscv/lib/strncmp.S
-> > @@ -0,0 +1,40 @@
-> > +/* SPDX-License-Identifier: GPL-2.0-only */
-> > +
-> > +#include <linux/linkage.h>
-> > +#include <asm/asm.h>
-> > +#include <asm-generic/export.h>
-> > +
-> > +/* int strncmp(const char *cs, const char *ct, size_t count) */
-> > +SYM_FUNC_START(strncmp)
-> > +	/*
-> > +	 * Returns
-> > +	 *   a0 - comparison result, value like strncmp
-> > +	 *
-> > +	 * Parameters
-> > +	 *   a0 - string1
-> > +	 *   a1 - string2
-> > +	 *   a2 - number of characters to compare
-> > +	 *
-> > +	 * Clobbers
-> > +	 *   t0, t1, t2
-> > +	 */
-> > +	li	t0, 0
-> > +1:
-> > +	beq	a2, t0, 4f
-> > +	add	t1, a0, t0
-> > +	add	t2, a1, t0
-> > +	lbu	t1, 0(t1)
-> > +	lbu	t2, 0(t2)
-> > +	beq	t1, t2, 3f
-> > +	li	a0, 1
-> > +	bgeu	t1, t2, 2f
-> > +	li	a0, -1
-> > +2:
-> > +	ret
-> > +3:
-> > +	addi	t0, t0, 1
-> > +	bnez	t1, 1b
-> > +4:
-> > +	li	a0, 0
-> > +	j	2b
-> > +SYM_FUNC_END(strncmp)
-> > diff --git a/arch/riscv/purgatory/Makefile b/arch/riscv/purgatory/Makefile
-> > index dd58e1d99397..d16bf715a586 100644
-> > --- a/arch/riscv/purgatory/Makefile
-> > +++ b/arch/riscv/purgatory/Makefile
-> > @@ -2,6 +2,7 @@
-> >  OBJECT_FILES_NON_STANDARD := y
-> >  
-> >  purgatory-y := purgatory.o sha256.o entry.o string.o ctype.o memcpy.o memset.o
-> > +purgatory-y += strcmp.o strlen.o strncmp.o
-> >  
-> >  targets += $(purgatory-y)
-> >  PURGATORY_OBJS = $(addprefix $(obj)/,$(purgatory-y))
-> > @@ -18,6 +19,15 @@ $(obj)/memcpy.o: $(srctree)/arch/riscv/lib/memcpy.S FORCE
-> >  $(obj)/memset.o: $(srctree)/arch/riscv/lib/memset.S FORCE
-> >  	$(call if_changed_rule,as_o_S)
-> >  
-> > +$(obj)/strcmp.o: $(srctree)/arch/riscv/lib/strcmp.S FORCE
-> > +	$(call if_changed_rule,as_o_S)
-> > +
-> > +$(obj)/strlen.o: $(srctree)/arch/riscv/lib/strlen.S FORCE
-> > +	$(call if_changed_rule,as_o_S)
-> > +
-> > +$(obj)/strncmp.o: $(srctree)/arch/riscv/lib/strncmp.S FORCE
-> > +	$(call if_changed_rule,as_o_S)
-> > +
-> >  $(obj)/sha256.o: $(srctree)/lib/crypto/sha256.c FORCE
-> >  	$(call if_changed_rule,cc_o_c)
-> >  
-> > @@ -77,6 +87,9 @@ CFLAGS_ctype.o			+= $(PURGATORY_CFLAGS)
-> >  AFLAGS_REMOVE_entry.o		+= -Wa,-gdwarf-2
-> >  AFLAGS_REMOVE_memcpy.o		+= -Wa,-gdwarf-2
-> >  AFLAGS_REMOVE_memset.o		+= -Wa,-gdwarf-2
-> > +AFLAGS_REMOVE_strcmp.o		+= -Wa,-gdwarf-2
-> > +AFLAGS_REMOVE_strlen.o		+= -Wa,-gdwarf-2
-> > +AFLAGS_REMOVE_strncmp.o		+= -Wa,-gdwarf-2
-> >  
-> >  $(obj)/purgatory.ro: $(PURGATORY_OBJS) FORCE
-> >  		$(call if_changed,ld)
+> > +		rng: rng@1600c000 {
+> > +			compatible = "starfive,jh7110-trng";
+> > +			reg = <0x0 0x1600C000 0x0 0x4000>;
+> > +			clocks = <&stgcrg JH7110_STGCLK_SEC_HCLK>,
+> > +				 <&stgcrg JH7110_STGCLK_SEC_MISCAHB>;
+> 
+> Which clock source is this? I see syscrg and aoncrg in the v3
+> devicetree:
+> https://lore.kernel.org/linux-riscv/20221220011247.35560-7-
+> hal.feng@starfivetech.com/
+> 
+> Have a missed a patchset which adds support for this particular clock
+> controller? At the very least, I don't think one has reached the linux-riscv
+> mailing list.
+> The clock driver patchset only has aoncrg & syscrg:
+> https://lore.kernel.org/linux-riscv/20221220005054.34518-1-
+> hal.feng@starfivetech.com/
 > 
 
+Hi Conor,
 
+Thanks for reviewing the patches.
+Yes, the patch for stg domain hasn't been submitted yet.
+In this case should I drop this patch from the series until the related patches reach the mailing list?
 
-
+Thanks
+,Jia Jie
 
 _______________________________________________
 linux-riscv mailing list
