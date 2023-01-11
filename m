@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD11CC5479D
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jan 2023 17:21:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3977DC5479D
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jan 2023 17:21:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RFsM9i+lGOh2NuRm2BMckxShd4IKadIV2qHcIm1VH0E=; b=bdpgHFQp8DGjLa
-	IZTQhBS42I2K635pOBxiwP4ZiAVHuXCg8v9NAK7vpoPXtyQ3GuLEfWkLKKp240khs/3DG5BGaHGNW
-	nOoIMJO9wVbO7yxLUfwQ95Tb0xpQB5jWpCPyCNCM2E+5uJfqTVDS81/Xxn8edmV/msm2RBJzyHAlJ
-	aO0D5oMmDtqSJhky5+vYYAh7zZHkEpLEeMSGtXV2TBcqA4ioeDeYpoHM0JusMgWC8N80qOig92BUZ
-	MLQ6uEaiVUcLA7qsTQSKRixdA4/kOQPas/EbiRO8nFVAqGaNO13uZPi/H+87/KxiRWW17FaPFCHja
-	PTubQ+gWNXAu9sNU8ccw==;
+	List-Owner; bh=wLvGjHQcF5DfCiz2Plm4LRxjoawr3jeHf6xAJ5RMC3A=; b=I5LJhTv2nlQOE0
+	k0qrKYkysdJt8iKRh/dPH0O0hPkkjaiiYeF0Vh9Gx0R8hdYUBjmQov8Ud61rNCoLxA3/9t6k50gFq
+	69h+9XLFuBws4YHqd/lrfSumYZ8C6aj4Ytp2oyKwOIl8rQWqH6iT0blN7b8vEj5ldoE/ehmFYGqjK
+	b6bPAf0nBzeMpqyjojfI7lbnElT/deFTRnNJZqTNkxgiGMYqWqwvwpZTjrJBJbqy7APdjUDSqCQfP
+	wVjbkreCpaP2cEdh09qNFHvdn9HBa93g69hmhdgPZJgw/teRwLqCmWhBPfs5DzWkSJsCp+yIn1+XM
+	W39u054e2bel45+MYALw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFemg-00CM63-AL; Wed, 11 Jan 2023 17:21:06 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pFemj-00CM9X-I6; Wed, 11 Jan 2023 17:21:09 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFema-00CM1P-WD; Wed, 11 Jan 2023 17:21:02 +0000
+	id 1pFemg-00CM56-0v; Wed, 11 Jan 2023 17:21:07 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 720E661D89;
+	by ams.source.kernel.org (Postfix) with ESMTPS id A3699B81C86;
+	Wed, 11 Jan 2023 17:21:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC636C433EF;
 	Wed, 11 Jan 2023 17:21:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B130C433F2;
-	Wed, 11 Jan 2023 17:20:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1673457659;
-	bh=vPXGohzIg9MzmCW43xmcC2ITGNCEVk5AktBiL5z/Ws8=;
+	s=k20201202; t=1673457663;
+	bh=mINO93PYoIl2Le02IWiuk8J2800U31qq9j/6NT8h4Nc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=nOoNNEcFEVhCee5gk+9LqtY5VRpz2i3GEeUIO+A9fh8H3RWKG6VA0wUNfg8T0uryj
-	 F3w+RVlgWl1BsnGl5pTi/fkXr8uu56kHKdu0sg/ELL42NqVWlq3G3Wt2NCyCzDjWGA
-	 NgBqbA+cGAlhyQWC51DWH53vq/36G/KlLTgMGWaxx6skfFeaS5khO2LgtfR61ZLY/o
-	 Ol+MEbbT2A9uKiqWD7HDYiQeR1gpKd052fkhASGmqENheAXYG0/3qg8TvY68u4H0Kq
-	 LAsXbxD6sLepDlwSUIf5glBwMJZ7VrCLwgg13YuQUAoHKTjlRVjY0ucKwhJqYVaI3b
-	 bN8WJ7iNVQCxw==
+	b=j8O0/kRMnkMh6I08+s4abnchp7uRi0Y69jnQCXoxMYVSjkHdoUObVkpuPS/Z7FlJo
+	 N+cevInTRe40SvOKdCAWROfrbl7JT4HHuaMZI3kHcF1gnr8UTAi5Gx2i0RRmXvKyWp
+	 iY65QJ4r30iOqO9EQbCBX0Ukaljf+s22gwj/O59SJcReuTyzkhpDBSeOeLc5ICa+Oi
+	 vjn27YoSkrZpu8XZWnWA2pmmwPxP4zSrjt3FvnIyCPuaGHA07jW9pF6iLAFBN8xVx3
+	 TDQwRCSfekPthJawpjziENNYx3+6fkIrq9e5PzrTz/xSlS1zdpcuyz8Muflrrt6+fW
+	 iqnfyjvrjMFIQ==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -53,16 +53,16 @@ Cc: linux-riscv@lists.infradead.org,
 	kvm@vger.kernel.org,
 	kvm-riscv@lists.infradead.org,
 	Andrew Jones <ajones@ventanamicro.com>
-Subject: [PATCH v3 05/13] riscv: cpufeature: extend riscv_cpufeature_patch_func to all ISA extensions
-Date: Thu, 12 Jan 2023 01:10:19 +0800
-Message-Id: <20230111171027.2392-6-jszhang@kernel.org>
+Subject: [PATCH v3 06/13] riscv: introduce riscv_has_extension_[un]likely()
+Date: Thu, 12 Jan 2023 01:10:20 +0800
+Message-Id: <20230111171027.2392-7-jszhang@kernel.org>
 X-Mailer: git-send-email 2.38.1
 In-Reply-To: <20230111171027.2392-1-jszhang@kernel.org>
 References: <20230111171027.2392-1-jszhang@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230111_092101_140026_AED0DB24 
-X-CRM114-Status: GOOD (  16.05  )
+X-CRM114-CacheID: sfid-20230111_092106_394907_17BF595D 
+X-CRM114-Status: GOOD (  14.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,149 +79,98 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-riscv_cpufeature_patch_func() currently only scans a limited set of
-cpufeatures, explicitly defined with macros. Extend it to probe for all
-ISA extensions.
+Generally, riscv ISA extensions are fixed for any specific hardware
+platform, so a hart's features won't change after booting. This
+chacteristic makes it straightforward to use a static branch to check
+if a specific ISA extension is supported or not to optimize
+performance.
 
+However, some ISA extensions such as SVPBMT and ZICBOM are handled
+via. the alternative sequences.
+
+Basically, for ease of maintenance, we prefer to use static branches
+in C code, but recently, Samuel found that the static branch usage in
+cpu_relax() breaks building with CONFIG_CC_OPTIMIZE_FOR_SIZE[1]. As
+Samuel pointed out, "Having a static branch in cpu_relax() is
+problematic because that function is widely inlined, including in some
+quite complex functions like in the VDSO. A quick measurement shows
+this static branch is responsible by itself for around 40% of the jump
+table."
+
+Samuel's findings pointed out one of a few downsides of static branches
+usage in C code to handle ISA extensions detected at boot time:
+static branch's metadata in the __jump_table section, which is not
+discarded after ISA extensions are finalized, wastes some space.
+
+I want to try to solve the issue for all possible dynamic handling of
+ISA extensions at boot time. Inspired by Mark[2], this patch introduces
+riscv_has_extension_*() helpers, which work like static branches but
+are patched using alternatives, thus the metadata can be freed after
+patching.
+
+Link: https://lore.kernel.org/linux-riscv/20220922060958.44203-1-samuel@sholland.org/ [1]
+Link: https://lore.kernel.org/linux-arm-kernel/20220912162210.3626215-8-mark.rutland@arm.com/ [2]
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
 ---
- arch/riscv/include/asm/errata_list.h |  9 ++--
- arch/riscv/kernel/cpufeature.c       | 63 ++++------------------------
- 2 files changed, 11 insertions(+), 61 deletions(-)
+ arch/riscv/include/asm/hwcap.h | 37 ++++++++++++++++++++++++++++++++++
+ 1 file changed, 37 insertions(+)
 
-diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
-index 4180312d2a70..274c6f889602 100644
---- a/arch/riscv/include/asm/errata_list.h
-+++ b/arch/riscv/include/asm/errata_list.h
-@@ -7,6 +7,7 @@
+diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+index 09a7767723f6..1767a9ce1a04 100644
+--- a/arch/riscv/include/asm/hwcap.h
++++ b/arch/riscv/include/asm/hwcap.h
+@@ -8,6 +8,7 @@
+ #ifndef _ASM_RISCV_HWCAP_H
+ #define _ASM_RISCV_HWCAP_H
  
- #include <asm/alternative.h>
- #include <asm/csr.h>
-+#include <asm/hwcap.h>
- #include <asm/vendorid_list.h>
- 
- #ifdef CONFIG_ERRATA_SIFIVE
-@@ -22,10 +23,6 @@
- #define	ERRATA_THEAD_NUMBER 3
- #endif
- 
--#define	CPUFEATURE_SVPBMT 0
--#define	CPUFEATURE_ZICBOM 1
--#define	CPUFEATURE_NUMBER 2
--
- #ifdef __ASSEMBLY__
- 
- #define ALT_INSN_FAULT(x)						\
-@@ -55,7 +52,7 @@ asm(ALTERNATIVE("sfence.vma %0", "sfence.vma", SIFIVE_VENDOR_ID,	\
- #define ALT_SVPBMT(_val, prot)						\
- asm(ALTERNATIVE_2("li %0, 0\t\nnop",					\
- 		  "li %0, %1\t\nslli %0,%0,%3", 0,			\
--			CPUFEATURE_SVPBMT, CONFIG_RISCV_ISA_SVPBMT,	\
-+			RISCV_ISA_EXT_SVPBMT, CONFIG_RISCV_ISA_SVPBMT,	\
- 		  "li %0, %2\t\nslli %0,%0,%4", THEAD_VENDOR_ID,	\
- 			ERRATA_THEAD_PBMT, CONFIG_ERRATA_THEAD_PBMT)	\
- 		: "=r"(_val)						\
-@@ -129,7 +126,7 @@ asm volatile(ALTERNATIVE_2(						\
- 	"add a0, a0, %0\n\t"						\
- 	"2:\n\t"							\
- 	"bltu a0, %2, 3b\n\t"						\
--	"nop", 0, CPUFEATURE_ZICBOM, CONFIG_RISCV_ISA_ZICBOM,		\
-+	"nop", 0, RISCV_ISA_EXT_ZICBOM, CONFIG_RISCV_ISA_ZICBOM,	\
- 	"mv a0, %1\n\t"							\
- 	"j 2f\n\t"							\
- 	"3:\n\t"							\
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 37e8c5e69754..6db8b31d9149 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -275,58 +275,11 @@ void __init riscv_fill_hwcap(void)
- }
- 
- #ifdef CONFIG_RISCV_ALTERNATIVE
--static bool __init_or_module cpufeature_probe_svpbmt(unsigned int stage)
--{
--	if (!IS_ENABLED(CONFIG_RISCV_ISA_SVPBMT))
--		return false;
--
--	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
--		return false;
--
--	return riscv_isa_extension_available(NULL, SVPBMT);
--}
--
--static bool __init_or_module cpufeature_probe_zicbom(unsigned int stage)
--{
--	if (!IS_ENABLED(CONFIG_RISCV_ISA_ZICBOM))
--		return false;
--
--	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
--		return false;
--
--	if (!riscv_isa_extension_available(NULL, ZICBOM))
--		return false;
--
--	return true;
--}
--
--/*
-- * Probe presence of individual extensions.
-- *
-- * This code may also be executed before kernel relocation, so we cannot use
-- * addresses generated by the address-of operator as they won't be valid in
-- * this context.
-- */
--static u32 __init_or_module cpufeature_probe(unsigned int stage)
--{
--	u32 cpu_req_feature = 0;
--
--	if (cpufeature_probe_svpbmt(stage))
--		cpu_req_feature |= BIT(CPUFEATURE_SVPBMT);
--
--	if (cpufeature_probe_zicbom(stage))
--		cpu_req_feature |= BIT(CPUFEATURE_ZICBOM);
--
--	return cpu_req_feature;
--}
--
- void __init_or_module riscv_cpufeature_patch_func(struct alt_entry *begin,
- 						  struct alt_entry *end,
- 						  unsigned int stage)
- {
--	u32 cpu_req_feature = cpufeature_probe(stage);
- 	struct alt_entry *alt;
--	u32 tmp;
- 
- 	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
- 		return;
-@@ -334,18 +287,18 @@ void __init_or_module riscv_cpufeature_patch_func(struct alt_entry *begin,
- 	for (alt = begin; alt < end; alt++) {
- 		if (alt->vendor_id != 0)
- 			continue;
--		if (alt->errata_id >= CPUFEATURE_NUMBER) {
--			WARN(1, "This feature id:%d is not in kernel cpufeature list",
-+		if (alt->errata_id >= RISCV_ISA_EXT_MAX) {
-+			WARN(1, "This extension id:%d is not in ISA extension list",
- 				alt->errata_id);
- 			continue;
- 		}
- 
--		tmp = (1U << alt->errata_id);
--		if (cpu_req_feature & tmp) {
--			patch_text_nosync(alt->old_ptr, alt->alt_ptr, alt->alt_len);
--			riscv_alternative_fix_offsets(alt->old_ptr, alt->alt_len,
--						      alt->old_ptr - alt->alt_ptr);
--		}
-+		if (!__riscv_isa_extension_available(NULL, alt->errata_id))
-+			continue;
-+
-+		patch_text_nosync(alt->old_ptr, alt->alt_ptr, alt->alt_len);
-+		riscv_alternative_fix_offsets(alt->old_ptr, alt->alt_len,
-+					      alt->old_ptr - alt->alt_ptr);
++#include <asm/alternative-macros.h>
+ #include <asm/errno.h>
+ #include <linux/bits.h>
+ #include <uapi/asm/hwcap.h>
+@@ -97,6 +98,42 @@ static __always_inline int riscv_isa_ext2key(int num)
  	}
  }
- #endif
+ 
++static __always_inline bool
++riscv_has_extension_likely(const unsigned long ext)
++{
++	compiletime_assert(ext < RISCV_ISA_EXT_MAX,
++			   "ext must be < RISCV_ISA_EXT_MAX");
++
++	asm_volatile_goto(
++	ALTERNATIVE("j	%l[l_no]", "nop", 0, %[ext], 1)
++	:
++	: [ext] "i" (ext)
++	:
++	: l_no);
++
++	return true;
++l_no:
++	return false;
++}
++
++static __always_inline bool
++riscv_has_extension_unlikely(const unsigned long ext)
++{
++	compiletime_assert(ext < RISCV_ISA_EXT_MAX,
++			   "ext must be < RISCV_ISA_EXT_MAX");
++
++	asm_volatile_goto(
++	ALTERNATIVE("nop", "j	%l[l_yes]", 0, %[ext], 1)
++	:
++	: [ext] "i" (ext)
++	:
++	: l_yes);
++
++	return false;
++l_yes:
++	return true;
++}
++
+ unsigned long riscv_isa_extension_base(const unsigned long *isa_bitmap);
+ 
+ #define riscv_isa_extension_mask(ext) BIT_MASK(RISCV_ISA_EXT_##ext)
 -- 
 2.38.1
 
