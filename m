@@ -4,65 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89ACAC54EBC
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jan 2023 00:00:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90BA6C54EBC
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jan 2023 00:15:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iqUj1wOkiE/09SUIkajMrpjtH/L5JelapcVMZpmguAc=; b=tDHZmAblD2uqUV
-	eFP+frk3E9HvDen/b7ytqIDvANqo0xdGz8I1jgpsENjHrf3pS1NBnzy6zic4XQLlQDCEP7teC08qZ
-	VoifVYRxyvO2l0cWjHXuzIrw7ev/f+kHSd1Xy1+9WhTa2XDEeXl6AVe5mtu1XB7chjlc5yDDPL04a
-	GsSWU/tILDnhsgJ4NPQq5jYZm90oRPluHZUxggi6Czb/BOOSae3VtsrGLWk+gOUdlIGe1Y306MfNg
-	xeg0ZqDJ6tF2apehKkErqkVKarQn4foSns4ymzdwNItKOoZBlXZLsImRBbzX4smLe3yPcrsIEijqp
-	6r15E5B4SMzqD+olFt9w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tELcQa2KhZyW/+tznaCe6UdFgv75Uyrz3jRcFAbDejg=; b=RrTUGOi9kZHSP1RHODW/GC1ljJ
+	t/qBvtfIYYBIRbBigKr8Z5LV086F8tjQjc8DdWupXe2XV4GTQZYw2GMq8fLEmZPyFgoG9DMM3xoY0
+	G1kzhzfZKXtseAipT8l0Cc+5Bmqz5tF0fLdSxF3LLN1ilHRa9i5lrHAVcLi3WHQ+bYA+eNmbxGutm
+	b4BLc3SZsuIFflIPa0x0Jfd4E3JAgmPXEcikW+f96C3nn8NiGc1ishl4wc4h6egbKRBzqPPvjw0+t
+	VWLzqJE1KcCfYq4cAQ/hHErEMz1uTIEkXrH69oL9WKuAr3WsJ6EvjJ/xjR8YA8QWH5O30WjGHWcrJ
+	8RaNzEZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFOXX-008xVf-9c; Wed, 11 Jan 2023 00:00:23 +0000
+	id 1pFOmK-00913W-43; Wed, 11 Jan 2023 00:15:40 +0000
 Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFOXU-008xTj-5C
-	for linux-riscv@lists.infradead.org; Wed, 11 Jan 2023 00:00:21 +0000
+	id 1pFOmG-009121-25
+	for linux-riscv@lists.infradead.org; Wed, 11 Jan 2023 00:15:38 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 37569B81A60;
-	Wed, 11 Jan 2023 00:00:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id D2B56C433F0;
-	Wed, 11 Jan 2023 00:00:15 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id BEBEAB80F92;
+	Wed, 11 Jan 2023 00:15:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA43AC433EF;
+	Wed, 11 Jan 2023 00:15:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1673395215;
-	bh=mEWQ7a5qfQ/boPkXx/AzT+t/qpGYEXDz2iCILTDJr0Y=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=Jac3BkS/yd1/YSLGRy1V0F4011VX76GJKKlIt1kbTraK5w+9GffVjXtDbIm6gqrI+
-	 Xr/aJVekD8hqf3yWdhl7p4B/JBAG7u/O7TA5Gpn8V8EelpPvL4Xm4NKIHAx5lPKvB5
-	 6yDr8VNa6HC3PHI0HmLUtV339LUFF/kE8S9c/2MG2eALwWkGUTHhu5cmEV3F93zsys
-	 jLckuK9pckrWZnXuhoF7TB5giybxe9IKwQiUUFpxhpONlcDnhmYu/Cz4gKWVKfahG7
-	 h4g1tqvLTFEBeJIuLw370fyanyNknBguQUkYB4jayzkk+nLDi+Me1CXwiZ3Hbqj2ah
-	 PiJE0JyEXQGAg==
-Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id B8A58E21EE9;
-	Wed, 11 Jan 2023 00:00:15 +0000 (UTC)
+	s=k20201202; t=1673396133;
+	bh=S8NALjqA1f9q2qsyutdUstZwUdlgPhnHQ8ChH2jhBM4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ls3LRdB8UnvmaIGCqcbdiGYlSrFpOt/wlyzqMQ+vIgqo/xSmseexLIOeh+ZcOpkBl
+	 Tmr/FbThk1VjVU6FuexmJaCjEaDYKyBO0PHOqoe5u7zI5r0TvKzHIGBpNO4XRDVYSK
+	 2epowly4t5XLw1xvBq3BzJz8xmbrNFI3WG/Y49bYB7ZKfLDXj96uhwMMSEaK7x2qgZ
+	 q1epxeyEJvoesP44P9vOJPkKbrwJegg4SKaL0ZFOGUt4jtdg46k0LWo1mn0HISlOnP
+	 AVkxYfPO2exSk4gp+hAV3WXNEzFN6HrRxUOOWjWoJ7LVy6V0S1HThUcSPqy7hfNsXo
+	 4i35pqlFLQIzA==
+Date: Wed, 11 Jan 2023 00:15:29 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>
+Cc: Thierry Reding <thierry.reding@gmail.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v13 1/2] pwm: add microchip soft ip corePWM driver
+Message-ID: <Y73/oUwuOwQFR0NZ@spud>
+References: <20221221112912.147210-1-conor@kernel.org>
+ <20221221112912.147210-2-conor@kernel.org>
+ <20230110224805.3pqxd3yv4wyci2zj@pengutronix.de>
 MIME-Version: 1.0
-Subject: Re: [PATCH bpf-next v2] bpf,
- x86: Simplify the parsing logic of structure parameters
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id:  <167339521575.26336.15370569553745702242.git-patchwork-notify@kernel.org>
-Date: Wed, 11 Jan 2023 00:00:15 +0000
-References: <20230105035026.3091988-1-pulehui@huaweicloud.com>
-In-Reply-To: <20230105035026.3091988-1-pulehui@huaweicloud.com>
-To: Pu Lehui <pulehui@huaweicloud.com>
-Cc: bpf@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, yhs@fb.com, ast@kernel.org,
- daniel@iogearbox.net, andrii@kernel.org, martin.lau@linux.dev,
- song@kernel.org, john.fastabend@gmail.com, kpsingh@kernel.org,
- sdf@google.com, haoluo@google.com, jolsa@kernel.org, pulehui@huawei.com
+In-Reply-To: <20230110224805.3pqxd3yv4wyci2zj@pengutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230110_160020_362940_219781C0 
-X-CRM114-Status: UNSURE (   9.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230110_161536_406086_3AA0F5E6 
+X-CRM114-Status: GOOD (  48.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,38 +71,301 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2862333618964677094=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
 
-This patch was applied to bpf/bpf-next.git (master)
-by Martin KaFai Lau <martin.lau@kernel.org>:
-
-On Thu,  5 Jan 2023 11:50:26 +0800 you wrote:
-> From: Pu Lehui <pulehui@huawei.com>
-> 
-> Extra_nregs of structure parameters and nr_args can be
-> added directly at the beginning, and using a flip flag
-> to identifiy structure parameters. Meantime, renaming
-> some variables to make them more sense.
-> 
-> [...]
-
-Here is the summary with links:
-  - [bpf-next,v2] bpf, x86: Simplify the parsing logic of structure parameters
-    https://git.kernel.org/bpf/bpf-next/c/7f7880495770
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+--===============2862333618964677094==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="yEYmw9zT0Jb9K0Do"
+Content-Disposition: inline
 
 
+--yEYmw9zT0Jb9K0Do
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Jan 10, 2023 at 11:48:05PM +0100, Uwe Kleine-K=F6nig wrote:
+> On Wed, Dec 21, 2022 at 11:29:12AM +0000, Conor Dooley wrote:
+> > From: Conor Dooley <conor.dooley@microchip.com>
+
+> > +		delay_us =3D DIV_ROUND_UP_ULL(remaining_ns, NSEC_PER_USEC);
+> > +		if ((delay_us / 1000) > MAX_UDELAY_MS)
+> > +			msleep(delay_us / 1000 + 1);
+>=20
+> Is this better than
+>=20
+> 	msleep(DIV_ROUND_UP(delay_us, 1000);
+>=20
+> ? Also I wonder about your usage of MAX_UDELAY_MS. This is about
+
+I probably started hacking on the example you gave and didn't notice
+the U. What I have here is ~what you suggested last time.
+
+> udelay() but you're using usleep_range()?
+>=20
+> > +		else
+> > +			usleep_range(delay_us, delay_us * 2);
+>=20
+> I wonder if there isn't a function that implements something like
+>=20
+> 	wait_until(mchp_core_pwm->update_timestamp);
+>=20
+> which would be a bit nicer than doing this by hand. Maybe fsleep()?
+
+That'd be fsleep(delay_us), but does at least clean up some of the
+messing.
+
+> > +static void mchp_core_pwm_apply_duty(struct pwm_chip *chip, struct pwm=
+_device *pwm,
+> > +				     const struct pwm_state *state, u64 duty_steps,
+> > +				     u8 period_steps)
+> > +{
+> > +	struct mchp_core_pwm_chip *mchp_core_pwm =3D to_mchp_core_pwm(chip);
+> > +	u8 posedge, negedge;
+> > +	u8 period_steps_val =3D PREG_TO_VAL(period_steps);
+> > +
+> > +	/*
+> > +	 * Setting posedge =3D=3D negedge doesn't yield a constant output,
+> > +	 * so that's an unsuitable setting to model duty_steps =3D 0.
+> > +	 * In that case set the unwanted edge to a value that never
+> > +	 * triggers.
+> > +	 */
+> > +	if (state->polarity =3D=3D PWM_POLARITY_INVERSED) {
+> > +		negedge =3D !duty_steps ? period_steps_val : 0u;
+>=20
+> IMHO
+>=20
+> 		negedge =3D duty_steps ? 0 : period_steps_val;
+>=20
+> is a bit easier to parse.
+>=20
+> > +		posedge =3D duty_steps;
+> > +	} else {
+> > +		posedge =3D !duty_steps ? period_steps_val : 0u;
+> > +		negedge =3D duty_steps;
+> > +	}
+>=20
+> The following code is equivalent:
+>=20
+> 	u8 first_edge =3D 0, second_edge =3D duty_steps;
+>=20
+> 	/*
+> 	 * Setting posedge =3D=3D negedge doesn't yield a constant output,
+> 	 * so that's an unsuitable setting to model duty_steps =3D 0.
+> 	 * In that case set the unwanted edge to a value that never
+> 	 * triggers.
+> 	 */
+> 	if (duty_steps =3D=3D 0)
+> 		first_edge =3D period_steps_val;
+>=20
+> 	if (state->polarity =3D=3D PWM_POLARITY_INVERSED) {
+> 		negedge =3D first_edge;
+> 		posedge =3D second_edge;
+> 	} else {
+> 		posedge =3D first_edge;
+> 		negedge =3D second_edge;
+> 	}
+>=20
+> I'm not sure if it's easier to understand. What do you think?
+
+Despite having used them, I dislike ternary statements.
+
+> > +	writel_relaxed(posedge, mchp_core_pwm->base + MCHPCOREPWM_POSEDGE(pwm=
+->hwpwm));
+> > +	writel_relaxed(negedge, mchp_core_pwm->base + MCHPCOREPWM_NEGEDGE(pwm=
+->hwpwm));
+> > +}
+> > +
+> > +static void mchp_core_pwm_calc_period(const struct pwm_state *state, u=
+nsigned long clk_rate,
+> > +				      u16 *prescale, u8 *period_steps)
+> > +{
+> > +	u64 tmp;
+> > +
+> > +	/*
+> > +	 * Calculate the period cycles and prescale values.
+> > +	 * The registers are each 8 bits wide & multiplied to compute the per=
+iod
+> > +	 * using the formula:
+> > +	 * (clock_period) * (prescale + 1) * (period_steps + 1)
+> > +	 * so the maximum period that can be generated is 0x10000 times the
+> > +	 * period of the input clock.
+> > +	 * However, due to the design of the "hardware", it is not possible to
+> > +	 * attain a 100% duty cycle if the full range of period_steps is used.
+> > +	 * Therefore period_steps is restricted to 0xFE and the maximum multi=
+ple
+> > +	 * of the clock period attainable is 0xFF00.
+> > +	 */
+> > +	tmp =3D mul_u64_u64_div_u64(state->period, clk_rate, NSEC_PER_SEC);
+> > +
+> > +	/*
+> > +	 * The hardware adds one to the register value, so decrement by one to
+> > +	 * account for the offset
+> > +	 */
+> > +	if (tmp >=3D MCHPCOREPWM_PERIOD_MAX) {
+> > +		*prescale =3D MCHPCOREPWM_PRESCALE_MAX - 1;
+> > +		*period_steps =3D MCHPCOREPWM_PERIOD_STEPS_MAX - 1;
+> > +
+> > +		return;
+> > +	}
+> > +
+> > +	*prescale =3D div_u64(tmp, MCHPCOREPWM_PERIOD_STEPS_MAX);
+> > +	/* PREG_TO_VAL() can produce a value larger than UINT8_MAX */
+> > +	*period_steps =3D div_u64(tmp, PREG_TO_VAL(*prescale)) - 1;
+>=20
+> This looks wrong, but I didn't think long about that. Did we discuss
+> this already and/or are you sure this is correct?
+
+We did discuss it previously AFAICT;
+https://lore.kernel.org/linux-pwm/896d73ac-05af-8673-8379-29011800be83@micr=
+ochip.com/
+
+In that version of the code, prescale_val meant the mathematical value
+used for calculations & "prescale" was the value written into the
+register.
+
+Now, we have ditched prescale_val and operate directly with what gets
+written into the register.
+
+I ran a test case through the calculation, and it seemed to work out?
+
+> (We have:
+> 	          (prescale + 1) * (period_steps + 1)
+> 	period =3D ------------------------------------
+> 	                       clk_rate
+>=20
+> You calculate
+> 	            period * clk_rate
+> 	prescale =3D -------------------
+> 	           NSEC_PER_SEC * 0xff
+
+Say period =3D 2000 ns, clk_rate =3D 62.5 Mhz, giving a register value for
+prescale of 0.49019...=20
+
+> 	                     period * clk_rate
+> 	period_steps =3D ----------------------------- - 1
+> 	               NSEC_PER_SEC * (prescale + 1)
+
+Same numbers, but we use the PREG_TO_VAL() macro so the mathematical value
+is 1.49019.
+
+     2000 * 62.5E6
+--------------------- - 1 =3D 82.88360....
+  1E9 * (0.49016 + 1)
+
+>=20
+> assuming exact arithmetic putting these into the above equation we get:
+>=20
+>=20
+>     period * clk_rate                period * clk_rate
+>   (------------------- + 1) * (-----------------------------) / clk_rate
+>    NSEC_PER_SEC * 0xff         NSEC_PER_SEC * (prescale + 1)
+>=20
+> and then substituting prescale this doesn't resolve to period, does it?
+> Correct me if I'm wrong.)
+
+(0.49016 + 1) * (82.88360 + 1)      124.99...
+------------------------------ =3D ------------- =3D 0.00000199999
+            62.5E6                  62.5E6
+
+And then accounting for that fact that 2000 was really 2000E-9,
+we arrive back where we started, give or take some rounding?
+
+Doing that with integer maths works out more cleanly since 0.49016
+becomes 0.
+   2000 * 62.5E6
+------------------ - 1 =3D 124
+  1E9 * (0 + 1)
+
+(0 + 1) * (124 + 1)      125
+------------------- =3D --------- =3D 0.000002
+      62.5E6            62.5E6
+
+Unfortunately, I don't think I am seeing what you're seeing.
+
+>     period * clk_rate                period * clk_rate
+>   (------------------- + 1) * (-----------------------------) / clk_rate
+>    NSEC_PER_SEC * 0xff         NSEC_PER_SEC * (prescale + 1)
+                          ^
+It may be this + 1, which I don't seem to have accounted for in my quick
+run through a calculation?
+
+*prescale =3D div_u64(tmp, MCHPCOREPWM_PERIOD_STEPS_MAX);
+
+*period_steps =3D div_u64(tmp, PREG_TO_VAL(*prescale)) - 1;
+
+The code does not add a 1 when it calculates prescale, only when it uses
+the result to calculate period_steps, since prescale & period_steps are
+the register values, not the "mathematical" ones.
+
+Hopefully I've not gone and made a fool of myself...
+
+> > +static inline void mchp_core_pwm_apply_period(struct mchp_core_pwm_chi=
+p *mchp_core_pwm,
+> > +					      u8 prescale, u8 period_steps)
+> > +{
+> > +	writel_relaxed(prescale, mchp_core_pwm->base + MCHPCOREPWM_PRESCALE);
+> > +	writel_relaxed(period_steps, mchp_core_pwm->base + MCHPCOREPWM_PERIOD=
+);
+> > +}
+>=20
+> There is only one caller for this two-line function. I suggest to unroll =
+it?
+
+Sure.
+
+> > +	ret =3D devm_pwmchip_add(&pdev->dev, &mchp_core_pwm->chip);
+> > +	if (ret < 0)
+> > +		return dev_err_probe(&pdev->dev, ret, "failed to add PWM chip\n");
+> > +
+> > +	/*
+> > +	 * Enabled synchronous update for channels with shadow registers
+> > +	 * enabled. For channels without shadow registers, this has no effect
+> > +	 * at all so is unconditionally enabled.
+> > +	 */
+> > +	writel_relaxed(1U, mchp_core_pwm->base + MCHPCOREPWM_SYNC_UPD);
+> > +	mchp_core_pwm->update_timestamp =3D ktime_get();
+>=20
+> This needs to be done before devm_pwmchip_add().
+
+Makes sense, woops. I think I've revised this to the point that my
+blinkers have turned on & I'll wait a while before resubmitting in order
+to hopefully reset that.
+
+Perhaps I need to watch a lecture on how to write a PWM driver since I
+am clearly no good at it, given the 15 revisions. Do you know of any?
+
+Thanks,
+Conor.
+
+
+--yEYmw9zT0Jb9K0Do
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY73/oQAKCRB4tDGHoIJi
+0kQtAP47wEjbwJd3pqvMM8aYpo0ysWTee61SPJg27vpz12bCrwD/StvsZMJkR1dh
+Ls8jUMWX6cGvz11le4mdYEXFoH/EIQo=
+=YK4p
+-----END PGP SIGNATURE-----
+
+--yEYmw9zT0Jb9K0Do--
+
+
+--===============2862333618964677094==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2862333618964677094==--
+
