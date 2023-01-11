@@ -4,107 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7417FC5479D
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jan 2023 06:20:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5613EC46467
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jan 2023 07:03:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SX5AcRKIqhfBK1Q/HG+tGETOLXphsBFzvSRUtXAvSnw=; b=faVkx621k2mMKS
-	ocmc3wY8C7h7GefwHNURjWgEijcEYfusBC4uVlh9p1JPyqnlY4fQjHZqm2MGRYkfjRVSBByCuU0zp
-	hmvQaSB52kuEGN6qmikWg0cmXFb66Jq2LHtgmY8BUQlaQa+U8cLS2mkon/CnQT5586YimKc9nmI80
-	XBv+7BBf4Coo1Bg4BhbpATG14xSJkLSqhuXRtkxs11vmGMAPYP8ri7WwhnTqrrgayw8SB5HAZutbK
-	0eNz8WuKT3oQKrszl4Mu1bupjElMkCR2iA7j9S4TTeVQoB1+8xEyYFEjaCGDCdkH1W28N8/rV3r3E
-	JCvXMYzbc0ojdB0d9j/Q==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gMhqg6JyqU/u8RyMHkRJaRoRQ0WYY3C12JA31G3mpAw=; b=goMtQj/yUTk5h5Rg12/w3njp+M
+	7hUN3mGmagFfB+JWc+HqDF9FaI8wTYhgNjIHYf5cC/hdTIx54ALa58bNOahbQMTm09LU3zVaEdBFq
+	qdV7hyMiPjA+wEPdYggVVDZfZZ5I+xR58QBoXbvaqDKwzu1cpfXTHQhBF2cG7bcRoAfIkN73lBN9t
+	9ukAiqVXC4ieO3AKtOtX5NyHh+QylvU8O5QPcYNTBx7xw2YwxvBr3ZuAzTcyjM7nN/wOs4t8SeGzL
+	qrYbRjTEWtj4OpVefixb9/dFeWrbg+mE3WdoUksAKha4XJarB3mR3JyqKhAKVA0qbzpGbm3v/ou9F
+	RcXh8+qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFUT7-009qga-Pv; Wed, 11 Jan 2023 06:20:13 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1pFV8e-009wya-4e; Wed, 11 Jan 2023 07:03:08 +0000
+Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFUT4-009qfw-JR
-	for linux-riscv@lists.infradead.org; Wed, 11 Jan 2023 06:20:12 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id z4-20020a17090a170400b00226d331390cso16011834pjd.5
-        for <linux-riscv@lists.infradead.org>; Tue, 10 Jan 2023 22:20:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Fywcalk7yz5BAvp56hQZy/QX+1/SrPMih03sNl/Yf74=;
-        b=h6+a3uyzJrnnhsIet2BXcTFxftT22DyCw4Sgya1AtoqMN2ORk+awnnRZdneM1fPLXn
-         9GxOkn3tOfjBzW58x0j66FPYiiFNS3lrG8nL8El8JCL/UpA/AyRS4H18fUiaFUwaizWh
-         bJN3pm6pwPFSCMOLtoefCIFPpDMffF9dqpJj1TpUYVexLY1EK2oR4JDZuzt0q46hIeLn
-         bGkmnWVsTioKMy+GAkPL1OxF0sRAuN5UCwdm8qJA1VUVTXfusPOeXE5c3leY4l7Gp/eF
-         dQb4uNUU8QHqhYrcTcE4RKOIgUQnl7eV7+UyF9Q5Be2DAWIbsUWpKpy8b3KcxwmfWkbO
-         77Ww==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Fywcalk7yz5BAvp56hQZy/QX+1/SrPMih03sNl/Yf74=;
-        b=JQ0rKnWU9B2kp04VbhV2PErawI7gUVu24vqeQWhwb6eIHnqlEYILTWchW6Tj0Z7wEh
-         1RF6yvWC6Uu1f8kqWuwQA0w+ULe+YYXcSw6ZcnV9tLFWSemtmV4ytoFoi2CtlbxzrP/1
-         M7yzmNpQzCmS8Sm6jvFSyUgbx6Ln2aib/Q7q8lNTEWuYjr3t+pk/gbvputT27UIXZSEq
-         oDWCuoIMR7nnSSKbr22Utsbhej/5RhBv2FKNFUPmgaMJMwyuiWDc9ywvhW9jEmkwrqv4
-         iz5ZsLwnCA1DaGE6bV1txAo3gKCbWt0SKx5hC8m4CZ9Sn6qdRsoB/09eFd31OeSPuyrB
-         KM/Q==
-X-Gm-Message-State: AFqh2kp5D8X8qhmuogPFpHDZi1rAf12R/fccJGPN5PWmb5PM1OrkzzpC
-	/8/xfYWpHe8dKjLYnWzo6td4pA==
-X-Google-Smtp-Source: AMrXdXsO/simWGOG9rDo1VDsBKthiPIJgDqXVFyG61fw1CTujscbnuwlaPtWEZtIW7T4xLktmarvwA==
-X-Received: by 2002:a17:90b:3015:b0:226:c6fa:9843 with SMTP id hg21-20020a17090b301500b00226c6fa9843mr1358227pjb.1.1673418009659;
-        Tue, 10 Jan 2023 22:20:09 -0800 (PST)
-Received: from ?IPV6:2601:681:8600:13d0::f0a? ([2601:681:8600:13d0::f0a])
-        by smtp.gmail.com with ESMTPSA id t3-20020a17090a3e4300b002276ba8fb71sm2741230pjm.25.2023.01.10.22.20.07
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 10 Jan 2023 22:20:09 -0800 (PST)
-Message-ID: <e2a2ef3a-bb5e-0bda-20e5-a2344e7c4cef@ventanamicro.com>
-Date: Tue, 10 Jan 2023 23:20:07 -0700
+	id 1pFV8Z-009wwt-RO
+	for linux-riscv@lists.infradead.org; Wed, 11 Jan 2023 07:03:05 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1pFV8O-00083u-W6; Wed, 11 Jan 2023 08:02:53 +0100
+Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
+	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1pFV8N-005F5k-N2; Wed, 11 Jan 2023 08:02:51 +0100
+Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1pFV8M-00Btey-UV; Wed, 11 Jan 2023 08:02:50 +0100
+Date: Wed, 11 Jan 2023 08:02:50 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+To: Conor Dooley <conor@kernel.org>
+Cc: Thierry Reding <thierry.reding@gmail.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v13 1/2] pwm: add microchip soft ip corePWM driver
+Message-ID: <20230111070250.w7egzcufa4waxg2n@pengutronix.de>
+References: <20221221112912.147210-1-conor@kernel.org>
+ <20221221112912.147210-2-conor@kernel.org>
+ <20230110224805.3pqxd3yv4wyci2zj@pengutronix.de>
+ <Y73/oUwuOwQFR0NZ@spud>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.5.1
-Subject: Re: Auto-enabling V unit and/or use of elf attributes (was Re: Adding
- V-ext regs to signal context w/o expanding kernel struct sigcontext to avoid
- glibc ABI break)
-Content-Language: en-US
-To: Andy Chiu <andy.chiu@sifive.com>
-Cc: Richard Henderson <richard.henderson@linaro.org>,
- Vineet Gupta <vineetg@rivosinc.com>, Kito Cheng <kito.cheng@sifive.com>,
- Philipp Tomsich <philipp.tomsich@vrull.eu>,
- Vincent Chen <vincent.chen@sifive.com>, Florian Weimer <fweimer@redhat.com>,
- Rich Felker <dalias@libc.org>, Andrew Waterman <andrew@sifive.com>,
- Palmer Dabbelt <palmer@rivosinc.com>,
- =?UTF-8?Q?Christoph_M=c3=bcllner?= <christoph.muellner@vrull.eu>,
- davidlt@rivosinc.com, Arnd Bergmann <arnd@arndb.de>,
- =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
- Szabolcs Nagy <szabolcs.nagy@arm.com>, Greentime Hu
- <greentime.hu@sifive.com>, Aaron Durbin <adurbin@rivosinc.com>,
- Andrew de los Reyes <adlr@rivosinc.com>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- GNU C Library <libc-alpha@sourceware.org>
-References: <1631497278-29829-1-git-send-email-vincent.chen@sifive.com>
- <CABgGipXqEkasz2HTC4y6otCP6pFMmyEdYabA+OkUruUOfwypHg@mail.gmail.com>
- <18465ca3-934f-5b3e-170c-1ff0edea3a89@rivosinc.com>
- <CABgGipW66rdMnC99-h9ccuR+E+7fnaMfmzt=1ehGZnvxO34PwQ@mail.gmail.com>
- <a559e7dc-83fa-fac1-5811-95d37c6e662a@rivosinc.com>
- <CAAeLtUCPLD8if+-xikbjD78G=N_bEyMLh3WcZzyJR4Zt2LWz7Q@mail.gmail.com>
- <1f8f1d21-4a19-54fe-8b29-bf9e2a8501d7@rivosinc.com>
- <CALLt3ThickhyW5gX6LNjHXza484Xb5Cg8t7OUYH6hoA3V3GpAg@mail.gmail.com>
- <3a838afe-974b-60bb-a0e5-83e366ec652e@rivosinc.com>
- <CALLt3ThJyH3yihiwq-ZDeP1v5UgQZEsUWNwxOewZBeuocciRJg@mail.gmail.com>
- <b440aeaf-03e6-aa4e-9636-adbf3f841b40@rivosinc.com>
- <3923eeee-e4dc-0911-40bf-84c34aee962d@linaro.org>
- <119da65f-e976-f382-3fe1-1585be738352@ventanamicro.com>
- <8be4d673-f435-429e-9a61-bb49e7820529@linaro.org>
- <6d13e63f-69b3-6e48-b811-bbfcf3ffb3af@ventanamicro.com>
- <CABgGipUAhZNt3gaxEx7mPm20Xw7WNVVppRZ4fxZX-XswA5VG2g@mail.gmail.com>
-From: Jeff Law <jlaw@ventanamicro.com>
-In-Reply-To: <CABgGipUAhZNt3gaxEx7mPm20Xw7WNVVppRZ4fxZX-XswA5VG2g@mail.gmail.com>
+In-Reply-To: <Y73/oUwuOwQFR0NZ@spud>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ukl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230110_222010_677286_494B4C92 
-X-CRM114-Status: GOOD (  17.11  )
+X-CRM114-CacheID: sfid-20230110_230304_079655_BA528CD8 
+X-CRM114-Status: GOOD (  48.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,65 +71,229 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============5874771040793189832=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
+--===============5874771040793189832==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="yvlo43zef7v5vw4q"
+Content-Disposition: inline
 
-On 1/10/23 23:00, Andy Chiu wrote:
-> On Wed, Jan 11, 2023 at 1:07 PM Jeff Law <jlaw@ventanamicro.com> wrote:
->>
->>
->>
->> On 1/10/23 21:57, Richard Henderson wrote:
->>> On 1/10/23 20:28, Jeff Law wrote:
->>>>
->>>>
->>>> On 1/10/23 18:22, Richard Henderson wrote:
->>>>> On 1/10/23 10:07, Vineet Gupta wrote:
->>>>>> Yes bulk of glibc might not have vector code, but those V ifunc
->>>>>> routines do and IMO this information needs to be recorded somewhere
->>>>>> in the elf. Case in point being the current issue with how to enable
->>>>>> V unit. Community wants a per-process enable, using an explicit
->>>>>> prctl from userspace (since RV doesn't have fault-on-first use
->>>>>> hardware mechanism unlike some of the other arches). But how does
->>>>>> the glibc loader know to invoke prctl. We can't just rely on user
->>>>>> env GLIBC_TUNABLE etc since that might not be accurate. It needs
->>>>>> somethign concrete which IMO can come from elf attributes. If not,
->>>>>> do you have suggestions on how to solve this issue ?
->>>>>
->>>>> Why not just fault on first use to enable?  That's vastly less
->>>>> complicated than trying to plumb anything through elf resulting in a
->>>>> prctl.
->>>> Well, the answer is in Vineet's paragraph -- the hardware apparently
->>>> doesn't have fault-on-first-use which is mighty unfortunate.
->>>
->>> Nonsense -- sstatus.vs stores {off, initial, clean, dirty} state, just
->>> like fpu.
->>> Now treat the vector unit just like fpu lazy migration.
->> Then let's do something sensible.    Manually enabling via prctl seems
->> silly if we have fault on first use.
-> Yes, faulting on first use is a viable way of approaching. However, my
-> concern is that doing this on a system with libraries having common
-> V-optimized routines such as memcpy, memset would essentially trap
-> every process to m-mode starting up. This might take more cost than a
-> prctl syscall. And if every process on the system wants to be
-> benefited from V-optimized ifuncs, then having an additional prctl to
-> call at start time seems tedious as well.
->
-It's not perfect, but it's workable.  Explicitly turning things on seems 
-like madness.  It boils down to having to annotate every binary and DSO 
-and also adds complexity to JITs, the dynamic loader and probably all 
-kinds of places we haven't thought through yet.
 
-Fault on first use is well understood and has been implemented on many 
-architectures through the decades, even with its warts.
+--yvlo43zef7v5vw4q
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-jeff
+Hello Conor,
+
+On Wed, Jan 11, 2023 at 12:15:29AM +0000, Conor Dooley wrote:
+> On Tue, Jan 10, 2023 at 11:48:05PM +0100, Uwe Kleine-K=F6nig wrote:
+> > On Wed, Dec 21, 2022 at 11:29:12AM +0000, Conor Dooley wrote:
+> > > From: Conor Dooley <conor.dooley@microchip.com>
+>=20
+> > > +		delay_us =3D DIV_ROUND_UP_ULL(remaining_ns, NSEC_PER_USEC);
+> > > +		if ((delay_us / 1000) > MAX_UDELAY_MS)
+> > > +			msleep(delay_us / 1000 + 1);
+> >=20
+> > Is this better than
+> >=20
+> > 	msleep(DIV_ROUND_UP(delay_us, 1000);
+> >=20
+> > ? Also I wonder about your usage of MAX_UDELAY_MS. This is about
+>=20
+> I probably started hacking on the example you gave and didn't notice
+> the U. What I have here is ~what you suggested last time.
+
+A series with (up to now) 13 revisions and long delays between the
+review rounds (which are mostly attributed to my time schedule) is
+difficult to handle on both sides. Some repetition isn't easy to prevent
+in such a case. Sorry for that.=20
+
+> > udelay() but you're using usleep_range()?
+> >=20
+> > > +		else
+> > > +			usleep_range(delay_us, delay_us * 2);
+> >=20
+> > I wonder if there isn't a function that implements something like
+> >=20
+> > 	wait_until(mchp_core_pwm->update_timestamp);
+> >=20
+> > which would be a bit nicer than doing this by hand. Maybe fsleep()?
+>=20
+> That'd be fsleep(delay_us), but does at least clean up some of the
+> messing.
+>=20
+> > > +static void mchp_core_pwm_apply_duty(struct pwm_chip *chip, struct p=
+wm_device *pwm,
+> > > +				     const struct pwm_state *state, u64 duty_steps,
+> > > +				     u8 period_steps)
+> > > +{
+> > > +	struct mchp_core_pwm_chip *mchp_core_pwm =3D to_mchp_core_pwm(chip);
+> > > +	u8 posedge, negedge;
+> > > +	u8 period_steps_val =3D PREG_TO_VAL(period_steps);
+> > > +
+> > > +	/*
+> > > +	 * Setting posedge =3D=3D negedge doesn't yield a constant output,
+> > > +	 * so that's an unsuitable setting to model duty_steps =3D 0.
+> > > +	 * In that case set the unwanted edge to a value that never
+> > > +	 * triggers.
+> > > +	 */
+> > > +	if (state->polarity =3D=3D PWM_POLARITY_INVERSED) {
+> > > +		negedge =3D !duty_steps ? period_steps_val : 0u;
+> >=20
+> > IMHO
+> >=20
+> > 		negedge =3D duty_steps ? 0 : period_steps_val;
+> >=20
+> > is a bit easier to parse.
+> >=20
+> > > +		posedge =3D duty_steps;
+> > > +	} else {
+> > > +		posedge =3D !duty_steps ? period_steps_val : 0u;
+> > > +		negedge =3D duty_steps;
+> > > +	}
+> >=20
+> > The following code is equivalent:
+> >=20
+> > 	u8 first_edge =3D 0, second_edge =3D duty_steps;
+> >=20
+> > 	/*
+> > 	 * Setting posedge =3D=3D negedge doesn't yield a constant output,
+> > 	 * so that's an unsuitable setting to model duty_steps =3D 0.
+> > 	 * In that case set the unwanted edge to a value that never
+> > 	 * triggers.
+> > 	 */
+> > 	if (duty_steps =3D=3D 0)
+> > 		first_edge =3D period_steps_val;
+> >=20
+> > 	if (state->polarity =3D=3D PWM_POLARITY_INVERSED) {
+> > 		negedge =3D first_edge;
+> > 		posedge =3D second_edge;
+> > 	} else {
+> > 		posedge =3D first_edge;
+> > 		negedge =3D second_edge;
+> > 	}
+> >=20
+> > I'm not sure if it's easier to understand. What do you think?
+>=20
+> Despite having used them, I dislike ternary statements.
+
+My variant is a bit longer and uses more variables, but has less
+repetition. I don't expect a relevant change on the generated code. I
+slightly prefer my variant, but I let you choose which one you prefer.
+
+> > > +	writel_relaxed(posedge, mchp_core_pwm->base + MCHPCOREPWM_POSEDGE(p=
+wm->hwpwm));
+> > > +	writel_relaxed(negedge, mchp_core_pwm->base + MCHPCOREPWM_NEGEDGE(p=
+wm->hwpwm));
+> > > +}
+> > > +
+> > > +static void mchp_core_pwm_calc_period(const struct pwm_state *state,=
+ unsigned long clk_rate,
+> > > +				      u16 *prescale, u8 *period_steps)
+> > > +{
+> > > +	u64 tmp;
+> > > +
+> > > +	/*
+> > > +	 * Calculate the period cycles and prescale values.
+> > > +	 * The registers are each 8 bits wide & multiplied to compute the p=
+eriod
+> > > +	 * using the formula:
+> > > +	 * (clock_period) * (prescale + 1) * (period_steps + 1)
+> > > +	 * so the maximum period that can be generated is 0x10000 times the
+> > > +	 * period of the input clock.
+> > > +	 * However, due to the design of the "hardware", it is not possible=
+ to
+> > > +	 * attain a 100% duty cycle if the full range of period_steps is us=
+ed.
+> > > +	 * Therefore period_steps is restricted to 0xFE and the maximum mul=
+tiple
+> > > +	 * of the clock period attainable is 0xFF00.
+> > > +	 */
+> > > +	tmp =3D mul_u64_u64_div_u64(state->period, clk_rate, NSEC_PER_SEC);
+> > > +
+> > > +	/*
+> > > +	 * The hardware adds one to the register value, so decrement by one=
+ to
+> > > +	 * account for the offset
+> > > +	 */
+> > > +	if (tmp >=3D MCHPCOREPWM_PERIOD_MAX) {
+> > > +		*prescale =3D MCHPCOREPWM_PRESCALE_MAX - 1;
+> > > +		*period_steps =3D MCHPCOREPWM_PERIOD_STEPS_MAX - 1;
+> > > +
+> > > +		return;
+> > > +	}
+> > > +
+> > > +	*prescale =3D div_u64(tmp, MCHPCOREPWM_PERIOD_STEPS_MAX);
+> > > +	/* PREG_TO_VAL() can produce a value larger than UINT8_MAX */
+> > > +	*period_steps =3D div_u64(tmp, PREG_TO_VAL(*prescale)) - 1;
+> >=20
+> > This looks wrong, but I didn't think long about that. Did we discuss
+> > this already and/or are you sure this is correct?
+>=20
+> We did discuss it previously AFAICT;
+> https://lore.kernel.org/linux-pwm/896d73ac-05af-8673-8379-29011800be83@mi=
+crochip.com/
+>=20
+> [...]
+> Unfortunately, I don't think I am seeing what you're seeing.
+
+Well, the calculation lands in the right ballpark for sure, but if my
+intuition is right, it's not as exact as it could be. I need some time
+with pencil and paper ...
+
+> [...]
+> Perhaps I need to watch a lecture on how to write a PWM driver since I
+> am clearly no good at it, given the 15 revisions. Do you know of any?
+
+I'm not aware of such a lecture. I'm willing to take the blame for some
+of the revisions because I'm very picky and the math involved here isn't
+trivial. And I sometimes wonder about myself pointing out an issue in
+(say) v5 which was there unnoticed already in v1.
+
+In sum a patch series going through such a high number of revisions is
+mostly a good sign. In the end we can be sure that the merged code is
+checked deep-rootedly and that both you and me have a certain amount of
+endurance. :-)
+
+Best regards
+Uwe
+
+--=20
+Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
+Industrial Linux Solutions                 | https://www.pengutronix.de/ |
+
+--yvlo43zef7v5vw4q
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEfnIqFpAYrP8+dKQLwfwUeK3K7AkFAmO+XxcACgkQwfwUeK3K
+7AkKlQf9H25n/oC9cajzuJ1lVldsu2z2jyZFeXdO/t0FbB7oS+IgVJTdb1SA6hi/
+Rysl9baJk8tLFgLu6RzcA4Ttzv5vtpYVKHGZ63rZ6uaDTDeGX3Ro6UKlOruUNSWh
+1e3MI5mni5oV3+bRDTV2xOH7ZpMSLymB+5U328R0OfVA8rW1R327625VN7+bXqy9
+C1L6rjTydze0+KxQp+f7Of/0bDF+BS7/XhsL3ddwp1yTPwUXRhcsq22F9BczEUyh
+J4mz5p4G7Bk2dHJX0TeNUmWDo1a9CHgjAbffJJH9qEr5ml8eiLdbpLmwqUk/i7UE
+lM4lnw7DW7kjdnkGVV2ORLt8Of0O4A==
+=PZYY
+-----END PGP SIGNATURE-----
+
+--yvlo43zef7v5vw4q--
+
+
+--===============5874771040793189832==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5874771040793189832==--
+
