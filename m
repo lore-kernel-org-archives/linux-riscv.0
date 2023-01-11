@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BFDCC5479D
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jan 2023 05:07:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47C7EC5479D
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jan 2023 05:23:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6us5+wJQ2o/ozsUqaHAPAyXn+mgWvGcypPVanOqS/L4=; b=xtokrOGVuIISmb
-	/qS0oNDC6d3mO/u9X/PM6alRlbLDRccbdCFVlqEthp45bxh966WGwWvapEvYcR7I3bEGvt6hsCO7a
-	icFn9eaTpWo1BtTqKU6gTS/zZ0ddAVAcQbIIW4rbqFrQYdmM3zovZf930PHCjDuB1qcwJAt3oSSLS
-	s9hALHgFUEp5vR0QIneMqv3uGSOb6WyVCUIa53HLdvlHtHczoQ8fxgVDiOUqyomMENthZ1M9CHpaQ
-	2Crs44dIESam75HwU0ylqJZ5TvjzHhhUo7uQ+I6vvVeMAUpeaC2lB/8SFvpgZ9CIPdFOVBcHphu86
-	87OOrWe5rInwKYjwsn3w==;
+	List-Owner; bh=s7pRlCylDmMofoG3faMb3ra2AvlEal1AS4dhYwUUjQ8=; b=RgGHKuheaA5CSG
+	PiAx5dT2onRIiahjQa5FYRB7YHILfct0B2tkijTWqiZfw27BScJLLBr9Z8FjL9Cf5b8Nr7bdzqR5R
+	ua8L0JcQuuObXW4b12ThxdjDhVV+/NO9zDvwLQ48GWEBXVo3pMppqc07/08RQguZ+8cwub7yPVSFG
+	c39HdDyD7DBHiH4//wugr0TgfUo/jgh8JVwcfbFoUDfNMziUVZoOSQDQF5y6UvigRy0LSo7jhIp1g
+	kgmDaoyeQSQ4seqGy8p+Z0aHz3hgcsoIicnM4v6uplcYdHpG3G3AQRhYtydMgTvnCMwFHpsXkBCoj
+	m7HiRbbSdjalxBlK9JqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFTL3-009dkI-9x; Wed, 11 Jan 2023 05:07:49 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	id 1pFTaL-009gtq-50; Wed, 11 Jan 2023 05:23:37 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFTL0-009dii-2d
-	for linux-riscv@lists.infradead.org; Wed, 11 Jan 2023 05:07:47 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id v13-20020a17090a6b0d00b00219c3be9830so15875138pjj.4
-        for <linux-riscv@lists.infradead.org>; Tue, 10 Jan 2023 21:07:42 -0800 (PST)
+	id 1pFTaI-009gt1-FB
+	for linux-riscv@lists.infradead.org; Wed, 11 Jan 2023 05:23:36 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id cp9-20020a17090afb8900b00226a934e0e5so2833042pjb.1
+        for <linux-riscv@lists.infradead.org>; Tue, 10 Jan 2023 21:23:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+        d=linaro.org; s=google;
+        h=content-transfer-encoding:in-reply-to:references:cc:to:from
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=8jbzwp554wywzHNVVMHChM9DzhMTbyOsmi2YMZ/ITpA=;
-        b=BxNi3cg+mWFxHu/yZLlIqcy0uTG6+8vV2PdJar/igkKsB4YS7DvCuSWBemQ0wnfg+k
-         Agq8UfFuq7o7o7kiVbFZhDjQ/CvTmHeTiWGfW7BvPlkILGCMtkn6o5caserPkpecQUem
-         wp6Gm8YkqXe1+dGkd69yfqnRJ0wH4utfM6SeDl7eS+hojIRiNmm5jdq4/CgnSftMLvEW
-         rsHeSKSiBJCpiVlQih1G7TZH3CNryPlZGfzXLGxKzU3ybjgIU+ZEt1mngwXKOQEINQ62
-         NMNcoY0+2Alb2PoGwr4b5MnCuEigxDT/PRVKit5Ai0V5bdZyV+yQcrX8B0AezRJzXmHN
-         DGMA==
+        bh=dLEMd7QAY4302pYCJydmN63jL1CYA20WH052aEzhWR0=;
+        b=fLYKGUC5znSxDfn0OnnQSZ/5ztBbfA+Le2MpM4rB34uKUUMqPXZQu9fVLXkYVzzXIS
+         MOYJhqvKTVFFUcBZ+toMkVZ/Vi98NoorTIg28Hq/f+l9yI7ggdsDn7aq14FV+iWHPbR5
+         sVg03ZtHUlm3nQAcsvgSWOAJo+tw9+e5co3p2Hmv/8k8RKzL1T3/iP1ufR5E4Zl8ccv3
+         1UkA4/Hjuo4VWrBm2n9ZRztLi7w/CFzPAZ+2NSSSmt0Oh3d0nt7pI1oQsiguWT8xOh9g
+         s6AfBUgFbuI5qaOHLVFuq0Oy4yW2F1o/iYTJxN4IdbmVSpJA56BZa9cV7I4mysHKcNeN
+         VK8g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+        h=content-transfer-encoding:in-reply-to:references:cc:to:from
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=8jbzwp554wywzHNVVMHChM9DzhMTbyOsmi2YMZ/ITpA=;
-        b=yU4FFBk62u42PNCK35NsWWlnysMHDGZ7dOq4SMPeei9Jf40G5LJnDEqdfiE4uvqeYs
-         c1/B78eu4UpVdJG0OKOCwC25e3e02tgk9gO9k2RyaVdJSX3MSOGrTC+32gMBa1EAoRd4
-         8/NXr/S8aMYwhypxnZP6vZkhKBuH/3JRjDwqMT9qQOKMukyjJEtpETa3C/koru6MF2WP
-         qHjkuOGYNHCAwnrsZSRtaGEFQR7TW9o9pFNKjRx0ZwW/VNQWDiT6tJNw0z5H3dSbQ34U
-         sgf4MRR0m0htuf9M2sEuP15Doi9tq8njdgy2DfbikEaWq32po/m7WhAEIxh1A22ZGKKr
-         uBDA==
-X-Gm-Message-State: AFqh2koeT2+kvoaaaifrOalaqfjVQVRlmBYRgaaGWiQjUCxBXmQ0TeeP
-	stzJOVrDHxchSKSXO9VlE200bQ==
-X-Google-Smtp-Source: AMrXdXuDFxUdDx6tQ118eIrW7EQ+X3GtiDgnhX9pLhKvmDCd6PtDt4pi6r2zX4IQpBBPIGJk7ZJEwg==
-X-Received: by 2002:a05:6a20:d2cc:b0:af:f97e:efc7 with SMTP id ir12-20020a056a20d2cc00b000aff97eefc7mr85586557pzb.53.1673413662213;
-        Tue, 10 Jan 2023 21:07:42 -0800 (PST)
-Received: from ?IPV6:2601:681:8600:13d0::f0a? ([2601:681:8600:13d0::f0a])
-        by smtp.gmail.com with ESMTPSA id p128-20020a622986000000b00582cb9d9ad3sm9200974pfp.178.2023.01.10.21.07.40
+        bh=dLEMd7QAY4302pYCJydmN63jL1CYA20WH052aEzhWR0=;
+        b=mLKl38DKmP4pv8/7KJ6K6R+K/sGHUap4+Qufxz8ioGUsvSzfOJAwmH6PQdrq47ABqp
+         dxPZrw8UViyRPukb9BT4LQKDoy2DbiZZQP0t2IQXzgbQX+8vOT/qGVpz6PZEs64LwkgG
+         BFiwMS0VEUThWGvFVJaykY/0dxZQtlLulPEM73bornAcXnMftTKXTB43KPwfajKZD/gc
+         B0gi4vkmItypzAHJ7TAE9rNTQRKGKIhq9OcDI8r+AQmzdNCo+qQLozEWGQK6vglFqBN5
+         UY5dRgZ1FC6DgAV+XmlLBQinWdit/n2bNuN3vqPNyJgUQ/8vbdExbs2malqwpTHo7fxe
+         DPNQ==
+X-Gm-Message-State: AFqh2kpqCoVU5aGwJEHrCY+U4p4U396m3/arWx8pYreKZmAejcPer1JM
+	1Oc1FU4VO1VvfcWSX0oauqD1RA==
+X-Google-Smtp-Source: AMrXdXvZ5UXOtRkwWfFGQ2a9WqyW282LsBwpBiYNAn9QXmlCALa5AX4hUcW5DwokL+x0UkuvodiZBg==
+X-Received: by 2002:a05:6a20:b29e:b0:b6:40af:3721 with SMTP id ei30-20020a056a20b29e00b000b640af3721mr1287678pzb.54.1673414611246;
+        Tue, 10 Jan 2023 21:23:31 -0800 (PST)
+Received: from [192.168.0.115] (63-157-97-90.dia.static.qwest.net. [63.157.97.90])
+        by smtp.gmail.com with ESMTPSA id y12-20020aa78f2c000000b00581dd94be3asm9023586pfr.61.2023.01.10.21.23.28
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 10 Jan 2023 21:07:41 -0800 (PST)
-Message-ID: <6d13e63f-69b3-6e48-b811-bbfcf3ffb3af@ventanamicro.com>
-Date: Tue, 10 Jan 2023 22:07:39 -0700
+        Tue, 10 Jan 2023 21:23:30 -0800 (PST)
+Message-ID: <b34f9455-e89b-4972-0913-2ab307843f3c@linaro.org>
+Date: Tue, 10 Jan 2023 21:23:26 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.5.1
+ Thunderbird/102.4.2
 Subject: Re: Auto-enabling V unit and/or use of elf attributes (was Re: Adding
  V-ext regs to signal context w/o expanding kernel struct sigcontext to avoid
  glibc ABI break)
 Content-Language: en-US
-To: Richard Henderson <richard.henderson@linaro.org>,
- Vineet Gupta <vineetg@rivosinc.com>, Kito Cheng <kito.cheng@sifive.com>
+From: Richard Henderson <richard.henderson@linaro.org>
+To: Vineet Gupta <vineetg@rivosinc.com>, Kito Cheng <kito.cheng@sifive.com>
 Cc: Philipp Tomsich <philipp.tomsich@vrull.eu>,
  Andy Chiu <andy.chiu@sifive.com>, Vincent Chen <vincent.chen@sifive.com>,
  Florian Weimer <fweimer@redhat.com>, Rich Felker <dalias@libc.org>,
@@ -84,6 +84,8 @@ Cc: Philipp Tomsich <philipp.tomsich@vrull.eu>,
  linux-riscv <linux-riscv@lists.infradead.org>,
  GNU C Library <libc-alpha@sourceware.org>
 References: <1631497278-29829-1-git-send-email-vincent.chen@sifive.com>
+ <7430f494-9b43-5e03-c1e9-6b83e2611a11@rivosinc.com>
+ <b67238bf-4b5d-dd17-99ff-88b0270ce10a@linaro.org>
  <CABgGipVT9L5p623Q2rbjrm=tTwcnjSr178CRKTNs+WMbm7=+-Q@mail.gmail.com>
  <91ef3c45-165f-d2b3-7c77-322c01802c41@rivosinc.com>
  <CABgGipXqEkasz2HTC4y6otCP6pFMmyEdYabA+OkUruUOfwypHg@mail.gmail.com>
@@ -97,13 +99,11 @@ References: <1631497278-29829-1-git-send-email-vincent.chen@sifive.com>
  <CALLt3ThJyH3yihiwq-ZDeP1v5UgQZEsUWNwxOewZBeuocciRJg@mail.gmail.com>
  <b440aeaf-03e6-aa4e-9636-adbf3f841b40@rivosinc.com>
  <3923eeee-e4dc-0911-40bf-84c34aee962d@linaro.org>
- <119da65f-e976-f382-3fe1-1585be738352@ventanamicro.com>
- <8be4d673-f435-429e-9a61-bb49e7820529@linaro.org>
-From: Jeff Law <jlaw@ventanamicro.com>
-In-Reply-To: <8be4d673-f435-429e-9a61-bb49e7820529@linaro.org>
+In-Reply-To: <3923eeee-e4dc-0911-40bf-84c34aee962d@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230110_210746_142285_67F76612 
-X-CRM114-Status: GOOD (  12.35  )
+X-CRM114-CacheID: sfid-20230110_212334_546874_73DC2BE7 
+X-CRM114-Status: UNSURE (   8.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,37 +115,27 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiAxLzEwLzIzIDIxOjU3LCBSaWNoYXJkIEhlbmRlcnNvbiB3cm90ZToKPiBPbiAxLzEwLzIz
-IDIwOjI4LCBKZWZmIExhdyB3cm90ZToKPj4KPj4KPj4gT24gMS8xMC8yMyAxODoyMiwgUmljaGFy
-ZCBIZW5kZXJzb24gd3JvdGU6Cj4+PiBPbiAxLzEwLzIzIDEwOjA3LCBWaW5lZXQgR3VwdGEgd3Jv
-dGU6Cj4+Pj4gWWVzIGJ1bGsgb2YgZ2xpYmMgbWlnaHQgbm90IGhhdmUgdmVjdG9yIGNvZGUsIGJ1
-dCB0aG9zZSBWIGlmdW5jIAo+Pj4+IHJvdXRpbmVzIGRvIGFuZCBJTU8gdGhpcyBpbmZvcm1hdGlv
-biBuZWVkcyB0byBiZSByZWNvcmRlZCBzb21ld2hlcmUgCj4+Pj4gaW4gdGhlIGVsZi4gQ2FzZSBp
-biBwb2ludCBiZWluZyB0aGUgY3VycmVudCBpc3N1ZSB3aXRoIGhvdyB0byBlbmFibGUgCj4+Pj4g
-ViB1bml0LiBDb21tdW5pdHkgd2FudHMgYSBwZXItcHJvY2VzcyBlbmFibGUsIHVzaW5nIGFuIGV4
-cGxpY2l0IAo+Pj4+IHByY3RsIGZyb20gdXNlcnNwYWNlIChzaW5jZSBSViBkb2Vzbid0IGhhdmUg
-ZmF1bHQtb24tZmlyc3QgdXNlIAo+Pj4+IGhhcmR3YXJlIG1lY2hhbmlzbSB1bmxpa2Ugc29tZSBv
-ZiB0aGUgb3RoZXIgYXJjaGVzKS4gQnV0IGhvdyBkb2VzIAo+Pj4+IHRoZSBnbGliYyBsb2FkZXIg
-a25vdyB0byBpbnZva2UgcHJjdGwuIFdlIGNhbid0IGp1c3QgcmVseSBvbiB1c2VyIAo+Pj4+IGVu
-diBHTElCQ19UVU5BQkxFIGV0YyBzaW5jZSB0aGF0IG1pZ2h0IG5vdCBiZSBhY2N1cmF0ZS4gSXQg
-bmVlZHMgCj4+Pj4gc29tZXRoaWduIGNvbmNyZXRlIHdoaWNoIElNTyBjYW4gY29tZSBmcm9tIGVs
-ZiBhdHRyaWJ1dGVzLiBJZiBub3QsIAo+Pj4+IGRvIHlvdSBoYXZlIHN1Z2dlc3Rpb25zIG9uIGhv
-dyB0byBzb2x2ZSB0aGlzIGlzc3VlID8KPj4+Cj4+PiBXaHkgbm90IGp1c3QgZmF1bHQgb24gZmly
-c3QgdXNlIHRvIGVuYWJsZT/CoCBUaGF0J3MgdmFzdGx5IGxlc3MgCj4+PiBjb21wbGljYXRlZCB0
-aGFuIHRyeWluZyB0byBwbHVtYiBhbnl0aGluZyB0aHJvdWdoIGVsZiByZXN1bHRpbmcgaW4gYSAK
-Pj4+IHByY3RsLgo+PiBXZWxsLCB0aGUgYW5zd2VyIGlzIGluIFZpbmVldCdzIHBhcmFncmFwaCAt
-LSB0aGUgaGFyZHdhcmUgYXBwYXJlbnRseSAKPj4gZG9lc24ndCBoYXZlIGZhdWx0LW9uLWZpcnN0
-LXVzZSB3aGljaCBpcyBtaWdodHkgdW5mb3J0dW5hdGUuCj4gCj4gTm9uc2Vuc2UgLS0gc3N0YXR1
-cy52cyBzdG9yZXMge29mZiwgaW5pdGlhbCwgY2xlYW4sIGRpcnR5fSBzdGF0ZSwganVzdCAKPiBs
-aWtlIGZwdS4KPiBOb3cgdHJlYXQgdGhlIHZlY3RvciB1bml0IGp1c3QgbGlrZSBmcHUgbGF6eSBt
-aWdyYXRpb24uClRoZW4gbGV0J3MgZG8gc29tZXRoaW5nIHNlbnNpYmxlLiAgICBNYW51YWxseSBl
-bmFibGluZyB2aWEgcHJjdGwgc2VlbXMgCnNpbGx5IGlmIHdlIGhhdmUgZmF1bHQgb24gZmlyc3Qg
-dXNlLgoKamVmZgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
-cmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNj
-dgo=
+On 1/10/23 17:22, Richard Henderson wrote:
+> And, surely, there's some minimal vector configuration for which the allocation must succeed.
+
+To answer my own question here, no, there does not seem to be a way to cap VLMAX in the OS 
+or the hypervisor -- vsetvli rd, r0, e8 will always set VL to the VLMAX for which the cpu 
+is configured.
+
+(ARM SVE can artificially limit the vector length.  Linux chooses the default vector 
+length so that state fits within the existing 4k signal stack frame.  This is good enough 
+for the vector usage within e.g. strlen.  In order to take advantage of any larger vector 
+length the hardware may support, one must use a prctl.)
+
+
+r~
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
