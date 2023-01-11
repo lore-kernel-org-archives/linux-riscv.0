@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F6E0C54EBC
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jan 2023 13:46:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B702EC46467
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jan 2023 13:46:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KSarQS/f87cii62U80hE1elGsd/Gykw95KzwHArrXFs=; b=dxozxqUYLYA2oe
-	Clu06ahRiRjZL3mxP1OdDz3pSqvdyhnfVQoXF7Tp5XPWllf1XISEaCuBF6mXVYDNr6j5BObrexw8V
-	6R6sBL7qJqo3g2E/5lHiG5hxUgM26DCInqBmX+T1jdxPhJb4QYFSfKjdX0h4XsQPSGt8HP1TVQM6g
-	JqrrrNhzkL7IvXRB2KOuFDomPUApoQS3w4m28TjKKED3apzgLKYVkK6hMBcuQTLM7j0yORzS7VLYO
-	atiUGni1DgkbNTTcW7+mjTRIilD2ru9jOyiFziwChvoiwRuyTbIPZhKubsPZAhB8/6e+hzZLpJTe1
-	ENcV0Dmr16plKLO25hWw==;
+	List-Owner; bh=i5XOrYsIltK1sKwQ2T3i1/1UoFNv/8sadn6pC+IPJCg=; b=K+679C9SfuMKAO
+	9e2U+RS3tWDRIc/EP3zSXmGwzfoiqgIp3ECMEkfdG9QjeFFKFx5gwzcgExf7Szyl2wU1R1NqJl5KI
+	UgGe8WGT3E6y7ZdX9wxcKHyj2iHgTGH3ZgOVvWGDiKl6QXob6khD2YNNnmRQGgSCM4cizTYJ+4VaG
+	H/A0oPbtZCilnLj5w32lY1GAWClJJpbg0YTHWCukxBhASZCf6bIeoqi19U1ML1r+VnXTEqe9rVm1B
+	txQjp3bI+43nPRNFniXAjqVnwnwt2tbXUHu95DuiSmTmV9QiKlEX+/sgXH3WOf3GPFY09ChEU3BI0
+	6HqJlJRaUYMY4LQhbQsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFbQb-00Beum-Q8; Wed, 11 Jan 2023 13:46:05 +0000
+	id 1pFbQe-00BewP-D3; Wed, 11 Jan 2023 13:46:08 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFbQY-00Bera-Mi
-	for linux-riscv@lists.infradead.org; Wed, 11 Jan 2023 13:46:04 +0000
+	id 1pFbQa-00Bera-NV
+	for linux-riscv@lists.infradead.org; Wed, 11 Jan 2023 13:46:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1673444762; x=1704980762;
+  t=1673444764; x=1704980764;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=1o9L/4gS6hFw7QhrPiNy1BOlai1A8GCWCQbQw2g35go=;
-  b=MfduGl2CZlOsKV8rmVmL9KSavSUP+GQLKXi9TLR9YPFtHD1T30TR748E
-   T4Y/lepU6fT1TKpInXsXWpRE0byb5Sod/HFiLEJtFhqjGwGuQMm3uaxTA
-   ITGNW3kMhtPNsRMsHnlUFhk+tM4KbJkrnx6tIu772bjyrJrCi7p/vYkA0
-   uaZUmSWVMedUB7nysEzYJ6nELuQRTcvlPmTTN7Hb6gkSagv7xRqOq2MJt
-   4XzTIWqzBitbEOdGYJk5GpinL77AE3CIu/M0nLlLuS5oBB2e8u0NiSKbj
-   0eQs7InboevhI3xtroE4z3Cqh6ExkP2CIDOrVDf+UGMeV/8aXEa/qt1kO
-   A==;
+  bh=FCOl+T+5C62VF4k5ASrJAWhazXtjeEzsINHVVaIW+hk=;
+  b=SbY4ZurLO4zbPdedNmdvBCcVsPyGoqrsZR9NnL3XbEXEiUc3sQ/n8YP7
+   0fdc8VgZUlAPwcUQDygLnRKkcfJkvhq9pBK4W92O7h85sDj1B+jDlcMFd
+   jwT4er7YKLaRAVAn7BNwS0WRbfboyl4J+Vho0+7/0rx9SthO0Br9XXWyw
+   mMOuyAIS5GalzKQFDt9TVTieA8TvVOBuk0rq78G0TMtP7Lv6h/sNxeTqM
+   21LA146/DJIdPzWp1/aKJIEVnHRK0Le2/03eUGJdpzn6qEB26IlBymlkJ
+   IlIdGE9jd7lRMxweSdvsvKzlq9dMTGSOu00rpt2i7XeiZQRcXA98/24/X
+   Q==;
 X-IronPort-AV: E=Sophos;i="5.96,317,1665471600"; 
-   d="scan'208";a="131834648"
+   d="scan'208";a="131834650"
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
   by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 11 Jan 2023 06:45:54 -0700
 Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
  chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.16; Wed, 11 Jan 2023 06:45:50 -0700
+ 15.1.2507.16; Wed, 11 Jan 2023 06:45:52 -0700
 Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex03.mchp-main.com
  (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.16 via Frontend
- Transport; Wed, 11 Jan 2023 06:45:49 -0700
+ Transport; Wed, 11 Jan 2023 06:45:51 -0700
 From: Conor Dooley <conor.dooley@microchip.com>
 To: Jassi Brar <jassisinghbrar@gmail.com>
 CC: Conor Dooley <conor.dooley@microchip.com>, Daire McNamara
 	<daire.mcnamara@microchip.com>, <linux-riscv@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>
-Subject: [PATCH v1 2/7] mailbox: mpfs: switch to txdone_poll
-Date: Wed, 11 Jan 2023 13:45:08 +0000
-Message-ID: <20230111134513.2495510-3-conor.dooley@microchip.com>
+Subject: [PATCH v1 3/7] mailbox: mpfs: ditch a useless busy check
+Date: Wed, 11 Jan 2023 13:45:09 +0000
+Message-ID: <20230111134513.2495510-4-conor.dooley@microchip.com>
 X-Mailer: git-send-email 2.39.0
 In-Reply-To: <20230111134513.2495510-1-conor.dooley@microchip.com>
 References: <20230111134513.2495510-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230111_054602_822575_4A7262CB 
-X-CRM114-Status: GOOD (  11.33  )
+X-CRM114-CacheID: sfid-20230111_054604_846792_006D8AA8 
+X-CRM114-Status: GOOD (  10.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,64 +80,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The system controller on PolarFire SoC has no interrupt to signify that
-the TX has been completed. The interrupt instead signals that a service
-requested by the mailbox client has succeeded. If a service fails, there
-will be no interrupt delivered.
+mpfs_mbox_rx_data() already checks if the system controller is busy
+before attempting to do anything, so drop the second check before
+reading any data.
 
-Switch to polling the busy register to determine whether transmission
-has completed.
+No functional change intended.
 
-Fixes: 83d7b1560810 ("mbox: add polarfire soc system controller mailbox")
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- drivers/mailbox/mailbox-mpfs.c | 12 ++++++++++--
- 1 file changed, 10 insertions(+), 2 deletions(-)
+ drivers/mailbox/mailbox-mpfs.c | 10 ++++------
+ 1 file changed, 4 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/mailbox/mailbox-mpfs.c b/drivers/mailbox/mailbox-mpfs.c
-index d37560e91116..e0e825bdbad9 100644
+index e0e825bdbad9..0d176aba3462 100644
 --- a/drivers/mailbox/mailbox-mpfs.c
 +++ b/drivers/mailbox/mailbox-mpfs.c
-@@ -79,6 +79,13 @@ static bool mpfs_mbox_busy(struct mpfs_mbox *mbox)
- 	return status & SCB_STATUS_BUSY_MASK;
- }
+@@ -170,12 +170,10 @@ static void mpfs_mbox_rx_data(struct mbox_chan *chan)
+ 	if (response->resp_status)
+ 		return;
  
-+static bool mpfs_mbox_last_tx_done(struct mbox_chan *chan)
-+{
-+	struct mpfs_mbox *mbox = (struct mpfs_mbox *)chan->con_priv;
-+
-+	return !mpfs_mbox_busy(mbox);
-+}
-+
- static int mpfs_mbox_send_data(struct mbox_chan *chan, void *data)
- {
- 	struct mpfs_mbox *mbox = (struct mpfs_mbox *)chan->con_priv;
-@@ -183,7 +190,6 @@ static irqreturn_t mpfs_mbox_inbox_isr(int irq, void *data)
+-	if (!mpfs_mbox_busy(mbox)) {
+-		for (i = 0; i < num_words; i++) {
+-			response->resp_msg[i] =
+-				readl_relaxed(mbox->mbox_base
+-					      + mbox->resp_offset + i * 0x4);
+-		}
++	for (i = 0; i < num_words; i++) {
++		response->resp_msg[i] =
++			readl_relaxed(mbox->mbox_base
++				      + mbox->resp_offset + i * 0x4);
+ 	}
  
- 	mpfs_mbox_rx_data(chan);
- 
--	mbox_chan_txdone(chan, 0);
- 	return IRQ_HANDLED;
- }
- 
-@@ -213,6 +219,7 @@ static const struct mbox_chan_ops mpfs_mbox_ops = {
- 	.send_data = mpfs_mbox_send_data,
- 	.startup = mpfs_mbox_startup,
- 	.shutdown = mpfs_mbox_shutdown,
-+	.last_tx_done = mpfs_mbox_last_tx_done,
- };
- 
- static int mpfs_mbox_probe(struct platform_device *pdev)
-@@ -248,7 +255,8 @@ static int mpfs_mbox_probe(struct platform_device *pdev)
- 	mbox->controller.num_chans = 1;
- 	mbox->controller.chans = mbox->chans;
- 	mbox->controller.ops = &mpfs_mbox_ops;
--	mbox->controller.txdone_irq = true;
-+	mbox->controller.txdone_poll = true;
-+	mbox->controller.txpoll_period = 10u;
- 
- 	ret = devm_mbox_controller_register(&pdev->dev, &mbox->controller);
- 	if (ret) {
+ 	mbox_chan_received_data(chan, response);
 -- 
 2.39.0
 
