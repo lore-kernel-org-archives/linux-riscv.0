@@ -4,66 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF3B9C46467
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jan 2023 17:39:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38915C46467
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jan 2023 17:56:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sx/6kCVZPLUxiBAMoe1mA/fhva4aYhHkaO+jDFsDCus=; b=CKsfj2PXMlLXLA
-	T1xWjvpfeSYx41GbEF20RUJH1he1/viGg4yivWPeAeOymXyOZQijuzVhKm3QGuPlq5ylEYWQJeDgY
-	/rPVmDjwTCxDsdwc6CCfWWppcUU4xIhq58Z+4l+qSeB3a5C+WmFl2ldo2p/KSgkEYumbrMpe1B6ts
-	5KiRmkhohnhKW9ey5fnxRYwgJJZ9asKyapDyceU5E+LxwL0qlKIiX46fdanHbebwd/B3n0+3Zp/Ho
-	CvhYJzMEZ+CsYfsmZJH5ilCuzYkG88SxenQf0hfV9axlkterD7msf35BgYTcx6gLZnDWpI/Hq6tit
-	b5ISh9cafaT7GpSODXHQ==;
+	List-Owner; bh=zpcTAtBOFdVjM3fJuDXpxMc016tPZCAYwTlzh72tcvo=; b=kLvsHGZo752VbJ
+	n7SEZDLlgAJR2vrjpkJ384fszavtptvITTk/9XFs0YHC9gcOkaZ3/cODFDL1JPGU89ZNi0O5yVyyo
+	VqilTBtFtIdnkMq/U6mh8+3UyILixkAIEwIXa2Gumh+mkjv47+lEzsw2UkLuxtaBRmBHym0UwZ2EM
+	clZwKnJ8v1/+zZSTLkbzyiDUSTPR8TNUpbqELdjJ+ecHd8qRUkR0Ff4e06T3DoFLKHPQcmnc95NvZ
+	f1WjIgMwhOE0k8jTnG0Te+XpcPoUOw1hByVHhY5BqmZ4wvZOBfPjc9LXwCoppcmLwm+//2FAToHlt
+	RnyY/niOkwP5S/qpdfkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFf46-00CSek-8k; Wed, 11 Jan 2023 17:39:06 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1pFfKq-00CXgN-HQ; Wed, 11 Jan 2023 17:56:24 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFf41-00CScT-NW
-	for linux-riscv@lists.infradead.org; Wed, 11 Jan 2023 17:39:04 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 61793B81BB4;
-	Wed, 11 Jan 2023 17:39:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B39FFC433F0;
-	Wed, 11 Jan 2023 17:38:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1673458738;
-	bh=K5LfG8dFO3rNexQDpl+a41K4B9mZRGfxQqhemPNCU04=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=czU7dXOSfcsOqIboHToPyV7iEPq1L8ToFvPId0uE2OjzhX4nK7iEJsfConH+6m6qH
-	 pkeMD6eFCM5trAYUOSMyedRVsSLx+obzAwFC1fn1PVni/YKJSWmP8LvPcCFpDwnIk/
-	 ftu06kHqsX+g0mcVIDKNAr9oftb3UZAl+Gd2ro+7WyhugXnsWF461IeAF5B2uclHSx
-	 0uUdG2DMu39AcfRpNiTkjT0nBzaenESljaGhg4x9KHTbDubYoa9Og18P9PBg2hszJV
-	 WIC2lVR9zZOg2Mtj/PnHzo3pNPmbBPdJAOSS2ERbTE4H9yNmpWC2Ca2JPiGTMRAttb
-	 9Wu7+lkoOcgNQ==
-Date: Thu, 12 Jan 2023 01:28:40 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-	ryabinin.a.a@gmail.com, glider@google.com, andreyknvl@gmail.com,
-	dvyukov@google.com, vincenzo.frascino@arm.com,
-	alexandre.ghiti@canonical.com, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com
-Subject: Re: [PATCH v6 RESEND 0/2] use static key to optimize
- pgtable_l4_enabled
-Message-ID: <Y77xyNPNqnFQUqAx@xhacker>
-References: <20220821140918.3613-1-jszhang@kernel.org>
- <mhng-30c89107-c103-4363-b4af-7778d9512622@palmer-ri-x1c9>
- <Yz6T4EYKKns7OIVE@xhacker>
- <Y0GJDqLXFU81UdfW@xhacker>
- <Y5W0bv8Y/zCc+Fco@xhacker>
+	id 1pFfKm-00CXeJ-J9
+	for linux-riscv@lists.infradead.org; Wed, 11 Jan 2023 17:56:23 +0000
+Received: by mail-wr1-x430.google.com with SMTP id k8so1374199wrc.9
+        for <linux-riscv@lists.infradead.org>; Wed, 11 Jan 2023 09:56:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=iATtwX45ufevzGDCQk6FprOJLywVs059/Zoh+UqczYk=;
+        b=oHmNoS5cGMmc4TMWWpwfbgeQ0tDKdN4IhHoVwR8mNEI0Apy9bv+5hVi4JYXKYlzaoN
+         UWkNzMkI8H/sPR1qDuxOUdv2Na+csxtsLqVWd62z8U6urrXwYkcGbwGjf/7hCW4AKFQm
+         EaT0pHS+rJ7NtVH9/wC8elXCHT0D5AHVPufa2gQhUXePqahPkaX+JqSuqs1qnftV5BLg
+         f3zkMVLgVNvaDCh61ZnLDK6QugohhnwOPYWE6IxKQaW5LwmwY7hRNmhhiD7SAb5lVY9Q
+         FJ6/K6MhV/8l1/scnfsGPmFMIfOG183LDroX+o01Bp9nC+4T090vIPN33+X23vZHo8Hr
+         dsAA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=iATtwX45ufevzGDCQk6FprOJLywVs059/Zoh+UqczYk=;
+        b=Fb2YYTNOnJxh3+1reXGOEV0gLiDTRzqypsH5tNs0TsVCf59rMzh0fbwal4gJtDUthQ
+         bMZ0Bg3IKtKEQtx72lrgp8NcUzUGhE0xsO4q1Jc/yPn2CFJwEh8BaI+vIN/H1K/nohaa
+         /iw7dqlglPZF4s6Q+LpUcbSLVX8x2wWpS0Swt0OzPEwvdSSCWNqKoB3BDrAEEPd2rHfz
+         uqfNw7GNsfLGG+Eduky3xxawW2ffPWKFVf9U3bcKHoArpgXxSAALygK0U+fOrZk2GvLo
+         gf1RW9Rt6S561tubRRMgf1YC4Rd/X7EFq/V5s73aPpF/vfNcgOQ1cpT98MLasA/4wm7C
+         A8yA==
+X-Gm-Message-State: AFqh2krCDom11nfuEg3BNpxBY5xkDaduGDS12DVeeJ7L4rL58YgN0IHl
+	KIkliHfPSwD73dFmBreoH6FI3A==
+X-Google-Smtp-Source: AMrXdXtF/CJ1z+mSVHqSfXPznFXga6/+3peruKnsc6Yyigv0V5rinWx4z34Y3uC7wHeAaIrU2EeLyA==
+X-Received: by 2002:a5d:5592:0:b0:2a2:4313:e880 with SMTP id i18-20020a5d5592000000b002a24313e880mr15167085wrv.61.1673459776750;
+        Wed, 11 Jan 2023 09:56:16 -0800 (PST)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id c13-20020adffb0d000000b00241fde8fe04sm14243618wrr.7.2023.01.11.09.56.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 11 Jan 2023 09:56:16 -0800 (PST)
+Date: Wed, 11 Jan 2023 18:56:15 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Heiko Stuebner <heiko@sntech.de>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	Heiko Stuebner <heiko.stuebner@vrull.eu>
+Subject: Re: [PATCH v3 01/13] riscv: fix jal offsets in patched alternatives
+Message-ID: <20230111175615.p7vpq6joyrzomcmz@orel>
+References: <20230111171027.2392-1-jszhang@kernel.org>
+ <20230111171027.2392-2-jszhang@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <Y5W0bv8Y/zCc+Fco@xhacker>
+In-Reply-To: <20230111171027.2392-2-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230111_093902_094495_29EE1AE4 
-X-CRM114-Status: GOOD (  47.90  )
+X-CRM114-CacheID: sfid-20230111_095620_652443_B83D4E20 
+X-CRM114-Status: GOOD (  23.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,116 +96,108 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Dec 11, 2022 at 06:44:04PM +0800, Jisheng Zhang wrote:
-> On Sat, Oct 08, 2022 at 10:28:35PM +0800, Jisheng Zhang wrote:
-> > On Thu, Oct 06, 2022 at 04:37:57PM +0800, Jisheng Zhang wrote:
-> > > On Wed, Oct 05, 2022 at 06:05:28PM -0700, Palmer Dabbelt wrote:
-> > > > On Sun, 21 Aug 2022 07:09:16 PDT (-0700), jszhang@kernel.org wrote:
-> > > > > The pgtable_l4|[l5]_enabled check sits at hot code path, performance
-> > > > > is impacted a lot. Since pgtable_l4|[l5]_enabled isn't changed after
-> > > > > boot, so static key can be used to solve the performance issue[1].
-> > > > > 
-> > > > > An unified way static key was introduced in [2], but it only targets
-> > > > > riscv isa extension. We dunno whether SV48 and SV57 will be considered
-> > > > > as isa extension, so the unified solution isn't used for
-> > > > > pgtable_l4[l5]_enabled now.
-> > > > > 
-> > > > > patch1 fixes a NULL pointer deference if static key is used a bit earlier.
-> > > > > patch2 uses the static key to optimize pgtable_l4|[l5]_enabled.
-> > > > > 
-> > > > > [1] http://lists.infradead.org/pipermail/linux-riscv/2021-December/011164.html
-> > > > > [2] https://lore.kernel.org/linux-riscv/20220517184453.3558-1-jszhang@kernel.org/T/#t
-> > > > > 
-> > > > > Since v5:
-> > > > >  - Use DECLARE_STATIC_KEY_FALSE
-> > > > > 
-> > > > > Since v4:
-> > > > >  - rebased on v5.19-rcN
-> > > > >  - collect Reviewed-by tags
-> > > > >  - Fix kernel panic issue if SPARSEMEM is enabled by moving the
-> > > > >    riscv_finalise_pgtable_lx() after sparse_init()
-> > > > > 
-> > > > > Since v3:
-> > > > >  - fix W=1 call to undeclared function 'static_branch_likely' error
-> > > > > 
-> > > > > Since v2:
-> > > > >  - move the W=1 warning fix to a separate patch
-> > > > >  - move the unified way to use static key to a new patch series.
-> > > > > 
-> > > > > Since v1:
-> > > > >  - Add a W=1 warning fix
-> > > > >  - Fix W=1 error
-> > > > >  - Based on v5.18-rcN, since SV57 support is added, so convert
-> > > > >    pgtable_l5_enabled as well.
-> > > > > 
-> > > > > 
-> > > > > Jisheng Zhang (2):
-> > > > >   riscv: move sbi_init() earlier before jump_label_init()
-> > > > >   riscv: turn pgtable_l4|[l5]_enabled to static key for RV64
-> > > > > 
-> > > > >  arch/riscv/include/asm/pgalloc.h    | 16 ++++----
-> > > > >  arch/riscv/include/asm/pgtable-32.h |  3 ++
-> > > > >  arch/riscv/include/asm/pgtable-64.h | 60 ++++++++++++++++++---------
-> > > > >  arch/riscv/include/asm/pgtable.h    |  5 +--
-> > > > >  arch/riscv/kernel/cpu.c             |  4 +-
-> > > > >  arch/riscv/kernel/setup.c           |  2 +-
-> > > > >  arch/riscv/mm/init.c                | 64 ++++++++++++++++++-----------
-> > > > >  arch/riscv/mm/kasan_init.c          | 16 ++++----
-> > > > >  8 files changed, 104 insertions(+), 66 deletions(-)
-> > > > 
-> > > > Sorry for being slow here, but it looks like this still causes some early
-> > > > boot hangs.  Specifically kasan+sparsemem is failing.  As you can probably
-> > > > see from the latency I'm still a bit buried right now so I'm not sure when
-> > > > I'll have a chance to take more of a look.
-> > > 
-> > > Hi Palmer,
-> > > 
-> > > Before V4, there is a bug which can cause kernel panic when SPARSEMEM
-> > > is enabled, V4 have fixed it by moving the riscv_finalise_pgtable_lx()
-> > > after sparse_init(). And I just tested the riscv-pgtable_static_key
-> > > branch in your tree, enabling KASAN and SPARSEMEM, system booted fine.
-> > > I'm not sure what happened. Could you please send me your kernel
-> > > config file? I want to fix any issue which can block this series being
-> > > merged in 6.1-rc1.
-> > 
-> > Hi Palmer,
-> > 
-> > I know you are busy ;) Do you have time to send me your test kernel
-> > config file so that I can reproduce the "early boot hang"?
-> > 
-> > Thanks
+On Thu, Jan 12, 2023 at 01:10:15AM +0800, Jisheng Zhang wrote:
+> Alternatives live in a different section, so offsets used by jal
+> instruction will point to wrong locations after the patch got applied.
 > 
-> Hi Palmer,
+> Similar to arm64, adjust the location to consider that offset.
 > 
-> I think the early boot hangs maybe the same as the one which has been
-> fixed by commit 9f2ac64d6ca6 ("riscv: mm: add missing memcpy in
-> kasan_init"). Will you give this series another try for v6.2-rc1? If
-> the boot hang can still be reproduced, could you please send me your
-> .config file?
+> Co-developed-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+> Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> ---
+>  arch/riscv/include/asm/insn.h   | 27 +++++++++++++++++++++++++++
+>  arch/riscv/kernel/alternative.c | 27 +++++++++++++++++++++++++++
+>  2 files changed, 54 insertions(+)
 > 
-> Thanks in advance
-Hi all,
+> diff --git a/arch/riscv/include/asm/insn.h b/arch/riscv/include/asm/insn.h
+> index 98453535324a..1d2df245d0bd 100644
+> --- a/arch/riscv/include/asm/insn.h
+> +++ b/arch/riscv/include/asm/insn.h
+> @@ -291,6 +291,33 @@ static __always_inline bool riscv_insn_is_branch(u32 code)
+>  	(RVC_X(x_, RVC_B_IMM_7_6_OPOFF, RVC_B_IMM_7_6_MASK) << RVC_B_IMM_7_6_OFF) | \
+>  	(RVC_IMM_SIGN(x_) << RVC_B_IMM_SIGN_OFF); })
+>  
+> +/*
+> + * Get the immediate from a J-type instruction.
+> + *
+> + * @insn: instruction to process
+> + * Return: immediate
+> + */
+> +static inline s32 riscv_insn_extract_jtype_imm(u32 insn)
+> +{
+> +	return RV_EXTRACT_JTYPE_IMM(insn);
+> +}
+> +
+> +/*
+> + * Update a J-type instruction with an immediate value.
+> + *
+> + * @insn: pointer to the jtype instruction
+> + * @imm: the immediate to insert into the instruction
+> + */
+> +static inline void riscv_insn_insert_jtype_imm(u32 *insn, s32 imm)
+> +{
+> +	/* drop the old IMMs, all jal IMM bits sit at 31:12 */
+> +	*insn &= ~GENMASK(31, 12);
+> +	*insn |= (RV_X(imm, RV_J_IMM_10_1_OFF, RV_J_IMM_10_1_MASK) << RV_J_IMM_10_1_OPOFF) |
+> +		 (RV_X(imm, RV_J_IMM_11_OFF, RV_J_IMM_11_MASK) << RV_J_IMM_11_OPOFF) |
+> +		 (RV_X(imm, RV_J_IMM_19_12_OFF, RV_J_IMM_19_12_MASK) << RV_J_IMM_19_12_OPOFF) |
+> +		 (RV_X(imm, RV_J_IMM_SIGN_OFF, 1) << RV_J_IMM_SIGN_OPOFF);
+> +}
+> +
+>  /*
+>   * Put together one immediate from a U-type and I-type instruction pair.
+>   *
+> diff --git a/arch/riscv/kernel/alternative.c b/arch/riscv/kernel/alternative.c
+> index 6212ea0eed72..3d4f1f32c7f6 100644
+> --- a/arch/riscv/kernel/alternative.c
+> +++ b/arch/riscv/kernel/alternative.c
+> @@ -79,6 +79,21 @@ static void riscv_alternative_fix_auipc_jalr(void *ptr, u32 auipc_insn,
+>  	patch_text_nosync(ptr, call, sizeof(u32) * 2);
+>  }
+>  
+> +static void riscv_alternative_fix_jal(void *ptr, u32 jal_insn, int patch_offset)
+> +{
+> +	s32 imm;
+> +
+> +	/* get and adjust new target address */
+> +	imm = riscv_insn_extract_jtype_imm(jal_insn);
+> +	imm -= patch_offset;
+> +
+> +	/* update instruction */
+> +	riscv_insn_insert_jtype_imm(&jal_insn, imm);
+> +
+> +	/* patch the call place again */
+> +	patch_text_nosync(ptr, &jal_insn, sizeof(u32));
+> +}
+> +
+>  void riscv_alternative_fix_offsets(void *alt_ptr, unsigned int len,
+>  				      int patch_offset)
+>  {
+> @@ -106,6 +121,18 @@ void riscv_alternative_fix_offsets(void *alt_ptr, unsigned int len,
+>  			riscv_alternative_fix_auipc_jalr(alt_ptr + i * sizeof(u32),
+>  							 insn, insn2, patch_offset);
+>  		}
+> +
+> +		if (riscv_insn_is_jal(insn)) {
+> +			s32 imm = riscv_insn_extract_jtype_imm(insn);
+> +
+> +			/* Don't modify jumps inside the alternative block */
+> +			if ((alt_ptr + i * sizeof(u32) + imm) >= alt_ptr &&
+> +			    (alt_ptr + i * sizeof(u32) + imm) < (alt_ptr + len))
+> +				continue;
+> +
+> +			riscv_alternative_fix_jal(alt_ptr + i * sizeof(u32),
+> +						  insn, patch_offset);
+> +		}
+>  	}
+>  }
+>  
+> -- 
+> 2.38.1
+>
 
-Just request to comment what to do with this patch, I think there
-are two independent points to consult:
-
-1. IIRC, Palmer gave this patch two chances to merge in early versions
-but he found boot hangs if enable KASAN and SPARSEMEM, while I can't
-reproduce the boot hang. And I also expect the hang should be fixed by
-commit 9f2ac64d6ca6 ("riscv: mm: add missing memcpy in kasan_init")
-
-2. Now we know alternative is preferred than static branch for ISA
-extensions dynamic code patching. So we also need to switch static
-branch usage here to alternative mechanism, but the problem is
-SV48 and SV57 are not ISA extensions, so we can't directly make use
-of the recently introduced riscv_has_extension_likely|unlikely()[1] 
-which is based on alternative mechanism.
-
-Any comments are appreciated.
-
-Thanks in advance
-
-[1] https://lore.kernel.org/linux-riscv/20230111171027.2392-1-jszhang@kernel.org/T/#t
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
 _______________________________________________
 linux-riscv mailing list
