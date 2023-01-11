@@ -4,102 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE4B9C5479D
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jan 2023 16:23:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DC24C46467
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jan 2023 16:41:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fj18Q9MFclnVIrx6JfnVDe1DZUXQvuma3lAqa5S10fs=; b=WQrcKbIBkGYkov
-	lnSnVg/k2kQkQqM71GB8eWB6L7vEtAKTZkPD50J8bli7Xzn9aZIf76LEmP9BTKBD/eTCuyAAM6Exb
-	4iXCGCeUA03rsJnDL57evjgtINxN+pCov3pl/nrkXCp0vOTOW2Rfnm6WkuK8EG0zEsXo5aSw3Q6ps
-	bNguaRg1uDxljcIppDIa1K9Ub84k87jhcTdX3Ug72IcOmUVE9wPdMvjhi9cJnQzJd+rO/zaL0NNR7
-	ti+FY907zGU7KSyqJ2bC1PCV6LRwFKwJ6aXbXKvgUWurXwteF+2SVSnbuWFpdswiz6PHw0mL3+shd
-	Ouyc10P2Llo3xglWfPfw==;
+	List-Owner; bh=FUxJiCPLc2R/dflNiqC2JlWHOMRhUItu/CvMgXwGizE=; b=zFB3ZAp9TKflAP
+	P6sliXNY7ihMjidJSoFqiCHqiYjIkbft6PXpU6zl9G8Cg3f9Iwcy8T7Af6c5tM1PbBni47Mzkt7tR
+	rTEPTR6UflFiRMOwLCSdTHIAe/tJlxW5a3bSx/R4WpCni/xy5QeFhyYYmNjKkcS3aZ7ZjfJqxPl5R
+	UyH60SIQaZABO5gD4cskWQJq3t93OhEAcAYAoB2KKrhuWR2IcvsdGif++3Keib1t7q6/IYd0fn5FL
+	mF1uI9f0jrtyv7f2wKhoTlcV+Oj1DaXL5dG4R85BmzneJfDSXs5IyaKJTmrk/RLVeGo6GYZXEFGUg
+	kFOac83Rkfy4/5pdARIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFdsn-00C9FQ-7l; Wed, 11 Jan 2023 16:23:21 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1pFeAf-00CCc8-SR; Wed, 11 Jan 2023 16:41:49 +0000
+Received: from mail-vk1-f181.google.com ([209.85.221.181])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFdsc-00C9DK-CH
-	for linux-riscv@lists.infradead.org; Wed, 11 Jan 2023 16:23:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1673454187;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=bAzX0I8qhNQFozyjHTOv5miI6bc1TzOt0NGHpESsMAQ=;
-	b=Rpc2H4zbMZ9lrVT2TNyW8YFfb8f8SvPGwwRxjxDfo4ywItxSQUI+Yp1yfMv0arhb0M7XTw
-	hOQ38JdYPrpq0NQC+hS2GJhPvfd10olrUsgWCEn1TxyDK8GhGj0O6WOq3fliVhMDr3L9ND
-	8EnBUnZGQaqRDsX4x2uFWehUAL0qi7Y=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_128_GCM_SHA256) id
- us-mta-475-7cxoOsT1O7CwBPzhmIXF5g-1; Wed, 11 Jan 2023 11:23:06 -0500
-X-MC-Unique: 7cxoOsT1O7CwBPzhmIXF5g-1
-Received: by mail-wr1-f71.google.com with SMTP id u15-20020adfa18f000000b002b129dc55bfso2866914wru.11
-        for <linux-riscv@lists.infradead.org>; Wed, 11 Jan 2023 08:23:06 -0800 (PST)
+	id 1pFeAc-00CCbg-Rp
+	for linux-riscv@lists.infradead.org; Wed, 11 Jan 2023 16:41:48 +0000
+Received: by mail-vk1-f181.google.com with SMTP id b81so7466149vkf.1
+        for <linux-riscv@lists.infradead.org>; Wed, 11 Jan 2023 08:41:45 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=bAzX0I8qhNQFozyjHTOv5miI6bc1TzOt0NGHpESsMAQ=;
-        b=h2GD1sn+AEWS8sWl9WKsHERZ9ZaudOuSYm0pu++y1b27vayr9w/uelFH0Zz20E962u
-         auBICN3HBz7552SaksdU6eTwF7zyXk3qO8J8fkmFbAzA2WKD9n11eh2o+OXboKBrFC03
-         gy3MfryYiIsZErGJCBLG3YrTdbU0YGSDfq8j7/69u4d5ngfRYzOg2z70Sag/1jVDjgLq
-         lgA1Ut9+CsmlZZnjNj2prjO1jeiaIQBpp44xov0wHwlRmNieZOg6V7u/G+CoEnvn1L+I
-         EUXlaa0oaINhlKG3F1RGf4LYjQT7cAQDhHpvB7EWhQA4+NQ5TeIT+CDDmkpkQ420vNU5
-         g0/w==
-X-Gm-Message-State: AFqh2kovJ7ON1tcqLb/ZHbKa9N0iu5r+E0hGOgT5sKfY2Iwn1kQw0ptJ
-	p/mq+SX+clSSURG9GdLys8cssQjrXqg7zXx+bhAsxfhRM22Y1hXQolz71ip1lJJxloj3rNhiwY7
-	/mud+PemsCFy7sYyiR1tO/Hf4SLDR
-X-Received: by 2002:a7b:ce06:0:b0:3cf:a483:3100 with SMTP id m6-20020a7bce06000000b003cfa4833100mr52806230wmc.3.1673454185126;
-        Wed, 11 Jan 2023 08:23:05 -0800 (PST)
-X-Google-Smtp-Source: AMrXdXtLvuQHiCtmyqnm4CLAs4LBNQIvAx3luYBZ9kZsu5kzE6A6u6fOimphXyAb5WqlrOBkfqsJsQ==
-X-Received: by 2002:a7b:ce06:0:b0:3cf:a483:3100 with SMTP id m6-20020a7bce06000000b003cfa4833100mr52806198wmc.3.1673454184874;
-        Wed, 11 Jan 2023 08:23:04 -0800 (PST)
-Received: from ?IPV6:2001:b07:6468:f312:4783:a68:c1ee:15c5? ([2001:b07:6468:f312:4783:a68:c1ee:15c5])
-        by smtp.googlemail.com with ESMTPSA id v10-20020a05600c444a00b003d998412db6sm25266750wmn.28.2023.01.11.08.23.01
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Zptl82ttrhrV63pMTO0viIa9cKU9Map9hB06vVk8Wqo=;
+        b=KUFPK80XE79MuYwF/7roqlxrdT9Jg999H1yvoNrxt6cydxShEvRCcvQwlqTXAKLCsw
+         CREe6u48E4Ff1jF0gXgwEzGqpLtgaqgdb+SZiee96P0vjN6zXvIdlF38zchjB8Jt9/Yn
+         Jqdj3hhsYde7qoOQan+G9enb6rRZTeSD3Ar8FBB0H2gWByBu2AP6ReY0pzFbnuQ5j6sy
+         80dkf8+4OF7GCML5li+7ckCC+tZKqTG6FVo5+0DlzVkSJu6xRAes5vC3CyT29GUonme6
+         4HBN7JTLsqjDhrlV/tabdo0aAefMFDRiIJyIKKoSL7+3TCTKbqP+5FzxUpqXx8i5DgdW
+         6xCA==
+X-Gm-Message-State: AFqh2kokmFflfr9UA40XY2eEUrepVb+q8m9PenOViX2Uq88rjEYjhLDU
+	9RlRGnxp/QpkCt8YWAibn1lNae5ekZcBiA==
+X-Google-Smtp-Source: AMrXdXtH68rDIV0YII+loK1aYjGfEo5INoZhykGPY+O18XLgZQcv6t+0L1ccFMtdYhHuPJcVLhrzbQ==
+X-Received: by 2002:a1f:3147:0:b0:3da:822e:4d70 with SMTP id x68-20020a1f3147000000b003da822e4d70mr7664049vkx.12.1673455304157;
+        Wed, 11 Jan 2023 08:41:44 -0800 (PST)
+Received: from mail-yw1-f170.google.com (mail-yw1-f170.google.com. [209.85.128.170])
+        by smtp.gmail.com with ESMTPSA id u6-20020a05620a0c4600b007054feab4aesm9229232qki.27.2023.01.11.08.41.43
+        for <linux-riscv@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 11 Jan 2023 08:23:04 -0800 (PST)
-Message-ID: <8333e62b-8bb6-981f-ba07-d867ec61657e@redhat.com>
-Date: Wed, 11 Jan 2023 17:23:00 +0100
+        Wed, 11 Jan 2023 08:41:43 -0800 (PST)
+Received: by mail-yw1-f170.google.com with SMTP id 00721157ae682-4d13cb4bbffso82118627b3.3
+        for <linux-riscv@lists.infradead.org>; Wed, 11 Jan 2023 08:41:43 -0800 (PST)
+X-Received: by 2002:a81:1751:0:b0:4bd:caff:589e with SMTP id
+ 78-20020a811751000000b004bdcaff589emr2155587ywx.502.1673455303487; Wed, 11
+ Jan 2023 08:41:43 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.5.1
-Subject: Re: [PATCH 11/14] KVM: selftests: Disable
- "gnu-variable-sized-type-not-at-end" warning
-To: Sean Christopherson <seanjc@google.com>,
- Nick Desaulniers <ndesaulniers@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Nathan Chancellor <nathan@kernel.org>, James Morse <james.morse@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Tom Rix <trix@redhat.com>,
- kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, kvmarm@lists.cs.columbia.edu,
- linux-riscv@lists.infradead.org, llvm@lists.linux.dev,
- linux-kernel@vger.kernel.org, Ricardo Koller <ricarkol@google.com>,
- Aaron Lewis <aaronlewis@google.com>,
- Raghavendra Rao Ananta <rananta@google.com>
-References: <20221213001653.3852042-1-seanjc@google.com>
- <20221213001653.3852042-12-seanjc@google.com>
- <CAKwvOdnRQQb9YbH=MgDymBmmjYgajc8tkyjbJVxjpA5zDZpNTQ@mail.gmail.com>
- <Y5ffxebJ/eRzEXh+@google.com>
-From: Paolo Bonzini <pbonzini@redhat.com>
-In-Reply-To: <Y5ffxebJ/eRzEXh+@google.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+References: <20230102222233.274021-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+In-Reply-To: <20230102222233.274021-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 11 Jan 2023 17:41:31 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdXVPdWb2GGSOoVSLNNE6k-JpKnqMGXwpJH=HaGz94GHQQ@mail.gmail.com>
+Message-ID: <CAMuHMdXVPdWb2GGSOoVSLNNE6k-JpKnqMGXwpJH=HaGz94GHQQ@mail.gmail.com>
+Subject: Re: [PATCH v2] riscv: dts: renesas: rzfive-smarc-som: Enable OSTM nodes
+To: Prabhakar <prabhakar.csengg@gmail.com>
+Cc: Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor@kernel.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, linux-renesas-soc@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230111_082310_545676_5ED108C9 
-X-CRM114-Status: UNSURE (   7.16  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230111_084147_618263_F4CCAC10 
+X-CRM114-Status: GOOD (  18.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,24 +84,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 12/13/22 03:13, Sean Christopherson wrote:
-> AFAICT, gcc stopped treating unknown "-Wno" flags as unconditional errors starting
-> with gcc-4.4, and the kernel's min supported version is 5.1.  gcc-4.4 through
-> gcc-9.5 all print a mild warning if there's a different error, but otherwise
-> silently ignore the uknown "-Wno".
-> 
->    cc1: warning: unrecognized command line option '-Wno-gnu-variable-sized-type-not-at-end'
+On Mon, Jan 2, 2023 at 11:22 PM Prabhakar <prabhakar.csengg@gmail.com> wrote:
+> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+>
+> Enable OSTM{1,2} nodes on RZ/Five SMARC SoM.
+>
+> Note, OSTM{1,2} nodes are enabled in the RZ/G2UL SMARC SoM DTSI [0] hence
+> deleting the disabled nodes from RZ/Five SMARC SoM DTSI enables it here
+> too as we include [0] in RZ/Five SMARC SoM DTSI.
+>
+> [0] arch/arm64/boot/dts/renesas/rzg2ul-smarc-som.dtsi
+>
+> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> ---
+> v1->v2
+> * Rebased patch on top of [0]
+>
+> [0] https://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel.git/log/?h=renesas-riscv-dt-for-v6.3
 
-scripts/Makefile.compiler has cc-disable-warning for this, we can copy 
-it to tools/.
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+i.e. will queue in renesas-devel for v6.3.
 
-Paolo
+Gr{oetje,eeting}s,
 
+                        Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
