@@ -4,63 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AE65C5479D
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jan 2023 18:20:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3CF7C46467
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jan 2023 19:00:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PoApr8JaD66V/lbBxev71tmwtzogs+IlJhGiUc/b7xU=; b=E5PpIOJKYwigElTOBfJAnvEh7t
-	HpqrYC4/y58nDnFERQuTLtHS9mm9sFg5Ir1tGZHerph06Zj2sN7qfNhNoLQKIH6ncOT58s3I7ZiPo
-	IC+AL03/kdVlOtnTglxBwBYvaJCzAlXt/g545Ujo8M2v0goKZNg5NopZhhp7smpw3TWYGlRQTc7pi
-	BU5yQln/8ZvQqUYHY2BCLxB2abM7544iBeeWxqLqSOGcksyfqKYp4AZkEpsecP1fpFrbmHaMMQJoc
-	y7HPbv1YDUGhoHUos+3jdSVkDNLJFKR4who3s8tcTVgACEchxW9A//FHT6Eg1g8x8SItw6kTrwO5L
-	U7nuzTTA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=c9vzaTlD1A+M3s4yr5VQlHCHS04wYDGKwy6FvxdtW1M=; b=Jnuv7bAMQdC0du
+	nuWEcw4sebcaggkYazip+UyMdN8aISJVlh9GdsaMge78yaZ4POvxxvBLFPLwMHx/rxvLw6n26X2aM
+	x2fWoObm1CtwCJE0oaXVIboHA2OWb+FQGY1B5dM1EbnSL0WfGomzbk3o7QfNQwIiyupGNnlPcPVc5
+	GILIucodz3twbcPiej5UrW0whZLBuGH6m5n3zhtifNN/TDNhJJxtHE9rlFVH4CTsYX75Atcr/h8/Z
+	XOMa8BhyvkvN8uac7kQ0I2gTzt0rEt1275VNpucMQK/OZ7eFuzQGwV3XlNRXmMDgF1CdH7Vvdm5/X
+	UNxslr8ShhF+lTsxP2MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFfhu-00CaTD-Ft; Wed, 11 Jan 2023 18:20:14 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pFgL1-00ChQV-Kd; Wed, 11 Jan 2023 19:00:39 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFfhs-00CaSJ-5W
-	for linux-riscv@lists.infradead.org; Wed, 11 Jan 2023 18:20:13 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id B7C1461CAD;
-	Wed, 11 Jan 2023 18:20:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 681F6C433EF;
-	Wed, 11 Jan 2023 18:20:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1673461211;
-	bh=Y6YMceRehLG1qPa4PtJGKgaNebi1JEkzGDnTEex8054=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hK8kUGE30A92eCeDkWBOnb6cSX69Kf5wzWhIhkW3Yr/jsaZVZrVHWMXyf1+3nLxUv
-	 JWUZ4vogqxHIuZcDWzgB1l43iP8XfYHnv2KpXuNJYQDDpoTFellfqcwY3pZMVFMiWK
-	 gGoGWVzko9H3a5TbE+1gHwLE3zw7z5mk89W35Le9UMP+0CYj8QqwKY9dL7aK6X2ps/
-	 OipJt8uhpzPiKKLMoECvwWwRRQsVDi7oMYZHnXL7193XxaxFysc/fhJUx/iPAolz8R
-	 /a6SrHT2fG+NXNETdaFOGfRAZMcsQY/JboBKRvVSff50RUHelC0X/38f2eAnj65ILA
-	 Q7kRTA4p1hbgQ==
-Date: Wed, 11 Jan 2023 18:20:05 +0000
-From: Conor Dooley <conor@kernel.org>
-To: daire.mcnamara@microchip.com
-Cc: conor.dooley@microchip.com, robh+dt@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, lpieralisi@kernel.org,
-	kw@linux.com, bhelgaas@google.com, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-pci@vger.kernel.org,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>
-Subject: Re: [PATCH v3 03/11] PCI: microchip: enable building this driver as
- a module
-Message-ID: <Y7791U349F7224sN@spud>
-References: <20230111125323.1911373-1-daire.mcnamara@microchip.com>
- <20230111125323.1911373-4-daire.mcnamara@microchip.com>
+	id 1pFgKy-00ChPt-8m
+	for linux-riscv@lists.infradead.org; Wed, 11 Jan 2023 19:00:38 +0000
+Received: by mail-wm1-x332.google.com with SMTP id m8-20020a05600c3b0800b003d96f801c48so15081366wms.0
+        for <linux-riscv@lists.infradead.org>; Wed, 11 Jan 2023 11:00:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=AxzGT4R96/nRowldYLVDQHHEyiV31tMmTSZl+oggOxc=;
+        b=Xy8x8icInMETm4u+h3XJ9qIbsF8j4m2qaOL7GOVWXb3l/xPDjNIO3AQcf6iju5y2v+
+         WDdPkPw3ZznjJYhNrHfyf9y2jw4sfxfvq7qVIBGX1Lsg2JotYHOrMrgX6WAtwrgERhLa
+         AdX1on1tOt3j46QepgXUZy8YpE69L5kkSYacWBIbh8ym9OqMoOqCZ8Z7EFA7hRJ81dl2
+         4j1LGKWKMXobVx629QD9nf312blasABrKfKrNP4x75GDddFj7IedI5FupiY1umCdEofm
+         4PRBc7Xvw0wfrDkXcmSlP718EUFFLYh9PQFp900/gWf6XdQLWLF5B/kRGjqzX3shIjUZ
+         LJIA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=AxzGT4R96/nRowldYLVDQHHEyiV31tMmTSZl+oggOxc=;
+        b=KuyrTKewWc8ly0WohiqKULtciYSRSpFnPYcTrRF41NqLXN/duDZYOG2T2IH4pJimLt
+         RTD0/gSp69XOgV9ElzYsw5VmrmvQW6P+sIboVZvLjTheYkV9umpFF9+A0XDGsbInYFFI
+         McxkYurRruaXzydBMMH8MF2eLEldkxaRIvosdR3A6db0H0dE8VIkXZUW99BBMsn5s4rE
+         +tsRW9ZhsXHAXVChMJB3aT1ArMP+LQL1cJsJwyQ19Ugajq2Dz7lJ6H1QbWLhg3dxv64g
+         s9r/7lLDNtx/Sk3BF/qpCerKHrtSPMXdVLwVAiSyrKgmsYZ7sYbK6ZbpR4ddskjEX2d1
+         sjZQ==
+X-Gm-Message-State: AFqh2kpM/Suv9jdy1I96m2Tu+nJf9IOtuSKCOLg/6K4Z7KeTtN8odZ6E
+	xvTORtrJ/S3lmx36bdM+kgeQTw==
+X-Google-Smtp-Source: AMrXdXt5URI//btgtQLhAlGXzc2GUt0bQGMiM7Zg7kMHDxCJyL0TCI1M4p63aM+UFDH/jeUQoGyUXg==
+X-Received: by 2002:a1c:6a16:0:b0:3c6:f732:bf6f with SMTP id f22-20020a1c6a16000000b003c6f732bf6fmr52927572wmc.13.1673463631368;
+        Wed, 11 Jan 2023 11:00:31 -0800 (PST)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id 2-20020a05600c020200b003d9ef8ad6b2sm11136454wmi.13.2023.01.11.11.00.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 11 Jan 2023 11:00:31 -0800 (PST)
+Date: Wed, 11 Jan 2023 20:00:29 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+	ryabinin.a.a@gmail.com, glider@google.com, andreyknvl@gmail.com,
+	dvyukov@google.com, vincenzo.frascino@arm.com,
+	alexandre.ghiti@canonical.com, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com
+Subject: Re: [PATCH v6 RESEND 0/2] use static key to optimize
+ pgtable_l4_enabled
+Message-ID: <20230111190029.ltynngqnqs42gatd@orel>
+References: <20220821140918.3613-1-jszhang@kernel.org>
+ <mhng-30c89107-c103-4363-b4af-7778d9512622@palmer-ri-x1c9>
+ <Yz6T4EYKKns7OIVE@xhacker>
+ <Y0GJDqLXFU81UdfW@xhacker>
+ <Y5W0bv8Y/zCc+Fco@xhacker>
+ <Y77xyNPNqnFQUqAx@xhacker>
 MIME-Version: 1.0
-In-Reply-To: <20230111125323.1911373-4-daire.mcnamara@microchip.com>
+Content-Disposition: inline
+In-Reply-To: <Y77xyNPNqnFQUqAx@xhacker>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230111_102012_309301_FCE0F08B 
-X-CRM114-Status: GOOD (  21.66  )
+X-CRM114-CacheID: sfid-20230111_110036_356556_D79B7A23 
+X-CRM114-Status: GOOD (  53.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,96 +94,139 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2042637244297304377=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, Jan 12, 2023 at 01:28:40AM +0800, Jisheng Zhang wrote:
+> On Sun, Dec 11, 2022 at 06:44:04PM +0800, Jisheng Zhang wrote:
+> > On Sat, Oct 08, 2022 at 10:28:35PM +0800, Jisheng Zhang wrote:
+> > > On Thu, Oct 06, 2022 at 04:37:57PM +0800, Jisheng Zhang wrote:
+> > > > On Wed, Oct 05, 2022 at 06:05:28PM -0700, Palmer Dabbelt wrote:
+> > > > > On Sun, 21 Aug 2022 07:09:16 PDT (-0700), jszhang@kernel.org wrote:
+> > > > > > The pgtable_l4|[l5]_enabled check sits at hot code path, performance
+> > > > > > is impacted a lot. Since pgtable_l4|[l5]_enabled isn't changed after
+> > > > > > boot, so static key can be used to solve the performance issue[1].
+> > > > > > 
+> > > > > > An unified way static key was introduced in [2], but it only targets
+> > > > > > riscv isa extension. We dunno whether SV48 and SV57 will be considered
+> > > > > > as isa extension, so the unified solution isn't used for
+> > > > > > pgtable_l4[l5]_enabled now.
+> > > > > > 
+> > > > > > patch1 fixes a NULL pointer deference if static key is used a bit earlier.
+> > > > > > patch2 uses the static key to optimize pgtable_l4|[l5]_enabled.
+> > > > > > 
+> > > > > > [1] http://lists.infradead.org/pipermail/linux-riscv/2021-December/011164.html
+> > > > > > [2] https://lore.kernel.org/linux-riscv/20220517184453.3558-1-jszhang@kernel.org/T/#t
+> > > > > > 
+> > > > > > Since v5:
+> > > > > >  - Use DECLARE_STATIC_KEY_FALSE
+> > > > > > 
+> > > > > > Since v4:
+> > > > > >  - rebased on v5.19-rcN
+> > > > > >  - collect Reviewed-by tags
+> > > > > >  - Fix kernel panic issue if SPARSEMEM is enabled by moving the
+> > > > > >    riscv_finalise_pgtable_lx() after sparse_init()
+> > > > > > 
+> > > > > > Since v3:
+> > > > > >  - fix W=1 call to undeclared function 'static_branch_likely' error
+> > > > > > 
+> > > > > > Since v2:
+> > > > > >  - move the W=1 warning fix to a separate patch
+> > > > > >  - move the unified way to use static key to a new patch series.
+> > > > > > 
+> > > > > > Since v1:
+> > > > > >  - Add a W=1 warning fix
+> > > > > >  - Fix W=1 error
+> > > > > >  - Based on v5.18-rcN, since SV57 support is added, so convert
+> > > > > >    pgtable_l5_enabled as well.
+> > > > > > 
+> > > > > > 
+> > > > > > Jisheng Zhang (2):
+> > > > > >   riscv: move sbi_init() earlier before jump_label_init()
+> > > > > >   riscv: turn pgtable_l4|[l5]_enabled to static key for RV64
+> > > > > > 
+> > > > > >  arch/riscv/include/asm/pgalloc.h    | 16 ++++----
+> > > > > >  arch/riscv/include/asm/pgtable-32.h |  3 ++
+> > > > > >  arch/riscv/include/asm/pgtable-64.h | 60 ++++++++++++++++++---------
+> > > > > >  arch/riscv/include/asm/pgtable.h    |  5 +--
+> > > > > >  arch/riscv/kernel/cpu.c             |  4 +-
+> > > > > >  arch/riscv/kernel/setup.c           |  2 +-
+> > > > > >  arch/riscv/mm/init.c                | 64 ++++++++++++++++++-----------
+> > > > > >  arch/riscv/mm/kasan_init.c          | 16 ++++----
+> > > > > >  8 files changed, 104 insertions(+), 66 deletions(-)
+> > > > > 
+> > > > > Sorry for being slow here, but it looks like this still causes some early
+> > > > > boot hangs.  Specifically kasan+sparsemem is failing.  As you can probably
+> > > > > see from the latency I'm still a bit buried right now so I'm not sure when
+> > > > > I'll have a chance to take more of a look.
+> > > > 
+> > > > Hi Palmer,
+> > > > 
+> > > > Before V4, there is a bug which can cause kernel panic when SPARSEMEM
+> > > > is enabled, V4 have fixed it by moving the riscv_finalise_pgtable_lx()
+> > > > after sparse_init(). And I just tested the riscv-pgtable_static_key
+> > > > branch in your tree, enabling KASAN and SPARSEMEM, system booted fine.
+> > > > I'm not sure what happened. Could you please send me your kernel
+> > > > config file? I want to fix any issue which can block this series being
+> > > > merged in 6.1-rc1.
+> > > 
+> > > Hi Palmer,
+> > > 
+> > > I know you are busy ;) Do you have time to send me your test kernel
+> > > config file so that I can reproduce the "early boot hang"?
+> > > 
+> > > Thanks
+> > 
+> > Hi Palmer,
+> > 
+> > I think the early boot hangs maybe the same as the one which has been
+> > fixed by commit 9f2ac64d6ca6 ("riscv: mm: add missing memcpy in
+> > kasan_init"). Will you give this series another try for v6.2-rc1? If
+> > the boot hang can still be reproduced, could you please send me your
+> > .config file?
+> > 
+> > Thanks in advance
+> Hi all,
+> 
+> Just request to comment what to do with this patch, I think there
+> are two independent points to consult:
+> 
+> 1. IIRC, Palmer gave this patch two chances to merge in early versions
+> but he found boot hangs if enable KASAN and SPARSEMEM, while I can't
+> reproduce the boot hang. And I also expect the hang should be fixed by
+> commit 9f2ac64d6ca6 ("riscv: mm: add missing memcpy in kasan_init")
+> 
+> 2. Now we know alternative is preferred than static branch for ISA
+> extensions dynamic code patching. So we also need to switch static
+> branch usage here to alternative mechanism, but the problem is
+> SV48 and SV57 are not ISA extensions, so we can't directly make use
+> of the recently introduced riscv_has_extension_likely|unlikely()[1] 
+> which is based on alternative mechanism.
 
---===============2042637244297304377==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="8NGtDQC1ywbBiJk6"
-Content-Disposition: inline
+We could rename the "has_extension" framework to "has_cpufeature" and
+then lump extensions and features such as sv48 and sv57 together. Or,
+if it's best to keep extensions separate, then duplicate the framework
+to create a "has_non_extension_feature" version where features like
+sv48 and sv57 live.
 
+Thanks,
+drew
 
---8NGtDQC1ywbBiJk6
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, Jan 11, 2023 at 12:53:15PM +0000, daire.mcnamara@microchip.com wrot=
-e:
-> From: Daire McNamara <daire.mcnamara@microchip.com>
->=20
-> Enable building this driver as a module. The expected use case is the
-> driver is built as a module, is installed when needed, and cannot be
-> removed once installed.
->=20
-> The remove() callback is not implemented as removing a driver with
-> INTx and MSI interrupt handling is inherently unsafe.
->=20
-> Link: https://lore.kernel.org/linux-pci/87y1wgbah8.wl-maz@kernel.org/
-> Suggested-by: Uwe Kleine-K=F6nig <u.kleine-koenig@pengutronix.de>
-> Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
-
-Perhaps, if nothing else crops up, Uwe's comment about the commit
-message can be addressed on application?
-
-Either way,
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-
-Thanks!
-
-> ---
->  drivers/pci/controller/Kconfig | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->=20
-> diff --git a/drivers/pci/controller/Kconfig b/drivers/pci/controller/Kcon=
-fig
-> index 76806dc52d1b..fd005b3f8a24 100644
-> --- a/drivers/pci/controller/Kconfig
-> +++ b/drivers/pci/controller/Kconfig
-> @@ -291,7 +291,7 @@ config PCI_LOONGSON
->  	  Loongson systems.
-> =20
->  config PCIE_MICROCHIP_HOST
-> -	bool "Microchip AXI PCIe host bridge support"
-> +	tristate "Microchip AXI PCIe host bridge support"
->  	depends on PCI_MSI
->  	select PCI_MSI_IRQ_DOMAIN
->  	select GENERIC_MSI_IRQ_DOMAIN
-> --=20
-> 2.25.1
->=20
->=20
+> 
+> Any comments are appreciated.
+> 
+> Thanks in advance
+> 
+> [1] https://lore.kernel.org/linux-riscv/20230111171027.2392-1-jszhang@kernel.org/T/#t
+> 
 > _______________________________________________
 > linux-riscv mailing list
 > linux-riscv@lists.infradead.org
 > http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---8NGtDQC1ywbBiJk6
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY7791QAKCRB4tDGHoIJi
-0m/nAPwMHmifmKrAzgKpdjIRcCv4E8BlmGiCuvAFmegDA/5WDAD/YyEuq1GCkply
-zzfRq/a8eQqNqX91PC/83+EXxXKRPQo=
-=rtFX
------END PGP SIGNATURE-----
-
---8NGtDQC1ywbBiJk6--
-
-
---===============2042637244297304377==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2042637244297304377==--
-
