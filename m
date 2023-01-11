@@ -4,62 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5613EC46467
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jan 2023 07:03:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FB9CC5479D
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jan 2023 07:51:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gMhqg6JyqU/u8RyMHkRJaRoRQ0WYY3C12JA31G3mpAw=; b=goMtQj/yUTk5h5Rg12/w3njp+M
-	7hUN3mGmagFfB+JWc+HqDF9FaI8wTYhgNjIHYf5cC/hdTIx54ALa58bNOahbQMTm09LU3zVaEdBFq
-	qdV7hyMiPjA+wEPdYggVVDZfZZ5I+xR58QBoXbvaqDKwzu1cpfXTHQhBF2cG7bcRoAfIkN73lBN9t
-	9ukAiqVXC4ieO3AKtOtX5NyHh+QylvU8O5QPcYNTBx7xw2YwxvBr3ZuAzTcyjM7nN/wOs4t8SeGzL
-	qrYbRjTEWtj4OpVefixb9/dFeWrbg+mE3WdoUksAKha4XJarB3mR3JyqKhAKVA0qbzpGbm3v/ou9F
-	RcXh8+qg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=mfqt+FV4gAr6mKrLsMXHGanePLaAjlaCRDL88ZRk9S4=; b=d1oQYUDUs9y/uD
+	gE9ZWt9k0mEf2JmXBLbZxox92UEHMwx2sTAgeZgBPrPDg6Y9RYLt4oYDVGmSdacCu3nURKvoMR+U3
+	4B2zox0nifaSvlhR9FVfeCPdqV1xD05Mn/OgqMy6vp8gDAy6fqT2BSD8Rx9bpmyToei7ajHsrlAAU
+	qLL8WJ42d08n2nkejVrFiIo46z5wyRLdvPitdQYwJnqTthDQmteaxmqEhW8oUGZxn6YDth8yXISXN
+	6RpcfasnfvgGbqxYElpmZCNAC+pQp75ADgRXyqW/YdWOQbkaRPCgpC5wUNe8nvdhMM/ggV6chZHhl
+	9nAa0RNyjBbLS3ZsyFWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFV8e-009wya-4e; Wed, 11 Jan 2023 07:03:08 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1pFVtN-00A9i3-P9; Wed, 11 Jan 2023 07:51:25 +0000
+Received: from mail-qt1-f178.google.com ([209.85.160.178])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFV8Z-009wwt-RO
-	for linux-riscv@lists.infradead.org; Wed, 11 Jan 2023 07:03:05 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1pFV8O-00083u-W6; Wed, 11 Jan 2023 08:02:53 +0100
-Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
-	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1pFV8N-005F5k-N2; Wed, 11 Jan 2023 08:02:51 +0100
-Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1pFV8M-00Btey-UV; Wed, 11 Jan 2023 08:02:50 +0100
-Date: Wed, 11 Jan 2023 08:02:50 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: Conor Dooley <conor@kernel.org>
-Cc: Thierry Reding <thierry.reding@gmail.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v13 1/2] pwm: add microchip soft ip corePWM driver
-Message-ID: <20230111070250.w7egzcufa4waxg2n@pengutronix.de>
-References: <20221221112912.147210-1-conor@kernel.org>
- <20221221112912.147210-2-conor@kernel.org>
- <20230110224805.3pqxd3yv4wyci2zj@pengutronix.de>
- <Y73/oUwuOwQFR0NZ@spud>
+	id 1pFVpB-00A7CV-Uy
+	for linux-riscv@lists.infradead.org; Wed, 11 Jan 2023 07:47:08 +0000
+Received: by mail-qt1-f178.google.com with SMTP id a25so5971648qto.10
+        for <linux-riscv@lists.infradead.org>; Tue, 10 Jan 2023 23:47:03 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Ff8KS3khOYar4Nle3jIhF96wcx/W/4K8Mw+Y8wHR3io=;
+        b=h+8YtoCaargDSA2OlSzdIRGhSUYO5BbTkeTwm17m7zchtAO/dsswui9M00p/amNyW9
+         nK/geAArFgOgx7H6jwdxDRH9IYT+IeP8jp2CeanmyUOPz4KaXu+RFd4gUgWLWiIHbjyv
+         Q7xk/+mTonEULxrfSWt/fKBTrILBI1nKNiOdc3avBrymZaFOrXqtGrmj9D4eRLzdkcWv
+         Ocl4hN1ifGYmmHGok5SnZWqirEsTBVIi9u057L41tjksl9lix1PYVqfFEasuLQUkvdcA
+         lJWuFuc2t965aQ/dAnkcmTePYcveBkzLGVtBCXsi+39TtMgBTjLqg3WYhJajIHht3OvY
+         4gww==
+X-Gm-Message-State: AFqh2koC/clRQP+9+beLIFO33H6oD3VbXfdoMzM6qIimgkKtUkHm9TT+
+	a2ZYApzjUDvLu0++WjUyKeoWqqfmlmRPXQ==
+X-Google-Smtp-Source: AMrXdXuIjVoI6KOFsvIQxIbetXixJj+t4vlUs3wfaM7EEt2An7Tb+fBwJ4/D/hrSDUzpbjXP89FSdg==
+X-Received: by 2002:ac8:7310:0:b0:39c:da21:6c06 with SMTP id x16-20020ac87310000000b0039cda216c06mr93851964qto.8.1673423221741;
+        Tue, 10 Jan 2023 23:47:01 -0800 (PST)
+Received: from mail-yb1-f172.google.com (mail-yb1-f172.google.com. [209.85.219.172])
+        by smtp.gmail.com with ESMTPSA id g19-20020a05620a40d300b006cec8001bf4sm8788282qko.26.2023.01.10.23.47.00
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 10 Jan 2023 23:47:01 -0800 (PST)
+Received: by mail-yb1-f172.google.com with SMTP id 16so14256736ybc.0
+        for <linux-riscv@lists.infradead.org>; Tue, 10 Jan 2023 23:47:00 -0800 (PST)
+X-Received: by 2002:a25:d095:0:b0:7b6:daae:ad50 with SMTP id
+ h143-20020a25d095000000b007b6daaead50mr2405273ybg.89.1673423220633; Tue, 10
+ Jan 2023 23:47:00 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <Y73/oUwuOwQFR0NZ@spud>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+References: <20221121221414.109965-1-conor@kernel.org> <20221121221414.109965-2-conor@kernel.org>
+ <CAMuHMdVoMzox6FdPFsR515nnEYXtCt-Xs5qBgGQigzL2=Q7kPg@mail.gmail.com> <Y73bJ/kKYo1xJPDK@spud>
+In-Reply-To: <Y73bJ/kKYo1xJPDK@spud>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 11 Jan 2023 08:46:47 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdUiE81kjQhRG3iLe-BSZyXp3mfuvFGddBYg1KSBboM2iQ@mail.gmail.com>
+Message-ID: <CAMuHMdUiE81kjQhRG3iLe-BSZyXp3mfuvFGddBYg1KSBboM2iQ@mail.gmail.com>
+Subject: Re: [PATCH v1 1/7] RISC-V: introduce ARCH_FOO kconfig aliases for
+ SOC_FOO symbols
+To: Conor Dooley <conor@kernel.org>
+Cc: linux-riscv@lists.infradead.org, Conor Dooley <conor.dooley@microchip.com>, 
+	Arnd Bergmann <arnd@arndb.de>, Christoph Hellwig <hch@infradead.org>, 
+	Damien Le Moal <damien.lemoal@opensource.wdc.com>, 
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>, Heiko Stuebner <heiko@sntech.de>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Samuel Holland <samuel@sholland.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230110_230304_079655_BA528CD8 
-X-CRM114-Status: GOOD (  48.26  )
+X-CRM114-CacheID: sfid-20230110_234706_020785_F12EFDF4 
+X-CRM114-Status: GOOD (  46.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,229 +84,113 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5874771040793189832=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Conor,
 
---===============5874771040793189832==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="yvlo43zef7v5vw4q"
-Content-Disposition: inline
-
-
---yvlo43zef7v5vw4q
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hello Conor,
-
-On Wed, Jan 11, 2023 at 12:15:29AM +0000, Conor Dooley wrote:
-> On Tue, Jan 10, 2023 at 11:48:05PM +0100, Uwe Kleine-K=F6nig wrote:
-> > On Wed, Dec 21, 2022 at 11:29:12AM +0000, Conor Dooley wrote:
+On Tue, Jan 10, 2023 at 10:40 PM Conor Dooley <conor@kernel.org> wrote:
+> On Tue, Jan 10, 2023 at 10:14:51PM +0100, Geert Uytterhoeven wrote:
+> > On Mon, Nov 21, 2022 at 11:18 PM Conor Dooley <conor@kernel.org> wrote:
 > > > From: Conor Dooley <conor.dooley@microchip.com>
->=20
-> > > +		delay_us =3D DIV_ROUND_UP_ULL(remaining_ns, NSEC_PER_USEC);
-> > > +		if ((delay_us / 1000) > MAX_UDELAY_MS)
-> > > +			msleep(delay_us / 1000 + 1);
-> >=20
-> > Is this better than
-> >=20
-> > 	msleep(DIV_ROUND_UP(delay_us, 1000);
-> >=20
-> > ? Also I wonder about your usage of MAX_UDELAY_MS. This is about
->=20
-> I probably started hacking on the example you gave and didn't notice
-> the U. What I have here is ~what you suggested last time.
-
-A series with (up to now) 13 revisions and long delays between the
-review rounds (which are mostly attributed to my time schedule) is
-difficult to handle on both sides. Some repetition isn't easy to prevent
-in such a case. Sorry for that.=20
-
-> > udelay() but you're using usleep_range()?
-> >=20
-> > > +		else
-> > > +			usleep_range(delay_us, delay_us * 2);
-> >=20
-> > I wonder if there isn't a function that implements something like
-> >=20
-> > 	wait_until(mchp_core_pwm->update_timestamp);
-> >=20
-> > which would be a bit nicer than doing this by hand. Maybe fsleep()?
->=20
-> That'd be fsleep(delay_us), but does at least clean up some of the
-> messing.
->=20
-> > > +static void mchp_core_pwm_apply_duty(struct pwm_chip *chip, struct p=
-wm_device *pwm,
-> > > +				     const struct pwm_state *state, u64 duty_steps,
-> > > +				     u8 period_steps)
-> > > +{
-> > > +	struct mchp_core_pwm_chip *mchp_core_pwm =3D to_mchp_core_pwm(chip);
-> > > +	u8 posedge, negedge;
-> > > +	u8 period_steps_val =3D PREG_TO_VAL(period_steps);
+> > >
+> > > To facilitate a transfer from SOC_FOO to ARCH_FOO, over a release cycle,
+> > > introduce some aliases so that drivers etc that use the SOC_FOO symbols
+> > > can be converted.
+> > >
+> > > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> >
+> > Thanks for your patch, which is now commit fc43211939bb6874
+> > ("RISC-V: kconfig.socs: convert usage of SOC_CANAAN to
+> > ARCH_CANAAN") in riscv/for-next
+>
+> I see this and I immediately know it is going to be bad news!
+>
+> > > --- a/arch/riscv/Kconfig.socs
+> > > +++ b/arch/riscv/Kconfig.socs
+> >
+> > > @@ -73,6 +91,9 @@ config SOC_CANAAN_K210_DTB_BUILTIN
+> > >           This option should be selected if no bootloader is being used.
+> > >           If unsure, say Y.
+> > >
+> > > +config ARCH_CANAAN_K210_DTB_SOURCE
+> > > +       def_bool SOC_CANAAN_K210_DTB_SOURCE
+> >
+> > This is not correct, as SOC_CANAAN_K210_DTB_SOURCE below is
+> > not a bool, but a string.
+> >
 > > > +
-> > > +	/*
-> > > +	 * Setting posedge =3D=3D negedge doesn't yield a constant output,
-> > > +	 * so that's an unsuitable setting to model duty_steps =3D 0.
-> > > +	 * In that case set the unwanted edge to a value that never
-> > > +	 * triggers.
-> > > +	 */
-> > > +	if (state->polarity =3D=3D PWM_POLARITY_INVERSED) {
-> > > +		negedge =3D !duty_steps ? period_steps_val : 0u;
-> >=20
-> > IMHO
-> >=20
-> > 		negedge =3D duty_steps ? 0 : period_steps_val;
-> >=20
-> > is a bit easier to parse.
-> >=20
-> > > +		posedge =3D duty_steps;
-> > > +	} else {
-> > > +		posedge =3D !duty_steps ? period_steps_val : 0u;
-> > > +		negedge =3D duty_steps;
-> > > +	}
-> >=20
-> > The following code is equivalent:
-> >=20
-> > 	u8 first_edge =3D 0, second_edge =3D duty_steps;
-> >=20
-> > 	/*
-> > 	 * Setting posedge =3D=3D negedge doesn't yield a constant output,
-> > 	 * so that's an unsuitable setting to model duty_steps =3D 0.
-> > 	 * In that case set the unwanted edge to a value that never
-> > 	 * triggers.
-> > 	 */
-> > 	if (duty_steps =3D=3D 0)
-> > 		first_edge =3D period_steps_val;
-> >=20
-> > 	if (state->polarity =3D=3D PWM_POLARITY_INVERSED) {
-> > 		negedge =3D first_edge;
-> > 		posedge =3D second_edge;
-> > 	} else {
-> > 		posedge =3D first_edge;
-> > 		negedge =3D second_edge;
-> > 	}
-> >=20
-> > I'm not sure if it's easier to understand. What do you think?
->=20
-> Despite having used them, I dislike ternary statements.
+> > >  config SOC_CANAAN_K210_DTB_SOURCE
+> > >         string "Source file for the Canaan Kendryte K210 builtin DTB"
+> > >         depends on SOC_CANAAN
+> >
+> > Hence
+> >
+> >     obj-$(CONFIG_ARCH_CANAAN_K210_DTB_BUILTIN) += $(addsuffix .dtb.o,
+> > $(CONFIG_ARCH_CANAAN_K210_DTB_SOURCE))
+> >
+> > will do the wrong thing later, and I get a non-bootable system (no output)
+> > on my MAiX-BiT.
+> >
+> > Unfortunately there is no def_string, so I don't think we can fix this
+> > in a backwards-compatible way, and have to replace all
+> > SOC_CANAAN_K210_DTB_SOURCE by ARCH_CANAAN_K210_DTB_SOURCE,
+> > and urging users to update their .config manually.
+>
+> That sucks. I'm not sure how I missed this - I had tested originally on
+> my k210, but evidently there was something wrong with how I had done it.
+> I must have not tested a subsequent revision on the k210. Mea cupla.
+>
+> As it wasn't my intention to inflict this change without time for the
+> symbols to appear in configs, my immediate feeling is that this part of
+> the change should be reverted.
+>
+> Of course, we could so something like:
+> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+> index 34a54e5310a1..d36a5f39f13a 100644
+> --- a/arch/riscv/Kconfig.socs
+> +++ b/arch/riscv/Kconfig.socs
+> @@ -79,7 +79,8 @@ config SOC_CANAAN_K210_DTB_BUILTIN
+>           If unsure, say Y.
+>
+>  config ARCH_CANAAN_K210_DTB_SOURCE
+> -       def_bool SOC_CANAAN_K210_DTB_SOURCE
+> +       string
+> +       default SOC_CANAAN_K210_DTB_SOURCE
 
-My variant is a bit longer and uses more variables, but has less
-repetition. I don't expect a relevant change on the generated code. I
-slightly prefer my variant, but I let you choose which one you prefer.
+Thanks, that works!
+I guess it was too late in the evening for me, to realize that the lack of
+"def_string" can be worked around using "string" and "default".
 
-> > > +	writel_relaxed(posedge, mchp_core_pwm->base + MCHPCOREPWM_POSEDGE(p=
-wm->hwpwm));
-> > > +	writel_relaxed(negedge, mchp_core_pwm->base + MCHPCOREPWM_NEGEDGE(p=
-wm->hwpwm));
-> > > +}
-> > > +
-> > > +static void mchp_core_pwm_calc_period(const struct pwm_state *state,=
- unsigned long clk_rate,
-> > > +				      u16 *prescale, u8 *period_steps)
-> > > +{
-> > > +	u64 tmp;
-> > > +
-> > > +	/*
-> > > +	 * Calculate the period cycles and prescale values.
-> > > +	 * The registers are each 8 bits wide & multiplied to compute the p=
-eriod
-> > > +	 * using the formula:
-> > > +	 * (clock_period) * (prescale + 1) * (period_steps + 1)
-> > > +	 * so the maximum period that can be generated is 0x10000 times the
-> > > +	 * period of the input clock.
-> > > +	 * However, due to the design of the "hardware", it is not possible=
- to
-> > > +	 * attain a 100% duty cycle if the full range of period_steps is us=
-ed.
-> > > +	 * Therefore period_steps is restricted to 0xFE and the maximum mul=
-tiple
-> > > +	 * of the clock period attainable is 0xFF00.
-> > > +	 */
-> > > +	tmp =3D mul_u64_u64_div_u64(state->period, clk_rate, NSEC_PER_SEC);
-> > > +
-> > > +	/*
-> > > +	 * The hardware adds one to the register value, so decrement by one=
- to
-> > > +	 * account for the offset
-> > > +	 */
-> > > +	if (tmp >=3D MCHPCOREPWM_PERIOD_MAX) {
-> > > +		*prescale =3D MCHPCOREPWM_PRESCALE_MAX - 1;
-> > > +		*period_steps =3D MCHPCOREPWM_PERIOD_STEPS_MAX - 1;
-> > > +
-> > > +		return;
-> > > +	}
-> > > +
-> > > +	*prescale =3D div_u64(tmp, MCHPCOREPWM_PERIOD_STEPS_MAX);
-> > > +	/* PREG_TO_VAL() can produce a value larger than UINT8_MAX */
-> > > +	*period_steps =3D div_u64(tmp, PREG_TO_VAL(*prescale)) - 1;
-> >=20
-> > This looks wrong, but I didn't think long about that. Did we discuss
-> > this already and/or are you sure this is correct?
->=20
-> We did discuss it previously AFAICT;
-> https://lore.kernel.org/linux-pwm/896d73ac-05af-8673-8379-29011800be83@mi=
-crochip.com/
->=20
-> [...]
-> Unfortunately, I don't think I am seeing what you're seeing.
+>  config SOC_CANAAN_K210_DTB_SOURCE
+>         string "Source file for the Canaan Kendryte K210 builtin DTB"
+>
+> But I am not sure of how that interacts with the various methods of
+> updating ones config.
+> From, admittedly limited, testing it does get updated if
+> SOC_CANAAN_K210_DTB_SOURCE is changed using menuconfig. Similarly, if
+> one alters that symbol and does olddefconfig it also gets updated.
 
-Well, the calculation lands in the right ballpark for sure, but if my
-intuition is right, it's not as exact as it could be. I need some time
-with pencil and paper ...
+With the above, the value of SOC_CANAAN_K210_DTB_SOURCE in existing
+config files will be copied to ARCH_CANAAN_K210_DTB_SOURCE when running
+"make oldconfig".
+Hence in v6.4 you can drop the old SOC_CANAAN_K210_DTB_SOURCE.  As that
+symbol is not present in defconfigs, there is nothing to update there,
 
-> [...]
-> Perhaps I need to watch a lecture on how to write a PWM driver since I
-> am clearly no good at it, given the 15 revisions. Do you know of any?
+Gr{oetje,eeting}s,
 
-I'm not aware of such a lecture. I'm willing to take the blame for some
-of the revisions because I'm very picky and the math involved here isn't
-trivial. And I sometimes wonder about myself pointing out an issue in
-(say) v5 which was there unnoticed already in v1.
+                        Geert
 
-In sum a patch series going through such a high number of revisions is
-mostly a good sign. In the end we can be sure that the merged code is
-checked deep-rootedly and that both you and me have a certain amount of
-endurance. :-)
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
-Best regards
-Uwe
-
---=20
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | https://www.pengutronix.de/ |
-
---yvlo43zef7v5vw4q
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEfnIqFpAYrP8+dKQLwfwUeK3K7AkFAmO+XxcACgkQwfwUeK3K
-7AkKlQf9H25n/oC9cajzuJ1lVldsu2z2jyZFeXdO/t0FbB7oS+IgVJTdb1SA6hi/
-Rysl9baJk8tLFgLu6RzcA4Ttzv5vtpYVKHGZ63rZ6uaDTDeGX3Ro6UKlOruUNSWh
-1e3MI5mni5oV3+bRDTV2xOH7ZpMSLymB+5U328R0OfVA8rW1R327625VN7+bXqy9
-C1L6rjTydze0+KxQp+f7Of/0bDF+BS7/XhsL3ddwp1yTPwUXRhcsq22F9BczEUyh
-J4mz5p4G7Bk2dHJX0TeNUmWDo1a9CHgjAbffJJH9qEr5ml8eiLdbpLmwqUk/i7UE
-lM4lnw7DW7kjdnkGVV2ORLt8Of0O4A==
-=PZYY
------END PGP SIGNATURE-----
-
---yvlo43zef7v5vw4q--
-
-
---===============5874771040793189832==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5874771040793189832==--
-
