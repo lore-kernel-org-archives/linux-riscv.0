@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E5C7C5479D
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jan 2023 17:21:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F808C5479D
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jan 2023 17:21:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/ZZghK8dAgRzsA6qP4nZnYXXPdQtTQFX5D85Ihexnyc=; b=n+BMw3m5Iv7WpY
-	Me1wWXA07GeSkM43REhPspbE+sJA/RweXIvvvdUBgkRxsl3vfiV3IhcVwN5hTg6e4ciNsOecAUicv
-	+EIdstQOK6TPfUWB4qRKLpAzS372DpgkkuOiBxEcHCpb7nHJMm1oYVy7NMXaVqJ3kOkoKi9m2/heK
-	TweLp8NRe0rE+/20m7h0JNRaztdAT9pV8Xmi+VnbO5G+Izfo+bxtp4zsClyKl95I71DD/k4ZUiJ0x
-	WOXT8xPz8KhvMqTP4PHP7RxUNzVSE+DAUaGd4uCP05Y9pDcyiDTm7IRM5WTKxdI9VBYwUN+zXLk5E
-	/EEbMf7dUD0xyXf0Npgw==;
+	List-Owner; bh=hbhTv/bK+zcbKieCaywRtfOnV9nMeUjPVR5ehTZBf84=; b=yUGIF6hYEWyxcf
+	isp2Qzc+eDHl19aoX/QWCHmZIWK/4IT++ABumrIDXN/USstPGu3Jqi756pbg39VF7l5qVlTDUCP/G
+	kL3psEvjHa6kxnlLDPazi5yXeQydmgAujUC04FfFsSg04BsiZKDzGQQyyxEFc5puJl2NCKuCweIqB
+	PQ7fJsaZ/d5lD8nAZQ7RqS02lhJxvpVAdME/TuGtfgKcJwzELlNRcXEM+CFNRuctdAXrEWOYt4r67
+	8jgICP7kYwhMzuzfAOpjZMrVTedDNpIOLetJRu51Wi46tnrf3i0EwWa4j194YBtDHNue291yL3dXh
+	lNzyt9UNo8sAxIJ3K0Rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFemT-00CLwk-Qz; Wed, 11 Jan 2023 17:20:53 +0000
+	id 1pFemW-00CLyD-EV; Wed, 11 Jan 2023 17:20:56 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFemO-00CLuh-Dh; Wed, 11 Jan 2023 17:20:49 +0000
+	id 1pFemT-00CLwM-FX; Wed, 11 Jan 2023 17:20:54 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id D4FD061D89;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 7F86061D89;
+	Wed, 11 Jan 2023 17:20:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B06EEC433D2;
 	Wed, 11 Jan 2023 17:20:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F28B5C433EF;
-	Wed, 11 Jan 2023 17:20:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1673457647;
-	bh=KRbUD/DoZCTDQnpByHlFlnPMc8QCP2Jn97CVBSFQEdU=;
+	s=k20201202; t=1673457650;
+	bh=srRoyMhEcGCbVrLyfi/YwhTea+Yq+TgoCP9PTzDvRWQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=KA9Tw53YhdOGsvk3g+hlq8uCbsDTYI6F7Vkf1KEVye3JmHxcYO3VNbvGpSW/ZrGfI
-	 fX28RfMxvvX3tyEPeChS/dDgFTCRjYT/hrx5SrTxlmWmS3XKZy+xoH8rvYkMtxyvbs
-	 gjZY9M2awgxNvZE0iJy2zngMzz5Np0pWUEUW63DKEi7jORdf6jFLY7Ke74G+SqiPVR
-	 WBmwKgn3mj2+ONqvOKgvJqCrP6tt0psl+8Qpw1DPkmpXvRQ97wYiIXXeRfzEJddNvI
-	 YSHK8yZCGOKatTi7ly3InyB3Lv1bKa7jHyRe9YIyknwmQ7CFMABeU/jPKIuuVFqDXI
-	 xebX0eOKIQoBA==
+	b=E8P7e3DgoRR0f4oVsM+IeXcbwq+Pqj2apye5Vlha8rab1w4XjqQnU9RjsHt9Il2HT
+	 1l5sHlkLlVGjvYBulYoUKJwazR6wsDqPDSwbN8J9SLgy1UYo7pVch6Rm3IuBr2itiS
+	 d/7dfcPo1RDjT73MkOeGwINvd3XOHxbUZAZRQQPg/en1zdBbQefOoNjGD57CBsubS9
+	 DGwO1N5+tWkIwRzUHgqJhTcy4Rma0Z7xjiwE7HjqDDIdVdd3K+cNwUU3xpLcqdHj6p
+	 8fqp1VpToe81uoDdi2ZqRZQiL91Heaqoe0l1mEMnE9JBg2E2kuDUKytBfyvdm/fHbJ
+	 ZhisnXHbdLewA==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -52,17 +52,18 @@ Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	kvm@vger.kernel.org,
 	kvm-riscv@lists.infradead.org,
-	Heiko Stuebner <heiko.stuebner@vrull.eu>
-Subject: [PATCH v3 01/13] riscv: fix jal offsets in patched alternatives
-Date: Thu, 12 Jan 2023 01:10:15 +0800
-Message-Id: <20230111171027.2392-2-jszhang@kernel.org>
+	Andrew Jones <ajones@ventanamicro.com>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v3 02/13] riscv: move riscv_noncoherent_supported() out of ZICBOM probe
+Date: Thu, 12 Jan 2023 01:10:16 +0800
+Message-Id: <20230111171027.2392-3-jszhang@kernel.org>
 X-Mailer: git-send-email 2.38.1
 In-Reply-To: <20230111171027.2392-1-jszhang@kernel.org>
 References: <20230111171027.2392-1-jszhang@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230111_092048_553717_59263CBA 
-X-CRM114-Status: GOOD (  15.30  )
+X-CRM114-CacheID: sfid-20230111_092053_575965_5606058A 
+X-CRM114-Status: GOOD (  12.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,102 +80,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Alternatives live in a different section, so offsets used by jal
-instruction will point to wrong locations after the patch got applied.
+It's a bit weird to call riscv_noncoherent_supported() each time when
+insmoding a module. Move the calling out of feature patch func.
 
-Similar to arm64, adjust the location to consider that offset.
-
-Co-developed-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
-Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- arch/riscv/include/asm/insn.h   | 27 +++++++++++++++++++++++++++
- arch/riscv/kernel/alternative.c | 27 +++++++++++++++++++++++++++
- 2 files changed, 54 insertions(+)
+ arch/riscv/kernel/cpufeature.c | 1 -
+ arch/riscv/kernel/setup.c      | 3 +++
+ 2 files changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/arch/riscv/include/asm/insn.h b/arch/riscv/include/asm/insn.h
-index 98453535324a..1d2df245d0bd 100644
---- a/arch/riscv/include/asm/insn.h
-+++ b/arch/riscv/include/asm/insn.h
-@@ -291,6 +291,33 @@ static __always_inline bool riscv_insn_is_branch(u32 code)
- 	(RVC_X(x_, RVC_B_IMM_7_6_OPOFF, RVC_B_IMM_7_6_MASK) << RVC_B_IMM_7_6_OFF) | \
- 	(RVC_IMM_SIGN(x_) << RVC_B_IMM_SIGN_OFF); })
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 205bbd6b1fce..421b3d9578cc 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -297,7 +297,6 @@ static bool __init_or_module cpufeature_probe_zicbom(unsigned int stage)
+ 	if (!riscv_isa_extension_available(NULL, ZICBOM))
+ 		return false;
  
-+/*
-+ * Get the immediate from a J-type instruction.
-+ *
-+ * @insn: instruction to process
-+ * Return: immediate
-+ */
-+static inline s32 riscv_insn_extract_jtype_imm(u32 insn)
-+{
-+	return RV_EXTRACT_JTYPE_IMM(insn);
-+}
-+
-+/*
-+ * Update a J-type instruction with an immediate value.
-+ *
-+ * @insn: pointer to the jtype instruction
-+ * @imm: the immediate to insert into the instruction
-+ */
-+static inline void riscv_insn_insert_jtype_imm(u32 *insn, s32 imm)
-+{
-+	/* drop the old IMMs, all jal IMM bits sit at 31:12 */
-+	*insn &= ~GENMASK(31, 12);
-+	*insn |= (RV_X(imm, RV_J_IMM_10_1_OFF, RV_J_IMM_10_1_MASK) << RV_J_IMM_10_1_OPOFF) |
-+		 (RV_X(imm, RV_J_IMM_11_OFF, RV_J_IMM_11_MASK) << RV_J_IMM_11_OPOFF) |
-+		 (RV_X(imm, RV_J_IMM_19_12_OFF, RV_J_IMM_19_12_MASK) << RV_J_IMM_19_12_OPOFF) |
-+		 (RV_X(imm, RV_J_IMM_SIGN_OFF, 1) << RV_J_IMM_SIGN_OPOFF);
-+}
-+
- /*
-  * Put together one immediate from a U-type and I-type instruction pair.
-  *
-diff --git a/arch/riscv/kernel/alternative.c b/arch/riscv/kernel/alternative.c
-index 6212ea0eed72..3d4f1f32c7f6 100644
---- a/arch/riscv/kernel/alternative.c
-+++ b/arch/riscv/kernel/alternative.c
-@@ -79,6 +79,21 @@ static void riscv_alternative_fix_auipc_jalr(void *ptr, u32 auipc_insn,
- 	patch_text_nosync(ptr, call, sizeof(u32) * 2);
+-	riscv_noncoherent_supported();
+ 	return true;
  }
  
-+static void riscv_alternative_fix_jal(void *ptr, u32 jal_insn, int patch_offset)
-+{
-+	s32 imm;
-+
-+	/* get and adjust new target address */
-+	imm = riscv_insn_extract_jtype_imm(jal_insn);
-+	imm -= patch_offset;
-+
-+	/* update instruction */
-+	riscv_insn_insert_jtype_imm(&jal_insn, imm);
-+
-+	/* patch the call place again */
-+	patch_text_nosync(ptr, &jal_insn, sizeof(u32));
-+}
-+
- void riscv_alternative_fix_offsets(void *alt_ptr, unsigned int len,
- 				      int patch_offset)
- {
-@@ -106,6 +121,18 @@ void riscv_alternative_fix_offsets(void *alt_ptr, unsigned int len,
- 			riscv_alternative_fix_auipc_jalr(alt_ptr + i * sizeof(u32),
- 							 insn, insn2, patch_offset);
- 		}
-+
-+		if (riscv_insn_is_jal(insn)) {
-+			s32 imm = riscv_insn_extract_jtype_imm(insn);
-+
-+			/* Don't modify jumps inside the alternative block */
-+			if ((alt_ptr + i * sizeof(u32) + imm) >= alt_ptr &&
-+			    (alt_ptr + i * sizeof(u32) + imm) < (alt_ptr + len))
-+				continue;
-+
-+			riscv_alternative_fix_jal(alt_ptr + i * sizeof(u32),
-+						  insn, patch_offset);
-+		}
- 	}
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index 86acd690d529..376d2827e736 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -300,6 +300,9 @@ void __init setup_arch(char **cmdline_p)
+ 	riscv_init_cbom_blocksize();
+ 	riscv_fill_hwcap();
+ 	apply_boot_alternatives();
++	if (IS_ENABLED(CONFIG_RISCV_ISA_ZICBOM) &&
++	    riscv_isa_extension_available(NULL, ZICBOM))
++		riscv_noncoherent_supported();
  }
  
+ static int __init topology_init(void)
 -- 
 2.38.1
 
