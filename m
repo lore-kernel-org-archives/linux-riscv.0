@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC5B6C54EBC
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jan 2023 17:21:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70044C46467
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jan 2023 17:21:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kvIiHoYe+R5hvNcfyi6stWJC+pLfdlbHmzqFkNDgt1I=; b=EXzoKO7e0E+QTB
-	cEFxRmanFZUaTdkY0HqJt5TyhIZFN+GZttNIVvmF63HtkOM2bJefDqTj2Undp69Ulh7Qobk+sQDtK
-	OxFFeqbc4S1RULGh3OlXv19QJnmts9Z9t4xHtcltNLzoOA0EObx5Ndkicc4Vyv5Nj0ZOerHVQKLHf
-	O740lilBBv9N8wdTfvNDdddxFWb8QkEqLJcZYbh3Kt58/n1VpIm/RUxaCbHy0MLqZSU3rPlMPYlsP
-	SScytxR2tuvCi870/S4xPUs79FyIBttCy/UwGX78mKEZ8R8K+2mvs7UyPTryVMmyi9yXB310g2blV
-	gfLVIKNavr2BTyiwajpw==;
+	List-Owner; bh=D2oARNupNmsHxxNnbJgVckdkOj7HdGCwjqq6W6T6Klk=; b=u0KxpUr4JhJh0V
+	EytaBGx6ylYMr2/FgLwDSc3rxsX8FUZBXIBpaItOTuQYbKL9SDyZn3CDk30j8q/ljovD0r21luZCd
+	ZalU9xat9wYBd0iHKLR4KTfZcLNKttjgeystPi+lXbivEUyx/eWr8Xyyyr0v0I/QMqvSl+HqZ3tOJ
+	tk/7BP/diyaSok6gE37uRZDRHaEt6DlFFYkTOpYg94zKw45jR9cUoKUBOyeXaYratyUYJp10ALW2J
+	8fKenZ419qLjY2AUM8zzdbF/fCg9BGSXXjYUGGEU75bm9qOG5UI3dKGjDIPriU7wwCHVoiMSBPxOK
+	PiN31EjsDZUtijary74g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFemw-00CMQT-P5; Wed, 11 Jan 2023 17:21:22 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pFen1-00CMXN-A2; Wed, 11 Jan 2023 17:21:27 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFemr-00CMIM-F7; Wed, 11 Jan 2023 17:21:19 +0000
+	id 1pFemw-00CMOa-9w; Wed, 11 Jan 2023 17:21:23 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id E87EA61D9E;
+	by ams.source.kernel.org (Postfix) with ESMTPS id DB135B81B79;
+	Wed, 11 Jan 2023 17:21:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0EE5C433F2;
 	Wed, 11 Jan 2023 17:21:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8A27C433EF;
-	Wed, 11 Jan 2023 17:21:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1673457676;
-	bh=ANC1L0wfy1/P0+f7TDcL1iJdITEJZEnzKGu3tEgjcsI=;
+	s=k20201202; t=1673457679;
+	bh=An7932QyRN88UCepeRWQ6p08wUO6xw7m46s6odwiow0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=MA/U+XhExNf+fuYB7IqjgrugfJkHiRS6aw7i1XlatIvpnKCSUmj6NEGFRa4rsthPS
-	 jibd7VDhON/0KD0gFuDXjtZan8MrILnJmpnAMuTh/rSWgJ2AcKE2tI5sdgCc8moT4f
-	 v+3yvhyOXIMQR4tICFtxQGH9Np12dsL6SmUJWfMuMNMaaO5MMLP5udx1IxRU9ThKBf
-	 kCmQZl6al1ZA/R2wcVbu3pn/iTeARnAWCG5fwRdKcTnf+ZYfroqVygo63+ZuDF6vdK
-	 NWtOvwlG31jA98tq69Wcz8B1VGGA5UZ4PvA1m90xxAt+F6KG312mh/yMMoWvJRlYfR
-	 Nt6rC9358gCXA==
+	b=KKs/0/VFSvU2SnllZ+uG+nxnYXbVkIe8lRcr3KSHKo6td8KIyNPrEPYX+QoGpC/0v
+	 IEbh7jBwyWqO20/l1BHxElXPwMPMBVvoezH1TdXTGQoiHcIwGQpsHFy0v3rlQqddgY
+	 By77PW+uxHCcFntfWDM/+0mG7/riTiw+S30o/6l2ZOJUBQO0YoFdFC9aEcmFfeRvmM
+	 bJTABO8ubZBVg0mlVot9/EPqeoJcuk/QIINFGIiQ/ueeC+sMXAXsIOSDWnLhZ/2L5J
+	 irN93MKeyPBSmq6NGqqcrtZ2sLqS2WNNOmDUEKlKjfKfsxSz/V8vsHWLrURyC51ALz
+	 y0y3ESvmyldoA==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -52,18 +52,18 @@ Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	kvm@vger.kernel.org,
 	kvm-riscv@lists.infradead.org,
-	Guo Ren <guoren@kernel.org>,
-	Andrew Jones <ajones@ventanamicro.com>
-Subject: [PATCH v3 10/13] riscv: alternative: patch alternatives in the vDSO
-Date: Thu, 12 Jan 2023 01:10:24 +0800
-Message-Id: <20230111171027.2392-11-jszhang@kernel.org>
+	Andrew Jones <ajones@ventanamicro.com>,
+	Guo Ren <guoren@kernel.org>
+Subject: [PATCH v3 11/13] riscv: cpu_relax: switch to riscv_has_extension_likely()
+Date: Thu, 12 Jan 2023 01:10:25 +0800
+Message-Id: <20230111171027.2392-12-jszhang@kernel.org>
 X-Mailer: git-send-email 2.38.1
 In-Reply-To: <20230111171027.2392-1-jszhang@kernel.org>
 References: <20230111171027.2392-1-jszhang@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230111_092117_617984_A7BE9C12 
-X-CRM114-Status: GOOD (  15.40  )
+X-CRM114-CacheID: sfid-20230111_092122_544990_4082F5AB 
+X-CRM114-Status: GOOD (  12.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,121 +80,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Make it possible to use alternatives in the vDSO, so that better
-implementations can be used if possible.
+Switch cpu_relax() from static branch to the new helper
+riscv_has_extension_likely()
 
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-Reviewed-by: Guo Ren <guoren@kernel.org>
 Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+Reviewed-by: Guo Ren <guoren@kernel.org>
 ---
- arch/riscv/include/asm/vdso.h     |  4 ++++
- arch/riscv/kernel/alternative.c   | 25 +++++++++++++++++++++++++
- arch/riscv/kernel/vdso.c          |  5 -----
- arch/riscv/kernel/vdso/vdso.lds.S |  7 +++++++
- 4 files changed, 36 insertions(+), 5 deletions(-)
+ arch/riscv/include/asm/vdso/processor.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/include/asm/vdso.h b/arch/riscv/include/asm/vdso.h
-index a7644f46d0e5..f891478829a5 100644
---- a/arch/riscv/include/asm/vdso.h
-+++ b/arch/riscv/include/asm/vdso.h
-@@ -28,8 +28,12 @@
- #define COMPAT_VDSO_SYMBOL(base, name)						\
- 	(void __user *)((unsigned long)(base) + compat__vdso_##name##_offset)
+diff --git a/arch/riscv/include/asm/vdso/processor.h b/arch/riscv/include/asm/vdso/processor.h
+index fa70cfe507aa..edf0e25e43d1 100644
+--- a/arch/riscv/include/asm/vdso/processor.h
++++ b/arch/riscv/include/asm/vdso/processor.h
+@@ -10,7 +10,7 @@
  
-+extern char compat_vdso_start[], compat_vdso_end[];
-+
- #endif /* CONFIG_COMPAT */
- 
-+extern char vdso_start[], vdso_end[];
-+
- #endif /* !__ASSEMBLY__ */
- 
- #endif /* CONFIG_MMU */
-diff --git a/arch/riscv/kernel/alternative.c b/arch/riscv/kernel/alternative.c
-index 3d4f1f32c7f6..a883a309139f 100644
---- a/arch/riscv/kernel/alternative.c
-+++ b/arch/riscv/kernel/alternative.c
-@@ -11,7 +11,9 @@
- #include <linux/cpu.h>
- #include <linux/uaccess.h>
- #include <asm/alternative.h>
-+#include <asm/module.h>
- #include <asm/sections.h>
-+#include <asm/vdso.h>
- #include <asm/vendorid_list.h>
- #include <asm/sbi.h>
- #include <asm/csr.h>
-@@ -160,6 +162,27 @@ static void __init_or_module _apply_alternatives(struct alt_entry *begin,
- 				stage);
- }
- 
-+static void __init apply_vdso_alternatives(void)
-+{
-+	const struct elf64_hdr *hdr;
-+	const struct elf64_shdr *shdr;
-+	const struct elf64_shdr *alt;
-+	struct alt_entry *begin, *end;
-+
-+	hdr = (struct elf64_hdr *)vdso_start;
-+	shdr = (void *)hdr + hdr->e_shoff;
-+	alt = find_section(hdr, shdr, ".alternative");
-+	if (!alt)
-+		return;
-+
-+	begin = (void *)hdr + alt->sh_offset,
-+	end = (void *)hdr + alt->sh_offset + alt->sh_size,
-+
-+	_apply_alternatives((struct alt_entry *)begin,
-+			    (struct alt_entry *)end,
-+			    RISCV_ALTERNATIVES_BOOT);
-+}
-+
- void __init apply_boot_alternatives(void)
+ static inline void cpu_relax(void)
  {
- 	/* If called on non-boot cpu things could go wrong */
-@@ -168,6 +191,8 @@ void __init apply_boot_alternatives(void)
- 	_apply_alternatives((struct alt_entry *)__alt_start,
- 			    (struct alt_entry *)__alt_end,
- 			    RISCV_ALTERNATIVES_BOOT);
-+
-+	apply_vdso_alternatives();
- }
- 
- /*
-diff --git a/arch/riscv/kernel/vdso.c b/arch/riscv/kernel/vdso.c
-index e410275918ac..4e631c098f4d 100644
---- a/arch/riscv/kernel/vdso.c
-+++ b/arch/riscv/kernel/vdso.c
-@@ -22,11 +22,6 @@ struct vdso_data {
- };
- #endif
- 
--extern char vdso_start[], vdso_end[];
--#ifdef CONFIG_COMPAT
--extern char compat_vdso_start[], compat_vdso_end[];
--#endif
--
- enum vvar_pages {
- 	VVAR_DATA_PAGE_OFFSET,
- 	VVAR_TIMENS_PAGE_OFFSET,
-diff --git a/arch/riscv/kernel/vdso/vdso.lds.S b/arch/riscv/kernel/vdso/vdso.lds.S
-index 150b1a572e61..4a0606633290 100644
---- a/arch/riscv/kernel/vdso/vdso.lds.S
-+++ b/arch/riscv/kernel/vdso/vdso.lds.S
-@@ -40,6 +40,13 @@ SECTIONS
- 	. = 0x800;
- 	.text		: { *(.text .text.*) }		:text
- 
-+	. = ALIGN(4);
-+	.alternative : {
-+		__alt_start = .;
-+		*(.alternative)
-+		__alt_end = .;
-+	}
-+
- 	.data		: {
- 		*(.got.plt) *(.got)
- 		*(.data .data.* .gnu.linkonce.d.*)
+-	if (!static_branch_likely(&riscv_isa_ext_keys[RISCV_ISA_EXT_KEY_ZIHINTPAUSE])) {
++	if (!riscv_has_extension_likely(RISCV_ISA_EXT_ZIHINTPAUSE)) {
+ #ifdef __riscv_muldiv
+ 		int dummy;
+ 		/* In lieu of a halt instruction, induce a long-latency stall. */
 -- 
 2.38.1
 
