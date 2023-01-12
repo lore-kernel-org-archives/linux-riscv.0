@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 941B9C61DB3
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jan 2023 21:49:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE9BFC677F1
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jan 2023 21:49:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Subject:Cc:To:
 	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=JMTtV4Mbr7wEEY/yy+YF5oJ6IG5Fv/AbvKzWGvVnQ80=; b=voFAP7lOStO19f
-	/O4cxMVd7+vw09YT3nOOuh8MzSs6xM7AZu496LveeeArg6bsKrk5oP4T4cuxcC9pHPtjOYxd/nCj8
-	SPbpwBR8fsf2ral9TezAA0iYvZ2SSy1bxzMs1GdG0ABm6TciJyHYOwHqvupNiYfkvAz7qdV2Re8Df
-	kzcJyCqn8fdvy3xrWvWx+MIFCD442bJjqh/C3kptgVgwi9aEGsG6rNb3rhBNK497FonjDv6AK/f3n
-	zU0smwhnUPAqY9roJKyaKDwoHvRiGecUJUNe84eKBGy2eea5kk6vjWDzGh+iXViPAmCRus1gdS5Qg
-	1Zw638Xxab2eWiQcLZQw==;
+	List-Owner; bh=RjTXqUICU5YxyXDlnhBKYsBvA15zWGn8QwbBrD7L5Nk=; b=IaLq33p7nJZeRY
+	vpvbXhE7RGtOKC4IevytafDbJeWJOpTwf+0ifcqC52BOP9hgyeQ36vGHUlB9gna5zMVPQvVFFHUkS
+	hApHJqip/X5zDNSkN/ulkEvDMPFJbtF1Y28kYbzMbU2NXHL0yFmcNGbAG5WqMi/PmpQgQQSQilyYH
+	44svgnOnrPXofbb/JUUn1I9cbjsX1/eMI97gz+7itBQiYGzpBRYVXD7DfQ4aoK+e6sTybHK0pRzcG
+	mDuc4f4/6ZNJeY1p6Dw+AMYNdyljsLPBCbMiEUnvqRSt6VdN8VHhLJfkmDpTBXzygkfSO8ZGwFx07
+	SQbZJkhdLWZuVeyoddrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pG5SG-00HBrb-S4; Thu, 12 Jan 2023 21:49:49 +0000
+	id 1pG5SJ-00HBtf-OQ; Thu, 12 Jan 2023 21:49:51 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pG3hP-00GgiQ-GY; Thu, 12 Jan 2023 19:57:19 +0000
+	id 1pG3hP-00GgiU-Fl; Thu, 12 Jan 2023 19:57:19 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Content-Type:MIME-Version:References:
 	Subject:Cc:To:From:Date:Message-ID:Sender:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:In-Reply-To;
-	bh=zetob5Egrh+4xSqY+h3U8eHRaaU6Xv/VYHG/8LvUn9U=; b=XY7SfD4JzAJJbveELIvdat/cbW
-	E+yFFn4aNWAgBawJ26SoENVk9HjgjCyHK9vtm0DJHnuC5VDdB61ndo4h4/i7Q5MSw1rkqiTic4+xR
-	3Y4D5MUptZ7ITQwdJ+rd2ao7vl1gTwOWK6Sx7WR4lsMotsDZ0CjhwtIvhpsU+NDMSFoT0g5aNyvGa
-	iMi4QJBO85DnX+Mw7tQFfzfNeRIKSpTPmFw5CM4c/Zo+olx5lzudeaiJOWa1G7jKsVRtgbLWqFUp2
-	QH+tfhDjHvNHMqws27xY0eX//Ypm8qtyiO7rXUI4Q4fOaQ8sTUtjWWcBaaRXjx9gG6YdwAkHM+oGP
-	31LcvOtQ==;
+	bh=uinp+F1SpsUbDqJ/LD9jugydtpLudfVqOBpAkBm/Kuw=; b=YR175EZY4r1kZkSNwONKk5sRjm
+	0Jh9q1s+0AnbJ3XR1s+uETOHy6/KMPWcZ2A/3pPA2YRmIe4FLXT5YQWBLkP162ZQZQxcLo5zKmBR8
+	yPxuLFclFoYWLWUAfQaCyKbJfRfGBsr2SyTtFnOANeO7FTb/SglFZ6SweZE90daB8dw1ASmM8UjQM
+	M4ZnMo5a3b3a00pQSh2naJ9Y8eCc6pRMpPzYKWwgFkcsiZ93mCPMmAdByjjnxT7hStav5sFWJ+w/a
+	kpBCoIODr/szF4CoOZ9aEs2Ye7nsYGTHHRFperi/Zde5nuQcuGmRSiIIIE6VXydfVcevstKfVVHvk
+	kpjr9KYQ==;
 Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
 	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pG3hW-005OcC-5Z; Thu, 12 Jan 2023 19:57:26 +0000
+	id 1pG3hX-005OcT-Tg; Thu, 12 Jan 2023 19:57:27 +0000
 Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 9F135302D60;
-	Thu, 12 Jan 2023 20:57:11 +0100 (CET)
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 0BFF63033F7;
+	Thu, 12 Jan 2023 20:57:13 +0100 (CET)
 Received: by hirez.programming.kicks-ass.net (Postfix, from userid 0)
-	id 956222CCF1F48; Thu, 12 Jan 2023 20:57:07 +0100 (CET)
-Message-ID: <20230112195539.515253662@infradead.org>
+	id ADA0F2CCF1F54; Thu, 12 Jan 2023 20:57:07 +0100 (CET)
+Message-ID: <20230112195539.821714572@infradead.org>
 User-Agent: quilt/0.66
-Date: Thu, 12 Jan 2023 20:43:17 +0100
+Date: Thu, 12 Jan 2023 20:43:22 +0100
 From: Peter Zijlstra <peterz@infradead.org>
 To: peterz@infradead.org
 Cc: richard.henderson@linaro.org,
@@ -197,7 +197,7 @@ Cc: richard.henderson@linaro.org,
  kasan-dev@googlegroups.com,
  "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
  Ulf Hansson <ulf.hansson@linaro.org>
-Subject: [PATCH v3 03/51] cpuidle/poll: Ensure IRQ state is invariant
+Subject: [PATCH v3 08/51] cpuidle,imx6: Push RCU-idle into driver
 References: <20230112194314.845371875@infradead.org>
 MIME-Version: 1.0
 X-Mailman-Approved-At: Thu, 12 Jan 2023 13:49:35 -0800
@@ -217,40 +217,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-cpuidle_state::enter() methods should be IRQ invariant.
+Doing RCU-idle outside the driver, only to then temporarily enable it
+again, at least twice, before going idle is daft.
 
-Additionally make sure to use raw_local_irq_*() methods since this
-cpuidle callback will be called with RCU already disabled.
+Notably both cpu_pm_enter() and cpu_cluster_pm_enter() implicity
+re-enable RCU.
 
 Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-Reviewed-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
 Reviewed-by: Frederic Weisbecker <frederic@kernel.org>
+Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
 Tested-by: Tony Lindgren <tony@atomide.com>
 Tested-by: Ulf Hansson <ulf.hansson@linaro.org>
 ---
- drivers/cpuidle/poll_state.c |    4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ arch/arm/mach-imx/cpuidle-imx6sx.c |    5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
---- a/drivers/cpuidle/poll_state.c
-+++ b/drivers/cpuidle/poll_state.c
-@@ -17,7 +17,7 @@ static int __cpuidle poll_idle(struct cp
+--- a/arch/arm/mach-imx/cpuidle-imx6sx.c
++++ b/arch/arm/mach-imx/cpuidle-imx6sx.c
+@@ -47,7 +47,9 @@ static int imx6sx_enter_wait(struct cpui
+ 		cpu_pm_enter();
+ 		cpu_cluster_pm_enter();
  
- 	dev->poll_time_limit = false;
++		ct_idle_enter();
+ 		cpu_suspend(0, imx6sx_idle_finish);
++		ct_idle_exit();
  
--	local_irq_enable();
-+	raw_local_irq_enable();
- 	if (!current_set_polling_and_test()) {
- 		unsigned int loop_count = 0;
- 		u64 limit;
-@@ -36,6 +36,8 @@ static int __cpuidle poll_idle(struct cp
- 			}
- 		}
- 	}
-+	raw_local_irq_disable();
-+
- 	current_clr_polling();
- 
- 	return index;
+ 		cpu_cluster_pm_exit();
+ 		cpu_pm_exit();
+@@ -87,7 +89,8 @@ static struct cpuidle_driver imx6sx_cpui
+ 			 */
+ 			.exit_latency = 300,
+ 			.target_residency = 500,
+-			.flags = CPUIDLE_FLAG_TIMER_STOP,
++			.flags = CPUIDLE_FLAG_TIMER_STOP |
++				 CPUIDLE_FLAG_RCU_IDLE,
+ 			.enter = imx6sx_enter_wait,
+ 			.name = "LOW-POWER-IDLE",
+ 			.desc = "ARM power off",
 
 
 
