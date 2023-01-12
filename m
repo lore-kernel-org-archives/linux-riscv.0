@@ -4,44 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE2E5C61DB3
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jan 2023 22:06:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F74CC61DB3
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jan 2023 22:39:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fRrjEXTytNaVD8UTUZ6Tsn56lATk+b7mL+o985TZlA8=; b=Zx2j9p/+2aDTnJ
-	ucOuWErdcdu8Nn9BGlBnYDBNe3udbTLq4nB7BB7GTmeKOu/8C9ew8MD/XXFd1TKbx6P8e4nmzCXvl
-	sf8NYoQ4JeU80i2eBOsddShdDLr7CirEU7PIQ3bFIJJkIpOI+g/2nE7fD9e3RTLXYLI3Jzc5uOSp6
-	ZeQzJFo+nqtFpVLu8KLoHgvGMEsAffxBYUzldrmzpaciuGEQ7uAMlHDOfBtvlOY56WKzfxLEN8LZ6
-	ogNcFJf8y7KRkAtLWWOxDT3CJyCN55vPXM1yy6ngLhG7zdA5109o3B9oD/RInoyZvQD4n4rev7NTR
-	V7v+Wv3oTQxa87C9i9MQ==;
+	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
+	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=HLi3GP2kCAaVdeFDjxLRZ90GCUBHB9dWQ6AguVGtiS0=; b=3cft9vdWM6sESZ
+	RQE8bX4bvJNdD+dBBmq8zQzhgNlTkwoyIMtRaZ9H74RwCQm9Xy/EhZQUn52Vk4pFj9JYVGvKUf1uG
+	UpZri33UA1o7xx1WZSwpumwjJatoDploI1f5sGxXeUkaJclY4rWSjQYSuFwfW5e/UKi8zM0UOH3jX
+	+LSr4jOKAN74qGFRkax+Awx2ZvNkb7pC6rXAy+CDLXdBpu7KQG/L2bGKsRWeTphgXRDMKbVP9wbdA
+	BsNG7BKZ1D1Y69JmFefQL9iOmgKHSGedcBFXYHtO/xagCSX7gFMxu/GJCQhetuyjO4nokdGA2Q1x0
+	OKNhd5z9pTXhtwccykBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pG5i5-00HKwW-Rw; Thu, 12 Jan 2023 22:06:09 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1pG6Ds-00HP2K-Qh; Thu, 12 Jan 2023 22:39:00 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pG5hz-00HKtu-48
-	for linux-riscv@lists.infradead.org; Thu, 12 Jan 2023 22:06:07 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1pG5ht-0002jO-5W; Thu, 12 Jan 2023 23:05:57 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, christoph.muellner@vrull.eu, conor@kernel.org, philipp.tomsich@vrull.eu, jszhang@kernel.org
-Subject: Re: [PATCH v4 5/5] RISC-V: add zbb support to string functions
-Date: Thu, 12 Jan 2023 23:05:56 +0100
-Message-ID: <9588197.2WqB4rESCP@diego>
-In-Reply-To: <20230111122452.ubgebzhkzova3hte@orel>
-References: <20230109181755.2383085-1-heiko@sntech.de> <20230109181755.2383085-6-heiko@sntech.de> <20230111122452.ubgebzhkzova3hte@orel>
-MIME-Version: 1.0
+	id 1pG6Dp-00HP1j-B6
+	for linux-riscv@lists.infradead.org; Thu, 12 Jan 2023 22:38:59 +0000
+Received: by mail-wr1-x430.google.com with SMTP id k8so5002341wrc.9
+        for <linux-riscv@lists.infradead.org>; Thu, 12 Jan 2023 14:38:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=jrtc27.com; s=gmail.jrtc27.user;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=iYOgRxVnVO9WiL8/xIYxULkQkHyZrlvgyKSvkvkG3+8=;
+        b=MQbYuzhLsQu6MkS1jzHazC1VCHcVKtONrzMZyNtvDwHUObhi0tHazvoEfjn8/FwwSI
+         OGID1S9c9sKgft0fh2n8uWZ84at5FnSaJqtbL85b1PnsUt/z4X0A6QevA3wNOyYX8gMl
+         eGpPUq0ZuKa1GkZj5r0SsQk02t6XrbDdF67Y4/yMq+ef/NeAp9dJa5/ENEOgaX+Z9FCz
+         MSTY+Kuqamhg/evlAX5ag+5lZe8PMz7ab87qpREAI758WC9CewvI+gW+H9DjVGAXA8pA
+         x2L5dDJbPewhN+qyApGh1WKhMmohmT0Dbv5CN7ZE/yvWkJZ/rlKl1GvFTDTGXCknEg3O
+         8vww==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=iYOgRxVnVO9WiL8/xIYxULkQkHyZrlvgyKSvkvkG3+8=;
+        b=QRCOSoMI+0BxWTbwzVGejTCxVvzrHbxr/K1iCUqAZcP4IwvIwEJ3Cqg1ZEugvJeIN/
+         KSSa6nazd5fiOhwlX6yEeNJfjbfij07+JFUJLMi3lBXwdC1BTEMWlU1pBfVuicwpu3ol
+         F8ia29WdpW/BafW+IOaGwXffcuuQ0Dw0YMj1NdJOgARjSbNhxNgGzQnACEINJutYz3Q7
+         5WKEfEcxQoozIUXnSiuLByV0Qj6FnnRs5zmecluKYGvNDoINWruPgRuZkM52g/wp9TQO
+         xTZ0elbgBS5RRDPH0MEi2AGTJbslR734mHi5LtM2MoLDkeIi2geglC6838+DK0ORy2IW
+         wVBg==
+X-Gm-Message-State: AFqh2kr57si+kFJC5K8yDh/UKYM6uNVhQiIJPmVHa9b+uqYCYo+63UEh
+	3Sx3WZKzAEVQ5DymJvyWqRk8Og==
+X-Google-Smtp-Source: AMrXdXsmISdu3qNJHjekfd3ZBDYw5rdWELoEhuuAzbzZiZuJI2p1mOfmiRfTWsVauytHmKnxrurYkw==
+X-Received: by 2002:a05:6000:384:b0:297:175c:3cbd with SMTP id u4-20020a056000038400b00297175c3cbdmr36440247wrf.66.1673563133985;
+        Thu, 12 Jan 2023 14:38:53 -0800 (PST)
+Received: from smtpclient.apple (global-5-143.n-2.net.cam.ac.uk. [131.111.5.143])
+        by smtp.gmail.com with ESMTPSA id bw28-20020a0560001f9c00b002421888a011sm17124456wrb.69.2023.01.12.14.38.53
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 12 Jan 2023 14:38:53 -0800 (PST)
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3696.120.41.1.1\))
+Subject: Re: [PATCH v2] riscv: elf: add .riscv.attributes parsing
+From: Jessica Clarke <jrtc27@jrtc27.com>
+In-Reply-To: <20230112210622.2337254-1-vineetg@rivosinc.com>
+Date: Thu, 12 Jan 2023 22:38:52 +0000
+Cc: linux-riscv <linux-riscv@lists.infradead.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Palmer Dabbelt <palmer@rivosinc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Albert Ou <aou@eecs.berkeley.edu>,
+ Eric Biederman <ebiederm@xmission.com>,
+ Kees Cook <keescook@chromium.org>,
+ Guo Ren <guoren@kernel.org>,
+ Greentime Hu <greentime.hu@sifive.com>,
+ Conor Dooley <conor.dooley@microchip.com>,
+ linux@rivosinc.com
+Message-Id: <D6A37757-DB22-44C6-A906-D68A0B8BD7A6@jrtc27.com>
+References: <20230112210622.2337254-1-vineetg@rivosinc.com>
+To: Vineet Gupta <vineetg@rivosinc.com>
+X-Mailer: Apple Mail (2.3696.120.41.1.1)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230112_140603_502637_91CC0F87 
-X-CRM114-Status: GOOD (  58.70  )
+X-CRM114-CacheID: sfid-20230112_143857_493617_9AA61AC1 
+X-CRM114-Status: GOOD (  34.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,636 +99,358 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
-
-Am Mittwoch, 11. Januar 2023, 13:24:52 CET schrieb Andrew Jones:
-> On Mon, Jan 09, 2023 at 07:17:55PM +0100, Heiko Stuebner wrote:
-> > From: Heiko Stuebner <heiko.stuebner@vrull.eu>
-> > 
-> > Add handling for ZBB extension and add support for using it as a
-> > variant for optimized string functions.
-> > 
-> > Support for the Zbb-str-variants is limited to the GNU-assembler
-> > for now, as LLVM has not yet acquired the functionality to
-> > selectively change the arch option in assembler code.
-> > This is still under review at
-> >     https://reviews.llvm.org/D123515
-> > 
-> > Co-developed-by: Christoph Muellner <christoph.muellner@vrull.eu>
-> > Signed-off-by: Christoph Muellner <christoph.muellner@vrull.eu>
-> > Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
-> > ---
-> >  arch/riscv/Kconfig                   |  24 ++++++
-> >  arch/riscv/include/asm/errata_list.h |   3 +-
-> >  arch/riscv/include/asm/hwcap.h       |   1 +
-> >  arch/riscv/include/asm/string.h      |   2 +
-> >  arch/riscv/kernel/cpu.c              |   1 +
-> >  arch/riscv/kernel/cpufeature.c       |  18 +++++
-> >  arch/riscv/lib/strcmp.S              |  94 ++++++++++++++++++++++
-> >  arch/riscv/lib/strlen.S              | 114 +++++++++++++++++++++++++++
-> >  arch/riscv/lib/strncmp.S             | 111 ++++++++++++++++++++++++++
-> >  9 files changed, 367 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > index e2b656043abf..7c814fbf9527 100644
-> > --- a/arch/riscv/Kconfig
-> > +++ b/arch/riscv/Kconfig
-> > @@ -416,6 +416,30 @@ config RISCV_ISA_SVPBMT
-> >  
-> >  	   If you don't know what to do here, say Y.
-> >  
-> > +config TOOLCHAIN_HAS_ZBB
-> > +	bool
-> > +	default y
-> > +	depends on !64BIT || $(cc-option,-mabi=lp64 -march=rv64ima_zbb)
-> > +	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zbb)
-> > +	depends on LLD_VERSION >= 150000 || LD_VERSION >= 23900
-> > +	depends on AS_IS_GNU
-> > +
-> > +config RISCV_ISA_ZBB
-> > +	bool "Zbb extension support for bit manipulation instructions"
-> > +	depends on TOOLCHAIN_HAS_ZBB
-> > +	depends on !XIP_KERNEL && MMU
-> > +	select RISCV_ALTERNATIVE
-> > +	default y
-> > +	help
-> > +	   Adds support to dynamically detect the presence of the ZBB
-> > +	   extension (basic bit manipulation) and enable its usage.
-> > +
-> > +	   The Zbb extension provides instructions to accelerate a number
-> > +	   of bit-specific operations (count bit population, sign extending,
-> > +	   bitrotation, etc).
-> > +
-> > +	   If you don't know what to do here, say Y.
-> > +
-> >  config TOOLCHAIN_HAS_ZICBOM
-> >  	bool
-> >  	default y
-> > diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
-> > index 4180312d2a70..95e626b7281e 100644
-> > --- a/arch/riscv/include/asm/errata_list.h
-> > +++ b/arch/riscv/include/asm/errata_list.h
-> > @@ -24,7 +24,8 @@
-> >  
-> >  #define	CPUFEATURE_SVPBMT 0
-> >  #define	CPUFEATURE_ZICBOM 1
-> > -#define	CPUFEATURE_NUMBER 2
-> > +#define	CPUFEATURE_ZBB 2
-> > +#define	CPUFEATURE_NUMBER 3
-> >  
-> >  #ifdef __ASSEMBLY__
-> >  
-> > diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-> > index 86328e3acb02..b727491fb100 100644
-> > --- a/arch/riscv/include/asm/hwcap.h
-> > +++ b/arch/riscv/include/asm/hwcap.h
-> > @@ -59,6 +59,7 @@ enum riscv_isa_ext_id {
-> >  	RISCV_ISA_EXT_ZIHINTPAUSE,
-> >  	RISCV_ISA_EXT_SSTC,
-> >  	RISCV_ISA_EXT_SVINVAL,
-> > +	RISCV_ISA_EXT_ZBB,
-> >  	RISCV_ISA_EXT_ID_MAX
-> >  };
-> >  static_assert(RISCV_ISA_EXT_ID_MAX <= RISCV_ISA_EXT_MAX);
-> > diff --git a/arch/riscv/include/asm/string.h b/arch/riscv/include/asm/string.h
-> > index a96b1fea24fe..17dfc4ab4c80 100644
-> > --- a/arch/riscv/include/asm/string.h
-> > +++ b/arch/riscv/include/asm/string.h
-> > @@ -6,6 +6,8 @@
-> >  #ifndef _ASM_RISCV_STRING_H
-> >  #define _ASM_RISCV_STRING_H
-> >  
-> > +#include <asm/alternative-macros.h>
-> > +#include <asm/errata_list.h>
-> >  #include <linux/types.h>
-> >  #include <linux/linkage.h>
-> >  
-> > diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-> > index 1b9a5a66e55a..c4d1aa166f8b 100644
-> > --- a/arch/riscv/kernel/cpu.c
-> > +++ b/arch/riscv/kernel/cpu.c
-> > @@ -162,6 +162,7 @@ arch_initcall(riscv_cpuinfo_init);
-> >   *    extensions by an underscore.
-> >   */
-> >  static struct riscv_isa_ext_data isa_ext_arr[] = {
-> > +	__RISCV_ISA_EXT_DATA(zbb, RISCV_ISA_EXT_ZBB),
-> >  	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
-> >  	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
-> >  	__RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
-> > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> > index 205bbd6b1fce..bf3a791d7110 100644
-> > --- a/arch/riscv/kernel/cpufeature.c
-> > +++ b/arch/riscv/kernel/cpufeature.c
-> > @@ -222,6 +222,7 @@ void __init riscv_fill_hwcap(void)
-> >  					set_bit(nr, this_isa);
-> >  				}
-> >  			} else {
-> > +				SET_ISA_EXT_MAP("zbb", RISCV_ISA_EXT_ZBB);
-> >  				SET_ISA_EXT_MAP("sscofpmf", RISCV_ISA_EXT_SSCOFPMF);
-> >  				SET_ISA_EXT_MAP("svpbmt", RISCV_ISA_EXT_SVPBMT);
-> >  				SET_ISA_EXT_MAP("zicbom", RISCV_ISA_EXT_ZICBOM);
-> > @@ -301,6 +302,20 @@ static bool __init_or_module cpufeature_probe_zicbom(unsigned int stage)
-> >  	return true;
-> >  }
-> >  
-> > +static bool __init_or_module cpufeature_probe_zbb(unsigned int stage)
-> > +{
-> > +	if (!IS_ENABLED(CONFIG_RISCV_ISA_ZBB))
-> > +		return false;
-> > +
-> > +	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
-> > +		return false;
-> > +
-> > +	if (!riscv_isa_extension_available(NULL, ZBB))
-> > +		return false;
-> > +
-> > +	return true;
-> > +}
-> > +
-> >  /*
-> >   * Probe presence of individual extensions.
-> >   *
-> > @@ -318,6 +333,9 @@ static u32 __init_or_module cpufeature_probe(unsigned int stage)
-> >  	if (cpufeature_probe_zicbom(stage))
-> >  		cpu_req_feature |= BIT(CPUFEATURE_ZICBOM);
-> >  
-> > +	if (cpufeature_probe_zbb(stage))
-> > +		cpu_req_feature |= BIT(CPUFEATURE_ZBB);
-> > +
-> >  	return cpu_req_feature;
-> >  }
-> >  
-> > diff --git a/arch/riscv/lib/strcmp.S b/arch/riscv/lib/strcmp.S
-> > index 94440fb8390c..5428a8f2eb84 100644
-> > --- a/arch/riscv/lib/strcmp.S
-> > +++ b/arch/riscv/lib/strcmp.S
-> > @@ -3,9 +3,14 @@
-> >  #include <linux/linkage.h>
-> >  #include <asm/asm.h>
-> >  #include <asm-generic/export.h>
-> > +#include <asm/alternative-macros.h>
-> > +#include <asm/errata_list.h>
-> >  
-> >  /* int strcmp(const char *cs, const char *ct) */
-> >  SYM_FUNC_START(strcmp)
-> > +
-> > +	ALTERNATIVE("nop", "j variant_zbb", 0, CPUFEATURE_ZBB, CONFIG_RISCV_ISA_ZBB)
+On 12 Jan 2023, at 21:06, Vineet Gupta <vineetg@rivosinc.com> wrote:
 > 
-> How about strcmp_zbb and similar for the other functions for the labels?
-
-agreed, that is a way more sensible naming
-
-> > +
-> >  	/*
-> >  	 * Returns
-> >  	 *   a0 - comparison result, value like strcmp
-> > @@ -34,4 +39,93 @@ SYM_FUNC_START(strcmp)
-> >  	bnez	t1, 1b
-> >  	li	a0, 0
-> >  	j	2b
-> > +
-> > +/*
-> > + * Variant of strcmp using the ZBB extension if available
-> > + */
-> > +#ifdef CONFIG_RISCV_ISA_ZBB
-> > +variant_zbb:
-> > +#define src1		a0
-> > +#define result		a0
-> > +#define src2		t5
-> > +#define data1		t0
-> > +#define data2		t1
-> > +#define align		t2
-> > +#define data1_orcb	t3
-> > +#define m1		t4
+> This implements the elf loader hook to parse RV specific
+> .riscv.attributes section. This section is inserted by compilers
+> (gcc/llvm) with build related information such as -march organized as
+> tag/value attribute pairs.
 > 
-> nit: It's probably just me, but I'm not a big fan of creating defines
-> for registers, particularly when the meaning of the registers' contents
-> gets changed, because then the name, at least temporarily, no longer
-> accurately describes the content.
-
-I just had to scroll up and down a lot between these defines and the
-parts using it, cause I couldn't really remember which register that was :-)
-
-Also these somewhat generic names the produce conflicts in my
-zbb+fast-unaligned variant, so would need more prefixes.
-
-And I actually find it harder to read the assembly when the names are
-these different lengths instead of the usual 2 characters and things are
-neatly aligned in the assembly.
-
-
-So in sum, I decided to follow that suggestion and dropped the defines.
-
-
-> And, in this case, it looks like the code matches Appendix A, except the
-> register and label naming. I'd prefer to have those match too so I could
-> "review" with the diff tool.
+> It identifies the various attribute tags (and corresponding values) as
+> currently specified in the psABI specification.
 > 
-> > +
-> > +.option push
-> > +.option arch,+zbb
-> > +
-> > +	/*
-> > +	 * Returns
-> > +	 *   a0 - comparison result, value like strcmp
-> > +	 *
-> > +	 * Parameters
-> > +	 *   a0 - string1
-> > +	 *   a1 - string2
-> > +	 *
-> > +	 * Clobbers
-> > +	 *   t0, t1, t2, t3, t4, t5
-> > +	 */
-> > +	mv	src2, a1
-> > +
-> > +	or	align, src1, src2
-> > +	li	m1, -1
-> > +	and	align, align, SZREG-1
-> > +	bnez	align, 3f
-> > +
-> > +	/* Main loop for aligned string.  */
-> > +	.p2align 3
+> This patch only implements the elf parsing mechanics, leaving out the
+> recording/usage of the attributes to subsequent patches.
 > 
-> Why are the starts of the loops aligned to 8 byte boundaries?
+> Signed-off-by: Vineet Gupta <vineetg@rivosinc.com>
+> ---
+> Changes since v1 [1]
+>  - Handling potential oob accesses due to against malformed elf contents
+>  - Handling of multiple sub-subsections
 > 
-> > +1:
-> > +	REG_L	data1, 0(src1)
-> > +	REG_L	data2, 0(src2)
-> > +	orc.b	data1_orcb, data1
-> > +	bne	data1_orcb, m1, 2f
-> > +	addi	src1, src1, SZREG
-> > +	addi	src2, src2, SZREG
-> > +	beq	data1, data2, 1b
-> > +
-> > +	/*
-> > +	 * Words don't match, and no null byte in the first
-> > +	 * word. Get bytes in big-endian order and compare.
-> > +	 */
-> > +#ifndef CONFIG_CPU_BIG_ENDIAN
-> > +	rev8	data1, data1
-> > +	rev8	data2, data2
-> > +#endif
-> > +
-> > +	/* Synthesize (data1 >= data2) ? 1 : -1 in a branchless sequence. */
-> > +	sltu	result, data1, data2
-> > +	neg	result, result
-> > +	ori	result, result, 1
-> > +	ret
-> > +
-> > +2:
-> > +	/*
-> > +	 * Found a null byte.
-> > +	 * If words don't match, fall back to simple loop.
-> > +	 */
-> > +	bne	data1, data2, 3f
-> > +
-> > +	/* Otherwise, strings are equal. */
-> > +	li	result, 0
-> > +	ret
-> > +
-> > +	/* Simple loop for misaligned strings. */
-> > +	.p2align 3
-> > +3:
-> > +	lbu	data1, 0(src1)
-> > +	lbu	data2, 0(src2)
-> > +	addi	src1, src1, 1
-> > +	addi	src2, src2, 1
-> > +	bne	data1, data2, 4f
-> > +	bnez	data1, 3b
-> > +
-> > +4:
-> > +	sub	result, data1, data2
+> [1]https://lore.kernel.org/linux-riscv/20230110201841.2069353-1-vineetg@rivosinc.com
 > 
-> The non-optimized version returns explicitly -1, 0, 1, whereas this
-> returns < 0, 0, > 0. Assuming we don't need the explicit -1 / 1 then we
-> can change the non-optimized version to do this subtraction for its
-> return value too, saving several instructions.
+> Given the current state of discussions, the intended Vector extension
+> support would likely not need it, still posting the reworked v2 for
+> logical conclusion and for posterity in case need comes up in future
+> for something like CFI elf annotation.
+> Maintainers/reviewers can decide whether to merge it.
+> ---
+> arch/riscv/Kconfig           |   1 +
+> arch/riscv/include/asm/elf.h |  11 ++
+> arch/riscv/kernel/Makefile   |   1 +
+> arch/riscv/kernel/elf-attr.c | 232 +++++++++++++++++++++++++++++++++++
+> 4 files changed, 245 insertions(+)
+> create mode 100644 arch/riscv/kernel/elf-attr.c
 > 
-> > +	ret
-> > +
-> > +.option pop
-> > +#endif
-> >  SYM_FUNC_END(strcmp)
-> > diff --git a/arch/riscv/lib/strlen.S b/arch/riscv/lib/strlen.S
-> > index 09a7aaff26c8..738efb04307d 100644
-> > --- a/arch/riscv/lib/strlen.S
-> > +++ b/arch/riscv/lib/strlen.S
-> > @@ -3,9 +3,14 @@
-> >  #include <linux/linkage.h>
-> >  #include <asm/asm.h>
-> >  #include <asm-generic/export.h>
-> > +#include <asm/alternative-macros.h>
-> > +#include <asm/errata_list.h>
-> >  
-> >  /* int strlen(const char *s) */
-> >  SYM_FUNC_START(strlen)
-> > +
-> > +	ALTERNATIVE("nop", "j variant_zbb", 0, CPUFEATURE_ZBB, CONFIG_RISCV_ISA_ZBB)
-> > +
-> >  	/*
-> >  	 * Returns
-> >  	 *   a0 - string length
-> > @@ -25,4 +30,113 @@ SYM_FUNC_START(strlen)
-> >  2:
-> >  	addi	t1, t1, 1
-> >  	j	1b
-> > +
-> > +/*
-> > + * Variant of strlen using the ZBB extension if available
-> > + */
-> > +#ifdef CONFIG_RISCV_ISA_ZBB
-> > +variant_zbb:
-> > +
-> > +#define src		a0
-> > +#define result		a0
-> > +#define addr		t0
-> > +#define data		t1
-> > +#define offset		t2
-> > +#define offset_bits	t2
-> > +#define valid_bytes	t3
-> > +#define m1		t3
-> > +
-> > +#ifdef CONFIG_CPU_BIG_ENDIAN
-> > +# define CZ	clz
-> > +# define SHIFT	sll
-> > +#else
-> > +# define CZ	ctz
-> > +# define SHIFT	srl
-> > +#endif
-> > +
-> > +.option push
-> > +.option arch,+zbb
-> > +
-> > +	/*
-> > +	 * Returns
-> > +	 *   a0 - string length
-> > +	 *
-> > +	 * Parameters
-> > +	 *   a0 - String to measure
-> > +	 *
-> > +	 * Clobbers
-> > +	 *   t0, t1, t2, t3
-> > +	 */
-> > +
-> > +	/* Number of irrelevant bytes in the first word. */
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index e2b656043abf..f7e0ab05a2d2 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -12,6 +12,7 @@ config 32BIT
 > 
-> I see that this comment doesn't just apply to the next instruction,
-> but to several instructions. It threw me off at first. Again, I
-> think I'd prefer we just copy+paste the Appendix, comments an all.
-
-Hmm, somehow for me as non-native-speaker in assembly [ ;-) ],
-using temporary registers for temporary variables feels somehow
-more intuitive. 
-
-
-> > +	andi	offset, src, SZREG-1
-> > +
-> > +	/* Align pointer. */
-> > +	andi	addr, src, -SZREG
-> > +
-> > +	li	valid_bytes, SZREG
-> > +	sub	valid_bytes, valid_bytes, offset
-> > +	slli	offset_bits, offset, RISCV_LGPTR
+> config RISCV
+> 	def_bool y
+> +	select ARCH_BINFMT_ELF_STATE
+> 	select ARCH_CLOCKSOURCE_INIT
+> 	select ARCH_ENABLE_HUGEPAGE_MIGRATION if HUGETLB_PAGE && MIGRATION
+> 	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
+> diff --git a/arch/riscv/include/asm/elf.h b/arch/riscv/include/asm/elf.h
+> index e7acffdf21d2..7ab8bd0ec330 100644
+> --- a/arch/riscv/include/asm/elf.h
+> +++ b/arch/riscv/include/asm/elf.h
+> @@ -116,6 +116,17 @@ do {							\
+> 		*(struct user_regs_struct *)regs;	\
+> } while (0);
 > 
-> The shift immediate should be 3, even for rv32, since we want
-> bits-per-byte, not bytes-per-word. The spec example uses PTRLOG, which
-> does imply bytes-per-word to me as well, so that seems like a spec bug.
-
-fixed this according to your's and Christoph's comment
-
-
-> > +
-> > +	/* Get the first word.  */
-> > +	REG_L	data, 0(addr)
-> > +
-> > +	/*
-> > +	 * Shift away the partial data we loaded to remove the irrelevant bytes
-> > +	 * preceding the string with the effect of adding NUL bytes at the
-> > +	 * end of the string.
+> +struct arch_elf_state {
+> +};
+> +
+> +#define INIT_ARCH_ELF_STATE {}
+> +
+> +extern int arch_elf_pt_proc(void *ehdr, void *phdr, struct file *elf,
+> +			    bool is_interp, struct arch_elf_state *state);
+> +
+> +extern int arch_check_elf(void *ehdr, bool has_interpreter, void *interp_ehdr,
+> +			  struct arch_elf_state *state);
+> +
+> #ifdef CONFIG_COMPAT
 > 
-> the end of the string's first word.
-
-ok
-
-
-> > +	 */
-> > +	SHIFT	data, data, offset_bits
-> > +
-> > +	/* Convert non-NUL into 0xff and NUL into 0x00. */
-> > +	orc.b	data, data
-> > +
-> > +	/* Convert non-NUL into 0x00 and NUL into 0xff. */
-> > +	not	data, data
-> > +
-> > +	/*
-> > +	 * Search for the first set bit (corresponding to a NUL byte in the
-> > +	 * original chunk).
-> > +	 */
-> > +	CZ	data, data
-> > +
-> > +	/*
-> > +	 * The first chunk is special: commpare against the number
+> #define SET_PERSONALITY(ex)					\
+> diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+> index 4cf303a779ab..eff6d845ac9d 100644
+> --- a/arch/riscv/kernel/Makefile
+> +++ b/arch/riscv/kernel/Makefile
+> @@ -50,6 +50,7 @@ obj-y	+= riscv_ksyms.o
+> obj-y	+= stacktrace.o
+> obj-y	+= cacheinfo.o
+> obj-y	+= patch.o
+> +obj-y	+= elf-attr.o
+> obj-y	+= probes/
+> obj-$(CONFIG_MMU) += vdso.o vdso/
 > 
-> compare
+> diff --git a/arch/riscv/kernel/elf-attr.c b/arch/riscv/kernel/elf-attr.c
+> new file mode 100644
+> index 000000000000..51bcee92dd5b
+> --- /dev/null
+> +++ b/arch/riscv/kernel/elf-attr.c
+> @@ -0,0 +1,232 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (C) 2023 Rivos Inc.
+> + */
+> +
+> +#include <linux/binfmts.h>
+> +#include <linux/elf.h>
+> +#include <asm/unaligned.h>
+> +
+> +#undef pr_fmt
+> +#define pr_fmt(fmt) "rv-elf-attr: " fmt
+> +
+> +#define PT_RISCV_ATTRIBUTES		0x70000003
+> +
+> +#define RV_ATTR_TAG_file		1
+> +
+> +#define RV_ATTR_TAG_stack_align		4
+> +#define RV_ATTR_TAG_arch		5
+> +#define RV_ATTR_TAG_unaligned_access	6
+> +
+> +#define RV_ATTR_VENDOR_RISCV		"riscv"
+> +
+> +#define RV_ATTR_SEC_SZ			SZ_1K
+> +
+> +static void rv_elf_attr_int(u32 tag, u32 val)
+> +{
+> +	pr_debug("Tag %x=%d\n", tag, val);
+> +}
+> +
+> +static void rv_elf_attr_str(u32 tag, const unsigned char *str)
+> +{
+> +	pr_debug("Tag %x=[%s]\n", tag, str);
+> +}
+> +
+> +/*
+> + * Decode a ule128 encoded value.
+> + */
+> +static int
+> +decode_uleb128_safe(unsigned char **dpp, u32 *val, const unsigned char *p_end)
+> +{
+> +	unsigned char *bp = *dpp;
+> +	unsigned char byte;
+> +	unsigned int shift = 0;
+> +	u32 result = 0;
+> +	int ok = 0;
+> +
+> +	while (bp < p_end) {
+> +		byte = *bp++;
+> +		result |= (byte & 0x7f) << shift;
+> +		if ((byte & 0x80) == 0) {
+> +			ok = 1;
+> +			break;
 
-ok
+Why not just do the return here?
 
+> +		}
+> +		shift += 7;
+> +	}
+> +	if (!ok)
+> +		return -1;
+> +	*dpp = bp;
+> +	*val = result;
+> +	return 0;
+> +}
+> +
+> +/*
+> + * Parse a single elf attribute.
+> + */
+> +static int rv_parse_elf_attr_safe(unsigned char **dpp, unsigned char *p_end)
+> +{
+> +	unsigned char *p = *dpp;
+> +	unsigned char *str;
+> +	u32 tag, val, s_len;
+> +
+> +	if (decode_uleb128_safe(&p, &tag, p_end))
+> +		goto bad_attr;
+> +
+> +	switch (tag) {
+> +	case RV_ATTR_TAG_stack_align:
+> +		if (decode_uleb128_safe(&p, &val, p_end))
+> +			goto bad_attr;
+> +		rv_elf_attr_int(tag, val);
+> +		break;
+> +
+> +	case RV_ATTR_TAG_unaligned_access:
+> +		if (decode_uleb128_safe(&p, &val, p_end))
+> +			goto bad_attr;
+> +		rv_elf_attr_int(tag, val);
+> +		break;
+> +
+> +	case RV_ATTR_TAG_arch:
+> +		str = p;
+> +		s_len = strnlen(p, p_end - p) + 1;
+> +		p += s_len;
+> +		if (p > p_end)
 
-> > +	 * of valid bytes in this chunk.
-> > +	 */
-> > +	srli	result, data, 3
-> > +	bgtu	valid_bytes, result, 3f
-> > +
-> > +	/* Prepare for the word comparison loop. */
-> > +	addi	offset, addr, SZREG
-> > +	li	m1, -1
-> > +
-> > +	/*
-> > +	 * Our critical loop is 4 instructions and processes data in
-> > +	 * 4 byte or 8 byte chunks.
-> > +	 */
-> > +	.p2align 3
-> > +1:
-> > +	REG_L	data, SZREG(addr)
-> > +	addi	addr, addr, SZREG
-> > +	orc.b	data, data
-> > +	beq	data, m1, 1b
-> > +2:
-> > +	not	data, data
-> > +	CZ	data, data
-> > +
-> > +	/* Get number of processed words.  */
-> > +	sub	offset, addr, offset
-> > +
-> > +	/* Add number of characters in the first word.  */
-> > +	add	result, result, offset
-> > +	srli	data, data, 3
-> > +
-> > +	/* Add number of characters in the last word.  */
-> > +	add	result, result, data
-> > +3:
-> > +	ret
-> > +
-> > +.option pop
-> > +#endif
-> >  SYM_FUNC_END(strlen)
-> > diff --git a/arch/riscv/lib/strncmp.S b/arch/riscv/lib/strncmp.S
-> > index 493ab6febcb2..851428b439dc 100644
-> > --- a/arch/riscv/lib/strncmp.S
-> > +++ b/arch/riscv/lib/strncmp.S
-> > @@ -3,9 +3,14 @@
-> >  #include <linux/linkage.h>
-> >  #include <asm/asm.h>
-> >  #include <asm-generic/export.h>
-> > +#include <asm/alternative-macros.h>
-> > +#include <asm/errata_list.h>
-> >  
-> >  /* int strncmp(const char *cs, const char *ct, size_t count) */
-> >  SYM_FUNC_START(strncmp)
-> > +
-> > +	ALTERNATIVE("nop", "j variant_zbb", 0, CPUFEATURE_ZBB, CONFIG_RISCV_ISA_ZBB)
-> > +
-> >  	/*
-> >  	 * Returns
-> >  	 *   a0 - comparison result, value like strncmp
-> > @@ -37,4 +42,110 @@ SYM_FUNC_START(strncmp)
-> >  4:
-> >  	li	a0, 0
-> >  	j	2b
-> > +
-> > +/*
-> > + * Variant of strncmp using the ZBB extension if available
-> > + */
-> > +#ifdef CONFIG_RISCV_ISA_ZBB
-> > +variant_zbb:
-> > +
-> > +#define src1		a0
-> > +#define result		a0
-> > +#define src2		t6
-> > +#define len		a2
-> > +#define data1		t0
-> > +#define data2		t1
-> > +#define align		t2
-> > +#define data1_orcb	t3
-> > +#define limit		t4
-> > +#define m1		t5
-> > +
-> > +.option push
-> > +.option arch,+zbb
-> > +
-> > +	/*
-> > +	 * Returns
-> > +	 *   a0 - comparison result, like strncmp
-> > +	 *
-> > +	 * Parameters
-> > +	 *   a0 - string1
-> > +	 *   a1 - string2
-> > +	 *   a2 - number of characters to compare
-> > +	 *
-> > +	 * Clobbers
-> > +	 *   t0, t1, t2, t3, t4, t5, t6
-> > +	 */
-> > +	mv	src2, a1
-> > +
-> > +	or	align, src1, src2
-> > +	li	m1, -1
-> > +	and	align, align, SZREG-1
-> > +	add	limit, src1, len
-> > +	bnez	align, 4f
-> > +
-> > +	/* Adjust limit for fast-path.  */
-> > +	addi	limit, limit, -SZREG
+Constructing such a p is UB, check s_len before instead.
+
+> +			goto bad_attr;
+> +		rv_elf_attr_str(tag, str);
+> +		break;
+> +
+> +	default:
+> +		if (decode_uleb128_safe(&p, &val, p_end))
+
+From the ratified spec:
+
+  "RISC-V attributes have a string value if the tag number is odd and an integer value if the tag number is even."
+
+> +			goto bad_attr;
+> +		pr_debug("skipping Unrecognized Tag [%u]=%u\n", tag, val);
+> +		break;
+> +	}
+> +
+> +	*dpp = p;
+> +	return 0;
+> +bad_attr:
+> +	return -ENOEXEC;
+> +}
+> +
+> +/*
+> + * Parse .riscv.attributes elf section.
+> + */
+> +static int rv_parse_elf_attributes(struct file *f, const struct elf_phdr *phdr,
+> +				   struct arch_elf_state *state)
+> +{
+> +	unsigned char buf[RV_ATTR_SEC_SZ];
+> +	unsigned char *p, *p_end;
+> +	ssize_t n;
+> +	int ret = 0;
+> +	loff_t pos;
+> +
+> +	pr_debug("Section .riscv.attributes found\n");
+> +
+> +	/* Assume a reasonable size for now */
+> +	if (phdr->p_filesz > sizeof(buf))
+> +		goto bad_elf;
+> +
+> +	memset(buf, 0, RV_ATTR_SEC_SZ);
+
+This will hide bugs from sanitisers...
+
+> +	pos = phdr->p_offset;
+> +	n = kernel_read(f, &buf, phdr->p_filesz, &pos);
+> +
+> +	if (n < 0)
+> +		return -EIO;
+> +
+> +	p = buf;
+> +	p_end = p + n;
+> +
+> +	/* sanity check format-version */
+> +	if (*p++ != 'A')
+
+What if n is 0?
+
+> +		goto bad_elf;
+> +
+> +	/*
+> +	 * elf attribute section organized as Vendor sub-sections(s)
+> +	 *   {sub-section length, vendor name, vendor data}
+> +	 * Vendor data organized as sub-subsection(s)
+> +	 *   {tag, sub-subsection length, attributes contents}
+> +	 * Attribute contents organized as
+> +	 *   {tag, value} pair(s).
+> +	 */
+> +	while ((p_end - p) >= 4) {
+> +		int sub_len, vname_len;
+
+u32?
+
+> +
+> +		sub_len = get_unaligned_le32(p);
+> +		if (sub_len <= 4 || sub_len > n)
+
+n is the total amount read in, not the remaining amount.
+
+> +			goto bad_elf;
+> +
+> +		p += 4;
+> +		sub_len -= 4;
+> +
+> +		/* Vendor name string */
+> +		vname_len = strnlen(p, sub_len) + 1;
+> +		if (vname_len > sub_len)
+> +			goto bad_elf;
+> +
+> +		/* skip non-mandatory sub-section for now */
+> +		if (strncmp(p, RV_ATTR_VENDOR_RISCV, sub_len)) {
+> +			p += sub_len;
+> +			continue;
+> +		}
+> +
+> +		p += vname_len;
+> +		sub_len -= vname_len;
+> +
+> +		/* Vendor data: sub-subsections(s) */
+> +		while (sub_len > 0) {
+> +			u32 tag, content_len;
+> +			unsigned char *sub_end, *sub_start = p;
+
+Confusing naming for sub-subsection variables.
+
+> +
+> +			if (decode_uleb128_safe(&p, &tag, p_end))
+> +				goto bad_elf;
+> +
+> +			if ((p_end - p) < 4)
+> +				goto bad_elf;
+> +
+> +			content_len = get_unaligned_le32(p);
+> +			if (content_len > sub_len)
+> +				goto bad_elf;
+> +
+> +			p += 4;
+> +			sub_len -= content_len;
+> +			sub_end = sub_start + content_len;
+> +
+> +			/* For now handle attributes relating to whole file */
+> +			if (tag != RV_ATTR_TAG_file) {
+> +				p = sub_end;
+> +				continue;
+> +			}
+> +
+> +			/* Attribute(s): tag:value pairs */
+> +			while (p < sub_end) {
+> +				ret = rv_parse_elf_attr_safe(&p, p_end);
+> +				if (ret)
+> +					goto bad_elf;
+> +			}
+> +		}
+> +	}
+> +
+> +	return ret;
+> +bad_elf:
+> +	return -ENOEXEC;
+> +}
+> +
+> +/*
+> + * Hook invoked by generic elf loader to parse riscv specific elf segments.
+> + */
+> +int arch_elf_pt_proc(void *_ehdr, void *_phdr, struct file *elf,
+> +		     bool is_interp, struct arch_elf_state *state)
+> +{
+> +	struct elf_phdr *phdr = _phdr;
+> +	int ret = 0;
+> +
+> +	if (phdr->p_type == PT_RISCV_ATTRIBUTES && !is_interp)
+> +		ret = rv_parse_elf_attributes(elf, phdr, state);
+> +
+> +	return ret;
+> +}
+> +
+> +int arch_check_elf(void *_ehdr, bool has_interpreter, void *_interp_ehdr,
+> +		   struct arch_elf_state *state)
+> +{
+> +	return 0;
+> +}
+> -- 
+> 2.34.1
 > 
-> To avoid unnecessarily writing the last SZREG bytes one at a time when
-> 'len' is SZREG aligned, we should be using the explicitly aligned limit
-> here (limit & ~(SZREG - 1)) rather than just subtracting SZREG. Then, down
-> in the slow-path we use the original limit to finish off if len wasn't
-> aligned. When it was aligned, we'll just immediately branch to the ret.
-> (I suspect many times 'len' will be SZREG aligned, since string buffers
-> are typically allocated with power-of-two sizes).
-
-I followed Christoph's suggestion from his follow-up to your mail to
-address this.
-
-
-> > +
-> > +	/* Main loop for aligned string.  */
-> > +	.p2align 3
-> > +1:
-> > +	bgt	src1, limit, 3f
-> > +	REG_L	data1, 0(src1)
-> > +	REG_L	data2, 0(src2)
-> > +	orc.b	data1_orcb, data1
-> > +	bne	data1_orcb, m1, 2f
-> > +	addi	src1, src1, SZREG
-> > +	addi	src2, src2, SZREG
-> > +	beq	data1, data2, 1b
-> > +
-> > +	/*
-> > +	 * Words don't match, and no null byte in the first
-> > +	 * word. Get bytes in big-endian order and compare.
-> > +	 */
-> > +#ifndef CONFIG_CPU_BIG_ENDIAN
-> > +	rev8	data1, data1
-> > +	rev8	data2, data2
-> > +#endif
-> > +
-> > +	/* Synthesize (data1 >= data2) ? 1 : -1 in a branchless sequence.  */
-> > +	sltu	result, data1, data2
-> > +	neg	result, result
-> > +	ori	result, result, 1
-> > +	ret
-> > +
-> > +2:
-> > +	/*
-> > +	 * Found a null byte.
-> > +	 * If words don't match, fall back to simple loop.
-> > +	 */
-> > +	bne	data1, data2, 3f
-> > +
-> > +	/* Otherwise, strings are equal.  */
-> > +	li	result, 0
-> > +	ret
-> > +
-> > +	/* Simple loop for misaligned strings.  */
-> > +3:
-> > +	/* Restore limit for slow-path.  */
-> > +	addi	limit, limit, SZREG
-> > +	.p2align 3
-> > +4:
-> > +	bge	src1, limit, 6f
-> > +	lbu	data1, 0(src1)
-> > +	lbu	data2, 0(src2)
-> > +	addi	src1, src1, 1
-> > +	addi	src2, src2, 1
-> > +	bne	data1, data2, 5f
-> > +	bnez	data1, 4b
-> > +
-> > +5:
-> > +	sub	result, data1, data2
-> > +	ret
-> > +
-> > +6:
-> > +	li	result, 0
-> > +	ret
 > 
-> As strcmp and strncmp have so much in common it's tempting to try and
-> merge them somehow. Maybe with a handful of macros shared between them?
-
-I guess the question is does this make things easier to read or harder.
-
-As mentioned above, going between register defines and code was hard
-already. With at least a strcmp-zbb-unaligned variant in my follow-up and
-possible more future variants, my feeling is to leave strcmp, strncmp in
-their own .S files for readability (and how everyone else is doing it)
-and thus sharing macros between them would require a shared header then.
-
-Without comments strncmp_zbb is like 46 lines long, so right now it feels
-like splitting things up would make it harder to follow, but I could be wrong :-) .
-
-
-Heiko
-
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 
 _______________________________________________
