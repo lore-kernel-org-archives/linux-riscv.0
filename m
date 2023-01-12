@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB1D2C54EBD
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jan 2023 04:39:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 248A0C54EBD
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jan 2023 04:39:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=jJxsTD4ja15d1WvJLH+df0MB3B/Am6CiqCSDxd84ydc=; b=c79JvH/3TaIRNz
-	08oinDxnSoaQHFCP53dcH91U6Vcp/2XHoFN2Hkm3N8KzQgE8/vDJRazGQVpJdZJIg2qNbnbAgs6nd
-	QH/N0RgZBbV6IGbAN0LA/lItJD36QpMIPahUyLvFPM1B1xFLXqtLZ+ke5fb4NF6HaffC+YhE7W2qM
-	j0yVjpNoCLLFn5j09mSe/qoqvdJqKu7KOUkt+PUvJlCp+EK51/huvLzisJrHG2XqG1jYQqzGMwbw/
-	ahX14fbv6IauJEQBKo7AsA6dRkvXP6zUd7+y9SeFzby+eweyOnWEkbEd+NiyjCzULnsEwb78arU/f
-	shDGYUWxf72jh5K5KTTw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=gcp9OhcBHmE7bShuSj1owjO8zHqE61H+d7+S1fAXjCk=; b=PY6hdj5ynyMxtw
+	xrVZqCSdkXzQQ3LbtWvxa7c1V8cvATLQBBr9BN8BOCMgSUr4IDAbmVE+1qba+HdehhFbZ3PFDox8k
+	I1CSFYXvwmAnb1rnwV3eNxIySApzIJ74Td7BJcBPWCHN4vEeIUE/SiozOSa7p9fvBJNEU4VCONAoT
+	/2D7JpWzHvjg1QyXCHYJbsSVO35l4Aoxq/9Ivqgp5znLtV88l3nNWUU1f8SKDDkePSZaxesV7GMDc
+	8Qc/B3kRXogHJPRzTVMBSd+TEtg3Vf/bUAevhTbTQvfPTnfnAR4ZYb33CHPiaSXeUkDru0uTzviLy
+	MOFVuIww+BkG4yp4DL3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFpMs-00DjTq-Cb; Thu, 12 Jan 2023 04:39:10 +0000
+	id 1pFpMv-00DjUf-NO; Thu, 12 Jan 2023 04:39:13 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFpMp-00DjOQ-MW
-	for linux-riscv@lists.infradead.org; Thu, 12 Jan 2023 04:39:09 +0000
+	id 1pFpMp-00DjOS-Ls
+	for linux-riscv@lists.infradead.org; Thu, 12 Jan 2023 04:39:10 +0000
 Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id A38A424DBC0;
-	Thu, 12 Jan 2023 12:38:19 +0800 (CST)
+	by ex01.ufhost.com (Postfix) with ESMTP id E44E624DDB2;
+	Thu, 12 Jan 2023 12:38:27 +0800 (CST)
 Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX165.cuchost.com
  (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 12 Jan
- 2023 12:38:19 +0800
+ 2023 12:38:27 +0800
 Received: from ubuntu.localdomain (202.188.176.82) by EXMBX168.cuchost.com
  (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 12 Jan
- 2023 12:38:15 +0800
+ 2023 12:38:23 +0800
 From: Jia Jie Ho <jiajie.ho@starfivetech.com>
 To: Olivia Mackall <olivia@selenic.com>, Herbert Xu
 	<herbert@gondor.apana.org.au>, Rob Herring <robh+dt@kernel.org>, "Krzysztof
@@ -43,18 +43,20 @@ To: Olivia Mackall <olivia@selenic.com>, Herbert Xu
 	<kernel@esmil.dk>, Conor Dooley <conor.dooley@microchip.com>
 CC: <linux-crypto@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-Subject: [PATCH v4 0/3] hwrng: starfive: Add driver for TRNG module
-Date: Thu, 12 Jan 2023 12:38:09 +0800
-Message-ID: <20230112043812.150393-1-jiajie.ho@starfivetech.com>
+Subject: [PATCH v4 2/3] hwrng: starfive - Add TRNG driver for StarFive SoC
+Date: Thu, 12 Jan 2023 12:38:11 +0800
+Message-ID: <20230112043812.150393-3-jiajie.ho@starfivetech.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20230112043812.150393-1-jiajie.ho@starfivetech.com>
+References: <20230112043812.150393-1-jiajie.ho@starfivetech.com>
 MIME-Version: 1.0
 X-Originating-IP: [202.188.176.82]
 X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX168.cuchost.com
  (172.16.6.78)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230111_203907_913972_63B1E8DA 
-X-CRM114-Status: GOOD (  13.95  )
+X-CRM114-CacheID: sfid-20230111_203908_165297_ED315CBA 
+X-CRM114-Status: GOOD (  27.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,46 +73,471 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch series adds kernel support for StarFive hardware random
-number generator. First 2 patches add binding docs and device driver for
-this module. Patch 3 adds devicetree entry for VisionFive 2 SoC.
+This adds driver support for the hardware random number generator in
+Starfive SoCs and adds StarFive TRNG entry to MAINTAINERS.
 
-Patch 3 needs to be applied on top of:
-https://patchwork.kernel.org/project/linux-riscv/patch/20221220011247.35560-7-hal.feng@starfivetech.com/
-
-Patch 3 also depends on additional clock and reset patches for stg domain
-that are yet to be submitted to mailing list.
-
-Changes v3 -> v4:
-- move init completion before IRQ registration to be prepared for
-  spurious interrupts. (Herbert)
-- add locks to guard concurrent write to same register in Patch 2.
-  (Herbert)
-
-Changes v2 -> v3:
-- use constant usecs and convert to jiffies in Patch 2. (Herbert)
-- remove sleep in irq handler in Patch 2. (Herbert)
-- limit wait timer to 40us if wait == 0 for trng read. (Herbert)
-
-Changes v1 -> v2:
-- updated of_match_ptr and added pm_sleep_ptr in Patch 2. (by Krzysztof)
-- drop "status" in dts as module is always on in Patch 3. (by Krzysztof)
-
-Jia Jie Ho (3):
-  dt-bindings: rng: Add StarFive TRNG module
-  hwrng: starfive - Add TRNG driver for StarFive SoC
-  riscv: dts: starfive: Add TRNG node for VisionFive 2
-
- .../bindings/rng/starfive,jh7110-trng.yaml    |  55 +++
- MAINTAINERS                                   |   6 +
- arch/riscv/boot/dts/starfive/jh7110.dtsi      |  10 +
- drivers/char/hw_random/Kconfig                |  11 +
- drivers/char/hw_random/Makefile               |   1 +
- drivers/char/hw_random/starfive-trng.c        | 397 ++++++++++++++++++
- 6 files changed, 480 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/rng/starfive,jh7110-trng.yaml
+Co-developed-by: Jenny Zhang <jenny.zhang@starfivetech.com>
+Signed-off-by: Jenny Zhang <jenny.zhang@starfivetech.com>
+Signed-off-by: Jia Jie Ho <jiajie.ho@starfivetech.com>
+---
+ MAINTAINERS                            |   6 +
+ drivers/char/hw_random/Kconfig         |  11 +
+ drivers/char/hw_random/Makefile        |   1 +
+ drivers/char/hw_random/starfive-trng.c | 397 +++++++++++++++++++++++++
+ 4 files changed, 415 insertions(+)
  create mode 100644 drivers/char/hw_random/starfive-trng.c
 
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 65140500d9f8..b91e3fc11fc6 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -19626,6 +19626,12 @@ F:	drivers/reset/reset-starfive.c
+ F:	include/linux/reset/starfive.h
+ F:	include/dt-bindings/reset/starfive*
+ 
++STARFIVE TRNG DRIVER
++M:	Jia Jie Ho <jiajie.ho@starfivetech.com>
++S:	Maintained
++F:	Documentation/devicetree/bindings/rng/starfive*
++F:	drivers/char/hw_random/starfive-trng.c
++
+ STATIC BRANCH/CALL
+ M:	Peter Zijlstra <peterz@infradead.org>
+ M:	Josh Poimboeuf <jpoimboe@kernel.org>
+diff --git a/drivers/char/hw_random/Kconfig b/drivers/char/hw_random/Kconfig
+index 3da8e85f8aae..ddd7ada7f877 100644
+--- a/drivers/char/hw_random/Kconfig
++++ b/drivers/char/hw_random/Kconfig
+@@ -549,6 +549,17 @@ config HW_RANDOM_CN10K
+ 	 To compile this driver as a module, choose M here.
+ 	 The module will be called cn10k_rng. If unsure, say Y.
+ 
++config HW_RANDOM_STARFIVE
++	tristate "StarFive HW Random Number Generator support"
++	depends on SOC_STARFIVE
++	depends on HW_RANDOM
++	help
++	  This driver provides support for the Hardware Random Number
++	  Generator in StarFive SoCs.
++
++	  To compile this driver as a module, choose M here.
++	  The module will be called starfive-trng.
++
+ endif # HW_RANDOM
+ 
+ config UML_RANDOM
+diff --git a/drivers/char/hw_random/Makefile b/drivers/char/hw_random/Makefile
+index 3e948cf04476..f68ac370847f 100644
+--- a/drivers/char/hw_random/Makefile
++++ b/drivers/char/hw_random/Makefile
+@@ -47,3 +47,4 @@ obj-$(CONFIG_HW_RANDOM_XIPHERA) += xiphera-trng.o
+ obj-$(CONFIG_HW_RANDOM_ARM_SMCCC_TRNG) += arm_smccc_trng.o
+ obj-$(CONFIG_HW_RANDOM_CN10K) += cn10k-rng.o
+ obj-$(CONFIG_HW_RANDOM_POLARFIRE_SOC) += mpfs-rng.o
++obj-$(CONFIG_HW_RANDOM_STARFIVE) += starfive-trng.o
+diff --git a/drivers/char/hw_random/starfive-trng.c b/drivers/char/hw_random/starfive-trng.c
+new file mode 100644
+index 000000000000..a906f5dd4c19
+--- /dev/null
++++ b/drivers/char/hw_random/starfive-trng.c
+@@ -0,0 +1,397 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * TRNG driver for the StarFive SoC
++ *
++ * Copyright (C) 2022 StarFive Technology Co.
++ */
++
++#include <linux/clk.h>
++#include <linux/completion.h>
++#include <linux/delay.h>
++#include <linux/err.h>
++#include <linux/hw_random.h>
++#include <linux/interrupt.h>
++#include <linux/io.h>
++#include <linux/iopoll.h>
++#include <linux/kernel.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/platform_device.h>
++#include <linux/pm_runtime.h>
++#include <linux/random.h>
++#include <linux/reset.h>
++
++/* trng register offset */
++#define STARFIVE_CTRL			0x00
++#define STARFIVE_STAT			0x04
++#define STARFIVE_MODE			0x08
++#define STARFIVE_SMODE			0x0C
++#define STARFIVE_IE			0x10
++#define STARFIVE_ISTAT			0x14
++#define STARFIVE_RAND0			0x20
++#define STARFIVE_RAND1			0x24
++#define STARFIVE_RAND2			0x28
++#define STARFIVE_RAND3			0x2C
++#define STARFIVE_RAND4			0x30
++#define STARFIVE_RAND5			0x34
++#define STARFIVE_RAND6			0x38
++#define STARFIVE_RAND7			0x3C
++#define STARFIVE_AUTO_RQSTS		0x60
++#define STARFIVE_AUTO_AGE		0x64
++
++/* CTRL CMD */
++#define STARFIVE_CTRL_EXEC_NOP		0x0
++#define STARFIVE_CTRL_GENE_RANDNUM	0x1
++#define STARFIVE_CTRL_EXEC_RANDRESEED	0x2
++
++/* STAT */
++#define STARFIVE_STAT_NONCE_MODE	BIT(2)
++#define STARFIVE_STAT_R256		BIT(3)
++#define STARFIVE_STAT_MISSION_MODE	BIT(8)
++#define STARFIVE_STAT_SEEDED		BIT(9)
++#define STARFIVE_STAT_LAST_RESEED(x)	((x) << 16)
++#define STARFIVE_STAT_SRVC_RQST		BIT(27)
++#define STARFIVE_STAT_RAND_GENERATING	BIT(30)
++#define STARFIVE_STAT_RAND_SEEDING	BIT(31)
++
++/* MODE */
++#define STARFIVE_MODE_R256		BIT(3)
++
++/* SMODE */
++#define STARFIVE_SMODE_NONCE_MODE	BIT(2)
++#define STARFIVE_SMODE_MISSION_MODE	BIT(8)
++#define STARFIVE_SMODE_MAX_REJECTS(x)	((x) << 16)
++
++/* IE */
++#define STARFIVE_IE_RAND_RDY_EN		BIT(0)
++#define STARFIVE_IE_SEED_DONE_EN	BIT(1)
++#define STARFIVE_IE_LFSR_LOCKUP_EN	BIT(4)
++#define STARFIVE_IE_GLBL_EN		BIT(31)
++
++#define STARFIVE_IE_ALL			(STARFIVE_IE_GLBL_EN | \
++					 STARFIVE_IE_RAND_RDY_EN | \
++					 STARFIVE_IE_SEED_DONE_EN | \
++					 STARFIVE_IE_LFSR_LOCKUP_EN)
++
++/* ISTAT */
++#define STARFIVE_ISTAT_RAND_RDY		BIT(0)
++#define STARFIVE_ISTAT_SEED_DONE	BIT(1)
++#define STARFIVE_ISTAT_LFSR_LOCKUP	BIT(4)
++
++#define STARFIVE_RAND_LEN		sizeof(u32)
++
++#define to_trng(p)			container_of(p, struct starfive_trng, rng)
++
++enum reseed {
++	RANDOM_RESEED,
++	NONCE_RESEED,
++};
++
++enum mode {
++	PRNG_128BIT,
++	PRNG_256BIT,
++};
++
++struct starfive_trng {
++	struct device		*dev;
++	void __iomem		*base;
++	struct clk		*hclk;
++	struct clk		*ahb;
++	struct reset_control	*rst;
++	struct hwrng		rng;
++	struct completion	random_done;
++	struct completion	reseed_done;
++	u32			mode;
++	u32			mission;
++	u32			reseed;
++	/* protects against concurrent write to ctrl register */
++	spinlock_t		write_lock;
++};
++
++static u16 autoreq;
++module_param(autoreq, ushort, 0);
++MODULE_PARM_DESC(autoreq, "Auto-reseeding after random number requests by host reaches specified counter:\n"
++				" 0 - disable counter\n"
++				" other - reload value for internal counter");
++
++static u16 autoage;
++module_param(autoage, ushort, 0);
++MODULE_PARM_DESC(autoage, "Auto-reseeding after specified timer countdowns to 0:\n"
++				" 0 - disable timer\n"
++				" other - reload value for internal timer");
++
++static inline int starfive_trng_wait_idle(struct starfive_trng *trng)
++{
++	u32 stat;
++
++	return readl_relaxed_poll_timeout(trng->base + STARFIVE_STAT, stat,
++					  !(stat & (STARFIVE_STAT_RAND_GENERATING |
++						    STARFIVE_STAT_RAND_SEEDING)),
++					  10, 100000);
++}
++
++static inline void starfive_trng_irq_mask_clear(struct starfive_trng *trng)
++{
++	/* clear register: ISTAT */
++	u32 data = readl(trng->base + STARFIVE_ISTAT);
++
++	writel(data, trng->base + STARFIVE_ISTAT);
++}
++
++static int starfive_trng_cmd(struct starfive_trng *trng, u32 cmd, bool wait)
++{
++	int wait_time = 1000;
++
++	/* allow up to 40 us for wait == 0 */
++	if (!wait)
++		wait_time = 40;
++
++	switch (cmd) {
++	case STARFIVE_CTRL_GENE_RANDNUM:
++		reinit_completion(&trng->random_done);
++		spin_lock_irq(&trng->write_lock);
++		writel(cmd, trng->base + STARFIVE_CTRL);
++		spin_unlock_irq(&trng->write_lock);
++		if (!wait_for_completion_timeout(&trng->random_done, usecs_to_jiffies(wait_time)))
++			return -ETIMEDOUT;
++		break;
++	case STARFIVE_CTRL_EXEC_RANDRESEED:
++		reinit_completion(&trng->reseed_done);
++		spin_lock_irq(&trng->write_lock);
++		writel(cmd, trng->base + STARFIVE_CTRL);
++		spin_unlock_irq(&trng->write_lock);
++		if (!wait_for_completion_timeout(&trng->reseed_done, usecs_to_jiffies(wait_time)))
++			return -ETIMEDOUT;
++		break;
++	default:
++		return -EINVAL;
++	}
++
++	return 0;
++}
++
++static int starfive_trng_init(struct hwrng *rng)
++{
++	struct starfive_trng *trng = to_trng(rng);
++	u32 mode, intr = 0;
++
++	/* setup Auto Request/Age register */
++	writel(autoage, trng->base + STARFIVE_AUTO_AGE);
++	writel(autoreq, trng->base + STARFIVE_AUTO_RQSTS);
++
++	/* clear register: ISTAT */
++	starfive_trng_irq_mask_clear(trng);
++
++	intr |= STARFIVE_IE_ALL;
++	writel(intr, trng->base + STARFIVE_IE);
++
++	mode  = readl(trng->base + STARFIVE_MODE);
++
++	switch (trng->mode) {
++	case PRNG_128BIT:
++		mode &= ~STARFIVE_MODE_R256;
++		break;
++	case PRNG_256BIT:
++		mode |= STARFIVE_MODE_R256;
++		break;
++	default:
++		mode |= STARFIVE_MODE_R256;
++		break;
++	}
++
++	writel(mode, trng->base + STARFIVE_MODE);
++
++	return starfive_trng_cmd(trng, STARFIVE_CTRL_EXEC_RANDRESEED, 1);
++}
++
++static irqreturn_t starfive_trng_irq(int irq, void *priv)
++{
++	u32 status;
++	struct starfive_trng *trng = (struct starfive_trng *)priv;
++
++	status = readl(trng->base + STARFIVE_ISTAT);
++	if (status & STARFIVE_ISTAT_RAND_RDY) {
++		writel(STARFIVE_ISTAT_RAND_RDY, trng->base + STARFIVE_ISTAT);
++		complete(&trng->random_done);
++	}
++
++	if (status & STARFIVE_ISTAT_SEED_DONE) {
++		writel(STARFIVE_ISTAT_SEED_DONE, trng->base + STARFIVE_ISTAT);
++		complete(&trng->reseed_done);
++	}
++
++	if (status & STARFIVE_ISTAT_LFSR_LOCKUP) {
++		writel(STARFIVE_ISTAT_LFSR_LOCKUP, trng->base + STARFIVE_ISTAT);
++		/* SEU occurred, reseeding required*/
++		spin_lock(&trng->write_lock);
++		writel(STARFIVE_CTRL_EXEC_RANDRESEED, trng->base + STARFIVE_CTRL);
++		spin_unlock(&trng->write_lock);
++	}
++
++	return IRQ_HANDLED;
++}
++
++static void starfive_trng_cleanup(struct hwrng *rng)
++{
++	struct starfive_trng *trng = to_trng(rng);
++
++	writel(0, trng->base + STARFIVE_CTRL);
++
++	reset_control_assert(trng->rst);
++	clk_disable_unprepare(trng->hclk);
++	clk_disable_unprepare(trng->ahb);
++}
++
++static int starfive_trng_read(struct hwrng *rng, void *buf, size_t max, bool wait)
++{
++	struct starfive_trng *trng = to_trng(rng);
++	int ret;
++
++	pm_runtime_get_sync(trng->dev);
++
++	if (trng->mode == PRNG_256BIT)
++		max = min_t(size_t, max, (STARFIVE_RAND_LEN * 8));
++	else
++		max = min_t(size_t, max, (STARFIVE_RAND_LEN * 4));
++
++	if (wait) {
++		ret = starfive_trng_wait_idle(trng);
++		if (ret)
++			return -ETIMEDOUT;
++	}
++
++	ret = starfive_trng_cmd(trng, STARFIVE_CTRL_GENE_RANDNUM, wait);
++	if (ret)
++		return ret;
++
++	memcpy_fromio(buf, trng->base + STARFIVE_RAND0, max);
++
++	pm_runtime_put_sync_autosuspend(trng->dev);
++
++	return max;
++}
++
++static int starfive_trng_probe(struct platform_device *pdev)
++{
++	int ret;
++	int irq;
++	struct starfive_trng *trng;
++
++	trng = devm_kzalloc(&pdev->dev, sizeof(*trng), GFP_KERNEL);
++	if (!trng)
++		return -ENOMEM;
++
++	platform_set_drvdata(pdev, trng);
++	trng->dev = &pdev->dev;
++
++	trng->base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(trng->base))
++		return dev_err_probe(&pdev->dev, PTR_ERR(trng->base),
++				     "Error remapping memory for platform device.\n");
++
++	irq = platform_get_irq(pdev, 0);
++	if (irq < 0)
++		return irq;
++
++	init_completion(&trng->random_done);
++	init_completion(&trng->reseed_done);
++	spin_lock_init(&trng->write_lock);
++
++	ret = devm_request_irq(&pdev->dev, irq, starfive_trng_irq, 0, pdev->name,
++			       (void *)trng);
++	if (ret)
++		return dev_err_probe(&pdev->dev, irq,
++				     "Failed to register interrupt handler\n");
++
++	trng->hclk = devm_clk_get(&pdev->dev, "hclk");
++	if (IS_ERR(trng->hclk))
++		return dev_err_probe(&pdev->dev, PTR_ERR(trng->hclk),
++				     "Error getting hardware reference clock\n");
++
++	trng->ahb = devm_clk_get(&pdev->dev, "ahb");
++	if (IS_ERR(trng->ahb))
++		return dev_err_probe(&pdev->dev, PTR_ERR(trng->ahb),
++				     "Error getting ahb reference clock\n");
++
++	trng->rst = devm_reset_control_get_shared(&pdev->dev, NULL);
++	if (IS_ERR(trng->rst))
++		return dev_err_probe(&pdev->dev, PTR_ERR(trng->rst),
++				     "Error getting hardware reset line\n");
++
++	clk_prepare_enable(trng->hclk);
++	clk_prepare_enable(trng->ahb);
++	reset_control_deassert(trng->rst);
++
++	trng->rng.name = dev_driver_string(&pdev->dev);
++	trng->rng.init = starfive_trng_init;
++	trng->rng.cleanup = starfive_trng_cleanup;
++	trng->rng.read = starfive_trng_read;
++
++	trng->mode = PRNG_256BIT;
++	trng->mission = 1;
++	trng->reseed = RANDOM_RESEED;
++
++	ret = devm_hwrng_register(&pdev->dev, &trng->rng);
++	if (ret) {
++		dev_err_probe(&pdev->dev, ret, "Failed to register hwrng\n");
++		goto err_fail_register;
++	}
++
++	pm_runtime_use_autosuspend(&pdev->dev);
++	pm_runtime_set_autosuspend_delay(&pdev->dev, 100);
++	pm_runtime_enable(&pdev->dev);
++
++	return 0;
++
++err_fail_register:
++	pm_runtime_disable(&pdev->dev);
++
++	reset_control_assert(trng->rst);
++	clk_disable_unprepare(trng->ahb);
++	clk_disable_unprepare(trng->hclk);
++
++	return ret;
++}
++
++static int __maybe_unused starfive_trng_suspend(struct device *dev)
++{
++	struct starfive_trng *trng = dev_get_drvdata(dev);
++
++	clk_disable_unprepare(trng->hclk);
++	clk_disable_unprepare(trng->ahb);
++
++	return 0;
++}
++
++static int __maybe_unused starfive_trng_resume(struct device *dev)
++{
++	struct starfive_trng *trng = dev_get_drvdata(dev);
++
++	clk_prepare_enable(trng->hclk);
++	clk_prepare_enable(trng->ahb);
++
++	return 0;
++}
++
++static DEFINE_SIMPLE_DEV_PM_OPS(starfive_trng_pm_ops, starfive_trng_suspend,
++				starfive_trng_resume);
++
++static const struct of_device_id trng_dt_ids[] __maybe_unused = {
++	{ .compatible = "starfive,jh7110-trng" },
++	{ }
++};
++MODULE_DEVICE_TABLE(of, trng_dt_ids);
++
++static struct platform_driver starfive_trng_driver = {
++	.probe	= starfive_trng_probe,
++	.driver	= {
++		.name		= "starfive-trng",
++		.pm		= &starfive_trng_pm_ops,
++		.of_match_table	= of_match_ptr(trng_dt_ids),
++	},
++};
++
++module_platform_driver(starfive_trng_driver);
++
++MODULE_LICENSE("GPL");
++MODULE_DESCRIPTION("StarFive True Random Number Generator");
 -- 
 2.25.1
 
