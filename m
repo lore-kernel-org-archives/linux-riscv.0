@@ -4,54 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5D9FC54EBC
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jan 2023 12:57:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDE39C54EBC
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jan 2023 14:03:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uRUnom+T2cguZEbbUw4WDlSzrIAWdSAZfgPIojVzkxA=; b=ShS8OOorlaxohj
-	snPnBEXP5Ds8a5eVws2KgidzM1gq6HyA7BtPqNlRWOfbyoncNTeqlQhX4cwUV04Sy55aONcM+zzIs
-	O6A3PrG+ORCUzWp4bL6K9BC6bYrOFYkdu5CEAfrVHvcYhf08RQ5k1J5RaDf0m8tjajy7+OK9qo06c
-	NfkxQ0BsJ3jzwx03WQh/rpPTTU/KWvIrFe+JMHqvsAGopbuN51OBhWQk5ZHOpbgl7jWNOrKd8VSfr
-	PQiFyEe1o3CSGtWrxb6yzPWO45T+nX8nIq138wp71QPQnxz0DU6ttetYSdUMuvRSLNPg6egRoFvIS
-	Mx7c4O+76i21O/fhYUUQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Tnlqh3mOyVsFy0QxT3EL403X59kN3rX53vOMIvNlvQg=; b=MJClWVpYXMigzD
+	frJpWPqKC7R6M8Wq9dGo6GqWW68C+AlWWD0QFPF8676tK5ZzgIhH9KrRaLzVrJ35v/hzsGEIX+UhO
+	Y9bv8NDhgut3/sBieIY2gdkiMRv5OOfxA5ufpnOZhGSkFtDDmYwqxzGjF9A6te40KohukLEIZ9xRL
+	HcVp58ywXNi/PHFimNxpjn/xS93bKbzq5E6UTvfV3yq4XaWsOVqng4gZ4i4ClCXept0xCMvV8H7eh
+	BbS6gZpqsGX3PaeW9nKdwH3zN9fqqA+WQRxSVxpEndaHFEINEAQlH5DeRwSDam+/1KLVcaX0+lujB
+	kHjpxuvi3SCA28+dgQqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFx9I-00F4ex-H2; Thu, 12 Jan 2023 12:57:40 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFx9E-00F4bZ-Ab
-	for linux-riscv@lists.infradead.org; Thu, 12 Jan 2023 12:57:38 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0C3D012FC;
-	Thu, 12 Jan 2023 04:58:15 -0800 (PST)
-Received: from FVFF77S0Q05N (unknown [10.57.43.206])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 891213F67D;
-	Thu, 12 Jan 2023 04:57:30 -0800 (PST)
-Date: Thu, 12 Jan 2023 12:57:27 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: guoren@kernel.org
-Cc: anup@brainfault.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
-	conor.dooley@microchip.com, heiko@sntech.de, rostedt@goodmis.org,
-	mhiramat@kernel.org, jolsa@redhat.com, bp@suse.de,
-	jpoimboe@kernel.org, suagrfillet@gmail.com, andy.chiu@sifive.com,
-	e.shatokhin@yadro.com, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH -next V7 1/7] riscv: ftrace: Fixup panic by disabling
- preemption
-Message-ID: <Y8ADt98oowRZJdjw@FVFF77S0Q05N>
-References: <20230112090603.1295340-1-guoren@kernel.org>
- <20230112090603.1295340-2-guoren@kernel.org>
- <Y7/6AtX5X0+5qF6Y@FVFF77S0Q05N>
+	id 1pFyAv-00FHX7-6c; Thu, 12 Jan 2023 14:03:25 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pFyAs-00FHVv-Ra
+	for linux-riscv@lists.infradead.org; Thu, 12 Jan 2023 14:03:24 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id y1so20327006plb.2
+        for <linux-riscv@lists.infradead.org>; Thu, 12 Jan 2023 06:03:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=SYAMfoPma/2nQAfBEMxDluOdt4GLLWOFoMahVP43u/U=;
+        b=Mf/tlkmlfMBejawj3GBrzWk2JkrS5z/ymRrcMYXZYmNw+hoZMokkdmj1uePxiCQQ7T
+         +pobWmWlxNHwvSUoRUoY3W6l3NQp2Uk1qIguf+oxGsk+OFIl4JcvmLE7W/nsyEezxITQ
+         mL1Ewx1jQ4UrF+OvIRPnzUqTeoOyrZZ67vJuJCyA6Roj5fc4FGR+1bfUJKodVK6AWTtS
+         YPgCGXwxLqtzi09IJIRC+pHbUkM7SIyDe5sXnDfagMc5IATQy9silgLk4f7/xJVyfKxl
+         VJw2Im3boyYWeS2Qj6GHHxpfBvPXpZa1tFMcvsQUyv86tVJGlWxIW5K4nvf0XfT8MaeE
+         CCyw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=SYAMfoPma/2nQAfBEMxDluOdt4GLLWOFoMahVP43u/U=;
+        b=bcpbuuF2dZ1Z/yXvL1Qc2s0jy599cnZvVHYYRKcLtHwCXeKcteCDGfwEWC4Flxe7wO
+         v1ec5ygJmcDoy01EHg5AEHbXrc9fI16oOYNRJyS1r/klAbZZtwKimrOAJNBp8oJFuapV
+         toRvb7Kg82m7l3pBBkzj+hf3zq0EIn0qynidkN3bCEEQByhaZGNo7K+y1c/wRGrgyhlD
+         oph7pF34TxOTQm8pci5HK7vp1tmEfBAx4IprM4mAeybBZ9pjdoO8WseShfvihxYv/Crb
+         fSxOApgoWcCeyLkQmeQStyb6U881XNCmaXmLGa8UVVCjQCxC0vjW/1obUlsWLOji4/OA
+         K++g==
+X-Gm-Message-State: AFqh2ko+SofH1276ymtU4RKjBw5N9quTLGRo10idy42LGXhLiBG2g3RX
+	+pqc3gp8YZ7W5eZIe5Mdu6R4Ew==
+X-Google-Smtp-Source: AMrXdXslITcQTVnMcKFsd09fLItgDivV8yXOl4rnwDD026pL3dkblJOdaOcQoIfmj0GfXrGwcPfYHw==
+X-Received: by 2002:a17:902:a3c1:b0:193:2a8c:28cb with SMTP id q1-20020a170902a3c100b001932a8c28cbmr14480469plb.21.1673532199587;
+        Thu, 12 Jan 2023 06:03:19 -0800 (PST)
+Received: from anup-ubuntu-vm.localdomain ([103.97.165.210])
+        by smtp.gmail.com with ESMTPSA id d11-20020a170902cecb00b001925016e34bsm12351455plg.79.2023.01.12.06.03.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 12 Jan 2023 06:03:18 -0800 (PST)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Paolo Bonzini <pbonzini@redhat.com>,
+	Atish Patra <atishp@atishpatra.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Anup Patel <anup@brainfault.org>,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Anup Patel <apatel@ventanamicro.com>
+Subject: [PATCH 0/7] RISC-V KVM virtualize AIA CSRs
+Date: Thu, 12 Jan 2023 19:32:57 +0530
+Message-Id: <20230112140304.1830648-1-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Y7/6AtX5X0+5qF6Y@FVFF77S0Q05N>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230112_045736_436444_7D056CD2 
-X-CRM114-Status: GOOD (  24.51  )
+X-CRM114-CacheID: sfid-20230112_060322_907657_6872A390 
+X-CRM114-Status: GOOD (  10.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,76 +95,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 12, 2023 at 12:16:02PM +0000, Mark Rutland wrote:
-> Hi Guo,
-> 
-> On Thu, Jan 12, 2023 at 04:05:57AM -0500, guoren@kernel.org wrote:
-> > From: Andy Chiu <andy.chiu@sifive.com>
-> > 
-> > In RISCV, we must use an AUIPC + JALR pair to encode an immediate,
-> > forming a jump that jumps to an address over 4K. This may cause errors
-> > if we want to enable kernel preemption and remove dependency from
-> > patching code with stop_machine(). For example, if a task was switched
-> > out on auipc. And, if we changed the ftrace function before it was
-> > switched back, then it would jump to an address that has updated 11:0
-> > bits mixing with previous XLEN:12 part.
-> > 
-> > p: patched area performed by dynamic ftrace
-> > ftrace_prologue:
-> > p|      REG_S   ra, -SZREG(sp)
-> > p|      auipc   ra, 0x? ------------> preempted
-> > 					...
-> > 				change ftrace function
-> > 					...
-> > p|      jalr    -?(ra) <------------- switched back
-> > p|      REG_L   ra, -SZREG(sp)
-> > func:
-> > 	xxx
-> > 	ret
-> 
-> As mentioned on the last posting, I don't think this is sufficient to fix the
-> issue. I've replied with more detail there:
-> 
->   https://lore.kernel.org/lkml/Y7%2F3hoFjS49yy52W@FVFF77S0Q05N/
-> 
-> Even in a non-preemptible SMP kernel, if one CPU can be in the middle of
-> executing the ftrace_prologue while another CPU is patching the
-> ftrace_prologue, you have the exact same issue.
-> 
-> For example, if CPU X is in the prologue fetches the old AUIPC and the new
-> JALR (because it races with CPU Y modifying those), CPU X will branch to the
-> wrong address. The race window is much smaller in the absence of preemption,
-> but it's still there (and will be exacerbated in virtual machines since the
-> hypervisor can preempt a vCPU at any time).
+The RISC-V AIA specification is now frozen as-per the RISC-V international
+process. The latest frozen specifcation can be found at:
+https://github.com/riscv/riscv-aia/releases/download/1.0-RC1/riscv-interrupts-1.0-RC1.pdf
 
-With that in mind, I think your current implementation of ftrace_make_call()
-and ftrace_make_nop() have a simlar bug. A caller might execute:
+This series implements first phase of AIA virtualization which targets
+virtualizing AIA CSRs. This also provides a foundation for the second
+phase of AIA virtualization which will target in-kernel AIA irqchip
+(including both IMSIC and APLIC).
 
-	NOP	// not yet patched to AUIPC
+The first two patches are shared with the "Linux RISC-V AIA Support"
+series which adds AIA driver support.
 
-				< AUIPC and JALR instructions both patched >
+To test this series, use AIA drivers from the "Linux RISC-V AIA Support"
+series and use KVMTOOL from the riscv_aia_v1 branch at:
+https://github.com/avpatel/kvmtoo.git
 
-	JALR
+These patches can also be found in the riscv_kvm_aia_csr_v1 branch at:
+https://github.com/avpatel/linux.git
 
-... and go to the wrong place.
+Anup Patel (7):
+  RISC-V: Add AIA related CSR defines
+  RISC-V: Detect AIA CSRs from ISA string
+  RISC-V: KVM: Drop the _MASK suffix from hgatp.VMID mask defines
+  RISC-V: KVM: Initial skeletal support for AIA
+  RISC-V: KVM: Add ONE_REG interface for AIA CSRs
+  RISC-V: KVM: Virtualize per-HART AIA CSRs
+  RISC-V: KVM: Implement guest external interrupt line management
 
-Assuming individual instruction fetches are atomic, and that you only ever
-branch to the same trampoline, you could fix that by always leaving the AUIPC
-in place, so that you only patch the JALR to enable/disable the callsite.
+ arch/riscv/include/asm/csr.h      | 101 ++++-
+ arch/riscv/include/asm/hwcap.h    |   8 +
+ arch/riscv/include/asm/kvm_aia.h  | 137 +++++++
+ arch/riscv/include/asm/kvm_host.h |  14 +-
+ arch/riscv/include/uapi/asm/kvm.h |  22 +-
+ arch/riscv/kernel/cpu.c           |   2 +
+ arch/riscv/kernel/cpufeature.c    |   2 +
+ arch/riscv/kvm/Makefile           |   1 +
+ arch/riscv/kvm/aia.c              | 624 ++++++++++++++++++++++++++++++
+ arch/riscv/kvm/main.c             |  14 +
+ arch/riscv/kvm/mmu.c              |   3 +-
+ arch/riscv/kvm/vcpu.c             | 185 +++++++--
+ arch/riscv/kvm/vcpu_insn.c        |   4 +-
+ arch/riscv/kvm/vm.c               |   4 +
+ arch/riscv/kvm/vmid.c             |   4 +-
+ 15 files changed, 1072 insertions(+), 53 deletions(-)
+ create mode 100644 arch/riscv/include/asm/kvm_aia.h
+ create mode 100644 arch/riscv/kvm/aia.c
 
-Depending on your calling convention, if you have two free GPRs, you might be
-able to avoid the stacking of RA by always saving it to a GPR in the callsite,
-using a different GPR for the address generation, and having the ftrace
-trampoline restore the original RA value, e.g.
+-- 
+2.34.1
 
-	MV	GPR1, ra
-	AUIPC	GPR2, high_bits_of(ftrace_caller)
-	JALR	ra, high_bits(GPR2)			// only patch this
-
-... which'd save an instruction per callsite.
-
-Thanks,
-Mark.
 
 _______________________________________________
 linux-riscv mailing list
