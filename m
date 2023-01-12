@@ -4,76 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BC9DC54EBD
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jan 2023 12:18:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B316C54EBD
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jan 2023 12:28:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DWC2Pp7ShGNnTQsOJ+2QSogiDXOXY+F8rs5YoucrqVI=; b=a1ocFETNsgHOag
-	SYedkgFGkFpQ6cESrwFiIi0H5lGelCTBrkb7vJU/pfkEwCx2LIMc6Z8SiKE8bC/OGnOzqcVw0/pDP
-	Ic3Pl3DDe+qyJIHnuN14mAdeKB1z5z+cal05xKAk33CdMI2j666LIVlHa+nlsU7Yz8i2R27kNAAiO
-	cgk+k0vB7MQGtlq8TS5UB8micnY8XKKfJbJm1H6WCJCEPI5dwOpdITC2UwtreXQSFZa8WWEHpe16N
-	Npaa9CBJ0XuhJLyr+r2MBVvC+TKXmmu8rqVrI3uW/6SWiXfpjtbCaAW8oB7O2Bk97aEbgRUY7s5Ti
-	TXPAFVzN+ksd/cWWsYaQ==;
+	List-Owner; bh=A1Ww+jOQTVmGtvL3zcWb0XZ4/kzclq2DSUMLGRr9Ofk=; b=4wpdSzp4nldLkj
+	Bffkb7dqqDVZ9qgGgYuSSnjhOSeHMGo1FwHdc2+GawPLliTGHFpLraUMkMH8mtlT8AnK9/QsWUuNK
+	BOmrRxL9V2UrS7xcYFuUntDjzI3Jzu0tKZqNLbFharl83PvhKiXc52m6JbvBkxMquWfdkdG4diXTj
+	/tgqcLFN7Ps9bv4p1STQT3YSOCN7NeieVs8nIn8KgXdp4u67JLUR3mm2gt55NbFgeoc4p8zPzSZg7
+	O2ax6kalpggFbXdNmCtL65Vb15RcehU1v7IDtAHXs1RAyjL2FH01FOs3dP2gxGluOBSNeXwxfRgIq
+	TxxqPSdr696ttJrRoK1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFwWy-00EyMJ-8I; Thu, 12 Jan 2023 12:18:04 +0000
-Received: from mail-vs1-xe2f.google.com ([2607:f8b0:4864:20::e2f])
+	id 1pFwgl-00Ezro-1t; Thu, 12 Jan 2023 12:28:11 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFwWv-00EyL5-8k
-	for linux-riscv@lists.infradead.org; Thu, 12 Jan 2023 12:18:03 +0000
-Received: by mail-vs1-xe2f.google.com with SMTP id i188so18802283vsi.8
-        for <linux-riscv@lists.infradead.org>; Thu, 12 Jan 2023 04:17:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=3tzazKC6UXrwpt+mRZpio8Zio90a1gncXEmmy1/qn/g=;
-        b=QXlPITpkSBUCEI5PoA2+D1w5R31w2E9UbHxWtXDXbfYMorSMtVl2qN3Z8MMbrMJ5aW
-         Yxvk8A51ReEndAKVQumpL4ikqZwUwsv4dregUnMnYam1vBf0PoX4hkl5Lkgygw93FdGJ
-         rIJGCOvloN+aBmV5R4zCbSLkkKOiyAN6iBa+9GUQaFTWyDXil5fE89pF+oBjAcbbxqiF
-         hVho69zfR+sXxEKp3Z9rze+N6V1bpWljabVNqaSMzL1Hn9AlWVPtC25ZYrHTBjiUd6PK
-         4G9VKoUnCqFy/24KFbTkI5g3UGwqw+43eOLotgOJC3PfnomJZjSL56Ee2KysnE4/+85t
-         a15g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=3tzazKC6UXrwpt+mRZpio8Zio90a1gncXEmmy1/qn/g=;
-        b=xYWJ/M5Hw94UdVP4p7hn3soRz8X3lJSrJfvgeanyBGSr+xr78/L+C/MVrGHRr0E5ix
-         OfKgSmgEJmxpVCwM+WyBRdqXDQrOGZsxX/lqY5TMQ3fXvOQD/PMI+29eTskJRXCzifsq
-         qHX6IDAPJVTjeZd8tDmmpAn2+bL6WMM+UanjaarvGquBfmgEzfcYUlS75dFa8T5rPjsM
-         oF3058gVzHCda6G9nQO/wMYyQNMXJUIwP40A/CxxlV+rIgt5wTmwrZVNM1UWERJCUAJU
-         aFGN1IwGulmsqgwnFD9J+LcbAalreYOp6OxPtUqosgJLRZNG7K9XuKWG/XV3jvs7gKxn
-         P8mg==
-X-Gm-Message-State: AFqh2krJmJtO8pGyTbyjbfwcxTrLfgRxlKPPs42HZlQsjkZ8DukYXu8R
-	sltao4YIaLuWeoCASDAwcyQQhKKr9qNNnvSU3qFq+g==
-X-Google-Smtp-Source: AMrXdXucRzPqSaF6fjxdoZsnYmh5ovtHrFeYajzaE4TFaByulKl8AaOZpfHGaOX/PwC9fYz+dvd95VOrgKkXOamPiIo=
-X-Received: by 2002:a05:6102:55aa:b0:3be:ea71:5aaa with SMTP id
- dc42-20020a05610255aa00b003beea715aaamr10408899vsb.0.1673525878036; Thu, 12
- Jan 2023 04:17:58 -0800 (PST)
+	id 1pFwgi-00Ezql-B4
+	for linux-riscv@lists.infradead.org; Thu, 12 Jan 2023 12:28:09 +0000
+Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1pFwgc-00062j-Af; Thu, 12 Jan 2023 13:28:02 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: palmer@dabbelt.com, Conor Dooley <conor.dooley@microchip.com>
+Cc: Andrew Jones <ajones@ventanamicro.com>, linux-riscv@lists.infradead.org, palmer@dabbelt.com, christoph.muellner@vrull.eu, conor@kernel.org, philipp.tomsich@vrull.eu, jszhang@kernel.org
+Subject: Re: [PATCH v4 5/5] RISC-V: add zbb support to string functions
+Date: Thu, 12 Jan 2023 13:28:01 +0100
+Message-ID: <4200744.ZaRXLXkqSa@diego>
+In-Reply-To: <Y7/3qc6ppZzie/ve@wendy>
+References: <20230109181755.2383085-1-heiko@sntech.de> <6183320.UjTJXf6HLC@diego> <Y7/3qc6ppZzie/ve@wendy>
 MIME-Version: 1.0
-References: <20230103141221.772261-1-apatel@ventanamicro.com>
-In-Reply-To: <20230103141221.772261-1-apatel@ventanamicro.com>
-From: Anup Patel <apatel@ventanamicro.com>
-Date: Thu, 12 Jan 2023 17:47:46 +0530
-Message-ID: <CAK9=C2X+BOVxvjkP=SHYywkFxh+4BnAbZ5_uH6rNJ_vB8_3mkg@mail.gmail.com>
-Subject: Re: [PATCH v16 0/9] RISC-V IPI Improvements
-To: Marc Zyngier <maz@kernel.org>
-Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
-	Thomas Gleixner <tglx@linutronix.de>, Atish Patra <atishp@atishpatra.org>, 
-	Alistair Francis <Alistair.Francis@wdc.com>, Anup Patel <anup@brainfault.org>, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	asahi@lists.linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230112_041801_337763_CF8BCF90 
-X-CRM114-Status: GOOD (  27.02  )
+X-CRM114-CacheID: sfid-20230112_042808_400280_B0A27E75 
+X-CRM114-Status: GOOD (  19.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,177 +53,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
+Am Donnerstag, 12. Januar 2023, 13:06:01 CET schrieb Conor Dooley:
+> On Thu, Jan 12, 2023 at 12:21:38PM +0100, Heiko St=FCbner wrote:
+> > =
 
-On Tue, Jan 3, 2023 at 7:42 PM Anup Patel <apatel@ventanamicro.com> wrote:
->
-> This series aims to improve IPI support in Linux RISC-V in following ways:
->  1) Treat IPIs as normal per-CPU interrupts instead of having custom RISC-V
->     specific hooks. This also makes Linux RISC-V IPI support aligned with
->     other architectures.
->  2) Remote TLB flushes and icache flushes should prefer local IPIs instead
->     of SBI calls whenever we have specialized hardware (such as RISC-V AIA
->     IMSIC and RISC-V SWI) which allows S-mode software to directly inject
->     IPIs without any assistance from M-mode runtime firmware.
->
-> These patches were originally part of the "Linux RISC-V ACLINT Support"
-> series but this now a separate series so that it can be merged independently
-> of the "Linux RISC-V ACLINT Support" series.
-> (Refer, https://lore.kernel.org/lkml/20211007123632.697666-1-anup.patel@wdc.com/)
->
-> These patches are also a preparatory patches for the up-coming:
->  1) Linux RISC-V AIA support
->  2) Linux RISC-V SWI support
->
-> These patches can also be found in riscv_ipi_imp_v16 branch at:
-> https://github.com/avpatel/linux.git
->
-> Changes since v15:
->  - Rebased on Linux-6.2-rc2
->  - Added Reviewed-by and Tested-by tags to some of the patches.
->
-> Changes since v14:
->  - Minor fixes in commit description of PATCH3 (as suggested by tglx)
->  - Don't disable parent IPI when CPU goes offline for SBI IPI driver and
->    CLINT driver in PATCH4.
->  - Include Apple AIC driver changes from Marc Z as PATCH9
->
-> Changes since v13:
->  - Included changes suggested by Marc Z in PATCH3
->  - Use chained handlers in PATCH4
->  - Added new PATCH8 to have empty irq_eoi() in RISC-V INTC driver. This
->    avoids the unnecessary mask/unmask dance at time of handling interrupts.
->
-> Changes since v12:
->  - Rebased on Linux-6.1-rc7
->  - Bring-back the IPI optimization in ipi_mux_send_mask() for PATCH3
->  - Call ipi_mux_send() for one target CPU at a time in PATCH3
->
-> Changes since v11:
->  - Removed ipi_mux_pre/post_handle() callbacks in PATCH3
->  - Removed sturct ipi_mux_ops in PATCH3
->  - Removed parent_virq and data pointer from everywhere in PATCH3
->  - Removed struct ipi_mux_control in PATCH3
->  - Improved function signature of ipi_mux_send() callback in PATCH3
->  - Used unsigned type with atomic operation in PATCH3
->
-> Changes since v10:
->  - Rebased on Linux-6.1-rc5
->  - Drop the "!(pending & ibit)" check in ipi_mux_send_mask() of PATCH3
->  - Disable local interrupts in ipi_mux_send_mask() of PATCH3 because we
->    can be preempted while using a per-CPU temporary variable.
->
-> Changes since v9:
->  - Rebased on Linux-6.1-rc3
->  - Updated header comment block of ipi-mux.c in PATCH3
->  - Use a struct for global data of ipi-mux.c in PATCH3
->  - Add per-CPU temp cpumask for sending IPIs in PATCH3
->  - Drop the use of fwspec in PATCH3
->  - Use static key for ipi_mux_pre_handle() and ipi_mux_post_handle()
->    in PATCH3
->  - Remove redundant pr_warn_ratelimited() called by ipi_mux_process()
->    in PATCH3
->  - Remove CPUHP thingy from ipi_mux_create() in PATCH3
->
-> Changes since v8:
->  - Rebased on Linux-6.0-rc3
->  - Use dummy percpu data as parameter for request_percpu_irq() in PATCH4.
->
-> Changes since v7:
->  - Rebased on Linux-6.0-rc1
->  - Use atomic operations to track per-CPU pending and enabled IPIs in PATCH3.
->    (Note: this is inspired from IPI muxing implemented in
->     drivers/irqchip/irq-apple-aic.c)
->  - Made "struct ipi_mux_ops" (added by PATCH3) flexible so that
->    drivers/irqchip/irq-apple-aic.c can adopt it in future.
->
-> Changes since v6:
->  - Rebased on Linux-5.19-rc7
->  - Added documentation for struct ipi_mux_ops in PATCH3
->  - Dropped dummy irq_mask()/unmask() in PATCH3
->  - Added const for "ipi_mux_chip" in PATCH3
->  - Removed "type" initialization from ipi_mux_domain_alloc() in PATCH3
->  - Dropped translate() from "ipi_mux_domain_ops" in PATCH3
->  - Improved barrier documentation in ipi_mux_process() of PATCH3
->  - Added percpu check in ipi_mux_create() for parent_virq of PATCH3
->  - Added nr_ipi parameter in ipi_mux_create() of PATCH3
->
-> Changes since v5:
->  - Rebased on Linux-5.18-rc3
->  - Used kernel doc style in PATCH3
->  - Removed redundant loop in ipi_mux_process() of PATCH3
->  - Removed "RISC-V" prefix form ipi_mux_chip.name of PATCH3
->  - Removed use of "this patch" in PATCH3 commit description
->  - Addressed few other nit comments in PATCH3
->
-> Changes since v4:
->  - Rebased on Linux-5.17
->  - Includes new PATCH3 which adds mechanism to multiplex a single HW IPI
->
-> Changes since v3:
->  - Rebased on Linux-5.17-rc6
->  - Updated PATCH2 to not export riscv_set_intc_hwnode_fn()
->  - Simplified riscv_intc_hwnode() in PATCH2
->
-> Changes since v2:
->  - Rebased on Linux-5.17-rc4
->  - Updated PATCH2 to not create synthetic INTC fwnode and instead provide
->    a function which allows drivers to directly discover INTC fwnode
->
-> Changes since v1:
->  - Use synthetic fwnode for INTC instead of irq_set_default_host() in PATCH2
->
-> Anup Patel (8):
->   RISC-V: Clear SIP bit only when using SBI IPI operations
->   irqchip/riscv-intc: Allow drivers to directly discover INTC hwnode
->   genirq: Add mechanism to multiplex a single HW IPI
->   RISC-V: Treat IPIs as normal Linux IRQs
->   RISC-V: Allow marking IPIs as suitable for remote FENCEs
->   RISC-V: Use IPIs for remote TLB flush when possible
->   RISC-V: Use IPIs for remote icache flush when possible
->   irqchip/riscv-intc: Add empty irq_eoi() for chained irq handlers
->
-> Marc Zyngier (1):
->   irqchip/apple-aic: Move over to core ipi-mux
->
->  arch/riscv/Kconfig                |   2 +
->  arch/riscv/include/asm/irq.h      |   4 +
->  arch/riscv/include/asm/sbi.h      |   9 +-
->  arch/riscv/include/asm/smp.h      |  49 +++++--
->  arch/riscv/kernel/Makefile        |   1 +
->  arch/riscv/kernel/cpu-hotplug.c   |   3 +-
->  arch/riscv/kernel/irq.c           |  21 ++-
->  arch/riscv/kernel/sbi-ipi.c       |  77 +++++++++++
->  arch/riscv/kernel/sbi.c           | 100 +++------------
->  arch/riscv/kernel/smp.c           | 171 ++++++++++++------------
->  arch/riscv/kernel/smpboot.c       |   5 +-
->  arch/riscv/mm/cacheflush.c        |   5 +-
->  arch/riscv/mm/tlbflush.c          |  93 +++++++++++---
->  drivers/clocksource/timer-clint.c |  65 +++++++---
->  drivers/irqchip/Kconfig           |   2 +
->  drivers/irqchip/irq-apple-aic.c   | 161 ++---------------------
->  drivers/irqchip/irq-riscv-intc.c  |  71 ++++++----
->  include/linux/irq.h               |   3 +
->  kernel/irq/Kconfig                |   5 +
->  kernel/irq/Makefile               |   1 +
->  kernel/irq/ipi-mux.c              | 207 ++++++++++++++++++++++++++++++
->  21 files changed, 654 insertions(+), 401 deletions(-)
->  create mode 100644 arch/riscv/kernel/sbi-ipi.c
->  create mode 100644 kernel/irq/ipi-mux.c
->
-> --
-> 2.34.1
->
+> > I've gone forward and imported that series as a dependency in my tree s=
+o that the
+> > ordering becomes correct :-) .
+> > =
 
-Friendly ping ?
+> > Though of course I got a conflict with Andrew's
+> > commit e923f4625ed3 ("riscv: Apply a static assert to riscv_isa_ext_id")
+> > but fixed that up - though maybe a rebased v3 may be in order?
+> =
 
-Regards,
-Anup
+> To be honest, I "strategically" didn't resend a v3 despite that trivial
+> conflict since it's at the bottom of the list on patchwork.
+> I was hoping that it'd get merged earlier in the window so any of the
+> various bits of extension support stuff could go on top of the re-order,
+> given it conflicts with, give or take, every other extension related
+> patch. That's not come to pass (yet?) though.
+> =
+
+> I can easily respin, but if I do & some other extension bit gets merged
+> before it, it'll conflict again, so I didn't in the hopes that the
+> conflict could be resolved...
+
+I guess it mainly comes down to what is easier for Palmer.
+
+From personal experience, the less you have to think before applying a
+patch, the easier it is to just do that that in a free minute. Though on
+the other hand, the conflict in your series is pretty minimal.
+
+So both ways have their advantages somehow.
+
+
 
 _______________________________________________
 linux-riscv mailing list
