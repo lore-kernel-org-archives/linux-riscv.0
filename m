@@ -4,61 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADBFBC54EBC
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jan 2023 12:02:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E99AC54EBC
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jan 2023 12:05:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/Nu6uKz8GBsKJCr8TIrcVVo61ozSdN40O67Cv80emXM=; b=cBxSY0maEjNpmrThIZkbdwMAB5
-	Pt2xm3c6ZQ6zb81NNdtnVGIwcEtPcv/MWrkAhEyPuZQ2K+5tJ/yz3pi1+7KIzg9Y2MO8exS7NOSZk
-	YALNUug+jp5Fn3mSv+06d7SX8Fhpc5l7rfuONe/TP8/rz4m+YEKGEjjqbA/D/jZCbpk03xDnpMjB6
-	COED9xzxyxaUjqlhIGo1xUXS1K6qic1cp16vPAf7VGWx+XdgD+b11Z7KB3h/VhLIPo5QEYOHZKj7i
-	w1ZFva91PPVhAV4m7jESKJnThf4gsn1ZouWEUR2tBrll1ja4OLVqCAaLri9jjWGHWkH4jgRzzjzXL
-	tcZ1sTMg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=AAk6abWe/JBRx72UMGzKCCm7QQyXzYpuKJjzZQfbAGE=; b=1t7QchlPcyqPRt
+	ui7U9RePj9cjpoxNi014XVhTdCdLG234LZZ52AHUtrTp4vhbPX5Odvw4ho/kSu4P6EGWHrLxgFfxD
+	5h9JiScMT7uRSVkQkZzBNVJ2A/WfLkmZV6y4gYgWWSNqJNoyLf8lGdif9wEYlGZcJPELHeSrRbBFp
+	FzWMS9j3dyjDbjHOqNq9kJnIQYEfhqmHTuOZESYvmFXnzEx+Mrf5rV6Kp8Bu+oTQG/pgZ1hGJoOLp
+	XGP0Tf2zEFSKuKZITuGpxhwzyDlirj+2bOIiVr5IbP1wgTqMwGbCgyp4JkrT78gYyWIASf+k337Wi
+	0yb1jzfp7RKC13v07eQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFwHX-00EwSE-0n; Thu, 12 Jan 2023 12:02:07 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFwHT-00EwQq-Vt
-	for linux-riscv@lists.infradead.org; Thu, 12 Jan 2023 12:02:05 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1pFwH9-0005Oy-92; Thu, 12 Jan 2023 13:01:43 +0100
-Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
-	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1pFwH8-005WoO-9s; Thu, 12 Jan 2023 13:01:42 +0100
-Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1pFwH7-00CFus-H2; Thu, 12 Jan 2023 13:01:41 +0100
-Date: Thu, 12 Jan 2023 13:01:41 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: Conor Dooley <conor@kernel.org>
-Cc: Thierry Reding <thierry.reding@gmail.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v13 1/2] pwm: add microchip soft ip corePWM driver
-Message-ID: <20230112120141.fpjwhtjuaxrwqt5m@pengutronix.de>
-References: <20221221112912.147210-1-conor@kernel.org>
- <20221221112912.147210-2-conor@kernel.org>
- <20230110224805.3pqxd3yv4wyci2zj@pengutronix.de>
+	id 1pFwL0-00Ewmo-FF; Thu, 12 Jan 2023 12:05:42 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pFwKu-00EwlO-7U
+	for linux-riscv@lists.infradead.org; Thu, 12 Jan 2023 12:05:38 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C5BEB2B;
+	Thu, 12 Jan 2023 04:06:13 -0800 (PST)
+Received: from FVFF77S0Q05N (unknown [10.57.43.206])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3E1C13F67D;
+	Thu, 12 Jan 2023 04:05:29 -0800 (PST)
+Date: Thu, 12 Jan 2023 12:05:26 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Guo Ren <guoren@kernel.org>
+Cc: anup@brainfault.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
+	conor.dooley@microchip.com, heiko@sntech.de, rostedt@goodmis.org,
+	mhiramat@kernel.org, jolsa@redhat.com, bp@suse.de,
+	jpoimboe@kernel.org, suagrfillet@gmail.com, andy.chiu@sifive.com,
+	e.shatokhin@yadro.com, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH -next V6 1/7] riscv: ftrace: Fixup panic by disabling
+ preemption
+Message-ID: <Y7/3hoFjS49yy52W@FVFF77S0Q05N>
+References: <20230107133549.4192639-1-guoren@kernel.org>
+ <20230107133549.4192639-2-guoren@kernel.org>
+ <Y7xMvAJXjHaus0Bm@FVFF77S0Q05N>
+ <CAJF2gTRzS0hBdqBUNbijvKKx3Kf_mY55XSkUyPJsfOK8p15_Mw@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <20230110224805.3pqxd3yv4wyci2zj@pengutronix.de>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+Content-Disposition: inline
+In-Reply-To: <CAJF2gTRzS0hBdqBUNbijvKKx3Kf_mY55XSkUyPJsfOK8p15_Mw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230112_040204_046889_3B9C35E2 
-X-CRM114-Status: GOOD (  23.40  )
+X-CRM114-CacheID: sfid-20230112_040536_382096_6603662B 
+X-CRM114-Status: GOOD (  28.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,137 +64,98 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8756930546991475609=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, Jan 11, 2023 at 09:22:09PM +0800, Guo Ren wrote:
+> On Tue, Jan 10, 2023 at 1:20 AM Mark Rutland <mark.rutland@arm.com> wrote:
+> >
+> > On Sat, Jan 07, 2023 at 08:35:43AM -0500, guoren@kernel.org wrote:
+> > > From: Andy Chiu <andy.chiu@sifive.com>
+> > >
+> > > In RISCV, we must use an AUIPC + JALR pair to encode an immediate,
+> > > forming a jump that jumps to an address over 4K. This may cause errors
+> > > if we want to enable kernel preemption and remove dependency from
+> > > patching code with stop_machine(). For example, if a task was switched
+> > > out on auipc. And, if we changed the ftrace function before it was
+> > > switched back, then it would jump to an address that has updated 11:0
+> > > bits mixing with previous XLEN:12 part.
+> > >
+> > > p: patched area performed by dynamic ftrace
+> > > ftrace_prologue:
+> > > p|      REG_S   ra, -SZREG(sp)
+> > > p|      auipc   ra, 0x? ------------> preempted
+> > >                                       ...
+> > >                               change ftrace function
+> > >                                       ...
+> > > p|      jalr    -?(ra) <------------- switched back
+> > > p|      REG_L   ra, -SZREG(sp)
+> > > func:
+> > >       xxx
+> > >       ret
+> >
+> > What happens on SMP but not !PREEMPTION; can't a CPU be in the middle of this
+> > while you're patching the sequence?
+> Yes, when PREEMPTION, a timer interrupt between auipc & jalr may cause
+> context_switch. And riscv uses stop_machine for patch_text. Then, we
+> may modify auipc part, but only execute the jalr part when return.
 
---===============8756930546991475609==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="4lhg7s5jl5wrhlm7"
-Content-Disposition: inline
+Please re-read my question; "!PREEMPTION" means "NOT PREEMPTION".
 
+Ignore preeemption entirely and assume two CPUs X and Y are running code
+concurrently. Assume CPU X is in the ftrace prologue, and CPU Y is patching
+that prologue while CPU X is executing it.
 
---4lhg7s5jl5wrhlm7
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Is that prevented somehow? If not, what happens in that case?
 
-Hello,
+At the very least you can have exactly the same case as on a preemptible kernel
+(and in a VM, the hypervisor can preempt the guest ata arbitrary times),
+becuase CPU X could end up executing a mixture of the old and new instructions.
 
-On Tue, Jan 10, 2023 at 11:48:05PM +0100, Uwe Kleine-K=F6nig wrote:
-> Hello Conor,
->=20
-> On Wed, Dec 21, 2022 at 11:29:12AM +0000, Conor Dooley wrote:
-> > +static void mchp_core_pwm_calc_period(const struct pwm_state *state, u=
-nsigned long clk_rate,
-> > +				      u16 *prescale, u8 *period_steps)
-> > +{
-> > +	u64 tmp;
-> > +
-> > +	/*
-> > +	 * Calculate the period cycles and prescale values.
-> > +	 * The registers are each 8 bits wide & multiplied to compute the per=
-iod
-> > +	 * using the formula:
-> > +	 * (clock_period) * (prescale + 1) * (period_steps + 1)
-> > +	 * so the maximum period that can be generated is 0x10000 times the
-> > +	 * period of the input clock.
-> > +	 * However, due to the design of the "hardware", it is not possible to
-> > +	 * attain a 100% duty cycle if the full range of period_steps is used.
-> > +	 * Therefore period_steps is restricted to 0xFE and the maximum multi=
-ple
-> > +	 * of the clock period attainable is 0xFF00.
-> > +	 */
-> > +	tmp =3D mul_u64_u64_div_u64(state->period, clk_rate, NSEC_PER_SEC);
-> > +
-> > +	/*
-> > +	 * The hardware adds one to the register value, so decrement by one to
-> > +	 * account for the offset
-> > +	 */
-> > +	if (tmp >=3D MCHPCOREPWM_PERIOD_MAX) {
-> > +		*prescale =3D MCHPCOREPWM_PRESCALE_MAX - 1;
-> > +		*period_steps =3D MCHPCOREPWM_PERIOD_STEPS_MAX - 1;
-> > +
-> > +		return;
-> > +	}
-> > +
-> > +	*prescale =3D div_u64(tmp, MCHPCOREPWM_PERIOD_STEPS_MAX);
-> > +	/* PREG_TO_VAL() can produce a value larger than UINT8_MAX */
-> > +	*period_steps =3D div_u64(tmp, PREG_TO_VAL(*prescale)) - 1;
->=20
-> This looks wrong, but I didn't think long about that. Did we discuss
-> this already and/or are you sure this is correct?
->=20
-> (We have:
-> 	          (prescale + 1) * (period_steps + 1)
-> 	period =3D ------------------------------------
-> 	                       clk_rate
->=20
+More generally, if you don't have strong rules about concurrent modification
+and execution of instructions, it may not be safe to modify and instruction as
+it is being executed (e.g. if the CPU's instruction fetches aren't atomic).
 
-We want prescale small such that period_steps can be big to give
-fine-grained control over the available duty_cycles. period_steps is a
-8-bit value < 0xff, so we get:
+> > Do you have any guarantee as to the atomicity and ordering of instruction
+> > fetches?
+> Not yet. If the region is short, we could use nop + jalr pair instead.
 
-                    period * clk_rate  =20
-	prescale =3D ------------------- - 1
-                   NSEC_PER_SEC * 0xff
+Ok, so as above I do not understand how this is safe. Maybe I am missing
+something, but if you don't have a guarantee as to ordering I don't see how you
+can safely patch this even if you have atomicity of each instruction update.
 
-which in code then reads:
+Note that if you don't have atomicity of instruction fetches you *cannot*
+safely concurrently modify and execute instructions.
 
-	*prescale =3D div_u64(tmp, MCHPCOREPWM_PERIOD_STEPS_MAX)
-	if (*prescale)
-		*prescale -=3D 1;
+> Only one jalr instruction makes the entry atomicity.
 
+I'll have to take your word for that.
 
-> You calculate
-> 	            period * clk_rate
-> 	prescale =3D -------------------
-> 	           NSEC_PER_SEC * 0xff
->=20
-> 	                     period * clk_rate
-> 	period_steps =3D ----------------------------- - 1
-> 	               NSEC_PER_SEC * (prescale + 1)
+As above, I don't think this sequence is safe regardless.
 
-The formula for period_steps is right.
+> There are already several proposed solutions:
+> 1. Make stop_machine guarantee all CPU out of preemption point.
+> 2. Expand -fpatchable-function-entry from 4 to 24, and make detour
+> codes atomicity.
+> 3. We want to propose a solution to make auipc by hardware mask_irq.
+> For more details, see:
+> https://www.youtube.com/watch?v=4JkkkXuEvCw
 
-Please double-check!
+Ignoring things which require HW changes, you could consider doing something
+like what I'm doing for arm64 with DYNAMIC_FTRACE_WITH_CALL_OPS:
 
-Best regards
-Uwe
+  https://lore.kernel.org/lkml/20230109135828.879136-1-mark.rutland@arm.com/
 
---=20
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | https://www.pengutronix.de/ |
+... which would replace the address generation with a load, which can be
+atomic, and would give you a number of other benefits (e.g. avoiding branch
+range limitations, performance benefits as in the cover letter).
 
---4lhg7s5jl5wrhlm7
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEfnIqFpAYrP8+dKQLwfwUeK3K7AkFAmO/9qIACgkQwfwUeK3K
-7AmFOAf+LcIW/Q/o41Jo0SYTIKqNiVc8MCJ8FSZ5v0SSqxa4ucwpuLJub1/1dJQq
-cGWtSHYNYfGguHiOa0vThFj4khBmXNqrnd87loLrKUJudDghyDOkeg78tdFBmUkR
-Ha7gBC8VgtVevpY5ovGfx3vvNmqR4pw1rfin31XX6ZZ1CgQ7Wgi94rOev/DDzmbF
-TD35FRy8IR95bbtXN7Rjr7UoulZakG1I32fDIV8UBCnWbNdjW35iJ43nX/ZCroNw
-DgaRMyARSEbk8nZUWS2/3xl4CuPpbJFFW8MaKUoJRzgUKU8gu4ssVNPxtqmfDMhC
-jQTFIN9SQbXfO02y36hg64cBQ5DcOA==
-=xjC9
------END PGP SIGNATURE-----
-
---4lhg7s5jl5wrhlm7--
-
-
---===============8756930546991475609==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thanks,
+Mark.
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8756930546991475609==--
-
