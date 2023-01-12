@@ -4,70 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B36CC54EBC
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jan 2023 15:10:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0872C61DB3
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jan 2023 15:30:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0ultnntg4LRl8kVR+RZIBxkrMDAtktKMKsvTTJvgCGM=; b=GTQM5r0bgDj7PNkPPkPCtz2Ib3
-	3CYb+317nEjS6BcklSWoLV0rlNj/ikrbr/D1ZEhIEd5+/zkN6LOdYcGdoGK6SHPzBs+2pIh9RBugC
-	SJe2mbqK4jVCpmEcYkn0qvf2UrOsGhZ0gfG5YsUr8t5lMEWCcEK79c039qQKh4ClUWXWSIZKRx+ly
-	NJ5MsriHrZcwbYsbeiSfR/CZs809ZLW/krm8oFOav7QSgxyClt9OojwIGGo7qSgV0dR6dslk7H7v2
-	x2/iYIsfKeXFyA63rgH9chJYV3oRhKwW91/lAQmSEseRC/WnBX8u8msx8FR9P1lIfg8LjgUhhwTb8
-	z5SNn7xQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=P3PPwYkbMduGELZGZszlejAjMTaQgOrT9xKEMMTuldo=; b=lRlP8STgpDf0gK
+	mrdUAwgsugdKUg62eBl8z1TTAtvWqpe9dutluL8BHqPpPyTuHhHSVvvNSUT/cHNUkpVulsHH+kEP2
+	+lMHxnkkmNAmddnGnMnJ9Y96RgQ+bs708U5PkDquD18yqZCbT+2Dnh2QmI3xumR28ueFs+kwectlM
+	olIO6Jl9X5wTcHZ7cNrCVOqjwL2WjIlPEuvb3RVPa20WK9SFjXv51eTrbMs7XPLw/nk94UL0kj0Dl
+	w29M5FBpexIdLponchVciZAfj4DHt3Uzqe2zjw8TVhIrcvTYqT8bgjKtiiFjppEsulOcI9Bizvgm/
+	WX5qKQbya7+WxVZ64hOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFzE8-00FXR6-HL; Thu, 12 Jan 2023 15:10:49 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1pFzWd-00FebD-RN; Thu, 12 Jan 2023 15:29:55 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFzE0-00FXOG-Vv
-	for linux-riscv@lists.infradead.org; Thu, 12 Jan 2023 15:10:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1673536240; x=1705072240;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=mcC3ycvPUa6E240Qla/RTH3/APdFORNAqQ+R0bSawE4=;
-  b=XtrB1bb4ojyzRFaitz2H8zE8wSTQcG1eiADMtTI5ybkMi4TwtGMn6Prl
-   +fhNSo8NKVBqokFdBYQ2UVQiZxg+SdbA95bNzRa1fk/ZEf3nb5VLOclyz
-   bgQgNYRafHHR5FmSo9LGofHfO0Q3jF05m3ImKXMQT/BRr+1VEUgGBroVP
-   GGYrgSbU5UXzoZNujNUwNbFPt84dbHwnh8VJ/dfdMsPqUi3V2vSGa8CmV
-   dvTCHuLafkkLwDa1WsuwfHRa2ZhY9nRUXiQ1dhQwpTzduJqOAdkW5ClUl
-   oMH3Gvay5Afifz5iXBlZAySiJ2JV5vifRS0r2N3cWJnB4ayqeACYBU2Ml
-   Q==;
-X-IronPort-AV: E=Sophos;i="5.97,211,1669100400"; 
-   d="asc'?scan'208";a="196375836"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 12 Jan 2023 08:10:34 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.16; Thu, 12 Jan 2023 08:10:33 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.16 via Frontend
- Transport; Thu, 12 Jan 2023 08:10:32 -0700
-Date: Thu, 12 Jan 2023 15:10:09 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>
-CC: Conor Dooley <conor@kernel.org>, Thierry Reding
-	<thierry.reding@gmail.com>, Daire McNamara <daire.mcnamara@microchip.com>,
-	<linux-kernel@vger.kernel.org>, <linux-pwm@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH v13 1/2] pwm: add microchip soft ip corePWM driver
-Message-ID: <Y8Ai0aF5A+O43kjZ@wendy>
-References: <20221221112912.147210-1-conor@kernel.org>
- <20221221112912.147210-2-conor@kernel.org>
- <20230110224805.3pqxd3yv4wyci2zj@pengutronix.de>
- <20230112120141.fpjwhtjuaxrwqt5m@pengutronix.de>
+	id 1pFzWa-00FeYe-UP
+	for linux-riscv@lists.infradead.org; Thu, 12 Jan 2023 15:29:54 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id fy8so45532723ejc.13
+        for <linux-riscv@lists.infradead.org>; Thu, 12 Jan 2023 07:29:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=8/isyiyYelhWoqLBrchcU6kVdh+9vrvHgcSQ4B34VDk=;
+        b=EHXEPMdHmrWk+ItDBSbevZ7FKIVT2z/y/V/evYel++jimsmR9bFWMPp7WqE6UN+YvL
+         RDbux7qimlEb1uerL46yDQtO4G6x0y1GHxlawDNfRZSDxM9b7KMZSJqztnGI7iOjMev3
+         1v1MuXtk2iw64DJofXWodWqeFolVm68ptqoUp0Y6FBlWq6Vutpj0hAkv3wLVotql+pqy
+         nXF/xzccAL7R82rNoeAGa+6cdwCAl2ZzbV8mYFX9tOyfIIMtCkjRdNITIfUhXespCOgA
+         VIp6DD5fOeR8UtvqFw8VlK0XN39nCmQanhi86vdD78YcjEQ2IItfm/VuatWl427DHlOQ
+         UaTw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8/isyiyYelhWoqLBrchcU6kVdh+9vrvHgcSQ4B34VDk=;
+        b=vF0Ya9qJXUn2Ngt5PSpsD42AnOq8fzB+WRVis59ByZDwF92HP39irtNpzzZgn9l2JZ
+         4mJojRVqZ0/vbcaykK/XXCSxS9S+u0Yy4Be26e+iPzMaG2zfozdb66y2+h2VU/CEDGVW
+         gd3i+zVnANh3nuG254dNL2VfA0oDRcK5MMt+S2gPYxVWydROXGixMQv2jcQFqIG2TCKL
+         hK8MEQozvo60ldiu2ZAO/x/am/jupPIC+bDArCLmc1UxKwmDP3tvEPmNyIjuYj687mg4
+         9ay0mmRrj33R4VDIg9G6fLK9jel9YUyZleGXjvlPr5lNEbOlLf+uX/zxhj3Nh17WsxII
+         ksmQ==
+X-Gm-Message-State: AFqh2koNE9DAWrSh7TJPDTra97Z8QN9XfAsjR/Txe4Bg5RPu7PNIwwQE
+	3lmTYvuzbd43Xm2KjGSEG4PLnQ==
+X-Google-Smtp-Source: AMrXdXtLIWC/6uofx+GH6S+slsg0mbN3K3oswo4+1Ak1svK8dtWQlCW6M2ef7Eyxexwr//lJ8Goyrg==
+X-Received: by 2002:a17:907:a643:b0:83c:7308:b2ed with SMTP id vu3-20020a170907a64300b0083c7308b2edmr67733986ejc.17.1673537389632;
+        Thu, 12 Jan 2023 07:29:49 -0800 (PST)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id u21-20020a1709064ad500b00855d6ed60desm3551043ejt.192.2023.01.12.07.29.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 12 Jan 2023 07:29:49 -0800 (PST)
+Date: Thu, 12 Jan 2023 16:29:48 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Atish Patra <atishp@rivosinc.com>
+Cc: linux-kernel@vger.kernel.org, Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>, Guo Ren <guoren@kernel.org>,
+	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Sergey Matyukevich <sergey.matyukevich@syntacore.com>,
+	Eric Lin <eric.lin@sifive.com>, Will Deacon <will@kernel.org>
+Subject: Re: [PATCH v2 07/11] RISC-V: KVM: Add SBI PMU extension support
+Message-ID: <20230112152948.3vagzedhegbj4jbj@orel>
+References: <20221215170046.2010255-1-atishp@rivosinc.com>
+ <20221215170046.2010255-8-atishp@rivosinc.com>
 MIME-Version: 1.0
-In-Reply-To: <20230112120141.fpjwhtjuaxrwqt5m@pengutronix.de>
+Content-Disposition: inline
+In-Reply-To: <20221215170046.2010255-8-atishp@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230112_071042_598046_C25AA973 
-X-CRM114-Status: GOOD (  26.30  )
+X-CRM114-CacheID: sfid-20230112_072953_005740_A46F3A5E 
+X-CRM114-Status: GOOD (  27.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,144 +92,169 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4814040034477210743=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============4814040034477210743==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="fVFk6pos5f7gI6TJ"
-Content-Disposition: inline
+On Thu, Dec 15, 2022 at 09:00:42AM -0800, Atish Patra wrote:
+> SBI PMU extension allows KVM guests to configure/start/stop/query about
+> the PMU counters in virtualized enviornment as well.
+> 
+> In order to allow that, KVM implements the entire SBI PMU extension.
+> 
+> Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> ---
+>  arch/riscv/kvm/Makefile       |  2 +-
+>  arch/riscv/kvm/vcpu_sbi.c     | 11 +++++
+>  arch/riscv/kvm/vcpu_sbi_pmu.c | 86 +++++++++++++++++++++++++++++++++++
+>  3 files changed, 98 insertions(+), 1 deletion(-)
+>  create mode 100644 arch/riscv/kvm/vcpu_sbi_pmu.c
+> 
+> diff --git a/arch/riscv/kvm/Makefile b/arch/riscv/kvm/Makefile
+> index 5de1053..278e97c 100644
+> --- a/arch/riscv/kvm/Makefile
+> +++ b/arch/riscv/kvm/Makefile
+> @@ -25,4 +25,4 @@ kvm-y += vcpu_sbi_base.o
+>  kvm-y += vcpu_sbi_replace.o
+>  kvm-y += vcpu_sbi_hsm.o
+>  kvm-y += vcpu_timer.o
+> -kvm-$(CONFIG_RISCV_PMU_SBI) += vcpu_pmu.o
+> +kvm-$(CONFIG_RISCV_PMU_SBI) += vcpu_pmu.o vcpu_sbi_pmu.o
+> diff --git a/arch/riscv/kvm/vcpu_sbi.c b/arch/riscv/kvm/vcpu_sbi.c
+> index 50c5472..3b8b84e8 100644
+> --- a/arch/riscv/kvm/vcpu_sbi.c
+> +++ b/arch/riscv/kvm/vcpu_sbi.c
+> @@ -20,6 +20,16 @@ static const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_v01 = {
+>  };
+>  #endif
+>  
+> +#ifdef CONFIG_RISCV_PMU_SBI
+> +extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_pmu;
+> +#else
+> +static const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_pmu = {
+> +	.extid_start = -1UL,
+> +	.extid_end = -1UL,
+> +	.handler = NULL,
+> +};
+> +#endif
+> +
+>  static const struct kvm_vcpu_sbi_extension *sbi_ext[] = {
+>  	&vcpu_sbi_ext_v01,
+>  	&vcpu_sbi_ext_base,
+> @@ -28,6 +38,7 @@ static const struct kvm_vcpu_sbi_extension *sbi_ext[] = {
+>  	&vcpu_sbi_ext_rfence,
+>  	&vcpu_sbi_ext_srst,
+>  	&vcpu_sbi_ext_hsm,
+> +	&vcpu_sbi_ext_pmu,
+>  	&vcpu_sbi_ext_experimental,
+>  	&vcpu_sbi_ext_vendor,
+>  };
+> diff --git a/arch/riscv/kvm/vcpu_sbi_pmu.c b/arch/riscv/kvm/vcpu_sbi_pmu.c
+> new file mode 100644
+> index 0000000..223752f
+> --- /dev/null
+> +++ b/arch/riscv/kvm/vcpu_sbi_pmu.c
+> @@ -0,0 +1,86 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (c) 2022 Rivos Inc
+> + *
+> + * Authors:
+> + *     Atish Patra <atishp@rivosinc.com>
+> + */
+> +
+> +#include <linux/errno.h>
+> +#include <linux/err.h>
+> +#include <linux/kvm_host.h>
+> +#include <asm/csr.h>
+> +#include <asm/sbi.h>
+> +#include <asm/kvm_vcpu_sbi.h>
+> +
+> +static int kvm_sbi_ext_pmu_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
+> +				   struct kvm_vcpu_sbi_ext_data *edata,
+> +				   struct kvm_cpu_trap *utrap)
+> +{
+> +	int ret = 0;
+> +	struct kvm_cpu_context *cp = &vcpu->arch.guest_context;
+> +	struct kvm_pmu *kvpmu = vcpu_to_pmu(vcpu);
+> +	unsigned long funcid = cp->a6;
+> +	uint64_t temp;
+> +
+> +	/* Return not supported if PMU is not initialized */
+> +	if (!kvpmu->init_done)
+> +		return -EINVAL;
+> +
+> +	switch (funcid) {
+> +	case SBI_EXT_PMU_NUM_COUNTERS:
+> +		ret = kvm_riscv_vcpu_pmu_num_ctrs(vcpu, edata);
+> +		break;
+> +	case SBI_EXT_PMU_COUNTER_GET_INFO:
+> +		ret = kvm_riscv_vcpu_pmu_ctr_info(vcpu, cp->a0, edata);
+> +		break;
+> +	case SBI_EXT_PMU_COUNTER_CFG_MATCH:
+> +#if defined(CONFIG_32BIT)
+> +		temp = ((uint64_t)cp->a5 << 32) | cp->a4;
+> +#else
+> +		temp = cp->a4;
+> +#endif
+> +		ret = kvm_riscv_vcpu_pmu_ctr_cfg_match(vcpu, cp->a0, cp->a1,
+> +						       cp->a2, cp->a3, temp, edata);
+> +		break;
+> +	case SBI_EXT_PMU_COUNTER_START:
+> +#if defined(CONFIG_32BIT)
+> +		temp = ((uint64_t)cp->a4 << 32) | cp->a3;
+> +#else
+> +		temp = cp->a3;
+> +#endif
+> +		ret = kvm_riscv_vcpu_pmu_ctr_start(vcpu, cp->a0, cp->a1, cp->a2,
+> +						   temp, edata);
+> +		break;
+> +	case SBI_EXT_PMU_COUNTER_STOP:
+> +		ret = kvm_riscv_vcpu_pmu_ctr_stop(vcpu, cp->a0, cp->a1, cp->a2, edata);
+> +		break;
+> +	case SBI_EXT_PMU_COUNTER_FW_READ:
+> +		ret = kvm_riscv_vcpu_pmu_ctr_read(vcpu, cp->a0, edata);
+> +		break;
+> +	default:
+> +		edata->err_val = SBI_ERR_NOT_SUPPORTED;
+> +	}
+> +
+> +
+> +	return ret;
+> +}
+> +
+> +unsigned long kvm_sbi_ext_pmu_probe(struct kvm_vcpu *vcpu, unsigned long extid)
+> +{
+> +	struct kvm_pmu *kvpmu = vcpu_to_pmu(vcpu);
+> +
+> +	/*
+> +	 * PMU Extension is only available to guests if privilege mode filtering
+> +	 * is available. Otherwise, guest will always count events while the
+> +	 * execution is in hypervisor mode.
+> +	 */
+> +	return kvpmu->init_done && riscv_isa_extension_available(NULL, SSCOFPMF);
 
---fVFk6pos5f7gI6TJ
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Assuming we're only supporting homogeneous systems, then can't we just
+check for Sscofpmf at PMU init time? When the extension isn't present
+we'd fail to init and then here init_done wouldn't be set.
 
-On Thu, Jan 12, 2023 at 01:01:41PM +0100, Uwe Kleine-K=F6nig wrote:
-> Hello,
->=20
-> On Tue, Jan 10, 2023 at 11:48:05PM +0100, Uwe Kleine-K=F6nig wrote:
-> > Hello Conor,
-> >=20
-> > On Wed, Dec 21, 2022 at 11:29:12AM +0000, Conor Dooley wrote:
-> > > +static void mchp_core_pwm_calc_period(const struct pwm_state *state,=
- unsigned long clk_rate,
-> > > +				      u16 *prescale, u8 *period_steps)
-> > > +{
-> > > +	u64 tmp;
-> > > +
-> > > +	/*
-> > > +	 * Calculate the period cycles and prescale values.
-> > > +	 * The registers are each 8 bits wide & multiplied to compute the p=
-eriod
-> > > +	 * using the formula:
-> > > +	 * (clock_period) * (prescale + 1) * (period_steps + 1)
-> > > +	 * so the maximum period that can be generated is 0x10000 times the
-> > > +	 * period of the input clock.
-> > > +	 * However, due to the design of the "hardware", it is not possible=
- to
-> > > +	 * attain a 100% duty cycle if the full range of period_steps is us=
-ed.
-> > > +	 * Therefore period_steps is restricted to 0xFE and the maximum mul=
-tiple
-> > > +	 * of the clock period attainable is 0xFF00.
-> > > +	 */
-> > > +	tmp =3D mul_u64_u64_div_u64(state->period, clk_rate, NSEC_PER_SEC);
-> > > +
-> > > +	/*
-> > > +	 * The hardware adds one to the register value, so decrement by one=
- to
-> > > +	 * account for the offset
-> > > +	 */
-> > > +	if (tmp >=3D MCHPCOREPWM_PERIOD_MAX) {
-> > > +		*prescale =3D MCHPCOREPWM_PRESCALE_MAX - 1;
-> > > +		*period_steps =3D MCHPCOREPWM_PERIOD_STEPS_MAX - 1;
-> > > +
-> > > +		return;
-> > > +	}
-> > > +
-> > > +	*prescale =3D div_u64(tmp, MCHPCOREPWM_PERIOD_STEPS_MAX);
-> > > +	/* PREG_TO_VAL() can produce a value larger than UINT8_MAX */
-> > > +	*period_steps =3D div_u64(tmp, PREG_TO_VAL(*prescale)) - 1;
-> >=20
-> > This looks wrong, but I didn't think long about that. Did we discuss
-> > this already and/or are you sure this is correct?
-> >=20
-> > (We have:
-> > 	          (prescale + 1) * (period_steps + 1)
-> > 	period =3D ------------------------------------
-> > 	                       clk_rate
-> >=20
->=20
-> We want prescale small such that period_steps can be big to give
-> fine-grained control over the available duty_cycles. period_steps is a
-> 8-bit value < 0xff, so we get:
->=20
->                     period * clk_rate  =20
-> 	prescale =3D ------------------- - 1
->                    NSEC_PER_SEC * 0xff
->=20
-> which in code then reads:
->=20
-> 	*prescale =3D div_u64(tmp, MCHPCOREPWM_PERIOD_STEPS_MAX)
-> 	if (*prescale)
-> 		*prescale -=3D 1;
->=20
->=20
-> > You calculate
-> > 	            period * clk_rate
-> > 	prescale =3D -------------------
-> > 	           NSEC_PER_SEC * 0xff
-> >=20
-> > 	                     period * clk_rate
-> > 	period_steps =3D ----------------------------- - 1
-> > 	               NSEC_PER_SEC * (prescale + 1)
->=20
-> The formula for period_steps is right.
+> +}
+> +
+> +const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_pmu = {
+> +	.extid_start = SBI_EXT_PMU,
+> +	.extid_end = SBI_EXT_PMU,
+> +	.handler = kvm_sbi_ext_pmu_handler,
+> +	.probe = kvm_sbi_ext_pmu_probe,
+> +};
+> -- 
+> 2.25.1
+>
 
-I stood in front of the whiteboard for a bit to puzzle it all out and
-have come to the realisation that you are right. I was implicitly
-converting in my head from "mathematical" values to register values &
-therefore not subtracting. I must've hyperfocused on the underflow when
-I adjusted your suggestion back in v5 or w/e it was.
-
-I must also have got rather unlucky that the configurations I picked to
-check whether the calculations worked out, happened to. I suppose as
-well, the way in which it was mis-calculating also avoids the PWM_DEBUG
-complaints too.
-
-Perhaps I'll insert your nice formulae in the next version in comments,
-so they're there for next time.
-
-Thanks again & sorry for consuming so much of your time on this,
-Conor.
-
-
---fVFk6pos5f7gI6TJ
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY8Ai0QAKCRB4tDGHoIJi
-0sQnAQDsop1eRPZcbZgK9DgYp3wSCMO28qbboB6YdQAdQMzbTQD/VPhbn4dHc/6C
-yTsaXuUHVY4G3F0m8oPsFcTOlB0TeQ8=
-=VQbM
------END PGP SIGNATURE-----
-
---fVFk6pos5f7gI6TJ--
-
-
---===============4814040034477210743==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4814040034477210743==--
-
