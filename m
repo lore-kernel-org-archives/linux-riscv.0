@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ECAFC61DB3
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jan 2023 21:52:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D115C61DB3
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jan 2023 21:52:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Subject:Cc:To:
 	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=SGVIuwYqJNaY9pLz736hQiZksfqh8EcvFriIrg2aOPY=; b=3h6lRYBKEgrVVt
-	zwj1sBHs+4A9gDsJzFzKsdwQ4IPIjsdc8aJjuUohXyCvTwLa8jI8ZUMr8z6RkzKhLfGTj+Y5CY2CA
-	4kk1UAJgSgMC9DbseE1FcyNgDiV+Wd8qFAMbnjt2sz6iGfoS/YqLsn5P20uBW1QLbNRzOa8j1HX3I
-	FiW7721iyYFD1Da6txOZG1WQT5Zrssqq7XUpatC2LLAbD+7lEAo/i3lD/1aCr84TdBHW91NOaHgC7
-	sAhcPvfnbs9ShNooU/nXPi/77lGDKbQfPYO4/EPvXvzs2AnISbR0vF7o1HCwqX7gw+yAOZzuIZ6bL
-	C5LWWbaecE8dpnVYHbww==;
+	List-Owner; bh=nS6XV4dxwGMtKdbAxzRLNLUe276Be66i7AiAaY+je+E=; b=Gn8x/SBAYXTkNT
+	2iFGcdl8B7BZWwMSSktlJUSqisFcmvCRyAVv5/aFMN3CP/oStM6WoQ72LYggSRbXgSjoespAwMy53
+	F0l6iQryODskzA6OkuRYebfwvR80e0y0JR4ir5lpVgAnDxvcOGPxww3wek1CTUzjwUQeqSa5jXvl9
+	PU7Wgz6eE5tTALU7jh8jNsWeeYC02bPLWB6AecizbWCuHbjavdI2lI0mLKpgXoY9Pz2Hs5tUkXJAP
+	XlscdMVgklUcwoLzl++W43TdIMwt9ACpKbkLzpGE+81GRSBIdt1eIPjRb/bWSRzUsKa1c2VEX4bwO
+	+BzpZBzlgIvnY5Sm/eTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pG5UM-00HDmf-8C; Thu, 12 Jan 2023 21:51:58 +0000
+	id 1pG5UU-00HDsk-2Z; Thu, 12 Jan 2023 21:52:06 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pG3ha-00Ggmy-HA; Thu, 12 Jan 2023 19:57:30 +0000
+	id 1pG3ha-00Ggmm-GL; Thu, 12 Jan 2023 19:57:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
 	Subject:Cc:To:From:Date:Message-ID:Sender:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:In-Reply-To;
-	bh=jJDEZOhAk9N+ZSaOA6QuB1P1t6S4a5Fqf3eoW7G5up4=; b=g8GqpZrZBs/6V7ZcEBgPwjcdfx
-	RzN5EIQzgwhnINnCaYfY2n9e8ruxberdgD9oVXDNG7YtbZJuFTb45S/H+fPvltC8GZOopId40GcrW
-	AjA8r3rpj2n0SPUYiyps5TjYIQhFAuCcVOx3q73tbMUmUmsFJOFjnQHKvLFlGE+QPNhh8ljdxL4dF
-	uEhNEMsDP/u8xa4UcCmCa7nRPM/4jBKkN20B1meW0t5Yl0NahpjdmysonPb3YGsPg97sJdxjUBn+s
-	lGjWVSdxy2Ny8UJn3s4WanbpIOQXXuMwg2JoVT798bOv9N9iHlojnH9paqJ/CUzQBNz9ShA6pr1w+
-	Y7bXuV8w==;
+	bh=K+6/dwXz2WKb5RxNLU2q+chP38k8rKZMVN0FbUJ4gys=; b=AsVrq9wT/PXJk0qR4yYeRmw2Z1
+	sFGHg+aIPPyDTboHjpqLWy3X1T8UQB/O6PTb8R0zTtvwDN0yQS3aIcfBsuE/iWvY6nds+s1WuvFv3
+	aNBBQ4zar+ZFrynYU6+MbnFhyaLGBsOTsPM4ZYNVix4uO+OhmsgT/kUOAnbP2Mcc52m3QWLGGYtZX
+	1L7dr5kPMZibWpkerKF7Fmbrlol4brSBcxyJg6biKltchaWjpjjcglDEjpuGTK9bo4Ytgcqw2yN0D
+	1pUqiaV0oLyLNqyJvkzl3dQZtJxguFzo9JHpk+jpR0u1rOr2V/4ymL5sYskJ6n7f/yKV2b4XR2SmP
+	uU7TgixQ==;
 Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
 	by desiato.infradead.org with esmtpsa (Exim 4.96 #2 (Red Hat Linux))
-	id 1pG3hF-0045oZ-0H;
-	Thu, 12 Jan 2023 19:57:09 +0000
+	id 1pG3hB-0045nr-0B;
+	Thu, 12 Jan 2023 19:57:05 +0000
 Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 5187F30341E;
-	Thu, 12 Jan 2023 20:57:13 +0100 (CET)
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id B880E300C50;
+	Thu, 12 Jan 2023 20:57:07 +0100 (CET)
 Received: by hirez.programming.kicks-ass.net (Postfix, from userid 0)
-	id E64E52CCF1F79; Thu, 12 Jan 2023 20:57:07 +0100 (CET)
-Message-ID: <20230112195540.434302128@infradead.org>
+	id 8D9992CCF1F4A; Thu, 12 Jan 2023 20:57:07 +0100 (CET)
+Message-ID: <20230112195539.392862891@infradead.org>
 User-Agent: quilt/0.66
-Date: Thu, 12 Jan 2023 20:43:32 +0100
+Date: Thu, 12 Jan 2023 20:43:15 +0100
 From: Peter Zijlstra <peterz@infradead.org>
 To: peterz@infradead.org
 Cc: richard.henderson@linaro.org,
@@ -198,7 +198,7 @@ Cc: richard.henderson@linaro.org,
  kasan-dev@googlegroups.com,
  "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
  Ulf Hansson <ulf.hansson@linaro.org>
-Subject: [PATCH v3 18/51] cpuidle,intel_idle: Fix CPUIDLE_FLAG_IRQ_ENABLE *again*
+Subject: [PATCH v3 01/51] x86/perf/amd: Remove tracing from perf_lopwr_cb()
 References: <20230112194314.845371875@infradead.org>
 MIME-Version: 1.0
 X-Mailman-Approved-At: Thu, 12 Jan 2023 13:49:36 -0800
@@ -218,46 +218,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-  vmlinux.o: warning: objtool: intel_idle_irq+0x10c: call to trace_hardirqs_off() leaves .noinstr.text section
+The perf_lopwr_cb() is called from the idle routines; there is no RCU
+there, we must not enter tracing.
 
-As per commit 32d4fd5751ea ("cpuidle,intel_idle: Fix
-CPUIDLE_FLAG_IRQ_ENABLE"):
-
-  "must not have tracing in idle functions"
-
-Clearly people can't read and tinker along until splat dissapears.
-This straight up reverts commit d295ad34f236 ("intel_idle: Fix false
-positive RCU splats due to incorrect hardirqs state").
-
-It doesn't re-introduce the problem because preceding patches fixed it
-properly.
-
-Fixes: d295ad34f236 ("intel_idle: Fix false positive RCU splats due to incorrect hardirqs state")
 Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
 Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
 Acked-by: Frederic Weisbecker <frederic@kernel.org>
 Tested-by: Tony Lindgren <tony@atomide.com>
 Tested-by: Ulf Hansson <ulf.hansson@linaro.org>
 ---
- drivers/idle/intel_idle.c |    8 +-------
- 1 file changed, 1 insertion(+), 7 deletions(-)
+ arch/x86/events/amd/brs.c         |   13 +++++--------
+ arch/x86/include/asm/perf_event.h |    2 +-
+ 2 files changed, 6 insertions(+), 9 deletions(-)
 
---- a/drivers/idle/intel_idle.c
-+++ b/drivers/idle/intel_idle.c
-@@ -168,13 +168,7 @@ static __cpuidle int intel_idle_irq(stru
+--- a/arch/x86/events/amd/brs.c
++++ b/arch/x86/events/amd/brs.c
+@@ -41,18 +41,15 @@ static inline unsigned int brs_to(int id
+ 	return MSR_AMD_SAMP_BR_FROM + 2 * idx + 1;
+ }
  
- 	raw_local_irq_enable();
- 	ret = __intel_idle(dev, drv, index);
+-static inline void set_debug_extn_cfg(u64 val)
++static __always_inline void set_debug_extn_cfg(u64 val)
+ {
+ 	/* bits[4:3] must always be set to 11b */
+-	wrmsrl(MSR_AMD_DBG_EXTN_CFG, val | 3ULL << 3);
++	__wrmsr(MSR_AMD_DBG_EXTN_CFG, val | 3ULL << 3, val >> 32);
+ }
+ 
+-static inline u64 get_debug_extn_cfg(void)
++static __always_inline u64 get_debug_extn_cfg(void)
+ {
+-	u64 val;
 -
--	/*
--	 * The lockdep hardirqs state may be changed to 'on' with timer
--	 * tick interrupt followed by __do_softirq(). Use local_irq_disable()
--	 * to keep the hardirqs state correct.
--	 */
--	local_irq_disable();
-+	raw_local_irq_disable();
+-	rdmsrl(MSR_AMD_DBG_EXTN_CFG, val);
+-	return val;
++	return __rdmsr(MSR_AMD_DBG_EXTN_CFG);
+ }
  
- 	return ret;
+ static bool __init amd_brs_detect(void)
+@@ -338,7 +335,7 @@ void amd_pmu_brs_sched_task(struct perf_
+  * called from ACPI processor_idle.c or acpi_pad.c
+  * with interrupts disabled
+  */
+-void perf_amd_brs_lopwr_cb(bool lopwr_in)
++void noinstr perf_amd_brs_lopwr_cb(bool lopwr_in)
+ {
+ 	struct cpu_hw_events *cpuc = this_cpu_ptr(&cpu_hw_events);
+ 	union amd_debug_extn_cfg cfg;
+--- a/arch/x86/include/asm/perf_event.h
++++ b/arch/x86/include/asm/perf_event.h
+@@ -554,7 +554,7 @@ extern void perf_amd_brs_lopwr_cb(bool l
+ 
+ DECLARE_STATIC_CALL(perf_lopwr_cb, perf_amd_brs_lopwr_cb);
+ 
+-static inline void perf_lopwr_cb(bool lopwr_in)
++static __always_inline void perf_lopwr_cb(bool lopwr_in)
+ {
+ 	static_call_mod(perf_lopwr_cb)(lopwr_in);
  }
 
 
