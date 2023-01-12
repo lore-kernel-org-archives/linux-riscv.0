@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 499C0C54EBD
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jan 2023 09:07:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F17DC54EBC
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jan 2023 09:07:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UQLiFWaEEOVGmTlMskE5zw9mG0Cww8bSk8wuw4gbEtY=; b=eEIRYB0+egpEAI
-	hKhUAjYt1uVQTjDNKoB6WCRTUZoa4PXWlF/DfwgklmGpocvvjqjyA7BHJbLj5jCenGtgg/WAwlxwW
-	PgcRIldP4QrYwYvCkDpP5dCsEU7o1vuRmCZ/wgT0DFV12cj09Usgw20QOFPbcaJ+nrE9dXpBiRFVW
-	sIlfUR01A0jekeRRFXbFp0FSDVVEi1yGghyTYWuSDaSxel/h1lWKelcLWyQXEslx1H1yqjuCOPNhB
-	ZNSFPrsM6Iu+lPV/NM9EZbJ/VsiiKD0SaIDelrxdpen91m3kxgiwUCnXndna8dDBxLiUBPIZ9Cpm6
-	EbBHsHCTHhFttHfzM9JA==;
+	List-Owner; bh=YcmA0Ti47nXlB2mxGSIioItyOeLlt90V4XtD+s28ArM=; b=2ofzd82HHA+wsx
+	cx1OCCT2f34qwotjBvCYUR7K8+anzaiijCEFw8Pvd4VphvGJifYxzSGFrM6RwQ2kDWzq7mK9AVMfy
+	yPyeT2nCR1GgK09pZxSCU66axwsFaaOlTU0KIr/4Byhy/zGCXu3XTiDVDUzZ0GkH6KPfqq9aJOBXy
+	YtvKlKBeJlaviSRQD+6Une24G139YEzgCVjXP1fUZNoHG3vwBgpc+Iy6zXqoz2dULHk+8qkNW8OOE
+	dr25rL3RSk5Y7CyloeIQ40Jb0mj4jeybkIS98NfVIHu+ydGCpz0YQo/zbcq9xkztsUVKx8Rl64RdW
+	0L5HcRwmMc/KFsI57gcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFtYP-00EH3u-Fq; Thu, 12 Jan 2023 09:07:21 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pFtYU-00EH7Y-Uf; Thu, 12 Jan 2023 09:07:27 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFtXh-00EGgf-Ih
-	for linux-riscv@lists.infradead.org; Thu, 12 Jan 2023 09:06:39 +0000
+	id 1pFtXn-00EGjM-6D
+	for linux-riscv@lists.infradead.org; Thu, 12 Jan 2023 09:06:44 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 29A5461FA2;
-	Thu, 12 Jan 2023 09:06:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B589DC433EF;
-	Thu, 12 Jan 2023 09:06:31 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id AA54461FA3;
+	Thu, 12 Jan 2023 09:06:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41AD8C433D2;
+	Thu, 12 Jan 2023 09:06:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1673514396;
-	bh=AcQPMa1xem2L3CVjL895ndWZGRAVPIn0wP4CjkQEVMk=;
+	s=k20201202; t=1673514402;
+	bh=F3SoPmVMpycW3imwV8BgrYH8S8tFphk+pY/h8iic1Zw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=nGcVfVuAHS8L4n67pfSMSIheXgKu9fPNcNblTy0bKS2AiVLCU0UV8BrBfDmGsy1xB
-	 KoLJG1iDQPNCPJGKAOJUpZ8lAZKBfZQvl3mapjjNB04r+j8UTKmM8Di8oZrSjlChF2
-	 KUrJ5G4oWdBHV244mKLLbBY6A0aYHaZ4u/YyEP9RD3C4ITqkC2tXVibQuxDKbZGglY
-	 aJKGfqn79RdpUYPTrJnPmz4dXXAeoUZoxGGPmTfz+I2ZGuTzrKvhTj2kh2AhKhOpyn
-	 MKNwSU/XVW+Se8+U1GUXSyVCLmjmH6JlhVYI2ISw5fmJu6vDS162K8qsw4eVX4YvBO
-	 K6pT22v2NUC0g==
+	b=sN4SbBQ5DgURYMUcRuLP/z+dMehCTmueuiS57hMRK6KkiEX07d7Khax+XM/e+ukAD
+	 g0CqsEh/MVPVIodYo12Jh7r0d3mnZXAlLMwWWwbsBN8pVvsuI3pxzzElg7696t0bY4
+	 wtyUgfh5jCBRdkJpPCp9kecRfB0us4KigukjXOvckoimLdW018dCVrOKISk32dgOMt
+	 bjJ9PHcP/alGehshlWxvcCNFVKirIyxXLuCaJgSRtKaU95l/cMrRBjw7DAB0L4+Eq8
+	 I2nmI03xGWBMKLtGuF0m6JW+ZqhTnq1Nd5XOhaTdbDuDxoSrdZjG585CNbPhkIGnLw
+	 4qxL/orqM0h0g==
 From: guoren@kernel.org
 To: anup@brainfault.org,
 	paul.walmsley@sifive.com,
@@ -59,16 +59,16 @@ To: anup@brainfault.org,
 	guoren@kernel.org
 Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH -next V7 4/7] riscv: ftrace: Add ftrace_graph_func
-Date: Thu, 12 Jan 2023 04:06:00 -0500
-Message-Id: <20230112090603.1295340-5-guoren@kernel.org>
+Subject: [PATCH -next V7 5/7] riscv: ftrace: Add DYNAMIC_FTRACE_WITH_DIRECT_CALLS support
+Date: Thu, 12 Jan 2023 04:06:01 -0500
+Message-Id: <20230112090603.1295340-6-guoren@kernel.org>
 X-Mailer: git-send-email 2.36.1
 In-Reply-To: <20230112090603.1295340-1-guoren@kernel.org>
 References: <20230112090603.1295340-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230112_010637_771484_ECF076AB 
-X-CRM114-Status: GOOD (  17.00  )
+X-CRM114-CacheID: sfid-20230112_010643_339548_8D2B4B1B 
+X-CRM114-Status: GOOD (  13.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,303 +87,84 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Song Shuai <suagrfillet@gmail.com>
 
-Here implements ftrace_graph_func as the function graph tracing function
-with FTRACE_WITH_REGS defined.
+This patch adds DYNAMIC_FTRACE_WITH_DIRECT_CALLS support for RISC-V.
 
-function_graph_func gets the point of the parent IP and the frame pointer
-from fregs and call prepare_ftrace_return for function graph tracing.
+select the DYNAMIC_FTRACE_WITH_DIRECT_CALLS to provide the
+register_ftrace_direct[_multi] interfaces allowing users to register
+the customed trampoline (direct_caller) as the mcount for one or
+more target functions. And modify_ftrace_direct[_multi] are also
+provided for modifying direct_caller.
 
-If FTRACE_WITH_REGS isn't defined, the enable/disable helpers of
-ftrace_graph_[regs]_call are revised for serving only ftrace_graph_call
-in the !FTRACE_WITH_REGS version ftrace_caller.
+To make the direct_caller and the other ftrace hooks (eg. function/fgraph
+tracer, k[ret]probes) co-exist, a temporary register is nominated to
+store the address of direct_caller in ftrace_regs_caller. After the
+setting of the address direct_caller by direct_ops->func and the
+RESTORE_REGS in ftrace_regs_caller, direct_caller will be jumped to
+by the `jr` inst.
 
 Signed-off-by: Song Shuai <suagrfillet@gmail.com>
 Tested-by: Guo Ren <guoren@kernel.org>
 Signed-off-by: Guo Ren <guoren@kernel.org>
 ---
- arch/riscv/include/asm/ftrace.h |  13 ++-
- arch/riscv/kernel/ftrace.c      |  30 +++----
- arch/riscv/kernel/mcount-dyn.S  | 139 +++++++++++++++++++++++---------
- 3 files changed, 126 insertions(+), 56 deletions(-)
+ arch/riscv/Kconfig              | 1 +
+ arch/riscv/include/asm/ftrace.h | 8 ++++++++
+ arch/riscv/kernel/mcount-dyn.S  | 4 ++++
+ 3 files changed, 13 insertions(+)
 
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index ee0d39b26794..307a9f413edd 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -135,6 +135,7 @@ config RISCV
+ 	select UACCESS_MEMCPY if !MMU
+ 	select ZONE_DMA32 if 64BIT
+ 	select HAVE_DYNAMIC_FTRACE if !XIP_KERNEL && MMU && $(cc-option,-fpatchable-function-entry=8)
++	select HAVE_DYNAMIC_FTRACE_WITH_DIRECT_CALLS
+ 	select HAVE_DYNAMIC_FTRACE_WITH_REGS if HAVE_DYNAMIC_FTRACE
+ 	select HAVE_FTRACE_MCOUNT_RECORD if !XIP_KERNEL
+ 	select HAVE_FUNCTION_GRAPH_TRACER
 diff --git a/arch/riscv/include/asm/ftrace.h b/arch/riscv/include/asm/ftrace.h
-index 9e73922e1e2e..84f856a3286e 100644
+index 84f856a3286e..84904c1e4369 100644
 --- a/arch/riscv/include/asm/ftrace.h
 +++ b/arch/riscv/include/asm/ftrace.h
-@@ -107,8 +107,17 @@ do {									\
- struct dyn_ftrace;
- int ftrace_init_nop(struct module *mod, struct dyn_ftrace *rec);
- #define ftrace_init_nop ftrace_init_nop
--#endif
- 
--#endif
-+#ifdef CONFIG_DYNAMIC_FTRACE_WITH_REGS
-+struct ftrace_ops;
-+struct ftrace_regs;
-+void ftrace_graph_func(unsigned long ip, unsigned long parent_ip,
-+		       struct ftrace_ops *op, struct ftrace_regs *fregs);
-+#define ftrace_graph_func ftrace_graph_func
-+#endif /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
+@@ -114,6 +114,14 @@ struct ftrace_regs;
+ void ftrace_graph_func(unsigned long ip, unsigned long parent_ip,
+ 		       struct ftrace_ops *op, struct ftrace_regs *fregs);
+ #define ftrace_graph_func ftrace_graph_func
 +
-+#endif /* __ASSEMBLY__ */
-+
-+#endif /* CONFIG_DYNAMIC_FTRACE */
- 
- #endif /* _ASM_RISCV_FTRACE_H */
-diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
-index 5bff37af4770..95e14d8161a4 100644
---- a/arch/riscv/kernel/ftrace.c
-+++ b/arch/riscv/kernel/ftrace.c
-@@ -169,32 +169,28 @@ void prepare_ftrace_return(unsigned long *parent, unsigned long self_addr,
- }
- 
- #ifdef CONFIG_DYNAMIC_FTRACE
-+#ifdef CONFIG_DYNAMIC_FTRACE_WITH_REGS
-+void ftrace_graph_func(unsigned long ip, unsigned long parent_ip,
-+		       struct ftrace_ops *op, struct ftrace_regs *fregs)
++static inline void
++__arch_ftrace_set_direct_caller(struct pt_regs *regs, unsigned long addr)
 +{
-+	struct pt_regs *regs = arch_ftrace_get_regs(fregs);
-+	unsigned long *parent = (unsigned long *)&regs->ra;
-+
-+	prepare_ftrace_return(parent, ip, frame_pointer(regs));
++		regs->t1 = addr;
 +}
-+#else /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
- extern void ftrace_graph_call(void);
--extern void ftrace_graph_regs_call(void);
- int ftrace_enable_ftrace_graph_caller(void)
- {
--	int ret;
--
--	ret = __ftrace_modify_call((unsigned long)&ftrace_graph_call,
--				    (unsigned long)&prepare_ftrace_return, true, true);
--	if (ret)
--		return ret;
--
--	return __ftrace_modify_call((unsigned long)&ftrace_graph_regs_call,
-+	return __ftrace_modify_call((unsigned long)&ftrace_graph_call,
- 				    (unsigned long)&prepare_ftrace_return, true, true);
- }
++#define arch_ftrace_set_direct_caller(fregs, addr) \
++	__arch_ftrace_set_direct_caller(&(fregs)->regs, addr)
+ #endif /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
  
- int ftrace_disable_ftrace_graph_caller(void)
- {
--	int ret;
--
--	ret = __ftrace_modify_call((unsigned long)&ftrace_graph_call,
--				    (unsigned long)&prepare_ftrace_return, false, true);
--	if (ret)
--		return ret;
--
--	return __ftrace_modify_call((unsigned long)&ftrace_graph_regs_call,
-+	return __ftrace_modify_call((unsigned long)&ftrace_graph_call,
- 				    (unsigned long)&prepare_ftrace_return, false, true);
- }
-+#endif /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
- #endif /* CONFIG_DYNAMIC_FTRACE */
- #endif /* CONFIG_FUNCTION_GRAPH_TRACER */
+ #endif /* __ASSEMBLY__ */
 diff --git a/arch/riscv/kernel/mcount-dyn.S b/arch/riscv/kernel/mcount-dyn.S
-index 125de818d1ba..f26e9f6e2fed 100644
+index f26e9f6e2fed..7801c1c8bb5a 100644
 --- a/arch/riscv/kernel/mcount-dyn.S
 +++ b/arch/riscv/kernel/mcount-dyn.S
-@@ -57,19 +57,52 @@
- 	.endm
+@@ -231,6 +231,7 @@ ENDPROC(ftrace_caller)
  
- #ifdef CONFIG_DYNAMIC_FTRACE_WITH_REGS
--	.macro SAVE_ALL
-+
-+/**
-+* SAVE_ABI_REGS - save regs against the pt_regs struct
-+*
-+* @all: tell if saving all the regs
-+*
-+* If all is set, all the regs will be saved, otherwise only ABI
-+* related regs (a0-a7,epc,ra and optional s0) will be saved.
-+*
-+* After the stack is established,
-+*
-+* 0(sp) stores the PC of the traced function which can be accessed
-+* by &(fregs)->regs->epc in tracing function. Note that the real
-+* function entry address should be computed with -FENTRY_RA_OFFSET.
-+*
-+* 8(sp) stores the function return address (i.e. parent IP) that
-+* can be accessed by &(fregs)->regs->ra in tracing function.
-+*
-+* The other regs are saved at the respective localtion and accessed
-+* by the respective pt_regs member.
-+*
-+* Here is the layout of stack for your reference.
-+*
-+* PT_SIZE_ON_STACK  ->  +++++++++
-+*                       + ..... +
-+*                       + t3-t6 +
-+*                       + s2-s11+
-+*                       + a0-a7 + --++++-> ftrace_caller saved
-+*                       + s1    +   +
-+*                       + s0    + --+
-+*                       + t0-t2 +   +
-+*                       + tp    +   +
-+*                       + gp    +   +
-+*                       + sp    +   +
-+*                       + ra    + --+ // parent IP
-+*               sp  ->  + epc   + --+ // PC
-+*                       +++++++++
-+**/
-+	.macro SAVE_ABI_REGS, all=0
- 	addi	sp, sp, -PT_SIZE_ON_STACK
- 
- 	REG_S t0,  PT_EPC(sp)
- 	REG_S x1,  PT_RA(sp)
--	REG_S x2,  PT_SP(sp)
--	REG_S x3,  PT_GP(sp)
--	REG_S x4,  PT_TP(sp)
--	REG_S x5,  PT_T0(sp)
--	REG_S x6,  PT_T1(sp)
--	REG_S x7,  PT_T2(sp)
--	REG_S x8,  PT_S0(sp)
--	REG_S x9,  PT_S1(sp)
-+
-+	// always save the ABI regs
-+
- 	REG_S x10, PT_A0(sp)
- 	REG_S x11, PT_A1(sp)
- 	REG_S x12, PT_A2(sp)
-@@ -78,6 +111,18 @@
- 	REG_S x15, PT_A5(sp)
- 	REG_S x16, PT_A6(sp)
- 	REG_S x17, PT_A7(sp)
-+
-+	// save the leftover regs
-+
-+	.if \all == 1
-+	REG_S x2,  PT_SP(sp)
-+	REG_S x3,  PT_GP(sp)
-+	REG_S x4,  PT_TP(sp)
-+	REG_S x5,  PT_T0(sp)
-+	REG_S x6,  PT_T1(sp)
-+	REG_S x7,  PT_T2(sp)
-+	REG_S x8,  PT_S0(sp)
-+	REG_S x9,  PT_S1(sp)
- 	REG_S x18, PT_S2(sp)
- 	REG_S x19, PT_S3(sp)
- 	REG_S x20, PT_S4(sp)
-@@ -92,18 +137,19 @@
- 	REG_S x29, PT_T4(sp)
- 	REG_S x30, PT_T5(sp)
- 	REG_S x31, PT_T6(sp)
-+
-+	// save s0 if FP_TEST defined
-+
-+	.else
-+#ifdef HAVE_FUNCTION_GRAPH_FP_TEST
-+	REG_S x8,  PT_S0(sp)
-+#endif
-+	.endif
- 	.endm
- 
--	.macro RESTORE_ALL
-+	.macro RESTORE_ABI_REGS, all=0
- 	REG_L t0,  PT_EPC(sp)
- 	REG_L x1,  PT_RA(sp)
--	REG_L x2,  PT_SP(sp)
--	REG_L x3,  PT_GP(sp)
--	REG_L x4,  PT_TP(sp)
--	REG_L x6,  PT_T1(sp)
--	REG_L x7,  PT_T2(sp)
--	REG_L x8,  PT_S0(sp)
--	REG_L x9,  PT_S1(sp)
- 	REG_L x10, PT_A0(sp)
- 	REG_L x11, PT_A1(sp)
- 	REG_L x12, PT_A2(sp)
-@@ -112,6 +158,15 @@
- 	REG_L x15, PT_A5(sp)
- 	REG_L x16, PT_A6(sp)
- 	REG_L x17, PT_A7(sp)
-+
-+	.if \all == 1
-+	REG_L x2,  PT_SP(sp)
-+	REG_L x3,  PT_GP(sp)
-+	REG_L x4,  PT_TP(sp)
-+	REG_L x6,  PT_T1(sp)
-+	REG_L x7,  PT_T2(sp)
-+	REG_L x8,  PT_S0(sp)
-+	REG_L x9,  PT_S1(sp)
- 	REG_L x18, PT_S2(sp)
- 	REG_L x19, PT_S3(sp)
- 	REG_L x20, PT_S4(sp)
-@@ -127,10 +182,25 @@
- 	REG_L x30, PT_T5(sp)
- 	REG_L x31, PT_T6(sp)
- 
-+	.else
-+#ifdef HAVE_FUNCTION_GRAPH_FP_TEST
-+	REG_L x8,  PT_S0(sp)
-+#endif
-+	.endif
- 	addi	sp, sp, PT_SIZE_ON_STACK
- 	.endm
-+
-+	.macro PREPARE_ARGS
-+	addi	a0, t0, -FENTRY_RA_OFFSET	// ip
-+	la	a1, function_trace_op
-+	REG_L	a2, 0(a1)			// op
-+	mv	a1, ra				// parent_ip
-+	mv	a3, sp				// fregs
-+	.endm
-+
- #endif /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
- 
-+#ifndef CONFIG_DYNAMIC_FTRACE_WITH_REGS
- ENTRY(ftrace_caller)
- 	SAVE_ABI
- 
-@@ -159,33 +229,28 @@ ftrace_graph_call:
- 	jr t0
- ENDPROC(ftrace_caller)
- 
--#ifdef CONFIG_DYNAMIC_FTRACE_WITH_REGS
-+#else /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
+ #else /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
  ENTRY(ftrace_regs_caller)
--	SAVE_ALL
--
--	addi	a0, t0, -FENTRY_RA_OFFSET
--	la	a1, function_trace_op
--	REG_L	a2, 0(a1)
--	mv	a1, ra
--	mv	a3, sp
-+	SAVE_ABI_REGS 1
-+	PREPARE_ARGS
++	move	t1, zero
+ 	SAVE_ABI_REGS 1
+ 	PREPARE_ARGS
  
- ftrace_regs_call:
- 	.global ftrace_regs_call
+@@ -239,7 +240,10 @@ ftrace_regs_call:
  	call	ftrace_stub
  
--#ifdef CONFIG_FUNCTION_GRAPH_TRACER
--	addi	a0, sp, PT_RA
--	REG_L	a1, PT_EPC(sp)
--	addi	a1, a1, -FENTRY_RA_OFFSET
--#ifdef HAVE_FUNCTION_GRAPH_FP_TEST
--	mv	a2, s0
--#endif
--ftrace_graph_regs_call:
--	.global ftrace_graph_regs_call
-+	RESTORE_ABI_REGS 1
-+	jr t0
-+ENDPROC(ftrace_regs_caller)
-+
-+ENTRY(ftrace_caller)
-+	SAVE_ABI_REGS 0
-+	PREPARE_ARGS
-+
-+ftrace_call:
-+	.global ftrace_call
- 	call	ftrace_stub
--#endif
- 
--	RESTORE_ALL
-+	RESTORE_ABI_REGS 0
+ 	RESTORE_ABI_REGS 1
++	bnez	t1,.Ldirect
  	jr t0
--ENDPROC(ftrace_regs_caller)
-+ENDPROC(ftrace_caller)
- #endif /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
++.Ldirect:
++	jr t1
+ ENDPROC(ftrace_regs_caller)
+ 
+ ENTRY(ftrace_caller)
 -- 
 2.36.1
 
