@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9740BC54EBE
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jan 2023 19:17:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60583C61DB3
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jan 2023 20:15:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gW6NZa49khy6ahWq3lz0fIJX3/D77A2CjZ6Uq6gE2jU=; b=OnegL2DViaQTnIz/WBch08Gkfr
-	T3aGzshEol2DgbOpgPMQZxpb41bHC7YxBakN0vbw+696Oltl6fL+z/0FGAXEzqMrHTV+aXvngZs0A
-	ZoyTRBy0xLcFRSY6al4nTz8/LJ9PjwcNRFploSfeIvtX+A+1ynZ2EhkQfzubI7p1wetEk0Ys3s7zy
-	p48DQPn+HUTSgxSNQ5vD6mtNIYKYpaqIhTi2YWUF0k8aE8HYHqn3LEViwoV7J1CpnyF+8dxm7v4XR
-	kcnqvQeIWbgdCu5NZUO3eFsLMPL4BtCBkunsEunSmO9Kcy4VyJQqJi67zLIEouY70j91rzcEOdoT7
-	5OmsHr7g==;
+	bh=FrE7H4kPEMHOEI/2qON+x+yC3+O/4dfunm5BLXbs/LU=; b=CkdqNdcLk9o8M5hQQhyyKxlmgo
+	Jexc/6E72E4X13R3fb5iQxAtBdmPHaayztUKU7yJV+fGjzkR/Of6fu9sJ6M0obHCYyyxjYSTPnPhH
+	OeBAdSxH79XhbHHQDTHZLGT1FvJXcymTL+CSEekpVVDcXam4sHhcaEj85jEU/FVN9eDWEh1GUfKrN
+	x2TKi5burfArAX/YFneYTZwAuj9ogDugSJzWpia1A7A3+opG7VB6G3K2kKF4zlWq8QdNv/GXccM4/
+	awWSFkKmqoBlL8peZfG69pFPL+ed0mtoDLOXz4wLZUm56ADso3UUKpyV5sxTriEaGxD5CHVuxeyr3
+	MEulxg7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pG34S-00GQ8c-IT; Thu, 12 Jan 2023 19:17:05 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pG3yX-00Goge-0w; Thu, 12 Jan 2023 20:15:01 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pG34L-00GQ7L-Nv
-	for linux-riscv@lists.infradead.org; Thu, 12 Jan 2023 19:16:59 +0000
+	id 1pG3HA-00GVNp-T8
+	for linux-riscv@lists.infradead.org; Thu, 12 Jan 2023 19:30:15 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 9CD6262169;
-	Thu, 12 Jan 2023 19:16:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9BCDC433EF;
-	Thu, 12 Jan 2023 19:16:53 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 30190B81FF6;
+	Thu, 12 Jan 2023 19:30:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9EFDEC433D2;
+	Thu, 12 Jan 2023 19:30:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1673551016;
-	bh=8qPdRHscPzEsxrdzYWBcWavkV05o9Fa8dyWjFMiqcmU=;
+	s=k20201202; t=1673551809;
+	bh=9M4Qgev96bLgOABkSP/gBl9aDcrGQTN4+95208uj1t4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WAbO4+eTHTQ/K3aOrr/++Olc+qK8C4VzmA5Zg+NEMk/z+1RcF2Mu2jdy4BaJ3Akj+
-	 HU2TjkBTIjXxYPXuwKiPsFlQXG3h0URm93yJyIRCGIGrG2FQFBzmdBydjoMr5sqy+S
-	 adq9s0CsjT9QD6oO6npfshWCpawhSjO6eft7Gyk7jBLiQx8uZRi7rwb8rx0DE5jQ7C
-	 mIv08gzpCvsbTX3cbq+lbPLG9UMbXy812n0N4+hrEzmfxRquuIgaF29jAkKxvcM9nn
-	 UG8sZ9NNoy23ffZ/H9bXQ43S5fNJqTTtmzFTKSm7grrDIKeX4Sftj4aJXo2tbQyy+W
-	 MJjaCr6z0jYsg==
-Date: Thu, 12 Jan 2023 19:16:51 +0000
+	b=CfxDrEYPeDGPKgPehnJzyQ/y3i7IsLzKtBWdZUwhXi7BIEgHs6V9M3ddKqHvF4qxW
+	 hGlRhZTaReK4hRo+hMYWObxByFEizEHlO05g7Vi6JszUa2zMVaBdVuKqg6uByCEnCl
+	 0MNj5a+cKbJstCy5F0Dn3kxjetHurTj3yMjHJxdnCqgZmsfKG1FR8GIzy5ocfWZjL1
+	 DNE3lpMupnlTugpkRCzVLkqy3ZdDdbX1fND7shU0BWMRjijHL90DmRhlzm3WoC6iU1
+	 6IqBowE1fGWu2C+4JhA3tdSp++bgp0PKyEcRtkzreeIcL6B00m36wBmiaI3X8rJKv7
+	 5k1zKZh47MFGw==
+Date: Thu, 12 Jan 2023 19:30:05 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Jia Jie Ho <jiajie.ho@starfivetech.com>
-Cc: Olivia Mackall <olivia@selenic.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
+To: Hal Feng <hal.feng@starfivetech.com>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-gpio@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>,
 	Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	linux-crypto@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4 2/3] hwrng: starfive - Add TRNG driver for StarFive SoC
-Message-ID: <Y8Bco7lBBj7CO9C5@spud>
-References: <20230112043812.150393-1-jiajie.ho@starfivetech.com>
- <20230112043812.150393-3-jiajie.ho@starfivetech.com>
+	Linus Walleij <linus.walleij@linaro.org>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Jianlong Huang <jianlong.huang@starfivetech.com>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 0/5] Basic pinctrl support for StarFive JH7110 RISC-V
+ SoC
+Message-ID: <Y8BfvQCFNz9KNrDY@spud>
+References: <20221220005529.34744-1-hal.feng@starfivetech.com>
 MIME-Version: 1.0
-In-Reply-To: <20230112043812.150393-3-jiajie.ho@starfivetech.com>
+In-Reply-To: <20221220005529.34744-1-hal.feng@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230112_111657_894364_1C88C936 
-X-CRM114-Status: GOOD (  26.76  )
+X-CRM114-CacheID: sfid-20230112_113013_283277_3B0ACA10 
+X-CRM114-Status: GOOD (  26.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,139 +73,147 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0702648446494542194=="
+Content-Type: multipart/mixed; boundary="===============3720383543246739560=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============0702648446494542194==
+--===============3720383543246739560==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="pC+9YUp9vH5Uuamr"
+	protocol="application/pgp-signature"; boundary="+7GE2eStfBy4cbGi"
 Content-Disposition: inline
 
 
---pC+9YUp9vH5Uuamr
+--+7GE2eStfBy4cbGi
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Thu, Jan 12, 2023 at 12:38:11PM +0800, Jia Jie Ho wrote:
-> This adds driver support for the hardware random number generator in
-> Starfive SoCs and adds StarFive TRNG entry to MAINTAINERS.
->=20
-> Co-developed-by: Jenny Zhang <jenny.zhang@starfivetech.com>
-> Signed-off-by: Jenny Zhang <jenny.zhang@starfivetech.com>
-> Signed-off-by: Jia Jie Ho <jiajie.ho@starfivetech.com>
-> ---
->  MAINTAINERS                            |   6 +
->  drivers/char/hw_random/Kconfig         |  11 +
->  drivers/char/hw_random/Makefile        |   1 +
->  drivers/char/hw_random/starfive-trng.c | 397 +++++++++++++++++++++++++
->  4 files changed, 415 insertions(+)
->  create mode 100644 drivers/char/hw_random/starfive-trng.c
->=20
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 65140500d9f8..b91e3fc11fc6 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -19626,6 +19626,12 @@ F:	drivers/reset/reset-starfive.c
->  F:	include/linux/reset/starfive.h
->  F:	include/dt-bindings/reset/starfive*
-> =20
-> +STARFIVE TRNG DRIVER
-> +M:	Jia Jie Ho <jiajie.ho@starfivetech.com>
-> +S:	Maintained
-> +F:	Documentation/devicetree/bindings/rng/starfive*
-> +F:	drivers/char/hw_random/starfive-trng.c
+Hey Hal Feng,
 
-minor nit (so don't submit another version just to fix this):
-This should be Supported, no?
+On Tue, Dec 20, 2022 at 08:55:24AM +0800, Hal Feng wrote:
+> This patch series adds basic pinctrl support for StarFive JH7110 SoC.
+> You can simply get or review the patches at the link [1].
 
-> diff --git a/drivers/char/hw_random/Makefile b/drivers/char/hw_random/Mak=
-efile
-> index 3e948cf04476..f68ac370847f 100644
-> --- a/drivers/char/hw_random/Makefile
-> +++ b/drivers/char/hw_random/Makefile
-> @@ -47,3 +47,4 @@ obj-$(CONFIG_HW_RANDOM_XIPHERA) +=3D xiphera-trng.o
->  obj-$(CONFIG_HW_RANDOM_ARM_SMCCC_TRNG) +=3D arm_smccc_trng.o
->  obj-$(CONFIG_HW_RANDOM_CN10K) +=3D cn10k-rng.o
->  obj-$(CONFIG_HW_RANDOM_POLARFIRE_SOC) +=3D mpfs-rng.o
-> +obj-$(CONFIG_HW_RANDOM_STARFIVE) +=3D starfive-trng.o
+> [1]: https://github.com/hal-feng/linux/commits/visionfive2-minimal
 
-Is "STARFIVE" a bit too general of a name here and in the Kconfig entry?
-I don't have a TRM for the JH7100, but this name (and the Kconfig text)
-would give me the impression that I can use it there too.
-Does this driver support both?
-
-> +static int starfive_trng_probe(struct platform_device *pdev)
-
-> +	clk_prepare_enable(trng->hclk);
-> +	clk_prepare_enable(trng->ahb);
-> +	reset_control_deassert(trng->rst);
-> +
-> +	trng->rng.name =3D dev_driver_string(&pdev->dev);
-> +	trng->rng.init =3D starfive_trng_init;
-> +	trng->rng.cleanup =3D starfive_trng_cleanup;
-> +	trng->rng.read =3D starfive_trng_read;
-> +
-> +	trng->mode =3D PRNG_256BIT;
-> +	trng->mission =3D 1;
-> +	trng->reseed =3D RANDOM_RESEED;
-> +
-> +	ret =3D devm_hwrng_register(&pdev->dev, &trng->rng);
-> +	if (ret) {
-> +		dev_err_probe(&pdev->dev, ret, "Failed to register hwrng\n");
-> +		goto err_fail_register;
-> +	}
-> +
-> +	pm_runtime_use_autosuspend(&pdev->dev);
-> +	pm_runtime_set_autosuspend_delay(&pdev->dev, 100);
-
-> +	pm_runtime_enable(&pdev->dev);
-
-> +
-> +	return 0;
-> +
-> +err_fail_register:
-
-> +	pm_runtime_disable(&pdev->dev);
-
-This was only enabled after the only goto for this label, does it
-serve a purpose?
-I know little about runtime PM, it just caught my eye.
-I looked at the other rng drivers that had calls to pm_runtime_enable(),
-but they all seem to do their pm enablement _before_ calling
-hwrng_register().
-Again, I am not familiar with runtime PM, but curious why you are doing
-things differently, that's all.
-
-> +
-> +	reset_control_assert(trng->rst);
-> +	clk_disable_unprepare(trng->ahb);
-> +	clk_disable_unprepare(trng->hclk);
-> +
-> +	return ret;
-> +}
+Do you intend submitting a new version of the patchset to address the
+comments about the bindings, or are you waiting for comments on the
+code?
 
 Thanks,
 Conor.
 
+> Changes since v2:
+> - Rebased on tag v6.1.
+> Patch 1:
+> - Renamed pinctrl-starfive-jh7110.h to
+>   starfive,jh7110-pinctrl.h. (by Krzysztof)
+> - Separated the register values in the binding header and stored them in
+>   a new file arch/riscv/boot/dts/starfive/jh7110-pinfunc.h. (by Krzysztof)
+> - Split patch 1 into sys part and aon part. Merged them into patch 2
+>   and patch 3 respectively.
+> Patch 2 & 3:
+> - Dropped "reg-names" and the description of "interrupts". Dropped quotes
+>   behind "$ref" and kept consisitent quotes. (by Krzysztof)
+> - Moved gpio properties behind interrupt properties.
+> - Moved "required" behind "patternProperties". (by Krzysztof)
+> - Rewrote the examples of bindings. (by Krzysztof and Emil)
+> - Added Co-developed-by tag for Emil.
+> - Dropped unused "clocks" property in patch 3.
+> Patch 4 & 5:
+> - Renamed "pinctrl-starfive.*" to "pinctrl-starfive-jh7110.*" and replaced
+>   all "starfive_" prefix with "jh7110_" in these files. (by Emil)
+> - Dropped macro GPIO_NUM_PER_WORD. (by Emil)
+> - Dropped unused flag member in starfive_pinctrl_soc_info structure. (by =
+Emil)
+> - Renamed "pinctrl-jh7110-sys.c" to "pinctrl-starfive-jh7110-sys.c".
+>   Renamed "pinctrl-jh7110-aon.c" to "pinctrl-starfive-jh7110-aon.c". (by =
+Emil)
+> - Added individual Kconfig options for sys and aon pinctrl drivers. (by E=
+mil)
+> - Made the sys and aon pinctrl drivers be modules. (by Emil)
+> - Added "JH7110_" prefix for macro SYS_GPO_PDA_0_74_CFG,
+>   SYS_GPO_PDA_89_94_CFG and AON_GPO_PDA_0_5_CFG. (by Emil)
+> - Dropped jh7110_sys_pinctrl_probe() and jh7110_aon_pinctrl_probe().
+>   Got the match data in the common jh7110_pinctrl_probe() and used it
+>   to probe. (by Emil)
+> - Dropped the of_match_ptr macro(). (by Emil)
+> - Set the MODULE_LICENSE as "GPL" according to commit bf7fbeeae6db.
+>=20
+>   v2: https://lore.kernel.org/all/20221118011108.70715-1-hal.feng@starfiv=
+etech.com/
+>=20
+> Changes since v1:
+> - Rebased on tag v6.1-rc5.
+> - Dropped patch 22 and 23 since they were merged in v6.1-rc1.
+> - Removed some unused macros and register values which do not belong to
+>   bindings. Simplified pinctrl definitions in patch 24. (by Krzysztof)
+> - Split the bindings into sys pinctrl bindings and aon pinctrl bindings,
+>   and split patch 25 into two patches.
+> - Made the bindings follow generic pinctrl bindings. (by Krzysztof)
+> - Fixed some wrong indentation in bindings, and checked it with
+>   `make dt_binding_check`.
+> - Split the patch 26 into two patches which added sys and aon pinctrl
+>   driver respectively.
+> - Restructured the pinctrl drivers so made them follow generic pinctrl
+>   bindings. Rewrote `dt_node_to_map` and extracted the public code to make
+>   it clearer.
+>=20
+>   v1: https://lore.kernel.org/all/20220929143225.17907-1-hal.feng@linux.s=
+tarfivetech.com/
+>=20
+> Jianlong Huang (5):
+>   riscv: dts: starfive: Add StarFive JH7110 pin function definitions
+>   dt-bindings: pinctrl: Add StarFive JH7110 sys pinctrl
+>   dt-bindings: pinctrl: Add StarFive JH7110 aon pinctrl
+>   pinctrl: starfive: Add StarFive JH7110 sys controller driver
+>   pinctrl: starfive: Add StarFive JH7110 aon controller driver
+>=20
+>  .../pinctrl/starfive,jh7110-aon-pinctrl.yaml  | 126 +++
+>  .../pinctrl/starfive,jh7110-sys-pinctrl.yaml  | 142 +++
+>  MAINTAINERS                                   |   9 +-
+>  arch/riscv/boot/dts/starfive/jh7110-pinfunc.h | 308 ++++++
+>  drivers/pinctrl/starfive/Kconfig              |  33 +
+>  drivers/pinctrl/starfive/Makefile             |   4 +
+>  .../starfive/pinctrl-starfive-jh7110-aon.c    | 177 ++++
+>  .../starfive/pinctrl-starfive-jh7110-sys.c    | 449 ++++++++
+>  .../starfive/pinctrl-starfive-jh7110.c        | 979 ++++++++++++++++++
+>  .../starfive/pinctrl-starfive-jh7110.h        |  70 ++
+>  .../pinctrl/starfive,jh7110-pinctrl.h         | 137 +++
+>  11 files changed, 2431 insertions(+), 3 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/pinctrl/starfive,jh=
+7110-aon-pinctrl.yaml
+>  create mode 100644 Documentation/devicetree/bindings/pinctrl/starfive,jh=
+7110-sys-pinctrl.yaml
+>  create mode 100644 arch/riscv/boot/dts/starfive/jh7110-pinfunc.h
+>  create mode 100644 drivers/pinctrl/starfive/pinctrl-starfive-jh7110-aon.c
+>  create mode 100644 drivers/pinctrl/starfive/pinctrl-starfive-jh7110-sys.c
+>  create mode 100644 drivers/pinctrl/starfive/pinctrl-starfive-jh7110.c
+>  create mode 100644 drivers/pinctrl/starfive/pinctrl-starfive-jh7110.h
+>  create mode 100644 include/dt-bindings/pinctrl/starfive,jh7110-pinctrl.h
+>=20
+>=20
+> base-commit: 830b3c68c1fb1e9176028d02ef86f3cf76aa2476
+> --=20
+> 2.38.1
+>=20
 
---pC+9YUp9vH5Uuamr
+--+7GE2eStfBy4cbGi
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY8BcowAKCRB4tDGHoIJi
-0ooTAQCVQna4B47AvqRVufpOn/h7Kf45VvY66vkny3KGYOzbqgEAh0GS0PmMp9sY
-K/fI4Uwn7A+7DZ9+xKDhHSaNAjPdEAE=
-=8g8P
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY8BfvQAKCRB4tDGHoIJi
+0jicAQDpd58lcug0jLR0d3ZBCfGJREtWqXWojElhKKTnaBVt/wD/fEJEOoEDLicn
+rE8j7Kiv1yzRhnRxiQU5zZqRlLGFiAg=
+=MdQF
 -----END PGP SIGNATURE-----
 
---pC+9YUp9vH5Uuamr--
+--+7GE2eStfBy4cbGi--
 
 
---===============0702648446494542194==
+--===============3720383543246739560==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -216,5 +224,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============0702648446494542194==--
+--===============3720383543246739560==--
 
