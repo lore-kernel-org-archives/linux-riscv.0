@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2354AC678D4
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jan 2023 21:51:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4325C61DB3
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jan 2023 21:51:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Subject:Cc:To:
 	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=YwHxVFaIkWgeOMPkJUlLcf5tUCzPuuabINCw7E9d44E=; b=bnZZBY4BZUN7W8
-	y6KUxXERnqi4jIF9xbDBJ7rmjWhhl34P8xx6i/ZFuYKKxqYlWrcVaIW4HoMUfMIMAb+Oz6xVETKGa
-	o/BwJKDNiGDBGEBSP3PDbxFGXVELBcEVHqB5zfW0T41DFxglR/FPwh3u5+X4G6kPfLCGf7ZbMHqwO
-	qQ5wv8BkJU0PsQSP5y2B0OE0yV+jGL1+ZSq/de6qrUzljM6cJ487GzHPIx4cf05mQu/vHrozG4+MK
-	mL/am1NMTyXudCE7/+eY54p9jbmGo7O+m+0DiUdCAG6rPef+XuOg1lP7uS3ACN+V4aVsImSIQGCR4
-	AgRgXyzAlHGFN59IY50w==;
+	List-Owner; bh=COf5j5BMeIKCwQAtAobe9aQ0SKXhuEsnelyNRzp44cg=; b=c9LgxyBeC7RVZ8
+	LLXXvZPR7T0nLKqwJ+CRuXDUj9JfKeAA0odg8dhZgJNl/H/y6LbYOxcFSeKG6hIw3ijluFtd2/5Bv
+	rZSR96j6/oPZ0owPQNR6EeWHCzIGw9BdjTOT+VZmhIQCJLEX1yUqZF5XKAADxYfqa+si4/RTYXe1I
+	Bjx2gLPn8QvMGEyXiTOdFORc3O+/fDa+gMc+8Aon9rNJHnlRLKLlPaMCgrqYD04HJPqP/3wrlswgD
+	8CDsWv/BaJIr76Tkm3KSPJxPyTg+cBEytPP3peiafRnnfF0yePicqLnNaHY0/hHI2SWSwmPjNI6Yc
+	fJppYBAJCFPyK/Rl8rVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pG5TS-00HCwu-GG; Thu, 12 Jan 2023 21:51:02 +0000
+	id 1pG5TW-00HD0Y-7i; Thu, 12 Jan 2023 21:51:06 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pG3hV-00Ggmk-Hp; Thu, 12 Jan 2023 19:57:25 +0000
+	id 1pG3hV-00Ggmv-HM; Thu, 12 Jan 2023 19:57:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
 	Subject:Cc:To:From:Date:Message-ID:Sender:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:In-Reply-To;
-	bh=mHHfLn3ZXDs7+W84iYI4l64Hgzvzv2j66VWrzu7dGbw=; b=kYTEx0rzU1SllruehA0y8yHATb
-	IJE4wnYq/dRbQHRcZnpN0OXGHrGk0U7J3N0VBj+JSbpdQwQu+8TKRK5iCmxygpxvyweDkZe5UIvKY
-	MwOlwaQnkBOYRnYTKRZAqS1YnWNOV444ewGH4wdgTge715r6fQsvhW/ij5f47Qprmcr4wA7JNnstB
-	e/bXihOVRgcSCgn0rMMHufr9/fNUf4QdhZFePtfdiRCc6x7c+0SOJjOnT1sc/ENafw33wlDFA9nsH
-	0IaR/32BenV0BuTP4t5UZWueg7KT2qaj1MvjhfzmYn2Z4T4bkLiG8Dkn01Xo2lHx6f+yFLnWfJon6
-	ooD7L92g==;
+	bh=Pd5LzlqFWhoOW/IghE5YxUytF5dcFo0PCwRqcxBfbik=; b=SlXzMGW647wjdHfeIxA3BURo/L
+	V57eNszB4X9M2Aw7LuPxwmPByIMO6ZKJ+B9QS4/L40MIuNzW7LoV2ieaE68bBcSd3vNab1fb0CJg0
+	QIScqqs4INqipCz162dj8G6WADgGw/yyJX1KvXDDp9KvqhFFRcEFT/UBl+i0lGVjxQCePgE7wrcjD
+	zg1nhaAwVcqC0aWlZyNbqIQdvsg//4TbBOPEGhSkO9DKH/bfCQcGFEEufPy7Ul19FcRzSlIK8yvAr
+	+j/SelXlIya73f2ebWEWnXnVBv+DvQiepu+aP4ZuJNc4l00+RAhCrFLr4FHOiR17EpRimSqj9p8nr
+	1gOjKv7g==;
 Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
 	by desiato.infradead.org with esmtpsa (Exim 4.96 #2 (Red Hat Linux))
-	id 1pG3hG-0045ox-1D;
-	Thu, 12 Jan 2023 19:57:11 +0000
+	id 1pG3hF-0045og-1H;
+	Thu, 12 Jan 2023 19:57:10 +0000
 Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 862C3303434;
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 595AC303423;
 	Thu, 12 Jan 2023 20:57:13 +0100 (CET)
 Received: by hirez.programming.kicks-ass.net (Postfix, from userid 0)
-	id 11A262CCF62AB; Thu, 12 Jan 2023 20:57:08 +0100 (CET)
-Message-ID: <20230112195540.865735001@infradead.org>
+	id EBA4A2CCF1F77; Thu, 12 Jan 2023 20:57:07 +0100 (CET)
+Message-ID: <20230112195540.494977795@infradead.org>
 User-Agent: quilt/0.66
-Date: Thu, 12 Jan 2023 20:43:39 +0100
+Date: Thu, 12 Jan 2023 20:43:33 +0100
 From: Peter Zijlstra <peterz@infradead.org>
 To: peterz@infradead.org
 Cc: richard.henderson@linaro.org,
@@ -198,7 +198,7 @@ Cc: richard.henderson@linaro.org,
  kasan-dev@googlegroups.com,
  "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
  Ulf Hansson <ulf.hansson@linaro.org>
-Subject: [PATCH v3 25/51] printk: Remove trace_.*_rcuidle() usage
+Subject: [PATCH v3 19/51] cpuidle,intel_idle: Fix CPUIDLE_FLAG_INIT_XSTATE
 References: <20230112194314.845371875@infradead.org>
 MIME-Version: 1.0
 X-Mailman-Approved-At: Thu, 12 Jan 2023 13:49:35 -0800
@@ -218,33 +218,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The problem, per commit fc98c3c8c9dc ("printk: use rcuidle console
-tracepoint"), was printk usage from the cpuidle path where RCU was
-already disabled.
-
-Per the patches earlier in this series, this is no longer the case.
+vmlinux.o: warning: objtool: intel_idle_s2idle+0xd5: call to fpu_idle_fpregs() leaves .noinstr.text section
+vmlinux.o: warning: objtool: intel_idle_xstate+0x11: call to fpu_idle_fpregs() leaves .noinstr.text section
+vmlinux.o: warning: objtool: fpu_idle_fpregs+0x9: call to xfeatures_in_use() leaves .noinstr.text section
 
 Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-Reviewed-by: Sergey Senozhatsky <senozhatsky@chromium.org>
-Acked-by: Petr Mladek <pmladek@suse.com>
 Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
 Acked-by: Frederic Weisbecker <frederic@kernel.org>
 Tested-by: Tony Lindgren <tony@atomide.com>
 Tested-by: Ulf Hansson <ulf.hansson@linaro.org>
 ---
- kernel/printk/printk.c |    2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/x86/include/asm/fpu/xcr.h       |    4 ++--
+ arch/x86/include/asm/special_insns.h |    2 +-
+ arch/x86/kernel/fpu/core.c           |    4 ++--
+ 3 files changed, 5 insertions(+), 5 deletions(-)
 
---- a/kernel/printk/printk.c
-+++ b/kernel/printk/printk.c
-@@ -2238,7 +2238,7 @@ static u16 printk_sprint(char *text, u16
- 		}
+--- a/arch/x86/include/asm/fpu/xcr.h
++++ b/arch/x86/include/asm/fpu/xcr.h
+@@ -5,7 +5,7 @@
+ #define XCR_XFEATURE_ENABLED_MASK	0x00000000
+ #define XCR_XFEATURE_IN_USE_MASK	0x00000001
+ 
+-static inline u64 xgetbv(u32 index)
++static __always_inline u64 xgetbv(u32 index)
+ {
+ 	u32 eax, edx;
+ 
+@@ -27,7 +27,7 @@ static inline void xsetbv(u32 index, u64
+  *
+  * Callers should check X86_FEATURE_XGETBV1.
+  */
+-static inline u64 xfeatures_in_use(void)
++static __always_inline u64 xfeatures_in_use(void)
+ {
+ 	return xgetbv(XCR_XFEATURE_IN_USE_MASK);
+ }
+--- a/arch/x86/include/asm/special_insns.h
++++ b/arch/x86/include/asm/special_insns.h
+@@ -295,7 +295,7 @@ static inline int enqcmds(void __iomem *
+ 	return 0;
+ }
+ 
+-static inline void tile_release(void)
++static __always_inline void tile_release(void)
+ {
+ 	/*
+ 	 * Instruction opcode for TILERELEASE; supported in binutils
+--- a/arch/x86/kernel/fpu/core.c
++++ b/arch/x86/kernel/fpu/core.c
+@@ -856,12 +856,12 @@ int fpu__exception_code(struct fpu *fpu,
+  * Initialize register state that may prevent from entering low-power idle.
+  * This function will be invoked from the cpuidle driver only when needed.
+  */
+-void fpu_idle_fpregs(void)
++noinstr void fpu_idle_fpregs(void)
+ {
+ 	/* Note: AMX_TILE being enabled implies XGETBV1 support */
+ 	if (cpu_feature_enabled(X86_FEATURE_AMX_TILE) &&
+ 	    (xfeatures_in_use() & XFEATURE_MASK_XTILE)) {
+ 		tile_release();
+-		fpregs_deactivate(&current->thread.fpu);
++		__this_cpu_write(fpu_fpregs_owner_ctx, NULL);
  	}
- 
--	trace_console_rcuidle(text, text_len);
-+	trace_console(text, text_len);
- 
- 	return text_len;
  }
 
 
