@@ -4,69 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FAA2C54EBC
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jan 2023 12:06:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8205C54EBD
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jan 2023 12:16:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fuf0JeH8K2UvJEz3dzShnlFf2SudTjoV1xIVHTBClPU=; b=MQGRnckHOifdx20AbkceE3S/V2
-	oVdUvKpXj8rP1vAAFCC1r+GiH1GHOMXOfteCuqJn4cYOTNkwttEhnBKZJDAHPwX0BXEGG7zpm5+EX
-	pV2yZ4QJpMBhFlaPZqWZOikAdH3V/T7+gT52P7FfBlA2hfIG25H4AJvuR2nsLlpyzyoxw09Jgb4EU
-	fdKlnTG8S5TvGaJar2HWzAGRpr1RxioUwg63buO2fsjxNisnWKvAg+/OWRUZi6xZ2dRtTY/ObG4YU
-	83rPeto41dVPJGcEJ6hQ0nWUHZtSgUuhMw6D7wjceIee6yGaItgl9sEE8XpGEwXgmaHFvglUXIDH3
-	5rZ82dcg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=18JObs8f6zDhVGzejZp1/oDGhrbkc8EpxHBtx87iQl4=; b=uT7HQIbX8QPlLV
+	MHYobZDIenrK0KnezJO0a7b27+zKKmb1cgBxc1oAWxyCjoDFyiIZ7VAZ81uyF1x5vXwr/0XME1lPJ
+	VuWzvsDSmCeKXN+iNVB1E02jqYNtnzENGoT8NQ/2I3N+uL0tR9vb/AF/BupycIYFckVeftSA//un+
+	k5AUBkUTySsa9YTNloU37VxA4Th8v0mWlUAQ6kUAPBfpTI3KGnJ/tS6x15SjP13ELfxB6IkgBV+X5
+	2spDzMAh1flxPm1vlnwwDnLYPTNJ6dI0SoIMOo7K5JqhadUgOyw8P7RTxCS0T7dKlosJmKi33+i2x
+	75MyWgDfA3/QNvmpCVGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFwM4-00Ewy8-PY; Thu, 12 Jan 2023 12:06:48 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFwLq-00EwwM-OD
-	for linux-riscv@lists.infradead.org; Thu, 12 Jan 2023 12:06:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1673525194; x=1705061194;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=x/Ldtlmo85OHHzwftMA/RPWJjrWxcyaPmhh9lRsuUbA=;
-  b=O69CpDELWc6OQHneYxpqHbuA9NLDuNF8MWDx3YDgTp601ebZGjVm9LB6
-   fYBxvRxc2ylV8RkWGhcAY8ehzY2N1w4Zk3xS6KWx8GexWNahCeh5xE5bs
-   N4gb7JuK6f1DRpoz78FtEy1jGYsiVKfGMj1jVmNhAtxy/YAJORwrauS22
-   6Wp8R66qN3D1AHEUXL8S7U7DdS3JICMNrza2WIIiow1ozEZzf94IVno3y
-   MPjjVl19KMGflY6zxmMpIG5uZA/8HfQutJsn2knOIjIDrJdVxm9rMWNSX
-   PKjnhWw/vrLNYJFNrGJmcp/5PyNh3DWeL+L6AEcSzpOdkbHBTB2R5dRYd
-   g==;
-X-IronPort-AV: E=Sophos;i="5.97,319,1669100400"; 
-   d="asc'?scan'208";a="191908039"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 12 Jan 2023 05:06:26 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.16; Thu, 12 Jan 2023 05:06:25 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.16 via Frontend
- Transport; Thu, 12 Jan 2023 05:06:24 -0700
-Date: Thu, 12 Jan 2023 12:06:01 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>, <palmer@dabbelt.com>
-CC: Andrew Jones <ajones@ventanamicro.com>, <linux-riscv@lists.infradead.org>,
-	<palmer@dabbelt.com>, <christoph.muellner@vrull.eu>, <conor@kernel.org>,
-	<philipp.tomsich@vrull.eu>, <jszhang@kernel.org>
-Subject: Re: [PATCH v4 5/5] RISC-V: add zbb support to string functions
-Message-ID: <Y7/3qc6ppZzie/ve@wendy>
-References: <20230109181755.2383085-1-heiko@sntech.de>
- <20230110095720.j7ll3qwmwneodmpw@orel>
- <Y706jSZjUOle32m+@wendy>
- <6183320.UjTJXf6HLC@diego>
+	id 1pFwVE-00ExqT-M3; Thu, 12 Jan 2023 12:16:16 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pFwV7-00Exop-IQ
+	for linux-riscv@lists.infradead.org; Thu, 12 Jan 2023 12:16:13 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8C6541063;
+	Thu, 12 Jan 2023 04:16:49 -0800 (PST)
+Received: from FVFF77S0Q05N (unknown [10.57.43.206])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 09C7D3F67D;
+	Thu, 12 Jan 2023 04:16:04 -0800 (PST)
+Date: Thu, 12 Jan 2023 12:16:02 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: guoren@kernel.org
+Cc: anup@brainfault.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
+	conor.dooley@microchip.com, heiko@sntech.de, rostedt@goodmis.org,
+	mhiramat@kernel.org, jolsa@redhat.com, bp@suse.de,
+	jpoimboe@kernel.org, suagrfillet@gmail.com, andy.chiu@sifive.com,
+	e.shatokhin@yadro.com, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH -next V7 1/7] riscv: ftrace: Fixup panic by disabling
+ preemption
+Message-ID: <Y7/6AtX5X0+5qF6Y@FVFF77S0Q05N>
+References: <20230112090603.1295340-1-guoren@kernel.org>
+ <20230112090603.1295340-2-guoren@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <6183320.UjTJXf6HLC@diego>
+Content-Disposition: inline
+In-Reply-To: <20230112090603.1295340-2-guoren@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230112_040644_221207_93392C21 
-X-CRM114-Status: GOOD (  13.04  )
+X-CRM114-CacheID: sfid-20230112_041612_102552_8EDD72B5 
+X-CRM114-Status: GOOD (  23.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,68 +62,88 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4217231382976281537=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============4217231382976281537==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="H4ZsaFx/2SK7ltyj"
-Content-Disposition: inline
+Hi Guo,
 
---H4ZsaFx/2SK7ltyj
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Thu, Jan 12, 2023 at 04:05:57AM -0500, guoren@kernel.org wrote:
+> From: Andy Chiu <andy.chiu@sifive.com>
+> 
+> In RISCV, we must use an AUIPC + JALR pair to encode an immediate,
+> forming a jump that jumps to an address over 4K. This may cause errors
+> if we want to enable kernel preemption and remove dependency from
+> patching code with stop_machine(). For example, if a task was switched
+> out on auipc. And, if we changed the ftrace function before it was
+> switched back, then it would jump to an address that has updated 11:0
+> bits mixing with previous XLEN:12 part.
+> 
+> p: patched area performed by dynamic ftrace
+> ftrace_prologue:
+> p|      REG_S   ra, -SZREG(sp)
+> p|      auipc   ra, 0x? ------------> preempted
+> 					...
+> 				change ftrace function
+> 					...
+> p|      jalr    -?(ra) <------------- switched back
+> p|      REG_L   ra, -SZREG(sp)
+> func:
+> 	xxx
+> 	ret
 
-On Thu, Jan 12, 2023 at 12:21:38PM +0100, Heiko St=FCbner wrote:
->=20
-> I've gone forward and imported that series as a dependency in my tree so =
-that the
-> ordering becomes correct :-) .
->=20
-> Though of course I got a conflict with Andrew's
-> commit e923f4625ed3 ("riscv: Apply a static assert to riscv_isa_ext_id")
-> but fixed that up - though maybe a rebased v3 may be in order?
+As mentioned on the last posting, I don't think this is sufficient to fix the
+issue. I've replied with more detail there:
 
-To be honest, I "strategically" didn't resend a v3 despite that trivial
-conflict since it's at the bottom of the list on patchwork.
-I was hoping that it'd get merged earlier in the window so any of the
-various bits of extension support stuff could go on top of the re-order,
-given it conflicts with, give or take, every other extension related
-patch. That's not come to pass (yet?) though.
+  https://lore.kernel.org/lkml/Y7%2F3hoFjS49yy52W@FVFF77S0Q05N/
 
-I can easily respin, but if I do & some other extension bit gets merged
-before it, it'll conflict again, so I didn't in the hopes that the
-conflict could be resolved...
+Even in a non-preemptible SMP kernel, if one CPU can be in the middle of
+executing the ftrace_prologue while another CPU is patching the
+ftrace_prologue, you have the exact same issue.
 
-What you think?
+For example, if CPU X is in the prologue fetches the old AUIPC and the new
+JALR (because it races with CPU Y modifying those), CPU X will branch to the
+wrong address. The race window is much smaller in the absence of preemption,
+but it's still there (and will be exacerbated in virtual machines since the
+hypervisor can preempt a vCPU at any time).
 
+Note that the above is even assuming that instruction fetches are atomic, which
+I'm not sure is the case; for example arm64 has special CMODX / "Concurrent
+MODification and eXecutuion of instructions" rules which mean only certain
+instructions can be patched atomically.
 
---H4ZsaFx/2SK7ltyj
-Content-Type: application/pgp-signature; name="signature.asc"
+Either I'm missing something that provides mutual exclusion between the
+patching and execution of the ftrace_prologue, or this patch is not sufficient.
 
------BEGIN PGP SIGNATURE-----
+Thanks,
+Mark.
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY7/3qQAKCRB4tDGHoIJi
-0kccAQCwllzmEL5Fa5Higuh4R/7zY0ReH42mNMjlNIJnwC2t2AD8DBQc2BeV1u8n
-xOWsLGZyybHqRheDjxVJNZUfBn9e+wc=
-=W0ll
------END PGP SIGNATURE-----
-
---H4ZsaFx/2SK7ltyj--
-
-
---===============4217231382976281537==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> Fixes: afc76b8b8011 ("riscv: Using PATCHABLE_FUNCTION_ENTRY instead of MCOUNT")
+> Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
+> Signed-off-by: Guo Ren <guoren@kernel.org>
+> ---
+>  arch/riscv/Kconfig | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index e2b656043abf..ee0d39b26794 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -138,7 +138,7 @@ config RISCV
+>  	select HAVE_DYNAMIC_FTRACE_WITH_REGS if HAVE_DYNAMIC_FTRACE
+>  	select HAVE_FTRACE_MCOUNT_RECORD if !XIP_KERNEL
+>  	select HAVE_FUNCTION_GRAPH_TRACER
+> -	select HAVE_FUNCTION_TRACER if !XIP_KERNEL
+> +	select HAVE_FUNCTION_TRACER if !XIP_KERNEL && !PREEMPTION
+>  
+>  config ARCH_MMAP_RND_BITS_MIN
+>  	default 18 if 64BIT
+> -- 
+> 2.36.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4217231382976281537==--
-
