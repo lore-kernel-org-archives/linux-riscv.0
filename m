@@ -4,43 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E24BC46467
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jan 2023 23:32:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA359C54EBD
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jan 2023 04:39:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=e8P2KQfJ2NwgfbqKqdZQBkfRia/spUjb/FglsWlNbi4=; b=LD1bVszLaeeQCB
-	Axz31te5kEo6uJ/2UQGiHrSyK6MlvISUobeUp4iO4Zswmpw0Xjr2apMW98krU3oidXn7TbVHvL5MD
-	mVDPx9hYHwLNm98NneKXJouDWEURoPAI+Y1SyoFXpLaEDavNSVcbB0XQ4iSchEUoWqMSxcJX2tqE2
-	E0KhXiaiDCun5HuGVf4k5sv2IbyVO9n/1qq+af41WOM9Hr5yHgUHNhybc/vGrGzIMDtAQAKL3Fh+C
-	6yCz+JxtLbDVLi2idWCHD5Q49tt1ZnGOPt75X/eJyp/7zG4/7RlJK7w5SU/O3UQzUlc3yuE4Wy5/p
-	PtMibMYVPHSem1vBeVnw==;
+	List-Owner; bh=G5KDmYjd5JzihefOYLU0SqKTaBnMQLXT6YBpI6wpgTY=; b=cnX3Qb51SxymfV
+	QuMXvRyV+TiHPsbAufwwHesB/9KaYsuGSX7Dy9kjdkFV5UpG1XzjCQx4th6n0RmfszfHMY+UTCdtp
+	qL1loI0mc9Hv0IhWi1Kjzns/I5cwZypf0LAbs4UyS7VTX8xmL1P5Bv1gfh2LkhLZM221ebuHO9rcH
+	wwxpUlrVtCVvZJFX2NRKJ2oSoScluMGWnBPrgblAuLG1Gd8vRRmKi7ghqP+p8Jfqa9wwi4IY8IARf
+	fo+pbL7JRc1o6iYyq7kKE0yH/1I2PCL2Dl0UMerVDtbYqmeX3W3z0xMTRe78cSee76OOCMaVekSz1
+	z6Llp6iYjUmFLJl+izPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFkZl-00DCbE-1T; Wed, 11 Jan 2023 23:32:09 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pFkZi-00DCab-Qr; Wed, 11 Jan 2023 23:32:08 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1pFkZb-0001Ac-W2; Thu, 12 Jan 2023 00:32:00 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, Jisheng Zhang <jszhang@kernel.org>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 01/13] riscv: fix jal offsets in patched alternatives
-Date: Thu, 12 Jan 2023 00:31:59 +0100
-Message-ID: <3268358.687JKscXgg@diego>
-In-Reply-To: <20230111171027.2392-2-jszhang@kernel.org>
-References: <20230111171027.2392-1-jszhang@kernel.org> <20230111171027.2392-2-jszhang@kernel.org>
+	id 1pFpMf-00DjRf-Hj; Thu, 12 Jan 2023 04:38:57 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pFpMb-00DjOT-Lm
+	for linux-riscv@lists.infradead.org; Thu, 12 Jan 2023 04:38:56 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id F301824DD82;
+	Thu, 12 Jan 2023 12:38:23 +0800 (CST)
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 12 Jan
+ 2023 12:38:23 +0800
+Received: from ubuntu.localdomain (202.188.176.82) by EXMBX168.cuchost.com
+ (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 12 Jan
+ 2023 12:38:19 +0800
+From: Jia Jie Ho <jiajie.ho@starfivetech.com>
+To: Olivia Mackall <olivia@selenic.com>, Herbert Xu
+	<herbert@gondor.apana.org.au>, Rob Herring <robh+dt@kernel.org>, "Krzysztof
+ Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing
+	<kernel@esmil.dk>, Conor Dooley <conor.dooley@microchip.com>
+CC: <linux-crypto@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+Subject: [PATCH v4 1/3] dt-bindings: rng: Add StarFive TRNG module
+Date: Thu, 12 Jan 2023 12:38:10 +0800
+Message-ID: <20230112043812.150393-2-jiajie.ho@starfivetech.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20230112043812.150393-1-jiajie.ho@starfivetech.com>
+References: <20230112043812.150393-1-jiajie.ho@starfivetech.com>
 MIME-Version: 1.0
+X-Originating-IP: [202.188.176.82]
+X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX168.cuchost.com
+ (172.16.6.78)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230111_153206_892975_64A0D9D5 
-X-CRM114-Status: GOOD (  12.25  )
+X-CRM114-CacheID: sfid-20230111_203853_905336_E17AFB69 
+X-CRM114-Status: GOOD (  10.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -57,26 +73,82 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Mittwoch, 11. Januar 2023, 18:10:15 CET schrieb Jisheng Zhang:
-> Alternatives live in a different section, so offsets used by jal
-> instruction will point to wrong locations after the patch got applied.
-> 
-> Similar to arm64, adjust the location to consider that offset.
-> 
-> Co-developed-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
-> Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+Add documentation to describe Starfive true random number generator
+module.
 
-looks good, thanks for fixing the issues Andrew and Conor pointed
-out in the variant in my zbb series. I've now switched over to this one.
+Co-developed-by: Jenny Zhang <jenny.zhang@starfivetech.com>
+Signed-off-by: Jenny Zhang <jenny.zhang@starfivetech.com>
+Signed-off-by: Jia Jie Ho <jiajie.ho@starfivetech.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ .../bindings/rng/starfive,jh7110-trng.yaml    | 55 +++++++++++++++++++
+ 1 file changed, 55 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/rng/starfive,jh7110-trng.yaml
 
-I guess as you said, we really should separate this out into a single patch
-[or if Palmer is fine with that, just pick this one patch to apply until the
-rest is ready]
-
-
-Heiko
-
+diff --git a/Documentation/devicetree/bindings/rng/starfive,jh7110-trng.yaml b/Documentation/devicetree/bindings/rng/starfive,jh7110-trng.yaml
+new file mode 100644
+index 000000000000..2b76ce25acc4
+--- /dev/null
++++ b/Documentation/devicetree/bindings/rng/starfive,jh7110-trng.yaml
+@@ -0,0 +1,55 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/rng/starfive,jh7110-trng.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: StarFive SoC TRNG Module
++
++maintainers:
++  - Jia Jie Ho <jiajie.ho@starfivetech.com>
++
++properties:
++  compatible:
++    const: starfive,jh7110-trng
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: Hardware reference clock
++      - description: AHB reference clock
++
++  clock-names:
++    items:
++      - const: hclk
++      - const: ahb
++
++  resets:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - resets
++  - interrupts
++
++additionalProperties: false
++
++examples:
++  - |
++    rng: rng@1600C000 {
++        compatible = "starfive,jh7110-trng";
++        reg = <0x1600C000 0x4000>;
++        clocks = <&clk 15>, <&clk 16>;
++        clock-names = "hclk", "ahb";
++        resets = <&reset 3>;
++        interrupts = <30>;
++    };
++...
+-- 
+2.25.1
 
 
 _______________________________________________
