@@ -4,67 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D973C61DB3
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jan 2023 21:02:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4CC6C54EBE
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jan 2023 21:06:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=V+dfV6FUj9OD4e8Igu12JxACh/5oUd3cIa3PLP4UdRc=; b=c4HCejtz+F4NZz
-	GXle8aKYLMxupfckqnDZtJv2LvKTtBBKDOPZ2YBWEHbrksuHBo4TX98pOZ+ltgDA/X91eA5DtVWlc
-	UG9T7BmuwpulZYmtKjLz/tcyT6maBBraNe01R6D8Ppj6KpxneT8ww5tW7amheALNrFZ4IHHFj+dRP
-	SzLkNIYTNWr0RAmBDhlGYsOO8/oisV/vRXZdkjp2Wfnhj3tMyoylPwVxSdu+/nYdY25cat5INIOkp
-	qaPGGOCZxf/BgKtE2Ys80rVR0IzJQk2qYS5DxSai4Cf3PW2vZcKkHqTqqnFeMtHW5eGf+UOO1bFTs
-	Es8MH293JOV4jnGgR2mg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=00MrW3HpnNOu/sJ9/ZUGp4+5ST5AX8yYH311YlQxBlo=; b=opFR2wUbLlGFNb
+	dDR5j89c4AvTkYQh7DaiJ1A1DoWfQnqwj6UpuBR92QYzlDdJe/8GDZ2tynTC9Texw+zV5KQAQzo+s
+	gtZF5vqGzRw1oVdsU2ud6zTywoJ2mntHBM+y0behDLe22T+1s6NqG/OEfM2I0VTicsYtpuq3UA/8l
+	YunA7k+rZKqStHGy5ixVLaSuYcHORgkJms0yQ7QQ8TgIeAr4vOksWCis7+MxonaNKYJ3p+HIjlFYH
+	5Z81ZF8bkS6VFfAg/59LY8ntbkqQoyqFGF270ff/3SOZTRDQSki0TJWSiSZSDiGCPZZairgaeJ7V7
+	sWgBiV4aLg1nVc33mNBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pG4id-00H4ZJ-Il; Thu, 12 Jan 2023 21:02:39 +0000
-Received: from mail-oo1-f44.google.com ([209.85.161.44])
+	id 1pG4mR-00H5KX-Om; Thu, 12 Jan 2023 21:06:35 +0000
+Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pG4ia-00H4Xh-9d
-	for linux-riscv@lists.infradead.org; Thu, 12 Jan 2023 21:02:38 +0000
-Received: by mail-oo1-f44.google.com with SMTP id b10-20020a4a9fca000000b004e6f734c6b4so5123809oom.9
-        for <linux-riscv@lists.infradead.org>; Thu, 12 Jan 2023 13:02:34 -0800 (PST)
+	id 1pG4mM-00H5If-GY
+	for linux-riscv@lists.infradead.org; Thu, 12 Jan 2023 21:06:34 +0000
+Received: by mail-pg1-x52c.google.com with SMTP id g68so12542955pgc.11
+        for <linux-riscv@lists.infradead.org>; Thu, 12 Jan 2023 13:06:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=DDsh5GRLDmAPT4ohGzYkIMdBdaGK6a97VLrKERNXpSI=;
+        b=tC88Nl63tlsqkUVXbppM8YyNoBDPMJ+wX9IGOvEwtqpHT/QQDNc6B23b26p3/GE2xC
+         Hv0XaI+Yp2/yv8Uk5lg/9zlLhNfRGbnvq/+p4zsXDk3g5c/RjXNv35N0RyAb/iW9lbgF
+         PZHloYiuqIJt/JBYLbi50vZUYFjgvFmPTgD/5UMPS4OEO3V/CiMn3cVBnkUn3k2LF3OF
+         7S7fwQoigqFodERVfs2x4uAib9GFLZM4DU21atw0fmuSzw4ndZyWS0xz7PM2bS8CBamP
+         mHjEGgiL4VGMTtdo6YuQuKwRrCESQwFUi3u33nFVKwFQB5MZsaP5P/MR5e4oYpTpq1Rj
+         u85g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RfY+++CNANdJFoCSPyaMORoeKsaEA9plzaHJ+dY2V7w=;
-        b=YR2ePInP7PvmgLayeK5GgusjvHDg9YcM2UwQUSCkcN4HIzClSvC4CXfjSQ8/m1InC1
-         dp+e1hjCeCKm4O6axf1NRktZ6hzk42hGWHT3RNa2twqf8MJEpS3aLNfUvNLY77KXZ5NU
-         2dIcIwqiD3RuZjvKxiqDpOvTum6GO7tk//Wmg9XK9skP0CH18l8kQSjnF2JIuuq0rlnR
-         vwAo4vdOUNrrykCoKjlymRZZ7ucUmVwrtQ8Nq5jJj7PhV6umux3kYLgZV0fyhihTqlQA
-         +bCP1+GUGBZbMs8Yq0ML506ruMf3JRHBXKCLFCdE9SD4KNiALvLzdGXCZLbuWn5V63Af
-         M9lw==
-X-Gm-Message-State: AFqh2kpT/OPeitEb/4KZ0yBOai19b4ISPV2dtJYYQr2xofTHWSepepXT
-	WD2Dx/b5A2KBmuvdCIl+DQ==
-X-Google-Smtp-Source: AMrXdXsGfWxNDyM3OTM69PkQpKWlf+Q8e8sFq+wBdINdSP4ZSEaFhr/b8wKUQ/02qYgehItNwZvGIw==
-X-Received: by 2002:a4a:e2da:0:b0:49f:8814:e387 with SMTP id l26-20020a4ae2da000000b0049f8814e387mr37093371oot.9.1673557353873;
-        Thu, 12 Jan 2023 13:02:33 -0800 (PST)
-Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id m11-20020a056820034b00b004f219b998eesm3486486ooe.43.2023.01.12.13.02.32
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=DDsh5GRLDmAPT4ohGzYkIMdBdaGK6a97VLrKERNXpSI=;
+        b=QQpMqXH8p7hCTTssocIN//Bj/Q0IlaII7a+cal5iQmWQU8Q2swLyxkSZ4tsnmAaudA
+         rvzwEroAOPeXB8K0Qi/iAf6zipiLiHeVy6nZ2jBJTwy+1/ZsiHsbon64Mgw96JEJ7EWr
+         sB7lEQV7qherUy/0cn1+MU3KLZ3L3cUnDXn3NomAn3OKqPgiH/54V7YQKdmqZ4O6jTGN
+         3N7+2X2AOxkdW+ph0YTS8om2IBuWMQ2b7BWDDaHIrLCWnv3tev88zB3cTGfkPuNoM4OM
+         sR2S1Blg7V3fTS04Nvap3dnDw3/6QKrYuZXtz82aCCqVWzVL3kDJ+GBvuU7MRXCVJ9by
+         12JA==
+X-Gm-Message-State: AFqh2kq4ioOvSfeIGV6GBkkyrhu6NcW/pMmHOiJMU5eqDGCPGemUd36i
+	Kth9SItg85dtVixOGb+lK/zqBX430OcSAwF9
+X-Google-Smtp-Source: AMrXdXsWQjghAE7kgEGAEd1aCFC8+rYzpvT4J079pmOQkHUq/42SJ+7iweefO9sVUj+hscQUxYqVpA==
+X-Received: by 2002:a05:6a00:1715:b0:580:ea08:5277 with SMTP id h21-20020a056a00171500b00580ea085277mr7392268pfc.16.1673557586949;
+        Thu, 12 Jan 2023 13:06:26 -0800 (PST)
+Received: from vineet-framework.ba.rivosinc.com (c-24-4-73-83.hsd1.ca.comcast.net. [24.4.73.83])
+        by smtp.gmail.com with ESMTPSA id a203-20020a621ad4000000b00580e3917af7sm9206679pfa.117.2023.01.12.13.06.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Jan 2023 13:02:33 -0800 (PST)
-Received: (nullmailer pid 228721 invoked by uid 1000);
-	Thu, 12 Jan 2023 21:02:31 -0000
-Date: Thu, 12 Jan 2023 15:02:31 -0600
-From: Rob Herring <robh@kernel.org>
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Atish Patra <atishp@atishpatra.org>, Alistair Francis <Alistair.Francis@wdc.com>, Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v2 6/9] dt-bindings: interrupt-controller: Add RISC-V
- advanced PLIC
-Message-ID: <20230112210231.GA214515-robh@kernel.org>
-References: <20230103141409.772298-1-apatel@ventanamicro.com>
- <20230103141409.772298-7-apatel@ventanamicro.com>
+        Thu, 12 Jan 2023 13:06:26 -0800 (PST)
+From: Vineet Gupta <vineetg@rivosinc.com>
+To: linux-riscv@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org,
+	palmer@rivosinc.com,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Kees Cook <keescook@chromium.org>,
+	Guo Ren <guoren@kernel.org>,
+	Greentime Hu <greentime.hu@sifive.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux@rivosinc.com,
+	Vineet Gupta <vineetg@rivosinc.com>
+Subject: [PATCH v2] riscv: elf: add .riscv.attributes parsing
+Date: Thu, 12 Jan 2023 13:06:22 -0800
+Message-Id: <20230112210622.2337254-1-vineetg@rivosinc.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230103141409.772298-7-apatel@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230112_130236_413742_5C0369C8 
-X-CRM114-Status: GOOD (  25.06  )
+X-CRM114-CacheID: sfid-20230112_130630_596315_4BFE93B9 
+X-CRM114-Status: GOOD (  22.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,196 +96,325 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 03, 2023 at 07:44:06PM +0530, Anup Patel wrote:
-> We add DT bindings document for RISC-V advanced platform level
-> interrupt controller (APLIC) defined by the RISC-V advanced
-> interrupt architecture (AIA) specification.
-> 
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> ---
->  .../interrupt-controller/riscv,aplic.yaml     | 159 ++++++++++++++++++
->  1 file changed, 159 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml b/Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml
-> new file mode 100644
-> index 000000000000..b7f20aad72c2
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml
-> @@ -0,0 +1,159 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/interrupt-controller/riscv,aplic.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: RISC-V Advanced Platform Level Interrupt Controller (APLIC)
-> +
-> +maintainers:
-> +  - Anup Patel <anup@brainfault.org>
-> +
-> +description:
-> +  The RISC-V advanced interrupt architecture (AIA) defines an advanced
-> +  platform level interrupt controller (APLIC) for handling wired interrupts
-> +  in a RISC-V platform. The RISC-V AIA specification can be found at
-> +  https://github.com/riscv/riscv-aia.
-> +
-> +  The RISC-V APLIC is implemented as hierarchical APLIC domains where all
-> +  interrupt sources connect to the root domain which can further delegate
-> +  interrupts to child domains. There is one device tree node for each APLIC
-> +  domain.
-> +
-> +allOf:
-> +  - $ref: /schemas/interrupt-controller.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - enum:
-> +          - riscv,qemu-aplic
+This implements the elf loader hook to parse RV specific
+.riscv.attributes section. This section is inserted by compilers
+(gcc/llvm) with build related information such as -march organized as
+tag/value attribute pairs.
 
-Make 'qemu' the vendor.
+It identifies the various attribute tags (and corresponding values) as
+currently specified in the psABI specification.
 
-> +      - const: riscv,aplic
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupt-controller: true
-> +
-> +  "#interrupt-cells":
-> +    const: 2
-> +
-> +  interrupts-extended:
-> +    minItems: 1
-> +    maxItems: 16384
-> +    description:
-> +      Given APLIC domain directly injects external interrupts to a set of
-> +      RISC-V HARTS (or CPUs). Each node pointed to should be a riscv,cpu-intc
-> +      node, which has a riscv node (i.e. RISC-V HART) as parent.
-> +
-> +  msi-parent:
-> +    description:
-> +      Given APLIC domain forwards wired interrupts as MSIs to a AIA incoming
-> +      message signaled interrupt controller (IMSIC). This property should be
-> +      considered only when the interrupts-extended property is absent.
-> +
-> +  riscv,num-sources:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    minimum: 1
-> +    maximum: 1023
-> +    description:
-> +      Specifies how many wired interrupts are supported by this APLIC domain.
+This patch only implements the elf parsing mechanics, leaving out the
+recording/usage of the attributes to subsequent patches.
 
-We don't normally need to how many interrupts, why here?
+Signed-off-by: Vineet Gupta <vineetg@rivosinc.com>
+---
+Changes since v1 [1]
+  - Handling potential oob accesses due to against malformed elf contents
+  - Handling of multiple sub-subsections
 
-> +
-> +  riscv,children:
-> +    $ref: /schemas/types.yaml#/definitions/phandle-array
-> +    minItems: 1
-> +    maxItems: 1024
-> +    items:
-> +      maxItems: 1
-> +    description:
-> +      A list of child APLIC domains for the given APLIC domain. Each child
-> +      APLIC domain is assigned child index in increasing order with the
-> +      first child APLIC domain assigned child index 0. The APLIC domain
-> +      child index is used by firmware to delegate interrupts from the
-> +      given APLIC domain to a particular child APLIC domain.
-> +
-> +  riscv,delegate:
-> +    $ref: /schemas/types.yaml#/definitions/phandle-array
-> +    minItems: 1
-> +    maxItems: 1024
-> +    items:
-> +      items:
-> +        - description: child APLIC domain phandle
-> +        - description: first interrupt number (inclusive)
-> +        - description: last interrupt number (inclusive)
-> +    description:
-> +      A interrupt delegation list where each entry is a triple consisting
-> +      of child APLIC domain phandle, first interrupt number, and last
-> +      interrupt number. The firmware will configure interrupt delegation
-> +      registers based on interrupt delegation list.
+[1]https://lore.kernel.org/linux-riscv/20230110201841.2069353-1-vineetg@rivosinc.com
 
-The node's domain it delegating its interrupts to the child domain or 
-the other way around? The interrupt numbers here are this domain's or 
-the child's?
+Given the current state of discussions, the intended Vector extension
+support would likely not need it, still posting the reworked v2 for
+logical conclusion and for posterity in case need comes up in future
+for something like CFI elf annotation.
+Maintainers/reviewers can decide whether to merge it.
+---
+ arch/riscv/Kconfig           |   1 +
+ arch/riscv/include/asm/elf.h |  11 ++
+ arch/riscv/kernel/Makefile   |   1 +
+ arch/riscv/kernel/elf-attr.c | 232 +++++++++++++++++++++++++++++++++++
+ 4 files changed, 245 insertions(+)
+ create mode 100644 arch/riscv/kernel/elf-attr.c
 
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupt-controller
-> +  - "#interrupt-cells"
-> +  - riscv,num-sources
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    // Example 1 (APLIC domains directly injecting interrupt to HARTs):
-> +
-> +    aplic0: interrupt-controller@c000000 {
-> +      compatible = "riscv,qemu-aplic", "riscv,aplic";
-> +      interrupts-extended = <&cpu1_intc 11>,
-> +                            <&cpu2_intc 11>,
-> +                            <&cpu3_intc 11>,
-> +                            <&cpu4_intc 11>;
-> +      reg = <0xc000000 0x4080>;
-> +      interrupt-controller;
-> +      #interrupt-cells = <2>;
-> +      riscv,num-sources = <63>;
-> +      riscv,children = <&aplic1>, <&aplic2>;
-> +      riscv,delegate = <&aplic1 1 63>;
-> +    };
-> +
-> +    aplic1: interrupt-controller@d000000 {
-> +      compatible = "riscv,qemu-aplic", "riscv,aplic";
-> +      interrupts-extended = <&cpu1_intc 9>,
-> +                            <&cpu2_intc 9>;
-> +      reg = <0xd000000 0x4080>;
-> +      interrupt-controller;
-> +      #interrupt-cells = <2>;
-> +      riscv,num-sources = <63>;
-> +    };
-> +
-> +    aplic2: interrupt-controller@e000000 {
-> +      compatible = "riscv,qemu-aplic", "riscv,aplic";
-> +      interrupts-extended = <&cpu3_intc 9>,
-> +                            <&cpu4_intc 9>;
-> +      reg = <0xe000000 0x4080>;
-> +      interrupt-controller;
-> +      #interrupt-cells = <2>;
-> +      riscv,num-sources = <63>;
-> +    };
-> +
-> +  - |
-> +    // Example 2 (APLIC domains forwarding interrupts as MSIs):
-> +
-> +    aplic3: interrupt-controller@c000000 {
-> +      compatible = "riscv,qemu-aplic", "riscv,aplic";
-> +      msi-parent = <&imsic_mlevel>;
-> +      reg = <0xc000000 0x4000>;
-> +      interrupt-controller;
-> +      #interrupt-cells = <2>;
-> +      riscv,num-sources = <63>;
-> +      riscv,children = <&aplic4>;
-> +      riscv,delegate = <&aplic4 1 63>;
-> +    };
-> +
-> +    aplic4: interrupt-controller@d000000 {
-> +      compatible = "riscv,qemu-aplic", "riscv,aplic";
-> +      msi-parent = <&imsic_slevel>;
-> +      reg = <0xd000000 0x4000>;
-> +      interrupt-controller;
-> +      #interrupt-cells = <2>;
-> +      riscv,num-sources = <63>;
-> +    };
-> +...
-> -- 
-> 2.34.1
-> 
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index e2b656043abf..f7e0ab05a2d2 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -12,6 +12,7 @@ config 32BIT
+ 
+ config RISCV
+ 	def_bool y
++	select ARCH_BINFMT_ELF_STATE
+ 	select ARCH_CLOCKSOURCE_INIT
+ 	select ARCH_ENABLE_HUGEPAGE_MIGRATION if HUGETLB_PAGE && MIGRATION
+ 	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
+diff --git a/arch/riscv/include/asm/elf.h b/arch/riscv/include/asm/elf.h
+index e7acffdf21d2..7ab8bd0ec330 100644
+--- a/arch/riscv/include/asm/elf.h
++++ b/arch/riscv/include/asm/elf.h
+@@ -116,6 +116,17 @@ do {							\
+ 		*(struct user_regs_struct *)regs;	\
+ } while (0);
+ 
++struct arch_elf_state {
++};
++
++#define INIT_ARCH_ELF_STATE {}
++
++extern int arch_elf_pt_proc(void *ehdr, void *phdr, struct file *elf,
++			    bool is_interp, struct arch_elf_state *state);
++
++extern int arch_check_elf(void *ehdr, bool has_interpreter, void *interp_ehdr,
++			  struct arch_elf_state *state);
++
+ #ifdef CONFIG_COMPAT
+ 
+ #define SET_PERSONALITY(ex)					\
+diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+index 4cf303a779ab..eff6d845ac9d 100644
+--- a/arch/riscv/kernel/Makefile
++++ b/arch/riscv/kernel/Makefile
+@@ -50,6 +50,7 @@ obj-y	+= riscv_ksyms.o
+ obj-y	+= stacktrace.o
+ obj-y	+= cacheinfo.o
+ obj-y	+= patch.o
++obj-y	+= elf-attr.o
+ obj-y	+= probes/
+ obj-$(CONFIG_MMU) += vdso.o vdso/
+ 
+diff --git a/arch/riscv/kernel/elf-attr.c b/arch/riscv/kernel/elf-attr.c
+new file mode 100644
+index 000000000000..51bcee92dd5b
+--- /dev/null
++++ b/arch/riscv/kernel/elf-attr.c
+@@ -0,0 +1,232 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (C) 2023 Rivos Inc.
++ */
++
++#include <linux/binfmts.h>
++#include <linux/elf.h>
++#include <asm/unaligned.h>
++
++#undef pr_fmt
++#define pr_fmt(fmt) "rv-elf-attr: " fmt
++
++#define PT_RISCV_ATTRIBUTES		0x70000003
++
++#define RV_ATTR_TAG_file		1
++
++#define RV_ATTR_TAG_stack_align		4
++#define RV_ATTR_TAG_arch		5
++#define RV_ATTR_TAG_unaligned_access	6
++
++#define RV_ATTR_VENDOR_RISCV		"riscv"
++
++#define RV_ATTR_SEC_SZ			SZ_1K
++
++static void rv_elf_attr_int(u32 tag, u32 val)
++{
++	pr_debug("Tag %x=%d\n", tag, val);
++}
++
++static void rv_elf_attr_str(u32 tag, const unsigned char *str)
++{
++	pr_debug("Tag %x=[%s]\n", tag, str);
++}
++
++/*
++ * Decode a ule128 encoded value.
++ */
++static int
++decode_uleb128_safe(unsigned char **dpp, u32 *val, const unsigned char *p_end)
++{
++	unsigned char *bp = *dpp;
++	unsigned char byte;
++	unsigned int shift = 0;
++	u32 result = 0;
++	int ok = 0;
++
++	while (bp < p_end) {
++		byte = *bp++;
++		result |= (byte & 0x7f) << shift;
++		if ((byte & 0x80) == 0) {
++			ok = 1;
++			break;
++		}
++		shift += 7;
++	}
++	if (!ok)
++		return -1;
++	*dpp = bp;
++	*val = result;
++	return 0;
++}
++
++/*
++ * Parse a single elf attribute.
++ */
++static int rv_parse_elf_attr_safe(unsigned char **dpp, unsigned char *p_end)
++{
++	unsigned char *p = *dpp;
++	unsigned char *str;
++	u32 tag, val, s_len;
++
++	if (decode_uleb128_safe(&p, &tag, p_end))
++		goto bad_attr;
++
++	switch (tag) {
++	case RV_ATTR_TAG_stack_align:
++		if (decode_uleb128_safe(&p, &val, p_end))
++			goto bad_attr;
++		rv_elf_attr_int(tag, val);
++		break;
++
++	case RV_ATTR_TAG_unaligned_access:
++		if (decode_uleb128_safe(&p, &val, p_end))
++			goto bad_attr;
++		rv_elf_attr_int(tag, val);
++		break;
++
++	case RV_ATTR_TAG_arch:
++		str = p;
++		s_len = strnlen(p, p_end - p) + 1;
++		p += s_len;
++		if (p > p_end)
++			goto bad_attr;
++		rv_elf_attr_str(tag, str);
++		break;
++
++	default:
++		if (decode_uleb128_safe(&p, &val, p_end))
++			goto bad_attr;
++		pr_debug("skipping Unrecognized Tag [%u]=%u\n", tag, val);
++		break;
++	}
++
++	*dpp = p;
++	return 0;
++bad_attr:
++	return -ENOEXEC;
++}
++
++/*
++ * Parse .riscv.attributes elf section.
++ */
++static int rv_parse_elf_attributes(struct file *f, const struct elf_phdr *phdr,
++				   struct arch_elf_state *state)
++{
++	unsigned char buf[RV_ATTR_SEC_SZ];
++	unsigned char *p, *p_end;
++	ssize_t n;
++	int ret = 0;
++	loff_t pos;
++
++	pr_debug("Section .riscv.attributes found\n");
++
++	/* Assume a reasonable size for now */
++	if (phdr->p_filesz > sizeof(buf))
++		goto bad_elf;
++
++	memset(buf, 0, RV_ATTR_SEC_SZ);
++	pos = phdr->p_offset;
++	n = kernel_read(f, &buf, phdr->p_filesz, &pos);
++
++	if (n < 0)
++		return -EIO;
++
++	p = buf;
++	p_end = p + n;
++
++	/* sanity check format-version */
++	if (*p++ != 'A')
++		goto bad_elf;
++
++	/*
++	 * elf attribute section organized as Vendor sub-sections(s)
++	 *   {sub-section length, vendor name, vendor data}
++	 * Vendor data organized as sub-subsection(s)
++	 *   {tag, sub-subsection length, attributes contents}
++	 * Attribute contents organized as
++	 *   {tag, value} pair(s).
++	 */
++	while ((p_end - p) >= 4) {
++		int sub_len, vname_len;
++
++		sub_len = get_unaligned_le32(p);
++		if (sub_len <= 4 || sub_len > n)
++			goto bad_elf;
++
++		p += 4;
++		sub_len -= 4;
++
++		/* Vendor name string */
++		vname_len = strnlen(p, sub_len) + 1;
++		if (vname_len > sub_len)
++			goto bad_elf;
++
++		/* skip non-mandatory sub-section for now */
++		if (strncmp(p, RV_ATTR_VENDOR_RISCV, sub_len)) {
++			p += sub_len;
++			continue;
++		}
++
++		p += vname_len;
++		sub_len -= vname_len;
++
++		/* Vendor data: sub-subsections(s) */
++		while (sub_len > 0) {
++			u32 tag, content_len;
++			unsigned char *sub_end, *sub_start = p;
++
++			if (decode_uleb128_safe(&p, &tag, p_end))
++				goto bad_elf;
++
++			if ((p_end - p) < 4)
++				goto bad_elf;
++
++			content_len = get_unaligned_le32(p);
++			if (content_len > sub_len)
++				goto bad_elf;
++
++			p += 4;
++			sub_len -= content_len;
++			sub_end = sub_start + content_len;
++
++			/* For now handle attributes relating to whole file */
++			if (tag != RV_ATTR_TAG_file) {
++				p = sub_end;
++				continue;
++			}
++
++			/* Attribute(s): tag:value pairs */
++			while (p < sub_end) {
++				ret = rv_parse_elf_attr_safe(&p, p_end);
++				if (ret)
++					goto bad_elf;
++			}
++		}
++	}
++
++	return ret;
++bad_elf:
++	return -ENOEXEC;
++}
++
++/*
++ * Hook invoked by generic elf loader to parse riscv specific elf segments.
++ */
++int arch_elf_pt_proc(void *_ehdr, void *_phdr, struct file *elf,
++		     bool is_interp, struct arch_elf_state *state)
++{
++	struct elf_phdr *phdr = _phdr;
++	int ret = 0;
++
++	if (phdr->p_type == PT_RISCV_ATTRIBUTES && !is_interp)
++		ret = rv_parse_elf_attributes(elf, phdr, state);
++
++	return ret;
++}
++
++int arch_check_elf(void *_ehdr, bool has_interpreter, void *_interp_ehdr,
++		   struct arch_elf_state *state)
++{
++	return 0;
++}
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
