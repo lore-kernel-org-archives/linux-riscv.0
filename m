@@ -4,50 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87042C54EBE
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jan 2023 21:51:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E715C677F1
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jan 2023 21:51:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Subject:Cc:To:
 	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=Pl7Ambrew8pr95/YWWt/wlZilyURH9QBz137Vib3UWQ=; b=Ch082q4LLCsi1y
-	wguonFJMHhPDX8V2u/tDV/tjdhRopt3/Ed8JQEYvMqlV++hSFbETU5P0SG9JlYjhny40DK0rMNOSg
-	q9xidKS7/Re1EPWGDKkMQQcxTzepIkXwdMDGkcUJwcBgJNNuEwdOCkhkczbk3x5SdJ0Z4//9Snr+G
-	/mcWR1DPl/MsdG++i+zegviZTMbX7pcuh5kZZ7i6SbHho4uzOTbcouwJYhrb93IlqknC5/bOrq3Ps
-	gg9eWW0IC8eiE28HGDO42CIXcMuxy0b2wgv0wDkfTDjIjEIrZ62Hy/DT9JGX/j5Dxk699NaY4gyhP
-	uNiDzZsoyQD8Nh29qo/w==;
+	List-Owner; bh=lz2Bcyw6P/kSOksZUdoRRPVNqjXUqsH3Vvnp6n0hSxk=; b=YRka8KvSU6NAvI
+	t9lg9wKVS7KHIx46vN13SUoSHoeNQPE8KdYQqtchwnOuNKUphreb4dWH70oQQ3oN5Ud/SSaSHmNSD
+	HG7RcL+OqQShpgwBWqe83km6wXz/h7oSKLFRfGKaOPPGMkReKvAtf5Ku/Er5vUicReUwHtpIlLGLK
+	9N4g7R6PdcjFGICWp6boXpKflaBDXevlTKmW0FwrzqtIY/3/tW2g7qDpudbz0U6letPb5x1OPYpEX
+	wuUrqpEcz5RxT73sNi7mRLxMSOht4bjJZnAJPDUdaNkdgrEfFzRf6M56d92VVgEDadhZrCPQmdd+i
+	OWdQE96uvTZBqNPyvqwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pG5U1-00HDVJ-U7; Thu, 12 Jan 2023 21:51:38 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1pG5U8-00HDbK-NN; Thu, 12 Jan 2023 21:51:44 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pG3hW-00Ggo5-N6; Thu, 12 Jan 2023 19:57:26 +0000
+	id 1pG3ha-00Ggmx-H5; Thu, 12 Jan 2023 19:57:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Type:MIME-Version:References:
+	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
 	Subject:Cc:To:From:Date:Message-ID:Sender:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:In-Reply-To;
-	bh=tM6S3oZ3zLjQ2zmmTNKitB7HqpfpXnjxYwChM2FqbVs=; b=BJ9XJoRA5PVXo6NmK1y1j4mgxX
-	DGfe1Ta896F3qkk57KxqOit856Whx7pXr9WTIch0khohftRzZ6nkeSuCiqiAyMa3qg2JMRqTwkdcK
-	SZHkiVrlqToqnjdTi1BQtMwas89d1b41aRk7eR9kktg5N/gi7TNwV9TPbfoKKOtW1UuX+e5CZ4VVW
-	USTGfBuu27oryL5tL5ug+EeZMBWzLYDuLZxBl37/OJYoY11N2gX+VEM60a0w4sEUZTi5GdGd5oNiD
-	v4tH8MxJ/EqxydLuQw6fRM3cmCP9pHy61QtCS2aoYs8Sik/mr9QPx70CAPy2SGTADTK3V7C39icf4
-	nbFCLrEQ==;
+	bh=US/ew+5Vik6jGnrGGiz1QKoghqD4+Lgz+zGR8hxwH/s=; b=WVuIFhrj78QG37MwfM8cwsGLW2
+	6RIQ2dKuiBYGWybloHLp61YaKj0cdn/+fLnH2q0WBRmwtWG3yFLWrnccqDo7As6Ov+J9nISGa2R5A
+	xzyVRpltpBTMUkFNRLUgPKwxWYfzryyd1cFJPVVp4kqW5FroibddKersX+5xp1NAN0mX2n/IX8uo5
+	u3jIptEd8I2RoyVn4KMqbm+bH70AJzyzt5X9Z33H0C0Ne5yJWRvX5w2XDeRGpi6wP1+0NwsgdfANb
+	Qs0TXnigQ3IWTW5HruR9gzoAZACuq68YDeONfYzScB1OF3/BKUWdpvZ2B5iPfLpEFiGMDiOvz9iPi
+	Ew4yKZpQ==;
 Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pG3hh-005Okk-PF; Thu, 12 Jan 2023 19:57:37 +0000
+	by desiato.infradead.org with esmtpsa (Exim 4.96 #2 (Red Hat Linux))
+	id 1pG3hH-0045pK-38;
+	Thu, 12 Jan 2023 19:57:14 +0000
 Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 0B5C030346C;
-	Thu, 12 Jan 2023 20:57:14 +0100 (CET)
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id B61D2303449;
+	Thu, 12 Jan 2023 20:57:13 +0100 (CET)
 Received: by hirez.programming.kicks-ass.net (Postfix, from userid 0)
-	id 573AE2CD066CC; Thu, 12 Jan 2023 20:57:08 +0100 (CET)
-Message-ID: <20230112195541.906007455@infradead.org>
+	id 2953C2CCF62B7; Thu, 12 Jan 2023 20:57:08 +0100 (CET)
+Message-ID: <20230112195541.233779815@infradead.org>
 User-Agent: quilt/0.66
-Date: Thu, 12 Jan 2023 20:43:56 +0100
+Date: Thu, 12 Jan 2023 20:43:45 +0100
 From: Peter Zijlstra <peterz@infradead.org>
 To: peterz@infradead.org
 Cc: richard.henderson@linaro.org,
@@ -197,7 +198,7 @@ Cc: richard.henderson@linaro.org,
  kasan-dev@googlegroups.com,
  "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
  Ulf Hansson <ulf.hansson@linaro.org>
-Subject: [PATCH v3 42/51] ubsan: Fix objtool UACCESS warns
+Subject: [PATCH v3 31/51] cpuidle,nospec: Make noinstr clean
 References: <20230112194314.845371875@infradead.org>
 MIME-Version: 1.0
 X-Mailman-Approved-At: Thu, 12 Jan 2023 13:49:36 -0800
@@ -217,14 +218,11 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-clang-14 allyesconfig gives:
-
-vmlinux.o: warning: objtool: emulator_cmpxchg_emulated+0x705: call to __ubsan_handle_load_invalid_value() with UACCESS enabled
-vmlinux.o: warning: objtool: paging64_update_accessed_dirty_bits+0x39e: call to __ubsan_handle_load_invalid_value() with UACCESS enabled
-vmlinux.o: warning: objtool: paging32_update_accessed_dirty_bits+0x390: call to __ubsan_handle_load_invalid_value() with UACCESS enabled
-vmlinux.o: warning: objtool: ept_update_accessed_dirty_bits+0x43f: call to __ubsan_handle_load_invalid_value() with UACCESS enabled
-
-Add the required eflags save/restore and whitelist the thing.
+vmlinux.o: warning: objtool: mwait_idle+0x47: call to mds_idle_clear_cpu_buffers() leaves .noinstr.text section
+vmlinux.o: warning: objtool: acpi_processor_ffh_cstate_enter+0xa2: call to mds_idle_clear_cpu_buffers() leaves .noinstr.text section
+vmlinux.o: warning: objtool: intel_idle+0x91: call to mds_idle_clear_cpu_buffers() leaves .noinstr.text section
+vmlinux.o: warning: objtool: intel_idle_s2idle+0x8c: call to mds_idle_clear_cpu_buffers() leaves .noinstr.text section
+vmlinux.o: warning: objtool: intel_idle_irq+0xaa: call to mds_idle_clear_cpu_buffers() leaves .noinstr.text section
 
 Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
 Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
@@ -232,43 +230,20 @@ Acked-by: Frederic Weisbecker <frederic@kernel.org>
 Tested-by: Tony Lindgren <tony@atomide.com>
 Tested-by: Ulf Hansson <ulf.hansson@linaro.org>
 ---
- lib/ubsan.c           |    5 ++++-
- tools/objtool/check.c |    1 +
- 2 files changed, 5 insertions(+), 1 deletion(-)
+ arch/x86/include/asm/nospec-branch.h |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
---- a/lib/ubsan.c
-+++ b/lib/ubsan.c
-@@ -340,9 +340,10 @@ void __ubsan_handle_load_invalid_value(v
+--- a/arch/x86/include/asm/nospec-branch.h
++++ b/arch/x86/include/asm/nospec-branch.h
+@@ -310,7 +310,7 @@ static __always_inline void mds_user_cle
+  *
+  * Clear CPU buffers if the corresponding static key is enabled
+  */
+-static inline void mds_idle_clear_cpu_buffers(void)
++static __always_inline void mds_idle_clear_cpu_buffers(void)
  {
- 	struct invalid_value_data *data = _data;
- 	char val_str[VALUE_LENGTH];
-+	unsigned long ua_flags = user_access_save();
- 
- 	if (suppress_report(&data->location))
--		return;
-+		goto out;
- 
- 	ubsan_prologue(&data->location, "invalid-load");
- 
-@@ -352,6 +353,8 @@ void __ubsan_handle_load_invalid_value(v
- 		val_str, data->type->type_name);
- 
- 	ubsan_epilogue();
-+out:
-+	user_access_restore(ua_flags);
- }
- EXPORT_SYMBOL(__ubsan_handle_load_invalid_value);
- 
---- a/tools/objtool/check.c
-+++ b/tools/objtool/check.c
-@@ -1068,6 +1068,7 @@ static const char *uaccess_safe_builtin[
- 	"__ubsan_handle_type_mismatch",
- 	"__ubsan_handle_type_mismatch_v1",
- 	"__ubsan_handle_shift_out_of_bounds",
-+	"__ubsan_handle_load_invalid_value",
- 	/* misc */
- 	"csum_partial_copy_generic",
- 	"copy_mc_fragile",
+ 	if (static_branch_likely(&mds_idle_clear))
+ 		mds_clear_cpu_buffers();
 
 
 
