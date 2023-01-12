@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CFDDC54EBE
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jan 2023 21:50:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CECDDC54EBE
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jan 2023 21:50:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Subject:Cc:To:
 	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=3SVIEAPPMiJlyFbTN3uM9ZEuzc56En8w7144ioF5LSU=; b=DrSAqydWoP5Hy1
-	7gD6cKDB4Qyq1Y7gk7iFKP+vFv2a0jVqSwyvghUKOSYgR1Vou0YdNOKa38Oz8is3SreDsH3QS1J/m
-	UB12UDPd9JGu6YQxwQRg7/KmaNmys4V0WKAnSyReSfIsQAScwcQo0clYRZaTZ60fDDsf7e5hx7uCk
-	ZkBbZvl2E5mmK/1BiWCIoFlN0sVF36ZeqR+5Lw9DF13oOKZMTz4PGDCdl/5HxyjzALt1OWweMD/eE
-	XMN6EI6WzqAZBFPHT9wuCcZiXiMuk0j8zvOWJDWfVI8igNkDX//v/pY0wxs7JaMR+Rg9frmXhG6au
-	wJDnpPletwrUJ3h2f9qA==;
+	List-Owner; bh=3A+vl2tKs93YOauKZhulPLgvc+RGXWe97SbGiopYg+w=; b=NIn/a7cTJoler3
+	V/nGIR7/LH4LTYPz5KAtIK2Ql7cnBCnQb6iPFTsS+FCDzBbT20Gbpb7g99G05PNeXsq8b8FBeoQFq
+	VIOE08Y5y/rWTBhLpx782tbRz6A/UY1SmVlv+1jGJivmM6S98V0SzABgKcBridPA5GpHz1suCP6yj
+	6BFKIFukAl27Qpv720+oiTTjyRdstVhRQ8kDZF8evVloljA2tcEv5/N0xw5SY6GDSlrmyUzcb4coy
+	D6/8ILowxFuUQHbYMMMrKJEEaK6UQFSchy7boK4kvvDxvOjMz8RpGtHf86fQU3sTksHP2Jsdwypn6
+	w6uNVOiixmoHUXNF0v4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pG5Sv-00HCTK-Pe; Thu, 12 Jan 2023 21:50:29 +0000
+	id 1pG5T5-00HCb3-P4; Thu, 12 Jan 2023 21:50:39 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pG3hS-00Ggk9-51; Thu, 12 Jan 2023 19:57:22 +0000
+	id 1pG3hS-00Ggkh-T0; Thu, 12 Jan 2023 19:57:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Content-Type:MIME-Version:References:
 	Subject:Cc:To:From:Date:Message-ID:Sender:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:In-Reply-To;
-	bh=DVmthOBTi8Yd+1hoz4bpY0hqbVL72Y+E2XHDdN1zqxc=; b=lU+pE8XRxUW4+CC8OuM7xeVx/M
-	53AZChJydAaQiNNNgWeQoTlIIugCKq8amTsHlJecasU3dF9bLGhfr0XD7p0zfc1xhqPVI6iQEDfqX
-	qXF+EpD9Bp4SVnDyAwq5dbL9yLZztXpLXKAoIh2CWTXdxqClmYRsHpA8pyl5FRdBgommZULZLIE56
-	PjEu9hkifrrqxkSQ/X13tLWCHGM51XCgnnXTbVlw1+fjNdVPnZOIYRsxn6+jcprBZ1YbkjynCuAGB
-	phuV4qtrZKPyDS35nlAPD+Rz3SJqOYDompFJbF1wWA90cXW8tptoQc6+aDjXQIUUftFrnUPYliwFp
-	nHblH0EQ==;
+	bh=cMg3ptdf90ideilc5ESAExVXsDzvqUAUHPnoGLTznE4=; b=AQVbLNGLAYLI5glCIBdfN2BTr/
+	Gz/Reu1wlylo5D1rPRX3tYfuclMb30JqVrgGLY+i8h5Xf4OY4kfQXs65r/W3Q+cYwmERZwJKdYyGu
+	dOIJbUu55LP0s2WpAnsehl0pUa57AJ3Lq0DpQp5D7jIwVSFDXKmJmnOiTcPJuwyIZF8b0FkqntpIC
+	b8LadvLyxjnkWpOvABXtsz53rhvZOuGgIQLV6FRFQ1goVxCxypfG444hWrorgBNhddOaBK6ge/aAD
+	GocMGlGGl5ycw4gr25/L6Jb+p3aQyhRh2wg9Sdn3uYmPp24GCT0nLRuVL3vNNcZ0HKYejgio/4ncJ
+	cUAaLzFw==;
 Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
 	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pG3hd-005Ofl-Eu; Thu, 12 Jan 2023 19:57:33 +0000
+	id 1pG3hd-005Ofr-QW; Thu, 12 Jan 2023 19:57:33 +0000
 Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id B80A430344D;
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id BFB59303450;
 	Thu, 12 Jan 2023 20:57:13 +0100 (CET)
 Received: by hirez.programming.kicks-ass.net (Postfix, from userid 0)
-	id 2D82F2CCF62B9; Thu, 12 Jan 2023 20:57:08 +0100 (CET)
-Message-ID: <20230112195541.294846301@infradead.org>
+	id 31AC02CCF62BB; Thu, 12 Jan 2023 20:57:08 +0100 (CET)
+Message-ID: <20230112195541.355283994@infradead.org>
 User-Agent: quilt/0.66
-Date: Thu, 12 Jan 2023 20:43:46 +0100
+Date: Thu, 12 Jan 2023 20:43:47 +0100
 From: Peter Zijlstra <peterz@infradead.org>
 To: peterz@infradead.org
 Cc: richard.henderson@linaro.org,
@@ -194,10 +194,8 @@ Cc: richard.henderson@linaro.org,
  linux-arch@vger.kernel.org,
  linux-mm@kvack.org,
  linux-trace-kernel@vger.kernel.org,
- kasan-dev@googlegroups.com,
- "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
- Ulf Hansson <ulf.hansson@linaro.org>
-Subject: [PATCH v3 32/51] cpuidle,acpi: Make noinstr clean
+ kasan-dev@googlegroups.com
+Subject: [PATCH v3 33/51] trace: Remove trace_hardirqs_{on,off}_caller()
 References: <20230112194314.845371875@infradead.org>
 MIME-Version: 1.0
 X-Mailman-Approved-At: Thu, 12 Jan 2023 13:49:35 -0800
@@ -217,64 +215,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-vmlinux.o: warning: objtool: io_idle+0xc: call to __inb.isra.0() leaves .noinstr.text section
-vmlinux.o: warning: objtool: acpi_idle_enter+0xfe: call to num_online_cpus() leaves .noinstr.text section
-vmlinux.o: warning: objtool: acpi_idle_enter+0x115: call to acpi_idle_fallback_to_c1.isra.0() leaves .noinstr.text section
+Per commit 56e62a737028 ("s390: convert to generic entry") the last
+and only callers of trace_hardirqs_{on,off}_caller() went away, clean
+up.
 
+Cc: Sven Schnelle <svens@linux.ibm.com>
 Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
-Acked-by: Frederic Weisbecker <frederic@kernel.org>
-Tested-by: Tony Lindgren <tony@atomide.com>
-Tested-by: Ulf Hansson <ulf.hansson@linaro.org>
 ---
- arch/x86/include/asm/shared/io.h |    4 ++--
- drivers/acpi/processor_idle.c    |    2 +-
- include/linux/cpumask.h          |    4 ++--
- 3 files changed, 5 insertions(+), 5 deletions(-)
+ kernel/trace/trace_preemptirq.c |   29 -----------------------------
+ 1 file changed, 29 deletions(-)
 
---- a/arch/x86/include/asm/shared/io.h
-+++ b/arch/x86/include/asm/shared/io.h
-@@ -5,13 +5,13 @@
- #include <linux/types.h>
- 
- #define BUILDIO(bwl, bw, type)						\
--static inline void __out##bwl(type value, u16 port)			\
-+static __always_inline void __out##bwl(type value, u16 port)		\
- {									\
- 	asm volatile("out" #bwl " %" #bw "0, %w1"			\
- 		     : : "a"(value), "Nd"(port));			\
- }									\
- 									\
--static inline type __in##bwl(u16 port)					\
-+static __always_inline type __in##bwl(u16 port)				\
- {									\
- 	type value;							\
- 	asm volatile("in" #bwl " %w1, %" #bw "0"			\
---- a/drivers/acpi/processor_idle.c
-+++ b/drivers/acpi/processor_idle.c
-@@ -593,7 +593,7 @@ static int acpi_idle_play_dead(struct cp
- 	return 0;
+--- a/kernel/trace/trace_preemptirq.c
++++ b/kernel/trace/trace_preemptirq.c
+@@ -84,35 +84,6 @@ void trace_hardirqs_off(void)
  }
+ EXPORT_SYMBOL(trace_hardirqs_off);
+ NOKPROBE_SYMBOL(trace_hardirqs_off);
+-
+-__visible void trace_hardirqs_on_caller(unsigned long caller_addr)
+-{
+-	if (this_cpu_read(tracing_irq_cpu)) {
+-		if (!in_nmi())
+-			trace_irq_enable_rcuidle(CALLER_ADDR0, caller_addr);
+-		tracer_hardirqs_on(CALLER_ADDR0, caller_addr);
+-		this_cpu_write(tracing_irq_cpu, 0);
+-	}
+-
+-	lockdep_hardirqs_on_prepare();
+-	lockdep_hardirqs_on(caller_addr);
+-}
+-EXPORT_SYMBOL(trace_hardirqs_on_caller);
+-NOKPROBE_SYMBOL(trace_hardirqs_on_caller);
+-
+-__visible void trace_hardirqs_off_caller(unsigned long caller_addr)
+-{
+-	lockdep_hardirqs_off(caller_addr);
+-
+-	if (!this_cpu_read(tracing_irq_cpu)) {
+-		this_cpu_write(tracing_irq_cpu, 1);
+-		tracer_hardirqs_off(CALLER_ADDR0, caller_addr);
+-		if (!in_nmi())
+-			trace_irq_disable_rcuidle(CALLER_ADDR0, caller_addr);
+-	}
+-}
+-EXPORT_SYMBOL(trace_hardirqs_off_caller);
+-NOKPROBE_SYMBOL(trace_hardirqs_off_caller);
+ #endif /* CONFIG_TRACE_IRQFLAGS */
  
--static bool acpi_idle_fallback_to_c1(struct acpi_processor *pr)
-+static __always_inline bool acpi_idle_fallback_to_c1(struct acpi_processor *pr)
- {
- 	return IS_ENABLED(CONFIG_HOTPLUG_CPU) && !pr->flags.has_cst &&
- 		!(acpi_gbl_FADT.flags & ACPI_FADT_C2_MP_SUPPORTED);
---- a/include/linux/cpumask.h
-+++ b/include/linux/cpumask.h
-@@ -908,9 +908,9 @@ static inline const struct cpumask *get_
-  * concurrent CPU hotplug operations unless invoked from a cpuhp_lock held
-  * region.
-  */
--static inline unsigned int num_online_cpus(void)
-+static __always_inline unsigned int num_online_cpus(void)
- {
--	return atomic_read(&__num_online_cpus);
-+	return arch_atomic_read(&__num_online_cpus);
- }
- #define num_possible_cpus()	cpumask_weight(cpu_possible_mask)
- #define num_present_cpus()	cpumask_weight(cpu_present_mask)
+ #ifdef CONFIG_TRACE_PREEMPT_TOGGLE
 
 
 
