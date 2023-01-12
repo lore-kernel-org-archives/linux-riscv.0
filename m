@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E78EC678D7
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jan 2023 21:50:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0FE2C63797
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jan 2023 21:50:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Subject:Cc:To:
 	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=Cr8+uMWZYm2jvXHJ6vo6I+caFapG+ulA2h4O+SCql+g=; b=fwN3E9h6dL4Xdi
-	/OEPwxPpGn14f/uqgN/VFxaWBngyf3QQzJkAFhj50M2nMWgwfV6Eg/Zl2NZAJKKpU718HUjE2CeaQ
-	mX3w3qf5vt6MB8EpZP+eUVdATmyzTNluJZa7p2vj4DCsp97COPDF3DG77OQ0OjovetBYOPHxyt3Ag
-	S8poyePrUiL9VGiG+KE9tI690Neg4hTc0KPep6urSZnI6d9iQqROUz3OXE8D9LPINPjZ8mgUgxVQN
-	mTqnykgp1qdoWuXzl3+h+gMcOskMMETQWvWz33PBCycDTgEcpsea3ECjf2N8mltYSJDjweAw9NG0S
-	miq+gEsXjCFaKw4MsQww==;
+	List-Owner; bh=oYc7DVpDMoEoPzeCKUaZTw2wo5hhm6i/teYDgZiRAC0=; b=eUMOpFCCkANGXP
+	J6kmNRfUxnSTeVTfxDqqWgiAkFbOs6KK2koXtvpo9eqzd90GJI56gYP/OO5w93qLMWOKqh5bGUdoK
+	q04AEQqX0LIWNGX8F7aq/Rm+hIA2XPL08fsrXpIc08KE4JNYZe0oYs9FwzpTC1ztqE3/94yOSND58
+	pvT7Bc8lh4QcqxS0tuQnv/1qgsCYvmvgHFGNUM3mCyOyknuvMbt6c8DxqTMMDKXrAqgUdGws6WrmN
+	N5gdb/iX6aJzqDZHg8laSlsr7jBtWb1WFrvwLQBwRbAoWmQ6pO+d6eSsp+CY8q9qayghncjbWU9iJ
+	hkFqy3T92Pfe8/ed+cjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pG5SQ-00HBzg-DW; Thu, 12 Jan 2023 21:49:58 +0000
+	id 1pG5ST-00HC2I-Gj; Thu, 12 Jan 2023 21:50:01 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pG3hP-00GgiS-Fn; Thu, 12 Jan 2023 19:57:19 +0000
+	id 1pG3hP-00Ggif-Mc; Thu, 12 Jan 2023 19:57:19 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Content-Type:MIME-Version:References:
 	Subject:Cc:To:From:Date:Message-ID:Sender:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:In-Reply-To;
-	bh=Xy9+JvHHctWh2TNOLRKTbmGfpkTQoSEdFlJnj8l2Ws0=; b=FtR6V7iBnq/tJFzxTCM/j78unY
-	/49Ec+SxLqZvSLDvUDxP80BJ6CshhnFTYKUGLWe52tbZI+g3IT66NcxuF4QJLpXQFqUnB8IYsx7tx
-	rvkkcM1E63xXLT0vxkkEUcwCp+mVujqeEfWYa0bi1HB5/HtroXhr9t67Q2WalkYHntgPdGa+81VAW
-	CoQSxFuXnJjq3lUVUMtBhxrXycskxIxMnWpscRtmQgQtCtsvQQolDB8Is0Qb3ixSa2+dLSsu8VyyZ
-	Ux3DSJ5librNMIilmqzR2tChKdku7Xq+k9WLJD67Xsi7/M3iylmdycXuodbdivvM3FwM/ipJb4qqQ
-	fc1Tmr7Q==;
+	bh=Hsr5V6aaf/kVSU2t73jNDRAWfLY8tgaZMY/8xmM8jWo=; b=gQ7Q9SfcfOCGLlvaFWMPSlQDV4
+	uKjocE/2Y34Nr3Jz761/H3K8ref7D/RHB23EoGkYYy1xOk3Feint61cmEzrTeJs9pKFsRiW2qqfOc
+	a15g0aXUVDz0ZDo2MzRyxqBDaXdm6wfbxfKkhacFzf0dnqhRTBbnGYC0Ol79TQuuLMUcvUsmgrQsq
+	Yw8OLwDnAiMOrgLy6Ivt5nddQwxIy8BHKaVFy+WqtLrCrntFsEUj0zjrnvFhZolV0YjTu4WNDYy9/
+	lDKMy9PbKPpnqJnECPubZ+WdVv92KEL7klGQq9pXFCJdS/Q4cXnTA6nMiHYLM5YqQGCUzlZ7euq5h
+	XbhFNewA==;
 Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
 	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pG3hX-005OcM-HX; Thu, 12 Jan 2023 19:57:27 +0000
+	id 1pG3ha-005OeK-VA; Thu, 12 Jan 2023 19:57:31 +0000
 Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id E0BF73033B9;
-	Thu, 12 Jan 2023 20:57:12 +0100 (CET)
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 7A97530342E;
+	Thu, 12 Jan 2023 20:57:13 +0100 (CET)
 Received: by hirez.programming.kicks-ass.net (Postfix, from userid 0)
-	id 996452CCF1F4C; Thu, 12 Jan 2023 20:57:07 +0100 (CET)
-Message-ID: <20230112195539.576412812@infradead.org>
+	id 09BA02CCF1F7F; Thu, 12 Jan 2023 20:57:08 +0100 (CET)
+Message-ID: <20230112195540.743432118@infradead.org>
 User-Agent: quilt/0.66
-Date: Thu, 12 Jan 2023 20:43:18 +0100
+Date: Thu, 12 Jan 2023 20:43:37 +0100
 From: Peter Zijlstra <peterz@infradead.org>
 To: peterz@infradead.org
 Cc: richard.henderson@linaro.org,
@@ -195,9 +195,9 @@ Cc: richard.henderson@linaro.org,
  linux-mm@kvack.org,
  linux-trace-kernel@vger.kernel.org,
  kasan-dev@googlegroups.com,
- "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
- Ulf Hansson <ulf.hansson@linaro.org>
-Subject: [PATCH v3 04/51] cpuidle: Move IRQ state validation
+ Ulf Hansson <ulf.hansson@linaro.org>,
+ "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>
+Subject: [PATCH v3 23/51] arm,smp: Remove trace_.*_rcuidle() usage
 References: <20230112194314.845371875@infradead.org>
 MIME-Version: 1.0
 X-Mailman-Approved-At: Thu, 12 Jan 2023 13:49:35 -0800
@@ -217,46 +217,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Make cpuidle_enter_state() consistent with the s2idle variant and
-verify ->enter() always returns with interrupts disabled.
+None of these functions should ever be ran with RCU disabled anymore.
+
+Specifically, do_handle_IPI() is only called from handle_IPI() which
+explicitly does irq_enter()/irq_exit() which ensures RCU is watching.
+
+The problem with smp_cross_call() was, per commit 7c64cc0531fa ("arm: Use
+_rcuidle for smp_cross_call() tracepoints"), that
+cpuidle_enter_state_coupled() already had RCU disabled, but that's
+long been fixed by commit 1098582a0f6c ("sched,idle,rcu: Push rcu_idle
+deeper into the idle path").
 
 Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
 Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
 Acked-by: Frederic Weisbecker <frederic@kernel.org>
 Tested-by: Tony Lindgren <tony@atomide.com>
 Tested-by: Ulf Hansson <ulf.hansson@linaro.org>
 ---
- drivers/cpuidle/cpuidle.c |   10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+ arch/arm/kernel/smp.c |    6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
---- a/drivers/cpuidle/cpuidle.c
-+++ b/drivers/cpuidle/cpuidle.c
-@@ -236,7 +236,11 @@ int cpuidle_enter_state(struct cpuidle_d
- 	stop_critical_timings();
- 	if (!(target_state->flags & CPUIDLE_FLAG_RCU_IDLE))
- 		ct_idle_enter();
-+
- 	entered_state = target_state->enter(dev, drv, index);
-+	if (WARN_ONCE(!irqs_disabled(), "%ps leaked IRQ state", target_state->enter))
-+		raw_local_irq_disable();
-+
- 	if (!(target_state->flags & CPUIDLE_FLAG_RCU_IDLE))
- 		ct_idle_exit();
- 	start_critical_timings();
-@@ -248,12 +252,8 @@ int cpuidle_enter_state(struct cpuidle_d
- 	/* The cpu is no longer idle or about to enter idle. */
- 	sched_idle_set_state(NULL);
+--- a/arch/arm/kernel/smp.c
++++ b/arch/arm/kernel/smp.c
+@@ -639,7 +639,7 @@ static void do_handle_IPI(int ipinr)
+ 	unsigned int cpu = smp_processor_id();
  
--	if (broadcast) {
--		if (WARN_ON_ONCE(!irqs_disabled()))
--			local_irq_disable();
--
-+	if (broadcast)
- 		tick_broadcast_exit();
--	}
+ 	if ((unsigned)ipinr < NR_IPI)
+-		trace_ipi_entry_rcuidle(ipi_types[ipinr]);
++		trace_ipi_entry(ipi_types[ipinr]);
  
- 	if (!cpuidle_state_is_coupled(drv, index))
- 		local_irq_enable();
+ 	switch (ipinr) {
+ 	case IPI_WAKEUP:
+@@ -686,7 +686,7 @@ static void do_handle_IPI(int ipinr)
+ 	}
+ 
+ 	if ((unsigned)ipinr < NR_IPI)
+-		trace_ipi_exit_rcuidle(ipi_types[ipinr]);
++		trace_ipi_exit(ipi_types[ipinr]);
+ }
+ 
+ /* Legacy version, should go away once all irqchips have been converted */
+@@ -709,7 +709,7 @@ static irqreturn_t ipi_handler(int irq,
+ 
+ static void smp_cross_call(const struct cpumask *target, unsigned int ipinr)
+ {
+-	trace_ipi_raise_rcuidle(target, ipi_types[ipinr]);
++	trace_ipi_raise(target, ipi_types[ipinr]);
+ 	__ipi_send_mask(ipi_desc[ipinr], target);
+ }
+ 
 
 
 
