@@ -4,76 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26270C54EBD
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Jan 2023 17:41:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69240C3DA78
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Jan 2023 18:13:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kzGSlspmjNEXaALzu1xeJOsG4wWEbHwZmMJ/WNtwsw8=; b=VFvTTSgd2l4MDZ
-	JDI34Q/7KB37IMlG/4VfIpgfSr6v0lAu/0rc82JODB4/9CRgh7WManse1m1tFev5LOZjAXUUEyjM9
-	yH8cR1pzHMXGi8s5zZugyFjtGncMw2q8BP23GJVlrS1knebTNaNQaO11MLh9utULhWjVLM4W/P1oV
-	8qNSR8iAfwz3CEb1Yecu84uS5++fG2dYdZLLwswr+o4P+96XcobNXofIVVEykgcZiSg+6BVL4spFF
-	2uqIn5dGuxMQCf48ZiQYJbYMQS2efdyIaBuadSxbyxuVUMXDqixxqJpa426iv4ljYtgCGv5G+tD29
-	rrXV7ETjlyR2j++sacLQ==;
+	List-Owner; bh=ob6YBTnC1FFjgklMeKpp9OwS4ooMoDhHciuf3h/cgJ8=; b=OUQNkAyyNDWQiY
+	lwlIlUQbS8q44wPgdsqBSRmXAxLooYQ4E/BGHzyd/Du0VMGvKacHgvjYCEPyetBK4evLJNOO0pvjQ
+	hRCS+Yz0tpMnbaDH0a2LB0FXZXj/qEPpfKR8bBR7UbgNeFKRsUkOV8AHFq3Y5COVwulpxJgQ5CcKI
+	kp/QHRxBXVAgv3hyDhzHWBu+LuITn/Qg1foSRsR/lwJHHDwHHWJuMiFvyRXK/RaqdNS4I/590mky/
+	lqZWEiFzBeuQgOJtlyh3BBbEbFtElZpSkJMIipEMk8tTevKRBrmaldkHCPddz+QMfPbctcK/RzpBW
+	6hFNPwNIje22WZwZDbXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pGO38-003qav-As; Fri, 13 Jan 2023 17:41:06 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1pGOYe-00404p-Qk; Fri, 13 Jan 2023 18:13:40 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pGO17-003pZ6-Tv; Fri, 13 Jan 2023 17:39:03 +0000
+	id 1pGOYd-00403w-3Q
+	for linux-riscv@bombadil.infradead.org; Fri, 13 Jan 2023 18:13:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=cy2F0NK90EWaw0M5GPoEQP9ffyepR3s0fUS7pZNqVNM=; b=mgsygI+GVpRKAc6PqndPLE/EGN
-	RBXy4FaTuRYaN2huyWrOk+neGZ1ufgqmyi0yXaCxDKbFxKLUFjjgGati04nsAxMUVMX6F93HAT5MV
-	jCcjeKcAKc8BuBDKNvpyU4OjSZ3Cz+FrSGYf7cnR14hsABQZhPfPnMdvz6HtQe9qMx/+pGJhPDPZF
-	/qyCY0jr74qxGY8j5oRSoOBymBNR8AWbho08oGYqS/eKId6CpeqD2QoBShcQEl28G2ynMmhKfr3vd
-	JwyOoMKWaS5EaZC4VS2qmXffZvRjoZ/Ill46hfsEaDEG4akgzhKR6ntCiBFX87m79qo6FBnSd5kkP
-	88vn84dg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:36094)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1pGO0i-0008DZ-DC; Fri, 13 Jan 2023 17:38:36 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1pGO0d-0003KS-Da; Fri, 13 Jan 2023 17:38:31 +0000
-Date: Fri, 13 Jan 2023 17:38:31 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: David Hildenbrand <david@redhat.com>
-Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
-	Hugh Dickins <hughd@google.com>, John Hubbard <jhubbard@nvidia.com>,
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=iq3NJjdIXoIIFXuABXPEN69O+eZCmfZSMHyuPIjJQUs=; b=UL1OeNKNvwcxZ2ZJBikugKhpC5
+	qZQxAR39JA8K00SVcrGmMpqswFtOxANMGyxH8gc2zcSpaLn7wgb2CVBVfcdQqEkOXuiuEobtBT24K
+	XGXk72+G3vSVMbLw3s+AUyxYJIPRfLlMFYe4FlFxkwi4MRoHvg7EfXbIJl5ZaB5hvMQ8Oso2McZ4o
+	Nd8zCvlIxjWPszlQwuMAv+4mwypbTosT9gQhGt/C8MA8GPOTE5+KbTv6Z/HlDdUD4vaHqQo4ifUeZ
+	biFLrUAeKPlo/WnncyUg39Ij7KG38xuHkoBzX+1tWpz8MSOLV4eSZ5JUE653DYE1DGS/Lizx/5t2K
+	nqbBtqFQ==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1pGNc3-004Q0p-1O
+	for linux-riscv@lists.infradead.org;
+	Fri, 13 Jan 2023 17:13:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1673629994;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=iq3NJjdIXoIIFXuABXPEN69O+eZCmfZSMHyuPIjJQUs=;
+	b=IXP4EDZOm2j0Irg+8c+T8pX7x7MT51vK0Gj7SwD9tidmO3YXmlYmfmVrYnb7vr7vniuq9h
+	CSQnDF/fapjtHseolEsQrLEuZeCJ/KM/D3GGY77QjiUTgQ8BIlHUCoi3GfQThUf4Zw5D8D
+	Z9ta219nujdoykgNYtxwrvEKJZPXMBM=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1673629994;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=iq3NJjdIXoIIFXuABXPEN69O+eZCmfZSMHyuPIjJQUs=;
+	b=IXP4EDZOm2j0Irg+8c+T8pX7x7MT51vK0Gj7SwD9tidmO3YXmlYmfmVrYnb7vr7vniuq9h
+	CSQnDF/fapjtHseolEsQrLEuZeCJ/KM/D3GGY77QjiUTgQ8BIlHUCoi3GfQThUf4Zw5D8D
+	Z9ta219nujdoykgNYtxwrvEKJZPXMBM=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ us-mta-660-tcQ5phS1Ng-WmjPesDZNfg-1; Fri, 13 Jan 2023 12:13:10 -0500
+X-MC-Unique: tcQ5phS1Ng-WmjPesDZNfg-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com [10.11.54.1])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id E6769100F902;
+	Fri, 13 Jan 2023 17:13:08 +0000 (UTC)
+Received: from t480s.fritz.box (unknown [10.39.193.196])
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 8CFF640C2064;
+	Fri, 13 Jan 2023 17:13:02 +0000 (UTC)
+From: David Hildenbrand <david@redhat.com>
+To: linux-kernel@vger.kernel.org
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Hugh Dickins <hughd@google.com>,
+	John Hubbard <jhubbard@nvidia.com>,
 	Jason Gunthorpe <jgg@nvidia.com>,
-	Mike Rapoport <rppt@linux.ibm.com>, Yang Shi <shy828301@gmail.com>,
-	Vlastimil Babka <vbabka@suse.cz>, Nadav Amit <namit@vmware.com>,
+	Mike Rapoport <rppt@linux.ibm.com>,
+	Yang Shi <shy828301@gmail.com>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	Nadav Amit <namit@vmware.com>,
 	Andrea Arcangeli <aarcange@redhat.com>,
-	Peter Xu <peterx@redhat.com>, linux-mm@kvack.org, x86@kernel.org,
-	linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, openrisc@lists.librecores.org,
-	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
-	linux-um@lists.infradead.org, linux-xtensa@linux-xtensa.org
-Subject: Re: [PATCH mm-unstable v1 04/26] arm/mm: support
- __HAVE_ARCH_PTE_SWP_EXCLUSIVE
-Message-ID: <Y8GXF/AgLKgWQW5p@shell.armlinux.org.uk>
+	Peter Xu <peterx@redhat.com>,
+	linux-mm@kvack.org,
+	x86@kernel.org,
+	linux-alpha@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org,
+	linux-ia64@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org,
+	openrisc@lists.librecores.org,
+	linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	linux-um@lists.infradead.org,
+	linux-xtensa@linux-xtensa.org,
+	David Hildenbrand <david@redhat.com>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	Rich Felker <dalias@libc.org>
+Subject: [PATCH mm-unstable v1 20/26] sh/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE
+Date: Fri, 13 Jan 2023 18:10:20 +0100
+Message-Id: <20230113171026.582290-21-david@redhat.com>
+In-Reply-To: <20230113171026.582290-1-david@redhat.com>
 References: <20230113171026.582290-1-david@redhat.com>
- <20230113171026.582290-5-david@redhat.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230113171026.582290-5-david@redhat.com>
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230113_093902_007379_E60F838F 
-X-CRM114-Status: GOOD (  10.36  )
+X-CRM114-CacheID: sfid-20230113_171307_827526_8C468DA4 
+X-CRM114-Status: GOOD (  18.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,26 +134,116 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 13, 2023 at 06:10:04PM +0100, David Hildenbrand wrote:
-> Let's support __HAVE_ARCH_PTE_SWP_EXCLUSIVE by stealing one bit from the
-> offset. This reduces the maximum swap space per file to 64 GiB (was 128
-> GiB).
-> 
-> While at it drop the PTE_TYPE_FAULT from __swp_entry_to_pte() which is
-> defined to be 0 and is rather confusing because we should be dealing
-> with "Linux PTEs" not "hardware PTEs". Also, properly mask the type in
-> __swp_entry().
-> 
-> Cc: Russell King <linux@armlinux.org.uk>
-> Signed-off-by: David Hildenbrand <david@redhat.com>
+Let's support __HAVE_ARCH_PTE_SWP_EXCLUSIVE by using bit 6 in the PTE,
+reducing the swap type in the !CONFIG_X2TLB case to 5 bits. Generic MM
+currently only uses 5 bits for the type (MAX_SWAPFILES_SHIFT), so the
+stolen bit is effectively unused.
 
-Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+Interrestingly, the swap type in the !CONFIG_X2TLB case could currently
+overlap with the _PAGE_PRESENT bit, because there is a sneaky shift by 1 in
+__pte_to_swp_entry() and __swp_entry_to_pte(). Bit 0-7 in the architecture
+specific swap PTE would get shifted to bit 1-8 in the PTE. As generic MM
+uses 5 bits only, this didn't matter so far.
 
-Thanks.
+While at it, mask the type in __swp_entry().
 
+Cc: Yoshinori Sato <ysato@users.sourceforge.jp>
+Cc: Rich Felker <dalias@libc.org>
+Signed-off-by: David Hildenbrand <david@redhat.com>
+---
+ arch/sh/include/asm/pgtable_32.h | 54 +++++++++++++++++++++++++-------
+ 1 file changed, 42 insertions(+), 12 deletions(-)
+
+diff --git a/arch/sh/include/asm/pgtable_32.h b/arch/sh/include/asm/pgtable_32.h
+index d0240decacca..c34aa795a9d2 100644
+--- a/arch/sh/include/asm/pgtable_32.h
++++ b/arch/sh/include/asm/pgtable_32.h
+@@ -423,40 +423,70 @@ static inline unsigned long pmd_page_vaddr(pmd_t pmd)
+ #endif
+ 
+ /*
+- * Encode and de-code a swap entry
++ * Encode/decode swap entries and swap PTEs. Swap PTEs are all PTEs that
++ * are !pte_none() && !pte_present().
+  *
+  * Constraints:
+  *	_PAGE_PRESENT at bit 8
+  *	_PAGE_PROTNONE at bit 9
+  *
+- * For the normal case, we encode the swap type into bits 0:7 and the
+- * swap offset into bits 10:30. For the 64-bit PTE case, we keep the
+- * preserved bits in the low 32-bits and use the upper 32 as the swap
+- * offset (along with a 5-bit type), following the same approach as x86
+- * PAE. This keeps the logic quite simple.
++ * For the normal case, we encode the swap type and offset into the swap PTE
++ * such that bits 8 and 9 stay zero. For the 64-bit PTE case, we use the
++ * upper 32 for the swap offset and swap type, following the same approach as
++ * x86 PAE. This keeps the logic quite simple.
+  *
+  * As is evident by the Alpha code, if we ever get a 64-bit unsigned
+  * long (swp_entry_t) to match up with the 64-bit PTEs, this all becomes
+  * much cleaner..
+- *
+- * NOTE: We should set ZEROs at the position of _PAGE_PRESENT
+- *       and _PAGE_PROTNONE bits
+  */
++
+ #ifdef CONFIG_X2TLB
++/*
++ * Format of swap PTEs:
++ *
++ *   6 6 6 6 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 4 4 4 4 4 3 3 3 3 3 3 3 3
++ *   3 2 1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2
++ *   <--------------------- offset ----------------------> < type ->
++ *
++ *   3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1 1 1
++ *   1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2 1 0
++ *   <------------------- zeroes --------------------> E 0 0 0 0 0 0
++ */
+ #define __swp_type(x)			((x).val & 0x1f)
+ #define __swp_offset(x)			((x).val >> 5)
+-#define __swp_entry(type, offset)	((swp_entry_t){ (type) | (offset) << 5})
++#define __swp_entry(type, offset)	((swp_entry_t){ ((type) & 0x1f) | (offset) << 5})
+ #define __pte_to_swp_entry(pte)		((swp_entry_t){ (pte).pte_high })
+ #define __swp_entry_to_pte(x)		((pte_t){ 0, (x).val })
+ 
+ #else
+-#define __swp_type(x)			((x).val & 0xff)
++/*
++ * Format of swap PTEs:
++ *
++ *   3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1 1 1
++ *   1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2 1 0
++ *   <--------------- offset ----------------> 0 0 0 0 E < type -> 0
++ *
++ *   E is the exclusive marker that is not stored in swap entries.
++ */
++#define __swp_type(x)			((x).val & 0x1f)
+ #define __swp_offset(x)			((x).val >> 10)
+-#define __swp_entry(type, offset)	((swp_entry_t){(type) | (offset) <<10})
++#define __swp_entry(type, offset)	((swp_entry_t){((type) & 0x1f) | (offset) << 10})
+ 
+ #define __pte_to_swp_entry(pte)		((swp_entry_t) { pte_val(pte) >> 1 })
+ #define __swp_entry_to_pte(x)		((pte_t) { (x).val << 1 })
+ #endif
+ 
++/* In both cases, we borrow bit 6 to store the exclusive marker in swap PTEs. */
++#define _PAGE_SWP_EXCLUSIVE	_PAGE_USER
++
++#define __HAVE_ARCH_PTE_SWP_EXCLUSIVE
++static inline int pte_swp_exclusive(pte_t pte)
++{
++	return pte.pte_low & _PAGE_SWP_EXCLUSIVE;
++}
++
++PTE_BIT_FUNC(low, swp_mkexclusive, |= _PAGE_SWP_EXCLUSIVE);
++PTE_BIT_FUNC(low, swp_clear_exclusive, &= ~_PAGE_SWP_EXCLUSIVE);
++
+ #endif /* __ASSEMBLY__ */
+ #endif /* __ASM_SH_PGTABLE_32_H */
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 40Mbps down 10Mbps up. Decent connectivity at last!
+2.39.0
+
 
 _______________________________________________
 linux-riscv mailing list
