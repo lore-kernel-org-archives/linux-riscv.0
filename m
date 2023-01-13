@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73332C6379F
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Jan 2023 21:59:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5167FC6379F
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Jan 2023 22:33:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aHTRPo7GggXBINAhlxFuMWwWVx23elpVnhNfnXPsDZM=; b=tFLv6DyN3hNKbbOUT92XcTeDln
-	LvmJni7SmEI5UhO8gvFpSZcxaww+WBe2jU1lmen70Xv4Tn3gs2W2DOVYlFD8v10CB2Dqt2DPUfdUI
-	1/aGa699PyN9a6VgQ413wIRvRsSOBLU+o+h2dUwyN1f2F5WqNyk5hn79JmdxC9wcx6QHE6H2SDXSN
-	SqUOHUWWzir0BXbVG76mbM6Bg6EEZ7GJXuVB50M7v6fDEH9sawxfTJNJEMTyfID863KfJXD1cvccO
-	kMYwiboOufwl60Lt/nRYNWfwZ52d2TpcU5wsHKz3AKwMrrPQJ/Ll1vupZ1O4V1Oln+kTCBIX34+H/
-	QTR5gfcw==;
+	bh=qKxmX2NTMsGx3Pgu/PF5B6vMdr1V88cyeASqowwSvsc=; b=kdXl5GwcAu2oTnZphOOoZdBkP6
+	k0pGNvJ8d68ed/tJLcClcB6/oYycWM2WuH5Y8mBmlzeIlPrulAT10SqDVzl3c2C2tgamn5S1qc76e
+	2TfAiRxMXtX+a3Rp3jp0xtja8JPYW6THA0eWs1wMmiGvdD7X6YphnwvVXCNhe6Olo054E/L0+2iQf
+	d1nqFIs2PPOOibcvBPO5+SSAtiai9sFSdWhId0vLowFmmhPwgOugLaLwm4KzoTipFfckazU1AHh6e
+	WrGOpjx76T4aIS7N8SkQ7lx0zUMSoWYZg1W5YLue7OgPMqMSdMbTIl2gHoiDwVZmLsTDiDIgo3p4J
+	NqIilbSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pGS4z-004gQm-0z; Fri, 13 Jan 2023 21:59:17 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1pGScK-004kIr-T2; Fri, 13 Jan 2023 22:33:44 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pGS4w-004gPc-1J
-	for linux-riscv@lists.infradead.org; Fri, 13 Jan 2023 21:59:15 +0000
+	id 1pGScI-004kIE-7U
+	for linux-riscv@lists.infradead.org; Fri, 13 Jan 2023 22:33:43 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 73C93B81DA7;
-	Fri, 13 Jan 2023 21:59:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 482B1C433D2;
-	Fri, 13 Jan 2023 21:59:09 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 9175DB82263;
+	Fri, 13 Jan 2023 22:33:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F46EC433D2;
+	Fri, 13 Jan 2023 22:33:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1673647151;
-	bh=PyqbId2M9YW4SIFMaCfDiHReYsBe8pl5PV1GHzr0VfE=;
+	s=k20201202; t=1673649219;
+	bh=7RtzrSZmvbyKCGcxh5hCfSnZM5w+OhQN1AtIETLROfM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=td5ZRS6WLzomrpRam+rK9n9DFRecpI7yYJ5NTWv5ERQSgHOjwXab/yGvOB+O/ICAs
-	 rY71MB09Ejyl+sYJYAo2n9Hr2MRn1y/msOLoPBn7rLMpNKckV73eYOYfPTO7LTG0WN
-	 jC+O+N9bfd88dsJRfd4BTuBuLW6B+hZ3Yptv0dOCOnsmMOrWpjq/SoGfL0pnzjHlGW
-	 m8vXst0hwp8fu5hpcsCaMjyJhSSaFOaQr1hGILpBFmrDBCI+FKrsoBC/iECxrW2fdi
-	 WoIMcfAWeOXw4/FQlwCf0HxugwGW5kkvylCNZvr+EPerwTPv1MbUwyOjn2p1mnqU7M
-	 TZXHJmMA6oC2Q==
-Date: Fri, 13 Jan 2023 21:59:06 +0000
+	b=ozRXjuKWQQ+H3tRyn6S4ny/T/WeDnDMK54Aeu/LdYtJcXxWmSYR/bfjXGvYU+/nB5
+	 U2yXieO4K8yFeLynebKG/L/x3y6EAcsO1Ki9duvovi5eD9P1nnoFpvFFkl1ZCDEz/O
+	 HYyC/dJHBr1dwE2D06ZSWKByT8SdbXeMk3wxDn9xXjkJGDXw9/MizRx4qTLnbBqxy6
+	 6gOitRPuXgIhtQB9DBym5eEVSupsc02HJLHotA6YfkJ4RgqiHAS+xH0yS2YFhs114d
+	 DmufsovfRqeksupElEA9hgTaFeoc7P2993n1HKvQEA4e6CBTsq74W6ec0/Y1IYJDar
+	 843+wg0TF6Ogw==
+Date: Fri, 13 Jan 2023 22:33:34 +0000
 From: Conor Dooley <conor@kernel.org>
 To: Heiko Stuebner <heiko@sntech.de>
 Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
 	christoph.muellner@vrull.eu, philipp.tomsich@vrull.eu,
 	ajones@ventanamicro.com, jszhang@kernel.org,
 	Heiko Stuebner <heiko.stuebner@vrull.eu>
-Subject: Re: [PATCH v5 1/2] RISC-V: add infrastructure to allow different
- str* implementations
-Message-ID: <Y8HUKgqYjcMkQjJQ@spud>
+Subject: Re: [PATCH v5 2/2] RISC-V: add zbb support to string functions
+Message-ID: <Y8HcPs9muzVf3fuD@spud>
 References: <20230113212301.3534711-1-heiko@sntech.de>
- <20230113212301.3534711-2-heiko@sntech.de>
+ <20230113212301.3534711-3-heiko@sntech.de>
 MIME-Version: 1.0
-In-Reply-To: <20230113212301.3534711-2-heiko@sntech.de>
+In-Reply-To: <20230113212301.3534711-3-heiko@sntech.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230113_135914_399790_C835B909 
-X-CRM114-Status: GOOD (  17.86  )
+X-CRM114-CacheID: sfid-20230113_143342_438290_81C494BA 
+X-CRM114-Status: GOOD (  16.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,88 +69,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3048123390334318735=="
+Content-Type: multipart/mixed; boundary="===============8337673003123935052=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============3048123390334318735==
+--===============8337673003123935052==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="uEHC/N31OAI5ZQu2"
+	protocol="application/pgp-signature"; boundary="oAes1mcfZBuzDH0y"
 Content-Disposition: inline
 
 
---uEHC/N31OAI5ZQu2
+--oAes1mcfZBuzDH0y
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-Hey Heiko,
-
-On Fri, Jan 13, 2023 at 10:23:00PM +0100, Heiko Stuebner wrote:
+On Fri, Jan 13, 2023 at 10:23:01PM +0100, Heiko Stuebner wrote:
 > From: Heiko Stuebner <heiko.stuebner@vrull.eu>
 >=20
-> Depending on supported extensions on specific RISC-V cores,
-> optimized str* functions might make sense.
+> Add handling for ZBB extension and add support for using it as a
+> variant for optimized string functions.
 >=20
-> This adds basic infrastructure to allow patching the function calls
-> via alternatives later on.
+> Support for the Zbb-str-variants is limited to the GNU-assembler
+> for now, as LLVM has not yet acquired the functionality to
+> selectively change the arch option in assembler code.
+> This is still under review at
+>     https://reviews.llvm.org/D123515
 >=20
-> The Linux kernel provides standard implementations for string functions
-> but when architectures want to extend them, they need to provide their
-> own.
->=20
-> The added generic string functions are done in assembler (taken from
-> disassembling the main-kernel functions for now) to allow us to control
-> the used registers and extend them with optimized variants.
->=20
+> Co-developed-by: Christoph Muellner <christoph.muellner@vrull.eu>
+> Signed-off-by: Christoph Muellner <christoph.muellner@vrull.eu>
+> Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
 
+Had a look through, again mostly examining b4 diff...
+The changes look to match the suggestions on v4, but I was happy with
+the un-optimised version so I have no taste.
 
-> This doesn't override the compiler's use of builtin replacements. So still
-> first of all the compiler will select if a builtin will be better suitable
-> i.e. for known strings. For all regular cases we will want to later
-  ^
-i.e. suggests that this will only happen for known strings.
-
-> select possible optimized variants and in the worst case fall back to the
-> generic implemention added with this change.
-          ^ typo btw
-
-I'm not expecting a resend for this, that'd be stupid, but does the
-following say the same thing? (What you wrote was a bit -ENOPARSE)
-
-"This doesn't override the compiler's use of builtin replacements. The
-compiler will still select a builtin if it will be better suited, e.g.
-for known strings. For all regular cases, we may want to select possibly
-optimized variants, and in the worst case fall back to the generic
-implementation added with this change."
-
-I'm a philistine who was okay with previous version of the asm, so you
-could've kept the:
 Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-I had a look and it seemed to match what Drew suggested.
-Looking at the b4 diff output and seeing both side by side, the new one
-does look nicer..
 
 Thanks,
 Conor.
 
 
---uEHC/N31OAI5ZQu2
+--oAes1mcfZBuzDH0y
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY8HUKgAKCRB4tDGHoIJi
-0s+dAQCWOeoNzYidjvb0m47VqYEl4/Tjr/lt6rRIyudG/gInvAEA7PqV7PoaeWx5
-KxQpLGmIExqtc/skrz+/+YmExY0b9As=
-=oLUB
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY8HcPgAKCRB4tDGHoIJi
+0vXlAQCInnvx8xSLiMpu+A8MSwY+Ygm5y8R5ihxDweKtkrqtyAEApuVkebxGS4E3
+bkxSF1o3Fj8oxxFNR6LqJKnP7b1c4gg=
+=aJa5
 -----END PGP SIGNATURE-----
 
---uEHC/N31OAI5ZQu2--
+--oAes1mcfZBuzDH0y--
 
 
---===============3048123390334318735==
+--===============8337673003123935052==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -162,5 +136,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============3048123390334318735==--
+--===============8337673003123935052==--
 
