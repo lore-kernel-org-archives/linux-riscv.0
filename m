@@ -4,73 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19D77C54EBD
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Jan 2023 09:25:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 017B5C54EBD
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Jan 2023 09:39:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uEeHheNk02hUu4njK2TLbkV6DI07NEukdJFAQzKIZ3o=; b=d7XYd1JxQI2X6ZJnh31xMuS7Jr
-	BvgyA+ZmVIez+WAhYF2QxlXaJ6A3oy11OJbKzAYCMlHzvR/iLTug67hhd/7Co6Bf/YD8wusE7pm+P
-	CaHJKinoECkzKonfAXpCaERPjXcqgOWLHfN7BL1Aw71pkmbQ/O8wuwr/biuY0ht7cQpSmkzvMzVCo
-	G6jRgB9bJVMOX/X9gdaxlEBVAaD4WbBuEXfJOXGFuyuCJ3BYEmavRPoSFVloEL1dd5Icmc9tXPlT5
-	dneuagUbRn8uqrVunio9Tk6lNyAPXo3xIijS+Zi2WmPxr64DA9j3US+J7DrCQol3r8jDm2ijVDAMd
-	yMVVYy1Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=EV/2xocB3D862ock/c7hdvefUqhhwwBnSEiMcsrCGYQ=; b=wVdCcZLWi83mk/
+	5/4vK/n52QVyxEM4Us+9j8VaD8A1gwSVgF2SCC1VC765YEN9izltXi8eRbBI1Sfp6DtFOcSqK9YoB
+	H/5XXr9atWMiyQxhL7RTBe6lj38e/QAMTEH/GzdJD89dBbY5GLw8bxNnfABaEFcgBOGUp/sTCqEhw
+	vrGOwnz9S8kEuuwP4zwPjIYnTBuzWMmOZuVol7FsmIfiS9FIrZtBNyYKNFDMEyR+OsgMEScFDewZu
+	g3tuBhw3/6I77pkqMlUELiRDFGg0RgMfzm8TiGndzB7sTJjdRm30UqqqJ/WEk6DFtWe0mGIXFjkJZ
+	FFoLVB7ZXjiqEoEFocnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pGGJ4-001SIY-PU; Fri, 13 Jan 2023 09:25:02 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1pGGX1-001WuO-7k; Fri, 13 Jan 2023 09:39:27 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pGGHq-001RUQ-VU
-	for linux-riscv@lists.infradead.org; Fri, 13 Jan 2023 09:23:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1673601826; x=1705137826;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=/xAKBZhyJ8HlMGnG8R+tnMoMY4Yw1acK1pUdd5RRh4A=;
-  b=Lm7bQG3GmgIRLecTTfxE4CDOrqAHXdvmQ4tJf7ZxgcSnFcFsXJ1geN3g
-   E/Y0hbzmffAVEWVjbbrVORXnz03t6D8OZM8nOM3KYsDENtvkERKL7aI6+
-   iTRlMdnZdDN9cMYyn9uLhX9WbCSBXi+wEa+385hnyThpOnDA/hOcH/bYi
-   NCbBkllFP3wHEOnrckbh+cEGXmm8DVzcjG+k9F2TbZWEOIiktudfnkvms
-   KYAyFp12v3xOe5EMiBwOADgx6a/y7e8ycU+phoBjlN0JupdiPzkZ5yAJo
-   U92WDA98cSzEXFHPUN9UlHjPoCE8lE/IcSIERcneku93+8VMtqfA3uQ0x
-   Q==;
-X-IronPort-AV: E=Sophos;i="5.97,213,1669100400"; 
-   d="asc'?scan'208";a="195624611"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 13 Jan 2023 02:23:40 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.16; Fri, 13 Jan 2023 02:23:40 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.16 via Frontend
- Transport; Fri, 13 Jan 2023 02:23:36 -0700
-Date: Fri, 13 Jan 2023 09:23:14 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: <guoren@kernel.org>
-CC: <arnd@arndb.de>, <palmer@rivosinc.com>, <tglx@linutronix.de>,
-	<peterz@infradead.org>, <luto@kernel.org>, <heiko@sntech.de>,
-	<jszhang@kernel.org>, <lazyparser@gmail.com>, <falcon@tinylab.org>,
-	<chenhuacai@kernel.org>, <apatel@ventanamicro.com>, <atishp@atishpatra.org>,
-	<mark.rutland@arm.com>, <ben@decadent.org.uk>, <bjorn@kernel.org>,
-	<linux-arch@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, Guo Ren <guoren@linux.alibaba.com>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>, Yipeng Zou
-	<zouyipeng@huawei.com>
-Subject: Re: [PATCH -next V14 4/7] riscv: entry: Convert to generic entry
-Message-ID: <Y8EjAt3DC4WC062n@wendy>
-References: <20230112095848.1464404-1-guoren@kernel.org>
- <20230112095848.1464404-5-guoren@kernel.org>
-MIME-Version: 1.0
-In-Reply-To: <20230112095848.1464404-5-guoren@kernel.org>
+	id 1pGGWx-001Wtv-KK
+	for linux-riscv@lists.infradead.org; Fri, 13 Jan 2023 09:39:25 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 2AF8961127;
+	Fri, 13 Jan 2023 09:39:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88583C433D2;
+	Fri, 13 Jan 2023 09:39:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1673602762;
+	bh=VfAdCPcysVT/3jW83ODpVi1gcLL1NcM8uhMQlELECPE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=CwHnAZ/hDQ3CyGL5y9IFOTkJ0YRLPA7CyI3xuAS6yP2KQ+YXy5xW95h/cPvm5nVJP
+	 Kcn7l8Ev0CmXTgPaHPaxErwv2V49MIeTaMpPU05imaC4gGKt89C+OgK9lsclxrN6iq
+	 KBg5KddP1c479Svp6CFSQHZfnuSeF03zJbl6Q9QbFJhwvZbQkDpXZzC5R1ROvflZ5/
+	 8Ko85a8OsG6FYorPRH6uWqa38GQdznlnWTRJgbY45XC5ZIR3mVfOZLMVfsZsfj3HxO
+	 hNXPmSwQ7ADu47qtCmImEffoCSmE9ZhQHs4gv9lZJfvbp0kynYJLI0Du+Ize8iinaJ
+	 H6KZOlUIMEb5g==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1pGGWs-001SiU-9t;
+	Fri, 13 Jan 2023 09:39:18 +0000
+Date: Fri, 13 Jan 2023 09:39:17 +0000
+Message-ID: <868ri6ojsq.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Alistair Francis <Alistair.Francis@wdc.com>,
+	Anup Patel <anup@brainfault.org>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 3/9] irqchip/riscv-intc: Add support for RISC-V AIA
+In-Reply-To: <20230103141409.772298-4-apatel@ventanamicro.com>
+References: <20230103141409.772298-1-apatel@ventanamicro.com>
+	<20230103141409.772298-4-apatel@ventanamicro.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/28.2
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: apatel@ventanamicro.com, palmer@dabbelt.com, paul.walmsley@sifive.com, tglx@linutronix.de, robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, atishp@atishpatra.org, Alistair.Francis@wdc.com, anup@brainfault.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230113_012347_159065_8C44D799 
-X-CRM114-Status: GOOD (  12.05  )
+X-CRM114-CacheID: sfid-20230113_013923_764679_210F57C6 
+X-CRM114-Status: GOOD (  30.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,76 +89,112 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8985828396741322108=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============8985828396741322108==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="Tn016RnVhEUTOGe2"
-Content-Disposition: inline
+On Tue, 03 Jan 2023 14:14:03 +0000,
+Anup Patel <apatel@ventanamicro.com> wrote:
+> 
+> The RISC-V advanced interrupt architecture (AIA) extends the per-HART
+> local interrupts in following ways:
+> 1. Minimum 64 local interrupts for both RV32 and RV64
+> 2. Ability to process multiple pending local interrupts in same
+>    interrupt handler
+> 3. Priority configuration for each local interrupts
+> 4. Special CSRs to configure/access the per-HART MSI controller
+> 
+> This patch adds support for RISC-V AIA in the RISC-V intc driver.
+> 
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> ---
+>  drivers/irqchip/irq-riscv-intc.c | 37 ++++++++++++++++++++++++++------
+>  1 file changed, 31 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/irqchip/irq-riscv-intc.c b/drivers/irqchip/irq-riscv-intc.c
+> index f229e3e66387..880d1639aadc 100644
+> --- a/drivers/irqchip/irq-riscv-intc.c
+> +++ b/drivers/irqchip/irq-riscv-intc.c
+> @@ -16,6 +16,7 @@
+>  #include <linux/module.h>
+>  #include <linux/of.h>
+>  #include <linux/smp.h>
+> +#include <asm/hwcap.h>
+>  
+>  static struct irq_domain *intc_domain;
+>  
+> @@ -29,6 +30,15 @@ static asmlinkage void riscv_intc_irq(struct pt_regs *regs)
+>  	generic_handle_domain_irq(intc_domain, cause);
+>  }
+>  
+> +static asmlinkage void riscv_intc_aia_irq(struct pt_regs *regs)
 
---Tn016RnVhEUTOGe2
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+What does "static asmlinkage" in a C file even mean? And clearly, this
+isn't the only instance in this file...
 
-Hey Guo Ren,
+> +{
+> +	unsigned long topi;
+> +
+> +	while ((topi = csr_read(CSR_TOPI)))
+> +		generic_handle_domain_irq(intc_domain,
+> +					  topi >> TOPI_IID_SHIFT);
+> +}
+> +
+>  /*
+>   * On RISC-V systems local interrupts are masked or unmasked by writing
+>   * the SIE (Supervisor Interrupt Enable) CSR.  As CSRs can only be written
+> @@ -38,12 +48,18 @@ static asmlinkage void riscv_intc_irq(struct pt_regs *regs)
+>  
+>  static void riscv_intc_irq_mask(struct irq_data *d)
+>  {
+> -	csr_clear(CSR_IE, BIT(d->hwirq));
+> +	if (d->hwirq < BITS_PER_LONG)
 
-On Thu, Jan 12, 2023 at 04:58:45AM -0500, guoren@kernel.org wrote:
-> From: Guo Ren <guoren@linux.alibaba.com>
->=20
-> This patch converts riscv to use the generic entry infrastructure from
-> kernel/entry/*. The generic entry makes maintainers' work easier and
-> codes more elegant. Here are the changes:
->=20
->  - More clear entry.S with handle_exception and ret_from_exception
->  - Get rid of complex custom signal implementation
->  - Move syscall procedure from assembly to C, which is much more
->    readable.
->  - Connect ret_from_fork & ret_from_kernel_thread to generic entry.
->  - Wrap with irqentry_enter/exit and syscall_enter/exit_from_user_mode
->  - Use the standard preemption code instead of custom
->=20
-> Suggested-by: Huacai Chen <chenhuacai@kernel.org>
-> Reviewed-by: Bj=F6rn T=F6pel <bjorn@rivosinc.com>
-> Tested-by: Yipeng Zou <zouyipeng@huawei.com>
-> Tested-by: Jisheng Zhang <jszhang@kernel.org>
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Signed-off-by: Guo Ren <guoren@kernel.org>
-> Cc: Ben Hutchings <ben@decadent.org.uk>
+And what if BIT_PER_LONG is 32, as I expect it to be on 32bit, which
+the commit message says is supported?
 
-Unfortunately from this patch onwards, the !MMU build is broken.
-Should be able to reproduce it with nommu_virt_defconfig.
+> +		csr_clear(CSR_IE, BIT(d->hwirq));
+> +	else
+> +		csr_clear(CSR_IEH, BIT(d->hwirq - BITS_PER_LONG));
+>  }
+>  
+>  static void riscv_intc_irq_unmask(struct irq_data *d)
+>  {
+> -	csr_set(CSR_IE, BIT(d->hwirq));
+> +	if (d->hwirq < BITS_PER_LONG)
+> +		csr_set(CSR_IE, BIT(d->hwirq));
+> +	else
+> +		csr_set(CSR_IEH, BIT(d->hwirq - BITS_PER_LONG));
+>  }
+>  
+>  static void riscv_intc_irq_eoi(struct irq_data *d)
+> @@ -115,7 +131,7 @@ static struct fwnode_handle *riscv_intc_hwnode(void)
+>  static int __init riscv_intc_init(struct device_node *node,
+>  				  struct device_node *parent)
+>  {
+> -	int rc;
+> +	int rc, nr_irqs;
+>  	unsigned long hartid;
+>  
+>  	rc = riscv_of_parent_hartid(node, &hartid);
+> @@ -133,14 +149,21 @@ static int __init riscv_intc_init(struct device_node *node,
+>  	if (riscv_hartid_to_cpuid(hartid) != smp_processor_id())
+>  		return 0;
+>  
+> -	intc_domain = irq_domain_add_linear(node, BITS_PER_LONG,
+> +	nr_irqs = BITS_PER_LONG;
+> +	if (riscv_isa_extension_available(NULL, SxAIA) && BITS_PER_LONG == 32)
+> +		nr_irqs = nr_irqs * 2;
 
-Thanks,
-Conor.
+Really, please drop this BITS_PER_LONG stuff. Use explicit numbers.
 
+	M.
 
---Tn016RnVhEUTOGe2
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY8Ei5AAKCRB4tDGHoIJi
-0hgHAP4zxYtVsZMV6BCEppbmfxRxpMW9oFKnWUOgUmHwNcSrhwD9Ff6CTDLxoiy3
-sCNkTcezQudksEUbdB5Noc0qY6RioA0=
-=OVvh
------END PGP SIGNATURE-----
-
---Tn016RnVhEUTOGe2--
-
-
---===============8985828396741322108==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8985828396741322108==--
-
