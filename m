@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0CE6C677F1
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Jan 2023 08:31:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55C5BC54EBD
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Jan 2023 08:31:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=g2pO8PJwJ9UrMyNjdXpkTCC5Da3VSiqyuYzNB7GflVI=; b=RgKpK0Rcs/3HO7
-	TpFIAQejd9Vcy8XQY7uFgjDBK/BunTFdjETktb+WMHdwBsAXYTxQaykggGXnT1LrV4UIMeF20/byK
-	O5pOv2GYuB0so9O7FS2G0IRlHIOWQHwWiqFgHLaStnsVrjT4SbvY84Q1Uh1EdCP8QcVh2K51cziEJ
-	IeOJ4tZlHw9sU89tf7S52x4MepapxMRs6LSvA+3iUhXbiqjeeZpk2F7vAY+nEmAg2btFCI4HMgKHR
-	jmgxza4NgcL1qokFhG3nqgJ0RoSCkZ8RcaJVV07qCGcuDOCCBxppcl1KEaA56Pxtb4LO6sUDnltfZ
-	w6ySIhTIkhMWkM6o0Y3A==;
+	List-Owner; bh=gu9AvTuMa9+P+rRbFY8svt4g/zt0T0NlQGudvs4vOZo=; b=hjMNReG4CHiWvE
+	WDqLKpw30dUsu07XJvcZBdhvpO8OS+i+WpIALWdw6MCSeH162JVhGfihW8knbM2ZLV3JdEZG9XEpq
+	wRkxjLA8yEUi3oHvJmeYOo9xOf1fFNwweji0uaWP+oxHRp73lhMt+KKTkyzHDK+BrHY9dPBWqUWgB
+	/Oqeg6R+kBDpBSduSize1+KakL/mtflI1C6Eg5aEqp8SINi8qOLEE/4uW23kSkWNKINC9RMbQCMk2
+	TAkUr66n+2Cb4F7BpOTQAnrXhNcI8UnNoOhbgtnlnU2YruZokUtsS2petU4TP6FyPYZy1u9vbC6cE
+	vScpcolMmCmKoIKj8Ftg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pGFTH-001F1h-7s; Fri, 13 Jan 2023 08:31:31 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1pGFTJ-001F2d-QE; Fri, 13 Jan 2023 08:31:33 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pGFTC-001EyX-Al
-	for linux-riscv@lists.infradead.org; Fri, 13 Jan 2023 08:31:27 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id o8-20020a17090a9f8800b00223de0364beso26272235pjp.4
-        for <linux-riscv@lists.infradead.org>; Fri, 13 Jan 2023 00:31:23 -0800 (PST)
+	id 1pGFTE-001F00-W1
+	for linux-riscv@lists.infradead.org; Fri, 13 Jan 2023 08:31:30 +0000
+Received: by mail-pl1-x634.google.com with SMTP id s8so14440687plk.5
+        for <linux-riscv@lists.infradead.org>; Fri, 13 Jan 2023 00:31:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=sifive.com; s=google;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=cIstlIhP9pl3goBvQueMqsqc9cYboCHYREaZayJsVqk=;
-        b=VxkzPvdFgcDm1yhAVvF640GkpkEldw2iJ2plMjabFbxP/U2ml+k2FrHjB0c9vNhm9r
-         b1ChL2D6l8uVud094zZmrky/pN6MrUtexVryIoLYRkUdX6PgJBxufcsJzOlXrtMtYUdG
-         q7IR2lpZd0OLFR46EOsxwv0UxQ6wGSnQhUUZi1ZA3/mEO7onNLpI/FfhT7x3f2Xmsza+
-         wkhCSxYbn0mAyZzaOOcHVSooIj51FH1QLpUnklX10mq/Dr9CRdWmyvC4yrbOA2mgPvRG
-         F/rhfy9N/kQxKQDFhhLTqTa5mVC53drVDMFusknIexal5ErMvTgnBzlg/MmnL6tJHLRy
-         NlwQ==
+        bh=V6aCau9ok9jH3yQCwJE8fQSOUiSa5PU6TOL3Ajvf4Kc=;
+        b=P4Abup/1crUAKOjiLS9CVd2u9Z4bGK7XrA/T80YBSDRtaBicQ9skHpNtYMFTNUZj4b
+         cd8VprJWowx9l5bxPudCN2e0R+OMo0h/3HH/KqlLQOvfKW+0YD2YYxxlpba6rO53GL3T
+         V7kGpyhOTyQbJ079YIX9tOAE2gyC4VDS8GZevi1TkYwY416n5L/DUxgmpVVmbJA1vXPR
+         m+E5ItcNclqzK+bWHaXhO18Wwi5iCh4NRa3Ewjg9y/Nu6qybbSpAwwJv+5j1UTh999IZ
+         nBx62ff1ALzWmtca5ldC89Uv07GWRzfyu8tDLxHOEspaqHqPH+y+mGE26qbdI6XaFh8m
+         hN9A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=cIstlIhP9pl3goBvQueMqsqc9cYboCHYREaZayJsVqk=;
-        b=C/FxgaVEOPlVnLYlcsjnYgPuKty7P7PRqUvdoSAk2uzfCwhKcPoaCHfNNj1AYkNyzv
-         tp0Pb4xxs+hnIxe+FXXu+04wb1a1Uk0i0/vTUPleKq7F1OV+sfmvG3qcrqkTAV3OfpHt
-         KnGlr857j3DOmxqUvV4q0HacSFXxAA2ICrJ5mV2nF1v2shLuCmR9CPmaRbMF6AumEZnw
-         hlaKcca5gRG/mMGgNPkmc2UyIPAJGQZ93357DyaCSx0OQ0aKKjSzTcHkTtQ0NWzJhrYa
-         GL69JHk5MnwbRVf8qRvibf28nmYFgwmqaxe6N8jcBx3cN2xO2f0OyU3c3NWlzNBOuV+O
-         NKDw==
-X-Gm-Message-State: AFqh2kp5othXdx1SWTCCrT5HorWIsR53o28M3xbWvreHSzs+JJsdHWgr
-	lYe+8ZgOqK+dZ75hBOoPIuHInw==
-X-Google-Smtp-Source: AMrXdXtiMdLCb6FbPHWbu4MyygTsweBV7FsXTLoXbv682Z3U55psFNKQ/EyatQWxw1DVR/JXzi5TmA==
-X-Received: by 2002:a17:902:ef4d:b0:194:65fa:c354 with SMTP id e13-20020a170902ef4d00b0019465fac354mr4402952plx.20.1673598683253;
-        Fri, 13 Jan 2023 00:31:23 -0800 (PST)
+        bh=V6aCau9ok9jH3yQCwJE8fQSOUiSa5PU6TOL3Ajvf4Kc=;
+        b=wc12cGRTpdf9dNjGHZiDdw5dmHeR3bmpVsTIEZGxRILgcaNOrw9+2N2ZNgZ2Tf38TW
+         eyL3BqETvkteiLc2DgID//SkfUYRlT4K46R8f9EMuwhTSoGcC6nrvIQhs7EkGbooVlBe
+         PgYUgkkJPrLCGHvVzVxkppPrsPt/YkmZAXGKOln+EF4MBY1BPg67KRIAfncW3ZMVzJYt
+         qrPXMZFkAKPh666fHo+azJHV/YseeP/vcqIsWWkhL3WgpeGqgyc+UTAkGgst1c8ZkJ5F
+         X7m+w4Tp6Wtnw61XptMPNE7B3W1tM3GxDGYt6jOw5KCh/Coyhc72hKs/yGw6DC7ypyGK
+         1CXg==
+X-Gm-Message-State: AFqh2kr3DJpsUYLH0eiB5q1+lEkS48BUX5B/DoYSHk5Ym6SexAUPVDvP
+	vG453baq6ndaEWaajH7yjR5kmg==
+X-Google-Smtp-Source: AMrXdXutgN/1k5TOpIahm7WsLSM8kJM/Szm2ytCidUNk36XLqKrU2uNpyFMQjv/K+zPim+MwaLZSDw==
+X-Received: by 2002:a17:903:1343:b0:194:6103:1e18 with SMTP id jl3-20020a170903134300b0019461031e18mr3938051plb.65.1673598686241;
+        Fri, 13 Jan 2023 00:31:26 -0800 (PST)
 Received: from hsinchu15.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id s7-20020a170902988700b0017f73caf588sm13466123plp.218.2023.01.13.00.31.21
+        by smtp.gmail.com with ESMTPSA id s7-20020a170902988700b0017f73caf588sm13466123plp.218.2023.01.13.00.31.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 13 Jan 2023 00:31:22 -0800 (PST)
+        Fri, 13 Jan 2023 00:31:25 -0800 (PST)
 From: Nylon Chen <nylon.chen@sifive.com>
 To: paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
@@ -70,16 +70,16 @@ Cc: nylon7717@gmail.com,
 	greentime.hu@sifive.com,
 	vincent.chen@sifive.com,
 	Nylon Chen <nylon.chen@sifive.com>
-Subject: [PATCH 1/2] riscv: dts: sifive unmatched: Remove PWM controlled LED's active-low properties
-Date: Fri, 13 Jan 2023 16:31:14 +0800
-Message-Id: <20230113083115.2590-2-nylon.chen@sifive.com>
+Subject: [PATCH 2/2] pwm: sifive: change the PWM controlled LED algorithm
+Date: Fri, 13 Jan 2023 16:31:15 +0800
+Message-Id: <20230113083115.2590-3-nylon.chen@sifive.com>
 X-Mailer: git-send-email 2.36.1
 In-Reply-To: <20230113083115.2590-1-nylon.chen@sifive.com>
 References: <20230113083115.2590-1-nylon.chen@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230113_003126_386659_9BA47AFD 
-X-CRM114-Status: UNSURE (   7.31  )
+X-CRM114-CacheID: sfid-20230113_003129_045339_2E4B971F 
+X-CRM114-Status: UNSURE (   7.65  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -97,47 +97,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This removes the active-low properties of the PWM-controlled LEDs in
-the HiFive Unmatched device tree.
+The `frac` variable represents the pulse inactive time, and the result of
+this algorithm is the pulse active time. Therefore, we must reverse the
+result.
 
 Signed-off-by: Nylon Chen <nylon.chen@sifive.com>
 Reviewed-by: Vincent Chen <vincent.chen@sifive.com>
 ---
- arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts | 4 ----
- 1 file changed, 4 deletions(-)
+ drivers/pwm/pwm-sifive.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
-index 07387f9c135c..11f08a545ee6 100644
---- a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
-+++ b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
-@@ -52,7 +52,6 @@ led-controller-1 {
+diff --git a/drivers/pwm/pwm-sifive.c b/drivers/pwm/pwm-sifive.c
+index 62b6acc6373d..a5eda165d071 100644
+--- a/drivers/pwm/pwm-sifive.c
++++ b/drivers/pwm/pwm-sifive.c
+@@ -158,6 +158,7 @@ static int pwm_sifive_apply(struct pwm_chip *chip, struct pwm_device *pwm,
+ 	frac = DIV64_U64_ROUND_CLOSEST(num, state->period);
+ 	/* The hardware cannot generate a 100% duty cycle */
+ 	frac = min(frac, (1U << PWM_SIFIVE_CMPWIDTH) - 1);
++	frac = (1U << PWM_SIFIVE_CMPWIDTH) - 1 - frac;
  
- 		led-d12 {
- 			pwms = <&pwm0 0 7812500 PWM_POLARITY_INVERTED>;
--			active-low;
- 			color = <LED_COLOR_ID_GREEN>;
- 			max-brightness = <255>;
- 			label = "d12";
-@@ -69,19 +68,16 @@ multi-led {
- 
- 			led-red {
- 				pwms = <&pwm0 2 7812500 PWM_POLARITY_INVERTED>;
--				active-low;
- 				color = <LED_COLOR_ID_RED>;
- 			};
- 
- 			led-green {
- 				pwms = <&pwm0 1 7812500 PWM_POLARITY_INVERTED>;
--				active-low;
- 				color = <LED_COLOR_ID_GREEN>;
- 			};
- 
- 			led-blue {
- 				pwms = <&pwm0 3 7812500 PWM_POLARITY_INVERTED>;
--				active-low;
- 				color = <LED_COLOR_ID_BLUE>;
- 			};
- 		};
+ 	mutex_lock(&ddata->lock);
+ 	if (state->period != ddata->approx_period) {
 -- 
 2.36.1
 
