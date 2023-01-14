@@ -4,61 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E942FC46467
-	for <linux-riscv@archiver.kernel.org>; Sat, 14 Jan 2023 17:54:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D56AC3DA78
+	for <linux-riscv@archiver.kernel.org>; Sat, 14 Jan 2023 18:59:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w3za8NI4wwWxHypS9Nm4JQMiF+zCcf44Zx+g3Z6Jefs=; b=L/Z0twMGDFvxamPeXIbsgcujHt
-	TDMrk/jjAogeDreOd3WVjycXuVmQ/EozbDo07Y+zxCzpXZeNDdIrKSHZFy11Tug/qqpwdsjKSVjWs
-	vvepeN+XYKs+9L4z/FOWRIfDEOK9eZFkcNGVQlZJldnHCb88So889Ph1sKpuxLaFd7OX/zqB6uxjz
-	UQpf8Je/rq9Y4TGtNGXHlwD1zKqZ9qzSgqyTMvd/OCxBk/1NHEPqXwYeTTcxiHkz7sPqqitkeWU6d
-	VG1lGUKOFFG8YbKR+EJNlZ9uT1RZzMmTahgJerQoE8NV+OP8Fe14TssTHl7NjpTexUKnTXfRzERgI
-	D/QdzHZw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=7JvxSfj/Rzh1f3O60CgR4dKF/FrmzluVvMinwt/peJg=; b=Uws2NY9I+sKeK9
+	AR1pp+vHUKCXe99mrHnt+0LfqU8aF5u+X4Ve2S8kC6u8C9JKswFD+c8LnhyJL3rqpq6HkpYe8uzGO
+	90XbWFLoQdZMWysqn+RMY9MDvWFT+xDvPrioYXZf0YSi4YN7wUiA3CaKZLiQzn7VIkMzj+InesjMo
+	OMiwrqqQKXkdbJdQx4VjpC/DJ+V9aQ9osIjXCBXB+AE6fZpQykI9B0VZXn6APuQ38opQS5H1xMMaL
+	qGIvegMhxq8EjKtaEpz+Bu/r1y6xE/H7uXlNXyj73QOYTjYakNLuR99ik+ERi2YuEGmQVC8lIZ5S8
+	FhxCKvYB5MRWryZcMJzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pGkjj-006J5i-TG; Sat, 14 Jan 2023 17:54:35 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pGlkT-006MLL-22; Sat, 14 Jan 2023 18:59:25 +0000
+Received: from mail-yw1-x1134.google.com ([2607:f8b0:4864:20::1134])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pGkjh-006J5G-9V
-	for linux-riscv@lists.infradead.org; Sat, 14 Jan 2023 17:54:34 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 977DB60B90;
-	Sat, 14 Jan 2023 17:54:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43DF6C433EF;
-	Sat, 14 Jan 2023 17:54:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1673718872;
-	bh=cBeCxDNt7FUR/blvv0t/bXalulF8Saf8c3fJIq9XoYU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aivuiw8UdlHw9A441tNbYDGuKkEk9lM37ueYvKgCxyh8SqU249cAMuCRuBGKKLwIn
-	 NCfuP3h64IlPBpjplGn4C+LUZMtth1wv78xpiPom5RUbvxWe0npSz69chNorLf2ldL
-	 1QHRZgxhLaQtijIASwWTwV72bgl9yu+SkiUNZ2JAsRvSZpe/HyiZWyL9v/9VbkugfQ
-	 eOpIhApcYO+FuPg01LwG96IONcp7nrhZ51PDbwfAYXKEduLweArUtpRWJF71D1r4nN
-	 +GsTDEnAapVqtK3c7mQuozqJ88csWoRU70bSzDam4xArSZ8P4HAhaE+zV7MQezsvNa
-	 aAxTpMdsupZpQ==
-Date: Sat, 14 Jan 2023 17:54:27 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
-	christoph.muellner@vrull.eu, philipp.tomsich@vrull.eu,
-	ajones@ventanamicro.com, jszhang@kernel.org,
-	Heiko Stuebner <heiko.stuebner@vrull.eu>
-Subject: Re: [PATCH 1/4] RISC-V: use bit-values instead of numbers to
- identify patched cpu-features
-Message-ID: <Y8LsUyEHMRriwhZ5@spud>
-References: <20230113212351.3534769-1-heiko@sntech.de>
- <20230113212351.3534769-2-heiko@sntech.de>
+	id 1pGlkO-006MKn-Sk
+	for linux-riscv@lists.infradead.org; Sat, 14 Jan 2023 18:59:22 +0000
+Received: by mail-yw1-x1134.google.com with SMTP id 00721157ae682-4d4303c9de6so178117187b3.2
+        for <linux-riscv@lists.infradead.org>; Sat, 14 Jan 2023 10:59:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=rvSA+Lx4428ZeCqIe+MLNPk8FnuAPH7irnwCNjVyepg=;
+        b=E/Z7vgZuk7gjVRqsylXqM2hjmpmB+3D6Z+7L/t7h1F575IWk064ySp7dFiRB765EpZ
+         GNK5NAC0kDvAVx1CKmD8SpgrBnhHoeWTVJW0ZD149chpcmHhQ5y4lIv8eD0QHSFQNoNX
+         oCA7jwWvBRh2EMqgsFS6SR70T2xvpunuS54kAw/ZuxdkoXHZ7P/JNMn2VuI96YAbS8HY
+         Ayx8Yem9zjfCn7txUB9DK9MECtvMiXYtdRY4uKJ9JIeJooLdUk+kEjVnIYGPF/oBfBML
+         YeR25uyJhpLoadDfVdykzooeh4HrkJU+A+/6MNUNd3/Z9W+lWdF5bIR7jMqtklIPmyJ6
+         +ihA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=rvSA+Lx4428ZeCqIe+MLNPk8FnuAPH7irnwCNjVyepg=;
+        b=lfi2Llc7vTsfnSMrgsGUA1Nc2JtWFu6qESRKoTlgMGp8FiA4eEsvvLtesBOeMWgAlL
+         bXR5MHFVGXx4fIIpyj9Rkjhi/65F05NDEjL7p/Ct/HPlq7pm1SYWxl8sgR7UUAKujLWT
+         LjoNMRLlmbCB0TG3OGp1e22VWeDeJiomChZgj9OtG9NLiUROUHvL3ozOS7jyDTVeswHs
+         9GDxJKWe/VxaYyG4e9PmcGaccLoV1LpU6CJMcHB3yF/5axXdXp+RhaanXerjKeYHt8VI
+         1/d5lfmW7tQLAdr1+eS31m869y6GdG2o3NnbM26FH2lvXJrWY1JPL7TBmt3d3ZW+IydI
+         qljA==
+X-Gm-Message-State: AFqh2koFNANXBfIvVRr1JcpKi4ovp6B5tf9udNQwH66Dj1ycyjEWkXb7
+	W6QGaFfKycPJFdUMYntjdSHWiH4jrfwDTyqTeBg=
+X-Google-Smtp-Source: AMrXdXv+37ZTyFOBsHwWwFuVHUiogjw4yQ6vwuYJv3R41Nb8EHC+LjAe/xhxW2jrxj4BgjxRIgUKiXI8cvts3nEGPrw=
+X-Received: by 2002:a81:a112:0:b0:4cf:84af:7e95 with SMTP id
+ y18-20020a81a112000000b004cf84af7e95mr1817829ywg.309.1673722758140; Sat, 14
+ Jan 2023 10:59:18 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <20230113212351.3534769-2-heiko@sntech.de>
+References: <20221229224601.103851-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+In-Reply-To: <20221229224601.103851-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Sat, 14 Jan 2023 18:58:52 +0000
+Message-ID: <CA+V-a8t38vHuBd+GJs5_643Jp5L6u6ci7NWVjRn53iwA445ODA@mail.gmail.com>
+Subject: Re: [PATCH v2] clocksource/drivers/riscv: Get rid of
+ clocksource_arch_init() callback
+To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
+	Thomas Gleixner <tglx@linutronix.de>
+Cc: linux-riscv@lists.infradead.org, Geert Uytterhoeven <geert@linux-m68k.org>, 
+	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
+	Samuel Holland <samuel@sholland.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230114_095433_392092_A207B218 
-X-CRM114-Status: GOOD (  16.47  )
+X-CRM114-CacheID: sfid-20230114_105921_004804_099FBA16 
+X-CRM114-Status: GOOD (  19.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,81 +85,102 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7398457183406624837=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============7398457183406624837==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="5jhH67jKmqcLQVg9"
-Content-Disposition: inline
-
-
---5jhH67jKmqcLQVg9
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Jan 13, 2023 at 10:23:48PM +0100, Heiko Stuebner wrote:
-> From: Heiko Stuebner <heiko.stuebner@vrull.eu>
->=20
-> RISC-V cpufeatures are often based on available extensions and maybe even
-> some combination of them. Using a bitfield for the errata-id gives us a
-> simple way to also require a combination of extensions for a specific
-> alternative patch.
->=20
-> Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+On Thu, Dec 29, 2022 at 10:50 PM Prabhakar <prabhakar.csengg@gmail.com> wrote:
+>
+> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+>
+> Having a clocksource_arch_init() callback always sets vdso_clock_mode to
+> VDSO_CLOCKMODE_ARCHTIMER if GENERIC_GETTIMEOFDAY is enabled, this is
+> required for the riscv-timer.
+>
+> This works for platforms where just riscv-timer clocksource is present.
+> On platforms where other clock sources are available we want them to
+> register with vdso_clock_mode set to VDSO_CLOCKMODE_NONE.
+>
+> On the Renesas RZ/Five SoC OSTM block can be used as clocksource [0], to
+> avoid multiple clock sources being registered as VDSO_CLOCKMODE_ARCHTIMER
+> move setting of vdso_clock_mode in the riscv-timer driver instead of doing
+> this in clocksource_arch_init() callback as done similarly for ARM/64
+> architecture.
+>
+> [0] drivers/clocksource/renesas-ostm.c
+>
+> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> Tested-by: Samuel Holland <samuel@sholland.org>
 > ---
+> RFC -> v2
+> * Dropped vdso_default static global variable
+> * Used IS_ENABLED() macro
+> * Included Tested-by from Samuel
+>
+> RFC:
+> https://patchwork.kernel.org/project/linux-renesas-soc/patch/20221211215843.24024-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
+> ---
+>  arch/riscv/Kconfig                | 1 -
+>  arch/riscv/kernel/time.c          | 9 ---------
+>  drivers/clocksource/timer-riscv.c | 5 +++++
+>  3 files changed, 5 insertions(+), 10 deletions(-)
+>
+Gentle ping.
 
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeatur=
-e.c
-> index 7bfc6eb9a5cf..8c83bd9d0e22 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -350,13 +350,13 @@ static u32 __init_or_module cpufeature_probe(unsign=
-ed int stage)
->  	u32 cpu_req_feature =3D 0;
-> =20
->  	if (cpufeature_probe_svpbmt(stage))
-> -		cpu_req_feature |=3D BIT(CPUFEATURE_SVPBMT);
-> +		cpu_req_feature |=3D CPUFEATURE_SVPBMT;
-> =20
->  	if (cpufeature_probe_zicbom(stage))
-> -		cpu_req_feature |=3D BIT(CPUFEATURE_ZICBOM);
-> +		cpu_req_feature |=3D CPUFEATURE_ZICBOM;
+Cheers,
+Prabhakar
 
-I know the behaviour isn't changing here, but using a bit per feature
-seems like scarily few, especially if people come along with variants
-they want for all the various dinky extensions that exit.
-Probably gonna need an iteration on this stuff in the not-too-distant
-future...
-
-
---5jhH67jKmqcLQVg9
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY8LsUwAKCRB4tDGHoIJi
-0iY5AQCkgjzZG4+gb4yyqASifmM7cl3Vjgoo4Sc1lBtxfEYn7gD8CvW02mWiUJUO
-ydA/jEBdGt5NOx8GnQM3Y/rR3pH5BA4=
-=d3X0
------END PGP SIGNATURE-----
-
---5jhH67jKmqcLQVg9--
-
-
---===============7398457183406624837==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index e2b656043abf..9c687da7756d 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -12,7 +12,6 @@ config 32BIT
+>
+>  config RISCV
+>         def_bool y
+> -       select ARCH_CLOCKSOURCE_INIT
+>         select ARCH_ENABLE_HUGEPAGE_MIGRATION if HUGETLB_PAGE && MIGRATION
+>         select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
+>         select ARCH_HAS_BINFMT_FLAT
+> diff --git a/arch/riscv/kernel/time.c b/arch/riscv/kernel/time.c
+> index 8217b0f67c6c..42bee305e997 100644
+> --- a/arch/riscv/kernel/time.c
+> +++ b/arch/riscv/kernel/time.c
+> @@ -30,12 +30,3 @@ void __init time_init(void)
+>         of_clk_init(NULL);
+>         timer_probe();
+>  }
+> -
+> -void clocksource_arch_init(struct clocksource *cs)
+> -{
+> -#ifdef CONFIG_GENERIC_GETTIMEOFDAY
+> -       cs->vdso_clock_mode = VDSO_CLOCKMODE_ARCHTIMER;
+> -#else
+> -       cs->vdso_clock_mode = VDSO_CLOCKMODE_NONE;
+> -#endif
+> -}
+> diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
+> index 55dad7965f43..c416e5e934bf 100644
+> --- a/drivers/clocksource/timer-riscv.c
+> +++ b/drivers/clocksource/timer-riscv.c
+> @@ -77,6 +77,11 @@ static struct clocksource riscv_clocksource = {
+>         .mask           = CLOCKSOURCE_MASK(64),
+>         .flags          = CLOCK_SOURCE_IS_CONTINUOUS,
+>         .read           = riscv_clocksource_rdtime,
+> +#if IS_ENABLED(CONFIG_GENERIC_GETTIMEOFDAY)
+> +       .vdso_clock_mode = VDSO_CLOCKMODE_ARCHTIMER,
+> +#else
+> +       .vdso_clock_mode = VDSO_CLOCKMODE_NONE,
+> +#endif
+>  };
+>
+>  static int riscv_timer_starting_cpu(unsigned int cpu)
+> --
+> 2.25.1
+>
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7398457183406624837==--
-
