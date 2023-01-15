@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D9CBC3DA78
-	for <linux-riscv@archiver.kernel.org>; Sun, 15 Jan 2023 13:24:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 438FBC46467
+	for <linux-riscv@archiver.kernel.org>; Sun, 15 Jan 2023 14:10:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=odsMpyNMqGSwKky3oBnK72OrjgP4HesQywRWDa6kjFY=; b=ZERI3PmyKjDVKK
-	97FbYHTPjKlVHqHwvvLUTC2G6cnTKsOvFk21PdCbyXREzTeLxfE/2N7aPzfrfadjsybhCZeqJKF29
-	byV4O/CsWrjnmIDKQ0nCN91sIVYrlDTUCLQTlWyi8uoHNTOtsrPuN3QLJ3w/G4tLTPgdbyNcOm1bk
-	/HuZDiO1MdjxRYHmH0trefxYzhh4fESC+KzpVHFndqZzfaI2SktMQR+9geAjuJLV9WoxdhQPuaiqD
-	8kE+KJqZ0FL2EtmylRrT/CaPKgjKMobEMJ8UikSqNdKv2OTqhnYxU9NRFSofghu4+9/N5HpzWcPw1
-	d+yDkb3cXAMuY86EoiMg==;
+	List-Owner; bh=cj+Zcz6N+vKBFdXOluil2B07nPQpKjon8YQqksBeoOQ=; b=vqVEJQMv+gBcQU
+	4Mtu8nlHiibqyDkK6UptX+/C3FKrxd2/8t0u/sil1YNoRqGMGN/8+sOeY4jQ2oQ/qdfuZmmCVbZdR
+	YKfDouzyZCQQx7dNCEb1C1bUSRjnKTYfsfkBdr1vdXAVrYUWyo10Tq/t3bbOl/5kapSF0aFRaQVKW
+	/jkjhHmbSiTzIlb2rxuIiuzqCIEcvw6OI/4vaE9k+YrZurpvB2ScJQVZFl91gi1kK2YBUvwaT5ai4
+	Vc/zxqJdzZlxwUBx30It03fN6YpmPuAl2B9VQSfdDVXA/nV3BTHYNzzkRHtWKCk7jy+F/YcKL8dqh
+	3ZXzsLo71t+Tv1qJUAiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pH2zI-007Njd-8f; Sun, 15 Jan 2023 13:23:52 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1pH3hi-007QE2-D9; Sun, 15 Jan 2023 14:09:46 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pH2zE-007Niw-L0; Sun, 15 Jan 2023 13:23:50 +0000
+	id 1pH3he-007QDK-DW; Sun, 15 Jan 2023 14:09:43 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 61058B80B4A;
-	Sun, 15 Jan 2023 13:23:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2EC3C433D2;
-	Sun, 15 Jan 2023 13:23:41 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id C7BE960C4D;
+	Sun, 15 Jan 2023 14:09:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72E1AC433D2;
+	Sun, 15 Jan 2023 14:09:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1673789024;
-	bh=kMyv8k6SMnlLiBSspFW/pId/wtOb8eflFppDpBbdhL8=;
+	s=k20201202; t=1673791781;
+	bh=zRcvm8EavOwpoEQYu0yKJXbKuP4uobFu5WALEjpcP2A=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UxY83zagTgPkSEEpR9ySkbxvLhwg0GtUqRgsSjoYHPAf4xrxQSgHf6OnyXJHRaNKz
-	 eLB+7ZMJEe2pwQrIqB7RsiTvhMg4mv9cd1Zv97WjcjHl34MSYLitF3gJJpYnT+0jyE
-	 +bMYxQdaq5BkqjLILaMfujfEF69C3VlrwlkieK82a1IPiPjyxJsKO7RIJnkW5Uvsje
-	 48g4Vnxle64uRN1jmJB3wHxA+WGXTTs+ilHw0+MtjyxQexaN5h9sTgUVXLiF3aVoXm
-	 GN9r/Ic1GGEn+kaALDPHRElvRRNld/oiuvQOIpg3nvGy5+IA+9dkTXqrGunG1SNZXN
-	 ne6+RSAkppGYQ==
-Date: Sun, 15 Jan 2023 21:13:25 +0800
+	b=Me+1CzjEHuvOGX9tmzeZvwmy5/Ye7+OtsoY4qhSzsvUluuntBMZ1kbsKyo4DZkpv3
+	 8LHx+kzUAMUd4Qf9yUJsCRPG4RRXxmVooWzr3jOMA7UMr9lLUMW1PS4dopDMxkqj7+
+	 3BnGofdmns+q2gJnKMgd2iZXZ1dyoW9UAr2jg1Q2dbcGvNNI928OF+pyKGTt36uH4C
+	 AngzjQTQ+bFdxQiADUiLXSWnX41/QS4YDGosNavH1BjHb14X8wkAcu2Aubbl2irbVf
+	 6rwBBW/RzYJPNHDltGMPBlWbutzQHG2jrHhr50PyytTzgwrrC08aejhj3HEDL3XZ/d
+	 oqcEZFVj7mDWw==
+Date: Sun, 15 Jan 2023 21:59:18 +0800
 From: Jisheng Zhang <jszhang@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
 	Atish Patra <atishp@atishpatra.org>,
-	Heiko Stuebner <heiko@sntech.de>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	Andrew Jones <ajones@ventanamicro.com>
-Subject: Re: [PATCH v3 04/13] riscv: hwcap: make ISA extension ids can be
- used in asm
-Message-ID: <Y8P79ap+UbyZUdZ2@xhacker>
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org
+Subject: Re: [PATCH v3 05/13] riscv: cpufeature: extend
+ riscv_cpufeature_patch_func to all ISA extensions
+Message-ID: <Y8QGtlnZKk5rp+fg@xhacker>
 References: <20230111171027.2392-1-jszhang@kernel.org>
- <20230111171027.2392-5-jszhang@kernel.org>
- <Y8B7lw0iPXJlr8mB@spud>
+ <20230111171027.2392-6-jszhang@kernel.org>
+ <2398293.3Lj2Plt8kZ@diego>
+ <20230112092136.f2g43hrhmrqouy4y@orel>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <Y8B7lw0iPXJlr8mB@spud>
+In-Reply-To: <20230112092136.f2g43hrhmrqouy4y@orel>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230115_052349_024944_811C54C0 
-X-CRM114-Status: GOOD (  31.48  )
+X-CRM114-CacheID: sfid-20230115_060942_551944_4391E63A 
+X-CRM114-Status: GOOD (  28.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,142 +75,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 12, 2023 at 09:28:55PM +0000, Conor Dooley wrote:
-> Hey Jisheng,
-
-Hi Conor,
-
-> 
-> On Thu, Jan 12, 2023 at 01:10:18AM +0800, Jisheng Zhang wrote:
-> > We will make use of ISA extension in asm files, so make the multi-letter
-> > 
-> > RISC-V ISA extension IDs macros rather than enums and move them and
-> > those base ISA extension IDs to suitable place.
-> 
-> From v2:
-> Which base ISA extension IDs? Changelog should match the patch contents,
-> and it's a little unclear here since the base ISA extension IDs are
-> visible here but in the context not the diff.
-
-"that is not what git thinks you did" is the key, see below.
-
-> 
-> How about something like:
-> "So that ISA extensions can be used in assembly files, convert the
-> multi-letter RISC-V ISA extension IDs enums to macros.
-> In order to make them visible, move the #ifndef __ASSEMBLY__ guard
-> to a later point in the header"
-
-This commit msg looks better, thanks.
-> 
-> Pedantry perhaps, but referring to moving the base IDs looks odd, since
-> that is not what git thinks you did - even if that is the copy paste
-
-Aha, this is the key, I moved the base IDs out side of __ASSEMBLY__
-macro protection and move extension IDs to macros, but the git doesn't
-think I did the base IDs moving ;)
-
-> operation you carried out.
-> 
-> Content itself is
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> 
-> Thanks,
-> Conor.
-> 
-> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> > Reviewed-by: Heiko Stuebner <heiko@sntech.de>
-> > Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-> > ---
-> >  arch/riscv/include/asm/hwcap.h | 45 ++++++++++++++++------------------
-> >  1 file changed, 21 insertions(+), 24 deletions(-)
-> > 
-> > diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-> > index 86328e3acb02..09a7767723f6 100644
-> > --- a/arch/riscv/include/asm/hwcap.h
-> > +++ b/arch/riscv/include/asm/hwcap.h
-> > @@ -12,20 +12,6 @@
-> >  #include <linux/bits.h>
-> >  #include <uapi/asm/hwcap.h>
-> >  
-> > -#ifndef __ASSEMBLY__
-> > -#include <linux/jump_label.h>
-> > -/*
-> > - * This yields a mask that user programs can use to figure out what
-> > - * instruction set this cpu supports.
-> > - */
-> > -#define ELF_HWCAP		(elf_hwcap)
-> > -
-> > -enum {
-> > -	CAP_HWCAP = 1,
-> > -};
-> > -
-> > -extern unsigned long elf_hwcap;
-> > -
-> >  #define RISCV_ISA_EXT_a		('a' - 'a')
-> >  #define RISCV_ISA_EXT_c		('c' - 'a')
-> >  #define RISCV_ISA_EXT_d		('d' - 'a')
-> > @@ -46,22 +32,33 @@ extern unsigned long elf_hwcap;
-> >  #define RISCV_ISA_EXT_BASE 26
-> >  
-> >  /*
-> > - * This enum represent the logical ID for each multi-letter RISC-V ISA extension.
-> > + * These macros represent the logical ID for each multi-letter RISC-V ISA extension.
-> >   * The logical ID should start from RISCV_ISA_EXT_BASE and must not exceed
-> >   * RISCV_ISA_EXT_MAX. 0-25 range is reserved for single letter
-> >   * extensions while all the multi-letter extensions should define the next
-> >   * available logical extension id.
-> >   */
-> > -enum riscv_isa_ext_id {
-> > -	RISCV_ISA_EXT_SSCOFPMF = RISCV_ISA_EXT_BASE,
-> > -	RISCV_ISA_EXT_SVPBMT,
-> > -	RISCV_ISA_EXT_ZICBOM,
-> > -	RISCV_ISA_EXT_ZIHINTPAUSE,
-> > -	RISCV_ISA_EXT_SSTC,
-> > -	RISCV_ISA_EXT_SVINVAL,
-> > -	RISCV_ISA_EXT_ID_MAX
-> > +#define RISCV_ISA_EXT_SSCOFPMF		26
-> > +#define RISCV_ISA_EXT_SVPBMT		27
-> > +#define RISCV_ISA_EXT_ZICBOM		28
-> > +#define RISCV_ISA_EXT_ZIHINTPAUSE	29
-> > +#define RISCV_ISA_EXT_SSTC		30
-> > +#define RISCV_ISA_EXT_SVINVAL		31
-> > +
-> > +#ifndef __ASSEMBLY__
-> > +#include <linux/jump_label.h>
-> > +/*
-> > + * This yields a mask that user programs can use to figure out what
-> > + * instruction set this cpu supports.
-> > + */
-> > +#define ELF_HWCAP		(elf_hwcap)
-> > +
-> > +enum {
-> > +	CAP_HWCAP = 1,
-> >  };
-> > -static_assert(RISCV_ISA_EXT_ID_MAX <= RISCV_ISA_EXT_MAX);
-> > +
-> > +extern unsigned long elf_hwcap;
-> > +
-> >  
-> >  /*
-> >   * This enum represents the logical ID for each RISC-V ISA extension static
-> > -- 
-> > 2.38.1
-> > 
-> > 
-> > _______________________________________________
-> > linux-riscv mailing list
-> > linux-riscv@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-riscv
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBKYW4gMTIsIDIwMjMgYXQgMTA6MjE6MzZBTSArMDEwMCwgQW5kcmV3IEpvbmVzIHdy
+b3RlOgo+IE9uIFRodSwgSmFuIDEyLCAyMDIzIGF0IDEyOjI5OjU3QU0gKzAxMDAsIEhlaWtvIFN0
+w7xibmVyIHdyb3RlOgo+ID4gSGkgSmlzaGVuZy4KPiA+IAo+ID4gQW0gTWl0dHdvY2gsIDExLiBK
+YW51YXIgMjAyMywgMTg6MTA6MTkgQ0VUIHNjaHJpZWIgSmlzaGVuZyBaaGFuZzoKPiA+ID4gcmlz
+Y3ZfY3B1ZmVhdHVyZV9wYXRjaF9mdW5jKCkgY3VycmVudGx5IG9ubHkgc2NhbnMgYSBsaW1pdGVk
+IHNldCBvZgo+ID4gPiBjcHVmZWF0dXJlcywgZXhwbGljaXRseSBkZWZpbmVkIHdpdGggbWFjcm9z
+LiBFeHRlbmQgaXQgdG8gcHJvYmUgZm9yIGFsbAo+ID4gPiBJU0EgZXh0ZW5zaW9ucy4KPiA+ID4g
+Cj4gPiA+IFNpZ25lZC1vZmYtYnk6IEppc2hlbmcgWmhhbmcgPGpzemhhbmdAa2VybmVsLm9yZz4K
+PiA+ID4gUmV2aWV3ZWQtYnk6IEFuZHJldyBKb25lcyA8YWpvbmVzQHZlbnRhbmFtaWNyby5jb20+
+Cj4gPiA+IFJldmlld2VkLWJ5OiBIZWlrbyBTdHVlYm5lciA8aGVpa29Ac250ZWNoLmRlPgo+ID4g
+PiAtLS0KPiA+ID4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vZXJyYXRhX2xpc3QuaCB8ICA5ICsr
+LS0KPiA+ID4gIGFyY2gvcmlzY3Yva2VybmVsL2NwdWZlYXR1cmUuYyAgICAgICB8IDYzICsrKyst
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KPiA+ID4gIDIgZmlsZXMgY2hhbmdlZCwgMTEgaW5zZXJ0
+aW9ucygrKSwgNjEgZGVsZXRpb25zKC0pCj4gPiAKPiA+IGhtbW0gLi4uIEkgZG8gc2VlIGEgc29t
+ZXdoYXQgYmlnIGNhdmVhdCBmb3IgdGhpcy4KPiA+IGFuZCB3b3VsZCBsaWtlIHRvIHRha2UgYmFj
+ayBteSBSZXZpZXdlZC1ieSBmb3Igbm93Cj4gPiAKPiA+IAo+ID4gV2l0aCB0aGlzIGNoYW5nZSB3
+ZSB3b3VsZCBsaW1pdCB0aGUgcGF0Y2hhYmxlIGNwdWZlYXR1cmVzIHRvIGFjdHVhbAo+ID4gcmlz
+Y3YgZXh0ZW5zaW9ucy4gQnV0IGNwdWZlYXR1cmVzIGNhbiBhbHNvIGJlIHNvZnQgZmVhdHVyZXMg
+bGlrZQo+ID4gaG93IHBlcmZvcm1hbnQgdGhlIGNvcmUgaGFuZGxlcyB1bmFsaWduZWQgYWNjZXNz
+ZXMuCj4gCj4gSSBhZ3JlZSB0aGF0IHRoaXMgbmVlZHMgdG8gYmUgYWRkcmVzc2VkIGFuZCBKaXNo
+ZW5nIGFsc28gcmFpc2VkIHRoaXMKPiB5ZXN0ZXJkYXkgaGVyZSBbKl0uIEl0IHNlZW1zIHdlIG5l
+ZWQgdGhlIGNvbmNlcHQgb2YgY3B1ZmVhdHVyZXMsIHdoaWNoCj4gbWF5IGJlIGV4dGVuc2lvbnMg
+b3Igbm9uLWV4dGVuc2lvbnMuCj4gCj4gWypdIGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2FsbC9Z
+Nzd4eU5QTnFuRlFVcUF4QHhoYWNrZXIvCj4gCj4gPiAKPiA+IFNlZSBQYWxtZXIncyBzZXJpZXMg
+WzBdLgo+ID4gCj4gPiAKPiA+IEFsc28gdGhpcyBlc3NlbnRpYWxseSBjb2RpZmllcyB0aGF0IGVh
+Y2ggQUxURVJOQVRJVkUgY2FuIG9ubHkgZXZlcgo+ID4gYmUgYXR0YWNoZWQgdG8gZXhhY3RseSBv
+bmUgZXh0ZW5zaW9uLgo+ID4gCj4gPiBCdXQgY29udHJhcnkgdG8gdmVuZG9yLWVycmF0YSwgaXQg
+aXMgdmVyeSBsaWtlbHkgdGhhdCB3ZSB3aWxsIG5lZWQKPiA+IGNvbWJpbmF0aW9ucyBvZiBkaWZm
+ZXJlbnQgZXh0ZW5zaW9ucyBmb3Igc29tZSBhbHRlcm5hdGl2ZXMgaW4gdGhlIGZ1dHVyZS4KPiAK
+PiBPbmUgcG9zc2libGUgYXBwcm9hY2ggbWF5IGJlIHRvIGNvbWJpbmUgZXh0ZW5zaW9ucy9ub24t
+ZXh0ZW5zaW9ucyBhdCBib290Cj4gdGltZSBpbnRvIHBzZXVkby1jcHVmZWF0dXJlcy4gVGhlbiwg
+YWx0ZXJuYXRpdmVzIGNhbiBjb250aW51ZSBhdHRhY2hpbmcgdG8KPiBhIHNpbmdsZSAiZmVhdHVy
+ZSIuIChJJ20gbm90IHNheWluZyB0aGF0J3MgYSBiZXR0ZXIgYXBwcm9hY2ggdGhhbiB0aGUKPiBi
+aXRtYXAsIEknbSBqdXN0IHN1Z2dlc3RpbmcgaXQgYXMgc29tZXRoaW5nIGVsc2UgdG8gY29uc2lk
+ZXIuKQoKV2hlbiBzd3RpY2hpbmcgcGd0YWJsZV9sNF9lbmFibGVkIHRvIHN0YXRpYyBrZXkgZm9y
+IHRoZSBmaXJzdCB0aW1lLCBJCnN1Z2dlc3RlZCBiaXRtYXAgZm9yIGNwdWZlYXR1cmVzIHdoaWNo
+IGNvdmVyIGJvdGggSVNBIGV4dGVuc2lvbnMKYW5kIG5vbi1leHRlbnNpb25zLWJ1dC1zb21lLWNw
+dS1yZWxhdGVkLWZlYXR1cmVzIFsxXSwKYnV0IGl0IHdhcyByZWplY3RlZCBhdCB0aGF0IHRpbWUs
+IGl0IHNlZW1zIHdlIG5lZWQgdG8gcmV2aXNpdCB0aGUgaWRlYS4KClsxXSBodHRwczovL2xvcmUu
+a2VybmVsLm9yZy9saW51eC1yaXNjdi8yMDIyMDUwODE2MDc0OS45ODQtMS1qc3poYW5nQGtlcm5l
+bC5vcmcvCgo+IAo+IFRoYW5rcywKPiBkcmV3Cj4gCj4gPiAKPiA+IEluIG15IG9wdGltaXphdGlv
+biBxdWVzdCwgSSBmb3VuZCB0aGF0IGl0J3MgYWN0dWFsbHkgcHJldHR5IG5lYXQgdG8KPiA+IGNv
+bnZlcnQgdGhlIGVycmF0YS1pZCBmb3IgY3B1ZmVhdHVyZXMgdG8gYSBiaXRmaWVsZCBbMV0sIGJl
+Y2F1c2UgdGhlbiBpdCdzCj4gPiBwb3NzaWJsZSB0byBqdXN0IGNvbWJpbmUgZXh0ZW5zaW9ucyBp
+bnRvIHNhaWQgYml0ZmllbGQgWzJdOgo+ID4gCj4gPiAJQUxURVJOQVRJVkVfMigibm9wIiwKPiA+
+IAkJICAgICAgImogc3RyY21wX3piYl91bmFsaWduZWQiLCAwLCBDUFVGRUFUVVJFX1pCQiB8IENQ
+VUZFQVRVUkVfRkFTVF9VTkFMSUdORUQsIDAsIENPTkZJR19SSVNDVl9JU0FfWkJCLAo+ID4gCQkg
+ICAgICAiaiB2YXJpYW50X3piYiIsIDAsIENQVUZFQVRVUkVfWkJCLCBDUFVGRUFUVVJFX0ZBU1Rf
+VU5BTElHTkVELCBDT05GSUdfUklTQ1ZfSVNBX1pCQikKPiA+IAo+ID4gW3RoZSBhZGRpdGlvbmFs
+IGZpZWxkIHRoZXJlIG1vZGVscyBhICJub3QiIGNvbXBvbmVudF0KPiA+IAo+ID4gU28gSSByZWFs
+bHkgZmVlbCB0aGlzIHdvdWxkIGxpbWl0IHVzIHF1aXRlIGEgYml0Lgo+ID4gCj4gPiAKPiA+IEhl
+aWtvCj4gPiAKPiA+IAo+ID4gCj4gPiBbMF0gaHR0cHM6Ly9naXQua2VybmVsLm9yZy9wdWIvc2Nt
+L2xpbnV4L2tlcm5lbC9naXQvcGFsbWVyL2xpbnV4LmdpdC9jb21taXQvP2g9cmlzY3YtaHdwcm9i
+ZS12MSZpZD01MTBjNDkxY2I5ZDg3ZGNiZGM5MWM2MzU1OGRjNzA0OTY4NzIzMjQwCj4gPiBbMV0g
+aHR0cHM6Ly9naXRodWIuY29tL21taW5kL2xpbnV4LXJpc2N2L2NvbW1pdC9mNTdhODk2MTIyZWU3
+ZTY2NjY5MjA3OTMyMGZjMzU4Mjk0MzRjZjk2Cj4gPiBbMl0gaHR0cHM6Ly9naXRodWIuY29tL21t
+aW5kL2xpbnV4LXJpc2N2L2NvbW1pdC84Y2VmNjE1ZGFiMGMwMGFkNjhhZjI2NTFlZTViOTNkMDZi
+ZTE3ZjI3I2RpZmYtMTk0Y2I4YTg2ZjlmYjliMDM2ODMyOTVmMjFjOGY0NmI0NTZhOWY5NDczN2Yw
+MTcyNmRkYmNiYjllM2FhY2UyY1IxMgo+ID4gCj4gPiAKCl9fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
+aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
+YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
