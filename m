@@ -4,74 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76BD3C63797
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Jan 2023 09:31:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE9F8C46467
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Jan 2023 10:01:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=S5z5jMTqAMHd/OmVMWPxvAUnl3JpxwRLtK+R+TWnlDY=; b=NO6aznECe9lgLH
-	DitFlhEGe8sNLxHjf2//rlRiCe8NoPNvaIHIioDGGbeo0eGWHlVrxzOl3bizBvt7gKVF3En5gRSjm
-	Q+zGQNpgfNsa4iGv0C37vZuKToo3DhDZuHRSYfUzZgWcQENzZ9dJMku2TQ66c605qMbDHf2XM7dtY
-	QlJoq40cKSjoEKoWPLGii6Mh5ENhLgegkYsU+Hk8lT/yXLfbB19FXa7WJCGgX8TWOdubkue84UqDi
-	QLKTorbgGOSMAKKPCT5guo12M10S7WUcwXBxkLAVBqVhCdJRcNqZWcf6AETZ10aEH5tsmcOSBs3DT
-	cv62ridwlBMgac9XCIPg==;
+	List-Owner; bh=JND4jmGk/hpdDEpjiQpmRXG2piag4GkqKeuUI+Ozv+k=; b=ROf+Til8M1uC9p
+	FEDG4sqOdKPPQ4LIiJWDhU4iEP2kEWWKiu46C1QglBljgIOykgsnC/r5sY/9oSxwUNgIGb1+vIFWH
+	FbIzqscz0yKm56O+Br3Zzv4De5Whk1oJCYSfE00T37ZBOq7Q8tlHHyDRNjYrUDjfixuDtooeuZ23U
+	+EOc0MN5/hWwKGdU3RBsHMsTY/8beA2aqu7z9yZLntwCveTCaSPjXnGNg46i8kYyM9UgGgQjKF8H0
+	BgTjxBTEL1+Rfv8FjWemo9uYVsQ0IctW5jUSlhqQH2O3Y8GLEzC2yqysSrPWFzvLo7UOhadXmz90T
+	SvdF8Uh47+iXgLekMjEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pHLpc-009MJS-Kz; Mon, 16 Jan 2023 09:31:08 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1pHMIj-009Xa4-Ot; Mon, 16 Jan 2023 10:01:13 +0000
+Received: from mail-qt1-f173.google.com ([209.85.160.173])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pHLpN-009MCR-CL; Mon, 16 Jan 2023 09:30:55 +0000
-Received: from pendragon.ideasonboard.com (213-243-189-158.bb.dnainternet.fi [213.243.189.158])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id D163D802;
-	Mon, 16 Jan 2023 10:30:39 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1673861440;
-	bh=9YWn45J/ZNgJKTD6UEkGgR2mEmqJ7NYekCQW2ePfKgc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=N+zSHiOP3BPeIWVxgMUMZkbWSMpAwC7eyS7KRf00o33vAIM8HgnNlYZlsGe4NvEx+
-	 ggan64ipd8TDap0zM7nKhc17S/7JZhs8uDIM+s21vxICnSvXcvLCGEqibqZ7MKdHAQ
-	 GpwQEr5QqXpkio0Z6yTPKSTEHMw4GfSB6ctnf2Pk=
-Date: Mon, 16 Jan 2023 11:30:40 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Aradhya Bhatia <a-bhatia1@ti.com>
-Cc: Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Tomi Valkeinen <tomba@kernel.org>, Jyri Sarha <jyri.sarha@iki.fi>,
-	David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Sam Ravnborg <sam@ravnborg.org>, Maxime Ripard <maxime@cerno.tech>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Guo Ren <guoren@kernel.org>, Nishanth Menon <nm@ti.com>,
-	Devicetree List <devicetree@vger.kernel.org>,
-	Jayesh Choudhary <j-choudhary@ti.com>, Jai Luthra <j-luthra@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Devarsh Thakkar <devarsht@ti.com>,
-	Linux Kernel List <linux-kernel@vger.kernel.org>,
-	DRI Development List <dri-devel@lists.freedesktop.org>,
-	Linux Mediatek List <linux-mediatek@lists.infradead.org>,
-	Linux C-SKY Arch List <linux-csky@vger.kernel.org>,
-	Linux RISC-V List <linux-riscv@lists.infradead.org>,
-	Linux ARM Kernel List <linux-arm-kernel@lists.infradead.org>,
-	Rahul T R <r-ravikumar@ti.com>
-Subject: Re: [RFC PATCH 0/4] dt-bindings: Introduce dual-link panels &
- panel-vendors
-Message-ID: <Y8UZQHvVT2VQcQ33@pendragon.ideasonboard.com>
-References: <20230103064615.5311-1-a-bhatia1@ti.com>
+	id 1pHMIO-009XUH-Cd; Mon, 16 Jan 2023 10:00:54 +0000
+Received: by mail-qt1-f173.google.com with SMTP id a25so17051933qto.10;
+        Mon, 16 Jan 2023 02:00:49 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ZcfbiaOtd0rIUu3J0LzMQ7r+7EcuQP5IsDRStK58JTY=;
+        b=vQmX3KPSps2EKYN+lkwP49lCCKpEEB1rfuHg5tVWE6Si8dMkJ8pe4wb3BIqEUaUM4c
+         oFimYCjqJBpDHdZ6sqcyxCZtoHKcd+sX2ld/ZFv2//S8Xi/Lv/Jy78OSRsdDOTEnVq40
+         paPqATGR4F9EkPjkl6ITffxVh3KXoBviDwM67mQaCl9YXCieSy9DXYbg1uWevDf9naMM
+         XnBqfdvZ440ztO8+elNIXdbQs6J7KJWA4cy02/5mRSYoC6jNjzHjBdKLRI3hWMGebmg4
+         TUqbiCGKEnqUP2ReB6dLfgbLvvreuzWfTLNQluB//6ig1E0nkN9DiAE9je17FGMDlEGV
+         hxSw==
+X-Gm-Message-State: AFqh2krHVNYyla3bDu1Q9OOuchCE52G4aWer/djPPcyKobvbytuA79aU
+	OABiP0wZeFxxMW3xqumGpWt134bY9F4U0Q==
+X-Google-Smtp-Source: AMrXdXu2qFgE2Fligqs695XSk2vR8SK8e0aVIRme0nCiQ7j9VhnY7MCtZEMtYzFOL/5cWtuonWJ+Lg==
+X-Received: by 2002:ac8:45d3:0:b0:3b6:31e2:f539 with SMTP id e19-20020ac845d3000000b003b631e2f539mr3707748qto.5.1673863248401;
+        Mon, 16 Jan 2023 02:00:48 -0800 (PST)
+Received: from mail-yb1-f180.google.com (mail-yb1-f180.google.com. [209.85.219.180])
+        by smtp.gmail.com with ESMTPSA id v9-20020a05620a440900b006fc6529abaesm18071345qkp.101.2023.01.16.02.00.46
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 16 Jan 2023 02:00:46 -0800 (PST)
+Received: by mail-yb1-f180.google.com with SMTP id 203so29631017yby.10;
+        Mon, 16 Jan 2023 02:00:46 -0800 (PST)
+X-Received: by 2002:a25:46c6:0:b0:7b8:a0b8:f7ec with SMTP id
+ t189-20020a2546c6000000b007b8a0b8f7ecmr4703291yba.36.1673863245804; Mon, 16
+ Jan 2023 02:00:45 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230103064615.5311-1-a-bhatia1@ti.com>
+References: <Y7P9IcR7/jgYWMcq@osiris> <20230105095426.2163354-1-andrzej.hajda@intel.com>
+In-Reply-To: <20230105095426.2163354-1-andrzej.hajda@intel.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 16 Jan 2023 11:00:33 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdUhPjya8zWMxEN8U8pjf4M2u_+HOfxQ2NP1XOcX9EpAKg@mail.gmail.com>
+Message-ID: <CAMuHMdUhPjya8zWMxEN8U8pjf4M2u_+HOfxQ2NP1XOcX9EpAKg@mail.gmail.com>
+Subject: Re: [PATCH v4] arch: rename all internal names __xchg to __arch_xchg
+To: Andrzej Hajda <andrzej.hajda@intel.com>
+Cc: linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org, 
+	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org, 
+	linux-mips@vger.kernel.org, openrisc@lists.librecores.org, 
+	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
+	linux-xtensa@linux-xtensa.org, intel-gfx@lists.freedesktop.org, 
+	dri-devel@lists.freedesktop.org, Mark Rutland <mark.rutland@arm.com>, 
+	Arnd Bergmann <arnd@arndb.de>, Peter Zijlstra <peterz@infradead.org>, Boqun Feng <boqun.feng@gmail.com>, 
+	Rodrigo Vivi <rodrigo.vivi@intel.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Heiko Carstens <hca@linux.ibm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230116_013053_592906_53E5460D 
-X-CRM114-Status: GOOD (  39.37  )
+X-CRM114-CacheID: sfid-20230116_020052_471936_8A18B116 
+X-CRM114-Status: GOOD (  17.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,100 +93,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Aradhya,
+On Thu, Jan 5, 2023 at 10:54 AM Andrzej Hajda <andrzej.hajda@intel.com> wrote:
+> __xchg will be used for non-atomic xchg macro.
+>
+> Signed-off-by: Andrzej Hajda <andrzej.hajda@intel.com>
+> Reviewed-by: Arnd Bergmann <arnd@arndb.de>
+> ---
+> v2: squashed all arch patches into one
+> v3: fixed alpha/xchg_local, thx to lkp@intel.com
+> v4: adjusted indentation (Heiko)
 
-On Tue, Jan 03, 2023 at 12:16:11PM +0530, Aradhya Bhatia wrote:
-> Hi all,
-> 
-> Microtips Technology Solutions USA, and Lincoln Technology Solutions are
-> 2 display panel vendors, and the first 2 patches add their vendor
-> prefixes.
-> 
-> The fourth patch, simply introduces the new compatible for the generic
-> dual-link panels in the panel-lvds driver. This new compatible is based
-> from a new DT binding added in the third patch explained below.
-> 
-> The third patch introduces a dt-binding for generic dual-link LVDS
-> panels. These panels do not have any documented constraints, except for
-> their timing characteristics. Further, these panels have 2 pixel-sinks.
-> In a dual-link connection between an LVDS encoder and the panel, one
-> sink accepts the odd set of LVDS pixels and the other, the even set.
-> 
-> A lot of this has been based from the Advantech,idk-2121wr dual-link
-> panel[1] and Maxime's patches for generic LVDS panels[2] (which are
-> single-link by default.) and the discussions that happened before they
-> were finally merged.
-> 
-> Below are some notes and points that I want to bring forward.
-> 
->   - The advantech,idk-2121wr panel binding uses 2 boolean properties
->     dual-link-odd/even-pixels, to signify which port sink is being used
->     for which set of LVDS pixels. I too have added similar support and
->     introduced constraints around those properties, so as to not break
->     the ABI... but I believe there is a better way to achieve this.
-> 
->     A "pixel-type" enum property could be introduced in their stead,
->     which can accept one of the 2 options <dual-lvds-odd-pixels> or
->     <dual-lvds-even-pixels>.
-> 
->     This method, in my opinion, is more accurate and cleaner to
->     implement in the bindings as well.
-> 
->     If this does sound a better I can push out a new revision where the
->     driver supports both these methods (to not break the ABI) and the
->     advantech,2121wr panel can remain as an exception.
+>  arch/m68k/include/asm/cmpxchg.h      |  6 +++---
 
-It's usually best not to change an existing system if there are no good
-reasons, so I'd ask why you think a pixel-type property would be better
-(including when taking into account the fact that we would have to
-maintain the advantech,2121wtr driver separately) if you want to go that
-way. Otherwise, if we were developing this from scratch, I would have no
-real preference.
+Acked-by: Geert Uytterhoeven <geert@linux-m68k.org> [m68k]
 
->   - As an alternative to the previous point, if that method is not
->     preferred for some reason, the advantech,2121wtr panel binding
->     could then be merged in the panel-dual-lvds binding as part of
->     future work.
-> 
-> 
->   - Another tweak, I am looking forward to do as part of future work and
->     would like all your comments is to introduce driver-based
->     implementation of the panel timing parameters, like it is with
->     "panel-simple". The driver can then support both the panel-timing
->     sources (DT node or hard-coded driver structure) and the binding
->     can remove this from the "required" section.
+Gr{oetje,eeting}s,
 
-There's been a very long discussion in the past (multiple discussions
-actually) regarding whether timings should be set in DT or in drivers.
-There were multiple arguments supporting both sides, without (it seems)
-a clear winner. If you want driver-side timings for dual-link panels,
-I'd like to understand why you think that's better. If the reasons are
-the same as the ones expressed when we discussed simple panels, you
-should also look at whether or not any of the fears expressed on either
-side have materialized.
+                        Geert
 
-> Thank you!
-> 
-> [1]: https://patchwork.freedesktop.org/patch/357122/
-> [2]: https://patchwork.freedesktop.org/patch/471228/
-> 
-> Aradhya Bhatia (4):
->   dt-bindings: vendor-prefixes: Add microtips
->   dt-bindings: vendor-prefixes: Add lincolntech
->   dt-bindings: panel: Introduce dual-link LVDS panel
->   drm: panel-lvds: Introduce dual-link panels
-> 
->  .../display/panel/panel-dual-lvds.yaml        | 157 ++++++++++++++++++
->  .../devicetree/bindings/vendor-prefixes.yaml  |   4 +
->  MAINTAINERS                                   |   1 +
->  drivers/gpu/drm/panel/panel-lvds.c            |   1 +
->  4 files changed, 163 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/display/panel/panel-dual-lvds.yaml
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
--- 
-Regards,
-
-Laurent Pinchart
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
