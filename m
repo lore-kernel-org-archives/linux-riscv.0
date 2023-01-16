@@ -4,61 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AA5AC46467
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Jan 2023 07:44:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76BD3C63797
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Jan 2023 09:31:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8RKA2tlMXHpaBP9mtwAYyXobd6oP3j+E6YXwDT1c+bk=; b=uUuwlCStL0Cg0N
-	WndX/7Gpxs2VvkQBEFqIArIQAyS8cc+UjEYCaIjY+NbHeKpcjFoCC3bwYjgqq16gmxKgpvoYVetTo
-	VWlEUxcZ03CwR32Da+wrlBSjxamDTe1D/Eprr4AecvgBFuzkdE9LjuLUYO52cOH1xrF9Pteak4eu4
-	RVSbEBDM+rY4F/x3kXDu0CSRzj5v5AtSdotscTTzfRKDiSYi/2hsdc7EL09Tfc+76zMKYYVoQOTiH
-	Nh5LtrnVKN/RiRUCM4LlUv6Sh32OymQWyC2qFvGRrtOcL8O58DudRf4zvGyT3xd6GOIxam9jdRewp
-	jiiE9ljW0FaSBGcEOKQQ==;
+	List-Owner; bh=S5z5jMTqAMHd/OmVMWPxvAUnl3JpxwRLtK+R+TWnlDY=; b=NO6aznECe9lgLH
+	DitFlhEGe8sNLxHjf2//rlRiCe8NoPNvaIHIioDGGbeo0eGWHlVrxzOl3bizBvt7gKVF3En5gRSjm
+	Q+zGQNpgfNsa4iGv0C37vZuKToo3DhDZuHRSYfUzZgWcQENzZ9dJMku2TQ66c605qMbDHf2XM7dtY
+	QlJoq40cKSjoEKoWPLGii6Mh5ENhLgegkYsU+Hk8lT/yXLfbB19FXa7WJCGgX8TWOdubkue84UqDi
+	QLKTorbgGOSMAKKPCT5guo12M10S7WUcwXBxkLAVBqVhCdJRcNqZWcf6AETZ10aEH5tsmcOSBs3DT
+	cv62ridwlBMgac9XCIPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pHKA5-0091a1-FP; Mon, 16 Jan 2023 07:44:09 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pHKA0-0091R6-Rm
-	for linux-riscv@lists.infradead.org; Mon, 16 Jan 2023 07:44:06 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id A7A1124E22E;
-	Mon, 16 Jan 2023 15:43:11 +0800 (CST)
-Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 16 Jan
- 2023 15:43:11 +0800
-Received: from localhost.localdomain (113.72.144.207) by EXMBX168.cuchost.com
- (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 16 Jan
- 2023 15:43:10 +0800
-From: Walker Chen <walker.chen@starfivetech.com>
-To: <linux-riscv@lists.infradead.org>, <linux-pm@vger.kernel.org>,
-	<devicetree@vger.kernel.org>
-CC: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
-	<conor.dooley@microchip.com>, Emil Renner Berthing
-	<emil.renner.berthing@canonical.com>, "Rafael J . Wysocki"
-	<rafael@kernel.org>, Walker Chen <walker.chen@starfivetech.com>,
-	<linux-kernel@vger.kernel.org>
-Subject: [PATCH v3 1/3] dt-bindings: power: Add starfive,jh7110-pmu
-Date: Mon, 16 Jan 2023 15:42:57 +0800
-Message-ID: <20230116074259.22874-2-walker.chen@starfivetech.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20230116074259.22874-1-walker.chen@starfivetech.com>
-References: <20230116074259.22874-1-walker.chen@starfivetech.com>
+	id 1pHLpc-009MJS-Kz; Mon, 16 Jan 2023 09:31:08 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pHLpN-009MCR-CL; Mon, 16 Jan 2023 09:30:55 +0000
+Received: from pendragon.ideasonboard.com (213-243-189-158.bb.dnainternet.fi [213.243.189.158])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id D163D802;
+	Mon, 16 Jan 2023 10:30:39 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1673861440;
+	bh=9YWn45J/ZNgJKTD6UEkGgR2mEmqJ7NYekCQW2ePfKgc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=N+zSHiOP3BPeIWVxgMUMZkbWSMpAwC7eyS7KRf00o33vAIM8HgnNlYZlsGe4NvEx+
+	 ggan64ipd8TDap0zM7nKhc17S/7JZhs8uDIM+s21vxICnSvXcvLCGEqibqZ7MKdHAQ
+	 GpwQEr5QqXpkio0Z6yTPKSTEHMw4GfSB6ctnf2Pk=
+Date: Mon, 16 Jan 2023 11:30:40 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Aradhya Bhatia <a-bhatia1@ti.com>
+Cc: Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Tomi Valkeinen <tomba@kernel.org>, Jyri Sarha <jyri.sarha@iki.fi>,
+	David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Sam Ravnborg <sam@ravnborg.org>, Maxime Ripard <maxime@cerno.tech>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Guo Ren <guoren@kernel.org>, Nishanth Menon <nm@ti.com>,
+	Devicetree List <devicetree@vger.kernel.org>,
+	Jayesh Choudhary <j-choudhary@ti.com>, Jai Luthra <j-luthra@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Devarsh Thakkar <devarsht@ti.com>,
+	Linux Kernel List <linux-kernel@vger.kernel.org>,
+	DRI Development List <dri-devel@lists.freedesktop.org>,
+	Linux Mediatek List <linux-mediatek@lists.infradead.org>,
+	Linux C-SKY Arch List <linux-csky@vger.kernel.org>,
+	Linux RISC-V List <linux-riscv@lists.infradead.org>,
+	Linux ARM Kernel List <linux-arm-kernel@lists.infradead.org>,
+	Rahul T R <r-ravikumar@ti.com>
+Subject: Re: [RFC PATCH 0/4] dt-bindings: Introduce dual-link panels &
+ panel-vendors
+Message-ID: <Y8UZQHvVT2VQcQ33@pendragon.ideasonboard.com>
+References: <20230103064615.5311-1-a-bhatia1@ti.com>
 MIME-Version: 1.0
-X-Originating-IP: [113.72.144.207]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX168.cuchost.com
- (172.16.6.78)
-X-YovoleRuleAgent: yovoleflag
+Content-Disposition: inline
+In-Reply-To: <20230103064615.5311-1-a-bhatia1@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230115_234405_214735_03317337 
-X-CRM114-Status: GOOD (  13.93  )
+X-CRM114-CacheID: sfid-20230116_013053_592906_53E5460D 
+X-CRM114-Status: GOOD (  39.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,93 +88,100 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add bindings for the Power Management Unit on the StarFive JH7110 SoC.
+Hi Aradhya,
 
-Signed-off-by: Walker Chen <walker.chen@starfivetech.com>
----
- .../bindings/power/starfive,jh7110-pmu.yaml   | 45 +++++++++++++++++++
- .../dt-bindings/power/starfive,jh7110-pmu.h   | 17 +++++++
- 2 files changed, 62 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/power/starfive,jh7110-pmu.yaml
- create mode 100644 include/dt-bindings/power/starfive,jh7110-pmu.h
+On Tue, Jan 03, 2023 at 12:16:11PM +0530, Aradhya Bhatia wrote:
+> Hi all,
+> 
+> Microtips Technology Solutions USA, and Lincoln Technology Solutions are
+> 2 display panel vendors, and the first 2 patches add their vendor
+> prefixes.
+> 
+> The fourth patch, simply introduces the new compatible for the generic
+> dual-link panels in the panel-lvds driver. This new compatible is based
+> from a new DT binding added in the third patch explained below.
+> 
+> The third patch introduces a dt-binding for generic dual-link LVDS
+> panels. These panels do not have any documented constraints, except for
+> their timing characteristics. Further, these panels have 2 pixel-sinks.
+> In a dual-link connection between an LVDS encoder and the panel, one
+> sink accepts the odd set of LVDS pixels and the other, the even set.
+> 
+> A lot of this has been based from the Advantech,idk-2121wr dual-link
+> panel[1] and Maxime's patches for generic LVDS panels[2] (which are
+> single-link by default.) and the discussions that happened before they
+> were finally merged.
+> 
+> Below are some notes and points that I want to bring forward.
+> 
+>   - The advantech,idk-2121wr panel binding uses 2 boolean properties
+>     dual-link-odd/even-pixels, to signify which port sink is being used
+>     for which set of LVDS pixels. I too have added similar support and
+>     introduced constraints around those properties, so as to not break
+>     the ABI... but I believe there is a better way to achieve this.
+> 
+>     A "pixel-type" enum property could be introduced in their stead,
+>     which can accept one of the 2 options <dual-lvds-odd-pixels> or
+>     <dual-lvds-even-pixels>.
+> 
+>     This method, in my opinion, is more accurate and cleaner to
+>     implement in the bindings as well.
+> 
+>     If this does sound a better I can push out a new revision where the
+>     driver supports both these methods (to not break the ABI) and the
+>     advantech,2121wr panel can remain as an exception.
 
-diff --git a/Documentation/devicetree/bindings/power/starfive,jh7110-pmu.yaml b/Documentation/devicetree/bindings/power/starfive,jh7110-pmu.yaml
-new file mode 100644
-index 000000000000..98eb8b4110e7
---- /dev/null
-+++ b/Documentation/devicetree/bindings/power/starfive,jh7110-pmu.yaml
-@@ -0,0 +1,45 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/power/starfive,jh7110-pmu.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: StarFive JH7110 Power Management Unit
-+
-+maintainers:
-+  - Walker Chen <walker.chen@starfivetech.com>
-+
-+description: |
-+  StarFive JH7110 SoC includes support for multiple power domains which can be
-+  powered on/off by software based on different application scenes to save power.
-+
-+properties:
-+  compatible:
-+    enum:
-+      - starfive,jh7110-pmu
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  "#power-domain-cells":
-+    const: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - "#power-domain-cells"
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    pwrc: power-controller@17030000 {
-+        compatible = "starfive,jh7110-pmu";
-+        reg = <0x17030000 0x10000>;
-+        interrupts = <111>;
-+        #power-domain-cells = <1>;
-+    };
-diff --git a/include/dt-bindings/power/starfive,jh7110-pmu.h b/include/dt-bindings/power/starfive,jh7110-pmu.h
-new file mode 100644
-index 000000000000..132bfe401fc8
---- /dev/null
-+++ b/include/dt-bindings/power/starfive,jh7110-pmu.h
-@@ -0,0 +1,17 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-+/*
-+ * Copyright (C) 2022 StarFive Technology Co., Ltd.
-+ * Author: Walker Chen <walker.chen@starfivetech.com>
-+ */
-+#ifndef __DT_BINDINGS_POWER_JH7110_POWER_H__
-+#define __DT_BINDINGS_POWER_JH7110_POWER_H__
-+
-+#define JH7110_PD_SYSTOP	0
-+#define JH7110_PD_CPU		1
-+#define JH7110_PD_GPUA		2
-+#define JH7110_PD_VDEC		3
-+#define JH7110_PD_VOUT		4
-+#define JH7110_PD_ISP		5
-+#define JH7110_PD_VENC		6
-+
-+#endif
+It's usually best not to change an existing system if there are no good
+reasons, so I'd ask why you think a pixel-type property would be better
+(including when taking into account the fact that we would have to
+maintain the advantech,2121wtr driver separately) if you want to go that
+way. Otherwise, if we were developing this from scratch, I would have no
+real preference.
+
+>   - As an alternative to the previous point, if that method is not
+>     preferred for some reason, the advantech,2121wtr panel binding
+>     could then be merged in the panel-dual-lvds binding as part of
+>     future work.
+> 
+> 
+>   - Another tweak, I am looking forward to do as part of future work and
+>     would like all your comments is to introduce driver-based
+>     implementation of the panel timing parameters, like it is with
+>     "panel-simple". The driver can then support both the panel-timing
+>     sources (DT node or hard-coded driver structure) and the binding
+>     can remove this from the "required" section.
+
+There's been a very long discussion in the past (multiple discussions
+actually) regarding whether timings should be set in DT or in drivers.
+There were multiple arguments supporting both sides, without (it seems)
+a clear winner. If you want driver-side timings for dual-link panels,
+I'd like to understand why you think that's better. If the reasons are
+the same as the ones expressed when we discussed simple panels, you
+should also look at whether or not any of the fears expressed on either
+side have materialized.
+
+> Thank you!
+> 
+> [1]: https://patchwork.freedesktop.org/patch/357122/
+> [2]: https://patchwork.freedesktop.org/patch/471228/
+> 
+> Aradhya Bhatia (4):
+>   dt-bindings: vendor-prefixes: Add microtips
+>   dt-bindings: vendor-prefixes: Add lincolntech
+>   dt-bindings: panel: Introduce dual-link LVDS panel
+>   drm: panel-lvds: Introduce dual-link panels
+> 
+>  .../display/panel/panel-dual-lvds.yaml        | 157 ++++++++++++++++++
+>  .../devicetree/bindings/vendor-prefixes.yaml  |   4 +
+>  MAINTAINERS                                   |   1 +
+>  drivers/gpu/drm/panel/panel-lvds.c            |   1 +
+>  4 files changed, 163 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/display/panel/panel-dual-lvds.yaml
+
 -- 
-2.17.1
+Regards,
 
+Laurent Pinchart
 
 _______________________________________________
 linux-riscv mailing list
