@@ -4,63 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 503E6C63797
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Jan 2023 06:44:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4861C63797
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Jan 2023 06:53:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7iaOVlQp8NtOG0Lf5H0kpALpvNJ2KYwC3NZAH7PSR6c=; b=KXd9AEkRDJzwxU
-	gmQO5G3P3klbiMMeQraSybg9LzDtb+lIjpDe7In338jLIbrmR9KfYUuI9XJMJLUuwlKUc8p7/cfL+
-	xbdCHODX1a3WozqFA9Q2h8cxh12N7KZTuI+bv8EE6zbrONV7Dim1iBqHR1M19QCkO0DThXNW61LrB
-	U4hB2h/o6NL00rVRIDe9IZsMbKxKaxjbYnzs4YchuGZv8JvJXTX0TsWD8KmgQbgMmgVfFD/nEV5Qi
-	wlU9kZ20OW0YsxW7s3HGXmTTDsab22CzhkWA9+WZpsYyRgnUbga+8c3FEWnM3akDgVm4qCHilikZY
-	vFFZOBcZpR5kQE8y7Nhg==;
+	List-Owner; bh=Ob7IqvUEWffUnfl/zVtDzejITxvpT1/xFrdAFVr7yFg=; b=Pl7FbAFokalDW1
+	w5HsDdtdq4kQssibRIlq+VnVyM+O/lpUzPj4nXpbxTmwtop7JSMrnxo85R1eKM8monvwvqfAQvzby
+	KUgIvMm6eJpUbvr/uKD/OesJsKVHtJeeZU9r7LrbsdfiLEQLlV0Etb40rlqG/FHWEAF8WGVBvrKVd
+	XiBzhmocu7dN88YsBWKGZrrDuvQMbV+X39gGtGJEB9HBC6byX+STdNbGHr6GBTmOXBbyibOSK/jop
+	2/CaKTKQXPXp/cfjWhpppFDDAbYFaj9RjeLzz9DLus0+O81mAT/P0zsNgEaMuTAU+VXGzNZeKR6Hr
+	cArMpbwejMPV93ZR7ElQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pHfi3-00D5nc-6t; Tue, 17 Jan 2023 06:44:39 +0000
+	id 1pHfqW-00D6N2-Ew; Tue, 17 Jan 2023 06:53:24 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pHfhy-00D5kS-3h
-	for linux-riscv@lists.infradead.org; Tue, 17 Jan 2023 06:44:37 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	id 1pHfqS-00D6KY-6y
+	for linux-riscv@lists.infradead.org; Tue, 17 Jan 2023 06:53:23 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 761F424E1BD;
-	Tue, 17 Jan 2023 14:44:02 +0800 (CST)
-Received: from EXMBX161.cuchost.com (172.16.6.71) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 17 Jan
- 2023 14:44:02 +0800
-Received: from [192.168.125.128] (113.72.144.207) by EXMBX161.cuchost.com
- (172.16.6.71) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 17 Jan
- 2023 14:44:01 +0800
-Message-ID: <01824dab-ed75-973a-c1bc-562a1a9370a1@starfivetech.com>
-Date: Tue, 17 Jan 2023 14:39:55 +0800
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 1E6C224E19A;
+	Tue, 17 Jan 2023 14:52:46 +0800 (CST)
+Received: from EXMBX073.cuchost.com (172.16.6.83) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 17 Jan
+ 2023 14:52:45 +0800
+Received: from [192.168.120.49] (171.223.208.138) by EXMBX073.cuchost.com
+ (172.16.6.83) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 17 Jan
+ 2023 14:52:44 +0800
+Message-ID: <84e783a6-0aea-a6ba-13a0-fb29c66cc81a@starfivetech.com>
+Date: Tue, 17 Jan 2023 14:52:43 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
  Thunderbird/102.6.1
-Subject: Re: [PATCH v1 2/3] clocksource: Add StarFive timer driver
+Subject: Re: [PATCH v3 2/7] dt-bindings: net: snps,dwmac: Update the maxitems
+ number of resets and reset-names
 Content-Language: en-US
-To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Daniel
- Lezcano" <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
-CC: Rob Herring <robh+dt@kernel.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Samin Guo
-	<samin.guo@starfivetech.com>, <linux-kernel@vger.kernel.org>
-References: <20221223094801.181315-1-xingyu.wu@starfivetech.com>
- <20221223094801.181315-3-xingyu.wu@starfivetech.com>
-From: Xingyu Wu <xingyu.wu@starfivetech.com>
-In-Reply-To: <20221223094801.181315-3-xingyu.wu@starfivetech.com>
-X-Originating-IP: [113.72.144.207]
-X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX161.cuchost.com
- (172.16.6.71)
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	<linux-riscv@lists.infradead.org>, <netdev@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+CC: "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+	<edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
+	Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>
+References: <20230106030001.1952-1-yanhong.wang@starfivetech.com>
+ <20230106030001.1952-3-yanhong.wang@starfivetech.com>
+ <2328562d-59a2-f60e-b17b-6cf16392e01f@linaro.org>
+From: yanhong wang <yanhong.wang@starfivetech.com>
+In-Reply-To: <2328562d-59a2-f60e-b17b-6cf16392e01f@linaro.org>
+X-Originating-IP: [171.223.208.138]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX073.cuchost.com
+ (172.16.6.83)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230116_224434_630259_5592FCFB 
-X-CRM114-Status: GOOD (  35.82  )
+X-CRM114-CacheID: sfid-20230116_225320_588366_FF30BF2D 
+X-CRM114-Status: GOOD (  16.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,663 +81,117 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2022/12/23 17:48, Xingyu Wu wrote:
-> Add timer driver for the StarFive JH7110 SoC.
+
+
+On 2023/1/6 20:44, Krzysztof Kozlowski wrote:
+> On 06/01/2023 03:59, Yanhong Wang wrote:
+>> Some boards(such as StarFive VisionFive v2) require more than one value
+>> which defined by resets property, so the original definition can not
+>> meet the requirements. In order to adapt to different requirements,
+>> adjust the maxitems number definition.
+>> 
+>> Signed-off-by: Yanhong Wang <yanhong.wang@starfivetech.com>
+>> ---
+>>  .../devicetree/bindings/net/snps,dwmac.yaml   | 36 ++++++++++++++-----
+>>  1 file changed, 28 insertions(+), 8 deletions(-)
+>> 
+>> diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+>> index e26c3e76ebb7..f7693e8c8d6d 100644
+>> --- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+>> +++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+>> @@ -132,14 +132,6 @@ properties:
+>>          - pclk
+>>          - ptp_ref
+>>  
+>> -  resets:
+>> -    maxItems: 1
+>> -    description:
+>> -      MAC Reset signal.
+>> -
+>> -  reset-names:
+>> -    const: stmmaceth
+>> -
+>>    power-domains:
+>>      maxItems: 1
+>>  
+>> @@ -463,6 +455,34 @@ allOf:
+>>              Enables the TSO feature otherwise it will be managed by
+>>              MAC HW capability register.
+>>  
+>> +  - if:
+>> +      properties:
+>> +        compatible:
+>> +          contains:
+>> +            const: starfive,jh7110-dwmac
+>> +
 > 
-> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
-> ---
->  MAINTAINERS                          |   7 +
->  drivers/clocksource/Kconfig          |  12 +
->  drivers/clocksource/Makefile         |   1 +
->  drivers/clocksource/timer-starfive.c | 465 +++++++++++++++++++++++++++
->  drivers/clocksource/timer-starfive.h | 104 ++++++
->  5 files changed, 589 insertions(+)
->  create mode 100644 drivers/clocksource/timer-starfive.c
->  create mode 100644 drivers/clocksource/timer-starfive.h
+> Looking at your next binding patch, this seems a bit clearer. First of
+> all, this patch on itself has little sense. It's not usable on its own,
+> because you need the next one.
 > 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index a70c1d0f303e..340ad9e0a31f 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -19623,6 +19623,13 @@ F:	Documentation/devicetree/bindings/reset/starfive,jh7100-reset.yaml
->  F:	drivers/reset/starfive/
->  F:	include/dt-bindings/reset/starfive*
->  
-> +STARFIVE TIMER DRIVER
-> +M:	Samin Guo <samin.guo@starfivetech.com>
-> +M:	Xingyu Wu <xingyu.wu@starfivetech.com>
-> +S:	Supported
-> +F:	Documentation/devicetree/bindings/timer/starfive*
-> +F:	drivers/clocksource/timer-starfive*
-> +
->  STATIC BRANCH/CALL
->  M:	Peter Zijlstra <peterz@infradead.org>
->  M:	Josh Poimboeuf <jpoimboe@kernel.org>
-> diff --git a/drivers/clocksource/Kconfig b/drivers/clocksource/Kconfig
-> index 4469e7f555e9..11400b3a8f5c 100644
-> --- a/drivers/clocksource/Kconfig
-> +++ b/drivers/clocksource/Kconfig
-> @@ -630,6 +630,18 @@ config RISCV_TIMER
->  	  is accessed via both the SBI and the rdcycle instruction.  This is
->  	  required for all RISC-V systems.
->  
-> +config STARFIVE_TIMER
-> +	bool "Timer for the STARFIVE SoCs"
-> +	depends on RISCV && OF && (SOC_STARFIVE || COMPILE_TEST)
-> +	select TIMER_OF
-> +	select CLKSRC_MMIO
-> +	default SOC_STARFIVE
-> +	help
-> +	  This enables the timers for StarFive SoCs. On RISC-V platform,
-> +	  the system has started RISCV_TIMER. But you can also use these timers
-> +	  to do a lot more on StarFive SoCs. These timers can provide much
-> +	  higher precision than RISCV_TIMER.
-> +
->  config CLINT_TIMER
->  	bool "CLINT Timer for the RISC-V platform" if COMPILE_TEST
->  	depends on GENERIC_SCHED_CLOCK && RISCV
-> diff --git a/drivers/clocksource/Makefile b/drivers/clocksource/Makefile
-> index 64ab547de97b..276695d95cdc 100644
-> --- a/drivers/clocksource/Makefile
-> +++ b/drivers/clocksource/Makefile
-> @@ -80,6 +80,7 @@ obj-$(CONFIG_INGENIC_TIMER)		+= ingenic-timer.o
->  obj-$(CONFIG_CLKSRC_ST_LPC)		+= clksrc_st_lpc.o
->  obj-$(CONFIG_X86_NUMACHIP)		+= numachip.o
->  obj-$(CONFIG_RISCV_TIMER)		+= timer-riscv.o
-> +obj-$(CONFIG_STARFIVE_TIMER)		+= timer-starfive.o
->  obj-$(CONFIG_CLINT_TIMER)		+= timer-clint.o
->  obj-$(CONFIG_CSKY_MP_TIMER)		+= timer-mp-csky.o
->  obj-$(CONFIG_GX6605S_TIMER)		+= timer-gx6605s.o
-> diff --git a/drivers/clocksource/timer-starfive.c b/drivers/clocksource/timer-starfive.c
-> new file mode 100644
-> index 000000000000..8db413a22fdc
-> --- /dev/null
-> +++ b/drivers/clocksource/timer-starfive.c
-> @@ -0,0 +1,465 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Starfive Timer driver
-> + *
-> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
-> + *
-> + * Author:
-> + * Xingyu Wu <xingyu.wu@starfivetech.com>
-> + * Samin Guo <samin.guo@starfivetech.com>
-> + */
-> +
-> +#include <linux/clk.h>
-> +#include <linux/clockchips.h>
-> +#include <linux/clocksource.h>
-> +#include <linux/err.h>
-> +#include <linux/interrupt.h>
-> +#include <linux/io.h>
-> +#include <linux/iopoll.h>
-> +#include <linux/irq.h>
-> +#include <linux/kernel.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/of_address.h>
-> +#include <linux/of_clk.h>
-> +#include <linux/of_irq.h>
-> +#include <linux/reset.h>
-> +#include <linux/sched_clock.h>
-> +
-> +#include "timer-starfive.h"
-> +
-> +struct starfive_timer __initdata starfive_timer_jh7110 = {
-> +	.ctrl		= STARFIVE_TIMER_JH7110_CTL,
-> +	.load		= STARFIVE_TIMER_JH7110_LOAD,
-> +	.enable		= STARFIVE_TIMER_JH7110_ENABLE,
-> +	.reload		= STARFIVE_TIMER_JH7110_RELOAD,
-> +	.value		= STARFIVE_TIMER_JH7110_VALUE,
-> +	.intclr		= STARFIVE_TIMER_JH7110_INT_CLR,
-> +	.intmask	= STARFIVE_TIMER_JH7110_INT_MASK,
-> +	.timer_base	= {STARFIVE_TIMER_BASE(0), STARFIVE_TIMER_BASE(1),
-> +			   STARFIVE_TIMER_BASE(2), STARFIVE_TIMER_BASE(3)},
-> +};
-> +
-> +static inline struct starfive_clkevt *to_starfive_clkevt(struct clock_event_device *evt)
-> +{
-> +	return container_of(evt, struct starfive_clkevt, evt);
-> +}
-> +
-> +/* 0:continuous-run mode, 1:single-run mode */
-> +static inline void starfive_timer_set_mod(struct starfive_clkevt *clkevt, int mod)
-> +{
-> +	writel(mod, clkevt->ctrl);
-> +}
-> +
-> +/* Interrupt Mask Register, 0:Unmask, 1:Mask */
-> +static inline void starfive_timer_int_enable(struct starfive_clkevt *clkevt)
-> +{
-> +	writel(INTMASK_ENABLE_DIS, clkevt->intmask);
-> +}
-> +
-> +static inline void starfive_timer_int_disable(struct starfive_clkevt *clkevt)
-> +{
-> +	writel(INTMASK_ENABLE, clkevt->intmask);
-> +}
-> +
-> +/*
-> + * BIT(0): Read value represent channel intr status.
-> + * Write 1 to this bit to clear interrupt. Write 0 has no effects.
-> + * BIT(1): "1" means that it is clearing interrupt. BIT(0) can not be written.
-> + */
-> +static inline void starfive_timer_int_clear(struct starfive_clkevt *clkevt)
-> +{
-> +	/* waiting interrupt can be to clearing */
-> +	u32 value;
-> +	int ret = 0;
-> +
-> +	value = readl(clkevt->intclr);
-> +	ret = readl_poll_timeout_atomic(clkevt->intclr, value,
-> +					!(value & STARFIVE_TIMER_JH7110_INT_STATUS_CLR_AVA),
-> +					STARFIVE_DELAY_US, STARFIVE_TIMEOUT_US);
-> +	if (!ret)
-> +		writel(1, clkevt->intclr);
-> +}
-> +
-> +/*
-> + * The initial value to be loaded into the
-> + * counter and is also used as the reload value.
-> + */
-> +static inline void starfive_timer_set_load(struct starfive_clkevt *clkevt, u32 val)
-> +{
-> +	writel(val, clkevt->load);
-> +}
-> +
-> +static inline u32 starfive_timer_get_val(struct starfive_clkevt *clkevt)
-> +{
-> +	return readl(clkevt->value);
-> +}
-> +
-> +/*
-> + * Write RELOAD register to reload preset value to counter.
-> + * (Write 0 and write 1 are both ok)
-> + */
-> +static inline void starfive_timer_set_reload(struct starfive_clkevt *clkevt)
-> +{
-> +	writel(1, clkevt->reload);
-> +}
-> +
-> +static inline void starfive_timer_enable(struct starfive_clkevt *clkevt)
-> +{
-> +	writel(TIMER_ENA, clkevt->enable);
-> +}
-> +
-> +static inline void starfive_timer_disable(struct starfive_clkevt *clkevt)
-> +{
-> +	writel(TIMER_ENA_DIS, clkevt->enable);
-> +}
-> +
-> +static void timer_shutdown(struct starfive_clkevt *clkevt)
-> +{
-> +	starfive_timer_int_disable(clkevt);
-> +	starfive_timer_disable(clkevt);
-> +	starfive_timer_int_clear(clkevt);
-> +}
-> +
-> +static void starfive_timer_suspend(struct clock_event_device *evt)
-> +{
-> +	struct starfive_clkevt *clkevt = to_starfive_clkevt(evt);
-> +
-> +	clkevt->reload_val = starfive_timer_get_val(clkevt);
-> +
-> +	starfive_timer_disable(clkevt);
-> +	starfive_timer_int_disable(clkevt);
-> +	starfive_timer_int_clear(clkevt);
-> +}
-> +
-> +static void starfive_timer_resume(struct clock_event_device *evt)
-> +{
-> +	struct starfive_clkevt *clkevt = to_starfive_clkevt(evt);
-> +
-> +	starfive_timer_set_load(clkevt, clkevt->reload_val);
-> +	starfive_timer_set_reload(clkevt);
-> +	starfive_timer_int_enable(clkevt);
-> +	starfive_timer_enable(clkevt);
-> +}
-> +
-> +static int starfive_timer_tick_resume(struct clock_event_device *evt)
-> +{
-> +	starfive_timer_resume(evt);
-> +
-> +	return 0;
-> +}
-> +
-> +static int starfive_timer_shutdown(struct clock_event_device *evt)
-> +{
-> +	struct starfive_clkevt *clkevt = to_starfive_clkevt(evt);
-> +
-> +	timer_shutdown(clkevt);
-> +
-> +	return 0;
-> +}
-> +
-> +static int starfive_get_clock_rate(struct starfive_clkevt *clkevt, struct device_node *np)
-> +{
-> +	int ret;
-> +	u32 rate;
-> +
-> +	if (clkevt->clk) {
-> +		clkevt->rate = clk_get_rate(clkevt->clk);
-> +		if (clkevt->rate > 0) {
-> +			pr_debug("clk_get_rate clkevt->rate: %d\n", clkevt->rate);
-> +			return 0;
-> +		}
-> +	}
-> +
-> +	/* Next we try to get clock-frequency from dts.*/
-> +	ret = of_property_read_u32(np, "clock-frequency", &rate);
-> +	if (!ret) {
-> +		pr_debug("Timer: try get clock-frequency:%d Hz\n", rate);
-> +		clkevt->rate = rate;
-> +		return 0;
-> +	}
-> +	pr_err("Timer: get rate failed, need clock-frequency define in dts.\n");
-> +
-> +	return -ENOENT;
-> +}
-> +
-> +static int starfive_clocksource_init(struct starfive_clkevt *clkevt,
-> +				     const char *name, struct device_node *np)
-> +{
-> +	starfive_timer_set_mod(clkevt, MOD_CONTIN);
-> +	starfive_timer_set_load(clkevt, STARFIVE_MAX_TICKS);  /* val = rate --> 1s */
-> +	starfive_timer_int_disable(clkevt);
-> +	starfive_timer_int_clear(clkevt);
-> +	starfive_timer_int_enable(clkevt);
-> +	starfive_timer_enable(clkevt);
-> +
-> +	return clocksource_mmio_init(clkevt->value, name, clkevt->rate,
-> +				     STARFIVE_CLOCK_SOURCE_RATING, STARFIVE_VALID_BITS,
-> +				     clocksource_mmio_readl_down);
-> +}
-> +
-> +/*
-> + * IRQ handler for the timer
-> + */
-> +static irqreturn_t starfive_timer_interrupt(int irq, void *priv)
-> +{
-> +	struct clock_event_device *evt = (struct clock_event_device *)priv;
-> +	struct starfive_clkevt *clkevt = to_starfive_clkevt(evt);
-> +
-> +	starfive_timer_int_clear(clkevt);
-> +
-> +	if (evt->event_handler)
-> +		evt->event_handler(evt);
-> +
-> +	return IRQ_HANDLED;
-> +}
-> +
-> +static int starfive_timer_set_periodic(struct clock_event_device *evt)
-> +{
-> +	struct starfive_clkevt *clkevt = to_starfive_clkevt(evt);
-> +
-> +	starfive_timer_disable(clkevt);
-> +	starfive_timer_set_mod(clkevt, MOD_CONTIN);
-> +	starfive_timer_set_load(clkevt, clkevt->periodic);
-> +	starfive_timer_int_disable(clkevt);
-> +	starfive_timer_int_clear(clkevt);
-> +	starfive_timer_int_enable(clkevt);
-> +	starfive_timer_enable(clkevt);
-> +
-> +	return 0;
-> +}
-> +
-> +static int starfive_timer_set_oneshot(struct clock_event_device *evt)
-> +{
-> +	struct starfive_clkevt *clkevt = to_starfive_clkevt(evt);
-> +
-> +	starfive_timer_disable(clkevt);
-> +	starfive_timer_set_mod(clkevt, MOD_SINGLE);
-> +	starfive_timer_set_load(clkevt, STARFIVE_MAX_TICKS);
-> +	starfive_timer_int_disable(clkevt);
-> +	starfive_timer_int_clear(clkevt);
-> +	starfive_timer_int_enable(clkevt);
-> +	starfive_timer_enable(clkevt);
-> +
-> +	return 0;
-> +}
-> +
-> +static int starfive_timer_set_next_event(unsigned long next,
-> +					 struct clock_event_device *evt)
-> +{
-> +	struct starfive_clkevt *clkevt = to_starfive_clkevt(evt);
-> +
-> +	starfive_timer_disable(clkevt);
-> +	starfive_timer_set_mod(clkevt, MOD_SINGLE);
-> +	starfive_timer_set_load(clkevt, next);
-> +	starfive_timer_enable(clkevt);
-> +
-> +	return 0;
-> +}
-> +
-> +static void starfive_set_clockevent(struct clock_event_device *evt)
-> +{
-> +	evt->features	= CLOCK_EVT_FEAT_PERIODIC |
-> +			  CLOCK_EVT_FEAT_ONESHOT |
-> +			  CLOCK_EVT_FEAT_DYNIRQ;
-> +	evt->set_state_shutdown	= starfive_timer_shutdown;
-> +	evt->set_state_periodic	= starfive_timer_set_periodic;
-> +	evt->set_state_oneshot	= starfive_timer_set_oneshot;
-> +	evt->set_state_oneshot_stopped = starfive_timer_shutdown;
-> +	evt->tick_resume	= starfive_timer_tick_resume;
-> +	evt->set_next_event	= starfive_timer_set_next_event;
-> +	evt->suspend		= starfive_timer_suspend;
-> +	evt->resume		= starfive_timer_resume;
-> +	evt->rating		= STARFIVE_CLOCKEVENT_RATING;
-> +}
-> +
-> +static int starfive_clockevents_register(struct starfive_clkevt *clkevt, unsigned int irq,
-> +					 struct device_node *np, const char *name)
-> +{
-> +	int ret = 0;
-> +
-> +	ret = starfive_get_clock_rate(clkevt, np);
-> +	if (ret)
-> +		return -EINVAL;
-> +
-> +	clkevt->periodic = DIV_ROUND_CLOSEST(clkevt->rate, HZ);
-> +
-> +	starfive_set_clockevent(&clkevt->evt);
-> +	clkevt->evt.name = name;
-> +	clkevt->evt.irq = irq;
-> +	clkevt->evt.cpumask = cpu_possible_mask;
-> +
-> +	ret = request_irq(irq, starfive_timer_interrupt,
-> +			  IRQF_TIMER | IRQF_IRQPOLL, name, &clkevt->evt);
-> +	if (ret)
-> +		pr_err("%s: request_irq failed\n", name);
-> +
-> +	clockevents_config_and_register(&clkevt->evt, clkevt->rate,
-> +					STARFIVE_MIN_TICKS, STARFIVE_MAX_TICKS);
-> +
-> +	return ret;
-> +}
-> +
-> +static void __init starfive_clkevt_base_init(struct starfive_timer *timer,
-> +					     struct starfive_clkevt *clkevt,
-> +					     void __iomem *base, int index)
-> +{
-> +	void __iomem *timer_base;
-> +
-> +	timer_base	= base + timer->timer_base[index];
-> +	clkevt->base	= timer_base;
-> +	clkevt->ctrl	= timer_base + timer->ctrl;
-> +	clkevt->load	= timer_base + timer->load;
-> +	clkevt->enable	= timer_base + timer->enable;
-> +	clkevt->reload	= timer_base + timer->reload;
-> +	clkevt->value	= timer_base + timer->value;
-> +	clkevt->intclr	= timer_base + timer->intclr;
-> +	clkevt->intmask	= timer_base + timer->intmask;
-> +}
-> +
-> +static int __init starfive_timer_jh7110_of_init(struct device_node *np)
-> +{
-> +	int index, count, irq, ret;
-> +	const char *name = NULL;
-> +	struct clk *clk;
-> +	struct clk *pclk;
-> +	struct reset_control *prst;
-> +	struct reset_control *rst;
-> +	struct starfive_clkevt *clkevt[STARFIVE_NR_TIMERS];
-> +	void __iomem *base;
-> +	struct starfive_timer *timer = &starfive_timer_jh7110;
-> +
-> +	base = of_iomap(np, 0);
-> +	if (!base)
-> +		return -ENXIO;
-> +
-> +	if (!of_device_is_available(np)) {
-> +		ret = -EINVAL;
-> +		goto err;
-> +	}
-> +
-> +	pclk = of_clk_get_by_name(np, "apb");
-> +	if (!IS_ERR(pclk)) {
-> +		if (clk_prepare_enable(pclk))
-> +			pr_warn("pclk for %pOFn is present, but could not be activated\n", np);
-> +	/*
-> +	 * Clock framework support is late, continue on
-> +	 * anyways if we don't find a matching clock.
-> +	 */
-> +	} else if (PTR_ERR(pclk) != -EPROBE_DEFER) {
-> +		ret = PTR_ERR(pclk);
-> +		goto err;
-> +	}
-> +
-> +	prst = of_reset_control_get(np, "apb");
-> +	if (!IS_ERR(prst)) {
-> +		ret = reset_control_deassert(prst);
-> +		if (ret)
-> +			goto prst_err;
-> +	/*
-> +	 * Reset framework support is late, continue on
-> +	 * anyways if we don't find a matching reset.
-> +	 */
-> +	} else if (PTR_ERR(prst) != -EPROBE_DEFER) {
-> +		ret = PTR_ERR(prst);
-> +		goto prst_err;
-> +	}
-> +
-> +	/* The number of timers used is determined according to the device tree. */
-> +	count = of_irq_count(np);
-> +	if (count > STARFIVE_NR_TIMERS || count <= 0) {
-> +		ret = -EINVAL;
-> +		goto count_err;
-> +	}
-> +
-> +	for (index = 0; index < count; index++) {
-> +		of_property_read_string_index(np, "clock-names", index, &name);
-> +		if (strncmp(name, "timer", strlen("timer")))
-> +			continue;
-> +
-> +		clkevt[index] = kzalloc(sizeof(*clkevt[index]), GFP_KERNEL);
-> +		if (!clkevt[index]) {
-> +			ret = -ENOMEM;
-> +			goto clkevt_err;
-> +		}
-> +
-> +		starfive_clkevt_base_init(timer, clkevt[index], base, index);
-> +
-> +		/* Ensure timers are disabled */
-> +		starfive_timer_disable(clkevt[index]);
-> +
-> +		clk = of_clk_get_by_name(np, name);
-> +		if (!IS_ERR(clk)) {
-> +			clkevt[index]->clk = clk;
-> +			if (clk_prepare_enable(clkevt[index]->clk))
-> +				pr_warn("clk for %pOFn is present, but could not be activated\n",
-> +					np);
-> +		} else if (PTR_ERR(clk) != -EPROBE_DEFER) {
-> +			ret = PTR_ERR(clk);
-> +			goto clk_err;
-> +		}
-> +
-> +		rst = of_reset_control_get(np, name);
-> +		if (!IS_ERR(rst)) {
-> +			clkevt[index]->rst = rst;
-> +			ret = reset_control_deassert(clkevt[index]->rst);
-> +			if (ret)
-> +				goto rst_err;
-> +		}
-> +
-> +		irq = irq_of_parse_and_map(np, index);
-> +		if (irq < 0) {
-> +			ret = -EINVAL;
-> +			goto irq_err;
-> +		}
-> +
-> +		snprintf(clkevt[index]->name, sizeof(clkevt[index]->name), "%s.ch%d",
-> +			 np->full_name, index);
-> +
-> +		ret = starfive_clockevents_register(clkevt[index], irq, np, clkevt[index]->name);
-> +		if (ret) {
-> +			pr_err("%s: init clockevents failed.\n", clkevt[index]->name);
-> +			goto register_err;
-> +		}
-> +		clkevt[index]->irq = irq;
-> +
-> +		ret = starfive_clocksource_init(clkevt[index], clkevt[index]->name, np);
-> +		if (ret)
-> +			goto init_err;
-> +	}
-> +	if (!IS_ERR(pclk))
-> +		clk_put(pclk);
-> +
-> +	return 0;
-> +
-> +init_err:
-> +register_err:
-> +	free_irq(clkevt[index]->irq, &clkevt[index]->evt);
-> +irq_err:
-> +rst_err:
-> +clk_err:
-> +	/* Only unregister the failed timer and the rest timers continue to work. */
-> +	if (!clkevt[index]->rst) {
-> +		reset_control_assert(clkevt[index]->rst);
-> +		reset_control_put(clkevt[index]->rst);
-> +	}
-> +	if (!clkevt[index]->clk) {
-> +		clk_disable_unprepare(clkevt[index]->clk);
-> +		clk_put(clkevt[index]->clk);
-> +	}
-> +	kfree(clkevt[index]);
-> +clkevt_err:
-> +count_err:
-> +prst_err:
-> +	if (!IS_ERR(pclk)) {
-> +		/* If no other timer successfully registers, pclk is disabled. */
-> +		if (!index)
-> +			clk_disable_unprepare(pclk);
-> +		clk_put(pclk);
-> +	}
-> +err:
-> +	iounmap(base);
-> +	return ret;
-> +}
-> +
-> +TIMER_OF_DECLARE(starfive_timer_jh7110, "starfive,jh7110-timers", starfive_timer_jh7110_of_init);
-> diff --git a/drivers/clocksource/timer-starfive.h b/drivers/clocksource/timer-starfive.h
-> new file mode 100644
-> index 000000000000..9fd3303b31d1
-> --- /dev/null
-> +++ b/drivers/clocksource/timer-starfive.h
-> @@ -0,0 +1,104 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/*
-> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
-> + */
-> +
-> +#ifndef __STARFIVE_TIMER_H__
-> +#define __STARFIVE_TIMER_H__
-> +
-> +#define STARFIVE_NR_TIMERS		TIMERS_MAX
-> +/* Bias: Timer0-0x0, Timer1-0x40, Timer2-0x80, and so on. */
-> +#define STARFIVE_PER_TIMER_LEN		0x40
-> +#define STARFIVE_TIMER_BASE(x)		((TIMER_##x) * STARFIVE_PER_TIMER_LEN)
-> +
-> +#define STARFIVE_CLOCK_SOURCE_RATING	200
-> +#define STARFIVE_VALID_BITS		32
-> +#define STARFIVE_DELAY_US		0
-> +#define STARFIVE_TIMEOUT_US		10000
-> +#define STARFIVE_CLOCKEVENT_RATING	300
-> +#define STARFIVE_MAX_TICKS		0xffffffff
-> +#define STARFIVE_MIN_TICKS		0xf
-> +
-> +/*
-> + * JH7110 timer TIMER_INT_STATUS:
-> + * ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-> + * |     Bits     | 08~31 | 7 | 6 | 5 |  4  | 3 | 2 | 1 | 0 |
-> + * ----------------------------------------------------------
-> + * | timer(n)_int |  res  | 6 | 5 | 4 | Wdt | 3 | 2 | 1 | 0 |
-> + * ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-> + *
-> + * Software can read this register to know which interrupt is occurred.
-> + */
-> +#define STARFIVE_TIMER_JH7110_INT_STATUS	0x00
-> +#define STARFIVE_TIMER_JH7110_CTL		0x04
-> +#define STARFIVE_TIMER_JH7110_LOAD		0x08
-> +#define STARFIVE_TIMER_JH7110_ENABLE		0x10
-> +#define STARFIVE_TIMER_JH7110_RELOAD		0x14
-> +#define STARFIVE_TIMER_JH7110_VALUE		0x18
-> +#define STARFIVE_TIMER_JH7110_INT_CLR		0x20
-> +#define STARFIVE_TIMER_JH7110_INT_MASK		0x24
-> +#define STARFIVE_TIMER_JH7110_INT_STATUS_CLR_AVA	BIT(1)
-> +
-> +enum STARFIVE_TIMERS {
-> +	TIMER_0 = 0,
-> +	TIMER_1,
-> +	TIMER_2,
-> +	TIMER_3,
-> +	TIMER_4,  /*WDT*/
-> +	TIMER_5,
-> +	TIMER_6,
-> +	TIMER_7,
-> +	TIMERS_MAX
-> +};
-> +
-> +enum TIMERI_INTMASK {
-> +	INTMASK_ENABLE_DIS = 0,
-> +	INTMASK_ENABLE = 1
-> +};
-> +
-> +enum TIMER_MOD {
-> +	MOD_CONTIN = 0,
-> +	MOD_SINGLE = 1
-> +};
-> +
-> +enum TIMER_CTL_EN {
-> +	TIMER_ENA_DIS	= 0,
-> +	TIMER_ENA	= 1
-> +};
-> +
-> +enum {
-> +	INT_CLR_AVAILABLE = 0,
-> +	INT_CLR_NOT_AVAILABLE = 1
-> +};
-> +
-> +struct starfive_timer {
-> +	u32 ctrl;
-> +	u32 load;
-> +	u32 enable;
-> +	u32 reload;
-> +	u32 value;
-> +	u32 intclr;
-> +	u32 intmask;
-> +	u32 wdt_lock;   /* 0x3c+i*0x40 watchdog use ONLY */
-> +	u32 timer_base[STARFIVE_NR_TIMERS];
-> +};
-> +
-> +struct starfive_clkevt {
-> +	struct clock_event_device evt;
-> +	struct clk *clk;
-> +	struct reset_control *rst;
-> +	char name[20];
-> +	int irq;
-> +	u32 periodic;
-> +	u32 rate;
-> +	u32 reload_val;
-> +	void __iomem *base;
-> +	void __iomem *ctrl;
-> +	void __iomem *load;
-> +	void __iomem *enable;
-> +	void __iomem *reload;
-> +	void __iomem *value;
-> +	void __iomem *intclr;
-> +	void __iomem *intmask;
-> +};
-> +#endif /* __STARFIVE_TIMER_H__ */
+> Probably the snps,dwmac should be just split into common parts used by
+> devices. It makes code much less readable and unnecessary complicated to
+> support in one schema both devices and re-usability.
+> 
+> Otherwise I propose to make the resets/reset-names just like clocks are
+> made: define here wide constraints and update all other users of this
+> binding to explicitly restrict resets.
+> 
+> 
 
-Hi Daniel/Thomas,
+Thanks, refer to the definition of clocks. If it is defined as follows, is it OK?
 
-Could you please help to review and provide any comments on this patch?
-Thanks.
+properties:
+  resets:
+    minItems: 1
+    maxItems: 3
+    additionalItems: true
+    items:
+      - description: MAC Reset signal.
 
-Best regards,
-Xingyu Wu
+  reset-names:
+    minItems: 1
+    maxItems: 3
+    additionalItems: true
+    contains:
+      enum:
+        - stmmaceth
 
+
+allOf:
+  - if:
+      properties:
+        compatible:
+          contains:
+            const: starfive,jh7110-dwmac
+    then:
+      properties:
+        resets:
+          minItems: 2
+          maxItems: 2
+        reset-names:
+          items:
+            - const: stmmaceth
+            - const: ahb
+      required:
+        - resets
+        - reset-names  
+    else:
+      properties:
+        resets:
+          maxItems: 1
+          description:
+            MAC Reset signal.
+
+        reset-names:
+          const: stmmaceth
+
+Do you have any other better suggestions?
+
+
+> Best regards,
+> Krzysztof
+> 
 
 _______________________________________________
 linux-riscv mailing list
