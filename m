@@ -4,77 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65EA2C63797
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Jan 2023 07:10:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 376F0C3DA78
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Jan 2023 07:32:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+b66tu9wvnKrnI7KRDnESfhPqMpmKJoQ04BT1uTGTBE=; b=XK8u6haOoOC3bB
-	ZNeueGJxtxmExZBTCh4UUE3obdw9GgBFt/RroE5usvc5Ghzb7X87s7XpkV7cCa73D8QAjVxnTnCeZ
-	rg60YrFQZINN53gs0Htuev0iA6wib2hdt9lU8em6/5LqaqdR6vyxq3PfOIx/h5sevHMrITNSLfSfv
-	s3kfuBm+++pGjY9RFQ0RuZ+3O4HirhQQ4+nJDtTtxtie+zRKDauEXuPVWmz0U/Gv1L6zx4LF55dAH
-	ee/YVxFKBbtL4Eqnkyt44HUUFsJo+c3CzE3YyxtmrvDMPiPjgxJqT1YET4SsQVL4UCT7ffCusetvq
-	Nk+zzXWnNS4Pzf/L18Og==;
+	List-Owner; bh=hgluPXVppvPCHHC5UxKFLlMNi+OHSkhttNql0YwhS4g=; b=uMY5+suRK1zya8
+	dJ/R8+HOykjEWltipw+Kd8VPGSY/f4R08cIyFnkSihMrQHv7YtqfSWCtrVD165P6zCMhof3eLQT5A
+	99Veanai27Rc6OH5A1Hk/ygtQ7vIVJnbI6SxV+/dhmdahk1PTzgXQqDIoBLAWOFE3h8LoaDONxY1V
+	egJE+oQzuQLPgcZSm6wzyjaAJr0f6djeL72qVRMJPRVeodexP4ujaL7MCjMrvEfnd3F/BT+pF/oO5
+	hd+Vmn4rK2dV/OsGMKED14RmvwZbGzvuIxsZnmkeuHA/VtNx/jhpP+pc9XkR+BFectfx+NjsbLvDX
+	BmhDkKmo5KSW8BkXRxdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pHg6T-00D8Vi-Oq; Tue, 17 Jan 2023 07:09:53 +0000
-Received: from mail-vs1-xe31.google.com ([2607:f8b0:4864:20::e31])
+	id 1pHgRn-00DB5E-6L; Tue, 17 Jan 2023 07:31:55 +0000
+Received: from mail-mr2fra01on2049.outbound.protection.outlook.com ([40.107.9.49] helo=FRA01-MR2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pHg6O-00D8Uz-5V
-	for linux-riscv@lists.infradead.org; Tue, 17 Jan 2023 07:09:51 +0000
-Received: by mail-vs1-xe31.google.com with SMTP id n190so27409298vsc.11
-        for <linux-riscv@lists.infradead.org>; Mon, 16 Jan 2023 23:09:46 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=mUzSl8xprICAx0oTawb6EnI3L0helGl8WgjsKA/m/ME=;
-        b=PPOFzImpVBVqbHzkdZYy/BfWYTlBSZObzHUWpBoN/6MDSKRzcXlspa+uHu1N1dmOUj
-         CqnRRw9Kbe1MgnC78I7/luJhKrdTWXRGFlEJ4neSi++5/ZRjInPH7xQxYLFRNA4Ri5Sg
-         AqLwatAShLXJoFESCkaIgvYWJWVT8s2A4e/lSPnEpj5N1lkXFP2kduKOq8VX1rFkj3BH
-         5Xt5vb4cyUUaSDb1ZDLG3EPJJ2eCNzsGTAIWJpUt0fB5DomknMK208xIXcBgA1UP3OIl
-         ZN0TRs4YBGhuM3UTFfJdSU6C3hr/4qiLo0/kLA8N14E+Lb5liUHA/6hbYNEZHumY1SdC
-         SvCA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=mUzSl8xprICAx0oTawb6EnI3L0helGl8WgjsKA/m/ME=;
-        b=oQatETqYO5wltQoiuYSiTDxAvZxiqWLBa4f5Ox8i/h/5RfWF7x563gVeqZxXA4Igk/
-         tkb86HF93ccJHYQj8g0vSDI2RXy5gAT0u9s8qGoGyIyDbD0fT+0aC9XPL5Ak14dLaC/3
-         fuXvhw4uJYgPxaSmCrRL9AzZXZOJqiZ2W+NrzbMVoXRHdpY4Ubs+VSuZZE8Anycwqu3m
-         VwD+9RR7vCllwSklWIyARM7bdRGWrYPupTBY3Qdm0qSwLTJrUAeOfaxTsUeR679PyuZR
-         FOktvQ83z/3mslvl45VgKW77wV/Z08CAgSgayBDMhz/pLJjPacQndiizwuAlzwfiWYub
-         gspw==
-X-Gm-Message-State: AFqh2koKBUwbDt2fBhcAM9MLJj+uhN7/fWQPsYrPcq9YDDULEQNI/HCf
-	kmvlhPkEV4E0myfA+WdtJovwekordqoyKqcalfNHZQ==
-X-Google-Smtp-Source: AMrXdXutKZzihaKyC9vN2oqhRb/ly7hsAQ1IYPWtyhdktRPQVBjwynzoI6K6B6xfL5ckzg6lnwYkCrT3pk+T7hRxmEk=
-X-Received: by 2002:a67:fc88:0:b0:3d3:d775:8fae with SMTP id
- x8-20020a67fc88000000b003d3d7758faemr256550vsp.32.1673939386028; Mon, 16 Jan
- 2023 23:09:46 -0800 (PST)
+	id 1pHgQB-00DAGu-Q4
+	for linux-riscv@lists.infradead.org; Tue, 17 Jan 2023 07:30:17 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=FEnIxU4q/WPK4eVn6tqKCunK2ZUl+L9yx7L8bLrxLENruMiamQsutXemhBX+hPEpsq6pMtjwQa2meim4jyjDLotZ65AiPMYLr7Ks+UVyIcc1f6DzFsAbam4VN8BRbaEKxKXCRa3oHZpF3QM+uBOD6WFly5m92FIo7x6KhqjBHWYV/X6vdzTA/kndvRJp8H4AydWoSA4DdzniAuK0sGXgoSyU2fm0En9dpHmreUItWRTuxj8KqVD/zmHffvxFDM4Oe+MkHOhNKpwJuBTR0Jdg9xA9THxNdWcRR0KVcX2bidy4HmKCbxduPmpRZMpN/UebqeKctXs4yq6RX4FP7IrkEw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=H+zXVMt6KlN+j/szC2YuRQrWMZ0rcDtHqqu4IN5hGlM=;
+ b=eiytWjMiKTXu5mA5Tqk7Em6LX2lfwkYiLKiw+n0MD7p7Tuasoo4iXvbM3P5iiPw/rcA2RN0D2Y1AS9AXXMdmZMk6MGVryN1eqboIGXuhDxmI3ULvic1ofvwIG2U683NKOINKofKzBaYg99RKndRzg6NFgAMpS9j52GiuLFuzgyeNdSpeRusk4VB2ABWUOxDE8aKW+4DA+lArhRdK0NIGIrQsfPDuYVkfLyucEgQbzzJa2tVt5I6Lac0Bfz139sxqIut34FQIvWiaQLGs7DN2sMl1Bf19sgnC2Q8Jt7LVd0b/suA01az2GtA4r1zDil8je+cC2nXm12OCIx1DR5Lm2Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=csgroup.eu; dmarc=pass action=none header.from=csgroup.eu;
+ dkim=pass header.d=csgroup.eu; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=csgroup.eu;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=H+zXVMt6KlN+j/szC2YuRQrWMZ0rcDtHqqu4IN5hGlM=;
+ b=amuB9DTh4+ZC5cSZ58AQT3+uFrog7SP3rm2ZMqFpFLEtdQGPyd7JM2f8+h0Aq5BwG8XYSM8UFvTCNhe0aUolpNYw1vrBkoNqGuid/loujYkF7icehvY8Vg4kgj07nSzJlT6SiMv+2R+flbweuxCnA/WY4AF7s8q8xsIpCkywYSrnDRrkBaue0beS8dhHFn+WBzJ6r+0QnqvyxFZf2wGYpYIRMBV1YfBVEddpVT3Vi5Bc6jKav135dV8ZgAKoTl77R0wv8gODIGqtZAr/4eEGIbg6OUVZB+8N5jJ8p3Fi/vfR8X69+McK+Z9PWRs5D5jE3E6Bk0TyYLqMOaPVmjMIJA==
+Received: from MRZP264MB2988.FRAP264.PROD.OUTLOOK.COM (2603:10a6:501:31::15)
+ by MR1P264MB2033.FRAP264.PROD.OUTLOOK.COM (2603:10a6:501:3::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6002.12; Tue, 17 Jan
+ 2023 07:30:10 +0000
+Received: from MRZP264MB2988.FRAP264.PROD.OUTLOOK.COM
+ ([fe80::2cfb:d4c:1932:b097]) by MRZP264MB2988.FRAP264.PROD.OUTLOOK.COM
+ ([fe80::2cfb:d4c:1932:b097%9]) with mapi id 15.20.5986.023; Tue, 17 Jan 2023
+ 07:30:10 +0000
+From: Christophe Leroy <christophe.leroy@csgroup.eu>
+To: Tonghao Zhang <tong@infragraf.org>, Daniel Borkmann <daniel@iogearbox.net>
+CC: "bpf@vger.kernel.org" <bpf@vger.kernel.org>, "netdev@vger.kernel.org"
+	<netdev@vger.kernel.org>, "linux-arm-kernel@lists.infradead.or"
+	<linux-arm-kernel@lists.infradead.or>, "loongarch@lists.linux.dev"
+	<loongarch@lists.linux.dev>, "linux-mips@vger.kernel.org"
+	<linux-mips@vger.kernel.org>, "linuxppc-dev@lists.ozlabs.org"
+	<linuxppc-dev@lists.ozlabs.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, "linux-s390@vger.kernel.org"
+	<linux-s390@vger.kernel.org>, "sparclinux@vger.kernel.org"
+	<sparclinux@vger.kernel.org>, Hao Luo <haoluo@google.com>, John Fastabend
+	<john.fastabend@gmail.com>, Alexei Starovoitov <ast@kernel.org>, Andrii
+ Nakryiko <andrii@kernel.org>, Song Liu <song@kernel.org>, Stanislav Fomichev
+	<sdf@google.com>, Jiri Olsa <jolsa@kernel.org>, Hou Tao <houtao1@huawei.com>,
+	KP Singh <kpsingh@kernel.org>, Yonghong Song <yhs@fb.com>, Martin KaFai Lau
+	<martin.lau@linux.dev>, "naveen.n.rao@linux.ibm.com"
+	<naveen.n.rao@linux.ibm.com>, "mpe@ellerman.id.au" <mpe@ellerman.id.au>
+Subject: Re: [bpf-next v2] bpf: drop deprecated bpf_jit_enable == 2
+Thread-Topic: [bpf-next v2] bpf: drop deprecated bpf_jit_enable == 2
+Thread-Index: AQHZILjtdiBl24vDM0uhRRtlAlrCCa6QG7gAgAFsaoCABDtogIAMZLqAgAAhWIA=
+Date: Tue, 17 Jan 2023 07:30:10 +0000
+Message-ID: <0b46b813-05f2-5083-9f2e-82d72970dae2@csgroup.eu>
+References: <20230105030614.26842-1-tong@infragraf.org>
+ <ea7673e1-40ec-18be-af89-5f4fd0f71742@csgroup.eu>
+ <71c83f39-f85f-d990-95b7-ab6068839e6c@iogearbox.net>
+ <5836b464-290e-203f-00f2-fc6632c9f570@csgroup.eu>
+ <147A796D-12C0-482F-B48A-16E67120622B@infragraf.org>
+In-Reply-To: <147A796D-12C0-482F-B48A-16E67120622B@infragraf.org>
+Accept-Language: fr-FR, en-US
+Content-Language: fr-FR
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.5.0
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=csgroup.eu;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: MRZP264MB2988:EE_|MR1P264MB2033:EE_
+x-ms-office365-filtering-correlation-id: b6a8cb2e-e95d-487b-a595-08daf85caa21
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info:  BWLkjmFXeX3U2J7B3rF3hVDpGDZD9Y/huzxdWy3t53Bw4qfIM3jmqM38pyjdgb8stn76dxkiTUb6+5kzhNfEKL+vS32HFBlpvoM5En3PqbHAvPiJH4VxNPj1UrfcumDWgU73Q66W9LTwmJbEhOhDIRCV4Tz2KHeNIYgeNhH0EeXxzCTucYbaC+kVRvGV3Tw8X673uvY6PZfj19RVkKtFh6tVphuTIEYnMvgnnZ1rhGZy1maUDoT+Q34VrO1o2Mx1yKE/rZUEWPvuQjc8QGagSA2gez0BOPFF7jZETP6yadSz6CRETuuvIkQFSBSKwW1p7JFhSeYT0YTCMp7Ujp5Lw4XtId5AGAVFPdRdhyrlVg+/3MXqa6ZBNvvuT94eyIvaG26BBhBMIweNfBt1J7J4h6vDmSsYuYVab3C5uXuzr2DUv6hJAPopafyHiB0fnqFpxGd5CfWgin1D83RQ1IlVosY5ahaem7maYOCn9RxpgejpAHxR9xxeKQoqZXwokend9kAfuv0weB5JeOeGQPNx1nPcbOHSSXX8f9Jy2M8Ct65YLm24Izolvjj/rMIpsXqcgJDdIWEYjmajOg9Ln4l+iEugQRmXFeZ/UYKR8Qie6QKE65Bnf4rJFmbLv1ne2/5tVxUOUV+CcKMNzr+EANkckR4NmGllcfYpXt5tnTBgqys/+X+lXHeCwwnkKwdYSXpyrBZvRHNg549Vjx8Vz272c7vrRTSkbrsFyF43LpANiU8+WyptofwniyfOnbXIaBLtzmIQxZ7Beu/BopTTRlF2wKAj751EnVXrr1JgaDtOmCk=
+x-forefront-antispam-report:  CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MRZP264MB2988.FRAP264.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230022)(4636009)(346002)(39850400004)(136003)(396003)(376002)(366004)(451199015)(91956017)(41300700001)(66556008)(31686004)(186003)(5660300002)(64756008)(66476007)(7416002)(4326008)(76116006)(66946007)(66446008)(44832011)(54906003)(38070700005)(8676002)(122000001)(110136005)(8936002)(316002)(2906002)(86362001)(38100700002)(966005)(71200400001)(6486002)(478600001)(36756003)(31696002)(53546011)(26005)(6506007)(66574015)(2616005)(6512007)(83380400001)(43740500002)(45980500001);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:  =?utf-8?B?Rk01SmE5TjVKUjNncmhLa1o5eStoY1JESnhqTjFpd0t2T2pGYkNmazZXeFla?=
+ =?utf-8?B?WnlZdnVlOHVoRHA0bXErYllsbVZIaVdNWjBHeXRNbzl0K2JRM01DckxnNFlw?=
+ =?utf-8?B?eDRaSUY1eS80TG1QbDBkQWxQeHFjT1NGclpSMTY4M3ZOMUkwV0t0azRobDcz?=
+ =?utf-8?B?Zk5mUmsxc3lmajM2K1pqZ3VJdXRteDJUdHpkRHFsc1ovR0QwSjRsTVpwZnBo?=
+ =?utf-8?B?MTRhSmFiRzA0LzdNMUQ4SVI3WUR1YktUTUpha2o1aWlGSExtbTFHdHJnMHZy?=
+ =?utf-8?B?M1U1UCtET1NUUlFKMXF6QmZGNDV0WTVJcFE1ampmMDZOK0pXTVdmYjF6bEt0?=
+ =?utf-8?B?ZU9ONXJIcTE2NkhzTmw5ekQyTzhYNEJ2aytYWklyU2lXaXpLWWpUR01XcW82?=
+ =?utf-8?B?RTBITWsxQ3VhcDFTMER1MWVvMmNtUjJIT0RHbTNJK3gvK28yTldNd1I1aStv?=
+ =?utf-8?B?VmFhRVBOZUF5STB6TnQ4Q1Z6MVFTQ3hxL255SEw5VW9sY0M3UFZuTVhyK3Z2?=
+ =?utf-8?B?NC8yVjd6SkFZbWhGSXRqZlhzenRZblM5VmIxSWZ1UnhVZXJGNlVMd0VHa0N4?=
+ =?utf-8?B?cy9MR2U4NnFzZU5CTmxuaVhuN25yU1NnOWQvMmcwWSs5dHZneStsNlpqVjNi?=
+ =?utf-8?B?WjVORndRMzNvQ01OTlhEMisxU3hBendkQ2RkMkdYU0VOWUdiUGh4ZndEalpO?=
+ =?utf-8?B?dXVTSS9ZcG1ncUE5V1VodFFMSTNlZmlKN1dUWTZRL1Fhc3NFMXVrNlQvc2Y2?=
+ =?utf-8?B?eUUrR0lsK0swVlpDSzFWNm10MnJNaHpOa0tWUE1mSmZjVUhuQnlKRVQrcU5m?=
+ =?utf-8?B?R0twOEVxK1BCUXJZQnUwcFZrNUJzZDZ4RnQ0K1VscGJ6eGcvWCtjMFZSazlD?=
+ =?utf-8?B?Zkg5alJLaUFMM2M2Nm80a1MrWUtoemFEa21rbVpQVjNEc3Z1YTh6aUxQdzRp?=
+ =?utf-8?B?R3gyRkkwd3A2Tk9IdWZybnI4QmRscCt1RVZoTEh6dEVYb0dUZzdlaTN5VnQy?=
+ =?utf-8?B?bzlGOVF2MDdrL1JXNWYyTTdWVjE2ZGFvSUswTXdtbGlTNHQ2ckhXbkZaV01F?=
+ =?utf-8?B?ODR0Q3ZiZHJlaGdta2NaVURMb1ZORVErZlhGcHAzN2xDU3gwUmEzMW9aTXRR?=
+ =?utf-8?B?WXBpSnp6Lzhpa0JXS0hwbDh2RVFqNVV1VjBhWXVZUk1wL3JyNjU3RnY4OUFl?=
+ =?utf-8?B?em1xSWFPQURBMDlreGZNeUI5RnNzZEM4MmNpcXJjcEZJc3lOSG5LcXF4cEls?=
+ =?utf-8?B?cDFQejdhaVFWQmlDTEU2enE0b296WEpYaTB3VmxWaWpMemdLdUJoc01VaEtY?=
+ =?utf-8?B?OFlXTFpHQ3J1WnJ2RDFvQjNBYTAwbVF1Uk4xSVlJTjZrZHN2VUM5RHhhRU16?=
+ =?utf-8?B?dEdoSDZ3eDFROStZUW1mb0U1QW9icm1yUkFaMEpiYXlSK0w5enE4alNoWExj?=
+ =?utf-8?B?aWl3ZlZhNzlsbkx1TG9SQTNxQ0RRbmsrL2ZhK3VMeVpNa2F6cVB0SkxLd3hW?=
+ =?utf-8?B?MUxJR0ZacDluZ3RXanhVWC9DS1A4SHlYSXJHeUVqbHRWa09TU3c3NWxTbk9P?=
+ =?utf-8?B?VzlMdVlsRnNKVzhNZVFFeTlWZ08zNkQ1czViSE9WY1pqS3BXR2wyZ0RlL2sw?=
+ =?utf-8?B?OGhFejV0bWw2VVN0RktmdEJkcGlMMm5KT3dyeCswUnlnaE1Oc2svQ2tXVmZT?=
+ =?utf-8?B?cGtGZlZvY21SNkxvSlpHTk1xbC9sN1BJb2Vtbmw5WjJLMHhub3pqMmZuNWI2?=
+ =?utf-8?B?WEpWTDl6djFtckh4dnhGeExmRXdudTNRM0lYak95TzkzWHdhaGV1a3NyVkl5?=
+ =?utf-8?B?N2J1ZFlRVkgwN0NDUThSeitUSFhQVWxKdVplQjhMTk5MVDYzWGU5d0h1UmFo?=
+ =?utf-8?B?cFVOWEVTYUJZdDBaU2pKZGVKUE1HY3RSZXNLTFlONGNYeUhuSGswTlBoYjlp?=
+ =?utf-8?B?QjUyU2lVSHRuOCtzUE9FeTZOaDkzcGprK3ZaSGRsQXBaWVNacWdDb1lWTGJS?=
+ =?utf-8?B?LzJjekJYR2FlWjB5bk9ldzNyUUNJYmZCTUcvTTJhSWEyV3hyRTQ3ZDQ0aG9W?=
+ =?utf-8?B?L3VYOWhYR2dMS3Q5c2E4QXVUVitLSkRxSk9WekNTamlENi9MbTZuejNnVDdy?=
+ =?utf-8?B?OWZWdXhYMUVwa2FabERSa3lFWDdIY29qZ3lyN0ZDME9oekdPRml6RVNDN0hD?=
+ =?utf-8?B?R1E9PQ==?=
+Content-ID: <CC78B1B8BFF13846BFD4618C43F5E0D6@FRAP264.PROD.OUTLOOK.COM>
 MIME-Version: 1.0
-References: <20230103141409.772298-1-apatel@ventanamicro.com>
- <20230103141409.772298-8-apatel@ventanamicro.com> <CAPqJEFpmAvWiOdackxYwSPBfjo4DnTHXrXVSCC4snMn8tnZXPw@mail.gmail.com>
- <CABvJ_xhjMa8xTsO-Qa23TOqxPpYxyBYSfV6TmKney-Gp3oi8cA@mail.gmail.com>
-In-Reply-To: <CABvJ_xhjMa8xTsO-Qa23TOqxPpYxyBYSfV6TmKney-Gp3oi8cA@mail.gmail.com>
-From: Vincent Chen <vincent.chen@sifive.com>
-Date: Tue, 17 Jan 2023 15:09:35 +0800
-Message-ID: <CABvJ_xif_nw_Ehbs8OPOjoeh8rfr2jpHak4drkqH-QbOySGC9A@mail.gmail.com>
-Subject: Fwd: [PATCH v2 7/9] irqchip: Add RISC-V advanced PLIC driver
-To: apatel@ventanamicro.com
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, tglx@linutronix.de, 
-	maz@kernel.org, robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, 
-	Atish Patra <atishp@atishpatra.org>, Alistair Francis <Alistair.Francis@wdc.com>, 
-	Anup Patel <anup@brainfault.org>, linux-riscv <linux-riscv@lists.infradead.org>, 
-	"linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, devicetree@vger.kernel.org, 
-	Vincent Chen <vincent.chen@sifive.com>
+X-OriginatorOrg: csgroup.eu
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: MRZP264MB2988.FRAP264.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: b6a8cb2e-e95d-487b-a595-08daf85caa21
+X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Jan 2023 07:30:10.1046
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 9914def7-b676-4fda-8815-5d49fb3b45c8
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: yeW8mL1sjRboug0cMdF/Vx6jKjhrU/7p9r1Cvl+/xsnHDj7jXKK4Y9cxuU2LymCV9bHwuHRLpn8OdaxIrhLCp/6WmOGXfk/Z4NskaI9XTFQ=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MR1P264MB2033
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230116_230948_308736_C79EB4C8 
-X-CRM114-Status: GOOD (  38.94  )
+X-CRM114-CacheID: sfid-20230116_233016_034253_AA9FD3B7 
+X-CRM114-Status: GOOD (  22.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,904 +158,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> From: Anup Patel <apatel@ventanamicro.com>
-> Date: Wed, Jan 4, 2023 at 1:19 AM
-> Subject: [PATCH v2 7/9] irqchip: Add RISC-V advanced PLIC driver
-> To: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
-> Cc: Atish Patra <atishp@atishpatra.org>, Alistair Francis <Alistair.Francis@wdc.com>, Anup Patel <anup@brainfault.org>, <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>, Anup Patel <apatel@ventanamicro.com>
->
->
-> The RISC-V advanced interrupt architecture (AIA) specification defines
-> a new interrupt controller for managing wired interrupts on a RISC-V
-> platform. This new interrupt controller is referred to as advanced
-> platform-level interrupt controller (APLIC) which can forward wired
-> interrupts to CPUs (or HARTs) as local interrupts OR as message
-> signaled interrupts.
-> (For more details refer https://github.com/riscv/riscv-aia)
->
-I could not find an appropriate place to post my question, so I posted it here.
-
-I am a little concerned about the current MSI IRQ handling in APLIC.
-According to the specification, when domaincfg.DM = 1, the pending bit
-is set to one by a low-to-high transition in the rectified input
-value. When the APLIC forward this interrupt by MSI, the pending bit
-will be cleared regardless of whether the interrupt type is
-level-sensitive or edge-trigger. However, the interrupted service
-routine may not deal with all requests at a time. When there are
-remaining pending requests after leaving the ISR, these requests may
-have no chance to be serviced if the IRQ type of this device is
-level-sensitive. This is because the rectified value of this interrupt
-changes from 0 to 1 only at the beginning. It causes the pending bit
-of this interrupt will not to be asserted again, so APLIC will not
-send the next MSI for this interrupt. Therefore, the ISR doesn't have
-a chance to deal with the remaining requests.
-
-One possible solution to fix this issue is to let the APLIC driver
-check if the rectified value of the serviced interrupt is one after
-returning from its ISR. When the value is 1, it means this device
-still has pending requests. In this case, the APLIC driver can set its
-pending bit by the setipnum register or the setip register. It will
-let APLIC send the next MSI for this device, and the ISR will have a
-chance to deal with the remaining requests.
-
-
-
-> This patch adds an irqchip driver for RISC-V APLIC found on RISC-V
-> platforms.
->
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> ---
->  drivers/irqchip/Kconfig             |   6 +
->  drivers/irqchip/Makefile            |   1 +
->  drivers/irqchip/irq-riscv-aplic.c   | 670 ++++++++++++++++++++++++++++
->  include/linux/irqchip/riscv-aplic.h | 117 +++++
->  4 files changed, 794 insertions(+)
->  create mode 100644 drivers/irqchip/irq-riscv-aplic.c
->  create mode 100644 include/linux/irqchip/riscv-aplic.h
->
-> diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
-> index a1315189a595..936e59fe1f99 100644
-> --- a/drivers/irqchip/Kconfig
-> +++ b/drivers/irqchip/Kconfig
-> @@ -547,6 +547,12 @@ config SIFIVE_PLIC
->         select IRQ_DOMAIN_HIERARCHY
->         select GENERIC_IRQ_EFFECTIVE_AFF_MASK if SMP
->
-> +config RISCV_APLIC
-> +       bool
-> +       depends on RISCV
-> +       select IRQ_DOMAIN_HIERARCHY
-> +       select GENERIC_MSI_IRQ_DOMAIN
-> +
->  config RISCV_IMSIC
->         bool
->         depends on RISCV
-> diff --git a/drivers/irqchip/Makefile b/drivers/irqchip/Makefile
-> index 22c723cc6ec8..6154e5bc4228 100644
-> --- a/drivers/irqchip/Makefile
-> +++ b/drivers/irqchip/Makefile
-> @@ -96,6 +96,7 @@ obj-$(CONFIG_QCOM_MPM)                        += irq-qcom-mpm.o
->  obj-$(CONFIG_CSKY_MPINTC)              += irq-csky-mpintc.o
->  obj-$(CONFIG_CSKY_APB_INTC)            += irq-csky-apb-intc.o
->  obj-$(CONFIG_RISCV_INTC)               += irq-riscv-intc.o
-> +obj-$(CONFIG_RISCV_APLIC)              += irq-riscv-aplic.o
->  obj-$(CONFIG_RISCV_IMSIC)              += irq-riscv-imsic.o
->  obj-$(CONFIG_SIFIVE_PLIC)              += irq-sifive-plic.o
->  obj-$(CONFIG_IMX_IRQSTEER)             += irq-imx-irqsteer.o
-> diff --git a/drivers/irqchip/irq-riscv-aplic.c b/drivers/irqchip/irq-riscv-aplic.c
-> new file mode 100644
-> index 000000000000..63f20892d7d3
-> --- /dev/null
-> +++ b/drivers/irqchip/irq-riscv-aplic.c
-> @@ -0,0 +1,670 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (C) 2021 Western Digital Corporation or its affiliates.
-> + * Copyright (C) 2022 Ventana Micro Systems Inc.
-> + */
-> +
-> +#include <linux/bitops.h>
-> +#include <linux/cpu.h>
-> +#include <linux/interrupt.h>
-> +#include <linux/io.h>
-> +#include <linux/irq.h>
-> +#include <linux/irqchip.h>
-> +#include <linux/irqchip/chained_irq.h>
-> +#include <linux/irqchip/riscv-aplic.h>
-> +#include <linux/irqchip/riscv-imsic.h>
-> +#include <linux/irqdomain.h>
-> +#include <linux/module.h>
-> +#include <linux/msi.h>
-> +#include <linux/of.h>
-> +#include <linux/of_address.h>
-> +#include <linux/of_irq.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/smp.h>
-> +
-> +#define APLIC_DEFAULT_PRIORITY         1
-> +#define APLIC_DISABLE_IDELIVERY                0
-> +#define APLIC_ENABLE_IDELIVERY         1
-> +#define APLIC_DISABLE_ITHRESHOLD       1
-> +#define APLIC_ENABLE_ITHRESHOLD                0
-> +
-> +struct aplic_msicfg {
-> +       phys_addr_t             base_ppn;
-> +       u32                     hhxs;
-> +       u32                     hhxw;
-> +       u32                     lhxs;
-> +       u32                     lhxw;
-> +};
-> +
-> +struct aplic_idc {
-> +       unsigned int            hart_index;
-> +       void __iomem            *regs;
-> +       struct aplic_priv       *priv;
-> +};
-> +
-> +struct aplic_priv {
-> +       struct device           *dev;
-> +       u32                     nr_irqs;
-> +       u32                     nr_idcs;
-> +       void __iomem            *regs;
-> +       struct irq_domain       *irqdomain;
-> +       struct aplic_msicfg     msicfg;
-> +       struct cpumask          lmask;
-> +};
-> +
-> +static unsigned int aplic_idc_parent_irq;
-> +static DEFINE_PER_CPU(struct aplic_idc, aplic_idcs);
-> +
-> +static void aplic_irq_unmask(struct irq_data *d)
-> +{
-> +       struct aplic_priv *priv = irq_data_get_irq_chip_data(d);
-> +
-> +       writel(d->hwirq, priv->regs + APLIC_SETIENUM);
-> +
-> +       if (!priv->nr_idcs)
-> +               irq_chip_unmask_parent(d);
-> +}
-> +
-> +static void aplic_irq_mask(struct irq_data *d)
-> +{
-> +       struct aplic_priv *priv = irq_data_get_irq_chip_data(d);
-> +
-> +       writel(d->hwirq, priv->regs + APLIC_CLRIENUM);
-> +
-> +       if (!priv->nr_idcs)
-> +               irq_chip_mask_parent(d);
-> +}
-> +
-> +static int aplic_set_type(struct irq_data *d, unsigned int type)
-> +{
-> +       u32 val = 0;
-> +       void __iomem *sourcecfg;
-> +       struct aplic_priv *priv = irq_data_get_irq_chip_data(d);
-> +
-> +       switch (type) {
-> +       case IRQ_TYPE_NONE:
-> +               val = APLIC_SOURCECFG_SM_INACTIVE;
-> +               break;
-> +       case IRQ_TYPE_LEVEL_LOW:
-> +               val = APLIC_SOURCECFG_SM_LEVEL_LOW;
-> +               break;
-> +       case IRQ_TYPE_LEVEL_HIGH:
-> +               val = APLIC_SOURCECFG_SM_LEVEL_HIGH;
-> +               break;
-> +       case IRQ_TYPE_EDGE_FALLING:
-> +               val = APLIC_SOURCECFG_SM_EDGE_FALL;
-> +               break;
-> +       case IRQ_TYPE_EDGE_RISING:
-> +               val = APLIC_SOURCECFG_SM_EDGE_RISE;
-> +               break;
-> +       default:
-> +               return -EINVAL;
-> +       }
-> +
-> +       sourcecfg = priv->regs + APLIC_SOURCECFG_BASE;
-> +       sourcecfg += (d->hwirq - 1) * sizeof(u32);
-> +       writel(val, sourcecfg);
-> +
-> +       return 0;
-> +}
-> +
-> +#ifdef CONFIG_SMP
-> +static int aplic_set_affinity(struct irq_data *d,
-> +                             const struct cpumask *mask_val, bool force)
-> +{
-> +       struct aplic_priv *priv = irq_data_get_irq_chip_data(d);
-> +       struct aplic_idc *idc;
-> +       unsigned int cpu, val;
-> +       struct cpumask amask;
-> +       void __iomem *target;
-> +
-> +       if (!priv->nr_idcs)
-> +               return irq_chip_set_affinity_parent(d, mask_val, force);
-> +
-> +       cpumask_and(&amask, &priv->lmask, mask_val);
-> +
-> +       if (force)
-> +               cpu = cpumask_first(&amask);
-> +       else
-> +               cpu = cpumask_any_and(&amask, cpu_online_mask);
-> +
-> +       if (cpu >= nr_cpu_ids)
-> +               return -EINVAL;
-> +
-> +       idc = per_cpu_ptr(&aplic_idcs, cpu);
-> +       target = priv->regs + APLIC_TARGET_BASE;
-> +       target += (d->hwirq - 1) * sizeof(u32);
-> +       val = idc->hart_index & APLIC_TARGET_HART_IDX_MASK;
-> +       val <<= APLIC_TARGET_HART_IDX_SHIFT;
-> +       val |= APLIC_DEFAULT_PRIORITY;
-> +       writel(val, target);
-> +
-> +       irq_data_update_effective_affinity(d, cpumask_of(cpu));
-> +
-> +       return IRQ_SET_MASK_OK_DONE;
-> +}
-> +#endif
-> +
-> +static struct irq_chip aplic_chip = {
-> +       .name           = "RISC-V APLIC",
-> +       .irq_mask       = aplic_irq_mask,
-> +       .irq_unmask     = aplic_irq_unmask,
-> +       .irq_set_type   = aplic_set_type,
-> +#ifdef CONFIG_SMP
-> +       .irq_set_affinity = aplic_set_affinity,
-> +#endif
-> +       .flags          = IRQCHIP_SET_TYPE_MASKED |
-> +                         IRQCHIP_SKIP_SET_WAKE |
-> +                         IRQCHIP_MASK_ON_SUSPEND,
-> +};
-> +
-> +static int aplic_irqdomain_translate(struct irq_domain *d,
-> +                                    struct irq_fwspec *fwspec,
-> +                                    unsigned long *hwirq,
-> +                                    unsigned int *type)
-> +{
-> +       if (WARN_ON(fwspec->param_count < 2))
-> +               return -EINVAL;
-> +       if (WARN_ON(!fwspec->param[0]))
-> +               return -EINVAL;
-> +
-> +       *hwirq = fwspec->param[0];
-> +       *type = fwspec->param[1] & IRQ_TYPE_SENSE_MASK;
-> +
-> +       WARN_ON(*type == IRQ_TYPE_NONE);
-> +
-> +       return 0;
-> +}
-> +
-> +static int aplic_irqdomain_msi_alloc(struct irq_domain *domain,
-> +                                    unsigned int virq, unsigned int nr_irqs,
-> +                                    void *arg)
-> +{
-> +       int i, ret;
-> +       unsigned int type;
-> +       irq_hw_number_t hwirq;
-> +       struct irq_fwspec *fwspec = arg;
-> +       struct aplic_priv *priv = platform_msi_get_host_data(domain);
-> +
-> +       ret = aplic_irqdomain_translate(domain, fwspec, &hwirq, &type);
-> +       if (ret)
-> +               return ret;
-> +
-> +       ret = platform_msi_device_domain_alloc(domain, virq, nr_irqs);
-> +       if (ret)
-> +               return ret;
-> +
-> +       for (i = 0; i < nr_irqs; i++)
-> +               irq_domain_set_hwirq_and_chip(domain, virq + i, hwirq + i,
-> +                                             &aplic_chip, priv);
-> +
-> +       return 0;
-> +}
-> +
-> +static const struct irq_domain_ops aplic_irqdomain_msi_ops = {
-> +       .translate      = aplic_irqdomain_translate,
-> +       .alloc          = aplic_irqdomain_msi_alloc,
-> +       .free           = platform_msi_device_domain_free,
-> +};
-> +
-> +static int aplic_irqdomain_idc_alloc(struct irq_domain *domain,
-> +                                    unsigned int virq, unsigned int nr_irqs,
-> +                                    void *arg)
-> +{
-> +       int i, ret;
-> +       unsigned int type;
-> +       irq_hw_number_t hwirq;
-> +       struct irq_fwspec *fwspec = arg;
-> +       struct aplic_priv *priv = domain->host_data;
-> +
-> +       ret = aplic_irqdomain_translate(domain, fwspec, &hwirq, &type);
-> +       if (ret)
-> +               return ret;
-> +
-> +       for (i = 0; i < nr_irqs; i++) {
-> +               irq_domain_set_info(domain, virq + i, hwirq + i,
-> +                                   &aplic_chip, priv, handle_simple_irq,
-> +                                   NULL, NULL);
-> +               irq_set_affinity(virq + i, &priv->lmask);
-> +       }
-> +
-> +       return 0;
-> +}
-> +
-> +static const struct irq_domain_ops aplic_irqdomain_idc_ops = {
-> +       .translate      = aplic_irqdomain_translate,
-> +       .alloc          = aplic_irqdomain_idc_alloc,
-> +       .free           = irq_domain_free_irqs_top,
-> +};
-> +
-> +static void aplic_init_hw_irqs(struct aplic_priv *priv)
-> +{
-> +       int i;
-> +
-> +       /* Disable all interrupts */
-> +       for (i = 0; i <= priv->nr_irqs; i += 32)
-> +               writel(-1U, priv->regs + APLIC_CLRIE_BASE +
-> +                           (i / 32) * sizeof(u32));
-> +
-> +       /* Set interrupt type and default priority for all interrupts */
-> +       for (i = 1; i <= priv->nr_irqs; i++) {
-> +               writel(0, priv->regs + APLIC_SOURCECFG_BASE +
-> +                         (i - 1) * sizeof(u32));
-> +               writel(APLIC_DEFAULT_PRIORITY,
-> +                      priv->regs + APLIC_TARGET_BASE +
-> +                      (i - 1) * sizeof(u32));
-> +       }
-> +
-> +       /* Clear APLIC domaincfg */
-> +       writel(0, priv->regs + APLIC_DOMAINCFG);
-> +}
-> +
-> +static void aplic_init_hw_global(struct aplic_priv *priv)
-> +{
-> +       u32 val;
-> +#ifdef CONFIG_RISCV_M_MODE
-> +       u32 valH;
-> +
-> +       if (!priv->nr_idcs) {
-> +               val = priv->msicfg.base_ppn;
-> +               valH = (priv->msicfg.base_ppn >> 32) &
-> +                       APLIC_xMSICFGADDRH_BAPPN_MASK;
-> +               valH |= (priv->msicfg.lhxw & APLIC_xMSICFGADDRH_LHXW_MASK)
-> +                       << APLIC_xMSICFGADDRH_LHXW_SHIFT;
-> +               valH |= (priv->msicfg.hhxw & APLIC_xMSICFGADDRH_HHXW_MASK)
-> +                       << APLIC_xMSICFGADDRH_HHXW_SHIFT;
-> +               valH |= (priv->msicfg.lhxs & APLIC_xMSICFGADDRH_LHXS_MASK)
-> +                       << APLIC_xMSICFGADDRH_LHXS_SHIFT;
-> +               valH |= (priv->msicfg.hhxs & APLIC_xMSICFGADDRH_HHXS_MASK)
-> +                       << APLIC_xMSICFGADDRH_HHXS_SHIFT;
-> +               writel(val, priv->regs + APLIC_xMSICFGADDR);
-> +               writel(valH, priv->regs + APLIC_xMSICFGADDRH);
-> +       }
-> +#endif
-> +
-> +       /* Setup APLIC domaincfg register */
-> +       val = readl(priv->regs + APLIC_DOMAINCFG);
-> +       val |= APLIC_DOMAINCFG_IE;
-> +       if (!priv->nr_idcs)
-> +               val |= APLIC_DOMAINCFG_DM;
-> +       writel(val, priv->regs + APLIC_DOMAINCFG);
-> +       if (readl(priv->regs + APLIC_DOMAINCFG) != val)
-> +               dev_warn(priv->dev,
-> +                        "unable to write 0x%x in domaincfg\n", val);
-> +}
-> +
-> +static void aplic_msi_write_msg(struct msi_desc *desc, struct msi_msg *msg)
-> +{
-> +       unsigned int group_index, hart_index, guest_index, val;
-> +       struct device *dev = msi_desc_to_dev(desc);
-> +       struct aplic_priv *priv = dev_get_drvdata(dev);
-> +       struct irq_data *d = irq_get_irq_data(desc->irq);
-> +       struct aplic_msicfg *mc = &priv->msicfg;
-> +       phys_addr_t tppn, tbppn, msg_addr;
-> +       void __iomem *target;
-> +
-> +       /* For zeroed MSI, simply write zero into the target register */
-> +       if (!msg->address_hi && !msg->address_lo && !msg->data) {
-> +               target = priv->regs + APLIC_TARGET_BASE;
-> +               target += (d->hwirq - 1) * sizeof(u32);
-> +               writel(0, target);
-> +               return;
-> +       }
-> +
-> +       /* Sanity check on message data */
-> +       WARN_ON(msg->data > APLIC_TARGET_EIID_MASK);
-> +
-> +       /* Compute target MSI address */
-> +       msg_addr = (((u64)msg->address_hi) << 32) | msg->address_lo;
-> +       tppn = msg_addr >> APLIC_xMSICFGADDR_PPN_SHIFT;
-> +
-> +       /* Compute target HART Base PPN */
-> +       tbppn = tppn;
-> +       tbppn &= ~APLIC_xMSICFGADDR_PPN_HART(mc->lhxs);
-> +       tbppn &= ~APLIC_xMSICFGADDR_PPN_LHX(mc->lhxw, mc->lhxs);
-> +       tbppn &= ~APLIC_xMSICFGADDR_PPN_HHX(mc->hhxw, mc->hhxs);
-> +       WARN_ON(tbppn != mc->base_ppn);
-> +
-> +       /* Compute target group and hart indexes */
-> +       group_index = (tppn >> APLIC_xMSICFGADDR_PPN_HHX_SHIFT(mc->hhxs)) &
-> +                    APLIC_xMSICFGADDR_PPN_HHX_MASK(mc->hhxw);
-> +       hart_index = (tppn >> APLIC_xMSICFGADDR_PPN_LHX_SHIFT(mc->lhxs)) &
-> +                    APLIC_xMSICFGADDR_PPN_LHX_MASK(mc->lhxw);
-> +       hart_index |= (group_index << mc->lhxw);
-> +       WARN_ON(hart_index > APLIC_TARGET_HART_IDX_MASK);
-> +
-> +       /* Compute target guest index */
-> +       guest_index = tppn & APLIC_xMSICFGADDR_PPN_HART(mc->lhxs);
-> +       WARN_ON(guest_index > APLIC_TARGET_GUEST_IDX_MASK);
-> +
-> +       /* Update IRQ TARGET register */
-> +       target = priv->regs + APLIC_TARGET_BASE;
-> +       target += (d->hwirq - 1) * sizeof(u32);
-> +       val = (hart_index & APLIC_TARGET_HART_IDX_MASK)
-> +                               << APLIC_TARGET_HART_IDX_SHIFT;
-> +       val |= (guest_index & APLIC_TARGET_GUEST_IDX_MASK)
-> +                               << APLIC_TARGET_GUEST_IDX_SHIFT;
-> +       val |= (msg->data & APLIC_TARGET_EIID_MASK);
-> +       writel(val, target);
-> +}
-> +
-> +static int aplic_setup_msi(struct aplic_priv *priv)
-> +{
-> +       struct device *dev = priv->dev;
-> +       struct aplic_msicfg *mc = &priv->msicfg;
-> +       const struct imsic_global_config *imsic_global;
-> +
-> +       /*
-> +        * The APLIC outgoing MSI config registers assume target MSI
-> +        * controller to be RISC-V AIA IMSIC controller.
-> +        */
-> +       imsic_global = imsic_get_global_config();
-> +       if (!imsic_global) {
-> +               dev_err(dev, "IMSIC global config not found\n");
-> +               return -ENODEV;
-> +       }
-> +
-> +       /* Find number of guest index bits (LHXS) */
-> +       mc->lhxs = imsic_global->guest_index_bits;
-> +       if (APLIC_xMSICFGADDRH_LHXS_MASK < mc->lhxs) {
-> +               dev_err(dev, "IMSIC guest index bits big for APLIC LHXS\n");
-> +               return -EINVAL;
-> +       }
-> +
-> +       /* Find number of HART index bits (LHXW) */
-> +       mc->lhxw = imsic_global->hart_index_bits;
-> +       if (APLIC_xMSICFGADDRH_LHXW_MASK < mc->lhxw) {
-> +               dev_err(dev, "IMSIC hart index bits big for APLIC LHXW\n");
-> +               return -EINVAL;
-> +       }
-> +
-> +       /* Find number of group index bits (HHXW) */
-> +       mc->hhxw = imsic_global->group_index_bits;
-> +       if (APLIC_xMSICFGADDRH_HHXW_MASK < mc->hhxw) {
-> +               dev_err(dev, "IMSIC group index bits big for APLIC HHXW\n");
-> +               return -EINVAL;
-> +       }
-> +
-> +       /* Find first bit position of group index (HHXS) */
-> +       mc->hhxs = imsic_global->group_index_shift;
-> +       if (mc->hhxs < (2 * APLIC_xMSICFGADDR_PPN_SHIFT)) {
-> +               dev_err(dev, "IMSIC group index shift should be >= %d\n",
-> +                       (2 * APLIC_xMSICFGADDR_PPN_SHIFT));
-> +               return -EINVAL;
-> +       }
-> +       mc->hhxs -= (2 * APLIC_xMSICFGADDR_PPN_SHIFT);
-> +       if (APLIC_xMSICFGADDRH_HHXS_MASK < mc->hhxs) {
-> +               dev_err(dev, "IMSIC group index shift big for APLIC HHXS\n");
-> +               return -EINVAL;
-> +       }
-> +
-> +       /* Compute PPN base */
-> +       mc->base_ppn = imsic_global->base_addr >> APLIC_xMSICFGADDR_PPN_SHIFT;
-> +       mc->base_ppn &= ~APLIC_xMSICFGADDR_PPN_HART(mc->lhxs);
-> +       mc->base_ppn &= ~APLIC_xMSICFGADDR_PPN_LHX(mc->lhxw, mc->lhxs);
-> +       mc->base_ppn &= ~APLIC_xMSICFGADDR_PPN_HHX(mc->hhxw, mc->hhxs);
-> +
-> +       /* Use all possible CPUs as lmask */
-> +       cpumask_copy(&priv->lmask, cpu_possible_mask);
-> +
-> +       return 0;
-> +}
-> +
-> +/*
-> + * To handle an APLIC IDC interrupts, we just read the CLAIMI register
-> + * which will return highest priority pending interrupt and clear the
-> + * pending bit of the interrupt. This process is repeated until CLAIMI
-> + * register return zero value.
-> + */
-> +static void aplic_idc_handle_irq(struct irq_desc *desc)
-> +{
-> +       struct aplic_idc *idc = this_cpu_ptr(&aplic_idcs);
-> +       struct irq_chip *chip = irq_desc_get_chip(desc);
-> +       irq_hw_number_t hw_irq;
-> +       int irq;
-> +
-> +       chained_irq_enter(chip, desc);
-> +
-> +       while ((hw_irq = readl(idc->regs + APLIC_IDC_CLAIMI))) {
-> +               hw_irq = hw_irq >> APLIC_IDC_TOPI_ID_SHIFT;
-> +               irq = irq_find_mapping(idc->priv->irqdomain, hw_irq);
-> +
-> +               if (unlikely(irq <= 0))
-> +                       pr_warn_ratelimited("hw_irq %lu mapping not found\n",
-> +                                           hw_irq);
-> +               else
-> +                       generic_handle_irq(irq);
-> +       }
-> +
-> +       chained_irq_exit(chip, desc);
-> +}
-> +
-> +static void aplic_idc_set_delivery(struct aplic_idc *idc, bool en)
-> +{
-> +       u32 de = (en) ? APLIC_ENABLE_IDELIVERY : APLIC_DISABLE_IDELIVERY;
-> +       u32 th = (en) ? APLIC_ENABLE_ITHRESHOLD : APLIC_DISABLE_ITHRESHOLD;
-> +
-> +       /* Priority must be less than threshold for interrupt triggering */
-> +       writel(th, idc->regs + APLIC_IDC_ITHRESHOLD);
-> +
-> +       /* Delivery must be set to 1 for interrupt triggering */
-> +       writel(de, idc->regs + APLIC_IDC_IDELIVERY);
-> +}
-> +
-> +static int aplic_idc_dying_cpu(unsigned int cpu)
-> +{
-> +       if (aplic_idc_parent_irq)
-> +               disable_percpu_irq(aplic_idc_parent_irq);
-> +
-> +       return 0;
-> +}
-> +
-> +static int aplic_idc_starting_cpu(unsigned int cpu)
-> +{
-> +       if (aplic_idc_parent_irq)
-> +               enable_percpu_irq(aplic_idc_parent_irq,
-> +                                 irq_get_trigger_type(aplic_idc_parent_irq));
-> +
-> +       return 0;
-> +}
-> +
-> +static int aplic_setup_idc(struct aplic_priv *priv)
-> +{
-> +       int i, j, rc, cpu, setup_count = 0;
-> +       struct device_node *node = priv->dev->of_node;
-> +       struct device *dev = priv->dev;
-> +       struct of_phandle_args parent;
-> +       struct irq_domain *domain;
-> +       unsigned long hartid;
-> +       struct aplic_idc *idc;
-> +       u32 val;
-> +
-> +       /* Setup per-CPU IDC and target CPU mask */
-> +       for (i = 0; i < priv->nr_idcs; i++) {
-> +               if (of_irq_parse_one(node, i, &parent)) {
-> +                       dev_err(dev, "failed to parse parent for IDC%d.\n",
-> +                               i);
-> +                       return -EIO;
-> +               }
-> +
-> +               /* Skip IDCs which do not connect to external interrupts */
-> +               if (parent.args[0] != RV_IRQ_EXT)
-> +                       continue;
-> +
-> +               rc = riscv_of_parent_hartid(parent.np, &hartid);
-> +               if (rc) {
-> +                       dev_err(dev, "failed to parse hart ID for IDC%d.\n",
-> +                               i);
-> +                       return rc;
-> +               }
-> +
-> +               cpu = riscv_hartid_to_cpuid(hartid);
-> +               if (cpu < 0) {
-> +                       dev_warn(dev, "invalid cpuid for IDC%d\n", i);
-> +                       continue;
-> +               }
-> +
-> +               cpumask_set_cpu(cpu, &priv->lmask);
-> +
-> +               idc = per_cpu_ptr(&aplic_idcs, cpu);
-> +               WARN_ON(idc->priv);
-> +
-> +               idc->hart_index = i;
-> +               idc->regs = priv->regs + APLIC_IDC_BASE + i * APLIC_IDC_SIZE;
-> +               idc->priv = priv;
-> +
-> +               aplic_idc_set_delivery(idc, true);
-> +
-> +               /*
-> +                * Boot cpu might not have APLIC hart_index = 0 so check
-> +                * and update target registers of all interrupts.
-> +                */
-> +               if (cpu == smp_processor_id() && idc->hart_index) {
-> +                       val = idc->hart_index & APLIC_TARGET_HART_IDX_MASK;
-> +                       val <<= APLIC_TARGET_HART_IDX_SHIFT;
-> +                       val |= APLIC_DEFAULT_PRIORITY;
-> +                       for (j = 1; j <= priv->nr_irqs; j++)
-> +                               writel(val, priv->regs + APLIC_TARGET_BASE +
-> +                                           (j - 1) * sizeof(u32));
-> +               }
-> +
-> +               setup_count++;
-> +       }
-> +
-> +       /* Find parent domain and register chained handler */
-> +       domain = irq_find_matching_fwnode(riscv_get_intc_hwnode(),
-> +                                         DOMAIN_BUS_ANY);
-> +       if (!aplic_idc_parent_irq && domain) {
-> +               aplic_idc_parent_irq = irq_create_mapping(domain, RV_IRQ_EXT);
-> +               if (aplic_idc_parent_irq) {
-> +                       irq_set_chained_handler(aplic_idc_parent_irq,
-> +                                               aplic_idc_handle_irq);
-> +
-> +                       /*
-> +                        * Setup CPUHP notifier to enable IDC parent
-> +                        * interrupt on all CPUs
-> +                        */
-> +                       cpuhp_setup_state(CPUHP_AP_ONLINE_DYN,
-> +                                         "irqchip/riscv/aplic:starting",
-> +                                         aplic_idc_starting_cpu,
-> +                                         aplic_idc_dying_cpu);
-> +               }
-> +       }
-> +
-> +       /* Fail if we were not able to setup IDC for any CPU */
-> +       return (setup_count) ? 0 : -ENODEV;
-> +}
-> +
-> +static int aplic_probe(struct platform_device *pdev)
-> +{
-> +       struct device_node *node = pdev->dev.of_node;
-> +       struct device *dev = &pdev->dev;
-> +       struct aplic_priv *priv;
-> +       struct resource *regs;
-> +       phys_addr_t pa;
-> +       int rc;
-> +
-> +       regs = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-> +       if (!regs) {
-> +               dev_err(dev, "cannot find registers resource\n");
-> +               return -ENOENT;
-> +       }
-> +
-> +       priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-> +       if (!priv)
-> +               return -ENOMEM;
-> +       platform_set_drvdata(pdev, priv);
-> +       priv->dev = dev;
-> +
-> +       priv->regs = devm_ioremap(dev, regs->start, resource_size(regs));
-> +       if (WARN_ON(!priv->regs)) {
-> +               dev_err(dev, "failed ioremap registers\n");
-> +               return -EIO;
-> +       }
-> +
-> +       of_property_read_u32(node, "riscv,num-sources", &priv->nr_irqs);
-> +       if (!priv->nr_irqs) {
-> +               dev_err(dev, "failed to get number of interrupt sources\n");
-> +               return -EINVAL;
-> +       }
-> +
-> +       /* Setup initial state APLIC interrupts */
-> +       aplic_init_hw_irqs(priv);
-> +
-> +       /*
-> +        * Setup IDCs or MSIs based on parent interrupts in DT node
-> +        *
-> +        * If "msi-parent" DT property is present then we ignore the
-> +        * APLIC IDCs which forces the APLIC driver to use MSI mode.
-> +        */
-> +       priv->nr_idcs = of_property_read_bool(node, "msi-parent") ?
-> +                       0 : of_irq_count(node);
-> +       if (priv->nr_idcs)
-> +               rc = aplic_setup_idc(priv);
-> +       else
-> +               rc = aplic_setup_msi(priv);
-> +       if (rc)
-> +               return rc;
-> +
-> +       /* Setup global config and interrupt delivery */
-> +       aplic_init_hw_global(priv);
-> +
-> +       /* Create irq domain instance for the APLIC */
-> +       if (priv->nr_idcs)
-> +               priv->irqdomain = irq_domain_create_linear(
-> +                                               of_node_to_fwnode(node),
-> +                                               priv->nr_irqs + 1,
-> +                                               &aplic_irqdomain_idc_ops,
-> +                                               priv);
-> +       else
-> +               priv->irqdomain = platform_msi_create_device_domain(dev,
-> +                                               priv->nr_irqs + 1,
-> +                                               aplic_msi_write_msg,
-> +                                               &aplic_irqdomain_msi_ops,
-> +                                               priv);
-> +       if (!priv->irqdomain) {
-> +               dev_err(dev, "failed to add irq domain\n");
-> +               return -ENOMEM;
-> +       }
-> +
-> +       /* Advertise the interrupt controller */
-> +       if (priv->nr_idcs) {
-> +               dev_info(dev, "%d interrupts directly connected to %d CPUs\n",
-> +                        priv->nr_irqs, priv->nr_idcs);
-> +       } else {
-> +               pa = priv->msicfg.base_ppn << APLIC_xMSICFGADDR_PPN_SHIFT;
-> +               dev_info(dev, "%d interrupts forwared to MSI base %pa\n",
-> +                        priv->nr_irqs, &pa);
-> +       }
-> +
-> +       return 0;
-> +}
-> +
-> +static int aplic_remove(struct platform_device *pdev)
-> +{
-> +       struct aplic_priv *priv = platform_get_drvdata(pdev);
-> +
-> +       irq_domain_remove(priv->irqdomain);
-> +
-> +       return 0;
-> +}
-> +
-> +static const struct of_device_id aplic_match[] = {
-> +       { .compatible = "riscv,aplic" },
-> +       {}
-> +};
-> +
-> +static struct platform_driver aplic_driver = {
-> +       .driver = {
-> +               .name           = "riscv-aplic",
-> +               .of_match_table = aplic_match,
-> +       },
-> +       .probe = aplic_probe,
-> +       .remove = aplic_remove,
-> +};
-> +
-> +static int __init aplic_init(void)
-> +{
-> +       return platform_driver_register(&aplic_driver);
-> +}
-> +core_initcall(aplic_init);
-> diff --git a/include/linux/irqchip/riscv-aplic.h b/include/linux/irqchip/riscv-aplic.h
-> new file mode 100644
-> index 000000000000..88177eefd411
-> --- /dev/null
-> +++ b/include/linux/irqchip/riscv-aplic.h
-> @@ -0,0 +1,117 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright (C) 2021 Western Digital Corporation or its affiliates.
-> + * Copyright (C) 2022 Ventana Micro Systems Inc.
-> + */
-> +#ifndef __LINUX_IRQCHIP_RISCV_APLIC_H
-> +#define __LINUX_IRQCHIP_RISCV_APLIC_H
-> +
-> +#include <linux/bitops.h>
-> +
-> +#define APLIC_MAX_IDC                  BIT(14)
-> +#define APLIC_MAX_SOURCE               1024
-> +
-> +#define APLIC_DOMAINCFG                        0x0000
-> +#define APLIC_DOMAINCFG_RDONLY         0x80000000
-> +#define APLIC_DOMAINCFG_IE             BIT(8)
-> +#define APLIC_DOMAINCFG_DM             BIT(2)
-> +#define APLIC_DOMAINCFG_BE             BIT(0)
-> +
-> +#define APLIC_SOURCECFG_BASE           0x0004
-> +#define APLIC_SOURCECFG_D              BIT(10)
-> +#define APLIC_SOURCECFG_CHILDIDX_MASK  0x000003ff
-> +#define APLIC_SOURCECFG_SM_MASK        0x00000007
-> +#define APLIC_SOURCECFG_SM_INACTIVE    0x0
-> +#define APLIC_SOURCECFG_SM_DETACH      0x1
-> +#define APLIC_SOURCECFG_SM_EDGE_RISE   0x4
-> +#define APLIC_SOURCECFG_SM_EDGE_FALL   0x5
-> +#define APLIC_SOURCECFG_SM_LEVEL_HIGH  0x6
-> +#define APLIC_SOURCECFG_SM_LEVEL_LOW   0x7
-> +
-> +#define APLIC_MMSICFGADDR              0x1bc0
-> +#define APLIC_MMSICFGADDRH             0x1bc4
-> +#define APLIC_SMSICFGADDR              0x1bc8
-> +#define APLIC_SMSICFGADDRH             0x1bcc
-> +
-> +#ifdef CONFIG_RISCV_M_MODE
-> +#define APLIC_xMSICFGADDR              APLIC_MMSICFGADDR
-> +#define APLIC_xMSICFGADDRH             APLIC_MMSICFGADDRH
-> +#else
-> +#define APLIC_xMSICFGADDR              APLIC_SMSICFGADDR
-> +#define APLIC_xMSICFGADDRH             APLIC_SMSICFGADDRH
-> +#endif
-> +
-> +#define APLIC_xMSICFGADDRH_L           BIT(31)
-> +#define APLIC_xMSICFGADDRH_HHXS_MASK   0x1f
-> +#define APLIC_xMSICFGADDRH_HHXS_SHIFT  24
-> +#define APLIC_xMSICFGADDRH_LHXS_MASK   0x7
-> +#define APLIC_xMSICFGADDRH_LHXS_SHIFT  20
-> +#define APLIC_xMSICFGADDRH_HHXW_MASK   0x7
-> +#define APLIC_xMSICFGADDRH_HHXW_SHIFT  16
-> +#define APLIC_xMSICFGADDRH_LHXW_MASK   0xf
-> +#define APLIC_xMSICFGADDRH_LHXW_SHIFT  12
-> +#define APLIC_xMSICFGADDRH_BAPPN_MASK  0xfff
-> +
-> +#define APLIC_xMSICFGADDR_PPN_SHIFT    12
-> +
-> +#define APLIC_xMSICFGADDR_PPN_HART(__lhxs) \
-> +       (BIT(__lhxs) - 1)
-> +
-> +#define APLIC_xMSICFGADDR_PPN_LHX_MASK(__lhxw) \
-> +       (BIT(__lhxw) - 1)
-> +#define APLIC_xMSICFGADDR_PPN_LHX_SHIFT(__lhxs) \
-> +       ((__lhxs))
-> +#define APLIC_xMSICFGADDR_PPN_LHX(__lhxw, __lhxs) \
-> +       (APLIC_xMSICFGADDR_PPN_LHX_MASK(__lhxw) << \
-> +        APLIC_xMSICFGADDR_PPN_LHX_SHIFT(__lhxs))
-> +
-> +#define APLIC_xMSICFGADDR_PPN_HHX_MASK(__hhxw) \
-> +       (BIT(__hhxw) - 1)
-> +#define APLIC_xMSICFGADDR_PPN_HHX_SHIFT(__hhxs) \
-> +       ((__hhxs) + APLIC_xMSICFGADDR_PPN_SHIFT)
-> +#define APLIC_xMSICFGADDR_PPN_HHX(__hhxw, __hhxs) \
-> +       (APLIC_xMSICFGADDR_PPN_HHX_MASK(__hhxw) << \
-> +        APLIC_xMSICFGADDR_PPN_HHX_SHIFT(__hhxs))
-> +
-> +#define APLIC_SETIP_BASE               0x1c00
-> +#define APLIC_SETIPNUM                 0x1cdc
-> +
-> +#define APLIC_CLRIP_BASE               0x1d00
-> +#define APLIC_CLRIPNUM                 0x1ddc
-> +
-> +#define APLIC_SETIE_BASE               0x1e00
-> +#define APLIC_SETIENUM                 0x1edc
-> +
-> +#define APLIC_CLRIE_BASE               0x1f00
-> +#define APLIC_CLRIENUM                 0x1fdc
-> +
-> +#define APLIC_SETIPNUM_LE              0x2000
-> +#define APLIC_SETIPNUM_BE              0x2004
-> +
-> +#define APLIC_GENMSI                   0x3000
-> +
-> +#define APLIC_TARGET_BASE              0x3004
-> +#define APLIC_TARGET_HART_IDX_SHIFT    18
-> +#define APLIC_TARGET_HART_IDX_MASK     0x3fff
-> +#define APLIC_TARGET_GUEST_IDX_SHIFT   12
-> +#define APLIC_TARGET_GUEST_IDX_MASK    0x3f
-> +#define APLIC_TARGET_IPRIO_MASK        0xff
-> +#define APLIC_TARGET_EIID_MASK 0x7ff
-> +
-> +#define APLIC_IDC_BASE                 0x4000
-> +#define APLIC_IDC_SIZE                 32
-> +
-> +#define APLIC_IDC_IDELIVERY            0x00
-> +
-> +#define APLIC_IDC_IFORCE               0x04
-> +
-> +#define APLIC_IDC_ITHRESHOLD           0x08
-> +
-> +#define APLIC_IDC_TOPI                 0x18
-> +#define APLIC_IDC_TOPI_ID_SHIFT        16
-> +#define APLIC_IDC_TOPI_ID_MASK 0x3ff
-> +#define APLIC_IDC_TOPI_PRIO_MASK       0xff
-> +
-> +#define APLIC_IDC_CLAIMI               0x1c
-> +
-> +#endif
-> --
-> 2.34.1
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+DQoNCkxlIDE3LzAxLzIwMjMgw6AgMDY6MzAsIFRvbmdoYW8gWmhhbmcgYSDDqWNyaXTCoDoNCj4g
+DQo+IA0KPj4gT24gSmFuIDksIDIwMjMsIGF0IDQ6MTUgUE0sIENocmlzdG9waGUgTGVyb3kgPGNo
+cmlzdG9waGUubGVyb3lAY3Nncm91cC5ldT4gd3JvdGU6DQo+Pg0KPj4NCj4+DQo+PiBMZSAwNi8w
+MS8yMDIzIMOgIDE2OjM3LCBEYW5pZWwgQm9ya21hbm4gYSDDqWNyaXQgOg0KPj4+IE9uIDEvNS8y
+MyA2OjUzIFBNLCBDaHJpc3RvcGhlIExlcm95IHdyb3RlOg0KPj4+PiBMZSAwNS8wMS8yMDIzIMOg
+IDA0OjA2LCB0b25nQGluZnJhZ3JhZi5vcmcgYSDDqWNyaXQgOg0KPj4+Pj4gRnJvbTogVG9uZ2hh
+byBaaGFuZyA8dG9uZ0BpbmZyYWdyYWYub3JnPg0KPj4+Pj4NCj4+Pj4+IFRoZSB4ODZfNjQgY2Fu
+J3QgZHVtcCB0aGUgdmFsaWQgaW5zbiBpbiB0aGlzIHdheS4gQSB0ZXN0IEJQRiBwcm9nDQo+Pj4+
+PiB3aGljaCBpbmNsdWRlIHN1YnByb2c6DQo+Pj4+Pg0KPj4+Pj4gJCBsbHZtLW9iamR1bXAgLWQg
+c3VicHJvZy5vDQo+Pj4+PiBEaXNhc3NlbWJseSBvZiBzZWN0aW9uIC50ZXh0Og0KPj4+Pj4gMDAw
+MDAwMDAwMDAwMDAwMCA8c3VicHJvZz46DQo+Pj4+PiAgICAgICAgICAgMDogICAgICAgMTggMDEg
+MDAgMDAgNzMgNzUgNjIgNzAgMDAgMDAgMDAgMDAgNzIgNmYgNjcgMDAgcjENCj4+Pj4+ID0gMjkx
+MTQ0NTk5MDM2NTMyMzUgbGwNCj4+Pj4+ICAgICAgICAgICAyOiAgICAgICA3YiAxYSBmOCBmZiAw
+MCAwMCAwMCAwMCAqKHU2NCAqKShyMTAgLSA4KSA9IHIxDQo+Pj4+PiAgICAgICAgICAgMzogICAg
+ICAgYmYgYTEgMDAgMDAgMDAgMDAgMDAgMDAgcjEgPSByMTANCj4+Pj4+ICAgICAgICAgICA0OiAg
+ICAgICAwNyAwMSAwMCAwMCBmOCBmZiBmZiBmZiByMSArPSAtOA0KPj4+Pj4gICAgICAgICAgIDU6
+ICAgICAgIGI3IDAyIDAwIDAwIDA4IDAwIDAwIDAwIHIyID0gOA0KPj4+Pj4gICAgICAgICAgIDY6
+ICAgICAgIDg1IDAwIDAwIDAwIDA2IDAwIDAwIDAwIGNhbGwgNg0KPj4+Pj4gICAgICAgICAgIDc6
+ICAgICAgIDk1IDAwIDAwIDAwIDAwIDAwIDAwIDAwIGV4aXQNCj4+Pj4+IERpc2Fzc2VtYmx5IG9m
+IHNlY3Rpb24gcmF3X3RwL3N5c19lbnRlcjoNCj4+Pj4+IDAwMDAwMDAwMDAwMDAwMDAgPGVudHJ5
+PjoNCj4+Pj4+ICAgICAgICAgICAwOiAgICAgICA4NSAxMCAwMCAwMCBmZiBmZiBmZiBmZiBjYWxs
+IC0xDQo+Pj4+PiAgICAgICAgICAgMTogICAgICAgYjcgMDAgMDAgMDAgMDAgMDAgMDAgMDAgcjAg
+PSAwDQo+Pj4+PiAgICAgICAgICAgMjogICAgICAgOTUgMDAgMDAgMDAgMDAgMDAgMDAgMDAgZXhp
+dA0KPj4+Pj4NCj4+Pj4+IGtlcm5lbCBwcmludCBtZXNzYWdlOg0KPj4+Pj4gWyAgNTgwLjc3NTM4
+N10gZmxlbj04IHByb2dsZW49NTEgcGFzcz0zIGltYWdlPWZmZmZmZmZmYTAwMGMyMGMNCj4+Pj4+
+IGZyb209a3Byb2JlLWxvYWQgcGlkPTE2NDMNCj4+Pj4+IFsgIDU4MC43NzcyMzZdIEpJVCBjb2Rl
+OiAwMDAwMDAwMDogY2MgY2MgY2MgY2MgY2MgY2MgY2MgY2MgY2MgY2MgY2MNCj4+Pj4+IGNjIGNj
+IGNjIGNjIGNjDQo+Pj4+PiBbICA1ODAuNzc5MDM3XSBKSVQgY29kZTogMDAwMDAwMTA6IGNjIGNj
+IGNjIGNjIGNjIGNjIGNjIGNjIGNjIGNjIGNjDQo+Pj4+PiBjYyBjYyBjYyBjYyBjYw0KPj4+Pj4g
+WyAgNTgwLjc4MDc2N10gSklUIGNvZGU6IDAwMDAwMDIwOiBjYyBjYyBjYyBjYyBjYyBjYyBjYyBj
+YyBjYyBjYyBjYw0KPj4+Pj4gY2MgY2MgY2MgY2MgY2MNCj4+Pj4+IFsgIDU4MC43ODI1NjhdIEpJ
+VCBjb2RlOiAwMDAwMDAzMDogY2MgY2MgY2MNCj4+Pj4+DQo+Pj4+PiAkIGJwZl9qaXRfZGlzYXNt
+DQo+Pj4+PiA1MSBieXRlcyBlbWl0dGVkIGZyb20gSklUIGNvbXBpbGVyIChwYXNzOjMsIGZsZW46
+OCkNCj4+Pj4+IGZmZmZmZmZmYTAwMGMyMGMgKyA8eD46DQo+Pj4+PiAgICAgICAwOiAgIGludDMN
+Cj4+Pj4+ICAgICAgIDE6ICAgaW50Mw0KPj4+Pj4gICAgICAgMjogICBpbnQzDQo+Pj4+PiAgICAg
+ICAzOiAgIGludDMNCj4+Pj4+ICAgICAgIDQ6ICAgaW50Mw0KPj4+Pj4gICAgICAgNTogICBpbnQz
+DQo+Pj4+PiAgICAgICAuLi4NCj4+Pj4+DQo+Pj4+PiBVbnRpbCBicGZfaml0X2JpbmFyeV9wYWNr
+X2ZpbmFsaXplIGlzIGludm9rZWQsIHdlIGNvcHkgcndfaGVhZGVyIHRvDQo+Pj4+PiBoZWFkZXIN
+Cj4+Pj4+IGFuZCB0aGVuIGltYWdlL2luc24gaXMgdmFsaWQuIEJUVywgd2UgY2FuIHVzZSB0aGUg
+ImJwZnRvb2wgcHJvZyBkdW1wIg0KPj4+Pj4gSklUZWQgaW5zdHJ1Y3Rpb25zLg0KPj4+Pg0KPj4+
+PiBOQUNLLg0KPj4+Pg0KPj4+PiBCZWNhdXNlIHRoZSBmZWF0dXJlIGlzIGJ1Z2d5IG9uIHg4Nl82
+NCwgeW91IHJlbW92ZSBpdCBmb3IgYWxsDQo+Pj4+IGFyY2hpdGVjdHVyZXMgPw0KPj4+Pg0KPj4+
+PiBPbiBwb3dlcnBjIGJwZl9qaXRfZW5hYmxlID09IDIgd29ya3MgYW5kIGlzIHZlcnkgdXNlZnVs
+bC4NCj4+Pj4NCj4+Pj4gTGFzdCB0aW1lIEkgdHJpZWQgdG8gdXNlIGJwZnRvb2wgb24gcG93ZXJw
+Yy8zMiBpdCBkaWRuJ3Qgd29yay4gSSBkb24ndA0KPj4+PiByZW1lbWJlciB0aGUgZGV0YWlscywg
+SSB0aGluayBpdCB3YXMgYW4gaXNzdWUgd2l0aCBlbmRpYW5lc3MuIE1heWJlIGl0DQo+Pj4+IGlz
+IGZpeGVkIG5vdywgYnV0IGl0IG5lZWRzIHRvIGJlIHZlcmlmaWVkLg0KPj4+Pg0KPj4+PiBTbyBw
+bGVhc2UsIGJlZm9yZSByZW1vdmluZyBhIHdvcmtpbmcgYW5kIHVzZWZ1bGwgZmVhdHVyZSwgbWFr
+ZSBzdXJlDQo+Pj4+IHRoZXJlIGlzIGFuIGFsdGVybmF0aXZlIGF2YWlsYWJsZSB0byBpdCBmb3Ig
+YWxsIGFyY2hpdGVjdHVyZXMgaW4gYWxsDQo+Pj4+IGNvbmZpZ3VyYXRpb25zLg0KPj4+Pg0KPj4+
+PiBBbHNvLCBJIGRvbid0IHRoaW5rIGJwZnRvb2wgaXMgdXNhYmxlIHRvIGR1bXAga2VybmVsIEJQ
+RiBzZWxmdGVzdHMuDQo+Pj4+IFRoYXQncyB2aXRhbCB3aGVuIGEgc2VsZnRlc3QgZmFpbHMgaWYg
+eW91IHdhbnQgdG8gaGF2ZSBhIGNoYW5jZSB0bw0KPj4+PiB1bmRlcnN0YW5kIHdoeSBpdCBmYWls
+cy4NCj4+Pg0KPj4+IElmIHRoaXMgaXMgYWN0aXZlbHkgdXNlZCBieSBKSVQgZGV2ZWxvcGVycyBh
+bmQgY29uc2lkZXJlZCB1c2VmdWwsIEknZCBiZQ0KPj4+IG9rIHRvIGxlYXZlIGl0IGZvciB0aGUg
+dGltZSBiZWluZy4gT3ZlcmFsbCBnb2FsIGlzIHRvIHJlYWNoIGZlYXR1cmUgcGFyaXR5DQo+Pj4g
+YW1vbmcgKGF0IGxlYXN0IG1ham9yIGFyY2gpIEpJVHMgYW5kIG5vdCBqdXN0IGhhdmUgbW9zdCBm
+dW5jdGlvbmFsaXR5IG9ubHkNCj4+PiBhdmFpbGFibGUgb24geDg2LTY0IEpJVC4gQ291bGQgeW91
+IGhvd2V2ZXIgY2hlY2sgd2hhdCBpcyBub3Qgd29ya2luZyB3aXRoDQo+Pj4gYnBmdG9vbCBvbiBw
+b3dlcnBjLzMyPyBQZXJoYXBzIGl0J3Mgbm90IHRvbyBtdWNoIGVmZm9ydCB0byBqdXN0IGZpeCBp
+dCwNCj4+PiBidXQgZGV0YWlscyB3b3VsZCBiZSB1c2VmdWwgb3RoZXJ3aXNlICdpdCBkaWRuJ3Qg
+d29yaycgaXMgdG9vIGZ1enp5Lg0KPj4NCj4+IFN1cmUgSSB3aWxsIHRyeSB0byB0ZXN0IGJwZnRv
+b2wgYWdhaW4gaW4gdGhlIGNvbWluZyBkYXlzLg0KPj4NCj4+IFByZXZpb3VzIGRpc2N1c3Npb24g
+YWJvdXQgdGhhdCBzdWJqZWN0IGlzIGhlcmU6DQo+PiBodHRwczovL3BhdGNod29yay5rZXJuZWwu
+b3JnL3Byb2plY3QvbGludXgtcmlzY3YvcGF0Y2gvMjAyMTA0MTUwOTMyNTAuMzM5MTI1Ny0xLUpp
+YW5saW4uTHZAYXJtLmNvbS8jMjQxNzY4NDc9DQo+IEhpIENocmlzdG9waGUNCj4gQW55IHByb2dy
+ZXNzPyBXZSBkaXNjdXNzIHRvIGRlcHJlY2F0ZSB0aGUgYnBmX2ppdF9lbmFibGUgPT0gMiBpbiAy
+MDIxLCBidXQgYnBmdG9vbCBjYW4gbm90IHJ1biBvbiBwb3dlcnBjLg0KPiBOb3cgY2FuIHdlIGZp
+eCB0aGlzIGlzc3VlPw0KDQpIaSBUb25nLA0KDQpJIGhhdmUgc3RhcnRlZCB0byBsb29rIGF0IGl0
+IGJ1dCBJIGRvbid0IGhhdmUgYW55IGZydWl0ZnVsbCBmZWVkYmFjayB5ZXQuDQoNCkluIHRoZSBt
+ZWFudGltZSwgd2VyZSB5b3UgYWJsZSB0byBjb25maXJtIHRoYXQgYnBmdG9vbCBjYW4gYWxzbyBi
+ZSB1c2VkIA0KdG8gZHVtcCBqaXR0ZWQgdGVzdHMgZnJvbSB0ZXN0X2JwZi5rbyBtb2R1bGUgb24g
+eDg2XzY0ID8gSW4gdGhhdCBjYW4geW91IA0KdGVsbCBtZSBob3cgdG8gcHJvY2VlZCA/DQoNClRo
+YW5rcw0KQ2hyaXN0b3BoZQ0KDQo+Pg0KPj4+DQo+Pj4gQWxzbywgd2l0aCByZWdhcmRzIHRvIHRo
+ZSBsYXN0IHN0YXRlbWVudCB0aGF0IGJwZnRvb2wgaXMgbm90IHVzYWJsZSB0bw0KPj4+IGR1bXAg
+a2VybmVsIEJQRiBzZWxmdGVzdHMuIENvdWxkIHlvdSBlbGFib3JhdGUgc29tZSBtb3JlPyBJIGhh
+dmVuJ3QgdXNlZA0KPj4+IGJwZl9qaXRfZW5hYmxlID09IDIgaW4gYSBsb25nIHRpbWUgYW5kIGZv
+ciBkZWJ1Z2dpbmcgYWx3YXlzIHJlbGllZCBvbg0KPj4+IGJwZnRvb2wgdG8gZHVtcCB4bGF0ZWQg
+aW5zbnMgb3IgSklULiBPciBkbyB5b3UgbWVhbiBieSBCUEYgc2VsZnRlc3RzDQo+Pj4gdGhlIHRl
+c3RfYnBmLmtvIG1vZHVsZT8gR2l2ZW4gaXQgaGFzIGEgYmlnIGJhdGNoIHdpdGgga2VybmVsLW9u
+bHkgdGVzdHMsDQo+Pj4gdGhlcmUgSSBjYW4gc2VlIGl0J3MgcHJvYmFibHkgc3RpbGwgdXNlZnVs
+Lg0KPj4NCj4+IFllcyBJIG1lYW4gdGVzdF9icGYua28NCj4+DQo+PiBJIHVzZWQgaXQgYXMgdGhl
+IHRlc3QgYmFzaXMgd2hlbiBJIGltcGxlbWVudGVkIGVCUEYgZm9yIHBvd2VycGMvMzIuIEFuZA0K
+Pj4gbm90IHNvIGxvbmcgYWdvIGl0IGhlbHBlZCBkZWNvdmVyIGFuZCBmaXggYSBidWcsIHNlZQ0K
+Pj4gaHR0cHM6Ly9naXRodWIuY29tL3RvcnZhbGRzL2xpbnV4L2NvbW1pdC84OWQyMWUyNTlhOTRm
+N2Q1NTgyZWM2NzVhYTQ0NWY1YTc5ZjM0N2U0DQo+Pg0KPj4+DQo+Pj4gQ2hlZXJzLA0KPj4+IERh
+bmllbA0KPiANCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
+Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
