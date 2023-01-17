@@ -4,64 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A8F5C54E76
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Jan 2023 19:50:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C408C54E76
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Jan 2023 20:42:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7VqTYET80nd+T0IOUedXksnCbZ1uEzGnyx2ETBEXbEA=; b=HtSs9XuP1cGCmF
-	Y1jBxhKuzaqWoXM/lek0QW067j837a9IDXl3g6/E34pn1vZyfjya0LFZ6B8VTI7yPtI9upE8Qnq3B
-	+iHTJ43DxQNABk2czXvvKO6+ImZbFzsmYicvS888u2tuigUq9zbiLR4Pk/7ZtQnaZqxAnnPFKCGEb
-	mArwBkrkbyUCs7QCqtaJJIvgXmKLBcqL3KgI8KutZ+NuoaBRYTjlz+cT/v5gxxdQCfFNLFMoozmEJ
-	7JjrciZFxzx6nfGn0oo4bWDtgs7/OlBUfmQMQDZgN+V7ELWBhnJXgFymYVEyP34wgXSl9Jpu3Y9sP
-	8e14K0NQ3M9qkChgjKZQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PU21rt6ztsldHwN9Qw02X6VoZdeYEfDMQ3LKD0O3OWk=; b=OdYJm+etr6QxxTkX7TXQEpB6/G
+	1CIoD7bnYeSuX6x8Gw+N7FPsn5mkICiBWA4GhksaLMEHGNW9u9z7cwwT3N6kP9+cXKHITePcb0Qgi
+	RsuTNdiFoq4vYxJQo9XLYDVBef/zNY1oCgAIQuhjDsPIHRpmxUYXKVdJg+urT4+e3ILgIXAJwGrsH
+	/dYDLWZf1052hjZzHIjJTq5KsRpRL2HgV624RjtDnetHvJMBLmF4APjkuP4cYPxuk95Hi5P+SC3AK
+	4JCGTlGuftMS3AS23mcMynv2bzAWtQfVU0ZywkZEk6W/5ZpmXnpV36zv13r8RjegGzoCl5pTil1ls
+	EzUDKB/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pHryM-00Fft2-Ph; Tue, 17 Jan 2023 19:50:18 +0000
-Received: from mail-oa1-f44.google.com ([209.85.160.44])
+	id 1pHsmd-00Fnru-AC; Tue, 17 Jan 2023 20:42:15 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pHryJ-00FfsN-Bv; Tue, 17 Jan 2023 19:50:16 +0000
-Received: by mail-oa1-f44.google.com with SMTP id 586e51a60fabf-15f64f2791dso2846501fac.7;
-        Tue, 17 Jan 2023 11:50:13 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=dVRN9WuFQqZQy8t/vvVMvysnKtLMLWxVtmq6SFpr+OY=;
-        b=0OrW/GvgL793vF8YCC2NHPt5z/hBGWYelZBMpTLoCDt5SSWYkofvOa04GQh9ZD/qVD
-         2ioy7ovKQd9exSl3eDcpuQyV/2m7JJJaB8EAyeHuYo0WZzrzjn0KOMQasEprH+z/wNFQ
-         TV3/nsDacn3EFB+hru/VzXU8KueqbiuwrhXi8o82HdoMz5JvVTtiYFKBuAybFA8hITfx
-         fEQQJO7tTsQayMz5vCLCHqVZFY7YD8S6tjIpS2QUPTb2RM/700WpHtrgel/rUx/VHveU
-         FgtXDuTpIPKA+XE20+m5iMwM5ym2+UPrltKqwj4bXevB6WWUTM/Tnb0vqf/rgLgfhrmN
-         RVrA==
-X-Gm-Message-State: AFqh2kq4Vn053oaZHDPgiEnd5/DTSWgFdI32EEi95R+0PNdKbzmxgW+O
-	MtBr8aYwNDl14aAEhC0wqA==
-X-Google-Smtp-Source: AMrXdXtDWEQCAQKd90hHWf7/fvv4ZNpfThfphggEnd/a33sVVKdBxufs/RmFdfHxKmucc9XtTeDTNg==
-X-Received: by 2002:a05:6870:4985:b0:152:d0dc:2bba with SMTP id ho5-20020a056870498500b00152d0dc2bbamr2462922oab.15.1673985012635;
-        Tue, 17 Jan 2023 11:50:12 -0800 (PST)
-Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id bc31-20020a056820169f00b0049f8b4b2095sm15479404oob.44.2023.01.17.11.50.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Jan 2023 11:50:12 -0800 (PST)
-Received: (nullmailer pid 3526963 invoked by uid 1000);
-	Tue, 17 Jan 2023 19:50:11 -0000
-Date: Tue, 17 Jan 2023 13:50:11 -0600
-From: Rob Herring <robh@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: samuel@sholland.org, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, mark.rutland@arm.com, atishp@rivosinc.com, will@kernel.org, robh+dt@kernel.org, Conor Dooley <conor.dooley@microchip.com>, apatel@ventanamicro.com, ajones@ventanamicro.com, opensbi@lists.infradead.org, palmer@dabbelt.com, linux-kernel@vger.kernel.org, krzysztof.kozlowski+dt@linaro.org
-Subject: Re: [PATCH v5] dt-bindings: riscv: add SBI PMU event mappings
-Message-ID: <167398500960.3526866.18235571341667319487.robh@kernel.org>
-References: <20230113205435.122712-1-conor@kernel.org>
+	id 1pHsmZ-00Fnr6-Rj
+	for linux-riscv@lists.infradead.org; Tue, 17 Jan 2023 20:42:13 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 8B04CB81A0C;
+	Tue, 17 Jan 2023 20:42:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F4F7C433D2;
+	Tue, 17 Jan 2023 20:42:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1673988128;
+	bh=bN1rNc513vQmrecLRhCXnFkD9PGMHmyMJzDfwS8nfT8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tsTWxiHa3biQSfAqhmIIf1A5AYQV4HeVTuhO6QauJFJMyT2CsaswdOxuFQK8+HxXd
+	 sl+lum2g1RuJlFIWm7vdNvlmrhEx90XxhsY862oaTX7BsaBKMaFcphJurL0oup7SsV
+	 hQzzxKRChvB1nm9uY91DTr7SAmcfaedaOr4Eq/iYkNWt48xgfOrtzpbetrEoBISVQZ
+	 WzjKIvzlPpd0GSS/egu/HNENkD2DmCw0VOBvNJmCBDP/oT8W4JtUYK1sNt5MLiGUGN
+	 9OUIITCOJMYj378/XhBKy4OT3hDSz8HdmczZSQDi7a9p53LCuzD5hl2zDi1e5ZOYFH
+	 UHs6BxcdPtm8g==
+Date: Tue, 17 Jan 2023 20:42:03 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Anup Patel <anup@brainfault.org>
+Cc: Anup Patel <apatel@ventanamicro.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Alistair Francis <Alistair.Francis@wdc.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 1/9] RISC-V: Add AIA related CSR defines
+Message-ID: <Y8cIG6gKSlkTh5AF@spud>
+References: <20230103141409.772298-1-apatel@ventanamicro.com>
+ <20230103141409.772298-2-apatel@ventanamicro.com>
+ <Y7YGp/7ufyRPhkwg@spud>
+ <CAAhSdy2YKJfuxhBmsx9v-OMyxKQjys+J-z_ZqoPJF7q=YrE4Zw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230113205435.122712-1-conor@kernel.org>
+In-Reply-To: <CAAhSdy2YKJfuxhBmsx9v-OMyxKQjys+J-z_ZqoPJF7q=YrE4Zw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230117_115015_450692_689A02FA 
-X-CRM114-Status: GOOD (  19.81  )
+X-CRM114-CacheID: sfid-20230117_124212_242368_0010807D 
+X-CRM114-Status: GOOD (  21.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,65 +77,117 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8773284881336475446=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 13 Jan 2023 20:54:35 +0000, Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
-> 
-> The SBI PMU extension requires a firmware to be aware of the event to
-> counter/mhpmevent mappings supported by the hardware. OpenSBI may use
-> DeviceTree to describe the PMU mappings. This binding is currently
-> described in markdown in OpenSBI (since v1.0 in Dec 2021) & used by QEMU
-> since v7.2.0.
-> 
-> Import the binding for use while validating dtb dumps from QEMU and
-> upcoming hardware (eg JH7110 SoC) that will make use of the event
-> mapping.
-> 
-> Link: https://github.com/riscv-software-src/opensbi/blob/master/docs/pmu_support.md
-> Link: https://github.com/riscv-non-isa/riscv-sbi-doc/blob/master/riscv-sbi.adoc # Performance Monitoring Unit Extension
-> Co-developed-by: Atish Patra <atishp@rivosinc.com>
-> Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
-> Changes in v5:
-> - Remove the word hook from top level description & reword some of the
->   statements that sound clumsy when removed from the context of OpenSBI.
-> 
-> Changes in v4:
-> - A bunch of minor description/comment changes suggested by Drew
-> 
-> Changes in v3:
-> - align descriptions to SBI spec (and fix a misinterpretation of mine)
-> - switch to a nested items description, since the descriptions are for
->   the elements of each entry, not the entries themselves
-> 
-> Changes in v2:
-> - use the schema mechanism for dependancies between properties
-> - +CC perf maintainers...
-> - move the matrix element descriptions into regular item descriptions
->   rather than doing so freeform in the property description
-> - drop some description text that no longer applies since changes were
->   made to the SBI spec
-> - drop mention of the "generic platform" which is OpenSBI specific
-> - drop the min/max items from the matrices, they don't appear to be
->   needed?
-> 
-> OpenSBI is BSD-2-Clause licensed, hence the license here.
-> ---
->  .../devicetree/bindings/perf/riscv,pmu.yaml   | 161 ++++++++++++++++++
->  1 file changed, 161 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/perf/riscv,pmu.yaml
-> 
+--===============8773284881336475446==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="k2uHQ/1oXnALNsqN"
+Content-Disposition: inline
 
-Applied, thanks!
+
+--k2uHQ/1oXnALNsqN
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hey Anup,
+
+I thought I had already replied here but clearly not, sorry!
+
+On Mon, Jan 09, 2023 at 10:39:08AM +0530, Anup Patel wrote:
+> On Thu, Jan 5, 2023 at 4:37 AM Conor Dooley <conor@kernel.org> wrote:
+> > On Tue, Jan 03, 2023 at 07:44:01PM +0530, Anup Patel wrote:
+
+> > > +/* AIA CSR bits */
+> > > +#define TOPI_IID_SHIFT               16
+> > > +#define TOPI_IID_MASK                0xfff
+
+While I think of it, it'd be worth noting that these are generic across
+all of topi, mtopi etc. Initially I thought that this mask was wrong as
+the topi section says:
+	bits 25:16 Interrupt identity (source number)
+	bits 7:0 Interrupt priority
+
+> > > +#define TOPI_IPRIO_MASK              0xff
+> > > +#define TOPI_IPRIO_BITS              8
+> > > +
+> > > +#define TOPEI_ID_SHIFT               16
+> > > +#define TOPEI_ID_MASK                0x7ff
+> > > +#define TOPEI_PRIO_MASK              0x7ff
+> > > +
+> > > +#define ISELECT_IPRIO0               0x30
+> > > +#define ISELECT_IPRIO15              0x3f
+> > > +#define ISELECT_MASK         0x1ff
+> > > +
+> > > +#define HVICTL_VTI           0x40000000
+> > > +#define HVICTL_IID           0x0fff0000
+> > > +#define HVICTL_IID_SHIFT     16
+> > > +#define HVICTL_IPRIOM                0x00000100
+> > > +#define HVICTL_IPRIO         0x000000ff
+> >
+> > Why not name these as masks, like you did for the other masks?
+> > Also, the mask/shift defines appear inconsistent. TOPI_IID_MASK is
+> > intended to be used post-shift AFAICT, but HVICTL_IID_SHIFT is intended
+> > to be used *pre*-shift.
+> > Some consistency in naming and function would be great.
+>=20
+> The following convention is being followed in asm/csr.h for defining
+> MASK of any XYZ field in ABC CSR:
+> 1. ABC_XYZ : This name is used for MASK which is intended
+>    to be used before SHIFT
+> 2. ABC_XYZ_MASK: This name is used for MASK which is
+>    intended to be used after SHIFT
+
+Which makes sense in theory.
+
+> The existing defines for [M|S]STATUS, HSTATUS, SATP, and xENVCFG
+> follows the above convention. The only outlier is HGATPx_VMID_MASK
+> define which I will fix in my next KVM RISC-V series.
+
+Yup, it is liable to end up like that.
+
+> I don't see how any of the AIA CSR defines are violating the above
+> convention.
+
+What I was advocating for was picking one style and sticking to it.
+These copy-paste from docs things are tedious and error prone to review,
+and I don't think having multiple styles is helpful.
+
+Tedious as it was, I did check all the numbers though, so in that
+respect:
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+
+Thanks,
+Conor.
+
+
+--k2uHQ/1oXnALNsqN
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY8cIAQAKCRB4tDGHoIJi
+0qosAQDNLMBZwn0pOgFxNRZ2gQ4mAB4/IDrKT4lV7uJ6FsZKTgD/d5T4U/puI+fm
+TEmdCdjhH8752eP4Q65/dDTea9aeXgk=
+=HSHv
+-----END PGP SIGNATURE-----
+
+--k2uHQ/1oXnALNsqN--
+
+
+--===============8773284881336475446==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8773284881336475446==--
+
