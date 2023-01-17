@@ -4,119 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA8D0C3DA78
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Jan 2023 08:16:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8E00C63797
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Jan 2023 08:20:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jHj+X7uzpD137p6Xcxr8FxTtitjXAxHC7sH0s2oghck=; b=HPscTSLQyNrUGS
-	RiIWJnKlQQxDGjzBcjIzlykTYGpVmzsuC75ws/N3tkXuFUFJz+jd/DFB+rSGUTPDWB1kzCehVH7Fe
-	0r2Db7Yk3/MDg4SwkagFmNT31DyeaMyZCwvqeVwXFjG88tFEuKnwPIaOggnR6cCJ2nE5O5QEyKV3g
-	fKxm+2WuJHFjowkTI55HuTNMpoHp+nctwnr8CNbbyrCXUxmJOVPRFwNbs7RASfyC/T/oJgyTtpBdl
-	WyWyt/Wmpuw/Jtypm5n3c9ZMyBVRyfFoEwjLD+4NQTMNHUuDs9yYHUHkHOZidcGrzfReaAd373qjy
-	FGOeeZPEGdG5phOefVlw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fL0Zykiu5B8yGFzQqj0AEeUsp3we0zOPHcz3T4mwTFc=; b=RgZdXppHl57que5xKcv6tQ6wyi
+	Bnod8w17K7gQN7XSQjE0qmqn8iGcO5AGlfCeTfMqQSWygXnyxA9SF6UTLtTWG22z8tBGsr8C/dxB/
+	w6iWFU3M95lr2eMniG/+/EQaGvAiD3znTqwcO5+P1fI4lC7r4v6PEhQ3k62Z4QAWofWFglEhxL3Mg
+	X6A1E068T5isj0PcFhpaO3KInIhh7g//CPN94bkpJ2A3nv9xAXN6f1HMr/zOFHzS308H5kV7W4ala
+	WOIHFqyAio0Wv8SxYdL1ilSJRnf5igKHb8gjUU4mcLuNbcAm8DfMnNPvk1r7OKR5j/JWeWNWwIqAt
+	8PkPreMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pHh8v-00DIKp-2a; Tue, 17 Jan 2023 08:16:29 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1pHhCN-00DItC-Op; Tue, 17 Jan 2023 08:20:03 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pHT3M-00BWJw-DX; Mon, 16 Jan 2023 17:13:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=5C/pXQj60xjLVCUn07cewonvr7ibeGOwDHeRdhIJopE=; b=nno6/92Kfg6NLzbv4w4QKZ8jIq
-	E0DwYHTGTkeJN2dHUJNcxHuHIPXPUjbgpJ+S2tFdM/uohqBRivY5knlZikpNEhcdZ0214wctIcJOM
-	/ubpYAr4cPvoAT5jrSUL11ogGfz053ay3aMatpz51n4WNfFmECSfg+9K5qy3o8VgssrNmmwQhbIUF
-	bbjdjZQHLI1xxyRK1rGXtK+UA12TjHui4mq2aIWWD7HboamuEG6kxY0L8sfgWFoyfLWThgG3u+n9w
-	xnqEUPjrTWZcIhmGhMOohxN/ZNfoceqSg0ZHplHM5x1Q+EOKjGf1dxplYALaysdhWuM3ImX5K5pQD
-	i0je1dhg==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1pHSpW-005euW-12;
-	Mon, 16 Jan 2023 16:59:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 30C411570;
-	Mon, 16 Jan 2023 09:00:09 -0800 (PST)
-Received: from FVFF77S0Q05N.cambridge.arm.com (FVFF77S0Q05N.cambridge.arm.com [10.1.35.162])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5B0403F67D;
-	Mon, 16 Jan 2023 08:59:10 -0800 (PST)
-Date: Mon, 16 Jan 2023 16:59:04 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: richard.henderson@linaro.org, ink@jurassic.park.msu.ru,
-	mattst88@gmail.com, vgupta@kernel.org, linux@armlinux.org.uk,
-	nsekhar@ti.com, brgl@bgdev.pl, ulli.kroll@googlemail.com,
-	linus.walleij@linaro.org, shawnguo@kernel.org,
-	Sascha Hauer <s.hauer@pengutronix.de>, kernel@pengutronix.de,
-	festevam@gmail.com, linux-imx@nxp.com, tony@atomide.com,
-	khilman@kernel.org, krzysztof.kozlowski@linaro.org,
-	alim.akhtar@samsung.com, catalin.marinas@arm.com, will@kernel.org,
-	guoren@kernel.org, bcain@quicinc.com, chenhuacai@kernel.org,
-	kernel@xen0n.name, geert@linux-m68k.org, sammy@sammy.net,
-	monstr@monstr.eu, tsbogend@alpha.franken.de, dinguyen@kernel.org,
-	jonas@southpole.se, stefan.kristiansson@saunalahti.fi,
-	shorne@gmail.com, James.Bottomley@HansenPartnership.com,
-	deller@gmx.de, mpe@ellerman.id.au, npiggin@gmail.com,
-	christophe.leroy@csgroup.eu, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, hca@linux.ibm.com,
-	gor@linux.ibm.com, agordeev@linux.ibm.com,
-	borntraeger@linux.ibm.com, svens@linux.ibm.com,
-	ysato@users.sourceforge.jp, dalias@libc.org, davem@davemloft.net,
-	richard@nod.at, anton.ivanov@cambridgegreys.com,
-	johannes@sipsolutions.net, tglx@linutronix.de, mingo@redhat.com,
-	bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
-	hpa@zytor.com, acme@kernel.org, alexander.shishkin@linux.intel.com,
-	jolsa@kernel.org, namhyung@kernel.org, jgross@suse.com,
-	srivatsa@csail.mit.edu, amakhalov@vmware.com, pv-drivers@vmware.com,
-	boris.ostrovsky@oracle.com, chris@zankel.net, jcmvbkbc@gmail.com,
-	rafael@kernel.org, lenb@kernel.org, pavel@ucw.cz,
-	gregkh@linuxfoundation.org, mturquette@baylibre.com,
-	sboyd@kernel.org, daniel.lezcano@linaro.org, lpieralisi@kernel.org,
-	sudeep.holla@arm.com, agross@kernel.org, andersson@kernel.org,
-	konrad.dybcio@linaro.org, anup@brainfault.org,
-	thierry.reding@gmail.com, jonathanh@nvidia.com,
-	jacob.jun.pan@linux.intel.com, atishp@atishpatra.org,
-	Arnd Bergmann <arnd@arndb.de>, yury.norov@gmail.com,
-	andriy.shevchenko@linux.intel.com, linux@rasmusvillemoes.dk,
-	dennis@kernel.org, tj@kernel.org, cl@linux.com, rostedt@goodmis.org,
-	mhiramat@kernel.org, frederic@kernel.org, paulmck@kernel.org,
-	pmladek@suse.com, senozhatsky@chromium.org,
-	john.ogness@linutronix.de, juri.lelli@redhat.com,
-	vincent.guittot@linaro.org, dietmar.eggemann@arm.com,
-	bsegall@google.com, mgorman@suse.de, bristot@redhat.com,
-	vschneid@redhat.com, ryabinin.a.a@gmail.com, glider@google.com,
-	andreyknvl@gmail.com, dvyukov@google.com, vincenzo.frascino@arm.com,
-	Andrew Morton <akpm@linux-foundation.org>, jpoimboe@kernel.org,
-	linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org, linux-omap@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org, linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, openrisc@lists.librecores.org,
-	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
-	linux-um@lists.infradead.org, linux-perf-users@vger.kernel.org,
-	virtualization@lists.linux-foundation.org,
-	linux-xtensa@linux-xtensa.org, linux-acpi@vger.kernel.org,
-	linux-pm@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, linux-tegra@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-mm@kvack.org,
-	linux-trace-kernel@vger.kernel.org, kasan-dev@googlegroups.com
-Subject: Re: [PATCH v3 00/51] cpuidle,rcu: Clean up the mess
-Message-ID: <Y8WCWAuQSHN651dA@FVFF77S0Q05N.cambridge.arm.com>
-References: <20230112194314.845371875@infradead.org>
+	id 1pHhCB-00DIpx-Do
+	for linux-riscv@lists.infradead.org; Tue, 17 Jan 2023 08:19:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1673943591; x=1705479591;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=TW5FfshgIzZRRjLdDMxrOBpXSVNWPQuBogP5u7PR2gQ=;
+  b=trr1Q54eqrTISbG7U55MC8GHgXte8wwehAIjCVnb2awDOPVXjCHLuu9m
+   1fJi35nxXQDoWRRunCnl7/B0qaNVt0RLXy763eqJ+ohSYPnYcuBXL+/K3
+   0RHnQm17yhCM8yzHGBS0bC4edPY66jaPYYJRRf747qLR6YHY/ewKILis3
+   612Bl1jNYFxwwUPHH9z/n1GpQUKq9fgbfJ/cXc3K3S1DU9i0ti+h3uT6e
+   JHZdgxW6gfH80p1/BDLDm5xp9bUkvlFA1D3ayKYrp/MlrmuFGX7OvArr9
+   pnhfx7y7tGz+JUzQ2Zp5izp104ssTB39HzLRJI1mNK+bWGSey7Ea77suR
+   g==;
+X-IronPort-AV: E=Sophos;i="5.97,222,1669100400"; 
+   d="asc'?scan'208";a="196955778"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 17 Jan 2023 01:19:46 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.16; Tue, 17 Jan 2023 01:19:46 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.16 via Frontend
+ Transport; Tue, 17 Jan 2023 01:19:44 -0700
+Date: Tue, 17 Jan 2023 08:19:22 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Walker Chen <walker.chen@starfivetech.com>
+CC: Conor Dooley <conor@kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-pm@vger.kernel.org>, <devicetree@vger.kernel.org>, Rob Herring
+	<robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, "Rafael J . Wysocki"
+	<rafael@kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v3 0/3] JH7110 PMU Support
+Message-ID: <Y8ZaCpEsmG4hChn+@wendy>
+References: <20230116074259.22874-1-walker.chen@starfivetech.com>
+ <Y8WjKArEZH5zd5jb@spud>
+ <02174460-87b8-bb1c-7b6f-39694fa416c3@starfivetech.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230112194314.845371875@infradead.org>
+In-Reply-To: <02174460-87b8-bb1c-7b6f-39694fa416c3@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230116_165930_771330_B8610FCB 
-X-CRM114-Status: GOOD (  14.04  )
-X-Mailman-Approved-At: Tue, 17 Jan 2023 00:16:27 -0800
+X-CRM114-CacheID: sfid-20230117_001951_562858_5115EED6 
+X-CRM114-Status: GOOD (  23.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,109 +80,96 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3447514544356382179=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 12, 2023 at 08:43:14PM +0100, Peter Zijlstra wrote:
-> Hi All!
+--===============3447514544356382179==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="RaSbWA0bl43jGaof"
+Content-Disposition: inline
 
-Hi Peter,
+--RaSbWA0bl43jGaof
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> The (hopefully) final respin of cpuidle vs rcu cleanup patches. Barring any
-> objections I'll be queueing these patches in tip/sched/core in the next few
-> days.
+Hey Walker,=20
 
-I'm sorry to have to bear some bad news on that front. :(
+On Tue, Jan 17, 2023 at 03:45:22PM +0800, Walker Chen wrote:
+> On 2023/1/17 3:19, Conor Dooley wrote:
 
-I just had a go at testing this on a Juno dev board, using your queue.git
-sched/idle branch and defconfig + CONFIG_PROVE_LOCKING=y +
-CONFIG_DEBUG_LOCKDEP=y + CONFIG_DEBUG_ATOMIC_SLEEP=y.
+> > It's helpful to do this, as when I went to apply your patch, there were
+> > some conflicts that needed to be sorted out. Because of your prerequisi=
+te
+> > patches, the usual `b4` commands would not usable. E.g.
+> >=20
+> > b4 am -3 20230116074259.22874-1-walker.chen@starfivetech.com
+> > Analyzing 4 messages in the thread
+> > Checking attestation on all messages, may take a moment...
+> > ---
+> >   [PATCH v3 1/3] dt-bindings: power: Add starfive,jh7110-pmu
+> >   [PATCH v3 2/3] soc: starfive: Add StarFive JH71XX pmu driver
+> >   [PATCH v3 3/3] riscv: dts: starfive: add pmu controller node
+> > ---
+> > Total patches: 3
+> > Preparing fake-am for v3: JH7110 PMU Support
+> >   ERROR: Could not find matching blob for MAINTAINERS (85e8f83161d7)
+> >          If you know on which tree this patchset is based,
+> >          add it as a remote and perform "git remote update"
+> >          in order to fetch the missing objects.
+> >=20
+> > Fortunately, this is just a driver addition so despite `b4` not
+> > helping it was easy to resolve but for other patches in the future,
+> > this may not be the case.
+> >=20
+> > Assuming the dt maintainers are happy with the binding, ping me in 2
+> > weeks if no-one else has commented and I'll apply patches 1 & 2.
+>=20
+> Could I drop patch 3 and rebase patch 1 & 2 on the latest mainline then s=
+ubmit as v4 ?
 
-With that I consistently see RCU at boot time (log below).
+I dunno, if someone has the pre-requisites then they should be okay, but
+I need to apply 1 & 2 without the pre-requisites.
+I dropped patch 3 & did the rebase myself so that the build bots would
+be able to build the patches:
+https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/log/?h=3Dri=
+scv-jh7110_pmu
+I got the build success email this morning, so they appear happy with
+it.
 
-| =============================
-| WARNING: suspicious RCU usage
-| 6.2.0-rc3-00051-gced9b6eecb31 #1 Not tainted
-| -----------------------------
-| include/trace/events/ipi.h:19 suspicious rcu_dereference_check() usage!
-| 
-| other info that might help us debug this:
-| 
-| 
-| rcu_scheduler_active = 2, debug_locks = 1
-| RCU used illegally from extended quiescent state!
-| no locks held by swapper/0/0.
-| 
-| stack backtrace:
-| CPU: 0 PID: 0 Comm: swapper/0 Not tainted 6.2.0-rc3-00051-gced9b6eecb31 #1
-| Hardware name: ARM LTD ARM Juno Development Platform/ARM Juno Development Platform, BIOS EDK II May 16 2021
-| Call trace:
-|  dump_backtrace.part.0+0xe4/0xf0
-|  show_stack+0x18/0x30
-|  dump_stack_lvl+0x98/0xd4
-|  dump_stack+0x18/0x34
-|  lockdep_rcu_suspicious+0xf8/0x10c
-|  trace_ipi_raise+0x1a8/0x1b0
-|  arch_irq_work_raise+0x4c/0x70
-|  __irq_work_queue_local+0x48/0x80
-|  irq_work_queue+0x50/0x80
-|  __wake_up_klogd.part.0+0x98/0xe0
-|  defer_console_output+0x20/0x30
-|  vprintk+0x98/0xf0
-|  _printk+0x5c/0x84
-|  lockdep_rcu_suspicious+0x34/0x10c
-|  trace_lock_acquire+0x174/0x180
-|  lock_acquire+0x3c/0x8c
-|  _raw_spin_lock_irqsave+0x70/0x150
-|  down_trylock+0x18/0x50
-|  __down_trylock_console_sem+0x3c/0xd0
-|  console_trylock+0x28/0x90
-|  vprintk_emit+0x11c/0x354
-|  vprintk_default+0x38/0x4c
-|  vprintk+0xd4/0xf0
-|  _printk+0x5c/0x84
-|  lockdep_rcu_suspicious+0x34/0x10c
-|  printk_sprint+0x238/0x240
-|  vprintk_store+0x32c/0x4b0
-|  vprintk_emit+0x104/0x354
-|  vprintk_default+0x38/0x4c
-|  vprintk+0xd4/0xf0
-|  _printk+0x5c/0x84
-|  lockdep_rcu_suspicious+0x34/0x10c
-|  trace_irq_disable+0x1ac/0x1b0
-|  trace_hardirqs_off+0xe8/0x110
-|  cpu_suspend+0x4c/0xfc
-|  psci_cpu_suspend_enter+0x58/0x6c
-|  psci_enter_idle_state+0x70/0x170
-|  cpuidle_enter_state+0xc4/0x464
-|  cpuidle_enter+0x38/0x50
-|  do_idle+0x230/0x2c0
-|  cpu_startup_entry+0x24/0x30
-|  rest_init+0x110/0x190
-|  arch_post_acpi_subsys_init+0x0/0x18
-|  start_kernel+0x6f8/0x738
-|  __primary_switched+0xbc/0xc4
-
-IIUC what's happenign here is the PSCI cpuidle driver has entered idle and RCU
-is no longer watching when arm64's cpu_suspend() manipulates DAIF. Our
-local_daif_*() helpers poke lockdep and tracing, hence the call to
-trace_hardirqs_off() and the RCU usage.
-
-I think we need RCU to be watching all the way down to cpu_suspend(), and it's
-cpu_suspend() that should actually enter/exit idle context. That and we need to
-make cpu_suspend() and the low-level PSCI invocation noinstr.
-
-I'm not sure whether 32-bit will have a similar issue or not.
-
-I'm surprised no-one else who has tested has seen this; I suspect people
-haven't enabled lockdep and friends. :/
+I would wait for some comments from the dt maintainers on patch 1 before
+considering re-sending the series. If they have comments, then please do
+rebase on v6.2
 
 Thanks,
-Mark. 
+Conor.
+
+
+--RaSbWA0bl43jGaof
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY8ZaBAAKCRB4tDGHoIJi
+0vDcAPwMe+7Cb3Df6wDftdGrVQtuCZJrxoFppaxvImoNaQ5adwEAtrjpgkcsyweC
+fh9qvBjyHXKBxr5a7lkpYkS8+IRJzQs=
+=8lxA
+-----END PGP SIGNATURE-----
+
+--RaSbWA0bl43jGaof--
+
+
+--===============3447514544356382179==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3447514544356382179==--
+
