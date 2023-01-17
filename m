@@ -4,62 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2CB9C54EBE
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Jan 2023 19:19:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CF6DC54EBE
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Jan 2023 00:16:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9OleMQLhrLdOi+favtLxT4Mpw76gpn1HnMZdtCHl/Yw=; b=SVaKGK2iW0it2O13bDgXm+Vp9M
-	RY0Tsq6yq52MUDRLX8rdyVvcQj3I1SL4rlpLhoMHAkiqQQQkQK4awcwfkUBJZZSfBNMkOr+qZfqNw
-	aXAtqC5nQn8ImrrelHQoDolVYDgihOTmVCTbGQYFAUiIXAiggMr8pYhoj9lbIMDVG7Ns+3w7lnXxx
-	4LSU4vpovBmapVwT7A9pIdN2KMnKWj3hhmrgkjurp695oL3AzGHzYUeLq0F+nIB2VsJpR9xoGZBb6
-	w88+QBDEU9/YjjiMicXb+Y68maBOOql0iqJpBduyxhsNqUaIYQ32R/f6Fx7Wn7LuUgNfuQYIP5onm
-	NkSs8rTA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Aes83QKAWkmS9wsw9qdfzUxj+ekmxH0UVmcYyw4DrpU=; b=GS+JJYmL09WXri
+	XKvusxvI+ifHEJpkIvAJ9YT82rk9e0BZWzYFqQHMUUKccz7+9Iquf/AViuXT7206Hw0xwnPE2F91e
+	DgVvUV3niP8aO3dYi/XN9eJfzlGiNbzlqqL+7PNA0RTVlrtvwR5l2UHkPlacKxk9JAo1dCAysvB7z
+	oveyBqFPvfy/u0XIH5PgTdjIfk2zvOltAT/48bMQDz08xNHwXTdV5VejMTeuHHqYeJHPV2Mx1U58K
+	aIYVTEf5jkDJfuFPb0QsPRcdgI0w8FMaD5mVWOiNMtAO2k8D4wDMN+F1yQ2AUgcnJ5BCW/r2cj1iB
+	UCN6GH3Q+dFhqa5CSXsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pHV0l-00Bqat-VG; Mon, 16 Jan 2023 19:19:15 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1pHZeT-00COZ0-RO; Tue, 17 Jan 2023 00:16:33 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pHV0h-00Bqa5-PK
-	for linux-riscv@lists.infradead.org; Mon, 16 Jan 2023 19:19:13 +0000
+	id 1pHZeR-00COY7-Dk
+	for linux-riscv@lists.infradead.org; Tue, 17 Jan 2023 00:16:32 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 2E8EFB80E77;
-	Mon, 16 Jan 2023 19:19:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3D62C433D2;
-	Mon, 16 Jan 2023 19:19:06 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 2AFB261188;
+	Tue, 17 Jan 2023 00:16:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C53CBC433EF;
+	Tue, 17 Jan 2023 00:16:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1673896748;
-	bh=XPbeY1Tw3NOIW18sn3VUjs5hnmitr2mUboL06yyV1OU=;
+	s=k20201202; t=1673914585;
+	bh=OXMWDCcJVwDt9rp3TywgtXSGAL1KqslNJKqv3vu4/Ec=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ht26c5+BaGyCrnSatfGGdKlEeaSu6vFP4V4n9oRMBtY9yVXlRSe/2DdYDLyNPXbEP
-	 TaZAHDIhfnoHV4gNfbdO6avAqMxerbEq+Kd3rTvXXICod5S6F0czWPGbt71oRbGTE+
-	 EBMrn0o2zzrvL2mD9J1cRd8/2XtJArHP6xV4QRFMCQk4lo6x78PJzpsp1l3y2MBBB4
-	 4EDSvcALVvzn0mkixQjkJfr6BgbrHZnsRyj1Ngv/OnqFArGwqbklYrnIqipgMUZlOe
-	 PDwmQsbmfiN07tMtCLKfgXNSjzN0vbHZlxoLuCBwDslQhLNymZEQ33hQ7qzkrrfszd
-	 vfFWghN6ratvQ==
-Date: Mon, 16 Jan 2023 19:19:04 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Walker Chen <walker.chen@starfivetech.com>
-Cc: linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org, Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 0/3] JH7110 PMU Support
-Message-ID: <Y8WjKArEZH5zd5jb@spud>
-References: <20230116074259.22874-1-walker.chen@starfivetech.com>
+	b=ozPSXBkCMhsxymsHd61YEknn6E7vw1GxUeXc4IsNlUCf3SwMuuQxIxRcr2vUav72G
+	 U5TrRrLmhK7mu/DUNfK2ddgJxxacr/Q8YlGpTFvftojMEU87GW6nJxgLQJAm/lQei8
+	 TjbfHbpT1Ynl+jZ+qzKHhll6NaokSIazPM/f29r84MsHB+cqC2IDzNiyrTLALWn9IB
+	 zjCJI9wzRc1YJ+u/nFu182QGNho89BERTNOTy1f1fHoj4Gk4xrXNLyWdiv3/G3rGAe
+	 P1Uw2T4Y53EGfKqJI370O9knNpbYkCcJ6VoTQ5I/Z7kLimyyNqljunsXh4+7LZt+Pk
+	 bTKvvAUgMmKcg==
+Date: Tue, 17 Jan 2023 08:06:06 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Conor Dooley <conor@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Kees Cook <keescook@chromium.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 1/4] riscv: lds: define RUNTIME_DISCARD_EXIT
+Message-ID: <Y8XmbogsG+gLoOHj@xhacker>
+References: <20230116154800.2396-1-jszhang@kernel.org>
+ <20230116154800.2396-2-jszhang@kernel.org>
+ <Y8V+mXWZfA62JYvJ@spud>
 MIME-Version: 1.0
-In-Reply-To: <20230116074259.22874-1-walker.chen@starfivetech.com>
+Content-Disposition: inline
+In-Reply-To: <Y8V+mXWZfA62JYvJ@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230116_111912_164152_C7846EF5 
-X-CRM114-Status: GOOD (  22.56  )
+X-CRM114-CacheID: sfid-20230116_161631_520585_2620C97A 
+X-CRM114-Status: GOOD (  21.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,129 +74,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1403068199341139259=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jan 16, 2023 at 04:43:05PM +0000, Conor Dooley wrote:
+> On Mon, Jan 16, 2023 at 11:47:57PM +0800, Jisheng Zhang wrote:
+> > riscv discards .exit.* sections at run-time but doesn't define
+> > RUNTIME_DISCARD_EXIT. However, the .exit.* sections are still allocated
+> > and kept even if the generic DISCARDS would discard the sections due
+> > to missing RUNTIME_DISCARD_EXIT, because the DISCARD sits at the end of
+> > the linker script. Add the missing RUNTIME_DISCARD_EXIT define so that
+> > it still works if we move DISCARD up or even at the beginning of the
+> > linker script.
+> > 
+> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> > Suggested-by: Masahiro Yamada <masahiroy@kernel.org>
+> > ---
+> >  arch/riscv/kernel/vmlinux.lds.S | 1 +
+> >  1 file changed, 1 insertion(+)
+> > 
+> > diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
+> > index 4e6c88aa4d87..07c19f2a288c 100644
+> > --- a/arch/riscv/kernel/vmlinux.lds.S
+> > +++ b/arch/riscv/kernel/vmlinux.lds.S
+> > @@ -5,6 +5,7 @@
+> >   */
+> >  
+> >  #define RO_EXCEPTION_TABLE_ALIGN	4
+> > +#define RUNTIME_DISCARD_EXIT
+> >  
+> >  #ifdef CONFIG_XIP_KERNEL
+> >  #include "vmlinux-xip.lds.S"
+> 
+> Since the diff is identical to:
+> https://patchwork.kernel.org/project/linux-riscv/patch/20230102124936.1363533-1-conor@kernel.org/
 
---===============1403068199341139259==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="9GoKrs0wz7LbOpIW"
-Content-Disposition: inline
+OOPS, I didn't notice you submitted the patch which did similar
+about RUNTIME_DISCARD_EXIT, then I'd like to recall patch1. I
+expected some review comments for remainning patch2\3\4, I will
+send v2 which will both address possible review comments and
+remove patch1
 
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> Your commit message is better anyways.
 
---9GoKrs0wz7LbOpIW
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+If you like it, you can take it into your v2 patch;)
 
-Hey Walker,
+Thanks
 
-On Mon, Jan 16, 2023 at 03:42:56PM +0800, Walker Chen wrote:
-> Hello,
->=20
-> This patchset adds PMU (Power Management Unit) controller driver for the
-> StarFive JH7110 SoC. In order to meet low power requirements, PMU is
-> designed for including multiple PM domains that can be used for power
-> gating of selected IP blocks for power saving by reduced leakage
-> current. The first patch adds device tree binding for PM domain provider
-> and consumer. The second patch adds pmu driver and support JH7110 SoC.
-> The last patch adds device node about pmu to JH7110 dts.=20
->=20
-> The series has been tested on the VisionFive 2 boards which equip with
-> JH7110 SoC and works normally.
-
-For the series:
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
-I'm hoping that someone with knowledge of the power APIs will take a
-look now that the driver looks to be in a pretty good state (to my naive
-eyes at least).
-
-> Changes in v3:
-> - Rebased on tag v6.1.
-
-FYI, please pick something more recent than that.
-Ideally, the last -rc1, which in this case is v6.2-rc1.
-It's helpful to do this, as when I went to apply your patch, there were
-some conflicts that needed to be sorted out. Because of your prerequisite
-patches, the usual `b4` commands would not usable. E.g.
-
-b4 am -3 20230116074259.22874-1-walker.chen@starfivetech.com
-Analyzing 4 messages in the thread
-Checking attestation on all messages, may take a moment...
----
-  [PATCH v3 1/3] dt-bindings: power: Add starfive,jh7110-pmu
-  [PATCH v3 2/3] soc: starfive: Add StarFive JH71XX pmu driver
-  [PATCH v3 3/3] riscv: dts: starfive: add pmu controller node
----
-Total patches: 3
-Preparing fake-am for v3: JH7110 PMU Support
-  ERROR: Could not find matching blob for MAINTAINERS (85e8f83161d7)
-         If you know on which tree this patchset is based,
-         add it as a remote and perform "git remote update"
-         in order to fetch the missing objects.
-
-Fortunately, this is just a driver addition so despite `b4` not
-helping it was easy to resolve but for other patches in the future,
-this may not be the case.
-
-Assuming the dt maintainers are happy with the binding, ping me in 2
-weeks if no-one else has commented and I'll apply patches 1 & 2.
-
-Thanks,
-Conor.
-
-> base-commit: 830b3c68c1fb1e9176028d02ef86f3cf76aa2476
-> prerequisite-patch-id: 54ce870d6ea747466474b5d4105cfbc05e1b01ab
-> prerequisite-patch-id: e8dd8258a4c4062eee2cf07c4607d52baea71f3a
-> prerequisite-patch-id: 057fa35870d8d7d22a57c13362588ffb9e9df316
-> prerequisite-patch-id: 102368a6ff799c4cb639aed513deff09c1839161
-> prerequisite-patch-id: 7c1a50a37919fedbbd336ca5dec295ac63c2a89d
-> prerequisite-patch-id: a5d9e0f7d4f8163f566678894cf693015119f2d9
-> prerequisite-patch-id: 87cb528acd9a7f1ffe7475d7261553f6a4de5753
-> prerequisite-patch-id: 417736eb958e1158c60a5ed74bc2350394321a80
-> prerequisite-patch-id: a137312ca162b5712e28719f77d0da78e9fdd778
-> prerequisite-patch-id: f7c548b4619f491ce27f319242c4e3685c76173b
-> prerequisite-patch-id: 4d90febab2fb7928f50a73104e7454312b9ce6c8
-> prerequisite-patch-id: 645a807d50e0e56593ffdc6c3b50ea54a230827a
-> prerequisite-patch-id: 165f8cd740ae60585d22c95b99a0689084d468e3
-> prerequisite-patch-id: 480d910deccadc2947b3318c3c13dfa0882c8e0d
-> prerequisite-patch-id: 1d1cb90ec12dfc9312e448759c7cab89f2bc6394
-> prerequisite-patch-id: 5f539ac7c96023b36489c6da7c70c31eaf64a25b
-> prerequisite-patch-id: 6bb9a780c62af3bcc2368dfd20303c7b1bc91e23
-> prerequisite-patch-id: 258ea5f9b8bf41b6981345dcc81795f25865d38f
-> prerequisite-patch-id: 8b6f2c9660c0ac0ee4e73e4c21aca8e6b75e81b9
-> prerequisite-patch-id: e3b986b9c60b2b93b7812ec174c9e1b4cfb14c97
-> prerequisite-patch-id: 2e03eeb766aefd5d38f132d091618e9fa19a37b6
-> prerequisite-patch-id: e0ba7af0f8d3d41844da9fbcba14b548cbc18f55
-> prerequisite-patch-id: c1f8603e58c64828d0f36deac9b93c24289d8e05
-
-
---9GoKrs0wz7LbOpIW
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY8WjKAAKCRB4tDGHoIJi
-0oszAQDM9ExcHzz5zwVTaRHH/CUh3N4IkT9RnBltBfBDkeqmmwD/eoWkYLcS1whs
-CsKsgJlSS9Nu15N2/XX5xgyh1Scb+AA=
-=zJa1
------END PGP SIGNATURE-----
-
---9GoKrs0wz7LbOpIW--
-
-
---===============1403068199341139259==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1403068199341139259==--
-
