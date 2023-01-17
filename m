@@ -4,79 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDCA3C63797
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Jan 2023 09:33:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C8CBC3DA78
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Jan 2023 10:09:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qS25v01n8b8pApIGQjU6V31aBgutJZ0pQEN/ZG3T1Os=; b=umjiL2takdOE01
-	mEd9H9jCND1PYWIilXy5mKlSJCtgPTChLU+jvDpRz7g+JEcXpT1ZJr+qQYHtc3IEt/vzG9h+Q5Bji
-	AkTkCCD3KIgjxJTCERortBF8s+KCOrAfT5vPWzrrFXnJLdLm72Qnd9M4glbm69P1RtQOglxQhbOic
-	mtDdTwj8oL+1rQu+8NsRHKp7xmA1Z4tLX7aFqHNxfypUt2wrGsXkPZKpmGJGZkbbrnO08+WMPwg4Q
-	RmhXc/Zjm2IxldVNKbVDT1OjD8RA5W8VyFk0eBV+kYsdyoGeFlerc/OXfbWk5ruRSJwHDBUhtBIjC
-	/9Nt3FWRi+B6c7OAFw6w==;
+	List-Owner; bh=IFcD1BJKsbruC+ZJOdNTH8XQ1SzrT689hykhiOWXzZQ=; b=OjdIQAZwtmePP+
+	2X+tBlFdM7xfnazif9hg4C2+62ZLaoyooc/GZnZYGXin4cpe2ecrfbuUrYngXcm6D++5cLzg4IRa9
+	+LOrOtBujtHXRzvYCCJYo2Xe6iKEVom7wGQ/pj3aApi2FUwi1wVGpBcDCEUm0yMgLZXt0xE/LmIz5
+	FAyDXTkeib30T0ritrSzFn4vliH0BmYRNdAFoF3QfTqQ8GJftSW1kfPoUZxaOXGK4ds3HjrwX0h7j
+	8uvgHjzdAa9hHR/JRM9OPaCNBo1Wr3kHYL91s+scJUTmjomM2mR9GqsnNeqDm30/XEfeLOq36iRYN
+	WBABGDVMUnRJbbj4DQyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pHiL5-00Daht-Su; Tue, 17 Jan 2023 09:33:07 +0000
-Received: from mail-yw1-x1136.google.com ([2607:f8b0:4864:20::1136])
+	id 1pHiuB-00DhTJ-IB; Tue, 17 Jan 2023 10:09:23 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pHiKu-00DacU-DJ
-	for linux-riscv@lists.infradead.org; Tue, 17 Jan 2023 09:32:58 +0000
-Received: by mail-yw1-x1136.google.com with SMTP id 00721157ae682-4d0f843c417so300625347b3.7
-        for <linux-riscv@lists.infradead.org>; Tue, 17 Jan 2023 01:32:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=FV9nUVm/3W8S9XiP51zEd4Rl44Fcj8LLaPZ2bVwALNE=;
-        b=T7CgfJmnRp3JHN/VR2DJA2oyuzskW7ry7gryfRwHM6Kf/pwwm4aN3D/1fVDcakoMpK
-         ZM61iW6f819f4/PK4wzG2DggDR51HP0ebzGUQ4vTirnJQe7A2oMZhVSG5XYet+V/h2LV
-         WfhT4acFhTh8nE+ZDd6B3RVb+BayfTGynKysQbQ/dLmqKZeB5vCy4QAd0szmUVCHRXpE
-         lsqFG/uqBqpzlOC9c6NeFSMCE71igtRKQD07+EUg9QTIZxXffJDoueOFknwpwkHtMw2+
-         E/UA9+4VZOl6daYFtUfDujEIosnxyBf8L3Ju+UTGh70rLPoMkV1yaatcF46Fy8KRdZNP
-         3X4Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=FV9nUVm/3W8S9XiP51zEd4Rl44Fcj8LLaPZ2bVwALNE=;
-        b=o0eomCjDUu92I/zl+yW49+HqteDxmLOg+qzPjHTvJn77rH+n6K5AsNKNIp42a7yKhs
-         VQOkTfV/1SJcW256QZvHrT4B74SK1nMeH2MRBtdhxQj4dVTORol9GERBhleY0FHvDI3c
-         Hbhh+/h7FuiEwrAJemswIotzA+cC7dZRPRLfbLcOyTlOc1Ur53L6EI7yygY6Xk09zZNo
-         KUrDkSqOCwAgM3j2NCeQnB3pKugjm2frhIYQyAPc4VjmvtTkKIIODms+1ieL0hqpwqZo
-         RhzTedOfcC/dStMUPYioJFj/1fFbzwfdueoFpUqYa91zc2ckYe3zU/NMu8HhkkGia3Ez
-         22wA==
-X-Gm-Message-State: AFqh2kpE29GxlXN/34s5YJYTrFPblQFuVb1Qj9gZPmacxAPzxEgCCnIN
-	rVpUalaK6CK9th517jLnzLEuALPnX22tvn8m4Zzf9Q==
-X-Google-Smtp-Source: AMrXdXvST+rBmxbQ9ZJsNpKFtnIQx3FB5ioNsIlBUX/oGsXIVVOg1Z8MnqkrQal43ozZal2Js56bI5hKZ38ZxjmSwyw=
-X-Received: by 2002:a81:9b95:0:b0:3ea:9ce2:cd76 with SMTP id
- s143-20020a819b95000000b003ea9ce2cd76mr342335ywg.217.1673947972381; Tue, 17
- Jan 2023 01:32:52 -0800 (PST)
+	id 1pHity-00DhR9-4l
+	for linux-riscv@lists.infradead.org; Tue, 17 Jan 2023 10:09:11 +0000
+Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1pHitr-0006k8-Rj; Tue, 17 Jan 2023 11:09:03 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org,
+ devicetree@vger.kernel.org
+Cc: Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor.dooley@microchip.com>,
+ Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+ "Rafael J . Wysocki" <rafael@kernel.org>,
+ Walker Chen <walker.chen@starfivetech.com>, linux-kernel@vger.kernel.org,
+ Walker Chen <walker.chen@starfivetech.com>
+Subject: Re: [PATCH v3 2/3] soc: starfive: Add StarFive JH71XX pmu driver
+Date: Tue, 17 Jan 2023 11:09:03 +0100
+Message-ID: <10209933.nUPlyArG6x@diego>
+In-Reply-To: <20230116074259.22874-3-walker.chen@starfivetech.com>
+References:  <20230116074259.22874-1-walker.chen@starfivetech.com>
+ <20230116074259.22874-3-walker.chen@starfivetech.com>
 MIME-Version: 1.0
-References: <20230113083115.2590-1-nylon.chen@sifive.com> <Y8GjySjm9OjoZvCF@spud>
- <95F1EAA0-D8D6-4F8A-8049-5E7BFDE4C06C@jrtc27.com>
-In-Reply-To: <95F1EAA0-D8D6-4F8A-8049-5E7BFDE4C06C@jrtc27.com>
-From: Nylon Chen <nylon.chen@sifive.com>
-Date: Tue, 17 Jan 2023 17:32:40 +0800
-Message-ID: <CAHh=Yk-WJMOc-h9V47CyMQpyXZ5hDrtOPnPE2QKkJKzMhjh+Cg@mail.gmail.com>
-Subject: Re: [PATCH 0/2] Change PWM-controlled LED pin active mode and algorithm
-To: Jessica Clarke <jrtc27@jrtc27.com>
-Cc: Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>, nylon7717@gmail.com, zong.li@sifive.com, 
-	greentime.hu@sifive.com, vincent.chen@sifive.com, 
-	Thierry Reding <thierry.reding@gmail.com>, 
-	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@pengutronix.de>, 
-	linux-pwm@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230117_013256_526229_BDBF2D3D 
-X-CRM114-Status: GOOD (  38.38  )
+X-CRM114-CacheID: sfid-20230117_020910_224387_53232B94 
+X-CRM114-Status: GOOD (  22.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,94 +61,171 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQ29ub3IsIEplc3NpY2EKCnRoYW5rcyBmb3IgeW91ciByZXBseS4KCkplc3NpY2EgQ2xhcmtl
-IDxqcnRjMjdAanJ0YzI3LmNvbT4g5pa8IDIwMjPlubQx5pyIMTTml6Ug6YCx5YWtIOS4iuWNiDM6
-MjTlr6vpgZPvvJoKPgo+IE9uIDEzIEphbiAyMDIzLCBhdCAxODozMiwgQ29ub3IgRG9vbGV5IDxj
-b25vckBrZXJuZWwub3JnPiB3cm90ZToKPiA+Cj4gPiArQ0MgVXdlLCBUaGllcnJ5LCBsaW51eC1w
-d20KPiA+Cj4gPiBIZXkgTnlsb24sCj4gPgo+ID4gUGxlYXNlIHJ1biBzY3JpcHRzL2dldF9tYWlu
-dGFpbmVyLnBsIGJlZm9yZSBzZW5kaW5nIHBhdGNoZXMsIHlvdSBtaXNzZWQKPiA+IGJvdGggbWUg
-JiB0aGUgUFdNIG1haW50YWluZXJzIHVuZm9ydHVuYXRlbHkhCj4gPiBBRkFJSywgdGhlIFBXTSBt
-YWludGFpbmVycyB1c2UgcGF0Y2h3b3JrLCBzbyB5b3Ugd2lsbCBwcm9iYWJseSBoYXZlIHRvCj4g
-PiByZXNlbmQgdGhpcyBwYXRjaHNldCBzbyB0aGF0IGl0IGlzIG9uIHRoZWlyIHJhZGFyLgo+ID4g
-SSd2ZSBtYXJrZWQgdGhlIHNlcmllcyBhcyAiQ2hhbmdlcyBSZXF1ZXN0ZWQiIG9uIHRoZSBSSVND
-LVYgb25lLgpJIGdvdCBpdC4gSSB3aWxsIGJhc2UgaXQgb24gZ2V0X21haW50YWluZXIucGwsIHJl
-LXNlbnQgaXQuCj4gPgo+ID4gT24gRnJpLCBKYW4gMTMsIDIwMjMgYXQgMDQ6MzE6MTNQTSArMDgw
-MCwgTnlsb24gQ2hlbiB3cm90ZToKPiA+Cj4gPj4gQWNjb3JkaW5nIHRvIHRoZSBjaXJjdWl0IGRp
-YWdyYW0gb2YgVXNlciBMRURzIC0gUkdCIGRlc2NyaWJlZCBpbiB0aGUKPiA+PiBtYW51YWwgaGlm
-aXZlLXVubWF0Y2hlZC1zY2hlbWF0aWNzLXYzLnBkZlswXS4KPiA+PiBUaGUgYmVoYXZpb3Igb2Yg
-UFdNIGlzIGFjaXR2ZS1oaWdoLgo+ID4+Cj4gPj4gQWNjb3JkaW5nIHRvIHRoZSBkZXNjcmlwdGlv
-bm9mIFBXTSBmb3IgcHdtY21wIGluIFNpRml2ZSBGVTc0MC1DMDAwCj4gPj4gTWFudWFsWzFdLgo+
-ID4+IFRoZSBwd20gYWxnb3JpdGhtIGlzIChQVykgcHVsc2UgYWN0aXZlIHRpbWUgID0gKEQpIGR1
-dHkgKiAoVCkgcGVyaW9kWzJdLgo+ID4+IFRoZSBgZnJhY2AgdmFyaWFibGUgaXMgcHVsc2UgImlu
-YWN0aXZlIiB0aW1lIHNvIHdlIG5lZWQgdG8gaW52ZXJ0IGl0Lgo+ID4+Cj4gPj4gU28gdGhpcyBw
-YXRjaHNldCByZW1vdmVzIGFjdGl2ZS1sb3cgaW4gRFRTIGFuZCBhZGRzIHJldmVyc2UgbG9naWMg
-dG8KPiA+PiB0aGUgZHJpdmVyLgo+ID4+Cj4gPj4gWzBdOmh0dHBzOi8vc2lmaXZlLWNoaW5hLm9z
-cy1jbi16aGFuZ2ppYWtvdS5hbGl5dW5jcy5jb20vSGlGSXZlJTIwVW5tYXRjaGVkL2hpZml2ZS11
-bm1hdGNoZWQtc2NoZW1hdGljcy12My5wZGYKPiA+PiBbMV06aHR0cHM6Ly9zaWZpdmUtY2hpbmEu
-b3NzLWNuLXpoYW5namlha291LmFsaXl1bmNzLmNvbS9IaUZJdmUlMjBVbm1hdGNoZWQvZnU3NDAt
-YzAwMC1tYW51YWwtdjFwMi5wZGYKPiA+PiBbMl06aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dp
-a2kvRHV0eV9jeWNsZQo+ID4KPiA+IFBsZWFzZSBkZWxldGUgbGluayAyLCBjb252ZXJ0IHRoZSBv
-dGhlciB0d28gdG8gc3RhbmRhcmQgTGluazogdGFncyBhbmQKPiA+IHB1dCB0aGlzIGluZm9ybWF0
-aW9uIGluIHRoZSBkdHMgcGF0Y2guIFBvc3NpYmx5IGludG8gdGhlIFBXTSBwYXRjaCB0b28sCj4g
-PiBkZXBlbmRpbmcgb24gd2hhdCB0aGUgUFdNIG1haW50YWluZXJzIHRoaW5rLgpJIGdvdCBpdC4g
-SSB3aWxsIGZpeCBpdC4KPiA+IFRoaXMgaW5mbyBzaG91bGQgYmUgaW4gdGhlIGNvbW1pdCBoaXN0
-b3J5IElNTyBhbmQgdGhlIGNvbW1pdCBtZXNzYWdlIGZvcgo+ID4gdGhlIGR0cyBwYXRjaCBzYXlz
-IHdoYXQncyBvYnZpb3VzIGZyb20gdGhlIGRpZmYgd2l0aG91dCBhbnkgZXhwbGFuYXRpb24KPiA+
-IGFzIHRvIHdoeS4KPiA+Cj4gPiBJIGRpZCBhIGJpdCBvZiBsb29raW5nIGFyb3VuZCBvbiBsb3Jl
-LCB0byBzZWUgaWYgSSBjb3VsZCBmaWd1cmUgb3V0Cj4gPiB3aHkgaXQgd2FzIGRvbmUgbGlrZSB0
-aGlzIGluIHRoZSBmaXJzdCBwbGFjZSwgYW5kIEkgZm91bmQ6Cj4gPiBodHRwczovL2xvcmUua2Vy
-bmVsLm9yZy9saW51eC1wd20vQ0FKMl9qT0cyTTAzYUxCZ1VPZ0dqV0g5Q1V4cTJhVEc5N2VTWDcw
-PVVhU2JHQ01NRl9nQG1haWwuZ21haWwuY29tLwo+Cj4gVGhhdCBEVFMgZG9jdW1lbnRhdGlvbiBt
-YWtlcyBubyBzZW5zZSB0byBtZSwgd2h5IGRvZXMgd2hhdCB0aGUgTEVEIGlzCj4gd2lyZWQgdG8g
-bWF0dGVyPyBXaGV0aGVyIHlvdSBoYXZlIHlvdXIgdHJhbnNpc3RvciBuZXh0IHRvIGdyb3VuZCBv
-cgo+IG5leHQgdG8gVmRkIGRvZXNu4oCZdCBtYXR0ZXIsIHdoYXQgbWF0dGVycyBpcyB3aGV0aGVy
-IHRoZSB0cmFuc2lzdG9yIGlzCj4gb24gb3Igb2ZmLiBNYXliZSB3aGF0IHRoZXkgbWVhbiBpcyB3
-aGV0aGVyIHRoZSAqUFdNJ3Mgb3V0cHV0KiAvICp0aGUKPiB0cmFuc2lzdG9yJ3MgaW5wdXQqIGlz
-IHB1bGxlZCB0byBncm91bmQgb3IgVmRkPyBJbiB3aGljaCBjYXNlIHRoZQo+IHByb3BlcnR5IHdv
-dWxkIGluZGVlZCBub3QgYXBwbHkgaGVyZS4KPgo+IFVubGVzcyB0aGF04oCZcyB3cml0dGVuIGFz
-c3VtaW5nIHRoZSBMRUQgaXMgd2lyZWQgZGlyZWN0bHkgdG8gdGhlIFBXTSwgaW4KPiB3aGljaCBj
-YXNlIGl0IHdvdWxkIG1ha2Ugc2Vuc2UsIGJ1dCB0aGF04oCZcyBhIHZlcnkgbmFycm93LW1pbmRl
-ZCB2aWV3IG9mCj4gd2hhdCB0aGUgUFdNIG91dHB1dCBpcyAoZGlyZWN0bHkpIGRyaXZpbmcuCj4K
-PiBKZXNzCj4KVGhpcyBpcyBhIEhpRml2ZSBVbm1hdGNoZWQvVW5sZWFzaGVkIExFRC1QV00gbGF5
-b3V0CgogICAgICAgICAgICBWREQKICAgICAgICAgICAgICAgfAogICAgICAgICAgICAgICB8CiAg
-ICAgICAgICAgX19fX18KICAgICAgICAgICBcICAgICAgICAvICAgTEVECiAgICAgICAgICAgIFwg
-ICAgIC8KICAgICAgICAgICAgICAtLS0KICAgICAgICAgICAgICAgfAogICAgICAgICAgICAgICB8
-CiAgICAgICAgICAgICAgIHwKICAgICAgICAgX19fX19fCiAgICAgICAgfCAgICAgICAgICAgICAg
-fAogICAgICAgIC0gICAgICAgICAgICAgfAogICAgICAgIF4gICAgLS0+ICAgIHwtLS0tLS0gUFdN
-CiAgICAgICAgfF9fX3xfX198CiAgICAgICAgICAgICAgIHwKICAgICAgICAgICAgICAgfAogICAg
-ICAgICAgICAgIF9fCiAgICAgICAgICAgICAgIC0KICAgICAgICAgICAgR05ECgotIHRoZSB3YXZl
-Zm9ybQplLmcuIGR1dHk9MzBzLCBwZXJpb2Q9MTAwcywgYWN0dmllLWhpZ2ggPSAzMCUsIGFjdGl2
-ZS1sb3cgPSA3MCUKClYKXgp8CnwgLS0tLS0tLS0tLXwKfCAgICAgICAgICAgICB8CnwgICAgICAg
-ICAgICAgfAp8X19fX19fIHxfX19fX19fX19fID4gdAoKV2hlbiBWQ0MgaXMgaGlnaCwgdGhlIExF
-RCB3aWxsIGJlIGlsbHVtaW5hdGVkLCB3aGljaCBpcyBhbiBhY3RpdmUtaGlnaApsb2dpYy4gVGhp
-cyBpcyB3aHkgd2UgbmVlZCB0byByZW1vdmUgImFjdGl2ZS1sb3ciLgoKU28sIGFjY29yZGluZyB0
-byBteSB1bmRlcnN0YW5kaW5nLCBVbmxlYXNoZWQncyBEVFMgc2hvdWxkIGFsc28gcmVtb3ZlCmFj
-dGl2ZS1sb3cuCj4gPiBUaGF0IGRvZXNuJ3QgZXhwbGFpbiB0aGUgZHJpdmVyLCBidXQgaXQgZG9l
-cyBleHBsYWluIHRoZSBkdHMgYmVpbmcgdGhhdAo+ID4gd2F5LiBQZXJoYXBzIGEgRml4ZXMgdGFn
-IGlzIGFsc28gaW4gb3JkZXI/IEJ1dCBvbmx5IGlmIGJvdGggcGF0Y2hlcyBnZXQKPiA+IG9uZSwg
-b3RoZXJ3aXNlIGJhY2twb3J0aW5nIHdvdWxkIGxlYWQgdG8gYnJlYWthZ2UuCj4gPgo+ID4gVGhl
-IG1pbigpIGNvbnN0cnVjdCBhcHBlYXJzIHRvIGhhdmUgYmVlbiB0aGVyZSBzaW5jZSB0aGUgUkZD
-IGRyaXZlciB3YXMKPiA+IGZpcnN0IHBvc3RlZC4KPiA+Cj4gPiBUaGFua3MsCj4gPiBDb25vci4K
-PiA+Cj4gPj4KPiA+PiBOeWxvbiBDaGVuICgyKToKPiA+PiAgcmlzY3Y6IGR0czogc2lmaXZlIHVu
-bWF0Y2hlZDogUmVtb3ZlIFBXTSBjb250cm9sbGVkIExFRCdzIGFjdGl2ZS1sb3cKPiA+Cj4gPiBu
-aXQ6IHMvc2lmaXZlIHVubWF0Y2hlZDovc2lmaXZlOiB1bm1hdGNoZWQ6LwpJIGdvdCBpdC4gSSB3
-aWxsIGZpeCBpdC4KCj4gPgo+ID4+ICAgIHByb3BlcnRpZXMKPiA+PiAgcHdtOiBzaWZpdmU6IGNo
-YW5nZSB0aGUgUFdNIGNvbnRyb2xsZWQgTEVEIGFsZ29yaXRobQo+ID4+Cj4gPj4gYXJjaC9yaXNj
-di9ib290L2R0cy9zaWZpdmUvaGlmaXZlLXVubWF0Y2hlZC1hMDAuZHRzIHwgNCAtLS0tCj4gPj4g
-ZHJpdmVycy9wd20vcHdtLXNpZml2ZS5jICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgMSAr
-Cj4gPj4gMiBmaWxlcyBjaGFuZ2VkLCAxIGluc2VydGlvbigrKSwgNCBkZWxldGlvbnMoLSkKPiA+
-Pgo+ID4+IC0tCj4gPj4gMi4zNi4xCj4gPj4KPiA+Pgo+ID4+IF9fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fCj4gPj4gbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
-Cj4gPj4gbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwo+ID4+IGh0dHA6Ly9saXN0cy5p
-bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YKPiA+IF9fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4gPiBsaW51eC1yaXNjdiBtYWls
-aW5nIGxpc3QKPiA+IGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKPiA+IGh0dHA6Ly9s
-aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YKPgoKX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
-bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
-ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Hi Walker,
+
+Am Montag, 16. Januar 2023, 08:42:58 CET schrieb Walker Chen:
+> +static int jh71xx_pmu_get_state(struct jh71xx_pmu_dev *pmd, u32 mask, bool *is_on)
+> +{
+> +	struct jh71xx_pmu *pmu = pmd->pmu;
+> +
+> +	if (!mask) {
+> +		*is_on = false;
+
+nit: While it's not necessarily bad, I don't think callers of
+jh71xx_pmu_get_state() should expect this to be set in error case.
+
+> +		return -EINVAL;
+> +	}
+> +
+> +	*is_on = readl(pmu->base + JH71XX_PMU_CURR_POWER_MODE) & mask;
+> +
+> +	return 0;
+> +}
+
+[...]
+
+> +static int jh71xx_pmu_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct device_node *np = dev->of_node;
+> +	const struct jh71xx_pmu_match_data *match_data;
+> +	struct jh71xx_pmu *pmu;
+> +	unsigned int i;
+> +	int ret;
+> +
+> +	pmu = devm_kzalloc(dev, sizeof(*pmu), GFP_KERNEL);
+> +	if (!pmu)
+> +		return -ENOMEM;
+> +
+> +	pmu->base = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(pmu->base))
+> +		return PTR_ERR(pmu->base);
+> +
+> +	pmu->irq = platform_get_irq(pdev, 0);
+> +	if (pmu->irq < 0)
+> +		return pmu->irq;
+> +
+> +	ret = devm_request_irq(dev, pmu->irq, jh71xx_pmu_interrupt,
+> +			       0, pdev->name, pmu);
+> +	if (ret)
+> +		dev_err(dev, "failed to request irq\n");
+> +
+> +	match_data = of_device_get_match_data(dev);
+> +	if (!match_data)
+> +		return -EINVAL;
+> +
+> +	pmu->genpd = devm_kcalloc(dev, match_data->num_domains,
+> +				  sizeof(struct generic_pm_domain *),
+> +				  GFP_KERNEL);
+> +	if (!pmu->genpd)
+> +		return -ENOMEM;
+> +
+> +	pmu->dev = dev;
+> +	pmu->match_data = match_data;
+> +	pmu->genpd_data.domains = pmu->genpd;
+> +	pmu->genpd_data.num_domains = match_data->num_domains;
+> +
+> +	for (i = 0; i < match_data->num_domains; i++) {
+> +		ret = jh71xx_pmu_init_domain(pmu, i);
+> +		if (ret) {
+> +			dev_err(dev, "failed to initialize power domain\n");
+> +			return ret;
+> +		}
+> +	}
+> +
+> +	spin_lock_init(&pmu->lock);
+> +	jh71xx_pmu_int_enable(pmu, JH71XX_PMU_INT_ALL_MASK & ~JH71XX_PMU_INT_PCH_FAIL, true);
+> +
+> +	ret = of_genpd_add_provider_onecell(np, &pmu->genpd_data);
+> +	if (ret) {
+> +		dev_err(dev, "failed to register genpd driver: %d\n", ret);
+> +		return ret;
+> +	}
+> +
+> +	dev_info(dev, "registered %u power domains\n", i);
+
+nit: I guess that could be a dev_dbg to not spam the kernel log too much?
+
+
+> +	return 0;
+> +}
+> +
+> +static const struct jh71xx_domain_info jh7110_power_domains[] = {
+> +	[JH7110_PD_SYSTOP] = {
+> +		.name = "SYSTOP",
+> +		.bit = 0,
+> +		.flags = GENPD_FLAG_ALWAYS_ON,
+> +	},
+> +	[JH7110_PD_CPU] = {
+> +		.name = "CPU",
+> +		.bit = 1,
+> +		.flags = GENPD_FLAG_ALWAYS_ON,
+> +	},
+> +	[JH7110_PD_GPUA] = {
+> +		.name = "GPUA",
+> +		.bit = 2,
+> +	},
+> +	[JH7110_PD_VDEC] = {
+> +		.name = "VDEC",
+> +		.bit = 3,
+> +	},
+> +	[JH7110_PD_VOUT] = {
+> +		.name = "VOUT",
+> +		.bit = 4,
+> +	},
+> +	[JH7110_PD_ISP] = {
+> +		.name = "ISP",
+> +		.bit = 5,
+> +	},
+> +	[JH7110_PD_VENC] = {
+> +		.name = "VENC",
+> +		.bit = 6,
+> +	},
+> +};
+> +
+> +static const struct jh71xx_pmu_match_data jh7110_pmu = {
+> +	.num_domains = ARRAY_SIZE(jh7110_power_domains),
+> +	.domain_info = jh7110_power_domains,
+> +};
+> +
+> +static const struct of_device_id jh71xx_pmu_of_match[] = {
+> +	{
+> +		.compatible = "starfive,jh7110-pmu",
+> +		.data = (void *)&jh7110_pmu,
+> +	}, {
+> +		/* sentinel */
+> +	}
+> +};
+> +
+> +static struct platform_driver jh71xx_pmu_driver = {
+> +	.driver = {
+> +		.name = "jh71xx-pmu",
+> +		.of_match_table = jh71xx_pmu_of_match,
+
+In the rockchip pm-domains driver we have
+
+                /*
+                 * We can't forcibly eject devices from the power
+                 * domain, so we can't really remove power domains
+                 * once they were added.
+                 */
+                .suppress_bind_attrs = true,
+
+here, which might be valid for your pmu driver as well.
+
+
+Other than that
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
