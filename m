@@ -4,62 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 795E9C00A5A
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Jan 2023 22:35:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72D47C00A5A
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Jan 2023 23:17:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ML9MD/qhCQO8wbeyNdrNQKv2I0/8jJYVQFZhfNhNjBU=; b=0GyahYDtcjd3v9n50YCxzOI7WO
-	fbIXPBWS3iF1nB5UOW51TuW9PZyTn9Y5Ljan/Dy6BDo8Gx1EquTlHDQ9s8yMv6C6Uczu0SnWHerrr
-	+LsBsy6bgw2C2IgDht1LnKJchmFDryW4obupn1SZ6AC7qeHxg0dI6NuddwVbP/cTdsqNNefGXiNvh
-	YtRbKh+wGMhWB5xHKcJxLN8AeceLvlkZBwqvfLYpbW87isOTqmrNyOls9YXUiGy7HhEp0beCBaVqk
-	DIXVc23epGi1C+YpCQ3RmFSJNT6rKdP3QGN6LnsOB1gbtYhMjRbC4Ob3G8B6beYgjn7JXWagE+olV
-	0RCOPatg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=1gFYIo9krxLujKbfYc7SA+kJf5tR26iOXeXMycZDBHI=; b=xeukKoJyoc1CTx
+	nsM8Ez7ETnyLZFM5raxR2UqQJrk9+tloFeIvpN9+vLYlYSnLa9l+eVvB9RJBYxoLOsXOuLnWiGC0h
+	hHn0csKDTUq1uphDPLwDhVzWD34kiXA5snIVEY1Oyd5caSmmob/4drlE6i6LSIZcEGEWZ5CYoxxJP
+	pMiNyP0fd3OVVtrZ6cmJz/0nE7epHjsoSczn57fk7j5BO8g8nuNz9F04C3hsenNQoDEwwBMbVUZed
+	kmo65zvvLNTqNzyT9KrNss3jR6mAKkiCFtLQy7O7hVqMMfOxxWbrpXjIGGpR4nm/dUcKgJikUJuzq
+	/6j4OEqNHb3hTDjdCnpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pHuXr-00G6pv-Gq; Tue, 17 Jan 2023 22:35:07 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pHvCO-00GDQT-E9; Tue, 17 Jan 2023 23:17:00 +0000
+Received: from phobos.denx.de ([2a01:238:438b:c500:173d:9f52:ddab:ee01])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pHuXo-00G6ou-JN
-	for linux-riscv@lists.infradead.org; Tue, 17 Jan 2023 22:35:06 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	id 1pHvCC-00GDL7-UD; Tue, 17 Jan 2023 23:16:51 +0000
+Received: from tr.lan (ip-86-49-120-218.bb.vodafone.cz [86.49.120.218])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 26D9E61552;
-	Tue, 17 Jan 2023 22:35:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB693C433EF;
-	Tue, 17 Jan 2023 22:35:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1673994903;
-	bh=eWG1VPMkeRLPxbwPwcVEiYJL+Vutp+KjKBvwMn+l3Zw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AmPyOVQeGo/pyoaPU/m2sGtG6M/15GKwqGraCmJC/fRxCKvJFxnwFEcVaogxNpJF1
-	 uIIpdQkP3GEvYM0aFk27sCLxaYnqexZTMYuDvupLiaBrnb1vveW7pDJ43luSF1jsgW
-	 LujmcHaOAO/bk/Mi3xIqYDoeVZS/R5rmsj975KpKV+pRRPsIvqAUmuXA13L7uY2JY9
-	 0FxARInPXLP4h/bPfxoznqLq7Qcz3QBp3xx1vdINzCmE0JBIAQownSBOxfHnhFwhh6
-	 EvdyvK01zUJpNX0Kx9cZgX9/I0Yg1x73zAsdYfUzhGe8H1jPpRSeo/Bw6StZRU6vJN
-	 jyalA/nzzOD6Q==
-Date: Tue, 17 Jan 2023 22:34:59 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: linux-riscv@lists.infradead.org,
-	'Anup Patel ' <apatel@ventanamicro.com>,
-	'Albert Ou ' <aou@eecs.berkeley.edu>,
-	'Paul Walmsley ' <paul.walmsley@sifive.com>,
-	'Sia Jee Heng ' <jeeheng.sia@starfivetech.com>,
-	'Palmer Dabbelt ' <palmer@dabbelt.com>,
-	'Ley Foon Tan ' <leyfoon.tan@starfivetech.com>
-Subject: Re: [RFC PATCH 0/1] riscv: Introduce system suspend support
-Message-ID: <Y8cikxHHxXPeGKyF@spud>
-References: <20230106113216.443057-1-ajones@ventanamicro.com>
+	(Authenticated sender: marex@denx.de)
+	by phobos.denx.de (Postfix) with ESMTPSA id CE92A855BA;
+	Wed, 18 Jan 2023 00:16:41 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de;
+	s=phobos-20191101; t=1673997402;
+	bh=xyfGc0aEnzCD0axHpZLu+fHs6gA6mnDR9wtio8Vzobg=;
+	h=From:To:Cc:Subject:Date:From;
+	b=VpeXJ4pJ27FLf1QPSPfur+AjQ2cZ6qu+0CUZ+EQyygh/Tw41GQ8NqDnb5k3dX0Gjv
+	 3cSySJ/ytBCzqzbfVF95h8UU8ZZ8pJ1f1hLoH+lyf/MGLRzvmxK4HsRbeiIwkPt16q
+	 Sl7hY6z8slTRIRztulcQ1Ckdcf6rpRGZe743VLamscuQZknXtQUqvPrKgE2X79VDBB
+	 b1qAIgpwWUWDeV6bohDfoKbt5j8gef4WthG58lVtOgRrpLShSOkbQt3rDOZFFWFrQS
+	 CryFNaKVdzCQDD17IHku64BiRpRfwzrluDvJwcuFwuoHLDmnjzVWtgI/VzFu0akZ63
+	 2cyEwzkraRCHw==
+From: Marek Vasut <marex@denx.de>
+To: linux-clk@vger.kernel.org
+Cc: Marek Vasut <marex@denx.de>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Stephen Boyd <sboyd@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v2 1/2] dt-bindings: clk: si521xx: Add Skyworks Si521xx I2C PCIe clock generators
+Date: Wed, 18 Jan 2023 00:16:25 +0100
+Message-Id: <20230117231626.134588-1-marex@denx.de>
+X-Mailer: git-send-email 2.39.0
 MIME-Version: 1.0
-In-Reply-To: <20230106113216.443057-1-ajones@ventanamicro.com>
+X-Virus-Scanned: clamav-milter 0.103.6 at phobos.denx.de
+X-Virus-Status: Clean
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230117_143504_698746_25799AA5 
-X-CRM114-Status: GOOD (  15.42  )
+X-CRM114-CacheID: sfid-20230117_151649_798064_07998155 
+X-CRM114-Status: GOOD (  14.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,74 +75,111 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7547423207148138889=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Add binding for Skyworks Si521xx PCIe clock generators. This binding
+is designed to support Si52144/Si52146/Si52147 series I2C PCIe clock
+generators, tested model is Si52144. It should be possible to add
+Si5213x series as well.
 
---===============7547423207148138889==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="wN+tLJAJSLr64pUs"
-Content-Disposition: inline
+Signed-off-by: Marek Vasut <marex@denx.de>
+---
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
+Cc: Marek Vasut <marex@denx.de>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>
+Cc: Michael Turquette <mturquette@baylibre.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Rob Herring <robh+dt@kernel.org>
+Cc: Stephen Boyd <sboyd@kernel.org>
+Cc: devicetree@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-mediatek@lists.infradead.org
+Cc: linux-riscv@lists.infradead.org
+To: linux-clk@vger.kernel.org
+---
+V2: - Drop 'Binding for'
+    - Drop reg: description
+    - Drop ref25 from example
+---
+ .../bindings/clock/skyworks,si521xx.yaml      | 60 +++++++++++++++++++
+ 1 file changed, 60 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/clock/skyworks,si521xx.yaml
 
+diff --git a/Documentation/devicetree/bindings/clock/skyworks,si521xx.yaml b/Documentation/devicetree/bindings/clock/skyworks,si521xx.yaml
+new file mode 100644
+index 0000000000000..fb30c5fb1ddd7
+--- /dev/null
++++ b/Documentation/devicetree/bindings/clock/skyworks,si521xx.yaml
+@@ -0,0 +1,60 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/clock/skyworks,si521xx.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Skyworks Si521xx I2C PCIe clock generators
++
++description: |
++  The Skyworks Si521xx are I2C PCIe clock generators providing
++  from 4 to 9 output clocks.
++
++maintainers:
++  - Marek Vasut <marex@denx.de>
++
++properties:
++  compatible:
++    enum:
++      - skyworks,si52144
++      - skyworks,si52146
++      - skyworks,si52147
++
++  reg:
++    const: 0x6b
++
++  '#clock-cells':
++    const: 1
++
++  clocks:
++    items:
++      - description: XTal input clock
++
++  skyworks,out-amplitude-microvolt:
++    enum: [ 300000, 400000, 500000, 600000, 700000, 800000, 900000, 1000000 ]
++    description: Output clock signal amplitude
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - '#clock-cells'
++
++additionalProperties: false
++
++examples:
++  - |
++    i2c@0 {
++        reg = <0x0 0x100>;
++        #address-cells = <1>;
++        #size-cells = <0>;
++
++        clock-generator@6b {
++            compatible = "skyworks,si52144";
++            reg = <0x6b>;
++            #clock-cells = <1>;
++            clocks = <&ref25m>;
++        };
++    };
++
++...
+-- 
+2.39.0
 
---wN+tLJAJSLr64pUs
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hey Drew!
-
-On Fri, Jan 06, 2023 at 12:32:15PM +0100, Andrew Jones wrote:
-> Booting with an OpenSBI including the RFC series[1] implementing the
-> draft proposal for SBI system suspend[2] we can add system support to
-> Linux. This support implements "suspend-to-RAM", which means when a
-> kernel is built with CONFIG_SUSPEND 'echo mem > /sys/power/state' will
-> initiate a suspension.
->=20
-> This has only been tested on QEMU using the OpenSBI system suspend
-> test. The test just waits 5 seconds and then resumes. To truly use
-> system suspend a platform must have a low-level firmware implementation
-> and provide at least one wake-up event, such as from a wakeup-capable
-> RTC alarm, to resume.
->=20
-> [1] https://github.com/jones-drew/opensbi/commits/susp-rfc
->     Posting: http://lists.infradead.org/pipermail/opensbi/2023-January/00=
-4091.html
-> [2] https://github.com/jones-drew/riscv-sbi-doc/commit/d9e43e9a938fc3eb51=
-0e023c3f352462876f7785
-
-In case you don't get alerts from GH, I left one *tiny* comment on this.
-And I really mean tiny!
-
-Thanks,
-Conor.
-
-
---wN+tLJAJSLr64pUs
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY8cikwAKCRB4tDGHoIJi
-0hl1AP0QF4aS884D60QTE61PkR3KD+ux5b7AY7P8vJgkm3RssQEAisCAY5lSFYO4
-C0A3bvPEfpMwK/5LKe6TT9oqP6WqHAE=
-=JsIX
------END PGP SIGNATURE-----
-
---wN+tLJAJSLr64pUs--
-
-
---===============7547423207148138889==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7547423207148138889==--
-
