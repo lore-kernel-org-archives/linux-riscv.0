@@ -4,69 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C94A7C3DA78
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Jan 2023 10:22:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAAE9C3DA78
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Jan 2023 10:27:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=05qVhUvJUdL6IAvya9Er983dPcX2lei3CwRvsl8wRI8=; b=0hHMSAZCy7JBHk1W1Mq4Hb6Oxn
-	RTHCy6cYqd+X7yesLbDf8wHRYqgV2jwchL2IStIYpNr2U5V/La/5BLKIJ7ThbQjXs5LkkB29ccVdM
-	NUize+A6I1Yvk9nbcJI4wFmTj1sUzlGT0q8hMKn8TMq/gVrpJEmAnpm/wCKoPXVv+FfQZD3FL6wHV
-	82T/xSAlr8Z4e938tK3g7JoiZOloIOJ5OF/TeS7X7CfaMAdMANFAvlmr90oFUTnZn9lFohhk0zKjH
-	jZunZ1zw5CQQSd3nZ9AWkC49co5lPhthWdK+CQQw+ppv8Qj+gQoMfkX6NnGmuFL0kVRk6KOZzQJxW
-	ZF35GBWA==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Rtc9sZNGMK7F8RA+7Ndq16K9NLliZYMJNrPnPNydl/s=; b=L95lFn7GAM8/BQ
+	k1vS+QVqXVFSnCNkfzmRp/FvJkkSkYfAh82Gy4vBTPrSEH0Is0PpumSq6frSSGF/B9HCO98PDwNyY
+	h9+m2iXVaF5J17ln0NjemtxKGRwk0J0TeOE3+xfj5lP45FO7vlmX62j1VSUFOKKP/DVqJ/OZWPXP3
+	kqvXJ1BE0EhS6Z3C97iEu3vXD2k3hm+wFcp/pdTXozk+MOQUu0de8VH8y4MKjP84hxeOmG+lk9/i6
+	iBzgUpOSjkJL+0s4iwBzq12acco1tydjD5ub7ggErUkix0PIi1g4CcM+kpoUuNsxckmoksO+LZG0n
+	/PzCRTNZqEqI8Kbdkxow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pHj6s-00DjVM-2g; Tue, 17 Jan 2023 10:22:30 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1pHjBq-00DkUH-JR; Tue, 17 Jan 2023 10:27:38 +0000
+Received: from fllv0016.ext.ti.com ([198.47.19.142])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pHj6n-00DjTf-Ov
-	for linux-riscv@lists.infradead.org; Tue, 17 Jan 2023 10:22:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1673950946; x=1705486946;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Jduk+YtRRP7rmlfDLYm1waOqpM1GyJ520JuwoKa2X8o=;
-  b=WLYDpPeLlujfR6FAZW0P89NDMez9LJO1GA7dOsLhSgJstntnLCTQLC0h
-   UAUGoZts3QgGV9i/lA+kyfgQDsxZ4oy1fkFNbJ3wEYDi/IWdSDIW1gpo6
-   TBOQ0JLrDZWwhpFDgAHjTws95Rudh50nirBYeefLnWcKnDqJNNwP5x6t3
-   dwmr6tHtRrJtQ92F8Z7l7VseknDvDoCwm6+63Y0qri84ImHOmfLbV63Mg
-   JGjcX0Kj2d8BxX9t7L3RKd5vMWvq6WzO4mvXLBlx/9NKBQFUvodA921RC
-   eKY60a0aGS2Fo7cuPQx6LLmUXrHMXVKQBgSBN68WdlDkbj2uGhvqoSNPs
-   A==;
-X-IronPort-AV: E=Sophos;i="5.97,222,1669100400"; 
-   d="asc'?scan'208";a="192580816"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 17 Jan 2023 03:22:21 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.16; Tue, 17 Jan 2023 03:22:19 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
- (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.16 via Frontend
- Transport; Tue, 17 Jan 2023 03:22:18 -0700
-Date: Tue, 17 Jan 2023 10:21:55 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Jisheng Zhang <jszhang@kernel.org>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Masahiro Yamada
-	<masahiroy@kernel.org>, Kees Cook <keescook@chromium.org>, Nathan Chancellor
-	<nathan@kernel.org>, <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH 4/4] riscv: select ARCH_WANT_LD_ORPHAN_WARN for
- !XIP_KERNEL
-Message-ID: <Y8Z2w0UQISfZnrfF@wendy>
-References: <20230116154800.2396-1-jszhang@kernel.org>
- <20230116154800.2396-5-jszhang@kernel.org>
+	id 1pHjBm-00DkSf-Fs; Tue, 17 Jan 2023 10:27:36 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by fllv0016.ext.ti.com (8.15.2/8.15.2) with ESMTP id 30HAQsXv103287;
+	Tue, 17 Jan 2023 04:26:54 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1673951214;
+	bh=HLR+mGL+Qj5K/UgXvir37XZAI7z3g+0nfN0Ej2ahbJU=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=Rh5hZ4g0uh5A8jXmMjycfiTYYjzSQhfMkIr6i2Ce4ZhOvL8rMUq6rlIJsD1kKZE86
+	 DcWJK+SeByxXW65XzxNxc7XsKAuXuBdLLpg0Txu2DUmjCBfQLHvZbPmYstw+QKmlLf
+	 rmXBqH19WuBZcRX3abXXxn72Ve78vvFtr+7zfbKo=
+Received: from DFLE105.ent.ti.com (dfle105.ent.ti.com [10.64.6.26])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 30HAQsJs029663
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 17 Jan 2023 04:26:54 -0600
+Received: from DFLE111.ent.ti.com (10.64.6.32) by DFLE105.ent.ti.com
+ (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.16; Tue, 17
+ Jan 2023 04:26:53 -0600
+Received: from fllv0039.itg.ti.com (10.64.41.19) by DFLE111.ent.ti.com
+ (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.16 via
+ Frontend Transport; Tue, 17 Jan 2023 04:26:53 -0600
+Received: from [172.24.223.35] (ileaxei01-snat2.itg.ti.com [10.180.69.6])
+	by fllv0039.itg.ti.com (8.15.2/8.15.2) with ESMTP id 30HAQj0K053861;
+	Tue, 17 Jan 2023 04:26:45 -0600
+Message-ID: <10ca38d8-df9a-33f1-3f66-8342580ef5a9@ti.com>
+Date: Tue, 17 Jan 2023 15:56:44 +0530
 MIME-Version: 1.0
-In-Reply-To: <20230116154800.2396-5-jszhang@kernel.org>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.6.1
+Subject: Re: [RFC PATCH 0/4] dt-bindings: Introduce dual-link panels &
+ panel-vendors
+Content-Language: en-US
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+CC: Rob Herring <robh+dt@kernel.org>,
+        Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>,
+        Tomi Valkeinen <tomba@kernel.org>, Jyri
+ Sarha <jyri.sarha@iki.fi>,
+        David Airlie <airlied@gmail.com>, Daniel Vetter
+	<daniel@ffwll.ch>,
+        Thierry Reding <thierry.reding@gmail.com>,
+        Sam Ravnborg
+	<sam@ravnborg.org>, Maxime Ripard <maxime@cerno.tech>,
+        Liam Girdwood
+	<lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+        Lad Prabhakar
+	<prabhakar.mahadev-lad.rj@bp.renesas.com>,
+        Paul Walmsley
+	<paul.walmsley@sifive.com>,
+        Palmer Dabbelt <palmer@dabbelt.com>,
+        Albert Ou
+	<aou@eecs.berkeley.edu>,
+        Matthias Brugger <matthias.bgg@gmail.com>,
+        Guo Ren
+	<guoren@kernel.org>, Nishanth Menon <nm@ti.com>,
+        Devicetree List
+	<devicetree@vger.kernel.org>,
+        Jayesh Choudhary <j-choudhary@ti.com>, Jai
+ Luthra <j-luthra@ti.com>,
+        Vignesh Raghavendra <vigneshr@ti.com>,
+        Devarsh
+ Thakkar <devarsht@ti.com>,
+        Linux Kernel List <linux-kernel@vger.kernel.org>,
+        DRI Development List <dri-devel@lists.freedesktop.org>,
+        Linux Mediatek List
+	<linux-mediatek@lists.infradead.org>,
+        Linux C-SKY Arch List
+	<linux-csky@vger.kernel.org>,
+        Linux RISC-V List
+	<linux-riscv@lists.infradead.org>,
+        Linux ARM Kernel List
+	<linux-arm-kernel@lists.infradead.org>,
+        Rahul T R <r-ravikumar@ti.com>
+References: <20230103064615.5311-1-a-bhatia1@ti.com>
+ <Y8UZQHvVT2VQcQ33@pendragon.ideasonboard.com>
+From: Aradhya Bhatia <a-bhatia1@ti.com>
+In-Reply-To: <Y8UZQHvVT2VQcQ33@pendragon.ideasonboard.com>
+X-EXCLAIMER-MD-CONFIG: e1e8a2fd-e40a-4ac6-ac9b-f7e9cc9ee180
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230117_022225_933371_0017B727 
-X-CRM114-Status: GOOD (  14.31  )
+X-CRM114-CacheID: sfid-20230117_022734_721000_26FFA66D 
+X-CRM114-Status: GOOD (  40.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,74 +117,132 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5227197913322103643=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============5227197913322103643==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="3qmieu08swuSyC1N"
-Content-Disposition: inline
+Hi Laurent,
 
---3qmieu08swuSyC1N
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Thank you for taking a look at this!
 
-Hey Jisheng,
+On 16-Jan-23 15:00, Laurent Pinchart wrote:
+> Hi Aradhya,
+> 
+> On Tue, Jan 03, 2023 at 12:16:11PM +0530, Aradhya Bhatia wrote:
+>> Hi all,
+>>
+>> Microtips Technology Solutions USA, and Lincoln Technology Solutions are
+>> 2 display panel vendors, and the first 2 patches add their vendor
+>> prefixes.
+>>
+>> The fourth patch, simply introduces the new compatible for the generic
+>> dual-link panels in the panel-lvds driver. This new compatible is based
+>> from a new DT binding added in the third patch explained below.
+>>
+>> The third patch introduces a dt-binding for generic dual-link LVDS
+>> panels. These panels do not have any documented constraints, except for
+>> their timing characteristics. Further, these panels have 2 pixel-sinks.
+>> In a dual-link connection between an LVDS encoder and the panel, one
+>> sink accepts the odd set of LVDS pixels and the other, the even set.
+>>
+>> A lot of this has been based from the Advantech,idk-2121wr dual-link
+>> panel[1] and Maxime's patches for generic LVDS panels[2] (which are
+>> single-link by default.) and the discussions that happened before they
+>> were finally merged.
+>>
+>> Below are some notes and points that I want to bring forward.
+>>
+>>    - The advantech,idk-2121wr panel binding uses 2 boolean properties
+>>      dual-link-odd/even-pixels, to signify which port sink is being used
+>>      for which set of LVDS pixels. I too have added similar support and
+>>      introduced constraints around those properties, so as to not break
+>>      the ABI... but I believe there is a better way to achieve this.
+>>
+>>      A "pixel-type" enum property could be introduced in their stead,
+>>      which can accept one of the 2 options <dual-lvds-odd-pixels> or
+>>      <dual-lvds-even-pixels>.
+>>
+>>      This method, in my opinion, is more accurate and cleaner to
+>>      implement in the bindings as well.
+>>
+>>      If this does sound a better I can push out a new revision where the
+>>      driver supports both these methods (to not break the ABI) and the
+>>      advantech,2121wr panel can remain as an exception.
+> 
+> It's usually best not to change an existing system if there are no good
+> reasons, so I'd ask why you think a pixel-type property would be better
+> (including when taking into account the fact that we would have to
+> maintain the advantech,2121wtr driver separately) if you want to go that
+> way. Otherwise, if we were developing this from scratch, I would have no
+> real preference.
+> 
+Such a property would have been a more accurate representation of the
+case here, voiding the need of a "oneOf:" clause, and simplifying the
+overall binding implementation.
 
-On Mon, Jan 16, 2023 at 11:48:00PM +0800, Jisheng Zhang wrote:
-> Now, after that all the sections are explicitly described and
-> declared in vmlinux.lds.S, we can enable ld orphan warnings for
-> !XIP_KERNEL to prevent from missing any new sections in future.
->=20
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> ---
->  arch/riscv/Kconfig | 1 +
->  1 file changed, 1 insertion(+)
->=20
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index e2b656043abf..335e0c45cced 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -46,6 +46,7 @@ config RISCV
->  	select ARCH_WANT_FRAME_POINTERS
->  	select ARCH_WANT_GENERAL_HUGETLB
->  	select ARCH_WANT_HUGE_PMD_SHARE if 64BIT
-> +	select ARCH_WANT_LD_ORPHAN_WARN if !XIP_KERNEL
+Furthermore, I saw this as a fair opportunity to introduce the new
+property because there was only one other dual link panel which used the
+original properties.
+And, while the code delta shall be same in implementing the pixel-type
+property irrespective of the number of existing dual-link panels that
+support the original method, I believe with pixel-type, we can set a
+fresh precedence for future scenarios (perhaps for "quad-link" LVDS, if
+there ever will be one).
 
-Enabling this points out a bunch of warnings in the efi stub:
-https://gist.github.com/conor-pwbot/145c5536268aec641671592a4cced32c
+Having said that, this was merely a suggestion. If this does not seem to
+be a strong enough reason to change the existing system, I can keep
+using the original properties (as I have in the patches) and send a v2.
 
-Would you mind sorting those out prior to enabling the warning?
+>>    - As an alternative to the previous point, if that method is not
+>>      preferred for some reason, the advantech,2121wtr panel binding
+>>      could then be merged in the panel-dual-lvds binding as part of
+>>      future work.
+>>
+>>
+>>    - Another tweak, I am looking forward to do as part of future work and
+>>      would like all your comments is to introduce driver-based
+>>      implementation of the panel timing parameters, like it is with
+>>      "panel-simple". The driver can then support both the panel-timing
+>>      sources (DT node or hard-coded driver structure) and the binding
+>>      can remove this from the "required" section.
+> 
+> There's been a very long discussion in the past (multiple discussions
+> actually) regarding whether timings should be set in DT or in drivers.
+> There were multiple arguments supporting both sides, without (it seems)
+> a clear winner. If you want driver-side timings for dual-link panels,
+> I'd like to understand why you think that's better. If the reasons are
+> the same as the ones expressed when we discussed simple panels, you
+> should also look at whether or not any of the fears expressed on either
+> side have materialized.
 
-Thanks,
-Conor.
+I went through the discussions that you mentioned above. For now, I will
+stick to the status-quo that there is for LVDS panels. =)
 
---3qmieu08swuSyC1N
-Content-Type: application/pgp-signature; name="signature.asc"
+> 
+>> Thank you!
+>>
+>> [1]: https://patchwork.freedesktop.org/patch/357122/
+>> [2]: https://patchwork.freedesktop.org/patch/471228/
+>>
+>> Aradhya Bhatia (4):
+>>    dt-bindings: vendor-prefixes: Add microtips
+>>    dt-bindings: vendor-prefixes: Add lincolntech
+>>    dt-bindings: panel: Introduce dual-link LVDS panel
+>>    drm: panel-lvds: Introduce dual-link panels
+>>
+>>   .../display/panel/panel-dual-lvds.yaml        | 157 ++++++++++++++++++
+>>   .../devicetree/bindings/vendor-prefixes.yaml  |   4 +
+>>   MAINTAINERS                                   |   1 +
+>>   drivers/gpu/drm/panel/panel-lvds.c            |   1 +
+>>   4 files changed, 163 insertions(+)
+>>   create mode 100644 Documentation/devicetree/bindings/display/panel/panel-dual-lvds.yaml
+> 
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY8Z2tgAKCRB4tDGHoIJi
-0iKAAQDa3Yxosmmpo/vgbUjG9He465WkavaULpDmIAakOpD2wAEA6XTyDQ+yoemi
-N0Bicm8PJ1E9pDeVOADgMBQe6UPw9wY=
-=Rf9v
------END PGP SIGNATURE-----
-
---3qmieu08swuSyC1N--
-
-
---===============5227197913322103643==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Regards
+Aradhya
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5227197913322103643==--
-
