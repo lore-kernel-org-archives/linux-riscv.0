@@ -4,52 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C8CBC3DA78
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Jan 2023 10:09:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C94A7C3DA78
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Jan 2023 10:22:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IFcD1BJKsbruC+ZJOdNTH8XQ1SzrT689hykhiOWXzZQ=; b=OjdIQAZwtmePP+
-	2X+tBlFdM7xfnazif9hg4C2+62ZLaoyooc/GZnZYGXin4cpe2ecrfbuUrYngXcm6D++5cLzg4IRa9
-	+LOrOtBujtHXRzvYCCJYo2Xe6iKEVom7wGQ/pj3aApi2FUwi1wVGpBcDCEUm0yMgLZXt0xE/LmIz5
-	FAyDXTkeib30T0ritrSzFn4vliH0BmYRNdAFoF3QfTqQ8GJftSW1kfPoUZxaOXGK4ds3HjrwX0h7j
-	8uvgHjzdAa9hHR/JRM9OPaCNBo1Wr3kHYL91s+scJUTmjomM2mR9GqsnNeqDm30/XEfeLOq36iRYN
-	WBABGDVMUnRJbbj4DQyg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=05qVhUvJUdL6IAvya9Er983dPcX2lei3CwRvsl8wRI8=; b=0hHMSAZCy7JBHk1W1Mq4Hb6Oxn
+	RTHCy6cYqd+X7yesLbDf8wHRYqgV2jwchL2IStIYpNr2U5V/La/5BLKIJ7ThbQjXs5LkkB29ccVdM
+	NUize+A6I1Yvk9nbcJI4wFmTj1sUzlGT0q8hMKn8TMq/gVrpJEmAnpm/wCKoPXVv+FfQZD3FL6wHV
+	82T/xSAlr8Z4e938tK3g7JoiZOloIOJ5OF/TeS7X7CfaMAdMANFAvlmr90oFUTnZn9lFohhk0zKjH
+	jZunZ1zw5CQQSd3nZ9AWkC49co5lPhthWdK+CQQw+ppv8Qj+gQoMfkX6NnGmuFL0kVRk6KOZzQJxW
+	ZF35GBWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pHiuB-00DhTJ-IB; Tue, 17 Jan 2023 10:09:23 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1pHj6s-00DjVM-2g; Tue, 17 Jan 2023 10:22:30 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pHity-00DhR9-4l
-	for linux-riscv@lists.infradead.org; Tue, 17 Jan 2023 10:09:11 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1pHitr-0006k8-Rj; Tue, 17 Jan 2023 11:09:03 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org,
- devicetree@vger.kernel.org
-Cc: Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor.dooley@microchip.com>,
- Emil Renner Berthing <emil.renner.berthing@canonical.com>,
- "Rafael J . Wysocki" <rafael@kernel.org>,
- Walker Chen <walker.chen@starfivetech.com>, linux-kernel@vger.kernel.org,
- Walker Chen <walker.chen@starfivetech.com>
-Subject: Re: [PATCH v3 2/3] soc: starfive: Add StarFive JH71XX pmu driver
-Date: Tue, 17 Jan 2023 11:09:03 +0100
-Message-ID: <10209933.nUPlyArG6x@diego>
-In-Reply-To: <20230116074259.22874-3-walker.chen@starfivetech.com>
-References:  <20230116074259.22874-1-walker.chen@starfivetech.com>
- <20230116074259.22874-3-walker.chen@starfivetech.com>
+	id 1pHj6n-00DjTf-Ov
+	for linux-riscv@lists.infradead.org; Tue, 17 Jan 2023 10:22:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1673950946; x=1705486946;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Jduk+YtRRP7rmlfDLYm1waOqpM1GyJ520JuwoKa2X8o=;
+  b=WLYDpPeLlujfR6FAZW0P89NDMez9LJO1GA7dOsLhSgJstntnLCTQLC0h
+   UAUGoZts3QgGV9i/lA+kyfgQDsxZ4oy1fkFNbJ3wEYDi/IWdSDIW1gpo6
+   TBOQ0JLrDZWwhpFDgAHjTws95Rudh50nirBYeefLnWcKnDqJNNwP5x6t3
+   dwmr6tHtRrJtQ92F8Z7l7VseknDvDoCwm6+63Y0qri84ImHOmfLbV63Mg
+   JGjcX0Kj2d8BxX9t7L3RKd5vMWvq6WzO4mvXLBlx/9NKBQFUvodA921RC
+   eKY60a0aGS2Fo7cuPQx6LLmUXrHMXVKQBgSBN68WdlDkbj2uGhvqoSNPs
+   A==;
+X-IronPort-AV: E=Sophos;i="5.97,222,1669100400"; 
+   d="asc'?scan'208";a="192580816"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 17 Jan 2023 03:22:21 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.16; Tue, 17 Jan 2023 03:22:19 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.16 via Frontend
+ Transport; Tue, 17 Jan 2023 03:22:18 -0700
+Date: Tue, 17 Jan 2023 10:21:55 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Jisheng Zhang <jszhang@kernel.org>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Masahiro Yamada
+	<masahiroy@kernel.org>, Kees Cook <keescook@chromium.org>, Nathan Chancellor
+	<nathan@kernel.org>, <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH 4/4] riscv: select ARCH_WANT_LD_ORPHAN_WARN for
+ !XIP_KERNEL
+Message-ID: <Y8Z2w0UQISfZnrfF@wendy>
+References: <20230116154800.2396-1-jszhang@kernel.org>
+ <20230116154800.2396-5-jszhang@kernel.org>
 MIME-Version: 1.0
+In-Reply-To: <20230116154800.2396-5-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230117_020910_224387_53232B94 
-X-CRM114-Status: GOOD (  22.33  )
+X-CRM114-CacheID: sfid-20230117_022225_933371_0017B727 
+X-CRM114-Status: GOOD (  14.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,171 +78,74 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5227197913322103643=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Walker,
+--===============5227197913322103643==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="3qmieu08swuSyC1N"
+Content-Disposition: inline
 
-Am Montag, 16. Januar 2023, 08:42:58 CET schrieb Walker Chen:
-> +static int jh71xx_pmu_get_state(struct jh71xx_pmu_dev *pmd, u32 mask, bool *is_on)
-> +{
-> +	struct jh71xx_pmu *pmu = pmd->pmu;
-> +
-> +	if (!mask) {
-> +		*is_on = false;
+--3qmieu08swuSyC1N
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-nit: While it's not necessarily bad, I don't think callers of
-jh71xx_pmu_get_state() should expect this to be set in error case.
+Hey Jisheng,
 
-> +		return -EINVAL;
-> +	}
-> +
-> +	*is_on = readl(pmu->base + JH71XX_PMU_CURR_POWER_MODE) & mask;
-> +
-> +	return 0;
-> +}
+On Mon, Jan 16, 2023 at 11:48:00PM +0800, Jisheng Zhang wrote:
+> Now, after that all the sections are explicitly described and
+> declared in vmlinux.lds.S, we can enable ld orphan warnings for
+> !XIP_KERNEL to prevent from missing any new sections in future.
+>=20
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> ---
+>  arch/riscv/Kconfig | 1 +
+>  1 file changed, 1 insertion(+)
+>=20
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index e2b656043abf..335e0c45cced 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -46,6 +46,7 @@ config RISCV
+>  	select ARCH_WANT_FRAME_POINTERS
+>  	select ARCH_WANT_GENERAL_HUGETLB
+>  	select ARCH_WANT_HUGE_PMD_SHARE if 64BIT
+> +	select ARCH_WANT_LD_ORPHAN_WARN if !XIP_KERNEL
 
-[...]
+Enabling this points out a bunch of warnings in the efi stub:
+https://gist.github.com/conor-pwbot/145c5536268aec641671592a4cced32c
 
-> +static int jh71xx_pmu_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct device_node *np = dev->of_node;
-> +	const struct jh71xx_pmu_match_data *match_data;
-> +	struct jh71xx_pmu *pmu;
-> +	unsigned int i;
-> +	int ret;
-> +
-> +	pmu = devm_kzalloc(dev, sizeof(*pmu), GFP_KERNEL);
-> +	if (!pmu)
-> +		return -ENOMEM;
-> +
-> +	pmu->base = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(pmu->base))
-> +		return PTR_ERR(pmu->base);
-> +
-> +	pmu->irq = platform_get_irq(pdev, 0);
-> +	if (pmu->irq < 0)
-> +		return pmu->irq;
-> +
-> +	ret = devm_request_irq(dev, pmu->irq, jh71xx_pmu_interrupt,
-> +			       0, pdev->name, pmu);
-> +	if (ret)
-> +		dev_err(dev, "failed to request irq\n");
-> +
-> +	match_data = of_device_get_match_data(dev);
-> +	if (!match_data)
-> +		return -EINVAL;
-> +
-> +	pmu->genpd = devm_kcalloc(dev, match_data->num_domains,
-> +				  sizeof(struct generic_pm_domain *),
-> +				  GFP_KERNEL);
-> +	if (!pmu->genpd)
-> +		return -ENOMEM;
-> +
-> +	pmu->dev = dev;
-> +	pmu->match_data = match_data;
-> +	pmu->genpd_data.domains = pmu->genpd;
-> +	pmu->genpd_data.num_domains = match_data->num_domains;
-> +
-> +	for (i = 0; i < match_data->num_domains; i++) {
-> +		ret = jh71xx_pmu_init_domain(pmu, i);
-> +		if (ret) {
-> +			dev_err(dev, "failed to initialize power domain\n");
-> +			return ret;
-> +		}
-> +	}
-> +
-> +	spin_lock_init(&pmu->lock);
-> +	jh71xx_pmu_int_enable(pmu, JH71XX_PMU_INT_ALL_MASK & ~JH71XX_PMU_INT_PCH_FAIL, true);
-> +
-> +	ret = of_genpd_add_provider_onecell(np, &pmu->genpd_data);
-> +	if (ret) {
-> +		dev_err(dev, "failed to register genpd driver: %d\n", ret);
-> +		return ret;
-> +	}
-> +
-> +	dev_info(dev, "registered %u power domains\n", i);
+Would you mind sorting those out prior to enabling the warning?
 
-nit: I guess that could be a dev_dbg to not spam the kernel log too much?
+Thanks,
+Conor.
+
+--3qmieu08swuSyC1N
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY8Z2tgAKCRB4tDGHoIJi
+0iKAAQDa3Yxosmmpo/vgbUjG9He465WkavaULpDmIAakOpD2wAEA6XTyDQ+yoemi
+N0Bicm8PJ1E9pDeVOADgMBQe6UPw9wY=
+=Rf9v
+-----END PGP SIGNATURE-----
+
+--3qmieu08swuSyC1N--
 
 
-> +	return 0;
-> +}
-> +
-> +static const struct jh71xx_domain_info jh7110_power_domains[] = {
-> +	[JH7110_PD_SYSTOP] = {
-> +		.name = "SYSTOP",
-> +		.bit = 0,
-> +		.flags = GENPD_FLAG_ALWAYS_ON,
-> +	},
-> +	[JH7110_PD_CPU] = {
-> +		.name = "CPU",
-> +		.bit = 1,
-> +		.flags = GENPD_FLAG_ALWAYS_ON,
-> +	},
-> +	[JH7110_PD_GPUA] = {
-> +		.name = "GPUA",
-> +		.bit = 2,
-> +	},
-> +	[JH7110_PD_VDEC] = {
-> +		.name = "VDEC",
-> +		.bit = 3,
-> +	},
-> +	[JH7110_PD_VOUT] = {
-> +		.name = "VOUT",
-> +		.bit = 4,
-> +	},
-> +	[JH7110_PD_ISP] = {
-> +		.name = "ISP",
-> +		.bit = 5,
-> +	},
-> +	[JH7110_PD_VENC] = {
-> +		.name = "VENC",
-> +		.bit = 6,
-> +	},
-> +};
-> +
-> +static const struct jh71xx_pmu_match_data jh7110_pmu = {
-> +	.num_domains = ARRAY_SIZE(jh7110_power_domains),
-> +	.domain_info = jh7110_power_domains,
-> +};
-> +
-> +static const struct of_device_id jh71xx_pmu_of_match[] = {
-> +	{
-> +		.compatible = "starfive,jh7110-pmu",
-> +		.data = (void *)&jh7110_pmu,
-> +	}, {
-> +		/* sentinel */
-> +	}
-> +};
-> +
-> +static struct platform_driver jh71xx_pmu_driver = {
-> +	.driver = {
-> +		.name = "jh71xx-pmu",
-> +		.of_match_table = jh71xx_pmu_of_match,
-
-In the rockchip pm-domains driver we have
-
-                /*
-                 * We can't forcibly eject devices from the power
-                 * domain, so we can't really remove power domains
-                 * once they were added.
-                 */
-                .suppress_bind_attrs = true,
-
-here, which might be valid for your pmu driver as well.
-
-
-Other than that
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
-
-
-
+--===============5227197913322103643==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5227197913322103643==--
+
