@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E03F9C63797
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Jan 2023 06:40:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 503E6C63797
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Jan 2023 06:44:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=a+8nXnimJi6dxFbE0xxMP7C6AXNghtLlXOx16EV/4+o=; b=OIs+oDNBsQIdkp
-	XeoQxyt6Ir4+XZmL/1A2rj3pqC0YG8T+SlK3GottAf+lUarVPI9amUl0+PBqBGJhhJ34dDUq/NcVd
-	6ijMqSkmLUDJSBlfO8dAijG0tLyDfEvg3/fRGQMOL81jgSAU0/gs6oL7YgOnkw5ATdaGxSsLvqre9
-	VQtm7gaVr50rh0Lzwqt0YXZukXxuKcomZRg6uI6f6cA+NxaAQB9vguaKIl0LFOGhWM/1yqw8o0nc3
-	uhKSowgzOZAAzjvN7Ysr1L0VsbOCniWekYsIR9m14kw74GeIHPIFeIzhQzD37Y++Lq2q9I/wmKLnB
-	S1VEoG5NbRgNGD8saYiQ==;
+	List-Owner; bh=7iaOVlQp8NtOG0Lf5H0kpALpvNJ2KYwC3NZAH7PSR6c=; b=KXd9AEkRDJzwxU
+	gmQO5G3P3klbiMMeQraSybg9LzDtb+lIjpDe7In338jLIbrmR9KfYUuI9XJMJLUuwlKUc8p7/cfL+
+	xbdCHODX1a3WozqFA9Q2h8cxh12N7KZTuI+bv8EE6zbrONV7Dim1iBqHR1M19QCkO0DThXNW61LrB
+	U4hB2h/o6NL00rVRIDe9IZsMbKxKaxjbYnzs4YchuGZv8JvJXTX0TsWD8KmgQbgMmgVfFD/nEV5Qi
+	wlU9kZ20OW0YsxW7s3HGXmTTDsab22CzhkWA9+WZpsYyRgnUbga+8c3FEWnM3akDgVm4qCHilikZY
+	vFFZOBcZpR5kQE8y7Nhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pHfeI-00D5E5-FA; Tue, 17 Jan 2023 06:40:46 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	id 1pHfi3-00D5nc-6t; Tue, 17 Jan 2023 06:44:39 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pHfeC-00D59E-Au
-	for linux-riscv@lists.infradead.org; Tue, 17 Jan 2023 06:40:45 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	id 1pHfhy-00D5kS-3h
+	for linux-riscv@lists.infradead.org; Tue, 17 Jan 2023 06:44:37 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 45B4C24DC09;
-	Tue, 17 Jan 2023 14:39:53 +0800 (CST)
-Received: from EXMBX161.cuchost.com (172.16.6.71) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 17 Jan
- 2023 14:39:53 +0800
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 761F424E1BD;
+	Tue, 17 Jan 2023 14:44:02 +0800 (CST)
+Received: from EXMBX161.cuchost.com (172.16.6.71) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 17 Jan
+ 2023 14:44:02 +0800
 Received: from [192.168.125.128] (113.72.144.207) by EXMBX161.cuchost.com
  (172.16.6.71) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 17 Jan
- 2023 14:39:52 +0800
-Message-ID: <1055bd6b-0801-12a4-706d-2b6cebad2845@starfivetech.com>
-Date: Tue, 17 Jan 2023 14:35:46 +0800
+ 2023 14:44:01 +0800
+Message-ID: <01824dab-ed75-973a-c1bc-562a1a9370a1@starfivetech.com>
+Date: Tue, 17 Jan 2023 14:39:55 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
  Thunderbird/102.6.1
-Subject: Re: [PATCH v2 2/3] drivers: watchdog: Add StarFive Watchdog driver
+Subject: Re: [PATCH v1 2/3] clocksource: Add StarFive timer driver
 Content-Language: en-US
-To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-watchdog@vger.kernel.org>, Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Guenter Roeck <linux@roeck-us.net>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>
+To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Daniel
+ Lezcano" <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
 CC: Rob Herring <robh+dt@kernel.org>, Paul Walmsley
 	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
 	<aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Samin Guo
 	<samin.guo@starfivetech.com>, <linux-kernel@vger.kernel.org>
-References: <20221219094233.179153-1-xingyu.wu@starfivetech.com>
- <20221219094233.179153-3-xingyu.wu@starfivetech.com>
+References: <20221223094801.181315-1-xingyu.wu@starfivetech.com>
+ <20221223094801.181315-3-xingyu.wu@starfivetech.com>
 From: Xingyu Wu <xingyu.wu@starfivetech.com>
-In-Reply-To: <20221219094233.179153-3-xingyu.wu@starfivetech.com>
+In-Reply-To: <20221223094801.181315-3-xingyu.wu@starfivetech.com>
 X-Originating-IP: [113.72.144.207]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX161.cuchost.com
+X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX161.cuchost.com
  (172.16.6.71)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230116_224040_991568_0C3B3DF3 
-X-CRM114-Status: GOOD (  30.63  )
+X-CRM114-CacheID: sfid-20230116_224434_630259_5592FCFB 
+X-CRM114-Status: GOOD (  35.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,800 +77,656 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2022/12/19 17:42, Xingyu Wu wrote:
-> Add watchdog driver for the StarFive JH7110 SoC.
+On 2022/12/23 17:48, Xingyu Wu wrote:
+> Add timer driver for the StarFive JH7110 SoC.
 > 
 > Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
 > ---
->  MAINTAINERS                     |   7 +
->  drivers/watchdog/Kconfig        |  11 +
->  drivers/watchdog/Makefile       |   3 +
->  drivers/watchdog/starfive-wdt.c | 720 ++++++++++++++++++++++++++++++++
->  4 files changed, 741 insertions(+)
->  create mode 100644 drivers/watchdog/starfive-wdt.c
+>  MAINTAINERS                          |   7 +
+>  drivers/clocksource/Kconfig          |  12 +
+>  drivers/clocksource/Makefile         |   1 +
+>  drivers/clocksource/timer-starfive.c | 465 +++++++++++++++++++++++++++
+>  drivers/clocksource/timer-starfive.h | 104 ++++++
+>  5 files changed, 589 insertions(+)
+>  create mode 100644 drivers/clocksource/timer-starfive.c
+>  create mode 100644 drivers/clocksource/timer-starfive.h
 > 
 > diff --git a/MAINTAINERS b/MAINTAINERS
-> index a70c1d0f303e..9c1758e7d034 100644
+> index a70c1d0f303e..340ad9e0a31f 100644
 > --- a/MAINTAINERS
 > +++ b/MAINTAINERS
 > @@ -19623,6 +19623,13 @@ F:	Documentation/devicetree/bindings/reset/starfive,jh7100-reset.yaml
 >  F:	drivers/reset/starfive/
 >  F:	include/dt-bindings/reset/starfive*
 >  
-> +STARFIVE JH7110 WATCHDOG DRIVER
-> +M:	Xingyu Wu <xingyu.wu@starfivetech.com>
+> +STARFIVE TIMER DRIVER
 > +M:	Samin Guo <samin.guo@starfivetech.com>
+> +M:	Xingyu Wu <xingyu.wu@starfivetech.com>
 > +S:	Supported
-> +F:	Documentation/devicetree/bindings/watchdog/starfive*
-> +F:	drivers/watchdog/starfive-wdt.c
+> +F:	Documentation/devicetree/bindings/timer/starfive*
+> +F:	drivers/clocksource/timer-starfive*
 > +
 >  STATIC BRANCH/CALL
 >  M:	Peter Zijlstra <peterz@infradead.org>
 >  M:	Josh Poimboeuf <jpoimboe@kernel.org>
-> diff --git a/drivers/watchdog/Kconfig b/drivers/watchdog/Kconfig
-> index b64bc49c7f30..8eeb0e23e98d 100644
-> --- a/drivers/watchdog/Kconfig
-> +++ b/drivers/watchdog/Kconfig
-> @@ -2082,6 +2082,17 @@ config UML_WATCHDOG
->  	tristate "UML watchdog"
->  	depends on UML || COMPILE_TEST
+> diff --git a/drivers/clocksource/Kconfig b/drivers/clocksource/Kconfig
+> index 4469e7f555e9..11400b3a8f5c 100644
+> --- a/drivers/clocksource/Kconfig
+> +++ b/drivers/clocksource/Kconfig
+> @@ -630,6 +630,18 @@ config RISCV_TIMER
+>  	  is accessed via both the SBI and the rdcycle instruction.  This is
+>  	  required for all RISC-V systems.
 >  
-> +# RISCV Architecture
-> +
-> +config STARFIVE_WATCHDOG
-> +	tristate "StarFive Watchdog support"
-> +	depends on RISCV
-> +	select WATCHDOG_CORE
+> +config STARFIVE_TIMER
+> +	bool "Timer for the STARFIVE SoCs"
+> +	depends on RISCV && OF && (SOC_STARFIVE || COMPILE_TEST)
+> +	select TIMER_OF
+> +	select CLKSRC_MMIO
 > +	default SOC_STARFIVE
 > +	help
-> +	  Say Y here to support the watchdog of StarFive JH7110 SoC.
-> +	  This driver can also be built as a module if choose M.
+> +	  This enables the timers for StarFive SoCs. On RISC-V platform,
+> +	  the system has started RISCV_TIMER. But you can also use these timers
+> +	  to do a lot more on StarFive SoCs. These timers can provide much
+> +	  higher precision than RISCV_TIMER.
 > +
->  #
->  # ISA-based Watchdog Cards
->  #
-> diff --git a/drivers/watchdog/Makefile b/drivers/watchdog/Makefile
-> index d41e5f830ae7..9c22f1a43d5c 100644
-> --- a/drivers/watchdog/Makefile
-> +++ b/drivers/watchdog/Makefile
-> @@ -210,6 +210,9 @@ obj-$(CONFIG_WATCHDOG_SUN4V)		+= sun4v_wdt.o
->  # Xen
->  obj-$(CONFIG_XEN_WDT) += xen_wdt.o
->  
-> +# RISCV Architecture
-> +obj-$(CONFIG_STARFIVE_WATCHDOG) += starfive-wdt.o
-> +
->  # Architecture Independent
->  obj-$(CONFIG_BD957XMUF_WATCHDOG) += bd9576_wdt.o
->  obj-$(CONFIG_DA9052_WATCHDOG) += da9052_wdt.o
-> diff --git a/drivers/watchdog/starfive-wdt.c b/drivers/watchdog/starfive-wdt.c
+>  config CLINT_TIMER
+>  	bool "CLINT Timer for the RISC-V platform" if COMPILE_TEST
+>  	depends on GENERIC_SCHED_CLOCK && RISCV
+> diff --git a/drivers/clocksource/Makefile b/drivers/clocksource/Makefile
+> index 64ab547de97b..276695d95cdc 100644
+> --- a/drivers/clocksource/Makefile
+> +++ b/drivers/clocksource/Makefile
+> @@ -80,6 +80,7 @@ obj-$(CONFIG_INGENIC_TIMER)		+= ingenic-timer.o
+>  obj-$(CONFIG_CLKSRC_ST_LPC)		+= clksrc_st_lpc.o
+>  obj-$(CONFIG_X86_NUMACHIP)		+= numachip.o
+>  obj-$(CONFIG_RISCV_TIMER)		+= timer-riscv.o
+> +obj-$(CONFIG_STARFIVE_TIMER)		+= timer-starfive.o
+>  obj-$(CONFIG_CLINT_TIMER)		+= timer-clint.o
+>  obj-$(CONFIG_CSKY_MP_TIMER)		+= timer-mp-csky.o
+>  obj-$(CONFIG_GX6605S_TIMER)		+= timer-gx6605s.o
+> diff --git a/drivers/clocksource/timer-starfive.c b/drivers/clocksource/timer-starfive.c
 > new file mode 100644
-> index 000000000000..d7fad0a2207c
+> index 000000000000..8db413a22fdc
 > --- /dev/null
-> +++ b/drivers/watchdog/starfive-wdt.c
-> @@ -0,0 +1,720 @@
+> +++ b/drivers/clocksource/timer-starfive.c
+> @@ -0,0 +1,465 @@
 > +// SPDX-License-Identifier: GPL-2.0
 > +/*
-> + * Starfive Watchdog driver
+> + * Starfive Timer driver
 > + *
 > + * Copyright (C) 2022 StarFive Technology Co., Ltd.
+> + *
+> + * Author:
+> + * Xingyu Wu <xingyu.wu@starfivetech.com>
+> + * Samin Guo <samin.guo@starfivetech.com>
 > + */
 > +
 > +#include <linux/clk.h>
-> +#include <linux/delay.h>
+> +#include <linux/clockchips.h>
+> +#include <linux/clocksource.h>
 > +#include <linux/err.h>
 > +#include <linux/interrupt.h>
 > +#include <linux/io.h>
 > +#include <linux/iopoll.h>
+> +#include <linux/irq.h>
+> +#include <linux/kernel.h>
 > +#include <linux/module.h>
-> +#include <linux/moduleparam.h>
 > +#include <linux/of.h>
-> +#include <linux/of_device.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/pm_runtime.h>
+> +#include <linux/of_address.h>
+> +#include <linux/of_clk.h>
+> +#include <linux/of_irq.h>
 > +#include <linux/reset.h>
-> +#include <linux/reset-controller.h>
-> +#include <linux/slab.h>
-> +#include <linux/timer.h>
-> +#include <linux/types.h>
-> +#include <linux/uaccess.h>
-> +#include <linux/watchdog.h>
+> +#include <linux/sched_clock.h>
 > +
-> +/* JH7110 WatchDog register define */
-> +#define STARFIVE_WDT_JH7110_LOAD	0x000	/* RW: Watchdog load register */
-> +#define STARFIVE_WDT_JH7110_VALUE	0x004	/* RO: The current value for the watchdog counter */
-> +#define STARFIVE_WDT_JH7110_CONTROL	0x008	/*
-> +						 * RW:
-> +						 * [0]: reset enable;
-> +						 * [1]: int enable/wdt enable/reload counter;
-> +						 * [31:2]: reserve.
-> +						 */
-> +#define STARFIVE_WDT_JH7110_INTCLR	0x00c	/* WO: clear intterupt && reload the counter */
-> +#define STARFIVE_WDT_JH7110_RIS		0x010	/* RO: Raw interrupt status from the counter */
-> +#define STARFIVE_WDT_JH7110_IMS		0x014	/* RO: Enabled interrupt status from the counter */
-> +#define STARFIVE_WDT_JH7110_LOCK	0xc00	/*
-> +						 * RO: Enable write access to all other registers
-> +						 * by writing 0x1ACCE551.
-> +						 */
+> +#include "timer-starfive.h"
 > +
-> +#define STARFIVE_WDT_JH7110_UNLOCK_KEY		0x1acce551
-> +#define STARFIVE_WDT_JH7110_RESEN_SHIFT		1
-> +#define STARFIVE_WDT_JH7110_EN_SHIFT		0
-> +
-> +/* WDOGCONTROL */
-> +#define STARFIVE_WDT_ENABLE	0x1
-> +#define STARFIVE_WDT_RESET_EN	0x1
-> +
-> +/* WDOGLOCK */
-> +#define STARFIVE_WDT_LOCKED	BIT(0)
-> +
-> +/* WDOGINTCLR */
-> +#define STARFIVE_WDT_INTCLR	0x1
-> +
-> +#define STARFIVE_WDT_ATBOOT	0x0
-> +#define STARFIVE_WDT_MAXCNT	0xffffffff
-> +
-> +#define STARFIVE_WDT_DEFAULT_TIME	(15)
-> +#define STARFIVE_WDT_DELAY_US		0
-> +#define STARFIVE_WDT_TIMEOUT_US		10000
-> +
-> +static bool nowayout = WATCHDOG_NOWAYOUT;
-> +static int tmr_margin;
-> +static int tmr_atboot = STARFIVE_WDT_ATBOOT;
-> +static int soft_noboot;
-> +
-> +module_param(tmr_margin, int, 0);
-> +module_param(tmr_atboot, int, 0);
-> +module_param(nowayout, bool, 0);
-> +module_param(soft_noboot, int, 0);
-> +
-> +MODULE_PARM_DESC(tmr_margin, "Watchdog tmr_margin in seconds. (default="
-> +		 __MODULE_STRING(STARFIVE_WDT_DEFAULT_TIME) ")");
-> +MODULE_PARM_DESC(tmr_atboot,
-> +		 "Watchdog is started at boot time if set to 1, default="
-> +		 __MODULE_STRING(STARFIVE_WDT_ATBOOT));
-> +MODULE_PARM_DESC(nowayout, "Watchdog cannot be stopped once started (default="
-> +		 __MODULE_STRING(WATCHDOG_NOWAYOUT) ")");
-> +MODULE_PARM_DESC(soft_noboot,
-> +		 "Watchdog action, set to 1 to ignore reboots, 0 to reboot (default 0)");
-> +
-> +struct starfive_wdt_variant {
-> +	u32 control;
-> +	u32 load;
-> +	u32 enable;
-> +	u32 value;
-> +	u32 int_clr;
-> +	u32 unlock;
-> +	u32 unlock_key;
-> +	u32 irq_is_raise;
-> +	u8 enrst_shift;
-> +	u8 en_shift;
+> +struct starfive_timer __initdata starfive_timer_jh7110 = {
+> +	.ctrl		= STARFIVE_TIMER_JH7110_CTL,
+> +	.load		= STARFIVE_TIMER_JH7110_LOAD,
+> +	.enable		= STARFIVE_TIMER_JH7110_ENABLE,
+> +	.reload		= STARFIVE_TIMER_JH7110_RELOAD,
+> +	.value		= STARFIVE_TIMER_JH7110_VALUE,
+> +	.intclr		= STARFIVE_TIMER_JH7110_INT_CLR,
+> +	.intmask	= STARFIVE_TIMER_JH7110_INT_MASK,
+> +	.timer_base	= {STARFIVE_TIMER_BASE(0), STARFIVE_TIMER_BASE(1),
+> +			   STARFIVE_TIMER_BASE(2), STARFIVE_TIMER_BASE(3)},
 > +};
 > +
-> +struct starfive_wdt {
-> +	unsigned long freq;
-> +	struct device *dev;
-> +	struct watchdog_device wdt_device;
-> +	struct clk *core_clk;
-> +	struct clk *apb_clk;
-> +	struct reset_control *rsts;
-> +	const struct starfive_wdt_variant *drv_data;
-> +	u32 count;	/*count of timeout*/
-> +	u32 reload;	/*restore the count*/
-> +	void __iomem *base;
-> +	spinlock_t lock;	/* spinlock for register handling */
-> +};
-> +
-> +#ifdef CONFIG_OF
-> +/* Register bias in JH7110 */
-> +static const struct starfive_wdt_variant drv_data_jh7110 = {
-> +	.control = STARFIVE_WDT_JH7110_CONTROL,
-> +	.load = STARFIVE_WDT_JH7110_LOAD,
-> +	.enable = STARFIVE_WDT_JH7110_CONTROL,
-> +	.value = STARFIVE_WDT_JH7110_VALUE,
-> +	.int_clr = STARFIVE_WDT_JH7110_INTCLR,
-> +	.unlock = STARFIVE_WDT_JH7110_LOCK,
-> +	.unlock_key = STARFIVE_WDT_JH7110_UNLOCK_KEY,
-> +	.irq_is_raise = STARFIVE_WDT_JH7110_IMS,
-> +	.enrst_shift = STARFIVE_WDT_JH7110_RESEN_SHIFT,
-> +	.en_shift = STARFIVE_WDT_JH7110_EN_SHIFT,
-> +};
-> +
-> +static const struct of_device_id starfive_wdt_match[] = {
-> +	{ .compatible = "starfive,jh7110-wdt", .data = &drv_data_jh7110 },
-> +	{}
-> +};
-> +MODULE_DEVICE_TABLE(of, starfive_wdt_match);
-> +#endif
-> +
-> +static const struct platform_device_id starfive_wdt_ids[] = {
-> +	{
-> +		.name = "starfive-jh7110-wdt",
-> +		.driver_data = (unsigned long)&drv_data_jh7110,
-> +	},
-> +	{}
-> +};
-> +MODULE_DEVICE_TABLE(platform, starfive_wdt_ids);
-> +
-> +static int starfive_wdt_get_clock_rate(struct starfive_wdt *wdt)
+> +static inline struct starfive_clkevt *to_starfive_clkevt(struct clock_event_device *evt)
 > +{
-> +	if (!IS_ERR(wdt->core_clk)) {
-> +		wdt->freq = clk_get_rate(wdt->core_clk);
+> +	return container_of(evt, struct starfive_clkevt, evt);
+> +}
+> +
+> +/* 0:continuous-run mode, 1:single-run mode */
+> +static inline void starfive_timer_set_mod(struct starfive_clkevt *clkevt, int mod)
+> +{
+> +	writel(mod, clkevt->ctrl);
+> +}
+> +
+> +/* Interrupt Mask Register, 0:Unmask, 1:Mask */
+> +static inline void starfive_timer_int_enable(struct starfive_clkevt *clkevt)
+> +{
+> +	writel(INTMASK_ENABLE_DIS, clkevt->intmask);
+> +}
+> +
+> +static inline void starfive_timer_int_disable(struct starfive_clkevt *clkevt)
+> +{
+> +	writel(INTMASK_ENABLE, clkevt->intmask);
+> +}
+> +
+> +/*
+> + * BIT(0): Read value represent channel intr status.
+> + * Write 1 to this bit to clear interrupt. Write 0 has no effects.
+> + * BIT(1): "1" means that it is clearing interrupt. BIT(0) can not be written.
+> + */
+> +static inline void starfive_timer_int_clear(struct starfive_clkevt *clkevt)
+> +{
+> +	/* waiting interrupt can be to clearing */
+> +	u32 value;
+> +	int ret = 0;
+> +
+> +	value = readl(clkevt->intclr);
+> +	ret = readl_poll_timeout_atomic(clkevt->intclr, value,
+> +					!(value & STARFIVE_TIMER_JH7110_INT_STATUS_CLR_AVA),
+> +					STARFIVE_DELAY_US, STARFIVE_TIMEOUT_US);
+> +	if (!ret)
+> +		writel(1, clkevt->intclr);
+> +}
+> +
+> +/*
+> + * The initial value to be loaded into the
+> + * counter and is also used as the reload value.
+> + */
+> +static inline void starfive_timer_set_load(struct starfive_clkevt *clkevt, u32 val)
+> +{
+> +	writel(val, clkevt->load);
+> +}
+> +
+> +static inline u32 starfive_timer_get_val(struct starfive_clkevt *clkevt)
+> +{
+> +	return readl(clkevt->value);
+> +}
+> +
+> +/*
+> + * Write RELOAD register to reload preset value to counter.
+> + * (Write 0 and write 1 are both ok)
+> + */
+> +static inline void starfive_timer_set_reload(struct starfive_clkevt *clkevt)
+> +{
+> +	writel(1, clkevt->reload);
+> +}
+> +
+> +static inline void starfive_timer_enable(struct starfive_clkevt *clkevt)
+> +{
+> +	writel(TIMER_ENA, clkevt->enable);
+> +}
+> +
+> +static inline void starfive_timer_disable(struct starfive_clkevt *clkevt)
+> +{
+> +	writel(TIMER_ENA_DIS, clkevt->enable);
+> +}
+> +
+> +static void timer_shutdown(struct starfive_clkevt *clkevt)
+> +{
+> +	starfive_timer_int_disable(clkevt);
+> +	starfive_timer_disable(clkevt);
+> +	starfive_timer_int_clear(clkevt);
+> +}
+> +
+> +static void starfive_timer_suspend(struct clock_event_device *evt)
+> +{
+> +	struct starfive_clkevt *clkevt = to_starfive_clkevt(evt);
+> +
+> +	clkevt->reload_val = starfive_timer_get_val(clkevt);
+> +
+> +	starfive_timer_disable(clkevt);
+> +	starfive_timer_int_disable(clkevt);
+> +	starfive_timer_int_clear(clkevt);
+> +}
+> +
+> +static void starfive_timer_resume(struct clock_event_device *evt)
+> +{
+> +	struct starfive_clkevt *clkevt = to_starfive_clkevt(evt);
+> +
+> +	starfive_timer_set_load(clkevt, clkevt->reload_val);
+> +	starfive_timer_set_reload(clkevt);
+> +	starfive_timer_int_enable(clkevt);
+> +	starfive_timer_enable(clkevt);
+> +}
+> +
+> +static int starfive_timer_tick_resume(struct clock_event_device *evt)
+> +{
+> +	starfive_timer_resume(evt);
+> +
+> +	return 0;
+> +}
+> +
+> +static int starfive_timer_shutdown(struct clock_event_device *evt)
+> +{
+> +	struct starfive_clkevt *clkevt = to_starfive_clkevt(evt);
+> +
+> +	timer_shutdown(clkevt);
+> +
+> +	return 0;
+> +}
+> +
+> +static int starfive_get_clock_rate(struct starfive_clkevt *clkevt, struct device_node *np)
+> +{
+> +	int ret;
+> +	u32 rate;
+> +
+> +	if (clkevt->clk) {
+> +		clkevt->rate = clk_get_rate(clkevt->clk);
+> +		if (clkevt->rate > 0) {
+> +			pr_debug("clk_get_rate clkevt->rate: %d\n", clkevt->rate);
+> +			return 0;
+> +		}
+> +	}
+> +
+> +	/* Next we try to get clock-frequency from dts.*/
+> +	ret = of_property_read_u32(np, "clock-frequency", &rate);
+> +	if (!ret) {
+> +		pr_debug("Timer: try get clock-frequency:%d Hz\n", rate);
+> +		clkevt->rate = rate;
 > +		return 0;
 > +	}
-> +	dev_err(wdt->dev, "get clock rate failed.\n");
+> +	pr_err("Timer: get rate failed, need clock-frequency define in dts.\n");
 > +
 > +	return -ENOENT;
 > +}
 > +
-> +static int starfive_wdt_enable_clock(struct starfive_wdt *wdt)
+> +static int starfive_clocksource_init(struct starfive_clkevt *clkevt,
+> +				     const char *name, struct device_node *np)
 > +{
-> +	int ret = 0;
+> +	starfive_timer_set_mod(clkevt, MOD_CONTIN);
+> +	starfive_timer_set_load(clkevt, STARFIVE_MAX_TICKS);  /* val = rate --> 1s */
+> +	starfive_timer_int_disable(clkevt);
+> +	starfive_timer_int_clear(clkevt);
+> +	starfive_timer_int_enable(clkevt);
+> +	starfive_timer_enable(clkevt);
 > +
-> +	wdt->apb_clk = devm_clk_get_enabled(wdt->dev, "apb");
-> +	if (IS_ERR(wdt->apb_clk)) {
-> +		dev_err(wdt->dev, "failed to get and enable apb clock.\n");
-> +		ret = PTR_ERR(wdt->apb_clk);
-> +		return ret;
-> +	}
-> +
-> +	wdt->core_clk = devm_clk_get_enabled(wdt->dev, "core");
-> +	if (IS_ERR(wdt->core_clk)) {
-> +		dev_err(wdt->dev, "failed to get and enable core clock.\n");
-> +		ret = PTR_ERR(wdt->core_clk);
-> +	}
-> +
-> +	return ret;
-> +}
-> +
-> +static int starfive_wdt_reset_init(struct starfive_wdt *wdt)
-> +{
-> +	int ret = 0;
-> +
-> +	wdt->rsts = devm_reset_control_array_get_exclusive(wdt->dev);
-> +	if (!IS_ERR(wdt->rsts)) {
-> +		ret = reset_control_deassert(wdt->rsts);
-> +		if (ret)
-> +			dev_err(wdt->dev, "failed to deassert rsts.\n");
-> +	} else {
-> +		dev_err(wdt->dev, "failed to get rsts error.\n");
-> +		ret = PTR_ERR(wdt->rsts);
-> +	}
-> +
-> +	return ret;
-> +}
-> +
-> +static u32 starfive_wdt_ticks_to_sec(struct starfive_wdt *wdt, u32 ticks)
-> +{
-> +	return DIV_ROUND_CLOSEST(ticks, wdt->freq);
+> +	return clocksource_mmio_init(clkevt->value, name, clkevt->rate,
+> +				     STARFIVE_CLOCK_SOURCE_RATING, STARFIVE_VALID_BITS,
+> +				     clocksource_mmio_readl_down);
 > +}
 > +
 > +/*
-> + * Write unlock-key to unlock. Write other value to lock. When lock bit is 1,
-> + * external accesses to other watchdog registers are ignored.
+> + * IRQ handler for the timer
 > + */
-> +static bool starfive_wdt_is_locked(struct starfive_wdt *wdt)
+> +static irqreturn_t starfive_timer_interrupt(int irq, void *priv)
 > +{
-> +	u32 val;
+> +	struct clock_event_device *evt = (struct clock_event_device *)priv;
+> +	struct starfive_clkevt *clkevt = to_starfive_clkevt(evt);
 > +
-> +	val = readl(wdt->base + wdt->drv_data->unlock);
-> +	return !!(val & STARFIVE_WDT_LOCKED);
+> +	starfive_timer_int_clear(clkevt);
+> +
+> +	if (evt->event_handler)
+> +		evt->event_handler(evt);
+> +
+> +	return IRQ_HANDLED;
 > +}
 > +
-> +static void starfive_wdt_unlock(struct starfive_wdt *wdt)
+> +static int starfive_timer_set_periodic(struct clock_event_device *evt)
 > +{
-> +	if (starfive_wdt_is_locked(wdt))
-> +		writel(wdt->drv_data->unlock_key,
-> +		       wdt->base + wdt->drv_data->unlock);
-> +}
+> +	struct starfive_clkevt *clkevt = to_starfive_clkevt(evt);
 > +
-> +static void starfive_wdt_lock(struct starfive_wdt *wdt)
-> +{
-> +	if (!starfive_wdt_is_locked(wdt))
-> +		writel(~wdt->drv_data->unlock_key,
-> +		       wdt->base + wdt->drv_data->unlock);
-> +}
-> +
-> +/* enable watchdog interrupt to reset */
-> +static void starfive_wdt_enable_reset(struct starfive_wdt *wdt)
-> +{
-> +	u32 val;
-> +
-> +	val = readl(wdt->base + wdt->drv_data->control);
-> +	val |= STARFIVE_WDT_RESET_EN << wdt->drv_data->enrst_shift;
-> +	writel(val, wdt->base + wdt->drv_data->control);
-> +}
-> +
-> +/* disable watchdog interrupt to reset */
-> +static void starfive_wdt_disable_reset(struct starfive_wdt *wdt)
-> +{
-> +	u32 val;
-> +
-> +	val = readl(wdt->base + wdt->drv_data->control);
-> +	val &= ~(STARFIVE_WDT_RESET_EN << wdt->drv_data->enrst_shift);
-> +	writel(val, wdt->base + wdt->drv_data->control);
-> +}
-> +
-> +/* interrupt status whether has been raised from the counter */
-> +static bool starfive_wdt_raise_irq_status(struct starfive_wdt *wdt)
-> +{
-> +	return !!readl(wdt->base + wdt->drv_data->irq_is_raise);
-> +}
-> +
-> +static void starfive_wdt_int_clr(struct starfive_wdt *wdt)
-> +{
-> +	writel(STARFIVE_WDT_INTCLR, wdt->base + wdt->drv_data->int_clr);
-> +}
-> +
-> +static inline void starfive_wdt_set_count(struct starfive_wdt *wdt, u32 val)
-> +{
-> +	writel(val, wdt->base + wdt->drv_data->load);
-> +}
-> +
-> +static inline u32 starfive_wdt_get_count(struct starfive_wdt *wdt)
-> +{
-> +	return readl(wdt->base + wdt->drv_data->value);
-> +}
-> +
-> +static inline void starfive_wdt_enable(struct starfive_wdt *wdt)
-> +{
-> +	u32 val;
-> +
-> +	val = readl(wdt->base + wdt->drv_data->enable);
-> +	val |= STARFIVE_WDT_ENABLE << wdt->drv_data->en_shift;
-> +	writel(val, wdt->base + wdt->drv_data->enable);
-> +}
-> +
-> +static inline void starfive_wdt_disable(struct starfive_wdt *wdt)
-> +{
-> +	u32 val;
-> +
-> +	val = readl(wdt->base + wdt->drv_data->enable);
-> +	val &= ~(STARFIVE_WDT_ENABLE << wdt->drv_data->en_shift);
-> +	writel(val, wdt->base + wdt->drv_data->enable);
-> +}
-> +
-> +static inline void starfive_wdt_set_reload_count(struct starfive_wdt *wdt, u32 count)
-> +{
-> +	starfive_wdt_set_count(wdt, count);
-> +	/* need enable controller to reload counter */
-> +	starfive_wdt_enable(wdt);
-> +}
-> +
-> +static void starfive_wdt_mask_and_disable_reset(struct starfive_wdt *wdt, bool mask)
-> +{
-> +	starfive_wdt_unlock(wdt);
-> +
-> +	if (mask)
-> +		starfive_wdt_disable_reset(wdt);
-> +	else
-> +		starfive_wdt_enable_reset(wdt);
-> +
-> +	starfive_wdt_lock(wdt);
-> +}
-> +
-> +static unsigned int starfive_wdt_max_timeout(struct starfive_wdt *wdt)
-> +{
-> +	return DIV_ROUND_UP(STARFIVE_WDT_MAXCNT, wdt->freq) - 1;
-> +}
-> +
-> +static unsigned int starfive_wdt_get_timeleft(struct watchdog_device *wdd)
-> +{
-> +	struct starfive_wdt *wdt = watchdog_get_drvdata(wdd);
-> +	u32 count;
-> +
-> +	starfive_wdt_unlock(wdt);
-> +	/*
-> +	 * Because set half count value,
-> +	 * timeleft value should add the count value before first timeout.
-> +	 */
-> +	count = starfive_wdt_get_count(wdt);
-> +	if (!starfive_wdt_raise_irq_status(wdt))
-> +		count += wdt->count;
-> +
-> +	starfive_wdt_lock(wdt);
-> +
-> +	return starfive_wdt_ticks_to_sec(wdt, count);
-> +}
-> +
-> +static int starfive_wdt_keepalive(struct watchdog_device *wdd)
-> +{
-> +	struct starfive_wdt *wdt = watchdog_get_drvdata(wdd);
-> +
-> +	spin_lock(&wdt->lock);
-> +
-> +	starfive_wdt_unlock(wdt);
-> +	starfive_wdt_int_clr(wdt);
-> +	starfive_wdt_set_reload_count(wdt, wdt->count);
-> +	starfive_wdt_lock(wdt);
-> +
-> +	spin_unlock(&wdt->lock);
+> +	starfive_timer_disable(clkevt);
+> +	starfive_timer_set_mod(clkevt, MOD_CONTIN);
+> +	starfive_timer_set_load(clkevt, clkevt->periodic);
+> +	starfive_timer_int_disable(clkevt);
+> +	starfive_timer_int_clear(clkevt);
+> +	starfive_timer_int_enable(clkevt);
+> +	starfive_timer_enable(clkevt);
 > +
 > +	return 0;
 > +}
 > +
-> +static int starfive_wdt_stop(struct watchdog_device *wdd)
+> +static int starfive_timer_set_oneshot(struct clock_event_device *evt)
 > +{
-> +	struct starfive_wdt *wdt = watchdog_get_drvdata(wdd);
+> +	struct starfive_clkevt *clkevt = to_starfive_clkevt(evt);
 > +
-> +	spin_lock(&wdt->lock);
-> +
-> +	starfive_wdt_unlock(wdt);
-> +	starfive_wdt_int_clr(wdt);
-> +	starfive_wdt_disable(wdt);
-> +	starfive_wdt_lock(wdt);
-> +
-> +	spin_unlock(&wdt->lock);
+> +	starfive_timer_disable(clkevt);
+> +	starfive_timer_set_mod(clkevt, MOD_SINGLE);
+> +	starfive_timer_set_load(clkevt, STARFIVE_MAX_TICKS);
+> +	starfive_timer_int_disable(clkevt);
+> +	starfive_timer_int_clear(clkevt);
+> +	starfive_timer_int_enable(clkevt);
+> +	starfive_timer_enable(clkevt);
 > +
 > +	return 0;
 > +}
 > +
-> +static int starfive_wdt_pm_stop(struct watchdog_device *wdd)
+> +static int starfive_timer_set_next_event(unsigned long next,
+> +					 struct clock_event_device *evt)
 > +{
-> +	struct starfive_wdt *wdt = watchdog_get_drvdata(wdd);
+> +	struct starfive_clkevt *clkevt = to_starfive_clkevt(evt);
 > +
-> +	starfive_wdt_stop(wdd);
-> +	pm_runtime_put(wdt->dev);
+> +	starfive_timer_disable(clkevt);
+> +	starfive_timer_set_mod(clkevt, MOD_SINGLE);
+> +	starfive_timer_set_load(clkevt, next);
+> +	starfive_timer_enable(clkevt);
 > +
 > +	return 0;
 > +}
 > +
-> +static int starfive_wdt_start(struct watchdog_device *wdd)
+> +static void starfive_set_clockevent(struct clock_event_device *evt)
 > +{
-> +	struct starfive_wdt *wdt = watchdog_get_drvdata(wdd);
-> +
-> +	pm_runtime_get_sync(wdt->dev);
-> +
-> +	spin_lock(&wdt->lock);
-> +
-> +	starfive_wdt_unlock(wdt);
-> +
-> +	if (soft_noboot)
-> +		starfive_wdt_disable_reset(wdt);
-> +	else
-> +		starfive_wdt_enable_reset(wdt);
-> +
-> +	starfive_wdt_int_clr(wdt);
-> +	starfive_wdt_set_count(wdt, wdt->count);
-> +	starfive_wdt_enable(wdt);
-> +
-> +	starfive_wdt_lock(wdt);
-> +
-> +	spin_unlock(&wdt->lock);
-> +
-> +	return 0;
+> +	evt->features	= CLOCK_EVT_FEAT_PERIODIC |
+> +			  CLOCK_EVT_FEAT_ONESHOT |
+> +			  CLOCK_EVT_FEAT_DYNIRQ;
+> +	evt->set_state_shutdown	= starfive_timer_shutdown;
+> +	evt->set_state_periodic	= starfive_timer_set_periodic;
+> +	evt->set_state_oneshot	= starfive_timer_set_oneshot;
+> +	evt->set_state_oneshot_stopped = starfive_timer_shutdown;
+> +	evt->tick_resume	= starfive_timer_tick_resume;
+> +	evt->set_next_event	= starfive_timer_set_next_event;
+> +	evt->suspend		= starfive_timer_suspend;
+> +	evt->resume		= starfive_timer_resume;
+> +	evt->rating		= STARFIVE_CLOCKEVENT_RATING;
 > +}
 > +
-> +static int starfive_wdt_restart(struct watchdog_device *wdd, unsigned long action,
-> +				void *data)
+> +static int starfive_clockevents_register(struct starfive_clkevt *clkevt, unsigned int irq,
+> +					 struct device_node *np, const char *name)
 > +{
-> +	struct starfive_wdt *wdt = watchdog_get_drvdata(wdd);
+> +	int ret = 0;
 > +
-> +	spin_lock(&wdt->lock);
-> +	starfive_wdt_unlock(wdt);
-> +	/* disable watchdog, to be safe */
-> +	starfive_wdt_disable(wdt);
-> +
-> +	if (soft_noboot)
-> +		starfive_wdt_disable_reset(wdt);
-> +	else
-> +		starfive_wdt_enable_reset(wdt);
-> +
-> +	/* put native values into count */
-> +	starfive_wdt_set_count(wdt, wdt->count);
-> +
-> +	/* set the watchdog to go and reset */
-> +	starfive_wdt_int_clr(wdt);
-> +	starfive_wdt_enable(wdt);
-> +
-> +	starfive_wdt_lock(wdt);
-> +	spin_unlock(&wdt->lock);
-> +
-> +	return 0;
-> +}
-> +
-> +static int starfive_wdt_set_timeout(struct watchdog_device *wdd,
-> +				    unsigned int timeout)
-> +{
-> +	struct starfive_wdt *wdt = watchdog_get_drvdata(wdd);
-> +
-> +	unsigned long freq = wdt->freq;
-> +	unsigned int count;
-> +
-> +	spin_lock(&wdt->lock);
-> +
-> +	if (timeout < wdt->wdt_device.min_timeout)
+> +	ret = starfive_get_clock_rate(clkevt, np);
+> +	if (ret)
 > +		return -EINVAL;
 > +
-> +	/*
-> +	 * This watchdog takes twice timeouts to reset.
-> +	 * In order to reduce time to reset, should set half count value.
-> +	 */
-> +	count = timeout * freq / 2;
+> +	clkevt->periodic = DIV_ROUND_CLOSEST(clkevt->rate, HZ);
 > +
-> +	if (count > STARFIVE_WDT_MAXCNT) {
-> +		dev_warn(wdt->dev, "timeout %d too big,use the MAX-timeout set.\n",
-> +			 timeout);
-> +		timeout = starfive_wdt_max_timeout(wdt);
-> +		count = timeout * freq;
-> +	}
+> +	starfive_set_clockevent(&clkevt->evt);
+> +	clkevt->evt.name = name;
+> +	clkevt->evt.irq = irq;
+> +	clkevt->evt.cpumask = cpu_possible_mask;
 > +
-> +	dev_info(wdt->dev, "Heartbeat: timeout=%d, count/2=%d (%08x)\n",
-> +		 timeout, count, count);
-> +
-> +	starfive_wdt_unlock(wdt);
-> +	starfive_wdt_disable(wdt);
-> +	starfive_wdt_set_reload_count(wdt, count);
-> +	starfive_wdt_enable(wdt);
-> +	starfive_wdt_lock(wdt);
-> +
-> +	wdt->count = count;
-> +	wdd->timeout = timeout;
-> +
-> +	spin_unlock(&wdt->lock);
-> +
-> +	return 0;
-> +}
-> +
-> +#define OPTIONS (WDIOF_SETTIMEOUT | WDIOF_KEEPALIVEPING | WDIOF_MAGICCLOSE)
-> +
-> +static const struct watchdog_info starfive_wdt_ident = {
-> +	.options = OPTIONS,
-> +	.firmware_version = 0,
-> +	.identity = "StarFive Watchdog",
-> +};
-> +
-> +static const struct watchdog_ops starfive_wdt_ops = {
-> +	.owner = THIS_MODULE,
-> +	.start = starfive_wdt_start,
-> +	.stop = starfive_wdt_pm_stop,
-> +	.ping = starfive_wdt_keepalive,
-> +	.set_timeout = starfive_wdt_set_timeout,
-> +	.restart = starfive_wdt_restart,
-> +	.get_timeleft = starfive_wdt_get_timeleft,
-> +};
-> +
-> +static const struct watchdog_device starfive_wdd = {
-> +	.info = &starfive_wdt_ident,
-> +	.ops = &starfive_wdt_ops,
-> +	.timeout = STARFIVE_WDT_DEFAULT_TIME,
-> +};
-> +
-> +static inline const struct starfive_wdt_variant *
-> +starfive_wdt_get_drv_data(struct platform_device *pdev)
-> +{
-> +	const struct starfive_wdt_variant *variant;
-> +
-> +	variant = of_device_get_match_data(&pdev->dev);
-> +	if (!variant) {
-> +		/* Device matched by platform_device_id */
-> +		variant = (struct starfive_wdt_variant *)
-> +			   platform_get_device_id(pdev)->driver_data;
-> +	}
-> +
-> +	return variant;
-> +}
-> +
-> +static int starfive_wdt_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct starfive_wdt *wdt;
-> +	int started = 0;
-> +	int ret;
-> +
-> +	pm_runtime_enable(dev);
-> +
-> +	wdt = devm_kzalloc(dev, sizeof(*wdt), GFP_KERNEL);
-> +	if (!wdt)
-> +		return -ENOMEM;
-> +
-> +	wdt->dev = dev;
-> +	spin_lock_init(&wdt->lock);
-> +	wdt->wdt_device = starfive_wdd;
-> +
-> +	wdt->drv_data = starfive_wdt_get_drv_data(pdev);
-> +
-> +	/* get the memory region for the watchdog timer */
-> +	wdt->base = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(wdt->base)) {
-> +		ret = PTR_ERR(wdt->base);
-> +		return ret;
-> +	}
-> +
-> +	ret = starfive_wdt_enable_clock(wdt);
+> +	ret = request_irq(irq, starfive_timer_interrupt,
+> +			  IRQF_TIMER | IRQF_IRQPOLL, name, &clkevt->evt);
 > +	if (ret)
-> +		return ret;
+> +		pr_err("%s: request_irq failed\n", name);
 > +
-> +	ret = starfive_wdt_get_clock_rate(wdt);
-> +	if (ret)
-> +		goto err_clk_disable;
-> +
-> +	ret = starfive_wdt_reset_init(wdt);
-> +	if (ret)
-> +		goto err_clk_disable;
-> +
-> +	wdt->wdt_device.min_timeout = 1;
-> +	wdt->wdt_device.max_timeout = starfive_wdt_max_timeout(wdt);
-> +
-> +	watchdog_set_drvdata(&wdt->wdt_device, wdt);
-> +
-> +	/*
-> +	 * see if we can actually set the requested timer margin,
-> +	 * and if not, try the default value.
-> +	 */
-> +	watchdog_init_timeout(&wdt->wdt_device, tmr_margin, dev);
-> +
-> +	ret = starfive_wdt_set_timeout(&wdt->wdt_device,
-> +				       wdt->wdt_device.timeout);
-> +	if (ret) {
-> +		dev_err(dev, "tmr_margin value out of range, default %d used\n",
-> +			STARFIVE_WDT_DEFAULT_TIME);
-> +		starfive_wdt_set_timeout(&wdt->wdt_device,
-> +					 STARFIVE_WDT_DEFAULT_TIME);
-> +	}
-> +
-> +	watchdog_set_nowayout(&wdt->wdt_device, nowayout);
-> +	watchdog_set_restart_priority(&wdt->wdt_device, 128);
-> +	watchdog_stop_on_reboot(&wdt->wdt_device);
-> +	watchdog_stop_on_unregister(&wdt->wdt_device);
-> +
-> +	wdt->wdt_device.parent = dev;
-> +
-> +	ret = watchdog_register_device(&wdt->wdt_device);
-> +	if (ret)
-> +		goto err_clk_disable;
-> +
-> +	starfive_wdt_mask_and_disable_reset(wdt, false);
-> +
-> +	if (tmr_atboot && started == 0) {
-> +		starfive_wdt_start(&wdt->wdt_device);
-> +	} else if (!tmr_atboot) {
-> +		/*
-> +		 *if we're not enabling the watchdog, then ensure it is
-> +		 * disabled if it has been left running from the bootloader
-> +		 * or other source.
-> +		 */
-> +		starfive_wdt_stop(&wdt->wdt_device);
-> +	}
-> +
-> +#ifdef CONFIG_PM
-> +	clk_disable_unprepare(wdt->core_clk);
-> +	clk_disable_unprepare(wdt->apb_clk);
-> +#endif
-> +
-> +	platform_set_drvdata(pdev, wdt);
-> +
-> +	return 0;
-> +
-> +err_clk_disable:
-> +	clk_disable_unprepare(wdt->core_clk);
-> +	clk_disable_unprepare(wdt->apb_clk);
+> +	clockevents_config_and_register(&clkevt->evt, clkevt->rate,
+> +					STARFIVE_MIN_TICKS, STARFIVE_MAX_TICKS);
 > +
 > +	return ret;
 > +}
 > +
-> +static int starfive_wdt_remove(struct platform_device *dev)
+> +static void __init starfive_clkevt_base_init(struct starfive_timer *timer,
+> +					     struct starfive_clkevt *clkevt,
+> +					     void __iomem *base, int index)
 > +{
-> +	struct starfive_wdt *wdt = platform_get_drvdata(dev);
+> +	void __iomem *timer_base;
 > +
-> +	starfive_wdt_mask_and_disable_reset(wdt, true);
-> +	watchdog_unregister_device(&wdt->wdt_device);
-> +
-> +	clk_disable_unprepare(wdt->core_clk);
-> +	clk_disable_unprepare(wdt->apb_clk);
-> +	pm_runtime_disable(wdt->dev);
-> +
-> +	return 0;
+> +	timer_base	= base + timer->timer_base[index];
+> +	clkevt->base	= timer_base;
+> +	clkevt->ctrl	= timer_base + timer->ctrl;
+> +	clkevt->load	= timer_base + timer->load;
+> +	clkevt->enable	= timer_base + timer->enable;
+> +	clkevt->reload	= timer_base + timer->reload;
+> +	clkevt->value	= timer_base + timer->value;
+> +	clkevt->intclr	= timer_base + timer->intclr;
+> +	clkevt->intmask	= timer_base + timer->intmask;
 > +}
 > +
-> +static void starfive_wdt_shutdown(struct platform_device *dev)
+> +static int __init starfive_timer_jh7110_of_init(struct device_node *np)
 > +{
-> +	struct starfive_wdt *wdt = platform_get_drvdata(dev);
+> +	int index, count, irq, ret;
+> +	const char *name = NULL;
+> +	struct clk *clk;
+> +	struct clk *pclk;
+> +	struct reset_control *prst;
+> +	struct reset_control *rst;
+> +	struct starfive_clkevt *clkevt[STARFIVE_NR_TIMERS];
+> +	void __iomem *base;
+> +	struct starfive_timer *timer = &starfive_timer_jh7110;
 > +
-> +	starfive_wdt_mask_and_disable_reset(wdt, true);
+> +	base = of_iomap(np, 0);
+> +	if (!base)
+> +		return -ENXIO;
 > +
-> +	starfive_wdt_pm_stop(&wdt->wdt_device);
-> +}
-> +
-> +#ifdef CONFIG_PM_SLEEP
-> +static int starfive_wdt_suspend(struct device *dev)
-> +{
-> +	int ret;
-> +	struct starfive_wdt *wdt = dev_get_drvdata(dev);
-> +
-> +	starfive_wdt_unlock(wdt);
-> +
-> +	/* Save watchdog state, and turn it off. */
-> +	wdt->reload = starfive_wdt_get_count(wdt);
-> +
-> +	starfive_wdt_mask_and_disable_reset(wdt, true);
-> +
-> +	/* Note that WTCNT doesn't need to be saved. */
-> +	starfive_wdt_stop(&wdt->wdt_device);
-> +	pm_runtime_force_suspend(dev);
-> +
-> +	starfive_wdt_lock(wdt);
-> +
-> +	return 0;
-> +}
-> +
-> +static int starfive_wdt_resume(struct device *dev)
-> +{
-> +	int ret;
-> +	struct starfive_wdt *wdt = dev_get_drvdata(dev);
-> +
-> +	starfive_wdt_unlock(wdt);
-> +
-> +	pm_runtime_force_resume(dev);
-> +
-> +	/* Restore watchdog state. */
-> +	starfive_wdt_set_reload_count(wdt, wdt->reload);
-> +
-> +	starfive_wdt_restart(&wdt->wdt_device, 0, NULL);
-> +
-> +	starfive_wdt_mask_and_disable_reset(wdt, false);
-> +
-> +	starfive_wdt_lock(wdt);
-> +
-> +	return 0;
-> +}
-> +#endif /* CONFIG_PM_SLEEP */
-> +
-> +#ifdef CONFIG_PM
-> +static int starfive_wdt_runtime_suspend(struct device *dev)
-> +{
-> +	struct starfive_wdt *wdt = dev_get_drvdata(dev);
-> +
-> +	clk_disable_unprepare(wdt->apb_clk);
-> +	clk_disable_unprepare(wdt->core_clk);
-> +
-> +	return 0;
-> +}
-> +
-> +static int starfive_wdt_runtime_resume(struct device *dev)
-> +{
-> +	struct starfive_wdt *wdt = dev_get_drvdata(dev);
-> +	int ret;
-> +
-> +	ret = clk_prepare_enable(wdt->apb_clk);
-> +	if (ret) {
-> +		dev_err(wdt->dev, "failed to enable apb_clk.\n");
-> +		return ret;
+> +	if (!of_device_is_available(np)) {
+> +		ret = -EINVAL;
+> +		goto err;
 > +	}
 > +
-> +	ret = clk_prepare_enable(wdt->core_clk);
-> +	if (ret)
-> +		dev_err(wdt->dev, "failed to enable core_clk.\n");
+> +	pclk = of_clk_get_by_name(np, "apb");
+> +	if (!IS_ERR(pclk)) {
+> +		if (clk_prepare_enable(pclk))
+> +			pr_warn("pclk for %pOFn is present, but could not be activated\n", np);
+> +	/*
+> +	 * Clock framework support is late, continue on
+> +	 * anyways if we don't find a matching clock.
+> +	 */
+> +	} else if (PTR_ERR(pclk) != -EPROBE_DEFER) {
+> +		ret = PTR_ERR(pclk);
+> +		goto err;
+> +	}
 > +
+> +	prst = of_reset_control_get(np, "apb");
+> +	if (!IS_ERR(prst)) {
+> +		ret = reset_control_deassert(prst);
+> +		if (ret)
+> +			goto prst_err;
+> +	/*
+> +	 * Reset framework support is late, continue on
+> +	 * anyways if we don't find a matching reset.
+> +	 */
+> +	} else if (PTR_ERR(prst) != -EPROBE_DEFER) {
+> +		ret = PTR_ERR(prst);
+> +		goto prst_err;
+> +	}
+> +
+> +	/* The number of timers used is determined according to the device tree. */
+> +	count = of_irq_count(np);
+> +	if (count > STARFIVE_NR_TIMERS || count <= 0) {
+> +		ret = -EINVAL;
+> +		goto count_err;
+> +	}
+> +
+> +	for (index = 0; index < count; index++) {
+> +		of_property_read_string_index(np, "clock-names", index, &name);
+> +		if (strncmp(name, "timer", strlen("timer")))
+> +			continue;
+> +
+> +		clkevt[index] = kzalloc(sizeof(*clkevt[index]), GFP_KERNEL);
+> +		if (!clkevt[index]) {
+> +			ret = -ENOMEM;
+> +			goto clkevt_err;
+> +		}
+> +
+> +		starfive_clkevt_base_init(timer, clkevt[index], base, index);
+> +
+> +		/* Ensure timers are disabled */
+> +		starfive_timer_disable(clkevt[index]);
+> +
+> +		clk = of_clk_get_by_name(np, name);
+> +		if (!IS_ERR(clk)) {
+> +			clkevt[index]->clk = clk;
+> +			if (clk_prepare_enable(clkevt[index]->clk))
+> +				pr_warn("clk for %pOFn is present, but could not be activated\n",
+> +					np);
+> +		} else if (PTR_ERR(clk) != -EPROBE_DEFER) {
+> +			ret = PTR_ERR(clk);
+> +			goto clk_err;
+> +		}
+> +
+> +		rst = of_reset_control_get(np, name);
+> +		if (!IS_ERR(rst)) {
+> +			clkevt[index]->rst = rst;
+> +			ret = reset_control_deassert(clkevt[index]->rst);
+> +			if (ret)
+> +				goto rst_err;
+> +		}
+> +
+> +		irq = irq_of_parse_and_map(np, index);
+> +		if (irq < 0) {
+> +			ret = -EINVAL;
+> +			goto irq_err;
+> +		}
+> +
+> +		snprintf(clkevt[index]->name, sizeof(clkevt[index]->name), "%s.ch%d",
+> +			 np->full_name, index);
+> +
+> +		ret = starfive_clockevents_register(clkevt[index], irq, np, clkevt[index]->name);
+> +		if (ret) {
+> +			pr_err("%s: init clockevents failed.\n", clkevt[index]->name);
+> +			goto register_err;
+> +		}
+> +		clkevt[index]->irq = irq;
+> +
+> +		ret = starfive_clocksource_init(clkevt[index], clkevt[index]->name, np);
+> +		if (ret)
+> +			goto init_err;
+> +	}
+> +	if (!IS_ERR(pclk))
+> +		clk_put(pclk);
+> +
+> +	return 0;
+> +
+> +init_err:
+> +register_err:
+> +	free_irq(clkevt[index]->irq, &clkevt[index]->evt);
+> +irq_err:
+> +rst_err:
+> +clk_err:
+> +	/* Only unregister the failed timer and the rest timers continue to work. */
+> +	if (!clkevt[index]->rst) {
+> +		reset_control_assert(clkevt[index]->rst);
+> +		reset_control_put(clkevt[index]->rst);
+> +	}
+> +	if (!clkevt[index]->clk) {
+> +		clk_disable_unprepare(clkevt[index]->clk);
+> +		clk_put(clkevt[index]->clk);
+> +	}
+> +	kfree(clkevt[index]);
+> +clkevt_err:
+> +count_err:
+> +prst_err:
+> +	if (!IS_ERR(pclk)) {
+> +		/* If no other timer successfully registers, pclk is disabled. */
+> +		if (!index)
+> +			clk_disable_unprepare(pclk);
+> +		clk_put(pclk);
+> +	}
+> +err:
+> +	iounmap(base);
 > +	return ret;
 > +}
-> +#endif /* CONFIG_PM */
 > +
-> +static const struct dev_pm_ops starfive_wdt_pm_ops = {
-> +	SET_RUNTIME_PM_OPS(starfive_wdt_runtime_suspend, starfive_wdt_runtime_resume, NULL)
-> +	SET_SYSTEM_SLEEP_PM_OPS(starfive_wdt_suspend, starfive_wdt_resume)
+> +TIMER_OF_DECLARE(starfive_timer_jh7110, "starfive,jh7110-timers", starfive_timer_jh7110_of_init);
+> diff --git a/drivers/clocksource/timer-starfive.h b/drivers/clocksource/timer-starfive.h
+> new file mode 100644
+> index 000000000000..9fd3303b31d1
+> --- /dev/null
+> +++ b/drivers/clocksource/timer-starfive.h
+> @@ -0,0 +1,104 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
+> + */
+> +
+> +#ifndef __STARFIVE_TIMER_H__
+> +#define __STARFIVE_TIMER_H__
+> +
+> +#define STARFIVE_NR_TIMERS		TIMERS_MAX
+> +/* Bias: Timer0-0x0, Timer1-0x40, Timer2-0x80, and so on. */
+> +#define STARFIVE_PER_TIMER_LEN		0x40
+> +#define STARFIVE_TIMER_BASE(x)		((TIMER_##x) * STARFIVE_PER_TIMER_LEN)
+> +
+> +#define STARFIVE_CLOCK_SOURCE_RATING	200
+> +#define STARFIVE_VALID_BITS		32
+> +#define STARFIVE_DELAY_US		0
+> +#define STARFIVE_TIMEOUT_US		10000
+> +#define STARFIVE_CLOCKEVENT_RATING	300
+> +#define STARFIVE_MAX_TICKS		0xffffffff
+> +#define STARFIVE_MIN_TICKS		0xf
+> +
+> +/*
+> + * JH7110 timer TIMER_INT_STATUS:
+> + * ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+> + * |     Bits     | 08~31 | 7 | 6 | 5 |  4  | 3 | 2 | 1 | 0 |
+> + * ----------------------------------------------------------
+> + * | timer(n)_int |  res  | 6 | 5 | 4 | Wdt | 3 | 2 | 1 | 0 |
+> + * ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+> + *
+> + * Software can read this register to know which interrupt is occurred.
+> + */
+> +#define STARFIVE_TIMER_JH7110_INT_STATUS	0x00
+> +#define STARFIVE_TIMER_JH7110_CTL		0x04
+> +#define STARFIVE_TIMER_JH7110_LOAD		0x08
+> +#define STARFIVE_TIMER_JH7110_ENABLE		0x10
+> +#define STARFIVE_TIMER_JH7110_RELOAD		0x14
+> +#define STARFIVE_TIMER_JH7110_VALUE		0x18
+> +#define STARFIVE_TIMER_JH7110_INT_CLR		0x20
+> +#define STARFIVE_TIMER_JH7110_INT_MASK		0x24
+> +#define STARFIVE_TIMER_JH7110_INT_STATUS_CLR_AVA	BIT(1)
+> +
+> +enum STARFIVE_TIMERS {
+> +	TIMER_0 = 0,
+> +	TIMER_1,
+> +	TIMER_2,
+> +	TIMER_3,
+> +	TIMER_4,  /*WDT*/
+> +	TIMER_5,
+> +	TIMER_6,
+> +	TIMER_7,
+> +	TIMERS_MAX
 > +};
 > +
-> +static struct platform_driver starfive_wdt_driver = {
-> +	.probe		= starfive_wdt_probe,
-> +	.remove		= starfive_wdt_remove,
-> +	.shutdown	= starfive_wdt_shutdown,
-> +	.id_table	= starfive_wdt_ids,
-> +	.driver		= {
-> +		.name	= "starfive-wdt",
-> +		.pm	= &starfive_wdt_pm_ops,
-> +		.of_match_table = of_match_ptr(starfive_wdt_match),
-> +	},
+> +enum TIMERI_INTMASK {
+> +	INTMASK_ENABLE_DIS = 0,
+> +	INTMASK_ENABLE = 1
 > +};
 > +
-> +module_platform_driver(starfive_wdt_driver);
+> +enum TIMER_MOD {
+> +	MOD_CONTIN = 0,
+> +	MOD_SINGLE = 1
+> +};
 > +
-> +MODULE_AUTHOR("Xingyu Wu <xingyu.wu@starfivetech.com>");
-> +MODULE_AUTHOR("Samin Guo <samin.guo@starfivetech.com>");
-> +MODULE_DESCRIPTION("StarFive Watchdog Device Driver");
-> +MODULE_LICENSE("GPL v2");
+> +enum TIMER_CTL_EN {
+> +	TIMER_ENA_DIS	= 0,
+> +	TIMER_ENA	= 1
+> +};
+> +
+> +enum {
+> +	INT_CLR_AVAILABLE = 0,
+> +	INT_CLR_NOT_AVAILABLE = 1
+> +};
+> +
+> +struct starfive_timer {
+> +	u32 ctrl;
+> +	u32 load;
+> +	u32 enable;
+> +	u32 reload;
+> +	u32 value;
+> +	u32 intclr;
+> +	u32 intmask;
+> +	u32 wdt_lock;   /* 0x3c+i*0x40 watchdog use ONLY */
+> +	u32 timer_base[STARFIVE_NR_TIMERS];
+> +};
+> +
+> +struct starfive_clkevt {
+> +	struct clock_event_device evt;
+> +	struct clk *clk;
+> +	struct reset_control *rst;
+> +	char name[20];
+> +	int irq;
+> +	u32 periodic;
+> +	u32 rate;
+> +	u32 reload_val;
+> +	void __iomem *base;
+> +	void __iomem *ctrl;
+> +	void __iomem *load;
+> +	void __iomem *enable;
+> +	void __iomem *reload;
+> +	void __iomem *value;
+> +	void __iomem *intclr;
+> +	void __iomem *intmask;
+> +};
+> +#endif /* __STARFIVE_TIMER_H__ */
 
-Hi Guenter/Wim,
+Hi Daniel/Thomas,
 
 Could you please help to review and provide any comments on this patch?
 Thanks.
