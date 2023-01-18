@@ -4,106 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E2F8C32793
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Jan 2023 19:05:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27FE3C32793
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Jan 2023 19:16:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yt//pFuOnDup/3ycprNRJFQhz0K49jwXN86MXlz1pT4=; b=t+BAbqgNg+90z0
-	T5H/yc4RDi+baR7eIm7vqToom7Ht48yufGiIC/orrf1W+pEenExM2G73jE5x9vV46KLxbHMpXcuMY
-	dE60iEw71v2W3h8z5J554Hu3ySHqJxfGlxPevQmfPtSzg4wFy40xTERf02OipLFIUj5TvUH5z2XoR
-	8vWO6FEtpssFxyZDMJhnSsAGPjehQl1ns28Uy8oVNipWou4/YXPAoKMuptYuxTrZzroTwQtu0VcG0
-	pj7qEeoQr+ZjnLN29o2yCEm/9dVZlI7pkx4k6Yr3lRHfIaXVvyXe2IaaEnXoB1kfHEcDhoB6AAtIx
-	rELLS//Gr49THnmYu9zQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Ia2mqArkCNKu7qatO9aruku3E1KapoUplHcB8Tjg5mQ=; b=vcci8YeanSK5TE
+	25zd+NfLKW4gZYR/eXP1qQ6zsjvFGsStvf73Ss7xiXnTEpcqwj+RMZM0ylaIn4zdKnirjrQqMfHmR
+	occ1P/jn9DdvohBNtwT1i5ynzgcJHnIc7VqUzfeIdstsH4n0T6bOdr5Of8bYdvf68Razg/LBL3BPS
+	vwtybSyFa5SU1hOyGtbr8g4FxPKgqFkhEO86j8KHMurNABfzZV8Yisctbv05EDWWOXSMYvgDMz/WQ
+	VSoF8RQd05SVM8c4BhDwcm8mqBrzakufXuBQC3oSjpe9YWr2r5qbWW8wVFs+NW9eEumz2TybpdNtC
+	JA1Hs20fL5HPI4RQMDrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIDkF-002PPm-GW; Wed, 18 Jan 2023 19:05:11 +0000
-Received: from mail-yw1-f174.google.com ([209.85.128.174])
+	id 1pIDuf-002Qkx-Lb; Wed, 18 Jan 2023 19:15:57 +0000
+Received: from phobos.denx.de ([85.214.62.61])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIDkB-002POP-3Q; Wed, 18 Jan 2023 19:05:08 +0000
-Received: by mail-yw1-f174.google.com with SMTP id 00721157ae682-4b718cab0e4so482152067b3.9;
-        Wed, 18 Jan 2023 11:05:06 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=TOwQfemle8oAtk5HhkSGbIU5cG/VOJmaf2KabL9UxvM=;
-        b=RTYCWCdRwEG6RCVJzx+2/qsJ1LW1qQ11UduGEFH4dF0MxHF5zLvazOK0I0AiFunqxw
-         rtT7FQtzLHAg/iih/QIavu4roZA0AZFqdESiqZAi4EvXWf9QhMQMnh9JSsDYhkz+tLVC
-         IV5ECRazRi+Q/WhcNX+gA/+hxaI97c5qea3M53vY04w0qVT8ZqYIPxNuFHMdQ98OK3ls
-         fS6WTNhc/goYDrhoXOr0Uoo66AOV6Ff4u7IcpleNYZCse5pgnw3F2M4dQQ8LMBEKtY+h
-         bI+xvge9zsOLkRaAD06H4PuBWuffDV+ti4Qn+dtN1jypxpL5f0/K+hABrKJMwYB3nzL3
-         gwIA==
-X-Gm-Message-State: AFqh2kpg1qWmrGk+q2OKi+6f7qK+fyg6AaMpke7G/fFo5AzkbOMDPHUo
-	otU87vl0QuaJNHDFZCnMDn+jnMlqOhds4O6JSEs=
-X-Google-Smtp-Source: AMrXdXtITKV1GEzZUGw8o4hZYrm3xE7rzwglOkCyCS6dvoU42+tNPZuk7n1SqcT0pSWBE0jif78/CA==
-X-Received: by 2002:a05:7500:2708:b0:ef:e2bd:52de with SMTP id bp8-20020a057500270800b000efe2bd52demr377632gab.16.1674068705177;
-        Wed, 18 Jan 2023 11:05:05 -0800 (PST)
-Received: from mail-yb1-f179.google.com (mail-yb1-f179.google.com. [209.85.219.179])
-        by smtp.gmail.com with ESMTPSA id u2-20020a05620a0c4200b006f9f3c0c63csm23043568qki.32.2023.01.18.11.05.04
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Jan 2023 11:05:05 -0800 (PST)
-Received: by mail-yb1-f179.google.com with SMTP id v19so33465945ybv.1;
-        Wed, 18 Jan 2023 11:05:04 -0800 (PST)
-X-Received: by 2002:a25:d88c:0:b0:77a:b5f3:d0ac with SMTP id
- p134-20020a25d88c000000b0077ab5f3d0acmr846222ybg.202.1674068694405; Wed, 18
- Jan 2023 11:04:54 -0800 (PST)
+	id 1pIDuR-002QiZ-GI; Wed, 18 Jan 2023 19:15:47 +0000
+Received: from tr.lan (ip-86-49-120-218.bb.vodafone.cz [86.49.120.218])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
+	(No client certificate requested)
+	(Authenticated sender: marex@denx.de)
+	by phobos.denx.de (Postfix) with ESMTPSA id 653CB83E5D;
+	Wed, 18 Jan 2023 20:15:38 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de;
+	s=phobos-20191101; t=1674069339;
+	bh=a7gPiG8FFgLvCnSNSaMmiJpOA8+f0Jg5tthAV6Kjb8g=;
+	h=From:To:Cc:Subject:Date:From;
+	b=P66KFyM/lT9Ifd6F+NCBv5hLtZtQZYRzyvRfS/mJUu8I1U5Jv0NMbroak3jv865uP
+	 wE2qTJkzWXTUKbcv+yB87UkHx/wqyx0Pvm9VdY5igf+BRnIh/VyG7qwlQMWalNRSlW
+	 AICN5Xv2/aDS+OrRv4GInhkpPnUd6lziYnc9WGwTfKDgvguk9az3fU8Md7DEYhKgKr
+	 OS/aTVdeHiwdiBnCrSUU0nWalQbi8lMj90WL4O6QKYQHEh1igt6Nkf35xYh6l0qL0+
+	 +Dc6w41wHNPkLvtSlXLcZknuDqPXlTVkar1fdM24vsAlKioCYalqgt3sOb+SawFmZ1
+	 aZBNV2c2J58CQ==
+From: Marek Vasut <marex@denx.de>
+To: linux-clk@vger.kernel.org
+Cc: Marek Vasut <marex@denx.de>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Stephen Boyd <sboyd@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v3 1/2] dt-bindings: clk: si521xx: Add Skyworks Si521xx I2C PCIe clock generators
+Date: Wed, 18 Jan 2023 20:15:20 +0100
+Message-Id: <20230118191521.15544-1-marex@denx.de>
+X-Mailer: git-send-email 2.39.0
 MIME-Version: 1.0
-References: <20230118173932.358153-1-krzysztof.kozlowski@linaro.org> <20230118173932.358153-2-krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20230118173932.358153-2-krzysztof.kozlowski@linaro.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 18 Jan 2023 20:04:42 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdWZOsrBwJrST=49v6JFqCyq_gT0kfA-QS7TS4oigZtM-w@mail.gmail.com>
-Message-ID: <CAMuHMdWZOsrBwJrST=49v6JFqCyq_gT0kfA-QS7TS4oigZtM-w@mail.gmail.com>
-Subject: Re: [PATCH 2/2] spi: dt-bindings: cleanup examples - indentation,
- lowercase hex
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Mark Brown <broonie@kernel.org>, Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Chen-Yu Tsai <wens@csie.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
-	Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>, =?UTF-8?Q?C=C3=A9dric_Le_Goater?= <clg@kaod.org>, 
-	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@aj.id.au>, Kamal Dasu <kdasu.kdev@gmail.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Han Xu <han.xu@nxp.com>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	NXP Linux Team <linux-imx@nxp.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
-	Andy Gross <agross@kernel.org>, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konrad.dybcio@linaro.org>, Serge Semin <fancer.lancer@gmail.com>, 
-	Haibo Chen <haibo.chen@nxp.com>, Yogesh Gaur <yogeshgaur.83@gmail.com>, 
-	Linus Walleij <linus.walleij@linaro.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Li-hao Kuo <lhjeff911@gmail.com>, Michal Simek <michal.simek@xilinx.com>, 
-	Orson Zhai <orsonzhai@gmail.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
-	Chunyan Zhang <zhang.lyra@gmail.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Maxime Ripard <mripard@kernel.org>, 
-	=?UTF-8?B?4oCaZWNraQ==?= <rafal@milecki.pl>, 
-	Vaishnav Achath <vaishnav.a@ti.com>, Parshuram Thombare <pthombar@cadence.com>, 
-	Leilk Liu <leilk.liu@mediatek.com>, Gabor Juhos <juhosg@openwrt.org>, 
-	Bert Vermeulen <bert@biot.com>, Miquel Raynal <miquel.raynal@bootlin.com>, Marek Vasut <marex@denx.de>, 
-	Birger Koblitz <mail@birger-koblitz.de>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Anson Huang <Anson.Huang@nxp.com>, Chris Packham <chris.packham@alliedtelesis.co.nz>, 
-	Kuldeep Singh <singh.kuldeep87k@gmail.com>, Pragnesh Patel <pragnesh.patel@sifive.com>, 
-	Christophe Kerello <christophe.kerello@foss.st.com>, 
-	Patrice Chotard <patrice.chotard@foss.st.com>, Erwan Leray <erwan.leray@foss.st.com>, 
-	Fabrice Gasnier <fabrice.gasnier@foss.st.com>, linux-spi@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-amlogic@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
-	openbmc@lists.ozlabs.org, linux-mediatek@lists.infradead.org, 
-	linux-tegra@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-stm32@st-md-mailman.stormreply.com
+X-Virus-Scanned: clamav-milter 0.103.6 at phobos.denx.de
+X-Virus-Status: Clean
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230118_110507_162664_70D2BA26 
-X-CRM114-Status: GOOD (  18.38  )
+X-CRM114-CacheID: sfid-20230118_111543_943703_9E1D7525 
+X-CRM114-Status: GOOD (  14.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,31 +81,107 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 18, 2023 at 6:39 PM Krzysztof Kozlowski
-<krzysztof.kozlowski@linaro.org> wrote:
-> Cleanup examples:
->  - use 4-space indentation (for cases when it is neither 4 not 2 space),
->  - drop redundant blank lines,
->  - use lowercase hex.
->
-> No functional impact except adjusting to preferred coding style.
->
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Add binding for Skyworks Si521xx PCIe clock generators. This binding
+is designed to support Si52144/Si52146/Si52147 series I2C PCIe clock
+generators, tested model is Si52144. It should be possible to add
+Si5213x series as well.
 
->  .../devicetree/bindings/spi/renesas,rspi.yaml |  22 +--
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Signed-off-by: Marek Vasut <marex@denx.de>
+---
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
+Cc: Marek Vasut <marex@denx.de>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>
+Cc: Michael Turquette <mturquette@baylibre.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Rob Herring <robh+dt@kernel.org>
+Cc: Stephen Boyd <sboyd@kernel.org>
+Cc: devicetree@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-mediatek@lists.infradead.org
+Cc: linux-riscv@lists.infradead.org
+To: linux-clk@vger.kernel.org
+---
+V2: - Drop 'Binding for'
+    - Drop reg: description
+    - Drop ref25 from example
+V3: - Replace i2c@0 with plain i2c
+    - Drop reg property from the i2c node
+    - Add RB from Krzysztof
+---
+ .../bindings/clock/skyworks,si521xx.yaml      | 59 +++++++++++++++++++
+ 1 file changed, 59 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/clock/skyworks,si521xx.yaml
 
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+diff --git a/Documentation/devicetree/bindings/clock/skyworks,si521xx.yaml b/Documentation/devicetree/bindings/clock/skyworks,si521xx.yaml
+new file mode 100644
+index 0000000000000..9e35e0e51ce8a
+--- /dev/null
++++ b/Documentation/devicetree/bindings/clock/skyworks,si521xx.yaml
+@@ -0,0 +1,59 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/clock/skyworks,si521xx.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Skyworks Si521xx I2C PCIe clock generators
++
++description: |
++  The Skyworks Si521xx are I2C PCIe clock generators providing
++  from 4 to 9 output clocks.
++
++maintainers:
++  - Marek Vasut <marex@denx.de>
++
++properties:
++  compatible:
++    enum:
++      - skyworks,si52144
++      - skyworks,si52146
++      - skyworks,si52147
++
++  reg:
++    const: 0x6b
++
++  '#clock-cells':
++    const: 1
++
++  clocks:
++    items:
++      - description: XTal input clock
++
++  skyworks,out-amplitude-microvolt:
++    enum: [ 300000, 400000, 500000, 600000, 700000, 800000, 900000, 1000000 ]
++    description: Output clock signal amplitude
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - '#clock-cells'
++
++additionalProperties: false
++
++examples:
++  - |
++    i2c {
++        #address-cells = <1>;
++        #size-cells = <0>;
++
++        clock-generator@6b {
++            compatible = "skyworks,si52144";
++            reg = <0x6b>;
++            #clock-cells = <1>;
++            clocks = <&ref25m>;
++        };
++    };
++
++...
+-- 
+2.39.0
 
-Gr{oetje,eeting}s,
-
-                        Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
