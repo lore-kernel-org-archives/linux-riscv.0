@@ -4,58 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03F23C32793
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Jan 2023 13:54:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C21BC38159
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Jan 2023 14:13:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=46uJaCykpPq8wz5mUOnZnOQsVVxBb1jryTzHNK5kfsI=; b=p3S81LrF565+8LJ9C+8arsCRZ5
-	PvJLfvT52+uRruPieV3UtIWU5u/XWuM0sSYzarBM834xaxkDUEZcSTUGvXhaim+2g9ypSn2myP4Dz
-	mJXgAen7ldkIuKDcbw2Y//TWrsrHurfqlFTZXh7WPLuoa6LXW546H9gaklDkhnJytOTl3DXH8n7wV
-	D+/RHREwNrONpEb1q7MjM1QpC6qO8ZqE6v9m5+ynnuu4JI9lGSiC5fIndn8M5KqugB4Wpxh7XgUV1
-	QSButkaKQlf/oM/5/6A1rhPuZKHxQWcELhj8EM2uSDM17W87CVxUcyO71lmGggWZyo0JSJtidsyx4
-	4K63JMxQ==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=1j9pjuKcYyXzmpDom+T0Rm4rhqbJMzOHKF6bykRDrZM=; b=0WBx1iP7dnKYb8
+	+RpBQ82gjZV7TXdD062eYTow7fEa4MdgAzr7jZpfmFT6uforXoy0srL4r9f9vbusKD8snGezc1WG+
+	Isx7UDyHkdfBoCKCif4xGnG9TsQzlWDP5e+tUR9haVz+pJ7qtS+/SlBW9UPMJC9+UoY/wrM3WD2e7
+	o52Qjfrv4uc4IvTlBoXd3/RMbPoSdUfMcv3TJbYKol6YBDDSbZIl31eCs5Tq3zpTmUhnhuadTPhn2
+	7VSGgjWdbtUoTi7BOlDgl+Kuu+7TFM8/2OQZi3IpLuJVWxWlMMsaNbi00vbT9AJzchA94E4GDEUmI
+	dVe0+lm7eaQcXSK40c7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pI8t4-001Dlx-RD; Wed, 18 Jan 2023 13:53:58 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pI8t1-001DlL-6K
-	for linux-riscv@lists.infradead.org; Wed, 18 Jan 2023 13:53:56 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id AD672617F3;
-	Wed, 18 Jan 2023 13:53:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6B1CC433EF;
-	Wed, 18 Jan 2023 13:53:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1674050034;
-	bh=w5r9sYL2RG2NQJE13OljQZOKM5j8E2WL4wRHuMh3tTk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DoZa7S5Bv0ocCl/sR+1FXm3srL0KZoiUzA6xDqSnJY1xn3gB0EBIC9xbJBfzPZiou
-	 XOsLjDM+alD7jblgSJo2QDzfzdqn0z4yzHE9PyiBSnXZ5AJQn4oqH7IQyaA5TGb2G3
-	 gE/1/9byCcSOGQrXWyQqDlVgygR1wiDevmDoc/+sI0FKnk8j9Lg6jyXnVEUv6MAeX0
-	 aQoDFannscnQMUkEeUL4V3taDKVOHEjKrWk+zh8ckmuB1z+W5Vb+9qw08+FeAbvCdw
-	 Q+7ADmLOh2rXDg5QfSxmkC9aQKq7C1SB3FYJMOQMVGyKChM+feNfZSXAFdAQfz/vXD
-	 Z6L//5QAxTang==
-Date: Wed, 18 Jan 2023 13:53:50 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: Jassi Brar <jassisinghbrar@gmail.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 0/7] MPFS system controller/mailbox fixes
-Message-ID: <Y8f57uKjIAPdAz1b@spud>
-References: <20230111134513.2495510-1-conor.dooley@microchip.com>
+	id 1pI9Bn-001Hfv-HO; Wed, 18 Jan 2023 14:13:19 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pI9Bc-001HeL-HI; Wed, 18 Jan 2023 14:13:10 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B8D811477;
+	Wed, 18 Jan 2023 06:13:44 -0800 (PST)
+Received: from [172.27.249.134] (unknown [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D53273F67D;
+	Wed, 18 Jan 2023 06:12:48 -0800 (PST)
+Message-ID: <8ee7192d-f32d-5e33-e57e-1bbc2a0e37f6@arm.com>
+Date: Wed, 18 Jan 2023 15:12:48 +0100
 MIME-Version: 1.0
-In-Reply-To: <20230111134513.2495510-1-conor.dooley@microchip.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.4.2
+Subject: Re: [PATCH v4 0/6] arch_topology: Build cacheinfo from primary CPU
+To: Sudeep Holla <sudeep.holla@arm.com>, linux-kernel@vger.kernel.org
+Cc: Len Brown <lenb@kernel.org>, Jeremy Linton <jeremy.linton@arm.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, linux-acpi@vger.kernel.org,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ linux-arm-kernel@lists.infradead.org,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Will Deacon <will@kernel.org>,
+ Gavin Shan <gshan@redhat.com>, Conor Dooley <conor.dooley@microchip.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, linux-riscv@lists.infradead.org
+References: <20230104183033.755668-1-pierre.gondois@arm.com>
+ <167404285593.885445.6219705651301997538.b4-ty@arm.com>
+ <20230118120731.jgsq4l7htwizlsp5@bogus>
+Content-Language: en-US
+From: Pierre Gondois <pierre.gondois@arm.com>
+In-Reply-To: <20230118120731.jgsq4l7htwizlsp5@bogus>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230118_055355_338943_A9421BD8 
-X-CRM114-Status: GOOD (  46.67  )
+X-CRM114-CacheID: sfid-20230118_061308_717456_7D0A0355 
+X-CRM114-Status: GOOD (  17.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,147 +66,114 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3402176557196212070=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============3402176557196212070==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="+7I49tIPzidPH2wa"
-Content-Disposition: inline
+On 1/18/23 13:07, Sudeep Holla wrote:
+> On Wed, Jan 18, 2023 at 11:55:59AM +0000, Sudeep Holla wrote:
+>> On Wed, 4 Jan 2023 19:30:23 +0100, Pierre Gondois wrote:
+>>> v2:
+>>>   - Applied renaming/formatting comments from v1.
+>>>   - Check CACHE_TYPE_VALID flag in pppt.c.
+>>> v3:
+>>>   - Applied Sudeep's suggestions (for patch 5/5):
+>>>     - Renaming allocate_cache_info() -> fecth_cache_info()
+>>>     - Updated error message
+>>>     - Extract an inline allocate_cache_info() function
+>>>   - Re-run checkpatch with --strict option
+>>> v4:
+>>>   - Remove RISC-V's implementation of init_cache_level() as not
+>>>     necessary.
+>>>   - Add patch: 'cacheinfo: Check 'cache-unified' property to count
+>>>     cache leaves' to increase the number of leaves at a cache level
+>>>     when no cache-size property is found.
+>>>   - In cacheinfo: Use RISC-V's init_cache_level() [...],
+>>>     make 'levels', 'leaves' and 'level' unsigned int to match
+>>>     of_property_read_u32()'s parameters signedness.
+>>>
+>>> [...]
+>>
+>> Applied to sudeep.holla/linux (for-next/cacheinfo), thanks!
+>>
+> 
+> I pushed the changes and then noticed some build warning report by
+> kbuild posted only to you and one list(missing this list). Please post the
+> fix if required on top of my for-next/cacheinfo so that it can be added
+> on the top. Sorry for missing that.
+> 
+
+Hi Sudeep,
+I think the reported issue can be ignored, the 'levels' and 'split_levels'
+variables are initialized when used. If necessary, it is straightforward
+to fix the warning.
+Regards,
+Pierre
 
 
---+7I49tIPzidPH2wa
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+The reported issue:
+--- Start ---
 
-On Wed, Jan 11, 2023 at 01:45:06PM +0000, Conor Dooley wrote:
-> Hey Jassi, all,
->=20
-> Here are some fixes for the system controller on PolarFire SoC that I
-> ran into while implementing support for using the system controller to
-> re-program the FPGA. A few are just minor bits that I fixed in passing,
-> but the bulk of the patchset is changes to how the mailbox figures out
-> if a "service" has completed.
->=20
-> Prior to implementing this particular functionality, the services
-> requested from the system controller, via its mailbox interface, always
-> triggered an interrupt when the system controller was finished with
-> the service.
->=20
-> Unfortunately some of the services used to validate the FPGA images
-> before programming them do not trigger an interrupt if they fail.
-> For example, the service that checks whether an FPGA image is actually
-> a newer version than what is already programmed, does not trigger an
-> interrupt, unless the image is actually newer than the one currently
-> programmed. If it has an earlier version, no interrupt is triggered
-> and a status is set in the system controller's status register to
-> signify the reason for the failure.
+If you fix the issue, kindly add following tag where applicable
+| Reported-by: kernel test robot <lkp@intel.com>
 
-I think, with how things currently are, the timeout is insufficient.
-I've noticed some services taking longer (significantly) longer than what
-I have provisioned for.
+All warnings (new ones prefixed by >>):
 
-I'll try to find an upper bound and respin a v2. Questions below are
-still valid either way!
-
-Thanks,
-Conor.
-
-> In order to differentiate between the service succeeding & the system
-> controller being inoperative or otherwise unable to function, I had to
-> switch the controller to poll a busy bit in the system controller's
-> registers to see if it has completed a service.
-> This makes sense anyway, as the interrupt corresponds to "data ready"
-> rather than "tx done", so I have changed the mailbox controller driver
-> to do that & left the interrupt solely for signalling data ready.
-> It just so happened that all of the services that I had worked with and
-> tested up to this point were "infallible" & did not set a status, so the
-> particular code paths were never tested.
->=20
-> Jassi, the mailbox and soc patches depend on each other, as the change
-> in what the interrupt is used for requires changing the client driver's
-> behaviour too, as mbox_send_message() will now return when the system
-> controller is no longer busy rather than when the data is ready.
-> I'm happy to send the lot via the soc tree with your Ack and/or reivew,
-> if that also works you?
->=20
-> Secondly, I have a question about what to do if a service does fail, but
-> not due to a timeout - eg the above example where the "new" image for
-> the FPGA is actually older than the one that currently exists.
-> Ideally, if a service fails due to something other than the transaction
-> timing out, I would go and read the status registers to see what the
-> cause of failure was.
-> I could not find a function in the mailbox framework that allows the
-> client to request that sort of information from the client. Trying to
-> do something with the auxiliary bus, or exporting some function to a
-> device specific header seemed like a circumvention of the mailbox
-> framework.
-> Do you think it would be a good idea to implement something like
-> mbox_client_peek_status(struct mbox_chan *chan, void *data) to allow
-> clients to request this type of information?
->=20
-> It'd certainly allow me to report the actual errors to the drivers
-> implementing the service & make better decisions there about how to
-> proceed.
-> Perhaps I have missed some way of doing this kind of thing that (should
-> have been) staring me in the face!
->=20
-> Thanks,
-> Conor.
->=20
-> CC: Conor Dooley <conor.dooley@microchip.com>
-> CC: Daire McNamara <daire.mcnamara@microchip.com>
-> CC: Jassi Brar <jassisinghbrar@gmail.com>
-> CC: linux-riscv@lists.infradead.org
-> CC: linux-kernel@vger.kernel.org
->=20
-> Conor Dooley (7):
->   mailbox: mpfs: fix an incorrect mask width
->   mailbox: mpfs: switch to txdone_poll
->   mailbox: mpfs: ditch a useless busy check
->   soc: microchip: mpfs: fix some horrible alignment
->   soc: microchip: mpfs: use a consistent completion timeout
->   soc: microchip: mpfs: simplify error handling in
->     mpfs_blocking_transaction()
->   soc: microchip: mpfs: handle timeouts and failed services differently
->=20
->  drivers/mailbox/mailbox-mpfs.c              | 25 +++++++----
->  drivers/soc/microchip/mpfs-sys-controller.c | 48 +++++++++++++--------
->  2 files changed, 47 insertions(+), 26 deletions(-)
->=20
->=20
-> base-commit: 88603b6dc419445847923fcb7fe5080067a30f98
-> --=20
-> 2.39.0
->=20
-
---+7I49tIPzidPH2wa
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY8f5zQAKCRB4tDGHoIJi
-0uQ1AP9fSIWdrEuF5cYVtH2JW2+2CBmFvbK0cmJCHDzavG/SpgD/fsXfHn5TSM+p
-JJGfXx5N8gomdWbZkP0hBAwHcacvvAw=
-=liwu
------END PGP SIGNATURE-----
-
---+7I49tIPzidPH2wa--
+    drivers/base/cacheinfo.c: In function 'fetch_cache_info':
+>> drivers/base/cacheinfo.c:440:50: warning: 'levels' is used uninitialized [-Wuninitialized]
+      440 |                 this_cpu_ci->num_leaves = levels + split_levels;
+          |                                           ~~~~~~~^~~~~~~~~~~~~~
+    drivers/base/cacheinfo.c:420:22: note: 'levels' was declared here
+      420 |         unsigned int levels, split_levels;
+          |                      ^~~~~~
+>> drivers/base/cacheinfo.c:440:50: warning: 'split_levels' is used uninitialized [-Wuninitialized]
+      440 |                 this_cpu_ci->num_leaves = levels + split_levels;
+          |                                           ~~~~~~~^~~~~~~~~~~~~~
+    drivers/base/cacheinfo.c:420:30: note: 'split_levels' was declared here
+      420 |         unsigned int levels, split_levels;
+          |                              ^~~~~~~~~~~~
 
 
---===============3402176557196212070==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+vim +/levels +440 drivers/base/cacheinfo.c
+
+    416	
+    417	int fetch_cache_info(unsigned int cpu)
+    418	{
+    419		struct cpu_cacheinfo *this_cpu_ci;
+    420		unsigned int levels, split_levels;
+    421		int ret;
+    422	
+    423		if (acpi_disabled) {
+    424			ret = init_of_cache_level(cpu);
+    425			if (ret < 0)
+    426				return ret;
+    427		} else {
+    428			ret = acpi_get_cache_info(cpu, &levels, &split_levels);
+    429			if (ret < 0)
+    430				return ret;
+    431	
+    432			this_cpu_ci = get_cpu_cacheinfo(cpu);
+    433			this_cpu_ci->num_levels = levels;
+    434			/*
+    435			 * This assumes that:
+    436			 * - there cannot be any split caches (data/instruction)
+    437			 *   above a unified cache
+    438			 * - data/instruction caches come by pair
+    439			 */
+  > 440			this_cpu_ci->num_leaves = levels + split_levels;
+    441		}
+    442		if (!cache_leaves(cpu))
+    443			return -ENOENT;
+    444	
+    445		return allocate_cache_info(cpu);
+    446	}
+    447	
+
+--- End ---
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3402176557196212070==--
-
