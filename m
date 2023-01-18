@@ -4,88 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95BE0C32793
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Jan 2023 08:00:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E14F3C32793
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Jan 2023 08:14:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/o+4aRCELDf+4eTun7Bv+p6JGR2foMg9rsNFB6eomRk=; b=GtPYp+snRlLWLt
-	mrmOmnqWDSY78kOoDCyinVMsGlu8voWFBbf8MFgUBy+jnhhO55xQF/EifxIrIBoJKteu/cyA1yv5F
-	1TSTQFRT7wWV9lRmGm3cU0dBz9ipiod5s8SFuYzmgnMcAH5E5mvLG0z22LefzjALzgQzd7Tpu6cVH
-	6CdQzSXwpya1lId8WyWVtvJAXQbFDJJYreerqghhABIvAXMB50J4BrVtWnYRBhOI2uBTaOgnro76r
-	EqJaPFvqBoKrwd0fBt041+p47ercHYvL6eooMOrjKjvJYBu4QBTPU+0X9hFJxCkipr1GO53dxkzn9
-	aZ3Gac4zyBOiDLX7MJbA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z8fduWbP7n/uaHM8IxAzcXZVVXraZNL2tGkQhXzev94=; b=IDVkpibkzNZUUWuJiHiDNUp6In
+	TEIZW42pEKstGmDGqJxHYkcXU9dr8bEYH3ZdLrkLeIGdCGP7RcKuZDPBA0zBjPgoyv5dBJccC2NU6
+	3DcxCisGtBXNHHN80vJPjBvHCyK6VkGJYCKFQWKpoSMUsGSsYsfXCqezXhR4TFGbXilCMbLA1sbYY
+	Xs4ts1peARHOAzddZeVELhQitSK5Vi01bp+Y6xZmS6TXSQgViMEDz1crhnSXOydiL8al6TkiEdqaP
+	48HelotyMXpTQpjLYFogx04wWsPwDYnDAyC7U8YxsIXz+AYXsM5l+QZHM06V7FQSQB0+IbGoWND9Z
+	Xd2ub9aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pI3Mk-00HOSS-Kn; Wed, 18 Jan 2023 08:00:14 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1pI3a2-00HQys-1j; Wed, 18 Jan 2023 08:13:58 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pI3Mh-00HOQv-OY
-	for linux-riscv@lists.infradead.org; Wed, 18 Jan 2023 08:00:13 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id d2so12906176wrp.8
-        for <linux-riscv@lists.infradead.org>; Wed, 18 Jan 2023 00:00:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=6JHe7Mld7ca44zxKnapswWL8ppqp7gV/qk5d9Nzoevw=;
-        b=KTEP6I1p+vMcKWOb9+hnvxwJhNZClYy3mVLwvEaRmwrc3+YVVJ1SuxIoRZsnnhmQGi
-         /GnHcl1skgTY8B6z82bSuqdRFdYIel+Vg4WEEaP2iYUO4GnHRCa6P74G3zU7IPS1VyGT
-         I8WGfAj5FAoWzLc2mcs0ibz3ops67DOkZLXOJKYrpuVfP3vuGc0qCAEespNvrpu5AYGJ
-         Ldw/Xe/+zQtjzYJ/iv/riljurmbyz8fdRyf6p97zA0RBzok1XbAK6MqXtC1YSmuKwlPs
-         6XZXTBfV9oOVt02092OtdJZLlEDuUVXCc8B3UksAff2U5txyp0T/VH1e6N2Wi9r6EYKt
-         Z7+Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=6JHe7Mld7ca44zxKnapswWL8ppqp7gV/qk5d9Nzoevw=;
-        b=CjhFiUbKKby0XLCWb15Zm97X6xAOJ6iS+VqulM6t1pt5r+9JTLOde5zO1jFSGnYmAR
-         SRdi+apK9sIh+RpCQ5RcNZkCinvq/oDdaCp4kweljP9cSTQAKekK/iBi13fc+llY80yK
-         pIIjQAG41UYFxffFb4ahfOiiVTg/XfghW/V5VhKfsw8OparOH9qWvT/ugfCxcg3Bj9qD
-         cDWNn36TOTY5WTuuq+uawl3foA31IV/zMULasowTCMZK8LvZYCh40Oy3O55SpqAwol5P
-         Hl1ZVkpmUKl/JJILaWK6K3h7HcK9Qi6i0Ize+oDYGLIaF40UImrQOwDiiBV3QtJ9KDWY
-         6pxA==
-X-Gm-Message-State: AFqh2krUQGO6wz2Qpyl8+2KwhNjncpbnnoaAL17DCfN1HrkmNXqocEBP
-	/cAOcUTBi1c0Z9HdqnloNTgr3w==
-X-Google-Smtp-Source: AMrXdXuEmKllwaiidwPgTn+Gamv50gFRp4dBCIpq9KI5N/ug614mLjZGjAIslqwj4xHNNfCH7W417A==
-X-Received: by 2002:a5d:6a86:0:b0:2bb:e805:c1ef with SMTP id s6-20020a5d6a86000000b002bbe805c1efmr4981345wru.52.1674028807988;
-        Wed, 18 Jan 2023 00:00:07 -0800 (PST)
-Received: from [192.168.1.109] ([178.197.216.144])
-        by smtp.gmail.com with ESMTPSA id f8-20020a0560001b0800b002423edd7e50sm30387327wrz.32.2023.01.18.00.00.05
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Jan 2023 00:00:06 -0800 (PST)
-Message-ID: <787bb142-1ade-bd48-1f6a-0da992add3d3@linaro.org>
-Date: Wed, 18 Jan 2023 09:00:04 +0100
+	id 1pI3Zz-00HQyO-IZ
+	for linux-riscv@lists.infradead.org; Wed, 18 Jan 2023 08:13:57 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 1C61061704;
+	Wed, 18 Jan 2023 08:13:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63BA3C433F0;
+	Wed, 18 Jan 2023 08:13:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1674029634;
+	bh=SYTtZk6ZSgVx/WFOeJ0MBaOx5z4XpMo/GMukzlopQ7k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=RZ+gqP708YJcXRbNEKgEOJgh4FsiLreIMg4DIMMZcpCcXbV9MfVlW4027owp82HOb
+	 NtCFsnWqhVM5aJjqL47BJuPrd0dhRrYyVp2QFCPpdXqTO2yxwRqn78EB/T9pEIg1Mf
+	 EmkmS0dRr6bmxEQXgj42wtc7it3nMRorG92rH0MgD6lzskvR4btzfkSBxdR34hLwWq
+	 fS5QELQ98/PPMP0xynZvsvpQEW9oYyX1LTKbmyL4IHCoeZ8ZGq61Uv39SRUFNeCCAg
+	 Z+Nk/JLiDL+T0zstLgv9N45jbSeHtLnGA1fe9aUG6mox1Y16YjMZ1N3bQEmFqy3ODc
+	 G4wVd1BD+v/lg==
+Date: Wed, 18 Jan 2023 08:13:49 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Nylon Chen <nylon.chen@sifive.com>
+Cc: Jessica Clarke <jrtc27@jrtc27.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	linux-riscv <linux-riscv@lists.infradead.org>, nylon7717@gmail.com,
+	zong.li@sifive.com, greentime.hu@sifive.com,
+	vincent.chen@sifive.com, Thierry Reding <thierry.reding@gmail.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>,
+	linux-pwm@vger.kernel.org
+Subject: Re: [PATCH 0/2] Change PWM-controlled LED pin active mode and
+ algorithm
+Message-ID: <Y8eqPdifnWbMQI/T@spud>
+References: <20230113083115.2590-1-nylon.chen@sifive.com>
+ <Y8GjySjm9OjoZvCF@spud>
+ <95F1EAA0-D8D6-4F8A-8049-5E7BFDE4C06C@jrtc27.com>
+ <Y8K1a+xs6tbo7kV4@spud>
+ <CAHh=Yk9jUFiwzw+RQDoyb7xDoHGXFzNprdXn8szmMZb5FB4jLw@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.6.1
-Subject: Re: [PATCH v3 4/7] dt-bindings: net: Add support StarFive dwmac
-Content-Language: en-US
-To: yanhong wang <yanhong.wang@starfivetech.com>,
- linux-riscv@lists.infradead.org, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Cc: "David S . Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Emil Renner Berthing <kernel@esmil.dk>,
- Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
- Heiner Kallweit <hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>
-References: <20230106030001.1952-1-yanhong.wang@starfivetech.com>
- <20230106030001.1952-5-yanhong.wang@starfivetech.com>
- <c114239e-2dae-3962-24f3-8277ff173582@linaro.org>
- <9c59e7b4-ba5f-365c-7d71-1ff2953f6672@starfivetech.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <9c59e7b4-ba5f-365c-7d71-1ff2953f6672@starfivetech.com>
+In-Reply-To: <CAHh=Yk9jUFiwzw+RQDoyb7xDoHGXFzNprdXn8szmMZb5FB4jLw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230118_000011_847416_580E8E90 
-X-CRM114-Status: GOOD (  13.36  )
+X-CRM114-CacheID: sfid-20230118_001355_706349_B37A1EE7 
+X-CRM114-Status: GOOD (  37.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,40 +78,118 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============0209885998882963917=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 18/01/2023 02:45, yanhong wang wrote:
-> 
-> 
-> On 2023/1/6 20:45, Krzysztof Kozlowski wrote:
->> On 06/01/2023 03:59, Yanhong Wang wrote:
->>> Add documentation to describe StarFive dwmac driver(GMAC).
->>>
->>> Signed-off-by: Yanhong Wang <yanhong.wang@starfivetech.com>
->>> ---
->>>  .../devicetree/bindings/net/snps,dwmac.yaml   |   1 +
->>>  .../bindings/net/starfive,jh7110-dwmac.yaml   | 113 ++++++++++++++++++
->>>  MAINTAINERS                                   |   5 +
->>
->> Order the patches correctly. Why this binding patch is split from previous?
->>
-> 
-> The previous binding patch was considered to be compatible with JH7100, but after discussion,
-> it is not compatible with JH7100 for the time being, so the name of binding has been modified
-> in this patch.
 
-I am not asking about name, but why this was split from the patch using
-the compatible in the first time. This does not make any sense. Please
-squash.
+--===============0209885998882963917==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="KB0jfWFHyOhAHNFP"
+Content-Disposition: inline
 
-Best regards,
-Krzysztof
 
+--KB0jfWFHyOhAHNFP
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hey Nylon,
+
+On Wed, Jan 18, 2023 at 10:32:25AM +0800, Nylon Chen wrote:
+> Conor Dooley <conor@kernel.org> =E6=96=BC 2023=E5=B9=B41=E6=9C=8814=E6=97=
+=A5 =E9=80=B1=E5=85=AD =E4=B8=8B=E5=8D=8810:00=E5=AF=AB=E9=81=93=EF=BC=9A
+> > On Fri, Jan 13, 2023 at 07:24:56PM +0000, Jessica Clarke wrote:
+> > > On 13 Jan 2023, at 18:32, Conor Dooley <conor@kernel.org> wrote:
+
+> > > > Please delete link 2, convert the other two to standard Link: tags =
+and
+> > > > put this information in the dts patch. Possibly into the PWM patch =
+too,
+> > > > depending on what the PWM maintainers think.
+> > > > This info should be in the commit history IMO and the commit messag=
+e for
+> > > > the dts patch says what's obvious from the diff without any explana=
+tion
+> > > > as to why.
+> > > >
+> > > > I did a bit of looking around on lore, to see if I could figure out
+> > > > why it was done like this in the first place, and I found:
+> > > > https://lore.kernel.org/linux-pwm/CAJ2_jOG2M03aLBgUOgGjWH9CUxq2aTG9=
+7eSX70=3DUaSbGCMMF_g@mail.gmail.com/
+> > >
+> > > That DTS documentation makes no sense to me, why does what the LED is
+> > > wired to matter?
+> >
+> > ```
+> >       active-low:
+> >         description:
+> >           For PWMs where the LED is wired to supply rather than ground.
+> > ```
+> >
+> > > Whether you have your transistor next to ground or
+> > > next to Vdd doesn=E2=80=99t matter, what matters is whether the trans=
+istor is
+> > > on or off. Maybe what they mean is whether the *PWM's output* / *the
+> > > transistor's input* is pulled to ground or Vdd? In which case the
+> > > property would indeed not apply here.
+> > >
+> > > Unless that=E2=80=99s written assuming the LED is wired directly to t=
+he PWM, in
+> > > which case it would make sense, but that=E2=80=99s a very narrow-mind=
+ed view of
+> > > what the PWM output is (directly) driving.
+> >
+> > I would suspect that it was written with that assumption.
+> > Probably was the case on the specific board this property was originally
+> > added for.
+
+> As you can see, there is also the same description in U-Boot.
+>=20
+> But in U-Boot, the DTS of Unmatched/Unleashed has not been added active-l=
+ow.
+>=20
+> This is because active-high should be correct if we look at the circuit d=
+iagram.
+
+I am loathe to speak for Jess, but I don't think either of us are
+disagreeing with your patches. I was just trying to understand why it was
+wrong in the first place to see if it was intentionally inverted, or if
+there was something that could be improve to stop it happening again.
+Apologies if that got lost in translation.
+
+> > Maybe it'd be a bit more foolproof written as "For LEDs that are
+> > illuminated while the PWM output is low. For example, where an LED is
+> > wired between supply and the PWM output."?
+
+Thanks,
+Conor.
+
+
+--KB0jfWFHyOhAHNFP
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY8eqPQAKCRB4tDGHoIJi
+0l1NAP4hoQtZQkitKUCK7iMO1hSdPTd/IA6bhrI7bWiQNAnlKQD+MVDCawwKnyHs
+GVs7HhE/g6s3aK6sBM0Gi3kXEppZCwE=
+=zYGs
+-----END PGP SIGNATURE-----
+
+--KB0jfWFHyOhAHNFP--
+
+
+--===============0209885998882963917==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0209885998882963917==--
+
