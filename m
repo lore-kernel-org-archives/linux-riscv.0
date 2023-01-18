@@ -4,66 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3787C38147
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Jan 2023 13:11:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03F23C32793
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Jan 2023 13:54:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Date:Subject:Message-Id:References:
-	In-Reply-To:Cc:To:From:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vlzUq0qZeG4eMnzVoUyCcAQd+jWRyQgO4e5kuHVb96I=; b=mor6G94T9FnKoL
-	WgHj6MZAQ37ifI2rHxn8fcKE+oMq6dQutpDA3y3Q7iUQ+0eqx2BcyDLu3fDNFmi6Cep8O1USWYiC4
-	S/GX0lC/VOTQ73BpY7Dp9vql6rzcMjY+wo/cnJUx6rrC0f/2TQrCJlPvd6jqm70rYCTpeZzKkgRNY
-	3SjbT/BOtvwOmVxKyJ4ngUYTXCjC0Tq7VHvZCklTM/CkIYxN0wC3VGI3OZpZ7/KY9wYlmRBg+eFW4
-	RJF2ZoZ/2g8Zdt3CRiH/LNvKxjaz7E3e4jxULhudH55dycL6tIiwFkM5dhWstabeMxwX/a8TN8Qg5
-	bUV0Kkyaw6c6Bwt5emEg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=46uJaCykpPq8wz5mUOnZnOQsVVxBb1jryTzHNK5kfsI=; b=p3S81LrF565+8LJ9C+8arsCRZ5
+	PvJLfvT52+uRruPieV3UtIWU5u/XWuM0sSYzarBM834xaxkDUEZcSTUGvXhaim+2g9ypSn2myP4Dz
+	mJXgAen7ldkIuKDcbw2Y//TWrsrHurfqlFTZXh7WPLuoa6LXW546H9gaklDkhnJytOTl3DXH8n7wV
+	D+/RHREwNrONpEb1q7MjM1QpC6qO8ZqE6v9m5+ynnuu4JI9lGSiC5fIndn8M5KqugB4Wpxh7XgUV1
+	QSButkaKQlf/oM/5/6A1rhPuZKHxQWcELhj8EM2uSDM17W87CVxUcyO71lmGggWZyo0JSJtidsyx4
+	4K63JMxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pI8Dc-0014uO-PP; Wed, 18 Jan 2023 13:11:08 +0000
-Received: from mail-oo1-f49.google.com ([209.85.161.49])
+	id 1pI8t4-001Dlx-RD; Wed, 18 Jan 2023 13:53:58 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pI8DM-0014nz-8p
-	for linux-riscv@lists.infradead.org; Wed, 18 Jan 2023 13:10:54 +0000
-Received: by mail-oo1-f49.google.com with SMTP id h12-20020a4a940c000000b004fa81915b1cso824050ooi.4
-        for <linux-riscv@lists.infradead.org>; Wed, 18 Jan 2023 05:10:50 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=date:subject:message-id:references:in-reply-to:cc:to:from
-         :mime-version:content-transfer-encoding:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=LPXKE4fWh08xIviaGRGhwlFYvgu/9wGipKwIrtn3ERY=;
-        b=U/CN8EwKPP081VsjuxrNm2krRkVj2WRExDThSWc8RG6hycgeGK1a8F5ThuK2sXTOYy
-         TJK0q21vOkgqzTT4kSNikkro0Wt62IFL/nEXxffTEfT3H62KUUXWKu1o+mkoZqxA0WK2
-         d9Le34wD3EocNkfJexfiR6Ndat9162bniG+GEOPjVPJeuIoahHZGXzAReiOWlLhRP8Pr
-         yp1rxtCZoMtAWtuuPhvkc8pWo/xcNTcu8CdmfH3JZ344taMeKOAXnI2qsjVZT7H6z6FN
-         vNB4DUAPaP+eyBIm08wuZYBpjI+memg2U1PhxzmiVAa17TW7TMKlDcV4QysjbI+aevB/
-         pnIQ==
-X-Gm-Message-State: AFqh2kqP1JFQZI3gK4YFyVUZm+q6UWhmsn+bxvimgd5NazLZrfk7DtRS
-	N5cvz8k6jgRZw4pcgH0vwg==
-X-Google-Smtp-Source: AMrXdXuaVkiDYUFtNuNfPCSPfjF3RtDj8mtkMncMjSfU5aOhhpiJCxGNF68RjD5jl+wYaaUCe+TGSw==
-X-Received: by 2002:a4a:1ac4:0:b0:4f2:21f7:cd93 with SMTP id 187-20020a4a1ac4000000b004f221f7cd93mr3356508oof.0.1674047449990;
-        Wed, 18 Jan 2023 05:10:49 -0800 (PST)
-Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id s23-20020a4ae557000000b0049f5ce88583sm16470775oot.7.2023.01.18.05.10.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Jan 2023 05:10:48 -0800 (PST)
-Received: (nullmailer pid 1459876 invoked by uid 1000);
-	Wed, 18 Jan 2023 13:10:47 -0000
+	id 1pI8t1-001DlL-6K
+	for linux-riscv@lists.infradead.org; Wed, 18 Jan 2023 13:53:56 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id AD672617F3;
+	Wed, 18 Jan 2023 13:53:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6B1CC433EF;
+	Wed, 18 Jan 2023 13:53:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1674050034;
+	bh=w5r9sYL2RG2NQJE13OljQZOKM5j8E2WL4wRHuMh3tTk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=DoZa7S5Bv0ocCl/sR+1FXm3srL0KZoiUzA6xDqSnJY1xn3gB0EBIC9xbJBfzPZiou
+	 XOsLjDM+alD7jblgSJo2QDzfzdqn0z4yzHE9PyiBSnXZ5AJQn4oqH7IQyaA5TGb2G3
+	 gE/1/9byCcSOGQrXWyQqDlVgygR1wiDevmDoc/+sI0FKnk8j9Lg6jyXnVEUv6MAeX0
+	 aQoDFannscnQMUkEeUL4V3taDKVOHEjKrWk+zh8ckmuB1z+W5Vb+9qw08+FeAbvCdw
+	 Q+7ADmLOh2rXDg5QfSxmkC9aQKq7C1SB3FYJMOQMVGyKChM+feNfZSXAFdAQfz/vXD
+	 Z6L//5QAxTang==
+Date: Wed, 18 Jan 2023 13:53:50 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: Jassi Brar <jassisinghbrar@gmail.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 0/7] MPFS system controller/mailbox fixes
+Message-ID: <Y8f57uKjIAPdAz1b@spud>
+References: <20230111134513.2495510-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
-From: Rob Herring <robh@kernel.org>
-To: Yanhong Wang <yanhong.wang@starfivetech.com>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, linux-riscv@lists.infradead.org, netdev@vger.kernel.org, Peter Geis <pgwipeout@gmail.com>, Jakub Kicinski <kuba@kernel.org>, Richard Cochran <richardcochran@gmail.com>, Heiner Kallweit <hkallweit1@gmail.com>, "David S . Miller" <davem@davemloft.net>, linux-kernel@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>, Andrew Lunn <andrew@lunn.ch>, devicetree@vger.kernel.org, Eric Dumazet <edumazet@google.com>, Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>
-In-Reply-To: <20230118061701.30047-3-yanhong.wang@starfivetech.com>
-References: <20230118061701.30047-1-yanhong.wang@starfivetech.com>
- <20230118061701.30047-3-yanhong.wang@starfivetech.com>
-Message-Id: <167404705359.1390391.205840489556921087.robh@kernel.org>
-Subject: Re: [PATCH v4 2/7] dt-bindings: net: snps,dwmac: Update the maxitems
- number of resets and reset-names
-Date: Wed, 18 Jan 2023 07:10:47 -0600
+In-Reply-To: <20230111134513.2495510-1-conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230118_051052_377475_D2293AB7 
-X-CRM114-Status: GOOD (  10.87  )
+X-CRM114-CacheID: sfid-20230118_055355_338943_A9421BD8 
+X-CRM114-Status: GOOD (  46.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,56 +67,147 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3402176557196212070=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 18 Jan 2023 14:16:56 +0800, Yanhong Wang wrote:
-> Some boards(such as StarFive VisionFive v2) require more than one value
-> which defined by resets property, so the original definition can not
-> meet the requirements. In order to adapt to different requirements,
-> adjust the maxitems number definition.
-> 
-> Signed-off-by: Yanhong Wang <yanhong.wang@starfivetech.com>
-> ---
->  Documentation/devicetree/bindings/net/snps,dwmac.yaml | 9 +++------
->  1 file changed, 3 insertions(+), 6 deletions(-)
-> 
+--===============3402176557196212070==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="+7I49tIPzidPH2wa"
+Content-Disposition: inline
 
-My bot found errors running 'make DT_CHECKER_FLAGS=-m dt_binding_check'
-on your patch (DT_CHECKER_FLAGS is new in v5.13):
 
-yamllint warnings/errors:
+--+7I49tIPzidPH2wa
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.example.dtb: ethernet@1c0b000: Unevaluated properties are not allowed ('reset-names' was unexpected)
-	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.example.dtb: ethernet@1c0b000: Unevaluated properties are not allowed ('reset-names' was unexpected)
-	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.example.dtb: ethernet@1c0b000: Unevaluated properties are not allowed ('reset-names' was unexpected)
-	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml
+On Wed, Jan 11, 2023 at 01:45:06PM +0000, Conor Dooley wrote:
+> Hey Jassi, all,
+>=20
+> Here are some fixes for the system controller on PolarFire SoC that I
+> ran into while implementing support for using the system controller to
+> re-program the FPGA. A few are just minor bits that I fixed in passing,
+> but the bulk of the patchset is changes to how the mailbox figures out
+> if a "service" has completed.
+>=20
+> Prior to implementing this particular functionality, the services
+> requested from the system controller, via its mailbox interface, always
+> triggered an interrupt when the system controller was finished with
+> the service.
+>=20
+> Unfortunately some of the services used to validate the FPGA images
+> before programming them do not trigger an interrupt if they fail.
+> For example, the service that checks whether an FPGA image is actually
+> a newer version than what is already programmed, does not trigger an
+> interrupt, unless the image is actually newer than the one currently
+> programmed. If it has an earlier version, no interrupt is triggered
+> and a status is set in the system controller's status register to
+> signify the reason for the failure.
 
-doc reference errors (make refcheckdocs):
+I think, with how things currently are, the timeout is insufficient.
+I've noticed some services taking longer (significantly) longer than what
+I have provisioned for.
 
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20230118061701.30047-3-yanhong.wang@starfivetech.com
+I'll try to find an upper bound and respin a v2. Questions below are
+still valid either way!
 
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
+Thanks,
+Conor.
 
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
+> In order to differentiate between the service succeeding & the system
+> controller being inoperative or otherwise unable to function, I had to
+> switch the controller to poll a busy bit in the system controller's
+> registers to see if it has completed a service.
+> This makes sense anyway, as the interrupt corresponds to "data ready"
+> rather than "tx done", so I have changed the mailbox controller driver
+> to do that & left the interrupt solely for signalling data ready.
+> It just so happened that all of the services that I had worked with and
+> tested up to this point were "infallible" & did not set a status, so the
+> particular code paths were never tested.
+>=20
+> Jassi, the mailbox and soc patches depend on each other, as the change
+> in what the interrupt is used for requires changing the client driver's
+> behaviour too, as mbox_send_message() will now return when the system
+> controller is no longer busy rather than when the data is ready.
+> I'm happy to send the lot via the soc tree with your Ack and/or reivew,
+> if that also works you?
+>=20
+> Secondly, I have a question about what to do if a service does fail, but
+> not due to a timeout - eg the above example where the "new" image for
+> the FPGA is actually older than the one that currently exists.
+> Ideally, if a service fails due to something other than the transaction
+> timing out, I would go and read the status registers to see what the
+> cause of failure was.
+> I could not find a function in the mailbox framework that allows the
+> client to request that sort of information from the client. Trying to
+> do something with the auxiliary bus, or exporting some function to a
+> device specific header seemed like a circumvention of the mailbox
+> framework.
+> Do you think it would be a good idea to implement something like
+> mbox_client_peek_status(struct mbox_chan *chan, void *data) to allow
+> clients to request this type of information?
+>=20
+> It'd certainly allow me to report the actual errors to the drivers
+> implementing the service & make better decisions there about how to
+> proceed.
+> Perhaps I have missed some way of doing this kind of thing that (should
+> have been) staring me in the face!
+>=20
+> Thanks,
+> Conor.
+>=20
+> CC: Conor Dooley <conor.dooley@microchip.com>
+> CC: Daire McNamara <daire.mcnamara@microchip.com>
+> CC: Jassi Brar <jassisinghbrar@gmail.com>
+> CC: linux-riscv@lists.infradead.org
+> CC: linux-kernel@vger.kernel.org
+>=20
+> Conor Dooley (7):
+>   mailbox: mpfs: fix an incorrect mask width
+>   mailbox: mpfs: switch to txdone_poll
+>   mailbox: mpfs: ditch a useless busy check
+>   soc: microchip: mpfs: fix some horrible alignment
+>   soc: microchip: mpfs: use a consistent completion timeout
+>   soc: microchip: mpfs: simplify error handling in
+>     mpfs_blocking_transaction()
+>   soc: microchip: mpfs: handle timeouts and failed services differently
+>=20
+>  drivers/mailbox/mailbox-mpfs.c              | 25 +++++++----
+>  drivers/soc/microchip/mpfs-sys-controller.c | 48 +++++++++++++--------
+>  2 files changed, 47 insertions(+), 26 deletions(-)
+>=20
+>=20
+> base-commit: 88603b6dc419445847923fcb7fe5080067a30f98
+> --=20
+> 2.39.0
+>=20
 
-pip3 install dtschema --upgrade
+--+7I49tIPzidPH2wa
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+-----BEGIN PGP SIGNATURE-----
 
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY8f5zQAKCRB4tDGHoIJi
+0uQ1AP9fSIWdrEuF5cYVtH2JW2+2CBmFvbK0cmJCHDzavG/SpgD/fsXfHn5TSM+p
+JJGfXx5N8gomdWbZkP0hBAwHcacvvAw=
+=liwu
+-----END PGP SIGNATURE-----
+
+--+7I49tIPzidPH2wa--
+
+
+--===============3402176557196212070==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3402176557196212070==--
+
