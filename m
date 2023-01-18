@@ -4,111 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15419C32793
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Jan 2023 19:33:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D90F1C38147
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Jan 2023 21:55:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=u5m5w7h+GQX6RlJzI+7DrOFBt7slwvY6dXaBmcpZkyo=; b=xbv39dMdqsWd7P
-	j2lHbemhwaI5UsZ6wq/nGu5m5PFzzJBVpHZjrZAsx93Y1E9KCMhEWlYKi6m1C6umc+4V+sNTG/3+p
-	WgmGClLju4m5UFN3Co7LoUT/1e+sscp015Uj/v8c7Q+jTs4ulNTcjmQ8dW6GNBr3jqJ8pNVCWWqWI
-	krDb2LD/lYQm1IL+em10Axr4Hrw8w8honcRRo+tjBT9BMTSJJ41s4gECZabOeEsI9fvLnU+Lt6Q+U
-	1fOddhzlCkjIEwM7T3BdH69E5zpeblWFxhEq2v1Kw9svvHl+M2IB5Wm3gPddQTzHW1/6g+kDVNC8C
-	dJyqMuEsjRzPSRp3P4zg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LZfGKnTUX51mfr+s/qMdFiwc8E6/zY7FV0tND5oswto=; b=ANMr4fUks2XcwHh8hbCR7rkfjW
+	KrMw9YLNL/acp+x/W5d7TJ103GurZP0opkvA8qzyEIbeQ+ULF2rPGlN95007jyC1FiRVb/fyU9agz
+	ecXJMs50FvfcPCw5i691iQ6UUNd08CQ9LqsX99e9+yBdjWFG2rXj5BAvd6mWz2ao3GabB+4AurVbG
+	BsQSxlbzzZfmE4GZnLVkrOxLnRDv9cQxAo+uNgDzhaX7XJ7vaJXYJFFeAJsP7g7I3Po9tESQPHUUn
+	EnU/uhHon7493aOwfdUjln52Xywbqf5ppSAZ9bwgRIqMNXu0sHiwRsDjcgoBNgEn0/5uB+D/FEQNB
+	3pf4Md0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIEB5-002WK2-0x; Wed, 18 Jan 2023 19:32:55 +0000
-Received: from mga05.intel.com ([192.55.52.43])
+	id 1pIGOW-002o6l-EA; Wed, 18 Jan 2023 21:54:56 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIEB0-002WIC-Mu; Wed, 18 Jan 2023 19:32:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1674070370; x=1705606370;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=rd8D9WM+DMkQQdSGbyw+RjACp0njYXtWMwISiTkUNq4=;
-  b=d/Amjq+9RCEzDmCG1zknge2Ho6rsnKL7ycoNGyTtz86tQzMNvknleNLU
-   rF6Slkb6haHHTAdpiGC2xdk9kt4h5cYClsIDjiUVAcPlbw0Zmo3Wd+x1a
-   PuLBWpc+PB5XmSHaifnsOvg4o6u9Xj3O9Y7UEXtsI3u5Cp6dI6BRpSK+n
-   RnfMZWFACn1p7lPGqeY6pwB2PZYGZUfwB43BZwpTAozM1pxxouAqpvySC
-   xGLq3EmCGNr4NxxxpqooCLbs9f4PlNCyMzKjk9Ttv58aXqasZQdVY1cah
-   h+UJbY/VuZ04U7v8gCzkAUCw6tBsD0x+WEMktFMFa3cDUYVncSuIwHDPG
-   A==;
-X-IronPort-AV: E=McAfee;i="6500,9779,10594"; a="411319211"
-X-IronPort-AV: E=Sophos;i="5.97,226,1669104000"; 
-   d="scan'208";a="411319211"
-Received: from fmsmga001.fm.intel.com ([10.253.24.23])
-  by fmsmga105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Jan 2023 11:32:47 -0800
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6500,9779,10594"; a="802328577"
-X-IronPort-AV: E=Sophos;i="5.97,226,1669104000"; 
-   d="scan'208";a="802328577"
-Received: from smile.fi.intel.com ([10.237.72.54])
-  by fmsmga001.fm.intel.com with ESMTP; 18 Jan 2023 11:32:35 -0800
-Received: from andy by smile.fi.intel.com with local (Exim 4.96)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1pIEAh-00BLES-15;
-	Wed, 18 Jan 2023 21:32:31 +0200
-Date: Wed, 18 Jan 2023 21:32:31 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Vinod Koul <vkoul@kernel.org>, Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Olivier Dautricourt <olivierdautricourt@gmail.com>,
-	Stefan Roese <sr@denx.de>, Hector Martin <marcan@marcan.st>,
-	Sven Peter <sven@svenpeter.dev>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Andreas =?iso-8859-1?Q?F=E4rber?= <afaerber@suse.de>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Andy Gross <agross@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konrad.dybcio@linaro.org>,
-	Viresh Kumar <vireshk@kernel.org>, Green Wan <green.wan@sifive.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+	id 1pIGOT-002o6A-5t; Wed, 18 Jan 2023 21:54:55 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id E822F619E3;
+	Wed, 18 Jan 2023 21:54:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB14AC433D2;
+	Wed, 18 Jan 2023 21:54:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1674078891;
+	bh=v8hVgzUdtQCAhOK8RPN4ie2MZX0lgDhvXn7A25XYJMU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=eQxGL08WmulkHoruoP63ix8MoKXaTzm1FwolXYFqlN4pVnCbjgWZTzpm8SDukR2F7
+	 0wJAzkPaxBjMunRjYOHA5xj8e6B2DRkXJjDq1bplp5RnbG7rZmDZXPl7go6+tBDc6h
+	 nhhZhOOd9XYujjh3n+ZxXp7YcP0SwpcNf0A/fgo6MTZJFZ56tkR7LuxKqjHVqYbwj8
+	 BVSx+EA070l9HD5gYytPTCLKLnCdhxt6EIPpg4QX05dEPrxJ48Uw34ZZe0IHBQjuOu
+	 /bZ4KusX52O6XL6kjN/dnoxoKUzUHN3MetkwTFB4LVAwdEjfeJ4kLUIs7qDbhgGvrw
+	 J+z9jqkdkul2w==
+Date: Wed, 18 Jan 2023 21:54:46 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Andrew Jones <ajones@ventanamicro.com>,
+	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
+	Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	=?utf-8?B?77+9ZXI=?= <povik+lin@cutebit.org>,
-	Peng Fan <peng.fan@nxp.com>, Paul Cercueil <paul@crapouillou.net>,
-	- <chuanhua.lei@intel.com>, Long Cheng <long.cheng@mediatek.com>,
-	Rajesh Gumasta <rgumasta@nvidia.com>,
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	Miquel Raynal <miquel.raynal@bootlin.com>,
-	Palmer Debbelt <palmer@sifive.com>,
-	Masahiro Yamada <yamada.masahiro@socionext.com>,
-	Amelie Delaunay <amelie.delaunay@foss.st.com>,
-	Linus Walleij <linus.walleij@linaro.org>, dmaengine@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
-	asahi@lists.linux.dev, linux-tegra@vger.kernel.org,
-	linux-actions@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH 1/2] dt-bindings: dma: drop unneeded quotes
-Message-ID: <Y8hJT7gaw3+s62rv@smile.fi.intel.com>
-References: <20230118180144.364756-1-krzysztof.kozlowski@linaro.org>
+	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org
+Subject: Re: [PATCH v3 05/13] riscv: cpufeature: extend
+ riscv_cpufeature_patch_func to all ISA extensions
+Message-ID: <Y8hqptFcUgjhns4F@spud>
+References: <20230111171027.2392-1-jszhang@kernel.org>
+ <20230111171027.2392-6-jszhang@kernel.org>
+ <2398293.3Lj2Plt8kZ@diego>
+ <20230112092136.f2g43hrhmrqouy4y@orel>
+ <Y8F2YxMHUt+djhX4@wendy>
+ <Y8MRZQENua+wi34T@spud>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230118180144.364756-1-krzysztof.kozlowski@linaro.org>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+In-Reply-To: <Y8MRZQENua+wi34T@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230118_113250_829976_020B9D57 
-X-CRM114-Status: GOOD (  11.33  )
+X-CRM114-CacheID: sfid-20230118_135453_340005_62BCDA50 
+X-CRM114-Status: GOOD (  71.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,31 +78,238 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7202426395338578405=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 18, 2023 at 07:01:43PM +0100, Krzysztof Kozlowski wrote:
-> Cleanup by removing unneeded quotes from refs and redundant blank lines.
-> No functional impact except adjusting to preferred coding style.
-> 
->  Documentation/devicetree/bindings/dma/dma-controller.yaml       | 2 +-
->  Documentation/devicetree/bindings/dma/dma-router.yaml           | 2 +-
 
->  Documentation/devicetree/bindings/dma/intel,ldma.yaml           | 2 +-
-
->  Documentation/devicetree/bindings/dma/snps,dma-spear1340.yaml   | 2 +-
-
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-
--- 
-With Best Regards,
-Andy Shevchenko
+--===============7202426395338578405==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="TYuwbt/I1O7g0C/i"
+Content-Disposition: inline
 
 
+--TYuwbt/I1O7g0C/i
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hey!
+
+I guess here is the right place to follow up on all of this stuff...
+
+On Sat, Jan 14, 2023 at 08:32:37PM +0000, Conor Dooley wrote:
+> On Fri, Jan 13, 2023 at 03:18:59PM +0000, Conor Dooley wrote:
+> > On Thu, Jan 12, 2023 at 10:21:36AM +0100, Andrew Jones wrote:
+> > > On Thu, Jan 12, 2023 at 12:29:57AM +0100, Heiko St=C3=BCbner wrote:
+> > > > Am Mittwoch, 11. Januar 2023, 18:10:19 CET schrieb Jisheng Zhang:
+> > > > > riscv_cpufeature_patch_func() currently only scans a limited set =
+of
+> > > > > cpufeatures, explicitly defined with macros. Extend it to probe f=
+or all
+> > > > > ISA extensions.
+> > > > >=20
+> > > > > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> > > > > Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+> > > > > Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+> > > > > ---
+> > > > >  arch/riscv/include/asm/errata_list.h |  9 ++--
+> > > > >  arch/riscv/kernel/cpufeature.c       | 63 ++++------------------=
+------
+> > > > >  2 files changed, 11 insertions(+), 61 deletions(-)
+> > > >=20
+> > > > hmmm ... I do see a somewhat big caveat for this.
+> > > > and would like to take back my Reviewed-by for now
+> > > >=20
+> > > >=20
+> > > > With this change we would limit the patchable cpufeatures to actual
+> > > > riscv extensions. But cpufeatures can also be soft features like
+> > > > how performant the core handles unaligned accesses.
+> > >=20
+> > > I agree that this needs to be addressed and Jisheng also raised this
+> > > yesterday here [*]. It seems we need the concept of cpufeatures, which
+> > > may be extensions or non-extensions.
+> > >=20
+> > > [*] https://lore.kernel.org/all/Y77xyNPNqnFQUqAx@xhacker/
+> > >=20
+> > > > See Palmer's series [0].
+> > > >=20
+> > > >=20
+> > > > Also this essentially codifies that each ALTERNATIVE can only ever
+> > > > be attached to exactly one extension.
+> > > >=20
+> > > > But contrary to vendor-errata, it is very likely that we will need
+> > > > combinations of different extensions for some alternatives in the f=
+uture.
+> > >=20
+> > > One possible approach may be to combine extensions/non-extensions at =
+boot
+> > > time into pseudo-cpufeatures. Then, alternatives can continue attachi=
+ng to
+> > > a single "feature". (I'm not saying that's a better approach than the
+> > > bitmap, I'm just suggesting it as something else to consider.)
+> >=20
+> >=20
+> > > >         ALTERNATIVE_2("nop",
+> > > >                       "j strcmp_zbb_unaligned", 0, CPUFEATURE_ZBB |=
+ CPUFEATURE_FAST_UNALIGNED, 0, CONFIG_RISCV_ISA_ZBB,
+> > > >                       "j variant_zbb", 0, CPUFEATURE_ZBB, CPUFEATUR=
+E_FAST_UNALIGNED, CONFIG_RISCV_ISA_ZBB)
+> > > >=20
+> > > > [the additional field there models a "not" component]
+> >=20
+> > Since we're discussing theoretical implementations, and it's a little h=
+ard
+> > to picture all that they entail in my head, I might be making a fool of
+> > myself here with assumptions...
+> >=20
+> > Heiko's suggestion sounded along the lines of: keep probing individual
+> > "features" as we are now. Features in this case being the presence of
+> > the extension or non-extension capability. And then in the alternative,
+> > make all of the decisions about which to apply.
+> >=20
+> > Drew's suggestion would have significantly more defined CPUFEATURE_FOOs,
+> > but would offload the decision making about which extensions or non-
+> > extension capabilities constitute a feature to regular old cpufeature
+> > code. However, the order of precedence would remain in the alt macro, as
+> > it does now.
+> >=20
+> > I think I am just a wee bit biased, but adding the complexity somewhere
+> > other than alternative macros seems a wise choice, especially as we are
+> > likely to find that complexity increases over time?
+> >=20
+> > The other thing that came to mind, and maybe this is just looking for
+> > holes where they don't exist (or are not worth addressing), is that
+> > order of precedence.
+> > I can imagine that, in some cases, the order of precedence is not a
+> > constant per psuedo-cpufeature, but determined by implementation of
+> > the capabilities that comprise it?
+>=20
+> Having spent longer than I maybe should've looking at your patches
+> Heiko, given it's a Saturday evening, the precedence stuff is still
+> sticking out to me..
+>=20
+> For Zbb & fast unaligned, the order may be non-controversial, but in
+> the general case I don't see how it can be true that the order of
+> precedence for variants is a constant.
+>=20
+> Creating pseudo cpufeatures as Drew suggested does seem like a way to
+> extract complexity from the alternatives themselves (which I think is a
+> good thing) but at the expense of eating up cpu_req_feature bits...
+> By itself, it doesn't help with precedence, but it may better allow us
+> to deal with some of the precedence in cpufeature.c, since the
+> alternative would operate based on the pseudo cpufeature rather than on
+> the individual capabilities that the pseudo cpufeature depends on.
+>=20
+> I tried to come up with a suggestion for what to do about precedence,
+> but everything I thought up felt a bit horrific tbh.
+> The thing that fits the current model best is just allowing cpu vendors
+> to add, yet more, "errata" that pick the variant that works best for
+> their implementation... Although I'd be worried about ballooning some of
+> these ALT_FOO macros out to a massive degree with that sort of approach.
+>=20
+> > If my assumption/understanding holds, moving decision making out of the
+> > alternative seems like it would better provision for scenarios like
+> > that? I dunno, maybe that is whatever the corollary of "premature
+> > optimisation" is for this discussion.
+> >=20
+> > That's my unsolicited =E2=82=AC 0.02, hopefully I wasn't off-base with =
+the
+> > assumptions I made.
+>=20
+> The order in which an alternative is added to the macro does matter,
+> right? At least, that's how I thought it worked and hope I've not had
+> an incorrect interpretation there all along... I wasn't until I started
+> reading your patch and couldn't understand why you had a construct that
+> looked like
+>=20
+> if (zbb && !fast_unaligned)
+> ...
+> else if (zbb && fast_unaligned)
+> ...
+>=20
+> rather than just inverting the order and dropping the !fast_unaligned
+> that I realised I might have a gap in my understanding after all..
+>=20
+> > Heiko, I figure you've got some sort of WIP stuff for this anyway since
+> > you're interested in the fast unaligned? How close are you to posting a=
+ny
+> > of that?
+> >=20
+> > While I think of it, w.r.t. extension versus (pseudo)cpufeature etc
+> > naming, it may make sense to call the functions that this series adds
+> > in patch 6 has_cpufeature_{un,}likely(), no matter what decision gets
+> > made here?
+> > IMO using cpufeature seems to make more sense for a general use API that
+> > may be used later on for the likes of unaligned access, even if
+> > initially it is not used for anything other than extensions.=20
+
+Today at [1] we talked a bit about the various bits going on here.
+I'll attempt to summarise what I remember, but I meant to do this
+several hours ago and am likely to make a hames of it.
+
+For Zbb/unaligned stuff, the sentiment was along the lines of there
+needing to be a performance benefit to justify the inclusion.
+Some of us have HW that is (allegedly) capable of Zbb, and, if that's the
+case, will give it a go.
+I think it was similar for unaligned, since there is nothing yet that
+supports this behaviour, we should wait until a benefit is demonstrable.
+
+On the subject of grouping extension/non-extension capabilities into a
+single cpufeature, Palmer mentioned that GCC does something similar,
+for the likes of the Ventana vendor extensions, that are unlikely to be
+present in isolation.
+Those are (or were?) probed as a group of extensions rather than
+individually.
+I think it was said it'd make sense for us to unify extensions that will
+only ever appear together single psuedo cpufeature too.
+
+For the bitfield approach versus creating pseudo cpufeatures discussion
+& how to deal with that in alternatives etc, I'm a bit less sure what the
+outcome was.
+IIRC, nothing concrete was said about either approach, but maybe it was
+implied that we should do as GCC does, only grouping things that won't
+ever been seen apart.
+Figuring that out seems to have been punted down the road, as the
+inclusion of our only current example of this (Zbb + unaligned) is
+dependant on hardware showing up that actually benefits from it.
+
+The plan then seemed to be press ahead with this series & test the
+benefits of the Zbb str* functions in Zbb capable hardware before making
+a decision there.
+
+Hopefully I wasn't too far off with that summary...
+
+Thanks,
+Conor.
+
+1 - https://lore.kernel.org/linux-riscv/mhng-775d4068-6c1e-48a4-a1dc-b4a76f=
+f26bb3@palmer-ri-x1c9a/
+
+--TYuwbt/I1O7g0C/i
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY8hqpgAKCRB4tDGHoIJi
+0oQKAQCfjcprdsJYckVerDXNH6jl+znsJdqSNJFpr3Sy+pxCfwD/ZBa3Grcc2e61
+F/Et+bbocIwxK8kPgH01XfgLaqaZuQ8=
+=tAOm
+-----END PGP SIGNATURE-----
+
+--TYuwbt/I1O7g0C/i--
+
+
+--===============7202426395338578405==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7202426395338578405==--
+
