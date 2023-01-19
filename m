@@ -4,97 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA658C004D4
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Jan 2023 17:24:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FB05C004D4
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Jan 2023 17:24:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=svzviqGVoXDdIjsldzJGhr58UPiDVa8jEzEXEhQMQT4=; b=rQ7AnSbXFVwlyl
-	+HA4rKaNKKn1c5TNGrFxDLQXNHuxcqSCubkVlNBMzY56W5jWk4a6Iw3PcaN3pRejMcazL6BmuWMjF
-	NKFyTq0cZLJI0zhiX3cfE4A13yVvGWC1UWHLLlFFsZIkyIAIV2zs5MHKgZC6HTP8Y1DN29GL6gRYk
-	8/Ug91E83ov7ad42dqCOUyz7ofgZaCGLJcXhx98SViDnhZNS+lYzBp7UqDFDxNx8XoyW4ckaGJ8xH
-	4Fs4vOGt27CvqUYxouDlY3G89ifqE8AUxLrSq8E4BlhX8vtoZzIIS2SQmnZhiiIrsgXNXXj4SFmXO
-	uZVDsTk5BlBhQplKBFQA==;
+	List-Owner; bh=QFN0x0J9uGPhG+nqAwHzmYtvKfOiXJY2cyqJ7wOIEdw=; b=0vSamG1CrMNoaH
+	VkAI2RYflnMizBvR3tIDsG1JbDr+BS5bKSOANCNDbx7Hqb8gueoX8nOjTC7UOWVIWZ1on5oPj8J7j
+	Vka3Llea1Nayy+qpGTU3Skj3hTeTTQj2d7vuXhWKG+7LDMjh+26TnzvgQDP4Sna3djD7adFGMQkUS
+	VM1421TQBes37rs+7oQT9bKg9u97C5faA3PGwNV4M+/MmRJ34/fEG8eC+fLFQwT1v6YmYeoy5pQ6K
+	d7jk3T05nmm/IHl31ZOZFu9fQalY6M4BA3eZRNcnfEuTqjobxSrOzAyGSU0tFsIiE50uMjJbF4B7U
+	2QvTYIm2SWgJ7GTG5LvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIYeN-006FSv-3b; Thu, 19 Jan 2023 17:24:31 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1pIYec-006FZM-0H; Thu, 19 Jan 2023 17:24:46 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIYe2-006FNm-Cc
-	for linux-riscv@lists.infradead.org; Thu, 19 Jan 2023 17:24:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1674149047;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=7ZLCun6ndTUYHIhway+dCjRST8plu+DLSlmudJ+9iGA=;
-	b=gfVyp1Mt18iqXkDbByvibkAspsvGnAshkPiLWJIV2sshSPsKSeOUuZ4a/pOlw5TX6J5enl
-	hYMjYr5s/t+3NCdtoUivwhtWA8P/y6DBjI7kFM0JmYbTwboFlvshwybw6hmzNuxEyDDJr4
-	Nc7p6100xLIzYbVnuLFUeebBBcNuXQs=
-Received: from mail-ua1-f71.google.com (mail-ua1-f71.google.com
- [209.85.222.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_128_GCM_SHA256) id
- us-mta-210-XOTjKLUxN6WXKgwFT_FePg-1; Thu, 19 Jan 2023 12:24:01 -0500
-X-MC-Unique: XOTjKLUxN6WXKgwFT_FePg-1
-Received: by mail-ua1-f71.google.com with SMTP id k12-20020a9f30cc000000b0059bd6246237so737615uab.7
-        for <linux-riscv@lists.infradead.org>; Thu, 19 Jan 2023 09:24:01 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=7ZLCun6ndTUYHIhway+dCjRST8plu+DLSlmudJ+9iGA=;
-        b=TSfJsE7Bja/iXNVRhcwntCxLDIE45R4A1P8DAPd7JB+VqFFkSjXwi+3Cl5hM5ecaj8
-         Igav/I1s/0Yk+iU9pF3pvIrUlc7J1Qr/diCwQ40UnBr8KqYh3lJEPk6Ui36VYsN0NHGc
-         52vqfClB8uzfWnEeK7+h9O8Ol2pko4s0bJVk10ybvLzTg+yro3IyuFaVtX6grOpmoWOQ
-         VXml5VoaNh0h6lORZxFSJ6lvDWfM6Z3LRxNKm5zVJLoB83Dq1/tc8CLhHZdSwwjuP7AH
-         p5xVQNDwaUeCWzEdIXKVQXrLBXAGBQTlDYA7BUi5rN3hARTHIQY4dzyV8F2PGJS7cxQP
-         Hg0Q==
-X-Gm-Message-State: AFqh2kpO/0yvgSCbZww1JII194y3YVZ3nZus1JsGUza2qBd5nVlcgWZT
-	7Flve3Z3PECWmpAa0xq1z9NXdEy65Sa2wNz6fKGkIVY/KPb8qFtuFtSLXJJRHeuCP4agpS0pTdo
-	UVyymyn8PuExCEO/yeIq1WPe9SQLPI/yoz9p+o91KHTi5
-X-Received: by 2002:a05:6102:3d14:b0:3b5:2762:568b with SMTP id i20-20020a0561023d1400b003b52762568bmr1578179vsv.62.1674149041478;
-        Thu, 19 Jan 2023 09:24:01 -0800 (PST)
-X-Google-Smtp-Source: AMrXdXtKcbEgINpJzFLAqIx7zgVheHf3U2vYRZ/ijgft8zgf2upp0swiwUYbMZZIryC08LRzFEnE4XMqgG5fhaMKrn4=
-X-Received: by 2002:a05:6102:3d14:b0:3b5:2762:568b with SMTP id
- i20-20020a0561023d1400b003b52762568bmr1578157vsv.62.1674149041226; Thu, 19
- Jan 2023 09:24:01 -0800 (PST)
-MIME-Version: 1.0
-References: <20221208193857.4090582-1-dmatlack@google.com> <Y8l6egh2wWN7BUlZ@google.com>
-In-Reply-To: <Y8l6egh2wWN7BUlZ@google.com>
-From: Paolo Bonzini <pbonzini@redhat.com>
-Date: Thu, 19 Jan 2023 18:23:49 +0100
-Message-ID: <CABgObfaTEZ1_SaQ9ThbeMe8gX2y35ZGTFzgb9K9yZwz8dbOYdQ@mail.gmail.com>
-Subject: Re: [RFC PATCH 00/37] KVM: Refactor the KVM/x86 TDP MMU into common code
+	id 1pIYeL-006FS5-SX; Thu, 19 Jan 2023 17:24:31 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 660916134C;
+	Thu, 19 Jan 2023 17:24:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0EE7C433EF;
+	Thu, 19 Jan 2023 17:24:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1674149068;
+	bh=esmAuiMb4cE5hZfqa2pdZ4JKU4zWFBBvjoAoXwc+zAk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=FItgwmM67QScUUENZ8Zwtagr5mIdG5cEHxPFfSNuC1jM6dBrsQGhnCtdKL1v4Yf0w
+	 dW3PN2nS8nWYwK6BvAjRYCRs1jNPqcxP6UwIOvTzzQ9T/wZ6VcEzgDHqur2z3W0vff
+	 Q1U6HgQ7VMeTq9MX32okWCpOlh8xJ8QfczraVmhyB125dZQ7bsUFjHD48Lr2RB1Xwn
+	 dCD05u76MAQiAcbWsup1KSQa2MZ/UMnuWZVUxW8VbUZw7v99qBSmYLqsbt+GBlaRNB
+	 uIlEinXfjpAehqjV461mc7XifGdWsWw6VTkhkWgCHrf79SoBq2+sYdBD1CdMnGEwy+
+	 8vQzGzULTP5uQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1pIYeI-003A4j-5l;
+	Thu, 19 Jan 2023 17:24:26 +0000
+Date: Thu, 19 Jan 2023 17:24:25 +0000
+Message-ID: <86tu0mmo8m.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
 To: David Matlack <dmatlack@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>, 
-	Alexandru Elisei <alexandru.elisei@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
-	Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>, Anup Patel <anup@brainfault.org>, 
-	Atish Patra <atishp@atishpatra.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Sean Christopherson <seanjc@google.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	Anshuman Khandual <anshuman.khandual@arm.com>, Nadav Amit <namit@vmware.com>, 
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Vlastimil Babka <vbabka@suse.cz>, 
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>, Suren Baghdasaryan <surenb@google.com>, 
-	Peter Xu <peterx@redhat.com>, xu xin <cgel.zte@gmail.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Yu Zhao <yuzhao@google.com>, Colin Cross <ccross@google.com>, Hugh Dickins <hughd@google.com>, 
-	Ben Gardon <bgardon@google.com>, Mingwei Zhang <mizhang@google.com>, 
-	Krish Sadhukhan <krish.sadhukhan@oracle.com>, Ricardo Koller <ricarkol@google.com>, 
-	Jing Zhang <jingzhangos@google.com>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvmarm@lists.cs.columbia.edu, 
-	linux-mips@vger.kernel.org, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	Alexandre Ghiti <alexghiti@rivosinc.com>, Raghavendra Rao Ananta <rananta@google.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
+Cc: Paolo Bonzini <pbonzini@redhat.com>,
+	James Morse <james.morse@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Sean Christopherson <seanjc@google.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Nadav Amit <namit@vmware.com>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Peter Xu <peterx@redhat.com>,
+	xu xin <cgel.zte@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Yu Zhao <yuzhao@google.com>,
+	Colin Cross <ccross@google.com>,
+	Hugh Dickins <hughd@google.com>,
+	Ben Gardon <bgardon@google.com>,
+	Mingwei Zhang <mizhang@google.com>,
+	Krish Sadhukhan <krish.sadhukhan@oracle.com>,
+	Ricardo Koller <ricarkol@google.com>,
+	Jing Zhang <jingzhangos@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	kvmarm@lists.cs.columbia.edu,
+	linux-mips@vger.kernel.org,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Raghavendra Rao Ananta <rananta@google.com>
+Subject: Re: [RFC PATCH 00/37] KVM: Refactor the KVM/x86 TDP MMU into common code
+In-Reply-To: <Y8l6egh2wWN7BUlZ@google.com>
+References: <20221208193857.4090582-1-dmatlack@google.com>
+	<Y8l6egh2wWN7BUlZ@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/28.2
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: dmatlack@google.com, pbonzini@redhat.com, james.morse@arm.com, alexandru.elisei@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, chenhuacai@kernel.org, aleksandar.qemu.devel@gmail.com, anup@brainfault.org, atishp@atishpatra.org, paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, seanjc@google.com, akpm@linux-foundation.org, anshuman.khandual@arm.com, namit@vmware.com, willy@infradead.org, vbabka@suse.cz, Liam.Howlett@oracle.com, surenb@google.com, peterx@redhat.com, cgel.zte@gmail.com, arnd@arndb.de, yuzhao@google.com, ccross@google.com, hughd@google.com, bgardon@google.com, mizhang@google.com, krish.sadhukhan@oracle.com, ricarkol@google.com, jingzhangos@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvmarm@lists.cs.columbia.edu, linux-mips@vger.kernel.org, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, alexghiti@rivosinc.com, rananta@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230119_092418_433305_503EE8D3 
-X-CRM114-Status: UNSURE (   7.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230119_092430_047662_F0532ED4 
+X-CRM114-Status: GOOD (  19.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,15 +122,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 19, 2023 at 6:14 PM David Matlack <dmatlack@google.com> wrote:
-> Paolo and Sean, what are your thoughts on merging the Common MMU
-> refactor without RISC-V support?
+On Thu, 19 Jan 2023 17:14:34 +0000,
+David Matlack <dmatlack@google.com> wrote:
+> 
+> On Thu, Dec 08, 2022 at 11:38:20AM -0800, David Matlack wrote:
+> > 
+> > Hello,
+> > 
+> > This series refactors the KVM/x86 "TDP MMU" into common code. This is
+> > the first step toward sharing TDP (aka Stage-2) page table management
+> > code across architectures that support KVM.
+> 
+> Thank you everyone for the feedback on this RFC. I have a couple of
+> updates to share and a question at the end.
+> 
+> First, Alexandre Ghiti from Rivos is going to work on the RISC-V port.
+> I'd like to target RISC-V first, since it has significantly lower risk
+> and complexity than e.g. ARM (which has pKVM, stage-1 walkers, and
+> [soon] nested virtualization to deal with).
 
-I have no objection. We know what the long-term plan is, and it's not
-so long-term anyway.
+And (joy, happiness), the upcoming 128bit page table support[1].
 
-Paolo
+	M.
 
+[1] https://developer.arm.com/documentation/ddi0601/2022-12/AArch64-Registers/TTBR0-EL1--Translation-Table-Base-Register-0--EL1-?lang=en
+
+-- 
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
