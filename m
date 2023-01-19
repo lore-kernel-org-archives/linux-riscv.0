@@ -4,98 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB89BC004D4
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Jan 2023 14:42:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED81CC004D4
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Jan 2023 16:04:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=orq9hZhOev3n77zPCZkQ2U3vpE53NROnB4+8qBQjl7I=; b=IZV7feKsqVUEjM
-	YxyDNXpXHMCUCJaFE0FB/tQwFhM6PDYlWKdYRZinaDvOiuf8tBHv4vy4xaYMFvvyEhO5OiQy3InwU
-	r6bU6djfatjaoxPC/t5gQrn7Os0P5Dyii4E/Hylrm9dn1KC2oeIv8N4SbzuvWnDDLwyQLrgHAkWd3
-	DQDS8fRty7Awlq3e7ZQIK1/P6S6hFAZCfUxMxqd02zkTCmExBhfZXxUR+qrAMFe4X3Re5frKSjKOK
-	iyzmF9qUOKT2Ho0ymtY6ogwGGCtDRzgEQBWVeZIvJdi1PkGMS9WbcBX2L87+T/axkw9okdqjXHmla
-	Vi26Q5VMN7JkqxcdusCg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=BS4GH6F34aQMQyfw0A3JrL4lUTppkZyw5EP7ZnOpynk=; b=jrUMEeXg0n3NaE
+	+tCLfBuCx3SRzfrDUO1EMkIygrItI6ARiSzUAxMtMcZ0SLSLR90P5DucAfnG+96lp2hlJJAtrjdsp
+	sU0U+WDL5iFj27DDtycAwS0ZL2CopsU/DI11qliY21DaEFpmc3yzIPt23CminsK1oLG8xBSYjkzwE
+	hNqbfPQEQtCM0zO3VyS0kGZkxSRyBeYCUWYgPNiZd2gmPOLlwtcLF/pf9xybwM5hHl/q5UeXAFLMK
+	z9+Xd9KGM3wU+Eg19BpM8NzqJBS6xHSJcswlFBmsRHFssXFlmxyncAJvDcsT00NSFSMrmLKAiL1vx
+	SGQvGS3pI3jCSh5fv+Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIW7W-005OVm-VP; Thu, 19 Jan 2023 14:42:27 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1pIXP9-005pmT-7g; Thu, 19 Jan 2023 16:04:43 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIW2v-005MB3-EW
-	for linux-riscv@lists.infradead.org; Thu, 19 Jan 2023 14:37:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1674139060;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=KQsQYSoiV7axOHu2SHPkYXMBMlM95JI1QYM4ca5S0lU=;
-	b=X3b+ggFXMMEYwvmvCebKN7tpOM2CxBKT9+lzho/BzxWQNz2oUd/nfEfrbUYzIuNlDIf7NY
-	+y72GT3mg0K4ITIZRBq+wq98q8ggKzU/XkNrq1H083QnnRMfaOd7hlvdDmQNdVpBAOwZJm
-	fyUiuu0K3Omr9sAv0Gbg5JlQJtqNK/c=
-Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
- [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-339-SfVp0ibUOxOmeBYwt3eAmQ-1; Thu, 19 Jan 2023 09:37:34 -0500
-X-MC-Unique: SfVp0ibUOxOmeBYwt3eAmQ-1
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com [10.11.54.4])
-	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	id 1pIXP6-005pki-Bk
+	for linux-riscv@lists.infradead.org; Thu, 19 Jan 2023 16:04:41 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 8CC143815F70;
-	Thu, 19 Jan 2023 14:37:32 +0000 (UTC)
-Received: from vschneid.remote.csb (unknown [10.33.36.13])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 544032026D68;
-	Thu, 19 Jan 2023 14:37:27 +0000 (UTC)
-From: Valentin Schneider <vschneid@redhat.com>
-To: linux-alpha@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org,
-	linux-ia64@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org,
-	openrisc@lists.librecores.org,
-	linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
+	by ams.source.kernel.org (Postfix) with ESMTPS id 36D6AB825CE;
+	Thu, 19 Jan 2023 16:04:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 331B2C433D2;
+	Thu, 19 Jan 2023 16:04:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1674144276;
+	bh=bLiBD1lcTQlE2apcHhtHrHNRHMGBCYK7pvp8YphbLrY=;
+	h=From:To:Cc:Subject:Date:From;
+	b=PHA28sXsdkIBTt828JLOLw8VtnGqWragwmGlYDnKnko5/DgoZK+PA6pCUy4Ufmm6f
+	 Tr+T5k68kXaxP/kjDm0wrK2eTdFARnKvIqjl0EFhhDob5tg867mGpgl1OBwd63DA3M
+	 QIKyemxHRzin5DplvVozZ5iXyTOYkcN/Aqbpndb1lW5funuUUor7K9hW2Lt74Cv0mo
+	 FffZzwXRA/+sghu21oQ5H0/KqTFSKd0OZRnUFyVpasC1dVhu1wJ0VtXKyvMYvZVDUD
+	 zeGo0HdCGKnm62bi5rpqTwmY36e99v73rs4zhOY57h0pomKM7pAHaKp000Ztw7o8G6
+	 hg+/nQyvgnEtA==
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Kees Cook <keescook@chromium.org>,
+	Nathan Chancellor <nathan@kernel.org>
+Cc: Conor Dooley <conor@kernel.org>,
 	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	linux-xtensa@linux-xtensa.org,
-	x86@kernel.org
-Cc: "Paul E. McKenney" <paulmck@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Daniel Bristot de Oliveira <bristot@redhat.com>,
-	Marcelo Tosatti <mtosatti@redhat.com>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Guo Ren <guoren@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>
-Subject: [PATCH v4 7/7] sched, smp: Trace smp callback causing an IPI
-Date: Thu, 19 Jan 2023 14:36:19 +0000
-Message-Id: <20230119143619.2733236-8-vschneid@redhat.com>
-In-Reply-To: <20230119143619.2733236-1-vschneid@redhat.com>
-References: <20230119143619.2733236-1-vschneid@redhat.com>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 0/5] riscv: improve link and support ARCH_WANT_LD_ORPHAN_WARN
+Date: Thu, 19 Jan 2023 23:54:12 +0800
+Message-Id: <20230119155417.2600-1-jszhang@kernel.org>
+X-Mailer: git-send-email 2.38.1
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230119_063741_611697_12BCA730 
-X-CRM114-Status: GOOD (  33.37  )
+X-CRM114-CacheID: sfid-20230119_080440_593878_9B0BF8D1 
+X-CRM114-Status: UNSURE (   8.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,219 +77,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Context
-=======
+This series tries to improve link time handling of riscv:
+patch1 adds the missing RUNTIME_DISCARD_EXIT as suggested by Masahiro.
 
-The newly-introduced ipi_send_cpumask tracepoint has a "callback" parameter
-which so far has only been fed with NULL.
+Similar as other architectures such as x86, arm64 and so on, enable
+ARCH_WANT_LD_ORPHAN_WARN to enable linker orphan warnings to prevent
+from missing any new sections in future. So the following two patches
+are preparation ones, and the last patch finally selects
+ARCH_WANT_LD_ORPHAN_WARN
 
-While CSD_TYPE_SYNC/ASYNC and CSD_TYPE_IRQ_WORK share a similar backing
-struct layout (meaning their callback func can be accessed without caring
-about the actual CSD type), CSD_TYPE_TTWU doesn't even have a function
-attached to its struct. This means we need to check the type of a CSD
-before eventually dereferencing its associated callback.
+Since v1:
+  - add one more patch to catch .init.bss from EFI stub
 
-This isn't as trivial as it sounds: the CSD type is stored in
-__call_single_node.u_flags, which get cleared right before the callback is
-executed via csd_unlock(). This implies checking the CSD type before it is
-enqueued on the call_single_queue, as the target CPU's queue can be flushed
-before we get to sending an IPI.
+Jisheng Zhang (5):
+  riscv: lds: define RUNTIME_DISCARD_EXIT
+  riscv: vmlinux.lds.S: explicitly catch .rela.dyn symbols
+  riscv: vmlinux.lds.S: explicitly catch .riscv.attributes sections
+  riscv: vmlinux.lds.S: explicitly catch .init.bss sections from EFI
+    stub
+  riscv: select ARCH_WANT_LD_ORPHAN_WARN for !XIP_KERNEL
 
-Furthermore, send_call_function_single_ipi() only has a CPU parameter, and
-would need to have an additional argument to trickle down the invoked
-function. This is somewhat silly, as the extra argument will always be
-pushed down to the function even when nothing is being traced, which is
-unnecessary overhead.
+ arch/riscv/Kconfig              | 1 +
+ arch/riscv/kernel/vmlinux.lds.S | 9 +++++++++
+ 2 files changed, 10 insertions(+)
 
-Changes
-=======
-
-send_call_function_single_ipi() is only used by smp.c, and is defined in
-sched/core.c as it contains scheduler-specific ops (set_nr_if_polling() of
-a CPU's idle task).
-
-Split it into two parts: the scheduler bits remain in sched/core.c, and the
-actual IPI emission is moved into smp.c. This lets us define an
-__always_inline helper function that can take the related callback as
-parameter without creating useless register pressure in the non-traced path
-which only gains a (disabled) static branch.
-
-Do the same thing for the multi IPI case.
-
-Signed-off-by: Valentin Schneider <vschneid@redhat.com>
----
- kernel/sched/core.c | 18 +++++++-----
- kernel/sched/smp.h  |  2 +-
- kernel/smp.c        | 72 +++++++++++++++++++++++++++++++++------------
- 3 files changed, 66 insertions(+), 26 deletions(-)
-
-diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index c0d09eb249603..9733c3ecdbf16 100644
---- a/kernel/sched/core.c
-+++ b/kernel/sched/core.c
-@@ -3816,16 +3816,20 @@ void sched_ttwu_pending(void *arg)
- 	rq_unlock_irqrestore(rq, &rf);
- }
- 
--void send_call_function_single_ipi(int cpu)
-+/*
-+ * Prepare the scene for sending an IPI for a remote smp_call
-+ *
-+ * Returns true if the caller can proceed with sending the IPI.
-+ * Returns false otherwise.
-+ */
-+bool call_function_single_prep_ipi(int cpu)
- {
--	struct rq *rq = cpu_rq(cpu);
--
--	if (!set_nr_if_polling(rq->idle)) {
--		trace_ipi_send_cpumask(cpumask_of(cpu), _RET_IP_, NULL);
--		arch_send_call_function_single_ipi(cpu);
--	} else {
-+	if (set_nr_if_polling(cpu_rq(cpu)->idle)) {
- 		trace_sched_wake_idle_without_ipi(cpu);
-+		return false;
- 	}
-+
-+	return true;
- }
- 
- /*
-diff --git a/kernel/sched/smp.h b/kernel/sched/smp.h
-index 2eb23dd0f2856..21ac44428bb02 100644
---- a/kernel/sched/smp.h
-+++ b/kernel/sched/smp.h
-@@ -6,7 +6,7 @@
- 
- extern void sched_ttwu_pending(void *arg);
- 
--extern void send_call_function_single_ipi(int cpu);
-+extern bool call_function_single_prep_ipi(int cpu);
- 
- #ifdef CONFIG_SMP
- extern void flush_smp_call_function_queue(void);
-diff --git a/kernel/smp.c b/kernel/smp.c
-index 821b5986721ac..5cd680a7e78ef 100644
---- a/kernel/smp.c
-+++ b/kernel/smp.c
-@@ -161,9 +161,18 @@ void __init call_function_init(void)
- }
- 
- static __always_inline void
--send_call_function_ipi_mask(const struct cpumask *mask)
-+send_call_function_single_ipi(int cpu, smp_call_func_t func)
- {
--	trace_ipi_send_cpumask(mask, _RET_IP_, NULL);
-+	if (call_function_single_prep_ipi(cpu)) {
-+		trace_ipi_send_cpumask(cpumask_of(cpu), _RET_IP_, func);
-+		arch_send_call_function_single_ipi(cpu);
-+	}
-+}
-+
-+static __always_inline void
-+send_call_function_ipi_mask(const struct cpumask *mask, smp_call_func_t func)
-+{
-+	trace_ipi_send_cpumask(mask, _RET_IP_, func);
- 	arch_send_call_function_ipi_mask(mask);
- }
- 
-@@ -430,12 +439,16 @@ static void __smp_call_single_queue_debug(int cpu, struct llist_node *node)
- 	struct cfd_seq_local *seq = this_cpu_ptr(&cfd_seq_local);
- 	struct call_function_data *cfd = this_cpu_ptr(&cfd_data);
- 	struct cfd_percpu *pcpu = per_cpu_ptr(cfd->pcpu, cpu);
-+	struct __call_single_data *csd;
-+
-+	csd = container_of(node, call_single_data_t, node.llist);
-+	WARN_ON_ONCE(!(CSD_TYPE(csd) & (CSD_TYPE_SYNC | CSD_TYPE_ASYNC)));
- 
- 	cfd_seq_store(pcpu->seq_queue, this_cpu, cpu, CFD_SEQ_QUEUE);
- 	if (llist_add(node, &per_cpu(call_single_queue, cpu))) {
- 		cfd_seq_store(pcpu->seq_ipi, this_cpu, cpu, CFD_SEQ_IPI);
- 		cfd_seq_store(seq->ping, this_cpu, cpu, CFD_SEQ_PING);
--		send_call_function_single_ipi(cpu);
-+		send_call_function_single_ipi(cpu, csd->func);
- 		cfd_seq_store(seq->pinged, this_cpu, cpu, CFD_SEQ_PINGED);
- 	} else {
- 		cfd_seq_store(pcpu->seq_noipi, this_cpu, cpu, CFD_SEQ_NOIPI);
-@@ -477,6 +490,25 @@ static __always_inline void csd_unlock(struct __call_single_data *csd)
- 	smp_store_release(&csd->node.u_flags, 0);
- }
- 
-+static __always_inline void
-+raw_smp_call_single_queue(int cpu, struct llist_node *node, smp_call_func_t func)
-+{
-+	/*
-+	 * The list addition should be visible to the target CPU when it pops
-+	 * the head of the list to pull the entry off it in the IPI handler
-+	 * because of normal cache coherency rules implied by the underlying
-+	 * llist ops.
-+	 *
-+	 * If IPIs can go out of order to the cache coherency protocol
-+	 * in an architecture, sufficient synchronisation should be added
-+	 * to arch code to make it appear to obey cache coherency WRT
-+	 * locking and barrier primitives. Generic code isn't really
-+	 * equipped to do the right thing...
-+	 */
-+	if (llist_add(node, &per_cpu(call_single_queue, cpu)))
-+		send_call_function_single_ipi(cpu, func);
-+}
-+
- static DEFINE_PER_CPU_SHARED_ALIGNED(call_single_data_t, csd_data);
- 
- void __smp_call_single_queue(int cpu, struct llist_node *node)
-@@ -493,21 +525,25 @@ void __smp_call_single_queue(int cpu, struct llist_node *node)
- 		}
- 	}
- #endif
--
- 	/*
--	 * The list addition should be visible to the target CPU when it pops
--	 * the head of the list to pull the entry off it in the IPI handler
--	 * because of normal cache coherency rules implied by the underlying
--	 * llist ops.
--	 *
--	 * If IPIs can go out of order to the cache coherency protocol
--	 * in an architecture, sufficient synchronisation should be added
--	 * to arch code to make it appear to obey cache coherency WRT
--	 * locking and barrier primitives. Generic code isn't really
--	 * equipped to do the right thing...
-+	 * We have to check the type of the CSD before queueing it, because
-+	 * once queued it can have its flags cleared by
-+	 *   flush_smp_call_function_queue()
-+	 * even if we haven't sent the smp_call IPI yet (e.g. the stopper
-+	 * executes migration_cpu_stop() on the remote CPU).
- 	 */
--	if (llist_add(node, &per_cpu(call_single_queue, cpu)))
--		send_call_function_single_ipi(cpu);
-+	if (trace_ipi_send_cpumask_enabled()) {
-+		call_single_data_t *csd;
-+		smp_call_func_t func;
-+
-+		csd = container_of(node, call_single_data_t, node.llist);
-+		func = CSD_TYPE(csd) == CSD_TYPE_TTWU ?
-+			sched_ttwu_pending : csd->func;
-+
-+		raw_smp_call_single_queue(cpu, node, func);
-+	} else {
-+		raw_smp_call_single_queue(cpu, node, NULL);
-+	}
- }
- 
- /*
-@@ -976,9 +1012,9 @@ static void smp_call_function_many_cond(const struct cpumask *mask,
- 		 * provided mask.
- 		 */
- 		if (nr_cpus == 1)
--			send_call_function_single_ipi(last_cpu);
-+			send_call_function_single_ipi(last_cpu, func);
- 		else if (likely(nr_cpus > 1))
--			send_call_function_ipi_mask(cfd->cpumask_ipi);
-+			send_call_function_ipi_mask(cfd->cpumask_ipi, func);
- 
- 		cfd_seq_store(this_cpu_ptr(&cfd_seq_local)->pinged, this_cpu, CFD_SEQ_NOCPU, CFD_SEQ_PINGED);
- 	}
 -- 
-2.31.1
+2.38.1
 
 
 _______________________________________________
