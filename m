@@ -4,85 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E2CAC46467
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Jan 2023 22:06:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3AFEC004D4
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Jan 2023 22:15:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5d10k135IQqF4oYiVKKdwK3F5cjum/xYvx2y6Il+RWs=; b=NYow4wSeAtphx3
-	52+eXlGlVqz+iyEhtrVGT2NUMzn4kc6lvjppgSUS5KZLp1o6Bf8UzAErCtThJBfsgGKzumNb9A+4u
-	Cjw5wC7pb7NYkH06RvA1PDc/waudMi6o81N0/ZRg504zSAMeYzoUEXTTkXwhH0ZQrFCRZ9vZeLVcp
-	kaeuwDUwVRAd1uO/cPgC1FfZOLB7BbnafpEjHT0OFo8vfnd59nxn1QQDyBq4OjtnqQPopZQoRsdwq
-	kYOHkXePW94QzzNLT83t7C+noDUcbbEBGWsl/BkTFzLz38cyMvWtejKXis275Cg7fISYdR3giERrm
-	TPEw7RIL+YbLB8gCPjZQ==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=a3DvBResXyLCKmSL2rfnXWHGJDA7jg208IQXfr2jc6Y=; b=Bialtn55HMJ8cH1+wT1hIy3sMV
+	U9MXOxLFmi+F0gitn5QAsyiYgbTtxH6ZItw29zWuY6Wxc8x2z/iaQk/mRZplMiIoYuoNg1wykt5lN
+	4/4jEwxzIty4fwCAwQ8msjHm3STQGYX9I6LThH8f8t5ekr/5raQC+S9hPO08c5DeGdaA/SAPvmun1
+	tXHU+Oar72JKl0UoICZs7pyRSRhBa+2Tu6xd2xiPl16BJxoe3cXgxXODA/HhhWRG+HTdWLOIePpBo
+	v9T3P1C6Rfz2hNlDudNTfElCS3kttiCvrl+9vtKpIDzIjkAG/aw9ej0k9TN6YJcTIxw67Tb0U39y5
+	lydTL5xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pId2i-007OTd-0j; Thu, 19 Jan 2023 22:05:56 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1pIdBh-007Pzg-Vq; Thu, 19 Jan 2023 22:15:14 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pId2d-007OSl-Pz
-	for linux-riscv@lists.infradead.org; Thu, 19 Jan 2023 22:05:53 +0000
-Received: by mail-pf1-x431.google.com with SMTP id 207so2596346pfv.5
-        for <linux-riscv@lists.infradead.org>; Thu, 19 Jan 2023 14:05:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=+sVai79VyKVjTclfs4QkNn2Z6tiaBVxHfLb2mb+hHHw=;
-        b=P7C5Qc5yNlZSvjJ1A93VaunDMlySpnLK9MDNegAHLhpZr7qseEyn+4yRb2P7PKiSqm
-         lJ8knp3FEqe2SL6lgd37Arp1mZA2kk2/ea8W4cxljSfoREDVhLSJLtKTs5DaGzmz19T7
-         3sL9BdY+GWwB8miGP/TLr89W2Oa+bbOM04hHJoHAw+YfgvAw+KvxoFayyIRc3Gu9swDv
-         cfqM0sqwkGE54ukEXzAo+KhsKkvBzzAPsOD9K6jgH2KVHtVpDKCFe/ZdEVQHb9MI3Ukb
-         +dMfKjLdUud8S0JAVV2RIrzv8Fm7FKuYVd7qgmgX9x2hQYN8nlbWjKZyq24U4huG8eMq
-         EoyA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+sVai79VyKVjTclfs4QkNn2Z6tiaBVxHfLb2mb+hHHw=;
-        b=grtHZw9FqV9JCBdA7CsewKNZUoAQHU3ZI4JEBSVodyZYSn50CjvnBJPVqDumNnGmZw
-         fWuHp9Dg06Mi7sZHgsPE1Pgj7ZWkjI1rnfsC0nAP0ZKMTv7coW8I88T68DZLucShDCPn
-         tJ43TAbPWdvs9F+bbI8FFqlY5AaeSWJ8zq13ayZ/e6/Rl/eBVf3JxSA33aidMpnJj3YT
-         4iGr0MeQ1wykgeWFrRigO8w2AnUs2lMhS0QKMwtzOSW5whmmKI+abX2b982gwzjpW9cb
-         HykImM3kIN6t7DiqP4Y5DQXTLCdiEaVFLrOW9O3hRVuE/nVExStuWAo0/4pWHlDjAHhP
-         1Vpw==
-X-Gm-Message-State: AFqh2kp2PnR2yQZjbFe72Uww6H9OXDGAgy3S2n9dvJy/MHVyfv8P/bt/
-	t6KUepkmR9a4rQYlTIKPBWZXsg==
-X-Google-Smtp-Source: AMrXdXskzOKBgZDhvVuOqyiEkPETrZSj1IAtdFhfCUtpTmunicD6BpXIfkxMquF9ieQHpi0aqRDjRw==
-X-Received: by 2002:a62:5341:0:b0:57f:c170:dc6 with SMTP id h62-20020a625341000000b0057fc1700dc6mr11163092pfb.14.1674165949869;
-        Thu, 19 Jan 2023 14:05:49 -0800 (PST)
-Received: from [10.0.17.151] ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id a19-20020aa79713000000b0058e0bad6705sm872274pfg.67.2023.01.19.14.05.48
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Jan 2023 14:05:49 -0800 (PST)
-Message-ID: <67c50e8d-ae78-076d-cf25-b7781f2209d7@rivosinc.com>
-Date: Thu, 19 Jan 2023 14:05:47 -0800
+	id 1pIdAL-007PQl-T6; Thu, 19 Jan 2023 22:13:52 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id D354B61D95;
+	Thu, 19 Jan 2023 22:13:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1A94C433D2;
+	Thu, 19 Jan 2023 22:13:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1674166425;
+	bh=0TfIfsT7UPQtXb3sT22jU7uGw99A7souxhvdf2e+V9c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=UXJOQ07ln3xNI1VGM2Ekd+dqU7VasYlqn85+drkmHpU8ZmhSLftCzVTUNeMqDjOyu
+	 dsh6nk7CJ4/CyDlbu+r5pov2snB5LFE3j9fETGo7u68xTcvbNFpRJz3JckN/MjJ3Hn
+	 Ux/h6yeaTTRxic34et2/mHCxnKDYXBfeCKgdeJm+2ribsgpFeNq/zFNTilDFpPkybn
+	 kfzNcDxR8G2apTwQk103syCxkrc72QR2KJyEP++x5QPxtpABIV2/EG+wwiz5WBkbZI
+	 kk3XvZccPbyeAVdd6BnD3ScThEr8xdC9P5p67lZ55ngcDVceqFIG5HXWb3S4JB6MB5
+	 3S5f4GHdgiakA==
+Date: Thu, 19 Jan 2023 22:13:39 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Andrew Jones <ajones@ventanamicro.com>,
+	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
+	Palmer Dabbelt <palmer@dabbelt.com>, kernel@esmil.dk,
+	bjorn@kernel.org
+Cc: Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	David Abdurachmanov <david.abdurachmanov@gmail.com>
+Subject: Re: [PATCH v3 05/13] riscv: cpufeature: extend
+ riscv_cpufeature_patch_func to all ISA extensions
+Message-ID: <Y8nAk8c/acWf6++5@spud>
+References: <20230111171027.2392-1-jszhang@kernel.org>
+ <20230111171027.2392-6-jszhang@kernel.org>
+ <2398293.3Lj2Plt8kZ@diego>
+ <20230112092136.f2g43hrhmrqouy4y@orel>
+ <Y8F2YxMHUt+djhX4@wendy>
+ <Y8MRZQENua+wi34T@spud>
+ <Y8hqptFcUgjhns4F@spud>
+ <20230119082903.yk3uslfrjtxzassi@orel>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.4.2
-Subject: Re: [PATCH v3] riscv: elf: add .riscv.attributes parsing
-Content-Language: en-US
-To: Jessica Clarke <jrtc27@jrtc27.com>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Palmer Dabbelt <palmer@rivosinc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Eric Biederman <ebiederm@xmission.com>, Kees Cook <keescook@chromium.org>,
- Guo Ren <guoren@kernel.org>, Andy Chiu <andy.chiu@sifive.com>,
- Conor Dooley <conor.dooley@microchip.com>, linux@rivosinc.com
-References: <c2177e4e-e97d-448a-73e7-c50622fdc4bb@rivosinc.com>
- <20230119174357.3550008-1-vineetg@rivosinc.com>
- <EB6B06BB-C65F-41C2-8D9F-F916F3A706FA@jrtc27.com>
-From: Vineet Gupta <vineetg@rivosinc.com>
-In-Reply-To: <EB6B06BB-C65F-41C2-8D9F-F916F3A706FA@jrtc27.com>
+In-Reply-To: <20230119082903.yk3uslfrjtxzassi@orel>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230119_140552_068259_FB246118 
-X-CRM114-Status: GOOD (  21.13  )
+X-CRM114-CacheID: sfid-20230119_141351_304423_8170BE52 
+X-CRM114-Status: GOOD (  36.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,59 +83,115 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============2964189943797013513=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMS8xOS8yMyAxMjozMywgSmVzc2ljYSBDbGFya2Ugd3JvdGU6Cj4+ICsKPj4gKy8qCj4+ICsg
-KiBQYXJzZSBhIHNpbmdsZSBlbGYgYXR0cmlidXRlLgo+PiArICovCj4+ICtzdGF0aWMgaW50IHJ2
-X3BhcnNlX2VsZl9hdHRyX3NhZmUodW5zaWduZWQgY2hhciAqKmRwcCwgdW5zaWduZWQgY2hhciAq
-cF9lbmQpCj4+ICt7Cj4+ICsJdW5zaWduZWQgY2hhciAqcCA9ICpkcHA7Cj4+ICsJdW5zaWduZWQg
-Y2hhciAqc3RyOwo+PiArCXU2NCB0YWcsIHZhbDsKPj4gKwl1MzIgc19sZW47Cj4+ICsKPj4gKwlp
-ZiAoZGVjb2RlX3VsZWIxMjhfc2FmZSgmcCwgJnRhZywgcF9lbmQpKQo+PiArCQlnb3RvIGJhZF9h
-dHRyOwo+PiArCj4+ICsJc3dpdGNoICh0YWcpIHsKPj4gKwljYXNlIFJWX0FUVFJfVEFHX3N0YWNr
-X2FsaWduOgo+PiArCQlpZiAoZGVjb2RlX3VsZWIxMjhfc2FmZSgmcCwgJnZhbCwgcF9lbmQpKQo+
-PiArCQkJZ290byBiYWRfYXR0cjsKPj4gKwkJaWYgKCFFTEZfQVRUUl9UQUdfRVZFTih0YWcpKQo+
-PiArCQkJZ290byBiYWRfYXR0cjsKPiBIdWg/IFlvdSBqdXN0IGNoZWNrZWQgaXQgYWdhaW5zdCBh
-IGNvbnN0YW50IHNvIHlvdSBrbm93IGV4YWN0bHkgd2hhdCBpdAo+IGlzLiBUaGlzIGlzIGp1c3Qg
-U3RhdGljX2Fzc2VydChSVl9BVFRSX1RBR19zdGFja19hbGlnbiAlIDIgPT0gMCkgYnV0IGF0Cj4g
-cnVuIHRpbWUuIEFuZCB5b3Uga25vdyB0aGF04oCZcyBnb2luZyB0byBiZSB0aGUgY2FzZSwgYmVj
-YXVzZSB0aGUgc3BlYyBpcwo+IHNlbGYtY29uc2lzdGVudCBieSBkZXNpZ24gKHdvdWxkbuKAmXQg
-YmUgYSB3b3J0aHdoaWxlIHNwZWMgb3RoZXJ3aXNlKS4KCk1ha2VzIHNlbnNlLgoKPj4gKwkJcnZf
-ZWxmX2F0dHJfaW50KHRhZywgdmFsKTsKPj4gKwkJYnJlYWs7Cj4+ICsKPj4gKwljYXNlIFJWX0FU
-VFJfVEFHX3VuYWxpZ25lZF9hY2Nlc3M6Cj4+ICsJCWlmIChkZWNvZGVfdWxlYjEyOF9zYWZlKCZw
-LCAmdmFsLCBwX2VuZCkpCj4+ICsJCQlnb3RvIGJhZF9hdHRyOwo+PiArCQlpZiAoIUVMRl9BVFRS
-X1RBR19FVkVOKHRhZykpCj4+ICsJCQlnb3RvIGJhZF9hdHRyOwo+PiArCQlydl9lbGZfYXR0cl9p
-bnQodGFnLCB2YWwpOwo+PiArCQlicmVhazsKPj4gKwo+PiArCWNhc2UgUlZfQVRUUl9UQUdfYXJj
-aDoKPj4gKwkJaWYgKEVMRl9BVFRSX1RBR19FVkVOKHRhZykpCj4+ICsJCQlnb3RvIGJhZF9hdHRy
-Owo+PiArCQlzdHIgPSBwOwo+PiArCQlzX2xlbiA9IHN0cm5sZW4ocCwgcF9lbmQgLSBwKSArIDE7
-Cj4+ICsJCWlmICgocCArIHNfbGVuKSA+IHBfZW5kKQo+PiArCQkJZ290byBiYWRfYXR0cjsKPj4g
-KwkJcCArPSBzX2xlbjsKPj4gKwkJcnZfZWxmX2F0dHJfc3RyKHRhZywgc3RyKTsKPj4gKwkJYnJl
-YWs7Cj4+ICsKPj4gKwlkZWZhdWx0Ogo+IFRoZSB3aG9sZSBwb2ludCBvZiB0aGUgZXZlbi9vZGQg
-c3BsaXQgaXMgc28gdGhhdCB3aGVuIHlvdSAqZG9u4oCZdCoga25vdwo+IHdoYXQgdGhlIHRhZyBt
-ZWFucyB5b3UgY2FuIHN0aWxsIGRlY29kZSBpdHMgdmFsdWUgYW5kIHRodXMga25vdyBob3cgdG8K
-PiBza2lwIHBhc3QgaXQuIFRoYXQgaXMsICpoZXJlKiBpcyB3aGVyZSB5b3UgbmVlZCB0byBiZSBj
-aGVja2luZwo+IGV2ZW4vb2RkLCBhbmQgZGVjaWRpbmcgd2hldGhlciB0byB0cmVhdCBpdCBhcyBh
-IHN0cmluZyBvciBhIFVMRUIxMjgsCgpJIHNlZSB0aGUgcG9pbnQuIFdlIGNhbiBpZ25vcmUgdGhl
-IHNwZWNpZmljIHRhZ3MgYW5kIGp1c3QgdHJlYXQgb2RkIGFuZCAKZXZlbiB0YWdzIGFzIHN0cmlu
-ZyBhbmQgaW50IHJlc3BlY3RpdmVseS4KQW5kIGtlZXAgYSBsb29zZSBjaGVjayBvZiB0aGUga25v
-d24gdGFncyB2cy4gdW5rbm93bi4KCj4gd2hpY2ggaXMgd2h5IEkgYW5ub3RhdGVkICpoZXJlKiBu
-b3Qgb25lIG9mIHRoZSBvdGhlciBjYXNlIGxhYmVscyBiZWZvcmUuCgpPSy4gSSByZWFsbHkgbmVl
-ZCB0byBwYXkgYXR0ZW50aW9uIHRvIHdoYXQgYW5kIHdoZXJlIHRvIHlvdXIgY29tbWVudHMgOi0p
-CgoKPgo+PiArCW1lbXNldChidWYsIDAsIFJWX0FUVFJfU0VDX1NaKTsKPj4gKwlwb3MgPSBwaGRy
-LT5wX29mZnNldDsKPj4gKwluID0ga2VybmVsX3JlYWQoZiwgJmJ1ZiwgcGhkci0+cF9maWxlc3os
-ICZwb3MpOwo+PiArCj4+ICsJaWYgKG4gPD0gMCkKPj4gKwkJcmV0dXJuIC1FSU87Cj4gMCBzaG91
-bGQgYmUgRU5PRVhFQyBub3QgRUlPPyBBbmQgc3VyZWx5IGluIHRoZSA8IDAgY2FzZSB5b3Ugd2Fu
-dCB0byBiZQo+IGZvcndhcmRpbmcgb24gdGhlIGV4YWN0IGVycm9yIGZyb20ga2VybmVsX3JlYWQs
-IG5vdCBzcXVhc2hpbmcgaXQgaW50bwo+IEVJTz8KClJpZ2h0LgoKPgo+PiArLyoKPj4gKyAqIEhv
-b2sgaW52b2tlZCBieSBnZW5lcmljIGVsZiBsb2FkZXIgdG8gcGFyc2UgcmlzY3Ygc3BlY2lmaWMg
-ZWxmIHNlZ21lbnRzLgo+PiArICovCj4+ICtpbnQgYXJjaF9lbGZfcHRfcHJvYyh2b2lkICpfZWhk
-ciwgdm9pZCAqX3BoZHIsIHN0cnVjdCBmaWxlICplbGYsCj4+ICsJCSAgICAgYm9vbCBpc19pbnRl
-cnAsIHN0cnVjdCBhcmNoX2VsZl9zdGF0ZSAqc3RhdGUpCj4+ICt7Cj4+ICsJc3RydWN0IGVsZl9w
-aGRyICpwaGRyID0gX3BoZHI7Cj4+ICsJaW50IHJldCA9IDA7Cj4+ICsKPj4gKwlpZiAocGhkci0+
-cF90eXBlID09IFBUX1JJU0NWX0FUVFJJQlVURVMgJiYgIWlzX2ludGVycCkKPiBCb3RoIHRoZSBl
-eGVjdXRhYmxlIGFuZCBpdHMgaW50ZXJwcmV0ZXIgbWF0dGVyLgoKT0suCgpUaHgsCi1WaW5lZXQK
-Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJp
-c2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9s
-aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+
+--===============2964189943797013513==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="t/O9pox46sePZAp3"
+Content-Disposition: inline
+
+
+--t/O9pox46sePZAp3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Me again!
+
+On Thu, Jan 19, 2023 at 09:29:03AM +0100, Andrew Jones wrote:
+> On Wed, Jan 18, 2023 at 09:54:46PM +0000, Conor Dooley wrote:
+> > Hey!
+> >=20
+> > I guess here is the right place to follow up on all of this stuff...
+> >=20
+> > On Sat, Jan 14, 2023 at 08:32:37PM +0000, Conor Dooley wrote:
+
+> > Today at [1] we talked a bit about the various bits going on here.
+> > I'll attempt to summarise what I remember, but I meant to do this
+> > several hours ago and am likely to make a hames of it.
+> >=20
+> > For Zbb/unaligned stuff, the sentiment was along the lines of there
+> > needing to be a performance benefit to justify the inclusion.
+> > Some of us have HW that is (allegedly) capable of Zbb, and, if that's t=
+he
+
+I did some very very basic testing today. Ethernet is still a no-go on
+my visionfive 2 board, but the sd card works at least, so I can run w/
+Zbb code people want & we can see how it goes!
+
+At the very least, it is capable of executing the instructions that were
+used in Appendix A. I didn't try to do anything else, because I am lazy
+and if there were some pre-existing test programs I didn't want to go
+and write out a bunch of asm myself!
+
+impid appears to be 0x4210427, if that means anything to anyone!
+
+> > case, will give it a go.
+> > I think it was similar for unaligned, since there is nothing yet that
+> > supports this behaviour, we should wait until a benefit is demonstrable.
+> >=20
+> > On the subject of grouping extension/non-extension capabilities into a
+> > single cpufeature, Palmer mentioned that GCC does something similar,
+> > for the likes of the Ventana vendor extensions, that are unlikely to be
+> > present in isolation.
+
+Jess pointed out on IRC that GCC doesn't support XVentanaCondOps
+so maybe there was a mixup there. I don't think that really matters
+though, as the point stands regardless of whether it was in GCC or not.
+
+> > Those are (or were?) probed as a group of extensions rather than
+> > individually.
+> > I think it was said it'd make sense for us to unify extensions that will
+> > only ever appear together single psuedo cpufeature too.
+> >=20
+> > For the bitfield approach versus creating pseudo cpufeatures discussion
+> > & how to deal with that in alternatives etc, I'm a bit less sure what t=
+he
+> > outcome was.
+> > IIRC, nothing concrete was said about either approach, but maybe it was
+> > implied that we should do as GCC does, only grouping things that won't
+> > ever been seen apart.
+> > Figuring that out seems to have been punted down the road, as the
+> > inclusion of our only current example of this (Zbb + unaligned) is
+> > dependant on hardware showing up that actually benefits from it.
+> >=20
+> > The plan then seemed to be press ahead with this series & test the
+> > benefits of the Zbb str* functions in Zbb capable hardware before making
+> > a decision there.
+> >=20
+> > Hopefully I wasn't too far off with that summary...
+>=20
+> This matches my recollection. Thanks for the summary, Conor.
+
+Cool, thanks.
+
+--t/O9pox46sePZAp3
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY8nAkwAKCRB4tDGHoIJi
+0jpZAP976+x+ZkRVzdavgP77bKd1eLS8QZmSr/7+1xVouP4CvgEAtgyo6s7+n/qA
+oANTfCfXncWnh8YtZaGwZlbAOakaKgc=
+=C0SZ
+-----END PGP SIGNATURE-----
+
+--t/O9pox46sePZAp3--
+
+
+--===============2964189943797013513==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2964189943797013513==--
+
