@@ -4,159 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95802C38142
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Jan 2023 07:45:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B631BC38142
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Jan 2023 07:48:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dUE8+5q3XQeV38ho+XOZwzmZfdcKGLSg/u+y3HXFjgg=; b=V9KSCh9MyoOV5/
-	e8H37X5O5Y6bxc8/DCj84hW1ULmJ8V78RkI1xDqj81sEAaLEKoUJwsOb9+zCfVJRaNCrKDxtnUcmS
-	dkpo5G41zBBKLte6TUuNaGuNUcYdv+kznUIuKw2l8FcpLFoHOmaHADzhdNbFHbeys3zEPMrliqwBg
-	iTEzZ4NB1NTw5M6/WzOaIiWrtMi3nmCsC5T07JQ/Tg9THSFqKswQuq/DRH3DLav8hVAQejYEHvPgQ
-	g5Lw045npQ/YctcO6mhPerJbSdoOIix8YN7QilhC1OYTG7vR8LExltYm36kRozvop6zlSvNQiG1mI
-	9FcdRrJNli3i9E8tkIuw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=k7Owg3Yk1rd7mT3mgJrX5wAzoknJKo9KNh1c4YOqTrU=; b=KajvqmKTLVp6GV
+	kiQoUtAL/kchXYd4ENEo7/Nm/NClTYiyXM3HG5ouofpjy+vwPaYXXkjMU8iMwzYBYL4GTPSA5FRH7
+	yAw2Dnm3OSl7EENf3YKer0HcNn1NHp1e5rblD7Ql5eddnKktY8g+LbqeQWj2OVcO1IjCS1DGxSfJ3
+	w2A3zwoXHoHZzftLWVlMAebO4JEpgXh3n/0+1QZVlcVim8D2fZJJ+rtWyjShA9ygj8Eo4oSP7jXZO
+	SP51yMMaJzSow7axmRiSLW14qkWV2R1VX6ZCthbXREVqIPgPb7pZqYrSYx7UAXrJTmRvI0hhlMSMZ
+	9+Ke90gyM6GMrGwyk89A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIPcF-003uls-5f; Thu, 19 Jan 2023 07:45:43 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1pIPei-003vwX-3J; Thu, 19 Jan 2023 07:48:16 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIPZi-003tWG-0t; Thu, 19 Jan 2023 07:43:07 +0000
-Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 30J4AmBm002246;
-	Thu, 19 Jan 2023 08:41:47 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=message-id : date :
- mime-version : subject : to : references : from : in-reply-to :
- content-type : content-transfer-encoding; s=selector1;
- bh=jL/MbEBfkVAq5ZMy1e9+noLbvk1MZWNuOQ2c+Fz8nz0=;
- b=BX5ioQOOwo8TiUALeHu96ZUvFqNIHMHC983BbAfFTiaXFGm04nFWgpxOs1Q7wy8bd1tT
- iacyKZPEi3RiNxjrVN23olXkUMvfN1LPcgEkOJgqBS13VE4H31+IPZjKsZJYTAOAlkMT
- wVL+gSSJR/+ua+zPPFyqR+rcwK/c8ePcyJhBfcKCqe7NVkmg0bsxcWYHrl5vTZSYL8jJ
- tM9o3ECjI5clfhz0HeAB4Gu+1cmmSklmH4q2DKtaUl+ZfNNyWLjnc2/8bm5Gj8t00Toz
- vt5LmHTqJz6oq9ZHq4VnRcItZY7fnlvBIqaAKdyh8+tU4QSDXG7WCok/Mg8ZAujzrnsd Aw== 
-Received: from beta.dmz-eu.st.com (beta.dmz-eu.st.com [164.129.1.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 3n3m5qd4je-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 19 Jan 2023 08:41:47 +0100
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-eu.st.com (STMicroelectronics) with ESMTP id C88C4100034;
-	Thu, 19 Jan 2023 08:41:39 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 22EC520F562;
-	Thu, 19 Jan 2023 08:41:39 +0100 (CET)
-Received: from [10.201.21.26] (10.201.21.26) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.13; Thu, 19 Jan
- 2023 08:41:36 +0100
-Message-ID: <39af6fac-3e8e-4929-43b3-eb0b7af0ab30@foss.st.com>
-Date: Thu, 19 Jan 2023 08:41:36 +0100
+	id 1pIPec-003vtd-Cu
+	for linux-riscv@lists.infradead.org; Thu, 19 Jan 2023 07:48:11 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id D8F9F61BA0;
+	Thu, 19 Jan 2023 07:48:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D872C433EF;
+	Thu, 19 Jan 2023 07:48:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1674114489;
+	bh=UBy2lf9QPDUeI0P/AEbXMIS0GaU0lPZlJILHV4CWMg4=;
+	h=From:To:Cc:Subject:Date:From;
+	b=VFmIGrptY9lhoeESaA20rr5/B9gyn6+sATEFSRU3aF91619O2dyuZLtA4Ggyn+XQk
+	 0XYIYgn42+x2JKX+VlHArb4bnjlYgPoNPMAip/72+dTqV5/eE5KkpdsZzFNRzg2JGp
+	 JkxEu4h0BQzBLNusHMQWihe5ix4ge0fBo2LiMI1cpfPDcnVI0sJvGzdljT3jSrjm6x
+	 hRBkp7t277aWYHKjMMqxAtS+4W671zwUz4DJ407w0uIblfuVSQiN9INl8IvC2RiqQv
+	 T542/nwJ4X4ySTV0GXKUF8ItVvz4v4zbB640zrcrLA84UsW9HbExXDIROIuogQ1iUS
+	 hiIJb9uifrb2g==
+From: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-riscv@lists.infradead.org
+Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
+	Andreas Schwab <schwab@linux-m68k.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3 0/2] riscv: Dump faulting instructions in oops handler
+Date: Thu, 19 Jan 2023 08:47:36 +0100
+Message-Id: <20230119074738.708301-1-bjorn@kernel.org>
+X-Mailer: git-send-email 2.37.2
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.4.2
-Subject: Re: [PATCH 1/2] spi: dt-bindings: drop unneeded quotes
-Content-Language: en-US
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-        Mark Brown
-	<broonie@kernel.org>, Rob Herring <robh+dt@kernel.org>,
-        Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>,
-        Chen-Yu Tsai <wens@csie.org>,
-        Jernej
- Skrabec <jernej.skrabec@gmail.com>,
-        Samuel Holland <samuel@sholland.org>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Kevin Hilman
-	<khilman@baylibre.com>,
-        Jerome Brunet <jbrunet@baylibre.com>,
-        Martin
- Blumenstingl <martin.blumenstingl@googlemail.com>,
-        Chin-Ting Kuo
-	<chin-ting_kuo@aspeedtech.com>,
-        =?UTF-8?Q?C=c3=a9dric_Le_Goat?=
- =?UTF-8?Q?er?= <clg@kaod.org>,
-        Joel Stanley <joel@jms.id.au>, Andrew Jeffery
-	<andrew@aj.id.au>,
-        Kamal Dasu <kdasu.kdev@gmail.com>,
-        Broadcom internal
- kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-        Han Xu
-	<han.xu@nxp.com>, Shawn Guo <shawnguo@kernel.org>,
-        Sascha Hauer
-	<s.hauer@pengutronix.de>,
-        Pengutronix Kernel Team <kernel@pengutronix.de>,
-        Fabio Estevam <festevam@gmail.com>, NXP Linux Team <linux-imx@nxp.com>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        Thierry Reding
-	<thierry.reding@gmail.com>,
-        Jonathan Hunter <jonathanh@nvidia.com>,
-        Andy
- Gross <agross@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad
- Dybcio <konrad.dybcio@linaro.org>,
-        Serge Semin <fancer.lancer@gmail.com>, Haibo Chen <haibo.chen@nxp.com>,
-        Yogesh Gaur <yogeshgaur.83@gmail.com>,
-        Linus
- Walleij <linus.walleij@linaro.org>,
-        Heiko Stuebner <heiko@sntech.de>, Palmer
- Dabbelt <palmer@dabbelt.com>,
-        Paul Walmsley <paul.walmsley@sifive.com>,
-        Li-hao Kuo <lhjeff911@gmail.com>,
-        Michal Simek <michal.simek@xilinx.com>,
-        Orson Zhai <orsonzhai@gmail.com>,
-        Baolin Wang
-	<baolin.wang@linux.alibaba.com>,
-        Chunyan Zhang <zhang.lyra@gmail.com>,
-        Maxime
- Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        =?UTF-8?B?77+9ZWNraQ==?= <rafal@milecki.pl>,
-        Vaishnav Achath
-	<vaishnav.a@ti.com>,
-        Parshuram Thombare <pthombar@cadence.com>,
-        Leilk Liu
-	<leilk.liu@mediatek.com>, Gabor Juhos <juhosg@openwrt.org>,
-        Bert Vermeulen
-	<bert@biot.com>,
-        Miquel Raynal <miquel.raynal@bootlin.com>,
-        Marek Vasut
-	<marex@denx.de>, Birger Koblitz <mail@birger-koblitz.de>,
-        Geert Uytterhoeven
-	<geert+renesas@glider.be>,
-        Anson Huang <Anson.Huang@nxp.com>,
-        Chris Packham
-	<chris.packham@alliedtelesis.co.nz>,
-        Kuldeep Singh
-	<singh.kuldeep87k@gmail.com>,
-        Pragnesh Patel <pragnesh.patel@sifive.com>,
-        Christophe Kerello <christophe.kerello@foss.st.com>,
-        Erwan Leray
-	<erwan.leray@foss.st.com>,
-        Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
-        <linux-spi@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-sunxi@lists.linux.dev>,
-        <linux-kernel@vger.kernel.org>, <linux-amlogic@lists.infradead.org>,
-        <linux-aspeed@lists.ozlabs.org>, <openbmc@lists.ozlabs.org>,
-        <linux-mediatek@lists.infradead.org>, <linux-tegra@vger.kernel.org>,
-        <linux-arm-msm@vger.kernel.org>, <linux-rockchip@lists.infradead.org>,
-        <linux-riscv@lists.infradead.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>
-References: <20230118173932.358153-1-krzysztof.kozlowski@linaro.org>
-From: Patrice CHOTARD <patrice.chotard@foss.st.com>
-In-Reply-To: <20230118173932.358153-1-krzysztof.kozlowski@linaro.org>
-X-Originating-IP: [10.201.21.26]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.219,Aquarius:18.0.923,Hydra:6.0.562,FMLib:17.11.122.1
- definitions=2023-01-18_05,2023-01-18_01,2022-06-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230118_234306_453667_CB7063E7 
-X-CRM114-Status: GOOD (  14.94  )
+X-CRM114-CacheID: sfid-20230118_234810_503007_1AEE60AF 
+X-CRM114-Status: UNSURE (   9.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,44 +71,23 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof
-
-On 1/18/23 18:39, Krzysztof Kozlowski wrote:
-> Cleanup by removing unneeded quotes from refs and redundant blank lines.
-> No functional impact except adjusting to preferred coding style.
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> ---
-
-[...]
-
-> diff --git a/Documentation/devicetree/bindings/spi/st,stm32-qspi.yaml b/Documentation/devicetree/bindings/spi/st,stm32-qspi.yaml
-> index 1eb17f7a4d86..8bba965a9ae6 100644
-> --- a/Documentation/devicetree/bindings/spi/st,stm32-qspi.yaml
-> +++ b/Documentation/devicetree/bindings/spi/st,stm32-qspi.yaml
-> @@ -11,7 +11,7 @@ maintainers:
->    - Patrice Chotard <patrice.chotard@foss.st.com>
->  
->  allOf:
-> -  - $ref: "spi-controller.yaml#"
-> +  - $ref: spi-controller.yaml#
->  
->  properties:
->    compatible:
-
-
-For stm32-qspi 
-Reviewed-by: Patrice Chotard <patrice.chotard@foss.st.com>
-
-Thanks
-Patrice
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogQmrDtnJuIFTDtnBlbCA8Ympvcm5Acml2b3NpbmMuY29tPgoKUklTQy1WIGRvZXMgbm90
+IGR1bXAgZmF1bHRpbmcgaW5zdHJ1Y3Rpb25zIGluIHRoZSBvb3BzIGhhbmRsZXIuIFRoaXMKc2Vy
+aWVzIGFkZHMgIkNvZGU6IiBkdW1wcyB0byB0aGUgb29wcyBvdXRwdXQgdG9nZXRoZXIgd2l0aApz
+Y3JpcHRzL2RlY29kZWNvZGUgc3VwcG9ydC4KClRoYW5rcywKQmrDtnJuCgp2Mi0+djM6IFNpbXBs
+aWZpY2F0aW9ucy9nZXR0aW5nIHJpZCBvZiBjYXN0cyAoR2VlcnQpCnYxLT52MjogRHVtcCBpbnN0
+cnVjdGlvbnMgaW4gMTZiIHBhcmNlbHMgKEFuZHJlYXMpCgpCasO2cm4gVMO2cGVsICgyKToKICBy
+aXNjdjogQWRkIGluc3RydWN0aW9uIGR1bXAgdG8gUklTQy1WIHNwbGF0cwogIHNjcmlwdHMvZGVj
+b2RlY29kZTogQWRkIHN1cHBvcnQgZm9yIFJJU0MtVgoKIGFyY2gvcmlzY3Yva2VybmVsL3RyYXBz
+LmMgfCAyNSArKysrKysrKysrKysrKysrKysrKysrKystCiBzY3JpcHRzL2RlY29kZWNvZGUgICAg
+ICAgIHwgMTIgKysrKysrKysrKystCiAyIGZpbGVzIGNoYW5nZWQsIDM1IGluc2VydGlvbnMoKyks
+IDIgZGVsZXRpb25zKC0pCgoKYmFzZS1jb21taXQ6IDcyODc5MDRjODc3MWI3N2I5NTA0ZjUzNjIz
+YmI0NzcwNjVjMTlhNTgKLS0gCjIuMzcuMgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
+aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
+dGluZm8vbGludXgtcmlzY3YK
