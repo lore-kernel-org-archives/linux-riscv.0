@@ -4,86 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43060C38142
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Jan 2023 17:44:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87C30C004D4
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Jan 2023 17:52:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BoR2P4fLFPAEtNlS0ZT3YNhcCAZLjEQfs/pdj4ngXHY=; b=vJV34TbDmc1JNY
-	DcTMw8/lvT7Qcg1aknL3Yt5KEUe5RGTaL7GF20zwj7VwDsr6eA8Geh2TfO3TnzTd2p2469iZR9Cq4
-	WuPv/yrUt1uVNu6Hbhj91tSHKncWZhvUXACT7IbVNa0kaV4RKL6Gfxga2jOaMC/D2CLH+KeAsni09
-	zeluif+xOWsRDX2c1uWdWwXeIvB0pEpY2RULr2wa/dVDYJUDoMycmtKnVXROzYAjYzeP3I9tL24aP
-	mA80VfKBZieaiGAF1SOQkmUcNn3AnRqAp+Dc7cooRCurvrFhhAMGTOjIDTPWw259q1znHOBk7Wkg7
-	rptkFHFZZoYlpbeGrSdw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=xPcNYyA1QBy7VyaMsAIlIb/wBrE23S5BSBPn3xSGVew=; b=R5a0IQ589o2JvhojnF/8MNgwK6
+	/EHVJ1M9LShNJC+IGGq3uK9UigyM+x6bx3OFUGNRsQLhfy0oyeFuynTT+De9rH2C8nZU4qMUQQC7Z
+	19/X6dsCmz4eBhElYyLgKhnbKE4As0usKq3nb2dVBs3vNlVU+rppEu/o+DGWNhZmal71EJF8nV8iS
+	6By1FhgVv7D75grFI5QYDWTUqbZBw51R2IjhBKPNxwd1MhjTiFJcefXrYUy7IAh829TK4+RbcttJJ
+	ADqeNs/2OoAG1bn258GKRjIqFB4IwMXsHf9P3a+kTKrIMKt/DcKx+NFxjyPlgGoORPFX8H34zrawd
+	ZacQMdxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIYxd-006MFq-73; Thu, 19 Jan 2023 17:44:25 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	id 1pIZ5Q-006Owx-UY; Thu, 19 Jan 2023 17:52:28 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIYxL-006MAt-9a
-	for linux-riscv@lists.infradead.org; Thu, 19 Jan 2023 17:44:23 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id x24-20020a17090ab01800b00229f43b506fso1527693pjq.5
-        for <linux-riscv@lists.infradead.org>; Thu, 19 Jan 2023 09:44:01 -0800 (PST)
+	id 1pIZ5O-006Ovs-U0
+	for linux-riscv@bombadil.infradead.org; Thu, 19 Jan 2023 17:52:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=dp8qojpwap4fYIHgXdz1D2JV/TwrrbRohd5yUhJybyQ=; b=Fb3tCtn0H5SwJP3Lo3OT8O19nk
+	TX9InOOaK0AqKVA8FRt80v92cqK20eM25670dVK8M3Jqut4Ywy/K81KbtPDblkPpQTxj/clqrbooO
+	rB1RsWYuO1kGu8Z5pGRtL9gzgTemyyct7PBbFBpqEE/fW1WjvBPNohTNHtP+lI0kXkHcKfxPxhLYO
+	Cui885Ciq8PxtJhlRxwS61EswbWW0xwXqFwcOMp5p4Kd7orlzJsHwzOSqkGl41R1Gx4Sn3RsjOyHK
+	RngP14Vadk/RRAHK2kgUYtETzg1QDl5y4UukoMr5YG9fGWmZQ1+jxr3Z4JxA/X23eqqsaoXhcjLQq
+	YDAbr8xw==;
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	by casper.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pIYpv-001AnE-FZ
+	for linux-riscv@lists.infradead.org; Thu, 19 Jan 2023 17:36:34 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id h1-20020a17090a470100b0022646263abfso1212550pjg.6
+        for <linux-riscv@lists.infradead.org>; Thu, 19 Jan 2023 09:36:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gMXRFoJgEBU3JFS7VUd+xLNA0VBDGfFHO+FffVhu5OY=;
-        b=fl3cvQGfXY2tlWtG5at8eQ6ziJEqHOBVMxR6Rfb+DiuWyNi0tvhXXxH59d4tsb9g2h
-         ev+77zLb5YsfbiYMY4WikZfGUprf1dhYwI8iV6gQyG8e4VbZoHk6/Kzpk6m5ks03PhOo
-         BcH7bAjVX+lVrs7xI89TM+9RHhb942b+3jovr1r2vL/2BzgpSjANtcqCU8oxoW34ueWe
-         RNZHdlZwIHO2CbHXrfT59VbttyiHlVRSIPmJF3Nsikf2YXruv1ecb/iDwHPHPBlVH23C
-         j/69R+1svQt5ADnsvLJOgz7qPhF9BiL8zM1r4EDIwgBW+U0ELUrlqyAY0t+QKg7ZYwZu
-         hx9Q==
+        d=google.com; s=20210112;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=dp8qojpwap4fYIHgXdz1D2JV/TwrrbRohd5yUhJybyQ=;
+        b=H/BI9ESPrITtcSVcjET6jzac76aduirOzUyEK/YoKMEruClE2yiXCPYMGIOXcKnKup
+         iNpiHxnBYLEIPj3wdADtupmxfC8G6McHZKEOSJ/CFCRRgt9Drd7uJsbcmWsUOqpAGTGD
+         prwqqAb1u/JrmBIE75trjHaMsPYqGPmL5iWwr10EuZU6RUfJWI+nH6QH/oanl4yr2VfB
+         8AWG5j3mJRzwWi6EmTQkVE5eBisgW10Jpll7uujTrEF+bwnqufQonaA7EBanC72JhKpO
+         G6vmCpkq2ED385zKBbRJDAZPo57ZEOS9Tta8r6YGPvYnqz6k9VQEb2t96Vh91/aHXN3/
+         5nlA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=gMXRFoJgEBU3JFS7VUd+xLNA0VBDGfFHO+FffVhu5OY=;
-        b=gAUIlMGQHwb+nfecWmasVSQkF9pQSVEHysTOGHYVQtQCu3H89HjXZij6OdvXpPkpji
-         LU0LcuNVP/j1nRkuU0SDoOh2h4LMNm7/WJWPyLUQBwET4owxUV72vs2f6LO3Y+2B0NDx
-         nZcZqzbpHNuXti9DuarpREAwCmIkGFUkB2rfIzWslsv/IyU0aJ3pwYSvGaFSI6Ttr0so
-         WWCSiVfRooxEcvNgnIZrDk961anWKzONQvZBp6kug82Lckz22HoyNEUeKrVsXHYVOqdd
-         OKh78jjgF0TJogf0VngvwKZxwGtcDG8EWhElrLs250GSUQziakfq9OSs1JkkLjoGQmY1
-         qSnA==
-X-Gm-Message-State: AFqh2kocOYjjVYUMwupVJeuQOI0yOdBSpjPqU/MTiJ3p/kYOnWbuFL9d
-	SZMtfkUHEgRslB4MfvXuPdOX1uUwnETnfdMP
-X-Google-Smtp-Source: AMrXdXvlCVFiJQTQ1J5FYsR0lwIwEZuGSm9am5PXzUlzDL3T3qlj5q3b6j2etiWkVPWjydJIrvlZZA==
-X-Received: by 2002:a17:903:2789:b0:188:bd82:2b7c with SMTP id jw9-20020a170903278900b00188bd822b7cmr11791708plb.5.1674150240661;
-        Thu, 19 Jan 2023 09:44:00 -0800 (PST)
-Received: from vineet-framework.ba.rivosinc.com ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id b1-20020a170902d50100b0017f5ad327casm25415046plg.103.2023.01.19.09.43.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Jan 2023 09:43:59 -0800 (PST)
-From: Vineet Gupta <vineetg@rivosinc.com>
-To: linux-riscv@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org,
-	palmer@rivosinc.com,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Kees Cook <keescook@chromium.org>,
-	Guo Ren <guoren@kernel.org>,
-	Andy Chiu <andy.chiu@sifive.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	linux@rivosinc.com,
-	Jessica Clarke <jrtc27@jrtc27.com>,
-	Vineet Gupta <vineetg@rivosinc.com>
-Subject: [PATCH v3] riscv: elf: add .riscv.attributes parsing
-Date: Thu, 19 Jan 2023 09:43:57 -0800
-Message-Id: <20230119174357.3550008-1-vineetg@rivosinc.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <c2177e4e-e97d-448a-73e7-c50622fdc4bb@rivosinc.com>
-References: <c2177e4e-e97d-448a-73e7-c50622fdc4bb@rivosinc.com>
-MIME-Version: 1.0
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=dp8qojpwap4fYIHgXdz1D2JV/TwrrbRohd5yUhJybyQ=;
+        b=LuC7Kefy1PwIJQmAFQ4GWkaiBHxele40Ens4pYH0a9uCv+F/rSeroUfMGx68wC/LtU
+         WSK2YoCMd2+eamx0MSraws/1o0ZO9d+NbKYqehnCO/L90y5kQb+DAtwZ/Y5Gss6Yx3SO
+         6AdpVAwe1s5MsVN6yyN9s3aSjn4+vWqaz78tmtHgJWfaQa3FtEbZTAKADgvILcm36wZ8
+         tZnBDsraKJ4bEphDw6I+pErZFdZiopiad9M6ItLlkF69AcAApgMwRMJFJ/ZrHH1ZvmaD
+         8xtBAKEofv5OJPC7xfimasGGxWIrRFAIaXiHvENibgzRR3Tvb4kTOvy4J86HMZWLOOes
+         cbNg==
+X-Gm-Message-State: AFqh2krECSexLg410c4/ndTwPKnVKrqg0ycvOPvrXSPctO0i4iAl00j2
+	1NlnopIb0z1V7wMaViK9GOPE0L1d1slkvA==
+X-Google-Smtp-Source: AMrXdXtaXzJMSZZ9D1fSSj2h0Tgh0mFBeEt+RGNJ3TxELmJ4QuEIMQy48RX0nEqQ+628tznT8bbHFGEd6DobHQ==
+X-Received: from dmatlack-n2d-128.c.googlers.com ([fda3:e722:ac3:cc00:20:ed76:c0a8:1309])
+ (user=dmatlack job=sendgmr) by 2002:a17:90b:1494:b0:225:eaa2:3f5d with SMTP
+ id js20-20020a17090b149400b00225eaa23f5dmr486845pjb.2.1674149783183; Thu, 19
+ Jan 2023 09:36:23 -0800 (PST)
+Date: Thu, 19 Jan 2023 09:35:59 -0800
+In-Reply-To: <20230119173559.2517103-1-dmatlack@google.com>
+Mime-Version: 1.0
+References: <20230119173559.2517103-1-dmatlack@google.com>
+X-Mailer: git-send-email 2.39.0.246.g2a6d74b583-goog
+Message-ID: <20230119173559.2517103-8-dmatlack@google.com>
+Subject: [PATCH 7/7] KVM: Move kvm_arch_flush_remote_tlbs_memslot() to common code
+From: David Matlack <dmatlack@google.com>
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Huacai Chen <chenhuacai@kernel.org>, 
+	Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>, Anup Patel <anup@brainfault.org>, 
+	Atish Patra <atishp@atishpatra.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Sean Christopherson <seanjc@google.com>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, kvmarm@lists.cs.columbia.edu, 
+	linux-mips@vger.kernel.org, kvm@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	David Matlack <dmatlack@google.com>, Raghavendra Rao Ananta <rananta@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230119_094410_643312_195F957E 
-X-CRM114-Status: GOOD (  23.59  )
+X-CRM114-CacheID: sfid-20230119_173627_970690_161D16AF 
+X-CRM114-Status: GOOD (  15.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,336 +110,219 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This implements the elf loader hook to parse RV specific
-.riscv.attributes section. This section is inserted by compilers
-(gcc/llvm) with build related information such as -march organized as
-tag/value attribute pairs.
+Move kvm_arch_flush_remote_tlbs_memslot() to common code and drop
+"arch_" from the name. kvm_arch_flush_remote_tlbs_memslot() is just a
+range-based TLB invalidation where the range is defined by the memslot.
+Now that kvm_flush_remote_tlbs_range() can be called from common code we
+can just use that and drop a bunch of duplicate code from the arch
+directories.
 
-It identifies the various attribute tags (and corresponding values) as
-currently specified in the psABI specification.
+Note this adds a lockdep assertion for slots_lock being held when
+calling kvm_flush_remote_tlbs_memslot(), which was previously only
+asserted on x86. MIPS has calls to kvm_flush_remote_tlbs_memslot(),
+but they all hold the slots_lock, so the lockdep assertion continues to
+hold true.
 
-This patch only implements the elf parsing mechanics, leaving out the
-recording/usage of the attributes to subsequent patches.
+Also drop the CONFIG_KVM_GENERIC_DIRTYLOG_READ_PROTECT ifdef gating
+kvm_flush_remote_tlbs_memslot(), since it is no longer necessary.
 
-Signed-off-by: Vineet Gupta <vineetg@rivosinc.com>
+Signed-off-by: David Matlack <dmatlack@google.com>
 ---
-Changes since v2 [2]
-  - Address Jessica's review comments.
-    Mostly robustify code some more, checking for end of buffer etc.
+ arch/arm64/kvm/arm.c     |  6 ------
+ arch/mips/kvm/mips.c     | 10 ++--------
+ arch/riscv/kvm/mmu.c     |  6 ------
+ arch/x86/kvm/mmu/mmu.c   | 16 +---------------
+ arch/x86/kvm/x86.c       |  2 +-
+ include/linux/kvm_host.h |  7 +++----
+ virt/kvm/kvm_main.c      | 18 ++++++++++++++++--
+ 7 files changed, 23 insertions(+), 42 deletions(-)
 
-Changes since v1 [1]
-  - Handling potential oob accesses due to against malformed elf contents
-  - Handling of multiple sub-subsections
-
-[1]https://lore.kernel.org/linux-riscv/20230110201841.2069353-1-vineetg@rivosinc.com
-[2]https://lore.kernel.org/linux-riscv/20230112210622.2337254-1-vineetg@rivosinc.com
-
-Given the current state of discussions, the intended Vector extension
-support would likely not need it, still posting the reworked v3 for
-logical conclusion and for posterity in case need comes up in future
-for something like CFI elf annotation.
-Maintainers/reviewers can decide whether to merge it.
----
- arch/riscv/Kconfig           |   1 +
- arch/riscv/include/asm/elf.h |  11 ++
- arch/riscv/kernel/Makefile   |   1 +
- arch/riscv/kernel/elf-attr.c | 239 +++++++++++++++++++++++++++++++++++
- 4 files changed, 252 insertions(+)
- create mode 100644 arch/riscv/kernel/elf-attr.c
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index e2b656043abf..f7e0ab05a2d2 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -12,6 +12,7 @@ config 32BIT
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 698787ed87e9..54d5d0733b98 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -1420,12 +1420,6 @@ void kvm_arch_sync_dirty_log(struct kvm *kvm, struct kvm_memory_slot *memslot)
  
- config RISCV
- 	def_bool y
-+	select ARCH_BINFMT_ELF_STATE
- 	select ARCH_CLOCKSOURCE_INIT
- 	select ARCH_ENABLE_HUGEPAGE_MIGRATION if HUGETLB_PAGE && MIGRATION
- 	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
-diff --git a/arch/riscv/include/asm/elf.h b/arch/riscv/include/asm/elf.h
-index e7acffdf21d2..7ab8bd0ec330 100644
---- a/arch/riscv/include/asm/elf.h
-+++ b/arch/riscv/include/asm/elf.h
-@@ -116,6 +116,17 @@ do {							\
- 		*(struct user_regs_struct *)regs;	\
- } while (0);
+ }
  
-+struct arch_elf_state {
-+};
-+
-+#define INIT_ARCH_ELF_STATE {}
-+
-+extern int arch_elf_pt_proc(void *ehdr, void *phdr, struct file *elf,
-+			    bool is_interp, struct arch_elf_state *state);
-+
-+extern int arch_check_elf(void *ehdr, bool has_interpreter, void *interp_ehdr,
-+			  struct arch_elf_state *state);
-+
- #ifdef CONFIG_COMPAT
+-void kvm_arch_flush_remote_tlbs_memslot(struct kvm *kvm,
+-					const struct kvm_memory_slot *memslot)
+-{
+-	kvm_flush_remote_tlbs(kvm);
+-}
+-
+ static int kvm_vm_ioctl_set_device_addr(struct kvm *kvm,
+ 					struct kvm_arm_device_addr *dev_addr)
+ {
+diff --git a/arch/mips/kvm/mips.c b/arch/mips/kvm/mips.c
+index 2e54e5fd8daa..9f9a7ba7eb2b 100644
+--- a/arch/mips/kvm/mips.c
++++ b/arch/mips/kvm/mips.c
+@@ -199,7 +199,7 @@ void kvm_arch_flush_shadow_memslot(struct kvm *kvm,
+ 	/* Flush slot from GPA */
+ 	kvm_mips_flush_gpa_pt(kvm, slot->base_gfn,
+ 			      slot->base_gfn + slot->npages - 1);
+-	kvm_arch_flush_remote_tlbs_memslot(kvm, slot);
++	kvm_flush_remote_tlbs_memslot(kvm, slot);
+ 	spin_unlock(&kvm->mmu_lock);
+ }
  
- #define SET_PERSONALITY(ex)					\
-diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-index 4cf303a779ab..eff6d845ac9d 100644
---- a/arch/riscv/kernel/Makefile
-+++ b/arch/riscv/kernel/Makefile
-@@ -50,6 +50,7 @@ obj-y	+= riscv_ksyms.o
- obj-y	+= stacktrace.o
- obj-y	+= cacheinfo.o
- obj-y	+= patch.o
-+obj-y	+= elf-attr.o
- obj-y	+= probes/
- obj-$(CONFIG_MMU) += vdso.o vdso/
+@@ -235,7 +235,7 @@ void kvm_arch_commit_memory_region(struct kvm *kvm,
+ 		needs_flush = kvm_mips_mkclean_gpa_pt(kvm, new->base_gfn,
+ 					new->base_gfn + new->npages - 1);
+ 		if (needs_flush)
+-			kvm_arch_flush_remote_tlbs_memslot(kvm, new);
++			kvm_flush_remote_tlbs_memslot(kvm, new);
+ 		spin_unlock(&kvm->mmu_lock);
+ 	}
+ }
+@@ -987,12 +987,6 @@ int kvm_arch_flush_remote_tlbs(struct kvm *kvm)
+ 	return 1;
+ }
  
-diff --git a/arch/riscv/kernel/elf-attr.c b/arch/riscv/kernel/elf-attr.c
-new file mode 100644
-index 000000000000..8df8f2eea42b
---- /dev/null
-+++ b/arch/riscv/kernel/elf-attr.c
-@@ -0,0 +1,239 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2023 Rivos Inc.
-+ */
-+
-+#include <linux/binfmts.h>
-+#include <linux/elf.h>
-+#include <asm/unaligned.h>
-+
-+#undef pr_fmt
-+#define pr_fmt(fmt) "rv-elf-attr: " fmt
-+
-+#define PT_RISCV_ATTRIBUTES		0x70000003
-+
-+#define RV_ATTR_TAG_file		1
-+
-+#define RV_ATTR_TAG_stack_align		4
-+#define RV_ATTR_TAG_arch		5
-+#define RV_ATTR_TAG_unaligned_access	6
-+
-+#define RV_ATTR_VENDOR_RISCV		"riscv"
-+
-+#define RV_ATTR_SEC_SZ			SZ_1K
-+
-+static void rv_elf_attr_int(u64 tag, u64 val)
+-void kvm_arch_flush_remote_tlbs_memslot(struct kvm *kvm,
+-					const struct kvm_memory_slot *memslot)
+-{
+-	kvm_flush_remote_tlbs(kvm);
+-}
+-
+ long kvm_arch_vm_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
+ {
+ 	long r;
+diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
+index 66ef19676fe4..87f30487f59f 100644
+--- a/arch/riscv/kvm/mmu.c
++++ b/arch/riscv/kvm/mmu.c
+@@ -406,12 +406,6 @@ void kvm_arch_sync_dirty_log(struct kvm *kvm, struct kvm_memory_slot *memslot)
+ {
+ }
+ 
+-void kvm_arch_flush_remote_tlbs_memslot(struct kvm *kvm,
+-					const struct kvm_memory_slot *memslot)
+-{
+-	kvm_flush_remote_tlbs(kvm);
+-}
+-
+ void kvm_arch_free_memslot(struct kvm *kvm, struct kvm_memory_slot *free)
+ {
+ }
+diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
+index 491c28d22cbe..4af85888c98b 100644
+--- a/arch/x86/kvm/mmu/mmu.c
++++ b/arch/x86/kvm/mmu/mmu.c
+@@ -6528,7 +6528,7 @@ static void kvm_rmap_zap_collapsible_sptes(struct kvm *kvm,
+ 	 */
+ 	if (slot_handle_level(kvm, slot, kvm_mmu_zap_collapsible_spte,
+ 			      PG_LEVEL_4K, KVM_MAX_HUGEPAGE_LEVEL - 1, true))
+-		kvm_arch_flush_remote_tlbs_memslot(kvm, slot);
++		kvm_flush_remote_tlbs_memslot(kvm, slot);
+ }
+ 
+ void kvm_mmu_zap_collapsible_sptes(struct kvm *kvm,
+@@ -6547,20 +6547,6 @@ void kvm_mmu_zap_collapsible_sptes(struct kvm *kvm,
+ 	}
+ }
+ 
+-void kvm_arch_flush_remote_tlbs_memslot(struct kvm *kvm,
+-					const struct kvm_memory_slot *memslot)
+-{
+-	/*
+-	 * All current use cases for flushing the TLBs for a specific memslot
+-	 * related to dirty logging, and many do the TLB flush out of mmu_lock.
+-	 * The interaction between the various operations on memslot must be
+-	 * serialized by slots_locks to ensure the TLB flush from one operation
+-	 * is observed by any other operation on the same memslot.
+-	 */
+-	lockdep_assert_held(&kvm->slots_lock);
+-	kvm_flush_remote_tlbs_range(kvm, memslot->base_gfn, memslot->npages);
+-}
+-
+ void kvm_mmu_slot_leaf_clear_dirty(struct kvm *kvm,
+ 				   const struct kvm_memory_slot *memslot)
+ {
+diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
+index 508074e47bc0..ea7bb4035a60 100644
+--- a/arch/x86/kvm/x86.c
++++ b/arch/x86/kvm/x86.c
+@@ -12617,7 +12617,7 @@ static void kvm_mmu_slot_apply_flags(struct kvm *kvm,
+ 		 * See is_writable_pte() for more details (the case involving
+ 		 * access-tracked SPTEs is particularly relevant).
+ 		 */
+-		kvm_arch_flush_remote_tlbs_memslot(kvm, new);
++		kvm_flush_remote_tlbs_memslot(kvm, new);
+ 	}
+ }
+ 
+diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+index acfb17d9b44d..12dfecd27c9d 100644
+--- a/include/linux/kvm_host.h
++++ b/include/linux/kvm_host.h
+@@ -1357,6 +1357,8 @@ void kvm_vcpu_on_spin(struct kvm_vcpu *vcpu, bool usermode_vcpu_not_eligible);
+ 
+ void kvm_flush_remote_tlbs(struct kvm *kvm);
+ void kvm_flush_remote_tlbs_range(struct kvm *kvm, gfn_t gfn, u64 pages);
++void kvm_flush_remote_tlbs_memslot(struct kvm *kvm,
++				   const struct kvm_memory_slot *memslot);
+ 
+ #ifdef KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE
+ int kvm_mmu_topup_memory_cache(struct kvm_mmu_memory_cache *mc, int min);
+@@ -1385,10 +1387,7 @@ void kvm_arch_mmu_enable_log_dirty_pt_masked(struct kvm *kvm,
+ 					unsigned long mask);
+ void kvm_arch_sync_dirty_log(struct kvm *kvm, struct kvm_memory_slot *memslot);
+ 
+-#ifdef CONFIG_KVM_GENERIC_DIRTYLOG_READ_PROTECT
+-void kvm_arch_flush_remote_tlbs_memslot(struct kvm *kvm,
+-					const struct kvm_memory_slot *memslot);
+-#else /* !CONFIG_KVM_GENERIC_DIRTYLOG_READ_PROTECT */
++#ifndef CONFIG_KVM_GENERIC_DIRTYLOG_READ_PROTECT
+ int kvm_vm_ioctl_get_dirty_log(struct kvm *kvm, struct kvm_dirty_log *log);
+ int kvm_get_dirty_log(struct kvm *kvm, struct kvm_dirty_log *log,
+ 		      int *is_dirty, struct kvm_memory_slot **memslot);
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index c9fc693a39d9..9c10cd191a71 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -381,6 +381,20 @@ void kvm_flush_remote_tlbs_range(struct kvm *kvm, gfn_t gfn, u64 pages)
+ 	kvm_flush_remote_tlbs(kvm);
+ }
+ 
++void kvm_flush_remote_tlbs_memslot(struct kvm *kvm,
++				   const struct kvm_memory_slot *memslot)
 +{
-+	pr_debug("Tag %llx=%llx\n", tag, val);
-+}
-+
-+static void rv_elf_attr_str(u64 tag, const unsigned char *str)
-+{
-+	pr_debug("Tag %llx=[%s]\n", tag, str);
-+}
-+
-+/*
-+ * Decode a ule128 encoded value.
-+ */
-+static int
-+decode_uleb128_safe(unsigned char **dpp, u64 *val, const unsigned char *p_end)
-+{
-+	unsigned char *bp = *dpp;
-+	unsigned char byte;
-+	unsigned int shift = 0;
-+	u64 result = 0;
-+
-+	while (bp < p_end) {
-+		byte = *bp++;
-+		result |= (byte & 0x7f) << shift;
-+		if ((byte & 0x80) == 0) {
-+			*dpp = bp;
-+			*val = result;
-+			return 0;
-+		}
-+		shift += 7;
-+	}
-+
-+	return -1;
-+}
-+
-+#define ELF_ATTR_TAG_EVEN(t)	(((t) % 2) ? false : true)
-+
-+/*
-+ * Parse a single elf attribute.
-+ */
-+static int rv_parse_elf_attr_safe(unsigned char **dpp, unsigned char *p_end)
-+{
-+	unsigned char *p = *dpp;
-+	unsigned char *str;
-+	u64 tag, val;
-+	u32 s_len;
-+
-+	if (decode_uleb128_safe(&p, &tag, p_end))
-+		goto bad_attr;
-+
-+	switch (tag) {
-+	case RV_ATTR_TAG_stack_align:
-+		if (decode_uleb128_safe(&p, &val, p_end))
-+			goto bad_attr;
-+		if (!ELF_ATTR_TAG_EVEN(tag))
-+			goto bad_attr;
-+		rv_elf_attr_int(tag, val);
-+		break;
-+
-+	case RV_ATTR_TAG_unaligned_access:
-+		if (decode_uleb128_safe(&p, &val, p_end))
-+			goto bad_attr;
-+		if (!ELF_ATTR_TAG_EVEN(tag))
-+			goto bad_attr;
-+		rv_elf_attr_int(tag, val);
-+		break;
-+
-+	case RV_ATTR_TAG_arch:
-+		if (ELF_ATTR_TAG_EVEN(tag))
-+			goto bad_attr;
-+		str = p;
-+		s_len = strnlen(p, p_end - p) + 1;
-+		if ((p + s_len) > p_end)
-+			goto bad_attr;
-+		p += s_len;
-+		rv_elf_attr_str(tag, str);
-+		break;
-+
-+	default:
-+		if (decode_uleb128_safe(&p, &val, p_end))
-+			goto bad_attr;
-+		pr_debug("skipping Unrecognized Tag [%llx]=%llx\n", tag, val);
-+		break;
-+	}
-+
-+	*dpp = p;
-+	return 0;
-+bad_attr:
-+	return -ENOEXEC;
-+}
-+
-+/*
-+ * Parse .riscv.attributes elf section.
-+ */
-+static int rv_parse_elf_attributes(struct file *f, const struct elf_phdr *phdr,
-+				   struct arch_elf_state *state)
-+{
-+	unsigned char buf[RV_ATTR_SEC_SZ];
-+	unsigned char *p, *p_end;
-+	ssize_t n;
-+	int ret = 0;
-+	loff_t pos;
-+
-+	pr_debug("Section .riscv.attributes found\n");
-+
-+	/* Assume a reasonable size for now */
-+	if (phdr->p_filesz > sizeof(buf))
-+		goto bad_elf;
-+
-+	memset(buf, 0, RV_ATTR_SEC_SZ);
-+	pos = phdr->p_offset;
-+	n = kernel_read(f, &buf, phdr->p_filesz, &pos);
-+
-+	if (n <= 0)
-+		return -EIO;
-+
-+	p = buf;
-+	p_end = p + n;
-+
-+	/* sanity check format-version */
-+	if (*p++ != 'A')
-+		goto bad_elf;
-+
 +	/*
-+	 * elf attribute section organized as Vendor sub-sections(s)
-+	 *   {sub-section length, vendor name, vendor data}
-+	 * Vendor data organized as sub-subsection(s)
-+	 *   {tag, sub-subsection length, attributes contents}
-+	 * Attribute contents organized as
-+	 *   {tag, value} pair(s).
++	 * All current use cases for flushing the TLBs for a specific memslot
++	 * related to dirty logging, and many do the TLB flush out of mmu_lock.
++	 * The interaction between the various operations on memslot must be
++	 * serialized by slots_locks to ensure the TLB flush from one operation
++	 * is observed by any other operation on the same memslot.
 +	 */
-+	while ((p_end - p) >= 4) {
-+		u32 sub_len, vname_len;
-+
-+		sub_len = get_unaligned_le32(p);
-+		if (sub_len <= 4 || sub_len > (p_end - p))
-+			goto bad_elf;
-+
-+		p += 4;
-+		sub_len -= 4;
-+
-+		/* Vendor name string */
-+		vname_len = strnlen(p, sub_len) + 1;
-+		if (vname_len > sub_len)
-+			goto bad_elf;
-+
-+		/* skip non-mandatory sub-section for now */
-+		if (strncmp(p, RV_ATTR_VENDOR_RISCV, sub_len)) {
-+			p += sub_len;
-+			continue;
-+		}
-+
-+		p += vname_len;
-+		sub_len -= vname_len;
-+
-+		/* Vendor data: sub-subsections(s) */
-+		while (sub_len > 0) {
-+			unsigned char *p_ss_end, *p_ss_start = p;
-+			u32 ss_len;
-+			u64 tag;
-+
-+			if (decode_uleb128_safe(&p, &tag, p_end))
-+				goto bad_elf;
-+
-+			if ((p_end - p) < 4)
-+				goto bad_elf;
-+
-+			ss_len = get_unaligned_le32(p);
-+			if (ss_len > sub_len)
-+				goto bad_elf;
-+
-+			p += 4;
-+			sub_len -= ss_len;
-+			p_ss_end = p_ss_start + ss_len;
-+
-+			/* For now handle attributes relating to whole file */
-+			if (tag != RV_ATTR_TAG_file) {
-+				p = p_ss_end;
-+				continue;
-+			}
-+
-+			/* Attribute(s): tag:value pairs */
-+			while (p < p_ss_end) {
-+				ret = rv_parse_elf_attr_safe(&p, p_end);
-+				if (ret)
-+					goto bad_elf;
-+			}
-+		}
-+	}
-+
-+	return ret;
-+bad_elf:
-+	return -ENOEXEC;
++	lockdep_assert_held(&kvm->slots_lock);
++	kvm_flush_remote_tlbs_range(kvm, memslot->base_gfn, memslot->npages);
 +}
 +
-+/*
-+ * Hook invoked by generic elf loader to parse riscv specific elf segments.
-+ */
-+int arch_elf_pt_proc(void *_ehdr, void *_phdr, struct file *elf,
-+		     bool is_interp, struct arch_elf_state *state)
-+{
-+	struct elf_phdr *phdr = _phdr;
-+	int ret = 0;
-+
-+	if (phdr->p_type == PT_RISCV_ATTRIBUTES && !is_interp)
-+		ret = rv_parse_elf_attributes(elf, phdr, state);
-+
-+	return ret;
-+}
-+
-+int arch_check_elf(void *_ehdr, bool has_interpreter, void *_interp_ehdr,
-+		   struct arch_elf_state *state)
-+{
-+	return 0;
-+}
+ static void kvm_flush_shadow_all(struct kvm *kvm)
+ {
+ 	kvm_arch_flush_shadow_all(kvm);
+@@ -2188,7 +2202,7 @@ static int kvm_get_dirty_log_protect(struct kvm *kvm, struct kvm_dirty_log *log)
+ 	}
+ 
+ 	if (flush)
+-		kvm_arch_flush_remote_tlbs_memslot(kvm, memslot);
++		kvm_flush_remote_tlbs_memslot(kvm, memslot);
+ 
+ 	if (copy_to_user(log->dirty_bitmap, dirty_bitmap_buffer, n))
+ 		return -EFAULT;
+@@ -2305,7 +2319,7 @@ static int kvm_clear_dirty_log_protect(struct kvm *kvm,
+ 	KVM_MMU_UNLOCK(kvm);
+ 
+ 	if (flush)
+-		kvm_arch_flush_remote_tlbs_memslot(kvm, memslot);
++		kvm_flush_remote_tlbs_memslot(kvm, memslot);
+ 
+ 	return 0;
+ }
 -- 
-2.34.1
+2.39.0.246.g2a6d74b583-goog
 
 
 _______________________________________________
