@@ -4,150 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A17FAC38142
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Jan 2023 04:54:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 099AAC00A5A
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Jan 2023 05:26:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:To:From:Date:References:
-	In-Reply-To:Message-Id:Mime-Version:Reply-To:Cc:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=8BGAMzSol+0D7tqrg5MFZAihJc0nB/EQJ+Ss6w6iqGs=; b=jcgqi1fHTqhg2PjuFPwNa4PNzy
-	E+n+6iWh/kXl58N2kOT+XBkyz6SMtLuhbNYSaCc5W6DLNxKU/RqkwIAePZ3//4WUJb0ZMegnY8P2Q
-	y3vH5zh4cI5ajwgdWXdUwoBDf/5GG9x2lOkOxagLrKmhkMzqSmGu3vv/01539bhoyliCbH3V3vz22
-	5gjCHbG9dawP+Q996+/aGAEp9Y9msmO2+oL4RebH/yvx/idqkrkdm0KFndCdlnNHUG4znQ2q3UByh
-	oajFrkPN0I+gTib3HHj001bfkFzrwtzWp9lcxy2R2fc2ledNw51njQl++gqroWEzCyKP2rKwzEKku
-	TxCB6wvQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=0D7bi2rTLbneoXThAVXXihWuvb/79KU7yhsK5Vu9lTo=; b=ENE0YFSK+9+oTa
+	Jz3ggFic7kZ5ASB63HBmESIV+esc7FNObWJSLGcx8HD5UaD49SCFMkZ3iJhyRh2KW0nBadhZhmAeI
+	dTy5dtWLBRPw+BOhOh9iRjPBWMn1Ijon/8cpNXWMphIl1wMbfXXtsZGYYJhpqVCRj8RLOJAGqZMP7
+	Q922fLzvVFCiXztPYyyirSqGGw5kih57HGZaxWm5DNcA1QAEIRDXMqAzwXRYYeilVjYPW7qmVSU0S
+	cQ6Eob0H9cps73RNzi6suUjkGqkkaEgWBdI1u5+80q5Ml+JWWjUjsl74YPrf1LDtq2/dejNg00ZbJ
+	qkPZ3UdyMq4hedGDRijA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIMwR-003c5V-Qi; Thu, 19 Jan 2023 04:54:23 +0000
-Received: from wnew2-smtp.messagingengine.com ([64.147.123.27])
+	id 1pINRs-003fXC-1O; Thu, 19 Jan 2023 05:26:52 +0000
+Received: from mail-qt1-x836.google.com ([2607:f8b0:4864:20::836])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIMwN-003c4X-3d; Thu, 19 Jan 2023 04:54:20 +0000
-Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
-	by mailnew.west.internal (Postfix) with ESMTP id B19B52B067FE;
-	Wed, 18 Jan 2023 23:54:14 -0500 (EST)
-Received: from imap50 ([10.202.2.100])
-  by compute6.internal (MEProxy); Wed, 18 Jan 2023 23:54:18 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aj.id.au; h=cc
-	:content-type:date:date:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:sender:subject
-	:subject:to:to; s=fm2; t=1674104054; x=1674111254; bh=Jp0nEIifZi
-	HOJSvV20z7BP6fpn/Kau5COB1QREBO070=; b=vbzAmfBKcFB8AOPr4uXDMgqmk5
-	clGM2aj6FMScjZ6BbYJ+vgybqjKJNAWyqXoaaHoUIt+fa6G2aKB5MYVrtEN6rPNw
-	ekHMUtQGMwWAlmkeBiBXp+sCff3eggXGnpVQO/X1J5BPs5uX52TTL283/vOkPyB0
-	I/5NwNQAp/4ee9SMINakabvXev/nvmqvQGDZknkUWk/5wDea0l3I8ahJM/vXvMrR
-	/MSGxZXhPg44kssCVdmjkq+zTp77ktyOGZ7CI4ekq+w7V9XPJaUt1B/mKNP4C++u
-	Ky4p8qnKmh7u0gQS3CuarZ2ZEAc2FeENsuwYbiZ2eM99ZWeA4BQCn5JykGnA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:content-type:date:date:feedback-id
-	:feedback-id:from:from:in-reply-to:in-reply-to:message-id
-	:mime-version:references:reply-to:sender:subject:subject:to:to
-	:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm3; t=1674104054; x=1674111254; bh=Jp0nEIifZiHOJSvV20z7BP6fpn/K
-	au5COB1QREBO070=; b=WojTXSbjvSW4xND20l+X/zxuGH6YT45jEqaQ0oGenJWw
-	InBnhXltRrpW/0COYHV0q+an3JKo0Ygxh8kxhPLtEAvsUMBrLxLYXDExhBjaKsKh
-	tMfMOp0ZZLTHDhRqiSOPay9lxwxvfH9VuUmgfc5+HHKpunCflf4bzlfHh5bBhC+B
-	e8rX+CTJhOdml0OA3Nor48xWDOjbNBujibT6IPFYxdNcwabxjO8W+EcmnHpjZnTS
-	wPiNVH6TwMz9ixSoIW3YlIa5kdMHz79GXvdTxHbblmWchX5DXXHEPbWxP0iVY7QT
-	sQ1ySX252sjKsupF2G7Rbz+Ae5mUAZEjlOMqV1ZEnQ==
-X-ME-Sender: <xms:9czIY-jK6uT2mGK9VS3uQSt4Q7_SJveCRpsc0tUzUozhdM4A82c-qg>
-    <xme:9czIY_DwGvA-AABsTHUow97627iyXSzv22TgvGFxZCNPJnFvUIt3CRAK8F6rY-Plf
-    1GaQa20QxsRzZbmNg>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedruddtledgjeejucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
-    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
-    cujfgurhepofgfggfkjghffffhvffutgesthdtredtreertdenucfhrhhomhepfdetnhgu
-    rhgvficulfgvfhhfvghrhidfuceorghnughrvgifsegrjhdrihgurdgruheqnecuggftrf
-    grthhtvghrnhephefhfeekgfekudevheffheeihedujeefjeevjeefudfgfeeutdeuvdeh
-    hfevueffnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomh
-    eprghnughrvgifsegrjhdrihgurdgruh
-X-ME-Proxy: <xmx:9czIY2GOkKSDtjERBbvMlDiUUBJpRcpwgD9Ej4fMTeVQgo1MR9VxSw>
-    <xmx:9czIY3Qxx5VV69Q7BJz_MhYuM-s_mZfclV0sUMyArX03NZ3KkefvnQ>
-    <xmx:9czIY7wKcicS7WqwRh0Y6RUlCWJJy8ib7wKcyw1F7dOTiL4BUFDknA>
-    <xmx:9szIYzb4I3PhKAY6Khx0hZeAmEcdQDLkBodqImNTOqHAB7hqv4uPR0hlNfQ>
-Feedback-ID: idfb84289:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id 183811700089; Wed, 18 Jan 2023 23:54:12 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.9.0-alpha0-85-gd6d859e0cf-fm-20230116.001-gd6d859e0
-Mime-Version: 1.0
-Message-Id: <47290046-59a2-4bf0-8af0-3a7b4304deb3@app.fastmail.com>
-In-Reply-To: <20230118173932.358153-1-krzysztof.kozlowski@linaro.org>
-References: <20230118173932.358153-1-krzysztof.kozlowski@linaro.org>
-Date: Thu, 19 Jan 2023 15:23:52 +1030
-From: "Andrew Jeffery" <andrew@aj.id.au>
-To: "Krzysztof Kozlowski" <krzysztof.kozlowski@linaro.org>,
- "Mark Brown" <broonie@kernel.org>, "Rob Herring" <robh+dt@kernel.org>,
- "Krzysztof Kozlowski" <krzysztof.kozlowski+dt@linaro.org>,
- "Chen-Yu Tsai" <wens@csie.org>,
- "Jernej Skrabec" <jernej.skrabec@gmail.com>,
- "Samuel Holland" <samuel@sholland.org>,
- "Neil Armstrong" <neil.armstrong@linaro.org>,
- "Kevin Hilman" <khilman@baylibre.com>,
- "Jerome Brunet" <jbrunet@baylibre.com>,
- "Martin Blumenstingl" <martin.blumenstingl@googlemail.com>,
- "Chin-Ting Kuo" <chin-ting_kuo@aspeedtech.com>,
- =?UTF-8?Q?C=C3=A9dric_Le_Goater?= <clg@kaod.org>,
- "Joel Stanley" <joel@jms.id.au>, "Kamal Dasu" <kdasu.kdev@gmail.com>,
- "Broadcom internal kernel review list"
- <bcm-kernel-feedback-list@broadcom.com>, "Han Xu" <han.xu@nxp.com>,
- "Shawn Guo" <shawnguo@kernel.org>,
- "Sascha Hauer" <s.hauer@pengutronix.de>,
- "Pengutronix Kernel Team" <kernel@pengutronix.de>,
- "Fabio Estevam" <festevam@gmail.com>,
- "NXP Linux Team" <linux-imx@nxp.com>,
- "Matthias Brugger" <matthias.bgg@gmail.com>,
- "Thierry Reding" <thierry.reding@gmail.com>,
- "Jonathan Hunter" <jonathanh@nvidia.com>,
- "Andy Gross" <agross@kernel.org>,
- "Bjorn Andersson" <andersson@kernel.org>,
- "Konrad Dybcio" <konrad.dybcio@linaro.org>,
- "Serge Semin" <fancer.lancer@gmail.com>,
- "Haibo Chen" <haibo.chen@nxp.com>,
- "Yogesh Gaur" <yogeshgaur.83@gmail.com>,
- "Linus Walleij" <linus.walleij@linaro.org>,
- "Heiko Stuebner" <heiko@sntech.de>,
- "Palmer Dabbelt" <palmer@dabbelt.com>,
- "Paul Walmsley" <paul.walmsley@sifive.com>,
- "Li-hao Kuo" <lhjeff911@gmail.com>,
- "Michal Simek" <michal.simek@xilinx.com>,
- "Orson Zhai" <orsonzhai@gmail.com>,
- "Baolin Wang" <baolin.wang@linux.alibaba.com>,
- "Chunyan Zhang" <zhang.lyra@gmail.com>,
- "Maxime Coquelin" <mcoquelin.stm32@gmail.com>,
- "Alexandre Torgue" <alexandre.torgue@foss.st.com>,
- "Maxime Ripard" <mripard@kernel.org>,
- =?UTF-8?Q?=EF=BF=BDecki?= <rafal@milecki.pl>,
- "Vaishnav Achath" <vaishnav.a@ti.com>,
- "Parshuram Thombare" <pthombar@cadence.com>,
- "Leilk Liu" <leilk.liu@mediatek.com>, "Gabor Juhos" <juhosg@openwrt.org>,
- "Bert Vermeulen" <bert@biot.com>,
- "Miquel Raynal" <miquel.raynal@bootlin.com>,
- "Marek Vasut" <marex@denx.de>, "Birger Koblitz" <mail@birger-koblitz.de>,
- "Geert Uytterhoeven" <geert+renesas@glider.be>,
- "Anson Huang" <Anson.Huang@nxp.com>,
- "Chris Packham" <chris.packham@alliedtelesis.co.nz>,
- "Kuldeep Singh" <singh.kuldeep87k@gmail.com>,
- "Pragnesh Patel" <pragnesh.patel@sifive.com>,
- "Christophe Kerello" <christophe.kerello@foss.st.com>,
- "Patrice Chotard" <patrice.chotard@foss.st.com>,
- "Erwan Leray" <erwan.leray@foss.st.com>,
- "Fabrice Gasnier" <fabrice.gasnier@foss.st.com>,
- "open list:SPI SUBSYSTEM" <linux-spi@vger.kernel.org>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-amlogic@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- openbmc@lists.ozlabs.org, linux-mediatek@lists.infradead.org,
- linux-tegra@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH 1/2] spi: dt-bindings: drop unneeded quotes
+	id 1pINRo-003fVS-UA
+	for linux-riscv@lists.infradead.org; Thu, 19 Jan 2023 05:26:50 +0000
+Received: by mail-qt1-x836.google.com with SMTP id j9so807689qtv.4
+        for <linux-riscv@lists.infradead.org>; Wed, 18 Jan 2023 21:26:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=tC4jG2P7TxWk2xJp/iiDtds8NtE5bfDPvvXdGd6AAck=;
+        b=NAGaDdwxyXQU9vq7ltkCPRl1iGhpgYu/A2RgiYg6jwn1rEsUpWIb+1C7cEqotNB2dH
+         3kC8jzOXysoav7zP3YE+69BlP0NgLv69Ow30Q+l7FRS9H0JFopH80KG7yEsMmkLITON7
+         Y+av8jnv+G3M/d4rtXltAvKRf3LFLxiuTupvkvziaZOtddRCie0OdfyAdB0NEVdqNvkc
+         B4svO4SegF0tP6xvxalxDC36jb8wGnEZMWfdoh7p1vGi0Fz5ArhGhu3OlkMBx3DfVbPA
+         SxClmoaOnUNIkPS225ElDLrxWGLxfvvO89R39rK3hUtMTLno7NgOTRuAK5UH726aT6zv
+         R6nA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=tC4jG2P7TxWk2xJp/iiDtds8NtE5bfDPvvXdGd6AAck=;
+        b=znMu5vXhhohctOANubga/evh7yO5u1Cv7kzh+tOqnATfm3EWypSv0TEryPYF/rHEhz
+         43jWM2wEIfYLkKdDLmE5auJR0eZMLK/1LzeqL4oiC40NKEEOYz3zUTBNSh7MTPSmtIH3
+         V6L8iWWY1Bhh5CJTB6nu8Bjz4QvosS4d4Hb/irqdObgPVGemu9AGWVc4+gUKEyRFqhqd
+         +bqorhU6VbcW5NXQ2XN/o44FBcs5RYnbpg+VKIn3WDtewRwW67AM/hUfcqgWuLAAvJbf
+         j60a13chnKDERZkmgGOlkA7Mq//TGKr8HrlftK/KA1NC0dUO2iRZAsVp/LM0QdT5E6M3
+         zrRw==
+X-Gm-Message-State: AFqh2kobhnJrqcjY5E+7ZHub0ABJSirw4Z5hvSv4Ub8MctJakJeoB2CN
+	Bv+YdtkINM+2LuIXbPCppyoXBmvOv4sFMA==
+X-Google-Smtp-Source: AMrXdXtbA85An2UlTdL2XzbhfLYOvcD87z0EDVwbQ4RYCtnVmmT6y5CqsNyrZiS3va0/p+EQApDNig==
+X-Received: by 2002:ac8:5ed2:0:b0:3b6:313a:f461 with SMTP id s18-20020ac85ed2000000b003b6313af461mr12124149qtx.65.1674106005334;
+        Wed, 18 Jan 2023 21:26:45 -0800 (PST)
+Received: from jesse-desktop.jtp-bos.lab (pool-108-26-182-112.bstnma.fios.verizon.net. [108.26.182.112])
+        by smtp.gmail.com with ESMTPSA id v21-20020ac87295000000b003a5430ee366sm507330qto.60.2023.01.18.21.26.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Jan 2023 21:26:45 -0800 (PST)
+From: Jesse Taube <mr.bossman075@gmail.com>
+X-Google-Original-From: Jesse Taube <Mr.Bossman075@gmail.com>
+To: linux-riscv@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org,
+	Jesse Taube <Mr.Bossman075@gmail.com>,
+	Yimin Gu <ustcymgu@gmail.com>,
+	Waldemar Brodkorb <wbx@openadk.org>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>
+Subject: [PATCH v1 1/2] riscv: Kconfig: Allow RV32 to build with no MMU
+Date: Thu, 19 Jan 2023 00:26:41 -0500
+Message-Id: <20230119052642.1112171-2-Mr.Bossman075@gmail.com>
+X-Mailer: git-send-email 2.39.0
+In-Reply-To: <20230119052642.1112171-1-Mr.Bossman075@gmail.com>
+References: <20230119052642.1112171-1-Mr.Bossman075@gmail.com>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230118_205419_206663_A6B2A78F 
-X-CRM114-Status: UNSURE (   6.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230118_212648_995983_19D971DA 
+X-CRM114-Status: GOOD (  10.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,23 +96,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Yimin Gu <ustcymgu@gmail.com>
 
+Some RISC-V 32bit ores do not have an MMU, and the kernel should be
+able to build for them. This patch enables the RV32 to be built with
+no MMU support.
 
-On Thu, 19 Jan 2023, at 04:09, Krzysztof Kozlowski wrote:
-> Cleanup by removing unneeded quotes from refs and redundant blank lines.
-> No functional impact except adjusting to preferred coding style.
->
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> ---
->  .../bindings/spi/allwinner,sun4i-a10-spi.yaml  |  2 +-
->  .../bindings/spi/allwinner,sun6i-a31-spi.yaml  |  2 +-
->  .../bindings/spi/amlogic,meson-gx-spicc.yaml   |  6 +++---
->  .../bindings/spi/amlogic,meson6-spifc.yaml     |  6 +++---
->  .../bindings/spi/aspeed,ast2600-fmc.yaml       |  2 +-
+Signed-off-by: Yimin Gu <ustcymgu@gmail.com>
+CC: Jesse Taube <Mr.Bossman075@gmail.com>
+Tested-By: Waldemar Brodkorb <wbx@openadk.org>
+Signed-off-by: Jesse Taube <Mr.Bossman075@gmail.com>
+---
+ arch/riscv/Kconfig | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
 
-For the Aspeed change:
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 59d18881f35b..49759dbe6a8f 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -163,8 +163,8 @@ config MMU
+ 
+ config PAGE_OFFSET
+ 	hex
+-	default 0xC0000000 if 32BIT
+-	default 0x80000000 if 64BIT && !MMU
++	default 0xC0000000 if 32BIT && MMU
++	default 0x80000000 if !MMU
+ 	default 0xff60000000000000 if 64BIT
+ 
+ config KASAN_SHADOW_OFFSET
+@@ -262,7 +262,6 @@ config ARCH_RV32I
+ 	select GENERIC_LIB_ASHRDI3
+ 	select GENERIC_LIB_LSHRDI3
+ 	select GENERIC_LIB_UCMPDI2
+-	select MMU
+ 
+ config ARCH_RV64I
+ 	bool "RV64I"
+-- 
+2.39.0
 
-Reviewed-by: Andrew Jeffery <andrew@aj.id.au>
 
 _______________________________________________
 linux-riscv mailing list
