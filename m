@@ -4,72 +4,166 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9355C38159
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Jan 2023 23:43:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D8F3C677F1
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Jan 2023 00:20:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZVmN/NzfmC5ttV91ffvLQi5BQ3UR/FZPsaedqb6LL2c=; b=qkJXR3rExpDbI6fqZXdmKI0poB
-	HPh6Mr8biRO1K4so91xjIk8Lcmqc8T6ntH9wZ21qQvJf4uf2kpwMMVBQ3PFnFHZ7djlkZQFZPG4bK
-	7H8fqii7Fr6c5SwkJU377CXugJU8r0nSqVRli4FZA258/rO5BCiFtZvOQuw/EjBtUuSGwW5Bael5R
-	giU8LgGkvqA05fps8yqu98vcvSz6CdF8M90+uPYbRHEprKxiTDnqwdJJQoDrTArTBBi8mGm2tY3+V
-	WleuEQY3Ufjy/v2VXxEfdNxvJRYkWgOKYuDPY562jka72DZoFHEvfj/kgDwrjNHqXNDawa2RtnGrR
-	aZAn/eSA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=8SxZi8b7bnPwCdQpP1DK5W2ftMgmGZk2Ra9Er1YCyX4=; b=hWrO/t9kqhFOxg
+	UsIwSA4wjul4/sMNRae1x8zatIAmPXWAcDotFNqy2AWrxEAfim8FDAgpIGIThfaiay004oAyib8UA
+	yfMFnwle9jYGniEhJI438Tvi7V+Nh63b4vJE1FU5QvGMK1sUthTYlduIU689x/6grM+BLhLzDzKfV
+	YlZ3BafrA5JE/pSmq5a4XSTN9/vgdjPGLnjT5RuIqEdwZjSUrbmlc7Xcry10VWLr5obFhISgjOrhM
+	KexIeKR65oAGWCUxpJdJUUKNqQd6o4JMpLlDXcNVc77tJVXm4H0yVUIgQVJawbvv4XvOhZqUm6/eL
+	qFhSzhPvlT+tR+4plKzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pII5G-002yKd-O5; Wed, 18 Jan 2023 23:43:10 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pIIfS-0031q9-8V; Thu, 19 Jan 2023 00:20:34 +0000
+Received: from mail-os0jpn01on2111.outbound.protection.outlook.com ([40.107.113.111] helo=JPN01-OS0-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pII5D-002yK6-PZ
-	for linux-riscv@lists.infradead.org; Wed, 18 Jan 2023 23:43:09 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 4585E61AB9;
-	Wed, 18 Jan 2023 23:43:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 403F0C433EF;
-	Wed, 18 Jan 2023 23:43:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1674085386;
-	bh=Okd6MIEI+bnAJs2p19rWhJG6+ljN8iX62czvy5e5c4o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FMWFJvg3ySJH0/xRmzFgX4ei12XCJ5lb0Yl/JzgdDT7Zm6buaZShV2CeaPY8LpDpY
-	 8VOatkM9mAFJLZXAODl1O3ey0EzSTLWATSDKVJzes85RwWWLSnIompE0k5DP0Evk7n
-	 rK9ErPDnQ+pEdhJBRWeDhGMyyMRWSXaGj9jNVT7wTRzWDaJZy/dIpaq+sm/5EuvpQf
-	 y+wAYGHrI4ndrhR420aWYE1sXSPeU8zIlKWm6MkudIP9XTT4nXM/aG05Qv5sdOKkmm
-	 czKMDGGowcBcNBvlsiErUA1e6EyVhYUclEFL8GRh/6HjroEMeuh7nCUPrbJO/CbZ6Y
-	 S7HryQL2hYdcQ==
-Date: Wed, 18 Jan 2023 23:43:00 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Hal Feng <hal.feng@starfivetech.com>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Ben Dooks <ben.dooks@sifive.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 7/7] riscv: dts: starfive: Add StarFive JH7110
- VisionFive 2 board device tree
-Message-ID: <Y8iEBOjLthlNX/xy@spud>
-References: <20221220011247.35560-1-hal.feng@starfivetech.com>
- <20221220011247.35560-8-hal.feng@starfivetech.com>
- <Y72nbfJxYdO2AojI@spud>
+	id 1pIIfN-0031o9-0A; Thu, 19 Jan 2023 00:20:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=a0GHS5ln3gEz6Dy5bCmkYvEq3kTp7m6OGDeI8hhqXt4ISgYqVhe5ZOXqg18u04iETt+sV9yRH2pWhdFhG2+zrVPKWCFRZCJTdm7HLZljn1gsGXZa2gXtZalWAdEPabJHM3tmEiEkbvUtvZ1lsLHNKNpIZukdx9100UjbWLGxYjtXj3RrBk46BnhPJb1ZSYxyCDe6FDW0LCiv92EDcFfIkQ6CUfflx39zkUfHb0bNGD+4kumpa3UohetqOM5vbDUR736bh/T7HNKKBtxSoRd9w24tp0hAYOSoG+B5C/0wK/mewDcafgj9p6Yq3qRWeZjFb2HEJE2lIhREs44/sQZ+Rg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=X8+zoBjPTpSQAOfnoP8CjHTvnKrNbnV9iCVv4Y3NZLM=;
+ b=IdJCWR/sNpJq26xFCb0RrUvqfuLM0mHm4KdIT5YXL191epgWqAIJ/uF5EyIJNdM8DaN1Z2HaqjUP/Qj1E+bhlXiLOx9dk4/4aG4TSssZgr2k3qcx8Ik41whHlSa3mFcB6dtvW97lJTYpUmIPG8XG/g716Ummd/FIxOueyPC83w7OtHfFxf+WUbJzRJVdJrtkFFdvEK/E1d1TrciV9E4OFzUmb3ZoPQJVx18gtdrjW+cNnpLzgXY47LkD/FGrEoeGRnCelwyLyh6Cql/zoifeXh2vY6/ZGE6y3apX1z+sSDsFTzdiKbWgdfDuCSJZseJzejSjtGgWeby97l1O2Kyg9A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=renesas.com; dmarc=pass action=none header.from=renesas.com;
+ dkim=pass header.d=renesas.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=renesas.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=X8+zoBjPTpSQAOfnoP8CjHTvnKrNbnV9iCVv4Y3NZLM=;
+ b=ErazuAj1mnl3EbI0+5+Wststrm7fKg5amUFeJyJVTVhpvBU0gsGRmHEYjUgvapAWGiTuv9rnZIt61PYhcv2InPYfTgT+/wP7EdDLYU3sxJ0uvqbcv8baYB6+O/CHvF65w1Yj/nOZqsyC5Bm23w7NzxM5VaYzH4Y/McxHvZ0mODY=
+Received: from TYBPR01MB5341.jpnprd01.prod.outlook.com
+ (2603:1096:404:8028::13) by TYCPR01MB9416.jpnprd01.prod.outlook.com
+ (2603:1096:400:195::5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6002.12; Thu, 19 Jan
+ 2023 00:20:19 +0000
+Received: from TYBPR01MB5341.jpnprd01.prod.outlook.com
+ ([fe80::3e61:3792:227e:5f18]) by TYBPR01MB5341.jpnprd01.prod.outlook.com
+ ([fe80::3e61:3792:227e:5f18%9]) with mapi id 15.20.6002.024; Thu, 19 Jan 2023
+ 00:20:19 +0000
+From: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+CC: Vinod Koul <vkoul@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof
+ Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland
+	<samuel@sholland.org>, Olivier Dautricourt <olivierdautricourt@gmail.com>,
+	Stefan Roese <sr@denx.de>, Hector Martin <marcan@marcan.st>, Sven Peter
+	<sven@svenpeter.dev>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, Thierry
+ Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>,
+	=?utf-8?B?QW5kcmVhcyBGw6RyYmVy?= <afaerber@suse.de>, Manivannan Sadhasivam
+	<mani@kernel.org>, Andy Gross <agross@kernel.org>, Bjorn Andersson
+	<andersson@kernel.org>, Konrad Dybcio <konrad.dybcio@linaro.org>, Viresh
+ Kumar <vireshk@kernel.org>, Andy Shevchenko
+	<andriy.shevchenko@linux.intel.com>, Green Wan <green.wan@sifive.com>, Paul
+ Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, Kunihiko Hayashi
+	<hayashi.kunihiko@socionext.com>, Masami Hiramatsu <mhiramat@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+	<alexandre.torgue@foss.st.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+	Maxime Ripard <mripard@kernel.org>, =?utf-8?B?77+9ZXI=?=
+	<povik+lin@cutebit.org>, Peng Fan <peng.fan@nxp.com>, Paul Cercueil
+	<paul@crapouillou.net>, "chuanhua.lei@intel.com" <chuanhua.lei@intel.com>,
+	Long Cheng <long.cheng@mediatek.com>, Rajesh Gumasta <rgumasta@nvidia.com>,
+	Biju Das <biju.das.jz@bp.renesas.com>, Miquel Raynal
+	<miquel.raynal@bootlin.com>, Palmer Debbelt <palmer@sifive.com>, Masahiro
+ Yamada <yamada.masahiro@socionext.com>, Amelie Delaunay
+	<amelie.delaunay@foss.st.com>, Linus Walleij <linus.walleij@linaro.org>,
+	"dmaengine@vger.kernel.org" <dmaengine@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-sunxi@lists.linux.dev"
+	<linux-sunxi@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "asahi@lists.linux.dev"
+	<asahi@lists.linux.dev>, "linux-tegra@vger.kernel.org"
+	<linux-tegra@vger.kernel.org>, "linux-actions@lists.infradead.org"
+	<linux-actions@lists.infradead.org>, "linux-arm-msm@vger.kernel.org"
+	<linux-arm-msm@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, "linux-stm32@st-md-mailman.stormreply.com"
+	<linux-stm32@st-md-mailman.stormreply.com>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>
+Subject: RE: [PATCH 1/2] dt-bindings: dma: drop unneeded quotes
+Thread-Topic: [PATCH 1/2] dt-bindings: dma: drop unneeded quotes
+Thread-Index: AQHZK2bx+wbgQBZnFUOyXLlmQqTCV66k359Q
+Date: Thu, 19 Jan 2023 00:20:19 +0000
+Message-ID:  <TYBPR01MB53419CC109B1EF98CE9D63D8D8C49@TYBPR01MB5341.jpnprd01.prod.outlook.com>
+References: <20230118180144.364756-1-krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20230118180144.364756-1-krzysztof.kozlowski@linaro.org>
+Accept-Language: ja-JP, en-US
+Content-Language: ja-JP
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=renesas.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TYBPR01MB5341:EE_|TYCPR01MB9416:EE_
+x-ms-office365-filtering-correlation-id: 6eb5d05e-6c4d-48c9-a636-08daf9b2f2b7
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info:  jrk2AcTusQsg9+Szbk0shh9Fw/0Gq/M6rXFXcKPl64OK10OzNRU4a1Dz+v0fqWxxBGgJ9czI2UfScFhMxSsg4vcM8Y+Fdvb9ku8TlD/6Ab7EtTR7+j321BpFfpnAyLUP8KPeRAluQCkoG05dni+ak4kZH1gVGkggH8m4bSWJLOqRVIzVyJb3WIb1flanRHAEgpteShosIb4k+Cx0klEz/6IV5Gk44rIyPW13WG/aLf1ApIbUsGmBimdZhg/aPHH3y6T6JXCTBcCTgUWovn2DeRt+CVdDp/V9hrz+FMVxmx7xrW0yZWD634GcC5DOEF5M2taW4J/DkfogQqNDsVLqSDvOwSby3welGHi3QTMR+9AocL74+QPEizgeXp8/lMN6vqlxNneTpUwwiufC3NhgEBZtMLwf0btlH/3NN0B9ZDOCVT/1rE3NsKUcbebqzOega76xeHup7EePAl8S6MIUYP4CBPTRLwSkywHbLbO2PTjb9jRUjSc/hHn0TR0ziC/GcAX9ia1rCbdWU7mCVGWAADGvtmcIAHcXaDUvJ0TJZYczb6KoQxRAGTKo+QDJEUedLcfpuJ4SOS7L8sgNeyWc82kVHBLIRi/isI46ODggRLObMCKpGXJcRocRUEG/dYu33IqWt16+k8xJnxHvGYMpfX34DDIuPSymAcmJF7lJ+FRRwCYl3p1zghOLSm4XmkrVqFkohA2DTKeID28yJVlYEQ==
+x-forefront-antispam-report:  CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYBPR01MB5341.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230022)(4636009)(366004)(39860400002)(376002)(346002)(396003)(136003)(451199015)(9686003)(6506007)(478600001)(186003)(7696005)(71200400001)(33656002)(122000001)(7416002)(316002)(64756008)(4326008)(6916009)(66446008)(8676002)(54906003)(8936002)(41300700001)(52536014)(2906002)(76116006)(55016003)(66476007)(4744005)(66946007)(66556008)(7406005)(7366002)(38070700005)(86362001)(5660300002)(38100700002);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:  =?utf-8?B?OTFFdEp3TXZQQW1OQTdXQnRPS2s0YXdxZTFIZWQrY05Idmtlc1lTR3dYQm9V?=
+ =?utf-8?B?Wk16NmNTMkg5TE1STzdLN2NsM3g2UVliSTZ2Tm1PNkxac1hLM2QzSlcrV1Zq?=
+ =?utf-8?B?Y0ZiTEc3Y0ZveFd6ekFjZEMrZ3QwSnM2dXZ2THZWT1d5ZktWcXJmRkxTUG8x?=
+ =?utf-8?B?UU9YTzdGUThxdTNlR2hZWjN6UkpXZm5vVWY4clVEK1V6WExnUTI4L3Q0N2xl?=
+ =?utf-8?B?bWdQQW9rVnZKT1c1cWxYQ0pCZndUbmN5VU9iMTd1Y3dncmFkSW43Qmxwb3NC?=
+ =?utf-8?B?ZExuQ3lJRmtFWHd5VW9YVlpmV0NUUlFaK2k3VXVDeFBHTTVtMUZQWEIzVm1S?=
+ =?utf-8?B?S3BCSDBrcjhNZGswM0szbWV2LzFzWCsxbGgrYUZ5bGdjKzdhRkdBcWkxUU9T?=
+ =?utf-8?B?K0NROERIQTkzN1djSHdFd0dUeHJKNWVmZFMxUUd4YnZHbDNlTkIrSmhic2FS?=
+ =?utf-8?B?VVpxNE5mSm5SUnpkQkx5MzRsNGRyR21QK0k0b3NCWDBXamcwVy9CUXk0YjEv?=
+ =?utf-8?B?QTlqV3ByMlBnazU4MjVFbStUbUFuMWw2aWl1WDNhalNIdWtMZkNxRUdXZmNj?=
+ =?utf-8?B?U05WakdncGlTT3Jka2JJaGpoeW1RR2ZCS2VXR2tiem5sbjZ4WmJocUh3MGp4?=
+ =?utf-8?B?WjFrMkgyY1B6OG9qcWZxWmg4Y2dISEJ3d3RlT3ZZU280akJSQmQwQkxacFFp?=
+ =?utf-8?B?a3ZjNWd6SERPQ1B1cDV3aE1wQkFJLzZTb1dMd0dFN0JJaW83ZzZpZ1g0VE9B?=
+ =?utf-8?B?TS9KSlllbkZ1VEtmL0ZSTWM4TnpJMWFDa2IyOWRPSUNMSmJrME81L1BBb1pS?=
+ =?utf-8?B?N24rMzRoZU5yTjl2R1dPWEVMVTluMDg2ZEVHVDM1bnNMY3NZdksrZm9RZlQ3?=
+ =?utf-8?B?WTl5OG1LS0VNZlhjaUJwTVJGN0I5dDZVcVdIcHRJSjJFcEV3REcyMEFBZ2Jq?=
+ =?utf-8?B?RXM0bTY0dkozYXgzMUhDemVYZTJWb1NWRXZSV0d2bW50QmVnbTV0cE9rcEJR?=
+ =?utf-8?B?aS9yc2xkRkhLa29aZXo0bEcyOFEwYm9HaVdWdWxDWTYrNW53Q2pDcE9uTzBn?=
+ =?utf-8?B?bEV2blpKb2ZsRHh0V1haUG05YkZZZFQzUnNMVGJQclFacDBSVnpKMXVpT1dn?=
+ =?utf-8?B?TzFYY0t3U2VjdklvMFY3Z1J2cEZpd0pWbHhGQzZwcW9jQk5WTk5xNHdSOVNG?=
+ =?utf-8?B?NEhwNm95MVUwNlFod2FGSFJJa0JLQUFoQVdPSG5BNmZKeXRPVGNObE1oRkUw?=
+ =?utf-8?B?YktiZUZnRmVJUDdoRks5L0NybzFmam54dWcwUHpLTzZPRzVIZnZqZ1pUYzBl?=
+ =?utf-8?B?U2YrN1VaSndGVHpEWHBtNTBkRlpQKzg3RDNMemN2TnFpbjFQdjRlZS9UdDVY?=
+ =?utf-8?B?d01TTTNyalJwc3ROcmQwbHBNR2tnaHNQMzIxRVJLd3JNdGErMVlkekhrRVQ3?=
+ =?utf-8?B?WHQwYTJCYmE5RGwvKzBROWIvdmV3d1NaaXNZckpVaHBYMVNsRDFKb2Nhc0xW?=
+ =?utf-8?B?WEJyRDhBVjBwRHFNNWw5L0tXYm5zUldnMHp1SUhqYzFFNnNMTEppclhTYTEx?=
+ =?utf-8?B?SmJsaWpHbVhVdnNNeGZIN3Y1VW5meTM3RWhDek1xNTgvTXlnSzJoOElOOU1l?=
+ =?utf-8?B?M240RU5DTUdNdG9JNlB0V3NQV3V1dUxDOHNZSURxUHJmYXdLUitZVWpySUkr?=
+ =?utf-8?B?cjNiOFFSTjUvL0dlN0x4WUR0UmkxazlwcmIzMTJDc005UUxOMzhEOHVOU01h?=
+ =?utf-8?B?L1lvNnZialIvQmRJM2FlNG43TUxRWmVHWDNCbEllZ3NFejgvekJUZkg5c2Ez?=
+ =?utf-8?B?N0tGbWdXc3ZHaHlGMTBvMVpPcitzUzNDdlFwME9KbW1VemRBNVd4aXFNWnNT?=
+ =?utf-8?B?TGxaWW1NbDdUSWw2dTFZZFVzb1dtVHhsOWtKVjlnTmdDY1V6UXVOSHBNSHor?=
+ =?utf-8?B?NHdtRnJRU0hoZnA3MzdvTTB4SFI2MWxVMy90dG1xeDFrcDBCQ1dlczFMaGN5?=
+ =?utf-8?B?VnZhOTVtbnU5VlQ5ZE9sWk9OQTBiTmFyeVQ0WVlpY29KWFdQSWZGWi9mTTdm?=
+ =?utf-8?B?MkFuaEVGYVpSWS9Nell1NlhTUXFOV1dtcTVBNnNOOG5ybkdZWnN4ZkI0ZEtq?=
+ =?utf-8?B?R1h0UzA2MVpZTlg0WVNMeWY4MC8xMjNxM3pheHJJTnA1WWd2YXJVa3NCVC9J?=
+ =?utf-8?B?U3BpaVAvSy9MREYxMlluRVc5N09zRldBVnNIazBPQ1oxY0EraEc2M3EzRk8z?=
+ =?utf-8?B?RzVGVjc1MlNGcWRZY0lEVU5OTWhBPT0=?=
 MIME-Version: 1.0
-In-Reply-To: <Y72nbfJxYdO2AojI@spud>
+X-OriginatorOrg: renesas.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TYBPR01MB5341.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6eb5d05e-6c4d-48c9-a636-08daf9b2f2b7
+X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Jan 2023 00:20:19.7494
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 53d82571-da19-47e4-9cb4-625a166a4a2a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: fuGkk5WkX4mL1sJRML/EYGsUikCHH0/qpH4ndjU1J3n2orNEPpFEdhAtaVa/LVqnJA60jK2EnnjB+bzw4MA2ec5vrS6agdgfI5WgU/PT1NUOsQuoAbDuWFpZplR2sk0j
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYCPR01MB9416
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230118_154307_944592_211980FC 
-X-CRM114-Status: GOOD (  25.85  )
+X-CRM114-CacheID: sfid-20230118_162029_076082_405ED4E8 
+X-CRM114-Status: UNSURE (   9.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,89 +175,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7654961562371701838=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+> From: Krzysztof Kozlowski, Sent: Thursday, January 19, 2023 3:02 AM
+> 
+> Cleanup by removing unneeded quotes from refs and redundant blank lines.
+> No functional impact except adjusting to preferred coding style.
+> 
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> ---
+...
+>  Documentation/devicetree/bindings/dma/renesas,rcar-dmac.yaml    | 2 +-
+>  Documentation/devicetree/bindings/dma/renesas,rz-dmac.yaml      | 2 +-
+>  Documentation/devicetree/bindings/dma/renesas,rzn1-dmamux.yaml  | 2 +-
+>  Documentation/devicetree/bindings/dma/renesas,usb-dmac.yaml     | 2 +-
 
---===============7654961562371701838==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="Ck4pvxVOY1Kfvyhk"
-Content-Disposition: inline
+About renesas related files:
 
+Reviewed-by: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
 
---Ck4pvxVOY1Kfvyhk
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, Jan 10, 2023 at 05:59:09PM +0000, Conor Dooley wrote:
-> On Tue, Dec 20, 2022 at 09:12:47AM +0800, Hal Feng wrote:
->=20
-> > +	aliases {
-> > +		serial0 =3D &uart0;
-> > +	};
-> > +
-> > +	chosen {
-> > +		stdout-path =3D "serial0:115200n8";
-> > +	};
->=20
-> So I think this is wrong, and the stdout-path should be uart3 instead.
-> Per the QSG [0], GPIO5/6 are the suggested UART Tx/Rx to use.
-> This appears to map to uart3 rather than uart0.
-> FWIW, uart3 is also the stdout-path for the v1, see:
-> arch/riscv/boot/dts/starfive/jh7100-common.dtsi
->=20
-> At least, that change is what I needed to do in order to use the
-> JH7110_VisionFive2_upstream branch, AFAICT matches what you've got in
-> this series.
-
-I went and re-tried things again today, but with the clk & pinctrl series
-=66rom the ML instead of that branch.
-I'd gone and used that branch instead of the patches, as there were some
-build issues with the pinctrl driver from the patches.
-I fixed the build issues in the pinctrl driver and now uart0 works.
-
-Looking at it again, it makes sense for uart0 to be serial0, given
-there's pinconf stuff being done in this DT for pins 5 & 6 for uart0.
-
-Perhaps by using that branch, I was using some older drivers etc given
-it seems to mostly contain commits dating from November?
-I'm still a bit confused about the whole thing, given I tried out a
-whole load of branches to get something booting with ethernet support
-that day!
-
-Since this seems to work with the fixed pinctrl driver, I don't think
-you need to change anything here.
-
-Apologies for the noise!
-Conor.
-
-
---Ck4pvxVOY1Kfvyhk
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY8iEBAAKCRB4tDGHoIJi
-0ui9AQCEj0sA+NvX+A6mlsoSkQPrEOSs990I2Ni0LtP1f+xkRAEAw6Srrmpajmp3
-i9HfNdFUU1MPc0SrwlyKgR5faz0F7AU=
-=vX2v
------END PGP SIGNATURE-----
-
---Ck4pvxVOY1Kfvyhk--
-
-
---===============7654961562371701838==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Best regards,
+Yoshihiro Shimoda
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7654961562371701838==--
-
