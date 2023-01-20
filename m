@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9378EC05027
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jan 2023 14:21:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BF3BC27C7C
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jan 2023 14:21:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YR+dJjHcWHzGZdbUoGl26sUUl7tNRBDTU286lHtXpw8=; b=iNN3rvRgNoGsmn
-	eJ17z4qa3qYbve6chjOPBVTsJou4dtT0Jh4XFlALuZ233l4d9mxeGXRkXB0vQNeCUuM3zYAQgiBy1
-	mJWbFk6Oj+Fw3lZ5qksj2DcYv3KfWWd6rwPyI03nUyqioEAMdYKlweyLFKe4SSkhCg5OemZR649lW
-	nU0FA0NTgrmIg8FdVehld/2zq8eQP5mTP8rrpVPXrtT82U/Pw+C0Wn9r5aNH/Br8TgS9ZQ09jiXRH
-	n/8g6OOcfFbCAZbsaQ37DA94ByE7JNgcfMaPiDQXWMabMSRDCSj89X+0dSJawkRlDK4pEAtg2k6Ot
-	UxSBRUHo0/5bPhOIPusA==;
+	List-Owner; bh=6B1/9pSBUzFblQsmvJWU5ZWjK7e1XpgV9xH0hpdkf1I=; b=YuCqL9o+zkELi1
+	k2Odfl+RtGP97MZcetuvxblL7vk7TrVw0qnEng0vJf6NZOrbyML9mvU2HBMDVOZ2ikojoxzhve+oj
+	3OCPuOOctVZMxqHxn2HdT0DVJd0FfGP2rDk8JSvxtklXiFVsxupm9EuERwUXUOq28jwT9XrMcnd6k
+	xAkeA0U1j0vxpgNrXDVNKrhDeM9Yss9k6+R9yO/CBERcYTET5utAXc5FtvedpohxLZwb+u7kXWD8F
+	1Ht2uaIsA5gKdk117DICpJq0/g2bk3wKLJEMRhZ01i9X3SI64Twv5m5yHVl/MzLYFU2Ebu0iLpXjt
+	9a0VxdGrDJcQTYDj0uKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIsGo-00AgZW-4j; Fri, 20 Jan 2023 14:21:30 +0000
-Received: from smtpout140.security-mail.net ([85.31.212.146] helo=fx601.security-mail.net)
+	id 1pIsGr-00Agcf-N3; Fri, 20 Jan 2023 14:21:33 +0000
+Received: from smtpout30.security-mail.net ([85.31.212.35] helo=fx305.security-mail.net)
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIsGC-00AgDw-QH
-	for linux-riscv@lists.infradead.org; Fri, 20 Jan 2023 14:21:02 +0000
-Received: from localhost (fx601.security-mail.net [127.0.0.1])
-	by fx601.security-mail.net (Postfix) with ESMTP id D97FE3499F0
-	for <linux-riscv@lists.infradead.org>; Fri, 20 Jan 2023 15:20:49 +0100 (CET)
+	id 1pIsGF-00AgFy-An
+	for linux-riscv@lists.infradead.org; Fri, 20 Jan 2023 14:21:05 +0000
+Received: from localhost (fx305.security-mail.net [127.0.0.1])
+	by fx305.security-mail.net (Postfix) with ESMTP id 90934310652
+	for <linux-riscv@lists.infradead.org>; Fri, 20 Jan 2023 15:20:52 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kalray.eu;
-	s=sec-sig-email; t=1674224449;
-	bh=uLDFRw6cSNd19jXGz4oGQWViTW/dUbPJSdY2fapvJJE=;
+	s=sec-sig-email; t=1674224452;
+	bh=Yr2o4M6ySezLDFa09qjNhAxtWvTBgWEIgZQD42fr/6c=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=HYRrF89bpJIA8LHe8UcZGQ5IgsAAnoeZqeYTN4R1qYWnxVEkAyiO3rTlsPBeoQOjg
-	 y5qNawIHJRdEY1iXbMyXtcLt7MfGGJDT9C8JZ66WKFLT941j9qz2caqZtQRxQhgciq
-	 6gLGzoRD8CxZ/KAqn5Z3QHd74KARjejYLGeJag+Y=
-Received: from fx601 (fx601.security-mail.net [127.0.0.1]) by
- fx601.security-mail.net (Postfix) with ESMTP id 7DFB93499B4; Fri, 20 Jan
- 2023 15:20:49 +0100 (CET)
+	b=JAygql0E6NAGievGJyL08D1zckWZb4W7sq0FQaChPldez6QFgQ7WijRcGYYMbz5rU
+	 prOhQgGLmhddRCAa97wfBBVwqlCn3E2KTzWZ+nH4wBNPLBEFrhlzE3fpkPFEECIQ5l
+	 C9rTFJbh5k792UQeGPf+WZoAjLNog4LJ8c8K3O6Q=
+Received: from fx305 (fx305.security-mail.net [127.0.0.1]) by
+ fx305.security-mail.net (Postfix) with ESMTP id 2489630FF65; Fri, 20 Jan
+ 2023 15:20:51 +0100 (CET)
 Received: from zimbra2.kalray.eu (unknown [217.181.231.53]) by
- fx601.security-mail.net (Postfix) with ESMTPS id 9F73734977C; Fri, 20 Jan
- 2023 15:20:44 +0100 (CET)
+ fx305.security-mail.net (Postfix) with ESMTPS id A83AC30FCCE; Fri, 20 Jan
+ 2023 15:20:45 +0100 (CET)
 Received: from zimbra2.kalray.eu (localhost [127.0.0.1]) by
- zimbra2.kalray.eu (Postfix) with ESMTPS id 0C96627E0470; Fri, 20 Jan 2023
- 15:10:39 +0100 (CET)
+ zimbra2.kalray.eu (Postfix) with ESMTPS id A5F0427E0456; Fri, 20 Jan 2023
+ 15:10:37 +0100 (CET)
 Received: from localhost (localhost [127.0.0.1]) by zimbra2.kalray.eu
- (Postfix) with ESMTP id DD9FA27E0463; Fri, 20 Jan 2023 15:10:38 +0100 (CET)
+ (Postfix) with ESMTP id 8E0B327E0463; Fri, 20 Jan 2023 15:10:37 +0100 (CET)
 Received: from zimbra2.kalray.eu ([127.0.0.1]) by localhost
  (zimbra2.kalray.eu [127.0.0.1]) (amavisd-new, port 10026) with ESMTP id
- DfM_HxOnd9Td; Fri, 20 Jan 2023 15:10:38 +0100 (CET)
+ VaTlrmvrbTji; Fri, 20 Jan 2023 15:10:37 +0100 (CET)
 Received: from junon.lin.mbt.kalray.eu (unknown [192.168.37.161]) by
- zimbra2.kalray.eu (Postfix) with ESMTPSA id 5595327E0470; Fri, 20 Jan 2023
- 15:10:38 +0100 (CET)
+ zimbra2.kalray.eu (Postfix) with ESMTPSA id 1C6A727E0458; Fri, 20 Jan 2023
+ 15:10:37 +0100 (CET)
 X-Virus-Scanned: E-securemail
-Secumail-id: <57d5.63caa33c.983e9.0>
-DKIM-Filter: OpenDKIM Filter v2.10.3 zimbra2.kalray.eu DD9FA27E0463
+Secumail-id: <51b6.63caa33d.58a4b.0>
+DKIM-Filter: OpenDKIM Filter v2.10.3 zimbra2.kalray.eu 8E0B327E0463
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kalray.eu;
- s=32AE1B44-9502-11E5-BA35-3734643DEF29; t=1674223838;
- bh=Ulssifik/xqyxmseDcDCHWF7GqQfVZORENj6s4m7VYQ=;
+ s=32AE1B44-9502-11E5-BA35-3734643DEF29; t=1674223837;
+ bh=hCXuqd/Le9iT4FAC9E5Y/iYkTg6Ipsgz39vkI/jYJ6E=;
  h=From:To:Date:Message-Id:MIME-Version;
- b=c8htp1BmJN/ZqK2lC0okl9ZdmRBJrjLE0Xevwykd2j/+m7QLb63Zikx4OnmEIuo/W
- Di1UTV3iLdZyWQAIqMw8TerInA0DmSfQOa9dBTr2kbyPxrpdc6nurhUYWTcgOQZdlP
- MXGfL9njI9tpJ5KB86FGEG7jmsXmQo3UTpfRPdc0=
+ b=d0H3rQM+qImcDnObPenUoBefyEzmnq190byge1ZFC/qL2bWg8k4nnIuIikgl7XZDc
+ fbaEx4Uyp7pzRNsTIh/9Yf6mcfd2SFEb9m+VO/GbWj8naVs6UrcjtE/E6ppNgfaWaU
+ eNpGDhaaNyqtF03qNdt9fBQg6exSSj2xAJXMDC3o=
 From: Yann Sionneau <ysionneau@kalray.eu>
 To: Arnd Bergmann <arnd@arndb.de>, Jonathan Corbet <corbet@lwn.net>, Thomas
  Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Rob Herring
@@ -98,17 +98,17 @@ Cc: Benjamin Mugnier <mugnier.benjamin@gmail.com>,
  linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
  devicetree@vger.kernel.org, linux-mm@kvack.org, linux-arch@vger.kernel.org,
  linux-audit@redhat.com, linux-riscv@lists.infradead.org, bpf@vger.kernel.org
-Subject: [RFC PATCH v2 30/31] kvx: Add power controller driver
-Date: Fri, 20 Jan 2023 15:10:01 +0100
-Message-ID: <20230120141002.2442-31-ysionneau@kalray.eu>
+Subject: [RFC PATCH v2 27/31] kvx: Add kvx default config file
+Date: Fri, 20 Jan 2023 15:09:58 +0100
+Message-ID: <20230120141002.2442-28-ysionneau@kalray.eu>
 X-Mailer: git-send-email 2.37.2
 In-Reply-To: <20230120141002.2442-1-ysionneau@kalray.eu>
 References: <20230120141002.2442-1-ysionneau@kalray.eu>
 MIME-Version: 1.0
 X-ALTERMIMEV2_out: done
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230120_062053_246250_E4B65246 
-X-CRM114-Status: GOOD (  18.57  )
+X-CRM114-CacheID: sfid-20230120_062055_642506_AC41793C 
+X-CRM114-Status: GOOD (  12.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,194 +125,170 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Jules Maselbas <jmaselbas@kalray.eu>
+Add a default config file for kvx based Coolidge SoC.
 
-The Power Controller (pwr-ctrl) control cores reset and wake-up
-procedure.
-
+Co-developed-by: Ashley Lesdalons <alesdalons@kalray.eu>
+Signed-off-by: Ashley Lesdalons <alesdalons@kalray.eu>
+Co-developed-by: Benjamin Mugnier <mugnier.benjamin@gmail.com>
+Signed-off-by: Benjamin Mugnier <mugnier.benjamin@gmail.com>
 Co-developed-by: Clement Leger <clement@clement-leger.fr>
 Signed-off-by: Clement Leger <clement@clement-leger.fr>
+Co-developed-by: Guillaume Thouvenin <gthouvenin@kalray.eu>
+Signed-off-by: Guillaume Thouvenin <gthouvenin@kalray.eu>
+Co-developed-by: Jules Maselbas <jmaselbas@kalray.eu>
+Signed-off-by: Jules Maselbas <jmaselbas@kalray.eu>
 Co-developed-by: Julian Vetter <jvetter@kalray.eu>
 Signed-off-by: Julian Vetter <jvetter@kalray.eu>
-Co-developed-by: Louis Morhet <lmorhet@kalray.eu>
-Signed-off-by: Louis Morhet <lmorhet@kalray.eu>
-Co-developed-by: Marius Gligor <mgligor@kalray.eu>
-Signed-off-by: Marius Gligor <mgligor@kalray.eu>
-Signed-off-by: Jules Maselbas <jmaselbas@kalray.eu>
+Co-developed-by: Samuel Jones <sjones@kalray.eu>
+Signed-off-by: Samuel Jones <sjones@kalray.eu>
+Co-developed-by: Thomas Costis <tcostis@kalray.eu>
+Signed-off-by: Thomas Costis <tcostis@kalray.eu>
+Co-developed-by: Vincent Chardon <vincent.chardon@elsys-design.com>
+Signed-off-by: Vincent Chardon <vincent.chardon@elsys-design.com>
+Co-developed-by: Yann Sionneau <ysionneau@kalray.eu>
 Signed-off-by: Yann Sionneau <ysionneau@kalray.eu>
 ---
 
 Notes:
-    V1 -> V2: new patch
+    V1 -> V2: default_defconfig renamed to defconfig
 
- arch/kvx/include/asm/pwr_ctrl.h | 45 ++++++++++++++++
- arch/kvx/platform/Makefile      |  6 +++
- arch/kvx/platform/pwr_ctrl.c    | 91 +++++++++++++++++++++++++++++++++
- 3 files changed, 142 insertions(+)
- create mode 100644 arch/kvx/include/asm/pwr_ctrl.h
- create mode 100644 arch/kvx/platform/Makefile
- create mode 100644 arch/kvx/platform/pwr_ctrl.c
+ arch/kvx/configs/defconfig | 127 +++++++++++++++++++++++++++++++++++++
+ 1 file changed, 127 insertions(+)
+ create mode 100644 arch/kvx/configs/defconfig
 
-diff --git a/arch/kvx/include/asm/pwr_ctrl.h b/arch/kvx/include/asm/pwr_ctrl.h
+diff --git a/arch/kvx/configs/defconfig b/arch/kvx/configs/defconfig
 new file mode 100644
-index 000000000000..25f403ba935a
+index 000000000000..960784da0b1b
 --- /dev/null
-+++ b/arch/kvx/include/asm/pwr_ctrl.h
-@@ -0,0 +1,45 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2017-2023 Kalray Inc.
-+ * Author(s): Clement Leger
-+ *            Marius Gligor
-+ */
-+
-+#ifndef _ASM_KVX_PWR_CTRL_H
-+#define _ASM_KVX_PWR_CTRL_H
-+
-+#ifndef __ASSEMBLY__
-+
-+int kvx_pwr_ctrl_probe(void);
-+
-+void kvx_pwr_ctrl_cpu_poweron(unsigned int cpu);
-+
-+#endif
-+
-+/* Power controller vector register definitions */
-+#define KVX_PWR_CTRL_VEC_OFFSET 0x1000
-+#define KVX_PWR_CTRL_VEC_WUP_SET_OFFSET     0x10
-+#define KVX_PWR_CTRL_VEC_WUP_CLEAR_OFFSET     0x20
-+
-+/* Power controller PE reset PC register definitions */
-+#define KVX_PWR_CTRL_RESET_PC_OFFSET               0x2000
-+
-+/* Power controller global register definitions */
-+#define KVX_PWR_CTRL_GLOBAL_OFFSET 0x4040
-+
-+#define KVX_PWR_CTRL_GLOBAL_SET_OFFSET     0x10
-+#define KVX_PWR_CTRL_GLOBAL_SET_PE_EN_SHIFT           0x1
-+
-+#define PWR_CTRL_WUP_SET_OFFSET  \
-+		(KVX_PWR_CTRL_VEC_OFFSET + \
-+		 KVX_PWR_CTRL_VEC_WUP_SET_OFFSET)
-+
-+#define PWR_CTRL_WUP_CLEAR_OFFSET  \
-+		(KVX_PWR_CTRL_VEC_OFFSET + \
-+		 KVX_PWR_CTRL_VEC_WUP_CLEAR_OFFSET)
-+
-+#define PWR_CTRL_GLOBAL_CONFIG_OFFSET \
-+		(KVX_PWR_CTRL_GLOBAL_OFFSET + \
-+		 KVX_PWR_CTRL_GLOBAL_SET_OFFSET)
-+
-+#endif /* _ASM_KVX_PWR_CTRL_H */
-diff --git a/arch/kvx/platform/Makefile b/arch/kvx/platform/Makefile
-new file mode 100644
-index 000000000000..c7d0abb15c27
---- /dev/null
-+++ b/arch/kvx/platform/Makefile
-@@ -0,0 +1,6 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+#
-+# Copyright (C) 2018-2023 Kalray Inc.
-+#
-+
-+obj-$(CONFIG_SMP) += pwr_ctrl.o
-diff --git a/arch/kvx/platform/pwr_ctrl.c b/arch/kvx/platform/pwr_ctrl.c
-new file mode 100644
-index 000000000000..ee35d04845ae
---- /dev/null
-+++ b/arch/kvx/platform/pwr_ctrl.c
-@@ -0,0 +1,91 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2017-2023 Kalray Inc.
-+ * Author(s): Clement Leger
-+ */
-+
-+#define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
-+
-+#include <linux/io.h>
-+#include <linux/slab.h>
-+#include <linux/types.h>
-+#include <linux/module.h>
-+#include <linux/of_address.h>
-+#include <linux/of_platform.h>
-+
-+#include <asm/pwr_ctrl.h>
-+#include <asm/symbols.h>
-+
-+struct kvx_pwr_ctrl {
-+	void __iomem *regs;
-+};
-+
-+static struct kvx_pwr_ctrl kvx_pwr_controller;
-+
-+/**
-+ * kvx_pwr_ctrl_cpu_poweron() - Wakeup a cpu
-+ * @cpu: cpu to wakeup
-+ */
-+void kvx_pwr_ctrl_cpu_poweron(unsigned int cpu)
-+{
-+	/* Set PE boot address */
-+	writeq((unsigned long long)kvx_start,
-+			kvx_pwr_controller.regs + KVX_PWR_CTRL_RESET_PC_OFFSET);
-+	/* Wake up processor ! */
-+	writeq(1ULL << cpu,
-+	       kvx_pwr_controller.regs + PWR_CTRL_WUP_SET_OFFSET);
-+	/* Then clear wakeup to allow processor to sleep */
-+	writeq(1ULL << cpu,
-+	       kvx_pwr_controller.regs + PWR_CTRL_WUP_CLEAR_OFFSET);
-+}
-+
-+static struct device_node * __init get_pwr_ctrl_node(void)
-+{
-+	const phandle *ph;
-+	struct device_node *cpu;
-+	struct device_node *node;
-+
-+	cpu = of_get_cpu_node(raw_smp_processor_id(), NULL);
-+	if (!cpu) {
-+		pr_err("Failed to get CPU node\n");
-+		return NULL;
-+	}
-+
-+	ph = of_get_property(cpu, "power-controller", NULL);
-+	if (!ph) {
-+		pr_err("Failed to get power-controller phandle\n");
-+		return NULL;
-+	}
-+
-+	node = of_find_node_by_phandle(be32_to_cpup(ph));
-+	if (!node) {
-+		pr_err("Failed to get power-controller node\n");
-+		return NULL;
-+	}
-+
-+	return node;
-+}
-+
-+int __init kvx_pwr_ctrl_probe(void)
-+{
-+	struct device_node *ctrl;
-+
-+	ctrl = get_pwr_ctrl_node();
-+	if (!ctrl) {
-+		pr_err("Failed to get power controller node\n");
-+		return -EINVAL;
-+	}
-+
-+	if (!of_device_is_compatible(ctrl, "kalray,kvx-pwr-ctrl")) {
-+		pr_err("Failed to get power controller node\n");
-+		return -EINVAL;
-+	}
-+
-+	kvx_pwr_controller.regs = of_iomap(ctrl, 0);
-+	if (!kvx_pwr_controller.regs) {
-+		pr_err("Failed ioremap\n");
-+		return -EINVAL;
-+	}
-+
-+	return 0;
-+}
++++ b/arch/kvx/configs/defconfig
+@@ -0,0 +1,127 @@
++CONFIG_DEFAULT_HOSTNAME="KVXlinux"
++CONFIG_SERIAL_KVX_SCALL_COMM=y
++CONFIG_CONFIGFS_FS=y
++CONFIG_DEBUG_KERNEL=y
++CONFIG_DEBUG_INFO=y
++CONFIG_DEBUG_INFO_DWARF4=y
++CONFIG_PRINTK_TIME=y
++CONFIG_CONSOLE_LOGLEVEL_DEFAULT=15
++CONFIG_MESSAGE_LOGLEVEL_DEFAULT=7
++CONFIG_PANIC_TIMEOUT=-1
++CONFIG_BLK_DEV_INITRD=y
++CONFIG_GDB_SCRIPTS=y
++CONFIG_FRAME_POINTER=y
++CONFIG_HZ_100=y
++CONFIG_SERIAL_EARLYCON=y
++CONFIG_HOTPLUG_PCI_PCIE=y
++CONFIG_PCIEAER=y
++CONFIG_PCIE_DPC=y
++CONFIG_HOTPLUG_PCI=y
++CONFIG_SERIAL_8250=y
++CONFIG_SERIAL_8250_CONSOLE=y
++CONFIG_SERIAL_8250_DW=y
++CONFIG_SERIAL_8250_NR_UARTS=8
++CONFIG_SERIAL_8250_RUNTIME_UARTS=8
++CONFIG_PINCTRL=y
++CONFIG_PINCTRL_SINGLE=y
++CONFIG_POWER_RESET_KVX_SCALL_POWEROFF=y
++CONFIG_PCI=y
++CONFIG_PCI_MSI=y
++CONFIG_PCIE_KVX_NWL=y
++CONFIG_PCIEPORTBUS=y
++# CONFIG_PCIEASPM is not set
++CONFIG_PCIEAER_INJECT=y
++CONFIG_TMPFS=y
++CONFIG_DMADEVICES=y
++CONFIG_KVX_DMA_NOC=m
++CONFIG_KVX_IOMMU=y
++CONFIG_KVX_OTP_NV=y
++CONFIG_PACKET=y
++CONFIG_NET=y
++# CONFIG_WLAN is not set
++CONFIG_INET=y
++CONFIG_IPV6=y
++CONFIG_NETDEVICES=y
++CONFIG_NET_CORE=y
++CONFIG_E1000E=y
++CONFIG_BLK_DEV_NVME=y
++CONFIG_VFAT_FS=y
++CONFIG_NLS_DEFAULT="iso8859-1"
++CONFIG_NLS_CODEPAGE_437=y
++CONFIG_NLS_ISO8859_1=y
++CONFIG_WATCHDOG=y
++CONFIG_KVX_WATCHDOG=y
++CONFIG_HUGETLBFS=y
++CONFIG_MAILBOX=y
++CONFIG_KVX_MBOX=y
++CONFIG_REMOTEPROC=y
++CONFIG_KVX_REMOTEPROC=y
++CONFIG_VIRTIO_NET=y
++CONFIG_VIRTIO_MMIO=y
++CONFIG_RPMSG_VIRTIO=y
++CONFIG_RPMSG_CHAR=y
++CONFIG_MODULES=y
++CONFIG_MODULE_UNLOAD=y
++CONFIG_MODVERSIONS=y
++CONFIG_MODULE_SRCVERSION_ALL=y
++CONFIG_BLK_DEV=y
++CONFIG_BLK_DEV_LOOP=m
++CONFIG_BLK_DEV_LOOP_MIN_COUNT=8
++CONFIG_EXT4_FS=m
++CONFIG_EXT4_USE_FOR_EXT2=y
++CONFIG_SYSVIPC=y
++CONFIG_UNIX=y
++CONFIG_NET_VENDOR_KALRAY=y
++CONFIG_NET_KVX_SOC=m
++CONFIG_STACKPROTECTOR=y
++CONFIG_GPIO_DWAPB=y
++CONFIG_I2C=y
++CONFIG_I2C_SLAVE=y
++CONFIG_I2C_CHARDEV=y
++CONFIG_I2C_DESIGNWARE_PLATFORM=y
++CONFIG_I2C_DESIGNWARE_CORE=y
++CONFIG_I2C_DESIGNWARE_SLAVE=y
++CONFIG_I2C_SLAVE_USPACE=y
++CONFIG_POWER_RESET=y
++CONFIG_POWER_RESET_SYSCON=y
++CONFIG_SPI=y
++CONFIG_SPI_DESIGNWARE=y
++CONFIG_SPI_DW_MMIO=y
++CONFIG_SPI_DW_KVX=y
++CONFIG_MTD=y
++CONFIG_MTD_SPI_NOR=y
++# CONFIG_MTD_SPI_NOR_USE_4K_SECTORS is not set
++CONFIG_SQUASHFS=m
++CONFIG_USB=y
++CONFIG_USB_CONFIGFS=m
++CONFIG_USB_CONFIGFS_ACM=y
++CONFIG_USB_CONFIGFS_ECM=y
++CONFIG_USB_DWC2=y
++CONFIG_USB_DWC2_DUAL_ROLE=y
++CONFIG_USB_GADGET=y
++CONFIG_U_SERIAL_CONSOLE=y
++CONFIG_USB_USBNET=m
++CONFIG_USB_NET_SMSC95XX=m
++# CONFIG_NOP_USB_XCEIV is not set
++CONFIG_USB_PHY=y
++CONFIG_GENERIC_PHY=y
++CONFIG_GENERIC_PHY_USB=y
++CONFIG_MMC=y
++CONFIG_MMC_SDHCI=y
++CONFIG_MMC_SDHCI_PLTFM=y
++CONFIG_MMC_SDHCI_OF_DWCMSHC=y
++CONFIG_MDIO_BITBANG=m
++CONFIG_MDIO_GPIO=m
++CONFIG_MARVELL_PHY=m
++CONFIG_GPIO_PCA953X=y
++CONFIG_NETFILTER=y
++CONFIG_NF_CONNTRACK=m
++CONFIG_NF_NAT=m
++CONFIG_IP_NF_IPTABLES=m
++CONFIG_IP_NF_NAT=m
++CONFIG_LEDS_GPIO=y
++CONFIG_LEDS_CLASS=y
++CONFIG_LEDS_TRIGGERS=y
++CONFIG_LEDS_TRIGGER_NETDEV=y
++CONFIG_LEDS_TRIGGER_PATTERN=y
++CONFIG_DCB=y
 -- 
 2.37.2
 
