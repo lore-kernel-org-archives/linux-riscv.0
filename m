@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF5A5C46467
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jan 2023 02:45:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42239C004D4
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jan 2023 02:45:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xDE9yTcZbaSZom4le4YVb8v/28L45sNsafR0PsHUhNw=; b=xeo7fx0gmcz8vA
-	Rb2KsgrXGu8EBh+HL592KDWj6dmGSJz1riPcVH91f7X+WNhtksopHrrG3FxQahPKx2elWELY5C8ag
-	lOaVQc3Sakc5SXvTZsN5rYMSyVKZg0jXCFO1ETluGzGdr2NzARrBj/TGv00EaKRhlocNNrIQnpNVW
-	B23IzYMDdu3magllkrePXtweeQVj37xm/ZTgunYQ8VYFMEvzG47HNSK7N4wQDfwsMpXV/m2QyCvXE
-	QniaFxyEEkKNxCkI1Qmhu2mQXwJwJ6s8IkcvYYMlzSvqWs0CEf80AgSoIuNKnMp+E3gkqsy+48334
-	nnbhvyVzSJ3rRjrJMlnQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=X1/26mFr9DylPDbHKzLn4KYB22+gIrC+CyPwQO1Aero=; b=W3msACULB+/rgs
+	dZzBS6r5zNyvrHeVVOB1KxDuMF00F0QXDlNtkZDYH4j4uGHY0uYW0WSgHJjAlhcNCM36kwTPAJWyW
+	0gcYGVmITHhFh7cl3FV1gnmKNhrfKS7Dp9EbfZ9gOyYBDXJ3JQOPf7tBhrPS+EmNVFjSoqMBglvbn
+	XXLzYQmqL7PQzxnBQOK0dLwoYROrYiZRYOIWpw74s+qCOXig7UQ/9tFjpWx26fRZcealzeGXdz10X
+	G9pByvIHTmepneoWxN0QmdogRD9+AYY9lRVGgdgsWQlUaIaG5m+wyOnMC4En85uCM0GHJI6V7cB3N
+	n0LTWFI3BJdZ5UMH4Wng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIhPA-0086sQ-Dt; Fri, 20 Jan 2023 02:45:24 +0000
+	id 1pIhPD-0086td-4X; Fri, 20 Jan 2023 02:45:27 +0000
 Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIhP3-0086la-NY
-	for linux-riscv@lists.infradead.org; Fri, 20 Jan 2023 02:45:20 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	id 1pIhP3-0086lZ-Nb
+	for linux-riscv@lists.infradead.org; Fri, 20 Jan 2023 02:45:22 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id A5B0324E102;
-	Fri, 20 Jan 2023 10:44:50 +0800 (CST)
-Received: from EXMBX161.cuchost.com (172.16.6.71) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 20 Jan
- 2023 10:44:50 +0800
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 937AC24E00A;
+	Fri, 20 Jan 2023 10:44:46 +0800 (CST)
+Received: from EXMBX161.cuchost.com (172.16.6.71) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 20 Jan
+ 2023 10:44:46 +0800
 Received: from localhost.localdomain (113.72.144.40) by EXMBX161.cuchost.com
  (172.16.6.71) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 20 Jan
- 2023 10:44:49 +0800
+ 2023 10:44:45 +0800
 From: Xingyu Wu <xingyu.wu@starfivetech.com>
 To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Michael
  Turquette" <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
@@ -46,20 +46,18 @@ CC: Rob Herring <robh+dt@kernel.org>, Conor Dooley <conor@kernel.org>, "Paul
 	Albert Ou <aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>,
 	Xingyu Wu <xingyu.wu@starfivetech.com>, <linux-kernel@vger.kernel.org>,
 	<linux-clk@vger.kernel.org>
-Subject: [PATCH v1 05/11] reset: starfive: jh7110: Add StarFive Image-Signal-Process reset support
-Date: Fri, 20 Jan 2023 10:44:39 +0800
-Message-ID: <20230120024445.244345-6-xingyu.wu@starfivetech.com>
+Subject: [PATCH v1 00/11] Add new partial clock and reset drivers for StarFive JH7110
+Date: Fri, 20 Jan 2023 10:44:34 +0800
+Message-ID: <20230120024445.244345-1-xingyu.wu@starfivetech.com>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20230120024445.244345-1-xingyu.wu@starfivetech.com>
-References: <20230120024445.244345-1-xingyu.wu@starfivetech.com>
 MIME-Version: 1.0
 X-Originating-IP: [113.72.144.40]
 X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX161.cuchost.com
  (172.16.6.71)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230119_184518_006324_DBF33864 
-X-CRM114-Status: GOOD (  10.64  )
+X-CRM114-CacheID: sfid-20230119_184518_210333_85CA022E 
+X-CRM114-Status: GOOD (  12.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,43 +74,110 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add auxiliary_device_id to support StarFive JH7110 Image-Signal-Process
-resets of which the auxiliary device name is
-"clk_starfive_jh71x0.reset-isp".
+This patch serises are to add new partial clock drivers and reset
+supports about System-Top-Group(STG), Image-Signal-Process(ISP)
+and Video-Output(VOUT) for the StarFive JH7110 RISC-V SoC.
 
-Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
----
- drivers/reset/starfive/reset-starfive-jh7110.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+Patches 1 to 3 are about the System-Top-Group clock and reset
+generator(STGCRG) part.
+The first patch adds docunmentation to describe STG bindings, and
+the second patch adds support about STG resets. The last patch adds
+clock driver to support STG clocks for JH7110.
 
-diff --git a/drivers/reset/starfive/reset-starfive-jh7110.c b/drivers/reset/starfive/reset-starfive-jh7110.c
-index 580ec4ed055b..8c0befc26150 100644
---- a/drivers/reset/starfive/reset-starfive-jh7110.c
-+++ b/drivers/reset/starfive/reset-starfive-jh7110.c
-@@ -46,6 +46,12 @@ static const struct reset_info jh7110_stg_info = {
- 	.status_offset = 0x78,
- };
- 
-+static const struct reset_info jh7110_isp_info = {
-+	.nr_resets = JH7110_ISPRST_END,
-+	.assert_offset = 0x38,
-+	.status_offset = 0x3C,
-+};
-+
- static const struct auxiliary_device_id jh7110_reset_ids[] = {
- 	{
- 		.name = "clk_starfive_jh71x0.reset-sys",
-@@ -59,6 +65,10 @@ static const struct auxiliary_device_id jh7110_reset_ids[] = {
- 		.name = "clk_starfive_jh71x0.reset-stg",
- 		.driver_data = (kernel_ulong_t)&jh7110_stg_info,
- 	},
-+	{
-+		.name = "clk_starfive_jh71x0.reset-isp",
-+		.driver_data = (kernel_ulong_t)&jh7110_isp_info,
-+	},
- 	{ /* sentinel */ }
- };
- MODULE_DEVICE_TABLE(auxiliary, jh7110_reset_ids);
+Patches 4 to 6 are about the Image-Signal-Process clock and reset
+gennerator(ISPCRG) part.
+The first patch adds docunmentation to describe ISP bindings, and
+the second patch adds support about ISP resets. The last patch adds
+clock driver to support ISP clocks for JH7110.
+
+Patches 7 to 9 are about the Video-Output clock and reset
+generator(VOUTCRG) part.
+The first patch adds docunmentation to describe VOUT bindings, and
+the second patch adds support about VOUT resets. The last patch adds
+clock driver to support VOUT clocks for JH7110.
+
+Patch 10 adds external clocks which ISP and VOUT clock driver need.
+Patch 11 adds device node about STGCRG, ISPCRG and VOUTCRG to JH7110 dts.
+
+Patches 2, 3, 5, 6, 8 and 9 are dependent on the patchset [1] which
+is about JH71x0 clock and reset driver.
+Patches 6 and 9 also are dependent on the patchset [2] which is about
+JH7110 pmu driver.
+Patchdes 10 and 11 are dependent on the patchset [3] which is about
+JH7110 device tree.
+This patchset should be applied after the patchset [1], [2], [3]:
+[1] https://lore.kernel.org/all/20221220005054.34518-1-hal.feng@starfivetech.com/
+[2] https://lore.kernel.org/all/20230119094447.21939-1-walker.chen@starfivetech.com/
+[3] https://lore.kernel.org/all/20221220011247.35560-1-hal.feng@starfivetech.com/
+
+Xingyu Wu (11):
+  dt-bindings: clock: Add StarFive JH7110 System-Top-Group clock and
+    reset generator
+  reset: starfive: jh7110: Add StarFive System-Top-Group reset support
+  clk: starfive: Add StarFive JH7110 System-Top-Group clock driver
+  dt-bindings: clock: Add StarFive JH7110 Image-Signal-Process clock and
+    reset generator
+  reset: starfive: jh7110: Add StarFive Image-Signal-Process reset
+    support
+  clk: starfive: Add StarFive JH7110 Image-Signal-Process clock driver
+  dt-bindings: clock: Add StarFive JH7110 Video-Output clock and reset
+    generator
+  reset: starfive: jh7110: Add StarFive Video-Output reset support
+  clk: starfive: Add StarFive JH7110 Video-Output clock driver
+  riscv: dts: starfive: jh7110: Add DVP and HDMI TX pixel external
+    clocks
+  riscv: dts: starfive: jh7110: Add STGCRG/ISPCRG/VOUTCRG nodes
+
+ .../clock/starfive,jh7110-ispcrg.yaml         |  97 ++++++++
+ .../clock/starfive,jh7110-stgcrg.yaml         |  82 +++++++
+ .../clock/starfive,jh7110-voutcrg.yaml        |  96 ++++++++
+ MAINTAINERS                                   |   2 +
+ .../jh7110-starfive-visionfive-2.dtsi         |   8 +
+ arch/riscv/boot/dts/starfive/jh7110.dtsi      |  69 ++++++
+ drivers/clk/starfive/Kconfig                  |  33 +++
+ drivers/clk/starfive/Makefile                 |   3 +
+ .../clk/starfive/clk-starfive-jh7110-isp.c    | 218 +++++++++++++++++
+ .../clk/starfive/clk-starfive-jh7110-stg.c    | 180 ++++++++++++++
+ .../clk/starfive/clk-starfive-jh7110-vout.c   | 227 ++++++++++++++++++
+ .../reset/starfive/reset-starfive-jh7110.c    |  30 +++
+ .../dt-bindings/clock/starfive,jh7110-crg.h   |  74 ++++++
+ .../dt-bindings/reset/starfive,jh7110-crg.h   |  60 +++++
+ 14 files changed, 1179 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-ispcrg.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-stgcrg.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-voutcrg.yaml
+ create mode 100644 drivers/clk/starfive/clk-starfive-jh7110-isp.c
+ create mode 100644 drivers/clk/starfive/clk-starfive-jh7110-stg.c
+ create mode 100644 drivers/clk/starfive/clk-starfive-jh7110-vout.c
+
+
+base-commit: 830b3c68c1fb1e9176028d02ef86f3cf76aa2476
+prerequisite-patch-id: 4dc515731ce237184553c1606ffb3afaeb51c3d8
+prerequisite-patch-id: 09c98554df52d17ba5fd604125f8cdd62cbe80d1
+prerequisite-patch-id: a798370d170dc2bcc79ed86f741c21c1e6d87c78
+prerequisite-patch-id: bd9fd8b5cb2376dc7a5e08e1a1fbb969cf475926
+prerequisite-patch-id: c57ebb83bc43ccd2a8366ff166eb499da1e1d2cf
+prerequisite-patch-id: a1673a9e9f19d6fab5a51abb721e54e36636f067
+prerequisite-patch-id: 94860423c7acc9025249d4bb36652a585bd0a797
+prerequisite-patch-id: b5084253283929d9a6d0e66c350400c7c85d034d
+prerequisite-patch-id: 6e369dbe9dca2785e4ea7d0b80e525e227a90a6e
+prerequisite-patch-id: e08806183c152714c563f3a21c6d7b2f539c4d6e
+prerequisite-patch-id: 79db8036abdc48fd36da227652ec62627a6b548b
+prerequisite-patch-id: 06971b8e6bddc0e87e63bfdb0ce8bfb653bd73aa
+prerequisite-patch-id: 16309a0e23811a2c55d2e56886de3e8eccc51554
+prerequisite-patch-id: bf4f7ab0b6cfa90b6e49e66c7d75ed2eaaebbe78
+prerequisite-patch-id: 38468d532e87867990055d3320679f18c5f52278
+prerequisite-patch-id: 4710f2ac22dca0bdd9ff5d744d2c37cab3c74515
+prerequisite-patch-id: 6bb9a780c62af3bcc2368dfd20303c7b1bc91e23
+prerequisite-patch-id: 258ea5f9b8bf41b6981345dcc81795f25865d38f
+prerequisite-patch-id: 8b6f2c9660c0ac0ee4e73e4c21aca8e6b75e81b9
+prerequisite-patch-id: e3b986b9c60b2b93b7812ec174c9e1b4cfb14c97
+prerequisite-patch-id: a2b3a9cff8a683422eb0ccf3a0850091401812d4
+prerequisite-patch-id: e0ba7af0f8d3d41844da9fbcba14b548cbc18f55
+prerequisite-patch-id: bc0176325c11a632c6abaa83e54e891cc92d1c74
+prerequisite-patch-id: bd3076c3fde77b417bc5b402b97563f2928d623d
+prerequisite-patch-id: 795c5ea9868c12fd62c14220140f0706f3db66ce
+prerequisite-patch-id: 2ddada18ab6ea5cd1da14212aaf59632f5203d40
 -- 
 2.25.1
 
