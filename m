@@ -4,66 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A5F5C05027
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jan 2023 14:40:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D99FEC05027
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jan 2023 14:41:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
+	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lOvgvIf3QQYbIW+aXJR/ZH3gnzeUlS4KzvDGUXQYeqA=; b=laMeUg/Tj/fu3Z
-	ZHUYK2Qj1+XCacT9qZx3qLiRf1J+eMEwrvME0P7ItOF7AI79OxgrMp80bocev8R4OMul9UFv8NlFY
-	I86c+0OyzfkIP3GsmBHKBdeEl335Sv53raCIId7xpqFyVrgIb39k3dQv4Uf97cP5gYzFu21oS6Nvr
-	1Ol0X7oGcj1mvANWKZoAM6tKP3kOdFCA2itGZudr1KPXB0asWE0JqnFluT0rarIYZauMoBVk0sORy
-	yziHumcEnxqOj2b9ZtyI85D/FymiXvKlS3dX5R+DWQGLHDtL+XrpQfxA6wNMobBxx5fo8j2Lh5ulp
-	gTyBeRX+prhQXoaoMBLA==;
+	List-Owner; bh=hh6vU98L8/q7DVf42bROGPja9FctAKRn9Ge17K4TJYo=; b=IQwkR9M6+TFzHW
+	CzChyD2MkOmbx8l4BJMxMhfykwt662zqtDhBG8S+8p+ZaZRj/nj+Sz2vqKafv/4hnpy0kBROkl9NQ
+	3V9XZKPheLI/i0lD5npdTS1UcMf14aLc/b2gJkMyukXmkclLkJj9T5EJv+MHMXxeeYnbLRqsWej/R
+	sSkpT3LWrDNVdM5Z9tf1/LHz96wr7elLueTvXVF6CERLFZU1f6JguRqM+jWkhN9xtoBbwS2Ct7uyF
+	3wdufsBVlTbpbOa6aA+p23FmfQeca4ZUt9bbLePwQW+iwQJssrDmicKxUpJ6sdS0jbxBUENyH2toJ
+	YKgY72hKEQ0vr9k9EsbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIsZU-00Alsp-Q7; Fri, 20 Jan 2023 14:40:48 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1pIsaR-00AmYo-40; Fri, 20 Jan 2023 14:41:47 +0000
+Received: from wnew4-smtp.messagingengine.com ([64.147.123.18])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIsXk-00Akil-Vx
-	for linux-riscv@lists.infradead.org; Fri, 20 Jan 2023 14:39:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1674225540; x=1705761540;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=ETrCqr1esSdpLl/whNaGbQbj8ly4dFAvvv640kfUFd4=;
-  b=Cxq8Ki7dgAf79FImNhm5wn+TRcVNdxvFXvYMRUMnk97Zo+A1TUKJKmYF
-   gi5BWDnkaPSl5p9NWo90LtwOwh/I+dGhSSC4gCWZkkXhAB0D5mq0ihIKg
-   rLqWk+YINikoNVe5n1nIZFUVyOC9K5z6gGcs8GYxpJ9nC5wXg8r5HHEea
-   KFoUKfRyU+2qElTVTbUP6I3CFTyW5jgMETybvv1j9fRSy/kHD5bvQsrke
-   Pd3DVt536K52TdFWcL0H3Fukwxl95bSRTGd7yHoNG31b5vQYUdJ4kBsFi
-   Gx95R/ZCep5eK/HZwmlrydc85CJw24gbmnu4qyzEFZ2yZwYOcEq+4VERo
-   g==;
-X-IronPort-AV: E=Sophos;i="5.97,232,1669100400"; 
-   d="scan'208";a="208646938"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 20 Jan 2023 07:38:25 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.16; Fri, 20 Jan 2023 07:38:18 -0700
-Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.16 via Frontend
- Transport; Fri, 20 Jan 2023 07:38:17 -0700
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Jassi Brar <jassisinghbrar@gmail.com>
-CC: Conor Dooley <conor.dooley@microchip.com>, Daire McNamara
-	<daire.mcnamara@microchip.com>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: [PATCH v2 6/7] soc: microchip: mpfs: simplify error handling in mpfs_blocking_transaction()
-Date: Fri, 20 Jan 2023 14:37:34 +0000
-Message-ID: <20230120143734.3438755-7-conor.dooley@microchip.com>
-X-Mailer: git-send-email 2.39.0
-In-Reply-To: <20230120143734.3438755-1-conor.dooley@microchip.com>
-References: <20230120143734.3438755-1-conor.dooley@microchip.com>
-MIME-Version: 1.0
+	id 1pIsYW-00AlB9-HY
+	for linux-riscv@lists.infradead.org; Fri, 20 Jan 2023 14:39:51 +0000
+Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
+	by mailnew.west.internal (Postfix) with ESMTP id 9C12C2B0695F;
+	Fri, 20 Jan 2023 09:39:43 -0500 (EST)
+Received: from imap51 ([10.202.2.101])
+  by compute6.internal (MEProxy); Fri, 20 Jan 2023 09:39:47 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-type:date:date:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:sender:subject
+	:subject:to:to; s=fm2; t=1674225583; x=1674232783; bh=b4JAJuHxNJ
+	8crP6ZpOzWWYxWeuwbnT4P0qgnOUpQ0sI=; b=gFf713XIxyFBxeWAr3yS03H41w
+	yqyZfNqCHoCK7+aWFyA89Uj64Ku48TNMYtM8IiOIXSf/szoVXuGHak++VLOVCbjD
+	4BRprRIvW284vouVbKawwpsq3omqRw6Q9CmEcIkYhvx2ahZQDKf6tjpJj30fduv0
+	dskYgBDIAO6OYzaKlhUkALOmP23Wgi3bmBGv0ayehZn2AffPNq4D/yOG/MTRp5zh
+	Z52Gjf6siHtQOna489DsqShg7VXXxsuTENaVkrW8/b2LfRL4UpowictX/ariJgRR
+	xiKJkd+tcD+yEocUrvogxHUVWh1A6iosIIefzkxWYq3QvtTqGraOy0bZaQsg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:date:date:feedback-id
+	:feedback-id:from:from:in-reply-to:in-reply-to:message-id
+	:mime-version:references:reply-to:sender:subject:subject:to:to
+	:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm3; t=1674225583; x=1674232783; bh=b4JAJuHxNJ8crP6ZpOzWWYxWeuwb
+	nT4P0qgnOUpQ0sI=; b=k5qd1p5Hy1eB5Kg3Ga0uPk01Yf3+4JkhuxqPo+Z5hDU2
+	MU0PltXhatl9coFGjUYPmkTWKIf0LDardbB1m9fA8x9+qcoG4bNObwbNdCqRaRMJ
+	ClPsNi1lTR8YPbox67X4CMhGb1PVlzIQDHq50Y+EDTsG7p6oxZUarayb5/xUOcWa
+	9KDtDrZj8/67RWqbL5pWr+XaLK2taiZmIVPLO0Jx5U2EXxfiDp97i6KCTtqyh5Gr
+	Mygx7eiSAZKwGx32wcG/sGxxrwgjL+hpk3zTTJPQJuRpKkKePuPG7ghTYebIyRA9
+	gufFbxK/jI6A/fLEhZo167PYWnMAt1FeencIhbLMCw==
+X-ME-Sender: <xms:rafKY04OLGmJbodPEdsmVY-96S3Nf5FY71cSDqwjPBysPO3KV4En3g>
+    <xme:rafKY15HeniRL65RCevfQwL-8akP5fuSgClpch5riIqv_7KWLKDep3R4mop31CXxd
+    vTqvDhb8dBq7R-wJ_Q>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrudduvddgieelucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+    cujfgurhepofgfggfkjghffffhvfevufgtsehttdertderredtnecuhfhrohhmpedftehr
+    nhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrth
+    htvghrnhepffehueegteeihfegtefhjefgtdeugfegjeelheejueethfefgeeghfektdek
+    teffnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprg
+    hrnhgusegrrhhnuggsrdguvg
+X-ME-Proxy: <xmx:rafKYzcvN27XCvj5QYQxGt-xUzwl3VTws9at824WED44I3bRp1xEhg>
+    <xmx:rafKY5Lwgf-wy0-myUlDvzC-irHgzv1kj8Sx7_WJA9CiZvQHD5Uh_A>
+    <xmx:rafKY4JeUif-UOOjOGgX3CNvSY3HnQgnZGf5eZfPaBYesqra_LYf5A>
+    <xmx:r6fKY-TE-nyizPh8wob1zj4HZZGZxoXaVV1xrmRWkfF8Ex1b6lCqsFlS0js>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+	id 5EF90B60086; Fri, 20 Jan 2023 09:39:41 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.9.0-alpha0-85-gd6d859e0cf-fm-20230116.001-gd6d859e0
+Mime-Version: 1.0
+Message-Id: <aa4d68b2-b5b5-4c17-a44f-7c6db443ea4c@app.fastmail.com>
+In-Reply-To: <20230120141002.2442-10-ysionneau@kalray.eu>
+References: <20230120141002.2442-1-ysionneau@kalray.eu>
+ <20230120141002.2442-10-ysionneau@kalray.eu>
+Date: Fri, 20 Jan 2023 15:39:22 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Yann Sionneau" <ysionneau@kalray.eu>,
+ "Jonathan Corbet" <corbet@lwn.net>,
+ "Thomas Gleixner" <tglx@linutronix.de>, "Marc Zyngier" <maz@kernel.org>,
+ "Rob Herring" <robh+dt@kernel.org>,
+ "Krzysztof Kozlowski" <krzysztof.kozlowski+dt@linaro.org>,
+ "Will Deacon" <will@kernel.org>, "Peter Zijlstra" <peterz@infradead.org>,
+ "Boqun Feng" <boqun.feng@gmail.com>,
+ "Mark Rutland" <mark.rutland@arm.com>,
+ "Eric W. Biederman" <ebiederm@xmission.com>,
+ "Kees Cook" <keescook@chromium.org>, "Oleg Nesterov" <oleg@redhat.com>,
+ "Ingo Molnar" <mingo@redhat.com>, "Waiman Long" <longman@redhat.com>,
+ "Aneesh Kumar" <aneesh.kumar@linux.ibm.com>,
+ "Andrew Morton" <akpm@linux-foundation.org>,
+ "Nicholas Piggin" <npiggin@gmail.com>,
+ "Paul Moore" <paul@paul-moore.com>, "Eric Paris" <eparis@redhat.com>,
+ "Christian Brauner" <brauner@kernel.org>,
+ "Paul Walmsley" <paul.walmsley@sifive.com>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>,
+ "Albert Ou" <aou@eecs.berkeley.edu>,
+ "Jules Maselbas" <jmaselbas@kalray.eu>,
+ "Guillaume Thouvenin" <gthouvenin@kalray.eu>,
+ "Clement Leger" <clement@clement-leger.fr>,
+ "Vincent Chardon" <vincent.chardon@elsys-design.com>,
+ =?UTF-8?Q?Marc_Poulhi=C3=A8s?= <dkm@kataplop.net>,
+ "Julian Vetter" <jvetter@kalray.eu>, "Samuel Jones" <sjones@kalray.eu>,
+ "Ashley Lesdalons" <alesdalons@kalray.eu>,
+ "Thomas Costis" <tcostis@kalray.eu>, "Marius Gligor" <mgligor@kalray.eu>,
+ "Jonathan Borne" <jborne@kalray.eu>,
+ "Julien Villette" <jvillette@kalray.eu>,
+ "Luc Michel" <lmichel@kalray.eu>, "Louis Morhet" <lmorhet@kalray.eu>,
+ "Julien Hascoet" <jhascoet@kalray.eu>,
+ "Jean-Christophe Pince" <jcpince@gmail.com>,
+ "Guillaume Missonnier" <gmissonnier@kalray.eu>,
+ "Alex Michon" <amichon@kalray.eu>, "Huacai Chen" <chenhuacai@kernel.org>,
+ "WANG Xuerui" <git@xen0n.name>,
+ "Shaokun Zhang" <zhangshaokun@hisilicon.com>,
+ "John Garry" <john.garry@huawei.com>,
+ "Guangbin Huang" <huangguangbin2@huawei.com>,
+ "Bharat Bhushan" <bbhushan2@marvell.com>,
+ "Bibo Mao" <maobibo@loongson.cn>, "Atish Patra" <atishp@atishpatra.org>,
+ "Jason A . Donenfeld" <Jason@zx2c4.com>, "Qi Liu" <liuqi115@huawei.com>,
+ "Jiaxun Yang" <jiaxun.yang@flygoat.com>,
+ "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Mark Brown" <broonie@kernel.org>,
+ "Janosch Frank" <frankja@linux.ibm.com>,
+ "Alexey Dobriyan" <adobriyan@gmail.com>
+Cc: "Benjamin Mugnier" <mugnier.benjamin@gmail.com>,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-mm@kvack.org,
+ Linux-Arch <linux-arch@vger.kernel.org>, linux-audit@redhat.com,
+ linux-riscv@lists.infradead.org, bpf@vger.kernel.org
+Subject: Re: [RFC PATCH v2 09/31] kvx: Add build infrastructure
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230120_063901_118772_9D18F284 
-X-CRM114-Status: GOOD (  11.45  )
+X-CRM114-CacheID: sfid-20230120_063950_266859_99D0BDB4 
+X-CRM114-Status: UNSURE (   6.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,65 +151,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The error handling has a kinda weird nested-if setup that is not really
-adding anything. Switch it to more of an early return arrangement as a
-predatory step for adding different handing for timeouts and failed
-services.
+On Fri, Jan 20, 2023, at 15:09, Yann Sionneau wrote:
+>      - Fix clean target raising an error from gcc (LIBGCC)
 
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
- drivers/soc/microchip/mpfs-sys-controller.c | 28 ++++++++++-----------
- 1 file changed, 13 insertions(+), 15 deletions(-)
+I had not noticed this on v1 but:
 
-diff --git a/drivers/soc/microchip/mpfs-sys-controller.c b/drivers/soc/microchip/mpfs-sys-controller.c
-index e76a5e38f655..da9cfeda6f78 100644
---- a/drivers/soc/microchip/mpfs-sys-controller.c
-+++ b/drivers/soc/microchip/mpfs-sys-controller.c
-@@ -36,28 +36,26 @@ struct mpfs_sys_controller {
- int mpfs_blocking_transaction(struct mpfs_sys_controller *sys_controller, struct mpfs_mss_msg *msg)
- {
- 	unsigned long timeout = msecs_to_jiffies(MPFS_SYS_CTRL_TIMEOUT_MS);
--	int ret, err;
-+	int ret;
- 
--	err = mutex_lock_interruptible(&transaction_lock);
--	if (err)
--		return err;
-+	ret = mutex_lock_interruptible(&transaction_lock);
-+	if (ret)
-+		return ret;
- 
- 	reinit_completion(&sys_controller->c);
- 
- 	ret = mbox_send_message(sys_controller->chan, msg);
--	if (ret >= 0) {
--		if (wait_for_completion_timeout(&sys_controller->c, timeout)) {
--			ret = 0;
--		} else {
--			ret = -ETIMEDOUT;
--			dev_warn(sys_controller->client.dev,
--				 "MPFS sys controller transaction timeout\n");
--		}
--	} else {
--		dev_err(sys_controller->client.dev,
--			"mpfs sys controller transaction returned %d\n", ret);
-+	if (ret < 0)
-+		goto out;
-+
-+	ret = 0; /* mbox_send_message returns positive integers on success */
-+	if (!wait_for_completion_timeout(&sys_controller->c, timeout)) {
-+		ret = -ETIMEDOUT;
-+		dev_warn(sys_controller->client.dev,
-+			 "MPFS sys controller transaction timeout\n");
- 	}
- 
-+out:
- 	mutex_unlock(&transaction_lock);
- 
- 	return ret;
--- 
-2.39.0
+> +# Link with libgcc to get __div* builtins.
+> +LIBGCC	:= $(shell $(CC) $(DEFAULT_OPTS) --print-libgcc-file-name)
 
+It's better to copy the bits of libgcc that you actually need
+than to include the whole thing. The kernel is in a weird
+state that is neither freestanding nor the normal libc based
+environment, so we generally want full control over what is
+used. This is particularly important for 32-bit architectures
+that do not want the 64-bit division, but there are probably
+enough other cases as well.
+
+     Arnd
 
 _______________________________________________
 linux-riscv mailing list
