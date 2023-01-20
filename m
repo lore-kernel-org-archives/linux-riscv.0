@@ -4,76 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35DC3C38159
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jan 2023 03:30:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2344EC38159
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jan 2023 04:59:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DfkRT75Uwd88iQWIuj5mMaA/qySL97k1yK6XqNx7KzE=; b=42edRbEO5Moqg3
-	gzOpuvWxnBZ7sNIjqSjdjEgljZB88exLAQoyb+rCP1hLt56Sl8DGQm+BoARNLtwLwjkWoqIoiRoM3
-	3TIoXuMbewV9AjOI6n6hASJPM5zPhn41sj5jwRTlRtadD0arQvT9noUYduanjC5NcU4G5iiBI95E6
-	tuLJdhGegy6gLJsa4NKNe0PC97oBQbTqj6JNZOVPIRU+5PRdoryZJzCCI+ZaDmru8WXNztYsFoJws
-	n4ZFHcL7dfd5LGvfBnwfQmoz3WdW8UVnlhi75HzNIsEtgnszFM/12R/7VGEmvMESpIvwH4asPyHy+
-	ruhkfGbQkS/m8g+Nk0qQ==;
+	List-Owner; bh=5ty4MqxkkffGQSjotgvMTr4TD6KTB15U2amiEygS8A0=; b=pWNfTy3wlP+ezb
+	YG0b9614csYbHEdtBn/VnAFk/+w1XvQJePhnUDvaVEZE7jKnMkYjjaAVbVSqk2CoqpskHBKXOSV/v
+	6CINxUDRQCYJwlOn4TU4N5oPcCSRWhNqT+7WuNMQAHR9GmQS+d4zfoVVcYbCJnOhoDDyrAFmlQWzo
+	qiglDZMiUMdFBHf0bzsyCoypKRm3GWEzyO0a5+2oSWCLk8PBCuvN8ld1J267gXfFc/IrmOQzrJ5D/
+	J8k08SSxJWR7z5JrR2JqaQsm4gbuY5zRalOWPCFvdA6ENiuhuBhKVTPOq6um+n9BejJjxkeOlkwFt
+	ghoIsYv2mwDPUsdGADug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIi6R-008EGE-Fs; Fri, 20 Jan 2023 03:30:07 +0000
-Received: from mail-vs1-xe33.google.com ([2607:f8b0:4864:20::e33])
+	id 1pIjV6-008Pbm-2W; Fri, 20 Jan 2023 04:59:40 +0000
+Received: from fllv0015.ext.ti.com ([198.47.19.141])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIi6N-008EE8-1E
-	for linux-riscv@lists.infradead.org; Fri, 20 Jan 2023 03:30:05 +0000
-Received: by mail-vs1-xe33.google.com with SMTP id j185so4348933vsc.13
-        for <linux-riscv@lists.infradead.org>; Thu, 19 Jan 2023 19:30:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=qIGU2jk/GigaohMZTY2F1GZI3REwpBY06mdsjtIY06Y=;
-        b=HhgKOWYz1ZH126ecEwD4r8yCCChAWLnn1ip/V9xWYSeyvC9BOiJgmWSGe+1Q5D7rFU
-         379NYtgdEU3obGAaSooGfjGcOHA/W6Lst+ul5lMjsgspgXX0vb8xbEm4R7/C7jEGhCzA
-         iWq9PA62+o21vQgzIU+YsLIRBghiUjNv1ONbRaC4qrHjKJovaXdBG2PGTLHV9p/J0Jd9
-         l6JJe6WIushSkbgxER0+6A8Uw9hLJv3Oaad7dFC8+htg30KYI2MbQejrWKNUsL4N47qa
-         OhHHsFfYFxYEWsq99kVQ5Ahidn5AtgjHaB/tWki/VrEHRU92gFaAHYT2akt9updo0pMu
-         ePyw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=qIGU2jk/GigaohMZTY2F1GZI3REwpBY06mdsjtIY06Y=;
-        b=zIxoHUo/fLcbB8nwjldUECnHiX4KCCHAo0J5ccoXaf1yT3BvkzwJYz8lSGoWA+D26q
-         obfp/VQgpV3pj+MNkPp+jeL+byYIkShnrI8bVqDyveEHOCz3OoPCT3Qth4DZU2P9TlMg
-         Tywz7JqsJWKVI8p9WJwQHAWBCa0JGXJtkIrBAjaz89W5SSYHQTXNFjok/fo+IvZr/s+O
-         6oQQc7eluWOPtY3dXft0Ov7mVREpKnbgVwwC5nFEyF6dhV3zUHB2OOGSSwNAcYyLuOtv
-         sYmArzh+CRbagM9OM7FVSE7ZsKZvHUXPHTlSpAJZwRBelbLRNSdhcyUPSrxbXSQhRswX
-         9alQ==
-X-Gm-Message-State: AFqh2koPSoVB2mRpKhhClsfXvgAh3bDOuYLDf1kvHoNSX48Uei4uSaTH
-	xJP5rDzcb19KSHOaDu0hGxyIcdBE4FNUjlW6xX83NQ==
-X-Google-Smtp-Source: AMrXdXvFh3VWQxO8K5J7n+k5TUU3i7BK7pE2i+nYu9NC5R5iI5zRmfRM0xCXQkjJjhGh4PSUM6MgE7LltvBJ3RXS7dA=
-X-Received: by 2002:a67:f506:0:b0:3d3:c767:4570 with SMTP id
- u6-20020a67f506000000b003d3c7674570mr2027595vsn.85.1674185399975; Thu, 19 Jan
- 2023 19:29:59 -0800 (PST)
+	id 1pIjV2-008Paq-J2; Fri, 20 Jan 2023 04:59:38 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by fllv0015.ext.ti.com (8.15.2/8.15.2) with ESMTP id 30K4wwaL059217;
+	Thu, 19 Jan 2023 22:58:58 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1674190738;
+	bh=FhdMm8snS4EyWglAxG9HV9C8rgTh2MdCa/PV2daai+0=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=IQIjXef8eot9FsusDlpnq4ExSa3ShrotvDLKZTWVWjFVwfIti0C44gBEdKYHbZ941
+	 d4FgjRzaupR90M0pb3/LnJq5dmc3YnXkhoE3pJDNHx0Qr1bjWPdqMFChFPaLYKEnYn
+	 t+rnl+NLCidenbOG2q/xjWzNgOKMsVQqdVS3O2H4=
+Received: from DLEE106.ent.ti.com (dlee106.ent.ti.com [157.170.170.36])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 30K4wwvM108629
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Thu, 19 Jan 2023 22:58:58 -0600
+Received: from DLEE101.ent.ti.com (157.170.170.31) by DLEE106.ent.ti.com
+ (157.170.170.36) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.16; Thu, 19
+ Jan 2023 22:58:57 -0600
+Received: from fllv0040.itg.ti.com (10.64.41.20) by DLEE101.ent.ti.com
+ (157.170.170.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.16 via
+ Frontend Transport; Thu, 19 Jan 2023 22:58:57 -0600
+Received: from [172.24.223.178] (ileaxei01-snat2.itg.ti.com [10.180.69.6])
+	by fllv0040.itg.ti.com (8.15.2/8.15.2) with ESMTP id 30K4wmmo100309;
+	Thu, 19 Jan 2023 22:58:49 -0600
+Message-ID: <36fe032b-a00c-dad1-a3db-bea1f15726c0@ti.com>
+Date: Fri, 20 Jan 2023 10:28:48 +0530
 MIME-Version: 1.0
-References: <20230103141221.772261-1-apatel@ventanamicro.com> <CAK9=C2X+BOVxvjkP=SHYywkFxh+4BnAbZ5_uH6rNJ_vB8_3mkg@mail.gmail.com>
-In-Reply-To: <CAK9=C2X+BOVxvjkP=SHYywkFxh+4BnAbZ5_uH6rNJ_vB8_3mkg@mail.gmail.com>
-From: Anup Patel <apatel@ventanamicro.com>
-Date: Fri, 20 Jan 2023 08:59:47 +0530
-Message-ID: <CAK9=C2Wwb2UwF=xs0gZ381e8HgCqHKEb0YepMAvYJuO2=zkhSg@mail.gmail.com>
-Subject: Re: [PATCH v16 0/9] RISC-V IPI Improvements
-To: Marc Zyngier <maz@kernel.org>
-Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
-	Thomas Gleixner <tglx@linutronix.de>, Atish Patra <atishp@atishpatra.org>, 
-	Alistair Francis <Alistair.Francis@wdc.com>, Anup Patel <anup@brainfault.org>, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	asahi@lists.linux.dev
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.6.1
+Subject: Re: [RFC PATCH 3/4] dt-bindings: panel: Introduce dual-link LVDS
+ panel
+Content-Language: en-US
+To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+        AngeloGioacchino Del
+ Regno <angelogioacchino.delregno@collabora.com>,
+        Rob Herring
+	<robh+dt@kernel.org>,
+        Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>,
+        Jyri Sarha <jyri.sarha@iki.fi>, David
+ Airlie <airlied@gmail.com>,
+        Daniel Vetter <daniel@ffwll.ch>,
+        Laurent Pinchart
+	<laurent.pinchart@ideasonboard.com>,
+        Thierry Reding
+	<thierry.reding@gmail.com>,
+        Sam Ravnborg <sam@ravnborg.org>, Maxime Ripard
+	<maxime@cerno.tech>,
+        Liam Girdwood <lgirdwood@gmail.com>, Mark Brown
+	<broonie@kernel.org>,
+        Lad Prabhakar
+	<prabhakar.mahadev-lad.rj@bp.renesas.com>,
+        Paul Walmsley
+	<paul.walmsley@sifive.com>,
+        Palmer Dabbelt <palmer@dabbelt.com>,
+        Albert Ou
+	<aou@eecs.berkeley.edu>,
+        Matthias Brugger <matthias.bgg@gmail.com>,
+        Guo Ren
+	<guoren@kernel.org>
+CC: DRI Development List <dri-devel@lists.freedesktop.org>,
+        Devicetree List
+	<devicetree@vger.kernel.org>,
+        Linux Kernel List
+	<linux-kernel@vger.kernel.org>,
+        Linux RISC-V List
+	<linux-riscv@lists.infradead.org>,
+        Linux ARM Kernel List
+	<linux-arm-kernel@lists.infradead.org>,
+        Linux Mediatek List
+	<linux-mediatek@lists.infradead.org>,
+        Linux C-SKY Arch List
+	<linux-csky@vger.kernel.org>,
+        Nishanth Menon <nm@ti.com>, Vignesh Raghavendra
+	<vigneshr@ti.com>,
+        Rahul T R <r-ravikumar@ti.com>, Devarsh Thakkar
+	<devarsht@ti.com>,
+        Jai Luthra <j-luthra@ti.com>, Jayesh Choudhary
+	<j-choudhary@ti.com>
+References: <20230103064615.5311-1-a-bhatia1@ti.com>
+ <20230103064615.5311-4-a-bhatia1@ti.com>
+ <09f1ca83-c7d5-a186-6fa6-09cdd7a0b9cc@collabora.com>
+ <431ddd82-055b-2526-3d5e-f6563e48d264@ti.com>
+ <808e831f-4282-0e58-ebb2-2f556aaeaca4@ideasonboard.com>
+From: Aradhya Bhatia <a-bhatia1@ti.com>
+In-Reply-To: <808e831f-4282-0e58-ebb2-2f556aaeaca4@ideasonboard.com>
+X-EXCLAIMER-MD-CONFIG: e1e8a2fd-e40a-4ac6-ac9b-f7e9cc9ee180
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230119_193003_126206_C8A4BC05 
-X-CRM114-Status: GOOD (  32.73  )
+X-CRM114-CacheID: sfid-20230119_205936_749463_458779E8 
+X-CRM114-Status: GOOD (  26.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,185 +126,113 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
-
-On Thu, Jan 12, 2023 at 5:47 PM Anup Patel <apatel@ventanamicro.com> wrote:
->
-> Hi Marc,
->
-> On Tue, Jan 3, 2023 at 7:42 PM Anup Patel <apatel@ventanamicro.com> wrote:
-> >
-> > This series aims to improve IPI support in Linux RISC-V in following ways:
-> >  1) Treat IPIs as normal per-CPU interrupts instead of having custom RISC-V
-> >     specific hooks. This also makes Linux RISC-V IPI support aligned with
-> >     other architectures.
-> >  2) Remote TLB flushes and icache flushes should prefer local IPIs instead
-> >     of SBI calls whenever we have specialized hardware (such as RISC-V AIA
-> >     IMSIC and RISC-V SWI) which allows S-mode software to directly inject
-> >     IPIs without any assistance from M-mode runtime firmware.
-> >
-> > These patches were originally part of the "Linux RISC-V ACLINT Support"
-> > series but this now a separate series so that it can be merged independently
-> > of the "Linux RISC-V ACLINT Support" series.
-> > (Refer, https://lore.kernel.org/lkml/20211007123632.697666-1-anup.patel@wdc.com/)
-> >
-> > These patches are also a preparatory patches for the up-coming:
-> >  1) Linux RISC-V AIA support
-> >  2) Linux RISC-V SWI support
-> >
-> > These patches can also be found in riscv_ipi_imp_v16 branch at:
-> > https://github.com/avpatel/linux.git
-> >
-> > Changes since v15:
-> >  - Rebased on Linux-6.2-rc2
-> >  - Added Reviewed-by and Tested-by tags to some of the patches.
-> >
-> > Changes since v14:
-> >  - Minor fixes in commit description of PATCH3 (as suggested by tglx)
-> >  - Don't disable parent IPI when CPU goes offline for SBI IPI driver and
-> >    CLINT driver in PATCH4.
-> >  - Include Apple AIC driver changes from Marc Z as PATCH9
-> >
-> > Changes since v13:
-> >  - Included changes suggested by Marc Z in PATCH3
-> >  - Use chained handlers in PATCH4
-> >  - Added new PATCH8 to have empty irq_eoi() in RISC-V INTC driver. This
-> >    avoids the unnecessary mask/unmask dance at time of handling interrupts.
-> >
-> > Changes since v12:
-> >  - Rebased on Linux-6.1-rc7
-> >  - Bring-back the IPI optimization in ipi_mux_send_mask() for PATCH3
-> >  - Call ipi_mux_send() for one target CPU at a time in PATCH3
-> >
-> > Changes since v11:
-> >  - Removed ipi_mux_pre/post_handle() callbacks in PATCH3
-> >  - Removed sturct ipi_mux_ops in PATCH3
-> >  - Removed parent_virq and data pointer from everywhere in PATCH3
-> >  - Removed struct ipi_mux_control in PATCH3
-> >  - Improved function signature of ipi_mux_send() callback in PATCH3
-> >  - Used unsigned type with atomic operation in PATCH3
-> >
-> > Changes since v10:
-> >  - Rebased on Linux-6.1-rc5
-> >  - Drop the "!(pending & ibit)" check in ipi_mux_send_mask() of PATCH3
-> >  - Disable local interrupts in ipi_mux_send_mask() of PATCH3 because we
-> >    can be preempted while using a per-CPU temporary variable.
-> >
-> > Changes since v9:
-> >  - Rebased on Linux-6.1-rc3
-> >  - Updated header comment block of ipi-mux.c in PATCH3
-> >  - Use a struct for global data of ipi-mux.c in PATCH3
-> >  - Add per-CPU temp cpumask for sending IPIs in PATCH3
-> >  - Drop the use of fwspec in PATCH3
-> >  - Use static key for ipi_mux_pre_handle() and ipi_mux_post_handle()
-> >    in PATCH3
-> >  - Remove redundant pr_warn_ratelimited() called by ipi_mux_process()
-> >    in PATCH3
-> >  - Remove CPUHP thingy from ipi_mux_create() in PATCH3
-> >
-> > Changes since v8:
-> >  - Rebased on Linux-6.0-rc3
-> >  - Use dummy percpu data as parameter for request_percpu_irq() in PATCH4.
-> >
-> > Changes since v7:
-> >  - Rebased on Linux-6.0-rc1
-> >  - Use atomic operations to track per-CPU pending and enabled IPIs in PATCH3.
-> >    (Note: this is inspired from IPI muxing implemented in
-> >     drivers/irqchip/irq-apple-aic.c)
-> >  - Made "struct ipi_mux_ops" (added by PATCH3) flexible so that
-> >    drivers/irqchip/irq-apple-aic.c can adopt it in future.
-> >
-> > Changes since v6:
-> >  - Rebased on Linux-5.19-rc7
-> >  - Added documentation for struct ipi_mux_ops in PATCH3
-> >  - Dropped dummy irq_mask()/unmask() in PATCH3
-> >  - Added const for "ipi_mux_chip" in PATCH3
-> >  - Removed "type" initialization from ipi_mux_domain_alloc() in PATCH3
-> >  - Dropped translate() from "ipi_mux_domain_ops" in PATCH3
-> >  - Improved barrier documentation in ipi_mux_process() of PATCH3
-> >  - Added percpu check in ipi_mux_create() for parent_virq of PATCH3
-> >  - Added nr_ipi parameter in ipi_mux_create() of PATCH3
-> >
-> > Changes since v5:
-> >  - Rebased on Linux-5.18-rc3
-> >  - Used kernel doc style in PATCH3
-> >  - Removed redundant loop in ipi_mux_process() of PATCH3
-> >  - Removed "RISC-V" prefix form ipi_mux_chip.name of PATCH3
-> >  - Removed use of "this patch" in PATCH3 commit description
-> >  - Addressed few other nit comments in PATCH3
-> >
-> > Changes since v4:
-> >  - Rebased on Linux-5.17
-> >  - Includes new PATCH3 which adds mechanism to multiplex a single HW IPI
-> >
-> > Changes since v3:
-> >  - Rebased on Linux-5.17-rc6
-> >  - Updated PATCH2 to not export riscv_set_intc_hwnode_fn()
-> >  - Simplified riscv_intc_hwnode() in PATCH2
-> >
-> > Changes since v2:
-> >  - Rebased on Linux-5.17-rc4
-> >  - Updated PATCH2 to not create synthetic INTC fwnode and instead provide
-> >    a function which allows drivers to directly discover INTC fwnode
-> >
-> > Changes since v1:
-> >  - Use synthetic fwnode for INTC instead of irq_set_default_host() in PATCH2
-> >
-> > Anup Patel (8):
-> >   RISC-V: Clear SIP bit only when using SBI IPI operations
-> >   irqchip/riscv-intc: Allow drivers to directly discover INTC hwnode
-> >   genirq: Add mechanism to multiplex a single HW IPI
-> >   RISC-V: Treat IPIs as normal Linux IRQs
-> >   RISC-V: Allow marking IPIs as suitable for remote FENCEs
-> >   RISC-V: Use IPIs for remote TLB flush when possible
-> >   RISC-V: Use IPIs for remote icache flush when possible
-> >   irqchip/riscv-intc: Add empty irq_eoi() for chained irq handlers
-> >
-> > Marc Zyngier (1):
-> >   irqchip/apple-aic: Move over to core ipi-mux
-> >
-> >  arch/riscv/Kconfig                |   2 +
-> >  arch/riscv/include/asm/irq.h      |   4 +
-> >  arch/riscv/include/asm/sbi.h      |   9 +-
-> >  arch/riscv/include/asm/smp.h      |  49 +++++--
-> >  arch/riscv/kernel/Makefile        |   1 +
-> >  arch/riscv/kernel/cpu-hotplug.c   |   3 +-
-> >  arch/riscv/kernel/irq.c           |  21 ++-
-> >  arch/riscv/kernel/sbi-ipi.c       |  77 +++++++++++
-> >  arch/riscv/kernel/sbi.c           | 100 +++------------
-> >  arch/riscv/kernel/smp.c           | 171 ++++++++++++------------
-> >  arch/riscv/kernel/smpboot.c       |   5 +-
-> >  arch/riscv/mm/cacheflush.c        |   5 +-
-> >  arch/riscv/mm/tlbflush.c          |  93 +++++++++++---
-> >  drivers/clocksource/timer-clint.c |  65 +++++++---
-> >  drivers/irqchip/Kconfig           |   2 +
-> >  drivers/irqchip/irq-apple-aic.c   | 161 ++---------------------
-> >  drivers/irqchip/irq-riscv-intc.c  |  71 ++++++----
-> >  include/linux/irq.h               |   3 +
-> >  kernel/irq/Kconfig                |   5 +
-> >  kernel/irq/Makefile               |   1 +
-> >  kernel/irq/ipi-mux.c              | 207 ++++++++++++++++++++++++++++++
-> >  21 files changed, 654 insertions(+), 401 deletions(-)
-> >  create mode 100644 arch/riscv/kernel/sbi-ipi.c
-> >  create mode 100644 kernel/irq/ipi-mux.c
-> >
-> > --
-> > 2.34.1
-> >
->
-> Friendly ping ?
-
-Any further comments on this series ?
-
-Regards,
-Anup
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgVG9taSwKClRoYW5rIHlvdSBmb3IgdGFraW5nIGEgbG9vayBhdCB0aGUgcGF0Y2hlcyEKCk9u
+IDE3LUphbi0yMyAxODowOCwgVG9taSBWYWxrZWluZW4gd3JvdGU6Cj4gT24gMDkvMDEvMjAyMyAx
+ODoyMSwgQXJhZGh5YSBCaGF0aWEgd3JvdGU6Cj4+IEhpIEFuZ2VsbywKPj4KPj4gVGhhbmtzIGZv
+ciB0YWtpbmcgYSBsb29rIGF0IHRoZSBwYXRjaGVzIQo+Pgo+PiBPbiAwMy1KYW4tMjMgMTc6MjEs
+IEFuZ2Vsb0dpb2FjY2hpbm8gRGVsIFJlZ25vIHdyb3RlOgo+Pj4gSWwgMDMvMDEvMjMgMDc6NDYs
+IEFyYWRoeWEgQmhhdGlhIGhhIHNjcml0dG86Cj4+Pj4gRHVhbC1saW5rIExWRFMgaW50ZXJmYWNl
+cyBoYXZlIDIgbGlua3MsIHdpdGggZXZlbiBwaXhlbHMgdHJhdmVsaW5nIG9uCj4+Pj4gb25lIGxp
+bmssIGFuZCBvZGQgcGl4ZWxzIG9uIHRoZSBvdGhlci4gVGhlc2UgcGFuZWxzIGFyZSBhbHNvIGdl
+bmVyaWMgaW4KPj4+PiBuYXR1cmUsIHdpdGggbm8gZG9jdW1lbnRlZCBjb25zdHJhaW50cywgbXVj
+aCBsaWtlIHRoZWlyIHNpbmdsZS1saW5rCj4+Pj4gY291bnRlcnBhcnRzLCAicGFuZWwtbHZkcyIu
+Cj4+Pj4KPj4+PiBBZGQgYSBuZXcgY29tcGF0aWJsZSwgInBhbmVsLWR1YWwtbHZkcyIsIGFuZCBh
+IGR0LWJpbmRpbmcgZG9jdW1lbnQgZm9yCj4+Pj4gdGhlc2UgcGFuZWxzLgo+Pj4+Cj4+Pj4gU2ln
+bmVkLW9mZi1ieTogQXJhZGh5YSBCaGF0aWEgPGEtYmhhdGlhMUB0aS5jb20+Cj4+Pj4gLS0tCj4+
+Pj4gwqAgLi4uL2Rpc3BsYXkvcGFuZWwvcGFuZWwtZHVhbC1sdmRzLnlhbWzCoMKgwqDCoMKgwqDC
+oCB8IDE1NyAKPj4+PiArKysrKysrKysrKysrKysrKysKPj4+PiDCoCBNQUlOVEFJTkVSU8KgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgIHzCoMKgIDEgKwo+Pj4+IMKgIDIgZmlsZXMgY2hhbmdlZCwgMTU4IGluc2VydGlvbnMo
+KykKPj4+PiDCoCBjcmVhdGUgbW9kZSAxMDA2NDQgCj4+Pj4gRG9jdW1lbnRhdGlvbi9kZXZpY2V0
+cmVlL2JpbmRpbmdzL2Rpc3BsYXkvcGFuZWwvcGFuZWwtZHVhbC1sdmRzLnlhbWwKPj4+Pgo+Pj4+
+IGRpZmYgLS1naXQgCj4+Pj4gYS9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvZGlz
+cGxheS9wYW5lbC9wYW5lbC1kdWFsLWx2ZHMueWFtbCBiL0RvY3VtZW50YXRpb24vZGV2aWNldHJl
+ZS9iaW5kaW5ncy9kaXNwbGF5L3BhbmVsL3BhbmVsLWR1YWwtbHZkcy55YW1sCj4+Pj4gbmV3IGZp
+bGUgbW9kZSAxMDA2NDQKPj4+PiBpbmRleCAwMDAwMDAwMDAwMDAuLjg4YTdhYTI0MTBiZQo+Pj4+
+IC0tLSAvZGV2L251bGwKPj4+PiArKysgCj4+Pj4gYi9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUv
+YmluZGluZ3MvZGlzcGxheS9wYW5lbC9wYW5lbC1kdWFsLWx2ZHMueWFtbAo+Pj4+IEBAIC0wLDAg
+KzEsMTU3IEBACj4+Pj4gKyMgU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IChHUEwtMi4wLW9ubHkg
+T1IgQlNELTItQ2xhdXNlKQo+Pj4+ICslWUFNTCAxLjIKPj4+PiArLS0tCj4+Pj4gKyRpZDogaHR0
+cDovL2RldmljZXRyZWUub3JnL3NjaGVtYXMvZGlzcGxheS9wYW5lbC9wYW5lbC1kdWFsLWx2ZHMu
+eWFtbCMKPj4+PiArJHNjaGVtYTogaHR0cDovL2RldmljZXRyZWUub3JnL21ldGEtc2NoZW1hcy9j
+b3JlLnlhbWwjCj4+Pj4gKwo+Pj4+ICt0aXRsZTogR2VuZXJpYyBEdWFsLUxpbmsgTFZEUyBEaXNw
+bGF5IFBhbmVsCj4+Pj4gKwo+Pj4+ICttYWludGFpbmVyczoKPj4+PiArwqAgLSBBcmFkaHlhIEJo
+YXRpYSA8YS1iaGF0aWExQHRpLmNvbT4KPj4+PiArwqAgLSBUaGllcnJ5IFJlZGluZyA8dGhpZXJy
+eS5yZWRpbmdAZ21haWwuY29tPgo+Pj4+ICsKPj4+PiArZGVzY3JpcHRpb246IHwKPj4+PiArwqAg
+QSBkdWFsLUxWRFMgaW50ZXJmYWNlIGlzIGEgZHVhbC1saW5rIGNvbm5lY3Rpb24gd2l0aCB0aGUg
+ZXZlbiBwaXhlbHMKPj4+PiArwqAgdHJhdmVsaW5nIG9uIG9uZSBsaW5rLCBhbmQgdGhlIG9kZCBw
+aXhlbHMgdHJhdmVsaW5nIG9uIHRoZSBvdGhlci4KPj4+PiArCj4+Pj4gK2FsbE9mOgo+Pj4+ICvC
+oCAtICRyZWY6IHBhbmVsLWNvbW1vbi55YW1sIwo+Pj4+ICvCoCAtICRyZWY6IC9zY2hlbWFzL2Rp
+c3BsYXkvbHZkcy55YW1sLyMKPj4+PiArCj4+Pj4gK3Byb3BlcnRpZXM6Cj4+Pj4gK8KgIGNvbXBh
+dGlibGU6Cj4+Pj4gK8KgwqDCoCBvbmVPZjoKPj4+PiArwqDCoMKgwqDCoCAtIGl0ZW1zOgo+Pj4+
+ICvCoMKgwqDCoMKgwqDCoMKgwqAgLSBlbnVtOgo+Pj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoCAtIGxpbmNvbG50ZWNoLGxjZDE4NS0xMDFjdAo+Pj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoCAtIG1pY3JvdGlwcywxMy0xMDFoaWViMGhmMC1zCj4+Pj4gK8KgwqDCoMKgwqDCoMKg
+wqDCoCAtIGNvbnN0OiBwYW5lbC1kdWFsLWx2ZHMKPj4+PiArwqDCoMKgwqDCoCAtIGNvbnN0OiBw
+YW5lbC1kdWFsLWx2ZHMKPj4+PiArCj4+Pj4gK8KgIHBvcnRzOgo+Pj4+ICvCoMKgwqAgJHJlZjog
+L3NjaGVtYXMvZ3JhcGgueWFtbCMvcHJvcGVydGllcy9wb3J0cwo+Pj4+ICsKPj4+PiArwqDCoMKg
+IHByb3BlcnRpZXM6Cj4+Pj4gK8KgwqDCoMKgwqAgcG9ydEAwOgo+Pj4+ICvCoMKgwqDCoMKgwqDC
+oCAkcmVmOiAvc2NoZW1hcy9ncmFwaC55YW1sIy8kZGVmcy9wb3J0LWJhc2UKPj4+PiArwqDCoMKg
+wqDCoMKgwqAgdW5ldmFsdWF0ZWRQcm9wZXJ0aWVzOiBmYWxzZQo+Pj4+ICvCoMKgwqDCoMKgwqDC
+oCBkZXNjcmlwdGlvbjogVGhlIHNpbmsgZm9yIGZpcnN0IHNldCBvZiBMVkRTIHBpeGVscy4KPj4+
+PiArCj4+Pj4gK8KgwqDCoMKgwqDCoMKgIHByb3BlcnRpZXM6Cj4+Pj4gK8KgwqDCoMKgwqDCoMKg
+wqDCoCBkdWFsLWx2ZHMtb2RkLXBpeGVsczoKPj4+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB0
+eXBlOiBib29sZWFuCj4+Pj4gKwo+Pj4+ICvCoMKgwqDCoMKgwqDCoMKgwqAgZHVhbC1sdmRzLWV2
+ZW4tcGl4ZWxzOgo+Pj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHR5cGU6IGJvb2xlYW4KPj4+
+PiArCj4+Pj4gK8KgwqDCoMKgwqDCoMKgIG9uZU9mOgo+Pj4+ICvCoMKgwqDCoMKgwqDCoMKgwqAg
+LSByZXF1aXJlZDogW2R1YWwtbHZkcy1vZGQtcGl4ZWxzXQo+Pj4KPj4+IE9uZSBxdWVzdGlvbjog
+d2h5IGRvIHdlIG5lZWQgYSAicGFuZWwtZHVhbC1sdmRzIiBjb21wYXRpYmxlPwo+Pj4gQSBEdWFs
+LUxWRFMgcGFuZWwgaXMgYSBMVkRTIHBhbmVsIHVzaW5nIHR3byBwb3J0cywgaGVuY2Ugc3RpbGwg
+YSAKPj4+IHBhbmVsLWx2ZHMuCj4+Pgo+Pj4gSWYgeW91J3JlIGRvaW5nIHRoaXMgdG8gY2xlYXJs
+eSBkaXN0aW5ndWlzaCwgZm9yIGh1bWFuIHJlYWRhYmlsaXR5IHB1cnBvc2VzLAo+Pj4gc2luZ2xl
+LWxpbmsgdnMgZHVhbC1saW5rIHBhbmVscywgSSB0aGluayB0aGF0IHRoaXMgd291bGQgc3RpbGwg
+YmUgY2xlYXIgZXZlbgo+Pj4gaWYgd2UgdXNlIHBhbmVsLWx2ZHMgYWxvbmUgYmVjYXVzZSBkdWFs
+LWxpbmsgcGFuZWxzLCBhcyB5b3Ugd3JvdGUgaW4gdGhpcwo+Pj4gYmluZGluZywgZG9lcyAqcmVx
+dWlyZSogdHdvIHBvcnRzLCB3aXRoICJkdWFsLWx2ZHMte29kZCxldmVufS1waXhlbHMiIHByb3Bl
+cnRpZXMuCj4+Cj4+IFllcywgd2hpbGUgdGhleSBhcmUgYm90aCBMVkRTIGJhc2VkIHBhbmVscyB0
+aGUgZXh0cmEgTFZEUyBzaW5rIGluIHRoZXNlCj4+IHBhbmVscywgYW5kIHRoZSBjYXBhYmlsaXR5
+IHRvIGRlY29kZSBhbmQgZGlzcGxheSB0aGUgMiBzZXRzIG9mIHNpZ25hbHMKPj4gYXJlIGVub3Vn
+aCBoYXJkd2FyZSBkaWZmZXJlbmNlcyB0aGF0IHdhcnJhbnQgZm9yIGFuIGFkZGl0aW9uIG9mIGEg
+bmV3Cj4+IGNvbXBhdGlibGUuCj4+Cj4+Pgo+Pj4gU28uLi4gdGhlIGRldmljZXRyZWUgbm9kZSB3
+b3VsZCBsb29rIGxpa2UgdGhpczoKPj4+Cj4+PiBwYW5lbCB7Cj4+PiDCoMKgwqDCoMKgY29tcGF0
+aWJsZSA9ICJ2ZW5kb3IscGFuZWwiLCAicGFuZWwtbHZkcyI7Cj4+PiDCoMKgwqDCoMKgLi4uLgo+
+Pj4gwqDCoMKgwqDCoHBvcnRzIHsKPj4+IMKgwqDCoMKgwqDCoMKgwqAgcG9ydEAwIHsKPj4+IMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAuLi4uLgo+Pj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+IC0+IGR1YWwtbHZkcy1vZGQtcGl4ZWxzIDwtCj4+PiDCoMKgwqDCoMKgwqDCoMKgIH0KPj4+Cj4+
+PiDCoMKgwqDCoMKgwqDCoMKgIHBvcnRAMSB7Cj4+PiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAg
+Li4uLi4KPj4+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAtPiBkdWFsLWx2ZHMtZXZlbi1waXhl
+bHMgPC0KPj4+IMKgwqDCoMKgwqDCoMKgwqAgfTsKPj4+IMKgwqDCoMKgwqB9Owo+Pj4gfTsKPj4+
+Cj4+Pj4gK8KgwqDCoMKgwqDCoMKgwqDCoCAtIHJlcXVpcmVkOiBbZHVhbC1sdmRzLWV2ZW4tcGl4
+ZWxzXQo+Pj4KPj4+IC4uLlRob3VnaCwgaWYgeW91IGV4cGVjdCBkdWFsLWx2ZHMgcGFuZWxzIHRv
+IGdldCBvdGhlciBxdWlya3MgaW4gdGhlIGZ1dHVyZSwKPj4+IHRoYXQncyBhIHdob2xlIGRpZmZl
+cmVudCBzdG9yeSBhbmQgeW91IG1heSBhY3R1YWxseSBuZWVkIHRoZSBwYW5lbC1kdWFsLWx2ZHMK
+Pj4+IGNvbXBhdGlibGUuCj4+Cj4+IFllcywgZXhhY3RseS4gRXZlbiB3aGlsZSBiZWluZyBub24t
+c21hcnQsIHRoZXJlIGFyZSBnb2luZyB0byBiZSBtb3JlCj4+IHF1aXJrcyBpbiBmdXR1cmUuIEFu
+ZCBpdCB3b3VsZCBiZSBiZXR0ZXIgaWYgdGhleSBoYXZlIHRoZWlyIG93bgo+PiBjb21wYXRpYmxl
+L2JpbmRpbmcsIGFuZCBhcmUgbm90IGdldHRpbmcgYXBwZW5kZWQgaW4gYW4gZXZlci1ncm93aW5n
+Cj4+IGlmLWVsc2UgbGFkZGVyLiA6KQo+IAo+IEkgY2FuIGltYWdpbmUgYSBwYW5lbCB3aGljaCB5
+b3UgY2FuIHVzZSB3aXRoIGEgc2luZ2xlIExWRFMgbGluayBpZiB0aGUgCj4gY2xvY2sgaXMgaGln
+aCBlbm91Z2gsIG9yIHR3byBMVkRTIGxpbmtzIGlmIHRoZSBjbG9jayBoYXMgdG8gYmUgbG93ZXIu
+IElzIAo+IHRoYXQgYSBkdWFsLWx2ZHMgcGFuZWw/ID0pCgpIbW0sIEkgY2FuIHNlZSB3aGF0IHlv
+dSBhcmUgc2F5aW5nIGhlcmUuCgpJZiBvbmUgd2FudHMgdG8gcnVuIGEgZHVhbC1saW5rIHBhbmVs
+LCB3aXRoIDEgbGluayAoZ2l2ZW4gZW5vdWdoIGNsb2NrCmZyZXF1ZW5jeSksIHRoZW4gdGhlIGJp
+bmRpbmdzIGhlcmUgd2lsbCAqbm90KiBhbGxvdyBmb3IgYSBzaW5nbGUgcG9ydAp3aXRoIHRoZSBv
+ZGQvZXZlbiBwcm9wZXJ0aWVzIGFic2VudC4KCkluIHN1Y2ggYSBjYXNlLCB0aGUgY29tcGF0aWJs
+ZSB3aWxsIGluZGVlZCBuZWVkIHRvIGJlIGNoYW5nZWQgdG8KInBhbmVsLWx2ZHMiLgoKV2hpbGUg
+aXQgZG9lcyBmZWVsIGEgdGFkIGJpdCBvZGQsIEkgYmVsaWV2ZSBpdCBpcyBzdGlsbCB3b3J0aApt
+YWludGFpbmluZyB0aGUgY2xhcml0eSBhbmQgSFcgZGlmZmVyZW5jZXMgYmV0d2VlbiB0aGUgc2lu
+Z2xlIGFuZCBkdWFsCmxpbmsgcGFuZWxzLiA6KQoKPiAKPiBCdXQgcHJvYmFibHkgdGhhdCBzaXR1
+YXRpb24gaXMgbm8gZGlmZmVyZW50IHRoYW4gYSBwYW5lbCB0aGF0IGNhbiB3b3JrIAo+IHdpdGgg
+RFNJIG9yIERQSSBpbnB1dC4KPiAKPiBTdGlsbCwgSSdtIGFncmVlIHdpdGggQW5nZWxvIGluIHRo
+YXQgYSBuZXcgY29tcGF0aWJsZSBzdHJpbmcgZm9yIGR1YWwgCj4gbGluayBsdmRzIGZlZWxzIGEg
+Yml0IG9kZC4gVGhhdCBzYWlkLCBpdCdzIHBvc3NpYmxlIHRoZSBwYW5lbC1sdmRzICA+IGJpbmRp
+bmdzIG1pZ2h0IGdldCByYXRoZXIgY29uZnVzaW5nLiBTbyBJIGRvbid0IGhhdmUgYSBzdHJvbmcg
+ZmVlbGluZyAKaGVyZS4KClJlZ2FyZHMKQXJhZGh5YQoKX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
+c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
+bi9saXN0aW5mby9saW51eC1yaXNjdgo=
