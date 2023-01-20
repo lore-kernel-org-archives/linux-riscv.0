@@ -4,57 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72595C05027
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jan 2023 14:10:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AB36C38159
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jan 2023 14:10:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/6dY1fxXnxdZeOCOBG9DVdN+iwmttxFFUEI8sywhzec=; b=v7os1mpo5EOnkm
-	X4R/caGZ01KkwE0CDxD3m7yco3z9tOr6pmRN8hYM69G8BFwWXC3bkH4tAQP1wFhemGcinnKSjBhtc
-	ablNKawPg/7M445PmNcOoHtHkNvXPzZPXJlJK92t3Hi1u9GN1bNBUJduSYhb+Gm1jVaJu3XOeLoMN
-	lvHdzbmNN+jBD4tz214V0Dx4OSk4mGEh4LbxaDSKA9hv/QDyNsYznhJRdSTdBUaxy1lcdqknHFRIL
-	osHWsbLil1iRAa7ZVOoSi+L0jbGEaS1/bkSnWJ9Cn2fJFq4yyMvILLF/D3b2m75hTiaNlqrirXjpF
-	+sSAfaFxaE+IdpQQfB6Q==;
+	List-Owner; bh=vsoq2ks4zlw5/1adAaApAsG/x5WITO/3J7w4i2oay0Q=; b=O7uSRsUKF82JAD
+	lwbncjdpu6TV4JYTw2bTglsarDu3HmtiRnfJpXuBX+JevNBjvs0+EsKX2aKdzRECvM6//LUZcmgSG
+	KgvOlmCaPD885pgZyKB/E/oGhndw68YaYEw3v7wEC8t/0aRSWg1WaLUeN3Xnuhj2KyX+avaJ+b5sj
+	8DYmwahWwlkeJZATiDPZuq9zMhntaUdURcHBWEeb135efeW4DBoNfZngF/lDvYbx/+MJ6h9mZAAM7
+	Dkk+1dhDa3PrwYtNTTEysjrgMkdwl3mxOmwEaRN0kolp1hayOxEk3hGDcK/HC0ffEot1/JWJ4AxXo
+	v5j7ya7YH8E165POdVuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIs6I-00AbDx-JH; Fri, 20 Jan 2023 14:10:38 +0000
-Received: from smtpout30.security-mail.net ([85.31.212.36] helo=fx306.security-mail.net)
+	id 1pIs6M-00AbG6-Co; Fri, 20 Jan 2023 14:10:42 +0000
+Received: from smtpout30.security-mail.net ([85.31.212.34] helo=fx304.security-mail.net)
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIs6D-00Ab7K-UJ
-	for linux-riscv@lists.infradead.org; Fri, 20 Jan 2023 14:10:36 +0000
-Received: from localhost (fx306.security-mail.net [127.0.0.1])
-	by fx306.security-mail.net (Postfix) with ESMTP id 9397B35CFA7
+	id 1pIs6D-00Ab7I-VM
+	for linux-riscv@lists.infradead.org; Fri, 20 Jan 2023 14:10:38 +0000
+Received: from localhost (localhost [127.0.0.1])
+	by fx304.security-mail.net (Postfix) with ESMTP id 135449D06E
 	for <linux-riscv@lists.infradead.org>; Fri, 20 Jan 2023 15:10:29 +0100 (CET)
-Received: from fx306 (fx306.security-mail.net [127.0.0.1]) by
- fx306.security-mail.net (Postfix) with ESMTP id 224FA35CF6A; Fri, 20 Jan
- 2023 15:10:29 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kalray.eu;
+	s=sec-sig-email; t=1674223829;
+	bh=Tdx6DhS9iYMQn8Pwje0Ri02hH2e9yxqRSeBt1yYf7ac=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=R8pdYrGodKitdXwzV2nzW3qHfWuxYUNkUvaxo0mQARysWxT66IdF/7+CYg5Xg8g1E
+	 +ZjRycjH3QG2b5rYcNyxWZjn4WfMoHzEDeP/dayWrjlhjhBNi0fTLZ+a45fcoihDDP
+	 68jQR4sqKlClEJtAlI2bg5R/sFkRuA7oauSxXDoA=
+Received: from fx304 (localhost [127.0.0.1]) by fx304.security-mail.net
+ (Postfix) with ESMTP id C01539D02D; Fri, 20 Jan 2023 15:10:28 +0100 (CET)
 Received: from zimbra2.kalray.eu (unknown [217.181.231.53]) by
- fx306.security-mail.net (Postfix) with ESMTPS id 1DCB635CEE1; Fri, 20 Jan
- 2023 15:10:27 +0100 (CET)
+ fx304.security-mail.net (Postfix) with ESMTPS id 2273E9D0A3; Fri, 20 Jan
+ 2023 15:10:28 +0100 (CET)
 Received: from zimbra2.kalray.eu (localhost [127.0.0.1]) by
- zimbra2.kalray.eu (Postfix) with ESMTPS id 9FC5E27E0440; Fri, 20 Jan 2023
- 15:10:26 +0100 (CET)
+ zimbra2.kalray.eu (Postfix) with ESMTPS id CC99E27E0430; Fri, 20 Jan 2023
+ 15:10:27 +0100 (CET)
 Received: from localhost (localhost [127.0.0.1]) by zimbra2.kalray.eu
- (Postfix) with ESMTP id 86B8727E043D; Fri, 20 Jan 2023 15:10:26 +0100 (CET)
+ (Postfix) with ESMTP id 86A5727E0437; Fri, 20 Jan 2023 15:10:27 +0100 (CET)
 Received: from zimbra2.kalray.eu ([127.0.0.1]) by localhost
  (zimbra2.kalray.eu [127.0.0.1]) (amavisd-new, port 10026) with ESMTP id
- bBGr77tfxy-9; Fri, 20 Jan 2023 15:10:26 +0100 (CET)
+ 7H_ZxR3-jhzL; Fri, 20 Jan 2023 15:10:27 +0100 (CET)
 Received: from junon.lin.mbt.kalray.eu (unknown [192.168.37.161]) by
- zimbra2.kalray.eu (Postfix) with ESMTPSA id E117627E0439; Fri, 20 Jan 2023
- 15:10:25 +0100 (CET)
+ zimbra2.kalray.eu (Postfix) with ESMTPSA id E4DF627E0439; Fri, 20 Jan 2023
+ 15:10:26 +0100 (CET)
 X-Virus-Scanned: E-securemail
-Secumail-id: <5193.63caa0d3.18042.0>
-DKIM-Filter: OpenDKIM Filter v2.10.3 zimbra2.kalray.eu 86B8727E043D
+Secumail-id: <6f30.63caa0d4.21362.0>
+DKIM-Filter: OpenDKIM Filter v2.10.3 zimbra2.kalray.eu 86A5727E0437
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kalray.eu;
- s=32AE1B44-9502-11E5-BA35-3734643DEF29; t=1674223826;
- bh=WsdsMgF+9wdt2RCH1Xf3svKE0DGavKlRxJdrjiN4Uh8=;
+ s=32AE1B44-9502-11E5-BA35-3734643DEF29; t=1674223827;
+ bh=pa4ScTG872xOzuRt8GX8Xf9/eL9W3gZxwoN/kQBQFss=;
  h=From:To:Date:Message-Id:MIME-Version;
- b=P23x+LKcvEP+IKZLbkuicGs3Pej5mBdo8yQYkaxT3SdD6c0GM19pKDj+ase6ViEKo
- uPexGp9XpE0T3huFfEVD6e4MSK+6FZ4VooRCJ6oBEHDNAQPNIZeWLmd6d5qSRBL22D
- of29euZL+icynxeO+ubhAeSadnZtlOlSeb48YA+Q=
+ b=mCuKc4/UeROfSPy0qESb6bWw6haYw2yj/Thuaz88gp4Xo6fY7v11akHAnwnsq/SE/
+ l71YYm+MloYSX37ktexP6Ugc0NvI9sQziU77LnSg76PpXxXYDYmYnCLgz0FFptdvhN
+ uCVOH2np8u2uDy77i3yNVSUCOsRcLW4hLIHMTeNw=
 From: Yann Sionneau <ysionneau@kalray.eu>
 To: Arnd Bergmann <arnd@arndb.de>, Jonathan Corbet <corbet@lwn.net>, Thomas
  Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Rob Herring
@@ -91,18 +97,18 @@ Cc: Benjamin Mugnier <mugnier.benjamin@gmail.com>,
  linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
  devicetree@vger.kernel.org, linux-mm@kvack.org, linux-arch@vger.kernel.org,
  linux-audit@redhat.com, linux-riscv@lists.infradead.org, bpf@vger.kernel.org
-Subject: [RFC PATCH v2 04/31] Documentation: Add binding for
- kalray,kv3-1-apic-mailbox
-Date: Fri, 20 Jan 2023 15:09:35 +0100
-Message-ID: <20230120141002.2442-5-ysionneau@kalray.eu>
+Subject: [RFC PATCH v2 06/31] Documentation: Add binding for
+ kalray,kv3-1-ipi-ctrl
+Date: Fri, 20 Jan 2023 15:09:37 +0100
+Message-ID: <20230120141002.2442-7-ysionneau@kalray.eu>
 X-Mailer: git-send-email 2.37.2
 In-Reply-To: <20230120141002.2442-1-ysionneau@kalray.eu>
 References: <20230120141002.2442-1-ysionneau@kalray.eu>
 MIME-Version: 1.0
 X-ALTERMIMEV2_out: done
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230120_061034_173856_D66D7DF1 
-X-CRM114-Status: GOOD (  16.93  )
+X-CRM114-CacheID: sfid-20230120_061034_236919_F092C7CC 
+X-CRM114-Status: GOOD (  15.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,7 +127,7 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Jules Maselbas <jmaselbas@kalray.eu>
 
-Add documentation for `kalray,kv3-1-core-intc` binding.
+Add documentation for `kalray,kv3-1-ipi-ctrl` binding.
 
 Co-developed-by: Jules Maselbas <jmaselbas@kalray.eu>
 Signed-off-by: Jules Maselbas <jmaselbas@kalray.eu>
@@ -131,88 +137,57 @@ Signed-off-by: Yann Sionneau <ysionneau@kalray.eu>
 Notes:
     V1 -> V2: new patch
 
- .../kalray,kv3-1-apic-mailbox.yaml            | 75 +++++++++++++++++++
- 1 file changed, 75 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/interrupt-controller/kalray,kv3-1-apic-mailbox.yaml
+ .../kalray/kalray,kv3-1-ipi-ctrl.yaml         | 44 +++++++++++++++++++
+ 1 file changed, 44 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/kalray/kalray,kv3-1-ipi-ctrl.yaml
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/kalray,kv3-1-apic-mailbox.yaml b/Documentation/devicetree/bindings/interrupt-controller/kalray,kv3-1-apic-mailbox.yaml
+diff --git a/Documentation/devicetree/bindings/kalray/kalray,kv3-1-ipi-ctrl.yaml b/Documentation/devicetree/bindings/kalray/kalray,kv3-1-ipi-ctrl.yaml
 new file mode 100644
-index 000000000000..e1eb1c9fda0d
+index 000000000000..dc8026b12905
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/interrupt-controller/kalray,kv3-1-apic-mailbox.yaml
-@@ -0,0 +1,75 @@
++++ b/Documentation/devicetree/bindings/kalray/kalray,kv3-1-ipi-ctrl.yaml
+@@ -0,0 +1,44 @@
 +# SPDX-License-Identifier: GPL-2.0
 +%YAML 1.2
 +---
-+$id: http://devicetree.org/schemas/interrupt-controller/kalray,kv3-1-apic-mailbox#
++$id: http://devicetree.org/schemas/kalray/kalray,kv3-1-ipi-ctrl#
 +$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+title: Kalray kv3-1 APIC-Mailbox
++title: Kalray kv3-1 Inter-Processor Interrupt Controller (IPI)
 +
 +description: |
-+  Each cluster in the Coolidge SoC includes an Advanced Programmable Interrupt
-+  Controller (APIC) which is split in two part:
-+    - a Generic Interrupt Controller (referred as APIC-GIC)
-+    - a Mailbox Controller           (referred as APIC-Mailbox)
-+  The APIC-Mailbox contains 128 mailboxes of 8 bytes (size of a word),
-+  this hardware block is basically a 1 KB of smart memory space.
-+  Each mailbox can be independently configured with a trigger condition
-+  and an input mode function.
++  The Inter-Processor Interrupt Controller (IPI) provides a fast synchronization
++  mechanism to the software. It exposes eight independent set of registers that
++  can be use to notify each processor in the cluster.
++  A set of registers contains two 32-bit registers:
++    - 17-bit interrupt control, one bit per core, raise an interrupt on write
++    - 17-bit mask, one per core, to enable interrupts
 +
-+  Input mode are:
-+   - write
-+   - bitwise OR
-+   - add
++  Bit at offsets 0 to 15 selects cores in the cluster, respectively PE0 to PE15,
++  while bit at offset 16 is for the cluster Resource Manager (RM) core.
 +
-+  Interrupts are generated on a write when the mailbox content value
-+  match the configured trigger condition.
-+  Available conditions are:
-+   - doorbell: always raise interruption on write
-+   - match: when the mailbox's value equal the configured trigger value
-+   - barrier: same as match but the mailbox's value is cleared on trigger
-+   - threshold: when the mailbox's value is greater than, or equal to, the
-+     configured trigger value
-+
-+  Since this hardware block generates IRQs based on writes to some memory
-+  locations, it is both an interrupt controller and an MSI controller.
-+
-+allOf:
-+  - $ref: /schemas/interrupt-controller.yaml#
++  The eight output interrupts are connected to each processor core interrupt
++  controller (intc).
 +
 +properties:
 +  compatible:
-+    const: kalray,kv3-1-apic-mailbox
-+  "#interrupt-cells":
-+    const: 1
-+    description:
-+      The IRQ number.
-+  interrupt-controller: true
-+  interrupt-parent: true
-+  interrupts:
-+    maxItems: 128
-+    description: |
-+     Specifies the interrupt line(s) in the interrupt-parent controller node;
-+     valid values depend on the type of parent interrupt controller
-+  msi-controller: true
++    const: kalray,kv3-1-ipi-ctrl
++  reg:
++    maxItems: 1
 +
 +required:
 +  - compatible
 +  - reg
-+  - "#interrupt-cells"
-+  - interrupt-controller
 +  - interrupt-parent
 +  - interrupts
-+  - msi-controller
 +
 +examples:
 +  - |
-+    apic_mailbox: interrupt-controller@a00000 {
-+        compatible = "kalray,kv3-1-apic-gic";
-+        reg = <0 0xa00000 0 0x0f200>;
-+        #interrupt-cells = <1>;
-+        interrupt-controller;
-+        interrupt-parent = <&apic_gic>;
-+        interrups = <0 1 2 3 4 5 6 7 8 9>;
++    ipi: inter-processor-interrupt@ad0000 {
++        compatible = "kalray,kv3-1-ipi-ctrl";
++        reg = <0x00 0xad0000 0x00 0x1000>;
++        interrupt-parent = <&intc>;
++        interrupts = <24>;
 +    };
 +
 +...
