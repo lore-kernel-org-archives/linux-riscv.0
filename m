@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 109D8C05027
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jan 2023 14:21:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 623BCC25B4E
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jan 2023 14:21:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GjszOYpTefVKgU7Hj855yM03FyZXe5VHHwuUu7NDPlI=; b=DO4NiyERzVcRaT
-	cGGyA9MtKt0jZay+uxEW+HJh+NjdACYPsBBgHLSBClIKCOARbzwfwz2zK8m/0HPAXYQ55QCZgUYyV
-	m+noNXxI2ZVQkMmItdYlVjcelK9iaXBCkbN4UoaGz+k0TMbsMG/soxWVAu/wrYS+CNofDEkH8ZDTT
-	CKu8QY2+7ppS71we4V3vYOI7FV/ZpcEH/rdfnC6TSS1xTqfBIvfC2FZ5Ka8td6th+1HCcSIo9U2Gj
-	j1Mt9Pfu1knlqMxNmGamSqnVJyEr5FXw0A/uZAG+5/XwbFp1DUlujo27ScHwkdVpvLTY3PpNAFHo+
-	l2CYDkEPEDRgQY5nntMA==;
+	List-Owner; bh=CsEksSj1OnM+b8lTOCFyl3PPs25vV1LcYSA+YJ5DY1Y=; b=yUehlnOT5p34yC
+	hxgy3KA2rAtsZq8s/DL7hXiN+l6HJXDwtj0f2yjMP6ZhVLtLXXmZ7HNS+EJ8r0ucyiJNp8rovanLw
+	ZPISd4oCV2JUyYLCgn2Nz7Y9dkdcrk1k22qIOIJ49IYFiVIpLleYwsQpUpO2bZd6lUdNoqpZOjjXu
+	imqIQKRELpkuGXLNKjykaitOUEv0B3ffzyNA7zpPqzquvxQtHyd/TxtzZPpmtPLumUJQok+CBytwq
+	xE+9gtiTaXv45QMGaKVY5FyokMgQMM907hFWKqF8jjzB8rUCGSzL3+mypL51jkI3je98dNBmOUveY
+	2hlxQB2fxVXaM8sdTklw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIsGZ-00AgR8-3V; Fri, 20 Jan 2023 14:21:15 +0000
-Received: from smtpout30.security-mail.net ([85.31.212.35] helo=fx305.security-mail.net)
+	id 1pIsGg-00AgVY-JV; Fri, 20 Jan 2023 14:21:22 +0000
+Received: from smtpout140.security-mail.net ([85.31.212.146] helo=fx601.security-mail.net)
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIsG9-00AgA2-P5
-	for linux-riscv@lists.infradead.org; Fri, 20 Jan 2023 14:20:55 +0000
-Received: from localhost (fx305.security-mail.net [127.0.0.1])
-	by fx305.security-mail.net (Postfix) with ESMTP id 555F530EBED
+	id 1pIsGA-00AgAY-3A
+	for linux-riscv@lists.infradead.org; Fri, 20 Jan 2023 14:20:56 +0000
+Received: from localhost (fx601.security-mail.net [127.0.0.1])
+	by fx601.security-mail.net (Postfix) with ESMTP id E7B4A34994D
 	for <linux-riscv@lists.infradead.org>; Fri, 20 Jan 2023 15:20:47 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kalray.eu;
-	s=sec-sig-email; t=1674224447;
-	bh=2SWJGRwRdZLqlwBptg833gzCp9GToHDPe6YO7DLyNJI=;
+	s=sec-sig-email; t=1674224448;
+	bh=C4JX2KDfJMf+kd6dGlNUF/l2OL1SVZPZi+/ckEfH3UU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=j8+M5Q/L7WUU0c4Or1gwyB/2TVCpnM4TMT5XO4Rp5ouzz//UApVuzsDN5o0yb9uL0
-	 70lxQsux4SQq7k7DkESw5f2MUSV6mpsJIFZyODMUiyBxa88n2geVSu6Ep5LG0Dg0W1
-	 WtUc8HAXkBPIjARUWJL7XQi/m3eTn2WrYrY+tM1M=
-Received: from fx305 (fx305.security-mail.net [127.0.0.1]) by
- fx305.security-mail.net (Postfix) with ESMTP id 8942730FDFD; Fri, 20 Jan
+	b=hGbMd7iH7oZG2MBdH3EXwIyE0JbBdGcp5/ZKBhEyMU77mx1Ig1lOwNwy3kNb41DJD
+	 3vsMqnkYV4fQwWgNh9Zi1KiVWyyp0sZyEPWsC9zXjneCVZWj0PzIylgD6AswRE0OJ6
+	 bOXW56Dh8BzKEdSkRY5a3eFt7XzzzG5k8wRL0Urs=
+Received: from fx601 (fx601.security-mail.net [127.0.0.1]) by
+ fx601.security-mail.net (Postfix) with ESMTP id 9ACCE3498EF; Fri, 20 Jan
  2023 15:20:46 +0100 (CET)
 Received: from zimbra2.kalray.eu (unknown [217.181.231.53]) by
- fx305.security-mail.net (Postfix) with ESMTPS id 245F430FD90; Fri, 20 Jan
+ fx601.security-mail.net (Postfix) with ESMTPS id 5CEAA34967D; Fri, 20 Jan
  2023 15:20:44 +0100 (CET)
 Received: from zimbra2.kalray.eu (localhost [127.0.0.1]) by
- zimbra2.kalray.eu (Postfix) with ESMTPS id 0750227E0444; Fri, 20 Jan 2023
- 15:10:35 +0100 (CET)
+ zimbra2.kalray.eu (Postfix) with ESMTPS id 2AB8127E0443; Fri, 20 Jan 2023
+ 15:10:33 +0100 (CET)
 Received: from localhost (localhost [127.0.0.1]) by zimbra2.kalray.eu
- (Postfix) with ESMTP id E190727E044D; Fri, 20 Jan 2023 15:10:34 +0100 (CET)
+ (Postfix) with ESMTP id 10C7827E043E; Fri, 20 Jan 2023 15:10:33 +0100 (CET)
 Received: from zimbra2.kalray.eu ([127.0.0.1]) by localhost
  (zimbra2.kalray.eu [127.0.0.1]) (amavisd-new, port 10026) with ESMTP id
- guCn4x165645; Fri, 20 Jan 2023 15:10:34 +0100 (CET)
+ K4O0zyA2ozHg; Fri, 20 Jan 2023 15:10:32 +0100 (CET)
 Received: from junon.lin.mbt.kalray.eu (unknown [192.168.37.161]) by
- zimbra2.kalray.eu (Postfix) with ESMTPSA id 4201627E043A; Fri, 20 Jan 2023
- 15:10:34 +0100 (CET)
+ zimbra2.kalray.eu (Postfix) with ESMTPSA id 8995D27E043A; Fri, 20 Jan 2023
+ 15:10:32 +0100 (CET)
 X-Virus-Scanned: E-securemail
-Secumail-id: <15382.63caa33c.ccf59.0>
-DKIM-Filter: OpenDKIM Filter v2.10.3 zimbra2.kalray.eu E190727E044D
+Secumail-id: <178bb.63caa33c.5a128.0>
+DKIM-Filter: OpenDKIM Filter v2.10.3 zimbra2.kalray.eu 10C7827E043E
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kalray.eu;
- s=32AE1B44-9502-11E5-BA35-3734643DEF29; t=1674223834;
- bh=6QcC/grprLfAmpT4NvKC+2P+bFPaJgpCrUBOCq0uMCs=;
+ s=32AE1B44-9502-11E5-BA35-3734643DEF29; t=1674223833;
+ bh=5XXrgrQzCfc4vEIClRHO/5PBD+bYAS7ERJgrp4OCvF8=;
  h=From:To:Date:Message-Id:MIME-Version;
- b=Jsz1BDnzwLSgp1uP0SbgkLnVB9cUPgoFlKGT+0670XEFz3RHZCUP0NGX7/aoACy4s
- I9XN+NfDX+cpKzWEgijweRzCfuAVc1E5u2WzV3GPCUDW92Nh/OWH32rzft1y5rw49a
- bdhVe13SPEPF+/n/GPVITHkAbagdA8H2JMOmHuSo=
+ b=FSrUM33In5SGjg9c4LwAoWf/AQZS0QSN3rkfGHBE+hEzpy/Vbg1dnPf32zDa8kKMa
+ MP0vhwj3UfQzIUAbEwlHIAX+q89B2EfKjyUFxpR38io82dkQQDXMofBuaYRqLg7798
+ JotwpQrZZ+Hy6YLcj2fPGriS/JxTFf2hsIWLvBEE=
 From: Yann Sionneau <ysionneau@kalray.eu>
 To: Arnd Bergmann <arnd@arndb.de>, Jonathan Corbet <corbet@lwn.net>, Thomas
  Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Rob Herring
@@ -98,17 +98,18 @@ Cc: Benjamin Mugnier <mugnier.benjamin@gmail.com>,
  linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
  devicetree@vger.kernel.org, linux-mm@kvack.org, linux-arch@vger.kernel.org,
  linux-audit@redhat.com, linux-riscv@lists.infradead.org, bpf@vger.kernel.org
-Subject: [RFC PATCH v2 22/31] kvx: Add signal handling support
-Date: Fri, 20 Jan 2023 15:09:53 +0100
-Message-ID: <20230120141002.2442-23-ysionneau@kalray.eu>
+Subject: [RFC PATCH v2 18/31] irqchip: Add kvx-core-intc core interupt
+ controller driver
+Date: Fri, 20 Jan 2023 15:09:49 +0100
+Message-ID: <20230120141002.2442-19-ysionneau@kalray.eu>
 X-Mailer: git-send-email 2.37.2
 In-Reply-To: <20230120141002.2442-1-ysionneau@kalray.eu>
 References: <20230120141002.2442-1-ysionneau@kalray.eu>
 MIME-Version: 1.0
 X-ALTERMIMEV2_out: done
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230120_062050_200329_4898858C 
-X-CRM114-Status: GOOD (  28.86  )
+X-CRM114-CacheID: sfid-20230120_062050_597249_5B4FFE12 
+X-CRM114-Status: GOOD (  22.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,416 +126,175 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add sigcontext definition and signal handling support for kvx.
+From: Jules Maselbas <jmaselbas@kalray.eu>
+
+Each kvx core includes a hardware interrupt controller (core INTC)
+with the following features:
+ - 32 independent interrupt sources
+ - 4-bit priotity level
+ - Individual interrupt enable bit
+ - Interrupt status bit displaying the pending interrupts
+ - Priority management between the 32 interrupts
+
+Among those 32 interrupt sources, the first are hard-wired to hardware
+sources. The remaining interrupt sources can be triggered via software
+by directly writing to the ILR SFR.
+
+The hard-wired interrupt sources are the following:
+  0: Timer 0
+  1: Timer 1
+  2: Watchdog
+  3: Performance Monitors
+  4: APIC GIC line 0
+  5: APIC GIC line 1
+  6: APIC GIC line 2
+  7: APIC GIC line 3
+ 12: SECC error from memory system
+ 13: Arithmetic exception (carry and IEEE 754 flags)
+ 16: Data Asynchronous Memory Error (DAME), raised for DECC/DSYS errors
+ 17: CLI (Cache Line Invalidation) for L1D or L1I following
+     DECC/DSYS/Parity errors
+
+The APIC GIC lines will be used to route interrupts coming from SoC
+peripherals from outside the Cluster to the kvx core. Those peripherals
+include USB host controller, eMMC/SD host controller, i2c, spi, PCIe,
+IOMMUs etc...
 
 Co-developed-by: Clement Leger <clement@clement-leger.fr>
 Signed-off-by: Clement Leger <clement@clement-leger.fr>
-Co-developed-by: Jules Maselbas <jmaselbas@kalray.eu>
-Signed-off-by: Jules Maselbas <jmaselbas@kalray.eu>
 Co-developed-by: Julian Vetter <jvetter@kalray.eu>
 Signed-off-by: Julian Vetter <jvetter@kalray.eu>
-Co-developed-by: Yann Sionneau <ysionneau@kalray.eu>
+Co-developed-by: Vincent Chardon <vincent.chardon@elsys-design.com>
+Signed-off-by: Vincent Chardon <vincent.chardon@elsys-design.com>
+Co-developed-by: Jules Maselbas <jmaselbas@kalray.eu>
+Signed-off-by: Jules Maselbas <jmaselbas@kalray.eu>
 Signed-off-by: Yann Sionneau <ysionneau@kalray.eu>
 ---
 
 Notes:
-    V1 -> V2:
-     - use read_thread_flags() as suggested by Mark Rutland
+    V1 -> V2: new patch
+     - removed print on probe success
 
- arch/kvx/include/uapi/asm/sigcontext.h |  16 ++
- arch/kvx/kernel/signal.c               | 265 +++++++++++++++++++++++++
- arch/kvx/kernel/vdso.c                 |  87 ++++++++
- 3 files changed, 368 insertions(+)
- create mode 100644 arch/kvx/include/uapi/asm/sigcontext.h
- create mode 100644 arch/kvx/kernel/signal.c
- create mode 100644 arch/kvx/kernel/vdso.c
+ drivers/irqchip/Kconfig             |  5 ++
+ drivers/irqchip/Makefile            |  1 +
+ drivers/irqchip/irq-kvx-core-intc.c | 80 +++++++++++++++++++++++++++++
+ 3 files changed, 86 insertions(+)
+ create mode 100644 drivers/irqchip/irq-kvx-core-intc.c
 
-diff --git a/arch/kvx/include/uapi/asm/sigcontext.h b/arch/kvx/include/uapi/asm/sigcontext.h
+diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
+index 806adbc7b2a4..d242e02771e3 100644
+--- a/drivers/irqchip/Kconfig
++++ b/drivers/irqchip/Kconfig
+@@ -334,6 +334,11 @@ config MIPS_GIC
+ 	select IRQ_DOMAIN_HIERARCHY
+ 	select MIPS_CM
+ 
++config KVX_CORE_INTC
++	bool
++	depends on KVX
++	select IRQ_DOMAIN
++
+ config KVX_APIC_GIC
+ 	bool
+ 	depends on KVX
+diff --git a/drivers/irqchip/Makefile b/drivers/irqchip/Makefile
+index 7eaea87ca9ab..d931f2eb38b6 100644
+--- a/drivers/irqchip/Makefile
++++ b/drivers/irqchip/Makefile
+@@ -69,6 +69,7 @@ obj-$(CONFIG_BCM7120_L2_IRQ)		+= irq-bcm7120-l2.o
+ obj-$(CONFIG_BRCMSTB_L2_IRQ)		+= irq-brcmstb-l2.o
+ obj-$(CONFIG_KEYSTONE_IRQ)		+= irq-keystone.o
+ obj-$(CONFIG_MIPS_GIC)			+= irq-mips-gic.o
++obj-$(CONFIG_KVX_CORE_INTC)		+= irq-kvx-core-intc.o
+ obj-$(CONFIG_KVX_APIC_GIC)		+= irq-kvx-apic-gic.o
+ obj-$(CONFIG_KVX_ITGEN)			+= irq-kvx-itgen.o
+ obj-$(CONFIG_KVX_APIC_MAILBOX)		+= irq-kvx-apic-mailbox.o
+diff --git a/drivers/irqchip/irq-kvx-core-intc.c b/drivers/irqchip/irq-kvx-core-intc.c
 new file mode 100644
-index 000000000000..97ab4f78152a
+index 000000000000..145f1248925b
 --- /dev/null
-+++ b/arch/kvx/include/uapi/asm/sigcontext.h
-@@ -0,0 +1,16 @@
-+/* SPDX-License-Identifier: GPL-2.0-only WITH Linux-syscall-note */
-+/*
-+ * Copyright (C) 2017-2023 Kalray Inc.
-+ * Author(s): Clement Leger
-+ */
-+
-+#ifndef _UAPI_ASM_KVX_SIGCONTEXT_H
-+#define _UAPI_ASM_KVX_SIGCONTEXT_H
-+
-+#include <asm/ptrace.h>
-+
-+struct sigcontext {
-+	struct user_pt_regs sc_regs;
-+};
-+
-+#endif	/* _UAPI_ASM_KVX_SIGCONTEXT_H */
-diff --git a/arch/kvx/kernel/signal.c b/arch/kvx/kernel/signal.c
-new file mode 100644
-index 000000000000..5bd63d14f43e
---- /dev/null
-+++ b/arch/kvx/kernel/signal.c
-@@ -0,0 +1,265 @@
++++ b/drivers/irqchip/irq-kvx-core-intc.c
+@@ -0,0 +1,80 @@
 +// SPDX-License-Identifier: GPL-2.0-only
 +/*
-+ * Copyright (C) 2017-2023 Kalray Inc.
++ * Copyright (c) 2017-2023 Kalray Inc.
 + * Author(s): Clement Leger
 + */
 +
-+#include <linux/bug.h>
-+#include <linux/syscalls.h>
++#define pr_fmt(fmt)	"kvx_core_intc: " fmt
 +
-+#include <asm/ucontext.h>
-+#include <asm/processor.h>
-+#include <asm/cacheflush.h>
-+#include <linux/resume_user_mode.h>
++#include <linux/interrupt.h>
++#include <linux/irqdomain.h>
++#include <linux/irqchip.h>
++#include <linux/module.h>
++#include <linux/init.h>
++#include <linux/of.h>
++#include <asm/irq.h>
 +
-+struct rt_sigframe {
-+	struct siginfo info;
-+	struct ucontext uc;
++#define KVX_CORE_INTC_IRQ	32
++
++
++static void kvx_irq_mask(struct irq_data *data)
++{
++	kvx_sfr_clear_bit(ILE, data->hwirq);
++}
++
++static void kvx_irq_unmask(struct irq_data *data)
++{
++	kvx_sfr_set_bit(ILE, data->hwirq);
++}
++
++static struct irq_chip kvx_irq_chip = {
++	.name           = "kvx core Intc",
++	.irq_mask	= kvx_irq_mask,
++	.irq_unmask	= kvx_irq_unmask,
 +};
 +
-+int __init setup_syscall_sigreturn_page(void *sigpage_addr)
++static int kvx_irq_map(struct irq_domain *d, unsigned int irq,
++			 irq_hw_number_t hw)
 +{
-+	unsigned int frame_size = (uintptr_t) &user_scall_rt_sigreturn_end -
-+				  (uintptr_t) &user_scall_rt_sigreturn;
-+
-+	/* Copy the sigreturn scall implementation */
-+	memcpy(sigpage_addr, &user_scall_rt_sigreturn, frame_size);
-+
-+	flush_icache_range((unsigned long) sigpage_addr,
-+			   (unsigned long) sigpage_addr + frame_size);
++	/* All interrupts for core are per cpu */
++	irq_set_percpu_devid(irq);
++	irq_set_chip_and_handler(irq, &kvx_irq_chip, handle_percpu_irq);
 +
 +	return 0;
 +}
 +
-+static long restore_sigcontext(struct pt_regs *regs,
-+			       struct sigcontext __user *sc)
-+{
-+	long err;
-+
-+	/* sc_regs is structured the same as the start of pt_regs */
-+	err = __copy_from_user(regs, &sc->sc_regs, sizeof(sc->sc_regs));
-+
-+	return err;
-+}
-+
-+long _sys_rt_sigreturn(void)
-+{
-+	struct pt_regs *regs = current_pt_regs();
-+	struct rt_sigframe __user *frame;
-+	struct task_struct *task;
-+	sigset_t set;
-+
-+	current->restart_block.fn = do_no_restart_syscall;
-+
-+	frame = (struct rt_sigframe __user *) user_stack_pointer(regs);
-+
-+	/*
-+	 * Stack is not aligned but should be !
-+	 * User probably did some malicious things.
-+	 */
-+	if (user_stack_pointer(regs) & STACK_ALIGN_MASK)
-+		goto badframe;
-+
-+	if (!access_ok(frame, sizeof(*frame)))
-+		goto badframe;
-+
-+	/* Restore sigmask */
-+	if (__copy_from_user(&set, &frame->uc.uc_sigmask, sizeof(set)))
-+		goto badframe;
-+
-+	set_current_blocked(&set);
-+
-+	if (restore_sigcontext(regs, &frame->uc.uc_mcontext))
-+		goto badframe;
-+
-+	if (restore_altstack(&frame->uc.uc_stack))
-+		goto badframe;
-+
-+	return regs->r0;
-+
-+badframe:
-+	task = current;
-+	if (show_unhandled_signals) {
-+		pr_info_ratelimited(
-+			"%s[%d]: bad frame in %s: frame=%p pc=%p sp=%p\n",
-+			task->comm, task_pid_nr(task), __func__,
-+			frame, (void *) instruction_pointer(regs),
-+			(void *) user_stack_pointer(regs));
-+	}
-+	force_sig(SIGSEGV);
-+	return 0;
-+}
-+
-+
-+static long setup_sigcontext(struct rt_sigframe __user *frame,
-+			     struct pt_regs *regs)
-+{
-+	struct sigcontext __user *sc = &frame->uc.uc_mcontext;
-+	long err;
-+
-+	/* sc_regs is structured the same as the start of pt_regs */
-+	err = __copy_to_user(&sc->sc_regs, regs, sizeof(sc->sc_regs));
-+
-+	return err;
-+}
-+
-+static inline void __user *get_sigframe(struct ksignal *ksig,
-+					struct pt_regs *regs, size_t framesize)
-+{
-+	unsigned long sp;
-+	/* Default to using normal stack */
-+	sp = regs->sp;
-+
-+	/*
-+	 * If we are on the alternate signal stack and would overflow it, don't.
-+	 * Return an always-bogus address instead so we will die with SIGSEGV.
-+	 */
-+	if (on_sig_stack(sp) && !likely(on_sig_stack(sp - framesize)))
-+		return (void __user __force *)(-1UL);
-+
-+	/* This is the X/Open sanctioned signal stack switching. */
-+	sp = sigsp(sp, ksig) - framesize;
-+
-+	/* Align the stack frame on 16bytes */
-+	sp &= ~STACK_ALIGN_MASK;
-+
-+	return (void __user *)sp;
-+}
-+
-+/* TODO: Use VDSO when ready ! */
-+static int setup_rt_frame(struct ksignal *ksig, sigset_t *set,
-+			  struct pt_regs *regs)
-+{
-+	unsigned long sigpage = current->mm->context.sigpage;
-+	struct rt_sigframe __user *frame;
-+	long err = 0;
-+
-+	frame = get_sigframe(ksig, regs, sizeof(*frame));
-+	if (!access_ok(frame, sizeof(*frame)))
-+		return -EFAULT;
-+
-+	err |= copy_siginfo_to_user(&frame->info, &ksig->info);
-+
-+	/* Create the ucontext. */
-+	err |= __put_user(0, &frame->uc.uc_flags);
-+	err |= __put_user(NULL, &frame->uc.uc_link);
-+	err |= __save_altstack(&frame->uc.uc_stack, user_stack_pointer(regs));
-+	err |= setup_sigcontext(frame, regs);
-+	err |= __copy_to_user(&frame->uc.uc_sigmask, set, sizeof(*set));
-+	if (err)
-+		return -EFAULT;
-+
-+	/*
-+	 * When returning from the handler, we want to jump to the
-+	 * sigpage which will execute the sigreturn scall.
-+	 */
-+	regs->ra = sigpage;
-+	/* Return to signal handler */
-+	regs->spc = (unsigned long)ksig->ka.sa.sa_handler;
-+	regs->sp = (unsigned long) frame;
-+
-+	/* Parameters for signal handler */
-+	regs->r0 = ksig->sig;                     /* r0: signal number */
-+	regs->r1 = (unsigned long)(&frame->info); /* r1: siginfo pointer */
-+	regs->r2 = (unsigned long)(&frame->uc);   /* r2: ucontext pointer */
-+
-+	return 0;
-+}
-+
-+static void handle_signal(struct ksignal *ksig, struct pt_regs *regs)
-+{
-+	sigset_t *oldset = sigmask_to_save();
-+	int ret;
-+
-+	/* Are we from a system call? */
-+	if (in_syscall(regs)) {
-+		/* If so, check system call restarting.. */
-+		switch (regs->r0) {
-+		case -ERESTART_RESTARTBLOCK:
-+		case -ERESTARTNOHAND:
-+			regs->r0 = -EINTR;
-+			break;
-+		case -ERESTARTSYS:
-+			if (!(ksig->ka.sa.sa_flags & SA_RESTART)) {
-+				regs->r0 = -EINTR;
-+				break;
-+			}
-+			fallthrough;
-+		case -ERESTARTNOINTR:
-+			regs->r0 = regs->orig_r0;
-+			regs->spc -= 0x4;
-+			break;
-+		}
-+	}
-+
-+	ret = setup_rt_frame(ksig, oldset, regs);
-+
-+	signal_setup_done(ret, ksig, 0);
-+}
-+
-+asmlinkage void do_signal(struct pt_regs *regs)
-+{
-+	struct ksignal ksig;
-+
-+	if (get_signal(&ksig)) {
-+		handle_signal(&ksig, regs);
-+		return;
-+	}
-+
-+	/* Are we from a system call? */
-+	if (in_syscall(regs)) {
-+		/*
-+		 * If we are here, this means there is no handler
-+		 * present and we must restart the syscall.
-+		 */
-+		switch (regs->r0) {
-+		case -ERESTART_RESTARTBLOCK:
-+			/* Modify the syscall number in order to restart it */
-+			regs->r6 = __NR_restart_syscall;
-+			fallthrough;
-+		case -ERESTARTNOHAND:
-+		case -ERESTARTSYS:
-+		case -ERESTARTNOINTR:
-+			/* We are restarting the syscall */
-+			regs->r0 = regs->orig_r0;
-+			/*
-+			 * scall instruction isn't bundled with anything else,
-+			 * so we can just revert the spc to restart the syscall.
-+			 */
-+			regs->spc -= 0x4;
-+			break;
-+		}
-+	}
-+
-+	/*
-+	 * If there's no signal to deliver, we just put the saved sigmask
-+	 * back.
-+	 */
-+	restore_saved_sigmask();
-+}
-+
-+
-+asmlinkage void do_work_pending(struct pt_regs *regs,
-+				unsigned long thread_flags)
-+{
-+	/* We are called with IRQs disabled */
-+	trace_hardirqs_off();
-+
-+	do {
-+		if (thread_flags & _TIF_NEED_RESCHED) {
-+			schedule();
-+		} else {
-+			local_irq_enable();
-+			if (thread_flags & (_TIF_SIGPENDING | _TIF_NOTIFY_SIGNAL))
-+				do_signal(regs);
-+
-+			if (thread_flags & _TIF_NOTIFY_RESUME) {
-+				clear_thread_flag(TIF_NOTIFY_RESUME);
-+				resume_user_mode_work(regs);
-+			}
-+		}
-+		local_irq_disable();
-+		thread_flags = read_thread_flags();
-+	} while (thread_flags & _TIF_WORK_MASK);
-+}
-+
-diff --git a/arch/kvx/kernel/vdso.c b/arch/kvx/kernel/vdso.c
-new file mode 100644
-index 000000000000..1515de15eb31
---- /dev/null
-+++ b/arch/kvx/kernel/vdso.c
-@@ -0,0 +1,87 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2017-2023 Kalray Inc.
-+ * Author(s): Clement Leger
-+ */
-+
-+#include <linux/mm.h>
-+#include <linux/vmalloc.h>
-+#include <linux/binfmts.h>
-+
-+#include <asm/syscall.h>
-+
-+static struct page *signal_page;
-+
-+static int __init init_sigreturn(void)
-+{
-+	struct page *sigpage;
-+	void *mapped_sigpage;
-+	int err;
-+
-+	sigpage = alloc_page(GFP_KERNEL);
-+	if (!sigpage)
-+		panic("Cannot allocate sigreturn page");
-+
-+	mapped_sigpage = vmap(&sigpage, 1, 0, PAGE_KERNEL);
-+	if (!mapped_sigpage)
-+		panic("Cannot map sigreturn page");
-+
-+	clear_page(mapped_sigpage);
-+
-+	err = setup_syscall_sigreturn_page(mapped_sigpage);
-+	if (err)
-+		panic("Cannot set signal return syscall, err: %x.", err);
-+
-+	vunmap(mapped_sigpage);
-+
-+	signal_page = sigpage;
-+
-+	return 0;
-+}
-+arch_initcall(init_sigreturn);
-+
-+static int sigpage_mremap(const struct vm_special_mapping *sm,
-+		struct vm_area_struct *new_vma)
-+{
-+	current->mm->context.sigpage = new_vma->vm_start;
-+	return 0;
-+}
-+
-+static const struct vm_special_mapping sigpage_mapping = {
-+	.name = "[sigpage]",
-+	.pages = &signal_page,
-+	.mremap = sigpage_mremap,
++static const struct irq_domain_ops kvx_irq_ops = {
++	.xlate = irq_domain_xlate_onecell,
++	.map = kvx_irq_map,
 +};
 +
-+int arch_setup_additional_pages(struct linux_binprm *bprm, int uses_interp)
++static int __init
++kvx_init_core_intc(struct device_node *intc, struct device_node *parent)
 +{
-+	int ret = 0;
-+	unsigned long addr;
-+	struct mm_struct *mm = current->mm;
-+	struct vm_area_struct *vma;
++	struct irq_domain *root_domain;
++	uint32_t core_nr_irqs;
 +
-+	mmap_write_lock(mm);
++	if (parent)
++		panic("DeviceTree core intc not a root irq controller\n");
 +
-+	addr = get_unmapped_area(NULL, STACK_TOP, PAGE_SIZE, 0, 0);
-+	if (IS_ERR_VALUE(addr)) {
-+		ret = addr;
-+		goto up_fail;
-+	}
++	if (of_property_read_u32(intc, "kalray,intc-nr-irqs", &core_nr_irqs))
++		core_nr_irqs = KVX_CORE_INTC_IRQ;
 +
-+	vma = _install_special_mapping(
-+			mm,
-+			addr,
-+			PAGE_SIZE,
-+			VM_READ|VM_EXEC|VM_MAYREAD|VM_MAYEXEC,
-+			&sigpage_mapping);
-+	if (IS_ERR(vma)) {
-+		ret = PTR_ERR(vma);
-+		goto up_fail;
-+	}
++	/* We only have up to 32 interrupts, according to IRQ-domain.txt,
++	 * linear is likely to be the best choice
++	 */
++	root_domain = irq_domain_add_linear(intc, core_nr_irqs,
++						&kvx_irq_ops, NULL);
++	if (!root_domain)
++		panic("root irq domain not avail\n");
 +
-+	mm->context.sigpage = addr;
++	/*
++	 * Needed for primary domain lookup to succeed
++	 * This is a primary irqchip, and can never have a parent
++	 */
++	irq_set_default_host(root_domain);
 +
-+up_fail:
-+	mmap_write_unlock(mm);
-+	return ret;
++	return 0;
 +}
++
++IRQCHIP_DECLARE(kvx_core_intc, "kalray,kvx-core-intc", kvx_init_core_intc);
 -- 
 2.37.2
 
