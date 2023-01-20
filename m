@@ -4,117 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2344EC38159
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jan 2023 04:59:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE7B2C05027
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jan 2023 07:34:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5ty4MqxkkffGQSjotgvMTr4TD6KTB15U2amiEygS8A0=; b=pWNfTy3wlP+ezb
-	YG0b9614csYbHEdtBn/VnAFk/+w1XvQJePhnUDvaVEZE7jKnMkYjjaAVbVSqk2CoqpskHBKXOSV/v
-	6CINxUDRQCYJwlOn4TU4N5oPcCSRWhNqT+7WuNMQAHR9GmQS+d4zfoVVcYbCJnOhoDDyrAFmlQWzo
-	qiglDZMiUMdFBHf0bzsyCoypKRm3GWEzyO0a5+2oSWCLk8PBCuvN8ld1J267gXfFc/IrmOQzrJ5D/
-	J8k08SSxJWR7z5JrR2JqaQsm4gbuY5zRalOWPCFvdA6ENiuhuBhKVTPOq6um+n9BejJjxkeOlkwFt
-	ghoIsYv2mwDPUsdGADug==;
+	List-Owner; bh=TVXeEhhWSxfA8ema+yjA/JENXj/aHme+vPVwJbVpBAs=; b=yi3eN0mQ+2GZK0
+	nCae4RDbIsSJPkqHAqOb9m1E4jMdLpBueZD8IUe2VMXWNhy1DbEGzE5kpA+txOaCF/BChx3u3xQvn
+	0UMD+k/xWIMHvKS1AXU7XdrN7vwxSQjk6RF6vcv5anmUrcr2EeOpcr5MI2/KYBoOfZBsUeJon3Uy2
+	oKC8pAeBDPW0g/Mmc7vhxqqJnQh8hDnR/qUy5EAjywC7+wXV68vucL62BmnV8b50JGExJx8T2g4uw
+	CW4bx3bPeMjZGkO9ftA+mJ8r/GBGSWGPlyxuFtNbHe8SBYTOz7j04gVzGjvPuHdGjaLHUrbFh/MZp
+	7MaUXsPzCNs8tFq1CFEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIjV6-008Pbm-2W; Fri, 20 Jan 2023 04:59:40 +0000
-Received: from fllv0015.ext.ti.com ([198.47.19.141])
+	id 1pIluU-008p5I-Ky; Fri, 20 Jan 2023 07:34:02 +0000
+Received: from mga09.intel.com ([134.134.136.24])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIjV2-008Paq-J2; Fri, 20 Jan 2023 04:59:38 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by fllv0015.ext.ti.com (8.15.2/8.15.2) with ESMTP id 30K4wwaL059217;
-	Thu, 19 Jan 2023 22:58:58 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1674190738;
-	bh=FhdMm8snS4EyWglAxG9HV9C8rgTh2MdCa/PV2daai+0=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=IQIjXef8eot9FsusDlpnq4ExSa3ShrotvDLKZTWVWjFVwfIti0C44gBEdKYHbZ941
-	 d4FgjRzaupR90M0pb3/LnJq5dmc3YnXkhoE3pJDNHx0Qr1bjWPdqMFChFPaLYKEnYn
-	 t+rnl+NLCidenbOG2q/xjWzNgOKMsVQqdVS3O2H4=
-Received: from DLEE106.ent.ti.com (dlee106.ent.ti.com [157.170.170.36])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 30K4wwvM108629
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 19 Jan 2023 22:58:58 -0600
-Received: from DLEE101.ent.ti.com (157.170.170.31) by DLEE106.ent.ti.com
- (157.170.170.36) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.16; Thu, 19
- Jan 2023 22:58:57 -0600
-Received: from fllv0040.itg.ti.com (10.64.41.20) by DLEE101.ent.ti.com
- (157.170.170.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.16 via
- Frontend Transport; Thu, 19 Jan 2023 22:58:57 -0600
-Received: from [172.24.223.178] (ileaxei01-snat2.itg.ti.com [10.180.69.6])
-	by fllv0040.itg.ti.com (8.15.2/8.15.2) with ESMTP id 30K4wmmo100309;
-	Thu, 19 Jan 2023 22:58:49 -0600
-Message-ID: <36fe032b-a00c-dad1-a3db-bea1f15726c0@ti.com>
-Date: Fri, 20 Jan 2023 10:28:48 +0530
+	id 1pIluR-008p3n-0G
+	for linux-riscv@lists.infradead.org; Fri, 20 Jan 2023 07:34:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1674200038; x=1705736038;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=sLL9QoGxqkEaaB47NwJbqBPEl2IkXtitMSibR3HLLjw=;
+  b=STZa2g/X+puF2rMp2FHeYJgbwM/5z2V4ZyfRizNAHaw697bGyFxK4j+w
+   rlOkZcOBXxLZ+Mw6NRT3UO1P95X3y6KPwQ3xk0dVmXl8qh3VyhG97pBqL
+   udMb8ad8tOLbIE265BBayjSA0oVZu4VaIwcdZ+KWAHqHqHlODa0w7gJpE
+   yRcLWQLr7gDjD8NO77YBbcUbQWT3HtyP+22tUw4vknS9LEBzDABd9Tmwd
+   zM/QvTTOzKMLs4ZvM/2QDV9lP8RLKEXiJy+qU63nMWbMCIs4qEGAVeeCq
+   TWQfJKq+p3JeO9rptJ736Wh0vCuPmY89lKOFU6d3HNCSWPf2OQUl/Xwcm
+   A==;
+X-IronPort-AV: E=McAfee;i="6500,9779,10595"; a="326802317"
+X-IronPort-AV: E=Sophos;i="5.97,231,1669104000"; 
+   d="scan'208";a="326802317"
+Received: from orsmga008.jf.intel.com ([10.7.209.65])
+  by orsmga102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Jan 2023 23:33:55 -0800
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6500,9779,10595"; a="690960207"
+X-IronPort-AV: E=Sophos;i="5.97,231,1669104000"; 
+   d="scan'208";a="690960207"
+Received: from lkp-server01.sh.intel.com (HELO 5646d64e7320) ([10.239.97.150])
+  by orsmga008.jf.intel.com with ESMTP; 19 Jan 2023 23:33:52 -0800
+Received: from kbuild by 5646d64e7320 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1pIluE-0002Ka-3D;
+	Fri, 20 Jan 2023 07:33:46 +0000
+Date: Fri, 20 Jan 2023 15:33:43 +0800
+From: kernel test robot <lkp@intel.com>
+To: Jesse Taube <mr.bossman075@gmail.com>, linux-riscv@lists.infradead.org
+Cc: oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Jesse Taube <Mr.Bossman075@gmail.com>,
+	Yimin Gu <ustcymgu@gmail.com>, Waldemar Brodkorb <wbx@openadk.org>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>
+Subject: Re: [PATCH v1 1/2] riscv: Kconfig: Allow RV32 to build with no MMU
+Message-ID: <202301201538.zNlqgE4L-lkp@intel.com>
+References: <20230119052642.1112171-2-Mr.Bossman075@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.6.1
-Subject: Re: [RFC PATCH 3/4] dt-bindings: panel: Introduce dual-link LVDS
- panel
-Content-Language: en-US
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-        AngeloGioacchino Del
- Regno <angelogioacchino.delregno@collabora.com>,
-        Rob Herring
-	<robh+dt@kernel.org>,
-        Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>,
-        Jyri Sarha <jyri.sarha@iki.fi>, David
- Airlie <airlied@gmail.com>,
-        Daniel Vetter <daniel@ffwll.ch>,
-        Laurent Pinchart
-	<laurent.pinchart@ideasonboard.com>,
-        Thierry Reding
-	<thierry.reding@gmail.com>,
-        Sam Ravnborg <sam@ravnborg.org>, Maxime Ripard
-	<maxime@cerno.tech>,
-        Liam Girdwood <lgirdwood@gmail.com>, Mark Brown
-	<broonie@kernel.org>,
-        Lad Prabhakar
-	<prabhakar.mahadev-lad.rj@bp.renesas.com>,
-        Paul Walmsley
-	<paul.walmsley@sifive.com>,
-        Palmer Dabbelt <palmer@dabbelt.com>,
-        Albert Ou
-	<aou@eecs.berkeley.edu>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        Guo Ren
-	<guoren@kernel.org>
-CC: DRI Development List <dri-devel@lists.freedesktop.org>,
-        Devicetree List
-	<devicetree@vger.kernel.org>,
-        Linux Kernel List
-	<linux-kernel@vger.kernel.org>,
-        Linux RISC-V List
-	<linux-riscv@lists.infradead.org>,
-        Linux ARM Kernel List
-	<linux-arm-kernel@lists.infradead.org>,
-        Linux Mediatek List
-	<linux-mediatek@lists.infradead.org>,
-        Linux C-SKY Arch List
-	<linux-csky@vger.kernel.org>,
-        Nishanth Menon <nm@ti.com>, Vignesh Raghavendra
-	<vigneshr@ti.com>,
-        Rahul T R <r-ravikumar@ti.com>, Devarsh Thakkar
-	<devarsht@ti.com>,
-        Jai Luthra <j-luthra@ti.com>, Jayesh Choudhary
-	<j-choudhary@ti.com>
-References: <20230103064615.5311-1-a-bhatia1@ti.com>
- <20230103064615.5311-4-a-bhatia1@ti.com>
- <09f1ca83-c7d5-a186-6fa6-09cdd7a0b9cc@collabora.com>
- <431ddd82-055b-2526-3d5e-f6563e48d264@ti.com>
- <808e831f-4282-0e58-ebb2-2f556aaeaca4@ideasonboard.com>
-From: Aradhya Bhatia <a-bhatia1@ti.com>
-In-Reply-To: <808e831f-4282-0e58-ebb2-2f556aaeaca4@ideasonboard.com>
-X-EXCLAIMER-MD-CONFIG: e1e8a2fd-e40a-4ac6-ac9b-f7e9cc9ee180
+Content-Disposition: inline
+In-Reply-To: <20230119052642.1112171-2-Mr.Bossman075@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230119_205936_749463_458779E8 
-X-CRM114-Status: GOOD (  26.27  )
+X-CRM114-CacheID: sfid-20230119_233359_131627_8B75C6B9 
+X-CRM114-Status: GOOD (  12.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,113 +82,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgVG9taSwKClRoYW5rIHlvdSBmb3IgdGFraW5nIGEgbG9vayBhdCB0aGUgcGF0Y2hlcyEKCk9u
-IDE3LUphbi0yMyAxODowOCwgVG9taSBWYWxrZWluZW4gd3JvdGU6Cj4gT24gMDkvMDEvMjAyMyAx
-ODoyMSwgQXJhZGh5YSBCaGF0aWEgd3JvdGU6Cj4+IEhpIEFuZ2VsbywKPj4KPj4gVGhhbmtzIGZv
-ciB0YWtpbmcgYSBsb29rIGF0IHRoZSBwYXRjaGVzIQo+Pgo+PiBPbiAwMy1KYW4tMjMgMTc6MjEs
-IEFuZ2Vsb0dpb2FjY2hpbm8gRGVsIFJlZ25vIHdyb3RlOgo+Pj4gSWwgMDMvMDEvMjMgMDc6NDYs
-IEFyYWRoeWEgQmhhdGlhIGhhIHNjcml0dG86Cj4+Pj4gRHVhbC1saW5rIExWRFMgaW50ZXJmYWNl
-cyBoYXZlIDIgbGlua3MsIHdpdGggZXZlbiBwaXhlbHMgdHJhdmVsaW5nIG9uCj4+Pj4gb25lIGxp
-bmssIGFuZCBvZGQgcGl4ZWxzIG9uIHRoZSBvdGhlci4gVGhlc2UgcGFuZWxzIGFyZSBhbHNvIGdl
-bmVyaWMgaW4KPj4+PiBuYXR1cmUsIHdpdGggbm8gZG9jdW1lbnRlZCBjb25zdHJhaW50cywgbXVj
-aCBsaWtlIHRoZWlyIHNpbmdsZS1saW5rCj4+Pj4gY291bnRlcnBhcnRzLCAicGFuZWwtbHZkcyIu
-Cj4+Pj4KPj4+PiBBZGQgYSBuZXcgY29tcGF0aWJsZSwgInBhbmVsLWR1YWwtbHZkcyIsIGFuZCBh
-IGR0LWJpbmRpbmcgZG9jdW1lbnQgZm9yCj4+Pj4gdGhlc2UgcGFuZWxzLgo+Pj4+Cj4+Pj4gU2ln
-bmVkLW9mZi1ieTogQXJhZGh5YSBCaGF0aWEgPGEtYmhhdGlhMUB0aS5jb20+Cj4+Pj4gLS0tCj4+
-Pj4gwqAgLi4uL2Rpc3BsYXkvcGFuZWwvcGFuZWwtZHVhbC1sdmRzLnlhbWzCoMKgwqDCoMKgwqDC
-oCB8IDE1NyAKPj4+PiArKysrKysrKysrKysrKysrKysKPj4+PiDCoCBNQUlOVEFJTkVSU8KgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgIHzCoMKgIDEgKwo+Pj4+IMKgIDIgZmlsZXMgY2hhbmdlZCwgMTU4IGluc2VydGlvbnMo
-KykKPj4+PiDCoCBjcmVhdGUgbW9kZSAxMDA2NDQgCj4+Pj4gRG9jdW1lbnRhdGlvbi9kZXZpY2V0
-cmVlL2JpbmRpbmdzL2Rpc3BsYXkvcGFuZWwvcGFuZWwtZHVhbC1sdmRzLnlhbWwKPj4+Pgo+Pj4+
-IGRpZmYgLS1naXQgCj4+Pj4gYS9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvZGlz
-cGxheS9wYW5lbC9wYW5lbC1kdWFsLWx2ZHMueWFtbCBiL0RvY3VtZW50YXRpb24vZGV2aWNldHJl
-ZS9iaW5kaW5ncy9kaXNwbGF5L3BhbmVsL3BhbmVsLWR1YWwtbHZkcy55YW1sCj4+Pj4gbmV3IGZp
-bGUgbW9kZSAxMDA2NDQKPj4+PiBpbmRleCAwMDAwMDAwMDAwMDAuLjg4YTdhYTI0MTBiZQo+Pj4+
-IC0tLSAvZGV2L251bGwKPj4+PiArKysgCj4+Pj4gYi9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUv
-YmluZGluZ3MvZGlzcGxheS9wYW5lbC9wYW5lbC1kdWFsLWx2ZHMueWFtbAo+Pj4+IEBAIC0wLDAg
-KzEsMTU3IEBACj4+Pj4gKyMgU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IChHUEwtMi4wLW9ubHkg
-T1IgQlNELTItQ2xhdXNlKQo+Pj4+ICslWUFNTCAxLjIKPj4+PiArLS0tCj4+Pj4gKyRpZDogaHR0
-cDovL2RldmljZXRyZWUub3JnL3NjaGVtYXMvZGlzcGxheS9wYW5lbC9wYW5lbC1kdWFsLWx2ZHMu
-eWFtbCMKPj4+PiArJHNjaGVtYTogaHR0cDovL2RldmljZXRyZWUub3JnL21ldGEtc2NoZW1hcy9j
-b3JlLnlhbWwjCj4+Pj4gKwo+Pj4+ICt0aXRsZTogR2VuZXJpYyBEdWFsLUxpbmsgTFZEUyBEaXNw
-bGF5IFBhbmVsCj4+Pj4gKwo+Pj4+ICttYWludGFpbmVyczoKPj4+PiArwqAgLSBBcmFkaHlhIEJo
-YXRpYSA8YS1iaGF0aWExQHRpLmNvbT4KPj4+PiArwqAgLSBUaGllcnJ5IFJlZGluZyA8dGhpZXJy
-eS5yZWRpbmdAZ21haWwuY29tPgo+Pj4+ICsKPj4+PiArZGVzY3JpcHRpb246IHwKPj4+PiArwqAg
-QSBkdWFsLUxWRFMgaW50ZXJmYWNlIGlzIGEgZHVhbC1saW5rIGNvbm5lY3Rpb24gd2l0aCB0aGUg
-ZXZlbiBwaXhlbHMKPj4+PiArwqAgdHJhdmVsaW5nIG9uIG9uZSBsaW5rLCBhbmQgdGhlIG9kZCBw
-aXhlbHMgdHJhdmVsaW5nIG9uIHRoZSBvdGhlci4KPj4+PiArCj4+Pj4gK2FsbE9mOgo+Pj4+ICvC
-oCAtICRyZWY6IHBhbmVsLWNvbW1vbi55YW1sIwo+Pj4+ICvCoCAtICRyZWY6IC9zY2hlbWFzL2Rp
-c3BsYXkvbHZkcy55YW1sLyMKPj4+PiArCj4+Pj4gK3Byb3BlcnRpZXM6Cj4+Pj4gK8KgIGNvbXBh
-dGlibGU6Cj4+Pj4gK8KgwqDCoCBvbmVPZjoKPj4+PiArwqDCoMKgwqDCoCAtIGl0ZW1zOgo+Pj4+
-ICvCoMKgwqDCoMKgwqDCoMKgwqAgLSBlbnVtOgo+Pj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoCAtIGxpbmNvbG50ZWNoLGxjZDE4NS0xMDFjdAo+Pj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoCAtIG1pY3JvdGlwcywxMy0xMDFoaWViMGhmMC1zCj4+Pj4gK8KgwqDCoMKgwqDCoMKg
-wqDCoCAtIGNvbnN0OiBwYW5lbC1kdWFsLWx2ZHMKPj4+PiArwqDCoMKgwqDCoCAtIGNvbnN0OiBw
-YW5lbC1kdWFsLWx2ZHMKPj4+PiArCj4+Pj4gK8KgIHBvcnRzOgo+Pj4+ICvCoMKgwqAgJHJlZjog
-L3NjaGVtYXMvZ3JhcGgueWFtbCMvcHJvcGVydGllcy9wb3J0cwo+Pj4+ICsKPj4+PiArwqDCoMKg
-IHByb3BlcnRpZXM6Cj4+Pj4gK8KgwqDCoMKgwqAgcG9ydEAwOgo+Pj4+ICvCoMKgwqDCoMKgwqDC
-oCAkcmVmOiAvc2NoZW1hcy9ncmFwaC55YW1sIy8kZGVmcy9wb3J0LWJhc2UKPj4+PiArwqDCoMKg
-wqDCoMKgwqAgdW5ldmFsdWF0ZWRQcm9wZXJ0aWVzOiBmYWxzZQo+Pj4+ICvCoMKgwqDCoMKgwqDC
-oCBkZXNjcmlwdGlvbjogVGhlIHNpbmsgZm9yIGZpcnN0IHNldCBvZiBMVkRTIHBpeGVscy4KPj4+
-PiArCj4+Pj4gK8KgwqDCoMKgwqDCoMKgIHByb3BlcnRpZXM6Cj4+Pj4gK8KgwqDCoMKgwqDCoMKg
-wqDCoCBkdWFsLWx2ZHMtb2RkLXBpeGVsczoKPj4+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB0
-eXBlOiBib29sZWFuCj4+Pj4gKwo+Pj4+ICvCoMKgwqDCoMKgwqDCoMKgwqAgZHVhbC1sdmRzLWV2
-ZW4tcGl4ZWxzOgo+Pj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHR5cGU6IGJvb2xlYW4KPj4+
-PiArCj4+Pj4gK8KgwqDCoMKgwqDCoMKgIG9uZU9mOgo+Pj4+ICvCoMKgwqDCoMKgwqDCoMKgwqAg
-LSByZXF1aXJlZDogW2R1YWwtbHZkcy1vZGQtcGl4ZWxzXQo+Pj4KPj4+IE9uZSBxdWVzdGlvbjog
-d2h5IGRvIHdlIG5lZWQgYSAicGFuZWwtZHVhbC1sdmRzIiBjb21wYXRpYmxlPwo+Pj4gQSBEdWFs
-LUxWRFMgcGFuZWwgaXMgYSBMVkRTIHBhbmVsIHVzaW5nIHR3byBwb3J0cywgaGVuY2Ugc3RpbGwg
-YSAKPj4+IHBhbmVsLWx2ZHMuCj4+Pgo+Pj4gSWYgeW91J3JlIGRvaW5nIHRoaXMgdG8gY2xlYXJs
-eSBkaXN0aW5ndWlzaCwgZm9yIGh1bWFuIHJlYWRhYmlsaXR5IHB1cnBvc2VzLAo+Pj4gc2luZ2xl
-LWxpbmsgdnMgZHVhbC1saW5rIHBhbmVscywgSSB0aGluayB0aGF0IHRoaXMgd291bGQgc3RpbGwg
-YmUgY2xlYXIgZXZlbgo+Pj4gaWYgd2UgdXNlIHBhbmVsLWx2ZHMgYWxvbmUgYmVjYXVzZSBkdWFs
-LWxpbmsgcGFuZWxzLCBhcyB5b3Ugd3JvdGUgaW4gdGhpcwo+Pj4gYmluZGluZywgZG9lcyAqcmVx
-dWlyZSogdHdvIHBvcnRzLCB3aXRoICJkdWFsLWx2ZHMte29kZCxldmVufS1waXhlbHMiIHByb3Bl
-cnRpZXMuCj4+Cj4+IFllcywgd2hpbGUgdGhleSBhcmUgYm90aCBMVkRTIGJhc2VkIHBhbmVscyB0
-aGUgZXh0cmEgTFZEUyBzaW5rIGluIHRoZXNlCj4+IHBhbmVscywgYW5kIHRoZSBjYXBhYmlsaXR5
-IHRvIGRlY29kZSBhbmQgZGlzcGxheSB0aGUgMiBzZXRzIG9mIHNpZ25hbHMKPj4gYXJlIGVub3Vn
-aCBoYXJkd2FyZSBkaWZmZXJlbmNlcyB0aGF0IHdhcnJhbnQgZm9yIGFuIGFkZGl0aW9uIG9mIGEg
-bmV3Cj4+IGNvbXBhdGlibGUuCj4+Cj4+Pgo+Pj4gU28uLi4gdGhlIGRldmljZXRyZWUgbm9kZSB3
-b3VsZCBsb29rIGxpa2UgdGhpczoKPj4+Cj4+PiBwYW5lbCB7Cj4+PiDCoMKgwqDCoMKgY29tcGF0
-aWJsZSA9ICJ2ZW5kb3IscGFuZWwiLCAicGFuZWwtbHZkcyI7Cj4+PiDCoMKgwqDCoMKgLi4uLgo+
-Pj4gwqDCoMKgwqDCoHBvcnRzIHsKPj4+IMKgwqDCoMKgwqDCoMKgwqAgcG9ydEAwIHsKPj4+IMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAuLi4uLgo+Pj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-IC0+IGR1YWwtbHZkcy1vZGQtcGl4ZWxzIDwtCj4+PiDCoMKgwqDCoMKgwqDCoMKgIH0KPj4+Cj4+
-PiDCoMKgwqDCoMKgwqDCoMKgIHBvcnRAMSB7Cj4+PiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAg
-Li4uLi4KPj4+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAtPiBkdWFsLWx2ZHMtZXZlbi1waXhl
-bHMgPC0KPj4+IMKgwqDCoMKgwqDCoMKgwqAgfTsKPj4+IMKgwqDCoMKgwqB9Owo+Pj4gfTsKPj4+
-Cj4+Pj4gK8KgwqDCoMKgwqDCoMKgwqDCoCAtIHJlcXVpcmVkOiBbZHVhbC1sdmRzLWV2ZW4tcGl4
-ZWxzXQo+Pj4KPj4+IC4uLlRob3VnaCwgaWYgeW91IGV4cGVjdCBkdWFsLWx2ZHMgcGFuZWxzIHRv
-IGdldCBvdGhlciBxdWlya3MgaW4gdGhlIGZ1dHVyZSwKPj4+IHRoYXQncyBhIHdob2xlIGRpZmZl
-cmVudCBzdG9yeSBhbmQgeW91IG1heSBhY3R1YWxseSBuZWVkIHRoZSBwYW5lbC1kdWFsLWx2ZHMK
-Pj4+IGNvbXBhdGlibGUuCj4+Cj4+IFllcywgZXhhY3RseS4gRXZlbiB3aGlsZSBiZWluZyBub24t
-c21hcnQsIHRoZXJlIGFyZSBnb2luZyB0byBiZSBtb3JlCj4+IHF1aXJrcyBpbiBmdXR1cmUuIEFu
-ZCBpdCB3b3VsZCBiZSBiZXR0ZXIgaWYgdGhleSBoYXZlIHRoZWlyIG93bgo+PiBjb21wYXRpYmxl
-L2JpbmRpbmcsIGFuZCBhcmUgbm90IGdldHRpbmcgYXBwZW5kZWQgaW4gYW4gZXZlci1ncm93aW5n
-Cj4+IGlmLWVsc2UgbGFkZGVyLiA6KQo+IAo+IEkgY2FuIGltYWdpbmUgYSBwYW5lbCB3aGljaCB5
-b3UgY2FuIHVzZSB3aXRoIGEgc2luZ2xlIExWRFMgbGluayBpZiB0aGUgCj4gY2xvY2sgaXMgaGln
-aCBlbm91Z2gsIG9yIHR3byBMVkRTIGxpbmtzIGlmIHRoZSBjbG9jayBoYXMgdG8gYmUgbG93ZXIu
-IElzIAo+IHRoYXQgYSBkdWFsLWx2ZHMgcGFuZWw/ID0pCgpIbW0sIEkgY2FuIHNlZSB3aGF0IHlv
-dSBhcmUgc2F5aW5nIGhlcmUuCgpJZiBvbmUgd2FudHMgdG8gcnVuIGEgZHVhbC1saW5rIHBhbmVs
-LCB3aXRoIDEgbGluayAoZ2l2ZW4gZW5vdWdoIGNsb2NrCmZyZXF1ZW5jeSksIHRoZW4gdGhlIGJp
-bmRpbmdzIGhlcmUgd2lsbCAqbm90KiBhbGxvdyBmb3IgYSBzaW5nbGUgcG9ydAp3aXRoIHRoZSBv
-ZGQvZXZlbiBwcm9wZXJ0aWVzIGFic2VudC4KCkluIHN1Y2ggYSBjYXNlLCB0aGUgY29tcGF0aWJs
-ZSB3aWxsIGluZGVlZCBuZWVkIHRvIGJlIGNoYW5nZWQgdG8KInBhbmVsLWx2ZHMiLgoKV2hpbGUg
-aXQgZG9lcyBmZWVsIGEgdGFkIGJpdCBvZGQsIEkgYmVsaWV2ZSBpdCBpcyBzdGlsbCB3b3J0aApt
-YWludGFpbmluZyB0aGUgY2xhcml0eSBhbmQgSFcgZGlmZmVyZW5jZXMgYmV0d2VlbiB0aGUgc2lu
-Z2xlIGFuZCBkdWFsCmxpbmsgcGFuZWxzLiA6KQoKPiAKPiBCdXQgcHJvYmFibHkgdGhhdCBzaXR1
-YXRpb24gaXMgbm8gZGlmZmVyZW50IHRoYW4gYSBwYW5lbCB0aGF0IGNhbiB3b3JrIAo+IHdpdGgg
-RFNJIG9yIERQSSBpbnB1dC4KPiAKPiBTdGlsbCwgSSdtIGFncmVlIHdpdGggQW5nZWxvIGluIHRo
-YXQgYSBuZXcgY29tcGF0aWJsZSBzdHJpbmcgZm9yIGR1YWwgCj4gbGluayBsdmRzIGZlZWxzIGEg
-Yml0IG9kZC4gVGhhdCBzYWlkLCBpdCdzIHBvc3NpYmxlIHRoZSBwYW5lbC1sdmRzICA+IGJpbmRp
-bmdzIG1pZ2h0IGdldCByYXRoZXIgY29uZnVzaW5nLiBTbyBJIGRvbid0IGhhdmUgYSBzdHJvbmcg
-ZmVlbGluZyAKaGVyZS4KClJlZ2FyZHMKQXJhZGh5YQoKX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
-c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
-bi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Hi Jesse,
+
+Thank you for the patch! Yet something to improve:
+
+[auto build test ERROR on linus/master]
+[also build test ERROR on v6.2-rc4 next-20230120]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Jesse-Taube/riscv-Kconfig-Allow-RV32-to-build-with-no-MMU/20230119-132822
+patch link:    https://lore.kernel.org/r/20230119052642.1112171-2-Mr.Bossman075%40gmail.com
+patch subject: [PATCH v1 1/2] riscv: Kconfig: Allow RV32 to build with no MMU
+config: riscv-randconfig-c003-20230119 (https://download.01.org/0day-ci/archive/20230120/202301201538.zNlqgE4L-lkp@intel.com/config)
+compiler: riscv32-linux-gcc (GCC) 12.1.0
+reproduce (this is a W=1 build):
+        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+        chmod +x ~/bin/make.cross
+        # https://github.com/intel-lab-lkp/linux/commit/4c6876d890ddeab1fb2cb42889027c6d1dbdd02f
+        git remote add linux-review https://github.com/intel-lab-lkp/linux
+        git fetch --no-tags linux-review Jesse-Taube/riscv-Kconfig-Allow-RV32-to-build-with-no-MMU/20230119-132822
+        git checkout 4c6876d890ddeab1fb2cb42889027c6d1dbdd02f
+        # save the config file
+        mkdir build_dir && cp config build_dir/.config
+        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.1.0 make.cross W=1 O=build_dir ARCH=riscv olddefconfig
+        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.1.0 make.cross W=1 O=build_dir ARCH=riscv SHELL=/bin/bash
+
+If you fix the issue, kindly add following tag where applicable
+| Reported-by: kernel test robot <lkp@intel.com>
+
+All errors (new ones prefixed by >>):
+
+   riscv32-linux-ld: drivers/clk/clk-k210.o: in function `k210_pll_get_rate':
+>> drivers/clk/clk-k210.c:498: undefined reference to `__udivdi3'
+
+
+vim +498 drivers/clk/clk-k210.c
+
+c6ca7616f7d5c2 Damien Le Moal 2021-02-10  480  
+c6ca7616f7d5c2 Damien Le Moal 2021-02-10  481  static unsigned long k210_pll_get_rate(struct clk_hw *hw,
+c6ca7616f7d5c2 Damien Le Moal 2021-02-10  482  				       unsigned long parent_rate)
+c6ca7616f7d5c2 Damien Le Moal 2021-02-10  483  {
+c6ca7616f7d5c2 Damien Le Moal 2021-02-10  484  	struct k210_pll *pll = to_k210_pll(hw);
+c6ca7616f7d5c2 Damien Le Moal 2021-02-10  485  	u32 reg = readl(pll->reg);
+c6ca7616f7d5c2 Damien Le Moal 2021-02-10  486  	u32 r, f, od;
+c6ca7616f7d5c2 Damien Le Moal 2021-02-10  487  
+c6ca7616f7d5c2 Damien Le Moal 2021-02-10  488  	if (reg & K210_PLL_BYPASS)
+c6ca7616f7d5c2 Damien Le Moal 2021-02-10  489  		return parent_rate;
+c6ca7616f7d5c2 Damien Le Moal 2021-02-10  490  
+c6ca7616f7d5c2 Damien Le Moal 2021-02-10  491  	if (!(reg & K210_PLL_PWRD))
+c6ca7616f7d5c2 Damien Le Moal 2021-02-10  492  		return 0;
+c6ca7616f7d5c2 Damien Le Moal 2021-02-10  493  
+c6ca7616f7d5c2 Damien Le Moal 2021-02-10  494  	r = FIELD_GET(K210_PLL_CLKR, reg) + 1;
+c6ca7616f7d5c2 Damien Le Moal 2021-02-10  495  	f = FIELD_GET(K210_PLL_CLKF, reg) + 1;
+c6ca7616f7d5c2 Damien Le Moal 2021-02-10  496  	od = FIELD_GET(K210_PLL_CLKOD, reg) + 1;
+c6ca7616f7d5c2 Damien Le Moal 2021-02-10  497  
+c6ca7616f7d5c2 Damien Le Moal 2021-02-10 @498  	return (u64)parent_rate * f / (r * od);
+c6ca7616f7d5c2 Damien Le Moal 2021-02-10  499  }
+c6ca7616f7d5c2 Damien Le Moal 2021-02-10  500  
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
