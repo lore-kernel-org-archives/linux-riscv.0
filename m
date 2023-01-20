@@ -4,138 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4326C27C7C
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jan 2023 15:01:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB33AC25B4E
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jan 2023 15:02:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
-	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/RlS5lLwPHTLBXlI8VyQGYLsdrIUbHYD2a8vqw4p8zk=; b=eW5EKaqVwvac2Q
-	8J+icPVzeKLRHkk4hu8cryJoSHXcx8VFKX3K8eAqc6kSl0LIcn/aL62C82Wh4EMGwTSC2a1EAGkjG
-	Lm7qtJ/kCsu2VmQwYtrdwXDiKtkt7ALEZKMnT/7Yi9XaKXaNzGpT4TMr5kAu0cqO7BdZXIKNtVVEx
-	M9XSEEfr0/nQVBqPlncVOSequkaIv5ztCDi6zTJbIfocpgPAIqlr09LmmN1V9hetc237CyoPkiV5j
-	IKdzamDG/wnKXd+elvGNZ8CsqIqv/x+Oo8TORmGttWc8ER2UAaHZVcFkBpRUDAEjY6wve43z7na3S
-	fT5usGbOW7zUpqmqHDZw==;
+	List-Owner; bh=TOzCsoM0ssDot/a8FWG87ADhuJb0G1WZnqENVsysTCM=; b=qGwQk0fQxeTzsa
+	q7/+o4SlNFaIHvMGoiVTi5L9iL/dAJm/HRvzuCIIPdRigQzRiHAOJb/LOtrhjILrfV30HeAb4pWjb
+	sXLPAyEg+TMfJLUyDQU5co7EX6MVVFOjgkXndyBt69xQBlEBSU2tVLL6XiKQkeRCFHwbs362noRBz
+	1EsEHDKinP1bLtt1PRkw7+xbBak3IJuAXyzu0XI7ZayZLSX8qfICiY+FrD2Na8qk6ejEcn30EfD21
+	r4aHZmzQ+5yVWIeme+mMmtDfSYLzRhPM6V9Yr5sbq4vXw2xEcSWpXrzE6KjTj8raJZ1xnLLaLA3wu
+	ItrKuxK29nNueXxheTvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIstl-00AsF8-FV; Fri, 20 Jan 2023 15:01:45 +0000
-Received: from wnew4-smtp.messagingengine.com ([64.147.123.18])
+	id 1pIsuQ-00AsTO-Hd; Fri, 20 Jan 2023 15:02:26 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIstf-00AsDE-LU
-	for linux-riscv@lists.infradead.org; Fri, 20 Jan 2023 15:01:41 +0000
-Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
-	by mailnew.west.internal (Postfix) with ESMTP id BA3052B06706;
-	Fri, 20 Jan 2023 10:01:34 -0500 (EST)
-Received: from imap51 ([10.202.2.101])
-  by compute6.internal (MEProxy); Fri, 20 Jan 2023 10:01:38 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-type:date:date:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:sender:subject
-	:subject:to:to; s=fm2; t=1674226894; x=1674234094; bh=1/i8XkaZ2k
-	WH/ANJugw9+lV13XFt/Z3piuqR1SILJ8I=; b=F73PJAT0nbJdFpQ6Lod9NLNUdg
-	3obTYX2mcXchahvTKQlz6w7yLu8sxFZgeEh9mOzIaqNS29gQKe6cxoKhNlAbf71K
-	XKpiXoUT1UDoL+WSbelh0AmvhHANWjBrhVISOMITqGZMZ/u5H2RnORcpX6n/kDuz
-	jVavqJaQMB/T0/DmZ6VLWpVnYkNsJzHCnhAm3CxUMfvDGxU+EHdDZuOs/QdFVVq0
-	XSH8V4MkmBdqE1dzq5do/LJ0E2XhGeXDKe8dBtzYzjMejYm+LtolJc+q7EVelV7H
-	ZRRAsygHMJsJO49Y3zPsns+tU3STaM8R8wA8rBBuoD7ekn/6LF8spO7Uwepw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:date:date:feedback-id
-	:feedback-id:from:from:in-reply-to:in-reply-to:message-id
-	:mime-version:references:reply-to:sender:subject:subject:to:to
-	:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm3; t=1674226894; x=1674234094; bh=1/i8XkaZ2kWH/ANJugw9+lV13XFt
-	/Z3piuqR1SILJ8I=; b=J0Tq67YyB9kctYojZ/sGD0gGsUs48tVOwHdIm5SphBRm
-	U/1Q7fRh6lk1hcwM0wd8Ug1uzWKkdnWzcw1uiscf97Ch0ysT4tlBUM3w7imHpLUe
-	0kOWSf1VOv2FdInnseerbS8PhI6yJzJ9ZHjGZIwPl5mDEtsZkhAD2o/1hPTpDgBL
-	BBL0w1LhL31o/8nk5IT7NT3yla2YU2aR2kiRPOHYBMCkmxOZY8TsnmCSQQusU5KV
-	x7JRJxyNUcNQbZn4mTaYFojvMIuB34n4SHD3C4IeeBULGkxdFhckiIpuc3D+DtnP
-	vBstpg76bf39o0M/fkDfQ28knMz/4vPFLp3SmEOC+w==
-X-ME-Sender: <xms:y6zKY_gzwo2yLzII2Q-EAJhH3Ok6E_TTUMWWMdn7l7rBlh_Lt-EE4g>
-    <xme:y6zKY8AM9xbaBLL9tSKNWnvw5C-guUQeIe0CFHoa5W6hRXzS_lrv5sDIQwayVrHAv
-    Uvdv9vEBDHp3zDJA2o>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrudduvddgjeefucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
-    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
-    cujfgurhepofgfggfkjghffffhvfevufgtsehttdertderredtnecuhfhrohhmpedftehr
-    nhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrth
-    htvghrnhepffehueegteeihfegtefhjefgtdeugfegjeelheejueethfefgeeghfektdek
-    teffnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprg
-    hrnhgusegrrhhnuggsrdguvg
-X-ME-Proxy: <xmx:y6zKY_FFBfVAPZfRpxNHtNfe74QR36yig0auaFYI8DOALd4ybbGfNg>
-    <xmx:y6zKY8S5JM3VFNBxvdsEBd0eANQSgqzQJVjghLyhwTM5pMbhSRPuVA>
-    <xmx:y6zKY8z0fMzglBW0ZZb3PxLo4ixNUSTPSGbuYUMxPOJxnB1UZIAQvQ>
-    <xmx:zqzKYwb6F1OfHsb0ozFGTrdB-QBvTfjfUdbbNVr9hi52q1UDitml0WF9jUU>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id 786ABB60086; Fri, 20 Jan 2023 10:01:31 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.9.0-alpha0-85-gd6d859e0cf-fm-20230116.001-gd6d859e0
-Mime-Version: 1.0
-Message-Id: <9965e2d1-bae8-4ce7-911c-783c772e9ff1@app.fastmail.com>
-In-Reply-To: <20230120145316.GA4155@tellis.lin.mbt.kalray.eu>
-References: <20230120141002.2442-1-ysionneau@kalray.eu>
- <20230120141002.2442-10-ysionneau@kalray.eu>
- <aa4d68b2-b5b5-4c17-a44f-7c6db443ea4c@app.fastmail.com>
- <20230120145316.GA4155@tellis.lin.mbt.kalray.eu>
-Date: Fri, 20 Jan 2023 16:01:11 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Jules Maselbas" <jmaselbas@kalray.eu>
-Cc: "Yann Sionneau" <ysionneau@kalray.eu>,
- "Jonathan Corbet" <corbet@lwn.net>,
- "Thomas Gleixner" <tglx@linutronix.de>, "Marc Zyngier" <maz@kernel.org>,
- "Rob Herring" <robh+dt@kernel.org>,
- "Krzysztof Kozlowski" <krzysztof.kozlowski+dt@linaro.org>,
- "Will Deacon" <will@kernel.org>, "Peter Zijlstra" <peterz@infradead.org>,
- "Boqun Feng" <boqun.feng@gmail.com>,
- "Mark Rutland" <mark.rutland@arm.com>,
- "Eric W. Biederman" <ebiederm@xmission.com>,
- "Kees Cook" <keescook@chromium.org>, "Oleg Nesterov" <oleg@redhat.com>,
- "Ingo Molnar" <mingo@redhat.com>, "Waiman Long" <longman@redhat.com>,
- "Aneesh Kumar" <aneesh.kumar@linux.ibm.com>,
- "Andrew Morton" <akpm@linux-foundation.org>,
- "Nicholas Piggin" <npiggin@gmail.com>,
- "Paul Moore" <paul@paul-moore.com>, "Eric Paris" <eparis@redhat.com>,
- "Christian Brauner" <brauner@kernel.org>,
- "Paul Walmsley" <paul.walmsley@sifive.com>,
- "Palmer Dabbelt" <palmer@dabbelt.com>,
- "Albert Ou" <aou@eecs.berkeley.edu>,
- "Guillaume Thouvenin" <gthouvenin@kalray.eu>,
- "Clement Leger" <clement@clement-leger.fr>,
- "Vincent Chardon" <vincent.chardon@elsys-design.com>,
- =?UTF-8?Q?Marc_Poulhi=C3=A8s?= <dkm@kataplop.net>,
- "Julian Vetter" <jvetter@kalray.eu>, "Samuel Jones" <sjones@kalray.eu>,
- "Ashley Lesdalons" <alesdalons@kalray.eu>,
- "Thomas Costis" <tcostis@kalray.eu>, "Marius Gligor" <mgligor@kalray.eu>,
- "Jonathan Borne" <jborne@kalray.eu>,
- "Julien Villette" <jvillette@kalray.eu>,
- "Luc Michel" <lmichel@kalray.eu>, "Louis Morhet" <lmorhet@kalray.eu>,
- "Julien Hascoet" <jhascoet@kalray.eu>,
- "Jean-Christophe Pince" <jcpince@gmail.com>,
- "Guillaume Missonnier" <gmissonnier@kalray.eu>,
- "Alex Michon" <amichon@kalray.eu>, "Huacai Chen" <chenhuacai@kernel.org>,
- "WANG Xuerui" <git@xen0n.name>,
- "Shaokun Zhang" <zhangshaokun@hisilicon.com>,
- "John Garry" <john.garry@huawei.com>,
- "Guangbin Huang" <huangguangbin2@huawei.com>,
- "Bharat Bhushan" <bbhushan2@marvell.com>,
- "Bibo Mao" <maobibo@loongson.cn>, "Atish Patra" <atishp@atishpatra.org>,
- "Jason A . Donenfeld" <Jason@zx2c4.com>, "Qi Liu" <liuqi115@huawei.com>,
- "Jiaxun Yang" <jiaxun.yang@flygoat.com>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Mark Brown" <broonie@kernel.org>,
- "Janosch Frank" <frankja@linux.ibm.com>,
- "Alexey Dobriyan" <adobriyan@gmail.com>,
- "Benjamin Mugnier" <mugnier.benjamin@gmail.com>,
+	id 1pIsuO-00AsSI-Tb
+	for linux-riscv@bombadil.infradead.org; Fri, 20 Jan 2023 15:02:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=0EBHk3/xNMOtQasDlWnuFRgNeFZWCG1JaZyYWiNiQ6M=; b=KQEriC0l6xFZCRY3w+LjRoNv7a
+	mZ4vA80lD7g1InDc/fEG9TtcAfY7XblfqU+8BlJmbqSkO+AKsJ5ae+wv0UHzTjyf9csF5LAHNSpX0
+	nL/2dWilIH+cYrcy4+dI7I0PE+NYY8OhR3AYf57vzymT80nomaNzB2/1+WpQDPq8XL1VkNC3eZ0/A
+	EZJFynJ8MP11Q0RN1g8YzpEtQhUhvjeBfM8A2MFO0mCaHd4p86QXl2Bt0GqfmLcCV50xvRqq2+ex8
+	vMFizxAdv6y7bmLyVeho92N5dMoQfXzd6tJFVLe5dY3XUHsvj8BEpgN7rjCj0TSc/h6CFdiNCNk0j
+	Eg634i/Q==;
+Received: from smtpout30.security-mail.net ([85.31.212.35] helo=fx305.security-mail.net)
+	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1pIsFi-000eYe-2d
+	for linux-riscv@lists.infradead.org;
+	Fri, 20 Jan 2023 14:20:25 +0000
+Received: from localhost (fx305.security-mail.net [127.0.0.1])
+	by fx305.security-mail.net (Postfix) with ESMTP id A250030FD7F
+	for <linux-riscv@lists.infradead.org>; Fri, 20 Jan 2023 15:20:49 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kalray.eu;
+	s=sec-sig-email; t=1674224449;
+	bh=EHbGeTQPzFxRydvAjCAKTJptA7pNhkmTqYf6aPqpaxA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=PK435bNd4ChYGp7BNsvmnmLMkpy/hoVLU46r6JempL/VizlAvCwO/4bjr+dVwezuh
+	 VpM/4GpAjHH2lJHR9PbwPyzQxp/vibRACiJNaEIJGYPF3ChSvlG0BXbnNCHitvAZjp
+	 YiDypEBuV6zbkDc6eGfv/GuKB27oKMVUvgvAz3YM=
+Received: from fx305 (fx305.security-mail.net [127.0.0.1]) by
+ fx305.security-mail.net (Postfix) with ESMTP id 8577530F44F; Fri, 20 Jan
+ 2023 15:20:47 +0100 (CET)
+Received: from zimbra2.kalray.eu (unknown [217.181.231.53]) by
+ fx305.security-mail.net (Postfix) with ESMTPS id 3FD6B30FD91; Fri, 20 Jan
+ 2023 15:20:45 +0100 (CET)
+Received: from zimbra2.kalray.eu (localhost [127.0.0.1]) by
+ zimbra2.kalray.eu (Postfix) with ESMTPS id 8E73B27E0463; Fri, 20 Jan 2023
+ 15:10:39 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1]) by zimbra2.kalray.eu
+ (Postfix) with ESMTP id 7622127E0480; Fri, 20 Jan 2023 15:10:39 +0100 (CET)
+Received: from zimbra2.kalray.eu ([127.0.0.1]) by localhost
+ (zimbra2.kalray.eu [127.0.0.1]) (amavisd-new, port 10026) with ESMTP id
+ dO_MAUz2ZwpM; Fri, 20 Jan 2023 15:10:39 +0100 (CET)
+Received: from junon.lin.mbt.kalray.eu (unknown [192.168.37.161]) by
+ zimbra2.kalray.eu (Postfix) with ESMTPSA id C9CA227E0474; Fri, 20 Jan 2023
+ 15:10:38 +0100 (CET)
+X-Virus-Scanned: E-securemail
+Secumail-id: <146d7.63caa33d.37d2d.0>
+DKIM-Filter: OpenDKIM Filter v2.10.3 zimbra2.kalray.eu 7622127E0480
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kalray.eu;
+ s=32AE1B44-9502-11E5-BA35-3734643DEF29; t=1674223839;
+ bh=5C/8QjxVUf/DelpGCfD/Pp9BdUc2vZv56uJsfxSlXPA=;
+ h=From:To:Date:Message-Id:MIME-Version;
+ b=P6BtAyPM/IrloLG30cdWTPBhk6bnzZeuu0JK6hHT1AvSOjTEjV23l2HTVSkWp3YOM
+ JxhQxnIr6MpJR9Ve5OwsqaqYSpuYPPXnuoM+q+2xD3d01z+Z0ef6cKxQqGtJg6OcUa
+ Z5LRxJhk4HSsThMlK536n8tiuxt0/9UzyH8L0fvI=
+From: Yann Sionneau <ysionneau@kalray.eu>
+To: Arnd Bergmann <arnd@arndb.de>, Jonathan Corbet <corbet@lwn.net>, Thomas
+ Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Rob Herring
+ <robh+dt@kernel.org>, Krzysztof Kozlowski
+ <krzysztof.kozlowski+dt@linaro.org>, Will Deacon <will@kernel.org>, Peter
+ Zijlstra <peterz@infradead.org>, Boqun Feng <boqun.feng@gmail.com>, Mark
+ Rutland <mark.rutland@arm.com>, Eric Biederman <ebiederm@xmission.com>, Kees
+ Cook <keescook@chromium.org>, Oleg Nesterov <oleg@redhat.com>, Ingo Molnar
+ <mingo@redhat.com>, Waiman Long <longman@redhat.com>, "Aneesh Kumar K.V"
+ <aneesh.kumar@linux.ibm.com>, Andrew Morton <akpm@linux-foundation.org>,
+ Nick Piggin <npiggin@gmail.com>, Paul Moore <paul@paul-moore.com>, Eric
+ Paris <eparis@redhat.com>, Christian Brauner <brauner@kernel.org>, Paul
+ Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Jules Maselbas <jmaselbas@kalray.eu>,
+ Yann Sionneau <ysionneau@kalray.eu>, Guillaume Thouvenin
+ <gthouvenin@kalray.eu>, Clement Leger <clement@clement-leger.fr>, Vincent
+ Chardon <vincent.chardon@elsys-design.com>, Marc =?utf-8?b?UG91bGhpw6hz?=
+ <dkm@kataplop.net>, Julian Vetter <jvetter@kalray.eu>, Samuel Jones
+ <sjones@kalray.eu>, Ashley Lesdalons <alesdalons@kalray.eu>, Thomas Costis
+ <tcostis@kalray.eu>, Marius Gligor <mgligor@kalray.eu>, Jonathan Borne
+ <jborne@kalray.eu>, Julien Villette <jvillette@kalray.eu>, Luc Michel
+ <lmichel@kalray.eu>, Louis Morhet <lmorhet@kalray.eu>, Julien Hascoet
+ <jhascoet@kalray.eu>, Jean-Christophe Pince <jcpince@gmail.com>, Guillaume
+ Missonnier <gmissonnier@kalray.eu>, Alex Michon <amichon@kalray.eu>, Huacai
+ Chen <chenhuacai@kernel.org>, WANG Xuerui <git@xen0n.name>, Shaokun Zhang
+ <zhangshaokun@hisilicon.com>, John Garry <john.garry@huawei.com>, Guangbin
+ Huang <huangguangbin2@huawei.com>, Bharat Bhushan <bbhushan2@marvell.com>,
+ Bibo Mao <maobibo@loongson.cn>, Atish Patra <atishp@atishpatra.org>, "Jason
+ A. Donenfeld" <Jason@zx2c4.com>, Qi Liu <liuqi115@huawei.com>, Jiaxun Yang
+ <jiaxun.yang@flygoat.com>, Catalin Marinas <catalin.marinas@arm.com>, Mark
+ Brown <broonie@kernel.org>, Janosch Frank <frankja@linux.ibm.com>, Alexey
+ Dobriyan <adobriyan@gmail.com>
+Cc: Benjamin Mugnier <mugnier.benjamin@gmail.com>,
  linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-mm@kvack.org,
- Linux-Arch <linux-arch@vger.kernel.org>, linux-audit@redhat.com,
- linux-riscv@lists.infradead.org, bpf@vger.kernel.org
-Subject: Re: [RFC PATCH v2 09/31] kvx: Add build infrastructure
+ devicetree@vger.kernel.org, linux-mm@kvack.org, linux-arch@vger.kernel.org,
+ linux-audit@redhat.com, linux-riscv@lists.infradead.org, bpf@vger.kernel.org
+Subject: [RFC PATCH v2 31/31] kvx: Add IPI driver
+Date: Fri, 20 Jan 2023 15:10:02 +0100
+Message-ID: <20230120141002.2442-32-ysionneau@kalray.eu>
+X-Mailer: git-send-email 2.37.2
+In-Reply-To: <20230120141002.2442-1-ysionneau@kalray.eu>
+References: <20230120141002.2442-1-ysionneau@kalray.eu>
+MIME-Version: 1.0
+X-ALTERMIMEV2_out: done
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230120_070139_767809_DE5F31DE 
-X-CRM114-Status: GOOD (  13.86  )
+X-CRM114-CacheID: sfid-20230120_142023_293497_1126CEDA 
+X-CRM114-Status: GOOD (  20.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,35 +140,187 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 20, 2023, at 15:53, Jules Maselbas wrote:
-> On Fri, Jan 20, 2023 at 03:39:22PM +0100, Arnd Bergmann wrote:
->> On Fri, Jan 20, 2023, at 15:09, Yann Sionneau wrote:
->> >      - Fix clean target raising an error from gcc (LIBGCC)
->> 
->> I had not noticed this on v1 but:
->> 
->> > +# Link with libgcc to get __div* builtins.
->> > +LIBGCC	:= $(shell $(CC) $(DEFAULT_OPTS) --print-libgcc-file-name)
->> 
->> It's better to copy the bits of libgcc that you actually need
->> than to include the whole thing. The kernel is in a weird
-> It was initialy using KCONFIG_CFLAGS which do not contains valid options
-> when invoking the clean target.
->
-> I am not exactly sure what's needed by gcc for --print-libgcc-file-name,
-> my guess is that only the -march option matters, I will double check
-> internally with compiler peoples.
->
->> state that is neither freestanding nor the normal libc based
->> environment, so we generally want full control over what is
->> used. This is particularly important for 32-bit architectures
->> that do not want the 64-bit division, but there are probably
->> enough other cases as well.
+From: Jules Maselbas <jmaselbas@kalray.eu>
 
-To clarify: I meant you should not include libgcc.a at all but
-add the minimum set of required files as arch/kvx/lib/*.S.
+The Inter-Processor Interrupt Controller (IPI) provides a fast
+synchronization mechanism to the software. It exposes eight independent
+set of registers that can be use to notify each processor in the cluster.
+test
 
-     Arnd
+Co-developed-by: Clement Leger <clement@clement-leger.fr>
+Signed-off-by: Clement Leger <clement@clement-leger.fr>
+Co-developed-by: Guillaume Thouvenin <gthouvenin@kalray.eu>
+Signed-off-by: Guillaume Thouvenin <gthouvenin@kalray.eu>
+Co-developed-by: Julian Vetter <jvetter@kalray.eu>
+Signed-off-by: Julian Vetter <jvetter@kalray.eu>
+Co-developed-by: Luc Michel <lmichel@kalray.eu>
+Signed-off-by: Luc Michel <lmichel@kalray.eu>
+Signed-off-by: Jules Maselbas <jmaselbas@kalray.eu>
+Signed-off-by: Yann Sionneau <ysionneau@kalray.eu>
+---
+
+Notes:
+    V1 -> V2: new patch
+
+ arch/kvx/include/asm/ipi.h |  16 ++++++
+ arch/kvx/platform/Makefile |   1 +
+ arch/kvx/platform/ipi.c    | 108 +++++++++++++++++++++++++++++++++++++
+ 3 files changed, 125 insertions(+)
+ create mode 100644 arch/kvx/include/asm/ipi.h
+ create mode 100644 arch/kvx/platform/ipi.c
+
+diff --git a/arch/kvx/include/asm/ipi.h b/arch/kvx/include/asm/ipi.h
+new file mode 100644
+index 000000000000..137407a075e6
+--- /dev/null
++++ b/arch/kvx/include/asm/ipi.h
+@@ -0,0 +1,16 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2017-2023 Kalray Inc.
++ * Author(s): Clement Leger
++ */
++
++#ifndef _ASM_KVX_IPI_H
++#define _ASM_KVX_IPI_H
++
++#include <linux/irqreturn.h>
++
++int kvx_ipi_ctrl_probe(irqreturn_t (*ipi_irq_handler)(int, void *));
++
++void kvx_ipi_send(const struct cpumask *mask);
++
++#endif /* _ASM_KVX_IPI_H */
+diff --git a/arch/kvx/platform/Makefile b/arch/kvx/platform/Makefile
+index c7d0abb15c27..27f0914e0de5 100644
+--- a/arch/kvx/platform/Makefile
++++ b/arch/kvx/platform/Makefile
+@@ -4,3 +4,4 @@
+ #
+ 
+ obj-$(CONFIG_SMP) += pwr_ctrl.o
++obj-$(CONFIG_SMP) += ipi.o
+diff --git a/arch/kvx/platform/ipi.c b/arch/kvx/platform/ipi.c
+new file mode 100644
+index 000000000000..a471039b1643
+--- /dev/null
++++ b/arch/kvx/platform/ipi.c
+@@ -0,0 +1,108 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (C) 2017-2023 Kalray Inc.
++ * Author(s): Clement Leger
++ *            Luc Michel
++ */
++
++#define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
++
++#include <linux/io.h>
++#include <linux/slab.h>
++#include <linux/types.h>
++#include <linux/module.h>
++#include <linux/of_irq.h>
++#include <linux/cpumask.h>
++#include <linux/interrupt.h>
++#include <linux/cpuhotplug.h>
++#include <linux/of_address.h>
++#include <linux/of_platform.h>
++
++#define IPI_INTERRUPT_OFFSET	0x0
++#define IPI_MASK_OFFSET		0x20
++
++/*
++ * IPI controller can signal RM and PE0 -> 15
++ * In order to restrict that to the PE, write the corresponding mask
++ */
++#define KVX_IPI_CPU_MASK	(~0xFFFF)
++
++struct kvx_ipi_ctrl {
++	void __iomem *regs;
++	unsigned int ipi_irq;
++};
++
++static struct kvx_ipi_ctrl kvx_ipi_controller;
++
++/**
++ * @kvx_pwr_ctrl_cpu_poweron Wakeup a cpu
++ *
++ * cpu: cpu to wakeup
++ */
++void kvx_ipi_send(const struct cpumask *mask)
++{
++	const unsigned long *maskb = cpumask_bits(mask);
++
++	WARN_ON(*maskb & KVX_IPI_CPU_MASK);
++	writel(*maskb, kvx_ipi_controller.regs + IPI_INTERRUPT_OFFSET);
++}
++
++static int kvx_ipi_starting_cpu(unsigned int cpu)
++{
++	enable_percpu_irq(kvx_ipi_controller.ipi_irq, IRQ_TYPE_NONE);
++
++	return 0;
++}
++
++static int kvx_ipi_dying_cpu(unsigned int cpu)
++{
++	disable_percpu_irq(kvx_ipi_controller.ipi_irq);
++
++	return 0;
++}
++
++int __init kvx_ipi_ctrl_probe(irqreturn_t (*ipi_irq_handler)(int, void *))
++{
++	struct device_node *np;
++	int ret;
++	unsigned int ipi_irq;
++	void __iomem *ipi_base;
++
++	np = of_find_compatible_node(NULL, NULL, "kalray,kvx-ipi-ctrl");
++	BUG_ON(!np);
++
++	ipi_base = of_iomap(np, 0);
++	BUG_ON(!ipi_base);
++
++	kvx_ipi_controller.regs = ipi_base;
++
++	/* Init mask for interrupts to PE0 -> PE15 */
++	writel(KVX_IPI_CPU_MASK, kvx_ipi_controller.regs + IPI_MASK_OFFSET);
++
++	ipi_irq = irq_of_parse_and_map(np, 0);
++	of_node_put(np);
++	if (!ipi_irq) {
++		pr_err("Failed to parse irq: %d\n", ipi_irq);
++		return -EINVAL;
++	}
++
++	ret = request_percpu_irq(ipi_irq, ipi_irq_handler,
++						"kvx_ipi", &kvx_ipi_controller);
++	if (ret) {
++		pr_err("can't register interrupt %d (%d)\n",
++						ipi_irq, ret);
++		return ret;
++	}
++	kvx_ipi_controller.ipi_irq = ipi_irq;
++
++	ret = cpuhp_setup_state(CPUHP_AP_IRQ_KVX_STARTING,
++				"kvx/ipi:online",
++				kvx_ipi_starting_cpu,
++				kvx_ipi_dying_cpu);
++	if (ret < 0) {
++		pr_err("Failed to setup hotplug state");
++		return ret;
++	}
++
++	return 0;
++}
+-- 
+2.37.2
+
+
+
+
+
 
 _______________________________________________
 linux-riscv mailing list
