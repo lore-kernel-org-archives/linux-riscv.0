@@ -4,123 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51090C38142
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jan 2023 16:24:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 097CAC54EED
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jan 2023 17:20:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EdksffsIEgcNzEPZXVWFRicmWR2pcOHEkMJsPCGDeDc=; b=HE22FSkhzbeYjI
-	OxvmcP9v4/PgQFDTkbmFTm06gCnDrlS0UZ2I4Be3eYdI6S+FFUIzVfyRdSHvWmAnvWRzffYTdYiLH
-	aTwzhh91Sge3uNyrKNn9okD+efEbguCPJYRUcV7gArPAvdc04qAU4QYm0PVKaRZjdhwewaJ9KjuMR
-	hWn/qkChM5Tfm8Mq3796ovXsVPL0yILxBR7NcPAdycdBeeWZZJCmAv4IK7CKLwNGll10TJEJEGEkd
-	o/YwQ27sGlYl4ic3CfYzDMg3qzFiqc5i6TVh9pJVG39F1bs3YxyqvMMfglYorEtopuIsOwyYpThfg
-	vLR73y3apNTuPubwnODw==;
+	List-Owner; bh=M87X12Bo5DJkzUEYnj8mxIQbbuhwi20ss5JnaeYpxWM=; b=S5E8oOAWxoVPOE
+	/9KIS4JSxxCRPHp9jP2MPwAmZ+OQxquqi7d1DBVmEO4V7EO5QWoq5FBImXMrf5RRxDdTqZCSxfHAy
+	CYZcz8mou1M4Ba3Phox/xUMlRKuRYkFUqIyjibW+W+khM8Kiz0XO1zpN7Qm40VenDWSqa1LfVvXdH
+	GnxmEWhHRhw7ANsk/i5bbYU3r7b9pMErPk/ZayYFNiX8+reIaNv0Xnaj7NeynaZxvSQGhx0F18tkr
+	zlnocOFwRcWa6AFR16eSQ8seyQ8MHNTT/zYGqQ9/FQcojYvmFwCFCI+EWysWZ9vuD/cvjInrBctik
+	kxKNK4eg1Qv2Sy0cvacQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pJzcA-000W9Z-BV; Mon, 23 Jan 2023 16:24:10 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1pK0U5-000oJ1-Su; Mon, 23 Jan 2023 17:19:53 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pJzHc-000OwM-Ap
-	for linux-riscv@bombadil.infradead.org; Mon, 23 Jan 2023 16:02:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=NjUDPjFfIstrArrttGkIiPvgInIpWMnlY5IxKwKaSmM=; b=Wjy6CzJc2scqWAf/htp30DsLhy
-	xLiD01ooTf9Es9iZJsL1I4FU6RUbo++qDnIazW1omSf5cXf56SCdNr0Lesducq7n3VqUNObRkXr1C
-	TuMdAIRkDjlQ0APW8/PqRRy5h5sOsQT3JDTomBgJ7eoFkS9fJ2080jnh+y9Xr7ToMXk8LS+YGocnH
-	G8i2qJqA7dlSOtCXeUROvItoASXT2jeQAsghodhevdwEZ0oYiCaUNQw2gGqe5pVzbhAu12NtxDa9M
-	nqqPWdcg5Etts0Zu4CJzcuG5xQt6eHdNSL5NOWy+WUeWJeQthu1PIrFPZECeM+gAlQHcE1WnXl4Hj
-	W/wFEV8w==;
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
-	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pJyV3-001ZBu-13
-	for linux-riscv@lists.infradead.org;
-	Mon, 23 Jan 2023 15:12:47 +0000
-Received: by mail-wr1-x429.google.com with SMTP id y1so6622139wru.2
-        for <linux-riscv@lists.infradead.org>; Mon, 23 Jan 2023 07:13:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=NjUDPjFfIstrArrttGkIiPvgInIpWMnlY5IxKwKaSmM=;
-        b=gBYz9l1ChBFTjyquDh1ZRllUadOhS3AOoSty4qM7gQFn3MA20fctQ9Rau+B9QwDvSO
-         rwnELh0TsZEV1SENNaAwxrbvMZpyOcQpqOrZkidOK9PyOdIFdQ68uU5lY07aC9beRBFQ
-         VFcEGa1/TJ9hw2tpi4rS8isfX7TV//tB0RhC7zKfWQfQHs19bT/PWeLt+XpmCmcpZ3pQ
-         P+lQjZV5iQU7XifV/MniKY2UR8WQFm5+rkxBfAFJiDIAcFsY9yb8XamTbrGGz1HsH3ta
-         tGwvMS4ewMzZ7GFLQSP06NgULdL1ShWttqEcreqeLg/Uh2RmDqDdijBb41n1CwJPRrSD
-         JeHg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=NjUDPjFfIstrArrttGkIiPvgInIpWMnlY5IxKwKaSmM=;
-        b=qxGZTAH3G5ZlDzwCdUkbjPUXco4SSF1roC0L3bGaZ5RN6F8H9DfEbkaI5iad4yz3wt
-         8Ej3fWyoZJZeZ0wVx3aVkKr7ZcI9AxHtgmdWCgBKWg+RWiDOxi2UeGm91Yh1XjM93CFr
-         nwFVti08YikhmE9vRgF0OSm7cFBEX24dNFayjvnfooMQ1Xm84FusMhb+6EITM9coc4jq
-         zkuhprVwgLDwrtMivgR/qF+VMwTruzSQbnsBlpJAdS8u8nsfj5w8UM/Dfkh9WIy60zpm
-         v/3yQ5Oc/rnGwuv1lNG6Kphd/l7uXv0PVwCAo07pX5Z6FdeOBtyjqtpTCsXdYJXGNBRH
-         zWGg==
-X-Gm-Message-State: AFqh2koygBdRrDX0kEMPR4EnlNwAw1B57BaRXSPVNrb7tkWQ8zxGHe4U
-	RXOgm5cJH7J4NSAs2j1Ro56Tog==
-X-Google-Smtp-Source: AMrXdXuiyS/nE1Nc3w4Ako2LBIBfE/IBn8kE3nDojB39mO64zJzuJZFatWSIZAd0fnHSuwEectyleg==
-X-Received: by 2002:a05:6000:98d:b0:242:809e:1428 with SMTP id by13-20020a056000098d00b00242809e1428mr25207621wrb.5.1674486793685;
-        Mon, 23 Jan 2023 07:13:13 -0800 (PST)
-Received: from krzk-bin.. ([178.197.216.144])
-        by smtp.gmail.com with ESMTPSA id n1-20020a5d67c1000000b002bc7f64efa3sm34737922wrw.29.2023.01.23.07.13.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Jan 2023 07:13:13 -0800 (PST)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	NXP Linux Team <linux-imx@nxp.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Lubomir Rintel <lkundrak@v3.sk>,
-	- <devicetree@vger.kernel.org>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Michal Simek <michal.simek@xilinx.com>,
-	Chester Lin <clin@suse.com>,
-	Fugang Duan <fugang.duan@nxp.com>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Pragnesh Patel <pragnesh.patel@sifive.com>,
-	Le Ray <erwan.leray@foss.st.com>,
-	Peter Korsgaard <jacmet@sunsite.dk>,
-	Tomer Maimon <tmaimon77@gmail.com>,
-	linux-serial@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH 02/13] dt-bindings: serial: 8250: correct Nuvoton NPCM850 compatible
-Date: Mon, 23 Jan 2023 16:12:51 +0100
-Message-Id: <20230123151302.368277-2-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20230123151302.368277-1-krzysztof.kozlowski@linaro.org>
-References: <20230123151302.368277-1-krzysztof.kozlowski@linaro.org>
+	id 1pIo1P-009WiF-Sp; Fri, 20 Jan 2023 09:49:21 +0000
+Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1pInzo-0002mL-W5; Fri, 20 Jan 2023 10:47:41 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: broonie@kernel.org, miquel.raynal@bootlin.com, richard@nod.at,
+ vigneshr@ti.com, jic23@kernel.org, tudor.ambarus@microchip.com,
+ pratyush@kernel.org, sanju.mehta@amd.com, chin-ting_kuo@aspeedtech.com,
+ clg@kaod.org, kdasu.kdev@gmail.com, f.fainelli@gmail.com, rjui@broadcom.com,
+ sbranden@broadcom.com, eajames@linux.ibm.com, olteanv@gmail.com,
+ han.xu@nxp.com, john.garry@huawei.com, shawnguo@kernel.org,
+ s.hauer@pengutronix.de, narmstrong@baylibre.com, khilman@baylibre.com,
+ matthias.bgg@gmail.com, haibo.chen@nxp.com, linus.walleij@linaro.org,
+ daniel@zonque.org, haojian.zhuang@gmail.com, robert.jarzmik@free.fr,
+ agross@kernel.org, bjorn.andersson@linaro.org,
+ krzysztof.kozlowski@linaro.org, andi@etezian.org, mcoquelin.stm32@gmail.com,
+ alexandre.torgue@foss.st.com, wens@csie.org, jernej.skrabec@gmail.com,
+ samuel@sholland.org, masahisa.kojima@linaro.org, jaswinder.singh@linaro.org,
+ rostedt@goodmis.org, mingo@redhat.com, l.stelmach@samsung.com,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ alex.aring@gmail.com, stefan@datenfreihafen.org, kvalo@kernel.org,
+ thierry.reding@gmail.com, jonathanh@nvidia.com, skomatineni@nvidia.com,
+ sumit.semwal@linaro.org, christian.koenig@amd.com, j.neuschaefer@gmx.net,
+ vireshk@kernel.org, rmfrfs@gmail.com, johan@kernel.org, elder@kernel.org,
+ gregkh@linuxfoundation.org,
+ Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>
+Cc: git@amd.com, linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org,
+ joel@jms.id.au, andrew@aj.id.au, radu_nicolae.pirea@upb.ro,
+ nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
+ claudiu.beznea@microchip.com, bcm-kernel-feedback-list@broadcom.com,
+ fancer.lancer@gmail.com, kernel@pengutronix.de, festevam@gmail.com,
+ linux-imx@nxp.com, jbrunet@baylibre.com, martin.blumenstingl@googlemail.com,
+ avifishman70@gmail.com, tmaimon77@gmail.com, tali.perry1@gmail.com,
+ venture@google.com, yuenn@google.com, benjaminfair@google.com,
+ yogeshgaur.83@gmail.com, konrad.dybcio@somainline.org,
+ alim.akhtar@samsung.com, ldewangan@nvidia.com, michal.simek@amd.com,
+ linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org,
+ linux-arm-kernel@lists.infradead.org, linux-rpi-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-arm-msm@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-sunxi@lists.linux.dev, linux-tegra@vger.kernel.org,
+ netdev@vger.kernel.org, linux-wpan@vger.kernel.org,
+ libertas-dev@lists.infradead.org, linux-wireless@vger.kernel.org,
+ linux-mtd@lists.infradead.org, lars@metafoo.de, Michael.Hennerich@analog.com,
+ linux-iio@vger.kernel.org, michael@walle.cc, palmer@dabbelt.com,
+ linux-riscv@lists.infradead.org, linux-media@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, greybus-dev@lists.linaro.org,
+ linux-staging@lists.linux.dev, amitrkcian2002@gmail.com
+Subject:  Re: [PATCH v2 02/13] spi: Replace all spi->chip_select and spi->cs_gpiod
+ references with function call
+Date: Fri, 20 Jan 2023 10:47:37 +0100
+Message-ID: <3658396.MHq7AAxBmi@diego>
+In-Reply-To: <20230119185342.2093323-3-amit.kumar-mahapatra@amd.com>
+References:  <20230119185342.2093323-1-amit.kumar-mahapatra@amd.com>
+ <20230119185342.2093323-3-amit.kumar-mahapatra@amd.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230123_151245_729558_E8BB8AE1 
-X-CRM114-Status: GOOD (  11.36  )
+X-CRM114-CacheID: sfid-20230120_014920_137153_D6BDDC22 
+X-CRM114-Status: GOOD (  22.85  )
+X-Mailman-Approved-At: Mon, 23 Jan 2023 09:19:52 -0800
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,40 +102,111 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Nuvoton NPCM850 UART is compatible with NPCM750, so add proper fallback
-to match existing DTS and Linux driver.
+Am Donnerstag, 19. Januar 2023, 19:53:31 CET schrieb Amit Kumar Mahapatra:
+> Supporting multi-cs in spi drivers would require the chip_select & cs_gpiod
+> members of struct spi_device to be an array. But changing the type of these
+> members to array would break the spi driver functionality. To make the
+> transition smoother introduced four new APIs to get/set the
+> spi->chip_select & spi->cs_gpiod and replaced all spi->chip_select and
+> spi->cs_gpiod references with get or set API calls.
+> While adding multi-cs support in further patches the chip_select & cs_gpiod
+> members of the spi_device structure would be converted to arrays & the
+> "idx" parameter of the APIs would be used as array index i.e.,
+> spi->chip_select[idx] & spi->cs_gpiod[idx] respectively.
+> 
+> Signed-off-by: Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>
+> ---
 
-Fixes: c8177f90b7c6 ("dt-bindings: serial: 8250: Add npcm845 compatible string")
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
- Documentation/devicetree/bindings/serial/8250.yaml | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+> diff --git a/drivers/spi/spi-rockchip-sfc.c b/drivers/spi/spi-rockchip-sfc.c
+> index bd87d3c92dd3..246e81453ec3 100644
+> --- a/drivers/spi/spi-rockchip-sfc.c
+> +++ b/drivers/spi/spi-rockchip-sfc.c
+> @@ -346,7 +346,7 @@ static int rockchip_sfc_xfer_setup(struct rockchip_sfc *sfc,
+>  
+>  	/* set the Controller */
+>  	ctrl |= SFC_CTRL_PHASE_SEL_NEGETIVE;
+> -	cmd |= mem->spi->chip_select << SFC_CMD_CS_SHIFT;
+> +	cmd |= spi_get_chipselect(mem->spi, 0) << SFC_CMD_CS_SHIFT;
+>  
+>  	dev_dbg(sfc->dev, "sfc addr.nbytes=%x(x%d) dummy.nbytes=%x(x%d)\n",
+>  		op->addr.nbytes, op->addr.buswidth,
+> diff --git a/drivers/spi/spi-rockchip.c b/drivers/spi/spi-rockchip.c
+> index 79242dc5272d..adc5638eff4b 100644
+> --- a/drivers/spi/spi-rockchip.c
+> +++ b/drivers/spi/spi-rockchip.c
+> @@ -246,28 +246,30 @@ static void rockchip_spi_set_cs(struct spi_device *spi, bool enable)
+>  	bool cs_asserted = spi->mode & SPI_CS_HIGH ? enable : !enable;
+>  
+>  	/* Return immediately for no-op */
+> -	if (cs_asserted == rs->cs_asserted[spi->chip_select])
+> +	if (cs_asserted == rs->cs_asserted[spi_get_chipselect(spi, 0)])
+>  		return;
+>  
+>  	if (cs_asserted) {
+>  		/* Keep things powered as long as CS is asserted */
+>  		pm_runtime_get_sync(rs->dev);
+>  
+> -		if (spi->cs_gpiod)
+> +		if (spi_get_csgpiod(spi, 0))
+>  			ROCKCHIP_SPI_SET_BITS(rs->regs + ROCKCHIP_SPI_SER, 1);
+>  		else
+> -			ROCKCHIP_SPI_SET_BITS(rs->regs + ROCKCHIP_SPI_SER, BIT(spi->chip_select));
+> +			ROCKCHIP_SPI_SET_BITS(rs->regs + ROCKCHIP_SPI_SER,
+> +					      BIT(spi_get_chipselect(spi, 0)));
+>  	} else {
+> -		if (spi->cs_gpiod)
+> +		if (spi_get_csgpiod(spi, 0))
+>  			ROCKCHIP_SPI_CLR_BITS(rs->regs + ROCKCHIP_SPI_SER, 1);
+>  		else
+> -			ROCKCHIP_SPI_CLR_BITS(rs->regs + ROCKCHIP_SPI_SER, BIT(spi->chip_select));
+> +			ROCKCHIP_SPI_CLR_BITS(rs->regs + ROCKCHIP_SPI_SER,
+> +					      BIT(spi_get_chipselect(spi, 0)));
+>  
+>  		/* Drop reference from when we first asserted CS */
+>  		pm_runtime_put(rs->dev);
+>  	}
+>  
+> -	rs->cs_asserted[spi->chip_select] = cs_asserted;
+> +	rs->cs_asserted[spi_get_chipselect(spi, 0)] = cs_asserted;
+>  }
+>  
+>  static void rockchip_spi_handle_err(struct spi_controller *ctlr,
+> @@ -541,7 +543,7 @@ static int rockchip_spi_config(struct rockchip_spi *rs,
+>  	if (spi->mode & SPI_LSB_FIRST)
+>  		cr0 |= CR0_FBM_LSB << CR0_FBM_OFFSET;
+>  	if (spi->mode & SPI_CS_HIGH)
+> -		cr0 |= BIT(spi->chip_select) << CR0_SOI_OFFSET;
+> +		cr0 |= BIT(spi_get_chipselect(spi, 0)) << CR0_SOI_OFFSET;
+>  
+>  	if (xfer->rx_buf && xfer->tx_buf)
+>  		cr0 |= CR0_XFM_TR << CR0_XFM_OFFSET;
+> @@ -724,7 +726,7 @@ static int rockchip_spi_setup(struct spi_device *spi)
+>  	struct rockchip_spi *rs = spi_controller_get_devdata(spi->controller);
+>  	u32 cr0;
+>  
+> -	if (!spi->cs_gpiod && (spi->mode & SPI_CS_HIGH) && !rs->cs_high_supported) {
+> +	if (!spi_get_csgpiod(spi, 0) && (spi->mode & SPI_CS_HIGH) && !rs->cs_high_supported) {
+>  		dev_warn(&spi->dev, "setup: non GPIO CS can't be active-high\n");
+>  		return -EINVAL;
+>  	}
+> @@ -735,10 +737,10 @@ static int rockchip_spi_setup(struct spi_device *spi)
+>  
+>  	cr0 &= ~(0x3 << CR0_SCPH_OFFSET);
+>  	cr0 |= ((spi->mode & 0x3) << CR0_SCPH_OFFSET);
+> -	if (spi->mode & SPI_CS_HIGH && spi->chip_select <= 1)
+> -		cr0 |= BIT(spi->chip_select) << CR0_SOI_OFFSET;
+> -	else if (spi->chip_select <= 1)
+> -		cr0 &= ~(BIT(spi->chip_select) << CR0_SOI_OFFSET);
+> +	if (spi->mode & SPI_CS_HIGH && spi_get_chipselect(spi, 0) <= 1)
+> +		cr0 |= BIT(spi_get_chipselect(spi, 0)) << CR0_SOI_OFFSET;
+> +	else if (spi_get_chipselect(spi, 0) <= 1)
+> +		cr0 &= ~(BIT(spi_get_chipselect(spi, 0)) << CR0_SOI_OFFSET);
+>  
+>  	writel_relaxed(cr0, rs->regs + ROCKCHIP_SPI_CTRLR0);
 
-diff --git a/Documentation/devicetree/bindings/serial/8250.yaml b/Documentation/devicetree/bindings/serial/8250.yaml
-index 34b8e59aa9d4..badaf6d5b6fe 100644
---- a/Documentation/devicetree/bindings/serial/8250.yaml
-+++ b/Documentation/devicetree/bindings/serial/8250.yaml
-@@ -62,7 +62,6 @@ properties:
-       - const: mrvl,pxa-uart
-       - const: nuvoton,wpcm450-uart
-       - const: nuvoton,npcm750-uart
--      - const: nuvoton,npcm845-uart
-       - const: nvidia,tegra20-uart
-       - const: nxp,lpc3220-uart
-       - items:
-@@ -92,6 +91,10 @@ properties:
-           - enum:
-               - ns16550 # Deprecated, unless the FIFO really is broken
-               - ns16550a
-+      - items:
-+          - enum:
-+              - nuvoton,npcm845-uart
-+          - const: nuvoton,npcm750-uart
-       - items:
-           - enum:
-               - ralink,mt7620a-uart
--- 
-2.34.1
+for the two Rockchip drivers
+Acked-by: Heiko Stuebner <heiko@sntech.de>
+
 
 
 _______________________________________________
