@@ -4,62 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1133CC004D4
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jan 2023 02:46:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35DC3C38159
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jan 2023 03:30:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tn5zHoxPE2k/UFDQ1J4rWbBa/kisJElIBRWYHzQRSig=; b=nm9iD1ZG3dMH7u
-	4jhQLUdgwELGQfMUBCFvkLo+gWZkoimRAEX+Z82uBVRk5qOVTuzQ57KqOiZOQPX8YnK9OhAQ4Y7nu
-	6Fny96e1fBlXik2zk8gSONy9d/u7YzZClYfilcDwXdOsPIHZH+8E44TKq0r2W8c7PLtrwNS1vGr9Y
-	mURyhLy+Hc1Fy9wDTSfGstgyfdE3Ee7PM5ASD0AwjTITgeGLw42bEHjRL5GmtIMnWKsYDTALFO7yS
-	lNwqWcp/1LTyojkwB8lTZWClSQkiwu3y0fjg0FJm/MS54Vw4kP7RBlESC2tih99QQlWskL0eKGqni
-	j0lWRf35B0SvWmMNfT2Q==;
+	List-Owner; bh=DfkRT75Uwd88iQWIuj5mMaA/qySL97k1yK6XqNx7KzE=; b=42edRbEO5Moqg3
+	gzOpuvWxnBZ7sNIjqSjdjEgljZB88exLAQoyb+rCP1hLt56Sl8DGQm+BoARNLtwLwjkWoqIoiRoM3
+	3TIoXuMbewV9AjOI6n6hASJPM5zPhn41sj5jwRTlRtadD0arQvT9noUYduanjC5NcU4G5iiBI95E6
+	tuLJdhGegy6gLJsa4NKNe0PC97oBQbTqj6JNZOVPIRU+5PRdoryZJzCCI+ZaDmru8WXNztYsFoJws
+	n4ZFHcL7dfd5LGvfBnwfQmoz3WdW8UVnlhi75HzNIsEtgnszFM/12R/7VGEmvMESpIvwH4asPyHy+
+	ruhkfGbQkS/m8g+Nk0qQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIhPh-0087G8-7k; Fri, 20 Jan 2023 02:45:57 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIhPT-0086wS-EU
-	for linux-riscv@lists.infradead.org; Fri, 20 Jan 2023 02:45:47 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id CF4C124E114;
-	Fri, 20 Jan 2023 10:44:53 +0800 (CST)
-Received: from EXMBX161.cuchost.com (172.16.6.71) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 20 Jan
- 2023 10:44:53 +0800
-Received: from localhost.localdomain (113.72.144.40) by EXMBX161.cuchost.com
- (172.16.6.71) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 20 Jan
- 2023 10:44:53 +0800
-From: Xingyu Wu <xingyu.wu@starfivetech.com>
-To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Michael
- Turquette" <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Emil Renner Berthing <kernel@esmil.dk>
-CC: Rob Herring <robh+dt@kernel.org>, Conor Dooley <conor@kernel.org>, "Paul
- Walmsley" <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>,
-	Xingyu Wu <xingyu.wu@starfivetech.com>, <linux-kernel@vger.kernel.org>,
-	<linux-clk@vger.kernel.org>
-Subject: [PATCH v1 09/11] clk: starfive: Add StarFive JH7110 Video-Output clock driver
-Date: Fri, 20 Jan 2023 10:44:43 +0800
-Message-ID: <20230120024445.244345-10-xingyu.wu@starfivetech.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20230120024445.244345-1-xingyu.wu@starfivetech.com>
-References: <20230120024445.244345-1-xingyu.wu@starfivetech.com>
+	id 1pIi6R-008EGE-Fs; Fri, 20 Jan 2023 03:30:07 +0000
+Received: from mail-vs1-xe33.google.com ([2607:f8b0:4864:20::e33])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pIi6N-008EE8-1E
+	for linux-riscv@lists.infradead.org; Fri, 20 Jan 2023 03:30:05 +0000
+Received: by mail-vs1-xe33.google.com with SMTP id j185so4348933vsc.13
+        for <linux-riscv@lists.infradead.org>; Thu, 19 Jan 2023 19:30:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=qIGU2jk/GigaohMZTY2F1GZI3REwpBY06mdsjtIY06Y=;
+        b=HhgKOWYz1ZH126ecEwD4r8yCCChAWLnn1ip/V9xWYSeyvC9BOiJgmWSGe+1Q5D7rFU
+         379NYtgdEU3obGAaSooGfjGcOHA/W6Lst+ul5lMjsgspgXX0vb8xbEm4R7/C7jEGhCzA
+         iWq9PA62+o21vQgzIU+YsLIRBghiUjNv1ONbRaC4qrHjKJovaXdBG2PGTLHV9p/J0Jd9
+         l6JJe6WIushSkbgxER0+6A8Uw9hLJv3Oaad7dFC8+htg30KYI2MbQejrWKNUsL4N47qa
+         OhHHsFfYFxYEWsq99kVQ5Ahidn5AtgjHaB/tWki/VrEHRU92gFaAHYT2akt9updo0pMu
+         ePyw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=qIGU2jk/GigaohMZTY2F1GZI3REwpBY06mdsjtIY06Y=;
+        b=zIxoHUo/fLcbB8nwjldUECnHiX4KCCHAo0J5ccoXaf1yT3BvkzwJYz8lSGoWA+D26q
+         obfp/VQgpV3pj+MNkPp+jeL+byYIkShnrI8bVqDyveEHOCz3OoPCT3Qth4DZU2P9TlMg
+         Tywz7JqsJWKVI8p9WJwQHAWBCa0JGXJtkIrBAjaz89W5SSYHQTXNFjok/fo+IvZr/s+O
+         6oQQc7eluWOPtY3dXft0Ov7mVREpKnbgVwwC5nFEyF6dhV3zUHB2OOGSSwNAcYyLuOtv
+         sYmArzh+CRbagM9OM7FVSE7ZsKZvHUXPHTlSpAJZwRBelbLRNSdhcyUPSrxbXSQhRswX
+         9alQ==
+X-Gm-Message-State: AFqh2koPSoVB2mRpKhhClsfXvgAh3bDOuYLDf1kvHoNSX48Uei4uSaTH
+	xJP5rDzcb19KSHOaDu0hGxyIcdBE4FNUjlW6xX83NQ==
+X-Google-Smtp-Source: AMrXdXvFh3VWQxO8K5J7n+k5TUU3i7BK7pE2i+nYu9NC5R5iI5zRmfRM0xCXQkjJjhGh4PSUM6MgE7LltvBJ3RXS7dA=
+X-Received: by 2002:a67:f506:0:b0:3d3:c767:4570 with SMTP id
+ u6-20020a67f506000000b003d3c7674570mr2027595vsn.85.1674185399975; Thu, 19 Jan
+ 2023 19:29:59 -0800 (PST)
 MIME-Version: 1.0
-X-Originating-IP: [113.72.144.40]
-X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX161.cuchost.com
- (172.16.6.71)
-X-YovoleRuleAgent: yovoleflag
+References: <20230103141221.772261-1-apatel@ventanamicro.com> <CAK9=C2X+BOVxvjkP=SHYywkFxh+4BnAbZ5_uH6rNJ_vB8_3mkg@mail.gmail.com>
+In-Reply-To: <CAK9=C2X+BOVxvjkP=SHYywkFxh+4BnAbZ5_uH6rNJ_vB8_3mkg@mail.gmail.com>
+From: Anup Patel <apatel@ventanamicro.com>
+Date: Fri, 20 Jan 2023 08:59:47 +0530
+Message-ID: <CAK9=C2Wwb2UwF=xs0gZ381e8HgCqHKEb0YepMAvYJuO2=zkhSg@mail.gmail.com>
+Subject: Re: [PATCH v16 0/9] RISC-V IPI Improvements
+To: Marc Zyngier <maz@kernel.org>
+Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
+	Thomas Gleixner <tglx@linutronix.de>, Atish Patra <atishp@atishpatra.org>, 
+	Alistair Francis <Alistair.Francis@wdc.com>, Anup Patel <anup@brainfault.org>, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	asahi@lists.linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230119_184543_922312_3AA46AFD 
-X-CRM114-Status: GOOD (  22.53  )
+X-CRM114-CacheID: sfid-20230119_193003_126206_C8A4BC05 
+X-CRM114-Status: GOOD (  32.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,280 +90,178 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add driver for the StarFive JH7110 Video-Output clock controller.
+Hi Marc,
 
-Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
----
- drivers/clk/starfive/Kconfig                  |  11 +
- drivers/clk/starfive/Makefile                 |   1 +
- .../clk/starfive/clk-starfive-jh7110-vout.c   | 227 ++++++++++++++++++
- 3 files changed, 239 insertions(+)
- create mode 100644 drivers/clk/starfive/clk-starfive-jh7110-vout.c
+On Thu, Jan 12, 2023 at 5:47 PM Anup Patel <apatel@ventanamicro.com> wrote:
+>
+> Hi Marc,
+>
+> On Tue, Jan 3, 2023 at 7:42 PM Anup Patel <apatel@ventanamicro.com> wrote:
+> >
+> > This series aims to improve IPI support in Linux RISC-V in following ways:
+> >  1) Treat IPIs as normal per-CPU interrupts instead of having custom RISC-V
+> >     specific hooks. This also makes Linux RISC-V IPI support aligned with
+> >     other architectures.
+> >  2) Remote TLB flushes and icache flushes should prefer local IPIs instead
+> >     of SBI calls whenever we have specialized hardware (such as RISC-V AIA
+> >     IMSIC and RISC-V SWI) which allows S-mode software to directly inject
+> >     IPIs without any assistance from M-mode runtime firmware.
+> >
+> > These patches were originally part of the "Linux RISC-V ACLINT Support"
+> > series but this now a separate series so that it can be merged independently
+> > of the "Linux RISC-V ACLINT Support" series.
+> > (Refer, https://lore.kernel.org/lkml/20211007123632.697666-1-anup.patel@wdc.com/)
+> >
+> > These patches are also a preparatory patches for the up-coming:
+> >  1) Linux RISC-V AIA support
+> >  2) Linux RISC-V SWI support
+> >
+> > These patches can also be found in riscv_ipi_imp_v16 branch at:
+> > https://github.com/avpatel/linux.git
+> >
+> > Changes since v15:
+> >  - Rebased on Linux-6.2-rc2
+> >  - Added Reviewed-by and Tested-by tags to some of the patches.
+> >
+> > Changes since v14:
+> >  - Minor fixes in commit description of PATCH3 (as suggested by tglx)
+> >  - Don't disable parent IPI when CPU goes offline for SBI IPI driver and
+> >    CLINT driver in PATCH4.
+> >  - Include Apple AIC driver changes from Marc Z as PATCH9
+> >
+> > Changes since v13:
+> >  - Included changes suggested by Marc Z in PATCH3
+> >  - Use chained handlers in PATCH4
+> >  - Added new PATCH8 to have empty irq_eoi() in RISC-V INTC driver. This
+> >    avoids the unnecessary mask/unmask dance at time of handling interrupts.
+> >
+> > Changes since v12:
+> >  - Rebased on Linux-6.1-rc7
+> >  - Bring-back the IPI optimization in ipi_mux_send_mask() for PATCH3
+> >  - Call ipi_mux_send() for one target CPU at a time in PATCH3
+> >
+> > Changes since v11:
+> >  - Removed ipi_mux_pre/post_handle() callbacks in PATCH3
+> >  - Removed sturct ipi_mux_ops in PATCH3
+> >  - Removed parent_virq and data pointer from everywhere in PATCH3
+> >  - Removed struct ipi_mux_control in PATCH3
+> >  - Improved function signature of ipi_mux_send() callback in PATCH3
+> >  - Used unsigned type with atomic operation in PATCH3
+> >
+> > Changes since v10:
+> >  - Rebased on Linux-6.1-rc5
+> >  - Drop the "!(pending & ibit)" check in ipi_mux_send_mask() of PATCH3
+> >  - Disable local interrupts in ipi_mux_send_mask() of PATCH3 because we
+> >    can be preempted while using a per-CPU temporary variable.
+> >
+> > Changes since v9:
+> >  - Rebased on Linux-6.1-rc3
+> >  - Updated header comment block of ipi-mux.c in PATCH3
+> >  - Use a struct for global data of ipi-mux.c in PATCH3
+> >  - Add per-CPU temp cpumask for sending IPIs in PATCH3
+> >  - Drop the use of fwspec in PATCH3
+> >  - Use static key for ipi_mux_pre_handle() and ipi_mux_post_handle()
+> >    in PATCH3
+> >  - Remove redundant pr_warn_ratelimited() called by ipi_mux_process()
+> >    in PATCH3
+> >  - Remove CPUHP thingy from ipi_mux_create() in PATCH3
+> >
+> > Changes since v8:
+> >  - Rebased on Linux-6.0-rc3
+> >  - Use dummy percpu data as parameter for request_percpu_irq() in PATCH4.
+> >
+> > Changes since v7:
+> >  - Rebased on Linux-6.0-rc1
+> >  - Use atomic operations to track per-CPU pending and enabled IPIs in PATCH3.
+> >    (Note: this is inspired from IPI muxing implemented in
+> >     drivers/irqchip/irq-apple-aic.c)
+> >  - Made "struct ipi_mux_ops" (added by PATCH3) flexible so that
+> >    drivers/irqchip/irq-apple-aic.c can adopt it in future.
+> >
+> > Changes since v6:
+> >  - Rebased on Linux-5.19-rc7
+> >  - Added documentation for struct ipi_mux_ops in PATCH3
+> >  - Dropped dummy irq_mask()/unmask() in PATCH3
+> >  - Added const for "ipi_mux_chip" in PATCH3
+> >  - Removed "type" initialization from ipi_mux_domain_alloc() in PATCH3
+> >  - Dropped translate() from "ipi_mux_domain_ops" in PATCH3
+> >  - Improved barrier documentation in ipi_mux_process() of PATCH3
+> >  - Added percpu check in ipi_mux_create() for parent_virq of PATCH3
+> >  - Added nr_ipi parameter in ipi_mux_create() of PATCH3
+> >
+> > Changes since v5:
+> >  - Rebased on Linux-5.18-rc3
+> >  - Used kernel doc style in PATCH3
+> >  - Removed redundant loop in ipi_mux_process() of PATCH3
+> >  - Removed "RISC-V" prefix form ipi_mux_chip.name of PATCH3
+> >  - Removed use of "this patch" in PATCH3 commit description
+> >  - Addressed few other nit comments in PATCH3
+> >
+> > Changes since v4:
+> >  - Rebased on Linux-5.17
+> >  - Includes new PATCH3 which adds mechanism to multiplex a single HW IPI
+> >
+> > Changes since v3:
+> >  - Rebased on Linux-5.17-rc6
+> >  - Updated PATCH2 to not export riscv_set_intc_hwnode_fn()
+> >  - Simplified riscv_intc_hwnode() in PATCH2
+> >
+> > Changes since v2:
+> >  - Rebased on Linux-5.17-rc4
+> >  - Updated PATCH2 to not create synthetic INTC fwnode and instead provide
+> >    a function which allows drivers to directly discover INTC fwnode
+> >
+> > Changes since v1:
+> >  - Use synthetic fwnode for INTC instead of irq_set_default_host() in PATCH2
+> >
+> > Anup Patel (8):
+> >   RISC-V: Clear SIP bit only when using SBI IPI operations
+> >   irqchip/riscv-intc: Allow drivers to directly discover INTC hwnode
+> >   genirq: Add mechanism to multiplex a single HW IPI
+> >   RISC-V: Treat IPIs as normal Linux IRQs
+> >   RISC-V: Allow marking IPIs as suitable for remote FENCEs
+> >   RISC-V: Use IPIs for remote TLB flush when possible
+> >   RISC-V: Use IPIs for remote icache flush when possible
+> >   irqchip/riscv-intc: Add empty irq_eoi() for chained irq handlers
+> >
+> > Marc Zyngier (1):
+> >   irqchip/apple-aic: Move over to core ipi-mux
+> >
+> >  arch/riscv/Kconfig                |   2 +
+> >  arch/riscv/include/asm/irq.h      |   4 +
+> >  arch/riscv/include/asm/sbi.h      |   9 +-
+> >  arch/riscv/include/asm/smp.h      |  49 +++++--
+> >  arch/riscv/kernel/Makefile        |   1 +
+> >  arch/riscv/kernel/cpu-hotplug.c   |   3 +-
+> >  arch/riscv/kernel/irq.c           |  21 ++-
+> >  arch/riscv/kernel/sbi-ipi.c       |  77 +++++++++++
+> >  arch/riscv/kernel/sbi.c           | 100 +++------------
+> >  arch/riscv/kernel/smp.c           | 171 ++++++++++++------------
+> >  arch/riscv/kernel/smpboot.c       |   5 +-
+> >  arch/riscv/mm/cacheflush.c        |   5 +-
+> >  arch/riscv/mm/tlbflush.c          |  93 +++++++++++---
+> >  drivers/clocksource/timer-clint.c |  65 +++++++---
+> >  drivers/irqchip/Kconfig           |   2 +
+> >  drivers/irqchip/irq-apple-aic.c   | 161 ++---------------------
+> >  drivers/irqchip/irq-riscv-intc.c  |  71 ++++++----
+> >  include/linux/irq.h               |   3 +
+> >  kernel/irq/Kconfig                |   5 +
+> >  kernel/irq/Makefile               |   1 +
+> >  kernel/irq/ipi-mux.c              | 207 ++++++++++++++++++++++++++++++
+> >  21 files changed, 654 insertions(+), 401 deletions(-)
+> >  create mode 100644 arch/riscv/kernel/sbi-ipi.c
+> >  create mode 100644 kernel/irq/ipi-mux.c
+> >
+> > --
+> > 2.34.1
+> >
+>
+> Friendly ping ?
 
-diff --git a/drivers/clk/starfive/Kconfig b/drivers/clk/starfive/Kconfig
-index 59499acb95f7..5ebf1ed08627 100644
---- a/drivers/clk/starfive/Kconfig
-+++ b/drivers/clk/starfive/Kconfig
-@@ -64,3 +64,14 @@ config CLK_STARFIVE_JH7110_ISP
- 	help
- 	  Say yes here to support the Image-Signal-Process clock controller
- 	  on the StarFive JH7110 SoC.
-+
-+config CLK_STARFIVE_JH7110_VOUT
-+	tristate "StarFive JH7110 Video-Output clock support"
-+	depends on CLK_STARFIVE_JH7110_SYS && JH71XX_PMU
-+	select AUXILIARY_BUS
-+	select CLK_STARFIVE_JH71X0
-+	select RESET_STARFIVE_JH7110
-+	default CLK_STARFIVE_JH7110_SYS
-+	help
-+	  Say yes here to support the Video-Output clock controller
-+	  on the StarFive JH7110 SoC.
-diff --git a/drivers/clk/starfive/Makefile b/drivers/clk/starfive/Makefile
-index 76fb9f8d628b..841377e45bb6 100644
---- a/drivers/clk/starfive/Makefile
-+++ b/drivers/clk/starfive/Makefile
-@@ -8,3 +8,4 @@ obj-$(CONFIG_CLK_STARFIVE_JH7110_SYS)	+= clk-starfive-jh7110-sys.o
- obj-$(CONFIG_CLK_STARFIVE_JH7110_AON)	+= clk-starfive-jh7110-aon.o
- obj-$(CONFIG_CLK_STARFIVE_JH7110_STG)	+= clk-starfive-jh7110-stg.o
- obj-$(CONFIG_CLK_STARFIVE_JH7110_ISP)	+= clk-starfive-jh7110-isp.o
-+obj-$(CONFIG_CLK_STARFIVE_JH7110_VOUT)	+= clk-starfive-jh7110-vout.o
-diff --git a/drivers/clk/starfive/clk-starfive-jh7110-vout.c b/drivers/clk/starfive/clk-starfive-jh7110-vout.c
-new file mode 100644
-index 000000000000..459e8d111bf8
---- /dev/null
-+++ b/drivers/clk/starfive/clk-starfive-jh7110-vout.c
-@@ -0,0 +1,227 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * StarFive JH7110 Video-Output Clock Driver
-+ *
-+ * Copyright (C) 2022 StarFive Technology Co., Ltd.
-+ */
-+
-+#include <linux/clk.h>
-+#include <linux/clk-provider.h>
-+#include <linux/io.h>
-+#include <linux/of.h>
-+#include <linux/platform_device.h>
-+#include <linux/pm_runtime.h>
-+#include <linux/reset.h>
-+
-+#include <dt-bindings/clock/starfive,jh7110-crg.h>
-+
-+#include "clk-starfive-jh71x0.h"
-+
-+/* external clocks */
-+#define JH7110_VOUTCLK_VOUT_SRC			(JH7110_VOUTCLK_END + 0)
-+#define JH7110_VOUTCLK_VOUT_TOP_AHB		(JH7110_VOUTCLK_END + 1)
-+#define JH7110_VOUTCLK_VOUT_TOP_AXI		(JH7110_VOUTCLK_END + 2)
-+#define JH7110_VOUTCLK_VOUT_TOP_HDMITX0_MCLK	(JH7110_VOUTCLK_END + 3)
-+#define JH7110_VOUTCLK_I2STX0_BCLK		(JH7110_VOUTCLK_END + 4)
-+#define JH7110_VOUTCLK_HDMITX0_PIXELCLK		(JH7110_VOUTCLK_END + 5)
-+
-+static const struct jh71x0_clk_data jh7110_voutclk_data[] = {
-+	/* divider */
-+	JH71X0__DIV(JH7110_VOUTCLK_APB, "apb", 8, JH7110_VOUTCLK_VOUT_TOP_AHB),
-+	JH71X0__DIV(JH7110_VOUTCLK_DC8200_PIX, "dc8200_pix", 63, JH7110_VOUTCLK_VOUT_SRC),
-+	JH71X0__DIV(JH7110_VOUTCLK_DSI_SYS, "dsi_sys", 31, JH7110_VOUTCLK_VOUT_SRC),
-+	JH71X0__DIV(JH7110_VOUTCLK_TX_ESC, "tx_esc", 31, JH7110_VOUTCLK_VOUT_TOP_AHB),
-+	/* dc8200 */
-+	JH71X0_GATE(JH7110_VOUTCLK_DC8200_AXI, "dc8200_axi", 0, JH7110_VOUTCLK_VOUT_TOP_AXI),
-+	JH71X0_GATE(JH7110_VOUTCLK_DC8200_CORE, "dc8200_core", 0, JH7110_VOUTCLK_VOUT_TOP_AXI),
-+	JH71X0_GATE(JH7110_VOUTCLK_DC8200_AHB, "dc8200_ahb", 0, JH7110_VOUTCLK_VOUT_TOP_AHB),
-+	JH71X0_GMUX(JH7110_VOUTCLK_DC8200_PIX0, "dc8200_pix0", 0, 2,
-+		    JH7110_VOUTCLK_DC8200_PIX,
-+		    JH7110_VOUTCLK_HDMITX0_PIXELCLK),
-+	JH71X0_GMUX(JH7110_VOUTCLK_DC8200_PIX1, "dc8200_pix1", 0, 2,
-+		    JH7110_VOUTCLK_DC8200_PIX,
-+		    JH7110_VOUTCLK_HDMITX0_PIXELCLK),
-+	/* LCD */
-+	JH71X0_GMUX(JH7110_VOUTCLK_DOM_VOUT_TOP_LCD, "dom_vout_top_lcd", 0, 2,
-+		    JH7110_VOUTCLK_DC8200_PIX0,
-+		    JH7110_VOUTCLK_DC8200_PIX1),
-+	/* dsiTx */
-+	JH71X0_GATE(JH7110_VOUTCLK_DSITX_APB, "dsiTx_apb", 0, JH7110_VOUTCLK_DSI_SYS),
-+	JH71X0_GATE(JH7110_VOUTCLK_DSITX_SYS, "dsiTx_sys", 0, JH7110_VOUTCLK_DSI_SYS),
-+	JH71X0_GMUX(JH7110_VOUTCLK_DSITX_DPI, "dsiTx_dpi", 0, 2,
-+		    JH7110_VOUTCLK_DC8200_PIX,
-+		    JH7110_VOUTCLK_HDMITX0_PIXELCLK),
-+	JH71X0_GATE(JH7110_VOUTCLK_DSITX_TXESC, "dsiTx_txesc", 0, JH7110_VOUTCLK_TX_ESC),
-+	/* mipitx DPHY */
-+	JH71X0_GATE(JH7110_VOUTCLK_MIPITX_DPHY_TXESC, "mipitx_dphy_txesc", 0,
-+		    JH7110_VOUTCLK_TX_ESC),
-+	/* hdmi */
-+	JH71X0_GATE(JH7110_VOUTCLK_HDMI_TX_MCLK, "hdmi_tx_mclk", 0,
-+		    JH7110_VOUTCLK_VOUT_TOP_HDMITX0_MCLK),
-+	JH71X0_GATE(JH7110_VOUTCLK_HDMI_TX_BCLK, "hdmi_tx_bclk", 0,
-+		    JH7110_VOUTCLK_I2STX0_BCLK),
-+	JH71X0_GATE(JH7110_VOUTCLK_HDMI_TX_SYS, "hdmi_tx_sys", 0, JH7110_VOUTCLK_APB),
-+};
-+
-+struct vout_top_crg {
-+	struct clk_bulk_data *top_clks;
-+	struct reset_control *top_rst;
-+	int top_clks_num;
-+};
-+
-+static struct clk_bulk_data jh7110_vout_top_clks[] = {
-+	{ .id = "vout_src" },
-+	{ .id = "vout_top_ahb" }
-+};
-+
-+static int jh7110_vout_top_crg_get(struct jh71x0_clk_priv *priv, struct vout_top_crg *top)
-+{
-+	int ret;
-+
-+	top->top_clks = jh7110_vout_top_clks;
-+	top->top_clks_num = ARRAY_SIZE(jh7110_vout_top_clks);
-+	ret = devm_clk_bulk_get(priv->dev, top->top_clks_num, top->top_clks);
-+	if (ret) {
-+		dev_err(priv->dev, "top clks get failed: %d\n", ret);
-+		return ret;
-+	}
-+
-+	/* The reset should be shared and other Vout modules will use its. */
-+	top->top_rst = devm_reset_control_get_shared(priv->dev, NULL);
-+	if (IS_ERR(top->top_rst)) {
-+		dev_err(priv->dev, "top rst get failed\n");
-+		return PTR_ERR(top->top_rst);
-+	}
-+
-+	return 0;
-+}
-+
-+static int jh7110_vout_top_crg_enable(struct vout_top_crg *top)
-+{
-+	int ret;
-+
-+	ret = clk_bulk_prepare_enable(top->top_clks_num, top->top_clks);
-+	if (ret)
-+		return ret;
-+
-+	return reset_control_deassert(top->top_rst);
-+}
-+
-+static struct clk_hw *jh7110_voutclk_get(struct of_phandle_args *clkspec, void *data)
-+{
-+	struct jh71x0_clk_priv *priv = data;
-+	unsigned int idx = clkspec->args[0];
-+
-+	if (idx < JH7110_VOUTCLK_END)
-+		return &priv->reg[idx].hw;
-+
-+	return ERR_PTR(-EINVAL);
-+}
-+
-+static int jh7110_voutcrg_probe(struct platform_device *pdev)
-+{
-+	struct jh71x0_clk_priv *priv;
-+	struct vout_top_crg *top;
-+	unsigned int idx;
-+	int ret;
-+
-+	priv = devm_kzalloc(&pdev->dev,
-+			    struct_size(priv, reg, JH7110_VOUTCLK_END),
-+			    GFP_KERNEL);
-+	if (!priv)
-+		return -ENOMEM;
-+
-+	top = devm_kzalloc(&pdev->dev, sizeof(*top), GFP_KERNEL);
-+	if (!top)
-+		return -ENOMEM;
-+
-+	spin_lock_init(&priv->rmw_lock);
-+	priv->dev = &pdev->dev;
-+	priv->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(priv->base))
-+		return PTR_ERR(priv->base);
-+
-+	dev_set_drvdata(priv->dev, priv->base);
-+
-+	pm_runtime_enable(priv->dev);
-+	ret = pm_runtime_get_sync(priv->dev);
-+	if (ret < 0) {
-+		dev_err(priv->dev, "failed to turn power: %d\n", ret);
-+		return ret;
-+	}
-+
-+	ret = jh7110_vout_top_crg_get(priv, top);
-+	if (ret)
-+		return ret;
-+
-+	ret = jh7110_vout_top_crg_enable(top);
-+	if (ret)
-+		return ret;
-+
-+	for (idx = 0; idx < JH7110_VOUTCLK_END; idx++) {
-+		u32 max = jh7110_voutclk_data[idx].max;
-+		struct clk_parent_data parents[4] = {};
-+		struct clk_init_data init = {
-+			.name = jh7110_voutclk_data[idx].name,
-+			.ops = starfive_jh71x0_clk_ops(max),
-+			.parent_data = parents,
-+			.num_parents =
-+				((max & JH71X0_CLK_MUX_MASK) >> JH71X0_CLK_MUX_SHIFT) + 1,
-+			.flags = jh7110_voutclk_data[idx].flags,
-+		};
-+		struct jh71x0_clk *clk = &priv->reg[idx];
-+		unsigned int i;
-+
-+		for (i = 0; i < init.num_parents; i++) {
-+			unsigned int pidx = jh7110_voutclk_data[idx].parents[i];
-+
-+			if (pidx < JH7110_VOUTCLK_END)
-+				parents[i].hw = &priv->reg[pidx].hw;
-+			else if (pidx == JH7110_VOUTCLK_VOUT_SRC)
-+				parents[i].fw_name = "vout_src";
-+			else if (pidx == JH7110_VOUTCLK_VOUT_TOP_AHB)
-+				parents[i].fw_name = "vout_top_ahb";
-+			else if (pidx == JH7110_VOUTCLK_VOUT_TOP_AXI)
-+				parents[i].fw_name = "vout_top_axi";
-+			else if (pidx == JH7110_VOUTCLK_VOUT_TOP_HDMITX0_MCLK)
-+				parents[i].fw_name = "vout_top_hdmitx0_mclk";
-+			else if (pidx == JH7110_VOUTCLK_I2STX0_BCLK)
-+				parents[i].fw_name = "i2stx0_bclk";
-+			else if (pidx == JH7110_VOUTCLK_HDMITX0_PIXELCLK)
-+				parents[i].fw_name = "hdmitx0_pixelclk";
-+		}
-+
-+		clk->hw.init = &init;
-+		clk->idx = idx;
-+		clk->max_div = max & JH71X0_CLK_DIV_MASK;
-+
-+		ret = devm_clk_hw_register(&pdev->dev, &clk->hw);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	ret = devm_of_clk_add_hw_provider(&pdev->dev, jh7110_voutclk_get, priv);
-+	if (ret)
-+		return ret;
-+
-+	return jh7110_reset_controller_register(priv, "reset-vout", 4);
-+}
-+
-+static const struct of_device_id jh7110_voutcrg_match[] = {
-+	{ .compatible = "starfive,jh7110-voutcrg" },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, jh7110_voutcrg_match);
-+
-+static struct platform_driver jh7110_voutcrg_driver = {
-+	.probe = jh7110_voutcrg_probe,
-+	.driver = {
-+		.name = "clk-starfive-jh7110-vout",
-+		.of_match_table = jh7110_voutcrg_match,
-+	},
-+};
-+module_platform_driver(jh7110_voutcrg_driver);
-+
-+MODULE_AUTHOR("Xingyu Wu <xingyu.wu@starfivetech.com>");
-+MODULE_DESCRIPTION("StarFive JH7110 Video-Output clock driver");
-+MODULE_LICENSE("GPL");
--- 
-2.25.1
+Any further comments on this series ?
 
+Regards,
+Anup
 
 _______________________________________________
 linux-riscv mailing list
