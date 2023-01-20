@@ -4,64 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B862C25B50
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jan 2023 22:22:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA5FEC25B50
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jan 2023 22:22:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7DWBtEqdNRy9k5PWagEBlhk6VteakKTXPsbLQtPXeh4=; b=el44w0FyyyNckO
-	4VkkmpMI9QOn6hSvvepBAKwJh2qJfkFkZ3C1nmfDCSZbWJADJCdq1LvByN9wRpYzDdJtdbYa39vt5
-	yk/T5RQqjFRPzFt3UVJpbCMSvgH2uVHMCMqSnR2vwzkN06TYCkfhMkuRQ9qOfTkHMRDBd3K3pmy1t
-	tKfu7f+xh1btQt6zw8wHm2SKC4tiBpeEC3i6nMKA+u/GkASzVITDrt166ttLX/ZJBiWO7mmA0Pf8R
-	U5ohJU0l+MlTcG3GNC3MuJpcogAtB5GVwmUZdskSJd4Gz1Yr063cIH3yGqWXedoTiPyEbFRlRROu4
-	2ll6ssXARuaRmvRHoh5A==;
+	List-Owner; bh=7WAA+Sv5SCFvs+ofciJOpWyy/f5UFBRjVisNJ01vxLI=; b=kvM0iLP6oNgCVU
+	3jK1+snw+av5XMCcn7ObvtlnyZUe1h278jQygKPDk4OlJ2NxSzmKCWovq73J2G2HU+OPR5f/FLyIp
+	F9hwAVIITVLt8kVbzOZU8JycaoDe3mgnpMc/y38YXPFk4k7M9BFtn+or/scEvTurqpM7OSYilOgbV
+	e7Lc9QiXYkwnqoqPFlQuJjoJswDLnAKirqGtcsrQkX77kW3yZ8chVjzKXsWw5mbuCiSMKvMSGjPV3
+	VM/HkXkItxHyfLi2FobS+cmjollrnBLVTTUj9HgGTYzPnW9k03rKddHDnyv/lk5wS1uxpP8W4A4kc
+	CLOVgWaXnBSQhH/G2KvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIzmL-00CV8S-Mr; Fri, 20 Jan 2023 22:22:33 +0000
+	id 1pIzmV-00CVAW-9s; Fri, 20 Jan 2023 22:22:43 +0000
 Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIzmF-00CV7w-5m
-	for linux-riscv@lists.infradead.org; Fri, 20 Jan 2023 22:22:28 +0000
+	id 1pIzmS-00CV9f-By
+	for linux-riscv@lists.infradead.org; Fri, 20 Jan 2023 22:22:41 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id C031CB82A93;
-	Fri, 20 Jan 2023 22:22:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9C46C433D2;
-	Fri, 20 Jan 2023 22:22:21 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id F0E4DB8281D;
+	Fri, 20 Jan 2023 22:22:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E812FC4339B;
+	Fri, 20 Jan 2023 22:22:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1674253343;
-	bh=9OjnS/bRAi/5W+hIXcDofIIjRCnP/2WUXpYZhPCsffI=;
+	s=k20201202; t=1674253357;
+	bh=/B3zFHsbmUuGcZFPrh9xj1KkPrOVA+AyCX+HZKfxBSs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=r8c+Vgbg0gXKK2v++cEaCOiFG9cw8sctDwGC/5pwtDUk9Vm446YSQY9Ks6s43+nuJ
-	 8Y5mblJKCof5iiySfzNGqJXzdnUtXVMHbBzd/lulNRgVEUN8cZcD6Zmlb0C3twNMlD
-	 P1uMVv4YnazpQzTzsd1eTFWQ7CNzW490ZbHTr2nzzNrTnFx1zBlBvvHKRtkhIgk7ui
-	 sw3YvgV9jlXw7s+9hTEMapRzTgLGyDskQGu80kQm7KytkZl5CmsLcORge5vjK2Gdtq
-	 dFmL+LyJ5pFHaTwX+v1KYAK9SFyZtob7Xe96bcZmY1X/8TCqCQ/ivtQLt7815u1Exa
-	 VaCCUfNRi+yyQ==
+	b=fpYwxFukNmMNbXlyBZIS3seg83mrQYDkDXJPUU2/yt0Sevg1q41fnxmiXxikKHr+K
+	 TaLL6FeojH28nSTCZxdFLaESnSk7UrMiN4gRc4ykfl8JR4YRWwS1hJeGk/Jr1ruxuV
+	 Ksb0N/mBWl5NYBvUfxm4eZQeo3vXCN/qZTWtB6ZyO4UrUzmQ6VuO5n8Z+GGZBCZ7fo
+	 xxY+FsODVZgWKliDzH3WD+r6J+fdDsaUJC1M9o8fZTzfQhXmcdFmPNNgWj1VvtqI4r
+	 r+XP9P/ikkE/LATGVdkctIEICL5/cWnvppt4tTnXwnpA30gyW/r2E6x31TDbTUIfbs
+	 GbayQlsvzsiuQ==
 From: Conor Dooley <conor@kernel.org>
 To: Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor.dooley@microchip.com>
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-riscv@lists.infradead.org,
+	linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	Walker Chen <walker.chen@starfivetech.com>
 Cc: conor@kernel.org,
 	Daire McNamara <daire.mcnamara@microchip.com>,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 0/3] Add a devicetree for the Aldec PolarFire SoC TySoM
-Date: Fri, 20 Jan 2023 22:21:52 +0000
-Message-Id: <167425300253.196995.16704364734432203770.b4-ty@microchip.com>
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 0/2] JH7110 PMU Support
+Date: Fri, 20 Jan 2023 22:21:54 +0000
+Message-Id: <167425300253.196995.6414153954346182622.b4-ty@microchip.com>
 X-Mailer: git-send-email 2.39.0
-In-Reply-To: <20230111124106.2417152-1-conor.dooley@microchip.com>
-References: <20230111124106.2417152-1-conor.dooley@microchip.com>
+In-Reply-To: <20230119094447.21939-1-walker.chen@starfivetech.com>
+References: <20230119094447.21939-1-walker.chen@starfivetech.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=775; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=DSR4h5iLz5L38SehBa0AiU9UxY1CKS3u7gABR27mr2o=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDMmnhf+89rUw155YOOW93NLnu8Q217Kq/HZNPOZVKupe6ZJy gHNvRykLgxgHg6yYIkvi7b4WqfV/XHY497yFmcPKBDKEgYtTACZy5xHDf38jhqreDe+euBbm96n6NJ tIqtnWbovIurS8tGr1d7kWF0aGv9d25whnHul8wrw76ujiDScVr2t0PJoTs/z+8yfXrs5fxgYA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=934; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=PKB/daeDLqS7LF3I2YHL9Fy5Hx8w0JBq6gduu4aGKmM=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDMmnhf849mce2XZrb5Z/abxJmdacbacr3FcbLMhLFJiWp2Kt vep/RykLgxgHg6yYIkvi7b4WqfV/XHY497yFmcPKBDKEgYtTACbi9YuR4VD73DnrulU3XPO+tuteo8 LEe3zGwasXsmxI29R5YmHFibOMDG8nKkzUjnz1Xr77VVpwQGRhTsk63eB9830LCqs/HFnDyA4A
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230120_142227_411454_36AA812E 
-X-CRM114-Status: GOOD (  12.77  )
+X-CRM114-CacheID: sfid-20230120_142240_603131_B314F682 
+X-CRM114-Status: GOOD (  12.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,26 +86,25 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-On Wed, 11 Jan 2023 12:41:04 +0000, Conor Dooley wrote:
-> Hey All,
-> 
-> The board has 32 GB of DDR but the DT I have access to only has a small
-> bit of that mapped. I tried accessing more DDR, but it was not possible
-> with the FPGA design as things stand. I'd rather have the devicetree
-> match what the vendor is shipping, so left the design/DDR as-was.
+On Thu, 19 Jan 2023 17:44:45 +0800, Walker Chen wrote:
+> This patchset adds PMU (Power Management Unit) controller driver for the
+> StarFive JH7110 SoC. In order to meet low power requirements, PMU is
+> designed for including multiple PM domains that can be used for power
+> gating of selected IP blocks for power saving by reduced leakage
+> current. The first patch adds device tree binding for PM domain provider
+> and consumer. The second patch adds pmu driver and support JH7110 SoC.
 > 
 > [...]
 
-Applied to riscv-dt-for-next, thanks!
+Applied to riscv-soc-for-next, thanks!
 
-[1/3] dt-bindings: vendor-prefixes: Add entry for Aldec
-      https://git.kernel.org/conor/c/f6beee9118c3
-[2/3] dt-bindings: riscv: microchip: document the Aldec TySoM
-      https://git.kernel.org/conor/c/ea913d8865fe
-[3/3] riscv: dts: microchip: add the Aldec TySoM's devicetree
-      https://git.kernel.org/conor/c/4f7d64156292
+[1/2] dt-bindings: power: Add starfive,jh7110-pmu
+      https://git.kernel.org/conor/c/1fc7606d5083f79a20eb9cfd77c0dbd9299421c1
+[2/2] soc: starfive: Add StarFive JH71XX pmu driver
+      https://git.kernel.org/conor/c/08b9a94e8654d402bfd1f5496b077503d69aa2cf
 
-Removed the PCIe that I forgot to remove before sending in the process...
+I modified the MAINTAINERS entry to remove the include directory that
+was deleted along the way.
 
 Thanks,
 Conor.
