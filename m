@@ -4,70 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC83FC05027
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jan 2023 14:17:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9059C27C7C
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jan 2023 14:21:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n23LntKbpeE74dMrN46CkML1p6IlH+w1q37qw9LKaLg=; b=r0LQNfKfpTNDcySJtJ8USLFAOi
-	5n6dbK42c2CVa3SsZaD4E9fK+HjtX7UxiHU3o2cknsjUhsOrks7obfdE4MQkvzrc0MXPr3BI/kv94
-	8Yg191CzuBXDLmR9n4HpBTJYNoEHgpi4JThzug+NS8U608IS3rekOe488+AGi8jJkyW595a05hAZj
-	lUZvvXncRbrD3bcABhu+Fsf8c5Pt/pZm6GkfBL99Sxkj7ctdVtEHJrxdNRz16eUZtnYuYZMycqRBX
-	qUQRfTdGYbQysVOHqmf9ufuWBZ244tm0QoVw6+zZAwZVdGQmJ1wc0dYv0FPXmD7jVq6J1Vse21poS
-	aoOUVl1g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=kZWBpkYeV1gh13ToaWy2xQI/vDWe3k2oHU4aMMfBVZA=; b=VVl+Xkpj4cM/hv
+	TiqtfV5tAXZdS1mT4mcjeVpVYjsfHXYwgJlgu3jVrb7/UrkIjJc9jd5JaGfoOU/iemHcMha/6iuQx
+	MSckw7eAiiL4aOFNkneEDFblo8QAV9Jn6XPG403MFd+qDTw2yGWQIK+0fhFJWRFP/tZEs+xawEMQ6
+	WCqeCX+boWAlCrFH6raPMnbplhoqWGml1Y1cYSiBXmZ74R9+FBsf0vENP25xNY7PmhA3BHogF6X0X
+	1e0bRSWqvwkGKVG2SlO8nHAcYsSCdhn7pMAAkhRHGbsozI7LS49crhcUxp3rTUKbujDV4KjEQvpOU
+	CzE9TAoBIcOlOmG62M3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIsCx-00AepZ-N1; Fri, 20 Jan 2023 14:17:31 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1pIsGG-00AgGz-3S; Fri, 20 Jan 2023 14:20:56 +0000
+Received: from mxout.security-mail.net ([85.31.212.46] helo=fx303.security-mail.net)
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIsCm-00Ael0-LS
-	for linux-riscv@lists.infradead.org; Fri, 20 Jan 2023 14:17:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1674224240; x=1705760240;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=8wOj9+QwCLtyXBCLcRQBXGg6eCl/vXY57DMzFXi9tbY=;
-  b=zP3Vu3hvKU5PRNjdkaKa8a+dmtA187ZpD1cgWKqq8f6WYxBL5qW57cfC
-   ss7ThWzHJ2FVnnghWiO+Ouar9w6Tc46HNsKdPRP0z1bQ1S4Co72y6IycD
-   algbg5O42RCA1b8HUnkjROoyucxTY17+wYTOIyT1+yg1PX3v+CVAR8AIo
-   i87RR0E9qQ9sNLkZBKqFqBNsgRHSGPirSd4CNqcprr+pB3gmyCLd8O1rW
-   he7ZauDh4aCDNdGB/RsHcMOD2ZrIpPuHgUpf2z7tdWNP5AF5Yg5T8rzVs
-   ZJWkFXiw1g3c1PC+Vb2oaCJgyyF9LxGFvcF4BW158vutvmu9DWm39t2sW
-   A==;
-X-IronPort-AV: E=Sophos;i="5.97,232,1669100400"; 
-   d="asc'?scan'208";a="196710524"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 20 Jan 2023 07:17:16 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.16; Fri, 20 Jan 2023 07:17:13 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.16 via Frontend
- Transport; Fri, 20 Jan 2023 07:17:11 -0700
-Date: Fri, 20 Jan 2023 14:16:48 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Andrew Jones <ajones@ventanamicro.com>
-CC: <linux-riscv@lists.infradead.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	<aou@eecs.berkeley.edu>, <conor@kernel.org>, <corbet@lwn.net>,
-	<guoren@kernel.org>, <heiko@sntech.de>, <paul.walmsley@sifive.com>,
-	<linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>, Heiko Stuebner
-	<heiko.stuebner@vrull.eu>
-Subject: Re: [PATCH v2 2/3] RISC-V: resort all extensions in consistent orders
-Message-ID: <Y8qiUCH6ERYmAdgg@wendy>
-References: <20221205144525.2148448-1-conor.dooley@microchip.com>
- <20221205144525.2148448-3-conor.dooley@microchip.com>
- <20230120135632.vb7ncvoapnaixluu@orel>
+	id 1pIsG8-00Ag9E-OP
+	for linux-riscv@lists.infradead.org; Fri, 20 Jan 2023 14:20:52 +0000
+Received: from localhost (fx303.security-mail.net [127.0.0.1])
+	by fx303.security-mail.net (Postfix) with ESMTP id EAA5830F743
+	for <linux-riscv@lists.infradead.org>; Fri, 20 Jan 2023 15:20:45 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kalray.eu;
+	s=sec-sig-email; t=1674224446;
+	bh=fEolq90cY5EVuj1+uEWf79Pf+IA5puQR/p9asxKN+A8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=jcOzPkZoOJPH7kMwSoH/WiR0LAll2TQCDOUHSPjjbG0WpYdDXIhpQa0AQKYLCQMzQ
+	 Tpo14mpSAvcLxR5wL5uMkiE3p0/Cb9D82993l1CRkKqXjBwNTVBL6ySvoNVTWMZIQ9
+	 L5ImrZw+GuHLK/3yUK2UE3PlHTSTYi0LBPPQlMWs=
+Received: from fx303 (fx303.security-mail.net [127.0.0.1]) by
+ fx303.security-mail.net (Postfix) with ESMTP id 5BD2E30F7B3; Fri, 20 Jan
+ 2023 15:20:45 +0100 (CET)
+Received: from zimbra2.kalray.eu (unknown [217.181.231.53]) by
+ fx303.security-mail.net (Postfix) with ESMTPS id 4160B30F743; Fri, 20 Jan
+ 2023 15:20:44 +0100 (CET)
+Received: from zimbra2.kalray.eu (localhost [127.0.0.1]) by
+ zimbra2.kalray.eu (Postfix) with ESMTPS id 5487C27E043A; Fri, 20 Jan 2023
+ 15:10:36 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1]) by zimbra2.kalray.eu
+ (Postfix) with ESMTP id 3191E27E0456; Fri, 20 Jan 2023 15:10:36 +0100 (CET)
+Received: from zimbra2.kalray.eu ([127.0.0.1]) by localhost
+ (zimbra2.kalray.eu [127.0.0.1]) (amavisd-new, port 10026) with ESMTP id
+ cLbiAeRS-eJ6; Fri, 20 Jan 2023 15:10:36 +0100 (CET)
+Received: from junon.lin.mbt.kalray.eu (unknown [192.168.37.161]) by
+ zimbra2.kalray.eu (Postfix) with ESMTPSA id 6496127E043A; Fri, 20 Jan 2023
+ 15:10:35 +0100 (CET)
+X-Virus-Scanned: E-securemail
+Secumail-id: <14732.63caa33c.3f2d8.0>
+DKIM-Filter: OpenDKIM Filter v2.10.3 zimbra2.kalray.eu 3191E27E0456
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kalray.eu;
+ s=32AE1B44-9502-11E5-BA35-3734643DEF29; t=1674223836;
+ bh=cF5CoaZgmR1DuYZiI1Z/oNzdyD7coVLwL5/tSu1i9wQ=;
+ h=From:To:Date:Message-Id:MIME-Version;
+ b=j5hX1EY3DQWjpD0GffZPmcCW1pATwP/ux72mimsi2RzoDPkPiD+pGMILaWxOeKxz4
+ kzuu4uIUoPtUy5Oh2rn954ACY+VEHvcoTZIwuMFqr1AvlKmOFTnMvCYAHG32kpHHgs
+ 4VfbzprQcq0M0FO3Hlbee2Wz+8siLQIRrDpRo0Ms=
+From: Yann Sionneau <ysionneau@kalray.eu>
+To: Arnd Bergmann <arnd@arndb.de>, Jonathan Corbet <corbet@lwn.net>, Thomas
+ Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Rob Herring
+ <robh+dt@kernel.org>, Krzysztof Kozlowski
+ <krzysztof.kozlowski+dt@linaro.org>, Will Deacon <will@kernel.org>, Peter
+ Zijlstra <peterz@infradead.org>, Boqun Feng <boqun.feng@gmail.com>, Mark
+ Rutland <mark.rutland@arm.com>, Eric Biederman <ebiederm@xmission.com>, Kees
+ Cook <keescook@chromium.org>, Oleg Nesterov <oleg@redhat.com>, Ingo Molnar
+ <mingo@redhat.com>, Waiman Long <longman@redhat.com>, "Aneesh Kumar K.V"
+ <aneesh.kumar@linux.ibm.com>, Andrew Morton <akpm@linux-foundation.org>,
+ Nick Piggin <npiggin@gmail.com>, Paul Moore <paul@paul-moore.com>, Eric
+ Paris <eparis@redhat.com>, Christian Brauner <brauner@kernel.org>, Paul
+ Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Jules Maselbas <jmaselbas@kalray.eu>,
+ Yann Sionneau <ysionneau@kalray.eu>, Guillaume Thouvenin
+ <gthouvenin@kalray.eu>, Clement Leger <clement@clement-leger.fr>, Vincent
+ Chardon <vincent.chardon@elsys-design.com>, Marc =?utf-8?b?UG91bGhpw6hz?=
+ <dkm@kataplop.net>, Julian Vetter <jvetter@kalray.eu>, Samuel Jones
+ <sjones@kalray.eu>, Ashley Lesdalons <alesdalons@kalray.eu>, Thomas Costis
+ <tcostis@kalray.eu>, Marius Gligor <mgligor@kalray.eu>, Jonathan Borne
+ <jborne@kalray.eu>, Julien Villette <jvillette@kalray.eu>, Luc Michel
+ <lmichel@kalray.eu>, Louis Morhet <lmorhet@kalray.eu>, Julien Hascoet
+ <jhascoet@kalray.eu>, Jean-Christophe Pince <jcpince@gmail.com>, Guillaume
+ Missonnier <gmissonnier@kalray.eu>, Alex Michon <amichon@kalray.eu>, Huacai
+ Chen <chenhuacai@kernel.org>, WANG Xuerui <git@xen0n.name>, Shaokun Zhang
+ <zhangshaokun@hisilicon.com>, John Garry <john.garry@huawei.com>, Guangbin
+ Huang <huangguangbin2@huawei.com>, Bharat Bhushan <bbhushan2@marvell.com>,
+ Bibo Mao <maobibo@loongson.cn>, Atish Patra <atishp@atishpatra.org>, "Jason
+ A. Donenfeld" <Jason@zx2c4.com>, Qi Liu <liuqi115@huawei.com>, Jiaxun Yang
+ <jiaxun.yang@flygoat.com>, Catalin Marinas <catalin.marinas@arm.com>, Mark
+ Brown <broonie@kernel.org>, Janosch Frank <frankja@linux.ibm.com>, Alexey
+ Dobriyan <adobriyan@gmail.com>
+Cc: Benjamin Mugnier <mugnier.benjamin@gmail.com>,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-mm@kvack.org, linux-arch@vger.kernel.org,
+ linux-audit@redhat.com, linux-riscv@lists.infradead.org, bpf@vger.kernel.org
+Subject: [RFC PATCH v2 24/31] kvx: Add misc common routines
+Date: Fri, 20 Jan 2023 15:09:55 +0100
+Message-ID: <20230120141002.2442-25-ysionneau@kalray.eu>
+X-Mailer: git-send-email 2.37.2
+In-Reply-To: <20230120141002.2442-1-ysionneau@kalray.eu>
+References: <20230120141002.2442-1-ysionneau@kalray.eu>
 MIME-Version: 1.0
-In-Reply-To: <20230120135632.vb7ncvoapnaixluu@orel>
+X-ALTERMIMEV2_out: done
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230120_061722_194161_B5CFA6A2 
-X-CRM114-Status: GOOD (  15.55  )
+X-CRM114-CacheID: sfid-20230120_062049_138319_1DA7EB43 
+X-CRM114-Status: GOOD (  21.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,81 +120,502 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3940156586252947978=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============3940156586252947978==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="8B9vR+0VfvRQQXio"
-Content-Disposition: inline
+Add some misc common routines for kvx, including: asm-offsets routines,
+futex functions, i/o memory access functions.
 
---8B9vR+0VfvRQQXio
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Co-developed-by: Clement Leger <clement@clement-leger.fr>
+Signed-off-by: Clement Leger <clement@clement-leger.fr>
+Co-developed-by: Guillaume Thouvenin <gthouvenin@kalray.eu>
+Signed-off-by: Guillaume Thouvenin <gthouvenin@kalray.eu>
+Co-developed-by: Jonathan Borne <jborne@kalray.eu>
+Signed-off-by: Jonathan Borne <jborne@kalray.eu>
+Co-developed-by: Julian Vetter <jvetter@kalray.eu>
+Signed-off-by: Julian Vetter <jvetter@kalray.eu>
+Co-developed-by: Julien Villette <jvillette@kalray.eu>
+Signed-off-by: Julien Villette <jvillette@kalray.eu>
+Co-developed-by: Yann Sionneau <ysionneau@kalray.eu>
+Signed-off-by: Yann Sionneau <ysionneau@kalray.eu>
+---
 
-On Fri, Jan 20, 2023 at 02:56:32PM +0100, Andrew Jones wrote:
-> Hi Conor,
->=20
-> I'm digging this back up because I'm basing Zicboz on it.
->=20
-> If we take "riscv: improve boot time isa extensions handling", then this
-> becomes a bunch of manually enumerated defines
->=20
->  #define RISCV_ISA_EXT_SSCOFPMF         26
->  #define RISCV_ISA_EXT_SVPBMT           27
->  #define RISCV_ISA_EXT_ZICBOM           28
->  #define RISCV_ISA_EXT_ZIHINTPAUSE      29
->  #define RISCV_ISA_EXT_SSTC             30
->  #define RISCV_ISA_EXT_SVINVAL          31
->=20
-> Keeping those in alphabetical order would either require manually
-> reenumerating them or to allow the numbers to be out of order as
-> we add more extensions. I think I'd prefer we just add new
-> extensions at the bottom and keep the numbers in order.
+Notes:
+    V1 -> V2: no changes
 
-Yes. I mentioned that on one of the earlier versions of Jisheng's
-patchset - initially I blindly said "alphabetical please".
-I quickly realised that that was a really stupid idea as it is would
-just be an _invitiation_ for bugs if we did, since names are far more
-easily searchable than figuring out the max in the manual enumeration.
+ arch/kvx/include/asm/futex.h  | 141 ++++++++++++++++++++++++++++++
+ arch/kvx/include/asm/io.h     |  34 ++++++++
+ arch/kvx/kernel/asm-offsets.c | 157 ++++++++++++++++++++++++++++++++++
+ arch/kvx/kernel/io.c          |  96 +++++++++++++++++++++
+ 4 files changed, 428 insertions(+)
+ create mode 100644 arch/kvx/include/asm/futex.h
+ create mode 100644 arch/kvx/include/asm/io.h
+ create mode 100644 arch/kvx/kernel/asm-offsets.c
+ create mode 100644 arch/kvx/kernel/io.c
 
-Since Jisheng's patchset just deleted what I had resorted, I left this
-change as-was. Just need to make sure any comment about ordering also
-gets removed when the enum goes away.
-I'll keep an eye on for-next to make sure that it does.
+diff --git a/arch/kvx/include/asm/futex.h b/arch/kvx/include/asm/futex.h
+new file mode 100644
+index 000000000000..b71b52339729
+--- /dev/null
++++ b/arch/kvx/include/asm/futex.h
+@@ -0,0 +1,141 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2018-2023 Kalray Inc.
++ * Authors:
++ *      Clement Leger <cleger@kalray.eu>
++ *      Yann Sionneau <ysionneau@kalray.eu>
++ *      Jonathan Borne <jborne@kalray.eu>
++ *
++ * Part of code is taken from RiscV port
++ */
++
++#ifndef _ASM_KVX_FUTEX_H
++#define _ASM_KVX_FUTEX_H
++
++#ifdef __KERNEL__
++
++#include <linux/futex.h>
++#include <linux/uaccess.h>
++
++#define __futex_atomic_op(insn, ret, oldval, uaddr, oparg) \
++{ \
++	__enable_user_access();                                 \
++	__asm__ __volatile__ (                                  \
++	"       fence                                   \n"     \
++	"       ;;\n                                      "     \
++	"1:     lwz $r63 = 0[%[u]]                      \n"     \
++	"       ;;\n                                      "     \
++	"       " insn "                                \n"     \
++	"       ;;\n                                      "     \
++	"       acswapw 0[%[u]], $r62r63                \n"     \
++	"       ;;\n                                      "     \
++	"       cb.deqz $r62? 1b                        \n"     \
++	"       ;;\n                                      "     \
++	"       copyd %[ov] = $r63                      \n"     \
++	"       ;;\n                                      "     \
++	"2:                                             \n"     \
++	"       .section .fixup,\"ax\"                  \n"     \
++	"3:     make %[r] = 2b                          \n"     \
++	"       ;;\n                                      "     \
++	"       make %[r] = %[e]                        \n"     \
++	"       igoto %[r]                              \n"     \
++	"       ;;\n                                      "     \
++	"       .previous                               \n"     \
++	"       .section __ex_table,\"a\"               \n"     \
++	"       .align 8                                \n"     \
++	"       .dword 1b,3b                            \n"     \
++	"       .dword 2b,3b                            \n"     \
++	"       .previous                               \n"     \
++	: [r] "+r" (ret), [ov] "+r" (oldval)                   \
++	: [u] "r" (uaddr),                                      \
++	  [op] "r" (oparg), [e] "i" (-EFAULT)                   \
++	: "r62", "r63", "memory");                              \
++	__disable_user_access();                                \
++}
++
++
++static inline int
++arch_futex_atomic_op_inuser(int op, u32 oparg, int *oval, u32 __user *uaddr)
++{
++	int oldval = 0, ret = 0;
++
++	if (!access_ok(uaddr, sizeof(u32)))
++		return -EFAULT;
++	switch (op) {
++	case FUTEX_OP_SET: /* *(int *)UADDR = OPARG; */
++		__futex_atomic_op("copyd $r62 = %[op]",
++				  ret, oldval, uaddr, oparg);
++		break;
++	case FUTEX_OP_ADD: /* *(int *)UADDR += OPARG; */
++		__futex_atomic_op("addw $r62 = $r63, %[op]",
++				  ret, oldval, uaddr, oparg);
++		break;
++	case FUTEX_OP_OR: /* *(int *)UADDR |= OPARG; */
++		__futex_atomic_op("orw $r62 = $r63, %[op]",
++				  ret, oldval, uaddr, oparg);
++		break;
++	case FUTEX_OP_ANDN: /* *(int *)UADDR &= ~OPARG; */
++		__futex_atomic_op("andnw $r62 = %[op], $r63",
++				  ret, oldval, uaddr, oparg);
++		break;
++	case FUTEX_OP_XOR:
++		__futex_atomic_op("xorw $r62 = $r63, %[op]",
++				  ret, oldval, uaddr, oparg);
++		break;
++	default:
++		ret = -ENOSYS;
++	}
++
++	if (!ret)
++		*oval = oldval;
++
++	return ret;
++}
++
++static inline int futex_atomic_cmpxchg_inatomic(u32 *uval, u32 __user *uaddr,
++						u32 oldval, u32 newval)
++{
++	int ret = 0;
++
++	if (!access_ok(uaddr, sizeof(u32)))
++		return -EFAULT;
++	__enable_user_access();
++	__asm__ __volatile__ (
++	"      fence                           \n"/* commit previous stores  */
++	"      copyd $r63 = %[ov]              \n"/* init "expect" with ov   */
++	"      copyd $r62 = %[nv]              \n"/* init "update" with nv   */
++	"      ;;\n                              "
++	"1:    acswapw 0[%[u]], $r62r63        \n"
++	"      ;;\n                              "
++	"      cb.dnez $r62? 3f                \n"/* if acswap ok -> return  */
++	"      ;;\n                              "
++	"2:    lws $r63 = 0[%[u]]              \n"/* fail -> load old value  */
++	"      ;;\n                              "
++	"      compw.ne $r62 = $r63, %[ov]     \n"/* check if equal to "old" */
++	"      ;;\n                              "
++	"      cb.deqz $r62? 1b                \n"/* if not equal, try again */
++	"      ;;\n                              "
++	"3:                                    \n"
++	"      .section .fixup,\"ax\"          \n"
++	"4:    make %[r] = 3b                  \n"
++	"      ;;\n                              "
++	"      make %[r] = %[e]                \n"
++	"      igoto %[r]                      \n"/* goto 3b                 */
++	"      ;;\n                              "
++	"      .previous                       \n"
++	"      .section __ex_table,\"a\"       \n"
++	"      .align 8                        \n"
++	"      .dword 1b,4b                    \n"
++	"      .dword 2b,4b                    \n"
++	".previous                             \n"
++	: [r] "+r" (ret)
++	: [ov] "r" (oldval), [nv] "r" (newval),
++	  [e] "i" (-EFAULT), [u] "r" (uaddr)
++	: "r62", "r63", "memory");
++	__disable_user_access();
++	*uval = oldval;
++	return ret;
++}
++
++#endif
++#endif /* _ASM_KVX_FUTEX_H */
+diff --git a/arch/kvx/include/asm/io.h b/arch/kvx/include/asm/io.h
+new file mode 100644
+index 000000000000..c5e458c59bbb
+--- /dev/null
++++ b/arch/kvx/include/asm/io.h
+@@ -0,0 +1,34 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2017-2023 Kalray Inc.
++ * Author(s): Clement Leger
++ */
++
++#ifndef _ASM_KVX_IO_H
++#define _ASM_KVX_IO_H
++
++#include <linux/types.h>
++
++#include <asm/page.h>
++#include <asm/pgtable.h>
++
++#define _PAGE_IOREMAP _PAGE_KERNEL_DEVICE
++
++/*
++ * String version of I/O memory access operations.
++ */
++extern void __memcpy_fromio(void *to, const volatile void __iomem *from,
++			    size_t count);
++extern void __memcpy_toio(volatile void __iomem *to, const void *from,
++			  size_t count);
++extern void __memset_io(volatile void __iomem *dst, int c, size_t count);
++
++#define memset_io(c, v, l)	__memset_io((c), (v), (l))
++#define memcpy_fromio(a, c, l)	__memcpy_fromio((a), (c), (l))
++#define memcpy_toio(c, a, l)	__memcpy_toio((c), (a), (l))
++
++#include <asm-generic/io.h>
++
++extern int devmem_is_allowed(unsigned long pfn);
++
++#endif	/* _ASM_KVX_IO_H */
+diff --git a/arch/kvx/kernel/asm-offsets.c b/arch/kvx/kernel/asm-offsets.c
+new file mode 100644
+index 000000000000..3e79b6dd13bd
+--- /dev/null
++++ b/arch/kvx/kernel/asm-offsets.c
+@@ -0,0 +1,157 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (C) 2017-2023 Kalray Inc.
++ * Author(s): Clement Leger
++ *            Guillaume Thouvenin
++ *            Yann Sionneau
++ */
++
++#include <linux/preempt.h>
++#include <linux/thread_info.h>
++#include <linux/kbuild.h>
++#include <linux/stddef.h>
++#include <linux/sched.h>
++#include <linux/bug.h>
++
++#include <asm/processor.h>
++#include <asm/ptrace.h>
++#include <asm/page.h>
++#include <asm/fixmap.h>
++#include <asm/page_size.h>
++#include <asm/pgtable.h>
++#include <asm/ptrace.h>
++#include <asm/tlb_defs.h>
++#include <asm/mmu_stats.h>
++#include <asm/stacktrace.h>
++
++int foo(void)
++{
++	BUILD_BUG_ON(sizeof(struct pt_regs) != PT_REGS_STRUCT_EXPECTED_SIZE);
++	/*
++	 * For stack alignment purposes we must make sure the pt_regs size is
++	 * a mutliple of stack_align
++	 */
++	BUILD_BUG_ON(!IS_ALIGNED(sizeof(struct pt_regs), STACK_ALIGNMENT));
++
++	/* Check that user_pt_regs size matches the beginning of pt_regs */
++	BUILD_BUG_ON((offsetof(struct user_pt_regs, spc) + sizeof(uint64_t)) !=
++		     sizeof(struct user_pt_regs));
++
++	DEFINE(FIX_GDB_MEM_BASE_IDX, FIX_GDB_BARE_DISPLACED_MEM_BASE);
++
++#ifdef CONFIG_DEBUG_EXCEPTION_STACK
++	DEFINE(STACK_REG_SIZE, ALIGN(sizeof(uint64_t), STACK_ALIGNMENT));
++#endif
++
++	/*
++	 * We allocate a pt_regs on the stack when entering the kernel.  This
++	 * ensures the alignment is sane.
++	 */
++	DEFINE(PT_SIZE_ON_STACK, sizeof(struct pt_regs));
++	DEFINE(TI_FLAGS_SIZE, sizeof(unsigned long));
++	DEFINE(QUAD_REG_SIZE, 4 * sizeof(uint64_t));
++
++	/*
++	 * When restoring registers, we do not want to restore r12
++	 * right now since this is our stack pointer. Allow to save
++	 * only $r13 by using this offset.
++	 */
++	OFFSET(PT_R12, pt_regs, r12);
++	OFFSET(PT_R13, pt_regs, r13);
++	OFFSET(PT_TP, pt_regs, tp);
++	OFFSET(PT_R14R15, pt_regs, r14);
++	OFFSET(PT_R16R17, pt_regs, r16);
++	OFFSET(PT_R18R19, pt_regs, r18);
++	OFFSET(PT_FP, pt_regs, fp);
++	OFFSET(PT_SPS, pt_regs, sps);
++
++	/* Quad description */
++	OFFSET(PT_Q0, pt_regs, r0);
++	OFFSET(PT_Q4, pt_regs, r4);
++	OFFSET(PT_Q8, pt_regs, r8);
++	OFFSET(PT_Q12, pt_regs, r12);
++	OFFSET(PT_Q16, pt_regs, r16);
++	OFFSET(PT_Q20, pt_regs, r20);
++	OFFSET(PT_Q24, pt_regs, r24);
++	OFFSET(PT_Q28, pt_regs, r28);
++	OFFSET(PT_Q32, pt_regs, r32);
++	OFFSET(PT_Q36, pt_regs, r36);
++	OFFSET(PT_R38, pt_regs, r38);
++	OFFSET(PT_Q40, pt_regs, r40);
++	OFFSET(PT_Q44, pt_regs, r44);
++	OFFSET(PT_Q48, pt_regs, r48);
++	OFFSET(PT_Q52, pt_regs, r52);
++	OFFSET(PT_Q56, pt_regs, r56);
++	OFFSET(PT_Q60, pt_regs, r60);
++	OFFSET(PT_CS_SPC_SPS_ES, pt_regs, cs);
++	OFFSET(PT_LC_LE_LS_RA, pt_regs, lc);
++	OFFSET(PT_ILR, pt_regs, ilr);
++	OFFSET(PT_ORIG_R0, pt_regs, orig_r0);
++
++	/*
++	 * Flags in thread info
++	 */
++	OFFSET(TASK_TI_FLAGS, task_struct, thread_info.flags);
++
++	/*
++	 * Stack pointers
++	 */
++	OFFSET(TASK_THREAD_KERNEL_SP, task_struct, thread.kernel_sp);
++
++	/*
++	 * Offsets to save registers in switch_to using quads
++	 */
++	OFFSET(CTX_SWITCH_RA_SP_R18_R19, task_struct, thread.ctx_switch.ra);
++	OFFSET(CTX_SWITCH_Q20, task_struct, thread.ctx_switch.r20);
++	OFFSET(CTX_SWITCH_Q24, task_struct, thread.ctx_switch.r24);
++	OFFSET(CTX_SWITCH_Q28, task_struct, thread.ctx_switch.r28);
++	OFFSET(CTX_SWITCH_FP, task_struct, thread.ctx_switch.fp);
++
++#ifdef CONFIG_ENABLE_TCA
++	OFFSET(CTX_SWITCH_TCA_REGS, task_struct, thread.ctx_switch.tca_regs[0]);
++	OFFSET(CTX_SWITCH_TCA_REGS_SAVED, task_struct,
++					thread.ctx_switch.tca_regs_saved);
++	DEFINE(TCA_REG_SIZE, sizeof(struct tca_reg));
++#endif
++
++	/* Save area offset */
++	OFFSET(TASK_THREAD_SAVE_AREA, task_struct, thread.save_area);
++
++	/* Fast tlb refill defines */
++	OFFSET(TASK_ACTIVE_MM, task_struct, active_mm);
++	OFFSET(MM_PGD, mm_struct, pgd);
++#ifdef CONFIG_KVX_DEBUG_ASN
++	OFFSET(MM_CTXT_ASN, mm_struct, context.asn);
++#endif
++
++#ifdef CONFIG_KVX_MMU_STATS
++	DEFINE(MMU_REFILL_SIZE, sizeof(struct mmu_refill_stats));
++
++	OFFSET(MMU_STATS_REFILL_USER_OFF, mmu_stats,
++	       refill[MMU_REFILL_TYPE_USER]);
++	OFFSET(MMU_STATS_REFILL_KERNEL_OFF, mmu_stats,
++	       refill[MMU_REFILL_TYPE_KERNEL]);
++	OFFSET(MMU_STATS_REFILL_KERNEL_DIRECT_OFF, mmu_stats,
++	       refill[MMU_REFILL_TYPE_KERNEL_DIRECT]);
++	OFFSET(MMU_STATS_CYCLES_BETWEEN_REFILL_OFF, mmu_stats,
++	       cycles_between_refill);
++	OFFSET(MMU_STATS_LAST_REFILL, mmu_stats, last_refill);
++
++	OFFSET(TASK_THREAD_ENTRY_TS, task_struct, thread.trap_entry_ts);
++#endif
++
++	DEFINE(ASM_PGDIR_SHIFT, PGDIR_SHIFT);
++	DEFINE(ASM_PMD_SHIFT, PMD_SHIFT);
++
++	DEFINE(ASM_PGDIR_BITS, PGDIR_BITS);
++	DEFINE(ASM_PMD_BITS, PMD_BITS);
++	DEFINE(ASM_PTE_BITS, PTE_BITS);
++
++	DEFINE(ASM_PTRS_PER_PGD, PTRS_PER_PGD);
++	DEFINE(ASM_PTRS_PER_PMD, PTRS_PER_PMD);
++	DEFINE(ASM_PTRS_PER_PTE, PTRS_PER_PTE);
++
++	DEFINE(ASM_TLB_PS, TLB_DEFAULT_PS);
++
++	return 0;
++}
+diff --git a/arch/kvx/kernel/io.c b/arch/kvx/kernel/io.c
+new file mode 100644
+index 000000000000..0922c1d6d0f7
+--- /dev/null
++++ b/arch/kvx/kernel/io.c
+@@ -0,0 +1,96 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * derived from arch/arm/kernel/io.c
++ *
++ * Copyright (C) 2017-2023 Kalray Inc.
++ * Author(s): Clement Leger
++ */
++
++#include <linux/export.h>
++#include <linux/types.h>
++#include <linux/io.h>
++
++#define REPLICATE_BYTE_MASK	0x0101010101010101
++
++/*
++ * Copy data from IO memory space to "real" memory space.
++ */
++void __memcpy_fromio(void *to, const volatile void __iomem *from, size_t count)
++{
++	while (count && !IS_ALIGNED((unsigned long)from, 8)) {
++		*(u8 *)to = __raw_readb(from);
++		from++;
++		to++;
++		count--;
++	}
++
++	while (count >= 8) {
++		*(u64 *)to = __raw_readq(from);
++		from += 8;
++		to += 8;
++		count -= 8;
++	}
++
++	while (count) {
++		*(u8 *)to = __raw_readb(from);
++		from++;
++		to++;
++		count--;
++	}
++}
++EXPORT_SYMBOL(__memcpy_fromio);
++
++/*
++ * Copy data from "real" memory space to IO memory space.
++ */
++void __memcpy_toio(volatile void __iomem *to, const void *from, size_t count)
++{
++	while (count && !IS_ALIGNED((unsigned long)to, 8)) {
++		__raw_writeb(*(u8 *)from, to);
++		from++;
++		to++;
++		count--;
++	}
++
++	while (count >= 8) {
++		__raw_writeq(*(u64 *)from, to);
++		from += 8;
++		to += 8;
++		count -= 8;
++	}
++
++	while (count) {
++		__raw_writeb(*(u8 *)from, to);
++		from++;
++		to++;
++		count--;
++	}
++}
++EXPORT_SYMBOL(__memcpy_toio);
++
++/*
++ * "memset" on IO memory space.
++ */
++void __memset_io(volatile void __iomem *dst, int c, size_t count)
++{
++	u64 qc = __builtin_kvx_sbmm8(c, REPLICATE_BYTE_MASK);
++
++	while (count && !IS_ALIGNED((unsigned long)dst, 8)) {
++		__raw_writeb(c, dst);
++		dst++;
++		count--;
++	}
++
++	while (count >= 8) {
++		__raw_writeq(qc, dst);
++		dst += 8;
++		count -= 8;
++	}
++
++	while (count) {
++		__raw_writeb(c, dst);
++		dst++;
++		count--;
++	}
++}
++EXPORT_SYMBOL(__memset_io);
+-- 
+2.37.2
 
-TL;DR I agree!
-
-Thanks,
-Conor.
 
 
---8B9vR+0VfvRQQXio
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY8qiUAAKCRB4tDGHoIJi
-0oSKAP9zqiy1G7Sw0cg7bsoy8fmPLJPzS1bNJZ4BX4E8lRk5wAD9Enm99HDzo50d
-wtYphmEGxPoxpyWwxNwDASSWnlStzQk=
-=C1Iw
------END PGP SIGNATURE-----
-
---8B9vR+0VfvRQQXio--
 
 
---===============3940156586252947978==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3940156586252947978==--
-
