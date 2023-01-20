@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26452C25B4E
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jan 2023 14:12:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDD9DC05027
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jan 2023 14:12:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZKCaxFJryrJmp2zWu6mYOgV+xORbRjeNGTgq8FY5QWg=; b=Z7yz1slrTQk0ea
-	HixWysaA1nzz4vXQNTjDgdLF4OEsC3snr1gIRO7h11jNKfkkLkr5c769rT0NopYOteAu1VQvoxIUV
-	sHtTEtSEdVKaV6imznlNBrHweM5rTw+x1ountA5XzXIZtXhyQ7dLVIYUoh9br7X5UOLzG7RFvFCpw
-	C+RoeyrtW0OpvdT7qcYRrjjNWo0XkXW4atYYvGIcnrZw+PLj366wBfNop+bn4C/m1rT1uv7QWvEZI
-	Bu8lxngT59NsloQINfUVu4Eo41cPWr8nlyMOrY9MV4OBHHpLVhSnSbs1X9FBI0yiMIKSNZ8bM6/i4
-	jvbZOScYv/6Iub1UfwTg==;
+	List-Owner; bh=eWGw1g4J18O909YfadnrtO6Vj0CFcnfp/o4dfgm2iyE=; b=N4BSzkRFseeKMc
+	YPGyZLq+xabsNPjMDIJ9s9ST78L1xefgIFkv1ccqdsRnQib7JETTdZe86Otr6qqNTGZX0HTNtF65o
+	F6Rijx5fuotioyKHqjCPj1VmtcprNo2nPmeZqJVDQP4rKbF2D06HiBWyjLfvvC/RP/vq1S6OzOGLB
+	CSvRd0NGRec4sP/hqaH0m0wARsDxESwvcJZ9Dmwv8JTqXKPl5SFkHje2OibuJoi5N9ISQiWaWJNZZ
+	5jCcWeeSDcAzYA/aMl6bMJ3H/yp0dEEub1vPdJdNdXfTPZj4dF94AzaaepUSjC21WkV7CekU3EQ8k
+	XS4BJbklOD1xjTPSRxKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIs7Z-00AcD9-6E; Fri, 20 Jan 2023 14:11:57 +0000
+	id 1pIs7c-00AcFy-8T; Fri, 20 Jan 2023 14:12:00 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIs6h-00AbUe-Td
-	for linux-riscv@bombadil.infradead.org; Fri, 20 Jan 2023 14:11:04 +0000
+	id 1pIs6m-00AbZD-Tj
+	for linux-riscv@bombadil.infradead.org; Fri, 20 Jan 2023 14:11:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
 	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=pKukXMWcqQfQlRt6Zi4zYHBIlUdpXtfw8zSoIdKJSNE=; b=Qlr5RPL9OVE3JzduDZYFJIOdPj
-	LEyx2nEERzSuUi0POvS/c9AacGkTncyjt2r2vIfgy1iPB1fBtAlT16iEoJSvYyj8O5ulvNOYYs8gt
-	4XrqyaV6ns2EySHYvr86WQ9mRGmrNH3FdGjaC0JsH2rkxWs0xIB7lGGI2dNNFI4GQWHV2IUQcpsCy
-	WJ+bcf2xPzz0XPO7wximommmFAeIunvBzC6yXSmy1+dA9gIjpuK4IEA16WojN6y1pMz6W4qd3yFuI
-	j0wku0V8uze9U/Tr87ohW8c/eAPDgTKQNC5D4q+aBm8fhY1c2vXnEcnzSuRVdHTgSOHldgMHc3vHf
-	74+5PGug==;
-Received: from smtpout140.security-mail.net ([85.31.212.146] helo=fx601.security-mail.net)
+	bh=aFsUiozYh/f53qyOHSrJezqqpzHLBd7nykiqkDhgRMs=; b=VtIGjVOTTyz7/afhjkjZNjMOMy
+	3aQjWY7JYA0xgUVIBJN3Nu1CPH5nVLM06FJOrLrWH1vxSuzgnQgNNeCIngaLBSWQV84huKJuj6pFc
+	Cmcl9kUU6Z/lKY5ZgN2ysnuc8JhKT2eA48MKwvIWeaRlBc5Z/QPtc7r5YxQLJwJq6BW7c0frLxBr0
+	jEJWoZCn95GLpYCMKjPcxreoOb6wtmbXj0WDd561XG3UP2QeC2xfWMKNUj65stmcrgfpTlW16IZ/g
+	fJd3KdLM4RHlpWA8P5skmbG0uYpOKwo//J0SXn+4VgGrbpjw+8wGgMKXRT1O3Smn7dkwpYMqu3JFK
+	8nZL8bMQ==;
+Received: from smtpout140.security-mail.net ([85.31.212.145] helo=fx405.security-mail.net)
 	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pIs5w-000eMM-0E
+	id 1pIs5o-000eMB-20
 	for linux-riscv@lists.infradead.org;
-	Fri, 20 Jan 2023 14:10:34 +0000
-Received: from localhost (fx601.security-mail.net [127.0.0.1])
-	by fx601.security-mail.net (Postfix) with ESMTP id 360A0349914
-	for <linux-riscv@lists.infradead.org>; Fri, 20 Jan 2023 15:10:35 +0100 (CET)
+	Fri, 20 Jan 2023 14:10:36 +0000
+Received: from localhost (fx405.security-mail.net [127.0.0.1])
+	by fx405.security-mail.net (Postfix) with ESMTP id C050C335DD4
+	for <linux-riscv@lists.infradead.org>; Fri, 20 Jan 2023 15:10:32 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kalray.eu;
-	s=sec-sig-email; t=1674223835;
-	bh=iujg4Ph3I/139elOqxsm2GEAdcANWZxNc2YUlfHOMPk=;
+	s=sec-sig-email; t=1674223833;
+	bh=Rr9QfC52jxWXt9/L6/0rXr58eBV1kbp/PCidEQ6niXo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=At427VLRx9KZBH1e/yv/uj8ny7ycEXrXirnyPoLQe2OWRM2ZUeLHSWZmMw3jsR+e+
-	 5TnrsE+Tt+dXb5kUqnLTKpoVNbR2w6GYCO8DfGPEZ+MuE1VC8GypSNw5gkW4Jjtb83
-	 /iMIeqyIZQOtZFhaycr2kz/efqq+PLlkVDCetw6Y=
-Received: from fx601 (fx601.security-mail.net [127.0.0.1]) by
- fx601.security-mail.net (Postfix) with ESMTP id 4996C34988B; Fri, 20 Jan
- 2023 15:10:34 +0100 (CET)
+	b=SQaJDXBkcIOxSO7jLdtadrsug0O8lEmgTkFlAp1V3HlRRx+eMhojQ+44VI7rpq9OI
+	 RrLopEexUwjpASK1pXQ8OkQLa3VBpfBAKKeJkgB6lfG7SbbtC7yjFBH1Se0+TYEIew
+	 UluPwJyeK9+ud2sMfV4dFVjXBGFjSwTMSL2X8YeE=
+Received: from fx405 (fx405.security-mail.net [127.0.0.1]) by
+ fx405.security-mail.net (Postfix) with ESMTP id 09025335D4C; Fri, 20 Jan
+ 2023 15:10:32 +0100 (CET)
 Received: from zimbra2.kalray.eu (unknown [217.181.231.53]) by
- fx601.security-mail.net (Postfix) with ESMTPS id 15EB6349604; Fri, 20 Jan
- 2023 15:10:33 +0100 (CET)
+ fx405.security-mail.net (Postfix) with ESMTPS id 6DC50335CDD; Fri, 20 Jan
+ 2023 15:10:30 +0100 (CET)
 Received: from zimbra2.kalray.eu (localhost [127.0.0.1]) by
- zimbra2.kalray.eu (Postfix) with ESMTPS id B856D27E0442; Fri, 20 Jan 2023
- 15:10:32 +0100 (CET)
+ zimbra2.kalray.eu (Postfix) with ESMTPS id 1AE9627E0430; Fri, 20 Jan 2023
+ 15:10:30 +0100 (CET)
 Received: from localhost (localhost [127.0.0.1]) by zimbra2.kalray.eu
- (Postfix) with ESMTP id A088A27E043E; Fri, 20 Jan 2023 15:10:32 +0100 (CET)
+ (Postfix) with ESMTP id CD29027E0440; Fri, 20 Jan 2023 15:10:29 +0100 (CET)
 Received: from zimbra2.kalray.eu ([127.0.0.1]) by localhost
  (zimbra2.kalray.eu [127.0.0.1]) (amavisd-new, port 10026) with ESMTP id
- BhtOSgAMrOA4; Fri, 20 Jan 2023 15:10:32 +0100 (CET)
+ tD1P4gm_bTWU; Fri, 20 Jan 2023 15:10:29 +0100 (CET)
 Received: from junon.lin.mbt.kalray.eu (unknown [192.168.37.161]) by
- zimbra2.kalray.eu (Postfix) with ESMTPSA id 0B0F627E0439; Fri, 20 Jan 2023
- 15:10:32 +0100 (CET)
+ zimbra2.kalray.eu (Postfix) with ESMTPSA id 3038927E0439; Fri, 20 Jan 2023
+ 15:10:29 +0100 (CET)
 X-Virus-Scanned: E-securemail
-Secumail-id: <1461a.63caa0d9.142f8.0>
-DKIM-Filter: OpenDKIM Filter v2.10.3 zimbra2.kalray.eu A088A27E043E
+Secumail-id: <12804.63caa0d6.69b4c.0>
+DKIM-Filter: OpenDKIM Filter v2.10.3 zimbra2.kalray.eu CD29027E0440
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kalray.eu;
- s=32AE1B44-9502-11E5-BA35-3734643DEF29; t=1674223832;
- bh=j3u1+7jSeFlQ+R2vG1RMdQ6rymjVuATFjYu04HprmPk=;
+ s=32AE1B44-9502-11E5-BA35-3734643DEF29; t=1674223830;
+ bh=VF1oksnoaKlh4VeYXhJaqi0lsOke2F/Yys7H8lI9zVo=;
  h=From:To:Date:Message-Id:MIME-Version;
- b=bJCwUqYf1v/WbS/vZFq+PAILA35tNYon5tbMQndVY/zEuvJzRPP6XNc9TdSn69NRl
- r1nrOQyoJ8SkIAojICaqdqM9R42vB2lEIH2sPGEYNOtks6kAZhLSXC3cg4OkeS3YSZ
- pUnjQCtQdqnUilobABMuo4pUzCEtBqdHlf0tvWE0=
+ b=Itjo5rlk0c6fduVn2FOVo3BXyZLWUDckOOT6uwFodpQj7U0oJmO65fjlvfQGS41d3
+ khT7KRQrylOCi/P+OxHfaW8K2J0uY7G5q0OJZDyh80OfnefJcna94/5Q2cikkTmocZ
+ pcCA51GfgwR3/8hgXA6aedONs7oPIOXzBujD09Fg=
 From: Yann Sionneau <ysionneau@kalray.eu>
 To: Arnd Bergmann <arnd@arndb.de>, Jonathan Corbet <corbet@lwn.net>, Thomas
  Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Rob Herring
@@ -113,17 +113,17 @@ Cc: Benjamin Mugnier <mugnier.benjamin@gmail.com>,
  linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
  devicetree@vger.kernel.org, linux-mm@kvack.org, linux-arch@vger.kernel.org,
  linux-audit@redhat.com, linux-riscv@lists.infradead.org, bpf@vger.kernel.org
-Subject: [RFC PATCH v2 17/31] irqchip: Add irq-kvx-apic-mailbox driver
-Date: Fri, 20 Jan 2023 15:09:48 +0100
-Message-ID: <20230120141002.2442-18-ysionneau@kalray.eu>
+Subject: [RFC PATCH v2 11/31] kvx: Add atomic/locking headers
+Date: Fri, 20 Jan 2023 15:09:42 +0100
+Message-ID: <20230120141002.2442-12-ysionneau@kalray.eu>
 X-Mailer: git-send-email 2.37.2
 In-Reply-To: <20230120141002.2442-1-ysionneau@kalray.eu>
 References: <20230120141002.2442-1-ysionneau@kalray.eu>
 MIME-Version: 1.0
 X-ALTERMIMEV2_out: done
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230120_141016_466205_FF4C9E9E 
-X-CRM114-Status: GOOD (  30.38  )
+X-CRM114-CacheID: sfid-20230120_141015_800259_7D71678F 
+X-CRM114-Status: GOOD (  26.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,18 +140,8 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Jules Maselbas <jmaselbas@kalray.eu>
-
-The APIC includes a mailbox controller, containing 128 mailboxes.
-Each mailbox is a word of 8 bytes in the controller internal memory.
-Each mailbox can be independently configured with a trigger condition
-and an input function.
-
-After a write to a mailbox if the mailbox's trigger condition is met
-then an interrupt will be generated.
-
-Since this hardware block generates IRQs based on writes at some memory
-locations, it is both an interrupt controller and an MSI controller.
+Add common headers (atomic, bitops, barrier and locking) for basic
+kvx support.
 
 Co-developed-by: Clement Leger <clement@clement-leger.fr>
 Signed-off-by: Clement Leger <clement@clement-leger.fr>
@@ -159,539 +149,497 @@ Co-developed-by: Jules Maselbas <jmaselbas@kalray.eu>
 Signed-off-by: Jules Maselbas <jmaselbas@kalray.eu>
 Co-developed-by: Julian Vetter <jvetter@kalray.eu>
 Signed-off-by: Julian Vetter <jvetter@kalray.eu>
-Co-developed-by: Luc Michel <lmichel@kalray.eu>
-Signed-off-by: Luc Michel <lmichel@kalray.eu>
+Co-developed-by: Julien Villette <jvillette@kalray.eu>
+Signed-off-by: Julien Villette <jvillette@kalray.eu>
 Co-developed-by: Yann Sionneau <ysionneau@kalray.eu>
 Signed-off-by: Yann Sionneau <ysionneau@kalray.eu>
 ---
 
 Notes:
-    V1 -> V2: new patch
-     - removed print on probe success
+    V1 -> V2:
+     - use {READ,WRITE}_ONCE for arch_atomic64_{read,set}
+     - use asm-generic/bitops/atomic.h instead of __test_and_*_bit
+     - removed duplicated includes
+     - rewrite xchg and cmpxchg in C using builtins for acswap insn
 
- drivers/irqchip/Kconfig                |   8 +
- drivers/irqchip/Makefile               |   1 +
- drivers/irqchip/irq-kvx-apic-mailbox.c | 480 +++++++++++++++++++++++++
- 3 files changed, 489 insertions(+)
- create mode 100644 drivers/irqchip/irq-kvx-apic-mailbox.c
+ arch/kvx/include/asm/atomic.h  | 104 ++++++++++++++++++++
+ arch/kvx/include/asm/barrier.h |  15 +++
+ arch/kvx/include/asm/bitops.h  | 115 ++++++++++++++++++++++
+ arch/kvx/include/asm/bitrev.h  |  32 +++++++
+ arch/kvx/include/asm/cmpxchg.h | 170 +++++++++++++++++++++++++++++++++
+ 5 files changed, 436 insertions(+)
+ create mode 100644 arch/kvx/include/asm/atomic.h
+ create mode 100644 arch/kvx/include/asm/barrier.h
+ create mode 100644 arch/kvx/include/asm/bitops.h
+ create mode 100644 arch/kvx/include/asm/bitrev.h
+ create mode 100644 arch/kvx/include/asm/cmpxchg.h
 
-diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
-index 546bc611f3f3..806adbc7b2a4 100644
---- a/drivers/irqchip/Kconfig
-+++ b/drivers/irqchip/Kconfig
-@@ -348,6 +348,14 @@ config KVX_ITGEN
- 	select IRQ_DOMAIN
- 	select IRQ_DOMAIN_HIERARCHY
- 
-+config KVX_APIC_MAILBOX
-+       bool
-+       depends on KVX
-+       select GENERIC_IRQ_IPI if SMP
-+       select GENERIC_MSI_IRQ_DOMAIN
-+       select IRQ_DOMAIN
-+       select IRQ_DOMAIN_HIERARCHY
-+
- config INGENIC_IRQ
- 	bool
- 	depends on MACH_INGENIC
-diff --git a/drivers/irqchip/Makefile b/drivers/irqchip/Makefile
-index 6b8f459d8a21..7eaea87ca9ab 100644
---- a/drivers/irqchip/Makefile
-+++ b/drivers/irqchip/Makefile
-@@ -71,6 +71,7 @@ obj-$(CONFIG_KEYSTONE_IRQ)		+= irq-keystone.o
- obj-$(CONFIG_MIPS_GIC)			+= irq-mips-gic.o
- obj-$(CONFIG_KVX_APIC_GIC)		+= irq-kvx-apic-gic.o
- obj-$(CONFIG_KVX_ITGEN)			+= irq-kvx-itgen.o
-+obj-$(CONFIG_KVX_APIC_MAILBOX)		+= irq-kvx-apic-mailbox.o
- obj-$(CONFIG_ARCH_MEDIATEK)		+= irq-mtk-sysirq.o irq-mtk-cirq.o
- obj-$(CONFIG_ARCH_DIGICOLOR)		+= irq-digicolor.o
- obj-$(CONFIG_ARCH_SA1100)		+= irq-sa11x0.o
-diff --git a/drivers/irqchip/irq-kvx-apic-mailbox.c b/drivers/irqchip/irq-kvx-apic-mailbox.c
+diff --git a/arch/kvx/include/asm/atomic.h b/arch/kvx/include/asm/atomic.h
 new file mode 100644
-index 000000000000..33249df047b6
+index 000000000000..bea3d70785b1
 --- /dev/null
-+++ b/drivers/irqchip/irq-kvx-apic-mailbox.c
-@@ -0,0 +1,480 @@
-+// SPDX-License-Identifier: GPL-2.0-only
++++ b/arch/kvx/include/asm/atomic.h
+@@ -0,0 +1,104 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
 +/*
-+ * Copyright (c) 2017-2023 Kalray Inc.
++ * Copyright (C) 2017-2023 Kalray Inc.
 + * Author(s): Clement Leger
++ */
++
++#ifndef _ASM_KVX_ATOMIC_H
++#define _ASM_KVX_ATOMIC_H
++
++#include <linux/types.h>
++
++#include <asm/cmpxchg.h>
++
++#define ATOMIC64_INIT(i)     { (i) }
++
++#define arch_atomic64_cmpxchg(v, old, new) (arch_cmpxchg(&((v)->counter), old, new))
++#define arch_atomic64_xchg(v, new) (arch_xchg(&((v)->counter), new))
++
++static inline long arch_atomic64_read(const atomic64_t *v)
++{
++	return READ_ONCE(v->counter);
++}
++
++static inline void arch_atomic64_set(atomic64_t *v, long i)
++{
++	WRITE_ONCE(v->counter, i);
++}
++
++#define ATOMIC64_RETURN_OP(op, c_op)					\
++static inline long arch_atomic64_##op##_return(long i, atomic64_t *v)	\
++{									\
++	long new, old, ret;						\
++									\
++	do {								\
++		old = v->counter;					\
++		new = old c_op i;					\
++		ret = arch_cmpxchg(&v->counter, old, new);		\
++	} while (ret != old);						\
++									\
++	return new;							\
++}
++
++#define ATOMIC64_OP(op, c_op)						\
++static inline void arch_atomic64_##op(long i, atomic64_t *v)		\
++{									\
++	long new, old, ret;						\
++									\
++	do {								\
++		old = v->counter;					\
++		new = old c_op i;					\
++		ret = arch_cmpxchg(&v->counter, old, new);		\
++	} while (ret != old);						\
++}
++
++#define ATOMIC64_FETCH_OP(op, c_op)					\
++static inline long arch_atomic64_fetch_##op(long i, atomic64_t *v)	\
++{									\
++	long new, old, ret;						\
++									\
++	do {								\
++		old = v->counter;					\
++		new = old c_op i;					\
++		ret = arch_cmpxchg(&v->counter, old, new);		\
++	} while (ret != old);						\
++									\
++	return old;							\
++}
++
++#define ATOMIC64_OPS(op, c_op)						\
++	ATOMIC64_OP(op, c_op)						\
++	ATOMIC64_RETURN_OP(op, c_op)					\
++	ATOMIC64_FETCH_OP(op, c_op)
++
++ATOMIC64_OPS(and, &)
++ATOMIC64_OPS(or, |)
++ATOMIC64_OPS(xor, ^)
++ATOMIC64_OPS(add, +)
++ATOMIC64_OPS(sub, -)
++
++#undef ATOMIC64_OPS
++#undef ATOMIC64_FETCH_OP
++#undef ATOMIC64_OP
++
++static inline int arch_atomic_add_return(int i, atomic_t *v)
++{
++	int new, old, ret;
++
++	do {
++		old = v->counter;
++		new = old + i;
++		ret = arch_cmpxchg(&v->counter, old, new);
++	} while (ret != old);
++
++	return new;
++}
++
++static inline int arch_atomic_sub_return(int i, atomic_t *v)
++{
++	return arch_atomic_add_return(-i, v);
++}
++
++#include <asm-generic/atomic.h>
++
++#endif	/* _ASM_KVX_ATOMIC_H */
+diff --git a/arch/kvx/include/asm/barrier.h b/arch/kvx/include/asm/barrier.h
+new file mode 100644
+index 000000000000..371f1c70746d
+--- /dev/null
++++ b/arch/kvx/include/asm/barrier.h
+@@ -0,0 +1,15 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2017-2023 Kalray Inc.
++ * Author(s): Clement Leger
++ */
++
++#ifndef _ASM_KVX_BARRIER_H
++#define _ASM_KVX_BARRIER_H
++
++/* fence is sufficient to guarantee write ordering */
++#define mb()	__builtin_kvx_fence()
++
++#include <asm-generic/barrier.h>
++
++#endif /* _ASM_KVX_BARRIER_H */
+diff --git a/arch/kvx/include/asm/bitops.h b/arch/kvx/include/asm/bitops.h
+new file mode 100644
+index 000000000000..c643f4765059
+--- /dev/null
++++ b/arch/kvx/include/asm/bitops.h
+@@ -0,0 +1,115 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2017-2023 Kalray Inc.
++ * Author(s): Clement Leger
++ *            Yann Sionneau
++ */
++
++#ifndef _ASM_KVX_BITOPS_H
++#define _ASM_KVX_BITOPS_H
++
++#ifdef __KERNEL__
++
++#ifndef _LINUX_BITOPS_H
++#error only <linux/bitops.h> can be included directly
++#endif
++
++#include <asm/cmpxchg.h>
++
++static inline int fls(int x)
++{
++	return 32 - __builtin_kvx_clzw(x);
++}
++
++static inline int fls64(__u64 x)
++{
++	return 64 - __builtin_kvx_clzd(x);
++}
++
++/**
++ * __ffs - find first set bit in word
++ * @word: The word to search
++ *
++ * Undefined if no set bit exists, so code should check against 0 first.
++ */
++static inline unsigned long __ffs(unsigned long word)
++{
++	return __builtin_kvx_ctzd(word);
++}
++
++/**
++ * __fls - find last set bit in word
++ * @word: The word to search
++ *
++ * Undefined if no set bit exists, so code should check against 0 first.
++ */
++static inline unsigned long __fls(unsigned long word)
++{
++	return 63 - __builtin_kvx_clzd(word);
++}
++
++
++/**
++ * ffs - find first set bit in word
++ * @x: the word to search
++ *
++ * This is defined the same way as the libc and compiler builtin ffs
++ * routines, therefore differs in spirit from the other bitops.
++ *
++ * ffs(value) returns 0 if value is 0 or the position of the first
++ * set bit if value is nonzero. The first (least significant) bit
++ * is at position 1.
++ */
++static inline int ffs(int x)
++{
++	if (!x)
++		return 0;
++	return __builtin_kvx_ctzw(x) + 1;
++}
++
++static inline unsigned int __arch_hweight32(unsigned int w)
++{
++	unsigned int count;
++
++	asm volatile ("cbsw %0 = %1\n\t;;"
++	: "=r" (count)
++	: "r" (w));
++
++	return count;
++}
++
++static inline unsigned int __arch_hweight64(__u64 w)
++{
++	unsigned int count;
++
++	asm volatile ("cbsd %0 = %1\n\t;;"
++	: "=r" (count)
++	: "r" (w));
++
++	return count;
++}
++
++static inline unsigned int __arch_hweight16(unsigned int w)
++{
++	return __arch_hweight32(w & 0xffff);
++}
++
++static inline unsigned int __arch_hweight8(unsigned int w)
++{
++	return __arch_hweight32(w & 0xff);
++}
++
++#include <asm-generic/bitops/ffz.h>
++
++#include <asm-generic/bitops/sched.h>
++#include <asm-generic/bitops/const_hweight.h>
++
++#include <asm-generic/bitops/atomic.h>
++#include <asm-generic/bitops/non-atomic.h>
++#include <asm-generic/bitops/lock.h>
++#include <asm-generic/bitops/le.h>
++#include <asm-generic/bitops/ext2-atomic.h>
++
++#endif
++
++#endif
+diff --git a/arch/kvx/include/asm/bitrev.h b/arch/kvx/include/asm/bitrev.h
+new file mode 100644
+index 000000000000..79865081905a
+--- /dev/null
++++ b/arch/kvx/include/asm/bitrev.h
+@@ -0,0 +1,32 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2017-2023 Kalray Inc.
++ * Author(s): Clement Leger
++ */
++
++#ifndef _ASM_KVX_BITREV_H
++#define _ASM_KVX_BITREV_H
++
++#include <linux/swab.h>
++
++/* Bit reversal constant for matrix multiply */
++#define BIT_REVERSE 0x0102040810204080ULL
++
++static __always_inline __attribute_const__ u32 __arch_bitrev32(u32 x)
++{
++	/* Reverse all bits for each bytes and then byte-reverse the 32 LSB */
++	return swab32(__builtin_kvx_sbmm8(BIT_REVERSE, x));
++}
++
++static __always_inline __attribute_const__ u16 __arch_bitrev16(u16 x)
++{
++	/* Reverse all bits for each bytes and then byte-reverse the 16 LSB */
++	return swab16(__builtin_kvx_sbmm8(BIT_REVERSE, x));
++}
++
++static __always_inline __attribute_const__ u8 __arch_bitrev8(u8 x)
++{
++	return __builtin_kvx_sbmm8(BIT_REVERSE, x);
++}
++
++#endif
+diff --git a/arch/kvx/include/asm/cmpxchg.h b/arch/kvx/include/asm/cmpxchg.h
+new file mode 100644
+index 000000000000..51ccb83757cc
+--- /dev/null
++++ b/arch/kvx/include/asm/cmpxchg.h
+@@ -0,0 +1,170 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2017-2023 Kalray Inc.
++ * Author(s): Clement Leger
++ *            Yann Sionneau
 + *            Jules Maselbas
 + */
 +
-+#define pr_fmt(fmt)	"kvx_apic_mailbox: " fmt
++#ifndef _ASM_KVX_CMPXCHG_H
++#define _ASM_KVX_CMPXCHG_H
 +
-+#include <linux/irqchip/chained_irq.h>
-+#include <linux/of_address.h>
-+#include <linux/interrupt.h>
-+#include <linux/irqdomain.h>
-+#include <linux/iommu.h>
-+#include <linux/irqchip.h>
-+#include <linux/module.h>
-+#include <linux/of_irq.h>
-+#include <linux/init.h>
-+#include <linux/msi.h>
-+#include <linux/of.h>
++#include <linux/bits.h>
++#include <linux/types.h>
++#include <linux/align.h>
++#include <linux/build_bug.h>
 +
-+#define KVX_MAILBOX_MODE_WRITE  0x0
-+#define KVX_MAILBOX_MODE_OR  0x1
-+#define KVX_MAILBOX_MODE_ADD  0x2
-+
-+#define KVX_MAILBOX_TRIG_NO_TRIG 0x0
-+#define KVX_MAILBOX_TRIG_DOORBELL 0x1
-+#define KVX_MAILBOX_TRIG_MATCH 0x2
-+#define KVX_MAILBOX_TRIG_BARRIER 0x3
-+#define KVX_MAILBOX_TRIG_THRESHOLD 0x4
-+
-+#define KVX_MAILBOX_OFFSET 0x0
-+#define KVX_MAILBOX_ELEM_SIZE 0x200
-+#define KVX_MAILBOX_MASK_OFFSET     0x10
-+#define KVX_MAILBOX_FUNCT_OFFSET     0x18
-+#define KVX_MAILBOX_LAC_OFFSET     0x8
-+#define KVX_MAILBOX_VALUE_OFFSET     0x0
-+#define KVX_MAILBOX_FUNCT_MODE_SHIFT  0x0
-+#define KVX_MAILBOX_FUNCT_TRIG_SHIFT 0x8
-+
-+#define MAILBOXES_MAX_COUNT 128
-+
-+/* Mailboxes are 64 bits wide */
-+#define MAILBOXES_BIT_SIZE 64
-+
-+/* Maximum number of mailboxes available */
-+#define MAILBOXES_MAX_BIT_COUNT (MAILBOXES_MAX_COUNT * MAILBOXES_BIT_SIZE)
-+
-+/* Mailboxes are grouped by 8 in a single page */
-+#define MAILBOXES_BITS_PER_PAGE (8 * MAILBOXES_BIT_SIZE)
-+
-+/**
-+ * struct mb_data - per mailbox data
-+ * @cpu: CPU on which the mailbox is routed
-+ * @parent_irq: Parent IRQ on the GIC
++/*
++ * On kvx, we have a boolean compare and swap which means that the operation
++ * returns only the success of operation.
++ * If operation succeed, this is simple, we just need to return the provided
++ * old value. However, if it fails, we need to load the value to return it for
++ * the caller. If the loaded value is different from the "old" provided by the
++ * caller, we can return it since it will means it failed.
++ * However, if for some reason the value we read is equal to the old value
++ * provided by the caller, we can't simply return it or the caller will think it
++ * succeeded. So if the value we read is the same as the "old" provided by
++ * the caller, we try again until either we succeed or we fail with a different
++ * value than the provided one.
 + */
-+struct mb_data {
-+	unsigned int cpu;
-+	unsigned int parent_irq;
-+};
 +
-+/**
-+ * struct kvx_apic_mailbox - kvx apic mailbox
-+ * @base: base address of the controller
-+ * @device_domain: IRQ device domain for mailboxes
-+ * @msi_domain: platform MSI domain for MSI interface
-+ * @domain_info: Domain information needed for the MSI domain
-+ * @mb_count: Count of mailboxes we are handling
-+ * @available: bitmap of availables bits in mailboxes
-+ * @mailboxes_lock: lock for irq migration
-+ * @mask_lock: lock for irq masking
-+ * @mb_data: data associated to each mailbox
++static inline unsigned int __cmpxchg_u32(unsigned int old, unsigned int new,
++					 volatile unsigned int *ptr)
++{
++	unsigned int exp = old;
++
++	__builtin_kvx_fence();
++	while (exp == old) {
++		if (__builtin_kvx_acswapw((void *)ptr, new, exp))
++			break; /* acswap succeed */
++		exp = *ptr;
++	}
++
++	return exp;
++}
++
++static inline unsigned long __cmpxchg_u64(unsigned long old, unsigned long new,
++					  volatile unsigned long *ptr)
++{
++	unsigned long exp = old;
++
++	__builtin_kvx_fence();
++	while (exp == old) {
++		if (__builtin_kvx_acswapd((void *)ptr, new, exp))
++			break; /* acswap succeed */
++		exp = *ptr;
++	}
++
++	return exp;
++}
++
++extern unsigned long __cmpxchg_called_with_bad_pointer(void)
++	__compiletime_error("Bad argument size for cmpxchg");
++
++static __always_inline unsigned long __cmpxchg(unsigned long old,
++					       unsigned long new,
++					       volatile void *ptr, int size)
++{
++	switch (size) {
++	case 4:
++		return __cmpxchg_u32(old, new, ptr);
++	case 8:
++		return __cmpxchg_u64(old, new, ptr);
++	default:
++		return __cmpxchg_called_with_bad_pointer();
++	}
++}
++
++#define arch_cmpxchg(ptr, old, new)					\
++	((__typeof__(*(ptr))) __cmpxchg(				\
++		(unsigned long)(old), (unsigned long)(new),		\
++		(ptr), sizeof(*(ptr))))
++
++/*
++ * In order to optimize xchg for 16 byte, we can use insf/extfs if we know the
++ * bounds. This way, we only take one more bundle than standard xchg.
++ * We simply do a read modify acswap on a 32 bit word.
 + */
-+struct kvx_apic_mailbox {
-+	void __iomem *base;
-+	phys_addr_t phys_base;
-+	struct irq_domain *device_domain;
-+	struct irq_domain *msi_domain;
-+	struct msi_domain_info domain_info;
-+	/* Start and count of device mailboxes */
-+	unsigned int mb_count;
-+	/* Bitmap of allocated bits in mailboxes */
-+	DECLARE_BITMAP(available, MAILBOXES_MAX_BIT_COUNT);
-+	spinlock_t mailboxes_lock;
-+	raw_spinlock_t mask_lock;
-+	struct mb_data mb_data[MAILBOXES_MAX_COUNT];
-+};
 +
-+/**
-+ * struct kvx_irq_data - per irq data
-+ * @mb: Mailbox structure
-+ */
-+struct kvx_irq_data {
-+	struct kvx_apic_mailbox *mb;
-+};
++#define __kvx_insf(org, val, start, stop) __asm__ __volatile__(	\
++		"insf %[_org] = %[_val], %[_stop], %[_start]\n\t;;"	\
++		: [_org]"+r"(org)					\
++		: [_val]"r"(val), [_stop]"i"(stop), [_start]"i"(start))
 +
-+static void kvx_mailbox_get_from_hwirq(unsigned int hw_irq,
-+				       unsigned int *mailbox_num,
-+				       unsigned int *mailbox_bit)
++#define __kvx_extfz(out, val, start, stop) __asm__ __volatile__(	\
++		"extfz %[_out] = %[_val], %[_stop], %[_start]\n\t;;"	\
++		: [_out]"=r"(out)					\
++		: [_val]"r"(val), [_stop]"i"(stop), [_start]"i"(start))
++
++/* Needed for generic qspinlock implementation */
++static inline unsigned int __xchg_u16(unsigned int old, unsigned int new,
++				      volatile unsigned int *ptr)
 +{
-+	*mailbox_num = hw_irq / MAILBOXES_BIT_SIZE;
-+	*mailbox_bit = hw_irq % MAILBOXES_BIT_SIZE;
-+}
++	unsigned int off = ((unsigned long)ptr) % sizeof(unsigned int);
++	unsigned int val;
 +
-+static void __iomem *kvx_mailbox_get_addr(struct kvx_apic_mailbox *mb,
-+				   unsigned int num)
-+{
-+	return mb->base + (num * KVX_MAILBOX_ELEM_SIZE);
-+}
++	ptr = PTR_ALIGN_DOWN(ptr, sizeof(unsigned int));
++	__builtin_kvx_fence();
++	do {
++		old = *ptr;
++		val = old;
++		if (off == 0)
++			__kvx_insf(val, new, 0, 15);
++		else
++			__kvx_insf(val, new, 16, 31);
++	} while (!__builtin_kvx_acswapw((void *)ptr, val, old));
 +
-+static phys_addr_t kvx_mailbox_get_phys_addr(struct kvx_apic_mailbox *mb,
-+				   unsigned int num)
-+{
-+	return mb->phys_base + (num * KVX_MAILBOX_ELEM_SIZE);
-+}
-+
-+static void kvx_mailbox_msi_compose_msg(struct irq_data *data,
-+					struct msi_msg *msg)
-+{
-+	struct kvx_irq_data *kd = irq_data_get_irq_chip_data(data);
-+	struct kvx_apic_mailbox *mb = kd->mb;
-+	unsigned int mb_num, mb_bit;
-+	phys_addr_t mb_addr;
-+
-+	kvx_mailbox_get_from_hwirq(irqd_to_hwirq(data), &mb_num, &mb_bit);
-+	mb_addr = kvx_mailbox_get_phys_addr(mb, mb_num);
-+
-+	msg->address_hi = upper_32_bits(mb_addr);
-+	msg->address_lo = lower_32_bits(mb_addr);
-+	msg->data = mb_bit;
-+
-+	iommu_dma_compose_msi_msg(irq_data_get_msi_desc(data), msg);
-+}
-+
-+static void kvx_mailbox_set_irq_enable(struct irq_data *data,
-+				     bool enabled)
-+{
-+	struct kvx_irq_data *kd = irq_data_get_irq_chip_data(data);
-+	struct kvx_apic_mailbox *mb = kd->mb;
-+	unsigned int mb_num, mb_bit;
-+	void __iomem *mb_addr;
-+	u64 mask_value, mb_value;
-+
-+	kvx_mailbox_get_from_hwirq(irqd_to_hwirq(data), &mb_num, &mb_bit);
-+	mb_addr = kvx_mailbox_get_addr(mb, mb_num);
-+
-+	raw_spin_lock(&mb->mask_lock);
-+	mask_value = readq(mb_addr + KVX_MAILBOX_MASK_OFFSET);
-+	if (enabled)
-+		mask_value |= BIT_ULL(mb_bit);
++	if (off == 0)
++		__kvx_extfz(old, old, 0, 15);
 +	else
-+		mask_value &= ~BIT_ULL(mb_bit);
++		__kvx_extfz(old, old, 16, 31);
 +
-+	writeq(mask_value, mb_addr + KVX_MAILBOX_MASK_OFFSET);
-+
-+	raw_spin_unlock(&mb->mask_lock);
-+
-+	/**
-+	 * Since interrupts on mailboxes are edge triggered and are only
-+	 * triggered when writing the value, we need to trigger it manually
-+	 * after updating the mask if enabled. If the interrupt was triggered by
-+	 * the device just after the mask write, we can trigger a spurious
-+	 * interrupt but that is still better than missing one...
-+	 * Moreover, the mailbox is configured in OR mode which means that even
-+	 * if we write a single bit, all other bits will be kept intact.
-+	 */
-+	if (enabled) {
-+		mb_value = readq(mb_addr + KVX_MAILBOX_VALUE_OFFSET);
-+		if (mb_value & BIT_ULL(mb_bit))
-+			writeq(BIT_ULL(mb_bit),
-+			       mb_addr + KVX_MAILBOX_VALUE_OFFSET);
-+	}
++	return old;
 +}
 +
-+static void kvx_mailbox_mask(struct irq_data *data)
++static inline unsigned int __xchg_u32(unsigned int old, unsigned int new,
++				      volatile unsigned int *ptr)
 +{
-+	kvx_mailbox_set_irq_enable(data, false);
++	__builtin_kvx_fence();
++	do
++		old = *ptr;
++	while (!__builtin_kvx_acswapw((void *)ptr, new, old));
++
++	return old;
 +}
 +
-+static void kvx_mailbox_unmask(struct irq_data *data)
++static inline unsigned long __xchg_u64(unsigned long old, unsigned long new,
++				       volatile unsigned long *ptr)
 +{
-+	kvx_mailbox_set_irq_enable(data, true);
++	__builtin_kvx_fence();
++	do
++		old = *ptr;
++	while (!__builtin_kvx_acswapd((void *)ptr, new, old));
++
++	return old;
 +}
 +
-+static void kvx_mailbox_set_cpu(struct kvx_apic_mailbox *mb, int mb_id,
-+			       int new_cpu)
++extern unsigned long __xchg_called_with_bad_pointer(void)
++	__compiletime_error("Bad argument size for xchg");
++
++static __always_inline unsigned long __xchg(unsigned long val,
++					    volatile void *ptr, int size)
 +{
-+	irq_set_affinity(mb->mb_data[mb_id].parent_irq, cpumask_of(new_cpu));
-+	mb->mb_data[mb_id].cpu = new_cpu;
-+}
-+
-+static void kvx_mailbox_free_bit(struct kvx_apic_mailbox *mb, int hw_irq)
-+{
-+	unsigned int mb_num, mb_bit;
-+
-+	kvx_mailbox_get_from_hwirq(hw_irq, &mb_num, &mb_bit);
-+	bitmap_clear(mb->available, hw_irq, 1);
-+
-+	/* If there is no more IRQ on this mailbox, reset it to CPU 0 */
-+	if (mb->available[mb_num] == 0)
-+		kvx_mailbox_set_cpu(mb, mb_num, 0);
-+}
-+
-+struct irq_chip kvx_apic_mailbox_irq_chip = {
-+	.name = "kvx apic mailbox",
-+	.irq_compose_msi_msg = kvx_mailbox_msi_compose_msg,
-+	.irq_mask = kvx_mailbox_mask,
-+	.irq_unmask = kvx_mailbox_unmask,
-+};
-+
-+static int kvx_mailbox_allocate_bits(struct kvx_apic_mailbox *mb, int num_req)
-+{
-+	int first, align_mask = 0;
-+
-+	/* This must be a power of 2 for bitmap_find_next_zero_area to work */
-+	BUILD_BUG_ON((MAILBOXES_BITS_PER_PAGE & (MAILBOXES_BITS_PER_PAGE - 1)));
-+
-+	/*
-+	 * If user requested more than 1 mailbox, we must make sure it will be
-+	 * aligned on a page size for iommu_dma_prepare_msi to be correctly
-+	 * mapped in a single page.
-+	 */
-+	if (num_req > 1)
-+		align_mask = (MAILBOXES_BITS_PER_PAGE - 1);
-+
-+	spin_lock(&mb->mailboxes_lock);
-+
-+	first = bitmap_find_next_zero_area(mb->available,
-+			mb->mb_count * MAILBOXES_BIT_SIZE, 0,
-+			num_req, align_mask);
-+	if (first >= MAILBOXES_MAX_BIT_COUNT) {
-+		spin_unlock(&mb->mailboxes_lock);
-+		return -ENOSPC;
-+	}
-+
-+	bitmap_set(mb->available, first, num_req);
-+
-+	spin_unlock(&mb->mailboxes_lock);
-+
-+	return first;
-+}
-+
-+static int kvx_apic_mailbox_msi_alloc(struct irq_domain *domain,
-+				      unsigned int virq,
-+				      unsigned int nr_irqs, void *args)
-+{
-+	int i, err;
-+	int hwirq = 0;
-+	u64 mb_addr;
-+	struct irq_data *d;
-+	struct kvx_irq_data *kd;
-+	struct kvx_apic_mailbox *mb = domain->host_data;
-+	struct msi_alloc_info *msi_info = (struct msi_alloc_info *)args;
-+	struct msi_desc *desc = msi_info->desc;
-+	unsigned int mb_num, mb_bit;
-+
-+	/* We will not be able to guarantee page alignment ! */
-+	if (nr_irqs > MAILBOXES_BITS_PER_PAGE)
-+		return -EINVAL;
-+
-+	hwirq = kvx_mailbox_allocate_bits(mb, nr_irqs);
-+	if (hwirq < 0)
-+		return hwirq;
-+
-+	kvx_mailbox_get_from_hwirq(hwirq, &mb_num, &mb_bit);
-+	mb_addr = (u64) kvx_mailbox_get_phys_addr(mb, mb_num);
-+	err = iommu_dma_prepare_msi(desc, mb_addr);
-+	if (err)
-+		goto free_mb_bits;
-+
-+	for (i = 0; i < nr_irqs; i++) {
-+		kd = kmalloc(sizeof(*kd), GFP_KERNEL);
-+		if (!kd) {
-+			err = -ENOMEM;
-+			goto free_irq_data;
-+		}
-+
-+		kd->mb = mb;
-+		irq_domain_set_info(domain, virq + i, hwirq + i,
-+				    &kvx_apic_mailbox_irq_chip,
-+				    kd, handle_simple_irq,
-+				    NULL, NULL);
-+	}
-+
-+	return 0;
-+
-+free_irq_data:
-+	for (i--; i >= 0; i--) {
-+		d = irq_domain_get_irq_data(domain, virq + i);
-+		kd = irq_data_get_irq_chip_data(d);
-+		kfree(kd);
-+	}
-+
-+free_mb_bits:
-+	spin_lock(&mb->mailboxes_lock);
-+	bitmap_clear(mb->available, hwirq, nr_irqs);
-+	spin_unlock(&mb->mailboxes_lock);
-+
-+	return err;
-+}
-+
-+static void kvx_apic_mailbox_msi_free(struct irq_domain *domain,
-+				      unsigned int virq,
-+				      unsigned int nr_irqs)
-+{
-+	int i;
-+	struct irq_data *d;
-+	struct kvx_irq_data *kd;
-+	struct kvx_apic_mailbox *mb = domain->host_data;
-+
-+	spin_lock(&mb->mailboxes_lock);
-+
-+	for (i = 0; i < nr_irqs; i++) {
-+		d = irq_domain_get_irq_data(domain, virq + i);
-+		kd = irq_data_get_irq_chip_data(d);
-+		kfree(kd);
-+		kvx_mailbox_free_bit(mb, d->hwirq);
-+	}
-+
-+	spin_unlock(&mb->mailboxes_lock);
-+}
-+
-+static const struct irq_domain_ops kvx_apic_mailbox_domain_ops = {
-+	.alloc  = kvx_apic_mailbox_msi_alloc,
-+	.free	= kvx_apic_mailbox_msi_free
-+};
-+
-+static struct irq_chip kvx_msi_irq_chip = {
-+	.name	= "KVX MSI",
-+};
-+
-+static void kvx_apic_mailbox_handle_irq(struct irq_desc *desc)
-+{
-+	struct irq_data *data = irq_desc_get_irq_data(desc);
-+	struct kvx_apic_mailbox *mb = irq_desc_get_handler_data(desc);
-+	void __iomem *mb_addr = kvx_mailbox_get_addr(mb, irqd_to_hwirq(data));
-+	unsigned int irqn, cascade_irq, bit;
-+	u64 mask_value, masked_its;
-+	u64 mb_value;
-+	/* Since we allocate 64 interrupts for each mailbox, the scheme
-+	 * to find the hwirq associated to a mailbox irq is the
-+	 * following:
-+	 * hw_irq = mb_num * MAILBOXES_BIT_SIZE + bit
-+	 */
-+	unsigned int mb_hwirq = irqd_to_hwirq(data) * MAILBOXES_BIT_SIZE;
-+
-+	mb_value = readq(mb_addr + KVX_MAILBOX_LAC_OFFSET);
-+	mask_value = readq(mb_addr + KVX_MAILBOX_MASK_OFFSET);
-+	/* Mask any disabled interrupts */
-+	mb_value &= mask_value;
-+
-+	/**
-+	 * Write all pending ITs that are masked to process them later
-+	 * Since the mailbox is in OR mode, these bits will be merged with any
-+	 * already set bits and thus avoid losing any interrupts.
-+	 */
-+	masked_its = (~mask_value) & mb_value;
-+	if (masked_its)
-+		writeq(masked_its, mb_addr + KVX_MAILBOX_LAC_OFFSET);
-+
-+	for_each_set_bit(bit, (unsigned long *) &mb_value, BITS_PER_LONG) {
-+		irqn = bit + mb_hwirq;
-+		cascade_irq = irq_find_mapping(mb->device_domain, irqn);
-+		generic_handle_irq(cascade_irq);
++	switch (size) {
++	case 2:
++		return __xchg_u16(0, val, ptr);
++	case 4:
++		return __xchg_u32(0, val, ptr);
++	case 8:
++		return __xchg_u64(0, val, ptr);
++	default:
++		return __xchg_called_with_bad_pointer();
 +	}
 +}
 +
-+static void __init
-+apic_mailbox_reset(struct kvx_apic_mailbox *mb)
-+{
-+	unsigned int i;
-+	unsigned int mb_end = mb->mb_count;
-+	void __iomem *mb_addr;
-+	u64 funct_val = (KVX_MAILBOX_MODE_OR << KVX_MAILBOX_FUNCT_MODE_SHIFT) |
-+		(KVX_MAILBOX_TRIG_DOORBELL << KVX_MAILBOX_FUNCT_TRIG_SHIFT);
++#define arch_xchg(ptr, val)						\
++	((__typeof__(*(ptr))) __xchg(					\
++		(unsigned long)(val),					\
++		(ptr), sizeof(*(ptr))))
 +
-+	for (i = 0; i < mb_end; i++) {
-+		mb_addr = kvx_mailbox_get_addr(mb, i);
-+		/* Disable all interrupts */
-+		writeq(0ULL, mb_addr + KVX_MAILBOX_MASK_OFFSET);
-+		/* Set mailbox to OR mode + trigger */
-+		writeq(funct_val, mb_addr + KVX_MAILBOX_FUNCT_OFFSET);
-+		/* Load & Clear mailbox value */
-+		readq(mb_addr + KVX_MAILBOX_LAC_OFFSET);
-+	}
-+}
-+
-+static struct msi_domain_ops kvx_msi_domain_ops = {
-+};
-+
-+static struct msi_domain_info kvx_msi_domain_info = {
-+	.flags	= (MSI_FLAG_USE_DEF_DOM_OPS | MSI_FLAG_USE_DEF_CHIP_OPS),
-+	.ops	= &kvx_msi_domain_ops,
-+	.chip	= &kvx_msi_irq_chip,
-+};
-+
-+static int __init
-+kvx_init_apic_mailbox(struct device_node *node,
-+		      struct device_node *parent)
-+{
-+	struct kvx_apic_mailbox *mb;
-+	unsigned int parent_irq, irq_count;
-+	struct resource res;
-+	int ret, i;
-+
-+	mb = kzalloc(sizeof(*mb), GFP_KERNEL);
-+	if (!mb)
-+		return -ENOMEM;
-+
-+	ret = of_address_to_resource(node, 0, &res);
-+	if (ret)
-+		return -EINVAL;
-+
-+	mb->phys_base = res.start;
-+	mb->base = of_io_request_and_map(node, 0, node->name);
-+	if (!mb->base) {
-+		ret = -EINVAL;
-+		goto err_kfree;
-+	}
-+
-+	spin_lock_init(&mb->mailboxes_lock);
-+	raw_spin_lock_init(&mb->mask_lock);
-+
-+	irq_count = of_irq_count(node);
-+	if (irq_count == 0 || irq_count > MAILBOXES_MAX_COUNT) {
-+		ret = -EINVAL;
-+		goto err_kfree;
-+	}
-+	mb->mb_count = irq_count;
-+
-+	apic_mailbox_reset(mb);
-+
-+	mb->device_domain = irq_domain_add_tree(node,
-+						&kvx_apic_mailbox_domain_ops,
-+						mb);
-+	if (!mb->device_domain) {
-+		pr_err("Failed to setup device domain\n");
-+		ret = -EINVAL;
-+		goto err_iounmap;
-+	}
-+
-+	mb->msi_domain = platform_msi_create_irq_domain(of_node_to_fwnode(node),
-+						     &kvx_msi_domain_info,
-+						     mb->device_domain);
-+	if (!mb->msi_domain) {
-+		ret = -EINVAL;
-+		goto err_irq_domain_add_tree;
-+	}
-+
-+	/* Chain all interrupts from gic to mailbox */
-+	for (i = 0; i < irq_count; i++) {
-+		parent_irq = irq_of_parse_and_map(node, i);
-+		if (parent_irq == 0) {
-+			pr_err("unable to parse irq\n");
-+			ret = -EINVAL;
-+			goto err_irq_domain_msi_create;
-+		}
-+		mb->mb_data[i].parent_irq = parent_irq;
-+
-+		irq_set_chained_handler_and_data(parent_irq,
-+						 kvx_apic_mailbox_handle_irq,
-+						 mb);
-+	}
-+
-+	return 0;
-+
-+err_irq_domain_msi_create:
-+	irq_domain_remove(mb->msi_domain);
-+err_irq_domain_add_tree:
-+	irq_domain_remove(mb->device_domain);
-+err_iounmap:
-+	iounmap(mb->base);
-+err_kfree:
-+	kfree(mb);
-+
-+	return ret;
-+}
-+
-+IRQCHIP_DECLARE(kvx_apic_mailbox, "kalray,kvx-apic-mailbox",
-+		kvx_init_apic_mailbox);
++#endif
 -- 
 2.37.2
 
