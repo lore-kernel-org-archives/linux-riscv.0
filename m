@@ -4,71 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F34DC05027
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jan 2023 14:10:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72595C05027
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jan 2023 14:10:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5Vsdit2xQlEO9QHVad9agLAIJzEipDDXoORYQYeAi/w=; b=XaZPnWJhazPAQlE02O+Fp1QxqG
-	HFsoZQqm/iZGFebMmE6KRjsPS2+9BErjQeqCIUgprSvRtE38EPfKDNUrOOdZkDu9ty4PGh50WNKbu
-	RFwoi4jKinHcLzfFOonTxf9qR6MwCFCB8H73eMucWdqPHoTstvnJFK86xYMM3eH30ss+4EY8Oi+f3
-	inoHYuo5cCchPT9XjD52qXn8/x5evOx7SwNMGyXHQyp+FT24CS47CjnMZs1cgIQAapRaD70os0J/o
-	KrdL/xgUBS67r+MBARqivsuJIk7j+jUw4JlJQGQoEthc/nzNJlfvGKElxP3RUeAOz6bzn/vzarGWs
-	/RgtO9tw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=/6dY1fxXnxdZeOCOBG9DVdN+iwmttxFFUEI8sywhzec=; b=v7os1mpo5EOnkm
+	X4R/caGZ01KkwE0CDxD3m7yco3z9tOr6pmRN8hYM69G8BFwWXC3bkH4tAQP1wFhemGcinnKSjBhtc
+	ablNKawPg/7M445PmNcOoHtHkNvXPzZPXJlJK92t3Hi1u9GN1bNBUJduSYhb+Gm1jVaJu3XOeLoMN
+	lvHdzbmNN+jBD4tz214V0Dx4OSk4mGEh4LbxaDSKA9hv/QDyNsYznhJRdSTdBUaxy1lcdqknHFRIL
+	osHWsbLil1iRAa7ZVOoSi+L0jbGEaS1/bkSnWJ9Cn2fJFq4yyMvILLF/D3b2m75hTiaNlqrirXjpF
+	+sSAfaFxaE+IdpQQfB6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIs5u-00Ab2t-UH; Fri, 20 Jan 2023 14:10:14 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1pIs6I-00AbDx-JH; Fri, 20 Jan 2023 14:10:38 +0000
+Received: from smtpout30.security-mail.net ([85.31.212.36] helo=fx306.security-mail.net)
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIs5r-00AazI-CQ
-	for linux-riscv@lists.infradead.org; Fri, 20 Jan 2023 14:10:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1674223812; x=1705759812;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=yWdP0AlkpNuGpE4SWfbgyApq7EB/xPrL4Lku7qnnWiI=;
-  b=D8sAbTeOTrTPmXDCr7+M65Py4shJxNtS76UAxeGpv6AhTPRzV6TW5KvI
-   GaspnnuAcvxHh/9MaItB128VIh6Whj0G+S/O+Zf08cYWnRo+cLxFEn+1D
-   ttpwTgxwxBp6UU1/7ZCZjVmxJ7Q+RmJ6m7QgqJAy8hsyeiOi6WVhnZBEH
-   Zo4Ko9iJgx06LEiYkAtxYvK25QsNXV0IWk6qcTr0t2BhW5ALDJoDZ9Sld
-   MZkCUmuh1DuRdg26O9rIYbiO1V9phnYbthQqJ43nW/uV5YAkRD0BFueqm
-   Yo7BQDcX7DwtRe2VvcSVyPTyl3Ujtkppw5ecNWDT7X758t1oCEKXXh9w3
-   Q==;
-X-IronPort-AV: E=Sophos;i="5.97,232,1669100400"; 
-   d="asc'?scan'208";a="197635228"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 20 Jan 2023 07:10:05 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.16; Fri, 20 Jan 2023 07:09:59 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
- (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.16 via Frontend
- Transport; Fri, 20 Jan 2023 07:09:57 -0700
-Date: Fri, 20 Jan 2023 14:09:35 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Prabhakar <prabhakar.csengg@gmail.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Daniel Lezcano
-	<daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>,
-	<linux-riscv@lists.infradead.org>, Geert Uytterhoeven <geert@linux-m68k.org>,
-	<linux-kernel@vger.kernel.org>, <linux-renesas-soc@vger.kernel.org>, Lad
- Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, Samuel Holland
-	<samuel@sholland.org>
-Subject: Re: [PATCH v2] clocksource/drivers/riscv: Get rid of
- clocksource_arch_init() callback
-Message-ID: <Y8qgn5FVtro0nAlp@wendy>
-References: <20221229224601.103851-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+	id 1pIs6D-00Ab7K-UJ
+	for linux-riscv@lists.infradead.org; Fri, 20 Jan 2023 14:10:36 +0000
+Received: from localhost (fx306.security-mail.net [127.0.0.1])
+	by fx306.security-mail.net (Postfix) with ESMTP id 9397B35CFA7
+	for <linux-riscv@lists.infradead.org>; Fri, 20 Jan 2023 15:10:29 +0100 (CET)
+Received: from fx306 (fx306.security-mail.net [127.0.0.1]) by
+ fx306.security-mail.net (Postfix) with ESMTP id 224FA35CF6A; Fri, 20 Jan
+ 2023 15:10:29 +0100 (CET)
+Received: from zimbra2.kalray.eu (unknown [217.181.231.53]) by
+ fx306.security-mail.net (Postfix) with ESMTPS id 1DCB635CEE1; Fri, 20 Jan
+ 2023 15:10:27 +0100 (CET)
+Received: from zimbra2.kalray.eu (localhost [127.0.0.1]) by
+ zimbra2.kalray.eu (Postfix) with ESMTPS id 9FC5E27E0440; Fri, 20 Jan 2023
+ 15:10:26 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1]) by zimbra2.kalray.eu
+ (Postfix) with ESMTP id 86B8727E043D; Fri, 20 Jan 2023 15:10:26 +0100 (CET)
+Received: from zimbra2.kalray.eu ([127.0.0.1]) by localhost
+ (zimbra2.kalray.eu [127.0.0.1]) (amavisd-new, port 10026) with ESMTP id
+ bBGr77tfxy-9; Fri, 20 Jan 2023 15:10:26 +0100 (CET)
+Received: from junon.lin.mbt.kalray.eu (unknown [192.168.37.161]) by
+ zimbra2.kalray.eu (Postfix) with ESMTPSA id E117627E0439; Fri, 20 Jan 2023
+ 15:10:25 +0100 (CET)
+X-Virus-Scanned: E-securemail
+Secumail-id: <5193.63caa0d3.18042.0>
+DKIM-Filter: OpenDKIM Filter v2.10.3 zimbra2.kalray.eu 86B8727E043D
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kalray.eu;
+ s=32AE1B44-9502-11E5-BA35-3734643DEF29; t=1674223826;
+ bh=WsdsMgF+9wdt2RCH1Xf3svKE0DGavKlRxJdrjiN4Uh8=;
+ h=From:To:Date:Message-Id:MIME-Version;
+ b=P23x+LKcvEP+IKZLbkuicGs3Pej5mBdo8yQYkaxT3SdD6c0GM19pKDj+ase6ViEKo
+ uPexGp9XpE0T3huFfEVD6e4MSK+6FZ4VooRCJ6oBEHDNAQPNIZeWLmd6d5qSRBL22D
+ of29euZL+icynxeO+ubhAeSadnZtlOlSeb48YA+Q=
+From: Yann Sionneau <ysionneau@kalray.eu>
+To: Arnd Bergmann <arnd@arndb.de>, Jonathan Corbet <corbet@lwn.net>, Thomas
+ Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Rob Herring
+ <robh+dt@kernel.org>, Krzysztof Kozlowski
+ <krzysztof.kozlowski+dt@linaro.org>, Will Deacon <will@kernel.org>, Peter
+ Zijlstra <peterz@infradead.org>, Boqun Feng <boqun.feng@gmail.com>, Mark
+ Rutland <mark.rutland@arm.com>, Eric Biederman <ebiederm@xmission.com>, Kees
+ Cook <keescook@chromium.org>, Oleg Nesterov <oleg@redhat.com>, Ingo Molnar
+ <mingo@redhat.com>, Waiman Long <longman@redhat.com>, "Aneesh Kumar K.V"
+ <aneesh.kumar@linux.ibm.com>, Andrew Morton <akpm@linux-foundation.org>,
+ Nick Piggin <npiggin@gmail.com>, Paul Moore <paul@paul-moore.com>, Eric
+ Paris <eparis@redhat.com>, Christian Brauner <brauner@kernel.org>, Paul
+ Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Jules Maselbas <jmaselbas@kalray.eu>,
+ Yann Sionneau <ysionneau@kalray.eu>, Guillaume Thouvenin
+ <gthouvenin@kalray.eu>, Clement Leger <clement@clement-leger.fr>, Vincent
+ Chardon <vincent.chardon@elsys-design.com>, Marc =?utf-8?b?UG91bGhpw6hz?=
+ <dkm@kataplop.net>, Julian Vetter <jvetter@kalray.eu>, Samuel Jones
+ <sjones@kalray.eu>, Ashley Lesdalons <alesdalons@kalray.eu>, Thomas Costis
+ <tcostis@kalray.eu>, Marius Gligor <mgligor@kalray.eu>, Jonathan Borne
+ <jborne@kalray.eu>, Julien Villette <jvillette@kalray.eu>, Luc Michel
+ <lmichel@kalray.eu>, Louis Morhet <lmorhet@kalray.eu>, Julien Hascoet
+ <jhascoet@kalray.eu>, Jean-Christophe Pince <jcpince@gmail.com>, Guillaume
+ Missonnier <gmissonnier@kalray.eu>, Alex Michon <amichon@kalray.eu>, Huacai
+ Chen <chenhuacai@kernel.org>, WANG Xuerui <git@xen0n.name>, Shaokun Zhang
+ <zhangshaokun@hisilicon.com>, John Garry <john.garry@huawei.com>, Guangbin
+ Huang <huangguangbin2@huawei.com>, Bharat Bhushan <bbhushan2@marvell.com>,
+ Bibo Mao <maobibo@loongson.cn>, Atish Patra <atishp@atishpatra.org>, "Jason
+ A. Donenfeld" <Jason@zx2c4.com>, Qi Liu <liuqi115@huawei.com>, Jiaxun Yang
+ <jiaxun.yang@flygoat.com>, Catalin Marinas <catalin.marinas@arm.com>, Mark
+ Brown <broonie@kernel.org>, Janosch Frank <frankja@linux.ibm.com>, Alexey
+ Dobriyan <adobriyan@gmail.com>
+Cc: Benjamin Mugnier <mugnier.benjamin@gmail.com>,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-mm@kvack.org, linux-arch@vger.kernel.org,
+ linux-audit@redhat.com, linux-riscv@lists.infradead.org, bpf@vger.kernel.org
+Subject: [RFC PATCH v2 04/31] Documentation: Add binding for
+ kalray,kv3-1-apic-mailbox
+Date: Fri, 20 Jan 2023 15:09:35 +0100
+Message-ID: <20230120141002.2442-5-ysionneau@kalray.eu>
+X-Mailer: git-send-email 2.37.2
+In-Reply-To: <20230120141002.2442-1-ysionneau@kalray.eu>
+References: <20230120141002.2442-1-ysionneau@kalray.eu>
 MIME-Version: 1.0
-In-Reply-To: <20221229224601.103851-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+X-ALTERMIMEV2_out: done
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230120_061011_516420_7E45D60F 
-X-CRM114-Status: GOOD (  13.40  )
+X-CRM114-CacheID: sfid-20230120_061034_173856_D66D7DF1 
+X-CRM114-Status: GOOD (  16.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,80 +114,117 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3014885878318036589=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============3014885878318036589==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="jF0mOp7nLO7/TrvI"
-Content-Disposition: inline
+From: Jules Maselbas <jmaselbas@kalray.eu>
 
---jF0mOp7nLO7/TrvI
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Add documentation for `kalray,kv3-1-core-intc` binding.
 
-On Thu, Dec 29, 2022 at 10:46:01PM +0000, Prabhakar wrote:
-> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
->=20
-> Having a clocksource_arch_init() callback always sets vdso_clock_mode to
-> VDSO_CLOCKMODE_ARCHTIMER if GENERIC_GETTIMEOFDAY is enabled, this is
-> required for the riscv-timer.
->=20
-> This works for platforms where just riscv-timer clocksource is present.
-> On platforms where other clock sources are available we want them to
-> register with vdso_clock_mode set to VDSO_CLOCKMODE_NONE.
->=20
-> On the Renesas RZ/Five SoC OSTM block can be used as clocksource [0], to
-> avoid multiple clock sources being registered as VDSO_CLOCKMODE_ARCHTIMER
-> move setting of vdso_clock_mode in the riscv-timer driver instead of doing
-> this in clocksource_arch_init() callback as done similarly for ARM/64
-> architecture.
->=20
-> [0] drivers/clocksource/renesas-ostm.c
->=20
-> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> Tested-by: Samuel Holland <samuel@sholland.org>
-> ---
-> RFC -> v2
-> * Dropped vdso_default static global variable
+Co-developed-by: Jules Maselbas <jmaselbas@kalray.eu>
+Signed-off-by: Jules Maselbas <jmaselbas@kalray.eu>
+Signed-off-by: Yann Sionneau <ysionneau@kalray.eu>
+---
 
-> * Used IS_ENABLED() macro
+Notes:
+    V1 -> V2: new patch
 
-Not sure it really makes much difference here either way, but increased
-coverage is always good I suppose.
+ .../kalray,kv3-1-apic-mailbox.yaml            | 75 +++++++++++++++++++
+ 1 file changed, 75 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/interrupt-controller/kalray,kv3-1-apic-mailbox.yaml
 
-rv32 is the user for the !GENERIC_GETTIMEOFDAY patch IIRC and nothing
-seemed obviously amiss there to me either.
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/kalray,kv3-1-apic-mailbox.yaml b/Documentation/devicetree/bindings/interrupt-controller/kalray,kv3-1-apic-mailbox.yaml
+new file mode 100644
+index 000000000000..e1eb1c9fda0d
+--- /dev/null
++++ b/Documentation/devicetree/bindings/interrupt-controller/kalray,kv3-1-apic-mailbox.yaml
+@@ -0,0 +1,75 @@
++# SPDX-License-Identifier: GPL-2.0
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/interrupt-controller/kalray,kv3-1-apic-mailbox#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Kalray kv3-1 APIC-Mailbox
++
++description: |
++  Each cluster in the Coolidge SoC includes an Advanced Programmable Interrupt
++  Controller (APIC) which is split in two part:
++    - a Generic Interrupt Controller (referred as APIC-GIC)
++    - a Mailbox Controller           (referred as APIC-Mailbox)
++  The APIC-Mailbox contains 128 mailboxes of 8 bytes (size of a word),
++  this hardware block is basically a 1 KB of smart memory space.
++  Each mailbox can be independently configured with a trigger condition
++  and an input mode function.
++
++  Input mode are:
++   - write
++   - bitwise OR
++   - add
++
++  Interrupts are generated on a write when the mailbox content value
++  match the configured trigger condition.
++  Available conditions are:
++   - doorbell: always raise interruption on write
++   - match: when the mailbox's value equal the configured trigger value
++   - barrier: same as match but the mailbox's value is cleared on trigger
++   - threshold: when the mailbox's value is greater than, or equal to, the
++     configured trigger value
++
++  Since this hardware block generates IRQs based on writes to some memory
++  locations, it is both an interrupt controller and an MSI controller.
++
++allOf:
++  - $ref: /schemas/interrupt-controller.yaml#
++
++properties:
++  compatible:
++    const: kalray,kv3-1-apic-mailbox
++  "#interrupt-cells":
++    const: 1
++    description:
++      The IRQ number.
++  interrupt-controller: true
++  interrupt-parent: true
++  interrupts:
++    maxItems: 128
++    description: |
++     Specifies the interrupt line(s) in the interrupt-parent controller node;
++     valid values depend on the type of parent interrupt controller
++  msi-controller: true
++
++required:
++  - compatible
++  - reg
++  - "#interrupt-cells"
++  - interrupt-controller
++  - interrupt-parent
++  - interrupts
++  - msi-controller
++
++examples:
++  - |
++    apic_mailbox: interrupt-controller@a00000 {
++        compatible = "kalray,kv3-1-apic-gic";
++        reg = <0 0xa00000 0 0x0f200>;
++        #interrupt-cells = <1>;
++        interrupt-controller;
++        interrupt-parent = <&apic_gic>;
++        interrups = <0 1 2 3 4 5 6 7 8 9>;
++    };
++
++...
+-- 
+2.37.2
 
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
 
---jF0mOp7nLO7/TrvI
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY8qgngAKCRB4tDGHoIJi
-0lANAP4/lQXHQYV12FWR9fMBrlqGro7dG6zJw5CN12H3WufHkAEA+pjrHts9eaEc
-DyDNhC86lie/e9gho75+rDX39f81DgQ=
-=ZdMu
------END PGP SIGNATURE-----
-
---jF0mOp7nLO7/TrvI--
 
 
---===============3014885878318036589==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3014885878318036589==--
-
