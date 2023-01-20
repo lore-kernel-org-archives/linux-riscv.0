@@ -4,79 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EAB2C05027
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jan 2023 13:56:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F34DC05027
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jan 2023 14:10:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AzofgglTlU3wbHHLxKB4E6WFo9BSr+CuXJYqOtNvL98=; b=G2wEOTgxH9G75L
-	15gCYJfp3pfwpCR2e9asP8oUGAeS1qpYaIxdrt3wZRAkV7D+DJ4GaxJEGeVLhbOlIgG7ETUmDNPmw
-	qqDQ1BxB3vR61+OGcS/p8oC5u2DkDY/uA/2raMz4j2cmnh0AKM3K38IXUdwRCJ2GG4RmSnOU/NuOZ
-	dcMWdTy6OMSsOS+S83AaqoFX8HwkTSS1/Zh1RQ3XuJ/TGVpm4m8VL9f8ApRYPpymCIIj5iIYyq9t4
-	KkmGpPotCvchm2I4Oej/87OE8gVPG8kl8/kDXvmky4+Oec6Sm+89nW1sH0vpzZ4ifH718AIZfsw/T
-	IzjvlXRFpO2+X9hP5dtg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5Vsdit2xQlEO9QHVad9agLAIJzEipDDXoORYQYeAi/w=; b=XaZPnWJhazPAQlE02O+Fp1QxqG
+	HFsoZQqm/iZGFebMmE6KRjsPS2+9BErjQeqCIUgprSvRtE38EPfKDNUrOOdZkDu9ty4PGh50WNKbu
+	RFwoi4jKinHcLzfFOonTxf9qR6MwCFCB8H73eMucWdqPHoTstvnJFK86xYMM3eH30ss+4EY8Oi+f3
+	inoHYuo5cCchPT9XjD52qXn8/x5evOx7SwNMGyXHQyp+FT24CS47CjnMZs1cgIQAapRaD70os0J/o
+	KrdL/xgUBS67r+MBARqivsuJIk7j+jUw4JlJQGQoEthc/nzNJlfvGKElxP3RUeAOz6bzn/vzarGWs
+	/RgtO9tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIrsn-00AXyw-Bx; Fri, 20 Jan 2023 13:56:41 +0000
-Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
+	id 1pIs5u-00Ab2t-UH; Fri, 20 Jan 2023 14:10:14 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIrsk-00AXxi-4K
-	for linux-riscv@lists.infradead.org; Fri, 20 Jan 2023 13:56:39 +0000
-Received: by mail-ej1-x630.google.com with SMTP id bk15so14111855ejb.9
-        for <linux-riscv@lists.infradead.org>; Fri, 20 Jan 2023 05:56:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=H7eK0S32R7OzdAHjN8ANIsN9zhM51LWwumKsQBQQh8I=;
-        b=C/UkHRCo3dJQXtq4TBwbY4SPLPXRYn2WOJG9lENA7XPB5yLT/zlXBogNk1MOZ6l55p
-         5fZq+rGqYualx4+bpTovJMsfmDCsCUiGXcKUPTu5p9XB+OtbFWUScvNjeDDh5hex/JJG
-         7jiytQBn/EBJWWPjwVKX3aGDhkoyfWgdWvr7wtMarwTpKBeJfG2Pal2Rsy7JWF4jJxzJ
-         oglsLixFOL5wWywmmwJigjkv2eWfgidHwq4JRyQLkdXDXhXbcUkd2ml2YuwBDRFu61BQ
-         fO2wS2UZQSpA1YUeHvkJM2V+gCuVbFL6bzDwsgzvfPL0U5dqQ9yjsUehYo7NpWAA1Jz1
-         LmuQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=H7eK0S32R7OzdAHjN8ANIsN9zhM51LWwumKsQBQQh8I=;
-        b=ZekCoATjwaGm+EQnDZXCHoa0AbWXCwOnO/CJ/YlsBIT0785+HqscYMUCC3VSTMkt8T
-         S5GSKHyhlYwHJu69f4oUu0Pj/3y8D6YF6q4A/lzIRxKm0PM0qEu3ScJ5tMDTTpqikmGm
-         cx06lIjKIUbbJ98epRlVsL2BpREouR15P2DEmmpNTaMkFvHQao4x3yboJH61e/mkGxJP
-         gnRF5BWxBOLI53X4+Fk8AKzy1cnCgj+escI/C/BcRo+65tloT6apgykJu/gwI2KUu+TG
-         clK6W16pYhhjg/zukcdr4qtpkpJ27TZ+lnbIhEdM3cVj7AS2q56AsCq1UVxa9zMXvago
-         rhzA==
-X-Gm-Message-State: AFqh2kqJqZ5JFL+Gkf1QOvn8zklzk8oBSK4Yue/D0bZTPT47Es+606Qv
-	7+OBIa2T6fHMMVNVFSmeHN6hvw==
-X-Google-Smtp-Source: AMrXdXsDjnqn1FOnw74lL1yVvsD6lGj78Ptra6ukhIH804E5wD8+CJKg4PdIcqvALwMEwneYz7HrQQ==
-X-Received: by 2002:a17:906:4096:b0:79e:4880:dd85 with SMTP id u22-20020a170906409600b0079e4880dd85mr14823861ejj.47.1674222994156;
-        Fri, 20 Jan 2023 05:56:34 -0800 (PST)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id 9-20020a170906218900b0084cb4d37b8csm18043546eju.141.2023.01.20.05.56.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Jan 2023 05:56:33 -0800 (PST)
-Date: Fri, 20 Jan 2023 14:56:32 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
-	aou@eecs.berkeley.edu, conor@kernel.org, corbet@lwn.net,
-	guoren@kernel.org, heiko@sntech.de, paul.walmsley@sifive.com,
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
-	Heiko Stuebner <heiko.stuebner@vrull.eu>
-Subject: Re: [PATCH v2 2/3] RISC-V: resort all extensions in consistent orders
-Message-ID: <20230120135632.vb7ncvoapnaixluu@orel>
-References: <20221205144525.2148448-1-conor.dooley@microchip.com>
- <20221205144525.2148448-3-conor.dooley@microchip.com>
+	id 1pIs5r-00AazI-CQ
+	for linux-riscv@lists.infradead.org; Fri, 20 Jan 2023 14:10:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1674223812; x=1705759812;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=yWdP0AlkpNuGpE4SWfbgyApq7EB/xPrL4Lku7qnnWiI=;
+  b=D8sAbTeOTrTPmXDCr7+M65Py4shJxNtS76UAxeGpv6AhTPRzV6TW5KvI
+   GaspnnuAcvxHh/9MaItB128VIh6Whj0G+S/O+Zf08cYWnRo+cLxFEn+1D
+   ttpwTgxwxBp6UU1/7ZCZjVmxJ7Q+RmJ6m7QgqJAy8hsyeiOi6WVhnZBEH
+   Zo4Ko9iJgx06LEiYkAtxYvK25QsNXV0IWk6qcTr0t2BhW5ALDJoDZ9Sld
+   MZkCUmuh1DuRdg26O9rIYbiO1V9phnYbthQqJ43nW/uV5YAkRD0BFueqm
+   Yo7BQDcX7DwtRe2VvcSVyPTyl3Ujtkppw5ecNWDT7X758t1oCEKXXh9w3
+   Q==;
+X-IronPort-AV: E=Sophos;i="5.97,232,1669100400"; 
+   d="asc'?scan'208";a="197635228"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 20 Jan 2023 07:10:05 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.16; Fri, 20 Jan 2023 07:09:59 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.16 via Frontend
+ Transport; Fri, 20 Jan 2023 07:09:57 -0700
+Date: Fri, 20 Jan 2023 14:09:35 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Prabhakar <prabhakar.csengg@gmail.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Daniel Lezcano
+	<daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>,
+	<linux-riscv@lists.infradead.org>, Geert Uytterhoeven <geert@linux-m68k.org>,
+	<linux-kernel@vger.kernel.org>, <linux-renesas-soc@vger.kernel.org>, Lad
+ Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, Samuel Holland
+	<samuel@sholland.org>
+Subject: Re: [PATCH v2] clocksource/drivers/riscv: Get rid of
+ clocksource_arch_init() callback
+Message-ID: <Y8qgn5FVtro0nAlp@wendy>
+References: <20221229224601.103851-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20221205144525.2148448-3-conor.dooley@microchip.com>
+In-Reply-To: <20221229224601.103851-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230120_055638_213328_8DB790CD 
-X-CRM114-Status: GOOD (  20.10  )
+X-CRM114-CacheID: sfid-20230120_061011_516420_7E45D60F 
+X-CRM114-Status: GOOD (  13.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,79 +80,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3014885878318036589=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 05, 2022 at 02:45:25PM +0000, Conor Dooley wrote:
-> Ordering between each and every list of extensions is wildly
-> inconsistent. Per discussion on the lists pick the following policy:
-> 
-> - The array defining order in /proc/cpuinfo follows a narrow
->   interpretation of the ISA specifications, described in a comment
->   immediately presiding it.
-> 
-> - All other lists of extensions are sorted alphabetically.
-> 
-> This will hopefully allow for easier review & future additions, and
-> reduce conflicts between patchsets as the number of extensions grows.
-> 
-> Link: https://lore.kernel.org/all/20221129144742.2935581-2-conor.dooley@microchip.com/
-> Suggested-by: Andrew Jones <ajones@ventanamicro.com>
-> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-> Reviewed-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+--===============3014885878318036589==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="jF0mOp7nLO7/TrvI"
+Content-Disposition: inline
+
+--jF0mOp7nLO7/TrvI
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Thu, Dec 29, 2022 at 10:46:01PM +0000, Prabhakar wrote:
+> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+>=20
+> Having a clocksource_arch_init() callback always sets vdso_clock_mode to
+> VDSO_CLOCKMODE_ARCHTIMER if GENERIC_GETTIMEOFDAY is enabled, this is
+> required for the riscv-timer.
+>=20
+> This works for platforms where just riscv-timer clocksource is present.
+> On platforms where other clock sources are available we want them to
+> register with vdso_clock_mode set to VDSO_CLOCKMODE_NONE.
+>=20
+> On the Renesas RZ/Five SoC OSTM block can be used as clocksource [0], to
+> avoid multiple clock sources being registered as VDSO_CLOCKMODE_ARCHTIMER
+> move setting of vdso_clock_mode in the riscv-timer driver instead of doing
+> this in clocksource_arch_init() callback as done similarly for ARM/64
+> architecture.
+>=20
+> [0] drivers/clocksource/renesas-ostm.c
+>=20
+> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> Tested-by: Samuel Holland <samuel@sholland.org>
 > ---
->  arch/riscv/include/asm/hwcap.h | 12 +++++++-----
->  arch/riscv/kernel/cpu.c        |  4 ++--
->  arch/riscv/kernel/cpufeature.c |  6 ++++--
->  3 files changed, 13 insertions(+), 9 deletions(-)
-> 
-> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-> index b22525290073..ce522aad641a 100644
-> --- a/arch/riscv/include/asm/hwcap.h
-> +++ b/arch/riscv/include/asm/hwcap.h
-> @@ -51,14 +51,15 @@ extern unsigned long elf_hwcap;
->   * RISCV_ISA_EXT_MAX. 0-25 range is reserved for single letter
->   * extensions while all the multi-letter extensions should define the next
->   * available logical extension id.
-> + * Entries are sorted alphabetically.
->   */
->  enum riscv_isa_ext_id {
->  	RISCV_ISA_EXT_SSCOFPMF = RISCV_ISA_EXT_BASE,
-> +	RISCV_ISA_EXT_SSTC,
-> +	RISCV_ISA_EXT_SVINVAL,
->  	RISCV_ISA_EXT_SVPBMT,
->  	RISCV_ISA_EXT_ZICBOM,
->  	RISCV_ISA_EXT_ZIHINTPAUSE,
-> -	RISCV_ISA_EXT_SSTC,
-> -	RISCV_ISA_EXT_SVINVAL,
->  	RISCV_ISA_EXT_ID_MAX = RISCV_ISA_EXT_MAX,
+> RFC -> v2
+> * Dropped vdso_default static global variable
 
-Hi Conor,
+> * Used IS_ENABLED() macro
 
-I'm digging this back up because I'm basing Zicboz on it.
+Not sure it really makes much difference here either way, but increased
+coverage is always good I suppose.
 
-If we take "riscv: improve boot time isa extensions handling", then this
-becomes a bunch of manually enumerated defines
+rv32 is the user for the !GENERIC_GETTIMEOFDAY patch IIRC and nothing
+seemed obviously amiss there to me either.
 
- #define RISCV_ISA_EXT_SSCOFPMF         26
- #define RISCV_ISA_EXT_SVPBMT           27
- #define RISCV_ISA_EXT_ZICBOM           28
- #define RISCV_ISA_EXT_ZIHINTPAUSE      29
- #define RISCV_ISA_EXT_SSTC             30
- #define RISCV_ISA_EXT_SVINVAL          31
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
-Keeping those in alphabetical order would either require manually
-reenumerating them or to allow the numbers to be out of order as
-we add more extensions. I think I'd prefer we just add new
-extensions at the bottom and keep the numbers in order.
 
-Thanks,
-drew
+--jF0mOp7nLO7/TrvI
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY8qgngAKCRB4tDGHoIJi
+0lANAP4/lQXHQYV12FWR9fMBrlqGro7dG6zJw5CN12H3WufHkAEA+pjrHts9eaEc
+DyDNhC86lie/e9gho75+rDX39f81DgQ=
+=ZdMu
+-----END PGP SIGNATURE-----
+
+--jF0mOp7nLO7/TrvI--
+
+
+--===============3014885878318036589==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3014885878318036589==--
+
