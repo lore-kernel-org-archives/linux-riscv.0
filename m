@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AB36C38159
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jan 2023 14:10:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CB2AC38159
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jan 2023 14:10:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vsoq2ks4zlw5/1adAaApAsG/x5WITO/3J7w4i2oay0Q=; b=O7uSRsUKF82JAD
-	lwbncjdpu6TV4JYTw2bTglsarDu3HmtiRnfJpXuBX+JevNBjvs0+EsKX2aKdzRECvM6//LUZcmgSG
-	KgvOlmCaPD885pgZyKB/E/oGhndw68YaYEw3v7wEC8t/0aRSWg1WaLUeN3Xnuhj2KyX+avaJ+b5sj
-	8DYmwahWwlkeJZATiDPZuq9zMhntaUdURcHBWEeb135efeW4DBoNfZngF/lDvYbx/+MJ6h9mZAAM7
-	Dkk+1dhDa3PrwYtNTTEysjrgMkdwl3mxOmwEaRN0kolp1hayOxEk3hGDcK/HC0ffEot1/JWJ4AxXo
-	v5j7ya7YH8E165POdVuA==;
+	List-Owner; bh=1p7sLTp7u/ra/nbKucMmcybjOCWRe2vBvPoUPLIyFk4=; b=kyEiK8g73z+8/u
+	gB4eXg1wbVzclpUoXiFpp5h4u31ftNCtaiCXPob7Wk2Us1ScK6IM9mUD6btDCgOIy1brQSwAAE/Mm
+	+ngGFU9V9oa8QMNSOoR0W7t+C7O7fsSas4Wgq+GFQwWCPH6EponuJFK2ZSFQoyFJ8U/stJPucf0ng
+	RSeaksyCa+vQiMCId5uK8esmkphtCFLc1djp7/l21CGRPbrIMNO7eEE7EVWvRT+kba8ufTtA2OZgf
+	9/njWiQMUPaoDENY5jUMk8Rnka1a2W+SV+wAGvLoZTBqA+f3IdbFsw//IwBRksgqFznU66QiAXCv+
+	D3mD0mL/ALoFrYkWxKaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIs6M-00AbG6-Co; Fri, 20 Jan 2023 14:10:42 +0000
+	id 1pIs6Q-00AbHm-F7; Fri, 20 Jan 2023 14:10:46 +0000
 Received: from smtpout30.security-mail.net ([85.31.212.34] helo=fx304.security-mail.net)
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIs6D-00Ab7I-VM
+	id 1pIs6D-00Ab7J-VO
 	for linux-riscv@lists.infradead.org; Fri, 20 Jan 2023 14:10:38 +0000
 Received: from localhost (localhost [127.0.0.1])
-	by fx304.security-mail.net (Postfix) with ESMTP id 135449D06E
-	for <linux-riscv@lists.infradead.org>; Fri, 20 Jan 2023 15:10:29 +0100 (CET)
+	by fx304.security-mail.net (Postfix) with ESMTP id 2C4DC9D005
+	for <linux-riscv@lists.infradead.org>; Fri, 20 Jan 2023 15:10:27 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kalray.eu;
-	s=sec-sig-email; t=1674223829;
-	bh=Tdx6DhS9iYMQn8Pwje0Ri02hH2e9yxqRSeBt1yYf7ac=;
+	s=sec-sig-email; t=1674223827;
+	bh=4aKV1M/EL8VkswXxboYvmLELXbn01a6LSiaOR7RanlU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=R8pdYrGodKitdXwzV2nzW3qHfWuxYUNkUvaxo0mQARysWxT66IdF/7+CYg5Xg8g1E
-	 +ZjRycjH3QG2b5rYcNyxWZjn4WfMoHzEDeP/dayWrjlhjhBNi0fTLZ+a45fcoihDDP
-	 68jQR4sqKlClEJtAlI2bg5R/sFkRuA7oauSxXDoA=
+	b=AGJaQBDvOi776LK2rqgakPd/qioMiWy2q+y7NYpPYEMQlbrPg370D79tdz2TqUDhc
+	 S56G4mPszOasqaHxq2HES5fIEmKcuxMtf2XMbd3Kyr+QKGUnwWUsudk6xvfxJpa0pz
+	 0rkRpijvpwiPmz1L+M3/jqQ1Qk/6k2ZrdC1gCvJQ=
 Received: from fx304 (localhost [127.0.0.1]) by fx304.security-mail.net
- (Postfix) with ESMTP id C01539D02D; Fri, 20 Jan 2023 15:10:28 +0100 (CET)
+ (Postfix) with ESMTP id C62C09CFA6; Fri, 20 Jan 2023 15:10:26 +0100 (CET)
 Received: from zimbra2.kalray.eu (unknown [217.181.231.53]) by
- fx304.security-mail.net (Postfix) with ESMTPS id 2273E9D0A3; Fri, 20 Jan
- 2023 15:10:28 +0100 (CET)
+ fx304.security-mail.net (Postfix) with ESMTPS id 16CF59CF74; Fri, 20 Jan
+ 2023 15:10:25 +0100 (CET)
 Received: from zimbra2.kalray.eu (localhost [127.0.0.1]) by
- zimbra2.kalray.eu (Postfix) with ESMTPS id CC99E27E0430; Fri, 20 Jan 2023
- 15:10:27 +0100 (CET)
+ zimbra2.kalray.eu (Postfix) with ESMTPS id 9C24C27E0430; Fri, 20 Jan 2023
+ 15:10:25 +0100 (CET)
 Received: from localhost (localhost [127.0.0.1]) by zimbra2.kalray.eu
- (Postfix) with ESMTP id 86A5727E0437; Fri, 20 Jan 2023 15:10:27 +0100 (CET)
+ (Postfix) with ESMTP id 7A39027E0440; Fri, 20 Jan 2023 15:10:25 +0100 (CET)
 Received: from zimbra2.kalray.eu ([127.0.0.1]) by localhost
  (zimbra2.kalray.eu [127.0.0.1]) (amavisd-new, port 10026) with ESMTP id
- 7H_ZxR3-jhzL; Fri, 20 Jan 2023 15:10:27 +0100 (CET)
+ A7gA9cxw90lv; Fri, 20 Jan 2023 15:10:25 +0100 (CET)
 Received: from junon.lin.mbt.kalray.eu (unknown [192.168.37.161]) by
- zimbra2.kalray.eu (Postfix) with ESMTPSA id E4DF627E0439; Fri, 20 Jan 2023
- 15:10:26 +0100 (CET)
+ zimbra2.kalray.eu (Postfix) with ESMTPSA id E082F27E0430; Fri, 20 Jan 2023
+ 15:10:24 +0100 (CET)
 X-Virus-Scanned: E-securemail
-Secumail-id: <6f30.63caa0d4.21362.0>
-DKIM-Filter: OpenDKIM Filter v2.10.3 zimbra2.kalray.eu 86A5727E0437
+Secumail-id: <6ff3.63caa0d1.e5ee8.0>
+DKIM-Filter: OpenDKIM Filter v2.10.3 zimbra2.kalray.eu 7A39027E0440
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kalray.eu;
- s=32AE1B44-9502-11E5-BA35-3734643DEF29; t=1674223827;
- bh=pa4ScTG872xOzuRt8GX8Xf9/eL9W3gZxwoN/kQBQFss=;
+ s=32AE1B44-9502-11E5-BA35-3734643DEF29; t=1674223825;
+ bh=hlMcSlbG2rCqvU+ECfcxotBg/9GcrvxSjAelxbRimRU=;
  h=From:To:Date:Message-Id:MIME-Version;
- b=mCuKc4/UeROfSPy0qESb6bWw6haYw2yj/Thuaz88gp4Xo6fY7v11akHAnwnsq/SE/
- l71YYm+MloYSX37ktexP6Ugc0NvI9sQziU77LnSg76PpXxXYDYmYnCLgz0FFptdvhN
- uCVOH2np8u2uDy77i3yNVSUCOsRcLW4hLIHMTeNw=
+ b=q18eV07c3WJmIMEDF7H3KwFnXpEamD137FAmmetmHTu/mgrGthaXokUF44+LeCpUp
+ pJJFtVF7sOI7ZD2s+ZsEGDrm1rayzHMQTwcKThR7Iht6lL3o5jqjBUHHvgfAUfAkMP
+ GplPjyCgRgqXTjYk1prY8ZSuYTjxlX17Xhdgw28s=
 From: Yann Sionneau <ysionneau@kalray.eu>
 To: Arnd Bergmann <arnd@arndb.de>, Jonathan Corbet <corbet@lwn.net>, Thomas
  Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Rob Herring
@@ -97,18 +97,18 @@ Cc: Benjamin Mugnier <mugnier.benjamin@gmail.com>,
  linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
  devicetree@vger.kernel.org, linux-mm@kvack.org, linux-arch@vger.kernel.org,
  linux-audit@redhat.com, linux-riscv@lists.infradead.org, bpf@vger.kernel.org
-Subject: [RFC PATCH v2 06/31] Documentation: Add binding for
- kalray,kv3-1-ipi-ctrl
-Date: Fri, 20 Jan 2023 15:09:37 +0100
-Message-ID: <20230120141002.2442-7-ysionneau@kalray.eu>
+Subject: [RFC PATCH v2 02/31] Documentation: Add binding for
+ kalray,kv3-1-core-intc
+Date: Fri, 20 Jan 2023 15:09:33 +0100
+Message-ID: <20230120141002.2442-3-ysionneau@kalray.eu>
 X-Mailer: git-send-email 2.37.2
 In-Reply-To: <20230120141002.2442-1-ysionneau@kalray.eu>
 References: <20230120141002.2442-1-ysionneau@kalray.eu>
 MIME-Version: 1.0
 X-ALTERMIMEV2_out: done
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230120_061034_236919_F092C7CC 
-X-CRM114-Status: GOOD (  15.23  )
+X-CRM114-CacheID: sfid-20230120_061034_440069_7B668047 
+X-CRM114-Status: GOOD (  14.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,7 +127,7 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Jules Maselbas <jmaselbas@kalray.eu>
 
-Add documentation for `kalray,kv3-1-ipi-ctrl` binding.
+Add documentation for `kalray,kv3-1-core-intc` binding.
 
 Co-developed-by: Jules Maselbas <jmaselbas@kalray.eu>
 Signed-off-by: Jules Maselbas <jmaselbas@kalray.eu>
@@ -137,57 +137,59 @@ Signed-off-by: Yann Sionneau <ysionneau@kalray.eu>
 Notes:
     V1 -> V2: new patch
 
- .../kalray/kalray,kv3-1-ipi-ctrl.yaml         | 44 +++++++++++++++++++
- 1 file changed, 44 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/kalray/kalray,kv3-1-ipi-ctrl.yaml
+ .../kalray,kv3-1-core-intc.yaml               | 46 +++++++++++++++++++
+ 1 file changed, 46 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/interrupt-controller/kalray,kv3-1-core-intc.yaml
 
-diff --git a/Documentation/devicetree/bindings/kalray/kalray,kv3-1-ipi-ctrl.yaml b/Documentation/devicetree/bindings/kalray/kalray,kv3-1-ipi-ctrl.yaml
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/kalray,kv3-1-core-intc.yaml b/Documentation/devicetree/bindings/interrupt-controller/kalray,kv3-1-core-intc.yaml
 new file mode 100644
-index 000000000000..dc8026b12905
+index 000000000000..1e3d0593173a
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/kalray/kalray,kv3-1-ipi-ctrl.yaml
-@@ -0,0 +1,44 @@
++++ b/Documentation/devicetree/bindings/interrupt-controller/kalray,kv3-1-core-intc.yaml
+@@ -0,0 +1,46 @@
 +# SPDX-License-Identifier: GPL-2.0
 +%YAML 1.2
 +---
-+$id: http://devicetree.org/schemas/kalray/kalray,kv3-1-ipi-ctrl#
++$id: http://devicetree.org/schemas/interrupt-controller/kalray,kv3-1-core-intc#
 +$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+title: Kalray kv3-1 Inter-Processor Interrupt Controller (IPI)
++title: Kalray kv3-1 Core Interrupt Controller
 +
 +description: |
-+  The Inter-Processor Interrupt Controller (IPI) provides a fast synchronization
-+  mechanism to the software. It exposes eight independent set of registers that
-+  can be use to notify each processor in the cluster.
-+  A set of registers contains two 32-bit registers:
-+    - 17-bit interrupt control, one bit per core, raise an interrupt on write
-+    - 17-bit mask, one per core, to enable interrupts
++  The Kalray Core Interrupt Controller is tightly integrated in each kv3 core
++  present in the Coolidge SoC.
 +
-+  Bit at offsets 0 to 15 selects cores in the cluster, respectively PE0 to PE15,
-+  while bit at offset 16 is for the cluster Resource Manager (RM) core.
++  It provides the following features:
++  - 32 independent interrupt sources
++  - 2-bit configurable priority level
++  - 2-bit configurable ownership level
 +
-+  The eight output interrupts are connected to each processor core interrupt
-+  controller (intc).
++allOf:
++  - $ref: /schemas/interrupt-controller.yaml#
 +
 +properties:
 +  compatible:
-+    const: kalray,kv3-1-ipi-ctrl
++    const: kalray,kv3-1-core-intc
++  "#interrupt-cells":
++    const: 1
++    description:
++      The IRQ number.
 +  reg:
-+    maxItems: 1
++    maxItems: 0
++  "kalray,intc-nr-irqs":
++    description: Number of irqs handled by the controller.
 +
 +required:
 +  - compatible
-+  - reg
-+  - interrupt-parent
-+  - interrupts
++  - "#interrupt-cells"
++  - interrupt-controller
 +
 +examples:
 +  - |
-+    ipi: inter-processor-interrupt@ad0000 {
-+        compatible = "kalray,kv3-1-ipi-ctrl";
-+        reg = <0x00 0xad0000 0x00 0x1000>;
-+        interrupt-parent = <&intc>;
-+        interrupts = <24>;
++    intc: interrupt-controller {
++        compatible = "kalray,kv3-1-core-intc";
++        #interrupt-cells = <1>;
++        interrupt-controller;
 +    };
 +
 +...
