@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47F04C38159
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jan 2023 14:10:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0336C38159
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jan 2023 14:11:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jm6LU8OIDkJL7Z86MhebElwcA/rdrHwZQG9pw7awn9M=; b=Z+Z+hl3xVvBMND
-	WZiD7BFX7b2uUuHFX+21tJhx8zpBr6znOdv/DfNsmoKWbIm33XNKisVqarzRUOOTmSEerWzIQznXw
-	InBTQQhNn8Wjp4ZQLw7mfDq0whOhrGTr1LtymeRVF5Gx4Puq76y+DmgNFCeq40FnR/odKtsV6iNrx
-	tI8MKqf9LE3pE2M/ql5XwKq/0eqw44jKaCyeT2LmmKCK4dEkOd8p9y3RS6W2oAqGdvqigx42h4/zx
-	TiznWCqsEEd21dDgNniAkZfVy4M5/KCy4RPSXVqlP7kCoBCESyK+QrHxhAkDdS2JVNTNbgBr+CC5n
-	YtcIFTtCrM7H6eSEbXwg==;
+	List-Owner; bh=XW3PTt+L3OyN2ru/DySGevrfHbq/Nu+ruPpJCxoE1gg=; b=gXZyvcpb71Lz6v
+	fGQiJ2TrLjI/tyBeygDwvnt5rjRdovZXO98vKgPt7fTka+/koQuf73KlKKencAtxeOW8E0qoOK1BO
+	PqPV1xyyxfYBRGXsNUzyvtCVzdLetTu3pry2Cqkd0iBNhrpa2F1T8X2tCovPa0fNt95pFb7xu6flo
+	Ld/iYJMs4uo5NOMbIIMqBDvWHmWZwC+WyWTViIoC/q4aMfRh/F/htbnVqzIYfIjn11qX2oBUTiarw
+	pX2BQQ4PsPVPZS4PrsQ7rHhNZpVvN24YgaxX510xBnNLGxX3KXEslfpXIV/8ii1QTzo4zuK7DoPCO
+	ETxcOfKV3wHzCsaqJn+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIs6U-00AbJo-Bv; Fri, 20 Jan 2023 14:10:50 +0000
-Received: from smtpout30.security-mail.net ([85.31.212.34] helo=fx304.security-mail.net)
+	id 1pIs6d-00AbQs-1S; Fri, 20 Jan 2023 14:10:59 +0000
+Received: from smtpout140.security-mail.net ([85.31.212.148] helo=fx408.security-mail.net)
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIs6E-00Ab7L-2F
-	for linux-riscv@lists.infradead.org; Fri, 20 Jan 2023 14:10:40 +0000
-Received: from localhost (localhost [127.0.0.1])
-	by fx304.security-mail.net (Postfix) with ESMTP id EE9D59D082
-	for <linux-riscv@lists.infradead.org>; Fri, 20 Jan 2023 15:10:27 +0100 (CET)
+	id 1pIs6F-00Ab7Z-Ur
+	for linux-riscv@lists.infradead.org; Fri, 20 Jan 2023 14:10:42 +0000
+Received: from localhost (fx408.security-mail.net [127.0.0.1])
+	by fx408.security-mail.net (Postfix) with ESMTP id 00289322B25
+	for <linux-riscv@lists.infradead.org>; Fri, 20 Jan 2023 15:10:30 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kalray.eu;
-	s=sec-sig-email; t=1674223828;
-	bh=ubUoZOi6DD6WM2lGjCRJ2HktaFfxsYj1Yf03CVuT5Tw=;
+	s=sec-sig-email; t=1674223831;
+	bh=ipV6uYEByPI5c+C5yQy7aqSsXm8TxX991WZckgEkaks=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=ALSDt+nA+I+pgSVvja/X8XEBj+2WNq1sb+GbwqP73mrF3wgs0NWJxNvYo/pVKMCpy
-	 bjweLYLkdsqZnZZt70a9Ci9D6WfIUokYwOEdSivRTlJXVdWJ3zpTcnGvTS2rFVJMV3
-	 eSwAhIAVDfMHR6s4uK8Cn1vTDdQo3AaiU/ITFsZk=
-Received: from fx304 (localhost [127.0.0.1]) by fx304.security-mail.net
- (Postfix) with ESMTP id A04A19D073; Fri, 20 Jan 2023 15:10:27 +0100 (CET)
+	b=2CGIfUOHxu04MrsP1f2l1zsW7QPwbJykD6jGD42mN0f9R/ljnHoqPL5k7B55pv+4w
+	 TQXlhh3dO0sXftpyS9amibvUJ8ueC2qgc5kzfZitepp/bTpc8j6OaLuvbtEB+35V5R
+	 OrXmoWAsNqpa4YOLIQXMSgREsjEz5ZfaJeRMUNdM=
+Received: from fx408 (fx408.security-mail.net [127.0.0.1]) by
+ fx408.security-mail.net (Postfix) with ESMTP id B64663225D4; Fri, 20 Jan
+ 2023 15:10:29 +0100 (CET)
 Received: from zimbra2.kalray.eu (unknown [217.181.231.53]) by
- fx304.security-mail.net (Postfix) with ESMTPS id AF88C9CEF6; Fri, 20 Jan
- 2023 15:10:26 +0100 (CET)
+ fx408.security-mail.net (Postfix) with ESMTPS id 84EBF3229C1; Fri, 20 Jan
+ 2023 15:10:27 +0100 (CET)
 Received: from zimbra2.kalray.eu (localhost [127.0.0.1]) by
- zimbra2.kalray.eu (Postfix) with ESMTPS id 56DE827E0430; Fri, 20 Jan 2023
- 15:10:26 +0100 (CET)
+ zimbra2.kalray.eu (Postfix) with ESMTPS id 4587527E043A; Fri, 20 Jan 2023
+ 15:10:27 +0100 (CET)
 Received: from localhost (localhost [127.0.0.1]) by zimbra2.kalray.eu
- (Postfix) with ESMTP id 0A93B27E043E; Fri, 20 Jan 2023 15:10:26 +0100 (CET)
+ (Postfix) with ESMTP id 0E1ED27E0430; Fri, 20 Jan 2023 15:10:27 +0100 (CET)
 Received: from zimbra2.kalray.eu ([127.0.0.1]) by localhost
  (zimbra2.kalray.eu [127.0.0.1]) (amavisd-new, port 10026) with ESMTP id
- uJAUeREubpxX; Fri, 20 Jan 2023 15:10:25 +0100 (CET)
+ qEQcUNiyIIfp; Fri, 20 Jan 2023 15:10:26 +0100 (CET)
 Received: from junon.lin.mbt.kalray.eu (unknown [192.168.37.161]) by
- zimbra2.kalray.eu (Postfix) with ESMTPSA id 5C09A27E043D; Fri, 20 Jan 2023
- 15:10:25 +0100 (CET)
+ zimbra2.kalray.eu (Postfix) with ESMTPSA id 6DE6527E0437; Fri, 20 Jan 2023
+ 15:10:26 +0100 (CET)
 X-Virus-Scanned: E-securemail
-Secumail-id: <6ff3.63caa0d2.ae90a.0>
-DKIM-Filter: OpenDKIM Filter v2.10.3 zimbra2.kalray.eu 0A93B27E043E
+Secumail-id: <1010c.63caa0d3.82e25.0>
+DKIM-Filter: OpenDKIM Filter v2.10.3 zimbra2.kalray.eu 0E1ED27E0430
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kalray.eu;
- s=32AE1B44-9502-11E5-BA35-3734643DEF29; t=1674223826;
- bh=vgLPgPsCekn4OMTINrnElLpgqshf2SrzKv2ha68Lwiw=;
+ s=32AE1B44-9502-11E5-BA35-3734643DEF29; t=1674223827;
+ bh=BhrYTlway6H47k+1WH6tY+7D+lekRPB9kTC8Yr1liXc=;
  h=From:To:Date:Message-Id:MIME-Version;
- b=iF0GuZaVjHO/WEe3sRM2xAOMUnUC96hdxiBF7My2AaXyJFr4L+roJaijnbpF9h9IO
- 1H6vugremghi1ZUfPqtrK9A1FFTsZjlCKXDiuLReDqoB7Qn5HLPMIOVI90P+sTdxNy
- YPpX3k1YBEiwgisqbvT/PQSDOvqlYpFQZZFyJZ1o=
+ b=oFg5sEcCLpoupdKUAJVDuBV1Yxh9BZLNZVHVECdDWl/HZrggI6m//7aB/zUkRD5ML
+ GDYlchdCVVn7Xb9cxeNZJNnf8AI3loDdEUh6uWAVMFL+FcHinJp2cSNSasIrxrWySo
+ +2PhSeUvRBMs9MSoflMTXb8aLv5jpAfzT4Fxwp0k=
 From: Yann Sionneau <ysionneau@kalray.eu>
 To: Arnd Bergmann <arnd@arndb.de>, Jonathan Corbet <corbet@lwn.net>, Thomas
  Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Rob Herring
@@ -97,18 +98,18 @@ Cc: Benjamin Mugnier <mugnier.benjamin@gmail.com>,
  linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
  devicetree@vger.kernel.org, linux-mm@kvack.org, linux-arch@vger.kernel.org,
  linux-audit@redhat.com, linux-riscv@lists.infradead.org, bpf@vger.kernel.org
-Subject: [RFC PATCH v2 03/31] Documentation: Add binding for
- kalray,kv3-1-apic-gic
-Date: Fri, 20 Jan 2023 15:09:34 +0100
-Message-ID: <20230120141002.2442-4-ysionneau@kalray.eu>
+Subject: [RFC PATCH v2 05/31] Documentation: Add binding for
+ kalray,coolidge-itgen
+Date: Fri, 20 Jan 2023 15:09:36 +0100
+Message-ID: <20230120141002.2442-6-ysionneau@kalray.eu>
 X-Mailer: git-send-email 2.37.2
 In-Reply-To: <20230120141002.2442-1-ysionneau@kalray.eu>
 References: <20230120141002.2442-1-ysionneau@kalray.eu>
 MIME-Version: 1.0
 X-ALTERMIMEV2_out: done
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230120_061034_477011_F4230989 
-X-CRM114-Status: GOOD (  16.13  )
+X-CRM114-CacheID: sfid-20230120_061036_205194_3FEDF364 
+X-CRM114-Status: GOOD (  14.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,7 +128,7 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Jules Maselbas <jmaselbas@kalray.eu>
 
-Add documentation for `kalray,kv3-1-apic-gic` binding.
+Add documentation for `kalray,coolidge-itgen` binding.
 
 Co-developed-by: Jules Maselbas <jmaselbas@kalray.eu>
 Signed-off-by: Jules Maselbas <jmaselbas@kalray.eu>
@@ -137,79 +138,61 @@ Signed-off-by: Yann Sionneau <ysionneau@kalray.eu>
 Notes:
     V1 -> V2: new patch
 
- .../kalray,kv3-1-apic-gic.yaml                | 66 +++++++++++++++++++
- 1 file changed, 66 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/interrupt-controller/kalray,kv3-1-apic-gic.yaml
+ .../kalray,coolidge-itgen.yaml                | 48 +++++++++++++++++++
+ 1 file changed, 48 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/interrupt-controller/kalray,coolidge-itgen.yaml
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/kalray,kv3-1-apic-gic.yaml b/Documentation/devicetree/bindings/interrupt-controller/kalray,kv3-1-apic-gic.yaml
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/kalray,coolidge-itgen.yaml b/Documentation/devicetree/bindings/interrupt-controller/kalray,coolidge-itgen.yaml
 new file mode 100644
-index 000000000000..7a37f19db2fb
+index 000000000000..47b503bff1d9
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/interrupt-controller/kalray,kv3-1-apic-gic.yaml
-@@ -0,0 +1,66 @@
++++ b/Documentation/devicetree/bindings/interrupt-controller/kalray,coolidge-itgen.yaml
+@@ -0,0 +1,48 @@
 +# SPDX-License-Identifier: GPL-2.0
 +%YAML 1.2
 +---
-+$id: http://devicetree.org/schemas/interrupt-controller/kalray,kv3-1-apic-gic#
++$id: http://devicetree.org/schemas/interrupt-controller/kalray,coolidge-itgen#
 +$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+title: Kalray kv3-1 APIC-GIC
++title: Kalray Coolidge SoC Interrupt Generator (ITGEN)
 +
 +description: |
-+  Each cluster in the Coolidge SoC includes an Advanced Programmable Interrupt
-+  Controller (APIC) which is split in two part:
-+    - a Generic Interrupt Controller (referred as APIC-GIC)
-+    - a Mailbox Controller           (referred as APIC-Mailbox)
-+  The APIC-GIC acts as an intermediary interrupt controller, muxing/routing
-+  incoming interrupts to output interrupts connected to kvx cores interrupts lines.
-+  The 139 possible input interrupt lines are organized as follow:
-+     - 128 from the mailbox controller (one it per mailboxes)
-+     - 1   from the NoC router
-+     - 5   from IOMMUs
-+     - 1   from L2 cache DMA job FIFO
-+     - 1   from cluster watchdog
-+     - 2   for SECC, DECC
-+     - 1   from Data NoC
-+  The 72 possible output interrupt lines:
-+     -  68 : 4 interrupts per cores (17 cores)
-+     -  1 for L2 cache controller
-+     -  3 extra that are for padding
++  The Interrupt Generator (ITGEN) is an interrupt controller block.
++  It's purpose is to convert IRQ lines coming from SoC peripherals into writes
++  on the AXI bus. The ITGEN intended purpose is to write into the APIC mailboxes.
 +
 +allOf:
 +  - $ref: /schemas/interrupt-controller.yaml#
 +
 +properties:
 +  compatible:
-+    const: kalray,kv3-1-apic-gic
++    const: kalray,coolidge-itgen
++
 +  "#interrupt-cells":
-+    const: 1
-+    description:
-+      The IRQ number.
-+  interrupt-controller: true
-+  interrupt-parent: true
-+  interrupts:
-+    maxItems: 4
++    const: 2
 +    description: |
-+     Specifies the interrupt line(s) in the interrupt-parent controller node;
-+     valid values depend on the type of parent interrupt controller
++      - 1st cell is for the IRQ number
++      - 2nd cell is for the trigger type as defined dt-bindings/interrupt-controller/irq.h
++
++  interrupt-controller: true
++
++  msi-parent: true
 +
 +required:
 +  - compatible
 +  - reg
 +  - "#interrupt-cells"
 +  - interrupt-controller
-+  - interrupt-parent
-+  - interrupts
++  - msi-parent
 +
 +examples:
 +  - |
-+    apic_gic: interrupt-controller@a20000 {
-+        compatible = "kalray,kv3-1-apic-gic";
-+        reg = <0 0xa20000 0 0x12000>;
-+        #interrupt-cells = <1>;
++    itgen: interrupt-controller@27000000 {
++        compatible = "kalray,coolidge-itgen";
++        reg = <0 0x27000000 0 0x1104>;
++        #interrupt-cells = <2>;
 +        interrupt-controller;
-+        interrupt-parent = <&intc>;
-+        interrups = <4 5 6 7>;
++        msi-parent = <&apic_mailbox>;
 +    };
 +
 +...
