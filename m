@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E2FCC25B4E
-	for <linux-riscv@archiver.kernel.org>; Sun, 22 Jan 2023 11:50:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88C07C25B4E
+	for <linux-riscv@archiver.kernel.org>; Sun, 22 Jan 2023 11:51:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=R0WpFfSmAoyqlK+5uU4pf+Th94wqF+6gQfedTbLdUr0=; b=NPRlrh+p5H/KQ9
-	XDjvKI8RCVr2TDkZR5JQ9jga/m4S65IR/YxRFkPgccDTo1Po06IzIF4Lq07JTxz0fl5AUUbBDLyE2
-	mSB6x4ArPRy4dXytav8sQrxMPwk8Fde2dl64o9DNmydtLElHRzVh6C8Tr86nRX2Ktml1sTX3wP4yn
-	P6JR68H5RN2FR396mqmyIoNXrj34acPFfxwg+ZcU9LeIT8I3o9llBRnImpcbfDp02wSh886AXVwgD
-	JCnJ4OT7pfqaGU3gQtxwZ0J66B+VHwycerhjIStLesQvq/Av2UOsm7WoLQm3YKh9PJ5S11WU/pPJ3
-	opJaOXHxXMcCeJZnp3xw==;
+	List-Owner; bh=jKxL9+fE7RU/4WlfA3a5y8YDLk8Aj8ixX617e4TUSaQ=; b=sIKwH8omKlN5Bm
+	LsTpq+b9i518WTyQGuTdhCsm4AQsYE1xL8lumF+JvEAET/Gd+q+J8hjczUC31kD2JVbNjXd0BZFh9
+	hVKnyG1CHjpK+e5cDQA69u0zzKG5imgGdOptKgbtesOUcIjdgnZqdwnZFDGg34LwXnGWnfb9B5W+b
+	vmQEqLc075syZwv0Fhhq06XphgDjbUqBZxO4020g1dS9wj62HOGEuOO6iFmcqlUpTt8KdMHs2Uc4H
+	yl4xx920F7AmXHkByme8lXx2fnh7yWXCk/TCAfWIucMcPF3jUZupCXu9D1/Jfz5YKu4Aa3q1JNfXQ
+	2e8ZfUHjY1J2ZJxQioWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pJYrj-00FFTw-QQ; Sun, 22 Jan 2023 11:50:27 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1pJYsz-00FFe7-AO; Sun, 22 Jan 2023 11:51:45 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pJYrh-00FFSk-13
-	for linux-riscv@lists.infradead.org; Sun, 22 Jan 2023 11:50:26 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id c10-20020a05600c0a4a00b003db0636ff84so6678343wmq.0
-        for <linux-riscv@lists.infradead.org>; Sun, 22 Jan 2023 03:50:23 -0800 (PST)
+	id 1pJYsv-00FFcI-LQ
+	for linux-riscv@lists.infradead.org; Sun, 22 Jan 2023 11:51:43 +0000
+Received: by mail-wr1-x433.google.com with SMTP id r9so8467616wrw.4
+        for <linux-riscv@lists.infradead.org>; Sun, 22 Jan 2023 03:51:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=linaro.org; s=google;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=0EpkB2BBdVigwr5Td9P+HmXwToYi435KgLDWMOa4EE8=;
-        b=g350tC/bvusAYh/X3+8GDAjg5idkp9I5MV0amVsIN+5wug1msuq8w/VaT+8oH/vGyA
-         4GKFOPjFL6Ac2+9nSGiuNg6F8TtWQEHJ6j2E5oNAoHWpKeFa1UQ52Rxbmr+yB+CK9A2v
-         PTOsLCIlrvzztSp1ssFX2TTRMIrIVBnISwsh6HZjXrtQyQyVs2P92QfGFSnTIXIUcjPM
-         Vg1+Ns354Zd7kGDqMhGBeyFnPVa4Q9LqfUuI2Jp7Oi/kHDY2YnyL8OuqO0vtgvny/AML
-         EGNTAES6cDIR7Eocc01jfD3eD28k5YFfFC7FgvglqRRNifg67r929gnlJe0i4Hh3guqd
-         JJ/A==
+        bh=QW4gcfTBDAxCEJmp81ra89ieKaIa7EaBAPXtJreoq+w=;
+        b=P/0Gb1PCZZIXYu0NV1Ove+/unx34oDiuMeeBcuZho836SMBMbqREXW49kGJekeeYeP
+         fzP+MyKIYe2eiBQ7rukcC1sC5RGH0lkRTyftvfk7x8nkdmK2b31SghHLBEmZzx4NBpCj
+         ggDUwzAEC9l9h8CA8lfbAlDSU5T0XYkDKHhlfhfERi9QxU9HQhyxryOH1cbFhtWNtsiP
+         k2z2Kh4W04yGAltLW5C0VK+2W2aIXIipP3jMn0F9n1UToYwxL/bNIkx8LTwm1LCYrHf+
+         MFUwUoTz9F7H8+vCFHV6UacV3C7BlRYLfN5vIHptYZ9r+5wxB7SAjdxVuc7IX5uB+nMX
+         QP4Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=0EpkB2BBdVigwr5Td9P+HmXwToYi435KgLDWMOa4EE8=;
-        b=jrfqd8tnfRnxJDKadWNcyJ7xPMcUQC6ZPaVTcsheApxz2YIbpsTnNLlBe4GhtL/nJ7
-         T1iVh4WcuG2R/qal53rt8nVKBrAUWSX9MzNJSeMy+WdwKdx0K/mLRvzP7T+8hPNta+n1
-         SWjKu4Et41CvfC4Ft30o8TgUioHsBA0h7nAAhSk2C0cDL+meEGQpg8z5sKQQcC8Ej9IV
-         WUQomLbF6l9tBsRp+OHg3lEm7bSBp+j6+iCK+OFnJrlooeeYuo1wApm/K48uNM+iqKAR
-         mSH+sRK6NKg1otv/CJZQX0YIwEVLvEgAjIMphwm5NF52aEFqFFFC/nWOM46TWmDPFi04
-         CHBg==
-X-Gm-Message-State: AFqh2kqB8DEHnxT2P4mvWsQlFCCDxnZxcCxPQOKX3z4kIWfgLjBDVuLU
-	tO19elhK1wag+taZHYQ4u2BkEw==
-X-Google-Smtp-Source: AMrXdXvaWQ3NiM1uiaHGSPzJg1g++T4pemcHh7xrDRxj9Aer0pOjcC8iWTUXjRv5iTAL5OdTQdwkyw==
-X-Received: by 2002:a05:600c:2284:b0:3d3:5c21:dd9d with SMTP id 4-20020a05600c228400b003d35c21dd9dmr20563566wmf.19.1674388222395;
-        Sun, 22 Jan 2023 03:50:22 -0800 (PST)
+        bh=QW4gcfTBDAxCEJmp81ra89ieKaIa7EaBAPXtJreoq+w=;
+        b=OpPwXCaf8MiL02HtE8+81pkX8qO4OCfAqYlD7rJ5iLhZyIDxuQwU3EsEQjXZkiRp4j
+         uaLPOiihMR/q3ieUc43rSOzKkpJcAZ/OrL2nlLRZ/PCHByo0AmiPPPIfEDW1UTQM1M+w
+         WGkYE6CGHTdMxjm1MRwntugjLpbDncgAUoPh2v+sYDhMpQWMV8Fg6wEZp914cenTT33N
+         FIrbVtsZxwkChOSeeKLC/2IYIk7Kti0s7e4SKSaAS+hGjI35CpQVq/78JrM/TkrtGUEx
+         35jYQK9dztUUcBN5goH2lD05ELm7dtns1ZOqD7N1AR9OMbaAJoNGo0pH8I44ojs9jxjG
+         m1ZA==
+X-Gm-Message-State: AFqh2krOL9STjyX1T9MmMbdbeZneeAK0VfQ03uELza51XvS6kSaUlN/u
+	zfw7FJeBFzXeFiZZC4qtH3Stgg==
+X-Google-Smtp-Source: AMrXdXu3komgmJz3v4UQ6DFMLR2KXaq2N92Bqckcvh43HhbdmlU07p0tmzT8+sQ+olcM02A9d6D9gA==
+X-Received: by 2002:adf:f501:0:b0:2ba:dce5:ee28 with SMTP id q1-20020adff501000000b002badce5ee28mr17537961wro.18.1674388299288;
+        Sun, 22 Jan 2023 03:51:39 -0800 (PST)
 Received: from [192.168.1.109] ([178.197.216.144])
-        by smtp.gmail.com with ESMTPSA id c40-20020a05600c4a2800b003db16770bc5sm7460685wmp.6.2023.01.22.03.50.18
+        by smtp.gmail.com with ESMTPSA id v7-20020a5d6787000000b0025e86026866sm3554309wru.0.2023.01.22.03.51.35
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 22 Jan 2023 03:50:21 -0800 (PST)
-Message-ID: <57fa51fd-fd3a-f08e-d3de-06a24d1b6ea1@linaro.org>
-Date: Sun, 22 Jan 2023 12:50:17 +0100
+        Sun, 22 Jan 2023 03:51:38 -0800 (PST)
+Message-ID: <d02b81ab-fa72-6005-79e9-249225483364@linaro.org>
+Date: Sun, 22 Jan 2023 12:51:34 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.7.0
-Subject: Re: [RFC PATCH v2 06/31] Documentation: Add binding for
- kalray,kv3-1-ipi-ctrl
+Subject: Re: [RFC PATCH v2 07/31] Documentation: Add binding for
+ kalray,kv3-1-pwr-ctrl
 Content-Language: en-US
 To: Yann Sionneau <ysionneau@kalray.eu>, Arnd Bergmann <arnd@arndb.de>,
  Jonathan Corbet <corbet@lwn.net>, Thomas Gleixner <tglx@linutronix.de>,
@@ -109,12 +109,12 @@ Cc: Benjamin Mugnier <mugnier.benjamin@gmail.com>, linux-doc@vger.kernel.org,
  linux-mm@kvack.org, linux-arch@vger.kernel.org, linux-audit@redhat.com,
  linux-riscv@lists.infradead.org, bpf@vger.kernel.org
 References: <20230120141002.2442-1-ysionneau@kalray.eu>
- <20230120141002.2442-7-ysionneau@kalray.eu>
+ <20230120141002.2442-8-ysionneau@kalray.eu>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20230120141002.2442-7-ysionneau@kalray.eu>
+In-Reply-To: <20230120141002.2442-8-ysionneau@kalray.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230122_035025_121972_C9E465F1 
-X-CRM114-Status: GOOD (  12.11  )
+X-CRM114-CacheID: sfid-20230122_035141_729188_B6631272 
+X-CRM114-Status: GOOD (  17.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,7 +134,7 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 On 20/01/2023 15:09, Yann Sionneau wrote:
 > From: Jules Maselbas <jmaselbas@kalray.eu>
 > 
-> Add documentation for `kalray,kv3-1-ipi-ctrl` binding.
+> Add documentation for `kalray,kv3-1-pwr-ctrl` binding.
 > 
 > Co-developed-by: Jules Maselbas <jmaselbas@kalray.eu>
 > Signed-off-by: Jules Maselbas <jmaselbas@kalray.eu>
@@ -144,11 +144,50 @@ On 20/01/2023 15:09, Yann Sionneau wrote:
 > Notes:
 >     V1 -> V2: new patch
 > 
->  .../kalray/kalray,kv3-1-ipi-ctrl.yaml         | 44 +++++++++++++++++++
->  1 file changed, 44 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/kalray/kalray,kv3-1-ipi-ctrl.yaml
+>  .../kalray/kalray,kv3-1-pwr-ctrl.yaml         | 29 +++++++++++++++++++
+>  1 file changed, 29 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/kalray/kalray,kv3-1-pwr-ctrl.yaml
 
-Wrong directory. Interrupt controllers go to respective subsystem directory.
+All the usual comments plus - wrong directory. Power controllers go to
+respective power directory.
+
+> 
+> diff --git a/Documentation/devicetree/bindings/kalray/kalray,kv3-1-pwr-ctrl.yaml b/Documentation/devicetree/bindings/kalray/kalray,kv3-1-pwr-ctrl.yaml
+> new file mode 100644
+> index 000000000000..968674bb0c63
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/kalray/kalray,kv3-1-pwr-ctrl.yaml
+> @@ -0,0 +1,29 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/kalray/kalray,kv3-1-pwr-ctrl#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Kalray cluster Power Controller (pwr-ctrl)
+> +
+> +description: |
+> +  The Power Controller (pwr-ctrl) control cores reset and wake-up procedure.
+> +
+> +properties:
+> +  compatible:
+> +    const: kalray,kv3-1-pwr-ctrl
+> +  reg:
+> +    maxItems: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +
+> +examples:
+> +  - |
+> +    pwr_ctrl: power-controller@a40000 {
+> +        compatible = "kalray,kv3-1-pwr-ctrl";
+> +        reg = <0x00 0xa40000 0x00 0x4158>;
+
+I really doubt that you tested it... Examples are not run with address
+cells 2.
+
 
 Best regards,
 Krzysztof
