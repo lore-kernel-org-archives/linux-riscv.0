@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62412C27C76
-	for <linux-riscv@archiver.kernel.org>; Sun, 22 Jan 2023 11:54:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BE14C25B4E
+	for <linux-riscv@archiver.kernel.org>; Sun, 22 Jan 2023 11:55:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=K6u9dqWrbtY3Z/LdO7TBLkuSpSRQsWhDvcTk/HQKXxk=; b=AYOVpplB2WhmvM
-	DxsJ2qBlYcoT/SubrNcNlGF6c7NiZRf9YQ75nvcj5nFRc76LY64w4TDILkhOFxsdbaDH4KPhNO9KS
-	Bx02dHfTOIYuv7RX0gs1ypixNPeY4RrzHJOuLejAA3xntRjzA5XlzOULrmlaoHYSXWpU2oattf2MX
-	Hq1hYJUID8YfB1XxDGY9+sDbfX0laZrC5V3bNzjMaDx5kF36ZXoHWfyKkgAR4ALzCOJFh2fkNGSRY
-	Wui23PuW9/8l33JEMzybcllyC0VUPRc72SJzFH8Gee+2O4GHOnMQBZJ1dRL6fANPvz2XUWD6vZ54B
-	U26WaeqWb1Kf6+x4tklA==;
+	List-Owner; bh=XdW1oq0r45f4lVsvM3mQ8n3nFwuUoyQs3au//8xlAwc=; b=IcmmIF3mD+Gi4g
+	chtJ2sde9j8Qug4NrzCrrr1MjimhR8Se7saT5MY49fv6qQDaIlJAxpLwbIg4SSDQFfZLuOwST1T4p
+	aOhn5jYeClRjbxH/an+p1Sg5smd2y24OuK+ykPd9cWVEI2fDA1Qi9ilHvBG2Kqbb6nwMKsLq1X3iq
+	dT+Dyx8Q+cv69AGmqvQiObJOlJWJBpJoL2nqAXumFL69ADuPMymab53xKvl/9aqDmpjpSF73XVdLV
+	t8nA0KzuHL/fDH2YCcbYWqjNySEI6HSuBEJiy0+61gqvIfftkExuavKafb9Xt1u2pKJuEh4O6HtDR
+	OKYHvYGG0ezmffpWaEeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pJYva-00FG3y-4d; Sun, 22 Jan 2023 11:54:26 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1pJYw7-00FGAU-I0; Sun, 22 Jan 2023 11:54:59 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pJYvX-00FG1l-NI
-	for linux-riscv@lists.infradead.org; Sun, 22 Jan 2023 11:54:25 +0000
-Received: by mail-wr1-x430.google.com with SMTP id z5so8469179wrt.6
-        for <linux-riscv@lists.infradead.org>; Sun, 22 Jan 2023 03:54:18 -0800 (PST)
+	id 1pJYw4-00FG9Q-2v
+	for linux-riscv@lists.infradead.org; Sun, 22 Jan 2023 11:54:57 +0000
+Received: by mail-wm1-x333.google.com with SMTP id fl11-20020a05600c0b8b00b003daf72fc844so8781969wmb.0
+        for <linux-riscv@lists.infradead.org>; Sun, 22 Jan 2023 03:54:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=linaro.org; s=google;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=SufkmAjwbNPzx+QZI0to5Uf48TUW+IZPLNjbNqCZpfI=;
-        b=agLJLLTVda4vzbo+pBm1nc5uVfx6hrGX4HQkgIojkD/1cyQqIJv/dW6ozQQZxh9acO
-         0GIArSOuUVD0jo2VEYapOBIRUz5rU0ickudZecB/MxBJcXysLhAmHyMc4oBteDTIVZMP
-         gWC6imLaRflwc3jb3Je1wClPZlQKNp6xyUYD3v0X33auCHxc+qD/ZA/jJBtt4IwIx7rF
-         gSScl4TsJrIet9k0uAS97cSICY1543XxKH25XG+KtqbOQ1xwZB+O3y7k0SPxq0AYdW3y
-         nsmpTPaZyS0wpbBSnQCu92eqyFbTR8SK3YHX60WCqpdfFl3mYAplQ0n+AxAh2HMkH8Q8
-         TEWQ==
+        bh=VLe1tCHvsXuqDEBtfO7OY5kLhydgi9CnGmhErJAm6aY=;
+        b=s0BAxEQrg1XNDKd+RDJjQ/lqdPTA7p1sTOMmyByolojk0mvaFqzqmy7GIdrIZxmIOf
+         nFUchdZptB8ZVzLanP/34atcmww1mMSAPnOW6ClddkbiU7eDltZQOUDza6VkttvsUHfc
+         VQreJV0TXJjnpWyAigdZSH569OgxnVx8rooyMeC0XkS7AD9xKYSlxnN4RqPAyi5VpF7k
+         CoH7kaCdBdozNk9M+weoHgP1irBiEMfOD3knAU/SvcsagkDEAe+ceFKjExWCJUNouNc/
+         k5Jv6eqzFnOZo2sgqVpIZZUumFywQQqcWtw67WTGWBMxjS7Nexwmrc+zVtNxlk1/BNXb
+         5cxA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=SufkmAjwbNPzx+QZI0to5Uf48TUW+IZPLNjbNqCZpfI=;
-        b=Do8aG+K7N5NgLnqEl/qjYErzFCVwmOvsiiN+ycUHr7IFGKa1MYmb3gMa9Bj9bb9ARb
-         I+nDfEY0nhE23ZQgznftOBkOJ/hokz1gY5uglmG5UJyQ314OlBV/s0d+HhF8Ws7jaNQm
-         0jbOHzzaDjJVMyIGB4SjpOvYgsk7d5HRADMKQCmoU0J1uyV0By0knFlLeheIC1QzefxG
-         85+sCbJC2TO4c8EhIP0C/E8M2Nm64cWLmZZ5VU1sKPejefPzRGwpcIq42rjWZrOIL6Du
-         f7f3I+6sLZAg+BeKF/3fsgQrzdglKIJWP49o0zZwaY4C8qw6CX75Zuo45g0u5IaZdzI3
-         WVlQ==
-X-Gm-Message-State: AFqh2kqCKuk8Q5TE71uhvoVz4iZfJkmnwatHEMkbf4WFJTpuvW/5C/t5
-	Wx0Wcw3dS86iqyhbLybGH+gCyA==
-X-Google-Smtp-Source: AMrXdXt21M3CsHbnhN4nC75KtRaK9snE7H1KnN8u8SuCQjR3lZXo7Zes1x4/j1347YU7bM+ZYlALNg==
-X-Received: by 2002:adf:e9d2:0:b0:2bd:e6f5:5122 with SMTP id l18-20020adfe9d2000000b002bde6f55122mr17418436wrn.65.1674388457426;
-        Sun, 22 Jan 2023 03:54:17 -0800 (PST)
+        bh=VLe1tCHvsXuqDEBtfO7OY5kLhydgi9CnGmhErJAm6aY=;
+        b=ljbTeeOTHqkHrvT1XGaOx5Dd5XPBIrr9+eymlD+ZyPhUk26yMeuYUn8MVYod1DatfI
+         GpBgo4FPimOpYrsJljQ1HSRMeZQOuDjUIh3G7gX8xZuaqjGElsfMQzWUjh8co3FMr4NT
+         pNPdsITUckYjc7YqcW6UuAfa2Po+5sn/8Xtc7IyEw62BhWsnkTVsOVsLQ6UWON6Nhvze
+         dIDXo1KQEE7vwXj2KswGOekKK6XEO1+M7yHZZ1edV4r5pnY+dql+oVhFDqhr2BLuyUCq
+         7WDAd4A2O4nt0wCrHeWs8ghlmiBBxgn0H/Xw/2rw6Xi6gupQFSgjxJ45PGs4SkVWK8UR
+         Wf9w==
+X-Gm-Message-State: AFqh2kpuR5MnPziWXk4czpC/oI+eSit76tJnhhxBeMw8IsBAz+wWM+xE
+	OyUtTop6d+2vN9aCidnNYn7Sag==
+X-Google-Smtp-Source: AMrXdXvuCQdb16Nj82HEsGUUdIjG5ZPXUogSicV9IYHza0HEoyjvxXi4JXn+3h6rll38KtJXF4JaFw==
+X-Received: by 2002:a05:600c:1508:b0:3d3:5166:2da4 with SMTP id b8-20020a05600c150800b003d351662da4mr20299706wmg.8.1674388494495;
+        Sun, 22 Jan 2023 03:54:54 -0800 (PST)
 Received: from [192.168.1.109] ([178.197.216.144])
-        by smtp.gmail.com with ESMTPSA id ba9-20020a0560001c0900b002b57bae7174sm2174746wrb.5.2023.01.22.03.54.12
+        by smtp.gmail.com with ESMTPSA id m37-20020a05600c3b2500b003daf681d05dsm8320826wms.26.2023.01.22.03.54.50
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 22 Jan 2023 03:54:16 -0800 (PST)
-Message-ID: <f69adaf2-6582-c134-5671-4d6fd100fcf1@linaro.org>
-Date: Sun, 22 Jan 2023 12:54:11 +0100
+        Sun, 22 Jan 2023 03:54:54 -0800 (PST)
+Message-ID: <995eb624-3efe-10fc-a6ed-883d52d591bb@linaro.org>
+Date: Sun, 22 Jan 2023 12:54:48 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.7.0
-Subject: Re: [RFC PATCH v2 30/31] kvx: Add power controller driver
+Subject: Re: [RFC PATCH v2 31/31] kvx: Add IPI driver
 Content-Language: en-US
 To: Yann Sionneau <ysionneau@kalray.eu>, Arnd Bergmann <arnd@arndb.de>,
  Jonathan Corbet <corbet@lwn.net>, Thomas Gleixner <tglx@linutronix.de>,
@@ -108,12 +108,12 @@ Cc: Benjamin Mugnier <mugnier.benjamin@gmail.com>, linux-doc@vger.kernel.org,
  linux-mm@kvack.org, linux-arch@vger.kernel.org, linux-audit@redhat.com,
  linux-riscv@lists.infradead.org, bpf@vger.kernel.org
 References: <20230120141002.2442-1-ysionneau@kalray.eu>
- <20230120141002.2442-31-ysionneau@kalray.eu>
+ <20230120141002.2442-32-ysionneau@kalray.eu>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20230120141002.2442-31-ysionneau@kalray.eu>
+In-Reply-To: <20230120141002.2442-32-ysionneau@kalray.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230122_035423_786167_1A11B764 
-X-CRM114-Status: GOOD (  15.39  )
+X-CRM114-CacheID: sfid-20230122_035456_215108_D9A295AA 
+X-CRM114-Status: GOOD (  10.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,56 +131,19 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 20/01/2023 15:10, Yann Sionneau wrote:
-> From: Jules Maselbas <jmaselbas@kalray.eu>
-> 
-> The Power Controller (pwr-ctrl) control cores reset and wake-up
-> procedure.
-
-
 > +
-> +static struct device_node * __init get_pwr_ctrl_node(void)
+> +int __init kvx_ipi_ctrl_probe(irqreturn_t (*ipi_irq_handler)(int, void *))
 > +{
-> +	const phandle *ph;
-> +	struct device_node *cpu;
-> +	struct device_node *node;
+> +	struct device_node *np;
+> +	int ret;
+> +	unsigned int ipi_irq;
+> +	void __iomem *ipi_base;
 > +
-> +	cpu = of_get_cpu_node(raw_smp_processor_id(), NULL);
-> +	if (!cpu) {
-> +		pr_err("Failed to get CPU node\n");
-> +		return NULL;
-> +	}
-> +
-> +	ph = of_get_property(cpu, "power-controller", NULL);
-> +	if (!ph) {
-> +		pr_err("Failed to get power-controller phandle\n");
-> +		return NULL;
-> +	}
-> +
-> +	node = of_find_node_by_phandle(be32_to_cpup(ph));
-> +	if (!node) {
-> +		pr_err("Failed to get power-controller node\n");
-> +		return NULL;
-> +	}
-> +
-> +	return node;
-> +}
-> +
-> +int __init kvx_pwr_ctrl_probe(void)
-> +{
-> +	struct device_node *ctrl;
-> +
-> +	ctrl = get_pwr_ctrl_node();
-> +	if (!ctrl) {
-> +		pr_err("Failed to get power controller node\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	if (!of_device_is_compatible(ctrl, "kalray,kvx-pwr-ctrl")) {
-> +		pr_err("Failed to get power controller node\n");
+> +	np = of_find_compatible_node(NULL, NULL, "kalray,kvx-ipi-ctrl");
 
-No. Drivers go to drivers, not to arch directory. This should be a
-proper driver instead of some fake stub doing its own driver matching.
-You need to rework this.
+Nope, big no.
+
+Drivers go to drivers, not to arch code. Use proper driver infrastructure.
 
 Best regards,
 Krzysztof
