@@ -4,114 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5D2BC25B4E
-	for <linux-riscv@archiver.kernel.org>; Sun, 22 Jan 2023 11:05:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AB01C25B4E
+	for <linux-riscv@archiver.kernel.org>; Sun, 22 Jan 2023 11:45:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
-	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=x9uWK890r2MTOvpK4l/ntSv8iWjEQQOGdFV0D1cuuxk=; b=cqUBFyRqvaKIgx
-	HfJC7zbJDkHxcsDpHw9e9NcRN6iOD5Vae70nvcVddPGZ00Lo6KlWPN7EDNsNNe4XU9VGMB89QVlNA
-	Nv7lzqnpTAdnFqm/LyXXA7RkJc+QrjIpCeDJP4fNJdKUJkFOVvuKeBXTCNRwWonSQt2LAlKOy4++u
-	bqrEeOjUDy22YGkmQZvfbv0IVq95D2dbxk6IoVc2ktkf8bzHjUft8ZaO90RQ1NEh06JxM+zmP9rAg
-	aHN8oCKZBfkmrL9crS8Y0YZSC6E8THbkOTF4oGBg40w6Y595iROml+bl7x4nBkFSMJM07EM6w8sHd
-	a9yPOJWiLSuiPPuDZdLg==;
+	List-Owner; bh=213RXy5r5bqMywDuW2SLWIGEYDYh76fOQ+VRRo2aurI=; b=NVDw1BcqaViBlb
+	nIQKqKxyOuPpFrlxqtbvYuzcrGKdWAAMLpl4Lca3Zf0lbdowon9xVW17u+j/PVfSDCoST58WrKWZy
+	c8buhpWcDwpdDa9zu5ihEZmPJg7hoq2u5MgYSczt49n6vloypDtbZtTZpMbXAs3ZSw1pdyN3QFxw9
+	ExuMAHxXQsHlknlpjdac0rk+oaL2k6fm0VZb+NeQH7ro0AX+wSn3Ooh4m9FuwfN+45NzqBZjv5l6a
+	36el6sBIqCyymyHVPw0ik5erD89GECMiHO4FsssbL9J3Vcy6KW6asIq0ovfo31BMqAhcUsMH6lxFn
+	DJNxwJrXyYdhXdrXS2yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pJY9n-00FCvY-SZ; Sun, 22 Jan 2023 11:05:03 +0000
-Received: from out1-smtp.messagingengine.com ([66.111.4.25])
+	id 1pJYmQ-00FF2Z-OA; Sun, 22 Jan 2023 11:44:58 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pJY9k-00FCuE-TV
-	for linux-riscv@lists.infradead.org; Sun, 22 Jan 2023 11:05:02 +0000
-Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
-	by mailout.nyi.internal (Postfix) with ESMTP id 208A45C003B;
-	Sun, 22 Jan 2023 06:04:58 -0500 (EST)
-Received: from imap51 ([10.202.2.101])
-  by compute6.internal (MEProxy); Sun, 22 Jan 2023 06:04:58 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-type:date:date:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:sender:subject
-	:subject:to:to; s=fm2; t=1674385498; x=1674471898; bh=PIGBqayUKu
-	ArKaRHZD7sCBO6FDrvE59LUQTAu0TlFio=; b=Lxhnxo7ujOLMNwhq5OGDK6ZKiL
-	ghNTbYaudfk7815ZYCsm9Y8XKiRED3XjCvkKaGoOhc6hStAzvEga0xZmdKmIdkQk
-	eTdcUdlj6D/6Gip2mhSxlQgikIE4PVx5pW1Bxs6amsP6rVcfJNgtgZmCf1Ucczzk
-	HGa6TsBVuoBKjs6gMcSEEd5TvizRU4rIgSwqAh5Z4U8krTZM55xHrLNqAFC1jFxx
-	fIpuiCj7iPve1Jg5gonO+nkTZLrj9YhAYZVaTwqGMNwUDeiN6mY6XOBMWQB2xljw
-	iDxX8SgFksBLKM5kPYQctaINyRdpsDNJ9Z3iwWu71rTdRFGKQj2oB/pK1Oog==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:date:date:feedback-id
-	:feedback-id:from:from:in-reply-to:in-reply-to:message-id
-	:mime-version:references:reply-to:sender:subject:subject:to:to
-	:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm3; t=1674385498; x=1674471898; bh=PIGBqayUKuArKaRHZD7sCBO6FDrv
-	E59LUQTAu0TlFio=; b=mqfFVKoA8Wv1ISopmIUdhhQQTWCzmhNjBh4V0QvcSI52
-	jVBJy4enEBRHiYs3E4RUFI4uSXG3Wvla1TWuNJyikr2oKpxkXKcZ8+O2y1VITn0t
-	sSWihFf596BuYflkgy5PrJYKO+GSEVafTrwoyrwFR7JNMp9H2zvHIyBkfi8NXmzR
-	jeTlPX4zf78x1nQy5dR1FzjdPSIEJCGqMmOW+n8rUDgTJHE5mW+gYd4yqVShrWTu
-	taS3BwPSDyBwETYLTvxAy7CKQhrlGZGn1rXO+Y6wnu4v+bnv79UupEFpLFLsxP8D
-	Hc+83GyL277N8Nv+HZyNn3wyU7TCjDUJx/anr66M5w==
-X-ME-Sender: <xms:VxjNY36T4R5HGVjLfJYYtxqEyP2x1xgQWFlhq9kv5ZVO1jab6HlfdA>
-    <xme:VxjNY84crVRmJ1FsB_mrWtWyEBdO0z94G1BzOvZGM8BWP_dz8OwZePtphyWUf_Xx8
-    -tJ7B49vKTHCE_v4CM>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrudduiedgvdehucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
-    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
-    cujfgurhepofgfggfkjghffffhvfevufgtsehttdertderredtnecuhfhrohhmpedftehr
-    nhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrth
-    htvghrnhepffehueegteeihfegtefhjefgtdeugfegjeelheejueethfefgeeghfektdek
-    teffnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprg
-    hrnhgusegrrhhnuggsrdguvg
-X-ME-Proxy: <xmx:VxjNY-ev3r7tllrk__vfVuUx_oxxs-Z3VcJ-TbGZFYn3l0cz-6D3Lg>
-    <xmx:VxjNY4LbsRaaf_rI5MeI3xO06SBON4XZBQ_MJDU8jvhPNfDA9OcGoA>
-    <xmx:VxjNY7IGDcm8IZxX9zZNq3WEI529JOboGOsxZTEqfwqtUmOYd_wjcA>
-    <xmx:WhjNYzKNh_OdNAcQ_a_7Qa_0GJ9CByCeLG_1cpEGg4ZdkbaDjoWoGw>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id D166BB60089; Sun, 22 Jan 2023 06:04:55 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.9.0-alpha0-85-gd6d859e0cf-fm-20230116.001-gd6d859e0
-Mime-Version: 1.0
-Message-Id: <7ad668ba-d6f3-4ef9-9335-e42bfe8d4cce@app.fastmail.com>
-In-Reply-To: <20230122072759.GA3703@lst.de>
-References:  <CA+V-a8uF1s+dwKC_+apL+CBiHN8w_J0n_G2dqsgiAUZVEibfqg@mail.gmail.com>
- <9017adf0-acd4-4c43-8aea-3579b214b477@app.fastmail.com>
- <CA+V-a8u6jvR=EDeE3mAbDr6-06NoBJ7mwmi_Y9qVyHT+aC-9rg@mail.gmail.com>
- <45d6eb0c-cbe3-4a83-aa12-3483638473ae@app.fastmail.com>
- <20230110070144.GG10289@lst.de>
- <02988e70-b099-46fd-b260-2d537c50543a@app.fastmail.com>
- <20230113054807.GA23179@lst.de>
- <ea4cb121-97e9-4365-861a-b3635fd34721@app.fastmail.com>
- <20230121143733.GA7415@lst.de>
- <6a64b0b5-0ebc-43a5-a3d8-483a845a0b5e@app.fastmail.com>
- <20230122072759.GA3703@lst.de>
-Date: Sun, 22 Jan 2023 12:04:35 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Christoph Hellwig" <hch@lst.de>
-Cc: Prabhakar <prabhakar.csengg@gmail.com>,
- "Conor.Dooley" <conor.dooley@microchip.com>,
- "Geert Uytterhoeven" <geert+renesas@glider.be>,
- =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, guoren <guoren@kernel.org>,
- "Andrew Jones" <ajones@ventanamicro.com>,
- "Paul Walmsley" <paul.walmsley@sifive.com>,
- "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
- "open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
- "open list" <linux-kernel@vger.kernel.org>, devicetree@vger.kernel.org,
- Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
- "Lad, Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- "Philipp Tomsich" <philipp.tomsich@vrull.eu>,
- "Nathan Chancellor" <nathan@kernel.org>, "Atish Patra" <atishp@rivosinc.com>,
- "Anup Patel" <apatel@ventanamicro.com>,
- "Tsukasa OI" <research_trasio@irq.a4lg.com>,
- "Jisheng Zhang" <jszhang@kernel.org>,
- "Mayuresh Chitale" <mchitale@ventanamicro.com>,
- "Will Deacon" <will@kernel.org>
-Subject: Re: [RFC PATCH v6 1/6] riscv: mm: dma-noncoherent: Switch using function
- pointers for cache management
+	id 1pJYmN-00FF1v-05
+	for linux-riscv@lists.infradead.org; Sun, 22 Jan 2023 11:44:56 +0000
+Received: by mail-wr1-x429.google.com with SMTP id n7so8462214wrx.5
+        for <linux-riscv@lists.infradead.org>; Sun, 22 Jan 2023 03:44:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=9d3PHM1i18b1wVBT1Cbc8b3/F4tYcjxcOJc7IXM78Rc=;
+        b=K0ogjQy2dBIWpRyp2G9Qo7zgLe2LmkcCsc+/SJfNrUrZoMYVAXj6EBfqqAOZO90TQV
+         8dFrqB0UpP/FL5YLyW8DaYdSIo3BYZ6jWVhbXvikqhFRDlopOedRj2dISYn4JPdf7JlA
+         KzsoTNkcC/dbTzg7fLyddp/61eGwSN2pamhISQfxDpHBGfDt3yL8nejAvTR/KmsWSzBc
+         ZctPEB9rXXjRaaTZa8ZJCKpvyefetvL+86WKhHd1yI+EgTIvtBe9bo4ok2He/FWqHs64
+         qAR5wQT5taDHiDtKTbA0eAIGDoMBI78QD27Fart3ivhlaqTZYemt5SCMPsmsKsWIv5F1
+         gxSg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=9d3PHM1i18b1wVBT1Cbc8b3/F4tYcjxcOJc7IXM78Rc=;
+        b=rSiMEiRODg2XC42gdK+i3SwvSy73V2+40LoBAAeLtb6AF+5+bVeElowIO9FWap0uCd
+         TI0GMTu+dds8St0NFkWI+8P0UfA1XwhOdYbNFzrjQQvt+YDg4N7uNnT+noG/vZmaRGD4
+         tU+DUkrj+KOq/MZZRST5E/saKp0A7GumpXhZZxtuOcIhC3q0V42KDJ/jcPGTAEVupSpC
+         CcDYn5NfdnryNBh1NU4LiODhg2ELzIJMTbFKG4Gq+5zNZRxrtxUo8Us0+WYlqeZIp2x4
+         uWzBOsFQy8P5XbRLfzdynZVgNdMmK8zCu10DUTRrdvVghT78xQTbc6U+NtpxLg3v4x3e
+         AwGw==
+X-Gm-Message-State: AFqh2kr13CQ7ab7mPkTt5qBm9TGGrUB/yKLNW2zSJ+jfUeFQ2TJBHviC
+	Nyro6SsSUJRvkR9GBt6W8lkUEQ==
+X-Google-Smtp-Source: AMrXdXu83lehx7RbHAkRbhG1oMGJmZelEHb0lgNU+pigubgLCdZ9/atDxUOwXiCGtf72XF5Pmi0c8Q==
+X-Received: by 2002:a05:6000:1f14:b0:2bb:5adc:9f92 with SMTP id bv20-20020a0560001f1400b002bb5adc9f92mr18054855wrb.50.1674387892997;
+        Sun, 22 Jan 2023 03:44:52 -0800 (PST)
+Received: from [192.168.1.109] ([178.197.216.144])
+        by smtp.gmail.com with ESMTPSA id r8-20020a056000014800b0027323b19ecesm2830431wrx.16.2023.01.22.03.44.47
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 22 Jan 2023 03:44:52 -0800 (PST)
+Message-ID: <d4d998ee-1532-c896-df25-195ec9c72e3f@linaro.org>
+Date: Sun, 22 Jan 2023 12:44:46 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.7.0
+Subject: Re: [RFC PATCH v2 02/31] Documentation: Add binding for
+ kalray,kv3-1-core-intc
+Content-Language: en-US
+To: Yann Sionneau <ysionneau@kalray.eu>, Arnd Bergmann <arnd@arndb.de>,
+ Jonathan Corbet <corbet@lwn.net>, Thomas Gleixner <tglx@linutronix.de>,
+ Marc Zyngier <maz@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Will Deacon <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Boqun Feng <boqun.feng@gmail.com>, Mark Rutland <mark.rutland@arm.com>,
+ Eric Biederman <ebiederm@xmission.com>, Kees Cook <keescook@chromium.org>,
+ Oleg Nesterov <oleg@redhat.com>, Ingo Molnar <mingo@redhat.com>,
+ Waiman Long <longman@redhat.com>,
+ "Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>,
+ Andrew Morton <akpm@linux-foundation.org>, Nick Piggin <npiggin@gmail.com>,
+ Paul Moore <paul@paul-moore.com>, Eric Paris <eparis@redhat.com>,
+ Christian Brauner <brauner@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Jules Maselbas <jmaselbas@kalray.eu>,
+ Guillaume Thouvenin <gthouvenin@kalray.eu>,
+ Clement Leger <clement@clement-leger.fr>,
+ Vincent Chardon <vincent.chardon@elsys-design.com>,
+ =?UTF-8?Q?Marc_Poulhi=c3=a8s?= <dkm@kataplop.net>,
+ Julian Vetter <jvetter@kalray.eu>, Samuel Jones <sjones@kalray.eu>,
+ Ashley Lesdalons <alesdalons@kalray.eu>, Thomas Costis <tcostis@kalray.eu>,
+ Marius Gligor <mgligor@kalray.eu>, Jonathan Borne <jborne@kalray.eu>,
+ Julien Villette <jvillette@kalray.eu>, Luc Michel <lmichel@kalray.eu>,
+ Louis Morhet <lmorhet@kalray.eu>, Julien Hascoet <jhascoet@kalray.eu>,
+ Jean-Christophe Pince <jcpince@gmail.com>,
+ Guillaume Missonnier <gmissonnier@kalray.eu>, Alex Michon
+ <amichon@kalray.eu>, Huacai Chen <chenhuacai@kernel.org>,
+ WANG Xuerui <git@xen0n.name>, Shaokun Zhang <zhangshaokun@hisilicon.com>,
+ John Garry <john.garry@huawei.com>,
+ Guangbin Huang <huangguangbin2@huawei.com>,
+ Bharat Bhushan <bbhushan2@marvell.com>, Bibo Mao <maobibo@loongson.cn>,
+ Atish Patra <atishp@atishpatra.org>, "Jason A. Donenfeld" <Jason@zx2c4.com>,
+ Qi Liu <liuqi115@huawei.com>, Jiaxun Yang <jiaxun.yang@flygoat.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Mark Brown <broonie@kernel.org>,
+ Janosch Frank <frankja@linux.ibm.com>, Alexey Dobriyan <adobriyan@gmail.com>
+Cc: Benjamin Mugnier <mugnier.benjamin@gmail.com>, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-mm@kvack.org, linux-arch@vger.kernel.org, linux-audit@redhat.com,
+ linux-riscv@lists.infradead.org, bpf@vger.kernel.org
+References: <20230120141002.2442-1-ysionneau@kalray.eu>
+ <20230120141002.2442-3-ysionneau@kalray.eu>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20230120141002.2442-3-ysionneau@kalray.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230122_030501_269301_AA88645F 
-X-CRM114-Status: GOOD (  21.96  )
+X-CRM114-CacheID: sfid-20230122_034455_155751_F1F199AD 
+X-CRM114-Status: GOOD (  20.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,69 +131,102 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jan 22, 2023, at 08:27, Christoph Hellwig wrote:
-> On Sat, Jan 21, 2023 at 08:30:23PM +0100, Arnd Bergmann wrote:
->> I was thinking of using STATIC_CALL() as an optimization here, which
->> I find easier to read and understand than alternatives. One advantage
->> here is that this allows the actual cache operations to be declared
->> locally in the architecture without letting drivers call them,
->> but still update the common code to work without indirect branches.
->> 
->> The main downside is that this is currently only optimized on
->> powerpc and x86, both of which don't actually need CPU specific
->> callbacks. ARC, ARM, and MIPS on the other hand already
->> have indirect function pointers, RISC-V would likely benefit the
->> most from either alternatives or static_call, as it already
->> uses alternatives and has one implementation that is clearly
->> preferred over the others.
->
-> For now I'd just keep doing direct calls into the arch code, just
-> for the lower level invalidate, writeback, invalidate+writeback
-> calls as that helps cementinc the logic of which of those to use
-> in well documented core code.
+On 20/01/2023 15:09, Yann Sionneau wrote:
+> From: Jules Maselbas <jmaselbas@kalray.eu>
 
-Ok.
+Use subject prefixes matching the subsystem (which you can get for
+example with `git log --oneline -- DIRECTORY_OR_FILE` on the directory
+your patch is touching).
 
-> And I'm not really sure I'd like to go beyond that - making it too
-> easy pluggable will make people feel more comfortable doing stupid
-> things here. 
 
-I fear the bigger risk is still making the functions callable
-from device driver code than it is to make the functions
-globally settable.
+> 
+> Add documentation for `kalray,kv3-1-core-intc` binding.
+> 
+> Co-developed-by: Jules Maselbas <jmaselbas@kalray.eu>
+> Signed-off-by: Jules Maselbas <jmaselbas@kalray.eu>
+> Signed-off-by: Yann Sionneau <ysionneau@kalray.eu>
+> ---
+> 
+> Notes:
+>     V1 -> V2: new patch
+> 
+>  .../kalray,kv3-1-core-intc.yaml               | 46 +++++++++++++++++++
+>  1 file changed, 46 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/interrupt-controller/kalray,kv3-1-core-intc.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/interrupt-controller/kalray,kv3-1-core-intc.yaml b/Documentation/devicetree/bindings/interrupt-controller/kalray,kv3-1-core-intc.yaml
+> new file mode 100644
+> index 000000000000..1e3d0593173a
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/interrupt-controller/kalray,kv3-1-core-intc.yaml
+> @@ -0,0 +1,46 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/interrupt-controller/kalray,kv3-1-core-intc#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Kalray kv3-1 Core Interrupt Controller
+> +
+> +description: |
+> +  The Kalray Core Interrupt Controller is tightly integrated in each kv3 core
+> +  present in the Coolidge SoC.
+> +
+> +  It provides the following features:
+> +  - 32 independent interrupt sources
+> +  - 2-bit configurable priority level
+> +  - 2-bit configurable ownership level
+> +
+> +allOf:
+> +  - $ref: /schemas/interrupt-controller.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    const: kalray,kv3-1-core-intc
 
-You introduced the mips version in f8c55dc6e828 ("MIPS: use generic
-dma noncoherent ops for simple noncoherent platforms"), which
-was clearly meant as an implementation detail, yet we already
-have a driver that slipped in with 3bdffa8ffb45 ("Input: Add
-N64 controller driver") that just calls this directly rather
-than using the dma-mapping interface.
+Blank line between each of these,
 
-On the other hand, the indirect function pointers for
-per-cpu cache operations are not easily translated anyway:
-with the three architectures that multiplex between
-cpu specific operations, arc uses physical addresses,
-mips uses virtual addresses (because of highmem), and
-arm even uses both because of incompatible requirements
-between l1 and l2 cache operations. arm32 also seems to
-have the superset of all possible corner cases that
-one might see elsewhere (prefetching vs in-order,
-writethrough vs writeback, broken broadcast invalidation,
-...).
+> +  "#interrupt-cells":
+> +    const: 1
+> +    description:
+> +      The IRQ number.
+> +  reg:
+> +    maxItems: 0
 
-> And yes, maybe that's personal because I've warned
-> the RISC-V people years ago that they'll need architectural
-> cache management instructions yesterday and the answer was that
-> no one is going to use them on modern CPUs.  *sigh*
+??? No way... What's this?
 
-To be fair, from the ISA point of view, it really shouldn't
-be necessary as long as you have a sane SoC design.
-In practice there are always chips that are cutting corners,
-or use the new CPU core as a drop-in for an existing
-design. Arm SBSA tried to enforce the same thing and also
-failed for pretty much the same reason.
+> +  "kalray,intc-nr-irqs":
 
-      Arnd
+Drop quotes.
+
+> +    description: Number of irqs handled by the controller.
+
+Why this is variable per board? Why do you need it ?
+
+> +
+> +required:
+> +  - compatible
+> +  - "#interrupt-cells"
+> +  - interrupt-controller
+
+missing additionalProperties: false
+
+This binding looks poor, like you started from something odd. Please
+don't. Take the newest reviewed binding or better example-schema and use
+it to build yours. This would solve several trivial mistakes and style
+issues.
+
+> +
+> +examples:
+> +  - |
+> +    intc: interrupt-controller {
+
+What's the IO address space?
+
+
+Best regards,
+Krzysztof
+
 
 _______________________________________________
 linux-riscv mailing list
