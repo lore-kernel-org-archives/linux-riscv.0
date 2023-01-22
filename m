@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AB01C25B4E
-	for <linux-riscv@archiver.kernel.org>; Sun, 22 Jan 2023 11:45:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BC25C25B4E
+	for <linux-riscv@archiver.kernel.org>; Sun, 22 Jan 2023 11:47:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=213RXy5r5bqMywDuW2SLWIGEYDYh76fOQ+VRRo2aurI=; b=NVDw1BcqaViBlb
-	nIQKqKxyOuPpFrlxqtbvYuzcrGKdWAAMLpl4Lca3Zf0lbdowon9xVW17u+j/PVfSDCoST58WrKWZy
-	c8buhpWcDwpdDa9zu5ihEZmPJg7hoq2u5MgYSczt49n6vloypDtbZtTZpMbXAs3ZSw1pdyN3QFxw9
-	ExuMAHxXQsHlknlpjdac0rk+oaL2k6fm0VZb+NeQH7ro0AX+wSn3Ooh4m9FuwfN+45NzqBZjv5l6a
-	36el6sBIqCyymyHVPw0ik5erD89GECMiHO4FsssbL9J3Vcy6KW6asIq0ovfo31BMqAhcUsMH6lxFn
-	DJNxwJrXyYdhXdrXS2yw==;
+	List-Owner; bh=Rz1RXZb3Hmc5k5G/NMrIFosiGuc04MDwSrhk6P7Voqg=; b=zO8GsdFc0ooV5y
+	JHk1LYcmX7OOQcb6HJMSD+el5xAZDWKgyk1ZhYeUvYvqqFfj31+EqqXPpI3DhepO2wZY3hEQWUtSJ
+	xSUdgZLRVv5Itx4kiZWlQFRrSwPO48CPFvTGswrw5o/P1zlLqXXJcBiyFE84MAMMdZML5Wum/HH57
+	ErcITsPKsaom1iIi/wGjYUPvTzfPIAiuz/UBatJM4tanzkU3HCMbYb+r8ycCtjNvvt8IhXGQSpzds
+	B3j0Na9gj9q4CQXzy1wwqYCYXt7JomDp5g8EXjdsQgDmI1dvqvdV3gB/9cH7RCRQx6yWelzTES8PI
+	GM4/FpiFD5CvKCPxuoEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pJYmQ-00FF2Z-OA; Sun, 22 Jan 2023 11:44:58 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1pJYoZ-00FFB7-K3; Sun, 22 Jan 2023 11:47:11 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pJYmN-00FF1v-05
-	for linux-riscv@lists.infradead.org; Sun, 22 Jan 2023 11:44:56 +0000
-Received: by mail-wr1-x429.google.com with SMTP id n7so8462214wrx.5
-        for <linux-riscv@lists.infradead.org>; Sun, 22 Jan 2023 03:44:54 -0800 (PST)
+	id 1pJYoV-00FFA1-TY
+	for linux-riscv@lists.infradead.org; Sun, 22 Jan 2023 11:47:09 +0000
+Received: by mail-wm1-x333.google.com with SMTP id fl11-20020a05600c0b8b00b003daf72fc844so8775508wmb.0
+        for <linux-riscv@lists.infradead.org>; Sun, 22 Jan 2023 03:47:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=linaro.org; s=google;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=9d3PHM1i18b1wVBT1Cbc8b3/F4tYcjxcOJc7IXM78Rc=;
-        b=K0ogjQy2dBIWpRyp2G9Qo7zgLe2LmkcCsc+/SJfNrUrZoMYVAXj6EBfqqAOZO90TQV
-         8dFrqB0UpP/FL5YLyW8DaYdSIo3BYZ6jWVhbXvikqhFRDlopOedRj2dISYn4JPdf7JlA
-         KzsoTNkcC/dbTzg7fLyddp/61eGwSN2pamhISQfxDpHBGfDt3yL8nejAvTR/KmsWSzBc
-         ZctPEB9rXXjRaaTZa8ZJCKpvyefetvL+86WKhHd1yI+EgTIvtBe9bo4ok2He/FWqHs64
-         qAR5wQT5taDHiDtKTbA0eAIGDoMBI78QD27Fart3ivhlaqTZYemt5SCMPsmsKsWIv5F1
-         gxSg==
+        bh=M2dS08c5mDDQCSEte2hJr4AncAP49BS6JfkPW/bfJ8w=;
+        b=x60lhg9Ma84/nhgHooGxFDRzaGCTbna6N3OaUhRahz7oFK/Ej2LoBvR8cIclfA+YEc
+         075GAFy/Z+6wvaDI7Vtr/jDBAOmZuEsq7tCWLkeLwtI7bPex58Pm6EjC3JMzpJ+57MIn
+         5T0guh+4iRpkxNWNtfXUGJ63DWXecs+xrEq2+1kGSbEQy5zzLYNSKRU3hy9nS/WC9k2z
+         Gw7aqPry1lPoo9c8A0gEHtEbhMhcD45BAJ6wFHyQcSt+myMtZ/qlgR2AaS8964Zn2P4p
+         UWrCS1Ld/U0RPkqYhhWftQwPG1iq5ZpzAjpwY1XCjBtkkZztPouO1E9exFAGh5clvnfx
+         PSYw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=9d3PHM1i18b1wVBT1Cbc8b3/F4tYcjxcOJc7IXM78Rc=;
-        b=rSiMEiRODg2XC42gdK+i3SwvSy73V2+40LoBAAeLtb6AF+5+bVeElowIO9FWap0uCd
-         TI0GMTu+dds8St0NFkWI+8P0UfA1XwhOdYbNFzrjQQvt+YDg4N7uNnT+noG/vZmaRGD4
-         tU+DUkrj+KOq/MZZRST5E/saKp0A7GumpXhZZxtuOcIhC3q0V42KDJ/jcPGTAEVupSpC
-         CcDYn5NfdnryNBh1NU4LiODhg2ELzIJMTbFKG4Gq+5zNZRxrtxUo8Us0+WYlqeZIp2x4
-         uWzBOsFQy8P5XbRLfzdynZVgNdMmK8zCu10DUTRrdvVghT78xQTbc6U+NtpxLg3v4x3e
-         AwGw==
-X-Gm-Message-State: AFqh2kr13CQ7ab7mPkTt5qBm9TGGrUB/yKLNW2zSJ+jfUeFQ2TJBHviC
-	Nyro6SsSUJRvkR9GBt6W8lkUEQ==
-X-Google-Smtp-Source: AMrXdXu83lehx7RbHAkRbhG1oMGJmZelEHb0lgNU+pigubgLCdZ9/atDxUOwXiCGtf72XF5Pmi0c8Q==
-X-Received: by 2002:a05:6000:1f14:b0:2bb:5adc:9f92 with SMTP id bv20-20020a0560001f1400b002bb5adc9f92mr18054855wrb.50.1674387892997;
-        Sun, 22 Jan 2023 03:44:52 -0800 (PST)
+        bh=M2dS08c5mDDQCSEte2hJr4AncAP49BS6JfkPW/bfJ8w=;
+        b=k3NQ4fanR4RMTRucKTZoGZJruvXo9+snA36mVaDVFtsCuyVstgV9sHP+oWVb+jTuwf
+         LwHRRKRxWfKtxmRSeqER0WlgNhYRG4iNOZ0iDcFknTZ9X/QIAOa+tCIVuPiS6b+XLa0X
+         W+644z7S7qcWQRf6xVFRyuYc1gD1VPau+Qb6h38RBWbziv+KXK4WdoeOMKEQltJHxxq5
+         89M8Tfsdy5yms59FkDmPWl/7h/s8eNbr4Pt6hhZ0Tn91YcZahPa6JUFJ2ncOmB5xuWAN
+         ysl3ooSLzxc44N0H9Cu+I3bQBbAOFBOgq3r5CvVLOW2u837DZZ2meKdu9P5eQTewMAv/
+         4YrQ==
+X-Gm-Message-State: AFqh2kqI+ROzsKlnN2Lp84/AHRWxyWa9qbPAMnkS/5BVC5AK44kbqeVz
+	Eih+rR0qd0ZHf1Frn5gcHO3Yng==
+X-Google-Smtp-Source: AMrXdXvv5SOq8oLh4MHQyQrfcxkhDTk8DLHjQASO2lJraohGjZ9veTwuZ0pwUHGY71DEX8EYBAct8g==
+X-Received: by 2002:a05:600c:4f82:b0:3db:25a0:ca5b with SMTP id n2-20020a05600c4f8200b003db25a0ca5bmr11762781wmq.37.1674388025485;
+        Sun, 22 Jan 2023 03:47:05 -0800 (PST)
 Received: from [192.168.1.109] ([178.197.216.144])
-        by smtp.gmail.com with ESMTPSA id r8-20020a056000014800b0027323b19ecesm2830431wrx.16.2023.01.22.03.44.47
+        by smtp.gmail.com with ESMTPSA id h15-20020a05600c350f00b003db0b0cc2afsm8452351wmq.30.2023.01.22.03.47.01
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 22 Jan 2023 03:44:52 -0800 (PST)
-Message-ID: <d4d998ee-1532-c896-df25-195ec9c72e3f@linaro.org>
-Date: Sun, 22 Jan 2023 12:44:46 +0100
+        Sun, 22 Jan 2023 03:47:04 -0800 (PST)
+Message-ID: <faa9ee85-60d7-6495-2376-384946720f60@linaro.org>
+Date: Sun, 22 Jan 2023 12:47:00 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.7.0
-Subject: Re: [RFC PATCH v2 02/31] Documentation: Add binding for
- kalray,kv3-1-core-intc
+Subject: Re: [RFC PATCH v2 03/31] Documentation: Add binding for
+ kalray,kv3-1-apic-gic
 Content-Language: en-US
 To: Yann Sionneau <ysionneau@kalray.eu>, Arnd Bergmann <arnd@arndb.de>,
  Jonathan Corbet <corbet@lwn.net>, Thomas Gleixner <tglx@linutronix.de>,
@@ -109,12 +109,12 @@ Cc: Benjamin Mugnier <mugnier.benjamin@gmail.com>, linux-doc@vger.kernel.org,
  linux-mm@kvack.org, linux-arch@vger.kernel.org, linux-audit@redhat.com,
  linux-riscv@lists.infradead.org, bpf@vger.kernel.org
 References: <20230120141002.2442-1-ysionneau@kalray.eu>
- <20230120141002.2442-3-ysionneau@kalray.eu>
+ <20230120141002.2442-4-ysionneau@kalray.eu>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20230120141002.2442-3-ysionneau@kalray.eu>
+In-Reply-To: <20230120141002.2442-4-ysionneau@kalray.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230122_034455_155751_F1F199AD 
-X-CRM114-Status: GOOD (  20.29  )
+X-CRM114-CacheID: sfid-20230122_034708_024517_454189B0 
+X-CRM114-Status: GOOD (  24.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,96 +133,105 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 On 20/01/2023 15:09, Yann Sionneau wrote:
 > From: Jules Maselbas <jmaselbas@kalray.eu>
-
-Use subject prefixes matching the subsystem (which you can get for
-example with `git log --oneline -- DIRECTORY_OR_FILE` on the directory
-your patch is touching).
-
-
 > 
-> Add documentation for `kalray,kv3-1-core-intc` binding.
+> Add documentation for `kalray,kv3-1-apic-gic` binding.
 > 
 > Co-developed-by: Jules Maselbas <jmaselbas@kalray.eu>
 > Signed-off-by: Jules Maselbas <jmaselbas@kalray.eu>
 > Signed-off-by: Yann Sionneau <ysionneau@kalray.eu>
 > ---
+
+All the comments apply here and to all your other patches - wrong
+subject, missing blank lines, missing additionalProperties, missing
+tests (patches were for sure not tested as you can see from bot's
+answers) etc. Really, please start from scratch on example-schema.
+
 > 
 > Notes:
 >     V1 -> V2: new patch
 > 
->  .../kalray,kv3-1-core-intc.yaml               | 46 +++++++++++++++++++
->  1 file changed, 46 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/interrupt-controller/kalray,kv3-1-core-intc.yaml
+>  .../kalray,kv3-1-apic-gic.yaml                | 66 +++++++++++++++++++
+>  1 file changed, 66 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/interrupt-controller/kalray,kv3-1-apic-gic.yaml
 > 
-> diff --git a/Documentation/devicetree/bindings/interrupt-controller/kalray,kv3-1-core-intc.yaml b/Documentation/devicetree/bindings/interrupt-controller/kalray,kv3-1-core-intc.yaml
+> diff --git a/Documentation/devicetree/bindings/interrupt-controller/kalray,kv3-1-apic-gic.yaml b/Documentation/devicetree/bindings/interrupt-controller/kalray,kv3-1-apic-gic.yaml
 > new file mode 100644
-> index 000000000000..1e3d0593173a
+> index 000000000000..7a37f19db2fb
 > --- /dev/null
-> +++ b/Documentation/devicetree/bindings/interrupt-controller/kalray,kv3-1-core-intc.yaml
-> @@ -0,0 +1,46 @@
+> +++ b/Documentation/devicetree/bindings/interrupt-controller/kalray,kv3-1-apic-gic.yaml
+> @@ -0,0 +1,66 @@
 > +# SPDX-License-Identifier: GPL-2.0
 > +%YAML 1.2
 > +---
-> +$id: http://devicetree.org/schemas/interrupt-controller/kalray,kv3-1-core-intc#
+> +$id: http://devicetree.org/schemas/interrupt-controller/kalray,kv3-1-apic-gic#
 > +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +title: Kalray kv3-1 Core Interrupt Controller
+> +title: Kalray kv3-1 APIC-GIC
 > +
 > +description: |
-> +  The Kalray Core Interrupt Controller is tightly integrated in each kv3 core
-> +  present in the Coolidge SoC.
-> +
-> +  It provides the following features:
-> +  - 32 independent interrupt sources
-> +  - 2-bit configurable priority level
-> +  - 2-bit configurable ownership level
+> +  Each cluster in the Coolidge SoC includes an Advanced Programmable Interrupt
+> +  Controller (APIC) which is split in two part:
+> +    - a Generic Interrupt Controller (referred as APIC-GIC)
+> +    - a Mailbox Controller           (referred as APIC-Mailbox)
+> +  The APIC-GIC acts as an intermediary interrupt controller, muxing/routing
+> +  incoming interrupts to output interrupts connected to kvx cores interrupts lines.
+> +  The 139 possible input interrupt lines are organized as follow:
+> +     - 128 from the mailbox controller (one it per mailboxes)
+> +     - 1   from the NoC router
+> +     - 5   from IOMMUs
+> +     - 1   from L2 cache DMA job FIFO
+> +     - 1   from cluster watchdog
+> +     - 2   for SECC, DECC
+> +     - 1   from Data NoC
+> +  The 72 possible output interrupt lines:
+> +     -  68 : 4 interrupts per cores (17 cores)
+> +     -  1 for L2 cache controller
+> +     -  3 extra that are for padding
 > +
 > +allOf:
 > +  - $ref: /schemas/interrupt-controller.yaml#
 > +
 > +properties:
 > +  compatible:
-> +    const: kalray,kv3-1-core-intc
+> +    const: kalray,kv3-1-apic-gic
 
-Blank line between each of these,
+Missing reg
 
 > +  "#interrupt-cells":
 > +    const: 1
 > +    description:
 > +      The IRQ number.
-> +  reg:
-> +    maxItems: 0
+> +  interrupt-controller: true
+> +  interrupt-parent: true
 
-??? No way... What's this?
+Drop, should not be needed.
 
-> +  "kalray,intc-nr-irqs":
-
-Drop quotes.
-
-> +    description: Number of irqs handled by the controller.
-
-Why this is variable per board? Why do you need it ?
-
+> +  interrupts:
+> +    maxItems: 4
+> +    description: |
+> +     Specifies the interrupt line(s) in the interrupt-parent controller node;
+> +     valid values depend on the type of parent interrupt controller
 > +
 > +required:
 > +  - compatible
+> +  - reg
 > +  - "#interrupt-cells"
 > +  - interrupt-controller
-
-missing additionalProperties: false
-
-This binding looks poor, like you started from something odd. Please
-don't. Take the newest reviewed binding or better example-schema and use
-it to build yours. This would solve several trivial mistakes and style
-issues.
-
+> +  - interrupt-parent
+> +  - interrupts
 > +
 > +examples:
 > +  - |
-> +    intc: interrupt-controller {
-
-What's the IO address space?
-
+> +    apic_gic: interrupt-controller@a20000 {
+> +        compatible = "kalray,kv3-1-apic-gic";
+> +        reg = <0 0xa20000 0 0x12000>;
+> +        #interrupt-cells = <1>;
+> +        interrupt-controller;
+> +        interrupt-parent = <&intc>;
+> +        interrups = <4 5 6 7>;
+> +    };
+> +
+> +...
 
 Best regards,
 Krzysztof
