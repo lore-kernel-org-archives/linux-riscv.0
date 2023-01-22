@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BE14C25B4E
-	for <linux-riscv@archiver.kernel.org>; Sun, 22 Jan 2023 11:55:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC0E3C25B4E
+	for <linux-riscv@archiver.kernel.org>; Sun, 22 Jan 2023 11:57:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XdW1oq0r45f4lVsvM3mQ8n3nFwuUoyQs3au//8xlAwc=; b=IcmmIF3mD+Gi4g
-	chtJ2sde9j8Qug4NrzCrrr1MjimhR8Se7saT5MY49fv6qQDaIlJAxpLwbIg4SSDQFfZLuOwST1T4p
-	aOhn5jYeClRjbxH/an+p1Sg5smd2y24OuK+ykPd9cWVEI2fDA1Qi9ilHvBG2Kqbb6nwMKsLq1X3iq
-	dT+Dyx8Q+cv69AGmqvQiObJOlJWJBpJoL2nqAXumFL69ADuPMymab53xKvl/9aqDmpjpSF73XVdLV
-	t8nA0KzuHL/fDH2YCcbYWqjNySEI6HSuBEJiy0+61gqvIfftkExuavKafb9Xt1u2pKJuEh4O6HtDR
-	OKYHvYGG0ezmffpWaEeg==;
+	List-Owner; bh=fqxYFnvLOdst8eNj+29L8GXU0sq8AkksSwxJTS+Tqm0=; b=ysVHxqZEWFDq6N
+	RBY1xWquRdZkwz8f31bu53ol3XoAygJwLbr6Ti3Fhi0Fslh1IflJRn183VrZNEiUSf+feVJ/UJc6Y
+	HMG0K4prHpXe2O9k+502Xi9/O9KXmy5uazcoYfdANvCGTssHyFETSNXTeMGXwJwKRxGHGJJapjkQ3
+	vmFIH+SXXwi9CJw/qOBjaqnNPdnkaB2qR65ADX4pdjB2/F7sxnxDBk5Fv8tGEf2Yz4ZmdTJ/Ar2VZ
+	qWFza9Xw+OFLonWmuhBJMJHmit5yvMarJquM7CYG2u/m0XZ3qxSsVAafarFx+I20m5jvph5rG902h
+	DjnYKRhoHlcblGn/yijw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pJYw7-00FGAU-I0; Sun, 22 Jan 2023 11:54:59 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1pJYyH-00FGSD-Os; Sun, 22 Jan 2023 11:57:13 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pJYw4-00FG9Q-2v
-	for linux-riscv@lists.infradead.org; Sun, 22 Jan 2023 11:54:57 +0000
-Received: by mail-wm1-x333.google.com with SMTP id fl11-20020a05600c0b8b00b003daf72fc844so8781969wmb.0
-        for <linux-riscv@lists.infradead.org>; Sun, 22 Jan 2023 03:54:55 -0800 (PST)
+	id 1pJYyE-00FGR6-IV
+	for linux-riscv@lists.infradead.org; Sun, 22 Jan 2023 11:57:11 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id b7so8484859wrt.3
+        for <linux-riscv@lists.infradead.org>; Sun, 22 Jan 2023 03:57:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=linaro.org; s=google;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=VLe1tCHvsXuqDEBtfO7OY5kLhydgi9CnGmhErJAm6aY=;
-        b=s0BAxEQrg1XNDKd+RDJjQ/lqdPTA7p1sTOMmyByolojk0mvaFqzqmy7GIdrIZxmIOf
-         nFUchdZptB8ZVzLanP/34atcmww1mMSAPnOW6ClddkbiU7eDltZQOUDza6VkttvsUHfc
-         VQreJV0TXJjnpWyAigdZSH569OgxnVx8rooyMeC0XkS7AD9xKYSlxnN4RqPAyi5VpF7k
-         CoH7kaCdBdozNk9M+weoHgP1irBiEMfOD3knAU/SvcsagkDEAe+ceFKjExWCJUNouNc/
-         k5Jv6eqzFnOZo2sgqVpIZZUumFywQQqcWtw67WTGWBMxjS7Nexwmrc+zVtNxlk1/BNXb
-         5cxA==
+        bh=ckWviSxANZfcro+bBRfyc+cenkmtjOkiW7r6SzucWlg=;
+        b=rVyqAJqcbEVO2mLYQVAhfnqaxyKeML/dcpxmRaA391AWy18uZOcTusGjMi44ncpTql
+         vRUlbx31k3vofUNP4vsPJVAi8lmlvkVa9EF7D+g1STXssK/sO9udFfYn+8KZstXrK7qh
+         xd8yLliT4+F15t5bWD1hE7T1GDf9FwKdq6LRDIE6AKZfPND9W8ihbB18IBlG77AI1lAD
+         h2yHlmJaQeszTJT/hh3lV1J+dPT8wAe85E0VKkfG7d3OdVi0bTLkjAqcxHch+rOespJa
+         a741p3AQgK6ZAVKTC3L2Wy3ECwJcIx3YubDD3GwhhX5WXjHjZWZq6eG8muWvlHTdzBqb
+         Y8YA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=VLe1tCHvsXuqDEBtfO7OY5kLhydgi9CnGmhErJAm6aY=;
-        b=ljbTeeOTHqkHrvT1XGaOx5Dd5XPBIrr9+eymlD+ZyPhUk26yMeuYUn8MVYod1DatfI
-         GpBgo4FPimOpYrsJljQ1HSRMeZQOuDjUIh3G7gX8xZuaqjGElsfMQzWUjh8co3FMr4NT
-         pNPdsITUckYjc7YqcW6UuAfa2Po+5sn/8Xtc7IyEw62BhWsnkTVsOVsLQ6UWON6Nhvze
-         dIDXo1KQEE7vwXj2KswGOekKK6XEO1+M7yHZZ1edV4r5pnY+dql+oVhFDqhr2BLuyUCq
-         7WDAd4A2O4nt0wCrHeWs8ghlmiBBxgn0H/Xw/2rw6Xi6gupQFSgjxJ45PGs4SkVWK8UR
-         Wf9w==
-X-Gm-Message-State: AFqh2kpuR5MnPziWXk4czpC/oI+eSit76tJnhhxBeMw8IsBAz+wWM+xE
-	OyUtTop6d+2vN9aCidnNYn7Sag==
-X-Google-Smtp-Source: AMrXdXvuCQdb16Nj82HEsGUUdIjG5ZPXUogSicV9IYHza0HEoyjvxXi4JXn+3h6rll38KtJXF4JaFw==
-X-Received: by 2002:a05:600c:1508:b0:3d3:5166:2da4 with SMTP id b8-20020a05600c150800b003d351662da4mr20299706wmg.8.1674388494495;
-        Sun, 22 Jan 2023 03:54:54 -0800 (PST)
+        bh=ckWviSxANZfcro+bBRfyc+cenkmtjOkiW7r6SzucWlg=;
+        b=an/M3XJFayCGCGqMbYyFIDc6HG6QAuxzjA0T/Wd1aJVCrrdjJbp/kDCRtPE0jd86ie
+         vAka8gtA4BQjUGWSK6IzA4+T8ulGAp4HfeXHC0axMJn5xsWgZ6JXC7iCjeVdNiQyFYb+
+         vmLQ2y1Tq7GCCTuBavjTaDeb4qToQL3tghslFWdISp0y/uiE1q1+T+sBpOWMlA8ihU/C
+         bUjRFmo/+JS5Z4i/71uZkEF72sFo2yNbuedg9yM2BEjj8SQ5VoPI6I3YDEp+n2gOwyIG
+         k8kHekGz0S94PGmAi7TFqutBrtgXYpQc0jqpDFEDLaJbkRS/u0ZU4ZnGg6RpJ5srgT/V
+         Hf9Q==
+X-Gm-Message-State: AFqh2ko1cIFwgs5ZDg09b0Q0ugpwOJM/OaLLSIAOuOHL1qdnwv61HxIe
+	ho5cLdZJZY/ITi/xx6VOTh0xpw==
+X-Google-Smtp-Source: AMrXdXvUmSo3jcsu3xojfTukvrhpzxz6e7Xp9tLFomGzgShSJjiyaBJUGl7NNs6LSU7eztbkOMG0ag==
+X-Received: by 2002:a5d:5224:0:b0:2bd:bbf7:1f87 with SMTP id i4-20020a5d5224000000b002bdbbf71f87mr20620225wra.60.1674388629088;
+        Sun, 22 Jan 2023 03:57:09 -0800 (PST)
 Received: from [192.168.1.109] ([178.197.216.144])
-        by smtp.gmail.com with ESMTPSA id m37-20020a05600c3b2500b003daf681d05dsm8320826wms.26.2023.01.22.03.54.50
+        by smtp.gmail.com with ESMTPSA id d16-20020adfef90000000b002b9b9445149sm3306165wro.54.2023.01.22.03.57.04
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 22 Jan 2023 03:54:54 -0800 (PST)
-Message-ID: <995eb624-3efe-10fc-a6ed-883d52d591bb@linaro.org>
-Date: Sun, 22 Jan 2023 12:54:48 +0100
+        Sun, 22 Jan 2023 03:57:08 -0800 (PST)
+Message-ID: <3043df6d-8cc1-6969-09d4-50ad6195c924@linaro.org>
+Date: Sun, 22 Jan 2023 12:57:04 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.7.0
-Subject: Re: [RFC PATCH v2 31/31] kvx: Add IPI driver
+Subject: Re: [RFC PATCH v2 29/31] kvx: Add support for cpuinfo
 Content-Language: en-US
 To: Yann Sionneau <ysionneau@kalray.eu>, Arnd Bergmann <arnd@arndb.de>,
  Jonathan Corbet <corbet@lwn.net>, Thomas Gleixner <tglx@linutronix.de>,
@@ -108,12 +108,12 @@ Cc: Benjamin Mugnier <mugnier.benjamin@gmail.com>, linux-doc@vger.kernel.org,
  linux-mm@kvack.org, linux-arch@vger.kernel.org, linux-audit@redhat.com,
  linux-riscv@lists.infradead.org, bpf@vger.kernel.org
 References: <20230120141002.2442-1-ysionneau@kalray.eu>
- <20230120141002.2442-32-ysionneau@kalray.eu>
+ <20230120141002.2442-30-ysionneau@kalray.eu>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20230120141002.2442-32-ysionneau@kalray.eu>
+In-Reply-To: <20230120141002.2442-30-ysionneau@kalray.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230122_035456_215108_D9A295AA 
-X-CRM114-Status: GOOD (  10.34  )
+X-CRM114-CacheID: sfid-20230122_035710_669039_ED4FA7CA 
+X-CRM114-Status: GOOD (  12.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,19 +131,23 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 20/01/2023 15:10, Yann Sionneau wrote:
-> +
-> +int __init kvx_ipi_ctrl_probe(irqreturn_t (*ipi_irq_handler)(int, void *))
+> +static int __init setup_cpuinfo(void)
 > +{
-> +	struct device_node *np;
-> +	int ret;
-> +	unsigned int ipi_irq;
-> +	void __iomem *ipi_base;
+> +	int cpu;
+> +	struct clk *clk;
+> +	unsigned long cpu_freq = 1000000000;
+> +	struct device_node *node = of_get_cpu_node(0, NULL);
 > +
-> +	np = of_find_compatible_node(NULL, NULL, "kalray,kvx-ipi-ctrl");
+> +	clk = of_clk_get(node, 0);
+> +	if (IS_ERR(clk)) {
+> +		printk(KERN_WARNING
+> +		       "Device tree missing CPU 'clock' parameter. Assuming frequency is 1GHZ");
+> +		goto setup_cpu_freq;
+> +	}
+> +
+> +	cpu_freq = clk_get_rate(clk);
 
-Nope, big no.
-
-Drivers go to drivers, not to arch code. Use proper driver infrastructure.
+What about cpufreq? I don't think this is useful.
 
 Best regards,
 Krzysztof
