@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC0BBC54E94
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jan 2023 15:16:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71EC0C38142
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jan 2023 15:17:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=r1kvdRvaxilIT+0LZmbuI6wwWwKHbmnFSOElUhIVK8k=; b=i/6IAvt5onG9t4
-	55Zp+JND+jUsBkXKsVC3+OQUPdaHOjr7ICiCxqnTgmvVJ53SQNfhbKP+JXDKGZeUMmrTc4ZsCAYrl
-	KYaXzK+SKxrxoHYygDQAKf/A2HcRycQEYbUW6t1C2Bx6x2jSH7JeGvRx7TnYNLIF8fIKprTAzgAjC
-	i/8mXgp9CO6x8WN9i5zmm1axVT/XcHdrnEwmB9HMZbfNjXIoUMak0tl+g2NWMqPYZEg5jTfcD3mIz
-	Na9YtLmwqKuFEcuEFhgfVd7OjORp+mp3yduuqOb6pPnlUSJ+/1Z7JTa3hzV+CfZ2pajqOutvHA51F
-	qwzvoKTzAd5c6beSRMgA==;
+	List-Owner; bh=0dCyg+BGW0uMCXUCGW+fTreGWXe3OlhxrCZXT+vYUnI=; b=cMSGEz5bpQSzgh
+	11hnV2ZJUdJ77vxfM9Ea+80YQD2HTxXE4j71TlO+o1jM9HS9GIhdTmfk8cNjCr+VLXNSmpnNnH+xq
+	5zKiuYA8gKDkLSLVbLzHD7JWer1xaTu8h51xldqq3jkDC0qfGye2b2gJB4lvSoPru2PM66jDEa6X0
+	tv/mQ1bsfzI7vrB4wG4RoGusWOQdZDvakhGg9kiz3BTpPzNRnAACJuwaDI9sxXwNBUPATHQDNTvCf
+	o6gIzlFyu08TwMBVPaQQjRWZ5ypx6XUVWdIsH7FSBegn0KW1ZWXRSu3GWF6siA5vSWUKp8SN+uHYE
+	EWlzK/KG9XwblMEe3ZiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pJyYA-0006fa-6d; Mon, 23 Jan 2023 15:15:58 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1pJyZ9-0007De-NR; Mon, 23 Jan 2023 15:16:59 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pJyVa-0005Mr-Mk
-	for linux-riscv@lists.infradead.org; Mon, 23 Jan 2023 15:13:22 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id z5so11121920wrt.6
-        for <linux-riscv@lists.infradead.org>; Mon, 23 Jan 2023 07:13:18 -0800 (PST)
+	id 1pJyVi-0005U7-Gw
+	for linux-riscv@lists.infradead.org; Mon, 23 Jan 2023 15:13:28 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id q8so9257709wmo.5
+        for <linux-riscv@lists.infradead.org>; Mon, 23 Jan 2023 07:13:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=linaro.org; s=google;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=b5LLyL4NM9RFy872x3bTzHa5dSLMasbi37/mYNx6DCA=;
-        b=YNHH8XRTX/01S31iQXYst52wcTTzbNbPtyQX8SbuGG5qAnPY1IAqJCxowByc5NAiIj
-         EVn8g39hWWoxqwFSvp+seTBUawYQXnNdYFG80ce8+U59d80Q9psruK3xc4Ch80Q9YQ2K
-         7nLXo8JaD+hoq87mrhJnw9b9r2JkD5hpoExRj3QchU725f9quBfOmlP3QFCp1yrmlIh+
-         yN0fT+2BIch3oSwCfldxTIrUFhydcgT/dWrzIQtWy5fZU5RDfkbqSugyevH04iBrUfo4
-         KkH+FZ5UVdtouXOh29sg6LYwdfy4Y6E8tyFQT+bxnvnvq0tiMvWZprOXXi1+E/vda0cB
-         kxKw==
+        bh=42Hfl1J4qT8SATIfnUTpADzmL78jDne+EhYGf6Qds8c=;
+        b=yTpXkuZVxBf/Okosou2SRl8i1EYnqKjpR9qYNEiJoBGzFJVhTP1BUZcYXSwoDYMMm/
+         gGEOvGj+EPw8SDiTsobtFtGxqW5JxRGzgDd8uP9l7D5gjnnmBMvuXxYa5MsvGhtFwGkh
+         1tXRuYZCb+3E/KkAf+XmmfvAi5/C3Iw+uW9kmkIK8pzTnKGZIEEg6DuXqnQ1gfRJlvV4
+         utPYIa2FsLiGCut+4a08Y8O9Wbw9fGRby/G9y/xEyeEUWM3TfuAwiFOOzfMPfpH7cDwZ
+         YthMHBcw7/iaTz1OlbMNI73XKu2je6+LGiC+3p58LLw1SPixX4Bg6TAKC52aP69iurRt
+         +TeQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=b5LLyL4NM9RFy872x3bTzHa5dSLMasbi37/mYNx6DCA=;
-        b=SsqketAMDb6eA743InJTL/Et4OVa5qJuOJn4/uF8qT9y50JfNG289GFsMFTh4J81wF
-         p5G5vyTgdqmZ6N280AGpPkGZzQIDu/T7eBUO4alftUH+HSNPyO52/m7D9NzQNu4IGS7Y
-         oPuJ1f51NRWtmMQKgfIaomLM+4uAz9kiIBBkUADEtc6JKlXcXGG9jqwMHaqTmZ+mp62x
-         SkB7SFBRn5QDgR3GqnnGpIX67PX+UP/80OEpz4Z9E8lh0kI1TKjWlXyZYzugWYneYd/T
-         T10bgOS7TAIDou9cZXN5ld5e+/L+YFu5rfbb7pS3cEsxrAzEPZx4hhLR8gd2nWVdPlT1
-         aiFw==
-X-Gm-Message-State: AFqh2kpQuax0f34rL2vXaQx21BnSb88agPYt9HdlYLxWdHQly9xp2gLO
-	nvdAGvIp7fowxpEYmRgOJDNEVA==
-X-Google-Smtp-Source: AMrXdXsQsitf8BzeJXaPtKrY+OeCwfG0Ax0tXdx3cyfdOVAR+FOLMjW3bN2wF/BNgF4woch/VT2ctg==
-X-Received: by 2002:adf:ce90:0:b0:2bb:edc7:504 with SMTP id r16-20020adfce90000000b002bbedc70504mr23324176wrn.26.1674486798260;
-        Mon, 23 Jan 2023 07:13:18 -0800 (PST)
+        bh=42Hfl1J4qT8SATIfnUTpADzmL78jDne+EhYGf6Qds8c=;
+        b=s48auuJ7WUwTPt19i1UOdFu6YF8AdYUkdJYLTjfIbXozLf5CSVxVcYwe3FPKmFA6um
+         Bso5jeonX7ubHSjmGkN4UC3KL4Kvup7TDti2kljfHXcYSyVZXlZMih49BaFNNtyj09LD
+         cvvY0k4TWFf4tTuaiKcMooc6AJuhbssUReYMtMiwmTME6tKugsgWM/KaIex43eaR2yOg
+         vz19piV7ktO/0Ob7AYlR6ucO7BM78IKSjlWIjXf8mOS9/Q1z+9sQPt56rA+uh7XhJSvx
+         infE2sAGmvT2GVZrQvunz963C/LYVGkuQjGRfhUBmEoNU72w4kczI03omFRKkZWQfEZV
+         goOw==
+X-Gm-Message-State: AFqh2krAEXfyY94ZDfy7d4Cl+Dnd2CjJvu8uZ0L27XcaOzEJnvsS4oCr
+	ZdMk2DNRpO3Z3X0lSM1OH/hNcA==
+X-Google-Smtp-Source: AMrXdXu6vYRYY5wV4XGcnXHQFFjaoLMw0vFZzVv4DjurTQnJ18UGrtA3F3Fe/V27r3/7GSCupm0HyA==
+X-Received: by 2002:a05:600c:3b82:b0:3d2:392b:3165 with SMTP id n2-20020a05600c3b8200b003d2392b3165mr24592200wms.12.1674486805187;
+        Mon, 23 Jan 2023 07:13:25 -0800 (PST)
 Received: from krzk-bin.. ([178.197.216.144])
-        by smtp.gmail.com with ESMTPSA id n1-20020a5d67c1000000b002bc7f64efa3sm34737922wrw.29.2023.01.23.07.13.16
+        by smtp.gmail.com with ESMTPSA id n1-20020a5d67c1000000b002bc7f64efa3sm34737922wrw.29.2023.01.23.07.13.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Jan 2023 07:13:17 -0800 (PST)
+        Mon, 23 Jan 2023 07:13:24 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Rob Herring <robh+dt@kernel.org>,
@@ -96,16 +96,17 @@ To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	linux-riscv@lists.infradead.org,
 	linux-stm32@st-md-mailman.stormreply.com
 Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH 04/13] dt-bindings: serial: correct ref to serial.yaml
-Date: Mon, 23 Jan 2023 16:12:53 +0100
-Message-Id: <20230123151302.368277-4-krzysztof.kozlowski@linaro.org>
+Subject: [PATCH 07/13] dt-bindings: serial: fsl-imx-uart: drop common properties
+Date: Mon, 23 Jan 2023 16:12:56 +0100
+Message-Id: <20230123151302.368277-7-krzysztof.kozlowski@linaro.org>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20230123151302.368277-1-krzysztof.kozlowski@linaro.org>
 References: <20230123151302.368277-1-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230123_071318_837103_3321D8B8 
-X-CRM114-Status: GOOD (  11.26  )
+X-CRM114-CacheID: sfid-20230123_071326_637550_AA80CA44 
+X-CRM114-Status: UNSURE (   8.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,46 +123,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The serial bindings should reference the local (in kernel) serial.yaml,
-not the /schemas/serial.yaml.  The latter comes from dtschema package
-and is a small subset of serial bindings.
-
-Usage of the local serial.yaml allows typical properties and children:
-
-  xilinx/avnet-ultra96-rev1.dtb: serial@ff000000: Unevaluated properties are not allowed ('bluetooth' were unexpected)
+The binding references serial and rs485 schemas, so there is no need to
+list their properties.  Simplify a bit by removing unneeded entries.
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- Documentation/devicetree/bindings/serial/cdns,uart.yaml         | 2 +-
- Documentation/devicetree/bindings/serial/xlnx,opb-uartlite.yaml | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+ Documentation/devicetree/bindings/serial/fsl-imx-uart.yaml | 7 -------
+ 1 file changed, 7 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/serial/cdns,uart.yaml b/Documentation/devicetree/bindings/serial/cdns,uart.yaml
-index 876b8cf1cafb..0c118d5336cc 100644
---- a/Documentation/devicetree/bindings/serial/cdns,uart.yaml
-+++ b/Documentation/devicetree/bindings/serial/cdns,uart.yaml
-@@ -10,7 +10,7 @@ maintainers:
-   - Michal Simek <michal.simek@xilinx.com>
+diff --git a/Documentation/devicetree/bindings/serial/fsl-imx-uart.yaml b/Documentation/devicetree/bindings/serial/fsl-imx-uart.yaml
+index 9d949296a142..b431a0d1cd6b 100644
+--- a/Documentation/devicetree/bindings/serial/fsl-imx-uart.yaml
++++ b/Documentation/devicetree/bindings/serial/fsl-imx-uart.yaml
+@@ -83,13 +83,6 @@ properties:
+       are sensible for most use cases. If you need low latency processing on
+       slow connections this needs to be configured appropriately.
  
- allOf:
--  - $ref: /schemas/serial.yaml#
-+  - $ref: serial.yaml#
- 
- properties:
-   compatible:
-diff --git a/Documentation/devicetree/bindings/serial/xlnx,opb-uartlite.yaml b/Documentation/devicetree/bindings/serial/xlnx,opb-uartlite.yaml
-index 2f4390e8d4e8..6f65e9a81c29 100644
---- a/Documentation/devicetree/bindings/serial/xlnx,opb-uartlite.yaml
-+++ b/Documentation/devicetree/bindings/serial/xlnx,opb-uartlite.yaml
-@@ -63,7 +63,7 @@ required:
-   - xlnx,use-parity
- 
- allOf:
--  - $ref: /schemas/serial.yaml#
-+  - $ref: serial.yaml#
-   - if:
-       properties:
-         xlnx,use-parity:
+-  uart-has-rtscts: true
+-
+-  rs485-rts-delay: true
+-  rs485-rts-active-low: true
+-  rs485-rx-during-tx: true
+-  linux,rs485-enabled-at-boot-time: true
+-
+ required:
+   - compatible
+   - reg
 -- 
 2.34.1
 
