@@ -4,49 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34047C38142
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jan 2023 09:31:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5FB6C25B50
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jan 2023 09:44:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
-	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cft35UhfJ7GAvqOPcKH/LgmqTCB3xdIs33RZ26x5uVk=; b=1ihtHpB2yW1RrdZ+/3DrsEbkqr
-	BNy6wU7kjJaKfP0WuUBxWQpayz1Rnorb7AbG+Ob8T4oAS9lQseEwCtey1WscMQaI67UzFAoay3s3+
-	W/NrIGZK0vHIxSK2S63CzmLfqn457zDIkKc2y5l43E9/F3pd/K+wgaUKndk1WTID4FyO/k6zs/T2E
-	dfFwEvORf/HvXMl2IT9mEzAQGGTLIGfnEo2WMN3bXIqUmYdF0YoEqBsz5c26E3GQj2Nxsyea9UhSn
-	Js96hGrHXVwzDukBB7H5ZGud2G74qMXD8AaOgurjKmCVcm0omdnLVXOFusa8PTMhXqGNUnLoqme12
-	Pt2xUo7g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=R1jASUPnUmbXG3k3up7FUl0lXZIAGciLVUtjLPG0jUI=; b=HsNAtg8LhNhkhp
+	2XTaVcPIxWoueDDUKmwHAiEVjQgVnqy8/tszCnU40n1ujCzUQclfxOEECLtTUrSwgBU1dxcPV61cH
+	Fkz60Cj7QXLBr1N2Gbiw/rDzh+7cbEwWapB5BhBgwlZNOG0mIr/m2GuAPrst9TO1e4cQRYi/Tzm35
+	xqoVIlFIAcLv3I3Ef6ZAu3d2kpm09hqcIcyDIRx77pzI6hiZK2XzvhViuYZb7pKq4JVXUlM/2W8h5
+	CY8eEJa1qEMkIZRf4B9Jvyi34zxtAXDO3uhhqjP0qQLbp9GsUTStudBpScOvLL/UiUREy0uFAGMgm
+	krgrTiUeQxsok+WLnouQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pJtAs-00GWts-14; Mon, 23 Jan 2023 09:31:34 +0000
-Received: from relay1-d.mail.gandi.net ([217.70.183.193])
+	id 1pJtN6-00GYwz-CU; Mon, 23 Jan 2023 09:44:12 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pJtAo-00GWrh-1i; Mon, 23 Jan 2023 09:31:31 +0000
-Received: (Authenticated sender: alex@ghiti.fr)
-	by mail.gandi.net (Postfix) with ESMTPSA id 49BFB240009;
-	Mon, 23 Jan 2023 09:31:21 +0000 (UTC)
-Message-ID: <bdabafb1-53f3-403c-ab9c-1c2d00421690@ghiti.fr>
-Date: Mon, 23 Jan 2023 10:31:21 +0100
+	id 1pJtN2-00GYv5-PA
+	for linux-riscv@lists.infradead.org; Mon, 23 Jan 2023 09:44:10 +0000
+Received: by mail-ed1-x529.google.com with SMTP id y19so13875458edc.2
+        for <linux-riscv@lists.infradead.org>; Mon, 23 Jan 2023 01:44:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Tzw7rVzTiAE2k/bJcZBk03eWLle0ey7P0sqdJk1vnSM=;
+        b=Plu12ZxwGb6JsyyWkxd2rHh4SjNlcEvN324p4m6LtWds1GO+Hax8AGLJ6wHcRXrmeG
+         WxEcfNUpxC6KQytDKSE2msAWJ6ukXAyQPcxTtxOuhe6uwbVjbh8JMjCIJXZiOBa/D/YY
+         VJLw6jw/JAuObEKslK9X0NTn1zhFYUA21kzoDGN8RVsy3q8RtvGprz03VpvMqxbKZRro
+         HbqfcUdCEIG4svaIQJ22q/9nFKQzzhgQicTpZ25PKXw0Gg2Nr+a4ntpzAfeVtu1ID3Ux
+         mBiGrabv3QCuRAtEb7O+DKYfGuZrp3is9C4T6W9FlZ60qwSNCv+oaHW1OHbGxBdgdf2U
+         dCeg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Tzw7rVzTiAE2k/bJcZBk03eWLle0ey7P0sqdJk1vnSM=;
+        b=r1U+SuDydtzxF9jjYc4jA490UT16Ve/hYZktQIOH6BcpZtBw6SpNyJIQzm+S5wfJJ4
+         JuftdvqvDYnjgPWr/+veLsXsKnRbNmB4j39LqAtRk8twmQ74gnJzsSF+J0anidKbNvYv
+         hXgByUQ17gCJgpcvkcZ8Od753dcVbhHytHCe2Je8D2dz/ttL7CzlvxQOPFoZUHuXqIlQ
+         OKNomnQ6IynZTZzDbMweSK3YYyFPot69VT3ImwewtZNzn6wwkgQtIAynJmBOwmO1n97o
+         TAEwbrCKyeipsVTHZ/ICyVkcevki28DOXN0AWD5OZPF9s2m5IHxTWSiDbYXCmbBUJT4Y
+         u1+g==
+X-Gm-Message-State: AFqh2koeP6nQIFEO9iGY0a09apVCqcark9HuVhX6z4wp5OeS1lkDCeXU
+	plr0Zitli+CniV0W2WG4cc9H+g==
+X-Google-Smtp-Source: AMrXdXutGuQsdwPBdG0nyzaFoN1CE+Hi1ozPIjd2kpvHRh/7ZdJXcy0rLy+58kuMSsp/lk+rggSzlw==
+X-Received: by 2002:a05:6402:602:b0:49d:f448:878c with SMTP id n2-20020a056402060200b0049df448878cmr33389242edv.2.1674467046664;
+        Mon, 23 Jan 2023 01:44:06 -0800 (PST)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id v17-20020a170906293100b007be301a1d51sm21720198ejd.211.2023.01.23.01.44.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Jan 2023 01:44:06 -0800 (PST)
+Date: Mon, 23 Jan 2023 10:44:05 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Conor Dooley <conor.dooley@microchip.com>, g@orel
+Cc: linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org,
+	'Atish Patra ' <atishp@rivosinc.com>,
+	'Jisheng Zhang ' <jszhang@kernel.org>,
+	'Palmer Dabbelt ' <palmer@dabbelt.com>,
+	'Albert Ou ' <aou@eecs.berkeley.edu>,
+	'Paul Walmsley ' <paul.walmsley@sifive.com>,
+	'Heiko Stuebner ' <heiko@sntech.de>,
+	'Anup Patel ' <apatel@ventanamicro.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 2/6] dt-bindings: riscv: Document cboz-block-size
+Message-ID: <20230123094405.2ageo63zauqt6g2n@orel>
+References: <20230122191328.1193885-1-ajones@ventanamicro.com>
+ <20230122191328.1193885-3-ajones@ventanamicro.com>
+ <Y85A+3MW2N/jPTHH@wendy>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.4.2
-Subject: Re: [PATCH] KVM: RISC-V: Fix wrong usage of PGDIR_SIZE to check page
- sizes
-To: Alexandre Ghiti <alexghiti@rivosinc.com>, Anup Patel
- <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20230123092928.808014-1-alexghiti@rivosinc.com>
-Content-Language: en-US
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20230123092928.808014-1-alexghiti@rivosinc.com>
+Content-Disposition: inline
+In-Reply-To: <Y85A+3MW2N/jPTHH@wendy>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230123_013130_266443_17284E61 
-X-CRM114-Status: GOOD (  14.44  )
+X-CRM114-CacheID: sfid-20230123_014408_864875_7225257D 
+X-CRM114-Status: GOOD (  22.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,61 +95,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-@Anup: Sorry, forgot to add -fixes to the patch title, as I think this 
-should go into your fixes branch for 6.2.
+On Mon, Jan 23, 2023 at 08:10:35AM +0000, Conor Dooley wrote:
+> Hey,
+> 
+> On Sun, Jan 22, 2023 at 08:13:24PM +0100, Andrew Jones wrote:
+> > The Zicboz operates on a block-size defined for the cpu-core,
+> > which does not necessarily match other cache-sizes used.
+> > 
+> > So add the necessary property for the system to know the core's
+> > block-size.
+> > 
+> > Cc: Rob Herring <robh@kernel.org>
+> 
+> FYI bindings need to be CC Krzysztof & the devicetree list too.
 
-On 1/23/23 10:29, Alexandre Ghiti wrote:
-> At the moment, riscv only supports PMD and PUD hugepages. For sv39,
-> PGDIR_SIZE == PUD_SIZE but not for sv48 and sv57. So fix this by changing
-> PGDIR_SIZE into PUD_SIZE.
->
-> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> ---
->   arch/riscv/kvm/mmu.c | 8 ++++----
->   1 file changed, 4 insertions(+), 4 deletions(-)
->
-> diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-> index 34b57e0be2ef..dbc4ca060174 100644
-> --- a/arch/riscv/kvm/mmu.c
-> +++ b/arch/riscv/kvm/mmu.c
-> @@ -585,7 +585,7 @@ bool kvm_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
->   	if (!kvm->arch.pgd)
->   		return false;
->   
-> -	WARN_ON(size != PAGE_SIZE && size != PMD_SIZE && size != PGDIR_SIZE);
-> +	WARN_ON(size != PAGE_SIZE && size != PMD_SIZE && size != PUD_SIZE);
->   
->   	if (!gstage_get_leaf_entry(kvm, range->start << PAGE_SHIFT,
->   				   &ptep, &ptep_level))
-> @@ -603,7 +603,7 @@ bool kvm_test_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
->   	if (!kvm->arch.pgd)
->   		return false;
->   
-> -	WARN_ON(size != PAGE_SIZE && size != PMD_SIZE && size != PGDIR_SIZE);
-> +	WARN_ON(size != PAGE_SIZE && size != PMD_SIZE && size != PUD_SIZE);
->   
->   	if (!gstage_get_leaf_entry(kvm, range->start << PAGE_SHIFT,
->   				   &ptep, &ptep_level))
-> @@ -645,12 +645,12 @@ int kvm_riscv_gstage_map(struct kvm_vcpu *vcpu,
->   	if (logging || (vma->vm_flags & VM_PFNMAP))
->   		vma_pagesize = PAGE_SIZE;
->   
-> -	if (vma_pagesize == PMD_SIZE || vma_pagesize == PGDIR_SIZE)
-> +	if (vma_pagesize == PMD_SIZE || vma_pagesize == PUD_SIZE)
->   		gfn = (gpa & huge_page_mask(hstate_vma(vma))) >> PAGE_SHIFT;
->   
->   	mmap_read_unlock(current->mm);
->   
-> -	if (vma_pagesize != PGDIR_SIZE &&
-> +	if (vma_pagesize != PUD_SIZE &&
->   	    vma_pagesize != PMD_SIZE &&
->   	    vma_pagesize != PAGE_SIZE) {
->   		kvm_err("Invalid VMA page size 0x%lx\n", vma_pagesize);
+Thanks, hopefully CC'ing them now is OK (I just added them). If not,
+I can repost.
+
+> 
+> > Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+> > ---
+> >  Documentation/devicetree/bindings/riscv/cpus.yaml | 5 +++++
+> >  1 file changed, 5 insertions(+)
+> > 
+> > diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
+> > index c6720764e765..f4ee70f8e1cf 100644
+> > --- a/Documentation/devicetree/bindings/riscv/cpus.yaml
+> > +++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
+> > @@ -72,6 +72,11 @@ properties:
+> >      description:
+> >        The blocksize in bytes for the Zicbom cache operations.
+> >  
+> > +  riscv,cboz-block-size:
+> > +    $ref: /schemas/types.yaml#/definitions/uint32
+> > +    description:
+> > +      The blocksize in bytes for the Zicboz cache operations.
+> 
+> Do you think hardware that has different Zicboz versus Zicbom block
+> sizes is going to be common, or would we benefit from just defaulting
+> the Zicboz size to the Zicbom one?
+
+I'm not sure. If it turns out the block size will be the same in most
+cases, then we could add another property named cbo-block-size, which,
+when present, would be parsed first and used to populate all CBO-related
+block sizes. Then, these specific properties would only serve to override
+that general size for their respective block sizes when they're present.
+
+> 
+> Either way,
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+
+Thanks,
+drew
+
+> 
+> Thanks,
+> Conor.
+> 
+
+
 
 _______________________________________________
 linux-riscv mailing list
