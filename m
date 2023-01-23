@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45025C25B50
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jan 2023 10:26:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6A6EC38142
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jan 2023 10:26:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3RtriPOaHwev1X9RT/YsOQzIwmTohgG2/MixUGSd4mU=; b=XoX9jm661HZbMq
-	WiQKX+GE+nVTGsHSXgmwOZjfYP+WK26vpUEvzVOEW2Tu1XI0Y02a1TVD7gSXNjlyrYuIWf8qp6cLD
-	sRxcE+fTCdw/SgY7imVgYuP55ChxD6fPDovqGCSmVvXHRbSs9PaLxJfSt66dHK6cLDiKi7O8zZi9V
-	8Iu7A7P1qc6aAPH54oYaXwMdGWnjW32tItQ0TJ7QmG5Vn5TfZOR+X2pmop5Ny8U7Ni3OuXR6PFygo
-	TxF+j+mXrSpMxDDOoyXc7Fw/07IZKSgsTFDD4hQCYiK9GKpG9FxTBmMpvoEyTFSOuij7DAi68j/36
-	T0d4gS9L2dXAUpB8JjJQ==;
+	List-Owner; bh=dQJplkVLG7wOicJNGIU0K7Z3bQjynlMq9KLS2uFm8Pc=; b=urkaeEhEDPHGHK
+	I7yy5fvd90QXhzYQtKasd0N/poMI1k1JYkYG6GaGoG5EytiVDhAs9PJA5jQKAmVxFpCccuw1Rmz7o
+	HavtSeeBjP+awkQKtDXU1nUEtMsoUAFG4yZp6leqsVRhdAMLFvg0fajqnic9+tBWQpnnd218ve3aG
+	zVW4zHAomd+5Hcas0cM/akJdExV0tK/5g6k9ObU/39KPs11oC/fE5yt+zorTTozxtEwBp46xJzIEl
+	WT7T6jJs9yFJvrV4oYTm9LgGZR7V34t3ghmBYMpTZ9hCvQUC9vUviufvQWdkybC+GZqKli8mYaPmc
+	2kNx2qmG4k0oeksZ6xSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pJu1r-00GoC1-36; Mon, 23 Jan 2023 10:26:19 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1pJu25-00GoHa-LI; Mon, 23 Jan 2023 10:26:33 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pJtox-00GiYQ-EH
-	for linux-riscv@lists.infradead.org; Mon, 23 Jan 2023 10:13:00 +0000
-Received: by mail-wm1-x336.google.com with SMTP id l41-20020a05600c1d2900b003daf986faaeso8131070wms.3
-        for <linux-riscv@lists.infradead.org>; Mon, 23 Jan 2023 02:12:57 -0800 (PST)
+	id 1pJtpv-00GivI-7U
+	for linux-riscv@lists.infradead.org; Mon, 23 Jan 2023 10:14:00 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id f19-20020a1c6a13000000b003db0ef4dedcso10190961wmc.4
+        for <linux-riscv@lists.infradead.org>; Mon, 23 Jan 2023 02:13:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=VzLCWkEIOjhYvr7p7s7uKUj96vyQiWAZD9+xORl+Fd4=;
-        b=HXc8RqVoAlQiZ3SA2JFj/Ss1Z4kvlhRCjc8xe2vvhQs7MG+eiCGYHpoDvfBnNdp6Dv
-         Y+fbxkiIx0qH1+5beUgDgVbZyHqwPhWfOkZqdoa4CcpkVYSA0pZvsCX2zfNOiyF0W3cv
-         4mMCvCoCb2pEnyD09346WX82nautOUHabcg/bg44jXDHHJktQS+ON0lo+MK/rA0Fiw1I
-         AGldKNHzkoVZEX4z40MQ6jBTw8p2d4QBPzbcxGy6ZIOlBimIexgg9m3K+mX/N1rKyLMR
-         NiGOQW6gZ9Wkk7a8E4iI6icfKgXRhrCfDsYYxtffTahQDSRzS2nEths/z8JtQIf3Yryb
-         jVyQ==
+        bh=fzQuCSnEBk5gMM/0cxqbCinBRYL7OsazNWf1U0bm1VQ=;
+        b=mObKqyJ3XaOMUCe38UnhDsG/WnSMBgcpNpgXAMV7UfbTJcrB1K3mWIIOkGfSsVtu2r
+         JiM3rK/33BZaNHMFyZgOUYTUg2sEGJEMiP9YufPRxhEReJGZlu/xjxif2ZtiCxnDLRau
+         1wl7blHF19tVm+3MoQba2v7hFJYZegyUnpDT0QVYpgoYG0pt/5LCN9z0QrRpxR660M+A
+         DIpgXRAHwuHAbh9HZDSUFPkWpJYJd3np3uWycLeXN/O7Kh7SFsHBeIEPQZMvXXh06ai/
+         3o5rSA5V1+lpycTPZ/+oFS7ubecg07stoXvCKEpgJcgLyZ9kXQSrpq1IahSAzpjFmUNh
+         FLNw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=VzLCWkEIOjhYvr7p7s7uKUj96vyQiWAZD9+xORl+Fd4=;
-        b=wOyrR3SsoJwsrANffA1Lz2GTwfHMcUR+bNxcKJNZgN625U2xzbcDGdPaeWia+/XmAU
-         aQqBUX+J2NrWH+6ulvQmnSc3p7giYzx0kxStJ2I7RUZzV6V9JAIimX+VKgXaNiX+fJK1
-         P0+ZK09/+H83ApYE0lHqmFlRrMEuvZUwDYmCV2isWANc8nVXXyiMHHhtb2bhtFm1SHFo
-         KaTjJ46FN5mRaXTzl99YuLekOcMH9hQanRgfEHBqFsP00uZWd6Y3JYMOrwb2f6w5VsOL
-         yrdu7uj5ySJm3gjp68meUCYK6wFHS8B14ORCkfbpt9wYGMhIe/cWDVxKDvBhzicZbLo1
-         xjSw==
-X-Gm-Message-State: AFqh2kp1R/e9OzjCNYdc8JMKabNExSb7DHx63N7+l6XoKMnmwgfnbS+o
-	qfDHa+7663gTLQ1J0zPZcGr7Y6SKg9Z/tQ5u
-X-Google-Smtp-Source: AMrXdXv+bjpVA33KRbsI7GGQQ6TP8aToqcfzuFxT6KcEnBDPOEnT0+96sEUxMPkf/KM0d7bIPhR22Q==
-X-Received: by 2002:a05:600c:1c83:b0:3db:27b3:a654 with SMTP id k3-20020a05600c1c8300b003db27b3a654mr14875103wms.26.1674468776649;
-        Mon, 23 Jan 2023 02:12:56 -0800 (PST)
+        bh=fzQuCSnEBk5gMM/0cxqbCinBRYL7OsazNWf1U0bm1VQ=;
+        b=bfpW7bJ5W+DAT1TZtfuU6Fl5M5J0QLeoOqBxb5uUm+GAHlu364TOAZ41UzpdtSGXAV
+         FO0K4EcTUXUY2+sqynyKqe/2vHUAWXHDJFevqJ4YlfOoyy40CEHlLg65f598C/Ir89fq
+         d1cmj2X3v0d/IwSgSBk0gN5+Nr+BxXVsTXh1IO9VykHXPyG2hkAujlQkePzVmVoBPDAU
+         gfFRSEP+dspm02l/KbuevQled8TYIR1gPH5seTPt8vdTEwdZiNL0DfSHUlpDzUozbcy4
+         /OO0FCICno4965A5FD8Mp8ESjZBRd5Z5dBhLURUzHyL8pdiR1itanoqhiQxyzEENNx04
+         ZUJA==
+X-Gm-Message-State: AFqh2kqeTDc1wJ529XLE0L16oTxTUFo/XVYOE1DCtJAoMkCZRTfZ+G6u
+	M4TUSHT68v1ORWMrVCnYtZReIg==
+X-Google-Smtp-Source: AMrXdXtTmEiKZTnB5U/TX0g91Npj+BJfrEC7JbcTiWp8/aNr0ZBIqEWCtbTa9wq/1djDZez7HYitng==
+X-Received: by 2002:a05:600c:3d98:b0:3d6:ecc4:6279 with SMTP id bi24-20020a05600c3d9800b003d6ecc46279mr19967175wmb.27.1674468837652;
+        Mon, 23 Jan 2023 02:13:57 -0800 (PST)
 Received: from alex-rivos.ba.rivosinc.com (lfbn-lyo-1-450-160.w2-7.abo.wanadoo.fr. [2.7.42.160])
-        by smtp.gmail.com with ESMTPSA id d19-20020a05600c34d300b003a6125562e1sm10375823wmq.46.2023.01.23.02.12.55
+        by smtp.gmail.com with ESMTPSA id fc17-20020a05600c525100b003db1d9553e7sm11373283wmb.32.2023.01.23.02.13.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Jan 2023 02:12:56 -0800 (PST)
+        Mon, 23 Jan 2023 02:13:57 -0800 (PST)
 From: Alexandre Ghiti <alexghiti@rivosinc.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -74,17 +74,19 @@ To: Paul Walmsley <paul.walmsley@sifive.com>,
 	linux-kernel@vger.kernel.org,
 	kasan-dev@googlegroups.com,
 	linux-efi@vger.kernel.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH v2 3/6] riscv: Move DTB_EARLY_BASE_VA to the kernel address space
-Date: Mon, 23 Jan 2023 11:09:48 +0100
-Message-Id: <20230123100951.810807-4-alexghiti@rivosinc.com>
+Cc: Alexandre Ghiti <alexghiti@alexghiti.eu.rivosinc.com>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH v2 4/6] riscv: Fix EFI stub usage of KASAN instrumented strcmp function
+Date: Mon, 23 Jan 2023 11:09:49 +0100
+Message-Id: <20230123100951.810807-5-alexghiti@rivosinc.com>
 X-Mailer: git-send-email 2.37.2
 In-Reply-To: <20230123100951.810807-1-alexghiti@rivosinc.com>
 References: <20230123100951.810807-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230123_021259_517528_88E47089 
-X-CRM114-Status: GOOD (  10.83  )
+X-CRM114-CacheID: sfid-20230123_021359_300971_0F866E1C 
+X-CRM114-Status: UNSURE (   9.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,35 +103,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The early virtual address should lie in the kernel address space for
-inline kasan instrumentation to succeed, otherwise kasan tries to
-dereference an address that does not exist in the address space (since
-kasan only maps *kernel* address space, not the userspace).
+From: Alexandre Ghiti <alexghiti@alexghiti.eu.rivosinc.com>
 
-Simply use the very first address of the kernel address space for the
-early fdt mapping.
+The EFI stub must not use any KASAN instrumented code as the kernel
+proper did not initialize the thread pointer and the mapping for the
+KASAN shadow region.
 
-It allowed an Ubuntu kernel to boot successfully with inline
-instrumentation.
+Avoid using the generic strcmp function, instead use the one in
+drivers/firmware/efi/libstub/string.c.
 
 Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 ---
- arch/riscv/mm/init.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/riscv/kernel/image-vars.h | 2 --
+ 1 file changed, 2 deletions(-)
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 478d6763a01a..87f6a5d475a6 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -57,7 +57,7 @@ unsigned long empty_zero_page[PAGE_SIZE / sizeof(unsigned long)]
- EXPORT_SYMBOL(empty_zero_page);
- 
- extern char _start[];
--#define DTB_EARLY_BASE_VA      PGDIR_SIZE
-+#define DTB_EARLY_BASE_VA      (ADDRESS_SPACE_END - (PTRS_PER_PGD / 2 * PGDIR_SIZE) + 1)
- void *_dtb_early_va __initdata;
- uintptr_t _dtb_early_pa __initdata;
- 
+diff --git a/arch/riscv/kernel/image-vars.h b/arch/riscv/kernel/image-vars.h
+index 7e2962ef73f9..15616155008c 100644
+--- a/arch/riscv/kernel/image-vars.h
++++ b/arch/riscv/kernel/image-vars.h
+@@ -23,8 +23,6 @@
+  * linked at. The routines below are all implemented in assembler in a
+  * position independent manner
+  */
+-__efistub_strcmp		= strcmp;
+-
+ __efistub__start		= _start;
+ __efistub__start_kernel		= _start_kernel;
+ __efistub__end			= _end;
 -- 
 2.37.2
 
