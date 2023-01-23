@@ -4,122 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D853DC38142
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jan 2023 17:20:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5154C54E94
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jan 2023 17:20:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eYVivoOWygE0jrPLx4ioGGqIANraFslEf8wDrfEq9ZY=; b=FYS54+68mgB/qY
-	wYkDIUzCcrpbFIfisJLIHShdTAAoPwIJWSiGFStcnmgq0tr2f9uKIFMZfC3iBEagHsw4bicE3FwbO
-	dO/gp43sW4zNIps4Hn2Twr3kQ5QmpMKSbr+wsFyGhzrMoO8/558x+2jbhohdexjfrXNKEU39zkV3Z
-	w0XCwxZ1p4wxRndxs/t6XCS+/RFhCVa6jza0t4WT+2CfFt822szH3jQ5KbJzFBq8UosyQuBTNzGke
-	6EWIo/Wtk9Y8zRnoFW3NospEx0pX7hoAwtAKvUxLKREO4oOG37FQjVWkjvd7nqk0Q1QW1CoYjI0Sk
-	NmyGiq5zL1bw3nowrN7w==;
+	List-Owner; bh=k1XBtrRyMDjGbiIRh9wr1T0hcuZPgDbDSLtEkmHetbE=; b=IOKqkF//Db0HLY
+	aivvgOzUuQxMALQH4o+WGtvZqikBRgQOhNZlX7TnYsmD9OtgxP2ZxVZAn8YJhoo+Gwxh0e5olFWsU
+	r35vftfnyx+Ho2SGf/YRxZGAC+VkfbWyqhqHHjbm6gHKo3LvzVOZYvQsq+9JDMMB52vob0M2l2HXO
+	U4LP/YdFv3euhlQsUZBDkB2lF6+Lqzwe8h3BLerijUf1QlDUHxOcnllwY7a2vTYZ83jfP8YbKU/UL
+	ysyS/Xs9+yetXTJiPA/r9QTYIuWxPkt8y+/8tYgfOUl9saYiozbEK1IAf+0V3JAr2U0BIr3gOmVlN
+	dV7QIL9fplBwhW/OSP0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pK0UM-000oPo-QF; Mon, 23 Jan 2023 17:20:10 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1pK0Ub-000oXW-M4; Mon, 23 Jan 2023 17:20:25 +0000
+Received: from mail-mw2nam04on2084.outbound.protection.outlook.com ([40.107.101.84] helo=NAM04-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pIs6W-00AbKd-4L
-	for linux-riscv@bombadil.infradead.org; Fri, 20 Jan 2023 14:10:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=KJz/b9YoCIIRUSq01C3mSPDG3tNu6e4hEi2a2COm3q8=; b=hpJDCnhQnTJQlQiiW0S9KCiGA4
-	P1Ej5gJQC3RK8bZgWwPSKQ7EPbOluFxDO4c8UQzjQ5BOTnlyFvdXRseW/CQ65lQ45cEXoTNrgKR+X
-	MFgYhL/WmXaKuVAh17Ro/uOzNXCoB6jBRARQyiRhr6Yd+aHJAP/2bhYQkfDn3gH7noPhKtKuuZD8M
-	GmSTuOzJIGpzR723ak/dwP010PD7+MGkNBkL2SD8aV/p5d+9Muc6JF57Zaiuddvo+9yAEbfmvJON/
-	FkjBUrRjNM+5K6GlFaWIM4EDegV0QXaO85REXiZonT4ZdK4CyU+7LddJxfPPt228j7Mj0Wm48WLUG
-	etL3qBOQ==;
-Received: from mxout.security-mail.net ([85.31.212.42] helo=fx302.security-mail.net)
-	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pIs5r-000eM6-1Z
-	for linux-riscv@lists.infradead.org;
-	Fri, 20 Jan 2023 14:10:21 +0000
-Received: from localhost (localhost [127.0.0.1])
-	by fx302.security-mail.net (Postfix) with ESMTP id CA65A1C3E7FD
-	for <linux-riscv@lists.infradead.org>; Fri, 20 Jan 2023 15:10:31 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kalray.eu;
-	s=sec-sig-email; t=1674223831;
-	bh=GJqM9wjU5Rm/hKx0V0bg7P+FyGqil0OwLGvJFdaGj4A=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=LTtmiCFJJTkGZm4Cb2TAeg+dY8Za62ANwvTlhu1ndfrINrp5z/RZ6PdkGrig7viRW
-	 ubJLkpdDP9GyeGQJuPDIGanqHwvZVurfVYvdGfSvXG2PmCHRUen0zMCKHdL+/MHMYs
-	 SDPV/0SDX4OOe0eY/kneICopK0egsg9evIOtZnUM=
-Received: from fx302 (localhost [127.0.0.1]) by fx302.security-mail.net
- (Postfix) with ESMTP id 3CC201C3E6CC; Fri, 20 Jan 2023 15:10:31 +0100 (CET)
-Received: from zimbra2.kalray.eu (unknown [217.181.231.53]) by
- fx302.security-mail.net (Postfix) with ESMTPS id CA6871C3E8ED; Fri, 20 Jan
- 2023 15:10:29 +0100 (CET)
-Received: from zimbra2.kalray.eu (localhost [127.0.0.1]) by
- zimbra2.kalray.eu (Postfix) with ESMTPS id 7D8E927E0437; Fri, 20 Jan 2023
- 15:10:29 +0100 (CET)
-Received: from localhost (localhost [127.0.0.1]) by zimbra2.kalray.eu
- (Postfix) with ESMTP id 569B627E043D; Fri, 20 Jan 2023 15:10:29 +0100 (CET)
-Received: from zimbra2.kalray.eu ([127.0.0.1]) by localhost
- (zimbra2.kalray.eu [127.0.0.1]) (amavisd-new, port 10026) with ESMTP id
- Kn095kYAjLMl; Fri, 20 Jan 2023 15:10:29 +0100 (CET)
-Received: from junon.lin.mbt.kalray.eu (unknown [192.168.37.161]) by
- zimbra2.kalray.eu (Postfix) with ESMTPSA id B79BA27E043E; Fri, 20 Jan 2023
- 15:10:28 +0100 (CET)
-X-Virus-Scanned: E-securemail
-Secumail-id: <1c89.63caa0d5.c9330.0>
-DKIM-Filter: OpenDKIM Filter v2.10.3 zimbra2.kalray.eu 569B627E043D
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kalray.eu;
- s=32AE1B44-9502-11E5-BA35-3734643DEF29; t=1674223829;
- bh=d9IILE7vKG9GyWuI/PG+7sCqyVOA1zCmqn/x2lQWp0Y=;
- h=From:To:Date:Message-Id:MIME-Version;
- b=avlKFn0zvBv0fUkizomgPFBZw4MyfgBIH+XXl40qLlOtSXboqgGYJ3ifEHPFRBLyu
- ceO6nrwF0f56R23XGQQJpMr1/oeTaiWL165oZn7EKs19liHJYToq5O+OrxY4S55qDG
- bR8EnknxsHay1igEiEl1/OFTjgTponZ+qwpt22Dg=
-From: Yann Sionneau <ysionneau@kalray.eu>
-To: Arnd Bergmann <arnd@arndb.de>, Jonathan Corbet <corbet@lwn.net>, Thomas
- Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Rob Herring
- <robh+dt@kernel.org>, Krzysztof Kozlowski
- <krzysztof.kozlowski+dt@linaro.org>, Will Deacon <will@kernel.org>, Peter
- Zijlstra <peterz@infradead.org>, Boqun Feng <boqun.feng@gmail.com>, Mark
- Rutland <mark.rutland@arm.com>, Eric Biederman <ebiederm@xmission.com>, Kees
- Cook <keescook@chromium.org>, Oleg Nesterov <oleg@redhat.com>, Ingo Molnar
- <mingo@redhat.com>, Waiman Long <longman@redhat.com>, "Aneesh Kumar K.V"
- <aneesh.kumar@linux.ibm.com>, Andrew Morton <akpm@linux-foundation.org>,
- Nick Piggin <npiggin@gmail.com>, Paul Moore <paul@paul-moore.com>, Eric
- Paris <eparis@redhat.com>, Christian Brauner <brauner@kernel.org>, Paul
- Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Jules Maselbas <jmaselbas@kalray.eu>,
- Yann Sionneau <ysionneau@kalray.eu>, Guillaume Thouvenin
- <gthouvenin@kalray.eu>, Clement Leger <clement@clement-leger.fr>, Vincent
- Chardon <vincent.chardon@elsys-design.com>, Marc =?utf-8?b?UG91bGhpw6hz?=
- <dkm@kataplop.net>, Julian Vetter <jvetter@kalray.eu>, Samuel Jones
- <sjones@kalray.eu>, Ashley Lesdalons <alesdalons@kalray.eu>, Thomas Costis
- <tcostis@kalray.eu>, Marius Gligor <mgligor@kalray.eu>, Jonathan Borne
- <jborne@kalray.eu>, Julien Villette <jvillette@kalray.eu>, Luc Michel
- <lmichel@kalray.eu>, Louis Morhet <lmorhet@kalray.eu>, Julien Hascoet
- <jhascoet@kalray.eu>, Jean-Christophe Pince <jcpince@gmail.com>, Guillaume
- Missonnier <gmissonnier@kalray.eu>, Alex Michon <amichon@kalray.eu>, Huacai
- Chen <chenhuacai@kernel.org>, WANG Xuerui <git@xen0n.name>, Shaokun Zhang
- <zhangshaokun@hisilicon.com>, John Garry <john.garry@huawei.com>, Guangbin
- Huang <huangguangbin2@huawei.com>, Bharat Bhushan <bbhushan2@marvell.com>,
- Bibo Mao <maobibo@loongson.cn>, Atish Patra <atishp@atishpatra.org>, "Jason
- A. Donenfeld" <Jason@zx2c4.com>, Qi Liu <liuqi115@huawei.com>, Jiaxun Yang
- <jiaxun.yang@flygoat.com>, Catalin Marinas <catalin.marinas@arm.com>, Mark
- Brown <broonie@kernel.org>, Janosch Frank <frankja@linux.ibm.com>, Alexey
- Dobriyan <adobriyan@gmail.com>
-Cc: Benjamin Mugnier <mugnier.benjamin@gmail.com>,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-mm@kvack.org, linux-arch@vger.kernel.org,
- linux-audit@redhat.com, linux-riscv@lists.infradead.org, bpf@vger.kernel.org
-Subject: [RFC PATCH v2 10/31] kvx: Add CPU definition headers
-Date: Fri, 20 Jan 2023 15:09:41 +0100
-Message-ID: <20230120141002.2442-11-ysionneau@kalray.eu>
-X-Mailer: git-send-email 2.37.2
-In-Reply-To: <20230120141002.2442-1-ysionneau@kalray.eu>
-References: <20230120141002.2442-1-ysionneau@kalray.eu>
+	id 1pJw8k-00HAZv-N2; Mon, 23 Jan 2023 12:41:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=JK67vP7J3asEvhRD4a2DWngcf3s/LXXhgr9qsbtXCjBh80BKebwDxQB9SrkJQc8j8Z4zTd+FViRC19oye8YluCj5lXMa1wp8+doTCwtkV2HldNV0GuctLmGpH9rRBH9aOUaHiKKbSuhs19SUc6P6+NFnf6frYYnTFgb1spHBW6cfpACEjSysuFkxDIGL0KEECMS8AWXCx7TNR8QaHyRXy8RvlQcSqVF3Yva7DL7s6+t8xIvGq1QyxXRwOgFZtHvY8csXMrAJJBZCXg5C5O+Gq+XD+bJFbdNLXF4VZblxjxIyvECrZfXwVcQttvND/JoZoGK0NMaPLhL6gB6RAXBjeA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=mRSaVxFcOi8Wl1iv8atBI/tuuzFR7OS9gWyi2TG+ubU=;
+ b=KJcAGQ0iBq0eyWqgTgKAGjbHsPQpirX5G/G3mESVrxP3uqjhob6MKro94hIbtVGcn602WB+UgB8B0+5udr/gRsbZzBP2D7Rpp/QTT6WFjniofmd3ZceeLAmVTpfjvQXMf3TZFhbamkoK6ml2d8w5YwlB10yrpISCql07LYsiHnjPuxHqr5CvhTODurLOqUnOXvAG/cFT7mIGsUAfHZnbRCNbNMGrk8jXJilIh8juO6hEzggmNy+eWJGw7JbJTeQv5DdrkS2opPcgBeX2A+yV9dNyPNzkruVY9fzphVUlwhnkSsaPr8unIa+8RUx4rMmExBPQ8Ujy+fMOc5xuTLCGiA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=mRSaVxFcOi8Wl1iv8atBI/tuuzFR7OS9gWyi2TG+ubU=;
+ b=LiTlvmo3znzh/HXNBcMDps7tsWOABaRbURxmbEgdNa0VC/rJ9yOYZ/8viF7laot9PhSG1dIvtrPkxDH4Wk8Lo/8e+00sMJVdgM4IpVeKPL0oow5dkYOFW5IXrF46R/y044y0L0rECv41quxiOF2zpFg93X2JNh7pqGmVPvsfvME=
+Received: from DM6PR06CA0043.namprd06.prod.outlook.com (2603:10b6:5:54::20) by
+ PH7PR12MB8427.namprd12.prod.outlook.com (2603:10b6:510:242::8) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.6002.33; Mon, 23 Jan 2023 12:41:22 +0000
+Received: from DM6NAM11FT096.eop-nam11.prod.protection.outlook.com
+ (2603:10b6:5:54:cafe::a3) by DM6PR06CA0043.outlook.office365.com
+ (2603:10b6:5:54::20) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6002.33 via Frontend
+ Transport; Mon, 23 Jan 2023 12:41:22 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=SATLEXMB04.amd.com; pr=C
+Received: from SATLEXMB04.amd.com (165.204.84.17) by
+ DM6NAM11FT096.mail.protection.outlook.com (10.13.173.145) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.20.6023.16 via Frontend Transport; Mon, 23 Jan 2023 12:41:21 +0000
+Received: from [10.254.241.50] (10.180.168.240) by SATLEXMB04.amd.com
+ (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.34; Mon, 23 Jan
+ 2023 06:40:51 -0600
+Message-ID: <09534bb9-d9be-5433-5e7d-f9d40e30562e@amd.com>
+Date: Mon, 23 Jan 2023 13:40:48 +0100
 MIME-Version: 1.0
-X-ALTERMIMEV2_out: done
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.6.1
+Subject: Re: [PATCH v2 10/13] mtd: spi-nor: Add stacked memories support in
+ spi-nor
+Content-Language: en-US
+To: Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>, <broonie@kernel.org>,
+	<miquel.raynal@bootlin.com>, <richard@nod.at>, <vigneshr@ti.com>,
+	<jic23@kernel.org>, <tudor.ambarus@microchip.com>, <pratyush@kernel.org>,
+	<sanju.mehta@amd.com>, <chin-ting_kuo@aspeedtech.com>, <clg@kaod.org>,
+	<kdasu.kdev@gmail.com>, <f.fainelli@gmail.com>, <rjui@broadcom.com>,
+	<sbranden@broadcom.com>, <eajames@linux.ibm.com>, <olteanv@gmail.com>,
+	<han.xu@nxp.com>, <john.garry@huawei.com>, <shawnguo@kernel.org>,
+	<s.hauer@pengutronix.de>, <narmstrong@baylibre.com>, <khilman@baylibre.com>,
+	<matthias.bgg@gmail.com>, <haibo.chen@nxp.com>, <linus.walleij@linaro.org>,
+	<daniel@zonque.org>, <haojian.zhuang@gmail.com>, <robert.jarzmik@free.fr>,
+	<agross@kernel.org>, <bjorn.andersson@linaro.org>, <heiko@sntech.de>,
+	<krzysztof.kozlowski@linaro.org>, <andi@etezian.org>,
+	<mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>, <wens@csie.org>,
+	<jernej.skrabec@gmail.com>, <samuel@sholland.org>,
+	<masahisa.kojima@linaro.org>, <jaswinder.singh@linaro.org>,
+	<rostedt@goodmis.org>, <mingo@redhat.com>, <l.stelmach@samsung.com>,
+	<davem@davemloft.net>, <edumazet@google.com>, <kuba@kernel.org>,
+	<pabeni@redhat.com>, <alex.aring@gmail.com>, <stefan@datenfreihafen.org>,
+	<kvalo@kernel.org>, <thierry.reding@gmail.com>, <jonathanh@nvidia.com>,
+	<skomatineni@nvidia.com>, <sumit.semwal@linaro.org>,
+	<christian.koenig@amd.com>, <j.neuschaefer@gmx.net>, <vireshk@kernel.org>,
+	<rmfrfs@gmail.com>, <johan@kernel.org>, <elder@kernel.org>,
+	<gregkh@linuxfoundation.org>
+CC: <git@amd.com>, <linux-spi@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <joel@jms.id.au>, <andrew@aj.id.au>,
+	<radu_nicolae.pirea@upb.ro>, <nicolas.ferre@microchip.com>,
+	<alexandre.belloni@bootlin.com>, <claudiu.beznea@microchip.com>,
+	<bcm-kernel-feedback-list@broadcom.com>, <fancer.lancer@gmail.com>,
+	<kernel@pengutronix.de>, <festevam@gmail.com>, <linux-imx@nxp.com>,
+	<jbrunet@baylibre.com>, <martin.blumenstingl@googlemail.com>,
+	<avifishman70@gmail.com>, <tmaimon77@gmail.com>, <tali.perry1@gmail.com>,
+	<venture@google.com>, <yuenn@google.com>, <benjaminfair@google.com>,
+	<yogeshgaur.83@gmail.com>, <konrad.dybcio@somainline.org>,
+	<alim.akhtar@samsung.com>, <ldewangan@nvidia.com>,
+	<linux-aspeed@lists.ozlabs.org>, <openbmc@lists.ozlabs.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<linux-rpi-kernel@lists.infradead.org>, <linux-amlogic@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>, <linux-arm-msm@vger.kernel.org>,
+	<linux-rockchip@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>, <linux-sunxi@lists.linux.dev>,
+	<linux-tegra@vger.kernel.org>, <netdev@vger.kernel.org>,
+	<linux-wpan@vger.kernel.org>, <libertas-dev@lists.infradead.org>,
+	<linux-wireless@vger.kernel.org>, <linux-mtd@lists.infradead.org>,
+	<lars@metafoo.de>, <Michael.Hennerich@analog.com>,
+	<linux-iio@vger.kernel.org>, <michael@walle.cc>, <palmer@dabbelt.com>,
+	<linux-riscv@lists.infradead.org>, <linux-media@vger.kernel.org>,
+	<dri-devel@lists.freedesktop.org>, <greybus-dev@lists.linaro.org>,
+	<linux-staging@lists.linux.dev>, <amitrkcian2002@gmail.com>
+References: <20230119185342.2093323-1-amit.kumar-mahapatra@amd.com>
+ <20230119185342.2093323-11-amit.kumar-mahapatra@amd.com>
+From: Michal Simek <michal.simek@amd.com>
+In-Reply-To: <20230119185342.2093323-11-amit.kumar-mahapatra@amd.com>
+X-Originating-IP: [10.180.168.240]
+X-ClientProxiedBy: SATLEXMB04.amd.com (10.181.40.145) To SATLEXMB04.amd.com
+ (10.181.40.145)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM6NAM11FT096:EE_|PH7PR12MB8427:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8e9c5c3b-0aec-4e63-6979-08dafd3f21f1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: 	0NW5ba5jP/DrG7urdbsxJP8ESK+qGITDafbDZBnUXEWDwWCvIlNwmvkzdc6q+K3BlsAoWk+vkwtVRKxAbHm1MH3gK+ARSTCSrDf9NU5KXRWHUorr+LzURvqgue+GShUiNTXjPFurfsUbMCm8lfIQhVaUK2WV4Q/nlrxMlrf3xQIZSYnwdB4TEGjidNNKGiyeqQgdr3Mqc+1EMyUK2PJWrdtNoVKQIEqiTFFPr1fZ2XaUn/MLbcG4gFhiJ+etfVxOa3QP33o8vOpT4d1XguBIRARf2KaOM106I7o8Ft5e/asSydcb4i1Up8JIinYCkQ45Mk360IZ/yNg+itbdborT6UeDCkWfLjHtDydqlWwXTSZkwfCI0xm6oEtazA+sa3x+G8bzemwzlLdTpqOYCqEgqlgstADo8Z2erjIipog65w3PC9SND4hWVlFx4VUVLhLXU+pVRodlrR0f9tmeFflfscoyTYThTWeZsqel1GZSU0kPfNm0ISMGrRgWlDLOj5161RjfdqtBlT8E3eP6nDFWsa1VcgwIj9XUMRQtgeW2ivZy83bJbD1Z/y97uhy37ny5wShWBcu3wKFbMISIhcftJ0JR6i9bDzznSQRDRznEBVBF71mss8gjBa4mUw9XqGARWiqtTQC+VSvvLLH5E0rGuVw/oo78cr+p9MWgXtYtBM+DDePrrjzBlqU3kr00htlQi/BPvMwALkDYdt76yaSor0vRRh+0HGRJ9YkgeDKiqsd6He6n1B/da1+uFHYQisrJrNBW9LB7Hz7Ziaou3blOu7FZKFP8UcDEoYWbEkGPNGCcopPOkN4iy1uUBnIyx+rmpkpA+rW/iXSkM2awLA6Y2KE+orrTK3TkGUB43KvHh7sYRWSLKUrtbAVMWm1XKNaI6zdrDZ6VKSGPHcz3IaopgA==
+X-Forefront-Antispam-Report: 	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB04.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230022)(4636009)(136003)(376002)(346002)(39860400002)(396003)(451199015)(36840700001)(46966006)(40470700004)(36756003)(31696002)(41300700001)(86362001)(356005)(921005)(81166007)(82740400003)(7416002)(5660300002)(7406005)(7336002)(8936002)(82310400005)(4326008)(2906002)(30864003)(44832011)(7366002)(7276002)(36860700001)(83380400001)(110136005)(478600001)(31686004)(16526019)(8676002)(26005)(53546011)(186003)(1191002)(40460700003)(40480700001)(70586007)(16576012)(70206006)(316002)(2616005)(54906003)(6666004)(336012)(426003)(47076005)(2101003)(43740500002)(84006005)(83996005)(36900700001)(41080700001);DIR:OUT;SFP:1101;
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jan 2023 12:41:21.9020
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8e9c5c3b-0aec-4e63-6979-08dafd3f21f1
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB04.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: 	DM6NAM11FT096.eop-nam11.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB8427
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20230123_044135_231368_8DB2711E 
+X-CRM114-Status: GOOD (  34.63  )
 X-Mailman-Approved-At: Mon, 23 Jan 2023 09:19:52 -0800
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -132,5707 +159,541 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add common headers for basic kvx support:
- - CPU definition
- - SFR (System Function Registers)
- - Privilege levels owners
-
-Co-developed-by: Clement Leger <clement@clement-leger.fr>
-Signed-off-by: Clement Leger <clement@clement-leger.fr>
-Co-developed-by: Guillaume Thouvenin <gthouvenin@kalray.eu>
-Signed-off-by: Guillaume Thouvenin <gthouvenin@kalray.eu>
-Co-developed-by: Julian Vetter <jvetter@kalray.eu>
-Signed-off-by: Julian Vetter <jvetter@kalray.eu>
-Co-developed-by: Marius Gligor <mgligor@kalray.eu>
-Signed-off-by: Marius Gligor <mgligor@kalray.eu>
-Co-developed-by: Yann Sionneau <ysionneau@kalray.eu>
-Signed-off-by: Yann Sionneau <ysionneau@kalray.eu>
----
-
-Notes:
-    V1 -> V2: removed HW breakpoints
-
- arch/kvx/include/asm/privilege.h |  211 ++
- arch/kvx/include/asm/processor.h |  172 +
- arch/kvx/include/asm/sfr.h       |  107 +
- arch/kvx/include/asm/sfr_defs.h  | 5028 ++++++++++++++++++++++++++++++
- arch/kvx/include/asm/swab.h      |   48 +
- arch/kvx/include/asm/sys_arch.h  |   51 +
- 6 files changed, 5617 insertions(+)
- create mode 100644 arch/kvx/include/asm/privilege.h
- create mode 100644 arch/kvx/include/asm/processor.h
- create mode 100644 arch/kvx/include/asm/sfr.h
- create mode 100644 arch/kvx/include/asm/sfr_defs.h
- create mode 100644 arch/kvx/include/asm/swab.h
- create mode 100644 arch/kvx/include/asm/sys_arch.h
-
-diff --git a/arch/kvx/include/asm/privilege.h b/arch/kvx/include/asm/privilege.h
-new file mode 100644
-index 000000000000..e639c4a541c6
---- /dev/null
-+++ b/arch/kvx/include/asm/privilege.h
-@@ -0,0 +1,211 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2017-2023 Kalray Inc.
-+ * Author(s): Clement Leger
-+ *            Yann Sionneau
-+ *            Marius Gligor
-+ */
-+
-+#ifndef _ASM_KVX_PRIVILEGE_H
-+#define _ASM_KVX_PRIVILEGE_H
-+
-+#include <asm/sys_arch.h>
-+
-+/**
-+ * Privilege level stuff
-+ */
-+
-+/*
-+ * When manipulating ring levels, we always use relative values. This means that
-+ * settings a resource owner to value 1 means "Current privilege level + 1.
-+ * Setting it to 0 means "Current privilege level"
-+ */
-+#define PL_CUR_PLUS_1	1
-+#define PL_CUR		0
-+
-+/**
-+ * Syscall owner configuration
-+ */
-+#define SYO_WFXL_OWN(__field, __pl) \
-+	SFR_SET_VAL_WFXL(SYO, __field, __pl)
-+
-+#define SYO_WFXL_VALUE(__pl) (SYO_WFXL_OWN(Q0, __pl) | \
-+			      SYO_WFXL_OWN(Q1, __pl) | \
-+			      SYO_WFXL_OWN(Q2, __pl) | \
-+			      SYO_WFXL_OWN(Q3, __pl))
-+
-+#define SYO_WFXL_VALUE_PL_CUR_PLUS_1	SYO_WFXL_VALUE(PL_CUR_PLUS_1)
-+#define SYO_WFXL_VALUE_PL_CUR		SYO_WFXL_VALUE(PL_CUR)
-+
-+/**
-+ * hardware trap owner configuration
-+ */
-+#define HTO_WFXL_OWN(__field, __pl) \
-+	SFR_SET_VAL_WFXL(HTO, __field, __pl)
-+
-+
-+#define HTO_WFXL_VALUE_BASE(__pl)	(HTO_WFXL_OWN(OPC, __pl) | \
-+					 HTO_WFXL_OWN(DMIS, __pl) | \
-+					 HTO_WFXL_OWN(PSYS, __pl) | \
-+					 HTO_WFXL_OWN(DSYS, __pl) | \
-+					 HTO_WFXL_OWN(NOMAP, __pl) | \
-+					 HTO_WFXL_OWN(PROT, __pl) | \
-+					 HTO_WFXL_OWN(W2CL, __pl) | \
-+					 HTO_WFXL_OWN(A2CL, __pl) | \
-+					 HTO_WFXL_OWN(VSFR, __pl) | \
-+					 HTO_WFXL_OWN(PLO, __pl))
-+
-+/*
-+ * When alone on the processor, we need to request all traps or the processor
-+ * will die badly without any information at all by jumping to the more
-+ * privilege level even if nobody is there.
-+ */
-+#define HTO_WFXL_VALUE_PL_CUR_PLUS_1	(HTO_WFXL_VALUE_BASE(PL_CUR_PLUS_1) | \
-+					 HTO_WFXL_OWN(DECCG, PL_CUR_PLUS_1) | \
-+					 HTO_WFXL_OWN(SECCG, PL_CUR_PLUS_1) | \
-+					 HTO_WFXL_OWN(DE, PL_CUR_PLUS_1))
-+
-+#define HTO_WFXL_VALUE_PL_CUR		HTO_WFXL_VALUE_BASE(PL_CUR)
-+
-+/**
-+ * Interrupt owner configuration
-+ */
-+#define ITO_WFXL_OWN(__field, __pl) \
-+	SFR_SET_VAL_WFXL(ITO, __field, __pl)
-+
-+#define ITO_WFXL_VALUE(__pl)	(ITO_WFXL_OWN(IT0, __pl) | \
-+				 ITO_WFXL_OWN(IT1, __pl) | \
-+				 ITO_WFXL_OWN(IT2, __pl) | \
-+				 ITO_WFXL_OWN(IT3, __pl) | \
-+				 ITO_WFXL_OWN(IT4, __pl) | \
-+				 ITO_WFXL_OWN(IT5, __pl) | \
-+				 ITO_WFXL_OWN(IT6, __pl) | \
-+				 ITO_WFXL_OWN(IT7, __pl) | \
-+				 ITO_WFXL_OWN(IT8, __pl) | \
-+				 ITO_WFXL_OWN(IT9, __pl) | \
-+				 ITO_WFXL_OWN(IT10, __pl) | \
-+				 ITO_WFXL_OWN(IT11, __pl) | \
-+				 ITO_WFXL_OWN(IT12, __pl) | \
-+				 ITO_WFXL_OWN(IT13, __pl) | \
-+				 ITO_WFXL_OWN(IT14, __pl) | \
-+				 ITO_WFXL_OWN(IT15, __pl))
-+
-+#define ITO_WFXL_VALUE_PL_CUR_PLUS_1	ITO_WFXL_VALUE(PL_CUR_PLUS_1)
-+#define ITO_WFXL_VALUE_PL_CUR		ITO_WFXL_VALUE(PL_CUR)
-+
-+#define ITO_WFXM_OWN(__field, __pl) \
-+	SFR_SET_VAL_WFXM(ITO, __field, __pl)
-+
-+#define ITO_WFXM_VALUE(__pl) (ITO_WFXM_OWN(IT16, __pl) | \
-+			      ITO_WFXM_OWN(IT17, __pl) | \
-+			      ITO_WFXM_OWN(IT18, __pl) | \
-+			      ITO_WFXM_OWN(IT19, __pl) | \
-+			      ITO_WFXM_OWN(IT20, __pl) | \
-+			      ITO_WFXM_OWN(IT21, __pl) | \
-+			      ITO_WFXM_OWN(IT22, __pl) | \
-+			      ITO_WFXM_OWN(IT23, __pl) | \
-+			      ITO_WFXM_OWN(IT24, __pl) | \
-+			      ITO_WFXM_OWN(IT25, __pl) | \
-+			      ITO_WFXM_OWN(IT26, __pl) | \
-+			      ITO_WFXM_OWN(IT27, __pl) | \
-+			      ITO_WFXM_OWN(IT28, __pl) | \
-+			      ITO_WFXM_OWN(IT29, __pl) | \
-+			      ITO_WFXM_OWN(IT30, __pl) | \
-+			      ITO_WFXM_OWN(IT31, __pl))
-+
-+#define ITO_WFXM_VALUE_PL_CUR_PLUS_1	ITO_WFXM_VALUE(PL_CUR_PLUS_1)
-+#define ITO_WFXM_VALUE_PL_CUR		ITO_WFXM_VALUE(PL_CUR)
-+
-+/**
-+ * Debug Owner configuration
-+ */
-+
-+#define DO_WFXL_OWN(__field, __pl) \
-+	SFR_SET_VAL_WFXL(DO, __field, __pl)
-+
-+#define DO_WFXL_VALUE(__pl) (DO_WFXL_OWN(B0, __pl) | \
-+			     DO_WFXL_OWN(B1, __pl) | \
-+			     DO_WFXL_OWN(W0, __pl) | \
-+			     DO_WFXL_OWN(W1, __pl))
-+
-+#define DO_WFXL_VALUE_PL_CUR_PLUS_1     DO_WFXL_VALUE(PL_CUR_PLUS_1)
-+#define DO_WFXL_VALUE_PL_CUR            DO_WFXL_VALUE(PL_CUR)
-+
-+/**
-+ * Misc owner configuration
-+ */
-+#define MO_WFXL_OWN(__field, __pl) \
-+	SFR_SET_VAL_WFXL(MO, __field, __pl)
-+
-+#define MO_WFXL_VALUE(__pl)	(MO_WFXL_OWN(MMI, __pl) | \
-+				 MO_WFXL_OWN(RFE, __pl) | \
-+				 MO_WFXL_OWN(STOP, __pl) | \
-+				 MO_WFXL_OWN(SYNC, __pl) | \
-+				 MO_WFXL_OWN(PCR, __pl) | \
-+				 MO_WFXL_OWN(MSG, __pl) | \
-+				 MO_WFXL_OWN(MEN, __pl) | \
-+				 MO_WFXL_OWN(MES, __pl) | \
-+				 MO_WFXL_OWN(CSIT, __pl) | \
-+				 MO_WFXL_OWN(T0, __pl) | \
-+				 MO_WFXL_OWN(T1, __pl) | \
-+				 MO_WFXL_OWN(WD, __pl) | \
-+				 MO_WFXL_OWN(PM0, __pl) | \
-+				 MO_WFXL_OWN(PM1, __pl) | \
-+				 MO_WFXL_OWN(PM2, __pl) | \
-+				 MO_WFXL_OWN(PM3, __pl))
-+
-+#define MO_WFXL_VALUE_PL_CUR_PLUS_1	MO_WFXL_VALUE(PL_CUR_PLUS_1)
-+#define MO_WFXL_VALUE_PL_CUR		MO_WFXL_VALUE(PL_CUR)
-+
-+#define MO_WFXM_OWN(__field, __pl) \
-+	SFR_SET_VAL_WFXM(MO, __field, __pl)
-+
-+#define MO_WFXM_VALUE(__pl)	(MO_WFXM_OWN(PMIT, __pl))
-+
-+#define MO_WFXM_VALUE_PL_CUR_PLUS_1	MO_WFXM_VALUE(PL_CUR_PLUS_1)
-+#define MO_WFXM_VALUE_PL_CUR		MO_WFXM_VALUE(PL_CUR)
-+
-+/**
-+ * $ps owner configuration
-+ */
-+#define PSO_WFXL_OWN(__field, __pl) \
-+	SFR_SET_VAL_WFXL(PSO, __field, __pl)
-+
-+#define PSO_WFXL_BASE_VALUE(__pl)	(PSO_WFXL_OWN(PL0, __pl) | \
-+					 PSO_WFXL_OWN(PL1, __pl) | \
-+					 PSO_WFXL_OWN(ET, __pl) | \
-+					 PSO_WFXL_OWN(HTD, __pl) | \
-+					 PSO_WFXL_OWN(IE, __pl) | \
-+					 PSO_WFXL_OWN(HLE, __pl) | \
-+					 PSO_WFXL_OWN(SRE, __pl) | \
-+					 PSO_WFXL_OWN(DAUS, __pl) | \
-+					 PSO_WFXL_OWN(ICE, __pl) | \
-+					 PSO_WFXL_OWN(USE, __pl) | \
-+					 PSO_WFXL_OWN(DCE, __pl) | \
-+					 PSO_WFXL_OWN(MME, __pl) | \
-+					 PSO_WFXL_OWN(IL0, __pl) | \
-+					 PSO_WFXL_OWN(IL1, __pl) | \
-+					 PSO_WFXL_OWN(VS0, __pl))
-+/* Request additionnal VS1 when alone */
-+#define PSO_WFXL_VALUE_PL_CUR_PLUS_1	(PSO_WFXL_BASE_VALUE(PL_CUR_PLUS_1) | \
-+					 PSO_WFXL_OWN(VS1, PL_CUR_PLUS_1))
-+#define PSO_WFXL_VALUE_PL_CUR		PSO_WFXL_BASE_VALUE(PL_CUR)
-+
-+#define PSO_WFXM_OWN(__field, __pl) \
-+	SFR_SET_VAL_WFXM(PSO, __field, __pl)
-+
-+#define PSO_WFXM_VALUE(__pl)	(PSO_WFXM_OWN(V64, __pl) | \
-+				 PSO_WFXM_OWN(L2E, __pl)  | \
-+				 PSO_WFXM_OWN(SME, __pl)  | \
-+				 PSO_WFXM_OWN(SMR, __pl)  | \
-+				 PSO_WFXM_OWN(PMJ0, __pl) | \
-+				 PSO_WFXM_OWN(PMJ1, __pl) | \
-+				 PSO_WFXM_OWN(PMJ2, __pl) | \
-+				 PSO_WFXM_OWN(PMJ3, __pl) | \
-+				 PSO_WFXM_OWN(MMUP, __pl))
-+
-+/* Request additionnal VS1 */
-+#define PSO_WFXM_VALUE_PL_CUR_PLUS_1	PSO_WFXM_VALUE(PL_CUR_PLUS_1)
-+#define PSO_WFXM_VALUE_PL_CUR		PSO_WFXM_VALUE(PL_CUR)
-+
-+#endif /* _ASM_KVX_PRIVILEGE_H */
-diff --git a/arch/kvx/include/asm/processor.h b/arch/kvx/include/asm/processor.h
-new file mode 100644
-index 000000000000..76321ebe00db
---- /dev/null
-+++ b/arch/kvx/include/asm/processor.h
-@@ -0,0 +1,172 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2017-2023 Kalray Inc.
-+ * Author(s): Clement Leger
-+ *            Guillaume Thouvenin
-+ *            Marius Gligor
-+ */
-+
-+#ifndef _ASM_KVX_PROCESSOR_H
-+#define _ASM_KVX_PROCESSOR_H
-+
-+#include <asm/mmu.h>
-+#include <asm/types.h>
-+#include <asm/ptrace.h>
-+#include <asm/sfr_defs.h>
-+
-+#define ARCH_HAS_PREFETCH
-+#define ARCH_HAS_PREFETCHW
-+
-+static inline void prefetch(const void *x)
-+{
-+	__builtin_prefetch(x);
-+}
-+
-+static inline void prefetchw(const void *x)
-+{
-+	__builtin_prefetch(x, 1);
-+}
-+
-+#define TASK_SIZE      _BITULL(MMU_USR_ADDR_BITS)
-+#define TASK_SIZE_MAX  TASK_SIZE
-+
-+/*
-+ * This decides where the kernel will search for a free chunk of vm
-+ * space during mmap's.
-+ */
-+#define TASK_UNMAPPED_BASE	PAGE_ALIGN(TASK_SIZE >> 1)
-+
-+#define STACK_TOP		TASK_SIZE
-+#define STACK_TOP_MAX		STACK_TOP
-+
-+/* Stack alignment constant */
-+#define STACK_ALIGNMENT		32
-+#define STACK_ALIGN_MASK	(STACK_ALIGNMENT - 1)
-+
-+#define cpu_relax()         barrier()
-+
-+/* Size for register saving area for refill handler (enough for 3 quad regs) */
-+#define SAVE_AREA_SIZE	12
-+
-+#define TCA_REG_COUNT	48
-+
-+/* TCA registers are 256 bits wide */
-+struct tca_reg {
-+	uint64_t x;
-+	uint64_t y;
-+	uint64_t z;
-+	uint64_t t;
-+};
-+
-+/**
-+ * According to kvx ABI, the following registers are callee-saved:
-+ * fp (r14) r18 r19 r20 r21 r22 r23 r24 r25 r26 r27 r28 r29 r30 r31.
-+ * In order to switch from a task to another, we only need to save these
-+ * registers + sp (r12) and ra
-+ *
-+ * WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING
-+ *
-+ * Do not reorder the following fields !
-+ * They are used in asm-offset for store octuples so they must be
-+ * all right behind each other
-+ */
-+struct ctx_switch_regs {
-+
-+	uint64_t fp;
-+
-+	uint64_t ra;		/* Return address */
-+	uint64_t sp;
-+	uint64_t r18;
-+	uint64_t r19;
-+
-+	uint64_t r20;
-+	uint64_t r21;
-+	uint64_t r22;
-+	uint64_t r23;
-+
-+	uint64_t r24;
-+	uint64_t r25;
-+	uint64_t r26;
-+	uint64_t r27;
-+
-+	uint64_t r28;
-+	uint64_t r29;
-+	uint64_t r30;
-+	uint64_t r31;
-+
-+#ifdef CONFIG_ENABLE_TCA
-+	struct tca_reg tca_regs[TCA_REG_COUNT];
-+	uint8_t tca_regs_saved;
-+#endif
-+};
-+
-+struct debug_info {
-+};
-+
-+struct thread_struct {
-+	uint64_t kernel_sp;
-+	uint64_t save_area[SAVE_AREA_SIZE];	/* regs save area */
-+
-+#ifdef CONFIG_KVX_MMU_STATS
-+	uint64_t trap_entry_ts;
-+#endif
-+	/* Context switch related registers */
-+	struct ctx_switch_regs ctx_switch;
-+
-+	/* debugging */
-+	struct debug_info debug;
-+} __packed;
-+
-+#define INIT_THREAD  {							\
-+	.ctx_switch.sp =						\
-+		sizeof(init_stack) + (unsigned long) &init_stack,	\
-+}
-+
-+#define KSTK_ESP(tsk)   (task_pt_regs(tsk)->sp)
-+#define KSTK_EIP(tsk)   (task_pt_regs(tsk)->spc)
-+
-+#define task_pt_regs(p) \
-+	((struct pt_regs *)(task_stack_page(p) + THREAD_SIZE) - 1)
-+
-+#define thread_saved_reg(__tsk, __reg) \
-+	((unsigned long) ((__tsk)->thread.ctx_switch.__reg))
-+
-+void release_thread(struct task_struct *t);
-+
-+void start_thread(struct pt_regs *regs, unsigned long pc, unsigned long sp);
-+
-+unsigned long __get_wchan(struct task_struct *p);
-+
-+extern void ret_from_kernel_thread(void);
-+
-+/* User return function */
-+extern void ret_from_fork(void);
-+
-+static inline void wait_for_interrupt(void)
-+{
-+	__builtin_kvx_await();
-+	kvx_sfr_set_field(WS, WU0, 0);
-+}
-+
-+static inline void local_cpu_stop(void)
-+{
-+	/* Clear Wake-Up 2 to allow stop instruction to work */
-+	kvx_sfr_set_field(WS, WU2, 0);
-+	__asm__ __volatile__ (
-+		"1: stop\n"
-+		";;\n"
-+		"goto 1b\n"
-+		";;\n"
-+	);
-+}
-+
-+struct cpuinfo_kvx {
-+	u64 freq;
-+	u8 arch_rev;
-+	u8 uarch_rev;
-+	u8 copro_enable;
-+};
-+
-+DECLARE_PER_CPU_READ_MOSTLY(struct cpuinfo_kvx, cpu_info);
-+
-+#endif	/* _ASM_KVX_PROCESSOR_H */
-diff --git a/arch/kvx/include/asm/sfr.h b/arch/kvx/include/asm/sfr.h
-new file mode 100644
-index 000000000000..d91aaa335bb9
---- /dev/null
-+++ b/arch/kvx/include/asm/sfr.h
-@@ -0,0 +1,107 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2017-2023 Kalray Inc.
-+ * Author(s): Clement Leger
-+ *            Yann Sionneau
-+ *            Guillaume Thouvenin
-+ */
-+
-+#ifndef _ASM_KVX_SFR_H
-+#define _ASM_KVX_SFR_H
-+
-+#ifndef __ASSEMBLY__
-+
-+#include <linux/types.h>
-+
-+#include <asm/sfr_defs.h>
-+
-+#define wfxl(_sfr, _val)	__builtin_kvx_wfxl(_sfr, _val)
-+
-+#define wfxm(_sfr, _val)	__builtin_kvx_wfxm(_sfr, _val)
-+
-+static inline void
-+__kvx_sfr_set_bit(unsigned char sfr, unsigned char bit)
-+{
-+	if (bit < 32)
-+		wfxl(sfr, (uint64_t) (1 << bit) << 32);
-+	else
-+		wfxm(sfr, (uint64_t) 1 << bit);
-+}
-+
-+#define kvx_sfr_set_bit(__sfr, __bit) \
-+	__kvx_sfr_set_bit(KVX_SFR_ ## __sfr, __bit)
-+
-+static inline uint64_t make_sfr_val(uint64_t mask, uint64_t value)
-+{
-+	return ((value & 0xFFFFFFFF) << 32) | (mask & 0xFFFFFFFF);
-+}
-+
-+static inline void
-+__kvx_sfr_set_mask(unsigned char sfr, uint64_t mask, uint64_t value)
-+{
-+	uint64_t wf_val;
-+
-+	/* Least significant bits */
-+	if (mask & 0xFFFFFFFF) {
-+		wf_val = make_sfr_val(mask, value);
-+		wfxl(sfr, wf_val);
-+	}
-+
-+	/* Most significant bits */
-+	if (mask & (0xFFFFFFFFULL << 32)) {
-+		value >>= 32;
-+		mask >>= 32;
-+		wf_val = make_sfr_val(mask, value);
-+		wfxm(sfr, wf_val);
-+	}
-+}
-+
-+static inline u64 kvx_sfr_iget(unsigned char sfr)
-+{
-+	u64 res = sfr;
-+
-+	asm volatile ("iget %0" : "+r"(res) :: );
-+	return res;
-+}
-+
-+#ifdef CONFIG_DEBUG_SFR_SET_MASK
-+# define kvx_sfr_set_mask(__sfr, __mask, __value) \
-+	do { \
-+		BUG_ON(((__value) & (__mask)) != (__value)); \
-+		__kvx_sfr_set_mask(KVX_SFR_ ## __sfr, __mask, __value); \
-+	} while (0)
-+
-+#else
-+# define kvx_sfr_set_mask(__sfr, __mask, __value) \
-+	__kvx_sfr_set_mask(KVX_SFR_ ## __sfr, __mask, __value)
-+#endif
-+
-+#define kvx_sfr_set_field(sfr, field, value) \
-+	kvx_sfr_set_mask(sfr, KVX_SFR_ ## sfr ## _ ## field ## _MASK, \
-+		((uint64_t) (value) << KVX_SFR_ ## sfr ## _ ## field ## _SHIFT))
-+
-+static inline void
-+__kvx_sfr_clear_bit(unsigned char sfr, unsigned char bit)
-+{
-+	if (bit < 32)
-+		wfxl(sfr, (uint64_t) 1 << bit);
-+	else
-+		wfxm(sfr, (uint64_t) 1 << (bit - 32));
-+}
-+
-+#define kvx_sfr_clear_bit(__sfr, __bit) \
-+	__kvx_sfr_clear_bit(KVX_SFR_ ## __sfr, __bit)
-+
-+#define kvx_sfr_set(_sfr, _val)	__builtin_kvx_set(KVX_SFR_ ## _sfr, _val)
-+#define kvx_sfr_get(_sfr)	__builtin_kvx_get(KVX_SFR_ ## _sfr)
-+
-+#define kvx_sfr_field_val(_val, _sfr, _field) \
-+			  (((_val) & KVX_SFR_ ## _sfr ## _ ## _field ## _MASK) \
-+			  >> KVX_SFR_ ## _sfr ## _ ## _field ## _SHIFT)
-+
-+#define kvx_sfr_bit(_sfr, _field) \
-+	BIT_ULL(KVX_SFR_ ## _sfr ## _ ## _field ## _SHIFT)
-+
-+#endif
-+
-+#endif	/* _ASM_KVX_SFR_DEFS_H */
-diff --git a/arch/kvx/include/asm/sfr_defs.h b/arch/kvx/include/asm/sfr_defs.h
-new file mode 100644
-index 000000000000..7e6318348b83
---- /dev/null
-+++ b/arch/kvx/include/asm/sfr_defs.h
-@@ -0,0 +1,5028 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2017-2023 Kalray Inc.
-+ * Author(s): Clement Leger
-+ */
-+
-+#ifndef _ASM_KVX_SFR_DEFS_H
-+#define _ASM_KVX_SFR_DEFS_H
-+
-+#include <linux/const.h>
-+
-+/* Register file indices */
-+#define KVX_SFR_PC 0 /* Program Counter $pc $s0 */
-+#define KVX_SFR_PS 1 /* Processor State $ps $s1 */
-+#define KVX_SFR_PCR 2 /* Processing Identification $pcr $s2 */
-+#define KVX_SFR_RA 3 /* Return Address $ra $s3 */
-+#define KVX_SFR_CS 4 /* Compute Status $cs $s4 */
-+#define KVX_SFR_CSIT 5 /* Compute Status arithmetic interrupt $csit $s5 */
-+#define KVX_SFR_AESPC 6 /* Arithmetic Exception Saved PC $aespc $s6 */
-+#define KVX_SFR_LS 7 /* Loop Start Address $ls $s7 */
-+#define KVX_SFR_LE 8 /* Loop Exit Address $le $s8 */
-+#define KVX_SFR_LC 9 /* Loop Counter $lc $s9 */
-+#define KVX_SFR_IPE 10 /* Inter Processor Event $ipe $s10 */
-+#define KVX_SFR_MEN 11 /* Misc External Notifications $men $s11 */
-+#define KVX_SFR_PMC 12 /* Performance Monitor Control $pmc $s12 */
-+#define KVX_SFR_PM0 13 /* Performance Monitor 0 $pm0 $s13 */
-+#define KVX_SFR_PM1 14 /* Performance Monitor 1 $pm1 $s14 */
-+#define KVX_SFR_PM2 15 /* Performance Monitor 2 $pm2 $s15 */
-+#define KVX_SFR_PM3 16 /* Performance Monitor 3 $pm3 $s16 */
-+#define KVX_SFR_PMSA 17 /* Performance Monitor Saved Address $pmsa $s17 */
-+#define KVX_SFR_TCR 18 /* Timer Control $tcr $s18 */
-+#define KVX_SFR_T0V 19 /* Timer 0 value $t0v $s19 */
-+#define KVX_SFR_T1V 20 /* Timer 1 value $t1v $s20 */
-+#define KVX_SFR_T0R 21 /* Timer 0 reload value $t0r $s21 */
-+#define KVX_SFR_T1R 22 /* Timer 1 reload value $t1r $s22 */
-+#define KVX_SFR_WDV 23 /* Watchdog Value $wdv $s23 */
-+#define KVX_SFR_WDR 24 /* Watchdog Reload $wdr $s24 */
-+#define KVX_SFR_ILE 25 /* Interrupt Line Enable $ile $s25 */
-+#define KVX_SFR_ILL 26 /* Interrupt Line Level $ill $s26 */
-+#define KVX_SFR_ILR 27 /* Interrupt Line Request $ilr $s27 */
-+#define KVX_SFR_MMC 28 /* Memory Management Control $mmc $s28 */
-+#define KVX_SFR_TEL 29 /* TLB Entry Low $tel $s29 */
-+#define KVX_SFR_TEH 30 /* TLB Entry High $teh $s30 */
-+#define KVX_SFR_SYO 32 /* Syscall Owners $syo $s32 */
-+#define KVX_SFR_HTO 33 /* Hardware Trap Owners $hto $s33 */
-+#define KVX_SFR_ITO 34 /* Interrupt Owners $ito $s34 */
-+#define KVX_SFR_DO 35 /* Debug Owners $do $s35 */
-+#define KVX_SFR_MO 36 /* Miscellaneous Owners $mo $s36 */
-+#define KVX_SFR_PSO 37 /* PS register fields Owners $pso $s37 */
-+#define KVX_SFR_DC 40 /* OCE (Debug) Control $dc $s40 */
-+#define KVX_SFR_DBA0 41 /* Breakpoint Address 0 $dba0 $s41 */
-+#define KVX_SFR_DBA1 42 /* Breakpoint Address 1 $dba1 $s42 */
-+#define KVX_SFR_DWA0 43 /* Watchpoint Address 0 $dwa0 $s43 */
-+#define KVX_SFR_DWA1 44 /* Watchpoint Address 1 $dwa1 $s44 */
-+#define KVX_SFR_MES 45 /* Memory Error Status $mes $s45 */
-+#define KVX_SFR_WS 46 /* Wake-Up Status $ws $s46 */
-+#define KVX_SFR_SPC_PL0 64 /* Shadow PC PL 0 $spc_pl0 $s64 */
-+#define KVX_SFR_SPC_PL1 65 /* Shadow PC PL 1 $spc_pl1 $s65 */
-+#define KVX_SFR_SPC_PL2 66 /* Shadow PC PL 2 $spc_pl2 $s66 */
-+#define KVX_SFR_SPC_PL3 67 /* Shadow PC PL 3 $spc_pl3 $s67 */
-+#define KVX_SFR_SPS_PL0 68 /* Shadow PS PL 0 $sps_pl0 $s68 */
-+#define KVX_SFR_SPS_PL1 69 /* Shadow PS PL 1 $sps_pl1 $s69 */
-+#define KVX_SFR_SPS_PL2 70 /* Shadow PS PL 2 $sps_pl2 $s70 */
-+#define KVX_SFR_SPS_PL3 71 /* Shadow PS PL 3 $sps_pl3 $s71 */
-+#define KVX_SFR_EA_PL0 72 /* Effective Address PL0 $ea_pl0 $s72 */
-+#define KVX_SFR_EA_PL1 73 /* Effective Address PL1 $ea_pl1 $s73 */
-+#define KVX_SFR_EA_PL2 74 /* Effective Address PL2 $ea_pl2 $s74 */
-+#define KVX_SFR_EA_PL3 75 /* Effective Address PL3 $ea_pl3 $s75 */
-+#define KVX_SFR_EV_PL0 76 /* Exception Vector PL 0 $ev_pl0 $s76 */
-+#define KVX_SFR_EV_PL1 77 /* Exception Vector PL 1 $ev_pl1 $s77 */
-+#define KVX_SFR_EV_PL2 78 /* Exception Vector PL 2 $ev_pl2 $s78 */
-+#define KVX_SFR_EV_PL3 79 /* Exception Vector PL 3 $ev_pl3 $s79 */
-+#define KVX_SFR_SR_PL0 80 /* System Register PL 0 $sr_pl0 $s80 */
-+#define KVX_SFR_SR_PL1 81 /* System Register PL 1 $sr_pl1 $s81 */
-+#define KVX_SFR_SR_PL2 82 /* System Register PL 2 $sr_pl2 $s82 */
-+#define KVX_SFR_SR_PL3 83 /* System Register PL 3 $sr_pl3 $s83 */
-+#define KVX_SFR_ES_PL0 84 /* Exception Syndrome PL 0 $es_pl0 $s84 */
-+#define KVX_SFR_ES_PL1 85 /* Exception Syndrome PL 1 $es_pl1 $s85 */
-+#define KVX_SFR_ES_PL2 86 /* Exception Syndrome PL 2 $es_pl2 $s86 */
-+#define KVX_SFR_ES_PL3 87 /* Exception Syndrome PL 3 $es_pl3 $s87 */
-+#define KVX_SFR_SYOW 96 /* Alias to SYO register $syow $s96 */
-+#define KVX_SFR_HTOW 97 /* Alias to HTO register $htow $s97 */
-+#define KVX_SFR_ITOW 98 /* Alias to ITO register $itow $s98 */
-+#define KVX_SFR_DOW 99 /* Alias to DO register $dow $s99 */
-+#define KVX_SFR_MOW 100 /* Alias to MO register $mow $s100 */
-+#define KVX_SFR_PSOW 101 /* Alias to PSO register $psow $s101 */
-+#define KVX_SFR_SPC 128 /* Shadow PC alias on SPC_PL<i> $spc $s128 */
-+#define KVX_SFR_SPS 132 /* Shadow PS alias on PS_PL<i> $sps $s132 */
-+#define KVX_SFR_EA 136 /* Effective Address alias on EA_PL<i> $ea $s136 */
-+#define KVX_SFR_EV 140 /* Exception Vector alias on EV_PL<i> $ev $s140 */
-+#define KVX_SFR_SR 144 /* System Register alias on SR_PL<i> $sr $s144 */
-+#define KVX_SFR_ES 148 /* Exception Syndrome alias on ES_PL<i> $es $s148 */
-+#define KVX_SFR_VSFR0 256 /* Virtual SFR 0 $vsfr0 $s256 */
-+#define KVX_SFR_VSFR1 257 /* Virtual SFR 1 $vsfr1 $s257 */
-+#define KVX_SFR_VSFR2 258 /* Virtual SFR 2 $vsfr2 $s258 */
-+#define KVX_SFR_VSFR3 259 /* Virtual SFR 3 $vsfr3 $s259 */
-+#define KVX_SFR_VSFR4 260 /* Virtual SFR 4 $vsfr4 $s260 */
-+#define KVX_SFR_VSFR5 261 /* Virtual SFR 5 $vsfr5 $s261 */
-+#define KVX_SFR_VSFR6 262 /* Virtual SFR 6 $vsfr6 $s262 */
-+#define KVX_SFR_VSFR7 263 /* Virtual SFR 7 $vsfr7 $s263 */
-+#define KVX_SFR_VSFR8 264 /* Virtual SFR 8 $vsfr8 $s264 */
-+#define KVX_SFR_VSFR9 265 /* Virtual SFR 9 $vsfr9 $s265 */
-+#define KVX_SFR_VSFR10 266 /* Virtual SFR 10 $vsfr10 $s266 */
-+#define KVX_SFR_VSFR11 267 /* Virtual SFR 11 $vsfr11 $s267 */
-+#define KVX_SFR_VSFR12 268 /* Virtual SFR 12 $vsfr12 $s268 */
-+#define KVX_SFR_VSFR13 269 /* Virtual SFR 13 $vsfr13 $s269 */
-+#define KVX_SFR_VSFR14 270 /* Virtual SFR 14 $vsfr14 $s270 */
-+#define KVX_SFR_VSFR15 271 /* Virtual SFR 15 $vsfr15 $s271 */
-+#define KVX_SFR_VSFR16 272 /* Virtual SFR 16 $vsfr16 $s272 */
-+#define KVX_SFR_VSFR17 273 /* Virtual SFR 17 $vsfr17 $s273 */
-+#define KVX_SFR_VSFR18 274 /* Virtual SFR 18 $vsfr18 $s274 */
-+#define KVX_SFR_VSFR19 275 /* Virtual SFR 19 $vsfr19 $s275 */
-+#define KVX_SFR_VSFR20 276 /* Virtual SFR 20 $vsfr20 $s276 */
-+#define KVX_SFR_VSFR21 277 /* Virtual SFR 21 $vsfr21 $s277 */
-+#define KVX_SFR_VSFR22 278 /* Virtual SFR 22 $vsfr22 $s278 */
-+#define KVX_SFR_VSFR23 279 /* Virtual SFR 23 $vsfr23 $s279 */
-+#define KVX_SFR_VSFR24 280 /* Virtual SFR 24 $vsfr24 $s280 */
-+#define KVX_SFR_VSFR25 281 /* Virtual SFR 25 $vsfr25 $s281 */
-+#define KVX_SFR_VSFR26 282 /* Virtual SFR 26 $vsfr26 $s282 */
-+#define KVX_SFR_VSFR27 283 /* Virtual SFR 27 $vsfr27 $s283 */
-+#define KVX_SFR_VSFR28 284 /* Virtual SFR 28 $vsfr28 $s284 */
-+#define KVX_SFR_VSFR29 285 /* Virtual SFR 29 $vsfr29 $s285 */
-+#define KVX_SFR_VSFR30 286 /* Virtual SFR 30 $vsfr30 $s286 */
-+#define KVX_SFR_VSFR31 287 /* Virtual SFR 31 $vsfr31 $s287 */
-+#define KVX_SFR_VSFR32 288 /* Virtual SFR 32 $vsfr32 $s288 */
-+#define KVX_SFR_VSFR33 289 /* Virtual SFR 33 $vsfr33 $s289 */
-+#define KVX_SFR_VSFR34 290 /* Virtual SFR 34 $vsfr34 $s290 */
-+#define KVX_SFR_VSFR35 291 /* Virtual SFR 35 $vsfr35 $s291 */
-+#define KVX_SFR_VSFR36 292 /* Virtual SFR 36 $vsfr36 $s292 */
-+#define KVX_SFR_VSFR37 293 /* Virtual SFR 37 $vsfr37 $s293 */
-+#define KVX_SFR_VSFR38 294 /* Virtual SFR 38 $vsfr38 $s294 */
-+#define KVX_SFR_VSFR39 295 /* Virtual SFR 39 $vsfr39 $s295 */
-+#define KVX_SFR_VSFR40 296 /* Virtual SFR 40 $vsfr40 $s296 */
-+#define KVX_SFR_VSFR41 297 /* Virtual SFR 41 $vsfr41 $s297 */
-+#define KVX_SFR_VSFR42 298 /* Virtual SFR 42 $vsfr42 $s298 */
-+#define KVX_SFR_VSFR43 299 /* Virtual SFR 43 $vsfr43 $s299 */
-+#define KVX_SFR_VSFR44 300 /* Virtual SFR 44 $vsfr44 $s300 */
-+#define KVX_SFR_VSFR45 301 /* Virtual SFR 45 $vsfr45 $s301 */
-+#define KVX_SFR_VSFR46 302 /* Virtual SFR 46 $vsfr46 $s302 */
-+#define KVX_SFR_VSFR47 303 /* Virtual SFR 47 $vsfr47 $s303 */
-+#define KVX_SFR_VSFR48 304 /* Virtual SFR 48 $vsfr48 $s304 */
-+#define KVX_SFR_VSFR49 305 /* Virtual SFR 49 $vsfr49 $s305 */
-+#define KVX_SFR_VSFR50 306 /* Virtual SFR 50 $vsfr50 $s306 */
-+#define KVX_SFR_VSFR51 307 /* Virtual SFR 51 $vsfr51 $s307 */
-+#define KVX_SFR_VSFR52 308 /* Virtual SFR 52 $vsfr52 $s308 */
-+#define KVX_SFR_VSFR53 309 /* Virtual SFR 53 $vsfr53 $s309 */
-+#define KVX_SFR_VSFR54 310 /* Virtual SFR 54 $vsfr54 $s310 */
-+#define KVX_SFR_VSFR55 311 /* Virtual SFR 55 $vsfr55 $s311 */
-+#define KVX_SFR_VSFR56 312 /* Virtual SFR 56 $vsfr56 $s312 */
-+#define KVX_SFR_VSFR57 313 /* Virtual SFR 57 $vsfr57 $s313 */
-+#define KVX_SFR_VSFR58 314 /* Virtual SFR 58 $vsfr58 $s314 */
-+#define KVX_SFR_VSFR59 315 /* Virtual SFR 59 $vsfr59 $s315 */
-+#define KVX_SFR_VSFR60 316 /* Virtual SFR 60 $vsfr60 $s316 */
-+#define KVX_SFR_VSFR61 317 /* Virtual SFR 61 $vsfr61 $s317 */
-+#define KVX_SFR_VSFR62 318 /* Virtual SFR 62 $vsfr62 $s318 */
-+#define KVX_SFR_VSFR63 319 /* Virtual SFR 63 $vsfr63 $s319 */
-+#define KVX_SFR_VSFR64 320 /* Virtual SFR 64 $vsfr64 $s320 */
-+#define KVX_SFR_VSFR65 321 /* Virtual SFR 65 $vsfr65 $s321 */
-+#define KVX_SFR_VSFR66 322 /* Virtual SFR 66 $vsfr66 $s322 */
-+#define KVX_SFR_VSFR67 323 /* Virtual SFR 67 $vsfr67 $s323 */
-+#define KVX_SFR_VSFR68 324 /* Virtual SFR 68 $vsfr68 $s324 */
-+#define KVX_SFR_VSFR69 325 /* Virtual SFR 69 $vsfr69 $s325 */
-+#define KVX_SFR_VSFR70 326 /* Virtual SFR 70 $vsfr70 $s326 */
-+#define KVX_SFR_VSFR71 327 /* Virtual SFR 71 $vsfr71 $s327 */
-+#define KVX_SFR_VSFR72 328 /* Virtual SFR 72 $vsfr72 $s328 */
-+#define KVX_SFR_VSFR73 329 /* Virtual SFR 73 $vsfr73 $s329 */
-+#define KVX_SFR_VSFR74 330 /* Virtual SFR 74 $vsfr74 $s330 */
-+#define KVX_SFR_VSFR75 331 /* Virtual SFR 75 $vsfr75 $s331 */
-+#define KVX_SFR_VSFR76 332 /* Virtual SFR 76 $vsfr76 $s332 */
-+#define KVX_SFR_VSFR77 333 /* Virtual SFR 77 $vsfr77 $s333 */
-+#define KVX_SFR_VSFR78 334 /* Virtual SFR 78 $vsfr78 $s334 */
-+#define KVX_SFR_VSFR79 335 /* Virtual SFR 79 $vsfr79 $s335 */
-+#define KVX_SFR_VSFR80 336 /* Virtual SFR 80 $vsfr80 $s336 */
-+#define KVX_SFR_VSFR81 337 /* Virtual SFR 81 $vsfr81 $s337 */
-+#define KVX_SFR_VSFR82 338 /* Virtual SFR 82 $vsfr82 $s338 */
-+#define KVX_SFR_VSFR83 339 /* Virtual SFR 83 $vsfr83 $s339 */
-+#define KVX_SFR_VSFR84 340 /* Virtual SFR 84 $vsfr84 $s340 */
-+#define KVX_SFR_VSFR85 341 /* Virtual SFR 85 $vsfr85 $s341 */
-+#define KVX_SFR_VSFR86 342 /* Virtual SFR 86 $vsfr86 $s342 */
-+#define KVX_SFR_VSFR87 343 /* Virtual SFR 87 $vsfr87 $s343 */
-+#define KVX_SFR_VSFR88 344 /* Virtual SFR 88 $vsfr88 $s344 */
-+#define KVX_SFR_VSFR89 345 /* Virtual SFR 89 $vsfr89 $s345 */
-+#define KVX_SFR_VSFR90 346 /* Virtual SFR 90 $vsfr90 $s346 */
-+#define KVX_SFR_VSFR91 347 /* Virtual SFR 91 $vsfr91 $s347 */
-+#define KVX_SFR_VSFR92 348 /* Virtual SFR 92 $vsfr92 $s348 */
-+#define KVX_SFR_VSFR93 349 /* Virtual SFR 93 $vsfr93 $s349 */
-+#define KVX_SFR_VSFR94 350 /* Virtual SFR 94 $vsfr94 $s350 */
-+#define KVX_SFR_VSFR95 351 /* Virtual SFR 95 $vsfr95 $s351 */
-+#define KVX_SFR_VSFR96 352 /* Virtual SFR 96 $vsfr96 $s352 */
-+#define KVX_SFR_VSFR97 353 /* Virtual SFR 97 $vsfr97 $s353 */
-+#define KVX_SFR_VSFR98 354 /* Virtual SFR 98 $vsfr98 $s354 */
-+#define KVX_SFR_VSFR99 355 /* Virtual SFR 99 $vsfr99 $s355 */
-+#define KVX_SFR_VSFR100 356 /* Virtual SFR 100 $vsfr100 $s356 */
-+#define KVX_SFR_VSFR101 357 /* Virtual SFR 101 $vsfr101 $s357 */
-+#define KVX_SFR_VSFR102 358 /* Virtual SFR 102 $vsfr102 $s358 */
-+#define KVX_SFR_VSFR103 359 /* Virtual SFR 103 $vsfr103 $s359 */
-+#define KVX_SFR_VSFR104 360 /* Virtual SFR 104 $vsfr104 $s360 */
-+#define KVX_SFR_VSFR105 361 /* Virtual SFR 105 $vsfr105 $s361 */
-+#define KVX_SFR_VSFR106 362 /* Virtual SFR 106 $vsfr106 $s362 */
-+#define KVX_SFR_VSFR107 363 /* Virtual SFR 107 $vsfr107 $s363 */
-+#define KVX_SFR_VSFR108 364 /* Virtual SFR 108 $vsfr108 $s364 */
-+#define KVX_SFR_VSFR109 365 /* Virtual SFR 109 $vsfr109 $s365 */
-+#define KVX_SFR_VSFR110 366 /* Virtual SFR 110 $vsfr110 $s366 */
-+#define KVX_SFR_VSFR111 367 /* Virtual SFR 111 $vsfr111 $s367 */
-+#define KVX_SFR_VSFR112 368 /* Virtual SFR 112 $vsfr112 $s368 */
-+#define KVX_SFR_VSFR113 369 /* Virtual SFR 113 $vsfr113 $s369 */
-+#define KVX_SFR_VSFR114 370 /* Virtual SFR 114 $vsfr114 $s370 */
-+#define KVX_SFR_VSFR115 371 /* Virtual SFR 115 $vsfr115 $s371 */
-+#define KVX_SFR_VSFR116 372 /* Virtual SFR 116 $vsfr116 $s372 */
-+#define KVX_SFR_VSFR117 373 /* Virtual SFR 117 $vsfr117 $s373 */
-+#define KVX_SFR_VSFR118 374 /* Virtual SFR 118 $vsfr118 $s374 */
-+#define KVX_SFR_VSFR119 375 /* Virtual SFR 119 $vsfr119 $s375 */
-+#define KVX_SFR_VSFR120 376 /* Virtual SFR 120 $vsfr120 $s376 */
-+#define KVX_SFR_VSFR121 377 /* Virtual SFR 121 $vsfr121 $s377 */
-+#define KVX_SFR_VSFR122 378 /* Virtual SFR 122 $vsfr122 $s378 */
-+#define KVX_SFR_VSFR123 379 /* Virtual SFR 123 $vsfr123 $s379 */
-+#define KVX_SFR_VSFR124 380 /* Virtual SFR 124 $vsfr124 $s380 */
-+#define KVX_SFR_VSFR125 381 /* Virtual SFR 125 $vsfr125 $s381 */
-+#define KVX_SFR_VSFR126 382 /* Virtual SFR 126 $vsfr126 $s382 */
-+#define KVX_SFR_VSFR127 383 /* Virtual SFR 127 $vsfr127 $s383 */
-+#define KVX_SFR_VSFR128 384 /* Virtual SFR 128 $vsfr128 $s384 */
-+#define KVX_SFR_VSFR129 385 /* Virtual SFR 129 $vsfr129 $s385 */
-+#define KVX_SFR_VSFR130 386 /* Virtual SFR 130 $vsfr130 $s386 */
-+#define KVX_SFR_VSFR131 387 /* Virtual SFR 131 $vsfr131 $s387 */
-+#define KVX_SFR_VSFR132 388 /* Virtual SFR 132 $vsfr132 $s388 */
-+#define KVX_SFR_VSFR133 389 /* Virtual SFR 133 $vsfr133 $s389 */
-+#define KVX_SFR_VSFR134 390 /* Virtual SFR 134 $vsfr134 $s390 */
-+#define KVX_SFR_VSFR135 391 /* Virtual SFR 135 $vsfr135 $s391 */
-+#define KVX_SFR_VSFR136 392 /* Virtual SFR 136 $vsfr136 $s392 */
-+#define KVX_SFR_VSFR137 393 /* Virtual SFR 137 $vsfr137 $s393 */
-+#define KVX_SFR_VSFR138 394 /* Virtual SFR 138 $vsfr138 $s394 */
-+#define KVX_SFR_VSFR139 395 /* Virtual SFR 139 $vsfr139 $s395 */
-+#define KVX_SFR_VSFR140 396 /* Virtual SFR 140 $vsfr140 $s396 */
-+#define KVX_SFR_VSFR141 397 /* Virtual SFR 141 $vsfr141 $s397 */
-+#define KVX_SFR_VSFR142 398 /* Virtual SFR 142 $vsfr142 $s398 */
-+#define KVX_SFR_VSFR143 399 /* Virtual SFR 143 $vsfr143 $s399 */
-+#define KVX_SFR_VSFR144 400 /* Virtual SFR 144 $vsfr144 $s400 */
-+#define KVX_SFR_VSFR145 401 /* Virtual SFR 145 $vsfr145 $s401 */
-+#define KVX_SFR_VSFR146 402 /* Virtual SFR 146 $vsfr146 $s402 */
-+#define KVX_SFR_VSFR147 403 /* Virtual SFR 147 $vsfr147 $s403 */
-+#define KVX_SFR_VSFR148 404 /* Virtual SFR 148 $vsfr148 $s404 */
-+#define KVX_SFR_VSFR149 405 /* Virtual SFR 149 $vsfr149 $s405 */
-+#define KVX_SFR_VSFR150 406 /* Virtual SFR 150 $vsfr150 $s406 */
-+#define KVX_SFR_VSFR151 407 /* Virtual SFR 151 $vsfr151 $s407 */
-+#define KVX_SFR_VSFR152 408 /* Virtual SFR 152 $vsfr152 $s408 */
-+#define KVX_SFR_VSFR153 409 /* Virtual SFR 153 $vsfr153 $s409 */
-+#define KVX_SFR_VSFR154 410 /* Virtual SFR 154 $vsfr154 $s410 */
-+#define KVX_SFR_VSFR155 411 /* Virtual SFR 155 $vsfr155 $s411 */
-+#define KVX_SFR_VSFR156 412 /* Virtual SFR 156 $vsfr156 $s412 */
-+#define KVX_SFR_VSFR157 413 /* Virtual SFR 157 $vsfr157 $s413 */
-+#define KVX_SFR_VSFR158 414 /* Virtual SFR 158 $vsfr158 $s414 */
-+#define KVX_SFR_VSFR159 415 /* Virtual SFR 159 $vsfr159 $s415 */
-+#define KVX_SFR_VSFR160 416 /* Virtual SFR 160 $vsfr160 $s416 */
-+#define KVX_SFR_VSFR161 417 /* Virtual SFR 161 $vsfr161 $s417 */
-+#define KVX_SFR_VSFR162 418 /* Virtual SFR 162 $vsfr162 $s418 */
-+#define KVX_SFR_VSFR163 419 /* Virtual SFR 163 $vsfr163 $s419 */
-+#define KVX_SFR_VSFR164 420 /* Virtual SFR 164 $vsfr164 $s420 */
-+#define KVX_SFR_VSFR165 421 /* Virtual SFR 165 $vsfr165 $s421 */
-+#define KVX_SFR_VSFR166 422 /* Virtual SFR 166 $vsfr166 $s422 */
-+#define KVX_SFR_VSFR167 423 /* Virtual SFR 167 $vsfr167 $s423 */
-+#define KVX_SFR_VSFR168 424 /* Virtual SFR 168 $vsfr168 $s424 */
-+#define KVX_SFR_VSFR169 425 /* Virtual SFR 169 $vsfr169 $s425 */
-+#define KVX_SFR_VSFR170 426 /* Virtual SFR 170 $vsfr170 $s426 */
-+#define KVX_SFR_VSFR171 427 /* Virtual SFR 171 $vsfr171 $s427 */
-+#define KVX_SFR_VSFR172 428 /* Virtual SFR 172 $vsfr172 $s428 */
-+#define KVX_SFR_VSFR173 429 /* Virtual SFR 173 $vsfr173 $s429 */
-+#define KVX_SFR_VSFR174 430 /* Virtual SFR 174 $vsfr174 $s430 */
-+#define KVX_SFR_VSFR175 431 /* Virtual SFR 175 $vsfr175 $s431 */
-+#define KVX_SFR_VSFR176 432 /* Virtual SFR 176 $vsfr176 $s432 */
-+#define KVX_SFR_VSFR177 433 /* Virtual SFR 177 $vsfr177 $s433 */
-+#define KVX_SFR_VSFR178 434 /* Virtual SFR 178 $vsfr178 $s434 */
-+#define KVX_SFR_VSFR179 435 /* Virtual SFR 179 $vsfr179 $s435 */
-+#define KVX_SFR_VSFR180 436 /* Virtual SFR 180 $vsfr180 $s436 */
-+#define KVX_SFR_VSFR181 437 /* Virtual SFR 181 $vsfr181 $s437 */
-+#define KVX_SFR_VSFR182 438 /* Virtual SFR 182 $vsfr182 $s438 */
-+#define KVX_SFR_VSFR183 439 /* Virtual SFR 183 $vsfr183 $s439 */
-+#define KVX_SFR_VSFR184 440 /* Virtual SFR 184 $vsfr184 $s440 */
-+#define KVX_SFR_VSFR185 441 /* Virtual SFR 185 $vsfr185 $s441 */
-+#define KVX_SFR_VSFR186 442 /* Virtual SFR 186 $vsfr186 $s442 */
-+#define KVX_SFR_VSFR187 443 /* Virtual SFR 187 $vsfr187 $s443 */
-+#define KVX_SFR_VSFR188 444 /* Virtual SFR 188 $vsfr188 $s444 */
-+#define KVX_SFR_VSFR189 445 /* Virtual SFR 189 $vsfr189 $s445 */
-+#define KVX_SFR_VSFR190 446 /* Virtual SFR 190 $vsfr190 $s446 */
-+#define KVX_SFR_VSFR191 447 /* Virtual SFR 191 $vsfr191 $s447 */
-+#define KVX_SFR_VSFR192 448 /* Virtual SFR 192 $vsfr192 $s448 */
-+#define KVX_SFR_VSFR193 449 /* Virtual SFR 193 $vsfr193 $s449 */
-+#define KVX_SFR_VSFR194 450 /* Virtual SFR 194 $vsfr194 $s450 */
-+#define KVX_SFR_VSFR195 451 /* Virtual SFR 195 $vsfr195 $s451 */
-+#define KVX_SFR_VSFR196 452 /* Virtual SFR 196 $vsfr196 $s452 */
-+#define KVX_SFR_VSFR197 453 /* Virtual SFR 197 $vsfr197 $s453 */
-+#define KVX_SFR_VSFR198 454 /* Virtual SFR 198 $vsfr198 $s454 */
-+#define KVX_SFR_VSFR199 455 /* Virtual SFR 199 $vsfr199 $s455 */
-+#define KVX_SFR_VSFR200 456 /* Virtual SFR 200 $vsfr200 $s456 */
-+#define KVX_SFR_VSFR201 457 /* Virtual SFR 201 $vsfr201 $s457 */
-+#define KVX_SFR_VSFR202 458 /* Virtual SFR 202 $vsfr202 $s458 */
-+#define KVX_SFR_VSFR203 459 /* Virtual SFR 203 $vsfr203 $s459 */
-+#define KVX_SFR_VSFR204 460 /* Virtual SFR 204 $vsfr204 $s460 */
-+#define KVX_SFR_VSFR205 461 /* Virtual SFR 205 $vsfr205 $s461 */
-+#define KVX_SFR_VSFR206 462 /* Virtual SFR 206 $vsfr206 $s462 */
-+#define KVX_SFR_VSFR207 463 /* Virtual SFR 207 $vsfr207 $s463 */
-+#define KVX_SFR_VSFR208 464 /* Virtual SFR 208 $vsfr208 $s464 */
-+#define KVX_SFR_VSFR209 465 /* Virtual SFR 209 $vsfr209 $s465 */
-+#define KVX_SFR_VSFR210 466 /* Virtual SFR 210 $vsfr210 $s466 */
-+#define KVX_SFR_VSFR211 467 /* Virtual SFR 211 $vsfr211 $s467 */
-+#define KVX_SFR_VSFR212 468 /* Virtual SFR 212 $vsfr212 $s468 */
-+#define KVX_SFR_VSFR213 469 /* Virtual SFR 213 $vsfr213 $s469 */
-+#define KVX_SFR_VSFR214 470 /* Virtual SFR 214 $vsfr214 $s470 */
-+#define KVX_SFR_VSFR215 471 /* Virtual SFR 215 $vsfr215 $s471 */
-+#define KVX_SFR_VSFR216 472 /* Virtual SFR 216 $vsfr216 $s472 */
-+#define KVX_SFR_VSFR217 473 /* Virtual SFR 217 $vsfr217 $s473 */
-+#define KVX_SFR_VSFR218 474 /* Virtual SFR 218 $vsfr218 $s474 */
-+#define KVX_SFR_VSFR219 475 /* Virtual SFR 219 $vsfr219 $s475 */
-+#define KVX_SFR_VSFR220 476 /* Virtual SFR 220 $vsfr220 $s476 */
-+#define KVX_SFR_VSFR221 477 /* Virtual SFR 221 $vsfr221 $s477 */
-+#define KVX_SFR_VSFR222 478 /* Virtual SFR 222 $vsfr222 $s478 */
-+#define KVX_SFR_VSFR223 479 /* Virtual SFR 223 $vsfr223 $s479 */
-+#define KVX_SFR_VSFR224 480 /* Virtual SFR 224 $vsfr224 $s480 */
-+#define KVX_SFR_VSFR225 481 /* Virtual SFR 225 $vsfr225 $s481 */
-+#define KVX_SFR_VSFR226 482 /* Virtual SFR 226 $vsfr226 $s482 */
-+#define KVX_SFR_VSFR227 483 /* Virtual SFR 227 $vsfr227 $s483 */
-+#define KVX_SFR_VSFR228 484 /* Virtual SFR 228 $vsfr228 $s484 */
-+#define KVX_SFR_VSFR229 485 /* Virtual SFR 229 $vsfr229 $s485 */
-+#define KVX_SFR_VSFR230 486 /* Virtual SFR 230 $vsfr230 $s486 */
-+#define KVX_SFR_VSFR231 487 /* Virtual SFR 231 $vsfr231 $s487 */
-+#define KVX_SFR_VSFR232 488 /* Virtual SFR 232 $vsfr232 $s488 */
-+#define KVX_SFR_VSFR233 489 /* Virtual SFR 233 $vsfr233 $s489 */
-+#define KVX_SFR_VSFR234 490 /* Virtual SFR 234 $vsfr234 $s490 */
-+#define KVX_SFR_VSFR235 491 /* Virtual SFR 235 $vsfr235 $s491 */
-+#define KVX_SFR_VSFR236 492 /* Virtual SFR 236 $vsfr236 $s492 */
-+#define KVX_SFR_VSFR237 493 /* Virtual SFR 237 $vsfr237 $s493 */
-+#define KVX_SFR_VSFR238 494 /* Virtual SFR 238 $vsfr238 $s494 */
-+#define KVX_SFR_VSFR239 495 /* Virtual SFR 239 $vsfr239 $s495 */
-+#define KVX_SFR_VSFR240 496 /* Virtual SFR 240 $vsfr240 $s496 */
-+#define KVX_SFR_VSFR241 497 /* Virtual SFR 241 $vsfr241 $s497 */
-+#define KVX_SFR_VSFR242 498 /* Virtual SFR 242 $vsfr242 $s498 */
-+#define KVX_SFR_VSFR243 499 /* Virtual SFR 243 $vsfr243 $s499 */
-+#define KVX_SFR_VSFR244 500 /* Virtual SFR 244 $vsfr244 $s500 */
-+#define KVX_SFR_VSFR245 501 /* Virtual SFR 245 $vsfr245 $s501 */
-+#define KVX_SFR_VSFR246 502 /* Virtual SFR 246 $vsfr246 $s502 */
-+#define KVX_SFR_VSFR247 503 /* Virtual SFR 247 $vsfr247 $s503 */
-+#define KVX_SFR_VSFR248 504 /* Virtual SFR 248 $vsfr248 $s504 */
-+#define KVX_SFR_VSFR249 505 /* Virtual SFR 249 $vsfr249 $s505 */
-+#define KVX_SFR_VSFR250 506 /* Virtual SFR 250 $vsfr250 $s506 */
-+#define KVX_SFR_VSFR251 507 /* Virtual SFR 251 $vsfr251 $s507 */
-+#define KVX_SFR_VSFR252 508 /* Virtual SFR 252 $vsfr252 $s508 */
-+#define KVX_SFR_VSFR253 509 /* Virtual SFR 253 $vsfr253 $s509 */
-+#define KVX_SFR_VSFR254 510 /* Virtual SFR 254 $vsfr254 $s510 */
-+#define KVX_SFR_VSFR255 511 /* Virtual SFR 255 $vsfr255 $s511 */
-+
-+/* Register field masks */
-+
-+#define KVX_SFR_MEN_MEN_MASK _ULL(0xffff) /* Miscellaneous External Notifications */
-+#define KVX_SFR_MEN_MEN_SHIFT 0
-+#define KVX_SFR_MEN_MEN_WIDTH 16
-+#define KVX_SFR_MEN_MEN_WFXL_MASK _ULL(0xffff)
-+#define KVX_SFR_MEN_MEN_WFXL_CLEAR _ULL(0xffff)
-+#define KVX_SFR_MEN_MEN_WFXL_SET _ULL(0xffff00000000)
-+
-+#define KVX_SFR_SYO_Q0_MASK _ULL(0x3) /* Quarter 0 syscalls 0 to 1023 owner */
-+#define KVX_SFR_SYO_Q0_SHIFT 0
-+#define KVX_SFR_SYO_Q0_WIDTH 2
-+#define KVX_SFR_SYO_Q0_WFXL_MASK _ULL(0x3)
-+#define KVX_SFR_SYO_Q0_WFXL_CLEAR _ULL(0x3)
-+#define KVX_SFR_SYO_Q0_WFXL_SET _ULL(0x300000000)
-+
-+#define KVX_SFR_SYO_Q1_MASK _ULL(0xc) /* Quarter 1 syscalls 1024 to 2047 owner */
-+#define KVX_SFR_SYO_Q1_SHIFT 2
-+#define KVX_SFR_SYO_Q1_WIDTH 2
-+#define KVX_SFR_SYO_Q1_WFXL_MASK _ULL(0xc)
-+#define KVX_SFR_SYO_Q1_WFXL_CLEAR _ULL(0xc)
-+#define KVX_SFR_SYO_Q1_WFXL_SET _ULL(0xc00000000)
-+
-+#define KVX_SFR_SYO_Q2_MASK _ULL(0x30) /* Quarter 2 syscalls 2048 to 3071 owner */
-+#define KVX_SFR_SYO_Q2_SHIFT 4
-+#define KVX_SFR_SYO_Q2_WIDTH 2
-+#define KVX_SFR_SYO_Q2_WFXL_MASK _ULL(0x30)
-+#define KVX_SFR_SYO_Q2_WFXL_CLEAR _ULL(0x30)
-+#define KVX_SFR_SYO_Q2_WFXL_SET _ULL(0x3000000000)
-+
-+#define KVX_SFR_SYO_Q3_MASK _ULL(0xc0) /* Quarter 3 syscalls 3072 to 4095 owner */
-+#define KVX_SFR_SYO_Q3_SHIFT 6
-+#define KVX_SFR_SYO_Q3_WIDTH 2
-+#define KVX_SFR_SYO_Q3_WFXL_MASK _ULL(0xc0)
-+#define KVX_SFR_SYO_Q3_WFXL_CLEAR _ULL(0xc0)
-+#define KVX_SFR_SYO_Q3_WFXL_SET _ULL(0xc000000000)
-+
-+#define KVX_SFR_SYOW_Q0_MASK _ULL(0x3) /* Quarter 0 syscalls 0 to 1023 owner */
-+#define KVX_SFR_SYOW_Q0_SHIFT 0
-+#define KVX_SFR_SYOW_Q0_WIDTH 2
-+#define KVX_SFR_SYOW_Q0_WFXL_MASK _ULL(0x3)
-+#define KVX_SFR_SYOW_Q0_WFXL_CLEAR _ULL(0x3)
-+#define KVX_SFR_SYOW_Q0_WFXL_SET _ULL(0x300000000)
-+
-+#define KVX_SFR_SYOW_Q1_MASK _ULL(0xc) /* Quarter 1 syscalls 1024 to 2047 owner */
-+#define KVX_SFR_SYOW_Q1_SHIFT 2
-+#define KVX_SFR_SYOW_Q1_WIDTH 2
-+#define KVX_SFR_SYOW_Q1_WFXL_MASK _ULL(0xc)
-+#define KVX_SFR_SYOW_Q1_WFXL_CLEAR _ULL(0xc)
-+#define KVX_SFR_SYOW_Q1_WFXL_SET _ULL(0xc00000000)
-+
-+#define KVX_SFR_SYOW_Q2_MASK _ULL(0x30) /* Quarter 2 syscalls 2048 to 3071 owner */
-+#define KVX_SFR_SYOW_Q2_SHIFT 4
-+#define KVX_SFR_SYOW_Q2_WIDTH 2
-+#define KVX_SFR_SYOW_Q2_WFXL_MASK _ULL(0x30)
-+#define KVX_SFR_SYOW_Q2_WFXL_CLEAR _ULL(0x30)
-+#define KVX_SFR_SYOW_Q2_WFXL_SET _ULL(0x3000000000)
-+
-+#define KVX_SFR_SYOW_Q3_MASK _ULL(0xc0) /* Quarter 3 syscalls 3072 to 4095 owner */
-+#define KVX_SFR_SYOW_Q3_SHIFT 6
-+#define KVX_SFR_SYOW_Q3_WIDTH 2
-+#define KVX_SFR_SYOW_Q3_WFXL_MASK _ULL(0xc0)
-+#define KVX_SFR_SYOW_Q3_WFXL_CLEAR _ULL(0xc0)
-+#define KVX_SFR_SYOW_Q3_WFXL_SET _ULL(0xc000000000)
-+
-+#define KVX_SFR_HTO_OPC_MASK _ULL(0x3) /* OPCode trap owner */
-+#define KVX_SFR_HTO_OPC_SHIFT 0
-+#define KVX_SFR_HTO_OPC_WIDTH 2
-+#define KVX_SFR_HTO_OPC_WFXL_MASK _ULL(0x3)
-+#define KVX_SFR_HTO_OPC_WFXL_CLEAR _ULL(0x3)
-+#define KVX_SFR_HTO_OPC_WFXL_SET _ULL(0x300000000)
-+
-+#define KVX_SFR_HTO_DMIS_MASK _ULL(0xc) /* Data MISalign access trap owner */
-+#define KVX_SFR_HTO_DMIS_SHIFT 2
-+#define KVX_SFR_HTO_DMIS_WIDTH 2
-+#define KVX_SFR_HTO_DMIS_WFXL_MASK _ULL(0xc)
-+#define KVX_SFR_HTO_DMIS_WFXL_CLEAR _ULL(0xc)
-+#define KVX_SFR_HTO_DMIS_WFXL_SET _ULL(0xc00000000)
-+
-+#define KVX_SFR_HTO_PSYS_MASK _ULL(0x30) /* Program System Error trap owner */
-+#define KVX_SFR_HTO_PSYS_SHIFT 4
-+#define KVX_SFR_HTO_PSYS_WIDTH 2
-+#define KVX_SFR_HTO_PSYS_WFXL_MASK _ULL(0x30)
-+#define KVX_SFR_HTO_PSYS_WFXL_CLEAR _ULL(0x30)
-+#define KVX_SFR_HTO_PSYS_WFXL_SET _ULL(0x3000000000)
-+
-+#define KVX_SFR_HTO_DSYS_MASK _ULL(0xc0) /* Data System Error trap owner */
-+#define KVX_SFR_HTO_DSYS_SHIFT 6
-+#define KVX_SFR_HTO_DSYS_WIDTH 2
-+#define KVX_SFR_HTO_DSYS_WFXL_MASK _ULL(0xc0)
-+#define KVX_SFR_HTO_DSYS_WFXL_CLEAR _ULL(0xc0)
-+#define KVX_SFR_HTO_DSYS_WFXL_SET _ULL(0xc000000000)
-+
-+#define KVX_SFR_HTO_DECCG_MASK _ULL(0x300) /* Double ECC traps group owner */
-+#define KVX_SFR_HTO_DECCG_SHIFT 8
-+#define KVX_SFR_HTO_DECCG_WIDTH 2
-+#define KVX_SFR_HTO_DECCG_WFXL_MASK _ULL(0x300)
-+#define KVX_SFR_HTO_DECCG_WFXL_CLEAR _ULL(0x300)
-+#define KVX_SFR_HTO_DECCG_WFXL_SET _ULL(0x30000000000)
-+
-+#define KVX_SFR_HTO_SECCG_MASK _ULL(0xc00) /* Single ECC traps group owner */
-+#define KVX_SFR_HTO_SECCG_SHIFT 10
-+#define KVX_SFR_HTO_SECCG_WIDTH 2
-+#define KVX_SFR_HTO_SECCG_WFXL_MASK _ULL(0xc00)
-+#define KVX_SFR_HTO_SECCG_WFXL_CLEAR _ULL(0xc00)
-+#define KVX_SFR_HTO_SECCG_WFXL_SET _ULL(0xc0000000000)
-+
-+#define KVX_SFR_HTO_NOMAP_MASK _ULL(0x3000) /* No mapping trap owner */
-+#define KVX_SFR_HTO_NOMAP_SHIFT 12
-+#define KVX_SFR_HTO_NOMAP_WIDTH 2
-+#define KVX_SFR_HTO_NOMAP_WFXL_MASK _ULL(0x3000)
-+#define KVX_SFR_HTO_NOMAP_WFXL_CLEAR _ULL(0x3000)
-+#define KVX_SFR_HTO_NOMAP_WFXL_SET _ULL(0x300000000000)
-+
-+#define KVX_SFR_HTO_PROT_MASK _ULL(0xc000) /* PROTection trap owner */
-+#define KVX_SFR_HTO_PROT_SHIFT 14
-+#define KVX_SFR_HTO_PROT_WIDTH 2
-+#define KVX_SFR_HTO_PROT_WFXL_MASK _ULL(0xc000)
-+#define KVX_SFR_HTO_PROT_WFXL_CLEAR _ULL(0xc000)
-+#define KVX_SFR_HTO_PROT_WFXL_SET _ULL(0xc00000000000)
-+
-+#define KVX_SFR_HTO_W2CL_MASK _ULL(0x30000) /* Write to clean trap owner */
-+#define KVX_SFR_HTO_W2CL_SHIFT 16
-+#define KVX_SFR_HTO_W2CL_WIDTH 2
-+#define KVX_SFR_HTO_W2CL_WFXL_MASK _ULL(0x30000)
-+#define KVX_SFR_HTO_W2CL_WFXL_CLEAR _ULL(0x30000)
-+#define KVX_SFR_HTO_W2CL_WFXL_SET _ULL(0x3000000000000)
-+
-+#define KVX_SFR_HTO_A2CL_MASK _ULL(0xc0000) /* Atomic to clean trap owner */
-+#define KVX_SFR_HTO_A2CL_SHIFT 18
-+#define KVX_SFR_HTO_A2CL_WIDTH 2
-+#define KVX_SFR_HTO_A2CL_WFXL_MASK _ULL(0xc0000)
-+#define KVX_SFR_HTO_A2CL_WFXL_CLEAR _ULL(0xc0000)
-+#define KVX_SFR_HTO_A2CL_WFXL_SET _ULL(0xc000000000000)
-+
-+#define KVX_SFR_HTO_DE_MASK _ULL(0x300000) /* Double Exception trap owner */
-+#define KVX_SFR_HTO_DE_SHIFT 20
-+#define KVX_SFR_HTO_DE_WIDTH 2
-+#define KVX_SFR_HTO_DE_WFXL_MASK _ULL(0x300000)
-+#define KVX_SFR_HTO_DE_WFXL_CLEAR _ULL(0x300000)
-+#define KVX_SFR_HTO_DE_WFXL_SET _ULL(0x30000000000000)
-+
-+#define KVX_SFR_HTO_VSFR_MASK _ULL(0xc00000) /* Virtual SFR trap owner */
-+#define KVX_SFR_HTO_VSFR_SHIFT 22
-+#define KVX_SFR_HTO_VSFR_WIDTH 2
-+#define KVX_SFR_HTO_VSFR_WFXL_MASK _ULL(0xc00000)
-+#define KVX_SFR_HTO_VSFR_WFXL_CLEAR _ULL(0xc00000)
-+#define KVX_SFR_HTO_VSFR_WFXL_SET _ULL(0xc0000000000000)
-+
-+#define KVX_SFR_HTO_PLO_MASK _ULL(0x3000000) /* Privilege Level Overflow trap owner */
-+#define KVX_SFR_HTO_PLO_SHIFT 24
-+#define KVX_SFR_HTO_PLO_WIDTH 2
-+#define KVX_SFR_HTO_PLO_WFXL_MASK _ULL(0x3000000)
-+#define KVX_SFR_HTO_PLO_WFXL_CLEAR _ULL(0x3000000)
-+#define KVX_SFR_HTO_PLO_WFXL_SET _ULL(0x300000000000000)
-+
-+#define KVX_SFR_HTOW_OPC_MASK _ULL(0x3) /* OPCode trap owner */
-+#define KVX_SFR_HTOW_OPC_SHIFT 0
-+#define KVX_SFR_HTOW_OPC_WIDTH 2
-+#define KVX_SFR_HTOW_OPC_WFXL_MASK _ULL(0x3)
-+#define KVX_SFR_HTOW_OPC_WFXL_CLEAR _ULL(0x3)
-+#define KVX_SFR_HTOW_OPC_WFXL_SET _ULL(0x300000000)
-+
-+#define KVX_SFR_HTOW_DMIS_MASK _ULL(0xc) /* Data MISalign access trap owner */
-+#define KVX_SFR_HTOW_DMIS_SHIFT 2
-+#define KVX_SFR_HTOW_DMIS_WIDTH 2
-+#define KVX_SFR_HTOW_DMIS_WFXL_MASK _ULL(0xc)
-+#define KVX_SFR_HTOW_DMIS_WFXL_CLEAR _ULL(0xc)
-+#define KVX_SFR_HTOW_DMIS_WFXL_SET _ULL(0xc00000000)
-+
-+#define KVX_SFR_HTOW_PSYS_MASK _ULL(0x30) /* Program System Error trap owner */
-+#define KVX_SFR_HTOW_PSYS_SHIFT 4
-+#define KVX_SFR_HTOW_PSYS_WIDTH 2
-+#define KVX_SFR_HTOW_PSYS_WFXL_MASK _ULL(0x30)
-+#define KVX_SFR_HTOW_PSYS_WFXL_CLEAR _ULL(0x30)
-+#define KVX_SFR_HTOW_PSYS_WFXL_SET _ULL(0x3000000000)
-+
-+#define KVX_SFR_HTOW_DSYS_MASK _ULL(0xc0) /* Data System Error trap owner */
-+#define KVX_SFR_HTOW_DSYS_SHIFT 6
-+#define KVX_SFR_HTOW_DSYS_WIDTH 2
-+#define KVX_SFR_HTOW_DSYS_WFXL_MASK _ULL(0xc0)
-+#define KVX_SFR_HTOW_DSYS_WFXL_CLEAR _ULL(0xc0)
-+#define KVX_SFR_HTOW_DSYS_WFXL_SET _ULL(0xc000000000)
-+
-+#define KVX_SFR_HTOW_DECCG_MASK _ULL(0x300) /* Double ECC traps group owner */
-+#define KVX_SFR_HTOW_DECCG_SHIFT 8
-+#define KVX_SFR_HTOW_DECCG_WIDTH 2
-+#define KVX_SFR_HTOW_DECCG_WFXL_MASK _ULL(0x300)
-+#define KVX_SFR_HTOW_DECCG_WFXL_CLEAR _ULL(0x300)
-+#define KVX_SFR_HTOW_DECCG_WFXL_SET _ULL(0x30000000000)
-+
-+#define KVX_SFR_HTOW_SECCG_MASK _ULL(0xc00) /* Single ECC traps group owner */
-+#define KVX_SFR_HTOW_SECCG_SHIFT 10
-+#define KVX_SFR_HTOW_SECCG_WIDTH 2
-+#define KVX_SFR_HTOW_SECCG_WFXL_MASK _ULL(0xc00)
-+#define KVX_SFR_HTOW_SECCG_WFXL_CLEAR _ULL(0xc00)
-+#define KVX_SFR_HTOW_SECCG_WFXL_SET _ULL(0xc0000000000)
-+
-+#define KVX_SFR_HTOW_NOMAP_MASK _ULL(0x3000) /* No mapping trap owner */
-+#define KVX_SFR_HTOW_NOMAP_SHIFT 12
-+#define KVX_SFR_HTOW_NOMAP_WIDTH 2
-+#define KVX_SFR_HTOW_NOMAP_WFXL_MASK _ULL(0x3000)
-+#define KVX_SFR_HTOW_NOMAP_WFXL_CLEAR _ULL(0x3000)
-+#define KVX_SFR_HTOW_NOMAP_WFXL_SET _ULL(0x300000000000)
-+
-+#define KVX_SFR_HTOW_PROT_MASK _ULL(0xc000) /* PROTection trap owner */
-+#define KVX_SFR_HTOW_PROT_SHIFT 14
-+#define KVX_SFR_HTOW_PROT_WIDTH 2
-+#define KVX_SFR_HTOW_PROT_WFXL_MASK _ULL(0xc000)
-+#define KVX_SFR_HTOW_PROT_WFXL_CLEAR _ULL(0xc000)
-+#define KVX_SFR_HTOW_PROT_WFXL_SET _ULL(0xc00000000000)
-+
-+#define KVX_SFR_HTOW_W2CL_MASK _ULL(0x30000) /* Write to clean trap owner */
-+#define KVX_SFR_HTOW_W2CL_SHIFT 16
-+#define KVX_SFR_HTOW_W2CL_WIDTH 2
-+#define KVX_SFR_HTOW_W2CL_WFXL_MASK _ULL(0x30000)
-+#define KVX_SFR_HTOW_W2CL_WFXL_CLEAR _ULL(0x30000)
-+#define KVX_SFR_HTOW_W2CL_WFXL_SET _ULL(0x3000000000000)
-+
-+#define KVX_SFR_HTOW_A2CL_MASK _ULL(0xc0000) /* Atomic to clean trap owner */
-+#define KVX_SFR_HTOW_A2CL_SHIFT 18
-+#define KVX_SFR_HTOW_A2CL_WIDTH 2
-+#define KVX_SFR_HTOW_A2CL_WFXL_MASK _ULL(0xc0000)
-+#define KVX_SFR_HTOW_A2CL_WFXL_CLEAR _ULL(0xc0000)
-+#define KVX_SFR_HTOW_A2CL_WFXL_SET _ULL(0xc000000000000)
-+
-+#define KVX_SFR_HTOW_DE_MASK _ULL(0x300000) /* Double Exception trap owner */
-+#define KVX_SFR_HTOW_DE_SHIFT 20
-+#define KVX_SFR_HTOW_DE_WIDTH 2
-+#define KVX_SFR_HTOW_DE_WFXL_MASK _ULL(0x300000)
-+#define KVX_SFR_HTOW_DE_WFXL_CLEAR _ULL(0x300000)
-+#define KVX_SFR_HTOW_DE_WFXL_SET _ULL(0x30000000000000)
-+
-+#define KVX_SFR_HTOW_VSFR_MASK _ULL(0xc00000) /* Virtual SFR trap owner */
-+#define KVX_SFR_HTOW_VSFR_SHIFT 22
-+#define KVX_SFR_HTOW_VSFR_WIDTH 2
-+#define KVX_SFR_HTOW_VSFR_WFXL_MASK _ULL(0xc00000)
-+#define KVX_SFR_HTOW_VSFR_WFXL_CLEAR _ULL(0xc00000)
-+#define KVX_SFR_HTOW_VSFR_WFXL_SET _ULL(0xc0000000000000)
-+
-+#define KVX_SFR_HTOW_PLO_MASK _ULL(0x3000000) /* Privilege Level Overflow trap owner */
-+#define KVX_SFR_HTOW_PLO_SHIFT 24
-+#define KVX_SFR_HTOW_PLO_WIDTH 2
-+#define KVX_SFR_HTOW_PLO_WFXL_MASK _ULL(0x3000000)
-+#define KVX_SFR_HTOW_PLO_WFXL_CLEAR _ULL(0x3000000)
-+#define KVX_SFR_HTOW_PLO_WFXL_SET _ULL(0x300000000000000)
-+
-+#define KVX_SFR_ITO_IT0_MASK _ULL(0x3) /* Interrupt 0 owner */
-+#define KVX_SFR_ITO_IT0_SHIFT 0
-+#define KVX_SFR_ITO_IT0_WIDTH 2
-+#define KVX_SFR_ITO_IT0_WFXL_MASK _ULL(0x3)
-+#define KVX_SFR_ITO_IT0_WFXL_CLEAR _ULL(0x3)
-+#define KVX_SFR_ITO_IT0_WFXL_SET _ULL(0x300000000)
-+
-+#define KVX_SFR_ITO_IT1_MASK _ULL(0xc) /* Interrupt 1 owner */
-+#define KVX_SFR_ITO_IT1_SHIFT 2
-+#define KVX_SFR_ITO_IT1_WIDTH 2
-+#define KVX_SFR_ITO_IT1_WFXL_MASK _ULL(0xc)
-+#define KVX_SFR_ITO_IT1_WFXL_CLEAR _ULL(0xc)
-+#define KVX_SFR_ITO_IT1_WFXL_SET _ULL(0xc00000000)
-+
-+#define KVX_SFR_ITO_IT2_MASK _ULL(0x30) /* Interrupt 2 owner */
-+#define KVX_SFR_ITO_IT2_SHIFT 4
-+#define KVX_SFR_ITO_IT2_WIDTH 2
-+#define KVX_SFR_ITO_IT2_WFXL_MASK _ULL(0x30)
-+#define KVX_SFR_ITO_IT2_WFXL_CLEAR _ULL(0x30)
-+#define KVX_SFR_ITO_IT2_WFXL_SET _ULL(0x3000000000)
-+
-+#define KVX_SFR_ITO_IT3_MASK _ULL(0xc0) /* Interrupt 3 owner */
-+#define KVX_SFR_ITO_IT3_SHIFT 6
-+#define KVX_SFR_ITO_IT3_WIDTH 2
-+#define KVX_SFR_ITO_IT3_WFXL_MASK _ULL(0xc0)
-+#define KVX_SFR_ITO_IT3_WFXL_CLEAR _ULL(0xc0)
-+#define KVX_SFR_ITO_IT3_WFXL_SET _ULL(0xc000000000)
-+
-+#define KVX_SFR_ITO_IT4_MASK _ULL(0x300) /* Interrupt 4 owner */
-+#define KVX_SFR_ITO_IT4_SHIFT 8
-+#define KVX_SFR_ITO_IT4_WIDTH 2
-+#define KVX_SFR_ITO_IT4_WFXL_MASK _ULL(0x300)
-+#define KVX_SFR_ITO_IT4_WFXL_CLEAR _ULL(0x300)
-+#define KVX_SFR_ITO_IT4_WFXL_SET _ULL(0x30000000000)
-+
-+#define KVX_SFR_ITO_IT5_MASK _ULL(0xc00) /* Interrupt 5 owner */
-+#define KVX_SFR_ITO_IT5_SHIFT 10
-+#define KVX_SFR_ITO_IT5_WIDTH 2
-+#define KVX_SFR_ITO_IT5_WFXL_MASK _ULL(0xc00)
-+#define KVX_SFR_ITO_IT5_WFXL_CLEAR _ULL(0xc00)
-+#define KVX_SFR_ITO_IT5_WFXL_SET _ULL(0xc0000000000)
-+
-+#define KVX_SFR_ITO_IT6_MASK _ULL(0x3000) /* Interrupt 6 owner */
-+#define KVX_SFR_ITO_IT6_SHIFT 12
-+#define KVX_SFR_ITO_IT6_WIDTH 2
-+#define KVX_SFR_ITO_IT6_WFXL_MASK _ULL(0x3000)
-+#define KVX_SFR_ITO_IT6_WFXL_CLEAR _ULL(0x3000)
-+#define KVX_SFR_ITO_IT6_WFXL_SET _ULL(0x300000000000)
-+
-+#define KVX_SFR_ITO_IT7_MASK _ULL(0xc000) /* Interrupt 7 owner */
-+#define KVX_SFR_ITO_IT7_SHIFT 14
-+#define KVX_SFR_ITO_IT7_WIDTH 2
-+#define KVX_SFR_ITO_IT7_WFXL_MASK _ULL(0xc000)
-+#define KVX_SFR_ITO_IT7_WFXL_CLEAR _ULL(0xc000)
-+#define KVX_SFR_ITO_IT7_WFXL_SET _ULL(0xc00000000000)
-+
-+#define KVX_SFR_ITO_IT8_MASK _ULL(0x30000) /* Interrupt 8 owner */
-+#define KVX_SFR_ITO_IT8_SHIFT 16
-+#define KVX_SFR_ITO_IT8_WIDTH 2
-+#define KVX_SFR_ITO_IT8_WFXL_MASK _ULL(0x30000)
-+#define KVX_SFR_ITO_IT8_WFXL_CLEAR _ULL(0x30000)
-+#define KVX_SFR_ITO_IT8_WFXL_SET _ULL(0x3000000000000)
-+
-+#define KVX_SFR_ITO_IT9_MASK _ULL(0xc0000) /* Interrupt 9 owner */
-+#define KVX_SFR_ITO_IT9_SHIFT 18
-+#define KVX_SFR_ITO_IT9_WIDTH 2
-+#define KVX_SFR_ITO_IT9_WFXL_MASK _ULL(0xc0000)
-+#define KVX_SFR_ITO_IT9_WFXL_CLEAR _ULL(0xc0000)
-+#define KVX_SFR_ITO_IT9_WFXL_SET _ULL(0xc000000000000)
-+
-+#define KVX_SFR_ITO_IT10_MASK _ULL(0x300000) /* Interrupt 10 owner */
-+#define KVX_SFR_ITO_IT10_SHIFT 20
-+#define KVX_SFR_ITO_IT10_WIDTH 2
-+#define KVX_SFR_ITO_IT10_WFXL_MASK _ULL(0x300000)
-+#define KVX_SFR_ITO_IT10_WFXL_CLEAR _ULL(0x300000)
-+#define KVX_SFR_ITO_IT10_WFXL_SET _ULL(0x30000000000000)
-+
-+#define KVX_SFR_ITO_IT11_MASK _ULL(0xc00000) /* Interrupt 11 owner */
-+#define KVX_SFR_ITO_IT11_SHIFT 22
-+#define KVX_SFR_ITO_IT11_WIDTH 2
-+#define KVX_SFR_ITO_IT11_WFXL_MASK _ULL(0xc00000)
-+#define KVX_SFR_ITO_IT11_WFXL_CLEAR _ULL(0xc00000)
-+#define KVX_SFR_ITO_IT11_WFXL_SET _ULL(0xc0000000000000)
-+
-+#define KVX_SFR_ITO_IT12_MASK _ULL(0x3000000) /* Interrupt 12 owner */
-+#define KVX_SFR_ITO_IT12_SHIFT 24
-+#define KVX_SFR_ITO_IT12_WIDTH 2
-+#define KVX_SFR_ITO_IT12_WFXL_MASK _ULL(0x3000000)
-+#define KVX_SFR_ITO_IT12_WFXL_CLEAR _ULL(0x3000000)
-+#define KVX_SFR_ITO_IT12_WFXL_SET _ULL(0x300000000000000)
-+
-+#define KVX_SFR_ITO_IT13_MASK _ULL(0xc000000) /* Interrupt 13 owner */
-+#define KVX_SFR_ITO_IT13_SHIFT 26
-+#define KVX_SFR_ITO_IT13_WIDTH 2
-+#define KVX_SFR_ITO_IT13_WFXL_MASK _ULL(0xc000000)
-+#define KVX_SFR_ITO_IT13_WFXL_CLEAR _ULL(0xc000000)
-+#define KVX_SFR_ITO_IT13_WFXL_SET _ULL(0xc00000000000000)
-+
-+#define KVX_SFR_ITO_IT14_MASK _ULL(0x30000000) /* Interrupt 14 owner */
-+#define KVX_SFR_ITO_IT14_SHIFT 28
-+#define KVX_SFR_ITO_IT14_WIDTH 2
-+#define KVX_SFR_ITO_IT14_WFXL_MASK _ULL(0x30000000)
-+#define KVX_SFR_ITO_IT14_WFXL_CLEAR _ULL(0x30000000)
-+#define KVX_SFR_ITO_IT14_WFXL_SET _ULL(0x3000000000000000)
-+
-+#define KVX_SFR_ITO_IT15_MASK _ULL(0xc0000000) /* Interrupt 15 owner */
-+#define KVX_SFR_ITO_IT15_SHIFT 30
-+#define KVX_SFR_ITO_IT15_WIDTH 2
-+#define KVX_SFR_ITO_IT15_WFXL_MASK _ULL(0xc0000000)
-+#define KVX_SFR_ITO_IT15_WFXL_CLEAR _ULL(0xc0000000)
-+#define KVX_SFR_ITO_IT15_WFXL_SET _ULL(0xc000000000000000)
-+
-+#define KVX_SFR_ITO_IT16_MASK _ULL(0x300000000) /* Interrupt 16 owner */
-+#define KVX_SFR_ITO_IT16_SHIFT 32
-+#define KVX_SFR_ITO_IT16_WIDTH 2
-+#define KVX_SFR_ITO_IT16_WFXM_MASK _ULL(0x300000000)
-+#define KVX_SFR_ITO_IT16_WFXM_CLEAR _ULL(0x3)
-+#define KVX_SFR_ITO_IT16_WFXM_SET _ULL(0x300000000)
-+
-+#define KVX_SFR_ITO_IT17_MASK _ULL(0xc00000000) /* Interrupt 17 owner */
-+#define KVX_SFR_ITO_IT17_SHIFT 34
-+#define KVX_SFR_ITO_IT17_WIDTH 2
-+#define KVX_SFR_ITO_IT17_WFXM_MASK _ULL(0xc00000000)
-+#define KVX_SFR_ITO_IT17_WFXM_CLEAR _ULL(0xc)
-+#define KVX_SFR_ITO_IT17_WFXM_SET _ULL(0xc00000000)
-+
-+#define KVX_SFR_ITO_IT18_MASK _ULL(0x3000000000) /* Interrupt 18 owner */
-+#define KVX_SFR_ITO_IT18_SHIFT 36
-+#define KVX_SFR_ITO_IT18_WIDTH 2
-+#define KVX_SFR_ITO_IT18_WFXM_MASK _ULL(0x3000000000)
-+#define KVX_SFR_ITO_IT18_WFXM_CLEAR _ULL(0x30)
-+#define KVX_SFR_ITO_IT18_WFXM_SET _ULL(0x3000000000)
-+
-+#define KVX_SFR_ITO_IT19_MASK _ULL(0xc000000000) /* Interrupt 19 owner */
-+#define KVX_SFR_ITO_IT19_SHIFT 38
-+#define KVX_SFR_ITO_IT19_WIDTH 2
-+#define KVX_SFR_ITO_IT19_WFXM_MASK _ULL(0xc000000000)
-+#define KVX_SFR_ITO_IT19_WFXM_CLEAR _ULL(0xc0)
-+#define KVX_SFR_ITO_IT19_WFXM_SET _ULL(0xc000000000)
-+
-+#define KVX_SFR_ITO_IT20_MASK _ULL(0x30000000000) /* Interrupt 20 owner */
-+#define KVX_SFR_ITO_IT20_SHIFT 40
-+#define KVX_SFR_ITO_IT20_WIDTH 2
-+#define KVX_SFR_ITO_IT20_WFXM_MASK _ULL(0x30000000000)
-+#define KVX_SFR_ITO_IT20_WFXM_CLEAR _ULL(0x300)
-+#define KVX_SFR_ITO_IT20_WFXM_SET _ULL(0x30000000000)
-+
-+#define KVX_SFR_ITO_IT21_MASK _ULL(0xc0000000000) /* Interrupt 21 owner */
-+#define KVX_SFR_ITO_IT21_SHIFT 42
-+#define KVX_SFR_ITO_IT21_WIDTH 2
-+#define KVX_SFR_ITO_IT21_WFXM_MASK _ULL(0xc0000000000)
-+#define KVX_SFR_ITO_IT21_WFXM_CLEAR _ULL(0xc00)
-+#define KVX_SFR_ITO_IT21_WFXM_SET _ULL(0xc0000000000)
-+
-+#define KVX_SFR_ITO_IT22_MASK _ULL(0x300000000000) /* Interrupt 22 owner */
-+#define KVX_SFR_ITO_IT22_SHIFT 44
-+#define KVX_SFR_ITO_IT22_WIDTH 2
-+#define KVX_SFR_ITO_IT22_WFXM_MASK _ULL(0x300000000000)
-+#define KVX_SFR_ITO_IT22_WFXM_CLEAR _ULL(0x3000)
-+#define KVX_SFR_ITO_IT22_WFXM_SET _ULL(0x300000000000)
-+
-+#define KVX_SFR_ITO_IT23_MASK _ULL(0xc00000000000) /* Interrupt 23 owner */
-+#define KVX_SFR_ITO_IT23_SHIFT 46
-+#define KVX_SFR_ITO_IT23_WIDTH 2
-+#define KVX_SFR_ITO_IT23_WFXM_MASK _ULL(0xc00000000000)
-+#define KVX_SFR_ITO_IT23_WFXM_CLEAR _ULL(0xc000)
-+#define KVX_SFR_ITO_IT23_WFXM_SET _ULL(0xc00000000000)
-+
-+#define KVX_SFR_ITO_IT24_MASK _ULL(0x3000000000000) /* Interrupt 24 owner */
-+#define KVX_SFR_ITO_IT24_SHIFT 48
-+#define KVX_SFR_ITO_IT24_WIDTH 2
-+#define KVX_SFR_ITO_IT24_WFXM_MASK _ULL(0x3000000000000)
-+#define KVX_SFR_ITO_IT24_WFXM_CLEAR _ULL(0x30000)
-+#define KVX_SFR_ITO_IT24_WFXM_SET _ULL(0x3000000000000)
-+
-+#define KVX_SFR_ITO_IT25_MASK _ULL(0xc000000000000) /* Interrupt 25 owner */
-+#define KVX_SFR_ITO_IT25_SHIFT 50
-+#define KVX_SFR_ITO_IT25_WIDTH 2
-+#define KVX_SFR_ITO_IT25_WFXM_MASK _ULL(0xc000000000000)
-+#define KVX_SFR_ITO_IT25_WFXM_CLEAR _ULL(0xc0000)
-+#define KVX_SFR_ITO_IT25_WFXM_SET _ULL(0xc000000000000)
-+
-+#define KVX_SFR_ITO_IT26_MASK _ULL(0x30000000000000) /* Interrupt 26 owner */
-+#define KVX_SFR_ITO_IT26_SHIFT 52
-+#define KVX_SFR_ITO_IT26_WIDTH 2
-+#define KVX_SFR_ITO_IT26_WFXM_MASK _ULL(0x30000000000000)
-+#define KVX_SFR_ITO_IT26_WFXM_CLEAR _ULL(0x300000)
-+#define KVX_SFR_ITO_IT26_WFXM_SET _ULL(0x30000000000000)
-+
-+#define KVX_SFR_ITO_IT27_MASK _ULL(0xc0000000000000) /* Interrupt 27 owner */
-+#define KVX_SFR_ITO_IT27_SHIFT 54
-+#define KVX_SFR_ITO_IT27_WIDTH 2
-+#define KVX_SFR_ITO_IT27_WFXM_MASK _ULL(0xc0000000000000)
-+#define KVX_SFR_ITO_IT27_WFXM_CLEAR _ULL(0xc00000)
-+#define KVX_SFR_ITO_IT27_WFXM_SET _ULL(0xc0000000000000)
-+
-+#define KVX_SFR_ITO_IT28_MASK _ULL(0x300000000000000) /* Interrupt 28 owner */
-+#define KVX_SFR_ITO_IT28_SHIFT 56
-+#define KVX_SFR_ITO_IT28_WIDTH 2
-+#define KVX_SFR_ITO_IT28_WFXM_MASK _ULL(0x300000000000000)
-+#define KVX_SFR_ITO_IT28_WFXM_CLEAR _ULL(0x3000000)
-+#define KVX_SFR_ITO_IT28_WFXM_SET _ULL(0x300000000000000)
-+
-+#define KVX_SFR_ITO_IT29_MASK _ULL(0xc00000000000000) /* Interrupt 29 owner */
-+#define KVX_SFR_ITO_IT29_SHIFT 58
-+#define KVX_SFR_ITO_IT29_WIDTH 2
-+#define KVX_SFR_ITO_IT29_WFXM_MASK _ULL(0xc00000000000000)
-+#define KVX_SFR_ITO_IT29_WFXM_CLEAR _ULL(0xc000000)
-+#define KVX_SFR_ITO_IT29_WFXM_SET _ULL(0xc00000000000000)
-+
-+#define KVX_SFR_ITO_IT30_MASK _ULL(0x3000000000000000) /* Interrupt 30 owner */
-+#define KVX_SFR_ITO_IT30_SHIFT 60
-+#define KVX_SFR_ITO_IT30_WIDTH 2
-+#define KVX_SFR_ITO_IT30_WFXM_MASK _ULL(0x3000000000000000)
-+#define KVX_SFR_ITO_IT30_WFXM_CLEAR _ULL(0x30000000)
-+#define KVX_SFR_ITO_IT30_WFXM_SET _ULL(0x3000000000000000)
-+
-+#define KVX_SFR_ITO_IT31_MASK _ULL(0xc000000000000000) /* Interrupt 31 owner */
-+#define KVX_SFR_ITO_IT31_SHIFT 62
-+#define KVX_SFR_ITO_IT31_WIDTH 2
-+#define KVX_SFR_ITO_IT31_WFXM_MASK _ULL(0xc000000000000000)
-+#define KVX_SFR_ITO_IT31_WFXM_CLEAR _ULL(0xc0000000)
-+#define KVX_SFR_ITO_IT31_WFXM_SET _ULL(0xc000000000000000)
-+
-+#define KVX_SFR_ILE_IT0_MASK _ULL(0x1) /* Interrupt 0 owner */
-+#define KVX_SFR_ILE_IT0_SHIFT 0
-+#define KVX_SFR_ILE_IT0_WIDTH 1
-+#define KVX_SFR_ILE_IT0_WFXL_MASK _ULL(0x1)
-+#define KVX_SFR_ILE_IT0_WFXL_CLEAR _ULL(0x1)
-+#define KVX_SFR_ILE_IT0_WFXL_SET _ULL(0x100000000)
-+
-+#define KVX_SFR_ILE_IT1_MASK _ULL(0x2) /* Interrupt 1 owner */
-+#define KVX_SFR_ILE_IT1_SHIFT 1
-+#define KVX_SFR_ILE_IT1_WIDTH 1
-+#define KVX_SFR_ILE_IT1_WFXL_MASK _ULL(0x2)
-+#define KVX_SFR_ILE_IT1_WFXL_CLEAR _ULL(0x2)
-+#define KVX_SFR_ILE_IT1_WFXL_SET _ULL(0x200000000)
-+
-+#define KVX_SFR_ILE_IT2_MASK _ULL(0x4) /* Interrupt 2 owner */
-+#define KVX_SFR_ILE_IT2_SHIFT 2
-+#define KVX_SFR_ILE_IT2_WIDTH 1
-+#define KVX_SFR_ILE_IT2_WFXL_MASK _ULL(0x4)
-+#define KVX_SFR_ILE_IT2_WFXL_CLEAR _ULL(0x4)
-+#define KVX_SFR_ILE_IT2_WFXL_SET _ULL(0x400000000)
-+
-+#define KVX_SFR_ILE_IT3_MASK _ULL(0x8) /* Interrupt 3 owner */
-+#define KVX_SFR_ILE_IT3_SHIFT 3
-+#define KVX_SFR_ILE_IT3_WIDTH 1
-+#define KVX_SFR_ILE_IT3_WFXL_MASK _ULL(0x8)
-+#define KVX_SFR_ILE_IT3_WFXL_CLEAR _ULL(0x8)
-+#define KVX_SFR_ILE_IT3_WFXL_SET _ULL(0x800000000)
-+
-+#define KVX_SFR_ILE_IT4_MASK _ULL(0x10) /* Interrupt 4 owner */
-+#define KVX_SFR_ILE_IT4_SHIFT 4
-+#define KVX_SFR_ILE_IT4_WIDTH 1
-+#define KVX_SFR_ILE_IT4_WFXL_MASK _ULL(0x10)
-+#define KVX_SFR_ILE_IT4_WFXL_CLEAR _ULL(0x10)
-+#define KVX_SFR_ILE_IT4_WFXL_SET _ULL(0x1000000000)
-+
-+#define KVX_SFR_ILE_IT5_MASK _ULL(0x20) /* Interrupt 5 owner */
-+#define KVX_SFR_ILE_IT5_SHIFT 5
-+#define KVX_SFR_ILE_IT5_WIDTH 1
-+#define KVX_SFR_ILE_IT5_WFXL_MASK _ULL(0x20)
-+#define KVX_SFR_ILE_IT5_WFXL_CLEAR _ULL(0x20)
-+#define KVX_SFR_ILE_IT5_WFXL_SET _ULL(0x2000000000)
-+
-+#define KVX_SFR_ILE_IT6_MASK _ULL(0x40) /* Interrupt 6 owner */
-+#define KVX_SFR_ILE_IT6_SHIFT 6
-+#define KVX_SFR_ILE_IT6_WIDTH 1
-+#define KVX_SFR_ILE_IT6_WFXL_MASK _ULL(0x40)
-+#define KVX_SFR_ILE_IT6_WFXL_CLEAR _ULL(0x40)
-+#define KVX_SFR_ILE_IT6_WFXL_SET _ULL(0x4000000000)
-+
-+#define KVX_SFR_ILE_IT7_MASK _ULL(0x80) /* Interrupt 7 owner */
-+#define KVX_SFR_ILE_IT7_SHIFT 7
-+#define KVX_SFR_ILE_IT7_WIDTH 1
-+#define KVX_SFR_ILE_IT7_WFXL_MASK _ULL(0x80)
-+#define KVX_SFR_ILE_IT7_WFXL_CLEAR _ULL(0x80)
-+#define KVX_SFR_ILE_IT7_WFXL_SET _ULL(0x8000000000)
-+
-+#define KVX_SFR_ILE_IT8_MASK _ULL(0x100) /* Interrupt 8 owner */
-+#define KVX_SFR_ILE_IT8_SHIFT 8
-+#define KVX_SFR_ILE_IT8_WIDTH 1
-+#define KVX_SFR_ILE_IT8_WFXL_MASK _ULL(0x100)
-+#define KVX_SFR_ILE_IT8_WFXL_CLEAR _ULL(0x100)
-+#define KVX_SFR_ILE_IT8_WFXL_SET _ULL(0x10000000000)
-+
-+#define KVX_SFR_ILE_IT9_MASK _ULL(0x200) /* Interrupt 9 owner */
-+#define KVX_SFR_ILE_IT9_SHIFT 9
-+#define KVX_SFR_ILE_IT9_WIDTH 1
-+#define KVX_SFR_ILE_IT9_WFXL_MASK _ULL(0x200)
-+#define KVX_SFR_ILE_IT9_WFXL_CLEAR _ULL(0x200)
-+#define KVX_SFR_ILE_IT9_WFXL_SET _ULL(0x20000000000)
-+
-+#define KVX_SFR_ILE_IT10_MASK _ULL(0x400) /* Interrupt 10 owner */
-+#define KVX_SFR_ILE_IT10_SHIFT 10
-+#define KVX_SFR_ILE_IT10_WIDTH 1
-+#define KVX_SFR_ILE_IT10_WFXL_MASK _ULL(0x400)
-+#define KVX_SFR_ILE_IT10_WFXL_CLEAR _ULL(0x400)
-+#define KVX_SFR_ILE_IT10_WFXL_SET _ULL(0x40000000000)
-+
-+#define KVX_SFR_ILE_IT11_MASK _ULL(0x800) /* Interrupt 11 owner */
-+#define KVX_SFR_ILE_IT11_SHIFT 11
-+#define KVX_SFR_ILE_IT11_WIDTH 1
-+#define KVX_SFR_ILE_IT11_WFXL_MASK _ULL(0x800)
-+#define KVX_SFR_ILE_IT11_WFXL_CLEAR _ULL(0x800)
-+#define KVX_SFR_ILE_IT11_WFXL_SET _ULL(0x80000000000)
-+
-+#define KVX_SFR_ILE_IT12_MASK _ULL(0x1000) /* Interrupt 12 owner */
-+#define KVX_SFR_ILE_IT12_SHIFT 12
-+#define KVX_SFR_ILE_IT12_WIDTH 1
-+#define KVX_SFR_ILE_IT12_WFXL_MASK _ULL(0x1000)
-+#define KVX_SFR_ILE_IT12_WFXL_CLEAR _ULL(0x1000)
-+#define KVX_SFR_ILE_IT12_WFXL_SET _ULL(0x100000000000)
-+
-+#define KVX_SFR_ILE_IT13_MASK _ULL(0x2000) /* Interrupt 13 owner */
-+#define KVX_SFR_ILE_IT13_SHIFT 13
-+#define KVX_SFR_ILE_IT13_WIDTH 1
-+#define KVX_SFR_ILE_IT13_WFXL_MASK _ULL(0x2000)
-+#define KVX_SFR_ILE_IT13_WFXL_CLEAR _ULL(0x2000)
-+#define KVX_SFR_ILE_IT13_WFXL_SET _ULL(0x200000000000)
-+
-+#define KVX_SFR_ILE_IT14_MASK _ULL(0x4000) /* Interrupt 14 owner */
-+#define KVX_SFR_ILE_IT14_SHIFT 14
-+#define KVX_SFR_ILE_IT14_WIDTH 1
-+#define KVX_SFR_ILE_IT14_WFXL_MASK _ULL(0x4000)
-+#define KVX_SFR_ILE_IT14_WFXL_CLEAR _ULL(0x4000)
-+#define KVX_SFR_ILE_IT14_WFXL_SET _ULL(0x400000000000)
-+
-+#define KVX_SFR_ILE_IT15_MASK _ULL(0x8000) /* Interrupt 15 owner */
-+#define KVX_SFR_ILE_IT15_SHIFT 15
-+#define KVX_SFR_ILE_IT15_WIDTH 1
-+#define KVX_SFR_ILE_IT15_WFXL_MASK _ULL(0x8000)
-+#define KVX_SFR_ILE_IT15_WFXL_CLEAR _ULL(0x8000)
-+#define KVX_SFR_ILE_IT15_WFXL_SET _ULL(0x800000000000)
-+
-+#define KVX_SFR_ILE_IT16_MASK _ULL(0x10000) /* Interrupt 16 owner */
-+#define KVX_SFR_ILE_IT16_SHIFT 16
-+#define KVX_SFR_ILE_IT16_WIDTH 1
-+#define KVX_SFR_ILE_IT16_WFXL_MASK _ULL(0x10000)
-+#define KVX_SFR_ILE_IT16_WFXL_CLEAR _ULL(0x10000)
-+#define KVX_SFR_ILE_IT16_WFXL_SET _ULL(0x1000000000000)
-+
-+#define KVX_SFR_ILE_IT17_MASK _ULL(0x20000) /* Interrupt 17 owner */
-+#define KVX_SFR_ILE_IT17_SHIFT 17
-+#define KVX_SFR_ILE_IT17_WIDTH 1
-+#define KVX_SFR_ILE_IT17_WFXL_MASK _ULL(0x20000)
-+#define KVX_SFR_ILE_IT17_WFXL_CLEAR _ULL(0x20000)
-+#define KVX_SFR_ILE_IT17_WFXL_SET _ULL(0x2000000000000)
-+
-+#define KVX_SFR_ILE_IT18_MASK _ULL(0x40000) /* Interrupt 18 owner */
-+#define KVX_SFR_ILE_IT18_SHIFT 18
-+#define KVX_SFR_ILE_IT18_WIDTH 1
-+#define KVX_SFR_ILE_IT18_WFXL_MASK _ULL(0x40000)
-+#define KVX_SFR_ILE_IT18_WFXL_CLEAR _ULL(0x40000)
-+#define KVX_SFR_ILE_IT18_WFXL_SET _ULL(0x4000000000000)
-+
-+#define KVX_SFR_ILE_IT19_MASK _ULL(0x80000) /* Interrupt 19 owner */
-+#define KVX_SFR_ILE_IT19_SHIFT 19
-+#define KVX_SFR_ILE_IT19_WIDTH 1
-+#define KVX_SFR_ILE_IT19_WFXL_MASK _ULL(0x80000)
-+#define KVX_SFR_ILE_IT19_WFXL_CLEAR _ULL(0x80000)
-+#define KVX_SFR_ILE_IT19_WFXL_SET _ULL(0x8000000000000)
-+
-+#define KVX_SFR_ILE_IT20_MASK _ULL(0x100000) /* Interrupt 20 owner */
-+#define KVX_SFR_ILE_IT20_SHIFT 20
-+#define KVX_SFR_ILE_IT20_WIDTH 1
-+#define KVX_SFR_ILE_IT20_WFXL_MASK _ULL(0x100000)
-+#define KVX_SFR_ILE_IT20_WFXL_CLEAR _ULL(0x100000)
-+#define KVX_SFR_ILE_IT20_WFXL_SET _ULL(0x10000000000000)
-+
-+#define KVX_SFR_ILE_IT21_MASK _ULL(0x200000) /* Interrupt 21 owner */
-+#define KVX_SFR_ILE_IT21_SHIFT 21
-+#define KVX_SFR_ILE_IT21_WIDTH 1
-+#define KVX_SFR_ILE_IT21_WFXL_MASK _ULL(0x200000)
-+#define KVX_SFR_ILE_IT21_WFXL_CLEAR _ULL(0x200000)
-+#define KVX_SFR_ILE_IT21_WFXL_SET _ULL(0x20000000000000)
-+
-+#define KVX_SFR_ILE_IT22_MASK _ULL(0x400000) /* Interrupt 22 owner */
-+#define KVX_SFR_ILE_IT22_SHIFT 22
-+#define KVX_SFR_ILE_IT22_WIDTH 1
-+#define KVX_SFR_ILE_IT22_WFXL_MASK _ULL(0x400000)
-+#define KVX_SFR_ILE_IT22_WFXL_CLEAR _ULL(0x400000)
-+#define KVX_SFR_ILE_IT22_WFXL_SET _ULL(0x40000000000000)
-+
-+#define KVX_SFR_ILE_IT23_MASK _ULL(0x800000) /* Interrupt 23 owner */
-+#define KVX_SFR_ILE_IT23_SHIFT 23
-+#define KVX_SFR_ILE_IT23_WIDTH 1
-+#define KVX_SFR_ILE_IT23_WFXL_MASK _ULL(0x800000)
-+#define KVX_SFR_ILE_IT23_WFXL_CLEAR _ULL(0x800000)
-+#define KVX_SFR_ILE_IT23_WFXL_SET _ULL(0x80000000000000)
-+
-+#define KVX_SFR_ILE_IT24_MASK _ULL(0x1000000) /* Interrupt 24 owner */
-+#define KVX_SFR_ILE_IT24_SHIFT 24
-+#define KVX_SFR_ILE_IT24_WIDTH 1
-+#define KVX_SFR_ILE_IT24_WFXL_MASK _ULL(0x1000000)
-+#define KVX_SFR_ILE_IT24_WFXL_CLEAR _ULL(0x1000000)
-+#define KVX_SFR_ILE_IT24_WFXL_SET _ULL(0x100000000000000)
-+
-+#define KVX_SFR_ILE_IT25_MASK _ULL(0x2000000) /* Interrupt 25 owner */
-+#define KVX_SFR_ILE_IT25_SHIFT 25
-+#define KVX_SFR_ILE_IT25_WIDTH 1
-+#define KVX_SFR_ILE_IT25_WFXL_MASK _ULL(0x2000000)
-+#define KVX_SFR_ILE_IT25_WFXL_CLEAR _ULL(0x2000000)
-+#define KVX_SFR_ILE_IT25_WFXL_SET _ULL(0x200000000000000)
-+
-+#define KVX_SFR_ILE_IT26_MASK _ULL(0x4000000) /* Interrupt 26 owner */
-+#define KVX_SFR_ILE_IT26_SHIFT 26
-+#define KVX_SFR_ILE_IT26_WIDTH 1
-+#define KVX_SFR_ILE_IT26_WFXL_MASK _ULL(0x4000000)
-+#define KVX_SFR_ILE_IT26_WFXL_CLEAR _ULL(0x4000000)
-+#define KVX_SFR_ILE_IT26_WFXL_SET _ULL(0x400000000000000)
-+
-+#define KVX_SFR_ILE_IT27_MASK _ULL(0x8000000) /* Interrupt 27 owner */
-+#define KVX_SFR_ILE_IT27_SHIFT 27
-+#define KVX_SFR_ILE_IT27_WIDTH 1
-+#define KVX_SFR_ILE_IT27_WFXL_MASK _ULL(0x8000000)
-+#define KVX_SFR_ILE_IT27_WFXL_CLEAR _ULL(0x8000000)
-+#define KVX_SFR_ILE_IT27_WFXL_SET _ULL(0x800000000000000)
-+
-+#define KVX_SFR_ILE_IT28_MASK _ULL(0x10000000) /* Interrupt 28 owner */
-+#define KVX_SFR_ILE_IT28_SHIFT 28
-+#define KVX_SFR_ILE_IT28_WIDTH 1
-+#define KVX_SFR_ILE_IT28_WFXL_MASK _ULL(0x10000000)
-+#define KVX_SFR_ILE_IT28_WFXL_CLEAR _ULL(0x10000000)
-+#define KVX_SFR_ILE_IT28_WFXL_SET _ULL(0x1000000000000000)
-+
-+#define KVX_SFR_ILE_IT29_MASK _ULL(0x20000000) /* Interrupt 29 owner */
-+#define KVX_SFR_ILE_IT29_SHIFT 29
-+#define KVX_SFR_ILE_IT29_WIDTH 1
-+#define KVX_SFR_ILE_IT29_WFXL_MASK _ULL(0x20000000)
-+#define KVX_SFR_ILE_IT29_WFXL_CLEAR _ULL(0x20000000)
-+#define KVX_SFR_ILE_IT29_WFXL_SET _ULL(0x2000000000000000)
-+
-+#define KVX_SFR_ILE_IT30_MASK _ULL(0x40000000) /* Interrupt 30 owner */
-+#define KVX_SFR_ILE_IT30_SHIFT 30
-+#define KVX_SFR_ILE_IT30_WIDTH 1
-+#define KVX_SFR_ILE_IT30_WFXL_MASK _ULL(0x40000000)
-+#define KVX_SFR_ILE_IT30_WFXL_CLEAR _ULL(0x40000000)
-+#define KVX_SFR_ILE_IT30_WFXL_SET _ULL(0x4000000000000000)
-+
-+#define KVX_SFR_ILE_IT31_MASK _ULL(0x80000000) /* Interrupt 31 owner */
-+#define KVX_SFR_ILE_IT31_SHIFT 31
-+#define KVX_SFR_ILE_IT31_WIDTH 1
-+#define KVX_SFR_ILE_IT31_WFXL_MASK _ULL(0x80000000)
-+#define KVX_SFR_ILE_IT31_WFXL_CLEAR _ULL(0x80000000)
-+#define KVX_SFR_ILE_IT31_WFXL_SET _ULL(0x8000000000000000)
-+
-+#define KVX_SFR_ILL_IT0_MASK _ULL(0x3) /* Interrupt 0 owner */
-+#define KVX_SFR_ILL_IT0_SHIFT 0
-+#define KVX_SFR_ILL_IT0_WIDTH 2
-+#define KVX_SFR_ILL_IT0_WFXL_MASK _ULL(0x3)
-+#define KVX_SFR_ILL_IT0_WFXL_CLEAR _ULL(0x3)
-+#define KVX_SFR_ILL_IT0_WFXL_SET _ULL(0x300000000)
-+
-+#define KVX_SFR_ILL_IT1_MASK _ULL(0xc) /* Interrupt 1 owner */
-+#define KVX_SFR_ILL_IT1_SHIFT 2
-+#define KVX_SFR_ILL_IT1_WIDTH 2
-+#define KVX_SFR_ILL_IT1_WFXL_MASK _ULL(0xc)
-+#define KVX_SFR_ILL_IT1_WFXL_CLEAR _ULL(0xc)
-+#define KVX_SFR_ILL_IT1_WFXL_SET _ULL(0xc00000000)
-+
-+#define KVX_SFR_ILL_IT2_MASK _ULL(0x30) /* Interrupt 2 owner */
-+#define KVX_SFR_ILL_IT2_SHIFT 4
-+#define KVX_SFR_ILL_IT2_WIDTH 2
-+#define KVX_SFR_ILL_IT2_WFXL_MASK _ULL(0x30)
-+#define KVX_SFR_ILL_IT2_WFXL_CLEAR _ULL(0x30)
-+#define KVX_SFR_ILL_IT2_WFXL_SET _ULL(0x3000000000)
-+
-+#define KVX_SFR_ILL_IT3_MASK _ULL(0xc0) /* Interrupt 3 owner */
-+#define KVX_SFR_ILL_IT3_SHIFT 6
-+#define KVX_SFR_ILL_IT3_WIDTH 2
-+#define KVX_SFR_ILL_IT3_WFXL_MASK _ULL(0xc0)
-+#define KVX_SFR_ILL_IT3_WFXL_CLEAR _ULL(0xc0)
-+#define KVX_SFR_ILL_IT3_WFXL_SET _ULL(0xc000000000)
-+
-+#define KVX_SFR_ILL_IT4_MASK _ULL(0x300) /* Interrupt 4 owner */
-+#define KVX_SFR_ILL_IT4_SHIFT 8
-+#define KVX_SFR_ILL_IT4_WIDTH 2
-+#define KVX_SFR_ILL_IT4_WFXL_MASK _ULL(0x300)
-+#define KVX_SFR_ILL_IT4_WFXL_CLEAR _ULL(0x300)
-+#define KVX_SFR_ILL_IT4_WFXL_SET _ULL(0x30000000000)
-+
-+#define KVX_SFR_ILL_IT5_MASK _ULL(0xc00) /* Interrupt 5 owner */
-+#define KVX_SFR_ILL_IT5_SHIFT 10
-+#define KVX_SFR_ILL_IT5_WIDTH 2
-+#define KVX_SFR_ILL_IT5_WFXL_MASK _ULL(0xc00)
-+#define KVX_SFR_ILL_IT5_WFXL_CLEAR _ULL(0xc00)
-+#define KVX_SFR_ILL_IT5_WFXL_SET _ULL(0xc0000000000)
-+
-+#define KVX_SFR_ILL_IT6_MASK _ULL(0x3000) /* Interrupt 6 owner */
-+#define KVX_SFR_ILL_IT6_SHIFT 12
-+#define KVX_SFR_ILL_IT6_WIDTH 2
-+#define KVX_SFR_ILL_IT6_WFXL_MASK _ULL(0x3000)
-+#define KVX_SFR_ILL_IT6_WFXL_CLEAR _ULL(0x3000)
-+#define KVX_SFR_ILL_IT6_WFXL_SET _ULL(0x300000000000)
-+
-+#define KVX_SFR_ILL_IT7_MASK _ULL(0xc000) /* Interrupt 7 owner */
-+#define KVX_SFR_ILL_IT7_SHIFT 14
-+#define KVX_SFR_ILL_IT7_WIDTH 2
-+#define KVX_SFR_ILL_IT7_WFXL_MASK _ULL(0xc000)
-+#define KVX_SFR_ILL_IT7_WFXL_CLEAR _ULL(0xc000)
-+#define KVX_SFR_ILL_IT7_WFXL_SET _ULL(0xc00000000000)
-+
-+#define KVX_SFR_ILL_IT8_MASK _ULL(0x30000) /* Interrupt 8 owner */
-+#define KVX_SFR_ILL_IT8_SHIFT 16
-+#define KVX_SFR_ILL_IT8_WIDTH 2
-+#define KVX_SFR_ILL_IT8_WFXL_MASK _ULL(0x30000)
-+#define KVX_SFR_ILL_IT8_WFXL_CLEAR _ULL(0x30000)
-+#define KVX_SFR_ILL_IT8_WFXL_SET _ULL(0x3000000000000)
-+
-+#define KVX_SFR_ILL_IT9_MASK _ULL(0xc0000) /* Interrupt 9 owner */
-+#define KVX_SFR_ILL_IT9_SHIFT 18
-+#define KVX_SFR_ILL_IT9_WIDTH 2
-+#define KVX_SFR_ILL_IT9_WFXL_MASK _ULL(0xc0000)
-+#define KVX_SFR_ILL_IT9_WFXL_CLEAR _ULL(0xc0000)
-+#define KVX_SFR_ILL_IT9_WFXL_SET _ULL(0xc000000000000)
-+
-+#define KVX_SFR_ILL_IT10_MASK _ULL(0x300000) /* Interrupt 10 owner */
-+#define KVX_SFR_ILL_IT10_SHIFT 20
-+#define KVX_SFR_ILL_IT10_WIDTH 2
-+#define KVX_SFR_ILL_IT10_WFXL_MASK _ULL(0x300000)
-+#define KVX_SFR_ILL_IT10_WFXL_CLEAR _ULL(0x300000)
-+#define KVX_SFR_ILL_IT10_WFXL_SET _ULL(0x30000000000000)
-+
-+#define KVX_SFR_ILL_IT11_MASK _ULL(0xc00000) /* Interrupt 11 owner */
-+#define KVX_SFR_ILL_IT11_SHIFT 22
-+#define KVX_SFR_ILL_IT11_WIDTH 2
-+#define KVX_SFR_ILL_IT11_WFXL_MASK _ULL(0xc00000)
-+#define KVX_SFR_ILL_IT11_WFXL_CLEAR _ULL(0xc00000)
-+#define KVX_SFR_ILL_IT11_WFXL_SET _ULL(0xc0000000000000)
-+
-+#define KVX_SFR_ILL_IT12_MASK _ULL(0x3000000) /* Interrupt 12 owner */
-+#define KVX_SFR_ILL_IT12_SHIFT 24
-+#define KVX_SFR_ILL_IT12_WIDTH 2
-+#define KVX_SFR_ILL_IT12_WFXL_MASK _ULL(0x3000000)
-+#define KVX_SFR_ILL_IT12_WFXL_CLEAR _ULL(0x3000000)
-+#define KVX_SFR_ILL_IT12_WFXL_SET _ULL(0x300000000000000)
-+
-+#define KVX_SFR_ILL_IT13_MASK _ULL(0xc000000) /* Interrupt 13 owner */
-+#define KVX_SFR_ILL_IT13_SHIFT 26
-+#define KVX_SFR_ILL_IT13_WIDTH 2
-+#define KVX_SFR_ILL_IT13_WFXL_MASK _ULL(0xc000000)
-+#define KVX_SFR_ILL_IT13_WFXL_CLEAR _ULL(0xc000000)
-+#define KVX_SFR_ILL_IT13_WFXL_SET _ULL(0xc00000000000000)
-+
-+#define KVX_SFR_ILL_IT14_MASK _ULL(0x30000000) /* Interrupt 14 owner */
-+#define KVX_SFR_ILL_IT14_SHIFT 28
-+#define KVX_SFR_ILL_IT14_WIDTH 2
-+#define KVX_SFR_ILL_IT14_WFXL_MASK _ULL(0x30000000)
-+#define KVX_SFR_ILL_IT14_WFXL_CLEAR _ULL(0x30000000)
-+#define KVX_SFR_ILL_IT14_WFXL_SET _ULL(0x3000000000000000)
-+
-+#define KVX_SFR_ILL_IT15_MASK _ULL(0xc0000000) /* Interrupt 15 owner */
-+#define KVX_SFR_ILL_IT15_SHIFT 30
-+#define KVX_SFR_ILL_IT15_WIDTH 2
-+#define KVX_SFR_ILL_IT15_WFXL_MASK _ULL(0xc0000000)
-+#define KVX_SFR_ILL_IT15_WFXL_CLEAR _ULL(0xc0000000)
-+#define KVX_SFR_ILL_IT15_WFXL_SET _ULL(0xc000000000000000)
-+
-+#define KVX_SFR_ILL_IT16_MASK _ULL(0x300000000) /* Interrupt 16 owner */
-+#define KVX_SFR_ILL_IT16_SHIFT 32
-+#define KVX_SFR_ILL_IT16_WIDTH 2
-+#define KVX_SFR_ILL_IT16_WFXM_MASK _ULL(0x300000000)
-+#define KVX_SFR_ILL_IT16_WFXM_CLEAR _ULL(0x3)
-+#define KVX_SFR_ILL_IT16_WFXM_SET _ULL(0x300000000)
-+
-+#define KVX_SFR_ILL_IT17_MASK _ULL(0xc00000000) /* Interrupt 17 owner */
-+#define KVX_SFR_ILL_IT17_SHIFT 34
-+#define KVX_SFR_ILL_IT17_WIDTH 2
-+#define KVX_SFR_ILL_IT17_WFXM_MASK _ULL(0xc00000000)
-+#define KVX_SFR_ILL_IT17_WFXM_CLEAR _ULL(0xc)
-+#define KVX_SFR_ILL_IT17_WFXM_SET _ULL(0xc00000000)
-+
-+#define KVX_SFR_ILL_IT18_MASK _ULL(0x3000000000) /* Interrupt 18 owner */
-+#define KVX_SFR_ILL_IT18_SHIFT 36
-+#define KVX_SFR_ILL_IT18_WIDTH 2
-+#define KVX_SFR_ILL_IT18_WFXM_MASK _ULL(0x3000000000)
-+#define KVX_SFR_ILL_IT18_WFXM_CLEAR _ULL(0x30)
-+#define KVX_SFR_ILL_IT18_WFXM_SET _ULL(0x3000000000)
-+
-+#define KVX_SFR_ILL_IT19_MASK _ULL(0xc000000000) /* Interrupt 19 owner */
-+#define KVX_SFR_ILL_IT19_SHIFT 38
-+#define KVX_SFR_ILL_IT19_WIDTH 2
-+#define KVX_SFR_ILL_IT19_WFXM_MASK _ULL(0xc000000000)
-+#define KVX_SFR_ILL_IT19_WFXM_CLEAR _ULL(0xc0)
-+#define KVX_SFR_ILL_IT19_WFXM_SET _ULL(0xc000000000)
-+
-+#define KVX_SFR_ILL_IT20_MASK _ULL(0x30000000000) /* Interrupt 20 owner */
-+#define KVX_SFR_ILL_IT20_SHIFT 40
-+#define KVX_SFR_ILL_IT20_WIDTH 2
-+#define KVX_SFR_ILL_IT20_WFXM_MASK _ULL(0x30000000000)
-+#define KVX_SFR_ILL_IT20_WFXM_CLEAR _ULL(0x300)
-+#define KVX_SFR_ILL_IT20_WFXM_SET _ULL(0x30000000000)
-+
-+#define KVX_SFR_ILL_IT21_MASK _ULL(0xc0000000000) /* Interrupt 21 owner */
-+#define KVX_SFR_ILL_IT21_SHIFT 42
-+#define KVX_SFR_ILL_IT21_WIDTH 2
-+#define KVX_SFR_ILL_IT21_WFXM_MASK _ULL(0xc0000000000)
-+#define KVX_SFR_ILL_IT21_WFXM_CLEAR _ULL(0xc00)
-+#define KVX_SFR_ILL_IT21_WFXM_SET _ULL(0xc0000000000)
-+
-+#define KVX_SFR_ILL_IT22_MASK _ULL(0x300000000000) /* Interrupt 22 owner */
-+#define KVX_SFR_ILL_IT22_SHIFT 44
-+#define KVX_SFR_ILL_IT22_WIDTH 2
-+#define KVX_SFR_ILL_IT22_WFXM_MASK _ULL(0x300000000000)
-+#define KVX_SFR_ILL_IT22_WFXM_CLEAR _ULL(0x3000)
-+#define KVX_SFR_ILL_IT22_WFXM_SET _ULL(0x300000000000)
-+
-+#define KVX_SFR_ILL_IT23_MASK _ULL(0xc00000000000) /* Interrupt 23 owner */
-+#define KVX_SFR_ILL_IT23_SHIFT 46
-+#define KVX_SFR_ILL_IT23_WIDTH 2
-+#define KVX_SFR_ILL_IT23_WFXM_MASK _ULL(0xc00000000000)
-+#define KVX_SFR_ILL_IT23_WFXM_CLEAR _ULL(0xc000)
-+#define KVX_SFR_ILL_IT23_WFXM_SET _ULL(0xc00000000000)
-+
-+#define KVX_SFR_ILL_IT24_MASK _ULL(0x3000000000000) /* Interrupt 24 owner */
-+#define KVX_SFR_ILL_IT24_SHIFT 48
-+#define KVX_SFR_ILL_IT24_WIDTH 2
-+#define KVX_SFR_ILL_IT24_WFXM_MASK _ULL(0x3000000000000)
-+#define KVX_SFR_ILL_IT24_WFXM_CLEAR _ULL(0x30000)
-+#define KVX_SFR_ILL_IT24_WFXM_SET _ULL(0x3000000000000)
-+
-+#define KVX_SFR_ILL_IT25_MASK _ULL(0xc000000000000) /* Interrupt 25 owner */
-+#define KVX_SFR_ILL_IT25_SHIFT 50
-+#define KVX_SFR_ILL_IT25_WIDTH 2
-+#define KVX_SFR_ILL_IT25_WFXM_MASK _ULL(0xc000000000000)
-+#define KVX_SFR_ILL_IT25_WFXM_CLEAR _ULL(0xc0000)
-+#define KVX_SFR_ILL_IT25_WFXM_SET _ULL(0xc000000000000)
-+
-+#define KVX_SFR_ILL_IT26_MASK _ULL(0x30000000000000) /* Interrupt 26 owner */
-+#define KVX_SFR_ILL_IT26_SHIFT 52
-+#define KVX_SFR_ILL_IT26_WIDTH 2
-+#define KVX_SFR_ILL_IT26_WFXM_MASK _ULL(0x30000000000000)
-+#define KVX_SFR_ILL_IT26_WFXM_CLEAR _ULL(0x300000)
-+#define KVX_SFR_ILL_IT26_WFXM_SET _ULL(0x30000000000000)
-+
-+#define KVX_SFR_ILL_IT27_MASK _ULL(0xc0000000000000) /* Interrupt 27 owner */
-+#define KVX_SFR_ILL_IT27_SHIFT 54
-+#define KVX_SFR_ILL_IT27_WIDTH 2
-+#define KVX_SFR_ILL_IT27_WFXM_MASK _ULL(0xc0000000000000)
-+#define KVX_SFR_ILL_IT27_WFXM_CLEAR _ULL(0xc00000)
-+#define KVX_SFR_ILL_IT27_WFXM_SET _ULL(0xc0000000000000)
-+
-+#define KVX_SFR_ILL_IT28_MASK _ULL(0x300000000000000) /* Interrupt 28 owner */
-+#define KVX_SFR_ILL_IT28_SHIFT 56
-+#define KVX_SFR_ILL_IT28_WIDTH 2
-+#define KVX_SFR_ILL_IT28_WFXM_MASK _ULL(0x300000000000000)
-+#define KVX_SFR_ILL_IT28_WFXM_CLEAR _ULL(0x3000000)
-+#define KVX_SFR_ILL_IT28_WFXM_SET _ULL(0x300000000000000)
-+
-+#define KVX_SFR_ILL_IT29_MASK _ULL(0xc00000000000000) /* Interrupt 29 owner */
-+#define KVX_SFR_ILL_IT29_SHIFT 58
-+#define KVX_SFR_ILL_IT29_WIDTH 2
-+#define KVX_SFR_ILL_IT29_WFXM_MASK _ULL(0xc00000000000000)
-+#define KVX_SFR_ILL_IT29_WFXM_CLEAR _ULL(0xc000000)
-+#define KVX_SFR_ILL_IT29_WFXM_SET _ULL(0xc00000000000000)
-+
-+#define KVX_SFR_ILL_IT30_MASK _ULL(0x3000000000000000) /* Interrupt 30 owner */
-+#define KVX_SFR_ILL_IT30_SHIFT 60
-+#define KVX_SFR_ILL_IT30_WIDTH 2
-+#define KVX_SFR_ILL_IT30_WFXM_MASK _ULL(0x3000000000000000)
-+#define KVX_SFR_ILL_IT30_WFXM_CLEAR _ULL(0x30000000)
-+#define KVX_SFR_ILL_IT30_WFXM_SET _ULL(0x3000000000000000)
-+
-+#define KVX_SFR_ILL_IT31_MASK _ULL(0xc000000000000000) /* Interrupt 31 owner */
-+#define KVX_SFR_ILL_IT31_SHIFT 62
-+#define KVX_SFR_ILL_IT31_WIDTH 2
-+#define KVX_SFR_ILL_IT31_WFXM_MASK _ULL(0xc000000000000000)
-+#define KVX_SFR_ILL_IT31_WFXM_CLEAR _ULL(0xc0000000)
-+#define KVX_SFR_ILL_IT31_WFXM_SET _ULL(0xc000000000000000)
-+
-+#define KVX_SFR_ILR_IT0_MASK _ULL(0x1) /* Interrupt 0 owner */
-+#define KVX_SFR_ILR_IT0_SHIFT 0
-+#define KVX_SFR_ILR_IT0_WIDTH 1
-+#define KVX_SFR_ILR_IT0_WFXL_MASK _ULL(0x1)
-+#define KVX_SFR_ILR_IT0_WFXL_CLEAR _ULL(0x1)
-+#define KVX_SFR_ILR_IT0_WFXL_SET _ULL(0x100000000)
-+
-+#define KVX_SFR_ILR_IT1_MASK _ULL(0x2) /* Interrupt 1 owner */
-+#define KVX_SFR_ILR_IT1_SHIFT 1
-+#define KVX_SFR_ILR_IT1_WIDTH 1
-+#define KVX_SFR_ILR_IT1_WFXL_MASK _ULL(0x2)
-+#define KVX_SFR_ILR_IT1_WFXL_CLEAR _ULL(0x2)
-+#define KVX_SFR_ILR_IT1_WFXL_SET _ULL(0x200000000)
-+
-+#define KVX_SFR_ILR_IT2_MASK _ULL(0x4) /* Interrupt 2 owner */
-+#define KVX_SFR_ILR_IT2_SHIFT 2
-+#define KVX_SFR_ILR_IT2_WIDTH 1
-+#define KVX_SFR_ILR_IT2_WFXL_MASK _ULL(0x4)
-+#define KVX_SFR_ILR_IT2_WFXL_CLEAR _ULL(0x4)
-+#define KVX_SFR_ILR_IT2_WFXL_SET _ULL(0x400000000)
-+
-+#define KVX_SFR_ILR_IT3_MASK _ULL(0x8) /* Interrupt 3 owner */
-+#define KVX_SFR_ILR_IT3_SHIFT 3
-+#define KVX_SFR_ILR_IT3_WIDTH 1
-+#define KVX_SFR_ILR_IT3_WFXL_MASK _ULL(0x8)
-+#define KVX_SFR_ILR_IT3_WFXL_CLEAR _ULL(0x8)
-+#define KVX_SFR_ILR_IT3_WFXL_SET _ULL(0x800000000)
-+
-+#define KVX_SFR_ILR_IT4_MASK _ULL(0x10) /* Interrupt 4 owner */
-+#define KVX_SFR_ILR_IT4_SHIFT 4
-+#define KVX_SFR_ILR_IT4_WIDTH 1
-+#define KVX_SFR_ILR_IT4_WFXL_MASK _ULL(0x10)
-+#define KVX_SFR_ILR_IT4_WFXL_CLEAR _ULL(0x10)
-+#define KVX_SFR_ILR_IT4_WFXL_SET _ULL(0x1000000000)
-+
-+#define KVX_SFR_ILR_IT5_MASK _ULL(0x20) /* Interrupt 5 owner */
-+#define KVX_SFR_ILR_IT5_SHIFT 5
-+#define KVX_SFR_ILR_IT5_WIDTH 1
-+#define KVX_SFR_ILR_IT5_WFXL_MASK _ULL(0x20)
-+#define KVX_SFR_ILR_IT5_WFXL_CLEAR _ULL(0x20)
-+#define KVX_SFR_ILR_IT5_WFXL_SET _ULL(0x2000000000)
-+
-+#define KVX_SFR_ILR_IT6_MASK _ULL(0x40) /* Interrupt 6 owner */
-+#define KVX_SFR_ILR_IT6_SHIFT 6
-+#define KVX_SFR_ILR_IT6_WIDTH 1
-+#define KVX_SFR_ILR_IT6_WFXL_MASK _ULL(0x40)
-+#define KVX_SFR_ILR_IT6_WFXL_CLEAR _ULL(0x40)
-+#define KVX_SFR_ILR_IT6_WFXL_SET _ULL(0x4000000000)
-+
-+#define KVX_SFR_ILR_IT7_MASK _ULL(0x80) /* Interrupt 7 owner */
-+#define KVX_SFR_ILR_IT7_SHIFT 7
-+#define KVX_SFR_ILR_IT7_WIDTH 1
-+#define KVX_SFR_ILR_IT7_WFXL_MASK _ULL(0x80)
-+#define KVX_SFR_ILR_IT7_WFXL_CLEAR _ULL(0x80)
-+#define KVX_SFR_ILR_IT7_WFXL_SET _ULL(0x8000000000)
-+
-+#define KVX_SFR_ILR_IT8_MASK _ULL(0x100) /* Interrupt 8 owner */
-+#define KVX_SFR_ILR_IT8_SHIFT 8
-+#define KVX_SFR_ILR_IT8_WIDTH 1
-+#define KVX_SFR_ILR_IT8_WFXL_MASK _ULL(0x100)
-+#define KVX_SFR_ILR_IT8_WFXL_CLEAR _ULL(0x100)
-+#define KVX_SFR_ILR_IT8_WFXL_SET _ULL(0x10000000000)
-+
-+#define KVX_SFR_ILR_IT9_MASK _ULL(0x200) /* Interrupt 9 owner */
-+#define KVX_SFR_ILR_IT9_SHIFT 9
-+#define KVX_SFR_ILR_IT9_WIDTH 1
-+#define KVX_SFR_ILR_IT9_WFXL_MASK _ULL(0x200)
-+#define KVX_SFR_ILR_IT9_WFXL_CLEAR _ULL(0x200)
-+#define KVX_SFR_ILR_IT9_WFXL_SET _ULL(0x20000000000)
-+
-+#define KVX_SFR_ILR_IT10_MASK _ULL(0x400) /* Interrupt 10 owner */
-+#define KVX_SFR_ILR_IT10_SHIFT 10
-+#define KVX_SFR_ILR_IT10_WIDTH 1
-+#define KVX_SFR_ILR_IT10_WFXL_MASK _ULL(0x400)
-+#define KVX_SFR_ILR_IT10_WFXL_CLEAR _ULL(0x400)
-+#define KVX_SFR_ILR_IT10_WFXL_SET _ULL(0x40000000000)
-+
-+#define KVX_SFR_ILR_IT11_MASK _ULL(0x800) /* Interrupt 11 owner */
-+#define KVX_SFR_ILR_IT11_SHIFT 11
-+#define KVX_SFR_ILR_IT11_WIDTH 1
-+#define KVX_SFR_ILR_IT11_WFXL_MASK _ULL(0x800)
-+#define KVX_SFR_ILR_IT11_WFXL_CLEAR _ULL(0x800)
-+#define KVX_SFR_ILR_IT11_WFXL_SET _ULL(0x80000000000)
-+
-+#define KVX_SFR_ILR_IT12_MASK _ULL(0x1000) /* Interrupt 12 owner */
-+#define KVX_SFR_ILR_IT12_SHIFT 12
-+#define KVX_SFR_ILR_IT12_WIDTH 1
-+#define KVX_SFR_ILR_IT12_WFXL_MASK _ULL(0x1000)
-+#define KVX_SFR_ILR_IT12_WFXL_CLEAR _ULL(0x1000)
-+#define KVX_SFR_ILR_IT12_WFXL_SET _ULL(0x100000000000)
-+
-+#define KVX_SFR_ILR_IT13_MASK _ULL(0x2000) /* Interrupt 13 owner */
-+#define KVX_SFR_ILR_IT13_SHIFT 13
-+#define KVX_SFR_ILR_IT13_WIDTH 1
-+#define KVX_SFR_ILR_IT13_WFXL_MASK _ULL(0x2000)
-+#define KVX_SFR_ILR_IT13_WFXL_CLEAR _ULL(0x2000)
-+#define KVX_SFR_ILR_IT13_WFXL_SET _ULL(0x200000000000)
-+
-+#define KVX_SFR_ILR_IT14_MASK _ULL(0x4000) /* Interrupt 14 owner */
-+#define KVX_SFR_ILR_IT14_SHIFT 14
-+#define KVX_SFR_ILR_IT14_WIDTH 1
-+#define KVX_SFR_ILR_IT14_WFXL_MASK _ULL(0x4000)
-+#define KVX_SFR_ILR_IT14_WFXL_CLEAR _ULL(0x4000)
-+#define KVX_SFR_ILR_IT14_WFXL_SET _ULL(0x400000000000)
-+
-+#define KVX_SFR_ILR_IT15_MASK _ULL(0x8000) /* Interrupt 15 owner */
-+#define KVX_SFR_ILR_IT15_SHIFT 15
-+#define KVX_SFR_ILR_IT15_WIDTH 1
-+#define KVX_SFR_ILR_IT15_WFXL_MASK _ULL(0x8000)
-+#define KVX_SFR_ILR_IT15_WFXL_CLEAR _ULL(0x8000)
-+#define KVX_SFR_ILR_IT15_WFXL_SET _ULL(0x800000000000)
-+
-+#define KVX_SFR_ILR_IT16_MASK _ULL(0x10000) /* Interrupt 16 owner */
-+#define KVX_SFR_ILR_IT16_SHIFT 16
-+#define KVX_SFR_ILR_IT16_WIDTH 1
-+#define KVX_SFR_ILR_IT16_WFXL_MASK _ULL(0x10000)
-+#define KVX_SFR_ILR_IT16_WFXL_CLEAR _ULL(0x10000)
-+#define KVX_SFR_ILR_IT16_WFXL_SET _ULL(0x1000000000000)
-+
-+#define KVX_SFR_ILR_IT17_MASK _ULL(0x20000) /* Interrupt 17 owner */
-+#define KVX_SFR_ILR_IT17_SHIFT 17
-+#define KVX_SFR_ILR_IT17_WIDTH 1
-+#define KVX_SFR_ILR_IT17_WFXL_MASK _ULL(0x20000)
-+#define KVX_SFR_ILR_IT17_WFXL_CLEAR _ULL(0x20000)
-+#define KVX_SFR_ILR_IT17_WFXL_SET _ULL(0x2000000000000)
-+
-+#define KVX_SFR_ILR_IT18_MASK _ULL(0x40000) /* Interrupt 18 owner */
-+#define KVX_SFR_ILR_IT18_SHIFT 18
-+#define KVX_SFR_ILR_IT18_WIDTH 1
-+#define KVX_SFR_ILR_IT18_WFXL_MASK _ULL(0x40000)
-+#define KVX_SFR_ILR_IT18_WFXL_CLEAR _ULL(0x40000)
-+#define KVX_SFR_ILR_IT18_WFXL_SET _ULL(0x4000000000000)
-+
-+#define KVX_SFR_ILR_IT19_MASK _ULL(0x80000) /* Interrupt 19 owner */
-+#define KVX_SFR_ILR_IT19_SHIFT 19
-+#define KVX_SFR_ILR_IT19_WIDTH 1
-+#define KVX_SFR_ILR_IT19_WFXL_MASK _ULL(0x80000)
-+#define KVX_SFR_ILR_IT19_WFXL_CLEAR _ULL(0x80000)
-+#define KVX_SFR_ILR_IT19_WFXL_SET _ULL(0x8000000000000)
-+
-+#define KVX_SFR_ILR_IT20_MASK _ULL(0x100000) /* Interrupt 20 owner */
-+#define KVX_SFR_ILR_IT20_SHIFT 20
-+#define KVX_SFR_ILR_IT20_WIDTH 1
-+#define KVX_SFR_ILR_IT20_WFXL_MASK _ULL(0x100000)
-+#define KVX_SFR_ILR_IT20_WFXL_CLEAR _ULL(0x100000)
-+#define KVX_SFR_ILR_IT20_WFXL_SET _ULL(0x10000000000000)
-+
-+#define KVX_SFR_ILR_IT21_MASK _ULL(0x200000) /* Interrupt 21 owner */
-+#define KVX_SFR_ILR_IT21_SHIFT 21
-+#define KVX_SFR_ILR_IT21_WIDTH 1
-+#define KVX_SFR_ILR_IT21_WFXL_MASK _ULL(0x200000)
-+#define KVX_SFR_ILR_IT21_WFXL_CLEAR _ULL(0x200000)
-+#define KVX_SFR_ILR_IT21_WFXL_SET _ULL(0x20000000000000)
-+
-+#define KVX_SFR_ILR_IT22_MASK _ULL(0x400000) /* Interrupt 22 owner */
-+#define KVX_SFR_ILR_IT22_SHIFT 22
-+#define KVX_SFR_ILR_IT22_WIDTH 1
-+#define KVX_SFR_ILR_IT22_WFXL_MASK _ULL(0x400000)
-+#define KVX_SFR_ILR_IT22_WFXL_CLEAR _ULL(0x400000)
-+#define KVX_SFR_ILR_IT22_WFXL_SET _ULL(0x40000000000000)
-+
-+#define KVX_SFR_ILR_IT23_MASK _ULL(0x800000) /* Interrupt 23 owner */
-+#define KVX_SFR_ILR_IT23_SHIFT 23
-+#define KVX_SFR_ILR_IT23_WIDTH 1
-+#define KVX_SFR_ILR_IT23_WFXL_MASK _ULL(0x800000)
-+#define KVX_SFR_ILR_IT23_WFXL_CLEAR _ULL(0x800000)
-+#define KVX_SFR_ILR_IT23_WFXL_SET _ULL(0x80000000000000)
-+
-+#define KVX_SFR_ILR_IT24_MASK _ULL(0x1000000) /* Interrupt 24 owner */
-+#define KVX_SFR_ILR_IT24_SHIFT 24
-+#define KVX_SFR_ILR_IT24_WIDTH 1
-+#define KVX_SFR_ILR_IT24_WFXL_MASK _ULL(0x1000000)
-+#define KVX_SFR_ILR_IT24_WFXL_CLEAR _ULL(0x1000000)
-+#define KVX_SFR_ILR_IT24_WFXL_SET _ULL(0x100000000000000)
-+
-+#define KVX_SFR_ILR_IT25_MASK _ULL(0x2000000) /* Interrupt 25 owner */
-+#define KVX_SFR_ILR_IT25_SHIFT 25
-+#define KVX_SFR_ILR_IT25_WIDTH 1
-+#define KVX_SFR_ILR_IT25_WFXL_MASK _ULL(0x2000000)
-+#define KVX_SFR_ILR_IT25_WFXL_CLEAR _ULL(0x2000000)
-+#define KVX_SFR_ILR_IT25_WFXL_SET _ULL(0x200000000000000)
-+
-+#define KVX_SFR_ILR_IT26_MASK _ULL(0x4000000) /* Interrupt 26 owner */
-+#define KVX_SFR_ILR_IT26_SHIFT 26
-+#define KVX_SFR_ILR_IT26_WIDTH 1
-+#define KVX_SFR_ILR_IT26_WFXL_MASK _ULL(0x4000000)
-+#define KVX_SFR_ILR_IT26_WFXL_CLEAR _ULL(0x4000000)
-+#define KVX_SFR_ILR_IT26_WFXL_SET _ULL(0x400000000000000)
-+
-+#define KVX_SFR_ILR_IT27_MASK _ULL(0x8000000) /* Interrupt 27 owner */
-+#define KVX_SFR_ILR_IT27_SHIFT 27
-+#define KVX_SFR_ILR_IT27_WIDTH 1
-+#define KVX_SFR_ILR_IT27_WFXL_MASK _ULL(0x8000000)
-+#define KVX_SFR_ILR_IT27_WFXL_CLEAR _ULL(0x8000000)
-+#define KVX_SFR_ILR_IT27_WFXL_SET _ULL(0x800000000000000)
-+
-+#define KVX_SFR_ILR_IT28_MASK _ULL(0x10000000) /* Interrupt 28 owner */
-+#define KVX_SFR_ILR_IT28_SHIFT 28
-+#define KVX_SFR_ILR_IT28_WIDTH 1
-+#define KVX_SFR_ILR_IT28_WFXL_MASK _ULL(0x10000000)
-+#define KVX_SFR_ILR_IT28_WFXL_CLEAR _ULL(0x10000000)
-+#define KVX_SFR_ILR_IT28_WFXL_SET _ULL(0x1000000000000000)
-+
-+#define KVX_SFR_ILR_IT29_MASK _ULL(0x20000000) /* Interrupt 29 owner */
-+#define KVX_SFR_ILR_IT29_SHIFT 29
-+#define KVX_SFR_ILR_IT29_WIDTH 1
-+#define KVX_SFR_ILR_IT29_WFXL_MASK _ULL(0x20000000)
-+#define KVX_SFR_ILR_IT29_WFXL_CLEAR _ULL(0x20000000)
-+#define KVX_SFR_ILR_IT29_WFXL_SET _ULL(0x2000000000000000)
-+
-+#define KVX_SFR_ILR_IT30_MASK _ULL(0x40000000) /* Interrupt 30 owner */
-+#define KVX_SFR_ILR_IT30_SHIFT 30
-+#define KVX_SFR_ILR_IT30_WIDTH 1
-+#define KVX_SFR_ILR_IT30_WFXL_MASK _ULL(0x40000000)
-+#define KVX_SFR_ILR_IT30_WFXL_CLEAR _ULL(0x40000000)
-+#define KVX_SFR_ILR_IT30_WFXL_SET _ULL(0x4000000000000000)
-+
-+#define KVX_SFR_ILR_IT31_MASK _ULL(0x80000000) /* Interrupt 31 owner */
-+#define KVX_SFR_ILR_IT31_SHIFT 31
-+#define KVX_SFR_ILR_IT31_WIDTH 1
-+#define KVX_SFR_ILR_IT31_WFXL_MASK _ULL(0x80000000)
-+#define KVX_SFR_ILR_IT31_WFXL_CLEAR _ULL(0x80000000)
-+#define KVX_SFR_ILR_IT31_WFXL_SET _ULL(0x8000000000000000)
-+
-+#define KVX_SFR_ITOW_IT0_MASK _ULL(0x3) /* Interrupt 0 owner */
-+#define KVX_SFR_ITOW_IT0_SHIFT 0
-+#define KVX_SFR_ITOW_IT0_WIDTH 2
-+#define KVX_SFR_ITOW_IT0_WFXL_MASK _ULL(0x3)
-+#define KVX_SFR_ITOW_IT0_WFXL_CLEAR _ULL(0x3)
-+#define KVX_SFR_ITOW_IT0_WFXL_SET _ULL(0x300000000)
-+
-+#define KVX_SFR_ITOW_IT1_MASK _ULL(0xc) /* Interrupt 1 owner */
-+#define KVX_SFR_ITOW_IT1_SHIFT 2
-+#define KVX_SFR_ITOW_IT1_WIDTH 2
-+#define KVX_SFR_ITOW_IT1_WFXL_MASK _ULL(0xc)
-+#define KVX_SFR_ITOW_IT1_WFXL_CLEAR _ULL(0xc)
-+#define KVX_SFR_ITOW_IT1_WFXL_SET _ULL(0xc00000000)
-+
-+#define KVX_SFR_ITOW_IT2_MASK _ULL(0x30) /* Interrupt 2 owner */
-+#define KVX_SFR_ITOW_IT2_SHIFT 4
-+#define KVX_SFR_ITOW_IT2_WIDTH 2
-+#define KVX_SFR_ITOW_IT2_WFXL_MASK _ULL(0x30)
-+#define KVX_SFR_ITOW_IT2_WFXL_CLEAR _ULL(0x30)
-+#define KVX_SFR_ITOW_IT2_WFXL_SET _ULL(0x3000000000)
-+
-+#define KVX_SFR_ITOW_IT3_MASK _ULL(0xc0) /* Interrupt 3 owner */
-+#define KVX_SFR_ITOW_IT3_SHIFT 6
-+#define KVX_SFR_ITOW_IT3_WIDTH 2
-+#define KVX_SFR_ITOW_IT3_WFXL_MASK _ULL(0xc0)
-+#define KVX_SFR_ITOW_IT3_WFXL_CLEAR _ULL(0xc0)
-+#define KVX_SFR_ITOW_IT3_WFXL_SET _ULL(0xc000000000)
-+
-+#define KVX_SFR_ITOW_IT4_MASK _ULL(0x300) /* Interrupt 4 owner */
-+#define KVX_SFR_ITOW_IT4_SHIFT 8
-+#define KVX_SFR_ITOW_IT4_WIDTH 2
-+#define KVX_SFR_ITOW_IT4_WFXL_MASK _ULL(0x300)
-+#define KVX_SFR_ITOW_IT4_WFXL_CLEAR _ULL(0x300)
-+#define KVX_SFR_ITOW_IT4_WFXL_SET _ULL(0x30000000000)
-+
-+#define KVX_SFR_ITOW_IT5_MASK _ULL(0xc00) /* Interrupt 5 owner */
-+#define KVX_SFR_ITOW_IT5_SHIFT 10
-+#define KVX_SFR_ITOW_IT5_WIDTH 2
-+#define KVX_SFR_ITOW_IT5_WFXL_MASK _ULL(0xc00)
-+#define KVX_SFR_ITOW_IT5_WFXL_CLEAR _ULL(0xc00)
-+#define KVX_SFR_ITOW_IT5_WFXL_SET _ULL(0xc0000000000)
-+
-+#define KVX_SFR_ITOW_IT6_MASK _ULL(0x3000) /* Interrupt 6 owner */
-+#define KVX_SFR_ITOW_IT6_SHIFT 12
-+#define KVX_SFR_ITOW_IT6_WIDTH 2
-+#define KVX_SFR_ITOW_IT6_WFXL_MASK _ULL(0x3000)
-+#define KVX_SFR_ITOW_IT6_WFXL_CLEAR _ULL(0x3000)
-+#define KVX_SFR_ITOW_IT6_WFXL_SET _ULL(0x300000000000)
-+
-+#define KVX_SFR_ITOW_IT7_MASK _ULL(0xc000) /* Interrupt 7 owner */
-+#define KVX_SFR_ITOW_IT7_SHIFT 14
-+#define KVX_SFR_ITOW_IT7_WIDTH 2
-+#define KVX_SFR_ITOW_IT7_WFXL_MASK _ULL(0xc000)
-+#define KVX_SFR_ITOW_IT7_WFXL_CLEAR _ULL(0xc000)
-+#define KVX_SFR_ITOW_IT7_WFXL_SET _ULL(0xc00000000000)
-+
-+#define KVX_SFR_ITOW_IT8_MASK _ULL(0x30000) /* Interrupt 8 owner */
-+#define KVX_SFR_ITOW_IT8_SHIFT 16
-+#define KVX_SFR_ITOW_IT8_WIDTH 2
-+#define KVX_SFR_ITOW_IT8_WFXL_MASK _ULL(0x30000)
-+#define KVX_SFR_ITOW_IT8_WFXL_CLEAR _ULL(0x30000)
-+#define KVX_SFR_ITOW_IT8_WFXL_SET _ULL(0x3000000000000)
-+
-+#define KVX_SFR_ITOW_IT9_MASK _ULL(0xc0000) /* Interrupt 9 owner */
-+#define KVX_SFR_ITOW_IT9_SHIFT 18
-+#define KVX_SFR_ITOW_IT9_WIDTH 2
-+#define KVX_SFR_ITOW_IT9_WFXL_MASK _ULL(0xc0000)
-+#define KVX_SFR_ITOW_IT9_WFXL_CLEAR _ULL(0xc0000)
-+#define KVX_SFR_ITOW_IT9_WFXL_SET _ULL(0xc000000000000)
-+
-+#define KVX_SFR_ITOW_IT10_MASK _ULL(0x300000) /* Interrupt 10 owner */
-+#define KVX_SFR_ITOW_IT10_SHIFT 20
-+#define KVX_SFR_ITOW_IT10_WIDTH 2
-+#define KVX_SFR_ITOW_IT10_WFXL_MASK _ULL(0x300000)
-+#define KVX_SFR_ITOW_IT10_WFXL_CLEAR _ULL(0x300000)
-+#define KVX_SFR_ITOW_IT10_WFXL_SET _ULL(0x30000000000000)
-+
-+#define KVX_SFR_ITOW_IT11_MASK _ULL(0xc00000) /* Interrupt 11 owner */
-+#define KVX_SFR_ITOW_IT11_SHIFT 22
-+#define KVX_SFR_ITOW_IT11_WIDTH 2
-+#define KVX_SFR_ITOW_IT11_WFXL_MASK _ULL(0xc00000)
-+#define KVX_SFR_ITOW_IT11_WFXL_CLEAR _ULL(0xc00000)
-+#define KVX_SFR_ITOW_IT11_WFXL_SET _ULL(0xc0000000000000)
-+
-+#define KVX_SFR_ITOW_IT12_MASK _ULL(0x3000000) /* Interrupt 12 owner */
-+#define KVX_SFR_ITOW_IT12_SHIFT 24
-+#define KVX_SFR_ITOW_IT12_WIDTH 2
-+#define KVX_SFR_ITOW_IT12_WFXL_MASK _ULL(0x3000000)
-+#define KVX_SFR_ITOW_IT12_WFXL_CLEAR _ULL(0x3000000)
-+#define KVX_SFR_ITOW_IT12_WFXL_SET _ULL(0x300000000000000)
-+
-+#define KVX_SFR_ITOW_IT13_MASK _ULL(0xc000000) /* Interrupt 13 owner */
-+#define KVX_SFR_ITOW_IT13_SHIFT 26
-+#define KVX_SFR_ITOW_IT13_WIDTH 2
-+#define KVX_SFR_ITOW_IT13_WFXL_MASK _ULL(0xc000000)
-+#define KVX_SFR_ITOW_IT13_WFXL_CLEAR _ULL(0xc000000)
-+#define KVX_SFR_ITOW_IT13_WFXL_SET _ULL(0xc00000000000000)
-+
-+#define KVX_SFR_ITOW_IT14_MASK _ULL(0x30000000) /* Interrupt 14 owner */
-+#define KVX_SFR_ITOW_IT14_SHIFT 28
-+#define KVX_SFR_ITOW_IT14_WIDTH 2
-+#define KVX_SFR_ITOW_IT14_WFXL_MASK _ULL(0x30000000)
-+#define KVX_SFR_ITOW_IT14_WFXL_CLEAR _ULL(0x30000000)
-+#define KVX_SFR_ITOW_IT14_WFXL_SET _ULL(0x3000000000000000)
-+
-+#define KVX_SFR_ITOW_IT15_MASK _ULL(0xc0000000) /* Interrupt 15 owner */
-+#define KVX_SFR_ITOW_IT15_SHIFT 30
-+#define KVX_SFR_ITOW_IT15_WIDTH 2
-+#define KVX_SFR_ITOW_IT15_WFXL_MASK _ULL(0xc0000000)
-+#define KVX_SFR_ITOW_IT15_WFXL_CLEAR _ULL(0xc0000000)
-+#define KVX_SFR_ITOW_IT15_WFXL_SET _ULL(0xc000000000000000)
-+
-+#define KVX_SFR_ITOW_IT16_MASK _ULL(0x300000000) /* Interrupt 16 owner */
-+#define KVX_SFR_ITOW_IT16_SHIFT 32
-+#define KVX_SFR_ITOW_IT16_WIDTH 2
-+#define KVX_SFR_ITOW_IT16_WFXM_MASK _ULL(0x300000000)
-+#define KVX_SFR_ITOW_IT16_WFXM_CLEAR _ULL(0x3)
-+#define KVX_SFR_ITOW_IT16_WFXM_SET _ULL(0x300000000)
-+
-+#define KVX_SFR_ITOW_IT17_MASK _ULL(0xc00000000) /* Interrupt 17 owner */
-+#define KVX_SFR_ITOW_IT17_SHIFT 34
-+#define KVX_SFR_ITOW_IT17_WIDTH 2
-+#define KVX_SFR_ITOW_IT17_WFXM_MASK _ULL(0xc00000000)
-+#define KVX_SFR_ITOW_IT17_WFXM_CLEAR _ULL(0xc)
-+#define KVX_SFR_ITOW_IT17_WFXM_SET _ULL(0xc00000000)
-+
-+#define KVX_SFR_ITOW_IT18_MASK _ULL(0x3000000000) /* Interrupt 18 owner */
-+#define KVX_SFR_ITOW_IT18_SHIFT 36
-+#define KVX_SFR_ITOW_IT18_WIDTH 2
-+#define KVX_SFR_ITOW_IT18_WFXM_MASK _ULL(0x3000000000)
-+#define KVX_SFR_ITOW_IT18_WFXM_CLEAR _ULL(0x30)
-+#define KVX_SFR_ITOW_IT18_WFXM_SET _ULL(0x3000000000)
-+
-+#define KVX_SFR_ITOW_IT19_MASK _ULL(0xc000000000) /* Interrupt 19 owner */
-+#define KVX_SFR_ITOW_IT19_SHIFT 38
-+#define KVX_SFR_ITOW_IT19_WIDTH 2
-+#define KVX_SFR_ITOW_IT19_WFXM_MASK _ULL(0xc000000000)
-+#define KVX_SFR_ITOW_IT19_WFXM_CLEAR _ULL(0xc0)
-+#define KVX_SFR_ITOW_IT19_WFXM_SET _ULL(0xc000000000)
-+
-+#define KVX_SFR_ITOW_IT20_MASK _ULL(0x30000000000) /* Interrupt 20 owner */
-+#define KVX_SFR_ITOW_IT20_SHIFT 40
-+#define KVX_SFR_ITOW_IT20_WIDTH 2
-+#define KVX_SFR_ITOW_IT20_WFXM_MASK _ULL(0x30000000000)
-+#define KVX_SFR_ITOW_IT20_WFXM_CLEAR _ULL(0x300)
-+#define KVX_SFR_ITOW_IT20_WFXM_SET _ULL(0x30000000000)
-+
-+#define KVX_SFR_ITOW_IT21_MASK _ULL(0xc0000000000) /* Interrupt 21 owner */
-+#define KVX_SFR_ITOW_IT21_SHIFT 42
-+#define KVX_SFR_ITOW_IT21_WIDTH 2
-+#define KVX_SFR_ITOW_IT21_WFXM_MASK _ULL(0xc0000000000)
-+#define KVX_SFR_ITOW_IT21_WFXM_CLEAR _ULL(0xc00)
-+#define KVX_SFR_ITOW_IT21_WFXM_SET _ULL(0xc0000000000)
-+
-+#define KVX_SFR_ITOW_IT22_MASK _ULL(0x300000000000) /* Interrupt 22 owner */
-+#define KVX_SFR_ITOW_IT22_SHIFT 44
-+#define KVX_SFR_ITOW_IT22_WIDTH 2
-+#define KVX_SFR_ITOW_IT22_WFXM_MASK _ULL(0x300000000000)
-+#define KVX_SFR_ITOW_IT22_WFXM_CLEAR _ULL(0x3000)
-+#define KVX_SFR_ITOW_IT22_WFXM_SET _ULL(0x300000000000)
-+
-+#define KVX_SFR_ITOW_IT23_MASK _ULL(0xc00000000000) /* Interrupt 23 owner */
-+#define KVX_SFR_ITOW_IT23_SHIFT 46
-+#define KVX_SFR_ITOW_IT23_WIDTH 2
-+#define KVX_SFR_ITOW_IT23_WFXM_MASK _ULL(0xc00000000000)
-+#define KVX_SFR_ITOW_IT23_WFXM_CLEAR _ULL(0xc000)
-+#define KVX_SFR_ITOW_IT23_WFXM_SET _ULL(0xc00000000000)
-+
-+#define KVX_SFR_ITOW_IT24_MASK _ULL(0x3000000000000) /* Interrupt 24 owner */
-+#define KVX_SFR_ITOW_IT24_SHIFT 48
-+#define KVX_SFR_ITOW_IT24_WIDTH 2
-+#define KVX_SFR_ITOW_IT24_WFXM_MASK _ULL(0x3000000000000)
-+#define KVX_SFR_ITOW_IT24_WFXM_CLEAR _ULL(0x30000)
-+#define KVX_SFR_ITOW_IT24_WFXM_SET _ULL(0x3000000000000)
-+
-+#define KVX_SFR_ITOW_IT25_MASK _ULL(0xc000000000000) /* Interrupt 25 owner */
-+#define KVX_SFR_ITOW_IT25_SHIFT 50
-+#define KVX_SFR_ITOW_IT25_WIDTH 2
-+#define KVX_SFR_ITOW_IT25_WFXM_MASK _ULL(0xc000000000000)
-+#define KVX_SFR_ITOW_IT25_WFXM_CLEAR _ULL(0xc0000)
-+#define KVX_SFR_ITOW_IT25_WFXM_SET _ULL(0xc000000000000)
-+
-+#define KVX_SFR_ITOW_IT26_MASK _ULL(0x30000000000000) /* Interrupt 26 owner */
-+#define KVX_SFR_ITOW_IT26_SHIFT 52
-+#define KVX_SFR_ITOW_IT26_WIDTH 2
-+#define KVX_SFR_ITOW_IT26_WFXM_MASK _ULL(0x30000000000000)
-+#define KVX_SFR_ITOW_IT26_WFXM_CLEAR _ULL(0x300000)
-+#define KVX_SFR_ITOW_IT26_WFXM_SET _ULL(0x30000000000000)
-+
-+#define KVX_SFR_ITOW_IT27_MASK _ULL(0xc0000000000000) /* Interrupt 27 owner */
-+#define KVX_SFR_ITOW_IT27_SHIFT 54
-+#define KVX_SFR_ITOW_IT27_WIDTH 2
-+#define KVX_SFR_ITOW_IT27_WFXM_MASK _ULL(0xc0000000000000)
-+#define KVX_SFR_ITOW_IT27_WFXM_CLEAR _ULL(0xc00000)
-+#define KVX_SFR_ITOW_IT27_WFXM_SET _ULL(0xc0000000000000)
-+
-+#define KVX_SFR_ITOW_IT28_MASK _ULL(0x300000000000000) /* Interrupt 28 owner */
-+#define KVX_SFR_ITOW_IT28_SHIFT 56
-+#define KVX_SFR_ITOW_IT28_WIDTH 2
-+#define KVX_SFR_ITOW_IT28_WFXM_MASK _ULL(0x300000000000000)
-+#define KVX_SFR_ITOW_IT28_WFXM_CLEAR _ULL(0x3000000)
-+#define KVX_SFR_ITOW_IT28_WFXM_SET _ULL(0x300000000000000)
-+
-+#define KVX_SFR_ITOW_IT29_MASK _ULL(0xc00000000000000) /* Interrupt 29 owner */
-+#define KVX_SFR_ITOW_IT29_SHIFT 58
-+#define KVX_SFR_ITOW_IT29_WIDTH 2
-+#define KVX_SFR_ITOW_IT29_WFXM_MASK _ULL(0xc00000000000000)
-+#define KVX_SFR_ITOW_IT29_WFXM_CLEAR _ULL(0xc000000)
-+#define KVX_SFR_ITOW_IT29_WFXM_SET _ULL(0xc00000000000000)
-+
-+#define KVX_SFR_ITOW_IT30_MASK _ULL(0x3000000000000000) /* Interrupt 30 owner */
-+#define KVX_SFR_ITOW_IT30_SHIFT 60
-+#define KVX_SFR_ITOW_IT30_WIDTH 2
-+#define KVX_SFR_ITOW_IT30_WFXM_MASK _ULL(0x3000000000000000)
-+#define KVX_SFR_ITOW_IT30_WFXM_CLEAR _ULL(0x30000000)
-+#define KVX_SFR_ITOW_IT30_WFXM_SET _ULL(0x3000000000000000)
-+
-+#define KVX_SFR_ITOW_IT31_MASK _ULL(0xc000000000000000) /* Interrupt 31 owner */
-+#define KVX_SFR_ITOW_IT31_SHIFT 62
-+#define KVX_SFR_ITOW_IT31_WIDTH 2
-+#define KVX_SFR_ITOW_IT31_WFXM_MASK _ULL(0xc000000000000000)
-+#define KVX_SFR_ITOW_IT31_WFXM_CLEAR _ULL(0xc0000000)
-+#define KVX_SFR_ITOW_IT31_WFXM_SET _ULL(0xc000000000000000)
-+
-+#define KVX_SFR_DO_B0_MASK _ULL(0x3) /* Breakpoint 0 owner. */
-+#define KVX_SFR_DO_B0_SHIFT 0
-+#define KVX_SFR_DO_B0_WIDTH 2
-+#define KVX_SFR_DO_B0_WFXL_MASK _ULL(0x3)
-+#define KVX_SFR_DO_B0_WFXL_CLEAR _ULL(0x3)
-+#define KVX_SFR_DO_B0_WFXL_SET _ULL(0x300000000)
-+
-+#define KVX_SFR_DO_B1_MASK _ULL(0xc) /* Breakpoint 1 owner. */
-+#define KVX_SFR_DO_B1_SHIFT 2
-+#define KVX_SFR_DO_B1_WIDTH 2
-+#define KVX_SFR_DO_B1_WFXL_MASK _ULL(0xc)
-+#define KVX_SFR_DO_B1_WFXL_CLEAR _ULL(0xc)
-+#define KVX_SFR_DO_B1_WFXL_SET _ULL(0xc00000000)
-+
-+#define KVX_SFR_DO_W0_MASK _ULL(0x30) /* Watchpoint 0 owner. */
-+#define KVX_SFR_DO_W0_SHIFT 4
-+#define KVX_SFR_DO_W0_WIDTH 2
-+#define KVX_SFR_DO_W0_WFXL_MASK _ULL(0x30)
-+#define KVX_SFR_DO_W0_WFXL_CLEAR _ULL(0x30)
-+#define KVX_SFR_DO_W0_WFXL_SET _ULL(0x3000000000)
-+
-+#define KVX_SFR_DO_W1_MASK _ULL(0xc0) /* Watchpoint 1 owner. */
-+#define KVX_SFR_DO_W1_SHIFT 6
-+#define KVX_SFR_DO_W1_WIDTH 2
-+#define KVX_SFR_DO_W1_WFXL_MASK _ULL(0xc0)
-+#define KVX_SFR_DO_W1_WFXL_CLEAR _ULL(0xc0)
-+#define KVX_SFR_DO_W1_WFXL_SET _ULL(0xc000000000)
-+
-+#define KVX_SFR_DBA0_DBA0_MASK _ULL(0xffffffffffffffff) /* Debug Breakpoint Address 0 */
-+#define KVX_SFR_DBA0_DBA0_SHIFT 0
-+#define KVX_SFR_DBA0_DBA0_WIDTH 64
-+#define KVX_SFR_DBA0_DBA0_WFXL_MASK _ULL(0xffffffff)
-+#define KVX_SFR_DBA0_DBA0_WFXL_CLEAR _ULL(0xffffffff)
-+#define KVX_SFR_DBA0_DBA0_WFXL_SET _ULL(0xffffffff00000000)
-+#define KVX_SFR_DBA0_DBA0_WFXM_MASK _ULL(0xffffffff00000000)
-+#define KVX_SFR_DBA0_DBA0_WFXM_CLEAR _ULL(0xffffffff)
-+#define KVX_SFR_DBA0_DBA0_WFXM_SET _ULL(0xffffffff00000000)
-+
-+#define KVX_SFR_DBA1_DBA1_MASK _ULL(0xffffffffffffffff) /* Debug Breakpoint Address 1 */
-+#define KVX_SFR_DBA1_DBA1_SHIFT 0
-+#define KVX_SFR_DBA1_DBA1_WIDTH 64
-+#define KVX_SFR_DBA1_DBA1_WFXL_MASK _ULL(0xffffffff)
-+#define KVX_SFR_DBA1_DBA1_WFXL_CLEAR _ULL(0xffffffff)
-+#define KVX_SFR_DBA1_DBA1_WFXL_SET _ULL(0xffffffff00000000)
-+#define KVX_SFR_DBA1_DBA1_WFXM_MASK _ULL(0xffffffff00000000)
-+#define KVX_SFR_DBA1_DBA1_WFXM_CLEAR _ULL(0xffffffff)
-+#define KVX_SFR_DBA1_DBA1_WFXM_SET _ULL(0xffffffff00000000)
-+
-+#define KVX_SFR_DWA0_DWA0_MASK _ULL(0xffffffffffffffff) /* Debug Breakpoint Address 0 */
-+#define KVX_SFR_DWA0_DWA0_SHIFT 0
-+#define KVX_SFR_DWA0_DWA0_WIDTH 64
-+#define KVX_SFR_DWA0_DWA0_WFXL_MASK _ULL(0xffffffff)
-+#define KVX_SFR_DWA0_DWA0_WFXL_CLEAR _ULL(0xffffffff)
-+#define KVX_SFR_DWA0_DWA0_WFXL_SET _ULL(0xffffffff00000000)
-+#define KVX_SFR_DWA0_DWA0_WFXM_MASK _ULL(0xffffffff00000000)
-+#define KVX_SFR_DWA0_DWA0_WFXM_CLEAR _ULL(0xffffffff)
-+#define KVX_SFR_DWA0_DWA0_WFXM_SET _ULL(0xffffffff00000000)
-+
-+#define KVX_SFR_DWA1_DWA1_MASK _ULL(0xffffffffffffffff) /* Debug Breakpoint Address 1 */
-+#define KVX_SFR_DWA1_DWA1_SHIFT 0
-+#define KVX_SFR_DWA1_DWA1_WIDTH 64
-+#define KVX_SFR_DWA1_DWA1_WFXL_MASK _ULL(0xffffffff)
-+#define KVX_SFR_DWA1_DWA1_WFXL_CLEAR _ULL(0xffffffff)
-+#define KVX_SFR_DWA1_DWA1_WFXL_SET _ULL(0xffffffff00000000)
-+#define KVX_SFR_DWA1_DWA1_WFXM_MASK _ULL(0xffffffff00000000)
-+#define KVX_SFR_DWA1_DWA1_WFXM_CLEAR _ULL(0xffffffff)
-+#define KVX_SFR_DWA1_DWA1_WFXM_SET _ULL(0xffffffff00000000)
-+
-+#define KVX_SFR_DOW_B0_MASK _ULL(0x3) /* Breakpoint 0 owner. */
-+#define KVX_SFR_DOW_B0_SHIFT 0
-+#define KVX_SFR_DOW_B0_WIDTH 2
-+#define KVX_SFR_DOW_B0_WFXL_MASK _ULL(0x3)
-+#define KVX_SFR_DOW_B0_WFXL_CLEAR _ULL(0x3)
-+#define KVX_SFR_DOW_B0_WFXL_SET _ULL(0x300000000)
-+
-+#define KVX_SFR_DOW_B1_MASK _ULL(0xc) /* Breakpoint 1 owner. */
-+#define KVX_SFR_DOW_B1_SHIFT 2
-+#define KVX_SFR_DOW_B1_WIDTH 2
-+#define KVX_SFR_DOW_B1_WFXL_MASK _ULL(0xc)
-+#define KVX_SFR_DOW_B1_WFXL_CLEAR _ULL(0xc)
-+#define KVX_SFR_DOW_B1_WFXL_SET _ULL(0xc00000000)
-+
-+#define KVX_SFR_DOW_W0_MASK _ULL(0x30) /* Watchpoint 0 owner. */
-+#define KVX_SFR_DOW_W0_SHIFT 4
-+#define KVX_SFR_DOW_W0_WIDTH 2
-+#define KVX_SFR_DOW_W0_WFXL_MASK _ULL(0x30)
-+#define KVX_SFR_DOW_W0_WFXL_CLEAR _ULL(0x30)
-+#define KVX_SFR_DOW_W0_WFXL_SET _ULL(0x3000000000)
-+
-+#define KVX_SFR_DOW_W1_MASK _ULL(0xc0) /* Watchpoint 1 owner. */
-+#define KVX_SFR_DOW_W1_SHIFT 6
-+#define KVX_SFR_DOW_W1_WIDTH 2
-+#define KVX_SFR_DOW_W1_WFXL_MASK _ULL(0xc0)
-+#define KVX_SFR_DOW_W1_WFXL_CLEAR _ULL(0xc0)
-+#define KVX_SFR_DOW_W1_WFXL_SET _ULL(0xc000000000)
-+
-+#define KVX_SFR_MO_MMI_MASK _ULL(0x3) /* Memory Management Instructions owner. */
-+#define KVX_SFR_MO_MMI_SHIFT 0
-+#define KVX_SFR_MO_MMI_WIDTH 2
-+#define KVX_SFR_MO_MMI_WFXL_MASK _ULL(0x3)
-+#define KVX_SFR_MO_MMI_WFXL_CLEAR _ULL(0x3)
-+#define KVX_SFR_MO_MMI_WFXL_SET _ULL(0x300000000)
-+
-+#define KVX_SFR_MO_RFE_MASK _ULL(0xc) /* RFE instruction owner. */
-+#define KVX_SFR_MO_RFE_SHIFT 2
-+#define KVX_SFR_MO_RFE_WIDTH 2
-+#define KVX_SFR_MO_RFE_WFXL_MASK _ULL(0xc)
-+#define KVX_SFR_MO_RFE_WFXL_CLEAR _ULL(0xc)
-+#define KVX_SFR_MO_RFE_WFXL_SET _ULL(0xc00000000)
-+
-+#define KVX_SFR_MO_STOP_MASK _ULL(0x30) /* STOP instruction owner. */
-+#define KVX_SFR_MO_STOP_SHIFT 4
-+#define KVX_SFR_MO_STOP_WIDTH 2
-+#define KVX_SFR_MO_STOP_WFXL_MASK _ULL(0x30)
-+#define KVX_SFR_MO_STOP_WFXL_CLEAR _ULL(0x30)
-+#define KVX_SFR_MO_STOP_WFXL_SET _ULL(0x3000000000)
-+
-+#define KVX_SFR_MO_SYNC_MASK _ULL(0xc0) /* SYNCGROUP instruction owner. */
-+#define KVX_SFR_MO_SYNC_SHIFT 6
-+#define KVX_SFR_MO_SYNC_WIDTH 2
-+#define KVX_SFR_MO_SYNC_WFXL_MASK _ULL(0xc0)
-+#define KVX_SFR_MO_SYNC_WFXL_CLEAR _ULL(0xc0)
-+#define KVX_SFR_MO_SYNC_WFXL_SET _ULL(0xc000000000)
-+
-+#define KVX_SFR_MO_PCR_MASK _ULL(0x300) /* PCR register owner. */
-+#define KVX_SFR_MO_PCR_SHIFT 8
-+#define KVX_SFR_MO_PCR_WIDTH 2
-+#define KVX_SFR_MO_PCR_WFXL_MASK _ULL(0x300)
-+#define KVX_SFR_MO_PCR_WFXL_CLEAR _ULL(0x300)
-+#define KVX_SFR_MO_PCR_WFXL_SET _ULL(0x30000000000)
-+
-+#define KVX_SFR_MO_MSG_MASK _ULL(0xc00) /* MMU SFR GROUP registers owner. */
-+#define KVX_SFR_MO_MSG_SHIFT 10
-+#define KVX_SFR_MO_MSG_WIDTH 2
-+#define KVX_SFR_MO_MSG_WFXL_MASK _ULL(0xc00)
-+#define KVX_SFR_MO_MSG_WFXL_CLEAR _ULL(0xc00)
-+#define KVX_SFR_MO_MSG_WFXL_SET _ULL(0xc0000000000)
-+
-+#define KVX_SFR_MO_MEN_MASK _ULL(0x3000) /* Miscellaneous External Notifications register owner. */
-+#define KVX_SFR_MO_MEN_SHIFT 12
-+#define KVX_SFR_MO_MEN_WIDTH 2
-+#define KVX_SFR_MO_MEN_WFXL_MASK _ULL(0x3000)
-+#define KVX_SFR_MO_MEN_WFXL_CLEAR _ULL(0x3000)
-+#define KVX_SFR_MO_MEN_WFXL_SET _ULL(0x300000000000)
-+
-+#define KVX_SFR_MO_MES_MASK _ULL(0xc000) /* Memory Error Status register owner. */
-+#define KVX_SFR_MO_MES_SHIFT 14
-+#define KVX_SFR_MO_MES_WIDTH 2
-+#define KVX_SFR_MO_MES_WFXL_MASK _ULL(0xc000)
-+#define KVX_SFR_MO_MES_WFXL_CLEAR _ULL(0xc000)
-+#define KVX_SFR_MO_MES_WFXL_SET _ULL(0xc00000000000)
-+
-+#define KVX_SFR_MO_CSIT_MASK _ULL(0x30000) /* Compute Status Artithmetic Interrupt register owner. */
-+#define KVX_SFR_MO_CSIT_SHIFT 16
-+#define KVX_SFR_MO_CSIT_WIDTH 2
-+#define KVX_SFR_MO_CSIT_WFXL_MASK _ULL(0x30000)
-+#define KVX_SFR_MO_CSIT_WFXL_CLEAR _ULL(0x30000)
-+#define KVX_SFR_MO_CSIT_WFXL_SET _ULL(0x3000000000000)
-+
-+#define KVX_SFR_MO_T0_MASK _ULL(0xc0000) /* Timer 0 register group owner */
-+#define KVX_SFR_MO_T0_SHIFT 18
-+#define KVX_SFR_MO_T0_WIDTH 2
-+#define KVX_SFR_MO_T0_WFXL_MASK _ULL(0xc0000)
-+#define KVX_SFR_MO_T0_WFXL_CLEAR _ULL(0xc0000)
-+#define KVX_SFR_MO_T0_WFXL_SET _ULL(0xc000000000000)
-+
-+#define KVX_SFR_MO_T1_MASK _ULL(0x300000) /* Timer 1 register group owner */
-+#define KVX_SFR_MO_T1_SHIFT 20
-+#define KVX_SFR_MO_T1_WIDTH 2
-+#define KVX_SFR_MO_T1_WFXL_MASK _ULL(0x300000)
-+#define KVX_SFR_MO_T1_WFXL_CLEAR _ULL(0x300000)
-+#define KVX_SFR_MO_T1_WFXL_SET _ULL(0x30000000000000)
-+
-+#define KVX_SFR_MO_WD_MASK _ULL(0xc00000) /* Watch Dog register group owner. */
-+#define KVX_SFR_MO_WD_SHIFT 22
-+#define KVX_SFR_MO_WD_WIDTH 2
-+#define KVX_SFR_MO_WD_WFXL_MASK _ULL(0xc00000)
-+#define KVX_SFR_MO_WD_WFXL_CLEAR _ULL(0xc00000)
-+#define KVX_SFR_MO_WD_WFXL_SET _ULL(0xc0000000000000)
-+
-+#define KVX_SFR_MO_PM0_MASK _ULL(0x3000000) /* Performance Monitor 0 register owner. */
-+#define KVX_SFR_MO_PM0_SHIFT 24
-+#define KVX_SFR_MO_PM0_WIDTH 2
-+#define KVX_SFR_MO_PM0_WFXL_MASK _ULL(0x3000000)
-+#define KVX_SFR_MO_PM0_WFXL_CLEAR _ULL(0x3000000)
-+#define KVX_SFR_MO_PM0_WFXL_SET _ULL(0x300000000000000)
-+
-+#define KVX_SFR_MO_PM1_MASK _ULL(0xc000000) /* Performance Monitor 1 register owner. */
-+#define KVX_SFR_MO_PM1_SHIFT 26
-+#define KVX_SFR_MO_PM1_WIDTH 2
-+#define KVX_SFR_MO_PM1_WFXL_MASK _ULL(0xc000000)
-+#define KVX_SFR_MO_PM1_WFXL_CLEAR _ULL(0xc000000)
-+#define KVX_SFR_MO_PM1_WFXL_SET _ULL(0xc00000000000000)
-+
-+#define KVX_SFR_MO_PM2_MASK _ULL(0x30000000) /* Performance Monitor 2 register owner. */
-+#define KVX_SFR_MO_PM2_SHIFT 28
-+#define KVX_SFR_MO_PM2_WIDTH 2
-+#define KVX_SFR_MO_PM2_WFXL_MASK _ULL(0x30000000)
-+#define KVX_SFR_MO_PM2_WFXL_CLEAR _ULL(0x30000000)
-+#define KVX_SFR_MO_PM2_WFXL_SET _ULL(0x3000000000000000)
-+
-+#define KVX_SFR_MO_PM3_MASK _ULL(0xc0000000) /* Performance Monitor 3 register owner. */
-+#define KVX_SFR_MO_PM3_SHIFT 30
-+#define KVX_SFR_MO_PM3_WIDTH 2
-+#define KVX_SFR_MO_PM3_WFXL_MASK _ULL(0xc0000000)
-+#define KVX_SFR_MO_PM3_WFXL_CLEAR _ULL(0xc0000000)
-+#define KVX_SFR_MO_PM3_WFXL_SET _ULL(0xc000000000000000)
-+
-+#define KVX_SFR_MO_PMIT_MASK _ULL(0x300000000) /* Performance Monitor Interrupt register group owner. */
-+#define KVX_SFR_MO_PMIT_SHIFT 32
-+#define KVX_SFR_MO_PMIT_WIDTH 2
-+#define KVX_SFR_MO_PMIT_WFXM_MASK _ULL(0x300000000)
-+#define KVX_SFR_MO_PMIT_WFXM_CLEAR _ULL(0x3)
-+#define KVX_SFR_MO_PMIT_WFXM_SET _ULL(0x300000000)
-+
-+#define KVX_SFR_MOW_MMI_MASK _ULL(0x3) /* Memory Management Instructions owner. */
-+#define KVX_SFR_MOW_MMI_SHIFT 0
-+#define KVX_SFR_MOW_MMI_WIDTH 2
-+#define KVX_SFR_MOW_MMI_WFXL_MASK _ULL(0x3)
-+#define KVX_SFR_MOW_MMI_WFXL_CLEAR _ULL(0x3)
-+#define KVX_SFR_MOW_MMI_WFXL_SET _ULL(0x300000000)
-+
-+#define KVX_SFR_MOW_RFE_MASK _ULL(0xc) /* RFE instruction owner. */
-+#define KVX_SFR_MOW_RFE_SHIFT 2
-+#define KVX_SFR_MOW_RFE_WIDTH 2
-+#define KVX_SFR_MOW_RFE_WFXL_MASK _ULL(0xc)
-+#define KVX_SFR_MOW_RFE_WFXL_CLEAR _ULL(0xc)
-+#define KVX_SFR_MOW_RFE_WFXL_SET _ULL(0xc00000000)
-+
-+#define KVX_SFR_MOW_STOP_MASK _ULL(0x30) /* STOP instruction owner. */
-+#define KVX_SFR_MOW_STOP_SHIFT 4
-+#define KVX_SFR_MOW_STOP_WIDTH 2
-+#define KVX_SFR_MOW_STOP_WFXL_MASK _ULL(0x30)
-+#define KVX_SFR_MOW_STOP_WFXL_CLEAR _ULL(0x30)
-+#define KVX_SFR_MOW_STOP_WFXL_SET _ULL(0x3000000000)
-+
-+#define KVX_SFR_MOW_SYNC_MASK _ULL(0xc0) /* SYNCGROUP instruction owner. */
-+#define KVX_SFR_MOW_SYNC_SHIFT 6
-+#define KVX_SFR_MOW_SYNC_WIDTH 2
-+#define KVX_SFR_MOW_SYNC_WFXL_MASK _ULL(0xc0)
-+#define KVX_SFR_MOW_SYNC_WFXL_CLEAR _ULL(0xc0)
-+#define KVX_SFR_MOW_SYNC_WFXL_SET _ULL(0xc000000000)
-+
-+#define KVX_SFR_MOW_PCR_MASK _ULL(0x300) /* PCR register owner. */
-+#define KVX_SFR_MOW_PCR_SHIFT 8
-+#define KVX_SFR_MOW_PCR_WIDTH 2
-+#define KVX_SFR_MOW_PCR_WFXL_MASK _ULL(0x300)
-+#define KVX_SFR_MOW_PCR_WFXL_CLEAR _ULL(0x300)
-+#define KVX_SFR_MOW_PCR_WFXL_SET _ULL(0x30000000000)
-+
-+#define KVX_SFR_MOW_MSG_MASK _ULL(0xc00) /* MMU SFR GROUP registers owner. */
-+#define KVX_SFR_MOW_MSG_SHIFT 10
-+#define KVX_SFR_MOW_MSG_WIDTH 2
-+#define KVX_SFR_MOW_MSG_WFXL_MASK _ULL(0xc00)
-+#define KVX_SFR_MOW_MSG_WFXL_CLEAR _ULL(0xc00)
-+#define KVX_SFR_MOW_MSG_WFXL_SET _ULL(0xc0000000000)
-+
-+#define KVX_SFR_MOW_MEN_MASK _ULL(0x3000) /* Miscellaneous External Notifications register owner. */
-+#define KVX_SFR_MOW_MEN_SHIFT 12
-+#define KVX_SFR_MOW_MEN_WIDTH 2
-+#define KVX_SFR_MOW_MEN_WFXL_MASK _ULL(0x3000)
-+#define KVX_SFR_MOW_MEN_WFXL_CLEAR _ULL(0x3000)
-+#define KVX_SFR_MOW_MEN_WFXL_SET _ULL(0x300000000000)
-+
-+#define KVX_SFR_MOW_MES_MASK _ULL(0xc000) /* Memory Error Status register owner. */
-+#define KVX_SFR_MOW_MES_SHIFT 14
-+#define KVX_SFR_MOW_MES_WIDTH 2
-+#define KVX_SFR_MOW_MES_WFXL_MASK _ULL(0xc000)
-+#define KVX_SFR_MOW_MES_WFXL_CLEAR _ULL(0xc000)
-+#define KVX_SFR_MOW_MES_WFXL_SET _ULL(0xc00000000000)
-+
-+#define KVX_SFR_MOW_CSIT_MASK _ULL(0x30000) /* Compute Status Artithmetic Interrupt register owner. */
-+#define KVX_SFR_MOW_CSIT_SHIFT 16
-+#define KVX_SFR_MOW_CSIT_WIDTH 2
-+#define KVX_SFR_MOW_CSIT_WFXL_MASK _ULL(0x30000)
-+#define KVX_SFR_MOW_CSIT_WFXL_CLEAR _ULL(0x30000)
-+#define KVX_SFR_MOW_CSIT_WFXL_SET _ULL(0x3000000000000)
-+
-+#define KVX_SFR_MOW_T0_MASK _ULL(0xc0000) /* Timer 0 register group owner */
-+#define KVX_SFR_MOW_T0_SHIFT 18
-+#define KVX_SFR_MOW_T0_WIDTH 2
-+#define KVX_SFR_MOW_T0_WFXL_MASK _ULL(0xc0000)
-+#define KVX_SFR_MOW_T0_WFXL_CLEAR _ULL(0xc0000)
-+#define KVX_SFR_MOW_T0_WFXL_SET _ULL(0xc000000000000)
-+
-+#define KVX_SFR_MOW_T1_MASK _ULL(0x300000) /* Timer 1 register group owner */
-+#define KVX_SFR_MOW_T1_SHIFT 20
-+#define KVX_SFR_MOW_T1_WIDTH 2
-+#define KVX_SFR_MOW_T1_WFXL_MASK _ULL(0x300000)
-+#define KVX_SFR_MOW_T1_WFXL_CLEAR _ULL(0x300000)
-+#define KVX_SFR_MOW_T1_WFXL_SET _ULL(0x30000000000000)
-+
-+#define KVX_SFR_MOW_WD_MASK _ULL(0xc00000) /* Watch Dog register group owner. */
-+#define KVX_SFR_MOW_WD_SHIFT 22
-+#define KVX_SFR_MOW_WD_WIDTH 2
-+#define KVX_SFR_MOW_WD_WFXL_MASK _ULL(0xc00000)
-+#define KVX_SFR_MOW_WD_WFXL_CLEAR _ULL(0xc00000)
-+#define KVX_SFR_MOW_WD_WFXL_SET _ULL(0xc0000000000000)
-+
-+#define KVX_SFR_MOW_PM0_MASK _ULL(0x3000000) /* Performance Monitor 0 register owner. */
-+#define KVX_SFR_MOW_PM0_SHIFT 24
-+#define KVX_SFR_MOW_PM0_WIDTH 2
-+#define KVX_SFR_MOW_PM0_WFXL_MASK _ULL(0x3000000)
-+#define KVX_SFR_MOW_PM0_WFXL_CLEAR _ULL(0x3000000)
-+#define KVX_SFR_MOW_PM0_WFXL_SET _ULL(0x300000000000000)
-+
-+#define KVX_SFR_MOW_PM1_MASK _ULL(0xc000000) /* Performance Monitor 1 register owner. */
-+#define KVX_SFR_MOW_PM1_SHIFT 26
-+#define KVX_SFR_MOW_PM1_WIDTH 2
-+#define KVX_SFR_MOW_PM1_WFXL_MASK _ULL(0xc000000)
-+#define KVX_SFR_MOW_PM1_WFXL_CLEAR _ULL(0xc000000)
-+#define KVX_SFR_MOW_PM1_WFXL_SET _ULL(0xc00000000000000)
-+
-+#define KVX_SFR_MOW_PM2_MASK _ULL(0x30000000) /* Performance Monitor 2 register owner. */
-+#define KVX_SFR_MOW_PM2_SHIFT 28
-+#define KVX_SFR_MOW_PM2_WIDTH 2
-+#define KVX_SFR_MOW_PM2_WFXL_MASK _ULL(0x30000000)
-+#define KVX_SFR_MOW_PM2_WFXL_CLEAR _ULL(0x30000000)
-+#define KVX_SFR_MOW_PM2_WFXL_SET _ULL(0x3000000000000000)
-+
-+#define KVX_SFR_MOW_PM3_MASK _ULL(0xc0000000) /* Performance Monitor 3 register owner. */
-+#define KVX_SFR_MOW_PM3_SHIFT 30
-+#define KVX_SFR_MOW_PM3_WIDTH 2
-+#define KVX_SFR_MOW_PM3_WFXL_MASK _ULL(0xc0000000)
-+#define KVX_SFR_MOW_PM3_WFXL_CLEAR _ULL(0xc0000000)
-+#define KVX_SFR_MOW_PM3_WFXL_SET _ULL(0xc000000000000000)
-+
-+#define KVX_SFR_MOW_PMIT_MASK _ULL(0x300000000) /* Performance Monitor Interrupt register group owner. */
-+#define KVX_SFR_MOW_PMIT_SHIFT 32
-+#define KVX_SFR_MOW_PMIT_WIDTH 2
-+#define KVX_SFR_MOW_PMIT_WFXM_MASK _ULL(0x300000000)
-+#define KVX_SFR_MOW_PMIT_WFXM_CLEAR _ULL(0x3)
-+#define KVX_SFR_MOW_PMIT_WFXM_SET _ULL(0x300000000)
-+
-+#define KVX_SFR_PS_PL_MASK _ULL(0x3) /* Current Privilege Level */
-+#define KVX_SFR_PS_PL_SHIFT 0
-+#define KVX_SFR_PS_PL_WIDTH 2
-+#define KVX_SFR_PS_PL_WFXL_MASK _ULL(0x3)
-+#define KVX_SFR_PS_PL_WFXL_CLEAR _ULL(0x3)
-+#define KVX_SFR_PS_PL_WFXL_SET _ULL(0x300000000)
-+
-+#define KVX_SFR_PS_ET_MASK _ULL(0x4) /* Exception Taken */
-+#define KVX_SFR_PS_ET_SHIFT 2
-+#define KVX_SFR_PS_ET_WIDTH 1
-+#define KVX_SFR_PS_ET_WFXL_MASK _ULL(0x4)
-+#define KVX_SFR_PS_ET_WFXL_CLEAR _ULL(0x4)
-+#define KVX_SFR_PS_ET_WFXL_SET _ULL(0x400000000)
-+
-+#define KVX_SFR_PS_HTD_MASK _ULL(0x8) /* Hardware Trap Disable */
-+#define KVX_SFR_PS_HTD_SHIFT 3
-+#define KVX_SFR_PS_HTD_WIDTH 1
-+#define KVX_SFR_PS_HTD_WFXL_MASK _ULL(0x8)
-+#define KVX_SFR_PS_HTD_WFXL_CLEAR _ULL(0x8)
-+#define KVX_SFR_PS_HTD_WFXL_SET _ULL(0x800000000)
-+
-+#define KVX_SFR_PS_IE_MASK _ULL(0x10) /* Interrupt Enable */
-+#define KVX_SFR_PS_IE_SHIFT 4
-+#define KVX_SFR_PS_IE_WIDTH 1
-+#define KVX_SFR_PS_IE_WFXL_MASK _ULL(0x10)
-+#define KVX_SFR_PS_IE_WFXL_CLEAR _ULL(0x10)
-+#define KVX_SFR_PS_IE_WFXL_SET _ULL(0x1000000000)
-+
-+#define KVX_SFR_PS_HLE_MASK _ULL(0x20) /* Hardware Loop Enable */
-+#define KVX_SFR_PS_HLE_SHIFT 5
-+#define KVX_SFR_PS_HLE_WIDTH 1
-+#define KVX_SFR_PS_HLE_WFXL_MASK _ULL(0x20)
-+#define KVX_SFR_PS_HLE_WFXL_CLEAR _ULL(0x20)
-+#define KVX_SFR_PS_HLE_WFXL_SET _ULL(0x2000000000)
-+
-+#define KVX_SFR_PS_SRE_MASK _ULL(0x40) /* Software REserved */
-+#define KVX_SFR_PS_SRE_SHIFT 6
-+#define KVX_SFR_PS_SRE_WIDTH 1
-+#define KVX_SFR_PS_SRE_WFXL_MASK _ULL(0x40)
-+#define KVX_SFR_PS_SRE_WFXL_CLEAR _ULL(0x40)
-+#define KVX_SFR_PS_SRE_WFXL_SET _ULL(0x4000000000)
-+
-+#define KVX_SFR_PS_DAUS_MASK _ULL(0x80) /* Data Accesses Use SPS settings */
-+#define KVX_SFR_PS_DAUS_SHIFT 7
-+#define KVX_SFR_PS_DAUS_WIDTH 1
-+#define KVX_SFR_PS_DAUS_WFXL_MASK _ULL(0x80)
-+#define KVX_SFR_PS_DAUS_WFXL_CLEAR _ULL(0x80)
-+#define KVX_SFR_PS_DAUS_WFXL_SET _ULL(0x8000000000)
-+
-+#define KVX_SFR_PS_ICE_MASK _ULL(0x100) /* Instruction Cache Enable */
-+#define KVX_SFR_PS_ICE_SHIFT 8
-+#define KVX_SFR_PS_ICE_WIDTH 1
-+#define KVX_SFR_PS_ICE_WFXL_MASK _ULL(0x100)
-+#define KVX_SFR_PS_ICE_WFXL_CLEAR _ULL(0x100)
-+#define KVX_SFR_PS_ICE_WFXL_SET _ULL(0x10000000000)
-+
-+#define KVX_SFR_PS_USE_MASK _ULL(0x200) /* Uncached Streaming Enable */
-+#define KVX_SFR_PS_USE_SHIFT 9
-+#define KVX_SFR_PS_USE_WIDTH 1
-+#define KVX_SFR_PS_USE_WFXL_MASK _ULL(0x200)
-+#define KVX_SFR_PS_USE_WFXL_CLEAR _ULL(0x200)
-+#define KVX_SFR_PS_USE_WFXL_SET _ULL(0x20000000000)
-+
-+#define KVX_SFR_PS_DCE_MASK _ULL(0x400) /* Data Cache Enable */
-+#define KVX_SFR_PS_DCE_SHIFT 10
-+#define KVX_SFR_PS_DCE_WIDTH 1
-+#define KVX_SFR_PS_DCE_WFXL_MASK _ULL(0x400)
-+#define KVX_SFR_PS_DCE_WFXL_CLEAR _ULL(0x400)
-+#define KVX_SFR_PS_DCE_WFXL_SET _ULL(0x40000000000)
-+
-+#define KVX_SFR_PS_MME_MASK _ULL(0x800) /* Memory Management Enable */
-+#define KVX_SFR_PS_MME_SHIFT 11
-+#define KVX_SFR_PS_MME_WIDTH 1
-+#define KVX_SFR_PS_MME_WFXL_MASK _ULL(0x800)
-+#define KVX_SFR_PS_MME_WFXL_CLEAR _ULL(0x800)
-+#define KVX_SFR_PS_MME_WFXL_SET _ULL(0x80000000000)
-+
-+#define KVX_SFR_PS_IL_MASK _ULL(0x3000) /* Interrupt Level */
-+#define KVX_SFR_PS_IL_SHIFT 12
-+#define KVX_SFR_PS_IL_WIDTH 2
-+#define KVX_SFR_PS_IL_WFXL_MASK _ULL(0x3000)
-+#define KVX_SFR_PS_IL_WFXL_CLEAR _ULL(0x3000)
-+#define KVX_SFR_PS_IL_WFXL_SET _ULL(0x300000000000)
-+
-+#define KVX_SFR_PS_VS_MASK _ULL(0xc000) /* Virtual Space */
-+#define KVX_SFR_PS_VS_SHIFT 14
-+#define KVX_SFR_PS_VS_WIDTH 2
-+#define KVX_SFR_PS_VS_WFXL_MASK _ULL(0xc000)
-+#define KVX_SFR_PS_VS_WFXL_CLEAR _ULL(0xc000)
-+#define KVX_SFR_PS_VS_WFXL_SET _ULL(0xc00000000000)
-+
-+#define KVX_SFR_PS_V64_MASK _ULL(0x10000) /* Virtual 64 bits mode. */
-+#define KVX_SFR_PS_V64_SHIFT 16
-+#define KVX_SFR_PS_V64_WIDTH 1
-+#define KVX_SFR_PS_V64_WFXL_MASK _ULL(0x10000)
-+#define KVX_SFR_PS_V64_WFXL_CLEAR _ULL(0x10000)
-+#define KVX_SFR_PS_V64_WFXL_SET _ULL(0x1000000000000)
-+
-+#define KVX_SFR_PS_L2E_MASK _ULL(0x20000) /* L2 cache Enable. */
-+#define KVX_SFR_PS_L2E_SHIFT 17
-+#define KVX_SFR_PS_L2E_WIDTH 1
-+#define KVX_SFR_PS_L2E_WFXL_MASK _ULL(0x20000)
-+#define KVX_SFR_PS_L2E_WFXL_CLEAR _ULL(0x20000)
-+#define KVX_SFR_PS_L2E_WFXL_SET _ULL(0x2000000000000)
-+
-+#define KVX_SFR_PS_SME_MASK _ULL(0x40000) /* Step Mode Enabled */
-+#define KVX_SFR_PS_SME_SHIFT 18
-+#define KVX_SFR_PS_SME_WIDTH 1
-+#define KVX_SFR_PS_SME_WFXL_MASK _ULL(0x40000)
-+#define KVX_SFR_PS_SME_WFXL_CLEAR _ULL(0x40000)
-+#define KVX_SFR_PS_SME_WFXL_SET _ULL(0x4000000000000)
-+
-+#define KVX_SFR_PS_SMR_MASK _ULL(0x80000) /* Step Mode Ready */
-+#define KVX_SFR_PS_SMR_SHIFT 19
-+#define KVX_SFR_PS_SMR_WIDTH 1
-+#define KVX_SFR_PS_SMR_WFXL_MASK _ULL(0x80000)
-+#define KVX_SFR_PS_SMR_WFXL_CLEAR _ULL(0x80000)
-+#define KVX_SFR_PS_SMR_WFXL_SET _ULL(0x8000000000000)
-+
-+#define KVX_SFR_PS_PMJ_MASK _ULL(0xf00000) /* Page Mask in JTLB. */
-+#define KVX_SFR_PS_PMJ_SHIFT 20
-+#define KVX_SFR_PS_PMJ_WIDTH 4
-+#define KVX_SFR_PS_PMJ_WFXL_MASK _ULL(0xf00000)
-+#define KVX_SFR_PS_PMJ_WFXL_CLEAR _ULL(0xf00000)
-+#define KVX_SFR_PS_PMJ_WFXL_SET _ULL(0xf0000000000000)
-+
-+#define KVX_SFR_PS_MMUP_MASK _ULL(0x1000000) /* Privileged on MMU. */
-+#define KVX_SFR_PS_MMUP_SHIFT 24
-+#define KVX_SFR_PS_MMUP_WIDTH 1
-+#define KVX_SFR_PS_MMUP_WFXL_MASK _ULL(0x1000000)
-+#define KVX_SFR_PS_MMUP_WFXL_CLEAR _ULL(0x1000000)
-+#define KVX_SFR_PS_MMUP_WFXL_SET _ULL(0x100000000000000)
-+
-+#define KVX_SFR_SPS_PL_MASK _ULL(0x3) /* Current Privilege Level */
-+#define KVX_SFR_SPS_PL_SHIFT 0
-+#define KVX_SFR_SPS_PL_WIDTH 2
-+#define KVX_SFR_SPS_PL_WFXL_MASK _ULL(0x3)
-+#define KVX_SFR_SPS_PL_WFXL_CLEAR _ULL(0x3)
-+#define KVX_SFR_SPS_PL_WFXL_SET _ULL(0x300000000)
-+
-+#define KVX_SFR_SPS_ET_MASK _ULL(0x4) /* Exception Taken */
-+#define KVX_SFR_SPS_ET_SHIFT 2
-+#define KVX_SFR_SPS_ET_WIDTH 1
-+#define KVX_SFR_SPS_ET_WFXL_MASK _ULL(0x4)
-+#define KVX_SFR_SPS_ET_WFXL_CLEAR _ULL(0x4)
-+#define KVX_SFR_SPS_ET_WFXL_SET _ULL(0x400000000)
-+
-+#define KVX_SFR_SPS_HTD_MASK _ULL(0x8) /* Hardware Trap Disable */
-+#define KVX_SFR_SPS_HTD_SHIFT 3
-+#define KVX_SFR_SPS_HTD_WIDTH 1
-+#define KVX_SFR_SPS_HTD_WFXL_MASK _ULL(0x8)
-+#define KVX_SFR_SPS_HTD_WFXL_CLEAR _ULL(0x8)
-+#define KVX_SFR_SPS_HTD_WFXL_SET _ULL(0x800000000)
-+
-+#define KVX_SFR_SPS_IE_MASK _ULL(0x10) /* Interrupt Enable */
-+#define KVX_SFR_SPS_IE_SHIFT 4
-+#define KVX_SFR_SPS_IE_WIDTH 1
-+#define KVX_SFR_SPS_IE_WFXL_MASK _ULL(0x10)
-+#define KVX_SFR_SPS_IE_WFXL_CLEAR _ULL(0x10)
-+#define KVX_SFR_SPS_IE_WFXL_SET _ULL(0x1000000000)
-+
-+#define KVX_SFR_SPS_HLE_MASK _ULL(0x20) /* Hardware Loop Enable */
-+#define KVX_SFR_SPS_HLE_SHIFT 5
-+#define KVX_SFR_SPS_HLE_WIDTH 1
-+#define KVX_SFR_SPS_HLE_WFXL_MASK _ULL(0x20)
-+#define KVX_SFR_SPS_HLE_WFXL_CLEAR _ULL(0x20)
-+#define KVX_SFR_SPS_HLE_WFXL_SET _ULL(0x2000000000)
-+
-+#define KVX_SFR_SPS_SRE_MASK _ULL(0x40) /* Software REserved */
-+#define KVX_SFR_SPS_SRE_SHIFT 6
-+#define KVX_SFR_SPS_SRE_WIDTH 1
-+#define KVX_SFR_SPS_SRE_WFXL_MASK _ULL(0x40)
-+#define KVX_SFR_SPS_SRE_WFXL_CLEAR _ULL(0x40)
-+#define KVX_SFR_SPS_SRE_WFXL_SET _ULL(0x4000000000)
-+
-+#define KVX_SFR_SPS_DAUS_MASK _ULL(0x80) /* Data Accesses Use SPS settings */
-+#define KVX_SFR_SPS_DAUS_SHIFT 7
-+#define KVX_SFR_SPS_DAUS_WIDTH 1
-+#define KVX_SFR_SPS_DAUS_WFXL_MASK _ULL(0x80)
-+#define KVX_SFR_SPS_DAUS_WFXL_CLEAR _ULL(0x80)
-+#define KVX_SFR_SPS_DAUS_WFXL_SET _ULL(0x8000000000)
-+
-+#define KVX_SFR_SPS_ICE_MASK _ULL(0x100) /* Instruction Cache Enable */
-+#define KVX_SFR_SPS_ICE_SHIFT 8
-+#define KVX_SFR_SPS_ICE_WIDTH 1
-+#define KVX_SFR_SPS_ICE_WFXL_MASK _ULL(0x100)
-+#define KVX_SFR_SPS_ICE_WFXL_CLEAR _ULL(0x100)
-+#define KVX_SFR_SPS_ICE_WFXL_SET _ULL(0x10000000000)
-+
-+#define KVX_SFR_SPS_USE_MASK _ULL(0x200) /* Uncached Streaming Enable */
-+#define KVX_SFR_SPS_USE_SHIFT 9
-+#define KVX_SFR_SPS_USE_WIDTH 1
-+#define KVX_SFR_SPS_USE_WFXL_MASK _ULL(0x200)
-+#define KVX_SFR_SPS_USE_WFXL_CLEAR _ULL(0x200)
-+#define KVX_SFR_SPS_USE_WFXL_SET _ULL(0x20000000000)
-+
-+#define KVX_SFR_SPS_DCE_MASK _ULL(0x400) /* Data Cache Enable */
-+#define KVX_SFR_SPS_DCE_SHIFT 10
-+#define KVX_SFR_SPS_DCE_WIDTH 1
-+#define KVX_SFR_SPS_DCE_WFXL_MASK _ULL(0x400)
-+#define KVX_SFR_SPS_DCE_WFXL_CLEAR _ULL(0x400)
-+#define KVX_SFR_SPS_DCE_WFXL_SET _ULL(0x40000000000)
-+
-+#define KVX_SFR_SPS_MME_MASK _ULL(0x800) /* Memory Management Enable */
-+#define KVX_SFR_SPS_MME_SHIFT 11
-+#define KVX_SFR_SPS_MME_WIDTH 1
-+#define KVX_SFR_SPS_MME_WFXL_MASK _ULL(0x800)
-+#define KVX_SFR_SPS_MME_WFXL_CLEAR _ULL(0x800)
-+#define KVX_SFR_SPS_MME_WFXL_SET _ULL(0x80000000000)
-+
-+#define KVX_SFR_SPS_IL_MASK _ULL(0x3000) /* Interrupt Level */
-+#define KVX_SFR_SPS_IL_SHIFT 12
-+#define KVX_SFR_SPS_IL_WIDTH 2
-+#define KVX_SFR_SPS_IL_WFXL_MASK _ULL(0x3000)
-+#define KVX_SFR_SPS_IL_WFXL_CLEAR _ULL(0x3000)
-+#define KVX_SFR_SPS_IL_WFXL_SET _ULL(0x300000000000)
-+
-+#define KVX_SFR_SPS_VS_MASK _ULL(0xc000) /* Virtual Space */
-+#define KVX_SFR_SPS_VS_SHIFT 14
-+#define KVX_SFR_SPS_VS_WIDTH 2
-+#define KVX_SFR_SPS_VS_WFXL_MASK _ULL(0xc000)
-+#define KVX_SFR_SPS_VS_WFXL_CLEAR _ULL(0xc000)
-+#define KVX_SFR_SPS_VS_WFXL_SET _ULL(0xc00000000000)
-+
-+#define KVX_SFR_SPS_V64_MASK _ULL(0x10000) /* Virtual 64 bits mode. */
-+#define KVX_SFR_SPS_V64_SHIFT 16
-+#define KVX_SFR_SPS_V64_WIDTH 1
-+#define KVX_SFR_SPS_V64_WFXL_MASK _ULL(0x10000)
-+#define KVX_SFR_SPS_V64_WFXL_CLEAR _ULL(0x10000)
-+#define KVX_SFR_SPS_V64_WFXL_SET _ULL(0x1000000000000)
-+
-+#define KVX_SFR_SPS_L2E_MASK _ULL(0x20000) /* L2 cache Enable. */
-+#define KVX_SFR_SPS_L2E_SHIFT 17
-+#define KVX_SFR_SPS_L2E_WIDTH 1
-+#define KVX_SFR_SPS_L2E_WFXL_MASK _ULL(0x20000)
-+#define KVX_SFR_SPS_L2E_WFXL_CLEAR _ULL(0x20000)
-+#define KVX_SFR_SPS_L2E_WFXL_SET _ULL(0x2000000000000)
-+
-+#define KVX_SFR_SPS_SME_MASK _ULL(0x40000) /* Step Mode Enabled */
-+#define KVX_SFR_SPS_SME_SHIFT 18
-+#define KVX_SFR_SPS_SME_WIDTH 1
-+#define KVX_SFR_SPS_SME_WFXL_MASK _ULL(0x40000)
-+#define KVX_SFR_SPS_SME_WFXL_CLEAR _ULL(0x40000)
-+#define KVX_SFR_SPS_SME_WFXL_SET _ULL(0x4000000000000)
-+
-+#define KVX_SFR_SPS_SMR_MASK _ULL(0x80000) /* Step Mode Ready */
-+#define KVX_SFR_SPS_SMR_SHIFT 19
-+#define KVX_SFR_SPS_SMR_WIDTH 1
-+#define KVX_SFR_SPS_SMR_WFXL_MASK _ULL(0x80000)
-+#define KVX_SFR_SPS_SMR_WFXL_CLEAR _ULL(0x80000)
-+#define KVX_SFR_SPS_SMR_WFXL_SET _ULL(0x8000000000000)
-+
-+#define KVX_SFR_SPS_PMJ_MASK _ULL(0xf00000) /* Page Mask in JTLB. */
-+#define KVX_SFR_SPS_PMJ_SHIFT 20
-+#define KVX_SFR_SPS_PMJ_WIDTH 4
-+#define KVX_SFR_SPS_PMJ_WFXL_MASK _ULL(0xf00000)
-+#define KVX_SFR_SPS_PMJ_WFXL_CLEAR _ULL(0xf00000)
-+#define KVX_SFR_SPS_PMJ_WFXL_SET _ULL(0xf0000000000000)
-+
-+#define KVX_SFR_SPS_MMUP_MASK _ULL(0x1000000) /* Privileged on MMU. */
-+#define KVX_SFR_SPS_MMUP_SHIFT 24
-+#define KVX_SFR_SPS_MMUP_WIDTH 1
-+#define KVX_SFR_SPS_MMUP_WFXL_MASK _ULL(0x1000000)
-+#define KVX_SFR_SPS_MMUP_WFXL_CLEAR _ULL(0x1000000)
-+#define KVX_SFR_SPS_MMUP_WFXL_SET _ULL(0x100000000000000)
-+
-+#define KVX_SFR_SPS_PL0_PL_MASK _ULL(0x3) /* Current Privilege Level */
-+#define KVX_SFR_SPS_PL0_PL_SHIFT 0
-+#define KVX_SFR_SPS_PL0_PL_WIDTH 2
-+#define KVX_SFR_SPS_PL0_PL_WFXL_MASK _ULL(0x3)
-+#define KVX_SFR_SPS_PL0_PL_WFXL_CLEAR _ULL(0x3)
-+#define KVX_SFR_SPS_PL0_PL_WFXL_SET _ULL(0x300000000)
-+
-+#define KVX_SFR_SPS_PL0_ET_MASK _ULL(0x4) /* Exception Taken */
-+#define KVX_SFR_SPS_PL0_ET_SHIFT 2
-+#define KVX_SFR_SPS_PL0_ET_WIDTH 1
-+#define KVX_SFR_SPS_PL0_ET_WFXL_MASK _ULL(0x4)
-+#define KVX_SFR_SPS_PL0_ET_WFXL_CLEAR _ULL(0x4)
-+#define KVX_SFR_SPS_PL0_ET_WFXL_SET _ULL(0x400000000)
-+
-+#define KVX_SFR_SPS_PL0_HTD_MASK _ULL(0x8) /* Hardware Trap Disable */
-+#define KVX_SFR_SPS_PL0_HTD_SHIFT 3
-+#define KVX_SFR_SPS_PL0_HTD_WIDTH 1
-+#define KVX_SFR_SPS_PL0_HTD_WFXL_MASK _ULL(0x8)
-+#define KVX_SFR_SPS_PL0_HTD_WFXL_CLEAR _ULL(0x8)
-+#define KVX_SFR_SPS_PL0_HTD_WFXL_SET _ULL(0x800000000)
-+
-+#define KVX_SFR_SPS_PL0_IE_MASK _ULL(0x10) /* Interrupt Enable */
-+#define KVX_SFR_SPS_PL0_IE_SHIFT 4
-+#define KVX_SFR_SPS_PL0_IE_WIDTH 1
-+#define KVX_SFR_SPS_PL0_IE_WFXL_MASK _ULL(0x10)
-+#define KVX_SFR_SPS_PL0_IE_WFXL_CLEAR _ULL(0x10)
-+#define KVX_SFR_SPS_PL0_IE_WFXL_SET _ULL(0x1000000000)
-+
-+#define KVX_SFR_SPS_PL0_HLE_MASK _ULL(0x20) /* Hardware Loop Enable */
-+#define KVX_SFR_SPS_PL0_HLE_SHIFT 5
-+#define KVX_SFR_SPS_PL0_HLE_WIDTH 1
-+#define KVX_SFR_SPS_PL0_HLE_WFXL_MASK _ULL(0x20)
-+#define KVX_SFR_SPS_PL0_HLE_WFXL_CLEAR _ULL(0x20)
-+#define KVX_SFR_SPS_PL0_HLE_WFXL_SET _ULL(0x2000000000)
-+
-+#define KVX_SFR_SPS_PL0_SRE_MASK _ULL(0x40) /* Software REserved */
-+#define KVX_SFR_SPS_PL0_SRE_SHIFT 6
-+#define KVX_SFR_SPS_PL0_SRE_WIDTH 1
-+#define KVX_SFR_SPS_PL0_SRE_WFXL_MASK _ULL(0x40)
-+#define KVX_SFR_SPS_PL0_SRE_WFXL_CLEAR _ULL(0x40)
-+#define KVX_SFR_SPS_PL0_SRE_WFXL_SET _ULL(0x4000000000)
-+
-+#define KVX_SFR_SPS_PL0_DAUS_MASK _ULL(0x80) /* Data Accesses Use SPS settings */
-+#define KVX_SFR_SPS_PL0_DAUS_SHIFT 7
-+#define KVX_SFR_SPS_PL0_DAUS_WIDTH 1
-+#define KVX_SFR_SPS_PL0_DAUS_WFXL_MASK _ULL(0x80)
-+#define KVX_SFR_SPS_PL0_DAUS_WFXL_CLEAR _ULL(0x80)
-+#define KVX_SFR_SPS_PL0_DAUS_WFXL_SET _ULL(0x8000000000)
-+
-+#define KVX_SFR_SPS_PL0_ICE_MASK _ULL(0x100) /* Instruction Cache Enable */
-+#define KVX_SFR_SPS_PL0_ICE_SHIFT 8
-+#define KVX_SFR_SPS_PL0_ICE_WIDTH 1
-+#define KVX_SFR_SPS_PL0_ICE_WFXL_MASK _ULL(0x100)
-+#define KVX_SFR_SPS_PL0_ICE_WFXL_CLEAR _ULL(0x100)
-+#define KVX_SFR_SPS_PL0_ICE_WFXL_SET _ULL(0x10000000000)
-+
-+#define KVX_SFR_SPS_PL0_USE_MASK _ULL(0x200) /* Uncached Streaming Enable */
-+#define KVX_SFR_SPS_PL0_USE_SHIFT 9
-+#define KVX_SFR_SPS_PL0_USE_WIDTH 1
-+#define KVX_SFR_SPS_PL0_USE_WFXL_MASK _ULL(0x200)
-+#define KVX_SFR_SPS_PL0_USE_WFXL_CLEAR _ULL(0x200)
-+#define KVX_SFR_SPS_PL0_USE_WFXL_SET _ULL(0x20000000000)
-+
-+#define KVX_SFR_SPS_PL0_DCE_MASK _ULL(0x400) /* Data Cache Enable */
-+#define KVX_SFR_SPS_PL0_DCE_SHIFT 10
-+#define KVX_SFR_SPS_PL0_DCE_WIDTH 1
-+#define KVX_SFR_SPS_PL0_DCE_WFXL_MASK _ULL(0x400)
-+#define KVX_SFR_SPS_PL0_DCE_WFXL_CLEAR _ULL(0x400)
-+#define KVX_SFR_SPS_PL0_DCE_WFXL_SET _ULL(0x40000000000)
-+
-+#define KVX_SFR_SPS_PL0_MME_MASK _ULL(0x800) /* Memory Management Enable */
-+#define KVX_SFR_SPS_PL0_MME_SHIFT 11
-+#define KVX_SFR_SPS_PL0_MME_WIDTH 1
-+#define KVX_SFR_SPS_PL0_MME_WFXL_MASK _ULL(0x800)
-+#define KVX_SFR_SPS_PL0_MME_WFXL_CLEAR _ULL(0x800)
-+#define KVX_SFR_SPS_PL0_MME_WFXL_SET _ULL(0x80000000000)
-+
-+#define KVX_SFR_SPS_PL0_IL_MASK _ULL(0x3000) /* Interrupt Level */
-+#define KVX_SFR_SPS_PL0_IL_SHIFT 12
-+#define KVX_SFR_SPS_PL0_IL_WIDTH 2
-+#define KVX_SFR_SPS_PL0_IL_WFXL_MASK _ULL(0x3000)
-+#define KVX_SFR_SPS_PL0_IL_WFXL_CLEAR _ULL(0x3000)
-+#define KVX_SFR_SPS_PL0_IL_WFXL_SET _ULL(0x300000000000)
-+
-+#define KVX_SFR_SPS_PL0_VS_MASK _ULL(0xc000) /* Virtual Space */
-+#define KVX_SFR_SPS_PL0_VS_SHIFT 14
-+#define KVX_SFR_SPS_PL0_VS_WIDTH 2
-+#define KVX_SFR_SPS_PL0_VS_WFXL_MASK _ULL(0xc000)
-+#define KVX_SFR_SPS_PL0_VS_WFXL_CLEAR _ULL(0xc000)
-+#define KVX_SFR_SPS_PL0_VS_WFXL_SET _ULL(0xc00000000000)
-+
-+#define KVX_SFR_SPS_PL0_V64_MASK _ULL(0x10000) /* Virtual 64 bits mode. */
-+#define KVX_SFR_SPS_PL0_V64_SHIFT 16
-+#define KVX_SFR_SPS_PL0_V64_WIDTH 1
-+#define KVX_SFR_SPS_PL0_V64_WFXL_MASK _ULL(0x10000)
-+#define KVX_SFR_SPS_PL0_V64_WFXL_CLEAR _ULL(0x10000)
-+#define KVX_SFR_SPS_PL0_V64_WFXL_SET _ULL(0x1000000000000)
-+
-+#define KVX_SFR_SPS_PL0_L2E_MASK _ULL(0x20000) /* L2 cache Enable. */
-+#define KVX_SFR_SPS_PL0_L2E_SHIFT 17
-+#define KVX_SFR_SPS_PL0_L2E_WIDTH 1
-+#define KVX_SFR_SPS_PL0_L2E_WFXL_MASK _ULL(0x20000)
-+#define KVX_SFR_SPS_PL0_L2E_WFXL_CLEAR _ULL(0x20000)
-+#define KVX_SFR_SPS_PL0_L2E_WFXL_SET _ULL(0x2000000000000)
-+
-+#define KVX_SFR_SPS_PL0_SME_MASK _ULL(0x40000) /* Step Mode Enabled */
-+#define KVX_SFR_SPS_PL0_SME_SHIFT 18
-+#define KVX_SFR_SPS_PL0_SME_WIDTH 1
-+#define KVX_SFR_SPS_PL0_SME_WFXL_MASK _ULL(0x40000)
-+#define KVX_SFR_SPS_PL0_SME_WFXL_CLEAR _ULL(0x40000)
-+#define KVX_SFR_SPS_PL0_SME_WFXL_SET _ULL(0x4000000000000)
-+
-+#define KVX_SFR_SPS_PL0_SMR_MASK _ULL(0x80000) /* Step Mode Ready */
-+#define KVX_SFR_SPS_PL0_SMR_SHIFT 19
-+#define KVX_SFR_SPS_PL0_SMR_WIDTH 1
-+#define KVX_SFR_SPS_PL0_SMR_WFXL_MASK _ULL(0x80000)
-+#define KVX_SFR_SPS_PL0_SMR_WFXL_CLEAR _ULL(0x80000)
-+#define KVX_SFR_SPS_PL0_SMR_WFXL_SET _ULL(0x8000000000000)
-+
-+#define KVX_SFR_SPS_PL0_PMJ_MASK _ULL(0xf00000) /* Page Mask in JTLB. */
-+#define KVX_SFR_SPS_PL0_PMJ_SHIFT 20
-+#define KVX_SFR_SPS_PL0_PMJ_WIDTH 4
-+#define KVX_SFR_SPS_PL0_PMJ_WFXL_MASK _ULL(0xf00000)
-+#define KVX_SFR_SPS_PL0_PMJ_WFXL_CLEAR _ULL(0xf00000)
-+#define KVX_SFR_SPS_PL0_PMJ_WFXL_SET _ULL(0xf0000000000000)
-+
-+#define KVX_SFR_SPS_PL0_MMUP_MASK _ULL(0x1000000) /* Privileged on MMU. */
-+#define KVX_SFR_SPS_PL0_MMUP_SHIFT 24
-+#define KVX_SFR_SPS_PL0_MMUP_WIDTH 1
-+#define KVX_SFR_SPS_PL0_MMUP_WFXL_MASK _ULL(0x1000000)
-+#define KVX_SFR_SPS_PL0_MMUP_WFXL_CLEAR _ULL(0x1000000)
-+#define KVX_SFR_SPS_PL0_MMUP_WFXL_SET _ULL(0x100000000000000)
-+
-+#define KVX_SFR_SPS_PL1_PL_MASK _ULL(0x3) /* Current Privilege Level */
-+#define KVX_SFR_SPS_PL1_PL_SHIFT 0
-+#define KVX_SFR_SPS_PL1_PL_WIDTH 2
-+#define KVX_SFR_SPS_PL1_PL_WFXL_MASK _ULL(0x3)
-+#define KVX_SFR_SPS_PL1_PL_WFXL_CLEAR _ULL(0x3)
-+#define KVX_SFR_SPS_PL1_PL_WFXL_SET _ULL(0x300000000)
-+
-+#define KVX_SFR_SPS_PL1_ET_MASK _ULL(0x4) /* Exception Taken */
-+#define KVX_SFR_SPS_PL1_ET_SHIFT 2
-+#define KVX_SFR_SPS_PL1_ET_WIDTH 1
-+#define KVX_SFR_SPS_PL1_ET_WFXL_MASK _ULL(0x4)
-+#define KVX_SFR_SPS_PL1_ET_WFXL_CLEAR _ULL(0x4)
-+#define KVX_SFR_SPS_PL1_ET_WFXL_SET _ULL(0x400000000)
-+
-+#define KVX_SFR_SPS_PL1_HTD_MASK _ULL(0x8) /* Hardware Trap Disable */
-+#define KVX_SFR_SPS_PL1_HTD_SHIFT 3
-+#define KVX_SFR_SPS_PL1_HTD_WIDTH 1
-+#define KVX_SFR_SPS_PL1_HTD_WFXL_MASK _ULL(0x8)
-+#define KVX_SFR_SPS_PL1_HTD_WFXL_CLEAR _ULL(0x8)
-+#define KVX_SFR_SPS_PL1_HTD_WFXL_SET _ULL(0x800000000)
-+
-+#define KVX_SFR_SPS_PL1_IE_MASK _ULL(0x10) /* Interrupt Enable */
-+#define KVX_SFR_SPS_PL1_IE_SHIFT 4
-+#define KVX_SFR_SPS_PL1_IE_WIDTH 1
-+#define KVX_SFR_SPS_PL1_IE_WFXL_MASK _ULL(0x10)
-+#define KVX_SFR_SPS_PL1_IE_WFXL_CLEAR _ULL(0x10)
-+#define KVX_SFR_SPS_PL1_IE_WFXL_SET _ULL(0x1000000000)
-+
-+#define KVX_SFR_SPS_PL1_HLE_MASK _ULL(0x20) /* Hardware Loop Enable */
-+#define KVX_SFR_SPS_PL1_HLE_SHIFT 5
-+#define KVX_SFR_SPS_PL1_HLE_WIDTH 1
-+#define KVX_SFR_SPS_PL1_HLE_WFXL_MASK _ULL(0x20)
-+#define KVX_SFR_SPS_PL1_HLE_WFXL_CLEAR _ULL(0x20)
-+#define KVX_SFR_SPS_PL1_HLE_WFXL_SET _ULL(0x2000000000)
-+
-+#define KVX_SFR_SPS_PL1_SRE_MASK _ULL(0x40) /* Software REserved */
-+#define KVX_SFR_SPS_PL1_SRE_SHIFT 6
-+#define KVX_SFR_SPS_PL1_SRE_WIDTH 1
-+#define KVX_SFR_SPS_PL1_SRE_WFXL_MASK _ULL(0x40)
-+#define KVX_SFR_SPS_PL1_SRE_WFXL_CLEAR _ULL(0x40)
-+#define KVX_SFR_SPS_PL1_SRE_WFXL_SET _ULL(0x4000000000)
-+
-+#define KVX_SFR_SPS_PL1_DAUS_MASK _ULL(0x80) /* Data Accesses Use SPS settings */
-+#define KVX_SFR_SPS_PL1_DAUS_SHIFT 7
-+#define KVX_SFR_SPS_PL1_DAUS_WIDTH 1
-+#define KVX_SFR_SPS_PL1_DAUS_WFXL_MASK _ULL(0x80)
-+#define KVX_SFR_SPS_PL1_DAUS_WFXL_CLEAR _ULL(0x80)
-+#define KVX_SFR_SPS_PL1_DAUS_WFXL_SET _ULL(0x8000000000)
-+
-+#define KVX_SFR_SPS_PL1_ICE_MASK _ULL(0x100) /* Instruction Cache Enable */
-+#define KVX_SFR_SPS_PL1_ICE_SHIFT 8
-+#define KVX_SFR_SPS_PL1_ICE_WIDTH 1
-+#define KVX_SFR_SPS_PL1_ICE_WFXL_MASK _ULL(0x100)
-+#define KVX_SFR_SPS_PL1_ICE_WFXL_CLEAR _ULL(0x100)
-+#define KVX_SFR_SPS_PL1_ICE_WFXL_SET _ULL(0x10000000000)
-+
-+#define KVX_SFR_SPS_PL1_USE_MASK _ULL(0x200) /* Uncached Streaming Enable */
-+#define KVX_SFR_SPS_PL1_USE_SHIFT 9
-+#define KVX_SFR_SPS_PL1_USE_WIDTH 1
-+#define KVX_SFR_SPS_PL1_USE_WFXL_MASK _ULL(0x200)
-+#define KVX_SFR_SPS_PL1_USE_WFXL_CLEAR _ULL(0x200)
-+#define KVX_SFR_SPS_PL1_USE_WFXL_SET _ULL(0x20000000000)
-+
-+#define KVX_SFR_SPS_PL1_DCE_MASK _ULL(0x400) /* Data Cache Enable */
-+#define KVX_SFR_SPS_PL1_DCE_SHIFT 10
-+#define KVX_SFR_SPS_PL1_DCE_WIDTH 1
-+#define KVX_SFR_SPS_PL1_DCE_WFXL_MASK _ULL(0x400)
-+#define KVX_SFR_SPS_PL1_DCE_WFXL_CLEAR _ULL(0x400)
-+#define KVX_SFR_SPS_PL1_DCE_WFXL_SET _ULL(0x40000000000)
-+
-+#define KVX_SFR_SPS_PL1_MME_MASK _ULL(0x800) /* Memory Management Enable */
-+#define KVX_SFR_SPS_PL1_MME_SHIFT 11
-+#define KVX_SFR_SPS_PL1_MME_WIDTH 1
-+#define KVX_SFR_SPS_PL1_MME_WFXL_MASK _ULL(0x800)
-+#define KVX_SFR_SPS_PL1_MME_WFXL_CLEAR _ULL(0x800)
-+#define KVX_SFR_SPS_PL1_MME_WFXL_SET _ULL(0x80000000000)
-+
-+#define KVX_SFR_SPS_PL1_IL_MASK _ULL(0x3000) /* Interrupt Level */
-+#define KVX_SFR_SPS_PL1_IL_SHIFT 12
-+#define KVX_SFR_SPS_PL1_IL_WIDTH 2
-+#define KVX_SFR_SPS_PL1_IL_WFXL_MASK _ULL(0x3000)
-+#define KVX_SFR_SPS_PL1_IL_WFXL_CLEAR _ULL(0x3000)
-+#define KVX_SFR_SPS_PL1_IL_WFXL_SET _ULL(0x300000000000)
-+
-+#define KVX_SFR_SPS_PL1_VS_MASK _ULL(0xc000) /* Virtual Space */
-+#define KVX_SFR_SPS_PL1_VS_SHIFT 14
-+#define KVX_SFR_SPS_PL1_VS_WIDTH 2
-+#define KVX_SFR_SPS_PL1_VS_WFXL_MASK _ULL(0xc000)
-+#define KVX_SFR_SPS_PL1_VS_WFXL_CLEAR _ULL(0xc000)
-+#define KVX_SFR_SPS_PL1_VS_WFXL_SET _ULL(0xc00000000000)
-+
-+#define KVX_SFR_SPS_PL1_V64_MASK _ULL(0x10000) /* Virtual 64 bits mode. */
-+#define KVX_SFR_SPS_PL1_V64_SHIFT 16
-+#define KVX_SFR_SPS_PL1_V64_WIDTH 1
-+#define KVX_SFR_SPS_PL1_V64_WFXL_MASK _ULL(0x10000)
-+#define KVX_SFR_SPS_PL1_V64_WFXL_CLEAR _ULL(0x10000)
-+#define KVX_SFR_SPS_PL1_V64_WFXL_SET _ULL(0x1000000000000)
-+
-+#define KVX_SFR_SPS_PL1_L2E_MASK _ULL(0x20000) /* L2 cache Enable. */
-+#define KVX_SFR_SPS_PL1_L2E_SHIFT 17
-+#define KVX_SFR_SPS_PL1_L2E_WIDTH 1
-+#define KVX_SFR_SPS_PL1_L2E_WFXL_MASK _ULL(0x20000)
-+#define KVX_SFR_SPS_PL1_L2E_WFXL_CLEAR _ULL(0x20000)
-+#define KVX_SFR_SPS_PL1_L2E_WFXL_SET _ULL(0x2000000000000)
-+
-+#define KVX_SFR_SPS_PL1_SME_MASK _ULL(0x40000) /* Step Mode Enabled */
-+#define KVX_SFR_SPS_PL1_SME_SHIFT 18
-+#define KVX_SFR_SPS_PL1_SME_WIDTH 1
-+#define KVX_SFR_SPS_PL1_SME_WFXL_MASK _ULL(0x40000)
-+#define KVX_SFR_SPS_PL1_SME_WFXL_CLEAR _ULL(0x40000)
-+#define KVX_SFR_SPS_PL1_SME_WFXL_SET _ULL(0x4000000000000)
-+
-+#define KVX_SFR_SPS_PL1_SMR_MASK _ULL(0x80000) /* Step Mode Ready */
-+#define KVX_SFR_SPS_PL1_SMR_SHIFT 19
-+#define KVX_SFR_SPS_PL1_SMR_WIDTH 1
-+#define KVX_SFR_SPS_PL1_SMR_WFXL_MASK _ULL(0x80000)
-+#define KVX_SFR_SPS_PL1_SMR_WFXL_CLEAR _ULL(0x80000)
-+#define KVX_SFR_SPS_PL1_SMR_WFXL_SET _ULL(0x8000000000000)
-+
-+#define KVX_SFR_SPS_PL1_PMJ_MASK _ULL(0xf00000) /* Page Mask in JTLB. */
-+#define KVX_SFR_SPS_PL1_PMJ_SHIFT 20
-+#define KVX_SFR_SPS_PL1_PMJ_WIDTH 4
-+#define KVX_SFR_SPS_PL1_PMJ_WFXL_MASK _ULL(0xf00000)
-+#define KVX_SFR_SPS_PL1_PMJ_WFXL_CLEAR _ULL(0xf00000)
-+#define KVX_SFR_SPS_PL1_PMJ_WFXL_SET _ULL(0xf0000000000000)
-+
-+#define KVX_SFR_SPS_PL1_MMUP_MASK _ULL(0x1000000) /* Privileged on MMU. */
-+#define KVX_SFR_SPS_PL1_MMUP_SHIFT 24
-+#define KVX_SFR_SPS_PL1_MMUP_WIDTH 1
-+#define KVX_SFR_SPS_PL1_MMUP_WFXL_MASK _ULL(0x1000000)
-+#define KVX_SFR_SPS_PL1_MMUP_WFXL_CLEAR _ULL(0x1000000)
-+#define KVX_SFR_SPS_PL1_MMUP_WFXL_SET _ULL(0x100000000000000)
-+
-+#define KVX_SFR_SPS_PL2_PL_MASK _ULL(0x3) /* Current Privilege Level */
-+#define KVX_SFR_SPS_PL2_PL_SHIFT 0
-+#define KVX_SFR_SPS_PL2_PL_WIDTH 2
-+#define KVX_SFR_SPS_PL2_PL_WFXL_MASK _ULL(0x3)
-+#define KVX_SFR_SPS_PL2_PL_WFXL_CLEAR _ULL(0x3)
-+#define KVX_SFR_SPS_PL2_PL_WFXL_SET _ULL(0x300000000)
-+
-+#define KVX_SFR_SPS_PL2_ET_MASK _ULL(0x4) /* Exception Taken */
-+#define KVX_SFR_SPS_PL2_ET_SHIFT 2
-+#define KVX_SFR_SPS_PL2_ET_WIDTH 1
-+#define KVX_SFR_SPS_PL2_ET_WFXL_MASK _ULL(0x4)
-+#define KVX_SFR_SPS_PL2_ET_WFXL_CLEAR _ULL(0x4)
-+#define KVX_SFR_SPS_PL2_ET_WFXL_SET _ULL(0x400000000)
-+
-+#define KVX_SFR_SPS_PL2_HTD_MASK _ULL(0x8) /* Hardware Trap Disable */
-+#define KVX_SFR_SPS_PL2_HTD_SHIFT 3
-+#define KVX_SFR_SPS_PL2_HTD_WIDTH 1
-+#define KVX_SFR_SPS_PL2_HTD_WFXL_MASK _ULL(0x8)
-+#define KVX_SFR_SPS_PL2_HTD_WFXL_CLEAR _ULL(0x8)
-+#define KVX_SFR_SPS_PL2_HTD_WFXL_SET _ULL(0x800000000)
-+
-+#define KVX_SFR_SPS_PL2_IE_MASK _ULL(0x10) /* Interrupt Enable */
-+#define KVX_SFR_SPS_PL2_IE_SHIFT 4
-+#define KVX_SFR_SPS_PL2_IE_WIDTH 1
-+#define KVX_SFR_SPS_PL2_IE_WFXL_MASK _ULL(0x10)
-+#define KVX_SFR_SPS_PL2_IE_WFXL_CLEAR _ULL(0x10)
-+#define KVX_SFR_SPS_PL2_IE_WFXL_SET _ULL(0x1000000000)
-+
-+#define KVX_SFR_SPS_PL2_HLE_MASK _ULL(0x20) /* Hardware Loop Enable */
-+#define KVX_SFR_SPS_PL2_HLE_SHIFT 5
-+#define KVX_SFR_SPS_PL2_HLE_WIDTH 1
-+#define KVX_SFR_SPS_PL2_HLE_WFXL_MASK _ULL(0x20)
-+#define KVX_SFR_SPS_PL2_HLE_WFXL_CLEAR _ULL(0x20)
-+#define KVX_SFR_SPS_PL2_HLE_WFXL_SET _ULL(0x2000000000)
-+
-+#define KVX_SFR_SPS_PL2_SRE_MASK _ULL(0x40) /* Software REserved */
-+#define KVX_SFR_SPS_PL2_SRE_SHIFT 6
-+#define KVX_SFR_SPS_PL2_SRE_WIDTH 1
-+#define KVX_SFR_SPS_PL2_SRE_WFXL_MASK _ULL(0x40)
-+#define KVX_SFR_SPS_PL2_SRE_WFXL_CLEAR _ULL(0x40)
-+#define KVX_SFR_SPS_PL2_SRE_WFXL_SET _ULL(0x4000000000)
-+
-+#define KVX_SFR_SPS_PL2_DAUS_MASK _ULL(0x80) /* Data Accesses Use SPS settings */
-+#define KVX_SFR_SPS_PL2_DAUS_SHIFT 7
-+#define KVX_SFR_SPS_PL2_DAUS_WIDTH 1
-+#define KVX_SFR_SPS_PL2_DAUS_WFXL_MASK _ULL(0x80)
-+#define KVX_SFR_SPS_PL2_DAUS_WFXL_CLEAR _ULL(0x80)
-+#define KVX_SFR_SPS_PL2_DAUS_WFXL_SET _ULL(0x8000000000)
-+
-+#define KVX_SFR_SPS_PL2_ICE_MASK _ULL(0x100) /* Instruction Cache Enable */
-+#define KVX_SFR_SPS_PL2_ICE_SHIFT 8
-+#define KVX_SFR_SPS_PL2_ICE_WIDTH 1
-+#define KVX_SFR_SPS_PL2_ICE_WFXL_MASK _ULL(0x100)
-+#define KVX_SFR_SPS_PL2_ICE_WFXL_CLEAR _ULL(0x100)
-+#define KVX_SFR_SPS_PL2_ICE_WFXL_SET _ULL(0x10000000000)
-+
-+#define KVX_SFR_SPS_PL2_USE_MASK _ULL(0x200) /* Uncached Streaming Enable */
-+#define KVX_SFR_SPS_PL2_USE_SHIFT 9
-+#define KVX_SFR_SPS_PL2_USE_WIDTH 1
-+#define KVX_SFR_SPS_PL2_USE_WFXL_MASK _ULL(0x200)
-+#define KVX_SFR_SPS_PL2_USE_WFXL_CLEAR _ULL(0x200)
-+#define KVX_SFR_SPS_PL2_USE_WFXL_SET _ULL(0x20000000000)
-+
-+#define KVX_SFR_SPS_PL2_DCE_MASK _ULL(0x400) /* Data Cache Enable */
-+#define KVX_SFR_SPS_PL2_DCE_SHIFT 10
-+#define KVX_SFR_SPS_PL2_DCE_WIDTH 1
-+#define KVX_SFR_SPS_PL2_DCE_WFXL_MASK _ULL(0x400)
-+#define KVX_SFR_SPS_PL2_DCE_WFXL_CLEAR _ULL(0x400)
-+#define KVX_SFR_SPS_PL2_DCE_WFXL_SET _ULL(0x40000000000)
-+
-+#define KVX_SFR_SPS_PL2_MME_MASK _ULL(0x800) /* Memory Management Enable */
-+#define KVX_SFR_SPS_PL2_MME_SHIFT 11
-+#define KVX_SFR_SPS_PL2_MME_WIDTH 1
-+#define KVX_SFR_SPS_PL2_MME_WFXL_MASK _ULL(0x800)
-+#define KVX_SFR_SPS_PL2_MME_WFXL_CLEAR _ULL(0x800)
-+#define KVX_SFR_SPS_PL2_MME_WFXL_SET _ULL(0x80000000000)
-+
-+#define KVX_SFR_SPS_PL2_IL_MASK _ULL(0x3000) /* Interrupt Level */
-+#define KVX_SFR_SPS_PL2_IL_SHIFT 12
-+#define KVX_SFR_SPS_PL2_IL_WIDTH 2
-+#define KVX_SFR_SPS_PL2_IL_WFXL_MASK _ULL(0x3000)
-+#define KVX_SFR_SPS_PL2_IL_WFXL_CLEAR _ULL(0x3000)
-+#define KVX_SFR_SPS_PL2_IL_WFXL_SET _ULL(0x300000000000)
-+
-+#define KVX_SFR_SPS_PL2_VS_MASK _ULL(0xc000) /* Virtual Space */
-+#define KVX_SFR_SPS_PL2_VS_SHIFT 14
-+#define KVX_SFR_SPS_PL2_VS_WIDTH 2
-+#define KVX_SFR_SPS_PL2_VS_WFXL_MASK _ULL(0xc000)
-+#define KVX_SFR_SPS_PL2_VS_WFXL_CLEAR _ULL(0xc000)
-+#define KVX_SFR_SPS_PL2_VS_WFXL_SET _ULL(0xc00000000000)
-+
-+#define KVX_SFR_SPS_PL2_V64_MASK _ULL(0x10000) /* Virtual 64 bits mode. */
-+#define KVX_SFR_SPS_PL2_V64_SHIFT 16
-+#define KVX_SFR_SPS_PL2_V64_WIDTH 1
-+#define KVX_SFR_SPS_PL2_V64_WFXL_MASK _ULL(0x10000)
-+#define KVX_SFR_SPS_PL2_V64_WFXL_CLEAR _ULL(0x10000)
-+#define KVX_SFR_SPS_PL2_V64_WFXL_SET _ULL(0x1000000000000)
-+
-+#define KVX_SFR_SPS_PL2_L2E_MASK _ULL(0x20000) /* L2 cache Enable. */
-+#define KVX_SFR_SPS_PL2_L2E_SHIFT 17
-+#define KVX_SFR_SPS_PL2_L2E_WIDTH 1
-+#define KVX_SFR_SPS_PL2_L2E_WFXL_MASK _ULL(0x20000)
-+#define KVX_SFR_SPS_PL2_L2E_WFXL_CLEAR _ULL(0x20000)
-+#define KVX_SFR_SPS_PL2_L2E_WFXL_SET _ULL(0x2000000000000)
-+
-+#define KVX_SFR_SPS_PL2_SME_MASK _ULL(0x40000) /* Step Mode Enabled */
-+#define KVX_SFR_SPS_PL2_SME_SHIFT 18
-+#define KVX_SFR_SPS_PL2_SME_WIDTH 1
-+#define KVX_SFR_SPS_PL2_SME_WFXL_MASK _ULL(0x40000)
-+#define KVX_SFR_SPS_PL2_SME_WFXL_CLEAR _ULL(0x40000)
-+#define KVX_SFR_SPS_PL2_SME_WFXL_SET _ULL(0x4000000000000)
-+
-+#define KVX_SFR_SPS_PL2_SMR_MASK _ULL(0x80000) /* Step Mode Ready */
-+#define KVX_SFR_SPS_PL2_SMR_SHIFT 19
-+#define KVX_SFR_SPS_PL2_SMR_WIDTH 1
-+#define KVX_SFR_SPS_PL2_SMR_WFXL_MASK _ULL(0x80000)
-+#define KVX_SFR_SPS_PL2_SMR_WFXL_CLEAR _ULL(0x80000)
-+#define KVX_SFR_SPS_PL2_SMR_WFXL_SET _ULL(0x8000000000000)
-+
-+#define KVX_SFR_SPS_PL2_PMJ_MASK _ULL(0xf00000) /* Page Mask in JTLB. */
-+#define KVX_SFR_SPS_PL2_PMJ_SHIFT 20
-+#define KVX_SFR_SPS_PL2_PMJ_WIDTH 4
-+#define KVX_SFR_SPS_PL2_PMJ_WFXL_MASK _ULL(0xf00000)
-+#define KVX_SFR_SPS_PL2_PMJ_WFXL_CLEAR _ULL(0xf00000)
-+#define KVX_SFR_SPS_PL2_PMJ_WFXL_SET _ULL(0xf0000000000000)
-+
-+#define KVX_SFR_SPS_PL2_MMUP_MASK _ULL(0x1000000) /* Privileged on MMU. */
-+#define KVX_SFR_SPS_PL2_MMUP_SHIFT 24
-+#define KVX_SFR_SPS_PL2_MMUP_WIDTH 1
-+#define KVX_SFR_SPS_PL2_MMUP_WFXL_MASK _ULL(0x1000000)
-+#define KVX_SFR_SPS_PL2_MMUP_WFXL_CLEAR _ULL(0x1000000)
-+#define KVX_SFR_SPS_PL2_MMUP_WFXL_SET _ULL(0x100000000000000)
-+
-+#define KVX_SFR_SPS_PL3_PL_MASK _ULL(0x3) /* Current Privilege Level */
-+#define KVX_SFR_SPS_PL3_PL_SHIFT 0
-+#define KVX_SFR_SPS_PL3_PL_WIDTH 2
-+#define KVX_SFR_SPS_PL3_PL_WFXL_MASK _ULL(0x3)
-+#define KVX_SFR_SPS_PL3_PL_WFXL_CLEAR _ULL(0x3)
-+#define KVX_SFR_SPS_PL3_PL_WFXL_SET _ULL(0x300000000)
-+
-+#define KVX_SFR_SPS_PL3_ET_MASK _ULL(0x4) /* Exception Taken */
-+#define KVX_SFR_SPS_PL3_ET_SHIFT 2
-+#define KVX_SFR_SPS_PL3_ET_WIDTH 1
-+#define KVX_SFR_SPS_PL3_ET_WFXL_MASK _ULL(0x4)
-+#define KVX_SFR_SPS_PL3_ET_WFXL_CLEAR _ULL(0x4)
-+#define KVX_SFR_SPS_PL3_ET_WFXL_SET _ULL(0x400000000)
-+
-+#define KVX_SFR_SPS_PL3_HTD_MASK _ULL(0x8) /* Hardware Trap Disable */
-+#define KVX_SFR_SPS_PL3_HTD_SHIFT 3
-+#define KVX_SFR_SPS_PL3_HTD_WIDTH 1
-+#define KVX_SFR_SPS_PL3_HTD_WFXL_MASK _ULL(0x8)
-+#define KVX_SFR_SPS_PL3_HTD_WFXL_CLEAR _ULL(0x8)
-+#define KVX_SFR_SPS_PL3_HTD_WFXL_SET _ULL(0x800000000)
-+
-+#define KVX_SFR_SPS_PL3_IE_MASK _ULL(0x10) /* Interrupt Enable */
-+#define KVX_SFR_SPS_PL3_IE_SHIFT 4
-+#define KVX_SFR_SPS_PL3_IE_WIDTH 1
-+#define KVX_SFR_SPS_PL3_IE_WFXL_MASK _ULL(0x10)
-+#define KVX_SFR_SPS_PL3_IE_WFXL_CLEAR _ULL(0x10)
-+#define KVX_SFR_SPS_PL3_IE_WFXL_SET _ULL(0x1000000000)
-+
-+#define KVX_SFR_SPS_PL3_HLE_MASK _ULL(0x20) /* Hardware Loop Enable */
-+#define KVX_SFR_SPS_PL3_HLE_SHIFT 5
-+#define KVX_SFR_SPS_PL3_HLE_WIDTH 1
-+#define KVX_SFR_SPS_PL3_HLE_WFXL_MASK _ULL(0x20)
-+#define KVX_SFR_SPS_PL3_HLE_WFXL_CLEAR _ULL(0x20)
-+#define KVX_SFR_SPS_PL3_HLE_WFXL_SET _ULL(0x2000000000)
-+
-+#define KVX_SFR_SPS_PL3_SRE_MASK _ULL(0x40) /* Software REserved */
-+#define KVX_SFR_SPS_PL3_SRE_SHIFT 6
-+#define KVX_SFR_SPS_PL3_SRE_WIDTH 1
-+#define KVX_SFR_SPS_PL3_SRE_WFXL_MASK _ULL(0x40)
-+#define KVX_SFR_SPS_PL3_SRE_WFXL_CLEAR _ULL(0x40)
-+#define KVX_SFR_SPS_PL3_SRE_WFXL_SET _ULL(0x4000000000)
-+
-+#define KVX_SFR_SPS_PL3_DAUS_MASK _ULL(0x80) /* Data Accesses Use SPS settings */
-+#define KVX_SFR_SPS_PL3_DAUS_SHIFT 7
-+#define KVX_SFR_SPS_PL3_DAUS_WIDTH 1
-+#define KVX_SFR_SPS_PL3_DAUS_WFXL_MASK _ULL(0x80)
-+#define KVX_SFR_SPS_PL3_DAUS_WFXL_CLEAR _ULL(0x80)
-+#define KVX_SFR_SPS_PL3_DAUS_WFXL_SET _ULL(0x8000000000)
-+
-+#define KVX_SFR_SPS_PL3_ICE_MASK _ULL(0x100) /* Instruction Cache Enable */
-+#define KVX_SFR_SPS_PL3_ICE_SHIFT 8
-+#define KVX_SFR_SPS_PL3_ICE_WIDTH 1
-+#define KVX_SFR_SPS_PL3_ICE_WFXL_MASK _ULL(0x100)
-+#define KVX_SFR_SPS_PL3_ICE_WFXL_CLEAR _ULL(0x100)
-+#define KVX_SFR_SPS_PL3_ICE_WFXL_SET _ULL(0x10000000000)
-+
-+#define KVX_SFR_SPS_PL3_USE_MASK _ULL(0x200) /* Uncached Streaming Enable */
-+#define KVX_SFR_SPS_PL3_USE_SHIFT 9
-+#define KVX_SFR_SPS_PL3_USE_WIDTH 1
-+#define KVX_SFR_SPS_PL3_USE_WFXL_MASK _ULL(0x200)
-+#define KVX_SFR_SPS_PL3_USE_WFXL_CLEAR _ULL(0x200)
-+#define KVX_SFR_SPS_PL3_USE_WFXL_SET _ULL(0x20000000000)
-+
-+#define KVX_SFR_SPS_PL3_DCE_MASK _ULL(0x400) /* Data Cache Enable */
-+#define KVX_SFR_SPS_PL3_DCE_SHIFT 10
-+#define KVX_SFR_SPS_PL3_DCE_WIDTH 1
-+#define KVX_SFR_SPS_PL3_DCE_WFXL_MASK _ULL(0x400)
-+#define KVX_SFR_SPS_PL3_DCE_WFXL_CLEAR _ULL(0x400)
-+#define KVX_SFR_SPS_PL3_DCE_WFXL_SET _ULL(0x40000000000)
-+
-+#define KVX_SFR_SPS_PL3_MME_MASK _ULL(0x800) /* Memory Management Enable */
-+#define KVX_SFR_SPS_PL3_MME_SHIFT 11
-+#define KVX_SFR_SPS_PL3_MME_WIDTH 1
-+#define KVX_SFR_SPS_PL3_MME_WFXL_MASK _ULL(0x800)
-+#define KVX_SFR_SPS_PL3_MME_WFXL_CLEAR _ULL(0x800)
-+#define KVX_SFR_SPS_PL3_MME_WFXL_SET _ULL(0x80000000000)
-+
-+#define KVX_SFR_SPS_PL3_IL_MASK _ULL(0x3000) /* Interrupt Level */
-+#define KVX_SFR_SPS_PL3_IL_SHIFT 12
-+#define KVX_SFR_SPS_PL3_IL_WIDTH 2
-+#define KVX_SFR_SPS_PL3_IL_WFXL_MASK _ULL(0x3000)
-+#define KVX_SFR_SPS_PL3_IL_WFXL_CLEAR _ULL(0x3000)
-+#define KVX_SFR_SPS_PL3_IL_WFXL_SET _ULL(0x300000000000)
-+
-+#define KVX_SFR_SPS_PL3_VS_MASK _ULL(0xc000) /* Virtual Space */
-+#define KVX_SFR_SPS_PL3_VS_SHIFT 14
-+#define KVX_SFR_SPS_PL3_VS_WIDTH 2
-+#define KVX_SFR_SPS_PL3_VS_WFXL_MASK _ULL(0xc000)
-+#define KVX_SFR_SPS_PL3_VS_WFXL_CLEAR _ULL(0xc000)
-+#define KVX_SFR_SPS_PL3_VS_WFXL_SET _ULL(0xc00000000000)
-+
-+#define KVX_SFR_SPS_PL3_V64_MASK _ULL(0x10000) /* Virtual 64 bits mode. */
-+#define KVX_SFR_SPS_PL3_V64_SHIFT 16
-+#define KVX_SFR_SPS_PL3_V64_WIDTH 1
-+#define KVX_SFR_SPS_PL3_V64_WFXL_MASK _ULL(0x10000)
-+#define KVX_SFR_SPS_PL3_V64_WFXL_CLEAR _ULL(0x10000)
-+#define KVX_SFR_SPS_PL3_V64_WFXL_SET _ULL(0x1000000000000)
-+
-+#define KVX_SFR_SPS_PL3_L2E_MASK _ULL(0x20000) /* L2 cache Enable. */
-+#define KVX_SFR_SPS_PL3_L2E_SHIFT 17
-+#define KVX_SFR_SPS_PL3_L2E_WIDTH 1
-+#define KVX_SFR_SPS_PL3_L2E_WFXL_MASK _ULL(0x20000)
-+#define KVX_SFR_SPS_PL3_L2E_WFXL_CLEAR _ULL(0x20000)
-+#define KVX_SFR_SPS_PL3_L2E_WFXL_SET _ULL(0x2000000000000)
-+
-+#define KVX_SFR_SPS_PL3_SME_MASK _ULL(0x40000) /* Step Mode Enabled */
-+#define KVX_SFR_SPS_PL3_SME_SHIFT 18
-+#define KVX_SFR_SPS_PL3_SME_WIDTH 1
-+#define KVX_SFR_SPS_PL3_SME_WFXL_MASK _ULL(0x40000)
-+#define KVX_SFR_SPS_PL3_SME_WFXL_CLEAR _ULL(0x40000)
-+#define KVX_SFR_SPS_PL3_SME_WFXL_SET _ULL(0x4000000000000)
-+
-+#define KVX_SFR_SPS_PL3_SMR_MASK _ULL(0x80000) /* Step Mode Ready */
-+#define KVX_SFR_SPS_PL3_SMR_SHIFT 19
-+#define KVX_SFR_SPS_PL3_SMR_WIDTH 1
-+#define KVX_SFR_SPS_PL3_SMR_WFXL_MASK _ULL(0x80000)
-+#define KVX_SFR_SPS_PL3_SMR_WFXL_CLEAR _ULL(0x80000)
-+#define KVX_SFR_SPS_PL3_SMR_WFXL_SET _ULL(0x8000000000000)
-+
-+#define KVX_SFR_SPS_PL3_PMJ_MASK _ULL(0xf00000) /* Page Mask in JTLB. */
-+#define KVX_SFR_SPS_PL3_PMJ_SHIFT 20
-+#define KVX_SFR_SPS_PL3_PMJ_WIDTH 4
-+#define KVX_SFR_SPS_PL3_PMJ_WFXL_MASK _ULL(0xf00000)
-+#define KVX_SFR_SPS_PL3_PMJ_WFXL_CLEAR _ULL(0xf00000)
-+#define KVX_SFR_SPS_PL3_PMJ_WFXL_SET _ULL(0xf0000000000000)
-+
-+#define KVX_SFR_SPS_PL3_MMUP_MASK _ULL(0x1000000) /* Privileged on MMU. */
-+#define KVX_SFR_SPS_PL3_MMUP_SHIFT 24
-+#define KVX_SFR_SPS_PL3_MMUP_WIDTH 1
-+#define KVX_SFR_SPS_PL3_MMUP_WFXL_MASK _ULL(0x1000000)
-+#define KVX_SFR_SPS_PL3_MMUP_WFXL_CLEAR _ULL(0x1000000)
-+#define KVX_SFR_SPS_PL3_MMUP_WFXL_SET _ULL(0x100000000000000)
-+
-+#define KVX_SFR_PSO_PL0_MASK _ULL(0x3) /* Current Privilege Level bit 0 owner */
-+#define KVX_SFR_PSO_PL0_SHIFT 0
-+#define KVX_SFR_PSO_PL0_WIDTH 2
-+#define KVX_SFR_PSO_PL0_WFXL_MASK _ULL(0x3)
-+#define KVX_SFR_PSO_PL0_WFXL_CLEAR _ULL(0x3)
-+#define KVX_SFR_PSO_PL0_WFXL_SET _ULL(0x300000000)
-+
-+#define KVX_SFR_PSO_PL1_MASK _ULL(0xc) /* Current Privilege Level bit 1 owner */
-+#define KVX_SFR_PSO_PL1_SHIFT 2
-+#define KVX_SFR_PSO_PL1_WIDTH 2
-+#define KVX_SFR_PSO_PL1_WFXL_MASK _ULL(0xc)
-+#define KVX_SFR_PSO_PL1_WFXL_CLEAR _ULL(0xc)
-+#define KVX_SFR_PSO_PL1_WFXL_SET _ULL(0xc00000000)
-+
-+#define KVX_SFR_PSO_ET_MASK _ULL(0x30) /* Exception Taken owner */
-+#define KVX_SFR_PSO_ET_SHIFT 4
-+#define KVX_SFR_PSO_ET_WIDTH 2
-+#define KVX_SFR_PSO_ET_WFXL_MASK _ULL(0x30)
-+#define KVX_SFR_PSO_ET_WFXL_CLEAR _ULL(0x30)
-+#define KVX_SFR_PSO_ET_WFXL_SET _ULL(0x3000000000)
-+
-+#define KVX_SFR_PSO_HTD_MASK _ULL(0xc0) /* Hardware Trap Disable owner */
-+#define KVX_SFR_PSO_HTD_SHIFT 6
-+#define KVX_SFR_PSO_HTD_WIDTH 2
-+#define KVX_SFR_PSO_HTD_WFXL_MASK _ULL(0xc0)
-+#define KVX_SFR_PSO_HTD_WFXL_CLEAR _ULL(0xc0)
-+#define KVX_SFR_PSO_HTD_WFXL_SET _ULL(0xc000000000)
-+
-+#define KVX_SFR_PSO_IE_MASK _ULL(0x300) /* Interrupt Enable owner */
-+#define KVX_SFR_PSO_IE_SHIFT 8
-+#define KVX_SFR_PSO_IE_WIDTH 2
-+#define KVX_SFR_PSO_IE_WFXL_MASK _ULL(0x300)
-+#define KVX_SFR_PSO_IE_WFXL_CLEAR _ULL(0x300)
-+#define KVX_SFR_PSO_IE_WFXL_SET _ULL(0x30000000000)
-+
-+#define KVX_SFR_PSO_HLE_MASK _ULL(0xc00) /* Hardware Loop Enable owner */
-+#define KVX_SFR_PSO_HLE_SHIFT 10
-+#define KVX_SFR_PSO_HLE_WIDTH 2
-+#define KVX_SFR_PSO_HLE_WFXL_MASK _ULL(0xc00)
-+#define KVX_SFR_PSO_HLE_WFXL_CLEAR _ULL(0xc00)
-+#define KVX_SFR_PSO_HLE_WFXL_SET _ULL(0xc0000000000)
-+
-+#define KVX_SFR_PSO_SRE_MASK _ULL(0x3000) /* Software REserved owner */
-+#define KVX_SFR_PSO_SRE_SHIFT 12
-+#define KVX_SFR_PSO_SRE_WIDTH 2
-+#define KVX_SFR_PSO_SRE_WFXL_MASK _ULL(0x3000)
-+#define KVX_SFR_PSO_SRE_WFXL_CLEAR _ULL(0x3000)
-+#define KVX_SFR_PSO_SRE_WFXL_SET _ULL(0x300000000000)
-+
-+#define KVX_SFR_PSO_DAUS_MASK _ULL(0xc000) /* Data Accesses Use SPS settings owner */
-+#define KVX_SFR_PSO_DAUS_SHIFT 14
-+#define KVX_SFR_PSO_DAUS_WIDTH 2
-+#define KVX_SFR_PSO_DAUS_WFXL_MASK _ULL(0xc000)
-+#define KVX_SFR_PSO_DAUS_WFXL_CLEAR _ULL(0xc000)
-+#define KVX_SFR_PSO_DAUS_WFXL_SET _ULL(0xc00000000000)
-+
-+#define KVX_SFR_PSO_ICE_MASK _ULL(0x30000) /* Instruction Cache Enable owner */
-+#define KVX_SFR_PSO_ICE_SHIFT 16
-+#define KVX_SFR_PSO_ICE_WIDTH 2
-+#define KVX_SFR_PSO_ICE_WFXL_MASK _ULL(0x30000)
-+#define KVX_SFR_PSO_ICE_WFXL_CLEAR _ULL(0x30000)
-+#define KVX_SFR_PSO_ICE_WFXL_SET _ULL(0x3000000000000)
-+
-+#define KVX_SFR_PSO_USE_MASK _ULL(0xc0000) /* Uncached Streaming Enable owner */
-+#define KVX_SFR_PSO_USE_SHIFT 18
-+#define KVX_SFR_PSO_USE_WIDTH 2
-+#define KVX_SFR_PSO_USE_WFXL_MASK _ULL(0xc0000)
-+#define KVX_SFR_PSO_USE_WFXL_CLEAR _ULL(0xc0000)
-+#define KVX_SFR_PSO_USE_WFXL_SET _ULL(0xc000000000000)
-+
-+#define KVX_SFR_PSO_DCE_MASK _ULL(0x300000) /* Data Cache Enable owner */
-+#define KVX_SFR_PSO_DCE_SHIFT 20
-+#define KVX_SFR_PSO_DCE_WIDTH 2
-+#define KVX_SFR_PSO_DCE_WFXL_MASK _ULL(0x300000)
-+#define KVX_SFR_PSO_DCE_WFXL_CLEAR _ULL(0x300000)
-+#define KVX_SFR_PSO_DCE_WFXL_SET _ULL(0x30000000000000)
-+
-+#define KVX_SFR_PSO_MME_MASK _ULL(0xc00000) /* Memory Management Enable owner */
-+#define KVX_SFR_PSO_MME_SHIFT 22
-+#define KVX_SFR_PSO_MME_WIDTH 2
-+#define KVX_SFR_PSO_MME_WFXL_MASK _ULL(0xc00000)
-+#define KVX_SFR_PSO_MME_WFXL_CLEAR _ULL(0xc00000)
-+#define KVX_SFR_PSO_MME_WFXL_SET _ULL(0xc0000000000000)
-+
-+#define KVX_SFR_PSO_IL0_MASK _ULL(0x3000000) /* Interrupt Level bit 0 owner */
-+#define KVX_SFR_PSO_IL0_SHIFT 24
-+#define KVX_SFR_PSO_IL0_WIDTH 2
-+#define KVX_SFR_PSO_IL0_WFXL_MASK _ULL(0x3000000)
-+#define KVX_SFR_PSO_IL0_WFXL_CLEAR _ULL(0x3000000)
-+#define KVX_SFR_PSO_IL0_WFXL_SET _ULL(0x300000000000000)
-+
-+#define KVX_SFR_PSO_IL1_MASK _ULL(0xc000000) /* Interrupt Level bit 1 owner */
-+#define KVX_SFR_PSO_IL1_SHIFT 26
-+#define KVX_SFR_PSO_IL1_WIDTH 2
-+#define KVX_SFR_PSO_IL1_WFXL_MASK _ULL(0xc000000)
-+#define KVX_SFR_PSO_IL1_WFXL_CLEAR _ULL(0xc000000)
-+#define KVX_SFR_PSO_IL1_WFXL_SET _ULL(0xc00000000000000)
-+
-+#define KVX_SFR_PSO_VS0_MASK _ULL(0x30000000) /* Virtual Space bit 0 owner */
-+#define KVX_SFR_PSO_VS0_SHIFT 28
-+#define KVX_SFR_PSO_VS0_WIDTH 2
-+#define KVX_SFR_PSO_VS0_WFXL_MASK _ULL(0x30000000)
-+#define KVX_SFR_PSO_VS0_WFXL_CLEAR _ULL(0x30000000)
-+#define KVX_SFR_PSO_VS0_WFXL_SET _ULL(0x3000000000000000)
-+
-+#define KVX_SFR_PSO_VS1_MASK _ULL(0xc0000000) /* Virtual Space bit 1 owner */
-+#define KVX_SFR_PSO_VS1_SHIFT 30
-+#define KVX_SFR_PSO_VS1_WIDTH 2
-+#define KVX_SFR_PSO_VS1_WFXL_MASK _ULL(0xc0000000)
-+#define KVX_SFR_PSO_VS1_WFXL_CLEAR _ULL(0xc0000000)
-+#define KVX_SFR_PSO_VS1_WFXL_SET _ULL(0xc000000000000000)
-+
-+#define KVX_SFR_PSO_V64_MASK _ULL(0x300000000) /* Virtual 64 bits mode owner */
-+#define KVX_SFR_PSO_V64_SHIFT 32
-+#define KVX_SFR_PSO_V64_WIDTH 2
-+#define KVX_SFR_PSO_V64_WFXM_MASK _ULL(0x300000000)
-+#define KVX_SFR_PSO_V64_WFXM_CLEAR _ULL(0x3)
-+#define KVX_SFR_PSO_V64_WFXM_SET _ULL(0x300000000)
-+
-+#define KVX_SFR_PSO_L2E_MASK _ULL(0xc00000000) /* L2 cache Enable owner */
-+#define KVX_SFR_PSO_L2E_SHIFT 34
-+#define KVX_SFR_PSO_L2E_WIDTH 2
-+#define KVX_SFR_PSO_L2E_WFXM_MASK _ULL(0xc00000000)
-+#define KVX_SFR_PSO_L2E_WFXM_CLEAR _ULL(0xc)
-+#define KVX_SFR_PSO_L2E_WFXM_SET _ULL(0xc00000000)
-+
-+#define KVX_SFR_PSO_SME_MASK _ULL(0x3000000000) /* Step Mode Enabled owner */
-+#define KVX_SFR_PSO_SME_SHIFT 36
-+#define KVX_SFR_PSO_SME_WIDTH 2
-+#define KVX_SFR_PSO_SME_WFXM_MASK _ULL(0x3000000000)
-+#define KVX_SFR_PSO_SME_WFXM_CLEAR _ULL(0x30)
-+#define KVX_SFR_PSO_SME_WFXM_SET _ULL(0x3000000000)
-+
-+#define KVX_SFR_PSO_SMR_MASK _ULL(0xc000000000) /* Step Mode Ready owner */
-+#define KVX_SFR_PSO_SMR_SHIFT 38
-+#define KVX_SFR_PSO_SMR_WIDTH 2
-+#define KVX_SFR_PSO_SMR_WFXM_MASK _ULL(0xc000000000)
-+#define KVX_SFR_PSO_SMR_WFXM_CLEAR _ULL(0xc0)
-+#define KVX_SFR_PSO_SMR_WFXM_SET _ULL(0xc000000000)
-+
-+#define KVX_SFR_PSO_PMJ0_MASK _ULL(0x30000000000) /* Page Mask in JTLB bit 0 owner */
-+#define KVX_SFR_PSO_PMJ0_SHIFT 40
-+#define KVX_SFR_PSO_PMJ0_WIDTH 2
-+#define KVX_SFR_PSO_PMJ0_WFXM_MASK _ULL(0x30000000000)
-+#define KVX_SFR_PSO_PMJ0_WFXM_CLEAR _ULL(0x300)
-+#define KVX_SFR_PSO_PMJ0_WFXM_SET _ULL(0x30000000000)
-+
-+#define KVX_SFR_PSO_PMJ1_MASK _ULL(0xc0000000000) /* Page Mask in JTLB bit 1 owner */
-+#define KVX_SFR_PSO_PMJ1_SHIFT 42
-+#define KVX_SFR_PSO_PMJ1_WIDTH 2
-+#define KVX_SFR_PSO_PMJ1_WFXM_MASK _ULL(0xc0000000000)
-+#define KVX_SFR_PSO_PMJ1_WFXM_CLEAR _ULL(0xc00)
-+#define KVX_SFR_PSO_PMJ1_WFXM_SET _ULL(0xc0000000000)
-+
-+#define KVX_SFR_PSO_PMJ2_MASK _ULL(0x300000000000) /* Page Mask in JTLB bit 2 owner */
-+#define KVX_SFR_PSO_PMJ2_SHIFT 44
-+#define KVX_SFR_PSO_PMJ2_WIDTH 2
-+#define KVX_SFR_PSO_PMJ2_WFXM_MASK _ULL(0x300000000000)
-+#define KVX_SFR_PSO_PMJ2_WFXM_CLEAR _ULL(0x3000)
-+#define KVX_SFR_PSO_PMJ2_WFXM_SET _ULL(0x300000000000)
-+
-+#define KVX_SFR_PSO_PMJ3_MASK _ULL(0xc00000000000) /* Page Mask in JTLB bit 3 owner */
-+#define KVX_SFR_PSO_PMJ3_SHIFT 46
-+#define KVX_SFR_PSO_PMJ3_WIDTH 2
-+#define KVX_SFR_PSO_PMJ3_WFXM_MASK _ULL(0xc00000000000)
-+#define KVX_SFR_PSO_PMJ3_WFXM_CLEAR _ULL(0xc000)
-+#define KVX_SFR_PSO_PMJ3_WFXM_SET _ULL(0xc00000000000)
-+
-+#define KVX_SFR_PSO_MMUP_MASK _ULL(0x3000000000000) /* Privileged on MMU owner. */
-+#define KVX_SFR_PSO_MMUP_SHIFT 48
-+#define KVX_SFR_PSO_MMUP_WIDTH 2
-+#define KVX_SFR_PSO_MMUP_WFXM_MASK _ULL(0x3000000000000)
-+#define KVX_SFR_PSO_MMUP_WFXM_CLEAR _ULL(0x30000)
-+#define KVX_SFR_PSO_MMUP_WFXM_SET _ULL(0x3000000000000)
-+
-+#define KVX_SFR_PSOW_PL0_MASK _ULL(0x3) /* Current Privilege Level bit 0 owner */
-+#define KVX_SFR_PSOW_PL0_SHIFT 0
-+#define KVX_SFR_PSOW_PL0_WIDTH 2
-+#define KVX_SFR_PSOW_PL0_WFXL_MASK _ULL(0x3)
-+#define KVX_SFR_PSOW_PL0_WFXL_CLEAR _ULL(0x3)
-+#define KVX_SFR_PSOW_PL0_WFXL_SET _ULL(0x300000000)
-+
-+#define KVX_SFR_PSOW_PL1_MASK _ULL(0xc) /* Current Privilege Level bit 1 owner */
-+#define KVX_SFR_PSOW_PL1_SHIFT 2
-+#define KVX_SFR_PSOW_PL1_WIDTH 2
-+#define KVX_SFR_PSOW_PL1_WFXL_MASK _ULL(0xc)
-+#define KVX_SFR_PSOW_PL1_WFXL_CLEAR _ULL(0xc)
-+#define KVX_SFR_PSOW_PL1_WFXL_SET _ULL(0xc00000000)
-+
-+#define KVX_SFR_PSOW_ET_MASK _ULL(0x30) /* Exception Taken owner */
-+#define KVX_SFR_PSOW_ET_SHIFT 4
-+#define KVX_SFR_PSOW_ET_WIDTH 2
-+#define KVX_SFR_PSOW_ET_WFXL_MASK _ULL(0x30)
-+#define KVX_SFR_PSOW_ET_WFXL_CLEAR _ULL(0x30)
-+#define KVX_SFR_PSOW_ET_WFXL_SET _ULL(0x3000000000)
-+
-+#define KVX_SFR_PSOW_HTD_MASK _ULL(0xc0) /* Hardware Trap Disable owner */
-+#define KVX_SFR_PSOW_HTD_SHIFT 6
-+#define KVX_SFR_PSOW_HTD_WIDTH 2
-+#define KVX_SFR_PSOW_HTD_WFXL_MASK _ULL(0xc0)
-+#define KVX_SFR_PSOW_HTD_WFXL_CLEAR _ULL(0xc0)
-+#define KVX_SFR_PSOW_HTD_WFXL_SET _ULL(0xc000000000)
-+
-+#define KVX_SFR_PSOW_IE_MASK _ULL(0x300) /* Interrupt Enable owner */
-+#define KVX_SFR_PSOW_IE_SHIFT 8
-+#define KVX_SFR_PSOW_IE_WIDTH 2
-+#define KVX_SFR_PSOW_IE_WFXL_MASK _ULL(0x300)
-+#define KVX_SFR_PSOW_IE_WFXL_CLEAR _ULL(0x300)
-+#define KVX_SFR_PSOW_IE_WFXL_SET _ULL(0x30000000000)
-+
-+#define KVX_SFR_PSOW_HLE_MASK _ULL(0xc00) /* Hardware Loop Enable owner */
-+#define KVX_SFR_PSOW_HLE_SHIFT 10
-+#define KVX_SFR_PSOW_HLE_WIDTH 2
-+#define KVX_SFR_PSOW_HLE_WFXL_MASK _ULL(0xc00)
-+#define KVX_SFR_PSOW_HLE_WFXL_CLEAR _ULL(0xc00)
-+#define KVX_SFR_PSOW_HLE_WFXL_SET _ULL(0xc0000000000)
-+
-+#define KVX_SFR_PSOW_SRE_MASK _ULL(0x3000) /* Software REserved owner */
-+#define KVX_SFR_PSOW_SRE_SHIFT 12
-+#define KVX_SFR_PSOW_SRE_WIDTH 2
-+#define KVX_SFR_PSOW_SRE_WFXL_MASK _ULL(0x3000)
-+#define KVX_SFR_PSOW_SRE_WFXL_CLEAR _ULL(0x3000)
-+#define KVX_SFR_PSOW_SRE_WFXL_SET _ULL(0x300000000000)
-+
-+#define KVX_SFR_PSOW_DAUS_MASK _ULL(0xc000) /* Data Accesses Use SPS settings owner */
-+#define KVX_SFR_PSOW_DAUS_SHIFT 14
-+#define KVX_SFR_PSOW_DAUS_WIDTH 2
-+#define KVX_SFR_PSOW_DAUS_WFXL_MASK _ULL(0xc000)
-+#define KVX_SFR_PSOW_DAUS_WFXL_CLEAR _ULL(0xc000)
-+#define KVX_SFR_PSOW_DAUS_WFXL_SET _ULL(0xc00000000000)
-+
-+#define KVX_SFR_PSOW_ICE_MASK _ULL(0x30000) /* Instruction Cache Enable owner */
-+#define KVX_SFR_PSOW_ICE_SHIFT 16
-+#define KVX_SFR_PSOW_ICE_WIDTH 2
-+#define KVX_SFR_PSOW_ICE_WFXL_MASK _ULL(0x30000)
-+#define KVX_SFR_PSOW_ICE_WFXL_CLEAR _ULL(0x30000)
-+#define KVX_SFR_PSOW_ICE_WFXL_SET _ULL(0x3000000000000)
-+
-+#define KVX_SFR_PSOW_USE_MASK _ULL(0xc0000) /* Uncached Streaming Enable owner */
-+#define KVX_SFR_PSOW_USE_SHIFT 18
-+#define KVX_SFR_PSOW_USE_WIDTH 2
-+#define KVX_SFR_PSOW_USE_WFXL_MASK _ULL(0xc0000)
-+#define KVX_SFR_PSOW_USE_WFXL_CLEAR _ULL(0xc0000)
-+#define KVX_SFR_PSOW_USE_WFXL_SET _ULL(0xc000000000000)
-+
-+#define KVX_SFR_PSOW_DCE_MASK _ULL(0x300000) /* Data Cache Enable owner */
-+#define KVX_SFR_PSOW_DCE_SHIFT 20
-+#define KVX_SFR_PSOW_DCE_WIDTH 2
-+#define KVX_SFR_PSOW_DCE_WFXL_MASK _ULL(0x300000)
-+#define KVX_SFR_PSOW_DCE_WFXL_CLEAR _ULL(0x300000)
-+#define KVX_SFR_PSOW_DCE_WFXL_SET _ULL(0x30000000000000)
-+
-+#define KVX_SFR_PSOW_MME_MASK _ULL(0xc00000) /* Memory Management Enable owner */
-+#define KVX_SFR_PSOW_MME_SHIFT 22
-+#define KVX_SFR_PSOW_MME_WIDTH 2
-+#define KVX_SFR_PSOW_MME_WFXL_MASK _ULL(0xc00000)
-+#define KVX_SFR_PSOW_MME_WFXL_CLEAR _ULL(0xc00000)
-+#define KVX_SFR_PSOW_MME_WFXL_SET _ULL(0xc0000000000000)
-+
-+#define KVX_SFR_PSOW_IL0_MASK _ULL(0x3000000) /* Interrupt Level bit 0 owner */
-+#define KVX_SFR_PSOW_IL0_SHIFT 24
-+#define KVX_SFR_PSOW_IL0_WIDTH 2
-+#define KVX_SFR_PSOW_IL0_WFXL_MASK _ULL(0x3000000)
-+#define KVX_SFR_PSOW_IL0_WFXL_CLEAR _ULL(0x3000000)
-+#define KVX_SFR_PSOW_IL0_WFXL_SET _ULL(0x300000000000000)
-+
-+#define KVX_SFR_PSOW_IL1_MASK _ULL(0xc000000) /* Interrupt Level bit 1 owner */
-+#define KVX_SFR_PSOW_IL1_SHIFT 26
-+#define KVX_SFR_PSOW_IL1_WIDTH 2
-+#define KVX_SFR_PSOW_IL1_WFXL_MASK _ULL(0xc000000)
-+#define KVX_SFR_PSOW_IL1_WFXL_CLEAR _ULL(0xc000000)
-+#define KVX_SFR_PSOW_IL1_WFXL_SET _ULL(0xc00000000000000)
-+
-+#define KVX_SFR_PSOW_VS0_MASK _ULL(0x30000000) /* Virtual Space bit 0 owner */
-+#define KVX_SFR_PSOW_VS0_SHIFT 28
-+#define KVX_SFR_PSOW_VS0_WIDTH 2
-+#define KVX_SFR_PSOW_VS0_WFXL_MASK _ULL(0x30000000)
-+#define KVX_SFR_PSOW_VS0_WFXL_CLEAR _ULL(0x30000000)
-+#define KVX_SFR_PSOW_VS0_WFXL_SET _ULL(0x3000000000000000)
-+
-+#define KVX_SFR_PSOW_VS1_MASK _ULL(0xc0000000) /* Virtual Space bit 1 owner */
-+#define KVX_SFR_PSOW_VS1_SHIFT 30
-+#define KVX_SFR_PSOW_VS1_WIDTH 2
-+#define KVX_SFR_PSOW_VS1_WFXL_MASK _ULL(0xc0000000)
-+#define KVX_SFR_PSOW_VS1_WFXL_CLEAR _ULL(0xc0000000)
-+#define KVX_SFR_PSOW_VS1_WFXL_SET _ULL(0xc000000000000000)
-+
-+#define KVX_SFR_PSOW_V64_MASK _ULL(0x300000000) /* Virtual 64 bits mode owner */
-+#define KVX_SFR_PSOW_V64_SHIFT 32
-+#define KVX_SFR_PSOW_V64_WIDTH 2
-+#define KVX_SFR_PSOW_V64_WFXM_MASK _ULL(0x300000000)
-+#define KVX_SFR_PSOW_V64_WFXM_CLEAR _ULL(0x3)
-+#define KVX_SFR_PSOW_V64_WFXM_SET _ULL(0x300000000)
-+
-+#define KVX_SFR_PSOW_L2E_MASK _ULL(0xc00000000) /* L2 cache Enable owner */
-+#define KVX_SFR_PSOW_L2E_SHIFT 34
-+#define KVX_SFR_PSOW_L2E_WIDTH 2
-+#define KVX_SFR_PSOW_L2E_WFXM_MASK _ULL(0xc00000000)
-+#define KVX_SFR_PSOW_L2E_WFXM_CLEAR _ULL(0xc)
-+#define KVX_SFR_PSOW_L2E_WFXM_SET _ULL(0xc00000000)
-+
-+#define KVX_SFR_PSOW_SME_MASK _ULL(0x3000000000) /* Step Mode Enabled owner */
-+#define KVX_SFR_PSOW_SME_SHIFT 36
-+#define KVX_SFR_PSOW_SME_WIDTH 2
-+#define KVX_SFR_PSOW_SME_WFXM_MASK _ULL(0x3000000000)
-+#define KVX_SFR_PSOW_SME_WFXM_CLEAR _ULL(0x30)
-+#define KVX_SFR_PSOW_SME_WFXM_SET _ULL(0x3000000000)
-+
-+#define KVX_SFR_PSOW_SMR_MASK _ULL(0xc000000000) /* Step Mode Ready owner */
-+#define KVX_SFR_PSOW_SMR_SHIFT 38
-+#define KVX_SFR_PSOW_SMR_WIDTH 2
-+#define KVX_SFR_PSOW_SMR_WFXM_MASK _ULL(0xc000000000)
-+#define KVX_SFR_PSOW_SMR_WFXM_CLEAR _ULL(0xc0)
-+#define KVX_SFR_PSOW_SMR_WFXM_SET _ULL(0xc000000000)
-+
-+#define KVX_SFR_PSOW_PMJ0_MASK _ULL(0x30000000000) /* Page Mask in JTLB bit 0 owner */
-+#define KVX_SFR_PSOW_PMJ0_SHIFT 40
-+#define KVX_SFR_PSOW_PMJ0_WIDTH 2
-+#define KVX_SFR_PSOW_PMJ0_WFXM_MASK _ULL(0x30000000000)
-+#define KVX_SFR_PSOW_PMJ0_WFXM_CLEAR _ULL(0x300)
-+#define KVX_SFR_PSOW_PMJ0_WFXM_SET _ULL(0x30000000000)
-+
-+#define KVX_SFR_PSOW_PMJ1_MASK _ULL(0xc0000000000) /* Page Mask in JTLB bit 1 owner */
-+#define KVX_SFR_PSOW_PMJ1_SHIFT 42
-+#define KVX_SFR_PSOW_PMJ1_WIDTH 2
-+#define KVX_SFR_PSOW_PMJ1_WFXM_MASK _ULL(0xc0000000000)
-+#define KVX_SFR_PSOW_PMJ1_WFXM_CLEAR _ULL(0xc00)
-+#define KVX_SFR_PSOW_PMJ1_WFXM_SET _ULL(0xc0000000000)
-+
-+#define KVX_SFR_PSOW_PMJ2_MASK _ULL(0x300000000000) /* Page Mask in JTLB bit 2 owner */
-+#define KVX_SFR_PSOW_PMJ2_SHIFT 44
-+#define KVX_SFR_PSOW_PMJ2_WIDTH 2
-+#define KVX_SFR_PSOW_PMJ2_WFXM_MASK _ULL(0x300000000000)
-+#define KVX_SFR_PSOW_PMJ2_WFXM_CLEAR _ULL(0x3000)
-+#define KVX_SFR_PSOW_PMJ2_WFXM_SET _ULL(0x300000000000)
-+
-+#define KVX_SFR_PSOW_PMJ3_MASK _ULL(0xc00000000000) /* Page Mask in JTLB bit 3 owner */
-+#define KVX_SFR_PSOW_PMJ3_SHIFT 46
-+#define KVX_SFR_PSOW_PMJ3_WIDTH 2
-+#define KVX_SFR_PSOW_PMJ3_WFXM_MASK _ULL(0xc00000000000)
-+#define KVX_SFR_PSOW_PMJ3_WFXM_CLEAR _ULL(0xc000)
-+#define KVX_SFR_PSOW_PMJ3_WFXM_SET _ULL(0xc00000000000)
-+
-+#define KVX_SFR_PSOW_MMUP_MASK _ULL(0x3000000000000) /* Privileged on MMU owner. */
-+#define KVX_SFR_PSOW_MMUP_SHIFT 48
-+#define KVX_SFR_PSOW_MMUP_WIDTH 2
-+#define KVX_SFR_PSOW_MMUP_WFXM_MASK _ULL(0x3000000000000)
-+#define KVX_SFR_PSOW_MMUP_WFXM_CLEAR _ULL(0x30000)
-+#define KVX_SFR_PSOW_MMUP_WFXM_SET _ULL(0x3000000000000)
-+
-+#define KVX_SFR_CS_IC_MASK _ULL(0x1) /* Integer Carry */
-+#define KVX_SFR_CS_IC_SHIFT 0
-+#define KVX_SFR_CS_IC_WIDTH 1
-+#define KVX_SFR_CS_IC_WFXL_MASK _ULL(0x1)
-+#define KVX_SFR_CS_IC_WFXL_CLEAR _ULL(0x1)
-+#define KVX_SFR_CS_IC_WFXL_SET _ULL(0x100000000)
-+
-+#define KVX_SFR_CS_IO_MASK _ULL(0x2) /* IEEE 754 Invalid Operation */
-+#define KVX_SFR_CS_IO_SHIFT 1
-+#define KVX_SFR_CS_IO_WIDTH 1
-+#define KVX_SFR_CS_IO_WFXL_MASK _ULL(0x2)
-+#define KVX_SFR_CS_IO_WFXL_CLEAR _ULL(0x2)
-+#define KVX_SFR_CS_IO_WFXL_SET _ULL(0x200000000)
-+
-+#define KVX_SFR_CS_DZ_MASK _ULL(0x4) /* IEEE 754 Divide by Zero */
-+#define KVX_SFR_CS_DZ_SHIFT 2
-+#define KVX_SFR_CS_DZ_WIDTH 1
-+#define KVX_SFR_CS_DZ_WFXL_MASK _ULL(0x4)
-+#define KVX_SFR_CS_DZ_WFXL_CLEAR _ULL(0x4)
-+#define KVX_SFR_CS_DZ_WFXL_SET _ULL(0x400000000)
-+
-+#define KVX_SFR_CS_OV_MASK _ULL(0x8) /* IEEE 754 Overflow */
-+#define KVX_SFR_CS_OV_SHIFT 3
-+#define KVX_SFR_CS_OV_WIDTH 1
-+#define KVX_SFR_CS_OV_WFXL_MASK _ULL(0x8)
-+#define KVX_SFR_CS_OV_WFXL_CLEAR _ULL(0x8)
-+#define KVX_SFR_CS_OV_WFXL_SET _ULL(0x800000000)
-+
-+#define KVX_SFR_CS_UN_MASK _ULL(0x10) /* IEEE 754 Underflow */
-+#define KVX_SFR_CS_UN_SHIFT 4
-+#define KVX_SFR_CS_UN_WIDTH 1
-+#define KVX_SFR_CS_UN_WFXL_MASK _ULL(0x10)
-+#define KVX_SFR_CS_UN_WFXL_CLEAR _ULL(0x10)
-+#define KVX_SFR_CS_UN_WFXL_SET _ULL(0x1000000000)
-+
-+#define KVX_SFR_CS_IN_MASK _ULL(0x20) /* IEEE 754 Inexact */
-+#define KVX_SFR_CS_IN_SHIFT 5
-+#define KVX_SFR_CS_IN_WIDTH 1
-+#define KVX_SFR_CS_IN_WFXL_MASK _ULL(0x20)
-+#define KVX_SFR_CS_IN_WFXL_CLEAR _ULL(0x20)
-+#define KVX_SFR_CS_IN_WFXL_SET _ULL(0x2000000000)
-+
-+#define KVX_SFR_CS_XIO_MASK _ULL(0x200) /* Extension IEEE 754 Invalid Operation */
-+#define KVX_SFR_CS_XIO_SHIFT 9
-+#define KVX_SFR_CS_XIO_WIDTH 1
-+#define KVX_SFR_CS_XIO_WFXL_MASK _ULL(0x200)
-+#define KVX_SFR_CS_XIO_WFXL_CLEAR _ULL(0x200)
-+#define KVX_SFR_CS_XIO_WFXL_SET _ULL(0x20000000000)
-+
-+#define KVX_SFR_CS_XDZ_MASK _ULL(0x400) /* Extension IEEE 754 Divide by Zero */
-+#define KVX_SFR_CS_XDZ_SHIFT 10
-+#define KVX_SFR_CS_XDZ_WIDTH 1
-+#define KVX_SFR_CS_XDZ_WFXL_MASK _ULL(0x400)
-+#define KVX_SFR_CS_XDZ_WFXL_CLEAR _ULL(0x400)
-+#define KVX_SFR_CS_XDZ_WFXL_SET _ULL(0x40000000000)
-+
-+#define KVX_SFR_CS_XOV_MASK _ULL(0x800) /* Extension IEEE 754 Overflow */
-+#define KVX_SFR_CS_XOV_SHIFT 11
-+#define KVX_SFR_CS_XOV_WIDTH 1
-+#define KVX_SFR_CS_XOV_WFXL_MASK _ULL(0x800)
-+#define KVX_SFR_CS_XOV_WFXL_CLEAR _ULL(0x800)
-+#define KVX_SFR_CS_XOV_WFXL_SET _ULL(0x80000000000)
-+
-+#define KVX_SFR_CS_XUN_MASK _ULL(0x1000) /* Extension IEEE 754 Underflow */
-+#define KVX_SFR_CS_XUN_SHIFT 12
-+#define KVX_SFR_CS_XUN_WIDTH 1
-+#define KVX_SFR_CS_XUN_WFXL_MASK _ULL(0x1000)
-+#define KVX_SFR_CS_XUN_WFXL_CLEAR _ULL(0x1000)
-+#define KVX_SFR_CS_XUN_WFXL_SET _ULL(0x100000000000)
-+
-+#define KVX_SFR_CS_XIN_MASK _ULL(0x2000) /* Extension IEEE 754 Inexact */
-+#define KVX_SFR_CS_XIN_SHIFT 13
-+#define KVX_SFR_CS_XIN_WIDTH 1
-+#define KVX_SFR_CS_XIN_WFXL_MASK _ULL(0x2000)
-+#define KVX_SFR_CS_XIN_WFXL_CLEAR _ULL(0x2000)
-+#define KVX_SFR_CS_XIN_WFXL_SET _ULL(0x200000000000)
-+
-+#define KVX_SFR_CS_RM_MASK _ULL(0x30000) /* IEEE 754 Rounding Mode */
-+#define KVX_SFR_CS_RM_SHIFT 16
-+#define KVX_SFR_CS_RM_WIDTH 2
-+#define KVX_SFR_CS_RM_WFXL_MASK _ULL(0x30000)
-+#define KVX_SFR_CS_RM_WFXL_CLEAR _ULL(0x30000)
-+#define KVX_SFR_CS_RM_WFXL_SET _ULL(0x3000000000000)
-+
-+#define KVX_SFR_CS_XRM_MASK _ULL(0x300000) /* Extension IEEE 754 Rounding Mode */
-+#define KVX_SFR_CS_XRM_SHIFT 20
-+#define KVX_SFR_CS_XRM_WIDTH 2
-+#define KVX_SFR_CS_XRM_WFXL_MASK _ULL(0x300000)
-+#define KVX_SFR_CS_XRM_WFXL_CLEAR _ULL(0x300000)
-+#define KVX_SFR_CS_XRM_WFXL_SET _ULL(0x30000000000000)
-+
-+#define KVX_SFR_CS_XMF_MASK _ULL(0x1000000) /* eXtension ModiFied */
-+#define KVX_SFR_CS_XMF_SHIFT 24
-+#define KVX_SFR_CS_XMF_WIDTH 1
-+#define KVX_SFR_CS_XMF_WFXL_MASK _ULL(0x1000000)
-+#define KVX_SFR_CS_XMF_WFXL_CLEAR _ULL(0x1000000)
-+#define KVX_SFR_CS_XMF_WFXL_SET _ULL(0x100000000000000)
-+
-+#define KVX_SFR_CS_CC_MASK _ULL(0xffff00000000) /* Carry Counter */
-+#define KVX_SFR_CS_CC_SHIFT 32
-+#define KVX_SFR_CS_CC_WIDTH 16
-+#define KVX_SFR_CS_CC_WFXM_MASK _ULL(0xffff00000000)
-+#define KVX_SFR_CS_CC_WFXM_CLEAR _ULL(0xffff)
-+#define KVX_SFR_CS_CC_WFXM_SET _ULL(0xffff00000000)
-+
-+#define KVX_SFR_CS_XDROP_MASK _ULL(0x3f000000000000) /* Extension Conversion Drop Bits */
-+#define KVX_SFR_CS_XDROP_SHIFT 48
-+#define KVX_SFR_CS_XDROP_WIDTH 6
-+#define KVX_SFR_CS_XDROP_WFXM_MASK _ULL(0x3f000000000000)
-+#define KVX_SFR_CS_XDROP_WFXM_CLEAR _ULL(0x3f0000)
-+#define KVX_SFR_CS_XDROP_WFXM_SET _ULL(0x3f000000000000)
-+
-+#define KVX_SFR_CS_XPOW2_MASK _ULL(0xfc0000000000000) /* Extension FScale Power of Two */
-+#define KVX_SFR_CS_XPOW2_SHIFT 54
-+#define KVX_SFR_CS_XPOW2_WIDTH 6
-+#define KVX_SFR_CS_XPOW2_WFXM_MASK _ULL(0xfc0000000000000)
-+#define KVX_SFR_CS_XPOW2_WFXM_CLEAR _ULL(0xfc00000)
-+#define KVX_SFR_CS_XPOW2_WFXM_SET _ULL(0xfc0000000000000)
-+
-+#define KVX_SFR_AESPC_AESPC_MASK _ULL(0xffffffffffffffff) /* Arithmetic Exception Saved PC */
-+#define KVX_SFR_AESPC_AESPC_SHIFT 0
-+#define KVX_SFR_AESPC_AESPC_WIDTH 64
-+#define KVX_SFR_AESPC_AESPC_WFXL_MASK _ULL(0xffffffff)
-+#define KVX_SFR_AESPC_AESPC_WFXL_CLEAR _ULL(0xffffffff)
-+#define KVX_SFR_AESPC_AESPC_WFXL_SET _ULL(0xffffffff00000000)
-+#define KVX_SFR_AESPC_AESPC_WFXM_MASK _ULL(0xffffffff00000000)
-+#define KVX_SFR_AESPC_AESPC_WFXM_CLEAR _ULL(0xffffffff)
-+#define KVX_SFR_AESPC_AESPC_WFXM_SET _ULL(0xffffffff00000000)
-+
-+#define KVX_SFR_CSIT_ICIE_MASK _ULL(0x1) /* Integer Carry Interrupt Enable */
-+#define KVX_SFR_CSIT_ICIE_SHIFT 0
-+#define KVX_SFR_CSIT_ICIE_WIDTH 1
-+#define KVX_SFR_CSIT_ICIE_WFXL_MASK _ULL(0x1)
-+#define KVX_SFR_CSIT_ICIE_WFXL_CLEAR _ULL(0x1)
-+#define KVX_SFR_CSIT_ICIE_WFXL_SET _ULL(0x100000000)
-+
-+#define KVX_SFR_CSIT_IOIE_MASK _ULL(0x2) /* IEEE 754 Invalid Operation Interrupt Enable */
-+#define KVX_SFR_CSIT_IOIE_SHIFT 1
-+#define KVX_SFR_CSIT_IOIE_WIDTH 1
-+#define KVX_SFR_CSIT_IOIE_WFXL_MASK _ULL(0x2)
-+#define KVX_SFR_CSIT_IOIE_WFXL_CLEAR _ULL(0x2)
-+#define KVX_SFR_CSIT_IOIE_WFXL_SET _ULL(0x200000000)
-+
-+#define KVX_SFR_CSIT_DZIE_MASK _ULL(0x4) /* IEEE 754 Divide by Zero Interrupt Enable */
-+#define KVX_SFR_CSIT_DZIE_SHIFT 2
-+#define KVX_SFR_CSIT_DZIE_WIDTH 1
-+#define KVX_SFR_CSIT_DZIE_WFXL_MASK _ULL(0x4)
-+#define KVX_SFR_CSIT_DZIE_WFXL_CLEAR _ULL(0x4)
-+#define KVX_SFR_CSIT_DZIE_WFXL_SET _ULL(0x400000000)
-+
-+#define KVX_SFR_CSIT_OVIE_MASK _ULL(0x8) /* IEEE 754 Overflow Interrupt Enable */
-+#define KVX_SFR_CSIT_OVIE_SHIFT 3
-+#define KVX_SFR_CSIT_OVIE_WIDTH 1
-+#define KVX_SFR_CSIT_OVIE_WFXL_MASK _ULL(0x8)
-+#define KVX_SFR_CSIT_OVIE_WFXL_CLEAR _ULL(0x8)
-+#define KVX_SFR_CSIT_OVIE_WFXL_SET _ULL(0x800000000)
-+
-+#define KVX_SFR_CSIT_UNIE_MASK _ULL(0x10) /* IEEE 754 Underflow Interrupt Enable */
-+#define KVX_SFR_CSIT_UNIE_SHIFT 4
-+#define KVX_SFR_CSIT_UNIE_WIDTH 1
-+#define KVX_SFR_CSIT_UNIE_WFXL_MASK _ULL(0x10)
-+#define KVX_SFR_CSIT_UNIE_WFXL_CLEAR _ULL(0x10)
-+#define KVX_SFR_CSIT_UNIE_WFXL_SET _ULL(0x1000000000)
-+
-+#define KVX_SFR_CSIT_INIE_MASK _ULL(0x20) /* IEEE 754 Inexact Interrupt Enable */
-+#define KVX_SFR_CSIT_INIE_SHIFT 5
-+#define KVX_SFR_CSIT_INIE_WIDTH 1
-+#define KVX_SFR_CSIT_INIE_WFXL_MASK _ULL(0x20)
-+#define KVX_SFR_CSIT_INIE_WFXL_CLEAR _ULL(0x20)
-+#define KVX_SFR_CSIT_INIE_WFXL_SET _ULL(0x2000000000)
-+
-+#define KVX_SFR_CSIT_XIOIE_MASK _ULL(0x200) /* Extension IEEE 754 Invalid Operation Interrupt Enable */
-+#define KVX_SFR_CSIT_XIOIE_SHIFT 9
-+#define KVX_SFR_CSIT_XIOIE_WIDTH 1
-+#define KVX_SFR_CSIT_XIOIE_WFXL_MASK _ULL(0x200)
-+#define KVX_SFR_CSIT_XIOIE_WFXL_CLEAR _ULL(0x200)
-+#define KVX_SFR_CSIT_XIOIE_WFXL_SET _ULL(0x20000000000)
-+
-+#define KVX_SFR_CSIT_XDZIE_MASK _ULL(0x400) /* Extension IEEE 754 Divide by Zero Interrupt Enable */
-+#define KVX_SFR_CSIT_XDZIE_SHIFT 10
-+#define KVX_SFR_CSIT_XDZIE_WIDTH 1
-+#define KVX_SFR_CSIT_XDZIE_WFXL_MASK _ULL(0x400)
-+#define KVX_SFR_CSIT_XDZIE_WFXL_CLEAR _ULL(0x400)
-+#define KVX_SFR_CSIT_XDZIE_WFXL_SET _ULL(0x40000000000)
-+
-+#define KVX_SFR_CSIT_XOVIE_MASK _ULL(0x800) /* Extension IEEE 754 Overflow Interrupt Enable */
-+#define KVX_SFR_CSIT_XOVIE_SHIFT 11
-+#define KVX_SFR_CSIT_XOVIE_WIDTH 1
-+#define KVX_SFR_CSIT_XOVIE_WFXL_MASK _ULL(0x800)
-+#define KVX_SFR_CSIT_XOVIE_WFXL_CLEAR _ULL(0x800)
-+#define KVX_SFR_CSIT_XOVIE_WFXL_SET _ULL(0x80000000000)
-+
-+#define KVX_SFR_CSIT_XUNIE_MASK _ULL(0x1000) /* Extension IEEE 754 Underflow Interrupt Enable */
-+#define KVX_SFR_CSIT_XUNIE_SHIFT 12
-+#define KVX_SFR_CSIT_XUNIE_WIDTH 1
-+#define KVX_SFR_CSIT_XUNIE_WFXL_MASK _ULL(0x1000)
-+#define KVX_SFR_CSIT_XUNIE_WFXL_CLEAR _ULL(0x1000)
-+#define KVX_SFR_CSIT_XUNIE_WFXL_SET _ULL(0x100000000000)
-+
-+#define KVX_SFR_CSIT_XINIE_MASK _ULL(0x2000) /* Extension IEEE 754 Inexact Interrupt Enable */
-+#define KVX_SFR_CSIT_XINIE_SHIFT 13
-+#define KVX_SFR_CSIT_XINIE_WIDTH 1
-+#define KVX_SFR_CSIT_XINIE_WFXL_MASK _ULL(0x2000)
-+#define KVX_SFR_CSIT_XINIE_WFXL_CLEAR _ULL(0x2000)
-+#define KVX_SFR_CSIT_XINIE_WFXL_SET _ULL(0x200000000000)
-+
-+#define KVX_SFR_CSIT_AEIR_MASK _ULL(0x10000) /* Arithmetic Exception Interrupt Raised */
-+#define KVX_SFR_CSIT_AEIR_SHIFT 16
-+#define KVX_SFR_CSIT_AEIR_WIDTH 1
-+#define KVX_SFR_CSIT_AEIR_WFXL_MASK _ULL(0x10000)
-+#define KVX_SFR_CSIT_AEIR_WFXL_CLEAR _ULL(0x10000)
-+#define KVX_SFR_CSIT_AEIR_WFXL_SET _ULL(0x1000000000000)
-+
-+#define KVX_SFR_CSIT_AEC_MASK _ULL(0xe0000) /* Arithmetic Exception Code */
-+#define KVX_SFR_CSIT_AEC_SHIFT 17
-+#define KVX_SFR_CSIT_AEC_WIDTH 3
-+#define KVX_SFR_CSIT_AEC_WFXL_MASK _ULL(0xe0000)
-+#define KVX_SFR_CSIT_AEC_WFXL_CLEAR _ULL(0xe0000)
-+#define KVX_SFR_CSIT_AEC_WFXL_SET _ULL(0xe000000000000)
-+
-+#define KVX_SFR_CSIT_SPCV_MASK _ULL(0x100000) /* SPC Valid */
-+#define KVX_SFR_CSIT_SPCV_SHIFT 20
-+#define KVX_SFR_CSIT_SPCV_WIDTH 1
-+#define KVX_SFR_CSIT_SPCV_WFXL_MASK _ULL(0x100000)
-+#define KVX_SFR_CSIT_SPCV_WFXL_CLEAR _ULL(0x100000)
-+#define KVX_SFR_CSIT_SPCV_WFXL_SET _ULL(0x10000000000000)
-+
-+#define KVX_SFR_ES_EC_MASK _ULL(0xf) /* Exception Class */
-+#define KVX_SFR_ES_EC_SHIFT 0
-+#define KVX_SFR_ES_EC_WIDTH 4
-+#define KVX_SFR_ES_EC_WFXL_MASK _ULL(0xf)
-+#define KVX_SFR_ES_EC_WFXL_CLEAR _ULL(0xf)
-+#define KVX_SFR_ES_EC_WFXL_SET _ULL(0xf00000000)
-+
-+#define KVX_SFR_ES_ED_MASK _ULL(0xfffffffffffffff0) /* Exception Details */
-+#define KVX_SFR_ES_ED_SHIFT 4
-+#define KVX_SFR_ES_ED_WIDTH 60
-+#define KVX_SFR_ES_ED_WFXL_MASK _ULL(0xfffffff0)
-+#define KVX_SFR_ES_ED_WFXL_CLEAR _ULL(0xfffffff0)
-+#define KVX_SFR_ES_ED_WFXL_SET _ULL(0xfffffff000000000)
-+#define KVX_SFR_ES_ED_WFXM_MASK _ULL(0xffffffff00000000)
-+#define KVX_SFR_ES_ED_WFXM_CLEAR _ULL(0xffffffff)
-+#define KVX_SFR_ES_ED_WFXM_SET _ULL(0xffffffff00000000)
-+
-+#define KVX_SFR_ES_OAPL_MASK _ULL(0x30) /* Origin Absolute PL */
-+#define KVX_SFR_ES_OAPL_SHIFT 4
-+#define KVX_SFR_ES_OAPL_WIDTH 2
-+#define KVX_SFR_ES_OAPL_WFXL_MASK _ULL(0x30)
-+#define KVX_SFR_ES_OAPL_WFXL_CLEAR _ULL(0x30)
-+#define KVX_SFR_ES_OAPL_WFXL_SET _ULL(0x3000000000)
-+
-+#define KVX_SFR_ES_ORPL_MASK _ULL(0xc0) /* Origin Relative PL */
-+#define KVX_SFR_ES_ORPL_SHIFT 6
-+#define KVX_SFR_ES_ORPL_WIDTH 2
-+#define KVX_SFR_ES_ORPL_WFXL_MASK _ULL(0xc0)
-+#define KVX_SFR_ES_ORPL_WFXL_CLEAR _ULL(0xc0)
-+#define KVX_SFR_ES_ORPL_WFXL_SET _ULL(0xc000000000)
-+
-+#define KVX_SFR_ES_PTAPL_MASK _ULL(0x300) /* Primary Target Absolute PL */
-+#define KVX_SFR_ES_PTAPL_SHIFT 8
-+#define KVX_SFR_ES_PTAPL_WIDTH 2
-+#define KVX_SFR_ES_PTAPL_WFXL_MASK _ULL(0x300)
-+#define KVX_SFR_ES_PTAPL_WFXL_CLEAR _ULL(0x300)
-+#define KVX_SFR_ES_PTAPL_WFXL_SET _ULL(0x30000000000)
-+
-+#define KVX_SFR_ES_PTRPL_MASK _ULL(0xc00) /* Primary Target Relative PL */
-+#define KVX_SFR_ES_PTRPL_SHIFT 10
-+#define KVX_SFR_ES_PTRPL_WIDTH 2
-+#define KVX_SFR_ES_PTRPL_WFXL_MASK _ULL(0xc00)
-+#define KVX_SFR_ES_PTRPL_WFXL_CLEAR _ULL(0xc00)
-+#define KVX_SFR_ES_PTRPL_WFXL_SET _ULL(0xc0000000000)
-+
-+#define KVX_SFR_ES_ITN_MASK _ULL(0x1f000) /* InTerrupt Number */
-+#define KVX_SFR_ES_ITN_SHIFT 12
-+#define KVX_SFR_ES_ITN_WIDTH 5
-+#define KVX_SFR_ES_ITN_WFXL_MASK _ULL(0x1f000)
-+#define KVX_SFR_ES_ITN_WFXL_CLEAR _ULL(0x1f000)
-+#define KVX_SFR_ES_ITN_WFXL_SET _ULL(0x1f00000000000)
-+
-+#define KVX_SFR_ES_ITL_MASK _ULL(0x60000) /* InTerrupt Level */
-+#define KVX_SFR_ES_ITL_SHIFT 17
-+#define KVX_SFR_ES_ITL_WIDTH 2
-+#define KVX_SFR_ES_ITL_WFXL_MASK _ULL(0x60000)
-+#define KVX_SFR_ES_ITL_WFXL_CLEAR _ULL(0x60000)
-+#define KVX_SFR_ES_ITL_WFXL_SET _ULL(0x6000000000000)
-+
-+#define KVX_SFR_ES_ITI_MASK _ULL(0x1ff80000) /* InTerrupt Info */
-+#define KVX_SFR_ES_ITI_SHIFT 19
-+#define KVX_SFR_ES_ITI_WIDTH 10
-+#define KVX_SFR_ES_ITI_WFXL_MASK _ULL(0x1ff80000)
-+#define KVX_SFR_ES_ITI_WFXL_CLEAR _ULL(0x1ff80000)
-+#define KVX_SFR_ES_ITI_WFXL_SET _ULL(0x1ff8000000000000)
-+
-+#define KVX_SFR_ES_SN_MASK _ULL(0xfff000) /* Syscall Number */
-+#define KVX_SFR_ES_SN_SHIFT 12
-+#define KVX_SFR_ES_SN_WIDTH 12
-+#define KVX_SFR_ES_SN_WFXL_MASK _ULL(0xfff000)
-+#define KVX_SFR_ES_SN_WFXL_CLEAR _ULL(0xfff000)
-+#define KVX_SFR_ES_SN_WFXL_SET _ULL(0xfff00000000000)
-+
-+#define KVX_SFR_ES_HTC_MASK _ULL(0x1f000) /* Hardware Trap Cause */
-+#define KVX_SFR_ES_HTC_SHIFT 12
-+#define KVX_SFR_ES_HTC_WIDTH 5
-+#define KVX_SFR_ES_HTC_WFXL_MASK _ULL(0x1f000)
-+#define KVX_SFR_ES_HTC_WFXL_CLEAR _ULL(0x1f000)
-+#define KVX_SFR_ES_HTC_WFXL_SET _ULL(0x1f00000000000)
-+
-+#define KVX_SFR_ES_SFRT_MASK _ULL(0x20000) /* SFR Trap */
-+#define KVX_SFR_ES_SFRT_SHIFT 17
-+#define KVX_SFR_ES_SFRT_WIDTH 1
-+#define KVX_SFR_ES_SFRT_WFXL_MASK _ULL(0x20000)
-+#define KVX_SFR_ES_SFRT_WFXL_CLEAR _ULL(0x20000)
-+#define KVX_SFR_ES_SFRT_WFXL_SET _ULL(0x2000000000000)
-+
-+#define KVX_SFR_ES_SFRI_MASK _ULL(0x1c0000) /* SFR Instruction */
-+#define KVX_SFR_ES_SFRI_SHIFT 18
-+#define KVX_SFR_ES_SFRI_WIDTH 3
-+#define KVX_SFR_ES_SFRI_WFXL_MASK _ULL(0x1c0000)
-+#define KVX_SFR_ES_SFRI_WFXL_CLEAR _ULL(0x1c0000)
-+#define KVX_SFR_ES_SFRI_WFXL_SET _ULL(0x1c000000000000)
-+
-+#define KVX_SFR_ES_GPRP_MASK _ULL(0x7e00000) /* GPR Pointer */
-+#define KVX_SFR_ES_GPRP_SHIFT 21
-+#define KVX_SFR_ES_GPRP_WIDTH 6
-+#define KVX_SFR_ES_GPRP_WFXL_MASK _ULL(0x7e00000)
-+#define KVX_SFR_ES_GPRP_WFXL_CLEAR _ULL(0x7e00000)
-+#define KVX_SFR_ES_GPRP_WFXL_SET _ULL(0x7e0000000000000)
-+
-+#define KVX_SFR_ES_SFRP_MASK _ULL(0xff8000000) /* SFR Pointer */
-+#define KVX_SFR_ES_SFRP_SHIFT 27
-+#define KVX_SFR_ES_SFRP_WIDTH 9
-+#define KVX_SFR_ES_SFRP_WFXL_MASK _ULL(0xf8000000)
-+#define KVX_SFR_ES_SFRP_WFXL_CLEAR _ULL(0xf8000000)
-+#define KVX_SFR_ES_SFRP_WFXL_SET _ULL(0xf800000000000000)
-+#define KVX_SFR_ES_SFRP_WFXM_MASK _ULL(0xf00000000)
-+#define KVX_SFR_ES_SFRP_WFXM_CLEAR _ULL(0xf)
-+#define KVX_SFR_ES_SFRP_WFXM_SET _ULL(0xf00000000)
-+
-+#define KVX_SFR_ES_DHT_MASK _ULL(0x1000000000) /* Disabled Hardware Trap */
-+#define KVX_SFR_ES_DHT_SHIFT 36
-+#define KVX_SFR_ES_DHT_WIDTH 1
-+#define KVX_SFR_ES_DHT_WFXM_MASK _ULL(0x1000000000)
-+#define KVX_SFR_ES_DHT_WFXM_CLEAR _ULL(0x10)
-+#define KVX_SFR_ES_DHT_WFXM_SET _ULL(0x1000000000)
-+
-+#define KVX_SFR_ES_RWX_MASK _ULL(0x38000000000) /* Read Write Execute */
-+#define KVX_SFR_ES_RWX_SHIFT 39
-+#define KVX_SFR_ES_RWX_WIDTH 3
-+#define KVX_SFR_ES_RWX_WFXM_MASK _ULL(0x38000000000)
-+#define KVX_SFR_ES_RWX_WFXM_CLEAR _ULL(0x380)
-+#define KVX_SFR_ES_RWX_WFXM_SET _ULL(0x38000000000)
-+
-+#define KVX_SFR_ES_NTA_MASK _ULL(0x40000000000) /* Non-Trapping Access */
-+#define KVX_SFR_ES_NTA_SHIFT 42
-+#define KVX_SFR_ES_NTA_WIDTH 1
-+#define KVX_SFR_ES_NTA_WFXM_MASK _ULL(0x40000000000)
-+#define KVX_SFR_ES_NTA_WFXM_CLEAR _ULL(0x400)
-+#define KVX_SFR_ES_NTA_WFXM_SET _ULL(0x40000000000)
-+
-+#define KVX_SFR_ES_UCA_MASK _ULL(0x80000000000) /* Un-Cached Access */
-+#define KVX_SFR_ES_UCA_SHIFT 43
-+#define KVX_SFR_ES_UCA_WIDTH 1
-+#define KVX_SFR_ES_UCA_WFXM_MASK _ULL(0x80000000000)
-+#define KVX_SFR_ES_UCA_WFXM_CLEAR _ULL(0x800)
-+#define KVX_SFR_ES_UCA_WFXM_SET _ULL(0x80000000000)
-+
-+#define KVX_SFR_ES_AS_MASK _ULL(0x3f00000000000) /* Access Size */
-+#define KVX_SFR_ES_AS_SHIFT 44
-+#define KVX_SFR_ES_AS_WIDTH 6
-+#define KVX_SFR_ES_AS_WFXM_MASK _ULL(0x3f00000000000)
-+#define KVX_SFR_ES_AS_WFXM_CLEAR _ULL(0x3f000)
-+#define KVX_SFR_ES_AS_WFXM_SET _ULL(0x3f00000000000)
-+
-+#define KVX_SFR_ES_BS_MASK _ULL(0x3c000000000000) /* Bundle Size */
-+#define KVX_SFR_ES_BS_SHIFT 50
-+#define KVX_SFR_ES_BS_WIDTH 4
-+#define KVX_SFR_ES_BS_WFXM_MASK _ULL(0x3c000000000000)
-+#define KVX_SFR_ES_BS_WFXM_CLEAR _ULL(0x3c0000)
-+#define KVX_SFR_ES_BS_WFXM_SET _ULL(0x3c000000000000)
-+
-+#define KVX_SFR_ES_DRI_MASK _ULL(0xfc0000000000000) /* Data Register Index */
-+#define KVX_SFR_ES_DRI_SHIFT 54
-+#define KVX_SFR_ES_DRI_WIDTH 6
-+#define KVX_SFR_ES_DRI_WFXM_MASK _ULL(0xfc0000000000000)
-+#define KVX_SFR_ES_DRI_WFXM_CLEAR _ULL(0xfc00000)
-+#define KVX_SFR_ES_DRI_WFXM_SET _ULL(0xfc0000000000000)
-+
-+#define KVX_SFR_ES_PIC_MASK _ULL(0xf000000000000000) /* Privileged Instruction Code */
-+#define KVX_SFR_ES_PIC_SHIFT 60
-+#define KVX_SFR_ES_PIC_WIDTH 4
-+#define KVX_SFR_ES_PIC_WFXM_MASK _ULL(0xf000000000000000)
-+#define KVX_SFR_ES_PIC_WFXM_CLEAR _ULL(0xf0000000)
-+#define KVX_SFR_ES_PIC_WFXM_SET _ULL(0xf000000000000000)
-+
-+#define KVX_SFR_ES_DC_MASK _ULL(0x3000) /* Debug Cause */
-+#define KVX_SFR_ES_DC_SHIFT 12
-+#define KVX_SFR_ES_DC_WIDTH 2
-+#define KVX_SFR_ES_DC_WFXL_MASK _ULL(0x3000)
-+#define KVX_SFR_ES_DC_WFXL_CLEAR _ULL(0x3000)
-+#define KVX_SFR_ES_DC_WFXL_SET _ULL(0x300000000000)
-+
-+#define KVX_SFR_ES_BN_MASK _ULL(0x4000) /* Breakpoint Number */
-+#define KVX_SFR_ES_BN_SHIFT 14
-+#define KVX_SFR_ES_BN_WIDTH 1
-+#define KVX_SFR_ES_BN_WFXL_MASK _ULL(0x4000)
-+#define KVX_SFR_ES_BN_WFXL_CLEAR _ULL(0x4000)
-+#define KVX_SFR_ES_BN_WFXL_SET _ULL(0x400000000000)
-+
-+#define KVX_SFR_ES_WN_MASK _ULL(0x8000) /* Watchpoint Number */
-+#define KVX_SFR_ES_WN_SHIFT 15
-+#define KVX_SFR_ES_WN_WIDTH 1
-+#define KVX_SFR_ES_WN_WFXL_MASK _ULL(0x8000)
-+#define KVX_SFR_ES_WN_WFXL_CLEAR _ULL(0x8000)
-+#define KVX_SFR_ES_WN_WFXL_SET _ULL(0x800000000000)
-+
-+#define KVX_SFR_ES_PL0_EC_MASK _ULL(0xf) /* Exception Class */
-+#define KVX_SFR_ES_PL0_EC_SHIFT 0
-+#define KVX_SFR_ES_PL0_EC_WIDTH 4
-+#define KVX_SFR_ES_PL0_EC_WFXL_MASK _ULL(0xf)
-+#define KVX_SFR_ES_PL0_EC_WFXL_CLEAR _ULL(0xf)
-+#define KVX_SFR_ES_PL0_EC_WFXL_SET _ULL(0xf00000000)
-+
-+#define KVX_SFR_ES_PL0_ED_MASK _ULL(0xfffffffffffffff0) /* Exception Details */
-+#define KVX_SFR_ES_PL0_ED_SHIFT 4
-+#define KVX_SFR_ES_PL0_ED_WIDTH 60
-+#define KVX_SFR_ES_PL0_ED_WFXL_MASK _ULL(0xfffffff0)
-+#define KVX_SFR_ES_PL0_ED_WFXL_CLEAR _ULL(0xfffffff0)
-+#define KVX_SFR_ES_PL0_ED_WFXL_SET _ULL(0xfffffff000000000)
-+#define KVX_SFR_ES_PL0_ED_WFXM_MASK _ULL(0xffffffff00000000)
-+#define KVX_SFR_ES_PL0_ED_WFXM_CLEAR _ULL(0xffffffff)
-+#define KVX_SFR_ES_PL0_ED_WFXM_SET _ULL(0xffffffff00000000)
-+
-+#define KVX_SFR_ES_PL0_OAPL_MASK _ULL(0x30) /* Origin Absolute PL */
-+#define KVX_SFR_ES_PL0_OAPL_SHIFT 4
-+#define KVX_SFR_ES_PL0_OAPL_WIDTH 2
-+#define KVX_SFR_ES_PL0_OAPL_WFXL_MASK _ULL(0x30)
-+#define KVX_SFR_ES_PL0_OAPL_WFXL_CLEAR _ULL(0x30)
-+#define KVX_SFR_ES_PL0_OAPL_WFXL_SET _ULL(0x3000000000)
-+
-+#define KVX_SFR_ES_PL0_ORPL_MASK _ULL(0xc0) /* Origin Relative PL */
-+#define KVX_SFR_ES_PL0_ORPL_SHIFT 6
-+#define KVX_SFR_ES_PL0_ORPL_WIDTH 2
-+#define KVX_SFR_ES_PL0_ORPL_WFXL_MASK _ULL(0xc0)
-+#define KVX_SFR_ES_PL0_ORPL_WFXL_CLEAR _ULL(0xc0)
-+#define KVX_SFR_ES_PL0_ORPL_WFXL_SET _ULL(0xc000000000)
-+
-+#define KVX_SFR_ES_PL0_PTAPL_MASK _ULL(0x300) /* Target Absolute PL */
-+#define KVX_SFR_ES_PL0_PTAPL_SHIFT 8
-+#define KVX_SFR_ES_PL0_PTAPL_WIDTH 2
-+#define KVX_SFR_ES_PL0_PTAPL_WFXL_MASK _ULL(0x300)
-+#define KVX_SFR_ES_PL0_PTAPL_WFXL_CLEAR _ULL(0x300)
-+#define KVX_SFR_ES_PL0_PTAPL_WFXL_SET _ULL(0x30000000000)
-+
-+#define KVX_SFR_ES_PL0_PTRPL_MASK _ULL(0xc00) /* Target Relative PL */
-+#define KVX_SFR_ES_PL0_PTRPL_SHIFT 10
-+#define KVX_SFR_ES_PL0_PTRPL_WIDTH 2
-+#define KVX_SFR_ES_PL0_PTRPL_WFXL_MASK _ULL(0xc00)
-+#define KVX_SFR_ES_PL0_PTRPL_WFXL_CLEAR _ULL(0xc00)
-+#define KVX_SFR_ES_PL0_PTRPL_WFXL_SET _ULL(0xc0000000000)
-+
-+#define KVX_SFR_ES_PL0_ITN_MASK _ULL(0x1f000) /* InTerrupt Number */
-+#define KVX_SFR_ES_PL0_ITN_SHIFT 12
-+#define KVX_SFR_ES_PL0_ITN_WIDTH 5
-+#define KVX_SFR_ES_PL0_ITN_WFXL_MASK _ULL(0x1f000)
-+#define KVX_SFR_ES_PL0_ITN_WFXL_CLEAR _ULL(0x1f000)
-+#define KVX_SFR_ES_PL0_ITN_WFXL_SET _ULL(0x1f00000000000)
-+
-+#define KVX_SFR_ES_PL0_ITL_MASK _ULL(0x60000) /* InTerrupt Level */
-+#define KVX_SFR_ES_PL0_ITL_SHIFT 17
-+#define KVX_SFR_ES_PL0_ITL_WIDTH 2
-+#define KVX_SFR_ES_PL0_ITL_WFXL_MASK _ULL(0x60000)
-+#define KVX_SFR_ES_PL0_ITL_WFXL_CLEAR _ULL(0x60000)
-+#define KVX_SFR_ES_PL0_ITL_WFXL_SET _ULL(0x6000000000000)
-+
-+#define KVX_SFR_ES_PL0_ITI_MASK _ULL(0x1ff80000) /* InTerrupt Info */
-+#define KVX_SFR_ES_PL0_ITI_SHIFT 19
-+#define KVX_SFR_ES_PL0_ITI_WIDTH 10
-+#define KVX_SFR_ES_PL0_ITI_WFXL_MASK _ULL(0x1ff80000)
-+#define KVX_SFR_ES_PL0_ITI_WFXL_CLEAR _ULL(0x1ff80000)
-+#define KVX_SFR_ES_PL0_ITI_WFXL_SET _ULL(0x1ff8000000000000)
-+
-+#define KVX_SFR_ES_PL0_SN_MASK _ULL(0xfff000) /* Syscall Number */
-+#define KVX_SFR_ES_PL0_SN_SHIFT 12
-+#define KVX_SFR_ES_PL0_SN_WIDTH 12
-+#define KVX_SFR_ES_PL0_SN_WFXL_MASK _ULL(0xfff000)
-+#define KVX_SFR_ES_PL0_SN_WFXL_CLEAR _ULL(0xfff000)
-+#define KVX_SFR_ES_PL0_SN_WFXL_SET _ULL(0xfff00000000000)
-+
-+#define KVX_SFR_ES_PL0_HTC_MASK _ULL(0x1f000) /* Hardware Trap Cause */
-+#define KVX_SFR_ES_PL0_HTC_SHIFT 12
-+#define KVX_SFR_ES_PL0_HTC_WIDTH 5
-+#define KVX_SFR_ES_PL0_HTC_WFXL_MASK _ULL(0x1f000)
-+#define KVX_SFR_ES_PL0_HTC_WFXL_CLEAR _ULL(0x1f000)
-+#define KVX_SFR_ES_PL0_HTC_WFXL_SET _ULL(0x1f00000000000)
-+
-+#define KVX_SFR_ES_PL0_SFRT_MASK _ULL(0x20000) /* SFR Trap */
-+#define KVX_SFR_ES_PL0_SFRT_SHIFT 17
-+#define KVX_SFR_ES_PL0_SFRT_WIDTH 1
-+#define KVX_SFR_ES_PL0_SFRT_WFXL_MASK _ULL(0x20000)
-+#define KVX_SFR_ES_PL0_SFRT_WFXL_CLEAR _ULL(0x20000)
-+#define KVX_SFR_ES_PL0_SFRT_WFXL_SET _ULL(0x2000000000000)
-+
-+#define KVX_SFR_ES_PL0_SFRI_MASK _ULL(0x1c0000) /* SFR Instruction */
-+#define KVX_SFR_ES_PL0_SFRI_SHIFT 18
-+#define KVX_SFR_ES_PL0_SFRI_WIDTH 3
-+#define KVX_SFR_ES_PL0_SFRI_WFXL_MASK _ULL(0x1c0000)
-+#define KVX_SFR_ES_PL0_SFRI_WFXL_CLEAR _ULL(0x1c0000)
-+#define KVX_SFR_ES_PL0_SFRI_WFXL_SET _ULL(0x1c000000000000)
-+
-+#define KVX_SFR_ES_PL0_GPRP_MASK _ULL(0x7e00000) /* GPR Pointer */
-+#define KVX_SFR_ES_PL0_GPRP_SHIFT 21
-+#define KVX_SFR_ES_PL0_GPRP_WIDTH 6
-+#define KVX_SFR_ES_PL0_GPRP_WFXL_MASK _ULL(0x7e00000)
-+#define KVX_SFR_ES_PL0_GPRP_WFXL_CLEAR _ULL(0x7e00000)
-+#define KVX_SFR_ES_PL0_GPRP_WFXL_SET _ULL(0x7e0000000000000)
-+
-+#define KVX_SFR_ES_PL0_SFRP_MASK _ULL(0xff8000000) /* SFR Pointer */
-+#define KVX_SFR_ES_PL0_SFRP_SHIFT 27
-+#define KVX_SFR_ES_PL0_SFRP_WIDTH 9
-+#define KVX_SFR_ES_PL0_SFRP_WFXL_MASK _ULL(0xf8000000)
-+#define KVX_SFR_ES_PL0_SFRP_WFXL_CLEAR _ULL(0xf8000000)
-+#define KVX_SFR_ES_PL0_SFRP_WFXL_SET _ULL(0xf800000000000000)
-+#define KVX_SFR_ES_PL0_SFRP_WFXM_MASK _ULL(0xf00000000)
-+#define KVX_SFR_ES_PL0_SFRP_WFXM_CLEAR _ULL(0xf)
-+#define KVX_SFR_ES_PL0_SFRP_WFXM_SET _ULL(0xf00000000)
-+
-+#define KVX_SFR_ES_PL0_DHT_MASK _ULL(0x1000000000) /* Disabled Hardware Trap */
-+#define KVX_SFR_ES_PL0_DHT_SHIFT 36
-+#define KVX_SFR_ES_PL0_DHT_WIDTH 1
-+#define KVX_SFR_ES_PL0_DHT_WFXM_MASK _ULL(0x1000000000)
-+#define KVX_SFR_ES_PL0_DHT_WFXM_CLEAR _ULL(0x10)
-+#define KVX_SFR_ES_PL0_DHT_WFXM_SET _ULL(0x1000000000)
-+
-+#define KVX_SFR_ES_PL0_RWX_MASK _ULL(0x38000000000) /* Read Write Execute */
-+#define KVX_SFR_ES_PL0_RWX_SHIFT 39
-+#define KVX_SFR_ES_PL0_RWX_WIDTH 3
-+#define KVX_SFR_ES_PL0_RWX_WFXM_MASK _ULL(0x38000000000)
-+#define KVX_SFR_ES_PL0_RWX_WFXM_CLEAR _ULL(0x380)
-+#define KVX_SFR_ES_PL0_RWX_WFXM_SET _ULL(0x38000000000)
-+
-+#define KVX_SFR_ES_PL0_NTA_MASK _ULL(0x40000000000) /* Non-Trapping Access */
-+#define KVX_SFR_ES_PL0_NTA_SHIFT 42
-+#define KVX_SFR_ES_PL0_NTA_WIDTH 1
-+#define KVX_SFR_ES_PL0_NTA_WFXM_MASK _ULL(0x40000000000)
-+#define KVX_SFR_ES_PL0_NTA_WFXM_CLEAR _ULL(0x400)
-+#define KVX_SFR_ES_PL0_NTA_WFXM_SET _ULL(0x40000000000)
-+
-+#define KVX_SFR_ES_PL0_UCA_MASK _ULL(0x80000000000) /* Un-Cached Access */
-+#define KVX_SFR_ES_PL0_UCA_SHIFT 43
-+#define KVX_SFR_ES_PL0_UCA_WIDTH 1
-+#define KVX_SFR_ES_PL0_UCA_WFXM_MASK _ULL(0x80000000000)
-+#define KVX_SFR_ES_PL0_UCA_WFXM_CLEAR _ULL(0x800)
-+#define KVX_SFR_ES_PL0_UCA_WFXM_SET _ULL(0x80000000000)
-+
-+#define KVX_SFR_ES_PL0_AS_MASK _ULL(0x3f00000000000) /* Access Size */
-+#define KVX_SFR_ES_PL0_AS_SHIFT 44
-+#define KVX_SFR_ES_PL0_AS_WIDTH 6
-+#define KVX_SFR_ES_PL0_AS_WFXM_MASK _ULL(0x3f00000000000)
-+#define KVX_SFR_ES_PL0_AS_WFXM_CLEAR _ULL(0x3f000)
-+#define KVX_SFR_ES_PL0_AS_WFXM_SET _ULL(0x3f00000000000)
-+
-+#define KVX_SFR_ES_PL0_BS_MASK _ULL(0x3c000000000000) /* Bundle Size */
-+#define KVX_SFR_ES_PL0_BS_SHIFT 50
-+#define KVX_SFR_ES_PL0_BS_WIDTH 4
-+#define KVX_SFR_ES_PL0_BS_WFXM_MASK _ULL(0x3c000000000000)
-+#define KVX_SFR_ES_PL0_BS_WFXM_CLEAR _ULL(0x3c0000)
-+#define KVX_SFR_ES_PL0_BS_WFXM_SET _ULL(0x3c000000000000)
-+
-+#define KVX_SFR_ES_PL0_DRI_MASK _ULL(0xfc0000000000000) /* Data Register Index */
-+#define KVX_SFR_ES_PL0_DRI_SHIFT 54
-+#define KVX_SFR_ES_PL0_DRI_WIDTH 6
-+#define KVX_SFR_ES_PL0_DRI_WFXM_MASK _ULL(0xfc0000000000000)
-+#define KVX_SFR_ES_PL0_DRI_WFXM_CLEAR _ULL(0xfc00000)
-+#define KVX_SFR_ES_PL0_DRI_WFXM_SET _ULL(0xfc0000000000000)
-+
-+#define KVX_SFR_ES_PL0_PIC_MASK _ULL(0xf000000000000000) /* Privileged Instruction Code */
-+#define KVX_SFR_ES_PL0_PIC_SHIFT 60
-+#define KVX_SFR_ES_PL0_PIC_WIDTH 4
-+#define KVX_SFR_ES_PL0_PIC_WFXM_MASK _ULL(0xf000000000000000)
-+#define KVX_SFR_ES_PL0_PIC_WFXM_CLEAR _ULL(0xf0000000)
-+#define KVX_SFR_ES_PL0_PIC_WFXM_SET _ULL(0xf000000000000000)
-+
-+#define KVX_SFR_ES_PL0_DC_MASK _ULL(0x3000) /* Debug Cause */
-+#define KVX_SFR_ES_PL0_DC_SHIFT 12
-+#define KVX_SFR_ES_PL0_DC_WIDTH 2
-+#define KVX_SFR_ES_PL0_DC_WFXL_MASK _ULL(0x3000)
-+#define KVX_SFR_ES_PL0_DC_WFXL_CLEAR _ULL(0x3000)
-+#define KVX_SFR_ES_PL0_DC_WFXL_SET _ULL(0x300000000000)
-+
-+#define KVX_SFR_ES_PL0_BN_MASK _ULL(0x4000) /* Breakpoint Number */
-+#define KVX_SFR_ES_PL0_BN_SHIFT 14
-+#define KVX_SFR_ES_PL0_BN_WIDTH 1
-+#define KVX_SFR_ES_PL0_BN_WFXL_MASK _ULL(0x4000)
-+#define KVX_SFR_ES_PL0_BN_WFXL_CLEAR _ULL(0x4000)
-+#define KVX_SFR_ES_PL0_BN_WFXL_SET _ULL(0x400000000000)
-+
-+#define KVX_SFR_ES_PL0_WN_MASK _ULL(0x8000) /* Watchpoint Number */
-+#define KVX_SFR_ES_PL0_WN_SHIFT 15
-+#define KVX_SFR_ES_PL0_WN_WIDTH 1
-+#define KVX_SFR_ES_PL0_WN_WFXL_MASK _ULL(0x8000)
-+#define KVX_SFR_ES_PL0_WN_WFXL_CLEAR _ULL(0x8000)
-+#define KVX_SFR_ES_PL0_WN_WFXL_SET _ULL(0x800000000000)
-+
-+#define KVX_SFR_ES_PL1_EC_MASK _ULL(0xf) /* Exception Class */
-+#define KVX_SFR_ES_PL1_EC_SHIFT 0
-+#define KVX_SFR_ES_PL1_EC_WIDTH 4
-+#define KVX_SFR_ES_PL1_EC_WFXL_MASK _ULL(0xf)
-+#define KVX_SFR_ES_PL1_EC_WFXL_CLEAR _ULL(0xf)
-+#define KVX_SFR_ES_PL1_EC_WFXL_SET _ULL(0xf00000000)
-+
-+#define KVX_SFR_ES_PL1_ED_MASK _ULL(0xfffffffffffffff0) /* Exception Details */
-+#define KVX_SFR_ES_PL1_ED_SHIFT 4
-+#define KVX_SFR_ES_PL1_ED_WIDTH 60
-+#define KVX_SFR_ES_PL1_ED_WFXL_MASK _ULL(0xfffffff0)
-+#define KVX_SFR_ES_PL1_ED_WFXL_CLEAR _ULL(0xfffffff0)
-+#define KVX_SFR_ES_PL1_ED_WFXL_SET _ULL(0xfffffff000000000)
-+#define KVX_SFR_ES_PL1_ED_WFXM_MASK _ULL(0xffffffff00000000)
-+#define KVX_SFR_ES_PL1_ED_WFXM_CLEAR _ULL(0xffffffff)
-+#define KVX_SFR_ES_PL1_ED_WFXM_SET _ULL(0xffffffff00000000)
-+
-+#define KVX_SFR_ES_PL1_OAPL_MASK _ULL(0x30) /* Origin Absolute PL */
-+#define KVX_SFR_ES_PL1_OAPL_SHIFT 4
-+#define KVX_SFR_ES_PL1_OAPL_WIDTH 2
-+#define KVX_SFR_ES_PL1_OAPL_WFXL_MASK _ULL(0x30)
-+#define KVX_SFR_ES_PL1_OAPL_WFXL_CLEAR _ULL(0x30)
-+#define KVX_SFR_ES_PL1_OAPL_WFXL_SET _ULL(0x3000000000)
-+
-+#define KVX_SFR_ES_PL1_ORPL_MASK _ULL(0xc0) /* Origin Relative PL */
-+#define KVX_SFR_ES_PL1_ORPL_SHIFT 6
-+#define KVX_SFR_ES_PL1_ORPL_WIDTH 2
-+#define KVX_SFR_ES_PL1_ORPL_WFXL_MASK _ULL(0xc0)
-+#define KVX_SFR_ES_PL1_ORPL_WFXL_CLEAR _ULL(0xc0)
-+#define KVX_SFR_ES_PL1_ORPL_WFXL_SET _ULL(0xc000000000)
-+
-+#define KVX_SFR_ES_PL1_PTAPL_MASK _ULL(0x300) /* Target Absolute PL */
-+#define KVX_SFR_ES_PL1_PTAPL_SHIFT 8
-+#define KVX_SFR_ES_PL1_PTAPL_WIDTH 2
-+#define KVX_SFR_ES_PL1_PTAPL_WFXL_MASK _ULL(0x300)
-+#define KVX_SFR_ES_PL1_PTAPL_WFXL_CLEAR _ULL(0x300)
-+#define KVX_SFR_ES_PL1_PTAPL_WFXL_SET _ULL(0x30000000000)
-+
-+#define KVX_SFR_ES_PL1_PTRPL_MASK _ULL(0xc00) /* Target Relative PL */
-+#define KVX_SFR_ES_PL1_PTRPL_SHIFT 10
-+#define KVX_SFR_ES_PL1_PTRPL_WIDTH 2
-+#define KVX_SFR_ES_PL1_PTRPL_WFXL_MASK _ULL(0xc00)
-+#define KVX_SFR_ES_PL1_PTRPL_WFXL_CLEAR _ULL(0xc00)
-+#define KVX_SFR_ES_PL1_PTRPL_WFXL_SET _ULL(0xc0000000000)
-+
-+#define KVX_SFR_ES_PL1_ITN_MASK _ULL(0x1f000) /* InTerrupt Number */
-+#define KVX_SFR_ES_PL1_ITN_SHIFT 12
-+#define KVX_SFR_ES_PL1_ITN_WIDTH 5
-+#define KVX_SFR_ES_PL1_ITN_WFXL_MASK _ULL(0x1f000)
-+#define KVX_SFR_ES_PL1_ITN_WFXL_CLEAR _ULL(0x1f000)
-+#define KVX_SFR_ES_PL1_ITN_WFXL_SET _ULL(0x1f00000000000)
-+
-+#define KVX_SFR_ES_PL1_ITL_MASK _ULL(0x60000) /* InTerrupt Level */
-+#define KVX_SFR_ES_PL1_ITL_SHIFT 17
-+#define KVX_SFR_ES_PL1_ITL_WIDTH 2
-+#define KVX_SFR_ES_PL1_ITL_WFXL_MASK _ULL(0x60000)
-+#define KVX_SFR_ES_PL1_ITL_WFXL_CLEAR _ULL(0x60000)
-+#define KVX_SFR_ES_PL1_ITL_WFXL_SET _ULL(0x6000000000000)
-+
-+#define KVX_SFR_ES_PL1_ITI_MASK _ULL(0x1ff80000) /* InTerrupt Info */
-+#define KVX_SFR_ES_PL1_ITI_SHIFT 19
-+#define KVX_SFR_ES_PL1_ITI_WIDTH 10
-+#define KVX_SFR_ES_PL1_ITI_WFXL_MASK _ULL(0x1ff80000)
-+#define KVX_SFR_ES_PL1_ITI_WFXL_CLEAR _ULL(0x1ff80000)
-+#define KVX_SFR_ES_PL1_ITI_WFXL_SET _ULL(0x1ff8000000000000)
-+
-+#define KVX_SFR_ES_PL1_SN_MASK _ULL(0xfff000) /* Syscall Number */
-+#define KVX_SFR_ES_PL1_SN_SHIFT 12
-+#define KVX_SFR_ES_PL1_SN_WIDTH 12
-+#define KVX_SFR_ES_PL1_SN_WFXL_MASK _ULL(0xfff000)
-+#define KVX_SFR_ES_PL1_SN_WFXL_CLEAR _ULL(0xfff000)
-+#define KVX_SFR_ES_PL1_SN_WFXL_SET _ULL(0xfff00000000000)
-+
-+#define KVX_SFR_ES_PL1_HTC_MASK _ULL(0x1f000) /* Hardware Trap Cause */
-+#define KVX_SFR_ES_PL1_HTC_SHIFT 12
-+#define KVX_SFR_ES_PL1_HTC_WIDTH 5
-+#define KVX_SFR_ES_PL1_HTC_WFXL_MASK _ULL(0x1f000)
-+#define KVX_SFR_ES_PL1_HTC_WFXL_CLEAR _ULL(0x1f000)
-+#define KVX_SFR_ES_PL1_HTC_WFXL_SET _ULL(0x1f00000000000)
-+
-+#define KVX_SFR_ES_PL1_SFRT_MASK _ULL(0x20000) /* SFR Trap */
-+#define KVX_SFR_ES_PL1_SFRT_SHIFT 17
-+#define KVX_SFR_ES_PL1_SFRT_WIDTH 1
-+#define KVX_SFR_ES_PL1_SFRT_WFXL_MASK _ULL(0x20000)
-+#define KVX_SFR_ES_PL1_SFRT_WFXL_CLEAR _ULL(0x20000)
-+#define KVX_SFR_ES_PL1_SFRT_WFXL_SET _ULL(0x2000000000000)
-+
-+#define KVX_SFR_ES_PL1_SFRI_MASK _ULL(0x1c0000) /* SFR Instruction */
-+#define KVX_SFR_ES_PL1_SFRI_SHIFT 18
-+#define KVX_SFR_ES_PL1_SFRI_WIDTH 3
-+#define KVX_SFR_ES_PL1_SFRI_WFXL_MASK _ULL(0x1c0000)
-+#define KVX_SFR_ES_PL1_SFRI_WFXL_CLEAR _ULL(0x1c0000)
-+#define KVX_SFR_ES_PL1_SFRI_WFXL_SET _ULL(0x1c000000000000)
-+
-+#define KVX_SFR_ES_PL1_GPRP_MASK _ULL(0x7e00000) /* GPR Pointer */
-+#define KVX_SFR_ES_PL1_GPRP_SHIFT 21
-+#define KVX_SFR_ES_PL1_GPRP_WIDTH 6
-+#define KVX_SFR_ES_PL1_GPRP_WFXL_MASK _ULL(0x7e00000)
-+#define KVX_SFR_ES_PL1_GPRP_WFXL_CLEAR _ULL(0x7e00000)
-+#define KVX_SFR_ES_PL1_GPRP_WFXL_SET _ULL(0x7e0000000000000)
-+
-+#define KVX_SFR_ES_PL1_SFRP_MASK _ULL(0xff8000000) /* SFR Pointer */
-+#define KVX_SFR_ES_PL1_SFRP_SHIFT 27
-+#define KVX_SFR_ES_PL1_SFRP_WIDTH 9
-+#define KVX_SFR_ES_PL1_SFRP_WFXL_MASK _ULL(0xf8000000)
-+#define KVX_SFR_ES_PL1_SFRP_WFXL_CLEAR _ULL(0xf8000000)
-+#define KVX_SFR_ES_PL1_SFRP_WFXL_SET _ULL(0xf800000000000000)
-+#define KVX_SFR_ES_PL1_SFRP_WFXM_MASK _ULL(0xf00000000)
-+#define KVX_SFR_ES_PL1_SFRP_WFXM_CLEAR _ULL(0xf)
-+#define KVX_SFR_ES_PL1_SFRP_WFXM_SET _ULL(0xf00000000)
-+
-+#define KVX_SFR_ES_PL1_DHT_MASK _ULL(0x1000000000) /* Disabled Hardware Trap */
-+#define KVX_SFR_ES_PL1_DHT_SHIFT 36
-+#define KVX_SFR_ES_PL1_DHT_WIDTH 1
-+#define KVX_SFR_ES_PL1_DHT_WFXM_MASK _ULL(0x1000000000)
-+#define KVX_SFR_ES_PL1_DHT_WFXM_CLEAR _ULL(0x10)
-+#define KVX_SFR_ES_PL1_DHT_WFXM_SET _ULL(0x1000000000)
-+
-+#define KVX_SFR_ES_PL1_RWX_MASK _ULL(0x38000000000) /* Read Write Execute */
-+#define KVX_SFR_ES_PL1_RWX_SHIFT 39
-+#define KVX_SFR_ES_PL1_RWX_WIDTH 3
-+#define KVX_SFR_ES_PL1_RWX_WFXM_MASK _ULL(0x38000000000)
-+#define KVX_SFR_ES_PL1_RWX_WFXM_CLEAR _ULL(0x380)
-+#define KVX_SFR_ES_PL1_RWX_WFXM_SET _ULL(0x38000000000)
-+
-+#define KVX_SFR_ES_PL1_NTA_MASK _ULL(0x40000000000) /* Non-Trapping Access */
-+#define KVX_SFR_ES_PL1_NTA_SHIFT 42
-+#define KVX_SFR_ES_PL1_NTA_WIDTH 1
-+#define KVX_SFR_ES_PL1_NTA_WFXM_MASK _ULL(0x40000000000)
-+#define KVX_SFR_ES_PL1_NTA_WFXM_CLEAR _ULL(0x400)
-+#define KVX_SFR_ES_PL1_NTA_WFXM_SET _ULL(0x40000000000)
-+
-+#define KVX_SFR_ES_PL1_UCA_MASK _ULL(0x80000000000) /* Un-Cached Access */
-+#define KVX_SFR_ES_PL1_UCA_SHIFT 43
-+#define KVX_SFR_ES_PL1_UCA_WIDTH 1
-+#define KVX_SFR_ES_PL1_UCA_WFXM_MASK _ULL(0x80000000000)
-+#define KVX_SFR_ES_PL1_UCA_WFXM_CLEAR _ULL(0x800)
-+#define KVX_SFR_ES_PL1_UCA_WFXM_SET _ULL(0x80000000000)
-+
-+#define KVX_SFR_ES_PL1_AS_MASK _ULL(0x3f00000000000) /* Access Size */
-+#define KVX_SFR_ES_PL1_AS_SHIFT 44
-+#define KVX_SFR_ES_PL1_AS_WIDTH 6
-+#define KVX_SFR_ES_PL1_AS_WFXM_MASK _ULL(0x3f00000000000)
-+#define KVX_SFR_ES_PL1_AS_WFXM_CLEAR _ULL(0x3f000)
-+#define KVX_SFR_ES_PL1_AS_WFXM_SET _ULL(0x3f00000000000)
-+
-+#define KVX_SFR_ES_PL1_BS_MASK _ULL(0x3c000000000000) /* Bundle Size */
-+#define KVX_SFR_ES_PL1_BS_SHIFT 50
-+#define KVX_SFR_ES_PL1_BS_WIDTH 4
-+#define KVX_SFR_ES_PL1_BS_WFXM_MASK _ULL(0x3c000000000000)
-+#define KVX_SFR_ES_PL1_BS_WFXM_CLEAR _ULL(0x3c0000)
-+#define KVX_SFR_ES_PL1_BS_WFXM_SET _ULL(0x3c000000000000)
-+
-+#define KVX_SFR_ES_PL1_DRI_MASK _ULL(0xfc0000000000000) /* Data Register Index */
-+#define KVX_SFR_ES_PL1_DRI_SHIFT 54
-+#define KVX_SFR_ES_PL1_DRI_WIDTH 6
-+#define KVX_SFR_ES_PL1_DRI_WFXM_MASK _ULL(0xfc0000000000000)
-+#define KVX_SFR_ES_PL1_DRI_WFXM_CLEAR _ULL(0xfc00000)
-+#define KVX_SFR_ES_PL1_DRI_WFXM_SET _ULL(0xfc0000000000000)
-+
-+#define KVX_SFR_ES_PL1_PIC_MASK _ULL(0xf000000000000000) /* Privileged Instruction Code */
-+#define KVX_SFR_ES_PL1_PIC_SHIFT 60
-+#define KVX_SFR_ES_PL1_PIC_WIDTH 4
-+#define KVX_SFR_ES_PL1_PIC_WFXM_MASK _ULL(0xf000000000000000)
-+#define KVX_SFR_ES_PL1_PIC_WFXM_CLEAR _ULL(0xf0000000)
-+#define KVX_SFR_ES_PL1_PIC_WFXM_SET _ULL(0xf000000000000000)
-+
-+#define KVX_SFR_ES_PL1_DC_MASK _ULL(0x3000) /* Debug Cause */
-+#define KVX_SFR_ES_PL1_DC_SHIFT 12
-+#define KVX_SFR_ES_PL1_DC_WIDTH 2
-+#define KVX_SFR_ES_PL1_DC_WFXL_MASK _ULL(0x3000)
-+#define KVX_SFR_ES_PL1_DC_WFXL_CLEAR _ULL(0x3000)
-+#define KVX_SFR_ES_PL1_DC_WFXL_SET _ULL(0x300000000000)
-+
-+#define KVX_SFR_ES_PL1_BN_MASK _ULL(0x4000) /* Breakpoint Number */
-+#define KVX_SFR_ES_PL1_BN_SHIFT 14
-+#define KVX_SFR_ES_PL1_BN_WIDTH 1
-+#define KVX_SFR_ES_PL1_BN_WFXL_MASK _ULL(0x4000)
-+#define KVX_SFR_ES_PL1_BN_WFXL_CLEAR _ULL(0x4000)
-+#define KVX_SFR_ES_PL1_BN_WFXL_SET _ULL(0x400000000000)
-+
-+#define KVX_SFR_ES_PL1_WN_MASK _ULL(0x8000) /* Watchpoint Number */
-+#define KVX_SFR_ES_PL1_WN_SHIFT 15
-+#define KVX_SFR_ES_PL1_WN_WIDTH 1
-+#define KVX_SFR_ES_PL1_WN_WFXL_MASK _ULL(0x8000)
-+#define KVX_SFR_ES_PL1_WN_WFXL_CLEAR _ULL(0x8000)
-+#define KVX_SFR_ES_PL1_WN_WFXL_SET _ULL(0x800000000000)
-+
-+#define KVX_SFR_ES_PL2_EC_MASK _ULL(0xf) /* Exception Class */
-+#define KVX_SFR_ES_PL2_EC_SHIFT 0
-+#define KVX_SFR_ES_PL2_EC_WIDTH 4
-+#define KVX_SFR_ES_PL2_EC_WFXL_MASK _ULL(0xf)
-+#define KVX_SFR_ES_PL2_EC_WFXL_CLEAR _ULL(0xf)
-+#define KVX_SFR_ES_PL2_EC_WFXL_SET _ULL(0xf00000000)
-+
-+#define KVX_SFR_ES_PL2_ED_MASK _ULL(0xfffffffffffffff0) /* Exception Details */
-+#define KVX_SFR_ES_PL2_ED_SHIFT 4
-+#define KVX_SFR_ES_PL2_ED_WIDTH 60
-+#define KVX_SFR_ES_PL2_ED_WFXL_MASK _ULL(0xfffffff0)
-+#define KVX_SFR_ES_PL2_ED_WFXL_CLEAR _ULL(0xfffffff0)
-+#define KVX_SFR_ES_PL2_ED_WFXL_SET _ULL(0xfffffff000000000)
-+#define KVX_SFR_ES_PL2_ED_WFXM_MASK _ULL(0xffffffff00000000)
-+#define KVX_SFR_ES_PL2_ED_WFXM_CLEAR _ULL(0xffffffff)
-+#define KVX_SFR_ES_PL2_ED_WFXM_SET _ULL(0xffffffff00000000)
-+
-+#define KVX_SFR_ES_PL2_OAPL_MASK _ULL(0x30) /* Origin Absolute PL */
-+#define KVX_SFR_ES_PL2_OAPL_SHIFT 4
-+#define KVX_SFR_ES_PL2_OAPL_WIDTH 2
-+#define KVX_SFR_ES_PL2_OAPL_WFXL_MASK _ULL(0x30)
-+#define KVX_SFR_ES_PL2_OAPL_WFXL_CLEAR _ULL(0x30)
-+#define KVX_SFR_ES_PL2_OAPL_WFXL_SET _ULL(0x3000000000)
-+
-+#define KVX_SFR_ES_PL2_ORPL_MASK _ULL(0xc0) /* Origin Relative PL */
-+#define KVX_SFR_ES_PL2_ORPL_SHIFT 6
-+#define KVX_SFR_ES_PL2_ORPL_WIDTH 2
-+#define KVX_SFR_ES_PL2_ORPL_WFXL_MASK _ULL(0xc0)
-+#define KVX_SFR_ES_PL2_ORPL_WFXL_CLEAR _ULL(0xc0)
-+#define KVX_SFR_ES_PL2_ORPL_WFXL_SET _ULL(0xc000000000)
-+
-+#define KVX_SFR_ES_PL2_PTAPL_MASK _ULL(0x300) /* Target Absolute PL */
-+#define KVX_SFR_ES_PL2_PTAPL_SHIFT 8
-+#define KVX_SFR_ES_PL2_PTAPL_WIDTH 2
-+#define KVX_SFR_ES_PL2_PTAPL_WFXL_MASK _ULL(0x300)
-+#define KVX_SFR_ES_PL2_PTAPL_WFXL_CLEAR _ULL(0x300)
-+#define KVX_SFR_ES_PL2_PTAPL_WFXL_SET _ULL(0x30000000000)
-+
-+#define KVX_SFR_ES_PL2_PTRPL_MASK _ULL(0xc00) /* Target Relative PL */
-+#define KVX_SFR_ES_PL2_PTRPL_SHIFT 10
-+#define KVX_SFR_ES_PL2_PTRPL_WIDTH 2
-+#define KVX_SFR_ES_PL2_PTRPL_WFXL_MASK _ULL(0xc00)
-+#define KVX_SFR_ES_PL2_PTRPL_WFXL_CLEAR _ULL(0xc00)
-+#define KVX_SFR_ES_PL2_PTRPL_WFXL_SET _ULL(0xc0000000000)
-+
-+#define KVX_SFR_ES_PL2_ITN_MASK _ULL(0x1f000) /* InTerrupt Number */
-+#define KVX_SFR_ES_PL2_ITN_SHIFT 12
-+#define KVX_SFR_ES_PL2_ITN_WIDTH 5
-+#define KVX_SFR_ES_PL2_ITN_WFXL_MASK _ULL(0x1f000)
-+#define KVX_SFR_ES_PL2_ITN_WFXL_CLEAR _ULL(0x1f000)
-+#define KVX_SFR_ES_PL2_ITN_WFXL_SET _ULL(0x1f00000000000)
-+
-+#define KVX_SFR_ES_PL2_ITL_MASK _ULL(0x60000) /* InTerrupt Level */
-+#define KVX_SFR_ES_PL2_ITL_SHIFT 17
-+#define KVX_SFR_ES_PL2_ITL_WIDTH 2
-+#define KVX_SFR_ES_PL2_ITL_WFXL_MASK _ULL(0x60000)
-+#define KVX_SFR_ES_PL2_ITL_WFXL_CLEAR _ULL(0x60000)
-+#define KVX_SFR_ES_PL2_ITL_WFXL_SET _ULL(0x6000000000000)
-+
-+#define KVX_SFR_ES_PL2_ITI_MASK _ULL(0x1ff80000) /* InTerrupt Info */
-+#define KVX_SFR_ES_PL2_ITI_SHIFT 19
-+#define KVX_SFR_ES_PL2_ITI_WIDTH 10
-+#define KVX_SFR_ES_PL2_ITI_WFXL_MASK _ULL(0x1ff80000)
-+#define KVX_SFR_ES_PL2_ITI_WFXL_CLEAR _ULL(0x1ff80000)
-+#define KVX_SFR_ES_PL2_ITI_WFXL_SET _ULL(0x1ff8000000000000)
-+
-+#define KVX_SFR_ES_PL2_SN_MASK _ULL(0xfff000) /* Syscall Number */
-+#define KVX_SFR_ES_PL2_SN_SHIFT 12
-+#define KVX_SFR_ES_PL2_SN_WIDTH 12
-+#define KVX_SFR_ES_PL2_SN_WFXL_MASK _ULL(0xfff000)
-+#define KVX_SFR_ES_PL2_SN_WFXL_CLEAR _ULL(0xfff000)
-+#define KVX_SFR_ES_PL2_SN_WFXL_SET _ULL(0xfff00000000000)
-+
-+#define KVX_SFR_ES_PL2_HTC_MASK _ULL(0x1f000) /* Hardware Trap Cause */
-+#define KVX_SFR_ES_PL2_HTC_SHIFT 12
-+#define KVX_SFR_ES_PL2_HTC_WIDTH 5
-+#define KVX_SFR_ES_PL2_HTC_WFXL_MASK _ULL(0x1f000)
-+#define KVX_SFR_ES_PL2_HTC_WFXL_CLEAR _ULL(0x1f000)
-+#define KVX_SFR_ES_PL2_HTC_WFXL_SET _ULL(0x1f00000000000)
-+
-+#define KVX_SFR_ES_PL2_SFRT_MASK _ULL(0x20000) /* SFR Trap */
-+#define KVX_SFR_ES_PL2_SFRT_SHIFT 17
-+#define KVX_SFR_ES_PL2_SFRT_WIDTH 1
-+#define KVX_SFR_ES_PL2_SFRT_WFXL_MASK _ULL(0x20000)
-+#define KVX_SFR_ES_PL2_SFRT_WFXL_CLEAR _ULL(0x20000)
-+#define KVX_SFR_ES_PL2_SFRT_WFXL_SET _ULL(0x2000000000000)
-+
-+#define KVX_SFR_ES_PL2_SFRI_MASK _ULL(0x1c0000) /* SFR Instruction */
-+#define KVX_SFR_ES_PL2_SFRI_SHIFT 18
-+#define KVX_SFR_ES_PL2_SFRI_WIDTH 3
-+#define KVX_SFR_ES_PL2_SFRI_WFXL_MASK _ULL(0x1c0000)
-+#define KVX_SFR_ES_PL2_SFRI_WFXL_CLEAR _ULL(0x1c0000)
-+#define KVX_SFR_ES_PL2_SFRI_WFXL_SET _ULL(0x1c000000000000)
-+
-+#define KVX_SFR_ES_PL2_GPRP_MASK _ULL(0x7e00000) /* GPR Pointer */
-+#define KVX_SFR_ES_PL2_GPRP_SHIFT 21
-+#define KVX_SFR_ES_PL2_GPRP_WIDTH 6
-+#define KVX_SFR_ES_PL2_GPRP_WFXL_MASK _ULL(0x7e00000)
-+#define KVX_SFR_ES_PL2_GPRP_WFXL_CLEAR _ULL(0x7e00000)
-+#define KVX_SFR_ES_PL2_GPRP_WFXL_SET _ULL(0x7e0000000000000)
-+
-+#define KVX_SFR_ES_PL2_SFRP_MASK _ULL(0xff8000000) /* SFR Pointer */
-+#define KVX_SFR_ES_PL2_SFRP_SHIFT 27
-+#define KVX_SFR_ES_PL2_SFRP_WIDTH 9
-+#define KVX_SFR_ES_PL2_SFRP_WFXL_MASK _ULL(0xf8000000)
-+#define KVX_SFR_ES_PL2_SFRP_WFXL_CLEAR _ULL(0xf8000000)
-+#define KVX_SFR_ES_PL2_SFRP_WFXL_SET _ULL(0xf800000000000000)
-+#define KVX_SFR_ES_PL2_SFRP_WFXM_MASK _ULL(0xf00000000)
-+#define KVX_SFR_ES_PL2_SFRP_WFXM_CLEAR _ULL(0xf)
-+#define KVX_SFR_ES_PL2_SFRP_WFXM_SET _ULL(0xf00000000)
-+
-+#define KVX_SFR_ES_PL2_DHT_MASK _ULL(0x1000000000) /* Disabled Hardware Trap */
-+#define KVX_SFR_ES_PL2_DHT_SHIFT 36
-+#define KVX_SFR_ES_PL2_DHT_WIDTH 1
-+#define KVX_SFR_ES_PL2_DHT_WFXM_MASK _ULL(0x1000000000)
-+#define KVX_SFR_ES_PL2_DHT_WFXM_CLEAR _ULL(0x10)
-+#define KVX_SFR_ES_PL2_DHT_WFXM_SET _ULL(0x1000000000)
-+
-+#define KVX_SFR_ES_PL2_RWX_MASK _ULL(0x38000000000) /* Read Write Execute */
-+#define KVX_SFR_ES_PL2_RWX_SHIFT 39
-+#define KVX_SFR_ES_PL2_RWX_WIDTH 3
-+#define KVX_SFR_ES_PL2_RWX_WFXM_MASK _ULL(0x38000000000)
-+#define KVX_SFR_ES_PL2_RWX_WFXM_CLEAR _ULL(0x380)
-+#define KVX_SFR_ES_PL2_RWX_WFXM_SET _ULL(0x38000000000)
-+
-+#define KVX_SFR_ES_PL2_NTA_MASK _ULL(0x40000000000) /* Non-Trapping Access */
-+#define KVX_SFR_ES_PL2_NTA_SHIFT 42
-+#define KVX_SFR_ES_PL2_NTA_WIDTH 1
-+#define KVX_SFR_ES_PL2_NTA_WFXM_MASK _ULL(0x40000000000)
-+#define KVX_SFR_ES_PL2_NTA_WFXM_CLEAR _ULL(0x400)
-+#define KVX_SFR_ES_PL2_NTA_WFXM_SET _ULL(0x40000000000)
-+
-+#define KVX_SFR_ES_PL2_UCA_MASK _ULL(0x80000000000) /* Un-Cached Access */
-+#define KVX_SFR_ES_PL2_UCA_SHIFT 43
-+#define KVX_SFR_ES_PL2_UCA_WIDTH 1
-+#define KVX_SFR_ES_PL2_UCA_WFXM_MASK _ULL(0x80000000000)
-+#define KVX_SFR_ES_PL2_UCA_WFXM_CLEAR _ULL(0x800)
-+#define KVX_SFR_ES_PL2_UCA_WFXM_SET _ULL(0x80000000000)
-+
-+#define KVX_SFR_ES_PL2_AS_MASK _ULL(0x3f00000000000) /* Access Size */
-+#define KVX_SFR_ES_PL2_AS_SHIFT 44
-+#define KVX_SFR_ES_PL2_AS_WIDTH 6
-+#define KVX_SFR_ES_PL2_AS_WFXM_MASK _ULL(0x3f00000000000)
-+#define KVX_SFR_ES_PL2_AS_WFXM_CLEAR _ULL(0x3f000)
-+#define KVX_SFR_ES_PL2_AS_WFXM_SET _ULL(0x3f00000000000)
-+
-+#define KVX_SFR_ES_PL2_BS_MASK _ULL(0x3c000000000000) /* Bundle Size */
-+#define KVX_SFR_ES_PL2_BS_SHIFT 50
-+#define KVX_SFR_ES_PL2_BS_WIDTH 4
-+#define KVX_SFR_ES_PL2_BS_WFXM_MASK _ULL(0x3c000000000000)
-+#define KVX_SFR_ES_PL2_BS_WFXM_CLEAR _ULL(0x3c0000)
-+#define KVX_SFR_ES_PL2_BS_WFXM_SET _ULL(0x3c000000000000)
-+
-+#define KVX_SFR_ES_PL2_DRI_MASK _ULL(0xfc0000000000000) /* Data Register Index */
-+#define KVX_SFR_ES_PL2_DRI_SHIFT 54
-+#define KVX_SFR_ES_PL2_DRI_WIDTH 6
-+#define KVX_SFR_ES_PL2_DRI_WFXM_MASK _ULL(0xfc0000000000000)
-+#define KVX_SFR_ES_PL2_DRI_WFXM_CLEAR _ULL(0xfc00000)
-+#define KVX_SFR_ES_PL2_DRI_WFXM_SET _ULL(0xfc0000000000000)
-+
-+#define KVX_SFR_ES_PL2_PIC_MASK _ULL(0xf000000000000000) /* Privileged Instruction Code */
-+#define KVX_SFR_ES_PL2_PIC_SHIFT 60
-+#define KVX_SFR_ES_PL2_PIC_WIDTH 4
-+#define KVX_SFR_ES_PL2_PIC_WFXM_MASK _ULL(0xf000000000000000)
-+#define KVX_SFR_ES_PL2_PIC_WFXM_CLEAR _ULL(0xf0000000)
-+#define KVX_SFR_ES_PL2_PIC_WFXM_SET _ULL(0xf000000000000000)
-+
-+#define KVX_SFR_ES_PL2_DC_MASK _ULL(0x3000) /* Debug Cause */
-+#define KVX_SFR_ES_PL2_DC_SHIFT 12
-+#define KVX_SFR_ES_PL2_DC_WIDTH 2
-+#define KVX_SFR_ES_PL2_DC_WFXL_MASK _ULL(0x3000)
-+#define KVX_SFR_ES_PL2_DC_WFXL_CLEAR _ULL(0x3000)
-+#define KVX_SFR_ES_PL2_DC_WFXL_SET _ULL(0x300000000000)
-+
-+#define KVX_SFR_ES_PL2_BN_MASK _ULL(0x4000) /* Breakpoint Number */
-+#define KVX_SFR_ES_PL2_BN_SHIFT 14
-+#define KVX_SFR_ES_PL2_BN_WIDTH 1
-+#define KVX_SFR_ES_PL2_BN_WFXL_MASK _ULL(0x4000)
-+#define KVX_SFR_ES_PL2_BN_WFXL_CLEAR _ULL(0x4000)
-+#define KVX_SFR_ES_PL2_BN_WFXL_SET _ULL(0x400000000000)
-+
-+#define KVX_SFR_ES_PL2_WN_MASK _ULL(0x8000) /* Watchpoint Number */
-+#define KVX_SFR_ES_PL2_WN_SHIFT 15
-+#define KVX_SFR_ES_PL2_WN_WIDTH 1
-+#define KVX_SFR_ES_PL2_WN_WFXL_MASK _ULL(0x8000)
-+#define KVX_SFR_ES_PL2_WN_WFXL_CLEAR _ULL(0x8000)
-+#define KVX_SFR_ES_PL2_WN_WFXL_SET _ULL(0x800000000000)
-+
-+#define KVX_SFR_ES_PL3_EC_MASK _ULL(0xf) /* Exception Class */
-+#define KVX_SFR_ES_PL3_EC_SHIFT 0
-+#define KVX_SFR_ES_PL3_EC_WIDTH 4
-+#define KVX_SFR_ES_PL3_EC_WFXL_MASK _ULL(0xf)
-+#define KVX_SFR_ES_PL3_EC_WFXL_CLEAR _ULL(0xf)
-+#define KVX_SFR_ES_PL3_EC_WFXL_SET _ULL(0xf00000000)
-+
-+#define KVX_SFR_ES_PL3_ED_MASK _ULL(0xfffffffffffffff0) /* Exception Details */
-+#define KVX_SFR_ES_PL3_ED_SHIFT 4
-+#define KVX_SFR_ES_PL3_ED_WIDTH 60
-+#define KVX_SFR_ES_PL3_ED_WFXL_MASK _ULL(0xfffffff0)
-+#define KVX_SFR_ES_PL3_ED_WFXL_CLEAR _ULL(0xfffffff0)
-+#define KVX_SFR_ES_PL3_ED_WFXL_SET _ULL(0xfffffff000000000)
-+#define KVX_SFR_ES_PL3_ED_WFXM_MASK _ULL(0xffffffff00000000)
-+#define KVX_SFR_ES_PL3_ED_WFXM_CLEAR _ULL(0xffffffff)
-+#define KVX_SFR_ES_PL3_ED_WFXM_SET _ULL(0xffffffff00000000)
-+
-+#define KVX_SFR_ES_PL3_OAPL_MASK _ULL(0x30) /* Origin Absolute PL */
-+#define KVX_SFR_ES_PL3_OAPL_SHIFT 4
-+#define KVX_SFR_ES_PL3_OAPL_WIDTH 2
-+#define KVX_SFR_ES_PL3_OAPL_WFXL_MASK _ULL(0x30)
-+#define KVX_SFR_ES_PL3_OAPL_WFXL_CLEAR _ULL(0x30)
-+#define KVX_SFR_ES_PL3_OAPL_WFXL_SET _ULL(0x3000000000)
-+
-+#define KVX_SFR_ES_PL3_ORPL_MASK _ULL(0xc0) /* Origin Relative PL */
-+#define KVX_SFR_ES_PL3_ORPL_SHIFT 6
-+#define KVX_SFR_ES_PL3_ORPL_WIDTH 2
-+#define KVX_SFR_ES_PL3_ORPL_WFXL_MASK _ULL(0xc0)
-+#define KVX_SFR_ES_PL3_ORPL_WFXL_CLEAR _ULL(0xc0)
-+#define KVX_SFR_ES_PL3_ORPL_WFXL_SET _ULL(0xc000000000)
-+
-+#define KVX_SFR_ES_PL3_PTAPL_MASK _ULL(0x300) /* Target Absolute PL */
-+#define KVX_SFR_ES_PL3_PTAPL_SHIFT 8
-+#define KVX_SFR_ES_PL3_PTAPL_WIDTH 2
-+#define KVX_SFR_ES_PL3_PTAPL_WFXL_MASK _ULL(0x300)
-+#define KVX_SFR_ES_PL3_PTAPL_WFXL_CLEAR _ULL(0x300)
-+#define KVX_SFR_ES_PL3_PTAPL_WFXL_SET _ULL(0x30000000000)
-+
-+#define KVX_SFR_ES_PL3_PTRPL_MASK _ULL(0xc00) /* Target Relative PL */
-+#define KVX_SFR_ES_PL3_PTRPL_SHIFT 10
-+#define KVX_SFR_ES_PL3_PTRPL_WIDTH 2
-+#define KVX_SFR_ES_PL3_PTRPL_WFXL_MASK _ULL(0xc00)
-+#define KVX_SFR_ES_PL3_PTRPL_WFXL_CLEAR _ULL(0xc00)
-+#define KVX_SFR_ES_PL3_PTRPL_WFXL_SET _ULL(0xc0000000000)
-+
-+#define KVX_SFR_ES_PL3_ITN_MASK _ULL(0x1f000) /* InTerrupt Number */
-+#define KVX_SFR_ES_PL3_ITN_SHIFT 12
-+#define KVX_SFR_ES_PL3_ITN_WIDTH 5
-+#define KVX_SFR_ES_PL3_ITN_WFXL_MASK _ULL(0x1f000)
-+#define KVX_SFR_ES_PL3_ITN_WFXL_CLEAR _ULL(0x1f000)
-+#define KVX_SFR_ES_PL3_ITN_WFXL_SET _ULL(0x1f00000000000)
-+
-+#define KVX_SFR_ES_PL3_ITL_MASK _ULL(0x60000) /* InTerrupt Level */
-+#define KVX_SFR_ES_PL3_ITL_SHIFT 17
-+#define KVX_SFR_ES_PL3_ITL_WIDTH 2
-+#define KVX_SFR_ES_PL3_ITL_WFXL_MASK _ULL(0x60000)
-+#define KVX_SFR_ES_PL3_ITL_WFXL_CLEAR _ULL(0x60000)
-+#define KVX_SFR_ES_PL3_ITL_WFXL_SET _ULL(0x6000000000000)
-+
-+#define KVX_SFR_ES_PL3_ITI_MASK _ULL(0x1ff80000) /* InTerrupt Info */
-+#define KVX_SFR_ES_PL3_ITI_SHIFT 19
-+#define KVX_SFR_ES_PL3_ITI_WIDTH 10
-+#define KVX_SFR_ES_PL3_ITI_WFXL_MASK _ULL(0x1ff80000)
-+#define KVX_SFR_ES_PL3_ITI_WFXL_CLEAR _ULL(0x1ff80000)
-+#define KVX_SFR_ES_PL3_ITI_WFXL_SET _ULL(0x1ff8000000000000)
-+
-+#define KVX_SFR_ES_PL3_SN_MASK _ULL(0xfff000) /* Syscall Number */
-+#define KVX_SFR_ES_PL3_SN_SHIFT 12
-+#define KVX_SFR_ES_PL3_SN_WIDTH 12
-+#define KVX_SFR_ES_PL3_SN_WFXL_MASK _ULL(0xfff000)
-+#define KVX_SFR_ES_PL3_SN_WFXL_CLEAR _ULL(0xfff000)
-+#define KVX_SFR_ES_PL3_SN_WFXL_SET _ULL(0xfff00000000000)
-+
-+#define KVX_SFR_ES_PL3_HTC_MASK _ULL(0x1f000) /* Hardware Trap Cause */
-+#define KVX_SFR_ES_PL3_HTC_SHIFT 12
-+#define KVX_SFR_ES_PL3_HTC_WIDTH 5
-+#define KVX_SFR_ES_PL3_HTC_WFXL_MASK _ULL(0x1f000)
-+#define KVX_SFR_ES_PL3_HTC_WFXL_CLEAR _ULL(0x1f000)
-+#define KVX_SFR_ES_PL3_HTC_WFXL_SET _ULL(0x1f00000000000)
-+
-+#define KVX_SFR_ES_PL3_SFRT_MASK _ULL(0x20000) /* SFR Trap */
-+#define KVX_SFR_ES_PL3_SFRT_SHIFT 17
-+#define KVX_SFR_ES_PL3_SFRT_WIDTH 1
-+#define KVX_SFR_ES_PL3_SFRT_WFXL_MASK _ULL(0x20000)
-+#define KVX_SFR_ES_PL3_SFRT_WFXL_CLEAR _ULL(0x20000)
-+#define KVX_SFR_ES_PL3_SFRT_WFXL_SET _ULL(0x2000000000000)
-+
-+#define KVX_SFR_ES_PL3_SFRI_MASK _ULL(0x1c0000) /* SFR Instruction */
-+#define KVX_SFR_ES_PL3_SFRI_SHIFT 18
-+#define KVX_SFR_ES_PL3_SFRI_WIDTH 3
-+#define KVX_SFR_ES_PL3_SFRI_WFXL_MASK _ULL(0x1c0000)
-+#define KVX_SFR_ES_PL3_SFRI_WFXL_CLEAR _ULL(0x1c0000)
-+#define KVX_SFR_ES_PL3_SFRI_WFXL_SET _ULL(0x1c000000000000)
-+
-+#define KVX_SFR_ES_PL3_GPRP_MASK _ULL(0x7e00000) /* GPR Pointer */
-+#define KVX_SFR_ES_PL3_GPRP_SHIFT 21
-+#define KVX_SFR_ES_PL3_GPRP_WIDTH 6
-+#define KVX_SFR_ES_PL3_GPRP_WFXL_MASK _ULL(0x7e00000)
-+#define KVX_SFR_ES_PL3_GPRP_WFXL_CLEAR _ULL(0x7e00000)
-+#define KVX_SFR_ES_PL3_GPRP_WFXL_SET _ULL(0x7e0000000000000)
-+
-+#define KVX_SFR_ES_PL3_SFRP_MASK _ULL(0xff8000000) /* SFR Pointer */
-+#define KVX_SFR_ES_PL3_SFRP_SHIFT 27
-+#define KVX_SFR_ES_PL3_SFRP_WIDTH 9
-+#define KVX_SFR_ES_PL3_SFRP_WFXL_MASK _ULL(0xf8000000)
-+#define KVX_SFR_ES_PL3_SFRP_WFXL_CLEAR _ULL(0xf8000000)
-+#define KVX_SFR_ES_PL3_SFRP_WFXL_SET _ULL(0xf800000000000000)
-+#define KVX_SFR_ES_PL3_SFRP_WFXM_MASK _ULL(0xf00000000)
-+#define KVX_SFR_ES_PL3_SFRP_WFXM_CLEAR _ULL(0xf)
-+#define KVX_SFR_ES_PL3_SFRP_WFXM_SET _ULL(0xf00000000)
-+
-+#define KVX_SFR_ES_PL3_DHT_MASK _ULL(0x1000000000) /* Disabled Hardware Trap */
-+#define KVX_SFR_ES_PL3_DHT_SHIFT 36
-+#define KVX_SFR_ES_PL3_DHT_WIDTH 1
-+#define KVX_SFR_ES_PL3_DHT_WFXM_MASK _ULL(0x1000000000)
-+#define KVX_SFR_ES_PL3_DHT_WFXM_CLEAR _ULL(0x10)
-+#define KVX_SFR_ES_PL3_DHT_WFXM_SET _ULL(0x1000000000)
-+
-+#define KVX_SFR_ES_PL3_RWX_MASK _ULL(0x38000000000) /* Read Write Execute */
-+#define KVX_SFR_ES_PL3_RWX_SHIFT 39
-+#define KVX_SFR_ES_PL3_RWX_WIDTH 3
-+#define KVX_SFR_ES_PL3_RWX_WFXM_MASK _ULL(0x38000000000)
-+#define KVX_SFR_ES_PL3_RWX_WFXM_CLEAR _ULL(0x380)
-+#define KVX_SFR_ES_PL3_RWX_WFXM_SET _ULL(0x38000000000)
-+
-+#define KVX_SFR_ES_PL3_NTA_MASK _ULL(0x40000000000) /* Non-Trapping Access */
-+#define KVX_SFR_ES_PL3_NTA_SHIFT 42
-+#define KVX_SFR_ES_PL3_NTA_WIDTH 1
-+#define KVX_SFR_ES_PL3_NTA_WFXM_MASK _ULL(0x40000000000)
-+#define KVX_SFR_ES_PL3_NTA_WFXM_CLEAR _ULL(0x400)
-+#define KVX_SFR_ES_PL3_NTA_WFXM_SET _ULL(0x40000000000)
-+
-+#define KVX_SFR_ES_PL3_UCA_MASK _ULL(0x80000000000) /* Un-Cached Access */
-+#define KVX_SFR_ES_PL3_UCA_SHIFT 43
-+#define KVX_SFR_ES_PL3_UCA_WIDTH 1
-+#define KVX_SFR_ES_PL3_UCA_WFXM_MASK _ULL(0x80000000000)
-+#define KVX_SFR_ES_PL3_UCA_WFXM_CLEAR _ULL(0x800)
-+#define KVX_SFR_ES_PL3_UCA_WFXM_SET _ULL(0x80000000000)
-+
-+#define KVX_SFR_ES_PL3_AS_MASK _ULL(0x3f00000000000) /* Access Size */
-+#define KVX_SFR_ES_PL3_AS_SHIFT 44
-+#define KVX_SFR_ES_PL3_AS_WIDTH 6
-+#define KVX_SFR_ES_PL3_AS_WFXM_MASK _ULL(0x3f00000000000)
-+#define KVX_SFR_ES_PL3_AS_WFXM_CLEAR _ULL(0x3f000)
-+#define KVX_SFR_ES_PL3_AS_WFXM_SET _ULL(0x3f00000000000)
-+
-+#define KVX_SFR_ES_PL3_BS_MASK _ULL(0x3c000000000000) /* Bundle Size */
-+#define KVX_SFR_ES_PL3_BS_SHIFT 50
-+#define KVX_SFR_ES_PL3_BS_WIDTH 4
-+#define KVX_SFR_ES_PL3_BS_WFXM_MASK _ULL(0x3c000000000000)
-+#define KVX_SFR_ES_PL3_BS_WFXM_CLEAR _ULL(0x3c0000)
-+#define KVX_SFR_ES_PL3_BS_WFXM_SET _ULL(0x3c000000000000)
-+
-+#define KVX_SFR_ES_PL3_DRI_MASK _ULL(0xfc0000000000000) /* Data Register Index */
-+#define KVX_SFR_ES_PL3_DRI_SHIFT 54
-+#define KVX_SFR_ES_PL3_DRI_WIDTH 6
-+#define KVX_SFR_ES_PL3_DRI_WFXM_MASK _ULL(0xfc0000000000000)
-+#define KVX_SFR_ES_PL3_DRI_WFXM_CLEAR _ULL(0xfc00000)
-+#define KVX_SFR_ES_PL3_DRI_WFXM_SET _ULL(0xfc0000000000000)
-+
-+#define KVX_SFR_ES_PL3_PIC_MASK _ULL(0xf000000000000000) /* Privileged Instruction Code */
-+#define KVX_SFR_ES_PL3_PIC_SHIFT 60
-+#define KVX_SFR_ES_PL3_PIC_WIDTH 4
-+#define KVX_SFR_ES_PL3_PIC_WFXM_MASK _ULL(0xf000000000000000)
-+#define KVX_SFR_ES_PL3_PIC_WFXM_CLEAR _ULL(0xf0000000)
-+#define KVX_SFR_ES_PL3_PIC_WFXM_SET _ULL(0xf000000000000000)
-+
-+#define KVX_SFR_ES_PL3_DC_MASK _ULL(0x3000) /* Debug Cause */
-+#define KVX_SFR_ES_PL3_DC_SHIFT 12
-+#define KVX_SFR_ES_PL3_DC_WIDTH 2
-+#define KVX_SFR_ES_PL3_DC_WFXL_MASK _ULL(0x3000)
-+#define KVX_SFR_ES_PL3_DC_WFXL_CLEAR _ULL(0x3000)
-+#define KVX_SFR_ES_PL3_DC_WFXL_SET _ULL(0x300000000000)
-+
-+#define KVX_SFR_ES_PL3_BN_MASK _ULL(0x4000) /* Breakpoint Number */
-+#define KVX_SFR_ES_PL3_BN_SHIFT 14
-+#define KVX_SFR_ES_PL3_BN_WIDTH 1
-+#define KVX_SFR_ES_PL3_BN_WFXL_MASK _ULL(0x4000)
-+#define KVX_SFR_ES_PL3_BN_WFXL_CLEAR _ULL(0x4000)
-+#define KVX_SFR_ES_PL3_BN_WFXL_SET _ULL(0x400000000000)
-+
-+#define KVX_SFR_ES_PL3_WN_MASK _ULL(0x8000) /* Watchpoint Number */
-+#define KVX_SFR_ES_PL3_WN_SHIFT 15
-+#define KVX_SFR_ES_PL3_WN_WIDTH 1
-+#define KVX_SFR_ES_PL3_WN_WFXL_MASK _ULL(0x8000)
-+#define KVX_SFR_ES_PL3_WN_WFXL_CLEAR _ULL(0x8000)
-+#define KVX_SFR_ES_PL3_WN_WFXL_SET _ULL(0x800000000000)
-+
-+#define KVX_SFR_TCR_T0CE_MASK _ULL(0x10000) /* Timer 0 Count Enable */
-+#define KVX_SFR_TCR_T0CE_SHIFT 16
-+#define KVX_SFR_TCR_T0CE_WIDTH 1
-+#define KVX_SFR_TCR_T0CE_WFXL_MASK _ULL(0x10000)
-+#define KVX_SFR_TCR_T0CE_WFXL_CLEAR _ULL(0x10000)
-+#define KVX_SFR_TCR_T0CE_WFXL_SET _ULL(0x1000000000000)
-+
-+#define KVX_SFR_TCR_T1CE_MASK _ULL(0x20000) /* Timer 1 Count Enable */
-+#define KVX_SFR_TCR_T1CE_SHIFT 17
-+#define KVX_SFR_TCR_T1CE_WIDTH 1
-+#define KVX_SFR_TCR_T1CE_WFXL_MASK _ULL(0x20000)
-+#define KVX_SFR_TCR_T1CE_WFXL_CLEAR _ULL(0x20000)
-+#define KVX_SFR_TCR_T1CE_WFXL_SET _ULL(0x2000000000000)
-+
-+#define KVX_SFR_TCR_T0IE_MASK _ULL(0x40000) /* Timer 0 Interrupt Enable */
-+#define KVX_SFR_TCR_T0IE_SHIFT 18
-+#define KVX_SFR_TCR_T0IE_WIDTH 1
-+#define KVX_SFR_TCR_T0IE_WFXL_MASK _ULL(0x40000)
-+#define KVX_SFR_TCR_T0IE_WFXL_CLEAR _ULL(0x40000)
-+#define KVX_SFR_TCR_T0IE_WFXL_SET _ULL(0x4000000000000)
-+
-+#define KVX_SFR_TCR_T1IE_MASK _ULL(0x80000) /* Timer 1 Interrupt Enable */
-+#define KVX_SFR_TCR_T1IE_SHIFT 19
-+#define KVX_SFR_TCR_T1IE_WIDTH 1
-+#define KVX_SFR_TCR_T1IE_WFXL_MASK _ULL(0x80000)
-+#define KVX_SFR_TCR_T1IE_WFXL_CLEAR _ULL(0x80000)
-+#define KVX_SFR_TCR_T1IE_WFXL_SET _ULL(0x8000000000000)
-+
-+#define KVX_SFR_TCR_T0ST_MASK _ULL(0x100000) /* Timer 0 Status */
-+#define KVX_SFR_TCR_T0ST_SHIFT 20
-+#define KVX_SFR_TCR_T0ST_WIDTH 1
-+#define KVX_SFR_TCR_T0ST_WFXL_MASK _ULL(0x100000)
-+#define KVX_SFR_TCR_T0ST_WFXL_CLEAR _ULL(0x100000)
-+#define KVX_SFR_TCR_T0ST_WFXL_SET _ULL(0x10000000000000)
-+
-+#define KVX_SFR_TCR_T1ST_MASK _ULL(0x200000) /* Timer 1 Status */
-+#define KVX_SFR_TCR_T1ST_SHIFT 21
-+#define KVX_SFR_TCR_T1ST_WIDTH 1
-+#define KVX_SFR_TCR_T1ST_WFXL_MASK _ULL(0x200000)
-+#define KVX_SFR_TCR_T1ST_WFXL_CLEAR _ULL(0x200000)
-+#define KVX_SFR_TCR_T1ST_WFXL_SET _ULL(0x20000000000000)
-+
-+#define KVX_SFR_TCR_T0SI_MASK _ULL(0x400000) /* Stop Timer 0 in Idle */
-+#define KVX_SFR_TCR_T0SI_SHIFT 22
-+#define KVX_SFR_TCR_T0SI_WIDTH 1
-+#define KVX_SFR_TCR_T0SI_WFXL_MASK _ULL(0x400000)
-+#define KVX_SFR_TCR_T0SI_WFXL_CLEAR _ULL(0x400000)
-+#define KVX_SFR_TCR_T0SI_WFXL_SET _ULL(0x40000000000000)
-+
-+#define KVX_SFR_TCR_T1SI_MASK _ULL(0x800000) /* Stop Timer 1 in Idle */
-+#define KVX_SFR_TCR_T1SI_SHIFT 23
-+#define KVX_SFR_TCR_T1SI_WIDTH 1
-+#define KVX_SFR_TCR_T1SI_WFXL_MASK _ULL(0x800000)
-+#define KVX_SFR_TCR_T1SI_WFXL_CLEAR _ULL(0x800000)
-+#define KVX_SFR_TCR_T1SI_WFXL_SET _ULL(0x80000000000000)
-+
-+#define KVX_SFR_TCR_WCE_MASK _ULL(0x1000000) /* Watchdog Counting Enable */
-+#define KVX_SFR_TCR_WCE_SHIFT 24
-+#define KVX_SFR_TCR_WCE_WIDTH 1
-+#define KVX_SFR_TCR_WCE_WFXL_MASK _ULL(0x1000000)
-+#define KVX_SFR_TCR_WCE_WFXL_CLEAR _ULL(0x1000000)
-+#define KVX_SFR_TCR_WCE_WFXL_SET _ULL(0x100000000000000)
-+
-+#define KVX_SFR_TCR_WIE_MASK _ULL(0x2000000) /* Watchdog Interrupt Enable */
-+#define KVX_SFR_TCR_WIE_SHIFT 25
-+#define KVX_SFR_TCR_WIE_WIDTH 1
-+#define KVX_SFR_TCR_WIE_WFXL_MASK _ULL(0x2000000)
-+#define KVX_SFR_TCR_WIE_WFXL_CLEAR _ULL(0x2000000)
-+#define KVX_SFR_TCR_WIE_WFXL_SET _ULL(0x200000000000000)
-+
-+#define KVX_SFR_TCR_WUI_MASK _ULL(0x4000000) /* Watchdog Underflow Inform */
-+#define KVX_SFR_TCR_WUI_SHIFT 26
-+#define KVX_SFR_TCR_WUI_WIDTH 1
-+#define KVX_SFR_TCR_WUI_WFXL_MASK _ULL(0x4000000)
-+#define KVX_SFR_TCR_WUI_WFXL_CLEAR _ULL(0x4000000)
-+#define KVX_SFR_TCR_WUI_WFXL_SET _ULL(0x400000000000000)
-+
-+#define KVX_SFR_TCR_WUS_MASK _ULL(0x8000000) /* Watchdog Underflow Status */
-+#define KVX_SFR_TCR_WUS_SHIFT 27
-+#define KVX_SFR_TCR_WUS_WIDTH 1
-+#define KVX_SFR_TCR_WUS_WFXL_MASK _ULL(0x8000000)
-+#define KVX_SFR_TCR_WUS_WFXL_CLEAR _ULL(0x8000000)
-+#define KVX_SFR_TCR_WUS_WFXL_SET _ULL(0x800000000000000)
-+
-+#define KVX_SFR_TCR_WSI_MASK _ULL(0x10000000) /* Watchdog Stop in Idle */
-+#define KVX_SFR_TCR_WSI_SHIFT 28
-+#define KVX_SFR_TCR_WSI_WIDTH 1
-+#define KVX_SFR_TCR_WSI_WFXL_MASK _ULL(0x10000000)
-+#define KVX_SFR_TCR_WSI_WFXL_CLEAR _ULL(0x10000000)
-+#define KVX_SFR_TCR_WSI_WFXL_SET _ULL(0x1000000000000000)
-+
-+#define KVX_SFR_PM0_PM0_MASK _ULL(0xffffffffffffffff) /* Performance Monitor 0 */
-+#define KVX_SFR_PM0_PM0_SHIFT 0
-+#define KVX_SFR_PM0_PM0_WIDTH 64
-+#define KVX_SFR_PM0_PM0_WFXL_MASK _ULL(0xffffffff)
-+#define KVX_SFR_PM0_PM0_WFXL_CLEAR _ULL(0xffffffff)
-+#define KVX_SFR_PM0_PM0_WFXL_SET _ULL(0xffffffff00000000)
-+#define KVX_SFR_PM0_PM0_WFXM_MASK _ULL(0xffffffff00000000)
-+#define KVX_SFR_PM0_PM0_WFXM_CLEAR _ULL(0xffffffff)
-+#define KVX_SFR_PM0_PM0_WFXM_SET _ULL(0xffffffff00000000)
-+
-+#define KVX_SFR_PM1_PM1_MASK _ULL(0xffffffffffffffff) /* Performance Monitor 1 */
-+#define KVX_SFR_PM1_PM1_SHIFT 0
-+#define KVX_SFR_PM1_PM1_WIDTH 64
-+#define KVX_SFR_PM1_PM1_WFXL_MASK _ULL(0xffffffff)
-+#define KVX_SFR_PM1_PM1_WFXL_CLEAR _ULL(0xffffffff)
-+#define KVX_SFR_PM1_PM1_WFXL_SET _ULL(0xffffffff00000000)
-+#define KVX_SFR_PM1_PM1_WFXM_MASK _ULL(0xffffffff00000000)
-+#define KVX_SFR_PM1_PM1_WFXM_CLEAR _ULL(0xffffffff)
-+#define KVX_SFR_PM1_PM1_WFXM_SET _ULL(0xffffffff00000000)
-+
-+#define KVX_SFR_PM2_PM2_MASK _ULL(0xffffffffffffffff) /* Performance Monitor 2 */
-+#define KVX_SFR_PM2_PM2_SHIFT 0
-+#define KVX_SFR_PM2_PM2_WIDTH 64
-+#define KVX_SFR_PM2_PM2_WFXL_MASK _ULL(0xffffffff)
-+#define KVX_SFR_PM2_PM2_WFXL_CLEAR _ULL(0xffffffff)
-+#define KVX_SFR_PM2_PM2_WFXL_SET _ULL(0xffffffff00000000)
-+#define KVX_SFR_PM2_PM2_WFXM_MASK _ULL(0xffffffff00000000)
-+#define KVX_SFR_PM2_PM2_WFXM_CLEAR _ULL(0xffffffff)
-+#define KVX_SFR_PM2_PM2_WFXM_SET _ULL(0xffffffff00000000)
-+
-+#define KVX_SFR_PM3_PM3_MASK _ULL(0xffffffffffffffff) /* Performance Monitor 3 */
-+#define KVX_SFR_PM3_PM3_SHIFT 0
-+#define KVX_SFR_PM3_PM3_WIDTH 64
-+#define KVX_SFR_PM3_PM3_WFXL_MASK _ULL(0xffffffff)
-+#define KVX_SFR_PM3_PM3_WFXL_CLEAR _ULL(0xffffffff)
-+#define KVX_SFR_PM3_PM3_WFXL_SET _ULL(0xffffffff00000000)
-+#define KVX_SFR_PM3_PM3_WFXM_MASK _ULL(0xffffffff00000000)
-+#define KVX_SFR_PM3_PM3_WFXM_CLEAR _ULL(0xffffffff)
-+#define KVX_SFR_PM3_PM3_WFXM_SET _ULL(0xffffffff00000000)
-+
-+#define KVX_SFR_PMSA_PMSA_MASK _ULL(0xffffffffffffffff) /* Performance Monitor Saved Address */
-+#define KVX_SFR_PMSA_PMSA_SHIFT 0
-+#define KVX_SFR_PMSA_PMSA_WIDTH 64
-+#define KVX_SFR_PMSA_PMSA_WFXL_MASK _ULL(0xffffffff)
-+#define KVX_SFR_PMSA_PMSA_WFXL_CLEAR _ULL(0xffffffff)
-+#define KVX_SFR_PMSA_PMSA_WFXL_SET _ULL(0xffffffff00000000)
-+#define KVX_SFR_PMSA_PMSA_WFXM_MASK _ULL(0xffffffff00000000)
-+#define KVX_SFR_PMSA_PMSA_WFXM_CLEAR _ULL(0xffffffff)
-+#define KVX_SFR_PMSA_PMSA_WFXM_SET _ULL(0xffffffff00000000)
-+
-+#define KVX_SFR_T0V_T0V_MASK _ULL(0xffffffffffffffff) /* Timer 0 value */
-+#define KVX_SFR_T0V_T0V_SHIFT 0
-+#define KVX_SFR_T0V_T0V_WIDTH 64
-+#define KVX_SFR_T0V_T0V_WFXL_MASK _ULL(0xffffffff)
-+#define KVX_SFR_T0V_T0V_WFXL_CLEAR _ULL(0xffffffff)
-+#define KVX_SFR_T0V_T0V_WFXL_SET _ULL(0xffffffff00000000)
-+#define KVX_SFR_T0V_T0V_WFXM_MASK _ULL(0xffffffff00000000)
-+#define KVX_SFR_T0V_T0V_WFXM_CLEAR _ULL(0xffffffff)
-+#define KVX_SFR_T0V_T0V_WFXM_SET _ULL(0xffffffff00000000)
-+
-+#define KVX_SFR_T1V_T1V_MASK _ULL(0xffffffffffffffff) /* Timer 1 value */
-+#define KVX_SFR_T1V_T1V_SHIFT 0
-+#define KVX_SFR_T1V_T1V_WIDTH 64
-+#define KVX_SFR_T1V_T1V_WFXL_MASK _ULL(0xffffffff)
-+#define KVX_SFR_T1V_T1V_WFXL_CLEAR _ULL(0xffffffff)
-+#define KVX_SFR_T1V_T1V_WFXL_SET _ULL(0xffffffff00000000)
-+#define KVX_SFR_T1V_T1V_WFXM_MASK _ULL(0xffffffff00000000)
-+#define KVX_SFR_T1V_T1V_WFXM_CLEAR _ULL(0xffffffff)
-+#define KVX_SFR_T1V_T1V_WFXM_SET _ULL(0xffffffff00000000)
-+
-+#define KVX_SFR_T0R_T0R_MASK _ULL(0xffffffffffffffff) /* Timer 0 reload value */
-+#define KVX_SFR_T0R_T0R_SHIFT 0
-+#define KVX_SFR_T0R_T0R_WIDTH 64
-+#define KVX_SFR_T0R_T0R_WFXL_MASK _ULL(0xffffffff)
-+#define KVX_SFR_T0R_T0R_WFXL_CLEAR _ULL(0xffffffff)
-+#define KVX_SFR_T0R_T0R_WFXL_SET _ULL(0xffffffff00000000)
-+#define KVX_SFR_T0R_T0R_WFXM_MASK _ULL(0xffffffff00000000)
-+#define KVX_SFR_T0R_T0R_WFXM_CLEAR _ULL(0xffffffff)
-+#define KVX_SFR_T0R_T0R_WFXM_SET _ULL(0xffffffff00000000)
-+
-+#define KVX_SFR_T1R_T1R_MASK _ULL(0xffffffffffffffff) /* Timer 1 reload value */
-+#define KVX_SFR_T1R_T1R_SHIFT 0
-+#define KVX_SFR_T1R_T1R_WIDTH 64
-+#define KVX_SFR_T1R_T1R_WFXL_MASK _ULL(0xffffffff)
-+#define KVX_SFR_T1R_T1R_WFXL_CLEAR _ULL(0xffffffff)
-+#define KVX_SFR_T1R_T1R_WFXL_SET _ULL(0xffffffff00000000)
-+#define KVX_SFR_T1R_T1R_WFXM_MASK _ULL(0xffffffff00000000)
-+#define KVX_SFR_T1R_T1R_WFXM_CLEAR _ULL(0xffffffff)
-+#define KVX_SFR_T1R_T1R_WFXM_SET _ULL(0xffffffff00000000)
-+
-+#define KVX_SFR_WDV_WDV_MASK _ULL(0xffffffffffffffff) /* Watchdog Value */
-+#define KVX_SFR_WDV_WDV_SHIFT 0
-+#define KVX_SFR_WDV_WDV_WIDTH 64
-+#define KVX_SFR_WDV_WDV_WFXL_MASK _ULL(0xffffffff)
-+#define KVX_SFR_WDV_WDV_WFXL_CLEAR _ULL(0xffffffff)
-+#define KVX_SFR_WDV_WDV_WFXL_SET _ULL(0xffffffff00000000)
-+#define KVX_SFR_WDV_WDV_WFXM_MASK _ULL(0xffffffff00000000)
-+#define KVX_SFR_WDV_WDV_WFXM_CLEAR _ULL(0xffffffff)
-+#define KVX_SFR_WDV_WDV_WFXM_SET _ULL(0xffffffff00000000)
-+
-+#define KVX_SFR_WDR_WDR_MASK _ULL(0xffffffffffffffff) /* Watchdog Reload Value */
-+#define KVX_SFR_WDR_WDR_SHIFT 0
-+#define KVX_SFR_WDR_WDR_WIDTH 64
-+#define KVX_SFR_WDR_WDR_WFXL_MASK _ULL(0xffffffff)
-+#define KVX_SFR_WDR_WDR_WFXL_CLEAR _ULL(0xffffffff)
-+#define KVX_SFR_WDR_WDR_WFXL_SET _ULL(0xffffffff00000000)
-+#define KVX_SFR_WDR_WDR_WFXM_MASK _ULL(0xffffffff00000000)
-+#define KVX_SFR_WDR_WDR_WFXM_CLEAR _ULL(0xffffffff)
-+#define KVX_SFR_WDR_WDR_WFXM_SET _ULL(0xffffffff00000000)
-+
-+#define KVX_SFR_PMC_PM0C_MASK _ULL(0x3f) /* PM0 Configuration */
-+#define KVX_SFR_PMC_PM0C_SHIFT 0
-+#define KVX_SFR_PMC_PM0C_WIDTH 6
-+#define KVX_SFR_PMC_PM0C_WFXL_MASK _ULL(0x3f)
-+#define KVX_SFR_PMC_PM0C_WFXL_CLEAR _ULL(0x3f)
-+#define KVX_SFR_PMC_PM0C_WFXL_SET _ULL(0x3f00000000)
-+
-+#define KVX_SFR_PMC_PM1C_MASK _ULL(0x1f80) /* PM1 Configuration */
-+#define KVX_SFR_PMC_PM1C_SHIFT 7
-+#define KVX_SFR_PMC_PM1C_WIDTH 6
-+#define KVX_SFR_PMC_PM1C_WFXL_MASK _ULL(0x1f80)
-+#define KVX_SFR_PMC_PM1C_WFXL_CLEAR _ULL(0x1f80)
-+#define KVX_SFR_PMC_PM1C_WFXL_SET _ULL(0x1f8000000000)
-+
-+#define KVX_SFR_PMC_PM2C_MASK _ULL(0xfc000) /* PM2 Configuration */
-+#define KVX_SFR_PMC_PM2C_SHIFT 14
-+#define KVX_SFR_PMC_PM2C_WIDTH 6
-+#define KVX_SFR_PMC_PM2C_WFXL_MASK _ULL(0xfc000)
-+#define KVX_SFR_PMC_PM2C_WFXL_CLEAR _ULL(0xfc000)
-+#define KVX_SFR_PMC_PM2C_WFXL_SET _ULL(0xfc00000000000)
-+
-+#define KVX_SFR_PMC_PM3C_MASK _ULL(0x7e00000) /* PM3 Configuration */
-+#define KVX_SFR_PMC_PM3C_SHIFT 21
-+#define KVX_SFR_PMC_PM3C_WIDTH 6
-+#define KVX_SFR_PMC_PM3C_WFXL_MASK _ULL(0x7e00000)
-+#define KVX_SFR_PMC_PM3C_WFXL_CLEAR _ULL(0x7e00000)
-+#define KVX_SFR_PMC_PM3C_WFXL_SET _ULL(0x7e0000000000000)
-+
-+#define KVX_SFR_PMC_SAV_MASK _ULL(0x40000000) /* Saved Address Valid */
-+#define KVX_SFR_PMC_SAV_SHIFT 30
-+#define KVX_SFR_PMC_SAV_WIDTH 1
-+#define KVX_SFR_PMC_SAV_WFXL_MASK _ULL(0x40000000)
-+#define KVX_SFR_PMC_SAV_WFXL_CLEAR _ULL(0x40000000)
-+#define KVX_SFR_PMC_SAV_WFXL_SET _ULL(0x4000000000000000)
-+
-+#define KVX_SFR_PMC_PM0IE_MASK _ULL(0x100000000) /* PM0 Interrupt Enable */
-+#define KVX_SFR_PMC_PM0IE_SHIFT 32
-+#define KVX_SFR_PMC_PM0IE_WIDTH 1
-+#define KVX_SFR_PMC_PM0IE_WFXM_MASK _ULL(0x100000000)
-+#define KVX_SFR_PMC_PM0IE_WFXM_CLEAR _ULL(0x1)
-+#define KVX_SFR_PMC_PM0IE_WFXM_SET _ULL(0x100000000)
-+
-+#define KVX_SFR_PMC_PM1IE_MASK _ULL(0x200000000) /* PM1 Interrupt Enable */
-+#define KVX_SFR_PMC_PM1IE_SHIFT 33
-+#define KVX_SFR_PMC_PM1IE_WIDTH 1
-+#define KVX_SFR_PMC_PM1IE_WFXM_MASK _ULL(0x200000000)
-+#define KVX_SFR_PMC_PM1IE_WFXM_CLEAR _ULL(0x2)
-+#define KVX_SFR_PMC_PM1IE_WFXM_SET _ULL(0x200000000)
-+
-+#define KVX_SFR_PMC_PM2IE_MASK _ULL(0x400000000) /* PM2 Interrupt Enable */
-+#define KVX_SFR_PMC_PM2IE_SHIFT 34
-+#define KVX_SFR_PMC_PM2IE_WIDTH 1
-+#define KVX_SFR_PMC_PM2IE_WFXM_MASK _ULL(0x400000000)
-+#define KVX_SFR_PMC_PM2IE_WFXM_CLEAR _ULL(0x4)
-+#define KVX_SFR_PMC_PM2IE_WFXM_SET _ULL(0x400000000)
-+
-+#define KVX_SFR_PMC_PM3IE_MASK _ULL(0x800000000) /* PM3 Interrupt Enable */
-+#define KVX_SFR_PMC_PM3IE_SHIFT 35
-+#define KVX_SFR_PMC_PM3IE_WIDTH 1
-+#define KVX_SFR_PMC_PM3IE_WFXM_MASK _ULL(0x800000000)
-+#define KVX_SFR_PMC_PM3IE_WFXM_CLEAR _ULL(0x8)
-+#define KVX_SFR_PMC_PM3IE_WFXM_SET _ULL(0x800000000)
-+
-+#define KVX_SFR_PMC_SAT_MASK _ULL(0x3000000000) /* Saved Address Type */
-+#define KVX_SFR_PMC_SAT_SHIFT 36
-+#define KVX_SFR_PMC_SAT_WIDTH 2
-+#define KVX_SFR_PMC_SAT_WFXM_MASK _ULL(0x3000000000)
-+#define KVX_SFR_PMC_SAT_WFXM_CLEAR _ULL(0x30)
-+#define KVX_SFR_PMC_SAT_WFXM_SET _ULL(0x3000000000)
-+
-+#define KVX_SFR_PCR_PID_MASK _ULL(0xff) /* Processing Identifier in cluster */
-+#define KVX_SFR_PCR_PID_SHIFT 0
-+#define KVX_SFR_PCR_PID_WIDTH 8
-+#define KVX_SFR_PCR_PID_WFXL_MASK _ULL(0xff)
-+#define KVX_SFR_PCR_PID_WFXL_CLEAR _ULL(0xff)
-+#define KVX_SFR_PCR_PID_WFXL_SET _ULL(0xff00000000)
-+
-+#define KVX_SFR_PCR_CID_MASK _ULL(0xff00) /* Cluster Identifier in system */
-+#define KVX_SFR_PCR_CID_SHIFT 8
-+#define KVX_SFR_PCR_CID_WIDTH 8
-+#define KVX_SFR_PCR_CID_WFXL_MASK _ULL(0xff00)
-+#define KVX_SFR_PCR_CID_WFXL_CLEAR _ULL(0xff00)
-+#define KVX_SFR_PCR_CID_WFXL_SET _ULL(0xff0000000000)
-+
-+#define KVX_SFR_PCR_MID_MASK _ULL(0xff0000) /* MPPA Identifier */
-+#define KVX_SFR_PCR_MID_SHIFT 16
-+#define KVX_SFR_PCR_MID_WIDTH 8
-+#define KVX_SFR_PCR_MID_WFXL_MASK _ULL(0xff0000)
-+#define KVX_SFR_PCR_MID_WFXL_CLEAR _ULL(0xff0000)
-+#define KVX_SFR_PCR_MID_WFXL_SET _ULL(0xff000000000000)
-+
-+#define KVX_SFR_PCR_CAR_MASK _ULL(0xf000000) /* Core Architecture Revision ID */
-+#define KVX_SFR_PCR_CAR_SHIFT 24
-+#define KVX_SFR_PCR_CAR_WIDTH 4
-+#define KVX_SFR_PCR_CAR_WFXL_MASK _ULL(0xf000000)
-+#define KVX_SFR_PCR_CAR_WFXL_CLEAR _ULL(0xf000000)
-+#define KVX_SFR_PCR_CAR_WFXL_SET _ULL(0xf00000000000000)
-+
-+#define KVX_SFR_PCR_CMA_MASK _ULL(0xf0000000) /* Core Micro-Architecture Revision ID */
-+#define KVX_SFR_PCR_CMA_SHIFT 28
-+#define KVX_SFR_PCR_CMA_WIDTH 4
-+#define KVX_SFR_PCR_CMA_WFXL_MASK _ULL(0xf0000000)
-+#define KVX_SFR_PCR_CMA_WFXL_CLEAR _ULL(0xf0000000)
-+#define KVX_SFR_PCR_CMA_WFXL_SET _ULL(0xf000000000000000)
-+
-+#define KVX_SFR_PCR_SV_MASK _ULL(0xff00000000) /* System-On-Chip Version */
-+#define KVX_SFR_PCR_SV_SHIFT 32
-+#define KVX_SFR_PCR_SV_WIDTH 8
-+#define KVX_SFR_PCR_SV_WFXM_MASK _ULL(0xff00000000)
-+#define KVX_SFR_PCR_SV_WFXM_CLEAR _ULL(0xff)
-+#define KVX_SFR_PCR_SV_WFXM_SET _ULL(0xff00000000)
-+
-+#define KVX_SFR_PCR_ST_MASK _ULL(0xf0000000000) /* System-On-Chip Type */
-+#define KVX_SFR_PCR_ST_SHIFT 40
-+#define KVX_SFR_PCR_ST_WIDTH 4
-+#define KVX_SFR_PCR_ST_WFXM_MASK _ULL(0xf0000000000)
-+#define KVX_SFR_PCR_ST_WFXM_CLEAR _ULL(0xf00)
-+#define KVX_SFR_PCR_ST_WFXM_SET _ULL(0xf0000000000)
-+
-+#define KVX_SFR_PCR_BM_MASK _ULL(0xff00000000000) /* Boot Mode */
-+#define KVX_SFR_PCR_BM_SHIFT 44
-+#define KVX_SFR_PCR_BM_WIDTH 8
-+#define KVX_SFR_PCR_BM_WFXM_MASK _ULL(0xff00000000000)
-+#define KVX_SFR_PCR_BM_WFXM_CLEAR _ULL(0xff000)
-+#define KVX_SFR_PCR_BM_WFXM_SET _ULL(0xff00000000000)
-+
-+#define KVX_SFR_PCR_COE_MASK _ULL(0x10000000000000) /* COprocessor Enable */
-+#define KVX_SFR_PCR_COE_SHIFT 52
-+#define KVX_SFR_PCR_COE_WIDTH 1
-+#define KVX_SFR_PCR_COE_WFXM_MASK _ULL(0x10000000000000)
-+#define KVX_SFR_PCR_COE_WFXM_CLEAR _ULL(0x100000)
-+#define KVX_SFR_PCR_COE_WFXM_SET _ULL(0x10000000000000)
-+
-+#define KVX_SFR_PCR_L1CE_MASK _ULL(0x20000000000000) /* L1 cache Coherency Enable */
-+#define KVX_SFR_PCR_L1CE_SHIFT 53
-+#define KVX_SFR_PCR_L1CE_WIDTH 1
-+#define KVX_SFR_PCR_L1CE_WFXM_MASK _ULL(0x20000000000000)
-+#define KVX_SFR_PCR_L1CE_WFXM_CLEAR _ULL(0x200000)
-+#define KVX_SFR_PCR_L1CE_WFXM_SET _ULL(0x20000000000000)
-+
-+#define KVX_SFR_PCR_DSEM_MASK _ULL(0x40000000000000) /* Data Simple Ecc exception Mode */
-+#define KVX_SFR_PCR_DSEM_SHIFT 54
-+#define KVX_SFR_PCR_DSEM_WIDTH 1
-+#define KVX_SFR_PCR_DSEM_WFXM_MASK _ULL(0x40000000000000)
-+#define KVX_SFR_PCR_DSEM_WFXM_CLEAR _ULL(0x400000)
-+#define KVX_SFR_PCR_DSEM_WFXM_SET _ULL(0x40000000000000)
-+
-+#define KVX_SFR_MMC_ASN_MASK _ULL(0x1ff) /* Address Space Number */
-+#define KVX_SFR_MMC_ASN_SHIFT 0
-+#define KVX_SFR_MMC_ASN_WIDTH 9
-+#define KVX_SFR_MMC_ASN_WFXL_MASK _ULL(0x1ff)
-+#define KVX_SFR_MMC_ASN_WFXL_CLEAR _ULL(0x1ff)
-+#define KVX_SFR_MMC_ASN_WFXL_SET _ULL(0x1ff00000000)
-+
-+#define KVX_SFR_MMC_S_MASK _ULL(0x200) /* Speculative */
-+#define KVX_SFR_MMC_S_SHIFT 9
-+#define KVX_SFR_MMC_S_WIDTH 1
-+#define KVX_SFR_MMC_S_WFXL_MASK _ULL(0x200)
-+#define KVX_SFR_MMC_S_WFXL_CLEAR _ULL(0x200)
-+#define KVX_SFR_MMC_S_WFXL_SET _ULL(0x20000000000)
-+
-+#define KVX_SFR_MMC_SNE_MASK _ULL(0x4000) /* Speculative NOMAPPING Enable */
-+#define KVX_SFR_MMC_SNE_SHIFT 14
-+#define KVX_SFR_MMC_SNE_WIDTH 1
-+#define KVX_SFR_MMC_SNE_WFXL_MASK _ULL(0x4000)
-+#define KVX_SFR_MMC_SNE_WFXL_CLEAR _ULL(0x4000)
-+#define KVX_SFR_MMC_SNE_WFXL_SET _ULL(0x400000000000)
-+
-+#define KVX_SFR_MMC_SPE_MASK _ULL(0x8000) /* Speculative PROTECTION Enable */
-+#define KVX_SFR_MMC_SPE_SHIFT 15
-+#define KVX_SFR_MMC_SPE_WIDTH 1
-+#define KVX_SFR_MMC_SPE_WFXL_MASK _ULL(0x8000)
-+#define KVX_SFR_MMC_SPE_WFXL_CLEAR _ULL(0x8000)
-+#define KVX_SFR_MMC_SPE_WFXL_SET _ULL(0x800000000000)
-+
-+#define KVX_SFR_MMC_PTC_MASK _ULL(0x30000) /* Protection Trap Cause */
-+#define KVX_SFR_MMC_PTC_SHIFT 16
-+#define KVX_SFR_MMC_PTC_WIDTH 2
-+#define KVX_SFR_MMC_PTC_WFXL_MASK _ULL(0x30000)
-+#define KVX_SFR_MMC_PTC_WFXL_CLEAR _ULL(0x30000)
-+#define KVX_SFR_MMC_PTC_WFXL_SET _ULL(0x3000000000000)
-+
-+#define KVX_SFR_MMC_SW_MASK _ULL(0x3c0000) /* Select Way */
-+#define KVX_SFR_MMC_SW_SHIFT 18
-+#define KVX_SFR_MMC_SW_WIDTH 4
-+#define KVX_SFR_MMC_SW_WFXL_MASK _ULL(0x3c0000)
-+#define KVX_SFR_MMC_SW_WFXL_CLEAR _ULL(0x3c0000)
-+#define KVX_SFR_MMC_SW_WFXL_SET _ULL(0x3c000000000000)
-+
-+#define KVX_SFR_MMC_SS_MASK _ULL(0xfc00000) /* Select Set */
-+#define KVX_SFR_MMC_SS_SHIFT 22
-+#define KVX_SFR_MMC_SS_WIDTH 6
-+#define KVX_SFR_MMC_SS_WFXL_MASK _ULL(0xfc00000)
-+#define KVX_SFR_MMC_SS_WFXL_CLEAR _ULL(0xfc00000)
-+#define KVX_SFR_MMC_SS_WFXL_SET _ULL(0xfc0000000000000)
-+
-+#define KVX_SFR_MMC_SB_MASK _ULL(0x10000000) /* Select Buffer */
-+#define KVX_SFR_MMC_SB_SHIFT 28
-+#define KVX_SFR_MMC_SB_WIDTH 1
-+#define KVX_SFR_MMC_SB_WFXL_MASK _ULL(0x10000000)
-+#define KVX_SFR_MMC_SB_WFXL_CLEAR _ULL(0x10000000)
-+#define KVX_SFR_MMC_SB_WFXL_SET _ULL(0x1000000000000000)
-+
-+#define KVX_SFR_MMC_PAR_MASK _ULL(0x40000000) /* PARity error flag */
-+#define KVX_SFR_MMC_PAR_SHIFT 30
-+#define KVX_SFR_MMC_PAR_WIDTH 1
-+#define KVX_SFR_MMC_PAR_WFXL_MASK _ULL(0x40000000)
-+#define KVX_SFR_MMC_PAR_WFXL_CLEAR _ULL(0x40000000)
-+#define KVX_SFR_MMC_PAR_WFXL_SET _ULL(0x4000000000000000)
-+
-+#define KVX_SFR_MMC_E_MASK _ULL(0x80000000) /* Error Flag */
-+#define KVX_SFR_MMC_E_SHIFT 31
-+#define KVX_SFR_MMC_E_WIDTH 1
-+#define KVX_SFR_MMC_E_WFXL_MASK _ULL(0x80000000)
-+#define KVX_SFR_MMC_E_WFXL_CLEAR _ULL(0x80000000)
-+#define KVX_SFR_MMC_E_WFXL_SET _ULL(0x8000000000000000)
-+
-+#define KVX_SFR_TEL_ES_MASK _ULL(0x3) /* Entry Status */
-+#define KVX_SFR_TEL_ES_SHIFT 0
-+#define KVX_SFR_TEL_ES_WIDTH 2
-+#define KVX_SFR_TEL_ES_WFXL_MASK _ULL(0x3)
-+#define KVX_SFR_TEL_ES_WFXL_CLEAR _ULL(0x3)
-+#define KVX_SFR_TEL_ES_WFXL_SET _ULL(0x300000000)
-+
-+#define KVX_SFR_TEL_CP_MASK _ULL(0xc) /* Cache Policy */
-+#define KVX_SFR_TEL_CP_SHIFT 2
-+#define KVX_SFR_TEL_CP_WIDTH 2
-+#define KVX_SFR_TEL_CP_WFXL_MASK _ULL(0xc)
-+#define KVX_SFR_TEL_CP_WFXL_CLEAR _ULL(0xc)
-+#define KVX_SFR_TEL_CP_WFXL_SET _ULL(0xc00000000)
-+
-+#define KVX_SFR_TEL_PA_MASK _ULL(0xf0) /* Protection Attributes */
-+#define KVX_SFR_TEL_PA_SHIFT 4
-+#define KVX_SFR_TEL_PA_WIDTH 4
-+#define KVX_SFR_TEL_PA_WFXL_MASK _ULL(0xf0)
-+#define KVX_SFR_TEL_PA_WFXL_CLEAR _ULL(0xf0)
-+#define KVX_SFR_TEL_PA_WFXL_SET _ULL(0xf000000000)
-+
-+#define KVX_SFR_TEL_PS_MASK _ULL(0xc00) /* Page Size */
-+#define KVX_SFR_TEL_PS_SHIFT 10
-+#define KVX_SFR_TEL_PS_WIDTH 2
-+#define KVX_SFR_TEL_PS_WFXL_MASK _ULL(0xc00)
-+#define KVX_SFR_TEL_PS_WFXL_CLEAR _ULL(0xc00)
-+#define KVX_SFR_TEL_PS_WFXL_SET _ULL(0xc0000000000)
-+
-+#define KVX_SFR_TEL_FN_MASK _ULL(0xfffffff000) /* Frame Number */
-+#define KVX_SFR_TEL_FN_SHIFT 12
-+#define KVX_SFR_TEL_FN_WIDTH 28
-+#define KVX_SFR_TEL_FN_WFXL_MASK _ULL(0xfffff000)
-+#define KVX_SFR_TEL_FN_WFXL_CLEAR _ULL(0xfffff000)
-+#define KVX_SFR_TEL_FN_WFXL_SET _ULL(0xfffff00000000000)
-+#define KVX_SFR_TEL_FN_WFXM_MASK _ULL(0xff00000000)
-+#define KVX_SFR_TEL_FN_WFXM_CLEAR _ULL(0xff)
-+#define KVX_SFR_TEL_FN_WFXM_SET _ULL(0xff00000000)
-+
-+#define KVX_SFR_TEH_ASN_MASK _ULL(0x1ff) /* Address Space Number */
-+#define KVX_SFR_TEH_ASN_SHIFT 0
-+#define KVX_SFR_TEH_ASN_WIDTH 9
-+#define KVX_SFR_TEH_ASN_WFXL_MASK _ULL(0x1ff)
-+#define KVX_SFR_TEH_ASN_WFXL_CLEAR _ULL(0x1ff)
-+#define KVX_SFR_TEH_ASN_WFXL_SET _ULL(0x1ff00000000)
-+
-+#define KVX_SFR_TEH_G_MASK _ULL(0x200) /* Global page indicator */
-+#define KVX_SFR_TEH_G_SHIFT 9
-+#define KVX_SFR_TEH_G_WIDTH 1
-+#define KVX_SFR_TEH_G_WFXL_MASK _ULL(0x200)
-+#define KVX_SFR_TEH_G_WFXL_CLEAR _ULL(0x200)
-+#define KVX_SFR_TEH_G_WFXL_SET _ULL(0x20000000000)
-+
-+#define KVX_SFR_TEH_VS_MASK _ULL(0xc00) /* Virtual Space */
-+#define KVX_SFR_TEH_VS_SHIFT 10
-+#define KVX_SFR_TEH_VS_WIDTH 2
-+#define KVX_SFR_TEH_VS_WFXL_MASK _ULL(0xc00)
-+#define KVX_SFR_TEH_VS_WFXL_CLEAR _ULL(0xc00)
-+#define KVX_SFR_TEH_VS_WFXL_SET _ULL(0xc0000000000)
-+
-+#define KVX_SFR_TEH_PN_MASK _ULL(0x1fffffff000) /* Page Number */
-+#define KVX_SFR_TEH_PN_SHIFT 12
-+#define KVX_SFR_TEH_PN_WIDTH 29
-+#define KVX_SFR_TEH_PN_WFXL_MASK _ULL(0xfffff000)
-+#define KVX_SFR_TEH_PN_WFXL_CLEAR _ULL(0xfffff000)
-+#define KVX_SFR_TEH_PN_WFXL_SET _ULL(0xfffff00000000000)
-+#define KVX_SFR_TEH_PN_WFXM_MASK _ULL(0x1ff00000000)
-+#define KVX_SFR_TEH_PN_WFXM_CLEAR _ULL(0x1ff)
-+#define KVX_SFR_TEH_PN_WFXM_SET _ULL(0x1ff00000000)
-+
-+#define KVX_SFR_DC_BE0_MASK _ULL(0x1) /* Breakpoint 0 Enable */
-+#define KVX_SFR_DC_BE0_SHIFT 0
-+#define KVX_SFR_DC_BE0_WIDTH 1
-+#define KVX_SFR_DC_BE0_WFXL_MASK _ULL(0x1)
-+#define KVX_SFR_DC_BE0_WFXL_CLEAR _ULL(0x1)
-+#define KVX_SFR_DC_BE0_WFXL_SET _ULL(0x100000000)
-+
-+#define KVX_SFR_DC_BR0_MASK _ULL(0x7e) /* Breakpoint 0 Range */
-+#define KVX_SFR_DC_BR0_SHIFT 1
-+#define KVX_SFR_DC_BR0_WIDTH 6
-+#define KVX_SFR_DC_BR0_WFXL_MASK _ULL(0x7e)
-+#define KVX_SFR_DC_BR0_WFXL_CLEAR _ULL(0x7e)
-+#define KVX_SFR_DC_BR0_WFXL_SET _ULL(0x7e00000000)
-+
-+#define KVX_SFR_DC_BE1_MASK _ULL(0x80) /* Breakpoint 1 Enable */
-+#define KVX_SFR_DC_BE1_SHIFT 7
-+#define KVX_SFR_DC_BE1_WIDTH 1
-+#define KVX_SFR_DC_BE1_WFXL_MASK _ULL(0x80)
-+#define KVX_SFR_DC_BE1_WFXL_CLEAR _ULL(0x80)
-+#define KVX_SFR_DC_BE1_WFXL_SET _ULL(0x8000000000)
-+
-+#define KVX_SFR_DC_BR1_MASK _ULL(0x3f00) /* Breakpoint 1 Range */
-+#define KVX_SFR_DC_BR1_SHIFT 8
-+#define KVX_SFR_DC_BR1_WIDTH 6
-+#define KVX_SFR_DC_BR1_WFXL_MASK _ULL(0x3f00)
-+#define KVX_SFR_DC_BR1_WFXL_CLEAR _ULL(0x3f00)
-+#define KVX_SFR_DC_BR1_WFXL_SET _ULL(0x3f0000000000)
-+
-+#define KVX_SFR_DC_WE0_MASK _ULL(0x4000) /* Watchpoint 0 Enable */
-+#define KVX_SFR_DC_WE0_SHIFT 14
-+#define KVX_SFR_DC_WE0_WIDTH 1
-+#define KVX_SFR_DC_WE0_WFXL_MASK _ULL(0x4000)
-+#define KVX_SFR_DC_WE0_WFXL_CLEAR _ULL(0x4000)
-+#define KVX_SFR_DC_WE0_WFXL_SET _ULL(0x400000000000)
-+
-+#define KVX_SFR_DC_WR0_MASK _ULL(0x1f8000) /* Watchpoint 0 Range */
-+#define KVX_SFR_DC_WR0_SHIFT 15
-+#define KVX_SFR_DC_WR0_WIDTH 6
-+#define KVX_SFR_DC_WR0_WFXL_MASK _ULL(0x1f8000)
-+#define KVX_SFR_DC_WR0_WFXL_CLEAR _ULL(0x1f8000)
-+#define KVX_SFR_DC_WR0_WFXL_SET _ULL(0x1f800000000000)
-+
-+#define KVX_SFR_DC_WE1_MASK _ULL(0x200000) /* Watchpoint 1 Enable */
-+#define KVX_SFR_DC_WE1_SHIFT 21
-+#define KVX_SFR_DC_WE1_WIDTH 1
-+#define KVX_SFR_DC_WE1_WFXL_MASK _ULL(0x200000)
-+#define KVX_SFR_DC_WE1_WFXL_CLEAR _ULL(0x200000)
-+#define KVX_SFR_DC_WE1_WFXL_SET _ULL(0x20000000000000)
-+
-+#define KVX_SFR_DC_WR1_MASK _ULL(0xfc00000) /* Watchpoint 1 Range */
-+#define KVX_SFR_DC_WR1_SHIFT 22
-+#define KVX_SFR_DC_WR1_WIDTH 6
-+#define KVX_SFR_DC_WR1_WFXL_MASK _ULL(0xfc00000)
-+#define KVX_SFR_DC_WR1_WFXL_CLEAR _ULL(0xfc00000)
-+#define KVX_SFR_DC_WR1_WFXL_SET _ULL(0xfc0000000000000)
-+
-+#define KVX_SFR_MES_PSE_MASK _ULL(0x1) /* Program Simple Ecc */
-+#define KVX_SFR_MES_PSE_SHIFT 0
-+#define KVX_SFR_MES_PSE_WIDTH 1
-+#define KVX_SFR_MES_PSE_WFXL_MASK _ULL(0x1)
-+#define KVX_SFR_MES_PSE_WFXL_CLEAR _ULL(0x1)
-+#define KVX_SFR_MES_PSE_WFXL_SET _ULL(0x100000000)
-+
-+#define KVX_SFR_MES_PILSY_MASK _ULL(0x2) /* Program cache Invalidated Line following pSYs error. */
-+#define KVX_SFR_MES_PILSY_SHIFT 1
-+#define KVX_SFR_MES_PILSY_WIDTH 1
-+#define KVX_SFR_MES_PILSY_WFXL_MASK _ULL(0x2)
-+#define KVX_SFR_MES_PILSY_WFXL_CLEAR _ULL(0x2)
-+#define KVX_SFR_MES_PILSY_WFXL_SET _ULL(0x200000000)
-+
-+#define KVX_SFR_MES_PILDE_MASK _ULL(0x4) /* Program cache Invalidated Line following pDEcc error. */
-+#define KVX_SFR_MES_PILDE_SHIFT 2
-+#define KVX_SFR_MES_PILDE_WIDTH 1
-+#define KVX_SFR_MES_PILDE_WFXL_MASK _ULL(0x4)
-+#define KVX_SFR_MES_PILDE_WFXL_CLEAR _ULL(0x4)
-+#define KVX_SFR_MES_PILDE_WFXL_SET _ULL(0x400000000)
-+
-+#define KVX_SFR_MES_PILPA_MASK _ULL(0x8) /* Program cache Invalidated Line following pPArity error. */
-+#define KVX_SFR_MES_PILPA_SHIFT 3
-+#define KVX_SFR_MES_PILPA_WIDTH 1
-+#define KVX_SFR_MES_PILPA_WFXL_MASK _ULL(0x8)
-+#define KVX_SFR_MES_PILPA_WFXL_CLEAR _ULL(0x8)
-+#define KVX_SFR_MES_PILPA_WFXL_SET _ULL(0x800000000)
-+
-+#define KVX_SFR_MES_DSE_MASK _ULL(0x10) /* Data Simple Ecc */
-+#define KVX_SFR_MES_DSE_SHIFT 4
-+#define KVX_SFR_MES_DSE_WIDTH 1
-+#define KVX_SFR_MES_DSE_WFXL_MASK _ULL(0x10)
-+#define KVX_SFR_MES_DSE_WFXL_CLEAR _ULL(0x10)
-+#define KVX_SFR_MES_DSE_WFXL_SET _ULL(0x1000000000)
-+
-+#define KVX_SFR_MES_DILSY_MASK _ULL(0x20) /* Data cache Invalidated Line following dSYs error. */
-+#define KVX_SFR_MES_DILSY_SHIFT 5
-+#define KVX_SFR_MES_DILSY_WIDTH 1
-+#define KVX_SFR_MES_DILSY_WFXL_MASK _ULL(0x20)
-+#define KVX_SFR_MES_DILSY_WFXL_CLEAR _ULL(0x20)
-+#define KVX_SFR_MES_DILSY_WFXL_SET _ULL(0x2000000000)
-+
-+#define KVX_SFR_MES_DILDE_MASK _ULL(0x40) /* Data cache Invalidated Line following dDEcc error. */
-+#define KVX_SFR_MES_DILDE_SHIFT 6
-+#define KVX_SFR_MES_DILDE_WIDTH 1
-+#define KVX_SFR_MES_DILDE_WFXL_MASK _ULL(0x40)
-+#define KVX_SFR_MES_DILDE_WFXL_CLEAR _ULL(0x40)
-+#define KVX_SFR_MES_DILDE_WFXL_SET _ULL(0x4000000000)
-+
-+#define KVX_SFR_MES_DILPA_MASK _ULL(0x80) /* Data cache Invalidated Line following dPArity error. */
-+#define KVX_SFR_MES_DILPA_SHIFT 7
-+#define KVX_SFR_MES_DILPA_WIDTH 1
-+#define KVX_SFR_MES_DILPA_WFXL_MASK _ULL(0x80)
-+#define KVX_SFR_MES_DILPA_WFXL_CLEAR _ULL(0x80)
-+#define KVX_SFR_MES_DILPA_WFXL_SET _ULL(0x8000000000)
-+
-+#define KVX_SFR_MES_DDEE_MASK _ULL(0x100) /* Data DEcc Error. */
-+#define KVX_SFR_MES_DDEE_SHIFT 8
-+#define KVX_SFR_MES_DDEE_WIDTH 1
-+#define KVX_SFR_MES_DDEE_WFXL_MASK _ULL(0x100)
-+#define KVX_SFR_MES_DDEE_WFXL_CLEAR _ULL(0x100)
-+#define KVX_SFR_MES_DDEE_WFXL_SET _ULL(0x10000000000)
-+
-+#define KVX_SFR_MES_DSYE_MASK _ULL(0x200) /* Data dSYs Error. */
-+#define KVX_SFR_MES_DSYE_SHIFT 9
-+#define KVX_SFR_MES_DSYE_WIDTH 1
-+#define KVX_SFR_MES_DSYE_WFXL_MASK _ULL(0x200)
-+#define KVX_SFR_MES_DSYE_WFXL_CLEAR _ULL(0x200)
-+#define KVX_SFR_MES_DSYE_WFXL_SET _ULL(0x20000000000)
-+
-+#define KVX_SFR_WS_WU0_MASK _ULL(0x1) /* Wake-Up 0 */
-+#define KVX_SFR_WS_WU0_SHIFT 0
-+#define KVX_SFR_WS_WU0_WIDTH 1
-+#define KVX_SFR_WS_WU0_WFXL_MASK _ULL(0x1)
-+#define KVX_SFR_WS_WU0_WFXL_CLEAR _ULL(0x1)
-+#define KVX_SFR_WS_WU0_WFXL_SET _ULL(0x100000000)
-+
-+#define KVX_SFR_WS_WU1_MASK _ULL(0x2) /* Wake-Up 1 */
-+#define KVX_SFR_WS_WU1_SHIFT 1
-+#define KVX_SFR_WS_WU1_WIDTH 1
-+#define KVX_SFR_WS_WU1_WFXL_MASK _ULL(0x2)
-+#define KVX_SFR_WS_WU1_WFXL_CLEAR _ULL(0x2)
-+#define KVX_SFR_WS_WU1_WFXL_SET _ULL(0x200000000)
-+
-+#define KVX_SFR_WS_WU2_MASK _ULL(0x4) /* Wake-Up 2 */
-+#define KVX_SFR_WS_WU2_SHIFT 2
-+#define KVX_SFR_WS_WU2_WIDTH 1
-+#define KVX_SFR_WS_WU2_WFXL_MASK _ULL(0x4)
-+#define KVX_SFR_WS_WU2_WFXL_CLEAR _ULL(0x4)
-+#define KVX_SFR_WS_WU2_WFXL_SET _ULL(0x400000000)
-+
-+#define KVX_SFR_IPE_FE_MASK _ULL(0xffff) /* Forward Events */
-+#define KVX_SFR_IPE_FE_SHIFT 0
-+#define KVX_SFR_IPE_FE_WIDTH 16
-+#define KVX_SFR_IPE_FE_WFXL_MASK _ULL(0xffff)
-+#define KVX_SFR_IPE_FE_WFXL_CLEAR _ULL(0xffff)
-+#define KVX_SFR_IPE_FE_WFXL_SET _ULL(0xffff00000000)
-+
-+#define KVX_SFR_IPE_BE_MASK _ULL(0xffff0000) /* Backward Events */
-+#define KVX_SFR_IPE_BE_SHIFT 16
-+#define KVX_SFR_IPE_BE_WIDTH 16
-+#define KVX_SFR_IPE_BE_WFXL_MASK _ULL(0xffff0000)
-+#define KVX_SFR_IPE_BE_WFXL_CLEAR _ULL(0xffff0000)
-+#define KVX_SFR_IPE_BE_WFXL_SET _ULL(0xffff000000000000)
-+
-+#define KVX_SFR_IPE_FM_MASK _ULL(0xffff00000000) /* Forward Mode */
-+#define KVX_SFR_IPE_FM_SHIFT 32
-+#define KVX_SFR_IPE_FM_WIDTH 16
-+#define KVX_SFR_IPE_FM_WFXM_MASK _ULL(0xffff00000000)
-+#define KVX_SFR_IPE_FM_WFXM_CLEAR _ULL(0xffff)
-+#define KVX_SFR_IPE_FM_WFXM_SET _ULL(0xffff00000000)
-+
-+#define KVX_SFR_IPE_BM_MASK _ULL(0xffff000000000000) /* Backward Modes */
-+#define KVX_SFR_IPE_BM_SHIFT 48
-+#define KVX_SFR_IPE_BM_WIDTH 16
-+#define KVX_SFR_IPE_BM_WFXM_MASK _ULL(0xffff000000000000)
-+#define KVX_SFR_IPE_BM_WFXM_CLEAR _ULL(0xffff0000)
-+#define KVX_SFR_IPE_BM_WFXM_SET _ULL(0xffff000000000000)
-+
-+#endif /*_ASM_KVX_SFR_DEFS_H */
-diff --git a/arch/kvx/include/asm/swab.h b/arch/kvx/include/asm/swab.h
-new file mode 100644
-index 000000000000..83a48871c8fb
---- /dev/null
-+++ b/arch/kvx/include/asm/swab.h
-@@ -0,0 +1,48 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2017-2023 Kalray Inc.
-+ * Author(s): Clement Leger
-+ */
-+
-+#ifndef _ASM_KVX_SWAB_H
-+#define _ASM_KVX_SWAB_H
-+
-+#include <linux/types.h>
-+
-+#define U64_BYTE_SWAP_MATRIX		0x0102040810204080ULL
-+#define U32_BYTE_SWAP_MATRIX		0x0000000001020408ULL
-+#define U16_BYTE_SWAP_MATRIX		0x0000000000000102ULL
-+#define U32_WORD_SWAP_MATRIX		0x0000000002010804ULL
-+#define U32_HL_BYTE_SWAP_MATRIX		0x0000000004080102ULL
-+
-+static inline __attribute_const__ __u64 __arch_swab64(__u64 val)
-+{
-+	return __builtin_kvx_sbmm8(val, U64_BYTE_SWAP_MATRIX);
-+}
-+
-+static inline __attribute_const__ __u32 __arch_swab32(__u32 val)
-+{
-+	return __builtin_kvx_sbmm8(val, U32_BYTE_SWAP_MATRIX);
-+}
-+
-+static inline __attribute_const__ __u16 __arch_swab16(__u16 val)
-+{
-+	return __builtin_kvx_sbmm8(val, U16_BYTE_SWAP_MATRIX);
-+}
-+
-+static inline __attribute_const__ __u32 __arch_swahw32(__u32 val)
-+{
-+	return __builtin_kvx_sbmm8(val, U32_WORD_SWAP_MATRIX);
-+}
-+
-+static inline __attribute_const__ __u32 __arch_swahb32(__u32 val)
-+{
-+	return __builtin_kvx_sbmm8(val, U32_HL_BYTE_SWAP_MATRIX);
-+}
-+
-+#define __arch_swab64 __arch_swab64
-+#define __arch_swab32 __arch_swab32
-+#define __arch_swab16 __arch_swab16
-+#define __arch_swahw32 __arch_swahw32
-+#define __arch_swahb32 __arch_swahb32
-+#endif
-diff --git a/arch/kvx/include/asm/sys_arch.h b/arch/kvx/include/asm/sys_arch.h
-new file mode 100644
-index 000000000000..ae518106a0a8
---- /dev/null
-+++ b/arch/kvx/include/asm/sys_arch.h
-@@ -0,0 +1,51 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2017-2023 Kalray Inc.
-+ * Author(s): Clement Leger
-+ */
-+
-+#ifndef _ASM_KVX_SYS_ARCH_H
-+#define _ASM_KVX_SYS_ARCH_H
-+
-+#include <asm/sfr_defs.h>
-+
-+#define EXCEPTION_STRIDE	0x40
-+#define EXCEPTION_ALIGNMENT	0x100
-+
-+#define kvx_cluster_id() ((int) \
-+	((kvx_sfr_get(PCR) & KVX_SFR_PCR_CID_MASK) \
-+					>> KVX_SFR_PCR_CID_SHIFT))
-+
-+#define KVX_SFR_START(__sfr_reg) \
-+	(KVX_SFR_## __sfr_reg ## _SHIFT)
-+
-+#define KVX_SFR_END(__sfr_reg) \
-+	(KVX_SFR_## __sfr_reg ## _SHIFT + KVX_SFR_## __sfr_reg ## _WIDTH - 1)
-+
-+/**
-+ * Get the value to clear a sfr
-+ */
-+#define SFR_CLEAR(__sfr, __field, __lm) \
-+	KVX_SFR_## __sfr ## _ ## __field ## _ ## __lm ## _CLEAR
-+
-+#define SFR_CLEAR_WFXL(__sfr, __field)  SFR_CLEAR(__sfr, __field, WFXL)
-+#define SFR_CLEAR_WFXM(__sfr, __field)  SFR_CLEAR(__sfr, __field, WFXM)
-+
-+/**
-+ * Get the value to set a sfr.
-+ */
-+#define SFR_SET_WFXL(__sfr, __field, __val) \
-+	(__val << (KVX_SFR_ ## __sfr ## _ ## __field ## _SHIFT + 32))
-+
-+#define SFR_SET_WFXM(__sfr, __field, __val) \
-+	(__val << (KVX_SFR_ ## __sfr ## _ ## __field ## _SHIFT))
-+
-+/**
-+ * Generate the mask to clear and set a value using wfx{m|l}.
-+ */
-+#define SFR_SET_VAL_WFXL(__sfr, __field, __val) \
-+	(SFR_SET_WFXL(__sfr, __field, __val) | SFR_CLEAR_WFXL(__sfr, __field))
-+#define SFR_SET_VAL_WFXM(__sfr, __field, __val) \
-+	(SFR_SET_WFXM(__sfr, __field, __val) | SFR_CLEAR_WFXM(__sfr, __field))
-+
-+#endif /* _ASM_KVX_SYS_ARCH_H */
--- 
-2.37.2
 
 
+On 1/19/23 19:53, Amit Kumar Mahapatra wrote:
+> Each flash that is connected in stacked mode should have a separate
+> parameter structure. So, the flash parameter member(*params) of the spi_nor
+> structure is changed to an array (*params[2]). The array is used to store
+> the parameters of each flash connected in stacked configuration.
+> 
+> The current implementation assumes that a maximum of two flashes are
+> connected in stacked mode and both the flashes are of same make but can
+> differ in sizes. So, except the sizes all other flash parameters of both
+> the flashes are identical.
+> 
+> SPI-NOR is not aware of the chip_select values, for any incoming request
+> SPI-NOR will decide the flash index with the help of individual flash size
+> and the configuration type (single/stacked). SPI-NOR will pass on the flash
+> index information to the SPI core & SPI driver by setting the appropriate
+> bit in nor->spimem->spi->cs_index_mask. For example, if nth bit of
+> nor->spimem->spi->cs_index_mask is set then the driver would
+> assert/de-assert spi->chip_slect[n].
+> 
+> Signed-off-by: Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>
+> ---
+>   drivers/mtd/spi-nor/core.c  | 282 +++++++++++++++++++++++++++++-------
+>   drivers/mtd/spi-nor/core.h  |   4 +
+>   drivers/mtd/spi-nor/otp.c   |   4 +-
+>   include/linux/mtd/spi-nor.h |  12 +-
+>   4 files changed, 246 insertions(+), 56 deletions(-)
+> 
+> diff --git a/drivers/mtd/spi-nor/core.c b/drivers/mtd/spi-nor/core.c
+> index 8a4a54bf2d0e..bb7326dc8b70 100644
+> --- a/drivers/mtd/spi-nor/core.c
+> +++ b/drivers/mtd/spi-nor/core.c
+> @@ -1441,13 +1441,18 @@ static int spi_nor_erase_multi_sectors(struct spi_nor *nor, u64 addr, u32 len)
+>   static int spi_nor_erase(struct mtd_info *mtd, struct erase_info *instr)
+>   {
+>   	struct spi_nor *nor = mtd_to_spi_nor(mtd);
+> -	u32 addr, len;
+> +	struct spi_nor_flash_parameter *params;
+> +	u32 addr, len, offset, cur_cs_num = 0;
+>   	uint32_t rem;
+>   	int ret;
+> +	u64 sz;
+>   
+>   	dev_dbg(nor->dev, "at 0x%llx, len %lld\n", (long long)instr->addr,
+>   			(long long)instr->len);
+>   
+> +	params = spi_nor_get_params(nor, 0);
+> +	sz = params->size;
+> +
+>   	if (spi_nor_has_uniform_erase(nor)) {
+>   		div_u64_rem(instr->len, mtd->erasesize, &rem);
+>   		if (rem)
+> @@ -1465,26 +1470,30 @@ static int spi_nor_erase(struct mtd_info *mtd, struct erase_info *instr)
+>   	if (len == mtd->size && !(nor->flags & SNOR_F_NO_OP_CHIP_ERASE)) {
+>   		unsigned long timeout;
+>   
+> -		ret = spi_nor_write_enable(nor);
+> -		if (ret)
+> -			goto erase_err;
+> +		while (cur_cs_num < SNOR_FLASH_CNT_MAX && params) {
+> +			nor->spimem->spi->cs_index_mask = 0x01 << cur_cs_num;
+> +			ret = spi_nor_write_enable(nor);
+> +			if (ret)
+> +				goto erase_err;
+>   
+> -		ret = spi_nor_erase_chip(nor);
+> -		if (ret)
+> -			goto erase_err;
+> +			ret = spi_nor_erase_chip(nor);
+> +			if (ret)
+> +				goto erase_err;
+>   
+> -		/*
+> -		 * Scale the timeout linearly with the size of the flash, with
+> -		 * a minimum calibrated to an old 2MB flash. We could try to
+> -		 * pull these from CFI/SFDP, but these values should be good
+> -		 * enough for now.
+> -		 */
+> -		timeout = max(CHIP_ERASE_2MB_READY_WAIT_JIFFIES,
+> -			      CHIP_ERASE_2MB_READY_WAIT_JIFFIES *
+> -			      (unsigned long)(mtd->size / SZ_2M));
+> -		ret = spi_nor_wait_till_ready_with_timeout(nor, timeout);
+> -		if (ret)
+> -			goto erase_err;
+> +			/*
+> +			 * Scale the timeout linearly with the size of the flash, with
+> +			 * a minimum calibrated to an old 2MB flash. We could try to
+> +			 * pull these from CFI/SFDP, but these values should be good
+> +			 * enough for now.
+> +			 */
+> +			timeout = max(CHIP_ERASE_2MB_READY_WAIT_JIFFIES,
+> +				      CHIP_ERASE_2MB_READY_WAIT_JIFFIES *
+> +				      (unsigned long)(params->size / SZ_2M));
+> +			ret = spi_nor_wait_till_ready_with_timeout(nor, timeout);
+> +			if (ret)
+> +				goto erase_err;
+> +			cur_cs_num++;
+> +		}
+>   
+>   	/* REVISIT in some cases we could speed up erasing large regions
+>   	 * by using SPINOR_OP_SE instead of SPINOR_OP_BE_4K.  We may have set up
+> @@ -1493,12 +1502,26 @@ static int spi_nor_erase(struct mtd_info *mtd, struct erase_info *instr)
+>   
+>   	/* "sector"-at-a-time erase */
+>   	} else if (spi_nor_has_uniform_erase(nor)) {
+> +		/* Determine the flash from which the operation need to start */
+> +		while ((cur_cs_num < SNOR_FLASH_CNT_MAX) && (addr > sz - 1) && params) {
+> +			cur_cs_num++;
+> +			params = spi_nor_get_params(nor, cur_cs_num);
+> +			sz += params->size;
+> +		}
+> +
+>   		while (len) {
+> +			nor->spimem->spi->cs_index_mask = 0x01 << cur_cs_num;
+>   			ret = spi_nor_write_enable(nor);
+>   			if (ret)
+>   				goto erase_err;
+>   
+> -			ret = spi_nor_erase_sector(nor, addr);
+> +			offset = addr;
+> +			if (nor->flags & SNOR_F_HAS_STACKED) {
+> +				params = spi_nor_get_params(nor, cur_cs_num);
+> +				offset -= (sz - params->size);
+> +			}
+> +
+> +			ret = spi_nor_erase_sector(nor, offset);
+>   			if (ret)
+>   				goto erase_err;
+>   
+> @@ -1508,13 +1531,45 @@ static int spi_nor_erase(struct mtd_info *mtd, struct erase_info *instr)
+>   
+>   			addr += mtd->erasesize;
+>   			len -= mtd->erasesize;
+> +
+> +			/*
+> +			 * Flash cross over condition in stacked mode.
+> +			 */
+> +			if ((nor->flags & SNOR_F_HAS_STACKED) && (addr > sz - 1)) {
+> +				cur_cs_num++;
+> +				params = spi_nor_get_params(nor, cur_cs_num);
+> +				sz += params->size;
+> +			}
+>   		}
+>   
+>   	/* erase multiple sectors */
+>   	} else {
+> -		ret = spi_nor_erase_multi_sectors(nor, addr, len);
+> -		if (ret)
+> -			goto erase_err;
+> +		u64 erase_len = 0;
+> +
+> +		/* Determine the flash from which the operation need to start */
+> +		while ((cur_cs_num < SNOR_FLASH_CNT_MAX) && (addr > sz - 1) && params) {
+> +			cur_cs_num++;
+> +			params = spi_nor_get_params(nor, cur_cs_num);
+> +			sz += params->size;
+> +		}
+> +		/* perform multi sector erase onec per Flash*/
+> +		while (len) {
+> +			erase_len = (len > (sz - addr)) ? (sz - addr) : len;
+> +			offset = addr;
+> +			nor->spimem->spi->cs_index_mask = 0x01 << cur_cs_num;
+> +			if (nor->flags & SNOR_F_HAS_STACKED) {
+> +				params = spi_nor_get_params(nor, cur_cs_num);
+> +				offset -= (sz - params->size);
+> +			}
+> +			ret = spi_nor_erase_multi_sectors(nor, offset, erase_len);
+> +			if (ret)
+> +				goto erase_err;
+> +			len -= erase_len;
+> +			addr += erase_len;
+> +			cur_cs_num++;
+> +			params = spi_nor_get_params(nor, cur_cs_num);
+> +			sz += params->size;
+> +		}
+>   	}
+>   
+>   	ret = spi_nor_write_disable(nor);
+> @@ -1713,7 +1768,10 @@ static int spi_nor_read(struct mtd_info *mtd, loff_t from, size_t len,
+>   			size_t *retlen, u_char *buf)
+>   {
+>   	struct spi_nor *nor = mtd_to_spi_nor(mtd);
+> -	ssize_t ret;
+> +	struct spi_nor_flash_parameter *params;
+> +	ssize_t ret, read_len;
+> +	u32 cur_cs_num = 0;
+> +	u64 sz;
+>   
+>   	dev_dbg(nor->dev, "from 0x%08x, len %zd\n", (u32)from, len);
+>   
+> @@ -1721,9 +1779,23 @@ static int spi_nor_read(struct mtd_info *mtd, loff_t from, size_t len,
+>   	if (ret)
+>   		return ret;
+>   
+> +	params = spi_nor_get_params(nor, 0);
+> +	sz = params->size;
+> +
+> +	/* Determine the flash from which the operation need to start */
+> +	while ((cur_cs_num < SNOR_FLASH_CNT_MAX) && (from > sz - 1) && params) {
+> +		cur_cs_num++;
+> +		params = spi_nor_get_params(nor, cur_cs_num);
+> +		sz += params->size;
+> +	}
+>   	while (len) {
+>   		loff_t addr = from;
+>   
+> +		nor->spimem->spi->cs_index_mask = 0x01 << cur_cs_num;
+> +		read_len = (len > (sz - addr)) ? (sz - addr) : len;
+> +		params = spi_nor_get_params(nor, cur_cs_num);
+> +		addr -= (sz - params->size);
+> +
+>   		addr = spi_nor_convert_addr(nor, addr);
+>   
+>   		ret = spi_nor_read_data(nor, addr, len, buf);
+> @@ -1735,11 +1807,22 @@ static int spi_nor_read(struct mtd_info *mtd, loff_t from, size_t len,
+>   		if (ret < 0)
+>   			goto read_err;
+>   
+> -		WARN_ON(ret > len);
+> +		WARN_ON(ret > read_len);
+>   		*retlen += ret;
+>   		buf += ret;
+>   		from += ret;
+>   		len -= ret;
+> +
+> +		/*
+> +		 * Flash cross over condition in stacked mode.
+> +		 *
+> +		 */
+> +		if ((nor->flags & SNOR_F_HAS_STACKED) && (from > sz - 1)) {
+> +			cur_cs_num++;
+> +			params = spi_nor_get_params(nor, cur_cs_num);
+> +			sz += params->size;
+> +		}
+> +
+>   	}
+>   	ret = 0;
+>   
+> @@ -1759,13 +1842,22 @@ static int spi_nor_write(struct mtd_info *mtd, loff_t to, size_t len,
+>   	struct spi_nor *nor = mtd_to_spi_nor(mtd);
+>   	struct spi_nor_flash_parameter *params;
+>   	size_t page_offset, page_remain, i;
+> +	u32 page_size, cur_cs_num = 0;
+>   	ssize_t ret;
+> -	u32 page_size;
+> +	u64 sz;
+>   
+>   	dev_dbg(nor->dev, "to 0x%08x, len %zd\n", (u32)to, len);
+>   
+>   	params = spi_nor_get_params(nor, 0);
+>   	page_size = params->page_size;
+> +	sz = params->size;
+> +
+> +	/* Determine the flash from which the operation need to start */
+> +	while ((cur_cs_num < SNOR_FLASH_CNT_MAX) && (to > sz - 1) && params) {
+> +		cur_cs_num++;
+> +		params = spi_nor_get_params(nor, cur_cs_num);
+> +		sz += params->size;
+> +	}
+>   
+>   	ret = spi_nor_lock_and_prep(nor);
+>   	if (ret)
+> @@ -1790,6 +1882,10 @@ static int spi_nor_write(struct mtd_info *mtd, loff_t to, size_t len,
+>   		/* the size of data remaining on the first page */
+>   		page_remain = min_t(size_t, page_size - page_offset, len - i);
+>   
+> +		nor->spimem->spi->cs_index_mask = 0x01 << cur_cs_num;
+> +		params = spi_nor_get_params(nor, cur_cs_num);
+> +		addr -= (sz - params->size);
+> +
+>   		addr = spi_nor_convert_addr(nor, addr);
+>   
+>   		ret = spi_nor_write_enable(nor);
+> @@ -1806,6 +1902,15 @@ static int spi_nor_write(struct mtd_info *mtd, loff_t to, size_t len,
+>   			goto write_err;
+>   		*retlen += written;
+>   		i += written;
+> +
+> +		/*
+> +		 * Flash cross over condition in stacked mode.
+> +		 */
+> +		if ((nor->flags & SNOR_F_HAS_STACKED) && ((to + i) > sz - 1)) {
+> +			cur_cs_num++;
+> +			params = spi_nor_get_params(nor, cur_cs_num);
+> +			sz += params->size;
+> +		}
+>   	}
+>   
+>   write_err:
+> @@ -1918,8 +2023,6 @@ int spi_nor_hwcaps_pp2cmd(u32 hwcaps)
+>   static int spi_nor_spimem_check_op(struct spi_nor *nor,
+>   				   struct spi_mem_op *op)
+>   {
+> -	struct spi_nor_flash_parameter *params = spi_nor_get_params(nor, 0);
+> -
+>   	/*
+>   	 * First test with 4 address bytes. The opcode itself might
+>   	 * be a 3B addressing opcode but we don't care, because
+> @@ -1928,7 +2031,7 @@ static int spi_nor_spimem_check_op(struct spi_nor *nor,
+>   	 */
+>   	op->addr.nbytes = 4;
+>   	if (!spi_mem_supports_op(nor->spimem, op)) {
+> -		if (params->size > SZ_16M)
+> +		if (nor->mtd.size > SZ_16M)
+>   			return -EOPNOTSUPP;
+>   
+>   		/* If flash size <= 16MB, 3 address bytes are sufficient */
+> @@ -2516,6 +2619,10 @@ static void spi_nor_init_fixup_flags(struct spi_nor *nor)
+>   static void spi_nor_late_init_params(struct spi_nor *nor)
+>   {
+>   	struct spi_nor_flash_parameter *params = spi_nor_get_params(nor, 0);
+> +	struct device_node *np = spi_nor_get_flash_node(nor);
+> +	u64 flash_size[SNOR_FLASH_CNT_MAX];
+> +	u32 idx = 0, i = 0;
+> +	int rc;
+>   
+>   	if (nor->manufacturer && nor->manufacturer->fixups &&
+>   	    nor->manufacturer->fixups->late_init)
+> @@ -2533,6 +2640,36 @@ static void spi_nor_late_init_params(struct spi_nor *nor)
+>   	 */
+>   	if (nor->flags & SNOR_F_HAS_LOCK && !params->locking_ops)
+>   		spi_nor_init_default_locking_ops(nor);
+> +	/*
+> +	 * The flashes that are connected in stacked mode should be of same make.
+> +	 * Except the flash size all other properties are identical for all the
+> +	 * flashes connected in stacked mode.
+> +	 * The flashes that are connected in parallel mode should be identical.
+> +	 */
+> +	while (i < SNOR_FLASH_CNT_MAX) {
+> +		rc = of_property_read_u64_index(np, "stacked-memories", idx, &flash_size[i]);
+> +		if (rc == -EINVAL) {
+> +			break;
+> +		} else if (rc == -EOVERFLOW) {
+> +			idx++;
+> +		} else {
+> +			idx++;
+> +			i++;
+> +			if (!(nor->flags & SNOR_F_HAS_STACKED))
+> +				nor->flags |= SNOR_F_HAS_STACKED;
+> +		}
+> +	}
+> +	if (nor->flags & SNOR_F_HAS_STACKED) {
+> +		for (idx = 1; idx < SNOR_FLASH_CNT_MAX; idx++) {
+> +			params = spi_nor_get_params(nor, idx);
+> +			params = devm_kzalloc(nor->dev, sizeof(*params), GFP_KERNEL);
+> +			if (params) {
+> +				memcpy(params, spi_nor_get_params(nor, 0), sizeof(*params));
+> +				params->size = flash_size[idx];
+> +				spi_nor_set_params(nor, idx, params);
+> +			}
+> +		}
+> +	}
+>   }
+>   
+>   /**
+> @@ -2741,22 +2878,36 @@ static int spi_nor_octal_dtr_enable(struct spi_nor *nor, bool enable)
+>    */
+>   static int spi_nor_quad_enable(struct spi_nor *nor)
+>   {
+> -	struct spi_nor_flash_parameter *params = spi_nor_get_params(nor, 0);
+> +	struct spi_nor_flash_parameter *params;
+> +	int err, idx;
+>   
+> -	if (!params->quad_enable)
+> -		return 0;
+> +	for (idx = 0; idx < SNOR_FLASH_CNT_MAX; idx++) {
+> +		params = spi_nor_get_params(nor, idx);
+> +		if (params) {
+> +			if (!params->quad_enable)
+> +				return 0;
+>   
+> -	if (!(spi_nor_get_protocol_width(nor->read_proto) == 4 ||
+> -	      spi_nor_get_protocol_width(nor->write_proto) == 4))
+> -		return 0;
+> +			if (!(spi_nor_get_protocol_width(nor->read_proto) == 4 ||
+> +			      spi_nor_get_protocol_width(nor->write_proto) == 4))
+> +				return 0;
+> +			/*
+> +			 * Set the appropriate CS index before
+> +			 * issuing the command.
+> +			 */
+> +			nor->spimem->spi->cs_index_mask = 0x01 << idx;
+>   
+> -	return params->quad_enable(nor);
+> +			err = params->quad_enable(nor);
+> +			if (err)
+> +				return err;
+> +		}
+> +	}
+> +	return err;
+>   }
+>   
+>   static int spi_nor_init(struct spi_nor *nor)
+>   {
+> -	struct spi_nor_flash_parameter *params = spi_nor_get_params(nor, 0);
+> -	int err;
+> +	struct spi_nor_flash_parameter *params;
+> +	int err, idx;
+>   
+>   	err = spi_nor_octal_dtr_enable(nor, true);
+>   	if (err) {
+> @@ -2797,9 +2948,19 @@ static int spi_nor_init(struct spi_nor *nor)
+>   		 */
+>   		WARN_ONCE(nor->flags & SNOR_F_BROKEN_RESET,
+>   			  "enabling reset hack; may not recover from unexpected reboots\n");
+> -		err = params->set_4byte_addr_mode(nor, true);
+> -		if (err && err != -ENOTSUPP)
+> -			return err;
+> +		for (idx = 0; idx < SNOR_FLASH_CNT_MAX; idx++) {
+> +			params = spi_nor_get_params(nor, idx);
+> +			if (params) {
+> +				/*
+> +				 * Select the appropriate CS index before
+> +				 * issuing the command.
+> +				 */
+> +				nor->spimem->spi->cs_index_mask = 0x01 << idx;
+> +				err = params->set_4byte_addr_mode(nor, true);
+> +				if (err && err != -ENOTSUPP)
+> +					return err;
+> +			}
+> +		}
+>   	}
+>   
+>   	return 0;
+> @@ -2915,19 +3076,31 @@ void spi_nor_restore(struct spi_nor *nor)
+>   {
+>   	struct spi_nor_flash_parameter *params;
+>   	int ret;
+> +	int idx;
+>   
+>   	/* restore the addressing mode */
+>   	if (nor->addr_nbytes == 4 && !(nor->flags & SNOR_F_4B_OPCODES) &&
+>   	    nor->flags & SNOR_F_BROKEN_RESET) {
+> -		params = spi_nor_get_params(nor, 0);
+> -		ret = params->set_4byte_addr_mode(nor, false);
+> -		if (ret)
+> -			/*
+> -			 * Do not stop the execution in the hope that the flash
+> -			 * will default to the 3-byte address mode after the
+> -			 * software reset.
+> -			 */
+> -			dev_err(nor->dev, "Failed to exit 4-byte address mode, err = %d\n", ret);
+> +		for (idx = 0; idx < SNOR_FLASH_CNT_MAX; idx++) {
+> +			params = spi_nor_get_params(nor, idx);
+> +			if (params) {
+> +				/*
+> +				 * Select the appropriate CS index before
+> +				 * issuing the command.
+> +				 */
+> +				nor->spimem->spi->cs_index_mask = 0x01 << idx;
+> +				ret = params->set_4byte_addr_mode(nor, false);
+> +				if (ret)
+> +					/*
+> +					 * Do not stop the execution in the hope that the flash
+> +					 * will default to the 3-byte address mode after the
+> +					 * software reset.
+> +					 */
+> +					dev_err(nor->dev,
+> +						"Failed to exit 4-byte address mode, err = %d\n",
+> +						ret);
+> +			}
+> +		}
+>   	}
+>   
+>   	if (nor->flags & SNOR_F_SOFT_RESET)
+> @@ -2995,6 +3168,8 @@ static void spi_nor_set_mtd_info(struct spi_nor *nor)
+>   	struct spi_nor_flash_parameter *params = spi_nor_get_params(nor, 0);
+>   	struct mtd_info *mtd = &nor->mtd;
+>   	struct device *dev = nor->dev;
+> +	u64 total_sz = 0;
+> +	int idx;
+>   
+>   	spi_nor_set_mtd_locking_ops(nor);
+>   	spi_nor_set_mtd_otp_ops(nor);
+> @@ -3010,7 +3185,12 @@ static void spi_nor_set_mtd_info(struct spi_nor *nor)
+>   		mtd->_erase = spi_nor_erase;
+>   	mtd->writesize = params->writesize;
+>   	mtd->writebufsize = params->page_size;
+> -	mtd->size = params->size;
+> +	for (idx = 0; idx < SNOR_FLASH_CNT_MAX; idx++) {
+> +		params = spi_nor_get_params(nor, idx);
+> +		if (params)
+> +			total_sz += params->size;
+> +	}
+> +	mtd->size = total_sz;
+>   	mtd->_read = spi_nor_read;
+>   	/* Might be already set by some SST flashes. */
+>   	if (!mtd->_write)
+> diff --git a/drivers/mtd/spi-nor/core.h b/drivers/mtd/spi-nor/core.h
+> index f03b55cf7e6f..e94107cc465e 100644
+> --- a/drivers/mtd/spi-nor/core.h
+> +++ b/drivers/mtd/spi-nor/core.h
+> @@ -11,6 +11,9 @@
+>   
+>   #define SPI_NOR_MAX_ID_LEN	6
+>   
+> +/* In single configuration enable CS0 */
+> +#define SPI_NOR_ENABLE_CS0     BIT(0)
+> +
+>   /* Standard SPI NOR flash operations. */
+>   #define SPI_NOR_READID_OP(naddr, ndummy, buf, len)			\
+>   	SPI_MEM_OP(SPI_MEM_OP_CMD(SPINOR_OP_RDID, 0),			\
+> @@ -130,6 +133,7 @@ enum spi_nor_option_flags {
+>   	SNOR_F_IO_MODE_EN_VOLATILE = BIT(11),
+>   	SNOR_F_SOFT_RESET	= BIT(12),
+>   	SNOR_F_SWP_IS_VOLATILE	= BIT(13),
+> +	SNOR_F_HAS_STACKED      = BIT(14),
+>   };
+>   
+>   struct spi_nor_read_command {
+> diff --git a/drivers/mtd/spi-nor/otp.c b/drivers/mtd/spi-nor/otp.c
+> index a9c0844d55ef..b8c7e085a90d 100644
+> --- a/drivers/mtd/spi-nor/otp.c
+> +++ b/drivers/mtd/spi-nor/otp.c
+> @@ -11,8 +11,8 @@
+>   
+>   #include "core.h"
+>   
+> -#define spi_nor_otp_region_len(nor) ((nor)->params->otp.org->len)
+> -#define spi_nor_otp_n_regions(nor) ((nor)->params->otp.org->n_regions)
+> +#define spi_nor_otp_region_len(nor) ((nor)->params[0]->otp.org->len)
+> +#define spi_nor_otp_n_regions(nor) ((nor)->params[0]->otp.org->n_regions)
 
+I think this should be also converted to static inline functions and use
+spi_nor_get_params(nor, 0); instead of using arrays.
+Can be done on the top of this series if it is the only one problem with it.
 
-
-
-
+Thanks,
+Michal
 
 _______________________________________________
 linux-riscv mailing list
