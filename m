@@ -4,73 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B2DFC38142
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jan 2023 11:29:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC224C05027
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jan 2023 11:43:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=p9FjWJ38Ejo92BiwVXdgNd3XsVXYd4lvIEQ4iASLsuM=; b=ma5wOz/eEzxN5e
-	M/Jx0ZUwqjUm2a7UkFrHV2ovCPYrV9WNqAg3pWGEAX3KjPbF2I2f8OMfSsLjLDiMLHFajxD9M3tim
-	W1MWJDY5OOlGSBv+yQKPDUP/VnPJlPjGCkYb2jPvnKSDkioWmAB8FNCc8pf/hoKEuswG4uKYTzw1w
-	0pS+DQdqJ2bwAdH5eskstdBJ/cyxyV8R7KYREkoiUcIpP675MsM6LsbUUmjAsCgZuQCO3tCqVjfWi
-	X8UJp9YUssbn8DhjR4rRyXclShd5Y0Ojl1RL9FMrsWXq8pgYeknTpb8d1GXVsb2pSowRK+0PQFyS0
-	oWQZG6OoRfhKOyRc85Sw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TUd90qLwu2Tsn9041WHlvUTJqMJtFBkkudeyHyyKGhM=; b=oaLiRsPkuPpkq6RrzuL4FZX9Mh
+	JJGBJ3VY3nLRtNNNLQGLzhk3B4++xNGX+cLboToF9eXjOfNJ3RymnZBB0Y2tBTzGbsGJPjGWKcWqx
+	ktkFv6BfWwV+oThyFUGvyfe46oshO+Y91UOczQfivO+Zevf7dvO4vMdwxpb11chnb35GUhFBFWrmS
+	QaKoAujLNOqiBVatrXq8NaG9yykKgOm+x11qqSbxmj7a4M3AxyWPtCpvtrah7RJuIqdGuMBOPZ/VQ
+	KMIF3+9ay9MJh2HDC8sFECWXG0QThv6InwDIamLzuAs9YXjd/xW7avAAqv12RNsFnMWGqgHMEGcUS
+	61EHD0Dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pJv0b-00GyGm-Ts; Mon, 23 Jan 2023 11:29:05 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1pJvEG-00GzYJ-EG; Mon, 23 Jan 2023 11:43:12 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pJv0Y-00GyEA-97
-	for linux-riscv@lists.infradead.org; Mon, 23 Jan 2023 11:29:03 +0000
-Received: by mail-ej1-x631.google.com with SMTP id az20so29655649ejc.1
-        for <linux-riscv@lists.infradead.org>; Mon, 23 Jan 2023 03:28:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=P7BRPVAgytXaXdSv+u5YyZxWP4l0mg5orHBmrI9mWeg=;
-        b=0wDnlGH3rvVCwUJWtYmtEn2Eg9MLFBRrOs5reZ04bpBHLIZzqBIxzlx7xKTL7xoIsZ
-         T1hpFIO2WqgcgaUDCMxWnmtf35fafrq/4wkMx7WN55ze/ZXc/qY0y5XyDM3CHBNwkIrT
-         KQ3L8ZqRP6jM/5BPJ1pxq1nmfOmpfNcaypx/JQODpAk0iHV6YcK6X9eY8iOpsynOaHX6
-         X50PeTCEl5D4SxM/iNXh1DopkOkG1OawQ306U3iPgKEjO8A7FmsounBgaMkQCXCVIeN8
-         6W4Fet7EqWYQbqkk0QuY+6r1Qp3gfcdnOkZ/VFjG+MhNTR9FbdFBFWGY6aaQwXeUnjjw
-         78MQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=P7BRPVAgytXaXdSv+u5YyZxWP4l0mg5orHBmrI9mWeg=;
-        b=rPukGjTtcIOEmfenr+ZD07QFn4RECSnRwHex8hEgYht8rM8QC3SktjJWuhYSZFGtSb
-         /OY5A2lgsr6Hy9IY1QckNXLItbI5Cxu7Oq84hjkD0pB9d44XF7bniIaozmcYJyMP72b/
-         +jzLNbd6zA5Kbs/tUFD6/A6m1w8aX5CgBdi7T85zaAku7VOupaQ19BIj6RZ99jLT4LFU
-         uFAOK6JR10YakigYFRWwdZ9DsV0YhlGBrxDWbG4daBhM93RWN7ETU2HTfjT6vdCZlHsS
-         LjbT4lX0JaRPignxKJJWDsE/1v+Skw7tfJ50xBu7E6CTcfv/ydQZRhITETbz2sMEfqVf
-         e6tw==
-X-Gm-Message-State: AFqh2koPAmcDum8xNudM/kT8r9gArkZjQaUW1HYxNtbQW20ALI1Dj6H0
-	opdddZHBwEhbK4whgLmQb5j0rFbGNiG8jAcd54xPsw==
-X-Google-Smtp-Source: AMrXdXtqcNCysMqdMD4mx3Jj+yyU8K/MY3RB0Fli4xwB+fqEtTmBASo6IjedZ6OY+kR4N+23YmywkUCjtwVoDJ4UXik=
-X-Received: by 2002:a17:906:d190:b0:84d:4b8d:5652 with SMTP id
- c16-20020a170906d19000b0084d4b8d5652mr2635037ejz.16.1674473337819; Mon, 23
- Jan 2023 03:28:57 -0800 (PST)
+	id 1pJvEC-00GzXe-Ty; Mon, 23 Jan 2023 11:43:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1674474188; x=1706010188;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=w44StEwhk9dtxBy1w0bJyeK/XCVFnvxj58GmT8VNeb0=;
+  b=hb3JEEY7F+E6jtNFDeCO2ss8uNh99fv5nfuvHNFcj8e7WDCKQdnM0WRL
+   NRN/oARxY1DdfPXnoc350+F/mscyawAystvjRNvl/io8kUu5DXUwWYRrq
+   /THvalnU1c7etTmNlUmSjsMvK44ig5G0drbbdHRhcTS8m+78UnbEEcftC
+   jD399qDsnyF2xpXiSFUa9sO/Mz3nXzCDRfm2iaFAMDV9CqNtg+C5kGvnP
+   RPCLbyHBiltFhTCkJJV7wM2z7B+2i3JNA1Tvmv/qQrpFGcchr1GBKv9Jd
+   oa2XGWPfpGS+SKMWlKFrNZCbeGYOQGUtRiexYJKGoN6dO3dkzAzc61pGo
+   g==;
+X-IronPort-AV: E=Sophos;i="5.97,239,1669100400"; 
+   d="asc'?scan'208";a="197715498"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 23 Jan 2023 04:43:03 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.16; Mon, 23 Jan 2023 04:43:02 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.16 via Frontend
+ Transport; Mon, 23 Jan 2023 04:43:01 -0700
+Date: Mon, 23 Jan 2023 11:42:37 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Andrew Jones <ajones@ventanamicro.com>
+CC: <linux-riscv@lists.infradead.org>, <kvm-riscv@lists.infradead.org>, 'Atish
+ Patra ' <atishp@rivosinc.com>, 'Jisheng Zhang ' <jszhang@kernel.org>, 'Palmer
+ Dabbelt ' <palmer@dabbelt.com>, 'Albert Ou ' <aou@eecs.berkeley.edu>, 'Paul
+ Walmsley ' <paul.walmsley@sifive.com>, 'Heiko Stuebner ' <heiko@sntech.de>,
+	'Anup Patel ' <apatel@ventanamicro.com>
+Subject: Re: [PATCH v2 4/6] RISC-V: Use Zicboz in clear_page when available
+Message-ID: <Y85yrUz+Ls6JNHaG@wendy>
+References: <20230122191328.1193885-1-ajones@ventanamicro.com>
+ <20230122191328.1193885-5-ajones@ventanamicro.com>
 MIME-Version: 1.0
-References: <20230123092928.808014-1-alexghiti@rivosinc.com> <bdabafb1-53f3-403c-ab9c-1c2d00421690@ghiti.fr>
-In-Reply-To: <bdabafb1-53f3-403c-ab9c-1c2d00421690@ghiti.fr>
-From: Anup Patel <anup@brainfault.org>
-Date: Mon, 23 Jan 2023 16:58:46 +0530
-Message-ID: <CAAhSdy1grLz2EXEJUicGFZO7md7F=Hbnhv7ZqBFFx-vtnkpmmA@mail.gmail.com>
-Subject: Re: [PATCH] KVM: RISC-V: Fix wrong usage of PGDIR_SIZE to check page sizes
-To: Alexandre Ghiti <alex@ghiti.fr>
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>, Atish Patra <atishp@atishpatra.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20230122191328.1193885-5-ajones@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230123_032902_357834_E08DD44B 
-X-CRM114-Status: GOOD (  16.93  )
+X-CRM114-CacheID: sfid-20230123_034309_061704_F9AC9A01 
+X-CRM114-Status: GOOD (  26.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,72 +77,118 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3371447738837418503=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 23, 2023 at 3:01 PM Alexandre Ghiti <alex@ghiti.fr> wrote:
->
-> @Anup: Sorry, forgot to add -fixes to the patch title, as I think this
-> should go into your fixes branch for 6.2.
+--===============3371447738837418503==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="3z3ecoXKSxCsYRUZ"
+Content-Disposition: inline
 
-Can you provide the Fixes: line here ? I will include it at time of
-adding this patch to my fixes branch.
+--3z3ecoXKSxCsYRUZ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Regards,
-Anup
+On Sun, Jan 22, 2023 at 08:13:26PM +0100, Andrew Jones wrote:
+> Using memset() to zero a 4K page takes 563 total instructions
+> where 20 are branches. clear_page() with Zicboz takes 150 total
+> instructions where 16 are branches. We could reduce the numbers
+> by further unrolling, but, since the cboz block size isn't fixed,
+> we'd need a Duff device to ensure we don't execute too many
+> unrolled steps. Also, cbo.zero doesn't take an offset, so each
+> unrolled step requires it and an add instruction. This increases
+> the chance for icache misses if we unroll many times. For these
+> reasons we only unroll four times. Unrolling four times should be
+> safe as it supports cboz block sizes up to 1K when used with 4K
+> pages and it's only 24 to 32 bytes of unrolled instructions.
+>=20
+> Another note about the Duff device idea is that it would probably
+> be best to store the number of steps needed at boot time and then
+> load the value in clear_page(). Calculating it in clear_page(),
+> particularly without the Zbb extension, would not be efficient.
+>=20
+> Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+> ---
+>  arch/riscv/Kconfig                | 13 +++++++++++
+>  arch/riscv/include/asm/insn-def.h |  4 ++++
+>  arch/riscv/include/asm/page.h     |  6 +++++-
+>  arch/riscv/lib/Makefile           |  1 +
+>  arch/riscv/lib/clear_page.S       | 36 +++++++++++++++++++++++++++++++
+>  5 files changed, 59 insertions(+), 1 deletion(-)
+>  create mode 100644 arch/riscv/lib/clear_page.S
+>=20
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 33bbdc33cef8..3759a2f6edd5 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -432,6 +432,19 @@ config RISCV_ISA_ZICBOM
+> =20
+>  	   If you don't know what to do here, say Y.
+> =20
+> +config RISCV_ISA_ZICBOZ
+> +	bool "Zicboz extension support for faster zeroing of memory"
+> +	depends on !XIP_KERNEL && MMU
+> +	select RISCV_ALTERNATIVE
+> +	default y
+> +	help
+> +	   Enable the use of the ZICBOZ extension (cbo.zero instruction)
+> +	   when available.
+> +
+> +	   The Zicboz extension is used for faster zeroing of memory.
+> +
+> +	   If you don't know what to do here, say Y.
+> +
+>  config TOOLCHAIN_HAS_ZIHINTPAUSE
+>  	bool
+>  	default y
+> diff --git a/arch/riscv/include/asm/insn-def.h b/arch/riscv/include/asm/i=
+nsn-def.h
+> index e01ab51f50d2..6960beb75f32 100644
+> --- a/arch/riscv/include/asm/insn-def.h
+> +++ b/arch/riscv/include/asm/insn-def.h
+> @@ -192,4 +192,8 @@
+>  	INSN_I(OPCODE_MISC_MEM, FUNC3(2), __RD(0),		\
+>  	       RS1(base), SIMM12(2))
+> =20
+> +#define CBO_zero(base)						\
+> +	INSN_I(OPCODE_MISC_MEM, FUNC3(2), __RD(0),		\
+> +	       RS1(base), SIMM12(4))
+> +
 
->
-> On 1/23/23 10:29, Alexandre Ghiti wrote:
-> > At the moment, riscv only supports PMD and PUD hugepages. For sv39,
-> > PGDIR_SIZE == PUD_SIZE but not for sv48 and sv57. So fix this by changing
-> > PGDIR_SIZE into PUD_SIZE.
-> >
-> > Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> > ---
-> >   arch/riscv/kvm/mmu.c | 8 ++++----
-> >   1 file changed, 4 insertions(+), 4 deletions(-)
-> >
-> > diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-> > index 34b57e0be2ef..dbc4ca060174 100644
-> > --- a/arch/riscv/kvm/mmu.c
-> > +++ b/arch/riscv/kvm/mmu.c
-> > @@ -585,7 +585,7 @@ bool kvm_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
-> >       if (!kvm->arch.pgd)
-> >               return false;
-> >
-> > -     WARN_ON(size != PAGE_SIZE && size != PMD_SIZE && size != PGDIR_SIZE);
-> > +     WARN_ON(size != PAGE_SIZE && size != PMD_SIZE && size != PUD_SIZE);
-> >
-> >       if (!gstage_get_leaf_entry(kvm, range->start << PAGE_SHIFT,
-> >                                  &ptep, &ptep_level))
-> > @@ -603,7 +603,7 @@ bool kvm_test_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
-> >       if (!kvm->arch.pgd)
-> >               return false;
-> >
-> > -     WARN_ON(size != PAGE_SIZE && size != PMD_SIZE && size != PGDIR_SIZE);
-> > +     WARN_ON(size != PAGE_SIZE && size != PMD_SIZE && size != PUD_SIZE);
-> >
-> >       if (!gstage_get_leaf_entry(kvm, range->start << PAGE_SHIFT,
-> >                                  &ptep, &ptep_level))
-> > @@ -645,12 +645,12 @@ int kvm_riscv_gstage_map(struct kvm_vcpu *vcpu,
-> >       if (logging || (vma->vm_flags & VM_PFNMAP))
-> >               vma_pagesize = PAGE_SIZE;
-> >
-> > -     if (vma_pagesize == PMD_SIZE || vma_pagesize == PGDIR_SIZE)
-> > +     if (vma_pagesize == PMD_SIZE || vma_pagesize == PUD_SIZE)
-> >               gfn = (gpa & huge_page_mask(hstate_vma(vma))) >> PAGE_SHIFT;
-> >
-> >       mmap_read_unlock(current->mm);
-> >
-> > -     if (vma_pagesize != PGDIR_SIZE &&
-> > +     if (vma_pagesize != PUD_SIZE &&
-> >           vma_pagesize != PMD_SIZE &&
-> >           vma_pagesize != PAGE_SIZE) {
-> >               kvm_err("Invalid VMA page size 0x%lx\n", vma_pagesize);
+Since most of the patch is the clear page implementation that I have no
+comments on:
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+
+Thanks,
+Conor.
+
+
+--3z3ecoXKSxCsYRUZ
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY85yoAAKCRB4tDGHoIJi
+0sNyAQCYBCdZNFxsRj8qiHE8x6Pz5UBQXsqTIAFeJvbxIg14iAEA8OsXXnpbmEtC
+3G9c84AWF6lBDbH+EM1y/A8//uns/gQ=
+=vBz8
+-----END PGP SIGNATURE-----
+
+--3z3ecoXKSxCsYRUZ--
+
+
+--===============3371447738837418503==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3371447738837418503==--
+
