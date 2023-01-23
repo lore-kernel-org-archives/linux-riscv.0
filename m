@@ -4,88 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B156C25B50
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jan 2023 10:27:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2CD0C05027
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jan 2023 10:27:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6cyCFi18/Vg52F4ovGDErho0FN7TiIyDpDahAu8YFTc=; b=0B+584JiB02X2O
-	wtnlfvG4Bg4XruVOXv1K8lHcsB61PDhgYRwbAkEievN//CxLTkeKEgiJXFKTDnwJfqEAvjsmcr00g
-	oV+D/kIR1g8xfnB7ZPudtcU7tC0NGWN19M9W/9sM3b07vljtNPfcXBs+NqSmlDtQM0Yi2mnSAS4UU
-	kW+XCSJPkJHeWoBywzmQHmaQ+CG9t0sX26fRYoLyuyU8O0wmal9rFbHW6dfkR2JmT6XGo8ZmR2Ysl
-	LD1CUyrsYEiRm76gXiIG5BoL0IS4SaVoMnQz9OwCCfpiWo9VubxPN/WEaajGtLmOm8x47J8jdIi7K
-	I2ECaSH/TvuyupfykeYw==;
+	List-Owner; bh=d0ZZ1GMdcMMvwFF5p9HKbOGwMnmfUKYEXg/81uyZp7o=; b=XjveDgGvwp6kFm
+	E60oEx46fP3ZNoTn+JZgjWop7U9TWaIqk6Cif4nXyqHl7nJjKAm1k4L7E3e719IFJm9FIjFFAZFmQ
+	J611aMG+AE8Pq4aD+QPu6Cc5dF9q6u6bR3coLxhY2R1/8G5vGfKVGyZpaSgUrVgk4KB6ClPwxBzz0
+	FxfdYuO9scxPxdnX4p5egaz9UYXxCGdXp8IG4gZdvwWQvZGY4IlTsTaqeOfW/4q/DOgB48Sc2ZQB8
+	otsiTYEvjmagHOQVQTdyBAoWwsAWMrK4WDKsgWoY+bV/dzkywONZ0rusUXcmHvdPcJWhrSSuIHFgC
+	Tzzl+fnaYprv0aUbupHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pJu2x-00Gohz-OR; Mon, 23 Jan 2023 10:27:27 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1pJu36-00Golv-6C; Mon, 23 Jan 2023 10:27:36 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pJtrt-00Gjkh-RM
-	for linux-riscv@lists.infradead.org; Mon, 23 Jan 2023 10:16:03 +0000
-Received: by mail-wr1-x430.google.com with SMTP id e3so10248481wru.13
-        for <linux-riscv@lists.infradead.org>; Mon, 23 Jan 2023 02:16:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=871OGCI0aHwZZE6OKggKudWipUlPKXToB5Kn7OlT7Ew=;
-        b=rf0Qwpy9jDLACwBRHW/pTe733yWNS+5GkCJ3lpbac4R9t/4KBOcFFjNESynWlogYEv
-         9s0FYx5LWv8VL7FOSfYeSx3l22EX3kJWzeMTlokBJXt6akEzTeA2NvaOsvqSim3qmxjP
-         54HUEk8Du1+/WKUV2WaMInIbK4kof75WjqBAMFrHOcNQsY7EksIiR8/oe/DoVgr8dzG1
-         Vz9soIjhqWGyCoC7S9+0D+RzHQm5Y691IbRZeCPWjDoVYOKo7vrAvSfqEJyk7wAv0HQ9
-         cSjRuwf2YIXbfUMaNt5jpvFm7aNORGx1/Fc0MWxNMsou5kxweWshuY9cfu0GqESCgsHB
-         EGjw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=871OGCI0aHwZZE6OKggKudWipUlPKXToB5Kn7OlT7Ew=;
-        b=VXZ/TQEWHmjJ3kVZSGh1Y6Ir/yrmNpzCLLT129pvH8nuVTZHHAvFkh2BnHYJik4+Qb
-         UaQOvw0U9mFxf9kh8mqEO2RljwgJcQO9SkUJ3PbBsNJJrnzgiyU+wUXUjaNOHePWeK07
-         Le4hDa7ppaB76bwtBrgLUPGyRKlwId1XYVbSlvrYAM9M3E/0Pfhy2Q/uVQTfzsdnTvc9
-         LS9RGkrDiIkZk4vQf3hSlM15FvtSNatYDoOwJMGrPwto3FQ2NNSnee81oeFwaStGiHGv
-         WFoAw0/q5LeWclGHQV4BldwXdY8KvSTnEQijBMVs8whW/TxjBEbNqh5F0ovlCanpsKpw
-         bv5g==
-X-Gm-Message-State: AFqh2kqE/WAKKyPzdfMEOBpNsPwsST62CcxMwbdWYeOqziIgpN97I4lq
-	eNgUS98JSX0Hbxdn2xxWCS0/1w==
-X-Google-Smtp-Source: AMrXdXt+aB9WiXogOYH5qYIrSd/PSwMpNfUk6C0swXWoMoe+Z0T2xAC7vLxeSBPcQHinVaV3Qwdfxg==
-X-Received: by 2002:a5d:4f90:0:b0:2bd:d542:e01e with SMTP id d16-20020a5d4f90000000b002bdd542e01emr21625059wru.10.1674468959652;
-        Mon, 23 Jan 2023 02:15:59 -0800 (PST)
-Received: from alex-rivos.ba.rivosinc.com (lfbn-lyo-1-450-160.w2-7.abo.wanadoo.fr. [2.7.42.160])
-        by smtp.gmail.com with ESMTPSA id a10-20020a056000100a00b00297dcfdc90fsm4296040wrx.24.2023.01.23.02.15.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Jan 2023 02:15:59 -0800 (PST)
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-	Alexander Potapenko <glider@google.com>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kasan-dev@googlegroups.com,
-	linux-efi@vger.kernel.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH v2 6/6] riscv: Unconditionnally select KASAN_VMALLOC if KASAN
-Date: Mon, 23 Jan 2023 11:09:51 +0100
-Message-Id: <20230123100951.810807-7-alexghiti@rivosinc.com>
-X-Mailer: git-send-email 2.37.2
-In-Reply-To: <20230123100951.810807-1-alexghiti@rivosinc.com>
-References: <20230123100951.810807-1-alexghiti@rivosinc.com>
+	id 1pJtvI-00GlIG-2O
+	for linux-riscv@lists.infradead.org; Mon, 23 Jan 2023 10:19:35 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id CA9D4B80CBB
+	for <linux-riscv@lists.infradead.org>; Mon, 23 Jan 2023 10:19:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C476C433A0
+	for <linux-riscv@lists.infradead.org>; Mon, 23 Jan 2023 10:19:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1674469168;
+	bh=1MvSRUAOzKE+a90tCBvVLkylK82rha/QCQWLgVfCltk=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=qyAVZIfrSxljckr6paKaAvkrfUHIHj7wUv64VH5np6cFl5xqxvlm74q4EtrYtLq5X
+	 tcPCCWE4G+tWCLKTPJr/swWLBnyg7XSw3wiTsFkC1aAYcGVzos1mWRcGIpql9bmxj6
+	 VzxlEEWEhfTwVuYiV0QhRmHGNSrWKU3aljOEnv6uTiyVEqqfw0601zI01gOmiG1foe
+	 WPeVzTju4o47eweoEo4m5lIsmStAAIdWEu8YVyxUkReGKnN8rlmhdJDd3fvAtdzSM6
+	 P0V1jbhOOwJs55X7/rXm0KUnhiz7B5XHNryhT4+pE4SrA7GtehC1liznfu6Gvnylh6
+	 M0lMkEJwG4NFQ==
+Received: by mail-lj1-f180.google.com with SMTP id by7so11593627ljb.6
+        for <linux-riscv@lists.infradead.org>; Mon, 23 Jan 2023 02:19:28 -0800 (PST)
+X-Gm-Message-State: AFqh2kpguVpiW4BCihIIeeNP1UPTbZ1ZYUqNGIkoVt7zU2vDjMCW+I7J
+	QEX5Q+tBS29n6BS7ZsqHbxVVpvI/7LdiWMspFbU=
+X-Google-Smtp-Source: AMrXdXuV+YvUcgUKs//ofpl9C6bOG97YA1tziN0Q7mYtszCfszfBMOgqRuExMzsmqv+/3z7ce4+CPdP6WyOI6u0UXVg=
+X-Received: by 2002:a2e:964e:0:b0:27f:b833:cf6d with SMTP id
+ z14-20020a2e964e000000b0027fb833cf6dmr1969790ljh.291.1674469166406; Mon, 23
+ Jan 2023 02:19:26 -0800 (PST)
 MIME-Version: 1.0
+References: <20230123100951.810807-1-alexghiti@rivosinc.com> <20230123100951.810807-5-alexghiti@rivosinc.com>
+In-Reply-To: <20230123100951.810807-5-alexghiti@rivosinc.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Mon, 23 Jan 2023 11:19:15 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXEk0Vpf6-_iVwyg36MWtQa5HXGdExDzaFU5-12179shmw@mail.gmail.com>
+Message-ID: <CAMj1kXEk0Vpf6-_iVwyg36MWtQa5HXGdExDzaFU5-12179shmw@mail.gmail.com>
+Subject: Re: [PATCH v2 4/6] riscv: Fix EFI stub usage of KASAN instrumented
+ strcmp function
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
+	Alexander Potapenko <glider@google.com>, Andrey Konovalov <andreyknvl@gmail.com>, 
+	Dmitry Vyukov <dvyukov@google.com>, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	kasan-dev@googlegroups.com, linux-efi@vger.kernel.org, 
+	Alexandre Ghiti <alexghiti@alexghiti.eu.rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230123_021601_957568_0DD13141 
-X-CRM114-Status: UNSURE (   7.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230123_021932_322955_D7C1164A 
+X-CRM114-Status: GOOD (  17.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,29 +86,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-If KASAN is enabled, VMAP_STACK depends on KASAN_VMALLOC so enable
-KASAN_VMALLOC with KASAN so that we can enable VMAP_STACK by default.
+On Mon, 23 Jan 2023 at 11:14, Alexandre Ghiti <alexghiti@rivosinc.com> wrote:
+>
+> From: Alexandre Ghiti <alexghiti@alexghiti.eu.rivosinc.com>
+>
+> The EFI stub must not use any KASAN instrumented code as the kernel
+> proper did not initialize the thread pointer and the mapping for the
+> KASAN shadow region.
+>
+> Avoid using the generic strcmp function, instead use the one in
+> drivers/firmware/efi/libstub/string.c.
+>
+> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
----
- arch/riscv/Kconfig | 1 +
- 1 file changed, 1 insertion(+)
+Acked-by: Ard Biesheuvel <ardb@kernel.org>
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index e2b656043abf..0f226d3261ca 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -117,6 +117,7 @@ config RISCV
- 	select HAVE_RSEQ
- 	select IRQ_DOMAIN
- 	select IRQ_FORCED_THREADING
-+	select KASAN_VMALLOC if KASAN
- 	select MODULES_USE_ELF_RELA if MODULES
- 	select MODULE_SECTIONS if MODULES
- 	select OF
--- 
-2.37.2
-
+> ---
+>  arch/riscv/kernel/image-vars.h | 2 --
+>  1 file changed, 2 deletions(-)
+>
+> diff --git a/arch/riscv/kernel/image-vars.h b/arch/riscv/kernel/image-vars.h
+> index 7e2962ef73f9..15616155008c 100644
+> --- a/arch/riscv/kernel/image-vars.h
+> +++ b/arch/riscv/kernel/image-vars.h
+> @@ -23,8 +23,6 @@
+>   * linked at. The routines below are all implemented in assembler in a
+>   * position independent manner
+>   */
+> -__efistub_strcmp               = strcmp;
+> -
+>  __efistub__start               = _start;
+>  __efistub__start_kernel                = _start_kernel;
+>  __efistub__end                 = _end;
+> --
+> 2.37.2
+>
 
 _______________________________________________
 linux-riscv mailing list
