@@ -4,74 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A5C1C05027
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jan 2023 14:35:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4D92C38142
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jan 2023 14:46:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sFH5apxiv+WvJDu5R2jn8nJnmmmFai2cy9ieueipppc=; b=HJmY61Xuo0QdFw
-	+7ttS7OD5fbr5CBa83svsIBN7C2+crQ0FfF8+aUHE/huHfuryUFQOwXkhhNy53u/b5G7hUyfDGVkP
-	MNNGQW1mtOfJDuNhaXLXGCA9/2YnNkmfc4QuMnZjyC4soMc4h2OmSAgdtFSOD/RCE4noysfvBSff2
-	a160o+Vfj5S09gvHM1eMCaBdEBgwNg0sP/ZN2/+8pShHz5DCrEHiWKvyC2/u4omiDXSgRtkTov2Fq
-	NcfedKz6xNW3NfOJiBjNVd+gbUH8r3mbin//HgecJo4vx8nT/Tk/EiDamGAZ78uH5KnFkkiy4Lzn9
-	a2LYv7x0YlhLTxiVzhsA==;
+	List-Owner; bh=/iSiw1DBYLTd3Bccg1Po/dS1z6EvWhcNKzFBwNb9Y0g=; b=sqHQWtFtR7ane7
+	zIti3vBgcFaO9pQUtPDH+STpzg4P7mSYVHYr+SP1wTtBexfdloXXyEsH1nm8meydpsGVa4TKtuHz1
+	cE6jkr4O3iQmjWUmPV12t7x6o6NWvJ/N9jly0YTV5RWSt0om3cf4ydwjefL23SjuUHLh/r3NFW/8R
+	nG7lv3dp0ZtWhrLH9gEH3jj3gZY53OxrHM2/Mr52W7wSMOFSTazE0f/TwhcD1PlL+LxcHmdzjS9ze
+	D051OCAabc5YEZ00AxcJIWoXTxV0XQLpgetmFVLCiZU0KCcTY0k4kHF8BFqzKl2RiFGiQwQ4UuJ26
+	I5TxSloGqGiKQDOyI+yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pJxuW-000087-DU; Mon, 23 Jan 2023 14:35:00 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1pJy5y-0001ad-3r; Mon, 23 Jan 2023 14:46:50 +0000
+Received: from verein.lst.de ([213.95.11.211])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pJxuT-00006z-KY
-	for linux-riscv@lists.infradead.org; Mon, 23 Jan 2023 14:34:59 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id c10-20020a05600c0a4a00b003db0636ff84so8735698wmq.0
-        for <linux-riscv@lists.infradead.org>; Mon, 23 Jan 2023 06:34:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=NYXZO/+I6Tj2auHQUaN1mdyHA2APFOFcC7l9cjd5m1Y=;
-        b=y577DC+FR1wR2ZTMehaJlhUMpSWt8y2gpVM/9KIRwXh79iW4ZLkIo+qLG8+Gk9b9/9
-         F8bVnG9AhPGet/xEeBHGlr/TsLhM66hyrBA5xpGXv90VkpQ7MFTlpq7rvC7nuVLyIO9n
-         4By5CKfAz1J9gAvJ6Dgb/UUScWX7D7A92hk2ohw/rMpfNUgSKFXRzrtc+vqYUatXsSt9
-         eLIbZDf2X/dbJUAU6va4kwpkolP+EOmhgiTGS8eDS/9hvRYCn6eP9F5oGHVvWZOpPwHP
-         yohI6I+don/JVbDtnTXNlQBfLHf+/ombNMJZxcyA00HRgu1P81C8mzU5rHmSQ/uMXfVC
-         27kg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=NYXZO/+I6Tj2auHQUaN1mdyHA2APFOFcC7l9cjd5m1Y=;
-        b=3KUHVK36PeIMw5qttku6wm6Omt/E0l9ni3NYaKSUOi4LuwlLmDZZMVccZWAauyxh6A
-         RLuPeUL2SOQxiP7jeIoP0kun5pHSjG/58TgWVnDpPx4Vedj4TbE+XOCREQD6shXrtVip
-         YzKSeUfRooMerOVPYXqQNp7Yaa9EFvW/OfgbOtPxrSSYOcqP3VxOYbjXasw/UnCyflAl
-         eEwgcqtD+2OmDCWE12quzCVZyZiBs1ELtsf81YsnxUHp9+nFIrT6ZA9yArNhOtMiEkgL
-         Hct10FAMW0v1xBXAvqtShPzkFgIdbGpsnJJVa/sHkZMRp7w67Jbk1FA/7XeG+V445UbX
-         ciaw==
-X-Gm-Message-State: AFqh2kpCG6yTzVBWlTm4x/1+W11A6oD3GJuCC9PxQNn6J/yULyiWmhZv
-	SaVpp0BUJIczL3mjAE6AWjQOqCE7FF0N20Zxyzt5JQ==
-X-Google-Smtp-Source: AMrXdXu0vsOo+SyPBXHsKyMNnmlRi1Rm0z1Zb/nnYJgByqkr1cktzTfdINU/WrgqZiQ85maXTmDh+hayFkqFAVvZiQM=
-X-Received: by 2002:a05:600c:4d14:b0:3da:ff1f:e89e with SMTP id
- u20-20020a05600c4d1400b003daff1fe89emr1691278wmp.7.1674484496273; Mon, 23 Jan
- 2023 06:34:56 -0800 (PST)
+	id 1pJy5u-0001Zj-AA
+	for linux-riscv@lists.infradead.org; Mon, 23 Jan 2023 14:46:48 +0000
+Received: by verein.lst.de (Postfix, from userid 2407)
+	id 37A2D68BEB; Mon, 23 Jan 2023 15:46:39 +0100 (CET)
+Date: Mon, 23 Jan 2023 15:46:38 +0100
+From: Christoph Hellwig <hch@lst.de>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Christoph Hellwig <hch@lst.de>, Prabhakar <prabhakar.csengg@gmail.com>,
+	"Conor.Dooley" <conor.dooley@microchip.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
+	guoren <guoren@kernel.org>, Andrew Jones <ajones@ventanamicro.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	"open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	devicetree@vger.kernel.org,
+	Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
+	"Lad, Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Philipp Tomsich <philipp.tomsich@vrull.eu>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Atish Patra <atishp@rivosinc.com>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Tsukasa OI <research_trasio@irq.a4lg.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Mayuresh Chitale <mchitale@ventanamicro.com>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [RFC PATCH v6 1/6] riscv: mm: dma-noncoherent: Switch using
+ function pointers for cache management
+Message-ID: <20230123144638.GB31126@lst.de>
+References: <CA+V-a8u6jvR=EDeE3mAbDr6-06NoBJ7mwmi_Y9qVyHT+aC-9rg@mail.gmail.com> <45d6eb0c-cbe3-4a83-aa12-3483638473ae@app.fastmail.com> <20230110070144.GG10289@lst.de> <02988e70-b099-46fd-b260-2d537c50543a@app.fastmail.com> <20230113054807.GA23179@lst.de> <ea4cb121-97e9-4365-861a-b3635fd34721@app.fastmail.com> <20230121143733.GA7415@lst.de> <6a64b0b5-0ebc-43a5-a3d8-483a845a0b5e@app.fastmail.com> <20230122072759.GA3703@lst.de> <7ad668ba-d6f3-4ef9-9335-e42bfe8d4cce@app.fastmail.com>
 MIME-Version: 1.0
-References: <20230123092928.808014-1-alexghiti@rivosinc.com>
- <bdabafb1-53f3-403c-ab9c-1c2d00421690@ghiti.fr> <CAAhSdy1grLz2EXEJUicGFZO7md7F=Hbnhv7ZqBFFx-vtnkpmmA@mail.gmail.com>
-In-Reply-To: <CAAhSdy1grLz2EXEJUicGFZO7md7F=Hbnhv7ZqBFFx-vtnkpmmA@mail.gmail.com>
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-Date: Mon, 23 Jan 2023 15:34:45 +0100
-Message-ID: <CAHVXubjHBu7F9xaERTR6vppsUph2U8JX1DRSrFUAWs-jJ_8ncQ@mail.gmail.com>
-Subject: Re: [PATCH] KVM: RISC-V: Fix wrong usage of PGDIR_SIZE to check page sizes
-To: Anup Patel <anup@brainfault.org>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Atish Patra <atishp@atishpatra.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Disposition: inline
+In-Reply-To: <7ad668ba-d6f3-4ef9-9335-e42bfe8d4cce@app.fastmail.com>
+User-Agent: Mutt/1.5.17 (2007-11-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230123_063457_936463_7605635E 
-X-CRM114-Status: GOOD (  21.10  )
+X-CRM114-CacheID: sfid-20230123_064646_682335_9D01D3B2 
+X-CRM114-Status: GOOD (  24.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,81 +78,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 23, 2023 at 12:28 PM Anup Patel <anup@brainfault.org> wrote:
->
-> On Mon, Jan 23, 2023 at 3:01 PM Alexandre Ghiti <alex@ghiti.fr> wrote:
-> >
-> > @Anup: Sorry, forgot to add -fixes to the patch title, as I think this
-> > should go into your fixes branch for 6.2.
->
-> Can you provide the Fixes: line here ? I will include it at time of
-> adding this patch to my fixes branch.
+On Sun, Jan 22, 2023 at 12:04:35PM +0100, Arnd Bergmann wrote:
+> > And I'm not really sure I'd like to go beyond that - making it too
+> > easy pluggable will make people feel more comfortable doing stupid
+> > things here. 
+> 
+> I fear the bigger risk is still making the functions callable
+> from device driver code than it is to make the functions
+> globally settable.
+> 
+> You introduced the mips version in f8c55dc6e828 ("MIPS: use generic
+> dma noncoherent ops for simple noncoherent platforms"), which
+> was clearly meant as an implementation detail, yet we already
+> have a driver that slipped in with 3bdffa8ffb45 ("Input: Add
+> N64 controller driver") that just calls this directly rather
+> than using the dma-mapping interface.
 
-It actually fixes 2 commits: 9955371cc014 ("RISC-V: KVM: Implement MMU
-notifiers") and 9d05c1fee837 ("RISC-V: KVM: Implement stage2 page
-table programming"). But they were both part of the first KVM
-patchset, so I only took the oldest one, but tell me if you want me to
-split the patch into 2 different patches that fix one commit at a
-time.
+MIPS actually has a bit of a history of these odd bypasses that
+it seems like this driver copied.  rmk has been very worried by
+this bypassing, and in general I agree.  But there's only so
+much we can do except for auditing drivers.  Especially as none of
+these helpers is exported and built-in only drivers are quite rare.
 
-Fixes: 9d05c1fee837 ("RISC-V: KVM: Implement stage2 page table programming")
+> > And yes, maybe that's personal because I've warned
+> > the RISC-V people years ago that they'll need architectural
+> > cache management instructions yesterday and the answer was that
+> > no one is going to use them on modern CPUs.  *sigh*
+> 
+> To be fair, from the ISA point of view, it really shouldn't
+> be necessary as long as you have a sane SoC design.
+> In practice there are always chips that are cutting corners,
+> or use the new CPU core as a drop-in for an existing
+> design. Arm SBSA tried to enforce the same thing and also
+> failed for pretty much the same reason.
 
-Thanks,
+Not wiring up IP blocks for cache coherency is cheap.  So it totally
+makes sense for dirt cheap SOCs, or even for low performance periphals
+in general.  The GPU folks also believe they can make some things
+faster by deliberately turning coherency off on SOCs that support
+coherency.
 
-Alex
-
->
-> Regards,
-> Anup
->
-> >
-> > On 1/23/23 10:29, Alexandre Ghiti wrote:
-> > > At the moment, riscv only supports PMD and PUD hugepages. For sv39,
-> > > PGDIR_SIZE == PUD_SIZE but not for sv48 and sv57. So fix this by changing
-> > > PGDIR_SIZE into PUD_SIZE.
-> > >
-> > > Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> > > ---
-> > >   arch/riscv/kvm/mmu.c | 8 ++++----
-> > >   1 file changed, 4 insertions(+), 4 deletions(-)
-> > >
-> > > diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-> > > index 34b57e0be2ef..dbc4ca060174 100644
-> > > --- a/arch/riscv/kvm/mmu.c
-> > > +++ b/arch/riscv/kvm/mmu.c
-> > > @@ -585,7 +585,7 @@ bool kvm_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
-> > >       if (!kvm->arch.pgd)
-> > >               return false;
-> > >
-> > > -     WARN_ON(size != PAGE_SIZE && size != PMD_SIZE && size != PGDIR_SIZE);
-> > > +     WARN_ON(size != PAGE_SIZE && size != PMD_SIZE && size != PUD_SIZE);
-> > >
-> > >       if (!gstage_get_leaf_entry(kvm, range->start << PAGE_SHIFT,
-> > >                                  &ptep, &ptep_level))
-> > > @@ -603,7 +603,7 @@ bool kvm_test_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
-> > >       if (!kvm->arch.pgd)
-> > >               return false;
-> > >
-> > > -     WARN_ON(size != PAGE_SIZE && size != PMD_SIZE && size != PGDIR_SIZE);
-> > > +     WARN_ON(size != PAGE_SIZE && size != PMD_SIZE && size != PUD_SIZE);
-> > >
-> > >       if (!gstage_get_leaf_entry(kvm, range->start << PAGE_SHIFT,
-> > >                                  &ptep, &ptep_level))
-> > > @@ -645,12 +645,12 @@ int kvm_riscv_gstage_map(struct kvm_vcpu *vcpu,
-> > >       if (logging || (vma->vm_flags & VM_PFNMAP))
-> > >               vma_pagesize = PAGE_SIZE;
-> > >
-> > > -     if (vma_pagesize == PMD_SIZE || vma_pagesize == PGDIR_SIZE)
-> > > +     if (vma_pagesize == PMD_SIZE || vma_pagesize == PUD_SIZE)
-> > >               gfn = (gpa & huge_page_mask(hstate_vma(vma))) >> PAGE_SHIFT;
-> > >
-> > >       mmap_read_unlock(current->mm);
-> > >
-> > > -     if (vma_pagesize != PGDIR_SIZE &&
-> > > +     if (vma_pagesize != PUD_SIZE &&
-> > >           vma_pagesize != PMD_SIZE &&
-> > >           vma_pagesize != PAGE_SIZE) {
-> > >               kvm_err("Invalid VMA page size 0x%lx\n", vma_pagesize);
+In addition to that cache maintainance is absolutely needed for NVDIMM
+support.
 
 _______________________________________________
 linux-riscv mailing list
