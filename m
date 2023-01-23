@@ -4,93 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08C8DC38142
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jan 2023 15:05:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF0DFC38142
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jan 2023 15:15:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=T4cNYjLtTc0rswbaezPbwbEAZgJHcMVxtQXOEuF2Hbw=; b=T5o5nxNdpu3DAD
-	hytOyz3Aa8ks08OrnQwPoqiqMMzz6Ew4Zh2HSFa/o9jZ0VIkjQoxF0XhK88MqX4cIVtlQ5IbVp3Vb
-	yrVhL0wG9tIJcEB4xLA7MRTM9m7tHHy39SkM8R/cks3S2LDNntjrzswDRSyXYLXUrz3y7Xu5HGkst
-	RDF1UlBosX557tj6Fz3si7n/lt1Q6ZQFu36iYkwWvOrXz4mglUskkjwft0YTAaEuv3VNMHJfuFzd9
-	H9iI1TIPY/19lWQfmNni0aMlgpLHEw/FRNRUz4pfTKKLUCmKT3xB9NK3QO8flNh8hlq1FQ1QAsiLp
-	u5IptxIgqJqeddxbUXHQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=jaR5uuOzzgiQgQTUOvn4axLafITG4oOkqfPaeoHxQiQ=; b=aQsrIYgNoaSL5Z
+	W9SI31WetJPcqaInaIDkBh38ZFDtA5bpDVxZ9MWN2y3SG/Ek+2IkzsOR/gFcLUtqynbyMdesQTsIJ
+	ddccDW9lhFR93W652b6qwlHBgkCnqGaObSn/Vz2miaFK9HXif/qzrc7JkI/X08YvdJtv4+i9KAo1P
+	AaS3nj7ArO0r+Sr3pnfqJpktl079gnubeiYYvvParbHHEemwkfO5NRXMesm9hBy0lIY5I6QcpllOV
+	G3I6ullas2LI7fMr+FrT7nkPWv09xy7b8joighiks5LAUvTGB2kxp0ccXYhRYarx41u6w8xxltRVd
+	wSs443MFNNMlFRqFG3Sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pJyNr-0003dl-R0; Mon, 23 Jan 2023 15:05:19 +0000
-Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
+	id 1pJyXJ-0006GM-SP; Mon, 23 Jan 2023 15:15:05 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pJyNb-0003Xi-QC; Mon, 23 Jan 2023 15:05:05 +0000
-Received: by mail-lf1-x12e.google.com with SMTP id cf42so18660683lfb.1;
-        Mon, 23 Jan 2023 07:05:00 -0800 (PST)
+	id 1pJyVW-0005Ms-PL
+	for linux-riscv@lists.infradead.org; Mon, 23 Jan 2023 15:13:16 +0000
+Received: by mail-wr1-x431.google.com with SMTP id h12so7120453wrv.10
+        for <linux-riscv@lists.infradead.org>; Mon, 23 Jan 2023 07:13:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=P3rqFJi0wYIMyx4eFEnrANXBYlUWFGjnlOrB4sJY0mc=;
-        b=VSvjd1+J+2hfVE0rK2aWfDA0OVUPFITcaGU/EEk+ovd3PB+LZoSIbLXjg/6O4g0QkX
-         wQSOdPQHW8ShVOvuv6K4ehak+/FUBZ6bBjlKapxHcHQImaA7q7t1gEwYZmwObqGrP/PP
-         CuO1Q1/NA1X4wba91SbkMkbJ02vBgbwFgxkUGAZz0utThM5EFRk4Y/dHFQrqiTC3T8XY
-         pxEaA9cykcbArWN/Q14sLzrf2oqArLVwTmvV0IHeWZXjaXfjdJS++GDWvaf9CtXKja5B
-         /+o8WCQ6Z8OG5i90gfUfiXJhw6rQk2gldlIFYsb4njbrpXyfD3NMkTBxEGrhoTwav/UE
-         HUzA==
+        d=linaro.org; s=google;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=mD2MSQcoc4dUqM5mN85kRutri7MSD6je9fF7r46KJ3A=;
+        b=MDCHyD/DppgASNZrrhUSjfzEdGsHr7Kz8YcSnZeXCFkB2Q3m1NYn5ir3s9xFQEM9Ih
+         r/EgvHAHTRyx2Rl0HeA47sdHCFwKKJ87D5ItzP+ACb/UmbEl/jwc32KLiWF2WLI7G81M
+         FLPkwyO9hvXc+75utLndnMV9UMJyce8pEiTCyVRWdFMjXdU6DipO1NsVKGqw3QSQdhmV
+         kQd4yhhe9ZzIvLKfstipN8BrQpxvN8R6lagBzjQRLzSsVCJfT5Hsccw2V7xNzoo93W2J
+         bMYcazl+nSP3Onh/+otLqvybwdhDXxbhwDvNQXBL7F9C7AtvDj4p8HBqtKHh9msqOs+o
+         9DkQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=P3rqFJi0wYIMyx4eFEnrANXBYlUWFGjnlOrB4sJY0mc=;
-        b=uEluSrt+jwzKCF2AW6SN98wnxjkw/R1FBSLdBCBlymwPc7SJmnlUzkvtUy98+4CyOY
-         QfzoxDWYlxPXpZy04JBeuRBt5gtKScTSM88lJIal3ffEV/tjmqDYr+Jw8XvlBzyGGAyS
-         UTjJdBlfADcphC/GYwB1Y9bkE/EPYqsNz0LyTjb9+TXEELOg9LsWeNUvu2TYaBxmqBrB
-         Kmjn2OcHN1HAsz4zfE/uuAAdQSTBXwDyTifu3CwgX3LTGCjoPnpurumsoiK7N1+RWMVI
-         pYQLAb5JwfBofLK3y412aly4ftvPi1pt8JQ9JEjTpj2aIJiMElICaJ67YrAu0BFFCKCm
-         DQ4A==
-X-Gm-Message-State: AFqh2koIC40gjvYRPDeHXubwpHlCK2wWaypLGZRuYT2eQlx2DW5nYilm
-	VGjDzhC251smpnSoj9Bcglo=
-X-Google-Smtp-Source: AMrXdXuHnINfpXEMI/5P6IHfO27xMrOaiT1cQnmYVDzQ2npYaq/u8eUakJKoBBnDu0eFJD/hs2QaqA==
-X-Received: by 2002:a05:6512:340a:b0:4d2:551e:3838 with SMTP id i10-20020a056512340a00b004d2551e3838mr7464162lfr.29.1674486299330;
-        Mon, 23 Jan 2023 07:04:59 -0800 (PST)
-Received: from mobilestation ([95.79.133.202])
-        by smtp.gmail.com with ESMTPSA id b8-20020a0565120b8800b004d593f218absm1011508lfv.108.2023.01.23.07.04.57
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=mD2MSQcoc4dUqM5mN85kRutri7MSD6je9fF7r46KJ3A=;
+        b=i4uzauUJ2FU2xrintM/w0q5D6xEeCSPwgm9JH0jsnzq26UHOu53yvOR7BK26cEGTET
+         2gKDWLNib8b5NQAt4YMNZ/hioiEYkxIEMoFcYV4rU2YkFGTgATW6TU62jaSSEyW+jx6A
+         CI4Bvl41hSm/4K9SYd/V5pnEcQmdI8xfTG4DBNanfAUGKwt2uAT2vZ5fqJMafKi7FpN3
+         boG8CVeNI25fcJuf98c+Rt9iMw2Ks58TsELhKthopvFh2tE/dlJ7hkIbjg/rNfui/PwI
+         LoDW5TwAou0LGUJuzm5PooSbC8dS4Kxf3suXWDrm4igApBPDnff76MSnpLQkpezMI9kE
+         eHUQ==
+X-Gm-Message-State: AFqh2kpyQr214qiVbkLzIIYWokgRLMaYGbVwdzMx+mZ+BkL9WOp3LTBw
+	/aV2+f5HYSblP3L1sAnsoIo4nw==
+X-Google-Smtp-Source: AMrXdXudvFeY1MQe2u9dKeFf/Pkg70gCT8e98Ho6iYUtc8YoXVClgM8ziC4ZNwtjUY2hEr18RBBmpw==
+X-Received: by 2002:a5d:4644:0:b0:2be:5cf8:2a83 with SMTP id j4-20020a5d4644000000b002be5cf82a83mr9678706wrs.37.1674486790953;
+        Mon, 23 Jan 2023 07:13:10 -0800 (PST)
+Received: from krzk-bin.. ([178.197.216.144])
+        by smtp.gmail.com with ESMTPSA id n1-20020a5d67c1000000b002bc7f64efa3sm34737922wrw.29.2023.01.23.07.13.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Jan 2023 07:04:58 -0800 (PST)
-Date: Mon, 23 Jan 2023 18:04:56 +0300
-From: Serge Semin <fancer.lancer@gmail.com>
-To: Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>
-Cc: broonie@kernel.org, miquel.raynal@bootlin.com, linus.walleij@linaro.org,
-	krzysztof.kozlowski@linaro.org, vireshk@kernel.org,
-	gregkh@linuxfoundation.org, linux-spi@vger.kernel.org,
-	linux-kernel@vger.kernel.org, bcm-kernel-feedback-list@broadcom.com,
-	kernel@pengutronix.de, linux-aspeed@lists.ozlabs.org,
-	openbmc@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
-	linux-rpi-kernel@lists.infradead.org,
+        Mon, 23 Jan 2023 07:13:10 -0800 (PST)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	NXP Linux Team <linux-imx@nxp.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Lubomir Rintel <lkundrak@v3.sk>,
+	- <devicetree@vger.kernel.org>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Michal Simek <michal.simek@xilinx.com>,
+	Chester Lin <clin@suse.com>,
+	Fugang Duan <fugang.duan@nxp.com>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Pragnesh Patel <pragnesh.patel@sifive.com>,
+	Le Ray <erwan.leray@foss.st.com>,
+	Peter Korsgaard <jacmet@sunsite.dk>,
+	Tomer Maimon <tmaimon77@gmail.com>,
+	linux-serial@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
 	linux-amlogic@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-sunxi@lists.linux.dev, linux-tegra@vger.kernel.org,
-	netdev@vger.kernel.org, linux-wpan@vger.kernel.org,
-	libertas-dev@lists.infradead.org, linux-wireless@vger.kernel.org,
-	linux-mtd@lists.infradead.org, linux-iio@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-media@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, greybus-dev@lists.linaro.org,
-	linux-staging@lists.linux.dev
-Subject: Re: [PATCH v2 02/13] spi: Replace all spi->chip_select and
- spi->cs_gpiod references with function call
-Message-ID: <20230123145953.ytaaq3x4tetgepyf@mobilestation>
-References: <20230119185342.2093323-1-amit.kumar-mahapatra@amd.com>
- <20230119185342.2093323-3-amit.kumar-mahapatra@amd.com>
+	linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH 01/13] dt-bindings: serial: amlogic,meson-uart: allow other serial properties
+Date: Mon, 23 Jan 2023 16:12:50 +0100
+Message-Id: <20230123151302.368277-1-krzysztof.kozlowski@linaro.org>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230119185342.2093323-3-amit.kumar-mahapatra@amd.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230123_070503_902046_76D55349 
-X-CRM114-Status: GOOD (  16.63  )
+X-CRM114-CacheID: sfid-20230123_071314_941077_7368D75E 
+X-CRM114-Status: GOOD (  10.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,70 +119,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 20, 2023 at 12:23:31AM +0530, Amit Kumar Mahapatra wrote:
-> Supporting multi-cs in spi drivers would require the chip_select & cs_gpiod
-> members of struct spi_device to be an array. But changing the type of these
-> members to array would break the spi driver functionality. To make the
-> transition smoother introduced four new APIs to get/set the
-> spi->chip_select & spi->cs_gpiod and replaced all spi->chip_select and
-> spi->cs_gpiod references with get or set API calls.
-> While adding multi-cs support in further patches the chip_select & cs_gpiod
-> members of the spi_device structure would be converted to arrays & the
-> "idx" parameter of the APIs would be used as array index i.e.,
-> spi->chip_select[idx] & spi->cs_gpiod[idx] respectively.
-> 
-> Signed-off-by: Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>
-> ---
+Reference common serial properties bindings to allow typical serial
+properties:
 
-[nip]
+  meson-axg-jethome-jethub-j100.dtb: serial@23000: 'bluetooth', 'uart-has-rtscts' do not match any of the regexes: 'pinctrl-[0-9]+'
 
->  drivers/spi/spi-dw-core.c         |  2 +-
->  drivers/spi/spi-dw-mmio.c         |  4 ++--
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+---
+ .../devicetree/bindings/serial/amlogic,meson-uart.yaml       | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-[nip]
+diff --git a/Documentation/devicetree/bindings/serial/amlogic,meson-uart.yaml b/Documentation/devicetree/bindings/serial/amlogic,meson-uart.yaml
+index 7822705ad16c..7abf113c966c 100644
+--- a/Documentation/devicetree/bindings/serial/amlogic,meson-uart.yaml
++++ b/Documentation/devicetree/bindings/serial/amlogic,meson-uart.yaml
+@@ -19,6 +19,9 @@ description: |
+   is active since power-on and does not need any clock gating and is usable
+   as very early serial console.
+ 
++allOf:
++  - $ref: /schemas/serial/serial.yaml#
++
+ properties:
+   compatible:
+     oneOf:
+@@ -69,7 +72,7 @@ required:
+   - clocks
+   - clock-names
+ 
+-additionalProperties: false
++unevaluatedProperties: false
+ 
+ examples:
+   - |
+-- 
+2.34.1
 
-> diff --git a/drivers/spi/spi-dw-core.c b/drivers/spi/spi-dw-core.c
-> index 99edddf9958b..4fd1aa800cc3 100644
-> --- a/drivers/spi/spi-dw-core.c
-> +++ b/drivers/spi/spi-dw-core.c
-> @@ -103,7 +103,7 @@ void dw_spi_set_cs(struct spi_device *spi, bool enable)
->  	 * support active-high or active-low CS level.
->  	 */
->  	if (cs_high == enable)
-> -		dw_writel(dws, DW_SPI_SER, BIT(spi->chip_select));
-> +		dw_writel(dws, DW_SPI_SER, BIT(spi_get_chipselect(spi, 0)));
->  	else
->  		dw_writel(dws, DW_SPI_SER, 0);
->  }
-> diff --git a/drivers/spi/spi-dw-mmio.c b/drivers/spi/spi-dw-mmio.c
-> index 26c40ea6dd12..d511da766ce8 100644
-> --- a/drivers/spi/spi-dw-mmio.c
-> +++ b/drivers/spi/spi-dw-mmio.c
-> @@ -65,7 +65,7 @@ static void dw_spi_mscc_set_cs(struct spi_device *spi, bool enable)
->  	struct dw_spi *dws = spi_master_get_devdata(spi->master);
->  	struct dw_spi_mmio *dwsmmio = container_of(dws, struct dw_spi_mmio, dws);
->  	struct dw_spi_mscc *dwsmscc = dwsmmio->priv;
-> -	u32 cs = spi->chip_select;
-> +	u32 cs = spi_get_chipselect(spi, 0);
->  
->  	if (cs < 4) {
->  		u32 sw_mode = MSCC_SPI_MST_SW_MODE_SW_PIN_CTRL_MODE;
-> @@ -138,7 +138,7 @@ static void dw_spi_sparx5_set_cs(struct spi_device *spi, bool enable)
->  	struct dw_spi *dws = spi_master_get_devdata(spi->master);
->  	struct dw_spi_mmio *dwsmmio = container_of(dws, struct dw_spi_mmio, dws);
->  	struct dw_spi_mscc *dwsmscc = dwsmmio->priv;
-> -	u8 cs = spi->chip_select;
-> +	u8 cs = spi_get_chipselect(spi, 0);
->  
->  	if (!enable) {
->  		/* CS override drive enable */
-
-For the DW SSI part:
-Reviewed-by: Serge Semin <fancer.lancer@gmail.com>
-
--Serge(y)
-
-[nip]
 
 _______________________________________________
 linux-riscv mailing list
