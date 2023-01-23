@@ -4,81 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28A22C05027
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jan 2023 14:26:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBFC3C38142
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jan 2023 14:34:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EFgzbKjd1VObaEMu2Xfg7dcXSE9zfo+ylgS3lgWh4Aw=; b=ZbFfNoG2O4y6cc
-	pnU5yhxjYXwIhFgt2SF8EIF8JHzgjOiEt0pdu+VNesfpYAj8qnLzFB1TvKjNBB8S90Qf/3FgxFuiN
-	XGTnUY+y8zCbAFleCqKTUJU6uLoW0y9CGOKmor+UsyVNL+t5SxuXFB7jyLuKzB5YsvQHepu5fCDjh
-	YfTEVD/6s6SvuGqfl9axZ0Xz/DnJrjXhbj2RaXqvuP/bnGssYBCHXxj4oWi44AfmbDczPejqA/+Ds
-	Tc4rP/vVX59BhPP2pdBZt4RgCFJ+pTbcWzHYeGDrCGlzIw4gejiRltq0rx50ASdjMnVBzNlER1aal
-	GSQQT52o6+rBsFHY9ksA==;
+	List-Owner; bh=J3aD+GsGgjIGY3Q+pTRVBytmq1KuTpzbCxM+tx3bbWo=; b=B6ADJdVEz7gTJw
+	lkfTtV6jXPf68mOfbmC4/P7Rpeg07/a1Mv84ZgbAeFMVKtz4o8PUTeXqamMnzKprNK2VCNv0TmMNa
+	5g/2P0SpeeJMEbfuLmpw+xc/rLze0LKJQXoqBB5vvxhCH//WAwWvjJ0ltYGjW7E0agm4gWD+IKjF1
+	0QQ5cobJYdDzLGXFlaFfiqre5B2F6mcfxE+EJWVLoTBrWe+LXoy+f13BV6bqW8Mg/DlPhOK7S18j1
+	B5nhr+no9mOiLS+onCbohF3wy3ZABrWJjlihIUSbTMEl3GsJNTlxAImdQSR8MGdKqzTt1lhD4s0CH
+	GCR4d6Sv8a2m+Pgm8Elg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pJxlr-00HZFu-G1; Mon, 23 Jan 2023 14:26:03 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1pJxtl-00Hb0y-Gy; Mon, 23 Jan 2023 14:34:13 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pJxlo-00HZFM-J5
-	for linux-riscv@lists.infradead.org; Mon, 23 Jan 2023 14:26:02 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id d14so7291317wrr.9
-        for <linux-riscv@lists.infradead.org>; Mon, 23 Jan 2023 06:25:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=QEvRmdYajcwffwpAz9Fq8XRwGwKumXqkZzQaa8G5Nfc=;
-        b=DmQM8iQfYIuf0qOGVhzw8rHUZaAFZM3TUPCCKm/jYQx/wKbp0fVtyyeq9nW//IXIiR
-         sSWsSOYcir+cnkA7scGRc3VCLfsX0plRvZ/mKhXtbnvVJIM9b6vnUDh6K2lm8yBCV51P
-         qpjBIJ/hZZQ3L4hk0kfFc+xKe6yBtYIhLLZdi4ITFdi7cWa4N8ZWtGNTGi4YWPxdcIQS
-         /rvwTeu5mxxHxJrpgPHXDYerU+LtpfizJxsu//FYnNFPSMcbZ7R7GRehyOLObBwWKexp
-         KxuxKyGrvzrHFHKORF5UErJSCe32dlEfXLyMIAT8XORTg/4f6sVmQXQAUXybFPLrUE1d
-         kl6g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=QEvRmdYajcwffwpAz9Fq8XRwGwKumXqkZzQaa8G5Nfc=;
-        b=URhFhArmcC5WCcQ3rfd+dZsmS3GD29hrSQ/PrMRa18/yDVoEP1ExUsRqXrgMW+5YL+
-         AlgOuQdegC+ZkbJS88td9d/2580is5YZmOPQl8gEQ3AZ9PHtCb1UZZvJteY8S/emWMss
-         WAHY5fl74TSdMU2fV5NgTNWbqNVfdZ3FdQN+TGjnm3t4xOVUxGr6DgXTKQxPaKr6lR6d
-         m3Fz9nWAxgdRX+x1rvXZEHVPp/JQj2WSiqD+dVX+TEylI7fB0C40M/L7Lhf89eaGFvWZ
-         FopazDPdYPEeu7ZStEAaHx7TRjOzxBijZs1pE/FDCORPtjUvmx5+l1iJSPMn37JZvZAa
-         KH/w==
-X-Gm-Message-State: AFqh2kriBUAcGCYycuYJi38AZHNEaxtZ3RO/cUmqlrN1s1Q/Vd6qZKIK
-	cxr3ankO4WJeGFyOzW+w4sc1Yw==
-X-Google-Smtp-Source: AMrXdXsWrHG5TqzRPtdl+g9dPuC1FJs+d0wZVLo3f8wQdVx7cngnSuCf5G6jrCd1PwNAcxwiUlPKdg==
-X-Received: by 2002:a5d:65d2:0:b0:2bb:6c04:4598 with SMTP id e18-20020a5d65d2000000b002bb6c044598mr22123720wrw.67.1674483955976;
-        Mon, 23 Jan 2023 06:25:55 -0800 (PST)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id r11-20020a5d694b000000b002bb28209744sm4074571wrw.31.2023.01.23.06.25.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Jan 2023 06:25:55 -0800 (PST)
-Date: Mon, 23 Jan 2023 15:25:54 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Frank Rowand <frowand.list@gmail.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arch@vger.kernel.org,
-	Rob Herring <robh@kernel.org>
-Subject: Re: [PATCH v4] riscv: Use PUD/P4D/PGD pages for the linear mapping
-Message-ID: <20230123142554.f22ajf6upfk2ybxk@orel>
-References: <20230123112803.817534-1-alexghiti@rivosinc.com>
+	id 1pJxti-00Hb01-S5; Mon, 23 Jan 2023 14:34:12 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id C35F060F37;
+	Mon, 23 Jan 2023 14:34:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6061C433A7;
+	Mon, 23 Jan 2023 14:34:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1674484448;
+	bh=fv90DLxSNUyq75Uc0NF4OVPP2Jf8l+GYo1D9d2yeH50=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=aGZ4hhwBZ0bpifYuGqsvMGtHLlgr/I0PvWfrO4Ns2CWZ+phPLVfDKIul2KDXM8Tri
+	 kMCd+gLP6rQ1TOlwWQY7DTa33wh74H9VqVGM4sOgaNRu5UPVEZedMdJCmmqusB8Rjs
+	 tNADsgz1pFb6t445sYa1Eympox4cwl9PxBm1ae8JfawrQ7VKbSa7Okp4FVNarDv+03
+	 yCVtVoPywm+7XTl6gPVORmOr3XB8abbH9muOxhtbXzkD4P0k+6JvI5OoUPvf0kozs9
+	 dgJ8qHC8yD79rUqyENblOB4614DEYz4UwS8cJRj2DirMwrbTRID5uHjEaiwjUnrZWh
+	 dOwijEwlIY/lg==
+Received: by mail-vk1-f169.google.com with SMTP id b81so6033695vkf.1;
+        Mon, 23 Jan 2023 06:34:08 -0800 (PST)
+X-Gm-Message-State: AFqh2kpjuAIpPDXOT90YhtsN8VWOv4LohnPLFjG+kb3SqViZ81+AcSXk
+	eRdVCQZoCxKfTMEoCqu7SbtatMCoASkwt+LJIg==
+X-Google-Smtp-Source: AMrXdXvwn1fOtAuVEIQOMYCMQNkQED9CGC4Ikw9gmuAsxNbhdzwdyToo56sVPCO9D4cVHzM3M9H5yOYIHxkN7JVsrBo=
+X-Received: by 2002:a1f:edc2:0:b0:3e1:6dc2:d562 with SMTP id
+ l185-20020a1fedc2000000b003e16dc2d562mr3310553vkh.35.1674484447503; Mon, 23
+ Jan 2023 06:34:07 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230123112803.817534-1-alexghiti@rivosinc.com>
+References: <20230122191328.1193885-1-ajones@ventanamicro.com> <20230122191328.1193885-3-ajones@ventanamicro.com>
+In-Reply-To: <20230122191328.1193885-3-ajones@ventanamicro.com>
+From: Rob Herring <robh@kernel.org>
+Date: Mon, 23 Jan 2023 08:33:56 -0600
+X-Gmail-Original-Message-ID: <CAL_Jsq+SqFOVYZdf5YCELNo7nnU-T32V_Ec1C+RmUv_eLiR0Ng@mail.gmail.com>
+Message-ID: <CAL_Jsq+SqFOVYZdf5YCELNo7nnU-T32V_Ec1C+RmUv_eLiR0Ng@mail.gmail.com>
+Subject: Re: [PATCH v2 2/6] dt-bindings: riscv: Document cboz-block-size
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org, 
+	Atish Patra <atishp@rivosinc.com>, Jisheng Zhang <jszhang@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Conor Dooley <conor.dooley@microchip.com>, 
+	Heiko Stuebner <heiko@sntech.de>, Anup Patel <apatel@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230123_062600_672028_AD16D202 
-X-CRM114-Status: GOOD (  47.09  )
+X-CRM114-CacheID: sfid-20230123_063411_001593_D65B2FC1 
+X-CRM114-Status: GOOD (  11.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,219 +82,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 23, 2023 at 12:28:02PM +0100, Alexandre Ghiti wrote:
-> During the early page table creation, we used to set the mapping for
-> PAGE_OFFSET to the kernel load address: but the kernel load address is
-> always offseted by PMD_SIZE which makes it impossible to use PUD/P4D/PGD
-> pages as this physical address is not aligned on PUD/P4D/PGD size (whereas
-> PAGE_OFFSET is).
-> 
-> But actually we don't have to establish this mapping (ie set va_pa_offset)
-> that early in the boot process because:
-> 
-> - first, setup_vm installs a temporary kernel mapping and among other
->   things, discovers the system memory,
-> - then, setup_vm_final creates the final kernel mapping and takes
->   advantage of the discovered system memory to create the linear
->   mapping.
-> 
-> During the first phase, we don't know the start of the system memory and
-> then until the second phase is finished, we can't use the linear mapping at
-> all and phys_to_virt/virt_to_phys translations must not be used because it
-> would result in a different translation from the 'real' one once the final
-> mapping is installed.
-> 
-> So here we simply delay the initialization of va_pa_offset to after the
-> system memory discovery. But to make sure noone uses the linear mapping
-> before, we add some guard in the DEBUG_VIRTUAL config.
-> 
-> Finally we can use PUD/P4D/PGD hugepages when possible, which will result
-> in a better TLB utilization.
-> 
-> Note that we rely on the firmware to protect itself using PMP.
-> 
-> Acked-by: Rob Herring <robh@kernel.org> # DT bits
-> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> ---
-> 
-> v4:
-> - Rebase on top of v6.2-rc3, as noted by Conor
-> - Add Acked-by Rob
-> 
-> v3:
-> - Change the comment about initrd_start VA conversion so that it fits
->   ARM64 and RISCV64 (and others in the future if needed), as suggested
->   by Rob
-> 
-> v2:
-> - Add a comment on why RISCV64 does not need to set initrd_start/end that
->   early in the boot process, as asked by Rob
-> 
->  arch/riscv/include/asm/page.h | 16 ++++++++++++++++
->  arch/riscv/mm/init.c          | 25 +++++++++++++++++++------
->  arch/riscv/mm/physaddr.c      | 16 ++++++++++++++++
->  drivers/of/fdt.c              | 11 ++++++-----
->  4 files changed, 57 insertions(+), 11 deletions(-)
-> 
-> diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
-> index 9f432c1b5289..7fe84c89e572 100644
-> --- a/arch/riscv/include/asm/page.h
-> +++ b/arch/riscv/include/asm/page.h
-> @@ -90,6 +90,14 @@ typedef struct page *pgtable_t;
->  #define PTE_FMT "%08lx"
->  #endif
->  
-> +#ifdef CONFIG_64BIT
-> +/*
-> + * We override this value as its generic definition uses __pa too early in
-> + * the boot process (before kernel_map.va_pa_offset is set).
-> + */
-> +#define MIN_MEMBLOCK_ADDR      0
-> +#endif
-> +
->  #ifdef CONFIG_MMU
->  extern unsigned long riscv_pfn_base;
->  #define ARCH_PFN_OFFSET		(riscv_pfn_base)
-> @@ -122,7 +130,11 @@ extern phys_addr_t phys_ram_base;
->  #define is_linear_mapping(x)	\
->  	((x) >= PAGE_OFFSET && (!IS_ENABLED(CONFIG_64BIT) || (x) < PAGE_OFFSET + KERN_VIRT_SIZE))
->  
-> +#ifndef CONFIG_DEBUG_VIRTUAL
->  #define linear_mapping_pa_to_va(x)	((void *)((unsigned long)(x) + kernel_map.va_pa_offset))
-> +#else
-> +void *linear_mapping_pa_to_va(unsigned long x);
-> +#endif
->  #define kernel_mapping_pa_to_va(y)	({					\
->  	unsigned long _y = (unsigned long)(y);					\
->  	(IS_ENABLED(CONFIG_XIP_KERNEL) && _y < phys_ram_base) ?			\
-> @@ -131,7 +143,11 @@ extern phys_addr_t phys_ram_base;
->  	})
->  #define __pa_to_va_nodebug(x)		linear_mapping_pa_to_va(x)
->  
-> +#ifndef CONFIG_DEBUG_VIRTUAL
->  #define linear_mapping_va_to_pa(x)	((unsigned long)(x) - kernel_map.va_pa_offset)
-> +#else
-> +phys_addr_t linear_mapping_va_to_pa(unsigned long x);
-> +#endif
->  #define kernel_mapping_va_to_pa(y) ({						\
->  	unsigned long _y = (unsigned long)(y);					\
->  	(IS_ENABLED(CONFIG_XIP_KERNEL) && _y < kernel_map.virt_addr + XIP_OFFSET) ? \
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index 478d6763a01a..cc892ba9f787 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -213,6 +213,14 @@ static void __init setup_bootmem(void)
->  	phys_ram_end = memblock_end_of_DRAM();
->  	if (!IS_ENABLED(CONFIG_XIP_KERNEL))
->  		phys_ram_base = memblock_start_of_DRAM();
-> +
-> +	/*
-> +	 * Any use of __va/__pa before this point is wrong as we did not know the
-> +	 * start of DRAM before.
-> +	 */
-> +	kernel_map.va_pa_offset = PAGE_OFFSET - phys_ram_base;
-> +	riscv_pfn_base = PFN_DOWN(phys_ram_base);
-> +
->  	/*
->  	 * memblock allocator is not aware of the fact that last 4K bytes of
->  	 * the addressable memory can not be mapped because of IS_ERR_VALUE
-> @@ -671,9 +679,16 @@ void __init create_pgd_mapping(pgd_t *pgdp,
->  
->  static uintptr_t __init best_map_size(phys_addr_t base, phys_addr_t size)
->  {
-> -	/* Upgrade to PMD_SIZE mappings whenever possible */
-> -	base &= PMD_SIZE - 1;
-> -	if (!base && size >= PMD_SIZE)
-> +	if (!(base & (PGDIR_SIZE - 1)) && size >= PGDIR_SIZE)
-> +		return PGDIR_SIZE;
-> +
-> +	if (!(base & (P4D_SIZE - 1)) && size >= P4D_SIZE)
-> +		return P4D_SIZE;
-> +
-> +	if (!(base & (PUD_SIZE - 1)) && size >= PUD_SIZE)
-> +		return PUD_SIZE;
-> +
-> +	if (!(base & (PMD_SIZE - 1)) && size >= PMD_SIZE)
->  		return PMD_SIZE;
->  
->  	return PAGE_SIZE;
-> @@ -982,11 +997,9 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
->  	set_satp_mode();
->  #endif
->  
-> -	kernel_map.va_pa_offset = PAGE_OFFSET - kernel_map.phys_addr;
-> +	kernel_map.va_pa_offset = 0UL;
->  	kernel_map.va_kernel_pa_offset = kernel_map.virt_addr - kernel_map.phys_addr;
->  
-> -	riscv_pfn_base = PFN_DOWN(kernel_map.phys_addr);
-> -
->  	/*
->  	 * The default maximal physical memory size is KERN_VIRT_SIZE for 32-bit
->  	 * kernel, whereas for 64-bit kernel, the end of the virtual address
-> diff --git a/arch/riscv/mm/physaddr.c b/arch/riscv/mm/physaddr.c
-> index 9b18bda74154..18706f457da7 100644
-> --- a/arch/riscv/mm/physaddr.c
-> +++ b/arch/riscv/mm/physaddr.c
-> @@ -33,3 +33,19 @@ phys_addr_t __phys_addr_symbol(unsigned long x)
->  	return __va_to_pa_nodebug(x);
->  }
->  EXPORT_SYMBOL(__phys_addr_symbol);
-> +
-> +phys_addr_t linear_mapping_va_to_pa(unsigned long x)
-> +{
-> +	BUG_ON(!kernel_map.va_pa_offset);
-> +
-> +	return ((unsigned long)(x) - kernel_map.va_pa_offset);
-> +}
-> +EXPORT_SYMBOL(linear_mapping_va_to_pa);
-> +
-> +void *linear_mapping_pa_to_va(unsigned long x)
-> +{
-> +	BUG_ON(!kernel_map.va_pa_offset);
-> +
-> +	return ((void *)((unsigned long)(x) + kernel_map.va_pa_offset));
-> +}
-> +EXPORT_SYMBOL(linear_mapping_pa_to_va);
-> diff --git a/drivers/of/fdt.c b/drivers/of/fdt.c
-> index f08b25195ae7..58107bd56f8f 100644
-> --- a/drivers/of/fdt.c
-> +++ b/drivers/of/fdt.c
-> @@ -891,12 +891,13 @@ const void * __init of_flat_dt_match_machine(const void *default_match,
->  static void __early_init_dt_declare_initrd(unsigned long start,
->  					   unsigned long end)
->  {
-> -	/* ARM64 would cause a BUG to occur here when CONFIG_DEBUG_VM is
-> -	 * enabled since __va() is called too early. ARM64 does make use
-> -	 * of phys_initrd_start/phys_initrd_size so we can skip this
-> -	 * conversion.
-> +	/*
-> +	 * __va() is not yet available this early on some platforms. In that
-> +	 * case, the platform uses phys_initrd_start/phys_initrd_size instead
-> +	 * and does the VA conversion itself.
->  	 */
-> -	if (!IS_ENABLED(CONFIG_ARM64)) {
-> +	if (!IS_ENABLED(CONFIG_ARM64) &&
-> +	    !(IS_ENABLED(CONFIG_RISCV) && IS_ENABLED(CONFIG_64BIT))) {
-
-There are now two architectures, so maybe it's time for a new config
-symbol which would be selected by arm64 and riscv64 and then used here,
-e.g.
-
-  if (!IS_ENABLED(CONFIG_NO_EARLY_LINEAR_MAP)) {
-
->  		initrd_start = (unsigned long)__va(start);
->  		initrd_end = (unsigned long)__va(end);
->  		initrd_below_start_ok = 1;
-> -- 
-> 2.37.2
+On Sun, Jan 22, 2023 at 1:13 PM Andrew Jones <ajones@ventanamicro.com> wrote:
 >
+> The Zicboz operates on a block-size defined for the cpu-core,
+> which does not necessarily match other cache-sizes used.
 
-Otherwise,
+Please use get_maintainers.pl and send patches to the correct lists.
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+I have no idea what Zicboz is. How does it relate to Zicbom for which
+we already have a block size property? I really hate one by one
+property additions because they lead to poorly designed bindings. So
+what's next? What other information might be needed?
 
-Thanks,
-drew
+Rob
 
 _______________________________________________
 linux-riscv mailing list
