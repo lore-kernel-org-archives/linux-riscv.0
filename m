@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E57CC38142
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jan 2023 15:18:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9169DC38142
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jan 2023 15:18:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1yrXAGhBaU1sIKJhdzCUzFp6AjQDEgAkFAbCl0bUfBQ=; b=42Qj/Nb/DQroQd
-	zfEeshcXO4m5q/C2yua6UY9LTdwKnXg+BKfudfJ0yrO01SfvcAVODGLIr98I+FKTmc7d0XQTwP9Ka
-	Fclu34V2UFkc95kD1qGcIak1tWiUlKfvmxPQj1TFI+r+bf0C+xWpPYT2LgxEm2K1vZLXv3Jyq5ZUX
-	y3ivBNH+Af3JJo8frd8i2v6071J6pDa3ISHkz2BHoQwfpRFtgxIVuXTaRSSWbdP7frsc6cwZ7ExKz
-	tKdpb5XPhBf2kF8ZbFxxnV0TIrQTzsa1igXKyWuNV+i8FVzJvAX8lkkLZWli1/MDhPtYUu42yv8QP
-	IGqNPY58o/siFEncM0wg==;
+	List-Owner; bh=V8HVPuSBp4/CroKK1R/BMh/5Ou+i+iV9M6Ip6rDXZqQ=; b=k8uLxC4GoGCLvK
+	09LphYHIvjrsBvdaBAB2umM5yIUvLzHJANo3FbgTqj9fVoHzh8csDA9QaxjJYub1UqgefeMFFZpCV
+	JqL0qN6/gX1+M6DyIMsVU0VZqQ+pAvaLxXrDJVE5uYA1OS8mZhBS/uArrNQzGGKVd6XZTiVwIKQb5
+	9pqBf0cebSEQSW6Ia4dTfUzFSE0yPkGPiFG+ZwJjnn5d4nko3r/MVH8DCOVIXnRIjxcW1oaEKz12c
+	WP7AJmGTDBRP7ok6mSAykpvEJcqwpX9EwB0s/4S03iebGNuSYX9JbcFSKU+45ySBUEemj9HSmZVpH
+	Rn+onaHRG+OGYOiF1NtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pJyak-0007wT-LR; Mon, 23 Jan 2023 15:18:38 +0000
-Received: from mail-wr1-f50.google.com ([209.85.221.50])
+	id 1pJyau-00082H-V4; Mon, 23 Jan 2023 15:18:48 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pJyVp-0005O4-7y
-	for linux-riscv@lists.infradead.org; Mon, 23 Jan 2023 15:13:34 +0000
-Received: by mail-wr1-f50.google.com with SMTP id q5so6463610wrv.0
-        for <linux-riscv@lists.infradead.org>; Mon, 23 Jan 2023 07:13:33 -0800 (PST)
+	id 1pJyVu-0005Ms-Ey
+	for linux-riscv@lists.infradead.org; Mon, 23 Jan 2023 15:13:40 +0000
+Received: by mail-wr1-x431.google.com with SMTP id h12so7121807wrv.10
+        for <linux-riscv@lists.infradead.org>; Mon, 23 Jan 2023 07:13:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=linaro.org; s=google;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=m0imGc0Sj0+U1qO38/MoeN3izcir/X2ZEBTXpN0rl4g=;
-        b=Mi72DTL6tAALC6SIna/EYeljNK+x72L1fQHn0b1YEpyxHOIwdo7XpXHQYH1v8pFPYx
-         fmUE0AaGMQXJ1+36vD3ni3uf1224xM1WNmz+i4XR8e4pGQU3IJlFT/KKLHBQ/2HlYrNs
-         jmhPytIJPCOE0D8UMjqY79KK5b+OCVoCoNT52ocRcj9Px5K4Enl/91hVP2hkBtz0GW0w
-         VsK3JW9EqX4DrlURobQ3JwR/uIlfGAYWgRx+1xfPEkoSh0iFHIfr5nLHKhjReObKDoqk
-         7Tf9YV/GjMPb51Wqn9yooA01rZZhY7mE8t+kA5amjH5PDNJonj9rRt5aQuAhPwkKstUs
-         y5Xw==
+        bh=t3ne6RtXQyQ2xZokD/urqvcvyti0fGO7udq2uYUhjl4=;
+        b=ydh2zyAbOx3hE1kJAVrZrsefQuSR8jHADM5MS6sVbbZct0miuoC7KZrzryx7Yvz3pM
+         K16L74uX6totfds7MApM5Y7/ETAzTOUeQyjnsu7YJWhRb1e6Y6zZ5iKrI9fd9Z+ik4Dw
+         Mx6ADqiiYoLJz/GmClacx1yB+vBuevPj1fAynGEWxi0kk2i6wujebP0QRpxiZEZK43xC
+         exATrdrAix3IOyt9hk6dBblyy/TJ1Q6w/MLeQTrnrViuZQwlPgnDv/gOlQKlIFR9iUIl
+         KNdDPqCjuLM3V15JfBwvd9jXRLoQtiDIUuoq/41Qp7KCUva41ZYJA99YGXWMG2c0Gh4L
+         +S6w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=m0imGc0Sj0+U1qO38/MoeN3izcir/X2ZEBTXpN0rl4g=;
-        b=vBT4rQuSbuSgP/PXaCtiHm8siUDZssnZrACnWqON+ynrKRzcE9ERheT3cEXufxq4ip
-         AYT94VHpsWg1U1rYit/DdxZwdSeGxBWF3QTEld4M5ukMDfAjDf3u9PNEGzv5uxkId3Ae
-         b/Exy+cJFHgP+RKzm6UeLOT2JOO3mvsjMJf5FUqWvBUTK9VJ41gC/8H8ReRsnM7ItDRS
-         0Dp820n8isLMFaO/X147pnuB98C4jWo/mms4nJZZxlXCn5dKcaVU06+aWtG3SgOv8AG4
-         x1ZB/lrNkeAnvQJY2Dlw+FheJdbB3f7gfAsABBNgqmOUmBtKSc4X8WDnvrJDGhSgxr15
-         g4HA==
-X-Gm-Message-State: AFqh2komdHQcpsa+jOgHtIucfqkJcjI59CxxXlQdpmFyG4dgQLcnpJu9
-	0gmVpsoPzuhJgUQBG230WRV92w==
-X-Google-Smtp-Source: AMrXdXvJabtie04RRzjvIRinzzoYqsygtV5Ygf34wHors5C0a5stz1Lsh6Pfo6+L2PQMDAPhE/FPew==
-X-Received: by 2002:a05:6000:1d92:b0:2be:3ccd:7f37 with SMTP id bk18-20020a0560001d9200b002be3ccd7f37mr14760288wrb.52.1674486812732;
-        Mon, 23 Jan 2023 07:13:32 -0800 (PST)
+        bh=t3ne6RtXQyQ2xZokD/urqvcvyti0fGO7udq2uYUhjl4=;
+        b=ng1maV6fyH0iOBSpYsmbsDz40W1lo26X41RUQ7Yfn477fJ9w611xFhBSQmKKaPDmF9
+         0l6ddfKyEkaIGMlbqkXP2RU0TPzsCIhc8YKqTaCqbPxatJxHd9xKueYBpGgE++3qx4Kf
+         xkp4oFx/6ECnPmG78G3S01h5B00t7EgzMryt76IBi1bDutiT0hxK9H2mwzmC6Dk77TDd
+         i6u5G8bh6sg4iRudiVKfswrLevChBCZbQd1Snp3AhZKjamQHllAHZI3ntz71Ubchrye8
+         JMa99iyB/5olBft3Rkc0oKa/R+iyM0YyEGUQ/MGK9SrHuKfJZ+9gAnrjZ6WODFYRb/Bq
+         q2RQ==
+X-Gm-Message-State: AFqh2kpMgMdp+l/8iUAufJfy2IEBhgRzWYXG/G6CRbnnTP9lbBLcJSv/
+	N3punfEpG8S9iDOYSz220gPerg==
+X-Google-Smtp-Source: AMrXdXsviEDUzv3yh0GoS6/F0WtPaxs3pJyKMS9EUX0zyAfxGzLvqcSCV0/YUD0sMeKUCYfXL73u0w==
+X-Received: by 2002:a5d:6404:0:b0:2bc:5115:f072 with SMTP id z4-20020a5d6404000000b002bc5115f072mr23077077wru.50.1674486817972;
+        Mon, 23 Jan 2023 07:13:37 -0800 (PST)
 Received: from krzk-bin.. ([178.197.216.144])
-        by smtp.gmail.com with ESMTPSA id n1-20020a5d67c1000000b002bc7f64efa3sm34737922wrw.29.2023.01.23.07.13.30
+        by smtp.gmail.com with ESMTPSA id n1-20020a5d67c1000000b002bc7f64efa3sm34737922wrw.29.2023.01.23.07.13.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Jan 2023 07:13:32 -0800 (PST)
+        Mon, 23 Jan 2023 07:13:37 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Rob Herring <robh+dt@kernel.org>,
@@ -96,17 +96,16 @@ To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	linux-riscv@lists.infradead.org,
 	linux-stm32@st-md-mailman.stormreply.com
 Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH 10/13] dt-bindings: serial: st,stm32-uart: drop common properties
-Date: Mon, 23 Jan 2023 16:12:59 +0100
-Message-Id: <20230123151302.368277-10-krzysztof.kozlowski@linaro.org>
+Subject: [PATCH 12/13] dt-bindings: serial: drop unneeded quotes
+Date: Mon, 23 Jan 2023 16:13:01 +0100
+Message-Id: <20230123151302.368277-12-krzysztof.kozlowski@linaro.org>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20230123151302.368277-1-krzysztof.kozlowski@linaro.org>
 References: <20230123151302.368277-1-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230123_071333_331317_A4343FC6 
-X-CRM114-Status: UNSURE (   9.04  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230123_071338_980301_995376FF 
+X-CRM114-Status: GOOD (  10.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,39 +122,91 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The binding references serial and rs485 schemas, so there is no need to
-list their properties.  Simplify a bit by removing unneeded entries.
+Cleanup by removing unneeded quotes from refs.  No functional impact
+except adjusting to preferred coding style.
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- .../devicetree/bindings/serial/st,stm32-uart.yaml          | 7 -------
- 1 file changed, 7 deletions(-)
+ Documentation/devicetree/bindings/serial/8250.yaml            | 4 ++--
+ .../devicetree/bindings/serial/fsl,s32-linflexuart.yaml       | 2 +-
+ Documentation/devicetree/bindings/serial/fsl-imx-uart.yaml    | 4 ++--
+ Documentation/devicetree/bindings/serial/fsl-lpuart.yaml      | 2 +-
+ Documentation/devicetree/bindings/serial/fsl-mxs-auart.yaml   | 2 +-
+ 5 files changed, 7 insertions(+), 7 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/serial/st,stm32-uart.yaml b/Documentation/devicetree/bindings/serial/st,stm32-uart.yaml
-index 85876c668f6d..1df8ffe95fc6 100644
---- a/Documentation/devicetree/bindings/serial/st,stm32-uart.yaml
-+++ b/Documentation/devicetree/bindings/serial/st,stm32-uart.yaml
-@@ -35,8 +35,6 @@ properties:
-     description: enable hardware flow control (deprecated)
-     $ref: /schemas/types.yaml#/definitions/flag
+diff --git a/Documentation/devicetree/bindings/serial/8250.yaml b/Documentation/devicetree/bindings/serial/8250.yaml
+index badaf6d5b6fe..2d0cac642427 100644
+--- a/Documentation/devicetree/bindings/serial/8250.yaml
++++ b/Documentation/devicetree/bindings/serial/8250.yaml
+@@ -203,12 +203,12 @@ properties:
+     deprecated: true
  
--  uart-has-rtscts: true
--
-   rx-tx-swap: true
+   aspeed,lpc-io-reg:
+-    $ref: '/schemas/types.yaml#/definitions/uint32'
++    $ref: /schemas/types.yaml#/definitions/uint32
+     description: |
+       The VUART LPC address.  Only applicable to aspeed,ast2500-vuart.
  
-   dmas:
-@@ -60,11 +58,6 @@ properties:
+   aspeed,lpc-interrupts:
+-    $ref: "/schemas/types.yaml#/definitions/uint32-array"
++    $ref: /schemas/types.yaml#/definitions/uint32-array
+     minItems: 2
+     maxItems: 2
+     description: |
+diff --git a/Documentation/devicetree/bindings/serial/fsl,s32-linflexuart.yaml b/Documentation/devicetree/bindings/serial/fsl,s32-linflexuart.yaml
+index 8b643bae3c7b..920539926d7e 100644
+--- a/Documentation/devicetree/bindings/serial/fsl,s32-linflexuart.yaml
++++ b/Documentation/devicetree/bindings/serial/fsl,s32-linflexuart.yaml
+@@ -16,7 +16,7 @@ maintainers:
+   - Chester Lin <clin@suse.com>
  
-   wakeup-source: true
+ allOf:
+-  - $ref: "serial.yaml"
++  - $ref: serial.yaml#
  
--  rs485-rts-delay: true
--  rs485-rts-active-low: true
--  linux,rs485-enabled-at-boot-time: true
--  rs485-rx-during-tx: true
--
-   rx-threshold:
-     description:
-       If value is set to 1, RX FIFO threshold is disabled.
+ properties:
+   compatible:
+diff --git a/Documentation/devicetree/bindings/serial/fsl-imx-uart.yaml b/Documentation/devicetree/bindings/serial/fsl-imx-uart.yaml
+index b431a0d1cd6b..4cbe76e1715b 100644
+--- a/Documentation/devicetree/bindings/serial/fsl-imx-uart.yaml
++++ b/Documentation/devicetree/bindings/serial/fsl-imx-uart.yaml
+@@ -10,8 +10,8 @@ maintainers:
+   - Fabio Estevam <festevam@gmail.com>
+ 
+ allOf:
+-  - $ref: "serial.yaml"
+-  - $ref: "rs485.yaml"
++  - $ref: serial.yaml#
++  - $ref: rs485.yaml#
+ 
+ properties:
+   compatible:
+diff --git a/Documentation/devicetree/bindings/serial/fsl-lpuart.yaml b/Documentation/devicetree/bindings/serial/fsl-lpuart.yaml
+index 26c3593fa98b..ab81722293d3 100644
+--- a/Documentation/devicetree/bindings/serial/fsl-lpuart.yaml
++++ b/Documentation/devicetree/bindings/serial/fsl-lpuart.yaml
+@@ -10,7 +10,7 @@ maintainers:
+   - Fugang Duan <fugang.duan@nxp.com>
+ 
+ allOf:
+-  - $ref: "rs485.yaml"
++  - $ref: rs485.yaml#
+   - $ref: serial.yaml#
+ 
+ properties:
+diff --git a/Documentation/devicetree/bindings/serial/fsl-mxs-auart.yaml b/Documentation/devicetree/bindings/serial/fsl-mxs-auart.yaml
+index 14c7594c88c6..6a400a5e6fc7 100644
+--- a/Documentation/devicetree/bindings/serial/fsl-mxs-auart.yaml
++++ b/Documentation/devicetree/bindings/serial/fsl-mxs-auart.yaml
+@@ -10,7 +10,7 @@ maintainers:
+   - Fabio Estevam <festevam@gmail.com>
+ 
+ allOf:
+-  - $ref: "serial.yaml"
++  - $ref: serial.yaml#
+ 
+ properties:
+   compatible:
 -- 
 2.34.1
 
