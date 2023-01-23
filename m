@@ -4,68 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98E8BC05027
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jan 2023 08:11:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F4F5C38142
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jan 2023 09:29:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LsGOm230xfpeBgUxNwZERDHm7mCvtHpcL/o/X2EXyJQ=; b=174NATnHDNeftOURjy7FZDhSgN
-	vQXI8A7j8uNXxg6heP/LQY5lskFPFKV9a5poBIc8M4cLjbob6kekvZm0UuNecw3eu6oPies92Ly3w
-	kexnmDOAh1Dc5Wg49gUGBuTAKJEtr5H1T0aJhUQ8+QO+0he2sWmCeCDtG+2Ab3CnwYOePeB/cMcub
-	YfLkmDQ9ORXDnRvQZHYrLiVM8SEAnD36qwXRjjpBF/w/1w3tTFBvZseumLESuZ36F/GBmXSBa92sF
-	0RsZv8MFS28g7vAoAp4lXxLFv1CVFHVME61jymzpdrspq7Kug1clkwfM9WGxkEgUBwuORKmerVfOi
-	lUwtnBfg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=OePEb+qHF8+I72Tp//xOdouYpXUc0Lb9LOs51RBk3og=; b=GqOs9N3Z3YaH4C
+	NvU0UrFW2rN+QQPCjP7n3gu2s0RTjHWgkZz3tm9doGtZQcYsXqCa9JKCkra7aVhcHpHwh3pByBnxy
+	XaGcvr3oUzexgzVhmiaFve0uxh388HwuWdkKxYHGI60HS2ywjio2ossfO6PL6GA88alSTbx40SMeF
+	qMYRKOGXng7jdF0lIW+gSila6cjKraMpDNuGajDXDZN+YTej5bdNgkim40ZLIZlZ78pulcyDdJcPx
+	3natZBdNtHGy6p2H9BESl5srswiWTKn/SUqszCouoUJJ9bbvOiea5d6ePcJwpPu+bgEqWrWJnt7n8
+	2xfGuWdbyRZkoKRP4/zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pJrv6-00GJ9V-2x; Mon, 23 Jan 2023 08:11:12 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1pJt8x-00GWbe-Bc; Mon, 23 Jan 2023 09:29:35 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pJruz-00GJ8I-J3; Mon, 23 Jan 2023 08:11:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1674461465; x=1705997465;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=yER2n3QmR1h2NXuL0jjEMeaU2dy9JnO+kmS6XsiFYI0=;
-  b=FSGuf+Si/uubJrtmkPnbiM50KfEVs94t3+J7F0tUeQ2KjzhwY4OpZ2/0
-   83tMF/XsswVs1ktlbZ19XVDgSeplysjEVGF7jN4Km0BU6EmQ/XGvcplcD
-   ZsklJG41dxZ5xi4z/Pp7hPk4a/U9e06CgpiV7o5ng2PSxpLXuqOOlgYXO
-   1ZlQa201BstI4vpNY/USiT7IUItjtMPzGXRrTzASd/jMSyQTJPqWLcZ7+
-   awmZHi0tkkIzvaXS2sHI1jCeeGWKAabmsD+ILLz+hdL81VqATHQTa8PpL
-   e/KGrCJu6xED2NX/5hOIqJ61377LwacK6WcWuz+KVrHkceIZ3BvbzuD3u
-   Q==;
-X-IronPort-AV: E=Sophos;i="5.97,239,1669100400"; 
-   d="asc'?scan'208";a="193409181"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 23 Jan 2023 01:11:01 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.16; Mon, 23 Jan 2023 01:11:00 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
- (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.16 via Frontend
- Transport; Mon, 23 Jan 2023 01:10:58 -0700
-Date: Mon, 23 Jan 2023 08:10:35 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Andrew Jones <ajones@ventanamicro.com>
-CC: <linux-riscv@lists.infradead.org>, <kvm-riscv@lists.infradead.org>, 'Atish
- Patra ' <atishp@rivosinc.com>, 'Jisheng Zhang ' <jszhang@kernel.org>, 'Palmer
- Dabbelt ' <palmer@dabbelt.com>, 'Albert Ou ' <aou@eecs.berkeley.edu>, 'Paul
- Walmsley ' <paul.walmsley@sifive.com>, 'Heiko Stuebner ' <heiko@sntech.de>,
-	'Anup Patel ' <apatel@ventanamicro.com>, Rob Herring <robh@kernel.org>
-Subject: Re: [PATCH v2 2/6] dt-bindings: riscv: Document cboz-block-size
-Message-ID: <Y85A+3MW2N/jPTHH@wendy>
-References: <20230122191328.1193885-1-ajones@ventanamicro.com>
- <20230122191328.1193885-3-ajones@ventanamicro.com>
+	id 1pJt8u-00GWal-H5
+	for linux-riscv@lists.infradead.org; Mon, 23 Jan 2023 09:29:34 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id m15so8464175wms.4
+        for <linux-riscv@lists.infradead.org>; Mon, 23 Jan 2023 01:29:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=6i4/DPc3clho1bRJuBJWVhY/2WISVnxE9xJwLHy63OI=;
+        b=hO5aZpDY4ENl9IWdTW3woDPtDZ4dsUEyVjT464rX2BSA25tYl0Oi1VJ4FSeOmHgjxS
+         HUo0c5O7+8+DoPmnWxRxAwrc3eO4d/agpWf+Iy2RJh5hoA0IUzV7q1SnI4SBpOyYlJ5z
+         qkCQE7AYvU5Yn8u6N133gPHBTeJl8aq4e56R1ntNvn/vY8mSmLO7g3rUG/nrSrShV0GU
+         2Tis7CmieX9Da1GhuUzPk3Vl9qgBVK9yznTibbAPKNCFQaj8/e53NUYniODGAWsaY98w
+         wqIeAMBmvcU8VKSrtDQYxJ4DT3RkNJsROatznlCCKtxbghJtehjz13fFUrF3gkuLVLS0
+         NPiQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=6i4/DPc3clho1bRJuBJWVhY/2WISVnxE9xJwLHy63OI=;
+        b=qqzO4WtYSTWSQQ6+ZlM17jv3bhcOBltaJegWyuZqRe9mWuYPNuCYDhVLsFZV9d7XBC
+         tT63b0QUjk+plIwtopmtzbEZIFEO+oVDiGgcvard+YBD0nOOX7cnS9QD9rGldpLS4LqQ
+         RYqjFlLAXclC36QS1RYYKuquk9omTkrArBkcSd5JY+iMWERuC29mGRKBS4dFkgAjPHyd
+         B3jUGF78gbznCkJyFFHd5LpQ3jn43ddUbVt+d1LTj/D+sDluzow+RYr2U33jlIbnMtNk
+         jSB4XLQbGOtOLJ2pVHXZSTdX8Qp/T3VWjbsdaCBQj2Kuhs7YePQMsI8RpTrhGCIHPMmL
+         2Usw==
+X-Gm-Message-State: AFqh2krqgX58E5yJbC9ZEoZoTtyao/PfjaeIrxRyCo4aSys4aI4w4Bri
+	5BWXEoikA93hPTPsajlcPLRjSQ==
+X-Google-Smtp-Source: AMrXdXtqCE84xtsh9SqffI9Nun8+wVvG/L434n5lc/pRyKhwZ048Rt50MZxTPhaP7Rllg8LqItz9Ug==
+X-Received: by 2002:a05:600c:1695:b0:3d3:4ae6:a71b with SMTP id k21-20020a05600c169500b003d34ae6a71bmr22314548wmn.2.1674466170281;
+        Mon, 23 Jan 2023 01:29:30 -0800 (PST)
+Received: from alex-rivos.ba.rivosinc.com (lfbn-lyo-1-450-160.w2-7.abo.wanadoo.fr. [2.7.42.160])
+        by smtp.gmail.com with ESMTPSA id n42-20020a05600c3baa00b003d96efd09b7sm11619340wms.19.2023.01.23.01.29.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Jan 2023 01:29:29 -0800 (PST)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+To: Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH] KVM: RISC-V: Fix wrong usage of PGDIR_SIZE to check page sizes
+Date: Mon, 23 Jan 2023 10:29:28 +0100
+Message-Id: <20230123092928.808014-1-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.37.2
 MIME-Version: 1.0
-In-Reply-To: <20230122191328.1193885-3-ajones@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230123_001105_750655_04F11DB2 
-X-CRM114-Status: GOOD (  16.27  )
+X-CRM114-CacheID: sfid-20230123_012932_602066_D3F127F9 
+X-CRM114-Status: UNSURE (   9.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,87 +90,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1024799616251640014=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============1024799616251640014==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="Ek/NdeMhlk/2U4U0"
-Content-Disposition: inline
+At the moment, riscv only supports PMD and PUD hugepages. For sv39,
+PGDIR_SIZE == PUD_SIZE but not for sv48 and sv57. So fix this by changing
+PGDIR_SIZE into PUD_SIZE.
 
---Ek/NdeMhlk/2U4U0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+---
+ arch/riscv/kvm/mmu.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-Hey,
+diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
+index 34b57e0be2ef..dbc4ca060174 100644
+--- a/arch/riscv/kvm/mmu.c
++++ b/arch/riscv/kvm/mmu.c
+@@ -585,7 +585,7 @@ bool kvm_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
+ 	if (!kvm->arch.pgd)
+ 		return false;
+ 
+-	WARN_ON(size != PAGE_SIZE && size != PMD_SIZE && size != PGDIR_SIZE);
++	WARN_ON(size != PAGE_SIZE && size != PMD_SIZE && size != PUD_SIZE);
+ 
+ 	if (!gstage_get_leaf_entry(kvm, range->start << PAGE_SHIFT,
+ 				   &ptep, &ptep_level))
+@@ -603,7 +603,7 @@ bool kvm_test_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
+ 	if (!kvm->arch.pgd)
+ 		return false;
+ 
+-	WARN_ON(size != PAGE_SIZE && size != PMD_SIZE && size != PGDIR_SIZE);
++	WARN_ON(size != PAGE_SIZE && size != PMD_SIZE && size != PUD_SIZE);
+ 
+ 	if (!gstage_get_leaf_entry(kvm, range->start << PAGE_SHIFT,
+ 				   &ptep, &ptep_level))
+@@ -645,12 +645,12 @@ int kvm_riscv_gstage_map(struct kvm_vcpu *vcpu,
+ 	if (logging || (vma->vm_flags & VM_PFNMAP))
+ 		vma_pagesize = PAGE_SIZE;
+ 
+-	if (vma_pagesize == PMD_SIZE || vma_pagesize == PGDIR_SIZE)
++	if (vma_pagesize == PMD_SIZE || vma_pagesize == PUD_SIZE)
+ 		gfn = (gpa & huge_page_mask(hstate_vma(vma))) >> PAGE_SHIFT;
+ 
+ 	mmap_read_unlock(current->mm);
+ 
+-	if (vma_pagesize != PGDIR_SIZE &&
++	if (vma_pagesize != PUD_SIZE &&
+ 	    vma_pagesize != PMD_SIZE &&
+ 	    vma_pagesize != PAGE_SIZE) {
+ 		kvm_err("Invalid VMA page size 0x%lx\n", vma_pagesize);
+-- 
+2.37.2
 
-On Sun, Jan 22, 2023 at 08:13:24PM +0100, Andrew Jones wrote:
-> The Zicboz operates on a block-size defined for the cpu-core,
-> which does not necessarily match other cache-sizes used.
->=20
-> So add the necessary property for the system to know the core's
-> block-size.
->=20
-> Cc: Rob Herring <robh@kernel.org>
-
-FYI bindings need to be CC Krzysztof & the devicetree list too.
-
-> Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
-> ---
->  Documentation/devicetree/bindings/riscv/cpus.yaml | 5 +++++
->  1 file changed, 5 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Document=
-ation/devicetree/bindings/riscv/cpus.yaml
-> index c6720764e765..f4ee70f8e1cf 100644
-> --- a/Documentation/devicetree/bindings/riscv/cpus.yaml
-> +++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
-> @@ -72,6 +72,11 @@ properties:
->      description:
->        The blocksize in bytes for the Zicbom cache operations.
-> =20
-> +  riscv,cboz-block-size:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    description:
-> +      The blocksize in bytes for the Zicboz cache operations.
-
-Do you think hardware that has different Zicboz versus Zicbom block
-sizes is going to be common, or would we benefit from just defaulting
-the Zicboz size to the Zicbom one?
-
-Either way,
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
-Thanks,
-Conor.
-
-
---Ek/NdeMhlk/2U4U0
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY85A+wAKCRB4tDGHoIJi
-0ke7AQCGPJvwCpVHyhuvGR/MLJdfT0M4vPc1ZgK+lmvyu8YRAAEAoMVeTGxyZMRz
-uS/apb4qDM6fQV42ru6dBfsl2KU1uQo=
-=jJXh
------END PGP SIGNATURE-----
-
---Ek/NdeMhlk/2U4U0--
-
-
---===============1024799616251640014==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1024799616251640014==--
-
