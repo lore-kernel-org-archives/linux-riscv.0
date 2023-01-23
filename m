@@ -4,86 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5FB6C25B50
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jan 2023 09:44:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AB88C05027
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jan 2023 10:18:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=R1jASUPnUmbXG3k3up7FUl0lXZIAGciLVUtjLPG0jUI=; b=HsNAtg8LhNhkhp
-	2XTaVcPIxWoueDDUKmwHAiEVjQgVnqy8/tszCnU40n1ujCzUQclfxOEECLtTUrSwgBU1dxcPV61cH
-	Fkz60Cj7QXLBr1N2Gbiw/rDzh+7cbEwWapB5BhBgwlZNOG0mIr/m2GuAPrst9TO1e4cQRYi/Tzm35
-	xqoVIlFIAcLv3I3Ef6ZAu3d2kpm09hqcIcyDIRx77pzI6hiZK2XzvhViuYZb7pKq4JVXUlM/2W8h5
-	CY8eEJa1qEMkIZRf4B9Jvyi34zxtAXDO3uhhqjP0qQLbp9GsUTStudBpScOvLL/UiUREy0uFAGMgm
-	krgrTiUeQxsok+WLnouQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=pVjbFmC0ap8kkvtjSWRC0/uzev1SHAV9lJmN+wixxmU=; b=yrgsSbBp8sygMo
+	2QopyHGulYAUHjVnr07BuNfXLno+1tLiFK2RFGbqdGnpFjMXBfCJ/Z2IA4nfBFeWZKbZ2+ag9xeoo
+	FzIVrwOhGQPogs0izWEiA+U/9kA17ajJ4hFhHD7fzRHkSpjwtgSaMjk8rSu9I1OH1TBMhcGhUItl7
+	gAAy2FqCA3d/TXCMddwE0/rdZ/4pVIEzimjt5FjmpRJYgYwo1Ke7Kl0RKs3g0nyGuC7yKgT5V3Tb7
+	7e0NTXVTsFLK1pYQMpIHKNepy7YE4NZaVcMZ+i6etl6i9haTLUVEDd93QXCicWLgabkhgfw8dZfPh
+	yT/8QCTCd1fKrHXEW/Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pJtN6-00GYwz-CU; Mon, 23 Jan 2023 09:44:12 +0000
-Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
+	id 1pJtuK-00Gkrf-CG; Mon, 23 Jan 2023 10:18:32 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pJtN2-00GYv5-PA
-	for linux-riscv@lists.infradead.org; Mon, 23 Jan 2023 09:44:10 +0000
-Received: by mail-ed1-x529.google.com with SMTP id y19so13875458edc.2
-        for <linux-riscv@lists.infradead.org>; Mon, 23 Jan 2023 01:44:07 -0800 (PST)
+	id 1pJtm0-00GhKt-8p
+	for linux-riscv@lists.infradead.org; Mon, 23 Jan 2023 10:09:58 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id e19-20020a05600c439300b003db1cac0c1fso8699729wmn.5
+        for <linux-riscv@lists.infradead.org>; Mon, 23 Jan 2023 02:09:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Tzw7rVzTiAE2k/bJcZBk03eWLle0ey7P0sqdJk1vnSM=;
-        b=Plu12ZxwGb6JsyyWkxd2rHh4SjNlcEvN324p4m6LtWds1GO+Hax8AGLJ6wHcRXrmeG
-         WxEcfNUpxC6KQytDKSE2msAWJ6ukXAyQPcxTtxOuhe6uwbVjbh8JMjCIJXZiOBa/D/YY
-         VJLw6jw/JAuObEKslK9X0NTn1zhFYUA21kzoDGN8RVsy3q8RtvGprz03VpvMqxbKZRro
-         HbqfcUdCEIG4svaIQJ22q/9nFKQzzhgQicTpZ25PKXw0Gg2Nr+a4ntpzAfeVtu1ID3Ux
-         mBiGrabv3QCuRAtEb7O+DKYfGuZrp3is9C4T6W9FlZ60qwSNCv+oaHW1OHbGxBdgdf2U
-         dCeg==
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=BowUBQydnAafqAai7xO8TqOkM+didbH9IqQu35TSCq4=;
+        b=dOwqxgrVb3ypUy4k4M318f6E0m70qvhPaXk+aDiLRN4MuUpj2iih++Rsv4zeEwZQ/Z
+         gve4hd6zTyG8YvQ8gOY1uzbwnzAsu8I9uZILphr7ks/N2yRFJ1CpIjkgVlnnsXLZ2rUL
+         kv1LZ40Yjom/NcmpJWLKMyTNYHqVb8qelkDTrEkp/Ke1pH/imyoTS902MaR6FW2fQGmX
+         ZOW2vt+6UBqyMc3E+NRg5YaC9YTt3EeMpt35ByUCj8q+2MXSNjSiU/JPVfvxLaocF2FT
+         Lhp0sAkCvc8dDuvPa4LLRyhtveEfzTDWMGuyFcq+DHJVqPUWTkG8iZ6UZJ/wAitUfsV0
+         h2kw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Tzw7rVzTiAE2k/bJcZBk03eWLle0ey7P0sqdJk1vnSM=;
-        b=r1U+SuDydtzxF9jjYc4jA490UT16Ve/hYZktQIOH6BcpZtBw6SpNyJIQzm+S5wfJJ4
-         JuftdvqvDYnjgPWr/+veLsXsKnRbNmB4j39LqAtRk8twmQ74gnJzsSF+J0anidKbNvYv
-         hXgByUQ17gCJgpcvkcZ8Od753dcVbhHytHCe2Je8D2dz/ttL7CzlvxQOPFoZUHuXqIlQ
-         OKNomnQ6IynZTZzDbMweSK3YYyFPot69VT3ImwewtZNzn6wwkgQtIAynJmBOwmO1n97o
-         TAEwbrCKyeipsVTHZ/ICyVkcevki28DOXN0AWD5OZPF9s2m5IHxTWSiDbYXCmbBUJT4Y
-         u1+g==
-X-Gm-Message-State: AFqh2koeP6nQIFEO9iGY0a09apVCqcark9HuVhX6z4wp5OeS1lkDCeXU
-	plr0Zitli+CniV0W2WG4cc9H+g==
-X-Google-Smtp-Source: AMrXdXutGuQsdwPBdG0nyzaFoN1CE+Hi1ozPIjd2kpvHRh/7ZdJXcy0rLy+58kuMSsp/lk+rggSzlw==
-X-Received: by 2002:a05:6402:602:b0:49d:f448:878c with SMTP id n2-20020a056402060200b0049df448878cmr33389242edv.2.1674467046664;
-        Mon, 23 Jan 2023 01:44:06 -0800 (PST)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id v17-20020a170906293100b007be301a1d51sm21720198ejd.211.2023.01.23.01.44.05
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=BowUBQydnAafqAai7xO8TqOkM+didbH9IqQu35TSCq4=;
+        b=suZ39bzY/1dByg0Fx2EcefvftnoPx3aMUqLpxZSPdm9FKatWgaVo1sGvJIZOJsveLH
+         iJYZMqrNSsA+uZ7wmi1YLhb1KYBWhRU68M9zeSuRoFxvdABXmn65bU05dhc2jo6LM4ym
+         RNI85OFxPbqZj0PPA9svWec0Xse9OkluKcIP3Wgv18VXvTHN1P+61XCGO+b0yP2nuHYc
+         6ep5Iq6jQ24muwGS1XZbuI2kG+BTYY18YrIe8fJanTz3E7bSnP+LOwaWvcRHHqkmQEjn
+         ZYqcWvQPZ/tATDeqMy2L6Nh1TcWCptofoWNeP+YhhKGDaspMMXy7rr0N3K2MWYAM7LXU
+         hjLg==
+X-Gm-Message-State: AFqh2kqPGQrjsU1hIAxPQZoBHja+x/JRPpHlYIW8h01fXuYJIov5j6Lf
+	Z/dROqTPXW7PmW4F5AZ6qcabPg==
+X-Google-Smtp-Source: AMrXdXs7SiqkzdfbYCN4klaQirQ4x4dMCIkYAZcYH8jLjpLSn5XUFPnaT0RkC3gKysT8Z1wF4lVK7w==
+X-Received: by 2002:a05:600c:1c01:b0:3c6:e63e:23e9 with SMTP id j1-20020a05600c1c0100b003c6e63e23e9mr23745245wms.24.1674468593747;
+        Mon, 23 Jan 2023 02:09:53 -0800 (PST)
+Received: from alex-rivos.ba.rivosinc.com (lfbn-lyo-1-450-160.w2-7.abo.wanadoo.fr. [2.7.42.160])
+        by smtp.gmail.com with ESMTPSA id bi16-20020a05600c3d9000b003daf89e01d3sm10170407wmb.11.2023.01.23.02.09.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Jan 2023 01:44:06 -0800 (PST)
-Date: Mon, 23 Jan 2023 10:44:05 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Conor Dooley <conor.dooley@microchip.com>, g@orel
-Cc: linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org,
-	'Atish Patra ' <atishp@rivosinc.com>,
-	'Jisheng Zhang ' <jszhang@kernel.org>,
-	'Palmer Dabbelt ' <palmer@dabbelt.com>,
-	'Albert Ou ' <aou@eecs.berkeley.edu>,
-	'Paul Walmsley ' <paul.walmsley@sifive.com>,
-	'Heiko Stuebner ' <heiko@sntech.de>,
-	'Anup Patel ' <apatel@ventanamicro.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v2 2/6] dt-bindings: riscv: Document cboz-block-size
-Message-ID: <20230123094405.2ageo63zauqt6g2n@orel>
-References: <20230122191328.1193885-1-ajones@ventanamicro.com>
- <20230122191328.1193885-3-ajones@ventanamicro.com>
- <Y85A+3MW2N/jPTHH@wendy>
+        Mon, 23 Jan 2023 02:09:53 -0800 (PST)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+	Alexander Potapenko <glider@google.com>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Dmitry Vyukov <dvyukov@google.com>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	kasan-dev@googlegroups.com,
+	linux-efi@vger.kernel.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH v2 0/6] RISC-V kasan rework
+Date: Mon, 23 Jan 2023 11:09:45 +0100
+Message-Id: <20230123100951.810807-1-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.37.2
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Y85A+3MW2N/jPTHH@wendy>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230123_014408_864875_7225257D 
-X-CRM114-Status: GOOD (  22.08  )
+X-CRM114-CacheID: sfid-20230123_020956_632243_4411C8AD 
+X-CRM114-Status: GOOD (  13.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,64 +98,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 23, 2023 at 08:10:35AM +0000, Conor Dooley wrote:
-> Hey,
-> 
-> On Sun, Jan 22, 2023 at 08:13:24PM +0100, Andrew Jones wrote:
-> > The Zicboz operates on a block-size defined for the cpu-core,
-> > which does not necessarily match other cache-sizes used.
-> > 
-> > So add the necessary property for the system to know the core's
-> > block-size.
-> > 
-> > Cc: Rob Herring <robh@kernel.org>
-> 
-> FYI bindings need to be CC Krzysztof & the devicetree list too.
+As described in patch 2, our current kasan implementation is intricate,
+so I tried to simplify the implementation and mimic what arm64/x86 are
+doing.
 
-Thanks, hopefully CC'ing them now is OK (I just added them). If not,
-I can repost.
+In addition it fixes UEFI bootflow with a kasan kernel and kasan inline
+instrumentation: all kasan configurations were tested on a large ubuntu
+kernel with success with KASAN_KUNIT_TEST and KASAN_MODULE_TEST.
 
-> 
-> > Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
-> > ---
-> >  Documentation/devicetree/bindings/riscv/cpus.yaml | 5 +++++
-> >  1 file changed, 5 insertions(+)
-> > 
-> > diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
-> > index c6720764e765..f4ee70f8e1cf 100644
-> > --- a/Documentation/devicetree/bindings/riscv/cpus.yaml
-> > +++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
-> > @@ -72,6 +72,11 @@ properties:
-> >      description:
-> >        The blocksize in bytes for the Zicbom cache operations.
-> >  
-> > +  riscv,cboz-block-size:
-> > +    $ref: /schemas/types.yaml#/definitions/uint32
-> > +    description:
-> > +      The blocksize in bytes for the Zicboz cache operations.
-> 
-> Do you think hardware that has different Zicboz versus Zicbom block
-> sizes is going to be common, or would we benefit from just defaulting
-> the Zicboz size to the Zicbom one?
+inline ubuntu config + uefi:
+ sv39: OK
+ sv48: OK
+ sv57: OK
 
-I'm not sure. If it turns out the block size will be the same in most
-cases, then we could add another property named cbo-block-size, which,
-when present, would be parsed first and used to populate all CBO-related
-block sizes. Then, these specific properties would only serve to override
-that general size for their respective block sizes when they're present.
+outline ubuntu config + uefi:
+ sv39: OK
+ sv48: OK
+ sv57: OK
 
-> 
-> Either way,
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Actually 1 test always fails with KASAN_KUNIT_TEST that I have to check:
+# kasan_bitops_generic: EXPECTATION FAILED at mm/kasan/kasan__test.c:1020
+KASAN failure expected in "set_bit(nr, addr)", but none occurrred
 
-Thanks,
-drew
+Note that Palmer recently proposed to remove COMMAND_LINE_SIZE from the
+userspace abi
+https://lore.kernel.org/lkml/20221211061358.28035-1-palmer@rivosinc.com/T/
+so that we can finally increase the command line to fit all kasan kernel
+parameters.
 
-> 
-> Thanks,
-> Conor.
-> 
+All of this should hopefully fix the syzkaller riscv build that has been
+failing for a few months now, any test is appreciated and if I can help
+in any way, please ask.
 
+v2:
+- Rebase on top of v6.2-rc3
+- patch 4 is now way simpler than it used to be since Ard already moved
+  the string functions into the efistub.
+
+Alexandre Ghiti (6):
+  riscv: Split early and final KASAN population functions
+  riscv: Rework kasan population functions
+  riscv: Move DTB_EARLY_BASE_VA to the kernel address space
+  riscv: Fix EFI stub usage of KASAN instrumented strcmp function
+  riscv: Fix ptdump when KASAN is enabled
+  riscv: Unconditionnally select KASAN_VMALLOC if KASAN
+
+ arch/riscv/Kconfig             |   1 +
+ arch/riscv/kernel/image-vars.h |   2 -
+ arch/riscv/mm/init.c           |   2 +-
+ arch/riscv/mm/kasan_init.c     | 516 ++++++++++++++++++---------------
+ arch/riscv/mm/ptdump.c         |  24 +-
+ 5 files changed, 298 insertions(+), 247 deletions(-)
+
+-- 
+2.37.2
 
 
 _______________________________________________
