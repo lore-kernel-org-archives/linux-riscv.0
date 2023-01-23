@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B1A5C05027
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jan 2023 17:21:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A1A4C54E94
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jan 2023 17:21:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VKINOB1lENHize4yOxa4ZDERy85xDeVoikZXRM8vJRs=; b=AP4G1ogYuv2qDK
-	RWYfhWr5iQuq2VI5MQnBmk2bV3PKkeD4oqSaK4v6C3zG0TlaRmNNXYlNC2dQkvA75nAwnrH2nSWCN
-	9vX1oxJmeOEYKu9Ao6u6OYXVMANmlyWq0VK6oWZFiTWtvA1VfrFcAkHwHYlsGdw833Py7zaS4VaDR
-	Al7UCz0E/g5haJWF5slaiWq8DVKHQVKlq76q9RKnd1mKmB3r3ZZRpWJEa6eGddeDFiF5JqdYGeWyd
-	lHZ01hE/a/EZRi2Lx5qZY5/59eUvhbMis/54OpqzH/QoDPDc/fP7dDyJwIYiY3He/dZqUT2skFs7q
-	hmbHRCB1FQJKxZHsA09g==;
+	List-Owner; bh=VNu+v5FlQjEvF+fDnUQ3EnpcLB2ps3iMazuUhEO+obg=; b=xO6iyJz8Wqdxhc
+	D57fCMohT02kLCyZMdHNYfkJ+RF9fOrJXqiFdmHoqUbHMymw9P3X1k4Z5fbjM9uq3JxAVlc59rU5e
+	s4F555AvUQPsblA9D6fjai1kat4dor/hfTtnPI3ee27BaWHBAB7IHwBFxBIbsyFqxVjb/PFslyui3
+	zOgOEIRUmPHUgoRNXFCcf43VBn3JmFgw0mATxqeCoCT3lMT/Zvz2V+2yl4Q3Mj/K/zaToGnUR1alu
+	8xrBKZyQp8UQ9xTbIdT/KdzVtwh2TKmlsAFYorVlisXnA9B2vS5Jf0vT4yfyR6taIRY3XF+nX15R7
+	UldOK6ooCiBQ42OYgj+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pK0VF-000oww-Ct; Mon, 23 Jan 2023 17:21:05 +0000
-Received: from fllv0016.ext.ti.com ([198.47.19.142])
+	id 1pK0VO-000p3A-5c; Mon, 23 Jan 2023 17:21:14 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pJxhf-00HYrv-VB; Mon, 23 Jan 2023 14:21:45 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by fllv0016.ext.ti.com (8.15.2/8.15.2) with ESMTP id 30NELWXp089410;
-	Mon, 23 Jan 2023 08:21:32 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1674483692;
-	bh=BlwQD0ARUqblb48RoEOI25OrVzMPGwg0R8vqptzkpJg=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=FvdWBlHevL+XhAXaPy6/J5HISPF/VxUYp4ghd1OWL43dNVfYvXx7g2ekBT5wQUebb
-	 Z/07W4YvJKF6TF7RTc4RvQAKzkBGhqILEYF+bDhNVaut9uibJTMsoi4PzBJtGFNdxQ
-	 U3G4OdSkYHOE3bCY4gA0ok7R5fHJd+5EAWcvuU0g=
-Received: from DFLE111.ent.ti.com (dfle111.ent.ti.com [10.64.6.32])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 30NELW7M048257
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 23 Jan 2023 08:21:32 -0600
-Received: from DFLE104.ent.ti.com (10.64.6.25) by DFLE111.ent.ti.com
- (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.16; Mon, 23
- Jan 2023 08:21:31 -0600
-Received: from lelv0326.itg.ti.com (10.180.67.84) by DFLE104.ent.ti.com
- (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.16 via
- Frontend Transport; Mon, 23 Jan 2023 08:21:31 -0600
-Received: from [10.250.234.171] (ileaxei01-snat.itg.ti.com [10.180.69.5])
-	by lelv0326.itg.ti.com (8.15.2/8.15.2) with ESMTP id 30NEKpI9018755;
-	Mon, 23 Jan 2023 08:20:53 -0600
-Message-ID: <90084f5f-6e9d-7b17-5487-3b4b01bd5e7d@ti.com>
-Date: Mon, 23 Jan 2023 19:50:50 +0530
+	id 1pK0RM-000nNk-Jx; Mon, 23 Jan 2023 17:17:06 +0000
+Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 30NEJOGm009639;
+	Mon, 23 Jan 2023 18:16:42 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=message-id : date :
+ mime-version : subject : to : cc : references : from : in-reply-to :
+ content-type : content-transfer-encoding; s=selector1;
+ bh=R1aMUGjTbxhxY6hkyKRGBk4zxbzWjzxiNcedON6udFo=;
+ b=Zm5ggXoNZruq7Bb3b8N1qmVGlQxdkRIHa80INaPpZBBpXyjLW8eCZLOi26l5A6+RB5/w
+ Z+PZ3/cL4Va46yqtmJi5PORwYTY46FioxWKylbeuPxm436newkRnSC7hmZnYsKWHL2Kb
+ E8O4kMxS5/CdwDsQ4mM0v4xIMFleF1b25tB/cNt2YL3f/fwzgGAIWdrLxxMD8SuKdWQu
+ cPFgMv67SOjqXrPKNSoqvl1+YjTlQbFYmJvNya7GzzdG/j6Oyh9icv6JPWXR/j9Hrm2V
+ cNegJauCMm20Z1Gl+nUL+NtrY2i2G1zVxWNtOmY+nTZipz1phWQlTPi0LXd8tXF5+ztP QA== 
+Received: from beta.dmz-eu.st.com (beta.dmz-eu.st.com [164.129.1.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 3n89epk4d4-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 23 Jan 2023 18:16:42 +0100
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-eu.st.com (STMicroelectronics) with ESMTP id 733D910002A;
+	Mon, 23 Jan 2023 18:16:37 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 89E49228A2B;
+	Mon, 23 Jan 2023 18:16:37 +0100 (CET)
+Received: from [10.201.21.26] (10.201.21.26) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.13; Mon, 23 Jan
+ 2023 18:16:34 +0100
+Message-ID: <e068c541-b492-a513-6212-fd698e4fc9c4@foss.st.com>
+Date: Mon, 23 Jan 2023 18:16:33 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.4.2
 Subject: Re: [PATCH v2 02/13] spi: Replace all spi->chip_select and
  spi->cs_gpiod references with function call
-Content-Language: en-US
 To: Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>, <broonie@kernel.org>,
         <miquel.raynal@bootlin.com>, <richard@nod.at>, <vigneshr@ti.com>,
         <jic23@kernel.org>, <tudor.ambarus@microchip.com>,
@@ -114,12 +114,18 @@ CC: <git@amd.com>, <linux-spi@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
         <linux-staging@lists.linux.dev>, <amitrkcian2002@gmail.com>
 References: <20230119185342.2093323-1-amit.kumar-mahapatra@amd.com>
  <20230119185342.2093323-3-amit.kumar-mahapatra@amd.com>
-From: Dhruva Gole <d-gole@ti.com>
+Content-Language: en-US
+From: Patrice CHOTARD <patrice.chotard@foss.st.com>
 In-Reply-To: <20230119185342.2093323-3-amit.kumar-mahapatra@amd.com>
-X-EXCLAIMER-MD-CONFIG: e1e8a2fd-e40a-4ac6-ac9b-f7e9cc9ee180
+X-Originating-IP: [10.201.21.26]
+X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.219,Aquarius:18.0.930,Hydra:6.0.562,FMLib:17.11.122.1
+ definitions=2023-01-23_12,2023-01-23_01,2022-06-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230123_062144_199447_0D8A2B21 
-X-CRM114-Status: GOOD (  11.34  )
+X-CRM114-CacheID: sfid-20230123_091705_156013_08D9365B 
+X-CRM114-Status: GOOD (  20.56  )
 X-Mailman-Approved-At: Mon, 23 Jan 2023 09:19:52 -0800
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -137,9 +143,9 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Amit,
+Hi Amit
 
-On 20/01/23 00:23, Amit Kumar Mahapatra wrote:
+On 1/19/23 19:53, Amit Kumar Mahapatra wrote:
 > Supporting multi-cs in spi drivers would require the chip_select & cs_gpiod
 > members of struct spi_device to be an array. But changing the type of these
 > members to array would break the spi driver functionality. To make the
@@ -150,23 +156,72 @@ On 20/01/23 00:23, Amit Kumar Mahapatra wrote:
 > members of the spi_device structure would be converted to arrays & the
 > "idx" parameter of the APIs would be used as array index i.e.,
 > spi->chip_select[idx] & spi->cs_gpiod[idx] respectively.
->
+> 
 > Signed-off-by: Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>
 > ---
-> [...]
->  drivers/spi/spi-cadence-quadspi.c |  5 +++--
->  drivers/spi/spi-cadence-xspi.c    |  4 ++--
->  drivers/spi/spi-cadence.c         |  4 ++--
+
 [...]
 
-For SPI Cadence QSPI,
-Reviewed-by: Dhruva Gole <d-gole@ti.com>
+>  drivers/spi/spi-stm32-qspi.c      | 12 ++++++------
 
--- 
-Best regards,
-Dhruva Gole
-Texas Instruments Incorporated
+[...]
 
+> diff --git a/drivers/spi/spi-stm32-qspi.c b/drivers/spi/spi-stm32-qspi.c
+> index 9131660c1afb..b9e61372dcfb 100644
+> --- a/drivers/spi/spi-stm32-qspi.c
+> +++ b/drivers/spi/spi-stm32-qspi.c
+> @@ -359,7 +359,7 @@ static int stm32_qspi_get_mode(u8 buswidth)
+>  static int stm32_qspi_send(struct spi_device *spi, const struct spi_mem_op *op)
+>  {
+>  	struct stm32_qspi *qspi = spi_controller_get_devdata(spi->master);
+> -	struct stm32_qspi_flash *flash = &qspi->flash[spi->chip_select];
+> +	struct stm32_qspi_flash *flash = &qspi->flash[spi_get_chipselect(spi, 0)];
+>  	u32 ccr, cr;
+>  	int timeout, err = 0, err_poll_status = 0;
+>  
+> @@ -564,7 +564,7 @@ static int stm32_qspi_transfer_one_message(struct spi_controller *ctrl,
+>  	struct spi_mem_op op;
+>  	int ret = 0;
+>  
+> -	if (!spi->cs_gpiod)
+> +	if (!spi_get_csgpiod(spi, 0))
+>  		return -EOPNOTSUPP;
+>  
+>  	ret = pm_runtime_resume_and_get(qspi->dev);
+> @@ -573,7 +573,7 @@ static int stm32_qspi_transfer_one_message(struct spi_controller *ctrl,
+>  
+>  	mutex_lock(&qspi->lock);
+>  
+> -	gpiod_set_value_cansleep(spi->cs_gpiod, true);
+> +	gpiod_set_value_cansleep(spi_get_csgpiod(spi, 0), true);
+>  
+>  	list_for_each_entry(transfer, &msg->transfers, transfer_list) {
+>  		u8 dummy_bytes = 0;
+> @@ -626,7 +626,7 @@ static int stm32_qspi_transfer_one_message(struct spi_controller *ctrl,
+>  	}
+>  
+>  end_of_transfer:
+> -	gpiod_set_value_cansleep(spi->cs_gpiod, false);
+> +	gpiod_set_value_cansleep(spi_get_csgpiod(spi, 0), false);
+>  
+>  	mutex_unlock(&qspi->lock);
+>  
+> @@ -669,8 +669,8 @@ static int stm32_qspi_setup(struct spi_device *spi)
+>  
+>  	presc = DIV_ROUND_UP(qspi->clk_rate, spi->max_speed_hz) - 1;
+>  
+> -	flash = &qspi->flash[spi->chip_select];
+> -	flash->cs = spi->chip_select;
+> +	flash = &qspi->flash[spi_get_chipselect(spi, 0)];
+> +	flash->cs = spi_get_chipselect(spi, 0);
+>  	flash->presc = presc;
+>  
+>  	mutex_lock(&qspi->lock);
+
+Reviewed-by: Patrice Chotard <patrice.chotard@foss.st.com>
+
+Thanks
+Patrice
 
 _______________________________________________
 linux-riscv mailing list
