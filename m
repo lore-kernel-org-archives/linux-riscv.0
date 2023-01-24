@@ -4,60 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9CEAC54EED
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Jan 2023 22:40:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BDE7C54EED
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Jan 2023 22:40:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Kt+C0HW+EH7M4w4J2vLoc3xPAGvX/bGy4puGV7Ljz3I=; b=h7XPkcGvxzEU2q
-	zVz86lPbVddA8+ajPcX2FoS8V+/3RiJXR5cxMcR+0HX51/n2tGOgnAl4ye9ezSOGKD3/GzWO38QyE
-	I241Rg3B1MIu1PlZswOqVOSnPhXegvJ0XwAuDYpVsFvkUo7hlNRD1jHBUUT5iwegd/e41y6D4DO7I
-	t1MaJRXpdq4mtUsCF+8rtLqoNpDITXuKODkQdMRgfe5JL21gY2tdoo4AJSoHOz8s90Bgmzt29GP5t
-	Ne3Vn4DbLneKfyin5ACK7UF85HINVnKgl1kFgwHcYGtPMDsNKzOn1pX18hMt1bPQBJWHSTwNsTJ7j
-	yKkKBJsrKg5Ed/Jf4xnA==;
+	List-Owner; bh=QFtMs8lvY6X8GiiSUgrJYo1DnS48siyUu8t+afL5TZE=; b=mdR3SxIAE259XH
+	D193uF0rVh7STGRaIyYXEU69rkSzuVXtij36/+dh4za2gzvrbsP/z29c24gnV9YzeszpE4JGpUA5e
+	sYo9GJ28F9ngjHFZMyfDb2ymNS5CrjXGUhyXI3gqjRb06Dx9bcdp9wQ8zz4M/JbW/hmyEYLGCbEXi
+	2xL4xgKlwQVaitBlSAZz8V1v3shAZOHlLkUe9Ye5oayy3VEvtUjC+zBn0gzrclOP/47NYI36LcJqN
+	8C0EjVNCs+UdewrF4LMnpOS2xZoU/Yn15UQKxPk8NiyF6t4iOqCppHgYrMxbWEp90Qx7AdanH6kdB
+	6w9fuqiE0TlP6ugqnNSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKRxw-005Xie-IA; Tue, 24 Jan 2023 22:40:32 +0000
+	id 1pKRxo-005Xfy-Rd; Tue, 24 Jan 2023 22:40:24 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKRxl-005Xe4-V0
-	for linux-riscv@lists.infradead.org; Tue, 24 Jan 2023 22:40:24 +0000
+	id 1pKRxl-005Xe5-Uy
+	for linux-riscv@lists.infradead.org; Tue, 24 Jan 2023 22:40:23 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id C9E656136E;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id D045361384;
 	Tue, 24 Jan 2023 22:40:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 28D6FC4339B;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 2CCEBC433EF;
 	Tue, 24 Jan 2023 22:40:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1674600018;
-	bh=c5l5hSPFhmkzd69NiFdJ7mZa+GvHGWKGt6gjahbSulk=;
+	bh=UZ1bbTP9wKTGHzz4tz3N2CqqtNbE/N6eI+d92JGLXUU=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=LwGAqOkMVfkZepFXwRbbHCwGud5Oid0t0zYyYy2zmhpyIVq2mwlwLC5bQsxRwQYcw
-	 aFpucBBu/A/YGf+ro3aunVADYy9afT2u4eqAg16/kxwefXlIVyiO5+7Nj4HFpyRLPG
-	 qerB923l0RujUlme5PG7/c0b0r66FJvTXG7tYPm8opQJ7ZTMmt8tdU9YLqj5MN3ALk
-	 bJSafVBsCzr5M4AbZuLMSjd64vV/Bdl83hrvB04OvnXvVRmyt8prpsnpVl7jVJni2h
-	 Zd0FeU0OuUgOIJ2kOI3VdLgM1kEPkQHb/PTREATfPVEgsmdKoA6p7L/iR78EPiz3+2
-	 FJBfDiSmwiprg==
+	b=JfSCZo5+sRU0U/bALY3HMljBvquH4FdUnYEM2gl0MaFmQvfRmv+4aKY259UHNywCC
+	 +WjGlgPuoPW0qJVDVlEXoR4cPYZN5Ac6j8YQWY7W9UvcAeadZgmrXYLAmxRRYK+VkO
+	 c57+R7uav5X0IG5aa5Qprx4tHZkz8yrHSDrDQrNWKRPvn9pF+qWxe+HHa96t9Cb5bS
+	 rGQ0zo0SRbMrrN638/jJnOp9Qogoz8QQL2ggo/A2epyQQLEpcvUouQDK3iPxoB8TQq
+	 hOpyecPcGbVfnCwZ3XE5uOugXxQ0BpwpN210VCnExS1KrXKJY1TPTAQpeC35SUFyMB
+	 VURuSMlzUwkzg==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 0FCB7E5256F;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 17520C5C7D4;
 	Tue, 24 Jan 2023 22:40:18 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH] MAINTAINERS: add an IRC entry for RISC-V
+Subject: Re: [PATCH v3 0/2] riscv,isa fixups
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id:  <167460001806.14719.8982921389240916887.git-patchwork-notify@kernel.org>
+Message-Id:  <167460001809.14719.16320756846682473720.git-patchwork-notify@kernel.org>
 Date: Tue, 24 Jan 2023 22:40:18 +0000
-References: <20230106125344.1685266-1-conor@kernel.org>
-In-Reply-To: <20230106125344.1685266-1-conor@kernel.org>
+References: <20221205174459.60195-1-conor@kernel.org>
+In-Reply-To: <20221205174459.60195-1-conor@kernel.org>
 To: Conor Dooley <conor@kernel.org>
 Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
- conor.dooley@microchip.com
+ conor.dooley@microchip.com, jrtc27@jrtc27.com, robh+dt@kernel.org,
+ krzysztof.kozlowski+dt@linaro.org, paul.walmsley@sifive.com,
+ aou@eecs.berkeley.edu, heiko@sntech.de, ajones@ventanamicro.com,
+ guoren@kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230124_144022_056935_1F7301BE 
-X-CRM114-Status: GOOD (  11.78  )
+X-CRM114-CacheID: sfid-20230124_144022_056935_A90971B1 
+X-CRM114-Status: GOOD (  11.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,22 +79,25 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This patch was applied to riscv/linux.git (fixes)
+This series was applied to riscv/linux.git (fixes)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Fri,  6 Jan 2023 12:53:45 +0000 you wrote:
+On Mon,  5 Dec 2022 17:44:58 +0000 you wrote:
 > From: Conor Dooley <conor.dooley@microchip.com>
 > 
-> I remember being told "Just ping me on IRC" about patches, but googling
-> at the time was not helpful. #riscv on libera is not linux specific,
-> but a bunch of contributors etc do hang out there.
-> Add a link to the maintainers entry to help others find it in the future!
+> I noticed ~today~ while looking at the isa manual that I had not
+> accounted for another couple of edge cases with my regex. As before, I
+> think attempting to validate the canonical order for multiletter stuff
+> makes no sense - but we should totally try to avoid false-positives for
+> combinations that are known to be valid.
 > 
 > [...]
 
 Here is the summary with links:
-  - MAINTAINERS: add an IRC entry for RISC-V
-    https://git.kernel.org/riscv/c/6d0cc1b1f22a
+  - [v3,1/2] dt-bindings: riscv: fix underscore requirement for multi-letter extensions
+    https://git.kernel.org/riscv/c/ec64efc4966e
+  - [v3,2/2] dt-bindings: riscv: fix single letter canonical order
+    https://git.kernel.org/riscv/c/a943385aa801
 
 You are awesome, thank you!
 -- 
