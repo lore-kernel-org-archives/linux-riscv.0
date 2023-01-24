@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 376FDC54EB4
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Jan 2023 09:20:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26A52C38142
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Jan 2023 09:21:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qRKwx9xUPVAXB30Hifk7CHBLIeIPOJWs3wQvwWbUTIU=; b=hX4xh8dgeCACd3
-	9YAqpLrHkShpsSL4aXQAyenlwHi+7qi0PBUOgitpESBJwzBtCyGiDoU42XHFdFldOqjn0EXweVUTC
-	Jell18C0QNFiOEA4cK++/dY91YW2vwignWAJBtMBHAmCJdKz2UwneCIbBwtCjIl6G6Z3ij3caSu0J
-	k/MlPig0syQ3R1H0yKsHCm3nWA1HZTQ3LXAAMgNf6En/EqZKSOYfZ4fJTskErsnSLzGNJ1DePmSXz
-	YzPDFtga8YPiBqZaHplLrjo1oYdYqBtDE+G8bQ1JKqNKYTcd21ztV821SQha2uwawVwfnWkCq9XLq
-	7j69QbexGTPKMTce1Oog==;
+	List-Owner; bh=MFAQ26ptid69ggYxziFtY0TzFxThAws9pJtDPjfuQik=; b=Gxemoh/IQUYNWr
+	J2RbakPrN53V+0JHZqWDQSGOhaGL0uyCcCUk3firC0HlSKyQy+sFLmc+Y+Od6Mqf8pt/1UGYgoFk+
+	qUQHmyKEem7oD0BdhnEuDYibAzC6WHTQ2MXar4TXogVqwTrp/XWjjc8mTGCPhhzfMEi2dq+iER/qd
+	/3eMt8sGOdcxnCfnDuHHcNpp1/NkzCATkcD0NKoVjCbTxjWdcvE4OSPIi6+r9NjAvXlv5usgwqT7+
+	QgGSc5jrNCTeOvg9qS4oriWgccHTh97zeDpDz7oxKZD5wne3ZSjGgSbh3ecX0OXzOfZS/dKr/58lN
+	Ex/dt/DEZM/OAhAFos4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKFTV-002rap-Ps; Tue, 24 Jan 2023 09:20:18 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1pKFUR-002s1v-Os; Tue, 24 Jan 2023 09:21:15 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKFT2-002rHQ-Pc
-	for linux-riscv@lists.infradead.org; Tue, 24 Jan 2023 09:19:50 +0000
-Received: by mail-wm1-x336.google.com with SMTP id iv8-20020a05600c548800b003db04a0a46bso742193wmb.0
-        for <linux-riscv@lists.infradead.org>; Tue, 24 Jan 2023 01:19:48 -0800 (PST)
+	id 1pKFT9-002rJS-6y
+	for linux-riscv@lists.infradead.org; Tue, 24 Jan 2023 09:19:56 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id o17-20020a05600c511100b003db021ef437so10407644wms.4
+        for <linux-riscv@lists.infradead.org>; Tue, 24 Jan 2023 01:19:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=linaro.org; s=google;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=5uL5KX+lq7Bh76mZga/YGxKAjqZK+AdDiUOgEFy1RwQ=;
-        b=CqVtGiLsIQtBM5HC7e4JAs5ne7xOL0h7GAY2cRHqngOX6tAotoI4tdflCP332C9T1q
-         ebm2ELFU1+Ug/a1y0TeWu9aGwQiLKKnWDSIEmwUZRAghplQkjWEQxaYBf5Ey4BE2k4jJ
-         VK46ot2pwa00RBXGvfZYZg3SMXzA0Lh1pbW8jgf1rXVEeNuSnOQxiRAKaGRyvpkoNrei
-         OJxD/0sU9CSdaNJ+wGU8nRten2J4szDCSGuQdFgJyR2vdcLR496YmAH/kCqa87QhjOTP
-         DSyxz9sKiuG3/zXclPNhK65pMK0GXgVEoYgr0c13Sw0UIyWtsIz+fvqnELnsRql27WCf
-         Jpuw==
+        bh=XbA6lJheuFk/8xFTT1ePhHPMDBY/JK/4xrBmt+OOi4U=;
+        b=gyaMQF7LxN91BqAUGGwqgwsMO2hEdoTGvJ1VHPth0Vl8RgAka5nDpZvB74rufyb+Z0
+         xV00CuvPEWQEr09/BVy1JzwjLcVogjv11FrOZXW+ugvwl0cfQHBRj3Bfa0yC15GWAl1t
+         jXdQs2B6bMEn/Y1LezZLuXMYjROjGQRcLXxatD01tROgJfIaE5vqoJBuPDvdnubUBmHM
+         uG17LU+D1qCJqe3hjfo9MtGoUGnnwKLsjTJUeCxXC2tNvX/cvNTUmEDgAPXYS0cmUL3i
+         gTnni68xV+zWuVbwacWcJZ8jbWYQ5xcswPnGiChiZ+46OlyTOlunUIshv6Q7wrqIN36n
+         NQcw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=5uL5KX+lq7Bh76mZga/YGxKAjqZK+AdDiUOgEFy1RwQ=;
-        b=CgLu7Srvua9kY9kRf/gIh1nYNRKel9UFOnAXRDF0ML499OKGZaCoQ3eHi39eO6QdDl
-         FMjNv7xHKpjyzrkvB7FIuSzhxeAPG38C6FDo2iReZ9c7VV4gKQi5VTS0SNwh0Od3B30Y
-         beNU4KreBW3g5SNXDr9oXPs3NLNbhAI+vOHq3RldzkuoSd5APE9dA8tsutI30Y78qj/x
-         68OndUJxZOFn62nnyyOkmALcNZqhp/URCZXy5oHxfeV+97AIQU334g8+mB4lkSEwwLbi
-         YYXQgUpkVzngCmFpTSEPCHtqY2l+vPQW1zt2W7BqFOa37nbcMx9C61EoPvreAcXRZjNT
-         wgZw==
-X-Gm-Message-State: AFqh2kp6uvP+cUFkZgT/ku/diAo6JKDa/0tlYueOB1EA2AKU6munM66/
-	3hYO6hgzWGxkz4YGQacCEol23g==
-X-Google-Smtp-Source: AMrXdXt6ZXjN2UR9CDMMCyR/xCneinHGOcEykSqybnBEASsnB1wxAPHlJm08OnK7Not9iguLyjZzVA==
-X-Received: by 2002:a1c:7216:0:b0:3cf:614e:b587 with SMTP id n22-20020a1c7216000000b003cf614eb587mr27496678wmc.26.1674551987275;
-        Tue, 24 Jan 2023 01:19:47 -0800 (PST)
+        bh=XbA6lJheuFk/8xFTT1ePhHPMDBY/JK/4xrBmt+OOi4U=;
+        b=h7hkEm6SytDPGZ1NfzmaAZXTzzk/2nWiiywHbqN08OU7cGRoPOBCxyrkf1sA8q4q1Q
+         Cp26WNpek3HS8F/7dkrWYF9pvLMDmff2lwhUahbnkH4k8TcBmLoZHqeDfL+hJKNRC9TP
+         Ckt0ADepMwXJtPYEl17k7WfBb5Elw/uzx6ijEA3sZoslUAAwS65xUqTVjVdxYEVPUz9R
+         Gl3JWxZhAUDx5QOImHUIw0L55Ht1ksm24q6EZ0HcOhmNDMaTpxfMusU28pzFE6Th5CVg
+         u5+qA39AKjoc613U7qYnMqLTevXSyF8Z33BvGlxXtlQna//miZkAMUSak98y5YZyEYJA
+         DfUw==
+X-Gm-Message-State: AFqh2kpx+MRqW7jUd1VkzGesZt/S55Z9GkMIcEwObVzHi8C6OXQy0goF
+	v6FdgPetPqihdep6eIBLT/SY9Q==
+X-Google-Smtp-Source: AMrXdXsuCK5QkrJAsWUR9ETP50ULGZWTSxGw8meu3uy8bzB1kS3qzFWy3OBucmJfla4MOZzaKSjqcA==
+X-Received: by 2002:a05:600c:6001:b0:3da:f80a:5e85 with SMTP id az1-20020a05600c600100b003daf80a5e85mr26600878wmb.26.1674551990693;
+        Tue, 24 Jan 2023 01:19:50 -0800 (PST)
 Received: from krzk-bin.. ([178.197.216.144])
-        by smtp.gmail.com with ESMTPSA id i22-20020a05600c355600b003a84375d0d1sm13672242wmq.44.2023.01.24.01.19.43
+        by smtp.gmail.com with ESMTPSA id i22-20020a05600c355600b003a84375d0d1sm13672242wmq.44.2023.01.24.01.19.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Jan 2023 01:19:46 -0800 (PST)
+        Tue, 24 Jan 2023 01:19:50 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Rob Herring <robh+dt@kernel.org>,
@@ -95,18 +95,17 @@ To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	linux-amlogic@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
 	linux-stm32@st-md-mailman.stormreply.com
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Michal Simek <michal.simek@amd.com>
-Subject: [PATCH v2 05/12] dt-bindings: serial: cdsn,uart: add power-domains
-Date: Tue, 24 Jan 2023 10:19:09 +0100
-Message-Id: <20230124091916.45054-3-krzysztof.kozlowski@linaro.org>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH v2 06/12] dt-bindings: serial: 8250_omap: drop rs485 properties
+Date: Tue, 24 Jan 2023 10:19:10 +0100
+Message-Id: <20230124091916.45054-4-krzysztof.kozlowski@linaro.org>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20230124091602.44027-1-krzysztof.kozlowski@linaro.org>
 References: <20230124091602.44027-1-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230124_011948_870772_4DC6FE45 
-X-CRM114-Status: UNSURE (   9.85  )
+X-CRM114-CacheID: sfid-20230124_011955_285432_3E21F9B7 
+X-CRM114-Status: UNSURE (   9.17  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -124,58 +123,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Few Xilinx DTS have power domains in serial node:
-
-  zynqmp-zc1232-revA.dtb: serial@ff000000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+The binding references rs485 schema, so there is no need to list its
+properties.  Simplify a bit by removing unneeded entries.
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Reviewed-by: Michal Simek <michal.simek@amd.com>
 ---
- .../devicetree/bindings/serial/cdns,uart.yaml   | 17 ++++++++++++++---
- 1 file changed, 14 insertions(+), 3 deletions(-)
+ Documentation/devicetree/bindings/serial/8250_omap.yaml | 5 -----
+ 1 file changed, 5 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/serial/cdns,uart.yaml b/Documentation/devicetree/bindings/serial/cdns,uart.yaml
-index 0c118d5336cc..38925b79cb38 100644
---- a/Documentation/devicetree/bindings/serial/cdns,uart.yaml
-+++ b/Documentation/devicetree/bindings/serial/cdns,uart.yaml
-@@ -9,9 +9,6 @@ title: Cadence UART Controller
- maintainers:
-   - Michal Simek <michal.simek@xilinx.com>
- 
--allOf:
--  - $ref: serial.yaml#
--
- properties:
-   compatible:
-     oneOf:
-@@ -46,6 +43,9 @@ properties:
-       port does not use this pin.
-     type: boolean
- 
-+  power-domains:
-+    maxItems: 1
-+
- required:
-   - compatible
-   - reg
-@@ -53,6 +53,17 @@ required:
-   - clocks
-   - clock-names
- 
-+allOf:
-+  - $ref: serial.yaml#
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: cdns,uart-r1p8
-+    then:
-+      properties:
-+        power-domains: false
-+
- unevaluatedProperties: false
- 
- examples:
+diff --git a/Documentation/devicetree/bindings/serial/8250_omap.yaml b/Documentation/devicetree/bindings/serial/8250_omap.yaml
+index 53dc1212ad2e..7db8e5477b03 100644
+--- a/Documentation/devicetree/bindings/serial/8250_omap.yaml
++++ b/Documentation/devicetree/bindings/serial/8250_omap.yaml
+@@ -70,11 +70,6 @@ properties:
+   dsr-gpios: true
+   rng-gpios: true
+   dcd-gpios: true
+-  rs485-rts-delay: true
+-  rs485-rts-active-low: true
+-  rs485-rx-during-tx: true
+-  rs485-rts-active-high: true
+-  linux,rs485-enabled-at-boot-time: true
+   rts-gpio: true
+   power-domains: true
+   clock-frequency: true
 -- 
 2.34.1
 
