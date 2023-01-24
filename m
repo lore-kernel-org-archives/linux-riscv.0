@@ -4,81 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32EE7C25B4E
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Jan 2023 17:29:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F380DC54E94
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Jan 2023 20:42:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xCwx+lQIzigTLXinkWh/ZYKjzTX+NdTBKRKt5w4Ey8E=; b=GHmDkEVWVrhPLS
-	TZHPfLcMl0ZYn6cDm+ga1tn7pJel1QDZS5SmNFNAlkTnr/ddlIPRrFcIk/FaZAIT5mcF1d2UYkvGO
-	bt/mTvdfNgQEd1QtggnctZqWYAMIBVNoCnsevj/j1rz8wOWR9sl5yqyYmfZSZUd1zH1bzyDRXNPb8
-	6eC/52rEzPgipVSopkqcRlaDGHQCLJF4rwQYVXWAtcrmFKKWb1zxIE7uH/ivJxisgH3ilm0arBZPl
-	x9TEYFJ5ROE6qGPLlEytwcIacp9ZdHaAk0MvDAlFGAREsVygA5rnKuwM0p+DuTDw/WPlGWixqAMEh
-	GfTCxOSn6orrRcjdhtHg==;
+	List-Owner; bh=3+MDnxOHpsryS1H6kY2t6jetNACODW/B+PPrhs/t3Kc=; b=QMnXLNnS2md5da
+	vpeDECUR9u7LfQxSzLuXUm2eK6IvV0M1ksx7W9PDg2Fqolps4CsaA6dhkdzkRbRezEq4pu04kjoUw
+	Fh7ZZYeHYLoMsBgWw3sPBlycW138CQ5rX+Xxls+HLHIq/e/dHqqR0YL3HwvQfhrk/O62HG6/dWKdm
+	CQigmBlj0r4j/iyZZj+soxbfjQZWOlSex4caueO5PRIJMWgzr8CnunjLOBlejImLLtaoP9sRF0nzV
+	cXz7VjupnxLrjwFxh4C7jyVEW7vUPdPbuDDrws6QX+g13wLH+mGErbPK1S9YQvJBK+fuHVx6yH1G1
+	HVgzwaDfx9KyrijqoA8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKN6c-004pQ9-PR; Tue, 24 Jan 2023 17:29:10 +0000
-Received: from mail-yw1-x112c.google.com ([2607:f8b0:4864:20::112c])
+	id 1pKQ75-005EFO-6A; Tue, 24 Jan 2023 20:41:51 +0000
+Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKN6T-004pOI-Cu
-	for linux-riscv@lists.infradead.org; Tue, 24 Jan 2023 17:29:02 +0000
-Received: by mail-yw1-x112c.google.com with SMTP id 00721157ae682-50112511ba7so169407697b3.3
-        for <linux-riscv@lists.infradead.org>; Tue, 24 Jan 2023 09:28:57 -0800 (PST)
+	id 1pKQ71-005EDv-VT
+	for linux-riscv@lists.infradead.org; Tue, 24 Jan 2023 20:41:49 +0000
+Received: by mail-pg1-x52d.google.com with SMTP id v3so12106210pgh.4
+        for <linux-riscv@lists.infradead.org>; Tue, 24 Jan 2023 12:41:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20210112;
+        d=atishpatra.org; s=google;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=4sHQzscpqG9TR78740t1qks4GROeGMyOxwyGqktGwJE=;
-        b=Wv/Y/FHqEIrZHr/zsNPKlIP0whUgie/P2KEuD/n0uk24KW6tZ8c5E2dlYQQksvdoXc
-         MIGHEBlUyUiurRHKw8Eli/ImV02k9ot4n+oIcF3KHN0Eg97UZIY86sENWVWQU92/wEku
-         tC53N+VqDQm61+7t4vsGLZJKabtV7K36r+12kp1mA/pYMQNNe9IENQSoeoOTDJhNIfIi
-         pwMTsdVKm9K2Zr4mYwzujPCEe6yuR+ktXBivdEw3X1L9xQ34O0xjHOv/b0Y/qsZO4lf3
-         CRYLcBg/1JEoF9JDtZGWN8+JUGWeccq8WSx3xvS9w95XtQVb/oCmR3pU9VOfVK3eaNRc
-         R3JA==
+        bh=kArh2JTETPG4MZN8AtzWKM/hnB740sJiaw+6d2XmltY=;
+        b=oyLp/nUpTQCOQMyT5yEtRG7o0JQPEbxztyhTTwBBWfbRApCOOFV/WkDLdIbvbSvWLz
+         b1hrf5/g8Fdn++whjE9zqRHbe7cRC42175lcv4Eyj7FJEwCFaWE1ruLkzMZpzPw3MEn6
+         dm8HGLCYb86tX0qQL+B4f0kcnhqKsu6O9j+KA=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=4sHQzscpqG9TR78740t1qks4GROeGMyOxwyGqktGwJE=;
-        b=lm9W0yw1xgzutpe9cpzVkOUaKxzJ2x+XAHHDyCyLHg7FI8PkiWKd2Fta8jAdnbd6qU
-         A1PD97iDqkmqF/iz071Csj2RqC7D/RsRw+Iwdjh9eg/LuAExh40BdxcMrnANfF0MBDHN
-         8HvSpAZnWPNcLbcFl57qapzhPXCcfqv8J3C1wiFCJI+wa4vFQC+NiGW4GNrFGqLkFP8g
-         AjGzUBdJUE5D/ANHf/wvvqrTMXYTZGFGc65OzqT1txEkGFxpmcRskBGXOrQJGOIN+SF6
-         nB5wjorca+Dk7qLIU6XMTG2RzvhaxqRryyMTgb/+U5qkhlO3+uNq3KgBKqEZuh2TY1yC
-         WiTQ==
-X-Gm-Message-State: AFqh2krxP7mbIE409vpaYi9FmFE5f1FsD7vSttgjyEIjrA0I3UXeeM8Y
-	GCmt7WNRfe1+unV+XfEyE3c7s9wvJsfyna2zyOfXEA==
-X-Google-Smtp-Source: AMrXdXtoN51iKqcC09s8NkQ+YBm6QxH/37ZW+Hv6vzsZE0mZGYF6ccuLxsS+T0REhESD+5OAPgve9W78T1Q827MM4i4=
-X-Received: by 2002:a0d:f807:0:b0:477:b56e:e1d6 with SMTP id
- i7-20020a0df807000000b00477b56ee1d6mr3560086ywf.188.1674581336255; Tue, 24
- Jan 2023 09:28:56 -0800 (PST)
+        bh=kArh2JTETPG4MZN8AtzWKM/hnB740sJiaw+6d2XmltY=;
+        b=3zyqzjvi//fQJXgzzBeUNOc8qQnKieCoi7uOlfgcKCZObjjfQGUyv3w1qdkBdrOeB8
+         K25Kp8FDcXH0P+bywoJ1cJCnRP6xWMKcapXe3xjadp2SUC9cvKfJAqcASYZt91BwSMjv
+         kbpSWb/SUM9mYKbyiyx2vajcj4CbTxO2d9q1A9aT9TaPN24KOAq2jbWMOavWApu8eAZS
+         V3UaeGLzzJBYUNJkru+QaolCs0wqYVtqoZtX/vhBsw8zRGtGcl8RCI+WiaexdV8tiWB1
+         mIEYlRPITs/q8K5SRcmceBpoE7kAGOQYUqvYUrUoVzB9PHgVWiR9ts63HT5lLSwq9qkU
+         jHaA==
+X-Gm-Message-State: AFqh2kohosqIJt3qqeqzsdwgd0c2uryiykArw59tP9sL+M7zEmdI5iMs
+	B4CjkwESGXbnAj3GcOrtqFEFOtktuVQZDtqJ1gEo
+X-Google-Smtp-Source: AMrXdXv//TSHap1rIs4T8t6FimYpSoWP8wIEH1RnksqTCs7706WWqSUBG8nxukPl0ALp6mPXwdjofzthPg+fGXMiqgg=
+X-Received: by 2002:a05:6a00:1d23:b0:58d:b662:af11 with SMTP id
+ a35-20020a056a001d2300b0058db662af11mr2817916pfx.37.1674592904836; Tue, 24
+ Jan 2023 12:41:44 -0800 (PST)
 MIME-Version: 1.0
-References: <20230119173559.2517103-1-dmatlack@google.com> <20230119173559.2517103-3-dmatlack@google.com>
- <Y9ASmOvJutgGLVnT@google.com>
-In-Reply-To: <Y9ASmOvJutgGLVnT@google.com>
-From: David Matlack <dmatlack@google.com>
-Date: Tue, 24 Jan 2023 09:28:29 -0800
-Message-ID: <CALzav=fbzgpktnCX9Z7G_gN=yVVLuwB5Of3_pq3LHrQGySbHsg@mail.gmail.com>
-Subject: Re: [PATCH 2/7] KVM: arm64: Use kvm_arch_flush_remote_tlbs()
-To: Oliver Upton <oliver.upton@linux.dev>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	James Morse <james.morse@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Huacai Chen <chenhuacai@kernel.org>, 
-	Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>, Anup Patel <anup@brainfault.org>, 
-	Atish Patra <atishp@atishpatra.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Sean Christopherson <seanjc@google.com>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvmarm@lists.cs.columbia.edu, 
-	linux-mips@vger.kernel.org, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	Raghavendra Rao Ananta <rananta@google.com>
+References: <20221215170046.2010255-1-atishp@rivosinc.com> <20221215170046.2010255-2-atishp@rivosinc.com>
+ <20230112100608.d7tnvhbotjfctlgk@orel> <CAHBxVyESkQ9Krmn-44f-A8hYzMrZBtBfq15fdx-sHDQfkBMtKQ@mail.gmail.com>
+ <20230113072255.34cnyautbwiy25p5@orel>
+In-Reply-To: <20230113072255.34cnyautbwiy25p5@orel>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Tue, 24 Jan 2023 12:41:33 -0800
+Message-ID: <CAOnJCU+UBG-AouAc1M4J-i9Y_nPE9RfrFZfNyLSxhKbNF55AMQ@mail.gmail.com>
+Subject: Re: [PATCH v2 01/11] RISC-V: Define helper functions expose hpm
+ counter width and count
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: Atish Kumar Patra <atishp@rivosinc.com>, linux-kernel@vger.kernel.org, 
+	Anup Patel <anup@brainfault.org>, Guo Ren <guoren@kernel.org>, kvm-riscv@lists.infradead.org, 
+	kvm@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Mark Rutland <mark.rutland@arm.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, 
+	Sergey Matyukevich <sergey.matyukevich@syntacore.com>, Eric Lin <eric.lin@sifive.com>, 
+	Will Deacon <will@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230124_092901_439900_1EE7A03E 
-X-CRM114-Status: GOOD (  12.19  )
+X-CRM114-CacheID: sfid-20230124_124148_238274_128D7BC2 
+X-CRM114-Status: GOOD (  16.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,19 +90,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 24, 2023 at 9:17 AM Oliver Upton <oliver.upton@linux.dev> wrote:
-> On Thu, Jan 19, 2023 at 09:35:54AM -0800, David Matlack wrote:
-> >
-> >  arch/arm64/include/asm/kvm_host.h | 3 +++
-> >  arch/arm64/kvm/Kconfig            | 1 -
-> >  arch/arm64/kvm/mmu.c              | 6 +++---
-> >  virt/kvm/kvm_main.c               | 2 --
-> >  4 files changed, 6 insertions(+), 6 deletions(-)
+On Thu, Jan 12, 2023 at 11:22 PM Andrew Jones <ajones@ventanamicro.com> wrote:
 >
-> I think you're missing the diff that actually drops the Kconfig opton
-> from virt/kvm/Kconfig.
+> On Thu, Jan 12, 2023 at 10:18:05AM -0800, Atish Kumar Patra wrote:
+> > On Thu, Jan 12, 2023 at 2:06 AM Andrew Jones <ajones@ventanamicro.com> wrote:
+> > >
+> > > On Thu, Dec 15, 2022 at 09:00:36AM -0800, Atish Patra wrote:
+> ...
+> > > > +EXPORT_SYMBOL(riscv_pmu_get_hpm_info);
+> > >
+> > > EXPORT_SYMBOL_GPL ?
+> > >
+> >
+> > Is that mandatory ? I have seen usage of both in arch/riscv and other
+> > places though.
+> > I am also not sure if any other non-GPL module should/need access to this.
+>
+> TBH, I'm not sure what the best policy is, but I presumed we should use
+> _GPL when we aren't aware of anything non-GPL and then when a day comes
+> that something non-GPL would like this to be exported, the patch that
+> flips it will provide the justification in its commit message.
+>
 
-Indeed I am, thanks for catching that!
+Sgtm. Changed it to EXPORT_SYMBOL_GPL for now.
+
+> Thanks,
+> drew
+
+
+
+-- 
+Regards,
+Atish
 
 _______________________________________________
 linux-riscv mailing list
