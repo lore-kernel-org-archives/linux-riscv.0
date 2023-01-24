@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5727C54EED
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Jan 2023 09:19:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 376FDC54EB4
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Jan 2023 09:20:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=v+3lBoYTjLadmolZZeaVyrTQH3L8DWz1Bbu94bDcUI8=; b=HFMEv1qFhZbcbw
-	kYJwQBN1PU0mk9FeXoU/nDWmnPEiXSDJExueMj2RcWTwOUeZR0Pwgz3xKNp3xJhTGYUUMLnpDSbIt
-	dSfsT/WrwNVahvRggSK5LqIL2+xgOMyjqzloc0wm8kdNKuWtYaZU1ZDDHTIjfsQIKf9wjmx+5v4mF
-	xF9hZMA3xUA3PloMKeGCX9xk4M0O+kxcMyFOIZEv9X5G4EMxFTAIJeC5/cKHhPf872ZLvfm8+Cpgv
-	Ev4v7t5O26M119psSG6AlDyfHchz07vuLMBInC5mQxAXwyBcwVp+tzTA7AZ4O1Dsalt5mxZxhmak/
-	tN5wOb/Ak1E2RkiK6O5w==;
+	List-Owner; bh=qRKwx9xUPVAXB30Hifk7CHBLIeIPOJWs3wQvwWbUTIU=; b=hX4xh8dgeCACd3
+	9YAqpLrHkShpsSL4aXQAyenlwHi+7qi0PBUOgitpESBJwzBtCyGiDoU42XHFdFldOqjn0EXweVUTC
+	Jell18C0QNFiOEA4cK++/dY91YW2vwignWAJBtMBHAmCJdKz2UwneCIbBwtCjIl6G6Z3ij3caSu0J
+	k/MlPig0syQ3R1H0yKsHCm3nWA1HZTQ3LXAAMgNf6En/EqZKSOYfZ4fJTskErsnSLzGNJ1DePmSXz
+	YzPDFtga8YPiBqZaHplLrjo1oYdYqBtDE+G8bQ1JKqNKYTcd21ztV821SQha2uwawVwfnWkCq9XLq
+	7j69QbexGTPKMTce1Oog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKFT3-002rIO-PC; Tue, 24 Jan 2023 09:19:49 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1pKFTV-002rap-Ps; Tue, 24 Jan 2023 09:20:18 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKFT1-002rFe-5Y
-	for linux-riscv@lists.infradead.org; Tue, 24 Jan 2023 09:19:48 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id d4-20020a05600c3ac400b003db1de2aef0so10419630wms.2
-        for <linux-riscv@lists.infradead.org>; Tue, 24 Jan 2023 01:19:44 -0800 (PST)
+	id 1pKFT2-002rHQ-Pc
+	for linux-riscv@lists.infradead.org; Tue, 24 Jan 2023 09:19:50 +0000
+Received: by mail-wm1-x336.google.com with SMTP id iv8-20020a05600c548800b003db04a0a46bso742193wmb.0
+        for <linux-riscv@lists.infradead.org>; Tue, 24 Jan 2023 01:19:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=linaro.org; s=google;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=nb5CwN4fN4XTwRx3Tj+I+Ommhby0lGr2iuTrQcxIb/0=;
-        b=Erz+EhOmyjtVC8y8TD1tzEzfeEI+tUpI6auPlhOS+L8rFcrpspoGstb2EvkLgGuuAp
-         DpKD+EnP0qVzHF5BpeHg6bzd83CFhVrmFGWodo0QhT85JTbjUDY9rlI2F2q9CqFUqE8H
-         Mo/TmRVuwZRoWTTKcd5YrFHbXefcW6Vjg15ub+DUMbZ5/zXbGi+oynGVNw7VL8aiHpzk
-         yRUkxDf57i6EJjuOmrAQh0V5XQ3cJSG/q6lOFE89YcI0jNM4Yd9chTApm8BS3Tp2Lz0c
-         ytWEkYuRtJnN5GvA0nQYxCJPky8Tviyyop+mibt4vI/EKUDqf+YKvXMhb1EO2OGo3A4D
-         EEng==
+        bh=5uL5KX+lq7Bh76mZga/YGxKAjqZK+AdDiUOgEFy1RwQ=;
+        b=CqVtGiLsIQtBM5HC7e4JAs5ne7xOL0h7GAY2cRHqngOX6tAotoI4tdflCP332C9T1q
+         ebm2ELFU1+Ug/a1y0TeWu9aGwQiLKKnWDSIEmwUZRAghplQkjWEQxaYBf5Ey4BE2k4jJ
+         VK46ot2pwa00RBXGvfZYZg3SMXzA0Lh1pbW8jgf1rXVEeNuSnOQxiRAKaGRyvpkoNrei
+         OJxD/0sU9CSdaNJ+wGU8nRten2J4szDCSGuQdFgJyR2vdcLR496YmAH/kCqa87QhjOTP
+         DSyxz9sKiuG3/zXclPNhK65pMK0GXgVEoYgr0c13Sw0UIyWtsIz+fvqnELnsRql27WCf
+         Jpuw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=nb5CwN4fN4XTwRx3Tj+I+Ommhby0lGr2iuTrQcxIb/0=;
-        b=ip6TSe76WPlBlTyXhGWJy9KDmFxVDOqJQfSQk4NPuJXti6jjMzWAcIXWV4fMLFXJUp
-         RuaXj9zQi25Sw8g82/srR7DacnubJQrICLfSVbtiwh5nleZipW68nQ6uAiIrTw5Ral0a
-         lb2KCRXGxdQB79a1EbfqYO1JIt6XbxrVt1wuPbB7RhIEstkYs+rUILDUPTU7rqcsn7N9
-         hbT1WKz0BxMbKOG8/r30vuiw3XBOZEUxNqwn2OUS/ro3YB29h/isChsKPTp7Qa1yBbNV
-         wnpyPc4bs+Qs2b6vV2eotpOHVLFzxeXyH9ykKllL62LjY3sZL6gLEiqU9smkxGlS99KL
-         ERUQ==
-X-Gm-Message-State: AFqh2koDbhT9Y98oVeSUAvkBWdfLmlGAJOi/N1xhmMbsTVsYLM3G7pk3
-	Gs00HIG/s1xYUiwk1Z0CuS9vlg==
-X-Google-Smtp-Source: AMrXdXtDAh7QFXNJKNHeXnVkYsOgnO5HNUP0pkqugffnYolM/QSylK27RP72alQg+Wi0pRiLhcw4xg==
-X-Received: by 2002:a05:600c:4928:b0:3da:909f:1f6b with SMTP id f40-20020a05600c492800b003da909f1f6bmr27413613wmp.1.1674551983490;
-        Tue, 24 Jan 2023 01:19:43 -0800 (PST)
+        bh=5uL5KX+lq7Bh76mZga/YGxKAjqZK+AdDiUOgEFy1RwQ=;
+        b=CgLu7Srvua9kY9kRf/gIh1nYNRKel9UFOnAXRDF0ML499OKGZaCoQ3eHi39eO6QdDl
+         FMjNv7xHKpjyzrkvB7FIuSzhxeAPG38C6FDo2iReZ9c7VV4gKQi5VTS0SNwh0Od3B30Y
+         beNU4KreBW3g5SNXDr9oXPs3NLNbhAI+vOHq3RldzkuoSd5APE9dA8tsutI30Y78qj/x
+         68OndUJxZOFn62nnyyOkmALcNZqhp/URCZXy5oHxfeV+97AIQU334g8+mB4lkSEwwLbi
+         YYXQgUpkVzngCmFpTSEPCHtqY2l+vPQW1zt2W7BqFOa37nbcMx9C61EoPvreAcXRZjNT
+         wgZw==
+X-Gm-Message-State: AFqh2kp6uvP+cUFkZgT/ku/diAo6JKDa/0tlYueOB1EA2AKU6munM66/
+	3hYO6hgzWGxkz4YGQacCEol23g==
+X-Google-Smtp-Source: AMrXdXt6ZXjN2UR9CDMMCyR/xCneinHGOcEykSqybnBEASsnB1wxAPHlJm08OnK7Not9iguLyjZzVA==
+X-Received: by 2002:a1c:7216:0:b0:3cf:614e:b587 with SMTP id n22-20020a1c7216000000b003cf614eb587mr27496678wmc.26.1674551987275;
+        Tue, 24 Jan 2023 01:19:47 -0800 (PST)
 Received: from krzk-bin.. ([178.197.216.144])
-        by smtp.gmail.com with ESMTPSA id i22-20020a05600c355600b003a84375d0d1sm13672242wmq.44.2023.01.24.01.19.40
+        by smtp.gmail.com with ESMTPSA id i22-20020a05600c355600b003a84375d0d1sm13672242wmq.44.2023.01.24.01.19.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Jan 2023 01:19:42 -0800 (PST)
+        Tue, 24 Jan 2023 01:19:46 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Rob Herring <robh+dt@kernel.org>,
@@ -97,16 +97,17 @@ To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	linux-stm32@st-md-mailman.stormreply.com
 Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
 	Michal Simek <michal.simek@amd.com>
-Subject: [PATCH v2 04/12] dt-bindings: serial: correct ref to serial.yaml
-Date: Tue, 24 Jan 2023 10:19:08 +0100
-Message-Id: <20230124091916.45054-2-krzysztof.kozlowski@linaro.org>
+Subject: [PATCH v2 05/12] dt-bindings: serial: cdsn,uart: add power-domains
+Date: Tue, 24 Jan 2023 10:19:09 +0100
+Message-Id: <20230124091916.45054-3-krzysztof.kozlowski@linaro.org>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20230124091602.44027-1-krzysztof.kozlowski@linaro.org>
 References: <20230124091602.44027-1-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230124_011947_243371_7C2D24F1 
-X-CRM114-Status: GOOD (  11.89  )
+X-CRM114-CacheID: sfid-20230124_011948_870772_4DC6FE45 
+X-CRM114-Status: UNSURE (   9.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,47 +124,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The serial bindings should reference the local (in kernel) serial.yaml,
-not the /schemas/serial.yaml.  The latter comes from dtschema package
-and is a small subset of serial bindings.
+Few Xilinx DTS have power domains in serial node:
 
-Usage of the local serial.yaml allows typical properties and children:
-
-  xilinx/avnet-ultra96-rev1.dtb: serial@ff000000: Unevaluated properties are not allowed ('bluetooth' were unexpected)
+  zynqmp-zc1232-revA.dtb: serial@ff000000: Unevaluated properties are not allowed ('power-domains' was unexpected)
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Acked-by: Michal Simek <michal.simek@amd.com>
+Reviewed-by: Michal Simek <michal.simek@amd.com>
 ---
- Documentation/devicetree/bindings/serial/cdns,uart.yaml         | 2 +-
- Documentation/devicetree/bindings/serial/xlnx,opb-uartlite.yaml | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+ .../devicetree/bindings/serial/cdns,uart.yaml   | 17 ++++++++++++++---
+ 1 file changed, 14 insertions(+), 3 deletions(-)
 
 diff --git a/Documentation/devicetree/bindings/serial/cdns,uart.yaml b/Documentation/devicetree/bindings/serial/cdns,uart.yaml
-index 876b8cf1cafb..0c118d5336cc 100644
+index 0c118d5336cc..38925b79cb38 100644
 --- a/Documentation/devicetree/bindings/serial/cdns,uart.yaml
 +++ b/Documentation/devicetree/bindings/serial/cdns,uart.yaml
-@@ -10,7 +10,7 @@ maintainers:
+@@ -9,9 +9,6 @@ title: Cadence UART Controller
+ maintainers:
    - Michal Simek <michal.simek@xilinx.com>
  
- allOf:
--  - $ref: /schemas/serial.yaml#
-+  - $ref: serial.yaml#
- 
+-allOf:
+-  - $ref: serial.yaml#
+-
  properties:
    compatible:
-diff --git a/Documentation/devicetree/bindings/serial/xlnx,opb-uartlite.yaml b/Documentation/devicetree/bindings/serial/xlnx,opb-uartlite.yaml
-index 2f4390e8d4e8..6f65e9a81c29 100644
---- a/Documentation/devicetree/bindings/serial/xlnx,opb-uartlite.yaml
-+++ b/Documentation/devicetree/bindings/serial/xlnx,opb-uartlite.yaml
-@@ -63,7 +63,7 @@ required:
-   - xlnx,use-parity
+     oneOf:
+@@ -46,6 +43,9 @@ properties:
+       port does not use this pin.
+     type: boolean
  
- allOf:
--  - $ref: /schemas/serial.yaml#
++  power-domains:
++    maxItems: 1
++
+ required:
+   - compatible
+   - reg
+@@ -53,6 +53,17 @@ required:
+   - clocks
+   - clock-names
+ 
++allOf:
 +  - $ref: serial.yaml#
-   - if:
-       properties:
-         xlnx,use-parity:
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: cdns,uart-r1p8
++    then:
++      properties:
++        power-domains: false
++
+ unevaluatedProperties: false
+ 
+ examples:
 -- 
 2.34.1
 
