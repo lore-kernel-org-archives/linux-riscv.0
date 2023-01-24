@@ -4,83 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07888C25B4E
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Jan 2023 10:07:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62B48C25B4E
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Jan 2023 10:13:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
-	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sDTWnZAdKJUS6cCwc7t0Op5w7AmpnJ2ZghQ6WF9R81A=; b=llHsEcVUmKzBk7wxl4TravxZre
-	eHZLmFquFhx8BRHOHa1VeFG/V+oep3OY28Sg2mkd45ZF945MnZ05kYrby0L/C7zx3YWe35JlKxziP
-	tnrNYVC4bzuJ7D82HglqQnVkWAXpq4zr4r5oQMglS3ug2pqn5sqSBSCO8o3cg2IEmqq51BFT6F1LY
-	Js45nX0gR2qjc0YMh0WLG9TIn21i21amMPisAfh8SiUco2NvgT6tJOE6LTTWNoq45SyclTehSEUE0
-	s21pueV2wgkr9e6Y94cxQ3rBrotXbuTOS1A16BOMQGrKhIP9a/d5ASl93qWXOxyd8ba3Y8XSctpQk
-	Zm7MLqoQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=h+3o7hnKnBGJWUL+SSdsloDpYjQsNlF2Y0VSv5L7CiI=; b=imq1m1Iuzg2y2U
+	DNzBjbtJvfXkpIp9B0/UJXDu//Tx8oFLBPYS7L44UetaWhLi74Y3sx1BhOflJntuK2fNJaMvm56xi
+	pWr43uhuxf5tTE5tMF1Altq2gcuW7t2ocvcwa0tXncwC5gO4eVLPe0W6vALR1YmzQLZ8T/hXnbVpS
+	QNHilqwKkQyBtia7P6H4R6G4Jt0BZT19snJI0DCkDXrbwF4lfFvlDIskwjUF0WCx1WZ+xCl7p436x
+	AsEtT4+lFH5da6E7R8a3ltbJfPg7hUGr/bnFY+9Y5KlkI3Hg3dIpdLovOIyH5teIzIXAHNf0H2AaY
+	yEgEKeC90b8fY+iMdyhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKGCb-00320W-Ps; Tue, 24 Jan 2023 10:06:53 +0000
-Received: from mout.kundenserver.de ([217.72.192.75])
+	id 1pKGIl-0033U7-LG; Tue, 24 Jan 2023 10:13:15 +0000
+Received: from lelv0143.ext.ti.com ([198.47.23.248])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKGCX-0031zV-4Z; Tue, 24 Jan 2023 10:06:50 +0000
-Received: from [192.168.1.141] ([37.4.248.41]) by mrelayeu.kundenserver.de
- (mreue108 [212.227.15.183]) with ESMTPSA (Nemesis) id
- 1MmD6U-1otgns42Vs-00i8Qx; Tue, 24 Jan 2023 11:06:29 +0100
-Message-ID: <45528830-d59a-4c8b-5b76-2e683c2c6964@i2se.com>
-Date: Tue, 24 Jan 2023 11:06:25 +0100
+	id 1pKGIi-0033RR-Kv; Tue, 24 Jan 2023 10:13:14 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by lelv0143.ext.ti.com (8.15.2/8.15.2) with ESMTP id 30OACgTE019820;
+	Tue, 24 Jan 2023 04:12:42 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1674555162;
+	bh=TbI0et8o9xsZ9z4H+7u5mLi2Xelz8H1ZgN17q6rtog4=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=bbi+KPe1fzkccDFZP6aEsX0fqgwX0gsJhbYFb/5zAUXFPrIpXtXbZ5xkhh+i6rr5Q
+	 7I1Cr3b6KSp3DYLjsmxEz5hXd9o2vz/vasWs1YAsQXgaPJvti3z+FAeLvD74vF2ZoK
+	 5rt6xNbHYX6R1Rh/hRdsN3qxC0phUCNjlY4uF6mc=
+Received: from DFLE114.ent.ti.com (dfle114.ent.ti.com [10.64.6.35])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 30OACg6R032434
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 24 Jan 2023 04:12:42 -0600
+Received: from DFLE108.ent.ti.com (10.64.6.29) by DFLE114.ent.ti.com
+ (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.16; Tue, 24
+ Jan 2023 04:12:42 -0600
+Received: from fllv0040.itg.ti.com (10.64.41.20) by DFLE108.ent.ti.com
+ (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.16 via
+ Frontend Transport; Tue, 24 Jan 2023 04:12:42 -0600
+Received: from localhost (ileaxei01-snat.itg.ti.com [10.180.69.5])
+	by fllv0040.itg.ti.com (8.15.2/8.15.2) with ESMTP id 30OACfWO018473;
+	Tue, 24 Jan 2023 04:12:42 -0600
+From: Aradhya Bhatia <a-bhatia1@ti.com>
+To: Rob Herring <robh+dt@kernel.org>,
+        Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>,
+        Tomi Valkeinen <tomba@kernel.org>, Jyri
+ Sarha <jyri.sarha@iki.fi>,
+        David Airlie <airlied@gmail.com>, Daniel Vetter
+	<daniel@ffwll.ch>,
+        Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+        Thierry Reding <thierry.reding@gmail.com>,
+        Sam Ravnborg <sam@ravnborg.org>, Maxime Ripard <maxime@cerno.tech>,
+        Liam Girdwood <lgirdwood@gmail.com>, Mark
+ Brown <broonie@kernel.org>,
+        Lad Prabhakar
+	<prabhakar.mahadev-lad.rj@bp.renesas.com>,
+        Paul Walmsley
+	<paul.walmsley@sifive.com>,
+        Palmer Dabbelt <palmer@dabbelt.com>,
+        Albert Ou
+	<aou@eecs.berkeley.edu>,
+        Matthias Brugger <matthias.bgg@gmail.com>,
+        Guo Ren
+	<guoren@kernel.org>
+CC: DRI Development List <dri-devel@lists.freedesktop.org>,
+        Devicetree List
+	<devicetree@vger.kernel.org>,
+        Linux Kernel List
+	<linux-kernel@vger.kernel.org>,
+        Linux RISC-V List
+	<linux-riscv@lists.infradead.org>,
+        Linux ARM Kernel List
+	<linux-arm-kernel@lists.infradead.org>,
+        Linux Mediatek List
+	<linux-mediatek@lists.infradead.org>,
+        Linux C-SKY Arch List
+	<linux-csky@vger.kernel.org>,
+        Nishanth Menon <nm@ti.com>, Vignesh Raghavendra
+	<vigneshr@ti.com>,
+        Rahul T R <r-ravikumar@ti.com>, Devarsh Thakkar
+	<devarsht@ti.com>,
+        Jai Luthra <j-luthra@ti.com>, Jayesh Choudhary
+	<j-choudhary@ti.com>,
+        Aradhya Bhatia <a-bhatia1@ti.com>
+Subject: [PATCH v2 2/4] dt-bindings: vendor-prefixes: Add lincolntech
+Date: Tue, 24 Jan 2023 15:42:36 +0530
+Message-ID: <20230124101238.4542-3-a-bhatia1@ti.com>
+X-Mailer: git-send-email 2.39.0
+In-Reply-To: <20230124101238.4542-1-a-bhatia1@ti.com>
+References: <20230124101238.4542-1-a-bhatia1@ti.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.4.2
-Subject: Re: [PATCH v2 03/12] dt-bindings: serial: pl011: allow ARM Primecell
- properties
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, NXP Linux Team <linux-imx@nxp.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Lubomir Rintel <lkundrak@v3.sk>, Vignesh Raghavendra <vigneshr@ti.com>,
- Michal Simek <michal.simek@xilinx.com>, Chester Lin <clin@suse.com>,
- Fugang Duan <fugang.duan@nxp.com>, Magnus Damm <magnus.damm@gmail.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Pragnesh Patel <pragnesh.patel@sifive.com>, Le Ray
- <erwan.leray@foss.st.com>, Peter Korsgaard <jacmet@sunsite.dk>,
- Tomer Maimon <tmaimon77@gmail.com>, linux-serial@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com
-References: <20230124091602.44027-1-krzysztof.kozlowski@linaro.org>
- <20230124091916.45054-1-krzysztof.kozlowski@linaro.org>
-Content-Language: en-US
-From: Stefan Wahren <stefan.wahren@i2se.com>
-In-Reply-To: <20230124091916.45054-1-krzysztof.kozlowski@linaro.org>
-X-Provags-ID: V03:K1:93ulo0PlqXqG5/52B3bZ3mfpX/fbI2HdhNtc3AuLxgKQl2dxSyA
- /kJkZ7NeRKreYzG5ax4gsYEQSTwH8yygbh7vEtHYYFwTpBZPdev84Mx3OJaAU1mPR2u2MKv
- vnOjns7+asiWML/aEgPvFrMy3n7cCAB7qWD90wKMTlXMsTG2OvRrP0vJoFgY7ANNIySelYu
- fM48s9RMBQWREZhb7cuBQ==
-UI-OutboundReport: notjunk:1;M01:P0:VczEPCxySYQ=;U0Lzc/tH6qc3i8FdF6E0O/w2p33
- Rf11TjOB+akTwm0k3YDF/CofSRH8x/BDseAI/U/Tn594gBt0St1mGo09JEYietjXutJGqAa38
- zaL10VqH0zF7IKZzZ5Z1m08FP08Hku7dGolSylwNAaZ2y1rLGrHYqFyc+M37tlOd4V/KYz/s/
- yPTfVxC1z8FodPfbMSQcVSl+rUIPp/vGCjgLT/ut4XDlL6w+TK7v/HFgJl0sHHVNaieHwS1Ea
- b4NV0O0fSO7293v0aENxUFLcK06FbqeaifKcoESN4aA8zQAFHfrYcQMOIEW282GMu10cwpWFd
- AdBAUt1TOyQGva+5yTnreOJjQuxcR5RsWNwO6OIj7FVzwe8OYZpcfvtzWiyAQPvaNDlZTFXOZ
- 4x9WSxOjyQMQo1PyKhAUMTtuQx85DunFFoRMThVzMM/6QUENiZuW9Rcd3PeP5Vnc/bgLd6rbl
- H4jigRxjDGgJuKqrKb5GnE23xpYOgwb8v4NX72tbbq/9P/kyvziwUZFOyeN/pDyt7VDJDlByy
- jZKE/3ERTx1japcd0XrLKLJAhUfA2UrgguOdT1zBQZpe7Nu3Xsa0vJSz07Orp1L8GV41dZTOk
- 57XR3M44hao1bm5JYn6UzhqkyhT70Zi3Iy8m3UNpsTcXFBzpT8t7SEoIryrsEG4qXm0djOnTI
- h58bXWDP2g/fsSCP4wz1Hu2KLbYyzj7GsP1bgbwh9Q==
+X-EXCLAIMER-MD-CONFIG: e1e8a2fd-e40a-4ac6-ac9b-f7e9cc9ee180
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230124_020649_493318_BC31C54C 
-X-CRM114-Status: UNSURE (   8.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230124_021312_791638_DEBDA036 
+X-CRM114-Status: GOOD (  10.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,21 +114,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am 24.01.23 um 10:19 schrieb Krzysztof Kozlowski:
-> Reference ARM Primecell bindings to allow typical Primecell device node properties:
->
->    broadcom/bcm2711-rpi-400.dtb: serial@7e201000: Unevaluated properties are not allowed ('arm,primecell-periphid' was unexpected)
->
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Add document vendor prefix for Lincoln Technology Solutions
+(lincolntech).
 
-Reviewed-by: Stefan Wahren <stefan.wahren@i2se.com>
+Signed-off-by: Aradhya Bhatia <a-bhatia1@ti.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+---
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Thanks
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index 169a3d4210bb..347459dc5d1b 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -737,6 +737,8 @@ patternProperties:
+     description: Lichee Pi
+   "^linaro,.*":
+     description: Linaro Limited
++  "^lincolntech,.*":
++    description: Lincoln Technology Solutions
+   "^lineartechnology,.*":
+     description: Linear Technology
+   "^linksprite,.*":
+-- 
+2.39.0
 
 
 _______________________________________________
