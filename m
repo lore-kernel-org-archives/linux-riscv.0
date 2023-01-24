@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33865C25B4E
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Jan 2023 05:25:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E13AC25B4E
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Jan 2023 05:28:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jGuIUs5/+p5oEcVWUQNn/hni0WVpSKydYEZq9VoaMPI=; b=RGMDh3wdf/3dYh
-	/ZPuRzwIGoNL8J+vWlu9y+HjC9tB0cxMR532TCW2Dys/6m41yUpEmynQZaC6o9djbXm1ourxzo7xy
-	z5RhRP+Eglq6m1GeFIx86tqk4EtMuTdjDSlhDZIazsuemK5HdUeHx1QvGpwrFAvNHd+6gqlrwdFfj
-	aMnhdxGgrEkjqUG+aPdZj7DYKAQkTYA3nOVf1/ZnWgPSGMYqc6Dt6CXOC1CP8V6EcEODgjW6JOoN1
-	rlINWJblEEtYe55iq28J9vLeVH3DTA3N7z6HMbLC/+KD5rwDbaMpRxRezelFT1480ZouEnwc9Xw+/
-	UDk5JTgEJR7gMzUbUkyw==;
+	List-Owner; bh=+/uG8Ug8jqdWE8aBfTbPUZ9WWR/S+LAMTdb8yYz5sIc=; b=kkLmNMOvn0Ron7
+	OII40IcQGFsHW9eoHSpMFbZFyClbr3N3C5qC+wzQrfCAw6Zsggb0g5ajElGQWLlXAktAHc8YJOv6N
+	zhZdH9RLf399XqYgTAwgOdQNR8eiU8JYTW4vnbEWacr82xNRIszv2vtuGhSj4Oe0hR25xOKuKskDJ
+	7dy8ATNo1ZZQXIOYtug+9vGVHvOEF6jr+cCkrfYTPVxeOgVja5VizSgl5ilRF8lko3cTZ3ehnswtY
+	RJxwqLV/g8dcfa5yxzJUmvZ3zsTW9mNYylvSPvrS9q0bL+WAk5GJD5PzySFh2TDQESlleoyWETsX1
+	rvbL9F44Ayx+TkLGBGZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKBoE-002MVy-M6; Tue, 24 Jan 2023 05:25:26 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
+	id 1pKBr6-002Mg1-5z; Tue, 24 Jan 2023 05:28:24 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKBoB-002MVY-A4
-	for linux-riscv@lists.infradead.org; Tue, 24 Jan 2023 05:25:24 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	id 1pKBr2-002Mf4-Ig
+	for linux-riscv@lists.infradead.org; Tue, 24 Jan 2023 05:28:22 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 34DCE24E250;
-	Tue, 24 Jan 2023 13:25:11 +0800 (CST)
-Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 24 Jan
- 2023 13:25:11 +0800
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id B821724E309;
+	Tue, 24 Jan 2023 13:27:47 +0800 (CST)
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 24 Jan
+ 2023 13:27:47 +0800
 Received: from [192.168.125.95] (183.27.96.38) by EXMBX168.cuchost.com
  (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 24 Jan
- 2023 13:25:10 +0800
-Message-ID: <e1560151-f446-681d-ccb6-3d9d9ea3e7c0@starfivetech.com>
-Date: Tue, 24 Jan 2023 13:25:09 +0800
+ 2023 13:27:46 +0800
+Message-ID: <65d7d5fc-e803-49a2-3d72-9c0cac87af4a@starfivetech.com>
+Date: Tue, 24 Jan 2023 13:27:46 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
  Thunderbird/102.6.1
-Subject: Re: [PATCH v4 0/2] JH7110 PMU Support
+Subject: Re: [PATCH v4 1/2] dt-bindings: power: Add starfive,jh7110-pmu
 Content-Language: en-US
-To: Conor Dooley <conor@kernel.org>, Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
-	<conor.dooley@microchip.com>, <linux-riscv@lists.infradead.org>,
+To: Heiko Stuebner <heiko@sntech.de>, <linux-riscv@lists.infradead.org>,
 	<linux-pm@vger.kernel.org>, <devicetree@vger.kernel.org>
-CC: Daire McNamara <daire.mcnamara@microchip.com>, Emil Renner Berthing
-	<emil.renner.berthing@canonical.com>, =?UTF-8?Q?Heiko_St=c3=bcbner?=
-	<heiko@sntech.de>, "Rafael J . Wysocki" <rafael@kernel.org>,
-	<linux-kernel@vger.kernel.org>
+CC: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
+	<conor.dooley@microchip.com>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, "Rafael J . Wysocki"
+	<rafael@kernel.org>, <linux-kernel@vger.kernel.org>
 References: <20230119094447.21939-1-walker.chen@starfivetech.com>
- <167425300253.196995.6414153954346182622.b4-ty@microchip.com>
+ <20230119094447.21939-2-walker.chen@starfivetech.com>
+ <202301240500.30O50FJV072625@SH1-CSMTP-DB111.sundns.com>
 From: Walker Chen <walker.chen@starfivetech.com>
-In-Reply-To: <167425300253.196995.6414153954346182622.b4-ty@microchip.com>
+In-Reply-To: <202301240500.30O50FJV072625@SH1-CSMTP-DB111.sundns.com>
 X-Originating-IP: [183.27.96.38]
 X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX168.cuchost.com
  (172.16.6.78)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230123_212523_524475_981F9E87 
-X-CRM114-Status: GOOD (  12.65  )
+X-CRM114-CacheID: sfid-20230123_212820_813926_312019FD 
+X-CRM114-Status: UNSURE (   6.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,36 +79,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2023/1/21 6:21, Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
-> 
-> On Thu, 19 Jan 2023 17:44:45 +0800, Walker Chen wrote:
->> This patchset adds PMU (Power Management Unit) controller driver for the
->> StarFive JH7110 SoC. In order to meet low power requirements, PMU is
->> designed for including multiple PM domains that can be used for power
->> gating of selected IP blocks for power saving by reduced leakage
->> current. The first patch adds device tree binding for PM domain provider
->> and consumer. The second patch adds pmu driver and support JH7110 SoC.
+On 2023/1/19 19:59, Heiko Stuebner wrote:
+> Am Donnerstag, 19. Januar 2023, 10:44:46 CET schrieb Walker Chen:
+>> Add bindings for the Power Management Unit on the StarFive JH7110 SoC.
 >> 
->> [...]
+>> Signed-off-by: Walker Chen <walker.chen@starfivetech.com>
+>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 > 
-> Applied to riscv-soc-for-next, thanks!
-> 
-> [1/2] dt-bindings: power: Add starfive,jh7110-pmu
->       https://git.kernel.org/conor/c/1fc7606d5083f79a20eb9cfd77c0dbd9299421c1
-> [2/2] soc: starfive: Add StarFive JH71XX pmu driver
->       https://git.kernel.org/conor/c/08b9a94e8654d402bfd1f5496b077503d69aa2cf
-> 
-> I modified the MAINTAINERS entry to remove the include directory that
-> was deleted along the way.
+> Reviewed-by: Heiko Stuebner <heiko@sntech.de>
 
-Great news!
-
-Thank you so much for your support, Conor, Krzysztof, Emil, Heiko, Rob Herring and so on.
-Hopefully more and more drivers & modules of StarFive SoC will upstream to the open source community.
+Thank you very much for your support!
 
 Best regards,
-Walker Chen
+Walker
 
 
 _______________________________________________
