@@ -4,82 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12FD9C25B50
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jan 2023 23:05:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CB27C25B50
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Jan 2023 00:19:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Date:Subject:Message-Id:References:
-	In-Reply-To:Cc:To:From:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pnmO1lkrIeNN5Z+e2jtpvuQrOcA2u10w0wpMYjTuL9w=; b=z2EC9j7Zfgg5Sw
-	RcMRomKfBIMP8HirCegdCyl+8PxANfaiKvQfNTyOcegLKpoVDzrDAjpCBuiv19NNcSiNaR7sLoQCC
-	mOzRez1bfnoT61p7t2am6E6Xa2QQpSSVAiGjHcPPBXWeRdmt1+sKqZBfie73WuxUt79gsPO5gdYmp
-	xO71rH87f1X6ub/pP953b4/o8zmU0OLbSbaDPoXwxfr/8UjAiUGEyr6VseMHsrWjkHwRInJswHFUX
-	sTekMib1CmvUABNmy08YJw9cKeF6an8PlIh8ByJEBDuUbnq1mQ78Pcxp+Sd0+u/qsp0CMprdXeVoO
-	sQm/BPboqcgTuCSXbWyg==;
+	List-Owner; bh=8A3aOWGjAF0iaQ9a2dPdzuy4RoPLIaYRJKL00/CfmLQ=; b=EJ7FtavRkDGbLP
+	ACZkwy4NFQqPyY5lf/H9fTZfWc50OmDKTLUyLGLtA7I51wif534jnjRapbQ2bi/CqVU9SVfKvwf+r
+	un7qxTzYhR9/EfhX2SbCkBOi90i5C2GXQf/Ak9l3TvBByIGDt7MuQKWToTteW/cqbIOw5c0lIga7v
+	0kWlRGbCJFvHxJFpOVceXG1Rm8gc6qUS+h0DewH0vYlxcl/sILM9dixJU/sS6vQJCCkX+OFi42uK5
+	Qj4w0/z8dzLDPPJ4FQCrtbw47iFxZ929651dqDvFq61DS/S2n5tHqeVQ6s+djHy30rCyHXPtsqqRo
+	bs67b2cKWw3OqH+2OzOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pK5so-001nSO-FJ; Mon, 23 Jan 2023 23:05:46 +0000
-Received: from mail-oa1-f50.google.com ([209.85.160.50])
+	id 1pK72L-001v8b-R3; Tue, 24 Jan 2023 00:19:41 +0000
+Received: from mga01.intel.com ([192.55.52.88])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pK5sl-001nRM-HU; Mon, 23 Jan 2023 23:05:45 +0000
-Received: by mail-oa1-f50.google.com with SMTP id 586e51a60fabf-15fe106c7c7so9689679fac.8;
-        Mon, 23 Jan 2023 15:05:43 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=date:subject:message-id:references:in-reply-to:cc:to:from
-         :mime-version:content-transfer-encoding:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=5K+QwMf3q1ON3JuiG+9OW2PVcrwMBDaRZk0RWszHFjI=;
-        b=4K2NhRnsIalJOo21yHQgNBwZO3JOemmrDQM1Wt6LGIysn74h207jku0TwAp5060SS5
-         ATUofk7Xd5YKeaUoiARvCjwESF8tvDsLMf2rZpzlGELKXyGOZJ70/Z2PyTkR6Cgzpa6/
-         6qqwDvsDDn1Z+8urNeRArqaJhr3l5CctNoStU0SMbOp3nnb6RMGbvyG7+Pu/YLHjTdzy
-         z8AfTU8UxVWmZeKlvKXx8IeYXae5xyrBC1WtXwI5jFb2lxVZEfLJZAM3KnNt1K5H7sF2
-         TNJEoqkwS5eXhYo8kWOjfLayZtKFxctxYWsBbxRquSefF3NKoTpfFk4Og34TFyd/KLDB
-         Z5cw==
-X-Gm-Message-State: AO0yUKUWzb1FeAD7oaDDFv412bmp9uFZbM6WzJwp+UWBGX+yCCrTLAWo
-	RuEPI95KxfKY+OgMf+52uQ==
-X-Google-Smtp-Source: AK7set/h7sr6uhQW/0sGu9o6CylIQ3HnC2k/IV6qUD9neLaJawnkv+Apgu0382wuFxmdnJG73B65tg==
-X-Received: by 2002:a05:6870:ea93:b0:160:346c:dd97 with SMTP id s19-20020a056870ea9300b00160346cdd97mr1085832oap.24.1674515142027;
-        Mon, 23 Jan 2023 15:05:42 -0800 (PST)
-Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id r141-20020a4a3793000000b0050dc3c2f77asm104345oor.8.2023.01.23.15.05.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Jan 2023 15:05:41 -0800 (PST)
-Received: (nullmailer pid 2813085 invoked by uid 1000);
-	Mon, 23 Jan 2023 23:05:40 -0000
+	id 1pK72I-001v7d-Pf
+	for linux-riscv@lists.infradead.org; Tue, 24 Jan 2023 00:19:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1674519578; x=1706055578;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=8akBJZSgOwqaCeNwd9vSz30jHqCfVyn9vginXj4vLpw=;
+  b=VP8MLewV3LUS/Fc3E6mw57/jIkscJ/+TTLjPN/lBkYs+LoQDQ09ElVdr
+   YxG9zXeHUrDxrK2fiankqWT01UQzxxwOT+lQiadpvWAxksSavG2hLtVvF
+   HNL+c/vDxh7b1dyjODuvCFgZ6C9yGBdGXRBbFQVMuRfBn7EkFn819vn31
+   5eVQMW3PPEozZNPqTzrhUNwWqc0TZJ0zAZJgvLwQoyKc4wXk8ygstd57W
+   WfyuD0H1gp3QvNXLK+bZ1uuQBJ/QVlYumzB3hUYzTuQlh6jrGXgWwFheU
+   JQwdL+Fdmv8OhYNP5xg3YfS5dqq1gL6uqprSU1fVmxIXKrMDAYvMD3dOH
+   g==;
+X-IronPort-AV: E=McAfee;i="6500,9779,10599"; a="353468219"
+X-IronPort-AV: E=Sophos;i="5.97,240,1669104000"; 
+   d="scan'208";a="353468219"
+Received: from orsmga001.jf.intel.com ([10.7.209.18])
+  by fmsmga101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jan 2023 16:19:32 -0800
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6500,9779,10599"; a="694143856"
+X-IronPort-AV: E=Sophos;i="5.97,240,1669104000"; 
+   d="scan'208";a="694143856"
+Received: from lkp-server01.sh.intel.com (HELO 5646d64e7320) ([10.239.97.150])
+  by orsmga001.jf.intel.com with ESMTP; 23 Jan 2023 16:19:29 -0800
+Received: from kbuild by 5646d64e7320 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1pK728-0005yW-0V;
+	Tue, 24 Jan 2023 00:19:28 +0000
+Date: Tue, 24 Jan 2023 08:19:14 +0800
+From: kernel test robot <lkp@intel.com>
+To: Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Frank Rowand <frowand.list@gmail.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arch@vger.kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: Re: [PATCH v4] riscv: Use PUD/P4D/PGD pages for the linear mapping
+Message-ID: <202301240847.k2H9qZVL-lkp@intel.com>
+References: <20230123112803.817534-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
-From: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Rob Herring <robh+dt@kernel.org>, - <devicetree@vger.kernel.org>, 
-	linux-riscv@lists.infradead.org, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Tomer Maimon <tmaimon77@gmail.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Peter Korsgaard <jacmet@sunsite.dk>, Chester Lin <clin@suse.com>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
-	linux-stm32@st-md-mailman.stormreply.com, Kevin Hilman <khilman@baylibre.com>, 
-	linux-kernel@vger.kernel.org, Fugang Duan <fugang.duan@nxp.com>, 
-	Shawn Guo <shawnguo@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	linux-serial@vger.kernel.org, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Fabio Estevam <festevam@gmail.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Le Ray <erwan.leray@foss.st.com>, Michal Simek <michal.simek@xilinx.com>, 
-	Lubomir Rintel <lkundrak@v3.sk>, Jerome Brunet <jbrunet@baylibre.com>, 
-	Magnus Damm <magnus.damm@gmail.com>, Pragnesh Patel <pragnesh.patel@sifive.com>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, linux-amlogic@lists.infradead.org, 
-	NXP Linux Team <linux-imx@nxp.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Vignesh Raghavendra <vigneshr@ti.com>, linux-arm-kernel@lists.infradead.org
-In-Reply-To: <20230123151302.368277-11-krzysztof.kozlowski@linaro.org>
-References: <20230123151302.368277-1-krzysztof.kozlowski@linaro.org>
- <20230123151302.368277-11-krzysztof.kozlowski@linaro.org>
-Message-Id: <167451486467.2795286.1299932821783618559.robh@kernel.org>
-Subject:  Re: [PATCH 11/13] dt-bindings: serial: restrict possible child node names
-Date: Mon, 23 Jan 2023 17:05:40 -0600
+Content-Disposition: inline
+In-Reply-To: <20230123112803.817534-1-alexghiti@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230123_150543_602807_896AF541 
-X-CRM114-Status: GOOD (  13.93  )
+X-CRM114-CacheID: sfid-20230123_161938_894694_C5DC0BB9 
+X-CRM114-Status: GOOD (  27.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,47 +89,144 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Alexandre,
 
-On Mon, 23 Jan 2023 16:13:00 +0100, Krzysztof Kozlowski wrote:
-> The re-usable serial.yaml schema matches every property with ".*"
-> pattern, thus any other schema referencing it will not report unknown
-> (unevaluated) properties.  This hides several wrong properties.  It is
-> a limitation of dtschema, thus provide a simple workaround: expect
-> children to be only of few names matching upstream usage (Bluetooth,
-> GNSS, GPS and MCU).
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> ---
->  Documentation/devicetree/bindings/serial/serial.yaml | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
+Thank you for the patch! Yet something to improve:
 
-My bot found errors running 'make DT_CHECKER_FLAGS=-m dt_binding_check'
-on your patch (DT_CHECKER_FLAGS is new in v5.13):
+[auto build test ERROR on robh/for-next]
+[also build test ERROR on linus/master v6.2-rc5 next-20230123]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-yamllint warnings/errors:
+url:    https://github.com/intel-lab-lkp/linux/commits/Alexandre-Ghiti/riscv-Use-PUD-P4D-PGD-pages-for-the-linear-mapping/20230123-192952
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
+patch link:    https://lore.kernel.org/r/20230123112803.817534-1-alexghiti%40rivosinc.com
+patch subject: [PATCH v4] riscv: Use PUD/P4D/PGD pages for the linear mapping
+config: riscv-nommu_virt_defconfig (https://download.01.org/0day-ci/archive/20230124/202301240847.k2H9qZVL-lkp@intel.com/config)
+compiler: riscv64-linux-gcc (GCC) 12.1.0
+reproduce (this is a W=1 build):
+        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+        chmod +x ~/bin/make.cross
+        # https://github.com/intel-lab-lkp/linux/commit/b0cdf20b21efcc85ec67bffa6a10894dedd0d12e
+        git remote add linux-review https://github.com/intel-lab-lkp/linux
+        git fetch --no-tags linux-review Alexandre-Ghiti/riscv-Use-PUD-P4D-PGD-pages-for-the-linear-mapping/20230123-192952
+        git checkout b0cdf20b21efcc85ec67bffa6a10894dedd0d12e
+        # save the config file
+        mkdir build_dir && cp config build_dir/.config
+        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.1.0 make.cross W=1 O=build_dir ARCH=riscv olddefconfig
+        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.1.0 make.cross W=1 O=build_dir ARCH=riscv SHELL=/bin/bash arch/riscv/mm/
 
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/bus/intel,ixp4xx-expansion-bus-controller.example.dtb: serial@1,0: Unevaluated properties are not allowed ('intel,ixp4xx-eb-byte-access', 'intel,ixp4xx-eb-cycle-type', 'intel,ixp4xx-eb-t3', 'intel,ixp4xx-eb-write-enable' were unexpected)
-	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/serial/8250.yaml
+If you fix the issue, kindly add following tag where applicable
+| Reported-by: kernel test robot <lkp@intel.com>
 
-doc reference errors (make refcheckdocs):
+All errors (new ones prefixed by >>):
 
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20230123151302.368277-11-krzysztof.kozlowski@linaro.org
+   arch/riscv/mm/init.c: In function 'setup_bootmem':
+>> arch/riscv/mm/init.c:222:9: error: 'riscv_pfn_base' undeclared (first use in this function)
+     222 |         riscv_pfn_base = PFN_DOWN(phys_ram_base);
+         |         ^~~~~~~~~~~~~~
+   arch/riscv/mm/init.c:222:9: note: each undeclared identifier is reported only once for each function it appears in
 
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
 
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
+vim +/riscv_pfn_base +222 arch/riscv/mm/init.c
 
-pip3 install dtschema --upgrade
+   187	
+   188	static void __init setup_bootmem(void)
+   189	{
+   190		phys_addr_t vmlinux_end = __pa_symbol(&_end);
+   191		phys_addr_t max_mapped_addr;
+   192		phys_addr_t phys_ram_end, vmlinux_start;
+   193	
+   194		if (IS_ENABLED(CONFIG_XIP_KERNEL))
+   195			vmlinux_start = __pa_symbol(&_sdata);
+   196		else
+   197			vmlinux_start = __pa_symbol(&_start);
+   198	
+   199		memblock_enforce_memory_limit(memory_limit);
+   200	
+   201		/*
+   202		 * Make sure we align the reservation on PMD_SIZE since we will
+   203		 * map the kernel in the linear mapping as read-only: we do not want
+   204		 * any allocation to happen between _end and the next pmd aligned page.
+   205		 */
+   206		if (IS_ENABLED(CONFIG_64BIT) && IS_ENABLED(CONFIG_STRICT_KERNEL_RWX))
+   207			vmlinux_end = (vmlinux_end + PMD_SIZE - 1) & PMD_MASK;
+   208		/*
+   209		 * Reserve from the start of the kernel to the end of the kernel
+   210		 */
+   211		memblock_reserve(vmlinux_start, vmlinux_end - vmlinux_start);
+   212	
+   213		phys_ram_end = memblock_end_of_DRAM();
+   214		if (!IS_ENABLED(CONFIG_XIP_KERNEL))
+   215			phys_ram_base = memblock_start_of_DRAM();
+   216	
+   217		/*
+   218		 * Any use of __va/__pa before this point is wrong as we did not know the
+   219		 * start of DRAM before.
+   220		 */
+   221		kernel_map.va_pa_offset = PAGE_OFFSET - phys_ram_base;
+ > 222		riscv_pfn_base = PFN_DOWN(phys_ram_base);
+   223	
+   224		/*
+   225		 * memblock allocator is not aware of the fact that last 4K bytes of
+   226		 * the addressable memory can not be mapped because of IS_ERR_VALUE
+   227		 * macro. Make sure that last 4k bytes are not usable by memblock
+   228		 * if end of dram is equal to maximum addressable memory.  For 64-bit
+   229		 * kernel, this problem can't happen here as the end of the virtual
+   230		 * address space is occupied by the kernel mapping then this check must
+   231		 * be done as soon as the kernel mapping base address is determined.
+   232		 */
+   233		if (!IS_ENABLED(CONFIG_64BIT)) {
+   234			max_mapped_addr = __pa(~(ulong)0);
+   235			if (max_mapped_addr == (phys_ram_end - 1))
+   236				memblock_set_current_limit(max_mapped_addr - 4096);
+   237		}
+   238	
+   239		min_low_pfn = PFN_UP(phys_ram_base);
+   240		max_low_pfn = max_pfn = PFN_DOWN(phys_ram_end);
+   241		high_memory = (void *)(__va(PFN_PHYS(max_low_pfn)));
+   242	
+   243		dma32_phys_limit = min(4UL * SZ_1G, (unsigned long)PFN_PHYS(max_low_pfn));
+   244		set_max_mapnr(max_low_pfn - ARCH_PFN_OFFSET);
+   245	
+   246		reserve_initrd_mem();
+   247		/*
+   248		 * If DTB is built in, no need to reserve its memblock.
+   249		 * Otherwise, do reserve it but avoid using
+   250		 * early_init_fdt_reserve_self() since __pa() does
+   251		 * not work for DTB pointers that are fixmap addresses
+   252		 */
+   253		if (!IS_ENABLED(CONFIG_BUILTIN_DTB)) {
+   254			/*
+   255			 * In case the DTB is not located in a memory region we won't
+   256			 * be able to locate it later on via the linear mapping and
+   257			 * get a segfault when accessing it via __va(dtb_early_pa).
+   258			 * To avoid this situation copy DTB to a memory region.
+   259			 * Note that memblock_phys_alloc will also reserve DTB region.
+   260			 */
+   261			if (!memblock_is_memory(dtb_early_pa)) {
+   262				size_t fdt_size = fdt_totalsize(dtb_early_va);
+   263				phys_addr_t new_dtb_early_pa = memblock_phys_alloc(fdt_size, PAGE_SIZE);
+   264				void *new_dtb_early_va = early_memremap(new_dtb_early_pa, fdt_size);
+   265	
+   266				memcpy(new_dtb_early_va, dtb_early_va, fdt_size);
+   267				early_memunmap(new_dtb_early_va, fdt_size);
+   268				_dtb_early_pa = new_dtb_early_pa;
+   269			} else
+   270				memblock_reserve(dtb_early_pa, fdt_totalsize(dtb_early_va));
+   271		}
+   272	
+   273		dma_contiguous_reserve(dma32_phys_limit);
+   274		if (IS_ENABLED(CONFIG_64BIT))
+   275			hugetlb_cma_reserve(PUD_SHIFT - PAGE_SHIFT);
+   276		memblock_allow_resize();
+   277	}
+   278	
 
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests
 
 _______________________________________________
 linux-riscv mailing list
