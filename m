@@ -4,116 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9F23C38142
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Jan 2023 07:53:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49EB8C25B4E
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Jan 2023 08:00:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NOiLt7Owb9lmCja2m7hTIZ+aoJFaeFPdgqNgD6GpFx4=; b=dCVBkKn4EBetph
-	eYye57/pCVzG3aps+hhnwWIa6uLI/w6zrsX6tDAnmU2/aR81BzfcTUXriJ8Puzjfgod/85W7MVkO1
-	uOgbPtH+rOrJHFesceY39C2bNcWqsh0vQkROBqsnSMcTcSpxlanYqlNENsjWO2i4QjFRn5QxP4G+g
-	FjYobBXeSDmV5HTSpmkNOAVf8JpbYheAD7Ah+eMbdpMaJn8QIaR4bPzorCR4g8z71aFpMiULmPQLB
-	9V4WM8sxxv6t9gxKrbp9HvOoyguNAhcKEvm7HPQtw2aiZAm9/IT9WFm0ToeX6i2ftLTabG8kj31e3
-	AgsMM5xBzD1HGYA3jKrQ==;
+	List-Owner; bh=/Y7WsVQLK9P5N39e/h92MYyaW2XgMoHpurUNb9acZgw=; b=QRKmp+1gyq6dfk
+	aNLHxtg58RdZP18W1ekdJLaKErqQGqektBMTONwCyNki5VfrC4peYX1+amVNboi29WQK4n+hjBeJV
+	gkwsB+Kbbkmci50ftgJavrBAuB41p/qo6CJlwgsCmmfCnMfPNIj4ITolDO9wccSOT7gkEdetzAI6L
+	uhbiB63S+4zfomU5A3sXftmwXdTreoVwRaVM1bHJSmOX5YjCCta5x+lffMWUuEHdpEpMK+pMpen/A
+	XXEkSfmOy3BbyBeDeRz4mZdkaw+OhOkezrAtRaCpG/ShpHKHECodCGyDgRzK3IYVN64jqKS+jWNYn
+	FUn8RGEQXENX2cKPKTyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKE6s-002fy4-DL; Tue, 24 Jan 2023 07:52:50 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1pKEEX-002gRw-AS; Tue, 24 Jan 2023 08:00:45 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKE6o-002fvx-Ir
-	for linux-riscv@lists.infradead.org; Tue, 24 Jan 2023 07:52:49 +0000
-Received: by mail-wm1-x329.google.com with SMTP id f25-20020a1c6a19000000b003da221fbf48so10250276wmc.1
-        for <linux-riscv@lists.infradead.org>; Mon, 23 Jan 2023 23:52:41 -0800 (PST)
+	id 1pKEEQ-002gQu-KN
+	for linux-riscv@lists.infradead.org; Tue, 24 Jan 2023 08:00:40 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id n7so13009140wrx.5
+        for <linux-riscv@lists.infradead.org>; Tue, 24 Jan 2023 00:00:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=BAe2WJH+upW322dDk1bEGZ4cZcCC0V7GrzqFfjdJrMg=;
-        b=hGPTxpSwZUv2ubxuT/5nHbDe+A30AqGBmtvji/Iv7jd9BR1eURErdOE+Ld8kUkcKcV
-         KBpMd+yZB0HVRMSv788IXaCQQxdg9P9UVfVih3M/pen+O2tI+hvtR5R6cbWPe7F48Hqb
-         ExACdlVSsYE6TI+k3v/pOyJomrx6/HBSc4EsF3l9xMz8Uj2+xwf7DVxSUixIp9lITiFV
-         6yOGgpOTV+n/yLZlsoLSx3vLvV/ml+6ZI023vAbywjGDGOjFDrxp+r82czeY0Jb8dexv
-         CP5uWx6pW85Lp7lztlLRVLu4x+/zCR5SutP5JmJbQ2uCG/SEL2XnmQFMRKINlPjQweee
-         wnsw==
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=CqSZybdUuskI+UDVH1j93jvIbGoD0+XsFL55JSeaP+k=;
+        b=b6H059p3q9xg6E9c9XQB6jeEpHYZpMtkObtgJ6shIqMFcjqV1MYW7qTz6S2CRHj27i
+         1TKgxE7c8dtixSqWvF98vecR84mlfuZLI60RrLF4f/I406iDTKwZVOnoEw5xAJYTmbXA
+         ngN8ug+S4wFE3dQ0QMTi4BOLCy2P3skctJM4mg9QhlJXWG22To0vkohGxqM4d3MokLSC
+         GVmKpV3HRAOgqv8acmEXkW8AeyvWBiigkNMveO4uFIIHS4gK64om7JLDHTT+MlmIdSFN
+         gaF9FbDAVVpedWKzzz3zdaZcywtPT71D0YdaPgUDV7O90c3s/sU/LQG5tjrC0EH4xyip
+         RREQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=BAe2WJH+upW322dDk1bEGZ4cZcCC0V7GrzqFfjdJrMg=;
-        b=DoqOCezWWkAV8iyMdwlrOUxRLHClcFjLb4RQJT0MOLbM7w1fBH2sVzEpUY6RFUhtZY
-         TdFEbjVI7jVGiZTu3/IhWtrWdt6CV7uvmRdbRUGyMVUA5Kz5L92pvTWZ+CpysJ7tFzS5
-         sYYLA6CG/j1Px0LJ1+kMI4wFwcEr4Btjasu2lwc/gpq03hs+qPiHS+x6oA1yDLQu9ZKS
-         Q8uMymwK2KpOS4TlrxTK2wYUOlkNtsmyvJoe4738g3oQqCFlzXKEnTqclev6Ml2pTVeE
-         ROKvObx9tyuQWHw2w6LdiBnXrYAL0RXDi9LJezwcOKIWIzFsdyncJVDoXqxOSMoFFKV1
-         DE2g==
-X-Gm-Message-State: AFqh2krZXUcul+Mknke7yFW/Li2XkDeMHzR6i0LYeoqnQXpmZiF1dBnY
-	iZIB4H4S9KVzcpXkD8Dy12G62g==
-X-Google-Smtp-Source: AMrXdXtUIbnTklwYfp0Ur7d3WG5zlOuPOMpIoOKsMyOMySKmH3lI7Ra+GFxs1Sh1FysqHT0LgtpI4A==
-X-Received: by 2002:a05:600c:3488:b0:3d2:370b:97f4 with SMTP id a8-20020a05600c348800b003d2370b97f4mr34735239wmq.16.1674546760714;
-        Mon, 23 Jan 2023 23:52:40 -0800 (PST)
-Received: from [192.168.1.109] ([178.197.216.144])
-        by smtp.gmail.com with ESMTPSA id m26-20020a7bcb9a000000b003db2dede1a2sm12401412wmi.26.2023.01.23.23.52.36
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Jan 2023 23:52:40 -0800 (PST)
-Message-ID: <b88bacbb-9da2-2175-3f59-7156c3aad4e3@linaro.org>
-Date: Tue, 24 Jan 2023 08:52:35 +0100
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=CqSZybdUuskI+UDVH1j93jvIbGoD0+XsFL55JSeaP+k=;
+        b=lHLsRK23h2MiV0mcKRp7tmcBPG0I3Qoy2kZoBUJ4ZywYjB/O51zJwxkWyPY9FGFaQ2
+         BsOX/+4T1DpBvYHTMSE1PjTQIkecLG/SDq1x2JQQXgBkkAXQeA1wGMrIm4Hp5p+LbbiZ
+         jKPSzVA5M+jkpZtNVif1Ab1b02BovspB9Q5XO5lw979hLL7md/YI8eaBx34A0JpKpo1c
+         0e5VH44TMGrKDfTAvoY/DJgd7ypRWUqd9eIGGD1EL1hAduF+54YU82iC/uOgDCIQ7qpI
+         dRmdPMNDkJ0utaUfJSYutduzkouRa1UY11DTvvx7DA/YH1zgcQCR7CezfLkBW24lqpRe
+         3XyA==
+X-Gm-Message-State: AFqh2kqY1SjHh4wDicBL6YOGUqeuiVjrUrlda2YKHGyRQbW5sKZfHsbP
+	q1ilcnWZ2Iu53YuciEZWxnMVixFn+ftx+x1JI2I5/w==
+X-Google-Smtp-Source: AMrXdXvPLscFw4dlQnNZxaTZSeeo5RV7pn56CWqRBz3ECJ7Gfy9qulLKrkg3tXoRsE2OvYfbItKgsSpGdywsTmb1+NA=
+X-Received: by 2002:a5d:5190:0:b0:2bd:d6bc:e35c with SMTP id
+ k16-20020a5d5190000000b002bdd6bce35cmr1218375wrv.144.1674547236441; Tue, 24
+ Jan 2023 00:00:36 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.7.0
-Subject: Re: [PATCH 2/2] dt-bindings: dma: cleanup examples - indentation,
- lowercase hex
-Content-Language: en-US
-To: Rob Herring <robh@kernel.org>
-Cc: Vinod Koul <vkoul@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- Olivier Dautricourt <olivierdautricourt@gmail.com>, Stefan Roese
- <sr@denx.de>, Hector Martin <marcan@marcan.st>,
- Sven Peter <sven@svenpeter.dev>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
- Thierry Reding <thierry.reding@gmail.com>,
- Jonathan Hunter <jonathanh@nvidia.com>, =?UTF-8?Q?Andreas_F=c3=a4rber?=
- <afaerber@suse.de>, Manivannan Sadhasivam <mani@kernel.org>,
- Andy Gross <agross@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konrad.dybcio@linaro.org>, Viresh Kumar <vireshk@kernel.org>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Green Wan <green.wan@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
- Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
- Masami Hiramatsu <mhiramat@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Matthias Brugger <matthias.bgg@gmail.com>, Maxime Ripard
- <mripard@kernel.org>, =?UTF-8?B?77+9ZXI=?= <povik+lin@cutebit.org>,
- Peng Fan <peng.fan@nxp.com>, Paul Cercueil <paul@crapouillou.net>,
- - <chuanhua.lei@intel.com>, Long Cheng <long.cheng@mediatek.com>,
- Rajesh Gumasta <rgumasta@nvidia.com>,
- Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
- Biju Das <biju.das.jz@bp.renesas.com>,
- Miquel Raynal <miquel.raynal@bootlin.com>, Palmer Debbelt
- <palmer@sifive.com>, Masahiro Yamada <yamada.masahiro@socionext.com>,
- Amelie Delaunay <amelie.delaunay@foss.st.com>,
- Linus Walleij <linus.walleij@linaro.org>, dmaengine@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- asahi@lists.linux.dev, linux-tegra@vger.kernel.org,
- linux-actions@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-mediatek@lists.infradead.org
-References: <20230118180144.364756-1-krzysztof.kozlowski@linaro.org>
- <20230118180144.364756-2-krzysztof.kozlowski@linaro.org>
- <20230123202010.GA2455859-robh@kernel.org>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20230123202010.GA2455859-robh@kernel.org>
+References: <20230123100951.810807-1-alexghiti@rivosinc.com>
+ <20230123100951.810807-2-alexghiti@rivosinc.com> <Y88HD2ocLQilIuDr@spud>
+In-Reply-To: <Y88HD2ocLQilIuDr@spud>
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+Date: Tue, 24 Jan 2023 09:00:25 +0100
+Message-ID: <CAHVXubiSJMyeuy253wyFALQ0DzDn_yuuR4HWKy9rmGYLNeXpKA@mail.gmail.com>
+Subject: Re: [PATCH v2 1/6] riscv: Split early and final KASAN population functions
+To: Conor Dooley <conor@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
+	Alexander Potapenko <glider@google.com>, Andrey Konovalov <andreyknvl@gmail.com>, 
+	Dmitry Vyukov <dvyukov@google.com>, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+	Ard Biesheuvel <ardb@kernel.org>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com, 
+	linux-efi@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230123_235246_642184_2896501F 
-X-CRM114-Status: GOOD (  15.33  )
+X-CRM114-CacheID: sfid-20230124_000038_924670_0434C9A1 
+X-CRM114-Status: GOOD (  14.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,92 +91,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 23/01/2023 21:20, Rob Herring wrote:
-> On Wed, Jan 18, 2023 at 07:01:44PM +0100, Krzysztof Kozlowski wrote:
->> Cleanup examples:
->>  - use 4-space indentation (for cases when it is neither 4 not 2 space),
->>  - use lowercase hex.
->>
->> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
->> ---
->>  .../bindings/dma/snps,dw-axi-dmac.yaml        | 36 +++++++++----------
->>  .../bindings/dma/stericsson,dma40.yaml        |  4 +--
->>  2 files changed, 20 insertions(+), 20 deletions(-)
->>
->> diff --git a/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml b/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
->> index 2bedab1f74e0..d34d0fa62ab5 100644
->> --- a/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
->> +++ b/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
->> @@ -113,21 +113,21 @@ additionalProperties: false
->>  
->>  examples:
->>    - |
->> -     #include <dt-bindings/interrupt-controller/arm-gic.h>
->> -     #include <dt-bindings/interrupt-controller/irq.h>
->> -     /* example with snps,dw-axi-dmac */
->> -     dmac: dma-controller@80000 {
->> -         compatible = "snps,axi-dma-1.01a";
->> -         reg = <0x80000 0x400>;
->> -         clocks = <&core_clk>, <&cfgr_clk>;
->> -         clock-names = "core-clk", "cfgr-clk";
->> -         interrupt-parent = <&intc>;
->> -         interrupts = <27>;
->> -         #dma-cells = <1>;
->> -         dma-channels = <4>;
->> -         snps,dma-masters = <2>;
->> -         snps,data-width = <3>;
->> -         snps,block-size = <4096 4096 4096 4096>;
->> -         snps,priority = <0 1 2 3>;
->> -         snps,axi-max-burst-len = <16>;
->> -     };
->> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
->> +    #include <dt-bindings/interrupt-controller/irq.h>
->> +    /* example with snps,dw-axi-dmac */
->> +    dmac: dma-controller@80000 {
-> 
-> Drop unused labels while you are here.
+Hi Conor,
 
-Ack
+On Mon, Jan 23, 2023 at 11:15 PM Conor Dooley <conor@kernel.org> wrote:
+>
+> Hey Alex,
+>
+> FYI this patch has a couple places with spaces used rather than tabs for
+> indent.
 
-> 
->> +        compatible = "snps,axi-dma-1.01a";
->> +        reg = <0x80000 0x400>;
->> +        clocks = <&core_clk>, <&cfgr_clk>;
->> +        clock-names = "core-clk", "cfgr-clk";
->> +        interrupt-parent = <&intc>;
->> +        interrupts = <27>;
->> +        #dma-cells = <1>;
->> +        dma-channels = <4>;
->> +        snps,dma-masters = <2>;
->> +        snps,data-width = <3>;
->> +        snps,block-size = <4096 4096 4096 4096>;
->> +        snps,priority = <0 1 2 3>;
->> +        snps,axi-max-burst-len = <16>;
->> +    };
->> diff --git a/Documentation/devicetree/bindings/dma/stericsson,dma40.yaml b/Documentation/devicetree/bindings/dma/stericsson,dma40.yaml
->> index 664ee61a00d8..57395a810719 100644
->> --- a/Documentation/devicetree/bindings/dma/stericsson,dma40.yaml
->> +++ b/Documentation/devicetree/bindings/dma/stericsson,dma40.yaml
->> @@ -147,9 +147,9 @@ examples:
->>      #include <dt-bindings/interrupt-controller/irq.h>
->>      #include <dt-bindings/interrupt-controller/arm-gic.h>
->>      #include <dt-bindings/mfd/dbx500-prcmu.h>
->> -    dma-controller@801C0000 {
->> +    dma-controller@801c0000 {
->>        compatible = "stericsson,db8500-dma40", "stericsson,dma40";
->> -      reg = <0x801C0000 0x1000>, <0x40010000 0x800>;
->> +      reg = <0x801c0000 0x1000>, <0x40010000 0x800>;
->>        reg-names = "base", "lcpa";
->>        interrupts = <GIC_SPI 25 IRQ_TYPE_LEVEL_HIGH>;
->>        #dma-cells = <3>;
-> 
-> Indentation?
+Damn, I forgot to run checkpatch this time...
 
-Ack
+Thanks,
 
-Best regards,
-Krzysztof
+Alex
 
+>
+> >  static void __init kasan_populate_p4d(pgd_t *pgd,
+> > -                                   unsigned long vaddr, unsigned long end,
+> > -                                   bool early)
+> > +                                   unsigned long vaddr, unsigned long end)
+> >  {
+> >       phys_addr_t phys_addr;
+> >       p4d_t *p4dp, *base_p4d;
+> >       unsigned long next;
+> >
+> > -     if (early) {
+> > -             /*
+> > -              * We can't use pgd_page_vaddr here as it would return a linear
+> > -              * mapping address but it is not mapped yet, but when populating
+> > -              * early_pg_dir, we need the physical address and when populating
+> > -              * swapper_pg_dir, we need the kernel virtual address so use
+> > -              * pt_ops facility.
+> > -              */
+> > -             base_p4d = pt_ops.get_p4d_virt(pfn_to_phys(_pgd_pfn(*pgd)));
+> > -     } else {
+> > -             base_p4d = (p4d_t *)pgd_page_vaddr(*pgd);
+> > -             if (base_p4d == lm_alias(kasan_early_shadow_p4d)) {
+> > -                     base_p4d = memblock_alloc(PTRS_PER_PUD * sizeof(p4d_t), PAGE_SIZE);
+> > -                     memcpy(base_p4d, (void *)kasan_early_shadow_p4d,
+> > -                             sizeof(p4d_t) * PTRS_PER_P4D);
+> > -             }
+> > -     }
+> > +     base_p4d = (p4d_t *)pgd_page_vaddr(*pgd);
+> > +     if (base_p4d == lm_alias(kasan_early_shadow_p4d)) {
+> > +             base_p4d = memblock_alloc(PTRS_PER_PUD * sizeof(p4d_t), PAGE_SIZE);
+> > +        memcpy(base_p4d, (void *)kasan_early_shadow_p4d,
+> > +                sizeof(p4d_t) * PTRS_PER_P4D);
+> > +    }
+>
+> ^^  here.
+>
+> Thanks,
+> Conor.
+>
 
 _______________________________________________
 linux-riscv mailing list
