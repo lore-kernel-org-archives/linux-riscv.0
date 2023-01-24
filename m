@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77713C25B4E
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Jan 2023 09:16:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1766DC54EAA
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Jan 2023 09:16:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=b666VkkH0sIu300uJ9GbTyUYzE6S7M9ibDADgmWjPEA=; b=fGoJO/HqKwnx6q
-	a5PWH0Y1cz4xofpoQX59xvNY0bYqfJuP7DhoM4wu0qqTYv4ExpVjx4CjoR5GMetCIOIXB79pD/AaW
-	8gcK9mORo1YzqP/dMXAYMpuSLIb1HCCS6kSvQgiB6VwYh8C01r8HphWUqL7w4Wrb/llHPjSISxVeK
-	SuLpA8BuzQvde7h/D1t2nVrYeK7q90SSDRSGHvc/+/Ebc1W57x4iQ2FzFCpZ54mY675qr5QUNu0t2
-	ufQYoJmBVz718AIA+yv3zRVWbxD8aQ/1jIrIBvjytT7N6XfQwqqfGuLGEHAeQC0F6dYXlz3/YjFBz
-	KtADIfuxcrkvsLlXGfSA==;
+	List-Owner; bh=EdksffsIEgcNzEPZXVWFRicmWR2pcOHEkMJsPCGDeDc=; b=0XQlevj9FgRZ9D
+	tTHGD3M28EUxnWQnytOnorRNjKL5/j4rPx5/aDp806BAutsXYbI1CsZDQq5burkExaChdEldOwHdZ
+	LV+pvBFarVWbrCLR1suntwTifxClKlLsSuA16AwjQz/Azgru2ED7BOElp+Y3TLKOAgDR8JGPdMks6
+	syMBcUwLF4sKNhCzbSF8icXRvaC6TKkX3SG8gm+9nicO7Nm7vCIxXPMWZLwqaHC6d7pwuh4hnInO5
+	BW+1H/InIPkswT254XDEPR6h0WvyfAuir0fcF3Njj9m0LwOuLIMaLUeJPKa8rJriscdlbFvpU3gT2
+	/mL6mD1c6MsEshS+k3EA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKFQ1-002qH4-Uv; Tue, 24 Jan 2023 09:16:41 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1pKFQ4-002qIh-Gh; Tue, 24 Jan 2023 09:16:44 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKFPd-002q5m-T0
-	for linux-riscv@lists.infradead.org; Tue, 24 Jan 2023 09:16:20 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id j17so10929130wms.0
-        for <linux-riscv@lists.infradead.org>; Tue, 24 Jan 2023 01:16:14 -0800 (PST)
+	id 1pKFPg-002q6o-Md
+	for linux-riscv@lists.infradead.org; Tue, 24 Jan 2023 09:16:22 +0000
+Received: by mail-wr1-x431.google.com with SMTP id z5so13196076wrt.6
+        for <linux-riscv@lists.infradead.org>; Tue, 24 Jan 2023 01:16:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=linaro.org; s=google;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=UxnGtIs+CoSyW5044hODkJ4+MUCbjhxjSL5Kp9ZnQxs=;
-        b=YnllctxnH3lzgD+EkXJ5CBe2SM5+FtZnnqa8+mqthMSc3elP9JPGPtvV/flyiga+PS
-         b1pRCxEhdDtKFeFVfI/LZkbUBcw0YboNJpAs/8/+8o1wdFB24iCTnrx6UNegp0WP4qMg
-         QQMKC8yO+nslnWeq+qYPQ14csU2OLowneTeO0KSofM0UZc/h3IlunhdF7iul/AJ38HV+
-         u1ymLwMmzKbmsahGx6cdNLzBM6OxVPGx3f1pgenpiZQHX8/Z81RdYPtImrfshukt6BGD
-         xLgMMKXK2WuzeAAW/EjGokg7YujOukYKFUh0sZMIOxwilq0pufNSBEA5I4dzyUxXBkY5
-         R6Kg==
+        bh=NjUDPjFfIstrArrttGkIiPvgInIpWMnlY5IxKwKaSmM=;
+        b=ht5LLAmNCXWk91VFJhzqk3ETiT3S9WKDG9n7Lx34WQTWnXdrGkZP64QQUAWkTtSXNa
+         ligZsLEVT1/DBjRLdUveGHswtzvOyZziia9CJSqHYHxw6ygC5yzZG+P6MGFe1hewkplA
+         /dTii7SzPpAqyO8zaMUwVmfKckjQAein0gvyeQgaBlVkfNUhzd3iZ3R32jVGlp8gek4A
+         DYnlWns/Yp0181BU/8sD2FC7rZKX9/NW7gqpzGeubeDSWD4d3HvQWkzyFbp8B+8h4n+W
+         eDhNjkxQv9MBYHh2wFwckrcgPT6ygEiKKtCDU5C7JxQpJOSSZGp8FmyBg/n5lNAQRJ93
+         nuXQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=UxnGtIs+CoSyW5044hODkJ4+MUCbjhxjSL5Kp9ZnQxs=;
-        b=bBVukpjld0OPEEQHKU7WUOsznrQJm/sYn5ztE/LjP4xIP+Zx9Me8wOd6LduT7Bpzz6
-         tGSsat2yjCqYxU1ReuXbXA4TAxv7k6qF6+vyzl+AEbQbg22Hs5+Y7EqfvWTx/nO/irAX
-         7OtAaWwWgX/cHxbXLyak5YDu7SZtFKFXyDMf+W2yy4ReEaBm4YpPdC+IQ7915vZLW96J
-         ZYokKx4wGsp3Xma1bDiW41drRtVKdbwH7SyNMyk0kTLKbwGYIpNzITGc2U3VzhGan0yR
-         Sa/X8rQIfRM19ItdVrcTz7hL0L4CVdYUzw18yANCask1Nb3J6KQIAgP4NAgQvbp2Y5oj
-         TNOA==
-X-Gm-Message-State: AFqh2kpilarWDG+V4G3Wg16pAPXy5voNrAzet2+Sly2/t/XUWNF4EzA8
-	95nA8YdmOKJno06zoDKt4nZd9A==
-X-Google-Smtp-Source: AMrXdXsuRP+oeoKqVLFWERXFxb8dM8qDl5/yxaY3j45oPHvjVh/Q6SrnrjtQEH+hcMQmOmf+j9YRWw==
-X-Received: by 2002:a05:600c:434b:b0:3d9:cc40:a8dc with SMTP id r11-20020a05600c434b00b003d9cc40a8dcmr25619205wme.27.1674551773221;
-        Tue, 24 Jan 2023 01:16:13 -0800 (PST)
+        bh=NjUDPjFfIstrArrttGkIiPvgInIpWMnlY5IxKwKaSmM=;
+        b=Yr6Q92yvby7cgFyfH7UF6tiqpzqVOqjbXhov9DouUzhuxHoMszFP6e/WwMxTpCUooG
+         TimXyKs8xmuRRQdE19scffjArbPXHwrdEDp6HgvB97uSEH2+vg45LXfJP6b44SzQ998n
+         q8nFpinHXUc28VgRKS19Zl1RlyBeCxIIdNYdy/jnUqrJNirV92g1+2ZJGbIiptDF34YI
+         wtHdV2ug5CZuAThsD2VYVkV3du/T8QKr/paQ07DaEbMWmnjThtm/3oPUMTZLCCwSJO9K
+         WS9f0Cd5caWqxVWMsPr0ubSZvqLZCNj7y+4X8GsoiD2ZxmMLJ82a0ZED+R4V95iInEoz
+         D0Bw==
+X-Gm-Message-State: AFqh2kqLFZsnMOYPSOze2fcpoaJUB8bshZ4odSOdUT6GfWHZQuonywdU
+	jz0QPTkH0/meOg3iTDs7kKx9lg==
+X-Google-Smtp-Source: AMrXdXuIOcn5b9xxfQPmfx/uSv6bF6pKWJ7ZoEGBGaeCFLwbW79S6Ckn7BhmNXuURhSjuTgFfkIeIg==
+X-Received: by 2002:adf:f14e:0:b0:242:728a:fa7 with SMTP id y14-20020adff14e000000b00242728a0fa7mr25807903wro.61.1674551777096;
+        Tue, 24 Jan 2023 01:16:17 -0800 (PST)
 Received: from krzk-bin.. ([178.197.216.144])
-        by smtp.gmail.com with ESMTPSA id j25-20020a05600c1c1900b003c71358a42dsm17882131wms.18.2023.01.24.01.16.09
+        by smtp.gmail.com with ESMTPSA id j25-20020a05600c1c1900b003c71358a42dsm17882131wms.18.2023.01.24.01.16.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Jan 2023 01:16:12 -0800 (PST)
+        Tue, 24 Jan 2023 01:16:16 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Rob Herring <robh+dt@kernel.org>,
@@ -96,16 +96,16 @@ To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	linux-riscv@lists.infradead.org,
 	linux-stm32@st-md-mailman.stormreply.com
 Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v2 01/12] dt-bindings: serial: amlogic,meson-uart: allow other serial properties
-Date: Tue, 24 Jan 2023 10:15:51 +0100
-Message-Id: <20230124091602.44027-2-krzysztof.kozlowski@linaro.org>
+Subject: [PATCH v2 02/12] dt-bindings: serial: 8250: correct Nuvoton NPCM850 compatible
+Date: Tue, 24 Jan 2023 10:15:52 +0100
+Message-Id: <20230124091602.44027-3-krzysztof.kozlowski@linaro.org>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20230124091602.44027-1-krzysztof.kozlowski@linaro.org>
 References: <20230124091602.44027-1-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230124_011618_004940_C9FFA21A 
-X-CRM114-Status: GOOD (  11.60  )
+X-CRM114-CacheID: sfid-20230124_011620_776796_002BA33B 
+X-CRM114-Status: GOOD (  11.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,46 +122,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Reference common serial properties bindings to allow typical serial
-properties:
+Nuvoton NPCM850 UART is compatible with NPCM750, so add proper fallback
+to match existing DTS and Linux driver.
 
-  meson-axg-jethome-jethub-j100.dtb: serial@23000: 'bluetooth', 'uart-has-rtscts' do not match any of the regexes: 'pinctrl-[0-9]+'
-
+Fixes: c8177f90b7c6 ("dt-bindings: serial: 8250: Add npcm845 compatible string")
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
-
 ---
-
-Changes since v1:
-1. Add tag
-2. Use local path (not absolute to /schemas/serial/serial.yaml)
----
- .../devicetree/bindings/serial/amlogic,meson-uart.yaml       | 5 ++++-
+ Documentation/devicetree/bindings/serial/8250.yaml | 5 ++++-
  1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/serial/amlogic,meson-uart.yaml b/Documentation/devicetree/bindings/serial/amlogic,meson-uart.yaml
-index 7822705ad16c..44cb3cf22bfb 100644
---- a/Documentation/devicetree/bindings/serial/amlogic,meson-uart.yaml
-+++ b/Documentation/devicetree/bindings/serial/amlogic,meson-uart.yaml
-@@ -19,6 +19,9 @@ description: |
-   is active since power-on and does not need any clock gating and is usable
-   as very early serial console.
- 
-+allOf:
-+  - $ref: serial.yaml#
-+
- properties:
-   compatible:
-     oneOf:
-@@ -69,7 +72,7 @@ required:
-   - clocks
-   - clock-names
- 
--additionalProperties: false
-+unevaluatedProperties: false
- 
- examples:
-   - |
+diff --git a/Documentation/devicetree/bindings/serial/8250.yaml b/Documentation/devicetree/bindings/serial/8250.yaml
+index 34b8e59aa9d4..badaf6d5b6fe 100644
+--- a/Documentation/devicetree/bindings/serial/8250.yaml
++++ b/Documentation/devicetree/bindings/serial/8250.yaml
+@@ -62,7 +62,6 @@ properties:
+       - const: mrvl,pxa-uart
+       - const: nuvoton,wpcm450-uart
+       - const: nuvoton,npcm750-uart
+-      - const: nuvoton,npcm845-uart
+       - const: nvidia,tegra20-uart
+       - const: nxp,lpc3220-uart
+       - items:
+@@ -92,6 +91,10 @@ properties:
+           - enum:
+               - ns16550 # Deprecated, unless the FIFO really is broken
+               - ns16550a
++      - items:
++          - enum:
++              - nuvoton,npcm845-uart
++          - const: nuvoton,npcm750-uart
+       - items:
+           - enum:
+               - ralink,mt7620a-uart
 -- 
 2.34.1
 
