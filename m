@@ -4,103 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6941EC38142
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Jan 2023 07:25:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9F23C38142
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Jan 2023 07:53:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IWx0njbEiOminkA7BXepEoeVLPZKpbrUuPHRDUKwuZk=; b=FLDZHP+PfmRpNS
-	XHAcwq5UTrTq+mHI2B/4TIfvD0TExf6xT+6vnEp2eDocwAQW9jRGerMtgEJUToq22t09LZ0euDSwu
-	YWdV4J0pbPh1eL1CT/8HEfVgLH6Q2OnPYtFieIKkPKOdLd/QxVSGN/zk5OLrAsLUt+yqxijCtRleT
-	NQqhRUp9LqUhPcXvuQya/abiUynXvDo9CjstVImAKSrBOjRbw9t5x2DF/UYPxLKFebuFJz0VXnAec
-	gFpvBLcZaNvDqpYf8xPJFn7Sv1QJvkwwRe6WtWme8e9UFylbzuu3+sy+Kf/vqgWUPVoe941AWZfSC
-	jkdfZVZF+tBmnt5OlJRA==;
+	List-Owner; bh=NOiLt7Owb9lmCja2m7hTIZ+aoJFaeFPdgqNgD6GpFx4=; b=dCVBkKn4EBetph
+	eYye57/pCVzG3aps+hhnwWIa6uLI/w6zrsX6tDAnmU2/aR81BzfcTUXriJ8Puzjfgod/85W7MVkO1
+	uOgbPtH+rOrJHFesceY39C2bNcWqsh0vQkROBqsnSMcTcSpxlanYqlNENsjWO2i4QjFRn5QxP4G+g
+	FjYobBXeSDmV5HTSpmkNOAVf8JpbYheAD7Ah+eMbdpMaJn8QIaR4bPzorCR4g8z71aFpMiULmPQLB
+	9V4WM8sxxv6t9gxKrbp9HvOoyguNAhcKEvm7HPQtw2aiZAm9/IT9WFm0ToeX6i2ftLTabG8kj31e3
+	AgsMM5xBzD1HGYA3jKrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKDgI-002dZo-3Z; Tue, 24 Jan 2023 07:25:22 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1pKE6s-002fy4-DL; Tue, 24 Jan 2023 07:52:50 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKDg7-002dWV-1w
-	for linux-riscv@lists.infradead.org; Tue, 24 Jan 2023 07:25:13 +0000
-Received: by mail-wm1-x331.google.com with SMTP id q10-20020a1cf30a000000b003db0edfdb74so409742wmq.1
-        for <linux-riscv@lists.infradead.org>; Mon, 23 Jan 2023 23:25:10 -0800 (PST)
+	id 1pKE6o-002fvx-Ir
+	for linux-riscv@lists.infradead.org; Tue, 24 Jan 2023 07:52:49 +0000
+Received: by mail-wm1-x329.google.com with SMTP id f25-20020a1c6a19000000b003da221fbf48so10250276wmc.1
+        for <linux-riscv@lists.infradead.org>; Mon, 23 Jan 2023 23:52:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=linaro.org; s=google;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=tf2jkhDB/fcmN7gxB9BcFTlLK/uYEMsrGqgyWUEbIpY=;
-        b=Ey5ePlReG/n9vBilW4cfQNWTL/l/rns4G9TU3NjLnRqHlJJzRriYkfBLv5xkOYvf6k
-         tNxSvygXO6JmhBMATZP+4RWAM/qYoK+q58K2fGxlVf3UbxlZmZosyZyB7cVttv347tmV
-         ToZmZNkSArgBvXSky7SGWU5otTh8k17jeKQ6Uh0BaB+2hypaWFk51+cw5M9c8zLR4S3R
-         rbDfCUXeYIQrU4d9Pt7pOiZaZYPBWWhjidrvFXtsrwVzlgWlckyPuyElevm1lIgZxXFd
-         Sh35CcPBTdxpyV6N59BG7Xin73RUoxjOaqsLKKctlriqnkR8ys0RBffv86iFWpPani9v
-         EefQ==
+        bh=BAe2WJH+upW322dDk1bEGZ4cZcCC0V7GrzqFfjdJrMg=;
+        b=hGPTxpSwZUv2ubxuT/5nHbDe+A30AqGBmtvji/Iv7jd9BR1eURErdOE+Ld8kUkcKcV
+         KBpMd+yZB0HVRMSv788IXaCQQxdg9P9UVfVih3M/pen+O2tI+hvtR5R6cbWPe7F48Hqb
+         ExACdlVSsYE6TI+k3v/pOyJomrx6/HBSc4EsF3l9xMz8Uj2+xwf7DVxSUixIp9lITiFV
+         6yOGgpOTV+n/yLZlsoLSx3vLvV/ml+6ZI023vAbywjGDGOjFDrxp+r82czeY0Jb8dexv
+         CP5uWx6pW85Lp7lztlLRVLu4x+/zCR5SutP5JmJbQ2uCG/SEL2XnmQFMRKINlPjQweee
+         wnsw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=tf2jkhDB/fcmN7gxB9BcFTlLK/uYEMsrGqgyWUEbIpY=;
-        b=fo91n2oowFhNT7U2W5OW2bHIhotDXuKVbKEThmfiCOByzHk34MKkImtR/ZH2QAHGtn
-         R0yVamIA424R+KUHme1ZpeJVVFJyTE5Zo5RRsDcwAHiMyOPv25Sj/5cO754nOWN+wWZx
-         S4cm39uZi5+hCQERtVJrh1mQfH8lsYMD5RBrzcZQYzp8SahtTFuPaQqCawgRPVHz4J1j
-         u4qtCuirxt87TrYJNH/4HiwjDcFsB3mzPuQBghRoRc4HzSeWFZj87lY9BrjhJq0GE7mG
-         PL+1gJHZ2u+cMGd2JsAmAjvLbEq8JrKF2AvE8N0RYmy0u1pO7MidowoVen8P7Mzz9lLh
-         PPkA==
-X-Gm-Message-State: AFqh2kqSV1iCumQRdrnNGRtsFcuvcioySPVA80j+idPxZ0MIzcHlj84w
-	SQfXVcCUMaW15eC57WhjVGVysA==
-X-Google-Smtp-Source: AMrXdXvH5bGz6Fl5hSlEDfijg+poG9+NkFL619URN+WkIB9aNvhttf/yW+RHKBUEvSvYNh4NNDJZuw==
-X-Received: by 2002:a05:600c:5386:b0:3cf:9844:7b11 with SMTP id hg6-20020a05600c538600b003cf98447b11mr27831353wmb.23.1674545108902;
-        Mon, 23 Jan 2023 23:25:08 -0800 (PST)
+        bh=BAe2WJH+upW322dDk1bEGZ4cZcCC0V7GrzqFfjdJrMg=;
+        b=DoqOCezWWkAV8iyMdwlrOUxRLHClcFjLb4RQJT0MOLbM7w1fBH2sVzEpUY6RFUhtZY
+         TdFEbjVI7jVGiZTu3/IhWtrWdt6CV7uvmRdbRUGyMVUA5Kz5L92pvTWZ+CpysJ7tFzS5
+         sYYLA6CG/j1Px0LJ1+kMI4wFwcEr4Btjasu2lwc/gpq03hs+qPiHS+x6oA1yDLQu9ZKS
+         Q8uMymwK2KpOS4TlrxTK2wYUOlkNtsmyvJoe4738g3oQqCFlzXKEnTqclev6Ml2pTVeE
+         ROKvObx9tyuQWHw2w6LdiBnXrYAL0RXDi9LJezwcOKIWIzFsdyncJVDoXqxOSMoFFKV1
+         DE2g==
+X-Gm-Message-State: AFqh2krZXUcul+Mknke7yFW/Li2XkDeMHzR6i0LYeoqnQXpmZiF1dBnY
+	iZIB4H4S9KVzcpXkD8Dy12G62g==
+X-Google-Smtp-Source: AMrXdXtUIbnTklwYfp0Ur7d3WG5zlOuPOMpIoOKsMyOMySKmH3lI7Ra+GFxs1Sh1FysqHT0LgtpI4A==
+X-Received: by 2002:a05:600c:3488:b0:3d2:370b:97f4 with SMTP id a8-20020a05600c348800b003d2370b97f4mr34735239wmq.16.1674546760714;
+        Mon, 23 Jan 2023 23:52:40 -0800 (PST)
 Received: from [192.168.1.109] ([178.197.216.144])
-        by smtp.gmail.com with ESMTPSA id o25-20020a1c7519000000b003daf6e3bc2fsm1216707wmc.1.2023.01.23.23.25.06
+        by smtp.gmail.com with ESMTPSA id m26-20020a7bcb9a000000b003db2dede1a2sm12401412wmi.26.2023.01.23.23.52.36
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Jan 2023 23:25:08 -0800 (PST)
-Message-ID: <e0dd24e8-9d4b-ea23-d1de-190330c0e825@linaro.org>
-Date: Tue, 24 Jan 2023 08:25:05 +0100
+        Mon, 23 Jan 2023 23:52:40 -0800 (PST)
+Message-ID: <b88bacbb-9da2-2175-3f59-7156c3aad4e3@linaro.org>
+Date: Tue, 24 Jan 2023 08:52:35 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.7.0
-Subject: Re: [PATCH 11/13] dt-bindings: serial: restrict possible child node
- names
+Subject: Re: [PATCH 2/2] dt-bindings: dma: cleanup examples - indentation,
+ lowercase hex
 Content-Language: en-US
 To: Rob Herring <robh@kernel.org>
-Cc: Rob Herring <robh+dt@kernel.org>, - <devicetree@vger.kernel.org>,
- linux-riscv@lists.infradead.org,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Tomer Maimon <tmaimon77@gmail.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Sascha Hauer <s.hauer@pengutronix.de>,
- Peter Korsgaard <jacmet@sunsite.dk>, Chester Lin <clin@suse.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- linux-stm32@st-md-mailman.stormreply.com, Kevin Hilman
- <khilman@baylibre.com>, linux-kernel@vger.kernel.org,
- Fugang Duan <fugang.duan@nxp.com>, Shawn Guo <shawnguo@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- linux-serial@vger.kernel.org, Neil Armstrong <neil.armstrong@linaro.org>,
- Fabio Estevam <festevam@gmail.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, Le Ray
- <erwan.leray@foss.st.com>, Michal Simek <michal.simek@xilinx.com>,
- Lubomir Rintel <lkundrak@v3.sk>, Jerome Brunet <jbrunet@baylibre.com>,
- Magnus Damm <magnus.damm@gmail.com>,
- Pragnesh Patel <pragnesh.patel@sifive.com>,
+Cc: Vinod Koul <vkoul@kernel.org>,
  Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- linux-amlogic@lists.infradead.org, NXP Linux Team <linux-imx@nxp.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Vignesh Raghavendra <vigneshr@ti.com>,
- linux-arm-kernel@lists.infradead.org
-References: <20230123151302.368277-1-krzysztof.kozlowski@linaro.org>
- <20230123151302.368277-11-krzysztof.kozlowski@linaro.org>
- <167451486467.2795286.1299932821783618559.robh@kernel.org>
+ Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>,
+ Olivier Dautricourt <olivierdautricourt@gmail.com>, Stefan Roese
+ <sr@denx.de>, Hector Martin <marcan@marcan.st>,
+ Sven Peter <sven@svenpeter.dev>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+ Thierry Reding <thierry.reding@gmail.com>,
+ Jonathan Hunter <jonathanh@nvidia.com>, =?UTF-8?Q?Andreas_F=c3=a4rber?=
+ <afaerber@suse.de>, Manivannan Sadhasivam <mani@kernel.org>,
+ Andy Gross <agross@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konrad.dybcio@linaro.org>, Viresh Kumar <vireshk@kernel.org>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Green Wan <green.wan@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
+ Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+ Masami Hiramatsu <mhiramat@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>, Maxime Ripard
+ <mripard@kernel.org>, =?UTF-8?B?77+9ZXI=?= <povik+lin@cutebit.org>,
+ Peng Fan <peng.fan@nxp.com>, Paul Cercueil <paul@crapouillou.net>,
+ - <chuanhua.lei@intel.com>, Long Cheng <long.cheng@mediatek.com>,
+ Rajesh Gumasta <rgumasta@nvidia.com>,
+ Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
+ Biju Das <biju.das.jz@bp.renesas.com>,
+ Miquel Raynal <miquel.raynal@bootlin.com>, Palmer Debbelt
+ <palmer@sifive.com>, Masahiro Yamada <yamada.masahiro@socionext.com>,
+ Amelie Delaunay <amelie.delaunay@foss.st.com>,
+ Linus Walleij <linus.walleij@linaro.org>, dmaengine@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+ asahi@lists.linux.dev, linux-tegra@vger.kernel.org,
+ linux-actions@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-mediatek@lists.infradead.org
+References: <20230118180144.364756-1-krzysztof.kozlowski@linaro.org>
+ <20230118180144.364756-2-krzysztof.kozlowski@linaro.org>
+ <20230123202010.GA2455859-robh@kernel.org>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <167451486467.2795286.1299932821783618559.robh@kernel.org>
+In-Reply-To: <20230123202010.GA2455859-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230123_232511_121384_76AE1C25 
-X-CRM114-Status: GOOD (  14.18  )
+X-CRM114-CacheID: sfid-20230123_235246_642184_2896501F 
+X-CRM114-Status: GOOD (  15.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,36 +130,88 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 24/01/2023 00:05, Rob Herring wrote:
-> 
-> On Mon, 23 Jan 2023 16:13:00 +0100, Krzysztof Kozlowski wrote:
->> The re-usable serial.yaml schema matches every property with ".*"
->> pattern, thus any other schema referencing it will not report unknown
->> (unevaluated) properties.  This hides several wrong properties.  It is
->> a limitation of dtschema, thus provide a simple workaround: expect
->> children to be only of few names matching upstream usage (Bluetooth,
->> GNSS, GPS and MCU).
+On 23/01/2023 21:20, Rob Herring wrote:
+> On Wed, Jan 18, 2023 at 07:01:44PM +0100, Krzysztof Kozlowski wrote:
+>> Cleanup examples:
+>>  - use 4-space indentation (for cases when it is neither 4 not 2 space),
+>>  - use lowercase hex.
 >>
 >> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 >> ---
->>  Documentation/devicetree/bindings/serial/serial.yaml | 2 +-
->>  1 file changed, 1 insertion(+), 1 deletion(-)
+>>  .../bindings/dma/snps,dw-axi-dmac.yaml        | 36 +++++++++----------
+>>  .../bindings/dma/stericsson,dma40.yaml        |  4 +--
+>>  2 files changed, 20 insertions(+), 20 deletions(-)
 >>
+>> diff --git a/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml b/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
+>> index 2bedab1f74e0..d34d0fa62ab5 100644
+>> --- a/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
+>> +++ b/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
+>> @@ -113,21 +113,21 @@ additionalProperties: false
+>>  
+>>  examples:
+>>    - |
+>> -     #include <dt-bindings/interrupt-controller/arm-gic.h>
+>> -     #include <dt-bindings/interrupt-controller/irq.h>
+>> -     /* example with snps,dw-axi-dmac */
+>> -     dmac: dma-controller@80000 {
+>> -         compatible = "snps,axi-dma-1.01a";
+>> -         reg = <0x80000 0x400>;
+>> -         clocks = <&core_clk>, <&cfgr_clk>;
+>> -         clock-names = "core-clk", "cfgr-clk";
+>> -         interrupt-parent = <&intc>;
+>> -         interrupts = <27>;
+>> -         #dma-cells = <1>;
+>> -         dma-channels = <4>;
+>> -         snps,dma-masters = <2>;
+>> -         snps,data-width = <3>;
+>> -         snps,block-size = <4096 4096 4096 4096>;
+>> -         snps,priority = <0 1 2 3>;
+>> -         snps,axi-max-burst-len = <16>;
+>> -     };
+>> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+>> +    #include <dt-bindings/interrupt-controller/irq.h>
+>> +    /* example with snps,dw-axi-dmac */
+>> +    dmac: dma-controller@80000 {
 > 
-> My bot found errors running 'make DT_CHECKER_FLAGS=-m dt_binding_check'
-> on your patch (DT_CHECKER_FLAGS is new in v5.13):
-> 
-> yamllint warnings/errors:
-> 
-> dtschema/dtc warnings/errors:
-> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/bus/intel,ixp4xx-expansion-bus-controller.example.dtb: serial@1,0: Unevaluated properties are not allowed ('intel,ixp4xx-eb-byte-access', 'intel,ixp4xx-eb-cycle-type', 'intel,ixp4xx-eb-t3', 'intel,ixp4xx-eb-write-enable' were unexpected)
-> 	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/serial/8250.yaml
+> Drop unused labels while you are here.
 
-Did I just forgot to test all the bindings (except the changed ones)? It
-seems so, therefoer note to myself:
+Ack
 
-Please run `make dt_binding_check` (see
-Documentation/devicetree/bindings/writing-schema.rst for instructions). :)
+> 
+>> +        compatible = "snps,axi-dma-1.01a";
+>> +        reg = <0x80000 0x400>;
+>> +        clocks = <&core_clk>, <&cfgr_clk>;
+>> +        clock-names = "core-clk", "cfgr-clk";
+>> +        interrupt-parent = <&intc>;
+>> +        interrupts = <27>;
+>> +        #dma-cells = <1>;
+>> +        dma-channels = <4>;
+>> +        snps,dma-masters = <2>;
+>> +        snps,data-width = <3>;
+>> +        snps,block-size = <4096 4096 4096 4096>;
+>> +        snps,priority = <0 1 2 3>;
+>> +        snps,axi-max-burst-len = <16>;
+>> +    };
+>> diff --git a/Documentation/devicetree/bindings/dma/stericsson,dma40.yaml b/Documentation/devicetree/bindings/dma/stericsson,dma40.yaml
+>> index 664ee61a00d8..57395a810719 100644
+>> --- a/Documentation/devicetree/bindings/dma/stericsson,dma40.yaml
+>> +++ b/Documentation/devicetree/bindings/dma/stericsson,dma40.yaml
+>> @@ -147,9 +147,9 @@ examples:
+>>      #include <dt-bindings/interrupt-controller/irq.h>
+>>      #include <dt-bindings/interrupt-controller/arm-gic.h>
+>>      #include <dt-bindings/mfd/dbx500-prcmu.h>
+>> -    dma-controller@801C0000 {
+>> +    dma-controller@801c0000 {
+>>        compatible = "stericsson,db8500-dma40", "stericsson,dma40";
+>> -      reg = <0x801C0000 0x1000>, <0x40010000 0x800>;
+>> +      reg = <0x801c0000 0x1000>, <0x40010000 0x800>;
+>>        reg-names = "base", "lcpa";
+>>        interrupts = <GIC_SPI 25 IRQ_TYPE_LEVEL_HIGH>;
+>>        #dma-cells = <3>;
+> 
+> Indentation?
+
+Ack
 
 Best regards,
 Krzysztof
