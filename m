@@ -4,37 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55E5FC54E94
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Jan 2023 17:17:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7EB7C54E94
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Jan 2023 17:18:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cS7HFU2p34zA5FaGeRtq1tYuJuVEhfuGx3fWKqsEHY0=; b=FGDKDunuSa1Vn1
-	Vph7F6KX4RU4AQu0p6uAMFI80WZ23QiUa4MxiZb95g53oTG8U/xip4cD/rZDiTGb5vp0CPDIU0OjL
-	PUZW/HRi8fdTCTPOr3l3nmLCnqajD13Xax1US3unNjpepxIz30VYP0flJnTak18DBgpFik3Tv0zO1
-	3OmcCIy2wVGcQFovPqrkyHbTztPYO5MU0LVa9tm/OnM5819e7tkjnrst9C9AciCb9sUKOiDtmXUjY
-	IZMzf5S2TIsd9B68CHCwMUUVI7ZfYEbWGGJYdaivKBksmGFqha/2ncQslbh6sYE3jXgirrd1vANqY
-	ZRn0CU8UO1fL90Y5w4ag==;
+	List-Owner; bh=TnT5LBTt9m/CS6FRuOdu1NDTEFY3kOKpe5lR7ymifr0=; b=LrdJuT81uA9o20
+	J9s3i1WqblWracq2M0jr/de7+ssS8QJ0aX9Siykg3ONdivkis/Nr8vOYG7ry8ohQh0WF/bzc40XDs
+	v+lwjfoEDgoiyVH9Z2JFT8i5Peu7ZtRsBZcSNXKOxtX9Lw4Ln0rF5pPxjSHEABGd4+dtZna8f7B07
+	yu+dSsQ+rVRAkm477X/IY+YX72iN0ZI/yIsd4fGWuy++3We09DpIRSkwps/CcA9IwZ/EmPySwKgyd
+	YUG9bicZivBro0W29J8I1D0QUMNNoAWEQVKi7w2S8rJnFmV7Y0eBBPvAgaW88f73eFoSS0rpLn5br
+	XfD2D/EsOLqiDw0gEFLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKMvN-004nDt-8F; Tue, 24 Jan 2023 17:17:33 +0000
-Received: from out-83.mta0.migadu.com ([91.218.175.83])
+	id 1pKMvm-004nLO-2S; Tue, 24 Jan 2023 17:17:58 +0000
+Received: from out2.migadu.com ([188.165.223.204])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKMvC-004n9B-Jk
-	for linux-riscv@lists.infradead.org; Tue, 24 Jan 2023 17:17:24 +0000
-Date: Tue, 24 Jan 2023 17:17:12 +0000
+	id 1pKMva-004nGn-6v; Tue, 24 Jan 2023 17:17:47 +0000
+Date: Tue, 24 Jan 2023 17:17:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1674580638;
+	t=1674580662;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=KIEASO5qPs55lTPiWLXCZgFc1uWbFeBJE6bZJxvRUc0=;
-	b=pHL003ov1XfnmIFlNayK1LaKatLGFuHSsS50iKWIk9FUm7eZ3+Hh4zvnZo0gD4kA+Ikrly
-	jgan9mv2Uos5m1WyH5cRwTLVHswqpM8wNprQ67Jyt6Jw1juH3/vuLsyhSdzSnnXDYt8ofY
-	ju2OUJ7yTEO4EIJpNHPVHxdHb1S591c=
+	bh=GXyW90IOjnXJvIfMtjFFfhTG4Pl/WIRVVHctvw+l3qI=;
+	b=b3syj6I9kUIPksw9zSGRrhxPXAmMEZkQmhx+mXT+MrQl4aIrYCXkgsuSj22vzS/C5c2dJ4
+	Zky5SMa1QnMvd5iE8GqhFTc26az6rzVKeq0SARVDo3SkdoTamaRZ/ugvM0qzMqxRPHIFIf
+	UYIqetKi0gix/Ay/grdqiC6hRE2jAdY=
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 From: Oliver Upton <oliver.upton@linux.dev>
 To: David Matlack <dmatlack@google.com>
@@ -55,17 +54,19 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
 	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
 	Raghavendra Rao Ananta <rananta@google.com>
-Subject: Re: [PATCH 2/7] KVM: arm64: Use kvm_arch_flush_remote_tlbs()
-Message-ID: <Y9ASmOvJutgGLVnT@google.com>
+Subject: Re: [PATCH 6/7] KVM: Allow range-based TLB invalidation from common
+ code
+Message-ID: <Y9ASsTwZlZDxx5pv@google.com>
 References: <20230119173559.2517103-1-dmatlack@google.com>
- <20230119173559.2517103-3-dmatlack@google.com>
+ <20230119173559.2517103-7-dmatlack@google.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230119173559.2517103-3-dmatlack@google.com>
+In-Reply-To: <20230119173559.2517103-7-dmatlack@google.com>
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230124_091722_807189_767251A8 
-X-CRM114-Status: GOOD (  15.15  )
+X-CRM114-CacheID: sfid-20230124_091746_415367_EF9564FC 
+X-CRM114-Status: UNSURE (   7.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,41 +83,14 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi David,
-
-On Thu, Jan 19, 2023 at 09:35:54AM -0800, David Matlack wrote:
-> Use kvm_arch_flush_remote_tlbs() instead of
-> CONFIG_HAVE_KVM_ARCH_TLB_FLUSH_ALL. The two mechanisms solve the same
-> problem, allowing architecture-specific code to provide a non-IPI
-> implementation of remote TLB flushing.
+On Thu, Jan 19, 2023 at 09:35:58AM -0800, David Matlack wrote:
+> Make kvm_flush_remote_tlbs_range() visible in common code and create a
+> default implementation that just invalidates the whole TLB.
 > 
-> Dropping CONFIG_HAVE_KVM_ARCH_TLB_FLUSH_ALL allows KVM to standardize
-> all architectures on kvm_arch_flush_remote_tlbs() instead of maintaining
-> two mechanisms.
-> 
-> Opt to standardize on kvm_arch_flush_remote_tlbs() since it avoids
-> duplicating the generic TLB stats across architectures that implement
-> their own remote TLB flush.
-> 
-> This adds an extra function call to the ARM64 kvm_flush_remote_tlbs()
-> path, but (I assume) that is a small cost in comparison to flushing
-> remote TLBs.
+> This paves the way for several future cleanups:
+>  - Introduction of range-based TLBI on ARM.
 
-A fair assumption indeed. The real pile up occurs on the DSB subsequent
-to the TLBI.
-
-> No functional change intended.
-> 
-> Signed-off-by: David Matlack <dmatlack@google.com>
-> ---
->  arch/arm64/include/asm/kvm_host.h | 3 +++
->  arch/arm64/kvm/Kconfig            | 1 -
->  arch/arm64/kvm/mmu.c              | 6 +++---
->  virt/kvm/kvm_main.c               | 2 --
->  4 files changed, 6 insertions(+), 6 deletions(-)
-
-I think you're missing the diff that actually drops the Kconfig opton
-from virt/kvm/Kconfig.
+nit: this is definitely a new feature, not a cleanup :)
 
 --
 Thanks,
