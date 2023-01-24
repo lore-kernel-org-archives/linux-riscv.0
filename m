@@ -4,74 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72A0BC38142
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Jan 2023 14:40:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49454C38142
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Jan 2023 14:43:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z8RfGEyRd4axWslyqXoM+us7m/BOrro0a1MK2OCgkeA=; b=xNioMHqvFTPXpjwIkEAlK65Udq
-	fT2NjTiPL4yCsXUSrxvyIb7CzHOoLMAP+vvs7aMhZDBN4FyXG23846Jwa/4ldyRo01zVcbK9L4Agy
-	TNnP171LrqmoiBYmxGEV/QST83nBpdVfSNwMGM+ZawQTjriv+zS9uFAYb+qHJcHhStXFoEhU0rCvE
-	SoNXoIPpP2si39nJUwVV9YKaiLgFzU+NGe/tx/mfruAlvLhxzzx+n/11PUOTwunxJM8SaZmwkVweF
-	uqh5RuA25pWIX7aY0tyDIhtfLQyzYJeey5u64uuNSHUTxEwXv2/hh7t+rTPzL3Clo/40uvL0z9BDh
-	Wx2/9vcg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=1sJVbC4g6sbuwT4f3VWmQ1cKo02yA4SH2SxmdxTg6aI=; b=AMK5LimmHipxNv
+	CDhGXdp+lYu4gu5teNhGJHRw8zlrrKiGS7Wo02RPi3KB/XdMn8NuWe5oE9B5kMCtIWKq+R+9yhcK8
+	6w2jjhyUrHBoSzP/8w7GVo928oXB9DopakOjHpYeFHCj7zYrP4nIAU2ZsWextA9ekt5NDCGAh/Llv
+	SZBVqYKlFTLBGaAweJuP2uIWJkpmWA3pN0jqPctOJ1AyuqjdBCsTHyY3kUNbr/ephFA7K9ZiibJSu
+	DeB6PpN8GbGGajbjkVHBXd9xNnvEs7X/bdyN7Zts8MzXwrfBqMFHoHI3u7pO4zEVvNdoW7CF/F09R
+	gTGoF9yfyWG5+k0oFDrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKKT3-004Mjn-AZ; Tue, 24 Jan 2023 14:40:09 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKKSr-004MhZ-TT; Tue, 24 Jan 2023 14:40:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1674571198; x=1706107198;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=QYC/3AGiRj6sLnDRHA1FuZ9RfMd2Lv6xm2a4QznoPBo=;
-  b=BX4oS/eUw0ADB7uJntk8fcifYJF+HKXE1g6XDsNMwSPNKEaR32WxkY+w
-   yvDrsohjjmTjeYMwzsDCsqFcJGLynPJUSTxv97kP3SWg4/wb4RkxOya1h
-   gjqJZN1MFg+dVsryczGG4LQdnpDWFvq31l6aRs8vcs2L7ePPrFFt2bNh4
-   ONuLhboBxfu6MoCw00uTjAHal6HeH7THvouv15DWgTnKkG+iWZAuC0Y2w
-   H8MY9KQd2EeLKtxP7OK9tPH3/IYyTsv5UxQUMw/yf37Op7qT/efs7axub
-   zZCH/B5EzSSXUF74VJufDOGjuyFAMia7kSRAzHbPbCrUV9KJ76qaGjYsn
-   Q==;
-X-IronPort-AV: E=Sophos;i="5.97,242,1669100400"; 
-   d="asc'?scan'208";a="193633516"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 24 Jan 2023 07:39:54 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.16; Tue, 24 Jan 2023 07:39:45 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.16 via Frontend
- Transport; Tue, 24 Jan 2023 07:39:42 -0700
-Date: Tue, 24 Jan 2023 14:39:19 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Sudeep Holla <sudeep.holla@arm.com>
-CC: Geert Uytterhoeven <geert@linux-m68k.org>, Pierre Gondois
-	<pierre.gondois@arm.com>, <linux-kernel@vger.kernel.org>, Palmer Dabbelt
-	<palmer@rivosinc.com>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
-	<will@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, "Rafael J. Wysocki"
-	<rafael@kernel.org>, Len Brown <lenb@kernel.org>, Greg Kroah-Hartman
-	<gregkh@linuxfoundation.org>, Gavin Shan <gshan@redhat.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
-	<linux-acpi@vger.kernel.org>
-Subject: Re: [PATCH v4 6/6] arch_topology: Build cacheinfo from primary CPU
-Message-ID: <Y8/tl999NQwbPL/R@wendy>
-References: <20230104183033.755668-1-pierre.gondois@arm.com>
- <20230104183033.755668-7-pierre.gondois@arm.com>
- <CAMuHMdUjgxgOXf5He1x=PLn7MQTjZgFQUHj8JrwbyweT4uOALQ@mail.gmail.com>
- <20230124140420.4srnufcvamvff77v@bogus>
+	id 1pKKVs-004NoQ-9B; Tue, 24 Jan 2023 14:43:04 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pKKVg-004NkA-M7; Tue, 24 Jan 2023 14:42:54 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 703194B3;
+	Tue, 24 Jan 2023 06:43:30 -0800 (PST)
+Received: from bogus (e103737-lin.cambridge.arm.com [10.1.197.49])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 92E083F71E;
+	Tue, 24 Jan 2023 06:42:47 -0800 (PST)
+Date: Tue, 24 Jan 2023 14:42:45 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	linux-kernel@vger.kernel.org,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Yong-Xuan Wang <yongxuan.wang@sifive.com>,
+	ALKML <linux-arm-kernel@lists.infradead.org>,
+	linux-riscv@lists.infradead.org,
+	Pierre Gondois <pierre.gondois@arm.com>
+Subject: Re: [GIT PULL] cacheinfo/arch_topology: Updates for v6.3
+Message-ID: <20230124144245.ddphvqbcxpzrlgek@bogus>
+References: <20230120121856.1407369-1-sudeep.holla@arm.com>
+ <CAMuHMdUZzLkWvhQ=YeH2KfQ_FRidemfOvbbHf_b1AHROK9HFNA@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <20230124140420.4srnufcvamvff77v@bogus>
+Content-Disposition: inline
+In-Reply-To: <CAMuHMdUZzLkWvhQ=YeH2KfQ_FRidemfOvbbHf_b1AHROK9HFNA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230124_063958_076374_C01BDB2F 
-X-CRM114-Status: GOOD (  25.64  )
+X-CRM114-CacheID: sfid-20230124_064252_835453_C4E3B771 
+X-CRM114-Status: GOOD (  29.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,111 +61,94 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2131458541024688789=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============2131458541024688789==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="Vk/U8mTs5k/Wt3P9"
-Content-Disposition: inline
+On Tue, Jan 24, 2023 at 02:44:10PM +0100, Geert Uytterhoeven wrote:
+> Hi Sudeep,
+> 
+> On Fri, Jan 20, 2023 at 1:22 PM Sudeep Holla <sudeep.holla@arm.com> wrote:
+> > It has been tested on RISC-V which is the main users outside of arm64.
+> 
+> Has it?
+>
 
---Vk/U8mTs5k/Wt3P9
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Hmm, I might have mixed up things then. I was on a vacation for quite some
+time and might have assumed Conor response on the thread with testing.
+Extremely sorry for that. However it was in -next for few days before
+Greg applied to his tree.
 
-On Tue, Jan 24, 2023 at 02:04:20PM +0000, Sudeep Holla wrote:
-> Conor might help me remember the details.
-
-And I can't shirk either since you know I just replied to Pierre!
-
-> On Tue, Jan 24, 2023 at 02:50:16PM +0100, Geert Uytterhoeven wrote:
-
-> > > @@ -840,6 +840,14 @@ void __init init_cpu_topology(void)
-> > >                 reset_cpu_topology();
-> > >                 return;
-> > >         }
-> > > +
-> > > +       for_each_possible_cpu(cpu) {
-> > > +               ret =3D fetch_cache_info(cpu);
-> > > +               if (ret) {
-> > > +                       pr_err("Early cacheinfo failed, ret =3D %d\n"=
-, ret);
-> >=20
-> > This triggers on all my RV64 platforms (K210, Icicle, Starlight,
-> > RZ/Five).
-> >=20
-> > This seems to be a respin of
-> > https://lore.kernel.org/all/CAMuHMdUBZ791fxCPkKQ6HCwLE4GJB2S35QC=3DSQ+X=
-8w5Q4C_70g@mail.gmail.com
-> > which had the same issue.
+> > The ACPI the RISC-V parts are acked-by the respective maintainers. All
+> > the changes are in the -next for sometime and no issues reported at this
+> > time.
 > >
->=20
-> I need to recollect my memories reading all the thread, but even after the
-> fixes there were few platforms that failed with so early allocation but w=
-ere
-> fine with initcalls. Are these such platforms or am I mixing up things he=
-re ?
-> Do you still see all the cacheinfo in the sysfs with initcalls that happen
-> later in the boot ?
+> > Regards,
+> > Sudeep
+> >
+> > -->8
+> >
+> > The following changes since commit 1b929c02afd37871d5afb9d498426f83432e71c2:
+> >
+> >   Linux 6.2-rc1 (2022-12-25 13:41:39 -0800)
+> >
+> > are available in the Git repository at:
+> >
+> >   git://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux.git tags/archtopo-cacheinfo-updates-6.3
+> >
+> > for you to fetch changes up to 198102c9103fc78d8478495971947af77edb05c1:
+> >
+> >   cacheinfo: Fix shared_cpu_map to handle shared caches at different levels (2023-01-18 09:58:40 +0000)
+> >
+> > ----------------------------------------------------------------
+> > cacheinfo and arch_topology updates for v6.3
+> >
+> > The main change is to build the cache topology information for all
+> > the CPUs from the primary CPU. Currently the cacheinfo for secondary CPUs
+> > is created during the early boot on the respective CPU itself. Preemption
+> > and interrupts are disabled at this stage. On PREEMPT_RT kernels, allocating
+> > memory and even parsing the PPTT table for ACPI based systems triggers a:
+> >   'BUG: sleeping function called from invalid context'
+> >
+> > To prevent this bug, the cacheinfo is now allocated from the primary CPU
+> > when preemption and interrupts are enabled and before booting secondary
+> > CPUs. The cache levels/leaves are computed from DT/ACPI PPTT information
+> > only, without relying on any architecture specific mechanism if done so
+> > early.
+> >
+> > The other minor change included here is to handle shared caches at
+> > different levels when not all the CPUs on the system have the same
+> > cache hierarchy.
+> 
+> While this gets rid of the "cacheinfo: Unable to detect cache hierarchy
+> for CPU N" warnings printed during boot, it resurrects the printing of
+> 
+>     Early cacheinfo failed, ret = -12
+> 
+> during early boot on all my RV64 platforms
+> 
+> See also https://lore.kernel.org/all/CAMuHMdUBZ791fxCPkKQ6HCwLE4GJB2S35QC=SQ+X8w5Q4C_70g@mail.gmail.com/
+> for a similar earlier version triggering the same issue.
+> 
+> > ----------------------------------------------------------------
+> > Pierre Gondois (6):
+> >       arch_topology: Build cacheinfo from primary CPU
+> 
+> Reverting commit 5944ce092b97caed ("arch_topology: Build cacheinfo
+> from primary CPU") fixes the issue.
+>
 
-IIRC that stuff was failing back then because riscv calls
-init_cpu_topology() far sooner in boot than arm64 does, and therefore
-caused allocation failures. You made that warning go away in the below
-patch by moving detect_cache_attributes() to update_siblings_masks(),
-which both arches call later during boot IIRC:
-https://lore.kernel.org/all/20220713133344.1201247-1-sudeep.holla@arm.com
+OK, thanks for narrowing it to one patch. We will look at it. But does
+it work fine even with this errors ? We had seen such a behaviour in the
+past. It fails to initialise too early but works at later initcall level
+which I am not sure if we investigated why.
 
-Pierre's patch has added fetch_cache_info() to the problematic
-init_cpu_topology() which is called before we can actually do any
-allocation in smp_prepare_boot_cpu() or something like that.
-
-That's what I get for only reviewing the patch that was specifically for
-riscv, and not the rest of the series... D'oh.
-
-This actually came up a few weeks ago, although I kinda considered the
-reason it was triggered to be a bit bogus there, since that dmips property
-is not (yet?) a valid property on RISC-V. The patch for that is here:
-https://patchwork.kernel.org/project/linux-riscv/patch/20230105033705.39461=
-30-1-leyfoon.tan@starfivetech.com/
-I tried it on a PolarFire SoC (unfortunately not an Icicle, I just went
-and bricked mine an hour ago) & it should be a fix for this problem too.
-
-My suggested commit message for that is somewhat prophetic now that I
-look back at it:
-https://lore.kernel.org/all/Y7V4byskevAWKM3G@spud/
-
-I'll ping Palmer about that patch I guess...
-
-Cheers,
-Conor.
-
-
---Vk/U8mTs5k/Wt3P9
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY8/tlgAKCRB4tDGHoIJi
-0sDmAQC5A7U+zC3XFE9IoI8mjgdAUswG9Sc9F3KPSROMrGNuzAD/RYD2MWaKYUqC
-sZ+0vgdr9ZaNFfw9F1XIgPCOYWjBcQ8=
-=jqYz
------END PGP SIGNATURE-----
-
---Vk/U8mTs5k/Wt3P9--
-
-
---===============2131458541024688789==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+Regards,
+Sudeep
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2131458541024688789==--
-
