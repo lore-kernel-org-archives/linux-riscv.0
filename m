@@ -4,83 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 481F1C54E94
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jan 2023 20:19:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 330A5C27C76
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jan 2023 20:21:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NaxOjjc84E8uRqzOzQseo7mbNwXh2lfIR8XFBBMZ8oM=; b=HGG18mwfu6cZZX
-	tDkI4ASehzfQTJQiWCbV5CpjC6J4wUnrVNtR/mRMLSQSHY3Rvq8Vpy90GanHzruqSf5Y8yh3sIK3c
-	2TK4qro688ep1DqbHkLpwdknnjvq8jF3kK2ubYu2AH/rRK21NvcJlf3CJVbOupz/4ryOgsBgT828h
-	rQoBe736yDk4tMYRUqCIEO3nszg7MGRvLA/XlCC5i8kN7DuKdHwzc+k+mrz+6LUOHeNA0nFFa0S9A
-	K3vUzwl66XiuCzlDABMKWiy4hUOlI4QmqjU3OTQUVL+DzBlvpzeCoaUDg2ka3Fdc3Sn4gteRuzSHp
-	U7JNqQ/irnZSzEp2E64Q==;
+	List-Owner; bh=EF0Ngt4ocpoQpfRr4s/LPGe6HOupvafApsByz1LINDo=; b=4DPO3/XFVGUmoi
+	OF7bJIf+L/FaY9gmbGYLoJCNgaLQv7Qd4MYZwcs/VcwIik/mDyOG7Wu73ah62IiJiOVbgm+5tWMj2
+	8KpDit+R4LFukJbR86FFY6IzkeWBEvJNPIfJJucUUltN0HUWlHV40EtXQT6p9Kg2VIJ/NVKcwg8vz
+	5F6nlr30k6AbvD3+ogfzbGzjR+k6uXtek/5NmdoZqWO4rU+l691XAksxraKRo1//qqgnBQxoFCHq+
+	g4oH3W+qMl4BkfG/EhnTiJh18wiPgMNBvXPf4W8rFRq7o7Ns4FOnlr7rUohS9jtwq/BbOCrbTKfVj
+	SUcfrHHjLXC0IvrSMTkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKmFL-008f0P-OZ; Wed, 25 Jan 2023 20:19:51 +0000
-Received: from mail-oa1-f50.google.com ([209.85.160.50])
+	id 1pKmGR-008fTo-Bb; Wed, 25 Jan 2023 20:20:59 +0000
+Received: from mail-ot1-f46.google.com ([209.85.210.46])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKm4i-008aDJ-Kj; Wed, 25 Jan 2023 20:08:53 +0000
-Received: by mail-oa1-f50.google.com with SMTP id 586e51a60fabf-16332831ed0so3131678fac.10;
-        Wed, 25 Jan 2023 12:08:51 -0800 (PST)
+	id 1pKm4t-008aIe-Va; Wed, 25 Jan 2023 20:09:05 +0000
+Received: by mail-ot1-f46.google.com with SMTP id t7-20020a05683014c700b006864760b1caso11857otq.0;
+        Wed, 25 Jan 2023 12:09:02 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=2nDL5JMpYL8zMscLCkNwpf+56C4bxX8siHriNAzVjbw=;
-        b=lVHGCtvr4uyKaFvIkt0r+vsFIeTKNmFpCNS2uEJrnMxu3OpPpw2eAFZghkiarLKA8u
-         CPeP49xZB/GJdXHxdz0NMQBML1JbNc9/6bP2+HK2Sz7YVtJEAqtaSoHw0Qz6MCUtY0va
-         WxdGip3gDIwG43nBIRHQViPcILp+vM9ymQJpU0fswfc6k4rMGwsfrXx3z+5J63+N0/dw
-         wHbG2MuJrW9SuftiN2djDEkGjZj/oJj6VtmJ/g4B+v2+pMbmA2DtO9G6pQNTkgEmZvmq
-         4ZN0B+f7zBkc57w8g1tJXlsFWpOROf5rSoRSWgmKCP/R5Mt2lAPUhjy+lU5tQzigMA0i
-         FvEw==
-X-Gm-Message-State: AFqh2kpHlrZ1k7q+e5Q0F1OK4QbkYslwvJnuGjA4t9Yjt8rJy/pzvFXr
-	edpXCfjxCn2+YOfqvJwfog==
-X-Google-Smtp-Source: AMrXdXuA8tO45Yj4ss66nTmpQUbLo6kLx/P66wPdUh9X5rLrKkVx5S80pJZ5ehwR5YNBU80lx/AzZQ==
-X-Received: by 2002:a05:6870:9d0a:b0:15f:32b:6e33 with SMTP id pp10-20020a0568709d0a00b0015f032b6e33mr16413614oab.39.1674677330355;
-        Wed, 25 Jan 2023 12:08:50 -0800 (PST)
+        bh=6t3+eN2lHtIu49LblIFaPzhFGYt/AfmaSuGsn+YEdS0=;
+        b=nLSaugux7bjlTPw/13olc9N/TsR+pyvEzNY7VawpVrLDQG7PTDIHG+V0/v6Dob2x1a
+         lPPvc1oRT5h9k3Jvf/7wv4/JEN2P4ItbFd7x4WKBMuOIPOnGg9jQzVNUciGFyWEWShAU
+         qkB1Si9i4yzPm9TRO9mLAD06IImiciyDVyl9tgjXgGoAGgDW4HPJVPAS9LMoHmFH5L7o
+         Q8ALMuYTvGPbM0OXAD/yR3BNaPisO7XfDIOHXovRFBPbY2mM4LD8ays/51OrojQ9qqVo
+         KQCdYfMGCpmqa7m90JIAyUbNdNGj+uuzznxh37Ui1EJNhu3R1oqnWz2VEWGTicDDYurY
+         CB7Q==
+X-Gm-Message-State: AFqh2krbuxUhHb9IpSbcfHXTmvZlXhoLu33fE0IaCE9T6nWAZMYfNoge
+	2erzfFpK+eAmcSySM23rMA==
+X-Google-Smtp-Source: AMrXdXvmG+MMXgZe3y8Iabdwj1T7QPV9D3ixNYqPrRVv52b4IuvZX87jEuE4ezPKTjyH7bgohvzYWA==
+X-Received: by 2002:a9d:6b03:0:b0:670:7a2b:f52f with SMTP id g3-20020a9d6b03000000b006707a2bf52fmr15887767otp.8.1674677341751;
+        Wed, 25 Jan 2023 12:09:01 -0800 (PST)
 Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id p13-20020a056870568d00b0015f83e16a10sm2278638oao.44.2023.01.25.12.08.48
+        by smtp.gmail.com with ESMTPSA id f18-20020a9d5f12000000b00670641eb272sm2571030oti.20.2023.01.25.12.09.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Jan 2023 12:08:50 -0800 (PST)
-Received: (nullmailer pid 2793767 invoked by uid 1000);
-	Wed, 25 Jan 2023 20:08:48 -0000
-Date: Wed, 25 Jan 2023 14:08:48 -0600
+        Wed, 25 Jan 2023 12:09:01 -0800 (PST)
+Received: (nullmailer pid 2795996 invoked by uid 1000);
+	Wed, 25 Jan 2023 20:09:00 -0000
+Date: Wed, 25 Jan 2023 14:09:00 -0600
 From: Rob Herring <robh@kernel.org>
 To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Chester Lin <clin@suse.com>, Fugang Duan <fugang.duan@nxp.com>, 
-	Pragnesh Patel <pragnesh.patel@sifive.com>, Le Ray <erwan.leray@foss.st.com>, 
-	linux-kernel@vger.kernel.org, Shawn Guo <shawnguo@kernel.org>, 
-	Peter Korsgaard <jacmet@sunsite.dk>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	devicetree@vger.kernel.org, Tomer Maimon <tmaimon77@gmail.com>, 
-	linux-stm32@st-md-mailman.stormreply.com, Lubomir Rintel <lkundrak@v3.sk>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Magnus Damm <magnus.damm@gmail.com>, 
-	Michal Simek <michal.simek@xilinx.com>, Jerome Brunet <jbrunet@baylibre.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, 
+Cc: linux-serial@vger.kernel.org, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, 
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Fabio Estevam <festevam@gmail.com>, Kevin Hilman <khilman@baylibre.com>, 
-	linux-amlogic@lists.infradead.org, linux-serial@vger.kernel.org, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, NXP Linux Team <linux-imx@nxp.com>, 
-	Vignesh Raghavendra <vigneshr@ti.com>, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 09/12] dt-bindings: serial: fsl-lpuart: allow other
- serial properties
-Message-ID: <167467732818.2793535.3311476419413024796.robh@kernel.org>
+	linux-stm32@st-md-mailman.stormreply.com, Peter Korsgaard <jacmet@sunsite.dk>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Jerome Brunet <jbrunet@baylibre.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Tomer Maimon <tmaimon77@gmail.com>, 
+	Le Ray <erwan.leray@foss.st.com>, NXP Linux Team <linux-imx@nxp.com>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Magnus Damm <magnus.damm@gmail.com>, 
+	Rob Herring <robh+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Chester Lin <clin@suse.com>, devicetree@vger.kernel.org, 
+	Fabio Estevam <festevam@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Pragnesh Patel <pragnesh.patel@sifive.com>, Michal Simek <michal.simek@xilinx.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+	Fugang Duan <fugang.duan@nxp.com>, Lubomir Rintel <lkundrak@v3.sk>, 
+	Vignesh Raghavendra <vigneshr@ti.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>
+Subject: Re: [PATCH v2 10/12] dt-bindings: serial: st,stm32-uart: drop common
+ properties
+Message-ID: <167467733943.2795781.3621050331030383112.robh@kernel.org>
 References: <20230124091602.44027-1-krzysztof.kozlowski@linaro.org>
- <20230124091916.45054-7-krzysztof.kozlowski@linaro.org>
+ <20230124091916.45054-8-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230124091916.45054-7-krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20230124091916.45054-8-krzysztof.kozlowski@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230125_120852_730051_4DEFE690 
-X-CRM114-Status: GOOD (  10.17  )
+X-CRM114-CacheID: sfid-20230125_120904_050931_ABDA2F8D 
+X-CRM114-Status: UNSURE (   9.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,16 +99,14 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 24 Jan 2023 10:19:13 +0100, Krzysztof Kozlowski wrote:
-> Reference common serial properties bindings to allow typical serial
-> properties:
-> 
->   imx8qxp-ai_ml.dtb: serial@5a060000: Unevaluated properties are not allowed ('uart-has-rtscts' were unexpected)
+On Tue, 24 Jan 2023 10:19:14 +0100, Krzysztof Kozlowski wrote:
+> The binding references serial and rs485 schemas, so there is no need to
+> list their properties.  Simplify a bit by removing unneeded entries.
 > 
 > Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 > ---
->  Documentation/devicetree/bindings/serial/fsl-lpuart.yaml | 1 +
->  1 file changed, 1 insertion(+)
+>  .../devicetree/bindings/serial/st,stm32-uart.yaml          | 7 -------
+>  1 file changed, 7 deletions(-)
 > 
 
 Acked-by: Rob Herring <robh@kernel.org>
