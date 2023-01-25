@@ -4,113 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6815FC38142
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jan 2023 02:24:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D803C27C76
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jan 2023 03:50:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:
-	To:Subject:Message-ID:Date:MIME-Version:In-Reply-To:References:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3YLsQ1BJDKE9rv23Oy2wiLZYd8NmCueXw2e16Z4ye9o=; b=I7+a+0OUiA5fQH92ncclr1Aa5p
-	gOqZeD4qixmqLn70DqCfVinQVuZPum589gpllmP6kRrlPIy8IDzpfvBvAL3HIW8tiwlRlK2P9bcFE
-	6sKIQpdSkSJizgoVM59mNLEvdvka3FUTybrWggPfIz/NdCqHUc2nZ4wYwWF6uimUpkSB0B76ga4x4
-	QrL4/aTQfOcwSnIIKdy+pDZqYcMIec1ygGwDbgELxNXyOMHYNNWkFPIHKsxqTbNwcPQS6zfqbdm+N
-	Zo1kmWzWZFehRT4MFZqAPbZF78Z3brFT4neNsqiA+X4ta8fKHcCZ3SZWxtRX51qRJLAXXymNIs0zv
-	tJWPByLg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Date:Message-Id
+	:Subject:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=5VRVFF8M3IDDNUKTVD4QvhSt8ShtP95mi8cz/pbUvpA=; b=xKbn6f1MGmhIXS
+	909jFlXOEzgt023bMgaWpvtknJvdji6KAhRRyg0Kc4Msqw5PjTIHSeFJ0veAJT/r9swzcuWYapLLE
+	Ck1U3uK843EU5REmQ23Syv6FOPLNKZ/xqgLX//bIQPDrESWHtQ+o7xU5yZ1NGeEFWbpr52uIWeZdT
+	fUSyZRWo0M6OaAUsybY4u6kDrNFM0p7TuTaOCAqpstAXA3jA2+8i0OBWNKypxR21MSOTDtjx7Ez0T
+	GBecwY2no1KB7Pwopuqnfusz/8gUNA0g+MBG8ze+DEUH+gCYSTEJ0C+fIPZXNoPEqIEPs/8GZ4Xef
+	OXaTYu0TPFmAPxKP9DJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKVSW-005s5F-Sj; Wed, 25 Jan 2023 02:24:20 +0000
-Received: from mail-vs1-xe30.google.com ([2607:f8b0:4864:20::e30])
+	id 1pKWnH-005wwn-AB; Wed, 25 Jan 2023 03:49:51 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKU6x-005l3F-1I
-	for linux-riscv@lists.infradead.org; Wed, 25 Jan 2023 00:58:02 +0000
-Received: by mail-vs1-xe30.google.com with SMTP id k6so18353714vsk.1
-        for <linux-riscv@lists.infradead.org>; Tue, 24 Jan 2023 16:57:55 -0800 (PST)
+	id 1pKWnC-005wvX-F2
+	for linux-riscv@lists.infradead.org; Wed, 25 Jan 2023 03:49:48 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id b24-20020a17090a551800b0022beefa7a23so673154pji.5
+        for <linux-riscv@lists.infradead.org>; Tue, 24 Jan 2023 19:49:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google;
-        h=cc:to:subject:message-id:date:thread-index:mime-version:in-reply-to
-         :references:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=1ibdGlo7r/mc8CxeugbQukts747j8vlZOdOX8gyyQtU=;
-        b=bAQknAZ8fplqen8BOJuStHgr10GySk91pC5GohgQTs7+i1W0QJmFvgJWWxno1CC310
-         ULtFNklmxUd0Q3/GwPe5L5sBhdqq8JzryxXcEXAFjNDdqJtCooRLGWkGkEvrEVwhcbHD
-         PTX3Cvs57CZG6pvkj3m0BibMnds84nWqXhKpM=
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
+         :subject:references:in-reply-to:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=mVipx85j0ilBiIhcQ0ctp/6MNIb22epcy1N4/Tah10E=;
+        b=BT37aw3MFxshRwYN1YtV6EEJeRtk8gBZPqEQAHDygByKQ3aS1aedDxcykJuKN57AJE
+         axZ35FwNd0euHwoa2joK0KuK/SMbIn/9pBA7tRcZW3qEhWLiGAmOo2ixrs+pnGpJFu65
+         f4GOXtQrT7ZSXS/55ZgPvNrNPhQxkR1RONZi/0Wv7T7YLCktc7U0SU9885SK+GqirWPc
+         T7HPYoScdRHRF1Z4gpIUBE9sR5LK8n0qbA07Aql9Cg/bNFDkWqArXqd4w2mPZt0D6LLF
+         wuLgRcnXTlvtH4W45v4Ev6XcrqmF2vpdHSniI1FxOq6kxlWIwlgjqxZqfjwRAKmcwuYI
+         QWhw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:thread-index:mime-version:in-reply-to
-         :references:from:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1ibdGlo7r/mc8CxeugbQukts747j8vlZOdOX8gyyQtU=;
-        b=NGVCNW3t3bdoo/RbsthyTaZfFvqujUD0L2vEma5pw0GPbRuwB0a1CVBwxn+NW5GAWO
-         CZBbU4Qqo1pN2qkbJjr71y6d1XoiMTS/+b8VoKqzSFeptJ2gZils/ZkfSI6IdOVFJW3N
-         k7oMXhajs6E6zqM+fAFaTTwKcIv6LfZPfXfwcHdABrfkiK/1EPrbnE7lE/MzcDA2qC1b
-         WvfZnRhzJiA7pAncqSt1Xkwjb1wVZMoMhM1KcJ9o27b5ufqRgcRZvn/L8hkyAgaOwupj
-         d3vyZjlASgGpXKXLTn3VjwXrzfwnKfeH33xbtbDm+ChZQZy40DaX5ZC1tNtDCvJU0vBh
-         Vq0A==
-X-Gm-Message-State: AFqh2kra16z6taj9ZQIgrX1Eijfg6RipCtKvK9wbh8Oov8uNeRq8mQar
-	QGoaza0QZub1BohyMrg5FmqaZVfNarWr7E76ejvbeQ==
-X-Google-Smtp-Source: AMrXdXu0WEVAHtkl/7WrGp7gsGmIxeNAjZACQY1znOQilpBjqALn5uFkSCuep3Y6cqMY533KDesP8Mmq99uNyBp2hTA=
-X-Received: by 2002:a67:f246:0:b0:3b1:5690:a240 with SMTP id
- y6-20020a67f246000000b003b15690a240mr3921552vsm.68.1674608274113; Tue, 24 Jan
- 2023 16:57:54 -0800 (PST)
-From: William Zhang <william.zhang@broadcom.com>
-References: <20230119185342.2093323-1-amit.kumar-mahapatra@amd.com> <20230119185342.2093323-3-amit.kumar-mahapatra@amd.com>
-In-Reply-To: <20230119185342.2093323-3-amit.kumar-mahapatra@amd.com>
+        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
+         :subject:references:in-reply-to:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=mVipx85j0ilBiIhcQ0ctp/6MNIb22epcy1N4/Tah10E=;
+        b=sCwlRUpXs9AE8aA0NFakLPnktwrCaMj7WU0zpuPNxr+DsCEtPnISYnNYVusoShU/nk
+         Ycpi/Ik1bWwopmKgsCxHditrAMQjD2RMXtHJgt/vKyQ1SISv5f8flq43RxOUlUCIER56
+         32G9IQSQF0xY7jyRgPDcG2+cXyBHGysOKwb79izQ8K7QeIXblMXYOHTMJIlk9eO+Ren1
+         /PutaI/WnmqChN/85cafj6Q4pbjGvzoqrQUTXPDmLwuGyaOdgKAefWtFO9e3WiUANKRE
+         gqGst7Aj/af9DKlCdJQloWja4iq6LwsOsOpSZVWegWuSfmkp/qE88hsAfZhxCebirPlA
+         zuMg==
+X-Gm-Message-State: AO0yUKVGlMB9G+3VU9NTlMClXcn412tt7aXnSPjLwiqKKwW1DyLpa4h4
+	Jcqui1jzR8jli8FoMYXv4RuljlJSKT2QxEUr
+X-Google-Smtp-Source: AK7set8+E4az9jcqv73BSSJ8V05nR3CsEeRfzOaW7+KnIxp00nZX6xYYzd8nPWozbZcAFj4k1uLZVQ==
+X-Received: by 2002:a17:902:d2c6:b0:196:1cc3:74d5 with SMTP id n6-20020a170902d2c600b001961cc374d5mr4260241plc.52.1674618585047;
+        Tue, 24 Jan 2023 19:49:45 -0800 (PST)
+Received: from localhost ([50.221.140.188])
+        by smtp.gmail.com with ESMTPSA id w12-20020a170902a70c00b00189bf5dc96dsm2408476plq.230.2023.01.24.19.49.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Jan 2023 19:49:44 -0800 (PST)
+In-Reply-To: <080aa959266ad842a8e7efca7111f1350c6a065a.1673424858.git.geert+renesas@glider.be>
+References: <080aa959266ad842a8e7efca7111f1350c6a065a.1673424858.git.geert+renesas@glider.be>
+Subject: Re: [PATCH] RISC-V: Kconfig: Remove trailing whitespace
+Message-Id: <167461852794.4353.2529464053851561537.b4-ty@rivosinc.com>
+Date: Tue, 24 Jan 2023 19:48:47 -0800
 MIME-Version: 1.0
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQGsd40KKMSPSaowQedOCmq8Q0lhhQIBWekOAbfQgXk=
-Date: Tue, 24 Jan 2023 16:57:49 -0800
-Message-ID: <36840e0caeca5f53eef4fab615fc7976@mail.gmail.com>
-Subject: Re: [PATCH v2 02/13] spi: Replace all spi->chip_select and
- spi->cs_gpiod references with function call
-To: Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>, broonie@kernel.org, 
-	miquel.raynal@bootlin.com, richard@nod.at, vigneshr@ti.com, jic23@kernel.org, 
-	tudor.ambarus@microchip.com, pratyush@kernel.org, sanju.mehta@amd.com, 
-	chin-ting_kuo@aspeedtech.com, clg@kaod.org, kdasu.kdev@gmail.com, 
-	f.fainelli@gmail.com, rjui@broadcom.com, sbranden@broadcom.com, 
-	eajames@linux.ibm.com, olteanv@gmail.com, han.xu@nxp.com, 
-	john.garry@huawei.com, shawnguo@kernel.org, s.hauer@pengutronix.de, 
-	narmstrong@baylibre.com, khilman@baylibre.com, matthias.bgg@gmail.com, 
-	haibo.chen@nxp.com, linus.walleij@linaro.org, daniel@zonque.org, 
-	haojian.zhuang@gmail.com, robert.jarzmik@free.fr, agross@kernel.org, 
-	bjorn.andersson@linaro.org, heiko@sntech.de, krzysztof.kozlowski@linaro.org, 
-	andi@etezian.org, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, 
-	wens@csie.org, jernej.skrabec@gmail.com, samuel@sholland.org, 
-	masahisa.kojima@linaro.org, jaswinder.singh@linaro.org, rostedt@goodmis.org, 
-	mingo@redhat.com, l.stelmach@samsung.com, davem@davemloft.net, 
-	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, alex.aring@gmail.com, 
-	stefan@datenfreihafen.org, kvalo@kernel.org, thierry.reding@gmail.com, 
-	jonathanh@nvidia.com, skomatineni@nvidia.com, sumit.semwal@linaro.org, 
-	christian.koenig@amd.com, j.neuschaefer@gmx.net, vireshk@kernel.org, 
-	rmfrfs@gmail.com, johan@kernel.org, elder@kernel.org, 
-	gregkh@linuxfoundation.org
-Cc: git@amd.com, linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	joel@jms.id.au, andrew@aj.id.au, radu_nicolae.pirea@upb.ro, 
-	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com, 
-	claudiu.beznea@microchip.com, bcm-kernel-feedback-list@broadcom.com, 
-	fancer.lancer@gmail.com, kernel@pengutronix.de, festevam@gmail.com, 
-	linux-imx@nxp.com, jbrunet@baylibre.com, martin.blumenstingl@googlemail.com, 
-	avifishman70@gmail.com, tmaimon77@gmail.com, tali.perry1@gmail.com, 
-	venture@google.com, yuenn@google.com, benjaminfair@google.com, 
-	yogeshgaur.83@gmail.com, konrad.dybcio@somainline.org, 
-	alim.akhtar@samsung.com, ldewangan@nvidia.com, michal.simek@amd.com, 
-	linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rpi-kernel@lists.infradead.org, 
-	linux-amlogic@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-sunxi@lists.linux.dev, linux-tegra@vger.kernel.org, 
-	netdev@vger.kernel.org, linux-wpan@vger.kernel.org, 
-	libertas-dev@lists.infradead.org, linux-wireless@vger.kernel.org, 
-	linux-mtd@lists.infradead.org, lars@metafoo.de, Michael.Hennerich@analog.com, 
-	linux-iio@vger.kernel.org, michael@walle.cc, palmer@dabbelt.com, 
-	linux-riscv@lists.infradead.org, linux-media@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, greybus-dev@lists.linaro.org, 
-	linux-staging@lists.linux.dev, amitrkcian2002@gmail.com
+X-Mailer: b4 0.11.0-dev-e660e
+Cc: linux-riscv@lists.infradead.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor.dooley@microchip.com>,
+  Palmer Dabbelt <palmer@dabbelt.com>, Geert Uytterhoeven <geert+renesas@glider.be>,
+  Paul Walmsley <paul.walmsley@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230124_165759_125158_9B85353D 
-X-CRM114-Status: GOOD (  12.54  )
-X-Mailman-Approved-At: Tue, 24 Jan 2023 18:24:19 -0800
+X-CRM114-CacheID: sfid-20230124_194946_517964_D27611C6 
+X-CRM114-Status: UNSURE (   5.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,213 +87,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5484111142597714025=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============5484111142597714025==
-Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg=sha-256;
-	boundary="0000000000005667af05f30c1f32"
+On Wed, 11 Jan 2023 09:15:33 +0100, Geert Uytterhoeven wrote:
+> Remove trailing whitespace that hurts my eyes.
+> 
+> 
 
---0000000000005667af05f30c1f32
-Content-Type: text/plain; charset="UTF-8"
+Applied, thanks!
 
-On 01/19/2023 10:53 AM, 'Amit Kumar Mahapatra' via
-BCM-KERNEL-FEEDBACK-LIST,PDL wrote:
-> diff --git a/drivers/spi/spi-bcm63xx-hsspi.c
-> b/drivers/spi/spi-bcm63xx-hsspi.c
-> index b871fd810d80..dc179c4677d4 100644
-> --- a/drivers/spi/spi-bcm63xx-hsspi.c
-> +++ b/drivers/spi/spi-bcm63xx-hsspi.c
-> @@ -130,7 +130,7 @@ static void bcm63xx_hsspi_set_cs(struct bcm63xx_hsspi
-> *bs, unsigned int cs,
->   static void bcm63xx_hsspi_set_clk(struct bcm63xx_hsspi *bs,
->   				  struct spi_device *spi, int hz)
->   {
-> -	unsigned int profile = spi->chip_select;
-> +	unsigned int profile = spi_get_chipselect(spi, 0);
->   	u32 reg;
->
->   	reg = DIV_ROUND_UP(2048, DIV_ROUND_UP(bs->speed_hz, hz));
-> @@ -157,7 +157,7 @@ static void bcm63xx_hsspi_set_clk(struct bcm63xx_hsspi
-> *bs,
->   static int bcm63xx_hsspi_do_txrx(struct spi_device *spi, struct
-> spi_transfer *t)
->   {
->   	struct bcm63xx_hsspi *bs = spi_master_get_devdata(spi->master);
-> -	unsigned int chip_select = spi->chip_select;
-> +	unsigned int chip_select = spi_get_chipselect(spi, 0);
->   	u16 opcode = 0;
->   	int pending = t->len;
->   	int step_size = HSSPI_BUFFER_LEN;
-> @@ -165,7 +165,7 @@ static int bcm63xx_hsspi_do_txrx(struct spi_device
-> *spi, struct spi_transfer *t)
->   	u8 *rx = t->rx_buf;
->
->   	bcm63xx_hsspi_set_clk(bs, spi, t->speed_hz);
-> -	bcm63xx_hsspi_set_cs(bs, spi->chip_select, true);
-> +	bcm63xx_hsspi_set_cs(bs, spi_get_chipselect(spi, 0), true);
->
->   	if (tx && rx)
->   		opcode = HSSPI_OP_READ_WRITE;
-> @@ -228,14 +228,14 @@ static int bcm63xx_hsspi_setup(struct spi_device
-> *spi)
->   	u32 reg;
->
->   	reg = __raw_readl(bs->regs +
-> -			  HSSPI_PROFILE_SIGNAL_CTRL_REG(spi->chip_select));
-> +			  HSSPI_PROFILE_SIGNAL_CTRL_REG(spi_get_chipselect(spi, 0)));
->   	reg &= ~(SIGNAL_CTRL_LAUNCH_RISING | SIGNAL_CTRL_LATCH_RISING);
->   	if (spi->mode & SPI_CPHA)
->   		reg |= SIGNAL_CTRL_LAUNCH_RISING;
->   	else
->   		reg |= SIGNAL_CTRL_LATCH_RISING;
->   	__raw_writel(reg, bs->regs +
-> -		     HSSPI_PROFILE_SIGNAL_CTRL_REG(spi->chip_select));
-> +		     HSSPI_PROFILE_SIGNAL_CTRL_REG(spi_get_chipselect(spi, 0)));
->
->   	mutex_lock(&bs->bus_mutex);
->   	reg = __raw_readl(bs->regs + HSSPI_GLOBAL_CTRL_REG);
-> @@ -243,16 +243,16 @@ static int bcm63xx_hsspi_setup(struct spi_device
-> *spi)
->   	/* only change actual polarities if there is no transfer */
->   	if ((reg & GLOBAL_CTRL_CS_POLARITY_MASK) == bs->cs_polarity) {
->   		if (spi->mode & SPI_CS_HIGH)
-> -			reg |= BIT(spi->chip_select);
-> +			reg |= BIT(spi_get_chipselect(spi, 0));
->   		else
-> -			reg &= ~BIT(spi->chip_select);
-> +			reg &= ~BIT(spi_get_chipselect(spi, 0));
->   		__raw_writel(reg, bs->regs + HSSPI_GLOBAL_CTRL_REG);
->   	}
->
->   	if (spi->mode & SPI_CS_HIGH)
-> -		bs->cs_polarity |= BIT(spi->chip_select);
-> +		bs->cs_polarity |= BIT(spi_get_chipselect(spi, 0));
->   	else
-> -		bs->cs_polarity &= ~BIT(spi->chip_select);
-> +		bs->cs_polarity &= ~BIT(spi_get_chipselect(spi, 0));
->
->   	mutex_unlock(&bs->bus_mutex);
->
-> @@ -283,7 +283,7 @@ static int bcm63xx_hsspi_transfer_one(struct
-> spi_master *master,
->   	 * e. At the end restore the polarities again to their default values.
->   	 */
->
-> -	dummy_cs = !spi->chip_select;
-> +	dummy_cs = !spi_get_chipselect(spi, 0);
->   	bcm63xx_hsspi_set_cs(bs, dummy_cs, true);
->
->   	list_for_each_entry(t, &msg->transfers, transfer_list) {
-> @@ -296,7 +296,7 @@ static int bcm63xx_hsspi_transfer_one(struct
-> spi_master *master,
->   		spi_transfer_delay_exec(t);
->
->   		if (t->cs_change)
-> -			bcm63xx_hsspi_set_cs(bs, spi->chip_select, false);
-> +			bcm63xx_hsspi_set_cs(bs, spi_get_chipselect(spi, 0), false);
->   	}
->
->   	mutex_lock(&bs->bus_mutex);
+[1/1] RISC-V: Kconfig: Remove trailing whitespace
+      https://git.kernel.org/palmer/c/451fb217cdca
 
-For bcm63xx-hsspi driver,
-
-Acked-by: William Zhang <william.zhang@broadcom.com>
-
---0000000000005667af05f30c1f32
-Content-Type: application/pkcs7-signature; name="smime.p7s"
-Content-Transfer-Encoding: base64
-Content-Disposition: attachment; filename="smime.p7s"
-Content-Description: S/MIME Cryptographic Signature
-
-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
-YDZuuBJwnyCzevMoPtVYPharioL5H3BRnQi8YoTXH7/uRo33dewYFm474yFjwwnt82TFtveVZkVq
-6h4WIQ4wTcwFfET8zMkELnGzS5SHCl8sPD+lNxxJ1JDZYwIDAQABo4IB2zCCAdcwDgYDVR0PAQH/
-BAQDAgWgMIGjBggrBgEFBQcBAQSBljCBkzBOBggrBgEFBQcwAoZCaHR0cDovL3NlY3VyZS5nbG9i
-YWxzaWduLmNvbS9jYWNlcnQvZ3NnY2NyM3BlcnNvbmFsc2lnbjJjYTIwMjAuY3J0MEEGCCsGAQUF
-BzABhjVodHRwOi8vb2NzcC5nbG9iYWxzaWduLmNvbS9nc2djY3IzcGVyc29uYWxzaWduMmNhMjAy
-MDBNBgNVHSAERjBEMEIGCisGAQQBoDIBKAowNDAyBggrBgEFBQcCARYmaHR0cHM6Ly93d3cuZ2xv
-YmFsc2lnbi5jb20vcmVwb3NpdG9yeS8wCQYDVR0TBAIwADBJBgNVHR8EQjBAMD6gPKA6hjhodHRw
-Oi8vY3JsLmdsb2JhbHNpZ24uY29tL2dzZ2NjcjNwZXJzb25hbHNpZ24yY2EyMDIwLmNybDAlBgNV
-HREEHjAcgRp3aWxsaWFtLnpoYW5nQGJyb2FkY29tLmNvbTATBgNVHSUEDDAKBggrBgEFBQcDBDAf
-BgNVHSMEGDAWgBSWM9HmWBdbNHWKgVZk1b5I3qGPzzAdBgNVHQ4EFgQUq65GzwZxydFHjjYEU/9h
-xHhPWlwwDQYJKoZIhvcNAQELBQADggEBAA2hGG3JPAdGPH0ZdohGUCIVjKz+U+EFuIDbS6A/5jqX
-VhYAxZlzj7tSjUIM7G7IhyfqPC46GKJ/4x+Amz1Z6YxNGy71L68kYD6hIbBcA5AM42QBUufly6Oa
-/ppSz3WoflVyFFQ5YXniZ+eU+2/cdnYZg4aVUnFjimOF5o3NfMLzOkhQNxbaDjFUfUYD8hKmU6v4
-0vUBj8KZ9Gi1LIagLKUREn8jku0lcLsRbnJ5Ey5ScajC/FESPyYWasOW8j8/1EoJksmhbYGKNS6C
-urb/KlmDGfVrIRYDbL0ckhGQIP5c6L+kSQZ2sHnQK0e0WgIaZYxaPYeY5u0GLCOze+3vyRMxggJt
-MIICaQIBATBrMFsxCzAJBgNVBAYTAkJFMRkwFwYDVQQKExBHbG9iYWxTaWduIG52LXNhMTEwLwYD
-VQQDEyhHbG9iYWxTaWduIEdDQyBSMyBQZXJzb25hbFNpZ24gMiBDQSAyMDIwAgwxuh2XG3FXRL1W
-JOEwDQYJYIZIAWUDBAIBBQCggdQwLwYJKoZIhvcNAQkEMSIEIPV0GPci7PjhkOLQr5YYlwfjp9bZ
-8n4Nhqy3DqNgqzROMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTIz
-MDEyNTAwNTc1NFowaQYJKoZIhvcNAQkPMVwwWjALBglghkgBZQMEASowCwYJYIZIAWUDBAEWMAsG
-CWCGSAFlAwQBAjAKBggqhkiG9w0DBzALBgkqhkiG9w0BAQowCwYJKoZIhvcNAQEHMAsGCWCGSAFl
-AwQCATANBgkqhkiG9w0BAQEFAASCAQCDeRwW7sqpu5MnOyyvjxmJvRUbfI/L5CP1JkPtuA2BZ0WX
-P6pe/eXLFP9A//7IMZwRnMYubkHF2KOwoW3nTAZfFZU1MJtjpUcUMyAey4sODSCw78wnDub+b0R4
-rbtgWN26AOILOF9V7rUdA5hd4ZZZWrSVlZOxQOnkEnrrXwRMTZ6H4LILkENVRytDPX6WcNSzofVt
-bTZisKrK4TQRGwagjsH1XbjDJQy3in8wE53Bemw/woVR/U5dKkgH5bIc7O+yvfRkg3Dze87oKtUn
-0jlTOX7lGBKRqMHxDVl2SRBQXJ+ytWpT1WR9l3AFCBIp4QCo4isjywLpWTF5YramMP+j
---0000000000005667af05f30c1f32--
-
-
---===============5484111142597714025==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Best regards,
+-- 
+Palmer Dabbelt <palmer@rivosinc.com>
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5484111142597714025==--
-
