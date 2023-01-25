@@ -4,66 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BE00C54E94
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jan 2023 16:36:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43A38C61DA2
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jan 2023 17:12:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7d1wlc3AZnBVTIr+MjRrfHu46qHfiIDhc9EA5//1u8o=; b=iNwgR6TK5Lia0A
-	vrL7GJUDPmLWDtn6b2My9sET0s2QR3aYdJwf+7MCjHuwmAXQ1Oi1yfDZVmzV2bJUWf8oIpdHKq8+T
-	LipOPvpdqk3EmoL/eCUgdndeHqYFQ6zFP6afAHPOprj5nSx8z92zMejGmSLnGN9fNzbiLlDRNF6MD
-	d2va07zDvqYArpUtYITC70u12Tx+7YhK2puRAZrN9g7iH6Zy5eAdk/bG3+RqCvdsTmEO8V22Sl46Q
-	UDWdBuShFA8nAQUrd/KgBMvla7IfSDKXn2Qk/ovTHoO3WnwknZS1aZOxH8/TYV6qvNkNMv7v2y4hd
-	QHzrsp6OoHdHmjhoz76A==;
+	List-Owner; bh=8eEsSEUCgqgTMc5nEabRgSzRakkIvEYfuxc8Bki6+MM=; b=CLeXAmHF4C0CvC
+	RiArHYRcbuahyduzvde4fS2kLpckrWjINI7H6vaQywXYSK07/fkFvEomEkpXCYKtmwxguyG3YjP2J
+	PofD9j+nCDYdAw/5MfGFq85yXUuky8JXwrFlMVPyHBb4aX4VbWloQr6X1RSLd9VsdlOKJmkVLSRih
+	woOE+tkygiEcJkEj23YWrHI5k4vjYjlC16ydGYLKC/3Nek5sdf3/KyNk/dB/8BU2PrETjgpTpZ/A8
+	3hqmxxENnXXFSJfyxCVGXFYzwZaxXBediDCFl7dPMD7EI0OJaIgBQ/5Tmka/uBD+aXvYmmBm3QKyf
+	Eawuw25YQMYs/K4rNaNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKilT-007xxM-Hh; Wed, 25 Jan 2023 16:36:47 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKilI-007xvC-QX; Wed, 25 Jan 2023 16:36:38 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 83DD84B3;
-	Wed, 25 Jan 2023 08:37:15 -0800 (PST)
-Received: from bogus (unknown [10.57.77.84])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C30ED3F5A1;
-	Wed, 25 Jan 2023 08:36:30 -0800 (PST)
-Date: Wed, 25 Jan 2023 16:36:28 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Pierre Gondois <pierre.gondois@arm.com>,
-	linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Gavin Shan <gshan@redhat.com>, linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org
-Subject: Re: [PATCH v4 6/6] arch_topology: Build cacheinfo from primary CPU
-Message-ID: <20230125163628.4yjwh3ja5vxnirun@bogus>
-References: <20230104183033.755668-1-pierre.gondois@arm.com>
- <20230104183033.755668-7-pierre.gondois@arm.com>
- <CAMuHMdUjgxgOXf5He1x=PLn7MQTjZgFQUHj8JrwbyweT4uOALQ@mail.gmail.com>
- <20230124140420.4srnufcvamvff77v@bogus>
- <Y8/tl999NQwbPL/R@wendy>
- <20230124144839.2szjjv256j3pdaif@bogus>
- <20230124145541.2xwtr7ro2bjnsjd7@bogus>
- <20230125145423.pid3hsstswzuez73@bogus>
- <CAMuHMdWZ+_kdMp+0VfYAJZRHBWiyobQQJwEM_kHN6yeVVGxSvg@mail.gmail.com>
+	id 1pKjJQ-0089HN-RP; Wed, 25 Jan 2023 17:11:52 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pKjJF-0089Ew-CN; Wed, 25 Jan 2023 17:11:43 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 0CD56B81B4F;
+	Wed, 25 Jan 2023 17:11:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95BFFC433B0;
+	Wed, 25 Jan 2023 17:11:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1674666697;
+	bh=RetSZbgsPvYqvv6AGDmz0Y2yuG9iulSs8DCbaH8Bt78=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=CEyaH+bgf2lcwko+f741pV+QMy0dxz2Olo9d9xTL1WwCP+bkqbbWyzTq6ffTKyPzZ
+	 jFa3v1SPmDrBKh1SjsBi9LXYHRY+V77bNQ9rpqapfki/MThO8gURNUYAvpZIc3T57B
+	 nUkcF5ONSO62yv/l10IYayHhb+xuxx2mgi4/RZQ4H2132SpJtXoQvVtPOWqyN+hSwG
+	 oDpuewCjY0y3xKp4316s6VrfZge3SajjG03VP7LDYyyYsViAhfr7a39/wNTBe5nlZj
+	 ThtqLDUK8oBlq2rUD3m4Mr4MFat46rPa/t1vxd8iXs3K8CXLSDbNTnG6SbfEIcVrm8
+	 ZRTGUn67f9crw==
+Received: by mail-ua1-f54.google.com with SMTP id e18so4830764uam.9;
+        Wed, 25 Jan 2023 09:11:37 -0800 (PST)
+X-Gm-Message-State: AFqh2kqAiyII8fyeKKQolFNIEzc7QRxPCMK6IycafW9NfVtZZWlr1Tc7
+	r21+C0xv53Lfd2udJkLldGafI3U0emrU+8aNqg==
+X-Google-Smtp-Source: AMrXdXvkBeNWibWQ7iPb1UKnLnMwCQw9G4I7LpDrOPCqvmhVcacTBEc2M+BHEtbF4izLYj2eXZV0gKgfipYxi1WDLuQ=
+X-Received: by 2002:ab0:5bda:0:b0:444:2123:f8df with SMTP id
+ z26-20020ab05bda000000b004442123f8dfmr3758761uae.86.1674666696257; Wed, 25
+ Jan 2023 09:11:36 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAMuHMdWZ+_kdMp+0VfYAJZRHBWiyobQQJwEM_kHN6yeVVGxSvg@mail.gmail.com>
+References: <20230123151302.368277-1-krzysztof.kozlowski@linaro.org>
+ <20230123151302.368277-11-krzysztof.kozlowski@linaro.org> <167451486467.2795286.1299932821783618559.robh@kernel.org>
+ <71fd9674-63a7-9887-d602-1f57ae3982aa@linaro.org>
+In-Reply-To: <71fd9674-63a7-9887-d602-1f57ae3982aa@linaro.org>
+From: Rob Herring <robh@kernel.org>
+Date: Wed, 25 Jan 2023 11:11:21 -0600
+X-Gmail-Original-Message-ID: <CAL_JsqK7ZYe+PMXZ34WG746JzgGvaLanRpwF2x3sSGdsA7PCSA@mail.gmail.com>
+Message-ID: <CAL_JsqK7ZYe+PMXZ34WG746JzgGvaLanRpwF2x3sSGdsA7PCSA@mail.gmail.com>
+Subject: Re: [PATCH 11/13] dt-bindings: serial: restrict possible child node names
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: - <devicetree@vger.kernel.org>, linux-riscv@lists.infradead.org, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Tomer Maimon <tmaimon77@gmail.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Peter Korsgaard <jacmet@sunsite.dk>, Chester Lin <clin@suse.com>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+	linux-stm32@st-md-mailman.stormreply.com, Kevin Hilman <khilman@baylibre.com>, 
+	linux-kernel@vger.kernel.org, Fugang Duan <fugang.duan@nxp.com>, 
+	Shawn Guo <shawnguo@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	linux-serial@vger.kernel.org, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Fabio Estevam <festevam@gmail.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Le Ray <erwan.leray@foss.st.com>, Michal Simek <michal.simek@xilinx.com>, 
+	Lubomir Rintel <lkundrak@v3.sk>, Jerome Brunet <jbrunet@baylibre.com>, 
+	Magnus Damm <magnus.damm@gmail.com>, Pragnesh Patel <pragnesh.patel@sifive.com>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, linux-amlogic@lists.infradead.org, 
+	NXP Linux Team <linux-imx@nxp.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Vignesh Raghavendra <vigneshr@ti.com>, linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230125_083636_923875_7391439C 
-X-CRM114-Status: GOOD (  16.66  )
+X-CRM114-CacheID: sfid-20230125_091141_721237_A7DFEC56 
+X-CRM114-Status: GOOD (  24.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,28 +92,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBKYW4gMjUsIDIwMjMgYXQgMDQ6Mjg6MDRQTSArMDEwMCwgR2VlcnQgVXl0dGVyaG9l
-dmVuIHdyb3RlOgo+IEhpIFN1ZGVlcCwKPgo+IE9uIFdlZCwgSmFuIDI1LCAyMDIzIGF0IDM6NTQg
-UE0gU3VkZWVwIEhvbGxhIDxzdWRlZXAuaG9sbGFAYXJtLmNvbT4gd3JvdGU6Cj4gPiBPbiBUdWUs
-IEphbiAyNCwgMjAyMyBhdCAwMjo1NTo0MVBNICswMDAwLCBTdWRlZXAgSG9sbGEgd3JvdGU6Cj4g
-PiA+IEdlZXJ0LCBjYW4geW91IHBsZWFzZSB0cnkgd2l0aCB0aGUgcGF0Y2ggQ29ub3IgcG9pbnRl
-ZCBvdXQgYW5kIHNlZSBpZgo+ID4gPiB0aGF0IGhlbHBzIHRvIGZpeCB0aGUgYWxsb2NhdGlvbiBm
-YWlsdXJlc1sxXQo+ID4gPgo+ID4KPiA+IFNvcnJ5IGZvciB0aGUgbmFnLCBidXQgZGlkIHlvdSBn
-ZXQgdGhlIGNoYW5jZSB0byB0ZXN0IC1uZXh0IHdpdGggWzFdCj4gPiBhbmQgc2VlIGlmIGl0IGZp
-eGVzIHRoZSBjYWNoZWluZm8gbWVtb3J5IGZhaWx1cmUgeW91IHdlcmUgb2JzZXJ2aW5nID8KPgo+
-ID4gWzFdIGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2FsbC8yMDIzMDEwMzAzNTMxNi4zODQxMzAz
-LTEtbGV5Zm9vbi50YW5Ac3RhcmZpdmV0ZWNoLmNvbS8KPgo+IEFmdGVyIGFwcGx5aW5nIHRoYXQg
-cGF0Y2gsIHRoZSBpc3N1ZSBpcyBnb25lLgo+IFRoYW5rcywgc2VuZGluZyBteSBUYiEKPgoKVGhh
-bmtzIGZvciB0ZXN0aW5nIGFuZCBzb3JyeSBmb3Igd3JvbmcgaW5mb3JtYXRpb24gaW4gbXkgUFIu
-IEkgaGFkIG1peGVkCnVwIHRoaW5ncyBhbmQgYXNzdW1lZCBpdCB3YXMgdGVzdGVkLiBJIHVzdWFs
-bHkgbGVhdmUgaXQgaW4gLW5leHQgZm9yIGEgd2VlawpiZWZvcmUgc2VuZGluZyBQUiBidXQgcnVz
-aGVkIHRoaW5ncyBvbmNlIEkgd2FzIGJhY2sgZnJvbSB0aGUgaG9saWRheXMsIHdvbid0CnJlcGVh
-dCBob3BlZnVsbHkg8J+kni4KCi0tClJlZ2FyZHMsClN1ZGVlcAoKX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cmxp
-bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
-bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Tue, Jan 24, 2023 at 3:05 AM Krzysztof Kozlowski
+<krzysztof.kozlowski@linaro.org> wrote:
+>
+> On 24/01/2023 00:05, Rob Herring wrote:
+> >
+> > On Mon, 23 Jan 2023 16:13:00 +0100, Krzysztof Kozlowski wrote:
+> >> The re-usable serial.yaml schema matches every property with ".*"
+> >> pattern, thus any other schema referencing it will not report unknown
+> >> (unevaluated) properties.  This hides several wrong properties.  It is
+> >> a limitation of dtschema, thus provide a simple workaround: expect
+> >> children to be only of few names matching upstream usage (Bluetooth,
+> >> GNSS, GPS and MCU).
+> >>
+> >> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> >> ---
+> >>  Documentation/devicetree/bindings/serial/serial.yaml | 2 +-
+> >>  1 file changed, 1 insertion(+), 1 deletion(-)
+> >>
+> >
+> > My bot found errors running 'make DT_CHECKER_FLAGS=-m dt_binding_check'
+> > on your patch (DT_CHECKER_FLAGS is new in v5.13):
+> >
+> > yamllint warnings/errors:
+> >
+> > dtschema/dtc warnings/errors:
+> > /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/bus/intel,ixp4xx-expansion-bus-controller.example.dtb: serial@1,0: Unevaluated properties are not allowed ('intel,ixp4xx-eb-byte-access', 'intel,ixp4xx-eb-cycle-type', 'intel,ixp4xx-eb-t3', 'intel,ixp4xx-eb-write-enable' were unexpected)
+> >       From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/serial/8250.yaml
+>
+> Eh, this is not trivial to solve. The
+> "intel,ixp4xx-expansion-bus-controller.yaml" bindings add properties to
+> children nodes, just like spi-peripheral-props:
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/bus/intel,ixp4xx-expansion-bus-controller.yaml?h=v6.2-rc5#n147
+
+Yep, those properties probably need to go into mc-peripheral-props.yaml.
+
+> Any node can be there:
+> 1. serial, which was broken since beginning but errors not visible,
+
+8250 only in all likelyhood.
+
+> 2. flash, which work fine just because mtd-physmap.yaml allows it,
+> 3. more?
+
+I guess it is *only* external parallel bus devices...
+
+>
+> Existing DTS of this ixp4xx controller have different nodes, for example:
+> flash, shared-dma-pool, ns8250, arcom,vulcan-gpio, maxim,max6369:
+
+'shared-dma-pool' is odd.
+
+So is max6369. Looks like that h/w was creatively attached.
+
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/arm/boot/dts/intel-ixp42x-arcom-vulcan.dts?h=v6.2-rc5#n40
+>
+> Probably we need expansion-bus-controller-peripheral-props.yaml and
+> include it in every possible child. Does it sound reasonable?
+
+What's the difference to mc-peripheral-props.yaml?
+
+Honestly, this stuff is somewhat rare that I'd rather worry about it
+later. Maybe ixp4xx will be removed by then... We could just comment
+out the problematic parts of the example for now.
+
+Rob
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
