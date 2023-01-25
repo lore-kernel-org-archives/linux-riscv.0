@@ -4,68 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9BF7C54E94
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jan 2023 00:52:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6815FC38142
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jan 2023 02:24:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zUr0Xk0wR4Ng1I6K2VrmnV5+RowvOJ2ZUfaAqCfhhDE=; b=48Kw/a8HgGF6Fi
-	4gObcOSI5SePaySdiR7D88Ol79dF+qaEp0NQwmvGeXEm88Qw3hQl7DYEgB4j+19pjRAhoSI5ENSZj
-	SIpGU398QS1lYuiruA2Vw7TfKfjlETJd7ZZY0W4QLgpzChya1eOF3RecV0Xt4Vk/pVlho/YyCfA+Z
-	YPvHoDiUxBVU/9dNDSAjTwMTuX/62B4eVPNE9PiAEyYXWGR3M1G3Yl4FJBf/Ss+uxr73qElU8/p0X
-	+qaigZ7AsxrCoxkGJYTDZ1YeGaw3JvrPlNY0caJLrGvt/56KsJTknt/eT6+dkw4ZIK1unoeSNJ3vm
-	In83WY0CEjNJY1oYPtxQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:
+	To:Subject:Message-ID:Date:MIME-Version:In-Reply-To:References:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3YLsQ1BJDKE9rv23Oy2wiLZYd8NmCueXw2e16Z4ye9o=; b=I7+a+0OUiA5fQH92ncclr1Aa5p
+	gOqZeD4qixmqLn70DqCfVinQVuZPum589gpllmP6kRrlPIy8IDzpfvBvAL3HIW8tiwlRlK2P9bcFE
+	6sKIQpdSkSJizgoVM59mNLEvdvka3FUTybrWggPfIz/NdCqHUc2nZ4wYwWF6uimUpkSB0B76ga4x4
+	QrL4/aTQfOcwSnIIKdy+pDZqYcMIec1ygGwDbgELxNXyOMHYNNWkFPIHKsxqTbNwcPQS6zfqbdm+N
+	Zo1kmWzWZFehRT4MFZqAPbZF78Z3brFT4neNsqiA+X4ta8fKHcCZ3SZWxtRX51qRJLAXXymNIs0zv
+	tJWPByLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKU15-005kQa-A5; Wed, 25 Jan 2023 00:51:55 +0000
-Received: from out0.migadu.com ([2001:41d0:2:267::])
+	id 1pKVSW-005s5F-Sj; Wed, 25 Jan 2023 02:24:20 +0000
+Received: from mail-vs1-xe30.google.com ([2607:f8b0:4864:20::e30])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKU0s-005kN8-Oa; Wed, 25 Jan 2023 00:51:46 +0000
-Date: Wed, 25 Jan 2023 00:51:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1674607898;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=tKZJHCuNcS9wmdGcYa74NyQbaZqjeiShG5FvQ1mhWsM=;
-	b=bj8WStw0zxg3MLqdRtbAX0JL3VYIi9naRAx1uWiRdxJdQreQasQOekCNtU6DzYsQo7oi1M
-	LHae7+//6q3qHKef5X57sWNCE20HZfjwjIcBMDrz/cOWaVFr+2MFwgmAfiIok12p6RuelG
-	1ntXs3GUvHw8B1SPOECe82979r6Pdd4=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: Sean Christopherson <seanjc@google.com>
-Cc: David Matlack <dmatlack@google.com>,
-	Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	kvmarm@lists.cs.columbia.edu, linux-mips@vger.kernel.org,
-	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	Raghavendra Rao Ananta <rananta@google.com>
-Subject: Re: [PATCH 0/7] KVM: Add a common API for range-based TLB
- invalidation
-Message-ID: <Y9B9FZReDVwdNNrS@google.com>
-References: <20230119173559.2517103-1-dmatlack@google.com>
- <Y9B8A+/FSPCrAANT@google.com>
+	id 1pKU6x-005l3F-1I
+	for linux-riscv@lists.infradead.org; Wed, 25 Jan 2023 00:58:02 +0000
+Received: by mail-vs1-xe30.google.com with SMTP id k6so18353714vsk.1
+        for <linux-riscv@lists.infradead.org>; Tue, 24 Jan 2023 16:57:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google;
+        h=cc:to:subject:message-id:date:thread-index:mime-version:in-reply-to
+         :references:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=1ibdGlo7r/mc8CxeugbQukts747j8vlZOdOX8gyyQtU=;
+        b=bAQknAZ8fplqen8BOJuStHgr10GySk91pC5GohgQTs7+i1W0QJmFvgJWWxno1CC310
+         ULtFNklmxUd0Q3/GwPe5L5sBhdqq8JzryxXcEXAFjNDdqJtCooRLGWkGkEvrEVwhcbHD
+         PTX3Cvs57CZG6pvkj3m0BibMnds84nWqXhKpM=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:thread-index:mime-version:in-reply-to
+         :references:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1ibdGlo7r/mc8CxeugbQukts747j8vlZOdOX8gyyQtU=;
+        b=NGVCNW3t3bdoo/RbsthyTaZfFvqujUD0L2vEma5pw0GPbRuwB0a1CVBwxn+NW5GAWO
+         CZBbU4Qqo1pN2qkbJjr71y6d1XoiMTS/+b8VoKqzSFeptJ2gZils/ZkfSI6IdOVFJW3N
+         k7oMXhajs6E6zqM+fAFaTTwKcIv6LfZPfXfwcHdABrfkiK/1EPrbnE7lE/MzcDA2qC1b
+         WvfZnRhzJiA7pAncqSt1Xkwjb1wVZMoMhM1KcJ9o27b5ufqRgcRZvn/L8hkyAgaOwupj
+         d3vyZjlASgGpXKXLTn3VjwXrzfwnKfeH33xbtbDm+ChZQZy40DaX5ZC1tNtDCvJU0vBh
+         Vq0A==
+X-Gm-Message-State: AFqh2kra16z6taj9ZQIgrX1Eijfg6RipCtKvK9wbh8Oov8uNeRq8mQar
+	QGoaza0QZub1BohyMrg5FmqaZVfNarWr7E76ejvbeQ==
+X-Google-Smtp-Source: AMrXdXu0WEVAHtkl/7WrGp7gsGmIxeNAjZACQY1znOQilpBjqALn5uFkSCuep3Y6cqMY533KDesP8Mmq99uNyBp2hTA=
+X-Received: by 2002:a67:f246:0:b0:3b1:5690:a240 with SMTP id
+ y6-20020a67f246000000b003b15690a240mr3921552vsm.68.1674608274113; Tue, 24 Jan
+ 2023 16:57:54 -0800 (PST)
+From: William Zhang <william.zhang@broadcom.com>
+References: <20230119185342.2093323-1-amit.kumar-mahapatra@amd.com> <20230119185342.2093323-3-amit.kumar-mahapatra@amd.com>
+In-Reply-To: <20230119185342.2093323-3-amit.kumar-mahapatra@amd.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Y9B8A+/FSPCrAANT@google.com>
-X-Migadu-Flow: FLOW_OUT
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQGsd40KKMSPSaowQedOCmq8Q0lhhQIBWekOAbfQgXk=
+Date: Tue, 24 Jan 2023 16:57:49 -0800
+Message-ID: <36840e0caeca5f53eef4fab615fc7976@mail.gmail.com>
+Subject: Re: [PATCH v2 02/13] spi: Replace all spi->chip_select and
+ spi->cs_gpiod references with function call
+To: Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>, broonie@kernel.org, 
+	miquel.raynal@bootlin.com, richard@nod.at, vigneshr@ti.com, jic23@kernel.org, 
+	tudor.ambarus@microchip.com, pratyush@kernel.org, sanju.mehta@amd.com, 
+	chin-ting_kuo@aspeedtech.com, clg@kaod.org, kdasu.kdev@gmail.com, 
+	f.fainelli@gmail.com, rjui@broadcom.com, sbranden@broadcom.com, 
+	eajames@linux.ibm.com, olteanv@gmail.com, han.xu@nxp.com, 
+	john.garry@huawei.com, shawnguo@kernel.org, s.hauer@pengutronix.de, 
+	narmstrong@baylibre.com, khilman@baylibre.com, matthias.bgg@gmail.com, 
+	haibo.chen@nxp.com, linus.walleij@linaro.org, daniel@zonque.org, 
+	haojian.zhuang@gmail.com, robert.jarzmik@free.fr, agross@kernel.org, 
+	bjorn.andersson@linaro.org, heiko@sntech.de, krzysztof.kozlowski@linaro.org, 
+	andi@etezian.org, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, 
+	wens@csie.org, jernej.skrabec@gmail.com, samuel@sholland.org, 
+	masahisa.kojima@linaro.org, jaswinder.singh@linaro.org, rostedt@goodmis.org, 
+	mingo@redhat.com, l.stelmach@samsung.com, davem@davemloft.net, 
+	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, alex.aring@gmail.com, 
+	stefan@datenfreihafen.org, kvalo@kernel.org, thierry.reding@gmail.com, 
+	jonathanh@nvidia.com, skomatineni@nvidia.com, sumit.semwal@linaro.org, 
+	christian.koenig@amd.com, j.neuschaefer@gmx.net, vireshk@kernel.org, 
+	rmfrfs@gmail.com, johan@kernel.org, elder@kernel.org, 
+	gregkh@linuxfoundation.org
+Cc: git@amd.com, linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	joel@jms.id.au, andrew@aj.id.au, radu_nicolae.pirea@upb.ro, 
+	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com, 
+	claudiu.beznea@microchip.com, bcm-kernel-feedback-list@broadcom.com, 
+	fancer.lancer@gmail.com, kernel@pengutronix.de, festevam@gmail.com, 
+	linux-imx@nxp.com, jbrunet@baylibre.com, martin.blumenstingl@googlemail.com, 
+	avifishman70@gmail.com, tmaimon77@gmail.com, tali.perry1@gmail.com, 
+	venture@google.com, yuenn@google.com, benjaminfair@google.com, 
+	yogeshgaur.83@gmail.com, konrad.dybcio@somainline.org, 
+	alim.akhtar@samsung.com, ldewangan@nvidia.com, michal.simek@amd.com, 
+	linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rpi-kernel@lists.infradead.org, 
+	linux-amlogic@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-sunxi@lists.linux.dev, linux-tegra@vger.kernel.org, 
+	netdev@vger.kernel.org, linux-wpan@vger.kernel.org, 
+	libertas-dev@lists.infradead.org, linux-wireless@vger.kernel.org, 
+	linux-mtd@lists.infradead.org, lars@metafoo.de, Michael.Hennerich@analog.com, 
+	linux-iio@vger.kernel.org, michael@walle.cc, palmer@dabbelt.com, 
+	linux-riscv@lists.infradead.org, linux-media@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, greybus-dev@lists.linaro.org, 
+	linux-staging@lists.linux.dev, amitrkcian2002@gmail.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230124_165144_739471_53A53B3B 
-X-CRM114-Status: GOOD (  20.83  )
+X-CRM114-CacheID: sfid-20230124_165759_125158_9B85353D 
+X-CRM114-Status: GOOD (  12.54  )
+X-Mailman-Approved-At: Tue, 24 Jan 2023 18:24:19 -0800
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,52 +122,213 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5484111142597714025=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 25, 2023 at 12:46:59AM +0000, Sean Christopherson wrote:
-> On Thu, Jan 19, 2023, David Matlack wrote:
-> > This series introduces a common API for performing range-based TLB
-> > invalidation. This is then used to supplant
-> > kvm_arch_flush_remote_tlbs_memslot() and pave the way for two other
-> > patch series:
-> > 
-> > 1. https://lore.kernel.org/kvm/20230109215347.3119271-1-rananta@google.com/
-> > 
-> >   Adds ARM support for range-based TLB invalidation and needs a
-> >   mechanism to invoke it from common code. This series provides such a
-> >   mechanism via kvm_arch_flush_remote_tlbs_range().
-> > 
-> > 2. https://lore.kernel.org/kvm/20221208193857.4090582-1-dmatlack@google.com/
-> > 
-> >   Refactors the TDP MMU into common code, which requires an API for
-> >   range-based TLB invaliation.
-> > 
-> > This series is based on patches 29-33 from (2.), but I made some further
-> > cleanups after looking at it a second time.
-> > 
-> > Tested on x86_64 and ARM64 using KVM selftests.
-> 
-> Did a quick read through, didn't see anything I disagree with.
+--===============5484111142597714025==
+Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg=sha-256;
+	boundary="0000000000005667af05f30c1f32"
 
-LGTM for the tiny amount of arm64 changes, though I imagine David will
-do a v2 to completely get rid of the affected Kconfig.
+--0000000000005667af05f30c1f32
+Content-Type: text/plain; charset="UTF-8"
 
-> Is there any urgency to getting this merged?  If not, due to the dependencies
-> with x86 stuff queued for 6.3, and because of the cross-architecture changes, it
-> might be easiest to plan on landing this in 6.4.  That would allow Paolo to create
-> an immutable topic branch fairly early on.
+On 01/19/2023 10:53 AM, 'Amit Kumar Mahapatra' via
+BCM-KERNEL-FEEDBACK-LIST,PDL wrote:
+> diff --git a/drivers/spi/spi-bcm63xx-hsspi.c
+> b/drivers/spi/spi-bcm63xx-hsspi.c
+> index b871fd810d80..dc179c4677d4 100644
+> --- a/drivers/spi/spi-bcm63xx-hsspi.c
+> +++ b/drivers/spi/spi-bcm63xx-hsspi.c
+> @@ -130,7 +130,7 @@ static void bcm63xx_hsspi_set_cs(struct bcm63xx_hsspi
+> *bs, unsigned int cs,
+>   static void bcm63xx_hsspi_set_clk(struct bcm63xx_hsspi *bs,
+>   				  struct spi_device *spi, int hz)
+>   {
+> -	unsigned int profile = spi->chip_select;
+> +	unsigned int profile = spi_get_chipselect(spi, 0);
+>   	u32 reg;
+>
+>   	reg = DIV_ROUND_UP(2048, DIV_ROUND_UP(bs->speed_hz, hz));
+> @@ -157,7 +157,7 @@ static void bcm63xx_hsspi_set_clk(struct bcm63xx_hsspi
+> *bs,
+>   static int bcm63xx_hsspi_do_txrx(struct spi_device *spi, struct
+> spi_transfer *t)
+>   {
+>   	struct bcm63xx_hsspi *bs = spi_master_get_devdata(spi->master);
+> -	unsigned int chip_select = spi->chip_select;
+> +	unsigned int chip_select = spi_get_chipselect(spi, 0);
+>   	u16 opcode = 0;
+>   	int pending = t->len;
+>   	int step_size = HSSPI_BUFFER_LEN;
+> @@ -165,7 +165,7 @@ static int bcm63xx_hsspi_do_txrx(struct spi_device
+> *spi, struct spi_transfer *t)
+>   	u8 *rx = t->rx_buf;
+>
+>   	bcm63xx_hsspi_set_clk(bs, spi, t->speed_hz);
+> -	bcm63xx_hsspi_set_cs(bs, spi->chip_select, true);
+> +	bcm63xx_hsspi_set_cs(bs, spi_get_chipselect(spi, 0), true);
+>
+>   	if (tx && rx)
+>   		opcode = HSSPI_OP_READ_WRITE;
+> @@ -228,14 +228,14 @@ static int bcm63xx_hsspi_setup(struct spi_device
+> *spi)
+>   	u32 reg;
+>
+>   	reg = __raw_readl(bs->regs +
+> -			  HSSPI_PROFILE_SIGNAL_CTRL_REG(spi->chip_select));
+> +			  HSSPI_PROFILE_SIGNAL_CTRL_REG(spi_get_chipselect(spi, 0)));
+>   	reg &= ~(SIGNAL_CTRL_LAUNCH_RISING | SIGNAL_CTRL_LATCH_RISING);
+>   	if (spi->mode & SPI_CPHA)
+>   		reg |= SIGNAL_CTRL_LAUNCH_RISING;
+>   	else
+>   		reg |= SIGNAL_CTRL_LATCH_RISING;
+>   	__raw_writel(reg, bs->regs +
+> -		     HSSPI_PROFILE_SIGNAL_CTRL_REG(spi->chip_select));
+> +		     HSSPI_PROFILE_SIGNAL_CTRL_REG(spi_get_chipselect(spi, 0)));
+>
+>   	mutex_lock(&bs->bus_mutex);
+>   	reg = __raw_readl(bs->regs + HSSPI_GLOBAL_CTRL_REG);
+> @@ -243,16 +243,16 @@ static int bcm63xx_hsspi_setup(struct spi_device
+> *spi)
+>   	/* only change actual polarities if there is no transfer */
+>   	if ((reg & GLOBAL_CTRL_CS_POLARITY_MASK) == bs->cs_polarity) {
+>   		if (spi->mode & SPI_CS_HIGH)
+> -			reg |= BIT(spi->chip_select);
+> +			reg |= BIT(spi_get_chipselect(spi, 0));
+>   		else
+> -			reg &= ~BIT(spi->chip_select);
+> +			reg &= ~BIT(spi_get_chipselect(spi, 0));
+>   		__raw_writel(reg, bs->regs + HSSPI_GLOBAL_CTRL_REG);
+>   	}
+>
+>   	if (spi->mode & SPI_CS_HIGH)
+> -		bs->cs_polarity |= BIT(spi->chip_select);
+> +		bs->cs_polarity |= BIT(spi_get_chipselect(spi, 0));
+>   	else
+> -		bs->cs_polarity &= ~BIT(spi->chip_select);
+> +		bs->cs_polarity &= ~BIT(spi_get_chipselect(spi, 0));
+>
+>   	mutex_unlock(&bs->bus_mutex);
+>
+> @@ -283,7 +283,7 @@ static int bcm63xx_hsspi_transfer_one(struct
+> spi_master *master,
+>   	 * e. At the end restore the polarities again to their default values.
+>   	 */
+>
+> -	dummy_cs = !spi->chip_select;
+> +	dummy_cs = !spi_get_chipselect(spi, 0);
+>   	bcm63xx_hsspi_set_cs(bs, dummy_cs, true);
+>
+>   	list_for_each_entry(t, &msg->transfers, transfer_list) {
+> @@ -296,7 +296,7 @@ static int bcm63xx_hsspi_transfer_one(struct
+> spi_master *master,
+>   		spi_transfer_delay_exec(t);
+>
+>   		if (t->cs_change)
+> -			bcm63xx_hsspi_set_cs(bs, spi->chip_select, false);
+> +			bcm63xx_hsspi_set_cs(bs, spi_get_chipselect(spi, 0), false);
+>   	}
+>
+>   	mutex_lock(&bs->bus_mutex);
 
-+1, that buys us some time to go through the rounds on the arm64 side
-such that we could possibly stack the TLBIRANGE work on top.
+For bcm63xx-hsspi driver,
 
---
-Thanks,
-Oliver
+Acked-by: William Zhang <william.zhang@broadcom.com>
+
+--0000000000005667af05f30c1f32
+Content-Type: application/pkcs7-signature; name="smime.p7s"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="smime.p7s"
+Content-Description: S/MIME Cryptographic Signature
+
+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
+YDZuuBJwnyCzevMoPtVYPharioL5H3BRnQi8YoTXH7/uRo33dewYFm474yFjwwnt82TFtveVZkVq
+6h4WIQ4wTcwFfET8zMkELnGzS5SHCl8sPD+lNxxJ1JDZYwIDAQABo4IB2zCCAdcwDgYDVR0PAQH/
+BAQDAgWgMIGjBggrBgEFBQcBAQSBljCBkzBOBggrBgEFBQcwAoZCaHR0cDovL3NlY3VyZS5nbG9i
+YWxzaWduLmNvbS9jYWNlcnQvZ3NnY2NyM3BlcnNvbmFsc2lnbjJjYTIwMjAuY3J0MEEGCCsGAQUF
+BzABhjVodHRwOi8vb2NzcC5nbG9iYWxzaWduLmNvbS9nc2djY3IzcGVyc29uYWxzaWduMmNhMjAy
+MDBNBgNVHSAERjBEMEIGCisGAQQBoDIBKAowNDAyBggrBgEFBQcCARYmaHR0cHM6Ly93d3cuZ2xv
+YmFsc2lnbi5jb20vcmVwb3NpdG9yeS8wCQYDVR0TBAIwADBJBgNVHR8EQjBAMD6gPKA6hjhodHRw
+Oi8vY3JsLmdsb2JhbHNpZ24uY29tL2dzZ2NjcjNwZXJzb25hbHNpZ24yY2EyMDIwLmNybDAlBgNV
+HREEHjAcgRp3aWxsaWFtLnpoYW5nQGJyb2FkY29tLmNvbTATBgNVHSUEDDAKBggrBgEFBQcDBDAf
+BgNVHSMEGDAWgBSWM9HmWBdbNHWKgVZk1b5I3qGPzzAdBgNVHQ4EFgQUq65GzwZxydFHjjYEU/9h
+xHhPWlwwDQYJKoZIhvcNAQELBQADggEBAA2hGG3JPAdGPH0ZdohGUCIVjKz+U+EFuIDbS6A/5jqX
+VhYAxZlzj7tSjUIM7G7IhyfqPC46GKJ/4x+Amz1Z6YxNGy71L68kYD6hIbBcA5AM42QBUufly6Oa
+/ppSz3WoflVyFFQ5YXniZ+eU+2/cdnYZg4aVUnFjimOF5o3NfMLzOkhQNxbaDjFUfUYD8hKmU6v4
+0vUBj8KZ9Gi1LIagLKUREn8jku0lcLsRbnJ5Ey5ScajC/FESPyYWasOW8j8/1EoJksmhbYGKNS6C
+urb/KlmDGfVrIRYDbL0ckhGQIP5c6L+kSQZ2sHnQK0e0WgIaZYxaPYeY5u0GLCOze+3vyRMxggJt
+MIICaQIBATBrMFsxCzAJBgNVBAYTAkJFMRkwFwYDVQQKExBHbG9iYWxTaWduIG52LXNhMTEwLwYD
+VQQDEyhHbG9iYWxTaWduIEdDQyBSMyBQZXJzb25hbFNpZ24gMiBDQSAyMDIwAgwxuh2XG3FXRL1W
+JOEwDQYJYIZIAWUDBAIBBQCggdQwLwYJKoZIhvcNAQkEMSIEIPV0GPci7PjhkOLQr5YYlwfjp9bZ
+8n4Nhqy3DqNgqzROMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTIz
+MDEyNTAwNTc1NFowaQYJKoZIhvcNAQkPMVwwWjALBglghkgBZQMEASowCwYJYIZIAWUDBAEWMAsG
+CWCGSAFlAwQBAjAKBggqhkiG9w0DBzALBgkqhkiG9w0BAQowCwYJKoZIhvcNAQEHMAsGCWCGSAFl
+AwQCATANBgkqhkiG9w0BAQEFAASCAQCDeRwW7sqpu5MnOyyvjxmJvRUbfI/L5CP1JkPtuA2BZ0WX
+P6pe/eXLFP9A//7IMZwRnMYubkHF2KOwoW3nTAZfFZU1MJtjpUcUMyAey4sODSCw78wnDub+b0R4
+rbtgWN26AOILOF9V7rUdA5hd4ZZZWrSVlZOxQOnkEnrrXwRMTZ6H4LILkENVRytDPX6WcNSzofVt
+bTZisKrK4TQRGwagjsH1XbjDJQy3in8wE53Bemw/woVR/U5dKkgH5bIc7O+yvfRkg3Dze87oKtUn
+0jlTOX7lGBKRqMHxDVl2SRBQXJ+ytWpT1WR9l3AFCBIp4QCo4isjywLpWTF5YramMP+j
+--0000000000005667af05f30c1f32--
+
+
+--===============5484111142597714025==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5484111142597714025==--
+
