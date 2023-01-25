@@ -4,68 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF3C2C54E94
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jan 2023 00:47:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9BF7C54E94
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jan 2023 00:52:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SyTiRjDvhDYHWqDjwvCaXajDmif8ahCv1BWIE0zH2ms=; b=gNvdFl9hMhgxuj
-	raoMu4z4BDwbehELlgYPGJl8BZf3AgjWij+n+03TSXdblo7kPUlRFBrVHmEKzWI6hgZlz+QEKa0+u
-	DiYCcp7jH/sC9CvxE0oOapP0spMaJ6NbQI9tffmr4tkglVKCZgNz/tih4Shyl/07PMXLIUz2smC47
-	UgeTeP1SliWMZlqPt5Cj8RkjFTdWGoG7KDgJjEUWFpitMV6y2lIwe/o+3o30IkCWj9ddcUrWIhBC4
-	ERSxBqzT1QwoD2rxvYRoXSHjTk7fZEz+hi3EdJzjNALaSkEsyBO5FqTQ6UsKmjfol2qIAHwCQXyUp
-	N+eQcqIlcXh3RVmTyMwA==;
+	List-Owner; bh=zUr0Xk0wR4Ng1I6K2VrmnV5+RowvOJ2ZUfaAqCfhhDE=; b=48Kw/a8HgGF6Fi
+	4gObcOSI5SePaySdiR7D88Ol79dF+qaEp0NQwmvGeXEm88Qw3hQl7DYEgB4j+19pjRAhoSI5ENSZj
+	SIpGU398QS1lYuiruA2Vw7TfKfjlETJd7ZZY0W4QLgpzChya1eOF3RecV0Xt4Vk/pVlho/YyCfA+Z
+	YPvHoDiUxBVU/9dNDSAjTwMTuX/62B4eVPNE9PiAEyYXWGR3M1G3Yl4FJBf/Ss+uxr73qElU8/p0X
+	+qaigZ7AsxrCoxkGJYTDZ1YeGaw3JvrPlNY0caJLrGvt/56KsJTknt/eT6+dkw4ZIK1unoeSNJ3vm
+	In83WY0CEjNJY1oYPtxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKTwX-005jvZ-0F; Wed, 25 Jan 2023 00:47:13 +0000
-Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
+	id 1pKU15-005kQa-A5; Wed, 25 Jan 2023 00:51:55 +0000
+Received: from out0.migadu.com ([2001:41d0:2:267::])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKTwS-005juJ-QA
-	for linux-riscv@lists.infradead.org; Wed, 25 Jan 2023 00:47:11 +0000
-Received: by mail-pg1-x536.google.com with SMTP id s67so12426052pgs.3
-        for <linux-riscv@lists.infradead.org>; Tue, 24 Jan 2023 16:47:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ghxIETXzFs7vJZ8k07wa7GlexKAzC+rzARYUkXCHQHs=;
-        b=LvjZfwXCe3mA6H4AGCqGyzVKFBo5GWM8FdhLXaayHykpzPCuRAjaElAT5Hk2ey/F40
-         Bh0dvjNSUfqTGb2iuj7q1O/PTP7W4gatjaXfhcEVTR9wjA0tLBMoJ0VwCZFubj/cVP55
-         Ivatyfw6YQ7PGbADo/BVU9RK987h/uMS90RV4WjpCsfklzdPKAdTHudb41fHEoV/AC4t
-         QA+JdfzzdjDGfYBlxMFkykCYVfgF1+Lcr4tMwizCyX8BReSbwOSOFa9HKtzdOfc+/Z4x
-         VkMk2QpFyvQFvDavS06hVgLrLbNgjoiC6/78xM6uAk2D8AhY1zohmPXNMphYinnluuYY
-         oCeA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ghxIETXzFs7vJZ8k07wa7GlexKAzC+rzARYUkXCHQHs=;
-        b=zm9YBJyAVs28W1DcRgV84TlsAfhArPFgysbr/xH7vItraS7vdfHgy4FsY9hI7VZbrW
-         z+d4P2dgUcomBfE589vww58lZMmTaEfOOesQXB6CywtjbgKNAoufq+m27ig0MJ99F4OF
-         /zvH5SzZh/v7QQO+jN3j4BBL+SU+O90xWwgpSMWHwKQMRaqT9vS8OvodQ8JQfEE4xVEb
-         MMz11p4JE8BHCYSgZlqTOxaCkkoKUM9Jhil3xXTfWerv5GhnqyuGw4wa7bsSNV+VbfSZ
-         Ww6wacwyfqwPmir10zCSlEcdmf+A6VlDCtLpOage5mp7MkEj3CPlKWLglq4LBuF/NV+o
-         QCsQ==
-X-Gm-Message-State: AO0yUKWVSRxYJuZYC47HpTu4X9cs1cg6XGbx9jqX5i52sb7adi34LdZn
-	dMXLr5Zt+cTx83f8FRE+hW025Q==
-X-Google-Smtp-Source: AK7set9F5NYwCkfGKD1bo/mJyqFfAsir2nkFX4eO7dXf2tZvBxGZyFTFZ2Lda5ZK6A3xZU2rNxPYBg==
-X-Received: by 2002:a62:7988:0:b0:58b:cb1b:978f with SMTP id u130-20020a627988000000b0058bcb1b978fmr382182pfc.1.1674607623688;
-        Tue, 24 Jan 2023 16:47:03 -0800 (PST)
-Received: from google.com (7.104.168.34.bc.googleusercontent.com. [34.168.104.7])
-        by smtp.gmail.com with ESMTPSA id z6-20020aa791c6000000b005884d68d54fsm2242952pfa.1.2023.01.24.16.47.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Jan 2023 16:47:03 -0800 (PST)
-Date: Wed, 25 Jan 2023 00:46:59 +0000
-From: Sean Christopherson <seanjc@google.com>
-To: David Matlack <dmatlack@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+	id 1pKU0s-005kN8-Oa; Wed, 25 Jan 2023 00:51:46 +0000
+Date: Wed, 25 Jan 2023 00:51:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1674607898;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=tKZJHCuNcS9wmdGcYa74NyQbaZqjeiShG5FvQ1mhWsM=;
+	b=bj8WStw0zxg3MLqdRtbAX0JL3VYIi9naRAx1uWiRdxJdQreQasQOekCNtU6DzYsQo7oi1M
+	LHae7+//6q3qHKef5X57sWNCE20HZfjwjIcBMDrz/cOWaVFr+2MFwgmAfiIok12p6RuelG
+	1ntXs3GUvHw8B1SPOECe82979r6Pdd4=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Sean Christopherson <seanjc@google.com>
+Cc: David Matlack <dmatlack@google.com>,
+	Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
 	James Morse <james.morse@arm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Huacai Chen <chenhuacai@kernel.org>,
 	Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
@@ -81,14 +56,16 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
 	Raghavendra Rao Ananta <rananta@google.com>
 Subject: Re: [PATCH 0/7] KVM: Add a common API for range-based TLB
  invalidation
-Message-ID: <Y9B8A+/FSPCrAANT@google.com>
+Message-ID: <Y9B9FZReDVwdNNrS@google.com>
 References: <20230119173559.2517103-1-dmatlack@google.com>
+ <Y9B8A+/FSPCrAANT@google.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230119173559.2517103-1-dmatlack@google.com>
+In-Reply-To: <Y9B8A+/FSPCrAANT@google.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230124_164708_865509_EFD15B98 
-X-CRM114-Status: GOOD (  16.21  )
+X-CRM114-CacheID: sfid-20230124_165144_739471_53A53B3B 
+X-CRM114-Status: GOOD (  20.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,34 +82,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 19, 2023, David Matlack wrote:
-> This series introduces a common API for performing range-based TLB
-> invalidation. This is then used to supplant
-> kvm_arch_flush_remote_tlbs_memslot() and pave the way for two other
-> patch series:
+On Wed, Jan 25, 2023 at 12:46:59AM +0000, Sean Christopherson wrote:
+> On Thu, Jan 19, 2023, David Matlack wrote:
+> > This series introduces a common API for performing range-based TLB
+> > invalidation. This is then used to supplant
+> > kvm_arch_flush_remote_tlbs_memslot() and pave the way for two other
+> > patch series:
+> > 
+> > 1. https://lore.kernel.org/kvm/20230109215347.3119271-1-rananta@google.com/
+> > 
+> >   Adds ARM support for range-based TLB invalidation and needs a
+> >   mechanism to invoke it from common code. This series provides such a
+> >   mechanism via kvm_arch_flush_remote_tlbs_range().
+> > 
+> > 2. https://lore.kernel.org/kvm/20221208193857.4090582-1-dmatlack@google.com/
+> > 
+> >   Refactors the TDP MMU into common code, which requires an API for
+> >   range-based TLB invaliation.
+> > 
+> > This series is based on patches 29-33 from (2.), but I made some further
+> > cleanups after looking at it a second time.
+> > 
+> > Tested on x86_64 and ARM64 using KVM selftests.
 > 
-> 1. https://lore.kernel.org/kvm/20230109215347.3119271-1-rananta@google.com/
-> 
->   Adds ARM support for range-based TLB invalidation and needs a
->   mechanism to invoke it from common code. This series provides such a
->   mechanism via kvm_arch_flush_remote_tlbs_range().
-> 
-> 2. https://lore.kernel.org/kvm/20221208193857.4090582-1-dmatlack@google.com/
-> 
->   Refactors the TDP MMU into common code, which requires an API for
->   range-based TLB invaliation.
-> 
-> This series is based on patches 29-33 from (2.), but I made some further
-> cleanups after looking at it a second time.
-> 
-> Tested on x86_64 and ARM64 using KVM selftests.
+> Did a quick read through, didn't see anything I disagree with.
 
-Did a quick read through, didn't see anything I disagree with.
+LGTM for the tiny amount of arm64 changes, though I imagine David will
+do a v2 to completely get rid of the affected Kconfig.
 
-Is there any urgency to getting this merged?  If not, due to the dependencies
-with x86 stuff queued for 6.3, and because of the cross-architecture changes, it
-might be easiest to plan on landing this in 6.4.  That would allow Paolo to create
-an immutable topic branch fairly early on.
+> Is there any urgency to getting this merged?  If not, due to the dependencies
+> with x86 stuff queued for 6.3, and because of the cross-architecture changes, it
+> might be easiest to plan on landing this in 6.4.  That would allow Paolo to create
+> an immutable topic branch fairly early on.
+
++1, that buys us some time to go through the rounds on the arm64 side
+such that we could possibly stack the TLBIRANGE work on top.
+
+--
+Thanks,
+Oliver
 
 _______________________________________________
 linux-riscv mailing list
