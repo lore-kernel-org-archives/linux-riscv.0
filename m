@@ -4,74 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2BD4C27C76
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jan 2023 15:29:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C303FC54E94
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jan 2023 15:30:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rjZSik4OzqOvkhvnBC76GJHD2Qm+Y0RxUpIaateRJA8=; b=OWN4Vs+64rLo68
-	8rSDK4QLUlcEYbGPC55epj8tB+ibBhjmR+RkonYD7i5y90Z2wB6EXJcpMwKeLjSkKg6fZe9nABYNK
-	RpQIJ5y+R7bGR3QV1GjDkm4SdDsS/ZGVKmUmhD2NvIJbAjYgJ7qNy6X9BX3H8axItiIgSZ2m+o7r3
-	t9d9oI7JTnE+HZWF0q+UqHDqvMq4zgJBZEEXiU3lLRmhqgghfPg0i2Iqpt/co2Dvs+BX5Pu/wcfHV
-	8husB57rRdxuPFjMQYv+p1k2Su5Ip3eyqNOOxnZ37ULjI2XNIOyNuS0fkxZIQsxEDRGk+f9MSwYN7
-	7YTxmH51tw4LUuIJj3Qw==;
+	List-Owner; bh=B3lUs0pXqP7Hg+paCDL+N+uahsdDsxjyuiF4LBLvWRs=; b=LqbEhDO17WR9+/
+	pg0nY2S3zoYkTaKbW08byYEUtv04Xf7kFA+FmstSceHyz/28Jg2z3qYIlVker65tE1CeQCpxtZQjN
+	gtUdYhj3CAdWBVqb1919nViz9W3J0aHgUmrCsFFe5t0uPHqlNw3WOLujRKQ7dHsBZHVjivPZ5HBze
+	osgYyCKCP3WV9/GZOXueLH6CMd77I/6VK/eINe7aH9hMS/dlTTRTA4ybRo5Lmr8MbICMQAjdEgqC8
+	kCHpgu7BV+V3btVItZR7Z5jMgAPM54VAh/8BFyOzj4d2S3qcdI/lnOTdPGwgvYfQO/o1G2bZbvxKJ
+	mSfLxiinZv7/lA3RGNkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKhiS-007omo-BM; Wed, 25 Jan 2023 15:29:36 +0000
-Received: from mail-qt1-f170.google.com ([209.85.160.170])
+	id 1pKhjV-007p2I-KG; Wed, 25 Jan 2023 15:30:41 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKhiQ-007olq-4j
-	for linux-riscv@lists.infradead.org; Wed, 25 Jan 2023 15:29:35 +0000
-Received: by mail-qt1-f170.google.com with SMTP id j9so16233331qtv.4
-        for <linux-riscv@lists.infradead.org>; Wed, 25 Jan 2023 07:29:32 -0800 (PST)
+	id 1pKgeK-007V7q-SX
+	for linux-riscv@lists.infradead.org; Wed, 25 Jan 2023 14:21:18 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id k10-20020a17090a590a00b0022ba875a1a4so2173950pji.3
+        for <linux-riscv@lists.infradead.org>; Wed, 25 Jan 2023 06:21:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google;
+        h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=bShQ9PSu63qbKXGcKlBChSQ7VtBMrED0U/PQ9VL15gE=;
+        b=jINU11TgarzbqAG3dUBW4yFk63eMrTLkYHKUgNEa1kauLINr9BQ/oBG/GNUWxpnYFG
+         KTgST9E+iIeoLhSzQI0V3jpf8XXnDJEAV+YROcBW2vyRfG5RFbDahvzuzV73K+AeEkio
+         tQolGYH+xawCzsa+384JQ1LwAnIb52vRRP/fohzN3j3bjq0iVkIaHddrqJF4YSCj0YXh
+         QRulmzIlXAKGDpVVAochwvosh6/poDidQ9bzo7JpIgOLbO9/ITX1Ov/0iF3MRwh0THrO
+         T9vPA6KeFr2ilBjnGP9NqsVY2pEjLiNRHDV/ZBpQuCoT7eADukqAC59HQw5VPF3AsG1x
+         sY0Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=3g/bTcIABXhuOTGEfGmYgpildLrwGp+xtHqxezjbAIo=;
-        b=NvGRl5s4vqFzftFBVYbzn0j36YiyM/GWjZAGbCkajL/sLxlBhEvcsp2LMd1RHmK5LL
-         slsh7taYrTV3agxVHFBhsh7Kr0dG/4my+u2K4+KDkwjgZ24wGbDDbwKhywcYzWP1t4Nb
-         lGaCMQuqK2s+54yJGNPwb1P7AUKRCiXBOo2RyQtwj6BK8w2F+lPIjas+pp7rfYQqJlAV
-         MJK2F7KZbJGyVRkm4t1nl1IB0d5ZBaQ8N644jSKnnzbrJAP2fzK0+R+c7g914QdHejav
-         JVNrTk3uthT6oRVMoLmiTkWBIovQDQ5oP0qqQIypT60ouRKGUmlqGojOQ7/O+fHz1gkW
-         3S9w==
-X-Gm-Message-State: AFqh2kpQN1UhI52OMWi0h4BtNuXEznV218u9Ql+Hggz1R+mjsK/HQGk5
-	lugUg5ktPxPoUq3SJV7sPzET1xKJS3xQLQ==
-X-Google-Smtp-Source: AMrXdXstgWnCtUFTnTP1aa2Idole3SUvL5P4wARppKGtS8JsxdyYgrJA3x+Rq64AhM8ueEdTxVs7og==
-X-Received: by 2002:a05:622a:1ccd:b0:3b6:3ca2:dde8 with SMTP id bc13-20020a05622a1ccd00b003b63ca2dde8mr42608684qtb.67.1674660571788;
-        Wed, 25 Jan 2023 07:29:31 -0800 (PST)
-Received: from mail-yw1-f178.google.com (mail-yw1-f178.google.com. [209.85.128.178])
-        by smtp.gmail.com with ESMTPSA id r9-20020ac85209000000b003b54a8fd02dsm3380665qtn.87.2023.01.25.07.29.30
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Jan 2023 07:29:31 -0800 (PST)
-Received: by mail-yw1-f178.google.com with SMTP id 00721157ae682-4b718cab0e4so268181757b3.9
-        for <linux-riscv@lists.infradead.org>; Wed, 25 Jan 2023 07:29:30 -0800 (PST)
-X-Received: by 2002:a81:1216:0:b0:506:6b5d:523c with SMTP id
- 22-20020a811216000000b005066b5d523cmr193364yws.283.1674660570612; Wed, 25 Jan
- 2023 07:29:30 -0800 (PST)
-MIME-Version: 1.0
-References: <20230105033705.3946130-1-leyfoon.tan@starfivetech.com>
-In-Reply-To: <20230105033705.3946130-1-leyfoon.tan@starfivetech.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 25 Jan 2023 16:29:19 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdWo=6jR5WEWkdDWVCs0bUPFL3gyTVM_3HWh+SLCxQV5Gw@mail.gmail.com>
-Message-ID: <CAMuHMdWo=6jR5WEWkdDWVCs0bUPFL3gyTVM_3HWh+SLCxQV5Gw@mail.gmail.com>
-Subject: Re: [PATCH v2] riscv: Move call to init_cpu_topology() to later
- initialization stage
-To: Ley Foon Tan <leyfoon.tan@starfivetech.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Ley Foon Tan <lftan.linux@gmail.com>, 
-	Conor Dooley <conor.dooley@microchip.com>, Andrew Jones <ajones@ventanamicro.com>, 
-	Sudeep Holla <Sudeep.Holla@arm.com>, Pierre Gondois <pierre.gondois@arm.com>
+        h=references:in-reply-to:message-id:date:subject:cc:to:from
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=bShQ9PSu63qbKXGcKlBChSQ7VtBMrED0U/PQ9VL15gE=;
+        b=DKe6q9fw4kr3wqs4FeUQFMICcnpzpZlwtHgEUO5fMbx9hKhE/UkhXjJ/wC9y5pXRdG
+         6bXKKHwH6/+pxn8G8+1sGJuykZTa8HbYAnIlVAxmNAmZJ760VGLQi8Jn3sLAkp6q4lp/
+         cj+jTapmgjbqfBa4Jqrwi37axA61OPssF2wVPygIh164HHh+BN/PhTk8w9on+qvr1zEb
+         DUkhSj30j9pQ+aN7n8bim07GM8vj0KUwVYndC4o2YfJGOcXPqANnkgIBb9rzNfouFWBH
+         kx7YzFe5M3q7HLp9FxHgQYCRbCP37ikiLcDeIF4Fp5iQVZKmMgqf2+Ex5Ty4c/y5JI96
+         Y/zA==
+X-Gm-Message-State: AO0yUKXMWFUXgfLHl+xc8+3N5AyGwfejzNtLY31lOJRzS6VKhRHtA2/F
+	73ZIt0RYzQ8dbeY4qnl2tzX6F8jn0kKfOOGMyRFbIvYj2iuqDImXKOoB7ib4WgeKtMk2tzjST+X
+	rMtO6Ay/rWRoDtyHD2p3bqTXQFqGkQ+hRBfBGAIUnw2tiDJMaZEGwxZAHfOrJmLVRBhtx2wdFMS
+	qAZunsvdc/Fg==
+X-Google-Smtp-Source: AK7set+rgD5lUcwy+ia3a8oTMQmOXeKzffyDwx7CywwABIvqEHXyJWEVvh82vkywMCu9PvDHfSDApg==
+X-Received: by 2002:a05:6a20:5495:b0:bb:9d1c:ede5 with SMTP id i21-20020a056a20549500b000bb9d1cede5mr7904680pzk.19.1674656475161;
+        Wed, 25 Jan 2023 06:21:15 -0800 (PST)
+Received: from hsinchu25.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
+        by smtp.gmail.com with ESMTPSA id bu11-20020a63294b000000b004a3510effa5sm3203520pgb.65.2023.01.25.06.21.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Jan 2023 06:21:14 -0800 (PST)
+From: Andy Chiu <andy.chiu@sifive.com>
+To: linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	anup@brainfault.org,
+	atishp@atishpatra.org,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org
+Cc: vineetg@rivosinc.com,
+	greentime.hu@sifive.com,
+	guoren@linux.alibaba.com,
+	Guo Ren <ren_guo@c-sky.com>,
+	Andy Chiu <andy.chiu@sifive.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Atish Patra <atishp@rivosinc.com>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Guo Ren <guoren@kernel.org>,
+	Mayuresh Chitale <mchitale@ventanamicro.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Dao Lu <daolu@rivosinc.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Vincent Chen <vincent.chen@sifive.com>,
+	Tsukasa OI <research_trasio@irq.a4lg.com>
+Subject: [PATCH -next v13 02/19] riscv: Extending cpufeature.c to detect V-extension
+Date: Wed, 25 Jan 2023 14:20:39 +0000
+Message-Id: <20230125142056.18356-3-andy.chiu@sifive.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20230125142056.18356-1-andy.chiu@sifive.com>
+References: <20230125142056.18356-1-andy.chiu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230125_072934_198707_9F97C760 
-X-CRM114-Status: GOOD (  20.24  )
+X-CRM114-CacheID: sfid-20230125_062116_933698_D7504BB5 
+X-CRM114-Status: GOOD (  17.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,57 +105,135 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Ley,
+From: Guo Ren <ren_guo@c-sky.com>
 
-On Thu, Jan 5, 2023 at 4:45 AM Ley Foon Tan
-<leyfoon.tan@starfivetech.com> wrote:
-> If "capacity-dmips-mhz" is present in a CPU DT node,
-> topology_parse_cpu_capacity() will fail to allocate memory.
-> ARM64, with which this code path is shared, does not call
-> topology_parse_cpu_capacity() until later in boot where memory allocation
-> is available.
->
-> Move init_cpu_topology(), which calls topology_parse_cpu_capacity(), to a
-> later initialization stage, to match ARM64.
->
-> Tested on Qemu platform.
->
-> Fixes: 03f11f03dbfe ("RISC-V: Parse cpu topology during boot.")
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-> Signed-off-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
->
-> ---
-> Changes:
-> v2:
-> - Update commit description with suggestion from Conor.
-> - Added Reviewed-by.
-> - Added Fixes.
+Add V-extension into riscv_isa_ext_keys array and detect it with isa
+string parsing.
 
-This also fixes the error message
+Signed-off-by: Guo Ren <ren_guo@c-sky.com>
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
+Suggested-by: Vineet Gupta <vineetg@rivosinc.com>
+Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
+---
+ arch/riscv/include/asm/hwcap.h      |  4 ++++
+ arch/riscv/include/asm/vector.h     | 26 ++++++++++++++++++++++++++
+ arch/riscv/include/uapi/asm/hwcap.h |  1 +
+ arch/riscv/kernel/cpufeature.c      | 12 ++++++++++++
+ 4 files changed, 43 insertions(+)
+ create mode 100644 arch/riscv/include/asm/vector.h
 
-    Early cacheinfo failed, ret = -12
+diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+index 57439da71c77..f413db6118e5 100644
+--- a/arch/riscv/include/asm/hwcap.h
++++ b/arch/riscv/include/asm/hwcap.h
+@@ -35,6 +35,7 @@ extern unsigned long elf_hwcap;
+ #define RISCV_ISA_EXT_m		('m' - 'a')
+ #define RISCV_ISA_EXT_s		('s' - 'a')
+ #define RISCV_ISA_EXT_u		('u' - 'a')
++#define RISCV_ISA_EXT_v		('v' - 'a')
+ 
+ /*
+  * Increse this to higher value as kernel support more ISA extensions.
+@@ -73,6 +74,7 @@ static_assert(RISCV_ISA_EXT_ID_MAX <= RISCV_ISA_EXT_MAX);
+ enum riscv_isa_ext_key {
+ 	RISCV_ISA_EXT_KEY_FPU,		/* For 'F' and 'D' */
+ 	RISCV_ISA_EXT_KEY_SVINVAL,
++	RISCV_ISA_EXT_KEY_VECTOR,	/* For 'V' */
+ 	RISCV_ISA_EXT_KEY_ZIHINTPAUSE,
+ 	RISCV_ISA_EXT_KEY_MAX,
+ };
+@@ -95,6 +97,8 @@ static __always_inline int riscv_isa_ext2key(int num)
+ 		return RISCV_ISA_EXT_KEY_FPU;
+ 	case RISCV_ISA_EXT_SVINVAL:
+ 		return RISCV_ISA_EXT_KEY_SVINVAL;
++	case RISCV_ISA_EXT_v:
++		return RISCV_ISA_EXT_KEY_VECTOR;
+ 	case RISCV_ISA_EXT_ZIHINTPAUSE:
+ 		return RISCV_ISA_EXT_KEY_ZIHINTPAUSE;
+ 	default:
+diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
+new file mode 100644
+index 000000000000..917c8867e702
+--- /dev/null
++++ b/arch/riscv/include/asm/vector.h
+@@ -0,0 +1,26 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++/*
++ * Copyright (C) 2020 SiFive
++ */
++
++#ifndef __ASM_RISCV_VECTOR_H
++#define __ASM_RISCV_VECTOR_H
++
++#include <linux/types.h>
++
++#ifdef CONFIG_RISCV_ISA_V
++
++#include <asm/hwcap.h>
++
++static __always_inline bool has_vector(void)
++{
++	return static_branch_likely(&riscv_isa_ext_keys[RISCV_ISA_EXT_KEY_VECTOR]);
++}
++
++#else /* ! CONFIG_RISCV_ISA_V  */
++
++static __always_inline bool has_vector(void) { return false; }
++
++#endif /* CONFIG_RISCV_ISA_V */
++
++#endif /* ! __ASM_RISCV_VECTOR_H */
+diff --git a/arch/riscv/include/uapi/asm/hwcap.h b/arch/riscv/include/uapi/asm/hwcap.h
+index 46dc3f5ee99f..c52bb7bbbabe 100644
+--- a/arch/riscv/include/uapi/asm/hwcap.h
++++ b/arch/riscv/include/uapi/asm/hwcap.h
+@@ -21,5 +21,6 @@
+ #define COMPAT_HWCAP_ISA_F	(1 << ('F' - 'A'))
+ #define COMPAT_HWCAP_ISA_D	(1 << ('D' - 'A'))
+ #define COMPAT_HWCAP_ISA_C	(1 << ('C' - 'A'))
++#define COMPAT_HWCAP_ISA_V	(1 << ('V' - 'A'))
+ 
+ #endif /* _UAPI_ASM_RISCV_HWCAP_H */
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index dde0e91d7668..c433899542ff 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -101,6 +101,7 @@ void __init riscv_fill_hwcap(void)
+ 	isa2hwcap['f' - 'a'] = COMPAT_HWCAP_ISA_F;
+ 	isa2hwcap['d' - 'a'] = COMPAT_HWCAP_ISA_D;
+ 	isa2hwcap['c' - 'a'] = COMPAT_HWCAP_ISA_C;
++	isa2hwcap['v' - 'a'] = COMPAT_HWCAP_ISA_V;
+ 
+ 	elf_hwcap = 0;
+ 
+@@ -256,6 +257,17 @@ void __init riscv_fill_hwcap(void)
+ 		elf_hwcap &= ~COMPAT_HWCAP_ISA_F;
+ 	}
+ 
++	if (elf_hwcap & COMPAT_HWCAP_ISA_V) {
++#ifndef CONFIG_RISCV_ISA_V
++		/*
++		 * ISA string in device tree might have 'v' flag, but
++		 * CONFIG_RISCV_ISA_V is disabled in kernel.
++		 * Clear V flag in elf_hwcap if CONFIG_RISCV_ISA_V is disabled.
++		 */
++		elf_hwcap &= ~COMPAT_HWCAP_ISA_V;
++#endif
++	}
++
+ 	memset(print_str, 0, sizeof(print_str));
+ 	for (i = 0, j = 0; i < NUM_ALPHA_EXTS; i++)
+ 		if (riscv_isa[0] & BIT_MASK(i))
+-- 
+2.17.1
 
-seen during early boot on all my RV64 platforms.
-
-Fixes: 5944ce092b97caed ("arch_topology: Build cacheinfo from primary CPU")
-Tested-by: Geert Uytterhoeven <geert+renesas@glider.be>
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
