@@ -4,84 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29CFBC27C76
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jan 2023 20:16:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF853C54E94
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jan 2023 20:17:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aOykQkJiDeSoc5n6yjhVQdh9PtwLSjHN6J3qY2Mj+1A=; b=08/rNFBUrhs1ri
-	86KPcUbUk9NpGa6ODw1TpUcxAAKZtvYYKQByNJ5lcDWfts1he7M6q2AJFnG+Tex8MSWxKY3Kcngyh
-	J1gzaS0KHbt2MEbj++pK4OsYqLs9Boy6kOccURmbp+TuiVGilhJmZMWlQAB6HVZ4iJT8rKX09ScAV
-	Ry8RWqkRXL2zWbpP7GdAvoCjL2jOLrMbPpPqX+HbbtSEkJBFFfHozfKsGn697SF7mqqr0TKEnB/1J
-	OuzNx6awwYPj49iwZcal1VpDf5+5mEn9Y2ceAK4p9+cBR/BkmL+9oX8iwN9iXk4Q33Dyih33qJWXb
-	wcuEwgYHdJA5219YaZow==;
+	List-Owner; bh=pFDwkXa5WkYkdSnIUdEPra/Rg2ZUay2tbx9823PkgsU=; b=Qc7LDjmftj/GHt
+	477MHNLsLB2yezw72kU8lAiInuHGjVvRIH8hOMWlDVkDLhVj54RBpX60z3tbF+XN8IbevDVoEt7pG
+	o7y+N+pFpzYx5FGZUz0EJkK1CgMHmEDWt1Lxw6XZR9asPFfj/9EGax7kGoB4c/jyiVLAxgxXAJeO6
+	k6qcBKcs4tzxGXM41it/cmTHqOs3Dtq2cJxpthPFNb96aTa/FP0zCYdNQOBrRRFfrlFAAqj+ucw3Y
+	84IbeuwAuhmJQSHmuwb58BdQjeP/cvRj93JuKHEqLnzInBl+wyDnovtTvR8uOJRLjG5lntPrvtOVj
+	ObyEnu0ECV2tsUacFqVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKmBb-008dMa-1k; Wed, 25 Jan 2023 20:15:59 +0000
-Received: from mail-oa1-f43.google.com ([209.85.160.43])
+	id 1pKmCc-008do2-J7; Wed, 25 Jan 2023 20:17:02 +0000
+Received: from mail-oi1-f180.google.com ([209.85.167.180])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKm3P-008ZcG-77; Wed, 25 Jan 2023 20:07:32 +0000
-Received: by mail-oa1-f43.google.com with SMTP id 586e51a60fabf-1633e6f83d4so16196fac.0;
-        Wed, 25 Jan 2023 12:07:29 -0800 (PST)
+	id 1pKm43-008Zsk-E4; Wed, 25 Jan 2023 20:08:12 +0000
+Received: by mail-oi1-f180.google.com with SMTP id r9so17238132oig.12;
+        Wed, 25 Jan 2023 12:08:05 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=XkAXkDhEfbbO8vL4jcgXHdApyqSqXlGnBUofEqsLMzQ=;
-        b=wr7sB/F0J5aTXPUGQIdUJ2NICH7sOGukiDnbowXFBnSybnWSlfR4Ro5BMvrOmd31iR
-         zaVw3DMaD2PrVfCqVtXIpQd3aTbALk7SXBNARyLeF71b6eRqRFNYDmZZjnDV14uNK0NU
-         THobhWlNP9eQkv7Xf/Fihmc69SxzKDcLAccQTgueqRblBPMJ9fRQnPiMrNKBfTudmyTo
-         j0nXW/+yIBOIbeClE8efrh8YvAdATPCT9yr2QUZxnw58VI7O8OwS1veqkUgJEJ3SLxGt
-         x91ve+E7uFa4Z1TgfBuMbZrs85oGt58W3DddJrmnLcr8b392fZMa08anclamuSI0oPS0
-         lR/Q==
-X-Gm-Message-State: AFqh2krCLGutsuOFZ0YgHo6dF2UwArTv1t+hQ9AriNbCpO2STFtNtWOV
-	/fqqQqn+CyG2HJmSHln8pQ==
-X-Google-Smtp-Source: AMrXdXteyM0OPwTs5gB6Am2eJ/aHWrEwxvp1bRY11quUm5b1g3LulC49my3RB8kmiOVdtzemE+Uh7g==
-X-Received: by 2002:a05:6870:bace:b0:154:bfcd:e86e with SMTP id js14-20020a056870bace00b00154bfcde86emr16295491oab.2.1674677248733;
-        Wed, 25 Jan 2023 12:07:28 -0800 (PST)
+        bh=n1p3FdYLlGUAChSL+8xP1SW3yYfJGghI7cagrX3Bi/I=;
+        b=K/KPYU0hyFXH2kE6Q7M6aMlaJW38E+dXTDbJ3KccYrYd6MbYxs3SE/s7wFY6hT9RWL
+         9AFNyTJcnwbeQEJ15xpavAZDv00ERS5fvjjJuZCJs24uJ+sUDYAsoulVpA3f/8LbtXNM
+         g7rbmI9qHmonA81S9Cll4AN+UET//Zqpnho5d7UfJtFYBWDhvzCZOFbHUPp3aOhFSWiV
+         rUOtAzIcdXdocZ6ikLdRG2fo7srhqAmAMnAlZMxiF4c9CsUgP+OHIISzroc8DoWYSx8T
+         T+gm13wBzyJiFEKrGLtBJvSq+pmqcPEnAADXUWectNyu8iCC5aYrCSeGLyNdqmuL6iZo
+         ZTRw==
+X-Gm-Message-State: AFqh2kqQH+VpM0MJOARlaJxaVnK0Pz8scut3Bx65Bu/ZC8wh0L42X4Ma
+	HCoklXbjijB8hMyy5LcIXA==
+X-Google-Smtp-Source: AMrXdXseqabcyHulKdSW9gY6uTAUwCSIlEbwqpw1soFhskncwZCdeRj5URGKhSfWNKhae8zY1f8dDg==
+X-Received: by 2002:a05:6808:189d:b0:364:d523:e138 with SMTP id bi29-20020a056808189d00b00364d523e138mr18874315oib.32.1674677284798;
+        Wed, 25 Jan 2023 12:08:04 -0800 (PST)
 Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id fw9-20020a056870080900b00143ae7d4ccesm1886575oab.45.2023.01.25.12.07.27
+        by smtp.gmail.com with ESMTPSA id b18-20020a056830105200b0068646a8223bsm2528460otp.57.2023.01.25.12.08.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Jan 2023 12:07:28 -0800 (PST)
-Received: (nullmailer pid 2778134 invoked by uid 1000);
-	Wed, 25 Jan 2023 20:07:27 -0000
-Date: Wed, 25 Jan 2023 14:07:27 -0600
+        Wed, 25 Jan 2023 12:08:04 -0800 (PST)
+Received: (nullmailer pid 2785052 invoked by uid 1000);
+	Wed, 25 Jan 2023 20:08:03 -0000
+Date: Wed, 25 Jan 2023 14:08:03 -0600
 From: Rob Herring <robh@kernel.org>
 To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Michal Simek <michal.simek@xilinx.com>, devicetree@vger.kernel.org, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Vignesh Raghavendra <vigneshr@ti.com>, Rob Herring <robh+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Fugang Duan <fugang.duan@nxp.com>, 
-	Pragnesh Patel <pragnesh.patel@sifive.com>, Jerome Brunet <jbrunet@baylibre.com>, 
-	Tomer Maimon <tmaimon77@gmail.com>, linux-stm32@st-md-mailman.stormreply.com, 
-	Chester Lin <clin@suse.com>, Magnus Damm <magnus.damm@gmail.com>, 
+Cc: linux-arm-kernel@lists.infradead.org, 
+	Michal Simek <michal.simek@xilinx.com>, devicetree@vger.kernel.org, 
+	Fugang Duan <fugang.duan@nxp.com>, linux-riscv@lists.infradead.org, 
+	Kevin Hilman <khilman@baylibre.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Le Ray <erwan.leray@foss.st.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, NXP Linux Team <linux-imx@nxp.com>, 
-	Peter Korsgaard <jacmet@sunsite.dk>, linux-kernel@vger.kernel.org, 
-	Michal Simek <michal.simek@amd.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	linux-arm-kernel@lists.infradead.org, Lubomir Rintel <lkundrak@v3.sk>, 
-	linux-riscv@lists.infradead.org, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, linux-amlogic@lists.infradead.org, 
-	linux-serial@vger.kernel.org
-Subject: Re: [PATCH v2 05/12] dt-bindings: serial: cdsn,uart: add
- power-domains
-Message-ID: <167467724645.2777996.13882955684476906730.robh@kernel.org>
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Fabio Estevam <festevam@gmail.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	linux-kernel@vger.kernel.org, Shawn Guo <shawnguo@kernel.org>, 
+	Pragnesh Patel <pragnesh.patel@sifive.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Peter Korsgaard <jacmet@sunsite.dk>, 
+	NXP Linux Team <linux-imx@nxp.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+	Magnus Damm <magnus.damm@gmail.com>, linux-stm32@st-md-mailman.stormreply.com, 
+	Rob Herring <robh+dt@kernel.org>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, linux-serial@vger.kernel.org, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Tomer Maimon <tmaimon77@gmail.com>, 
+	Vignesh Raghavendra <vigneshr@ti.com>, linux-amlogic@lists.infradead.org, 
+	Chester Lin <clin@suse.com>, Lubomir Rintel <lkundrak@v3.sk>, Le Ray <erwan.leray@foss.st.com>
+Subject: Re: [PATCH v2 06/12] dt-bindings: serial: 8250_omap: drop rs485
+ properties
+Message-ID: <167467728253.2784879.8231136375928061202.robh@kernel.org>
 References: <20230124091602.44027-1-krzysztof.kozlowski@linaro.org>
- <20230124091916.45054-3-krzysztof.kozlowski@linaro.org>
+ <20230124091916.45054-4-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230124091916.45054-3-krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20230124091916.45054-4-krzysztof.kozlowski@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230125_120731_304258_684CDFC4 
-X-CRM114-Status: GOOD (  10.18  )
+X-CRM114-CacheID: sfid-20230125_120811_538039_33450B6C 
+X-CRM114-Status: GOOD (  10.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,16 +98,14 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 24 Jan 2023 10:19:09 +0100, Krzysztof Kozlowski wrote:
-> Few Xilinx DTS have power domains in serial node:
-> 
->   zynqmp-zc1232-revA.dtb: serial@ff000000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+On Tue, 24 Jan 2023 10:19:10 +0100, Krzysztof Kozlowski wrote:
+> The binding references rs485 schema, so there is no need to list its
+> properties.  Simplify a bit by removing unneeded entries.
 > 
 > Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> Reviewed-by: Michal Simek <michal.simek@amd.com>
 > ---
->  .../devicetree/bindings/serial/cdns,uart.yaml   | 17 ++++++++++++++---
->  1 file changed, 14 insertions(+), 3 deletions(-)
+>  Documentation/devicetree/bindings/serial/8250_omap.yaml | 5 -----
+>  1 file changed, 5 deletions(-)
 > 
 
 Acked-by: Rob Herring <robh@kernel.org>
