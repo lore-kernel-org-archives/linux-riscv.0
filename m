@@ -4,82 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E78A9C54E94
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jan 2023 20:22:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89FD8C54E94
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jan 2023 21:05:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ow5P1n0DepFcyzUYYVWphZzTVTUP2qeMtdXcDNV7hP0=; b=D3eQA3YUetm3Ol
-	OT5CYIGA9xik60KXwXDy9BNp6TD/UvbmCwYKYaCDysb/cCRHqTACb8gMwZMqA/kbYacOeJkC1aY6q
-	5GupHiPA5HauLtXeGpv57o4TlRY1uTrl0HW5UgbAKJEGTRYTJG9O+pN/fs+ZHOPCTluMsx0CbSALz
-	BtW2uZ773rmPrg45NJzhVFdnJRNxZ71NY19CrSyQeT8GmVVooC60DSytLCBJS6ydcWE75ij10OysG
-	Ou1eG156JkstRTPz9W3GoojFGVP7UJU9q9Jbk+qYyeLOkfM9uU8qlS7/Jjcy1iz19xGrKFNraKjZy
-	EhPeSCVSQRdHpyl3wP4A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3G1Fj565zefwZJ4xC//6i6B6G2bkd6aCWmBsJlpQSB8=; b=p8yBqNFP+QGeAyysgH0S0AN37s
+	z8duQvD+X1O7KrXNDc3hRXCJq9baOt6jkclOuqzKipQvuX98o5zP9djoO2LLIIxSUq5rlXyfGESlu
+	aLMHYyLNOsoV7TtE202DUabHScnJhEznlgr3TmbzyrjW8q/MjI53bGWW6UpNpySjvKHzImqteRQ2z
+	yyDxKJRNrinrzjWdCvhKNe6OVFPev6T+n7hqUo6Oru32bLgfhxJhiOlKOh1MQkbQ+VuzlOETQ6PjT
+	MXBuWEmkFbfNEeDrmx8VpgKIOS0dbqzi4i+huzMh+Q/wyj3caK8ULHQR+8o+uVZ98FnRqgG9+Z64a
+	od2ePoZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKmIA-008gDV-5k; Wed, 25 Jan 2023 20:22:46 +0000
-Received: from mail-ot1-f42.google.com ([209.85.210.42])
+	id 1pKmwz-008nQd-St; Wed, 25 Jan 2023 21:04:57 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKm5r-008amX-FL; Wed, 25 Jan 2023 20:10:04 +0000
-Received: by mail-ot1-f42.google.com with SMTP id x21-20020a056830245500b006865ccca77aso11789006otr.11;
-        Wed, 25 Jan 2023 12:10:03 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=nvGxKBe2tXNnIAXd7DhRCMLLrdEFz1rEy7hosIzra4k=;
-        b=owtiYgy86v00Tll0rxpSI95SY96H5INMHrXKlezdyUYlgWqgPQi63NHQpFLm69IadJ
-         c/ECa2IVxeLDt9aX47efbnAME1gqF1u7afNJ/TMlAQ9dwZ5jEgHo5SWlXAbU++O/z0Dk
-         NucJ044R4yMaAZfV0W3TgBtdIGSi5RGIhbF8VKyzR0d8JWCZXq5gn6v/yYdCda27S99V
-         nYknWQ8wnaO5clt7yVlbH43n89Uyj94DVWYoVl6wJTNFp2OeaUgKhV1+PyXk+TefvgTO
-         FPckbS3zVtnOnsqi3ItHC3Tk4JOxWYEpQrr8xAf7Gc/6fOU2O62eemzRwTp09851t87Z
-         QS5Q==
-X-Gm-Message-State: AFqh2krq7dMzdndV96BhRRN41NSWnUp8XfjrUvCN+zWYiBQl7BohL7VM
-	R9ROlRFxicIbFY1mEffCrQ==
-X-Google-Smtp-Source: AMrXdXuxRG4RDF7RI7gCrOg1RarCpE71i170Oc3Cr+xu3/OuWc975n087q9cZ/K9XzPPfyTQp3Iy4Q==
-X-Received: by 2002:a9d:7508:0:b0:670:686c:7dc with SMTP id r8-20020a9d7508000000b00670686c07dcmr17455962otk.26.1674677402557;
-        Wed, 25 Jan 2023 12:10:02 -0800 (PST)
-Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id b6-20020a9d6b86000000b00684e79759d7sm2505546otq.65.2023.01.25.12.10.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Jan 2023 12:10:02 -0800 (PST)
-Received: (nullmailer pid 2808877 invoked by uid 1000);
-	Wed, 25 Jan 2023 20:10:00 -0000
-Date: Wed, 25 Jan 2023 14:10:00 -0600
-From: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Peter Korsgaard <jacmet@sunsite.dk>, Chester Lin <clin@suse.com>, 
-	linux-stm32@st-md-mailman.stormreply.com, 
-	Vignesh Raghavendra <vigneshr@ti.com>, Shawn Guo <shawnguo@kernel.org>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Michal Simek <michal.simek@xilinx.com>, linux-riscv@lists.infradead.org, 
-	Sascha Hauer <s.hauer@pengutronix.de>, linux-serial@vger.kernel.org, 
-	Le Ray <erwan.leray@foss.st.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Tomer Maimon <tmaimon77@gmail.com>, 
-	devicetree@vger.kernel.org, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	linux-amlogic@lists.infradead.org, Magnus Damm <magnus.damm@gmail.com>, 
-	linux-arm-kernel@lists.infradead.org, Rob Herring <robh+dt@kernel.org>, 
-	Kevin Hilman <khilman@baylibre.com>, linux-kernel@vger.kernel.org, 
-	Pragnesh Patel <pragnesh.patel@sifive.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Fabio Estevam <festevam@gmail.com>, 
-	Fugang Duan <fugang.duan@nxp.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	NXP Linux Team <linux-imx@nxp.com>, Lubomir Rintel <lkundrak@v3.sk>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Jerome Brunet <jbrunet@baylibre.com>
-Subject: Re: [PATCH v2 12/12] dt-bindings: serial: example cleanup
-Message-ID: <167467740050.2808709.16126387956370383942.robh@kernel.org>
-References: <20230124091602.44027-1-krzysztof.kozlowski@linaro.org>
- <20230124091916.45054-10-krzysztof.kozlowski@linaro.org>
+	id 1pKmwv-008nOc-VJ; Wed, 25 Jan 2023 21:04:55 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id E34BBB81BA0;
+	Wed, 25 Jan 2023 21:04:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D7DAC433D2;
+	Wed, 25 Jan 2023 21:04:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1674680690;
+	bh=5XgIUsKQQfnJqmrJCF1Ci6vFUC+8ejjb8Ltko66AhdE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=nj1pO4t16aTOFuGuZ7TSeefZfsF8eqqi44PedPJ5/hJf45UnJzobGr+D7VnlO85AJ
+	 Ded5+078L02E5qvIHARMMPCN79F6DRhz9u9mC+8a1b+u37npcELVAJVhJvax0/b9iV
+	 sNWFPCR3i43WjhvCi27BxeiO/ydEkzP35sapJgkj2V3CUgxYiQW9mhqbzqXYWkIMs4
+	 Ss2yD0ivce40sRHbaSka3/KnovHZBt23pWEekz7bQgy4q8gbAQqdy5SQO/13MBr3BN
+	 JXZABfSmVduBbnX0yiE0X7XE4o+qb72nv8kstxe+l06+XoAHJZMivz1kLHOHknf1T4
+	 xbyEuyC6MLBXA==
+Date: Wed, 25 Jan 2023 21:04:45 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Andy Chiu <andy.chiu@sifive.com>
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
+	anup@brainfault.org, atishp@atishpatra.org,
+	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
+	vineetg@rivosinc.com, greentime.hu@sifive.com,
+	guoren@linux.alibaba.com, Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Subject: Re: [PATCH -next v13 19/19] riscv: Enable Vector code to be built
+Message-ID: <Y9GZbVrZxEZAraVu@spud>
+References: <20230125142056.18356-1-andy.chiu@sifive.com>
+ <20230125142056.18356-20-andy.chiu@sifive.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230124091916.45054-10-krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20230125142056.18356-20-andy.chiu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230125_121003_590113_9FE798A1 
-X-CRM114-Status: GOOD (  10.46  )
+X-CRM114-CacheID: sfid-20230125_130454_345989_3DA0A50D 
+X-CRM114-Status: GOOD (  28.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,36 +70,144 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1139559387024197132=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 24 Jan 2023 10:19:16 +0100, Krzysztof Kozlowski wrote:
-> Adjust example DTS indentation to match recommended style of 4-spaces
-> and use lower-case hex for address in reg.  No functional change.
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> ---
->  .../devicetree/bindings/serial/8250_omap.yaml | 18 ++++++-------
->  .../bindings/serial/amlogic,meson-uart.yaml   | 10 +++----
->  .../devicetree/bindings/serial/cdns,uart.yaml | 10 +++----
->  .../bindings/serial/renesas,em-uart.yaml      | 10 +++----
->  .../bindings/serial/renesas,hscif.yaml        | 26 +++++++++----------
->  .../bindings/serial/renesas,sci.yaml          | 24 ++++++++---------
->  .../bindings/serial/renesas,scif.yaml         | 24 ++++++++---------
->  .../bindings/serial/renesas,scifa.yaml        | 22 ++++++++--------
->  .../bindings/serial/renesas,scifb.yaml        | 12 ++++-----
->  .../devicetree/bindings/serial/serial.yaml    | 18 ++++++-------
->  .../bindings/serial/sifive-serial.yaml        |  6 ++---
->  .../bindings/serial/xlnx,opb-uartlite.yaml    |  4 +--
->  12 files changed, 92 insertions(+), 92 deletions(-)
-> 
+--===============1139559387024197132==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="lkDM2IpOgivVn4g+"
+Content-Disposition: inline
 
-Acked-by: Rob Herring <robh@kernel.org>
+
+--lkDM2IpOgivVn4g+
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hey Andy,
+
+Thanks for respinning this, I think a lot of people will be happy to see
+it!
+
+On Wed, Jan 25, 2023 at 02:20:56PM +0000, Andy Chiu wrote:
+
+> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+> index 12d91b0a73d8..67411cdc836f 100644
+> --- a/arch/riscv/Makefile
+> +++ b/arch/riscv/Makefile
+> @@ -52,6 +52,13 @@ riscv-march-$(CONFIG_ARCH_RV32I)	:=3D rv32ima
+>  riscv-march-$(CONFIG_ARCH_RV64I)	:=3D rv64ima
+>  riscv-march-$(CONFIG_FPU)		:=3D $(riscv-march-y)fd
+>  riscv-march-$(CONFIG_RISCV_ISA_C)	:=3D $(riscv-march-y)c
+> +riscv-march-$(CONFIG_RISCV_ISA_V)	:=3D $(riscv-march-y)v
+> +
+> +ifeq ($(CONFIG_RISCV_ISA_V), y)
+> +ifeq ($(CONFIG_CC_IS_CLANG), y)
+> +        riscv-march-y +=3D -mno-implicit-float -menable-experimental-ext=
+ensions
+> +endif
+> +endif
+
+Uh, so I don't think this was actually tested with (a recent version of)
+clang:
+clang-15: error: unknown argument: '-menable-experimental-extensions_zicbom=
+_zihintpause'
+
+Firstly, no-implicit-float is a CFLAG, so why add it to march?
+There is an existing patch on the list for enabling this flag, but I
+recall Palmer saying that it was not actually needed?
+Palmer, do you remember why that was?
+
+I dunno what enable-experimental-extensions is, but I can guess. Do we
+really want to enable vector for toolchains where the support is
+considered experimental? I'm not au fait with the details of clang
+versions nor versions of the Vector spec, so take the following with a
+bit of a pinch of salt...
+Since you've allowed this to be built with anything later than clang 13,
+does that mean that different versions of clang may generate vector code
+that are not compatible?
+I'm especially concerned by:
+https://github.com/riscv/riscv-v-spec/releases/tag/0.9
+which appears to be most recently released version of the spec, prior to
+clang/llvm 13 being released.
+
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index e2b656043abf..f4299ba9a843 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -416,6 +416,16 @@ config RISCV_ISA_SVPBMT
+> =20
+>  	   If you don't know what to do here, say Y.
+> =20
+> +config RISCV_ISA_V
+> +	bool "VECTOR extension support"
+> +	depends on GCC_VERSION >=3D 120000 || CLANG_VERSION >=3D 130000
+
+Are these definitely the versions you want to support?
+What are the earliest (upstream) versions that support the frozen
+version of the vector spec?
+
+Also, please copy what has been done with "TOOLCHAIN_HAS_FOO" for other
+extensions and check this support with cc-option instead. Similarly,
+you'll need to gate this support on the linker being capable of
+accepting vector:
+/stuff/toolchains/gcc-11/bin/riscv64-unknown-linux-gnu-ld: -march=3Drv64i2p=
+0_m2p0_a2p0_f2p0_d2p0_c2p0_v1p0_zihintpause2p0_zve32f1p0_zve32x1p0_zve64d1p=
+0_zve64f1p0_zve64x1p0_zvl128b1p0_zvl32b1p0_zvl64b1p0: prefixed ISA extensio=
+n must separate with _
+/stuff/toolchains/gcc-11/bin/riscv64-unknown-linux-gnu-ld: failed to merge =
+target specific data of file arch/riscv/kernel/vdso/vgettimeofday.o
+
+> +	default n
+
+I forget, but is the reason for this being default n, when the others
+are default y a conscious choice?
+I'm a bit of a goldfish sometimes memory wise, and I don't remember if
+that was an outcome of the previous discussions.
+If it is intentionally different, that needs to be in the changelog IMO.
+
+> +	help
+> +	  Say N here if you want to disable all vector related procedure
+> +	  in the kernel.
+> +
+> +	  If you don't know what to do here, say Y.
+> +
+>  config TOOLCHAIN_HAS_ZICBOM
+
+^ you can use this one here as an example :)
+
+I'll reply here again once the patchwork automation has given the series
+a once over and see if it comes up with any other build issues.
+Thanks,
+Conor.
+
+
+--lkDM2IpOgivVn4g+
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY9GZbQAKCRB4tDGHoIJi
+0vxmAQC/ka5xvUwWRzYCMdL2d95EkAC0HKbR302kC5upl5J6owEAlSoDmFq8aDwQ
+55BjL9+qD28qiZowz0+jc9GBpGCDYwE=
+=bYeS
+-----END PGP SIGNATURE-----
+
+--lkDM2IpOgivVn4g+--
+
+
+--===============1139559387024197132==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1139559387024197132==--
+
