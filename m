@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BD9DC27C76
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jan 2023 22:16:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1150AC54E94
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jan 2023 22:19:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tPUTLV3cXbatC8Lgpe5Txg/HC8DIJWaUJQM3nxLJ91k=; b=fndBvaM++ZnYakTXDdnmjMgfaQ
-	bES0738lDGiImLaqfwpewtaaeCOk+qWGUbjW5R+iYlHCG2FnpnyZ+br8cMc0RkSHeGE/V1B71/7tS
-	hJvmWQA2PbjgEHJQ6jNOobgGPc4MUvKvjApG5QAH4REQFdPoeIvK9csxpIxCtTzJfnebcZPSzrGkm
-	kQe1sj8mdOTFcLymUyVH6QGNfVMswgRjKtGmwZB3sv3DDafeuK7K/lGtL67iudpFqgTkU/+M61SVn
-	cC2Nnls0ld95W92RQf51o0zAWVd9REA98YzVEMXUVuJOy6NNMASat3XtKPB4saNdIPji/YK9oOtjM
-	k0scXM0A==;
+	bh=nRrAA0VhffayvwKUpv/r9WfCI+jXb55Xs+Enc/16erg=; b=XsQhduwDOUQzzf7dIfDivxJFDK
+	vKwN9rnwR3lo4J8aFRz4MehiGFgcytm23VRxZ4wmwQ35RnMMq8oYWubtcI6QPwny4X6tG322u9yZh
+	vUiqnFs7hHqpo+jmlld3fA3e3LeHidylUkjx6N6XfIJGESI0eSP5Ckx4bxyu0x26Syxm0cWBoM7Zx
+	brKbb/G4JahWUqJmLo6EvYF+HrKXwCg5ynTUVYzNxC9AdvhGeklazi/ZydJrhG5xnXJJMjDLWXgZA
+	zpsdlDKpZuVd6og7jqbn5yyrhqO3om/EIn+SSZcUKFYI1oN9mw/3//yP8a80pYsRczhSQhN5GeKMF
+	aZdo94Rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKo41-008xaK-8S; Wed, 25 Jan 2023 22:16:17 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1pKo75-008yMk-Tk; Wed, 25 Jan 2023 22:19:28 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKo3y-008xZS-Db; Wed, 25 Jan 2023 22:16:15 +0000
+	id 1pKo6W-008y4n-WF; Wed, 25 Jan 2023 22:18:54 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 0247BB81C04;
-	Wed, 25 Jan 2023 22:16:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60C4BC433EF;
-	Wed, 25 Jan 2023 22:16:08 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 5D5C1B81C09;
+	Wed, 25 Jan 2023 22:18:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5B39C433D2;
+	Wed, 25 Jan 2023 22:18:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1674684971;
-	bh=Z6N8d8ZTWONF4O/xScRH1efnkdWjJXAj1xICW0tJuJ0=;
+	s=k20201202; t=1674685130;
+	bh=qUbU6mhOLmqFlPJ6M9CMSUW8qu63FhjFw9HO4CS4Ius=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hu7MNMUF4mEYAOAygvXEffVTDuc00rawPat2OhRJj/ZSi77mGstoiuKjufHD5mtci
-	 /W3uBwJGhK8TAITzb5MjqW6qEDHuAKa2s1VZ9YGW7F/In/yo7M9Vjlo7R9K0oiuLbn
-	 DOjrKGvMhhzpMIMr57XEIzNa62BCH7Hk/AM4kUVefrOI7h8ojZfMEFIW/xQOqrZLHY
-	 66aZ7QPYIpjTnMZ+E8DqRY5NBL3pNEHpoxULD+K6MN61WeM98aCZ0x6rmvTCeCux+1
-	 CiFqghbZdoViT/QEzJh4vh6oRkcybxwa4bLqUnFdet2CpEjkS2QNHxkpQRCGa3dIrC
-	 STnvBVPGXrAFA==
-Date: Wed, 25 Jan 2023 22:16:05 +0000
+	b=SR0ULMZJZaIAKNb1VEeLQfR3+5cGIObw/PpMhJQfyfoE+3cvgd1K61mYfHUH47Ctk
+	 3Bm9xaIub7jo+y7U73PBRd9H7Zp8WhT7BkRPF3swiGRvM4iXTA7eKvM1fTMW6W6v4h
+	 I6LIZFfjwhVK4yIcaV1PLhX8l8LG7WnFpfezKjqq87i0vMeUZ0hd1zw14VGqZSwyrv
+	 LxOM6iI3nBM5URZH3LXaFjlwgAyNr0hPD7GoMwdiJUeVZM3i/ymXJGhWUxczliWlH5
+	 D4puxSN7c+LeweP3OjFbn0EoyRS6WcTfsxQurzV7H7RrWFOs1CjywyS8QY4Tu/F+7x
+	 UPTquyLqwvRfg==
+Date: Wed, 25 Jan 2023 22:18:44 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Andy Chiu <andy.chiu@sifive.com>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
-	anup@brainfault.org, atishp@atishpatra.org,
+To: Vineet Gupta <vineetg@rivosinc.com>
+Cc: Andy Chiu <andy.chiu@sifive.com>, linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com, anup@brainfault.org, atishp@atishpatra.org,
 	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
-	vineetg@rivosinc.com, greentime.hu@sifive.com,
-	guoren@linux.alibaba.com, Vincent Chen <vincent.chen@sifive.com>,
+	greentime.hu@sifive.com, guoren@linux.alibaba.com,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Atish Patra <atishp@rivosinc.com>,
-	Anup Patel <apatel@ventanamicro.com>, Guo Ren <guoren@kernel.org>,
-	Qinglin Pan <panqinglin2020@iscas.ac.cn>
-Subject: Re: [PATCH -next v13 03/19] riscv: Add new csr defines related to
- vector extension
-Message-ID: <Y9GqJbEduVHWY7aU@spud>
+	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
+	Vincent Chen <vincent.chen@sifive.com>,
+	Myrtle Shah <gatecat@ds0.me>,
+	Alexandre Ghiti <alexandre.ghiti@canonical.com>
+Subject: Re: [PATCH -next v13 04/19] riscv: Clear vector regfile on bootup
+Message-ID: <Y9GqxMFz+m6K9k5c@spud>
 References: <20230125142056.18356-1-andy.chiu@sifive.com>
- <20230125142056.18356-4-andy.chiu@sifive.com>
+ <20230125142056.18356-5-andy.chiu@sifive.com>
+ <Y9Gk/FCFBbWC/Pyi@spud>
+ <428eb479-5066-f8c6-ad98-4eeac53a5be8@rivosinc.com>
 MIME-Version: 1.0
-In-Reply-To: <20230125142056.18356-4-andy.chiu@sifive.com>
+In-Reply-To: <428eb479-5066-f8c6-ad98-4eeac53a5be8@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230125_141614_629639_156EB3FC 
-X-CRM114-Status: GOOD (  14.15  )
+X-CRM114-CacheID: sfid-20230125_141853_228734_CAA2708A 
+X-CRM114-Status: GOOD (  17.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,70 +75,68 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0843532479135316853=="
+Content-Type: multipart/mixed; boundary="===============4080815919983692743=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============0843532479135316853==
+--===============4080815919983692743==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="BzfGwI70yXrNxc4z"
+	protocol="application/pgp-signature"; boundary="/ZHPm/CBrzLmEWjf"
 Content-Disposition: inline
 
 
---BzfGwI70yXrNxc4z
+--/ZHPm/CBrzLmEWjf
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Wed, Jan 25, 2023 at 02:20:40PM +0000, Andy Chiu wrote:
-> From: Greentime Hu <greentime.hu@sifive.com>
+On Wed, Jan 25, 2023 at 01:57:28PM -0800, Vineet Gupta wrote:
 >=20
-> Follow the riscv vector spec to add new csr numbers.
+> On 1/25/23 13:54, Conor Dooley wrote:
+> > n Wed, Jan 25, 2023 at 02:20:41PM +0000, Andy Chiu wrote:
+> > > clear vector registers on boot if kernel supports V.
+> > >=20
+> > > Signed-off-by: Greentime Hu<greentime.hu@sifive.com>
+> > > Signed-off-by: Vineet Gupta<vineetg@rivosinc.com>
+> > > [vineetg: broke this out to a seperate patch]
+> > > Signed-off-by: Andy Chiu<andy.chiu@sifive.com>
+> > But this patch didn't carry over the long list of contributors from it's
+> > source? Seems a bit odd, that's all.
+> > There was also an Rb from Palmer that got dropped too. Was that
+> > intentional?
+> > https://lore.kernel.org/linux-riscv/20220921214439.1491510-6-stillson@r=
+ivosinc.com/
 >=20
-> [guoren@linux.alibaba.com: first porting for new vector related csr]
-> Acked-by: Guo Ren <guoren@kernel.org>
-> Co-developed-by: Guo Ren <guoren@linux.alibaba.com>
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
-> Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
-> Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
-> Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
-> Suggested-by: Vineet Gupta <vineetg@rivosinc.com>
+> In v12 this and 5/19 were in one patch, which I broke off into two for
+> clarity. Hence the Rb technically doesn't apply.
 
-This series has gone on for so long, that the tags barely seem to make
-sense any more. I won't pretend that I understand why quite so many
-people are required to add a few definitions of the spec! Nor can I be
-bothered reading 12 revisions on lore to find out why it was done this
-way...
-They do seem to align with what is in the latest release, so:
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Technically correct, the best kind, huh?
 
-I also noticed that you missed some tags from the v12 submission.
-Eg Heiko's here:
-https://lore.kernel.org/linux-riscv/2096011.OBFZWjSADL@diego/
+Anyways, I just noticed that this patch had a comment from Heiko that
+wasn't addressed to maybe the omission is for the better!
 
-There's also one for patch 1:
-https://lore.kernel.org/linux-riscv/5335635.Sb9uPGUboI@diego/
+https://lore.kernel.org/linux-riscv/2331455.NG923GbCHz@diego/
 
 Thanks,
 Conor.
 
---BzfGwI70yXrNxc4z
+
+--/ZHPm/CBrzLmEWjf
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY9GqJQAKCRB4tDGHoIJi
-0u6nAQDkxVRl745rt4A0UQYFUQvp0jh+oAclAwrXlroWD4l6kgD9GwhGmcaLm+w+
-xi2BtDkFksMvW7O39e12MmxKbsTlYAE=
-=rUIb
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY9GqxAAKCRB4tDGHoIJi
+0k2lAQD2+2dy+geW+jSBc7VzfJD+dF70e87vWWhhXkfIojnrvAD/ZbZtaBGlguSI
+by+i5QSl0Gsowy15w/2Kg3yF3mLfzw0=
+=Udh4
 -----END PGP SIGNATURE-----
 
---BzfGwI70yXrNxc4z--
+--/ZHPm/CBrzLmEWjf--
 
 
---===============0843532479135316853==
+--===============4080815919983692743==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -149,5 +147,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============0843532479135316853==--
+--===============4080815919983692743==--
 
