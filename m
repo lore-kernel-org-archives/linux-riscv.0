@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 583A6C54EAA
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jan 2023 14:22:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDCD2C54E94
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jan 2023 14:22:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
-	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=Tv7c67KwoE3CAZzr02UvV3Qopf3AA6rOmHp6EoJEMGo=; b=aEp14YSqi73tO54mDQoAZunjJk
-	pOEe0Z9TECv1gL0qjxrPCfFD5GxR4r9j48Q9uDw9Idq4f6RzEf3RlK9bLmAf5WQ+Na2PWHGPfNkQm
-	GQbYcmzB9I42R6Af2Yncw0C5uvWVpIlZVdcRM9y3ddiVihdrsr6uuFkWFlWXMbd2fiua6OQtb/Wij
-	d8gpbiWCaFIufQIhgJaQCaRX+ocWqNcf8AWA5gS/DFxtBmB0dK4c5nWxznpJLhcFHuE1eI08Xpc97
-	EKlLrhUEQnNc8vkzsVw3Otbus4rwN2F2y7FUTnHXrz6dCg6HH1BYWG326MsvGFinKTsYqaVi80YQg
-	UVWxdLiw==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=0PpG7o/uicb+vPIwIr3oxKLMjW8CymQjCEOAprPNSJY=; b=LgOeMBe/pEfkNb
+	MLKhf0JzyYXvah9voDXakO+3jhU8jNWDPHqjMQv3fU29R4zn+6ja8Sc56+0mnmixUg3XzZAXmhcSt
+	qfGce6YNeyeLz+D/zJeOkewdf6wgmlEyl1pA6H3rM/J57tjuSiQS3cymlp6g+lewRr1P4tuRb54aL
+	p8WbZsDSs88dhdRLCUdtuhYTNwSaAvO3/mtpXU9HIG/nxfAAp/SP8AhIG656lUcE+Mj4Z1DtpCRzy
+	DHY3NAO/eRi7l0NdUYt2Mb2qRmmEaCqXewrxLB6x7MsoK5YAIaqRVToSMtTaPCa424qm3aD47R4gC
+	HS0StbmErJ7g678KfrEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKgey-007VXv-H4; Wed, 25 Jan 2023 14:21:56 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1pKgfE-007Vih-A3; Wed, 25 Jan 2023 14:22:12 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKgev-007VEv-0Q
-	for linux-riscv@lists.infradead.org; Wed, 25 Jan 2023 14:21:54 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id h5-20020a17090a9c0500b0022bb85eb35dso2138536pjp.3
-        for <linux-riscv@lists.infradead.org>; Wed, 25 Jan 2023 06:21:52 -0800 (PST)
+	id 1pKgfA-007VcI-QF
+	for linux-riscv@lists.infradead.org; Wed, 25 Jan 2023 14:22:10 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id z9-20020a17090a468900b00226b6e7aeeaso2144389pjf.1
+        for <linux-riscv@lists.infradead.org>; Wed, 25 Jan 2023 06:22:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=sifive.com; s=google;
         h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=8WK3mrNefCKRKY9gWx0cWOLN2r2rZ+PWjZ2rQRT0vLU=;
-        b=Lx1/+riFxI0yHnt6CB0wSSuytcf7DehTiu4CErfibfRs/pGFgcnlClmUhJX0eJH4TD
-         qMClyJeAYwcOwMyEt1G16k2bekL8Rs4aJHwjRG2jdGRDkKffKJRQ3/YuBkgS0ALKSWSS
-         VSrFro7gzM8AuNctuEIxwmRJ/EtIDSDkfggJWLJ70eKeyqMXUYbJJ0QZnWGNTpMMU8GQ
-         O2yQFcqw+d/2c3PaGEsVlWRpCzOc6iaTOZXrmUQmwXzGiTXLzYxsiXw1rKywArE1a8zX
-         +T7L+iHfRNTBXe73VqS8CA9sMOeMSsiY4qgiVCRJexd2SzIYhQXkJIqfwrL/OXhPF4Dw
-         wAjA==
+        bh=P7edCeAwjfiwkkKg0W4tIhLAZjBnv1bdBFUA+mBx+50=;
+        b=EwaZnhUa+ekhcI4IQm40kDpmqQ91VW57Kg2SGqKJUBq+BXQ4XFzQwgtpna5MYFWjXk
+         m8KS2maRHs4iKz+NOF7lhgcsSHaDNWzuP0c01A8zD2VH0S8PpozRaru+EVokxZBVdEuQ
+         0ZrBwcJ2ixaPI9EjgjVvSQjNhoJOovxiBN5VHOxemhhasziBW3F5+S/EfrjlbSrCvFji
+         4WUHa7OhyFYvSRnmZr9PRtqYR6OjPqL+H883VvRa6tsHv7aImWELVe67liCJHJ6/riyj
+         T7dC+WGWz70aTYBOOnVio113pdh8ADdZo2Epci9YgnYgfT86m8lr0iQqoTZHTddY/Yaj
+         cq1g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=references:in-reply-to:message-id:date:subject:cc:to:from
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=8WK3mrNefCKRKY9gWx0cWOLN2r2rZ+PWjZ2rQRT0vLU=;
-        b=I1bjgZPhM7mr6+yfs208F5K4lCT7x6kaY/xg1EKO58XGEWbmv768giR5DcKRyBZdYz
-         XNsWyxS3d1UT7+R+PphswWSQCC1Mark7BQCl+zrfUcDrRNIPLNShhYqmsi5MccJyn7F1
-         VMpqTQ0YWej5O9089BH41PHk/aU/xFlkyb4F+Zj0dEHRdxIm4WwUXfyExTbDvVO5huqp
-         jMK0P3cPC4Rvsnw89B3ogx9IL5YsmPaeoQQxuomORaa3uICxWE5U9/lOthVd0q6po5Lf
-         zmbPSNnM0LLuUJ5CiGDBX+Gnq9zGxZT50plGEOT1By5Ox3JWsc6P2uGnTgSvpW14oOGW
-         D1ag==
-X-Gm-Message-State: AFqh2kpld0ZReu9z/PFUBP6CCqK2GbXcbQwj3lFCr+DDWhPV6A/m1PhI
-	+ER9bEDuOIZdzIC0hNSN0B1G+6sUk//5JQt2uJ6knLBOlY7/iacp9TZOvyVZBsLFNc5EfM9uMi6
-	pg9GfrFuS16+W9qqf03bGAtIMmIASbzxfsTCakp2LldlIJ0HqOJUN0Q0+SDuY+rfHEoIOrfOdrC
-	ZeUlRzNesphQ==
-X-Google-Smtp-Source: AMrXdXvwN/tf26jZy9NJabhTXt68waQGiBgx7skiPCPExs5pl6i6P4rCfLoLJZhj2oHPWzkeEvb5yw==
-X-Received: by 2002:a05:6a21:3a82:b0:b8:7d48:2860 with SMTP id zv2-20020a056a213a8200b000b87d482860mr36940554pzb.4.1674656512359;
-        Wed, 25 Jan 2023 06:21:52 -0800 (PST)
+        bh=P7edCeAwjfiwkkKg0W4tIhLAZjBnv1bdBFUA+mBx+50=;
+        b=hS86wz/T9kkKKYwJaxi3HnA/UVuapqW0ukejvWpXZzHkEXuh0QVJAV/8JWpVX5urI8
+         as7uLEzqsdz/gnf5GgvfOq7MAuE134ifu5qOY4VSp7PMEoovQ70P37ULPOC7V4CmX93U
+         0vPuJgrzF1QPQncHSdiK5aB8fK44kHcIOSKkiRYqGH39Vy8xCG/oiu7iuSXKX28npXLw
+         2SJRCI7GEETexmxbvgoPuRshgAc4Izck+MsDwD3VEEGqeObWHlQbmdkNwBdlL/vTLJS5
+         jUAVplGPaZo3uJPQbC2w9y6oxN6Me0tVFS+Ykmw0vpkf87E55AKKtB/VOSyzXyLua4+N
+         862w==
+X-Gm-Message-State: AFqh2kpwl7gtvkS/kCeUC3IygpJuzY0mJ3lGOUuFxPKJar9iizeoXB8x
+	P47c+zcfujOT9HCLk5ID53nVKosao3WltvsclvlM14unLMtZPJMt1iQz65Wu/sS+SY+QJYKdwJF
+	2Pu9csm5L/on1oXkhmMxtottnBXuIQZw6WyenpZw5HQqBgjDRmSeW0zlCUss0gLCP7k7yCUcXFB
+	cj98xx9B3V1Q==
+X-Google-Smtp-Source: AMrXdXtG1sIOVUuMs9I/wo6VgU4VFoE992ZnxdCDUMdsDubVbCL/9Smu69AiCEMOx3G13m1aOuX3/w==
+X-Received: by 2002:a17:90b:4b92:b0:229:f4e1:d4b1 with SMTP id lr18-20020a17090b4b9200b00229f4e1d4b1mr23173072pjb.22.1674656521831;
+        Wed, 25 Jan 2023 06:22:01 -0800 (PST)
 Received: from hsinchu25.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id bu11-20020a63294b000000b004a3510effa5sm3203520pgb.65.2023.01.25.06.21.48
+        by smtp.gmail.com with ESMTPSA id bu11-20020a63294b000000b004a3510effa5sm3203520pgb.65.2023.01.25.06.21.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Jan 2023 06:21:52 -0800 (PST)
+        Wed, 25 Jan 2023 06:22:01 -0800 (PST)
 From: Andy Chiu <andy.chiu@sifive.com>
 To: linux-riscv@lists.infradead.org,
 	palmer@dabbelt.com,
@@ -68,15 +67,32 @@ To: linux-riscv@lists.infradead.org,
 	atishp@atishpatra.org,
 	kvm-riscv@lists.infradead.org,
 	kvm@vger.kernel.org
-Subject: [PATCH -next v13 09/19] riscv: Add task switch support for vector
-Date: Wed, 25 Jan 2023 14:20:46 +0000
-Message-Id: <20230125142056.18356-10-andy.chiu@sifive.com>
+Cc: vineetg@rivosinc.com,
+	greentime.hu@sifive.com,
+	guoren@linux.alibaba.com,
+	Andy Chiu <andy.chiu@sifive.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Heiko Stuebner <heiko.stuebner@vrull.eu>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Vincent Chen <vincent.chen@sifive.com>,
+	Guo Ren <guoren@kernel.org>,
+	Li Zhengyu <lizhengyu3@huawei.com>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Changbin Du <changbin.du@intel.com>,
+	Richard Henderson <richard.henderson@linaro.org>
+Subject: [PATCH -next v13 10/19] riscv: Allocate user's vector context in the first-use trap
+Date: Wed, 25 Jan 2023 14:20:47 +0000
+Message-Id: <20230125142056.18356-11-andy.chiu@sifive.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20230125142056.18356-1-andy.chiu@sifive.com>
 References: <20230125142056.18356-1-andy.chiu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230125_062153_067411_39329223 
-X-CRM114-Status: GOOD (  19.97  )
+X-CRM114-CacheID: sfid-20230125_062208_873395_1D49F40E 
+X-CRM114-Status: GOOD (  21.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,252 +104,197 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Kefeng Wang <wangkefeng.wang@huawei.com>, guoren@linux.alibaba.com, Jisheng Zhang <jszhang@kernel.org>, Nick Knight <nick.knight@sifive.com>, Xianting Tian <xianting.tian@linux.alibaba.com>, Heiko Stuebner <heiko@sntech.de>, vineetg@rivosinc.com, Vincent Chen <vincent.chen@sifive.com>, Conor Dooley <conor.dooley@microchip.com>, Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>, Ruinland Tsai <ruinland.tsai@sifive.com>, Andy Chiu <andy.chiu@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>, greentime.hu@sifive.com, Dmitry Vyukov <dvyukov@google.com>, "Eric W. Biederman" <ebiederm@xmission.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Greentime Hu <greentime.hu@sifive.com>
+Vector unit is disabled by default for all user processes. Thus, a
+process will take a trap (illegal instruction) into kernel at the first
+time when it uses Vector. Only after then, the kernel allocates V
+context and starts take care of the context for that user process.
 
-This patch adds task switch support for vector. It also supports all
-lengths of vlen.
-
-[guoren@linux.alibaba.com: First available porting to support vector
-context switching]
-[nick.knight@sifive.com: Rewrite vector.S to support dynamic vlen, xlen and
-code refine]
-[vincent.chen@sifive.com: Fix the might_sleep issue in vstate_save,
-vstate_restore]
-[andrew@sifive.com: Optimize task switch codes of vector]
-[ruinland.tsai@sifive.com: Fix the arch_release_task_struct free wrong
-datap issue]
-[vineetg: Fixed lkp warning with W=1 build]
-[andy.chiu: Use inline asm for task switches]
-
-Suggested-by: Andrew Waterman <andrew@sifive.com>
-Co-developed-by: Nick Knight <nick.knight@sifive.com>
-Signed-off-by: Nick Knight <nick.knight@sifive.com>
-Co-developed-by: Guo Ren <guoren@linux.alibaba.com>
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
-Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
-Co-developed-by: Ruinland Tsai <ruinland.tsai@sifive.com>
-Signed-off-by: Ruinland Tsai <ruinland.tsai@sifive.com>
-Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
-Signed-off-by: Vineet Gupta <vineetg@rivosinc.com>
+Suggested-by: Richard Henderson <richard.henderson@linaro.org>
+Link: https://lore.kernel.org/r/3923eeee-e4dc-0911-40bf-84c34aee962d@linaro.org
 Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
 ---
- arch/riscv/include/asm/processor.h   |  1 +
- arch/riscv/include/asm/switch_to.h   | 18 ++++++++++++++++++
- arch/riscv/include/asm/thread_info.h |  3 +++
- arch/riscv/include/asm/vector.h      | 26 ++++++++++++++++++++++++++
- arch/riscv/kernel/process.c          | 18 ++++++++++++++++++
- arch/riscv/kernel/traps.c            | 14 ++++++++++++--
- 6 files changed, 78 insertions(+), 2 deletions(-)
+ arch/riscv/include/asm/insn.h   | 24 +++++++++
+ arch/riscv/include/asm/vector.h |  2 +
+ arch/riscv/kernel/Makefile      |  1 +
+ arch/riscv/kernel/vector.c      | 89 +++++++++++++++++++++++++++++++++
+ 4 files changed, 116 insertions(+)
+ create mode 100644 arch/riscv/kernel/vector.c
 
-diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-index 94a0590c6971..44d2eb381ca6 100644
---- a/arch/riscv/include/asm/processor.h
-+++ b/arch/riscv/include/asm/processor.h
-@@ -39,6 +39,7 @@ struct thread_struct {
- 	unsigned long s[12];	/* s[0]: frame pointer */
- 	struct __riscv_d_ext_state fstate;
- 	unsigned long bad_cause;
-+	struct __riscv_v_state vstate;
- };
- 
- /* Whitelist the fstate from the task_struct for hardened usercopy */
-diff --git a/arch/riscv/include/asm/switch_to.h b/arch/riscv/include/asm/switch_to.h
-index df1aa589b7fd..69e24140195d 100644
---- a/arch/riscv/include/asm/switch_to.h
-+++ b/arch/riscv/include/asm/switch_to.h
-@@ -8,6 +8,7 @@
- 
- #include <linux/jump_label.h>
- #include <linux/sched/task_stack.h>
-+#include <asm/vector.h>
- #include <asm/hwcap.h>
- #include <asm/processor.h>
- #include <asm/ptrace.h>
-@@ -68,6 +69,21 @@ static __always_inline bool has_fpu(void) { return false; }
- #define __switch_to_fpu(__prev, __next) do { } while (0)
- #endif
- 
-+#ifdef CONFIG_RISCV_ISA_V
-+static inline void __switch_to_vector(struct task_struct *prev,
-+				      struct task_struct *next)
-+{
-+	struct pt_regs *regs;
+diff --git a/arch/riscv/include/asm/insn.h b/arch/riscv/include/asm/insn.h
+index 25ef9c0b19e7..b1ef3617881f 100644
+--- a/arch/riscv/include/asm/insn.h
++++ b/arch/riscv/include/asm/insn.h
+@@ -133,6 +133,24 @@
+ #define RVG_OPCODE_JALR		0x67
+ #define RVG_OPCODE_JAL		0x6f
+ #define RVG_OPCODE_SYSTEM	0x73
++#define RVG_SYSTEM_CSR_OFF	20
++#define RVG_SYSTEM_CSR_MASK	GENMASK(12, 0)
 +
-+	regs = task_pt_regs(prev);
-+	if (unlikely(regs->status & SR_SD))
-+		vstate_save(prev, regs);
-+	vstate_restore(next, task_pt_regs(next));
-+}
-+#else /* ! CONFIG_RISCV_ISA_V  */
-+#define __switch_to_vector(__prev, __next) do { } while (0)
-+#endif /* CONFIG_RISCV_ISA_V  */
++/* parts of opcode for RVV */
++#define OPCODE_VECTOR		0x57
++#define LSFP_WIDTH_RVV_8	0
++#define LSFP_WIDTH_RVV_16	5
++#define LSFP_WIDTH_RVV_32	6
++#define LSFP_WIDTH_RVV_64	7
 +
- extern struct task_struct *__switch_to(struct task_struct *,
- 				       struct task_struct *);
++/* parts of opcode for RVF, RVD and RVQ */
++#define LSFP_WIDTH_OFF		12
++#define LSFP_WIDTH_MASK		GENMASK(3, 0)
++#define LSFP_WIDTH_FP_W		2
++#define LSFP_WIDTH_FP_D		3
++#define LSFP_WIDTH_FP_Q		4
++#define OPCODE_LOADFP		0x07
++#define OPCODE_STOREFP		0x27
  
-@@ -77,6 +93,8 @@ do {							\
- 	struct task_struct *__next = (next);		\
- 	if (has_fpu())					\
- 		__switch_to_fpu(__prev, __next);	\
-+	if (has_vector())					\
-+		__switch_to_vector(__prev, __next);	\
- 	((last) = __switch_to(__prev, __next));		\
- } while (0)
+ /* parts of opcode for RVC*/
+ #define RVC_OPCODE_C0		0x0
+@@ -291,6 +309,12 @@ static __always_inline bool riscv_insn_is_branch(u32 code)
+ 	(RVC_X(x_, RVC_B_IMM_7_6_OPOFF, RVC_B_IMM_7_6_MASK) << RVC_B_IMM_7_6_OFF) | \
+ 	(RVC_IMM_SIGN(x_) << RVC_B_IMM_SIGN_OFF); })
  
-diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
-index 67322f878e0d..2f0f0d7d0fc0 100644
---- a/arch/riscv/include/asm/thread_info.h
-+++ b/arch/riscv/include/asm/thread_info.h
-@@ -79,6 +79,9 @@ struct thread_info {
- 	.preempt_count	= INIT_PREEMPT_COUNT,	\
- }
- 
-+void arch_release_task_struct(struct task_struct *tsk);
-+int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src);
++#define EXTRACT_LOAD_STORE_FP_WIDTH(x) \
++	({typeof(x) x_ = (x); RV_X(x_, LSFP_WIDTH_OFF, LSFP_WIDTH_MASK); })
 +
- #endif /* !__ASSEMBLY__ */
- 
++#define EXTRACT_SYSTEM_CSR(x) \
++	({typeof(x) x_ = (x); RV_X(x_, RVG_SYSTEM_CSR_OFF, RVG_SYSTEM_CSR_MASK); })
++
  /*
+  * Get the immediate from a J-type instruction.
+  *
 diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
-index 842a859609b5..f8a9e37c4374 100644
+index f8a9e37c4374..7c77696d704a 100644
 --- a/arch/riscv/include/asm/vector.h
 +++ b/arch/riscv/include/asm/vector.h
-@@ -10,6 +10,8 @@
+@@ -19,6 +19,7 @@
+ #define CSR_STR(x) __ASM_STR(x)
  
- #ifdef CONFIG_RISCV_ISA_V
+ extern unsigned long riscv_vsize;
++bool rvv_first_use_handler(struct pt_regs *regs);
  
-+#include <linux/sched.h>
-+#include <asm/ptrace.h>
- #include <asm/hwcap.h>
- #include <asm/csr.h>
- #include <asm/asm.h>
-@@ -109,6 +111,28 @@ static inline void __vstate_restore(struct __riscv_v_state *restore_from,
- 	rvv_disable();
- }
- 
-+static inline void vstate_save(struct task_struct *task,
-+			       struct pt_regs *regs)
-+{
-+	if ((regs->status & SR_VS) == SR_VS_DIRTY) {
-+		struct __riscv_v_state *vstate = &task->thread.vstate;
-+
-+		__vstate_save(vstate, vstate->datap);
-+		__vstate_clean(regs);
-+	}
-+}
-+
-+static inline void vstate_restore(struct task_struct *task,
-+				  struct pt_regs *regs)
-+{
-+	if ((regs->status & SR_VS) != SR_VS_OFF) {
-+		struct __riscv_v_state *vstate = &task->thread.vstate;
-+
-+		__vstate_restore(vstate, vstate->datap);
-+		__vstate_clean(regs);
-+	}
-+}
-+
- #else /* ! CONFIG_RISCV_ISA_V  */
- 
+ static __always_inline bool has_vector(void)
+ {
+@@ -138,6 +139,7 @@ static inline void vstate_restore(struct task_struct *task,
  struct pt_regs;
-@@ -116,6 +140,8 @@ struct pt_regs;
+ 
  static __always_inline bool has_vector(void) { return false; }
++static inline bool rvv_first_use_handler(struct pt_regs *regs) { return false; }
  static inline bool vstate_query(struct pt_regs *regs) { return false; }
  #define riscv_vsize (0)
-+#define vstate_save(task, regs)		do {} while (0)
-+#define vstate_restore(task, regs)	do {} while (0)
- #define vstate_off(regs)		do {} while (0)
- #define vstate_on(regs)			do {} while (0)
+ #define vstate_save(task, regs)		do {} while (0)
+diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+index 4cf303a779ab..48d345a5f326 100644
+--- a/arch/riscv/kernel/Makefile
++++ b/arch/riscv/kernel/Makefile
+@@ -55,6 +55,7 @@ obj-$(CONFIG_MMU) += vdso.o vdso/
  
-diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-index 8955f2432c2d..d4860c6c5197 100644
---- a/arch/riscv/kernel/process.c
-+++ b/arch/riscv/kernel/process.c
-@@ -24,6 +24,7 @@
- #include <asm/switch_to.h>
- #include <asm/thread_info.h>
- #include <asm/cpuidle.h>
+ obj-$(CONFIG_RISCV_M_MODE)	+= traps_misaligned.o
+ obj-$(CONFIG_FPU)		+= fpu.o
++obj-$(CONFIG_RISCV_ISA_V)	+= vector.o
+ obj-$(CONFIG_SMP)		+= smpboot.o
+ obj-$(CONFIG_SMP)		+= smp.o
+ obj-$(CONFIG_SMP)		+= cpu_ops.o
+diff --git a/arch/riscv/kernel/vector.c b/arch/riscv/kernel/vector.c
+new file mode 100644
+index 000000000000..cdd58d1c8b3c
+--- /dev/null
++++ b/arch/riscv/kernel/vector.c
+@@ -0,0 +1,89 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * Copyright (C) 2023 SiFive
++ * Author: Andy Chiu <andy.chiu@sifive.com>
++ */
++#include <linux/sched/signal.h>
++#include <linux/types.h>
++#include <linux/slab.h>
++#include <linux/sched.h>
++#include <linux/uaccess.h>
++
++#include <asm/thread_info.h>
++#include <asm/processor.h>
++#include <asm/insn.h>
 +#include <asm/vector.h>
- 
- register unsigned long gp_in_global __asm__("gp");
- 
-@@ -148,12 +149,28 @@ void flush_thread(void)
- 	fstate_off(current, task_pt_regs(current));
- 	memset(&current->thread.fstate, 0, sizeof(current->thread.fstate));
- #endif
-+#ifdef CONFIG_RISCV_ISA_V
-+	/* Reset vector state */
-+	vstate_off(task_pt_regs(current));
-+	kfree(current->thread.vstate.datap);
-+	memset(&current->thread.vstate, 0, sizeof(struct __riscv_v_state));
-+#endif
-+}
++#include <asm/ptrace.h>
++#include <asm/bug.h>
 +
-+void arch_release_task_struct(struct task_struct *tsk)
++static bool insn_is_vector(u32 insn_buf)
 +{
-+	/* Free the vector context of datap. */
-+	if (has_vector() && tsk->thread.vstate.datap)
-+		kfree(tsk->thread.vstate.datap);
- }
- 
- int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src)
- {
- 	fstate_save(src, task_pt_regs(src));
- 	*dst = *src;
-+	/* clear entire V context, including datap for a new task */
-+	memset(&dst->thread.vstate, 0, sizeof(struct __riscv_v_state));
++	u32 opcode = insn_buf & __INSN_OPCODE_MASK;
++	/*
++	 * All V-related instructions, including CSR operations are 4-Byte. So,
++	 * do not handle if the instruction length is not 4-Byte.
++	 */
++	if (unlikely(GET_INSN_LENGTH(insn_buf) != 4))
++		return false;
++	if (opcode == OPCODE_VECTOR) {
++		return true;
++	} else if (opcode == OPCODE_LOADFP || opcode == OPCODE_STOREFP) {
++		u32 width = EXTRACT_LOAD_STORE_FP_WIDTH(insn_buf);
 +
- 	return 0;
- }
- 
-@@ -186,6 +203,7 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
- 		childregs->a0 = 0; /* Return value of fork() */
- 		p->thread.ra = (unsigned long)ret_from_fork;
- 	}
-+	vstate_off(childregs);
- 	p->thread.sp = (unsigned long)childregs; /* kernel sp */
- 	return 0;
- }
-diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-index 549bde5c970a..1a48ff89b2b5 100644
---- a/arch/riscv/kernel/traps.c
-+++ b/arch/riscv/kernel/traps.c
-@@ -24,6 +24,7 @@
- #include <asm/processor.h>
- #include <asm/ptrace.h>
- #include <asm/thread_info.h>
-+#include <asm/vector.h>
- 
- int show_unhandled_signals = 1;
- 
-@@ -111,8 +112,17 @@ DO_ERROR_INFO(do_trap_insn_misaligned,
- 	SIGBUS, BUS_ADRALN, "instruction address misaligned");
- DO_ERROR_INFO(do_trap_insn_fault,
- 	SIGSEGV, SEGV_ACCERR, "instruction access fault");
--DO_ERROR_INFO(do_trap_insn_illegal,
--	SIGILL, ILL_ILLOPC, "illegal instruction");
++		if (width == LSFP_WIDTH_RVV_8 || width == LSFP_WIDTH_RVV_16 ||
++		    width == LSFP_WIDTH_RVV_32 || width == LSFP_WIDTH_RVV_64)
++			return true;
++	} else if (opcode == RVG_OPCODE_SYSTEM) {
++		u32 csr = EXTRACT_SYSTEM_CSR(insn_buf);
 +
-+asmlinkage __visible __trap_section void do_trap_insn_illegal(struct pt_regs *regs)
-+{
-+	if (has_vector() && user_mode(regs)) {
-+		if (rvv_first_use_handler(regs))
-+			return;
++		if ((csr >= CSR_VSTART && csr <= CSR_VCSR) ||
++		    (csr >= CSR_VL && csr <= CSR_VLENB))
++			return true;
 +	}
-+	do_trap_error(regs, SIGILL, ILL_ILLOPC, regs->epc,
-+		      "Oops - illegal instruction");
++	return false;
 +}
 +
- DO_ERROR_INFO(do_trap_load_fault,
- 	SIGSEGV, SEGV_ACCERR, "load access fault");
- #ifndef CONFIG_RISCV_M_MODE
++int rvv_thread_zalloc(void)
++{
++	void *datap;
++
++	datap = kzalloc(riscv_vsize, GFP_KERNEL);
++	if (!datap)
++		return -ENOMEM;
++	current->thread.vstate.datap = datap;
++	memset(&current->thread.vstate, 0, offsetof(struct __riscv_v_state,
++						    datap));
++	return 0;
++}
++
++bool rvv_first_use_handler(struct pt_regs *regs)
++{
++	__user u32 *epc = (u32 *)regs->epc;
++	u32 tval = (u32)regs->badaddr;
++
++	/* If V has been enabled then it is not the first-use trap */
++	if (vstate_query(regs))
++		return false;
++	/* Get the instruction */
++	if (!tval) {
++		if (__get_user(tval, epc))
++			return false;
++	}
++	/* Filter out non-V instructions */
++	if (!insn_is_vector(tval))
++		return false;
++	/* Sanity check. datap should be null by the time of the first-use trap */
++	WARN_ON(current->thread.vstate.datap);
++	/*
++	 * Now we sure that this is a V instruction. And it executes in the
++	 * context where VS has been off. So, try to allocate the user's V
++	 * context and resume execution.
++	 */
++	if (rvv_thread_zalloc()) {
++		force_sig(SIGKILL);
++		return true;
++	}
++	vstate_on(regs);
++	return true;
++}
++
 -- 
 2.17.1
 
