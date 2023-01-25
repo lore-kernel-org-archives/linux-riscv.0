@@ -4,63 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BDE7C54EED
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Jan 2023 22:40:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF3C2C54E94
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jan 2023 00:47:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QFtMs8lvY6X8GiiSUgrJYo1DnS48siyUu8t+afL5TZE=; b=mdR3SxIAE259XH
-	D193uF0rVh7STGRaIyYXEU69rkSzuVXtij36/+dh4za2gzvrbsP/z29c24gnV9YzeszpE4JGpUA5e
-	sYo9GJ28F9ngjHFZMyfDb2ymNS5CrjXGUhyXI3gqjRb06Dx9bcdp9wQ8zz4M/JbW/hmyEYLGCbEXi
-	2xL4xgKlwQVaitBlSAZz8V1v3shAZOHlLkUe9Ye5oayy3VEvtUjC+zBn0gzrclOP/47NYI36LcJqN
-	8C0EjVNCs+UdewrF4LMnpOS2xZoU/Yn15UQKxPk8NiyF6t4iOqCppHgYrMxbWEp90Qx7AdanH6kdB
-	6w9fuqiE0TlP6ugqnNSQ==;
+	List-Owner; bh=SyTiRjDvhDYHWqDjwvCaXajDmif8ahCv1BWIE0zH2ms=; b=gNvdFl9hMhgxuj
+	raoMu4z4BDwbehELlgYPGJl8BZf3AgjWij+n+03TSXdblo7kPUlRFBrVHmEKzWI6hgZlz+QEKa0+u
+	DiYCcp7jH/sC9CvxE0oOapP0spMaJ6NbQI9tffmr4tkglVKCZgNz/tih4Shyl/07PMXLIUz2smC47
+	UgeTeP1SliWMZlqPt5Cj8RkjFTdWGoG7KDgJjEUWFpitMV6y2lIwe/o+3o30IkCWj9ddcUrWIhBC4
+	ERSxBqzT1QwoD2rxvYRoXSHjTk7fZEz+hi3EdJzjNALaSkEsyBO5FqTQ6UsKmjfol2qIAHwCQXyUp
+	N+eQcqIlcXh3RVmTyMwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKRxo-005Xfy-Rd; Tue, 24 Jan 2023 22:40:24 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pKTwX-005jvZ-0F; Wed, 25 Jan 2023 00:47:13 +0000
+Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKRxl-005Xe5-Uy
-	for linux-riscv@lists.infradead.org; Tue, 24 Jan 2023 22:40:23 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id D045361384;
-	Tue, 24 Jan 2023 22:40:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 2CCEBC433EF;
-	Tue, 24 Jan 2023 22:40:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1674600018;
-	bh=UZ1bbTP9wKTGHzz4tz3N2CqqtNbE/N6eI+d92JGLXUU=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=JfSCZo5+sRU0U/bALY3HMljBvquH4FdUnYEM2gl0MaFmQvfRmv+4aKY259UHNywCC
-	 +WjGlgPuoPW0qJVDVlEXoR4cPYZN5Ac6j8YQWY7W9UvcAeadZgmrXYLAmxRRYK+VkO
-	 c57+R7uav5X0IG5aa5Qprx4tHZkz8yrHSDrDQrNWKRPvn9pF+qWxe+HHa96t9Cb5bS
-	 rGQ0zo0SRbMrrN638/jJnOp9Qogoz8QQL2ggo/A2epyQQLEpcvUouQDK3iPxoB8TQq
-	 hOpyecPcGbVfnCwZ3XE5uOugXxQ0BpwpN210VCnExS1KrXKJY1TPTAQpeC35SUFyMB
-	 VURuSMlzUwkzg==
-Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 17520C5C7D4;
-	Tue, 24 Jan 2023 22:40:18 +0000 (UTC)
+	id 1pKTwS-005juJ-QA
+	for linux-riscv@lists.infradead.org; Wed, 25 Jan 2023 00:47:11 +0000
+Received: by mail-pg1-x536.google.com with SMTP id s67so12426052pgs.3
+        for <linux-riscv@lists.infradead.org>; Tue, 24 Jan 2023 16:47:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ghxIETXzFs7vJZ8k07wa7GlexKAzC+rzARYUkXCHQHs=;
+        b=LvjZfwXCe3mA6H4AGCqGyzVKFBo5GWM8FdhLXaayHykpzPCuRAjaElAT5Hk2ey/F40
+         Bh0dvjNSUfqTGb2iuj7q1O/PTP7W4gatjaXfhcEVTR9wjA0tLBMoJ0VwCZFubj/cVP55
+         Ivatyfw6YQ7PGbADo/BVU9RK987h/uMS90RV4WjpCsfklzdPKAdTHudb41fHEoV/AC4t
+         QA+JdfzzdjDGfYBlxMFkykCYVfgF1+Lcr4tMwizCyX8BReSbwOSOFa9HKtzdOfc+/Z4x
+         VkMk2QpFyvQFvDavS06hVgLrLbNgjoiC6/78xM6uAk2D8AhY1zohmPXNMphYinnluuYY
+         oCeA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ghxIETXzFs7vJZ8k07wa7GlexKAzC+rzARYUkXCHQHs=;
+        b=zm9YBJyAVs28W1DcRgV84TlsAfhArPFgysbr/xH7vItraS7vdfHgy4FsY9hI7VZbrW
+         z+d4P2dgUcomBfE589vww58lZMmTaEfOOesQXB6CywtjbgKNAoufq+m27ig0MJ99F4OF
+         /zvH5SzZh/v7QQO+jN3j4BBL+SU+O90xWwgpSMWHwKQMRaqT9vS8OvodQ8JQfEE4xVEb
+         MMz11p4JE8BHCYSgZlqTOxaCkkoKUM9Jhil3xXTfWerv5GhnqyuGw4wa7bsSNV+VbfSZ
+         Ww6wacwyfqwPmir10zCSlEcdmf+A6VlDCtLpOage5mp7MkEj3CPlKWLglq4LBuF/NV+o
+         QCsQ==
+X-Gm-Message-State: AO0yUKWVSRxYJuZYC47HpTu4X9cs1cg6XGbx9jqX5i52sb7adi34LdZn
+	dMXLr5Zt+cTx83f8FRE+hW025Q==
+X-Google-Smtp-Source: AK7set9F5NYwCkfGKD1bo/mJyqFfAsir2nkFX4eO7dXf2tZvBxGZyFTFZ2Lda5ZK6A3xZU2rNxPYBg==
+X-Received: by 2002:a62:7988:0:b0:58b:cb1b:978f with SMTP id u130-20020a627988000000b0058bcb1b978fmr382182pfc.1.1674607623688;
+        Tue, 24 Jan 2023 16:47:03 -0800 (PST)
+Received: from google.com (7.104.168.34.bc.googleusercontent.com. [34.168.104.7])
+        by smtp.gmail.com with ESMTPSA id z6-20020aa791c6000000b005884d68d54fsm2242952pfa.1.2023.01.24.16.47.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Jan 2023 16:47:03 -0800 (PST)
+Date: Wed, 25 Jan 2023 00:46:59 +0000
+From: Sean Christopherson <seanjc@google.com>
+To: David Matlack <dmatlack@google.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	kvmarm@lists.cs.columbia.edu, linux-mips@vger.kernel.org,
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	Raghavendra Rao Ananta <rananta@google.com>
+Subject: Re: [PATCH 0/7] KVM: Add a common API for range-based TLB
+ invalidation
+Message-ID: <Y9B8A+/FSPCrAANT@google.com>
+References: <20230119173559.2517103-1-dmatlack@google.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH v3 0/2] riscv,isa fixups
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id:  <167460001809.14719.16320756846682473720.git-patchwork-notify@kernel.org>
-Date: Tue, 24 Jan 2023 22:40:18 +0000
-References: <20221205174459.60195-1-conor@kernel.org>
-In-Reply-To: <20221205174459.60195-1-conor@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
- conor.dooley@microchip.com, jrtc27@jrtc27.com, robh+dt@kernel.org,
- krzysztof.kozlowski+dt@linaro.org, paul.walmsley@sifive.com,
- aou@eecs.berkeley.edu, heiko@sntech.de, ajones@ventanamicro.com,
- guoren@kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Disposition: inline
+In-Reply-To: <20230119173559.2517103-1-dmatlack@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230124_144022_056935_A90971B1 
-X-CRM114-Status: GOOD (  11.37  )
+X-CRM114-CacheID: sfid-20230124_164708_865509_EFD15B98 
+X-CRM114-Status: GOOD (  16.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,34 +105,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This series was applied to riscv/linux.git (fixes)
-by Palmer Dabbelt <palmer@rivosinc.com>:
-
-On Mon,  5 Dec 2022 17:44:58 +0000 you wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
+On Thu, Jan 19, 2023, David Matlack wrote:
+> This series introduces a common API for performing range-based TLB
+> invalidation. This is then used to supplant
+> kvm_arch_flush_remote_tlbs_memslot() and pave the way for two other
+> patch series:
 > 
-> I noticed ~today~ while looking at the isa manual that I had not
-> accounted for another couple of edge cases with my regex. As before, I
-> think attempting to validate the canonical order for multiletter stuff
-> makes no sense - but we should totally try to avoid false-positives for
-> combinations that are known to be valid.
+> 1. https://lore.kernel.org/kvm/20230109215347.3119271-1-rananta@google.com/
 > 
-> [...]
+>   Adds ARM support for range-based TLB invalidation and needs a
+>   mechanism to invoke it from common code. This series provides such a
+>   mechanism via kvm_arch_flush_remote_tlbs_range().
+> 
+> 2. https://lore.kernel.org/kvm/20221208193857.4090582-1-dmatlack@google.com/
+> 
+>   Refactors the TDP MMU into common code, which requires an API for
+>   range-based TLB invaliation.
+> 
+> This series is based on patches 29-33 from (2.), but I made some further
+> cleanups after looking at it a second time.
+> 
+> Tested on x86_64 and ARM64 using KVM selftests.
 
-Here is the summary with links:
-  - [v3,1/2] dt-bindings: riscv: fix underscore requirement for multi-letter extensions
-    https://git.kernel.org/riscv/c/ec64efc4966e
-  - [v3,2/2] dt-bindings: riscv: fix single letter canonical order
-    https://git.kernel.org/riscv/c/a943385aa801
+Did a quick read through, didn't see anything I disagree with.
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Is there any urgency to getting this merged?  If not, due to the dependencies
+with x86 stuff queued for 6.3, and because of the cross-architecture changes, it
+might be easiest to plan on landing this in 6.4.  That would allow Paolo to create
+an immutable topic branch fairly early on.
 
 _______________________________________________
 linux-riscv mailing list
