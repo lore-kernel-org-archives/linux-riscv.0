@@ -4,63 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01461C54E94
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jan 2023 18:20:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96A2DC27C76
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jan 2023 18:28:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4Li8GX0urWL98kxJVjON5sL5KJrjGtDscOdsnGRtkWg=; b=MFOBiry1oBxw9G
-	80SSUx/q7MuoNl2FX46YyIJYyo3rTDds8j6o1qNtqXwp+U1YvE4xZL9hJQ8FR1sMpVXF3s6SizoWi
-	0nPRCW09bLUg9yFH4K0OPs7aoMpW7FU1WzOqxpkAsXzIKBn+7iYaRKkZGCL+nlGRaolpxge0P8y32
-	tzOArhqwuDtE2e3w1FPu967HvOsu1zLHeO8J3lLdAFA/qwyCrS3tY0hWEqUS/nLSAMNUNeg/UrsDu
-	ob35yTXBDcMxGrS3dtPImlDTP5XsD+Oz3BScXv39WY3wjPaB1oe6I/K7bPEjOMlzW6E0h8vmRlAsb
-	v5xTCTvT6GM5UKHQwnEQ==;
+	List-Owner; bh=RcrFRUeudHzu0DmHvkcsabKluu1HFytR6K4F6k/7YCg=; b=xyAffiYhxHk8NN
+	GV+i2cX6msAXJGeGIzjkqrmnHOQKFvcQpeUzsYkM805vt0iZupX31aLrOFOb9a5f0vALndllzP+VX
+	0XyA5/DJBzojzIFiuvZE3wRJoG3t1L+QfqyG1y//oXVAjfpvGrqeP1wAeAEwhf7nMf3bhTd6bV9aL
+	yOxdIE8HVVDybX+dUvivved14R7bTkL3aDRVs2ExDt87XHrdZl55f6kXUp6VK8wpEl0G7bPF+4/Em
+	SGvFB2RRKxhIBzs8CzXKQl/YDpc7YsGljQZm/EEVAnhmB9R92nH53S7KIHfrzgbZaJ/GW3UcLkJpX
+	h1oPM46qWSRKXR9NhOjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKkNi-008JvF-4R; Wed, 25 Jan 2023 18:20:22 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1pKkVa-008LAU-8L; Wed, 25 Jan 2023 18:28:30 +0000
+Received: from smtpout30.security-mail.net ([85.31.212.34] helo=fx304.security-mail.net)
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKkNf-008Jur-MN
-	for linux-riscv@lists.infradead.org; Wed, 25 Jan 2023 18:20:21 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 4ED15B81B41;
-	Wed, 25 Jan 2023 18:20:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 02891C4339C;
-	Wed, 25 Jan 2023 18:20:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1674670817;
-	bh=O7NW1qzcvc7518X7Nz3EHWkjaBzP1VAAR59iPu7PRto=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=hMDniqmzw2Vh2kAKkpHqElF/TedbZbcR90WhE2qZ5DxRhy1ZxzbjaHDd0aFI+2bFk
-	 Krd5roNCa2GzghZ/9SDD/MPwm/BKYxD7kbMRW/uokWVSlSp7DrbF5dOdE3X9HF5BwP
-	 pnuQHVoQUkllnQS9HTn/AlYNuLZKssUa1ZM4aWkSasmGTxOhTUv3JdvIHjTGpmaO2q
-	 PP99uTFB6lmj0NCQjklWkGJuIhTtUsjISFCCF3MmhQsiTbUzOKpofNTXFlj7Qcf1hB
-	 xhbTrZ51YWjadNcV5ImZyZvRUtj3XTE1+5q/qHMo4H2aNlnv4dcw946PoU+jVGd5Oq
-	 WBWE8h/9UEPtQ==
-Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id DFDD5F83ED0;
-	Wed, 25 Jan 2023 18:20:16 +0000 (UTC)
+	id 1pKkVX-008L8t-LP
+	for linux-riscv@lists.infradead.org; Wed, 25 Jan 2023 18:28:29 +0000
+Received: from localhost (localhost [127.0.0.1])
+	by fx304.security-mail.net (Postfix) with ESMTP id 6DC129D037
+	for <linux-riscv@lists.infradead.org>; Wed, 25 Jan 2023 19:28:23 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kalray.eu;
+	s=sec-sig-email; t=1674671303;
+	bh=VkZlMx/sz061Cm6YfPqH8mfzLS3IhHFJZRhlNITSu+c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=PgYGGINfgdlge6AJuhvcxeUH6V0qclH7r/w0zv6MkFIIQyoW7OeQf49pR+PV9NV8p
+	 fmlbHY2+Czp6L7ta7EUF/GbRH7PuBhBb899yvjM+2Df0hJO4Fc0FQaeYABlP0TUwps
+	 UDIcw6zHlNZBkl1Vkr8vv3SWe5LXy8V23EIzkm1M=
+Received: from fx304 (localhost [127.0.0.1]) by fx304.security-mail.net
+ (Postfix) with ESMTP id 12CB19CF5C; Wed, 25 Jan 2023 19:28:23 +0100 (CET)
+Received: from zimbra2.kalray.eu (unknown [217.181.231.53]) by
+ fx304.security-mail.net (Postfix) with ESMTPS id 596B69CF02; Wed, 25 Jan
+ 2023 19:28:22 +0100 (CET)
+Received: from zimbra2.kalray.eu (localhost [127.0.0.1]) by
+ zimbra2.kalray.eu (Postfix) with ESMTPS id 13D2327E0491; Wed, 25 Jan 2023
+ 19:28:22 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1]) by zimbra2.kalray.eu
+ (Postfix) with ESMTP id D166C27E0492; Wed, 25 Jan 2023 19:28:21 +0100 (CET)
+Received: from zimbra2.kalray.eu ([127.0.0.1]) by localhost
+ (zimbra2.kalray.eu [127.0.0.1]) (amavisd-new, port 10026) with ESMTP id
+ bp9IA0bk3B4o; Wed, 25 Jan 2023 19:28:21 +0100 (CET)
+Received: from tellis.lin.mbt.kalray.eu (unknown [192.168.36.206]) by
+ zimbra2.kalray.eu (Postfix) with ESMTPSA id 4BBCB27E0461; Wed, 25 Jan 2023
+ 19:28:21 +0100 (CET)
+X-Virus-Scanned: E-securemail
+Secumail-id: <b8a6.63d174c6.58665.0>
+DKIM-Filter: OpenDKIM Filter v2.10.3 zimbra2.kalray.eu D166C27E0492
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kalray.eu;
+ s=32AE1B44-9502-11E5-BA35-3734643DEF29; t=1674671302;
+ bh=VkZlMx/sz061Cm6YfPqH8mfzLS3IhHFJZRhlNITSu+c=;
+ h=Date:From:To:Message-ID:MIME-Version;
+ b=ieciS27BYzu2wBYUzqSGuXnuSzfRVUENtVPrrg66c1Z+Hj4Vn47wSgecKptHxbXVs
+ 18IDqNZqmf01P4UDhWYxjqH8cAsYG2Ugb0NiByorz9T42VSlyYpOaNFYFBpWB/2W5/
+ t8GcNBzxo738aSURlcbP5g03wZZzKeZwUMBsK7kM=
+Date: Wed, 25 Jan 2023 19:28:20 +0100
+From: Jules Maselbas <jmaselbas@kalray.eu>
+To: Bagas Sanjaya <bagasdotme@gmail.com>
+Cc: Yann Sionneau <ysionneau@kalray.eu>, Arnd Bergmann <arnd@arndb.de>,
+ Jonathan Corbet <corbet@lwn.net>, Thomas Gleixner <tglx@linutronix.de>, Marc
+ Zyngier <maz@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof
+ Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Will Deacon
+ <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>, Boqun Feng
+ <boqun.feng@gmail.com>, Mark Rutland <mark.rutland@arm.com>, Eric Biederman
+ <ebiederm@xmission.com>, Kees Cook <keescook@chromium.org>, Oleg Nesterov
+ <oleg@redhat.com>, Ingo Molnar <mingo@redhat.com>, Waiman Long
+ <longman@redhat.com>, "Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>,
+ Andrew Morton <akpm@linux-foundation.org>, Nick Piggin <npiggin@gmail.com>,
+ Paul Moore <paul@paul-moore.com>, Eric Paris <eparis@redhat.com>, Christian
+ Brauner <brauner@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Guillaume Thouvenin <gthouvenin@kalray.eu>, Clement Leger
+ <clement@clement-leger.fr>, Vincent Chardon
+ <vincent.chardon@elsys-design.com>, Marc =?utf-8?b?UG91bGhpw6hz?=
+ <dkm@kataplop.net>, Julian Vetter <jvetter@kalray.eu>, Samuel Jones
+ <sjones@kalray.eu>, Ashley Lesdalons <alesdalons@kalray.eu>, Thomas Costis
+ <tcostis@kalray.eu>, Marius Gligor <mgligor@kalray.eu>, Jonathan Borne
+ <jborne@kalray.eu>, Julien Villette <jvillette@kalray.eu>, Luc Michel
+ <lmichel@kalray.eu>, Louis Morhet <lmorhet@kalray.eu>, Julien Hascoet
+ <jhascoet@kalray.eu>, Jean-Christophe Pince <jcpince@gmail.com>, Guillaume
+ Missonnier <gmissonnier@kalray.eu>, Alex Michon <amichon@kalray.eu>, Huacai
+ Chen <chenhuacai@kernel.org>, WANG Xuerui <git@xen0n.name>, Shaokun Zhang
+ <zhangshaokun@hisilicon.com>, John Garry <john.garry@huawei.com>, Guangbin
+ Huang <huangguangbin2@huawei.com>, Bharat Bhushan <bbhushan2@marvell.com>,
+ Bibo Mao <maobibo@loongson.cn>, Atish Patra <atishp@atishpatra.org>, "Jason
+ A. Donenfeld" <Jason@zx2c4.com>, Qi Liu <liuqi115@huawei.com>, Jiaxun Yang
+ <jiaxun.yang@flygoat.com>, Catalin Marinas <catalin.marinas@arm.com>, Mark
+ Brown <broonie@kernel.org>, Janosch Frank <frankja@linux.ibm.com>, Alexey
+ Dobriyan <adobriyan@gmail.com>, Benjamin Mugnier
+ <mugnier.benjamin@gmail.com>, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-mm@kvack.org, linux-arch@vger.kernel.org, linux-audit@redhat.com,
+ linux-riscv@lists.infradead.org, bpf@vger.kernel.org
+Subject: Re: [RFC PATCH v2 01/31] Documentation: kvx: Add basic
+ documentation
+Message-ID: <20230125182820.GD5952@tellis.lin.mbt.kalray.eu>
+References: <20230120141002.2442-1-ysionneau@kalray.eu>
+ <20230120141002.2442-2-ysionneau@kalray.eu> <Y8z7v53A/UDKFd7j@debian.me>
 MIME-Version: 1.0
-Subject: Re: [PATCH v2] riscv: Move call to init_cpu_topology() to later
- initialization stage
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id:  <167467081691.5568.11613849837435850604.git-patchwork-notify@kernel.org>
-Date: Wed, 25 Jan 2023 18:20:16 +0000
-References: <20230105033705.3946130-1-leyfoon.tan@starfivetech.com>
-In-Reply-To: <20230105033705.3946130-1-leyfoon.tan@starfivetech.com>
-To: Leyfoon Tan <leyfoon.tan@starfivetech.com>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
- paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
- linux-kernel@vger.kernel.org, lftan.linux@gmail.com,
- conor.dooley@microchip.com, ajones@ventanamicro.com
+Content-Disposition: inline
+In-Reply-To: <Y8z7v53A/UDKFd7j@debian.me>
+User-Agent: Mutt/1.9.4 (2018-02-28)
+X-ALTERMIMEV2_out: done
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230125_102019_923454_BD70AE73 
-X-CRM114-Status: GOOD (  11.09  )
+X-CRM114-CacheID: sfid-20230125_102827_874825_1E2D0BD0 
+X-CRM114-Status: GOOD (  10.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,31 +128,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Hi Bagas,
 
-This patch was applied to riscv/linux.git (fixes)
-by Palmer Dabbelt <palmer@rivosinc.com>:
+Thanks for taking your time and effort to improve the documentation.
+We not only need to clean the documention syntax and wording but also
+its content. I am tempted to apply all your proposed changes first and
+then work on improving and correcting the documentation.
 
-On Thu, 5 Jan 2023 11:37:05 +0800 you wrote:
-> If "capacity-dmips-mhz" is present in a CPU DT node,
-> topology_parse_cpu_capacity() will fail to allocate memory.
-> ARM64, with which this code path is shared, does not call
-> topology_parse_cpu_capacity() until later in boot where memory allocation
-> is available.
-> 
-> Move init_cpu_topology(), which calls topology_parse_cpu_capacity(), to a
-> later initialization stage, to match ARM64.
-> 
-> [...]
+However I am not very sure on how to integrate your changes and give
+proper contribution attributions. Any insights on this would be greatly
+appreciated.
 
-Here is the summary with links:
-  - [v2] riscv: Move call to init_cpu_topology() to later initialization stage
-    https://git.kernel.org/riscv/c/c1d610586946
+Thanks
+-- Jules
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
 
 
