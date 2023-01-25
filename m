@@ -4,78 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 953B4C54E94
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jan 2023 05:49:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA4D6C54E94
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jan 2023 05:50:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Date:Message-Id
-	:Subject:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0H9V8IABxojBTjHbL2cLbp062Pn39I3CTDuNayKRYPY=; b=UmGn1e3Ur4RJ72
-	zaSqEKHCBcLGOzbhVnufK1IVLZck3a6O03apedGy1fm1ufdNfoCexsWEQ/y/l4xeKT35l8z0TXlRe
-	MMjyC9jiKIEgKySpMSM1bKhgB/qj6xn3GnIonMmjubwRUbp/ptwwrcYl/xMB3JTWNuFwY5Z/9hQrM
-	WKd/nrWRnr+hpPoMpLMw+DASGxoqFQsjIC6nGwJZ5vfJc74xJrPZJc53TWaucwflOf4cReL53r/Fl
-	xe99aMxNQR+ngT3FSoiMC6uE4Dp5ztNyT2L9kt98RdPJv72uog26jlM24sx+X3CU/RPjbH8EsGW3z
-	D4JJWwmFa2KVVNajO+2Q==;
+	List-Owner; bh=wP0U4N3TQ89G/6z5lBC0llHz669y4nHmovurqXdgzKM=; b=HE97oF27MiiTw/
+	oYx+E7kygg4d6+nom7kA1yMkuaFyUHiASwI8mMBInpbGSW7Tj8rox8RWF5FQVCyzxITgosN7PMGAV
+	Ag1UbrAgsssH1jtnBqYiOJVMRh2mIvq+QkU+rQwnYzS0SnPbWb5S6IWgcQnFAkPDkpAadJbV/FE/u
+	r9gFsAWETDVTV+SyilhAEsKnGN0TwLKu3zT5eDVTMLnTJNs7znzW/4xJKsLUTjVN/zwlhy63jHcan
+	nZLTcrs6+uu/nop6n3XNOT87dtqE+p2Cp1WdgZ0nHP9IhIrgIAdyehwg9aOcBv2OQBz70poBj3V5f
+	KTVCuc6MGWygn0bFxUdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKYei-0065UM-4M; Wed, 25 Jan 2023 05:49:08 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1pKYft-0065bS-B3; Wed, 25 Jan 2023 05:50:21 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKYee-0065TO-43
-	for linux-riscv@lists.infradead.org; Wed, 25 Jan 2023 05:49:06 +0000
-Received: by mail-pl1-x633.google.com with SMTP id g23so16892615plq.12
-        for <linux-riscv@lists.infradead.org>; Tue, 24 Jan 2023 21:49:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
-         :subject:references:in-reply-to:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=2clZK09JqH0mZYrKAloUknV6sK19Xq1RB4pFi5pvbzg=;
-        b=lJagTaVpLa/x/1F9OUFLXUG3brlAAz7I7HAD4j6qmxM0TfDu9z7IsujQpX0Xygwe/7
-         mdk+2mH0SXm1XzB9CfA6gtulFA27UowLX0D9wMsfujnxhvERNr7sqkQvUocz5ye4o8lG
-         5q2TE6BTglP8/3bDhP4v5Wh+8OAwhmm56Fg4lCUH5MlvWZdocpVwPkMH0BZkcmALIExx
-         A2Vu+D+4HgsscZBqBay1/2rWqylQ9N+RmfEIQ1vqn8y89sR59/PlQdt+VaadG0PU/xHc
-         nioKwfiOx2CVBdq8sFkakFM4eey9DspAejLnXPoUPqQe7YXp9nM4bXgUnj/+kHidPC27
-         n/4w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
-         :subject:references:in-reply-to:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=2clZK09JqH0mZYrKAloUknV6sK19Xq1RB4pFi5pvbzg=;
-        b=fWeahtHSmesyCmjGLmbl4WtewkFQDJRBQzDtdCPVo8rorAOsoes1ug3yJ2AnPSouVX
-         lsi1YklF4hpDrcUrySE7wHwoxGjoLUpDk5isRsYIRSFnVBysMFtCDqRx3Z5qha1XIYii
-         GL3Pmejq2m/5AEzZ+Kf9PMEhVcoDCl6Lxhj9I1zxmPifkwvh00cBB9MnoPCGQ5njXwMY
-         MX9Xw0G31jDt93e5XaMWjR73pvYMkWnwAS78zAWidfL29sPvIyZYgb4ubXso4j1/y1HD
-         bzV4hgHCgTvlBNgSDIaX3PgcZOeSwxmQ99FjB+s4uSHZCWpPhyMPQ41jTgt35MNzIvtI
-         X6GA==
-X-Gm-Message-State: AFqh2koDE+sMBiTqvxOXYEqT1Lmw1uREpcLpprwZmJ3ssOU4kwj0hXjn
-	wpxhRbHSPZUUI7VKPcpy/HRqeH4EPaVf23at
-X-Google-Smtp-Source: AMrXdXuCxWM5IJmuHLPIH8llgP98HDUza7zHbZk/CV/fN5JGBRlzjAAE9jvy0Nv6Uz/k+Pqdjvbhbw==
-X-Received: by 2002:a17:902:bb89:b0:194:9b5e:a0a5 with SMTP id m9-20020a170902bb8900b001949b5ea0a5mr32269763pls.43.1674625740608;
-        Tue, 24 Jan 2023 21:49:00 -0800 (PST)
-Received: from localhost ([135.180.226.51])
-        by smtp.gmail.com with ESMTPSA id h2-20020a170902f7c200b00196048cc113sm2639954plw.126.2023.01.24.21.48.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Jan 2023 21:49:00 -0800 (PST)
-In-Reply-To: <20230116064342.2092136-1-liaochang1@huawei.com>
-References: <20230116064342.2092136-1-liaochang1@huawei.com>
-Subject: Re: [PATCH] riscv/kprobe: Fix instruction simulation of JALR
-Message-Id: <167462569110.21287.11897342152923707674.b4-ty@rivosinc.com>
-Date: Tue, 24 Jan 2023 21:48:11 -0800
+	id 1pKYfq-0065b1-Ci
+	for linux-riscv@lists.infradead.org; Wed, 25 Jan 2023 05:50:19 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 9C47D6133A;
+	Wed, 25 Jan 2023 05:50:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 06A3DC433D2;
+	Wed, 25 Jan 2023 05:50:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1674625817;
+	bh=kE+DFWqR6+E2Trkr1Q/Hb+ZWWUvxp5eQEotCvRr3K7k=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=r/joxOp1DUbQQJsrp1kNI43xlGu1i6GEfFwAS679TOLEqe/Ro0O0HOjV5Aabr9B3B
+	 T3s6zZM/BkoiwOFg0z/RZoSUVUA26x4F+wur/gJzhwvpwzBveQ1llQzIf7MXhqz1h3
+	 0jvvLNPbqZbi9HY8Bz/seBW3BKhtZegO+v3p5kReBlWnsPUg86McEHvFr6wTGNpcgv
+	 +1kqxs2ojo+rX//AZPxKcQkMx0I57wer1Gqu3mv3Vw1thM33Qsid9QI52Z578pTRq9
+	 toOiUxrrar4ITr1PHPPLrbG95dUjiSTrqdUO1EVW5HXdkyo5eoteZ5Gfyy0ePzUHn4
+	 hjRVrTDkERfbA==
+Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id E178CE52507;
+	Wed, 25 Jan 2023 05:50:16 +0000 (UTC)
 MIME-Version: 1.0
-X-Mailer: b4 0.11.0-dev-e660e
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-  chenlifu@huawei.com, bjorn@kernel.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-  penberg@kernel.org, mhiramat@kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, me@packi.ch,
-  guoren@kernel.org, Liao Chang <liaochang1@huawei.com>
+Subject: Re: [PATCH] riscv/kprobe: Fix instruction simulation of JALR
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id:  <167462581691.3015.5045414056306333462.git-patchwork-notify@kernel.org>
+Date: Wed, 25 Jan 2023 05:50:16 +0000
+References: <20230116064342.2092136-1-liaochang1@huawei.com>
+In-Reply-To: <20230116064342.2092136-1-liaochang1@huawei.com>
+To: Liao Chang <liaochang1@huawei.com>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, mhiramat@kernel.org,
+ guoren@kernel.org, me@packi.ch, penberg@kernel.org,
+ linux-kernel@vger.kernel.org, bjorn@kernel.org, chenlifu@huawei.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230124_214904_409802_A9A8C5D8 
-X-CRM114-Status: UNSURE (   7.68  )
+X-CRM114-CacheID: sfid-20230124_215018_489091_3A25E376 
+X-CRM114-Status: UNSURE (   9.80  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -93,7 +77,12 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 16 Jan 2023 14:43:42 +0800, Liao Chang wrote:
+Hello:
+
+This patch was applied to riscv/linux.git (fixes)
+by Palmer Dabbelt <palmer@rivosinc.com>:
+
+On Mon, 16 Jan 2023 14:43:42 +0800 you wrote:
 > Set kprobe at 'jalr 1140(ra)' of vfs_write results in the following
 > crash:
 > 
@@ -122,16 +111,16 @@ On Mon, 16 Jan 2023 14:43:42 +0800, Liao Chang wrote:
 > 
 > [...]
 
-Applied, thanks!
+Here is the summary with links:
+  - riscv/kprobe: Fix instruction simulation of JALR
+    https://git.kernel.org/riscv/c/ca0254998be4
 
-(with Guo's suggested cleanup)
-
-[1/1] riscv/kprobe: Fix instruction simulation of JALR
-      https://git.kernel.org/palmer/c/ca0254998be4
-
-Best regards,
+You are awesome, thank you!
 -- 
-Palmer Dabbelt <palmer@rivosinc.com>
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
 _______________________________________________
 linux-riscv mailing list
