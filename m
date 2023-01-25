@@ -4,63 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3941C54E94
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jan 2023 14:54:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EE01C27C76
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jan 2023 15:02:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mM8OCTtoEaPewl0XM8IN05WhJWYcJm70qaCjagRoaPw=; b=PlgEbJhQcuD+/C
-	4A0lmVEuQyHORZ2pPy1zyCX2fQCEgQYy56OisadCHJTdVqoK88D/ulcvbjpVsnxXlZs2U9a+xrUc8
-	1DrVNpQFRcmANmrXgRDpSofp4CED4T1N5R02M3webB80Ttup4KW8nSHa1av5jHK07Jg+W8tHpzNxh
-	A+L/PKCuqAY8rfvOZMrsaVz/EqtMHWIGuE0TcHMTo44dbe8FfMhcqyo142scdDylXBbb6NdVFJYEA
-	zHxfbtTdKq7SjyC4GNCazX01O8VUYXg29LvxVLhw7wEbnwbl5L37kOnWR4MsYOhhYGJuodMVC9eJw
-	HMQVn1fbO2VcNBbsvtPg==;
+	List-Owner; bh=UbLJDn4GsgUN/rtlWIqmx1c91m717KjUPoItaEZHelQ=; b=AoQqonKo7yOhUT
+	3moQtoCsz/wk/wmPnrmcj9bm0i1nCSyer4PpIQu/c4Nm2P/oUlNvdZ6rhtpSV+AX7DpNAMexDg4RD
+	Syq3H6RJhu2W6pq8vW8zWya7CL9DPaM6e8kCou5xHCd2l25tUVj81ubpn3XVQfUja8wc+ikOF1bx3
+	rTnTqirt8nQc974BkRdrlPlFgiLZnnuplshamegEzbZnYOlAfC9xuV/9118ugk7HLRC/AqKTT0Hau
+	qyPgTr8Re5NPat2WQwIIPEMMoktHN/XZaVI44wdyIzsGGoWijeCF400zuPd3YtvndSE0KVcK7HmlD
+	MGQJkZ2JNjJvy+Ri6boA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKhAg-007fsT-UQ; Wed, 25 Jan 2023 14:54:42 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKhAW-007fqV-6b; Wed, 25 Jan 2023 14:54:34 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BB1E74B3;
-	Wed, 25 Jan 2023 06:55:09 -0800 (PST)
-Received: from bogus (unknown [10.57.77.84])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AB89D3F71E;
-	Wed, 25 Jan 2023 06:54:25 -0800 (PST)
-Date: Wed, 25 Jan 2023 14:54:23 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Pierre Gondois <pierre.gondois@arm.com>,
-	linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
+	id 1pKhIE-007gs1-LD; Wed, 25 Jan 2023 15:02:30 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pKhIE-007grp-0Y
+	for linux-riscv@bombadil.infradead.org; Wed, 25 Jan 2023 15:02:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=References:In-Reply-To:Message-Id:Date
+	:Subject:Cc:To:From:Sender:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=2C3HjWrZB+7wSfjrD6r343Y4MWemAjdetwdnRYMFDS8=; b=OG9l9OhoCNvrHkJ1n9sALhOjIj
+	Fbb9n96dFzM+iXndzZze5E2rIb05EaYqlPnTmW1SBGROE7NpptS4qbhxIUpIm+/1H64p6wf+fbqGJ
+	38JXz09lmrIvEQG22pB7jX7/PfZoDh6yk8TJNL9nfygBTUoEMAZ5sBdqUkQOITSo1R0NS6ANceahr
+	izT8tj9lxGd0pBd2dZIoAkfyJhLdhCcWr6+NwLVmgu2wS8EcqOnqcqFK88lgi89wptIQSkCcBkQdn
+	xnExNaN1dQsqMkONClJ4JjlqtkDehuLOgQzNOyd9UAjnpEZ/TTsbHFoKP2zOPb7qaBLDrqY92UzjD
+	GKMfIVIA==;
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1pKgfD-0029sn-1r
+	for linux-riscv@lists.infradead.org;
+	Wed, 25 Jan 2023 14:22:13 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id b24-20020a17090a551800b0022beefa7a23so2163429pji.5
+        for <linux-riscv@lists.infradead.org>; Wed, 25 Jan 2023 06:22:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google;
+        h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=2C3HjWrZB+7wSfjrD6r343Y4MWemAjdetwdnRYMFDS8=;
+        b=WHskQHqaOrEN26WyhV97d7Bg1iUstUPltyWS3O/fjmP+aSMAy1DoSKn7CMZml+K0yJ
+         d+5PX44kEX/Q/gqJGcM2zTd5Lewm76vjAC0t2yD253Vji1Ci06HxX5599SPKXI9C0Kci
+         U4LYPdODDXEl5pERcWF41p5r4kJ7emeU7czoNtpPSCM6rBgj79Tlkv5c7u6ABrGXAcwv
+         Zr7WdrtZWuuHr/dw7sn5sp0O4FZZtC11h9t1pQvsiyfGQEgKhgAT9DUwmYzv2LL+3cxH
+         Tai7bu2utXuMArBGP49Gh8EDJL4QrkKuQczUvWgJkIiz2/TKKTeUSqtJCmXmtRlhkn7E
+         tyHw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=references:in-reply-to:message-id:date:subject:cc:to:from
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=2C3HjWrZB+7wSfjrD6r343Y4MWemAjdetwdnRYMFDS8=;
+        b=tlD76qn6Y3AhsYLq3pPllO4mp95o+ygXtR3iRZ4cU7Vl1+BbjHVGb+9eVRpN5Dae28
+         PN1WiWK2EXbQv9l2M648BjWFnZmeCH20Q6BiWmf/LreQcBYZ0HD0jGNyQHYun0HpJ4Qr
+         rLHo5Mw9M3X8ei94ElwE0z/zoK53wveuph1cHA/GiSEThNcaxecrJZRbkjdogLxn1wEi
+         tV5hsFRXlDlBATRN7F0tYHLc5VgQWhcwnPQroORnOosVN8HAhMvDUmTpYDE7XdeP0qIF
+         cSujkYVURTuT6kX9ixzQnaaXS/8gS+MkeNYfwA0bw2HTO8F9v2uHHYoAyraBvk1iAXMb
+         lrLg==
+X-Gm-Message-State: AFqh2krYRtvyE/zi51yJPHcW1n2s7KyLvo6WmkckHVGrmCej7t4lZX4g
+	rNNqNQk1lTCG7clrRb8BQ1qfHq8fTxvqAgNBAS8hsBu4UxHguejcm43ObLlCHtpAv6XdR7XFKdx
+	il7l3asZZKPn7UmFX5/LY/4FVgyvXz7xqo7UnWZ9xlQv96/Qz6CPSbIYW/d1CXmR3JDV8zUlQvc
+	tNaF6IgswzeQ==
+X-Google-Smtp-Source: AMrXdXtxy2JSAotwxjD+LLAsHQS6lJjbYHIewFy59htIOvhSpptE3SMPHca/oLJ27jZ+84EGJbLR7w==
+X-Received: by 2002:a05:6a20:4998:b0:b8:652a:79f2 with SMTP id fs24-20020a056a20499800b000b8652a79f2mr29889418pzb.11.1674656561421;
+        Wed, 25 Jan 2023 06:22:41 -0800 (PST)
+Received: from hsinchu25.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
+        by smtp.gmail.com with ESMTPSA id bu11-20020a63294b000000b004a3510effa5sm3203520pgb.65.2023.01.25.06.22.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Jan 2023 06:22:41 -0800 (PST)
+From: Andy Chiu <andy.chiu@sifive.com>
+To: linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	anup@brainfault.org,
+	atishp@atishpatra.org,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org
+Cc: vineetg@rivosinc.com,
+	greentime.hu@sifive.com,
+	guoren@linux.alibaba.com,
+	Andy Chiu <andy.chiu@sifive.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Gavin Shan <gshan@redhat.com>, linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org
-Subject: Re: [PATCH v4 6/6] arch_topology: Build cacheinfo from primary CPU
-Message-ID: <20230125145423.pid3hsstswzuez73@bogus>
-References: <20230104183033.755668-1-pierre.gondois@arm.com>
- <20230104183033.755668-7-pierre.gondois@arm.com>
- <CAMuHMdUjgxgOXf5He1x=PLn7MQTjZgFQUHj8JrwbyweT4uOALQ@mail.gmail.com>
- <20230124140420.4srnufcvamvff77v@bogus>
- <Y8/tl999NQwbPL/R@wendy>
- <20230124144839.2szjjv256j3pdaif@bogus>
- <20230124145541.2xwtr7ro2bjnsjd7@bogus>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230124145541.2xwtr7ro2bjnsjd7@bogus>
+	Albert Ou <aou@eecs.berkeley.edu>
+Subject: [PATCH -next v13 19/19] riscv: Enable Vector code to be built
+Date: Wed, 25 Jan 2023 14:20:56 +0000
+Message-Id: <20230125142056.18356-20-andy.chiu@sifive.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20230125142056.18356-1-andy.chiu@sifive.com>
+References: <20230125142056.18356-1-andy.chiu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230125_065432_301725_3E4E0379 
-X-CRM114-Status: GOOD (  10.18  )
+X-CRM114-CacheID: sfid-20230125_142211_732341_6F7B9D64 
+X-CRM114-Status: UNSURE (   9.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,27 +109,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Geert,
+From: Guo Ren <guoren@linux.alibaba.com>
 
-On Tue, Jan 24, 2023 at 02:55:41PM +0000, Sudeep Holla wrote:
-> 
-> Geert, can you please try with the patch Conor pointed out and see if
-> that helps to fix the allocation failures[1]
-> 
+This patch adds a config which enables vector feature from the kernel
+space.
 
-Sorry for the nag, but did you get the chance to test -next with [1]
-and see if it fixes the cacheinfo memory failure you were observing ?
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Co-developed-by: Greentime Hu <greentime.hu@sifive.com>
+Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
+Suggested-by: Vineet Gupta <vineetg@rivosinc.com>
+Suggested-by: Atish Patra <atishp@atishpatra.org>
+Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
+---
+ arch/riscv/Kconfig  | 10 ++++++++++
+ arch/riscv/Makefile |  7 +++++++
+ 2 files changed, 17 insertions(+)
 
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index e2b656043abf..f4299ba9a843 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -416,6 +416,16 @@ config RISCV_ISA_SVPBMT
+ 
+ 	   If you don't know what to do here, say Y.
+ 
++config RISCV_ISA_V
++	bool "VECTOR extension support"
++	depends on GCC_VERSION >= 120000 || CLANG_VERSION >= 130000
++	default n
++	help
++	  Say N here if you want to disable all vector related procedure
++	  in the kernel.
++
++	  If you don't know what to do here, say Y.
++
+ config TOOLCHAIN_HAS_ZICBOM
+ 	bool
+ 	default y
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index 12d91b0a73d8..67411cdc836f 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -52,6 +52,13 @@ riscv-march-$(CONFIG_ARCH_RV32I)	:= rv32ima
+ riscv-march-$(CONFIG_ARCH_RV64I)	:= rv64ima
+ riscv-march-$(CONFIG_FPU)		:= $(riscv-march-y)fd
+ riscv-march-$(CONFIG_RISCV_ISA_C)	:= $(riscv-march-y)c
++riscv-march-$(CONFIG_RISCV_ISA_V)	:= $(riscv-march-y)v
++
++ifeq ($(CONFIG_RISCV_ISA_V), y)
++ifeq ($(CONFIG_CC_IS_CLANG), y)
++        riscv-march-y += -mno-implicit-float -menable-experimental-extensions
++endif
++endif
+ 
+ # Newer binutils versions default to ISA spec version 20191213 which moves some
+ # instructions from the I extension to the Zicsr and Zifencei extensions.
 -- 
-Regards,
-Sudeep
+2.17.1
 
-[1] https://lore.kernel.org/all/20230103035316.3841303-1-leyfoon.tan@starfivetech.com/
 
 _______________________________________________
 linux-riscv mailing list
