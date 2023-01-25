@@ -4,81 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F227FC54E94
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jan 2023 17:22:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33B03C54E94
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jan 2023 18:11:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Date:Message-Id
+	:Subject:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bkg+Qb0zSCKtGos8jcm+0L+h+uDoqC6wF4eO4Jxp47E=; b=J4a8auHNyVgZEN
-	9NiYv2dyhTScgBu4zzCb8abmSMpBIkZm3P9Bca9alEn/pAwSuolWFclliWtkqqjfQJVTjy2Y86bJv
-	c0algxvj7K1It1Ut38WAI2utAq0pfLSpPBeCxaj3YKc1r5HECBnBm857/WyMusbnAHT/JqBN7A9Xm
-	rsOAjGAabSrRAY6qn3YE1BB2IlBUCgMHVMf1IK2P4eYpNIHEWoSVgID5eoKCMFto+65n2vzGhqLhG
-	MrJNvXfmAMDrXYbk3QmeVpA0z6iEoW/Vm/M9lhDQATE5CEh2bxFjv+FY1+cukT6Lgr8lwe2WI6cgq
-	fjGcdMQSeI+SLpocf6SA==;
+	List-Owner; bh=7HxBF6/1uOKGUSxOUzVg3lM4gxW/iF44DfqeffAUClM=; b=BcRYU7lXykoGgv
+	8wEz4sQqAtESRLTBagnYzaeVUV60Fn98G0sl6PSuMaN94nDnVyc7ToKjFw+wTw30n2ovvvGJSNgpv
+	ZXnnlUtrD1ABfIIhqvWSKnOTsR+6wbe74+2sdXr3a7/aDG6ncD1Ou/k9KiycE4QdWMt8pe4muiX1i
+	b7emWw1f8r84bMzjRcVBbRKgQ2iZDS+mZB0UjvPV916wWw0Klrz11cAFefPDlqhQCGn/i1kWmn18n
+	N+gw9uY3gfPLdgBxb+LnuvqVleogcp6Ok40bzq5/X4Yc5iAIN5+JXLj+TuZWQxKHpvaFj1h8kTffM
+	KPCpSH8ma0m88NESRNjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKjTO-008BEk-G1; Wed, 25 Jan 2023 17:22:10 +0000
-Received: from mail-yb1-xb2a.google.com ([2607:f8b0:4864:20::b2a])
+	id 1pKkEq-008IX7-JQ; Wed, 25 Jan 2023 18:11:12 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKjTK-008BDG-1L
-	for linux-riscv@lists.infradead.org; Wed, 25 Jan 2023 17:22:08 +0000
-Received: by mail-yb1-xb2a.google.com with SMTP id h5so6993535ybj.8
-        for <linux-riscv@lists.infradead.org>; Wed, 25 Jan 2023 09:22:01 -0800 (PST)
+	id 1pKkEj-008IVm-HT
+	for linux-riscv@lists.infradead.org; Wed, 25 Jan 2023 18:11:11 +0000
+Received: by mail-pl1-x630.google.com with SMTP id c6so18667088pls.4
+        for <linux-riscv@lists.infradead.org>; Wed, 25 Jan 2023 10:11:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=+NF7WOwKXStbVcCBmnQTR8aAYHjwReQdf6MvWz/ieQE=;
-        b=G/sP0Ge2BbmLK5C1fYqIhHmfO9YiRHy87eRqbWpmlZctgb1Mjd3hQa4bOwD180MWX6
-         N9m5BZ5ghS2tzwTNr12nV3VeSN0+z9yP0c4kJa8fVHf0liLZpx9LSNTEL28uc4R/m8Xd
-         DTt9dY/swPExNObKMFXnORILtXrqvfvPIy7kzOUkT25jJo53AbsZlXcJaaoY0pxtCLXS
-         qgm7XaZfzBEKVqNPbBdF0AhzVYtmjGNYtzFnqQUr3odJs29myMNgBOQe8LMz9PeTVJLp
-         7+pVgI1I+vSb3zqVmxeKhnMsVmNFvn/PsYcbOlBZDilIwwcmDqrHgsUVs8ak5XGd8/tq
-         3RgQ==
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
+         :subject:references:in-reply-to:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=pQD0shi11rZTj5LNtv6GYSFD9d2uw2BA5/okkdV1qGc=;
+        b=IC+bFBcFvn2PSd7vnbhTc6y+Ojmi8ByU5GrzrtzXea91y9WNsgbZnCgwGTZLH9F6Qm
+         rI3GIA9XnXPmDV8tktseWWQ7prZFJKKor3tDTVbQ94JVgssUmgcK9sXRi4FxmlTvPiWh
+         WSKMlPbjrGUxIqQs6zFHH30mS+zaNyBjd/rLHkChryFiF6HNUo0XVuAAGnvW5mY+Ew0a
+         TvpKv2ZIYGNQPqAW1QeD4x8vokQiJN7nBiB/Nw39WfHKVzH7fDOpIbVRWJHXDZdEOsSV
+         f76xbzkPgl3U3r9G5c1H5yD4zK8gDqNZY2tkvEc9zWSRqJpnm+/AfcuXHwo10il1282Z
+         1p+Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=+NF7WOwKXStbVcCBmnQTR8aAYHjwReQdf6MvWz/ieQE=;
-        b=pNbdSyrxLRee1KX0eEHlJvjVSzUi8yEHXyrRjkoZ1yFXNw4pu8kYucsfBPovEqN0sn
-         szR3dCUT5O9vYS/tyWVjrVfY9UDMnZcPcOQyYq3PKq9uRCzsdsfTjGaMKDk/azYneM1v
-         Z1qBx1juJBLIkzys16LTgEaNgGosTiDFGUrRyxsuXePlI31coRBESNaL8C1mvEWk2Tcj
-         0x/GC1qQVcwBOkzbJc5uXFpmV+DwLVKVMkQEkCWLZiCEBAc99WogOXWdHsP6NVSH0W1r
-         qF/2kYb2Lx27mx5sZii0ggeQpv2+jZ6cUfj2G7hJS38uYgMGicUeDfp7P9zXWziCWbpB
-         AteA==
-X-Gm-Message-State: AFqh2kor/PI2NlRF6F+xjH4BfnNzmJZExAXIpnqn6T5uxcNWon8GoJNr
-	Y6T6eST+MvRxuP3MRdE+r2UkI2T6twUyXpYBZQkUzA==
-X-Google-Smtp-Source: AMrXdXu3jKBxFWKV9U7HEoc8nZkdzpu/vB3yVyIUHmWHNLUO+5YjJYHaG1m9/rmSDsx5131N51uq+J+p+rywDrfAr5Q=
-X-Received: by 2002:a25:1984:0:b0:7fe:e7f5:e228 with SMTP id
- 126-20020a251984000000b007fee7f5e228mr1798951ybz.582.1674667320995; Wed, 25
- Jan 2023 09:22:00 -0800 (PST)
+        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
+         :subject:references:in-reply-to:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=pQD0shi11rZTj5LNtv6GYSFD9d2uw2BA5/okkdV1qGc=;
+        b=5Tnr0yGFrBBY2JsePFjVgVCFF+WLyCojo12vE5lOLabvKZVRFRXhZWDAGrbUxC9hCV
+         4fSJfGJUMELJBi9vKbWRTpC3xsIVy6YpBOrogug/CviHboy0jsGFGd4Slvcs12f5nI2g
+         jMSNU/UUttJApc2tD00M35PT4IBK+av/X/BryXrQKTcKSWeR+Y+O2Bj2U4Et8BtdjZMz
+         OO6GB9b9Ae9urFAdw9t46lNx+uQnSMji47PgvU4e62G1HkA8LAY6vU7PS6PxPeFMaAih
+         yAwJ0tb8vnVhfN1OFkWKJnWXiNd6l/aUNUJ12TnBA4MbI+iWeFFMsUOWlDfm1lravAmx
+         vbIQ==
+X-Gm-Message-State: AFqh2koZlDma0ExjwGoiPrNqUIYcsh9fV1Enl2IWqzj4kiCti8b3uMKT
+	wRKrdR5krmUys5tHr6ZZpbDdvw==
+X-Google-Smtp-Source: AMrXdXu7+jQL329BQiKXN9pflTqeYS1ZPGEtU3VDiQ90DOui+Z/FxU2rxULGW4luUM1uoFHBYTlJMg==
+X-Received: by 2002:a17:903:210d:b0:193:3a92:f4bd with SMTP id o13-20020a170903210d00b001933a92f4bdmr29203740ple.47.1674670262165;
+        Wed, 25 Jan 2023 10:11:02 -0800 (PST)
+Received: from localhost ([135.180.226.51])
+        by smtp.gmail.com with ESMTPSA id 6-20020a170902c20600b00188fadb71ecsm3961963pll.16.2023.01.25.10.11.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Jan 2023 10:11:01 -0800 (PST)
+In-Reply-To: <20230105033705.3946130-1-leyfoon.tan@starfivetech.com>
+References: <20230105033705.3946130-1-leyfoon.tan@starfivetech.com>
+Subject: Re: [PATCH v2] riscv: Move call to init_cpu_topology() to later initialization stage
+Message-Id: <167467025508.9605.6900641961195110953.b4-ty@rivosinc.com>
+Date: Wed, 25 Jan 2023 10:10:55 -0800
 MIME-Version: 1.0
-References: <20230119173559.2517103-1-dmatlack@google.com> <Y9B8A+/FSPCrAANT@google.com>
- <Y9B9FZReDVwdNNrS@google.com>
-In-Reply-To: <Y9B9FZReDVwdNNrS@google.com>
-From: David Matlack <dmatlack@google.com>
-Date: Wed, 25 Jan 2023 09:21:34 -0800
-Message-ID: <CALzav=fAVF5VDj76Pd9m+G+-A+UdvCS1tTVGCyvnvtgq4eFOSg@mail.gmail.com>
-Subject: Re: [PATCH 0/7] KVM: Add a common API for range-based TLB invalidation
-To: Oliver Upton <oliver.upton@linux.dev>
-Cc: Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Huacai Chen <chenhuacai@kernel.org>, 
-	Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>, Anup Patel <anup@brainfault.org>, 
-	Atish Patra <atishp@atishpatra.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvmarm@lists.cs.columbia.edu, linux-mips@vger.kernel.org, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	Raghavendra Rao Ananta <rananta@google.com>
+X-Mailer: b4 0.11.0-dev-e660e
+Cc: Conor Dooley <conor.dooley@microchip.com>, linux-riscv@lists.infradead.org,
+  Andrew Jones <ajones@ventanamicro.com>, Ley Foon Tan <lftan.linux@gmail.com>, linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+  Ley Foon Tan <leyfoon.tan@starfivetech.com>, Palmer Dabbelt <palmer@dabbelt.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230125_092207_551544_497752A5 
-X-CRM114-Status: GOOD (  19.48  )
+X-CRM114-CacheID: sfid-20230125_101105_826409_038B3744 
+X-CRM114-Status: UNSURE (   8.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,32 +92,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 24, 2023 at 4:51 PM Oliver Upton <oliver.upton@linux.dev> wrote:
-> On Wed, Jan 25, 2023 at 12:46:59AM +0000, Sean Christopherson wrote:
-> > On Thu, Jan 19, 2023, David Matlack wrote:
-> >
-> > Did a quick read through, didn't see anything I disagree with.
->
-> LGTM for the tiny amount of arm64 changes, though I imagine David will
-> do a v2 to completely get rid of the affected Kconfig.
+On Thu, 5 Jan 2023 11:37:05 +0800, Ley Foon Tan wrote:
+> If "capacity-dmips-mhz" is present in a CPU DT node,
+> topology_parse_cpu_capacity() will fail to allocate memory.
+> ARM64, with which this code path is shared, does not call
+> topology_parse_cpu_capacity() until later in boot where memory allocation
+> is available.
+> 
+> Move init_cpu_topology(), which calls topology_parse_cpu_capacity(), to a
+> later initialization stage, to match ARM64.
+> 
+> [...]
 
-Thanks both for taking a look.
+Applied, thanks!
 
-> > Is there any urgency to getting this merged?  If not, due to the dependencies
-> > with x86 stuff queued for 6.3, and because of the cross-architecture changes, it
-> > might be easiest to plan on landing this in 6.4.  That would allow Paolo to create
-> > an immutable topic branch fairly early on.
->
-> +1, that buys us some time to go through the rounds on the arm64 side
-> such that we could possibly stack the TLBIRANGE work on top.
+[1/1] riscv: Move call to init_cpu_topology() to later initialization stage
+      https://git.kernel.org/palmer/c/c1d610586946
 
-The main benefit of merging in 6.3 would be to make Raghavendra's life
-simpler/easier so he can build the next version of his arm64 TLBI
-series on top. But I guess he can still do that with a topic branch.
-
-I'll go ahead and send a v2 on top of the changes from Hou you queued
-for 6.3, Sean, and we can plan on landing that in 6.4 (barring any
-further feedback or conflicts).
+Best regards,
+-- 
+Palmer Dabbelt <palmer@rivosinc.com>
 
 _______________________________________________
 linux-riscv mailing list
