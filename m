@@ -4,82 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7A6DC54EED
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jan 2023 20:11:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62703C54E94
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jan 2023 20:12:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AhChchbWwSWpNsojNP2XIq9R6mpDq29JKFRN/HxSE4Q=; b=LpdJwvXd3ndMGd
-	OqcXe9DEJzR1KHgOpO5S7HhcTEMHYYSGaq8QngX6qVwKXMbBfSxluEvABkKJvI0JQbUEgF3NnUQFr
-	ed3tlLre6lb3zdjegc7JYsON5kA8Z6jYwQpxrcp4ohSTT7K/N2calDVENaLQtnCO/f/GeURwWtF6H
-	54tseHrkLj4GyAhDKMuWSl5RAjA25qNqTxGDxnVjKl4gnAssBpVelA0A06cNJAh6Pa06ulWWskcu6
-	7pWxBYTVinwLu1jkyfjPJsMUzEz2r6BvG+hxJnJY4vc2wqUUPXaoxxgSfCuBsaTiK2Pt/McMgaAIF
-	PStdWR9OOb6AsnNsTNhw==;
+	List-Owner; bh=WWcrdwj69Ovouto1T8DIMsNbgU/mQuIipmWSQycjkyY=; b=ybEHmbYpFDYt9n
+	gem4lzyRfnhvU5+OvwY1pTT5t5Ciax6muVjs1C0Bhe3uouCkJkqknkYr59B6nQn1Wd3IpIfciA+24
+	/HtPJSEC80N4mejV7/iiqoIZfsBmJjo5lKM+eK9dhEDB4wv1hB/5ty8CTWKFB6PU29I4JLHGb4fsU
+	trmUZ4L+tDE8RU+LRN3D/WZ3EUjsgWWZK/sIomKUQQ2lUOTOeAj7oPFs1e533QzjG2mLc5WbaX1TA
+	D3YVnXK7fqtfpzzG1iI09Mqr5AgVeRUoI1yTVFwYjmt1hOyGd6DEmZBrEiS5z/O595/TDbsmD3ttI
+	btZQVbhkJXb1VLzpvfOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKm6s-008bFU-Hk; Wed, 25 Jan 2023 20:11:06 +0000
-Received: from mail-oa1-f51.google.com ([209.85.160.51])
+	id 1pKm7t-008bnv-J6; Wed, 25 Jan 2023 20:12:09 +0000
+Received: from mail-oi1-f177.google.com ([209.85.167.177])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKm2N-008Z91-79; Wed, 25 Jan 2023 20:06:28 +0000
-Received: by mail-oa1-f51.google.com with SMTP id 586e51a60fabf-1442977d77dso22761266fac.6;
-        Wed, 25 Jan 2023 12:06:25 -0800 (PST)
+	id 1pKm2e-008ZGW-1i; Wed, 25 Jan 2023 20:06:45 +0000
+Received: by mail-oi1-f177.google.com with SMTP id v17so17275387oie.5;
+        Wed, 25 Jan 2023 12:06:42 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=XmbysuHPjfK+X9Z9VAj7ZA13Rw20BD2qll2fpcLoSIU=;
-        b=1rJHerhUnU4UfmIhepD6q6FyD6TXB2X33hzT1LsQEEwr+1ecb7i+qEzgiMAeQbyZ6L
-         3GheS4706ggMSQPcroKD4LHDR7l/+4OM1zkZ0zoZHdzfnrQf8ec3aeZMtgBYWjk/TjFM
-         p6VSSn9vhoBOsgb4Z0IuyD/tjRSVEBYtVChjjJLrgdnENgY9zzPzPFGk3wTUmLslyjsS
-         B4zWhzq5EsDiwWB/oyYwx19KV+ifLLGPXD4dq5AOz7JXjvicF6X4RGoshFDJRuHnaueA
-         YITrvdn07OnjTUOk7bixb8JqQbGV2svltjoLBbEJxGNsIzlheOLuT7dHOF6hiHVTZifJ
-         jJtg==
-X-Gm-Message-State: AFqh2kqidX40muTCD/7fbH/k8JUyYSEcHCasamTBakOg3d0qQdnNbrNZ
-	s5R7sxB3/DkEya18lpcbQw==
-X-Google-Smtp-Source: AK7set+GaEu8klX8ZrT+kPUSQ/UdfQGCuvFO5aVmA0fCZzJ/i5NkLzmYTh9rERQZJyp7IvXTuaR09A==
-X-Received: by 2002:a05:6870:d356:b0:160:3369:1624 with SMTP id h22-20020a056870d35600b0016033691624mr5072686oag.13.1674677184988;
-        Wed, 25 Jan 2023 12:06:24 -0800 (PST)
+        bh=cjdeMOLunBcaH9abbjTPumVPAzpI0woKuv5TqA6wWlg=;
+        b=mwqQFBwDH9SSBhclsroPrKYqd+3xwnGj3m7/QyDkj9TVtJI9L7o8UCGDz+YB6w2XHG
+         y/xqknWOw+4a5/GsdiXDzekO0MxmVlsQHBdQ9oyypzRkFi+YsIp+W7wjtCRZJJJ381ZG
+         MYF9/hfp4CSBNNtCf9n+4x7535IUiVnOV73BI7GvTy5gnVWyZgY2mNIppRzTi9yXne44
+         A7z5gJxGVKxlNd7bXFQhZCsZqyGP9/GWw2TWhIbx1YJjGxzUpjGBc1JqkLoIhDsuqCPi
+         8xyMLoeeQXk06oj3hh0pASn5V5KbXiwwOtFIYDctP+lL6l55k0XrhcqgxkcuJ2VocyhP
+         xGfg==
+X-Gm-Message-State: AFqh2koYMKHVAVLRgcpA0rtvbmU+4xqtR76jlb5HEQfEHAqbeKy0hDYw
+	graAOV7zrYMwr84gyDtbOA==
+X-Google-Smtp-Source: AMrXdXs39pVibYTbO8sCzlzh4gXhBnoYQHFDiAukdaJUOpcBjaCiIgpNW6SRZHdq1Euvc18hPYacFw==
+X-Received: by 2002:aca:e106:0:b0:363:8e7e:60b with SMTP id y6-20020acae106000000b003638e7e060bmr15163351oig.31.1674677201827;
+        Wed, 25 Jan 2023 12:06:41 -0800 (PST)
 Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id lu24-20020a056871431800b0013297705e5dsm2285614oab.28.2023.01.25.12.06.23
+        by smtp.gmail.com with ESMTPSA id l74-20020a9d1b50000000b0068668e2e08bsm2534670otl.58.2023.01.25.12.06.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Jan 2023 12:06:24 -0800 (PST)
-Received: (nullmailer pid 2770011 invoked by uid 1000);
-	Wed, 25 Jan 2023 20:06:23 -0000
-Date: Wed, 25 Jan 2023 14:06:23 -0600
+        Wed, 25 Jan 2023 12:06:41 -0800 (PST)
+Received: (nullmailer pid 2770378 invoked by uid 1000);
+	Wed, 25 Jan 2023 20:06:40 -0000
+Date: Wed, 25 Jan 2023 14:06:40 -0600
 From: Rob Herring <robh@kernel.org>
 To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: NXP Linux Team <linux-imx@nxp.com>, Rob Herring <robh+dt@kernel.org>, linux-kernel@vger.kernel.org, 
-	Le Ray <erwan.leray@foss.st.com>, 
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-riscv@lists.infradead.org, 
+	linux-stm32@st-md-mailman.stormreply.com, Fabio Estevam <festevam@gmail.com>, 
+	Vignesh Raghavendra <vigneshr@ti.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Kevin Hilman <khilman@baylibre.com>, 
+	Michal Simek <michal.simek@xilinx.com>, Tomer Maimon <tmaimon77@gmail.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, 
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Tomer Maimon <tmaimon77@gmail.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Shawn Guo <shawnguo@kernel.org>, Pengutronix Kernel Team <kernel@pengutronix.de>, Chester Lin <clin@suse.com>, 
-	linux-serial@vger.kernel.org, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	- <devicetree@vger.kernel.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Michal Simek <michal.simek@xilinx.com>, Pragnesh Patel <pragnesh.patel@sifive.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, linux-riscv@lists.infradead.org, 
-	Peter Korsgaard <jacmet@sunsite.dk>, linux-amlogic@lists.infradead.org, 
-	Magnus Damm <magnus.damm@gmail.com>, linux-arm-kernel@lists.infradead.org, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Jerome Brunet <jbrunet@baylibre.com>, 
-	Lubomir Rintel <lkundrak@v3.sk>, linux-stm32@st-md-mailman.stormreply.com, 
-	Fugang Duan <fugang.duan@nxp.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Vignesh Raghavendra <vigneshr@ti.com>, Fabio Estevam <festevam@gmail.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>
-Subject: Re: [PATCH v2 02/12] dt-bindings: serial: 8250: correct Nuvoton
- NPCM850 compatible
-Message-ID: <167467718287.2769960.1087362383778612276.robh@kernel.org>
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Fugang Duan <fugang.duan@nxp.com>, Shawn Guo <shawnguo@kernel.org>, 
+	NXP Linux Team <linux-imx@nxp.com>, devicetree@vger.kernel.org, Chester Lin <clin@suse.com>, 
+	Le Ray <erwan.leray@foss.st.com>, Pragnesh Patel <pragnesh.patel@sifive.com>, 
+	linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, 
+	linux-serial@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-amlogic@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Magnus Damm <magnus.damm@gmail.com>, 
+	Lubomir Rintel <lkundrak@v3.sk>, Peter Korsgaard <jacmet@sunsite.dk>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Jerome Brunet <jbrunet@baylibre.com>
+Subject: Re: [PATCH v2 03/12] dt-bindings: serial: pl011: allow ARM Primecell
+ properties
+Message-ID: <167467719955.2770340.7541724589555631279.robh@kernel.org>
 References: <20230124091602.44027-1-krzysztof.kozlowski@linaro.org>
- <20230124091602.44027-3-krzysztof.kozlowski@linaro.org>
+ <20230124091916.45054-1-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230124091602.44027-3-krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20230124091916.45054-1-krzysztof.kozlowski@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230125_120627_305634_9F179FF2 
-X-CRM114-Status: GOOD (  11.99  )
+X-CRM114-CacheID: sfid-20230125_120644_122980_C5422A0C 
+X-CRM114-Status: UNSURE (   9.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,15 +99,15 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 24 Jan 2023 10:15:52 +0100, Krzysztof Kozlowski wrote:
-> Nuvoton NPCM850 UART is compatible with NPCM750, so add proper fallback
-> to match existing DTS and Linux driver.
+On Tue, 24 Jan 2023 10:19:07 +0100, Krzysztof Kozlowski wrote:
+> Reference ARM Primecell bindings to allow typical Primecell device node properties:
 > 
-> Fixes: c8177f90b7c6 ("dt-bindings: serial: 8250: Add npcm845 compatible string")
+>   broadcom/bcm2711-rpi-400.dtb: serial@7e201000: Unevaluated properties are not allowed ('arm,primecell-periphid' was unexpected)
+> 
 > Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 > ---
->  Documentation/devicetree/bindings/serial/8250.yaml | 5 ++++-
->  1 file changed, 4 insertions(+), 1 deletion(-)
+>  Documentation/devicetree/bindings/serial/pl011.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 > 
 
 Acked-by: Rob Herring <robh@kernel.org>
