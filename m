@@ -4,69 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAD10C05027
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Jan 2023 08:01:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E405C05027
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Jan 2023 08:27:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mFx04zBIIKvxwJgCMD9cgznMf23si9ArXxfiZLZLfVA=; b=1inII7LS5Hp/cdql4HW7vbQwKg
-	K41D+kNkpR2mrpBqD2iMx/LUsmCQaIq4oUh+lyYpU6y59r7qc6llyoU/L6eGhB/0X6S5MzBvFFsrZ
-	rwMDIiQJ4olZBATITMKs1/Oek0vSO+KIQz76OxXUxVhl0hnm9sQ+Q+jNvUqsdLt22F4WAnyopANf+
-	5iAVNnChsqWLzwYRis+9Qx68F1Hma6hpK99TIku862Vr3itDBtdkkBHN/WyGIq7Rma1W2pxHsJWn5
-	PIa70OVk+PQLm9WTk7yHk51Opu0YkftcsLvgsWnTHshmE8L+0vNlaYyvdF7pf6kwxYFChdWvNUmrG
-	UEaM31tg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=8udsNc7Ril7LG4/ilqIhktfoWxzMCyVsjtFzVK9nNsk=; b=zYR/M1tqdp+6r8
+	1ZUd/Qgvi8lLUBJqjIwQlSk6L/Mlid/iWGuGT9ZDFye008jos9Iap0TRYqsrvG2vUCCE/KnQDlyHP
+	LyRSu2GHVN3NAnZKO6OmRWWSaVq1CYWixDd9JzOEHxNnoYuRNCRJn/L7cEzL92wI01x2y4rAHsI64
+	iMX1IfWRSJlTVwTT0mZGLUeUElCNXTg4AOwzuF3xnAiiqNtlZrb77I84qQe1jojh7cGd/lfVZBkRn
+	vyfVfYEj6QH15/SBZuDcjGcrPm8QonKgHx6au2Krk5h+8Kj3YjPL+B0a7NxbQcauU6vAed8gNUl6X
+	Pi8BRCiX9tSgZY9mjLiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKxBq-009v8i-W3; Thu, 26 Jan 2023 08:00:59 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1pKxbS-009yfP-NP; Thu, 26 Jan 2023 08:27:26 +0000
+Received: from mail-qv1-f50.google.com ([209.85.219.50])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKxBn-009v72-TF; Thu, 26 Jan 2023 08:00:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1674720055; x=1706256055;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=GBE/VjADrLDKieC7b5itKGUOfGov2KepyoUCPJ4/mf0=;
-  b=t121eBNOx3yowucnY26evvtB+PIyJokWO1fddpnW+/XeTWz0PKOZTj5z
-   LIW2cnC7cvkFjj3spey8pD3lCHXHJhIWxoKKDZ5hHmK1fkUKJzo+580NK
-   0llniDVly20eo/R9Akdm9gxMF6rHCG5U1Y8XuLy86qWfxvwj3KZoRwAKG
-   ocgsWG5dRkpXlYwUbOhNReuz/SB/VOfT8kDjOUJq4zXsMn1MrgQWoHmEU
-   z6SYKV+H/32UMhSLbImYnp+OWL2ZlaM148WDOgWuwtwHZtYxVRf3AZkYG
-   F286+ZDqrVHijHCtjeCcmx0WzeTVL8fUMgMB7sW0+4K3ZavukvGF0ST2Y
-   w==;
-X-IronPort-AV: E=Sophos;i="5.97,247,1669100400"; 
-   d="asc'?scan'208";a="197475984"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 26 Jan 2023 01:00:50 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.16; Thu, 26 Jan 2023 01:00:42 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.16 via Frontend
- Transport; Thu, 26 Jan 2023 01:00:40 -0700
-Date: Thu, 26 Jan 2023 08:00:16 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Samuel Holland <samuel@sholland.org>
-CC: Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
-	<linux-sunxi@lists.linux.dev>, <linux-riscv@lists.infradead.org>, Heiko
- Stuebner <heiko@sntech.de>, Palmer Dabbelt <palmer@dabbelt.com>, Conor Dooley
-	<conor@kernel.org>, Jisheng Zhang <jszhang@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, Andre Przywara <andre.przywara@arm.com>, Rob
- Herring <robh+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v5 00/11] riscv: Allwinner D1/D1s platform support
-Message-ID: <Y9IzELYtub1DmGB5@wendy>
-References: <20230126045738.47903-1-samuel@sholland.org>
+	id 1pKxbO-009yes-PY; Thu, 26 Jan 2023 08:27:24 +0000
+Received: by mail-qv1-f50.google.com with SMTP id x18so995469qvl.1;
+        Thu, 26 Jan 2023 00:27:21 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=iTLUhLqiktW0lQYPPHgLpL0hyET/yRv7DDBqjk/47Fc=;
+        b=HF3Mp/tkUQEt92H+3m9PR8RfC5plw3fnI5O/4A9VdWJl8dt/ClvT4+4jZNz9G15OO4
+         j42ue8HC+yDyY+bYiq8sORYFLym/y9nA6hpOMiVyvJNbcZK0F9/LpUqMxszneRVXU3u6
+         1D6Zof0CDbCj7X71UoYWaldupTGxFUolqZ2kxfpmbhI4dD1MZxomv7IH4N4rkKLpE+WG
+         Z6WS59gTbTXLklHH7H7QXQ2SVeS+tveabns7+EAC0Yfu40yQQ9p1yI2An+xIs0U+JLCG
+         PVNFHpAtp4v+5Yvyq93UNsO7FVrDnoFG1Q3FGD0w8VKSlGCZfsPcfbUFwtRxUhDKgqar
+         +kkA==
+X-Gm-Message-State: AFqh2koVr7IxfsN+NqR/C/otK/cBUmtMIn1XXBApm2JzbK3SOSbe0D0H
+	WihQFcFOKBCsR6oH0FafjYaT/YqhaIai9Q==
+X-Google-Smtp-Source: AMrXdXuLnoSu1EMzjp+VUp7CW45G9/7r9YIkt5Q0Ty6EZP2cHTyBRB1xO2tYBG6UUPohvNHPrTsHrg==
+X-Received: by 2002:a05:6214:3991:b0:51e:a23c:92b7 with SMTP id ny17-20020a056214399100b0051ea23c92b7mr51712201qvb.21.1674721640249;
+        Thu, 26 Jan 2023 00:27:20 -0800 (PST)
+Received: from mail-yw1-f171.google.com (mail-yw1-f171.google.com. [209.85.128.171])
+        by smtp.gmail.com with ESMTPSA id h185-20020a376cc2000000b007069375e0f4sm517527qkc.122.2023.01.26.00.27.20
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Jan 2023 00:27:20 -0800 (PST)
+Received: by mail-yw1-f171.google.com with SMTP id 00721157ae682-4c131bede4bso13727207b3.5;
+        Thu, 26 Jan 2023 00:27:20 -0800 (PST)
+X-Received: by 2002:a25:9ac1:0:b0:7b4:6a33:d89f with SMTP id
+ t1-20020a259ac1000000b007b46a33d89fmr2761883ybo.543.1674721245117; Thu, 26
+ Jan 2023 00:20:45 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <20230126045738.47903-1-samuel@sholland.org>
+References: <20230125190757.22555-1-rppt@kernel.org> <20230125190757.22555-2-rppt@kernel.org>
+In-Reply-To: <20230125190757.22555-2-rppt@kernel.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 26 Jan 2023 09:20:33 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdUeuPgkWVjpZ=OM4ofnoYyv2nY1_FGo0JUZCFXYX=K2vw@mail.gmail.com>
+Message-ID: <CAMuHMdUeuPgkWVjpZ=OM4ofnoYyv2nY1_FGo0JUZCFXYX=K2vw@mail.gmail.com>
+Subject: Re: [PATCH 1/3] m68k: use asm-generic/memory_model.h for both MMU and !MMU
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Brian Cain <bcain@quicinc.com>, "David S. Miller" <davem@davemloft.net>, 
+	Dinh Nguyen <dinguyen@kernel.org>, Greg Ungerer <gerg@linux-m68k.org>, Guo Ren <guoren@kernel.org>, 
+	Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>, Matt Turner <mattst88@gmail.com>, 
+	Max Filippov <jcmvbkbc@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>, Michal Simek <monstr@monstr.eu>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Rich Felker <dalias@libc.org>, 
+	Richard Weinberger <richard@nod.at>, Stafford Horne <shorne@gmail.com>, 
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Vineet Gupta <vgupta@kernel.org>, 
+	WANG Xuerui <kernel@xen0n.name>, Yoshinori Sato <ysato@users.sourceforge.jp>, 
+	linux-alpha@vger.kernel.org, linux-arch@vger.kernel.org, 
+	linux--csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
+	linux-ia64@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
+	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org, 
+	linux-um@lists.infradead.org, linux-xtensa@linux-xtensa.org, 
+	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
+	openrisc@lists.librecores.org, sparclinux@vger.kernel.org, x86@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230126_000056_041159_EDD2BDE0 
-X-CRM114-Status: GOOD (  12.03  )
+X-CRM114-CacheID: sfid-20230126_002722_840831_B8A8BB72 
+X-CRM114-Status: GOOD (  18.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,57 +93,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0265169230415887391=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============0265169230415887391==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="fj2Wr4MQdoooWJdA"
-Content-Disposition: inline
+On Wed, Jan 25, 2023 at 8:08 PM Mike Rapoport <rppt@kernel.org> wrote:
+> From: "Mike Rapoport (IBM)" <rppt@kernel.org>
+>
+> The MMU variant uses generic definitions of page_to_pfn() and
+> pfn_to_page(), but !MMU defines them in include/asm/page_no.h for no
+> good reason.
+>
+> Include asm-generic/memory_model.h in the common include/asm/page.h and
+> drop redundant definitions.
+>
+> Signed-off-by: Mike Rapoport (IBM) <rppt@kernel.org>
 
---fj2Wr4MQdoooWJdA
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Reviewed-by: Geert Uytterhoeven <geert@linux-m68k.org>
+Acked-by: Geert Uytterhoeven <geert@linux-m68k.org>
 
-On Wed, Jan 25, 2023 at 10:57:27PM -0600, Samuel Holland wrote:
-> This series adds the Kconfig/defconfig plumbing and devicetrees for a
-> range of Allwinner D1 and D1s-based boards. Many features are already
-> enabled, including USB, Ethernet, and WiFi.
->=20
-> This version drops all boards/nodes with missing YAML bindings, so at
-> least some support can get merged for v6.3.
+Gr{oetje,eeting}s,
 
-That'd be great! Pity the LDO stuff isn't ready yet, but definitely
-better to have this stuff in rather than out. In case it helps:
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+                        Geert
 
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
---fj2Wr4MQdoooWJdA
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY9IzDAAKCRB4tDGHoIJi
-0jEzAPwL157GoMnwml3kupueIMZ1KSMy5IfVKW2YSqP7GD6KxQD7BKmIo2ITQ2fu
-ftVmGqWDLJvwGoS4PdqMF78cCMPU6gc=
-=hIJW
------END PGP SIGNATURE-----
-
---fj2Wr4MQdoooWJdA--
-
-
---===============0265169230415887391==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0265169230415887391==--
-
