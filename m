@@ -4,100 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 768C8C05027
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Jan 2023 06:35:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D56F4C05027
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Jan 2023 07:09:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iOWl6V5nvA8kZ5xggiBC5dMbGhwf10jSq2UZ9qC39VM=; b=fusEzHAIPIk9Sh
-	Ut987fN5TFaIP54IH47Lhc4pQf+TeeZSwHuy5WlzdftQHDSBnFHfsb4PKhuQDkAKqvnQBBKFwWncH
-	irVd7P14HoOrJXqsis7S/Xvd4LMEGVZUbJpZh400hT5dPxsKMXXxrJwnqDVpEuRiuurxVR58d6RYV
-	g7Fju6RkIvIy70i14oRrgCyAulo8Z8kLkurL2sOVK2XaPpyqXEtBqH8RJ8fDTIgoTAXS8RlMjM62Q
-	rntFIBSrya/N/IbYJU/fXr7zyG9b2x9sY+0muoIt/Av3zxoshaNP1KVdhWuCEIL56rqQ2xft9YpMR
-	ReGIEwPl7T5DeLvHfTFw==;
+	List-Owner; bh=ORI2ZRklUQnQXqn+mqp4tM9QCSvQ4F7wekHWoKAtkeM=; b=NHtAp1q2AsqZlB
+	fjievwOXiu6AoEymiRZ3/nVuUrEq2XmVREnsdFpCqeDN7PhkUIPf5OOgaJg3OucLwStceq5Mo1iWB
+	LFUg/s5ud6kTXd58o+OGxH6HjUphaRCR+U6i/75qELANH++kj3/RXlP/OOm22qU9L2M9FWf/rmhoc
+	QzqkbF/gkK/9kznvybBg4eDoYJj7UaLM3RN1tyDrwhgZ2GyMx4cpXWXXM73gdrDUyx+uf861GBxCw
+	dWXqi7QpjPaFPkCD6SBX03TtYzpn02vpgqMkPd4Zxgq4fP5m5ZY3DMZzjyG0FZI+kSUgUhxf9MIQI
+	ASdOSzwLT1oSwL3DXSag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKvqn-009kSy-Sp; Thu, 26 Jan 2023 06:35:09 +0000
-Received: from wout3-smtp.messagingengine.com ([64.147.123.19])
+	id 1pKwOH-009oxe-Eh; Thu, 26 Jan 2023 07:09:45 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKvqB-009kFL-CB; Thu, 26 Jan 2023 06:34:32 +0000
-Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
-	by mailout.west.internal (Postfix) with ESMTP id CEC30320092E;
-	Thu, 26 Jan 2023 01:34:29 -0500 (EST)
-Received: from mailfrontend2 ([10.202.2.163])
-  by compute6.internal (MEProxy); Thu, 26 Jan 2023 01:34:30 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
-	cc:cc:content-transfer-encoding:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:sender
-	:subject:subject:to:to; s=fm1; t=1674714869; x=1674801269; bh=Ob
-	MekPzegFWo+wBsswL5Mv22V9QXAO26FNLwMRm8iqc=; b=Vm9AXhg0gVaC5/ft9A
-	FqTnAa/U1xCK50dU8Gm3sCRQOk8KYtlElCoIwHgM0d6kr2vwE7JWOdNPOOLFsvYK
-	7DfYdyof2A2CKJI7o5G9lB5+poXkPXztcL1BB2DHF1NrbCq149QZPSvWylfWdYdt
-	fOfZbWtLDHoalO0O+WD8zp6gcFeNzVcBMsVIZiqDWHl5Xuu4jDgFvJp66z/RcAK5
-	Psv2esbZNXYOFF48MlI6MkPUhwbbQkW7yUowsUTNA614sJe12P1maRkKOkXokfCj
-	YSZ9dBElOVdDCboTywPird8nQqJf2at0InanVkBTKtArBkH0hKhBTAff7TGal777
-	RxUQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:sender:subject
-	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
-	:x-sasl-enc; s=fm3; t=1674714869; x=1674801269; bh=ObMekPzegFWo+
-	wBsswL5Mv22V9QXAO26FNLwMRm8iqc=; b=CVlFV0P2pFp/0KWpFkP1/4O9AU/kB
-	q5Mb8iXB7YSwa7wIVf9X0lboAMO8Klr6ZErON1x+C+7yjGu+XXD/1xeBjtpyRH4H
-	Kiv0lceVr2ICtFMSYC2con0Hfgh4II4qmnlOsUazFYNMaGW1DhL8V4ToWi06JRyU
-	m9uJWpiQWgT0eE/8X/w76YEL4qWW9ot4lHiS+Ixnhs04ImawUdj428UCRhzjsHyp
-	/zdkI3NPrkZbyOmQ+XotzsrSycF1uz3JMvlZiKZZRcKSoZI0JRtv0qdfLHGp/psN
-	gAMfbDqMtc3TpVH2SpBLJa08U4neqsLX3MYVeBDsolYqiF4hCOqVZJWOg==
-X-ME-Sender: <xms:9R7SY-FrOL0L80cstx81k__ERMc_k5rUmocKJJadgJBOQuRv-iSkYA>
-    <xme:9R7SY_UwVBslMhLx-e8N-kD6HykCYw6hEXvmMT98--FdBO9ZWJc1VIa55UaWdNMbA
-    uNnpCkX4QPHnUSNZg>
-X-ME-Received: <xmr:9R7SY4JOEdaWe3j2XQJjKqIRzX7MctAwUHEW43Df5ZjNyInP4nCTUamF71I3o9soU_y6_l7FQOfH7Qp4zAkohSMXH3Fg1m49B-2pHrdS-H-6A9VmhIzyZE4acfI2SulBw6K7Bg>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedruddvfedgleeiucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
-    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
-    cujfgurhephffvvefufffkofgjfhgggfestdekredtredttdenucfhrhhomhepufgrmhhu
-    vghlucfjohhllhgrnhguuceoshgrmhhuvghlsehshhholhhlrghnugdrohhrgheqnecugg
-    ftrfgrthhtvghrnhepudekteeuudehtdelteevgfduvddvjefhfedulefgudevgeeghefg
-    udefiedtveetnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrh
-    homhepshgrmhhuvghlsehshhholhhlrghnugdrohhrgh
-X-ME-Proxy: <xmx:9R7SY4GlohJ68L6sBqAgPx9Jds94MKrFYY6wlGzHp2f0MTyi8iF4SQ>
-    <xmx:9R7SY0UiIr26njO3ngbuv-uDVp8OsiG8gcuTB5R1IB8KfwSoYC--Ag>
-    <xmx:9R7SY7Mx1SBLoA7C9yYMTI5Z-b94EuchjqR2nacVnDecpDhQRTkICg>
-    <xmx:9R7SY1VisV61jvPWcNuzczcmowmBbtBpF5a_0cOsx4aRImkqOlw0vA>
-Feedback-ID: i0ad843c9:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 26 Jan 2023 01:34:28 -0500 (EST)
-From: Samuel Holland <samuel@sholland.org>
-To: Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>
-Cc: Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Samuel Holland <samuel@sholland.org>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Conor Dooley <conor@kernel.org>,
-	Heiko Stuebner <heiko.stuebner@vrull.eu>,
+	id 1pKwOD-009ovN-P4
+	for linux-riscv@lists.infradead.org; Thu, 26 Jan 2023 07:09:43 +0000
+Received: by mail-ej1-x631.google.com with SMTP id mg12so2688991ejc.5
+        for <linux-riscv@lists.infradead.org>; Wed, 25 Jan 2023 23:09:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=7xO4nzooOx9Fnx6HScH7rLurtje8d12bXHWmpEv5B74=;
+        b=gadZBxYJO1f5wW9BHOnzxkgvjwqHRKsrgOiwY/lVQ0gvSkp3vez3CfMDhmrZBj0Lnf
+         ApIU7RzjhdyD0nEtrlKpMVRpY4guv1hDTbG5t0n9pOkQF46mnKthnCntYbSg95lxY1jI
+         OLVogMxma5vLCly8q+wf23YJuxZEVpEWUa4+YwROhMDpS1xblGyh6j3lYTgr29CEqzXf
+         dYbSDlrZQ3Udhf78smFXWuPhiWBf5Syeqey6MtwYxSME53NemkdQ1tIdMtUc2daHt6C8
+         2aCXnFvsDTXExi+qISr73vwCrKaxXXVe2uhfD3QZSWXPypY8AqZVYN4lQM0S7VFc8oiY
+         JsYw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=7xO4nzooOx9Fnx6HScH7rLurtje8d12bXHWmpEv5B74=;
+        b=Jf9OXhAePDYWncebxWD/uVf4li6ARoEjmjWHhGAkCDu/3dtwq8JYbktGmj9c/qFoJE
+         Xp1FVFnJx/haRUqA6h7tCGIUmOPLCJyQbq/OeWdwHbdJfDWqond9qQftJBQoHXB6ZDPZ
+         fYePaY0iHS+zpDJ2quBe8w4A3BqJAWVuveYe+PxLUveG0Ea6ShibuvKNj8yFWjRpJcUR
+         YGMmLY4hSxhUOK8GFhBVpWLonhCfkatBmGRLwqMrp/GAXhJQTlCQ6UuMuXRITiS56EX0
+         ngfTEQKKv9/Gx8FzGHCxwj9R+odILOQxnbuuOkHiwQzUqL0ou6pyP/nEt6Kn9q+F7deh
+         vOew==
+X-Gm-Message-State: AO0yUKXk8EApIlqA+pO65122FxsHJIts5djpkoNP6hZ+WoPr/f5iAB7M
+	2twSIgx2AJoNStfEIjueOhwCKw==
+X-Google-Smtp-Source: AK7set8UO5ZMp8niAX/8UCCEoMCN0FdlHBc2NmZLARlIC9nX5SOBUFOEP5ISGyT650Bud2+n6mftyQ==
+X-Received: by 2002:a17:907:3f28:b0:878:6643:974a with SMTP id hq40-20020a1709073f2800b008786643974amr1106863ejc.35.1674716972259;
+        Wed, 25 Jan 2023 23:09:32 -0800 (PST)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id b16-20020a170906d11000b0085ca279966esm155442ejz.119.2023.01.25.23.09.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Jan 2023 23:09:31 -0800 (PST)
+Date: Thu, 26 Jan 2023 08:09:30 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-sunxi@lists.linux.dev
-Subject: [PATCH v2 3/3] riscv: dts: allwinner: d1: Add power controller node
-Date: Thu, 26 Jan 2023 00:34:19 -0600
-Message-Id: <20230126063419.15971-4-samuel@sholland.org>
-X-Mailer: git-send-email 2.37.4
-In-Reply-To: <20230126063419.15971-1-samuel@sholland.org>
-References: <20230126063419.15971-1-samuel@sholland.org>
+	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org
+Subject: Re: [PATCH v4 09/13] riscv: switch to relative alternative entries
+Message-ID: <20230126070930.wvqsrrcmcuq5vv2x@orel>
+References: <20230115154953.831-1-jszhang@kernel.org>
+ <20230115154953.831-10-jszhang@kernel.org>
+ <20230120183418.ngdppppvwzysqtcr@orel>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230120183418.ngdppppvwzysqtcr@orel>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230125_223431_507465_9BCA809D 
-X-CRM114-Status: UNSURE (   9.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230125_230941_884506_6691060F 
+X-CRM114-Status: GOOD (  24.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,41 +97,102 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The Allwinner D1 family of SoCs contain a PPU power domain controller
-separate from the PRCM. It can power down the video engine and DSP, and
-it contains special logic for hardware-assisted CPU idle.
+On Fri, Jan 20, 2023 at 07:34:18PM +0100, Andrew Jones wrote:
+> On Sun, Jan 15, 2023 at 11:49:49PM +0800, Jisheng Zhang wrote:
+> ...
+> >  #define ALT_ENTRY(oldptr, newptr, vendor_id, errata_id, newlen)		\
+> > -	RISCV_PTR " " oldptr "\n"					\
+> > -	RISCV_PTR " " newptr "\n"					\
+> > -	REG_ASM " " vendor_id "\n"					\
+> > -	REG_ASM " " newlen "\n"						\
+> > -	".word " errata_id "\n"
+> > +	".4byte	((" oldptr ") - .) \n"					\
+> > +	".4byte	((" newptr ") - .) \n"					\
+> > +	".2byte	" vendor_id "\n"					\
+> > +	".2byte " newlen "\n"						\
+> > +	".4byte	" errata_id "\n"
+> >
+> 
+> Hi Jisheng,
+> 
+> This patch breaks loading the KVM module for me. I got "kvm: Unknown
+> relocation type 34". My guess is that these 2 byte fields are inspiring
+> the compiler to emit 16-bit relocation types. The patch below fixes
+> things for me. If you agree with fixing it this way, rather than
+> changing something in alternatives, like not using 2 byte fields,
+> then please pick the below patch up in your series.
 
-Signed-off-by: Samuel Holland <samuel@sholland.org>
----
+Hi Jisheng,
 
-Changes in v2:
- - Include a patch adding the device tree node
+I'm poking again on this as I see this series is now working its way
+to be merged into for-next. I'd rather avoid the bisection breakage
+which will be present if we fix this issue afterwards by having a
+v5 merged which addresses the issue in the correct patch order.
 
- arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi | 8 ++++++++
- 1 file changed, 8 insertions(+)
+Thanks,
+drew
 
-diff --git a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
-index 3723612b1fd8..6fadcee7800f 100644
---- a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
-+++ b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
-@@ -799,6 +799,14 @@ tcon_tv0_out_tcon_top_hdmi: endpoint {
- 			};
- 		};
- 
-+		ppu: power-controller@7001000 {
-+			compatible = "allwinner,sun20i-d1-ppu";
-+			reg = <0x7001000 0x1000>;
-+			clocks = <&r_ccu CLK_BUS_R_PPU>;
-+			resets = <&r_ccu RST_BUS_R_PPU>;
-+			#power-domain-cells = <1>;
-+		};
-+
- 		r_ccu: clock-controller@7010000 {
- 			compatible = "allwinner,sun20i-d1-r-ccu";
- 			reg = <0x7010000 0x400>;
--- 
-2.37.4
-
+> 
+> From 4d203697aa745a0cd3a9217d547a9fb7fa2a87c7 Mon Sep 17 00:00:00 2001
+> From: Andrew Jones <ajones@ventanamicro.com>
+> Date: Fri, 20 Jan 2023 19:05:44 +0100
+> Subject: [PATCH] riscv: module: Add ADD16 and SUB16 rela types
+> Content-type: text/plain
+> 
+> To prepare for 16-bit relocation types to be emitted in alternatives
+> add support for ADD16 and SUB16.
+> 
+> Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+> ---
+>  arch/riscv/kernel/module.c | 16 ++++++++++++++++
+>  1 file changed, 16 insertions(+)
+> 
+> diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
+> index 76f4b9c2ec5b..7c651d55fcbd 100644
+> --- a/arch/riscv/kernel/module.c
+> +++ b/arch/riscv/kernel/module.c
+> @@ -268,6 +268,13 @@ static int apply_r_riscv_align_rela(struct module *me, u32 *location,
+>  	return -EINVAL;
+>  }
+>  
+> +static int apply_r_riscv_add16_rela(struct module *me, u32 *location,
+> +				    Elf_Addr v)
+> +{
+> +	*(u16 *)location += (u16)v;
+> +	return 0;
+> +}
+> +
+>  static int apply_r_riscv_add32_rela(struct module *me, u32 *location,
+>  				    Elf_Addr v)
+>  {
+> @@ -282,6 +289,13 @@ static int apply_r_riscv_add64_rela(struct module *me, u32 *location,
+>  	return 0;
+>  }
+>  
+> +static int apply_r_riscv_sub16_rela(struct module *me, u32 *location,
+> +				    Elf_Addr v)
+> +{
+> +	*(u16 *)location -= (u16)v;
+> +	return 0;
+> +}
+> +
+>  static int apply_r_riscv_sub32_rela(struct module *me, u32 *location,
+>  				    Elf_Addr v)
+>  {
+> @@ -315,8 +329,10 @@ static int (*reloc_handlers_rela[]) (struct module *me, u32 *location,
+>  	[R_RISCV_CALL]			= apply_r_riscv_call_rela,
+>  	[R_RISCV_RELAX]			= apply_r_riscv_relax_rela,
+>  	[R_RISCV_ALIGN]			= apply_r_riscv_align_rela,
+> +	[R_RISCV_ADD16]			= apply_r_riscv_add16_rela,
+>  	[R_RISCV_ADD32]			= apply_r_riscv_add32_rela,
+>  	[R_RISCV_ADD64]			= apply_r_riscv_add64_rela,
+> +	[R_RISCV_SUB16]			= apply_r_riscv_sub16_rela,
+>  	[R_RISCV_SUB32]			= apply_r_riscv_sub32_rela,
+>  	[R_RISCV_SUB64]			= apply_r_riscv_sub64_rela,
+>  };
+> -- 
+> 2.39.0
+> 
 
 _______________________________________________
 linux-riscv mailing list
