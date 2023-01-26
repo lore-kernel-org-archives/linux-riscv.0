@@ -4,76 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B853BC61DA3
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Jan 2023 17:26:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB5ADC05027
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Jan 2023 18:14:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mk49ZpaBymhR/LL+eXZPryiPrLa3nkHm9hHzPDMo1M0=; b=XbWS+sOxWtZV9E
-	qkDlSkv260XlOZW6y0IGICbJ0FNXozIJxj8RomYr6uvtgIwTUXAjv5yCxzyLI5n0Ojh1BhuzYmUa3
-	B0eueo02W9NhTpGLOcrlLgGVyr0UOtNKIxFzOSzHTMq2UVjjIxp6sz8NnOvfLar6d6mVr7x+lMu47
-	rX+/fX6LixzT6A24TmM4o2PkBMWe31mVPwvQetgoQRXxtqyGGP0xYcUGsw9gVh1+p6oIjYauCpV4J
-	blSw9rQ2Rm+GpOx9FzclqSTEwa5+jwKO23e0AyrdoalbGr/RPry5sfQaUR8RTKmKYx3B5AbnPe8vG
-	za592Kmd5on6ecWdRdGw==;
+	List-Owner; bh=o6krDc98EJJ5dpEF/AbzsnRCGb1h2m+4Qm2NZmmZJeU=; b=w1bOAIoqSlx357
+	XqC+FM3OSwCKDiuuaNGlyCKj7EGLHxbGC8Uxg2h+KLOqQoQ+i0eyO3sZ8b7feZXJEBar6lwtUfIEe
+	4u2OsjpJXbYmkqNKNmi3PsF7SDbS0jSYz3zrPsZ21bIPN6zB+aaact5hwxqa8g7BmgP2h73f7y69M
+	EGmJBHYvMadf/g1481VziOijFgqOxdXbGXso8/u5akzd0kFUH7ewK5qIRR9I4bKgjfU4+KBsUJmTl
+	aoCFTkGWTNsg/IkQzwqKY6oMZ7fOtnVE25eBcYL10RgZKxvjQMnNlvnyqNrFlgYTj9FnZMY3dJBI7
+	2rxMNO8/CbYLSywh07yQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pL61B-00C0ti-Dx; Thu, 26 Jan 2023 17:26:33 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1pL6lo-00C7n3-Hj; Thu, 26 Jan 2023 18:14:44 +0000
+Received: from mail-vs1-xe29.google.com ([2607:f8b0:4864:20::e29])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pL615-00C0oZ-HZ
-	for linux-riscv@lists.infradead.org; Thu, 26 Jan 2023 17:26:31 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by sin.source.kernel.org (Postfix) with ESMTPS id B0EEACE2549;
-	Thu, 26 Jan 2023 17:26:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8547C433EF;
-	Thu, 26 Jan 2023 17:26:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1674753983;
-	bh=X8+1ulPrbBTkOXj0eZtT/GV+hgacPfPVoCaovmG94Lc=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=L9khQrEgoCmLdomiGu9YQ3UgFzHpCrI9vQ8sQzg9IUqyZuSjPxx/hp3v8kEwzFumJ
-	 xcJg/Qht6jnryQPukRl8K0Wv5Zk7xLm5R4Zr8xsOZQe0n3evYfxPPHhYVxsvQpJR50
-	 hiqtWrkngqnQVPpvHGtOOZ5PfTrNuplAAzTzNR+Pl+OH+vWLXGCQ+sBBSYbPswVsJK
-	 mmKmZvve/a/jTR8w1BsZtZwBm35DNf2sHwlq3ffkWquEjCEUgiUKJ34DzYkCifA7Eu
-	 PP0MX8ia+w2L4S7HJ7ljyKOsBdSG36ti2w8b1FZxp+jFTU3lmNOaONYifrzB3uU4dr
-	 8X7rSLP5WIjQQ==
-From: guoren@kernel.org
-To: arnd@arndb.de,
-	guoren@kernel.org,
-	palmer@rivosinc.com,
-	tglx@linutronix.de,
-	peterz@infradead.org,
-	luto@kernel.org,
-	conor.dooley@microchip.com,
-	heiko@sntech.de,
-	jszhang@kernel.org,
-	lazyparser@gmail.com,
-	falcon@tinylab.org,
-	chenhuacai@kernel.org,
-	apatel@ventanamicro.com,
-	atishp@atishpatra.org,
-	mark.rutland@arm.com,
-	ben@decadent.org.uk,
-	bjorn@kernel.org
-Cc: linux-arch@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>
-Subject: [PATCH -next V15 7/7] riscv: entry: Consolidate general regs saving/restoring
-Date: Thu, 26 Jan 2023 12:25:16 -0500
-Message-Id: <20230126172516.1580058-8-guoren@kernel.org>
-X-Mailer: git-send-email 2.36.1
-In-Reply-To: <20230126172516.1580058-1-guoren@kernel.org>
-References: <20230126172516.1580058-1-guoren@kernel.org>
+	id 1pL6ll-00C7mf-N4
+	for linux-riscv@lists.infradead.org; Thu, 26 Jan 2023 18:14:43 +0000
+Received: by mail-vs1-xe29.google.com with SMTP id 3so2785157vsq.7
+        for <linux-riscv@lists.infradead.org>; Thu, 26 Jan 2023 10:14:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=xzzxd0r3f3wuDt5Pi6fh27aN9prMaFPZduo2z0Q6ZE0=;
+        b=hAM3UvAi1FWrXN5RKglSmy9cfnJY8XOn9F+ENdQJyZj6b0ETdzb9Vp7S6FRDfuwZ1P
+         PRzLG0gXW6rS9bvkZDF0m0Gy77hoM7g8u5VRlYJ7Kxk9s7kj7sLvF1CmEYUrV6qrnZ/3
+         oxO3vou1P+lXT5onQNAfjOlyPszzEmkHQu0F0/I8omO8Y28MCuB8SWFFLXT3+HeWsOLT
+         3w0ZbFPaU1qgeaCGHTlqRZECgJ/21avfJ7qMQlRW1QPiKmEsseEzq4xU4As89CV2usPi
+         GN3cchSgo/XMcAHcvPUZTyPZyRAAhnXUeH3caNRgLdzCq6o9lhsdE/HEs1IdCzRYCHlI
+         IchQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=xzzxd0r3f3wuDt5Pi6fh27aN9prMaFPZduo2z0Q6ZE0=;
+        b=KfCUzzlokzYiaC/JZQtauWIM1RWM/10Ou0pgANSgnh5llhidyrfE31mt3miaJXEwPy
+         SgpxAITL4SZZYlFYd2qRKouj05yKjSbIiM7wjXjj0KZMblJZIq9kTMu+yx9R70AXbD6j
+         xbqqOqOsD8FPD+IRBWtEh1RpGqqZsmQKZkryP8scMXjVYp0i3iS3CPoFQStMqmUuvnEE
+         T8Vl/69/tsH07FzlHfKKGQBvKj+hcg9d/aJGG/KZJK8eqYxfl7hnDlAdeVii8sDDZX+U
+         8OYVKX1ehYOwCemnbcP2SEDB97MdlJES5atdTicUtgB8IiD+Vq0rEiwcvEnF70JmSmRr
+         yYsg==
+X-Gm-Message-State: AFqh2kqSiPRfZmdGAXiTv575S0gObgG/9aCDAEXA1DrIiQziB6iRtLEq
+	RZR7eUz+O0lAg+8MCPdEUTLQEToMcXSN2nwkJiBQ8V+kfTS3ca0q
+X-Google-Smtp-Source: AMrXdXu1cCHfHHioOkO8UYPNeDDQBhMqONpkFlGpxRH1hVaeB6FNF8q4s5Hvu8bP6zSbt9EwyFixnwi1QL29eBD9+BY=
+X-Received: by 2002:a05:6102:c16:b0:3d3:e027:877a with SMTP id
+ x22-20020a0561020c1600b003d3e027877amr5029377vss.0.1674756879948; Thu, 26 Jan
+ 2023 10:14:39 -0800 (PST)
 MIME-Version: 1.0
+References: <20230125125512.2494577-1-mchitale@ventanamicro.com> <117752cf-c02b-4264-87c3-42c81aa429f7@ghiti.fr>
+In-Reply-To: <117752cf-c02b-4264-87c3-42c81aa429f7@ghiti.fr>
+From: Anup Patel <apatel@ventanamicro.com>
+Date: Thu, 26 Jan 2023 23:44:26 +0530
+Message-ID: <CAK9=C2Wc_S8zN8mK2aiYyUbu9XkJaeZyz60Af_S4Bed+_rPPfA@mail.gmail.com>
+Subject: Re: [PATCH] riscv: mm: Implement pmdp_collapse_flush for THP
+To: Alexandre Ghiti <alex@ghiti.fr>
+Cc: Mayuresh Chitale <mchitale@ventanamicro.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	linux-riscv@lists.infradead.org, Nanyong Sun <sunnanyong@huawei.com>, 
+	Andrew Jones <ajones@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230126_092627_997867_D6F87AB1 
-X-CRM114-Status: GOOD (  10.64  )
+X-CRM114-CacheID: sfid-20230126_101441_771680_720B09D0 
+X-CRM114-Status: GOOD (  29.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,133 +82,91 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogSmlzaGVuZyBaaGFuZyA8anN6aGFuZ0BrZXJuZWwub3JnPgoKQ29uc29saWRhdGUgdGhl
-IHNhdmluZy9yZXN0b3JpbmcgR1BzKGV4Y2VwdCB6ZXJvLCByYSwgc3AsIGdwIGFuZAp0cCkgaW50
-byBzYXZlX2Zyb21feDVfdG9feDMxL3Jlc3RvcmVfZnJvbV94NV90b194MzEgbWFjcm9zLgoKTm8g
-ZnVuY3Rpb25hbCBjaGFuZ2UgaW50ZW5kZWQuCgpTaWduZWQtb2ZmLWJ5OiBKaXNoZW5nIFpoYW5n
-IDxqc3poYW5nQGtlcm5lbC5vcmc+ClJldmlld2VkLWJ5OiBHdW8gUmVuIDxndW9yZW5Aa2VybmVs
-Lm9yZz4KUmV2aWV3ZWQtYnk6IEJqw7ZybiBUw7ZwZWwgPGJqb3JuQHJpdm9zaW5jLmNvbT4KVGVz
-dGVkLWJ5OiBHdW8gUmVuIDxndW9yZW5Aa2VybmVsLm9yZz4KU2lnbmVkLW9mZi1ieTogR3VvIFJl
-biA8Z3VvcmVuQGtlcm5lbC5vcmc+Ci0tLQogYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9hc20uaCAg
-IHwgNjMgKysrKysrKysrKysrKysrKysrKysrKysrKwogYXJjaC9yaXNjdi9rZXJuZWwvZW50cnku
-UyAgICAgIHwgODQgKystLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQogYXJjaC9yaXNj
-di9rZXJuZWwvbWNvdW50LWR5bi5TIHwgNTYgKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KIDMgZmls
-ZXMgY2hhbmdlZCwgNjggaW5zZXJ0aW9ucygrKSwgMTM1IGRlbGV0aW9ucygtKQoKZGlmZiAtLWdp
-dCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vYXNtLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNt
-L2FzbS5oCmluZGV4IDgxNmU3NTNkZTYzNi4uYjRmNGUyYmY2OWM4IDEwMDY0NAotLS0gYS9hcmNo
-L3Jpc2N2L2luY2x1ZGUvYXNtL2FzbS5oCisrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vYXNt
-LmgKQEAgLTY5LDYgKzY5LDcgQEAKICNlbmRpZgogCiAjaWZkZWYgX19BU1NFTUJMWV9fCisjaW5j
-bHVkZSA8YXNtL2FzbS1vZmZzZXRzLmg+CiAKIC8qIENvbW1vbiBhc3NlbWJseSBzb3VyY2UgbWFj
-cm9zICovCiAKQEAgLTgxLDYgKzgyLDY4IEBACiAJLmVuZHIKIC5lbmRtCiAKKwkvKiBzYXZlIGFs
-bCBHUHMgZXhjZXB0IHplcm8sIHJhLCBzcCwgZ3AgYW5kIHRwICovCisJLm1hY3JvIHNhdmVfZnJv
-bV94NV90b194MzEKKwlSRUdfUyB4NSwgIFBUX1QwKHNwKQorCVJFR19TIHg2LCAgUFRfVDEoc3Ap
-CisJUkVHX1MgeDcsICBQVF9UMihzcCkKKwlSRUdfUyB4OCwgIFBUX1MwKHNwKQorCVJFR19TIHg5
-LCAgUFRfUzEoc3ApCisJUkVHX1MgeDEwLCBQVF9BMChzcCkKKwlSRUdfUyB4MTEsIFBUX0ExKHNw
-KQorCVJFR19TIHgxMiwgUFRfQTIoc3ApCisJUkVHX1MgeDEzLCBQVF9BMyhzcCkKKwlSRUdfUyB4
-MTQsIFBUX0E0KHNwKQorCVJFR19TIHgxNSwgUFRfQTUoc3ApCisJUkVHX1MgeDE2LCBQVF9BNihz
-cCkKKwlSRUdfUyB4MTcsIFBUX0E3KHNwKQorCVJFR19TIHgxOCwgUFRfUzIoc3ApCisJUkVHX1Mg
-eDE5LCBQVF9TMyhzcCkKKwlSRUdfUyB4MjAsIFBUX1M0KHNwKQorCVJFR19TIHgyMSwgUFRfUzUo
-c3ApCisJUkVHX1MgeDIyLCBQVF9TNihzcCkKKwlSRUdfUyB4MjMsIFBUX1M3KHNwKQorCVJFR19T
-IHgyNCwgUFRfUzgoc3ApCisJUkVHX1MgeDI1LCBQVF9TOShzcCkKKwlSRUdfUyB4MjYsIFBUX1Mx
-MChzcCkKKwlSRUdfUyB4MjcsIFBUX1MxMShzcCkKKwlSRUdfUyB4MjgsIFBUX1QzKHNwKQorCVJF
-R19TIHgyOSwgUFRfVDQoc3ApCisJUkVHX1MgeDMwLCBQVF9UNShzcCkKKwlSRUdfUyB4MzEsIFBU
-X1Q2KHNwKQorCS5lbmRtCisKKwkvKiByZXN0b3JlIGFsbCBHUHMgZXhjZXB0IHplcm8sIHJhLCBz
-cCwgZ3AgYW5kIHRwICovCisJLm1hY3JvIHJlc3RvcmVfZnJvbV94NV90b194MzEKKwlSRUdfTCB4
-NSwgIFBUX1QwKHNwKQorCVJFR19MIHg2LCAgUFRfVDEoc3ApCisJUkVHX0wgeDcsICBQVF9UMihz
-cCkKKwlSRUdfTCB4OCwgIFBUX1MwKHNwKQorCVJFR19MIHg5LCAgUFRfUzEoc3ApCisJUkVHX0wg
-eDEwLCBQVF9BMChzcCkKKwlSRUdfTCB4MTEsIFBUX0ExKHNwKQorCVJFR19MIHgxMiwgUFRfQTIo
-c3ApCisJUkVHX0wgeDEzLCBQVF9BMyhzcCkKKwlSRUdfTCB4MTQsIFBUX0E0KHNwKQorCVJFR19M
-IHgxNSwgUFRfQTUoc3ApCisJUkVHX0wgeDE2LCBQVF9BNihzcCkKKwlSRUdfTCB4MTcsIFBUX0E3
-KHNwKQorCVJFR19MIHgxOCwgUFRfUzIoc3ApCisJUkVHX0wgeDE5LCBQVF9TMyhzcCkKKwlSRUdf
-TCB4MjAsIFBUX1M0KHNwKQorCVJFR19MIHgyMSwgUFRfUzUoc3ApCisJUkVHX0wgeDIyLCBQVF9T
-NihzcCkKKwlSRUdfTCB4MjMsIFBUX1M3KHNwKQorCVJFR19MIHgyNCwgUFRfUzgoc3ApCisJUkVH
-X0wgeDI1LCBQVF9TOShzcCkKKwlSRUdfTCB4MjYsIFBUX1MxMChzcCkKKwlSRUdfTCB4MjcsIFBU
-X1MxMShzcCkKKwlSRUdfTCB4MjgsIFBUX1QzKHNwKQorCVJFR19MIHgyOSwgUFRfVDQoc3ApCisJ
-UkVHX0wgeDMwLCBQVF9UNShzcCkKKwlSRUdfTCB4MzEsIFBUX1Q2KHNwKQorCS5lbmRtCisKICNl
-bmRpZiAvKiBfX0FTU0VNQkxZX18gKi8KIAogI2VuZGlmIC8qIF9BU01fUklTQ1ZfQVNNX0ggKi8K
-ZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL2VudHJ5LlMgYi9hcmNoL3Jpc2N2L2tlcm5l
-bC9lbnRyeS5TCmluZGV4IDVjY2VmMjU5NDk4ZC4uODdkNzRjOWFlYTEyIDEwMDY0NAotLS0gYS9h
-cmNoL3Jpc2N2L2tlcm5lbC9lbnRyeS5TCisrKyBiL2FyY2gvcmlzY3Yva2VybmVsL2VudHJ5LlMK
-QEAgLTQxLDMzICs0MSw3IEBAIF9zYXZlX2NvbnRleHQ6CiAJYWRkaSBzcCwgc3AsIC0oUFRfU0la
-RV9PTl9TVEFDSykKIAlSRUdfUyB4MSwgIFBUX1JBKHNwKQogCVJFR19TIHgzLCAgUFRfR1Aoc3Ap
-Ci0JUkVHX1MgeDUsICBQVF9UMChzcCkKLQlSRUdfUyB4NiwgIFBUX1QxKHNwKQotCVJFR19TIHg3
-LCAgUFRfVDIoc3ApCi0JUkVHX1MgeDgsICBQVF9TMChzcCkKLQlSRUdfUyB4OSwgIFBUX1MxKHNw
-KQotCVJFR19TIHgxMCwgUFRfQTAoc3ApCi0JUkVHX1MgeDExLCBQVF9BMShzcCkKLQlSRUdfUyB4
-MTIsIFBUX0EyKHNwKQotCVJFR19TIHgxMywgUFRfQTMoc3ApCi0JUkVHX1MgeDE0LCBQVF9BNChz
-cCkKLQlSRUdfUyB4MTUsIFBUX0E1KHNwKQotCVJFR19TIHgxNiwgUFRfQTYoc3ApCi0JUkVHX1Mg
-eDE3LCBQVF9BNyhzcCkKLQlSRUdfUyB4MTgsIFBUX1MyKHNwKQotCVJFR19TIHgxOSwgUFRfUzMo
-c3ApCi0JUkVHX1MgeDIwLCBQVF9TNChzcCkKLQlSRUdfUyB4MjEsIFBUX1M1KHNwKQotCVJFR19T
-IHgyMiwgUFRfUzYoc3ApCi0JUkVHX1MgeDIzLCBQVF9TNyhzcCkKLQlSRUdfUyB4MjQsIFBUX1M4
-KHNwKQotCVJFR19TIHgyNSwgUFRfUzkoc3ApCi0JUkVHX1MgeDI2LCBQVF9TMTAoc3ApCi0JUkVH
-X1MgeDI3LCBQVF9TMTEoc3ApCi0JUkVHX1MgeDI4LCBQVF9UMyhzcCkKLQlSRUdfUyB4MjksIFBU
-X1Q0KHNwKQotCVJFR19TIHgzMCwgUFRfVDUoc3ApCi0JUkVHX1MgeDMxLCBQVF9UNihzcCkKKwlz
-YXZlX2Zyb21feDVfdG9feDMxCiAKIAkvKgogCSAqIERpc2FibGUgdXNlci1tb2RlIG1lbW9yeSBh
-Y2Nlc3MgYXMgaXQgc2hvdWxkIG9ubHkgYmUgc2V0IGluIHRoZQpAQCAtMTgxLDMzICsxNTUsNyBA
-QCBTWU1fQ09ERV9TVEFSVF9OT0FMSUdOKHJldF9mcm9tX2V4Y2VwdGlvbikKIAlSRUdfTCB4MSwg
-IFBUX1JBKHNwKQogCVJFR19MIHgzLCAgUFRfR1Aoc3ApCiAJUkVHX0wgeDQsICBQVF9UUChzcCkK
-LQlSRUdfTCB4NSwgIFBUX1QwKHNwKQotCVJFR19MIHg2LCAgUFRfVDEoc3ApCi0JUkVHX0wgeDcs
-ICBQVF9UMihzcCkKLQlSRUdfTCB4OCwgIFBUX1MwKHNwKQotCVJFR19MIHg5LCAgUFRfUzEoc3Ap
-Ci0JUkVHX0wgeDEwLCBQVF9BMChzcCkKLQlSRUdfTCB4MTEsIFBUX0ExKHNwKQotCVJFR19MIHgx
-MiwgUFRfQTIoc3ApCi0JUkVHX0wgeDEzLCBQVF9BMyhzcCkKLQlSRUdfTCB4MTQsIFBUX0E0KHNw
-KQotCVJFR19MIHgxNSwgUFRfQTUoc3ApCi0JUkVHX0wgeDE2LCBQVF9BNihzcCkKLQlSRUdfTCB4
-MTcsIFBUX0E3KHNwKQotCVJFR19MIHgxOCwgUFRfUzIoc3ApCi0JUkVHX0wgeDE5LCBQVF9TMyhz
-cCkKLQlSRUdfTCB4MjAsIFBUX1M0KHNwKQotCVJFR19MIHgyMSwgUFRfUzUoc3ApCi0JUkVHX0wg
-eDIyLCBQVF9TNihzcCkKLQlSRUdfTCB4MjMsIFBUX1M3KHNwKQotCVJFR19MIHgyNCwgUFRfUzgo
-c3ApCi0JUkVHX0wgeDI1LCBQVF9TOShzcCkKLQlSRUdfTCB4MjYsIFBUX1MxMChzcCkKLQlSRUdf
-TCB4MjcsIFBUX1MxMShzcCkKLQlSRUdfTCB4MjgsIFBUX1QzKHNwKQotCVJFR19MIHgyOSwgUFRf
-VDQoc3ApCi0JUkVHX0wgeDMwLCBQVF9UNShzcCkKLQlSRUdfTCB4MzEsIFBUX1Q2KHNwKQorCXJl
-c3RvcmVfZnJvbV94NV90b194MzEKIAogCVJFR19MIHgyLCAgUFRfU1Aoc3ApCiAKQEAgLTI4Niwz
-MyArMjM0LDcgQEAgcmVzdG9yZV9jYWxsZXJfcmVnOgogCS8vc2F2ZSBjb250ZXh0IHRvIG92ZXJm
-bG93IHN0YWNrCiAJUkVHX1MgeDEsICBQVF9SQShzcCkKIAlSRUdfUyB4MywgIFBUX0dQKHNwKQot
-CVJFR19TIHg1LCAgUFRfVDAoc3ApCi0JUkVHX1MgeDYsICBQVF9UMShzcCkKLQlSRUdfUyB4Nywg
-IFBUX1QyKHNwKQotCVJFR19TIHg4LCAgUFRfUzAoc3ApCi0JUkVHX1MgeDksICBQVF9TMShzcCkK
-LQlSRUdfUyB4MTAsIFBUX0EwKHNwKQotCVJFR19TIHgxMSwgUFRfQTEoc3ApCi0JUkVHX1MgeDEy
-LCBQVF9BMihzcCkKLQlSRUdfUyB4MTMsIFBUX0EzKHNwKQotCVJFR19TIHgxNCwgUFRfQTQoc3Ap
-Ci0JUkVHX1MgeDE1LCBQVF9BNShzcCkKLQlSRUdfUyB4MTYsIFBUX0E2KHNwKQotCVJFR19TIHgx
-NywgUFRfQTcoc3ApCi0JUkVHX1MgeDE4LCBQVF9TMihzcCkKLQlSRUdfUyB4MTksIFBUX1MzKHNw
-KQotCVJFR19TIHgyMCwgUFRfUzQoc3ApCi0JUkVHX1MgeDIxLCBQVF9TNShzcCkKLQlSRUdfUyB4
-MjIsIFBUX1M2KHNwKQotCVJFR19TIHgyMywgUFRfUzcoc3ApCi0JUkVHX1MgeDI0LCBQVF9TOChz
-cCkKLQlSRUdfUyB4MjUsIFBUX1M5KHNwKQotCVJFR19TIHgyNiwgUFRfUzEwKHNwKQotCVJFR19T
-IHgyNywgUFRfUzExKHNwKQotCVJFR19TIHgyOCwgUFRfVDMoc3ApCi0JUkVHX1MgeDI5LCBQVF9U
-NChzcCkKLQlSRUdfUyB4MzAsIFBUX1Q1KHNwKQotCVJFR19TIHgzMSwgUFRfVDYoc3ApCisJc2F2
-ZV9mcm9tX3g1X3RvX3gzMQogCiAJUkVHX0wgczAsIFRBU0tfVElfS0VSTkVMX1NQKHRwKQogCWNz
-cnIgczEsIENTUl9TVEFUVVMKZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL21jb3VudC1k
-eW4uUyBiL2FyY2gvcmlzY3Yva2VybmVsL21jb3VudC1keW4uUwppbmRleCBkMTcxZWNhNjIzYjYu
-LjA0MGQwOTgyNzlhOSAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvbWNvdW50LWR5bi5T
-CisrKyBiL2FyY2gvcmlzY3Yva2VybmVsL21jb3VudC1keW4uUwpAQCAtNzAsMzMgKzcwLDcgQEAK
-IAlSRUdfUyB4MiwgIFBUX1NQKHNwKQogCVJFR19TIHgzLCAgUFRfR1Aoc3ApCiAJUkVHX1MgeDQs
-ICBQVF9UUChzcCkKLQlSRUdfUyB4NSwgIFBUX1QwKHNwKQotCVJFR19TIHg2LCAgUFRfVDEoc3Ap
-Ci0JUkVHX1MgeDcsICBQVF9UMihzcCkKLQlSRUdfUyB4OCwgIFBUX1MwKHNwKQotCVJFR19TIHg5
-LCAgUFRfUzEoc3ApCi0JUkVHX1MgeDEwLCBQVF9BMChzcCkKLQlSRUdfUyB4MTEsIFBUX0ExKHNw
-KQotCVJFR19TIHgxMiwgUFRfQTIoc3ApCi0JUkVHX1MgeDEzLCBQVF9BMyhzcCkKLQlSRUdfUyB4
-MTQsIFBUX0E0KHNwKQotCVJFR19TIHgxNSwgUFRfQTUoc3ApCi0JUkVHX1MgeDE2LCBQVF9BNihz
-cCkKLQlSRUdfUyB4MTcsIFBUX0E3KHNwKQotCVJFR19TIHgxOCwgUFRfUzIoc3ApCi0JUkVHX1Mg
-eDE5LCBQVF9TMyhzcCkKLQlSRUdfUyB4MjAsIFBUX1M0KHNwKQotCVJFR19TIHgyMSwgUFRfUzUo
-c3ApCi0JUkVHX1MgeDIyLCBQVF9TNihzcCkKLQlSRUdfUyB4MjMsIFBUX1M3KHNwKQotCVJFR19T
-IHgyNCwgUFRfUzgoc3ApCi0JUkVHX1MgeDI1LCBQVF9TOShzcCkKLQlSRUdfUyB4MjYsIFBUX1Mx
-MChzcCkKLQlSRUdfUyB4MjcsIFBUX1MxMShzcCkKLQlSRUdfUyB4MjgsIFBUX1QzKHNwKQotCVJF
-R19TIHgyOSwgUFRfVDQoc3ApCi0JUkVHX1MgeDMwLCBQVF9UNShzcCkKLQlSRUdfUyB4MzEsIFBU
-X1Q2KHNwKQorCXNhdmVfZnJvbV94NV90b194MzEKIAkuZW5kbQogCiAJLm1hY3JvIFJFU1RPUkVf
-QUxMCkBAIC0xMDgsMzMgKzgyLDcgQEAKIAlSRUdfTCB4MiwgIFBUX1NQKHNwKQogCVJFR19MIHgz
-LCAgUFRfR1Aoc3ApCiAJUkVHX0wgeDQsICBQVF9UUChzcCkKLQlSRUdfTCB4NSwgIFBUX1QwKHNw
-KQotCVJFR19MIHg2LCAgUFRfVDEoc3ApCi0JUkVHX0wgeDcsICBQVF9UMihzcCkKLQlSRUdfTCB4
-OCwgIFBUX1MwKHNwKQotCVJFR19MIHg5LCAgUFRfUzEoc3ApCi0JUkVHX0wgeDEwLCBQVF9BMChz
-cCkKLQlSRUdfTCB4MTEsIFBUX0ExKHNwKQotCVJFR19MIHgxMiwgUFRfQTIoc3ApCi0JUkVHX0wg
-eDEzLCBQVF9BMyhzcCkKLQlSRUdfTCB4MTQsIFBUX0E0KHNwKQotCVJFR19MIHgxNSwgUFRfQTUo
-c3ApCi0JUkVHX0wgeDE2LCBQVF9BNihzcCkKLQlSRUdfTCB4MTcsIFBUX0E3KHNwKQotCVJFR19M
-IHgxOCwgUFRfUzIoc3ApCi0JUkVHX0wgeDE5LCBQVF9TMyhzcCkKLQlSRUdfTCB4MjAsIFBUX1M0
-KHNwKQotCVJFR19MIHgyMSwgUFRfUzUoc3ApCi0JUkVHX0wgeDIyLCBQVF9TNihzcCkKLQlSRUdf
-TCB4MjMsIFBUX1M3KHNwKQotCVJFR19MIHgyNCwgUFRfUzgoc3ApCi0JUkVHX0wgeDI1LCBQVF9T
-OShzcCkKLQlSRUdfTCB4MjYsIFBUX1MxMChzcCkKLQlSRUdfTCB4MjcsIFBUX1MxMShzcCkKLQlS
-RUdfTCB4MjgsIFBUX1QzKHNwKQotCVJFR19MIHgyOSwgUFRfVDQoc3ApCi0JUkVHX0wgeDMwLCBQ
-VF9UNShzcCkKLQlSRUdfTCB4MzEsIFBUX1Q2KHNwKQorCXJlc3RvcmVfZnJvbV94NV90b194MzEK
-IAogCWFkZGkJc3AsIHNwLCBQVF9TSVpFX09OX1NUQUNLCiAJYWRkaQlzcCwgc3AsIFNaUkVHCi0t
-IAoyLjM2LjEKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
-ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
-Cg==
+On Thu, Jan 26, 2023 at 9:03 PM Alexandre Ghiti <alex@ghiti.fr> wrote:
+>
+> Hi Mayuresh,
+>
+> On 1/25/23 13:55, Mayuresh Chitale wrote:
+> > When THP is enabled, 4K pages are collapsed into a single huge
+> > page using the generic pmdp_collapse_flush() which will further
+> > use flush_tlb_range() to shoot-down stale TLB entries. Unfortunately,
+> > the generic pmdp_collapse_flush() only invalidates cached leaf PTEs
+> > using address specific SFENCEs which results in repetitive (or
+> > unpredictable) page faults on RISC-V implementations which cache
+> > non-leaf PTEs.
+>
+>
+> That's interesting! I'm wondering if the same issue will happen if a
+> user maps 4K, unmaps it and at the same address maps a 2MB hugepage: I'm
+> not sure the mm code would correctly flush the non-leaf PTE when
+> unmapping the 4KB page. In that case, your patch only fixes the THP
+> usecase and maybe we should try to catch this non-leaf -> leaf upgrade
+> at some lower level page table functions, what do you think?
+
+This issue can happen whenever existing/valid non-leaf PTE is modified.
+
+We hit this issue in the THP case but we can also hit this issue in other
+scenarios where the page table programming pattern is similar.
+
+Regards,
+Anup
+
+>
+> Alex
+>
+>
+> > Provide a RISC-V specific pmdp_collapse_flush() which ensures both
+> > cached leaf and non-leaf PTEs are invalidated by using non-address
+> > specific SFENCEs as recommended by the RISC-V privileged specification.
+> >
+> > Fixes: e88b333142e4 ("riscv: mm: add THP support on 64-bit")
+> > Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
+> > ---
+> >   arch/riscv/include/asm/pgtable.h | 24 ++++++++++++++++++++++++
+> >   1 file changed, 24 insertions(+)
+> >
+> > diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> > index 4eba9a98d0e3..6d948dec6020 100644
+> > --- a/arch/riscv/include/asm/pgtable.h
+> > +++ b/arch/riscv/include/asm/pgtable.h
+> > @@ -721,6 +721,30 @@ static inline pmd_t pmdp_establish(struct vm_area_struct *vma,
+> >       page_table_check_pmd_set(vma->vm_mm, address, pmdp, pmd);
+> >       return __pmd(atomic_long_xchg((atomic_long_t *)pmdp, pmd_val(pmd)));
+> >   }
+> > +
+> > +#define pmdp_collapse_flush pmdp_collapse_flush
+> > +static inline pmd_t pmdp_collapse_flush(struct vm_area_struct *vma,
+> > +                                     unsigned long address, pmd_t *pmdp)
+> > +{
+> > +     pmd_t pmd = pmdp_huge_get_and_clear(vma->vm_mm, address, pmdp);
+> > +
+> > +     /*
+> > +      * When leaf PTE enteries (regular pages) are collapsed into a leaf
+> > +      * PMD entry (huge page), a valid non-leaf PTE is converted into a
+> > +      * valid leaf PTE at the level 1 page table. The RISC-V privileged v1.12
+> > +      * specification allows implementations to cache valid non-leaf PTEs,
+> > +      * but the section "4.2.1 Supervisor Memory-Management Fence
+> > +      * Instruction" recommends the following:
+> > +      * "If software modifies a non-leaf PTE, it should execute SFENCE.VMA
+> > +      * with rs1=x0. If any PTE along the traversal path had its G bit set,
+> > +      * rs2 must be x0; otherwise, rs2 should be set to the ASID for which
+> > +      * the translation is being modified."
+> > +      * Based on the above recommendation, we should do full flush whenever
+> > +      * leaf PTE entries are collapsed into a leaf PMD entry.
+> > +      */
+> > +     flush_tlb_mm(vma->vm_mm);
+> > +     return pmd;
+> > +}
+> >   #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
+> >
+> >   /*
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
