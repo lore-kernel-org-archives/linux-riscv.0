@@ -4,49 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 356A8C54EED
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Jan 2023 15:33:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65AF4C54E94
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Jan 2023 15:48:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=R2YCyczQ4/w9uWAFnkTKQt50cCHPX9CVa0B8l+g2Z+c=; b=CIierKJuZylgSD
-	96KzDIxKxVqNNxgZ+f5ts7pSaVKKgTrO9tByCj/cH3dVji3O1tofCP0t6Zk7YDCyLJeYKHR9j1sTS
-	rWFVvdvKzIOjm+CHAQAP6S9zEbqX/x5nB0FPwvn0gTOuSoxBuQmeER8fKlYLFWcmid7xSiXymVPAc
-	+jNe31fLh168IvTrtpeu7l2PJwD6bDYVOVdzyGNtXsP/DhMySmV3qpjm9cS3usT36VHn2khznVMxL
-	sIvfaTQE3P5bZh6XdUJsntB6klgpkWnx35mK6rfvHAMAFyjx5Nj8ZY3d63fyo3AeUlIVv2/uazJgT
-	t4iYoer3tUPO6XqzS3cQ==;
+	List-Owner; bh=H3wnP4reFsTtWaH9TtU1Ra3vKiYFyKgxBWmKEls2SGw=; b=AXgM6JgI5vkQUZ
+	heT/wGezJ095lg9ty+Uednj0iT1BVqxOg8h/9jhA/QhAXrdZHOwRsZfc+zq3V2ZO3ja9S7L24XGaa
+	1Fipa3qERyBls1EpCevXDizP85ijMbicrMoWlKlo8PzU+ocENpk6EvHKwrwS/Z/5KcuBbkvGPlvpv
+	cWwu5vA+I29wAY8VRwOGuUTDB87C0kQxMGREKWnbdjuIMjzMHip6LXAEnZTMPLADQS0rpaxqE9LH+
+	BI/bQC5LqVUJKTLija4Qmk0tRoZz7deh2v92k31Gkd8rty/qIFQfT+1ZXxbQ4qrWqyNVYUW8dPvTz
+	43OlzLTM94b+TaK4A85A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pL4G4-00BXy5-2t; Thu, 26 Jan 2023 15:33:48 +0000
-Received: from relay5-d.mail.gandi.net ([217.70.183.197])
+	id 1pL4Tr-00BbJ2-Ar; Thu, 26 Jan 2023 15:48:03 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pL4FS-00BXhE-Qd
-	for linux-riscv@lists.infradead.org; Thu, 26 Jan 2023 15:33:12 +0000
-Received: (Authenticated sender: alex@ghiti.fr)
-	by mail.gandi.net (Postfix) with ESMTPSA id 27B471C0010;
-	Thu, 26 Jan 2023 15:33:01 +0000 (UTC)
-Message-ID: <117752cf-c02b-4264-87c3-42c81aa429f7@ghiti.fr>
-Date: Thu, 26 Jan 2023 16:33:01 +0100
+	id 1pL4Tm-00BbG6-Lq
+	for linux-riscv@lists.infradead.org; Thu, 26 Jan 2023 15:48:00 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id s3so2250529edd.4
+        for <linux-riscv@lists.infradead.org>; Thu, 26 Jan 2023 07:47:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=KAqu5gIfd41Ujj6HnAm2gfmxtC8KES1Su6FEM10lCcs=;
+        b=lIbK88unhw67kbpHXLqiSO4P/18muOWHt051vObkA/P8urKLCXc2CYbD6i4XysntfH
+         uQlLcyCRoCCFLPmvF32rsjWn4uf7ylHQzTz3eT7O90WsugGAO3mVv7PSAAg4Wzd4W8QI
+         XCqDI4VVaw4VkkM/OZcKHGOFpD0r96eVM+IpF4LZFS883LMzRtYpbOL1naL0HFJUCCLX
+         pKiIkRfMhYCYZYza82ZvUxqArE2cyjGAGxiim9ss5rhNZaxwLGvmu7UUDt1SB2qDj5eF
+         nb9hpJHcyvaR7t7OPlOMHKLOgQMMdMGgEtfzi0aKg+UoVEc8aW5Y5dJb/b+gYAz0qVg8
+         2zWQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=KAqu5gIfd41Ujj6HnAm2gfmxtC8KES1Su6FEM10lCcs=;
+        b=TY2sXWGav1glSALfrJXWJR8xc9yH4i0P0j8Ve3r82fWLZnlPkp35WvcUPr5XKTfzrf
+         BMsPNrMuRabuoKb59Tu1IW9j+sf0CPbudaCftV2Qin71Pf0D+nu7+MmlNCq7ObHycHVf
+         p0HEkiNI2IqfS+ZgNZRg+LQEK+4fZkc3wTac6lUZJ0XF/ARGHEJLmgpxvWqmJV39Vy30
+         pGbBwkt1LAEIPYgk8nl4vxHavnGCKCViHlpMPhXCwNxdk2nPNTS89v+zE7ArU3nUy79G
+         zWhIl+4FRaH6WN6YHbSh7HCMHiIwiWAlA1bCiwEt8n8zUncfdr+54Us9ASOG7C60cxJO
+         TSVA==
+X-Gm-Message-State: AFqh2kpEKqBNGg5vEI8D+cB1UKe5+xU7g+R9SiKAa92G5o4JgCngEnpd
+	+eH5HW71rSrycEI5PhMQybB5Vw==
+X-Google-Smtp-Source: AMrXdXscA6aP1SSZoydTKGhWayyE/MWVpvECSxfsHCTChXfATe6RC/dwkKGFT9r0S5gLsLLZzC2G4A==
+X-Received: by 2002:a05:6402:524f:b0:49d:6503:9743 with SMTP id t15-20020a056402524f00b0049d65039743mr51168680edd.9.1674748074929;
+        Thu, 26 Jan 2023 07:47:54 -0800 (PST)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id y11-20020a50eb0b000000b00467481df198sm904119edp.48.2023.01.26.07.47.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Jan 2023 07:47:54 -0800 (PST)
+Date: Thu, 26 Jan 2023 16:47:53 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>,
+	Atish Patra <atishp@atishpatra.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/7] RISC-V: Add AIA related CSR defines
+Message-ID: <20230126154753.txhgaqgudnksymrm@orel>
+References: <20230112140304.1830648-1-apatel@ventanamicro.com>
+ <20230112140304.1830648-2-apatel@ventanamicro.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.4.2
-Subject: Re: [PATCH] riscv: mm: Implement pmdp_collapse_flush for THP
-Content-Language: en-US
-To: Mayuresh Chitale <mchitale@ventanamicro.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv@lists.infradead.org
-Cc: Nanyong Sun <sunnanyong@huawei.com>, Anup Patel
- <apatel@ventanamicro.com>, Andrew Jones <ajones@ventanamicro.com>
-References: <20230125125512.2494577-1-mchitale@ventanamicro.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20230125125512.2494577-1-mchitale@ventanamicro.com>
+Content-Disposition: inline
+In-Reply-To: <20230112140304.1830648-2-apatel@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230126_073311_139679_B30F67DD 
-X-CRM114-Status: GOOD (  24.41  )
+X-CRM114-CacheID: sfid-20230126_074758_850733_8EA570A0 
+X-CRM114-Status: GOOD (  16.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,78 +90,193 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Mayuresh,
-
-On 1/25/23 13:55, Mayuresh Chitale wrote:
-> When THP is enabled, 4K pages are collapsed into a single huge
-> page using the generic pmdp_collapse_flush() which will further
-> use flush_tlb_range() to shoot-down stale TLB entries. Unfortunately,
-> the generic pmdp_collapse_flush() only invalidates cached leaf PTEs
-> using address specific SFENCEs which results in repetitive (or
-> unpredictable) page faults on RISC-V implementations which cache
-> non-leaf PTEs.
-
-
-That's interesting! I'm wondering if the same issue will happen if a 
-user maps 4K, unmaps it and at the same address maps a 2MB hugepage: I'm 
-not sure the mm code would correctly flush the non-leaf PTE when 
-unmapping the 4KB page. In that case, your patch only fixes the THP 
-usecase and maybe we should try to catch this non-leaf -> leaf upgrade 
-at some lower level page table functions, what do you think?
-
-Alex
-
-
-> Provide a RISC-V specific pmdp_collapse_flush() which ensures both
-> cached leaf and non-leaf PTEs are invalidated by using non-address
-> specific SFENCEs as recommended by the RISC-V privileged specification.
->
-> Fixes: e88b333142e4 ("riscv: mm: add THP support on 64-bit")
-> Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
+On Thu, Jan 12, 2023 at 07:32:58PM +0530, Anup Patel wrote:
+> The RISC-V AIA specification improves handling per-HART local interrupts
+> in a backward compatible manner. This patch adds defines for new RISC-V
+> AIA CSRs.
+> 
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 > ---
->   arch/riscv/include/asm/pgtable.h | 24 ++++++++++++++++++++++++
->   1 file changed, 24 insertions(+)
+>  arch/riscv/include/asm/csr.h | 93 ++++++++++++++++++++++++++++++++++++
+>  1 file changed, 93 insertions(+)
+> 
+> diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+> index 0e571f6483d9..d608dac4b19f 100644
+> --- a/arch/riscv/include/asm/csr.h
+> +++ b/arch/riscv/include/asm/csr.h
+> @@ -73,7 +73,10 @@
+>  #define IRQ_S_EXT		9
+>  #define IRQ_VS_EXT		10
+>  #define IRQ_M_EXT		11
+> +#define IRQ_S_GEXT		12
+>  #define IRQ_PMU_OVF		13
+> +#define IRQ_LOCAL_MAX		(IRQ_PMU_OVF + 1)
+> +#define IRQ_LOCAL_MASK		((_AC(1, UL) << IRQ_LOCAL_MAX) - 1)
+
+How about instead of the above two defines we do
+
+  #define IRQ_LOCAL_MASK GENMASK(13, 0)
+
+And in general it might be nice to put GENMASK to work for all the
+new masks below.
+
+>  
+>  /* Exception causes */
+>  #define EXC_INST_MISALIGNED	0
+> @@ -156,6 +159,27 @@
+>  				 (_AC(1, UL) << IRQ_S_TIMER) | \
+>  				 (_AC(1, UL) << IRQ_S_EXT))
+>  
+> +/* AIA CSR bits */
+> +#define TOPI_IID_SHIFT		16
+> +#define TOPI_IID_MASK		_AC(0xfff, UL)
+> +#define TOPI_IPRIO_MASK		_AC(0xff, UL)
+> +#define TOPI_IPRIO_BITS		8
+> +
+> +#define TOPEI_ID_SHIFT		16
+> +#define TOPEI_ID_MASK		_AC(0x7ff, UL)
+> +#define TOPEI_PRIO_MASK		_AC(0x7ff, UL)
+> +
+> +#define ISELECT_IPRIO0		0x30
+> +#define ISELECT_IPRIO15		0x3f
+> +#define ISELECT_MASK		_AC(0x1ff, UL)
+> +
+> +#define HVICTL_VTI		_AC(0x40000000, UL)
+
+I'd rather read this as '1 << 30' to match the spec and other
+bit masks in this file. Actually, it'd be nice if BIT() was
+used throughout this file, e.g. #define HVICTL_VTI BIT(30)
+
+> +#define HVICTL_IID		_AC(0x0fff0000, UL)
+> +#define HVICTL_IID_SHIFT	16
+> +#define HVICTL_DPR		_AC(0x00000200, UL)
+> +#define HVICTL_IPRIOM		_AC(0x00000100, UL)
+> +#define HVICTL_IPRIO		_AC(0x000000ff, UL)
+> +
+>  /* xENVCFG flags */
+>  #define ENVCFG_STCE			(_AC(1, ULL) << 63)
+>  #define ENVCFG_PBMTE			(_AC(1, ULL) << 62)
+> @@ -250,6 +274,18 @@
+>  #define CSR_STIMECMP		0x14D
+>  #define CSR_STIMECMPH		0x15D
+>  
+> +/* Supervisor-Level Window to Indirectly Accessed Registers (AIA) */
+> +#define CSR_SISELECT		0x150
+> +#define CSR_SIREG		0x151
+> +
+> +/* Supervisor-Level Interrupts (AIA) */
+> +#define CSR_STOPEI		0x15c
+> +#define CSR_STOPI		0xdb0
+> +
+> +/* Supervisor-Level High-Half CSRs (AIA) */
+> +#define CSR_SIEH		0x114
+> +#define CSR_SIPH		0x154
+> +
+>  #define CSR_VSSTATUS		0x200
+>  #define CSR_VSIE		0x204
+>  #define CSR_VSTVEC		0x205
+> @@ -279,8 +315,32 @@
+>  #define CSR_HGATP		0x680
+>  #define CSR_HGEIP		0xe12
+>  
+> +/* Virtual Interrupts and Interrupt Priorities (H-extension with AIA) */
+> +#define CSR_HVIEN		0x608
+> +#define CSR_HVICTL		0x609
+> +#define CSR_HVIPRIO1		0x646
+> +#define CSR_HVIPRIO2		0x647
+> +
+> +/* VS-Level Window to Indirectly Accessed Registers (H-extension with AIA) */
+> +#define CSR_VSISELECT		0x250
+> +#define CSR_VSIREG		0x251
+> +
+> +/* VS-Level Interrupts (H-extension with AIA) */
+> +#define CSR_VSTOPEI		0x25c
+> +#define CSR_VSTOPI		0xeb0
+> +
+> +/* Hypervisor and VS-Level High-Half CSRs (H-extension with AIA) */
+> +#define CSR_HIDELEGH		0x613
+> +#define CSR_HVIENH		0x618
+> +#define CSR_HVIPH		0x655
+> +#define CSR_HVIPRIO1H		0x656
+> +#define CSR_HVIPRIO2H		0x657
+> +#define CSR_VSIEH		0x214
+> +#define CSR_VSIPH		0x254
+> +
+>  #define CSR_MSTATUS		0x300
+>  #define CSR_MISA		0x301
+> +#define CSR_MIDELEG		0x303
+>  #define CSR_MIE			0x304
+>  #define CSR_MTVEC		0x305
+>  #define CSR_MENVCFG		0x30a
+> @@ -297,6 +357,25 @@
+>  #define CSR_MIMPID		0xf13
+>  #define CSR_MHARTID		0xf14
+>  
+> +/* Machine-Level Window to Indirectly Accessed Registers (AIA) */
+> +#define CSR_MISELECT		0x350
+> +#define CSR_MIREG		0x351
+> +
+> +/* Machine-Level Interrupts (AIA) */
+> +#define CSR_MTOPEI		0x35c
+> +#define CSR_MTOPI		0xfb0
+> +
+> +/* Virtual Interrupts for Supervisor Level (AIA) */
+> +#define CSR_MVIEN		0x308
+> +#define CSR_MVIP		0x309
+> +
+> +/* Machine-Level High-Half CSRs (AIA) */
+> +#define CSR_MIDELEGH		0x313
+> +#define CSR_MIEH		0x314
+> +#define CSR_MVIENH		0x318
+> +#define CSR_MVIPH		0x319
+> +#define CSR_MIPH		0x354
+> +
+>  #ifdef CONFIG_RISCV_M_MODE
+>  # define CSR_STATUS	CSR_MSTATUS
+>  # define CSR_IE		CSR_MIE
+> @@ -307,6 +386,13 @@
+>  # define CSR_TVAL	CSR_MTVAL
+>  # define CSR_IP		CSR_MIP
+>  
+> +# define CSR_IEH		CSR_MIEH
+> +# define CSR_ISELECT	CSR_MISELECT
+> +# define CSR_IREG	CSR_MIREG
+> +# define CSR_IPH		CSR_MIPH
+> +# define CSR_TOPEI	CSR_MTOPEI
+> +# define CSR_TOPI	CSR_MTOPI
+> +
+>  # define SR_IE		SR_MIE
+>  # define SR_PIE		SR_MPIE
+>  # define SR_PP		SR_MPP
+> @@ -324,6 +410,13 @@
+>  # define CSR_TVAL	CSR_STVAL
+>  # define CSR_IP		CSR_SIP
+>  
+> +# define CSR_IEH		CSR_SIEH
+> +# define CSR_ISELECT	CSR_SISELECT
+> +# define CSR_IREG	CSR_SIREG
+> +# define CSR_IPH		CSR_SIPH
+> +# define CSR_TOPEI	CSR_STOPEI
+> +# define CSR_TOPI	CSR_STOPI
+> +
+>  # define SR_IE		SR_SIE
+>  # define SR_PIE		SR_SPIE
+>  # define SR_PP		SR_SPP
+> -- 
+> 2.34.1
 >
-> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> index 4eba9a98d0e3..6d948dec6020 100644
-> --- a/arch/riscv/include/asm/pgtable.h
-> +++ b/arch/riscv/include/asm/pgtable.h
-> @@ -721,6 +721,30 @@ static inline pmd_t pmdp_establish(struct vm_area_struct *vma,
->   	page_table_check_pmd_set(vma->vm_mm, address, pmdp, pmd);
->   	return __pmd(atomic_long_xchg((atomic_long_t *)pmdp, pmd_val(pmd)));
->   }
-> +
-> +#define pmdp_collapse_flush pmdp_collapse_flush
-> +static inline pmd_t pmdp_collapse_flush(struct vm_area_struct *vma,
-> +					unsigned long address, pmd_t *pmdp)
-> +{
-> +	pmd_t pmd = pmdp_huge_get_and_clear(vma->vm_mm, address, pmdp);
-> +
-> +	/*
-> +	 * When leaf PTE enteries (regular pages) are collapsed into a leaf
-> +	 * PMD entry (huge page), a valid non-leaf PTE is converted into a
-> +	 * valid leaf PTE at the level 1 page table. The RISC-V privileged v1.12
-> +	 * specification allows implementations to cache valid non-leaf PTEs,
-> +	 * but the section "4.2.1 Supervisor Memory-Management Fence
-> +	 * Instruction" recommends the following:
-> +	 * "If software modifies a non-leaf PTE, it should execute SFENCE.VMA
-> +	 * with rs1=x0. If any PTE along the traversal path had its G bit set,
-> +	 * rs2 must be x0; otherwise, rs2 should be set to the ASID for which
-> +	 * the translation is being modified."
-> +	 * Based on the above recommendation, we should do full flush whenever
-> +	 * leaf PTE entries are collapsed into a leaf PMD entry.
-> +	 */
-> +	flush_tlb_mm(vma->vm_mm);
-> +	return pmd;
-> +}
->   #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
->   
->   /*
+
+Besides my preference for GENMASK and BIT, this looks good to me.
+
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
