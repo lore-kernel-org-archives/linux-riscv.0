@@ -4,83 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51ECCC05027
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Jan 2023 08:52:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D045C05027
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Jan 2023 09:02:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0judxXIDD7j1T59Nj5z9zflswY34ZenG/tgN74kpnTI=; b=pNKTfsFEhS5vEm
-	lcRMB4PYoCS5Hqq6rbxKR19MNniHKSAtOv2flNDe4bSxElUBqQINN9C7QcoJ34MerGMzy+pFFRnKk
-	i5Z6JD5zGn1YnlmO2RHedDHpNEsx14aUK8aq2TtLCVCk4gob5WgZgYf0F6KZE1KR1wIIVjxti1YKk
-	rE7A2ct7qcY98CStDMIXmSKqhTtZNgmuU6D5XDYYz3sJCPBqiYto+IJU6Cdy1tYAmcrbFlFeab29l
-	bYoqXMB5Ex9KAPjxGIJdTdSNnn7ixYX0kNQxLsMToY5YnLFc8k+/Iu6pSAx+j7N5GhC4A6QYcy3Ik
-	xrHgek/AasJ3YgsgW7Sg==;
+	List-Owner; bh=ymfOFQLbysBCovO5LEuETaIuvzEPokpELqLjVOobG/Y=; b=ed4MlgJKj7tTpA
+	+wKJk/w9noV2ov7LJacjMUIG4sl1K+unWO2IkoRM6eqPE3m2Tv2bX/+VCndVTGg7LCIwX8UMFIhcu
+	R1CBXSzq1BHqyYxI1E+VGHsNCmtBhpiA0ZrGuykpDKDfVfu2GIT3ozz6uek3wUkCR1ArMsbYOvL3h
+	2cQXPKgzUMnFKia8EPAgbLiU1fu80MPupEOZS1N/lhNMAE9oKKsDFH4OTUnn+GMLR+hWuvhZOJQk0
+	gWo+DEV3z2PHBr1GiBtIbBIpat5b8h/jHkoMaIzaXecHxOjXEOZhTGJldqUctCiMiN0M2BLLWkJ3m
+	X4/Jk9maCBcS8izDyDIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKxzp-00A7qC-T0; Thu, 26 Jan 2023 08:52:37 +0000
-Received: from mail-qv1-f54.google.com ([209.85.219.54])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKxyJ-00A77z-Kq; Thu, 26 Jan 2023 08:51:06 +0000
-Received: by mail-qv1-f54.google.com with SMTP id e19so968205qvw.13;
-        Thu, 26 Jan 2023 00:50:59 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=+8Yo/HtiEGSzYrRQZv+JkTOd1mtgjj1wSt54yjMvxXA=;
-        b=dDpcMvdq530gEwru6c58ji+np1FvF3u/EQ0pIspKvxVsRyG51+vhcDLMLE7newut8q
-         /tVyTIZuowmY2DN7FfZuGIO3suKTW4GNByV8p07KiRKzE2qA19dMeehLcTrlfCdct4M+
-         EssE1TMxZCDWgUdRmbWIQAHueGFNIgSV1jSkF0wOjsqmbJKwnGH8T52WuAwGLMcphzI4
-         PJwsizhLQduMl5cnPKqKdeIseL5fJTMoAaFVmwG1ILYfTg2yqgQON4RFG/qSeHGEkk7X
-         F2zQUYJurAahFc+4MfiY35rJd13th6rSaQJ57O3ojTiNPq5n1AVsGx1p9xonvvl22RTn
-         VmZw==
-X-Gm-Message-State: AO0yUKVa9id6lpLR1rWaLFLIjS7ZjIjlyA5ayhHN8PsKwV2tKyT0Gp6H
-	hfXKJ2mP3ZHKiC5c+qZBc2wxXG9VVAsqWw==
-X-Google-Smtp-Source: AK7set8OeTB35ZabfsbMAuUBivY8MAS6VQHts9n5g5Tj+9i7J7l/0pWKh+KLyIVcgG6IkIuFL4zQmQ==
-X-Received: by 2002:a0c:9e89:0:b0:537:9e59:3997 with SMTP id r9-20020a0c9e89000000b005379e593997mr808680qvd.51.1674723057994;
-        Thu, 26 Jan 2023 00:50:57 -0800 (PST)
-Received: from mail-yb1-f177.google.com (mail-yb1-f177.google.com. [209.85.219.177])
-        by smtp.gmail.com with ESMTPSA id 8-20020a05620a078800b0070383f1b6f1sm583076qka.31.2023.01.26.00.50.55
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Jan 2023 00:50:56 -0800 (PST)
-Received: by mail-yb1-f177.google.com with SMTP id m199so1197547ybm.4;
-        Thu, 26 Jan 2023 00:50:55 -0800 (PST)
-X-Received: by 2002:a25:37d4:0:b0:80b:8602:f3fe with SMTP id
- e203-20020a2537d4000000b0080b8602f3femr1019227yba.36.1674723055416; Thu, 26
- Jan 2023 00:50:55 -0800 (PST)
+	id 1pKy8n-00ABvF-CV; Thu, 26 Jan 2023 09:01:53 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pKy22-00A8ni-MO; Thu, 26 Jan 2023 08:54:57 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 37D19C14;
+	Thu, 26 Jan 2023 00:55:27 -0800 (PST)
+Received: from [10.34.100.128] (pierre123.nice.arm.com [10.34.100.128])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0F7463F71E;
+	Thu, 26 Jan 2023 00:54:42 -0800 (PST)
+Message-ID: <26a57d7f-5917-c54b-2f96-492346a599a1@arm.com>
+Date: Thu, 26 Jan 2023 09:54:38 +0100
 MIME-Version: 1.0
-References: <20230124091602.44027-1-krzysztof.kozlowski@linaro.org> <20230124091916.45054-10-krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20230124091916.45054-10-krzysztof.kozlowski@linaro.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 26 Jan 2023 09:50:43 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdXfD-G+SYQX5tJ8O-GSO3yTVL00xCX8A-Rc673zNkLbBw@mail.gmail.com>
-Message-ID: <CAMuHMdXfD-G+SYQX5tJ8O-GSO3yTVL00xCX8A-Rc673zNkLbBw@mail.gmail.com>
-Subject: Re: [PATCH v2 12/12] dt-bindings: serial: example cleanup
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, NXP Linux Team <linux-imx@nxp.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Lubomir Rintel <lkundrak@v3.sk>, Vignesh Raghavendra <vigneshr@ti.com>, Michal Simek <michal.simek@xilinx.com>, 
-	Chester Lin <clin@suse.com>, Fugang Duan <fugang.duan@nxp.com>, Magnus Damm <magnus.damm@gmail.com>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Pragnesh Patel <pragnesh.patel@sifive.com>, 
-	Le Ray <erwan.leray@foss.st.com>, Peter Korsgaard <jacmet@sunsite.dk>, 
-	Tomer Maimon <tmaimon77@gmail.com>, linux-serial@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.4.2
+Subject: Re: [PATCH v4 6/6] arch_topology: Build cacheinfo from primary CPU
+To: Geert Uytterhoeven <geert@linux-m68k.org>,
+ Sudeep Holla <sudeep.holla@arm.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>, linux-kernel@vger.kernel.org,
+ Palmer Dabbelt <palmer@rivosinc.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Gavin Shan <gshan@redhat.com>, linux-arm-kernel@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org
+References: <20230104183033.755668-1-pierre.gondois@arm.com>
+ <20230104183033.755668-7-pierre.gondois@arm.com>
+ <CAMuHMdUjgxgOXf5He1x=PLn7MQTjZgFQUHj8JrwbyweT4uOALQ@mail.gmail.com>
+ <20230124140420.4srnufcvamvff77v@bogus> <Y8/tl999NQwbPL/R@wendy>
+ <20230124144839.2szjjv256j3pdaif@bogus>
+ <20230124145541.2xwtr7ro2bjnsjd7@bogus>
+ <20230125145423.pid3hsstswzuez73@bogus>
+ <CAMuHMdWZ+_kdMp+0VfYAJZRHBWiyobQQJwEM_kHN6yeVVGxSvg@mail.gmail.com>
+Content-Language: en-US
+From: Pierre Gondois <pierre.gondois@arm.com>
+In-Reply-To: <CAMuHMdWZ+_kdMp+0VfYAJZRHBWiyobQQJwEM_kHN6yeVVGxSvg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230126_005103_770995_04EB12FD 
-X-CRM114-Status: GOOD (  17.87  )
+X-CRM114-CacheID: sfid-20230126_005454_836030_EE7184B7 
+X-CRM114-Status: GOOD (  21.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,37 +72,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 24, 2023 at 10:20 AM Krzysztof Kozlowski
-<krzysztof.kozlowski@linaro.org> wrote:
-> Adjust example DTS indentation to match recommended style of 4-spaces
-> and use lower-case hex for address in reg.  No functional change.
->
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Hello Geert, Sudeep,
 
->  .../bindings/serial/renesas,em-uart.yaml      | 10 +++----
->  .../bindings/serial/renesas,hscif.yaml        | 26 +++++++++----------
->  .../bindings/serial/renesas,sci.yaml          | 24 ++++++++---------
->  .../bindings/serial/renesas,scif.yaml         | 24 ++++++++---------
->  .../bindings/serial/renesas,scifa.yaml        | 22 ++++++++--------
->  .../bindings/serial/renesas,scifb.yaml        | 12 ++++-----
+On 1/25/23 16:28, Geert Uytterhoeven wrote:
+> Hi Sudeep,
+> 
+> On Wed, Jan 25, 2023 at 3:54 PM Sudeep Holla <sudeep.holla@arm.com> wrote:
+>> On Tue, Jan 24, 2023 at 02:55:41PM +0000, Sudeep Holla wrote:
+>>> Geert, can you please try with the patch Conor pointed out and see if
+>>> that helps to fix the allocation failures[1]
+>>>
+>>
+>> Sorry for the nag, but did you get the chance to test -next with [1]
+>> and see if it fixes the cacheinfo memory failure you were observing ?
+> 
+>> [1] https://lore.kernel.org/all/20230103035316.3841303-1-leyfoon.tan@starfivetech.com/
+> 
+> After applying that patch, the issue is gone.
+> Thanks, sending my Tb!
+> 
+> Gr{oetje,eeting}s,
+> 
+>                          Geert
+> 
+> --
+> Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+> 
+> In personal conversations with technical people, I call myself a hacker. But
+> when I'm talking to journalists I just say "programmer" or something like that.
+>                                  -- Linus Torvalds
 
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Happy to hear the issue disappears with the patch, thanks for solving the issue,
+Regards,
+Pierre
 
 _______________________________________________
 linux-riscv mailing list
