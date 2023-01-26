@@ -4,63 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D045C05027
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Jan 2023 09:02:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54C7BC61DA0
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Jan 2023 09:57:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ymfOFQLbysBCovO5LEuETaIuvzEPokpELqLjVOobG/Y=; b=ed4MlgJKj7tTpA
-	+wKJk/w9noV2ov7LJacjMUIG4sl1K+unWO2IkoRM6eqPE3m2Tv2bX/+VCndVTGg7LCIwX8UMFIhcu
-	R1CBXSzq1BHqyYxI1E+VGHsNCmtBhpiA0ZrGuykpDKDfVfu2GIT3ozz6uek3wUkCR1ArMsbYOvL3h
-	2cQXPKgzUMnFKia8EPAgbLiU1fu80MPupEOZS1N/lhNMAE9oKKsDFH4OTUnn+GMLR+hWuvhZOJQk0
-	gWo+DEV3z2PHBr1GiBtIbBIpat5b8h/jHkoMaIzaXecHxOjXEOZhTGJldqUctCiMiN0M2BLLWkJ3m
-	X4/Jk9maCBcS8izDyDIg==;
+	List-Owner; bh=tEZ+HDO7AKR+LXdGmaPqyFU7QN4xlsn1trKawuE2Bls=; b=1dc4ucONeO6x4N
+	O4Me1443KlZWnc2llYgIXZdZKsdtNsK0P/JJ6Nolqmro6GZ4riQ2MiBLsAQv3UkVOfP0lEPFvzzn/
+	jHmB0NUqBbvczBQ/QnwWS4cWRDYIWJvlMCiCdb6pn73GNRntYaRiTkodELQeE1rn8SCrNRCxORZN0
+	pkpaXXzQdmZyPFLiQsRUxGZPo/Pxs0Y1r0qkg6wz1XK8+Ssi1Bjmo92G5YHUEI5tn8wN9TS/0UITK
+	RvwifqFjWrePmuG+FnnXbWiSHOD20vNqQuye2a8TBqObqGinQ4ZNHQvoIDjnBLzeFJoj3nD743yrJ
+	/Zg8JsDAXkvA0eR2qarA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKy8n-00ABvF-CV; Thu, 26 Jan 2023 09:01:53 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKy22-00A8ni-MO; Thu, 26 Jan 2023 08:54:57 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 37D19C14;
-	Thu, 26 Jan 2023 00:55:27 -0800 (PST)
-Received: from [10.34.100.128] (pierre123.nice.arm.com [10.34.100.128])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0F7463F71E;
-	Thu, 26 Jan 2023 00:54:42 -0800 (PST)
-Message-ID: <26a57d7f-5917-c54b-2f96-492346a599a1@arm.com>
-Date: Thu, 26 Jan 2023 09:54:38 +0100
+	id 1pKz0d-00ALMk-62; Thu, 26 Jan 2023 09:57:31 +0000
+Received: from mxout.security-mail.net ([85.31.212.46] helo=fx303.security-mail.net)
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pKz0Z-00ALLb-HT
+	for linux-riscv@lists.infradead.org; Thu, 26 Jan 2023 09:57:29 +0000
+Received: from localhost (fx303.security-mail.net [127.0.0.1])
+	by fx303.security-mail.net (Postfix) with ESMTP id 5173130FAEE
+	for <linux-riscv@lists.infradead.org>; Thu, 26 Jan 2023 10:57:24 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kalray.eu;
+	s=sec-sig-email; t=1674727044;
+	bh=uO7MCO8H75KotDHIyR6heNsXJ56/BH7BOfcV5EHmMEI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=4YNoRhcr0vybNM+PSAQBurpnOdCztzxH+iMpLbZRkwaOFBCUhxO6eaicTA9Tgpxiw
+	 yyi5tk9BOYgQgv5G1xx/sGwlEQlAzTDotmiQCdl4pirN7a56hiuQg+ut19xnPRBIUL
+	 m9dEzRbdZRU2U54/uh0pmQDG+FGknzhTneAV6w/E=
+Received: from fx303 (fx303.security-mail.net [127.0.0.1]) by
+ fx303.security-mail.net (Postfix) with ESMTP id C371730EF1E; Thu, 26 Jan
+ 2023 10:57:23 +0100 (CET)
+Received: from zimbra2.kalray.eu (unknown [217.181.231.53]) by
+ fx303.security-mail.net (Postfix) with ESMTPS id 9311130F6B1; Thu, 26 Jan
+ 2023 10:57:22 +0100 (CET)
+Received: from zimbra2.kalray.eu (localhost [127.0.0.1]) by
+ zimbra2.kalray.eu (Postfix) with ESMTPS id 4C3C027E0491; Thu, 26 Jan 2023
+ 10:57:22 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1]) by zimbra2.kalray.eu
+ (Postfix) with ESMTP id 11B4E27E0492; Thu, 26 Jan 2023 10:57:22 +0100 (CET)
+Received: from zimbra2.kalray.eu ([127.0.0.1]) by localhost
+ (zimbra2.kalray.eu [127.0.0.1]) (amavisd-new, port 10026) with ESMTP id
+ TSfNN6-img6f; Thu, 26 Jan 2023 10:57:21 +0100 (CET)
+Received: from tellis.lin.mbt.kalray.eu (unknown [192.168.36.206]) by
+ zimbra2.kalray.eu (Postfix) with ESMTPSA id 9A5BE27E048E; Thu, 26 Jan 2023
+ 10:57:21 +0100 (CET)
+X-Virus-Scanned: E-securemail
+Secumail-id: <1f18.63d24e82.905d3.0>
+DKIM-Filter: OpenDKIM Filter v2.10.3 zimbra2.kalray.eu 11B4E27E0492
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kalray.eu;
+ s=32AE1B44-9502-11E5-BA35-3734643DEF29; t=1674727042;
+ bh=y0pU6bUB9NtRwjLHJtgOZpwuFzZAZbLkd/6NSd04WhM=;
+ h=Date:From:To:Message-ID:MIME-Version;
+ b=X7BuUXlibp43NQwoW2XoKczIL4vzGNFTCj5F8yW370vweqIXc9XTSGMKEFeNuiA5e
+ bkUAd/wPpBSOBVN1KkeOkTfHQXjfCuCp1M/EQOs9zosEydOfE9WuKyG1Bj/44r3wGZ
+ mysuu23qG+bNP9s2Himt9ysP+5Wj3jljQFPyrv34=
+Date: Thu, 26 Jan 2023 10:57:20 +0100
+From: Jules Maselbas <jmaselbas@kalray.eu>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Yann Sionneau <ysionneau@kalray.eu>, Arnd Bergmann <arnd@arndb.de>,
+ Jonathan Corbet <corbet@lwn.net>, Thomas Gleixner <tglx@linutronix.de>, Marc
+ Zyngier <maz@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof
+ Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Will Deacon
+ <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>, Boqun Feng
+ <boqun.feng@gmail.com>, Eric Biederman <ebiederm@xmission.com>, Kees Cook
+ <keescook@chromium.org>, Oleg Nesterov <oleg@redhat.com>, Ingo Molnar
+ <mingo@redhat.com>, Waiman Long <longman@redhat.com>, "Aneesh Kumar K.V"
+ <aneesh.kumar@linux.ibm.com>, Andrew Morton <akpm@linux-foundation.org>,
+ Nick Piggin <npiggin@gmail.com>, Paul Moore <paul@paul-moore.com>, Eric
+ Paris <eparis@redhat.com>, Christian Brauner <brauner@kernel.org>, Paul
+ Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Guillaume Thouvenin
+ <gthouvenin@kalray.eu>, Clement Leger <clement@clement-leger.fr>, Vincent
+ Chardon <vincent.chardon@elsys-design.com>, Marc =?utf-8?b?UG91bGhpw6hz?=
+ <dkm@kataplop.net>, Julian Vetter <jvetter@kalray.eu>, Samuel Jones
+ <sjones@kalray.eu>, Ashley Lesdalons <alesdalons@kalray.eu>, Thomas Costis
+ <tcostis@kalray.eu>, Marius Gligor <mgligor@kalray.eu>, Jonathan Borne
+ <jborne@kalray.eu>, Julien Villette <jvillette@kalray.eu>, Luc Michel
+ <lmichel@kalray.eu>, Louis Morhet <lmorhet@kalray.eu>, Julien Hascoet
+ <jhascoet@kalray.eu>, Jean-Christophe Pince <jcpince@gmail.com>, Guillaume
+ Missonnier <gmissonnier@kalray.eu>, Alex Michon <amichon@kalray.eu>, Huacai
+ Chen <chenhuacai@kernel.org>, WANG Xuerui <git@xen0n.name>, Shaokun Zhang
+ <zhangshaokun@hisilicon.com>, John Garry <john.garry@huawei.com>, Guangbin
+ Huang <huangguangbin2@huawei.com>, Bharat Bhushan <bbhushan2@marvell.com>,
+ Bibo Mao <maobibo@loongson.cn>, Atish Patra <atishp@atishpatra.org>, "Jason
+ A. Donenfeld" <Jason@zx2c4.com>, Qi Liu <liuqi115@huawei.com>, Jiaxun Yang
+ <jiaxun.yang@flygoat.com>, Catalin Marinas <catalin.marinas@arm.com>, Mark
+ Brown <broonie@kernel.org>, Janosch Frank <frankja@linux.ibm.com>, Alexey
+ Dobriyan <adobriyan@gmail.com>, Benjamin Mugnier
+ <mugnier.benjamin@gmail.com>, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-mm@kvack.org, linux-arch@vger.kernel.org, linux-audit@redhat.com,
+ linux-riscv@lists.infradead.org, bpf@vger.kernel.org
+Subject: Re: [RFC PATCH v2 11/31] kvx: Add atomic/locking headers
+Message-ID: <20230126095720.GF5952@tellis.lin.mbt.kalray.eu>
+References: <20230120141002.2442-1-ysionneau@kalray.eu>
+ <20230120141002.2442-12-ysionneau@kalray.eu> <Y8qw2MaCJZzu3Ows@FVFF77S0Q05N>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.4.2
-Subject: Re: [PATCH v4 6/6] arch_topology: Build cacheinfo from primary CPU
-To: Geert Uytterhoeven <geert@linux-m68k.org>,
- Sudeep Holla <sudeep.holla@arm.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>, linux-kernel@vger.kernel.org,
- Palmer Dabbelt <palmer@rivosinc.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Gavin Shan <gshan@redhat.com>, linux-arm-kernel@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org
-References: <20230104183033.755668-1-pierre.gondois@arm.com>
- <20230104183033.755668-7-pierre.gondois@arm.com>
- <CAMuHMdUjgxgOXf5He1x=PLn7MQTjZgFQUHj8JrwbyweT4uOALQ@mail.gmail.com>
- <20230124140420.4srnufcvamvff77v@bogus> <Y8/tl999NQwbPL/R@wendy>
- <20230124144839.2szjjv256j3pdaif@bogus>
- <20230124145541.2xwtr7ro2bjnsjd7@bogus>
- <20230125145423.pid3hsstswzuez73@bogus>
- <CAMuHMdWZ+_kdMp+0VfYAJZRHBWiyobQQJwEM_kHN6yeVVGxSvg@mail.gmail.com>
-Content-Language: en-US
-From: Pierre Gondois <pierre.gondois@arm.com>
-In-Reply-To: <CAMuHMdWZ+_kdMp+0VfYAJZRHBWiyobQQJwEM_kHN6yeVVGxSvg@mail.gmail.com>
+Content-Disposition: inline
+In-Reply-To: <Y8qw2MaCJZzu3Ows@FVFF77S0Q05N>
+User-Agent: Mutt/1.9.4 (2018-02-28)
+X-ALTERMIMEV2_out: done
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230126_005454_836030_EE7184B7 
-X-CRM114-Status: GOOD (  21.01  )
+X-CRM114-CacheID: sfid-20230126_015727_746319_0EA121E6 
+X-CRM114-Status: GOOD (  24.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,44 +122,140 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello Geert, Sudeep,
+Hi Mark,
 
-On 1/25/23 16:28, Geert Uytterhoeven wrote:
-> Hi Sudeep,
+On Fri, Jan 20, 2023 at 03:18:48PM +0000, Mark Rutland wrote:
+> On Fri, Jan 20, 2023 at 03:09:42PM +0100, Yann Sionneau wrote:
+> > Add common headers (atomic, bitops, barrier and locking) for basic
+> > kvx support.
+> > 
+> > Co-developed-by: Clement Leger <clement@clement-leger.fr>
+> > Signed-off-by: Clement Leger <clement@clement-leger.fr>
+> > Co-developed-by: Jules Maselbas <jmaselbas@kalray.eu>
+> > Signed-off-by: Jules Maselbas <jmaselbas@kalray.eu>
+> > Co-developed-by: Julian Vetter <jvetter@kalray.eu>
+> > Signed-off-by: Julian Vetter <jvetter@kalray.eu>
+> > Co-developed-by: Julien Villette <jvillette@kalray.eu>
+> > Signed-off-by: Julien Villette <jvillette@kalray.eu>
+> > Co-developed-by: Yann Sionneau <ysionneau@kalray.eu>
+> > Signed-off-by: Yann Sionneau <ysionneau@kalray.eu>
+> > ---
+> > 
+> > Notes:
+> >     V1 -> V2:
+> >      - use {READ,WRITE}_ONCE for arch_atomic64_{read,set}
+> >      - use asm-generic/bitops/atomic.h instead of __test_and_*_bit
+> >      - removed duplicated includes
+> >      - rewrite xchg and cmpxchg in C using builtins for acswap insn
 > 
-> On Wed, Jan 25, 2023 at 3:54 PM Sudeep Holla <sudeep.holla@arm.com> wrote:
->> On Tue, Jan 24, 2023 at 02:55:41PM +0000, Sudeep Holla wrote:
->>> Geert, can you please try with the patch Conor pointed out and see if
->>> that helps to fix the allocation failures[1]
->>>
->>
->> Sorry for the nag, but did you get the chance to test -next with [1]
->> and see if it fixes the cacheinfo memory failure you were observing ?
+> Thanks for those changes. I see one issue below (instantiated a few times), but
+> other than that this looks good to me.
 > 
->> [1] https://lore.kernel.org/all/20230103035316.3841303-1-leyfoon.tan@starfivetech.com/
+> [...]
 > 
-> After applying that patch, the issue is gone.
-> Thanks, sending my Tb!
+> > +#define ATOMIC64_RETURN_OP(op, c_op)					\
+> > +static inline long arch_atomic64_##op##_return(long i, atomic64_t *v)	\
+> > +{									\
+> > +	long new, old, ret;						\
+> > +									\
+> > +	do {								\
+> > +		old = v->counter;					\
 > 
-> Gr{oetje,eeting}s,
-> 
->                          Geert
-> 
-> --
-> Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-> 
-> In personal conversations with technical people, I call myself a hacker. But
-> when I'm talking to journalists I just say "programmer" or something like that.
->                                  -- Linus Torvalds
+> This should be arch_atomic64_read(v), in order to avoid the potential for the
+> compiler to replay the access and introduce ABA races and other such problems.
+Thanks for the suggestion, this will be into v3.
 
-Happy to hear the issue disappears with the patch, thanks for solving the issue,
-Regards,
-Pierre
+> For details, see:
+> 
+>   https://lore.kernel.org/lkml/Y70SWXHDmOc3RhMd@osiris/
+>   https://lore.kernel.org/lkml/Y71LoCIl+IFdy9D8@FVFF77S0Q05N/
+> 
+> I see that the generic 32-bit atomic code suffers from that issue, and we
+> should fix it.
+I took a look at the generic 32-bit atomic, but I am unsure if this
+needs to be done for both the SMP and non-SMP implementations. But I
+can send a first patch and we can discuss from there.
+
+> > +		new = old c_op i;					\
+> > +		ret = arch_cmpxchg(&v->counter, old, new);		\
+> > +	} while (ret != old);						\
+> > +									\
+> > +	return new;							\
+> > +}
+> > +
+> > +#define ATOMIC64_OP(op, c_op)						\
+> > +static inline void arch_atomic64_##op(long i, atomic64_t *v)		\
+> > +{									\
+> > +	long new, old, ret;						\
+> > +									\
+> > +	do {								\
+> > +		old = v->counter;					\
+> 
+> Likewise, arch_atomic64_read(v) here.
+ack
+
+> > +		new = old c_op i;					\
+> > +		ret = arch_cmpxchg(&v->counter, old, new);		\
+> > +	} while (ret != old);						\
+> > +}
+> > +
+> > +#define ATOMIC64_FETCH_OP(op, c_op)					\
+> > +static inline long arch_atomic64_fetch_##op(long i, atomic64_t *v)	\
+> > +{									\
+> > +	long new, old, ret;						\
+> > +									\
+> > +	do {								\
+> > +		old = v->counter;					\
+> 
+> Likewise, arch_atomic64_read(v) here.
+ack
+
+> > +		new = old c_op i;					\
+> > +		ret = arch_cmpxchg(&v->counter, old, new);		\
+> > +	} while (ret != old);						\
+> > +									\
+> > +	return old;							\
+> > +}
+> > +
+> > +#define ATOMIC64_OPS(op, c_op)						\
+> > +	ATOMIC64_OP(op, c_op)						\
+> > +	ATOMIC64_RETURN_OP(op, c_op)					\
+> > +	ATOMIC64_FETCH_OP(op, c_op)
+> > +
+> > +ATOMIC64_OPS(and, &)
+> > +ATOMIC64_OPS(or, |)
+> > +ATOMIC64_OPS(xor, ^)
+> > +ATOMIC64_OPS(add, +)
+> > +ATOMIC64_OPS(sub, -)
+> > +
+> > +#undef ATOMIC64_OPS
+> > +#undef ATOMIC64_FETCH_OP
+> > +#undef ATOMIC64_OP
+> > +
+> > +static inline int arch_atomic_add_return(int i, atomic_t *v)
+> > +{
+> > +	int new, old, ret;
+> > +
+> > +	do {
+> > +		old = v->counter;
+> 
+> Likewise, arch_atomic64_read(v) here.
+ack, this will bt arch_atomic_read(v) here since this is not atomic64_t
+here.
+
+
+Thanks
+-- Jules
+
+
+
+
+
 
 _______________________________________________
 linux-riscv mailing list
