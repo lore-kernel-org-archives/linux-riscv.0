@@ -4,60 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A56CC05027
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Jan 2023 14:38:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 356A8C54EED
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Jan 2023 15:33:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hp4rVciqRcmBYPUb8k8P/pwYgYTt7jsWEEwJSTvzHFc=; b=VG9NaibJMC52nj
-	s5TjYgTIsIZNYOqVbQLUNH405flhP8wycjkdSvb9R4F6Pi8OCNuKiVHswMw3CFMFQpRAIZEQ4RTmw
-	EvWMDuCobOKGf2TSnsaA3nmJdtFaCOJFmNLkBL5JZkkMmfAr9Jh89khsogEH+mRxMAhYmUNxuzxTq
-	phEVxuxI7TKR2vN/BMmJO5W/L2TwmY5IbHAL164Vruy0GfK+t5/Tg3zWAIHYj8kbRHp7BlgERYLcx
-	YpjCkTQdptBrwdygPFV/5qeYN5346BztJqTlrUlKt4p7rP85tyKlIuFI6fXzLLCvQDS6vRuodZ+9z
-	0RDMMKmBqkgfQfN13ixg==;
+	List-Owner; bh=R2YCyczQ4/w9uWAFnkTKQt50cCHPX9CVa0B8l+g2Z+c=; b=CIierKJuZylgSD
+	96KzDIxKxVqNNxgZ+f5ts7pSaVKKgTrO9tByCj/cH3dVji3O1tofCP0t6Zk7YDCyLJeYKHR9j1sTS
+	rWFVvdvKzIOjm+CHAQAP6S9zEbqX/x5nB0FPwvn0gTOuSoxBuQmeER8fKlYLFWcmid7xSiXymVPAc
+	+jNe31fLh168IvTrtpeu7l2PJwD6bDYVOVdzyGNtXsP/DhMySmV3qpjm9cS3usT36VHn2khznVMxL
+	sIvfaTQE3P5bZh6XdUJsntB6klgpkWnx35mK6rfvHAMAFyjx5Nj8ZY3d63fyo3AeUlIVv2/uazJgT
+	t4iYoer3tUPO6XqzS3cQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pL3O4-00BEGJ-De; Thu, 26 Jan 2023 14:38:00 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1pL4G4-00BXy5-2t; Thu, 26 Jan 2023 15:33:48 +0000
+Received: from relay5-d.mail.gandi.net ([217.70.183.197])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pL3O3-00BEFe-BL
-	for linux-riscv@bombadil.infradead.org; Thu, 26 Jan 2023 14:37:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=v5lRST3UhBT0bHTWLRn+IKxRT3Fm30qCFhm6PJyxMIA=; b=IhoqLpHc6jxkTvFzdHxeJ+ZYim
-	1I7vODMn698IB/zXrwXRkm7oe3KykWcJltyUDuClBppjzwKhcKo6mIH8LWoeiZSgTZkh0g8PuPAF7
-	SKBjuWJBTQXLU3Nk1yUPafBTBLWwXUXNBoY0VmzPviNIdHxXME070k779dIeTza7UKSsqvSJGUB+O
-	RJQ/rF0/HqknHKnfsMJMBwKPysHHE5vMeYZUxmu2n00HzT5xE8UnnHPpOYmdHtS4x2Mpql3O/Pg8q
-	I46BNMEwEK19kWHE9UfWLluLiY+PX+a7mCRvFnuwm1My70xy4B2urvXQoH0De/GEAGI5U0eqGvJlK
-	CywF3kGg==;
-Received: from willy by casper.infradead.org with local (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pL3Nv-006oVa-FN; Thu, 26 Jan 2023 14:37:51 +0000
-Date: Thu, 26 Jan 2023 14:37:51 +0000
-From: Matthew Wilcox <willy@infradead.org>
-To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Cc: Linux-MM <linux-mm@kvack.org>,
-	linux-riscv <linux-riscv@lists.infradead.org>,
-	device-tree <devicetree-discuss@lists.ozlabs.org>,
-	Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Arnd Bergmann <arnd@arndb.de>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Jessica Clarke <jrtc27@jrtc27.com>,
-	Geert Uytterhoeven <geert.uytterhoeven@gmail.com>,
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	Chris Paterson <Chris.Paterson2@renesas.com>
-Subject: Re: [QUERY]: Block region to mmap
-Message-ID: <Y9KQPxzHBuZGIN4U@casper.infradead.org>
-References: <CA+V-a8tR1KiLSs=Psa=w7kf0zT=yU5_Ekr6-3V1MR==Wtzmksg@mail.gmail.com>
+	id 1pL4FS-00BXhE-Qd
+	for linux-riscv@lists.infradead.org; Thu, 26 Jan 2023 15:33:12 +0000
+Received: (Authenticated sender: alex@ghiti.fr)
+	by mail.gandi.net (Postfix) with ESMTPSA id 27B471C0010;
+	Thu, 26 Jan 2023 15:33:01 +0000 (UTC)
+Message-ID: <117752cf-c02b-4264-87c3-42c81aa429f7@ghiti.fr>
+Date: Thu, 26 Jan 2023 16:33:01 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CA+V-a8tR1KiLSs=Psa=w7kf0zT=yU5_Ekr6-3V1MR==Wtzmksg@mail.gmail.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.4.2
+Subject: Re: [PATCH] riscv: mm: Implement pmdp_collapse_flush for THP
+Content-Language: en-US
+To: Mayuresh Chitale <mchitale@ventanamicro.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv@lists.infradead.org
+Cc: Nanyong Sun <sunnanyong@huawei.com>, Anup Patel
+ <apatel@ventanamicro.com>, Andrew Jones <ajones@ventanamicro.com>
+References: <20230125125512.2494577-1-mchitale@ventanamicro.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20230125125512.2494577-1-mchitale@ventanamicro.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20230126_073311_139679_B30F67DD 
+X-CRM114-Status: GOOD (  24.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,43 +58,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 25, 2023 at 12:30:13PM +0000, Lad, Prabhakar wrote:
-> Renesas RZ/Five RISC-V SoC has Instruction local memory and Data local
-> memory (ILM & DLM) mapped between region 0x30000 - 0x4FFFF. When a
-> virtual address falls within this range, the MMU doesn't trigger a
-> page fault; it assumes the virtual address is a physical address which
-> can cause undesired behaviours.
+Hi Mayuresh,
 
-Wow.  I've never come across such broken behaviour before.
+On 1/25/23 13:55, Mayuresh Chitale wrote:
+> When THP is enabled, 4K pages are collapsed into a single huge
+> page using the generic pmdp_collapse_flush() which will further
+> use flush_tlb_range() to shoot-down stale TLB entries. Unfortunately,
+> the generic pmdp_collapse_flush() only invalidates cached leaf PTEs
+> using address specific SFENCEs which results in repetitive (or
+> unpredictable) page faults on RISC-V implementations which cache
+> non-leaf PTEs.
 
-> To avoid this the ILM/DLM memory regions are now added to the root
-> domain region of the PMPU with permissions set to 0x0 for S/U modes so
-> that any access to these regions gets blocked and for M-mode we grant
-> full access (R/W/X). This prevents any users from accessing these
-> regions by triggering an unhandled signal 11 in S/U modes.
 
-I have no idea what any of this means.
+That's interesting! I'm wondering if the same issue will happen if a 
+user maps 4K, unmaps it and at the same address maps a 2MB hugepage: I'm 
+not sure the mm code would correctly flush the non-leaf PTE when 
+unmapping the 4KB page. In that case, your patch only fixes the THP 
+usecase and maybe we should try to catch this non-leaf -> leaf upgrade 
+at some lower level page table functions, what do you think?
 
-> This works as expected but for applications say for example when doing
-> mmap to this region would still succeed and later down the path when
-> doing a read/write to this location would cause unhandled signal 11.
-> To handle this case gracefully we might want mmap() itself to fail if
-> the addr/offset falls in this local memory region.
+Alex
 
-No, that's not what you want.  You want mmap to avoid allocating address
-space in that virtual address range.  I don't know if we have a good
-way to do that at the moment; like I said I've never seen such broken
-hardware before.
 
-I'd say the right way to solve this is to add a new special kind of VMA
-to the address space that covers this range.  We'd want to make sure
-it doesn't appear in /proc/*/maps and also that it can't be overridden
-with MAP_FIXED.
+> Provide a RISC-V specific pmdp_collapse_flush() which ensures both
+> cached leaf and non-leaf PTEs are invalidated by using non-address
+> specific SFENCEs as recommended by the RISC-V privileged specification.
+>
+> Fixes: e88b333142e4 ("riscv: mm: add THP support on 64-bit")
+> Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
+> ---
+>   arch/riscv/include/asm/pgtable.h | 24 ++++++++++++++++++++++++
+>   1 file changed, 24 insertions(+)
+>
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index 4eba9a98d0e3..6d948dec6020 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -721,6 +721,30 @@ static inline pmd_t pmdp_establish(struct vm_area_struct *vma,
+>   	page_table_check_pmd_set(vma->vm_mm, address, pmdp, pmd);
+>   	return __pmd(atomic_long_xchg((atomic_long_t *)pmdp, pmd_val(pmd)));
+>   }
+> +
+> +#define pmdp_collapse_flush pmdp_collapse_flush
+> +static inline pmd_t pmdp_collapse_flush(struct vm_area_struct *vma,
+> +					unsigned long address, pmd_t *pmdp)
+> +{
+> +	pmd_t pmd = pmdp_huge_get_and_clear(vma->vm_mm, address, pmdp);
+> +
+> +	/*
+> +	 * When leaf PTE enteries (regular pages) are collapsed into a leaf
+> +	 * PMD entry (huge page), a valid non-leaf PTE is converted into a
+> +	 * valid leaf PTE at the level 1 page table. The RISC-V privileged v1.12
+> +	 * specification allows implementations to cache valid non-leaf PTEs,
+> +	 * but the section "4.2.1 Supervisor Memory-Management Fence
+> +	 * Instruction" recommends the following:
+> +	 * "If software modifies a non-leaf PTE, it should execute SFENCE.VMA
+> +	 * with rs1=x0. If any PTE along the traversal path had its G bit set,
+> +	 * rs2 must be x0; otherwise, rs2 should be set to the ASID for which
+> +	 * the translation is being modified."
+> +	 * Based on the above recommendation, we should do full flush whenever
+> +	 * leaf PTE entries are collapsed into a leaf PMD entry.
+> +	 */
+> +	flush_tlb_mm(vma->vm_mm);
+> +	return pmd;
+> +}
+>   #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
+>   
+>   /*
 
 _______________________________________________
 linux-riscv mailing list
