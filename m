@@ -4,85 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E55A4C05027
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Jan 2023 11:18:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 074D8C54E94
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Jan 2023 11:20:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=B7OrZNZ4dZ6jcqUUiVsupwMuS0KkqokvLmR99z9Ajjg=; b=xba5lK9lOAWVpb
-	cgHhh9vwSfEbit7zEO6pzB6Jd4eDL1QySEqwvBWBniXEVdg4bTKBt9HvPWxHMYAdjR+xFhk42gb7e
-	FLaGGZlXPb9BzfXuA50+5QZkvSMpXT8s9UrTySuLzV+hLvOhEdbCc/X93f95BOYOqqJKupF5523ew
-	dLRjzkAWnsyBu81HhUrEKJVcYqmnyXjqnKljqi55/uPXp2ZivYTNO0WEaD+ea9gzqpd88XNlAo29C
-	G27NWHQmJL5AX3jh0DAk0ZNvmEkHCmneTyKqK/WKuX1d9iQcQW5ZH1ggsH6R6J/znrxpY2SCNEsB2
-	6e9hb4FPNg2v4Dflvjxw==;
+	List-Owner; bh=I7EFpfgrLsu8GiatoIJOj7aNU9P6j799ohGdJX/Zpy8=; b=DGEeijRHmvCiCx
+	UlytbB09IOf4ox0+POtR1+SaYdk2CW49UU2mJ5aq6f4Ig34nV1G5PPLzzACiKX2jDGh1saOJPyKo8
+	iETaOWRVMQqglv2unOUZSOsTIPeO0Nl7wVRoVbbwyWDb9Jiq7VpKep8oi1digKpUsmh7aMUBXeS39
+	EsVi3Q5+Z2F/v3At32WLHPDef5ALY/yPNnRGHNztekCZTKQt2GwkhCPSsoINkj92R6Rpesz0rGJTY
+	MaqdxNnJ6ZDQ+Cs4NO1cKKsR8hkzvmvFiOR5F+yGjTisonacrj+PJ6bw501tHPWpZb1okyEq8E8Uf
+	HbZjTCtyxESOekwR53Dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pL0Gj-00AhWl-Vr; Thu, 26 Jan 2023 11:18:14 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1pL0Id-00Ahtq-5a; Thu, 26 Jan 2023 11:20:11 +0000
+Received: from smtpout140.security-mail.net ([85.31.212.143] helo=fx403.security-mail.net)
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pL0Gg-00AhVL-Mf
-	for linux-riscv@lists.infradead.org; Thu, 26 Jan 2023 11:18:12 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id q8so885038wmo.5
-        for <linux-riscv@lists.infradead.org>; Thu, 26 Jan 2023 03:18:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=R+3TvO79F7TEEj/cEI0PvElkjPOY6Ohmc660NweZRSU=;
-        b=lkx9WMVEmqzIyivtlhzZ0ulR60zs1TzOH1UzIs5UvcAsoVJvATwYBchdRTOW8gGpba
-         37W9viahXGpoZgEsxcsjp27xoRClpBDJhVrjCIvjVSlYNJ11TQHQWt2cyM749Iu5357C
-         HVxLlWH6MFWlHAAY4dk4e/xNcyha5CuIDkUXEd73ZkFDXl9OpmXPRh6HSND10ZTaE6HF
-         gYLgEPMyUPVXEMx/Aspl7xaEY1hni9l+vGrB/ZjR/sRTtJd07NFxxdJwVfVVZWxyWNtg
-         j6beKYNQ8456Mw8Xqm58DedlTyFEPSvhKQvhtQgcW+rf+pJPWLKAoZqvuPdpog2K+y6Q
-         jvUg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=R+3TvO79F7TEEj/cEI0PvElkjPOY6Ohmc660NweZRSU=;
-        b=LXDXXDeeCIoeyL6n8SFtk5nhlhOI2xREw6CK6FHD/8FXUGb/d6tBCxRvR4XkLS2oSh
-         hPPwPNYrJz24G9KO+TUTPoS/wz0EXlT9g8GNReHB4fU6AzAMAx8LetpRm0IBFiWhun4c
-         6FYepCQHJZHe3eXxWIvcjv6KTgEvuaLL9uXqQc7N7OhS0A+FSFzP9ykdXt696Oo1M2r9
-         XtkBRmspETV6CHMYRgJC+3LAU4IZDINCvPkKEQNF/C8jHzpd5Z7t4rQZoTvXEt9re32/
-         jgkRhVcH0TsDVH4RDWPFKfTFRWvC6fMRhzYmLhUqT42076Fb+n9dYPi4mAURMYhJLSvo
-         q88g==
-X-Gm-Message-State: AFqh2kpXHaPO2DPKKHhyisbwhH+f+fjbuLaw2MnRofuVgycyJChk8VGc
-	K/DYli4YoB6giuL3TUkNthhiMQ==
-X-Google-Smtp-Source: AMrXdXsjZN+5SOjisx2Bn0IQCFbL29bvC6rFJ4l0C6wRDdFAmemSF4Qcvr4XjxpJ5Gm5bqy3xnmyqA==
-X-Received: by 2002:a05:600c:281:b0:3da:1132:4b63 with SMTP id 1-20020a05600c028100b003da11324b63mr35350886wmk.5.1674731887928;
-        Thu, 26 Jan 2023 03:18:07 -0800 (PST)
-Received: from [192.168.10.46] (146725694.box.freepro.com. [130.180.211.218])
-        by smtp.googlemail.com with ESMTPSA id z3-20020a05600c078300b003db12112fcfsm1160901wmo.4.2023.01.26.03.18.06
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Jan 2023 03:18:07 -0800 (PST)
-Message-ID: <b766f862-b253-b2a7-7f43-87ebeb0a4263@linaro.org>
-Date: Thu, 26 Jan 2023 12:18:05 +0100
+	id 1pL0IY-00Ahqb-2b
+	for linux-riscv@lists.infradead.org; Thu, 26 Jan 2023 11:20:09 +0000
+Received: from localhost (localhost [127.0.0.1])
+	by fx403.security-mail.net (Postfix) with ESMTP id 74C625A293C
+	for <linux-riscv@lists.infradead.org>; Thu, 26 Jan 2023 12:20:01 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kalray.eu;
+	s=sec-sig-email; t=1674732001;
+	bh=OqCvIwTp55CF55aZkBqjkzrzT0JUeA+LZlEPOgMrjUs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ItVfUK/SWpZBayLQn9djlHKarvWPtxRbO0LpCIVMyK7PXCdF2oBhm/4CN0E36dJqn
+	 Dw+eu+lUqiTEdEMd0mCELfXG+QU46EsibHLGn5jb0aFfz9e/4ex6kocJBkTBGikY9u
+	 CgNNWf0E4QSvqVW5rfvJqqQdL5LgNy6EYYM7SrO4=
+Received: from fx403 (localhost [127.0.0.1]) by fx403.security-mail.net
+ (Postfix) with ESMTP id 3C4475A2BAB; Thu, 26 Jan 2023 12:20:01 +0100 (CET)
+Received: from zimbra2.kalray.eu (unknown [217.181.231.53]) by
+ fx403.security-mail.net (Postfix) with ESMTPS id BDAA15A2E81; Thu, 26 Jan
+ 2023 12:19:59 +0100 (CET)
+Received: from zimbra2.kalray.eu (localhost [127.0.0.1]) by
+ zimbra2.kalray.eu (Postfix) with ESMTPS id 536A727E0492; Thu, 26 Jan 2023
+ 12:19:59 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1]) by zimbra2.kalray.eu
+ (Postfix) with ESMTP id 0D8A427E0493; Thu, 26 Jan 2023 12:19:59 +0100 (CET)
+Received: from zimbra2.kalray.eu ([127.0.0.1]) by localhost
+ (zimbra2.kalray.eu [127.0.0.1]) (amavisd-new, port 10026) with ESMTP id
+ maeNwHrd1O4C; Thu, 26 Jan 2023 12:19:58 +0100 (CET)
+Received: from tellis.lin.mbt.kalray.eu (unknown [192.168.36.206]) by
+ zimbra2.kalray.eu (Postfix) with ESMTPSA id 54C0E27E0491; Thu, 26 Jan 2023
+ 12:19:58 +0100 (CET)
+X-Virus-Scanned: E-securemail
+Secumail-id: <156e9.63d261df.bb9ea.0>
+DKIM-Filter: OpenDKIM Filter v2.10.3 zimbra2.kalray.eu 0D8A427E0493
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kalray.eu;
+ s=32AE1B44-9502-11E5-BA35-3734643DEF29; t=1674731999;
+ bh=WZmMAU5oDXdE8nH21Z9/oEYDB4aJcVI+BZJZRijscoE=;
+ h=Date:From:To:Message-ID:MIME-Version;
+ b=j1vE3RefRWU+Edbs1N0iE0tzWyYjxl/gZtHYHoLg28itdNE33MgiN2bfdUzmsCNIf
+ fGvnQLCt1UYpe9OwO6IsOgMVMGeyfjhuKTk/jBo/Rj9J9XlDnsZIL2Y/krX965mtdP
+ 7zbosDMpwSortwRdjow6i9u+UCMvgvCsEuTSJU/k=
+Date: Thu, 26 Jan 2023 12:19:57 +0100
+From: Jules Maselbas <jmaselbas@kalray.eu>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Yann Sionneau <ysionneau@kalray.eu>, Arnd Bergmann <arnd@arndb.de>,
+ Jonathan Corbet <corbet@lwn.net>, Thomas Gleixner <tglx@linutronix.de>, Marc
+ Zyngier <maz@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof
+ Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Will Deacon
+ <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>, Boqun Feng
+ <boqun.feng@gmail.com>, Eric Biederman <ebiederm@xmission.com>, Kees Cook
+ <keescook@chromium.org>, Oleg Nesterov <oleg@redhat.com>, Ingo Molnar
+ <mingo@redhat.com>, Waiman Long <longman@redhat.com>, "Aneesh Kumar K.V"
+ <aneesh.kumar@linux.ibm.com>, Andrew Morton <akpm@linux-foundation.org>,
+ Nick Piggin <npiggin@gmail.com>, Paul Moore <paul@paul-moore.com>, Eric
+ Paris <eparis@redhat.com>, Christian Brauner <brauner@kernel.org>, Paul
+ Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Guillaume Thouvenin
+ <gthouvenin@kalray.eu>, Clement Leger <clement@clement-leger.fr>, Vincent
+ Chardon <vincent.chardon@elsys-design.com>, Marc =?utf-8?b?UG91bGhpw6hz?=
+ <dkm@kataplop.net>, Julian Vetter <jvetter@kalray.eu>, Samuel Jones
+ <sjones@kalray.eu>, Ashley Lesdalons <alesdalons@kalray.eu>, Thomas Costis
+ <tcostis@kalray.eu>, Marius Gligor <mgligor@kalray.eu>, Jonathan Borne
+ <jborne@kalray.eu>, Julien Villette <jvillette@kalray.eu>, Luc Michel
+ <lmichel@kalray.eu>, Louis Morhet <lmorhet@kalray.eu>, Julien Hascoet
+ <jhascoet@kalray.eu>, Jean-Christophe Pince <jcpince@gmail.com>, Guillaume
+ Missonnier <gmissonnier@kalray.eu>, Alex Michon <amichon@kalray.eu>, Huacai
+ Chen <chenhuacai@kernel.org>, WANG Xuerui <git@xen0n.name>, Shaokun Zhang
+ <zhangshaokun@hisilicon.com>, John Garry <john.garry@huawei.com>, Guangbin
+ Huang <huangguangbin2@huawei.com>, Bharat Bhushan <bbhushan2@marvell.com>,
+ Bibo Mao <maobibo@loongson.cn>, Atish Patra <atishp@atishpatra.org>, "Jason
+ A. Donenfeld" <Jason@zx2c4.com>, Qi Liu <liuqi115@huawei.com>, Jiaxun Yang
+ <jiaxun.yang@flygoat.com>, Catalin Marinas <catalin.marinas@arm.com>, Mark
+ Brown <broonie@kernel.org>, Janosch Frank <frankja@linux.ibm.com>, Alexey
+ Dobriyan <adobriyan@gmail.com>, Benjamin Mugnier
+ <mugnier.benjamin@gmail.com>, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-mm@kvack.org, linux-arch@vger.kernel.org, linux-audit@redhat.com,
+ linux-riscv@lists.infradead.org, bpf@vger.kernel.org
+Subject: Re: [RFC PATCH v2 11/31] kvx: Add atomic/locking headers
+Message-ID: <20230126111957.GG5952@tellis.lin.mbt.kalray.eu>
+References: <20230120141002.2442-1-ysionneau@kalray.eu>
+ <20230120141002.2442-12-ysionneau@kalray.eu> <Y8qw2MaCJZzu3Ows@FVFF77S0Q05N>
+ <20230126095720.GF5952@tellis.lin.mbt.kalray.eu>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.4.2
-Subject: Re: [PATCH v2] clocksource/drivers/riscv: Get rid of
- clocksource_arch_init() callback
-Content-Language: en-US
-To: Prabhakar <prabhakar.csengg@gmail.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Thomas Gleixner <tglx@linutronix.de>
-Cc: linux-riscv@lists.infradead.org, Geert Uytterhoeven
- <geert@linux-m68k.org>, linux-kernel@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- Samuel Holland <samuel@sholland.org>
-References: <20221229224601.103851-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
-From: Daniel Lezcano <daniel.lezcano@linaro.org>
-In-Reply-To: <20221229224601.103851-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Content-Disposition: inline
+In-Reply-To: <20230126095720.GF5952@tellis.lin.mbt.kalray.eu>
+User-Agent: Mutt/1.9.4 (2018-02-28)
+X-ALTERMIMEV2_out: done
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230126_031810_793166_30E08F79 
-X-CRM114-Status: GOOD (  13.47  )
+X-CRM114-CacheID: sfid-20230126_032006_408147_A16B1766 
+X-CRM114-Status: GOOD (  13.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,35 +122,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjkvMTIvMjAyMiAyMzo0NiwgUHJhYmhha2FyIHdyb3RlOgo+IEZyb206IExhZCBQcmFiaGFr
-YXIgPHByYWJoYWthci5tYWhhZGV2LWxhZC5yakBicC5yZW5lc2FzLmNvbT4KPiAKPiBIYXZpbmcg
-YSBjbG9ja3NvdXJjZV9hcmNoX2luaXQoKSBjYWxsYmFjayBhbHdheXMgc2V0cyB2ZHNvX2Nsb2Nr
-X21vZGUgdG8KPiBWRFNPX0NMT0NLTU9ERV9BUkNIVElNRVIgaWYgR0VORVJJQ19HRVRUSU1FT0ZE
-QVkgaXMgZW5hYmxlZCwgdGhpcyBpcwo+IHJlcXVpcmVkIGZvciB0aGUgcmlzY3YtdGltZXIuCj4g
-Cj4gVGhpcyB3b3JrcyBmb3IgcGxhdGZvcm1zIHdoZXJlIGp1c3QgcmlzY3YtdGltZXIgY2xvY2tz
-b3VyY2UgaXMgcHJlc2VudC4KPiBPbiBwbGF0Zm9ybXMgd2hlcmUgb3RoZXIgY2xvY2sgc291cmNl
-cyBhcmUgYXZhaWxhYmxlIHdlIHdhbnQgdGhlbSB0bwo+IHJlZ2lzdGVyIHdpdGggdmRzb19jbG9j
-a19tb2RlIHNldCB0byBWRFNPX0NMT0NLTU9ERV9OT05FLgo+IAo+IE9uIHRoZSBSZW5lc2FzIFJa
-L0ZpdmUgU29DIE9TVE0gYmxvY2sgY2FuIGJlIHVzZWQgYXMgY2xvY2tzb3VyY2UgWzBdLCB0bwo+
-IGF2b2lkIG11bHRpcGxlIGNsb2NrIHNvdXJjZXMgYmVpbmcgcmVnaXN0ZXJlZCBhcyBWRFNPX0NM
-T0NLTU9ERV9BUkNIVElNRVIKPiBtb3ZlIHNldHRpbmcgb2YgdmRzb19jbG9ja19tb2RlIGluIHRo
-ZSByaXNjdi10aW1lciBkcml2ZXIgaW5zdGVhZCBvZiBkb2luZwo+IHRoaXMgaW4gY2xvY2tzb3Vy
-Y2VfYXJjaF9pbml0KCkgY2FsbGJhY2sgYXMgZG9uZSBzaW1pbGFybHkgZm9yIEFSTS82NAo+IGFy
-Y2hpdGVjdHVyZS4KPiAKPiBbMF0gZHJpdmVycy9jbG9ja3NvdXJjZS9yZW5lc2FzLW9zdG0uYwo+
-IAo+IFNpZ25lZC1vZmYtYnk6IExhZCBQcmFiaGFrYXIgPHByYWJoYWthci5tYWhhZGV2LWxhZC5y
-akBicC5yZW5lc2FzLmNvbT4KPiBUZXN0ZWQtYnk6IFNhbXVlbCBIb2xsYW5kIDxzYW11ZWxAc2hv
-bGxhbmQub3JnPgo+IC0tLQoKQXBwbGllZCwgSSBoYWQgYSB0cml2aWFsIGNvbmZsaWN0IHdoaWNo
-IHdhcyBmaXhlZC4gUGxlYXNlIGhhdmUgYSBsb29rIG9uIAp0aGUgcGF0Y2ggb25jZSBpdCBpcyBw
-dXNoIGluIHRoZSB0aW1lcnMvbmV4dCBicmFuY2gKClRoYW5rcwoKLS0gCjxodHRwOi8vd3d3Lmxp
-bmFyby5vcmcvPiBMaW5hcm8ub3JnIOKUgiBPcGVuIHNvdXJjZSBzb2Z0d2FyZSBmb3IgQVJNIFNv
-Q3MKCkZvbGxvdyBMaW5hcm86ICA8aHR0cDovL3d3dy5mYWNlYm9vay5jb20vcGFnZXMvTGluYXJv
-PiBGYWNlYm9vayB8CjxodHRwOi8vdHdpdHRlci5jb20vIyEvbGluYXJvb3JnPiBUd2l0dGVyIHwK
-PGh0dHA6Ly93d3cubGluYXJvLm9yZy9saW5hcm8tYmxvZy8+IEJsb2cKCgpfX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
-c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
-Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Thu, Jan 26, 2023 at 10:57:20AM +0100, Jules Maselbas wrote:
+> Hi Mark,
+...
+
+> > > +static inline int arch_atomic_add_return(int i, atomic_t *v)
+> > > +{
+> > > +	int new, old, ret;
+> > > +
+> > > +	do {
+> > > +		old = v->counter;
+> > 
+> > Likewise, arch_atomic64_read(v) here.
+> ack, this will bt arch_atomic_read(v) here since this is not atomic64_t
+> here.
+I took a second look at this and I think we are not doing the right
+thing, we do not need to defined arch_atomic_add_return at all since
+we are including the generic atomic right after, which will define
+the macro arch_atomic_add_return as generic_atomic_add_return
+
+> 
+> Thanks
+> -- Jules
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+
+
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
