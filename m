@@ -4,74 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF87CC54E94
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Jan 2023 03:08:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44ADEC54E94
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Jan 2023 04:58:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HErCPY0rBEFC6rOrS+afiTpixmvfZ9UNFwRxQuGregs=; b=LGsxVEsxjGloGn
-	jF71Cgj1G/ax++9ZUwiy8jf23WD9xVO0pnPq3esL5aVdBYJ+99X60LVRWHYGFOic49h6lBkBctvy5
-	JPdHfrgQ/b9FkGSbq1g5ebV8HJygWGVg9Q9uGKdZNMQRaVo/Hzot3Pq3f97e+/OK4tvBnPayIe/n9
-	tQgDWkDINq+W714vS/hy821mrAUPs/vdvSbrPkfsbOeV7Eidi8HdUoV34JyFylsOdDgh7oH1mhR3r
-	MPNW4U+UfHo/gHfLfcr2j0u9vEOazhQe/Rm4RWnnhmcb5x7cMB1Mxv6ftcb/zTbSBECr0Ep+HfVfS
-	qLKHSTyfaXfzo1Lw86/g==;
+	List-Owner; bh=hJU1E+n1plS8jDtWTr2X0srAia26NNyGMZ1WK0RjCJ8=; b=EuzRU6tADXhZh2
+	NLUsN+gW19OQtTz98dN5hcvV8d0wCWNlgEr/Udtk19i/5NZw+/MjhJPzHrFLoOiPNuNxPTuhCrWCg
+	P/5unIix+uRVYkXJDjNPY5h2kQ5W8V+tX15r7ylC6L+kMRJatocLxJBQ7QC/Ys2rntuTt87xCU7zC
+	Qta1gWL1teeYOCvS2kCzCr22Bate210EjZFxLKFuTqmibeJq93K/rBNSSM0GJEBQZGC8H6135rsQh
+	ryZyrCBDJTg4hOJRnw+Mm86+6+adZbn5hCtnskyVDmaXigEnNdcDEJthVY6sG8hlAEpD5PMZqAtSH
+	iuzno+DTAUejchm4izWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKsct-009URc-An; Thu, 26 Jan 2023 03:08:35 +0000
-Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
+	id 1pKuKn-009bXZ-GG; Thu, 26 Jan 2023 04:58:01 +0000
+Received: from out3-smtp.messagingengine.com ([66.111.4.27])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKscn-009UQB-03
-	for linux-riscv@lists.infradead.org; Thu, 26 Jan 2023 03:08:33 +0000
-Received: by mail-pg1-x52e.google.com with SMTP id e10so294327pgc.9
-        for <linux-riscv@lists.infradead.org>; Wed, 25 Jan 2023 19:08:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=atishpatra.org; s=google;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=a2bAE3YZKjYEhl+E1DxTXmRfqoBsR3dCJ9jZsMFgKM0=;
-        b=MiXFTVU/ifrVpub/z1tpDThABp9zRd1MSxVemTf6Rtxocul4O6Bwxrwh7talYJBTlG
-         0JGAHSzaGR/bUnkPNlYbbqcGFSIzqj4+EjsqqgU+0tp9kfV/r/ESItmqUlD0aty4APU/
-         AbAZvU4Xshcr4mZO+7q2/mYyDXqS4550BE++A=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=a2bAE3YZKjYEhl+E1DxTXmRfqoBsR3dCJ9jZsMFgKM0=;
-        b=nZDpKqujyylssN6z2nmpB0/jgj1cAhhl41tEjoxmlS8Q85/rU1ewX15P9gFegG1ZcX
-         pb3SRc3uP5/+NPdfcq2T+ymaAi7w8SQCUhSkZtUU1NlvPBMF66CY30boGWhsx+aDhXJa
-         yC/h6fviFQN3Elx94WTw8ZCUsto35yTG1fLChSXGZ0lSBIjj1Gpg7a+RtZZJoH1V+wce
-         GZXTv86+NaLNZfdKz1YjKkh/y8ZbZ8IUwkDjOooCfa28y1811Q5ZTeNL/C/uGifQyvax
-         ZcvHbw06BJ4t54X6dHZOniWz/phGpBt+7klufcZGJr9i/JQp+xBsrMt8g3TndOhmOyO7
-         cmAg==
-X-Gm-Message-State: AFqh2kr209kgg4qOZ+LgMaf+uFN7d5pk/ZT7gZvRV5eoIexykLlBbXiV
-	f0tiSy/yogu65JFhIhI7MMmxWTZazvfd4/uVejwH
-X-Google-Smtp-Source: AMrXdXsGxFt8EYYsVicP7KH/7PB3yxoJG52JlvnPbz/eG1Oo/eWBBPAF/kuntu98MSZyX8xYs+Htsx0RISO0EoKRuHM=
-X-Received: by 2002:a63:1011:0:b0:4c7:ef33:bbe1 with SMTP id
- f17-20020a631011000000b004c7ef33bbe1mr3426257pgl.73.1674702507153; Wed, 25
- Jan 2023 19:08:27 -0800 (PST)
+	id 1pKuKR-009bQI-T8; Thu, 26 Jan 2023 04:57:42 +0000
+Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
+	by mailout.nyi.internal (Postfix) with ESMTP id 188255C01B6;
+	Wed, 25 Jan 2023 23:57:39 -0500 (EST)
+Received: from mailfrontend2 ([10.202.2.163])
+  by compute6.internal (MEProxy); Wed, 25 Jan 2023 23:57:39 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
+	cc:cc:content-transfer-encoding:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:sender
+	:subject:subject:to:to; s=fm1; t=1674709059; x=1674795459; bh=X9
+	s6cjs86up+hYIsx64vzFJpoNRPbaCk4kY0RDMfADM=; b=ZdfM3FHeaYvIoHcQHq
+	Mu1XGs6brJrMAo8pzIvFqLwScLYzcIGA4/oKuganif+5zjOxXSlQ7kuIFKZ8avYT
+	EfmX596NVkSAIdcWTDCAjqfuE9/XzN7SZbyCkCt5oIhYNKn5wjtq2kwLdUimeCHa
+	1eWgUjERUxTu1YLjXZXfcm18LePGJVLjH6JGfHIMIqPUbbzuMeluTtyEjwPGZ6Ej
+	gu9fN2dKLpqCBdK69J+jt7bHyPgwqkfDbNZk0EHa9qoYtHBWn0ZlJU8mCf/l+zvv
+	UK5D94FncKy1GfcVXxk/aB5M0/N2XxnTOLBEcZzEN0TCjdZmvas3EiHmv9IeSWav
+	okEw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:sender:subject
+	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
+	:x-sasl-enc; s=fm3; t=1674709059; x=1674795459; bh=X9s6cjs86up+h
+	YIsx64vzFJpoNRPbaCk4kY0RDMfADM=; b=aMnaHHNqYI09i7aWVOdETtUjh0iXl
+	o82oN73/s9VaKfU4CxNbz0a/OfjJoYNTSfDCBnSNVLbzEl4HYGZb2+2KtSlJuDCg
+	lCg+Q3+v5acB+D2jHnCDa/u7I1hVip8VfnXbaPMm0+abg63d/VCcsghXUN59sdeF
+	2xk0i/wF8enIDLMibiEi2Ey8bsEAem81EHDJ80BZKVr3eotubyd0J1Lu5J/c0TGa
+	muRgAVintA06SY7a4EKMh7hfDyGZqfWxscYY/n5UdFlSd1BS9mjU9L+KDZZqq4wM
+	uHJUZaNDHLB24KEqKGkbsJnOGCsTYDC1hILNlYPFm0vC9Rs+K4rPKffvw==
+X-ME-Sender: <xms:QgjSY1F4guQ851BAJdwAXIb008Ul94EDm9wK0nnSSxWQ0eA2EgVKFQ>
+    <xme:QgjSY6UcSPQt2y8vMu-F_O7pprfFklElUaBgfvLgRKHBvMMha3NIXtMt7TMqleS7P
+    b2iLu71QwwjfDrFmw>
+X-ME-Received: <xmr:QgjSY3LI7EEpPFlG8Hkr0aAPck9gYEs8G4JfLBrY_MaSGcHqcJs8OV6NKJk3Dy2-VjYEEnptW4ZJBYjS7sIQoX0j2GBAXUrvrUnWWwVn8UyzdmlPPRzFOUQhN2_3JUaYulLvgg>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedruddvfedgjeehucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+    cujfgurhephffvvefufffkofgjfhgggfestdekredtredttdenucfhrhhomhepufgrmhhu
+    vghlucfjohhllhgrnhguuceoshgrmhhuvghlsehshhholhhlrghnugdrohhrgheqnecugg
+    ftrfgrthhtvghrnhepudekteeuudehtdelteevgfduvddvjefhfedulefgudevgeeghefg
+    udefiedtveetnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrh
+    homhepshgrmhhuvghlsehshhholhhlrghnugdrohhrgh
+X-ME-Proxy: <xmx:QgjSY7Ew47d7ILfejfjoMitEvIH0E2h7fN1GUHwHEYEeNkSVEMtS6w>
+    <xmx:QgjSY7WF6gYdzduL_fuaekaHP-J1QAvwOtBUA5T4tCCfJsvmUcGONQ>
+    <xmx:QgjSY2Movl_2umPdOTWpoA3raCJrug0nggZetfpCFb9vI03Y18TmDw>
+    <xmx:QwjSY8tjoUOnsv8ozOXKhBsh0d9L9hOe84_9EAkn13_4mO_kqitaJA>
+Feedback-ID: i0ad843c9:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 25 Jan 2023 23:57:37 -0500 (EST)
+From: Samuel Holland <samuel@sholland.org>
+To: Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	linux-sunxi@lists.linux.dev
+Cc: linux-riscv@lists.infradead.org,
+	Heiko Stuebner <heiko@sntech.de>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Conor Dooley <conor@kernel.org>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Andre Przywara <andre.przywara@arm.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Samuel Holland <samuel@sholland.org>,
+	Guo Ren <guoren@kernel.org>
+Subject: [PATCH v5 01/11] MAINTAINERS: Match the sun20i family of Allwinner SoCs
+Date: Wed, 25 Jan 2023 22:57:28 -0600
+Message-Id: <20230126045738.47903-2-samuel@sholland.org>
+X-Mailer: git-send-email 2.37.4
+In-Reply-To: <20230126045738.47903-1-samuel@sholland.org>
+References: <20230126045738.47903-1-samuel@sholland.org>
 MIME-Version: 1.0
-References: <20221215170046.2010255-1-atishp@rivosinc.com> <20221215170046.2010255-12-atishp@rivosinc.com>
- <20230113120854.axtnxmykmwh2ixeb@orel>
-In-Reply-To: <20230113120854.axtnxmykmwh2ixeb@orel>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Wed, 25 Jan 2023 19:08:15 -0800
-Message-ID: <CAOnJCUJcew7vqJOhKk__yLmxkfZ1tiiZzL4RraSmc6UBnicMCQ@mail.gmail.com>
-Subject: Re: [PATCH v2 11/11] RISC-V: KVM: Implement firmware events
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: Atish Patra <atishp@rivosinc.com>, linux-kernel@vger.kernel.org, 
-	Anup Patel <anup@brainfault.org>, Guo Ren <guoren@kernel.org>, kvm-riscv@lists.infradead.org, 
-	kvm@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Mark Rutland <mark.rutland@arm.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, 
-	Sergey Matyukevich <sergey.matyukevich@syntacore.com>, Eric Lin <eric.lin@sifive.com>, 
-	Will Deacon <will@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230125_190829_058075_7981348D 
-X-CRM114-Status: GOOD (  32.82  )
+X-CRM114-CacheID: sfid-20230125_205740_034203_49CAEFFF 
+X-CRM114-Status: GOOD (  11.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,482 +114,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 13, 2023 at 4:08 AM Andrew Jones <ajones@ventanamicro.com> wrote:
->
-> On Thu, Dec 15, 2022 at 09:00:46AM -0800, Atish Patra wrote:
-> > SBI PMU extension defines a set of firmware events which can provide
-> > useful information to guests about number of SBI calls. As hypervisor
-> > implements the SBI PMU extension, these firmware events corresponds
-> > to ecall invocations between VS->HS mode. All other firmware events
-> > will always report zero if monitored as KVM doesn't implement them.
-> >
-> > Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> > ---
-> >  arch/riscv/include/asm/kvm_vcpu_pmu.h |  16 ++++
-> >  arch/riscv/include/asm/sbi.h          |   2 +-
-> >  arch/riscv/kvm/tlb.c                  |   6 +-
-> >  arch/riscv/kvm/vcpu_pmu.c             | 105 ++++++++++++++++++++++----
-> >  arch/riscv/kvm/vcpu_sbi_replace.c     |   7 ++
-> >  5 files changed, 119 insertions(+), 17 deletions(-)
-> >
-> > diff --git a/arch/riscv/include/asm/kvm_vcpu_pmu.h b/arch/riscv/include/asm/kvm_vcpu_pmu.h
-> > index 7a9a8e6..cccc6182 100644
-> > --- a/arch/riscv/include/asm/kvm_vcpu_pmu.h
-> > +++ b/arch/riscv/include/asm/kvm_vcpu_pmu.h
-> > @@ -17,6 +17,14 @@
-> >  #define RISCV_KVM_MAX_FW_CTRS 32
-> >  #define RISCV_MAX_COUNTERS      64
-> >
-> > +struct kvm_fw_event {
-> > +     /* Current value of the event */
-> > +     unsigned long value;
-> > +
-> > +     /* Event monitoring status */
-> > +     bool started;
-> > +};
-> > +
-> >  /* Per virtual pmu counter data */
-> >  struct kvm_pmc {
-> >       u8 idx;
-> > @@ -25,11 +33,14 @@ struct kvm_pmc {
-> >       union sbi_pmu_ctr_info cinfo;
-> >       /* Event monitoring status */
-> >       bool started;
-> > +     /* Monitoring event ID */
-> > +     unsigned long event_idx;
-> >  };
-> >
-> >  /* PMU data structure per vcpu */
-> >  struct kvm_pmu {
-> >       struct kvm_pmc pmc[RISCV_MAX_COUNTERS];
-> > +     struct kvm_fw_event fw_event[RISCV_KVM_MAX_FW_CTRS];
-> >       /* Number of the virtual firmware counters available */
-> >       int num_fw_ctrs;
-> >       /* Number of the virtual hardware counters available */
-> > @@ -52,6 +63,7 @@ struct kvm_pmu {
-> >  { .base = CSR_CYCLE,      .count = 31, .func = kvm_riscv_vcpu_pmu_read_hpm },
-> >  #endif
-> >
-> > +int kvm_riscv_vcpu_pmu_incr_fw(struct kvm_vcpu *vcpu, unsigned long fid);
-> >  int kvm_riscv_vcpu_pmu_read_hpm(struct kvm_vcpu *vcpu, unsigned int csr_num,
-> >                               unsigned long *val, unsigned long new_val,
-> >                               unsigned long wr_mask);
-> > @@ -81,6 +93,10 @@ struct kvm_pmu {
-> >  #define KVM_RISCV_VCPU_HPMCOUNTER_CSR_FUNCS \
-> >  { .base = 0,      .count = 0, .func = NULL },
-> >
-> > +static inline int kvm_riscv_vcpu_pmu_incr_fw(struct kvm_vcpu *vcpu, unsigned long fid)
-> > +{
-> > +     return 0;
-> > +}
-> >
-> >  static inline int kvm_riscv_vcpu_pmu_init(struct kvm_vcpu *vcpu)
-> >  {
-> > diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-> > index 2a0ef738..a192a95a 100644
-> > --- a/arch/riscv/include/asm/sbi.h
-> > +++ b/arch/riscv/include/asm/sbi.h
-> > @@ -171,7 +171,7 @@ enum sbi_pmu_fw_generic_events_t {
-> >       SBI_PMU_FW_IPI_SENT             = 6,
-> >       SBI_PMU_FW_IPI_RECVD            = 7,
-> >       SBI_PMU_FW_FENCE_I_SENT         = 8,
-> > -     SBI_PMU_FW_FENCE_I_RECVD        = 9,
-> > +     SBI_PMU_FW_FENCE_I_RCVD         = 9,
->
-> This should probably be in its own patch.
+Allwinner sunxi SoCs with a RISC-V CPU use the sun20i designator. Match
+that pattern in addition to the designators for 32 and 64-bit ARM SoCs.
 
-done.
+Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+Reviewed-by: Guo Ren <guoren@kernel.org>
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+Signed-off-by: Samuel Holland <samuel@sholland.org>
+---
 
->
-> >       SBI_PMU_FW_SFENCE_VMA_SENT      = 10,
-> >       SBI_PMU_FW_SFENCE_VMA_RCVD      = 11,
-> >       SBI_PMU_FW_SFENCE_VMA_ASID_SENT = 12,
-> > diff --git a/arch/riscv/kvm/tlb.c b/arch/riscv/kvm/tlb.c
-> > index 309d79b..de81920 100644
-> > --- a/arch/riscv/kvm/tlb.c
-> > +++ b/arch/riscv/kvm/tlb.c
-> > @@ -181,6 +181,7 @@ void kvm_riscv_local_tlb_sanitize(struct kvm_vcpu *vcpu)
-> >
-> >  void kvm_riscv_fence_i_process(struct kvm_vcpu *vcpu)
-> >  {
-> > +     kvm_riscv_vcpu_pmu_incr_fw(vcpu, SBI_PMU_FW_FENCE_I_RCVD);
-> >       local_flush_icache_all();
-> >  }
-> >
-> > @@ -264,15 +265,18 @@ void kvm_riscv_hfence_process(struct kvm_vcpu *vcpu)
-> >                                               d.addr, d.size, d.order);
-> >                       break;
-> >               case KVM_RISCV_HFENCE_VVMA_ASID_GVA:
-> > +                     kvm_riscv_vcpu_pmu_incr_fw(vcpu, SBI_PMU_FW_HFENCE_VVMA_ASID_RCVD);
-> >                       kvm_riscv_local_hfence_vvma_asid_gva(
-> >                                               READ_ONCE(v->vmid), d.asid,
-> >                                               d.addr, d.size, d.order);
-> >                       break;
-> >               case KVM_RISCV_HFENCE_VVMA_ASID_ALL:
-> > +                     kvm_riscv_vcpu_pmu_incr_fw(vcpu, SBI_PMU_FW_HFENCE_VVMA_ASID_RCVD);
-> >                       kvm_riscv_local_hfence_vvma_asid_all(
-> >                                               READ_ONCE(v->vmid), d.asid);
-> >                       break;
-> >               case KVM_RISCV_HFENCE_VVMA_GVA:
-> > +                     kvm_riscv_vcpu_pmu_incr_fw(vcpu, SBI_PMU_FW_HFENCE_VVMA_RCVD);
-> >                       kvm_riscv_local_hfence_vvma_gva(
-> >                                               READ_ONCE(v->vmid),
-> >                                               d.addr, d.size, d.order);
-> > @@ -323,7 +327,7 @@ void kvm_riscv_fence_i(struct kvm *kvm,
-> >                      unsigned long hbase, unsigned long hmask)
-> >  {
-> >       make_xfence_request(kvm, hbase, hmask, KVM_REQ_FENCE_I,
-> > -                         KVM_REQ_FENCE_I, NULL);
-> > +                 KVM_REQ_FENCE_I, NULL);
->
-> stray change, and whitespace was correct before
->
+(no changes since v1)
 
-Fixed.
+ MAINTAINERS | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-> >  }
-> >
-> >  void kvm_riscv_hfence_gvma_vmid_gpa(struct kvm *kvm,
-> > diff --git a/arch/riscv/kvm/vcpu_pmu.c b/arch/riscv/kvm/vcpu_pmu.c
-> > index 21c1f0f..a64a7ae 100644
-> > --- a/arch/riscv/kvm/vcpu_pmu.c
-> > +++ b/arch/riscv/kvm/vcpu_pmu.c
-> > @@ -170,18 +170,36 @@ static int pmu_get_pmc_index(struct kvm_pmu *pmu, unsigned long eidx,
-> >       return pmu_get_programmable_pmc_index(pmu, eidx, cbase, cmask);
-> >  }
-> >
-> > +int kvm_riscv_vcpu_pmu_incr_fw(struct kvm_vcpu *vcpu, unsigned long fid)
-> > +{
-> > +     struct kvm_pmu *kvpmu = vcpu_to_pmu(vcpu);
-> > +     struct kvm_fw_event *fevent;
-> > +
-> > +     if (!kvpmu || fid >= SBI_PMU_FW_MAX)
-> > +             return -EINVAL;
-> > +
-> > +     fevent = &kvpmu->fw_event[fid];
-> > +     if (fevent->started)
-> > +             fevent->value++;
-> > +
-> > +     return 0;
-> > +}
-> > +
-> >  static int pmu_ctr_read(struct kvm_vcpu *vcpu, unsigned long cidx,
-> >                       unsigned long *out_val)
-> >  {
-> >       struct kvm_pmu *kvpmu = vcpu_to_pmu(vcpu);
-> >       struct kvm_pmc *pmc;
-> >       u64 enabled, running;
-> > +     int fevent_code;
-> >
-> >       pmc = &kvpmu->pmc[cidx];
-> > -     if (!pmc->perf_event)
-> > -             return -EINVAL;
-> >
-> > -     pmc->counter_val += perf_event_read_value(pmc->perf_event, &enabled, &running);
-> > +     if (pmc->cinfo.type == SBI_PMU_CTR_TYPE_FW) {
-> > +             fevent_code = get_event_code(pmc->event_idx);
-> > +             pmc->counter_val = kvpmu->fw_event[fevent_code].value;
-> > +     } else if (pmc->perf_event)
-> > +             pmc->counter_val += perf_event_read_value(pmc->perf_event, &enabled, &running);
-> >       *out_val = pmc->counter_val;
-> >
-> >       return 0;
-> > @@ -238,6 +256,7 @@ int kvm_riscv_vcpu_pmu_ctr_start(struct kvm_vcpu *vcpu, unsigned long ctr_base,
-> >       struct kvm_pmu *kvpmu = vcpu_to_pmu(vcpu);
-> >       int i, num_ctrs, pmc_index, sbiret = 0;
-> >       struct kvm_pmc *pmc;
-> > +     int fevent_code;
-> >
-> >       num_ctrs = kvpmu->num_fw_ctrs + kvpmu->num_hw_ctrs;
-> >       if (ctr_base + __fls(ctr_mask) >= num_ctrs) {
-> > @@ -253,7 +272,22 @@ int kvm_riscv_vcpu_pmu_ctr_start(struct kvm_vcpu *vcpu, unsigned long ctr_base,
-> >               pmc = &kvpmu->pmc[pmc_index];
-> >               if (flag & SBI_PMU_START_FLAG_SET_INIT_VALUE)
-> >                       pmc->counter_val = ival;
-> > -             if (pmc->perf_event) {
-> > +             if (pmc->cinfo.type == SBI_PMU_CTR_TYPE_FW) {
-> > +                     fevent_code = get_event_code(pmc->event_idx);
-> > +                     if (fevent_code >= SBI_PMU_FW_MAX) {
-> > +                             sbiret = SBI_ERR_INVALID_PARAM;
-> > +                             goto out;
-> > +                     }
-> > +
-> > +                     /* Check if the counter was already started for some reason */
-> > +                     if (kvpmu->fw_event[fevent_code].started) {
-> > +                             sbiret = SBI_ERR_ALREADY_STARTED;
-> > +                             continue;
-> > +                     }
-> > +
-> > +                     kvpmu->fw_event[fevent_code].started = true;
-> > +                     kvpmu->fw_event[fevent_code].value = pmc->counter_val;
-> > +             } else if (pmc->perf_event) {
-> >                       if (unlikely(pmc->started)) {
-> >                               sbiret = SBI_ERR_ALREADY_STARTED;
-> >                               continue;
-> > @@ -281,6 +315,7 @@ int kvm_riscv_vcpu_pmu_ctr_stop(struct kvm_vcpu *vcpu, unsigned long ctr_base,
-> >       int i, num_ctrs, pmc_index, sbiret = 0;
-> >       u64 enabled, running;
-> >       struct kvm_pmc *pmc;
-> > +     int fevent_code;
-> >
-> >       num_ctrs = kvpmu->num_fw_ctrs + kvpmu->num_hw_ctrs;
-> >       if ((ctr_base + __fls(ctr_mask)) >= num_ctrs) {
-> > @@ -294,7 +329,18 @@ int kvm_riscv_vcpu_pmu_ctr_stop(struct kvm_vcpu *vcpu, unsigned long ctr_base,
-> >               if (!test_bit(pmc_index, kvpmu->pmc_in_use))
-> >                       continue;
-> >               pmc = &kvpmu->pmc[pmc_index];
-> > -             if (pmc->perf_event) {
-> > +             if (pmc->cinfo.type == SBI_PMU_CTR_TYPE_FW) {
-> > +                     fevent_code = get_event_code(pmc->event_idx);
-> > +                     if (fevent_code >= SBI_PMU_FW_MAX) {
-> > +                             sbiret = SBI_ERR_INVALID_PARAM;
-> > +                             goto out;
-> > +                     }
-> > +
-> > +                     if (!kvpmu->fw_event[fevent_code].started)
-> > +                             sbiret = SBI_ERR_ALREADY_STOPPED;
-> > +
-> > +                     kvpmu->fw_event[fevent_code].started = false;
-> > +             } else if (pmc->perf_event) {
-> >                       if (pmc->started) {
-> >                               /* Stop counting the counter */
-> >                               perf_event_disable(pmc->perf_event);
-> > @@ -307,12 +353,15 @@ int kvm_riscv_vcpu_pmu_ctr_stop(struct kvm_vcpu *vcpu, unsigned long ctr_base,
-> >                               pmc->counter_val += perf_event_read_value(pmc->perf_event,
-> >                                                                         &enabled, &running);
-> >                               pmu_release_perf_event(pmc);
-> > -                             clear_bit(pmc_index, kvpmu->pmc_in_use);
-> >                       }
-> >               } else {
-> >                       kvm_debug("Can not stop counter due to invalid confiugartion\n");
-> >                       sbiret = SBI_ERR_INVALID_PARAM;
-> >               }
-> > +             if (flag & SBI_PMU_STOP_FLAG_RESET) {
-> > +                     pmc->event_idx = SBI_PMU_EVENT_IDX_INVALID;
-> > +                     clear_bit(pmc_index, kvpmu->pmc_in_use);
->
-> nit: I'd probably just leave clear_bit where it was and add
->
-> if (flag & SBI_PMU_STOP_FLAG_RESET)
->    pmc->event_idx = SBI_PMU_EVENT_IDX_INVALID;
->
-> to the firmware arm.
->
-
-We have to do clear_bit for the firmware as well. That's why I moved it below
-to avoid the same code twice.
-
-> > +             }
-> >       }
-> >
-> >  out:
-> > @@ -329,12 +378,12 @@ int kvm_riscv_vcpu_pmu_ctr_cfg_match(struct kvm_vcpu *vcpu, unsigned long ctr_ba
-> >       struct kvm_pmu *kvpmu = vcpu_to_pmu(vcpu);
-> >       struct perf_event *event;
-> >       struct perf_event_attr attr;
-> > -     int num_ctrs, ctr_idx;
-> > +     int num_ctrs, ctr_idx, sbiret = 0;
-> >       u32 etype = pmu_get_perf_event_type(eidx);
-> >       u64 config;
-> > -     struct kvm_pmc *pmc;
-> > -     int sbiret = 0;
-> > -
-> > +     struct kvm_pmc *pmc = NULL;
-> > +     bool is_fevent;
-> > +     unsigned long event_code;
-> >
-> >       num_ctrs = kvpmu->num_fw_ctrs + kvpmu->num_hw_ctrs;
-> >       if (etype == PERF_TYPE_MAX || (ctr_base + __fls(ctr_mask) >= num_ctrs)) {
-> > @@ -342,7 +391,9 @@ int kvm_riscv_vcpu_pmu_ctr_cfg_match(struct kvm_vcpu *vcpu, unsigned long ctr_ba
-> >               goto out;
-> >       }
-> >
-> > -     if (pmu_is_fw_event(eidx)) {
-> > +     event_code = get_event_code(eidx);
-> > +     is_fevent = pmu_is_fw_event(eidx);
-> > +     if (is_fevent && event_code >= SBI_PMU_FW_MAX) {
-> >               sbiret = SBI_ERR_NOT_SUPPORTED;
-> >               goto out;
-> >       }
-> > @@ -357,7 +408,10 @@ int kvm_riscv_vcpu_pmu_ctr_cfg_match(struct kvm_vcpu *vcpu, unsigned long ctr_ba
-> >                       goto out;
-> >               }
-> >               ctr_idx = ctr_base;
-> > -             goto match_done;
-> > +             if (is_fevent)
-> > +                     goto perf_event_done;
-> > +             else
-> > +                     goto match_done;
-> >       }
-> >
-> >       ctr_idx = pmu_get_pmc_index(kvpmu, eidx, ctr_base, ctr_mask);
-> > @@ -366,6 +420,13 @@ int kvm_riscv_vcpu_pmu_ctr_cfg_match(struct kvm_vcpu *vcpu, unsigned long ctr_ba
-> >               goto out;
-> >       }
-> >
-> > +     /*
-> > +      * No need to create perf events for firmware events as the firmware counter
-> > +      * is supposed to return the measurement of VS->HS mode invocations.
-> > +      */
-> > +     if (is_fevent)
-> > +             goto perf_event_done;
-> > +
-> >  match_done:
-> >       pmc = &kvpmu->pmc[ctr_idx];
-> >       pmu_release_perf_event(pmc);
-> > @@ -404,10 +465,19 @@ int kvm_riscv_vcpu_pmu_ctr_cfg_match(struct kvm_vcpu *vcpu, unsigned long ctr_ba
-> >               return -EOPNOTSUPP;
-> >       }
-> >
-> > -     set_bit(ctr_idx, kvpmu->pmc_in_use);
-> >       pmc->perf_event = event;
-> > -     if (flag & SBI_PMU_CFG_FLAG_AUTO_START)
-> > -             perf_event_enable(pmc->perf_event);
->
-> Maybe we can move the perf setup stuff into a helper function and
-> then guard it with an if-statement rather than have the gotos?
->
-
-Sure. Done.
-
-> > +perf_event_done:
-> > +     if (flag & SBI_PMU_CFG_FLAG_AUTO_START) {
-> > +             if (is_fevent)
-> > +                     kvpmu->fw_event[event_code].started = true;
-> > +             else
-> > +                     perf_event_enable(pmc->perf_event);
-> > +     }
-> > +     /* This should be only true for firmware events */
-> > +     if (!pmc)
-> > +             pmc = &kvpmu->pmc[ctr_idx];
-> > +     pmc->event_idx = eidx;
-> > +     set_bit(ctr_idx, kvpmu->pmc_in_use);
-> >
-> >       ext_data->out_val = ctr_idx;
-> >  out:
-> > @@ -451,6 +521,7 @@ int kvm_riscv_vcpu_pmu_init(struct kvm_vcpu *vcpu)
-> >       bitmap_zero(kvpmu->pmc_in_use, RISCV_MAX_COUNTERS);
-> >       kvpmu->num_hw_ctrs = num_hw_ctrs;
-> >       kvpmu->num_fw_ctrs = num_fw_ctrs;
-> > +     memset(&kvpmu->fw_event, 0, SBI_PMU_FW_MAX * sizeof(struct kvm_fw_event));
->
-> I'm wondering if we need this array. We already have an underused pmc for
-> the fw events which has counter_val and started. Can't we just used those?
->
-
-My initial implementation was doing the same. However, pmc array is
-counter index based
-while fw_event is firmware event id based.
-We need to maintain a mapping between these two or iterate the pmc
-array one by one to find
-correct entry in kvm_riscv_vcpu_pmu_incr_fw.
-
-As the kvm_riscv_vcpu_pmu_incr_fw may be called from a performance
-sensitive path, a separate
-fw_event array helps quick lookup.
-
-> >       /*
-> >        * There is no corelation betwen the logical hardware counter and virtual counters.
-> >        * However, we need to encode a hpmcounter CSR in the counter info field so that
-> > @@ -464,6 +535,7 @@ int kvm_riscv_vcpu_pmu_init(struct kvm_vcpu *vcpu)
-> >               pmc = &kvpmu->pmc[i];
-> >               pmc->idx = i;
-> >               pmc->counter_val = 0;
-> > +             pmc->event_idx = SBI_PMU_EVENT_IDX_INVALID;
-> >               if (i < kvpmu->num_hw_ctrs) {
-> >                       kvpmu->pmc[i].cinfo.type = SBI_PMU_CTR_TYPE_HW;
-> >                       if (i < 3)
-> > @@ -501,7 +573,10 @@ void kvm_riscv_vcpu_pmu_deinit(struct kvm_vcpu *vcpu)
-> >       for_each_set_bit(i, kvpmu->pmc_in_use, RISCV_MAX_COUNTERS) {
-> >               pmc = &kvpmu->pmc[i];
-> >               pmu_release_perf_event(pmc);
-> > +             pmc->counter_val = 0;
-> > +             pmc->event_idx = SBI_PMU_EVENT_IDX_INVALID;
-> >       }
-> > +     memset(&kvpmu->fw_event, 0, SBI_PMU_FW_MAX * sizeof(struct kvm_fw_event));
-> >  }
-> >
-> >  void kvm_riscv_vcpu_pmu_reset(struct kvm_vcpu *vcpu)
-> > diff --git a/arch/riscv/kvm/vcpu_sbi_replace.c b/arch/riscv/kvm/vcpu_sbi_replace.c
-> > index d029136..3f39711 100644
-> > --- a/arch/riscv/kvm/vcpu_sbi_replace.c
-> > +++ b/arch/riscv/kvm/vcpu_sbi_replace.c
-> > @@ -11,6 +11,7 @@
-> >  #include <linux/kvm_host.h>
-> >  #include <asm/sbi.h>
-> >  #include <asm/kvm_vcpu_timer.h>
-> > +#include <asm/kvm_vcpu_pmu.h>
-> >  #include <asm/kvm_vcpu_sbi.h>
-> >
-> >  static int kvm_sbi_ext_time_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
-> > @@ -26,6 +27,7 @@ static int kvm_sbi_ext_time_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
-> >               return 0;
-> >       }
-> >
-> > +     kvm_riscv_vcpu_pmu_incr_fw(vcpu, SBI_PMU_FW_SET_TIMER);
-> >  #if __riscv_xlen == 32
-> >       next_cycle = ((u64)cp->a1 << 32) | (u64)cp->a0;
-> >  #else
-> > @@ -58,6 +60,7 @@ static int kvm_sbi_ext_ipi_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
-> >               return 0;
-> >       }
-> >
-> > +     kvm_riscv_vcpu_pmu_incr_fw(vcpu, SBI_PMU_FW_IPI_SENT);
-> >       kvm_for_each_vcpu(i, tmp, vcpu->kvm) {
-> >               if (hbase != -1UL) {
-> >                       if (tmp->vcpu_id < hbase)
-> > @@ -68,6 +71,7 @@ static int kvm_sbi_ext_ipi_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
-> >               ret = kvm_riscv_vcpu_set_interrupt(tmp, IRQ_VS_SOFT);
-> >               if (ret < 0)
-> >                       break;
-> > +             kvm_riscv_vcpu_pmu_incr_fw(tmp, SBI_PMU_FW_IPI_RECVD);
-> >       }
-> >
-> >       return ret;
-> > @@ -91,6 +95,7 @@ static int kvm_sbi_ext_rfence_handler(struct kvm_vcpu *vcpu, struct kvm_run *run
-> >       switch (funcid) {
-> >       case SBI_EXT_RFENCE_REMOTE_FENCE_I:
-> >               kvm_riscv_fence_i(vcpu->kvm, hbase, hmask);
-> > +             kvm_riscv_vcpu_pmu_incr_fw(vcpu, SBI_PMU_FW_FENCE_I_SENT);
-> >               break;
-> >       case SBI_EXT_RFENCE_REMOTE_SFENCE_VMA:
-> >               if (cp->a2 == 0 && cp->a3 == 0)
-> > @@ -98,6 +103,7 @@ static int kvm_sbi_ext_rfence_handler(struct kvm_vcpu *vcpu, struct kvm_run *run
-> >               else
-> >                       kvm_riscv_hfence_vvma_gva(vcpu->kvm, hbase, hmask,
-> >                                                 cp->a2, cp->a3, PAGE_SHIFT);
-> > +             kvm_riscv_vcpu_pmu_incr_fw(vcpu, SBI_PMU_FW_HFENCE_VVMA_SENT);
-> >               break;
-> >       case SBI_EXT_RFENCE_REMOTE_SFENCE_VMA_ASID:
-> >               if (cp->a2 == 0 && cp->a3 == 0)
-> > @@ -108,6 +114,7 @@ static int kvm_sbi_ext_rfence_handler(struct kvm_vcpu *vcpu, struct kvm_run *run
-> >                                                      hbase, hmask,
-> >                                                      cp->a2, cp->a3,
-> >                                                      PAGE_SHIFT, cp->a4);
-> > +             kvm_riscv_vcpu_pmu_incr_fw(vcpu, SBI_PMU_FW_HFENCE_VVMA_ASID_SENT);
-> >               break;
-> >       case SBI_EXT_RFENCE_REMOTE_HFENCE_GVMA:
-> >       case SBI_EXT_RFENCE_REMOTE_HFENCE_GVMA_VMID:
-> > --
-> > 2.25.1
-> >
->
-> It think it'd be nice to break the application of
-> kvm_riscv_vcpu_pmu_incr_fw() out of this patch. I.e. introduce
-> kvm_riscv_vcpu_pmu_incr_fw() in this patch and then a second patch
-> applies it to all the ecalls.
->
-
-Done.
-
-> Thanks,
-> drew
-
-
-
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 3b0148001f92..2600c85bdfd5 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -1887,7 +1887,7 @@ F:	drivers/pinctrl/sunxi/
+ F:	drivers/soc/sunxi/
+ N:	allwinner
+ N:	sun[x456789]i
+-N:	sun50i
++N:	sun[25]0i
+ 
+ ARM/Amlogic Meson SoC CLOCK FRAMEWORK
+ M:	Neil Armstrong <neil.armstrong@linaro.org>
 -- 
-Regards,
-Atish
+2.37.4
+
 
 _______________________________________________
 linux-riscv mailing list
