@@ -4,63 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 981BFC05027
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Jan 2023 19:47:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0032FC54EAA
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Jan 2023 19:48:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	Mime-Version:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=9pWcj8X0ue89hd5LOHa3BkmJHktVPmDI4VCGopLoD90=; b=4Oy
-	VYSu/zO4/60af6fKCvzQNfF16FqI/xpQ39RlLidF+VTUxNXRGRH/0XarMioJ1iJakXeoMhaeylDCG
-	B3qaX4k7VRrZLuJXTaXEqBn93fm4KATKX5/9Zzk1dc4tygO9ebZqcjwiUEEUyaBafWjDeKyC1RGzI
-	/0IyHfefpWGF+J22AQPZbzuaXGEIHgle9lJtb31u9Txwn7dUdaaer0MeTPadZCPs+xGLsPf72BBp5
-	vhZXsGutzl3HN7C8ni+s3xN7jaUriYmry5mwtAT1FlahSjkq7QPglZuTfWgqB0g0d+QoidOrMi3J6
-	B/XHnF3IP7AWojlmEYL11ihrmc2nbKQ==;
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=LAXCtPfUwQ8BZ0RySYscGutdYF3mob4FuyID+p92H7U=; b=t+ArFKAwy2HgJWE2LBwA++sc1B
+	8Om4ST6qBx85vPr+NXHi4TbBboX336O3jQpALaFqpMmRhRBlnInGds1CG21XtMIf5qpprI22qEF0e
+	TAmMdPl3jCc4jFvaSMzuHrGrxWjkPDMPnqumS3BzFi1hpIzpfFmOep645Vz+RIPv5Vs8ETEdKApc+
+	XnWbtf6dRnBLrD7amLT17QG5aphIcM4A37RUKdycp0CzUpzOBGVgSqFeG7l3Mr91Tupil3znNTaTt
+	uPJeWb9PaONtCp1Ou34PnRCyDFb9CEcNrKAV1CcbsXfx4rU73y1wjPe8v/jCtOM8AKHpj0b8dutOv
+	+8TEQ3/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pL8D9-00CN8d-Ls; Thu, 26 Jan 2023 19:47:03 +0000
-Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
+	id 1pL8Et-00CNrb-F5; Thu, 26 Jan 2023 19:48:51 +0000
+Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pL7B0-00CAVr-T8
+	id 1pL7B1-00CAXT-4x
 	for linux-riscv@lists.infradead.org; Thu, 26 Jan 2023 18:40:51 +0000
-Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-5065604854eso29634267b3.16
-        for <linux-riscv@lists.infradead.org>; Thu, 26 Jan 2023 10:40:40 -0800 (PST)
+Received: by mail-yb1-xb4a.google.com with SMTP id w70-20020a25df49000000b00803e799d7b1so2803676ybg.10
+        for <linux-riscv@lists.infradead.org>; Thu, 26 Jan 2023 10:40:46 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=google.com; s=20210112;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=Ie07OawPNI+tJK8/hFSWiI7XFoX01SxG+4YwTEZViLQ=;
-        b=D1zilxz/MrFwcNOLMT1LAITkqOyJHoIg1OvmdTgNrSXt2+8bKehEyhZdJ83wWYuURL
-         Y0TlzIojPMrAY/CU2EgKBxKy8Nx8rmheh1GkuQRsxJHJN2NAKEqwzghdwiLNFihCDWAp
-         xAqgswB2O5bVSkkHVOV/HJM6lOVfZSqt9ReqdJP9r1WG6enSrRiCbP2umw7Iz+8nswUx
-         YO7YdtyP+HTlvOTCLKBJfy3cdltcIpQzviK1n84DUaBgb2qM5tqpM8I9zoSX/91t7Yqw
-         jiFcfGub83bVeaJzvdpdizULguQj8McM0NB0eAlP96DiLVznXsRzwRYQJ3xMSNQhmSRM
-         +wUA==
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=oU7ZUJurLYW9x4bI+Kv9L/ycv+6RmeYBTA8gNQPNdxA=;
+        b=ohWzxXZXsPNzIlyvbd2s071SX35P1VzikIV3cViCxs5y1YHT/pXpmwUq69QUARfOwl
+         5xpWEPV3frrTxbrENM94ILfJNgZrXEL2IjmpWp1DxNwI9qrLO4dKQuRk9PzwDWImtPyR
+         Lk3f6aRh4odIMYbsNnLv2UD3/TnGwSDwS2AI+1V+TxrxS87O96yqM/hYTby0ynaKJd6O
+         L7HVsqOMlTVY4A2GM7lHg4/A08IsUEWDci+BGqQ/3831Lo00XtjCZ6nJ+s8atP/kXqV+
+         ohnH/yDepl7Ib/4UcjUjvOIaSPVNLjRcPDpZJ9CfqQXTqu9euBWqOxllWJYH4e/mfSPT
+         rVQw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Ie07OawPNI+tJK8/hFSWiI7XFoX01SxG+4YwTEZViLQ=;
-        b=t8AzYMAr70I1KNBJ93ZWi+rQqt2q6s/ZPM6Ex9iFGppqN2aY7EPu5Em8RW3lXw9ufV
-         jgSXBKCizClJFMEUh8rIngvCiPmhPstuSmr0C2OY4gZqT9nDVjsJjr/5WSOwQngue4YA
-         S4uX7a9VhjCrhb4ZVjZtaIBVXteIzCBM0u7YlKo/Ywv2JpvcGkuPnDyhxacIcsDNFqXV
-         e25QJuiMwj8gfW0kM+BAuyB4/FvRUnQEfyN8p4vC8p2kazOhkge4cmcJLzl2SINRYUuI
-         nogB8GTrDbhh+5jpRnnjJRO+qwPb2ejkencnc+CQ95cBQVsbAw4TKzZ9h+W9hyDYuoD7
-         y4dg==
-X-Gm-Message-State: AFqh2krzMW+dEBEhJV4743rIdY5Ic8qL1q11SL868PKBFEyEAoxX73f2
-	BaCp36CSnXJLUP5fX6EOr0dafJQh5icuXw==
-X-Google-Smtp-Source: AMrXdXvYhsT+DA2KA1c/9P+wVBnv1OdnS37rNGakXvNF40eWFc5OqICy7ZZvOWGpLhibmaIEJb5soSQRpzz3bA==
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=oU7ZUJurLYW9x4bI+Kv9L/ycv+6RmeYBTA8gNQPNdxA=;
+        b=xfbhqm9tpcDE9er9vOW6IeX9904PoNY2hPFr6vImN5GL0JqXOkuQXzj8c5lJkibAZH
+         Ll8hXjWfqnzBWHzof+AKy37BMRl1qFuQfXV6ieBz0kSAgp5EofWFfLlHc83YntaHh9wy
+         wUSOCgMxzFfgu0D5ajGIP4eq76C/ZCyYOJdAl5OyfP88Fe8T84RgQ70MCCqnrUk4pMWR
+         64sL+u8M8+IGqgo9GZhtUvFcbrSTqL966IOoBXceerU96f1FnVcvvEyE629ttCNiEYCl
+         JRuPO71oxyLZy3zQ5paHIcWsjj1zKZrp50sjfmSoEoDCT6TumALIVe1Kl8kIDVb9Mup0
+         xuRg==
+X-Gm-Message-State: AFqh2ko+q4NLOT8lLlRA4gP+WfU6O/Bqau4jMPiBLd7TnUtdtzf9MOhS
+	OU8UhbChlZaMsTnomnS/G0ikQ3JxGgjV8Q==
+X-Google-Smtp-Source: AMrXdXu5cLu4gFuBX1mnOKYjOBTz2sSt6Jx7ftPu6Qft6goAkZI+WSVaQSuC1LB3Rt3uakEq2UJXO3GeP/tSSg==
 X-Received: from dmatlack-n2d-128.c.googlers.com ([fda3:e722:ac3:cc00:20:ed76:c0a8:1309])
- (user=dmatlack job=sendgmr) by 2002:a81:4f81:0:b0:502:92ae:5123 with SMTP id
- d123-20020a814f81000000b0050292ae5123mr2486176ywb.99.1674758440211; Thu, 26
- Jan 2023 10:40:40 -0800 (PST)
-Date: Thu, 26 Jan 2023 10:40:18 -0800
+ (user=dmatlack job=sendgmr) by 2002:a25:c057:0:b0:802:898f:6e73 with SMTP id
+ c84-20020a25c057000000b00802898f6e73mr2703455ybf.411.1674758445572; Thu, 26
+ Jan 2023 10:40:45 -0800 (PST)
+Date: Thu, 26 Jan 2023 10:40:21 -0800
+In-Reply-To: <20230126184025.2294823-1-dmatlack@google.com>
 Mime-Version: 1.0
+References: <20230126184025.2294823-1-dmatlack@google.com>
 X-Mailer: git-send-email 2.39.1.456.gfc5497dd1b-goog
-Message-ID: <20230126184025.2294823-1-dmatlack@google.com>
-Subject: [PATCH v2 0/7] KVM: Add a common API for range-based TLB invalidation
+Message-ID: <20230126184025.2294823-4-dmatlack@google.com>
+Subject: [PATCH v2 3/7] KVM: x86/mmu: Collapse kvm_flush_remote_tlbs_with_{range,address}()
+ together
 From: David Matlack <dmatlack@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>
 Cc: Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>, 
@@ -75,8 +79,9 @@ Cc: Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>,
 	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
 	David Matlack <dmatlack@google.com>, Raghavendra Rao Ananta <rananta@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230126_104047_082896_68F69EAF 
-X-CRM114-Status: GOOD (  11.02  )
+X-CRM114-CacheID: sfid-20230126_104047_460990_BDAAF6DF 
+X-CRM114-Status: UNSURE (   9.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,71 +98,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series introduces a common API for performing range-based TLB
-invalidation. This is then used to supplant
-kvm_arch_flush_remote_tlbs_memslot() and pave the way for two other
-patch series:
+Collapse kvm_flush_remote_tlbs_with_range() and
+kvm_flush_remote_tlbs_with_address() into a single function. This
+eliminates some lines of code and a useless NULL check on the range
+struct.
 
-1. https://lore.kernel.org/kvm/20230109215347.3119271-1-rananta@google.com/
+Opportunistically switch from ENOTSUPP to EOPNOTSUPP to make checkpatch
+happy.
 
-  Adds ARM support for range-based TLB invalidation and needs a
-  mechanism to invoke it from common code. This series provides such a
-  mechanism via kvm_arch_flush_remote_tlbs_range().
+Signed-off-by: David Matlack <dmatlack@google.com>
+---
+ arch/x86/kvm/mmu/mmu.c | 19 ++++++-------------
+ 1 file changed, 6 insertions(+), 13 deletions(-)
 
-2. https://lore.kernel.org/kvm/20221208193857.4090582-1-dmatlack@google.com/
-
-  Refactors the TDP MMU into common code, which requires an API for
-  range-based TLB invaliation.
-
-This series is based on patches 29-33 from (2.), but I made some further
-cleanups after looking at it a second time.
-
-Tested on x86_64 and ARM64 using KVM selftests.
-
-Cc: Raghavendra Rao Ananta <rananta@google.com>
-
-v2:
- - Rebased on top of kvm-x86/next to resolve conflicts in changes slated
-   for 6.3 [Sean]
- - Drop CONFIG_HAVE_KVM_ARCH_TLB_FLUSH_ALL from virt/kvm/Kconfig
-   [Oliver]
-
-v1: https://lore.kernel.org/kvm/20230119173559.2517103-1-dmatlack@google.com/
-
-David Matlack (7):
-  KVM: Rename kvm_arch_flush_remote_tlb() to
-    kvm_arch_flush_remote_tlbs()
-  KVM: arm64: Use kvm_arch_flush_remote_tlbs()
-  KVM: x86/mmu: Collapse kvm_flush_remote_tlbs_with_{range,address}()
-    together
-  KVM: x86/mmu: Rename kvm_flush_remote_tlbs_with_address()
-  KVM: x86/MMU: Use gfn_t in kvm_flush_remote_tlbs_range()
-  KVM: Allow range-based TLB invalidation from common code
-  KVM: Move kvm_arch_flush_remote_tlbs_memslot() to common code
-
- arch/arm64/include/asm/kvm_host.h |  3 ++
- arch/arm64/kvm/Kconfig            |  1 -
- arch/arm64/kvm/arm.c              |  6 ----
- arch/arm64/kvm/mmu.c              |  6 ++--
- arch/mips/include/asm/kvm_host.h  |  4 +--
- arch/mips/kvm/mips.c              | 12 ++------
- arch/riscv/kvm/mmu.c              |  6 ----
- arch/x86/include/asm/kvm_host.h   |  7 +++--
- arch/x86/kvm/mmu/mmu.c            | 46 +++++++------------------------
- arch/x86/kvm/mmu/mmu_internal.h   |  7 ++---
- arch/x86/kvm/x86.c                |  2 +-
- include/linux/kvm_host.h          | 20 ++++++++++----
- virt/kvm/Kconfig                  |  3 --
- virt/kvm/kvm_main.c               | 35 +++++++++++++++++++----
- 14 files changed, 73 insertions(+), 85 deletions(-)
-
-
-base-commit: 503f0315c97739d3f8e645c500d81757dfbf76be
-prerequisite-patch-id: 42a76ce7cec240776c21f674e99e893a3a6bee58
-prerequisite-patch-id: c5ef6bbef252706b7e65b76dc9bd92cf320828f5
-prerequisite-patch-id: c6e662cb6c369a47a027c25d3ccc7138a19b17f5
-prerequisite-patch-id: 15a58bec64bf1537e6c9e2f52179fac652d441f7
-prerequisite-patch-id: d5b6fea4724f4f2c3408b95d7ce5acdd4b528b10
+diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
+index c91ee2927dd7..b257f937d8a4 100644
+--- a/arch/x86/kvm/mmu/mmu.c
++++ b/arch/x86/kvm/mmu/mmu.c
+@@ -247,27 +247,20 @@ static inline bool kvm_available_flush_tlb_with_range(void)
+ 	return kvm_x86_ops.tlb_remote_flush_with_range;
+ }
+ 
+-static void kvm_flush_remote_tlbs_with_range(struct kvm *kvm,
+-		struct kvm_tlb_range *range)
+-{
+-	int ret = -ENOTSUPP;
+-
+-	if (range && kvm_x86_ops.tlb_remote_flush_with_range)
+-		ret = static_call(kvm_x86_tlb_remote_flush_with_range)(kvm, range);
+-
+-	if (ret)
+-		kvm_flush_remote_tlbs(kvm);
+-}
+-
+ void kvm_flush_remote_tlbs_with_address(struct kvm *kvm,
+ 		u64 start_gfn, u64 pages)
+ {
+ 	struct kvm_tlb_range range;
++	int ret = -EOPNOTSUPP;
+ 
+ 	range.start_gfn = start_gfn;
+ 	range.pages = pages;
+ 
+-	kvm_flush_remote_tlbs_with_range(kvm, &range);
++	if (kvm_x86_ops.tlb_remote_flush_with_range)
++		ret = static_call(kvm_x86_tlb_remote_flush_with_range)(kvm, &range);
++
++	if (ret)
++		kvm_flush_remote_tlbs(kvm);
+ }
+ 
+ static gfn_t kvm_mmu_page_get_gfn(struct kvm_mmu_page *sp, int index);
 -- 
 2.39.1.456.gfc5497dd1b-goog
 
