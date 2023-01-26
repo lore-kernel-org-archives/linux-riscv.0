@@ -4,89 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 893ECC54E94
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Jan 2023 05:05:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95EC8C54E94
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Jan 2023 06:34:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HflZC4gryTfJ7c7t0xAxZfzC1X8ow53FJqsPUJCXrK8=; b=vqUQ5g+389ig+7
-	YkPyFhE0JcOAj6QMoe7L9gIibT6B9dAMauEjAVhVp17tsioq64q9rcjbe4djhzPIRTakoLYNOXR8t
-	sdO0iEQmH7TfPvmCzv2zJy2PfwWogCrDR0iGeYxlD0MTEBf4n03R6AxPwRsOHqD9JqHBWoDEhuz/e
-	qcMKlX1LnzoYfKDFi2Gwa3LYu+UPGt4IGFL0YDc0G5WtVzQBet+NHbmf+Zdo2E29up4Mrbn4I9/X4
-	T3cvTZlokKxp8UgEGBF3/nXQRBrzgmnHg5GlU/1+JTQmcOAJ6QbxN+rsHT6VWr2dkuWh12mvVcX8m
-	gEK3edqpy3JoW0SAUBvA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=fK+Kcj0wigJitSKuOfNMuXtTow3rOYMQfG3OqfRgnXk=; b=iSYNH+cjTDySQW
+	OGvtBaSemTTz9w06K4556QmYKoEmXgkr/SADJMILos7mqZ0Y5SUrYFBjw46eTrs0kXQhg07lZKjV7
+	D6NhYzy0f+gtojjHBPEGkMCf47vmFiIWMtv4NweO6Xq9AQ/gjr8tNdUefVBAzI12rOEyC56t8trky
+	jOCbAkXI1meKWUQxAfKANJIptmFe8r9YBMOVRlLp1JXrpO46Dqy8oJmVmuFqtg71eg8jolXQZKSdE
+	/wv/WjLqsHzXIC1m6jz+Nx0+xuTAAURq2fxcxSBnH4uPGypS0ikRLgVjzPYOkSUvfqNPaXArDEb7T
+	NSrYe2M0lha+0OAZrNlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKuRf-009ekB-Sx; Thu, 26 Jan 2023 05:05:08 +0000
-Received: from mail-qt1-x833.google.com ([2607:f8b0:4864:20::833])
+	id 1pKvqC-009kFg-Tu; Thu, 26 Jan 2023 06:34:32 +0000
+Received: from wout3-smtp.messagingengine.com ([64.147.123.19])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pKuLq-009byZ-0e; Thu, 26 Jan 2023 04:59:07 +0000
-Received: by mail-qt1-x833.google.com with SMTP id m26so506762qtp.9;
-        Wed, 25 Jan 2023 20:59:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=E2S3RLfrNyQH49fsnFGoQQ0jF5nvWXPOvFK0VP3Scjo=;
-        b=IWV/X5EtYYc53U1keZc6Iu7v0jyTbAY6l2uYNr2tB7WaZHXvEwhIXcw5VZBulQSL6A
-         6Jvn59mMR6weRaRmLdZ8F/95n+NaBJ9dRVjOjQ19w5aWxL+R6I/zOQkl4hj19hbQKkcg
-         XmaOWJvaFGorOGR6gKFoxWNZ42yq3JI5PBjwnFIMJq9VFbqd+i4rUMftB8vjBgxSsNEW
-         8gniu1Yv79dBtc9rOZbpIC451t5eJqX4pgao5Ha7dYw38DOKNCO4jT0+eG5WUHdqooRu
-         CkQgahq+Ky8sF3BbotZY5uEqwtIQM7xrxtVzCBDUeiEKNovMTvE8/M+lrLSGEv0r5Wgg
-         UqAQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=E2S3RLfrNyQH49fsnFGoQQ0jF5nvWXPOvFK0VP3Scjo=;
-        b=crQLR7lpgo95LGCR6HBQYHhSf8cZ6uIlRRTXkN4XXReS2WdMIBdP/wrTk3Q6vB4wYS
-         n2ys5GnVejLq+hHMLhN9v+0l5qvALqkrzh8aPIkXMXpjtU9S10eQvmeAnLXiEmYlnpi3
-         zV5MQ1lsfbBY7+92wz5+BwEzAzXESG+/pACypdxuYC/vXs48JNi6noHItocb3UvYyFN2
-         CIZKShuLMIme+VbND/24q6BUDXe+KEtA5POFRxb7PJHZ3wY02Q6iJAyPthBt7w1WXqGP
-         pbLWw8Cpxaenah2UwVZBBODojYgZrA7aFGc/vVcs9WDNC8UnUUuZtWRivFEwkngogCyn
-         K5fw==
-X-Gm-Message-State: AO0yUKV/5nwMpTTwZz+vTa9oJwUm2sKhMmf2BunTeQ0FVfi8X/Ee8n67
-	TvWtoylMuRT3gFQpgMMxIZU=
-X-Google-Smtp-Source: AK7set9uZfTD1W3z0cbHBVUg5SVE0mxBEXs/DXbPnm5/hifsR8XEBxaOH/w+lDF8YqDyrPMz+u2j0Q==
-X-Received: by 2002:ac8:6794:0:b0:3b7:ec87:8154 with SMTP id b20-20020ac86794000000b003b7ec878154mr6565219qtp.44.1674709143369;
-        Wed, 25 Jan 2023 20:59:03 -0800 (PST)
-Received: from localhost (pppoe-209-91-167-254.vianet.ca. [209.91.167.254])
-        by smtp.gmail.com with ESMTPSA id j7-20020ac806c7000000b003b80a69d353sm120720qth.49.2023.01.25.20.59.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Jan 2023 20:59:02 -0800 (PST)
-Date: Wed, 25 Jan 2023 23:59:00 -0500
-From: Trevor Woerner <twoerner@gmail.com>
-To: Samuel Holland <samuel@sholland.org>
-Cc: Lee Jones <lee@kernel.org>, Pavel Machek <pavel@ucw.cz>,
-	linux-leds@vger.kernel.org, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>,
-	Guo Ren <guoren@kernel.org>,
-	Heiko Stuebner <heiko.stuebner@vrull.eu>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Jisheng Zhang <jszhang@kernel.org>,
+	id 1pKvq1-009kDK-5T; Thu, 26 Jan 2023 06:34:22 +0000
+Received: from compute3.internal (compute3.nyi.internal [10.202.2.43])
+	by mailout.west.internal (Postfix) with ESMTP id 65C9C320092E;
+	Thu, 26 Jan 2023 01:34:19 -0500 (EST)
+Received: from mailfrontend2 ([10.202.2.163])
+  by compute3.internal (MEProxy); Thu, 26 Jan 2023 01:34:20 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
+	cc:cc:content-transfer-encoding:date:date:from:from:in-reply-to
+	:message-id:mime-version:reply-to:sender:subject:subject:to:to;
+	 s=fm1; t=1674714859; x=1674801259; bh=pM4BStLL1Skg7XYi8QBrjhe75
+	9beNnudPI+N5t2B+7k=; b=fcdfsYfbNuArt6RiTqBpWcKepcfZaPq1wXfDbqwCq
+	x8fAjOwldYSJf9R4aZJoyJOoUzewDtDjLiS8fl2AgEMT3zhco/MMZUmz3Los98rE
+	FfoxySb8yolewD6x3dQQVo2OxWv1MbQOuoAtQik3uedkMvG4k289uYFjDA9q0in3
+	BQrPxq3MO7qu2HDPEvUe6kYggu5Iy55niel/LyWmaTTptMhNoVj3lE5ytOu2FkZU
+	K1zQiSjhfXTM0qnRN+5FwKpNVEmtQI54uXeRyqEY7BL6jNB4W40RMIv/7ok59rgo
+	2Pr7LyOhiLNYVrK/9cUPc9CIwOr7QGNutCm8wJtiecYkQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:message-id
+	:mime-version:reply-to:sender:subject:subject:to:to:x-me-proxy
+	:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1674714859; x=1674801259; bh=pM4BStLL1Skg7XYi8QBrjhe759beNnudPI+
+	N5t2B+7k=; b=Z2tV6s0/t1DitCs9Q/rJfW9tb4dNUdqfCmI3qnROFrMxY9Ch4+6
+	do+HlGjSdH8B7uWL6bWnIxxWA5T36WRgo7dQkewuIkb6n/m5jvup0tM5naeWzcWd
+	cu51hnyoSqhMFT/ylZcXpjzgUX+L+thuB3Fijku8P+UDAfdlb89K0B0EAq7c2AQK
+	E1wy0d8sqBH5X1TPWqJy+sCmVFfkLCAXrRpUxR1K2jbldwtEZbMlYr4fPQo/eEnN
+	+dI8RmXat/s6RGq0H9p35PgRvFtD2tfgt7lRbGX1OHu0DwkOAkzg2UVwWk38U3O/
+	M1BBti3djo89xgGINTZgUa2/m/tAVXcG/tA==
+X-ME-Sender: <xms:6h7SY41wiFkNZXhR-rcMMy_ydx5D9SlyZa_5zwe3pHhrhIBbuEaN_w>
+    <xme:6h7SYzG2KARsiy_joUPRqd_HG26HjzzIL-BCra36ZFW73Oz4O13UXTBu-LyXJ-xhG
+    n5XoqB6GHO-1QQeXA>
+X-ME-Received: <xmr:6h7SYw7xkcPwDdGGq10ES-71fehaOKH-uMyxrho5SPxgUpTs7cZoHigf6XG2jgV1J8JkiAXe8Y_5ZCOJylY_QlxHv1jL0FEOSie7h89V423QA78erd-wo0Dm0GxBSulKz6GuZg>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedruddvfedgleehucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+    cujfgurhephffvvefufffkofgggfestdekredtredttdenucfhrhhomhepufgrmhhuvghl
+    ucfjohhllhgrnhguuceoshgrmhhuvghlsehshhholhhlrghnugdrohhrgheqnecuggftrf
+    grthhtvghrnhepvddtleeugeefjeetudejvddujeetteehveelkedvgfetgedtvdeikedu
+    hfelgeevnecuffhomhgrihhnpehgihhthhhusgdrtghomhenucevlhhushhtvghrufhiii
+    gvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehsrghmuhgvlhesshhhohhllhgrnhgu
+    rdhorhhg
+X-ME-Proxy: <xmx:6h7SYx2jgQWeAgkktSiNLoWATqc5HVM5awBfnJjzW75iLnjmUk-nYQ>
+    <xmx:6h7SY7FFvpHvNkjZxI7jp0nsY8bv-da4GGgIw3sZmHGOxFm8yjr88Q>
+    <xmx:6h7SY69Osz6m0B9IX4gDi1IECGPY64CYrxkaR5G66fXBLC8x9agKhw>
+    <xmx:6x7SY7GsgiaYtpvbd4AVkjnK3y9hLZXARYD915kqu7PQKoPG2jTPSQ>
+Feedback-ID: i0ad843c9:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 26 Jan 2023 01:34:17 -0500 (EST)
+From: Samuel Holland <samuel@sholland.org>
+To: Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>
+Cc: Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Samuel Holland <samuel@sholland.org>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Conor Dooley <conor@kernel.org>,
+	Heiko Stuebner <heiko.stuebner@vrull.eu>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
 	Philipp Zabel <p.zabel@pengutronix.de>,
-	Rob Herring <robh+dt@kernel.org>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-sunxi@lists.linux.dev
-Subject: Re: [RESEND PATCH v7 0/5] leds: Allwinner A100 LED controller support
-Message-ID: <20230126045900.GA7126@localhost>
-References: <20221231235541.13568-1-samuel@sholland.org>
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-sunxi@lists.linux.dev
+Subject: [PATCH v2 0/3] Allwinner D1 power domain support
+Date: Thu, 26 Jan 2023 00:34:16 -0600
+Message-Id: <20230126063419.15971-1-samuel@sholland.org>
+X-Mailer: git-send-email 2.37.4
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20221231235541.13568-1-samuel@sholland.org>
-User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230125_205906_101820_CC5873BF 
-X-CRM114-Status: GOOD (  24.41  )
+X-CRM114-CacheID: sfid-20230125_223421_277043_A61D3BD7 
+X-CRM114-Status: GOOD (  12.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,81 +111,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat 2022-12-31 @ 05:55:35 PM, Samuel Holland wrote:
-> [Resending because it has been a couple of months since v7 with no LED
-> maintainer feedback, and LEDs now have an additional maintainer.]
-> 
-> This series adds bindings and a driver for the RGB LED controller found
-> in some Allwinner SoCs, starting with A100. The hardware in the R329 and
-> D1 SoCs appears to be identical.
-> 
-> Patches 4-5 depend on the D1 devicetree series[1], but the rest of this
-> series can/should be merged without them.
-> 
-> This driver was tested on the D1 Nezha board.
-> 
-> [1]: https://lore.kernel.org/lkml/20221231233851.24923-1-samuel@sholland.org/
-> 
-> Changes in v7:
->  - Use DEFINE_SIMPLE_DEV_PM_OPS
-> 
-> Changes in v6:
->  - Drop the A100 DMA controller DT node patch, which was merged via a
->    different series
-> 
-> Changes in v5:
->  - A100 contains the original implementation, so use that as the base
->    compatible string, and rename the binding to match
->  - Add "unevaluatedProperties: false" to the child multi-led binding
->  - Rename the driver R329 -> A100, since that is the actual original
->    implementation
-> 
-> Changes in v4:
->  - Use "default" instead of "maxItems" for timing properties
->  - Depend on LEDS_CLASS_MULTICOLOR
-> 
-> Changes in v3:
->  - Removed quotes from enumeration values
->  - Added vendor prefix to timing/format properties
->  - Renamed "format" property to "pixel-format" for clarity
->  - Dropped "vled-supply" as it is unrelated to the controller hardware
->  - Added vendor prefix to timing/format properties
->  - Renamed "format" property to "pixel-format" for clarity
->  - Dropped "vled-supply" as it is unrelated to the controller hardware
->  - Changed "writesl" to "iowrite32_rep" so the driver builds on hppa
-> 
-> Changes in v2:
->  - Fixed typo leading to duplicate t1h-ns property
->  - Removed "items" layer in definition of dmas/dma-names
->  - Replaced uint32 type reference with maxItems in timing properties
->  - Renamed from sunxi-ledc to sun50i-r329-ledc
->  - Added missing "static" to functions/globals as reported by 0day bot
-> 
-> Samuel Holland (5):
->   dt-bindings: leds: Add Allwinner A100 LED controller
->   leds: sun50i-a100: New driver for the A100 LED controller
->   arm64: dts: allwinner: a100: Add LED controller node
->   riscv: dts: allwinner: d1: Add LED controller node
->   riscv: dts: allwinner: d1: Add RGB LEDs to boards
-> 
->  .../leds/allwinner,sun50i-a100-ledc.yaml      | 139 +++++
->  .../arm64/boot/dts/allwinner/sun50i-a100.dtsi |  14 +
->  .../allwinner/sun20i-d1-lichee-rv-dock.dts    |  12 +
->  .../boot/dts/allwinner/sun20i-d1-nezha.dts    |  13 +
->  arch/riscv/boot/dts/allwinner/sun20i-d1.dtsi  |   6 +
->  .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    |  15 +
->  drivers/leds/Kconfig                          |   9 +
->  drivers/leds/Makefile                         |   1 +
->  drivers/leds/leds-sun50i-a100.c               | 555 ++++++++++++++++++
->  9 files changed, 764 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/leds/allwinner,sun50i-a100-ledc.yaml
->  create mode 100644 drivers/leds/leds-sun50i-a100.c
+This series adds support for the power controller found in D1 and other
+recent Allwinner SoCs. There is no first-party documentation, but there
+are a couple of vendor drivers for different hardware revisions[1][2],
+and the register definitions were easy to verify empirically.
 
-this whole series:
-Tested-by: Trevor Woerner <twoerner@gmail.com>
+I have tested this driver on D1 with the video engine.
 
-from: https://github.com/smaeul/linux/tree/d1/all
-test script: https://github.com/twoerner/rgb-led-test
+[1]: https://github.com/mangopi-sbc/tina-linux-5.4/blob/main/drivers/soc/sunxi/gpu_domain.c
+[2]: https://github.com/mangopi-sbc/tina-linux-5.4/blob/main/drivers/soc/sunxi/pm_domains.c
+
+Changes in v2:
+ - Removed quotes from "PPU"
+ - Fixed indentation in binding example
+ - Removed possibly misleading comment from the Kconfig description
+ - Include a patch adding the device tree node
+
+Samuel Holland (3):
+  dt-bindings: power: Add Allwinner D1 PPU
+  soc: sunxi: Add Allwinner D1 PPU driver
+  riscv: dts: allwinner: d1: Add power controller node
+
+ .../power/allwinner,sun20i-d1-ppu.yaml        |  54 +++++
+ .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    |   8 +
+ drivers/soc/sunxi/Kconfig                     |   8 +
+ drivers/soc/sunxi/Makefile                    |   1 +
+ drivers/soc/sunxi/sun20i-ppu.c                | 207 ++++++++++++++++++
+ .../power/allwinner,sun20i-d1-ppu.h           |  10 +
+ 6 files changed, 288 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/power/allwinner,sun20i-d1-ppu.yaml
+ create mode 100644 drivers/soc/sunxi/sun20i-ppu.c
+ create mode 100644 include/dt-bindings/power/allwinner,sun20i-d1-ppu.h
+
+-- 
+2.37.4
+
 
 _______________________________________________
 linux-riscv mailing list
