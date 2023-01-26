@@ -4,81 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B665C52D11
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Jan 2023 17:19:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DCEDC61DA3
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Jan 2023 17:25:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=397GZRIsLONH7Trz2yW8B7yX5c2RoZz3nCE0qezZhWM=; b=M4AJcGlaT3GZw3
-	hJeVWGa8GWGPuIBwJHNkNr9ggtNBKMIHmf+Jq2engJ0Bts5UMg2GvViDKJ/6OvCXIme7nkPd7qiFJ
-	FpedME09cu9wyid2ch4E58kuRtOt/dQqEFRag+ZIg6DNjsVHLyVuVA4a2xCR9trU5pSvsYMuh0ZRM
-	KX19jH603kuJLwwYRwJMp3z0hJqz1LRMyjRwHp3RXdXuIbRLAEBvySUBtlFqwiwUEF7h1Ki3vCxrz
-	SNM4d5JludQ0k2VUvt/3fLH6A9F0HWAz+i/iFoLsKEMEoXqiqyhdvDbGdx0hZ/UhLghO7trXMx68M
-	uklUPFvxzX7fvwCKX5YQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=3zHslpn8Nf+hB01Bz8poldyZ4V4tGi+QgU9MPzG1hw0=; b=fbO7teb6zVY0vv
+	IrJCXfO4rfZxbySB/l+ynDc+pRnqZzykhMfK42JmHAirG6pwQhBJMzxLfOaLgio4Itn+wF8/AX/Vx
+	gprkzvzo6ce++FCbAWk7K3PNvC/AsKkM9rM0Com4vMTnA2XEKf6bSZcf2fYH6FRa7IjYqy48LSXoH
+	5JRD+rIJMjS3wUWh3Dyfw5Hlgd28t5qW+aved4Bo5Yo9KbcEL0O7HJjDShqeWVBB0yh7FMX4vwjK4
+	0OvMf8IVpT3mahYfMnU8KWQjOg2Zj2H0w45b0Ltpe5v1/sb4a/SH5ngz/v7Rcy/PyMWgN+tg/z/DE
+	1+5vT8rLRv7EeiUSs7KQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pL5ue-00BzR5-V9; Thu, 26 Jan 2023 17:19:48 +0000
-Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
+	id 1pL60L-00C0MJ-DR; Thu, 26 Jan 2023 17:25:41 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pL5ub-00BzPB-7h
-	for linux-riscv@lists.infradead.org; Thu, 26 Jan 2023 17:19:47 +0000
-Received: by mail-ed1-x529.google.com with SMTP id g11so2473730eda.12
-        for <linux-riscv@lists.infradead.org>; Thu, 26 Jan 2023 09:19:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=01osTMBd75dRpakFi+4b9Q8z4AgCSWYPv3lvZC0TYjM=;
-        b=lrO89/jqwvDxECL40SawzLb3nkxUOLRNmH+WH6HvtVummxi4esYTR3oUbmDt78ozlj
-         +vUvCoPnxaPazamIRsBkU9zwF9jwV1WV3aznQ/qJI7LNUxxlS+yL0HhNoetEetNSxiFY
-         gg80cTixAwH15DyhrpY3T47S5dm5+5zxv1L4ExLLcVlZ/HFR6XfsZNUHerfjUa3Ll55S
-         WGdjFxu5CnhgAqlWFiRaG8IvLITUwkrHs0oDJ2qfJZtRcAi0BsNAYny1IyLGjzW4GSJZ
-         W1r4FoKyQzBU+Gqw/UKZXoPqziN6F25sqLhuBaWNfLh4MTMn2DHdkeoKLNs4Av1XaStH
-         2i0Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=01osTMBd75dRpakFi+4b9Q8z4AgCSWYPv3lvZC0TYjM=;
-        b=zasShtfgg/ORkWMo0o1iRMxbTYA1wI4KvERNVKiwWwV4g318KpSfJvfNevXHZoR1FL
-         FE4lc5tE+ZyNLsSOdBFKoj2ZkkNW5ZPCDCgVb9ZRkUNfcQQzVdDMNd9FtcQ23h8Qbn5V
-         yXcpkMxo2ZhKOPEVDG9WJhdHtBcHKamQCo4YMPEbHJV6bvJdjqkxBF7YPiV4g6WNLOuh
-         bBmvbqC+0rRfsh/hRXXJZGxKySDYxcv57WhUYn0nhtxITfkI6dPYJxxuj+kZag0PeGyf
-         +jlM85mdh6t0b0E+JDmXgv27cHom5lJhaGizXekD9gaq6wyJhjmsUMNT7/HcQnHASKDu
-         pfFQ==
-X-Gm-Message-State: AFqh2kpGHIO3iAlkcv6HblZm8Ybkzr4gTqfPiDZ3pXkQoLJYpj31iExN
-	aWFB1PaBFmLymIB37qfr8P3xNQ==
-X-Google-Smtp-Source: AMrXdXtfKMYV3jATA6WLS4xpNKiethm1csHaCV2lOHmRMOi/M8Hk0+YWGFwOy/AhSPDS/Hp9yZrV+A==
-X-Received: by 2002:a05:6402:5299:b0:49c:5a27:c1fa with SMTP id en25-20020a056402529900b0049c5a27c1famr39368799edb.24.1674753579952;
-        Thu, 26 Jan 2023 09:19:39 -0800 (PST)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id s22-20020a056402037600b0049c4e3d4139sm1009026edw.89.2023.01.26.09.19.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Jan 2023 09:19:39 -0800 (PST)
-Date: Thu, 26 Jan 2023 18:19:38 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>,
-	Atish Patra <atishp@atishpatra.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 5/7] RISC-V: KVM: Add ONE_REG interface for AIA CSRs
-Message-ID: <20230126171938.la5jswt6gr4qanl5@orel>
-References: <20230112140304.1830648-1-apatel@ventanamicro.com>
- <20230112140304.1830648-6-apatel@ventanamicro.com>
+	id 1pL60D-00C0Jm-QA
+	for linux-riscv@lists.infradead.org; Thu, 26 Jan 2023 17:25:36 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 26CE9618FF;
+	Thu, 26 Jan 2023 17:25:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 478D8C433EF;
+	Thu, 26 Jan 2023 17:25:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1674753932;
+	bh=+ygtup1H1Hi1Gj+bbIS1pl26EshplfwU7EhVnXXoFeM=;
+	h=From:To:Cc:Subject:Date:From;
+	b=UAIcSb4sK6Ij9EyAudyeCc/0lQ+N6Q74Qphh+wBPc/mzam2PLwYJW4bEokgDeCjG3
+	 XWw5/Tp66QgOycRHuCP69IIhpdN+uWOExXdIi1OR31UD91RHEFi3GgVUl5C3gMR8ps
+	 m+W16tRVx3j34cPb6wFW7oj9e23r+BnUi7Q725H8VSPrbe/a89lv7jiQtBoxTmnfZi
+	 z4igKcvO7eEHL07B8DuH59k+i7NAVmOtHM8fTuM2yr8IUQqMi+o8E1FiwCH6nN/fBC
+	 wD++RxkSFw+SPLRJ+VO08LxrqX7K/UonfZhTdplhP4p2uCPteRxrd3BJWdmN4K+e4q
+	 cH9IYmXj4fB8g==
+From: guoren@kernel.org
+To: arnd@arndb.de,
+	guoren@kernel.org,
+	palmer@rivosinc.com,
+	tglx@linutronix.de,
+	peterz@infradead.org,
+	luto@kernel.org,
+	conor.dooley@microchip.com,
+	heiko@sntech.de,
+	jszhang@kernel.org,
+	lazyparser@gmail.com,
+	falcon@tinylab.org,
+	chenhuacai@kernel.org,
+	apatel@ventanamicro.com,
+	atishp@atishpatra.org,
+	mark.rutland@arm.com,
+	ben@decadent.org.uk,
+	bjorn@kernel.org
+Cc: linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Guo Ren <guoren@linux.alibaba.com>
+Subject: [PATCH -next V15 0/7] riscv: Add GENERIC_ENTRY support
+Date: Thu, 26 Jan 2023 12:25:09 -0500
+Message-Id: <20230126172516.1580058-1-guoren@kernel.org>
+X-Mailer: git-send-email 2.36.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230112140304.1830648-6-apatel@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230126_091945_307529_08D3A6F9 
-X-CRM114-Status: GOOD (  26.68  )
+X-CRM114-CacheID: sfid-20230126_092533_959347_765D9C60 
+X-CRM114-Status: GOOD (  16.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,249 +83,115 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 12, 2023 at 07:33:02PM +0530, Anup Patel wrote:
-> We extend the CSR ONE_REG interface to access both general CSRs and
-> AIA CSRs. To achieve this, we introduce "subtype" field in the ONE_REG
-> id which can be used for grouping registers within a particular "type"
-> of ONE_REG registers.
-> 
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> ---
->  arch/riscv/include/uapi/asm/kvm.h | 15 ++++-
->  arch/riscv/kvm/vcpu.c             | 96 ++++++++++++++++++++++++-------
->  2 files changed, 89 insertions(+), 22 deletions(-)
-> 
-> diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
-> index 71992ff1f9dd..d0704eff0121 100644
-> --- a/arch/riscv/include/uapi/asm/kvm.h
-> +++ b/arch/riscv/include/uapi/asm/kvm.h
-> @@ -64,7 +64,7 @@ struct kvm_riscv_core {
->  #define KVM_RISCV_MODE_S	1
->  #define KVM_RISCV_MODE_U	0
->  
-> -/* CSR registers for KVM_GET_ONE_REG and KVM_SET_ONE_REG */
-> +/* General CSR registers for KVM_GET_ONE_REG and KVM_SET_ONE_REG */
->  struct kvm_riscv_csr {
->  	unsigned long sstatus;
->  	unsigned long sie;
-> @@ -78,6 +78,10 @@ struct kvm_riscv_csr {
->  	unsigned long scounteren;
->  };
->  
-> +/* AIA CSR registers for KVM_GET_ONE_REG and KVM_SET_ONE_REG */
-> +struct kvm_riscv_aia_csr {
-> +};
-> +
->  /* TIMER registers for KVM_GET_ONE_REG and KVM_SET_ONE_REG */
->  struct kvm_riscv_timer {
->  	__u64 frequency;
-> @@ -105,6 +109,7 @@ enum KVM_RISCV_ISA_EXT_ID {
->  	KVM_RISCV_ISA_EXT_SVINVAL,
->  	KVM_RISCV_ISA_EXT_ZIHINTPAUSE,
->  	KVM_RISCV_ISA_EXT_ZICBOM,
-> +	KVM_RISCV_ISA_EXT_SSAIA,
->  	KVM_RISCV_ISA_EXT_MAX,
->  };
->  
-> @@ -134,6 +139,8 @@ enum KVM_RISCV_SBI_EXT_ID {
->  /* If you need to interpret the index values, here is the key: */
->  #define KVM_REG_RISCV_TYPE_MASK		0x00000000FF000000
->  #define KVM_REG_RISCV_TYPE_SHIFT	24
-> +#define KVM_REG_RISCV_SUBTYPE_MASK	0x0000000000FF0000
-> +#define KVM_REG_RISCV_SUBTYPE_SHIFT	16
-
-We could just define a new AIA_CSR type, rather than introduce CSR
-subtypes. While grouping all CSRs together under the CSR type also
-makes sense, having to teach all userspaces about subtypes may not
-be worth the organizational benefits.
-
->  
->  /* Config registers are mapped as type 1 */
->  #define KVM_REG_RISCV_CONFIG		(0x01 << KVM_REG_RISCV_TYPE_SHIFT)
-> @@ -147,8 +154,12 @@ enum KVM_RISCV_SBI_EXT_ID {
->  
->  /* Control and status registers are mapped as type 3 */
->  #define KVM_REG_RISCV_CSR		(0x03 << KVM_REG_RISCV_TYPE_SHIFT)
-> +#define KVM_REG_RISCV_CSR_GENERAL	0x0
-> +#define KVM_REG_RISCV_CSR_AIA		0x1
->  #define KVM_REG_RISCV_CSR_REG(name)	\
-> -		(offsetof(struct kvm_riscv_csr, name) / sizeof(unsigned long))
-> +	(offsetof(struct kvm_riscv_csr, name) / sizeof(unsigned long))
-> +#define KVM_REG_RISCV_CSR_AIA_REG(name)	\
-> +	(offsetof(struct kvm_riscv_aia_csr, name) / sizeof(unsigned long))
->  
->  /* Timer registers are mapped as type 4 */
->  #define KVM_REG_RISCV_TIMER		(0x04 << KVM_REG_RISCV_TYPE_SHIFT)
-> diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-> index 3cf50eadc8ce..37933ea20274 100644
-> --- a/arch/riscv/kvm/vcpu.c
-> +++ b/arch/riscv/kvm/vcpu.c
-> @@ -58,6 +58,7 @@ static const unsigned long kvm_isa_ext_arr[] = {
->  	[KVM_RISCV_ISA_EXT_I] = RISCV_ISA_EXT_i,
->  	[KVM_RISCV_ISA_EXT_M] = RISCV_ISA_EXT_m,
->  
-> +	KVM_ISA_EXT_ARR(SSAIA),
->  	KVM_ISA_EXT_ARR(SSTC),
->  	KVM_ISA_EXT_ARR(SVINVAL),
->  	KVM_ISA_EXT_ARR(SVPBMT),
-> @@ -96,6 +97,7 @@ static bool kvm_riscv_vcpu_isa_disable_allowed(unsigned long ext)
->  	case KVM_RISCV_ISA_EXT_C:
->  	case KVM_RISCV_ISA_EXT_I:
->  	case KVM_RISCV_ISA_EXT_M:
-> +	case KVM_RISCV_ISA_EXT_SSAIA:
->  	case KVM_RISCV_ISA_EXT_SSTC:
->  	case KVM_RISCV_ISA_EXT_SVINVAL:
->  	case KVM_RISCV_ISA_EXT_ZIHINTPAUSE:
-> @@ -451,30 +453,79 @@ static int kvm_riscv_vcpu_set_reg_core(struct kvm_vcpu *vcpu,
->  	return 0;
->  }
->  
-> +static int kvm_riscv_vcpu_general_get_csr(struct kvm_vcpu *vcpu,
-> +					  unsigned long reg_num,
-> +					  unsigned long *out_val)
-> +{
-> +	struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
-> +
-> +	if (reg_num >= sizeof(struct kvm_riscv_csr) / sizeof(unsigned long))
-> +		return -EINVAL;
-> +
-> +	if (reg_num == KVM_REG_RISCV_CSR_REG(sip)) {
-> +		kvm_riscv_vcpu_flush_interrupts(vcpu);
-> +		*out_val = (csr->hvip >> VSIP_TO_HVIP_SHIFT) & VSIP_VALID_MASK;
-> +	} else
-> +		*out_val = ((unsigned long *)csr)[reg_num];
-> +
-> +	return 0;
-> +}
-> +
->  static int kvm_riscv_vcpu_get_reg_csr(struct kvm_vcpu *vcpu,
->  				      const struct kvm_one_reg *reg)
->  {
-> -	struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
-> +	int rc;
->  	unsigned long __user *uaddr =
->  			(unsigned long __user *)(unsigned long)reg->addr;
->  	unsigned long reg_num = reg->id & ~(KVM_REG_ARCH_MASK |
->  					    KVM_REG_SIZE_MASK |
->  					    KVM_REG_RISCV_CSR);
-> -	unsigned long reg_val;
-> +	unsigned long reg_val, reg_subtype;
->  
->  	if (KVM_REG_SIZE(reg->id) != sizeof(unsigned long))
->  		return -EINVAL;
-> +
-> +	reg_subtype = (reg_num & KVM_REG_RISCV_SUBTYPE_MASK)
-> +			>> KVM_REG_RISCV_SUBTYPE_SHIFT;
-> +	reg_num &= ~KVM_REG_RISCV_SUBTYPE_MASK;
-> +	switch (reg_subtype) {
-> +	case KVM_REG_RISCV_CSR_GENERAL:
-> +		rc = kvm_riscv_vcpu_general_get_csr(vcpu, reg_num, &reg_val);
-> +		break;
-> +	case KVM_REG_RISCV_CSR_AIA:
-> +		rc = kvm_riscv_vcpu_aia_get_csr(vcpu, reg_num, &reg_val);
-> +		break;
-> +	default:
-> +		rc = -EINVAL;
-> +		break;
-> +	}
-> +	if (rc)
-> +		return rc;
-> +
-> +	if (copy_to_user(uaddr, &reg_val, KVM_REG_SIZE(reg->id)))
-> +		return -EFAULT;
-> +
-> +	return 0;
-> +}
-> +
-> +static inline int kvm_riscv_vcpu_general_set_csr(struct kvm_vcpu *vcpu,
-> +						 unsigned long reg_num,
-> +						 unsigned long reg_val)
-> +{
-> +	struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
-> +
->  	if (reg_num >= sizeof(struct kvm_riscv_csr) / sizeof(unsigned long))
->  		return -EINVAL;
->  
->  	if (reg_num == KVM_REG_RISCV_CSR_REG(sip)) {
-> -		kvm_riscv_vcpu_flush_interrupts(vcpu);
-> -		reg_val = (csr->hvip >> VSIP_TO_HVIP_SHIFT) & VSIP_VALID_MASK;
-> -	} else
-> -		reg_val = ((unsigned long *)csr)[reg_num];
-> +		reg_val &= VSIP_VALID_MASK;
-> +		reg_val <<= VSIP_TO_HVIP_SHIFT;
-> +	}
->  
-> -	if (copy_to_user(uaddr, &reg_val, KVM_REG_SIZE(reg->id)))
-> -		return -EFAULT;
-> +	((unsigned long *)csr)[reg_num] = reg_val;
-> +
-> +	if (reg_num == KVM_REG_RISCV_CSR_REG(sip))
-> +		WRITE_ONCE(vcpu->arch.irqs_pending_mask, 0);
->  
->  	return 0;
->  }
-> @@ -482,31 +533,36 @@ static int kvm_riscv_vcpu_get_reg_csr(struct kvm_vcpu *vcpu,
->  static int kvm_riscv_vcpu_set_reg_csr(struct kvm_vcpu *vcpu,
->  				      const struct kvm_one_reg *reg)
->  {
-> -	struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
-> +	int rc;
->  	unsigned long __user *uaddr =
->  			(unsigned long __user *)(unsigned long)reg->addr;
->  	unsigned long reg_num = reg->id & ~(KVM_REG_ARCH_MASK |
->  					    KVM_REG_SIZE_MASK |
->  					    KVM_REG_RISCV_CSR);
-> -	unsigned long reg_val;
-> +	unsigned long reg_val, reg_subtype;
->  
->  	if (KVM_REG_SIZE(reg->id) != sizeof(unsigned long))
->  		return -EINVAL;
-> -	if (reg_num >= sizeof(struct kvm_riscv_csr) / sizeof(unsigned long))
-> -		return -EINVAL;
->  
->  	if (copy_from_user(&reg_val, uaddr, KVM_REG_SIZE(reg->id)))
->  		return -EFAULT;
->  
-> -	if (reg_num == KVM_REG_RISCV_CSR_REG(sip)) {
-> -		reg_val &= VSIP_VALID_MASK;
-> -		reg_val <<= VSIP_TO_HVIP_SHIFT;
-> +	reg_subtype = (reg_num & KVM_REG_RISCV_SUBTYPE_MASK)
-> +			>> KVM_REG_RISCV_SUBTYPE_SHIFT;
-> +	reg_num &= ~KVM_REG_RISCV_SUBTYPE_MASK;
-> +	switch (reg_subtype) {
-> +	case KVM_REG_RISCV_CSR_GENERAL:
-> +		rc = kvm_riscv_vcpu_general_set_csr(vcpu, reg_num, reg_val);
-> +		break;
-> +	case KVM_REG_RISCV_CSR_AIA:
-> +		rc = kvm_riscv_vcpu_aia_set_csr(vcpu, reg_num, reg_val);
-> +		break;
-> +	default:
-> +		rc = -EINVAL;
-> +		break;
->  	}
-> -
-> -	((unsigned long *)csr)[reg_num] = reg_val;
-> -
-> -	if (reg_num == KVM_REG_RISCV_CSR_REG(sip))
-> -		WRITE_ONCE(vcpu->arch.irqs_pending_mask, 0);
-> +	if (rc)
-> +		return rc;
->  
->  	return 0;
->  }
-> -- 
-> 2.34.1
->
-
-Thanks,
-drew
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogR3VvIFJlbiA8Z3VvcmVuQGxpbnV4LmFsaWJhYmEuY29tPgoKVGhlIHBhdGNoZXMgY29u
+dmVydCByaXNjdiB0byB1c2UgdGhlIGdlbmVyaWMgZW50cnkgaW5mcmFzdHJ1Y3R1cmUgZnJvbQpr
+ZXJuZWwvZW50cnkvKi4gU29tZSBvcHRpbWl6YXRpb24gZm9yIGVudHJ5LlMgd2l0aCBuZXcgLm1h
+Y3JvIGFuZCBtZXJnZQpyZXRfZnJvbV9rZXJuZWxfdGhyZWFkIGludG8gcmV0X2Zyb21fZm9yay4K
+ClRoZSAxLDIgYXJlIHRoZSBwcmVwYXJhdGlvbiBvZiBnZW5lcmljIGVudHJ5LiAzfjcgYXJlIHRo
+ZSBtYWluIHBhcnQKb2YgZ2VuZXJpYyBlbnRyeS4KCkFsbCB0ZXN0ZWQgd2l0aCBydjY0LCBydjMy
+LCBydjY0ICsgMzJyb290ZnMsIGFsbCBhcmUgcGFzc2VkLgoKWW91IGNhbiBkaXJlY3RseSB0cnkg
+aXQgd2l0aDoKWzFdIGh0dHBzOi8vZ2l0aHViLmNvbS9ndW9yZW44My9saW51eC90cmVlL2dlbmVy
+aWNfZW50cnlfdjE1CgpBbnkgcmV2aWV3cyBhbmQgdGVzdHMgYXJlIGhlbHBmdWwuCgp2MTU6CiAt
+IEZpeHVwIGNvbXBpbGUgZXJyb3IgZm9yICFNTVUgKFRoeCBDb25vcikKIC0gUmViYXNlIG9uIHJp
+c2N2IGZvci1uZXh0ICgyMDIzMDEyNykKCnYxNDoKaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGlu
+dXgtcmlzY3YvMjAyMzAxMTIwOTU4NDguMTQ2NDQwNC0xLWd1b3JlbkBrZXJuZWwub3JnLwogLSBG
+aXh1cCBXPTEgd2FybmluZyByZXBvcnRlZCBieSBrZXJuZWwgdGVzdCByb2JvdCA8bGtwQGludGVs
+LmNvbT4KCnYxMzoKaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcmlzY3YvMjAyMzAxMDcx
+MTM4MzguMzk2OTE0OS0xLWd1b3JlbkBrZXJuZWwub3JnLwogLSBSZW1vdmUgbm9pbnN0ciBmb3Ig
+b3JpZ2luYWwgZG9fcGFnZV9mYXVsdAogLSBDZW50cmFsaXplIGFsbCB0aGUgbmVjZXNhcmlseS1u
+b2luc3RyIGJpdHMgaW4KICAgYXJjaC9yaXNjdi9rZXJuZWwvdHJhcHMuYwoKdjEyOgpodHRwczov
+L2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNjdi8yMDIzMDEwMzAzMzUzMS4yMDExMTEyLTEtZ3Vv
+cmVuQGtlcm5lbC5vcmcvCiAtIFJlYmFzZSBvbiBuZXdlc3QgZm9yLW5leHQtMjAyMzAxMDMgKExp
+bnV4IDYuMi1yYzEpCiAtIEFkZCBSZXZpZXdlZC1ieTogQmrDtnJuIFTDtnBlbAoKdjExOgpodHRw
+czovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNjdi8yMDIyMTIxMDE3MTE0MS4xMTIwMTIzLTEt
+Z3VvcmVuQGtlcm5lbC5vcmcvCiAtIFJlYmFzZSBvbiBuZXdlc3QgZm9yLW5leHQtMjAyMjEyMTEK
+IC0gUmVtb3ZlIHN0YWNrIG9wdGltaXphdGlvbiBwYXRjaCBzZXJpZXMKIC0gT3B0aW1pemUgY29t
+bWVudHMKIC0gUmVwbGFjZSBFTlRSWSB3aXRoIFNZTV9DT0RFL0ZVTkNfU1RBUlQgaW4gZW50cnku
+UwoKdjEwOgpodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNjdi8yMDIyMTIwODAyNTgx
+Ni4xMzg3MTItMS1ndW9yZW5Aa2VybmVsLm9yZy8KIC0gUmViYXNlIG9uIHBhbG1lci9mb3ItbmV4
+dCBicmFuY2ggKDIwMjIxMjA4KQogLSBSZW1vdmUgdW5yZWxhdGVkIHBhdGNoZXMgZnJvbSB0aGUg
+c2VyaWVzIChTdWdnZXN0ZWQtYnk6IEJqb3JuKQogLSBGaXh1cCBUeXBvcy4gCgp2OToKaHR0cHM6
+Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcmlzY3YvMjAyMjExMzAwMzQwNTkuODI2NTk5LTEtZ3Vv
+cmVuQGtlcm5lbC5vcmcvCiAtIEZpeHVwIE5SX3N5c2NhbGxzIGNoZWNrIChieSBCZW4gSHV0Y2hp
+bmdzKQogLSBBZGQgVGVzdGVkLWJ5OiBKaXNoZW5nIFpoYW5nCgp2ODoKaHR0cHM6Ly9sb3JlLmtl
+cm5lbC5vcmcvbGludXgtcmlzY3YvMjAyMjExMDMwNzUwNDcuMTYzNDkyMy0xLWd1b3JlbkBrZXJu
+ZWwub3JnLwogLSBSZWJhc2Ugb24gcGFsbWVyL2Zvci1uZXh0IGJyYW5jaCAoMjAyMjExMDIpCiAt
+IEFkZCBzYXZlL3Jlc3RvcmVfZnJvbV94NV90b194MzEgLm1hY3JvIChKaXNoZW5nWmhhbmcpCiAt
+IENvbnNvbGlkYXRlIHJldF9mcm9tX2tlcm5lbF90aHJlYWQgaW50byByZXRfZnJvbV9mb3JrIChK
+aXNoZW5nWmhhbmcpCiAtIE9wdGltaXplIF9fbm9pbnN0cl9zZWN0aW9uIGNvbW1lbnQgKEppYW5n
+c2hhbkxhaSkKCnY3OgpodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNjdi8yMDIyMTAx
+NTExNDcwMi4zNDg5OTg5LTEtZ3VvcmVuQGtlcm5lbC5vcmcvCiAtIEZpeHVwIHJlZ3NfaXJxc19k
+aXNhYmxlZCB3aXRoIFNSX1BJRQogLSBPcHRpbWl6ZSBzdGFja2xlYWtfZXJhc2UgLT4gc3RhY2ts
+ZWFrX2VyYXNlX29uX3Rhc2tfc3RhY2sgKFRoeCBNYXJrCiAgIFJ1dGxhbmQpCiAtIEFkZCBCVUdf
+T04oIWlycXNfZGlzYWJsZWQoKSkgaW4gdHJhcCBoYW5kbGVycwogLSBVc2luZyByZWdzX2lycXNf
+ZGlzYWJsZWQgaW4gX19kb19wYWdlX2ZhdWx0CiAtIFJlbW92ZSB1bm5lY2Vzc2FyeSBpcnEgZGlz
+YWJsZSBpbiByZXRfZnJvbV9leGNlcHRpb24gYW5kIGFkZCBjb21tZW50Cgp2NjoKaHR0cHM6Ly9s
+b3JlLmtlcm5lbC5vcmcvbGludXgtcmlzY3YvMjAyMjEwMDIwMTI0NTEuMjM1MTEyNy0xLWd1b3Jl
+bkBrZXJuZWwub3JnLwogLSBVc2UgVEhFQURfU0laRV9PUkRFUiBmb3IgdGhyZWFkIHNpemUgYWRq
+dXN0bWVudCBpbiBrY29uZmlnIChUaHggQXJuZCkKIC0gTW92ZSBjYWxsX29uX3N0YWNrIHRvIGlu
+bGluZSBzdHlsZSAoVGh4IFBldGVyIFppamxzdHJhKQogLSBGaXh1cCBmcCBjaGFpbiBicm9rZW4g
+KFRoeCBDaGVuIFpob25namluKQogLSBSZW1vdmUgY29tbW9uIGVudHJ5IG1vZGlmaWNhdGlvbiwg
+YW5kIGZpeHVwIHBhZ2VfZmF1bHQgZW50cnkgKFRoeAogICBQZXRlciBaaWpsc3RyYSkKIC0gVHJl
+YXQgc29tZSB0cmFwcyBhcyBubWkgZW50cnkgKFRoeCBQZXRlciBaaWpsc3RyYSkKCnY1OgpodHRw
+czovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNjdi8yMDIyMDkxODE1NTI0Ni4xMjAzMjkzLTEt
+Z3VvcmVuQGtlcm5lbC5vcmcvCiAtIEFkZCByaXNjdiBvd24gc3RhY2tsZWFrIHBhdGNoIGluc3Rl
+YWQgb2YgZ2VuZXJpYyBlbnRyeSBtb2RpZmljYXRpb24KICAgKGJ5IE1hcmsgUnV0bGFuZCkKIC0g
+QWRkIEVYUEVSVCBkZXBlbmRlbmN5IGZvciBUSFJFQURfU0laRSAoYnkgQXJuZCkKIC0gQWRkIEVY
+UEVSVCBkZXBlbmRlbmN5IGZvciBJUlFfU1RBQ0sgKGJ5IFNlYmFzdGlhbiwgRGF2aWQgTGFpZ2h0
+KQogLSBDb3JyZWN0ZWQgX190cmFwX3NlY3Rpb24gKGJ5IFBldGVyIFppamxzdHJhKQogLSBBZGQg
+VGVzdGVkLWJ5IChZaXBlbmcgWm91KQogLSBVc2UgQ09ORklHX1NPRlRJUlFfT05fT1dOX1NUQUNL
+IHJlcGxhY2UgIiNpZm5kZWYgQ09ORklHX1BSRUVNUFRfUlQiCiAtIEZpeHVwIHN5c3RyYWNlX2Vu
+dGVyIGNvbXBpbGUgZXJyb3IKIC0gRml4dXAgZXhpdF90b191c2VyX21vZGVfcHJlcGFyZSBwcmVl
+bXB0X2Rpc2FibGUgd2FybmluZwoKVjQ6Cmh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LXJp
+c2N2LzIwMjIwOTA4MDIyNTA2LjEyNzU3OTktMS1ndW9yZW5Aa2VybmVsLm9yZy8KIC0gRml4dXAg
+ZW50cnkuUyB3aXRoICJsYSIgYnVnIChieSBDb25vci5Eb29sZXkpCiAtIEZpeHVwIG1pc3Npbmcg
+bm9pbnN0ciBidWcgKGJ5IFBldGVyIFppamxzdHJhKQoKVjM6Cmh0dHBzOi8vbG9yZS5rZXJuZWwu
+b3JnL2xpbnV4LXJpc2N2LzIwMjIwOTA2MDM1NDIzLjYzNDYxNy0xLWd1b3JlbkBrZXJuZWwub3Jn
+LwogLSBGaXh1cCBDT05GSUdfQ09NUEFUPW4gY29tcGlsZSBlcnJvcgogLSBBZGQgVEhSRUFEX1NJ
+WkVfT1JERVIgY29uZmlnCiAtIE9wdGltaXplIGVsZl9rZXhlYy5jIHdhcm5pbmcgZml4dXAKIC0g
+QWRkIHN0YXRpYyB0byBpcnFfc3RhY2tfcHRyIGRlZmluaXRpb24KClYyOgpodHRwczovL2xvcmUu
+a2VybmVsLm9yZy9saW51eC1yaXNjdi8yMDIyMDkwNDA3MjYzNy44NjE5LTEtZ3VvcmVuQGtlcm5l
+bC5vcmcvCiAtIEZpeHVwIGNvbXBpbGUgZXJyb3IgYnkgaW5jbHVkZSAicmlzY3Y6IHB0cmFjZTog
+UmVtb3ZlIGR1cGxpY2F0ZQogICBvcGVyYXRpb24iCiAtIEZpeHVwIGNvbXBpbGUgd2FybmluZwog
+ICBSZXBvcnRlZC1ieToga2VybmVsIHRlc3Qgcm9ib3QgPGxrcEBpbnRlbC5jb20+CiAtIEFkZCB0
+ZXN0IHJlcG8gbGluayBpbiBjb3ZlciBsZXR0ZXIKClYxOgpodHRwczovL2xvcmUua2VybmVsLm9y
+Zy9saW51eC1yaXNjdi8yMDIyMDkwMzE2MzgwOC4xOTU0MTMxLTEtZ3VvcmVuQGtlcm5lbC5vcmcv
+CgpHdW8gUmVuICgzKToKICByaXNjdjogcHRyYWNlOiBSZW1vdmUgZHVwbGljYXRlIG9wZXJhdGlv
+bgogIHJpc2N2OiBlbnRyeTogQWRkIG5vaW5zdHIgdG8gcHJldmVudCBpbnN0cnVtZW50YXRpb24g
+aW5zZXJ0ZWQKICByaXNjdjogZW50cnk6IENvbnZlcnQgdG8gZ2VuZXJpYyBlbnRyeQoKSmlzaGVu
+ZyBaaGFuZyAoMyk6CiAgcmlzY3Y6IGVudHJ5OiBSZW1vdmUgZXh0cmEgbGV2ZWwgd3JhcHBlcnMg
+b2YgdHJhY2VfaGFyZGlycXNfe29uLG9mZn0KICByaXNjdjogZW50cnk6IENvbnNvbGlkYXRlIHJl
+dF9mcm9tX2tlcm5lbF90aHJlYWQgaW50byByZXRfZnJvbV9mb3JrCiAgcmlzY3Y6IGVudHJ5OiBD
+b25zb2xpZGF0ZSBnZW5lcmFsIHJlZ3Mgc2F2aW5nL3Jlc3RvcmluZwoKTGFpIEppYW5nc2hhbiAo
+MSk6CiAgY29tcGlsZXJfdHlwZXMuaDogQWRkIF9fbm9pbnN0cl9zZWN0aW9uKCkgZm9yIG5vaW5z
+dHIKCiBhcmNoL3Jpc2N2L0tjb25maWcgICAgICAgICAgICAgICAgICAgICAgfCAgIDEgKwogYXJj
+aC9yaXNjdi9pbmNsdWRlL2FzbS9hc20tcHJvdG90eXBlcy5oIHwgICAyICsKIGFyY2gvcmlzY3Yv
+aW5jbHVkZS9hc20vYXNtLmggICAgICAgICAgICB8ICA2MyArKysrKwogYXJjaC9yaXNjdi9pbmNs
+dWRlL2FzbS9jc3IuaCAgICAgICAgICAgIHwgICAxIC0KIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20v
+ZW50cnktY29tbW9uLmggICB8ICAxMSArCiBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3B0cmFjZS5o
+ICAgICAgICAgfCAgMTAgKy0KIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vc3RhY2t0cmFjZS5oICAg
+ICB8ICAgNSArCiBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3N5c2NhbGwuaCAgICAgICAgfCAgMjEg
+KysKIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vdGhyZWFkX2luZm8uaCAgICB8ICAxMyArLQogYXJj
+aC9yaXNjdi9rZXJuZWwvTWFrZWZpbGUgICAgICAgICAgICAgIHwgICAyIC0KIGFyY2gvcmlzY3Yv
+a2VybmVsL2VudHJ5LlMgICAgICAgICAgICAgICB8IDMyNCArKystLS0tLS0tLS0tLS0tLS0tLS0t
+LS0KIGFyY2gvcmlzY3Yva2VybmVsL2hlYWQuaCAgICAgICAgICAgICAgICB8ICAgMSAtCiBhcmNo
+L3Jpc2N2L2tlcm5lbC9tY291bnQtZHluLlMgICAgICAgICAgfCAgNTYgKy0tLQogYXJjaC9yaXNj
+di9rZXJuZWwvcHJvY2Vzcy5jICAgICAgICAgICAgIHwgICA1ICstCiBhcmNoL3Jpc2N2L2tlcm5l
+bC9wdHJhY2UuYyAgICAgICAgICAgICAgfCAgNDQgLS0tLQogYXJjaC9yaXNjdi9rZXJuZWwvc2ln
+bmFsLmMgICAgICAgICAgICAgIHwgIDI5ICstLQogYXJjaC9yaXNjdi9rZXJuZWwvdHJhY2VfaXJx
+LmMgICAgICAgICAgIHwgIDI3IC0tCiBhcmNoL3Jpc2N2L2tlcm5lbC90cmFjZV9pcnEuaCAgICAg
+ICAgICAgfCAgMTEgLQogYXJjaC9yaXNjdi9rZXJuZWwvdHJhcHMuYyAgICAgICAgICAgICAgIHwg
+MTQ0ICsrKysrKysrKy0tCiBhcmNoL3Jpc2N2L21tL2ZhdWx0LmMgICAgICAgICAgICAgICAgICAg
+fCAgIDYgKy0KIGluY2x1ZGUvbGludXgvY29tcGlsZXJfdHlwZXMuaCAgICAgICAgICB8ICAxNSAr
+LQogMjEgZmlsZXMgY2hhbmdlZCwgMjg5IGluc2VydGlvbnMoKyksIDUwMiBkZWxldGlvbnMoLSkK
+IGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2VudHJ5LWNvbW1vbi5o
+CiBkZWxldGUgbW9kZSAxMDA2NDQgYXJjaC9yaXNjdi9rZXJuZWwvdHJhY2VfaXJxLmMKIGRlbGV0
+ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2tlcm5lbC90cmFjZV9pcnEuaAoKLS0gCjIuMzYuMQoK
+Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJp
+c2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9s
+aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
