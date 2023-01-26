@@ -4,81 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48596C05027
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Jan 2023 17:18:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B665C52D11
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Jan 2023 17:19:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iW18cd+kDAOYsHGErD8nLIkOD1W+yt2HOBQKWvMB/KU=; b=vAbV4fnc/nhiBf
-	lQplHxvA8vJLLj3wx2v1kECHM8buEjUx54QN8lwvgByAvWv83IGQlG42QPtJzIQgQyHdrPsZj51KK
-	uiWgMSLh+86NrBmBEEL6NicorjAdux149T572ndTs/UtJKYRllgOnSlta83CvqJoD9bGmWHMZQz0D
-	DXQJ/nbY+wDTMV6GK23MihpS/EHHZPbwCUtooNR75X2epeX+TfrB1car3hy9etnjPtBBfdfxDWW+G
-	4B+Wd7C9aR8CCruauiTkP2YkC7E19PJiXQo6RQT8mtm9iZMCAxJcN7tD0JzrX9mMgyBTiZG2xkqfs
-	U33+A8Bi3HtGwI1CGs+Q==;
+	List-Owner; bh=397GZRIsLONH7Trz2yW8B7yX5c2RoZz3nCE0qezZhWM=; b=M4AJcGlaT3GZw3
+	hJeVWGa8GWGPuIBwJHNkNr9ggtNBKMIHmf+Jq2engJ0Bts5UMg2GvViDKJ/6OvCXIme7nkPd7qiFJ
+	FpedME09cu9wyid2ch4E58kuRtOt/dQqEFRag+ZIg6DNjsVHLyVuVA4a2xCR9trU5pSvsYMuh0ZRM
+	KX19jH603kuJLwwYRwJMp3z0hJqz1LRMyjRwHp3RXdXuIbRLAEBvySUBtlFqwiwUEF7h1Ki3vCxrz
+	SNM4d5JludQ0k2VUvt/3fLH6A9F0HWAz+i/iFoLsKEMEoXqiqyhdvDbGdx0hZ/UhLghO7trXMx68M
+	uklUPFvxzX7fvwCKX5YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pL5sq-00BzH6-Fq; Thu, 26 Jan 2023 17:17:56 +0000
-Received: from mail-yw1-x112a.google.com ([2607:f8b0:4864:20::112a])
+	id 1pL5ue-00BzR5-V9; Thu, 26 Jan 2023 17:19:48 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pL5sm-00BzGd-Tu
-	for linux-riscv@lists.infradead.org; Thu, 26 Jan 2023 17:17:55 +0000
-Received: by mail-yw1-x112a.google.com with SMTP id 00721157ae682-4c24993965eso31997717b3.12
-        for <linux-riscv@lists.infradead.org>; Thu, 26 Jan 2023 09:17:50 -0800 (PST)
+	id 1pL5ub-00BzPB-7h
+	for linux-riscv@lists.infradead.org; Thu, 26 Jan 2023 17:19:47 +0000
+Received: by mail-ed1-x529.google.com with SMTP id g11so2473730eda.12
+        for <linux-riscv@lists.infradead.org>; Thu, 26 Jan 2023 09:19:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=vlesl9kNzX5dMKAZEuITdCCnviFGDyQTb6JiHLq1TNU=;
-        b=pg6qniKMEphmTPtH3q/88VkJVf3UY8QS3hd0Wjsruk6hYxWokb+7KQsyy//gIylPb8
-         LHMlTsEuEaDw83y6SogQ1IxKFFao5ygdcwQ/9Y7kEA7WgXDJyOWHcWE8epPiBrJdasew
-         eSaVoB7dIysb8+XpZJ3QHsEcv1xk5bklDY+R5UM4QIpfABQa79Ph5Zszt3v6Pk5BwJLQ
-         oSSi/aGSXItzMmUW+QBaTMUjF88NVVCtjsHsVD9OaSWGWsjn78BS72roaDdV6wv6Ycoe
-         X1fQHk7wnwdO3KZCSorxUWXERrcacFQHcN/vNxkpnJoaQTrJmeH79k5NOiI2xbSTZk/P
-         j/lg==
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=01osTMBd75dRpakFi+4b9Q8z4AgCSWYPv3lvZC0TYjM=;
+        b=lrO89/jqwvDxECL40SawzLb3nkxUOLRNmH+WH6HvtVummxi4esYTR3oUbmDt78ozlj
+         +vUvCoPnxaPazamIRsBkU9zwF9jwV1WV3aznQ/qJI7LNUxxlS+yL0HhNoetEetNSxiFY
+         gg80cTixAwH15DyhrpY3T47S5dm5+5zxv1L4ExLLcVlZ/HFR6XfsZNUHerfjUa3Ll55S
+         WGdjFxu5CnhgAqlWFiRaG8IvLITUwkrHs0oDJ2qfJZtRcAi0BsNAYny1IyLGjzW4GSJZ
+         W1r4FoKyQzBU+Gqw/UKZXoPqziN6F25sqLhuBaWNfLh4MTMn2DHdkeoKLNs4Av1XaStH
+         2i0Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=vlesl9kNzX5dMKAZEuITdCCnviFGDyQTb6JiHLq1TNU=;
-        b=46D5lc9zD2Y/gYeywzBtjASlA4CGt+9NGmgJk5jdnc43YvP8MG09MhiISYYz4KdCIe
-         IQoXZspGs/ZZBqn8k9NqmMMqcvIzSZMsPW2tmRlf5ZIPqOYb0hr0FEeIyd8D+Lhfp27D
-         InMdDEzMj+2vVqa7ENfsuncSKWigQfzui2Z/eigzkIX/eWfFS/0jEdeNm7pdN+xaCCGX
-         gUgwxXkpc3IV08w81AdSn3GCJm99aGTXSw3pPaqs61WlE+zPD4PtLNmYuYdedA5egj7j
-         eV+EK3QCLKDPP2cgQO27d4jBhmVLDj0QEv0aDOZS01J7ZDtKJZql6aGRJyFvSzFo6/aK
-         Q8+g==
-X-Gm-Message-State: AO0yUKW/I6xGBqxmtSYmPUNQoGzxDCYQpc+oKg+jYjFqMDtP6+cbjPUV
-	fjU8YRk5e5/Lre2Q1hDHYXN0UZ/Df8SzHIxQd9E=
-X-Google-Smtp-Source: AK7set+LWqndcN/GcsSVf4Q6a/asERa5o0LzQqIyr0nXR7iU+Zrxn4gIa/caUhxXmigoUUZg0I4WUY27HyC+eOCpdAU=
-X-Received: by 2002:a81:a002:0:b0:507:aac9:9b3b with SMTP id
- x2-20020a81a002000000b00507aac99b3bmr723343ywg.249.1674753470089; Thu, 26 Jan
- 2023 09:17:50 -0800 (PST)
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=01osTMBd75dRpakFi+4b9Q8z4AgCSWYPv3lvZC0TYjM=;
+        b=zasShtfgg/ORkWMo0o1iRMxbTYA1wI4KvERNVKiwWwV4g318KpSfJvfNevXHZoR1FL
+         FE4lc5tE+ZyNLsSOdBFKoj2ZkkNW5ZPCDCgVb9ZRkUNfcQQzVdDMNd9FtcQ23h8Qbn5V
+         yXcpkMxo2ZhKOPEVDG9WJhdHtBcHKamQCo4YMPEbHJV6bvJdjqkxBF7YPiV4g6WNLOuh
+         bBmvbqC+0rRfsh/hRXXJZGxKySDYxcv57WhUYn0nhtxITfkI6dPYJxxuj+kZag0PeGyf
+         +jlM85mdh6t0b0E+JDmXgv27cHom5lJhaGizXekD9gaq6wyJhjmsUMNT7/HcQnHASKDu
+         pfFQ==
+X-Gm-Message-State: AFqh2kpGHIO3iAlkcv6HblZm8Ybkzr4gTqfPiDZ3pXkQoLJYpj31iExN
+	aWFB1PaBFmLymIB37qfr8P3xNQ==
+X-Google-Smtp-Source: AMrXdXtfKMYV3jATA6WLS4xpNKiethm1csHaCV2lOHmRMOi/M8Hk0+YWGFwOy/AhSPDS/Hp9yZrV+A==
+X-Received: by 2002:a05:6402:5299:b0:49c:5a27:c1fa with SMTP id en25-20020a056402529900b0049c5a27c1famr39368799edb.24.1674753579952;
+        Thu, 26 Jan 2023 09:19:39 -0800 (PST)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id s22-20020a056402037600b0049c4e3d4139sm1009026edw.89.2023.01.26.09.19.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Jan 2023 09:19:39 -0800 (PST)
+Date: Thu, 26 Jan 2023 18:19:38 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>,
+	Atish Patra <atishp@atishpatra.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 5/7] RISC-V: KVM: Add ONE_REG interface for AIA CSRs
+Message-ID: <20230126171938.la5jswt6gr4qanl5@orel>
+References: <20230112140304.1830648-1-apatel@ventanamicro.com>
+ <20230112140304.1830648-6-apatel@ventanamicro.com>
 MIME-Version: 1.0
-References: <Y6S1/kROC0p5CboA@curiosity> <CA+V-a8u0qUF81RUTF9+4T4F1GxW3=4P7RMTTjjsaMq4MiiQSMQ@mail.gmail.com>
- <Y6TIywUWZ3nrPeon@curiosity> <CA+V-a8tMQ-RaaXD5209HxT77VoiOanvjdbFCPsdWpDYswuY+ZQ@mail.gmail.com>
- <Y6TYNBgqgWuxhhHJ@curiosity> <CA+V-a8tDi79M8cS7rVoby3sopQ4AwXXcNggfHYXW-W2wtEgQ4g@mail.gmail.com>
- <Y6Xjwg1dDYnwRbni@curiosity> <CA+V-a8uwmwriyoSZ1ftVQ1L1_uTL3k=VSs7Cid7++XEshq1RsQ@mail.gmail.com>
- <Y6bm8KIsHhFq1RFR@curiosity> <CA+V-a8scDWmqqAXp1hOUYFcn-4Zaj3MBqeQs7QZy5WBwyXPjxQ@mail.gmail.com>
- <Y68XeN4zJdmMP8NC@curiosity>
-In-Reply-To: <Y68XeN4zJdmMP8NC@curiosity>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Thu, 26 Jan 2023 17:17:23 +0000
-Message-ID: <CA+V-a8tjrk8T3y8ks-MVHmE2Dp55am0sgkGNWEwg=u=NhpjCWg@mail.gmail.com>
-Subject: Re: [RFC PATCH 1/1] riscv: mm: notify remote harts about mmu cache updates
-To: Sergey Matyukevich <geomatsi@gmail.com>
-Cc: linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org, 
-	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@rivosinc.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Guo Ren <guoren@kernel.org>, 
-	Alexandre Ghiti <alexandre.ghiti@canonical.com>, Heiko Stuebner <heiko@sntech.de>, 
-	Sergey Matyukevich <sergey.matyukevich@syntacore.com>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Conor Dooley <Conor.Dooley@microchip.com>
+Content-Disposition: inline
+In-Reply-To: <20230112140304.1830648-6-apatel@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230126_091753_041353_956E47D8 
-X-CRM114-Status: GOOD (  57.38  )
+X-CRM114-CacheID: sfid-20230126_091945_307529_08D3A6F9 
+X-CRM114-Status: GOOD (  26.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,208 +95,242 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Sergey,
+On Thu, Jan 12, 2023 at 07:33:02PM +0530, Anup Patel wrote:
+> We extend the CSR ONE_REG interface to access both general CSRs and
+> AIA CSRs. To achieve this, we introduce "subtype" field in the ONE_REG
+> id which can be used for grouping registers within a particular "type"
+> of ONE_REG registers.
+> 
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> ---
+>  arch/riscv/include/uapi/asm/kvm.h | 15 ++++-
+>  arch/riscv/kvm/vcpu.c             | 96 ++++++++++++++++++++++++-------
+>  2 files changed, 89 insertions(+), 22 deletions(-)
+> 
+> diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
+> index 71992ff1f9dd..d0704eff0121 100644
+> --- a/arch/riscv/include/uapi/asm/kvm.h
+> +++ b/arch/riscv/include/uapi/asm/kvm.h
+> @@ -64,7 +64,7 @@ struct kvm_riscv_core {
+>  #define KVM_RISCV_MODE_S	1
+>  #define KVM_RISCV_MODE_U	0
+>  
+> -/* CSR registers for KVM_GET_ONE_REG and KVM_SET_ONE_REG */
+> +/* General CSR registers for KVM_GET_ONE_REG and KVM_SET_ONE_REG */
+>  struct kvm_riscv_csr {
+>  	unsigned long sstatus;
+>  	unsigned long sie;
+> @@ -78,6 +78,10 @@ struct kvm_riscv_csr {
+>  	unsigned long scounteren;
+>  };
+>  
+> +/* AIA CSR registers for KVM_GET_ONE_REG and KVM_SET_ONE_REG */
+> +struct kvm_riscv_aia_csr {
+> +};
+> +
+>  /* TIMER registers for KVM_GET_ONE_REG and KVM_SET_ONE_REG */
+>  struct kvm_riscv_timer {
+>  	__u64 frequency;
+> @@ -105,6 +109,7 @@ enum KVM_RISCV_ISA_EXT_ID {
+>  	KVM_RISCV_ISA_EXT_SVINVAL,
+>  	KVM_RISCV_ISA_EXT_ZIHINTPAUSE,
+>  	KVM_RISCV_ISA_EXT_ZICBOM,
+> +	KVM_RISCV_ISA_EXT_SSAIA,
+>  	KVM_RISCV_ISA_EXT_MAX,
+>  };
+>  
+> @@ -134,6 +139,8 @@ enum KVM_RISCV_SBI_EXT_ID {
+>  /* If you need to interpret the index values, here is the key: */
+>  #define KVM_REG_RISCV_TYPE_MASK		0x00000000FF000000
+>  #define KVM_REG_RISCV_TYPE_SHIFT	24
+> +#define KVM_REG_RISCV_SUBTYPE_MASK	0x0000000000FF0000
+> +#define KVM_REG_RISCV_SUBTYPE_SHIFT	16
 
-On Fri, Dec 30, 2022 at 4:53 PM Sergey Matyukevich <geomatsi@gmail.com> wrote:
->
-> Hi Prabhakar,
->
-> > Hi Sergey,
-> >
-> > On Sat, Dec 24, 2022 at 11:48 AM Sergey Matyukevich <geomatsi@gmail.com> wrote:
-> > >
-> > > Hi Prabhakar,
-> > >
-> > > > > > > > > > > > > Current implementation of update_mmu_cache function performs local TLB
-> > > > > > > > > > > > > flush. It does not take into account ASID information. Besides, it does
-> > > > > > > > > > > > > not take into account other harts currently running the same mm context
-> > > > > > > > > > > > > or possible migration of the running context to other harts. Meanwhile
-> > > > > > > > > > > > > TLB flush is not performed for every context switch if ASID support
-> > > > > > > > > > > > > is enabled.
-> > > > > > > > > > > > >
-> > > > > > > > > > > > > Patch [1] proposed to add ASID support to update_mmu_cache to avoid
-> > > > > > > > > > > > > flushing local TLB entirely. This patch takes into account other
-> > > > > > > > > > > > > harts currently running the same mm context as well as possible
-> > > > > > > > > > > > > migration of this context to other harts.
-> > > > > > > > > > > > >
-> > > > > > > > > > > > > For this purpose the approach from flush_icache_mm is reused. Remote
-> > > > > > > > > > > > > harts currently running the same mm context are informed via SBI calls
-> > > > > > > > > > > > > that they need to flush their local TLBs. All the other harts are marked
-> > > > > > > > > > > > > as needing a deferred TLB flush when this mm context runs on them.
-> > > > > > > > > > > > >
-> > > > > > > > > > > > > [1] https://lore.kernel.org/linux-riscv/20220821013926.8968-1-tjytimi@163.com/
-> > > > > > > > > > > > >
-> > > > > > > > > > > > > Signed-off-by: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
-> > > > > > > > > > > > > ---
-> > > > > > > > > > > > >  arch/riscv/include/asm/mmu.h      |  2 ++
-> > > > > > > > > > > > >  arch/riscv/include/asm/pgtable.h  |  2 +-
-> > > > > > > > > > > > >  arch/riscv/include/asm/tlbflush.h | 18 ++++++++++++++++++
-> > > > > > > > > > > > >  arch/riscv/mm/context.c           | 10 ++++++++++
-> > > > > > > > > > > > >  arch/riscv/mm/tlbflush.c          | 28 +++++++++++-----------------
-> > > > > > > > > > > > >  5 files changed, 42 insertions(+), 18 deletions(-)
-> > > > > > > > > > > > >
-> > > > > > > > > > <snip>
-> > > > > > > > > > > > [  133.008752] Hardware name: Renesas SMARC EVK based on r9a07g043f01 (DT)
-> > > > > > > > > > > > [  133.015338] Call Trace:
-> > > > > > > > > > > > [  133.017778] [<ffffffff800055cc>] dump_backtrace+0x1c/0x24
-> > > > > > > > > > > > [  133.023174] [<ffffffff80776836>] show_stack+0x2c/0x38
-> > > > > > > > > > > > [  133.028214] [<ffffffff80780244>] dump_stack_lvl+0x3c/0x54
-> > > > > > > > > > > > [  133.033597] [<ffffffff80780270>] dump_stack+0x14/0x1c
-> > > > > > > > > > > > [  133.038633] [<ffffffff80776c00>] panic+0x102/0x29a
-> > > > > > > > > > > > [  133.043409] [<ffffffff800137ba>] do_exit+0x704/0x70a
-> > > > > > > > > > > > [  133.048362] [<ffffffff8001390e>] do_group_exit+0x24/0x70
-> > > > > > > > > > > > [  133.053659] [<ffffffff8001de54>] get_signal+0x68a/0x6dc
-> > > > > > > > > > > > [  133.058874] [<ffffffff8000494e>] do_work_pending+0xd6/0x44e
-> > > > > > > > > > > > [  133.064427] [<ffffffff800036c2>] resume_userspace_slow+0x8/0xa
-> > > > > > > > > > > > [  133.070249] ---[ end Kernel panic - not syncing: Attempted to kill
-> > > > > > > > > > > > init! exitcode=0x0000000b ]---
-> > > > > > > > > > > >
-> > > > > > > > > > > > If I revert this patch [0] bonnie++ works as expected.
-> > > > > > > > > > > >
-> > > > > > > > > > > > Any pointers on what could be the issue here?
-> > > > > > > > > > > >
-> > > > > > > > > > > > [0] https://git.kernel.org/pub/scm/linux/kernel/git/palmer/linux.git/commit/?h=for-next&id=4bd1d80efb5af640f99157f39b50fb11326ce641
-> > > > > > > > > > > >
-> > > > > > > > > > > > Cheers,
-> > > > > > > > > > > > Prabhakar
-> > > > > > > > > > >
-> > > > > > > > > > > Good catch. Thanks for reporting ! Discussion around the issue and
-> > > > > > > > > > > possible ways to fix it can be found in the following email thread:
-> > > > > > > > > > >
-> > > > > > > > > > > https://lore.kernel.org/linux-riscv/20221111075902.798571-1-guoren@kernel.org/
-> > > > > > > > > > >
-> > > > > > > > > > > Could you please apply the patch from Guo Ren instead of [0] and check
-> > > > > > > > > > > if you have any issues with your test ? Besides, could you please share
-> > > > > > > > > > > your kernel configuration and the actual bonnie++ params from emmc_t_002.sh script ?
-> > > > > > > > > > >
-> > > > > > > > > > Thanks for the pointer, I'll undo my changes and test Guo's patch.
-> > > > > > > > > >
-> > > > > > > > > > I have pasted the script here [0] and attached config.
-> > > > > > > > > >
-> > > > > > > > > > [0] https://paste.debian.net/hidden/a7a769b5/
-> > > > > > > > >
-> > > > > > > > > Thanks for the script and config. Could you please also share the
-> > > > > > > > > following information:
-> > > > > > > > > - how many cores your system has
-> > > > > > > > The Renesas RZ/Five SoC has a single Andes AX45MP core.
-> > > > > > > >
-> > > > > > > > > - does your system support ASID
-> > > > > > > > >
-> > > > > > > > With a quick look at [0] It does support ASID, unless there is a way
-> > > > > > > > to disable it.
-> > > > > > > >
-> > > > > > > > [0] http://www.andestech.com/wp-content/uploads/AX45MP-1C-Rev.-5.0.0-Datasheet.pdf
-> > > > > > >
-> > > > > > > So you have a single-core system, but your kernel configuration enables
-> > > > > > > CONFIG_SMP. Additional 'deferred TLB flush' logic is dropped at build
-> > > > > > > time if CONFIG_SMP is disabled. On the other hand, system should not
-> > > > > > > fail that way even if SMP is enabled.
-> > > > > > >
-> > > > > > I enabled CONFIG_SMP while doing some testing of PMA code and indeed
-> > > > > > enabling this config should not introduce a failure.
-> > > > > >
-> > > > > > > Let me double-check if anything can go wrong if cpumasks may have only
-> > > > > > > a single cpu. Another suspect is a change in update_mmu_cache: probably
-> > > > > > > making it asid-specific (and thus more granular) was a bad idea.
-> > > > > > >
-> > > > > > Thanks.
-> > > > > >
-> > > > > > BTW I tested the patch [0] which you pointed out and that fixes the
-> > > > > > issues seen earlier.
-> > > > > >
-> > > > > > [0] https://patchwork.kernel.org/project/linux-riscv/patch/20221111075902.798571-1-guoren@kernel.org/
-> > > > >
-> > > > > All looks good with cpumasks in the single-core case. So deferred TLB
-> > > > > flush logic is not even executed in your case. So the root cause
-> > > > > should be in update_mmu_cache change.
-> > > > >
-> > > > > May I ask you to repeat the original emmc test on your platform from
-> > > > > for-next (i.e. with [0] and without [1]) with the following partial revert:
-> > > > >
-> > > > > : diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> > > > > : index ec6fb83349ce..92ec2d9d7273 100644
-> > > > > : --- a/arch/riscv/include/asm/pgtable.h
-> > > > > : +++ b/arch/riscv/include/asm/pgtable.h
-> > > > > : @@ -415,7 +415,7 @@ static inline void update_mmu_cache(struct vm_area_struct *vma,
-> > > > > :        * Relying on flush_tlb_fix_spurious_fault would suffice, but
-> > > > > :        * the extra traps reduce performance.  So, eagerly SFENCE.VMA.
-> > > > > :        */
-> > > > > : -     flush_tlb_page(vma, address);
-> > > > > : +     local_flush_tlb_page(address);
-> > > > > :  }
-> > > > > :
-> > > > > :  static inline void update_mmu_cache_pmd(struct vm_area_struct *vma,
-> > > > >
-> > > > I tested your above proposed changes and I am no longer seeing an
-> > > > issue on my platform.
-> > >
-> > > Great. I will send a fixup after I double-check on several other
-> > > hardware platforms. Thanks for testing !
-> > >
-> > Actuall, I did hit an issue now with your proposed changes with bonnie++ again!
-> >
-> > [ 1873.355279] EXT4-fs (sda1): mounted filesystem
-> > 050ad3b9-b571-4b4c-9500-db56feed01ab with ordered data mode. Quota
-> > mode: disabled.
-> > Using uid:0, gid:0.
-> > Writing with putc()...done
-> > Writing intelligently...done
-> > Rewriting...done
-> > Reading with getc()...[ 2682.180114] sd-resolve[126]: unhandled signal
-> > 11 code 0x1 at 0x0000000000000000 in libc-2.28.so[3fbe503000+ff000]
-> > [ 2682.190552] CPU: 0 PID: 126 Comm: sd-resolve Not tainted
-> > 6.2.0-rc1-00111-g7bcd7d932cf6 #189
-> > [ 2682.198917] Hardware name: Renesas SMARC EVK based on r9a07g043f01 (DT)
-> > [ 2682.205536] epc : 0000003fbe568004 ra : 0000003fbe569440 sp :
-> > 0000003fbe417b10
-> > [ 2682.212770]  gp : 0000002ab8d18b88 tp : 0000003fbe41e810 t0 :
-> > 0000000000000022
-> > [ 2682.219987]  t1 : 0000003fbdbf1e4c t2 : 0000003fbe417290 s0 :
-> > 00000000000000e0
-> > [ 2682.227219]  s1 : 0000000000000000 a0 : 0000000000000000 a1 :
-> > 8080808080808080
-> > [ 2682.234433]  a2 : 0000003fb80019f0 a3 : 0000003fbe41e8f0 a4 :
-> > 0000000000000008
-> > [ 2682.241648]  a5 : 0000000000000000 a6 : fefefefefefefeff a7 :
-> > 0000000000000039
-> > [ 2682.248863]  s2 : 0000003fbe417b37 s3 : 0000003fbe417e48 s4 :
-> > 0000000000000001
-> > [ 2682.256082]  s5 : 0000003fbe417eb0 s6 : 00000000000000e0 s7 :
-> > 0000003fbdbf2f2a
-> > [ 2682.263297]  s8 : ffffffffffffffff s9 : fffffffffffffffd s10:
-> > ffffffffffffffff
-> > [ 2682.270511]  s11: fffffffffffffffe t3 : 0000000000000000 t4 :
-> > 000000077ce2ea37
-> > [ 2682.277733]  t5 : 000000000000003f t6 : 0000000000000000
-> > [ 2682.283046] status: 0000000200004020 badaddr: 0000000000000000
-> > cause: 000000000000000d
-> > [ 2682.441183] audit: type=1701 audit(1671222620.403:17):
-> > auid=4294967295 uid=995 gid=994 ses=4294967295 pid=124
-> > comm="sd-resolve" exe="/lib/systemd/systemd-timesyncd" sig=11 res=1
-> > done
-> > Reading intelligently...done
-> >
-> > Let me know if you want me to share my branch.
->
-> Hmmm... I assume you hit the issue after you applied suggested partial
-> revert for the update_mmu_cache function. If so, then your issue is not
-> related to the the remaining part (deferred local_flush_tlb_all_asid)
-> of the commit 4bd1d80efb5a. This is because that flush is not executed
-> on a single-core system, even if CONFIG_SMP is enabled.
->
-> Could you please run your tests for a while on your branch with reverted
-> commit 4bd1d80efb5a ("riscv: mm: notify remote harts about mmu cache
-> updates"). It looks like the change in the function update_mmu_cache
-> from the commit 4bd1d80efb5a increases the probability of crash, but
-> there is also something else in the new kernel that bites your system.
->
-> Yes, could you please share your branch. I will take a look and run
-> some tests on different boards that I have at hand.
->
-Do you have any further updates on this?
+We could just define a new AIA_CSR type, rather than introduce CSR
+subtypes. While grouping all CSRs together under the CSR type also
+makes sense, having to teach all userspaces about subtypes may not
+be worth the organizational benefits.
 
-Cheers,
-Prabhakar
+>  
+>  /* Config registers are mapped as type 1 */
+>  #define KVM_REG_RISCV_CONFIG		(0x01 << KVM_REG_RISCV_TYPE_SHIFT)
+> @@ -147,8 +154,12 @@ enum KVM_RISCV_SBI_EXT_ID {
+>  
+>  /* Control and status registers are mapped as type 3 */
+>  #define KVM_REG_RISCV_CSR		(0x03 << KVM_REG_RISCV_TYPE_SHIFT)
+> +#define KVM_REG_RISCV_CSR_GENERAL	0x0
+> +#define KVM_REG_RISCV_CSR_AIA		0x1
+>  #define KVM_REG_RISCV_CSR_REG(name)	\
+> -		(offsetof(struct kvm_riscv_csr, name) / sizeof(unsigned long))
+> +	(offsetof(struct kvm_riscv_csr, name) / sizeof(unsigned long))
+> +#define KVM_REG_RISCV_CSR_AIA_REG(name)	\
+> +	(offsetof(struct kvm_riscv_aia_csr, name) / sizeof(unsigned long))
+>  
+>  /* Timer registers are mapped as type 4 */
+>  #define KVM_REG_RISCV_TIMER		(0x04 << KVM_REG_RISCV_TYPE_SHIFT)
+> diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+> index 3cf50eadc8ce..37933ea20274 100644
+> --- a/arch/riscv/kvm/vcpu.c
+> +++ b/arch/riscv/kvm/vcpu.c
+> @@ -58,6 +58,7 @@ static const unsigned long kvm_isa_ext_arr[] = {
+>  	[KVM_RISCV_ISA_EXT_I] = RISCV_ISA_EXT_i,
+>  	[KVM_RISCV_ISA_EXT_M] = RISCV_ISA_EXT_m,
+>  
+> +	KVM_ISA_EXT_ARR(SSAIA),
+>  	KVM_ISA_EXT_ARR(SSTC),
+>  	KVM_ISA_EXT_ARR(SVINVAL),
+>  	KVM_ISA_EXT_ARR(SVPBMT),
+> @@ -96,6 +97,7 @@ static bool kvm_riscv_vcpu_isa_disable_allowed(unsigned long ext)
+>  	case KVM_RISCV_ISA_EXT_C:
+>  	case KVM_RISCV_ISA_EXT_I:
+>  	case KVM_RISCV_ISA_EXT_M:
+> +	case KVM_RISCV_ISA_EXT_SSAIA:
+>  	case KVM_RISCV_ISA_EXT_SSTC:
+>  	case KVM_RISCV_ISA_EXT_SVINVAL:
+>  	case KVM_RISCV_ISA_EXT_ZIHINTPAUSE:
+> @@ -451,30 +453,79 @@ static int kvm_riscv_vcpu_set_reg_core(struct kvm_vcpu *vcpu,
+>  	return 0;
+>  }
+>  
+> +static int kvm_riscv_vcpu_general_get_csr(struct kvm_vcpu *vcpu,
+> +					  unsigned long reg_num,
+> +					  unsigned long *out_val)
+> +{
+> +	struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
+> +
+> +	if (reg_num >= sizeof(struct kvm_riscv_csr) / sizeof(unsigned long))
+> +		return -EINVAL;
+> +
+> +	if (reg_num == KVM_REG_RISCV_CSR_REG(sip)) {
+> +		kvm_riscv_vcpu_flush_interrupts(vcpu);
+> +		*out_val = (csr->hvip >> VSIP_TO_HVIP_SHIFT) & VSIP_VALID_MASK;
+> +	} else
+> +		*out_val = ((unsigned long *)csr)[reg_num];
+> +
+> +	return 0;
+> +}
+> +
+>  static int kvm_riscv_vcpu_get_reg_csr(struct kvm_vcpu *vcpu,
+>  				      const struct kvm_one_reg *reg)
+>  {
+> -	struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
+> +	int rc;
+>  	unsigned long __user *uaddr =
+>  			(unsigned long __user *)(unsigned long)reg->addr;
+>  	unsigned long reg_num = reg->id & ~(KVM_REG_ARCH_MASK |
+>  					    KVM_REG_SIZE_MASK |
+>  					    KVM_REG_RISCV_CSR);
+> -	unsigned long reg_val;
+> +	unsigned long reg_val, reg_subtype;
+>  
+>  	if (KVM_REG_SIZE(reg->id) != sizeof(unsigned long))
+>  		return -EINVAL;
+> +
+> +	reg_subtype = (reg_num & KVM_REG_RISCV_SUBTYPE_MASK)
+> +			>> KVM_REG_RISCV_SUBTYPE_SHIFT;
+> +	reg_num &= ~KVM_REG_RISCV_SUBTYPE_MASK;
+> +	switch (reg_subtype) {
+> +	case KVM_REG_RISCV_CSR_GENERAL:
+> +		rc = kvm_riscv_vcpu_general_get_csr(vcpu, reg_num, &reg_val);
+> +		break;
+> +	case KVM_REG_RISCV_CSR_AIA:
+> +		rc = kvm_riscv_vcpu_aia_get_csr(vcpu, reg_num, &reg_val);
+> +		break;
+> +	default:
+> +		rc = -EINVAL;
+> +		break;
+> +	}
+> +	if (rc)
+> +		return rc;
+> +
+> +	if (copy_to_user(uaddr, &reg_val, KVM_REG_SIZE(reg->id)))
+> +		return -EFAULT;
+> +
+> +	return 0;
+> +}
+> +
+> +static inline int kvm_riscv_vcpu_general_set_csr(struct kvm_vcpu *vcpu,
+> +						 unsigned long reg_num,
+> +						 unsigned long reg_val)
+> +{
+> +	struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
+> +
+>  	if (reg_num >= sizeof(struct kvm_riscv_csr) / sizeof(unsigned long))
+>  		return -EINVAL;
+>  
+>  	if (reg_num == KVM_REG_RISCV_CSR_REG(sip)) {
+> -		kvm_riscv_vcpu_flush_interrupts(vcpu);
+> -		reg_val = (csr->hvip >> VSIP_TO_HVIP_SHIFT) & VSIP_VALID_MASK;
+> -	} else
+> -		reg_val = ((unsigned long *)csr)[reg_num];
+> +		reg_val &= VSIP_VALID_MASK;
+> +		reg_val <<= VSIP_TO_HVIP_SHIFT;
+> +	}
+>  
+> -	if (copy_to_user(uaddr, &reg_val, KVM_REG_SIZE(reg->id)))
+> -		return -EFAULT;
+> +	((unsigned long *)csr)[reg_num] = reg_val;
+> +
+> +	if (reg_num == KVM_REG_RISCV_CSR_REG(sip))
+> +		WRITE_ONCE(vcpu->arch.irqs_pending_mask, 0);
+>  
+>  	return 0;
+>  }
+> @@ -482,31 +533,36 @@ static int kvm_riscv_vcpu_get_reg_csr(struct kvm_vcpu *vcpu,
+>  static int kvm_riscv_vcpu_set_reg_csr(struct kvm_vcpu *vcpu,
+>  				      const struct kvm_one_reg *reg)
+>  {
+> -	struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
+> +	int rc;
+>  	unsigned long __user *uaddr =
+>  			(unsigned long __user *)(unsigned long)reg->addr;
+>  	unsigned long reg_num = reg->id & ~(KVM_REG_ARCH_MASK |
+>  					    KVM_REG_SIZE_MASK |
+>  					    KVM_REG_RISCV_CSR);
+> -	unsigned long reg_val;
+> +	unsigned long reg_val, reg_subtype;
+>  
+>  	if (KVM_REG_SIZE(reg->id) != sizeof(unsigned long))
+>  		return -EINVAL;
+> -	if (reg_num >= sizeof(struct kvm_riscv_csr) / sizeof(unsigned long))
+> -		return -EINVAL;
+>  
+>  	if (copy_from_user(&reg_val, uaddr, KVM_REG_SIZE(reg->id)))
+>  		return -EFAULT;
+>  
+> -	if (reg_num == KVM_REG_RISCV_CSR_REG(sip)) {
+> -		reg_val &= VSIP_VALID_MASK;
+> -		reg_val <<= VSIP_TO_HVIP_SHIFT;
+> +	reg_subtype = (reg_num & KVM_REG_RISCV_SUBTYPE_MASK)
+> +			>> KVM_REG_RISCV_SUBTYPE_SHIFT;
+> +	reg_num &= ~KVM_REG_RISCV_SUBTYPE_MASK;
+> +	switch (reg_subtype) {
+> +	case KVM_REG_RISCV_CSR_GENERAL:
+> +		rc = kvm_riscv_vcpu_general_set_csr(vcpu, reg_num, reg_val);
+> +		break;
+> +	case KVM_REG_RISCV_CSR_AIA:
+> +		rc = kvm_riscv_vcpu_aia_set_csr(vcpu, reg_num, reg_val);
+> +		break;
+> +	default:
+> +		rc = -EINVAL;
+> +		break;
+>  	}
+> -
+> -	((unsigned long *)csr)[reg_num] = reg_val;
+> -
+> -	if (reg_num == KVM_REG_RISCV_CSR_REG(sip))
+> -		WRITE_ONCE(vcpu->arch.irqs_pending_mask, 0);
+> +	if (rc)
+> +		return rc;
+>  
+>  	return 0;
+>  }
+> -- 
+> 2.34.1
+>
+
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
