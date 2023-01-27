@@ -4,71 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBBD6C54EAA
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Jan 2023 13:45:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 971CBC54EAA
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Jan 2023 13:53:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Wm2iu0DF8uezCJ4AKCNGE+vKfDXNTe2PqPipoWfSSFI=; b=hLGm48zZbTHYvV
-	R3CW0ginTJtteY1ZEhkui4Oj85hlpkrbPtgk9sRY0UiuViGBVjdRfC4wiLayZC6gvwuDzB3LD01pR
-	R/OkDOhxpGpodqfcspoth1LAoIvT/uBCxQ/uFyMfgIrJKYpIwXIQhOAMq9V90tAdLyK9COsYyZ1ci
-	ku5LIAPRKLH0CxqyT/CoViRI0RIexJ38u/M8748Oq+wzjJDr64ap6b7ip5kv9sALw8pZWOlklUbbr
-	bnMUwwaAVRDMPz5+74F/fILkkzWjGEdbvtNBHtXN6PsLAMbMgK7DdMqLy77YgdUlnUOI2Rfnsparo
-	VgTLK9p1mhCpGEXafdzA==;
+	List-Owner; bh=OMj/aPvV2NwwGslmMF/o3z6FavpVXgWH09kpKFXwKZA=; b=u3AdVeK/usO9mP
+	CoALpOKfMShlqo7ohhAK+BDVBTWXZ+Y5dLwMSpKbBd4Gu1rvkL5cWSNAWUEQxZ7ymAJ/gZz4KZzWn
+	SeOBdHAolvTVkKrZUCkxn1IoO47C3Zs8h3ReNIWbWEjpEeFla+ZcJ+aUwTmGXlQ3VDv0tL6EbgO5Y
+	h9pPF04LpumsF7FDFdr3gOKwYmX69pJ8pRt0ILKUaIHJZ/WwBR88YhMYSi/dhPcXnzY7uxNJ8Oe7V
+	0IrBz4r6kJwv3cdcWIAMXL4fWkISt7d/fgefC1VAhaL894oreB6fWhm3gL6dSHD4+Low/qTKENK+a
+	5FNFqVIQeQfCSkYPEojQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pLP33-00F6a6-JF; Fri, 27 Jan 2023 13:45:45 +0000
-Received: from smtp80.cstnet.cn ([159.226.251.80] helo=cstnet.cn)
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pLOby-00Evkk-9X
-	for linux-riscv@lists.infradead.org; Fri, 27 Jan 2023 13:17:49 +0000
-Received: from cgk-Precision-3650-Tower.. (unknown [219.141.235.82])
-	by APP-01 (Coremail) with SMTP id qwCowADX3Eg9zNNjDyF3Ag--.52827S9;
-	Fri, 27 Jan 2023 21:06:09 +0800 (CST)
-From: Chen Guokai <chenguokai17@mails.ucas.ac.cn>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	rostedt@goodmis.org,
-	mingo@redhat.com,
-	sfr@canb.auug.org.au
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	liaochang1@huawei.com,
-	Chen Guokai <chenguokai17@mails.ucas.ac.cn>
-Subject: [PATCH v6 05/13] riscv/kprobe: Introduce free register(s) searching algorithm
-Date: Fri, 27 Jan 2023 21:05:33 +0800
-Message-Id: <20230127130541.1250865-6-chenguokai17@mails.ucas.ac.cn>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20230127130541.1250865-1-chenguokai17@mails.ucas.ac.cn>
-References: <20230127130541.1250865-1-chenguokai17@mails.ucas.ac.cn>
+	id 1pLPAb-00F9hL-JO; Fri, 27 Jan 2023 13:53:33 +0000
+Received: from mail-vs1-xe2f.google.com ([2607:f8b0:4864:20::e2f])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pLPAU-00F9dF-S4
+	for linux-riscv@lists.infradead.org; Fri, 27 Jan 2023 13:53:28 +0000
+Received: by mail-vs1-xe2f.google.com with SMTP id y8so5415853vsq.0
+        for <linux-riscv@lists.infradead.org>; Fri, 27 Jan 2023 05:53:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=RzUBqryTptYUzEfhbyg+Lbcb+hwacEV+TO0IK7LNXU8=;
+        b=Nj0//xHZCol4X/4LoPRHBLp04mZ6EyoR6ifMGAJyZKXqDQ2DDO+UCVf7oXmiq8NKlv
+         uZhMC6w+AZvGFtaDvUzwidx8Sj6lRH4ps0RND4mC75QLASrACcarZbZAwCO+OrbBgA2a
+         g6FO/H9UpLopISqqI4EpbAT5FHiezaN0Fh8eq1vv3wpFDi1xJ1DxrF1FbWDGq1iQM8db
+         jhsXmwcthCd/L7yBe0BjwKvAfI5jGJEJ22/YXzrIkm6RnhG1QA/BRHhzDOqjpj8yDCHA
+         D4eYt52pTgdUF+rDhhr2qje3A/dPZp0eHCoQb4UOKqcPObAZwnduqaFfm0Ypw1PKn7gw
+         EiTg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=RzUBqryTptYUzEfhbyg+Lbcb+hwacEV+TO0IK7LNXU8=;
+        b=duB6ecbO4kXoYq5X/gbnI/n9k+2GjoVsWwCedovcLcXCWAhbwa+d1ip7sL9Apvpz1a
+         6T/ojVkhHOabVKuwhfV97T+OBNHjzy5dLKXbj5Ylmwhv6mVntY6U/S3lG3jYObEwBzdx
+         r3wQBdS6gplokQGW0RhRS6+K8PK2oQnW1LH4y1+8tka0Mwf5XIr0lx8qGTH+6o2pjfud
+         aPyr0AA/Z2RPEJ1nRNN3HeS8JwCurmp5Rfte6KDdELAO6Ow45sHfWkalb7Kg0hLWPyvi
+         GJaIhPvVeohdL7UR3bbRB7dn2A8kXwHZDg2JivSxxu6ctO4ewBQRYBcP0gBsQKDE6y1n
+         QdcQ==
+X-Gm-Message-State: AO0yUKVZ0hH778oLG/X2qarc5dCTZ6870K61VMB2HXQYAe5yo/nvYI96
+	SE8NpEW4AiEmP+srdJHRER9Jw/dR7ifKQGjMPf/4xNZXdn82LQ==
+X-Google-Smtp-Source: AK7set+G91Acv+61aPdZ7vz54qMR8TqpiXkerxphHeLdypTJtL9kTh+QKLLarGjOUcQbXe2xYcQWJXCbqIL8IuEg6ZM=
+X-Received: by 2002:a05:6102:3098:b0:3ec:1029:9eae with SMTP id
+ l24-20020a056102309800b003ec10299eaemr661243vsb.10.1674827605343; Fri, 27 Jan
+ 2023 05:53:25 -0800 (PST)
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowADX3Eg9zNNjDyF3Ag--.52827S9
-X-Coremail-Antispam: 1UD129KBjvJXoW3WrWrKry5Kr43JF45Jr18Xwb_yoWfXw45pF
-	ZxWw4FqF4UtFs5W3y3tr1kZrWSgFs3Grs8Cr15t3yUZr43G3ySqF4vga43Zr1DJF13Zr48
-	Gr4Y9rWI9r4DAFUanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUQI14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JF0E3s1l82xGYI
-	kIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2
-	z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr
-	1UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gr1j
-	6F4UJwAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFc
-	xC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_
-	Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2
-	IErcIFxwACI402YVCY1x02628vn2kIc2xKxwCY02Avz4vE14v_Xr4l42xK82IYc2Ij64vI
-	r41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8Gjc
-	xK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0
-	cI8IcVAFwI0_JFI_Gr1lIxAIcVC0I7IYx2IY6xkF7I0E14v26F4j6r4UJwCI42IY6xAIw2
-	0EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x02
-	67AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUjTmh7UUUUU==
-X-Originating-IP: [219.141.235.82]
-X-CM-SenderInfo: xfkh0w5xrntxyrx6ztxlovh3xfdvhtffof0/1tbiAwkEE2PTrr4g0QAAsM
+References: <20230112140304.1830648-1-apatel@ventanamicro.com>
+ <20230112140304.1830648-4-apatel@ventanamicro.com> <20230126161147.6rewhfvlouqn4ual@orel>
+In-Reply-To: <20230126161147.6rewhfvlouqn4ual@orel>
+From: Anup Patel <apatel@ventanamicro.com>
+Date: Fri, 27 Jan 2023 19:23:13 +0530
+Message-ID: <CAK9=C2XzTdqXr+vWZ4Ua=HET1gvskAY+y9yFtGbmR2LGg87asQ@mail.gmail.com>
+Subject: Re: [PATCH 3/7] RISC-V: KVM: Drop the _MASK suffix from hgatp.VMID
+ mask defines
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Atish Patra <atishp@atishpatra.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230127_051746_768442_C3698D42 
-X-CRM114-Status: GOOD (  23.01  )
+X-CRM114-CacheID: sfid-20230127_055326_956557_A4563933 
+X-CRM114-Status: GOOD (  20.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,301 +89,101 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Liao Chang <liaochang1@huawei.com>
+On Thu, Jan 26, 2023 at 9:41 PM Andrew Jones <ajones@ventanamicro.com> wrote:
+>
+> On Thu, Jan 12, 2023 at 07:33:00PM +0530, Anup Patel wrote:
+> > The hgatp.VMID mask defines are used before shifting when extracting
+> > VMID value from hgatp CSR value so based on the convention followed
+> > in the other parts of asm/csr.h, the hgatp.VMID mask defines should
+> > not have a _MASK suffix.
+> >
+> > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> > ---
+> >  arch/riscv/include/asm/csr.h | 8 ++++----
+> >  arch/riscv/kvm/mmu.c         | 3 +--
+> >  arch/riscv/kvm/vmid.c        | 4 ++--
+> >  3 files changed, 7 insertions(+), 8 deletions(-)
+> >
+> > diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+> > index d608dac4b19f..36d580528f90 100644
+> > --- a/arch/riscv/include/asm/csr.h
+> > +++ b/arch/riscv/include/asm/csr.h
+> > @@ -131,12 +131,12 @@
+> >
+> >  #define HGATP32_MODE_SHIFT   31
+> >  #define HGATP32_VMID_SHIFT   22
+> > -#define HGATP32_VMID_MASK    _AC(0x1FC00000, UL)
+> > +#define HGATP32_VMID         _AC(0x1FC00000, UL)
+> >  #define HGATP32_PPN          _AC(0x003FFFFF, UL)
+> >
+> >  #define HGATP64_MODE_SHIFT   60
+> >  #define HGATP64_VMID_SHIFT   44
+> > -#define HGATP64_VMID_MASK    _AC(0x03FFF00000000000, UL)
+> > +#define HGATP64_VMID         _AC(0x03FFF00000000000, UL)
+> >  #define HGATP64_PPN          _AC(0x00000FFFFFFFFFFF, UL)
+> >
+> >  #define HGATP_PAGE_SHIFT     12
+> > @@ -144,12 +144,12 @@
+> >  #ifdef CONFIG_64BIT
+> >  #define HGATP_PPN            HGATP64_PPN
+> >  #define HGATP_VMID_SHIFT     HGATP64_VMID_SHIFT
+> > -#define HGATP_VMID_MASK              HGATP64_VMID_MASK
+> > +#define HGATP_VMID           HGATP64_VMID
+> >  #define HGATP_MODE_SHIFT     HGATP64_MODE_SHIFT
+> >  #else
+> >  #define HGATP_PPN            HGATP32_PPN
+> >  #define HGATP_VMID_SHIFT     HGATP32_VMID_SHIFT
+> > -#define HGATP_VMID_MASK              HGATP32_VMID_MASK
+> > +#define HGATP_VMID           HGATP32_VMID
+> >  #define HGATP_MODE_SHIFT     HGATP32_MODE_SHIFT
+> >  #endif
+> >
+> > diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
+> > index 34b57e0be2ef..034746638fa6 100644
+> > --- a/arch/riscv/kvm/mmu.c
+> > +++ b/arch/riscv/kvm/mmu.c
+> > @@ -748,8 +748,7 @@ void kvm_riscv_gstage_update_hgatp(struct kvm_vcpu *vcpu)
+> >       unsigned long hgatp = gstage_mode;
+> >       struct kvm_arch *k = &vcpu->kvm->arch;
+> >
+> > -     hgatp |= (READ_ONCE(k->vmid.vmid) << HGATP_VMID_SHIFT) &
+> > -              HGATP_VMID_MASK;
+> > +     hgatp |= (READ_ONCE(k->vmid.vmid) << HGATP_VMID_SHIFT) & HGATP_VMID;
+> >       hgatp |= (k->pgd_phys >> PAGE_SHIFT) & HGATP_PPN;
+> >
+> >       csr_write(CSR_HGATP, hgatp);
+> > diff --git a/arch/riscv/kvm/vmid.c b/arch/riscv/kvm/vmid.c
+> > index 6cd93995fb65..6f4d4979a759 100644
+> > --- a/arch/riscv/kvm/vmid.c
+> > +++ b/arch/riscv/kvm/vmid.c
+> > @@ -26,9 +26,9 @@ void kvm_riscv_gstage_vmid_detect(void)
+> >
+> >       /* Figure-out number of VMID bits in HW */
+> >       old = csr_read(CSR_HGATP);
+> > -     csr_write(CSR_HGATP, old | HGATP_VMID_MASK);
+> > +     csr_write(CSR_HGATP, old | HGATP_VMID);
+> >       vmid_bits = csr_read(CSR_HGATP);
+> > -     vmid_bits = (vmid_bits & HGATP_VMID_MASK) >> HGATP_VMID_SHIFT;
+> > +     vmid_bits = (vmid_bits & HGATP_VMID) >> HGATP_VMID_SHIFT;
+> >       vmid_bits = fls_long(vmid_bits);
+> >       csr_write(CSR_HGATP, old);
+> >
+> > --
+> > 2.34.1
+> >
+>
+> Could switch to GENMASK too at the same time :-)
 
-To do jump optimization, it needs to clobber two integer GPRs, the first
-one is used to form AUIPC/JALR jumping to detour buffer, the second one
-is used to form JR in detour buffer. Since kprobe can be installed
-anywhere of kernel/module text, hence the register being clobbered needs
-to be chosen carefully to avoid changing the original logic.
+Okay, I will update.
 
-The algorithm for finding free register is inspired by the register
-renaming in modern processors. From the perspective of register renaming,
-a register could be represented as two different registers if two neighbor
-instructions both write to it but no one ever reads it. Extending this
-fact a register is considered to be free if it has never been read since
-the first write on it in the execution flow.
+>
+> Anyway,
+>
+> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+>
 
-Let's use the example below to explain how the algorithm work. Given
-kernel is RVI and RCV hybrid binary, and one kprobe is instrumented at
-the entry of function idle_dummy().
-
-Before			Optimized		Detour buffer
-<idle_dummy>:					...
- #1 add  sp,sp,-16	auipc a0, #?		add  sp,sp,-16
- #2 sd   s0,8(sp)				sd   s0,8(sp)
- #3 addi s0,sp,16	jalr  a0, #?(a0)	addi s0,sp,16
- #4 ld   s0,8(sp)				ld   s0,8(sp)
- #5 li   a0,0		li   a0,0		auipc a0, #?
- #6 addi sp,sp,16	addi sp,sp,16		jr    x0, #?(a0)
- #7 ret			ret
-
-To optimize kprobe, it used to patch the first 8 bytes with AUIPC/JALR,
-because from #1 to #7, a0 is the only register that satisfies condition:
-
- - Never been read before write
- - Never been updated in detour buffer
-
-So a0 will be chosen to form AUIPC/JALR and JR.
-
-Signed-off-by: Liao Chang <liaochang1@huawei.com>
-Co-developed-by: Chen Guokai <chenguokai17@mails.ucas.ac.cn>
-Signed-off-by: Chen Guokai <chenguokai17@mails.ucas.ac.cn>
----
- arch/riscv/kernel/probes/opt.c | 221 +++++++++++++++++++++++++++++++++
- 1 file changed, 221 insertions(+)
-
-diff --git a/arch/riscv/kernel/probes/opt.c b/arch/riscv/kernel/probes/opt.c
-index c03cdb1512a6..d38ed1a52c93 100644
---- a/arch/riscv/kernel/probes/opt.c
-+++ b/arch/riscv/kernel/probes/opt.c
-@@ -12,6 +12,9 @@
- #include <asm/kprobes.h>
- #include <asm/patch.h>
- 
-+#include "simulate-insn.h"
-+#include "decode-insn.h"
-+
- static int in_auipc_jalr_range(long val)
- {
- #ifdef CONFIG_ARCH_RV32I
-@@ -37,15 +40,233 @@ static void prepare_detour_buffer(kprobe_opcode_t *code, kprobe_opcode_t *slot,
- {
- }
- 
-+/* Registers the first usage of which is the destination of instruction */
-+#define WRITE_ON(reg)	\
-+	(*write |= (((*read >> (reg)) ^ 1UL) & 1) << (reg))
-+/* Registers the first usage of which is the source of instruction */
-+#define READ_ON(reg)	\
-+	(*read |= (((*write >> (reg)) ^ 1UL) & 1) << (reg))
-+
- /*
-  * In RISC-V ISA, AUIPC/JALR clobber one register to form target address,
-  * inspired by register renaming in OoO processor, this involves search
-  * backward that is not previously used as a source register and is used
-  * as a destination register before any branch or jump instruction.
-  */
-+static void find_register(unsigned long start, unsigned long end,
-+			       unsigned long *write, unsigned long *read)
-+{
-+	kprobe_opcode_t insn;
-+	unsigned long addr, offset = 0UL;
-+
-+	for (addr = start; addr < end; addr += offset) {
-+		insn = *(kprobe_opcode_t *)addr;
-+		offset = GET_INSN_LENGTH(insn);
-+
-+#ifdef CONFIG_RISCV_ISA_C
-+		if (offset == RVI_INSN_LEN)
-+			goto is_rvi;
-+
-+		insn &= __COMPRESSED_INSN_MASK;
-+		/* Stop searching until any control transfer instruction */
-+		if (riscv_insn_is_c_ebreak(insn) || riscv_insn_is_c_j(insn))
-+			break;
-+
-+		if (riscv_insn_is_c_jal(insn)) {
-+			/* The rd of C.JAL is x1 by default */
-+			WRITE_ON(1);
-+			break;
-+		}
-+
-+		if (riscv_insn_is_c_jr(insn)) {
-+			READ_ON(rvc_r_rs1(insn));
-+			break;
-+		}
-+
-+		if (riscv_insn_is_c_jalr(insn)) {
-+			READ_ON(rvc_r_rs1(insn));
-+			/* The rd of C.JALR is x1 by default */
-+			WRITE_ON(1);
-+			break;
-+		}
-+
-+		if (riscv_insn_is_c_beqz(insn) || riscv_insn_is_c_bnez(insn)) {
-+			READ_ON(rvc_b_rs(insn));
-+			break;
-+		}
-+
-+		/*
-+		 * Decode RVC instructions to find out some destination
-+		 * registers never be used as a source register.
-+		 */
-+		if (riscv_insn_is_c_sub(insn) || riscv_insn_is_c_subw(insn)) {
-+			READ_ON(rvc_a_rs1(insn));
-+			READ_ON(rvc_a_rs2(insn));
-+			continue;
-+		} else if (riscv_insn_is_c_sq(insn) ||
-+			   riscv_insn_is_c_sw(insn) ||
-+			   riscv_insn_is_c_sd(insn)) {
-+			READ_ON(rvc_s_rs1(insn));
-+			READ_ON(rvc_s_rs2(insn));
-+			continue;
-+		} else if (riscv_insn_is_c_addi16sp(insn) ||
-+			   riscv_insn_is_c_addi(insn) ||
-+			   riscv_insn_is_c_addiw(insn) ||
-+			   riscv_insn_is_c_slli(insn)) {
-+			READ_ON(rvc_i_rs1(insn));
-+			continue;
-+		} else if (riscv_insn_is_c_sri(insn) ||
-+			   riscv_insn_is_c_andi(insn)) {
-+			READ_ON(rvc_b_rs(insn));
-+			continue;
-+		} else if (riscv_insn_is_c_sqsp(insn) ||
-+			   riscv_insn_is_c_swsp(insn) ||
-+			   riscv_insn_is_c_sdsp(insn)) {
-+			READ_ON(rvc_ss_rs2(insn));
-+			/* The rs2 of C.SQSP/SWSP/SDSP are x2 by default */
-+			READ_ON(2);
-+			continue;
-+		} else if (riscv_insn_is_c_mv(insn)) {
-+			READ_ON(rvc_r_rs2(insn));
-+			WRITE_ON(rvc_r_rd(insn));
-+		} else if (riscv_insn_is_c_addi4spn(insn)) {
-+			/* The rs of C.ADDI4SPN is x2 by default */
-+			READ_ON(2);
-+			WRITE_ON(rvc_l_rd(insn));
-+		} else if (riscv_insn_is_c_lq(insn) ||
-+			   riscv_insn_is_c_lw(insn) ||
-+			   riscv_insn_is_c_ld(insn)) {
-+			/* FIXME: c.lw/c.ld share opcode with c.flw/c.fld */
-+			READ_ON(rvc_l_rs(insn));
-+			WRITE_ON(rvc_l_rd(insn));
-+		} else if (riscv_insn_is_c_lqsp(insn) ||
-+			   riscv_insn_is_c_lwsp(insn) ||
-+			   riscv_insn_is_c_ldsp(insn)) {
-+			/*
-+			 * FIXME: c.lwsp/c.ldsp share opcode with c.flwsp/c.fldsp
-+			 * The rs of C.LQSP/C.LWSP/C.LDSP is x2 by default.
-+			 */
-+			READ_ON(2);
-+			WRITE_ON(rvc_i_rd(insn));
-+		} else if (riscv_insn_is_c_li(insn) ||
-+			   riscv_insn_is_c_lui(insn)) {
-+			WRITE_ON(rvc_i_rd(insn));
-+		}
-+
-+		if ((*write > 1UL) && __builtin_ctzl(*write & ~1UL))
-+			return;
-+is_rvi:
-+#endif
-+		/* Stop searching until any control transfer instruction */
-+		if (riscv_insn_is_branch(insn)) {
-+			READ_ON(rvi_rs1(insn));
-+			READ_ON(rvi_rs2(insn));
-+			break;
-+		}
-+
-+		if (riscv_insn_is_jal(insn)) {
-+			WRITE_ON(rvi_rd(insn));
-+			break;
-+		}
-+
-+		if (riscv_insn_is_jalr(insn)) {
-+			READ_ON(rvi_rs1(insn));
-+			WRITE_ON(rvi_rd(insn));
-+			break;
-+		}
-+
-+		if (riscv_insn_is_system(insn)) {
-+			/* csrrw, csrrs, csrrc */
-+			if (rvi_rs1(insn))
-+				READ_ON(rvi_rs1(insn));
-+			/* csrrwi, csrrsi, csrrci, csrrw, csrrs, csrrc */
-+			if (rvi_rd(insn))
-+				WRITE_ON(rvi_rd(insn));
-+			break;
-+		}
-+
-+		/*
-+		 * Decode RVI instructions to find out some destination
-+		 * registers never be used as a source register.
-+		 */
-+		if (riscv_insn_is_lui(insn) || riscv_insn_is_auipc(insn)) {
-+			WRITE_ON(rvi_rd(insn));
-+		} else if (riscv_insn_is_arith_ri(insn) ||
-+			   riscv_insn_is_load(insn)) {
-+			READ_ON(rvi_rs1(insn));
-+			WRITE_ON(rvi_rd(insn));
-+		} else if (riscv_insn_is_arith_rr(insn) ||
-+			   riscv_insn_is_store(insn) ||
-+			   riscv_insn_is_amo(insn)) {
-+			READ_ON(rvi_rs1(insn));
-+			READ_ON(rvi_rs2(insn));
-+			WRITE_ON(rvi_rd(insn));
-+		}
-+
-+		if ((*write > 1UL) && __builtin_ctzl(*write & ~1UL))
-+			return;
-+	}
-+}
-+
- static void find_free_registers(struct kprobe *kp, struct optimized_kprobe *op,
- 				int *rd, int *ra)
- {
-+	unsigned long start, end;
-+	/*
-+	 * Searching algorithm explanation:
-+	 *
-+	 * 1. Define two types of instruction areas firstly:
-+	 *
-+	 * +-----+
-+	 * +     +
-+	 * +     + ---> instructions modified by optprobe, named 'O-Area'.
-+	 * +     +
-+	 * +-----+
-+	 * +     +
-+	 * +     + ---> instructions after optprobe, named 'K-Area'.
-+	 * +     +
-+	 * +  ~  +
-+	 *
-+	 * 2. There are two usages for each GPR in the given instruction area.
-+	 *
-+	 *   - W: GPR is used as the RD oprand at first emergence.
-+	 *   - R: GPR is used as the RS oprand at first emergence.
-+	 *
-+	 * Then there are 4 different usages for each GPR total:
-+	 *
-+	 *   1. Used as W in O-Area, Used as W in K-Area.
-+	 *   2. Used as W in O-Area, Used as R in K-Area.
-+	 *   3. Used as R in O-Area, Used as W in K-Area.
-+	 *   4. Used as R in O-Area, Used as R in K-Area.
-+	 *
-+	 * All registers satisfy #1 or #3 could be chosen to form 'AUIPC/JALR'
-+	 * jumping to detour buffer.
-+	 *
-+	 * All registers satisfy #1 or #2, could be chosen to form 'JR' jumping
-+	 * back from detour buffer.
-+	 */
-+	unsigned long kw = 0UL, kr = 0UL, ow = 0UL, or = 0UL;
-+
-+	/* Search one free register used to form AUIPC/JALR */
-+	start = (unsigned long)&kp->opcode;
-+	end = start + GET_INSN_LENGTH(kp->opcode);
-+	find_register(start, end, &ow, &or);
-+
-+	start = (unsigned long)kp->addr + GET_INSN_LENGTH(kp->opcode);
-+	end = (unsigned long)kp->addr + op->optinsn.length;
-+	find_register(start, end, &ow, &or);
-+
-+	/* Search one free register used to form JR */
-+	find_register(end, (unsigned long)_end, &kw, &kr);
-+
-+	if ((kw & ow) > 1UL) {
-+		*rd = __builtin_ctzl((kw & ow) & ~1UL);
-+		*ra = *rd;
-+		return;
-+	}
-+
-+	*rd = ((kw | ow) == 1UL) ? 0 : __builtin_ctzl((kw | ow) & ~1UL);
-+	*ra = (kw == 1UL) ? 0 : __builtin_ctzl(kw & ~1UL);
- }
- 
- /*
--- 
-2.34.1
-
+Thanks,
+Anup
 
 _______________________________________________
 linux-riscv mailing list
