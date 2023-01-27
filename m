@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 581D3C61DB3
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Jan 2023 19:31:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E3A2C61DA4
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Jan 2023 19:31:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cJjWALTWL9VyGj7t8gjK5Ellgmor2rCMXmC8EhfCoLo=; b=qu4R5v0fLy8g1f
-	1ZnIMXoUb4Yh/SlXNDKeefhFmpZdwvUPgGGMVry7hQp4bodrBBhgbvCbYoEMWnVY1+rGYQUUO7N9p
-	bMC+sjpFLnkoGrjthfJsq2nJsjrKBaeCaZKuE0+ep/FgB9tPzkV1loWHkG6sd3ifpOWGufEDk5Ome
-	QUACguLNiVprl8Uw+3goRLgGBkwOUfIv+nBsfaoJcM3LnvM2XRvJiMGFJr9g+OUUggggyUfNg2G8M
-	IxlDjnUGlqEYeqSi3O/L+f20+IfuFTNenbk+8Yskkgsurpmase7nbkJwQkgrH1giUR14dUNz2ueMx
-	BMNal/QkK/H72G3eyBpw==;
+	List-Owner; bh=oJcXk2WfWzHIYz60jzo/m6uuesMARcWMYKjFwDSVHi8=; b=UoB7/3QGIpTXrs
+	audsxJWNU0Iv8KWFGHay3UunEnZApBTVFOAekF5Bwlvo5dE981FxU0mZh1sMNdmpuOnrb3H7EPZMn
+	gmToMTQJuQ2fVmZD+MxTZ0uXeAxHat1mqtpbm4HY7EvtI1UipkfVMzkUMtBnDIJK2QQkSTGERhI9+
+	z6z+e1qir7lOM54NzjH9FGyHNcqv5JCIUVYry1q7Ohdta6AqgogENcxR7E/891ff9UAhKWB/8Dapi
+	vRsGH58BDIaprNERNkI3Kc4Uf9J0iGWWsQfWdAxnN7vF6cCrEyljHhgm7HBOhHiFmlHM27xAK8JhG
+	bl5xNBk145e5tFB9+4IQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pLURd-00G7GX-8V; Fri, 27 Jan 2023 19:31:29 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1pLURY-00G7Eq-EJ; Fri, 27 Jan 2023 19:31:24 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pLTQa-00G2cG-AE
-	for linux-riscv@lists.infradead.org; Fri, 27 Jan 2023 18:26:23 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id nn18-20020a17090b38d200b0022bfb584987so5533366pjb.2
-        for <linux-riscv@lists.infradead.org>; Fri, 27 Jan 2023 10:26:18 -0800 (PST)
+	id 1pLTQX-00G2aR-N9
+	for linux-riscv@lists.infradead.org; Fri, 27 Jan 2023 18:26:21 +0000
+Received: by mail-pl1-x631.google.com with SMTP id jl3so5859401plb.8
+        for <linux-riscv@lists.infradead.org>; Fri, 27 Jan 2023 10:26:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=75NYeBzTa+D//nXwSO0c9cu0uNpb/RJgMmwNWXsNQ7A=;
-        b=YY7c/gb7KD4BgGwCl4QuD8RpNT7TTipby8rQS1fM8ewCQdAAVE7CoiEkS36lf3TY1+
-         j3OpeGdZzI/FiuYvcGelaEpd818JPNjfPw5HRXDaKrEsFrqQR+6h3u2BoRBgd9QlAccY
-         HDaOvbsPh9oJjc7aXIhCOrLyevo+m6Ry6cj+mJZ8grdtEokiLxkJS3Wgb67hSnJ3ny3B
-         fdGvutiKC31lsRsHB07vjTgOC5Mh7oUjuEQX5QwOVbq5DU0s+Ur+Y7Z/GcKfyw3I0xA7
-         lPMsCdqnd8ySESkWIsbXcv5QzXJOfH01v3I0e1Tj1NG1M9eSLmeKg5cOtxQhNaIVEsDH
-         tagA==
+        bh=KYWMw/n0BP2d3D/fZxV/dnS4sydraPBd1hVs+eTWwR0=;
+        b=5SsgMGoBXHhIzD23Jk2Wrz+EZw8bMtxXJLNk0wFmsOJBSWE7hahtcntSP1xluks06q
+         F4tpREigjqJsBQUZsoDI0Fp/bMW5RTjXukaW7hdzjzL0MuyLhW7Jj91PTJ33Y+Op6Cq3
+         YaFCkgVMTVfM3UAp/CxpiOJX28RufdzQ8BFAh/P4zkQhBZdFsQc7LSy7eQOmm0W5tcVn
+         mQyCpzl66nFnLyhVaXR8gRnQ+qnIOUjheSOJ+TWasvJvxcNsLJrTagTVV5e3TtFCkiAO
+         QRkPrt4gPmKNuWt4IJ1Zpidq8ApG+FbV/pS9F/NdjeQuWwVOQNizjoqWj/5jh3B4rpDD
+         hjOw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=75NYeBzTa+D//nXwSO0c9cu0uNpb/RJgMmwNWXsNQ7A=;
-        b=YIwKJXK5Cnfg7NI7iQHKP29f+2umKV/p/czLGeAkFRJkc/TXe1JqEOPj3KP723RZNp
-         AOWXtCfu73vudY8W5rnLDt/yqsffqfEzkt3jLmYzP27yudNJiOdevRmPOWMydBfe6NWk
-         qHCsC68NQpPaGUVlCZ1eYCRhxuOVOhu0IzQS1pb5/lhMXCj5HeZdUmhX6WhRsRR4jfx8
-         DKdQ08eJBcg+Mj7pWC5MRYoFQhCNVdzuqi02V4iOhF0V6I7PEAhy++e7oZ9HdmXSkcbm
-         Gm16Nfi2VNZeYg5l0jdFdvbFbHY0RoaZuRa0YyOU5pYrgX8X2Tj4LBrIaLwyNKMRIsJy
-         1MKg==
-X-Gm-Message-State: AFqh2kpI6U+Ggf6XphD9QMh/Vc+58hCrpzcVCF4sLFOYJQN/z0XwvSr4
-	BLH7ZyGx0Pv2Y/x8Ai31sK892w==
-X-Google-Smtp-Source: AMrXdXtpndneDdeSSBdxCsMnxxzoCdgvpXuk7zeWfLXM+d7saHZXmYD4+9nx/fhrb0dq0pShXiEOXQ==
-X-Received: by 2002:a17:902:7c93:b0:194:98f0:108e with SMTP id y19-20020a1709027c9300b0019498f0108emr34153952pll.13.1674843978225;
-        Fri, 27 Jan 2023 10:26:18 -0800 (PST)
+        bh=KYWMw/n0BP2d3D/fZxV/dnS4sydraPBd1hVs+eTWwR0=;
+        b=jPRCRiuArw1lnEp/UWI6bUkGwsaEIHpe1uOlcvUixgUCWCIR1K72xFO9FCLhxD9//x
+         yuclizJykpUruDp0PjszbaZTm0oEzIvtozoHtsRLgYEwQQdSjCnFhJ2UHCwbdZl+4sPn
+         ktlhtNhtXnmuDnN+1ETo2WoklN6jTF3QyD6X6DcUlmNIWye1ueIymjKYz13rHsj0TwYF
+         lVQBO1/qWz1LiW7TR657FlfVwZcWLeTd6rXsspYwTyE8YUfsQD/o2gwr0/I4ytPAv+xG
+         waqK68QfAI38+o9hAE1MKiLQKs/tx4FtQXv4pozBjanJr8z3AH4gUk4BZXzxmfYWBrr1
+         /v0g==
+X-Gm-Message-State: AO0yUKWpovgi8kqASu8qzbe9rLJugIdm3/LyKM4U67vInAjE1Baq/+to
+	YhQZLJjiCKab9bw8JOdNHbTDJA==
+X-Google-Smtp-Source: AK7set+80tZlWEazZJQny1V/H72lavqxOnKlR5PW19ig21vuw4w5xUFIWAyoQtK6XmA8YOeUdGzgiQ==
+X-Received: by 2002:a17:902:d2cc:b0:196:5cfe:70b2 with SMTP id n12-20020a170902d2cc00b001965cfe70b2mr1873451plc.52.1674843975472;
+        Fri, 27 Jan 2023 10:26:15 -0800 (PST)
 Received: from atishp.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id jc5-20020a17090325c500b00189d4c666c8sm3195219plb.153.2023.01.27.10.26.17
+        by smtp.gmail.com with ESMTPSA id jc5-20020a17090325c500b00189d4c666c8sm3195219plb.153.2023.01.27.10.26.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Jan 2023 10:26:17 -0800 (PST)
+        Fri, 27 Jan 2023 10:26:15 -0800 (PST)
 From: Atish Patra <atishp@rivosinc.com>
 To: linux-kernel@vger.kernel.org
 Cc: Atish Patra <atishp@rivosinc.com>,
@@ -76,16 +76,16 @@ Cc: Atish Patra <atishp@rivosinc.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Sergey Matyukevich <sergey.matyukevich@syntacore.com>,
 	Will Deacon <will@kernel.org>
-Subject: [PATCH v3 05/14] RISC-V: KVM: Return correct code for hsm stop function
-Date: Fri, 27 Jan 2023 10:25:49 -0800
-Message-Id: <20230127182558.2416400-6-atishp@rivosinc.com>
+Subject: [PATCH v3 02/14] perf: RISC-V: Improve privilege mode filtering for perf
+Date: Fri, 27 Jan 2023 10:25:46 -0800
+Message-Id: <20230127182558.2416400-3-atishp@rivosinc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20230127182558.2416400-1-atishp@rivosinc.com>
 References: <20230127182558.2416400-1-atishp@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230127_102620_422605_547B68DB 
-X-CRM114-Status: GOOD (  13.84  )
+X-CRM114-CacheID: sfid-20230127_102617_801599_915CB17A 
+X-CRM114-Status: GOOD (  14.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,33 +102,79 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-According to the SBI specification, the stop function can only
-return error code SBI_ERR_FAILED. However, currently it returns
--EINVAL which will be mapped SBI_ERR_INVALID_PARAM.
+Currently, the host driver doesn't have any method to identify if the
+requested perf event is from kvm or bare metal. As KVM runs in HS
+mode, there are no separate hypervisor privilege mode to distinguish
+between the attributes for guest/host.
 
-Return an linux error code that maps to SBI_ERR_FAILED i.e doesn't map
-to any other SBI error code. While EACCES is not the best error code
-to describe the situation, it is close enough and will be replaced
-with SBI error codes directly anyways.
+Improve the privilege mode filtering by using the event specific
+config1 field.
 
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- arch/riscv/kvm/vcpu_sbi_hsm.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/perf/riscv_pmu_sbi.c   | 27 ++++++++++++++++++++++-----
+ include/linux/perf/riscv_pmu.h |  2 ++
+ 2 files changed, 24 insertions(+), 5 deletions(-)
 
-diff --git a/arch/riscv/kvm/vcpu_sbi_hsm.c b/arch/riscv/kvm/vcpu_sbi_hsm.c
-index 2e915ca..619ac0f 100644
---- a/arch/riscv/kvm/vcpu_sbi_hsm.c
-+++ b/arch/riscv/kvm/vcpu_sbi_hsm.c
-@@ -42,7 +42,7 @@ static int kvm_sbi_hsm_vcpu_start(struct kvm_vcpu *vcpu)
- static int kvm_sbi_hsm_vcpu_stop(struct kvm_vcpu *vcpu)
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index 6b53adc..e862b13 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -301,6 +301,27 @@ int riscv_pmu_get_hpm_info(u32 *hw_ctr_width, u32 *num_hw_ctr)
+ }
+ EXPORT_SYMBOL_GPL(riscv_pmu_get_hpm_info);
+ 
++static unsigned long pmu_sbi_get_filter_flags(struct perf_event *event)
++{
++	unsigned long cflags = 0;
++	bool guest_events = false;
++
++	if (event->attr.config1 & RISCV_KVM_PMU_CONFIG1_GUEST_EVENTS)
++		guest_events = true;
++	if (event->attr.exclude_kernel)
++		cflags |= guest_events ? SBI_PMU_CFG_FLAG_SET_VSINH : SBI_PMU_CFG_FLAG_SET_SINH;
++	if (event->attr.exclude_user)
++		cflags |= guest_events ? SBI_PMU_CFG_FLAG_SET_VUINH : SBI_PMU_CFG_FLAG_SET_UINH;
++	if (guest_events && event->attr.exclude_hv)
++		cflags |= SBI_PMU_CFG_FLAG_SET_SINH;
++	if (event->attr.exclude_host)
++		cflags |= SBI_PMU_CFG_FLAG_SET_UINH | SBI_PMU_CFG_FLAG_SET_SINH;
++	if (event->attr.exclude_guest)
++		cflags |= SBI_PMU_CFG_FLAG_SET_VSINH | SBI_PMU_CFG_FLAG_SET_VUINH;
++
++	return cflags;
++}
++
+ static int pmu_sbi_ctr_get_idx(struct perf_event *event)
  {
- 	if (vcpu->arch.power_off)
--		return -EINVAL;
-+		return -EACCES;
+ 	struct hw_perf_event *hwc = &event->hw;
+@@ -311,11 +332,7 @@ static int pmu_sbi_ctr_get_idx(struct perf_event *event)
+ 	uint64_t cbase = 0;
+ 	unsigned long cflags = 0;
  
- 	kvm_riscv_vcpu_power_off(vcpu);
+-	if (event->attr.exclude_kernel)
+-		cflags |= SBI_PMU_CFG_FLAG_SET_SINH;
+-	if (event->attr.exclude_user)
+-		cflags |= SBI_PMU_CFG_FLAG_SET_UINH;
+-
++	cflags = pmu_sbi_get_filter_flags(event);
+ 	/* retrieve the available counter index */
+ #if defined(CONFIG_32BIT)
+ 	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_CFG_MATCH, cbase,
+diff --git a/include/linux/perf/riscv_pmu.h b/include/linux/perf/riscv_pmu.h
+index a1c3f77..1c42146 100644
+--- a/include/linux/perf/riscv_pmu.h
++++ b/include/linux/perf/riscv_pmu.h
+@@ -26,6 +26,8 @@
  
+ #define RISCV_PMU_STOP_FLAG_RESET 1
+ 
++#define RISCV_KVM_PMU_CONFIG1_GUEST_EVENTS 0x1
++
+ struct cpu_hw_events {
+ 	/* currently enabled events */
+ 	int			n_events;
 -- 
 2.25.1
 
