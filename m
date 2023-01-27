@@ -4,74 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3911C38142
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Jan 2023 13:18:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A82A8C54EAA
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Jan 2023 13:31:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5m5TF8f9EwvYzYOSo3EJKR0RLDHA4C79MzONvpFdYxo=; b=IqnzS5VCB0SDsW
-	rL9pFRomky9loW/e9dXKH9hHpfocT/liZI6MDsRhaF3NTtvK5FrvoXJSjN+3SfGH1E43gXbO5byy8
-	iyiH+qTGmCAtEWcZ8vnDKxeJcYXn+CqpaM6uqSeaGXtxkqd0xr0cGq+AK2mwbuWHKHqArJP+mEvpE
-	FOsdh8l6GhucIr84jgBjQoWyiksTX+g5fipBb9VYoiGPkdF0/wALc6F9eg8zgTVgBWm3HcXj2UJpP
-	Oo9sdcTQWEMj34AJhbs8RVfDSkf3N/bPVQYDA77jhz8J9JtrWTly+gf3ZE3P95aGG4sImFGIVupn/
-	RoCxvzqKds0EKZ+5ou3A==;
+	List-Owner; bh=b4EN8ueWG8u444IPZVddJASSDImqDxhtJS2NH7EVw0U=; b=lYDs1BTHEfcgLs
+	LoCsGPZlPcYw4b1nIaCXpL+OdO8N1lXUXpP/P/XxCtgy32+qKK1lHC3bdU6PaA/Gx/F/uml3ejFbR
+	LZCAGYlkAzinRf6nJatwWdknltl90wz0uzLY/nQCw4a8RhfphxCA53rGDv/n/aHyjoSq5bS/pWpfl
+	v62CGaiSqir3CUyr0y8CydJHkp+wB23kb1kw3dc/ewsxUSP4XNs6oiQkzdeFyRGaO/HG8EuCVwrhd
+	BhKKEVwTe6mWmKfSB2PWo0iVyQVrhf3H0DVEfvUiiknONrLLIab9UCzwQOtJwOkbCvbmBGVSxYfU0
+	xflmIzSodRs5MDkkS0zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pLOcL-00Evsv-ON; Fri, 27 Jan 2023 13:18:09 +0000
-Received: from mail-vs1-xe2d.google.com ([2607:f8b0:4864:20::e2d])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pLO02-00Ed49-C6
-	for linux-riscv@lists.infradead.org; Fri, 27 Jan 2023 12:38:35 +0000
-Received: by mail-vs1-xe2d.google.com with SMTP id p10so686850vsu.5
-        for <linux-riscv@lists.infradead.org>; Fri, 27 Jan 2023 04:38:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=76/Qo0p/UxKI75yKdBSKj64ShK7ggokQHoWD6X+9VHg=;
-        b=Hszngf222LTCIZHcJU1fcQ3FtMpp0R2eOQm3OvoYjsDNqUd9DWcmWOy+/4fg78+HsO
-         8XFpqun0Ueoj6fmd17AWt7K/6W2VW1sD/tmGPEQcv4nIf9Gt3HuB0Vnhk/IwXI1pSYGJ
-         BPZXC2Km1XXz633t+U9T88H2NhD1Xhj19dWgOmKi0Ec6TgvVDAHSMWw0oEdfg5mMiwUp
-         QFM3/gIYS3j1sl3Pz9WOlt/pZg66CUZmDctaZTQiyqh4feNu+YQconFv4gttY67JPn67
-         yOiZvxB6QYbnHv4Q60G40Qo4FX7HK0lwkbFRczhuBipr3M3bs+35aM8GDrCkk65hkX7y
-         amzQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=76/Qo0p/UxKI75yKdBSKj64ShK7ggokQHoWD6X+9VHg=;
-        b=BdIlmAgx3E0G5jZpECw6GnrbVz8LrIKqUScUrkklK3tEAdo+ddL749sGuF4NO/k0f3
-         I1PKjDuCLdJmApsSBUYugiSo5eb85gm94sKgS+0e46V3xZnoFcg1mDMvT0SXvEYBaS2m
-         wTj7tI23d031yQzSo1lwEGErq5qDG4jJ4MHxIp/wdVzGoaYrThWbRXW0+jcYLr22MJCt
-         VpfZTWQx9rGr/VbbRlVrtrr0LxIiMNm/i420yutF5tlPQBeQog4akFbicIfhQ7kgz0eR
-         2zq6EPtwdNnn62u+MA/ukaVIfIKm5OXx5mwbGY2GbN8w4xFLkFr/pJEnpJLLCz2lKiT5
-         Y2SA==
-X-Gm-Message-State: AFqh2krKlhzdZ0FowqYYbbmFzgzMPxoypyRtv0UZ5uPN+yG8f9JYsqFi
-	xRM70SsnD/sGrIfhoIAqyJWgQ35FdM4xDHB2uQRHQtLbDXMmWg==
-X-Google-Smtp-Source: AMrXdXvc0q+iLQCnU6T6GYjXCaxLciz1aBj2XVRZ5Wl7IH4DhMufJ5y3L690UwNsvqdwM9Ay5ls2J7TzC6BW9BtSReM=
-X-Received: by 2002:a05:6102:3134:b0:3d3:d816:c798 with SMTP id
- f20-20020a056102313400b003d3d816c798mr4972887vsh.59.1674823110815; Fri, 27
- Jan 2023 04:38:30 -0800 (PST)
+	id 1pLOpa-00F0yD-9X; Fri, 27 Jan 2023 13:31:50 +0000
+Received: from smtp80.cstnet.cn ([159.226.251.80] helo=cstnet.cn)
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pLOR0-00EryE-DU
+	for linux-riscv@lists.infradead.org; Fri, 27 Jan 2023 13:06:32 +0000
+Received: from cgk-Precision-3650-Tower.. (unknown [219.141.235.82])
+	by APP-01 (Coremail) with SMTP id qwCowADX3Eg9zNNjDyF3Ag--.52827S14;
+	Fri, 27 Jan 2023 21:06:10 +0800 (CST)
+From: Chen Guokai <chenguokai17@mails.ucas.ac.cn>
+To: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	rostedt@goodmis.org,
+	mingo@redhat.com,
+	sfr@canb.auug.org.au
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	liaochang1@huawei.com
+Subject: [PATCH v6 10/13] riscv/kprobe: Add instruction boundary check for RVI/RVC hybrid kernel
+Date: Fri, 27 Jan 2023 21:05:38 +0800
+Message-Id: <20230127130541.1250865-11-chenguokai17@mails.ucas.ac.cn>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20230127130541.1250865-1-chenguokai17@mails.ucas.ac.cn>
+References: <20230127130541.1250865-1-chenguokai17@mails.ucas.ac.cn>
 MIME-Version: 1.0
-References: <20230112140304.1830648-1-apatel@ventanamicro.com>
- <20230112140304.1830648-3-apatel@ventanamicro.com> <20230126160234.pkx4socjv3fcxpmn@orel>
-In-Reply-To: <20230126160234.pkx4socjv3fcxpmn@orel>
-From: Anup Patel <apatel@ventanamicro.com>
-Date: Fri, 27 Jan 2023 18:08:19 +0530
-Message-ID: <CAK9=C2X3=GZ1KDhHOAY2Mk+=uYAqSMVSYEQkWizm2=VgF_ynXw@mail.gmail.com>
-Subject: Re: [PATCH 2/7] RISC-V: Detect AIA CSRs from ISA string
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Atish Patra <atishp@atishpatra.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+X-CM-TRANSID: qwCowADX3Eg9zNNjDyF3Ag--.52827S14
+X-Coremail-Antispam: 1UD129KBjvJXoW7uF4rWF15GFyUuFWrXF1UWrg_yoW8Wry8pF
+	s8Cw45JrWrXw47GrySyw48X34SvF4kXr4aqFW7GFyrG34UXr45Xana9rWUtF98Kr9Y9r13
+	ZF15try0kry7A37anT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPKb7Iv0xC_Cr1lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI
+	8067AKxVWUAVCq3wA2048vs2IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28C
+	jxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW8JVW5JwA2z4x0Y4vE2Ix0cI
+	8IcVCY1x0267AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4vE
+	x4A2jsIEc7CjxVAFwI0_Gr1j6F4UJwAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52
+	x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWU
+	GwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI4
+	8JMxkIecxEwVAFwVW5GwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC2
+	0s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI
+	0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVW8JVW5JwCI42IY6xIIjxv2
+	0xvEc7CjxVAFwI0_Gr1j6F4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z2
+	80aVAFwI0_Gr0_Cr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIdaVFxhVjvjDU
+	0xZFpf9x07jF_M3UUUUU=
+X-Originating-IP: [219.141.235.82]
+X-CM-SenderInfo: xfkh0w5xrntxyrx6ztxlovh3xfdvhtffof0/1tbiCgsEE2PTtMIZxQAAsM
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230127_043834_434584_633D0C18 
-X-CRM114-Status: GOOD (  22.26  )
+X-CRM114-CacheID: sfid-20230127_050626_983930_FC28B850 
+X-CRM114-Status: UNSURE (   9.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,96 +85,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 26, 2023 at 9:32 PM Andrew Jones <ajones@ventanamicro.com> wrote:
->
-> On Thu, Jan 12, 2023 at 07:32:59PM +0530, Anup Patel wrote:
-> > We have two extension names for AIA ISA support: Smaia (M-mode AIA CSRs)
-> > and Ssaia (S-mode AIA CSRs).
-> >
-> > We extend the ISA string parsing to detect Smaia and Ssaia extensions.
-> >
-> > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> > ---
-> >  arch/riscv/include/asm/hwcap.h | 8 ++++++++
-> >  arch/riscv/kernel/cpu.c        | 2 ++
-> >  arch/riscv/kernel/cpufeature.c | 2 ++
-> >  3 files changed, 12 insertions(+)
-> >
-> > diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-> > index 86328e3acb02..c649e85ed7bb 100644
-> > --- a/arch/riscv/include/asm/hwcap.h
-> > +++ b/arch/riscv/include/asm/hwcap.h
-> > @@ -59,10 +59,18 @@ enum riscv_isa_ext_id {
-> >       RISCV_ISA_EXT_ZIHINTPAUSE,
-> >       RISCV_ISA_EXT_SSTC,
-> >       RISCV_ISA_EXT_SVINVAL,
-> > +     RISCV_ISA_EXT_SSAIA,
-> > +     RISCV_ISA_EXT_SMAIA,
->
-> These will change a couple different ways due other other patches in
-> flight, but let's put the pair in alphabetical order now so they get
-> moved together that way.
+From: Liao Chang <liaochang1@huawei.com>
 
-Okay, I will update.
+Add instruction boundary check to ensure kprobe doesn't truncate any RVI
+instruction, which leads to kernel crash.
 
->
-> >       RISCV_ISA_EXT_ID_MAX
-> >  };
-> >  static_assert(RISCV_ISA_EXT_ID_MAX <= RISCV_ISA_EXT_MAX);
-> >
-> > +#ifdef CONFIG_RISCV_M_MODE
-> > +#define RISCV_ISA_EXT_SxAIA          RISCV_ISA_EXT_SMAIA
-> > +#else
-> > +#define RISCV_ISA_EXT_SxAIA          RISCV_ISA_EXT_SSAIA
-> > +#endif
->
-> This isn't used in this patch, so should probably be introduced in a later
-> patch when it is.
+Signed-off-by: Liao Chang <liaochang1@huawei.com>
+---
+ arch/riscv/kernel/probes/kprobes.c | 24 +++++++++++++++++++++++-
+ 1 file changed, 23 insertions(+), 1 deletion(-)
 
-Okay, I will move this to the patch where it is used.
+diff --git a/arch/riscv/kernel/probes/kprobes.c b/arch/riscv/kernel/probes/kprobes.c
+index e1856b04db04..91a6b46909cc 100644
+--- a/arch/riscv/kernel/probes/kprobes.c
++++ b/arch/riscv/kernel/probes/kprobes.c
+@@ -49,11 +49,33 @@ static void __kprobes arch_simulate_insn(struct kprobe *p, struct pt_regs *regs)
+ 	post_kprobe_handler(p, kcb, regs);
+ }
+ 
++bool __kprobes riscv_insn_boundary_check(unsigned long paddr)
++{
++#if defined(CONFIG_RISCV_ISA_C)
++	unsigned long size = 0, offs = 0, len = 0, entry = 0;
++
++	if (!kallsyms_lookup_size_offset(paddr, &size, &offs))
++		return false;
++
++	/*
++	 * Scan instructions from function entry ensure the kprobe address
++	 * is aligned with RVI or RVC boundary.
++	 */
++	entry = paddr - offs;
++	while ((entry + len) < paddr)
++		len += GET_INSN_LENGTH(*(kprobe_opcode_t *)(entry + len));
++	return (entry + len) == paddr;
++#else
++	return true;
++#endif
++}
++
+ int __kprobes arch_prepare_kprobe(struct kprobe *p)
+ {
+ 	unsigned long probe_addr = (unsigned long)p->addr;
+ 
+-	if (probe_addr & 0x1)
++	/* for RVI/RCV hybrid kernel, it needs instruction boundary check */
++	if ((probe_addr & 0x1) || !riscv_insn_boundary_check(probe_addr))
+ 		return -EILSEQ;
+ 
+ 	/* copy instruction */
+-- 
+2.34.1
 
->
-> > +
-> >  /*
-> >   * This enum represents the logical ID for each RISC-V ISA extension static
-> >   * keys. We can use static key to optimize code path if some ISA extensions
-> > diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-> > index 1b9a5a66e55a..a215ec929160 100644
-> > --- a/arch/riscv/kernel/cpu.c
-> > +++ b/arch/riscv/kernel/cpu.c
-> > @@ -162,6 +162,8 @@ arch_initcall(riscv_cpuinfo_init);
-> >   *    extensions by an underscore.
-> >   */
-> >  static struct riscv_isa_ext_data isa_ext_arr[] = {
-> > +     __RISCV_ISA_EXT_DATA(smaia, RISCV_ISA_EXT_SMAIA),
-> > +     __RISCV_ISA_EXT_DATA(ssaia, RISCV_ISA_EXT_SSAIA),
-> >       __RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
-> >       __RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
-> >       __RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
-> > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> > index 93e45560af30..3c5b51f519d5 100644
-> > --- a/arch/riscv/kernel/cpufeature.c
-> > +++ b/arch/riscv/kernel/cpufeature.c
-> > @@ -228,6 +228,8 @@ void __init riscv_fill_hwcap(void)
-> >                               SET_ISA_EXT_MAP("zihintpause", RISCV_ISA_EXT_ZIHINTPAUSE);
-> >                               SET_ISA_EXT_MAP("sstc", RISCV_ISA_EXT_SSTC);
-> >                               SET_ISA_EXT_MAP("svinval", RISCV_ISA_EXT_SVINVAL);
-> > +                             SET_ISA_EXT_MAP("smaia", RISCV_ISA_EXT_SMAIA);
-> > +                             SET_ISA_EXT_MAP("ssaia", RISCV_ISA_EXT_SSAIA);
-> >                       }
-> >  #undef SET_ISA_EXT_MAP
-> >               }
-> > --
-> > 2.34.1
-> >
->
-> Otherwise,
->
-> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
->
-
-Thanks,
-Anup
 
 _______________________________________________
 linux-riscv mailing list
