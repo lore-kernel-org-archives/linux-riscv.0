@@ -4,76 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06585C38142
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Jan 2023 14:21:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C63A6C38142
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Jan 2023 14:31:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FFFDsJ5kVHT3qCjSNNqLna5HNLvNXBBjy7nbOqOJC9E=; b=ruCic+GNf+shLoQdKYQ89XckJk
-	o9gEC/w/dccLBrvXNhkSLUhcsGG6ucWfoClqcBh+COZm+AJ+wAf5rfS1KKYvPQcmDdUxFSYxWKHRM
-	xNhzwHB7hVZJCFPvU/cgtAGNtQW4GgdmANXB8OhHpdaLF2eg+RLeycVU9slg+5WFEhc0zLJoD8I/C
-	szqgQJCordQ0l3HDFNnIR1TtWiGHW0HNvPRG0n6G+eETXuX4ExwScXoIvhaCKevgjI1r7VAHtfIhf
-	vhd4PLUYPYZ6cITm2OSGnDgbzBYJ6/vKJj42UN+pCQM0l7GJGBcmyf5z6H/QFr1ZncynO388HqM5v
-	pI9XX2xQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=753niAl1EaDtjCdaZ0CXOjH9sEHaobp4Dz1WmOKDsjE=; b=enfhcqYFnI2vNv
+	RlyEs7jYOPi1kXTCIzJFQoatm5B7jfCBE9/hBrMqU29JHjE2dsyobQC+1jfUlRBjSwerofDjb8hst
+	QRsbostdIEnWZpGC1YnrJZc7UvF8T5e5JDVtALnLXAbXuZ6kBaJkVlJOOZq9d0MAhP5O5MYviLv8r
+	Zh+p3b00y4RD5qV13LH4fvEZDq0L83ge+mQjuYnyRC55B/S4xLI1OKNO5xfvQDG65QWB3GIxUk3Om
+	Pnar7Ge+mRjKAfwc6ls8XoGTvK70Oi7XtfL7sXEXZP3yAGGjHrH5SzhX3Fxm9BUPGBe0zwXxA/xWV
+	XjN6gHqUt+Ny7UkGsOvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pLPbI-00FFjI-7T; Fri, 27 Jan 2023 14:21:08 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1pLPl8-00FJ2T-HY; Fri, 27 Jan 2023 14:31:18 +0000
+Received: from mail-vs1-xe2a.google.com ([2607:f8b0:4864:20::e2a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pLPbA-00FFgr-IT
-	for linux-riscv@lists.infradead.org; Fri, 27 Jan 2023 14:21:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1674829260; x=1706365260;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=qRi/ydqT7NbsVpsX89s+hti2aWqBktbxWkTgajSS8xY=;
-  b=eslIitcz1yYc6Uvh4qfECvSEdiJdmjx4sn0+XSNZN7ip0VT1DGf1wC4h
-   isXL1tw/ApVLkrI4tv+BoG7g7TdeAAUb+hIArwbYZrgxVOt/aQTeSJsOI
-   64K6qIINPbYQPCD/PAeuYuri/WP7buXu6cwAi6Wmgv8bBgekt4cEEh+sH
-   wxpy6w3IOKMHfaGTd3ybQXoUkoP0e9JvQaTk1epCl9U0+3KHCmiUGd60B
-   cwv0/kwPPcHqQ9KjZaqqZ6g6Wd3OuMjMme7igV+LhGzGHOXCEqXcJ06hB
-   KlCFePr4ngSkPn9L3LNXGgAxGCaU8i9AEBGbcGY+HWwiq8OkY1oM3UlXl
-   A==;
-X-IronPort-AV: E=Sophos;i="5.97,251,1669100400"; 
-   d="asc'?scan'208";a="198299614"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 27 Jan 2023 07:20:55 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.16; Fri, 27 Jan 2023 07:20:54 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.16 via Frontend
- Transport; Fri, 27 Jan 2023 07:20:52 -0700
-Date: Fri, 27 Jan 2023 14:20:28 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Anup Patel <apatel@ventanamicro.com>
-CC: Conor Dooley <conor@kernel.org>, Anup Patel <anup@brainfault.org>, Palmer
- Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Rob
- Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Atish Patra <atishp@atishpatra.org>,
-	Alistair Francis <Alistair.Francis@wdc.com>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<devicetree@vger.kernel.org>
-Subject: Re: [PATCH v2 1/9] RISC-V: Add AIA related CSR defines
-Message-ID: <Y9PdrOvb8bYXpgVw@wendy>
-References: <20230103141409.772298-1-apatel@ventanamicro.com>
- <20230103141409.772298-2-apatel@ventanamicro.com>
- <Y7YGp/7ufyRPhkwg@spud>
- <CAAhSdy2YKJfuxhBmsx9v-OMyxKQjys+J-z_ZqoPJF7q=YrE4Zw@mail.gmail.com>
- <Y8cIG6gKSlkTh5AF@spud>
- <CAK9=C2VzJvpQLPedc+ruUnw8xDDDaC6_Vmj6qg1nXv+iqU-AfQ@mail.gmail.com>
+	id 1pLPl3-00FJ0x-VR
+	for linux-riscv@lists.infradead.org; Fri, 27 Jan 2023 14:31:16 +0000
+Received: by mail-vs1-xe2a.google.com with SMTP id 3so5461041vsq.7
+        for <linux-riscv@lists.infradead.org>; Fri, 27 Jan 2023 06:31:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=Jw2NxLvraQaSbouI1GGupBWPdcmZfwAj+5RhQxO7+u8=;
+        b=GmJHX9r0N8IWMq2yRHUsTTyoOJoAHzctYNy1QtA2dRqOj9tQu+ucZxo1NemYMSi/Tr
+         EJJ8f9/G4Y9cOMdDaDj8C7Ynr8ClAh6Pk/xKuW3rza02g3fHDSkTpaqqqm1SHL/kAsvb
+         fIujT4iALQBpx6C24bS6EPqiJhzEkO45A7EqRsRTS8ymPP+Zp6s+84YZF2f2fT1xN4Xj
+         wbqL+mXFIcZrepxj04WjDA6KdAsXkhDPseM9GgC9K7SJ51QzFr1278cmDiobtGRJlRkk
+         FTc70wv5UtyBITZ+2/TQ07Cfx4daLRlcMIX+4uN91oljEbxrYqsLXY52nXJ1jv+vDumZ
+         W6+g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Jw2NxLvraQaSbouI1GGupBWPdcmZfwAj+5RhQxO7+u8=;
+        b=uNZpkQLvkpKX91/kS47D98BGcRUEdzKmcDsfzO7qDO+iWrJQH4ER3nN/5LbYa5tZ1X
+         t/1pOUUgnqmP/LJxwcq7q5JRKpTuYK37LpLAhtqdj4iy7JF+c7P8xsCK1RAuu5YkQjVO
+         YdlzSBX/qaXjGXi9zuiS077UYvBvuxElQdCb8xnLHVnxRJxDCSKo2dLN4ZZ9K47ud3c2
+         aJG+u9USmc3aqX27GNQC/Dc01gG+id/uKeEMuAIGw8ssSflgTO+l8bPJv92leX6I94Sg
+         UsrEdqagMDhmgCwO+ek3wKz4BjjbdGgHLsGmdFjTM0d999rZxGHa+AGlLtnrY1fueX6X
+         rqog==
+X-Gm-Message-State: AFqh2krKswZlI1SSkWfMCil5dBFbinBWBPZPT9ZdpzIiychAVrdnrTYf
+	3VtxOlWeCrG3jQGmuxQ6UsmzSZXpzFRxpUkTkICyRg==
+X-Google-Smtp-Source: AMrXdXvm/8BNsmcy6INTEOl93KbfDFU9dd6UMLOHea7qvYgpTR5w7k/vYZqebNrsKh0mzxHAO85U6+i8mX1dRzqRi0g=
+X-Received: by 2002:a67:f506:0:b0:3d3:c767:4570 with SMTP id
+ u6-20020a67f506000000b003d3c7674570mr6090809vsn.85.1674829872551; Fri, 27 Jan
+ 2023 06:31:12 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <CAK9=C2VzJvpQLPedc+ruUnw8xDDDaC6_Vmj6qg1nXv+iqU-AfQ@mail.gmail.com>
+References: <20230112140304.1830648-1-apatel@ventanamicro.com>
+ <20230112140304.1830648-5-apatel@ventanamicro.com> <20230126164128.p3blvlwegizmh2ca@orel>
+In-Reply-To: <20230126164128.p3blvlwegizmh2ca@orel>
+From: Anup Patel <apatel@ventanamicro.com>
+Date: Fri, 27 Jan 2023 20:00:59 +0530
+Message-ID: <CAK9=C2XbzKKLtF0Z6tPJ8Hf4=Ze6R+9=hBHtuxpLX-4fh_5-kg@mail.gmail.com>
+Subject: Re: [PATCH 4/7] RISC-V: KVM: Initial skeletal support for AIA
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Atish Patra <atishp@atishpatra.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230127_062102_215349_5F88EC0F 
-X-CRM114-Status: GOOD (  21.43  )
+X-CRM114-CacheID: sfid-20230127_063114_045579_37E7E2FB 
+X-CRM114-Status: GOOD (  34.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,91 +83,522 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5232190756197003268=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============5232190756197003268==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="Q5G9sbwHy4TPVN/e"
-Content-Disposition: inline
-
---Q5G9sbwHy4TPVN/e
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Jan 27, 2023 at 05:28:57PM +0530, Anup Patel wrote:
-> On Wed, Jan 18, 2023 at 2:12 AM Conor Dooley <conor@kernel.org> wrote:
-
-> > > > > +/* AIA CSR bits */
-> > > > > +#define TOPI_IID_SHIFT               16
-> > > > > +#define TOPI_IID_MASK                0xfff
+On Thu, Jan 26, 2023 at 10:11 PM Andrew Jones <ajones@ventanamicro.com> wrote:
+>
+> On Thu, Jan 12, 2023 at 07:33:01PM +0530, Anup Patel wrote:
+> > To incrementally implement AIA support, we first add minimal skeletal
+> > support which only compiles and detects AIA hardware support at the
+> > boot-time but does not provide any functionality.
 > >
-> > While I think of it, it'd be worth noting that these are generic across
-> > all of topi, mtopi etc. Initially I thought that this mask was wrong as
-> > the topi section says:
-> >         bits 25:16 Interrupt identity (source number)
-> >         bits 7:0 Interrupt priority
->=20
-> These defines are for the AIA CSRs and not AIA APLIC IDC registers.
->=20
-> As per the latest frozen spec, the mtopi/stopi/vstopi has following bits:
->     bits: 27:16 IID
->     bits: 7:0 IPRIO
+> > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> > ---
+> >  arch/riscv/include/asm/kvm_aia.h  | 109 ++++++++++++++++++++++++++++++
+> >  arch/riscv/include/asm/kvm_host.h |   7 ++
+> >  arch/riscv/kvm/Makefile           |   1 +
+> >  arch/riscv/kvm/aia.c              |  66 ++++++++++++++++++
+> >  arch/riscv/kvm/main.c             |  13 ++++
+> >  arch/riscv/kvm/vcpu.c             |  40 ++++++++++-
+> >  arch/riscv/kvm/vcpu_insn.c        |   4 +-
+> >  arch/riscv/kvm/vm.c               |   4 ++
+> >  8 files changed, 240 insertions(+), 4 deletions(-)
+> >  create mode 100644 arch/riscv/include/asm/kvm_aia.h
+> >  create mode 100644 arch/riscv/kvm/aia.c
+> >
+> > diff --git a/arch/riscv/include/asm/kvm_aia.h b/arch/riscv/include/asm/kvm_aia.h
+> > new file mode 100644
+> > index 000000000000..52b5e8aefb30
+> > --- /dev/null
+> > +++ b/arch/riscv/include/asm/kvm_aia.h
+> > @@ -0,0 +1,109 @@
+> > +/* SPDX-License-Identifier: GPL-2.0-only */
+> > +/*
+> > + * Copyright (C) 2021 Western Digital Corporation or its affiliates.
+> > + * Copyright (C) 2022 Ventana Micro Systems Inc.
+> > + *
+> > + * Authors:
+> > + *   Anup Patel <apatel@ventanamicro.com>
+> > + */
+> > +
+> > +#ifndef __KVM_RISCV_AIA_H
+> > +#define __KVM_RISCV_AIA_H
+> > +
+> > +#include <linux/jump_label.h>
+> > +#include <linux/kvm_types.h>
+> > +
+> > +struct kvm_aia {
+> > +     /* In-kernel irqchip created */
+> > +     bool            in_kernel;
+> > +
+> > +     /* In-kernel irqchip initialized */
+> > +     bool            initialized;
+> > +};
+> > +
+> > +struct kvm_vcpu_aia {
+> > +};
+> > +
+> > +#define kvm_riscv_aia_initialized(k) (!!((k)->arch.aia.initialized))
+> > +
+> > +#define irqchip_in_kernel(k)         (!!((k)->arch.aia.in_kernel))
+>
+> No need for the '!!' operator in the above two defines since in both
+> cases the type it's operating on is bool.
 
-I know, that those ones use those bits, hence leaving an R-b for the
-patch - but your define says TOPI, which it is *not* accurate for.
-That is confusing and should be noted.
+Okay, I will update.
 
-> > What I was advocating for was picking one style and sticking to it.
-> > These copy-paste from docs things are tedious and error prone to review,
-> > and I don't think having multiple styles is helpful.
->=20
-> On the other hand, I think we should let developers choose a style
-> which is better suited for a particular register field instead enforcing
-> it here. The best we can do is follow a naming convention for defines.
+>
+> > +
+> > +DECLARE_STATIC_KEY_FALSE(kvm_riscv_aia_available);
+> > +#define kvm_riscv_aia_available() \
+> > +     static_branch_unlikely(&kvm_riscv_aia_available)
+> > +
+> > +static inline void kvm_riscv_vcpu_aia_flush_interrupts(struct kvm_vcpu *vcpu)
+> > +{
+> > +}
+> > +
+> > +static inline void kvm_riscv_vcpu_aia_sync_interrupts(struct kvm_vcpu *vcpu)
+> > +{
+> > +}
+> > +
+> > +static inline bool kvm_riscv_vcpu_aia_has_interrupts(struct kvm_vcpu *vcpu,
+> > +                                                  u64 mask)
+> > +{
+> > +     return false;
+> > +}
+> > +
+> > +static inline void kvm_riscv_vcpu_aia_update_hvip(struct kvm_vcpu *vcpu)
+> > +{
+> > +}
+> > +
+> > +static inline void kvm_riscv_vcpu_aia_load(struct kvm_vcpu *vcpu, int cpu)
+> > +{
+> > +}
+> > +
+> > +static inline void kvm_riscv_vcpu_aia_put(struct kvm_vcpu *vcpu)
+> > +{
+> > +}
+> > +
+> > +static inline int kvm_riscv_vcpu_aia_get_csr(struct kvm_vcpu *vcpu,
+> > +                                          unsigned long reg_num,
+> > +                                          unsigned long *out_val)
+> > +{
+> > +     *out_val = 0;
+> > +     return 0;
+> > +}
+> > +
+> > +static inline int kvm_riscv_vcpu_aia_set_csr(struct kvm_vcpu *vcpu,
+> > +                                          unsigned long reg_num,
+> > +                                          unsigned long val)
+> > +{
+> > +     return 0;
+> > +}
+> > +
+> > +#define KVM_RISCV_VCPU_AIA_CSR_FUNCS
+> > +
+> > +static inline int kvm_riscv_vcpu_aia_update(struct kvm_vcpu *vcpu)
+> > +{
+> > +     return 1;
+> > +}
+> > +
+> > +static inline void kvm_riscv_vcpu_aia_reset(struct kvm_vcpu *vcpu)
+> > +{
+> > +}
+> > +
+> > +static inline int kvm_riscv_vcpu_aia_init(struct kvm_vcpu *vcpu)
+> > +{
+> > +     return 0;
+> > +}
+> > +
+> > +static inline void kvm_riscv_vcpu_aia_deinit(struct kvm_vcpu *vcpu)
+> > +{
+> > +}
+> > +
+> > +static inline void kvm_riscv_aia_init_vm(struct kvm *kvm)
+> > +{
+> > +}
+> > +
+> > +static inline void kvm_riscv_aia_destroy_vm(struct kvm *kvm)
+> > +{
+> > +}
+> > +
+> > +void kvm_riscv_aia_enable(void);
+> > +void kvm_riscv_aia_disable(void);
+> > +int kvm_riscv_aia_init(void);
+> > +void kvm_riscv_aia_exit(void);
+> > +
+> > +#endif
+> > diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
+> > index 93f43a3e7886..b71f0e639b39 100644
+> > --- a/arch/riscv/include/asm/kvm_host.h
+> > +++ b/arch/riscv/include/asm/kvm_host.h
+> > @@ -14,6 +14,7 @@
+> >  #include <linux/kvm_types.h>
+> >  #include <linux/spinlock.h>
+> >  #include <asm/hwcap.h>
+> > +#include <asm/kvm_aia.h>
+> >  #include <asm/kvm_vcpu_fp.h>
+> >  #include <asm/kvm_vcpu_insn.h>
+> >  #include <asm/kvm_vcpu_sbi.h>
+> > @@ -93,6 +94,9 @@ struct kvm_arch {
+> >
+> >       /* Guest Timer */
+> >       struct kvm_guest_timer timer;
+> > +
+> > +     /* AIA Guest/VM context */
+> > +     struct kvm_aia aia;
+> >  };
+> >
+> >  struct kvm_cpu_trap {
+> > @@ -220,6 +224,9 @@ struct kvm_vcpu_arch {
+> >       /* SBI context */
+> >       struct kvm_vcpu_sbi_context sbi_context;
+> >
+> > +     /* AIA VCPU context */
+> > +     struct kvm_vcpu_aia aia;
+>
+> Maybe name this one vcpu_aia?
 
-Well shall have to agree to disagree I suppose!
+To be consistent with a few other variables in struct kvm_vcpu_arch, I will
+add "_context" suffix to aia variable name.
 
-> > Tedious as it was, I did check all the numbers though, so in that
-> > respect:
-> > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
->=20
-> BTW, this patch is shared with KVM AIA CSR series so most likely
-> I will take this patch through that series.
+>
+> > +
+> >       /* Cache pages needed to program page tables with spinlock held */
+> >       struct kvm_mmu_memory_cache mmu_page_cache;
+> >
+> > diff --git a/arch/riscv/kvm/Makefile b/arch/riscv/kvm/Makefile
+> > index 019df9208bdd..adbc85a94364 100644
+> > --- a/arch/riscv/kvm/Makefile
+> > +++ b/arch/riscv/kvm/Makefile
+> > @@ -25,3 +25,4 @@ kvm-y += vcpu_sbi_base.o
+> >  kvm-y += vcpu_sbi_replace.o
+> >  kvm-y += vcpu_sbi_hsm.o
+> >  kvm-y += vcpu_timer.o
+> > +kvm-y += aia.o
+>
+> Shouldn't the compilation of aia.c depend on the same config(s) as the
+> rest of the kernel's AIA support?
 
-Since the path which it gets applied is between you and Palmer to
-decide, feel free to add the R-b whichever way the patch ends up going!
+The AIA CSRs are just like other ISA extensions which we detect
+from the host ISA string. A kconfig option is not required for
+AIA CSRs since users can always disable AIA CSRs from
+their ISA strings in DT.
+
+>
+> > diff --git a/arch/riscv/kvm/aia.c b/arch/riscv/kvm/aia.c
+> > new file mode 100644
+> > index 000000000000..e7fa4e014d08
+> > --- /dev/null
+> > +++ b/arch/riscv/kvm/aia.c
+> > @@ -0,0 +1,66 @@
+> > +// SPDX-License-Identifier: GPL-2.0
+> > +/*
+> > + * Copyright (C) 2021 Western Digital Corporation or its affiliates.
+> > + * Copyright (C) 2022 Ventana Micro Systems Inc.
+> > + *
+> > + * Authors:
+> > + *   Anup Patel <apatel@ventanamicro.com>
+> > + */
+> > +
+> > +#include <linux/kvm_host.h>
+> > +#include <asm/hwcap.h>
+> > +
+> > +DEFINE_STATIC_KEY_FALSE(kvm_riscv_aia_available);
+> > +
+> > +static inline void aia_set_hvictl(bool ext_irq_pending)
+>
+> I'd drop the 'inline' from functions in .c files and let the compiler
+> fully decide.
+
+Okay, I will update.
+
+>
+> > +{
+> > +     unsigned long hvictl;
+> > +
+> > +     /*
+> > +      * HVICTL.IID == 9 and HVICTL.IPRIO == 0 represents
+> > +      * no interrupt in HVICTL.
+> > +      */
+> > +
+> > +     hvictl = (IRQ_S_EXT << HVICTL_IID_SHIFT) & HVICTL_IID;
+> > +     hvictl |= (ext_irq_pending) ? 1 : 0;
+>
+> ext_irq_pending is bool, so this can just be 'hvictl |= ext_irq_pending'.
+
+Okay, I will update.
+
+>
+> > +     csr_write(CSR_HVICTL, hvictl);
+> > +}
+> > +
+> > +void kvm_riscv_aia_enable(void)
+> > +{
+> > +     if (!kvm_riscv_aia_available())
+> > +             return;
+> > +
+> > +     aia_set_hvictl(false);
+> > +     csr_write(CSR_HVIPRIO1, 0x0);
+> > +     csr_write(CSR_HVIPRIO2, 0x0);
+> > +#ifdef CONFIG_32BIT
+> > +     csr_write(CSR_HVIPH, 0x0);
+> > +     csr_write(CSR_HIDELEGH, 0x0);
+> > +     csr_write(CSR_HVIPRIO1H, 0x0);
+> > +     csr_write(CSR_HVIPRIO2H, 0x0);
+> > +#endif
+> > +}
+> > +
+> > +void kvm_riscv_aia_disable(void)
+> > +{
+> > +     if (!kvm_riscv_aia_available())
+> > +             return;
+> > +
+> > +     aia_set_hvictl(false);
+> > +}
+> > +
+> > +int kvm_riscv_aia_init(void)
+> > +{
+> > +     if (!riscv_isa_extension_available(NULL, SxAIA))
+> > +             return -ENODEV;
+> > +
+> > +     /* Enable KVM AIA support */
+> > +     static_branch_enable(&kvm_riscv_aia_available);
+> > +
+> > +     return 0;
+> > +}
+> > +
+> > +void kvm_riscv_aia_exit(void)
+> > +{
+> > +}
+> > diff --git a/arch/riscv/kvm/main.c b/arch/riscv/kvm/main.c
+> > index 58c5489d3031..d8ff44eb04ca 100644
+> > --- a/arch/riscv/kvm/main.c
+> > +++ b/arch/riscv/kvm/main.c
+> > @@ -53,11 +53,15 @@ int kvm_arch_hardware_enable(void)
+> >
+> >       csr_write(CSR_HVIP, 0);
+> >
+> > +     kvm_riscv_aia_enable();
+> > +
+> >       return 0;
+> >  }
+> >
+> >  void kvm_arch_hardware_disable(void)
+> >  {
+> > +     kvm_riscv_aia_disable();
+> > +
+> >       /*
+> >        * After clearing the hideleg CSR, the host kernel will receive
+> >        * spurious interrupts if hvip CSR has pending interrupts and the
+> > @@ -72,6 +76,7 @@ void kvm_arch_hardware_disable(void)
+> >
+> >  int kvm_arch_init(void *opaque)
+> >  {
+> > +     int rc;
+> >       const char *str;
+> >
+> >       if (!riscv_isa_extension_available(NULL, h)) {
+> > @@ -93,6 +98,10 @@ int kvm_arch_init(void *opaque)
+> >
+> >       kvm_riscv_gstage_vmid_detect();
+> >
+> > +     rc = kvm_riscv_aia_init();
+> > +     if (rc && rc != -ENODEV)
+> > +             return rc;
+> > +
+> >       kvm_info("hypervisor extension available\n");
+> >
+> >       switch (kvm_riscv_gstage_mode()) {
+> > @@ -115,11 +124,15 @@ int kvm_arch_init(void *opaque)
+> >
+> >       kvm_info("VMID %ld bits available\n", kvm_riscv_gstage_vmid_bits());
+> >
+> > +     if (kvm_riscv_aia_available())
+> > +             kvm_info("AIA available\n");
+> > +
+> >       return 0;
+> >  }
+> >
+> >  void kvm_arch_exit(void)
+> >  {
+> > +     kvm_riscv_aia_exit();
+> >  }
+> >
+> >  static int __init riscv_kvm_init(void)
+> > diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+> > index 2260adaf2de8..3cf50eadc8ce 100644
+> > --- a/arch/riscv/kvm/vcpu.c
+> > +++ b/arch/riscv/kvm/vcpu.c
+> > @@ -135,6 +135,8 @@ static void kvm_riscv_reset_vcpu(struct kvm_vcpu *vcpu)
+> >
+> >       kvm_riscv_vcpu_timer_reset(vcpu);
+> >
+> > +     kvm_riscv_vcpu_aia_reset(vcpu);
+> > +
+> >       WRITE_ONCE(vcpu->arch.irqs_pending, 0);
+> >       WRITE_ONCE(vcpu->arch.irqs_pending_mask, 0);
+> >
+> > @@ -155,6 +157,7 @@ int kvm_arch_vcpu_precreate(struct kvm *kvm, unsigned int id)
+> >
+> >  int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
+> >  {
+> > +     int rc;
+> >       struct kvm_cpu_context *cntx;
+> >       struct kvm_vcpu_csr *reset_csr = &vcpu->arch.guest_reset_csr;
+> >       unsigned long host_isa, i;
+> > @@ -194,6 +197,11 @@ int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
+> >       /* Setup VCPU timer */
+> >       kvm_riscv_vcpu_timer_init(vcpu);
+> >
+> > +     /* Setup VCPU AIA */
+> > +     rc = kvm_riscv_vcpu_aia_init(vcpu);
+> > +     if (rc)
+> > +             return rc;
+> > +
+> >       /* Reset VCPU */
+> >       kvm_riscv_reset_vcpu(vcpu);
+> >
+> > @@ -213,6 +221,9 @@ void kvm_arch_vcpu_postcreate(struct kvm_vcpu *vcpu)
+> >
+> >  void kvm_arch_vcpu_destroy(struct kvm_vcpu *vcpu)
+> >  {
+> > +     /* Cleanup VCPU AIA context */
+> > +     kvm_riscv_vcpu_aia_deinit(vcpu);
+> > +
+> >       /* Cleanup VCPU timer */
+> >       kvm_riscv_vcpu_timer_deinit(vcpu);
+> >
+> > @@ -730,6 +741,9 @@ void kvm_riscv_vcpu_flush_interrupts(struct kvm_vcpu *vcpu)
+> >               csr->hvip &= ~mask;
+> >               csr->hvip |= val;
+> >       }
+> > +
+> > +     /* Flush AIA high interrupts */
+> > +     kvm_riscv_vcpu_aia_flush_interrupts(vcpu);
+> >  }
+> >
+> >  void kvm_riscv_vcpu_sync_interrupts(struct kvm_vcpu *vcpu)
+> > @@ -755,6 +769,9 @@ void kvm_riscv_vcpu_sync_interrupts(struct kvm_vcpu *vcpu)
+> >               }
+> >       }
+> >
+> > +     /* Sync-up AIA high interrupts */
+> > +     kvm_riscv_vcpu_aia_sync_interrupts(vcpu);
+> > +
+> >       /* Sync-up timer CSRs */
+> >       kvm_riscv_vcpu_timer_sync(vcpu);
+> >  }
+> > @@ -791,10 +808,15 @@ int kvm_riscv_vcpu_unset_interrupt(struct kvm_vcpu *vcpu, unsigned int irq)
+> >
+> >  bool kvm_riscv_vcpu_has_interrupts(struct kvm_vcpu *vcpu, unsigned long mask)
+> >  {
+> > -     unsigned long ie = ((vcpu->arch.guest_csr.vsie & VSIP_VALID_MASK)
+> > -                         << VSIP_TO_HVIP_SHIFT) & mask;
+> > +     unsigned long ie;
+> > +
+> > +     ie = ((vcpu->arch.guest_csr.vsie & VSIP_VALID_MASK)
+> > +             << VSIP_TO_HVIP_SHIFT) & mask;
+> > +     if (READ_ONCE(vcpu->arch.irqs_pending) & ie)
+> > +             return true;
+> >
+> > -     return (READ_ONCE(vcpu->arch.irqs_pending) & ie) ? true : false;
+> > +     /* Check AIA high interrupts */
+> > +     return kvm_riscv_vcpu_aia_has_interrupts(vcpu, mask);
+> >  }
+> >
+> >  void kvm_riscv_vcpu_power_off(struct kvm_vcpu *vcpu)
+> > @@ -890,6 +912,8 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
+> >       kvm_riscv_vcpu_guest_fp_restore(&vcpu->arch.guest_context,
+> >                                       vcpu->arch.isa);
+> >
+> > +     kvm_riscv_vcpu_aia_load(vcpu, cpu);
+> > +
+> >       vcpu->cpu = cpu;
+> >  }
+> >
+> > @@ -899,6 +923,8 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
+> >
+> >       vcpu->cpu = -1;
+> >
+> > +     kvm_riscv_vcpu_aia_put(vcpu);
+> > +
+> >       kvm_riscv_vcpu_guest_fp_save(&vcpu->arch.guest_context,
+> >                                    vcpu->arch.isa);
+> >       kvm_riscv_vcpu_host_fp_restore(&vcpu->arch.host_context);
+> > @@ -966,6 +992,7 @@ static void kvm_riscv_update_hvip(struct kvm_vcpu *vcpu)
+> >       struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
+> >
+> >       csr_write(CSR_HVIP, csr->hvip);
+> > +     kvm_riscv_vcpu_aia_update_hvip(vcpu);
+> >  }
+> >
+> >  /*
+> > @@ -1040,6 +1067,13 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+> >
+> >               local_irq_disable();
+> >
+> > +             /* Update AIA HW state before entering guest */
+> > +             ret = kvm_riscv_vcpu_aia_update(vcpu);
+> > +             if (ret <= 0) {
+> > +                     local_irq_enable();
+> > +                     continue;
+> > +             }
+> > +
+> >               /*
+> >                * Ensure we set mode to IN_GUEST_MODE after we disable
+> >                * interrupts and before the final VCPU requests check.
+> > diff --git a/arch/riscv/kvm/vcpu_insn.c b/arch/riscv/kvm/vcpu_insn.c
+> > index 0bb52761a3f7..07e8c121922b 100644
+> > --- a/arch/riscv/kvm/vcpu_insn.c
+> > +++ b/arch/riscv/kvm/vcpu_insn.c
+> > @@ -213,7 +213,9 @@ struct csr_func {
+> >                   unsigned long wr_mask);
+> >  };
+> >
+> > -static const struct csr_func csr_funcs[] = { };
+> > +static const struct csr_func csr_funcs[] = {
+> > +     KVM_RISCV_VCPU_AIA_CSR_FUNCS
+> > +};
+> >
+> >  /**
+> >   * kvm_riscv_vcpu_csr_return -- Handle CSR read/write after user space
+> > diff --git a/arch/riscv/kvm/vm.c b/arch/riscv/kvm/vm.c
+> > index 65a964d7e70d..bc03d2ddcb51 100644
+> > --- a/arch/riscv/kvm/vm.c
+> > +++ b/arch/riscv/kvm/vm.c
+> > @@ -41,6 +41,8 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
+> >               return r;
+> >       }
+> >
+> > +     kvm_riscv_aia_init_vm(kvm);
+> > +
+> >       kvm_riscv_guest_timer_init(kvm);
+> >
+> >       return 0;
+> > @@ -49,6 +51,8 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
+> >  void kvm_arch_destroy_vm(struct kvm *kvm)
+> >  {
+> >       kvm_destroy_vcpus(kvm);
+> > +
+> > +     kvm_riscv_aia_destroy_vm(kvm);
+> >  }
+> >
+> >  int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
+> > --
+> > 2.34.1
+> >
+>
+> Thanks,
+> drew
 
 Thanks,
-Conor.
-
-
---Q5G9sbwHy4TPVN/e
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY9PdrAAKCRB4tDGHoIJi
-0hKXAQCV41cEz/0+TALwgNAhpxgpr/x9in2qmKvIyEVcmTybHgEA/fTEeQ8D3ipy
-4nLYxkY/iE4Orn6/f5tKcQ1ydfXq3QE=
-=1kNL
------END PGP SIGNATURE-----
-
---Q5G9sbwHy4TPVN/e--
-
-
---===============5232190756197003268==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Anup
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5232190756197003268==--
-
