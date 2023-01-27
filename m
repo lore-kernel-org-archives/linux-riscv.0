@@ -4,58 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88949C38142
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Jan 2023 09:11:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B12C2C54EAA
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Jan 2023 09:12:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rzI9pYLL48FICCJGimptH5Mp9ctDDGW2TVROEq+/vTU=; b=RsVqYQGnVvy6gI
-	cIDUjE5wOuoRpJhOwzie/MAAFsXdo5T06//4RatoCEALpmZunqbhRcysuaoXX4s7O90kiYaDVaCzm
-	Xa7Dv5nvNK2KpVtXOz4FslHlPe+zG0J4VQP2Bj7ruvr/IAthLAaFqU7cZsYG+N/NJ7tZ2PKUcHASn
-	DmNAEad/+azGztj+5ujI1+eIeGQIgCWZMz1fVI7ettk/YGaFRgvUG9Gr+WsJo0LpY21x70ZXIobin
-	zPWjp9w0eIeT5rpHXZLKIz6FbKwfPz9vTkFK9XyNLtbGjqKwbbkcyiz+kx/3ZUqB1kzpKQiKMr3Vq
-	Bb8gU/j0PxTPyPXdgj8w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=vJZZZ03sWbPp6jD31Tyrut238BZWKvKDzCvoNijUrGY=; b=Ts0pdqotF6znop
+	ljHsUoWuh4Cy2zk4vdLBKoYvdq9oaYbzNJuEhwGn6QoEnOnY1n+7RNKlq4qBshO/6EAI2JRvGt8i8
+	P9dNXKXc2NCjbf24rzp+HCpjz7WWB05Ydx4iBgFY6+f8R6emDB9S88K53qJ13zKaJKABNBcy2ympT
+	w6z9H0hPND7+pmgpaQwXGiu2TipJtvB/OZzauMCTzSgex6yyyqgYROwF5gIHHMSWyiDBGNes38g2r
+	r1SYnzngVpl5Nr0gk40zAJDwIRaNbp6L2wxdDIEiZLusO6V50L54O/VOYsdlHPQddi36hlvne9vCE
+	5L9Z3JMkqOvhY1mdqBPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pLKlz-00Daso-LP; Fri, 27 Jan 2023 09:11:51 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	id 1pLKm3-00DauP-60; Fri, 27 Jan 2023 09:11:55 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pLKlu-00Daoe-QB
-	for linux-riscv@lists.infradead.org; Fri, 27 Jan 2023 09:11:48 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	id 1pLKlw-00DanF-R1
+	for linux-riscv@lists.infradead.org; Fri, 27 Jan 2023 09:11:50 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id AE99224E02F;
-	Fri, 27 Jan 2023 17:11:27 +0800 (CST)
-Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 27 Jan
- 2023 17:11:27 +0800
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 79B1424DDB2;
+	Fri, 27 Jan 2023 17:11:02 +0800 (CST)
+Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 27 Jan
+ 2023 17:11:02 +0800
 Received: from jsia-virtual-machine.localdomain (60.50.196.81) by
  EXMBX066.cuchost.com (172.16.6.66) with Microsoft SMTP Server (TLS) id
- 15.0.1497.42; Fri, 27 Jan 2023 17:11:23 +0800
+ 15.0.1497.42; Fri, 27 Jan 2023 17:10:58 +0800
 From: Sia Jee Heng <jeeheng.sia@starfivetech.com>
 To: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>
 CC: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
 	<jeeheng.sia@starfivetech.com>, <leyfoon.tan@starfivetech.com>,
 	<mason.huo@starfivetech.com>
-Subject: [PATCH v3 3/4] RISC-V: mm: Enable huge page support to kernel_page_present() function
-Date: Fri, 27 Jan 2023 17:10:50 +0800
-Message-ID: <20230127091051.1465278-4-jeeheng.sia@starfivetech.com>
+Subject: [PATCH v3 0/4] RISC-V Hibernation Support
+Date: Fri, 27 Jan 2023 17:10:47 +0800
+Message-ID: <20230127091051.1465278-1-jeeheng.sia@starfivetech.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20230127091051.1465278-1-jeeheng.sia@starfivetech.com>
-References: <20230127091051.1465278-1-jeeheng.sia@starfivetech.com>
 MIME-Version: 1.0
 X-Originating-IP: [60.50.196.81]
 X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX066.cuchost.com
  (172.16.6.66)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230127_011147_019400_CE1A450A 
-X-CRM114-Status: UNSURE (   8.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230127_011149_251428_1F28E51D 
+X-CRM114-Status: GOOD (  16.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,44 +69,80 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently kernel_page_present() function doesn't support huge page
-detection causes the function to mistakenly return false to the
-hibernation core.
+This series adds RISC-V Hibernation/suspend to disk support.
+Low level Arch functions were created to support hibernation.
+swsusp_arch_suspend() relies code from __cpu_suspend_enter() to write
+cpu state onto the stack, then calling swsusp_save() to save the memory
+image.
 
-Add huge page detection to the function to solve the problem.
+Arch specific hibernation header is implemented and is utilized by the
+arch_hibernation_header_restore() and arch_hibernation_header_save()
+functions. The arch specific hibernation header consists of satp, hartid,
+and the cpu_resume address. The kernel built version is also need to be
+saved into the hibernation image header to making sure only the same
+kernel is restore when resume.
 
-Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
-Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
-Reviewed-by: Mason Huo <mason.huo@starfivetech.com>
----
- arch/riscv/mm/pageattr.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+swsusp_arch_resume() creates a temporary page table that covering only
+the linear map. It copies the restore code to a 'safe' page, then start to
+restore the memory image. Once completed, it restores the original
+kernel's page table. It then calls into __hibernate_cpu_resume()
+to restore the CPU context. Finally, it follows the normal hibernation
+path back to the hibernation core.
 
-diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
-index 86c56616e5de..792b8d10cdfc 100644
---- a/arch/riscv/mm/pageattr.c
-+++ b/arch/riscv/mm/pageattr.c
-@@ -221,14 +221,20 @@ bool kernel_page_present(struct page *page)
- 	p4d = p4d_offset(pgd, addr);
- 	if (!p4d_present(*p4d))
- 		return false;
-+	if (p4d_leaf(*p4d))
-+		return true;
- 
- 	pud = pud_offset(p4d, addr);
- 	if (!pud_present(*pud))
- 		return false;
-+	if (pud_leaf(*pud))
-+		return true;
- 
- 	pmd = pmd_offset(pud, addr);
- 	if (!pmd_present(*pmd))
- 		return false;
-+	if (pmd_leaf(*pmd))
-+		return true;
- 
- 	pte = pte_offset_kernel(pmd, addr);
- 	return pte_present(*pte);
+To enable hibernation/suspend to disk into RISCV, the below config
+need to be enabled:
+- CONFIG_ARCH_HIBERNATION_HEADER
+- CONFIG_ARCH_HIBERNATION_POSSIBLE
+
+At high-level, this series includes the following changes:
+1) Change suspend_save_csrs() and suspend_restore_csrs()
+   to public function as these functions are common to
+   suspend/hibernation. (patch 1)
+2) Refactor the common code in the __cpu_resume_enter() function and
+   __hibernate_cpu_resume() function. The common code are used by
+   hibernation and suspend. (patch 2)
+3) Enhance kernel_page_present() function to support huge page. (patch 3)
+4) Add arch/riscv low level functions to support
+   hibernation/suspend to disk. (patch 4)
+
+The above patches are based on kernel v6.2-rc5 and are tested on
+StarFive VF2 SBC board and Qemu. 
+ACPI platform mode is not supported in this series.
+
+Changes since v2:
+- Rebased to kernel v6.2-rc5
+- Refactor the common code used by hibernation and suspend
+- Create copy_page macro
+- Solved other comments from Andrew and Conor
+
+Changes since v1:
+- Rebased to kernel v6.2-rc3
+- Fixed bot's compilation error
+
+Sia Jee Heng (4):
+  RISC-V: Change suspend_save_csrs and suspend_restore_csrs to public
+    function
+  RISC-V: Factor out common code of __cpu_resume_enter()
+  RISC-V: mm: Enable huge page support to kernel_page_present() function
+  RISC-V: Add arch functions to support hibernation/suspend-to-disk
+
+ arch/riscv/Kconfig                 |   7 +
+ arch/riscv/include/asm/assembler.h |  82 +++++++
+ arch/riscv/include/asm/suspend.h   |  24 ++
+ arch/riscv/kernel/Makefile         |   1 +
+ arch/riscv/kernel/asm-offsets.c    |   5 +
+ arch/riscv/kernel/hibernate-asm.S  |  89 +++++++
+ arch/riscv/kernel/hibernate.c      | 360 +++++++++++++++++++++++++++++
+ arch/riscv/kernel/suspend.c        |   4 +-
+ arch/riscv/kernel/suspend_entry.S  |  34 +--
+ arch/riscv/mm/pageattr.c           |   6 +
+ 10 files changed, 579 insertions(+), 33 deletions(-)
+ create mode 100644 arch/riscv/include/asm/assembler.h
+ create mode 100644 arch/riscv/kernel/hibernate-asm.S
+ create mode 100644 arch/riscv/kernel/hibernate.c
+
+
+base-commit: 7c46948a6e9cf47ed03b0d489fde894ad46f1437
 -- 
 2.34.1
 
