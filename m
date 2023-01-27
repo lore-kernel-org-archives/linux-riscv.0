@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30F35C38142
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Jan 2023 19:31:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AD71C54EAA
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Jan 2023 19:31:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2GNBVw2l64xobiQ6YjiGA8kG6fRxYVazP31UfLEvKqk=; b=wcECVQ9zcfapOa
-	ZxfGhdgX9o+En8coeI6i6K1pcPAE1J7TM7ltLLIgLYFYArQFdt4B0c0M1RIv6auhBySQJdIEvNxJS
-	4bmKjOG40us5EVrHoG4jvVztvesDyDs2+EJbsZeRhQMtfXi1VD02xalWbaMwL9chobZ7llaQQh0MU
-	dVrMtncvP/wpCjUhzIZ8+i/qryx4EULpWsyeh6bQpVCOwednb+9zXEq/nth9d5YeoT5CKvig4zj+x
-	hsg1xoW+3PO3Hw/s+tbjH+++S3aNWKil0eDDY407qJtqq/QhrPHSvuhpuUjTj6G5hlmYmFH7Mz59G
-	NBBMlCy6fu7Hqss0yRZw==;
+	List-Owner; bh=E+KmheogaFBYBN6TSGs9lVryr81sKeFDJT54YZ9pm24=; b=eoeHrq5Njba5TB
+	r9D9Hql0EfgzD/BOkLa+QUUJn7BOrFBk0WRNsJzhGcW4okrroyMlV6rpOrnXvLdzn1iz0mWOp8A5R
+	vGii2nIiUCU9yVKty++AIPph+6FALoZcmTbYcVcSKn/Use4S7Z711ovmAIC3DmLJaG0rLMMLLTLrb
+	au9lVLkTfBd0OlDsKv7VzS4VeJ0FFwTAERObXbfBfrgYXn5QZfQIIo1KHKARKlmDYExHUqOOI4QFc
+	G9KJ586YmDwNowhlD76Ebu/BUFOXPKsmA0GZ4fg8XrpyHmdwBwRnZccSwKq+CLOVuKLn0k43Me2Vi
+	Wo7QGGRAcyHGCHJVzvsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pLURX-00G7Ej-1h; Fri, 27 Jan 2023 19:31:23 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1pLURZ-00G7FM-Uy; Fri, 27 Jan 2023 19:31:25 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pLTQY-00G2aT-0Y
+	id 1pLTQX-00G2aQ-N1
 	for linux-riscv@lists.infradead.org; Fri, 27 Jan 2023 18:26:21 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id nm12-20020a17090b19cc00b0022c2155cc0bso5506750pjb.4
-        for <linux-riscv@lists.infradead.org>; Fri, 27 Jan 2023 10:26:16 -0800 (PST)
+Received: by mail-pl1-x62c.google.com with SMTP id jl3so5859352plb.8
+        for <linux-riscv@lists.infradead.org>; Fri, 27 Jan 2023 10:26:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=cn2VkKN/WuIcEOyjejqwRSpO25aVX0itAsGTfYH0Pbw=;
-        b=DAAXxtYjkQddNCj7UM7En6mqUmf3J2gzYsFadRPtlJg6aTcQ7YLch8H//JxlEijKk7
-         5uxQ73XFulPZlp1QmIf6vQrIzjaSZg+PKSPJ3UkME9YpCFWvyWYP/k4BMD7A2aXG0iOr
-         je+nSeC+7pEg35a+Jn4PQsXJfTRp5WdUJb2DW73Yn+WSuExXhf/39l5UMQta2v5BYmLX
-         eHi9cQY4mXQ1MAatncFFmUs7n1voCzvRxMfNIgfWNoKB2Yt+UJ8yX8cBUxEdezG4CNU+
-         BfL31EsqTfc+KOhOQi0xZ4vhH735HWHaTQ3Rtpsn7fIxeyWHSsET1qCBmGo3xlclDkCW
-         /gXg==
+        bh=iGqgvezQ/AlpTuqgVROWAp2lac08ioX9ghbgFT6R5zs=;
+        b=IoRffA7eaBKD5TnGEAMzpERUl+R39LOxAlgfDLhDNga+rN9SbFYLfdz9WFRgJCTeRN
+         9Updpbd1OZtc//enWU826k0AachdF3yKioeNtgxkt9/kIfGqMeggP3NJkMHCVrn38zEt
+         o0ySxQgMwR7DstBzrONN9sUSnnkIYSCZmjlPUaPZycJTqTBIKNAj0Y+IKQKTWXZUV/g1
+         Hbr1Yw2D00RYz6wcO9p7KP1dPScebiMdJ1Wz7lqeW/m8MLImzr1r9OBpSxBUtGPDMeaU
+         EKmOy6JcaGBPxAZXqtqvKGClyDQ4IZH3V1Pgrky1d4NUmTsNJDKgHZ/O9226Ve6thdSn
+         TZ6A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=cn2VkKN/WuIcEOyjejqwRSpO25aVX0itAsGTfYH0Pbw=;
-        b=Dx9nxhOddNOI8VU8kxJZwDtWGKB+nTNXCn4D6tJ1f5SvrP86X8rdlycoPHopGmb2ri
-         SdPDf2VSAbuZtct7fJupcx8Vx5yN2oGeUIg4E4HkpKDHiUErrhvOmVfOjY/ynVTlA0Wc
-         zHHEDnUAd/9MpJmlPJZYzQZqJYDuOQ+oBpFwVRHYYjLq5frmBK4NOUOFCunRS1yfE/6A
-         GUwydNxfjnnhKY36CQDqAT6T8oEgOrivPzj/0BrOQ4emE03fUeVgnJeZQL9SBmIhj1A2
-         NSg7dHX9K4lxcKsugUAew/rwYEDmgZ9Q+/hEhxVHYsMIrRqcItYCN6Ei2tyHmiORX8Vx
-         slvA==
-X-Gm-Message-State: AO0yUKWtHz4dfHvttHZsjj3BG/Ek/FAxnkm17DPFjJV7QxTv1yNje6RU
-	D1Rdgljn3W9ZHzxpjNCRKTqfbg==
-X-Google-Smtp-Source: AK7set8r6nl3JNPXU8sjoTzHFKmJTI+gWSEYIL1CwiWtyssd72a/N86A2G/VJ1879ufSaeoYEoYbAg==
-X-Received: by 2002:a17:902:db0d:b0:196:32fa:69a9 with SMTP id m13-20020a170902db0d00b0019632fa69a9mr6206312plx.51.1674843976411;
-        Fri, 27 Jan 2023 10:26:16 -0800 (PST)
+        bh=iGqgvezQ/AlpTuqgVROWAp2lac08ioX9ghbgFT6R5zs=;
+        b=QoUUTu6gpiTmVsYK8y3Ijg4SzstiLmNA5ujIjlHodJotRp5Uc0gTloUR2xb+x91bP/
+         b0BdkmLMPjwV19wWc+hXrvaF5Zt3oOZ7t85BeaxAYF3nlwv0ToCqmvvdvJwCJaAkf0rm
+         64ikb+s93t86tHm3xXunNlMmK+VLh9mizRbU6vrQ2li/Jz1xh24aphbTwBsVEswZXYaA
+         XpG+GhpreRGZx5mSArPouS+4JHVKSIT/E0iTSr+5APumqTHSQZxlF1cidHRivmH9SWjF
+         C4gOXAHRRWPCEZrIlBlXTn/QLJd/N3uCpTBh3j73hXjLEEzQXz4+2HAQpwcaTngPeMNB
+         /oMQ==
+X-Gm-Message-State: AO0yUKWlGl4lfdZN5+/PccnuEAZ69M8z3d0ePAIqGYhNlgU4TGNwkpPo
+	UOmLps/pSnwdD7Uk2AwMLeU4xA==
+X-Google-Smtp-Source: AK7set+cnIlp7JbMlNK7BW+W2Y23IVQIWZv8DFzQh9nYmsI7NrsZq7emEqdZjMsHA/iQQGK1DvKKNA==
+X-Received: by 2002:a17:902:f54c:b0:196:f82:14c9 with SMTP id h12-20020a170902f54c00b001960f8214c9mr17447443plf.57.1674843974605;
+        Fri, 27 Jan 2023 10:26:14 -0800 (PST)
 Received: from atishp.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id jc5-20020a17090325c500b00189d4c666c8sm3195219plb.153.2023.01.27.10.26.15
+        by smtp.gmail.com with ESMTPSA id jc5-20020a17090325c500b00189d4c666c8sm3195219plb.153.2023.01.27.10.26.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Jan 2023 10:26:16 -0800 (PST)
+        Fri, 27 Jan 2023 10:26:14 -0800 (PST)
 From: Atish Patra <atishp@rivosinc.com>
 To: linux-kernel@vger.kernel.org
 Cc: Atish Patra <atishp@rivosinc.com>,
@@ -76,16 +76,16 @@ Cc: Atish Patra <atishp@rivosinc.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Sergey Matyukevich <sergey.matyukevich@syntacore.com>,
 	Will Deacon <will@kernel.org>
-Subject: [PATCH v3 03/14] RISC-V: Improve SBI PMU extension related definitions
-Date: Fri, 27 Jan 2023 10:25:47 -0800
-Message-Id: <20230127182558.2416400-4-atishp@rivosinc.com>
+Subject: [PATCH v3 01/14] perf: RISC-V: Define helper functions expose hpm counter width and count
+Date: Fri, 27 Jan 2023 10:25:45 -0800
+Message-Id: <20230127182558.2416400-2-atishp@rivosinc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20230127182558.2416400-1-atishp@rivosinc.com>
 References: <20230127182558.2416400-1-atishp@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230127_102618_076799_7290CF21 
-X-CRM114-Status: GOOD (  12.38  )
+X-CRM114-CacheID: sfid-20230127_102617_801254_33802298 
+X-CRM114-Status: GOOD (  19.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,43 +102,105 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch fixes/improve few minor things in SBI PMU extension
-definition.
-
-1. Align all the firmware event names.
-2. Add macros for bit positions in cache event ID & ops.
-
-The changes were small enough to combine them together instead
-of creating 1 liner patches.
+KVM module needs to know how many hardware counters and the counter
+width that the platform supports. Otherwise, it will not be able to show
+optimal value of virtual counters to the guest. The virtual hardware
+counters also need to have the same width as the logical hardware
+counters for simplicity. However, there shouldn't be mapping between
+virtual hardware counters and logical hardware counters. As we don't
+support hetergeneous harts or counters with different width as of now,
+the implementation relies on the counter width of the first available
+programmable counter.
 
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- arch/riscv/include/asm/sbi.h | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ drivers/perf/riscv_pmu_sbi.c   | 37 ++++++++++++++++++++++++++++++++--
+ include/linux/perf/riscv_pmu.h |  3 +++
+ 2 files changed, 38 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-index 4ca7fba..f21c026 100644
---- a/arch/riscv/include/asm/sbi.h
-+++ b/arch/riscv/include/asm/sbi.h
-@@ -171,7 +171,7 @@ enum sbi_pmu_fw_generic_events_t {
- 	SBI_PMU_FW_IPI_SENT		= 6,
- 	SBI_PMU_FW_IPI_RECVD		= 7,
- 	SBI_PMU_FW_FENCE_I_SENT		= 8,
--	SBI_PMU_FW_FENCE_I_RECVD	= 9,
-+	SBI_PMU_FW_FENCE_I_RCVD		= 9,
- 	SBI_PMU_FW_SFENCE_VMA_SENT	= 10,
- 	SBI_PMU_FW_SFENCE_VMA_RCVD	= 11,
- 	SBI_PMU_FW_SFENCE_VMA_ASID_SENT	= 12,
-@@ -215,6 +215,9 @@ enum sbi_pmu_ctr_type {
- #define SBI_PMU_EVENT_CACHE_OP_ID_CODE_MASK 0x06
- #define SBI_PMU_EVENT_CACHE_RESULT_ID_CODE_MASK 0x01
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index f6507ef..6b53adc 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -44,7 +44,7 @@ static const struct attribute_group *riscv_pmu_attr_groups[] = {
+ };
  
-+#define SBI_PMU_EVENT_CACHE_ID_SHIFT 3
-+#define SBI_PMU_EVENT_CACHE_OP_SHIFT 1
+ /*
+- * RISC-V doesn't have hetergenous harts yet. This need to be part of
++ * RISC-V doesn't have heterogeneous harts yet. This need to be part of
+  * per_cpu in case of harts with different pmu counters
+  */
+ static union sbi_pmu_ctr_info *pmu_ctr_list;
+@@ -52,6 +52,9 @@ static bool riscv_pmu_use_irq;
+ static unsigned int riscv_pmu_irq_num;
+ static unsigned int riscv_pmu_irq;
+ 
++/* Cache the available counters in a bitmask */
++static unsigned long cmask;
 +
- #define SBI_PMU_EVENT_IDX_INVALID 0xFFFFFFFF
+ struct sbi_pmu_event_data {
+ 	union {
+ 		union {
+@@ -267,6 +270,37 @@ static bool pmu_sbi_ctr_is_fw(int cidx)
+ 	return (info->type == SBI_PMU_CTR_TYPE_FW) ? true : false;
+ }
  
- /* Flags defined for config matching function */
++/*
++ * Returns the counter width of a programmable counter and number of hardware
++ * counters. As we don't support heterogeneous CPUs yet, it is okay to just
++ * return the counter width of the first programmable counter.
++ */
++int riscv_pmu_get_hpm_info(u32 *hw_ctr_width, u32 *num_hw_ctr)
++{
++	int i;
++	union sbi_pmu_ctr_info *info;
++	u32 hpm_width = 0, hpm_count = 0;
++
++	if (!cmask)
++		return -EINVAL;
++
++	for_each_set_bit(i, &cmask, RISCV_MAX_COUNTERS) {
++		info = &pmu_ctr_list[i];
++		if (!info)
++			continue;
++		if (!hpm_width && info->csr != CSR_CYCLE && info->csr != CSR_INSTRET)
++			hpm_width = info->width;
++		if (info->type == SBI_PMU_CTR_TYPE_HW)
++			hpm_count++;
++	}
++
++	*hw_ctr_width = hpm_width;
++	*num_hw_ctr = hpm_count;
++
++	return 0;
++}
++EXPORT_SYMBOL_GPL(riscv_pmu_get_hpm_info);
++
+ static int pmu_sbi_ctr_get_idx(struct perf_event *event)
+ {
+ 	struct hw_perf_event *hwc = &event->hw;
+@@ -812,7 +846,6 @@ static void riscv_pmu_destroy(struct riscv_pmu *pmu)
+ static int pmu_sbi_device_probe(struct platform_device *pdev)
+ {
+ 	struct riscv_pmu *pmu = NULL;
+-	unsigned long cmask = 0;
+ 	int ret = -ENODEV;
+ 	int num_counters;
+ 
+diff --git a/include/linux/perf/riscv_pmu.h b/include/linux/perf/riscv_pmu.h
+index e17e86a..a1c3f77 100644
+--- a/include/linux/perf/riscv_pmu.h
++++ b/include/linux/perf/riscv_pmu.h
+@@ -73,6 +73,9 @@ void riscv_pmu_legacy_skip_init(void);
+ static inline void riscv_pmu_legacy_skip_init(void) {};
+ #endif
+ struct riscv_pmu *riscv_pmu_alloc(void);
++#ifdef CONFIG_RISCV_PMU_SBI
++int riscv_pmu_get_hpm_info(u32 *hw_ctr_width, u32 *num_hw_ctr);
++#endif
+ 
+ #endif /* CONFIG_RISCV_PMU */
+ 
 -- 
 2.25.1
 
