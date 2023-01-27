@@ -4,67 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72E81C38142
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Jan 2023 03:53:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8AE4C54EAA
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Jan 2023 05:05:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=jwbQ35yWNCDx0z2g1LEaFV5MUDx/1wCk+SorJRu6XZ4=; b=IBP++/Xxf9NXSH
-	Wa+xscAQC01myc4fJ+EYFzy6E/tpg4AO8RQ3XIQaewQEdQPT2zDQVPAPZrHPoD2q+TOlS5eSEFcJI
-	9wkVaGi1r784vJCqvSnYcgc0/CnDPFdTScn7hmtAMoTtWikHw2waTEhvgQ4SKSJ6hzTMRBUSAc2k+
-	DLRbPHF32BdeH0JcU7yWm1p77xrZKvvtv1ETB8s90wpVHBYWDFLsxMlDNb5OfPWcs/gpVaNO9kKYR
-	pWmV78HVuvIobY1NEaePQgO23INBhXAF1ZSMv4pbzrgiMTG+Nd3VWMyw/ORHhUBOg66yEQo5Xl2Xz
-	GgaV56PaxFmJx6kcjzSQ==;
+	List-Owner; bh=7nU1lCb9WWNOAlj9Ci1cKiQ/c2le4gtRfwXKhH1oiEw=; b=XpMatfULsLXg7f
+	YzN3IYOIiSs2xh3a0sBbozJsxAgmRjEvj7XLvrskanP5yJfZ1+ETo+WJPwg1mO/NsxFliG8Mk7Qyh
+	qUDDRF0YY3cWR/Svg6DAV+zW74xR8S24GXB2Ss1hHITVDmlnM735vy9B453sFsKz6T1rMt+4BgJ24
+	JACn3LxK3qD3QOKZQDQV78v+3J1Y0ZpbSmyXMBwVpI0Nwo71QzF0GH0FEvRj3MIlJ9KwX3UAGgNaA
+	Wy95+K936J0ZRBPG9ORDwaUCpFhxMqBdlCjWBEeX/8iXoQeG4fSMMJ8R1t1eTh430EF0ooefrbRPu
+	SNzAB6A2Vx9JiER2rj8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pLFoB-00DDO7-7z; Fri, 27 Jan 2023 03:53:47 +0000
+	id 1pLGv5-00DGxB-6E; Fri, 27 Jan 2023 05:04:59 +0000
 Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pLFo5-00DDN4-1V
-	for linux-riscv@lists.infradead.org; Fri, 27 Jan 2023 03:53:46 +0000
+	id 1pLGv2-00DGwm-04
+	for linux-riscv@lists.infradead.org; Fri, 27 Jan 2023 05:04:57 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 9DB13B80B19;
-	Fri, 27 Jan 2023 03:53:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1A7BC433EF;
-	Fri, 27 Jan 2023 03:53:25 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 5031DB81F99;
+	Fri, 27 Jan 2023 05:04:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6801C433EF;
+	Fri, 27 Jan 2023 05:04:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1674791616;
-	bh=QiRQ0Fl6+onHpSDTLUrFMpUAIIfVHseS/iKmIXAYaWc=;
+	s=k20201202; t=1674795893;
+	bh=/HLKprgFCkbwfasw3ymLCwPg8rX60Yypp+3lYT3FCJ4=;
 	h=From:To:Cc:Subject:Date:From;
-	b=OzyjQCSOa1wVfANYW40qX3EScWWACX6fBwykJNrXTF2hDppVqv8V3BkTjJiH/eXQY
-	 rhe7qgjnq8pCOqvYRBxX5C3gg1JWPluGlnbV2/cohPk+ibiC5Il4sqSQF38cACs4lH
-	 S/hS0gG1MCioogE0Psv0YFrcrlacf86vBgEZ+gwLwzkgs/R4vJXppqxYRLNa09ypq7
-	 PwqSEKrEl7k8Tn98U2JIAw+37ojxZ7D4gYF40hJNHO0+uG6FH1OSsddXYQen8KO3hq
-	 V9Wg9IvpS2BhPTyjOm//TSDz1+eUOYHuOlxHE2HEdlMmFCufTmBO1w2CcU5V7HcxrI
-	 rjYgYYSBgstbw==
+	b=Mp/rTFaZrIswP/zPyxJsexO6HD1kJWsmPpq+Dl17E8g8+5vNo28eKn/wnbal/dq+9
+	 ue1W8sWQZARzTxdJxD6tWGlMycrf0stBW/c7G7KK/kcP6+66EeJei/Z9Zi4wMHLoM6
+	 nbjjXIAZo0T+MSGYbJ24kPTSIRpWwwZ3lqEhgQvQfLV9n3Je9q25UJf2/w8NXrWgJz
+	 ec7ljPaw+1OEHlYYuOawmSCkTUEeJ8MbV1+hZQmJMBXMrlUqZN0/9hHe7xJMt1/vqP
+	 hYlq3slKHiZe3SDP9+qiaDFB969ICKH9rAnBhfUQ+nYmjrK6Up8PxAvs9+9CW+ZgkA
+	 VvNYgMm89j8TA==
 From: guoren@kernel.org
-To: arnd@arndb.de,
+To: tongtiangen@huawei.com,
+	alexandre.ghiti@canonical.com,
+	muchun.song@linux.dev,
 	palmer@rivosinc.com,
-	conor.dooley@microchip.com,
-	apatel@ventanamicro.com,
-	atishp@atishpatra.org,
-	mark.rutland@arm.com,
-	bjorn@kernel.org,
-	guoren@kernel.org,
-	tongtiangen@huawei.com,
-	ajones@ventanamicro.com,
-	andrew@sifive.com
-Cc: linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Guo Ren <guoren@linux.alibaba.com>
-Subject: [PATCH V2] riscv: Fixup race condition on PG_dcache_clean in flush_icache_pte
-Date: Thu, 26 Jan 2023 22:53:06 -0500
-Message-Id: <20230127035306.1819561-1-guoren@kernel.org>
+	guoren@kernel.org
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Guo Ren <guoren@linux.alibaba.com>,
+	Muchun Song <songmuchun@bytedance.com>
+Subject: [PATCH -next V2] riscv: mm: hugetlb: Enable ARCH_WANT_HUGETLB_PAGE_OPTIMIZE_VMEMMAP
+Date: Fri, 27 Jan 2023 00:04:21 -0500
+Message-Id: <20230127050421.1920048-1-guoren@kernel.org>
 X-Mailer: git-send-email 2.36.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230126_195344_885284_B4ED4E06 
-X-CRM114-Status: GOOD (  12.44  )
+X-CRM114-CacheID: sfid-20230126_210456_210700_B6B0C84E 
+X-CRM114-Status: GOOD (  11.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,44 +78,52 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Guo Ren <guoren@linux.alibaba.com>
 
-In commit 588a513d3425 ("arm64: Fix race condition on PG_dcache_clean
-in __sync_icache_dcache()"), we found RISC-V has the same issue as the
-previous arm64. The previous implementation didn't guarantee the correct
-sequence of operations, which means flush_icache_all() hasn't been
-called when the PG_dcache_clean was set. That would cause a risk of page
-synchronization.
+Add HVO support for RISC-V; see commit 6be24bed9da3 ("mm: hugetlb:
+introduce a new config HUGETLB_PAGE_FREE_VMEMMAP"). This patch is
+similar to commit 1e63ac088f20 ("arm64: mm: hugetlb: enable
+HUGETLB_PAGE_FREE_VMEMMAP for arm64"), and riscv's motivation is the
+same as arm64. The current riscv was ready to enable HVO after fixup,
+ref commit d33deda095d3 ("riscv/mm: hugepage's PG_dcache_clean flag
+is only set in head page").
 
-Fixes: 08f051eda33b ("RISC-V: Flush I$ when making a dirty page executable")
+The HugeTLB VmemmapvOptimization (HVO) defaults to off in Kconfig.
+
+Here is the riscv test log:
+cat /proc/sys/vm/hugetlb_optimize_vmemmap
+echo 8 > /sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages
+mount -t hugetlbfs none test/ -o pagesize=2048k
+<Try some simple hugetlb test in test dir, no problem found.>
+
 Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 Signed-off-by: Guo Ren <guoren@kernel.org>
+Link: https://lore.kernel.org/linux-riscv/1F5AF29D-708A-483B-A29F-CAEE6F554866@linux.dev/
+Acked-by: Muchun Song <songmuchun@bytedance.com>
 ---
 Changelog:
 V2:
- - Optimize commit log
+ - Optimize the commit log
+ - Remove riscv page compound_head fixup which has been merged.
  - Rebase on riscv for-next (20230127)
+ - Add HVO author's acked-by
 
 V1:
-https://lore.kernel.org/linux-riscv/20221023133205.3493564-2-guoren@kernel.org/
+https://lore.kernel.org/linux-riscv/20221023133205.3493564-1-guoren@kernel.org/
 ---
- arch/riscv/mm/cacheflush.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ arch/riscv/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
-index 3cc07ed45aeb..fcd6145fbead 100644
---- a/arch/riscv/mm/cacheflush.c
-+++ b/arch/riscv/mm/cacheflush.c
-@@ -90,8 +90,10 @@ void flush_icache_pte(pte_t pte)
- 	if (PageHuge(page))
- 		page = compound_head(page);
- 
--	if (!test_and_set_bit(PG_dcache_clean, &page->flags))
-+	if (!test_bit(PG_dcache_clean, &page->flags)) {
- 		flush_icache_all();
-+		set_bit(PG_dcache_clean, &page->flags);
-+	}
- }
- #endif /* CONFIG_MMU */
- 
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index e2b656043abf..949974a38a41 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -46,6 +46,7 @@ config RISCV
+ 	select ARCH_WANT_FRAME_POINTERS
+ 	select ARCH_WANT_GENERAL_HUGETLB
+ 	select ARCH_WANT_HUGE_PMD_SHARE if 64BIT
++	select ARCH_WANT_HUGETLB_PAGE_OPTIMIZE_VMEMMAP
+ 	select ARCH_WANTS_THP_SWAP if HAVE_ARCH_TRANSPARENT_HUGEPAGE
+ 	select BINFMT_FLAT_NO_DATA_START_OFFSET if !MMU
+ 	select BUILDTIME_TABLE_SORT if MMU
 -- 
 2.36.1
 
