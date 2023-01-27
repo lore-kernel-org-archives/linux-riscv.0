@@ -4,30 +4,30 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4194EC54EAA
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Jan 2023 13:33:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D69AFC54EAA
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Jan 2023 13:33:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JPueW8/Kn/ZszsMoQ9pp9gx1JENHQE/lAONrLbAYkwA=; b=FGX33dAV4HEZgo
-	6mmn1n+EtlOg6SVX3nD4NgWDyEJwFHGstOkkohuwQx/I41VH20k1MaZKqnWjKQJgJsHre6N5611Fc
-	yc0nPM/RQNL21Ul8taFUWU+uw2hbeVP6K6OJjDkei3dEh1zwM1Ptz8AvdajGnVGXNkqIWexzFl0RB
-	Wm+85tptjBuamY28RW+4L+vnPeQhFn/IX8Wm9r43T7gVAeptC2Btq4Eyprygs4H/VXNm5VYk1k53w
-	lBrN9SWx6ZjaXPjUDhvt9AapoRAsAZtEH82aVaIXYpF63sU52Q0+I3sTdx3+w4Xvqof4wCtOTSEIh
-	JffrJPL90nUBBsUpvwlg==;
+	List-Owner; bh=4GiHG6T8UFRN2ZLk5SUzYvhlpIw79bmaVXbWK2U0mSc=; b=k4wOYpQWD9ZhXd
+	kWdUyTAOk4IQWgnJLZJl5GQXKsecYyxWnNzl6vOdT6wP7cwqk+4V+d9HNztKgL3f0Ps0I2Ghf1Fcd
+	GDdaVygwMgyI8aECZBD4DME1xtH4/7NikOBVDgT2R201sREPDYMx6AWoq5wBw4QjvOgrC7UxfZ5Zc
+	JTzCSKuLVfa6qAPCkCb1pzzRs5nvdDXbkJTZTdLDnN4FqSCewCSIo1mzc2qJ/ydbNe4JMxclbO1Rz
+	EKeIDSMeDwJo7vodflS2/iyD2EQVkzZEPp4OP9gigdGvJSy3Pgyl62g9MuKontAogugPYwBzYH6cd
+	kql//vJCDomGuGaeKhOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pLOqd-00F1aQ-Vs; Fri, 27 Jan 2023 13:32:56 +0000
+	id 1pLOqj-00F1eR-Ua; Fri, 27 Jan 2023 13:33:02 +0000
 Received: from smtp80.cstnet.cn ([159.226.251.80] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pLOR1-00EryG-Af
+	id 1pLOR0-00Ery9-GW
 	for linux-riscv@lists.infradead.org; Fri, 27 Jan 2023 13:06:40 +0000
 Received: from cgk-Precision-3650-Tower.. (unknown [219.141.235.82])
-	by APP-01 (Coremail) with SMTP id qwCowADX3Eg9zNNjDyF3Ag--.52827S13;
-	Fri, 27 Jan 2023 21:06:10 +0800 (CST)
+	by APP-01 (Coremail) with SMTP id qwCowADX3Eg9zNNjDyF3Ag--.52827S8;
+	Fri, 27 Jan 2023 21:06:09 +0800 (CST)
 From: Chen Guokai <chenguokai17@mails.ucas.ac.cn>
 To: paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
@@ -38,38 +38,37 @@ To: paul.walmsley@sifive.com,
 Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	liaochang1@huawei.com,
-	Chen Guokai <chenguokai17@mails.ucas.ac.cn>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>
-Subject: [PATCH v6 09/13] riscv/kprobe: Search free registers from unused caller-saved ones
-Date: Fri, 27 Jan 2023 21:05:37 +0800
-Message-Id: <20230127130541.1250865-10-chenguokai17@mails.ucas.ac.cn>
+	Chen Guokai <chenguokai17@mails.ucas.ac.cn>
+Subject: [PATCH v6 04/13] riscv/kprobe: Add common RVI and RVC instruction decoder code
+Date: Fri, 27 Jan 2023 21:05:32 +0800
+Message-Id: <20230127130541.1250865-5-chenguokai17@mails.ucas.ac.cn>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20230127130541.1250865-1-chenguokai17@mails.ucas.ac.cn>
 References: <20230127130541.1250865-1-chenguokai17@mails.ucas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowADX3Eg9zNNjDyF3Ag--.52827S13
-X-Coremail-Antispam: 1UD129KBjvJXoWxtF45Ary3JryUtrWkuryDZFb_yoWfXF15pF
-	sxGw4FvrWUtFykCrZrAw1kGr4fKrs8KrW0vFyUtFyayr43X39IvFWvgF1aqr1DKF4jvr4x
-	Ar45Cry8urW3AFJanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUQq14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+X-CM-TRANSID: qwCowADX3Eg9zNNjDyF3Ag--.52827S8
+X-Coremail-Antispam: 1UD129KBjvJXoW3XF47tr4rZFWfGrW7WF48WFg_yoW3Ar15pa
+	n5Crn0v3ykGF93urZ7tr48CrWYqw4rGw4DKay0ga1ayF12qr4UXr9aqry3tF4kWFWFgr47
+	CFZ8JrWkG3y2y3DanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUQ214x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
 	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JF0E3s1l82xGYI
 	kIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2
-	z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F
-	4UJwA2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4U
-	JVWxJr1lnxkEFVAIw20F6cxK64vIFxWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64
-	xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j
-	6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI
-	8I648v4I1lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc2xSY4AK67AK6ry8MxAIw28IcxkI7VAK
-	I48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7
-	xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xII
-	jxv20xvE14v26r1I6r4UMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8Jr0_Cr1UMIIF0xvE42
-	xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF
-	7I0E14v26r4UJVWxJrUvcSsGvfC2KfnxnUUI43ZEXa7VUjTmh7UUUUU==
+	z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr
+	1UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gr1j
+	6F4UJwAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFc
+	xC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_
+	Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2
+	IErcIFxwACI402YVCY1x02628vn2kIc2xKxwCY02Avz4vE14v_Xr4l42xK82IYc2Ij64vI
+	r41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8Gjc
+	xK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0
+	cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8V
+	AvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E
+	14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfU0LvKUUUUU
 X-Originating-IP: [219.141.235.82]
-X-CM-SenderInfo: xfkh0w5xrntxyrx6ztxlovh3xfdvhtffof0/1tbiBwUEE2PTsCcetQABsY
+X-CM-SenderInfo: xfkh0w5xrntxyrx6ztxlovh3xfdvhtffof0/1tbiAwcEE2PTrr4g0AAAsD
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230127_050627_855996_5148F23C 
-X-CRM114-Status: GOOD (  20.94  )
+X-CRM114-CacheID: sfid-20230127_050627_157105_8ADF18D0 
+X-CRM114-Status: GOOD (  11.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,165 +80,272 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-VGhpcyBwYXRjaCBmdXJ0aGVyIGFsbG93cyBvcHRwcm9iZSB0byB1c2UgY2FsbGVyLXNhdmVkIHJl
-Z2lzdGVycyB0aGF0CmlzIG5vdCB1c2VkIGFjcm9zcyB0aGUgZnVuY3Rpb24gYmVpbmcgb3B0aW1p
-emVkIGFzIGZyZWUgcmVnaXN0ZXJzLgoKU2lnbmVkLW9mZi1ieTogQ2hlbiBHdW9rYWkgPGNoZW5n
-dW9rYWkxN0BtYWlscy51Y2FzLmFjLmNuPgpDby1kZXZlbG9wZWQtYnk6IExpYW8gQ2hhbmcgPGxp
-YW9jaGFuZzFAaHVhd2VpLmNvbT4KU2lnbmVkLW9mZi1ieTogTGlhbyBDaGFuZyA8bGlhb2NoYW5n
-MUBodWF3ZWkuY29tPgpSZXBvcnRlZC1ieTogQmrDtnJuIFTDtnBlbCA8Ympvcm5Aa2VybmVsLm9y
-Zz4KLS0tCiBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2twcm9iZXMuaCAgICAgICB8ICAgMSArCiBh
-cmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMvZGVjb2RlLWluc24uaCB8ICAyOSArKysrKysrCiBhcmNo
-L3Jpc2N2L2tlcm5lbC9wcm9iZXMvb3B0LmMgICAgICAgICB8IDExNiArKysrKysrKysrKysrKysr
-KysrKysrLS0tCiAzIGZpbGVzIGNoYW5nZWQsIDEzNCBpbnNlcnRpb25zKCspLCAxMiBkZWxldGlv
-bnMoLSkKCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2twcm9iZXMuaCBiL2Fy
-Y2gvcmlzY3YvaW5jbHVkZS9hc20va3Byb2Jlcy5oCmluZGV4IDc1ZWJkMDJiZTE3MS4uZjdkMzNm
-Njg2MWM2IDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2twcm9iZXMuaAorKysg
-Yi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2twcm9iZXMuaApAQCAtODYsNiArODYsNyBAQCBzdHJ1
-Y3QgYXJjaF9vcHRpbWl6ZWRfaW5zbiB7CiAJa3Byb2JlX29wY29kZV90ICppbnNuOwogCXVuc2ln
-bmVkIGxvbmcgbGVuZ3RoOwogCWludCByZDsKKwl1MzIgZnJlZV9yZWc7CiB9OwogCiAjZW5kaWYg
-LyogQ09ORklHX09QVFBST0JFUyAqLwpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvcHJv
-YmVzL2RlY29kZS1pbnNuLmggYi9hcmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMvZGVjb2RlLWluc24u
-aAppbmRleCA3ODViMDIzYTYyZWEuLjE0MGY1YjZhOTg4NiAxMDA2NDQKLS0tIGEvYXJjaC9yaXNj
-di9rZXJuZWwvcHJvYmVzL2RlY29kZS1pbnNuLmgKKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvcHJv
-YmVzL2RlY29kZS1pbnNuLmgKQEAgLTEzLDYgKzEzLDM1IEBAIGVudW0gcHJvYmVfaW5zbiB7CiAJ
-SU5TTl9HT09ELAogfTsKIAorI2RlZmluZSBOUlJFRyAzMgorI2RlZmluZSBBTExfUkVHX09DQ1VQ
-SUVEIDB4ZmZmZmZmZmZ1CisvKgorICogUmVnaXN0ZXIJQUJJIE5hbWUJU2F2ZXIKKyAqIHgwCQl6
-ZXJvCQktLQorICogeDEJCXJhCQlDYWxsZXIKKyAqIHgyCQlzcAkJQ2FsbGVlCisgKiB4MwkJZ3AJ
-CS0tCisgKiB4NAkJdHAJCS0tCisgKiB4NS03IAl0MC0yCQlDYWxsZXIKKyAqIHg4CQlzby9mcAkJ
-Q2FsbGVlCisgKiB4OQkJc28vZnAJCUNhbGxlZQorICogeDEwLTExCWEwLTEJCUNhbGxlcgorICog
-eDEyLTE3CWEyLTcJCUNhbGxlcgorICogeDE4LTI3CXMyLTExCQlDYWxsZWUKKyAqIHgyOC0zMgl0
-My02CQlDYWxsZXIKKyAqCisgKiBJZiByZWdpc3RlciBpcyBub3QgY2FsbGVyLXNhdmVkLCBpdCBp
-cyBwb3RlbnRpYWxseSB1bnNhZmUgdG8gdXNlZAorICogYXMgYSBmcmVlIHJlZ2lzdGVyIHRvIGZv
-cm0gQVVJUEMvSkFMUiwgdGhlbiB1c2Ugb25lIGJpdG1hc2sgdG8gZmlsdGVyCisgKiBvdXQgdGhl
-c2UgcmVnaXN0ZXJzLiBCZWNhdXNlIHJhIGlzIHVzZWQgdG8gcmVjb3JkIHJldHVybiBhZGRyZXNz
-IGZvcgorICogZnVuY3Rpb24gY2FsbCwgc28gbWFyayByYSBhcyBub24tY2FsbGVyLXNhdmVkIHJl
-Z2lzdGVyIGhlcmUuCisgKiAqLworI2RlZmluZSBOT05fQ0FMTEVSX1NBVkVEX01BU0sJCQkJXAor
-CSgxIDw8ICAwKSB8ICgxIDw8ICAxKSB8ICgxIDw8ICAyKSB8ICgxIDw8ICAzKSB8CVwKKwkoMSA8
-PCAgNCkgfCAoMSA8PCAgOCkgfCAoMSA8PCAgOSkgfCAoMSA8PCAxOCkgfAlcCisJKDEgPDwgMTkp
-IHwgKDEgPDwgMjApIHwgKDEgPDwgMjEpIHwgKDEgPDwgMjIpIHwJXAorCSgxIDw8IDIzKSB8ICgx
-IDw8IDI0KSB8ICgxIDw8IDI1KSB8ICgxIDw8IDI2KSB8CVwKKwkoMSA8PCAyNykKKwogZW51bSBw
-cm9iZV9pbnNuIF9fa3Byb2JlcwogcmlzY3ZfcHJvYmVfZGVjb2RlX2luc24ocHJvYmVfb3Bjb2Rl
-X3QgKmFkZHIsIHN0cnVjdCBhcmNoX3Byb2JlX2luc24gKmFzaSk7CiAKZGlmZiAtLWdpdCBhL2Fy
-Y2gvcmlzY3Yva2VybmVsL3Byb2Jlcy9vcHQuYyBiL2FyY2gvcmlzY3Yva2VybmVsL3Byb2Jlcy9v
-cHQuYwppbmRleCBjNTJkNWJkYzc0OGMuLmUxNTFiMWM2MGQ2ZCAxMDA2NDQKLS0tIGEvYXJjaC9y
-aXNjdi9rZXJuZWwvcHJvYmVzL29wdC5jCisrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3Byb2Jlcy9v
-cHQuYwpAQCAtMTMsNiArMTMsNyBAQAogI2luY2x1ZGUgPGFzbS9rcHJvYmVzLmg+CiAjaW5jbHVk
-ZSA8YXNtL3BhdGNoLmg+CiAjaW5jbHVkZSA8YXNtL2FzbS1vZmZzZXRzLmg+CisjaW5jbHVkZSA8
-bGludXgvZXh0YWJsZS5oPgogCiAjaW5jbHVkZSAic2ltdWxhdGUtaW5zbi5oIgogI2luY2x1ZGUg
-ImRlY29kZS1pbnNuLmgiCkBAIC0xMjYsNyArMTI3LDcgQEAgc3RhdGljIHZvaWQgcHJlcGFyZV9k
-ZXRvdXJfYnVmZmVyKGtwcm9iZV9vcGNvZGVfdCAqY29kZSwga3Byb2JlX29wY29kZV90ICpzbG90
-LAogICogYXMgYSBkZXN0aW5hdGlvbiByZWdpc3RlciBiZWZvcmUgYW55IGJyYW5jaCBvciBqdW1w
-IGluc3RydWN0aW9uLgogICovCiBzdGF0aWMgdm9pZCBmaW5kX3JlZ2lzdGVyKHVuc2lnbmVkIGxv
-bmcgc3RhcnQsIHVuc2lnbmVkIGxvbmcgZW5kLAotCQkJICAgICAgIHVuc2lnbmVkIGxvbmcgKndy
-aXRlLCB1bnNpZ25lZCBsb25nICpyZWFkKQorCQkJICB1bnNpZ25lZCBsb25nICp3cml0ZSwgdW5z
-aWduZWQgbG9uZyAqcmVhZCkKIHsKIAlrcHJvYmVfb3Bjb2RlX3QgaW5zbjsKIAl1bnNpZ25lZCBs
-b25nIGFkZHIsIG9mZnNldCA9IDBVTDsKQEAgLTM4NSwxOCArMzg2LDEwMSBAQCBzdGF0aWMgaW50
-IHNlYXJjaF9jb3BpZWRfaW5zbih1bnNpZ25lZCBsb25nIHBhZGRyLCBzdHJ1Y3Qgb3B0aW1pemVk
-X2twcm9iZSAqb3ApCiAJcmV0dXJuIDA7CiB9CiAKK3N0YXRpYyB2b2lkIHVwZGF0ZV9mcmVlX3Jl
-Zyh1bnNpZ25lZCBsb25nIGFkZHIsIHVpbnQzMl90ICp1c2VkX3JlZykKK3sKKwlrcHJvYmVfb3Bj
-b2RlX3QgaW5zbiA9ICooa3Byb2JlX29wY29kZV90ICopYWRkcjsKKwl1bnNpZ25lZCBsb25nIG9m
-ZnNldCA9IEdFVF9JTlNOX0xFTkdUSChpbnNuKTsKKworI2lmZGVmIENPTkZJR19SSVNDVl9JU0Ff
-QworCWlmIChvZmZzZXQgPT0gUlZJX0lOU05fTEVOKQorCQlnb3RvIGlzX3J2aTsKKworCWluc24g
-Jj0gX19DT01QUkVTU0VEX0lOU05fTUFTSzsKKwlpZiAocmlzY3ZfaW5zbl9pc19jX2phbChpbnNu
-KSkgeworCQkqdXNlZF9yZWcgfD0gMSA8PCAxOworCX0gZWxzZSBpZiAocmlzY3ZfaW5zbl9pc19j
-X2pyKGluc24pKSB7CisJCSp1c2VkX3JlZyB8PSAxIDw8IHJ2Y19yX3JzMShpbnNuKTsKKwl9IGVs
-c2UgaWYgKHJpc2N2X2luc25faXNfY19qYWxyKGluc24pKSB7CisJCSp1c2VkX3JlZyB8PSAxIDw8
-IHJ2Y19yX3JzMShpbnNuKTsKKwl9IGVsc2UgaWYgKHJpc2N2X2luc25faXNfY19iZXF6KGluc24p
-IHx8IHJpc2N2X2luc25faXNfY19ibmV6KGluc24pKSB7CisJCSp1c2VkX3JlZyB8PSAxIDw8IHJ2
-Y19iX3JzKGluc24pOworCX0gZWxzZSBpZiAocmlzY3ZfaW5zbl9pc19jX3N1YihpbnNuKSB8fCBy
-aXNjdl9pbnNuX2lzX2Nfc3VidyhpbnNuKSkgeworCQkqdXNlZF9yZWcgfD0gMSA8PCBydmNfYV9y
-czEoaW5zbik7CisJCSp1c2VkX3JlZyB8PSAxIDw8IHJ2Y19hX3JzMihpbnNuKTsKKwl9IGVsc2Ug
-aWYgKHJpc2N2X2luc25faXNfY19zcShpbnNuKSB8fCByaXNjdl9pbnNuX2lzX2Nfc3coaW5zbikg
-fHwKKwkJCSAgIHJpc2N2X2luc25faXNfY19zZChpbnNuKSkgeworCQkqdXNlZF9yZWcgfD0gMSA8
-PCBydmNfc19yczEoaW5zbik7CisJCSp1c2VkX3JlZyB8PSAxIDw8IHJ2Y19zX3JzMihpbnNuKTsK
-Kwl9IGVsc2UgaWYgKHJpc2N2X2luc25faXNfY19hZGRpMTZzcChpbnNuKSB8fCByaXNjdl9pbnNu
-X2lzX2NfYWRkaShpbnNuKSB8fAorCQkJICAgcmlzY3ZfaW5zbl9pc19jX2FkZGl3KGluc24pIHx8
-CisJCQkgICByaXNjdl9pbnNuX2lzX2Nfc2xsaShpbnNuKSkgeworCQkqdXNlZF9yZWcgfD0gMSA8
-PCBydmNfaV9yczEoaW5zbik7CisJfSBlbHNlIGlmIChyaXNjdl9pbnNuX2lzX2Nfc3JpKGluc24p
-IHx8CisJCQkgICByaXNjdl9pbnNuX2lzX2NfYW5kaShpbnNuKSkgeworCQkqdXNlZF9yZWcgfD0g
-MSA8PCBydmNfYl9ycyhpbnNuKTsKKwl9IGVsc2UgaWYgKHJpc2N2X2luc25faXNfY19zcXNwKGlu
-c24pIHx8IHJpc2N2X2luc25faXNfY19zd3NwKGluc24pIHx8CisJCQkgICByaXNjdl9pbnNuX2lz
-X2Nfc2RzcChpbnNuKSkgeworCQkqdXNlZF9yZWcgfD0gMSA8PCBydmNfc3NfcnMyKGluc24pOwor
-CQkqdXNlZF9yZWcgfD0gMSA8PCAyOworCX0gZWxzZSBpZiAocmlzY3ZfaW5zbl9pc19jX212KGlu
-c24pKSB7CisJCSp1c2VkX3JlZyB8PSAxIDw8IHJ2Y19yX3JzMihpbnNuKTsKKwl9IGVsc2UgaWYg
-KHJpc2N2X2luc25faXNfY19hZGRpNHNwbihpbnNuKSkgeworCQkqdXNlZF9yZWcgfD0gMSA8PCAy
-OworCX0gZWxzZSBpZiAocmlzY3ZfaW5zbl9pc19jX2xxKGluc24pIHx8IHJpc2N2X2luc25faXNf
-Y19sdyhpbnNuKSB8fAorCQkJICAgcmlzY3ZfaW5zbl9pc19jX2xkKGluc24pKSB7CisJCSp1c2Vk
-X3JlZyB8PSAxIDw8IHJ2Y19sX3JzKGluc24pOworCX0gZWxzZSBpZiAocmlzY3ZfaW5zbl9pc19j
-X2xxc3AoaW5zbikgfHwgcmlzY3ZfaW5zbl9pc19jX2x3c3AoaW5zbikgfHwKKwkJCSAgIHJpc2N2
-X2luc25faXNfY19sZHNwKGluc24pKSB7CisJCSp1c2VkX3JlZyB8PSAxIDw8IDI7CisJfQorCS8q
-IGxpIGFuZCBsdWkgZG9lcyBub3QgaGF2ZSBzb3VyY2UgcmVnICovCisJcmV0dXJuOworaXNfcnZp
-OgorI2VuZGlmCisJaWYgKHJpc2N2X2luc25faXNfYXJpdGhfcmkoaW5zbikgfHwgcmlzY3ZfaW5z
-bl9pc19sb2FkKGluc24pKSB7CisJCSp1c2VkX3JlZyB8PSAxIDw8IHJ2aV9yczEoaW5zbik7CisJ
-fSBlbHNlIGlmIChyaXNjdl9pbnNuX2lzX2FyaXRoX3JyKGluc24pIHx8IHJpc2N2X2luc25faXNf
-c3RvcmUoaW5zbikgfHwKKwkJcmlzY3ZfaW5zbl9pc19hbW8oaW5zbikpIHsKKwkJKnVzZWRfcmVn
-IHw9IDEgPDwgcnZpX3JzMShpbnNuKTsKKwkJKnVzZWRfcmVnIHw9IDEgPDwgcnZpX3JzMihpbnNu
-KTsKKwl9IGVsc2UgaWYgKHJpc2N2X2luc25faXNfYnJhbmNoKGluc24pKSB7CisJCSp1c2VkX3Jl
-ZyB8PSAxIDw8IHJ2aV9yczEoaW5zbik7CisJCSp1c2VkX3JlZyB8PSAxIDw8IHJ2aV9yczIoaW5z
-bik7CisJfSBlbHNlIGlmIChyaXNjdl9pbnNuX2lzX2phbHIoaW5zbikpIHsKKwkJKnVzZWRfcmVn
-IHw9IDEgPDwgcnZpX3JzMShpbnNuKTsKKwl9Cit9CisKK3N0YXRpYyBib29sIHNjYW5fY29kZSh1
-bnNpZ25lZCBsb25nICphZGRyLCB1bnNpZ25lZCBsb25nIHBhZGRyLAorCQkgICAgICBzdHJ1Y3Qg
-b3B0aW1pemVkX2twcm9iZSAqb3AsIHVpbnQzMl90ICp1c2VkX3JlZykKK3sKKwlpZiAoaW5zbl9q
-dW1wX2ludG9fcmFuZ2UoKmFkZHIsIHBhZGRyICsgUlZDX0lOU05fTEVOLAorCQkJCSBwYWRkciAr
-IG9wLT5vcHRpbnNuLmxlbmd0aCkpCisJCXJldHVybiBmYWxzZTsKKwlpZiAoc2VhcmNoX2V4Y2Vw
-dGlvbl90YWJsZXMoKmFkZHIpKQorCQlyZXR1cm4gZmFsc2U7CisJdXBkYXRlX2ZyZWVfcmVnKCph
-ZGRyLCB1c2VkX3JlZyk7CisJKmFkZHIgKz0gR0VUX0lOU05fTEVOR1RIKCooa3Byb2JlX29wY29k
-ZV90ICopYWRkcik7CisJcmV0dXJuIHRydWU7Cit9CisKIC8qCiAgKiBUaGUga3Byb2JlIGJhc2Vk
-IG9uIGJyZWFrcG9pbnQganVzdCByZXF1aXJlcyB0aGUgaW5zdHJ1bWVudGVkIGluc3RydWN0aW9u
-CiAgKiBzdXBwb3J0cyBleGVjdXRlIG91dC1vZi1saW5lIG9yIHNpbXVsYXRpb24sIGJlc2lkZXMg
-dGhhdCwgb3B0aW1pemVkIGtwcm9iZQogICogcmVxdWlyZXMgbm8gbmVhciBpbnN0cnVjdGlvbiBq
-dW1wIHRvIGFueSBpbnN0cnVjdGlvbiByZXBsYWNlZCBieSBBVUlQQy9KQUxSLgogICovCi1zdGF0
-aWMgYm9vbCBjYW5fb3B0aW1pemUodW5zaWduZWQgbG9uZyBwYWRkciwgc3RydWN0IG9wdGltaXpl
-ZF9rcHJvYmUgKm9wKQorc3RhdGljIGJvb2wgY2FuX29wdGltaXplKHVuc2lnbmVkIGxvbmcgcGFk
-ZHIsIHN0cnVjdCBvcHRpbWl6ZWRfa3Byb2JlICpvcCwgdWludDMyX3QgKnVzZWRfcmVnKQogewog
-CWludCByZXQ7CiAJc3RydWN0IGFyY2hfcHJvYmVfaW5zbiBhcGk7CiAJdW5zaWduZWQgbG9uZyBh
-ZGRyLCBzaXplID0gMCwgb2Zmc2V0ID0gMDsKIAlzdHJ1Y3Qga3Byb2JlICprcCA9IGdldF9rcHJv
-YmUoKGtwcm9iZV9vcGNvZGVfdCAqKXBhZGRyKTsKIAorCS8qCisJICogQWxsIGNhbGxlZQorCSAq
-LworCSp1c2VkX3JlZyA9IE5PTl9DQUxMRVJfU0FWRURfTUFTSzsKKwogCS8qCiAJICogU2tpcCBv
-cHRpbWl6YXRpb24gaWYga3Byb2JlIGhhcyBiZWVuIGRpc2FybWVkIG9yIGluc3RydW1lbnRlZAog
-CSAqIGluc3RydWN0aW9uIGRvZXN0IG5vdCBzdXBwb3J0IFhPSS4KQEAgLTQyNiwxOCArNTEwLDE0
-IEBAIHN0YXRpYyBib29sIGNhbl9vcHRpbWl6ZSh1bnNpZ25lZCBsb25nIHBhZGRyLCBzdHJ1Y3Qg
-b3B0aW1pemVkX2twcm9iZSAqb3ApCiAJICovCiAJYWRkciA9IHBhZGRyIC0gb2Zmc2V0OwogCXdo
-aWxlIChhZGRyIDwgcGFkZHIpIHsKLQkJaWYgKGluc25fanVtcF9pbnRvX3JhbmdlKGFkZHIsIHBh
-ZGRyICsgUlZDX0lOU05fTEVOLAotCQkJCQkgcGFkZHIgKyBvcC0+b3B0aW5zbi5sZW5ndGgpKQor
-CQlpZiAoIXNjYW5fY29kZSgmYWRkciwgcGFkZHIsIG9wLCB1c2VkX3JlZykpCiAJCQlyZXR1cm4g
-ZmFsc2U7Ci0JCWFkZHIgKz0gR0VUX0lOU05fTEVOR1RIKCooa3Byb2JlX29wY29kZV90ICopYWRk
-cik7CiAJfQotCi0JYWRkciA9IHBhZGRyICsgb3AtPm9wdGluc24ubGVuZ3RoOworCXVwZGF0ZV9m
-cmVlX3JlZygodW5zaWduZWQgbG9uZykma3AtPm9wY29kZSwgdXNlZF9yZWcpOworCWFkZHIgPSBw
-YWRkciArIEdFVF9JTlNOX0xFTkdUSCgqKGtwcm9iZV9vcGNvZGVfdCAqKSZrcC0+b3Bjb2RlKTsK
-IAl3aGlsZSAoYWRkciA8IHBhZGRyIC0gb2Zmc2V0ICsgc2l6ZSkgewotCQlpZiAoaW5zbl9qdW1w
-X2ludG9fcmFuZ2UoYWRkciwgcGFkZHIgKyBSVkNfSU5TTl9MRU4sCi0JCQkJCSBwYWRkciArIG9w
-LT5vcHRpbnNuLmxlbmd0aCkpCisJCWlmICghc2Nhbl9jb2RlKCZhZGRyLCBwYWRkciwgb3AsIHVz
-ZWRfcmVnKSkKIAkJCXJldHVybiBmYWxzZTsKLQkJYWRkciArPSBHRVRfSU5TTl9MRU5HVEgoKihr
-cHJvYmVfb3Bjb2RlX3QgKilhZGRyKTsKIAl9CiAKIAlyZXR1cm4gdHJ1ZTsKQEAgLTQ2NiwxMCAr
-NTQ2LDEzIEBAIGludCBhcmNoX3ByZXBhcmVfb3B0aW1pemVkX2twcm9iZShzdHJ1Y3Qgb3B0aW1p
-emVkX2twcm9iZSAqb3AsCiB7CiAJbG9uZyByZWw7CiAJaW50IHJkID0gMCwgcmEgPSAwLCByZXQ7
-CisJdTMyIHVzZWRfcmVnOwogCWtwcm9iZV9vcGNvZGVfdCAqY29kZSA9IE5VTEwsICpzbG90ID0g
-TlVMTDsKIAotCWlmICghY2FuX29wdGltaXplKCh1bnNpZ25lZCBsb25nKW9yaWctPmFkZHIsIG9w
-KSkKKwlpZiAoIWNhbl9vcHRpbWl6ZSgodW5zaWduZWQgbG9uZylvcmlnLT5hZGRyLCBvcCwgJnVz
-ZWRfcmVnKSkgeworCQlvcC0+b3B0aW5zbi5yZCA9IC0xOwogCQlyZXR1cm4gLUVJTFNFUTsKKwl9
-CiAKIAljb2RlID0ga3phbGxvYyhNQVhfT1BUSU5TTl9TSVpFLCBHRlBfS0VSTkVMKTsKIAlzbG90
-ID0gZ2V0X29wdGluc25fc2xvdCgpOwpAQCAtNDkwLDcgKzU3MywxNCBAQCBpbnQgYXJjaF9wcmVw
-YXJlX29wdGltaXplZF9rcHJvYmUoc3RydWN0IG9wdGltaXplZF9rcHJvYmUgKm9wLAogCSAqIHRv
-IGRldG91ciBidWZmZXIsIHJhIGlzIHVzZWQgdG8gZm9ybSBKUiBqdW1waW5nIGJhY2sgZnJvbSBk
-ZXRvdXIKIAkgKiBidWZmZXIuCiAJICovCi0JZmluZF9mcmVlX3JlZ2lzdGVycyhvcmlnLCBvcCwg
-JnJkLCAmcmEpOworCWlmICh1c2VkX3JlZyA9PSBBTExfUkVHX09DQ1VQSUVEKSB7CisJCWZpbmRf
-ZnJlZV9yZWdpc3RlcnMob3JpZywgb3AsICZyZCwgJnJhKTsKKwl9IGVsc2UgeworCQkvKiBDaG9v
-c2Ugb25lIHVudXNlZCBjYWxsZXItc2F2ZWQgcmVnaXN0ZXIuICovCisJCXJkID0gZmZ6KHVzZWRf
-cmVnKTsKKwkJcmEgPSByZDsKKwl9CisKIAlpZiAocmQgPT0gMCB8fCByYSA9PSAwKSB7CiAJCXJl
-dCA9IC1FSUxTRVE7CiAJCWdvdG8gb25fZXJyb3I7CkBAIC01MzQsNiArNjI0LDggQEAgdm9pZCBh
-cmNoX29wdGltaXplX2twcm9iZXMoc3RydWN0IGxpc3RfaGVhZCAqb3BsaXN0KQogCWxpc3RfZm9y
-X2VhY2hfZW50cnlfc2FmZShvcCwgdG1wLCBvcGxpc3QsIGxpc3QpIHsKIAkJV0FSTl9PTihrcHJv
-YmVfZGlzYWJsZWQoJm9wLT5rcCkpOwogCisJCWlmIChvcC0+b3B0aW5zbi5yZCA8IDApCisJCQlj
-b250aW51ZTsKIAkJLyogQmFja3VwIGluc3RydWN0aW9ucyB3aGljaCB3aWxsIGJlIHJlcGxhY2Vk
-IGJ5IGp1bXAgYWRkcmVzcyAqLwogCQltZW1jcHkob3AtPm9wdGluc24uY29waWVkX2luc24sCiAJ
-CSAgICAgICBERVRPVVJfQUREUihvcC0+b3B0aW5zbi5pbnNuLCBERVRPVVJfSU5TTl9PRkZTRVQp
-LAotLSAKMi4zNC4xCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
-ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
-aXNjdgo=
+From: Liao Chang <liaochang1@huawei.com>
+
+These RVI and RVC instruction decoder are used in the free register
+searching algorithm, each instruction of instrumented function needs to
+decode and test if it contains a free register to form AUIPC/JALR.
+
+For RVI instruction format, the position and length of rs1/rs2/rd/opcode
+parts are uniform [1], but RVC instruction formats are complicated, so
+it addresses a series of functions to decode rs1/rs2/rd for RVC [1].
+
+[1] https://github.com/riscv/riscv-isa-manual/releases
+
+Signed-off-by: Liao Chang <liaochang1@huawei.com>
+Co-developed-by: Chen Guokai <chenguokai17@mails.ucas.ac.cn>
+Signed-off-by: Chen Guokai <chenguokai17@mails.ucas.ac.cn>
+---
+ arch/riscv/include/asm/bug.h             |   5 +-
+ arch/riscv/kernel/probes/decode-insn.h   | 148 +++++++++++++++++++++++
+ arch/riscv/kernel/probes/simulate-insn.h |  42 +++++++
+ 3 files changed, 194 insertions(+), 1 deletion(-)
+
+diff --git a/arch/riscv/include/asm/bug.h b/arch/riscv/include/asm/bug.h
+index 1aaea81fb141..9c33d3b58225 100644
+--- a/arch/riscv/include/asm/bug.h
++++ b/arch/riscv/include/asm/bug.h
+@@ -19,11 +19,14 @@
+ #define __BUG_INSN_32	_UL(0x00100073) /* ebreak */
+ #define __BUG_INSN_16	_UL(0x9002) /* c.ebreak */
+ 
++#define RVI_INSN_LEN	4UL
++#define RVC_INSN_LEN	2UL
++
+ #define GET_INSN_LENGTH(insn)						\
+ ({									\
+ 	unsigned long __len;						\
+ 	__len = ((insn & __INSN_LENGTH_MASK) == __INSN_LENGTH_32) ?	\
+-		4UL : 2UL;						\
++		RVI_INSN_LEN : RVC_INSN_LEN;				\
+ 	__len;								\
+ })
+ 
+diff --git a/arch/riscv/kernel/probes/decode-insn.h b/arch/riscv/kernel/probes/decode-insn.h
+index 42269a7d676d..785b023a62ea 100644
+--- a/arch/riscv/kernel/probes/decode-insn.h
++++ b/arch/riscv/kernel/probes/decode-insn.h
+@@ -3,6 +3,7 @@
+ #ifndef _RISCV_KERNEL_KPROBES_DECODE_INSN_H
+ #define _RISCV_KERNEL_KPROBES_DECODE_INSN_H
+ 
++#include <linux/bitops.h>
+ #include <asm/sections.h>
+ #include <asm/kprobes.h>
+ 
+@@ -15,4 +16,151 @@ enum probe_insn {
+ enum probe_insn __kprobes
+ riscv_probe_decode_insn(probe_opcode_t *addr, struct arch_probe_insn *asi);
+ 
++#ifdef CONFIG_KPROBES
++
++static inline u16 rvi_rs1(kprobe_opcode_t opcode)
++{
++	return (u16)((opcode >> 15) & 0x1f);
++}
++
++static inline u16 rvi_rs2(kprobe_opcode_t opcode)
++{
++	return (u16)((opcode >> 20) & 0x1f);
++}
++
++static inline u16 rvi_rd(kprobe_opcode_t opcode)
++{
++	return (u16)((opcode >> 7) & 0x1f);
++}
++
++static inline s32 rvi_branch_imme(kprobe_opcode_t opcode)
++{
++	u32 imme = 0;
++
++	imme |= (((opcode >> 8)  & 0xf)   << 1)  |
++		(((opcode >> 25) & 0x3f)  << 5)  |
++		(((opcode >> 7)  & 0x1)   << 11) |
++		(((opcode >> 31) & 0x1)   << 12);
++
++	return sign_extend32(imme, 13);
++}
++
++static inline s32 rvi_jal_imme(kprobe_opcode_t opcode)
++{
++	u32 imme = 0;
++
++	imme |= (((opcode >> 21) & 0x3ff) << 1)  |
++		(((opcode >> 20) & 0x1)   << 11) |
++		(((opcode >> 12) & 0xff)  << 12) |
++		(((opcode >> 31) & 0x1)   << 20);
++
++	return sign_extend32(imme, 21);
++}
++
++#ifdef CONFIG_RISCV_ISA_C
++static inline u16 rvc_r_rs1(kprobe_opcode_t opcode)
++{
++	return (u16)((opcode >> 2) & 0x1f);
++}
++
++static inline u16 rvc_r_rs2(kprobe_opcode_t opcode)
++{
++	return (u16)((opcode >> 2) & 0x1f);
++}
++
++static inline u16 rvc_r_rd(kprobe_opcode_t opcode)
++{
++	return rvc_r_rs1(opcode);
++}
++
++static inline u16 rvc_i_rs1(kprobe_opcode_t opcode)
++{
++	return (u16)((opcode >> 7) & 0x1f);
++}
++
++static inline u16 rvc_i_rd(kprobe_opcode_t opcode)
++{
++	return rvc_i_rs1(opcode);
++}
++
++static inline u16 rvc_ss_rs2(kprobe_opcode_t opcode)
++{
++	return (u16)((opcode >> 2) & 0x1f);
++}
++
++static inline u16 rvc_l_rd(kprobe_opcode_t opcode)
++{
++	return (u16)((opcode >> 2) & 0x7);
++}
++
++static inline u16 rvc_l_rs(kprobe_opcode_t opcode)
++{
++	return (u16)((opcode >> 7) & 0x7);
++}
++
++static inline u16 rvc_s_rs2(kprobe_opcode_t opcode)
++{
++	return (u16)((opcode >> 2) & 0x7);
++}
++
++static inline u16 rvc_s_rs1(kprobe_opcode_t opcode)
++{
++	return (u16)((opcode >> 7) & 0x7);
++}
++
++static inline u16 rvc_a_rs2(kprobe_opcode_t opcode)
++{
++	return (u16)((opcode >> 2) & 0x7);
++}
++
++static inline u16 rvc_a_rs1(kprobe_opcode_t opcode)
++{
++	return (u16)((opcode >> 7) & 0x7);
++}
++
++static inline u16 rvc_a_rd(kprobe_opcode_t opcode)
++{
++	return rvc_a_rs1(opcode);
++}
++
++static inline u16 rvc_b_rd(kprobe_opcode_t opcode)
++{
++	return (u16)((opcode >> 7) & 0x7);
++}
++
++static inline u16 rvc_b_rs(kprobe_opcode_t opcode)
++{
++	return rvc_b_rd(opcode);
++}
++
++static inline s32 rvc_branch_imme(kprobe_opcode_t opcode)
++{
++	u32 imme = 0;
++
++	imme |= (((opcode >> 3)  & 0x3) << 1) |
++		(((opcode >> 10) & 0x3) << 3) |
++		(((opcode >> 2)  & 0x1) << 5) |
++		(((opcode >> 5)  & 0x3) << 6) |
++		(((opcode >> 12) & 0x1) << 8);
++
++	return sign_extend32(imme, 9);
++}
++
++static inline s32 rvc_jal_imme(kprobe_opcode_t opcode)
++{
++	u32 imme = 0;
++
++	imme |= (((opcode >> 3)  & 0x3) << 1) |
++		(((opcode >> 11) & 0x1) << 4) |
++		(((opcode >> 2)  & 0x1) << 5) |
++		(((opcode >> 7)  & 0x1) << 6) |
++		(((opcode >> 6)  & 0x1) << 7) |
++		(((opcode >> 9)  & 0x3) << 8) |
++		(((opcode >> 8)  & 0x1) << 10) |
++		(((opcode >> 12) & 0x1) << 11);
++
++	return sign_extend32(imme, 12);
++}
++#endif /* CONFIG_KPROBES */
++#endif /* CONFIG_RISCV_ISA_C */
+ #endif /* _RISCV_KERNEL_KPROBES_DECODE_INSN_H */
+diff --git a/arch/riscv/kernel/probes/simulate-insn.h b/arch/riscv/kernel/probes/simulate-insn.h
+index a19aaa0feb44..e89747dfabbb 100644
+--- a/arch/riscv/kernel/probes/simulate-insn.h
++++ b/arch/riscv/kernel/probes/simulate-insn.h
+@@ -28,4 +28,46 @@ bool simulate_branch(u32 opcode, unsigned long addr, struct pt_regs *regs);
+ bool simulate_jal(u32 opcode, unsigned long addr, struct pt_regs *regs);
+ bool simulate_jalr(u32 opcode, unsigned long addr, struct pt_regs *regs);
+ 
++/* RVC(S) instructions contain rs1 and rs2 */
++__RISCV_INSN_FUNCS(c_sq,	0xe003, 0xa000);
++__RISCV_INSN_FUNCS(c_sw,	0xe003, 0xc000);
++__RISCV_INSN_FUNCS(c_sd,	0xe003, 0xe000);
++/* RVC(A) instructions contain rs1 and rs2 */
++__RISCV_INSN_FUNCS(c_sub,	0xfc63, 0x8c01);
++__RISCV_INSN_FUNCS(c_subw,	0xfc43, 0x9c01);
++/* RVC(L) instructions contain rs1 */
++__RISCV_INSN_FUNCS(c_lq,	0xe003, 0x2000);
++__RISCV_INSN_FUNCS(c_lw,	0xe003, 0x4000);
++__RISCV_INSN_FUNCS(c_ld,	0xe003, 0x6000);
++/* RVC(I) instructions contain rs1 */
++__RISCV_INSN_FUNCS(c_addi,	0xe003, 0x0001);
++__RISCV_INSN_FUNCS(c_addiw,	0xe003, 0x2001);
++__RISCV_INSN_FUNCS(c_addi16sp,	0xe183, 0x6101);
++__RISCV_INSN_FUNCS(c_slli,	0xe003, 0x0002);
++/* RVC(B) instructions contain rs1 */
++__RISCV_INSN_FUNCS(c_sri,	0xe803, 0x8001);
++__RISCV_INSN_FUNCS(c_andi,	0xec03, 0x8801);
++/* RVC(SS) instructions contain rs2 */
++__RISCV_INSN_FUNCS(c_sqsp,	0xe003, 0xa002);
++__RISCV_INSN_FUNCS(c_swsp,	0xe003, 0xc002);
++__RISCV_INSN_FUNCS(c_sdsp,	0xe003, 0xe002);
++/* RVC(R) instructions contain rs2 and rd */
++__RISCV_INSN_FUNCS(c_mv,	0xf003, 0x8002);
++/* RVC(I) instructions contain sp and rd */
++__RISCV_INSN_FUNCS(c_lqsp,	0xe003, 0x2002);
++__RISCV_INSN_FUNCS(c_lwsp,	0xe003, 0x4002);
++__RISCV_INSN_FUNCS(c_ldsp,	0xe003, 0x6002);
++/* RVC(CW) instructions contain sp and rd */
++__RISCV_INSN_FUNCS(c_addi4spn,	0xe003, 0x0000);
++/* RVC(I) instructions contain rd */
++__RISCV_INSN_FUNCS(c_li,	0xe003, 0x4001);
++__RISCV_INSN_FUNCS(c_lui,	0xe003, 0x6001);
++
++__RISCV_INSN_FUNCS(arith_rr,	0x77, 0x33);
++__RISCV_INSN_FUNCS(arith_ri,	0x77, 0x13);
++__RISCV_INSN_FUNCS(lui,		0x7f, 0x37);
++__RISCV_INSN_FUNCS(load,	0x7f, 0x03);
++__RISCV_INSN_FUNCS(store,	0x7f, 0x23);
++__RISCV_INSN_FUNCS(amo,		0x7f, 0x2f);
++
+ #endif /* _RISCV_KERNEL_PROBES_SIMULATE_INSN_H */
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
