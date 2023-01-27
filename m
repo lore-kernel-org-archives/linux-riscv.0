@@ -4,30 +4,30 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BD28C54EAA
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Jan 2023 13:32:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B658C54EAA
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Jan 2023 13:32:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=F7xDS4xtMEIcplrsdw5hXKDrYnFB6BNdgXieVqMijgE=; b=gYYC4KsPr+cipJ
-	69j5Mz2gWg2hiV9r3WB2SALxwee8EpkyU8rY9xHSFxULRmPlpmCYtbiTeaa2p1gdT1Q2TBTiGBzjV
-	qQhy87Nt6kFcEwVqCHizHCPkg/gU4adE0jtoMEjC8NIfJ9VahX5HheJKucl8GovNU5/WmCPzSUAtW
-	ykjanygHvKnFr64gXVd7BHNGN0sGv1SJ7YKxH5Fc4199PdO0+s/GBBF8Ybmx0zWwogFLWitqzC1Cu
-	8iqpnhV0RykwPlJGBBEBWGhDwO0mmZDy804jXiGjILXun7WyDo1pCPr0yxY4NxcrglYDrZiwiyjqf
-	Xgmt6vISrdyeaOUpVUJQ==;
+	List-Owner; bh=TJDFctzWT67H+rtbQF2QXuM7Ukl4qOxi1UOQQzc/lMM=; b=JQUI4oiHEucC7u
+	onfiqQWSZesTOfKFUREa16HpB9xX7Kn85V6WCSj219KtTzRGy+d0R7ZTOx3RkJBNqFXyRL7RY5Czb
+	J+Y38c1orxyvsKCPXleEMMt3kTTaopDTQZrj2rr8xijeOcBUKsvBmZ3ggBoJPVZZZNeTxtAysSQh+
+	vkhtB/zErgEirZooVsh/hgoZqrgr0JlQ5WalJVJGQLTIZTDcHi5kwvWR51ECmmN1mgcG7KjMsbP0L
+	hMD0xaXcKKUSS4/6SgFWOMbRKx6vXNnkZVKO/vpBDg61AKh41qYR2OHfhHI34f2mt3dzsBHQhla+i
+	8qzwHQ0JVXFIKaQFtNzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pLOqP-00F1Ru-B9; Fri, 27 Jan 2023 13:32:41 +0000
+	id 1pLOqV-00F1VS-7z; Fri, 27 Jan 2023 13:32:47 +0000
 Received: from smtp80.cstnet.cn ([159.226.251.80] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pLOR0-00Ery1-FQ
-	for linux-riscv@lists.infradead.org; Fri, 27 Jan 2023 13:06:37 +0000
+	id 1pLOR1-00EryH-BF
+	for linux-riscv@lists.infradead.org; Fri, 27 Jan 2023 13:06:39 +0000
 Received: from cgk-Precision-3650-Tower.. (unknown [219.141.235.82])
-	by APP-01 (Coremail) with SMTP id qwCowADX3Eg9zNNjDyF3Ag--.52827S15;
-	Fri, 27 Jan 2023 21:06:10 +0800 (CST)
+	by APP-01 (Coremail) with SMTP id qwCowADX3Eg9zNNjDyF3Ag--.52827S16;
+	Fri, 27 Jan 2023 21:06:11 +0800 (CST)
 From: Chen Guokai <chenguokai17@mails.ucas.ac.cn>
 To: paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
@@ -38,18 +38,18 @@ To: paul.walmsley@sifive.com,
 Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	liaochang1@huawei.com
-Subject: [PATCH v6 11/13] riscv/kprobe: Fix instruction simulation of JALR
-Date: Fri, 27 Jan 2023 21:05:39 +0800
-Message-Id: <20230127130541.1250865-12-chenguokai17@mails.ucas.ac.cn>
+Subject: [PATCH v6 12/13] riscv/kprobe: Move exception related symbols to .kprobe_blacklist
+Date: Fri, 27 Jan 2023 21:05:40 +0800
+Message-Id: <20230127130541.1250865-13-chenguokai17@mails.ucas.ac.cn>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20230127130541.1250865-1-chenguokai17@mails.ucas.ac.cn>
 References: <20230127130541.1250865-1-chenguokai17@mails.ucas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowADX3Eg9zNNjDyF3Ag--.52827S15
-X-Coremail-Antispam: 1UD129KBjvJXoWxGw17AFyUCFy3trW8Jw13Jwb_yoW5Xw1Upr
-	W5Jr1UCr40grn7Jay7Jr1rAr4UJr1jk3WxWF18Kw1FkF1UW34UXw18tF43AF1Dtr13Ca47
-	Jr1DJr40qr18GaUanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUPKb7Iv0xC_Cr1lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
+X-CM-TRANSID: qwCowADX3Eg9zNNjDyF3Ag--.52827S16
+X-Coremail-Antispam: 1UD129KBjvJXoW7uw45Xw18uF45WrWrKF18uFg_yoW8uw4kpF
+	4DCrn5WrWrWryfC34ayr1DuayxJwn5Ww4ayr1ruFWrAF42grW8Awn0v3yDXryIgF4xW3yr
+	uF109rWYga4UX37anT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPKb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
 	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI
 	8067AKxVWUAVCq3wA2048vs2IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28C
 	jxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW8JVW5JwA2z4x0Y4vE2Ix0cI
@@ -62,12 +62,12 @@ X-Coremail-Antispam: 1UD129KBjvJXoWxGw17AFyUCFy3trW8Jw13Jwb_yoW5Xw1Upr
 	0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVW8JVW5JwCI42IY6xIIjxv2
 	0xvEc7CjxVAFwI0_Gr1j6F4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z2
 	80aVAFwI0_Gr0_Cr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIdaVFxhVjvjDU
-	0xZFpf9x07jF_M3UUUUU=
+	0xZFpf9x07jzmhrUUUUU=
 X-Originating-IP: [219.141.235.82]
-X-CM-SenderInfo: xfkh0w5xrntxyrx6ztxlovh3xfdvhtffof0/1tbiAwoEE2PTrr4g1wAAsJ
+X-CM-SenderInfo: xfkh0w5xrntxyrx6ztxlovh3xfdvhtffof0/1tbiAwkEE2PTrr4g2AAAsF
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230127_050627_055150_85F7285B 
-X-CRM114-Status: UNSURE (   8.98  )
+X-CRM114-CacheID: sfid-20230127_050627_887637_B0433E65 
+X-CRM114-Status: UNSURE (   7.38  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,61 +87,72 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Liao Chang <liaochang1@huawei.com>
 
-Set kprobe at 'jalr 1140(ra)' of vfs_write results in the following
-crash:
+Due to the generic exception entry and exit code is part of the critical
+path for kprobe breakpoint and uprobe syscall entry, set a kprobe on the
+assembly symbols in entry.S result in kernel stack overflow crash, hence
+it has to explicitly blacklist it, requiring a new _ASM_NOKPROBE() asm
+helper.
 
-[   32.092235] Unable to handle kernel access to user memory without uaccess routines at virtual address 00aaaaaad77b1170
-[   32.093115] Oops [#1]
-[   32.093251] Modules linked in:
-[   32.093626] CPU: 0 PID: 135 Comm: ftracetest Not tainted 6.2.0-rc2-00013-gb0aa5e5df0cb-dirty #16
-[   32.093985] Hardware name: riscv-virtio,qemu (DT)
-[   32.094280] epc : ksys_read+0x88/0xd6
-[   32.094855]  ra : ksys_read+0xc0/0xd6
-[   32.095016] epc : ffffffff801cda80 ra : ffffffff801cdab8 sp : ff20000000d7bdc0
-[   32.095227]  gp : ffffffff80f14000 tp : ff60000080f9cb40 t0 : ffffffff80f13e80
-[   32.095500]  t1 : ffffffff8000c29c t2 : ffffffff800dbc54 s0 : ff20000000d7be60
-[   32.095716]  s1 : 0000000000000000 a0 : ffffffff805a64ae a1 : ffffffff80a83708
-[   32.095921]  a2 : ffffffff80f160a0 a3 : 0000000000000000 a4 : f229b0afdb165300
-[   32.096171]  a5 : f229b0afdb165300 a6 : ffffffff80eeebd0 a7 : 00000000000003ff
-[   32.096411]  s2 : ff6000007ff76800 s3 : fffffffffffffff7 s4 : 00aaaaaad77b1170
-[   32.096638]  s5 : ffffffff80f160a0 s6 : ff6000007ff76800 s7 : 0000000000000030
-[   32.096865]  s8 : 00ffffffc3d97be0 s9 : 0000000000000007 s10: 00aaaaaad77c9410
-[   32.097092]  s11: 0000000000000000 t3 : ffffffff80f13e48 t4 : ffffffff8000c29c
-[   32.097317]  t5 : ffffffff8000c29c t6 : ffffffff800dbc54
-[   32.097505] status: 0000000200000120 badaddr: 00aaaaaad77b1170 cause: 000000000000000d
-[   32.098011] [<ffffffff801cdb72>] ksys_write+0x6c/0xd6
-[   32.098222] [<ffffffff801cdc06>] sys_write+0x2a/0x38
-[   32.098405] [<ffffffff80003c76>] ret_from_syscall+0x0/0x2
-
-Since the rs1 and rd might be the same one, such as 'jalr 1140(ra)',
-hence it requires obtaining the target address from rs1 followed by
-updating rd.
-
-Fixes: c22b0bcb1dd0 ("riscv: Add kprobes supported")
 Signed-off-by: Liao Chang <liaochang1@huawei.com>
 ---
- arch/riscv/kernel/probes/simulate-insn.c | 6 +-----
- 1 file changed, 1 insertion(+), 5 deletions(-)
+ arch/riscv/include/asm/asm.h | 10 ++++++++++
+ arch/riscv/kernel/entry.S    | 12 ++++++++++++
+ arch/riscv/kernel/mcount.S   |  1 +
+ 3 files changed, 23 insertions(+)
 
-diff --git a/arch/riscv/kernel/probes/simulate-insn.c b/arch/riscv/kernel/probes/simulate-insn.c
-index 7441ac8a6843..8402020010d5 100644
---- a/arch/riscv/kernel/probes/simulate-insn.c
-+++ b/arch/riscv/kernel/probes/simulate-insn.c
-@@ -75,13 +75,9 @@ bool __kprobes simulate_jalr(u32 opcode, unsigned long addr, struct pt_regs *reg
- 	if (!ret)
- 		return ret;
+diff --git a/arch/riscv/include/asm/asm.h b/arch/riscv/include/asm/asm.h
+index 816e753de636..5d9f13d8b809 100644
+--- a/arch/riscv/include/asm/asm.h
++++ b/arch/riscv/include/asm/asm.h
+@@ -81,6 +81,16 @@
+ 	.endr
+ .endm
  
--	ret = rv_insn_reg_set_val(regs, rd_index, addr + 4);
--	if (!ret)
--		return ret;
--
- 	instruction_pointer_set(regs, (base_addr + sign_extend32((imm), 11))&~1);
++#ifdef CONFIG_KPROBES
++#define _ASM_NOKPROBE(entry)				\
++	.pushsection "_kprobe_blacklist", "aw" ;	\
++	.balign SZREG ;					\
++	REG_ASM entry ;					\
++	.popsection
++#else
++#define _ASM_NOKPROBE(entry)
++#endif
++
+ #endif /* __ASSEMBLY__ */
  
--	return ret;
-+	return rv_insn_reg_set_val(regs, rd_index, addr + 4);
- }
+ #endif /* _ASM_RISCV_ASM_H */
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index 99d38fdf8b18..9e8882a78523 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -606,3 +606,15 @@ ENTRY(__user_rt_sigreturn)
+ 	scall
+ END(__user_rt_sigreturn)
+ #endif
++
++_ASM_NOKPROBE(handle_exception)
++_ASM_NOKPROBE(_restore_kernel_tpsp)
++_ASM_NOKPROBE(_save_context)
++_ASM_NOKPROBE(ret_from_exception)
++_ASM_NOKPROBE(ret_from_syscall)
++_ASM_NOKPROBE(__switch_to)
++_ASM_NOKPROBE(ret_from_syscall_rejected)
++_ASM_NOKPROBE(restore_all)
++_ASM_NOKPROBE(resume_kernel)
++_ASM_NOKPROBE(resume_userspace)
++_ASM_NOKPROBE(check_syscall_nr)
+diff --git a/arch/riscv/kernel/mcount.S b/arch/riscv/kernel/mcount.S
+index 30102aadc4d7..7393b8895ef3 100644
+--- a/arch/riscv/kernel/mcount.S
++++ b/arch/riscv/kernel/mcount.S
+@@ -54,6 +54,7 @@ ENTRY(ftrace_stub)
+ #endif
+ 	ret
+ ENDPROC(ftrace_stub)
++_ASM_NOKPROBE(MCOUNT_NAME)
  
- #define auipc_rd_idx(opcode) \
+ #ifdef CONFIG_FUNCTION_GRAPH_TRACER
+ ENTRY(return_to_handler)
 -- 
 2.34.1
 
