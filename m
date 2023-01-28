@@ -4,98 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1E33C38142
-	for <linux-riscv@archiver.kernel.org>; Sat, 28 Jan 2023 09:02:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE810C27C76
+	for <linux-riscv@archiver.kernel.org>; Sat, 28 Jan 2023 09:38:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xphRgMBqZ1daJnGdJxdMRN3GKCVw6QjUg58f3V79FgY=; b=zxIEurGyaihRCX
-	3nTSJ/y63OldATg57gJ3RQSwGEhGWqdMokbY4m8+I2yjv7KdXoyG513gBHismUr+O5vf8u9F7Sog1
-	sFIsCOoWs8g0qFPzRnVsin31mtlQgnkqCVELQAfYBFdXaVdj9m19JtSkdI8Sr3zPoZTMqHElIJuzB
-	QMc6UyQk66ZSF2FyTn5a3kmKJC8cupIIaklzSag/BGY9oaR/CRhwcW0eaYpr4BHyxO8YO09pf1G85
-	JymkCzZBheqdH4a5gd6OaCg4OZ0fXnnJHL6k0W5Jv3eqBulXY1tvmoOqjIFNda/M9qSIrhqTjBPWw
-	HA434LplXiPcQkDAggsw==;
+	List-Owner; bh=1h/Aw6TMu1Lfm6c5ltk+DVVZzgydDvsscEj43y39v9k=; b=agchIEh8YO9XBw
+	fxWrGlA2Qw+kddxFujvcgtnJ8MlhEtmwek9OMuIxKNXUYvWsBz9YS2FyOcWieANBu4Tm3yQMAEw9u
+	0iJzX45EAMn88sBDcD5Ye+lqDAKNB90f4BB+Sqdjm4g8Xq0Pc4A6YIbU/TArCZG5SPl9IixgeO17H
+	OKN+wv6Aq05AadPDQimIqAaFdrvE439QO1o2wLwSDvQV+itT1N2DUiHGuuX3+NqpaF0TEAtA5O1TV
+	8KdkohY+J9V/BjBzG8d2Fl9t1JrSLRczfA2i+OpgrhJmDo8cTsh4PSPQtzS6cafEvKsY9HxO0RGZE
+	RbkfBWWMT/IS39rVo5sA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pLh6M-00HVbe-KF; Sat, 28 Jan 2023 09:02:22 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1pLhf0-00HXXu-1N; Sat, 28 Jan 2023 09:38:10 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pLh6J-00HVaR-UX; Sat, 28 Jan 2023 09:02:21 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id j36-20020a05600c1c2400b003dc39cb9c33so2673682wms.1;
-        Sat, 28 Jan 2023 01:02:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=v7ARCz3cVaBFOjYkC77qL/HBEniL1qdQHS5E6K6GFOY=;
-        b=aqbRojTHRCVjzGUAj7OwNNFidQtZRaRDHHmAjBWeAFhAl4EP6lU/HQ+DT3lz3ORLRs
-         krDbFNMyaAoPDNNbr2Us4LfdqxvtQoKw/VqPFwWdtmeZaX2Yr/xMNSAvUp0bHiLiSOj3
-         SN1iYBMZrJW6Tuoe05d5ixjoXDQyxOx+hHgkYRdk2YredIT5D868vyI7+JtGnCIwsINP
-         AC8gyFLqm6XouHJKilNfBj6iNxK7cGu1Nhc9VlLOm0nqQCpyycdmijDtgityKjfCFibc
-         kBECjMNCFbqcxj8dsEQrghcf75B90yP81hRDkvCSROQeKfuHc3hus0w8nNDlJyMcHou/
-         rQVg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=v7ARCz3cVaBFOjYkC77qL/HBEniL1qdQHS5E6K6GFOY=;
-        b=5vLXA5fiR5T1C+SXXRuaruasSHaE1fGp3jFv6nlg7/GLD3Akj/b2b0A4UdGx6ouDpq
-         vwEYNMd3tt+andnDvBZvMn+BbMMxOdLFH9Qfpw7qTXrwMX1AVuKETQ0PrZitbqcyWAVD
-         f6zLULp/84EMPM96VaI181lV0hwlJXxOYJd56Jb4HUutX9kMG/u5ccJZi5db7ggKQoeK
-         ufeLBBFd3qK+nwLp4spSrPuDV7Ys1WCFeGISQhcfhid9a8SHTiSCalSMHR7gFF9vnvbF
-         z63gd1UuUamQ5W4hqaEDNjDcLC5j4eG8ub86J9yppOStmqcltnTutNFo1NmPO3JgSmBY
-         0egQ==
-X-Gm-Message-State: AFqh2krOX+yCdVBTuLDvoMePUY4Ok4qswwbwkj88ziLbal4E/xbfK7cC
-	cio9AMz4zmYiW1gG9MplDRE=
-X-Google-Smtp-Source: AMrXdXshtli+OqZ9VwFCdRpOAvHTMs/09zG9TMwa0gaZMZJ8uG1JiJOtVlF/BhmQxoXBbhlR7WJAkg==
-X-Received: by 2002:a05:600c:5116:b0:3db:1a8:c041 with SMTP id o22-20020a05600c511600b003db01a8c041mr42453030wms.17.1674896535134;
-        Sat, 28 Jan 2023 01:02:15 -0800 (PST)
-Received: from localhost (cpc1-brnt4-2-0-cust862.4-2.cable.virginm.net. [86.9.131.95])
-        by smtp.gmail.com with ESMTPSA id f28-20020a5d58fc000000b002be5401ef5fsm6212824wrd.39.2023.01.28.01.02.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 28 Jan 2023 01:02:14 -0800 (PST)
-Date: Sat, 28 Jan 2023 18:02:13 +0900
-From: Stafford Horne <shorne@gmail.com>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Arnd Bergmann <arnd@arndb.de>, Brian Cain <bcain@quicinc.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Greg Ungerer <gerg@linux-m68k.org>, Guo Ren <guoren@kernel.org>,
-	Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>,
-	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Michal Simek <monstr@monstr.eu>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Rich Felker <dalias@libc.org>,
-	Richard Weinberger <richard@nod.at>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Vineet Gupta <vgupta@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
-	Yoshinori Sato <ysato@users.sourceforge.jp>,
-	linux-alpha@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux--csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
-	linux-ia64@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org,
-	linux-um@lists.infradead.org, linux-xtensa@linux-xtensa.org,
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
-	sparclinux@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH 3/3] mm, arch: add generic implementation of pfn_valid()
- for FLATMEM
-Message-ID: <Y9TklS4v8oHCvCu2@antec>
-References: <20230125190757.22555-1-rppt@kernel.org>
- <20230125190757.22555-4-rppt@kernel.org>
+	id 1pLhew-00HXXO-K8
+	for linux-riscv@lists.infradead.org; Sat, 28 Jan 2023 09:38:08 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id BC355B801BE
+	for <linux-riscv@lists.infradead.org>; Sat, 28 Jan 2023 09:38:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC402C433A0
+	for <linux-riscv@lists.infradead.org>; Sat, 28 Jan 2023 09:38:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1674898680;
+	bh=A81CewjcXvK7A/fHF1zCwSH4yZPOZFCVv7q+F0V2Y2A=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=FL/aOMeeuYnmeVOgH4Bah0NmZkNpXpRjdsKi/p2nNsGepMRCgTudZBspbos6YPpUV
+	 aonsod7z64rQ4k2QMXyQwCpO4j5jxsxA5HPIvQ2yS2JE6caUkvb5hqoTGnEv3fLETu
+	 NGuJPgiT8CDHntNApjoF+ajJUQM2xFb0r5OvBte2nNwBhZWHsxzVKANSEJveUoituy
+	 RDPSIWKkAfejyqllyR58TyCaGoxDUYM7yajsgHwgoIDHw+tKAvGqhXEN7fE2oq3NsT
+	 huI64/PFwu/etFRQjp8MXnjjvsQRvgYbfJR4OSNa5zrmuLzix1sqG5+wF0AoA+KTq4
+	 KaGlIhzM7MmQg==
+Received: by mail-ed1-f45.google.com with SMTP id u21so6749172edv.3
+        for <linux-riscv@lists.infradead.org>; Sat, 28 Jan 2023 01:38:00 -0800 (PST)
+X-Gm-Message-State: AO0yUKXoWCDmrbYnA4hlpYAYamalepqxJVj6Ud09AS3RbNkO9Wxhh8Fq
+	+MSkZ7rVWQDuz/IYLfniDWo9/GjJxJpAyJBezX0=
+X-Google-Smtp-Source: AK7set/sd3pDWvNtIDqKhlwf94lwgqoqaqniVsLJdgx6sbVTVaCT5WEhmxQUYWWsEgC3e5r9oByKJZSDJApy7TxTp5Y=
+X-Received: by 2002:a50:c30a:0:b0:4a0:e01c:49aa with SMTP id
+ a10-20020a50c30a000000b004a0e01c49aamr2730230edb.66.1674898678892; Sat, 28
+ Jan 2023 01:37:58 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230125190757.22555-4-rppt@kernel.org>
+References: <20230112090603.1295340-1-guoren@kernel.org> <20230112090603.1295340-2-guoren@kernel.org>
+ <Y7/6AtX5X0+5qF6Y@FVFF77S0Q05N>
+In-Reply-To: <Y7/6AtX5X0+5qF6Y@FVFF77S0Q05N>
+From: Guo Ren <guoren@kernel.org>
+Date: Sat, 28 Jan 2023 17:37:46 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTTqW5A8qS5CQEr=kakxKw5FaFRDswet6CnBGUDasNJnbQ@mail.gmail.com>
+Message-ID: <CAJF2gTTqW5A8qS5CQEr=kakxKw5FaFRDswet6CnBGUDasNJnbQ@mail.gmail.com>
+Subject: Re: [PATCH -next V7 1/7] riscv: ftrace: Fixup panic by disabling preemption
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: anup@brainfault.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
+	conor.dooley@microchip.com, heiko@sntech.de, rostedt@goodmis.org, 
+	mhiramat@kernel.org, jolsa@redhat.com, bp@suse.de, jpoimboe@kernel.org, 
+	suagrfillet@gmail.com, andy.chiu@sifive.com, e.shatokhin@yadro.com, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230128_010220_009610_4BDB5A16 
-X-CRM114-Status: GOOD (  15.52  )
+X-CRM114-CacheID: sfid-20230128_013806_991161_55DEB628 
+X-CRM114-Status: GOOD (  35.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,59 +84,100 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 25, 2023 at 09:07:57PM +0200, Mike Rapoport wrote:
-> From: "Mike Rapoport (IBM)" <rppt@kernel.org>
-> 
-> Every architecture that supports FLATMEM memory model defines its own
-> version of pfn_valid() that essentially compares a pfn to max_mapnr.
-> 
-> Use mips/powerpc version implemented as static inline as a generic
-> implementation of pfn_valid() and drop its per-architecture definitions
-> 
-> Signed-off-by: Mike Rapoport (IBM) <rppt@kernel.org>
-> ---
->  arch/alpha/include/asm/page.h      |  4 ----
->  arch/arc/include/asm/page.h        |  1 -
->  arch/csky/include/asm/page.h       |  1 -
->  arch/hexagon/include/asm/page.h    |  1 -
->  arch/ia64/include/asm/page.h       |  4 ----
->  arch/loongarch/include/asm/page.h  | 13 -------------
->  arch/m68k/include/asm/page_no.h    |  2 --
->  arch/microblaze/include/asm/page.h |  1 -
->  arch/mips/include/asm/page.h       | 13 -------------
->  arch/nios2/include/asm/page.h      |  9 ---------
->  arch/openrisc/include/asm/page.h   |  2 --
->  arch/parisc/include/asm/page.h     |  4 ----
->  arch/powerpc/include/asm/page.h    |  9 ---------
->  arch/riscv/include/asm/page.h      |  5 -----
->  arch/sh/include/asm/page.h         |  3 ---
->  arch/sparc/include/asm/page_32.h   |  1 -
->  arch/um/include/asm/page.h         |  1 -
->  arch/x86/include/asm/page_32.h     |  4 ----
->  arch/x86/include/asm/page_64.h     |  4 ----
->  arch/xtensa/include/asm/page.h     |  2 --
->  include/asm-generic/memory_model.h | 12 ++++++++++++
->  include/asm-generic/page.h         |  2 --
->  22 files changed, 12 insertions(+), 86 deletions(-)
-> 
-[...] 
-> diff --git a/arch/openrisc/include/asm/page.h b/arch/openrisc/include/asm/page.h
-> index aab6e64d6db4..52b0d7e76446 100644
-> --- a/arch/openrisc/include/asm/page.h
-> +++ b/arch/openrisc/include/asm/page.h
-> @@ -80,8 +80,6 @@ typedef struct page *pgtable_t;
->  
->  #define page_to_phys(page)      ((dma_addr_t)page_to_pfn(page) << PAGE_SHIFT)
->  
-> -#define pfn_valid(pfn)          ((pfn) < max_mapnr)
-> -
->  #define virt_addr_valid(kaddr)	(pfn_valid(virt_to_pfn(kaddr)))
->  
->  #endif /* __ASSEMBLY__ */
+On Thu, Jan 12, 2023 at 8:16 PM Mark Rutland <mark.rutland@arm.com> wrote:
+>
+> Hi Guo,
+>
+> On Thu, Jan 12, 2023 at 04:05:57AM -0500, guoren@kernel.org wrote:
+> > From: Andy Chiu <andy.chiu@sifive.com>
+> >
+> > In RISCV, we must use an AUIPC + JALR pair to encode an immediate,
+> > forming a jump that jumps to an address over 4K. This may cause errors
+> > if we want to enable kernel preemption and remove dependency from
+> > patching code with stop_machine(). For example, if a task was switched
+> > out on auipc. And, if we changed the ftrace function before it was
+> > switched back, then it would jump to an address that has updated 11:0
+> > bits mixing with previous XLEN:12 part.
+> >
+> > p: patched area performed by dynamic ftrace
+> > ftrace_prologue:
+> > p|      REG_S   ra, -SZREG(sp)
+> > p|      auipc   ra, 0x? ------------> preempted
+> >                                       ...
+> >                               change ftrace function
+> >                                       ...
+> > p|      jalr    -?(ra) <------------- switched back
+> > p|      REG_L   ra, -SZREG(sp)
+> > func:
+> >       xxx
+> >       ret
+>
+> As mentioned on the last posting, I don't think this is sufficient to fix the
+> issue. I've replied with more detail there:
+>
+>   https://lore.kernel.org/lkml/Y7%2F3hoFjS49yy52W@FVFF77S0Q05N/
+>
+> Even in a non-preemptible SMP kernel, if one CPU can be in the middle of
+> executing the ftrace_prologue while another CPU is patching the
+> ftrace_prologue, you have the exact same issue.
+>
+> For example, if CPU X is in the prologue fetches the old AUIPC and the new
+> JALR (because it races with CPU Y modifying those), CPU X will branch to the
+> wrong address. The race window is much smaller in the absence of preemption,
+> but it's still there (and will be exacerbated in virtual machines since the
+> hypervisor can preempt a vCPU at any time).
+>
+> Note that the above is even assuming that instruction fetches are atomic, which
+> I'm not sure is the case; for example arm64 has special CMODX / "Concurrent
+> MODification and eXecutuion of instructions" rules which mean only certain
+> instructions can be patched atomically.
+>
+> Either I'm missing something that provides mutual exclusion between the
+> patching and execution of the ftrace_prologue, or this patch is not sufficient.
+This patch is sufficient because riscv isn't the same as arm64. It
+uses default arch_ftrace_update_code, which uses stop_machine.
+See kernel/trace/ftrace.c:
+void __weak arch_ftrace_update_code(int command)
+{
+        ftrace_run_stop_machine(command);
+}
 
-For OpenRISC
+ps:
+ Yes, it's not good, and it's expensive.
 
-Acked-by: Stafford Horne <shorne@gmail.com>
+>
+> Thanks,
+> Mark.
+>
+> > Fixes: afc76b8b8011 ("riscv: Using PATCHABLE_FUNCTION_ENTRY instead of MCOUNT")
+> > Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
+> > Signed-off-by: Guo Ren <guoren@kernel.org>
+> > ---
+> >  arch/riscv/Kconfig | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> >
+> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> > index e2b656043abf..ee0d39b26794 100644
+> > --- a/arch/riscv/Kconfig
+> > +++ b/arch/riscv/Kconfig
+> > @@ -138,7 +138,7 @@ config RISCV
+> >       select HAVE_DYNAMIC_FTRACE_WITH_REGS if HAVE_DYNAMIC_FTRACE
+> >       select HAVE_FTRACE_MCOUNT_RECORD if !XIP_KERNEL
+> >       select HAVE_FUNCTION_GRAPH_TRACER
+> > -     select HAVE_FUNCTION_TRACER if !XIP_KERNEL
+> > +     select HAVE_FUNCTION_TRACER if !XIP_KERNEL && !PREEMPTION
+> >
+> >  config ARCH_MMAP_RND_BITS_MIN
+> >       default 18 if 64BIT
+> > --
+> > 2.36.1
+> >
+
+
+
+-- 
+Best Regards
+ Guo Ren
 
 _______________________________________________
 linux-riscv mailing list
