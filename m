@@ -4,75 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4FD0C38142
-	for <linux-riscv@archiver.kernel.org>; Sat, 28 Jan 2023 07:09:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56A21C27C76
+	for <linux-riscv@archiver.kernel.org>; Sat, 28 Jan 2023 07:28:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ch7kqKUW4f2IVDAvcA6WJN66UvxDaG74PgmglEguBlM=; b=e44QwbaZaQGwr2
-	qXVxIY28vhjdjswX5zPxI16sSSMpqCY/RRIrZs/YfI1IcapmjFNc1EQvTehvjzFlEE1qGuj+fIP0l
-	ABqEH/+u2bdDXkZJRycEGSWnmtf8CrHpWDXV/CA98bPydBcH15MysDj6DTTRjiqQZnGipur8quh9+
-	y+68xH6VkhsHvEsVSZs1ydjuOTweRk3cBnIbbdBbjA9RZ/qBoPe+//pCuysUjPe8R5dxW4iwpgQsN
-	XrDSwv511WiboyVf8bUHGHAGLCnLiirjdEWTiP5IYe9Gto0Azpb3OCCPgnOaTs4jDLDnaHLxIey9P
-	jONyoTnr/R7gZnsruo8g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=sg+Pyvcc3El8PblUK2GfjvB8Jjh/JyiB1ZFF+5V2jDY=; b=oWkZoQHyucOWqL
+	f/eP5GRtZJVQiRN6FcdzMJ0RWqQxetrm49h9PEQ8fI4CFeqRhL2HtB5gK5ttgUd5e/UGnTXr8MZbR
+	XQwN9j+Lj1oak5pBP0YlY7JqrvCDDqPPhJ61Z5pK0el2VFQVhUKwT6DKdkLG1uZLydQNbjClDxxbw
+	OcPa8jyFa6/hFt9yE6z5dm475YymWoysQwKGpEHKurof18aFyIhLihxfVVbEDEQqeETlbp2r9fpPf
+	ismUHIc0gp4ELiN9hhFiGpQhiEK2E9rb2V8LuYkLzp8I9BMmel7vKMA89wGjyzBUv7JaXyPy41WK+
+	09NgFigkGKJYapCfSD6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pLfLE-00HK1w-OD; Sat, 28 Jan 2023 07:09:36 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pLfct-00HLUC-5a; Sat, 28 Jan 2023 07:27:51 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pLfLB-00HK1P-69; Sat, 28 Jan 2023 07:09:34 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 61819606DC;
-	Sat, 28 Jan 2023 07:09:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0A7CC433A0;
-	Sat, 28 Jan 2023 07:09:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1674889771;
-	bh=qJThY7YRiVSuNivcV0ILDJW5OwSM/MJ4pv8XOsXc6dk=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=mds+xA37E8kRpu4vHJJXUm0j/D8D5E0nD5+eHg00dKoA51mVWFgPrcbrtINusRV6N
-	 FuiAwdcY5978See3nllrqaeHnQVQBZ1WHFw/LfFgb5SSGafLZ4um06bLUSydn6r8H1
-	 U0snIC7P3/3QUAdZjlBmn94WlZE2fgyd6meb0JApkehuASVnRW49c38FsW5YmZ9YOW
-	 kWPZ8XZEOGGeAKupQmKGSYhVjmge8VgAcbsk5g9Nd4rgWbnwVC1VOUTiUR2Nuv4qs8
-	 gUpmeA8rySilM67g6iB3Tl1JzG+GQosZzd67u0TRM9eor1BpwvayPjDWLnnRviwyuT
-	 KLeOWOZ/eIEsg==
-Received: by mail-ed1-f50.google.com with SMTP id cw4so1435768edb.13;
-        Fri, 27 Jan 2023 23:09:31 -0800 (PST)
-X-Gm-Message-State: AFqh2kqj6SnKbMai3FDcc05kJUqJMaOUPd/w34zi+yqLeXwJKboAbo9+
-	iMQW9aXfAJ7LJXdAGhVU/MzsL9CIH0F89GGfSVI=
-X-Google-Smtp-Source: AMrXdXugvUr0SATK9iPUumiyHbSFs/2xyipGCcI/X1Gy3iqXqmW3lzC+KhXQR4oqpVtlha3AUV4zGYHMI7rxW9SM75k=
-X-Received: by 2002:a05:6402:488:b0:499:c343:30e3 with SMTP id
- k8-20020a056402048800b00499c34330e3mr6630035edv.4.1674889769910; Fri, 27 Jan
- 2023 23:09:29 -0800 (PST)
+	id 1pLfcq-00HLTQ-Ks
+	for linux-riscv@lists.infradead.org; Sat, 28 Jan 2023 07:27:50 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id o13so6707074pjg.2
+        for <linux-riscv@lists.infradead.org>; Fri, 27 Jan 2023 23:27:47 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZIp0ncMCm62OCfgMvP1/ZtcZEYlq9GSVvwzMRdDzsxc=;
+        b=WwmJCQbfdSpysGWAhddrN6xzvrr5sfTaMCaViq0MVeVN65lEA/K0kIbWOiJ5mx00sf
+         9sqz+ULl8iPa0yd67yMO+U2/mew/CeqDuS3f7o4cI2sBgRqx+OT9UxOQn/+M3B015gf9
+         ZvGN2si8+FKg6JafIeg2mvKJ+8gLA/w4AD8qRBvruTPhZMTyfioTqC7XOwLb87Kqcaas
+         edsL7+csyJAySV4Q8Z5WH5LtnL5jkYOvSMNGQsxJfwAcvtjdNwsuGXO7Rqa4or19sFAM
+         NmQv7Zt2Z0yBUQ+ce6VtIY49NShocrenZCvCsryo8pynAFdbm7m9YMDKewvXewYPQ2uU
+         ik4g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ZIp0ncMCm62OCfgMvP1/ZtcZEYlq9GSVvwzMRdDzsxc=;
+        b=wNrGz785jrTRU0gDeuc5pkA+BmlFJ9zBsDKYkw9GUORt53amdYSDsDujY7wzQPEimS
+         KC/GWbaJaoT+n+QB4hFrZE1np87KyL+z2mfTNJjKWWmo/PCPoi9Bfk8TkAwcFL1Kv2hs
+         HD1KMNkSCziBtTk0+x8Sv7U4Kur2PYynx0XUuudtlj15HJontqbi1h10C85VbP20/EiV
+         7BV1RSKKc6XfK6RMgJfcVP/YjJUnodj1C1ggz4WKJ9q7ERgB+KfPzLDSo69lpDKYGRA9
+         SnE5mOd8Owe2PD6pETPUm0ZgCT12ZBS2IRI3lGXUGxwA++mEOKRz71STwNeP846/axTJ
+         n/Fg==
+X-Gm-Message-State: AO0yUKX78+j01SVg0HIPNo8DfDMxh7+hrc7QeF8GOyAVazXDe4MMPjve
+	L1kAarHACgw3eAZagW3t37DMKA==
+X-Google-Smtp-Source: AK7set/JZk8OaVhYXMDTxZz7NE3fu1CtJ7X9nXADGQO9RjFWpzFvGeSfgyEKTn7iJvyPiZNUK7Pzxw==
+X-Received: by 2002:a17:903:230b:b0:196:13cd:a49 with SMTP id d11-20020a170903230b00b0019613cd0a49mr19370623plh.27.1674890866753;
+        Fri, 27 Jan 2023 23:27:46 -0800 (PST)
+Received: from anup-ubuntu-vm.localdomain ([103.97.165.210])
+        by smtp.gmail.com with ESMTPSA id jh19-20020a170903329300b00194ac38bc86sm753132plb.131.2023.01.27.23.27.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Jan 2023 23:27:46 -0800 (PST)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Paolo Bonzini <pbonzini@redhat.com>,
+	Atish Patra <atishp@atishpatra.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Anup Patel <anup@brainfault.org>,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Anup Patel <apatel@ventanamicro.com>
+Subject: [PATCH v2 0/7] RISC-V KVM virtualize AIA CSRs
+Date: Sat, 28 Jan 2023 12:57:30 +0530
+Message-Id: <20230128072737.2995881-1-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20230125142056.18356-1-andy.chiu@sifive.com> <20230125142056.18356-3-andy.chiu@sifive.com>
- <Y9GgKiF8q2k9eRdh@spud>
-In-Reply-To: <Y9GgKiF8q2k9eRdh@spud>
-From: Guo Ren <guoren@kernel.org>
-Date: Sat, 28 Jan 2023 15:09:18 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTS11DcKuSBRQfn9AkU0YP=ry-FV=cH=Au5m3Us=1gVTQQ@mail.gmail.com>
-Message-ID: <CAJF2gTS11DcKuSBRQfn9AkU0YP=ry-FV=cH=Au5m3Us=1gVTQQ@mail.gmail.com>
-Subject: Re: [PATCH -next v13 02/19] riscv: Extending cpufeature.c to detect V-extension
-To: Conor Dooley <conor@kernel.org>
-Cc: Andy Chiu <andy.chiu@sifive.com>, linux-riscv@lists.infradead.org, 
-	palmer@dabbelt.com, anup@brainfault.org, atishp@atishpatra.org, 
-	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, vineetg@rivosinc.com, 
-	greentime.hu@sifive.com, guoren@linux.alibaba.com, 
-	Guo Ren <ren_guo@c-sky.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Heiko Stuebner <heiko@sntech.de>, 
-	Atish Patra <atishp@rivosinc.com>, Anup Patel <apatel@ventanamicro.com>, 
-	Mayuresh Chitale <mchitale@ventanamicro.com>, Conor Dooley <conor.dooley@microchip.com>, 
-	Dao Lu <daolu@rivosinc.com>, Jisheng Zhang <jszhang@kernel.org>, 
-	Andrew Jones <ajones@ventanamicro.com>, Vincent Chen <vincent.chen@sifive.com>, 
-	Tsukasa OI <research_trasio@irq.a4lg.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230127_230933_322334_DCA23AC8 
-X-CRM114-Status: GOOD (  28.63  )
+X-CRM114-CacheID: sfid-20230127_232748_714091_CC2E85CE 
+X-CRM114-Status: GOOD (  10.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,88 +95,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 26, 2023 at 5:33 AM Conor Dooley <conor@kernel.org> wrote:
->
-> On Wed, Jan 25, 2023 at 02:20:39PM +0000, Andy Chiu wrote:
-> > From: Guo Ren <ren_guo@c-sky.com>
-> >
-> > Add V-extension into riscv_isa_ext_keys array and detect it with isa
-> > string parsing.
-> >
-> > Signed-off-by: Guo Ren <ren_guo@c-sky.com>
-> > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> > Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
-> > Suggested-by: Vineet Gupta <vineetg@rivosinc.com>
-> > Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
-> > ---
-> >  arch/riscv/include/asm/hwcap.h      |  4 ++++
-> >  arch/riscv/include/asm/vector.h     | 26 ++++++++++++++++++++++++++
-> >  arch/riscv/include/uapi/asm/hwcap.h |  1 +
-> >  arch/riscv/kernel/cpufeature.c      | 12 ++++++++++++
-> >  4 files changed, 43 insertions(+)
-> >  create mode 100644 arch/riscv/include/asm/vector.h
-> >
-> > diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-> > index 57439da71c77..f413db6118e5 100644
-> > --- a/arch/riscv/include/asm/hwcap.h
-> > +++ b/arch/riscv/include/asm/hwcap.h
-> > @@ -35,6 +35,7 @@ extern unsigned long elf_hwcap;
-> >  #define RISCV_ISA_EXT_m              ('m' - 'a')
-> >  #define RISCV_ISA_EXT_s              ('s' - 'a')
-> >  #define RISCV_ISA_EXT_u              ('u' - 'a')
-> > +#define RISCV_ISA_EXT_v              ('v' - 'a')
-> >
-> >  /*
-> >   * Increse this to higher value as kernel support more ISA extensions.
-> > @@ -73,6 +74,7 @@ static_assert(RISCV_ISA_EXT_ID_MAX <= RISCV_ISA_EXT_MAX);
-> >  enum riscv_isa_ext_key {
-> >       RISCV_ISA_EXT_KEY_FPU,          /* For 'F' and 'D' */
-> >       RISCV_ISA_EXT_KEY_SVINVAL,
-> > +     RISCV_ISA_EXT_KEY_VECTOR,       /* For 'V' */
->
-> That's obvious surely, no?
->
-> >       RISCV_ISA_EXT_KEY_ZIHINTPAUSE,
-> >       RISCV_ISA_EXT_KEY_MAX,
-> >  };
-> > @@ -95,6 +97,8 @@ static __always_inline int riscv_isa_ext2key(int num)
->
-> You should probably check out Jisheng's series that deletes whole
-> sections of this code, including this whole function.
-> https://lore.kernel.org/all/20230115154953.831-3-jszhang@kernel.org/T/#u
-Has that patch merged? It could be solved during the rebase for-next naturally.
+The RISC-V AIA specification is now frozen as-per the RISC-V international
+process. The latest frozen specifcation can be found at:
+https://github.com/riscv/riscv-aia/releases/download/1.0-RC1/riscv-interrupts-1.0-RC1.pdf
 
->
->
-> > @@ -256,6 +257,17 @@ void __init riscv_fill_hwcap(void)
-> >               elf_hwcap &= ~COMPAT_HWCAP_ISA_F;
-> >       }
-> >
-> > +     if (elf_hwcap & COMPAT_HWCAP_ISA_V) {
-> > +#ifndef CONFIG_RISCV_ISA_V
-> > +             /*
-> > +              * ISA string in device tree might have 'v' flag, but
-> > +              * CONFIG_RISCV_ISA_V is disabled in kernel.
-> > +              * Clear V flag in elf_hwcap if CONFIG_RISCV_ISA_V is disabled.
-> > +              */
-> > +             elf_hwcap &= ~COMPAT_HWCAP_ISA_V;
-> > +#endif
-       if (elf_hwcap & COMPAT_HWCAP_ISA_V && !IS_ENABLED(CONFIG_RISCV_ISA_V)) {
+This series implements first phase of AIA virtualization which targets
+virtualizing AIA CSRs. This also provides a foundation for the second
+phase of AIA virtualization which will target in-kernel AIA irqchip
+(including both IMSIC and APLIC).
 
-right?
->
-> I know that a later patch in this series calls rvv_enable() here, which
-> I'll comment on there, but I'd rather see IS_ENABLED as opposed to
-> ifdefs in C files where possible.
->
-> Thanks,
-> Conor.
->
+The first two patches are shared with the "Linux RISC-V AIA Support"
+series which adds AIA driver support.
 
+To test this series, use AIA drivers from the "Linux RISC-V AIA Support"
+series and use KVMTOOL from the riscv_aia_v1 branch at:
+https://github.com/avpatel/kvmtool.git
+
+These patches can also be found in the riscv_kvm_aia_csr_v2 branch at:
+https://github.com/avpatel/linux.git
+
+Changes since v1:
+ - Addressed from Drew and Conor in PATCH1
+ - Use alphabetical ordering for SMAIA and SSAIA enum in PATCH2
+ - Use GENMASK() in PATCH3
+
+Anup Patel (7):
+  RISC-V: Add AIA related CSR defines
+  RISC-V: Detect AIA CSRs from ISA string
+  RISC-V: KVM: Drop the _MASK suffix from hgatp.VMID mask defines
+  RISC-V: KVM: Initial skeletal support for AIA
+  RISC-V: KVM: Add ONE_REG interface for AIA CSRs
+  RISC-V: KVM: Virtualize per-HART AIA CSRs
+  RISC-V: KVM: Implement guest external interrupt line management
+
+ arch/riscv/include/asm/csr.h      | 107 ++++-
+ arch/riscv/include/asm/hwcap.h    |   8 +
+ arch/riscv/include/asm/kvm_aia.h  | 137 +++++++
+ arch/riscv/include/asm/kvm_host.h |  14 +-
+ arch/riscv/include/uapi/asm/kvm.h |  22 +-
+ arch/riscv/kernel/cpu.c           |   2 +
+ arch/riscv/kernel/cpufeature.c    |   2 +
+ arch/riscv/kvm/Makefile           |   1 +
+ arch/riscv/kvm/aia.c              | 624 ++++++++++++++++++++++++++++++
+ arch/riscv/kvm/main.c             |  14 +
+ arch/riscv/kvm/mmu.c              |   3 +-
+ arch/riscv/kvm/vcpu.c             | 185 +++++++--
+ arch/riscv/kvm/vcpu_insn.c        |   4 +-
+ arch/riscv/kvm/vm.c               |   4 +
+ arch/riscv/kvm/vmid.c             |   4 +-
+ 15 files changed, 1075 insertions(+), 56 deletions(-)
+ create mode 100644 arch/riscv/include/asm/kvm_aia.h
+ create mode 100644 arch/riscv/kvm/aia.c
 
 -- 
-Best Regards
- Guo Ren
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
