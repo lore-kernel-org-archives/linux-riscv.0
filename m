@@ -4,67 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17108C38142
-	for <linux-riscv@archiver.kernel.org>; Sat, 28 Jan 2023 10:28:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE18FC27C76
+	for <linux-riscv@archiver.kernel.org>; Sat, 28 Jan 2023 13:08:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:References:
-	In-Reply-To:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=l2tTFuz5yBVB/dafMmYG/B7QdnWpL4QjZOX1nvi/egM=; b=3dNLqcR6jQcffI
-	P8HZGJpugFR+m5IMfLyeuTuwrzYgank/HmosIxybcV3U0YatmUrayiHVN65Sx0htLELOBjkNbpNwH
-	NyARV/7TZLMl7XW/Q1c1NMYjjqz5/seHP6W7RdnWEV1oy6G8LlQGiXkf4Q8gclfVjsexlqdVgTqF8
-	/tJ5feba/bBR8RaZ5nxSCJWATkl3RFBdWhpr6wl1I5umCbz7bRyXCEtKkgWHUyfhYmsTCXq6SJLPb
-	b6HhhNkBvZ23389qylJYt4BUsk1fK1B8yjygB6x8j3f1MPzdb2BP7PWMxa9DIbDS1RzdnniUkjfcN
-	wU864xAbvAwEybANHTEg==;
+	List-Owner; bh=RMNoLbIgMU5aeF/3fWDZTYkWhrKQ4UpllIfMV1kxeKk=; b=TQ8RhOC0Mi4Xjl
+	ec04I+XMRVisCDxtSS8abfVsIBfJwy0qDaHQY4kpV27Vfx0/Fgq1/SFvNZ8eVftJYFdp58yVejKHW
+	5ihJ2ltLZPN9PFodT4bz845cvXgpnl2be1NbVwclPX/VHpSh7aAv/FeDKyGptGCeq250X2bf1Br2F
+	LflXVnhjBmNBPB+dgyP9u3TI4c6SL7uJBIVjKHYgW63fR3FWeeM1UnuicPg/VH3ODb8FX16JG0j5a
+	gcoqLKMb/Zbbo92HAVpmvnPkZw2/EzvLwy3LYUWjFh22xFiPCnVbp/ZGRYUElPxvIIIiYscqXI5SN
+	DXV67paaqPl8onA9gQeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pLiRp-0001F5-32; Sat, 28 Jan 2023 10:28:37 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pLkwp-000BdS-7Y; Sat, 28 Jan 2023 13:08:47 +0000
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pLiRm-0001EU-6h; Sat, 28 Jan 2023 10:28:35 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 7BD9A60B54;
-	Sat, 28 Jan 2023 10:28:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EE6AC433EF;
-	Sat, 28 Jan 2023 10:28:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1674901709;
-	bh=LdatDRj19NTRu/mqjPRI5md+JhOX3+rhr/gM9iD9Ufo=;
-	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
-	b=cFadJIPwcmhTLyHvg5LQ8QQvb9Cwxset2eCqHtvwsOp0s2Xse5iH8wX1l4XnLFZLA
-	 qwmxNSPdtfYX6NtrPHqYN3IaeJHoQDc/BLKC/OlGfQ1hhD+3L3fkyivZrGB0sLzPHt
-	 5Z6KsMLFvq4WMYh4g0voBaLWGoMJld5gWy2mywi1KGxIZj5fUPRqLyB9fg8gyM1+1k
-	 /yuewWAu/9QcShcKezSRBhQkRE9b3tlR3zX//zZ5PbXGyhUt0NcFBRYhjQJTljGm6y
-	 7VndGaKFLFXwKOVNFkZFMjttzp4G6T8zQeDVdhwxaBc2J6Nn14Ls0MhSsXLsl87se1
-	 IbAK0iNLqqZhQ==
-Date: Sat, 28 Jan 2023 10:28:26 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Guo Ren <guoren@kernel.org>
-CC: Andy Chiu <andy.chiu@sifive.com>, linux-riscv@lists.infradead.org,
- palmer@dabbelt.com, anup@brainfault.org, atishp@atishpatra.org,
- kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, vineetg@rivosinc.com,
- greentime.hu@sifive.com, guoren@linux.alibaba.com,
- Guo Ren <ren_guo@c-sky.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Heiko Stuebner <heiko@sntech.de>,
- Atish Patra <atishp@rivosinc.com>, Anup Patel <apatel@ventanamicro.com>,
- Mayuresh Chitale <mchitale@ventanamicro.com>,
- Conor Dooley <conor.dooley@microchip.com>, Dao Lu <daolu@rivosinc.com>,
- Jisheng Zhang <jszhang@kernel.org>, Andrew Jones <ajones@ventanamicro.com>,
- Vincent Chen <vincent.chen@sifive.com>,
- Tsukasa OI <research_trasio@irq.a4lg.com>
-Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_-next_v13_02/19=5D_riscv=3A_Exte?= =?US-ASCII?Q?nding_cpufeature=2Ec_to_detect_V-extension?=
-User-Agent: K-9 Mail for Android
-In-Reply-To: <CAJF2gTS11DcKuSBRQfn9AkU0YP=ry-FV=cH=Au5m3Us=1gVTQQ@mail.gmail.com>
-References: <20230125142056.18356-1-andy.chiu@sifive.com> <20230125142056.18356-3-andy.chiu@sifive.com> <Y9GgKiF8q2k9eRdh@spud> <CAJF2gTS11DcKuSBRQfn9AkU0YP=ry-FV=cH=Au5m3Us=1gVTQQ@mail.gmail.com>
-Message-ID: <3AE48592-5756-4D49-B860-1D8C54ACFF3A@kernel.org>
+	id 1pLkwj-000BcS-Fq
+	for linux-riscv@lists.infradead.org; Sat, 28 Jan 2023 13:08:45 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id hx15so854865ejc.11
+        for <linux-riscv@lists.infradead.org>; Sat, 28 Jan 2023 05:08:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=3noSpr0qsbBjaPiHek7vXj61bnZWH4YDsV9fDm3w6bg=;
+        b=GqoA0BWlnkv1+k7b2w6EFw+iRqLjZcbPObOdfLA1dW+gUzDn4hFyaV44TZTRFH/2TI
+         ZzyZ3g/aod4fp4lN+/kWOa/68ecDddZXUuzTTvgOYSVQxXM9jMQ+EvRgPnZgqD+BqHPu
+         fo8SftFGTNn4oTAmMO4Ayga2VN8WLakrSnTVYaEw/aB9Gtp5pEPEBFnx3ZxRLi87/Tbx
+         metjDOan2qaYk2jOfOoYI90co/8m7UPb+xRW+fjo3VYRYnudZp9W7QdP5ks3+pFlCMl/
+         UQDVWUGoj+Rl98SZJ5V325dEgLGPhHD+uMpJnup5o7/nZGVpEDuOUaR2GD4wWnSJwCfK
+         V8Mg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=3noSpr0qsbBjaPiHek7vXj61bnZWH4YDsV9fDm3w6bg=;
+        b=xvo3Hr6minApl84ZMLDnS1XeaeW/w4JUyqRi5BFd3fIuURxF343qvYD/1LglW71OVE
+         avV1bVro+mLyi2I4xa9vPM9w3wYzg5OpMd0DXgFc7x7gO61LhgtSZjA6xMNE+NkOOMjb
+         vwyl2qmN1ojp4OUOjowWpArVsuCc68ZI3NMODmUKcFFK4Myf0ke68asMRnWqPKV0RqTX
+         DZNPpP8IG8M2R6VDcpitf14frhCFQdyYP7oXiDBFlGASNGiqO8JouO0lm28F1aKZxAbx
+         ke3qBHhSi2Rn5JMlWcW7gog3LyR90wS0a2UMXBJ4oTbBxWdX5uRM2nx2L3lxP6qqvS87
+         ntmQ==
+X-Gm-Message-State: AO0yUKX3oANohJqs2OBDt/wGg0aQ+HL3DzpgmodGtnfWiRx8gU3NbpMC
+	6rRaZQTyHszLn8TdsnACl5Q9UQ==
+X-Google-Smtp-Source: AK7set9s1XJCixtX4cwHO6p5/3Vah0LIW8ZFX9u6X+W6Gu/3sSdtWRe1LeWRRkOlfiv8fDUoCSjdCw==
+X-Received: by 2002:a17:906:a457:b0:878:66bc:2280 with SMTP id cb23-20020a170906a45700b0087866bc2280mr9834745ejb.12.1674911317574;
+        Sat, 28 Jan 2023 05:08:37 -0800 (PST)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id n5-20020a1709061d0500b0084d420503a3sm3910116ejh.178.2023.01.28.05.08.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 28 Jan 2023 05:08:37 -0800 (PST)
+Date: Sat, 28 Jan 2023 14:08:36 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>,
+	Atish Patra <atishp@atishpatra.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/2] RISC-V: KVM: Fix privilege mode setting in
+ kvm_riscv_vcpu_trap_redirect()
+Message-ID: <20230128130836.4ujqmzfqlfpcekni@orel>
+References: <20230128082847.3055316-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230128082847.3055316-1-apatel@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230128_022834_365907_D0F07565 
-X-CRM114-Status: GOOD (  22.42  )
+X-CRM114-CacheID: sfid-20230128_050841_572538_E173D22D 
+X-CRM114-Status: GOOD (  14.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,95 +95,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 28 January 2023 07:09:18 GMT, Guo Ren <guoren@kernel.org> wrote:
->On Thu, Jan 26, 2023 at 5:33 AM Conor Dooley <conor@kernel.org> wrote:
->>
->> On Wed, Jan 25, 2023 at 02:20:39PM +0000, Andy Chiu wrote:
->> > From: Guo Ren <ren_guo@c-sky.com>
->> >
->> > Add V-extension into riscv_isa_ext_keys array and detect it with isa
->> > string parsing.
->> >
->> > Signed-off-by: Guo Ren <ren_guo@c-sky.com>
->> > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
->> > Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
->> > Suggested-by: Vineet Gupta <vineetg@rivosinc.com>
->> > Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
->> > ---
->> >  arch/riscv/include/asm/hwcap.h      |  4 ++++
->> >  arch/riscv/include/asm/vector.h     | 26 ++++++++++++++++++++++++++
->> >  arch/riscv/include/uapi/asm/hwcap.h |  1 +
->> >  arch/riscv/kernel/cpufeature.c      | 12 ++++++++++++
->> >  4 files changed, 43 insertions(+)
->> >  create mode 100644 arch/riscv/include/asm/vector.h
->> >
->> > diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
->> > index 57439da71c77..f413db6118e5 100644
->> > --- a/arch/riscv/include/asm/hwcap.h
->> > +++ b/arch/riscv/include/asm/hwcap.h
->> > @@ -35,6 +35,7 @@ extern unsigned long elf_hwcap;
->> >  #define RISCV_ISA_EXT_m              ('m' - 'a')
->> >  #define RISCV_ISA_EXT_s              ('s' - 'a')
->> >  #define RISCV_ISA_EXT_u              ('u' - 'a')
->> > +#define RISCV_ISA_EXT_v              ('v' - 'a')
->> >
->> >  /*
->> >   * Increse this to higher value as kernel support more ISA extensions.
->> > @@ -73,6 +74,7 @@ static_assert(RISCV_ISA_EXT_ID_MAX <= RISCV_ISA_EXT_MAX);
->> >  enum riscv_isa_ext_key {
->> >       RISCV_ISA_EXT_KEY_FPU,          /* For 'F' and 'D' */
->> >       RISCV_ISA_EXT_KEY_SVINVAL,
->> > +     RISCV_ISA_EXT_KEY_VECTOR,       /* For 'V' */
->>
->> That's obvious surely, no?
->>
->> >       RISCV_ISA_EXT_KEY_ZIHINTPAUSE,
->> >       RISCV_ISA_EXT_KEY_MAX,
->> >  };
->> > @@ -95,6 +97,8 @@ static __always_inline int riscv_isa_ext2key(int num)
->>
->> You should probably check out Jisheng's series that deletes whole
->> sections of this code, including this whole function.
->> https://lore.kernel.org/all/20230115154953.831-3-jszhang@kernel.org/T/#u
->Has that patch merged? It could be solved during the rebase for-next naturally.
-
-Not merged yet. Pretty sure Andy used for-next
-as his base so that CI could test it more easily
-I was just pointing out it's existence in case he
-hadn't seen it.
-Hopefully Jishengs stuff will make 6.3 :)
-
+On Sat, Jan 28, 2023 at 01:58:46PM +0530, Anup Patel wrote:
+> The kvm_riscv_vcpu_trap_redirect() should set guest privilege mode
+> to supervisor mode because guest traps/interrupts are always handled
+> in virtual supervisor mode.
+> 
+> Fixes: 9f7013265112 ("RISC-V: KVM: Handle MMIO exits for VCPU")
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> ---
+>  arch/riscv/kvm/vcpu_exit.c | 3 +++
+>  1 file changed, 3 insertions(+)
+> 
+> diff --git a/arch/riscv/kvm/vcpu_exit.c b/arch/riscv/kvm/vcpu_exit.c
+> index c9f741ab26f5..af7c4bc07929 100644
+> --- a/arch/riscv/kvm/vcpu_exit.c
+> +++ b/arch/riscv/kvm/vcpu_exit.c
+> @@ -160,6 +160,9 @@ void kvm_riscv_vcpu_trap_redirect(struct kvm_vcpu *vcpu,
+>  
+>  	/* Set Guest PC to Guest exception vector */
+>  	vcpu->arch.guest_context.sepc = csr_read(CSR_VSTVEC);
+> +
+> +	/* Set Guest privilege mode to supervisor */
+> +	vcpu->arch.guest_context.sstatus |= SR_SPP;
+>  }
+>  
+>  /*
+> -- 
+> 2.34.1
 >
->>
->>
->> > @@ -256,6 +257,17 @@ void __init riscv_fill_hwcap(void)
->> >               elf_hwcap &= ~COMPAT_HWCAP_ISA_F;
->> >       }
->> >
->> > +     if (elf_hwcap & COMPAT_HWCAP_ISA_V) {
->> > +#ifndef CONFIG_RISCV_ISA_V
->> > +             /*
->> > +              * ISA string in device tree might have 'v' flag, but
->> > +              * CONFIG_RISCV_ISA_V is disabled in kernel.
->> > +              * Clear V flag in elf_hwcap if CONFIG_RISCV_ISA_V is disabled.
->> > +              */
->> > +             elf_hwcap &= ~COMPAT_HWCAP_ISA_V;
->> > +#endif
->       if (elf_hwcap & COMPAT_HWCAP_ISA_V && !IS_ENABLED(CONFIG_RISCV_ISA_V)) {
->
->right?
->>
->> I know that a later patch in this series calls rvv_enable() here, which
->> I'll comment on there, but I'd rather see IS_ENABLED as opposed to
->> ifdefs in C files where possible.
->>
->> Thanks,
->> Conor.
->>
->
->
+
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
