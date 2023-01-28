@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70639C38142
-	for <linux-riscv@archiver.kernel.org>; Sat, 28 Jan 2023 14:45:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3673EC27C76
+	for <linux-riscv@archiver.kernel.org>; Sat, 28 Jan 2023 14:48:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rYc6C/HROpoxaF9q1tCHsjMKc3FDo8N2jIEfFs7pYcg=; b=Tq0pKOvU9X5ISU
-	9TviQv/4V70rFZdrsitj9tq8/B/3SyAseFHIvA97SrF+jz/lFICXOsJO0EJygmYZ8szB2/zTPP0Rl
-	afjlCJCyHiW6h1Bm8JelUSjRvp9CBJ437jxO5UcV6fpJh5ZzpCh69R0v8a00qi1N3dDp7Qo7LtBSt
-	1lpDdqo5joCa4sLcZF7PS7HswtdjabgKZ9RRRuN3Z0wD3x3bmP6KkAGCF2eaMd2V81xM1VSPxuphp
-	4dIu+JewG+KdbZw953gas5hsPPljDQn/6KFW6bsW2JWUAGvYy+AssRAma9IUxFJqJpYy2jh9My7rr
-	v/0VhfCArhETIg1VvYGQ==;
+	List-Owner; bh=0ta41FxrHp3ZeMDBpXLRdQ6EDlGho75ynQZsKODXRdE=; b=QlQPxT8fgks/BK
+	0kGVwDLugzkA9fR+1lej0aMhLZVnVdzQyS/mXdncEK9CjhtntEAlPsBgwMPs3b+Z9XaArGDWIzik/
+	bu35WCzuMOkHqhgUxg0L8aZIurWEMjeBmj0rtBoSSCQRmgcYTb7cYewexUqR9qSZMmce/8dvtf4BH
+	Cc7GrSGJTGwuc3TaS+UFsM9qNBr1khdpfIlY/kECpbaCyKLzX+1tcjVV3ZR2XhJKuaeLFwkwMVqOX
+	w6eB4sDbaqJLGqJl/pjxzJ4Wbe/Pxu+UFe/7zr5vGCFPch7N6Q4cnzuFTaAfrYcVakFlitUHYR2gY
+	Jdz7kHHupXx4UnoRhcAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pLmRu-000ILz-3f; Sat, 28 Jan 2023 14:44:58 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1pLmV7-000IZw-Lb; Sat, 28 Jan 2023 14:48:17 +0000
+Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pLmRq-000ILG-PG
-	for linux-riscv@lists.infradead.org; Sat, 28 Jan 2023 14:44:56 +0000
-Received: by mail-ej1-x631.google.com with SMTP id p26so9556535ejx.13
-        for <linux-riscv@lists.infradead.org>; Sat, 28 Jan 2023 06:44:52 -0800 (PST)
+	id 1pLmV5-000IZC-Lc
+	for linux-riscv@lists.infradead.org; Sat, 28 Jan 2023 14:48:17 +0000
+Received: by mail-ed1-x530.google.com with SMTP id x10so7129352edd.10
+        for <linux-riscv@lists.infradead.org>; Sat, 28 Jan 2023 06:48:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=brainfault-org.20210112.gappssmtp.com; s=20210112;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=cxgcNH+i6l64zcOgAcO50nbqnktfB8T2iDT3aKt9XNo=;
-        b=oQ2dc3IhUAgPPTyUTM1XB5B3fQjGZ5A17Sm2jd1NpD4Tt+/wuDl5gazJt1pxTa8OMp
-         eyucpzUntHS5jUjinFCl/FDnAk7eoHBJDP5hfVEHybDdihYRg7y7mzpgscjdr14zmZlG
-         x4yZzM7DNvRX7bikgs3hF8gPbXwHykQoO0cxfXh26VFtx963vI0mhArDCQB855eAqNNV
-         GoAxj1TOSbuAKbIQLeuFShcaSj3UklZ8jQXI8Ip9GKjaGoWKIL2MoRruQnvwIYTQT9Qh
-         EumwqHrmvsscL+/pEyf0F5l+PBH6PYpDh6TMPd9MlvD06zzoqQp/1cFd6Y2gQCVEaRbY
-         E7PQ==
+        bh=1lxUpJSfxW1ZZV9lMQmOX9ndF9VezYLbwHaqKcuesvo=;
+        b=RtURjaujbaSgYg8dv56Qf+hC1TetbqbHqyIIY6s7dI+APqUXmnRn7NgNPZa+7Ndl5+
+         6v7jYHiN8g//VSipATTE3qw/OcyFjSGO0uo0G2XXJOFzZiI97HJhidBHoXSf6Dm3+3d2
+         /avcyh3HCkoNWpWxZ6iH7a2OwRQZy2+Fpwf9FXkCvn13xuHzVJ7RMPQHyPFDW3aKPMEK
+         wkZuZ3d+k+TLl/d1Kgx+WY5uOM4tbQbH7pgBE/K8rCNmdnhMosXeyzFk1ge/mDutdbVN
+         TBgu8Cg90KGe+fOACR0ryUCUIx70yjq5+7aMvln9XLzbbvQTOGk5iHbl6IrZA+QDwFLB
+         S76w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=cxgcNH+i6l64zcOgAcO50nbqnktfB8T2iDT3aKt9XNo=;
-        b=ptLJzIu6Rftdgv/4JUmAXSfXlQrjBKxXJYZhyz6WynIVc7BrLQwAriTyQeZt62JTrH
-         R50Nluk7RDK/K7Zo5ZAjdmtTjF7KU2q5GDf2q6jFmrpQF9z6ttJ3nGjenPrkIx4dUdxQ
-         s4Ps4uRnW9PJKW4UyyxqnGGIDiNklpGc4DCv3kupXPQ+qZc78BZlZvgpIjfUEhBcwpBA
-         LpntvaRdaxc3NaL2a1ReiBZIC07JFlyl64rfjxdmr/XVbVuQrmIdxOPgEAFHhhwe3PKF
-         U6hWryFYVWeSP+DVGcRlwTHYDBQnN3LuP8bwExdeHggnPRY9q9gutWENwGGfYKmRDxz+
-         jYTA==
-X-Gm-Message-State: AO0yUKUNWwHJfDEnvWdUogzjHruTXSazu+BRZA8Wjo7HtwVVewTx7llO
-	fUUyZy+eLctFCjIgPmtLot0/XnyHoV0KUD24he9aTQ==
-X-Google-Smtp-Source: AK7set8+4g33VhKHLNUQ/cQTpvdJvVcDfW5CesrwOD5jPXBburR4nRtEWk++r1qaqnYKZl5Mnorrb2FeRxmQhuCXneQ=
-X-Received: by 2002:a17:906:840e:b0:884:8380:20db with SMTP id
- n14-20020a170906840e00b00884838020dbmr186235ejx.301.1674917090800; Sat, 28
- Jan 2023 06:44:50 -0800 (PST)
+        bh=1lxUpJSfxW1ZZV9lMQmOX9ndF9VezYLbwHaqKcuesvo=;
+        b=OAnUWZ/voDnPFbyGvkHaCc1MmoseexWlHqChdxWK2iOysZwx+UudncsEKk6wTZI+K9
+         AQOCNdqDN4E+/9b2RqUDpYFp+giPLn9HtrC84h8CSWGR2qVfiYss99RwRRFHgp/1Bi/E
+         h9qKkBg10TXc/CytgVmB9Y4ssM+LDiTeCOw7L2MnVjWMMiDv5Ez7RV6W59I81jlDMZrW
+         s+VgNof0ccQ3vuF3zB8dfX8eufTTz60UKGMXi54lSJk8W3vIOZTO7+hc1K9ZDTJ4efDO
+         /GWoVjVNWbeOzKRP2pxpSi1O+FOxHEcawg5/3NpoUsyLE6LtR4UuTCsRoAR6f6LGFm0m
+         G8DA==
+X-Gm-Message-State: AFqh2krJjwTT5iKldiplsmSVJa7xMgq9CYbS4ObRpiyZTRGA2FFF0H0y
+	5WOmUXnGFgKJO1mUCfCXdYBsvUNmzBtVAlocfL5GFw==
+X-Google-Smtp-Source: AMrXdXs9+iKP9MWJQn3NINp9DainLk/ZniHxMwWvgN5wV3i7BI6ahOb7PK5VZdkvWkxkVNQKOjTSQ/LsSWIwwxDUJwc=
+X-Received: by 2002:a05:6402:4494:b0:49e:89e:c7b4 with SMTP id
+ er20-20020a056402449400b0049e089ec7b4mr6940024edb.1.1674917291865; Sat, 28
+ Jan 2023 06:48:11 -0800 (PST)
 MIME-Version: 1.0
-References: <20230127182558.2416400-1-atishp@rivosinc.com> <20230127182558.2416400-2-atishp@rivosinc.com>
-In-Reply-To: <20230127182558.2416400-2-atishp@rivosinc.com>
+References: <20230127182558.2416400-1-atishp@rivosinc.com> <20230127182558.2416400-3-atishp@rivosinc.com>
+In-Reply-To: <20230127182558.2416400-3-atishp@rivosinc.com>
 From: Anup Patel <anup@brainfault.org>
-Date: Sat, 28 Jan 2023 20:14:38 +0530
-Message-ID: <CAAhSdy3U0sgZG6gT3i6vOaupmycHBwALmr_0DHVjuRR7U0Tr6w@mail.gmail.com>
-Subject: Re: [PATCH v3 01/14] perf: RISC-V: Define helper functions expose hpm
- counter width and count
+Date: Sat, 28 Jan 2023 20:17:59 +0530
+Message-ID: <CAAhSdy3pCcbscpYa82Daji4bXT0EdosmH3Xn7MjeJPk-zTA_Yg@mail.gmail.com>
+Subject: Re: [PATCH v3 02/14] perf: RISC-V: Improve privilege mode filtering
+ for perf
 To: Atish Patra <atishp@rivosinc.com>
 Cc: linux-kernel@vger.kernel.org, Andrew Jones <ajones@ventanamicro.com>, 
 	Atish Patra <atishp@atishpatra.org>, Guo Ren <guoren@kernel.org>, 
@@ -72,8 +72,8 @@ Cc: linux-kernel@vger.kernel.org, Andrew Jones <ajones@ventanamicro.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
 	Sergey Matyukevich <sergey.matyukevich@syntacore.com>, Will Deacon <will@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230128_064454_824414_282F55A0 
-X-CRM114-Status: GOOD (  29.46  )
+X-CRM114-CacheID: sfid-20230128_064815_732185_EB7B62BA 
+X-CRM114-Status: GOOD (  22.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,116 +92,93 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 On Fri, Jan 27, 2023 at 11:56 PM Atish Patra <atishp@rivosinc.com> wrote:
 >
-> KVM module needs to know how many hardware counters and the counter
-> width that the platform supports. Otherwise, it will not be able to show
-> optimal value of virtual counters to the guest. The virtual hardware
-> counters also need to have the same width as the logical hardware
-> counters for simplicity. However, there shouldn't be mapping between
-> virtual hardware counters and logical hardware counters. As we don't
-> support hetergeneous harts or counters with different width as of now,
-> the implementation relies on the counter width of the first available
-> programmable counter.
+> Currently, the host driver doesn't have any method to identify if the
+> requested perf event is from kvm or bare metal. As KVM runs in HS
+> mode, there are no separate hypervisor privilege mode to distinguish
+> between the attributes for guest/host.
 >
+> Improve the privilege mode filtering by using the event specific
+> config1 field.
+>
+> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 > Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> ---
+>  drivers/perf/riscv_pmu_sbi.c   | 27 ++++++++++++++++++++++-----
+>  include/linux/perf/riscv_pmu.h |  2 ++
+>  2 files changed, 24 insertions(+), 5 deletions(-)
+>
+> diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+> index 6b53adc..e862b13 100644
+> --- a/drivers/perf/riscv_pmu_sbi.c
+> +++ b/drivers/perf/riscv_pmu_sbi.c
+> @@ -301,6 +301,27 @@ int riscv_pmu_get_hpm_info(u32 *hw_ctr_width, u32 *num_hw_ctr)
+>  }
+>  EXPORT_SYMBOL_GPL(riscv_pmu_get_hpm_info);
+>
+> +static unsigned long pmu_sbi_get_filter_flags(struct perf_event *event)
+> +{
+> +       unsigned long cflags = 0;
+> +       bool guest_events = false;
+> +
+> +       if (event->attr.config1 & RISCV_KVM_PMU_CONFIG1_GUEST_EVENTS)
+> +               guest_events = true;
+> +       if (event->attr.exclude_kernel)
+> +               cflags |= guest_events ? SBI_PMU_CFG_FLAG_SET_VSINH : SBI_PMU_CFG_FLAG_SET_SINH;
+> +       if (event->attr.exclude_user)
+> +               cflags |= guest_events ? SBI_PMU_CFG_FLAG_SET_VUINH : SBI_PMU_CFG_FLAG_SET_UINH;
+> +       if (guest_events && event->attr.exclude_hv)
+> +               cflags |= SBI_PMU_CFG_FLAG_SET_SINH;
+> +       if (event->attr.exclude_host)
+> +               cflags |= SBI_PMU_CFG_FLAG_SET_UINH | SBI_PMU_CFG_FLAG_SET_SINH;
+> +       if (event->attr.exclude_guest)
+> +               cflags |= SBI_PMU_CFG_FLAG_SET_VSINH | SBI_PMU_CFG_FLAG_SET_VUINH;
+> +
+> +       return cflags;
+> +}
+> +
+>  static int pmu_sbi_ctr_get_idx(struct perf_event *event)
+>  {
+>         struct hw_perf_event *hwc = &event->hw;
+> @@ -311,11 +332,7 @@ static int pmu_sbi_ctr_get_idx(struct perf_event *event)
+>         uint64_t cbase = 0;
+>         unsigned long cflags = 0;
+>
+> -       if (event->attr.exclude_kernel)
+> -               cflags |= SBI_PMU_CFG_FLAG_SET_SINH;
+> -       if (event->attr.exclude_user)
+> -               cflags |= SBI_PMU_CFG_FLAG_SET_UINH;
+> -
+> +       cflags = pmu_sbi_get_filter_flags(event);
+>         /* retrieve the available counter index */
+>  #if defined(CONFIG_32BIT)
+>         ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_CFG_MATCH, cbase,
+> diff --git a/include/linux/perf/riscv_pmu.h b/include/linux/perf/riscv_pmu.h
+> index a1c3f77..1c42146 100644
+> --- a/include/linux/perf/riscv_pmu.h
+> +++ b/include/linux/perf/riscv_pmu.h
+> @@ -26,6 +26,8 @@
+>
+>  #define RISCV_PMU_STOP_FLAG_RESET 1
+>
+> +#define RISCV_KVM_PMU_CONFIG1_GUEST_EVENTS 0x1
 
-Looks good to me.
+For consistency other defines in this header:
+s/RISCV_KVM_PMU_CONFIG1_GUEST_EVENTS/RISCV_PMU_CONFIG1_GUEST_EVENTS/
+
+> +
+>  struct cpu_hw_events {
+>         /* currently enabled events */
+>         int                     n_events;
+> --
+> 2.25.1
+>
+
+Otherwise, it looks good to me.
 
 Reviewed-by: Anup Patel <anup@brainfault.org>
 
 Regards,
 Anup
-
-> ---
->  drivers/perf/riscv_pmu_sbi.c   | 37 ++++++++++++++++++++++++++++++++--
->  include/linux/perf/riscv_pmu.h |  3 +++
->  2 files changed, 38 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-> index f6507ef..6b53adc 100644
-> --- a/drivers/perf/riscv_pmu_sbi.c
-> +++ b/drivers/perf/riscv_pmu_sbi.c
-> @@ -44,7 +44,7 @@ static const struct attribute_group *riscv_pmu_attr_groups[] = {
->  };
->
->  /*
-> - * RISC-V doesn't have hetergenous harts yet. This need to be part of
-> + * RISC-V doesn't have heterogeneous harts yet. This need to be part of
->   * per_cpu in case of harts with different pmu counters
->   */
->  static union sbi_pmu_ctr_info *pmu_ctr_list;
-> @@ -52,6 +52,9 @@ static bool riscv_pmu_use_irq;
->  static unsigned int riscv_pmu_irq_num;
->  static unsigned int riscv_pmu_irq;
->
-> +/* Cache the available counters in a bitmask */
-> +static unsigned long cmask;
-> +
->  struct sbi_pmu_event_data {
->         union {
->                 union {
-> @@ -267,6 +270,37 @@ static bool pmu_sbi_ctr_is_fw(int cidx)
->         return (info->type == SBI_PMU_CTR_TYPE_FW) ? true : false;
->  }
->
-> +/*
-> + * Returns the counter width of a programmable counter and number of hardware
-> + * counters. As we don't support heterogeneous CPUs yet, it is okay to just
-> + * return the counter width of the first programmable counter.
-> + */
-> +int riscv_pmu_get_hpm_info(u32 *hw_ctr_width, u32 *num_hw_ctr)
-> +{
-> +       int i;
-> +       union sbi_pmu_ctr_info *info;
-> +       u32 hpm_width = 0, hpm_count = 0;
-> +
-> +       if (!cmask)
-> +               return -EINVAL;
-> +
-> +       for_each_set_bit(i, &cmask, RISCV_MAX_COUNTERS) {
-> +               info = &pmu_ctr_list[i];
-> +               if (!info)
-> +                       continue;
-> +               if (!hpm_width && info->csr != CSR_CYCLE && info->csr != CSR_INSTRET)
-> +                       hpm_width = info->width;
-> +               if (info->type == SBI_PMU_CTR_TYPE_HW)
-> +                       hpm_count++;
-> +       }
-> +
-> +       *hw_ctr_width = hpm_width;
-> +       *num_hw_ctr = hpm_count;
-> +
-> +       return 0;
-> +}
-> +EXPORT_SYMBOL_GPL(riscv_pmu_get_hpm_info);
-> +
->  static int pmu_sbi_ctr_get_idx(struct perf_event *event)
->  {
->         struct hw_perf_event *hwc = &event->hw;
-> @@ -812,7 +846,6 @@ static void riscv_pmu_destroy(struct riscv_pmu *pmu)
->  static int pmu_sbi_device_probe(struct platform_device *pdev)
->  {
->         struct riscv_pmu *pmu = NULL;
-> -       unsigned long cmask = 0;
->         int ret = -ENODEV;
->         int num_counters;
->
-> diff --git a/include/linux/perf/riscv_pmu.h b/include/linux/perf/riscv_pmu.h
-> index e17e86a..a1c3f77 100644
-> --- a/include/linux/perf/riscv_pmu.h
-> +++ b/include/linux/perf/riscv_pmu.h
-> @@ -73,6 +73,9 @@ void riscv_pmu_legacy_skip_init(void);
->  static inline void riscv_pmu_legacy_skip_init(void) {};
->  #endif
->  struct riscv_pmu *riscv_pmu_alloc(void);
-> +#ifdef CONFIG_RISCV_PMU_SBI
-> +int riscv_pmu_get_hpm_info(u32 *hw_ctr_width, u32 *num_hw_ctr);
-> +#endif
->
->  #endif /* CONFIG_RISCV_PMU */
->
-> --
-> 2.25.1
->
 
 _______________________________________________
 linux-riscv mailing list
