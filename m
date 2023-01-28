@@ -4,87 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E3CBC38142
-	for <linux-riscv@archiver.kernel.org>; Sat, 28 Jan 2023 10:13:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17108C38142
+	for <linux-riscv@archiver.kernel.org>; Sat, 28 Jan 2023 10:28:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:References:
+	In-Reply-To:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uG3/HxLWr87hT/ZNI3zrWsFsccJwtNf9lvIPqcC+RYs=; b=Ox0zqw/948Pf/y
-	uSKEbHK4DU7M2fTvEw8I7baR6yX79bxahlED6zUzWJNL2VosmBTKxkTpESK+JZNjgAaKZYxINarAF
-	1eHx1WWwg3yewDAAg0TUSajK3J4OoCGpGmVU612IP6yrNcL280xd1S3HqckuuFgegWctHD8/D6pYv
-	H657pryvhStDccVnYdg5pEgLMshjZUnZh5LeOfHAgABMKVZsSn4j/W/iKB2unUR1FES2Now3GKS59
-	KOTIrJUZniFvbPhCTlJ+8feKpST3Y/Lan9skRVmz8t+DKA+ybV76MiEbUr6qtp8vfD0olwv6JkmY6
-	7BLR0sbIFt0gOxrJ+l/A==;
+	List-Owner; bh=l2tTFuz5yBVB/dafMmYG/B7QdnWpL4QjZOX1nvi/egM=; b=3dNLqcR6jQcffI
+	P8HZGJpugFR+m5IMfLyeuTuwrzYgank/HmosIxybcV3U0YatmUrayiHVN65Sx0htLELOBjkNbpNwH
+	NyARV/7TZLMl7XW/Q1c1NMYjjqz5/seHP6W7RdnWEV1oy6G8LlQGiXkf4Q8gclfVjsexlqdVgTqF8
+	/tJ5feba/bBR8RaZ5nxSCJWATkl3RFBdWhpr6wl1I5umCbz7bRyXCEtKkgWHUyfhYmsTCXq6SJLPb
+	b6HhhNkBvZ23389qylJYt4BUsk1fK1B8yjygB6x8j3f1MPzdb2BP7PWMxa9DIbDS1RzdnniUkjfcN
+	wU864xAbvAwEybANHTEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pLiDC-00Hasv-S3; Sat, 28 Jan 2023 10:13:30 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1pLiRp-0001F5-32; Sat, 28 Jan 2023 10:28:37 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pLiD9-00HarI-4P
-	for linux-riscv@lists.infradead.org; Sat, 28 Jan 2023 10:13:29 +0000
-Received: by mail-ed1-x535.google.com with SMTP id fi26so6780315edb.7
-        for <linux-riscv@lists.infradead.org>; Sat, 28 Jan 2023 02:13:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=sFlpJNoGBOazM9CU1KCnJW9Pwymj7pBp6JXDNmhBuT8=;
-        b=m9tOjpSpKEb5QibVEue38Iap0SxF/gAOKE3vqNe4CJxeZhtNcrgxnvCjmkRVcanIn7
-         JQyYFKW8n30551zAdA1noAvagUG9gVRT8vEI3Bzl/EdeTSiD9H88NrnAmDv42iE7Knfs
-         cltndUPYkBZffCA+y+ZFekfjKGv0C9+HBH7491Xee9Uh6hgjWTv15jsjxAa3Ses9NnqS
-         a3gU14supwACH3ccwf1zGunLSmMYcSVoQebCgjJsTv7dHHoTFOMVrLJGX5jxZB+yWA8d
-         uBmsUEheDLNHH6IA1XSBYkAK9uhBvxI5Itr67YYu0wRbXDbhwD0cRTwAXqR/YSHvZrEU
-         jA/Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=sFlpJNoGBOazM9CU1KCnJW9Pwymj7pBp6JXDNmhBuT8=;
-        b=4dKX9RQ9MOTdNtMAgDvq4hSglb7J8THzT38fLko8KJsBABHppTREreeSy+Qz4S7hH+
-         0X8ZfqeEGkA0cw/l8ER/TN3LumSlfbiDhqNO8mRTPGGUzT2ne8dV0dw9vTeiNp85kgJ2
-         5tOpXrcqULgFETvxBJMJlYJRGUirMt6k49lb+hJGWi0xDuDKZryRwAjo0/dv6Q0IR1wZ
-         HoGtnBxqQAi6oGs5dLHa3CeagfLtN/+iKkoKLTjeXAOMcHIsZkx/r0U8p7SQyjFCKc5s
-         bpSzyyLkkxOQVbyp+fLH7YPw+f2ex0+aLfCdGfqCSjQfrDxMKe7+LtjJ1D2qiNspmoNG
-         KRgQ==
-X-Gm-Message-State: AFqh2koyFry4tg9zos/RYgfl1WLL3+iYFFmtDlZYi9fMIUYT5f/JWTD9
-	xGVjQ01sUEn1/t/9Lrpxr87eyw==
-X-Google-Smtp-Source: AMrXdXvvQykJl27DpI4dLKKbE4Gp6VgcIMfC9wpU5tWMTKXRTAjAQE6FyENclEpnl7Ei24HEknMf5Q==
-X-Received: by 2002:a05:6402:1009:b0:479:8313:3008 with SMTP id c9-20020a056402100900b0047983133008mr42841481edu.0.1674900799926;
-        Sat, 28 Jan 2023 02:13:19 -0800 (PST)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id y11-20020a50eb0b000000b00467481df198sm3689493edp.48.2023.01.28.02.13.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 28 Jan 2023 02:13:19 -0800 (PST)
-Date: Sat, 28 Jan 2023 11:13:17 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Frank Rowand <frowand.list@gmail.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arch@vger.kernel.org,
-	Rob Herring <robh@kernel.org>
-Subject: Re: [PATCH v4] riscv: Use PUD/P4D/PGD pages for the linear mapping
-Message-ID: <20230128101317.6zc3r5eh7hqe5q6y@orel>
-References: <20230123112803.817534-1-alexghiti@rivosinc.com>
- <20230123142554.f22ajf6upfk2ybxk@orel>
- <20230125104102.2thvourt3lx2p36a@orel>
- <CAHVXubjUCmk6xGTCPzMujYqKUwE0bhQBqd8A+=yq7ijQZtBObg@mail.gmail.com>
- <20230125151041.ijhjqswqiwmrzljd@orel>
- <CAHVXubjR8AsZhMz59goxfmf8LmA4bjePKUx=AkvmbqoF42tzmA@mail.gmail.com>
- <20230127085803.ruj624323wxeyllx@orel>
+	id 1pLiRm-0001EU-6h; Sat, 28 Jan 2023 10:28:35 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 7BD9A60B54;
+	Sat, 28 Jan 2023 10:28:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EE6AC433EF;
+	Sat, 28 Jan 2023 10:28:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1674901709;
+	bh=LdatDRj19NTRu/mqjPRI5md+JhOX3+rhr/gM9iD9Ufo=;
+	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
+	b=cFadJIPwcmhTLyHvg5LQ8QQvb9Cwxset2eCqHtvwsOp0s2Xse5iH8wX1l4XnLFZLA
+	 qwmxNSPdtfYX6NtrPHqYN3IaeJHoQDc/BLKC/OlGfQ1hhD+3L3fkyivZrGB0sLzPHt
+	 5Z6KsMLFvq4WMYh4g0voBaLWGoMJld5gWy2mywi1KGxIZj5fUPRqLyB9fg8gyM1+1k
+	 /yuewWAu/9QcShcKezSRBhQkRE9b3tlR3zX//zZ5PbXGyhUt0NcFBRYhjQJTljGm6y
+	 7VndGaKFLFXwKOVNFkZFMjttzp4G6T8zQeDVdhwxaBc2J6Nn14Ls0MhSsXLsl87se1
+	 IbAK0iNLqqZhQ==
+Date: Sat, 28 Jan 2023 10:28:26 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Guo Ren <guoren@kernel.org>
+CC: Andy Chiu <andy.chiu@sifive.com>, linux-riscv@lists.infradead.org,
+ palmer@dabbelt.com, anup@brainfault.org, atishp@atishpatra.org,
+ kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, vineetg@rivosinc.com,
+ greentime.hu@sifive.com, guoren@linux.alibaba.com,
+ Guo Ren <ren_guo@c-sky.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Heiko Stuebner <heiko@sntech.de>,
+ Atish Patra <atishp@rivosinc.com>, Anup Patel <apatel@ventanamicro.com>,
+ Mayuresh Chitale <mchitale@ventanamicro.com>,
+ Conor Dooley <conor.dooley@microchip.com>, Dao Lu <daolu@rivosinc.com>,
+ Jisheng Zhang <jszhang@kernel.org>, Andrew Jones <ajones@ventanamicro.com>,
+ Vincent Chen <vincent.chen@sifive.com>,
+ Tsukasa OI <research_trasio@irq.a4lg.com>
+Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_-next_v13_02/19=5D_riscv=3A_Exte?= =?US-ASCII?Q?nding_cpufeature=2Ec_to_detect_V-extension?=
+User-Agent: K-9 Mail for Android
+In-Reply-To: <CAJF2gTS11DcKuSBRQfn9AkU0YP=ry-FV=cH=Au5m3Us=1gVTQQ@mail.gmail.com>
+References: <20230125142056.18356-1-andy.chiu@sifive.com> <20230125142056.18356-3-andy.chiu@sifive.com> <Y9GgKiF8q2k9eRdh@spud> <CAJF2gTS11DcKuSBRQfn9AkU0YP=ry-FV=cH=Au5m3Us=1gVTQQ@mail.gmail.com>
+Message-ID: <3AE48592-5756-4D49-B860-1D8C54ACFF3A@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230127085803.ruj624323wxeyllx@orel>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230128_021327_197845_6CBCF2F2 
-X-CRM114-Status: GOOD (  36.79  )
+X-CRM114-CacheID: sfid-20230128_022834_365907_D0F07565 
+X-CRM114-Status: GOOD (  22.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,78 +81,95 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 27, 2023 at 09:58:03AM +0100, Andrew Jones wrote:
-> On Fri, Jan 27, 2023 at 09:45:21AM +0100, Alexandre Ghiti wrote:
-> ...
-> > > > > > > diff --git a/drivers/of/fdt.c b/drivers/of/fdt.c
-> > > > > > > index f08b25195ae7..58107bd56f8f 100644
-> > > > > > > --- a/drivers/of/fdt.c
-> > > > > > > +++ b/drivers/of/fdt.c
-> > > > > > > @@ -891,12 +891,13 @@ const void * __init of_flat_dt_match_machine(const void *default_match,
-> > > > > > >  static void __early_init_dt_declare_initrd(unsigned long start,
-> > > > > > >                                        unsigned long end)
-> > > > > > >  {
-> > > > > > > -   /* ARM64 would cause a BUG to occur here when CONFIG_DEBUG_VM is
-> > > > > > > -    * enabled since __va() is called too early. ARM64 does make use
-> > > > > > > -    * of phys_initrd_start/phys_initrd_size so we can skip this
-> > > > > > > -    * conversion.
-> > > > > > > +   /*
-> > > > > > > +    * __va() is not yet available this early on some platforms. In that
-> > > > > > > +    * case, the platform uses phys_initrd_start/phys_initrd_size instead
-> > > > > > > +    * and does the VA conversion itself.
-> > > > > > >      */
-> > > > > > > -   if (!IS_ENABLED(CONFIG_ARM64)) {
-> > > > > > > +   if (!IS_ENABLED(CONFIG_ARM64) &&
-> > > > > > > +       !(IS_ENABLED(CONFIG_RISCV) && IS_ENABLED(CONFIG_64BIT))) {
-> > > > > >
-> > > > > > There are now two architectures, so maybe it's time for a new config
-> > > > > > symbol which would be selected by arm64 and riscv64 and then used here,
-> > > > > > e.g.
-> > > > > >
-> > > > > >   if (!IS_ENABLED(CONFIG_NO_EARLY_LINEAR_MAP)) {
-> > > > >
-> > > > > I see v5 left this as it was. Any comment on this suggestion?
-> > > >
-> > > > Introducing a config for this only use case sounds excessive to me,
-> > > > but I'll let Rob decide what he wants to see here.
-> > >
-> > > To me, the suggestion is less about trying to tidy up DT code and more
-> > > about bringing this comment about arm64 and riscv64 not being able to
-> > > use the linear map as early as other architectures up out of the
-> > > depths of DT code. Seeing an architecture select something like
-> > > NO_EARLY_LINEAR_MAP, which has a paragraph explaining what that
-> > > means, may help avoid other early uses of __va() which may or may
-> > > not fail quickly and cleanly with a BUG.
-> > >
-> > 
-> > You're right, do you have some bandwidth for doing that?
-> >
-> 
-> Sure, I'll post something today.
+
+
+On 28 January 2023 07:09:18 GMT, Guo Ren <guoren@kernel.org> wrote:
+>On Thu, Jan 26, 2023 at 5:33 AM Conor Dooley <conor@kernel.org> wrote:
+>>
+>> On Wed, Jan 25, 2023 at 02:20:39PM +0000, Andy Chiu wrote:
+>> > From: Guo Ren <ren_guo@c-sky.com>
+>> >
+>> > Add V-extension into riscv_isa_ext_keys array and detect it with isa
+>> > string parsing.
+>> >
+>> > Signed-off-by: Guo Ren <ren_guo@c-sky.com>
+>> > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+>> > Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
+>> > Suggested-by: Vineet Gupta <vineetg@rivosinc.com>
+>> > Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
+>> > ---
+>> >  arch/riscv/include/asm/hwcap.h      |  4 ++++
+>> >  arch/riscv/include/asm/vector.h     | 26 ++++++++++++++++++++++++++
+>> >  arch/riscv/include/uapi/asm/hwcap.h |  1 +
+>> >  arch/riscv/kernel/cpufeature.c      | 12 ++++++++++++
+>> >  4 files changed, 43 insertions(+)
+>> >  create mode 100644 arch/riscv/include/asm/vector.h
+>> >
+>> > diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+>> > index 57439da71c77..f413db6118e5 100644
+>> > --- a/arch/riscv/include/asm/hwcap.h
+>> > +++ b/arch/riscv/include/asm/hwcap.h
+>> > @@ -35,6 +35,7 @@ extern unsigned long elf_hwcap;
+>> >  #define RISCV_ISA_EXT_m              ('m' - 'a')
+>> >  #define RISCV_ISA_EXT_s              ('s' - 'a')
+>> >  #define RISCV_ISA_EXT_u              ('u' - 'a')
+>> > +#define RISCV_ISA_EXT_v              ('v' - 'a')
+>> >
+>> >  /*
+>> >   * Increse this to higher value as kernel support more ISA extensions.
+>> > @@ -73,6 +74,7 @@ static_assert(RISCV_ISA_EXT_ID_MAX <= RISCV_ISA_EXT_MAX);
+>> >  enum riscv_isa_ext_key {
+>> >       RISCV_ISA_EXT_KEY_FPU,          /* For 'F' and 'D' */
+>> >       RISCV_ISA_EXT_KEY_SVINVAL,
+>> > +     RISCV_ISA_EXT_KEY_VECTOR,       /* For 'V' */
+>>
+>> That's obvious surely, no?
+>>
+>> >       RISCV_ISA_EXT_KEY_ZIHINTPAUSE,
+>> >       RISCV_ISA_EXT_KEY_MAX,
+>> >  };
+>> > @@ -95,6 +97,8 @@ static __always_inline int riscv_isa_ext2key(int num)
+>>
+>> You should probably check out Jisheng's series that deletes whole
+>> sections of this code, including this whole function.
+>> https://lore.kernel.org/all/20230115154953.831-3-jszhang@kernel.org/T/#u
+>Has that patch merged? It could be solved during the rebase for-next naturally.
+
+Not merged yet. Pretty sure Andy used for-next
+as his base so that CI could test it more easily
+I was just pointing out it's existence in case he
+hadn't seen it.
+Hopefully Jishengs stuff will make 6.3 :)
+
 >
-
-Hi Alex,
-
-So on second thought, and after a bunch of grepping, I don't think we need
-to try and give architectures a way to declare that they have incomplete
-early linear maps. It would actually be difficult to determine when and
-why it should be selected, and, afaict, this is currently the one and
-only place it would be helpful. So, rather than pulling this comment about
-early __va() all the way up to the Kconfig level, I think pulling it into
-arch-specific code should be sufficient, and actually better.
-
-The situation we have here is that OF code is providing a convenience
-by doing early setup of initrd_start and initrd_end, which is nice for the
-large majority of architectures, but, as we see, it can't be used by all.
-My new suggestion is that we expose this initrd setup function as a weak
-function which architectures may override if needed. If those
-architectures want to prepare a mapping in their function, they can, or,
-if they know it's safe to defer the setup until later, then they can just
-provide a stub. I've drafted a patch where arm64 just provides a stub.
-I'll post it soon.
-
-Thanks,
-drew
+>>
+>>
+>> > @@ -256,6 +257,17 @@ void __init riscv_fill_hwcap(void)
+>> >               elf_hwcap &= ~COMPAT_HWCAP_ISA_F;
+>> >       }
+>> >
+>> > +     if (elf_hwcap & COMPAT_HWCAP_ISA_V) {
+>> > +#ifndef CONFIG_RISCV_ISA_V
+>> > +             /*
+>> > +              * ISA string in device tree might have 'v' flag, but
+>> > +              * CONFIG_RISCV_ISA_V is disabled in kernel.
+>> > +              * Clear V flag in elf_hwcap if CONFIG_RISCV_ISA_V is disabled.
+>> > +              */
+>> > +             elf_hwcap &= ~COMPAT_HWCAP_ISA_V;
+>> > +#endif
+>       if (elf_hwcap & COMPAT_HWCAP_ISA_V && !IS_ENABLED(CONFIG_RISCV_ISA_V)) {
+>
+>right?
+>>
+>> I know that a later patch in this series calls rvv_enable() here, which
+>> I'll comment on there, but I'd rather see IS_ENABLED as opposed to
+>> ifdefs in C files where possible.
+>>
+>> Thanks,
+>> Conor.
+>>
+>
+>
 
 _______________________________________________
 linux-riscv mailing list
