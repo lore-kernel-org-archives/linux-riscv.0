@@ -4,58 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B8FCC38142
-	for <linux-riscv@archiver.kernel.org>; Sat, 28 Jan 2023 09:53:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA122C38142
+	for <linux-riscv@archiver.kernel.org>; Sat, 28 Jan 2023 10:00:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GwsbU5MORIKULguWi/pFQOBUfPWxq1ZHOk0yignZCqM=; b=iWkxKQAPBHSkjB
-	PPULQXPqoc13SYHibPWHkK0bqVn7LttD+rIf76HBURkmVYXlNmRoWaY+0prBJ9xcZT92WdIZ8Dsnf
-	Kr+Ue8nBhWl7wwu6mquzBHIEBnosKmiKv9WAPiSC0P7tymWEPvZ8dyIiKfLrvvw9KLN9vw2Ftsr6G
-	TzkW0TEfpP4uGUFczZfCZPSSDcLWXUlvCIRn0KG/TtFa5aqsa7XNCAZNwcxPXGBanTDIcOdZQsyjL
-	TQQ1r8XjJGQHQ7MiVt8TjY/LqxILhwXrUah7HkaraI3g0/zktTwfwhQYmYcPlVfloNgYGD9jqCljc
-	MokuKB+s3XZ7RXBRNAbw==;
+	List-Owner; bh=OWyXifhjaUgoFxcKyd6xb/CAlHYSVmu7TW4bPByxpuc=; b=sDQhegkkoLLBEJ
+	yiLRQn6X0o2pVgEkl23YJNd32inr2sD3xXDHsYdXfRU68oKMJycu0OimAkT4EAJVksPPzbQhXPFg+
+	WDf24kRBDwwxRDnkAnrRSSrvqdk/ysjsPj9wDcui4SjuAPljCbKKCWhVLiIr0d1GEYrULSv2gD8B6
+	oyn3hCq6cKAcu4eRuPu5bjrdyHb6e3HWdihRl2SD8cu4SwM6UI0kGj449rguOxWTWftFDCsxoyYuI
+	S0sCG3CiqcWQvCn25T3Z7ptW/0E4b1DPkD+Ekk4nKQY48XQynk2lvm1UvIEwSMkv3TJc8jq9NuzBw
+	ABhUS1ZoHFyXHwfzVvQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pLhtn-00HZ6a-Dp; Sat, 28 Jan 2023 09:53:27 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1pLi0p-00HZY5-5o; Sat, 28 Jan 2023 10:00:43 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pLhti-00HZ4t-JY
-	for linux-riscv@lists.infradead.org; Sat, 28 Jan 2023 09:53:25 +0000
-Received: from kwepemi500012.china.huawei.com (unknown [172.30.72.54])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4P3qWY4S4kzfYy0;
-	Sat, 28 Jan 2023 17:53:13 +0800 (CST)
-Received: from [10.67.110.108] (10.67.110.108) by
- kwepemi500012.china.huawei.com (7.221.188.12) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.34; Sat, 28 Jan 2023 17:53:18 +0800
-Message-ID: <caee0046-cdea-55aa-8af9-682d04a9fc02@huawei.com>
-Date: Sat, 28 Jan 2023 17:53:18 +0800
+	id 1pLi0l-00HZXL-O6
+	for linux-riscv@lists.infradead.org; Sat, 28 Jan 2023 10:00:41 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id D947160B59
+	for <linux-riscv@lists.infradead.org>; Sat, 28 Jan 2023 10:00:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CC5CC4339E
+	for <linux-riscv@lists.infradead.org>; Sat, 28 Jan 2023 10:00:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1674900034;
+	bh=MCHMiUJZGjZQomOHibMkoKZhaLjTTdOYkCQLvfHRWcU=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=JuVTlL6HnHCPw6yEfA6DqFChb/bNXPAEg7APpowUn371sxq0Xdb83wCX/fQrAlzl+
+	 8MIcmouaK0zicpkTpQ1SuQdRz2121ctGuYI7k78zD2ybZybMg5eHzY9FvyXz/AgX32
+	 P2X18+h29YsWER3Gcbr1UtwRsh12rHuYc2VScjRfhSBU098KpFnJAHZXw0/+K4E5WU
+	 /1ToJ0WbmTXBWJ9ZHqH5aXe4PVz6RMTHVAg1CC2FDpgFK9mZyGwj1n45MDbU9ri+HD
+	 nW6cRKNvIS6V9NaHdN3fhlePnasxZm5wBD4AJldp3ZGx0C9nxNfsRz+AjHfaKVFuhG
+	 s6HCEJMqkEPCg==
+Received: by mail-ed1-f53.google.com with SMTP id y19so6768644edc.2
+        for <linux-riscv@lists.infradead.org>; Sat, 28 Jan 2023 02:00:34 -0800 (PST)
+X-Gm-Message-State: AO0yUKWwgtLCRHPyoiUmACcBBf+E8HHVsFY+ReK4SLCqk85QL6JZWgyU
+	RWEn4EmWSjCa5ZWvwAQKGzse3kmw4ZCalB1XNso=
+X-Google-Smtp-Source: AK7set9itL46BY9OiwWOiG8hsLKcaJ7nYxnxrYBTMXWusBMhKt7EQA1YNKKUKNZRT828u70hkB2uyrbK8k5U0XzarX8=
+X-Received: by 2002:a50:c30a:0:b0:4a0:e01c:49aa with SMTP id
+ a10-20020a50c30a000000b004a0e01c49aamr2744034edb.66.1674900032474; Sat, 28
+ Jan 2023 02:00:32 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.4.2
-Subject: Re: [PATCH] riscv: kprobe: Fixup kernel panic when probing an illegal
- position
-To: Guo Ren <guoren@kernel.org>
-CC: <palmer@dabbelt.com>, <paul.walmsley@sifive.com>, <mhiramat@kernel.org>,
-	<conor.dooley@microchip.com>, <penberg@kernel.org>, <mark.rutland@arm.com>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, Guo Ren
-	<guoren@linux.alibaba.com>
-References: <20230126130509.1418251-1-guoren@kernel.org>
- <0871074a-cafb-a172-f062-6ada6d2a3a41@huawei.com>
- <CAJF2gTTJgKt+UXeKA=AccDjZWGFvxBttOTkfoS=0SFNOwowHBg@mail.gmail.com>
-From: "liaochang (A)" <liaochang1@huawei.com>
-In-Reply-To: <CAJF2gTTJgKt+UXeKA=AccDjZWGFvxBttOTkfoS=0SFNOwowHBg@mail.gmail.com>
-X-Originating-IP: [10.67.110.108]
-X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
- kwepemi500012.china.huawei.com (7.221.188.12)
-X-CFilter-Loop: Reflected
+References: <20230107133549.4192639-1-guoren@kernel.org> <20230107133549.4192639-2-guoren@kernel.org>
+ <Y7xMvAJXjHaus0Bm@FVFF77S0Q05N> <CAJF2gTRzS0hBdqBUNbijvKKx3Kf_mY55XSkUyPJsfOK8p15_Mw@mail.gmail.com>
+ <Y7/3hoFjS49yy52W@FVFF77S0Q05N>
+In-Reply-To: <Y7/3hoFjS49yy52W@FVFF77S0Q05N>
+From: Guo Ren <guoren@kernel.org>
+Date: Sat, 28 Jan 2023 18:00:20 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQXRt-mmuA=kKKdQojgLG-eQm6PqTuwf0ccw4cdYdbYfQ@mail.gmail.com>
+Message-ID: <CAJF2gTQXRt-mmuA=kKKdQojgLG-eQm6PqTuwf0ccw4cdYdbYfQ@mail.gmail.com>
+Subject: Re: [PATCH -next V6 1/7] riscv: ftrace: Fixup panic by disabling preemption
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: anup@brainfault.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
+	conor.dooley@microchip.com, heiko@sntech.de, rostedt@goodmis.org, 
+	mhiramat@kernel.org, jolsa@redhat.com, bp@suse.de, jpoimboe@kernel.org, 
+	suagrfillet@gmail.com, andy.chiu@sifive.com, e.shatokhin@yadro.com, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230128_015323_434574_F37C87C7 
-X-CRM114-Status: GOOD (  18.99  )
+X-CRM114-CacheID: sfid-20230128_020039_904998_A8948F3E 
+X-CRM114-Status: GOOD (  43.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,99 +80,118 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgrlnKggMjAyMy8xLzI4IDEzOjIyLCBHdW8gUmVuIOWGmemBkzoKPiBPbiBTYXQsIEphbiAyOCwg
-MjAyMyBhdCAxMDo1NSBBTSBsaWFvY2hhbmcgKEEpIDxsaWFvY2hhbmcxQGh1YXdlaS5jb20+IHdy
-b3RlOgo+Pgo+Pgo+Pgo+PiDlnKggMjAyMy8xLzI2IDIxOjA1LCBndW9yZW5Aa2VybmVsLm9yZyDl
-hpnpgZM6Cj4+PiBGcm9tOiBHdW8gUmVuIDxndW9yZW5AbGludXguYWxpYmFiYS5jb20+Cj4+Pgo+
-Pj4gVGhlIGtlcm5lbCB3b3VsZCBwYW5pYyB3aGVuIHByb2JlZCBmb3IgYW4gaWxsZWdhbCBwb3Np
-dGlvbi4gZWc6Cj4+Pgo+Pj4gKENPTkZJR19SSVNDVl9JU0FfQz1uKQo+Pj4KPj4+IGVjaG8gJ3A6
-aGVsbG8ga2VybmVsX2Nsb25lKzB4MTYgYTA9JWEwJyA+PiBrcHJvYmVfZXZlbnRzCj4+PiBlY2hv
-IDEgPiBldmVudHMva3Byb2Jlcy9oZWxsby9lbmFibGUKPj4+IGNhdCB0cmFjZQo+Pj4KPj4+IEtl
-cm5lbCBwYW5pYyAtIG5vdCBzeW5jaW5nOiBzdGFjay1wcm90ZWN0b3I6IEtlcm5lbCBzdGFjawo+
-Pj4gaXMgY29ycnVwdGVkIGluOiBfX2RvX3N5c19uZXdmc3RhdGF0KzB4YjgvMHhiOAo+Pj4gQ1BV
-OiAwIFBJRDogMTExIENvbW06IHNoIE5vdCB0YWludGVkCj4+PiA2LjIuMC1yYzEtMDAwMjctZzJk
-Mzk4ZmU0OWE0ZCAjNDkwCj4+PiBIYXJkd2FyZSBuYW1lOiByaXNjdi12aXJ0aW8scWVtdSAoRFQp
-Cj4+PiBDYWxsIFRyYWNlOgo+Pj4gWzxmZmZmZmZmZjgwMDA3MjY4Pl0gZHVtcF9iYWNrdHJhY2Ur
-MHgzOC8weDQ4Cj4+PiBbPGZmZmZmZmZmODBjNWU4M2M+XSBzaG93X3N0YWNrKzB4NTAvMHg2OAo+
-Pj4gWzxmZmZmZmZmZjgwYzZkYTI4Pl0gZHVtcF9zdGFja19sdmwrMHg2MC8weDg0Cj4+PiBbPGZm
-ZmZmZmZmODBjNmRhNmM+XSBkdW1wX3N0YWNrKzB4MjAvMHgzMAo+Pj4gWzxmZmZmZmZmZjgwYzVl
-Y2Y0Pl0gcGFuaWMrMHgxNjAvMHgzNzQKPj4+IFs8ZmZmZmZmZmY4MGM2ZGI5ND5dIGdlbmVyaWNf
-aGFuZGxlX2FyY2hfaXJxKzB4MC8weGE4Cj4+PiBbPGZmZmZmZmZmODAyZGVlYjA+XSBzeXNfbmV3
-c3RhdCsweDAvMHgzMAo+Pj4gWzxmZmZmZmZmZjgwMDE1OGMwPl0gc3lzX2Nsb25lKzB4MjAvMHgz
-MAo+Pj4gWzxmZmZmZmZmZjgwMDAzOWU4Pl0gcmV0X2Zyb21fc3lzY2FsbCsweDAvMHg0Cj4+PiAt
-LS1bIGVuZCBLZXJuZWwgcGFuaWMgLSBub3Qgc3luY2luZzogc3RhY2stcHJvdGVjdG9yOgo+Pj4g
-S2VybmVsIHN0YWNrIGlzIGNvcnJ1cHRlZCBpbjogX19kb19zeXNfbmV3ZnN0YXRhdCsweGI4LzB4
-YjggXS0tLQo+Pj4KPj4+IFRoYXQgaXMgYmVjYXVzZSB0aGUga3Byb2JlJ3MgZWJyZWFrIGluc3Ry
-dWN0aW9uIGJyb2tlIHRoZSBrZXJuZWwncwo+Pj4gb3JpZ2luYWwgY29kZS4gVGhlIHVzZXIgc2hv
-dWxkIGd1YXJhbnRlZSB0aGUgY29ycmVjdGlvbiBvZiB0aGUgcHJvYmUKPj4+IHBvc2l0aW9uLCBi
-dXQgaXQgY291bGRuJ3QgbWFrZSB0aGUga2VybmVsIHBhbmljLgo+Pj4KPj4+IFRoaXMgcGF0Y2gg
-YWRkcyBhcmNoX2NoZWNrX2twcm9iZSBpbiBhcmNoX3ByZXBhcmVfa3Byb2JlIHRvIHByZXZlbnQg
-YW4KPj4+IGlsbGVnYWwgcG9zaXRpb24gKFN1Y2ggYXMgdGhlIG1pZGRsZSBvZiBhbiBpbnN0cnVj
-dGlvbikuCj4+Pgo+Pj4gRml4ZXM6IGMyMmIwYmNiMWRkMCAoInJpc2N2OiBBZGQga3Byb2JlcyBz
-dXBwb3J0ZWQiKQo+Pj4gU2lnbmVkLW9mZi1ieTogR3VvIFJlbiA8Z3VvcmVuQGxpbnV4LmFsaWJh
-YmEuY29tPgo+Pj4gU2lnbmVkLW9mZi1ieTogR3VvIFJlbiA8Z3VvcmVuQGtlcm5lbC5vcmc+Cj4+
-PiAtLS0KPj4+ICBhcmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMva3Byb2Jlcy5jIHwgMTggKysrKysr
-KysrKysrKysrKysrCj4+PiAgMSBmaWxlIGNoYW5nZWQsIDE4IGluc2VydGlvbnMoKykKPj4+Cj4+
-PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL2twcm9iZXMuYyBiL2FyY2gv
-cmlzY3Yva2VybmVsL3Byb2Jlcy9rcHJvYmVzLmMKPj4+IGluZGV4IGYyMTU5MmQyMDMwNi4uNDc1
-OTg5ZjA2ZDZkIDEwMDY0NAo+Pj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL2twcm9i
-ZXMuYwo+Pj4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL2twcm9iZXMuYwo+Pj4gQEAg
-LTQ4LDYgKzQ4LDIxIEBAIHN0YXRpYyB2b2lkIF9fa3Byb2JlcyBhcmNoX3NpbXVsYXRlX2luc24o
-c3RydWN0IGtwcm9iZSAqcCwgc3RydWN0IHB0X3JlZ3MgKnJlZ3MpCj4+PiAgICAgICBwb3N0X2tw
-cm9iZV9oYW5kbGVyKHAsIGtjYiwgcmVncyk7Cj4+PiAgfQo+Pj4KPj4+ICtzdGF0aWMgYm9vbCBf
-X2twcm9iZXMgYXJjaF9jaGVja19rcHJvYmUoc3RydWN0IGtwcm9iZSAqcCkKPj4+ICt7Cj4+PiAr
-ICAgICB1bnNpZ25lZCBsb25nIHRtcCAgPSAodW5zaWduZWQgbG9uZylwLT5hZGRyIC0gcC0+b2Zm
-c2V0Owo+Pj4gKyAgICAgdW5zaWduZWQgbG9uZyBhZGRyID0gKHVuc2lnbmVkIGxvbmcpcC0+YWRk
-cjsKPj4+ICsKPj4+ICsgICAgIHdoaWxlICh0bXAgPD0gYWRkcikgewo+Pj4gKyAgICAgICAgICAg
-ICBpZiAodG1wID09IGFkZHIpCj4+PiArICAgICAgICAgICAgICAgICAgICAgcmV0dXJuIHRydWU7
-Cj4+PiArCj4+PiArICAgICAgICAgICAgIHRtcCArPSBHRVRfSU5TTl9MRU5HVEgoKihrcHJvYmVf
-b3Bjb2RlX3QgKil0bXApOwo+Pj4gKyAgICAgfQo+Pj4gKwo+Pj4gKyAgICAgcmV0dXJuIGZhbHNl
-Owo+Pj4gK30KPj4KPj4gTEdUTS4KPj4KPj4gSSBoYXZlIHN1Ym1pdCBhIHBhdGNoIHRvIGZpeCB0
-aGUgc2FtZSBwcm9ibGVtLCBmb3VuZCBhdDoKPj4KPj4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcv
-bGttbC8yMDIzMDEyNzEzMDU0MS4xMjUwODY1LTExLWNoZW5ndW9rYWkxN0BtYWlscy51Y2FzLmFj
-LmNuLwo+IEkgaGF2ZSBhIHF1ZXN0aW9uIG9uIHlvdXIgT1BUS1BST0JFIHBhdGNoOgo+IGh0dHBz
-Oi8vbG9yZS5rZXJuZWwub3JnL2xrbWwvMjAyMzAxMjcxMzA1NDEuMTI1MDg2NS0xMC1jaGVuZ3Vv
-a2FpMTdAbWFpbHMudWNhcy5hYy5jbi8KPiAKPiBAQCAtNDkwLDcgKzU3MywxNCBAQCBpbnQgYXJj
-aF9wcmVwYXJlX29wdGltaXplZF9rcHJvYmUoc3RydWN0Cj4gb3B0aW1pemVkX2twcm9iZSAqb3As
-Cj4gICAqIHRvIGRldG91ciBidWZmZXIsIHJhIGlzIHVzZWQgdG8gZm9ybSBKUiBqdW1waW5nIGJh
-Y2sgZnJvbSBkZXRvdXIKPiAgICogYnVmZmVyLgo+ICAgKi8KPiAtIGZpbmRfZnJlZV9yZWdpc3Rl
-cnMob3JpZywgb3AsICZyZCwgJnJhKTsKPiArIGlmICh1c2VkX3JlZyA9PSBBTExfUkVHX09DQ1VQ
-SUVEKSB7Cj4gKyBmaW5kX2ZyZWVfcmVnaXN0ZXJzKG9yaWcsIG9wLCAmcmQsICZyYSk7Cj4gKyB9
-IGVsc2Ugewo+ICsgLyogQ2hvb3NlIG9uZSB1bnVzZWQgY2FsbGVyLXNhdmVkIHJlZ2lzdGVyLiAq
-Lwo+ICsgcmQgPSBmZnoodXNlZF9yZWcpOwo+ICsgcmEgPSByZDsKPiArIH0KPiArCj4gICBpZiAo
-cmQgPT0gMCB8fCByYSA9PSAwKSB7Cj4gICBeXl5eXl5eXl5eXl5eXl5eXl4KPiBBZnRlciBubyBv
-cHRfdXNlZF9kc3RfcmVnICYgbm8gZnJlZSBjYWxsZXItc2F2ZWQgcmVnaXN0ZXIgKE9mIGNhdXNl
-LAo+IGl0J3MgdmVyeSByYXJlIGZvciBubyBhdmFpbGFibGUgdG1wIHJlZ3MpOgoKVGhhbmtzIGZv
-ciByZXZpZXdpbmcuCgpJZiB0aGlzIGNhc2Ugb2NjdXJzLCBpdCBtZWFucyBhbGwgMzIgaW50ZWdl
-ciByZWdpc3RlcnMgYXJlIHVzZWQgYXMgdGhlIHNvdXJjZSBpbiBvcGNvZGUsCkkgaGF2ZSBubyBk
-ZWVwIGtub3dsZWRnZSBhYm91dCB0aGUgY29kZSBnZW5lcmF0aW9uIGFuZCByZWdpc3RlciBhbGxv
-Y2F0aW9uIG9mIHJpc2N2IGNvbXBpbGVyLApidXQgZ3Vlc3MgaXQgaXMgbm90IHBvc3NpYmxlIHRv
-IGdlbmVyYXRlIHN1Y2ggc3R5bGUgb2YgaW5zdHJ1Y3Rpb25zIHNlcXVlbmNlIGZvciBvbmUgcmVh
-bGx5Cm1lYW5pbmdmdWwga2VybmVsIGZ1bmN0aW9uLgoKPiAKPiBXaHkgbm90IHRyeToKPiAKPiAg
-ICAgIDA6IFJFR19TICByYSwgLVNaUkVHKHNwKQo+ICAgICAgNDogYXVpcGMgIHJhLCA/Cj4gICAg
-ICA4OiBqYWxyICAgPyhyYSkKPiAgICAgMTI6IFJFR19MICByYSwgLVNaUkVHKHNwKQo+IAo+IEJl
-c2lkZXMgdGFraW5nIHVwIG1vcmUgaW5zdHJ1Y3Rpb24gc2xvdHMsIGRvZXMgaXQgaGF2ZSBvdGhl
-ciBwcm9ibGVtcz8KCkkgdGhpbmsgaXQgb2theSBpbiBzb21lIHRlcm0sIHR3byBwb2ludHMgbmVl
-ZCB0byBwYXkgYXR0ZW50aW9uOgoxLiBJdCBuZWVkcyB0byB1cGRhdGUgdGhlICdyYScgZW50cnkg
-aW4gc3RhY2sgaWYgcmEgaXMgbW9kaWZpZWQgaW4gZGV0b3VyIGJ1ZmZlci4KMi4gSWYgc3AgaXMg
-bW9kaWZpZWQgaW4gZGV0b3VyIGJ1ZmZlciwgIzEyIG1pZ2h0IHJldHVybiBhIGlsbGVnYWwgdmFs
-dWUsIGl0IGlzIGEgY29tbW9uCiAgIGNhc2Ugd2hlbiBzZXQga3Byb2JlIGF0IGZ1bmN0aW9uIHBy
-b2xvZ3VlIGFuZCBlcGlsb2d1ZS4KCj4gCj4+Cj4+IFNvIHRoaXMgYm91bmRhcnkgY2hlY2sgaXMg
-bmVjZXNzYXJ5IG5vIG1hdHRlciBDT05GSUdfUklTQ1ZfSVNBX0MgaXMgZW5hYmxlIG9yIG5vdCwg
-cmlnaHQ/Cj4+Cj4+Cj4+PiArCj4+PiAgaW50IF9fa3Byb2JlcyBhcmNoX3ByZXBhcmVfa3Byb2Jl
-KHN0cnVjdCBrcHJvYmUgKnApCj4+PiAgewo+Pj4gICAgICAgdW5zaWduZWQgbG9uZyBwcm9iZV9h
-ZGRyID0gKHVuc2lnbmVkIGxvbmcpcC0+YWRkcjsKPj4+IEBAIC01NSw2ICs3MCw5IEBAIGludCBf
-X2twcm9iZXMgYXJjaF9wcmVwYXJlX2twcm9iZShzdHJ1Y3Qga3Byb2JlICpwKQo+Pj4gICAgICAg
-aWYgKHByb2JlX2FkZHIgJiAweDEpCj4+PiAgICAgICAgICAgICAgIHJldHVybiAtRUlMU0VROwo+
-Pj4KPj4+ICsgICAgIGlmICghYXJjaF9jaGVja19rcHJvYmUocCkpCj4+PiArICAgICAgICAgICAg
-IHJldHVybiAtRUlMU0VROwo+Pj4gKwo+Pj4gICAgICAgLyogY29weSBpbnN0cnVjdGlvbiAqLwo+
-Pj4gICAgICAgcC0+b3Bjb2RlID0gKnAtPmFkZHI7Cj4+Pgo+Pgo+PiAtLQo+PiBCUiwKPj4gTGlh
-bywgQ2hhbmcKPiAKPiAKPiAKCi0tIApCUiwKTGlhbywgQ2hhbmcKCl9fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAps
-aW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
-L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Thu, Jan 12, 2023 at 8:05 PM Mark Rutland <mark.rutland@arm.com> wrote:
+>
+> On Wed, Jan 11, 2023 at 09:22:09PM +0800, Guo Ren wrote:
+> > On Tue, Jan 10, 2023 at 1:20 AM Mark Rutland <mark.rutland@arm.com> wrote:
+> > >
+> > > On Sat, Jan 07, 2023 at 08:35:43AM -0500, guoren@kernel.org wrote:
+> > > > From: Andy Chiu <andy.chiu@sifive.com>
+> > > >
+> > > > In RISCV, we must use an AUIPC + JALR pair to encode an immediate,
+> > > > forming a jump that jumps to an address over 4K. This may cause errors
+> > > > if we want to enable kernel preemption and remove dependency from
+> > > > patching code with stop_machine(). For example, if a task was switched
+> > > > out on auipc. And, if we changed the ftrace function before it was
+> > > > switched back, then it would jump to an address that has updated 11:0
+> > > > bits mixing with previous XLEN:12 part.
+> > > >
+> > > > p: patched area performed by dynamic ftrace
+> > > > ftrace_prologue:
+> > > > p|      REG_S   ra, -SZREG(sp)
+> > > > p|      auipc   ra, 0x? ------------> preempted
+> > > >                                       ...
+> > > >                               change ftrace function
+> > > >                                       ...
+> > > > p|      jalr    -?(ra) <------------- switched back
+> > > > p|      REG_L   ra, -SZREG(sp)
+> > > > func:
+> > > >       xxx
+> > > >       ret
+> > >
+> > > What happens on SMP but not !PREEMPTION; can't a CPU be in the middle of this
+> > > while you're patching the sequence?
+> > Yes, when PREEMPTION, a timer interrupt between auipc & jalr may cause
+> > context_switch. And riscv uses stop_machine for patch_text. Then, we
+> > may modify auipc part, but only execute the jalr part when return.
+>
+> Please re-read my question; "!PREEMPTION" means "NOT PREEMPTION".
+>
+> Ignore preeemption entirely and assume two CPUs X and Y are running code
+> concurrently. Assume CPU X is in the ftrace prologue, and CPU Y is patching
+> that prologue while CPU X is executing it.
+>
+> Is that prevented somehow? If not, what happens in that case?
+>
+> At the very least you can have exactly the same case as on a preemptible kernel
+> (and in a VM, the hypervisor can preempt the guest ata arbitrary times),
+> becuase CPU X could end up executing a mixture of the old and new instructions.
+>
+> More generally, if you don't have strong rules about concurrent modification
+> and execution of instructions, it may not be safe to modify and instruction as
+> it is being executed (e.g. if the CPU's instruction fetches aren't atomic).
+>
+> > > Do you have any guarantee as to the atomicity and ordering of instruction
+> > > fetches?
+> > Not yet. If the region is short, we could use nop + jalr pair instead.
+>
+> Ok, so as above I do not understand how this is safe. Maybe I am missing
+> something, but if you don't have a guarantee as to ordering I don't see how you
+> can safely patch this even if you have atomicity of each instruction update.
+>
+> Note that if you don't have atomicity of instruction fetches you *cannot*
+> safely concurrently modify and execute instructions.
+>
+> > Only one jalr instruction makes the entry atomicity.
+>
+> I'll have to take your word for that.
+>
+> As above, I don't think this sequence is safe regardless.
+>
+> > There are already several proposed solutions:
+> > 1. Make stop_machine guarantee all CPU out of preemption point.
+> > 2. Expand -fpatchable-function-entry from 4 to 24, and make detour
+> > codes atomicity.
+> > 3. We want to propose a solution to make auipc by hardware mask_irq.
+> > For more details, see:
+> > https://www.youtube.com/watch?v=4JkkkXuEvCw
+>
+> Ignoring things which require HW changes, you could consider doing something
+> like what I'm doing for arm64 with DYNAMIC_FTRACE_WITH_CALL_OPS:
+>
+>   https://lore.kernel.org/lkml/20230109135828.879136-1-mark.rutland@arm.com/
+The idea of DYNAMIC_FTRACE_WITH_CALL_OPS (Using data load/store +
+indirect jump instead of auipc+jalr) is similar to Andy's solution
+(See youtube link, last page of ppt). But the key problem is you also
+expand the size of the prologue of the function. 64BIT is already
+expensive, and we can't afford more of it. I would change to seek a
+new atomic auipc+jalr ISA extension to solve this problem.
+
+DYNAMIC_FTRACE_WITH_CALL_OPS  would speed up ftrace_(regs)_caller
+(Mostly for kernel debug), but it won't help
+DYNAMIC_FTRACE_WITH_DIRECT_CALLS. So I do not so care about the
+ftrace_(regs)_caller performance gain.
+
+>
+> ... which would replace the address generation with a load, which can be
+> atomic, and would give you a number of other benefits (e.g. avoiding branch
+> range limitations, performance benefits as in the cover letter).
+>
+> Thanks,
+> Mark.
+
+
+
+-- 
+Best Regards
+ Guo Ren
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
