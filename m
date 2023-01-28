@@ -4,86 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30ED7C61DB3
-	for <linux-riscv@archiver.kernel.org>; Sat, 28 Jan 2023 08:29:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1E33C38142
+	for <linux-riscv@archiver.kernel.org>; Sat, 28 Jan 2023 09:02:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/TYLSvWJ406MMBamJaGWZGo3pjSSYGuSx9UcqV2ER6w=; b=T/qYby/zeXnZ9Q
-	vXscCbnNDBTke9vi4k4fhtye/+QBcL1lAtdBvvM9pCFGg34tkuEdQSHNbhU3hYX983/0y2/jCr/m5
-	ojm3m2GJByLeUNb8EZ24AI+N02lMDF8RDX9M21OnoPO3TQ4O8t+eR2bNePPtem8qjPGrWYREOvPhe
-	VRkhHGoPFyGfcrNV3ywHVtXQLakTUya9LoeachSZPiomlqGwmA3oPNBMIZk/jZHLD9KyBNeD5lZR6
-	WJ+upnbE11QpZ3623r9hDxkA1LS2Nt39xsHay66vWp5D+GzkxUmD318ORA04innVXdd3UqrSyFvbZ
-	AQqZ7ktYLRFXPiB+MAQQ==;
+	List-Owner; bh=xphRgMBqZ1daJnGdJxdMRN3GKCVw6QjUg58f3V79FgY=; b=zxIEurGyaihRCX
+	3nTSJ/y63OldATg57gJ3RQSwGEhGWqdMokbY4m8+I2yjv7KdXoyG513gBHismUr+O5vf8u9F7Sog1
+	sFIsCOoWs8g0qFPzRnVsin31mtlQgnkqCVELQAfYBFdXaVdj9m19JtSkdI8Sr3zPoZTMqHElIJuzB
+	QMc6UyQk66ZSF2FyTn5a3kmKJC8cupIIaklzSag/BGY9oaR/CRhwcW0eaYpr4BHyxO8YO09pf1G85
+	JymkCzZBheqdH4a5gd6OaCg4OZ0fXnnJHL6k0W5Jv3eqBulXY1tvmoOqjIFNda/M9qSIrhqTjBPWw
+	HA434LplXiPcQkDAggsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pLgaB-00HTLC-8g; Sat, 28 Jan 2023 08:29:07 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1pLh6M-00HVbe-KF; Sat, 28 Jan 2023 09:02:22 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pLga8-00HTJI-68
-	for linux-riscv@lists.infradead.org; Sat, 28 Jan 2023 08:29:05 +0000
-Received: by mail-pl1-x635.google.com with SMTP id r8so280238pls.2
-        for <linux-riscv@lists.infradead.org>; Sat, 28 Jan 2023 00:29:03 -0800 (PST)
+	id 1pLh6J-00HVaR-UX; Sat, 28 Jan 2023 09:02:21 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id j36-20020a05600c1c2400b003dc39cb9c33so2673682wms.1;
+        Sat, 28 Jan 2023 01:02:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=FljnRzw2zIs2SaTw4PAfD3E9tIV3gHkmBf8hApNO6fw=;
-        b=OQizLRENPAg09ciAbZoN5itK16Pz2bFe45sopfZppnH0Ud5XsJVtEotBWwPAg2/UWT
-         P/udJB7pRNtPQqdy3cdj0M+2GNCv5rS5XLbQrM11WQ2U1/Hb2+U99G2rsJHywjGkF8hp
-         lNNYYta2mdtUotMek4oyyiqqICB9JexQFicaRCgMT4X1r1cLj5EiEnIh/b65TLt76ui4
-         f3n9nqSwQ0kz0qHhn542mTas5YO2S+dA6/LraWs+hCe/8PQANnV7VWEtktCRUVU9EJTI
-         v4xZ/s0AevZHVyQ8Y4CcEBtoMRTEWOtEDLTPfTddIzBCl9CbwsMO74mP/0c2bEb2L32j
-         1OPA==
+        d=gmail.com; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=v7ARCz3cVaBFOjYkC77qL/HBEniL1qdQHS5E6K6GFOY=;
+        b=aqbRojTHRCVjzGUAj7OwNNFidQtZRaRDHHmAjBWeAFhAl4EP6lU/HQ+DT3lz3ORLRs
+         krDbFNMyaAoPDNNbr2Us4LfdqxvtQoKw/VqPFwWdtmeZaX2Yr/xMNSAvUp0bHiLiSOj3
+         SN1iYBMZrJW6Tuoe05d5ixjoXDQyxOx+hHgkYRdk2YredIT5D868vyI7+JtGnCIwsINP
+         AC8gyFLqm6XouHJKilNfBj6iNxK7cGu1Nhc9VlLOm0nqQCpyycdmijDtgityKjfCFibc
+         kBECjMNCFbqcxj8dsEQrghcf75B90yP81hRDkvCSROQeKfuHc3hus0w8nNDlJyMcHou/
+         rQVg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=FljnRzw2zIs2SaTw4PAfD3E9tIV3gHkmBf8hApNO6fw=;
-        b=U7XavX3Yh73irwhquYqatVNS/xXJ2fNmwQsycWhDa/FvKyzfM803U4W/C6gabWDTBY
-         xBYUr+BSHA4y2X4Td5ETwiKC6F12wVGJMFr8Ft82jiZp2q7zqrzV2ysAQfVB7o4VEgWo
-         cviN3NFNq5k+6WQVFWhTfR4mA210CHTzNaDQLT50IB2qTGUBRnYG0IE1tkBLN8dpTOyH
-         Ez6ttxPFGLjv/A7UDIbJYMeaIUZESe82lWh+TuxJj5CcWz6ZRZkVggtoocC6s2mzsJUr
-         mqrGnXeeyLOAgMy6Q/R4D8TAgVGxaYkveXyhakDlDxWHX1p+Qf5uMsSYDfo93+Mk6j6H
-         AlTA==
-X-Gm-Message-State: AFqh2ko8qWmSACFzKy5hnJvskoiLDGLPF6AMLd8BrLcb73veUhxGi9/P
-	2+RnsLYFN5dvpVBYpMHk9pToFg==
-X-Google-Smtp-Source: AMrXdXvje0+V7Y5a71q6YW6SkRvl2pnS+6PeoYGrwzhIYPvr6ISBcOZNGtYQPAoOGCEHtg10GXi4Tw==
-X-Received: by 2002:a05:6a20:4c16:b0:b8:6371:9abf with SMTP id fm22-20020a056a204c1600b000b863719abfmr41015379pzb.27.1674894542483;
-        Sat, 28 Jan 2023 00:29:02 -0800 (PST)
-Received: from anup-ubuntu-vm.localdomain ([103.97.165.210])
-        by smtp.gmail.com with ESMTPSA id i67-20020a639d46000000b004cc95c9bd97sm3477807pgd.35.2023.01.28.00.28.57
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=v7ARCz3cVaBFOjYkC77qL/HBEniL1qdQHS5E6K6GFOY=;
+        b=5vLXA5fiR5T1C+SXXRuaruasSHaE1fGp3jFv6nlg7/GLD3Akj/b2b0A4UdGx6ouDpq
+         vwEYNMd3tt+andnDvBZvMn+BbMMxOdLFH9Qfpw7qTXrwMX1AVuKETQ0PrZitbqcyWAVD
+         f6zLULp/84EMPM96VaI181lV0hwlJXxOYJd56Jb4HUutX9kMG/u5ccJZi5db7ggKQoeK
+         ufeLBBFd3qK+nwLp4spSrPuDV7Ys1WCFeGISQhcfhid9a8SHTiSCalSMHR7gFF9vnvbF
+         z63gd1UuUamQ5W4hqaEDNjDcLC5j4eG8ub86J9yppOStmqcltnTutNFo1NmPO3JgSmBY
+         0egQ==
+X-Gm-Message-State: AFqh2krOX+yCdVBTuLDvoMePUY4Ok4qswwbwkj88ziLbal4E/xbfK7cC
+	cio9AMz4zmYiW1gG9MplDRE=
+X-Google-Smtp-Source: AMrXdXshtli+OqZ9VwFCdRpOAvHTMs/09zG9TMwa0gaZMZJ8uG1JiJOtVlF/BhmQxoXBbhlR7WJAkg==
+X-Received: by 2002:a05:600c:5116:b0:3db:1a8:c041 with SMTP id o22-20020a05600c511600b003db01a8c041mr42453030wms.17.1674896535134;
+        Sat, 28 Jan 2023 01:02:15 -0800 (PST)
+Received: from localhost (cpc1-brnt4-2-0-cust862.4-2.cable.virginm.net. [86.9.131.95])
+        by smtp.gmail.com with ESMTPSA id f28-20020a5d58fc000000b002be5401ef5fsm6212824wrd.39.2023.01.28.01.02.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 28 Jan 2023 00:29:01 -0800 (PST)
-From: Anup Patel <apatel@ventanamicro.com>
-To: Paolo Bonzini <pbonzini@redhat.com>,
-	Atish Patra <atishp@atishpatra.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Anup Patel <anup@brainfault.org>,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Andy Chiu <andy.chiu@sifive.com>,
-	Anup Patel <apatel@ventanamicro.com>
-Subject: [PATCH v3 2/2] RISC-V: KVM: Redirect illegal instruction traps to guest
-Date: Sat, 28 Jan 2023 13:58:47 +0530
-Message-Id: <20230128082847.3055316-2-apatel@ventanamicro.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20230128082847.3055316-1-apatel@ventanamicro.com>
-References: <20230128082847.3055316-1-apatel@ventanamicro.com>
+        Sat, 28 Jan 2023 01:02:14 -0800 (PST)
+Date: Sat, 28 Jan 2023 18:02:13 +0900
+From: Stafford Horne <shorne@gmail.com>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Arnd Bergmann <arnd@arndb.de>, Brian Cain <bcain@quicinc.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Greg Ungerer <gerg@linux-m68k.org>, Guo Ren <guoren@kernel.org>,
+	Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>,
+	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Michal Simek <monstr@monstr.eu>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Rich Felker <dalias@libc.org>,
+	Richard Weinberger <richard@nod.at>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Vineet Gupta <vgupta@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	linux-alpha@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux--csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+	linux-ia64@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+	linux-um@lists.infradead.org, linux-xtensa@linux-xtensa.org,
+	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
+	sparclinux@vger.kernel.org, x86@kernel.org
+Subject: Re: [PATCH 3/3] mm, arch: add generic implementation of pfn_valid()
+ for FLATMEM
+Message-ID: <Y9TklS4v8oHCvCu2@antec>
+References: <20230125190757.22555-1-rppt@kernel.org>
+ <20230125190757.22555-4-rppt@kernel.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230125190757.22555-4-rppt@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230128_002904_256980_2BD115E7 
-X-CRM114-Status: UNSURE (   9.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230128_010220_009610_4BDB5A16 
+X-CRM114-Status: GOOD (  15.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,43 +112,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Andy Chiu <andy.chiu@sifive.com>
+On Wed, Jan 25, 2023 at 09:07:57PM +0200, Mike Rapoport wrote:
+> From: "Mike Rapoport (IBM)" <rppt@kernel.org>
+> 
+> Every architecture that supports FLATMEM memory model defines its own
+> version of pfn_valid() that essentially compares a pfn to max_mapnr.
+> 
+> Use mips/powerpc version implemented as static inline as a generic
+> implementation of pfn_valid() and drop its per-architecture definitions
+> 
+> Signed-off-by: Mike Rapoport (IBM) <rppt@kernel.org>
+> ---
+>  arch/alpha/include/asm/page.h      |  4 ----
+>  arch/arc/include/asm/page.h        |  1 -
+>  arch/csky/include/asm/page.h       |  1 -
+>  arch/hexagon/include/asm/page.h    |  1 -
+>  arch/ia64/include/asm/page.h       |  4 ----
+>  arch/loongarch/include/asm/page.h  | 13 -------------
+>  arch/m68k/include/asm/page_no.h    |  2 --
+>  arch/microblaze/include/asm/page.h |  1 -
+>  arch/mips/include/asm/page.h       | 13 -------------
+>  arch/nios2/include/asm/page.h      |  9 ---------
+>  arch/openrisc/include/asm/page.h   |  2 --
+>  arch/parisc/include/asm/page.h     |  4 ----
+>  arch/powerpc/include/asm/page.h    |  9 ---------
+>  arch/riscv/include/asm/page.h      |  5 -----
+>  arch/sh/include/asm/page.h         |  3 ---
+>  arch/sparc/include/asm/page_32.h   |  1 -
+>  arch/um/include/asm/page.h         |  1 -
+>  arch/x86/include/asm/page_32.h     |  4 ----
+>  arch/x86/include/asm/page_64.h     |  4 ----
+>  arch/xtensa/include/asm/page.h     |  2 --
+>  include/asm-generic/memory_model.h | 12 ++++++++++++
+>  include/asm-generic/page.h         |  2 --
+>  22 files changed, 12 insertions(+), 86 deletions(-)
+> 
+[...] 
+> diff --git a/arch/openrisc/include/asm/page.h b/arch/openrisc/include/asm/page.h
+> index aab6e64d6db4..52b0d7e76446 100644
+> --- a/arch/openrisc/include/asm/page.h
+> +++ b/arch/openrisc/include/asm/page.h
+> @@ -80,8 +80,6 @@ typedef struct page *pgtable_t;
+>  
+>  #define page_to_phys(page)      ((dma_addr_t)page_to_pfn(page) << PAGE_SHIFT)
+>  
+> -#define pfn_valid(pfn)          ((pfn) < max_mapnr)
+> -
+>  #define virt_addr_valid(kaddr)	(pfn_valid(virt_to_pfn(kaddr)))
+>  
+>  #endif /* __ASSEMBLY__ */
 
-The M-mode redirects an unhandled illegal instruction trap back
-to S-mode. However, KVM running in HS-mode terminates the VS-mode
-software when it receives illegal instruction trap. Instead, KVM
-should redirect the illegal instruction trap back to VS-mode, and
-let VS-mode trap handler decide the next step. This futher allows
-guest kernel to implement on-demand enabling of vector extension
-for a guest user space process upon first-use.
+For OpenRISC
 
-Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
-Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
----
- arch/riscv/kvm/vcpu_exit.c | 6 ++++++
- 1 file changed, 6 insertions(+)
-
-diff --git a/arch/riscv/kvm/vcpu_exit.c b/arch/riscv/kvm/vcpu_exit.c
-index af7c4bc07929..4ea101a73d8b 100644
---- a/arch/riscv/kvm/vcpu_exit.c
-+++ b/arch/riscv/kvm/vcpu_exit.c
-@@ -182,6 +182,12 @@ int kvm_riscv_vcpu_exit(struct kvm_vcpu *vcpu, struct kvm_run *run,
- 	ret = -EFAULT;
- 	run->exit_reason = KVM_EXIT_UNKNOWN;
- 	switch (trap->scause) {
-+	case EXC_INST_ILLEGAL:
-+		if (vcpu->arch.guest_context.hstatus & HSTATUS_SPV) {
-+			kvm_riscv_vcpu_trap_redirect(vcpu, trap);
-+			ret = 1;
-+		}
-+		break;
- 	case EXC_VIRTUAL_INST_FAULT:
- 		if (vcpu->arch.guest_context.hstatus & HSTATUS_SPV)
- 			ret = kvm_riscv_vcpu_virtual_insn(vcpu, run, trap);
--- 
-2.34.1
-
+Acked-by: Stafford Horne <shorne@gmail.com>
 
 _______________________________________________
 linux-riscv mailing list
