@@ -4,68 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23352C38142
-	for <linux-riscv@archiver.kernel.org>; Sat, 28 Jan 2023 04:46:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2A42C38142
+	for <linux-riscv@archiver.kernel.org>; Sat, 28 Jan 2023 05:07:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9dL2bT2RlWWRofaIGIKoH+sPin31pRMWgELj0ovWH5U=; b=mJzpuKz9x217Qu
-	IEgrmPqBBfrcOPha4gcCPIjACGAxHGKylfobi03kzZGtPDvt8FIfHN9Pgul/6Y1vt1I09BGGRPxiI
-	zEq11gou71EledCMKUSHq0G5FWkx8sEPUZR59lsZQfH6CjcRkACYHRXhzgYRZvVH3ZHVYExHpzG/N
-	QCJ2YNT/vkCZApky9+U3iyf+4yDkz3VOUAr18vV0QtLGvZjnVHA5KlX1fSLrg9gRfS4p9spmgTRPF
-	3EIcIQR2HZfSmcIdHb848eHY2zj1NkwGjJL5/jj3rMdnXXWd4m3BneuKslb8f3nKfqfjvAofTIcpy
-	oQC8/W259fVnsm5qjeMA==;
+	List-Owner; bh=Q5FGv9I0RwNYMUetmoOnuzlGRTKNxkuDhStytvQTHys=; b=uZv6d4pCmqwWNK
+	lWgFht2bh65QtxXslhU6n+OUKlHCW0B63kZBuWim+/4W8EZRtaRaRLBZol1Mt5tjSuEzASwiV+7pA
+	gIGlnk9otMAN2rrcvj2IzMrOPVXiyhSqya6mEz4+af53XYj3sfMWQjFDSjSICgHwqCdDZl34rQBLD
+	1QdgqJjdMtYvJ72u3bC9lCuNJwNhBymMjj+5JEjCFmt6fY3lADvk8WLykgffhPjt3kKDHTv6HuQGO
+	KrTbaOqf0m3Cm90fJnVxYn3yBGehg4cHmZ+9GRPlHaD50sXsNVbrlKozDoUaQ4KDDpQNy7+ngT+4G
+	/hjPeuTfRkAYVTQWhG1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pLd6R-00HCwU-DS; Sat, 28 Jan 2023 04:46:11 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pLdR2-00HEa4-Fc; Sat, 28 Jan 2023 05:07:28 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pLd6K-00HCue-Kk
-	for linux-riscv@lists.infradead.org; Sat, 28 Jan 2023 04:46:10 +0000
+	id 1pLdQy-00HEZG-H8; Sat, 28 Jan 2023 05:07:26 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 2F70860C60
-	for <linux-riscv@lists.infradead.org>; Sat, 28 Jan 2023 04:46:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06C8EC433A8
-	for <linux-riscv@lists.infradead.org>; Sat, 28 Jan 2023 04:46:01 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 099BD60B99;
+	Sat, 28 Jan 2023 05:07:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D1CFC433D2;
+	Sat, 28 Jan 2023 05:07:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1674881161;
-	bh=b72hJUZfD18JHAyinbqmFHLojR6HKWp4OSsm8RTTCZU=;
+	s=k20201202; t=1674882442;
+	bh=rsLs+t0ueo1dcmdRSpYQm2gd6LqM294GlAMO4XAwih8=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=Yw1qdWZco3FTIQiBF8v5C+CZr8LScneCD3blcxh1tl6DwFlPa43zwSaYL8QPv/jhN
-	 Nm46//YYgPd7UaNI3aCBp6LKegktIcbokqDvf/rg+KilZX2nTfCtB/dT2fZt1qTqgz
-	 t4RTONBpVZ3s3sXtOlVMCM6l1W+6a/DtyANOHz2/dbvyELHz7bRObpxMbiqC6itN73
-	 n6VGRnJzvfOdUsdZVYy1qpj89fmqyq8b0FquFnVU+u8yYfNBiE69hjzqHw/U22r9nH
-	 aV7VF1rapXNf13C1yoXL08TwnHJHJZrDoYnEHc/MT/Kx74KOPOqBlboT9omUiwA4oW
-	 s/kW71ro9WeyA==
-Received: by mail-ej1-f42.google.com with SMTP id ud5so18703145ejc.4
-        for <linux-riscv@lists.infradead.org>; Fri, 27 Jan 2023 20:46:00 -0800 (PST)
-X-Gm-Message-State: AFqh2kqTz8joxNrqtPy/p0xxVTxZXbu4B4WLCW5uQL3zs0cFMzSNG6H6
-	GzsnwE/TBW5xgnLIP3d/uEzUbYIA2lPhI+iFCP4=
-X-Google-Smtp-Source: AMrXdXvXAv1ju57QDFLqaBIc0xQOuMcKiph+QdnojYSAyu6FeFFGGEgYv57RNN0jUdp8jpX6FZ2F9tnGHSgkGiRXTQM=
-X-Received: by 2002:a17:906:5e09:b0:84d:4eae:d35b with SMTP id
- n9-20020a1709065e0900b0084d4eaed35bmr5165175eju.73.1674881159055; Fri, 27 Jan
- 2023 20:45:59 -0800 (PST)
+	b=Gv86slcHZN0teo92wN3gZcHzQYsVL/AFS79hZLkPqcah9o8Erachb04ubsMNCSaF/
+	 +fxUPRPzG2MmFkJfHCth+2U38XcxLkE+iQdCoYTMWaFAlFrBdalC5JZf+hsgttLhxP
+	 296gBOWf5re/0wlwC7AsBtR89Lt2tF4A7zgbnv8LTOjOkVMm7MfudPyB+yAYWArK6s
+	 mp2t8bma8j+2LdT9JEpErsXBCQLbJbB3edFbSnI4TeOka8i00TUFHvZrmix0z9Tegn
+	 AIowAQKqYFJ+RkUa9mKLyKg4PpAjKJLZnvZ/c3Y3fS3oTA0ahqLlaGPlfvCA+VjuS7
+	 MM+CpEJCkWZiA==
+Received: by mail-ej1-f49.google.com with SMTP id k4so13262800eje.1;
+        Fri, 27 Jan 2023 21:07:22 -0800 (PST)
+X-Gm-Message-State: AFqh2kr3vN9MPNT523P1iOy97Z80pv8aqqOEYuu1cm9VBOGZqr0PeB6o
+	TjO2yc+/XfJeNy89VwF+wPea+u8k0gv9On4ZKWQ=
+X-Google-Smtp-Source: AMrXdXskjYJTXvWDKPuqxUvK33Eb7L5Q7PiOZ/7BXcBuMhio6ktc6GCizdAMunO49pacZFXZhTJU93iCqEOmtBCQhlo=
+X-Received: by 2002:a17:906:9ea5:b0:84c:a863:ebf3 with SMTP id
+ fx37-20020a1709069ea500b0084ca863ebf3mr8020307ejc.100.1674882440398; Fri, 27
+ Jan 2023 21:07:20 -0800 (PST)
 MIME-Version: 1.0
-References: <20230126161559.1467374-1-guoren@kernel.org> <0abbbdd4-6b85-9659-03ee-97c56a5b77c1@huawei.com>
-In-Reply-To: <0abbbdd4-6b85-9659-03ee-97c56a5b77c1@huawei.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Sat, 28 Jan 2023 12:45:47 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTS0s4X_uwLaEeSqKAyRmxCR2vxRuHhz7-SP2w4bBqzr+Q@mail.gmail.com>
-Message-ID: <CAJF2gTS0s4X_uwLaEeSqKAyRmxCR2vxRuHhz7-SP2w4bBqzr+Q@mail.gmail.com>
-Subject: Re: [PATCH] riscv: kprobe: Optimize kprobe with accurate atomicity
-To: "liaochang (A)" <liaochang1@huawei.com>
-Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, mhiramat@kernel.org, 
-	conor.dooley@microchip.com, penberg@kernel.org, mark.rutland@arm.com, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Guo Ren <guoren@linux.alibaba.com>
+References: <20230125190757.22555-1-rppt@kernel.org> <20230125190757.22555-4-rppt@kernel.org>
+ <CAJF2gTQw7vaj8uu2CYuKHwKQM4=v7dxmtNaMMoFXjwhtvog7nw@mail.gmail.com>
+In-Reply-To: <CAJF2gTQw7vaj8uu2CYuKHwKQM4=v7dxmtNaMMoFXjwhtvog7nw@mail.gmail.com>
+From: Huacai Chen <chenhuacai@kernel.org>
+Date: Sat, 28 Jan 2023 13:07:04 +0800
+X-Gmail-Original-Message-ID: <CAAhV-H6JbP3zMdax1fLcNMru3D2RSiKgfMt75xmMZYBTGYiiQQ@mail.gmail.com>
+Message-ID: <CAAhV-H6JbP3zMdax1fLcNMru3D2RSiKgfMt75xmMZYBTGYiiQQ@mail.gmail.com>
+Subject: Re: [PATCH 3/3] mm, arch: add generic implementation of pfn_valid()
+ for FLATMEM
+To: Guo Ren <guoren@kernel.org>
+Cc: Mike Rapoport <rppt@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
+	Arnd Bergmann <arnd@arndb.de>, Brian Cain <bcain@quicinc.com>, 
+	"David S. Miller" <davem@davemloft.net>, Dinh Nguyen <dinguyen@kernel.org>, 
+	Geert Uytterhoeven <geert@linux-m68k.org>, Greg Ungerer <gerg@linux-m68k.org>, Helge Deller <deller@gmx.de>, 
+	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Michal Simek <monstr@monstr.eu>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Rich Felker <dalias@libc.org>, 
+	Richard Weinberger <richard@nod.at>, Stafford Horne <shorne@gmail.com>, 
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Vineet Gupta <vgupta@kernel.org>, 
+	WANG Xuerui <kernel@xen0n.name>, Yoshinori Sato <ysato@users.sourceforge.jp>, 
+	linux-alpha@vger.kernel.org, linux-arch@vger.kernel.org, 
+	linux--csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
+	linux-ia64@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
+	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org, 
+	linux-um@lists.infradead.org, linux-xtensa@linux-xtensa.org, 
+	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
+	openrisc@lists.librecores.org, sparclinux@vger.kernel.org, x86@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230127_204604_787421_568961F4 
-X-CRM114-Status: GOOD (  33.29  )
+X-CRM114-CacheID: sfid-20230127_210724_698443_602A6E80 
+X-CRM114-Status: GOOD (  23.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,131 +93,405 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU2F0LCBKYW4gMjgsIDIwMjMgYXQgMTE6NTMgQU0gbGlhb2NoYW5nIChBKSA8bGlhb2NoYW5n
-MUBodWF3ZWkuY29tPiB3cm90ZToKPgo+IEhpLCBHdW8gUmVuCj4KPiDlnKggMjAyMy8xLzI3IDA6
-MTUsIGd1b3JlbkBrZXJuZWwub3JnIOWGmemBkzoKPiA+IEZyb206IEd1byBSZW4gPGd1b3JlbkBs
-aW51eC5hbGliYWJhLmNvbT4KPiA+Cj4gPiBUaGUgcHJldmlvdXMgaW1wbGVtZW50YXRpb24gd2Fz
-IGJhc2VkIG9uIHRoZSBzdG9wX21hdGNoaW5lIG1lY2hhbmlzbSwKPiA+IHdoaWNoIHJlZHVjZWQg
-dGhlIHNwZWVkIG9mIGFybS9kaXNhcm1fa3Byb2JlLiBVc2luZyBtaW5pbXVtIGVicmVhawo+ID4g
-aW5zdHJ1Y3Rpb24gd291bGQgZ2V0IGFjY3VyYXRlIGF0b21pY2l0eS4KPiA+Cj4gPiBUaGlzIHBh
-dGNoIHJlbW92ZXMgdGhlIHBhdGNoX3RleHQgb2YgcmlzY3YsIHdoaWNoIGlzIGJhc2VkIG9uCj4g
-PiBzdG9wX21hY2hpbmUuIFRoZW4gcmlzY3Ygb25seSByZXNlcnZlZCBwYXRjaF90ZXh0X25vc3lu
-YywgYW5kIGRldmVsb3BlcnMKPiA+IG5lZWQgdG8gYmUgbW9yZSBjYXJlZnVsIGluIGRlYWxpbmcg
-d2l0aCBwYXRjaF90ZXh0IGF0b21pY2l0eS4KPgo+IEluIHRoZSBzZXJpZSBvZiBSSVNDViBPUFRQ
-Uk9CRVMgWzFdLCBpdCBwYXRjaGVzIGEgbG9uZy1qdW1wIGluc3RydWN0aW9ucyBwYWlyCj4gQVVJ
-UEMvSkFMUiBpbiBrZXJuZWwgdGV4dCwgc28gaW4gb3JkZXIgdG8gZW5zdXJlIG90aGVyIENQVXMg
-ZG9lcyBub3QgZXhlY3V0ZQo+IGluIHRoZSBpbnN0cnVjdGlvbnMgdGhhdCB3aWxsIGJlIG1vZGlm
-aWVkLCBpdCBpcyBzdGlsbCBuZWVkIHRvIHN0b3Agb3RoZXIgQ1BVcwo+IHZpYSBwYXRjaF90ZXh0
-IEFQSSwgb3IgeW91IGhhdmUgYW55IGJldHRlciBzb2x1dGlvbiB0byBhY2hpZXZlIHRoZSBwdXJw
-b3NlPwogLSBUaGUgc3RvcF9tYWNoaW5lIGlzIGFuIGV4cGVuc2l2ZSB3YXkgYWxsIGFyY2hpdGVj
-dHVyZXMgc2hvdWxkCmF2b2lkLCBhbmQgeW91IGNvdWxkIGtlZXAgdGhhdCBpbiB5b3VyIE9QVFBS
-T0JFUyBpbXBsZW1lbnRhdGlvbiBmaWxlcwp3aXRoIHN0YXRpYyBmdW5jdGlvbnMuCiAtIFRoZSBz
-dG9wX21hY2hpbmUgY291bGRuJ3Qgd29yayB3aXRoIFBSRUVNUFRJT04sIHNvIHlvdXIKaW1wbGVt
-ZW50YXRpb24gbmVlZHMgdG8gd29yayB3aXRoICFQUkVFTVBUSU9OLgoKPgo+IFRoYW5rcy4KPgo+
-ID4KPiA+IFdoZW4gQ09ORklHX1JJU0NWX0lTQV9DPW4sIHRoZSBlYnJlYWsgY291bGQgcmVwbGFj
-ZSB0aGUgd2hvbGUKPiA+IGluc3RydWN0aW9uLiBXaGVuIENPTkZJR19SSVNDVl9JU0FfQz15LCB0
-aGUgcGF0Y2ggdXNlcyAxNi1iaXQgbGVuZ3RoCj4gPiBjLmVicmVhayBpbnN0cnVjdGlvbiwgd2hp
-Y2ggbWF5IG9jY3VweSB0aGUgZmlyc3QgcGFydCBvZiB0aGUgMzItYml0Cj4gPiBpbnN0cnVjdGlv
-biBhbmQgbGVhdmUgaGFsZiB0aGUgcmVzdCBvZiB0aGUgYnJva2VuIGluc3RydWN0aW9uLiBCZWNh
-dXNlCj4gPiBlYnJlYWsgY291bGQgZGV0b3VyIHRoZSBmbG93IHRvIHNraXAgaXQsIGxlYXZpbmcg
-aXQgaW4gdGhlIGtlcm5lbCB0ZXh0Cj4gPiBtZW1vcnkgaXMgb2theS4KPiA+Cj4gPiBTaWduZWQt
-b2ZmLWJ5OiBHdW8gUmVuIDxndW9yZW5AbGludXguYWxpYmFiYS5jb20+Cj4gPiBTaWduZWQtb2Zm
-LWJ5OiBHdW8gUmVuIDxndW9yZW5Aa2VybmVsLm9yZz4KPiA+IC0tLQo+ID4gIGFyY2gvcmlzY3Yv
-aW5jbHVkZS9hc20vcGF0Y2guaCAgICAgfCAgMSAtCj4gPiAgYXJjaC9yaXNjdi9rZXJuZWwvcGF0
-Y2guYyAgICAgICAgICB8IDMzIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQo+ID4gIGFy
-Y2gvcmlzY3Yva2VybmVsL3Byb2Jlcy9rcHJvYmVzLmMgfCAyOSArKysrKysrKysrKysrKysrKyst
-LS0tLS0tLQo+ID4gIDMgZmlsZXMgY2hhbmdlZCwgMjEgaW5zZXJ0aW9ucygrKSwgNDIgZGVsZXRp
-b25zKC0pCj4gPgo+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcGF0Y2gu
-aCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcGF0Y2guaAo+ID4gaW5kZXggOWE3ZDczNDYwMDFl
-Li4yNTAwNzgyZTZmNWIgMTAwNjQ0Cj4gPiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Bh
-dGNoLmgKPiA+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcGF0Y2guaAo+ID4gQEAgLTcs
-NiArNyw1IEBACj4gPiAgI2RlZmluZSBfQVNNX1JJU0NWX1BBVENIX0gKPiA+Cj4gPiAgaW50IHBh
-dGNoX3RleHRfbm9zeW5jKHZvaWQgKmFkZHIsIGNvbnN0IHZvaWQgKmluc25zLCBzaXplX3QgbGVu
-KTsKPiA+IC1pbnQgcGF0Y2hfdGV4dCh2b2lkICphZGRyLCB1MzIgaW5zbik7Cj4gPgo+ID4gICNl
-bmRpZiAvKiBfQVNNX1JJU0NWX1BBVENIX0ggKi8KPiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2
-L2tlcm5lbC9wYXRjaC5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvcGF0Y2guYwo+ID4gaW5kZXggNzY1
-MDA0YjYwNTEzLi44YmQ1MWVkOGI4MDYgMTAwNjQ0Cj4gPiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5l
-bC9wYXRjaC5jCj4gPiArKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9wYXRjaC5jCj4gPiBAQCAtOTgs
-MzYgKzk4LDMgQEAgaW50IHBhdGNoX3RleHRfbm9zeW5jKHZvaWQgKmFkZHIsIGNvbnN0IHZvaWQg
-Kmluc25zLCBzaXplX3QgbGVuKQo+ID4gICAgICAgcmV0dXJuIHJldDsKPiA+ICB9Cj4gPiAgTk9L
-UFJPQkVfU1lNQk9MKHBhdGNoX3RleHRfbm9zeW5jKTsKPiA+IC0KPiA+IC1zdGF0aWMgaW50IHBh
-dGNoX3RleHRfY2Iodm9pZCAqZGF0YSkKPiA+IC17Cj4gPiAtICAgICBzdHJ1Y3QgcGF0Y2hfaW5z
-biAqcGF0Y2ggPSBkYXRhOwo+ID4gLSAgICAgaW50IHJldCA9IDA7Cj4gPiAtCj4gPiAtICAgICBp
-ZiAoYXRvbWljX2luY19yZXR1cm4oJnBhdGNoLT5jcHVfY291bnQpID09IG51bV9vbmxpbmVfY3B1
-cygpKSB7Cj4gPiAtICAgICAgICAgICAgIHJldCA9Cj4gPiAtICAgICAgICAgICAgICAgICBwYXRj
-aF90ZXh0X25vc3luYyhwYXRjaC0+YWRkciwgJnBhdGNoLT5pbnNuLAo+ID4gLSAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgR0VUX0lOU05fTEVOR1RIKHBhdGNoLT5pbnNu
-KSk7Cj4gPiAtICAgICAgICAgICAgIGF0b21pY19pbmMoJnBhdGNoLT5jcHVfY291bnQpOwo+ID4g
-LSAgICAgfSBlbHNlIHsKPiA+IC0gICAgICAgICAgICAgd2hpbGUgKGF0b21pY19yZWFkKCZwYXRj
-aC0+Y3B1X2NvdW50KSA8PSBudW1fb25saW5lX2NwdXMoKSkKPiA+IC0gICAgICAgICAgICAgICAg
-ICAgICBjcHVfcmVsYXgoKTsKPiA+IC0gICAgICAgICAgICAgc21wX21iKCk7Cj4gPiAtICAgICB9
-Cj4gPiAtCj4gPiAtICAgICByZXR1cm4gcmV0Owo+ID4gLX0KPiA+IC1OT0tQUk9CRV9TWU1CT0wo
-cGF0Y2hfdGV4dF9jYik7Cj4gPiAtCj4gPiAtaW50IHBhdGNoX3RleHQodm9pZCAqYWRkciwgdTMy
-IGluc24pCj4gPiAtewo+ID4gLSAgICAgc3RydWN0IHBhdGNoX2luc24gcGF0Y2ggPSB7Cj4gPiAt
-ICAgICAgICAgICAgIC5hZGRyID0gYWRkciwKPiA+IC0gICAgICAgICAgICAgLmluc24gPSBpbnNu
-LAo+ID4gLSAgICAgICAgICAgICAuY3B1X2NvdW50ID0gQVRPTUlDX0lOSVQoMCksCj4gPiAtICAg
-ICB9Owo+ID4gLQo+ID4gLSAgICAgcmV0dXJuIHN0b3BfbWFjaGluZV9jcHVzbG9ja2VkKHBhdGNo
-X3RleHRfY2IsCj4gPiAtICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgJnBhdGNo
-LCBjcHVfb25saW5lX21hc2spOwo+ID4gLX0KPiA+IC1OT0tQUk9CRV9TWU1CT0wocGF0Y2hfdGV4
-dCk7Cj4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL2twcm9iZXMuYyBi
-L2FyY2gvcmlzY3Yva2VybmVsL3Byb2Jlcy9rcHJvYmVzLmMKPiA+IGluZGV4IDQ3NTk4OWYwNmQ2
-ZC4uMjdmODk2MGMzMjFjIDEwMDY0NAo+ID4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVz
-L2twcm9iZXMuYwo+ID4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL2twcm9iZXMuYwo+
-ID4gQEAgLTI0LDEyICsyNCwxOCBAQCBwb3N0X2twcm9iZV9oYW5kbGVyKHN0cnVjdCBrcHJvYmUg
-Kiwgc3RydWN0IGtwcm9iZV9jdGxibGsgKiwgc3RydWN0IHB0X3JlZ3MgKik7Cj4gPiAgc3RhdGlj
-IHZvaWQgX19rcHJvYmVzIGFyY2hfcHJlcGFyZV9zc19zbG90KHN0cnVjdCBrcHJvYmUgKnApCj4g
-PiAgewo+ID4gICAgICAgdW5zaWduZWQgbG9uZyBvZmZzZXQgPSBHRVRfSU5TTl9MRU5HVEgocC0+
-b3Bjb2RlKTsKPiA+ICsjaWZkZWYgQ09ORklHX1JJU0NWX0lTQV9DCj4gPiArICAgICB1MzIgb3Bj
-b2RlID0gX19CVUdfSU5TTl8xNjsKPiA+ICsjZWxzZQo+ID4gKyAgICAgdTMyIG9wY29kZSA9IF9f
-QlVHX0lOU05fMzI7Cj4gPiArI2VuZGlmCj4gPgo+ID4gICAgICAgcC0+YWluc24uYXBpLnJlc3Rv
-cmUgPSAodW5zaWduZWQgbG9uZylwLT5hZGRyICsgb2Zmc2V0Owo+ID4KPiA+IC0gICAgIHBhdGNo
-X3RleHQocC0+YWluc24uYXBpLmluc24sIHAtPm9wY29kZSk7Cj4gPiAtICAgICBwYXRjaF90ZXh0
-KCh2b2lkICopKCh1bnNpZ25lZCBsb25nKShwLT5haW5zbi5hcGkuaW5zbikgKyBvZmZzZXQpLAo+
-ID4gLSAgICAgICAgICAgICAgICBfX0JVR19JTlNOXzMyKTsKPiA+ICsgICAgIHBhdGNoX3RleHRf
-bm9zeW5jKHAtPmFpbnNuLmFwaS5pbnNuLCAmcC0+b3Bjb2RlLCBvZmZzZXQpOwo+ID4gKyAgICAg
-cGF0Y2hfdGV4dF9ub3N5bmMoKHZvaWQgKikoKHVuc2lnbmVkIGxvbmcpKHAtPmFpbnNuLmFwaS5p
-bnNuKSArIG9mZnNldCksCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAmb3Bjb2RlLCBHRVRf
-SU5TTl9MRU5HVEgob3Bjb2RlKSk7Cj4gPiArCj4KPiBJIGhhdmUgc3VibWl0IGEgc2ltaWxhciBv
-cHRpbWl6YXRpb24gZm9yIHBhdGNoaW5nIHNpbmdsZS1zdGVwIHNsb3QgWzJdLgo+IEFuZCBpdCBp
-cyBpbmRlZWQgc2FmZSB0byB1c2UgY29tcGFjdCBicmVha3BvaW50IGluIHNpbmdsZS1zdGVwIHNs
-b3Qgbm8gbWF0dGVyCj4gd2hhdCB0eXBlIG9mIHBhdGNoZWQgaW5zdHJ1Y3Rpb24gaXMuCktlZXAg
-dGhlIHNhbWUgYy5lYnJlYWsgc3R5bGUgaW4gQ09ORklHX1JJU0NWX0lTQV9DLiBJdCdzIG15IGRl
-c2lnbiBwcmluY2lwbGUuCgo+Cj4gVGhhbmtzLgo+Cj4gPiAgfQo+ID4KPiA+ICBzdGF0aWMgdm9p
-ZCBfX2twcm9iZXMgYXJjaF9wcmVwYXJlX3NpbXVsYXRlKHN0cnVjdCBrcHJvYmUgKnApCj4gPiBA
-QCAtMTE0LDE2ICsxMjAsMjMgQEAgdm9pZCAqYWxsb2NfaW5zbl9wYWdlKHZvaWQpCj4gPiAgLyog
-aW5zdGFsbCBicmVha3BvaW50IGluIHRleHQgKi8KPiA+ICB2b2lkIF9fa3Byb2JlcyBhcmNoX2Fy
-bV9rcHJvYmUoc3RydWN0IGtwcm9iZSAqcCkKPiA+ICB7Cj4gPiAtICAgICBpZiAoKHAtPm9wY29k
-ZSAmIF9fSU5TTl9MRU5HVEhfTUFTSykgPT0gX19JTlNOX0xFTkdUSF8zMikKPiA+IC0gICAgICAg
-ICAgICAgcGF0Y2hfdGV4dChwLT5hZGRyLCBfX0JVR19JTlNOXzMyKTsKPiA+IC0gICAgIGVsc2UK
-PiA+IC0gICAgICAgICAgICAgcGF0Y2hfdGV4dChwLT5hZGRyLCBfX0JVR19JTlNOXzE2KTsKPiA+
-ICsjaWZkZWYgQ09ORklHX1JJU0NWX0lTQV9DCj4gPiArICAgICB1MzIgb3Bjb2RlID0gX19CVUdf
-SU5TTl8xNjsKPiA+ICsjZWxzZQo+ID4gKyAgICAgdTMyIG9wY29kZSA9IF9fQlVHX0lOU05fMzI7
-Cj4gPiArI2VuZGlmCj4gPiArICAgICBwYXRjaF90ZXh0X25vc3luYyhwLT5hZGRyLCAmb3Bjb2Rl
-LCBHRVRfSU5TTl9MRU5HVEgob3Bjb2RlKSk7Cj4KPiBTb3VuZHMgZ29vZCwgYnV0IGl0IHdpbGwg
-bGVhdmUgc29tZSBSVkkgaW5zdHJ1Y3Rpb24gdHJ1bmNhdGVkIGluIGtlcm5lbCB0ZXh0LAo+IGkg
-ZG91YnQga2VybmVsIGJlaGF2aW9yIGRlcGVuZHMgb24gdGhlIHJlc3Qgb2YgdGhlIHRydW5jYXRl
-ZCBpbnN0cnVjdGlvbiwgd2VsbCwKPiBpdCBuZWVkcyBtb3JlIHN0cmljdCB0ZXN0aW5nIHRvIHBy
-b3ZlIG15IGNvbmNlcm4gOikKSSBkbyB0aGlzIG9uIHB1cnBvc2UsIGFuZCBpdCBkb2Vzbid0IGNh
-dXNlIGFueSBwcm9ibGVtcy4gRG9uJ3Qgd29ycnk7CklGVSBodyBtdXN0IGVuZm9yY2UgdGhlIGZl
-dGNoIHNlcXVlbmNlLCBhbmQgdGhlcmUgaXMgbm8gd2F5IHRvIGV4ZWN1dGUKYnJva2VuIGluc3Ry
-dWN0aW9ucyBldmVuIGluIHRoZSBzcGVjdWxhdGl2ZSBleGVjdXRpb24gcGF0aC4KCj4KPiA+ICB9
-Cj4gPgo+ID4gIC8qIHJlbW92ZSBicmVha3BvaW50IGZyb20gdGV4dCAqLwo+ID4gIHZvaWQgX19r
-cHJvYmVzIGFyY2hfZGlzYXJtX2twcm9iZShzdHJ1Y3Qga3Byb2JlICpwKQo+ID4gIHsKPiA+IC0g
-ICAgIHBhdGNoX3RleHQocC0+YWRkciwgcC0+b3Bjb2RlKTsKPiA+ICsjaWZkZWYgQ09ORklHX1JJ
-U0NWX0lTQV9DCj4gPiArICAgICB1MzIgb3Bjb2RlID0gX19CVUdfSU5TTl8xNjsKPiA+ICsjZWxz
-ZQo+ID4gKyAgICAgdTMyIG9wY29kZSA9IF9fQlVHX0lOU05fMzI7Cj4gPiArI2VuZGlmCj4gPiAr
-ICAgICBwYXRjaF90ZXh0X25vc3luYyhwLT5hZGRyLCAmcC0+b3Bjb2RlLCBHRVRfSU5TTl9MRU5H
-VEgob3Bjb2RlKSk7Cj4gPiAgfQo+ID4KPiA+ICB2b2lkIF9fa3Byb2JlcyBhcmNoX3JlbW92ZV9r
-cHJvYmUoc3RydWN0IGtwcm9iZSAqcCkKPgo+IFsxXSAtIGh0dHBzOi8vbG9yZS5rZXJuZWwub3Jn
-L2xrbWwvMjAyMzAxMjcxMzA1NDEuMTI1MDg2NS05LWNoZW5ndW9rYWkxN0BtYWlscy51Y2FzLmFj
-LmNuLwo+IFsyXSAtIGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xrbWwvMjAyMjA5MjcwMjI0MzUu
-MTI5OTY1LTEtbGlhb2NoYW5nMUBodWF3ZWkuY29tL1QvCj4KPiAtLQo+IEJSLAo+IExpYW8sIENo
-YW5nCgoKCi0tIApCZXN0IFJlZ2FyZHMKIEd1byBSZW4KCl9fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
-aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
-YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+For LoongArch part:
+Acked-by: Huacai Chen <chenhuacai@loongson.cn>
+
+On Fri, Jan 27, 2023 at 9:58 AM Guo Ren <guoren@kernel.org> wrote:
+>
+> On Thu, Jan 26, 2023 at 3:08 AM Mike Rapoport <rppt@kernel.org> wrote:
+> >
+> > From: "Mike Rapoport (IBM)" <rppt@kernel.org>
+> >
+> > Every architecture that supports FLATMEM memory model defines its own
+> > version of pfn_valid() that essentially compares a pfn to max_mapnr.
+> >
+> > Use mips/powerpc version implemented as static inline as a generic
+> > implementation of pfn_valid() and drop its per-architecture definitions
+> >
+> > Signed-off-by: Mike Rapoport (IBM) <rppt@kernel.org>
+> > ---
+> >  arch/alpha/include/asm/page.h      |  4 ----
+> >  arch/arc/include/asm/page.h        |  1 -
+> >  arch/csky/include/asm/page.h       |  1 -
+> >  arch/hexagon/include/asm/page.h    |  1 -
+> >  arch/ia64/include/asm/page.h       |  4 ----
+> >  arch/loongarch/include/asm/page.h  | 13 -------------
+> >  arch/m68k/include/asm/page_no.h    |  2 --
+> >  arch/microblaze/include/asm/page.h |  1 -
+> >  arch/mips/include/asm/page.h       | 13 -------------
+> >  arch/nios2/include/asm/page.h      |  9 ---------
+> >  arch/openrisc/include/asm/page.h   |  2 --
+> >  arch/parisc/include/asm/page.h     |  4 ----
+> >  arch/powerpc/include/asm/page.h    |  9 ---------
+> >  arch/riscv/include/asm/page.h      |  5 -----
+> >  arch/sh/include/asm/page.h         |  3 ---
+> >  arch/sparc/include/asm/page_32.h   |  1 -
+> >  arch/um/include/asm/page.h         |  1 -
+> >  arch/x86/include/asm/page_32.h     |  4 ----
+> >  arch/x86/include/asm/page_64.h     |  4 ----
+> >  arch/xtensa/include/asm/page.h     |  2 --
+> >  include/asm-generic/memory_model.h | 12 ++++++++++++
+> >  include/asm-generic/page.h         |  2 --
+> >  22 files changed, 12 insertions(+), 86 deletions(-)
+> >
+> > diff --git a/arch/alpha/include/asm/page.h b/arch/alpha/include/asm/page.h
+> > index 8f3f5eecba28..227d32b6b75f 100644
+> > --- a/arch/alpha/include/asm/page.h
+> > +++ b/arch/alpha/include/asm/page.h
+> > @@ -87,10 +87,6 @@ typedef struct page *pgtable_t;
+> >  #define virt_to_page(kaddr)    pfn_to_page(__pa(kaddr) >> PAGE_SHIFT)
+> >  #define virt_addr_valid(kaddr) pfn_valid((__pa(kaddr) >> PAGE_SHIFT))
+> >
+> > -#ifdef CONFIG_FLATMEM
+> > -#define pfn_valid(pfn)         ((pfn) < max_mapnr)
+> > -#endif /* CONFIG_FLATMEM */
+> > -
+> >  #include <asm-generic/memory_model.h>
+> >  #include <asm-generic/getorder.h>
+> >
+> > diff --git a/arch/arc/include/asm/page.h b/arch/arc/include/asm/page.h
+> > index 9a62e1d87967..e43fe27ec54d 100644
+> > --- a/arch/arc/include/asm/page.h
+> > +++ b/arch/arc/include/asm/page.h
+> > @@ -109,7 +109,6 @@ extern int pfn_valid(unsigned long pfn);
+> >  #else /* CONFIG_HIGHMEM */
+> >
+> >  #define ARCH_PFN_OFFSET                virt_to_pfn(CONFIG_LINUX_RAM_BASE)
+> > -#define pfn_valid(pfn)         (((pfn) - ARCH_PFN_OFFSET) < max_mapnr)
+> >
+> >  #endif /* CONFIG_HIGHMEM */
+> >
+> > diff --git a/arch/csky/include/asm/page.h b/arch/csky/include/asm/page.h
+> > index ed7451478b1b..b23e3006a9e0 100644
+> > --- a/arch/csky/include/asm/page.h
+> > +++ b/arch/csky/include/asm/page.h
+> > @@ -39,7 +39,6 @@
+> >
+> >  #define virt_addr_valid(kaddr)  ((void *)(kaddr) >= (void *)PAGE_OFFSET && \
+> >                         (void *)(kaddr) < high_memory)
+> > -#define pfn_valid(pfn)         ((pfn) >= ARCH_PFN_OFFSET && ((pfn) - ARCH_PFN_OFFSET) < max_mapnr)
+> For csky part:
+> Acked-by: Guo Ren <guoren@kernel.org>
+>
+> >
+> >  extern void *memset(void *dest, int c, size_t l);
+> >  extern void *memcpy(void *to, const void *from, size_t l);
+> > diff --git a/arch/hexagon/include/asm/page.h b/arch/hexagon/include/asm/page.h
+> > index d7d4f9fca327..9c03b9965f07 100644
+> > --- a/arch/hexagon/include/asm/page.h
+> > +++ b/arch/hexagon/include/asm/page.h
+> > @@ -95,7 +95,6 @@ struct page;
+> >  /* Default vm area behavior is non-executable.  */
+> >  #define VM_DATA_DEFAULT_FLAGS  VM_DATA_FLAGS_NON_EXEC
+> >
+> > -#define pfn_valid(pfn) ((pfn) < max_mapnr)
+> >  #define virt_addr_valid(kaddr) pfn_valid(__pa(kaddr) >> PAGE_SHIFT)
+> >
+> >  /*  Need to not use a define for linesize; may move this to another file.  */
+> > diff --git a/arch/ia64/include/asm/page.h b/arch/ia64/include/asm/page.h
+> > index 1b990466d540..783eceab5df3 100644
+> > --- a/arch/ia64/include/asm/page.h
+> > +++ b/arch/ia64/include/asm/page.h
+> > @@ -97,10 +97,6 @@ do {                                         \
+> >
+> >  #include <asm-generic/memory_model.h>
+> >
+> > -#ifdef CONFIG_FLATMEM
+> > -# define pfn_valid(pfn)                ((pfn) < max_mapnr)
+> > -#endif
+> > -
+> >  #define page_to_phys(page)     (page_to_pfn(page) << PAGE_SHIFT)
+> >  #define virt_to_page(kaddr)    pfn_to_page(__pa(kaddr) >> PAGE_SHIFT)
+> >  #define pfn_to_kaddr(pfn)      __va((pfn) << PAGE_SHIFT)
+> > diff --git a/arch/loongarch/include/asm/page.h b/arch/loongarch/include/asm/page.h
+> > index 53f284a96182..fb5338b352e6 100644
+> > --- a/arch/loongarch/include/asm/page.h
+> > +++ b/arch/loongarch/include/asm/page.h
+> > @@ -82,19 +82,6 @@ typedef struct { unsigned long pgprot; } pgprot_t;
+> >
+> >  #define pfn_to_kaddr(pfn)      __va((pfn) << PAGE_SHIFT)
+> >
+> > -#ifdef CONFIG_FLATMEM
+> > -
+> > -static inline int pfn_valid(unsigned long pfn)
+> > -{
+> > -       /* avoid <linux/mm.h> include hell */
+> > -       extern unsigned long max_mapnr;
+> > -       unsigned long pfn_offset = ARCH_PFN_OFFSET;
+> > -
+> > -       return pfn >= pfn_offset && pfn < max_mapnr;
+> > -}
+> > -
+> > -#endif
+> > -
+> >  #define virt_to_pfn(kaddr)     PFN_DOWN(PHYSADDR(kaddr))
+> >  #define virt_to_page(kaddr)    pfn_to_page(virt_to_pfn(kaddr))
+> >
+> > diff --git a/arch/m68k/include/asm/page_no.h b/arch/m68k/include/asm/page_no.h
+> > index 0a8ccef777fd..2555ec57149d 100644
+> > --- a/arch/m68k/include/asm/page_no.h
+> > +++ b/arch/m68k/include/asm/page_no.h
+> > @@ -26,8 +26,6 @@ extern unsigned long memory_end;
+> >  #define virt_to_page(addr)     (mem_map + (((unsigned long)(addr)-PAGE_OFFSET) >> PAGE_SHIFT))
+> >  #define page_to_virt(page)     __va(((((page) - mem_map) << PAGE_SHIFT) + PAGE_OFFSET))
+> >
+> > -#define pfn_valid(pfn)         ((pfn) < max_mapnr)
+> > -
+> >  #define        virt_addr_valid(kaddr)  (((unsigned long)(kaddr) >= PAGE_OFFSET) && \
+> >                                 ((unsigned long)(kaddr) < memory_end))
+> >
+> > diff --git a/arch/microblaze/include/asm/page.h b/arch/microblaze/include/asm/page.h
+> > index 4b8b2fa78fc5..7b9861bcd458 100644
+> > --- a/arch/microblaze/include/asm/page.h
+> > +++ b/arch/microblaze/include/asm/page.h
+> > @@ -112,7 +112,6 @@ extern int page_is_ram(unsigned long pfn);
+> >  #  define page_to_phys(page)     (page_to_pfn(page) << PAGE_SHIFT)
+> >
+> >  #  define ARCH_PFN_OFFSET      (memory_start >> PAGE_SHIFT)
+> > -#  define pfn_valid(pfn)       ((pfn) >= ARCH_PFN_OFFSET && (pfn) < (max_mapnr + ARCH_PFN_OFFSET))
+> >  # endif /* __ASSEMBLY__ */
+> >
+> >  #define        virt_addr_valid(vaddr)  (pfn_valid(virt_to_pfn(vaddr)))
+> > diff --git a/arch/mips/include/asm/page.h b/arch/mips/include/asm/page.h
+> > index 9286f11ff6ad..5978a8dfb917 100644
+> > --- a/arch/mips/include/asm/page.h
+> > +++ b/arch/mips/include/asm/page.h
+> > @@ -224,19 +224,6 @@ extern phys_addr_t __phys_addr_symbol(unsigned long x);
+> >
+> >  #define pfn_to_kaddr(pfn)      __va((pfn) << PAGE_SHIFT)
+> >
+> > -#ifdef CONFIG_FLATMEM
+> > -
+> > -static inline int pfn_valid(unsigned long pfn)
+> > -{
+> > -       /* avoid <linux/mm.h> include hell */
+> > -       extern unsigned long max_mapnr;
+> > -       unsigned long pfn_offset = ARCH_PFN_OFFSET;
+> > -
+> > -       return pfn >= pfn_offset && pfn < max_mapnr;
+> > -}
+> > -
+> > -#endif
+> > -
+> >  #define virt_to_pfn(kaddr)     PFN_DOWN(virt_to_phys((void *)(kaddr)))
+> >  #define virt_to_page(kaddr)    pfn_to_page(virt_to_pfn(kaddr))
+> >
+> > diff --git a/arch/nios2/include/asm/page.h b/arch/nios2/include/asm/page.h
+> > index 6a989819a7c1..0ae7d9ce369b 100644
+> > --- a/arch/nios2/include/asm/page.h
+> > +++ b/arch/nios2/include/asm/page.h
+> > @@ -86,15 +86,6 @@ extern struct page *mem_map;
+> >
+> >  # define pfn_to_kaddr(pfn)     __va((pfn) << PAGE_SHIFT)
+> >
+> > -static inline bool pfn_valid(unsigned long pfn)
+> > -{
+> > -       /* avoid <linux/mm.h> include hell */
+> > -       extern unsigned long max_mapnr;
+> > -       unsigned long pfn_offset = ARCH_PFN_OFFSET;
+> > -
+> > -       return pfn >= pfn_offset && pfn < max_mapnr;
+> > -}
+> > -
+> >  # define virt_to_page(vaddr)   pfn_to_page(PFN_DOWN(virt_to_phys(vaddr)))
+> >  # define virt_addr_valid(vaddr)        pfn_valid(PFN_DOWN(virt_to_phys(vaddr)))
+> >
+> > diff --git a/arch/openrisc/include/asm/page.h b/arch/openrisc/include/asm/page.h
+> > index aab6e64d6db4..52b0d7e76446 100644
+> > --- a/arch/openrisc/include/asm/page.h
+> > +++ b/arch/openrisc/include/asm/page.h
+> > @@ -80,8 +80,6 @@ typedef struct page *pgtable_t;
+> >
+> >  #define page_to_phys(page)      ((dma_addr_t)page_to_pfn(page) << PAGE_SHIFT)
+> >
+> > -#define pfn_valid(pfn)          ((pfn) < max_mapnr)
+> > -
+> >  #define virt_addr_valid(kaddr) (pfn_valid(virt_to_pfn(kaddr)))
+> >
+> >  #endif /* __ASSEMBLY__ */
+> > diff --git a/arch/parisc/include/asm/page.h b/arch/parisc/include/asm/page.h
+> > index 6faaaa3ebe9b..667e703c0e8f 100644
+> > --- a/arch/parisc/include/asm/page.h
+> > +++ b/arch/parisc/include/asm/page.h
+> > @@ -155,10 +155,6 @@ extern int npmem_ranges;
+> >  #define __pa(x)                        ((unsigned long)(x)-PAGE_OFFSET)
+> >  #define __va(x)                        ((void *)((unsigned long)(x)+PAGE_OFFSET))
+> >
+> > -#ifndef CONFIG_SPARSEMEM
+> > -#define pfn_valid(pfn)         ((pfn) < max_mapnr)
+> > -#endif
+> > -
+> >  #ifdef CONFIG_HUGETLB_PAGE
+> >  #define HPAGE_SHIFT            PMD_SHIFT /* fixed for transparent huge pages */
+> >  #define HPAGE_SIZE             ((1UL) << HPAGE_SHIFT)
+> > diff --git a/arch/powerpc/include/asm/page.h b/arch/powerpc/include/asm/page.h
+> > index edf1dd1b0ca9..f2b6bf5687d0 100644
+> > --- a/arch/powerpc/include/asm/page.h
+> > +++ b/arch/powerpc/include/asm/page.h
+> > @@ -117,15 +117,6 @@ extern long long virt_phys_offset;
+> >
+> >  #ifdef CONFIG_FLATMEM
+> >  #define ARCH_PFN_OFFSET                ((unsigned long)(MEMORY_START >> PAGE_SHIFT))
+> > -#ifndef __ASSEMBLY__
+> > -extern unsigned long max_mapnr;
+> > -static inline bool pfn_valid(unsigned long pfn)
+> > -{
+> > -       unsigned long min_pfn = ARCH_PFN_OFFSET;
+> > -
+> > -       return pfn >= min_pfn && pfn < max_mapnr;
+> > -}
+> > -#endif
+> >  #endif
+> >
+> >  #define virt_to_pfn(kaddr)     (__pa(kaddr) >> PAGE_SHIFT)
+> > diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
+> > index 9f432c1b5289..7fed7c431928 100644
+> > --- a/arch/riscv/include/asm/page.h
+> > +++ b/arch/riscv/include/asm/page.h
+> > @@ -171,11 +171,6 @@ extern phys_addr_t __phys_addr_symbol(unsigned long x);
+> >
+> >  #define sym_to_pfn(x)           __phys_to_pfn(__pa_symbol(x))
+> >
+> > -#ifdef CONFIG_FLATMEM
+> > -#define pfn_valid(pfn) \
+> > -       (((pfn) >= ARCH_PFN_OFFSET) && (((pfn) - ARCH_PFN_OFFSET) < max_mapnr))
+> > -#endif
+> > -
+> >  #endif /* __ASSEMBLY__ */
+> >
+> >  #define virt_addr_valid(vaddr) ({                                              \
+> > diff --git a/arch/sh/include/asm/page.h b/arch/sh/include/asm/page.h
+> > index eca5daa43b93..09ac6c7faee0 100644
+> > --- a/arch/sh/include/asm/page.h
+> > +++ b/arch/sh/include/asm/page.h
+> > @@ -169,9 +169,6 @@ typedef struct page *pgtable_t;
+> >  #define PFN_START              (__MEMORY_START >> PAGE_SHIFT)
+> >  #define ARCH_PFN_OFFSET                (PFN_START)
+> >  #define virt_to_page(kaddr)    pfn_to_page(__pa(kaddr) >> PAGE_SHIFT)
+> > -#ifdef CONFIG_FLATMEM
+> > -#define pfn_valid(pfn)         ((pfn) >= min_low_pfn && (pfn) < max_low_pfn)
+> > -#endif
+> >  #define virt_addr_valid(kaddr) pfn_valid(__pa(kaddr) >> PAGE_SHIFT)
+> >
+> >  #include <asm-generic/memory_model.h>
+> > diff --git a/arch/sparc/include/asm/page_32.h b/arch/sparc/include/asm/page_32.h
+> > index fff8861df107..6be6f683f98f 100644
+> > --- a/arch/sparc/include/asm/page_32.h
+> > +++ b/arch/sparc/include/asm/page_32.h
+> > @@ -130,7 +130,6 @@ extern unsigned long pfn_base;
+> >  #define ARCH_PFN_OFFSET                (pfn_base)
+> >  #define virt_to_page(kaddr)    pfn_to_page(__pa(kaddr) >> PAGE_SHIFT)
+> >
+> > -#define pfn_valid(pfn)         (((pfn) >= (pfn_base)) && (((pfn)-(pfn_base)) < max_mapnr))
+> >  #define virt_addr_valid(kaddr) ((((unsigned long)(kaddr)-PAGE_OFFSET)>>PAGE_SHIFT) < max_mapnr)
+> >
+> >  #include <asm-generic/memory_model.h>
+> > diff --git a/arch/um/include/asm/page.h b/arch/um/include/asm/page.h
+> > index cdbd9653aa14..84866127d074 100644
+> > --- a/arch/um/include/asm/page.h
+> > +++ b/arch/um/include/asm/page.h
+> > @@ -108,7 +108,6 @@ extern unsigned long uml_physmem;
+> >  #define phys_to_pfn(p) ((p) >> PAGE_SHIFT)
+> >  #define pfn_to_phys(pfn) PFN_PHYS(pfn)
+> >
+> > -#define pfn_valid(pfn) ((pfn) < max_mapnr)
+> >  #define virt_addr_valid(v) pfn_valid(phys_to_pfn(__pa(v)))
+> >
+> >  #include <asm-generic/memory_model.h>
+> > diff --git a/arch/x86/include/asm/page_32.h b/arch/x86/include/asm/page_32.h
+> > index df42f8aa99e4..580d71aca65a 100644
+> > --- a/arch/x86/include/asm/page_32.h
+> > +++ b/arch/x86/include/asm/page_32.h
+> > @@ -15,10 +15,6 @@ extern unsigned long __phys_addr(unsigned long);
+> >  #define __phys_addr_symbol(x)  __phys_addr(x)
+> >  #define __phys_reloc_hide(x)   RELOC_HIDE((x), 0)
+> >
+> > -#ifdef CONFIG_FLATMEM
+> > -#define pfn_valid(pfn)         ((pfn) < max_mapnr)
+> > -#endif /* CONFIG_FLATMEM */
+> > -
+> >  #include <linux/string.h>
+> >
+> >  static inline void clear_page(void *page)
+> > diff --git a/arch/x86/include/asm/page_64.h b/arch/x86/include/asm/page_64.h
+> > index 198e03e59ca1..cc6b8e087192 100644
+> > --- a/arch/x86/include/asm/page_64.h
+> > +++ b/arch/x86/include/asm/page_64.h
+> > @@ -39,10 +39,6 @@ extern unsigned long __phys_addr_symbol(unsigned long);
+> >
+> >  #define __phys_reloc_hide(x)   (x)
+> >
+> > -#ifdef CONFIG_FLATMEM
+> > -#define pfn_valid(pfn)          ((pfn) < max_pfn)
+> > -#endif
+> > -
+> >  void clear_page_orig(void *page);
+> >  void clear_page_rep(void *page);
+> >  void clear_page_erms(void *page);
+> > diff --git a/arch/xtensa/include/asm/page.h b/arch/xtensa/include/asm/page.h
+> > index 493eb7083b1a..3267c672cd11 100644
+> > --- a/arch/xtensa/include/asm/page.h
+> > +++ b/arch/xtensa/include/asm/page.h
+> > @@ -189,8 +189,6 @@ static inline unsigned long ___pa(unsigned long va)
+> >  #endif
+> >  #define __va(x)        \
+> >         ((void *)((unsigned long) (x) - PHYS_OFFSET + PAGE_OFFSET))
+> > -#define pfn_valid(pfn) \
+> > -       ((pfn) >= ARCH_PFN_OFFSET && ((pfn) - ARCH_PFN_OFFSET) < max_mapnr)
+> >
+> >  #define virt_to_page(kaddr)    pfn_to_page(__pa(kaddr) >> PAGE_SHIFT)
+> >  #define page_to_virt(page)     __va(page_to_pfn(page) << PAGE_SHIFT)
+> > diff --git a/include/asm-generic/memory_model.h b/include/asm-generic/memory_model.h
+> > index a2c8ed60233a..13d2a844d928 100644
+> > --- a/include/asm-generic/memory_model.h
+> > +++ b/include/asm-generic/memory_model.h
+> > @@ -19,6 +19,18 @@
+> >  #define __page_to_pfn(page)    ((unsigned long)((page) - mem_map) + \
+> >                                  ARCH_PFN_OFFSET)
+> >
+> > +#ifndef pfn_valid
+> > +static inline int pfn_valid(unsigned long pfn)
+> > +{
+> > +       /* avoid <linux/mm.h> include hell */
+> > +       extern unsigned long max_mapnr;
+> > +       unsigned long pfn_offset = ARCH_PFN_OFFSET;
+> > +
+> > +       return pfn >= pfn_offset && pfn < max_mapnr;
+> > +}
+> > +#define pfn_valid pfn_valid
+> > +#endif
+> > +
+> >  #elif defined(CONFIG_SPARSEMEM_VMEMMAP)
+> >
+> >  /* memmap is virtually contiguous.  */
+> > diff --git a/include/asm-generic/page.h b/include/asm-generic/page.h
+> > index 6fc47561814c..c0be2edeb484 100644
+> > --- a/include/asm-generic/page.h
+> > +++ b/include/asm-generic/page.h
+> > @@ -84,8 +84,6 @@ extern unsigned long memory_end;
+> >  #define page_to_phys(page)      ((dma_addr_t)page_to_pfn(page) << PAGE_SHIFT)
+> >  #endif
+> >
+> > -#define pfn_valid(pfn)         ((pfn) >= ARCH_PFN_OFFSET && ((pfn) - ARCH_PFN_OFFSET) < max_mapnr)
+> > -
+> >  #define        virt_addr_valid(kaddr)  (((void *)(kaddr) >= (void *)PAGE_OFFSET) && \
+> >                                 ((void *)(kaddr) < (void *)memory_end))
+> >
+> > --
+> > 2.35.1
+> >
+>
+>
+> --
+> Best Regards
+>  Guo Ren
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
