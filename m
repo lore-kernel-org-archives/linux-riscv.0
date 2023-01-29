@@ -4,75 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB90DC61D97
-	for <linux-riscv@archiver.kernel.org>; Sun, 29 Jan 2023 12:44:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2708C05027
+	for <linux-riscv@archiver.kernel.org>; Sun, 29 Jan 2023 21:18:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FSYcymG9QcMbs1w/yJ9gvwSccVuyklffjXQvddNE/gY=; b=tXB+MwSIPVeygR
-	1yu/kR8JtT6QZwZZCkQCmZVjR395dCRFR68g1fO2E4bBJ22f2vQodHlIjI6t29+SAYHY9eUqAlWYB
-	Tv1b6VhGfnE5YWst+5Hkcn2O7+U5PYlPjkh+e0JvVaQnetrVfEQHBKUN+RDWHmU6eeZ6fJ9+E+jvG
-	D1e5nyZO7E1j9qn7Hg+YcrBdfb2WoTA0jOP6blgGwC1yYQD2I+UIw6JfnoOrshotu+c9wfCzSlzfn
-	sB1OI4RK2j2CNDIqqjrvPqmVaeaCu5JW1s7WNcTsh2VnMMZd9Gn1XmAX4Hh6Z16clafN5ENJavvv5
-	KD8bW6fbn7y72gvT7CJg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=eMeVF1SZqazpYRm9SfpYyUfVHW7vbeBJZKROexbLY64=; b=PsbwsZw4sbooD8
+	E9zMSx8/bU0ClveylybpMZUfiErph7qcHYZ6YX8l1eaQJNTMCF+xVlisuawoJVcbYTD0RFwhcj5ZD
+	odpj3Vsyx8+7YYLsHLGHn1HuL5WyvZbF/jOaTNk+9LCR/jyooN2KMDugDhtCFAaRUeGupo2fGdErB
+	nbKcngXH3W4SNoqj+vwNgDDh0xTTc4eqoW2WF3COJ9BCPtCozzj4ZHDYpCqePGA5Iis5V92ndgelQ
+	WIlfDf6RYPG0YBch3lzUZgRPkPoK3MlFcvDDHy63aSlGlboh8AHeZo2MTYTdGClcb3Md12TNWei1e
+	4LvAS3lXUFD5XMiZMyrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pM72x-001SJ2-VJ; Sun, 29 Jan 2023 12:44:36 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1pMF4M-001uEb-1c; Sun, 29 Jan 2023 21:18:34 +0000
+Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pM72u-001SEf-6i
-	for linux-riscv@lists.infradead.org; Sun, 29 Jan 2023 12:44:33 +0000
-Received: by mail-ej1-x634.google.com with SMTP id kt14so24876519ejc.3
-        for <linux-riscv@lists.infradead.org>; Sun, 29 Jan 2023 04:44:31 -0800 (PST)
+	id 1pMF4I-001uEB-Hp
+	for linux-riscv@lists.infradead.org; Sun, 29 Jan 2023 21:18:31 +0000
+Received: by mail-ed1-x532.google.com with SMTP id m8so19518edd.10
+        for <linux-riscv@lists.infradead.org>; Sun, 29 Jan 2023 13:18:28 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=hzvl/LqOmRuw2DLDajc9nmwbZP+g/NBX1KDunvAJzQY=;
-        b=fY2QFwBTKBZO8Qst6ZUPyMu24A/jtW4pov+KH93ZP6/BznpvqQcwmDLlU9AlvfKvHc
-         kx1xqrQiAdRu1gI52+5qnmtBBw15VMdkOECUlNhT3f8RgCEjtRC2sD9hx92S0IRA7UZb
-         dbuzIexlxY2xnBHPJSFzDxTOPcc6Woi6Hq1hant2sI9rU3oXS9qKpMHoAiAc/E8Rsm50
-         jF9blpDcxyN56OCp0mwJpQw9r5/Yp6W4WSPMHNQ/X+0RAf+3DoSPj0DDL4EpygJtbeHj
-         IH1nClRvnDmSkrauRgGR/vJ2W9/BRexsnmqgHAhLchQrqyGIyHcdyqbbXNqK9kcehZ/R
-         UZtg==
+        d=gmail.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=+h+DwgC8kZ0XHiwjlH5j80VONawqLGbgf1k0XhI3HtA=;
+        b=d2zBLtX4Ok999XFthxBlaBoWXcErjB9PFTYs/5wEai3i5t/qDPilG6Ump2Du/KJQcr
+         kKmzsz8JnCNNIw8cqAOXaeFIpbPQRZ6E4hWW/PyvuVsPgDY+OWiyZcnT+Eb9DOtSrzTf
+         2f9IoYnmGEHI9N3bqYGa226swI/EeoaZ/BQHblLSGcVtVTfj2sfj4jNdUMN+8C1ofHHe
+         jtQ6tKS4/adIGV7VFCyq/0HN6cWpL4D5gDL9Lhhs2KOF023MEkGNNGyo7xawD+SPo5IF
+         +AHbPIFSnI3PvvoY8YOsCZkzR9Sso4Hc/Til/qwDqa/TzKb084c+nG35SuLxE6xwP1C7
+         AHZg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=hzvl/LqOmRuw2DLDajc9nmwbZP+g/NBX1KDunvAJzQY=;
-        b=kgCkiEJAnSFUF+y3Ox8gaQz8Vp+rNBM5tN6mC44UHgWJ6K3wmICSv0xOMmLoyC5BKu
-         MmSl56mojYMsp1mTtqJPDbSsz7RgGuXOh9BmbBFwOgHWWWBQsmuLqZyn9sJ1kRApCKSx
-         tX3FKRSjYxfmX6OjIsdEXfIjsFpFSgZJiZEWyaBb1oLwNUmGJJzGBr/ykTxULqIsoP9p
-         ftdioXPH/tgWXDjvoIk2wasojVe06cwlxocsZqmhSS1tR24Y416NdwtExsIWg1Xb3bgz
-         Lh2G4i//lvd1y7ucK/1h5LKvyzE9t9VXio9bAIO77U/n2D3uVAw0xqsgYuzdErPllG3n
-         oS0A==
-X-Gm-Message-State: AO0yUKUKUVvOMrH5NHE26mLKb8Eoybuya6nbsQkAOJPosdxmR0OAhpAI
-	74GXnhS+ckBTd6lxTSRtNjYy6uA5HwVpfN661qxHTA==
-X-Google-Smtp-Source: AK7set+98zHjTjUCfz1Po+4TvGNEYBc/NoX6CxQ6nYhmE2sLz3ErpGLxfO2NEtvlVStSPaC/HwnxsOot12jRU9W6Y68=
-X-Received: by 2002:a17:906:e116:b0:881:4488:297c with SMTP id
- gj22-20020a170906e11600b008814488297cmr1198000ejb.129.1674996269674; Sun, 29
- Jan 2023 04:44:29 -0800 (PST)
+        bh=+h+DwgC8kZ0XHiwjlH5j80VONawqLGbgf1k0XhI3HtA=;
+        b=Aci59e9NH3vLQuhkWUP7mdxOV7WPR9eCjRSrhAK//NGN/gLqEeVM0XCnkzIPheOJ9r
+         6t9H7GM1ayL5f/fRRjlQChdcv2X39gRR4QbxzRGn0e3zBIAiTqeXefp8lA4WzeS0wi+L
+         9DOyyMW4fdJ2iE1F6j062LVGTvUVJrkDkFtwGg3xYaaais9lBoGyFkVApb5WKBv/whcv
+         UaGVHtQol06nKLuaXji7f/4y141FX/+luyOHFR8Hx12USjqRcE65Pi5Z2EVo+m4fS3o+
+         drc4NsrwIwfs8yfHs7J02Kmmo78nC6x9dlSbIoTUmVcn4BkLqARDszP6EnTT2o5JKWTa
+         2UMQ==
+X-Gm-Message-State: AO0yUKUkOj8Mo/GgvHPnIXDAPbJOpNQQ49O/FuR4l92tXb1mHijKhnxX
+	lIo1W3FhyDfQoGV0GQhS36mz79i330maQ8my
+X-Google-Smtp-Source: AK7set/fjghCd6aQ47dcrbqhpVv6288Z8r+fI4E2Ox6BW/liWZcys3t01wTHRsqhbilvWAcyyCxJ9w==
+X-Received: by 2002:a05:6402:24a0:b0:4a0:8f4e:52dd with SMTP id q32-20020a05640224a000b004a08f4e52ddmr24043009eda.17.1675027106821;
+        Sun, 29 Jan 2023 13:18:26 -0800 (PST)
+Received: from localhost.localdomain ([80.211.22.60])
+        by smtp.googlemail.com with ESMTPSA id g12-20020a056402114c00b004a216fa259esm3754491edw.60.2023.01.29.13.18.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 29 Jan 2023 13:18:25 -0800 (PST)
+From: Sergey Matyukevich <geomatsi@gmail.com>
+To: linux-riscv@lists.infradead.org,
+	linux-arch@vger.kernel.org
+Cc: Prabhakar <prabhakar.csengg@gmail.com>,
+	Guo Ren <guoren@kernel.org>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Sergey Matyukevich <sergey.matyukevich@syntacore.com>
+Subject: [PATCH] riscv: mm: fix regression due to update_mmu_cache change
+Date: Mon, 30 Jan 2023 00:18:18 +0300
+Message-Id: <20230129211818.686557-1-geomatsi@gmail.com>
+X-Mailer: git-send-email 2.39.0
 MIME-Version: 1.0
-References: <20230127182558.2416400-1-atishp@rivosinc.com> <20230127182558.2416400-12-atishp@rivosinc.com>
-In-Reply-To: <20230127182558.2416400-12-atishp@rivosinc.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Sun, 29 Jan 2023 18:14:18 +0530
-Message-ID: <CAAhSdy1+6AprOdzRRTG98p6swisNFO6MUKjXobxW3RWbixvjCg@mail.gmail.com>
-Subject: Re: [PATCH v3 11/14] RISC-V: KVM: Implement trap & emulate for hpmcounters
-To: Atish Patra <atishp@rivosinc.com>
-Cc: linux-kernel@vger.kernel.org, Andrew Jones <ajones@ventanamicro.com>, 
-	Atish Patra <atishp@atishpatra.org>, Guo Ren <guoren@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Sergey Matyukevich <sergey.matyukevich@syntacore.com>, Will Deacon <will@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230129_044432_281381_7632CB3F 
-X-CRM114-Status: GOOD (  22.67  )
+X-CRM114-CacheID: sfid-20230129_131830_636131_7E8B5F07 
+X-CRM114-Status: GOOD (  13.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,146 +93,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 27, 2023 at 11:56 PM Atish Patra <atishp@rivosinc.com> wrote:
->
-> As the KVM guests only see the virtual PMU counters, all hpmcounter
-> access should trap and KVM emulates the read access on behalf of guests.
->
-> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-> Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> ---
->  arch/riscv/include/asm/kvm_vcpu_pmu.h | 16 ++++++++++
->  arch/riscv/kvm/vcpu_insn.c            |  4 ++-
->  arch/riscv/kvm/vcpu_pmu.c             | 45 ++++++++++++++++++++++++++-
->  3 files changed, 63 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/kvm_vcpu_pmu.h b/arch/riscv/include/asm/kvm_vcpu_pmu.h
-> index 3f43a43..022d45d 100644
-> --- a/arch/riscv/include/asm/kvm_vcpu_pmu.h
-> +++ b/arch/riscv/include/asm/kvm_vcpu_pmu.h
-> @@ -43,6 +43,19 @@ struct kvm_pmu {
->  #define vcpu_to_pmu(vcpu) (&(vcpu)->arch.pmu)
->  #define pmu_to_vcpu(pmu)  (container_of((pmu), struct kvm_vcpu, arch.pmu))
->
-> +#if defined(CONFIG_32BIT)
-> +#define KVM_RISCV_VCPU_HPMCOUNTER_CSR_FUNCS \
-> +{ .base = CSR_CYCLEH,      .count = 31, .func = kvm_riscv_vcpu_pmu_read_hpm }, \
-> +{ .base = CSR_CYCLE,      .count = 31, .func = kvm_riscv_vcpu_pmu_read_hpm },
-> +#else
-> +#define KVM_RISCV_VCPU_HPMCOUNTER_CSR_FUNCS \
-> +{ .base = CSR_CYCLE,      .count = 31, .func = kvm_riscv_vcpu_pmu_read_hpm },
-> +#endif
-> +
-> +int kvm_riscv_vcpu_pmu_read_hpm(struct kvm_vcpu *vcpu, unsigned int csr_num,
-> +                               unsigned long *val, unsigned long new_val,
-> +                               unsigned long wr_mask);
-> +
->  int kvm_riscv_vcpu_pmu_num_ctrs(struct kvm_vcpu *vcpu, struct kvm_vcpu_sbi_ext_data *edata);
->  int kvm_riscv_vcpu_pmu_ctr_info(struct kvm_vcpu *vcpu, unsigned long cidx,
->                                 struct kvm_vcpu_sbi_ext_data *edata);
-> @@ -65,6 +78,9 @@ void kvm_riscv_vcpu_pmu_reset(struct kvm_vcpu *vcpu);
->  #else
->  struct kvm_pmu {
->  };
-> +#define KVM_RISCV_VCPU_HPMCOUNTER_CSR_FUNCS \
-> +{ .base = 0,      .count = 0, .func = NULL },
-> +
+From: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
 
-Redundant newline here.
+This is a partial revert of the commit 4bd1d80efb5a ("riscv: mm: notify
+remote harts about mmu cache updates"). Original commit included two
+loosely related changes serving the same purpose of fixing stale TLB
+entries causing user-space application crash:
+- introduce deferred per-ASID TLB flush for CPUs not running the task
+- switch to per-ASID TLB flush on all CPUs running the task in update_mmu_cache
 
->
->  static inline int kvm_riscv_vcpu_pmu_init(struct kvm_vcpu *vcpu)
->  {
-> diff --git a/arch/riscv/kvm/vcpu_insn.c b/arch/riscv/kvm/vcpu_insn.c
-> index 0bb5276..f689337 100644
-> --- a/arch/riscv/kvm/vcpu_insn.c
-> +++ b/arch/riscv/kvm/vcpu_insn.c
-> @@ -213,7 +213,9 @@ struct csr_func {
->                     unsigned long wr_mask);
->  };
->
-> -static const struct csr_func csr_funcs[] = { };
-> +static const struct csr_func csr_funcs[] = {
-> +       KVM_RISCV_VCPU_HPMCOUNTER_CSR_FUNCS
-> +};
->
->  /**
->   * kvm_riscv_vcpu_csr_return -- Handle CSR read/write after user space
-> diff --git a/arch/riscv/kvm/vcpu_pmu.c b/arch/riscv/kvm/vcpu_pmu.c
-> index 7713927..894053a 100644
-> --- a/arch/riscv/kvm/vcpu_pmu.c
-> +++ b/arch/riscv/kvm/vcpu_pmu.c
-> @@ -17,6 +17,44 @@
->
->  #define kvm_pmu_num_counters(pmu) ((pmu)->num_hw_ctrs + (pmu)->num_fw_ctrs)
->
-> +static int pmu_ctr_read(struct kvm_vcpu *vcpu, unsigned long cidx,
-> +                       unsigned long *out_val)
-> +{
-> +       struct kvm_pmu *kvpmu = vcpu_to_pmu(vcpu);
-> +       struct kvm_pmc *pmc;
-> +       u64 enabled, running;
-> +
-> +       pmc = &kvpmu->pmc[cidx];
-> +       if (!pmc->perf_event)
-> +               return -EINVAL;
-> +
-> +       pmc->counter_val += perf_event_read_value(pmc->perf_event, &enabled, &running);
-> +       *out_val = pmc->counter_val;
-> +
-> +       return 0;
-> +}
-> +
-> +int kvm_riscv_vcpu_pmu_read_hpm(struct kvm_vcpu *vcpu, unsigned int csr_num,
-> +                               unsigned long *val, unsigned long new_val,
-> +                               unsigned long wr_mask)
-> +{
-> +       struct kvm_pmu *kvpmu = vcpu_to_pmu(vcpu);
-> +       int cidx, ret = KVM_INSN_CONTINUE_NEXT_SEPC;
-> +
-> +       if (!kvpmu || !kvpmu->init_done)
-> +               return KVM_INSN_EXIT_TO_USER_SPACE;
+According to report and discussion in [1], the second part caused a
+regression on Renesas RZ/Five SoC. For now restore the old behavior
+of the update_mmu_cache.
 
-As discussed previously, this should be KVM_INSN_ILLEGAL_TRAP.
+[1] https://lore.kernel.org/linux-riscv/20220829205219.283543-1-geomatsi@gmail.com/
 
-> +
-> +       if (wr_mask)
-> +               return KVM_INSN_ILLEGAL_TRAP;
-> +
-> +       cidx = csr_num - CSR_CYCLE;
-> +
-> +       if (pmu_ctr_read(vcpu, cidx, val) < 0)
-> +               return KVM_INSN_EXIT_TO_USER_SPACE;
+Fixes: 4bd1d80efb5a ("riscv: mm: notify remote harts about mmu cache updates")
+Reported-by: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Signed-off-by: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
+---
+ arch/riscv/include/asm/pgtable.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Same as above.
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 4eba9a98d0e3..4c3c130ee328 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -415,7 +415,7 @@ static inline void update_mmu_cache(struct vm_area_struct *vma,
+ 	 * Relying on flush_tlb_fix_spurious_fault would suffice, but
+ 	 * the extra traps reduce performance.  So, eagerly SFENCE.VMA.
+ 	 */
+-	flush_tlb_page(vma, address);
++	local_flush_tlb_page(address);
+ }
+ 
+ #define __HAVE_ARCH_UPDATE_MMU_TLB
+-- 
+2.39.0
 
-> +
-> +       return ret;
-> +}
-> +
->  int kvm_riscv_vcpu_pmu_num_ctrs(struct kvm_vcpu *vcpu, struct kvm_vcpu_sbi_ext_data *edata)
->  {
->         struct kvm_pmu *kvpmu = vcpu_to_pmu(vcpu);
-> @@ -69,7 +107,12 @@ int kvm_riscv_vcpu_pmu_ctr_cfg_match(struct kvm_vcpu *vcpu, unsigned long ctr_ba
->  int kvm_riscv_vcpu_pmu_ctr_read(struct kvm_vcpu *vcpu, unsigned long cidx,
->                                 struct kvm_vcpu_sbi_ext_data *edata)
->  {
-> -       /* TODO */
-> +       int ret;
-> +
-> +       ret = pmu_ctr_read(vcpu, cidx, &edata->out_val);
-> +       if (ret == -EINVAL)
-> +               edata->err_val = SBI_ERR_INVALID_PARAM;
-> +
->         return 0;
->  }
->
-> --
-> 2.25.1
->
-
-Regards,
-Anup
 
 _______________________________________________
 linux-riscv mailing list
