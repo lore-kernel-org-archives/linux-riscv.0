@@ -4,66 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07C27C54EAA
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jan 2023 19:12:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55D6BC636CD
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jan 2023 21:49:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Rtmc4RA/3ifwjM5s6zrPxTTlrDQeAVo17328wxxkisY=; b=R49WVmuHaMeWZE
-	D/fzU3/UrMygooWSZLVRvacoQiZZom5w25LPnut7EjAGotbGjZDTgJvczfd8/AOL9OhYPEJ8F3Kog
-	gxRX0M9UGQwjlYYkyfoSNLGlUTDjvJBNXhMdkC9EdWEAG0rz3+Hd/W5GXj8SmUZfL3UyubNmxw5f8
-	QWS3YtKonYis5e5xdtPU51KO+MJoT8CS3aIBSSkADKEiqfRDqiTd//GSKOTPDBdSQljFeao3fZo9r
-	XcyNFOmYoF2QTJkOkJSnaouM/gj6dUdzvbCQ1XvDNb2thkQzeOCRIQBP1/Bc+fMFrjx7o7ZG4N58U
-	IygWLl8ogVU9qzxNwDtQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2DnZuMRY4oPtF2eYn05tvYDvOn10eqBE6Atth3S1QHU=; b=vU9TQRBFj3pB8abokuzhWXxA3D
+	CVQ3bPH/3yo0wyRYvrXkz3cpsfmNNBTyOGI9VhbcRcJfCLuoQ1RH7ercQgnTinbNJV5aB2sn4GEMt
+	YKODg1lylY/vRI2epp7e2LuNmoduSyZxuo7nb99Eiecu+qcRSxRE5/mUuPEI4t/0RmoUhh0tAiQ9S
+	BO+K3zU3xqlAXM/oSMt3xplpqcg/3dmnJRJOrWUYD/bJlUm3K5vaMJH8HtfEW/fdfpzJWoAsGQaox
+	oSVHZGDK+jnQtJZT0NDsD57puhZd2zRuHHss4gwrqzz2s3rSlGrEhPjJ3+7WIhVDxx2N75q+yroh+
+	zxKEVfPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMZZJ-005ABc-Ie; Mon, 30 Jan 2023 19:11:53 +0000
-Received: from mail-ej1-f47.google.com ([209.85.218.47])
+	id 1pMc1l-005YOW-5X; Mon, 30 Jan 2023 21:49:25 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMZZF-005AB3-Ve
-	for linux-riscv@lists.infradead.org; Mon, 30 Jan 2023 19:11:51 +0000
-Received: by mail-ej1-f47.google.com with SMTP id p26so23567164ejx.13
-        for <linux-riscv@lists.infradead.org>; Mon, 30 Jan 2023 11:11:48 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=eU65rRYM52Gc5N9gkV6nZZxQJLE3/bOxD/7FlWwA6u4=;
-        b=JLRp/IlSW5e0HguOBnuh2/403ZOh/fopT+IQfqAejnIutd7eH6yjFZvJw76XdoBPgT
-         ENYBlcMoHWZ/6xIVNxnlvOygCpeCUCQ0buqyZw3JByGT7mg7C2J37/Ij1LAe37f/7Shp
-         FSxLaQYC+cg4c9dOanL1GAMd38/tGEA0iRxQ7bSGWIc7uTOn+NrVpiW8b4+NIHACttFw
-         51DSPxNP5Z3qoDMQf5b0zxFK5E3gTLpSYmrk6jnLCsUnnhMAAIvWKdZqaiyLdmbAt9dm
-         5KJ/asTkPT4pFeUBdC0OBzJ9YbDvLIQ7NTzVESZ1sL6DsGaBdnPTw8yiMpNck6UQlflH
-         D5Fg==
-X-Gm-Message-State: AO0yUKVHQghCBmV4Xgz73yQWztOO66/+wEpPRV3P22B7cgwaHrKFXuax
-	U/6zJoh71eI1sbDsn+2HxTzHjFRmNWrSdVuc5+b9/ls2
-X-Google-Smtp-Source: AK7set+Xu6B/4xzytt/Jz5draCvC7NhSMfDYO18XJfe49e1baxtM0KT9xIySxJqmB0gOmJA1MuBhQ/KrwoQqqYxa/7A=
-X-Received: by 2002:a17:906:1dcd:b0:87f:575a:9b67 with SMTP id
- v13-20020a1709061dcd00b0087f575a9b67mr2806864ejh.274.1675105906763; Mon, 30
- Jan 2023 11:11:46 -0800 (PST)
+	id 1pMc1i-005YNe-JK
+	for linux-riscv@lists.infradead.org; Mon, 30 Jan 2023 21:49:24 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 1923961268;
+	Mon, 30 Jan 2023 21:49:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA69BC433D2;
+	Mon, 30 Jan 2023 21:49:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1675115361;
+	bh=CeFUjt1qi5cKN9n5135B7q6JriZX4WQ5PfaYh6IzHlM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XSGnSoSJmHmWMBcJL26Y/a/Qjynrpse+xHoQ1tZddfwIMjmAyA4aXHxAUILnJVrhb
+	 ocS7+ydtWz02tmR36c6QURDWz8ciMBGcuOgo1oUN8Ft0dj3AalzCDjWHFpcsnXZHHO
+	 j3yYxikggkmbFVub5fNafgWrsVsYF930niOqj6ialkRAZb6dtAt6rhL9PBvhLhz0Hp
+	 zVmE4/exYbDVayHy2FAJZf1jyJU7tzjycHRD1zPlsEvTyuEDzvRltMlNTcvJ38lbYi
+	 ekE4ZOdQAeNLFXTeFKtXk2BtOoEhq3wMem3WHs3pFKW6nhFwGN+Oc33aWs8e6VQzxp
+	 sn1YFg4qHiM9w==
+Date: Mon, 30 Jan 2023 21:49:17 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Sia Jee Heng <jeeheng.sia@starfivetech.com>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	leyfoon.tan@starfivetech.com, mason.huo@starfivetech.com
+Subject: Re: [PATCH v3 2/4] RISC-V: Factor out common code of
+ __cpu_resume_enter()
+Message-ID: <Y9g7XeTbWjCxB3BT@spud>
+References: <20230127091051.1465278-1-jeeheng.sia@starfivetech.com>
+ <20230127091051.1465278-3-jeeheng.sia@starfivetech.com>
 MIME-Version: 1.0
-References: <20230130182225.2471414-1-sunilvl@ventanamicro.com>
-In-Reply-To: <20230130182225.2471414-1-sunilvl@ventanamicro.com>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Mon, 30 Jan 2023 20:11:35 +0100
-Message-ID: <CAJZ5v0g218rmTM+ra-vP6qcj7OFzDSBwd4ei9H2fPjhuFsXXrA@mail.gmail.com>
-Subject: Re: [PATCH 00/24] Add basic ACPI support for RISC-V
-To: Sunil V L <sunilvl@ventanamicro.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	"Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
-	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, 
-	Daniel Lezcano <daniel.lezcano@linaro.org>, Jonathan Corbet <corbet@lwn.net>, 
-	linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
-	Anup Patel <apatel@ventanamicro.com>, Andrew Jones <ajones@ventanamicro.com>, 
-	Atish Patra <atishp@rivosinc.com>
+In-Reply-To: <20230127091051.1465278-3-jeeheng.sia@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230130_111150_034099_606DAF6F 
-X-CRM114-Status: GOOD (  15.32  )
+X-CRM114-CacheID: sfid-20230130_134922_736590_D104ADA4 
+X-CRM114-Status: GOOD (  19.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,83 +69,192 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6418969245247948295=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 30, 2023 at 7:22 PM Sunil V L <sunilvl@ventanamicro.com> wrote:
->
-> This patch series enables the basic ACPI infrastructure for RISC-V.
-> Supporting external interrupt controllers is in progress and hence it is
-> tested using polling based HVC SBI console and RAM disk.
->
-> The series depends on Anup's IPI improvement series.
-> https://github.com/avpatel/linux/commits/riscv_ipi_imp_v17
->
-> These changes are available at
-> https://github.com/vlsunil/linux/commits/acpi_b1_us_review_ipi17
->
-> Testing:
-> 1) Build Qemu with ACPI support using below branch
-> https://github.com/vlsunil/qemu/tree/acpi_b1_us_review
->
-> 2) Build EDK2 as per instructions in
-> https://github.com/vlsunil/riscv-uefi-edk2-docs/wiki/RISC-V-Qemu-Virt-support
->
-> 3) Build Linux after enabling SBI HVC and SBI earlycon
-> CONFIG_RISCV_SBI_V01=y
-> CONFIG_SERIAL_EARLYCON_RISCV_SBI=y
-> CONFIG_HVC_RISCV_SBI=y
->
-> 4) Build buildroot.
->
-> Run with below command.
-> qemu-system-riscv64   -nographic \
-> -drive file=Build/RiscVVirtQemu/RELEASE_GCC5/FV/RISCV_VIRT.fd,if=pflash,format=raw,unit=1 \
-> -machine virt,acpi=on -smp 16 -m 2G \
-> -kernel arch/riscv/boot/Image \
-> -initrd buildroot/output/images/rootfs.cpio \
-> -append "root=/dev/ram ro console=hvc0 earlycon=sbi"
->
-> Jisheng Zhang (1):
->   riscv: move sbi_init() earlier before jump_label_init()
->
-> Sunil V L (23):
->   ACPICA: MADT: Add RISC-V INTC interrupt controller
->   ACPICA: Add structure definitions for RISC-V RHCT
->   RISC-V: ACPI: Add empty headers to enable ACPI core
->   RISC-V: ACPI: Add basic functions to build ACPI core
->   RISC-V: ACPI: Add PCI functions to build ACPI core
->   RISC-V: ACPI: Enable ACPI build infrastructure
->   ACPI: Enable ACPI_PROCESSOR for RISC-V
->   ACPI: OSL: Make should_use_kmap() 0 for RISC-V.
->   ACPI: processor_core: RISC-V: Enable mapping processor to the hartid
->   RISC-V: ACPI: irqchip/riscv-intc: Add ACPI support
->   RISC-V: ACPI: smpboot: Create wrapper smp_setup()
->   RISC-V: ACPI: smpboot: Add ACPI support in smp_setup()
->   RISC-V: ACPI: smpboot: Add function to retrieve the hartid
->   clocksource/timer-riscv: Refactor riscv_timer_init_dt()
->   RISC-V: ACPI: clocksource/timer-riscv: Add ACPI support
->   ACPI: RISC-V: drivers/acpi: Add RHCT related code
->   RISC-V: ACPI: time.c: Add ACPI support for time_init()
->   RISC-V: ACPI: cpufeature: Add ACPI support in riscv_fill_hwcap()
->   RISC-V: ACPI: cpu: Enable cpuinfo for ACPI systems
->   RISC-V: ACPI: Add ACPI initialization in setup_arch()
->   RISC-V: ACPI: Enable ACPI in defconfig
->   MAINTAINERS: Add entry for drivers/acpi/riscv
->   Documentation/kernel-parameters.txt: Add RISC-V for ACPI parameter
 
-The series looks fine to me from the ACPI perspective, so please feel
-free to add
+--===============6418969245247948295==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="Hb+0kK26SmitlXYB"
+Content-Disposition: inline
 
-Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
 
-to it and route it via RISC-V.
+--Hb+0kK26SmitlXYB
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Thanks!
+On Fri, Jan 27, 2023 at 05:10:49PM +0800, Sia Jee Heng wrote:
+> The cpu_resume() function is very similar for the suspend to disk and
+> suspend to ram cases. Factor out the common code into restore_csr macro
+> and restore_reg macro.
+>=20
+> Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
+> ---
+>  arch/riscv/include/asm/assembler.h | 62 ++++++++++++++++++++++++++++++
+>  arch/riscv/kernel/suspend_entry.S  | 34 ++--------------
+>  2 files changed, 65 insertions(+), 31 deletions(-)
+>  create mode 100644 arch/riscv/include/asm/assembler.h
+>=20
+> diff --git a/arch/riscv/include/asm/assembler.h b/arch/riscv/include/asm/=
+assembler.h
+> new file mode 100644
+> index 000000000000..ef1283d04b70
+> --- /dev/null
+> +++ b/arch/riscv/include/asm/assembler.h
+> @@ -0,0 +1,62 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (C) 2023 StarFive Technology Co., Ltd.
+> + *
+> + * Author: Jee Heng Sia <jeeheng.sia@starfivetech.com>
+> + */
+> +
+> +#ifndef __ASSEMBLY__
+> +#error "Only include this from assembly code"
+> +#endif
+> +
+> +#ifndef __ASM_ASSEMBLER_H
+> +#define __ASM_ASSEMBLER_H
+> +
+> +#include <asm/asm.h>
+> +#include <asm/csr.h>
+> +#include <asm/asm-offsets.h>
+> +
+> +/**
+> + * restore_csr - restore hart's CSR value
+> + */
+> +	.macro restore_csr
+> +		REG_L	t0, (SUSPEND_CONTEXT_REGS + PT_EPC)(a0)
+> +		csrw	CSR_EPC, t0
+> +		REG_L	t0, (SUSPEND_CONTEXT_REGS + PT_STATUS)(a0)
+> +		csrw	CSR_STATUS, t0
+> +		REG_L	t0, (SUSPEND_CONTEXT_REGS + PT_BADADDR)(a0)
+> +		csrw	CSR_TVAL, t0
+> +		REG_L	t0, (SUSPEND_CONTEXT_REGS + PT_CAUSE)(a0)
+> +		csrw	CSR_CAUSE, t0
+> +	.endm
+> +
+> +/**
+> + * restore_reg - Restore registers (except A0 and T0-T6)
+
+arch/riscv/include/asm/assembler.h:34: warning: Incorrect use of kernel-doc=
+ format:  * restore_reg - Restore registers (except A0 and T0-T6)
+
+Otherwise, LGTM.
+
+> + */
+> +	.macro restore_reg
+> +		REG_L	ra, (SUSPEND_CONTEXT_REGS + PT_RA)(a0)
+> +		REG_L	sp, (SUSPEND_CONTEXT_REGS + PT_SP)(a0)
+> +		REG_L	gp, (SUSPEND_CONTEXT_REGS + PT_GP)(a0)
+> +		REG_L	tp, (SUSPEND_CONTEXT_REGS + PT_TP)(a0)
+> +		REG_L	s0, (SUSPEND_CONTEXT_REGS + PT_S0)(a0)
+> +		REG_L	s1, (SUSPEND_CONTEXT_REGS + PT_S1)(a0)
+> +		REG_L	a1, (SUSPEND_CONTEXT_REGS + PT_A1)(a0)
+> +		REG_L	a2, (SUSPEND_CONTEXT_REGS + PT_A2)(a0)
+> +		REG_L	a3, (SUSPEND_CONTEXT_REGS + PT_A3)(a0)
+> +		REG_L	a4, (SUSPEND_CONTEXT_REGS + PT_A4)(a0)
+> +		REG_L	a5, (SUSPEND_CONTEXT_REGS + PT_A5)(a0)
+> +		REG_L	a6, (SUSPEND_CONTEXT_REGS + PT_A6)(a0)
+> +		REG_L	a7, (SUSPEND_CONTEXT_REGS + PT_A7)(a0)
+> +		REG_L	s2, (SUSPEND_CONTEXT_REGS + PT_S2)(a0)
+> +		REG_L	s3, (SUSPEND_CONTEXT_REGS + PT_S3)(a0)
+> +		REG_L	s4, (SUSPEND_CONTEXT_REGS + PT_S4)(a0)
+> +		REG_L	s5, (SUSPEND_CONTEXT_REGS + PT_S5)(a0)
+> +		REG_L	s6, (SUSPEND_CONTEXT_REGS + PT_S6)(a0)
+> +		REG_L	s7, (SUSPEND_CONTEXT_REGS + PT_S7)(a0)
+> +		REG_L	s8, (SUSPEND_CONTEXT_REGS + PT_S8)(a0)
+> +		REG_L	s9, (SUSPEND_CONTEXT_REGS + PT_S9)(a0)
+> +		REG_L	s10, (SUSPEND_CONTEXT_REGS + PT_S10)(a0)
+> +		REG_L	s11, (SUSPEND_CONTEXT_REGS + PT_S11)(a0)
+> +	.endm
+> +
+> +#endif	/* __ASM_ASSEMBLER_H */
+> diff --git a/arch/riscv/kernel/suspend_entry.S b/arch/riscv/kernel/suspen=
+d_entry.S
+> index aafcca58c19d..74a8fab8e0f6 100644
+> --- a/arch/riscv/kernel/suspend_entry.S
+> +++ b/arch/riscv/kernel/suspend_entry.S
+> @@ -7,6 +7,7 @@
+>  #include <linux/linkage.h>
+>  #include <asm/asm.h>
+>  #include <asm/asm-offsets.h>
+> +#include <asm/assembler.h>
+>  #include <asm/csr.h>
+>  #include <asm/xip_fixup.h>
+> =20
+> @@ -83,39 +84,10 @@ ENTRY(__cpu_resume_enter)
+>  	add	a0, a1, zero
+> =20
+>  	/* Restore CSRs */
+> -	REG_L	t0, (SUSPEND_CONTEXT_REGS + PT_EPC)(a0)
+> -	csrw	CSR_EPC, t0
+> -	REG_L	t0, (SUSPEND_CONTEXT_REGS + PT_STATUS)(a0)
+> -	csrw	CSR_STATUS, t0
+> -	REG_L	t0, (SUSPEND_CONTEXT_REGS + PT_BADADDR)(a0)
+> -	csrw	CSR_TVAL, t0
+> -	REG_L	t0, (SUSPEND_CONTEXT_REGS + PT_CAUSE)(a0)
+> -	csrw	CSR_CAUSE, t0
+> +	restore_csr
+> =20
+>  	/* Restore registers (except A0 and T0-T6) */
+> -	REG_L	ra, (SUSPEND_CONTEXT_REGS + PT_RA)(a0)
+> -	REG_L	sp, (SUSPEND_CONTEXT_REGS + PT_SP)(a0)
+> -	REG_L	gp, (SUSPEND_CONTEXT_REGS + PT_GP)(a0)
+> -	REG_L	tp, (SUSPEND_CONTEXT_REGS + PT_TP)(a0)
+> -	REG_L	s0, (SUSPEND_CONTEXT_REGS + PT_S0)(a0)
+> -	REG_L	s1, (SUSPEND_CONTEXT_REGS + PT_S1)(a0)
+> -	REG_L	a1, (SUSPEND_CONTEXT_REGS + PT_A1)(a0)
+> -	REG_L	a2, (SUSPEND_CONTEXT_REGS + PT_A2)(a0)
+> -	REG_L	a3, (SUSPEND_CONTEXT_REGS + PT_A3)(a0)
+> -	REG_L	a4, (SUSPEND_CONTEXT_REGS + PT_A4)(a0)
+> -	REG_L	a5, (SUSPEND_CONTEXT_REGS + PT_A5)(a0)
+> -	REG_L	a6, (SUSPEND_CONTEXT_REGS + PT_A6)(a0)
+> -	REG_L	a7, (SUSPEND_CONTEXT_REGS + PT_A7)(a0)
+> -	REG_L	s2, (SUSPEND_CONTEXT_REGS + PT_S2)(a0)
+> -	REG_L	s3, (SUSPEND_CONTEXT_REGS + PT_S3)(a0)
+> -	REG_L	s4, (SUSPEND_CONTEXT_REGS + PT_S4)(a0)
+> -	REG_L	s5, (SUSPEND_CONTEXT_REGS + PT_S5)(a0)
+> -	REG_L	s6, (SUSPEND_CONTEXT_REGS + PT_S6)(a0)
+> -	REG_L	s7, (SUSPEND_CONTEXT_REGS + PT_S7)(a0)
+> -	REG_L	s8, (SUSPEND_CONTEXT_REGS + PT_S8)(a0)
+> -	REG_L	s9, (SUSPEND_CONTEXT_REGS + PT_S9)(a0)
+> -	REG_L	s10, (SUSPEND_CONTEXT_REGS + PT_S10)(a0)
+> -	REG_L	s11, (SUSPEND_CONTEXT_REGS + PT_S11)(a0)
+> +	restore_reg
+> =20
+>  	/* Return zero value */
+>  	add	a0, zero, zero
+> --=20
+> 2.34.1
+>=20
+
+--Hb+0kK26SmitlXYB
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY9g7XQAKCRB4tDGHoIJi
+0gfTAP94o9Bp9hjJ9nyX1uAV0kJl3St5aJLTOE4jHIfw7w0AbQEA36tFzpX/hj8T
+eFWNhYi0dCzk90b9EkfBFpnoG3Zr8gs=
+=San3
+-----END PGP SIGNATURE-----
+
+--Hb+0kK26SmitlXYB--
+
+
+--===============6418969245247948295==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6418969245247948295==--
+
