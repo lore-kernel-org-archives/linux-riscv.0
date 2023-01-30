@@ -4,75 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAB45C54EAA
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jan 2023 18:47:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E97D4C636D4
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jan 2023 18:55:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vYKv/J2nkA6w85i0mKUriLzzMZhB2iAzYJ426PG6e0Y=; b=t5yTqyMSeb7gg8
-	+V2SUzwmpd8/6lH8bhzDcxhrrgLXBp7+eFbpbT4OD334gYSNWuEUGnP3Uasf81XFAgR84suXkLzx+
-	yUSLt6GvRnctwMNw16Rz2K9nTMkMDq6vnTsBobMqOOmGKSqa0jUCnqL6Vqy55qjbCpk8bHGPSFYyu
-	+k3SM2LG2oFmPyu7ttaflfzA0omJTFM0bczr3DdzrSR30Qk2GWJ391mYrRhmlHQMSx+dTtfPPmMzB
-	fC4BPp8d/MbgqEcPe8MCeJWKKbwW7m+Sw996clS6GL0cDkrf8aQaVwJlnChXlpJJmJWgAT1lsfBT9
-	/SewlnCeMvIFLscYF8Dg==;
+	List-Owner; bh=CvmO9rc8qFM07IKKTrS6S5ofe4B3GcEpEVAY2sXR6IY=; b=KnKmNaWuVeFVpb
+	Eg843W+i9pb8metGanVqggJwvUCgZgqymiVskmvednJBT0OkCLU3HtPNKQ+LKFWzVtQIOJYEV6Nq5
+	X6lopTfP8viqCBRQJC+QmES6E4bZhaGbyNgt81jSy7+J1ZvP2/roLdY0gQh5mcCklq2A5cUm8nQxD
+	B8sQ1LvhF6hLFhoJ9nhlxVg2KLOjyGkSRhJYwL8JG+KuD0eBlEjyWLK6Gcz/EMQlsy0uN8JVW4HOV
+	P66lnsDmcG/05vq/rXYplGRUE8dZgu7M8i3rn5C/M8ic4HW8k91KoPRQg3Myl1ZlOu36wOm8t5Wn3
+	TE4HdFWEm50WP+21hI7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMZBw-0056nA-Ag; Mon, 30 Jan 2023 18:47:44 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1pMZJE-00584P-QB; Mon, 30 Jan 2023 18:55:16 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMZBt-0056k4-3v
-	for linux-riscv@lists.infradead.org; Mon, 30 Jan 2023 18:47:42 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id mc11so12094097ejb.10
-        for <linux-riscv@lists.infradead.org>; Mon, 30 Jan 2023 10:47:40 -0800 (PST)
+	id 1pMZJC-00583c-Bq
+	for linux-riscv@lists.infradead.org; Mon, 30 Jan 2023 18:55:15 +0000
+Received: by mail-pf1-x435.google.com with SMTP id g9so6467941pfk.13
+        for <linux-riscv@lists.infradead.org>; Mon, 30 Jan 2023 10:55:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Pz4ufNPrbCDJrRIlkHtfnZ8KTN4KG4DGZR0L1qiySbM=;
-        b=OPNJpe/KJTF4c06yWGma6YB9iHvK8CLP1GWLjI8ZirGdcqjIR/mSoK4JK5wIQHxcn0
-         Fl/mzgLnkpTAft0+5+SYtMG3Xw+GinsV2HoIU5ep2iJQ9yBf6514qeG5u8QJc24vFJCG
-         lSGt7tlIpq3qXQiDD0tZj+ZdCFRQzlpj+fiF7EfDJJRd342YPmun3+DJkkEOdHOzJNH6
-         TdVyrlJYFDrMrzwdkcvxqy4bDwXQFt5gARQvw5nH8jTNr3MkaOCkK9BHl3nfY7octvZ6
-         3QV4IYw3xWWES1xxe6gDOKlmqNgT0WWdVJeNtUomwJ5ft+Xm+KhmUVepGvqpcahXwn9Q
-         o3Xg==
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=b3PX0zQGrK5y8iu02KEGBurLYy151zBq8KyGCmE0yjY=;
+        b=AMd0kXmr9vmpbWaluw+VMzmIcJDFwS4jzcz82kHNX+SsxxzmMgzS3qoiQYiKXEYS0e
+         j5z3LoWReQ0iZbUUW8RXHnkIr0REJ0c8LlYYvUgk8SzWgl6jOxowaet1RYlyWLjNrFd0
+         P6754dPAWJ7i3tauY3KgyUZgDA7bewMXZ/xpOF1JbFfMSTHyKcb+0VOSePmevhHGU7F9
+         UC4Cc0EyD3syozcquv5TDRSnnLDniHZPQUfCix7Vs7u6srRTC2EvcvbLcEqLnCc3WB37
+         r+TP9pnxJ+KT2WYrVXcyoz06dSRBZYs4XmvKIHdUTlEK2BSUi8YjP7k+5bkXRzLpW5Co
+         97Rg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Pz4ufNPrbCDJrRIlkHtfnZ8KTN4KG4DGZR0L1qiySbM=;
-        b=1NwMpjFr9NaggScxdqtrYdVanzRwGIBhmVouuHxm+R6rsTVtprVI0/qG6vzKCbYp4q
-         W2Yq4lnFYDpc75n9r13AJWA/3VEAfOWvsnRBo4KM1gOFu7/IjdBVwyb6DouMrm7WOFnL
-         QJKKNqT2VM6NoH1bDpRm///QBkKqjl93yq3mrIoEyz/0ROYGYQmsOJZ5rLLXgXNhwWed
-         p9HJU/s6ePYU6MpsiCrGXAtrXoOWOMqQOs6/bJQGDNMwpQ/8V6DA9R7YkVDVSNqFf2+n
-         w9qbwBFYbTk+TePvXTQAA7KSkBdKthytm6E5HoPcbJEY4j9gTGpvlWsWDfV8RvDCC8rz
-         G96A==
-X-Gm-Message-State: AO0yUKXRWfpTvJkAsvfMYRlxk2k+F26zw5pN+BdH8K32GuPo0AGFHe5L
-	wFt8NpC87jOUBSBwDAuEPjpftWCZ/hRDdIEz
-X-Google-Smtp-Source: AK7set9t1VQo8S0LqliZrH1Qky97FQPQ3Up5uRMrBP63W9usp6wQFpZknlpBryCBElWqzXjEqKWn2w==
-X-Received: by 2002:a17:906:7c07:b0:887:66bc:97 with SMTP id t7-20020a1709067c0700b0088766bc0097mr6466563ejo.49.1675104459484;
-        Mon, 30 Jan 2023 10:47:39 -0800 (PST)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id y14-20020a17090668ce00b0084d4733c428sm7149781ejr.88.2023.01.30.10.47.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 30 Jan 2023 10:47:39 -0800 (PST)
-Date: Mon, 30 Jan 2023 19:47:38 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Jeff Law <jlaw@ventanamicro.com>
-Cc: linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 0/6] RISC-V: Apply Zicboz to clear_page
-Message-ID: <20230130184738.2lzxr57yunny5pxo@orel>
-References: <20230130120128.1349464-1-ajones@ventanamicro.com>
- <e9990765-9df9-70f5-cc85-32773b35710c@ventanamicro.com>
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=b3PX0zQGrK5y8iu02KEGBurLYy151zBq8KyGCmE0yjY=;
+        b=wnc2ccykZ9Nm7+INfMqVK8y18Q/wyDpfUK2zjMDduqONjwgW+wCLSNXJsjOf5x15X5
+         5u8gM2OFaUez+lOFwX8azGa6N/eA6mi19k3IUMrq5LTaEC24meOFFT4MG4mAetk6otw0
+         Zdqdhg7/AyexYqXR8I67LiNoCJx51mJjK4cvxlYqhNVkFLp4fhwUc7MSnY87eIv4WoYJ
+         ET20yaeOPHA5RJOzYvNkvLlVKYTFnINK3QNMQ1k7pZAIEttqKcgXqYCOCCjeYqQQgAWX
+         PXDgyKBx1A6lWpo8JoAl1lN/7Ey+UZ8vvrE98/VPjrQK5nGY6AGcGLraWfpeUc0jB8kO
+         2WRg==
+X-Gm-Message-State: AO0yUKV0LwHGJTP0RensQrMLZ7K9OuxXva1MPQ94eKa66s6OMhQh26EV
+	jp9MghOHTeG/myFTnf4QMYYNCQ==
+X-Google-Smtp-Source: AK7set/CODbF1cofKbp2tye5jjqXv4RO9tqNp12t1qheBpmw51d7+fqFth63TATK6xiAaNxji8CSFg==
+X-Received: by 2002:aa7:8742:0:b0:593:b115:e2ca with SMTP id g2-20020aa78742000000b00593b115e2camr5236184pfo.9.1675104912370;
+        Mon, 30 Jan 2023 10:55:12 -0800 (PST)
+Received: from ?IPV6:2601:681:8600:13d0::f0a? ([2601:681:8600:13d0::f0a])
+        by smtp.gmail.com with ESMTPSA id x62-20020a623141000000b0058d9058fe8asm7747970pfx.103.2023.01.30.10.55.10
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 30 Jan 2023 10:55:11 -0800 (PST)
+Message-ID: <5afd356d-7ed6-6f14-49be-246ff43d233f@ventanamicro.com>
+Date: Mon, 30 Jan 2023 11:55:10 -0700
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <e9990765-9df9-70f5-cc85-32773b35710c@ventanamicro.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.5.1
+Subject: Re: [PATCH v3 0/6] RISC-V: Apply Zicboz to clear_page
+Content-Language: en-US
+To: Andrew Jones <ajones@ventanamicro.com>, linux-riscv@lists.infradead.org,
+ kvm-riscv@lists.infradead.org, devicetree@vger.kernel.org
+Cc: 'Heiko Stuebner ' <heiko@sntech.de>,
+ 'Krzysztof Kozlowski ' <krzysztof.kozlowski+dt@linaro.org>,
+ 'Anup Patel ' <apatel@ventanamicro.com>,
+ 'Palmer Dabbelt ' <palmer@dabbelt.com>, 'Atish Patra '
+ <atishp@rivosinc.com>, 'Paul Walmsley ' <paul.walmsley@sifive.com>,
+ 'Albert Ou ' <aou@eecs.berkeley.edu>,
+ 'Conor Dooley ' <conor.dooley@microchip.com>,
+ 'Rob Herring ' <robh@kernel.org>, 'Jisheng Zhang ' <jszhang@kernel.org>
+References: <20230130120128.1349464-1-ajones@ventanamicro.com>
+From: Jeff Law <jlaw@ventanamicro.com>
+In-Reply-To: <20230130120128.1349464-1-ajones@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230130_104741_207478_089F7D0D 
-X-CRM114-Status: GOOD (  23.65  )
+X-CRM114-CacheID: sfid-20230130_105514_440209_9792BA24 
+X-CRM114-Status: GOOD (  15.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,47 +94,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 30, 2023 at 11:30:38AM -0700, Jeff Law wrote:
-> 
-> 
-> On 1/30/23 05:01, Andrew Jones wrote:
-> > When the Zicboz extension is available we can more rapidly zero naturally
-> > aligned Zicboz block sized chunks of memory. As pages are always page
-> > aligned and are larger than any Zicboz block size will be, then
-> > clear_page() appears to be a good candidate for the extension. While cycle
-> > count and energy consumption should also be considered, we can be pretty
-> > certain that implementing clear_page() with the Zicboz extension is a win
-> > by comparing the new dynamic instruction count with its current count[1].
-> > Doing so we see that the new count is just over a quarter of the old count
-> > (see patch4's commit message for more details).
-> > 
-> > For those of you who reviewed v1[2], you may be looking for the memset()
-> > patches. As pointed out in v1, and a couple follow-up emails, it's not
-> > clear that patching memset() is a win yet. When I get a chance to test
-> > on real hardware with a comprehensive benchmark collection then I can
-> > post the memset() patches separately (assuming the benchmarks show it's
-> > worthwhile).
-> So a note.  On the userspace side we are using cboz for clearing memory in
-> memset.  While the data is intermixed with other changes, there's a very
-> significant drop in stores and a host of related low level performance
-> counters and a notable uptick in gcc #5 performance from spec2017 which is
-> particularly sensitive to memory clearing.  We haven't seen any performance
-> regressions attributable to using cboz across spec2017's integer suite.
-> 
-> I believe our current threshold setting is to use cboz for chunks >= 128
-> bytes.
+[ Sorry for the duplicate.  Andrew indicated I'd used reply-list rather 
+than reply-all.  ]
 
-Thanks, Jeff! That's an encouraging report. I'll keep focused on
-clear_page() with this series, but once I can get some numbers with
-the memset patch, then I'll be happy to repost that as well.
 
-Thanks,
-drew
+On 1/30/23 05:01, Andrew Jones wrote:
+> When the Zicboz extension is available we can more rapidly zero naturally
+> aligned Zicboz block sized chunks of memory. As pages are always page
+> aligned and are larger than any Zicboz block size will be, then
+> clear_page() appears to be a good candidate for the extension. While cycle
+> count and energy consumption should also be considered, we can be pretty
+> certain that implementing clear_page() with the Zicboz extension is a win
+> by comparing the new dynamic instruction count with its current count[1].
+> Doing so we see that the new count is just over a quarter of the old count
+> (see patch4's commit message for more details).
+> 
+> For those of you who reviewed v1[2], you may be looking for the memset()
+> patches. As pointed out in v1, and a couple follow-up emails, it's not
+> clear that patching memset() is a win yet. When I get a chance to test
+> on real hardware with a comprehensive benchmark collection then I can
+> post the memset() patches separately (assuming the benchmarks show it's
+> worthwhile).
+> 
+So a note.  On the userspace side we are using cboz for clearing memory 
+in memset.  While the data is intermixed with other changes, there's a 
+very significant drop in stores and a host of related low level 
+performance counters and a notable uptick in gcc #5 performance from 
+spec2017 which is particularly sensitive to memory clearing.  We haven't 
+seen any performance regressions attributable to using cboz across 
+spec2017's integer suite.
+
+I believe our current threshold setting is to use cboz for chunks >= 128 
+bytes.
+
+Jeff
 
 _______________________________________________
 linux-riscv mailing list
