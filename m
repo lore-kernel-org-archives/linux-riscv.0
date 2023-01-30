@@ -4,67 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E370EC54EED
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jan 2023 08:14:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C307FC54EAA
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jan 2023 08:19:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UqYIkbSWkKjuU3aVROQHWpX+f0bu2LecWwq30I6xNvI=; b=f0gGWAvuEwMrDM
-	mKxJf7TUeUni3nqp5/zs202bqhZybr6JvYBC08qZs44+rRurNBzqjO5STu6Xdol3s12WxPRJBr0jJ
-	IuraZiFro9uYS0Vla7sAcimCxLGCrpuhTA5liJ5iUwCz9UHo52ggYSHCsi0VgYXMy1JS646isTTUg
-	7wv93BQVrKVf00kaZu9Z9qqyRZ6i6r8+6KZERkqdt/kHa53dh5lMBllofIuRYoaeBmeuEB+asiOlJ
-	5xjOaL9mzGUzd0TjpxUFNQQXDiUI71qJLMhMnMWYf7Qx8ZyLhs/7yzTRL+2viuWqdJErsg6m5ueBP
-	YyqIol55lrddFWea1tGg==;
+	List-Owner; bh=Qp11xWEI1NOb9+15v2Salkt7eluTlDFijDG/hQby0EA=; b=3b0Pi5Zi7k0zLK
+	pAF7SClu+iIy+HwNkX3hf8OyRveeioKGxSZETNvBNvkBHxMcFXwl2U3vuGuokwqVa6P+lQZJtDKMH
+	viQc8oB9rcqoaxKTQaXppGjKdcm0sdhBccyEeuImLodpdlOmA8PUPpVcqUo5qQlJA366EVwVapWEy
+	xsAjMBDXti70GF9XHY3z10lDcwGVd5NBCRfLaU6ne7NlmvvXfykqi06RDgiOLl/E/+y40hiDMoRMs
+	PG7tJOWSOjIDuFu/uPwYg7kmsnm7HEyLLCjpKU3Zdy1M9FgAJyxnhh9xtdCfadmhVitcaZ3APumpU
+	dNyLwDS8J0KsHLPlDwmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMPJN-002crj-QX; Mon, 30 Jan 2023 08:14:45 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMPJK-002cr8-Tl
-	for linux-riscv@lists.infradead.org; Mon, 30 Jan 2023 08:14:45 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id ECE7224E1ED;
-	Mon, 30 Jan 2023 16:14:24 +0800 (CST)
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 30 Jan
- 2023 16:14:25 +0800
-Received: from [192.168.125.128] (183.27.97.127) by EXMBX061.cuchost.com
- (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 30 Jan
- 2023 16:14:23 +0800
-Message-ID: <ce15c2be-e959-334a-2297-cfbb6bc2d62f@starfivetech.com>
-Date: Mon, 30 Jan 2023 16:10:16 +0800
+	id 1pMPNx-002dbz-DQ; Mon, 30 Jan 2023 08:19:29 +0000
+Received: from mail-yw1-x112b.google.com ([2607:f8b0:4864:20::112b])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pMPNJ-002dTP-J5
+	for linux-riscv@lists.infradead.org; Mon, 30 Jan 2023 08:18:51 +0000
+Received: by mail-yw1-x112b.google.com with SMTP id 00721157ae682-50aa54cc7c0so121786807b3.8
+        for <linux-riscv@lists.infradead.org>; Mon, 30 Jan 2023 00:18:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=UUp/6YID92JFAcveT6p4E2dADeEO7Fk2qJDYnyhDUuM=;
+        b=LCl/0LT+oiQFk2TDeIP0mhJLimuvr2KYhCX+kKriLEOd231afvJevzELvXaP6E152L
+         7k5xWJjg51U/ggIHE8YzxrXzuCkljXtK66I8nSG30nX3Toml+cq/8M8vtA7EoI57rQAj
+         GHZiSQOlEuLpXmrwY4e8UcaEcU8oajg8QsVBTcRj6aZbGLIePJximGxKu3WT/Cbi6woV
+         2kDdLGZRJyK4nQOoxyWPv/r1L8l2ukp/c56raw3vbuecSYbQKhiHrbX5v8QNTM+g/pjr
+         LjOjWM8vtrhZNMtu8wIE4jr/93U/wrb4rSqy0CYHvjxk2+7vAn1tIsw1vNx6ZOjBv9nY
+         OY7g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=UUp/6YID92JFAcveT6p4E2dADeEO7Fk2qJDYnyhDUuM=;
+        b=a/QNDnmItKVTnui7hXioAy3NcpQ7eBb7UE1G5ZQZXnikwqJ2VXOvt+glF+jvPyEvio
+         0FkPMvSvDjKnKfJgF3ezVU0PqjD7p0l2kHg0YXyO0liFE76+kOBETZSYzmjvUBgzB9xh
+         1EORSxTtcg6KwVjuF1qr5wnmXnIctT99TPDavj89weP7/r8RQLufsc+SAlf6w4IeHK+h
+         HSYGP22oqFn7hC+eU8sATsF68ZYG0rLhMOzgRzrrXwa2x5WqcGZdslJLp9++reAmde3U
+         yEJiFliUkyLK9qp/4qICL9ewFv+edNZOxw/rMT6Qj41pyAH8XJanM7q6JstBGnH2sjdI
+         vgMA==
+X-Gm-Message-State: AFqh2kowg0KR31L6TWxDH3unETUcPmoCHUkH1gp9iStOa6KVJHpLp+yp
+	1aVm7Ei1U2z3epWbc/HG8c7kJOD3y771ux7IeEKjgw==
+X-Google-Smtp-Source: AMrXdXuiEugqB5vsz67q2rlzfCL6FLkh6p+M/+KuuutF0CGZJOSsBFbARe7b0EMunhesbUho6cQRttFrf2ydGcl2NsU=
+X-Received: by 2002:a81:7307:0:b0:464:4ea1:3baa with SMTP id
+ o7-20020a817307000000b004644ea13baamr5078631ywc.302.1675066718489; Mon, 30
+ Jan 2023 00:18:38 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.6.1
-Subject: Re: [PATCH v1 07/11] dt-bindings: clock: Add StarFive JH7110
- Video-Output clock and reset generator
-Content-Language: en-US
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Michael
- Turquette" <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Emil Renner Berthing <kernel@esmil.dk>
-CC: Rob Herring <robh+dt@kernel.org>, Conor Dooley <conor@kernel.org>, "Paul
- Walmsley" <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>,
-	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>
-References: <20230120024445.244345-1-xingyu.wu@starfivetech.com>
- <20230120024445.244345-8-xingyu.wu@starfivetech.com>
- <428dc119-82ab-e565-7bd6-1a99ec3967d9@linaro.org>
-From: Xingyu Wu <xingyu.wu@starfivetech.com>
-In-Reply-To: <428dc119-82ab-e565-7bd6-1a99ec3967d9@linaro.org>
-X-Originating-IP: [183.27.97.127]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX061.cuchost.com
- (172.16.6.61)
-X-YovoleRuleAgent: yovoleflag
+References: <20230125142056.18356-1-andy.chiu@sifive.com> <20230125142056.18356-19-andy.chiu@sifive.com>
+ <CAK9=C2UWJ1qDfyfsKiznfFTVDHbjJm89m_6ymM=jpvYs7-qNcQ@mail.gmail.com>
+In-Reply-To: <CAK9=C2UWJ1qDfyfsKiznfFTVDHbjJm89m_6ymM=jpvYs7-qNcQ@mail.gmail.com>
+From: Andy Chiu <andy.chiu@sifive.com>
+Date: Mon, 30 Jan 2023 16:18:27 +0800
+Message-ID: <CABgGipUPwnu1p14sc6GT+Agh-zx=cbwHanTsTRweR1ErtsX0kA@mail.gmail.com>
+Subject: Re: [PATCH -next v13 18/19] riscv: kvm: redirect illegal instruction
+ traps to guests
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, anup@brainfault.org, 
+	atishp@atishpatra.org, kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
+	vineetg@rivosinc.com, greentime.hu@sifive.com, guoren@linux.alibaba.com, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230130_001443_290994_D0FFA387 
-X-CRM114-Status: GOOD (  11.81  )
+X-CRM114-CacheID: sfid-20230130_001849_652063_540ACA3E 
+X-CRM114-Status: GOOD (  34.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,171 +89,103 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2023/1/20 16:13, Krzysztof Kozlowski wrote:
-> On 20/01/2023 03:44, Xingyu Wu wrote:
->> Add bindings for the Video-Output clock and reset generator (VOUTCRG)
->> on the JH7110 RISC-V SoC by StarFive Ltd.
->> 
->> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
->> ---
->>  .../clock/starfive,jh7110-voutcrg.yaml        | 96 +++++++++++++++++++
->>  .../dt-bindings/clock/starfive,jh7110-crg.h   | 22 +++++
->>  .../dt-bindings/reset/starfive,jh7110-crg.h   | 16 ++++
->>  3 files changed, 134 insertions(+)
->>  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-voutcrg.yaml
->> 
->> diff --git a/Documentation/devicetree/bindings/clock/starfive,jh7110-voutcrg.yaml b/Documentation/devicetree/bindings/clock/starfive,jh7110-voutcrg.yaml
->> new file mode 100644
->> index 000000000000..a6a43d86a392
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/clock/starfive,jh7110-voutcrg.yaml
->> @@ -0,0 +1,96 @@
->> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/clock/starfive,jh7110-voutcrg.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: StarFive JH7110 Video-Output Clock and Reset Generator
->> +
->> +maintainers:
->> +  - Xingyu Wu <xingyu.wu@starfivetech.com>
->> +
->> +properties:
->> +  compatible:
->> +    const: starfive,jh7110-voutcrg
->> +
->> +  reg:
->> +    maxItems: 1
->> +
->> +  clocks:
->> +    items:
->> +      - description: Vout Top core
->> +      - description: Vout Top Ahb
->> +      - description: Vout Top Axi
->> +      - description: Vout Top HDMI MCLK
->> +      - description: I2STX0 BCLK
->> +      - description: external HDMI pixel
->> +
->> +  clock-names:
->> +    items:
->> +      - const: vout_src
->> +      - const: vout_top_ahb
->> +      - const: vout_top_axi
->> +      - const: vout_top_hdmitx0_mclk
->> +      - const: i2stx0_bclk
->> +      - const: hdmitx0_pixelclk
->> +
->> +  resets:
->> +    items:
->> +      - description: Vout Top core
->> +
->> +  reset-names:
->> +    items:
->> +      - const: vout_top_src
->> +
->> +  '#clock-cells':
->> +    const: 1
->> +    description:
->> +      See <dt-bindings/clock/starfive,jh7110-crg.h> for valid indices.
->> +
->> +  '#reset-cells':
->> +    const: 1
->> +    description:
->> +      See <dt-bindings/reset/starfive,jh7110-crg.h> for valid indices.
->> +
->> +  power-domains:
->> +    maxItems: 1
->> +    description:
->> +      Vout domain power
->> +
->> +required:
->> +  - compatible
->> +  - reg
->> +  - clocks
->> +  - clock-names
->> +  - resets
->> +  - reset-names
->> +  - '#clock-cells'
->> +  - '#reset-cells'
->> +  - power-domains
->> +
->> +additionalProperties: false
->> +
->> +examples:
->> +  - |
->> +    #include <dt-bindings/clock/starfive,jh7110-crg.h>
->> +    #include <dt-bindings/power/starfive,jh7110-pmu.h>
->> +    #include <dt-bindings/reset/starfive,jh7110-crg.h>
->> +
->> +    voutcrg: clock-controller@295C0000 {
->> +        compatible = "starfive,jh7110-voutcrg";
->> +        reg = <0x295C0000 0x10000>;
->> +        clocks = <&syscrg JH7110_SYSCLK_VOUT_SRC>,
->> +                 <&syscrg JH7110_SYSCLK_VOUT_TOP_AHB>,
->> +                 <&syscrg JH7110_SYSCLK_VOUT_TOP_AXI>,
->> +                 <&syscrg JH7110_SYSCLK_VOUT_TOP_HDMITX0_MCLK>,
->> +                 <&syscrg JH7110_SYSCLK_I2STX0_BCLK>,
->> +                 <&hdmitx0_pixelclk>;
->> +        clock-names = "vout_src", "vout_top_ahb",
->> +                      "vout_top_axi", "vout_top_hdmitx0_mclk",
->> +                      "i2stx0_bclk", "hdmitx0_pixelclk";
->> +        resets = <&syscrg JH7110_SYSRST_VOUT_TOP_SRC>;
->> +        reset-names = "vout_top_src";
->> +        #clock-cells = <1>;
->> +        #reset-cells = <1>;
->> +        power-domains = <&pwrc JH7110_PD_VOUT>;
->> +    };
->> diff --git a/include/dt-bindings/clock/starfive,jh7110-crg.h b/include/dt-bindings/clock/starfive,jh7110-crg.h
->> index 91ee589809c3..3ebece93cbd3 100644
->> --- a/include/dt-bindings/clock/starfive,jh7110-crg.h
->> +++ b/include/dt-bindings/clock/starfive,jh7110-crg.h
->> @@ -274,4 +274,26 @@
->>  
->>  #define JH7110_ISPCLK_END			14
->>  
->> +/* VOUTCRG clocks */
->> +#define JH7110_VOUTCLK_APB			0
->> +#define JH7110_VOUTCLK_DC8200_PIX		1
->> +#define JH7110_VOUTCLK_DSI_SYS			2
->> +#define JH7110_VOUTCLK_TX_ESC			3
->> +#define JH7110_VOUTCLK_DC8200_AXI		4
->> +#define JH7110_VOUTCLK_DC8200_CORE		5
->> +#define JH7110_VOUTCLK_DC8200_AHB		6
->> +#define JH7110_VOUTCLK_DC8200_PIX0		7
->> +#define JH7110_VOUTCLK_DC8200_PIX1		8
->> +#define JH7110_VOUTCLK_DOM_VOUT_TOP_LCD		9
->> +#define JH7110_VOUTCLK_DSITX_APB		10
->> +#define JH7110_VOUTCLK_DSITX_SYS		11
->> +#define JH7110_VOUTCLK_DSITX_DPI		12
->> +#define JH7110_VOUTCLK_DSITX_TXESC		13
->> +#define JH7110_VOUTCLK_MIPITX_DPHY_TXESC	14
->> +#define JH7110_VOUTCLK_HDMI_TX_MCLK		15
->> +#define JH7110_VOUTCLK_HDMI_TX_BCLK		16
->> +#define JH7110_VOUTCLK_HDMI_TX_SYS		17
->> +
->> +#define JH7110_VOUTCLK_END			18
->> +
->>  #endif /* __DT_BINDINGS_CLOCK_STARFIVE_JH7110_CRG_H__ */
->> diff --git a/include/dt-bindings/reset/starfive,jh7110-crg.h b/include/dt-bindings/reset/starfive,jh7110-crg.h
->> index 1b40df62cdac..f89589610cf5 100644
->> --- a/include/dt-bindings/reset/starfive,jh7110-crg.h
->> +++ b/include/dt-bindings/reset/starfive,jh7110-crg.h
->> @@ -195,4 +195,20 @@
->>  
->>  #define JH7110_ISPRST_END			12
->>  
->> +/* VOUTCRG resets */
->> +#define	JH7110_VOUTRST_DC8200_AXI		0
->> +#define	JH7110_VOUTRST_DC8200_AHB		1
-> 
-> Ditto
+On Fri, Jan 27, 2023 at 7:28 PM Anup Patel <apatel@ventanamicro.com> wrote:
+>
+> On Wed, Jan 25, 2023 at 7:53 PM Andy Chiu <andy.chiu@sifive.com> wrote:
+> >
+> > Running below m-mode, an illegal instruction trap where m-mode could not
+> > handle would be redirected back to s-mode. However, kvm running in hs-mode
+> > terminates the vs-mode software when it receive such exception code.
+> > Instead, it should redirect the trap back to vs-mode, and let vs-mode trap
+> > handler decide the next step.
+> >
+> > Besides, hs-mode should run transparently to vs-mode. So terminating
+> > guest OS breaks assumption for the kernel running in vs-mode.
+> >
+> > We use first-use trap to enable Vector for user space processes. This
+> > means that the user process running in u- or vu- mode will take an
+> > illegal instruction trap for the first time using V. Then the s- or vs-
+> > mode kernel would allocate V for the process. Thus, we must redirect the
+> > trap back to vs-mode in order to get the first-use trap working for guest
+> > OSes here.
+>
+> In general, it is a good strategy to always redirect illegal instruction
+> traps to VS-mode.
+>
+> >
+> > Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
+> > ---
+> >  arch/riscv/kvm/vcpu_exit.c | 15 +++++++++++++++
+> >  1 file changed, 15 insertions(+)
+> >
+> > diff --git a/arch/riscv/kvm/vcpu_exit.c b/arch/riscv/kvm/vcpu_exit.c
+> > index c9f741ab26f5..2a02cb750892 100644
+> > --- a/arch/riscv/kvm/vcpu_exit.c
+> > +++ b/arch/riscv/kvm/vcpu_exit.c
+> > @@ -162,6 +162,16 @@ void kvm_riscv_vcpu_trap_redirect(struct kvm_vcpu *vcpu,
+> >         vcpu->arch.guest_context.sepc = csr_read(CSR_VSTVEC);
+> >  }
+> >
+> > +static int vcpu_trap_redirect_vs(struct kvm_vcpu *vcpu,
+> > +                                struct kvm_cpu_trap *trap)
+> > +{
+> > +       /* set up trap handler and trap info when it gets back to vs */
+> > +       kvm_riscv_vcpu_trap_redirect(vcpu, trap);
+> > +       /* return to s-mode by setting vcpu's SPP */
+> > +       vcpu->arch.guest_context.sstatus |= SR_SPP;
+>
+> Setting sstatus.SPP needs to be done in kvm_riscv_vcpu_trap_redirect()
+> because for guest all traps are always taken by VS-mode.
+NIce. Sorry that I didn't dig much into the kvm part so I thought it
+was left to VU-mode on purpose.
+>
+> > +       return 1;
+> > +}
+> > +
+> >  /*
+> >   * Return > 0 to return to guest, < 0 on error, 0 (and set exit_reason) on
+> >   * proper exit to userspace.
+> > @@ -179,6 +189,10 @@ int kvm_riscv_vcpu_exit(struct kvm_vcpu *vcpu, struct kvm_run *run,
+> >         ret = -EFAULT;
+> >         run->exit_reason = KVM_EXIT_UNKNOWN;
+> >         switch (trap->scause) {
+> > +       case EXC_INST_ILLEGAL:
+> > +               if (vcpu->arch.guest_context.hstatus & HSTATUS_SPV)
+> > +                       ret = vcpu_trap_redirect_vs(vcpu, trap);
+> > +               break;
+> >         case EXC_VIRTUAL_INST_FAULT:
+> >                 if (vcpu->arch.guest_context.hstatus & HSTATUS_SPV)
+> >                         ret = kvm_riscv_vcpu_virtual_insn(vcpu, run, trap);
+> > @@ -206,6 +220,7 @@ int kvm_riscv_vcpu_exit(struct kvm_vcpu *vcpu, struct kvm_run *run,
+> >                         vcpu->arch.guest_context.hstatus);
+> >                 kvm_err("SCAUSE=0x%lx STVAL=0x%lx HTVAL=0x%lx HTINST=0x%lx\n",
+> >                         trap->scause, trap->stval, trap->htval, trap->htinst);
+> > +               asm volatile ("ebreak\n\t");
+>
+> This is not a related change.
+>
+Oops, that was a mistake.
+> >         }
+> >
+> >         return ret;
+> > --
+> > 2.17.1
+> >
+> >
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+>
+> Overall, this patch can be accepted independent of this series due
+> to its usefulness.
+>
+> I send a v2 of this patch separately.
+Thank you Anup. I will leave this patch there for the following
+revision of the vector patches.
 
-Will fix.
-
-Best regards,
-Xingyu Wu
-
+Cheers,
+Andy
 
 _______________________________________________
 linux-riscv mailing list
