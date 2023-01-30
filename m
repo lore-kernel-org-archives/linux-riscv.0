@@ -4,90 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32D02C61DA4
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jan 2023 23:39:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E20DDC61DA4
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jan 2023 23:47:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=88poSDcNhY90ZtXq40EsNnTh0iRedA1vthNISJZHN4o=; b=TeSflKrtz2hm6Q
-	wbo/xVmrkjRni6hxFj0VNPShsRptVdRQcqS4g4on2qMmMKLbC8ymoeenWv7at/uF2iNJ0dtazsYzV
-	3TBbqMPckXmAlkWhY9K29R0J+fZICqGsebddVHkYRAJ1mqg8QNoKzIHV5RMbvblPXpnv2fKI/Ft3C
-	hKi6NOgmGsetNaX+e5bCckjGzQUZZVIR8+famVpN7QtOsls3sr23jxGzLWA/IS7HMB06C6gCrV/lY
-	XhFI06/qL3uRm0GLp9tEMC5UqpScqlKtnI7nzlfkdU/HwBljpNo90wPwg/DqCqkDd28sgm4npu6Mu
-	PYK8ehzdZ7UQPUOqakdA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8ggrCDH2TMXR/BO4VjQEq/M8sxttafxnAIZuCJxJPrw=; b=SbQgWluB6wwMAgKEbKYcfiqkdz
+	GuNXkvasoKdkz4y8Ic3C+b/TVwaMf7st0+VYEJTh1qxYVpLQ6JBGRN1s/TF2/WG1gHZlWmvRCVBiA
+	8WgE7FSLR9FNYogkC0IdPcAv3LaQl7pecE/6dYEbKrXSiWYJx7c+OftExBO5Hh/SvO87rJtltI16j
+	puv2ktOh/6LzaGe+5wccj7pGakVu2ISPTyR8r4ZrDFgWDrsTeATMYQCVHxCAj4B06Eatt0PwkJjRy
+	FX8NNLgF8JGzRnt8kOR5tHm9dY8sKIhGRt2S5kuD4I4sb0XHcbU3nhCovLoFVi8mN8fUouEg4GMN9
+	Ob0zfrWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMdjj-005nb8-E0; Mon, 30 Jan 2023 23:38:55 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1pMdsJ-005oeA-PZ; Mon, 30 Jan 2023 23:47:47 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMdjg-005nac-59
-	for linux-riscv@lists.infradead.org; Mon, 30 Jan 2023 23:38:53 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id m7so12714541wru.8
-        for <linux-riscv@lists.infradead.org>; Mon, 30 Jan 2023 15:38:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=jrtc27.com; s=gmail.jrtc27.user;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=c0D2OAkoPSuqGKjYfRL/XBDXMIK40xEQA3Iqq9uVH7g=;
-        b=WNM+LzlDInSIM5aAM0uVfSzBnlnhI/kYDKYv5CNfmyIolHk9byTBwn8hNONJ458Cay
-         bZ9Jh/qgcbj8wXhylJWvOFPtm06jFcgcdKZktxHVThzvXSr6mMLV3vk5Xt3p9C20khjb
-         KUS/jzF3LNa/VAZMBQWpJBNOPWQYqdXyzPmzEivpTUaKthQkq4Zv6vN3gKjC30bAId0e
-         q+YN1i3wGluxuqNaCbYHi2JLfL0Oju/PdPt0vbeRiJYdkTgB1qvRK+BwBee/O2HcAFTr
-         u3wqgWnn6DVfyIuCib0tK2Cs56yqZYtBKsBSODr4CKIDAb6TxrLnWo6+oxDGlKIl1Rcm
-         DaCg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=c0D2OAkoPSuqGKjYfRL/XBDXMIK40xEQA3Iqq9uVH7g=;
-        b=Z5KzWXFzpeLyVXmKJpLT31+DGXZ1LUYbMTmRO/+eNSirn4VK1mS7Xhd8R2/wF32/Ch
-         EGEZRLGAmiGRXPn8GNHJOQn74NOavgCya++8jGShiO+5PDcSToxMH14dG+Jzr4MhsUGb
-         rd5OglccbPViSIY64aeygG5qrh0HYDP20CETEbU8QMYRSqW9cwiY+0PHdLKCJ2mdl0fS
-         0rSVLAz1wFSz/YZ4u0XX4odg6EcGDfvVtm8g+LAJmMXVtq5Ce4QcCsERFTOt/TRk/THZ
-         ZRQ1ClXZ4ALPP8+t602eISAZcEvP7SKRNv8vnMOY5mxLeFVREdqRK4PLM9GIdtarqneX
-         ewlg==
-X-Gm-Message-State: AO0yUKWPbTLgsnFO820RRAtOhj45zrqKdUF6HNXWjEyzZWDHIjSdd32k
-	FWZAH80S6n+/mhB5b0OQcSUH3MmNV3k3uWzLV0lRiA==
-X-Google-Smtp-Source: AK7set+th+iU4+VT+YyfX3TofjLEq/2pqNCe2nCL1a5FI7ePffNwYAI1KUnTm18azN07is2Is689Tg==
-X-Received: by 2002:adf:e702:0:b0:2bf:b765:7a13 with SMTP id c2-20020adfe702000000b002bfb7657a13mr1001880wrm.5.1675121930175;
-        Mon, 30 Jan 2023 15:38:50 -0800 (PST)
-Received: from smtpclient.apple (global-5-143.n-2.net.cam.ac.uk. [131.111.5.143])
-        by smtp.gmail.com with ESMTPSA id o6-20020adfe806000000b002bdf8dd6a8bsm12909713wrm.80.2023.01.30.15.38.49
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 30 Jan 2023 15:38:49 -0800 (PST)
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3696.120.41.1.1\))
-Subject: Re: [PATCH 11/24] RISC-V: ACPI: irqchip/riscv-intc: Add ACPI support
-From: Jessica Clarke <jrtc27@jrtc27.com>
-In-Reply-To: <20230130182225.2471414-12-sunilvl@ventanamicro.com>
-Date: Mon, 30 Jan 2023 23:38:49 +0000
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>,
- "Rafael J . Wysocki" <rafael@kernel.org>,
- Len Brown <lenb@kernel.org>,
- Thomas Gleixner <tglx@linutronix.de>,
- Marc Zyngier <maz@kernel.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Jonathan Corbet <corbet@lwn.net>,
- Anup Patel <apatel@ventanamicro.com>,
- linux-doc@vger.kernel.org,
- Atish Patra <atishp@rivosinc.com>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-acpi@vger.kernel.org,
- linux-riscv@lists.infradead.org,
- Andrew Jones <ajones@ventanamicro.com>
-Message-Id: <AFDD5897-27A3-4418-B08B-9650B543692D@jrtc27.com>
-References: <20230130182225.2471414-1-sunilvl@ventanamicro.com>
- <20230130182225.2471414-12-sunilvl@ventanamicro.com>
+	id 1pMdsG-005ocy-Lm
+	for linux-riscv@lists.infradead.org; Mon, 30 Jan 2023 23:47:46 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by sin.source.kernel.org (Postfix) with ESMTPS id E1A1ECE1AD6;
+	Mon, 30 Jan 2023 23:47:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33320C433EF;
+	Mon, 30 Jan 2023 23:47:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1675122461;
+	bh=WoJeIgf/JQZhJHXDszCWgkHNzPbweY0aWYQ3iEPGhBI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=QULFyBjTeeC1392caZNLBFUYEO05aNmt2qcr6HCpbQfJG2gU2FkCDLwIgYUjz18Q8
+	 uChNcDCAt0lr57gFu+1jkgxml6xL7DE7LuDBWkog8j9Ivc837sGCjv0UpTOD5Snbp0
+	 d8cxiAZHD24140/A9KBZxYbySlCqpCOnpFU+MgQbb1/Hfd02VQ1hxYoZ164EuA5e5E
+	 1Tp/4WdqExpa5XLCnjzmcjtOSaA5WERxcbf1ShyECo1MsVWtSlNJMVpVRagSxdlT1h
+	 7AQVsg2bu2pbk9IVx2gu4xU1FPlwj1iYAS/8j5MckNHeBucgBCo0GJ8Q4JoCNDywGU
+	 ffrSlyJINLfRQ==
+Date: Mon, 30 Jan 2023 23:47:35 +0000
+From: Conor Dooley <conor@kernel.org>
 To: Sunil V L <sunilvl@ventanamicro.com>
-X-Mailer: Apple Mail (2.3696.120.41.1.1)
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Marc Zyngier <maz@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Jonathan Corbet <corbet@lwn.net>, linux-riscv@lists.infradead.org,
+	linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org, Anup Patel <apatel@ventanamicro.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Atish Patra <atishp@rivosinc.com>
+Subject: Re: [PATCH 22/24] RISC-V: ACPI: Enable ACPI in defconfig
+Message-ID: <Y9hXF8RpNawkuTEN@spud>
+References: <20230130182225.2471414-1-sunilvl@ventanamicro.com>
+ <20230130182225.2471414-23-sunilvl@ventanamicro.com>
+MIME-Version: 1.0
+In-Reply-To: <20230130182225.2471414-23-sunilvl@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230130_153852_277676_908B562D 
-X-CRM114-Status: GOOD (  26.09  )
+X-CRM114-CacheID: sfid-20230130_154744_911291_AC9FC6CC 
+X-CRM114-Status: GOOD (  17.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,150 +75,85 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1360026330614230997=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 30 Jan 2023, at 18:22, Sunil V L <sunilvl@ventanamicro.com> wrote:
-> 
-> Add support for initializing the RISC-V INTC driver on ACPI based
-> platforms.
-> 
+
+--===============1360026330614230997==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="zg0/95MUBwMtXXq2"
+Content-Disposition: inline
+
+
+--zg0/95MUBwMtXXq2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hey Sunil,
+
+Two quick comments while I think of them..
+
+On Mon, Jan 30, 2023 at 11:52:23PM +0530, Sunil V L wrote:
+> RISC-V: ACPI: Enable ACPI in defconfig
+
+btw, about half of this series redundantly puts "ACPI:" or "RISC-V:
+ACPI:" into $subject. None of commits that mention ACPI after the last :
+should mention ACPI in the prefix IMO, it's just noise.
+
+For example, this one should be something like:
+RISC-V: enable ACPI in defconfig
+
+> Add support to build ACPI subsystem in defconfig.
+>=20
 > Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
 > ---
-> drivers/irqchip/irq-riscv-intc.c | 79 +++++++++++++++++++++++++++-----
-> 1 file changed, 67 insertions(+), 12 deletions(-)
-> 
-> diff --git a/drivers/irqchip/irq-riscv-intc.c b/drivers/irqchip/irq-riscv-intc.c
-> index f229e3e66387..044ec92fcba7 100644
-> --- a/drivers/irqchip/irq-riscv-intc.c
-> +++ b/drivers/irqchip/irq-riscv-intc.c
-> @@ -6,6 +6,7 @@
->  */
-> 
-> #define pr_fmt(fmt) "riscv-intc: " fmt
-> +#include <linux/acpi.h>
-> #include <linux/atomic.h>
-> #include <linux/bits.h>
-> #include <linux/cpu.h>
-> @@ -112,6 +113,30 @@ static struct fwnode_handle *riscv_intc_hwnode(void)
-> 	return intc_domain->fwnode;
-> }
-> 
-> +static int __init riscv_intc_init_common(struct fwnode_handle *fn)
-> +{
-> +	int rc;
-> +
-> +	intc_domain = irq_domain_create_linear(fn, BITS_PER_LONG,
-> +					       &riscv_intc_domain_ops, NULL);
-> +	if (!intc_domain) {
-> +		pr_err("unable to add IRQ domain\n");
-> +		return -ENXIO;
-> +	}
-> +
-> +	rc = set_handle_irq(&riscv_intc_irq);
-> +	if (rc) {
-> +		pr_err("failed to set irq handler\n");
-> +		return rc;
-> +	}
-> +
-> +	riscv_set_intc_hwnode_fn(riscv_intc_hwnode);
-> +
-> +	pr_info("%d local interrupts mapped\n", BITS_PER_LONG);
-> +
-> +	return 0;
-> +}
-> +
-> static int __init riscv_intc_init(struct device_node *node,
-> 				  struct device_node *parent)
-> {
-> @@ -133,24 +158,54 @@ static int __init riscv_intc_init(struct device_node *node,
-> 	if (riscv_hartid_to_cpuid(hartid) != smp_processor_id())
-> 		return 0;
-> 
-> -	intc_domain = irq_domain_add_linear(node, BITS_PER_LONG,
-> -					    &riscv_intc_domain_ops, NULL);
-> -	if (!intc_domain) {
-> -		pr_err("unable to add IRQ domain\n");
-> -		return -ENXIO;
-> -	}
-> -
-> -	rc = set_handle_irq(&riscv_intc_irq);
-> +	rc = riscv_intc_init_common(of_node_to_fwnode(node));
-> 	if (rc) {
-> -		pr_err("failed to set irq handler\n");
-> +		pr_err("failed to initialize INTC\n");
-> 		return rc;
-> 	}
-> 
-> -	riscv_set_intc_hwnode_fn(riscv_intc_hwnode);
-> +	return 0;
-> +}
-> 
-> -	pr_info("%d local interrupts mapped\n", BITS_PER_LONG);
-> +IRQCHIP_DECLARE(riscv, "riscv,cpu-intc", riscv_intc_init);
-> +
-> +#ifdef CONFIG_ACPI
-> +
-> +static int __init
-> +riscv_intc_acpi_init(union acpi_subtable_headers *header,
-> +		     const unsigned long end)
-> +{
-> +	int rc;
-> +	struct fwnode_handle *fn;
-> +	struct acpi_madt_rintc *rintc;
-> +
-> +	rintc = (struct acpi_madt_rintc *)header;
-> +
-> +	/*
-> +	 * The ACPI MADT will have one INTC for each CPU (or HART)
-> +	 * so riscv_intc_acpi_init() function will be called once
-> +	 * for each INTC. We only need to do INTC initialization
-> +	 * for the INTC belonging to the boot CPU (or boot HART).
-> +	 */
-> +	if (riscv_hartid_to_cpuid(rintc->hart_id) != smp_processor_id())
-> +		return 0;
+>  arch/riscv/configs/defconfig | 4 ++++
+>  1 file changed, 4 insertions(+)
+>=20
+> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+> index 128dcf4c0814..8ce06fb0dde8 100644
+> --- a/arch/riscv/configs/defconfig
+> +++ b/arch/riscv/configs/defconfig
+> @@ -218,3 +218,7 @@ CONFIG_RCU_EQS_DEBUG=3Dy
+>  # CONFIG_FTRACE is not set
+>  # CONFIG_RUNTIME_TESTING_MENU is not set
+>  CONFIG_MEMTEST=3Dy
+> +CONFIG_ARCH_SUPPORTS_ACPI=3Dy
 
-Why are we carrying forward this mess to ACPI? The DT bindings are
-awful and a complete pain to deal with, as evidenced by how both Linux
-and FreeBSD have to go out of their way to do special things to only
-look at one of the many copies of the same thing.
+This needs to go into the arch Kconfig file, where it will be selected.
+Check what arm64 does if you are not sure what I mean.
 
-Jess
+Hopefully I'll get a chance to look at the rest of this this week
+sometime,
+Conor.
 
-> +
-> +	fn = irq_domain_alloc_named_fwnode("RISCV-INTC");
-> +	WARN_ON(fn == NULL);
-> +	if (!fn) {
-> +		pr_err("unable to allocate INTC FW node\n");
-> +		return -1;
-> +	}
-> +
-> +	rc = riscv_intc_init_common(fn);
-> +	if (rc) {
-> +		pr_err("failed to initialize INTC\n");
-> +		return rc;
-> +	}
-> 
-> 	return 0;
-> }
-> 
-> -IRQCHIP_DECLARE(riscv, "riscv,cpu-intc", riscv_intc_init);
-> +IRQCHIP_ACPI_DECLARE(riscv_intc, ACPI_MADT_TYPE_RINTC,
-> +		     NULL, 1, riscv_intc_acpi_init);
-> +#endif
-> -- 
-> 2.38.0
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
+--zg0/95MUBwMtXXq2
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY9hXFwAKCRB4tDGHoIJi
+0jz5AP9T0B2MgLSmPbYSg1QODDZGfojq049zs7BQd+8I5h0xMQEAg7Tq0HANXXSF
+/wo06urL3IrFIJh1toI0j0c616zj5Q8=
+=lM2h
+-----END PGP SIGNATURE-----
+
+--zg0/95MUBwMtXXq2--
+
+
+--===============1360026330614230997==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1360026330614230997==--
+
