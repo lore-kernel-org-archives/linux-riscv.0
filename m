@@ -4,71 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69611C54EED
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jan 2023 18:22:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DFABC54EAA
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jan 2023 18:24:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=kIrJo+v7TMHJfsaNZPP87TrFSguah8Xp5Sft2oK6wWQ=; b=iO3uEEssHNeri3
-	/jq94UQqRFQhedLDW888XKiPBUE/xWGmrCcFw/FCAO/AYXQ0TihWEsx2vKGfmTHKhy6Rh9ML2ULA1
-	o+snx/iykwG0JBCAeOaXMKoLR/xwJT4SgDsYpc91B2m9HkelK2+wUwtMu0BlYkgMRWNy5/BKJ0p0a
-	a3xQihTNj5c0ZJh/JCgHsJE2T810fPEGjd929Gm/1FPkL5UgaD4KgvUpwo7rplrudBPGY4dk6EmDh
-	eD6P5zwGn4dGQPBCWQmwOO63QlJI9Zyqp5WhnJ6+H20U3DTeH0M8Qwmg9LD1btDlVhrNzbnGvLUYX
-	U/XCQ5C1p1URu11d2Xlg==;
+	List-Owner; bh=uaRr5V6ynbfHVMa51SLxGeWYWlJGw4t5qlZgDZFOFAg=; b=YKyJJzQ+XxQpaM
+	w9s9vHer5VXLMDPq5LKlyXe0iTIrkz9xjgcebJtrGdp00atkAjtqJwZeELZ8/fBMBvXX2tC5t5nnu
+	of+QT/WjfDbf8IvPlUIEXVnnlxTWs89PKe/zQwgExvlAWjC8mWoj4a3Qbigpo1dx6AGiKtdefTcl7
+	XLUl1z6gwp7OxaYlG68NAnqvrXyurukOCA1cVl0Pi8cbjUOsu4rCZnxSMdrQmMjDs4qnipl6tN2i3
+	A2NrLy86jpSFv9EBSaCW5XbKomfDb1Cc3BOKekgMiTEWaaF1rXzb/g4PgfptTIXk94mKCv92AyQiS
+	OSvLUYg/YahnNqyKOXKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMYmy-004wVz-7a; Mon, 30 Jan 2023 18:21:56 +0000
-Received: from mga07.intel.com ([134.134.136.100])
+	id 1pMYpf-004xdr-FX; Mon, 30 Jan 2023 18:24:43 +0000
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMYkT-004vQy-8j; Mon, 30 Jan 2023 18:19:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1675102761; x=1706638761;
-  h=date:from:to:cc:subject:message-id:mime-version:
-   content-transfer-encoding;
-  bh=DRtzzOgVDPKFkGC1t3GTlTEe2UUizuLp1A0OwFAaQkY=;
-  b=b94k830LvAWrnw56nEqjfwgTZPmWxHC3/s4GNvUhl/S7zT3qI7QlQ25h
-   TGKrTaNaythioASuGWYADys89fLrXMztllgw87QOeIbeLO9lg01tJZ6KT
-   xQ7qzlEyJ1Ic2MbyHdBsKBNMja1BuuvYFo3mIcrfyKhHiPZyVWeG2g/ge
-   IJ++vXSJYHWBb4HHZvKAmVsfEKDhvruQtDJ4CcjYSQoEtFqGlrxMadG3J
-   IL9g+sbd0Va7IojgIEOMYqJav+hSxDCWVvrHLNiMB7pWcp74rmBFoIVU5
-   IChvEFzvl7lGWFzhpi/YbOkFNDkcGO0vE1zx/FahxZ5Sm+DHHU2LNUqGQ
-   Q==;
-X-IronPort-AV: E=McAfee;i="6500,9779,10606"; a="392181532"
-X-IronPort-AV: E=Sophos;i="5.97,258,1669104000"; 
-   d="scan'208";a="392181532"
-Received: from orsmga004.jf.intel.com ([10.7.209.38])
-  by orsmga105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Jan 2023 10:19:18 -0800
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6500,9779,10606"; a="788117174"
-X-IronPort-AV: E=Sophos;i="5.97,258,1669104000"; 
-   d="scan'208";a="788117174"
-Received: from lkp-server01.sh.intel.com (HELO ffa7f14d1d0f) ([10.239.97.150])
-  by orsmga004.jf.intel.com with ESMTP; 30 Jan 2023 10:19:15 -0800
-Received: from kbuild by ffa7f14d1d0f with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1pMYkM-0003oM-2b;
-	Mon, 30 Jan 2023 18:19:14 +0000
-Date: Tue, 31 Jan 2023 02:18:18 +0800
-From: kernel test robot <lkp@intel.com>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: linux-trace-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, kvmarm@lists.cs.columbia.edu,
- intel-gfx@lists.freedesktop.org, amd-gfx@lists.freedesktop.org,
- Linux Memory Management List <linux-mm@kvack.org>
-Subject: [linux-next:master] BUILD REGRESSION
- ae0c77e1bc6963c67c6c09e8c72959fcb1ed8d5f
-Message-ID: <63d809ea.gvDoFQVzTVK4NFiz%lkp@intel.com>
-User-Agent: Heirloom mailx 12.5 6/20/10
+	id 1pMYnd-004wm8-2Y
+	for linux-riscv@lists.infradead.org; Mon, 30 Jan 2023 18:22:38 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id t12-20020a17090aae0c00b00229f4cff534so13814281pjq.1
+        for <linux-riscv@lists.infradead.org>; Mon, 30 Jan 2023 10:22:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=RI22LbgqWNEv5UzlC1sMyx9FAhRay6n0zSuBGUPx4y8=;
+        b=BhBgNdAagLBMY28KLLQVlINvG4nk9njtI1Kcv6Kc6G4unrUh5ZBfAiC7Lpl4kL/oid
+         VDvBZKFG0hhODY3zyhSXF+XhlTt/EUH/jno/EQzcbiel2IIfdD7Yq9hcKEsrWGrtDDnl
+         IhlcJ9kMY38C9J/f8hKOie7R4xXQGv3awE55RbchEXJ+fXxivwdh2Lt+l4vxKylTmKpy
+         1xw/VH9Uf9Hcq3V19EydNCcS+rOdwktXHoEhUbTKFGn+IztCYGPJerQWAD1SVwl5L79F
+         EkQTKchOFkt7NCdKqjqKE18wU5IctSbeX4yek5KhgtqVNj2sY4/3V9fmmLf7pNdCPHdi
+         kXWw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=RI22LbgqWNEv5UzlC1sMyx9FAhRay6n0zSuBGUPx4y8=;
+        b=tzZaihlGaU3iRtf1zib48vchroKBkMqyeNWuFnkD6/ukfdzay41kJecyrsEVUpxiZ0
+         j3SsPYOaRrDQfPIwbEXJhzcKKTkAk6YwpO3abokHDI/HwD9I5S5gKViE4dk/Zel07xie
+         FRy0eiAaippg1tLaKOgdKfCo5VTULrrCYils48pdAGjLrrl+PsVKoetY+d3Jbs7qPjwv
+         SH/F8uJ06y71KK4zmHidJP6wYf2rNYIZv+ZHEP8KX8Hdh9P/dqK3EdnvU5Smhdm/ZteA
+         upz4E4DWeN1MEtw+X2EaIsw8churrE+P6LKrkf1E4bV3aBNF/ohEJsNNOMZUeXxkCGUO
+         HPcQ==
+X-Gm-Message-State: AO0yUKWSxuHMRuxQnUWmYh8jlUl5C8MbTigdohru64fAelK59rxGvZau
+	tx+7RUpDc37tJCBp1Z6mv87XRpBhyit4MAhE
+X-Google-Smtp-Source: AK7set/c3VAC3ZT2NOToGmYgKr82uNdFAR1hLwjGxiq3XJF5GQQbK6Orcm8br2dBNQTap/jO+cH1ag==
+X-Received: by 2002:a05:6a20:c19a:b0:b8:4cc9:16d9 with SMTP id bg26-20020a056a20c19a00b000b84cc916d9mr18529672pzb.46.1675102954299;
+        Mon, 30 Jan 2023 10:22:34 -0800 (PST)
+Received: from kerodipc.Dlink ([49.206.9.96])
+        by smtp.gmail.com with ESMTPSA id j193-20020a638bca000000b00478162d9923sm7000291pge.13.2023.01.30.10.22.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 30 Jan 2023 10:22:33 -0800 (PST)
+From: Sunil V L <sunilvl@ventanamicro.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Marc Zyngier <maz@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Jonathan Corbet <corbet@lwn.net>
+Subject: [PATCH 00/24] Add basic ACPI support for RISC-V
+Date: Mon, 30 Jan 2023 23:52:01 +0530
+Message-Id: <20230130182225.2471414-1-sunilvl@ventanamicro.com>
+X-Mailer: git-send-email 2.38.0
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230130_101921_461247_C8504163 
-X-CRM114-Status: UNSURE (   7.10  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230130_102237_158279_6F2FD20B 
+X-CRM114-Status: GOOD (  11.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,209 +87,108 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Anup Patel <apatel@ventanamicro.com>, linux-doc@vger.kernel.org, Atish Patra <atishp@rivosinc.com>, linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org, linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
-branch HEAD: ae0c77e1bc6963c67c6c09e8c72959fcb1ed8d5f  Add linux-next specific files for 20230130
+This patch series enables the basic ACPI infrastructure for RISC-V.
+Supporting external interrupt controllers is in progress and hence it is
+tested using polling based HVC SBI console and RAM disk.
 
-Error/Warning reports:
+The series depends on Anup's IPI improvement series.
+https://github.com/avpatel/linux/commits/riscv_ipi_imp_v17
 
-https://lore.kernel.org/oe-kbuild-all/202301230743.Xnut0Zvc-lkp@intel.com
-https://lore.kernel.org/oe-kbuild-all/202301300743.bp7Dpazv-lkp@intel.com
-https://lore.kernel.org/oe-kbuild-all/202301301722.6fghRppL-lkp@intel.com
-https://lore.kernel.org/oe-kbuild-all/202301301801.y5O08tQx-lkp@intel.com
-https://lore.kernel.org/oe-kbuild-all/202301302110.mEtNwkBD-lkp@intel.com
+These changes are available at
+https://github.com/vlsunil/linux/commits/acpi_b1_us_review_ipi17
 
-Error/Warning: (recently discovered and may have been fixed)
+Testing:
+1) Build Qemu with ACPI support using below branch
+https://github.com/vlsunil/qemu/tree/acpi_b1_us_review
 
-Documentation/riscv/uabi.rst:24: WARNING: Enumerated list ends without a blank line; unexpected unindent.
-ERROR: modpost: "devm_platform_ioremap_resource" [drivers/dma/fsl-edma.ko] undefined!
-ERROR: modpost: "devm_platform_ioremap_resource" [drivers/dma/idma64.ko] undefined!
-arch/arm64/kvm/arm.c:2211: warning: expecting prototype for Initialize Hyp(). Prototype was for kvm_arm_init() instead
-drivers/clk/qcom/gcc-sa8775p.c:313:32: warning: unused variable 'gcc_parent_map_10' [-Wunused-const-variable]
-drivers/clk/qcom/gcc-sa8775p.c:318:37: warning: unused variable 'gcc_parent_data_10' [-Wunused-const-variable]
-drivers/clk/qcom/gcc-sa8775p.c:333:32: warning: unused variable 'gcc_parent_map_12' [-Wunused-const-variable]
-drivers/clk/qcom/gcc-sa8775p.c:338:37: warning: unused variable 'gcc_parent_data_12' [-Wunused-const-variable]
-drivers/gpu/drm/amd/amdgpu/../display/dc/link/accessories/link_dp_trace.c:148:6: warning: no previous prototype for 'link_dp_trace_set_edp_power_timestamp' [-Wmissing-prototypes]
-drivers/gpu/drm/amd/amdgpu/../display/dc/link/accessories/link_dp_trace.c:158:10: warning: no previous prototype for 'link_dp_trace_get_edp_poweron_timestamp' [-Wmissing-prototypes]
-drivers/gpu/drm/amd/amdgpu/../display/dc/link/accessories/link_dp_trace.c:163:10: warning: no previous prototype for 'link_dp_trace_get_edp_poweroff_timestamp' [-Wmissing-prototypes]
-drivers/gpu/drm/amd/amdgpu/../display/dc/link/protocols/link_dp_capability.c:1295:32: warning: variable 'result_write_min_hblank' set but not used [-Wunused-but-set-variable]
-drivers/gpu/drm/amd/amdgpu/../display/dc/link/protocols/link_dp_capability.c:279:42: warning: variable 'ds_port' set but not used [-Wunused-but-set-variable]
-drivers/gpu/drm/amd/amdgpu/../display/dc/link/protocols/link_dp_training.c:1585:38: warning: variable 'result' set but not used [-Wunused-but-set-variable]
-kismet: WARNING: unmet direct dependencies detected for VFIO_MDEV when selected by SAMPLE_VFIO_MDEV_MTTY
-libbpf: failed to find '.BTF' ELF section in vmlinux
+2) Build EDK2 as per instructions in
+https://github.com/vlsunil/riscv-uefi-edk2-docs/wiki/RISC-V-Qemu-Virt-support
 
-Unverified Error/Warning (likely false positive, please contact us if interested):
+3) Build Linux after enabling SBI HVC and SBI earlycon
+CONFIG_RISCV_SBI_V01=y
+CONFIG_SERIAL_EARLYCON_RISCV_SBI=y
+CONFIG_HVC_RISCV_SBI=y
 
-drivers/nvmem/imx-ocotp.c:599:21: sparse: sparse: symbol 'imx_ocotp_layout' was not declared. Should it be static?
-drivers/nvmem/layouts/sl28vpd.c:143:21: sparse: sparse: symbol 'sl28vpd_layout' was not declared. Should it be static?
-drivers/thermal/qcom/tsens-v0_1.c:106:40: sparse: sparse: symbol 'tsens_9607_nvmem' was not declared. Should it be static?
-drivers/thermal/qcom/tsens-v0_1.c:26:40: sparse: sparse: symbol 'tsens_8916_nvmem' was not declared. Should it be static?
-drivers/thermal/qcom/tsens-v0_1.c:42:40: sparse: sparse: symbol 'tsens_8939_nvmem' was not declared. Should it be static?
-drivers/thermal/qcom/tsens-v0_1.c:62:40: sparse: sparse: symbol 'tsens_8974_nvmem' was not declared. Should it be static?
-drivers/thermal/qcom/tsens-v0_1.c:84:40: sparse: sparse: symbol 'tsens_8974_backup_nvmem' was not declared. Should it be static?
-drivers/thermal/qcom/tsens-v1.c:24:40: sparse: sparse: symbol 'tsens_qcs404_nvmem' was not declared. Should it be static?
-drivers/thermal/qcom/tsens-v1.c:45:40: sparse: sparse: symbol 'tsens_8976_nvmem' was not declared. Should it be static?
-pahole: .tmp_vmlinux.btf: No such file or directory
+4) Build buildroot.
 
-Error/Warning ids grouped by kconfigs:
+Run with below command.
+qemu-system-riscv64   -nographic \
+-drive file=Build/RiscVVirtQemu/RELEASE_GCC5/FV/RISCV_VIRT.fd,if=pflash,format=raw,unit=1 \
+-machine virt,acpi=on -smp 16 -m 2G \
+-kernel arch/riscv/boot/Image \
+-initrd buildroot/output/images/rootfs.cpio \
+-append "root=/dev/ram ro console=hvc0 earlycon=sbi"
 
-gcc_recent_errors
-|-- alpha-allyesconfig
-|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-accessories-link_dp_trace.c:warning:no-previous-prototype-for-link_dp_trace_get_edp_poweroff_timestamp
-|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-accessories-link_dp_trace.c:warning:no-previous-prototype-for-link_dp_trace_get_edp_poweron_timestamp
-|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-accessories-link_dp_trace.c:warning:no-previous-prototype-for-link_dp_trace_set_edp_power_timestamp
-|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-protocols-link_dp_capability.c:warning:variable-ds_port-set-but-not-used
-|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-protocols-link_dp_capability.c:warning:variable-result_write_min_hblank-set-but-not-used
-|   `-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-protocols-link_dp_training.c:warning:variable-result-set-but-not-used
-|-- alpha-randconfig-r016-20230130
-|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-accessories-link_dp_trace.c:warning:no-previous-prototype-for-link_dp_trace_get_edp_poweroff_timestamp
-|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-accessories-link_dp_trace.c:warning:no-previous-prototype-for-link_dp_trace_get_edp_poweron_timestamp
-|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-accessories-link_dp_trace.c:warning:no-previous-prototype-for-link_dp_trace_set_edp_power_timestamp
-|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-protocols-link_dp_capability.c:warning:variable-ds_port-set-but-not-used
-|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-protocols-link_dp_capability.c:warning:variable-result_write_min_hblank-set-but-not-used
-|   `-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-protocols-link_dp_training.c:warning:variable-result-set-but-not-used
-|-- alpha-randconfig-s032-20230129
-|   `-- drivers-nvmem-layouts-sl28vpd.c:sparse:sparse:symbol-sl28vpd_layout-was-not-declared.-Should-it-be-static
-|-- arc-allyesconfig
-|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-accessories-link_dp_trace.c:warning:no-previous-prototype-for-link_dp_trace_get_edp_poweroff_timestamp
-|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-accessories-link_dp_trace.c:warning:no-previous-prototype-for-link_dp_trace_get_edp_poweron_timestamp
-|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-accessories-link_dp_trace.c:warning:no-previous-prototype-for-link_dp_trace_set_edp_power_timestamp
-|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-protocols-link_dp_capability.c:warning:variable-ds_port-set-but-not-used
-|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-protocols-link_dp_capability.c:warning:variable-result_write_min_hblank-set-but-not-used
-|   `-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-protocols-link_dp_training.c:warning:variable-result-set-but-not-used
-|-- arm-allyesconfig
-|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-accessories-link_dp_trace.c:warning:no-previous-prototype-for-link_dp_trace_get_edp_poweroff_timestamp
-|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-accessories-link_dp_trace.c:warning:no-previous-prototype-for-link_dp_trace_get_edp_poweron_timestamp
-|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-accessories-link_dp_trace.c:warning:no-previous-prototype-for-link_dp_trace_set_edp_power_timestamp
-|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-protocols-link_dp_capability.c:warning:variable-ds_port-set-but-not-used
-|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-protocols-link_dp_capability.c:warning:variable-result_write_min_hblank-set-but-not-used
-|   `-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-protocols-link_dp_training.c:warning:variable-result-set-but-not-used
-|-- arm64-allyesconfig
-|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-accessories-link_dp_trace.c:warning:no-previous-prototype-for-link_dp_trace_get_edp_poweroff_timestamp
-|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-accessories-link_dp_trace.c:warning:no-previous-prototype-for-link_dp_trace_get_edp_poweron_timestamp
-|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-accessories-link_dp_trace.c:warning:no-previous-prototype-for-link_dp_trace_set_edp_power_timestamp
-|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-protocols-link_dp_capability.c:warning:variable-ds_port-set-but-not-used
-|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-protocols-link_dp_capability.c:warning:variable-result_write_min_hblank-set-but-not-used
-|   `-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-protocols-link_dp_training.c:warning:variable-result-set-but-not-used
-|-- arm64-buildonly-randconfig-r005-20230130
-|   `-- arch-arm64-kvm-arm.c:warning:expecting-prototype-for-Initialize-Hyp().-Prototype-was-for-kvm_arm_init()-instead
-|-- arm64-randconfig-s053-20230129
-|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-accessories-link_dp_trace.c:warning:no-previous-prototype-for-link_dp_trace_get_edp_poweroff_timestamp
-|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-accessories-link_dp_trace.c:warning:no-previous-prototype-for-link_dp_trace_get_edp_poweron_timestamp
-|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-accessories-link_dp_trace.c:warning:no-previous-prototype-for-link_dp_trace_set_edp_power_timestamp
-|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-protocols-link_dp_capability.c:warning:variable-ds_port-set-but-not-used
-|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-protocols-link_dp_capability.c:warning:variable-result_write_min_hblank-set-but-not-used
-|   |-- drivers-nvmem-imx-ocotp.c:sparse:sparse:symbol-imx_ocotp_layout-was-not-declared.-Should-it-be-static
-|   |-- drivers-thermal-qcom-tsens-v0_1.c:sparse:sparse:symbol-tsens_8916_nvmem-was-not-declared.-Should-it-be-static
-|   |-- drivers-thermal-qcom-tsens-v0_1.c:sparse:sparse:symbol-tsens_8939_nvmem-was-not-declared.-Should-it-be-static
-|   |-- drivers-thermal-qcom-tsens-v0_1.c:sparse:sparse:symbol-tsens_8974_backup_nvmem-was-not-declared.-Should-it-be-static
-|   |-- drivers-thermal-qcom-tsens-v0_1.c:sparse:sparse:symbol-tsens_8974_nvmem-was-not-declared.-Should-it-be-static
-clang_recent_errors
-`-- mips-randconfig-r036-20230129
-    |-- drivers-clk-qcom-gcc-sa8775p.c:warning:unused-variable-gcc_parent_data_10
-    |-- drivers-clk-qcom-gcc-sa8775p.c:warning:unused-variable-gcc_parent_data_12
-    |-- drivers-clk-qcom-gcc-sa8775p.c:warning:unused-variable-gcc_parent_map_10
-    `-- drivers-clk-qcom-gcc-sa8775p.c:warning:unused-variable-gcc_parent_map_12
+Jisheng Zhang (1):
+  riscv: move sbi_init() earlier before jump_label_init()
 
-elapsed time: 730m
+Sunil V L (23):
+  ACPICA: MADT: Add RISC-V INTC interrupt controller
+  ACPICA: Add structure definitions for RISC-V RHCT
+  RISC-V: ACPI: Add empty headers to enable ACPI core
+  RISC-V: ACPI: Add basic functions to build ACPI core
+  RISC-V: ACPI: Add PCI functions to build ACPI core
+  RISC-V: ACPI: Enable ACPI build infrastructure
+  ACPI: Enable ACPI_PROCESSOR for RISC-V
+  ACPI: OSL: Make should_use_kmap() 0 for RISC-V.
+  ACPI: processor_core: RISC-V: Enable mapping processor to the hartid
+  RISC-V: ACPI: irqchip/riscv-intc: Add ACPI support
+  RISC-V: ACPI: smpboot: Create wrapper smp_setup()
+  RISC-V: ACPI: smpboot: Add ACPI support in smp_setup()
+  RISC-V: ACPI: smpboot: Add function to retrieve the hartid
+  clocksource/timer-riscv: Refactor riscv_timer_init_dt()
+  RISC-V: ACPI: clocksource/timer-riscv: Add ACPI support
+  ACPI: RISC-V: drivers/acpi: Add RHCT related code
+  RISC-V: ACPI: time.c: Add ACPI support for time_init()
+  RISC-V: ACPI: cpufeature: Add ACPI support in riscv_fill_hwcap()
+  RISC-V: ACPI: cpu: Enable cpuinfo for ACPI systems
+  RISC-V: ACPI: Add ACPI initialization in setup_arch()
+  RISC-V: ACPI: Enable ACPI in defconfig
+  MAINTAINERS: Add entry for drivers/acpi/riscv
+  Documentation/kernel-parameters.txt: Add RISC-V for ACPI parameter
 
-configs tested: 83
-configs skipped: 5
-
-gcc tested configs:
-powerpc                           allnoconfig
-x86_64                            allnoconfig
-um                             i386_defconfig
-um                           x86_64_defconfig
-arc                                 defconfig
-alpha                               defconfig
-x86_64                              defconfig
-x86_64               randconfig-a001-20230130
-x86_64                               rhel-8.3
-x86_64               randconfig-a003-20230130
-i386                 randconfig-a002-20230130
-x86_64               randconfig-a004-20230130
-i386                 randconfig-a001-20230130
-x86_64               randconfig-a002-20230130
-x86_64               randconfig-a006-20230130
-i386                 randconfig-a004-20230130
-x86_64               randconfig-a005-20230130
-i386                 randconfig-a003-20230130
-x86_64                           allyesconfig
-i386                 randconfig-a005-20230130
-i386                 randconfig-a006-20230130
-sh                          kfr2r09_defconfig
-s390                             allmodconfig
-arm                                 defconfig
-s390                                defconfig
-x86_64                           rhel-8.3-syz
-x86_64                         rhel-8.3-kunit
-x86_64                           rhel-8.3-kvm
-sh                           se7705_defconfig
-arm64                            allyesconfig
-s390                             allyesconfig
-i386                                defconfig
-x86_64                           rhel-8.3-bpf
-arm                              allyesconfig
-m68k                             allyesconfig
-i386                             allyesconfig
-m68k                             allmodconfig
-x86_64                    rhel-8.3-kselftests
-x86_64                          rhel-8.3-func
-arc                              allyesconfig
-m68k                       m5249evb_defconfig
-alpha                            allyesconfig
-sh                        apsh4ad0a_defconfig
-arc                  randconfig-r043-20230129
-arm                  randconfig-r046-20230129
-i386                          randconfig-c001
-riscv                             allnoconfig
-riscv                    nommu_virt_defconfig
-i386                   debian-10.3-kselftests
-sh                               allmodconfig
-i386                              debian-10.3
-mips                             allyesconfig
-riscv                    nommu_k210_defconfig
-riscv                          rv32_defconfig
-powerpc                          allmodconfig
-powerpc                     tqm8548_defconfig
-m68k                          amiga_defconfig
-m68k                            mac_defconfig
-sh                           se7724_defconfig
-parisc                              defconfig
-mips                  maltasmvp_eva_defconfig
-sh                         ecovec24_defconfig
-xtensa                         virt_defconfig
-
-clang tested configs:
-i386                 randconfig-a013-20230130
-i386                 randconfig-a012-20230130
-i386                 randconfig-a014-20230130
-i386                 randconfig-a011-20230130
-i386                 randconfig-a015-20230130
-x86_64                          rhel-8.3-rust
-i386                 randconfig-a016-20230130
-x86_64               randconfig-a012-20230130
-powerpc                      pmac32_defconfig
-x86_64               randconfig-a013-20230130
-x86_64               randconfig-a014-20230130
-x86_64               randconfig-a011-20230130
-i386                              allnoconfig
-mips                      maltaaprp_defconfig
-x86_64               randconfig-a015-20230130
-x86_64               randconfig-a016-20230130
-hexagon              randconfig-r045-20230129
-riscv                randconfig-r042-20230129
-s390                 randconfig-r044-20230129
-hexagon              randconfig-r041-20230129
+ .../admin-guide/kernel-parameters.txt         |   6 +-
+ MAINTAINERS                                   |   7 +
+ arch/riscv/Kconfig                            |   5 +
+ arch/riscv/configs/defconfig                  |   4 +
+ arch/riscv/include/asm/acenv.h                |  17 ++
+ arch/riscv/include/asm/acpi.h                 |  87 +++++++++
+ arch/riscv/include/asm/cpu.h                  |   9 +
+ arch/riscv/kernel/Makefile                    |   3 +
+ arch/riscv/kernel/acpi.c                      | 178 ++++++++++++++++++
+ arch/riscv/kernel/cpu.c                       |  36 +++-
+ arch/riscv/kernel/cpufeature.c                |  45 ++++-
+ arch/riscv/kernel/pci.c                       | 173 +++++++++++++++++
+ arch/riscv/kernel/setup.c                     |  21 ++-
+ arch/riscv/kernel/smpboot.c                   |  99 +++++++++-
+ arch/riscv/kernel/time.c                      |  25 ++-
+ drivers/acpi/Kconfig                          |   2 +-
+ drivers/acpi/Makefile                         |   2 +
+ drivers/acpi/osl.c                            |   2 +-
+ drivers/acpi/processor_core.c                 |  28 +++
+ drivers/acpi/riscv/Makefile                   |   2 +
+ drivers/acpi/riscv/rhct.c                     |  93 +++++++++
+ drivers/clocksource/timer-riscv.c             |  88 ++++-----
+ drivers/irqchip/irq-riscv-intc.c              |  79 ++++++--
+ include/acpi/actbl2.h                         |  69 ++++++-
+ 24 files changed, 994 insertions(+), 86 deletions(-)
+ create mode 100644 arch/riscv/include/asm/acenv.h
+ create mode 100644 arch/riscv/include/asm/acpi.h
+ create mode 100644 arch/riscv/include/asm/cpu.h
+ create mode 100644 arch/riscv/kernel/acpi.c
+ create mode 100644 arch/riscv/kernel/pci.c
+ create mode 100644 drivers/acpi/riscv/Makefile
+ create mode 100644 drivers/acpi/riscv/rhct.c
 
 -- 
-0-DAY CI Kernel Test Service
-https://01.org/lkp
+2.38.0
+
 
 _______________________________________________
 linux-riscv mailing list
