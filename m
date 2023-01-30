@@ -4,61 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C17B0C636CD
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jan 2023 21:58:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A687C636D6
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jan 2023 22:57:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r0XyDUAQbbJSpzUEKKYmX7lh6omKggQ4Ypb7C6hyXLM=; b=OOh3uW3eM+H20ZxuN94ahRE4Wu
-	kFDnJQtdk0Nunw9/RfphpoCVeLZYcgILoZ7uivtZKhs5vlt/QJyUpmcfPLJ5xQhwtuEU2hMVkToBi
-	iox5aKLyGd0D6zUwwbn7+kgn1kgK7uS6bsvQspL2b8R7ypl8RdzEKFhGM19cQnrU6wU1gJdunmgY4
-	7SGdDh7FJpIFQlJlEg3autD2CU9qphtV5qC/50AIXG5zj5DHL7qZp5rFSY79wdXkSi6ghligx7+cH
-	ZY+tzERFETlwDbpMVIRGwhvCdKl8H9PYkamcNkMScDD7cllnotBEQOp305pfqPXzkJx1PbViReR+o
-	AUAl/AnQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=8bQOHqOYAwy/qZUfYwNeqVtvIPEzCpHhNbMkJzJhUo4=; b=X2wHadjIrHsy4a
+	a60Imuk+DgtaH6g8/3Es39K+YLuIvv33HlieYGrP8ci1ywjPq0ruwXgr3qc/6TWFI6LZUcDQOAyX7
+	WP3u7CgurL/djI/jKXHFYK0WlNMsv7h56PwAlS1bVZAks+NY7QKSiQTwqHF4rF/7ORFrQzla50qrm
+	8zHxuXCMOSRpjCldHdv0rPw+GZg88OGdWJQ8XiC2tVQ501NeP3VRCVetxn18O+TegHQGDepCJAAwO
+	tQ6TectBHemS1T2hLYmfzkJwdMiaaMxqibxoNxoQNrtt4H1u990Fd3sVjYFxo85ZYI/EBo1iy/Ezv
+	vfuh62eZLAzsnWQnOpSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMcA2-005ZnR-Up; Mon, 30 Jan 2023 21:57:59 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1pMd5n-005j1j-8b; Mon, 30 Jan 2023 22:57:39 +0000
+Received: from mail-oi1-f176.google.com ([209.85.167.176])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMc9z-005Zmn-HP
-	for linux-riscv@lists.infradead.org; Mon, 30 Jan 2023 21:57:56 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id E6149B8169F;
-	Mon, 30 Jan 2023 21:57:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0F72C433EF;
-	Mon, 30 Jan 2023 21:57:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1675115872;
-	bh=Z4TGZhf3eHrHCt3Sa0NR85ldZ1ppOQhU87Ok3n+koAo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kuMZXw+S6txi8srNik0+3PdRXUrC2OQ9fZZiAFTmMCMquLKVKK5FnGLHhZIuNnRTO
-	 44rjiwzZ7NQz/+Bb/ttMYStgD2JT1ojysyp4DBsY4DMxFQSyL9WWV7PRJ0wlSJcvRS
-	 EdjKhoW9KOj8E1sfRC99XMlJ3V4zaEV1+v2/l1LXd64xNLEHG/LGBeSxGjpMCs+Lp0
-	 +vfR2aBaCGbEeYCjjE7yTjat/YwwViKvzt/jqjHmFsJsmlwpZsbnzIpjwtJb/HFcB1
-	 yR8bKCTv+B2XDLlt32F3yd9uN5cvloPEJ8Yg0T77vM/wB16IUc53uTzXjvAMVQzRaV
-	 5+ozkN3z/l4fQ==
-Date: Mon, 30 Jan 2023 21:57:48 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Sia Jee Heng <jeeheng.sia@starfivetech.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	leyfoon.tan@starfivetech.com, mason.huo@starfivetech.com
-Subject: Re: [PATCH v3 3/4] RISC-V: mm: Enable huge page support to
- kernel_page_present() function
-Message-ID: <Y9g9XGzF/X3OwXdP@spud>
-References: <20230127091051.1465278-1-jeeheng.sia@starfivetech.com>
- <20230127091051.1465278-4-jeeheng.sia@starfivetech.com>
+	id 1pMd5k-005izp-Ge; Mon, 30 Jan 2023 22:57:37 +0000
+Received: by mail-oi1-f176.google.com with SMTP id s66so11413033oib.7;
+        Mon, 30 Jan 2023 14:57:26 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=kJ7g14V8k5qybxxkHSK9zkEaFegVOgO75+5UvvmJX6c=;
+        b=Os5Xw83IpT4Y1CBvfNmPSE2/kCofv/I1w8X/em7UFkKC1D+R01TzvBv3IdMV7GtQTd
+         EryBqPHr6B/l46HmYBR/6k66rbPyEO531ZExED6xA93PDUn7WNTcp8tPQiyrMa3zg7oE
+         zvbxmDEhw3t+BQolo1b3qgcUAcBAmot+MJgTkv6Gnv7n9pN61Cc1R0STF/pS1scLZ5HJ
+         FsuPn75x6nm4ptfsgNFOWJ4f5es9+5i+uoobl9zqZpGj+zfPa87SWFrL8E0QBPqUmoKa
+         wEdcmU9dMulK098ExUxQ6jez52o66dYqNhk7gPWPpu8U/1jUwBnyUoG1jKRj5AaN9NPR
+         taGQ==
+X-Gm-Message-State: AO0yUKVjbzItWWlPrZStPa0uPxvcb/ih4m9OJ87DaNLuOfJLvVto64Qq
+	qluD/XNgHT3N9LsE7uQIlQ==
+X-Google-Smtp-Source: AK7set9cVNwIOuCSm7CYJEAFeX6i6670zCuQXg6lhroLXrXh9V0bAqVwdAAJEh/LEW4Y+P+TRBLMxg==
+X-Received: by 2002:a05:6808:31a:b0:377:eec1:b3a3 with SMTP id i26-20020a056808031a00b00377eec1b3a3mr4073538oie.0.1675119446057;
+        Mon, 30 Jan 2023 14:57:26 -0800 (PST)
+Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
+        by smtp.gmail.com with ESMTPSA id w25-20020a9d6759000000b0068bd20cf07dsm1788385otm.48.2023.01.30.14.57.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 30 Jan 2023 14:57:25 -0800 (PST)
+Received: (nullmailer pid 3679858 invoked by uid 1000);
+	Mon, 30 Jan 2023 22:57:24 -0000
+Date: Mon, 30 Jan 2023 16:57:24 -0600
+From: Rob Herring <robh@kernel.org>
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: 'Albert Ou ' <aou@eecs.berkeley.edu>, 'Conor Dooley ' <conor.dooley@microchip.com>, devicetree@vger.kernel.org, 'Jisheng Zhang ' <jszhang@kernel.org>, 'Palmer Dabbelt ' <palmer@dabbelt.com>, kvm-riscv@lists.infradead.org, 'Paul Walmsley ' <paul.walmsley@sifive.com>, 'Atish Patra ' <atishp@rivosinc.com>, linux-riscv@lists.infradead.org, 'Heiko Stuebner ' <heiko@sntech.de>, 'Anup Patel ' <apatel@ventanamicro.com>, 'Krzysztof Kozlowski ' <krzysztof.kozlowski+dt@linaro.org>
+Subject: Re: [PATCH v3 2/6] dt-bindings: riscv: Document cboz-block-size
+Message-ID: <167511944449.3679792.10367514567878106718.robh@kernel.org>
+References: <20230130120128.1349464-1-ajones@ventanamicro.com>
+ <20230130120128.1349464-3-ajones@ventanamicro.com>
 MIME-Version: 1.0
-In-Reply-To: <20230127091051.1465278-4-jeeheng.sia@starfivetech.com>
+Content-Disposition: inline
+In-Reply-To: <20230130120128.1349464-3-ajones@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230130_135755_743644_B20FEDA7 
-X-CRM114-Status: GOOD (  17.67  )
+X-CRM114-CacheID: sfid-20230130_145736_569843_69DE7BFF 
+X-CRM114-Status: GOOD (  10.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,98 +74,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6116586572873001418=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============6116586572873001418==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="1ItMQVOOAgwFH9Aw"
-Content-Disposition: inline
-
-
---1ItMQVOOAgwFH9Aw
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-+CC Alex
-
-On Fri, Jan 27, 2023 at 05:10:50PM +0800, Sia Jee Heng wrote:
-> Currently kernel_page_present() function doesn't support huge page
-> detection causes the function to mistakenly return false to the
-> hibernation core.
-
-This sounds like a bug & should have a fixes tag, no? I assume for
-whatever commit enabled huge page support...
-We don't support set_memory, which by the looks of things is the other
-usecase for this function, so probably doesn't need backporting.
-
-Alex, does this change look good to you?
-
-> Add huge page detection to the function to solve the problem.
->=20
-> Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
-> Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
-> Reviewed-by: Mason Huo <mason.huo@starfivetech.com>
+On Mon, 30 Jan 2023 13:01:24 +0100, Andrew Jones wrote:
+> The Zicboz operation (cbo.zero) operates on a block-size defined
+> for the cpu-core. While we already have the riscv,cbom-block-size
+> property, it only provides the block size for Zicbom operations.
+> Even though it's likely Zicboz and Zicbom will use the same size,
+> that's not specified. Create another property specifically for
+> Zicboz.
+> 
+> Cc: Rob Herring <robh@kernel.org>
+> Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
 > ---
->  arch/riscv/mm/pageattr.c | 6 ++++++
->  1 file changed, 6 insertions(+)
->=20
-> diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
-> index 86c56616e5de..792b8d10cdfc 100644
-> --- a/arch/riscv/mm/pageattr.c
-> +++ b/arch/riscv/mm/pageattr.c
-> @@ -221,14 +221,20 @@ bool kernel_page_present(struct page *page)
->  	p4d =3D p4d_offset(pgd, addr);
->  	if (!p4d_present(*p4d))
->  		return false;
-> +	if (p4d_leaf(*p4d))
-> +		return true;
-> =20
->  	pud =3D pud_offset(p4d, addr);
->  	if (!pud_present(*pud))
->  		return false;
-> +	if (pud_leaf(*pud))
-> +		return true;
-> =20
->  	pmd =3D pmd_offset(pud, addr);
->  	if (!pmd_present(*pmd))
->  		return false;
-> +	if (pmd_leaf(*pmd))
-> +		return true;
-> =20
->  	pte =3D pte_offset_kernel(pmd, addr);
->  	return pte_present(*pte);
-> --=20
-> 2.34.1
->=20
+>  Documentation/devicetree/bindings/riscv/cpus.yaml | 5 +++++
+>  1 file changed, 5 insertions(+)
+> 
 
---1ItMQVOOAgwFH9Aw
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY9g9XAAKCRB4tDGHoIJi
-0pGlAP0bjQRRS6+HAIsKmX7P58Bd2T/oaUv8qKfywJHbG9vAowD+L0RzZBkdA5r9
-pc3NRnVRb1tQScs77zx70+bCIz6AWQw=
-=aWFx
------END PGP SIGNATURE-----
-
---1ItMQVOOAgwFH9Aw--
-
-
---===============6116586572873001418==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Reviewed-by: Rob Herring <robh@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6116586572873001418==--
-
