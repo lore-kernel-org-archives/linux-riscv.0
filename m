@@ -4,62 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 191E5C54EED
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jan 2023 12:33:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45971C636CB
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jan 2023 14:04:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qF0WMXdDk7L53tulWyUMO7JSmfMQPOUjC3PWMNJboO0=; b=P+Km82BEO5YyxT
-	tMRxx8Cb2jqRki/1RACGFQOR7Xn0i1s7IGky5if01ZU/xPRWsh4b9Zn7DNPTy/l5+r/kPJrBqqGDh
-	jEgqOipySOdr2U+TZzH4UNzGXgw93FYjMtwKwM0Q2Yd4Ho5uYqB78hpB2ZnwGBjYv2Iqwk3FlOnwL
-	0gjx5Ozwv2CALZVschq8FKTtLtDXaijV9jS2wbUw1PpwwxHLkA5ovgQU3J3/FixuWpcRnBlYe65hn
-	dd0E/G+r+DXp6pbalwRbQyRKtB+FB2b3h9qIWe5ED5vC8Pe/QCeUog+Ns35CvIFEWewcsgbs6Qp7H
-	wvE3Mfclv3Cs3hRlHpgg==;
+	List-Owner; bh=qj9GU+vnkXrzYqGMzq5H4J8fh9tkVCXOttkQXCXrkmg=; b=gqjeVTpTa8bH17
+	Pfgm/f14H5nP+o2EwKXELCz5Tl4fijBLjmVSeXHDZVkbnB66M/EkLrzu82BNaiiIOrtTOTJaYQQ6n
+	Q0vyzfvOPuUkHVEct/rGjiDbRoOSgWftubtWeoSNX7yJpRwim5WVQSmLZMi9HbWk38IPgKDmSxYJ/
+	cWhFhPkGJRrNiE0dewMH5sO5jRwZuAhOloaH7U81XH0mTKcjTUWxY89V4KXya0fEW+fsg7QywPUV+
+	7E17n1vIFuHdPQP3SlKy/zQimOnytDodkwKwy9963Ysc6pGYWbabYIg5KE+E/FojbXBK/MDfFxJKo
+	GdtbRPl8cDMr+Kq6+svg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMTLx-003Vlc-R1; Mon, 30 Jan 2023 12:33:41 +0000
+	id 1pMUlg-003npg-3V; Mon, 30 Jan 2023 14:04:20 +0000
 Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMTLu-003VkV-Dg
-	for linux-riscv@lists.infradead.org; Mon, 30 Jan 2023 12:33:40 +0000
+	id 1pMUl1-003neH-1K
+	for linux-riscv@lists.infradead.org; Mon, 30 Jan 2023 14:03:41 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id A0D48B8101B;
-	Mon, 30 Jan 2023 11:57:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3242C4339C;
-	Mon, 30 Jan 2023 11:57:17 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id BCADBB81132
+	for <linux-riscv@lists.infradead.org>; Mon, 30 Jan 2023 13:48:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69C23C433A0
+	for <linux-riscv@lists.infradead.org>; Mon, 30 Jan 2023 13:48:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1675079838;
-	bh=Bf8wXn0zRLu9HdaSqycqpB534BIJARXYm1sFG+MUpXA=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=GSLp284SjuIuW4XWjBOUObAOGJI2q7alFTxsGR7F9z+cZxgWOVcVsZWAGZiSWUvS+
-	 J00I3RbWhRoEivjtITdrCSpYlnLyAEYWhGBHUPvy9oPAGiDe0eULAVVtFCVSqYLgTK
-	 olij8y6dfEU8WLnVQImTPg3m8qjysNZdP25H5BUFuItQcNjGlxMD9WQhzpo/7pvUqS
-	 aBOHUacSkQoEq0MCY4o+aYx1GE/QBgwGz4MScnZI4YN/N5nJSZm3n9K6tGzXMzpJBS
-	 g5GvOxyDnqwQzJrGdMw/wyKgsgF1eM0HfD9CO/6rRCSCZvyJZoIB0ECCguPDfFAxnB
-	 IwvyOitQLhmPg==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: guoren@kernel.org, guoren@kernel.org, palmer@dabbelt.com,
- paul.walmsley@sifive.com, mhiramat@kernel.org, conor.dooley@microchip.com,
- penberg@kernel.org, mark.rutland@arm.com, jrtc27@jrtc27.com,
- andy.chiu@sifive.com, zong.li@sifive.com
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, Greentime
- Hu <greentime.hu@sifive.com>
-Subject: Re: [PATCH -next V3 1/2] riscv: jump_label: Fixup unaligned
- arch_static_branch function
-In-Reply-To: <20230126170607.1489141-2-guoren@kernel.org>
-References: <20230126170607.1489141-1-guoren@kernel.org>
- <20230126170607.1489141-2-guoren@kernel.org>
-Date: Mon, 30 Jan 2023 12:57:15 +0100
-Message-ID: <87357sjkv8.fsf@all.your.base.are.belong.to.us>
+	s=k20201202; t=1675086497;
+	bh=+iz7/0m+hEIPyBQg3I/82VjHc01NMeldbSQt2dqGcSg=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=R9sDP955tHpJ1QqsR0L3i+gv+cjOVpaU84PSIDDhw30Zfl75NL7qlIA2Ek9QCOvOs
+	 f+80E8rQ53TD2AN3Y/fjhXCl/P394lhf7L+pmSgNTulhP9LTLp6wF6rENXVPR99t4q
+	 P7PT9uexAhtg0aTWMcOYFA3CSWm9/gLd1V6rPdGhjNkwjeN/4nwM9wJRlxmuhyahod
+	 oB/uATlvf3mMQn1UmbUNCfzcUWCJKUY9gGnL/RqnIJP6gJ9vUwQcc9VGeaLhCHOMJe
+	 qUvl/iPosG3dy0T8Zw5/MXdW5+nM7hxAjDtIxxYz/Dkt76O6zY7CAxhzYf6xfll6wU
+	 3fXZBoZjE6a5g==
+Received: by mail-vs1-f43.google.com with SMTP id h19so10713946vsv.13
+        for <linux-riscv@lists.infradead.org>; Mon, 30 Jan 2023 05:48:17 -0800 (PST)
+X-Gm-Message-State: AFqh2kr9XM0rSOElO4IbTIhUA1r+QugFXArGEgmZ544dYf/H6S8inpZN
+	KMJEOp5fxCYwJaLnvOvFp+kjds4Q/7dEAvATww==
+X-Google-Smtp-Source: AMrXdXvWFxwf7o8XYdZZzxKLXqR1OblZ1Jf42fyF9cWbecmrBhoaNv2NX636Gi1FINWWYnmBotKarycuGbTuFd70diw=
+X-Received: by 2002:a05:6102:5490:b0:3b5:1fe4:f1c2 with SMTP id
+ bk16-20020a056102549000b003b51fe4f1c2mr6746365vsb.0.1675086496230; Mon, 30
+ Jan 2023 05:48:16 -0800 (PST)
 MIME-Version: 1.0
+References: <20230123112803.817534-1-alexghiti@rivosinc.com>
+ <20230123142554.f22ajf6upfk2ybxk@orel> <20230125104102.2thvourt3lx2p36a@orel> <CAHVXubjUCmk6xGTCPzMujYqKUwE0bhQBqd8A+=yq7ijQZtBObg@mail.gmail.com>
+In-Reply-To: <CAHVXubjUCmk6xGTCPzMujYqKUwE0bhQBqd8A+=yq7ijQZtBObg@mail.gmail.com>
+From: Rob Herring <robh+dt@kernel.org>
+Date: Mon, 30 Jan 2023 07:48:04 -0600
+X-Gmail-Original-Message-ID: <CAL_JsqJ8JtkOBLpdf3hU9JWcdRTFr3Ss1Hd+yFpMqs7ujUiyCQ@mail.gmail.com>
+Message-ID: <CAL_JsqJ8JtkOBLpdf3hU9JWcdRTFr3Ss1Hd+yFpMqs7ujUiyCQ@mail.gmail.com>
+Subject: Re: [PATCH v4] riscv: Use PUD/P4D/PGD pages for the linear mapping
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Andrew Jones <ajones@ventanamicro.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>, 
+	Frank Rowand <frowand.list@gmail.com>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arch@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230130_043338_621876_F32530B0 
-X-CRM114-Status: GOOD (  17.99  )
+X-CRM114-CacheID: sfid-20230130_060339_415223_19E03CE3 
+X-CRM114-Status: GOOD (  33.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,39 +79,68 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Z3VvcmVuQGtlcm5lbC5vcmcgd3JpdGVzOgoKPiBGcm9tOiBBbmR5IENoaXUgPGFuZHkuY2hpdUBz
-aWZpdmUuY29tPgo+Cj4gUnVudGltZSBjb2RlIHBhdGNoaW5nIG11c3QgYmUgZG9uZSBhdCBhIG5h
-dHVyYWxseSBhbGlnbmVkIGFkZHJlc3MsIG9yIHdlCj4gbWF5IGV4ZWN1dGUgb24gYSBwYXJ0aWFs
-IGluc3RydWN0aW9uLgo+Cj4gV2UgaGF2ZSBlbmNvdW50ZXJlZCBwcm9ibGVtcyB0cmFjZWQgYmFj
-ayB0byBzdGF0aWMganVtcCBmdW5jdGlvbnMgZHVyaW5nCj4gdGhlIHRlc3QuIFdlIHN3aXRjaGVk
-IHRoZSB0cmFjZXIgcmFuZG9tbHkgZm9yIGV2ZXJ5IDF+NSBzZWNvbmRzIG9uIGEKPiBkdWFsLWNv
-cmUgUUVNVSBzZXR1cCBhbmQgZm91bmQgdGhlIGtlcm5lbCBzdWNraW5nIGF0IGEgc3RhdGljIGJy
-YW5jaAo+IHdoZXJlIGl0IGp1bXBzIHRvIGl0c2VsZi4KPgo+IFRoZSByZWFzb24gaXMgdGhhdCB0
-aGUgc3RhdGljIGJyYW5jaCB3YXMgMi1ieXRlIGJ1dCBub3QgNC1ieXRlIGFsaWduZWQuCj4gVGhl
-biwgdGhlIGtlcm5lbCB3b3VsZCBwYXRjaCB0aGUgaW5zdHJ1Y3Rpb24sIGVpdGhlciBKIG9yIE5P
-UCwgd2l0aCB0d28KPiBoYWxmLXdvcmQgc3RvcmVzIGlmIHRoZSBtYWNoaW5lIGRvZXMgbm90IGhh
-dmUgZWZmaWNpZW50IHVuYWxpZ25lZAo+IGFjY2Vzc2VzLiBUaHVzLCBtb21lbnRzIGV4aXN0IHdo
-ZXJlIGhhbGYgb2YgdGhlIE5PUCBtaXhlcyB3aXRoIHRoZSBvdGhlcgo+IGhhbGYgb2YgdGhlIEog
-d2hlbiB0cmFuc2l0aW9uaW5nIHRoZSBicmFuY2guIEluIG91ciBwYXJ0aWN1bGFyIGNhc2UsIG9u
-Cj4gYSBsaXR0bGUtZW5kaWFuIG1hY2hpbmUsIHRoZSB1cHBlciBoYWxmIG9mIHRoZSBOT1Agd2Fz
-IG1peGVkIHdpdGggdGhlCj4gbG93ZXIgcGFydCBvZiB0aGUgSiB3aGVuIGVuYWJsaW5nIHRoZSBi
-cmFuY2gsIHJlc3VsdGluZyBpbiBhIGp1bXAgdGhhdAo+IGp1bXBlZCB0byBpdHNlbGYuIENvbnZl
-cnNlbHksIGl0IHdvdWxkIHJlc3VsdCBpbiBhIEhJTlQgaW5zdHJ1Y3Rpb24gd2hlbgo+IGRpc2Fi
-bGluZyB0aGUgYnJhbmNoLCBidXQgaXQgbWlnaHQgbm90IGJlIG9ic2VydmFibGUuCj4KPiBBUk02
-NCBkb2VzIG5vdCBoYXZlIHRoaXMgcHJvYmxlbSBzaW5jZSBhbGwgaW5zdHJ1Y3Rpb25zIG11c3Qg
-YmUgNC1ieXRlCj4gYWxpZ25lZC4KClJldmlld2VkLWJ5OiBCasO2cm4gVMO2cGVsIDxiam9ybkBr
-ZXJuZWwub3JnPgoKTmljZSBjYXRjaCEgQW5kIEkgZ3Vlc3MgdGhpcyBpcyBhbiBpc3N1ZSBmb3Ig
-a3Byb2JlcyBhcyB3ZWxsLCBubz8KSS5lLiBpbiBnZW5lcmFsIHJlcGxhY2luZyAzMmIgaW5zbnMg
-d2l0aCBhbiBlYnJlYWsuIFRoaXMgaXMgb25seSB2YWxpZApmb3IgbmF0dXJhbCBhbGlnbmVkIDMy
-YiBpbnNucz8KCkBHdW8gSSBkb24ndCBzZWUgdGhlIHBvaW50IG9mIGRvaW5nIGEgc2VyaWVzIGZv
-ciB0aGlzLCBhbmQgYXNraW5nIHRoZQptYWludGFpbmVycyB0byAicGljayB0aGlzIHBhdGNoIHRv
-IHN0YWJsZSwgYW5kIHRoZSBvdGhlciBmb3IKbmV4dCIuIElzbid0IHRoYXQganVzdCBtb3JlIHdv
-cmsgZm9yIHRoZSBtYWludGFpbmVycy9yZXZpZXdlcnM/CgoKQmrDtnJuCgpfX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
-c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
-Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Wed, Jan 25, 2023 at 6:13 AM Alexandre Ghiti <alexghiti@rivosinc.com> wrote:
+>
+> On Wed, Jan 25, 2023 at 11:41 AM Andrew Jones <ajones@ventanamicro.com> wrote:
+> >
+> > On Mon, Jan 23, 2023 at 03:25:54PM +0100, Andrew Jones wrote:
+> > > On Mon, Jan 23, 2023 at 12:28:02PM +0100, Alexandre Ghiti wrote:
+> > > > During the early page table creation, we used to set the mapping for
+> > > > PAGE_OFFSET to the kernel load address: but the kernel load address is
+> > > > always offseted by PMD_SIZE which makes it impossible to use PUD/P4D/PGD
+> > > > pages as this physical address is not aligned on PUD/P4D/PGD size (whereas
+> > > > PAGE_OFFSET is).
+
+[...]
+
+> > > > diff --git a/drivers/of/fdt.c b/drivers/of/fdt.c
+> > > > index f08b25195ae7..58107bd56f8f 100644
+> > > > --- a/drivers/of/fdt.c
+> > > > +++ b/drivers/of/fdt.c
+> > > > @@ -891,12 +891,13 @@ const void * __init of_flat_dt_match_machine(const void *default_match,
+> > > >  static void __early_init_dt_declare_initrd(unsigned long start,
+> > > >                                        unsigned long end)
+> > > >  {
+> > > > -   /* ARM64 would cause a BUG to occur here when CONFIG_DEBUG_VM is
+> > > > -    * enabled since __va() is called too early. ARM64 does make use
+> > > > -    * of phys_initrd_start/phys_initrd_size so we can skip this
+> > > > -    * conversion.
+> > > > +   /*
+> > > > +    * __va() is not yet available this early on some platforms. In that
+> > > > +    * case, the platform uses phys_initrd_start/phys_initrd_size instead
+> > > > +    * and does the VA conversion itself.
+> > > >      */
+> > > > -   if (!IS_ENABLED(CONFIG_ARM64)) {
+> > > > +   if (!IS_ENABLED(CONFIG_ARM64) &&
+> > > > +       !(IS_ENABLED(CONFIG_RISCV) && IS_ENABLED(CONFIG_64BIT))) {
+> > >
+> > > There are now two architectures, so maybe it's time for a new config
+> > > symbol which would be selected by arm64 and riscv64 and then used here,
+> > > e.g.
+> > >
+> > >   if (!IS_ENABLED(CONFIG_NO_EARLY_LINEAR_MAP)) {
+> >
+> > I see v5 left this as it was. Any comment on this suggestion?
+>
+> Introducing a config for this only use case sounds excessive to me,
+> but I'll let Rob decide what he wants to see here.
+
+Agreed. Can we just keep it as is here.
+
+> > > >             initrd_start = (unsigned long)__va(start);
+> > > >             initrd_end = (unsigned long)__va(end);
+
+I think long term, we should just get rid of needing to do this part
+in the DT code and let the initrd code do this.
+
+Rob
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
