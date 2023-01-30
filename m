@@ -4,78 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93CEFC54EED
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jan 2023 05:07:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B3B2C54EED
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jan 2023 06:22:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Vyri5lgAnRyDdys0nAt27qOJu2f2l5DzAnJq3tU4FaY=; b=c8+ixQq/Ddgf84
-	0nAGLq3pVAdqodY0El07J29LHMlxnYvEJ1l6Wz4L+uh8dujhHltpbr7/FttGQAQhzu86EHdfJCre9
-	exFRbxDeKoz+AsaYPpMRbuJZQ2+E0srTVCB9y5d4ZT6vXqguUAxX1a9wXcIu5ymJuX9C1en4SQxUG
-	4G0opL7dXzHtvfB+5k5UBMPgicH2pg7wNs/p1YBiw4SMsJzhPsrpR8SKsKRqC4oDw8q+P68svOlp7
-	pcbGaCtd4mVW1V7fjXkVTcCzurIlDsxkol2CPaKBgnrmbVUSaeQ2k5/4bqWJkk7750o0T1+ZOASdl
-	LLRV8QwhgP4nQVnwkWQw==;
+	List-Owner; bh=ZxjocD2LWax72MNW3P9375H9FQfLHEKuhlUQi8OFa9E=; b=VgdT6SDYkYtUzF
+	+DlVxtiKY0i3CC0GYhDAnDoPoBNxoMmHUN5hH5gEFXuFyBlAKx7Ol9GtDwHggBRQVuyPG8UjCM+ZN
+	cASkwEKzEQ/mo4CWfyUJNJqdd03szXZwdIpGtxCMF/JiIfqoDDKuYhRCfWG8XNj+FLTjIlW7KxIgj
+	F5v3ADegSlpWcfs0aKYRlTMdHN6Hy8pzqj00OuFYQL8wcMtV/O1k7QVBpnDUP5JR/wq7WX6dwVTM2
+	ZR9H15HelRzxpL8Az8i3YyvT8ii5D3x2Xu2q7/lNwcBw+lkORkEVp3BEuQlxV6ISdvGbFD3wb41RD
+	clpaEke35JS9dLN7LfRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMMOB-002NL9-3t; Mon, 30 Jan 2023 05:07:31 +0000
-Received: from mail.ozlabs.org ([2404:9400:2221:ea00::3] helo=gandalf.ozlabs.org)
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMMNS-002NDE-C8; Mon, 30 Jan 2023 05:06:48 +0000
-Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.ozlabs.org (Postfix) with ESMTPSA id 4P4x3f2mrfz4x1T;
-	Mon, 30 Jan 2023 16:06:22 +1100 (AEDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ellerman.id.au;
-	s=201909; t=1675055194;
-	bh=POOClJ+owuBj9sqRPRjffc3znhNYliSlDQdzT8YO/i8=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=L+Neft2adsFGU4wPfkdQqIkCCGEbr0KQklfStEOOSubA4D5/b8QWn1Ym/KJAv6xRm
-	 TUPYPpT88DNlhDmu8F6Zq0+Eg9/CqOQ7vjZ2tzDW9COm2h6kbQ9aR9CgKDe6jB7oUN
-	 qbkny9xOnw6qtVzbwY2BQEDmrhadqj+bjJEBVbHomTuJEKrCDFpofvG56kNiVlQ2h/
-	 4kZhpVx3EpSRTAM6jXtFLXQAZAY3/mQ2GHog2lMch2wJzrLcG7TkdRQuYdqLp8OdqG
-	 ahVRL+XE6UXObccshlEZ6yQOBI9fBlohqkPxNq06FIH8Kl9t0Zt68ScSYNpNUYJhy7
-	 uUVQKm0hFQMqg==
-From: Michael Ellerman <mpe@ellerman.id.au>
-To: Mike Rapoport <rppt@kernel.org>, Andrew Morton <akpm@linux-foundation.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Brian Cain <bcain@quicinc.com>, "David S.
- Miller" <davem@davemloft.net>, Dinh Nguyen <dinguyen@kernel.org>, Geert
- Uytterhoeven <geert@linux-m68k.org>, Greg Ungerer <gerg@linux-m68k.org>,
- Guo Ren <guoren@kernel.org>, Helge Deller <deller@gmx.de>, Huacai Chen
- <chenhuacai@kernel.org>, Matt Turner <mattst88@gmail.com>, Max Filippov
- <jcmvbkbc@gmail.com>, Michal Simek <monstr@monstr.eu>, Palmer Dabbelt
- <palmer@dabbelt.com>, Rich Felker <dalias@libc.org>, Richard Weinberger
- <richard@nod.at>, Russell King <linux@armlinux.org.uk>, Stafford Horne
- <shorne@gmail.com>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Vineet Gupta <vgupta@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
- Yoshinori Sato <ysato@users.sourceforge.jp>, linux-alpha@vger.kernel.org,
- linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
- linux-ia64@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
- linux-mm@kvack.org, linux-parisc@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
- linux-snps-arc@lists.infradead.org, linux-um@lists.infradead.org,
- linux-xtensa@linux-xtensa.org, linuxppc-dev@lists.ozlabs.org,
- loongarch@lists.linux.dev, openrisc@lists.librecores.org,
- sparclinux@vger.kernel.org, x86@kernel.org, "Mike Rapoport (IBM)"
- <rppt@kernel.org>, Huacai Chen <chenhuacai@loongson.cn>
-Subject: Re: [PATCH v2 4/4] mm, arch: add generic implementation of
- pfn_valid() for FLATMEM
-In-Reply-To: <20230129124235.209895-5-rppt@kernel.org>
-References: <20230129124235.209895-1-rppt@kernel.org>
- <20230129124235.209895-5-rppt@kernel.org>
-Date: Mon, 30 Jan 2023 16:06:21 +1100
-Message-ID: <87o7qgsjaq.fsf@mpe.ellerman.id.au>
+	id 1pMNYX-002TM8-6M; Mon, 30 Jan 2023 06:22:17 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pMNYR-002TJD-OP
+	for linux-riscv@lists.infradead.org; Mon, 30 Jan 2023 06:22:15 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id BB84724DFFD;
+	Mon, 30 Jan 2023 14:21:26 +0800 (CST)
+Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 30 Jan
+ 2023 14:21:26 +0800
+Received: from [192.168.125.128] (183.27.97.127) by EXMBX061.cuchost.com
+ (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 30 Jan
+ 2023 14:21:25 +0800
+Message-ID: <dd51102c-79a8-1705-85f2-b82363cbe34a@starfivetech.com>
+Date: Mon, 30 Jan 2023 14:17:16 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.6.1
+Subject: Re: [PATCH v1 01/11] dt-bindings: clock: Add StarFive JH7110
+ System-Top-Group clock and reset generator
+Content-Language: en-US
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Michael
+ Turquette" <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Emil Renner Berthing <kernel@esmil.dk>
+CC: Rob Herring <robh+dt@kernel.org>, Conor Dooley <conor@kernel.org>, "Paul
+ Walmsley" <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>,
+	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>
+References: <20230120024445.244345-1-xingyu.wu@starfivetech.com>
+ <20230120024445.244345-2-xingyu.wu@starfivetech.com>
+ <fd54fb94-ca9b-42a2-9de7-5cc6c87f410f@linaro.org>
+From: Xingyu Wu <xingyu.wu@starfivetech.com>
+In-Reply-To: <fd54fb94-ca9b-42a2-9de7-5cc6c87f410f@linaro.org>
+X-Originating-IP: [183.27.97.127]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX061.cuchost.com
+ (172.16.6.61)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230129_210646_854296_F339C9A2 
-X-CRM114-Status: UNSURE (   9.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230129_222212_144864_85734784 
+X-CRM114-Status: GOOD (  13.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,38 +81,216 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Mike Rapoport <rppt@kernel.org> writes:
-> From: "Mike Rapoport (IBM)" <rppt@kernel.org>
->
-> Every architecture that supports FLATMEM memory model defines its own
-> version of pfn_valid() that essentially compares a pfn to max_mapnr.
->
-> Use mips/powerpc version implemented as static inline as a generic
-> implementation of pfn_valid() and drop its per-architecture definitions.
->
-> Signed-off-by: Mike Rapoport (IBM) <rppt@kernel.org>
-> Acked-by: Arnd Bergmann <arnd@arndb.de>
-> Acked-by: Guo Ren <guoren@kernel.org>		# csky
-> Acked-by: Huacai Chen <chenhuacai@loongson.cn>	# LoongArch
-> Acked-by: Stafford Horne <shorne@gmail.com>	# OpenRISC
-> ---
->  arch/alpha/include/asm/page.h      |  4 ----
->  arch/arc/include/asm/page.h        |  1 -
->  arch/csky/include/asm/page.h       |  1 -
->  arch/hexagon/include/asm/page.h    |  1 -
->  arch/ia64/include/asm/page.h       |  4 ----
->  arch/loongarch/include/asm/page.h  | 13 -------------
->  arch/m68k/include/asm/page_no.h    |  2 --
->  arch/microblaze/include/asm/page.h |  1 -
->  arch/mips/include/asm/page.h       | 13 -------------
->  arch/nios2/include/asm/page.h      |  9 ---------
->  arch/openrisc/include/asm/page.h   |  2 --
->  arch/parisc/include/asm/page.h     |  4 ----
->  arch/powerpc/include/asm/page.h    |  9 ---------
+On 2023/1/20 16:11, Krzysztof Kozlowski wrote:
+> On 20/01/2023 03:44, Xingyu Wu wrote:
+>> Add bindings for the System-Top-Group clock and reset generator (STGCRG)
+>> on the JH7110 RISC-V SoC by StarFive Ltd.
+>> 
+>> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+>> ---
+>>  .../clock/starfive,jh7110-stgcrg.yaml         | 82 +++++++++++++++++++
+>>  MAINTAINERS                                   |  2 +
+>>  .../dt-bindings/clock/starfive,jh7110-crg.h   | 34 ++++++++
+>>  .../dt-bindings/reset/starfive,jh7110-crg.h   | 28 +++++++
+>>  4 files changed, 146 insertions(+)
+>>  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-stgcrg.yaml
+>> 
+>> diff --git a/Documentation/devicetree/bindings/clock/starfive,jh7110-stgcrg.yaml b/Documentation/devicetree/bindings/clock/starfive,jh7110-stgcrg.yaml
+>> new file mode 100644
+>> index 000000000000..b64ccd84200a
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/clock/starfive,jh7110-stgcrg.yaml
+>> @@ -0,0 +1,82 @@
+>> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/clock/starfive,jh7110-stgcrg.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: StarFive JH7110 System-Top-Group Clock and Reset Generator
+>> +
+>> +maintainers:
+>> +  - Xingyu Wu <xingyu.wu@starfivetech.com>
+>> +
+>> +properties:
+>> +  compatible:
+>> +    const: starfive,jh7110-stgcrg
+>> +
+>> +  reg:
+>> +    maxItems: 1
+>> +
+>> +  clocks:
+>> +    items:
+>> +      - description: Main Oscillator (24 MHz)
+>> +      - description: HIFI4 core
+>> +      - description: STG AXI/AHB
+>> +      - description: USB (125 MHz)
+>> +      - description: CPU Bus
+>> +      - description: HIFI4 Axi
+>> +      - description: NOC STG Bus
+>> +      - description: APB Bus
+>> +
+>> +  clock-names:
+>> +    items:
+>> +      - const: osc
+>> +      - const: hifi4_core
+>> +      - const: stg_axiahb
+>> +      - const: usb_125m
+>> +      - const: cpu_bus
+>> +      - const: hifi4_axi
+>> +      - const: nocstg_bus
+>> +      - const: apb_bus
+>> +
+>> +  '#clock-cells':
+>> +    const: 1
+>> +    description:
+>> +      See <dt-bindings/clock/starfive,jh7110-crg.h> for valid indices.
+>> +
+>> +  '#reset-cells':
+>> +    const: 1
+>> +    description:
+>> +      See <dt-bindings/reset/starfive,jh7110-crg.h> for valid indices.
+>> +
+>> +required:
+>> +  - compatible
+>> +  - reg
+>> +  - clocks
+>> +  - clock-names
+>> +  - '#clock-cells'
+>> +  - '#reset-cells'
+>> +
+>> +additionalProperties: false
+>> +
+>> +examples:
+>> +  - |
+>> +    #include <dt-bindings/clock/starfive,jh7110-crg.h>
+>> +
+>> +    stgcrg: clock-controller@10230000 {
+>> +        compatible = "starfive,jh7110-stgcrg";
+>> +        reg = <0x10230000 0x10000>;
+>> +        clocks = <&osc>,
+>> +                 <&syscrg JH7110_SYSCLK_HIFI4_CORE>,
+>> +                 <&syscrg JH7110_SYSCLK_STG_AXIAHB>,
+>> +                 <&syscrg JH7110_SYSCLK_USB_125M>,
+>> +                 <&syscrg JH7110_SYSCLK_CPU_BUS>,
+>> +                 <&syscrg JH7110_SYSCLK_HIFI4_AXI>,
+>> +                 <&syscrg JH7110_SYSCLK_NOCSTG_BUS>,
+>> +                 <&syscrg JH7110_SYSCLK_APB_BUS>;
+>> +        clock-names = "osc", "hifi4_core",
+>> +                      "stg_axiahb", "usb_125m",
+>> +                      "cpu_bus", "hifi4_axi",
+>> +                      "nocstg_bus", "apb_bus";
+>> +        #clock-cells = <1>;
+>> +        #reset-cells = <1>;
+>> +    };
+>> diff --git a/MAINTAINERS b/MAINTAINERS
+>> index 84fd7054cb6e..20243eb5470c 100644
+>> --- a/MAINTAINERS
+>> +++ b/MAINTAINERS
+>> @@ -19635,6 +19635,7 @@ F:	arch/riscv/boot/dts/starfive/
+>>  STARFIVE JH71X0 CLOCK DRIVERS
+>>  M:	Emil Renner Berthing <kernel@esmil.dk>
+>>  M:	Hal Feng <hal.feng@starfivetech.com>
+>> +M:	Xingyu Wu <xingyu.wu@starfivetech.com>
+> 
+> Not related, drop from this patch.
 
-Acked-by: Michael Ellerman <mpe@ellerman.id.au> (powerpc)
+This patch is about JH7110 STG/VOUT/ISP clock driver which belong to
+JH71X0 clock driver.
 
-cheers
+
+> 
+>>  S:	Maintained
+>>  F:	Documentation/devicetree/bindings/clock/starfive,jh71*.yaml
+>>  F:	drivers/clk/starfive/clk-starfive-jh71*
+>> @@ -19654,6 +19655,7 @@ F:	include/dt-bindings/pinctrl/starfive,jh7110-pinctrl.h
+>>  STARFIVE JH71X0 RESET CONTROLLER DRIVERS
+>>  M:	Emil Renner Berthing <kernel@esmil.dk>
+>>  M:	Hal Feng <hal.feng@starfivetech.com>
+>> +M:	Xingyu Wu <xingyu.wu@starfivetech.com>
+> 
+> Not related.
+> 
+>>  S:	Maintained
+>>  F:	Documentation/devicetree/bindings/reset/starfive,jh7100-reset.yaml
+>>  F:	drivers/reset/starfive/reset-starfive-jh71*
+>> diff --git a/include/dt-bindings/clock/starfive,jh7110-crg.h b/include/dt-bindings/clock/starfive,jh7110-crg.h
+>> index 5e4f21ca0642..5ac8a4d90a7a 100644
+>> --- a/include/dt-bindings/clock/starfive,jh7110-crg.h
+>> +++ b/include/dt-bindings/clock/starfive,jh7110-crg.h
+>> @@ -1,6 +1,7 @@
+>>  /* SPDX-License-Identifier: GPL-2.0 OR MIT */
+>>  /*
+>>   * Copyright 2022 Emil Renner Berthing <kernel@esmil.dk>
+>> + * Copyright 2022 StarFive Technology Co., Ltd.
+>>   */
+>>  
+>>  #ifndef __DT_BINDINGS_CLOCK_STARFIVE_JH7110_CRG_H__
+>> @@ -222,4 +223,37 @@
+>>  
+>>  #define JH7110_AONCLK_END			14
+>>  
+>> +/* STGCRG clocks */
+>> +#define JH7110_STGCLK_HIFI4_CLK_CORE		0
+>> +#define JH7110_STGCLK_USB0_APB			1
+>> +#define JH7110_STGCLK_USB0_UTMI_APB		2
+>> +#define JH7110_STGCLK_USB0_AXI			3
+>> +#define JH7110_STGCLK_USB0_LPM			4
+>> +#define JH7110_STGCLK_USB0_STB			5
+>> +#define JH7110_STGCLK_USB0_APP_125		6
+>> +#define JH7110_STGCLK_USB0_REFCLK		7
+>> +#define JH7110_STGCLK_PCIE0_AXI_MST0		8
+>> +#define JH7110_STGCLK_PCIE0_APB			9
+>> +#define JH7110_STGCLK_PCIE0_TL			10
+>> +#define JH7110_STGCLK_PCIE1_AXI_MST0		11
+>> +#define JH7110_STGCLK_PCIE1_APB			12
+>> +#define JH7110_STGCLK_PCIE1_TL			13
+>> +#define JH7110_STGCLK_PCIE01_SLV_DEC_MAINCLK	14
+>> +#define JH7110_STGCLK_SEC_HCLK			15
+>> +#define JH7110_STGCLK_SEC_MISCAHB		16
+>> +#define JH7110_STGCLK_GRP0_MAIN			17
+>> +#define JH7110_STGCLK_GRP0_BUS			18
+>> +#define JH7110_STGCLK_GRP0_STG			19
+>> +#define JH7110_STGCLK_GRP1_MAIN			20
+>> +#define JH7110_STGCLK_GRP1_BUS			21
+>> +#define JH7110_STGCLK_GRP1_STG			22
+>> +#define JH7110_STGCLK_GRP1_HIFI			23
+>> +#define JH7110_STGCLK_E2_RTC			24
+>> +#define JH7110_STGCLK_E2_CORE			25
+>> +#define JH7110_STGCLK_E2_DBG			26
+>> +#define JH7110_STGCLK_DMA1P_AXI			27
+>> +#define JH7110_STGCLK_DMA1P_AHB			28
+>> +
+>> +#define JH7110_STGCLK_END			29
+>> +
+>>  #endif /* __DT_BINDINGS_CLOCK_STARFIVE_JH7110_CRG_H__ */
+>> diff --git a/include/dt-bindings/reset/starfive,jh7110-crg.h b/include/dt-bindings/reset/starfive,jh7110-crg.h
+>> index d78e38690ceb..cb70a1759482 100644
+>> --- a/include/dt-bindings/reset/starfive,jh7110-crg.h
+>> +++ b/include/dt-bindings/reset/starfive,jh7110-crg.h
+>> @@ -1,6 +1,7 @@
+>>  /* SPDX-License-Identifier: GPL-2.0 OR MIT */
+>>  /*
+>>   * Copyright (C) 2022 Emil Renner Berthing <kernel@esmil.dk>
+>> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
+>>   */
+>>  
+>>  #ifndef __DT_BINDINGS_RESET_STARFIVE_JH7110_CRG_H__
+>> @@ -151,4 +152,31 @@
+>>  
+>>  #define JH7110_AONRST_END			8
+>>  
+>> +/* STGCRG resets */
+>> +#define	JH7110_STGRST_SYSCON			0
+> 
+> Drop weird indentation.
+
+Will fix in next patch.
+
+
+Best regards.
+Xingyu Wu
+
 
 _______________________________________________
 linux-riscv mailing list
