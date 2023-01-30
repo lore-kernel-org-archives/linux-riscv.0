@@ -4,78 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D29DEC54EAA
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jan 2023 08:22:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9353C61DA4
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jan 2023 09:32:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZWIoofqakU0+AxPedi6vpsm614RZ/q2qfRlW1Y/oGSo=; b=zh4PT+JWmFRS6r
-	giE3LfsDwMV9iwDjN4bXmOyKkSmRxBj07UQKKZ84uDL16EWmLvUWwnF4ZzParNRqh/bGt5hPpgCFR
-	9AZ3ewA6wLhe34iXRYQowbDyeaqgscEvADGpX/7r2innq5apyRWk8PgT3THX6m6/pG22y+rnnRTmH
-	Z/cvxwBeNeMxbAh7fEt4M2DzOcsqjdBYgouEi0lXKQ0lXbDZwc+YULHGmyzpvUKG0Ro4p8v784XDt
-	298+1ijNzoyRZ8gZesZcxvC2F/qi1RckFh95Z6TSh+eVLS19P5Qc+iMrSB453gQjKMe+wNV/oLa9o
-	/demCgxZr1EpSOBgAdXw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=qIwsZb6DseU/0J6Wj9wwbVJdbfqAW2NCo2ywhmjEA/U=; b=UjZXuW895lCMET
+	qyYXdCHdp6XG85j55rhzysdRcXbORrv0mpRMEsrpovYaIZswXif/H6EsEOPyflmmuLe0Rc4UcVdQC
+	xVIgVoEvBZS7/jB/k630Nabs6/sEJDcoD1eYqGZnyxylNsPj6cCaK6rK3YKW9GUQ7bCjmRkhTiFGN
+	R+sNvw+kXkfLXnN0SNFYlAFTD+0GDX4nk0RbHeQWqZt+267iaD4vep+jKqNMt9ZukAgIh9XPgSYzN
+	C+tnvJ3PTv7LCA1TuFbPMqtj9ZifAatrQrLNTvamyTUir0UlZnyGsw6nKs2w7sbPrlU5mUHDe7nT5
+	A+tfAfrv/ZNMNheIqJAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMPR9-002eB9-0X; Mon, 30 Jan 2023 08:22:47 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1pMQWp-002tuR-Ri; Mon, 30 Jan 2023 09:32:44 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMPR6-002e9z-IC
-	for linux-riscv@lists.infradead.org; Mon, 30 Jan 2023 08:22:45 +0000
-Received: by mail-ej1-x636.google.com with SMTP id ml19so5837486ejb.0
-        for <linux-riscv@lists.infradead.org>; Mon, 30 Jan 2023 00:22:42 -0800 (PST)
+	id 1pMQWk-002tpx-TA
+	for linux-riscv@lists.infradead.org; Mon, 30 Jan 2023 09:32:40 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id b24-20020a17090a551800b0022beefa7a23so14786397pji.5
+        for <linux-riscv@lists.infradead.org>; Mon, 30 Jan 2023 01:32:36 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZgDUPbagJ258/yYJwTe+iBI4MNIZYVSZ6ZzoNPxg3fQ=;
-        b=jSp7KjkCzGj1vQKZ0uEHgGSyqnFHwGb6uCwVOYIFVF3irUcSnbFRs3RJYkoL3pbQed
-         dgc0jFKouPQLyqYvawKhOrrKVEmrX90bYT7BshFZZkvaHyEtJxMJRXU8ZGWfJ+CMfy4z
-         ZUELBSnWaj6unZUN81MzGnOfvWoZoFaoBuZA6dGcewgR+Im9Ukh+z9IP1FSj+3FTAdAu
-         mz0n0ifzBUuWDlEBEPy+UcRNDVZdtGH0H3NprHNnzT9Z1b9FZf8qeHjc20cVD2XIXYgJ
-         5kaGs0JpY9Tr+lZm2BK9tukZEyYiC5XE2/Vd52HLUaq0GDFtsYy3GyUmZiXatLWH1ERy
-         bAVQ==
+        d=sifive.com; s=google;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=W7Rfwt1I+uGLH2WvGyjGS4z4+0W1oBU0PyN8+ybwBQM=;
+        b=hCnLQngH722sIEXN1Gho9Wj1ujABjTtK8JX/cG3wwwGaTKdAB+ey7HkETd6oZpO8tv
+         vLdoPzqJLerf49cPLSpjOorHVag3ybhXhpYr/77qmDgvjgzmFdT/0d3bxHOZj/e7n+bY
+         t8uSp9ikhaT89Y8/DDu/f6YmDsbqbCtH9SHKNmJGAis1CHdAD2Vg/Us25RsC2Vxm6SGm
+         6peI7uPrZelCCu4EcstZZseRCRQsCrohoNKVVIoWxmA+RdjN7nMbH43Kb9cIzmBoXo3D
+         OU6oU5ZwPVpKtUhF3UDUADSHTLP/R+4DWP3Ll5ImHlmOricvo99OaP/0pQI1SvA4a9R8
+         yMHQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZgDUPbagJ258/yYJwTe+iBI4MNIZYVSZ6ZzoNPxg3fQ=;
-        b=Mnzcpwygbj5ed94NgPiP5QkuSZXge16pUcBZRarnywvyFQunpK/xgdP6wh/CSVtmee
-         3xQSck9GcX5NmjU5WLLtuFRNUu6ivbnnRYnShX9xNFX9uozUtGGC5Hs87xUKau+Mu6lW
-         +fJqmSy7pOVbxMtryYNxgXNLByth2Vw/p5bK4uTB0S2Lfb0gj6fBx4V7fCyNUwm4rB4P
-         smWC8n+ddP+8jcK0W/i0gsPqnzUCzyzrO+vAfsHZ0XNYNkgfsiTv9MiHI0UNK8mUvpOJ
-         XIXSC5CmNU0OBbnbqlBE15T9iFkSBAMmvsznt21xqwY28cTX2Xcsm1gvsQBmCTKi3TA7
-         UqLg==
-X-Gm-Message-State: AO0yUKXnlKk1SAWztqJ/cXoIMAxPNVvZWFHFzcvcFX7V3IFOMPpP2Tvz
-	E2ScsJQkghC7HmxVIKuFW7DO3g==
-X-Google-Smtp-Source: AK7set/TE2eXiD1YEub5PF6wQ93zAdcnZkd4hp4UQ+9ft2Lj39OoTndCc5pf4awrIzvvnfW3qKVkBA==
-X-Received: by 2002:a17:906:3e49:b0:812:d53e:1084 with SMTP id t9-20020a1709063e4900b00812d53e1084mr7125067eji.70.1675066960922;
-        Mon, 30 Jan 2023 00:22:40 -0800 (PST)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id b29-20020a50ccdd000000b004a21791ff18sm4412926edj.12.2023.01.30.00.22.40
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=W7Rfwt1I+uGLH2WvGyjGS4z4+0W1oBU0PyN8+ybwBQM=;
+        b=UoPipNNUj0mK3Y0vQbPYJ5+8n+Pj32k59+aVNLhxKKHz+PQKniCWRG0w3rKff/fwrt
+         xaGF58Q2PE7WCtpQq2tw1FSba0p10VSbhh6fODBQrPMm13cqEjYJWklx6dSDwUB+JkFr
+         ZbgRxajPvL1W/VZ/A/4bDv0FAf94ZSLQmAb4kkvCqlaBDbemnewrDt+eiDnTYHXCM6M6
+         u0aRvDTGUd3iAslVIe6lVwbcw9UDPCk42IoB/eZbCRvhEgrg/VovZ0vd1RPvKFwtsi05
+         H4ha+SqNRIHwa8mSlsQlxzxsp4stCsItvviH41WXJj4o5U1Lk0Jo2FGtK8FvbuVv7/Yj
+         fVKw==
+X-Gm-Message-State: AO0yUKU+hP/SLR5ehjpLLUbIB0rSh0TBO1udHJY1/Tcjrdz2Pn2NcMBf
+	hHqXlPw46m2cNDZlsPOQwLzhgQ==
+X-Google-Smtp-Source: AK7set9QLGZ+95SoqxDpz0fnhu2C6Btygt/5TP7yC/t6bY6mZyLjmV3rrULbqSgdQtIJkwB74RFyog==
+X-Received: by 2002:a17:902:c406:b0:196:e8e:cd28 with SMTP id k6-20020a170902c40600b001960e8ecd28mr30471930plk.15.1675071155816;
+        Mon, 30 Jan 2023 01:32:35 -0800 (PST)
+Received: from hsinchu15.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
+        by smtp.gmail.com with ESMTPSA id t13-20020a6564cd000000b004db2b310f95sm6245704pgv.16.2023.01.30.01.32.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 30 Jan 2023 00:22:40 -0800 (PST)
-Date: Mon, 30 Jan 2023 09:22:39 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Jinyu Tang <tjytimi@163.com>
-Cc: palmer@rivosinc.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
-	yuzhao@google.com, conor.dooley@microchip.com, guoren@kernel.org,
-	tongtiangen@huawei.com, anup@brainfault.org,
-	akpm@linux-foundation.org, falcon@tinylab.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] riscv: support arch_has_hw_pte_young()
-Message-ID: <20230130082239.xptbyeqskdczm6ns@orel>
-References: <20230129064956.143664-1-tjytimi@163.com>
+        Mon, 30 Jan 2023 01:32:35 -0800 (PST)
+From: Nylon Chen <nylon.chen@sifive.com>
+To: aou@eecs.berkeley.edu,
+	conor@kernel.org,
+	emil.renner.berthing@canonical.com,
+	geert+renesas@glider.be,
+	heiko@sntech.de,
+	krzysztof.kozlowski+dt@linaro.org,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	robh+dt@kernel.org,
+	thierry.reding@gmail.com,
+	u.kleine-koenig@pengutronix.de,
+	devicetree@vger.kernel.org,
+	linux-pwm@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: nylon.chen@sifive.com,
+	nylon7717@gmail.com,
+	zong.li@sifive.com,
+	greentime.hu@sifive.com,
+	vincent.chen@sifive.com
+Subject: [PATCH v2 0/2] Change PWM-controlled LED pin active mode and algorithm
+Date: Mon, 30 Jan 2023 17:32:27 +0800
+Message-Id: <20230130093229.27489-1-nylon.chen@sifive.com>
+X-Mailer: git-send-email 2.36.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230129064956.143664-1-tjytimi@163.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230130_002244_618094_29C36881 
-X-CRM114-Status: GOOD (  20.94  )
+X-CRM114-CacheID: sfid-20230130_013239_048106_B241C1DA 
+X-CRM114-Status: UNSURE (   8.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,70 +105,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jan 29, 2023 at 02:49:56PM +0800, Jinyu Tang wrote:
-> The arch_has_hw_pte_young() is false for riscv by default. If it's
-> false, page table walk is almost skipped for MGLRU reclaim. And it
-> will also cause useless step in __wp_page_copy_user().
-> 
-> RISC-V Privileged Book says that riscv have two schemes to manage A
-> and D bit.
-> 
-> So add a config for selecting, the default is true. For simple
-> implementation riscv CPU which just generate page fault, unselect it.
-> 
-> Signed-off-by: Jinyu Tang <tjytimi@163.com>
-> ---
->  arch/riscv/Kconfig               | 10 ++++++++++
->  arch/riscv/include/asm/pgtable.h |  7 +++++++
->  2 files changed, 17 insertions(+)
-> 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index e2b656043abf..17c82885549c 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -180,6 +180,16 @@ config PAGE_OFFSET
->  	default 0x80000000 if 64BIT && !MMU
->  	default 0xff60000000000000 if 64BIT
->  
-> +config ARCH_HAS_HARDWARE_PTE_YOUNG
-> +	bool "Hardware Set PTE Access Bit"
-> +	default y
-> +	help
-> +	  Select if hardware set A bit when PTE is accessed. The default is
-> +	  'Y', because most RISC-V CPU hardware can manage A and D bit.
-> +	  But RISC-V may have simple implementation that do not support
-> +	  hardware set A bit but only generate page fault, for that case just
-> +	  unselect it.
-> +
->  config KASAN_SHADOW_OFFSET
->  	hex
->  	depends on KASAN_GENERIC
-> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> index 4eba9a98d0e3..1db54ab4e1ba 100644
-> --- a/arch/riscv/include/asm/pgtable.h
-> +++ b/arch/riscv/include/asm/pgtable.h
-> @@ -532,6 +532,13 @@ static inline int ptep_clear_flush_young(struct vm_area_struct *vma,
->  	 */
->  	return ptep_test_and_clear_young(vma, address, ptep);
->  }
-> +#ifdef CONFIG_ARCH_HAS_HARDWARE_PTE_YOUNG
-> +#define arch_has_hw_pte_young arch_has_hw_pte_young
-> +static inline bool arch_has_hw_pte_young(void)
-> +{
-> +	return true;
-> +}
-> +#endif
->  
->  #define pgprot_noncached pgprot_noncached
->  static inline pgprot_t pgprot_noncached(pgprot_t _prot)
-> -- 
-> 2.30.2
->
+According to the circuit diagram of User LEDs - RGB described in the
+manual hifive-unleashed-a00.pdf[0] and hifive-unmatched-schematics-v3.pdf[1].
+The behavior of PWM is acitve-high.
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+According to the descriptionof PWM for pwmcmp in SiFive FU740-C000 Manual[2].
+The pwm algorithm is (PW) pulse active time  = (D) duty * (T) period.
+The `frac` variable is pulse "inactive" time so we need to invert it.
 
-Thanks,
-drew
+So this patchset removes active-low in DTS and adds reverse logic to the driver.
+
+[0]: https://sifive.cdn.prismic.io/sifive/c52a8e32-05ce-4aaf-95c8-7bf8453f8698_hifive-unleashed-a00-schematics-1.pdf
+[1]: https://sifive.cdn.prismic.io/sifive/6a06d6c0-6e66-49b5-8e9e-e68ce76f4192_hifive-unmatched-schematics-v3.pdf
+[2]: https://sifive.cdn.prismic.io/sifive/1a82e600-1f93-4f41-b2d8-86ed8b16acba_fu740-c000-manual-v1p6.pdf
+
+Changed in v2:
+ - Convert the reference link to standard link.
+ - Fix typo: s/sifive unmatched:/sifive: unmatched:/.
+ - Remove active-low from hifive-unleashed-a00.dts.
+ - Include this reference link in the dts and pwm commit messages.
+
+Nylon Chen (2):
+  riscv: dts: sifive: unleashed/unmatched: Remove PWM controlled LED's
+    active-low properties
+  pwm: sifive: change the PWM controlled LED algorithm
+
+ arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts | 4 ----
+ arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts | 4 ----
+ drivers/pwm/pwm-sifive.c                            | 1 +
+ 3 files changed, 1 insertion(+), 8 deletions(-)
+
+-- 
+2.36.1
+
 
 _______________________________________________
 linux-riscv mailing list
