@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26D1CC54EAA
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jan 2023 18:25:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1A57C54EED
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jan 2023 18:25:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=X/SiJiF+S1PfFfSXLHu7LViVN+My225iPSC67vzp4r0=; b=miM9BExrToRdHU
-	PU8Bp19skd2koMui8jBOv01ysr6UcVV39S8v3QxMazxOnAimBpTODt5fe6RGR0gOcNH+l3TQIacpX
-	8yd8cPRWUquNwo4+uHbbL+UozW69lk4KPgHoDGNMSxaQLN+BkadAm7vrv0ot1EhX/5Cmr38uJ8W+N
-	KFE6eVUnMJh4p34XhjaUnRsrd/3aNt9L29ohAnOBVM+GzkeYl4zAxN+JyX8p44BtGAS6/ZNoRWDzZ
-	0Dg4rKX7acMs6OXaswsl9d5HDMqHnyzdquKrSzhWmq1JgdTV7akdUsuqfE7tt5iFj7fS0Pfas45RR
-	HLBFPcUJnU/6MPvl3YHg==;
+	List-Owner; bh=G25x7NEPwMY5Mm6sLRSR+lLi69xo5n8bxWt0n4G3EEs=; b=KAktFtduE767IR
+	e/a1bs26O+t5NiY59x2lBlPh1x9csJsYuzC1RK0/pT/21iqmQNgt5d5R8Ty4bAUjhKq24dB+WesmD
+	oWGSKl517SraZwC7+ys/7gkDpuGDulw1cMeaNQ3JeawQ8l4Qv15e7Qu+oyB9HKa/szM5jcITwJlCI
+	hdiQWWBet55eh1U4mvqSj1kHqs1KMQERYg7Cf7LTg9E2y9QxA7p9D0f5vvr1+dPM0Z7hdTRUMdbVd
+	dFn5Dp5jDvAPJkrj7/B2kzlypccOaVXMY3Skz8NRslWUQiUbVxCbH+zDiUuq29KTdrWq3iZ66TH6F
+	RYfkrR4Q2Y9XMWStKCPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMYqJ-004y33-Bz; Mon, 30 Jan 2023 18:25:23 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1pMYqO-004y6r-7o; Mon, 30 Jan 2023 18:25:28 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMYo8-004wxh-L0
-	for linux-riscv@lists.infradead.org; Mon, 30 Jan 2023 18:23:10 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id e10-20020a17090a630a00b0022bedd66e6dso16394774pjj.1
-        for <linux-riscv@lists.infradead.org>; Mon, 30 Jan 2023 10:23:07 -0800 (PST)
+	id 1pMYoD-004wz8-E7
+	for linux-riscv@lists.infradead.org; Mon, 30 Jan 2023 18:23:14 +0000
+Received: by mail-pl1-x635.google.com with SMTP id p24so12518304plw.11
+        for <linux-riscv@lists.infradead.org>; Mon, 30 Jan 2023 10:23:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=ventanamicro.com; s=google;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ucIkerkqr4QmI5UkdMXW8uEBrl0PvtR2G4Rv/JZMzew=;
-        b=GhrwpBT3N31+nOt/CtgKmnAGMi653hgs/75GWs74Cqht6JG/AUohZ9ARL3pkvdkfmj
-         GGOZc26wqFHqO7mxkcg3Ji/bn0HnDTjs+diwm80n7Jus44aORApx5bQiKn82JGyfTCYv
-         hLqZbyZnw2mPfz9cuau3/Zw6fHKe0n82KCiDP07hBTERsyddqX5tlDZsMxgaTW1bTNpo
-         KxuF/f6QYreKfafdgIWZX2SL50FtFfyns379QlTz0qZo60LNmMpt4E2ApfVNvqyuC5TA
-         bTk7rP8MGgWtYVewzHcJEdMTwddvaOYKbkRdF7nMfjQRFzmhTRP94xlgUWzIEO/hT95a
-         UI5A==
+        bh=tPNO/SxCaad+QHrUHg1W5XYbXIP+iBGVf1xglNrkc7w=;
+        b=WAt9qxmLcMCzx3x9infWfLlyTRY7lQwbLQgH+mqXQo8DaInODomPFYDru14it+/rwL
+         FKOjU3kGSGvjRCJYGNq2J3I07ZEnZ2Bph7Cb19sB1kEq1iHguj5rtG6WsoXH3ZD7TYZN
+         Ls5e3cWuM0m3oJ0jAOuLWK/MdCpxiTs0N/t0Izo9LfJy+vGfhYn87Vrttba7ZDWMziE/
+         A08N/tccmOYsLazLRWGMy8dyvGbcOWNX9dDkplIHbZ2N65daS8oRYxkaa404MTl8Exiw
+         wpa6wUWNjRjFB4qsp0OXBmuBLPbZxKyUhU+EuhlYJBnfoixeacW/CA9qkRNTfKQxDHfo
+         1lpQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=ucIkerkqr4QmI5UkdMXW8uEBrl0PvtR2G4Rv/JZMzew=;
-        b=6EHsfwbCuw26cQNYgPKlgCeEZsk7XcWVzs9+YXWNGMX8zPcZH5CqXMyFb68TTYAlp8
-         cQuHdYbx6rEr+DHXQQkKhT8oD4/i0k1Hzl/xfBMHwfCPP0qnvBdrEezhwt76ChkikVy0
-         /IF5Lfg9l87jKwUV0U5OaADsyeUZUDs0uMDLcf8dgj3zz3A/SFlkurDAB0H7zGLmXvhh
-         BzaF4v+Ta5V+LsXarQlMOpz3jkTn6666Oto+8g/Fpgb9ojSnd/PyJ0wQOEdWiNGgubCJ
-         Qu3tQbJjWgzFv4/1B1N9/rJF6jNnM8fw4orkZkrUCwT8O8Nr+AwlafaChZk53YxY1gte
-         fz/w==
-X-Gm-Message-State: AFqh2krZdMTjdE1vfKuZEPLERioO/+Q6+WyuQ4VHGYFANn6xxAmclQl2
-	aG8hWTvpAGMIzUYVwwU1hc7p4g==
-X-Google-Smtp-Source: AMrXdXuB44m0KVUm0j9aNOAU3dJJ68bswZ8ULTfSewfLquMpMN9Q/ZK2SmPbqXYnMOJ4+lGGcK7FKA==
-X-Received: by 2002:a17:90b:348e:b0:229:5cab:67a8 with SMTP id kd14-20020a17090b348e00b002295cab67a8mr52332355pjb.24.1675102986650;
-        Mon, 30 Jan 2023 10:23:06 -0800 (PST)
+        bh=tPNO/SxCaad+QHrUHg1W5XYbXIP+iBGVf1xglNrkc7w=;
+        b=Is2RilXFfEOvwOGxNQMbO9JfreU31Byu297ZkdSYOmq2U6bZZ9XxtABweA6NRgxkQk
+         FXjTBPoyv6mgw3jMX+ajDT2Tna0Dle3LHfB+22z8l3XBp9VM05zbbv5GaOMWkwkc1aJk
+         sYVbo8P0AshAO1Su2mhnGPZalTIymUQPChDxtjfw/Rh61ZHsprvxVA7ZKBUwNubu1UUc
+         Tkmd7qnNDlhlNM1xSkmaFtXrGodERsET6/E/+kjF2q1c9iSEnijvBmRsIHDy7Q7iiqXr
+         P0CWeQa44Q+Lrx41nM9ruqVI+sNuhzOf4XigIEMDP+QllHtkAj24Igap+89X7uj6Qnfd
+         4zXQ==
+X-Gm-Message-State: AO0yUKWD4sUrQcnVSmhqSlw1TRERcxw4sDbrSxs7oFy9hRUfIJPoYBx5
+	4ht9pB6+o0xBr7CD33XsoTEcTw==
+X-Google-Smtp-Source: AK7set+8WSMVCSxjvJ7pcIybsaePEVFCKPT/8u2wMLIFDS/YpCiIenEFMsDbeymxOLvTs+dp4pi/rw==
+X-Received: by 2002:a17:90b:20a:b0:22c:147d:137f with SMTP id fy10-20020a17090b020a00b0022c147d137fmr20585364pjb.17.1675102991516;
+        Mon, 30 Jan 2023 10:23:11 -0800 (PST)
 Received: from kerodipc.Dlink ([49.206.9.96])
-        by smtp.gmail.com with ESMTPSA id j193-20020a638bca000000b00478162d9923sm7000291pge.13.2023.01.30.10.23.02
+        by smtp.gmail.com with ESMTPSA id j193-20020a638bca000000b00478162d9923sm7000291pge.13.2023.01.30.10.23.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 30 Jan 2023 10:23:05 -0800 (PST)
+        Mon, 30 Jan 2023 10:23:10 -0800 (PST)
 From: Sunil V L <sunilvl@ventanamicro.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
@@ -69,16 +69,16 @@ To: Palmer Dabbelt <palmer@dabbelt.com>,
 	Marc Zyngier <maz@kernel.org>,
 	Daniel Lezcano <daniel.lezcano@linaro.org>,
 	Jonathan Corbet <corbet@lwn.net>
-Subject: [PATCH 07/24] RISC-V: ACPI: Enable ACPI build infrastructure
-Date: Mon, 30 Jan 2023 23:52:08 +0530
-Message-Id: <20230130182225.2471414-8-sunilvl@ventanamicro.com>
+Subject: [PATCH 08/24] ACPI: Enable ACPI_PROCESSOR for RISC-V
+Date: Mon, 30 Jan 2023 23:52:09 +0530
+Message-Id: <20230130182225.2471414-9-sunilvl@ventanamicro.com>
 X-Mailer: git-send-email 2.38.0
 In-Reply-To: <20230130182225.2471414-1-sunilvl@ventanamicro.com>
 References: <20230130182225.2471414-1-sunilvl@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230130_102308_745332_018D86A4 
-X-CRM114-Status: UNSURE (   8.22  )
+X-CRM114-CacheID: sfid-20230130_102313_511442_CCDC79BF 
+X-CRM114-Status: UNSURE (   9.92  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -97,41 +97,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Enable build infrastructure to add ACPI support for
-RISC-V.
+The ACPI processor driver is not currently enabled for RISC-V.
+Enable it
 
 Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
 ---
- arch/riscv/Kconfig | 5 +++++
- 1 file changed, 5 insertions(+)
+ drivers/acpi/Kconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index d153e1cd890b..f664350679bc 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -12,6 +12,9 @@ config 32BIT
+diff --git a/drivers/acpi/Kconfig b/drivers/acpi/Kconfig
+index ccbeab9500ec..b44ac8e55b54 100644
+--- a/drivers/acpi/Kconfig
++++ b/drivers/acpi/Kconfig
+@@ -281,7 +281,7 @@ config ACPI_CPPC_LIB
  
- config RISCV
- 	def_bool y
-+	select ACPI_GENERIC_GSI if ACPI
-+	select ACPI_MCFG if (ACPI && PCI)
-+	select ACPI_REDUCED_HARDWARE_ONLY if ACPI
- 	select ARCH_CLOCKSOURCE_INIT
- 	select ARCH_ENABLE_HUGEPAGE_MIGRATION if HUGETLB_PAGE && MIGRATION
- 	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
-@@ -598,6 +601,7 @@ config EFI_STUB
- config EFI
- 	bool "UEFI runtime support"
- 	depends on OF && !XIP_KERNEL
-+	select ARCH_SUPPORTS_ACPI if 64BIT
- 	select LIBFDT
- 	select UCS2_STRING
- 	select EFI_PARAMS_FROM_FDT
-@@ -703,3 +707,4 @@ source "drivers/cpufreq/Kconfig"
- endmenu # "CPU Power Management"
- 
- source "arch/riscv/kvm/Kconfig"
-+source "drivers/acpi/Kconfig"
+ config ACPI_PROCESSOR
+ 	tristate "Processor"
+-	depends on X86 || IA64 || ARM64 || LOONGARCH
++	depends on X86 || IA64 || ARM64 || LOONGARCH || RISCV
+ 	select ACPI_PROCESSOR_IDLE
+ 	select ACPI_CPU_FREQ_PSS if X86 || IA64 || LOONGARCH
+ 	select THERMAL
 -- 
 2.38.0
 
