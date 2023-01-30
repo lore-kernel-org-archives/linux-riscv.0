@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64568C61D97
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jan 2023 18:25:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4A41C54EAA
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jan 2023 18:25:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hoNKq+hsW1StNWgHjpFr+TdyjaYtGqXLXUFMrVPRhQ0=; b=AkoiskT/2SyqhC
-	bFfrzl0lIc8W4crzoxBSuntb8tUOuqjsn1B3CEh1jeu0yf8xHTUqUEEmLpRRUiRdgqDUpov/4A78Y
-	FEsobfg0U792oHovqZ/NPB1d0RFiHROrL1heK8QP668E8XnCbV136qm72MzLWIEabudMhoTd6vhfw
-	5wW04anWUruC2iJbaoKS8N57Lr3S5EdO9DzfSJXJdoD9GyZcFlsIpvW/xE5OGM2RNKWC5fyBaE0t8
-	pVE14Rz+Eviyi729EZE+5k1X4RlXlMeBFZJGu18X4RkGOShK79EYaznOiA+0ERzp9XSktLgwxswZg
-	u1CDByiqGbAmj9Hhw2vg==;
+	List-Owner; bh=Ph1A9LIK3OscDrUalg1ltVezx+f2yGzqichcfUKhH4k=; b=gg91rpLgqGVK1v
+	upvwCSwkoy9Dow+IDVFsTR5ahtYy4Ax7GmhtJH/amiYnTl76C3trPNejOs9Kb8PSLV6p6PXeumy/W
+	rkXM7CqwCB49QzSAjAtF0dhg0Aj4VhQVir+XZrNoPiJ1pnjMq3+yugjJ+qob1vMNDRppnq9cwZ1vW
+	0LDOxM6/gzmY2Wf1vkJmzn7kLLhsC6EuUJ4iiDbVXnrsAyQzBuv/Vo/WaVXWl0fXJJq0d1ISNDVR5
+	H4YK3UXU9ugFma5bytITz6itSxvfAjORTAHhZi2lQp3KR1bqukjAzYSPqAQLbClHzP9mlQXQ2qtML
+	Xms8qkkQg5mmi5Vzas1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMYqY-004yCy-8y; Mon, 30 Jan 2023 18:25:38 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1pMYqh-004yIp-OS; Mon, 30 Jan 2023 18:25:47 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMYoH-004x0P-HW
-	for linux-riscv@lists.infradead.org; Mon, 30 Jan 2023 18:23:19 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id o13so11888536pjg.2
-        for <linux-riscv@lists.infradead.org>; Mon, 30 Jan 2023 10:23:16 -0800 (PST)
+	id 1pMYoM-004x1s-68
+	for linux-riscv@lists.infradead.org; Mon, 30 Jan 2023 18:23:23 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id e6so4317849plg.12
+        for <linux-riscv@lists.infradead.org>; Mon, 30 Jan 2023 10:23:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=ventanamicro.com; s=google;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Civb8WSgZLaGjy3GsEK+VfCJoO5XDczMEZxaUDDoy9s=;
-        b=PSgeKdehYrE+PafjRwikFSIdgqSVP/6Dwf+FS0bio9ay+kO8Iq/DP55UzLxJ/0teml
-         mvq507l+RrqXXtGjCegq0g7TLBJjmbSWhdM5dgwY0v649xk++pdojRYRpi6srgODCEX8
-         Uo9mPJiNfw2KG4leBHKApLZ0vCIAGbEaAh8W/xor1x+Q+a1Lfuh10l47pj75siTlDsbn
-         eb7CTrsgaQM3o3V7ixmkkhz+3jXqGMGxOBTq3bjtqGeqQ2LRHByk7Bu5QeGzR6FsK4b9
-         YFzRilzo9k2a2ZEB3Su60FmyHlwt8/pzExTf+irfPULv2+5xGuGMe/aasN/pJ2aP1S95
-         itrg==
+        bh=USVS3mywTvdLvSTJeGXikExLlXPpzcs14a2ZRggZ7wY=;
+        b=AdzPUrbp24xrj0FAMDk5+9RcVSjZCso58BavKvUv8Y2Jv3EBQs5Tt0/nPExBhQxEPI
+         j1Ik71BoJYr9yc3WpMmfgQ24R7V4dmBuWpXBIo3eGXjF4q7GziPZ/dui+mh0CyZyuHvm
+         eppGpPrLfUiliaq4Tkv0jgfObfdOkbx9KN4jdMMYleuS3fqZS1d61qS2s25o6BIth0Sh
+         cmtfpu8dJcz8pmxvK+S5DqQKX/c9I0Hayd5E7TlqjRKz2eIdmONgZbi5uObiinByYY2S
+         FGXOHytfliaegYVhWjoHeGGIm+SJdYaXtUrnp5p8EdDnHKzCdKJG66bYpTCn93ACKM9n
+         QA2Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Civb8WSgZLaGjy3GsEK+VfCJoO5XDczMEZxaUDDoy9s=;
-        b=DkQGJZx2d0H8Qy1w/yeHdZSi6AZ3VoJTq0VZ1ZHO1FfmKWKkjT/mmx0cMQhFBFVVdz
-         NzLpWUzSfHL3gdE2snmJAakW2yJ6gWisKrPTo/iAhLLwSgaNYvZipB7ZxCGLbY8LDRhp
-         fiRr4PHeAuOIU9aVNiMi0WdEpBHpZ9nAG6uV6mjWm9xvzJe/39r1frEpFx+LPAVuiBa/
-         keimp8avzTnohUVgIghhEq4P5G/ZM7ttUgJFOWt00qMo34fYf4eBV8ww4kk1dq13OJOh
-         5Ogcuc1ikCabX42bz4IWmAw1Nvb32mN2RYd3svP8MPMByoJgIio/R1ReMmLGGInSU/hl
-         HJdQ==
-X-Gm-Message-State: AO0yUKUXrxnFdAAL/V5qxGCbgxtD+wVffNvnUJ1tjMjXHw7l7OV/t+HY
-	J461up9psVr4SHeYnTW6Trj8dQ==
-X-Google-Smtp-Source: AK7set9oTDzJ0fET5I+XJ+M/whs8igubsgt819w38WChwLx4JRHaYMGFAZJAVm6ZNdmVCQgnm72BVg==
-X-Received: by 2002:a17:90b:3e81:b0:22c:b70d:45fb with SMTP id rj1-20020a17090b3e8100b0022cb70d45fbmr3191564pjb.23.1675102995734;
-        Mon, 30 Jan 2023 10:23:15 -0800 (PST)
+        bh=USVS3mywTvdLvSTJeGXikExLlXPpzcs14a2ZRggZ7wY=;
+        b=k2nsFPFYp/ITPAFQMQkA0F/KZGU/4gYXdO+DmqnohwTp7R4DfYPQU/ua+oOWSiHrzD
+         9de5ECztfRFfWPUH4epOXMPTFuzhGJUd7wmTqS3JqZMTneL+T52fTFUJat8/akSbnz2N
+         WbDQQkjk7BVRvjy49nhOhgzQlrVKaregyKtz0BmbYUPDlcHu8hJvFceNZw25REiqfW/0
+         I+K2zwD8kaXDWl8Gtp1m280yk93dGQyO/NVcDTW7UtO4hGYJjmz6zilfukC787PqSkFq
+         2LjrRVRlB5jeNktoqM+pFVCtOjPCbK8CarO2bySwKcM78K7Ty/GLgKVZJFaXXl7bbcMv
+         bT6A==
+X-Gm-Message-State: AO0yUKVjqmjoaagHcjerPgD3ZSA69rrHonDq6kbipj49BqCl8tQR3hvF
+	mApYnvfipdfKnFimota3A/axSQ==
+X-Google-Smtp-Source: AK7set/iIY4N9lMJIQuuLqIcFatEy8RspvzQ7ycNCuigstyEk6Y9hWi2TzCwIFuNa78QmQWe8UUyAQ==
+X-Received: by 2002:a17:902:d4c3:b0:196:49a9:bf26 with SMTP id o3-20020a170902d4c300b0019649a9bf26mr20839616plg.15.1675103000228;
+        Mon, 30 Jan 2023 10:23:20 -0800 (PST)
 Received: from kerodipc.Dlink ([49.206.9.96])
-        by smtp.gmail.com with ESMTPSA id j193-20020a638bca000000b00478162d9923sm7000291pge.13.2023.01.30.10.23.11
+        by smtp.gmail.com with ESMTPSA id j193-20020a638bca000000b00478162d9923sm7000291pge.13.2023.01.30.10.23.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 30 Jan 2023 10:23:15 -0800 (PST)
+        Mon, 30 Jan 2023 10:23:19 -0800 (PST)
 From: Sunil V L <sunilvl@ventanamicro.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
@@ -69,17 +69,16 @@ To: Palmer Dabbelt <palmer@dabbelt.com>,
 	Marc Zyngier <maz@kernel.org>,
 	Daniel Lezcano <daniel.lezcano@linaro.org>,
 	Jonathan Corbet <corbet@lwn.net>
-Subject: [PATCH 09/24] ACPI: OSL: Make should_use_kmap() 0 for RISC-V.
-Date: Mon, 30 Jan 2023 23:52:10 +0530
-Message-Id: <20230130182225.2471414-10-sunilvl@ventanamicro.com>
+Subject: [PATCH 10/24] ACPI: processor_core: RISC-V: Enable mapping processor to the hartid
+Date: Mon, 30 Jan 2023 23:52:11 +0530
+Message-Id: <20230130182225.2471414-11-sunilvl@ventanamicro.com>
 X-Mailer: git-send-email 2.38.0
 In-Reply-To: <20230130182225.2471414-1-sunilvl@ventanamicro.com>
 References: <20230130182225.2471414-1-sunilvl@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230130_102317_635541_9CD354B7 
-X-CRM114-Status: UNSURE (   9.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230130_102322_268368_A9BE5118 
+X-CRM114-Status: GOOD (  14.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,27 +96,77 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Without this, if the tables are larger than 4K,
-acpi_map() will fail.
+processor_core needs arch specific functions to map the ACPI ID
+to the physical ID. In RISC-V platforms, hartid is the physical id
+and RINTC structure in MADT provides this mapping. Add arch specific
+function to get this mapping from RINTC.
 
 Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
 ---
- drivers/acpi/osl.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/riscv/include/asm/acpi.h |  3 +++
+ drivers/acpi/processor_core.c | 28 ++++++++++++++++++++++++++++
+ 2 files changed, 31 insertions(+)
 
-diff --git a/drivers/acpi/osl.c b/drivers/acpi/osl.c
-index 3269a888fb7a..f725813d0cce 100644
---- a/drivers/acpi/osl.c
-+++ b/drivers/acpi/osl.c
-@@ -276,7 +276,7 @@ acpi_map_lookup_virt(void __iomem *virt, acpi_size size)
- 	return NULL;
+diff --git a/arch/riscv/include/asm/acpi.h b/arch/riscv/include/asm/acpi.h
+index 8b9babaf3f25..c5cb9f96d404 100644
+--- a/arch/riscv/include/asm/acpi.h
++++ b/arch/riscv/include/asm/acpi.h
+@@ -15,6 +15,9 @@
+ /* Basic configuration for ACPI */
+ #ifdef CONFIG_ACPI
+ 
++typedef u64 phys_cpuid_t;
++#define PHYS_CPUID_INVALID INVALID_HARTID
++
+ /* ACPI table mapping after acpi_permanent_mmap is set */
+ void *acpi_os_ioremap(acpi_physical_address phys, acpi_size size);
+ #define acpi_os_ioremap acpi_os_ioremap
+diff --git a/drivers/acpi/processor_core.c b/drivers/acpi/processor_core.c
+index 2ac48cda5b20..889f495b3481 100644
+--- a/drivers/acpi/processor_core.c
++++ b/drivers/acpi/processor_core.c
+@@ -106,6 +106,31 @@ static int map_gicc_mpidr(struct acpi_subtable_header *entry,
+ 	return -EINVAL;
  }
  
--#if defined(CONFIG_IA64) || defined(CONFIG_ARM64)
-+#if defined(CONFIG_IA64) || defined(CONFIG_ARM64) || defined(CONFIG_RISCV)
- /* ioremap will take care of cache attributes */
- #define should_use_kmap(pfn)   0
- #else
++/*
++ * Retrieve the RISC-V hartid for the processor
++ */
++static int map_rintc_hartid(struct acpi_subtable_header *entry,
++		int device_declaration, u32 acpi_id, phys_cpuid_t *hartid)
++{
++	struct acpi_madt_rintc *rintc =
++	    container_of(entry, struct acpi_madt_rintc, header);
++
++	if (!(rintc->flags & ACPI_MADT_ENABLED))
++		return -ENODEV;
++
++	/* device_declaration means Device object in DSDT, in the
++	 * RISC-V, logical processors are required to
++	 * have a Processor Device object in the DSDT, so we should
++	 * check device_declaration here
++	 */
++	if (device_declaration && (rintc->uid == acpi_id)) {
++		*hartid = rintc->hart_id;
++		return 0;
++	}
++
++	return -EINVAL;
++}
++
+ static phys_cpuid_t map_madt_entry(struct acpi_table_madt *madt,
+ 				   int type, u32 acpi_id)
+ {
+@@ -136,6 +161,9 @@ static phys_cpuid_t map_madt_entry(struct acpi_table_madt *madt,
+ 		} else if (header->type == ACPI_MADT_TYPE_GENERIC_INTERRUPT) {
+ 			if (!map_gicc_mpidr(header, type, acpi_id, &phys_id))
+ 				break;
++		} else if (header->type == ACPI_MADT_TYPE_RINTC) {
++			if (!map_rintc_hartid(header, type, acpi_id, &phys_id))
++				break;
+ 		}
+ 		entry += header->length;
+ 	}
 -- 
 2.38.0
 
