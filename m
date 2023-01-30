@@ -4,85 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E97D4C636D4
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jan 2023 18:55:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07C27C54EAA
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jan 2023 19:12:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CvmO9rc8qFM07IKKTrS6S5ofe4B3GcEpEVAY2sXR6IY=; b=KnKmNaWuVeFVpb
-	Eg843W+i9pb8metGanVqggJwvUCgZgqymiVskmvednJBT0OkCLU3HtPNKQ+LKFWzVtQIOJYEV6Nq5
-	X6lopTfP8viqCBRQJC+QmES6E4bZhaGbyNgt81jSy7+J1ZvP2/roLdY0gQh5mcCklq2A5cUm8nQxD
-	B8sQ1LvhF6hLFhoJ9nhlxVg2KLOjyGkSRhJYwL8JG+KuD0eBlEjyWLK6Gcz/EMQlsy0uN8JVW4HOV
-	P66lnsDmcG/05vq/rXYplGRUE8dZgu7M8i3rn5C/M8ic4HW8k91KoPRQg3Myl1ZlOu36wOm8t5Wn3
-	TE4HdFWEm50WP+21hI7w==;
+	List-Owner; bh=Rtmc4RA/3ifwjM5s6zrPxTTlrDQeAVo17328wxxkisY=; b=R49WVmuHaMeWZE
+	D/fzU3/UrMygooWSZLVRvacoQiZZom5w25LPnut7EjAGotbGjZDTgJvczfd8/AOL9OhYPEJ8F3Kog
+	gxRX0M9UGQwjlYYkyfoSNLGlUTDjvJBNXhMdkC9EdWEAG0rz3+Hd/W5GXj8SmUZfL3UyubNmxw5f8
+	QWS3YtKonYis5e5xdtPU51KO+MJoT8CS3aIBSSkADKEiqfRDqiTd//GSKOTPDBdSQljFeao3fZo9r
+	XcyNFOmYoF2QTJkOkJSnaouM/gj6dUdzvbCQ1XvDNb2thkQzeOCRIQBP1/Bc+fMFrjx7o7ZG4N58U
+	IygWLl8ogVU9qzxNwDtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMZJE-00584P-QB; Mon, 30 Jan 2023 18:55:16 +0000
-Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
+	id 1pMZZJ-005ABc-Ie; Mon, 30 Jan 2023 19:11:53 +0000
+Received: from mail-ej1-f47.google.com ([209.85.218.47])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMZJC-00583c-Bq
-	for linux-riscv@lists.infradead.org; Mon, 30 Jan 2023 18:55:15 +0000
-Received: by mail-pf1-x435.google.com with SMTP id g9so6467941pfk.13
-        for <linux-riscv@lists.infradead.org>; Mon, 30 Jan 2023 10:55:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=b3PX0zQGrK5y8iu02KEGBurLYy151zBq8KyGCmE0yjY=;
-        b=AMd0kXmr9vmpbWaluw+VMzmIcJDFwS4jzcz82kHNX+SsxxzmMgzS3qoiQYiKXEYS0e
-         j5z3LoWReQ0iZbUUW8RXHnkIr0REJ0c8LlYYvUgk8SzWgl6jOxowaet1RYlyWLjNrFd0
-         P6754dPAWJ7i3tauY3KgyUZgDA7bewMXZ/xpOF1JbFfMSTHyKcb+0VOSePmevhHGU7F9
-         UC4Cc0EyD3syozcquv5TDRSnnLDniHZPQUfCix7Vs7u6srRTC2EvcvbLcEqLnCc3WB37
-         r+TP9pnxJ+KT2WYrVXcyoz06dSRBZYs4XmvKIHdUTlEK2BSUi8YjP7k+5bkXRzLpW5Co
-         97Rg==
+	id 1pMZZF-005AB3-Ve
+	for linux-riscv@lists.infradead.org; Mon, 30 Jan 2023 19:11:51 +0000
+Received: by mail-ej1-f47.google.com with SMTP id p26so23567164ejx.13
+        for <linux-riscv@lists.infradead.org>; Mon, 30 Jan 2023 11:11:48 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=b3PX0zQGrK5y8iu02KEGBurLYy151zBq8KyGCmE0yjY=;
-        b=wnc2ccykZ9Nm7+INfMqVK8y18Q/wyDpfUK2zjMDduqONjwgW+wCLSNXJsjOf5x15X5
-         5u8gM2OFaUez+lOFwX8azGa6N/eA6mi19k3IUMrq5LTaEC24meOFFT4MG4mAetk6otw0
-         Zdqdhg7/AyexYqXR8I67LiNoCJx51mJjK4cvxlYqhNVkFLp4fhwUc7MSnY87eIv4WoYJ
-         ET20yaeOPHA5RJOzYvNkvLlVKYTFnINK3QNMQ1k7pZAIEttqKcgXqYCOCCjeYqQQgAWX
-         PXDgyKBx1A6lWpo8JoAl1lN/7Ey+UZ8vvrE98/VPjrQK5nGY6AGcGLraWfpeUc0jB8kO
-         2WRg==
-X-Gm-Message-State: AO0yUKV0LwHGJTP0RensQrMLZ7K9OuxXva1MPQ94eKa66s6OMhQh26EV
-	jp9MghOHTeG/myFTnf4QMYYNCQ==
-X-Google-Smtp-Source: AK7set/CODbF1cofKbp2tye5jjqXv4RO9tqNp12t1qheBpmw51d7+fqFth63TATK6xiAaNxji8CSFg==
-X-Received: by 2002:aa7:8742:0:b0:593:b115:e2ca with SMTP id g2-20020aa78742000000b00593b115e2camr5236184pfo.9.1675104912370;
-        Mon, 30 Jan 2023 10:55:12 -0800 (PST)
-Received: from ?IPV6:2601:681:8600:13d0::f0a? ([2601:681:8600:13d0::f0a])
-        by smtp.gmail.com with ESMTPSA id x62-20020a623141000000b0058d9058fe8asm7747970pfx.103.2023.01.30.10.55.10
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 30 Jan 2023 10:55:11 -0800 (PST)
-Message-ID: <5afd356d-7ed6-6f14-49be-246ff43d233f@ventanamicro.com>
-Date: Mon, 30 Jan 2023 11:55:10 -0700
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=eU65rRYM52Gc5N9gkV6nZZxQJLE3/bOxD/7FlWwA6u4=;
+        b=JLRp/IlSW5e0HguOBnuh2/403ZOh/fopT+IQfqAejnIutd7eH6yjFZvJw76XdoBPgT
+         ENYBlcMoHWZ/6xIVNxnlvOygCpeCUCQ0buqyZw3JByGT7mg7C2J37/Ij1LAe37f/7Shp
+         FSxLaQYC+cg4c9dOanL1GAMd38/tGEA0iRxQ7bSGWIc7uTOn+NrVpiW8b4+NIHACttFw
+         51DSPxNP5Z3qoDMQf5b0zxFK5E3gTLpSYmrk6jnLCsUnnhMAAIvWKdZqaiyLdmbAt9dm
+         5KJ/asTkPT4pFeUBdC0OBzJ9YbDvLIQ7NTzVESZ1sL6DsGaBdnPTw8yiMpNck6UQlflH
+         D5Fg==
+X-Gm-Message-State: AO0yUKVHQghCBmV4Xgz73yQWztOO66/+wEpPRV3P22B7cgwaHrKFXuax
+	U/6zJoh71eI1sbDsn+2HxTzHjFRmNWrSdVuc5+b9/ls2
+X-Google-Smtp-Source: AK7set+Xu6B/4xzytt/Jz5draCvC7NhSMfDYO18XJfe49e1baxtM0KT9xIySxJqmB0gOmJA1MuBhQ/KrwoQqqYxa/7A=
+X-Received: by 2002:a17:906:1dcd:b0:87f:575a:9b67 with SMTP id
+ v13-20020a1709061dcd00b0087f575a9b67mr2806864ejh.274.1675105906763; Mon, 30
+ Jan 2023 11:11:46 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.5.1
-Subject: Re: [PATCH v3 0/6] RISC-V: Apply Zicboz to clear_page
-Content-Language: en-US
-To: Andrew Jones <ajones@ventanamicro.com>, linux-riscv@lists.infradead.org,
- kvm-riscv@lists.infradead.org, devicetree@vger.kernel.org
-Cc: 'Heiko Stuebner ' <heiko@sntech.de>,
- 'Krzysztof Kozlowski ' <krzysztof.kozlowski+dt@linaro.org>,
- 'Anup Patel ' <apatel@ventanamicro.com>,
- 'Palmer Dabbelt ' <palmer@dabbelt.com>, 'Atish Patra '
- <atishp@rivosinc.com>, 'Paul Walmsley ' <paul.walmsley@sifive.com>,
- 'Albert Ou ' <aou@eecs.berkeley.edu>,
- 'Conor Dooley ' <conor.dooley@microchip.com>,
- 'Rob Herring ' <robh@kernel.org>, 'Jisheng Zhang ' <jszhang@kernel.org>
-References: <20230130120128.1349464-1-ajones@ventanamicro.com>
-From: Jeff Law <jlaw@ventanamicro.com>
-In-Reply-To: <20230130120128.1349464-1-ajones@ventanamicro.com>
+References: <20230130182225.2471414-1-sunilvl@ventanamicro.com>
+In-Reply-To: <20230130182225.2471414-1-sunilvl@ventanamicro.com>
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+Date: Mon, 30 Jan 2023 20:11:35 +0100
+Message-ID: <CAJZ5v0g218rmTM+ra-vP6qcj7OFzDSBwd4ei9H2fPjhuFsXXrA@mail.gmail.com>
+Subject: Re: [PATCH 00/24] Add basic ACPI support for RISC-V
+To: Sunil V L <sunilvl@ventanamicro.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	"Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
+	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, 
+	Daniel Lezcano <daniel.lezcano@linaro.org>, Jonathan Corbet <corbet@lwn.net>, 
+	linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
+	Anup Patel <apatel@ventanamicro.com>, Andrew Jones <ajones@ventanamicro.com>, 
+	Atish Patra <atishp@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230130_105514_440209_9792BA24 
-X-CRM114-Status: GOOD (  15.86  )
+X-CRM114-CacheID: sfid-20230130_111150_034099_606DAF6F 
+X-CRM114-Status: GOOD (  15.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,45 +75,81 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-[ Sorry for the duplicate.  Andrew indicated I'd used reply-list rather 
-than reply-all.  ]
+On Mon, Jan 30, 2023 at 7:22 PM Sunil V L <sunilvl@ventanamicro.com> wrote:
+>
+> This patch series enables the basic ACPI infrastructure for RISC-V.
+> Supporting external interrupt controllers is in progress and hence it is
+> tested using polling based HVC SBI console and RAM disk.
+>
+> The series depends on Anup's IPI improvement series.
+> https://github.com/avpatel/linux/commits/riscv_ipi_imp_v17
+>
+> These changes are available at
+> https://github.com/vlsunil/linux/commits/acpi_b1_us_review_ipi17
+>
+> Testing:
+> 1) Build Qemu with ACPI support using below branch
+> https://github.com/vlsunil/qemu/tree/acpi_b1_us_review
+>
+> 2) Build EDK2 as per instructions in
+> https://github.com/vlsunil/riscv-uefi-edk2-docs/wiki/RISC-V-Qemu-Virt-support
+>
+> 3) Build Linux after enabling SBI HVC and SBI earlycon
+> CONFIG_RISCV_SBI_V01=y
+> CONFIG_SERIAL_EARLYCON_RISCV_SBI=y
+> CONFIG_HVC_RISCV_SBI=y
+>
+> 4) Build buildroot.
+>
+> Run with below command.
+> qemu-system-riscv64   -nographic \
+> -drive file=Build/RiscVVirtQemu/RELEASE_GCC5/FV/RISCV_VIRT.fd,if=pflash,format=raw,unit=1 \
+> -machine virt,acpi=on -smp 16 -m 2G \
+> -kernel arch/riscv/boot/Image \
+> -initrd buildroot/output/images/rootfs.cpio \
+> -append "root=/dev/ram ro console=hvc0 earlycon=sbi"
+>
+> Jisheng Zhang (1):
+>   riscv: move sbi_init() earlier before jump_label_init()
+>
+> Sunil V L (23):
+>   ACPICA: MADT: Add RISC-V INTC interrupt controller
+>   ACPICA: Add structure definitions for RISC-V RHCT
+>   RISC-V: ACPI: Add empty headers to enable ACPI core
+>   RISC-V: ACPI: Add basic functions to build ACPI core
+>   RISC-V: ACPI: Add PCI functions to build ACPI core
+>   RISC-V: ACPI: Enable ACPI build infrastructure
+>   ACPI: Enable ACPI_PROCESSOR for RISC-V
+>   ACPI: OSL: Make should_use_kmap() 0 for RISC-V.
+>   ACPI: processor_core: RISC-V: Enable mapping processor to the hartid
+>   RISC-V: ACPI: irqchip/riscv-intc: Add ACPI support
+>   RISC-V: ACPI: smpboot: Create wrapper smp_setup()
+>   RISC-V: ACPI: smpboot: Add ACPI support in smp_setup()
+>   RISC-V: ACPI: smpboot: Add function to retrieve the hartid
+>   clocksource/timer-riscv: Refactor riscv_timer_init_dt()
+>   RISC-V: ACPI: clocksource/timer-riscv: Add ACPI support
+>   ACPI: RISC-V: drivers/acpi: Add RHCT related code
+>   RISC-V: ACPI: time.c: Add ACPI support for time_init()
+>   RISC-V: ACPI: cpufeature: Add ACPI support in riscv_fill_hwcap()
+>   RISC-V: ACPI: cpu: Enable cpuinfo for ACPI systems
+>   RISC-V: ACPI: Add ACPI initialization in setup_arch()
+>   RISC-V: ACPI: Enable ACPI in defconfig
+>   MAINTAINERS: Add entry for drivers/acpi/riscv
+>   Documentation/kernel-parameters.txt: Add RISC-V for ACPI parameter
 
+The series looks fine to me from the ACPI perspective, so please feel
+free to add
 
-On 1/30/23 05:01, Andrew Jones wrote:
-> When the Zicboz extension is available we can more rapidly zero naturally
-> aligned Zicboz block sized chunks of memory. As pages are always page
-> aligned and are larger than any Zicboz block size will be, then
-> clear_page() appears to be a good candidate for the extension. While cycle
-> count and energy consumption should also be considered, we can be pretty
-> certain that implementing clear_page() with the Zicboz extension is a win
-> by comparing the new dynamic instruction count with its current count[1].
-> Doing so we see that the new count is just over a quarter of the old count
-> (see patch4's commit message for more details).
-> 
-> For those of you who reviewed v1[2], you may be looking for the memset()
-> patches. As pointed out in v1, and a couple follow-up emails, it's not
-> clear that patching memset() is a win yet. When I get a chance to test
-> on real hardware with a comprehensive benchmark collection then I can
-> post the memset() patches separately (assuming the benchmarks show it's
-> worthwhile).
-> 
-So a note.  On the userspace side we are using cboz for clearing memory 
-in memset.  While the data is intermixed with other changes, there's a 
-very significant drop in stores and a host of related low level 
-performance counters and a notable uptick in gcc #5 performance from 
-spec2017 which is particularly sensitive to memory clearing.  We haven't 
-seen any performance regressions attributable to using cboz across 
-spec2017's integer suite.
+Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
 
-I believe our current threshold setting is to use cboz for chunks >= 128 
-bytes.
+to it and route it via RISC-V.
 
-Jeff
+Thanks!
 
 _______________________________________________
 linux-riscv mailing list
