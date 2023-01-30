@@ -4,53 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94549C636CB
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jan 2023 07:28:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75D52C54EED
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jan 2023 07:30:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=2UghBfK3TuCEDkeILwZF/2eR13ZiH5VVw9s5E709/4k=; b=iI+3v/DbBGK6yz
-	evQI6/C1RIi6BEd7U7FFYhfwa+r2rQsPnSRKhUbAmlKx5vFe9oQjeWu8D7o32p3sclYF8C3xKweY/
-	NHxaYDATnbwNIKtSNIqEGTzcOdB3b9I0gO7os9pCj9lcQaQBxxWBGMvnsFy8ag/Fj5jPkIypJ8A9/
-	Zrl8R+c72Dkcb+Iu3xvhc/nzHv/QeBg+X/JLltom+HeFQ5KwPDWJYAHEfvMYlJ9uGZv6ZPQgZBSCc
-	0tpXF8HkolqzI/8eZ2p3pCUjPsdY7clnBlDXpGMHaa5Xw2ExnjT9uMjtMswvwvpEh6ZwfCt/AB8Yv
-	c9TPlvUjUJjYCAE9xm7A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=MDcn4lOpgk0ix+c/UypGlbOe3kPaUdXo+1XntGd+LCA=; b=lWiOQN5FdJWA6w
+	aBTjdao4zuO6Km8QZlYiQtZ6sj9ZSTTBBIhWg+IbRssCskvQmyIFYnQ0fRRGy+3vdBnHk05pWfYYe
+	7Q71S8KSzXrYYa5OTJLIFRAaf3MSkay4T6wGYIzwaTXmgNScDUTYX7qRrVNtYWxTX87Av5HrRoxGI
+	hYrrKMyWCbTOBMK27mMHGN/kaV9NbgXg59qFbyyuXQEO2kJPS3GKISnji9vwBvA9CgNtnHwpboHVt
+	tUl3vKLnkA4ZgNGktF4q+yK89m8NJxTJ6+uF+tlefk33SnSuttjnjnqCPrWhz2GXhbh9+N7iRzgnx
+	S3t/pLfP4X2rIsRwfOwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMOae-002Y3P-RN; Mon, 30 Jan 2023 07:28:32 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1pMOby-002YO3-Lg; Mon, 30 Jan 2023 07:29:54 +0000
+Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMOaa-002Xyv-3w
-	for linux-riscv@lists.infradead.org; Mon, 30 Jan 2023 07:28:31 +0000
-Received: from kwepemi500013.china.huawei.com (unknown [172.30.72.54])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4P508v0DprzRqHG;
-	Mon, 30 Jan 2023 15:26:07 +0800 (CST)
-Received: from M910t.huawei.com (10.110.54.157) by
- kwepemi500013.china.huawei.com (7.221.188.120) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.34; Mon, 30 Jan 2023 15:28:16 +0800
-From: Changbin Du <changbin.du@huawei.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-CC: Hui Wang <hw.huiwang@huawei.com>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, Changbin Du <changbin.du@gmail.com>, Guo Ren
-	<guoren@kernel.org>, Zong Li <zong.li@sifive.com>, Changbin Du
-	<changbin.du@huawei.com>
-Subject: [PATCH v3] riscv: patch: Fixup lockdep warning in stop_machine
-Date: Tue, 31 Jan 2023 07:26:59 +0800
-Message-ID: <20230130232659.3374212-1-changbin.du@huawei.com>
-X-Mailer: git-send-email 2.25.1
+	id 1pMObw-002YNF-3r
+	for linux-riscv@lists.infradead.org; Mon, 30 Jan 2023 07:29:53 +0000
+Received: by mail-pg1-x531.google.com with SMTP id d10so6969020pgm.13
+        for <linux-riscv@lists.infradead.org>; Sun, 29 Jan 2023 23:29:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=content-transfer-encoding:mime-version:user-agent:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=YWwE9jeS0XA+vIxkZ5tchjD2PTNBCH3jhKsfjA7l1cc=;
+        b=ounVwmjnwqkjjqxLeT9rfCPScvjuD6Tnuf35nbRc2b8EQ7e0oKATFvznRfNzzFj1YO
+         iQMQgEhfAkc9FNObW+5xvo/gMIwPokB2I8yW4wzeaxNI6vUm+w/DFjldorD+fKY2rjxV
+         eTadCHYacSI/BO1NHJ+MZq72PQWSifG2oRKvVGSj8hwrD451z/hezMyRSpJw/TWHNbVq
+         wyhqgmknYwT385Crr1CTyUV0lMjdPP0cBOJwWqjLew1r+SXt2x8vRwrVZbTz3K3/XUj/
+         GERzubB0VRfTeZENjSkILWAce14w3015AvxvPTU3iV3qhIQXQ7N3jhhDgyB9dlVyaDHh
+         9+XQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:user-agent:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=YWwE9jeS0XA+vIxkZ5tchjD2PTNBCH3jhKsfjA7l1cc=;
+        b=i/FC2gIV5GZx9TkMH/eyczwnwkojAkuIUFYXKDM3M8yBrCsm74NYm/VF79nwff1gwV
+         WlhSrrzVNhpfdPyDEqtGNDrcYp4Za4D16DQZYsgqC2ac9Z0bnhbHm0uroggcLt/rb7me
+         JWUJUQyWZ5wqdCE59cuRhyJHPBjBq8aSSrx9XSLfQAM8UFtiZmNnE/mRA1f2H5Mq02JU
+         l2S8UVDAjVeNKtHcowQ7PB3Umb2rF5sO0s10Nq0+dv/HdXw7YwVDL7FuW5XmtsOy8Ly/
+         sFnTCtnM5S7tn8H1acdkPv4Tvo6EppgERgGo/H9YlmORqlfymO0dsXJMHJYyDZ0VEhud
+         5prw==
+X-Gm-Message-State: AFqh2kqpMYkt4GJLb0sGnsaCXnC7pKR08gHHaiD5XEkJFSr1sksrh87h
+	oaSdK9lEij9O6o6YTzt1fUicIQoCyxnup+vaoR4=
+X-Google-Smtp-Source: AMrXdXvkMXx7WtP9Ahhf9DaMqIyAuDOaEGvQX7+jWRWuXizoV5ppfeoGzCnCrdB4Hq0Zsr79s1cUkw==
+X-Received: by 2002:a05:6a00:181f:b0:58b:d244:b525 with SMTP id y31-20020a056a00181f00b0058bd244b525mr68137577pfa.17.1675063788628;
+        Sun, 29 Jan 2023 23:29:48 -0800 (PST)
+Received: from [192.168.1.5] ([103.97.165.210])
+        by smtp.gmail.com with ESMTPSA id n38-20020a056a000d6600b0059072daa002sm6693412pfv.192.2023.01.29.23.29.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 29 Jan 2023 23:29:48 -0800 (PST)
+Message-ID: <80649c8a017f7e5cbb4b23d7625bbb4737bfe5db.camel@ventanamicro.com>
+Subject: Re: [PATCH] riscv: mm: Implement pmdp_collapse_flush for THP
+From: mchitale@ventanamicro.com
+To: Alexandre Ghiti <alex@ghiti.fr>, Paul Walmsley
+ <paul.walmsley@sifive.com>,  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org
+Cc: Nanyong Sun <sunnanyong@huawei.com>, Anup Patel
+ <apatel@ventanamicro.com>,  Andrew Jones <ajones@ventanamicro.com>
+Date: Mon, 30 Jan 2023 12:59:42 +0530
+In-Reply-To: <117752cf-c02b-4264-87c3-42c81aa429f7@ghiti.fr>
+References: <20230125125512.2494577-1-mchitale@ventanamicro.com>
+	 <117752cf-c02b-4264-87c3-42c81aa429f7@ghiti.fr>
+User-Agent: Evolution 3.36.5-0ubuntu1 
 MIME-Version: 1.0
-X-Originating-IP: [10.110.54.157]
-X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
- kwepemi500013.china.huawei.com (7.221.188.120)
-X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230129_232829_205638_2D4D257E 
-X-CRM114-Status: GOOD (  12.38  )
+X-CRM114-CacheID: sfid-20230129_232952_188233_AD281A91 
+X-CRM114-Status: GOOD (  33.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,105 +93,100 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Changbin Du <changbin.du@gmail.com>
+On Thu, 2023-01-26 at 16:33 +0100, Alexandre Ghiti wrote:
+> Hi Mayuresh,
+> 
+> On 1/25/23 13:55, Mayuresh Chitale wrote:
+> > When THP is enabled, 4K pages are collapsed into a single huge
+> > page using the generic pmdp_collapse_flush() which will further
+> > use flush_tlb_range() to shoot-down stale TLB entries.
+> > Unfortunately,
+> > the generic pmdp_collapse_flush() only invalidates cached leaf PTEs
+> > using address specific SFENCEs which results in repetitive (or
+> > unpredictable) page faults on RISC-V implementations which cache
+> > non-leaf PTEs.
+> 
+> That's interesting! I'm wondering if the same issue will happen if a 
+> user maps 4K, unmaps it and at the same address maps a 2MB hugepage:
+> I'm 
+> not sure the mm code would correctly flush the non-leaf PTE when 
+> unmapping the 4KB page. In that case, your patch only fixes the THP 
+> usecase and maybe we should try to catch this non-leaf -> leaf
+> upgrade 
+> at some lower level page table functions, what do you think?
 
-The task of ftrace_arch_code_modify(_post)_prepare() caller is
-stop_machine, whose caller and work thread are of different tasks. The
-lockdep checker needs the same task context, or it's wrong. That means
-it's a bug here to use lockdep_assert_held because we don't guarantee
-the same task context.
+I will look into it but I dont know how to reproduce the issue without
+the THP use case. It would be great if you could share the test case or
+test code to reproduce it.
 
-kernel/locking/lockdep.c:
-int __lock_is_held(const struct lockdep_map *lock, int read)
-{
-        struct task_struct *curr = current;
-        int i;
-
-        for (i = 0; i < curr->lockdep_depth; i++) {
-			^^^^^^^^^^^^^^^^^^^
-                struct held_lock *hlock = curr->held_locks + i;
-					  ^^^^^^^^^^^^^^^^
-                if (match_held_lock(hlock, lock)) {
-                        if (read == -1 || !!hlock->read == read)
-                                return LOCK_STATE_HELD;
-
-The __lock_is_held depends on current held_locks records; if
-stop_machine makes the checker runing on another task, that's wrong.
-
-Here is the log:
-[   15.761523] ------------[ cut here ]------------
-[   15.762125] WARNING: CPU: 0 PID: 15 at arch/riscv/kernel/patch.c:63 patch_insn_write+0x72/0x364
-[   15.763258] Modules linked in:
-[   15.764154] CPU: 0 PID: 15 Comm: migration/0 Not tainted 6.1.0-rc1-00014-g66924be85884-dirty #377
-[   15.765339] Hardware name: riscv-virtio,qemu (DT)
-[   15.765985] Stopper: multi_cpu_stop+0x0/0x192 <- stop_cpus.constprop.0+0x90/0xe2
-[   15.766711] epc : patch_insn_write+0x72/0x364
-[   15.767011]  ra : patch_insn_write+0x70/0x364
-[   15.767276] epc : ffffffff8000721e ra : ffffffff8000721c sp : ff2000000067bca0
-[   15.767622]  gp : ffffffff81603f90 tp : ff60000002432a00 t0 : 7300000000000000
-[   15.767919]  t1 : 0000000000000000 t2 : 73695f6b636f6c5f s0 : ff2000000067bcf0
-[   15.768238]  s1 : 0000000000000008 a0 : 0000000000000000 a1 : 0000000000000000
-[   15.768537]  a2 : 0000000000000000 a3 : 0000000000000000 a4 : 0000000000000000
-[   15.768837]  a5 : 0000000000000000 a6 : 0000000000000000 a7 : 0000000000000000
-[   15.769139]  s2 : ffffffff80009faa s3 : ff2000000067bd10 s4 : ffffffffffffffff
-[   15.769447]  s5 : 0000000000000001 s6 : 0000000000000001 s7 : 0000000000000003
-[   15.769740]  s8 : 0000000000000002 s9 : 0000000000000004 s10: 0000000000000003
-[   15.770027]  s11: 0000000000000002 t3 : 0000000000000000 t4 : ffffffff819af097
-[   15.770323]  t5 : ffffffff819af098 t6 : ff2000000067ba28
-[   15.770574] status: 0000000200000100 badaddr: 0000000000000000 cause: 0000000000000003
-[   15.771102] [<ffffffff80007520>] patch_text_nosync+0x10/0x3a
-[   15.771421] [<ffffffff80009c66>] ftrace_update_ftrace_func+0x74/0x10a
-[   15.771704] [<ffffffff800fa17e>] ftrace_modify_all_code+0xb0/0x16c
-[   15.771958] [<ffffffff800fa24c>] __ftrace_modify_code+0x12/0x1c
-[   15.772196] [<ffffffff800e110e>] multi_cpu_stop+0x14a/0x192
-[   15.772454] [<ffffffff800e0a34>] cpu_stopper_thread+0x96/0x14c
-[   15.772699] [<ffffffff8003f4ea>] smpboot_thread_fn+0xf8/0x1cc
-[   15.772945] [<ffffffff8003ac9c>] kthread+0xe2/0xf8
-[   15.773160] [<ffffffff80003e98>] ret_from_exception+0x0/0x14
-[   15.773471] ---[ end trace 0000000000000000 ]---
-
-By the way, this also fixes the same issue for patch_text().
-
-Fixes: 0ff7c3b33127 ("riscv: Use text_mutex instead of patch_lock")
-Co-developed-by: Guo Ren <guoren@kernel.org>
-Signed-off-by: Guo Ren <guoren@kernel.org>
-Cc: Zong Li <zong.li@sifive.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Signed-off-by: Changbin Du <changbin.du@huawei.com>
----
-Changes in v3:
- - denote this also fixes function patch_text().
-
-Changes in v2:
- - Rewrite commit log with lockdep explanation [Guo Ren]
- - Rebase on v6.1 [Guo Ren]
-
-v1:
-https://lore.kernel.org/linux-riscv/20210417023532.354714-1-changbin.du@gmail.com/
----
- arch/riscv/kernel/patch.c | 7 -------
- 1 file changed, 7 deletions(-)
-
-diff --git a/arch/riscv/kernel/patch.c b/arch/riscv/kernel/patch.c
-index 765004b60513..8619706f8dfd 100644
---- a/arch/riscv/kernel/patch.c
-+++ b/arch/riscv/kernel/patch.c
-@@ -55,13 +55,6 @@ static int patch_insn_write(void *addr, const void *insn, size_t len)
- 	bool across_pages = (((uintptr_t) addr & ~PAGE_MASK) + len) > PAGE_SIZE;
- 	int ret;
- 
--	/*
--	 * Before reaching here, it was expected to lock the text_mutex
--	 * already, so we don't need to give another lock here and could
--	 * ensure that it was safe between each cores.
--	 */
--	lockdep_assert_held(&text_mutex);
--
- 	if (across_pages)
- 		patch_map(addr + len, FIX_TEXT_POKE1);
- 
--- 
-2.25.1
+> 
+> Alex
+> 
+> 
+> > Provide a RISC-V specific pmdp_collapse_flush() which ensures both
+> > cached leaf and non-leaf PTEs are invalidated by using non-address
+> > specific SFENCEs as recommended by the RISC-V privileged
+> > specification.
+> > 
+> > Fixes: e88b333142e4 ("riscv: mm: add THP support on 64-bit")
+> > Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
+> > ---
+> >   arch/riscv/include/asm/pgtable.h | 24 ++++++++++++++++++++++++
+> >   1 file changed, 24 insertions(+)
+> > 
+> > diff --git a/arch/riscv/include/asm/pgtable.h
+> > b/arch/riscv/include/asm/pgtable.h
+> > index 4eba9a98d0e3..6d948dec6020 100644
+> > --- a/arch/riscv/include/asm/pgtable.h
+> > +++ b/arch/riscv/include/asm/pgtable.h
+> > @@ -721,6 +721,30 @@ static inline pmd_t pmdp_establish(struct
+> > vm_area_struct *vma,
+> >   	page_table_check_pmd_set(vma->vm_mm, address, pmdp, pmd);
+> >   	return __pmd(atomic_long_xchg((atomic_long_t *)pmdp,
+> > pmd_val(pmd)));
+> >   }
+> > +
+> > +#define pmdp_collapse_flush pmdp_collapse_flush
+> > +static inline pmd_t pmdp_collapse_flush(struct vm_area_struct
+> > *vma,
+> > +					unsigned long address, pmd_t
+> > *pmdp)
+> > +{
+> > +	pmd_t pmd = pmdp_huge_get_and_clear(vma->vm_mm, address, pmdp);
+> > +
+> > +	/*
+> > +	 * When leaf PTE enteries (regular pages) are collapsed into a
+> > leaf
+> > +	 * PMD entry (huge page), a valid non-leaf PTE is converted
+> > into a
+> > +	 * valid leaf PTE at the level 1 page table. The RISC-V
+> > privileged v1.12
+> > +	 * specification allows implementations to cache valid non-leaf 
+> > PTEs,
+> > +	 * but the section "4.2.1 Supervisor Memory-Management Fence
+> > +	 * Instruction" recommends the following:
+> > +	 * "If software modifies a non-leaf PTE, it should execute
+> > SFENCE.VMA
+> > +	 * with rs1=x0. If any PTE along the traversal path had its G
+> > bit set,
+> > +	 * rs2 must be x0; otherwise, rs2 should be set to the ASID for
+> > which
+> > +	 * the translation is being modified."
+> > +	 * Based on the above recommendation, we should do full flush
+> > whenever
+> > +	 * leaf PTE entries are collapsed into a leaf PMD entry.
+> > +	 */
+> > +	flush_tlb_mm(vma->vm_mm);
+> > +	return pmd;
+> > +}
+> >   #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
+> >   
+> >   /*
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 
 _______________________________________________
