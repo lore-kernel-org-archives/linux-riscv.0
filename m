@@ -4,80 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA899C54EAA
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jan 2023 10:49:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F108C54EAA
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jan 2023 10:54:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hCBzxocs5IQoBRew8G+1ahyNV/y32Y6m12dVudHHEic=; b=ly59BQd3OQ1cNL
-	buz7/9mKeSV9vQvk8ddLvJAH5kXWyYjpo9FGv5k7g6bJCIzio8z5YD4++BGZ/4SnvbSrxscgAr2Tj
-	dSglyaWuN6a4Q01LuXmZEcuSY++PXYn8HiQUGEBJFwvk+B0GGHGpG+kl05fqVteu8l/hFHcvu5ZLI
-	SOLNbzRf0Lb0/0Ep9RSPk+8onpL1TLHz7HG1F+0NBRTUZHL6XmkzJ5/CWtRE0Ug8dzvMY61ZU/qHl
-	i0/yyLvBe1I82dHt6B/uS4GrwOP5q9R2C6aa/NgCIKBwC+Gedn0vrj0xMcm17ZpiV+r1Gk/UXIWoh
-	/qC2ziQhkPUtlyL/zotg==;
+	List-Owner; bh=BQtmF3NRq4h4xCfgLn/XrNDjcOkfufwhuKm92K+GqGI=; b=sqQyaAV3nhpvQ0
+	BzTksec4eo4ZpyOjJUqucsoRcNfy21At2WQrOVoKQpyBLo3XriV8qzXgZXEV/STh9yiyX4JDUuKCO
+	Exb8ow8SImIPFS+zJ6tGMPf5wIzkgsL7rhEfemPz/vIMJq5Pu7Af6SV4rey2R1t5XtX5XFn/mh/3F
+	a86koTP1BfkvYDBt2gH7DEPJSiRoRJXMzfx+4FU1SUCMBIs+ZPD+1NZpltCf4Y1v3O0DLJi5oyl1Q
+	Bd6BkPdy9RpFK1qOZqHovTyBz60cJhgYWuy01l/u6WlZbrgadxxHPHPgInU0IItxXZtfm6JTu025n
+	8ZHpPL8BLcRC/9v8pZ0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMRjC-003Bht-Qx; Mon, 30 Jan 2023 10:49:34 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1pMRnT-003CMh-Qb; Mon, 30 Jan 2023 10:53:59 +0000
+Received: from mail-yw1-x1130.google.com ([2607:f8b0:4864:20::1130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMRii-003BdA-9h
-	for linux-riscv@lists.infradead.org; Mon, 30 Jan 2023 10:49:05 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id o36so1631507wms.1
-        for <linux-riscv@lists.infradead.org>; Mon, 30 Jan 2023 02:49:02 -0800 (PST)
+	id 1pMRnR-003CLL-ML
+	for linux-riscv@lists.infradead.org; Mon, 30 Jan 2023 10:53:59 +0000
+Received: by mail-yw1-x1130.google.com with SMTP id 00721157ae682-50aa54cc7c0so126360307b3.8
+        for <linux-riscv@lists.infradead.org>; Mon, 30 Jan 2023 02:53:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=SaqOey6takqXeZ8f0/kRCVEhlQpWs2nzQX4ec1B7cGw=;
-        b=AZJbWWO1gFB7jtxzXSoG06CX5t1F9m7wuJQaTL25u0qZSfjmlTN8zFIp3n9uCrVfiZ
-         JRNavrjnrkEIGNNcT1YMWdUT7z5m17mFK/3gGERCqIPpGgpL5YUbRYZ/01OPmRvnd+tZ
-         NdbDUkL9Qy5UAfS1QoONoX2eg+CB2fxuDqR4O2SH4+vvBSa4DQHSHTZW+le49dnVlcxY
-         2Or3crt25V4t+roMEsh9CxJsWysT2ya2BurNrtaYOMbQkzFnwDCkX7Hnd+3+rxGPWnf4
-         vwpKV3iTV6yUYPxMARk3i9O4Msv5rbbBuKSl1lE5yyExkkB6qywuBPfuQsUhwD2oGqMr
-         aFbg==
+        d=gmail.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=FUC6K+TUdMSstlrzdppRdz/QrMCOXm0EOP7+90i1xZY=;
+        b=ht9m9YFxQLFVsUimHeqoJwFOz8qFoSRwZxDiiTuUCr6V9x5I9kzETu5HZ7Rmjy4sEi
+         fZhXb5qv67wtF+fT5O3UuWa+FO1COtdg5e+h2L1kz6syB0Vh/fbc7sY2LvOPYqFgz4JM
+         wPEP8L+Z48T6Y/f7lzkOWKTluCOkEGZ9SxMMaXB4rb+AePPqGO3IckIkQOTgfEGw7zP/
+         c2Mqi7wWoSXJaPWKSLOS5iLCgUz5XOrtLj7Rjb5HwZyghhU6UVRiQXKGEnbEWzxGOPKo
+         HBisRg6xWKEI08xXgJdaZdfAf2SfbJwAkt9DNzkXrMyp6I1MoYB9R0TN1VDZhpMoLg+F
+         TWfQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=SaqOey6takqXeZ8f0/kRCVEhlQpWs2nzQX4ec1B7cGw=;
-        b=h7vX8jZWtV7J9kLgHGR9jvus/WVWj0Kco7hW3rzbA1UQiZrVOBAVG+69/Wt8Tcv07E
-         ImMtNBs/didT4+itPdA3QKIqnosOyG7Ex9y0r5ej4YzZJW7ZyxJ/gkVffGMAYhbKIPxw
-         RStKLnjl75Tbuse9/OxdvqmxkwZXkUtrmmOWE/5rTjIWxEAIpftbt5Uzc+vXDbWYv+nc
-         AhiN+1Ffmlj7LV4AveZ5t+cw4V1f/cc8PSE4De/Kp+IErqwUfdH+l4Js7rhgYAsvmZ3b
-         +cgofQQSroL80K71NmfH0lmO+mgQLt4njUkCj47zJGaPIJ2+D3NT2/pG/fDg+IGN6YXr
-         SdJg==
-X-Gm-Message-State: AO0yUKVv07nJNMA9a2cmxL4rhfy2xQA5oiSanOCOe6wJ0LTJP6BcjcTH
-	UJ0iY9Strb6pBP/nEKZd2T92FQ==
-X-Google-Smtp-Source: AK7set+jzH5DbXimXIu/PLpv0ONHG0IeYaZOzibiKULpjUegqIkW8pznBX7JLvV6A6P125z8hVfdhA==
-X-Received: by 2002:a05:600c:1e0d:b0:3dc:3f1b:6757 with SMTP id ay13-20020a05600c1e0d00b003dc3f1b6757mr10561869wmb.15.1675075741688;
-        Mon, 30 Jan 2023 02:49:01 -0800 (PST)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id bi5-20020a05600c3d8500b003db0bb81b6asm12927057wmb.1.2023.01.30.02.49.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 30 Jan 2023 02:49:01 -0800 (PST)
-Date: Mon, 30 Jan 2023 11:49:00 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Jinyu Tang <tjytimi@163.com>, palmer@rivosinc.com,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, yuzhao@google.com,
-	conor.dooley@microchip.com, guoren@kernel.org,
-	tongtiangen@huawei.com, anup@brainfault.org,
-	akpm@linux-foundation.org, falcon@tinylab.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] riscv: support arch_has_hw_pte_young()
-Message-ID: <20230130104900.muwgikgkvkn2byna@orel>
-References: <20230129064956.143664-1-tjytimi@163.com>
- <CAK9=C2VaxNezv+M=s=ZSA-YDf_17+hcom_z1=_j2YkRHg-yg7Q@mail.gmail.com>
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=FUC6K+TUdMSstlrzdppRdz/QrMCOXm0EOP7+90i1xZY=;
+        b=PO8BYQSQjuC3tfyCFWn9Mc41pkofCBGXOJny3FamHsOJBwvPNMuqnblniF+s1BHM9x
+         L8sQNCKAR2HlvC9DTwV3khGVddZUfuLc+sW0xmY6ZNrKBUAJF4GMNxbdf0ictU3Mg3na
+         n3ka2VeWPKzQE4R/ZAH7lTazL1JEDY7sIPxSSBd1qUhbqHkd3GmapDNJ10aijOz1SzRV
+         1GdXaYRQVNFN0T5SHBaiqbCR/HEg9KynEE1SUDiZkIbh/Rim2OHybt39xMXnMFjRrpCw
+         cSsnSOV8SMAJMXga+Vm7Uq9YSmc+XE76XIjpvi2BhO31qD5vBYmjRfzIGTp8E5YXOe/A
+         iyyw==
+X-Gm-Message-State: AO0yUKVfvBZw5rIqt6XdnBZ37rDCNPNsENHx9rdBj04SX/m9+Ggu4qdO
+	YlISCu51XMzB7ZOnU6xZnwbOnjlbKx6cS3JgWKY=
+X-Google-Smtp-Source: AK7set8tcLkYYaI01/h2mGKxIOWC8zR7J8jV7aBtEhF+UBiWCM2HORVPRdg6Bslygx9SHUJanm0vt4LR3QDgRmsbg4g=
+X-Received: by 2002:a81:b246:0:b0:506:55d9:3a78 with SMTP id
+ q67-20020a81b246000000b0050655d93a78mr1975529ywh.339.1675076034014; Mon, 30
+ Jan 2023 02:53:54 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAK9=C2VaxNezv+M=s=ZSA-YDf_17+hcom_z1=_j2YkRHg-yg7Q@mail.gmail.com>
+References: <CA+V-a8tR1KiLSs=Psa=w7kf0zT=yU5_Ekr6-3V1MR==Wtzmksg@mail.gmail.com>
+ <Y9KQPxzHBuZGIN4U@casper.infradead.org>
+In-Reply-To: <Y9KQPxzHBuZGIN4U@casper.infradead.org>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Mon, 30 Jan 2023 10:53:28 +0000
+Message-ID: <CA+V-a8uizF8sQgs8cfTwH3OnK+nvr2dXAoSOPTXCXLFnprHSeA@mail.gmail.com>
+Subject: Re: [QUERY]: Block region to mmap
+To: Matthew Wilcox <willy@infradead.org>
+Cc: Linux-MM <linux-mm@kvack.org>, linux-riscv <linux-riscv@lists.infradead.org>, 
+	Linux-Renesas <linux-renesas-soc@vger.kernel.org>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Jessica Clarke <jrtc27@jrtc27.com>, 
+	Geert Uytterhoeven <geert.uytterhoeven@gmail.com>, 
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>, Biju Das <biju.das.jz@bp.renesas.com>, 
+	Chris Paterson <Chris.Paterson2@renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230130_024904_357261_953FEA03 
-X-CRM114-Status: GOOD (  28.04  )
+X-CRM114-CacheID: sfid-20230130_025357_769089_66DBF4F6 
+X-CRM114-Status: GOOD (  25.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,85 +92,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 30, 2023 at 03:55:55PM +0530, Anup Patel wrote:
-> On Sun, Jan 29, 2023 at 12:21 PM Jinyu Tang <tjytimi@163.com> wrote:
-> >
-> > The arch_has_hw_pte_young() is false for riscv by default. If it's
-> > false, page table walk is almost skipped for MGLRU reclaim. And it
-> > will also cause useless step in __wp_page_copy_user().
-> >
-> > RISC-V Privileged Book says that riscv have two schemes to manage A
-> > and D bit.
-> >
-> > So add a config for selecting, the default is true. For simple
-> > implementation riscv CPU which just generate page fault, unselect it.
-> 
-> I totally disagree with this approach.
-> 
-> Almost all existing RISC-V platforms don't have HW support
-> PTE.A and PTE.D updates.
-> 
-> We want the same kernel image to run HW with/without PTE.A
-> and PTE.D updates so kconfig based approach is not going to
-> fly.
-> 
-> >
-> > Signed-off-by: Jinyu Tang <tjytimi@163.com>
-> > ---
-> >  arch/riscv/Kconfig               | 10 ++++++++++
-> >  arch/riscv/include/asm/pgtable.h |  7 +++++++
-> >  2 files changed, 17 insertions(+)
-> >
-> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > index e2b656043abf..17c82885549c 100644
-> > --- a/arch/riscv/Kconfig
-> > +++ b/arch/riscv/Kconfig
-> > @@ -180,6 +180,16 @@ config PAGE_OFFSET
-> >         default 0x80000000 if 64BIT && !MMU
-> >         default 0xff60000000000000 if 64BIT
-> >
-> > +config ARCH_HAS_HARDWARE_PTE_YOUNG
-> > +       bool "Hardware Set PTE Access Bit"
-> > +       default y
-> > +       help
-> > +         Select if hardware set A bit when PTE is accessed. The default is
-> > +         'Y', because most RISC-V CPU hardware can manage A and D bit.
-> > +         But RISC-V may have simple implementation that do not support
-> > +         hardware set A bit but only generate page fault, for that case just
-> > +         unselect it.
-> > +
-> >  config KASAN_SHADOW_OFFSET
-> >         hex
-> >         depends on KASAN_GENERIC
-> > diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> > index 4eba9a98d0e3..1db54ab4e1ba 100644
-> > --- a/arch/riscv/include/asm/pgtable.h
-> > +++ b/arch/riscv/include/asm/pgtable.h
-> > @@ -532,6 +532,13 @@ static inline int ptep_clear_flush_young(struct vm_area_struct *vma,
-> >          */
-> >         return ptep_test_and_clear_young(vma, address, ptep);
-> >  }
-> > +#ifdef CONFIG_ARCH_HAS_HARDWARE_PTE_YOUNG
-> 
-> > +#define arch_has_hw_pte_young arch_has_hw_pte_young
-> > +static inline bool arch_has_hw_pte_young(void)
-> > +{
-> > +       return true;
-> 
-> Drop the kconfig option ARCH_HAS_HARDWARE_PTE_YOUNG
-> and instead use code patching to return true only when Svadu
-> ISA extension is available in DT ISA string.
+Hi Matthew,
 
-Indeed. I should have checked if there was an extension for this
-first. It crossed my mind that we should only be enabling features
-when the extensions are present, but looking at the privileged manual
-isn't sufficient to learn about the Svadu extension. I should have
-checked https://wiki.riscv.org/display/HOME/Specification+Status
+Thank you for the feedback.
 
-Anyway, I retract my r-b and agree with Anup.
+On Thu, Jan 26, 2023 at 2:37 PM Matthew Wilcox <willy@infradead.org> wrote:
+>
+> On Wed, Jan 25, 2023 at 12:30:13PM +0000, Lad, Prabhakar wrote:
+> > Renesas RZ/Five RISC-V SoC has Instruction local memory and Data local
+> > memory (ILM & DLM) mapped between region 0x30000 - 0x4FFFF. When a
+> > virtual address falls within this range, the MMU doesn't trigger a
+> > page fault; it assumes the virtual address is a physical address which
+> > can cause undesired behaviours.
+>
+> Wow.  I've never come across such broken behaviour before.
+>
+> > To avoid this the ILM/DLM memory regions are now added to the root
+> > domain region of the PMPU with permissions set to 0x0 for S/U modes so
+> > that any access to these regions gets blocked and for M-mode we grant
+> > full access (R/W/X). This prevents any users from accessing these
+> > regions by triggering an unhandled signal 11 in S/U modes.
+>
+> I have no idea what any of this means.
+>
+Basically we are making use of the memory protection unit (MPU) so
+that only M-mode is allowed to access this region and S/U modes are
+blocked.
 
-Thanks,
-drew
+> > This works as expected but for applications say for example when doing
+> > mmap to this region would still succeed and later down the path when
+> > doing a read/write to this location would cause unhandled signal 11.
+> > To handle this case gracefully we might want mmap() itself to fail if
+> > the addr/offset falls in this local memory region.
+>
+> No, that's not what you want.  You want mmap to avoid allocating address
+> space in that virtual address range.  I don't know if we have a good
+> way to do that at the moment; like I said I've never seen such broken
+> hardware before.
+>
+> I'd say the right way to solve this is to add a new special kind of VMA
+> to the address space that covers this range.
+Do you have any pointers where I can look further into this?
+
+> We'd want to make sure it doesn't appear in /proc/*/maps and also that
+> it can't be overridden with MAP_FIXED.
+Agreed.
+
+Cheers,
+Prabhakar
 
 _______________________________________________
 linux-riscv mailing list
