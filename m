@@ -4,79 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C2C9C54EAA
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jan 2023 07:26:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94549C636CB
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jan 2023 07:28:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KLDFX2rj7v/oUv5QqsbcxhjF3UeWb1yi0OJZKUpUDTg=; b=AIAVXEYED/5s4r
-	gI0K86GR13QKT39gKhtB5VoYDq2bkMwjEZbOlqXW0asXSS024Kq2WS9Bpf5l24gE/GYCdIuFiV0pZ
-	J7IhB9xz09Xa66dkg6yYdBiqSptbrna/2fQHSmT40Zop871WEo3SALc2p2B8XojKYv4V+9ra168NY
-	am/7SQvnvmeMeuOerlO2rS9Ddr12Nm0uGK5UTPdlnWVqWKZfpDFq9eiifTe80kVoq6oVw6ZNFBC4m
-	R5tcbnwjDZeDzYVwqQkrYsx4Fx+WMBIZQSl2MsnsqITPM+RJuzB7+guUvJPBpKs+7+hAyO4bxJZVP
-	kNnHB+nvef8y8wY/LAKQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=2UghBfK3TuCEDkeILwZF/2eR13ZiH5VVw9s5E709/4k=; b=iI+3v/DbBGK6yz
+	evQI6/C1RIi6BEd7U7FFYhfwa+r2rQsPnSRKhUbAmlKx5vFe9oQjeWu8D7o32p3sclYF8C3xKweY/
+	NHxaYDATnbwNIKtSNIqEGTzcOdB3b9I0gO7os9pCj9lcQaQBxxWBGMvnsFy8ag/Fj5jPkIypJ8A9/
+	Zrl8R+c72Dkcb+Iu3xvhc/nzHv/QeBg+X/JLltom+HeFQ5KwPDWJYAHEfvMYlJ9uGZv6ZPQgZBSCc
+	0tpXF8HkolqzI/8eZ2p3pCUjPsdY7clnBlDXpGMHaa5Xw2ExnjT9uMjtMswvwvpEh6ZwfCt/AB8Yv
+	c9TPlvUjUJjYCAE9xm7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMOYW-002XWx-1o; Mon, 30 Jan 2023 07:26:20 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1pMOae-002Y3P-RN; Mon, 30 Jan 2023 07:28:32 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMOYT-002XWP-0e
-	for linux-riscv@lists.infradead.org; Mon, 30 Jan 2023 07:26:18 +0000
-Received: by mail-pl1-x634.google.com with SMTP id jm10so10633372plb.13
-        for <linux-riscv@lists.infradead.org>; Sun, 29 Jan 2023 23:26:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=content-transfer-encoding:mime-version:user-agent:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=6qOw62Kq+kSpyDO75vhgQOUbMVbeeLWsHBNPK1QAqWI=;
-        b=iwKOvnjMJidxi41sf/cMLokwkwYmtqoom3F6YmPzndNVqw8EFfD4RGvCEBBUsLuEhM
-         ikyLFuYhGCgynNVS1P8qYl5t8ZuY5DtIb6N/VeFPXgErIlLQ1qf+e3Qf+2hunDR3pAh5
-         sQHmJxogdIfTN1hOpSpX6AX/3QscS8KV/TzmpNzPr1+7nrHsntTA3dF8WyCFvKCR8YyA
-         4SqaZ5Ka/gyjKAvmdoc0qBiPbm9taZ7JtKUeJj0qXDasvlJvEKsk3Cr9HkW3gFCKZLXJ
-         ZLXunqevE/u5AHUfkQ6+Mc5nD0Ztmx6jIiMW+deci2eCOv/z2/oLcHEU9KSm0rPdtYUt
-         Ssng==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:user-agent:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=6qOw62Kq+kSpyDO75vhgQOUbMVbeeLWsHBNPK1QAqWI=;
-        b=MUNpCUOmckigtztOLlHJZW22U7I87b8QynJwUdR5A64I8QsZ/9mM81Ob8r/sGFHWGE
-         A9IJ70CJGh1h3F8ZLA0ZoHfXvEfMIOv43ygruwv6YMh6IkL8gxoWc2YildcphnSsBQaJ
-         v+iVEyEHJxCGKWQxcjtVzDP33HXkB/i2VMFaYi7XMskSWkwOHr93c+G6FYIhsx81N2me
-         M035qkW6tWyVPA9pe+0yb7kTy5wTswgDuAOicKVZW5dlbJZz5fWVXFoblKQh0Waoga2w
-         N5BwgpV+4Aq7tGCqbveobqMniHFPqKhvqjXSgvopc+IyS0VhRxiJcFXrZJiun+DTwR5/
-         6RJQ==
-X-Gm-Message-State: AO0yUKXSCyl3qUojCUNvizx5pjSg1ODxlHQvxqFL+/CSrjk7zGQRVD4M
-	yVIPqgbg32gBJLsvwn0KHL+9gA==
-X-Google-Smtp-Source: AK7set/kGef4Ypx4OJvmJEDm6b5yRX3a9H0n9bSq2x6Jjix6iqOhUkALI1V5e4wfZwwUTOchsSDXCA==
-X-Received: by 2002:a17:902:d4cb:b0:196:6b41:cf33 with SMTP id o11-20020a170902d4cb00b001966b41cf33mr8675592plg.34.1675063573140;
-        Sun, 29 Jan 2023 23:26:13 -0800 (PST)
-Received: from [192.168.1.5] ([103.97.165.210])
-        by smtp.gmail.com with ESMTPSA id m3-20020a170902db0300b001897e2fd65dsm7054625plx.9.2023.01.29.23.26.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 29 Jan 2023 23:26:12 -0800 (PST)
-Message-ID: <3e70e7e4c75e9bdaf6fdea2584bf32edb1c1d44a.camel@ventanamicro.com>
-Subject: Re: [PATCH] riscv: mm: Implement pmdp_collapse_flush for THP
-From: mchitale@ventanamicro.com
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- linux-riscv@lists.infradead.org, Nanyong Sun <sunnanyong@huawei.com>, Anup
- Patel <apatel@ventanamicro.com>
-Date: Mon, 30 Jan 2023 12:56:06 +0530
-In-Reply-To: <20230125153544.lgukbnh2qkntph4l@orel>
-References: <20230125125512.2494577-1-mchitale@ventanamicro.com>
-	 <20230125153544.lgukbnh2qkntph4l@orel>
-User-Agent: Evolution 3.36.5-0ubuntu1 
+	id 1pMOaa-002Xyv-3w
+	for linux-riscv@lists.infradead.org; Mon, 30 Jan 2023 07:28:31 +0000
+Received: from kwepemi500013.china.huawei.com (unknown [172.30.72.54])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4P508v0DprzRqHG;
+	Mon, 30 Jan 2023 15:26:07 +0800 (CST)
+Received: from M910t.huawei.com (10.110.54.157) by
+ kwepemi500013.china.huawei.com (7.221.188.120) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.34; Mon, 30 Jan 2023 15:28:16 +0800
+From: Changbin Du <changbin.du@huawei.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+CC: Hui Wang <hw.huiwang@huawei.com>, <linux-riscv@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, Changbin Du <changbin.du@gmail.com>, Guo Ren
+	<guoren@kernel.org>, Zong Li <zong.li@sifive.com>, Changbin Du
+	<changbin.du@huawei.com>
+Subject: [PATCH v3] riscv: patch: Fixup lockdep warning in stop_machine
+Date: Tue, 31 Jan 2023 07:26:59 +0800
+Message-ID: <20230130232659.3374212-1-changbin.du@huawei.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
+X-Originating-IP: [10.110.54.157]
+X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
+ kwepemi500013.china.huawei.com (7.221.188.120)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230129_232617_111272_85A7BBBD 
-X-CRM114-Status: GOOD (  29.33  )
+X-CRM114-CacheID: sfid-20230129_232829_205638_2D4D257E 
+X-CRM114-Status: GOOD (  12.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,93 +67,105 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2023-01-25 at 16:35 +0100, Andrew Jones wrote:
-> On Wed, Jan 25, 2023 at 06:25:11PM +0530, Mayuresh Chitale wrote:
-> > When THP is enabled, 4K pages are collapsed into a single huge
-> > page using the generic pmdp_collapse_flush() which will further
-> > use flush_tlb_range() to shoot-down stale TLB entries.
-> > Unfortunately,
-> > the generic pmdp_collapse_flush() only invalidates cached leaf PTEs
-> > using address specific SFENCEs which results in repetitive (or
-> > unpredictable) page faults on RISC-V implementations which cache
-> > non-leaf PTEs.
-> > 
-> > Provide a RISC-V specific pmdp_collapse_flush() which ensures both
-> > cached leaf and non-leaf PTEs are invalidated by using non-address
-> > specific SFENCEs as recommended by the RISC-V privileged
-> > specification.
-> > 
-> > Fixes: e88b333142e4 ("riscv: mm: add THP support on 64-bit")
-> > Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
-> > ---
-> >  arch/riscv/include/asm/pgtable.h | 24 ++++++++++++++++++++++++
-> >  1 file changed, 24 insertions(+)
-> > 
-> > diff --git a/arch/riscv/include/asm/pgtable.h
-> > b/arch/riscv/include/asm/pgtable.h
-> > index 4eba9a98d0e3..6d948dec6020 100644
-> > --- a/arch/riscv/include/asm/pgtable.h
-> > +++ b/arch/riscv/include/asm/pgtable.h
-> > @@ -721,6 +721,30 @@ static inline pmd_t pmdp_establish(struct
-> > vm_area_struct *vma,
-> >  	page_table_check_pmd_set(vma->vm_mm, address, pmdp, pmd);
-> >  	return __pmd(atomic_long_xchg((atomic_long_t *)pmdp,
-> > pmd_val(pmd)));
-> >  }
-> > +
-> > +#define pmdp_collapse_flush pmdp_collapse_flush
-> > +static inline pmd_t pmdp_collapse_flush(struct vm_area_struct
-> > *vma,
-> > +					unsigned long address, pmd_t
-> > *pmdp)
-> > +{
-> > +	pmd_t pmd = pmdp_huge_get_and_clear(vma->vm_mm, address, pmdp);
-> 
-> The generic version of this function has a couple sanity checks for
-> kernels compiled with CONFIG_DEBUG_VM. Shouldn't we duplicate those?
+From: Changbin Du <changbin.du@gmail.com>
 
-Ok. I will add those checks too.
-> 
-> Thanks,
-> drew
-> 
-> > +
-> > +	/*
-> > +	 * When leaf PTE enteries (regular pages) are collapsed into a
-> > leaf
-> > +	 * PMD entry (huge page), a valid non-leaf PTE is converted
-> > into a
-> > +	 * valid leaf PTE at the level 1 page table. The RISC-V
-> > privileged v1.12
-> > +	 * specification allows implementations to cache valid non-leaf 
-> > PTEs,
-> > +	 * but the section "4.2.1 Supervisor Memory-Management Fence
-> > +	 * Instruction" recommends the following:
-> > +	 * "If software modifies a non-leaf PTE, it should execute
-> > SFENCE.VMA
-> > +	 * with rs1=x0. If any PTE along the traversal path had its G
-> > bit set,
-> > +	 * rs2 must be x0; otherwise, rs2 should be set to the ASID for
-> > which
-> > +	 * the translation is being modified."
-> > +	 * Based on the above recommendation, we should do full flush
-> > whenever
-> > +	 * leaf PTE entries are collapsed into a leaf PMD entry.
-> > +	 */
-> > +	flush_tlb_mm(vma->vm_mm);
-> > +	return pmd;
-> > +}
-> >  #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
-> >  
-> >  /*
-> > -- 
-> > 2.34.1
-> > 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+The task of ftrace_arch_code_modify(_post)_prepare() caller is
+stop_machine, whose caller and work thread are of different tasks. The
+lockdep checker needs the same task context, or it's wrong. That means
+it's a bug here to use lockdep_assert_held because we don't guarantee
+the same task context.
+
+kernel/locking/lockdep.c:
+int __lock_is_held(const struct lockdep_map *lock, int read)
+{
+        struct task_struct *curr = current;
+        int i;
+
+        for (i = 0; i < curr->lockdep_depth; i++) {
+			^^^^^^^^^^^^^^^^^^^
+                struct held_lock *hlock = curr->held_locks + i;
+					  ^^^^^^^^^^^^^^^^
+                if (match_held_lock(hlock, lock)) {
+                        if (read == -1 || !!hlock->read == read)
+                                return LOCK_STATE_HELD;
+
+The __lock_is_held depends on current held_locks records; if
+stop_machine makes the checker runing on another task, that's wrong.
+
+Here is the log:
+[   15.761523] ------------[ cut here ]------------
+[   15.762125] WARNING: CPU: 0 PID: 15 at arch/riscv/kernel/patch.c:63 patch_insn_write+0x72/0x364
+[   15.763258] Modules linked in:
+[   15.764154] CPU: 0 PID: 15 Comm: migration/0 Not tainted 6.1.0-rc1-00014-g66924be85884-dirty #377
+[   15.765339] Hardware name: riscv-virtio,qemu (DT)
+[   15.765985] Stopper: multi_cpu_stop+0x0/0x192 <- stop_cpus.constprop.0+0x90/0xe2
+[   15.766711] epc : patch_insn_write+0x72/0x364
+[   15.767011]  ra : patch_insn_write+0x70/0x364
+[   15.767276] epc : ffffffff8000721e ra : ffffffff8000721c sp : ff2000000067bca0
+[   15.767622]  gp : ffffffff81603f90 tp : ff60000002432a00 t0 : 7300000000000000
+[   15.767919]  t1 : 0000000000000000 t2 : 73695f6b636f6c5f s0 : ff2000000067bcf0
+[   15.768238]  s1 : 0000000000000008 a0 : 0000000000000000 a1 : 0000000000000000
+[   15.768537]  a2 : 0000000000000000 a3 : 0000000000000000 a4 : 0000000000000000
+[   15.768837]  a5 : 0000000000000000 a6 : 0000000000000000 a7 : 0000000000000000
+[   15.769139]  s2 : ffffffff80009faa s3 : ff2000000067bd10 s4 : ffffffffffffffff
+[   15.769447]  s5 : 0000000000000001 s6 : 0000000000000001 s7 : 0000000000000003
+[   15.769740]  s8 : 0000000000000002 s9 : 0000000000000004 s10: 0000000000000003
+[   15.770027]  s11: 0000000000000002 t3 : 0000000000000000 t4 : ffffffff819af097
+[   15.770323]  t5 : ffffffff819af098 t6 : ff2000000067ba28
+[   15.770574] status: 0000000200000100 badaddr: 0000000000000000 cause: 0000000000000003
+[   15.771102] [<ffffffff80007520>] patch_text_nosync+0x10/0x3a
+[   15.771421] [<ffffffff80009c66>] ftrace_update_ftrace_func+0x74/0x10a
+[   15.771704] [<ffffffff800fa17e>] ftrace_modify_all_code+0xb0/0x16c
+[   15.771958] [<ffffffff800fa24c>] __ftrace_modify_code+0x12/0x1c
+[   15.772196] [<ffffffff800e110e>] multi_cpu_stop+0x14a/0x192
+[   15.772454] [<ffffffff800e0a34>] cpu_stopper_thread+0x96/0x14c
+[   15.772699] [<ffffffff8003f4ea>] smpboot_thread_fn+0xf8/0x1cc
+[   15.772945] [<ffffffff8003ac9c>] kthread+0xe2/0xf8
+[   15.773160] [<ffffffff80003e98>] ret_from_exception+0x0/0x14
+[   15.773471] ---[ end trace 0000000000000000 ]---
+
+By the way, this also fixes the same issue for patch_text().
+
+Fixes: 0ff7c3b33127 ("riscv: Use text_mutex instead of patch_lock")
+Co-developed-by: Guo Ren <guoren@kernel.org>
+Signed-off-by: Guo Ren <guoren@kernel.org>
+Cc: Zong Li <zong.li@sifive.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Signed-off-by: Changbin Du <changbin.du@huawei.com>
+---
+Changes in v3:
+ - denote this also fixes function patch_text().
+
+Changes in v2:
+ - Rewrite commit log with lockdep explanation [Guo Ren]
+ - Rebase on v6.1 [Guo Ren]
+
+v1:
+https://lore.kernel.org/linux-riscv/20210417023532.354714-1-changbin.du@gmail.com/
+---
+ arch/riscv/kernel/patch.c | 7 -------
+ 1 file changed, 7 deletions(-)
+
+diff --git a/arch/riscv/kernel/patch.c b/arch/riscv/kernel/patch.c
+index 765004b60513..8619706f8dfd 100644
+--- a/arch/riscv/kernel/patch.c
++++ b/arch/riscv/kernel/patch.c
+@@ -55,13 +55,6 @@ static int patch_insn_write(void *addr, const void *insn, size_t len)
+ 	bool across_pages = (((uintptr_t) addr & ~PAGE_MASK) + len) > PAGE_SIZE;
+ 	int ret;
+ 
+-	/*
+-	 * Before reaching here, it was expected to lock the text_mutex
+-	 * already, so we don't need to give another lock here and could
+-	 * ensure that it was safe between each cores.
+-	 */
+-	lockdep_assert_held(&text_mutex);
+-
+ 	if (across_pages)
+ 		patch_map(addr + len, FIX_TEXT_POKE1);
+ 
+-- 
+2.25.1
 
 
 _______________________________________________
