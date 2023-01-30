@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E23A0C54EED
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jan 2023 18:27:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDF7AC54EED
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jan 2023 18:27:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=N9HPoqN6al49QxWyv1fE8sC3WlgphejTQqiS6hPESzU=; b=Z6rzk4bc3H/4n3
-	5KMmTRm+82xZFBBsy3zCk0jncMeEDYEheRJtdB+K+xpsCU1wj3Zp+UqK+I1hnkAwFb6N55pud4vUN
-	GzTUR5G/46oO9IA2CI/vpmTuPn3VAF+BtzEE21ijHK5LGcTtxCdMYF2CbkmSheGGOzKMr/rEDamJx
-	RiESHq09yqucgOEozO4BM75priB1C0WLzUDv4Hbg54RxU6Xgh4NvVaEYVttgohQ1g148frOqQbRhY
-	Yg9wR1ykEmuM0UGZ8JuOdFDMwwp+TKhkzW9WXPStMNnj2tgiRXak3kbUjdgiZNPYd/Wk0I/a4Puvu
-	i/0JrE4VPA5N3TlSVkMw==;
+	List-Owner; bh=E7i1DTLF+h+jxuPohyEAHYIvM3yfVg4sBn5kT0l3dzU=; b=0fqLV9l/J06DzW
+	ASVyOJK4jwA1Fo0rl8BDtcjvltbXlUWGf6VBJs2cikbu+q7xasF/GXuExmq65eR5qMBdY+dO40YuH
+	qfkAQCdwo4ICpD1HUX9Lna1z1BAolHSefeC4IgolQiBJRnnUThCh+8MblFzHkIs1bYqLYWFxf7bLJ
+	6t/kv8gzLiYHWKsajWSbHqOjZBIZnDXKQVBruZdrAWOIdFuvihWhysbHoDwfKRyyvDqYgZXFjLlog
+	4coJh9CfRv9RXOxKXKqVjxYXnvrvgIl5V4YILsKYdFgPfkj/tYMAH0Pdvsx6rff53tisFpBD1ruJs
+	B/9FnQIOil0s2uZGmSkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMYrj-004z44-B0; Mon, 30 Jan 2023 18:26:51 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1pMYrw-004zCv-42; Mon, 30 Jan 2023 18:27:04 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMYor-004xJ5-V9
-	for linux-riscv@lists.infradead.org; Mon, 30 Jan 2023 18:23:55 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id b10so11892783pjo.1
-        for <linux-riscv@lists.infradead.org>; Mon, 30 Jan 2023 10:23:52 -0800 (PST)
+	id 1pMYov-004xKe-90
+	for linux-riscv@lists.infradead.org; Mon, 30 Jan 2023 18:24:00 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id cq16-20020a17090af99000b0022c9791ac39so4007955pjb.4
+        for <linux-riscv@lists.infradead.org>; Mon, 30 Jan 2023 10:23:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=ventanamicro.com; s=google;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=oj1LIEiLCoH05jrvnS3NlcMWxNoKVbL+lD4xO5ixkXk=;
-        b=Fif22sd+vUzBxEdZTO7ggfqnbyFrI2PJ8YxpRqjkwlowbQ/NkixyrA983sr/7ZeVmd
-         leFJfBj9Lx9vkhEST6x3PRoEM1u4f/SDf5gomtoKWkZpW1oBzl5+xvoK5OnXzzfaHKVI
-         BzyrTkNWdmsDKPjNYL26bqS6U5FnoB3dQumvpCbEptNphWmtp8/MHGkOiv8t2pyJRJ8f
-         sC0JWzH38GqYdhkv+KzYl67hIKWkV6j9JgKyR1s9jMx7B/NQgHRyQm2kErlHlyXY5jiT
-         XKrKUqiWGTQF2nv6LwhdJW/qcn9V9rZdhfVrADahWNvR/mfBgmqrheiz+ZYUrEImnzIQ
-         pJoA==
+        bh=HjibFpTqTShjczIJbVTkz5RGTuyNmy3y1G35vLo3EEc=;
+        b=JIG4KdNIJo8a8e5DcMOlWOMk+SMYfFyg3Sc1+T9cyo/r6KA/knBlxhzkv6TiGdCEFh
+         QjO2PFJXsESo+8PMKJwelpLyT4Vo86Khy7c6Z7o6X6a33TuC+f+kT9LsGwllBf2XqEK5
+         IEDoGCJNFCrY9/SkFjrWHgpKsYV1CNUXGhJ9Yn8evGLV6bv8sgnDZ0PIaPdedoyRjbLR
+         ap7ZG6XW24t+kvvZedK4Buw158HCC84yxTP3DRLno7tqS/f+CTP6IZBNL1IIp28NwGhD
+         sUunUcy8sZSCp8pqwKkOULMjeoXPWWA/ga6VwWeMZvqz37Xp18dsvJX+07/zKlwpRN5R
+         uRrQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=oj1LIEiLCoH05jrvnS3NlcMWxNoKVbL+lD4xO5ixkXk=;
-        b=Z7c+wgGB4Sq8O2eDv/abZAf7q29zEA9FeHd55BJR0lIc+1qu15WgVm0LSLl0Vy+K/N
-         /vJd+j/GI1M13bOwjIbRApCKgaTPJIk5m6v9EdD5NhXPjhJxOKOlwkJZfGuFRTe66Xho
-         Wd8XWIVuTX9aa0yRTPUx1wiXCjbeERpSQgtbBVOFU1rV7z7zO8X+vQrK3lI9indAF+Ht
-         XFe8wKQfg6n66WJbWh/zATVMWUsjN+l67NrVdGUjVRLVhNm22/Jjhi9Ma4BaV3tGzVMa
-         fJbg677j3NISMBnsAm3H35hYQM3fI/sGB7ySyKjaiBXgFWgIph/wN2AnY2OIl8zaZEAj
-         Zb8w==
-X-Gm-Message-State: AO0yUKUIT9qqaFjYS8mcn6s86NGY4BaVqjqSXkD3xMMMUODBeJC0mkin
-	OxodHpMZRbVPh8q8F7QCU/VMcQ==
-X-Google-Smtp-Source: AK7set+puhVa9cJ8iCwi92Dm20DUxJcSdv4a3WaLuK30pYTL5oETRGKnE0e7xLE+vt4N2Zob+KA6/g==
-X-Received: by 2002:a17:90b:4a10:b0:22b:f608:2aa6 with SMTP id kk16-20020a17090b4a1000b0022bf6082aa6mr24859836pjb.18.1675103031096;
-        Mon, 30 Jan 2023 10:23:51 -0800 (PST)
+        bh=HjibFpTqTShjczIJbVTkz5RGTuyNmy3y1G35vLo3EEc=;
+        b=V66DbJ84nPsBRvhduz5yVd1kARnZAugHzkCkxsWaeF+MG5DYs0zsjQG9A6kJnpB0Fl
+         8vjB22/T+Wz6fqWeXYRq+EnhZ7LCm2JSZK/wnAI7dkOUgtGZn1yQuLdktlMW9nTjlCyX
+         UwPakJ9KR4ywqflsU0CkiXVaofaYtUCYqxY8evLy0BtEQITprf5mTCbjxHE3r/cei73N
+         lICnD81vCIVtlq668pnSDD/a5ol/OqxbcKbsCgaFlLQMABhbuZfJfmqB3WA4KdKizne9
+         A5JY9wIDYmc0bd+zTvTWGBi/dCpJey2wtazqplLVMqGnmrakAEfsYaewMi/MuePtFx3Y
+         8XYQ==
+X-Gm-Message-State: AFqh2krWzu0A0xf3cttMAiEZt817yEKdAlnrOu2XwxNy8l/a8kBF11yX
+	yKu13Bp3Qs9tALeVaJhuCRvg3yd2eKYe+T9w
+X-Google-Smtp-Source: AMrXdXtiX8G638QNxJdbmXV10F7Qf0CdgmUoIWBv0Ar85IkvXkqVVNNpBrhVhN1ABIlikG/btEedJg==
+X-Received: by 2002:a05:6a20:c706:b0:b6:c018:7fd8 with SMTP id hi6-20020a056a20c70600b000b6c0187fd8mr52692395pzb.11.1675103036632;
+        Mon, 30 Jan 2023 10:23:56 -0800 (PST)
 Received: from kerodipc.Dlink ([49.206.9.96])
-        by smtp.gmail.com with ESMTPSA id j193-20020a638bca000000b00478162d9923sm7000291pge.13.2023.01.30.10.23.47
+        by smtp.gmail.com with ESMTPSA id j193-20020a638bca000000b00478162d9923sm7000291pge.13.2023.01.30.10.23.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 30 Jan 2023 10:23:50 -0800 (PST)
+        Mon, 30 Jan 2023 10:23:56 -0800 (PST)
 From: Sunil V L <sunilvl@ventanamicro.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
@@ -69,16 +69,16 @@ To: Palmer Dabbelt <palmer@dabbelt.com>,
 	Marc Zyngier <maz@kernel.org>,
 	Daniel Lezcano <daniel.lezcano@linaro.org>,
 	Jonathan Corbet <corbet@lwn.net>
-Subject: [PATCH 17/24] ACPI: RISC-V: drivers/acpi: Add RHCT related code
-Date: Mon, 30 Jan 2023 23:52:18 +0530
-Message-Id: <20230130182225.2471414-18-sunilvl@ventanamicro.com>
+Subject: [PATCH 18/24] RISC-V: ACPI: time.c: Add ACPI support for time_init()
+Date: Mon, 30 Jan 2023 23:52:19 +0530
+Message-Id: <20230130182225.2471414-19-sunilvl@ventanamicro.com>
 X-Mailer: git-send-email 2.38.0
 In-Reply-To: <20230130182225.2471414-1-sunilvl@ventanamicro.com>
 References: <20230130182225.2471414-1-sunilvl@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230130_102354_046017_27B6427A 
-X-CRM114-Status: GOOD (  21.56  )
+X-CRM114-CacheID: sfid-20230130_102357_364257_25479A1C 
+X-CRM114-Status: GOOD (  12.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,158 +96,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RHCT is a new table defined for RISC-V to communicate the
-features of the CPU to the OS. Create a new architecture folder
-in drivers/acpi and add RHCT parsing code.
+On ACPI based platforms, timer related information is
+available in RHCT. Add ACPI based probe support to the
+timer initialization.
 
 Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
 ---
- arch/riscv/include/asm/acpi.h |  5 ++
- drivers/acpi/Makefile         |  2 +
- drivers/acpi/riscv/Makefile   |  2 +
- drivers/acpi/riscv/rhct.c     | 93 +++++++++++++++++++++++++++++++++++
- 4 files changed, 102 insertions(+)
- create mode 100644 drivers/acpi/riscv/Makefile
- create mode 100644 drivers/acpi/riscv/rhct.c
+ arch/riscv/kernel/time.c | 25 +++++++++++++++++++------
+ 1 file changed, 19 insertions(+), 6 deletions(-)
 
-diff --git a/arch/riscv/include/asm/acpi.h b/arch/riscv/include/asm/acpi.h
-index 69a880b7257a..4fec9ea3b874 100644
---- a/arch/riscv/include/asm/acpi.h
-+++ b/arch/riscv/include/asm/acpi.h
-@@ -71,11 +71,16 @@ static inline u32 get_acpi_id_for_cpu(int cpu)
- {
- 	return	acpi_cpu_get_madt_rintc(cpu)->uid;
- }
-+int acpi_get_riscv_isa(struct acpi_table_header *table, unsigned int cpu, const char **isa);
- #else
- static inline u32 get_acpi_id_for_cpu(int cpu)
- {
- 	return -1;
- }
-+int acpi_get_riscv_isa(struct acpi_table_header *table, unsigned int cpu, const char **isa)
-+{
-+	return -1;
-+}
+diff --git a/arch/riscv/kernel/time.c b/arch/riscv/kernel/time.c
+index 1cf21db4fcc7..e49b897fc657 100644
+--- a/arch/riscv/kernel/time.c
++++ b/arch/riscv/kernel/time.c
+@@ -4,6 +4,7 @@
+  * Copyright (C) 2017 SiFive
+  */
  
- #endif /* CONFIG_ACPI */
- 
-diff --git a/drivers/acpi/Makefile b/drivers/acpi/Makefile
-index feb36c0b9446..3fc5a0d54f6e 100644
---- a/drivers/acpi/Makefile
-+++ b/drivers/acpi/Makefile
-@@ -131,3 +131,5 @@ obj-y				+= dptf/
- obj-$(CONFIG_ARM64)		+= arm64/
- 
- obj-$(CONFIG_ACPI_VIOT)		+= viot.o
-+
-+obj-$(CONFIG_RISCV)		+= riscv/
-diff --git a/drivers/acpi/riscv/Makefile b/drivers/acpi/riscv/Makefile
-new file mode 100644
-index 000000000000..8b3b126e0b94
---- /dev/null
-+++ b/drivers/acpi/riscv/Makefile
-@@ -0,0 +1,2 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+obj-y 	+= rhct.o
-diff --git a/drivers/acpi/riscv/rhct.c b/drivers/acpi/riscv/rhct.c
-new file mode 100644
-index 000000000000..7c64be64d9d9
---- /dev/null
-+++ b/drivers/acpi/riscv/rhct.c
-@@ -0,0 +1,93 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2022-2023, Ventana Micro Systems Inc
-+ *	Author: Sunil V L <sunilvl@ventanamicro.com>
-+ *
-+ */
-+
-+#define pr_fmt(fmt)	"ACPI: RHCT: " fmt
-+
 +#include <linux/acpi.h>
-+
-+static void acpi_rhct_warn_missing(void)
-+{
-+	pr_warn_once("No RHCT table found\n");
-+}
-+
-+static struct acpi_table_header *acpi_get_rhct(void)
-+{
-+	static struct acpi_table_header *rhct;
-+	acpi_status status;
-+
-+	/*
-+	 * RHCT will be used at runtime on every CPU, so we
-+	 * don't need to call acpi_put_table() to release the table mapping.
-+	 */
-+	if (!rhct) {
-+		status = acpi_get_table(ACPI_SIG_RHCT, 0, &rhct);
-+		if (ACPI_FAILURE(status))
-+			acpi_rhct_warn_missing();
-+	}
-+
-+	return rhct;
-+}
-+
-+/*
-+ * During early boot, the caller should call acpi_get_table() and pass its pointer to
-+ * these functions(and free up later). At run time, since this table can be used
-+ * multiple times, pass NULL so that the table remains in memory
-+ */
-+int acpi_get_riscv_isa(struct acpi_table_header *table, unsigned int acpi_cpu_id, const char **isa)
-+{
-+	struct acpi_rhct_node_header *node, *ref_node, *end;
+ #include <linux/of_clk.h>
+ #include <linux/clockchips.h>
+ #include <linux/clocksource.h>
+@@ -18,17 +19,29 @@ EXPORT_SYMBOL_GPL(riscv_timebase);
+ void __init time_init(void)
+ {
+ 	struct device_node *cpu;
 +	struct acpi_table_rhct *rhct;
-+	struct acpi_rhct_hart_info *hart_info;
-+	struct acpi_rhct_isa_string *isa_node;
-+	u32 *hart_info_node_offset;
-+	int i, j;
-+
++	acpi_status status;
+ 	u32 prop;
+ 
+-	cpu = of_find_node_by_path("/cpus");
+-	if (!cpu || of_property_read_u32(cpu, "timebase-frequency", &prop))
+-		panic(KERN_WARNING "RISC-V system with no 'timebase-frequency' in DTS\n");
+-	of_node_put(cpu);
+-	riscv_timebase = prop;
 +	if (acpi_disabled) {
-+		pr_debug("%s: acpi is disabled\n", __func__);
-+		return -1;
-+	}
-+
-+	if (!table) {
-+		rhct = (struct acpi_table_rhct *)acpi_get_rhct();
-+		if (!rhct)
-+			return -ENOENT;
++		cpu = of_find_node_by_path("/cpus");
++		if (!cpu || of_property_read_u32(cpu, "timebase-frequency", &prop))
++			panic("RISC-V system with no 'timebase-frequency' in DTS\n");
++		of_node_put(cpu);
++		riscv_timebase = prop;
 +	} else {
-+		rhct = (struct acpi_table_rhct *)table;
++		status = acpi_get_table(ACPI_SIG_RHCT, 0, (struct acpi_table_header **)&rhct);
++		if (ACPI_FAILURE(status))
++			panic("RISC-V ACPI system with no RHCT table\n");
++		riscv_timebase = rhct->time_base_freq;
++		acpi_put_table((struct acpi_table_header *)rhct);
 +	}
+ 
+ 	lpj_fine = riscv_timebase / HZ;
+ 
+-	of_clk_init(NULL);
++	if (acpi_disabled)
++		of_clk_init(NULL);
 +
-+	node = ACPI_ADD_PTR(struct acpi_rhct_node_header, rhct, rhct->node_offset);
-+	end = ACPI_ADD_PTR(struct acpi_rhct_node_header, rhct, rhct->header.length);
-+
-+	for (i = 0; i < rhct->node_count; i++) {
-+		if (node >= end)
-+			break;
-+		switch (node->type) {
-+		case ACPI_RHCT_NODE_TYPE_HART_INFO:
-+			hart_info = ACPI_ADD_PTR(struct acpi_rhct_hart_info, node,
-+					sizeof(struct acpi_rhct_node_header));
-+			hart_info_node_offset = ACPI_ADD_PTR(u32, hart_info,
-+					sizeof(struct acpi_rhct_hart_info));
-+			if (acpi_cpu_id != hart_info->uid)
-+				break;
-+			for (j = 0; j < hart_info->num_offsets; j++) {
-+				ref_node = ACPI_ADD_PTR(struct acpi_rhct_node_header,
-+						rhct, hart_info_node_offset[j]);
-+				if (ref_node->type == ACPI_RHCT_NODE_TYPE_ISA_STRING) {
-+					isa_node = ACPI_ADD_PTR(struct acpi_rhct_isa_string,
-+							ref_node,
-+							sizeof(struct acpi_rhct_node_header));
-+					*isa = isa_node->isa;
-+					return 0;
-+				}
-+			}
-+			break;
-+		}
-+		node = ACPI_ADD_PTR(struct acpi_rhct_node_header, node, node->length);
-+	}
-+
-+	return -1;
-+}
+ 	timer_probe();
+ 
+ 	tick_setup_hrtimer_broadcast();
 -- 
 2.38.0
 
