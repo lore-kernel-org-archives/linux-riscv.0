@@ -4,74 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CE41C54EED
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jan 2023 06:39:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C2C9C54EAA
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jan 2023 07:26:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zqkxl+ZrzHTMSf/zj5yCTBn+jCLE3wi6Idp0xH/js5k=; b=AbAMJSa/W5SczS
-	X0GrlIFcBEhLEyw5Kt/LO/1zZaEVcTby3kZGhV8rDWVmeMWXNTsrJ1YY6/c8jy9DCAzilwDOHk5Yk
-	RYjBZRVhn5rqQLNig1wScLzv33UVF9+UnFZ4mhOCXZRTPjkUdkaIt+fkBamgdprNRzX+WfPmQoZzU
-	S/JZRgVWIJq21hXH8quce9SNPJNfnmlJbtUXj63LGwOxwQcO9dbW620GFALCQSIj+dCpYAn8GE0F5
-	D20uSBDIxrtBjb/tw41XaKClOGZILt/DN9g1Gmyxs29a3sYXHnHcqUCc8/C0f4KzXVZw0PUQ5XPPX
-	jnK1vzWipJXaLEwNzaYg==;
+	List-Owner; bh=KLDFX2rj7v/oUv5QqsbcxhjF3UeWb1yi0OJZKUpUDTg=; b=AIAVXEYED/5s4r
+	gI0K86GR13QKT39gKhtB5VoYDq2bkMwjEZbOlqXW0asXSS024Kq2WS9Bpf5l24gE/GYCdIuFiV0pZ
+	J7IhB9xz09Xa66dkg6yYdBiqSptbrna/2fQHSmT40Zop871WEo3SALc2p2B8XojKYv4V+9ra168NY
+	am/7SQvnvmeMeuOerlO2rS9Ddr12Nm0uGK5UTPdlnWVqWKZfpDFq9eiifTe80kVoq6oVw6ZNFBC4m
+	R5tcbnwjDZeDzYVwqQkrYsx4Fx+WMBIZQSl2MsnsqITPM+RJuzB7+guUvJPBpKs+7+hAyO4bxJZVP
+	kNnHB+nvef8y8wY/LAKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMNou-002UHr-0b; Mon, 30 Jan 2023 06:39:12 +0000
-Received: from mail-yb1-xb2f.google.com ([2607:f8b0:4864:20::b2f])
+	id 1pMOYW-002XWx-1o; Mon, 30 Jan 2023 07:26:20 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMNoq-002UGk-Jc
-	for linux-riscv@lists.infradead.org; Mon, 30 Jan 2023 06:39:10 +0000
-Received: by mail-yb1-xb2f.google.com with SMTP id d132so12803114ybb.5
-        for <linux-riscv@lists.infradead.org>; Sun, 29 Jan 2023 22:39:06 -0800 (PST)
+	id 1pMOYT-002XWP-0e
+	for linux-riscv@lists.infradead.org; Mon, 30 Jan 2023 07:26:18 +0000
+Received: by mail-pl1-x634.google.com with SMTP id jm10so10633372plb.13
+        for <linux-riscv@lists.infradead.org>; Sun, 29 Jan 2023 23:26:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=k/w3jr6cU/SPLd8Szgs8C4HZyivNbPsKjMXJDKWEI0E=;
-        b=LVFQeYhjsIXKCV2C+1DEMd9ztzNQ2rESS1Vz631hrKNbZz2QICMJex09fotut4ebUl
-         qWBuGE0GMnFG52g2VMs8xogcxDhQQhiHpNMR8b+MCpl2FAmj5yDq6WnUThRMIOf4MoQG
-         4dGwg5ThvSzyho6oY/TUFWbicBLDY4i1RbP5YW9yJrUVC8cETdY8TvItGeyyZ+0WzIqd
-         knfTz6ydj2GltoFwzQdLJhdz3/1CM8JGNLAgFXUYGQFAVqL7tRwSn+h97UFIibZbFo9J
-         fk1f5yp8t+dWWDwu2PzswHuam+92orGememSqyn/uhvR4qbONYAQKlpbyikY2E1PuhYq
-         KPSQ==
+        d=ventanamicro.com; s=google;
+        h=content-transfer-encoding:mime-version:user-agent:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=6qOw62Kq+kSpyDO75vhgQOUbMVbeeLWsHBNPK1QAqWI=;
+        b=iwKOvnjMJidxi41sf/cMLokwkwYmtqoom3F6YmPzndNVqw8EFfD4RGvCEBBUsLuEhM
+         ikyLFuYhGCgynNVS1P8qYl5t8ZuY5DtIb6N/VeFPXgErIlLQ1qf+e3Qf+2hunDR3pAh5
+         sQHmJxogdIfTN1hOpSpX6AX/3QscS8KV/TzmpNzPr1+7nrHsntTA3dF8WyCFvKCR8YyA
+         4SqaZ5Ka/gyjKAvmdoc0qBiPbm9taZ7JtKUeJj0qXDasvlJvEKsk3Cr9HkW3gFCKZLXJ
+         ZLXunqevE/u5AHUfkQ6+Mc5nD0Ztmx6jIiMW+deci2eCOv/z2/oLcHEU9KSm0rPdtYUt
+         Ssng==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=k/w3jr6cU/SPLd8Szgs8C4HZyivNbPsKjMXJDKWEI0E=;
-        b=fBiD9+nxjTpr+u+ZPlT1DaYVxwlLsFJVeYMXxsDN19RZKgzFYA7c8EguVPt+pX1BhM
-         aj9rYl0VIz13gPK2lKpNGolNAtle+tYoD88tWwnATiWq14mo55AJ7zwspS+BPRU8P2Ad
-         LGORz1m7RpsmnGt7Taaxa+3FCxYMwGoNp2pC6NpQZ1l62wgrs1ZMHxIVgHIy88gZ3eWQ
-         23HEkSeyIIVHF6bepSUCvqq4zWf/YMtdxq0Ej4pREDF4RUOZmehbZxJ8N4G5bscbbpoc
-         aG3PGm0++aqrmTxCXtXz5Hv5CyoNImEl25AvFHW9QBTw1zzdZznFiTr/QN5vMiemiyWp
-         va5w==
-X-Gm-Message-State: AFqh2kpaXu88qLAmr/WDVCjOVw8OvYzx88NVvsJaKPxLBOgXSpwJRFpR
-	6JWKh+ejOP86lTMUd+H49OIlVOKeuYAAeQ6VHvG1ZQ==
-X-Google-Smtp-Source: AMrXdXul0tNk+CXd8EYXzFJgjAnnIQvfNIIzeLbwoGFAXTtjhQb5Hg/X2zWSbHDpRhN3FNG4+kzRe/M/XNi0FYNsl/Y=
-X-Received: by 2002:a25:71c3:0:b0:7b2:343d:6b11 with SMTP id
- m186-20020a2571c3000000b007b2343d6b11mr6222313ybc.75.1675060745665; Sun, 29
- Jan 2023 22:39:05 -0800 (PST)
+        h=content-transfer-encoding:mime-version:user-agent:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=6qOw62Kq+kSpyDO75vhgQOUbMVbeeLWsHBNPK1QAqWI=;
+        b=MUNpCUOmckigtztOLlHJZW22U7I87b8QynJwUdR5A64I8QsZ/9mM81Ob8r/sGFHWGE
+         A9IJ70CJGh1h3F8ZLA0ZoHfXvEfMIOv43ygruwv6YMh6IkL8gxoWc2YildcphnSsBQaJ
+         v+iVEyEHJxCGKWQxcjtVzDP33HXkB/i2VMFaYi7XMskSWkwOHr93c+G6FYIhsx81N2me
+         M035qkW6tWyVPA9pe+0yb7kTy5wTswgDuAOicKVZW5dlbJZz5fWVXFoblKQh0Waoga2w
+         N5BwgpV+4Aq7tGCqbveobqMniHFPqKhvqjXSgvopc+IyS0VhRxiJcFXrZJiun+DTwR5/
+         6RJQ==
+X-Gm-Message-State: AO0yUKXSCyl3qUojCUNvizx5pjSg1ODxlHQvxqFL+/CSrjk7zGQRVD4M
+	yVIPqgbg32gBJLsvwn0KHL+9gA==
+X-Google-Smtp-Source: AK7set/kGef4Ypx4OJvmJEDm6b5yRX3a9H0n9bSq2x6Jjix6iqOhUkALI1V5e4wfZwwUTOchsSDXCA==
+X-Received: by 2002:a17:902:d4cb:b0:196:6b41:cf33 with SMTP id o11-20020a170902d4cb00b001966b41cf33mr8675592plg.34.1675063573140;
+        Sun, 29 Jan 2023 23:26:13 -0800 (PST)
+Received: from [192.168.1.5] ([103.97.165.210])
+        by smtp.gmail.com with ESMTPSA id m3-20020a170902db0300b001897e2fd65dsm7054625plx.9.2023.01.29.23.26.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 29 Jan 2023 23:26:12 -0800 (PST)
+Message-ID: <3e70e7e4c75e9bdaf6fdea2584bf32edb1c1d44a.camel@ventanamicro.com>
+Subject: Re: [PATCH] riscv: mm: Implement pmdp_collapse_flush for THP
+From: mchitale@ventanamicro.com
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ linux-riscv@lists.infradead.org, Nanyong Sun <sunnanyong@huawei.com>, Anup
+ Patel <apatel@ventanamicro.com>
+Date: Mon, 30 Jan 2023 12:56:06 +0530
+In-Reply-To: <20230125153544.lgukbnh2qkntph4l@orel>
+References: <20230125125512.2494577-1-mchitale@ventanamicro.com>
+	 <20230125153544.lgukbnh2qkntph4l@orel>
+User-Agent: Evolution 3.36.5-0ubuntu1 
 MIME-Version: 1.0
-References: <20230125142056.18356-1-andy.chiu@sifive.com> <20230125142056.18356-20-andy.chiu@sifive.com>
- <Y9GZbVrZxEZAraVu@spud>
-In-Reply-To: <Y9GZbVrZxEZAraVu@spud>
-From: Andy Chiu <andy.chiu@sifive.com>
-Date: Mon, 30 Jan 2023 14:38:54 +0800
-Message-ID: <CABgGipWndcnUxUvWtyxyETtLaJT42VaZoiat7uDmnOjREEt9tg@mail.gmail.com>
-Subject: Re: [PATCH -next v13 19/19] riscv: Enable Vector code to be built
-To: Conor Dooley <conor@kernel.org>, Vineet Gupta <vineetg@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, anup@brainfault.org, 
-	atishp@atishpatra.org, kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
-	greentime.hu@sifive.com, guoren@linux.alibaba.com, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230129_223908_729707_8C20E830 
-X-CRM114-Status: GOOD (  34.97  )
+X-CRM114-CacheID: sfid-20230129_232617_111272_85A7BBBD 
+X-CRM114-Status: GOOD (  29.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,87 +93,94 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 26, 2023 at 5:04 AM Conor Dooley <conor@kernel.org> wrote:
-> Uh, so I don't think this was actually tested with (a recent version of)
-> clang:
-> clang-15: error: unknown argument: '-menable-experimental-extensions_zicbom_zihintpause'
->
-> Firstly, no-implicit-float is a CFLAG, so why add it to march?
-> There is an existing patch on the list for enabling this flag, but I
-> recall Palmer saying that it was not actually needed?
-> Palmer, do you remember why that was?
->
-> I dunno what enable-experimental-extensions is, but I can guess. Do we
-> really want to enable vector for toolchains where the support is
-> considered experimental? I'm not au fait with the details of clang
-> versions nor versions of the Vector spec, so take the following with a
-> bit of a pinch of salt...
-> Since you've allowed this to be built with anything later than clang 13,
-> does that mean that different versions of clang may generate vector code
-> that are not compatible?
-Thanks for pointing this out. We found that Vector in clang13 was
-still an experimental feature. And the first version of clang which
-lists Vector v1.0 (ratified) as a standard support is clang14. Thus,
-we will require the minimum clang toolchain version to be 14 in the
-following revision.
-> I'm especially concerned by:
-> https://github.com/riscv/riscv-v-spec/releases/tag/0.9
-> which appears to be most recently released version of the spec, prior to
-> clang/llvm 13 being released.
->
-> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > index e2b656043abf..f4299ba9a843 100644
-> > --- a/arch/riscv/Kconfig
-> > +++ b/arch/riscv/Kconfig
-> > @@ -416,6 +416,16 @@ config RISCV_ISA_SVPBMT
-> >
-> >          If you don't know what to do here, say Y.
-> >
-> > +config RISCV_ISA_V
-> > +     bool "VECTOR extension support"
-> > +     depends on GCC_VERSION >= 120000 || CLANG_VERSION >= 130000
->
-> Are these definitely the versions you want to support?
-> What are the earliest (upstream) versions that support the frozen
-> version of the vector spec?
-It is 14 for clang and 2.38 for GNU binutils
->
-> Also, please copy what has been done with "TOOLCHAIN_HAS_FOO" for other
-> extensions and check this support with cc-option instead. Similarly,
-Yes, updating it.
-> you'll need to gate this support on the linker being capable of
-> accepting vector:
-> /stuff/toolchains/gcc-11/bin/riscv64-unknown-linux-gnu-ld: -march=rv64i2p0_m2p0_a2p0_f2p0_d2p0_c2p0_v1p0_zihintpause2p0_zve32f1p0_zve32x1p0_zve64d1p0_zve64f1p0_zve64x1p0_zvl128b1p0_zvl32b1p0_zvl64b1p0: prefixed ISA extension must separate with _
-> /stuff/toolchains/gcc-11/bin/riscv64-unknown-linux-gnu-ld: failed to merge target specific data of file arch/riscv/kernel/vdso/vgettimeofday.o
->
-> > +     default n
->
-> I forget, but is the reason for this being default n, when the others
-> are default y a conscious choice?
-Yes, I think it could be y if V is allocated in the first-use trap, as
-far as I'm concerned. Hey Vineet, do you have any comments about that?
-> I'm a bit of a goldfish sometimes memory wise, and I don't remember if
-> that was an outcome of the previous discussions.
-> If it is intentionally different, that needs to be in the changelog IMO.
->
-> > +     help
-> > +       Say N here if you want to disable all vector related procedure
-> > +       in the kernel.
+On Wed, 2023-01-25 at 16:35 +0100, Andrew Jones wrote:
+> On Wed, Jan 25, 2023 at 06:25:11PM +0530, Mayuresh Chitale wrote:
+> > When THP is enabled, 4K pages are collapsed into a single huge
+> > page using the generic pmdp_collapse_flush() which will further
+> > use flush_tlb_range() to shoot-down stale TLB entries.
+> > Unfortunately,
+> > the generic pmdp_collapse_flush() only invalidates cached leaf PTEs
+> > using address specific SFENCEs which results in repetitive (or
+> > unpredictable) page faults on RISC-V implementations which cache
+> > non-leaf PTEs.
+> > 
+> > Provide a RISC-V specific pmdp_collapse_flush() which ensures both
+> > cached leaf and non-leaf PTEs are invalidated by using non-address
+> > specific SFENCEs as recommended by the RISC-V privileged
+> > specification.
+> > 
+> > Fixes: e88b333142e4 ("riscv: mm: add THP support on 64-bit")
+> > Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
+> > ---
+> >  arch/riscv/include/asm/pgtable.h | 24 ++++++++++++++++++++++++
+> >  1 file changed, 24 insertions(+)
+> > 
+> > diff --git a/arch/riscv/include/asm/pgtable.h
+> > b/arch/riscv/include/asm/pgtable.h
+> > index 4eba9a98d0e3..6d948dec6020 100644
+> > --- a/arch/riscv/include/asm/pgtable.h
+> > +++ b/arch/riscv/include/asm/pgtable.h
+> > @@ -721,6 +721,30 @@ static inline pmd_t pmdp_establish(struct
+> > vm_area_struct *vma,
+> >  	page_table_check_pmd_set(vma->vm_mm, address, pmdp, pmd);
+> >  	return __pmd(atomic_long_xchg((atomic_long_t *)pmdp,
+> > pmd_val(pmd)));
+> >  }
 > > +
-> > +       If you don't know what to do here, say Y.
-> > +
-> >  config TOOLCHAIN_HAS_ZICBOM
->
-> ^ you can use this one here as an example :)
-Ok! Thanks
->
-> I'll reply here again once the patchwork automation has given the series
-> a once over and see if it comes up with any other build issues.
+> > +#define pmdp_collapse_flush pmdp_collapse_flush
+> > +static inline pmd_t pmdp_collapse_flush(struct vm_area_struct
+> > *vma,
+> > +					unsigned long address, pmd_t
+> > *pmdp)
+> > +{
+> > +	pmd_t pmd = pmdp_huge_get_and_clear(vma->vm_mm, address, pmdp);
+> 
+> The generic version of this function has a couple sanity checks for
+> kernels compiled with CONFIG_DEBUG_VM. Shouldn't we duplicate those?
+
+Ok. I will add those checks too.
+> 
 > Thanks,
-> Conor.
->
-Thanks,
-Andy
+> drew
+> 
+> > +
+> > +	/*
+> > +	 * When leaf PTE enteries (regular pages) are collapsed into a
+> > leaf
+> > +	 * PMD entry (huge page), a valid non-leaf PTE is converted
+> > into a
+> > +	 * valid leaf PTE at the level 1 page table. The RISC-V
+> > privileged v1.12
+> > +	 * specification allows implementations to cache valid non-leaf 
+> > PTEs,
+> > +	 * but the section "4.2.1 Supervisor Memory-Management Fence
+> > +	 * Instruction" recommends the following:
+> > +	 * "If software modifies a non-leaf PTE, it should execute
+> > SFENCE.VMA
+> > +	 * with rs1=x0. If any PTE along the traversal path had its G
+> > bit set,
+> > +	 * rs2 must be x0; otherwise, rs2 should be set to the ASID for
+> > which
+> > +	 * the translation is being modified."
+> > +	 * Based on the above recommendation, we should do full flush
+> > whenever
+> > +	 * leaf PTE entries are collapsed into a leaf PMD entry.
+> > +	 */
+> > +	flush_tlb_mm(vma->vm_mm);
+> > +	return pmd;
+> > +}
+> >  #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
+> >  
+> >  /*
+> > -- 
+> > 2.34.1
+> > 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
 
 _______________________________________________
 linux-riscv mailing list
