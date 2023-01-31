@@ -4,79 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D3C2C636D4
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 Jan 2023 02:55:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78F71C636D3
+	for <linux-riscv@archiver.kernel.org>; Tue, 31 Jan 2023 06:01:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
-	Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vrsbFsct6MQOFzvjnG6F5cLNvF6R4pvOhPRyBnELWFQ=; b=Gg27kr9ALFYWVz2Q4ygPUeJ766
-	td+WVYSHYDzlVTjqq8YmPUJ4S5Nr7BgEIDfF3e9sqz9rFTJKRAQIhACRMNiO7x+7fO9WhLmxnLH34
-	YzFkGYpWBiOfGDSUM59I/ldlzh4vX+iWmXuWjmvZj5l6wZ0yjR6ivAzSlMmUpuqKNF7wPdP4oSS0l
-	+Yy2bg1sbRxTZGvIrZvbYYFVYknNYJdladEDd8HM9tzlnA+AR48H2vJvMKC8RTQE3xsD5Zcvq5M+i
-	CRtyCaWC1hNTafLhGsOJZs9asst6KYzpDdeX1MH7MA6PW1gT9dFqn7ISe3ngCK3KMzMks3t/kA3SB
-	OZES6Zsw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=0a+udEtpn5gzgYk/SInBborXNuQfNqpcNhnV+2mibZc=; b=QXcVl8YRc1wkbi
+	5UTXhORrFNTnLcfvCc4wl6Wmgx+OHDnCgbPoaWwohVvatzVg8AA55mKedvdue5cYrCGoJmJvPEWKR
+	ZztmAZ5JC/a23iUJleYfjL6WHW0pWdLr9j0AFA6AkTP1jAjbGgiLim/Z3LkYJLSpFVBzqKW3l7Mnl
+	zhj+Q0fc3RT6/EInU+1ra1b8nXIjhdVhdUJb/nB3yA5+T5OSeeQYVvbQPsv98lLcrEkZ8H2a43JQ7
+	D646Ob0bWT4oDVB9qI/px/KEYxIwq9DCaYCtiRKrCok2q3DJKxdFh6+pFNMe7F+SUJj+XdZE4yzz0
+	cSuosu2J9MboyvS/nZoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMgnx-0067VY-5P; Tue, 31 Jan 2023 02:55:29 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1pMji5-006NFg-1U; Tue, 31 Jan 2023 06:01:37 +0000
+Received: from mail-vs1-xe32.google.com ([2607:f8b0:4864:20::e32])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMgnt-0067Um-OD
-	for linux-riscv@lists.infradead.org; Tue, 31 Jan 2023 02:55:27 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id m2so8695062plg.4
-        for <linux-riscv@lists.infradead.org>; Mon, 30 Jan 2023 18:55:25 -0800 (PST)
+	id 1pMji2-006NEw-9j
+	for linux-riscv@lists.infradead.org; Tue, 31 Jan 2023 06:01:35 +0000
+Received: by mail-vs1-xe32.google.com with SMTP id e9so7163492vsj.3
+        for <linux-riscv@lists.infradead.org>; Mon, 30 Jan 2023 22:01:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=vj6mBMzk1d7uFNyPaGxFlLal+ZLcp4ObFIbVZwyVdts=;
-        b=c10AGnuxU4RL9IxtfFUwBrTVTiJph3zrj4fXpZJ+Zu5Tb0CS3eNXW76Vnbyrnf0CBP
-         vYY6+hSh33fgNUM1a2O0dBYOppWJVAiIvjluZBat4cSfgSXOojd95QGqEILRsplYhpRH
-         bUM5z2ORHLMlPMzV1K+hoP4wkPr5E7rOkNqOOkmnGRjh7UMaMKp9kHKnlloXFeBhBKBc
-         JEOrFqMogrS2FiGasIEP6aLyc0yciJhSm/c5IxhDA6ez/AwFOiNnom4OMHduD8vqedSl
-         THaGruHsWr/M11bK0EH2NXrCKHD705z7mn4gtfQnh/10jxwtzAXN/OMkI5jRKN1gDBvr
-         B6JQ==
+        d=ventanamicro.com; s=google;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=+jH9jtw54xpyA3LsRz4MvxNgaHM7qf/mASxIp14kGwU=;
+        b=Xe+fcSj6UKNT8s+4fYZgUIM1+O2VECK/uLab2bCFNZHpaA1Cw291Dn2vZYt6yHkj6W
+         04gmIeNZSuxOhlh4B5MwNZTnNU4gVwq5br6cQWtmoVtb6cm7tTjaZxtu6uL27Iqd4t9R
+         tqdT0LMuv6CySqxMNp8Qbysw3UZ9OGVNCIOk5wj1hbu1xlglsaObX4P4AkqTdFUhkiKk
+         x/bQpLU9FIbUHQvvluXYbkfwxXUEeyKm+naVg9f5ISLlWyQ9DfdHOtqJIBgrC0tZkWM/
+         QkoY1fxbgwUwXx15kpfnP2jntPWT5pSbhGSYS6irEu5lrBdnOZjic7/7Bo1/KomxyBVw
+         uDqA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=vj6mBMzk1d7uFNyPaGxFlLal+ZLcp4ObFIbVZwyVdts=;
-        b=iXJg3zBghNFaeOk+HxaqPF8KbMdjSgOvs3v4N5oaUafsrioa1gMLWLx43Ks9Hkou0g
-         iAzHJSq8ZL6SUKLw6igmr8JCSK897qsCGPST3eeaWNSjPa/lvP/fwJA3nAROoW/zVMSw
-         TSZRE3VO069FBaltWtmtSTm5PQHxn+3HlbIIsaPI7E9ezVwUbjXlooK70CrwN7/NDAvy
-         cpiWgxNhaYpW3iL3OYzXQrZu2T3tS22wiMLCOMJYmOPgwDltqGo51YprjyV9H2OojCt4
-         1Vwyxc/CQ/qVMzyj6Qx2AUZWEo4jIoa6CkYHHjdZivgs7tPohs+E7OVj8cR7na05zaM6
-         aH4g==
-X-Gm-Message-State: AFqh2krvxyFkOv7wdpW779uE0fHYS8zizyvyll9OGyRdBnBtVwlLa5LN
-	V7TjIkgfJ65zO3YvJAMs64ki/Q==
-X-Google-Smtp-Source: AMrXdXv96l/xdFLQ6INRtgspaPh3hBc/9mcpvHcDtAc10wMKebvj1EOqzLsynmdrvhXZsWZzggxBuA==
-X-Received: by 2002:a17:902:7881:b0:192:bb38:c412 with SMTP id q1-20020a170902788100b00192bb38c412mr47612855pll.44.1675133724677;
-        Mon, 30 Jan 2023 18:55:24 -0800 (PST)
-Received: from [192.168.50.116] (c-24-4-73-83.hsd1.ca.comcast.net. [24.4.73.83])
-        by smtp.gmail.com with ESMTPSA id k5-20020a170902694500b001967580f60fsm3918169plt.260.2023.01.30.18.55.23
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 30 Jan 2023 18:55:24 -0800 (PST)
-Message-ID: <eb3a3efd-89f7-db94-f99a-daa51065706c@rivosinc.com>
-Date: Mon, 30 Jan 2023 18:55:22 -0800
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=+jH9jtw54xpyA3LsRz4MvxNgaHM7qf/mASxIp14kGwU=;
+        b=i+uZAEyb1Rbgugt5agC6cMjY36RMVhw6SWBMl7CGnALwHOMrd7JlnsIla+EP1BB3CZ
+         3utOsWkT24ewxnitSu5GFZWAkx7NIMBTJL6uOWXga9KEhqkJuJqHnGs1gbeCFBt+mCVT
+         vIuOzQ/JIiIBAZMjbCoJltZyxPixlPQekYLHQo6WHTVYICpRMqznzYJfamm1BzVSvN+M
+         x87CQ+XHXJ1/kmVcPJzMB6+2XV3PWPw5bMEtlomBdv4GyMuUd79INykW4uCHpvYbRFV7
+         W6Yw+y5b1pzXoZfp0x/r6pJuLuyNJdaWfCu11gU/7pX/5gV0SxBUP80dAdc7fPqywu2X
+         z91g==
+X-Gm-Message-State: AO0yUKVji2M9opHjN9EZiLFyOkpU9VZRhR0NO15Sbp+2osxFmLEebnvb
+	pAolTF/8vPx9lmJ72+WTuF/JCxK8GTAAosxYGQwZZg==
+X-Google-Smtp-Source: AK7set8T8zGFEyjd7YIsBGyAbXe+hLHmog7RQVHiqnPBoaPeefEtsDF+IRzZWa18/zB+XQZSyeHb16GQwO/ao//beQo=
+X-Received: by 2002:a05:6102:3098:b0:3ec:1029:9eae with SMTP id
+ l24-20020a056102309800b003ec10299eaemr2618701vsb.10.1675144890577; Mon, 30
+ Jan 2023 22:01:30 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.4.2
-Subject: Re: [PATCH -next v13 09/19] riscv: Add task switch support for vector
-Content-Language: en-US
-To: Andy Chiu <andy.chiu@sifive.com>, linux-riscv@lists.infradead.org,
- palmer@dabbelt.com, anup@brainfault.org, atishp@atishpatra.org,
- kvm-riscv@lists.infradead.org, kvm@vger.kernel.org
-References: <20230125142056.18356-1-andy.chiu@sifive.com>
- <20230125142056.18356-10-andy.chiu@sifive.com>
-From: Vineet Gupta <vineetg@rivosinc.com>
-In-Reply-To: <20230125142056.18356-10-andy.chiu@sifive.com>
+References: <20230128072737.2995881-1-apatel@ventanamicro.com>
+In-Reply-To: <20230128072737.2995881-1-apatel@ventanamicro.com>
+From: Anup Patel <apatel@ventanamicro.com>
+Date: Tue, 31 Jan 2023 11:31:19 +0530
+Message-ID: <CAK9=C2W=MPqU8UGBt89HMWW7Mpda8prm3_8WnuTR=8vipynDYQ@mail.gmail.com>
+Subject: Re: [PATCH v2 0/7] RISC-V KVM virtualize AIA CSRs
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Andrew Jones <ajones@ventanamicro.com>, 
+	Atish Patra <atishp@atishpatra.org>, Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Paolo Bonzini <pbonzini@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230130_185525_989905_17A04409 
-X-CRM114-Status: GOOD (  17.44  )
+X-CRM114-CacheID: sfid-20230130_220134_366424_F6378F52 
+X-CRM114-Status: GOOD (  17.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,45 +82,79 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Kefeng Wang <wangkefeng.wang@huawei.com>, guoren@linux.alibaba.com, Nick Knight <nick.knight@sifive.com>, Xianting Tian <xianting.tian@linux.alibaba.com>, Heiko Stuebner <heiko@sntech.de>, Vincent Chen <vincent.chen@sifive.com>, Conor Dooley <conor.dooley@microchip.com>, Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>, Ruinland Tsai <ruinland.tsai@sifive.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, greentime.hu@sifive.com, Dmitry Vyukov <dvyukov@google.com>, "Eric W. Biederman" <ebiederm@xmission.com>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQW5keSwKCkZvciBzb21lIHJlYXNvbiBJIHdhcyBsb29raW5nIGNsb3NlbHkgYXQgdGhpcyBw
-YXRjaCB0b2RheS4KCk9uIDEvMjUvMjMgMDY6MjAsIEFuZHkgQ2hpdSB3cm90ZToKPiAgIC8qIFdo
-aXRlbGlzdCB0aGUgZnN0YXRlIGZyb20gdGhlIHRhc2tfc3RydWN0IGZvciBoYXJkZW5lZCB1c2Vy
-Y29weSAqLwo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3N3aXRjaF90by5o
-IGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zd2l0Y2hfdG8uaAo+IGluZGV4IGRmMWFhNTg5Yjdm
-ZC4uNjllMjQxNDAxOTVkIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vc3dp
-dGNoX3RvLmgKPiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3N3aXRjaF90by5oCj4gQEAg
-LTgsNiArOCw3IEBACj4gICAKPiAgICNpbmNsdWRlIDxsaW51eC9qdW1wX2xhYmVsLmg+Cj4gICAj
-aW5jbHVkZSA8bGludXgvc2NoZWQvdGFza19zdGFjay5oPgo+ICsjaW5jbHVkZSA8YXNtL3ZlY3Rv
-ci5oPgo+ICAgI2luY2x1ZGUgPGFzbS9od2NhcC5oPgo+ICAgI2luY2x1ZGUgPGFzbS9wcm9jZXNz
-b3IuaD4KPiAgICNpbmNsdWRlIDxhc20vcHRyYWNlLmg+Cj4gQEAgLTY4LDYgKzY5LDIxIEBAIHN0
-YXRpYyBfX2Fsd2F5c19pbmxpbmUgYm9vbCBoYXNfZnB1KHZvaWQpIHsgcmV0dXJuIGZhbHNlOyB9
-Cj4gICAjZGVmaW5lIF9fc3dpdGNoX3RvX2ZwdShfX3ByZXYsIF9fbmV4dCkgZG8geyB9IHdoaWxl
-ICgwKQo+ICAgI2VuZGlmCj4gICAKPiArI2lmZGVmIENPTkZJR19SSVNDVl9JU0FfVgo+ICtzdGF0
-aWMgaW5saW5lIHZvaWQgX19zd2l0Y2hfdG9fdmVjdG9yKHN0cnVjdCB0YXNrX3N0cnVjdCAqcHJl
-diwKPiArCQkJCSAgICAgIHN0cnVjdCB0YXNrX3N0cnVjdCAqbmV4dCkKPiArewo+ICsJc3RydWN0
-IHB0X3JlZ3MgKnJlZ3M7Cj4gKwo+ICsJcmVncyA9IHRhc2tfcHRfcmVncyhwcmV2KTsKPiArCWlm
-ICh1bmxpa2VseShyZWdzLT5zdGF0dXMgJiBTUl9TRCkpCgpEbyB3ZSByZWFsbHkgbmVlZCB0byBj
-aGVjayBTUl9TRCwgaXNuJ3QgY2hlY2tpbmcgZm9ywqAgU1JfVlNfRElSVFkgZW5vdWdoLgpJZiB5
-ZXMsIHdlIGNhbiByZW1vdmUgdGhlIGNoZWNrIGhlcmUgYW5kIGtlZXAgdGhlIGV4aXN0aW5nIG9u
-ZSBvbiAKdnN0YXRlX3NhdmUoKQoKPiArCQl2c3RhdGVfc2F2ZShwcmV2LCByZWdzKTsKPiArCXZz
-dGF0ZV9yZXN0b3JlKG5leHQsIHRhc2tfcHRfcmVncyhuZXh0KSk7Cj4gK30KPiArI2Vsc2UgLyog
-ISBDT05GSUdfUklTQ1ZfSVNBX1YgICovCj4gKyNkZWZpbmUgX19zd2l0Y2hfdG9fdmVjdG9yKF9f
-cHJldiwgX19uZXh0KSBkbyB7IH0gd2hpbGUgKDApCj4gKyNlbmRpZiAvKiBDT05GSUdfUklTQ1Zf
-SVNBX1YgICovCj4gKwoKQ2FuIHdlIGRlLWx1dHRlciBzd2l0Y2hfdG8uaCBzb21lIG1vcmUgYW5k
-IG1vdmUgYm90aCB0aGUgZGVmaW5pdGlvbnMgb2YgCl9fc3dpdGNoX3RvX3ZlY3RvciBpbnRvIHZl
-Y3Rvci5oID8KCgo+ICAgZXh0ZXJuIHN0cnVjdCB0YXNrX3N0cnVjdCAqX19zd2l0Y2hfdG8oc3Ry
-dWN0IHRhc2tfc3RydWN0ICosCj4gICAJCQkJICAgICAgIHN0cnVjdCB0YXNrX3N0cnVjdCAqKTsK
-PiAgIAo+IEBAIC03Nyw2ICs5Myw4IEBAIGRvIHsJCQkJCQkJXAo+ICAgCXN0cnVjdCB0YXNrX3N0
-cnVjdCAqX19uZXh0ID0gKG5leHQpOwkJXAo+ICAgCWlmIChoYXNfZnB1KCkpCQkJCQlcCj4gICAJ
-CV9fc3dpdGNoX3RvX2ZwdShfX3ByZXYsIF9fbmV4dCk7CVwKPiArCWlmIChoYXNfdmVjdG9yKCkp
-CQkJCQlcCj4gKwkJX19zd2l0Y2hfdG9fdmVjdG9yKF9fcHJldiwgX19uZXh0KTsJXAo+ICAgCSgo
-bGFzdCkgPSBfX3N3aXRjaF90byhfX3ByZXYsIF9fbmV4dCkpOwkJXAo+ICAgfSB3aGlsZSAoMCkK
-PiAgIAoKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
-aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
-dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Hi Palmer,
+
+On Sat, Jan 28, 2023 at 12:57 PM Anup Patel <apatel@ventanamicro.com> wrote:
+>
+> The RISC-V AIA specification is now frozen as-per the RISC-V international
+> process. The latest frozen specifcation can be found at:
+> https://github.com/riscv/riscv-aia/releases/download/1.0-RC1/riscv-interrupts-1.0-RC1.pdf
+>
+> This series implements first phase of AIA virtualization which targets
+> virtualizing AIA CSRs. This also provides a foundation for the second
+> phase of AIA virtualization which will target in-kernel AIA irqchip
+> (including both IMSIC and APLIC).
+>
+> The first two patches are shared with the "Linux RISC-V AIA Support"
+> series which adds AIA driver support.
+>
+> To test this series, use AIA drivers from the "Linux RISC-V AIA Support"
+> series and use KVMTOOL from the riscv_aia_v1 branch at:
+> https://github.com/avpatel/kvmtool.git
+>
+> These patches can also be found in the riscv_kvm_aia_csr_v2 branch at:
+> https://github.com/avpatel/linux.git
+>
+> Changes since v1:
+>  - Addressed from Drew and Conor in PATCH1
+>  - Use alphabetical ordering for SMAIA and SSAIA enum in PATCH2
+>  - Use GENMASK() in PATCH3
+>
+> Anup Patel (7):
+>   RISC-V: Add AIA related CSR defines
+>   RISC-V: Detect AIA CSRs from ISA string
+>   RISC-V: KVM: Drop the _MASK suffix from hgatp.VMID mask defines
+>   RISC-V: KVM: Initial skeletal support for AIA
+>   RISC-V: KVM: Add ONE_REG interface for AIA CSRs
+>   RISC-V: KVM: Virtualize per-HART AIA CSRs
+>   RISC-V: KVM: Implement guest external interrupt line management
+
+Can you please provide ACK for the first two patches so that I can
+take it through the KVM RISC-V tree. ?
+
+Regards,
+Anup
+
+>
+>  arch/riscv/include/asm/csr.h      | 107 ++++-
+>  arch/riscv/include/asm/hwcap.h    |   8 +
+>  arch/riscv/include/asm/kvm_aia.h  | 137 +++++++
+>  arch/riscv/include/asm/kvm_host.h |  14 +-
+>  arch/riscv/include/uapi/asm/kvm.h |  22 +-
+>  arch/riscv/kernel/cpu.c           |   2 +
+>  arch/riscv/kernel/cpufeature.c    |   2 +
+>  arch/riscv/kvm/Makefile           |   1 +
+>  arch/riscv/kvm/aia.c              | 624 ++++++++++++++++++++++++++++++
+>  arch/riscv/kvm/main.c             |  14 +
+>  arch/riscv/kvm/mmu.c              |   3 +-
+>  arch/riscv/kvm/vcpu.c             | 185 +++++++--
+>  arch/riscv/kvm/vcpu_insn.c        |   4 +-
+>  arch/riscv/kvm/vm.c               |   4 +
+>  arch/riscv/kvm/vmid.c             |   4 +-
+>  15 files changed, 1075 insertions(+), 56 deletions(-)
+>  create mode 100644 arch/riscv/include/asm/kvm_aia.h
+>  create mode 100644 arch/riscv/kvm/aia.c
+>
+> --
+> 2.34.1
+>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
