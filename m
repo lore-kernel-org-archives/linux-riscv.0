@@ -4,74 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2395C636CC
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 Jan 2023 14:09:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4102AC636CC
+	for <linux-riscv@archiver.kernel.org>; Tue, 31 Jan 2023 15:11:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
-	Date:References:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Gpxl/dQwjHj9b99oEaxmm7MlJknD8wFmdSgcP7Kxqj8=; b=zzjxI5Q3EetQpf
-	C42btWkorr3sPgEvURzDqX0OEZcnm4lGxedCJcssL9K5Yactuy7bHHbKwVvlpqDCRSYVFLlh8QtuB
-	NE+zT1hAYGUQZY1u7Vcwdm/IJDN6B6IVd4HHa8XVlREeYk+0zQjs7wg9s8OIabsEQvVXXl9liyPY2
-	J1FEvEHqz3fnDU5UXfa1KqtdvCKO2NmvS+lZe30X1FXED04AAETn4XEydi+dhFJTvz/4kT6DqlgYQ
-	7xXNaaMWdUk4bdnh7ookO3bg6JIa4Wio8J7uDLNK2DSDDXt0ZrtBH63/iiuAIwMOCq6REhiDIMEtz
-	XBNFU4RYUXYsnK4alxZQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=SXP87x1TY7f0YMj+zCYRsIcRD6dpbd59Ko+5vfaZkC8=; b=hfvcLFM2LVHKDP
+	pxqYUKnDV0m0tvd8syenFJTTKvfrbhJ8pL89UymtMjMESCn6lnYNFLsbxVzU4Q6o3w9Stm75QtPDA
+	H05CRtwjHkpHMwiipIsAhagye+bZC4Hg9xNZU0wppFEGkFZRKT5KcjbvagKvN96M1hjCy0Ilqs4Ch
+	0uemc9FGrVDVEenYuAe2U+iyebM0kZgbKuPYNxJBPcAsUqdgsSSWOXamF2jU/2GOhzR3COW2f6HBL
+	0YzGfLVwDExobEi4HWbDJdoRhxeLnAEzv78Z/TSPlozygajh5apond3YZnTCTKFbMbYqcg4VTswIs
+	GeNChLD3eU5AadzBaSSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMrJg-008FIb-VG; Tue, 31 Jan 2023 14:08:56 +0000
-Received: from smtp-out1.suse.de ([195.135.220.28])
+	id 1pMsID-008RhW-DQ; Tue, 31 Jan 2023 15:11:29 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMrJd-008FGw-Nu
-	for linux-riscv@lists.infradead.org; Tue, 31 Jan 2023 14:08:55 +0000
-Received: from relay2.suse.de (relay2.suse.de [149.44.160.134])
-	by smtp-out1.suse.de (Postfix) with ESMTP id 69D8F22B05;
-	Tue, 31 Jan 2023 14:08:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1675174129; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=T49m4aNneycdJRUox2NnWvbDHKOK5LQ0u6zBagVR6NY=;
-	b=19R4zxNGaLGs0/BdyhligmSWKz7ncKw4I9vEaCeJbqvAajD+uc6ET5AkprNHNtGxxTaWE3
-	0ufCmT501ll9cnG5BVbwJ1I5evVot1UbC9ZFNvj1AJTanWK7on2pM1aV2ql50USH5b+oyu
-	uIt7lKO+GN8nQQdrYzdqRIm2OEVTxNI=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1675174129;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=T49m4aNneycdJRUox2NnWvbDHKOK5LQ0u6zBagVR6NY=;
-	b=z2/uq1WlpP3hZGyMEyL9G0pYl2Vz7xEmuiuYkEuS7QEeRHzP5SU+PqQxN8+KvFbFYWng4I
-	1U0pLFoHuEecFyCg==
-Received: from hawking.suse.de (unknown [10.168.4.11])
-	by relay2.suse.de (Postfix) with ESMTP id E15DE2C141;
-	Tue, 31 Jan 2023 14:08:48 +0000 (UTC)
-Received: by hawking.suse.de (Postfix, from userid 17005)
-	id 9D17F440D4E; Tue, 31 Jan 2023 15:08:48 +0100 (CET)
-From: Andreas Schwab <schwab@suse.de>
-To: Hal Feng <hal.feng@starfivetech.com>
-Cc: <linux-riscv@lists.infradead.org>,  <devicetree@vger.kernel.org>,
-  <linux-gpio@vger.kernel.org>,  Conor Dooley <conor@kernel.org>,  Palmer
- Dabbelt <palmer@dabbelt.com>,  "Rob Herring" <robh+dt@kernel.org>,
-  Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,  Linus Walleij
- <linus.walleij@linaro.org>,  Emil Renner Berthing
- <emil.renner.berthing@canonical.com>,  Jianlong Huang
- <jianlong.huang@starfivetech.com>,  <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v3 4/5] pinctrl: starfive: Add StarFive JH7110 sys
- controller driver
-References: <20221220005529.34744-1-hal.feng@starfivetech.com>
-	<20221220005529.34744-5-hal.feng@starfivetech.com>
-X-Yow: My polyvinyl cowboy wallet was made in Hong Kong by Montgomery Clift!
-Date: Tue, 31 Jan 2023 15:08:48 +0100
-In-Reply-To: <20221220005529.34744-5-hal.feng@starfivetech.com> (Hal Feng's
-	message of "Tue, 20 Dec 2022 08:55:28 +0800")
-Message-ID: <mvm4js6zthr.fsf@suse.de>
-User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/28.2 (gnu/linux)
+	id 1pMsIA-008Rg7-RM
+	for linux-riscv@lists.infradead.org; Tue, 31 Jan 2023 15:11:28 +0000
+Received: by mail-wm1-x335.google.com with SMTP id k16so10579175wms.2
+        for <linux-riscv@lists.infradead.org>; Tue, 31 Jan 2023 07:11:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZDRV3dTpr/I1IdlDAhOzkzQeE2U7A9MUv4OTs7C9Ic0=;
+        b=fdRNuWwOmD2J8LwVwU9LdwIRGl6NUPNr9RjKhhxb/oVEbmG9OehBPDVzdQa5s66Si1
+         objENa14PROVzi3XlYOwtO82hNuIcp82QvpcPRmyE9PnKvTtMUvxdddUsrtYdXxxb7og
+         bLq94hLu66Es1S+gIJcgdrrE+XUltHjWSreVCW3vOXjJ9JofFGvbwi26hYxyMISWFbVM
+         dKPMxnwRTyke/KeD7oHAvfKyrnNGO/TscGyYoR/d/67FK+l809KkMkUFiWjKZfBiv0NT
+         gDa9mYuLOu/JJDYAhiJOYPLI6pQ2c/MV3Sh7+r71Y9WBwb2jhE/vDAnAOPcjsj9Pv0JE
+         AVPQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ZDRV3dTpr/I1IdlDAhOzkzQeE2U7A9MUv4OTs7C9Ic0=;
+        b=7Tdz51MbMcQXccquRKyL/hqoOlDkmsZlAL90k2e9PzlHaK9cdXG2IDBwya/Y54696U
+         Z5KDLwtSRkUpeNgSpK9B3YPllExi9KrN7kla9nOJ2QwqqW2TgZp52yJNqT1YhWXc6O7X
+         8G4CMR2NPvvlbho26ejv61x1YvIZZSLq4pVhFlCNoiVj+loGiOLxtE+FofFWzbRfE0x1
+         oachUVvADjSBK9Bfoa0m6PPV/snjo5tf1UVOGG/DcxqF4cJ62/vi0cPad0GStVmpfzvU
+         G8UKrt++e/fHi7pVjcbuHTPjp0WE/KP/Mvt3xkFDxpCuaorjRaYYBZhTD8iz7hIzN+20
+         e70Q==
+X-Gm-Message-State: AO0yUKXKW2VzH/eMUDARRHKei81hZnW3LIL3qbIivpLtmESkGo3j0dw0
+	QZRiRUFt4n1/1a77OzmzvPzpkw==
+X-Google-Smtp-Source: AK7set/2iizYZSQzebD1MVfEgv6lMNJzzvCce0t08tWnm7LHavMfZ8xs0/vr+y315lraYo4rANMjYg==
+X-Received: by 2002:a05:600c:a14:b0:3dd:97d6:8f2a with SMTP id z20-20020a05600c0a1400b003dd97d68f2amr2027264wmp.33.1675177884047;
+        Tue, 31 Jan 2023 07:11:24 -0800 (PST)
+Received: from alex-rivos.ba.rivosinc.com (lfbn-lyo-1-450-160.w2-7.abo.wanadoo.fr. [2.7.42.160])
+        by smtp.gmail.com with ESMTPSA id t1-20020a05600c41c100b003dc47d458cdsm10651305wmh.15.2023.01.31.07.11.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 31 Jan 2023 07:11:23 -0800 (PST)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+To: Jonathan Corbet <corbet@lwn.net>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Conor Dooley <conor@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH v4 0/1] riscv: Allow to downgrade paging mode from the command line
+Date: Tue, 31 Jan 2023 16:11:14 +0100
+Message-Id: <20230131151115.1972740-1-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.37.2
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230131_060853_972867_48393492 
-X-CRM114-Status: GOOD (  14.34  )
+X-CRM114-CacheID: sfid-20230131_071126_913205_58283CC7 
+X-CRM114-Status: GOOD (  13.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,111 +94,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Dez 20 2022, Hal Feng wrote:
+This new version gets rid of the limitation that prevented KASAN kernels
+to use the newly introduced parameters.
 
-> diff --git a/drivers/pinctrl/starfive/pinctrl-starfive-jh7110.c b/drivers/pinctrl/starfive/pinctrl-starfive-jh7110.c
-> new file mode 100644
-> index 000000000000..85df9d0ae1de
-> --- /dev/null
-> +++ b/drivers/pinctrl/starfive/pinctrl-starfive-jh7110.c
-> @@ -0,0 +1,979 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Pinctrl / GPIO driver for StarFive JH7110 SoC
-> + *
-> + * Copyright (C) 2022 Emil Renner Berthing <kernel@esmil.dk>
-> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
-> + */
-> +
-> +#include <linux/bits.h>
-> +#include <linux/clk.h>
-> +#include <linux/gpio/driver.h>
-> +#include <linux/io.h>
-> +#include <linux/mod_devicetable.h>
-> +#include <linux/module.h>
-> +#include <linux/mutex.h>
-> +#include <linux/of.h>
-> +#include <linux/of_device.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/reset.h>
-> +#include <linux/spinlock.h>
-> +
-> +#include <linux/pinctrl/pinctrl.h>
-> +#include <linux/pinctrl/pinmux.h>
-> +
-> +#include <dt-bindings/pinctrl/starfive,jh7110-pinctrl.h>
-> +
-> +#include "../core.h"
-> +#include "../pinctrl-utils.h"
-> +#include "../pinmux.h"
-> +#include "../pinconf.h"
-> +#include "pinctrl-starfive-jh7110.h"
+While looking into KASLR, I fell onto commit aacd149b6238 ("arm64: head:
+avoid relocating the kernel twice for KASLR"): it allows to use the fdt
+functions very early in the boot process with KASAN enabled by simply
+compiling a new version of those functions without instrumentation.
 
-This misses a couple of headers, see commit 042b93c9b666.
+I had to change the handling of the command line parsing to make the
+code self-contained in kernel/pi/cmd_early.c to avoid calling too many
+__pi prefixed functions from outside this file.
 
-../drivers/pinctrl/starfive/pinctrl-starfive-jh7110.c: In function 'jh7110_pin_dbg_show':
-../drivers/pinctrl/starfive/pinctrl-starfive-jh7110.c:100:9: error: implicit declaration of function 'seq_printf'; did you mean 'bstr_printf'? [-Werror=implicit-function-declaration]
-  100 |         seq_printf(s, "%s", dev_name(pctldev->dev));
-      |         ^~~~~~~~~~
-      |         bstr_printf
-../drivers/pinctrl/starfive/pinctrl-starfive-jh7110.c: At top level:
-../drivers/pinctrl/starfive/pinctrl-starfive-jh7110.c:538:21: error: variable 'jh7110_pinconf_ops' has initializer but incomplete type
-  538 | static const struct pinconf_ops jh7110_pinconf_ops = {
-      |                     ^~~~~~~~~~~
-../drivers/pinctrl/starfive/pinctrl-starfive-jh7110.c:539:10: error: 'const struct pinconf_ops' has no member named 'pin_config_get'
-  539 |         .pin_config_get         = jh7110_pinconf_get,
-      |          ^~~~~~~~~~~~~~
-../drivers/pinctrl/starfive/pinctrl-starfive-jh7110.c:539:35: warning: excess elements in struct initializer
-  539 |         .pin_config_get         = jh7110_pinconf_get,
-      |                                   ^~~~~~~~~~~~~~~~~~
-../drivers/pinctrl/starfive/pinctrl-starfive-jh7110.c:539:35: note: (near initialization for 'jh7110_pinconf_ops')
-../drivers/pinctrl/starfive/pinctrl-starfive-jh7110.c:540:10: error: 'const struct pinconf_ops' has no member named 'pin_config_group_get'
-  540 |         .pin_config_group_get   = jh7110_pinconf_group_get,
-      |          ^~~~~~~~~~~~~~~~~~~~
-../drivers/pinctrl/starfive/pinctrl-starfive-jh7110.c:540:35: warning: excess elements in struct initializer
-  540 |         .pin_config_group_get   = jh7110_pinconf_group_get,
-      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~
-../drivers/pinctrl/starfive/pinctrl-starfive-jh7110.c:540:35: note: (near initialization for 'jh7110_pinconf_ops')
-../drivers/pinctrl/starfive/pinctrl-starfive-jh7110.c:541:10: error: 'const struct pinconf_ops' has no member named 'pin_config_group_set'
-  541 |         .pin_config_group_set   = jh7110_pinconf_group_set,
-      |          ^~~~~~~~~~~~~~~~~~~~
-../drivers/pinctrl/starfive/pinctrl-starfive-jh7110.c:541:35: warning: excess elements in struct initializer
-  541 |         .pin_config_group_set   = jh7110_pinconf_group_set,
-      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~
-../drivers/pinctrl/starfive/pinctrl-starfive-jh7110.c:541:35: note: (near initialization for 'jh7110_pinconf_ops')
-../drivers/pinctrl/starfive/pinctrl-starfive-jh7110.c:542:10: error: 'const struct pinconf_ops' has no member named 'pin_config_dbg_show'
-  542 |         .pin_config_dbg_show    = jh7110_pinconf_dbg_show,
-      |          ^~~~~~~~~~~~~~~~~~~
-../drivers/pinctrl/starfive/pinctrl-starfive-jh7110.c:542:35: warning: excess elements in struct initializer
-  542 |         .pin_config_dbg_show    = jh7110_pinconf_dbg_show,
-      |                                   ^~~~~~~~~~~~~~~~~~~~~~~
-../drivers/pinctrl/starfive/pinctrl-starfive-jh7110.c:542:35: note: (near initialization for 'jh7110_pinconf_ops')
-../drivers/pinctrl/starfive/pinctrl-starfive-jh7110.c:543:10: error: 'const struct pinconf_ops' has no member named 'is_generic'
-  543 |         .is_generic             = true,
-      |          ^~~~~~~~~~
-../drivers/pinctrl/starfive/pinctrl-starfive-jh7110.c:543:35: warning: excess elements in struct initializer
-  543 |         .is_generic             = true,
-      |                                   ^~~~
-../drivers/pinctrl/starfive/pinctrl-starfive-jh7110.c:543:35: note: (near initialization for 'jh7110_pinconf_ops')
-../drivers/pinctrl/starfive/pinctrl-starfive-jh7110.c: In function 'jh7110_gpio_request':
-../drivers/pinctrl/starfive/pinctrl-starfive-jh7110.c:548:16: error: implicit declaration of function 'pinctrl_gpio_request' [-Werror=implicit-function-declaration]
-  548 |         return pinctrl_gpio_request(gc->base + gpio);
-      |                ^~~~~~~~~~~~~~~~~~~~
-../drivers/pinctrl/starfive/pinctrl-starfive-jh7110.c: In function 'jh7110_gpio_free':
-../drivers/pinctrl/starfive/pinctrl-starfive-jh7110.c:553:9: error: implicit declaration of function 'pinctrl_gpio_free' [-Werror=implicit-function-declaration]
-  553 |         pinctrl_gpio_free(gc->base + gpio);
-      |         ^~~~~~~~~~~~~~~~~
-../drivers/pinctrl/starfive/pinctrl-starfive-jh7110.c: At top level:
-../drivers/pinctrl/starfive/pinctrl-starfive-jh7110.c:538:33: error: storage size of 'jh7110_pinconf_ops' isn't known
-  538 | static const struct pinconf_ops jh7110_pinconf_ops = {
-      |                                 ^~~~~~~~~~~~~~~~~~
-cc1: some warnings being treated as errors
-make[4]: *** [../scripts/Makefile.build:253: drivers/pinctrl/starfive/pinctrl-starfive-jh7110.o] Error 1
+I'll use this approach like arm64 to handle the extraction of the random
+seedi from the device tree for KASLR.
+
+@Ard: I copied the "pi" name but I have to admit I don't know what it
+means.
+
+Alexandre Ghiti (1):
+  riscv: Allow to downgrade paging mode from the command line
+
+ .../admin-guide/kernel-parameters.txt         |  5 +-
+ arch/riscv/kernel/Makefile                    |  2 +
+ arch/riscv/kernel/pi/Makefile                 | 34 ++++++++++++
+ arch/riscv/kernel/pi/cmdline_early.c          | 52 +++++++++++++++++++
+ arch/riscv/lib/memcpy.S                       |  2 +
+ arch/riscv/lib/memmove.S                      |  2 +
+ arch/riscv/mm/init.c                          | 36 ++++++++++---
+ 7 files changed, 126 insertions(+), 7 deletions(-)
+ create mode 100644 arch/riscv/kernel/pi/Makefile
+ create mode 100644 arch/riscv/kernel/pi/cmdline_early.c
 
 -- 
-Andreas Schwab, SUSE Labs, schwab@suse.de
-GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
-"And now for something completely different."
+2.37.2
+
 
 _______________________________________________
 linux-riscv mailing list
