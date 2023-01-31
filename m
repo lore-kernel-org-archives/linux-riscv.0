@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAD65C54EAA
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 Jan 2023 00:36:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFF72C54EAA
+	for <linux-riscv@archiver.kernel.org>; Tue, 31 Jan 2023 00:38:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:To:Cc:From:Subject:References:
 	In-Reply-To:MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RQy5S2Q4g6ue65oKIbYZe9yl9F6ZkKmH7I7vkulrsi4=; b=EvX7epOF2vrkBO
-	yy+5hejJGwl3VmHbTZ4GEha0/NM3azOGTFkLKRNOFV85g/Ih42A1BhHI9hxhn1wO/OhJGCxP1sCdn
-	S7qKBDoEbZoMp6GRZrgZLIC8JSQQnxhBFpgZ3lq5icrEIP8727/Vm71v21smrr9badnPh+X7hguQ8
-	g6sGOGu1eiUBHFnmtRHaDFDod8YEMm8gan3WWxc021clBP4D1Pf0Mp4AnrhlrBFudRTmtLg/wq2DQ
-	9ZejUgHg1Nm6rzgLb1NjLXUEL4xUwrj+k3SPyW0oqylFe6bPX1d+6uyb3GAPlRy6d6ZuzLx58ZKkM
-	UUmIaKpwv5Nyxn79V3Zg==;
+	List-Owner; bh=crKUsNpVB31jcz0VS0p0qc7sqWoX54dB87WnW4AdiBU=; b=JtRUv3iD68NxtS
+	66xZ2bHwq79F+N3uVX3qfiimv/iFfHU6rSlf/DFU9zI84sNBnp0Fbonh8xvF2elfFG3/GnVpiICWq
+	S/6mfOrhhcWnM87s10u5SzFmmhBs3wO0s7snu5dpbgLFpeq5kgFuIRnZo+V4GkkPEBLYCnbOm1sSO
+	kCsBib5kiw5+ItXXPkk+fec6LbNHo1cFJpX8Sco6AbsnErcco1gjpcMkld836ZE6LmmG2WXTW4ea0
+	0pe5sC8p2S5IzI7jXgTg2VxjJ0NQlnNizGERkwzpVbRA3xjOU/Hm5svS7XkgT0Aqdne1+L5zkd1n2
+	psEls2nmax6bhQQvXhww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMed8-005ugz-6K; Tue, 31 Jan 2023 00:36:10 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pMefa-005v0T-Fc; Tue, 31 Jan 2023 00:38:42 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMed0-005ufn-RP
-	for linux-riscv@lists.infradead.org; Tue, 31 Jan 2023 00:36:08 +0000
+	id 1pMefX-005uzq-O5
+	for linux-riscv@lists.infradead.org; Tue, 31 Jan 2023 00:38:40 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 592E861274;
-	Tue, 31 Jan 2023 00:36:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B66E7C433D2;
-	Tue, 31 Jan 2023 00:36:01 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id E8B9161274;
+	Tue, 31 Jan 2023 00:38:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BFB2C433EF;
+	Tue, 31 Jan 2023 00:38:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1675125361;
-	bh=winm19U7j/1SrLM33+LHutRtt1r14B9o9myRfOllwWM=;
+	s=k20201202; t=1675125518;
+	bh=KQ/jlA4qGwu/+ocBuikUEZAfj7MktGpHG+XmBQXFyco=;
 	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=aCyjcqCjxnVQ8w/xZDqPFiYemSX/BMOgjjM6FSRSGqmfPlinxqB+XMZrM/g8W9qTB
-	 uOMQSbrtIA17dxunmnIzx/zeAoU4Im/xJ83cPHApTqD4GFzrk4tw2c5Vb+S0kpYxcp
-	 f7iqLDA2tGdCnhoAwps0Ay+hPA5OBilaT3H6X+g7RkP41BgR4VHJGyWoKY51ZFiIzt
-	 ixHhw6iUHd5RQJuzL6L40TcvllTvA/C/dPI4IjrATKirCaGBs/oQqHIjW3gYnWMMmT
-	 HDZe81mmyl8ItKfe1CNdqNpFM7uqU+Ziv8+y+PomXb2Bm5VcQjkYJjfJgMlms3fYI7
-	 W8JNFDLqBZUmw==
-Message-ID: <f6f558a0daafa454c02fe29cd904cfcd.sboyd@kernel.org>
+	b=aAsjPIGH864XiwqbnnKzoXOeByYareroKqLejbu7xmoMNOm+DfVeGmSpjuRF6ui3e
+	 YpWMzPhydFmqGzl+UMIfhtDME7FV29ZfkfLqh9S7Tid/4rZXk8wIbb6TJD7cxdw18v
+	 dRpYhCDve0R0kkPduA4UK55gT7apXeR4tjFGw6C8p0ANcXZKI1O7JKEFTMn62eWTrC
+	 g1Mtn0RYYdXJCff1bSCdabJHnp3GxMb3D8BBYJ/os7Q/VcWe0PX2qTDnsDHrWu1r6Q
+	 Hrm3tZeCvW32Zg/bhZNZT7yxkyx++DHT9ltMi7mba38M1nbUesEXPwJstIiDe1CnUd
+	 fVy+9jNbpaQGA==
+Message-ID: <26437c6f0bda4dd18e16fa1f58013911.sboyd@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <0e77bf23-b359-9884-6a8c-368e31d718a4@starfivetech.com>
-References: <20230120024445.244345-1-xingyu.wu@starfivetech.com> <20230120024445.244345-4-xingyu.wu@starfivetech.com> <5bb5263d26b157548d7ba39f80989c69.sboyd@kernel.org> <0e77bf23-b359-9884-6a8c-368e31d718a4@starfivetech.com>
-Subject: Re: [PATCH v1 03/11] clk: starfive: Add StarFive JH7110 System-Top-Group clock driver
+In-Reply-To: <20230120024445.244345-7-xingyu.wu@starfivetech.com>
+References: <20230120024445.244345-1-xingyu.wu@starfivetech.com> <20230120024445.244345-7-xingyu.wu@starfivetech.com>
+Subject: Re: [PATCH v1 06/11] clk: starfive: Add StarFive JH7110 Image-Signal-Process clock driver
 From: Stephen Boyd <sboyd@kernel.org>
-Cc: Rob Herring <robh+dt@kernel.org>, Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>, linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
+Cc: Rob Herring <robh+dt@kernel.org>, Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>, Xingyu Wu <xingyu.wu@starfivetech.com>, linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
 To: Emil Renner Berthing <kernel@esmil.dk>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Michael Turquette <mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>, Xingyu Wu <xingyu.wu@starfivetech.com>, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
-Date: Mon, 30 Jan 2023 16:35:59 -0800
+Date: Mon, 30 Jan 2023 16:38:36 -0800
 User-Agent: alot/0.10
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230130_163602_981914_A7365AA2 
-X-CRM114-Status: GOOD (  21.45  )
+X-CRM114-CacheID: sfid-20230130_163839_843060_C9B31D1A 
+X-CRM114-Status: GOOD (  12.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,63 +71,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Quoting Xingyu Wu (2023-01-30 00:02:28)
-> On 2023/1/26 10:33, Stephen Boyd wrote:
-> > Quoting Xingyu Wu (2023-01-19 18:44:37)
-> >> diff --git a/drivers/clk/starfive/clk-starfive-jh7110-stg.c b/drivers/clk/starfive/clk-starfive-jh7110-stg.c
-> >> new file mode 100644
-> >> index 000000000000..c2740f44e796
-> >> --- /dev/null
-> >> +++ b/drivers/clk/starfive/clk-starfive-jh7110-stg.c
+Quoting Xingyu Wu (2023-01-19 18:44:40)
+> diff --git a/drivers/clk/starfive/clk-starfive-jh7110-isp.c b/drivers/clk/starfive/clk-starfive-jh7110-isp.c
+> new file mode 100644
+> index 000000000000..f9fc94b4c6f8
+> --- /dev/null
+> +++ b/drivers/clk/starfive/clk-starfive-jh7110-isp.c
+> @@ -0,0 +1,218 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * StarFive JH7110 Image-Signal-Process Clock Driver
 [...]
-> >> +                               parents[i].fw_name = "nocstg_bus";
-> >> +                       else if (pidx == JH7110_STGCLK_APB_BUS)
-> >> +                               parents[i].fw_name = "apb_bus";
-> > 
-> > Can this be an array lookup instead of a pile of conditions?
-> > 
-> >       if (pidx < JH7110_STGCLK_END)
-> >               ...
-> >       else
-> >               parents[i].fw_name = fw_table[pidx - JH7110_STGCLK_END];
-> > 
-> > Or even better, don't use strings at all and just make the 'pidx' number
-> > (possibly minus the end constant) be the 'clocks' property index that
-> > you want.
-> 
-> It seen to be a good way that there uses an array.
-> Based on the another way, can I use the 'pidx' number to get the 'clock-names' property
-> to be the parent clock name?
+> +
+> +static int jh7110_isp_top_crg_enable(struct isp_top_crg *top)
+> +{
+> +       int ret;
+> +
+> +       ret = clk_bulk_prepare_enable(top->top_clks_num, top->top_clks);
+> +       if (ret)
+> +               return ret;
+> +
+> +       return reset_control_deassert(top->top_rsts);
+> +}
 
-The binding is your design. It is incorrect if the binding is referencing clocks
-provided by the same node though. If that's the case, simply use the hw
-pointer directly.
-
-> 
-> > 
-> >> +               }
-> >> +
-> >> +               clk->hw.init = &init;
-> >> +               clk->idx = idx;
-> >> +               clk->max_div = max & JH71X0_CLK_DIV_MASK;
-> >> +
-> >> +               ret = devm_clk_hw_register(&pdev->dev, &clk->hw);
-> >> +               if (ret)
-> >> +                       return ret;
-> >> +       }
-> >> +
-> >> +       ret = devm_of_clk_add_hw_provider(&pdev->dev, jh7110_stgclk_get, priv);
-> >> +       if (ret)
-> >> +               return ret;
-> >> +
-> >> +       return jh7110_reset_controller_register(priv, "reset-stg", 2);
-> > 
-> > Is this also devm-ified?
-> 
-> No, it need to be freed actively. I will advise Hal Feng this.
-> 
-
-Oh, that's not good.
+This needs to be undone on driver remove.
 
 _______________________________________________
 linux-riscv mailing list
