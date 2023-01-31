@@ -4,68 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 065F1C636D3
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 Jan 2023 13:02:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2CE7C38142
+	for <linux-riscv@archiver.kernel.org>; Tue, 31 Jan 2023 13:14:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8jZQl/Q1M+fm4wOl8IplH7e09ZS1HUK46ev8r2KLwig=; b=Bq5xFux1J/7VfW
-	eYX+tnF1ANGrWkpZhUsLSnfyWii0TOzUyO4fbAV4kNL3tA/IdGxY1525FDpdRO6TupMdHgLYdHp1Q
-	AwJ38KAxhW+q1b8f/0mIFIG8J3upQdXh82xPb0jA3r+VBKbSzinXqZ9uQ12GeD61BU40767OdAFC2
-	pLphsGSSFj6Walssja2S8uqUtjWZOMUkmJ3V27gRDsoAzSyG+BdLseDqTu/lCMQ2YkWZ4H/dmnsLv
-	O1f7RseysQrg+cKShFr44jULd17FobcRqNjSMWojISXCNIaazpdCHNJqVDjluEKX3kqemhxWCB5PT
-	QnzJ7gHr0o96IYkTiVcw==;
+	List-Owner; bh=VDtq73cDMyH3xc+0JF0HhGSp8RCPD788nojjvWduTRA=; b=orZQSWfI67e3vn
+	uiEgtdy+TxPPo98So6xsR9R+2gVJF00RRtG/ZP8z01aAzvOI1BUpeRWGX1tZhfVXe4yg2MVSvxDni
+	zkERGlwZhEkM8hg78mTj133HnaBwVL5fJScCHbqjMqtsGsaTZkdb5NydGakHQNSbrRX/XjIUxBoDQ
+	1N9lx2np4enb4Xwcw6xqgPxvX2b4gsl0XkAs6OaYj3IUbmy5w0vIsObOgWJnny6kxdr49B5vVL4E9
+	obXTMwur10oue/4fgQ6KoEuheNzVf0RslyvXxyfrir8fJHCBJvAftgvxNWFySB4xO4jWVWdPPnDRu
+	mgdNLcRsLoUnTKRyti2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMqGw-007wg6-FP; Tue, 31 Jan 2023 13:02:02 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1pMqSX-0081qj-VW; Tue, 31 Jan 2023 13:14:01 +0000
+Received: from mail-yb1-xb2c.google.com ([2607:f8b0:4864:20::b2c])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMqGt-007wee-7R
-	for linux-riscv@lists.infradead.org; Tue, 31 Jan 2023 13:02:00 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 862D2B81C77
-	for <linux-riscv@lists.infradead.org>; Tue, 31 Jan 2023 13:01:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38E74C433D2
-	for <linux-riscv@lists.infradead.org>; Tue, 31 Jan 2023 13:01:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1675170116;
-	bh=/VAKhl7zagtIgdjGwqlGupC5IRrBl2jrcRFqxAjRHxM=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=icpG5ITbtsUgk6GynG1F4oNBYCig/WOimDgmxqS85xlBvdXstlGnNKYDjqCDsTWfl
-	 kZSk+YIobQjBInIPaTFJBe6N877NIWtUujbzUr4SxrKCd5AVw5/U9xy8b+B+ppyWui
-	 O/CtkoLl0gnIPGeUuaIXZfXRJ4L9ZVzEPCQCjbZfN3WHajNz0ZSnT6z1z30D13ODDl
-	 U3q40QuYc2J/K3DJRNKeCf8/7Jca2+XLZd5pCE9DEa6uok2F6pdy5dzlFCD9BLsBkY
-	 5AqHO4akzhKcmnAlVtzZlJ1WJ4h/4/YFYt333jVzYa5Y5NUnsRaPMTbOFAP691M7aJ
-	 cBZv6CAw82tow==
-Received: by mail-ej1-f52.google.com with SMTP id mf7so22637023ejc.6
-        for <linux-riscv@lists.infradead.org>; Tue, 31 Jan 2023 05:01:56 -0800 (PST)
-X-Gm-Message-State: AO0yUKUru8BTztubpfZvg9VoM9trJAdHteRdwyGYgSHwNI8y/f+vxuMt
-	iWGHDCjPcRg4iAqLuletLE4+90G8Fa/1ZgskP9Y=
-X-Google-Smtp-Source: AK7set8ZY0Pqh013WZoEM81qvg3+qc7Ap0ePYEZL/lKJHhaYQoLaEJC43/Cqck8HNJYNwQwTD+CbB9Bkdbqu8QiYtXY=
-X-Received: by 2002:a17:906:14cf:b0:878:69e5:b797 with SMTP id
- y15-20020a17090614cf00b0087869e5b797mr4325487ejc.228.1675170114368; Tue, 31
- Jan 2023 05:01:54 -0800 (PST)
+	id 1pMqSV-0081oh-3n
+	for linux-riscv@lists.infradead.org; Tue, 31 Jan 2023 13:14:00 +0000
+Received: by mail-yb1-xb2c.google.com with SMTP id c124so17943713ybb.13
+        for <linux-riscv@lists.infradead.org>; Tue, 31 Jan 2023 05:13:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=lebX9VzQP7VMYHLa2vyK4hrBtzDqJ9eFCBgK4dZHGqY=;
+        b=qXtrFvc8NPvibTzkOdKNUNcSgLQUKhwmE6ALIFFlhhema+9UDs2/xEAIp+1VFL2AAa
+         9YdIL9SgKkLhDEhuwRUiuvwE+TJRxMZaSHitbLSVMLJWtVAtYkK0GK6tJyPqTuRp+uQL
+         z9Swhwf9izFHI+zJzgyEejUwavw8wqvwJqCFL7fTGGGc8rUk6bd8vUrsAR80S6dFW0CU
+         hZiVxhUNlbWJv7m3ZE4fyFtpkBPjAJ3YI9uNsWLMWDjXerT9A5FLOXeafa1i88ACzgEk
+         ucAdfE/0nfU4LAz+zOTnAF/Jz8srUae8pvFzBqYWFGMrKyNnJMDbovdndrXlESHtXAa3
+         /m+Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=lebX9VzQP7VMYHLa2vyK4hrBtzDqJ9eFCBgK4dZHGqY=;
+        b=3jFNG6kS4M0qbFC0yVgcjzvZPtkuTq1CtSsc1Ndf34du+MwI6zPETdHEdjedhBmWH8
+         rt8toQCt3Iq8ATsZfQtFiX7aWA40gMZsKAiWD5rp4mi0OaPIehLj6ENfCM9iJBbeQH6z
+         EnVgoDGlQg91mGQ4pu6AUvGnRJ0lIncXgVwtII+rmRYeAB88NigmO+gpMhxyXcWLAkMQ
+         0+77AWEYF27NVeq7I0kwVbhOIwVow4Rbn00KPOzJYqJF7s0Rqm2FkXFyszVW17kczkHJ
+         WqpXE/DJ/qYBzQsrloUvgufiA5t5HOkaHeFBFJMg43FV7v4oyiPvhdPIeToTb9namf63
+         P4Xg==
+X-Gm-Message-State: AO0yUKUibvTFTDUQOz9ukhll5K+y0DErC3qBlN96k5CzsZ/0SnTHEHmj
+	piUo+xrA8U5WVaQ/fCgtGY7IiYDld8D6tfREM9qznw==
+X-Google-Smtp-Source: AK7set/ssVUH1Rz89sAOJnKBoqT7NZMWXa8/qUnWnQSWqihB5+j26vSuiStV4rczYgZIb+D5YQtZAm1c0IjM0yuMuo4=
+X-Received: by 2002:a25:2fce:0:b0:83e:bd63:6dd7 with SMTP id
+ v197-20020a252fce000000b0083ebd636dd7mr45490ybv.24.1675170835979; Tue, 31 Jan
+ 2023 05:13:55 -0800 (PST)
 MIME-Version: 1.0
-References: <20230126130509.1418251-1-guoren@kernel.org> <878rhig9zj.fsf@all.your.base.are.belong.to.us>
-In-Reply-To: <878rhig9zj.fsf@all.your.base.are.belong.to.us>
-From: Guo Ren <guoren@kernel.org>
-Date: Tue, 31 Jan 2023 21:01:42 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTSnb4cvcXFvgkesgjuPOiZbcp4GZ2qJas4VWn68Pfsb9A@mail.gmail.com>
-Message-ID: <CAJF2gTSnb4cvcXFvgkesgjuPOiZbcp4GZ2qJas4VWn68Pfsb9A@mail.gmail.com>
-Subject: Re: [PATCH] riscv: kprobe: Fixup kernel panic when probing an illegal position
-To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, mhiramat@kernel.org, 
-	conor.dooley@microchip.com, penberg@kernel.org, mark.rutland@arm.com, 
-	liaochang <liaochang1@huawei.com>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>
+References: <20221220005529.34744-1-hal.feng@starfivetech.com>
+In-Reply-To: <20221220005529.34744-1-hal.feng@starfivetech.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Tue, 31 Jan 2023 14:13:44 +0100
+Message-ID: <CACRpkdbU=Y_LVBfSctQULzFuo4tB9KxgFbv=JGHPuuok6jC8FQ@mail.gmail.com>
+Subject: Re: [PATCH v3 0/5] Basic pinctrl support for StarFive JH7110 RISC-V SoC
+To: Hal Feng <hal.feng@starfivetech.com>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, Conor Dooley <conor@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
+	Jianlong Huang <jianlong.huang@starfivetech.com>, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230131_050159_597730_80B7A28C 
-X-CRM114-Status: GOOD (  26.27  )
+X-CRM114-CacheID: sfid-20230131_051359_211608_3555CD3D 
+X-CRM114-Status: GOOD (  14.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,70 +84,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBKYW4gMzEsIDIwMjMgYXQgODozMiBQTSBCasO2cm4gVMO2cGVsIDxiam9ybkBrZXJu
-ZWwub3JnPiB3cm90ZToKPgo+IGd1b3JlbkBrZXJuZWwub3JnIHdyaXRlczoKPgo+ID4gRnJvbTog
-R3VvIFJlbiA8Z3VvcmVuQGxpbnV4LmFsaWJhYmEuY29tPgo+ID4KPiA+IFRoZSBrZXJuZWwgd291
-bGQgcGFuaWMgd2hlbiBwcm9iZWQgZm9yIGFuIGlsbGVnYWwgcG9zaXRpb24uIGVnOgo+ID4KPiA+
-IChDT05GSUdfUklTQ1ZfSVNBX0M9bikKPiA+Cj4gPiBlY2hvICdwOmhlbGxvIGtlcm5lbF9jbG9u
-ZSsweDE2IGEwPSVhMCcgPj4ga3Byb2JlX2V2ZW50cwo+ID4gZWNobyAxID4gZXZlbnRzL2twcm9i
-ZXMvaGVsbG8vZW5hYmxlCj4gPiBjYXQgdHJhY2UKPiA+Cj4gPiBLZXJuZWwgcGFuaWMgLSBub3Qg
-c3luY2luZzogc3RhY2stcHJvdGVjdG9yOiBLZXJuZWwgc3RhY2sKPiA+IGlzIGNvcnJ1cHRlZCBp
-bjogX19kb19zeXNfbmV3ZnN0YXRhdCsweGI4LzB4YjgKPiA+IENQVTogMCBQSUQ6IDExMSBDb21t
-OiBzaCBOb3QgdGFpbnRlZAo+ID4gNi4yLjAtcmMxLTAwMDI3LWcyZDM5OGZlNDlhNGQgIzQ5MAo+
-ID4gSGFyZHdhcmUgbmFtZTogcmlzY3YtdmlydGlvLHFlbXUgKERUKQo+ID4gQ2FsbCBUcmFjZToK
-PiA+IFs8ZmZmZmZmZmY4MDAwNzI2OD5dIGR1bXBfYmFja3RyYWNlKzB4MzgvMHg0OAo+ID4gWzxm
-ZmZmZmZmZjgwYzVlODNjPl0gc2hvd19zdGFjaysweDUwLzB4NjgKPiA+IFs8ZmZmZmZmZmY4MGM2
-ZGEyOD5dIGR1bXBfc3RhY2tfbHZsKzB4NjAvMHg4NAo+ID4gWzxmZmZmZmZmZjgwYzZkYTZjPl0g
-ZHVtcF9zdGFjaysweDIwLzB4MzAKPiA+IFs8ZmZmZmZmZmY4MGM1ZWNmND5dIHBhbmljKzB4MTYw
-LzB4Mzc0Cj4gPiBbPGZmZmZmZmZmODBjNmRiOTQ+XSBnZW5lcmljX2hhbmRsZV9hcmNoX2lycSsw
-eDAvMHhhOAo+ID4gWzxmZmZmZmZmZjgwMmRlZWIwPl0gc3lzX25ld3N0YXQrMHgwLzB4MzAKPiA+
-IFs8ZmZmZmZmZmY4MDAxNThjMD5dIHN5c19jbG9uZSsweDIwLzB4MzAKPiA+IFs8ZmZmZmZmZmY4
-MDAwMzllOD5dIHJldF9mcm9tX3N5c2NhbGwrMHgwLzB4NAo+ID4gLS0tWyBlbmQgS2VybmVsIHBh
-bmljIC0gbm90IHN5bmNpbmc6IHN0YWNrLXByb3RlY3RvcjoKPiA+IEtlcm5lbCBzdGFjayBpcyBj
-b3JydXB0ZWQgaW46IF9fZG9fc3lzX25ld2ZzdGF0YXQrMHhiOC8weGI4IF0tLS0KPiA+Cj4gPiBU
-aGF0IGlzIGJlY2F1c2UgdGhlIGtwcm9iZSdzIGVicmVhayBpbnN0cnVjdGlvbiBicm9rZSB0aGUg
-a2VybmVsJ3MKPiA+IG9yaWdpbmFsIGNvZGUuIFRoZSB1c2VyIHNob3VsZCBndWFyYW50ZWUgdGhl
-IGNvcnJlY3Rpb24gb2YgdGhlIHByb2JlCj4gPiBwb3NpdGlvbiwgYnV0IGl0IGNvdWxkbid0IG1h
-a2UgdGhlIGtlcm5lbCBwYW5pYy4KPiA+Cj4gPiBUaGlzIHBhdGNoIGFkZHMgYXJjaF9jaGVja19r
-cHJvYmUgaW4gYXJjaF9wcmVwYXJlX2twcm9iZSB0byBwcmV2ZW50IGFuCj4gPiBpbGxlZ2FsIHBv
-c2l0aW9uIChTdWNoIGFzIHRoZSBtaWRkbGUgb2YgYW4gaW5zdHJ1Y3Rpb24pLgo+Cj4gTmljZSEK
-Pgo+IEBsaWFvY2hhbmcgV2lsbCB5b3UgcmVtb3ZlIHlvdXIgcGF0Y2ggZnJvbSB0aGUgT1BUUFJP
-QkUgc2VyaWVzPwo+Cj4gPiBGaXhlczogYzIyYjBiY2IxZGQwICgicmlzY3Y6IEFkZCBrcHJvYmVz
-IHN1cHBvcnRlZCIpCj4gPiBTaWduZWQtb2ZmLWJ5OiBHdW8gUmVuIDxndW9yZW5AbGludXguYWxp
-YmFiYS5jb20+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBHdW8gUmVuIDxndW9yZW5Aa2VybmVsLm9yZz4K
-PiA+IC0tLQo+ID4gIGFyY2gvcmlzY3Yva2VybmVsL3Byb2Jlcy9rcHJvYmVzLmMgfCAxOCArKysr
-KysrKysrKysrKysrKysKPiA+ICAxIGZpbGUgY2hhbmdlZCwgMTggaW5zZXJ0aW9ucygrKQo+ID4K
-PiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMva3Byb2Jlcy5jIGIvYXJj
-aC9yaXNjdi9rZXJuZWwvcHJvYmVzL2twcm9iZXMuYwo+ID4gaW5kZXggZjIxNTkyZDIwMzA2Li40
-NzU5ODlmMDZkNmQgMTAwNjQ0Cj4gPiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMva3By
-b2Jlcy5jCj4gPiArKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMva3Byb2Jlcy5jCj4gPiBA
-QCAtNDgsNiArNDgsMjEgQEAgc3RhdGljIHZvaWQgX19rcHJvYmVzIGFyY2hfc2ltdWxhdGVfaW5z
-bihzdHJ1Y3Qga3Byb2JlICpwLCBzdHJ1Y3QgcHRfcmVncyAqcmVncykKPiA+ICAgICAgIHBvc3Rf
-a3Byb2JlX2hhbmRsZXIocCwga2NiLCByZWdzKTsKPiA+ICB9Cj4gPgo+ID4gK3N0YXRpYyBib29s
-IF9fa3Byb2JlcyBhcmNoX2NoZWNrX2twcm9iZShzdHJ1Y3Qga3Byb2JlICpwKQo+ID4gK3sKPiA+
-ICsgICAgIHVuc2lnbmVkIGxvbmcgdG1wICA9ICh1bnNpZ25lZCBsb25nKXAtPmFkZHIgLSBwLT5v
-ZmZzZXQ7Cj4gPiArICAgICB1bnNpZ25lZCBsb25nIGFkZHIgPSAodW5zaWduZWQgbG9uZylwLT5h
-ZGRyOwo+ID4gKwo+ID4gKyAgICAgd2hpbGUgKHRtcCA8PSBhZGRyKSB7Cj4gPiArICAgICAgICAg
-ICAgIGlmICh0bXAgPT0gYWRkcikKPiA+ICsgICAgICAgICAgICAgICAgICAgICByZXR1cm4gdHJ1
-ZTsKPiA+ICsKPiA+ICsgICAgICAgICAgICAgdG1wICs9IEdFVF9JTlNOX0xFTkdUSCgqKGtwcm9i
-ZV9vcGNvZGVfdCAqKXRtcCk7Cj4KPiBrcHJvYmVfb3Bjb2RlX3QgaXMgdTMyOyBUaGlzIGNhbiB0
-cmlnZ2VyIGEgbWlzYWxpZ25lZCBsb2FkLCByaWdodD8KPgo+ID4gKyAgICAgfQo+ID4gKwo+ID4g
-KyAgICAgcmV0dXJuIGZhbHNlOwo+ID4gK30KPiA+ICsKPiA+ICBpbnQgX19rcHJvYmVzIGFyY2hf
-cHJlcGFyZV9rcHJvYmUoc3RydWN0IGtwcm9iZSAqcCkKPiA+ICB7Cj4gPiAgICAgICB1bnNpZ25l
-ZCBsb25nIHByb2JlX2FkZHIgPSAodW5zaWduZWQgbG9uZylwLT5hZGRyOwo+ID4gQEAgLTU1LDYg
-KzcwLDkgQEAgaW50IF9fa3Byb2JlcyBhcmNoX3ByZXBhcmVfa3Byb2JlKHN0cnVjdCBrcHJvYmUg
-KnApCj4gPiAgICAgICBpZiAocHJvYmVfYWRkciAmIDB4MSkKPiA+ICAgICAgICAgICAgICAgcmV0
-dXJuIC1FSUxTRVE7Cj4gPgo+ID4gKyAgICAgaWYgKCFhcmNoX2NoZWNrX2twcm9iZShwKSkKPiA+
-ICsgICAgICAgICAgICAgcmV0dXJuIC1FSUxTRVE7Cj4gPiArCj4gPiAgICAgICAvKiBjb3B5IGlu
-c3RydWN0aW9uICovCj4gPiAgICAgICBwLT5vcGNvZGUgPSAqcC0+YWRkcjsKPgo+IE5vdCByZWxh
-dGVkIHRvIHlvdXIgcGF0Y2gsIGJ1dCB0aGlzIGNhbiBhbHNvIHRyaWdnZXIgYSBtaXNhbGlnbmVk
-IGxvYWQuClllcywgaXQgd291bGQgdHJpZ2dlciBhIG1pc2FsaWduZWQgbG9hZC4KCldoYXQncyB0
-aGUgcHJvYmxlbSBvZiB0aGF0PwoKPgo+Cj4gQmrDtnJuCgoKCi0tIApCZXN0IFJlZ2FyZHMKIEd1
-byBSZW4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
-bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
-dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Tue, Dec 20, 2022 at 1:55 AM Hal Feng <hal.feng@starfivetech.com> wrote:
+
+> This patch series adds basic pinctrl support for StarFive JH7110 SoC.
+> You can simply get or review the patches at the link [1].
+>
+> [1]: https://github.com/hal-feng/linux/commits/visionfive2-minimal
+>
+> Changes since v2:
+> - Rebased on tag v6.1.
+
+Overall this looks OK, the DT bindings does not have any review from
+the DT people but I think they had enough time to do that and were
+properly CC:ed so not your fault.
+
+However when I try to apply this to the pinctrl tree it fails,
+for example it seems to depend on an entry in MAINTAINERS
+which isn't upstream.
+
+Can you please rebase the patches that are supposed to be
+applied to the pinctrl tree (for example normally not patch 1, the DTS
+patch) on my "devel" branch:
+https://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-pinctrl.git/log/?h=devel
+
+If you resend this quickly I can apply it pronto.
+
+Yours,
+Linus Walleij
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
