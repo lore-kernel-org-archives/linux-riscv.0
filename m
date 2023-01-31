@@ -4,62 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85A5DC636CC
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 Jan 2023 19:25:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 052DAC38142
+	for <linux-riscv@archiver.kernel.org>; Tue, 31 Jan 2023 19:30:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SJR40Tl1BUVjDcXeI7a0NfJfPGGi1AICm0mTfVhC5e0=; b=buXDwhhX4UV28Fv7tQ/xb/LwtN
-	7jNY7jdpZl8ZixZV78Mo/4brFvngz+8sJTsVketwJY1d/R0c8RRzoaQTFfS2AhbFBPY4bnc5WHZZt
-	yWEgTB4PI3CJE6iOBO7Cz9DneyOZri9ywq+rSGAMHRF2ysvK/V7E5a/wj7r3nzjIyKfhg8kh0vEHr
-	6O3xyz8KBMkLJdSJYORCrQKevP8OtTOxSysKExAve/1Q83NszJEMrbvr2MbbXp7Q0okaIyC3HcJcU
-	vIB7iq0tnIvseqa4rnA7Gwb+vN0ThHMptErWYr6HTBRG+SwU4+EAFrEC0ekwYV4KCskLBWSWwqAWp
-	52ksb5Nw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=J/JqD4trNomcVhPfE5xSzz2hfQe63n+sMjv2+IH0Z5g=; b=vZmO4+GjY3IbbQ
+	RM/KdG1/2qsTMaVr4hDIuf11pBxZzQ0wC7ZZNMEBmbFLP3UK5nQdxRtOM2tYTSh6L+7WvUq96cvnW
+	ia/43IXWJVUNyNUbBc9xQdpgqi9DGKspG3ZONnovd2dvbA6p1mXLaQsrwkHnx4U012ZXSuOZdJNJm
+	tGLWxgVV/LUPnOCboyeevFa5OWZSw4MvJFbjwIQqKqz/5lXb4J2ZnkUscPIHRKEwcKlCI2REDpH5o
+	EoyqLTYkidtJaxqWzAFY8JsmvjVucwwqrgvXmpi+05v26O2wIU2ILsx2uRASYl7ZrKVPcqpnnO8MY
+	J2iawxbixfQc2xcjy1eQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMwFg-009747-VO; Tue, 31 Jan 2023 19:25:09 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pMwKy-0098bi-UP; Tue, 31 Jan 2023 19:30:37 +0000
+Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMwFa-00972Z-72
-	for linux-riscv@lists.infradead.org; Tue, 31 Jan 2023 19:25:03 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id AD617616D5;
-	Tue, 31 Jan 2023 19:25:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CCDE9C433D2;
-	Tue, 31 Jan 2023 19:24:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1675193099;
-	bh=Usq/qChe2TB94lautIipeNYeRg/tKGhE2z4UOGHJcX0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XKgqHeEnxvJYKo4a0AOCwbNQJqX/0a+666YQLKyzsHnSruZvclUbmL92Lj3V8dy9y
-	 wNCZN84wYg8RzExJ948+qiqzp2fAPFJzGxxDEDPpIVIGQQTPqx2KDRWWHdJr+nonDE
-	 Z7QGiBEzetzq5mbRpNUVKPFGf0vnNMswwqmsufvg7bWrEpbu0Dc1CSfMuUcoBdzU4a
-	 uuRBMZgshu9LNKl0mG2ozX+2gGt35kVJCrbLn70bnZl+D667D48ZuZf/fPBvCi6bb4
-	 UCTr5b0c1Xq2ILDxuq6HGKPLLFSoFXf3ZPt+5Sx+0RSgK531DaRxoeeImSpSHP+wwe
-	 CKRv9fnl5QppA==
-Date: Tue, 31 Jan 2023 19:24:55 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Jonathan Corbet <corbet@lwn.net>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Ard Biesheuvel <ardb@kernel.org>,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4 0/1] riscv: Allow to downgrade paging mode from the
- command line
-Message-ID: <Y9lrB+RUBk1Njhaq@spud>
-References: <20230131151115.1972740-1-alexghiti@rivosinc.com>
+	id 1pMwKw-0098Ya-2S
+	for linux-riscv@lists.infradead.org; Tue, 31 Jan 2023 19:30:35 +0000
+Received: by mail-pg1-x52a.google.com with SMTP id 143so10809774pgg.6
+        for <linux-riscv@lists.infradead.org>; Tue, 31 Jan 2023 11:30:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=atishpatra.org; s=google;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=zandUZ3Tm0aytQS9nqqC5N+P1l58rEETrB4mxTtLnOg=;
+        b=cVZMyZYdkHzjMPyz+29zB2zEmrJM84cjJoeaeCqB+JgSq+zKDMdK8QqkJd2cUryUJM
+         X16U/bhqKBGBSJsWDXti/gzHOXpJzPSPcmeaD+DypVg0W5TdyI9ExImsvfGSzC869s9w
+         OtCoZbSiMjTxS6dMuNs2RKw6BfxfQR2H9Z66M=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=zandUZ3Tm0aytQS9nqqC5N+P1l58rEETrB4mxTtLnOg=;
+        b=Xrzf56wEZQ9ZfQBdSc6ta8pQnTiZWSmrHNgRRX+1OU0zCwwI7tUtFeBbDQ9URQOu3A
+         40zQNv5xUsV416f3Ge1SZrr94/rwqspkemGeyX8xxpjTeL9yjIJSGIUeUraS8sDcnmhS
+         R0pVNwLtO6yf8TG1ue/TKuKbTTWP4MGHD4TA+Xs/EPSyI6k9+hZbt7qIexR5L4ge74uY
+         c3hEYuViMIpDR6JRW496wvkeQO35CLsRQT2HkyGLU/2ZAJMsKki3z48+vtY/jTPrtb2k
+         5k0VKyMEL3f1WEW6GGhqIr+uEoPGsNGTJHlrvcsv/RDdLYDE9JmpcSFUrLzC4KQI+2PB
+         Az2w==
+X-Gm-Message-State: AO0yUKUFCH2ttKuBeyFg2P2GNDvtDLcE0omSwMnb7wuNN11GzHTX52SX
+	CSFjeGWBEpxht2HZROkphA5gd1wzy41WH6DFp+o2
+X-Google-Smtp-Source: AK7set83+A1QVYBNJ0oFxqG/QiC6KVG/mhilmiaXhkowEyp3VLWnnexRuwKDtvunnjkAKS6W2LFaiJMWMkh5dpQIfhI=
+X-Received: by 2002:aa7:99dd:0:b0:593:1253:2ff5 with SMTP id
+ v29-20020aa799dd000000b0059312532ff5mr2536050pfi.14.1675193429885; Tue, 31
+ Jan 2023 11:30:29 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <20230131151115.1972740-1-alexghiti@rivosinc.com>
+References: <20230127182558.2416400-1-atishp@rivosinc.com> <20230127182558.2416400-4-atishp@rivosinc.com>
+ <Y9RV0cOMld20EFBI@spud>
+In-Reply-To: <Y9RV0cOMld20EFBI@spud>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Tue, 31 Jan 2023 11:30:18 -0800
+Message-ID: <CAOnJCU+16EEe0OrNY3ZW_FS591+KmG5ap1OTjOL+gtqGtr7nLw@mail.gmail.com>
+Subject: Re: [PATCH v3 03/14] RISC-V: Improve SBI PMU extension related definitions
+To: Conor Dooley <conor@kernel.org>
+Cc: Atish Patra <atishp@rivosinc.com>, linux-kernel@vger.kernel.org, 
+	Andrew Jones <ajones@ventanamicro.com>, Anup Patel <anup@brainfault.org>, 
+	Guo Ren <guoren@kernel.org>, Heiko Stuebner <heiko@sntech.de>, kvm-riscv@lists.infradead.org, 
+	kvm@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Mark Rutland <mark.rutland@arm.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, 
+	Sergey Matyukevich <sergey.matyukevich@syntacore.com>, Will Deacon <will@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230131_112502_362176_0954BDA7 
-X-CRM114-Status: GOOD (  21.74  )
+X-CRM114-CacheID: sfid-20230131_113034_197252_51B0EFD4 
+X-CRM114-Status: GOOD (  12.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,92 +83,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6025645626767614347=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Fri, Jan 27, 2023 at 2:53 PM Conor Dooley <conor@kernel.org> wrote:
+>
+> Yo Atish,
+>
+> On Fri, Jan 27, 2023 at 10:25:47AM -0800, Atish Patra wrote:
+> > This patch fixes/improve few minor things in SBI PMU extension
+> > definition.
+> >
+> > 1. Align all the firmware event names.
+>
+> > @@ -171,7 +171,7 @@ enum sbi_pmu_fw_generic_events_t {
+> >       SBI_PMU_FW_IPI_RECVD            = 7,
+> > -     SBI_PMU_FW_FENCE_I_RECVD        = 9,
+> > +     SBI_PMU_FW_FENCE_I_RCVD         = 9,
+> >       SBI_PMU_FW_SFENCE_VMA_RCVD      = 11,
+>
+> Alignment looks incomplete to me! Looks like you went from 2 RECVD and
+> 1 RCVD to 2 RCVD and 1 RECVD! FWIW, the spec uses RECEIVED for all of
 
---===============6025645626767614347==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="caGKd7o6+JAz/98x"
-Content-Disposition: inline
-
-
---caGKd7o6+JAz/98x
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hey Alex,
-
-On Tue, Jan 31, 2023 at 04:11:14PM +0100, Alexandre Ghiti wrote:
-> This new version gets rid of the limitation that prevented KASAN kernels
-> to use the newly introduced parameters.
-
-What's the base commit for this version?
-Fails to apply for me on top of for-next, fixes, rc1, and linux-next :/
-I also tried it on top of your KASAN series, but no luck there either!
-
-Thanks,
-Conor.
-
-> While looking into KASLR, I fell onto commit aacd149b6238 ("arm64: head:
-> avoid relocating the kernel twice for KASLR"): it allows to use the fdt
-> functions very early in the boot process with KASAN enabled by simply
-> compiling a new version of those functions without instrumentation.
->=20
-> I had to change the handling of the command line parsing to make the
-> code self-contained in kernel/pi/cmd_early.c to avoid calling too many
-> __pi prefixed functions from outside this file.
->=20
-> I'll use this approach like arm64 to handle the extraction of the random
-> seedi from the device tree for KASLR.
->=20
-> @Ard: I copied the "pi" name but I have to admit I don't know what it
-> means.
->=20
-> Alexandre Ghiti (1):
->   riscv: Allow to downgrade paging mode from the command line
->=20
->  .../admin-guide/kernel-parameters.txt         |  5 +-
->  arch/riscv/kernel/Makefile                    |  2 +
->  arch/riscv/kernel/pi/Makefile                 | 34 ++++++++++++
->  arch/riscv/kernel/pi/cmdline_early.c          | 52 +++++++++++++++++++
->  arch/riscv/lib/memcpy.S                       |  2 +
->  arch/riscv/lib/memmove.S                      |  2 +
->  arch/riscv/mm/init.c                          | 36 ++++++++++---
->  7 files changed, 126 insertions(+), 7 deletions(-)
->  create mode 100644 arch/riscv/kernel/pi/Makefile
->  create mode 100644 arch/riscv/kernel/pi/cmdline_early.c
->=20
-> --=20
-> 2.37.2
->=20
-
---caGKd7o6+JAz/98x
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY9lrBwAKCRB4tDGHoIJi
-0gfGAQCENcv+3hKs/6TXI0FLA0kreZMihuI32sRzt84sGUGHIQEA/uU1ZjoXVe2E
-ZyLE2YYl1Osh/cmRboDUYwy3r6oGNQE=
-=/x1y
------END PGP SIGNATURE-----
-
---caGKd7o6+JAz/98x--
+Ahh I missed the other one. I have changed everything to RCVD just to
+keep it short.
+"RECEIVED" is too long :)
 
 
---===============6025645626767614347==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> these:
+> https://github.com/riscv-non-isa/riscv-sbi-doc/blob/master/riscv-sbi.adoc#114-event-firmware-events-type-15
+>
+> Thanks,
+> Conor.
+>
+
+
+-- 
+Regards,
+Atish
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6025645626767614347==--
-
