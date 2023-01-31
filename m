@@ -4,66 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E20DDC61DA4
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jan 2023 23:47:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAD65C54EAA
+	for <linux-riscv@archiver.kernel.org>; Tue, 31 Jan 2023 00:36:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8ggrCDH2TMXR/BO4VjQEq/M8sxttafxnAIZuCJxJPrw=; b=SbQgWluB6wwMAgKEbKYcfiqkdz
-	GuNXkvasoKdkz4y8Ic3C+b/TVwaMf7st0+VYEJTh1qxYVpLQ6JBGRN1s/TF2/WG1gHZlWmvRCVBiA
-	8WgE7FSLR9FNYogkC0IdPcAv3LaQl7pecE/6dYEbKrXSiWYJx7c+OftExBO5Hh/SvO87rJtltI16j
-	puv2ktOh/6LzaGe+5wccj7pGakVu2ISPTyR8r4ZrDFgWDrsTeATMYQCVHxCAj4B06Eatt0PwkJjRy
-	FX8NNLgF8JGzRnt8kOR5tHm9dY8sKIhGRt2S5kuD4I4sb0XHcbU3nhCovLoFVi8mN8fUouEg4GMN9
-	Ob0zfrWQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Date:To:Cc:From:Subject:References:
+	In-Reply-To:MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=RQy5S2Q4g6ue65oKIbYZe9yl9F6ZkKmH7I7vkulrsi4=; b=EvX7epOF2vrkBO
+	yy+5hejJGwl3VmHbTZ4GEha0/NM3azOGTFkLKRNOFV85g/Ih42A1BhHI9hxhn1wO/OhJGCxP1sCdn
+	S7qKBDoEbZoMp6GRZrgZLIC8JSQQnxhBFpgZ3lq5icrEIP8727/Vm71v21smrr9badnPh+X7hguQ8
+	g6sGOGu1eiUBHFnmtRHaDFDod8YEMm8gan3WWxc021clBP4D1Pf0Mp4AnrhlrBFudRTmtLg/wq2DQ
+	9ZejUgHg1Nm6rzgLb1NjLXUEL4xUwrj+k3SPyW0oqylFe6bPX1d+6uyb3GAPlRy6d6ZuzLx58ZKkM
+	UUmIaKpwv5Nyxn79V3Zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMdsJ-005oeA-PZ; Mon, 30 Jan 2023 23:47:47 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1pMed8-005ugz-6K; Tue, 31 Jan 2023 00:36:10 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMdsG-005ocy-Lm
-	for linux-riscv@lists.infradead.org; Mon, 30 Jan 2023 23:47:46 +0000
+	id 1pMed0-005ufn-RP
+	for linux-riscv@lists.infradead.org; Tue, 31 Jan 2023 00:36:08 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by sin.source.kernel.org (Postfix) with ESMTPS id E1A1ECE1AD6;
-	Mon, 30 Jan 2023 23:47:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33320C433EF;
-	Mon, 30 Jan 2023 23:47:38 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 592E861274;
+	Tue, 31 Jan 2023 00:36:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B66E7C433D2;
+	Tue, 31 Jan 2023 00:36:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1675122461;
-	bh=WoJeIgf/JQZhJHXDszCWgkHNzPbweY0aWYQ3iEPGhBI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QULFyBjTeeC1392caZNLBFUYEO05aNmt2qcr6HCpbQfJG2gU2FkCDLwIgYUjz18Q8
-	 uChNcDCAt0lr57gFu+1jkgxml6xL7DE7LuDBWkog8j9Ivc837sGCjv0UpTOD5Snbp0
-	 d8cxiAZHD24140/A9KBZxYbySlCqpCOnpFU+MgQbb1/Hfd02VQ1hxYoZ164EuA5e5E
-	 1Tp/4WdqExpa5XLCnjzmcjtOSaA5WERxcbf1ShyECo1MsVWtSlNJMVpVRagSxdlT1h
-	 7AQVsg2bu2pbk9IVx2gu4xU1FPlwj1iYAS/8j5MckNHeBucgBCo0GJ8Q4JoCNDywGU
-	 ffrSlyJINLfRQ==
-Date: Mon, 30 Jan 2023 23:47:35 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Sunil V L <sunilvl@ventanamicro.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Marc Zyngier <maz@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Jonathan Corbet <corbet@lwn.net>, linux-riscv@lists.infradead.org,
-	linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org, Anup Patel <apatel@ventanamicro.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Atish Patra <atishp@rivosinc.com>
-Subject: Re: [PATCH 22/24] RISC-V: ACPI: Enable ACPI in defconfig
-Message-ID: <Y9hXF8RpNawkuTEN@spud>
-References: <20230130182225.2471414-1-sunilvl@ventanamicro.com>
- <20230130182225.2471414-23-sunilvl@ventanamicro.com>
+	s=k20201202; t=1675125361;
+	bh=winm19U7j/1SrLM33+LHutRtt1r14B9o9myRfOllwWM=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=aCyjcqCjxnVQ8w/xZDqPFiYemSX/BMOgjjM6FSRSGqmfPlinxqB+XMZrM/g8W9qTB
+	 uOMQSbrtIA17dxunmnIzx/zeAoU4Im/xJ83cPHApTqD4GFzrk4tw2c5Vb+S0kpYxcp
+	 f7iqLDA2tGdCnhoAwps0Ay+hPA5OBilaT3H6X+g7RkP41BgR4VHJGyWoKY51ZFiIzt
+	 ixHhw6iUHd5RQJuzL6L40TcvllTvA/C/dPI4IjrATKirCaGBs/oQqHIjW3gYnWMMmT
+	 HDZe81mmyl8ItKfe1CNdqNpFM7uqU+Ziv8+y+PomXb2Bm5VcQjkYJjfJgMlms3fYI7
+	 W8JNFDLqBZUmw==
+Message-ID: <f6f558a0daafa454c02fe29cd904cfcd.sboyd@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <20230130182225.2471414-23-sunilvl@ventanamicro.com>
+In-Reply-To: <0e77bf23-b359-9884-6a8c-368e31d718a4@starfivetech.com>
+References: <20230120024445.244345-1-xingyu.wu@starfivetech.com> <20230120024445.244345-4-xingyu.wu@starfivetech.com> <5bb5263d26b157548d7ba39f80989c69.sboyd@kernel.org> <0e77bf23-b359-9884-6a8c-368e31d718a4@starfivetech.com>
+Subject: Re: [PATCH v1 03/11] clk: starfive: Add StarFive JH7110 System-Top-Group clock driver
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: Rob Herring <robh+dt@kernel.org>, Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>, linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
+To: Emil Renner Berthing <kernel@esmil.dk>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Michael Turquette <mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>, Xingyu Wu <xingyu.wu@starfivetech.com>, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
+Date: Mon, 30 Jan 2023 16:35:59 -0800
+User-Agent: alot/0.10
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230130_154744_911291_AC9FC6CC 
-X-CRM114-Status: GOOD (  17.67  )
+X-CRM114-CacheID: sfid-20230130_163602_981914_A7365AA2 
+X-CRM114-Status: GOOD (  21.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,85 +66,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1360026330614230997=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Quoting Xingyu Wu (2023-01-30 00:02:28)
+> On 2023/1/26 10:33, Stephen Boyd wrote:
+> > Quoting Xingyu Wu (2023-01-19 18:44:37)
+> >> diff --git a/drivers/clk/starfive/clk-starfive-jh7110-stg.c b/drivers/clk/starfive/clk-starfive-jh7110-stg.c
+> >> new file mode 100644
+> >> index 000000000000..c2740f44e796
+> >> --- /dev/null
+> >> +++ b/drivers/clk/starfive/clk-starfive-jh7110-stg.c
+[...]
+> >> +                               parents[i].fw_name = "nocstg_bus";
+> >> +                       else if (pidx == JH7110_STGCLK_APB_BUS)
+> >> +                               parents[i].fw_name = "apb_bus";
+> > 
+> > Can this be an array lookup instead of a pile of conditions?
+> > 
+> >       if (pidx < JH7110_STGCLK_END)
+> >               ...
+> >       else
+> >               parents[i].fw_name = fw_table[pidx - JH7110_STGCLK_END];
+> > 
+> > Or even better, don't use strings at all and just make the 'pidx' number
+> > (possibly minus the end constant) be the 'clocks' property index that
+> > you want.
+> 
+> It seen to be a good way that there uses an array.
+> Based on the another way, can I use the 'pidx' number to get the 'clock-names' property
+> to be the parent clock name?
 
---===============1360026330614230997==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="zg0/95MUBwMtXXq2"
-Content-Disposition: inline
+The binding is your design. It is incorrect if the binding is referencing clocks
+provided by the same node though. If that's the case, simply use the hw
+pointer directly.
 
+> 
+> > 
+> >> +               }
+> >> +
+> >> +               clk->hw.init = &init;
+> >> +               clk->idx = idx;
+> >> +               clk->max_div = max & JH71X0_CLK_DIV_MASK;
+> >> +
+> >> +               ret = devm_clk_hw_register(&pdev->dev, &clk->hw);
+> >> +               if (ret)
+> >> +                       return ret;
+> >> +       }
+> >> +
+> >> +       ret = devm_of_clk_add_hw_provider(&pdev->dev, jh7110_stgclk_get, priv);
+> >> +       if (ret)
+> >> +               return ret;
+> >> +
+> >> +       return jh7110_reset_controller_register(priv, "reset-stg", 2);
+> > 
+> > Is this also devm-ified?
+> 
+> No, it need to be freed actively. I will advise Hal Feng this.
+> 
 
---zg0/95MUBwMtXXq2
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hey Sunil,
-
-Two quick comments while I think of them..
-
-On Mon, Jan 30, 2023 at 11:52:23PM +0530, Sunil V L wrote:
-> RISC-V: ACPI: Enable ACPI in defconfig
-
-btw, about half of this series redundantly puts "ACPI:" or "RISC-V:
-ACPI:" into $subject. None of commits that mention ACPI after the last :
-should mention ACPI in the prefix IMO, it's just noise.
-
-For example, this one should be something like:
-RISC-V: enable ACPI in defconfig
-
-> Add support to build ACPI subsystem in defconfig.
->=20
-> Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
-> ---
->  arch/riscv/configs/defconfig | 4 ++++
->  1 file changed, 4 insertions(+)
->=20
-> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-> index 128dcf4c0814..8ce06fb0dde8 100644
-> --- a/arch/riscv/configs/defconfig
-> +++ b/arch/riscv/configs/defconfig
-> @@ -218,3 +218,7 @@ CONFIG_RCU_EQS_DEBUG=3Dy
->  # CONFIG_FTRACE is not set
->  # CONFIG_RUNTIME_TESTING_MENU is not set
->  CONFIG_MEMTEST=3Dy
-> +CONFIG_ARCH_SUPPORTS_ACPI=3Dy
-
-This needs to go into the arch Kconfig file, where it will be selected.
-Check what arm64 does if you are not sure what I mean.
-
-Hopefully I'll get a chance to look at the rest of this this week
-sometime,
-Conor.
-
-
---zg0/95MUBwMtXXq2
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY9hXFwAKCRB4tDGHoIJi
-0jz5AP9T0B2MgLSmPbYSg1QODDZGfojq049zs7BQd+8I5h0xMQEAg7Tq0HANXXSF
-/wo06urL3IrFIJh1toI0j0c616zj5Q8=
-=lM2h
------END PGP SIGNATURE-----
-
---zg0/95MUBwMtXXq2--
-
-
---===============1360026330614230997==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Oh, that's not good.
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1360026330614230997==--
-
