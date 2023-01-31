@@ -4,86 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C91D2C38142
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 Jan 2023 18:55:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 027AEC38142
+	for <linux-riscv@archiver.kernel.org>; Tue, 31 Jan 2023 19:13:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MuOfJRWG4SdR29B1o+TL14fTSEML53Q1KeMRrnVzTJM=; b=PMXF85J6IEsukSHCdAWtBGkgo7
-	PQ+XGpRPijSLEGcC+yRFbjU2gR7c9lheYC64xO6LvjV6idbFcq5pbQkf1Ls12w89yuVX38ZOwmaIx
-	vJPz7y2LWwMjdQp1pjkjakRfNjJTnvexdsvhX/+m0LAGLltZ0xZ1J2dHhEnHcZJFYGa1j3fD6nFFb
-	RTTRnfR5Lz1EztQfwiX0nlrkrW0H4UOfoMUC05IkJDpG2jzCU6EVtCOD8tZdfh3bFCOkvtwD/w95S
-	+sa7t9KJBUD/OvkGGHM+e1q4Kwl3T0UXZrIEWUDBFPvcLQdKXrwVcpxr9gPYmLj4Mv2uR73g3hUA/
-	kwYIgX5Q==;
+	bh=J1Op2Kas692+ZoxtST6kbqly+CCZ798J1SFUzT/ecTw=; b=muFEtgODUNfPYX5emz++KCKrzn
+	AQeKlPTdNWIzrGyV0uTHBm0t/J39pJ37pfwA+MspRfS/+xQs5ysV9NZd7N7Pu6ne4iQf4LByiK5g1
+	wr07h6e/RsjPayDn2UIuXsjrU6RPm/MiCj2Se61VOFbx1pcZm4vGAtFqtrrJBlnfD0cHbqftMZzct
+	sYVOnHZy4aDmuSY4Fh1Xvm9QWJWsYorgeo6ggMQIir6H4fnSYBxuArUGL+asHbZ3cJzgm/bVm41dr
+	G7Gao4PhB6L/rwPC1bPTZyY/rGREo/IsuMVPBlF0sAZyT87JEyo8SycJGtsVtiv1NSsYPleAF0sqx
+	+sYAoCoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMvn9-0092P6-8F; Tue, 31 Jan 2023 18:55:39 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1pMw4F-0095hu-1J; Tue, 31 Jan 2023 19:13:19 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMvmr-0092Ig-KX; Tue, 31 Jan 2023 18:55:23 +0000
+	id 1pMw4C-0095hP-Jr
+	for linux-riscv@lists.infradead.org; Tue, 31 Jan 2023 19:13:18 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id B440CB81E69;
-	Tue, 31 Jan 2023 18:55:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 249B8C433EF;
-	Tue, 31 Jan 2023 18:55:09 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 302116168E;
+	Tue, 31 Jan 2023 19:13:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80A42C433D2;
+	Tue, 31 Jan 2023 19:13:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1675191318;
-	bh=bIDjyyvdysd52cz3wo+R2FqIpQuhXwaSP+2JinM77Zs=;
+	s=k20201202; t=1675192395;
+	bh=VltjbW6T1jEQWZxEoukktOIp4ozkal5er2F1ZV/I10w=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=p4r9YCVihzZrIRlizFq96lF4LsuRcYuXyit+cVXFPxJSxGfL99cms2/SSKpvkF2Pp
-	 NgIawOhOvw555KfS+LAiMfG5/YT2a/THCQd4ucSFldwug8pgOxrs80vH+lCVDLHIZh
-	 fh6CSOEpoCrswZLqAXRWz9pZ9CFIa58ZjTeMXFlgy8V6KmgUqFk322AZ/O2du+jfxI
-	 cQP8VEptS2HT9jSp8zZqLDDlrzS+XSn+HUeeyHjnm0LO863o/QOiqT647VANwYetka
-	 9TpahVOYB0s8YL82xibnQ7Ggye7lO/va5K0QbIxfYIjwKYESn8Y2//JUV74+mpgZ7e
-	 krHdpZB95Rbtg==
-Date: Tue, 31 Jan 2023 18:55:07 +0000
+	b=fZ5SPQOaVVpouPzKQqVwQZy/L3vNnkGyl7nnCebULohecmQzteyFdWQSggnK6jRVs
+	 OhyBNUF6gCIyEmTOCRCFOYp348qEsKYWgaRN0Cu+Tp5c2zBssl2X82P9x7ZiDxHINY
+	 kVKzIhmDKnzefeXX97qMky9JKuzCw7xRBsoEFxqBudXlgTe1FaQbsnewme5FJC/ifJ
+	 Z+3VBeZlO3ELVs7Vvl/x+k3ed81dBHGNAqTAQ7EwQrS5CQKWx0SHbjGf1Ptxz4Tl+O
+	 ZIJ/Pd6PaZl+F9URLXhrpgX7h03XAiauwxAjxVOt81gsxGSclWdJKRYuXAMYxVcHqP
+	 RVb+P7bL6AZtQ==
+Date: Tue, 31 Jan 2023 19:13:11 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Arnd Bergmann <arnd@arndb.de>, Brian Cain <bcain@quicinc.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Greg Ungerer <gerg@linux-m68k.org>, Guo Ren <guoren@kernel.org>,
-	Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>,
-	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Michal Simek <monstr@monstr.eu>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Rich Felker <dalias@libc.org>,
-	Richard Weinberger <richard@nod.at>,
-	Russell King <linux@armlinux.org.uk>,
-	Stafford Horne <shorne@gmail.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Vineet Gupta <vgupta@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
-	Yoshinori Sato <ysato@users.sourceforge.jp>,
-	linux-alpha@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, linux-mm@kvack.org,
-	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org,
-	linux-um@lists.infradead.org, linux-xtensa@linux-xtensa.org,
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
-	openrisc@lists.librecores.org, sparclinux@vger.kernel.org,
-	x86@kernel.org, Huacai Chen <chenhuacai@loongson.cn>
-Subject: Re: [PATCH v2 4/4] mm, arch: add generic implementation of
- pfn_valid() for FLATMEM
-Message-ID: <Y9lkCz73v7/iyyLj@spud>
-References: <20230129124235.209895-1-rppt@kernel.org>
- <20230129124235.209895-5-rppt@kernel.org>
- <Y9lULIIOneBUFE/E@spud>
- <Y9lg7R1Yd931C+y5@kernel.org>
+To: Sergey Matyukevich <geomatsi@gmail.com>
+Cc: linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
+	Prabhakar <prabhakar.csengg@gmail.com>, Guo Ren <guoren@kernel.org>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Sergey Matyukevich <sergey.matyukevich@syntacore.com>
+Subject: Re: [PATCH] riscv: mm: fix regression due to update_mmu_cache change
+Message-ID: <Y9loR3kuEXqDGVZE@spud>
+References: <20230129211818.686557-1-geomatsi@gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <Y9lg7R1Yd931C+y5@kernel.org>
+In-Reply-To: <20230129211818.686557-1-geomatsi@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230131_105521_978144_88AD2986 
-X-CRM114-Status: GOOD (  29.58  )
+X-CRM114-CacheID: sfid-20230131_111316_749726_5942737F 
+X-CRM114-Status: GOOD (  22.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,92 +71,95 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1688693261285285116=="
+Content-Type: multipart/mixed; boundary="===============8373352196415224294=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============1688693261285285116==
+--===============8373352196415224294==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="hiaCFsst32mLBZni"
+	protocol="application/pgp-signature"; boundary="lQIwXAPTN2m/wo/K"
 Content-Disposition: inline
 
 
---hiaCFsst32mLBZni
+--lQIwXAPTN2m/wo/K
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-Hi Mike,
+On Mon, Jan 30, 2023 at 12:18:18AM +0300, Sergey Matyukevich wrote:
+> From: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
+>=20
+> This is a partial revert of the commit 4bd1d80efb5a ("riscv: mm: notify
+> remote harts about mmu cache updates"). Original commit included two
+> loosely related changes serving the same purpose of fixing stale TLB
+> entries causing user-space application crash:
+> - introduce deferred per-ASID TLB flush for CPUs not running the task
+> - switch to per-ASID TLB flush on all CPUs running the task in update_mmu=
+_cache
+>=20
+> According to report and discussion in [1], the second part caused a
+> regression on Renesas RZ/Five SoC. For now restore the old behavior
+> of the update_mmu_cache.
+>=20
+> [1] https://lore.kernel.org/linux-riscv/20220829205219.283543-1-geomatsi@=
+gmail.com/
 
-On Tue, Jan 31, 2023 at 08:41:49PM +0200, Mike Rapoport wrote:
-> On Tue, Jan 31, 2023 at 05:47:24PM +0000, Conor Dooley wrote:
-> > On Sun, Jan 29, 2023 at 02:42:35PM +0200, Mike Rapoport wrote:
-> > > From: "Mike Rapoport (IBM)" <rppt@kernel.org>
-> > >=20
-> > > Every architecture that supports FLATMEM memory model defines its own
-> > > version of pfn_valid() that essentially compares a pfn to max_mapnr.
-> > >=20
-> > > Use mips/powerpc version implemented as static inline as a generic
-> > > implementation of pfn_valid() and drop its per-architecture definitio=
-ns.
-> > >=20
-> > > Signed-off-by: Mike Rapoport (IBM) <rppt@kernel.org>
-> > > Acked-by: Arnd Bergmann <arnd@arndb.de>
-> > > Acked-by: Guo Ren <guoren@kernel.org>		# csky
-> > > Acked-by: Huacai Chen <chenhuacai@loongson.cn>	# LoongArch
-> > > Acked-by: Stafford Horne <shorne@gmail.com>	# OpenRISC
-> >=20
-> > Hmm, so this landed in linux-next today and I bisected a boot failure in
-> > my CI to it. However, I am not really sure if it is a real issue worth
-> > worrying about as the platform it triggered on is supposed to be using
-> > SPARSEMEM, but isn't.
-> > I had thought that my CI was using a config with SPARSEMEM since that
-> > became required for riscv defconfig builds to boot in v6.1-rc1, but I
-> > must have just forgotten to add it to my $platform_defconfig builds too.
-> > However, those $platform_defconfig builds continued booting without
-> > SPARSEMEM enabled until today.
+If you respin for another reason, can you convert this into a "regular"
+Link: trailer, so that it can be parsed with git's trailer functionality?
+IOW, like so:
+Link: https://lore.kernel.org/linux-riscv/20220829205219.283543-1-geomatsi@=
+gmail.com/ [1]
+
+Otherwise, glad to see you two get this sorted out, even if it is just a
+revert.
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+
+Thanks,
+Conor.
+
+> Fixes: 4bd1d80efb5a ("riscv: mm: notify remote harts about mmu cache upda=
+tes")
+> Reported-by: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+> Signed-off-by: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
+> ---
+>  arch/riscv/include/asm/pgtable.h | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 >=20
-> The issue seems to be that the generic pfn_valid() does not take into
-> account pfn_offset when it compares it with max_mapnr.
-> Can you please test with the patch below?
->=20
-> diff --git a/include/asm-generic/memory_model.h b/include/asm-generic/mem=
-ory_model.h
-> index 13d2a844d928..6796abe1900e 100644
-> --- a/include/asm-generic/memory_model.h
-> +++ b/include/asm-generic/memory_model.h
-> @@ -26,7 +26,7 @@ static inline int pfn_valid(unsigned long pfn)
->  	extern unsigned long max_mapnr;
->  	unsigned long pfn_offset =3D ARCH_PFN_OFFSET;
-> =20
-> -	return pfn >=3D pfn_offset && pfn < max_mapnr;
-> +	return pfn >=3D pfn_offset && (pfn - pfn_offset) < max_mapnr;
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pg=
+table.h
+> index 4eba9a98d0e3..4c3c130ee328 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -415,7 +415,7 @@ static inline void update_mmu_cache(struct vm_area_st=
+ruct *vma,
+>  	 * Relying on flush_tlb_fix_spurious_fault would suffice, but
+>  	 * the extra traps reduce performance.  So, eagerly SFENCE.VMA.
+>  	 */
+> -	flush_tlb_page(vma, address);
+> +	local_flush_tlb_page(address);
 >  }
->  #define pfn_valid pfn_valid
->  #endif
+> =20
+>  #define __HAVE_ARCH_UPDATE_MMU_TLB
+> --=20
+> 2.39.0
+>=20
 
-Gave that a go, board is booting properly again! Feel free to add a:
-Tested-by: Conor Dooley <conor.dooley@microchip.com>
-
-Thanks for the prompt fix!
-
-
---hiaCFsst32mLBZni
+--lQIwXAPTN2m/wo/K
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY9lkCwAKCRB4tDGHoIJi
-0pIDAP9nc8RsXGyfp84b29PfLE6bd1djEIZ71+YYWPrhRbOT0QEAs5hvd2Aq0mES
-TzWIEs2xL7+wjwVIWLwPjr1kP0shHA0=
-=AQg2
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY9loRgAKCRB4tDGHoIJi
+0li+AQDsZDMhzesiFuErZStkmObCxbQrXZHaqScmaZF2cmAgDAEAttSBiuuRH1MV
+P8htcf6ognDO5SmB9yMC1Ub/7luIGgE=
+=DgRf
 -----END PGP SIGNATURE-----
 
---hiaCFsst32mLBZni--
+--lQIwXAPTN2m/wo/K--
 
 
---===============1688693261285285116==
+--===============8373352196415224294==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -191,5 +170,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============1688693261285285116==--
+--===============8373352196415224294==--
 
