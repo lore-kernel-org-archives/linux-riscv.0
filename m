@@ -4,57 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFF72C54EAA
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 Jan 2023 00:38:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ED71C54EAA
+	for <linux-riscv@archiver.kernel.org>; Tue, 31 Jan 2023 01:00:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Date:To:Cc:From:Subject:References:
-	In-Reply-To:MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=crKUsNpVB31jcz0VS0p0qc7sqWoX54dB87WnW4AdiBU=; b=JtRUv3iD68NxtS
-	66xZ2bHwq79F+N3uVX3qfiimv/iFfHU6rSlf/DFU9zI84sNBnp0Fbonh8xvF2elfFG3/GnVpiICWq
-	S/6mfOrhhcWnM87s10u5SzFmmhBs3wO0s7snu5dpbgLFpeq5kgFuIRnZo+V4GkkPEBLYCnbOm1sSO
-	kCsBib5kiw5+ItXXPkk+fec6LbNHo1cFJpX8Sco6AbsnErcco1gjpcMkld836ZE6LmmG2WXTW4ea0
-	0pe5sC8p2S5IzI7jXgTg2VxjJ0NQlnNizGERkwzpVbRA3xjOU/Hm5svS7XkgT0Aqdne1+L5zkd1n2
-	psEls2nmax6bhQQvXhww==;
+	List-Owner; bh=EJLDv9AdUQZcEDFgS5JzcGHd20Z0g1HlQfwJ367r7Kw=; b=bApDcKYCG1sNOY
+	JeykRYfgGnEtwtbTNRIzcUZdqlKdCfblmbGGMFS0nBeAwS9XWuFMcRL4SwWKlTNCghvDzrjCBuv3U
+	5GOBG901QpviePpXrEucsAo+Riq9q1PLYh4xjnEkAgVMoGDB+b7wwFhLd0lgeVM1oDV0ZRmC4io9O
+	44FScVQvKJa1EQTe8E8aGXghzvZZIVxyHkEOXarP46bqkKLhNa/9Z3rp3rS3bdFj3CYI16VF/uWbB
+	jXFAZZD1vE65CwxS3iOor/B1mSX/qklx5ek4LPi8XYb8AMmBeFAMid/FZTbltBGyUE72pPhD3qZWk
+	ELIDsUaIdzJAaO6+HhUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMefa-005v0T-Fc; Tue, 31 Jan 2023 00:38:42 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMefX-005uzq-O5
-	for linux-riscv@lists.infradead.org; Tue, 31 Jan 2023 00:38:40 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id E8B9161274;
-	Tue, 31 Jan 2023 00:38:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BFB2C433EF;
-	Tue, 31 Jan 2023 00:38:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1675125518;
-	bh=KQ/jlA4qGwu/+ocBuikUEZAfj7MktGpHG+XmBQXFyco=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=aAsjPIGH864XiwqbnnKzoXOeByYareroKqLejbu7xmoMNOm+DfVeGmSpjuRF6ui3e
-	 YpWMzPhydFmqGzl+UMIfhtDME7FV29ZfkfLqh9S7Tid/4rZXk8wIbb6TJD7cxdw18v
-	 dRpYhCDve0R0kkPduA4UK55gT7apXeR4tjFGw6C8p0ANcXZKI1O7JKEFTMn62eWTrC
-	 g1Mtn0RYYdXJCff1bSCdabJHnp3GxMb3D8BBYJ/os7Q/VcWe0PX2qTDnsDHrWu1r6Q
-	 Hrm3tZeCvW32Zg/bhZNZT7yxkyx++DHT9ltMi7mba38M1nbUesEXPwJstIiDe1CnUd
-	 fVy+9jNbpaQGA==
-Message-ID: <26437c6f0bda4dd18e16fa1f58013911.sboyd@kernel.org>
+	id 1pMf0E-005xS0-Va; Tue, 31 Jan 2023 01:00:03 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pMf0A-005xND-T1
+	for linux-riscv@lists.infradead.org; Tue, 31 Jan 2023 01:00:01 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id A8DAD24E115;
+	Tue, 31 Jan 2023 08:59:13 +0800 (CST)
+Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 31 Jan
+ 2023 08:59:13 +0800
+Received: from [172.16.16.234] (183.27.99.60) by EXMBX172.cuchost.com
+ (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 31 Jan
+ 2023 08:59:12 +0800
+Message-ID: <6e332748-9cef-7f7d-1390-6b90a04b3ce0@starfivetech.com>
+Date: Tue, 31 Jan 2023 08:59:10 +0800
 MIME-Version: 1.0
-In-Reply-To: <20230120024445.244345-7-xingyu.wu@starfivetech.com>
-References: <20230120024445.244345-1-xingyu.wu@starfivetech.com> <20230120024445.244345-7-xingyu.wu@starfivetech.com>
-Subject: Re: [PATCH v1 06/11] clk: starfive: Add StarFive JH7110 Image-Signal-Process clock driver
-From: Stephen Boyd <sboyd@kernel.org>
-Cc: Rob Herring <robh+dt@kernel.org>, Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>, Xingyu Wu <xingyu.wu@starfivetech.com>, linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
-To: Emil Renner Berthing <kernel@esmil.dk>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Michael Turquette <mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>, Xingyu Wu <xingyu.wu@starfivetech.com>, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
-Date: Mon, 30 Jan 2023 16:38:36 -0800
-User-Agent: alot/0.10
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.6.1
+Subject: Re: [PATCH v3 0/5] Basic pinctrl support for StarFive JH7110 RISC-V
+ SoC
+To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-gpio@vger.kernel.org>
+CC: Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, "Rob
+ Herring" <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Linus Walleij
+	<linus.walleij@linaro.org>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, Jianlong Huang
+	<jianlong.huang@starfivetech.com>, <linux-kernel@vger.kernel.org>
+References: <20221220005529.34744-1-hal.feng@starfivetech.com>
+Content-Language: en-US
+From: Hal Feng <hal.feng@starfivetech.com>
+In-Reply-To: <20221220005529.34744-1-hal.feng@starfivetech.com>
+X-Originating-IP: [183.27.99.60]
+X-ClientProxiedBy: EXCAS061.cuchost.com (172.16.6.21) To EXMBX172.cuchost.com
+ (172.16.6.92)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230130_163839_843060_C9B31D1A 
-X-CRM114-Status: GOOD (  12.16  )
+X-CRM114-CacheID: sfid-20230130_165959_117612_33274476 
+X-CRM114-Status: UNSURE (   7.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,30 +79,20 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Quoting Xingyu Wu (2023-01-19 18:44:40)
-> diff --git a/drivers/clk/starfive/clk-starfive-jh7110-isp.c b/drivers/clk/starfive/clk-starfive-jh7110-isp.c
-> new file mode 100644
-> index 000000000000..f9fc94b4c6f8
-> --- /dev/null
-> +++ b/drivers/clk/starfive/clk-starfive-jh7110-isp.c
-> @@ -0,0 +1,218 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * StarFive JH7110 Image-Signal-Process Clock Driver
-[...]
-> +
-> +static int jh7110_isp_top_crg_enable(struct isp_top_crg *top)
-> +{
-> +       int ret;
-> +
-> +       ret = clk_bulk_prepare_enable(top->top_clks_num, top->top_clks);
-> +       if (ret)
-> +               return ret;
-> +
-> +       return reset_control_deassert(top->top_rsts);
-> +}
+On Tue, 20 Dec 2022 08:55:24 +0800, Hal Feng wrote:
+> This patch series adds basic pinctrl support for StarFive JH7110 SoC.
+> You can simply get or review the patches at the link [1].
+> 
+> [1]: https://github.com/hal-feng/linux/commits/visionfive2-minimal
+> 
 
-This needs to be undone on driver remove.
+Hi, Linus,
+
+Could you please help to review and give me some suggestions
+for this patch series? Thank you for your time.
+
+Best regards,
+Hal
 
 _______________________________________________
 linux-riscv mailing list
