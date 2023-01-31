@@ -4,70 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B13A4C38142
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 Jan 2023 10:32:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 516DFC636CC
+	for <linux-riscv@archiver.kernel.org>; Tue, 31 Jan 2023 10:34:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=u4XlobagLBCFNhRjE3nc9DEV14rm4dGkdoATGBEctiA=; b=W5BA1WpV+9pQfQ
-	yNstB4WTBD89t8toiIO7Jg9+ECYGxKNrgvWwyy0/xVizgIUibmJWRMkmaaLiqxWKvpDW3H0bq23dY
-	yFPWbNOoiS14EfyGw1Nf4yN/yh2cKjeACC6a24j9UY10OtrJY7e4jpvr8PGUL/Dl74QNOayxGzQB/
-	hhl31fG9TFunjrtokyEXXZK5TydIgGldMbGuLGy01fV0nxWRNZ52XNZ1X3yH7znj3Nm7hYZc06AxQ
-	4WVqpNsRgbzRCzFLpqb0mBM1xSotr19jqNN0rPT+IT3E4VaB7ap1H+K3v3pIAjk9WM8hdt4B9P2E6
-	7xTytnIFdTruAWEJVN/g==;
+	List-Owner; bh=RJ7PRAISEDLthxqXvr3rnRdfk/84KApCvyrlDYTFmqc=; b=CmWCt3hZAuPWSJ
+	HQRmPK16NbWT9/5jMq1m+TvJLK+zAuUtIiKEg044YM2RNHtOuiebH8P/wQQBZDkdGHI6au2TR30Ok
+	UAwYyTg1FD6ASB4VobjJxPKUqLlPsd6G3/PWT+178K2fRhuJCM3Jh4lCJOPhVrqHG8ycIHfm5ebzj
+	BCu+q4FzFivexehgnV3z0/ZsTjA6J8AlRP+1dzcAd1oIYgVCnEur1NB82TCcjoH5AEurvH12LLtM1
+	uhdGvbYvJ+GZArO3XN/YIPDXv8szRvXrmxVcVS6Uh8jwWwcyLUOCEdfEyTU0wvPSs6unMZXqOVaLV
+	up4Er+LX/h0DKjEAmmMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMnwN-007R1G-0y; Tue, 31 Jan 2023 10:32:39 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1pMnyR-007S7U-Re; Tue, 31 Jan 2023 10:34:47 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMnIr-0079Og-Ck
-	for linux-riscv@lists.infradead.org; Tue, 31 Jan 2023 09:51:52 +0000
-Received: by mail-pl1-x629.google.com with SMTP id m13so2618094plx.13
-        for <linux-riscv@lists.infradead.org>; Tue, 31 Jan 2023 01:51:47 -0800 (PST)
+	id 1pMnQz-007DH8-A3
+	for linux-riscv@lists.infradead.org; Tue, 31 Jan 2023 10:00:16 +0000
+Received: by mail-wr1-x436.google.com with SMTP id h12so13641085wrv.10
+        for <linux-riscv@lists.infradead.org>; Tue, 31 Jan 2023 02:00:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=atishpatra.org; s=google;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=l1+1j6tXbawgkfww5V65w6y7pgd7p8FEC5W/jVYhleg=;
-        b=m4D4HYNZQzFbYCNIK3zadgXzGbzWJ3OADGu4qHz5wgNMIk2zU9XiKxMmmavePgw1Sv
-         loiykXbX2M7Zb23OK2+Fgk1prmWbtjI75pdOpPC9XbxMn4nvSTHGgPQRVUBIDI4AXTgp
-         vtS53Yh77O4F/D7Ml2d7j1SHLre+ZukFRGNNw=
+        bh=I2PnCnyT2fvcTWG9X0fPVr4Dnve0da/bDZmD3vee3D4=;
+        b=VCFV5rGhp6Gc9PaT9fkNHYM4wIVeq82lAc3Lw5l6+4ouE3t8Oooeolj/rrCma7MoRn
+         q9NKOr4EL53XO5r7Y/yi/baiXcyVje4edXqhLTuiM3Cof/58VwFVnM5AVGmJQIPxR9oG
+         rjDGk6K/en6JQuRrsUFASgpLjhMUjogIDdE8+2vIy6y7+HKbXLV/6bzPqUX230MCre2t
+         dgEgY7CxXgQ3q9PDQNZb1c5VRZG18ZOtWXCyHQfYwtG5S79UiIQmEQR2NPRiK4gZdvz1
+         8mGAAuDTbl+NIlwg9ip1HhtEs+0jE77EXjMCVl4zIVe+NG0yH3VQfSvPSvJ4a/E0EWrq
+         81Ug==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=l1+1j6tXbawgkfww5V65w6y7pgd7p8FEC5W/jVYhleg=;
-        b=3RLJBYnKG52GnE7U/eThLvx1ZehMILYiQoQ8GS3uUs/GWDORkQDaKofmLBi21reywH
-         xkAAbCEfDNtydvcZ7O32ZRDhDihVVM64FnD8tFKuZMp6z/853GcQpmrGVRtFwZn3Arw5
-         DOCdwXzf37UfOgUhVsragGrYxatmj8MHgQGgkE48eu3nCfpM9/+TQZCn435CNoP6uKIO
-         N72vKb7pj1cVn8wC4/zCP1ygaps8WIZW9gA2mrXrhDtFPGve0m3bUNBCbq/BTb1Llk9T
-         3J2kKWn1B17GhchOFV1K7Y5y5SfEBJWBVzwiOz7FNySTUOS1/0laxHTYVhnKHn7j7HUm
-         BwuA==
-X-Gm-Message-State: AO0yUKXYIVt38zG5/BCmhf6p95aiFAArRDGAXLeONT+lAD1+QtSoUNhC
-	pHgweCkapLB+CcyaUt7cjtVImc6gPz38nu1cAZ72
-X-Google-Smtp-Source: AK7set/d4JMSpTgUYVc8I7gf4rVGYO75uruj3XoMWdE2b/ngPDtwdG1d6b5JjJ2EVNlsrTia06XZGNr9MPRamCo/AVQ=
-X-Received: by 2002:a17:902:b706:b0:196:6dac:3426 with SMTP id
- d6-20020a170902b70600b001966dac3426mr1521159pls.23.1675158706819; Tue, 31 Jan
- 2023 01:51:46 -0800 (PST)
+        bh=I2PnCnyT2fvcTWG9X0fPVr4Dnve0da/bDZmD3vee3D4=;
+        b=aTuMI99k0kmIaAfQBG4QgrOoHDkpe+kV906y9Vv2UuTtCSzASMC9K6JQ31fkeU/xc9
+         MFi88qZBb68gwOWyu/+oqrPsMY8oLsC+ZusTIQUpEY6jfxe41YBclZifVNuwHAweb6eQ
+         fuvDrZEliMCeuYDWuj3zUgaAzyc6guvmpfk71C25DyShSUxd0lVeHTkf5Jpuq45RH0jq
+         J9kOpHSfMMrjWmX1BB18HYkNg5voqkPxLDQIgm4jnG30ej7tLd/Nr43/IP1ugnmQeE8q
+         4zrZUv9NwEVhIyyCjdPKvtBTVwofFB84SeEUSUE4VN9nY/1ULWtfi0jI4JzYdoOdfAx3
+         BlCA==
+X-Gm-Message-State: AO0yUKXWMy9IWU9lGRQzTPhCXuXKT5gwsHGjXRAXKewmAueWvH6lFqZb
+	Qsk72dnMF9uTfjjlKKSqfMJdpw4qWeqOX7w4DytfEg==
+X-Google-Smtp-Source: AK7set/QWUSIy/GAgWU6t4njmCkJONh7fggwX0iwg5N1AsGt/lACe4NbLVz1u9gWmsfh2soPTeDjo81U6htWvfEXWhU=
+X-Received: by 2002:adf:ee4d:0:b0:2bf:e31a:26ba with SMTP id
+ w13-20020adfee4d000000b002bfe31a26bamr408623wro.144.1675159210194; Tue, 31
+ Jan 2023 02:00:10 -0800 (PST)
 MIME-Version: 1.0
-References: <20230128072737.2995881-1-apatel@ventanamicro.com> <20230128072737.2995881-5-apatel@ventanamicro.com>
-In-Reply-To: <20230128072737.2995881-5-apatel@ventanamicro.com>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Tue, 31 Jan 2023 01:51:35 -0800
-Message-ID: <CAOnJCUJEBooLbL0uACv7W_dV1dXP7YvA3-iL0HRBZ4Q-fPu3qg@mail.gmail.com>
-Subject: Re: [PATCH v2 4/7] RISC-V: KVM: Initial skeletal support for AIA
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Andrew Jones <ajones@ventanamicro.com>, 
-	Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20230127091051.1465278-1-jeeheng.sia@starfivetech.com>
+ <20230127091051.1465278-5-jeeheng.sia@starfivetech.com> <Y9hTGo6dfgeusW4B@spud>
+In-Reply-To: <Y9hTGo6dfgeusW4B@spud>
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+Date: Tue, 31 Jan 2023 10:59:58 +0100
+Message-ID: <CAHVXubgoi8FsfdAXVocL=ZcfGT=mA72uiq60jPVJB52ovKhdzA@mail.gmail.com>
+Subject: Re: [PATCH v3 4/4] RISC-V: Add arch functions to support hibernation/suspend-to-disk
+To: Conor Dooley <conor@kernel.org>
+Cc: Sia Jee Heng <jeeheng.sia@starfivetech.com>, paul.walmsley@sifive.com, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, leyfoon.tan@starfivetech.com, 
+	mason.huo@starfivetech.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230131_015149_697970_E3CB1350 
-X-CRM114-Status: GOOD (  29.08  )
+X-CRM114-CacheID: sfid-20230131_020013_628685_5E668BFD 
+X-CRM114-Status: GOOD (  48.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,496 +88,577 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 27, 2023 at 11:28 PM Anup Patel <apatel@ventanamicro.com> wrote:
->
-> To incrementally implement AIA support, we first add minimal skeletal
-> support which only compiles and detects AIA hardware support at the
-> boot-time but does not provide any functionality.
->
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> ---
->  arch/riscv/include/asm/hwcap.h    |   6 ++
->  arch/riscv/include/asm/kvm_aia.h  | 109 ++++++++++++++++++++++++++++++
->  arch/riscv/include/asm/kvm_host.h |   7 ++
->  arch/riscv/kvm/Makefile           |   1 +
->  arch/riscv/kvm/aia.c              |  66 ++++++++++++++++++
->  arch/riscv/kvm/main.c             |  13 ++++
->  arch/riscv/kvm/vcpu.c             |  40 ++++++++++-
->  arch/riscv/kvm/vcpu_insn.c        |   4 +-
->  arch/riscv/kvm/vm.c               |   4 ++
->  9 files changed, 246 insertions(+), 4 deletions(-)
->  create mode 100644 arch/riscv/include/asm/kvm_aia.h
->  create mode 100644 arch/riscv/kvm/aia.c
->
-> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-> index 341ef30a3718..a03d51df517b 100644
-> --- a/arch/riscv/include/asm/hwcap.h
-> +++ b/arch/riscv/include/asm/hwcap.h
-> @@ -65,6 +65,12 @@ enum riscv_isa_ext_id {
->  };
->  static_assert(RISCV_ISA_EXT_ID_MAX <= RISCV_ISA_EXT_MAX);
->
-> +#ifdef CONFIG_RISCV_M_MODE
-> +#define RISCV_ISA_EXT_SxAIA            RISCV_ISA_EXT_SMAIA
-> +#else
-> +#define RISCV_ISA_EXT_SxAIA            RISCV_ISA_EXT_SSAIA
-> +#endif
-> +
->  /*
->   * This enum represents the logical ID for each RISC-V ISA extension static
->   * keys. We can use static key to optimize code path if some ISA extensions
-> diff --git a/arch/riscv/include/asm/kvm_aia.h b/arch/riscv/include/asm/kvm_aia.h
-> new file mode 100644
-> index 000000000000..258a835d4c32
-> --- /dev/null
-> +++ b/arch/riscv/include/asm/kvm_aia.h
-> @@ -0,0 +1,109 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright (C) 2021 Western Digital Corporation or its affiliates.
-> + * Copyright (C) 2022 Ventana Micro Systems Inc.
-> + *
-> + * Authors:
-> + *     Anup Patel <apatel@ventanamicro.com>
-> + */
-> +
-> +#ifndef __KVM_RISCV_AIA_H
-> +#define __KVM_RISCV_AIA_H
-> +
-> +#include <linux/jump_label.h>
-> +#include <linux/kvm_types.h>
-> +
-> +struct kvm_aia {
-> +       /* In-kernel irqchip created */
-> +       bool            in_kernel;
-> +
-> +       /* In-kernel irqchip initialized */
-> +       bool            initialized;
-> +};
-> +
-> +struct kvm_vcpu_aia {
-> +};
-> +
-> +#define kvm_riscv_aia_initialized(k)   ((k)->arch.aia.initialized)
-> +
-> +#define irqchip_in_kernel(k)           ((k)->arch.aia.in_kernel)
-> +
-> +DECLARE_STATIC_KEY_FALSE(kvm_riscv_aia_available);
-> +#define kvm_riscv_aia_available() \
-> +       static_branch_unlikely(&kvm_riscv_aia_available)
-> +
-> +static inline void kvm_riscv_vcpu_aia_flush_interrupts(struct kvm_vcpu *vcpu)
-> +{
-> +}
-> +
-> +static inline void kvm_riscv_vcpu_aia_sync_interrupts(struct kvm_vcpu *vcpu)
-> +{
-> +}
-> +
-> +static inline bool kvm_riscv_vcpu_aia_has_interrupts(struct kvm_vcpu *vcpu,
-> +                                                    u64 mask)
-> +{
-> +       return false;
-> +}
-> +
-> +static inline void kvm_riscv_vcpu_aia_update_hvip(struct kvm_vcpu *vcpu)
-> +{
-> +}
-> +
-> +static inline void kvm_riscv_vcpu_aia_load(struct kvm_vcpu *vcpu, int cpu)
-> +{
-> +}
-> +
-> +static inline void kvm_riscv_vcpu_aia_put(struct kvm_vcpu *vcpu)
-> +{
-> +}
-> +
-> +static inline int kvm_riscv_vcpu_aia_get_csr(struct kvm_vcpu *vcpu,
-> +                                            unsigned long reg_num,
-> +                                            unsigned long *out_val)
-> +{
-> +       *out_val = 0;
-> +       return 0;
-> +}
-> +
-> +static inline int kvm_riscv_vcpu_aia_set_csr(struct kvm_vcpu *vcpu,
-> +                                            unsigned long reg_num,
-> +                                            unsigned long val)
-> +{
-> +       return 0;
-> +}
-> +
-> +#define KVM_RISCV_VCPU_AIA_CSR_FUNCS
-> +
-> +static inline int kvm_riscv_vcpu_aia_update(struct kvm_vcpu *vcpu)
-> +{
-> +       return 1;
-> +}
-> +
-> +static inline void kvm_riscv_vcpu_aia_reset(struct kvm_vcpu *vcpu)
-> +{
-> +}
-> +
-> +static inline int kvm_riscv_vcpu_aia_init(struct kvm_vcpu *vcpu)
-> +{
-> +       return 0;
-> +}
-> +
-> +static inline void kvm_riscv_vcpu_aia_deinit(struct kvm_vcpu *vcpu)
-> +{
-> +}
-> +
-> +static inline void kvm_riscv_aia_init_vm(struct kvm *kvm)
-> +{
-> +}
-> +
-> +static inline void kvm_riscv_aia_destroy_vm(struct kvm *kvm)
-> +{
-> +}
-> +
-> +void kvm_riscv_aia_enable(void);
-> +void kvm_riscv_aia_disable(void);
-> +int kvm_riscv_aia_init(void);
-> +void kvm_riscv_aia_exit(void);
-> +
-> +#endif
-> diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
-> index 93f43a3e7886..8776e7a465c7 100644
-> --- a/arch/riscv/include/asm/kvm_host.h
-> +++ b/arch/riscv/include/asm/kvm_host.h
-> @@ -14,6 +14,7 @@
->  #include <linux/kvm_types.h>
->  #include <linux/spinlock.h>
->  #include <asm/hwcap.h>
-> +#include <asm/kvm_aia.h>
->  #include <asm/kvm_vcpu_fp.h>
->  #include <asm/kvm_vcpu_insn.h>
->  #include <asm/kvm_vcpu_sbi.h>
-> @@ -93,6 +94,9 @@ struct kvm_arch {
->
->         /* Guest Timer */
->         struct kvm_guest_timer timer;
-> +
-> +       /* AIA Guest/VM context */
-> +       struct kvm_aia aia;
->  };
->
->  struct kvm_cpu_trap {
-> @@ -220,6 +224,9 @@ struct kvm_vcpu_arch {
->         /* SBI context */
->         struct kvm_vcpu_sbi_context sbi_context;
->
-> +       /* AIA VCPU context */
-> +       struct kvm_vcpu_aia aia_context;
-> +
->         /* Cache pages needed to program page tables with spinlock held */
->         struct kvm_mmu_memory_cache mmu_page_cache;
->
-> diff --git a/arch/riscv/kvm/Makefile b/arch/riscv/kvm/Makefile
-> index 019df9208bdd..adbc85a94364 100644
-> --- a/arch/riscv/kvm/Makefile
-> +++ b/arch/riscv/kvm/Makefile
-> @@ -25,3 +25,4 @@ kvm-y += vcpu_sbi_base.o
->  kvm-y += vcpu_sbi_replace.o
->  kvm-y += vcpu_sbi_hsm.o
->  kvm-y += vcpu_timer.o
-> +kvm-y += aia.o
-> diff --git a/arch/riscv/kvm/aia.c b/arch/riscv/kvm/aia.c
-> new file mode 100644
-> index 000000000000..7a633331cd3e
-> --- /dev/null
-> +++ b/arch/riscv/kvm/aia.c
-> @@ -0,0 +1,66 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (C) 2021 Western Digital Corporation or its affiliates.
-> + * Copyright (C) 2022 Ventana Micro Systems Inc.
-> + *
-> + * Authors:
-> + *     Anup Patel <apatel@ventanamicro.com>
-> + */
-> +
-> +#include <linux/kvm_host.h>
-> +#include <asm/hwcap.h>
-> +
-> +DEFINE_STATIC_KEY_FALSE(kvm_riscv_aia_available);
-> +
-> +static void aia_set_hvictl(bool ext_irq_pending)
-> +{
-> +       unsigned long hvictl;
-> +
-> +       /*
-> +        * HVICTL.IID == 9 and HVICTL.IPRIO == 0 represents
-> +        * no interrupt in HVICTL.
-> +        */
-> +
-> +       hvictl = (IRQ_S_EXT << HVICTL_IID_SHIFT) & HVICTL_IID;
-> +       hvictl |= ext_irq_pending;
-> +       csr_write(CSR_HVICTL, hvictl);
-> +}
-> +
-> +void kvm_riscv_aia_enable(void)
-> +{
-> +       if (!kvm_riscv_aia_available())
-> +               return;
-> +
-> +       aia_set_hvictl(false);
-> +       csr_write(CSR_HVIPRIO1, 0x0);
-> +       csr_write(CSR_HVIPRIO2, 0x0);
-> +#ifdef CONFIG_32BIT
-> +       csr_write(CSR_HVIPH, 0x0);
-> +       csr_write(CSR_HIDELEGH, 0x0);
-> +       csr_write(CSR_HVIPRIO1H, 0x0);
-> +       csr_write(CSR_HVIPRIO2H, 0x0);
-> +#endif
-> +}
-> +
-> +void kvm_riscv_aia_disable(void)
-> +{
-> +       if (!kvm_riscv_aia_available())
-> +               return;
-> +
-> +       aia_set_hvictl(false);
-> +}
-> +
-> +int kvm_riscv_aia_init(void)
-> +{
-> +       if (!riscv_isa_extension_available(NULL, SxAIA))
-> +               return -ENODEV;
-> +
-> +       /* Enable KVM AIA support */
-> +       static_branch_enable(&kvm_riscv_aia_available);
-> +
-> +       return 0;
-> +}
-> +
-> +void kvm_riscv_aia_exit(void)
-> +{
-> +}
-> diff --git a/arch/riscv/kvm/main.c b/arch/riscv/kvm/main.c
-> index 58c5489d3031..d8ff44eb04ca 100644
-> --- a/arch/riscv/kvm/main.c
-> +++ b/arch/riscv/kvm/main.c
-> @@ -53,11 +53,15 @@ int kvm_arch_hardware_enable(void)
->
->         csr_write(CSR_HVIP, 0);
->
-> +       kvm_riscv_aia_enable();
-> +
->         return 0;
->  }
->
->  void kvm_arch_hardware_disable(void)
->  {
-> +       kvm_riscv_aia_disable();
-> +
->         /*
->          * After clearing the hideleg CSR, the host kernel will receive
->          * spurious interrupts if hvip CSR has pending interrupts and the
-> @@ -72,6 +76,7 @@ void kvm_arch_hardware_disable(void)
->
->  int kvm_arch_init(void *opaque)
->  {
-> +       int rc;
->         const char *str;
->
->         if (!riscv_isa_extension_available(NULL, h)) {
-> @@ -93,6 +98,10 @@ int kvm_arch_init(void *opaque)
->
->         kvm_riscv_gstage_vmid_detect();
->
-> +       rc = kvm_riscv_aia_init();
-> +       if (rc && rc != -ENODEV)
-> +               return rc;
-> +
->         kvm_info("hypervisor extension available\n");
->
->         switch (kvm_riscv_gstage_mode()) {
-> @@ -115,11 +124,15 @@ int kvm_arch_init(void *opaque)
->
->         kvm_info("VMID %ld bits available\n", kvm_riscv_gstage_vmid_bits());
->
-> +       if (kvm_riscv_aia_available())
-> +               kvm_info("AIA available\n");
-> +
->         return 0;
->  }
->
->  void kvm_arch_exit(void)
->  {
-> +       kvm_riscv_aia_exit();
->  }
->
->  static int __init riscv_kvm_init(void)
-> diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-> index 2260adaf2de8..3cf50eadc8ce 100644
-> --- a/arch/riscv/kvm/vcpu.c
-> +++ b/arch/riscv/kvm/vcpu.c
-> @@ -135,6 +135,8 @@ static void kvm_riscv_reset_vcpu(struct kvm_vcpu *vcpu)
->
->         kvm_riscv_vcpu_timer_reset(vcpu);
->
-> +       kvm_riscv_vcpu_aia_reset(vcpu);
-> +
->         WRITE_ONCE(vcpu->arch.irqs_pending, 0);
->         WRITE_ONCE(vcpu->arch.irqs_pending_mask, 0);
->
-> @@ -155,6 +157,7 @@ int kvm_arch_vcpu_precreate(struct kvm *kvm, unsigned int id)
->
->  int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
->  {
-> +       int rc;
->         struct kvm_cpu_context *cntx;
->         struct kvm_vcpu_csr *reset_csr = &vcpu->arch.guest_reset_csr;
->         unsigned long host_isa, i;
-> @@ -194,6 +197,11 @@ int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
->         /* Setup VCPU timer */
->         kvm_riscv_vcpu_timer_init(vcpu);
->
-> +       /* Setup VCPU AIA */
-> +       rc = kvm_riscv_vcpu_aia_init(vcpu);
-> +       if (rc)
-> +               return rc;
-> +
->         /* Reset VCPU */
->         kvm_riscv_reset_vcpu(vcpu);
->
-> @@ -213,6 +221,9 @@ void kvm_arch_vcpu_postcreate(struct kvm_vcpu *vcpu)
->
->  void kvm_arch_vcpu_destroy(struct kvm_vcpu *vcpu)
->  {
-> +       /* Cleanup VCPU AIA context */
-> +       kvm_riscv_vcpu_aia_deinit(vcpu);
-> +
->         /* Cleanup VCPU timer */
->         kvm_riscv_vcpu_timer_deinit(vcpu);
->
-> @@ -730,6 +741,9 @@ void kvm_riscv_vcpu_flush_interrupts(struct kvm_vcpu *vcpu)
->                 csr->hvip &= ~mask;
->                 csr->hvip |= val;
->         }
-> +
-> +       /* Flush AIA high interrupts */
-> +       kvm_riscv_vcpu_aia_flush_interrupts(vcpu);
->  }
->
->  void kvm_riscv_vcpu_sync_interrupts(struct kvm_vcpu *vcpu)
-> @@ -755,6 +769,9 @@ void kvm_riscv_vcpu_sync_interrupts(struct kvm_vcpu *vcpu)
->                 }
->         }
->
-> +       /* Sync-up AIA high interrupts */
-> +       kvm_riscv_vcpu_aia_sync_interrupts(vcpu);
-> +
->         /* Sync-up timer CSRs */
->         kvm_riscv_vcpu_timer_sync(vcpu);
->  }
-> @@ -791,10 +808,15 @@ int kvm_riscv_vcpu_unset_interrupt(struct kvm_vcpu *vcpu, unsigned int irq)
->
->  bool kvm_riscv_vcpu_has_interrupts(struct kvm_vcpu *vcpu, unsigned long mask)
->  {
-> -       unsigned long ie = ((vcpu->arch.guest_csr.vsie & VSIP_VALID_MASK)
-> -                           << VSIP_TO_HVIP_SHIFT) & mask;
-> +       unsigned long ie;
-> +
-> +       ie = ((vcpu->arch.guest_csr.vsie & VSIP_VALID_MASK)
-> +               << VSIP_TO_HVIP_SHIFT) & mask;
-> +       if (READ_ONCE(vcpu->arch.irqs_pending) & ie)
-> +               return true;
->
-> -       return (READ_ONCE(vcpu->arch.irqs_pending) & ie) ? true : false;
-> +       /* Check AIA high interrupts */
-> +       return kvm_riscv_vcpu_aia_has_interrupts(vcpu, mask);
->  }
->
->  void kvm_riscv_vcpu_power_off(struct kvm_vcpu *vcpu)
-> @@ -890,6 +912,8 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
->         kvm_riscv_vcpu_guest_fp_restore(&vcpu->arch.guest_context,
->                                         vcpu->arch.isa);
->
-> +       kvm_riscv_vcpu_aia_load(vcpu, cpu);
-> +
->         vcpu->cpu = cpu;
->  }
->
-> @@ -899,6 +923,8 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
->
->         vcpu->cpu = -1;
->
-> +       kvm_riscv_vcpu_aia_put(vcpu);
-> +
->         kvm_riscv_vcpu_guest_fp_save(&vcpu->arch.guest_context,
->                                      vcpu->arch.isa);
->         kvm_riscv_vcpu_host_fp_restore(&vcpu->arch.host_context);
-> @@ -966,6 +992,7 @@ static void kvm_riscv_update_hvip(struct kvm_vcpu *vcpu)
->         struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
->
->         csr_write(CSR_HVIP, csr->hvip);
-> +       kvm_riscv_vcpu_aia_update_hvip(vcpu);
->  }
->
->  /*
-> @@ -1040,6 +1067,13 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
->
->                 local_irq_disable();
->
-> +               /* Update AIA HW state before entering guest */
-> +               ret = kvm_riscv_vcpu_aia_update(vcpu);
-> +               if (ret <= 0) {
-> +                       local_irq_enable();
-> +                       continue;
-> +               }
-> +
->                 /*
->                  * Ensure we set mode to IN_GUEST_MODE after we disable
->                  * interrupts and before the final VCPU requests check.
-> diff --git a/arch/riscv/kvm/vcpu_insn.c b/arch/riscv/kvm/vcpu_insn.c
-> index 0bb52761a3f7..07e8c121922b 100644
-> --- a/arch/riscv/kvm/vcpu_insn.c
-> +++ b/arch/riscv/kvm/vcpu_insn.c
-> @@ -213,7 +213,9 @@ struct csr_func {
->                     unsigned long wr_mask);
->  };
->
-> -static const struct csr_func csr_funcs[] = { };
-> +static const struct csr_func csr_funcs[] = {
-> +       KVM_RISCV_VCPU_AIA_CSR_FUNCS
-> +};
->
->  /**
->   * kvm_riscv_vcpu_csr_return -- Handle CSR read/write after user space
-> diff --git a/arch/riscv/kvm/vm.c b/arch/riscv/kvm/vm.c
-> index 65a964d7e70d..bc03d2ddcb51 100644
-> --- a/arch/riscv/kvm/vm.c
-> +++ b/arch/riscv/kvm/vm.c
-> @@ -41,6 +41,8 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
->                 return r;
->         }
->
-> +       kvm_riscv_aia_init_vm(kvm);
-> +
->         kvm_riscv_guest_timer_init(kvm);
->
->         return 0;
-> @@ -49,6 +51,8 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
->  void kvm_arch_destroy_vm(struct kvm *kvm)
->  {
->         kvm_destroy_vcpus(kvm);
-> +
-> +       kvm_riscv_aia_destroy_vm(kvm);
->  }
->
->  int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
-> --
-> 2.34.1
->
+Hi,
 
-LGTM.
-Reviewed-by: Atish Patra <atishp@rivosinc.com>
+On Tue, Jan 31, 2023 at 12:30 AM Conor Dooley <conor@kernel.org> wrote:
+>
+> +CC Alex
+>
+> Alex, could you take a look at the page table bits here when you get a
+> chance please?
 
--- 
-Regards,
-Atish
+Yes, I'll do that soon.
+
+Thanks,
+
+Alex
+
+>
+> On Fri, Jan 27, 2023 at 05:10:51PM +0800, Sia Jee Heng wrote:
+> > Low level Arch functions were created to support hibernation.
+> > swsusp_arch_suspend() relies code from __cpu_suspend_enter() to write
+> > cpu state onto the stack, then calling swsusp_save() to save the memory
+> > image.
+> >
+> > Arch specific hibernation header is implemented and is utilized by the
+> > arch_hibernation_header_restore() and arch_hibernation_header_save()
+> > functions. The arch specific hibernation header consists of satp, hartid,
+> > and the cpu_resume address. The kernel built version is also need to be
+> > saved into the hibernation image header to making sure only the same
+> > kernel is restore when resume.
+> >
+> > swsusp_arch_resume() creates a temporary page table that covering only
+> > the linear map. It copies the restore code to a 'safe' page, then start
+> > to restore the memory image. Once completed, it restores the original
+> > kernel's page table. It then calls into __hibernate_cpu_resume()
+> > to restore the CPU context. Finally, it follows the normal hibernation
+> > path back to the hibernation core.
+> >
+> > To enable hibernation/suspend to disk into RISCV, the below config
+> > need to be enabled:
+> > - CONFIG_ARCH_HIBERNATION_HEADER
+> > - CONFIG_ARCH_HIBERNATION_POSSIBLE
+> >
+> > Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
+> > Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+> > Reviewed-by: Mason Huo <mason.huo@starfivetech.com>
+> > ---
+> >  arch/riscv/Kconfig                 |   7 +
+> >  arch/riscv/include/asm/assembler.h |  20 ++
+> >  arch/riscv/include/asm/suspend.h   |  21 ++
+> >  arch/riscv/kernel/Makefile         |   1 +
+> >  arch/riscv/kernel/asm-offsets.c    |   5 +
+> >  arch/riscv/kernel/hibernate-asm.S  |  89 +++++++
+> >  arch/riscv/kernel/hibernate.c      | 360 +++++++++++++++++++++++++++++
+> >  7 files changed, 503 insertions(+)
+> >  create mode 100644 arch/riscv/kernel/hibernate-asm.S
+> >  create mode 100644 arch/riscv/kernel/hibernate.c
+> >
+> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> > index e2b656043abf..4555848a817f 100644
+> > --- a/arch/riscv/Kconfig
+> > +++ b/arch/riscv/Kconfig
+> > @@ -690,6 +690,13 @@ menu "Power management options"
+> >
+> >  source "kernel/power/Kconfig"
+> >
+> > +config ARCH_HIBERNATION_POSSIBLE
+> > +     def_bool y
+> > +
+> > +config ARCH_HIBERNATION_HEADER
+> > +     def_bool y
+> > +     depends on HIBERNATION
+> > +
+> >  endmenu # "Power management options"
+> >
+> >  menu "CPU Power Management"
+> > diff --git a/arch/riscv/include/asm/assembler.h b/arch/riscv/include/asm/assembler.h
+> > index ef1283d04b70..3de70d3e6ceb 100644
+> > --- a/arch/riscv/include/asm/assembler.h
+> > +++ b/arch/riscv/include/asm/assembler.h
+> > @@ -59,4 +59,24 @@
+> >               REG_L   s11, (SUSPEND_CONTEXT_REGS + PT_S11)(a0)
+> >       .endm
+> >
+> > +/**
+> > + * copy_page - copy 1 page (4KB) of data from source to destination
+>
+> arch/riscv/include/asm/assembler.h:64: warning: Incorrect use of kernel-doc format:  * copy_page - copy 1 page (4KB) of data from source to destination
+>
+> > + * @a0 - destination
+> > + * @a1 - source
+> > + */
+> > +     .macro  copy_page a0, a1
+> > +             lui     a2, 0x1
+> > +             add     a2, a2, a0
+> > +.1 :
+> > +             REG_L   t0, 0(a1)
+> > +             REG_L   t1, SZREG(a1)
+> > +
+> > +             REG_S   t0, 0(a0)
+> > +             REG_S   t1, SZREG(a0)
+> > +
+> > +             addi    a0, a0, 2 * SZREG
+> > +             addi    a1, a1, 2 * SZREG
+> > +             bne     a2, a0, .1
+>
+> allmodconfig, clang 15.0.4:
+>
+> <instantiation>:3:1: error: unexpected token at start of statement
+> .1 :
+> ^
+> /stuff/linux/arch/riscv/kernel/hibernate-asm.S:83:2: note: while in macro instantiation
+>  copy_page a0, a1
+>  ^
+> <instantiation>:12:15: error: unknown operand
+>   bne a2, a0, .1
+>               ^
+> /stuff/linux/arch/riscv/kernel/hibernate-asm.S:83:2: note: while in macro instantiation
+>  copy_page a0, a1
+>  ^
+> make[5]: *** [/stuff/linux/scripts/Makefile.build:384: arch/riscv/kernel/hibernate-asm.o] Error 1
+>
+> > +     .endm
+> > +
+> >  #endif       /* __ASM_ASSEMBLER_H */
+> > diff --git a/arch/riscv/include/asm/suspend.h b/arch/riscv/include/asm/suspend.h
+> > index 75419c5ca272..db40ae433aa9 100644
+> > --- a/arch/riscv/include/asm/suspend.h
+> > +++ b/arch/riscv/include/asm/suspend.h
+> > @@ -21,6 +21,12 @@ struct suspend_context {
+> >  #endif
+> >  };
+> >
+> > +/*
+> > + * This parameter will be assigned to 0 during resume and will be used by
+> > + * hibernation core for the subsequent resume sequence
+>
+> This isn't a parameter! I'm not sure that the comment really adds
+> anything to be honest, but "Used by the hibernation core and cleared
+> during the resume sequence" probably gets the point across equally well.
+>
+> > + */
+> > +extern int in_suspend;
+> > +
+> >  /* Low-level CPU suspend entry function */
+> >  int __cpu_suspend_enter(struct suspend_context *context);
+> >
+> > @@ -36,4 +42,19 @@ int __cpu_resume_enter(unsigned long hartid, unsigned long context);
+> >  /* Used to save and restore the csr */
+> >  void suspend_save_csrs(struct suspend_context *context);
+> >  void suspend_restore_csrs(struct suspend_context *context);
+> > +
+> > +/* Low-level API to support hibernation */
+> > +int swsusp_arch_suspend(void);
+> > +int swsusp_arch_resume(void);
+> > +int arch_hibernation_header_save(void *addr, unsigned int max_size);
+> > +int arch_hibernation_header_restore(void *addr);
+> > +int __hibernate_cpu_resume(void);
+> > +
+> > +/* Used to resume on the CPU we hibernated on */
+> > +int hibernate_resume_nonboot_cpu_disable(void);
+> > +
+> > +/* Used to restore the hibernated image */
+>
+> I think this comment is kinda stating the obvious, no?
+>
+> > +asmlinkage void restore_image(unsigned long resume_satp, unsigned long satp_temp,
+> > +                             unsigned long cpu_resume);
+> > +asmlinkage int core_restore_code(void);
+>
+> How about dropping the comment and prepending hiberate_ to this function
+> names?
+>
+> >  #endif
+> > diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+> > index 4cf303a779ab..daab341d55e4 100644
+> > --- a/arch/riscv/kernel/Makefile
+> > +++ b/arch/riscv/kernel/Makefile
+> > @@ -64,6 +64,7 @@ obj-$(CONFIG_MODULES)               += module.o
+> >  obj-$(CONFIG_MODULE_SECTIONS)        += module-sections.o
+> >
+> >  obj-$(CONFIG_CPU_PM)         += suspend_entry.o suspend.o
+> > +obj-$(CONFIG_HIBERNATION)    += hibernate.o hibernate-asm.o
+> >
+> >  obj-$(CONFIG_FUNCTION_TRACER)        += mcount.o ftrace.o
+> >  obj-$(CONFIG_DYNAMIC_FTRACE) += mcount-dyn.o
+> > diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
+> > index df9444397908..d6a75aac1d27 100644
+> > --- a/arch/riscv/kernel/asm-offsets.c
+> > +++ b/arch/riscv/kernel/asm-offsets.c
+> > @@ -9,6 +9,7 @@
+> >  #include <linux/kbuild.h>
+> >  #include <linux/mm.h>
+> >  #include <linux/sched.h>
+> > +#include <linux/suspend.h>
+> >  #include <asm/kvm_host.h>
+> >  #include <asm/thread_info.h>
+> >  #include <asm/ptrace.h>
+> > @@ -116,6 +117,10 @@ void asm_offsets(void)
+> >
+> >       OFFSET(SUSPEND_CONTEXT_REGS, suspend_context, regs);
+> >
+> > +     OFFSET(HIBERN_PBE_ADDR, pbe, address);
+> > +     OFFSET(HIBERN_PBE_ORIG, pbe, orig_address);
+> > +     OFFSET(HIBERN_PBE_NEXT, pbe, next);
+> > +
+> >       OFFSET(KVM_ARCH_GUEST_ZERO, kvm_vcpu_arch, guest_context.zero);
+> >       OFFSET(KVM_ARCH_GUEST_RA, kvm_vcpu_arch, guest_context.ra);
+> >       OFFSET(KVM_ARCH_GUEST_SP, kvm_vcpu_arch, guest_context.sp);
+> > diff --git a/arch/riscv/kernel/hibernate-asm.S b/arch/riscv/kernel/hibernate-asm.S
+> > new file mode 100644
+> > index 000000000000..a83d534b89bd
+> > --- /dev/null
+> > +++ b/arch/riscv/kernel/hibernate-asm.S
+> > @@ -0,0 +1,89 @@
+> > +/* SPDX-License-Identifier: GPL-2.0-only */
+> > +/*
+> > + * Hibernation support specific for RISCV
+> > + *
+> > + * Copyright (C) 2023 StarFive Technology Co., Ltd.
+> > + *
+> > + * Author: Jee Heng Sia <jeeheng.sia@starfivetech.com>
+> > + */
+> > +
+> > +#include <asm/asm.h>
+> > +#include <asm/asm-offsets.h>
+> > +#include <asm/assembler.h>
+> > +#include <asm/csr.h>
+> > +
+> > +#include <linux/linkage.h>
+> > +
+> > +/*
+> > + * This code is executed when resume from the hibernation.
+> > + *
+> > + * It begins with loading the temporary page table then restores the memory image.
+> > + * Finally branches to __hibernate_cpu_resume() to restore the state saved by
+> > + * swsusp_arch_suspend().
+> > + */
+>
+> This file looks to be confusingly ordered. You lead with a comment
+> describing a sequence but the file doesn't follow it.
+> I suggest removing this comment.
+>
+> > +
+> > +/*
+> > + * int __hibernate_cpu_resume(void)
+> > + * Switch back to the hibernated image's page table prior to restore the CPU
+>
+> nit: s/restore/restoring
+>
+> > + * context.
+> > + *
+> > + * Always returns 0 to the C code.
+>
+> s/to the C code//
+>
+> > + */
+> > +ENTRY(__hibernate_cpu_resume)
+> > +     /* switch to hibernated image's page table */
+> > +     csrw CSR_SATP, s0
+> > +     sfence.vma
+> > +
+> > +     REG_L   a0, hibernate_cpu_context
+> > +
+> > +     /* Restore CSRs */
+>
+> Stating the obvious again here, no?
+>
+> > +     restore_csr
+> > +
+> > +     /* Restore registers (except A0 and T0-T6) */
+>
+> Do we need to mention the (except A0 & T0-T6) here and elsewhere?
+> If they're lost across calls anyway, is it worth mentioning that they're
+> lost across hibernation?
+>
+> > +     restore_reg
+> > +
+> > +     /* Return zero value */
+> > +     add     a0, zero, zero
+> > +
+> > +     /* Return to C code */
+>
+> I'd drop this comment. I don't think the presumed caller of the function
+> needs to be mentioned here.
+>
+> > +     ret
+> > +END(__hibernate_cpu_resume)
+> > +
+> > +/*
+> > + * Prepare to restore the image.
+> > + * a0: satp of saved page tables
+> > + * a1: satp of temporary page tables
+> > + * a2: cpu_resume
+> > + */
+> > +ENTRY(restore_image)
+> > +     mv      s0, a0
+> > +     mv      s1, a1
+> > +     mv      s2, a2
+> > +     REG_L   s4, restore_pblist
+> > +     REG_L   a1, relocated_restore_code
+> > +
+> > +     jalr    a1
+> > +END(restore_image)
+> > +
+> > +/*
+> > + * The below code will be executed from a 'safe' page.
+> > + * It first switches to the temporary page table, then start to copy the pages
+>
+> nit: s/start/starts/
+>
+> > + * back to the original memory location. Finally, it jumps to the __hibernate_cpu_resume()
+>
+> nit: s/jumps to the/jumps to/
+>
+> > + * to restore the CPU context.
+> > + */
+> > +ENTRY(core_restore_code)
+> > +     /* switch to temp page table */
+> > +     csrw satp, s1
+> > +     sfence.vma
+> > +.Lcopy:
+> > +     /* The below code will restore the hibernated image. */
+>
+> I think this should be moved to the top of the pre-function comment.
+>
+> > +     REG_L   a1, HIBERN_PBE_ADDR(s4)
+> > +     REG_L   a0, HIBERN_PBE_ORIG(s4)
+> > +
+> > +     copy_page a0, a1
+> > +
+> > +     REG_L   s4, HIBERN_PBE_NEXT(s4)
+> > +     bnez    s4, .Lcopy
+> > +
+> > +     jalr    s2
+> > +END(core_restore_code)
+> > diff --git a/arch/riscv/kernel/hibernate.c b/arch/riscv/kernel/hibernate.c
+> > new file mode 100644
+> > index 000000000000..bf7f3c781820
+> > --- /dev/null
+> > +++ b/arch/riscv/kernel/hibernate.c
+> > @@ -0,0 +1,360 @@
+> > +// SPDX-License-Identifier: GPL-2.0-only
+> > +/*
+> > + * Hibernation support specific for RISCV
+>
+> Well, it'd be odd if it was for another arch but sitting in arch/riscv!
+> ;)
+>
+> Thanks for your patches though, it'll be great to have hibernation
+> support going.
+>
+> > + *
+> > + * Copyright (C) 2023 StarFive Technology Co., Ltd.
+> > + *
+> > + * Author: Jee Heng Sia <jeeheng.sia@starfivetech.com>
+> > + */
+> > +
+> > +#include <asm/barrier.h>
+> > +#include <asm/cacheflush.h>
+> > +#include <asm/mmu_context.h>
+> > +#include <asm/page.h>
+> > +#include <asm/pgtable.h>
+> > +#include <asm/sections.h>
+> > +#include <asm/set_memory.h>
+> > +#include <asm/smp.h>
+> > +#include <asm/suspend.h>
+> > +
+> > +#include <linux/cpu.h>
+> > +#include <linux/memblock.h>
+> > +#include <linux/pm.h>
+> > +#include <linux/sched.h>
+> > +#include <linux/suspend.h>
+> > +#include <linux/utsname.h>
+> > +
+> > +/* The logical cpu number we should resume on, initialised to a non-cpu number */
+> > +static int sleep_cpu = -EINVAL;
+> > +
+> > +/* CPU context to be saved */
+> > +struct suspend_context *hibernate_cpu_context;
+> > +
+> > +unsigned long relocated_restore_code;
+> > +
+> > +/* Pointer to the temporary resume page table */
+> > +pgd_t *resume_pg_dir;
+>
+> sparse doesn't like what you've done here:
+> /stuff/linux/arch/riscv/kernel/hibernate.c:31:24: warning: symbol 'hibernate_cpu_context' was not declared. Should it be static?
+> /stuff/linux/arch/riscv/kernel/hibernate.c:33:15: warning: symbol 'relocated_restore_code' was not declared. Should it be static?
+> /stuff/linux/arch/riscv/kernel/hibernate.c:36:7: warning: symbol 'resume_pg_dir' was not declared. Should it be static?
+> > +
+> > +/**
+> > + * struct arch_hibernate_hdr_invariants - container to store kernel build version
+> > + * @uts_version: to save the build number and date so that the we are not resume with
+>
+> nit: "so that we do not resume"
+>
+> > + *           a different kernel
+> > + */
+> > +struct arch_hibernate_hdr_invariants {
+> > +     char            uts_version[__NEW_UTS_LEN + 1];
+> > +};
+> > +
+> > +/**
+> > + * struct arch_hibernate_hdr - helper parameters that help us to restore the image
+> > + * @invariants: container to store kernel build version
+> > + * @hartid: to make sure same boot_cpu executing the hibernate/restore code.
+>
+> nit: s/executing/executes
+>
+> Also, my OCD is triggered by the inconsistent full stops at EOL.
+>
+> > + * @saved_satp: original page table used by the hibernated image.
+> > + * @restore_cpu_addr: the kernel's image address to restore the CPU context.
+> > + */
+> > +static struct arch_hibernate_hdr {
+> > +     struct arch_hibernate_hdr_invariants invariants;
+> > +     unsigned long   hartid;
+> > +     unsigned long   saved_satp;
+> > +     unsigned long   restore_cpu_addr;
+> > +} resume_hdr;
+> > +
+> > +static inline void arch_hdr_invariants(struct arch_hibernate_hdr_invariants *i)
+> > +{
+> > +     memset(i, 0, sizeof(*i));
+> > +     memcpy(i->uts_version, init_utsname()->version, sizeof(i->uts_version));
+> > +}
+> > +
+> > +/*
+> > + * Check if the given pfn is in the 'nosave' section.
+> > + */
+> > +int pfn_is_nosave(unsigned long pfn)
+> > +{
+> > +     unsigned long nosave_begin_pfn = sym_to_pfn(&__nosave_begin);
+> > +     unsigned long nosave_end_pfn = sym_to_pfn(&__nosave_end - 1);
+> > +
+> > +     return ((pfn >= nosave_begin_pfn) && (pfn <= nosave_end_pfn));
+> > +}
+> > +
+> > +void notrace save_processor_state(void)
+> > +{
+> > +     WARN_ON(num_online_cpus() != 1);
+> > +}
+> > +
+> > +void notrace restore_processor_state(void)
+> > +{
+> > +}
+> > +
+> > +/*
+> > + * Helper parameters need to be saved to the hibernation image header.
+> > + */
+> > +int arch_hibernation_header_save(void *addr, unsigned int max_size)
+> > +{
+> > +     struct arch_hibernate_hdr *hdr = addr;
+> > +
+> > +     if (max_size < sizeof(*hdr))
+> > +             return -EOVERFLOW;
+> > +
+> > +     arch_hdr_invariants(&hdr->invariants);
+> > +
+> > +     hdr->hartid = cpuid_to_hartid_map(sleep_cpu);
+> > +     hdr->saved_satp = csr_read(CSR_SATP);
+> > +     hdr->restore_cpu_addr = (unsigned long)__hibernate_cpu_resume;
+> > +
+> > +     return 0;
+> > +}
+> > +EXPORT_SYMBOL(arch_hibernation_header_save);
+>
+> EXPORT_SYMBOL_GPL(), no? Same below.
+>
+> > +/*
+> > + * Retrieve the helper parameters from the hibernation image header
+> > + */
+> > +int arch_hibernation_header_restore(void *addr)
+> > +{
+> > +     struct arch_hibernate_hdr_invariants invariants;
+> > +     struct arch_hibernate_hdr *hdr = addr;
+> > +     int ret = 0;
+> > +
+> > +     arch_hdr_invariants(&invariants);
+> > +
+> > +     if (memcmp(&hdr->invariants, &invariants, sizeof(invariants))) {
+> > +             pr_crit("Hibernate image not generated by this kernel!\n");
+>
+> Out of curiosity more than anything else, why pr_crit()? Copy-paste from
+> arm64?
+>
+> > +             return -EINVAL;
+> > +     }
+> > +
+> > +     sleep_cpu = riscv_hartid_to_cpuid(hdr->hartid);
+> > +     if (sleep_cpu < 0) {
+> > +             pr_crit("Hibernated on a CPU not known to this kernel!\n");
+> > +             sleep_cpu = -EINVAL;
+> > +             return -EINVAL;
+> > +     }
+> > +
+> > +#ifdef CONFIG_SMP
+> > +     ret = bringup_hibernate_cpu(sleep_cpu);
+> > +     if (ret) {
+> > +             sleep_cpu = -EINVAL;
+> > +             return ret;
+> > +     }
+> > +#endif
+> > +     resume_hdr = *hdr;
+> > +
+> > +     return ret;
+> > +}
+> > +EXPORT_SYMBOL(arch_hibernation_header_restore);
+> > +
+> > +int swsusp_arch_suspend(void)
+> > +{
+> > +     int ret = 0;
+> > +
+> > +     if (__cpu_suspend_enter(hibernate_cpu_context)) {
+> > +             sleep_cpu = smp_processor_id();
+> > +             suspend_save_csrs(hibernate_cpu_context);
+> > +             ret = swsusp_save();
+> > +     } else {
+> > +             suspend_restore_csrs(hibernate_cpu_context);
+> > +             flush_tlb_all();
+> > +
+> > +             /* Invalidated Icache */
+>
+> Think this comment can go, no?
+>
+> > +             flush_icache_all();
+> > +
+> > +             /*
+> > +              * Tell the hibernation core that we've just restored
+> > +              * the memory
+>
+> I noticed arm64 manipulates the crash kernel in this function too.
+> How come we don't?
+>
+> > +              */
+> > +             in_suspend = 0;
+> > +             sleep_cpu = -EINVAL;
+> > +     }
+> > +
+> > +     return ret;
+> > +}
+> > +
+>
+> The page table stuff here is beyond me... Hopefully Alex can take a look!
+>
+> I noticed arm64's one of these is not gated, what is different about
+> RISC-V that requires it to be?
+>
+> > +int hibernate_resume_nonboot_cpu_disable(void)
+> > +{
+> > +     if (sleep_cpu < 0) {
+> > +             pr_err("Failing to resume from hibernate on an unknown CPU.\n");
+> > +             return -ENODEV;
+> > +     }
+> > +
+> > +     return freeze_secondary_cpus(sleep_cpu);
+> > +}
+> > +#endif
+> > +
+> > +static int __init riscv_hibernate_init(void)
+> > +{
+> > +     hibernate_cpu_context = kcalloc(1, sizeof(struct suspend_context), GFP_KERNEL);
+> > +
+> > +     if (WARN_ON(!hibernate_cpu_context))
+> > +             return -ENOMEM;
+> > +
+> > +     return 0;
+> > +}
+>
+> Thanks,
+> Conor.
+>
 
 _______________________________________________
 linux-riscv mailing list
