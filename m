@@ -4,63 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33738C38142
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 Jan 2023 06:41:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F5B7C38142
+	for <linux-riscv@archiver.kernel.org>; Tue, 31 Jan 2023 06:56:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vbBJrhmYsAOG19c2P5aBZ2SC+d2C8WfzXT3jiDfC09U=; b=bJSnNjnnkjJjy/
-	mkCtbqsKhptbZvK/E8G5cZj/WbGRtYfL/YDpboZ0ZDqB7wQYrSuSo+3vNF2w187Lw9H2YwNBWvQ3I
-	gdJvhQUbbHGe9SRHdD4C9Juc9Wt+D60SH6+W3Wh/eDFEmJzyUcjidmw4mbC0HxSIUJYXdmLbw4q5n
-	bUrs4S+prJERpQOraTgugNFrUZlCj9SHHZsvqgOqT5M04omU2sebwl/Tkho6YuOrIlCdW0or1UsQH
-	/Qv90b1CiYscVH4hcQHo7XFG9d+vFwU5zO0mdoQEMDfWcjnwB0g2diOb358MEEqVBj/noW27JeAai
-	Ln1FXf4BTLlg1RrPWC+A==;
+	List-Owner; bh=4QmcK/rH4no1EJQv+Evxf/8Zvl3Iw/xkdLBm+J367jw=; b=VLvdsjkaBJONzF
+	elZky8+3IND2Ks7q0t3YuCKcHxFMw7GdtfHAr8CYyPi54MQM/UTusl1mYpSjkgXSN6fdRH1TS6Fel
+	KHP7Oq5jD6A2XZCJ+z3FdmRpjTSGHkb/5MBYXg4mmwwMWbFlv6bNnWslth54FWFXAZFbKCYFLbkF2
+	MfIR5Mar5KYv724nhf4TM0I5bHolU6EhI/Wk6mnwilpEnEHbtp9TzGk7QlsifSyvM5KHbrFQzxy2U
+	7xviacdrj0HkVobGvTTuoKC5wqR8KLBBlF2gToDut9+fZXP+vqOeBFFWb/NRhZ4pEDedaEuI9fNEN
+	AChPDSI3kUJZcEFMa4kA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMkJz-006U3D-SB; Tue, 31 Jan 2023 06:40:47 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMkJw-006U2N-OY
-	for linux-riscv@lists.infradead.org; Tue, 31 Jan 2023 06:40:46 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 5BCF1B819FE;
-	Tue, 31 Jan 2023 06:40:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7208C433D2;
-	Tue, 31 Jan 2023 06:40:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1675147243;
-	bh=HGGqP/Pod6SsODLD3CZR2XKgRMAKC38fnBK/HFU5oRE=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=et1PKkGleQIe9Ebmz0wVxWaM3B6pL2quMxKzOs8ddeE8+fDpa2JLiEN8tdlsEwSt+
-	 r2B5gMlZw9Yaeey/RewYXbzL/4TWBByH/6K3kO2popDXT3jk4eIExkxnhOZWdgjVM1
-	 3S78lKkvZc1fLNBjrl2x9ICdxUCI5U4vBtMZy5k9IpbaM2ACIsJqHCiahbFmXOYQwr
-	 OoF5AcMbqBYOfQsP0QkWnXL4SXUQWpGR53GGkhcGaKknFIWe6QQWe0k4uAwmZafGMe
-	 yia0qaODJ5Mg7WLM1Xw+ogniiVH44P5OCeRnUOiqninWIRulyduExZ3bYkK4AcTc6O
-	 Whk21Szhc2EjQ==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Guo Ren <guoren@kernel.org>
-Cc: "liaochang (A)" <liaochang1@huawei.com>, palmer@dabbelt.com,
- paul.walmsley@sifive.com, mhiramat@kernel.org, conor.dooley@microchip.com,
- penberg@kernel.org, mark.rutland@arm.com, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>
-Subject: Re: [PATCH] riscv: kprobe: Optimize kprobe with accurate atomicity
-In-Reply-To: <CAJF2gTQZWO8Ubi60nHn-J-8czqBnsp1Kdyoim3uLNkjbYd-H8Q@mail.gmail.com>
-References: <20230126161559.1467374-1-guoren@kernel.org>
- <0abbbdd4-6b85-9659-03ee-97c56a5b77c1@huawei.com>
- <CAJF2gTS0s4X_uwLaEeSqKAyRmxCR2vxRuHhz7-SP2w4bBqzr+Q@mail.gmail.com>
- <87r0vc9h4g.fsf@all.your.base.are.belong.to.us>
- <CAJF2gTQZWO8Ubi60nHn-J-8czqBnsp1Kdyoim3uLNkjbYd-H8Q@mail.gmail.com>
-Date: Tue, 31 Jan 2023 07:40:40 +0100
-Message-ID: <87ilgntdef.fsf@all.your.base.are.belong.to.us>
+	id 1pMkYu-006VZS-Bd; Tue, 31 Jan 2023 06:56:12 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pMkYo-006VPS-EO
+	for linux-riscv@lists.infradead.org; Tue, 31 Jan 2023 06:56:10 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 2079924E1CD;
+	Tue, 31 Jan 2023 14:55:15 +0800 (CST)
+Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 31 Jan
+ 2023 14:55:15 +0800
+Received: from [192.168.125.128] (183.27.97.127) by EXMBX061.cuchost.com
+ (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 31 Jan
+ 2023 14:55:13 +0800
+Message-ID: <1ccec4ad-962b-65d7-b168-69d7e073d358@starfivetech.com>
+Date: Tue, 31 Jan 2023 14:51:06 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.6.1
+Subject: Re: [PATCH v1 03/11] clk: starfive: Add StarFive JH7110
+ System-Top-Group clock driver
+Content-Language: en-US
+To: Stephen Boyd <sboyd@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Michael Turquette
+	<mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+	<devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+CC: Rob Herring <robh+dt@kernel.org>, Conor Dooley <conor@kernel.org>, "Paul
+ Walmsley" <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>,
+	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>
+References: <20230120024445.244345-1-xingyu.wu@starfivetech.com>
+ <20230120024445.244345-4-xingyu.wu@starfivetech.com>
+ <5bb5263d26b157548d7ba39f80989c69.sboyd@kernel.org>
+ <0e77bf23-b359-9884-6a8c-368e31d718a4@starfivetech.com>
+ <f6f558a0daafa454c02fe29cd904cfcd.sboyd@kernel.org>
+From: Xingyu Wu <xingyu.wu@starfivetech.com>
+In-Reply-To: <f6f558a0daafa454c02fe29cd904cfcd.sboyd@kernel.org>
+X-Originating-IP: [183.27.97.127]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX061.cuchost.com
+ (172.16.6.61)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230130_224045_100474_202A70AA 
-X-CRM114-Status: GOOD (  21.86  )
+X-CRM114-CacheID: sfid-20230130_225606_817977_CF55829D 
+X-CRM114-Status: GOOD (  20.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,68 +77,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-R3VvIFJlbiA8Z3VvcmVuQGtlcm5lbC5vcmc+IHdyaXRlczoKCj4gT24gTW9uLCBKYW4gMzAsIDIw
-MjMgYXQgMTE6MjggUE0gQmrDtnJuIFTDtnBlbCA8Ympvcm5Aa2VybmVsLm9yZz4gd3JvdGU6Cj4+
-Cj4+IEd1byBSZW4gPGd1b3JlbkBrZXJuZWwub3JnPiB3cml0ZXM6Cj4+Cj4+ID4+IEluIHRoZSBz
-ZXJpZSBvZiBSSVNDViBPUFRQUk9CRVMgWzFdLCBpdCBwYXRjaGVzIGEgbG9uZy1qdW1wIGluc3Ry
-dWN0aW9ucyBwYWlyCj4+ID4+IEFVSVBDL0pBTFIgaW4ga2VybmVsIHRleHQsIHNvIGluIG9yZGVy
-IHRvIGVuc3VyZSBvdGhlciBDUFVzIGRvZXMgbm90IGV4ZWN1dGUKPj4gPj4gaW4gdGhlIGluc3Ry
-dWN0aW9ucyB0aGF0IHdpbGwgYmUgbW9kaWZpZWQsIGl0IGlzIHN0aWxsIG5lZWQgdG8gc3RvcCBv
-dGhlciBDUFVzCj4+ID4+IHZpYSBwYXRjaF90ZXh0IEFQSSwgb3IgeW91IGhhdmUgYW55IGJldHRl
-ciBzb2x1dGlvbiB0byBhY2hpZXZlIHRoZSBwdXJwb3NlPwo+PiA+ICAtIFRoZSBzdG9wX21hY2hp
-bmUgaXMgYW4gZXhwZW5zaXZlIHdheSBhbGwgYXJjaGl0ZWN0dXJlcyBzaG91bGQKPj4gPiBhdm9p
-ZCwgYW5kIHlvdSBjb3VsZCBrZWVwIHRoYXQgaW4geW91ciBPUFRQUk9CRVMgaW1wbGVtZW50YXRp
-b24gZmlsZXMKPj4gPiB3aXRoIHN0YXRpYyBmdW5jdGlvbnMuCj4+ID4gIC0gVGhlIHN0b3BfbWFj
-aGluZSBjb3VsZG4ndCB3b3JrIHdpdGggUFJFRU1QVElPTiwgc28geW91cgo+PiA+IGltcGxlbWVu
-dGF0aW9uIG5lZWRzIHRvIHdvcmsgd2l0aCAhUFJFRU1QVElPTi4KPj4KPj4gLi4uYW5kIHN0b3Bf
-bWFjaGluZSgpIHdpdGggIVBSRUVNUFRJT04gaXMgYnJva2VuIGFzIHdlbGwsIHdoZW4geW91J3Jl
-Cj4+IHJlcGxhY2luZyBtdWx0aXBsZSBpbnN0cnVjdGlvbnMgKHNlZSBNYXJrJ3MgcG9zdCBhdCBb
-MV0pLiBUaGUKPj4gc3RvcF9tYWNoaW5lKCkgZGFuY2UgbWlnaHQgd29yayB3aGVuIHlvdSdyZSBy
-ZXBsYWNpbmcgKm9uZSogaW5zdHJ1Y3Rpb24sCj4+IG5vdCBtdWx0aXBsZSBhcyBpbiB0aGUgUklT
-Qy1WIGNhc2UuIEknbGwgZXhwYW5kIG9uIHRoaXMgaW4gYSBjb21tZW50IGluCj4+IHRoZSBPUFRQ
-Uk9CRVMgdjYgc2VyaWVzLgo+Pgo+PiA+PiA+ICBzdGF0aWMgdm9pZCBfX2twcm9iZXMgYXJjaF9w
-cmVwYXJlX3NpbXVsYXRlKHN0cnVjdCBrcHJvYmUgKnApCj4+ID4+ID4gQEAgLTExNCwxNiArMTIw
-LDIzIEBAIHZvaWQgKmFsbG9jX2luc25fcGFnZSh2b2lkKQo+PiA+PiA+ICAvKiBpbnN0YWxsIGJy
-ZWFrcG9pbnQgaW4gdGV4dCAqLwo+PiA+PiA+ICB2b2lkIF9fa3Byb2JlcyBhcmNoX2FybV9rcHJv
-YmUoc3RydWN0IGtwcm9iZSAqcCkKPj4gPj4gPiAgewo+PiA+PiA+IC0gICAgIGlmICgocC0+b3Bj
-b2RlICYgX19JTlNOX0xFTkdUSF9NQVNLKSA9PSBfX0lOU05fTEVOR1RIXzMyKQo+PiA+PiA+IC0g
-ICAgICAgICAgICAgcGF0Y2hfdGV4dChwLT5hZGRyLCBfX0JVR19JTlNOXzMyKTsKPj4gPj4gPiAt
-ICAgICBlbHNlCj4+ID4+ID4gLSAgICAgICAgICAgICBwYXRjaF90ZXh0KHAtPmFkZHIsIF9fQlVH
-X0lOU05fMTYpOwo+PiA+PiA+ICsjaWZkZWYgQ09ORklHX1JJU0NWX0lTQV9DCj4+ID4+ID4gKyAg
-ICAgdTMyIG9wY29kZSA9IF9fQlVHX0lOU05fMTY7Cj4+ID4+ID4gKyNlbHNlCj4+ID4+ID4gKyAg
-ICAgdTMyIG9wY29kZSA9IF9fQlVHX0lOU05fMzI7Cj4+ID4+ID4gKyNlbmRpZgo+PiA+PiA+ICsg
-ICAgIHBhdGNoX3RleHRfbm9zeW5jKHAtPmFkZHIsICZvcGNvZGUsIEdFVF9JTlNOX0xFTkdUSChv
-cGNvZGUpKTsKPj4gPj4KPj4gPj4gU291bmRzIGdvb2QsIGJ1dCBpdCB3aWxsIGxlYXZlIHNvbWUg
-UlZJIGluc3RydWN0aW9uIHRydW5jYXRlZCBpbiBrZXJuZWwgdGV4dCwKPj4gPj4gaSBkb3VidCBr
-ZXJuZWwgYmVoYXZpb3IgZGVwZW5kcyBvbiB0aGUgcmVzdCBvZiB0aGUgdHJ1bmNhdGVkIGluc3Ry
-dWN0aW9uLCB3ZWxsLAo+PiA+PiBpdCBuZWVkcyBtb3JlIHN0cmljdCB0ZXN0aW5nIHRvIHByb3Zl
-IG15IGNvbmNlcm4gOikKPj4gPiBJIGRvIHRoaXMgb24gcHVycG9zZSwgYW5kIGl0IGRvZXNuJ3Qg
-Y2F1c2UgYW55IHByb2JsZW1zLiBEb24ndCB3b3JyeTsKPj4gPiBJRlUgaHcgbXVzdCBlbmZvcmNl
-IHRoZSBmZXRjaCBzZXF1ZW5jZSwgYW5kIHRoZXJlIGlzIG5vIHdheSB0byBleGVjdXRlCj4+ID4g
-YnJva2VuIGluc3RydWN0aW9ucyBldmVuIGluIHRoZSBzcGVjdWxhdGl2ZSBleGVjdXRpb24gcGF0
-aC4KPj4KPj4gVGhpcyBpcyBzdHJldGNoaW5nIHJlYWxpdHkgYSBiaXQgbXVjaC4gQVJNdjgsIGUu
-Zy4sIGhhcyBhIGNoYXB0ZXIgaW4gdGhlCj4+IEFybSBBUk0gWzJdIEFwcGVuZGl4IEIgIkNvbmN1
-cnJlbnQgbW9kaWZpY2F0aW9uIGFuZCBleGVjdXRpb24gb2YKPj4gaW5zdHJ1Y3Rpb25zIiAoQ01P
-RFgpLiAqU29tZSogaW5zdHJ1Y3Rpb25zIGNhbiBiZSByZXBsYWNlZCBjb25jdXJyZW50bHksCj4+
-IGFuZCBvdGhlcnMgY2Fubm90IHdpdGhvdXQgY2F1dGlvbi4gQXNzdW1pbmcgdGhhdCB0aGF0IGFs
-bCBSSVNDLVYKPj4gaW1wbGVtZW50YXRpb25zIGNhbiwgaXMgYSBzdHJldGNoLiBSSVNDLVYgaGFz
-bid0IGV2ZW4gc3BlY2lmaWVkIHRoZQo+PiBiZWhhdmlvciBvZiBDTU9EWCAod2hpY2ggaXMgcHJv
-YmxlbWF0aWMpLgo+IEhlcmUgd2Ugb25seSB1c2Ugb25lIHN3L3NoIGluc3RydWN0aW9uIHRvIHN0
-b3JlIGEgMzJiaXQvMTZiaXQgYWxpZ25lZCBlbGVtZW50Ogo+Cj4gSU5TTl8wIDwtIGVicmVhayAo
-MTZiaXQvMzJiaXQgYWxpZ25lZCkKPiBJTlNOXzEKPiBJTlNOXzIKPgo+IFRoZSBlYnJlYWsgd291
-bGQgY2F1c2UgYW4gZXhjZXB0aW9uIHdoaWNoIGltcGxpZXMgYSBodWdlIGZlbmNlIGhlcmUuCj4g
-Tm8gbWFjaGluZSBjb3VsZCBnaXZlIGEgc3BlY3VsYXRpdmUgZXhlY3V0aW9uIGZvciB0aGUgZWJy
-ZWFrIHBhdGguCgpJdCdzIHRoZSBjb25jdXJyZW50IG1vZGlmaWNhdGlvbiB0aGF0IEkgd2FzIHJl
-ZmVycmluZyB0byAocmVtb3ZpbmcKc3RvcF9tYWNoaW5lKCkpLiBZb3UncmUgc2F5aW5nICJpdCds
-bCBhbHdheXMgd29yayIsIEknbSBzYXlpbmcgIkknbSBub3QKc28gc3VyZSIuIDotKSBFLmcuLCB3
-cml0aW5nIGMuZWJyZWFrIG9uIGFuIDMyYiBpbnNuLiBDYW4geW91IHNheSB0aGF0CndpbGwgd29y
-ayBvbiBhbGwgUklTQy1WIGltcGxlbWVudGF0aW9ucz8gRG8geW91IGhhdmUgZXhhbXBsZXMgb2YK
-aGFyZHdhcmUgd2hlcmUgaXQgd2lsbCB3b3JrPwoKCkJqw7ZybgoKX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cmxp
-bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
-bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On 2023/1/31 8:35, Stephen Boyd wrote:
+> Quoting Xingyu Wu (2023-01-30 00:02:28)
+>> On 2023/1/26 10:33, Stephen Boyd wrote:
+>> > Quoting Xingyu Wu (2023-01-19 18:44:37)
+>> >> diff --git a/drivers/clk/starfive/clk-starfive-jh7110-stg.c b/drivers/clk/starfive/clk-starfive-jh7110-stg.c
+>> >> new file mode 100644
+>> >> index 000000000000..c2740f44e796
+>> >> --- /dev/null
+>> >> +++ b/drivers/clk/starfive/clk-starfive-jh7110-stg.c
+> [...]
+>> >> +                               parents[i].fw_name = "nocstg_bus";
+>> >> +                       else if (pidx == JH7110_STGCLK_APB_BUS)
+>> >> +                               parents[i].fw_name = "apb_bus";
+>> > 
+>> > Can this be an array lookup instead of a pile of conditions?
+>> > 
+>> >       if (pidx < JH7110_STGCLK_END)
+>> >               ...
+>> >       else
+>> >               parents[i].fw_name = fw_table[pidx - JH7110_STGCLK_END];
+>> > 
+>> > Or even better, don't use strings at all and just make the 'pidx' number
+>> > (possibly minus the end constant) be the 'clocks' property index that
+>> > you want.
+>> 
+>> It seen to be a good way that there uses an array.
+>> Based on the another way, can I use the 'pidx' number to get the 'clock-names' property
+>> to be the parent clock name?
+> 
+> The binding is your design. It is incorrect if the binding is referencing clocks
+> provided by the same node though. If that's the case, simply use the hw
+> pointer directly.
+
+There are external clocks and some of which belong to the SYS clock part.
+Our clocks are divided into SYS, AON, STG, ISP and VOUT parts and they are different nodes.
+So I think I use the clock names maybe better than use the hw pointer.
+
+> 
+>> 
+>> > 
+>> >> +               }
+>> >> +
+>> >> +               clk->hw.init = &init;
+>> >> +               clk->idx = idx;
+>> >> +               clk->max_div = max & JH71X0_CLK_DIV_MASK;
+>> >> +
+>> >> +               ret = devm_clk_hw_register(&pdev->dev, &clk->hw);
+>> >> +               if (ret)
+>> >> +                       return ret;
+>> >> +       }
+>> >> +
+>> >> +       ret = devm_of_clk_add_hw_provider(&pdev->dev, jh7110_stgclk_get, priv);
+>> >> +       if (ret)
+>> >> +               return ret;
+>> >> +
+>> >> +       return jh7110_reset_controller_register(priv, "reset-stg", 2);
+>> > 
+>> > Is this also devm-ified?
+>> 
+>> No, it need to be freed actively. I will advise Hal Feng this.
+>> 
+> 
+> Oh, that's not good.
+
+Will add this in nest patch.
+
+
+Best regards,
+Xingyu Wu
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
