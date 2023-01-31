@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7919CC636CC
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 Jan 2023 22:35:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E8EAC636CC
+	for <linux-riscv@archiver.kernel.org>; Tue, 31 Jan 2023 22:47:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vpGtt3hmqdLnMfOtUFwK6poOfLmOj+AYO7q5/dQqvhE=; b=Ledbms6pie+V5g
-	k6aTx3H9b/n2kAl7qsvGmFs4Ek+R+u5uGyCSEnH9cHmSVV8uy44DpNCRPlpJKfIzlmI1frIjIsnVs
-	tNVlK3r/Z5qi4HpmTxtKPuDAFqSMu/d6dBWgwABSqW9LedJ86pnpy6oP/9L8uV9X/9gb7z7eTHUyB
-	2oLQDLIkhING8np8YvOJlGTHhCxo/s7qtww/DNR4EsXCjMoZ5ruu+wWe/uyavGWRL3KTNpPVxgevM
-	EGgDuW6fFsjMZ9wPqJYYnBNSft06A0BWd7asEBld1Xw4oT93nGOfvdt7WXBEwqLCVjoWGj3DQI4He
-	OtIEETFsMkfScONJ+6qA==;
+	List-Owner; bh=4FyaGaKt+fHhndJQTmIWgqTyaBcxkcddBXAs+bmDDYo=; b=NDvfO4WVsRdCQQ
+	cylRPIdo2yuKigoqXsUETsFEYaiC/wT4efXkwsPqPRDkjMGQM3qLE3Pj6wFzc2RBFm+3dOL/h9d4V
+	2bXAgQYZz0ShK3uCrji/a/fjU+RoIf7hGcOv2Zd8nsRl27QJSN9ILOAeu3n4RO1UwnhRkJqVlP9LJ
+	AwjvrM1M3l3b1oAguPCkDXIaCuqdYVmOkfpUwY/ZFdJOjZkX2ptHyRpxdPxnG/MWIz+6RYTuWrHbU
+	qiivten/W5f/1toOA8NJohuay4h+TM6R43BkFxj19r+PNqVybQv/hemMizJ7nRheuGDrfypcgP3mo
+	EtO6nW+O3dZU5dGhtEEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMzDu-009Z7z-D8; Tue, 31 Jan 2023 22:35:30 +0000
-Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
+	id 1pMzOv-009al7-84; Tue, 31 Jan 2023 22:46:53 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMzDq-009Z75-7g
-	for linux-riscv@lists.infradead.org; Tue, 31 Jan 2023 22:35:28 +0000
-Received: by mail-pf1-x435.google.com with SMTP id u5so10964292pfm.10
-        for <linux-riscv@lists.infradead.org>; Tue, 31 Jan 2023 14:35:25 -0800 (PST)
+	id 1pMzOr-009ak3-Nb
+	for linux-riscv@lists.infradead.org; Tue, 31 Jan 2023 22:46:51 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id 5so16644250plo.3
+        for <linux-riscv@lists.infradead.org>; Tue, 31 Jan 2023 14:46:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=atishpatra.org; s=google;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=vJQIys1Qs1ZNaRcWZJhQjuX9zC46hHmqjCfBF/APpP8=;
-        b=RhLEBosLKFPPOVQnxcfYfKjGkreuNmB0Ri0p//WPSsT5jWoroy62e6IuRFkhpktP2H
-         ieiofANK5kUH7x2kUSVGAkiC+gz5VfJesGJUsZUo5FKnhzhcePNrwd4oXMg82PzCKUJ4
-         fExzF6yEcR8JYeqNDi842X4226GWaM0prKna0=
+        bh=ChdY/BOQPZ1uBdSScQAnHVJgIw1TfyjijiWytBSiQJU=;
+        b=P/csI0Dsr6pSP+yfsdWmPLyR2OV2O9L2+BIw5ZYpmKa46y6S8PELKWe4xTX4sx2mEN
+         iz0CIV4aU/Xp55F7vPWK75l8XALnKMEi/qkTo8b0lRlStd85P958+Ao3ZedelC7yXENR
+         ORsQfgbiccitrYTxaXdve26+HM4rKn+N02qzY=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=vJQIys1Qs1ZNaRcWZJhQjuX9zC46hHmqjCfBF/APpP8=;
-        b=oy4iG8iTacUmfRyrVMdl+yT2JGuejDfyMDWAk03zyBl44IZ5avt9UoULaiA5C3U8my
-         mge01B8FAEw2FhWQ5wmNomYGasj4+WCBmN2c4eRiBSkDp67uQyIx7bfHJd4hgbPN2aEd
-         kG4N+/7wgAvMkyFrTcRs5R8xBRuaVI4qtNrJ2rZzqEbht1178JliwIKMkAD98yad0Q8L
-         n21F5uEM+COqkZtw88z4iuAvlyAYNclnTtwuscTrfVovuqaMwaAN4ggXO4NFDeWoqowD
-         GJe/GZQ/OvB3M6TMh0nzb5WGk+BdYZRkIlF3n7SAhGeSbEvoas+6/knzbrz92T3K805S
-         dULw==
-X-Gm-Message-State: AO0yUKXNkQlif1goyV1IF2QHce4jtrD0j8YX2oGztCi1/NFzcihLuUm6
-	VPZNl4FEkM9Y5/TN7cw7CRejCEAynwA5lNFgVbD0
-X-Google-Smtp-Source: AK7set9Y3Gj+ZRjTBujRpWhQ+tYsM/J6jFMauSs2KBom+yMejeUdBIxihpYP+ZO1GwoyhlxXSYFC+h04ljzWK2dRje4=
-X-Received: by 2002:aa7:94b9:0:b0:593:1253:2ff5 with SMTP id
- a25-20020aa794b9000000b0059312532ff5mr40915pfl.14.1675204524525; Tue, 31 Jan
- 2023 14:35:24 -0800 (PST)
+        bh=ChdY/BOQPZ1uBdSScQAnHVJgIw1TfyjijiWytBSiQJU=;
+        b=2vjHy5lxPHleTNfWDGP0nrPN8sFobib7FXTUQ1wY3VmgImhFniRnsblrhjSbDHaqJl
+         xcGRon4ji1jLcLPEl/Mt6Ri75sqg79SKhPzo9yQbYTxQJFiYosphIxgdI9Zr+HyyppZq
+         iDBd9Vh1I1RUodYp+TlirImglOxptwaa8nnUFM0O7WPTiTw7T6OMmmBjx0/dLNl0zZ+D
+         RIzh+Ls2kIODMclN9g/nXsvCmskjndvtdN+nkeVHHEm3OZZAqnaklReKfnDBbdbbaLcr
+         ihA/W7FawPALv1fX2ILJQGF6o2hpsQaOJyQUFKdkcPLFuY/3ocFhaWF/JQ5Ph1gWFGbK
+         4X2Q==
+X-Gm-Message-State: AO0yUKWVWS4nNy4VIvWsYPl/e0gtNmIx/ZoBI+E+CjhtEwMuolSC/Sm7
+	YQ7EJ4wksGsPwCEJQuSgx5DLXb82yC5uvZZnp8Nv
+X-Google-Smtp-Source: AK7set8AS0MpCMygHXWVJkHhzF3cP+gjObUvIrlXz6+xUJd4hSDWhV5uI7961IASYnnUHYVzNYuuX139DCNVJlEBhXE=
+X-Received: by 2002:a17:90a:2dc9:b0:22c:dd5:8f54 with SMTP id
+ q9-20020a17090a2dc900b0022c0dd58f54mr4059996pjm.62.1675205208315; Tue, 31 Jan
+ 2023 14:46:48 -0800 (PST)
 MIME-Version: 1.0
-References: <20230127182558.2416400-1-atishp@rivosinc.com> <20230127182558.2416400-8-atishp@rivosinc.com>
- <CAAhSdy1P=u4a-4t8kn2Pa3Zs+Njai36QV9hBrwYk8zkhdR8r5g@mail.gmail.com>
-In-Reply-To: <CAAhSdy1P=u4a-4t8kn2Pa3Zs+Njai36QV9hBrwYk8zkhdR8r5g@mail.gmail.com>
+References: <20230127182558.2416400-1-atishp@rivosinc.com> <20230127182558.2416400-12-atishp@rivosinc.com>
+ <CAAhSdy1+6AprOdzRRTG98p6swisNFO6MUKjXobxW3RWbixvjCg@mail.gmail.com>
+In-Reply-To: <CAAhSdy1+6AprOdzRRTG98p6swisNFO6MUKjXobxW3RWbixvjCg@mail.gmail.com>
 From: Atish Patra <atishp@atishpatra.org>
-Date: Tue, 31 Jan 2023 14:35:13 -0800
-Message-ID: <CAOnJCUK+Ht10utv=18jET=sUTR5660Sm5Tf+e0zyQjUJ9m10_Q@mail.gmail.com>
-Subject: Re: [PATCH v3 07/14] RISC-V: KVM: Add skeleton support for perf
+Date: Tue, 31 Jan 2023 14:46:36 -0800
+Message-ID: <CAOnJCU+=A1GXvaQis5RrDabPAvAZccmc9HF1KU4ReuRTSx5pCQ@mail.gmail.com>
+Subject: Re: [PATCH v3 11/14] RISC-V: KVM: Implement trap & emulate for hpmcounters
 To: Anup Patel <anup@brainfault.org>
 Cc: Atish Patra <atishp@rivosinc.com>, linux-kernel@vger.kernel.org, 
 	Andrew Jones <ajones@ventanamicro.com>, Guo Ren <guoren@kernel.org>, 
@@ -69,8 +69,8 @@ Cc: Atish Patra <atishp@rivosinc.com>, linux-kernel@vger.kernel.org,
 	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
 	Sergey Matyukevich <sergey.matyukevich@syntacore.com>, Will Deacon <will@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230131_143526_543579_5240590D 
-X-CRM114-Status: GOOD (  44.69  )
+X-CRM114-CacheID: sfid-20230131_144649_792009_D351216A 
+X-CRM114-Status: GOOD (  23.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,369 +87,150 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jan 29, 2023 at 4:30 AM Anup Patel <anup@brainfault.org> wrote:
+On Sun, Jan 29, 2023 at 4:44 AM Anup Patel <anup@brainfault.org> wrote:
 >
 > On Fri, Jan 27, 2023 at 11:56 PM Atish Patra <atishp@rivosinc.com> wrote:
 > >
-> > This patch only adds barebore structure of perf implementation. Most of
->
-> s/barebore/barebone/
->
-> > the function returns zero at this point and will be implemented
-> > fully in the future.
+> > As the KVM guests only see the virtual PMU counters, all hpmcounter
+> > access should trap and KVM emulates the read access on behalf of guests.
 > >
+> > Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 > > Signed-off-by: Atish Patra <atishp@rivosinc.com>
 > > ---
-> >  arch/riscv/include/asm/kvm_host.h     |   3 +
-> >  arch/riscv/include/asm/kvm_vcpu_pmu.h |  76 ++++++++++++++
-> >  arch/riscv/kvm/Makefile               |   1 +
-> >  arch/riscv/kvm/vcpu.c                 |   5 +
-> >  arch/riscv/kvm/vcpu_pmu.c             | 145 ++++++++++++++++++++++++++
-> >  5 files changed, 230 insertions(+)
-> >  create mode 100644 arch/riscv/include/asm/kvm_vcpu_pmu.h
-> >  create mode 100644 arch/riscv/kvm/vcpu_pmu.c
+> >  arch/riscv/include/asm/kvm_vcpu_pmu.h | 16 ++++++++++
+> >  arch/riscv/kvm/vcpu_insn.c            |  4 ++-
+> >  arch/riscv/kvm/vcpu_pmu.c             | 45 ++++++++++++++++++++++++++-
+> >  3 files changed, 63 insertions(+), 2 deletions(-)
 > >
-> > diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
-> > index 93f43a3..f9874b4 100644
-> > --- a/arch/riscv/include/asm/kvm_host.h
-> > +++ b/arch/riscv/include/asm/kvm_host.h
-> > @@ -18,6 +18,7 @@
-> >  #include <asm/kvm_vcpu_insn.h>
-> >  #include <asm/kvm_vcpu_sbi.h>
-> >  #include <asm/kvm_vcpu_timer.h>
-> > +#include <asm/kvm_vcpu_pmu.h>
+> > diff --git a/arch/riscv/include/asm/kvm_vcpu_pmu.h b/arch/riscv/include/asm/kvm_vcpu_pmu.h
+> > index 3f43a43..022d45d 100644
+> > --- a/arch/riscv/include/asm/kvm_vcpu_pmu.h
+> > +++ b/arch/riscv/include/asm/kvm_vcpu_pmu.h
+> > @@ -43,6 +43,19 @@ struct kvm_pmu {
+> >  #define vcpu_to_pmu(vcpu) (&(vcpu)->arch.pmu)
+> >  #define pmu_to_vcpu(pmu)  (container_of((pmu), struct kvm_vcpu, arch.pmu))
 > >
-> >  #define KVM_MAX_VCPUS                  1024
-> >
-> > @@ -228,6 +229,8 @@ struct kvm_vcpu_arch {
-> >
-> >         /* Don't run the VCPU (blocked) */
-> >         bool pause;
+> > +#if defined(CONFIG_32BIT)
+> > +#define KVM_RISCV_VCPU_HPMCOUNTER_CSR_FUNCS \
+> > +{ .base = CSR_CYCLEH,      .count = 31, .func = kvm_riscv_vcpu_pmu_read_hpm }, \
+> > +{ .base = CSR_CYCLE,      .count = 31, .func = kvm_riscv_vcpu_pmu_read_hpm },
+> > +#else
+> > +#define KVM_RISCV_VCPU_HPMCOUNTER_CSR_FUNCS \
+> > +{ .base = CSR_CYCLE,      .count = 31, .func = kvm_riscv_vcpu_pmu_read_hpm },
+> > +#endif
 > > +
-> > +       struct kvm_pmu pmu;
+> > +int kvm_riscv_vcpu_pmu_read_hpm(struct kvm_vcpu *vcpu, unsigned int csr_num,
+> > +                               unsigned long *val, unsigned long new_val,
+> > +                               unsigned long wr_mask);
+> > +
+> >  int kvm_riscv_vcpu_pmu_num_ctrs(struct kvm_vcpu *vcpu, struct kvm_vcpu_sbi_ext_data *edata);
+> >  int kvm_riscv_vcpu_pmu_ctr_info(struct kvm_vcpu *vcpu, unsigned long cidx,
+> >                                 struct kvm_vcpu_sbi_ext_data *edata);
+> > @@ -65,6 +78,9 @@ void kvm_riscv_vcpu_pmu_reset(struct kvm_vcpu *vcpu);
+> >  #else
+> >  struct kvm_pmu {
+> >  };
+> > +#define KVM_RISCV_VCPU_HPMCOUNTER_CSR_FUNCS \
+> > +{ .base = 0,      .count = 0, .func = NULL },
+> > +
 >
-> Add a single line comment just like other members of the structure.
->
-> I also suggest naming this variable "pmu_context" or something similar
-> for naming consistency.
+> Redundant newline here.
 >
 
-Done.
+Fixed.
 
+> >
+> >  static inline int kvm_riscv_vcpu_pmu_init(struct kvm_vcpu *vcpu)
+> >  {
+> > diff --git a/arch/riscv/kvm/vcpu_insn.c b/arch/riscv/kvm/vcpu_insn.c
+> > index 0bb5276..f689337 100644
+> > --- a/arch/riscv/kvm/vcpu_insn.c
+> > +++ b/arch/riscv/kvm/vcpu_insn.c
+> > @@ -213,7 +213,9 @@ struct csr_func {
+> >                     unsigned long wr_mask);
 > >  };
 > >
-> >  static inline void kvm_arch_hardware_unsetup(void) {}
-> > diff --git a/arch/riscv/include/asm/kvm_vcpu_pmu.h b/arch/riscv/include/asm/kvm_vcpu_pmu.h
-> > new file mode 100644
-> > index 0000000..3f43a43
-> > --- /dev/null
-> > +++ b/arch/riscv/include/asm/kvm_vcpu_pmu.h
-> > @@ -0,0 +1,76 @@
-> > +/* SPDX-License-Identifier: GPL-2.0-only */
-> > +/*
-> > + * Copyright (c) 2023 Rivos Inc
-> > + *
-> > + * Authors:
-> > + *     Atish Patra <atishp@rivosinc.com>
-> > + */
-> > +
-> > +#ifndef __KVM_VCPU_RISCV_PMU_H
-> > +#define __KVM_VCPU_RISCV_PMU_H
-> > +
-> > +#include <linux/perf/riscv_pmu.h>
-> > +#include <asm/kvm_vcpu_sbi.h>
-> > +#include <asm/sbi.h>
-> > +
-> > +#ifdef CONFIG_RISCV_PMU_SBI
-> > +#define RISCV_KVM_MAX_FW_CTRS 32
-> > +#define RISCV_MAX_COUNTERS      64
-> > +
-> > +/* Per virtual pmu counter data */
-> > +struct kvm_pmc {
-> > +       u8 idx;
-> > +       struct perf_event *perf_event;
-> > +       uint64_t counter_val;
-> > +       union sbi_pmu_ctr_info cinfo;
-> > +       /* Event monitoring status */
-> > +       bool started;
+> > -static const struct csr_func csr_funcs[] = { };
+> > +static const struct csr_func csr_funcs[] = {
+> > +       KVM_RISCV_VCPU_HPMCOUNTER_CSR_FUNCS
 > > +};
-> > +
-> > +/* PMU data structure per vcpu */
-> > +struct kvm_pmu {
-> > +       struct kvm_pmc pmc[RISCV_MAX_COUNTERS];
-> > +       /* Number of the virtual firmware counters available */
-> > +       int num_fw_ctrs;
-> > +       /* Number of the virtual hardware counters available */
-> > +       int num_hw_ctrs;
-> > +       /* A flag to indicate that pmu initialization is done */
-> > +       bool init_done;
-> > +       /* Bit map of all the virtual counter used */
-> > +       DECLARE_BITMAP(pmc_in_use, RISCV_MAX_COUNTERS);
-> > +};
-> > +
-> > +#define vcpu_to_pmu(vcpu) (&(vcpu)->arch.pmu)
-> > +#define pmu_to_vcpu(pmu)  (container_of((pmu), struct kvm_vcpu, arch.pmu))
-> > +
-> > +int kvm_riscv_vcpu_pmu_num_ctrs(struct kvm_vcpu *vcpu, struct kvm_vcpu_sbi_ext_data *edata);
-> > +int kvm_riscv_vcpu_pmu_ctr_info(struct kvm_vcpu *vcpu, unsigned long cidx,
-> > +                               struct kvm_vcpu_sbi_ext_data *edata);
-> > +int kvm_riscv_vcpu_pmu_ctr_start(struct kvm_vcpu *vcpu, unsigned long ctr_base,
-> > +                                unsigned long ctr_mask, unsigned long flag, uint64_t ival,
-> > +                                struct kvm_vcpu_sbi_ext_data *edata);
-> > +int kvm_riscv_vcpu_pmu_ctr_stop(struct kvm_vcpu *vcpu, unsigned long ctr_base,
-> > +                               unsigned long ctr_mask, unsigned long flag,
-> > +                               struct kvm_vcpu_sbi_ext_data *edata);
-> > +int kvm_riscv_vcpu_pmu_ctr_cfg_match(struct kvm_vcpu *vcpu, unsigned long ctr_base,
-> > +                                    unsigned long ctr_mask, unsigned long flag,
-> > +                                    unsigned long eidx, uint64_t evtdata,
-> > +                                    struct kvm_vcpu_sbi_ext_data *edata);
-> > +int kvm_riscv_vcpu_pmu_ctr_read(struct kvm_vcpu *vcpu, unsigned long cidx,
-> > +                               struct kvm_vcpu_sbi_ext_data *edata);
-> > +int kvm_riscv_vcpu_pmu_init(struct kvm_vcpu *vcpu);
-> > +void kvm_riscv_vcpu_pmu_deinit(struct kvm_vcpu *vcpu);
-> > +void kvm_riscv_vcpu_pmu_reset(struct kvm_vcpu *vcpu);
-> > +
-> > +#else
-> > +struct kvm_pmu {
-> > +};
-> > +
-> > +static inline int kvm_riscv_vcpu_pmu_init(struct kvm_vcpu *vcpu)
-> > +{
-> > +       return 0;
-> > +}
-> > +static inline void kvm_riscv_vcpu_pmu_deinit(struct kvm_vcpu *vcpu) {}
-> > +static inline void kvm_riscv_vcpu_pmu_reset(struct kvm_vcpu *vcpu) {}
-> > +#endif /* CONFIG_RISCV_PMU_SBI */
-> > +#endif /* !__KVM_VCPU_RISCV_PMU_H */
-> > diff --git a/arch/riscv/kvm/Makefile b/arch/riscv/kvm/Makefile
-> > index 019df920..5de1053 100644
-> > --- a/arch/riscv/kvm/Makefile
-> > +++ b/arch/riscv/kvm/Makefile
-> > @@ -25,3 +25,4 @@ kvm-y += vcpu_sbi_base.o
-> >  kvm-y += vcpu_sbi_replace.o
-> >  kvm-y += vcpu_sbi_hsm.o
-> >  kvm-y += vcpu_timer.o
-> > +kvm-$(CONFIG_RISCV_PMU_SBI) += vcpu_pmu.o
-> > diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-> > index 7c08567..b746f21 100644
-> > --- a/arch/riscv/kvm/vcpu.c
-> > +++ b/arch/riscv/kvm/vcpu.c
-> > @@ -137,6 +137,7 @@ static void kvm_riscv_reset_vcpu(struct kvm_vcpu *vcpu)
 > >
-> >         WRITE_ONCE(vcpu->arch.irqs_pending, 0);
-> >         WRITE_ONCE(vcpu->arch.irqs_pending_mask, 0);
->
-> Add an empty newline here.
->
-
-Done.
-> > +       kvm_riscv_vcpu_pmu_reset(vcpu);
-> >
-> >         vcpu->arch.hfence_head = 0;
-> >         vcpu->arch.hfence_tail = 0;
-> > @@ -194,6 +195,9 @@ int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
-> >         /* Setup VCPU timer */
-> >         kvm_riscv_vcpu_timer_init(vcpu);
-> >
-> > +       /* setup performance monitoring */
-> > +       kvm_riscv_vcpu_pmu_init(vcpu);
-> > +
-> >         /* Reset VCPU */
-> >         kvm_riscv_reset_vcpu(vcpu);
-> >
-> > @@ -216,6 +220,7 @@ void kvm_arch_vcpu_destroy(struct kvm_vcpu *vcpu)
-> >         /* Cleanup VCPU timer */
-> >         kvm_riscv_vcpu_timer_deinit(vcpu);
-> >
-> > +       kvm_riscv_vcpu_pmu_deinit(vcpu);
->
-> Add an empty newline here.
->
-
-Done.
-
-> >         /* Free unused pages pre-allocated for G-stage page table mappings */
-> >         kvm_mmu_free_memory_cache(&vcpu->arch.mmu_page_cache);
-> >  }
+> >  /**
+> >   * kvm_riscv_vcpu_csr_return -- Handle CSR read/write after user space
 > > diff --git a/arch/riscv/kvm/vcpu_pmu.c b/arch/riscv/kvm/vcpu_pmu.c
-> > new file mode 100644
-> > index 0000000..d3fd551
-> > --- /dev/null
+> > index 7713927..894053a 100644
+> > --- a/arch/riscv/kvm/vcpu_pmu.c
 > > +++ b/arch/riscv/kvm/vcpu_pmu.c
-> > @@ -0,0 +1,145 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> > +/*
-> > + * Copyright (c) 2023 Rivos Inc
-> > + *
-> > + * Authors:
-> > + *     Atish Patra <atishp@rivosinc.com>
-> > + */
-> > +
-> > +#include <linux/errno.h>
-> > +#include <linux/err.h>
-> > +#include <linux/kvm_host.h>
-> > +#include <linux/perf/riscv_pmu.h>
-> > +#include <asm/csr.h>
-> > +#include <asm/kvm_vcpu_sbi.h>
-> > +#include <asm/kvm_vcpu_pmu.h>
-> > +#include <linux/kvm_host.h>
-> > +
-> > +#define kvm_pmu_num_counters(pmu) ((pmu)->num_hw_ctrs + (pmu)->num_fw_ctrs)
-> > +
-> > +int kvm_riscv_vcpu_pmu_num_ctrs(struct kvm_vcpu *vcpu, struct kvm_vcpu_sbi_ext_data *edata)
+> > @@ -17,6 +17,44 @@
+> >
+> >  #define kvm_pmu_num_counters(pmu) ((pmu)->num_hw_ctrs + (pmu)->num_fw_ctrs)
+> >
+> > +static int pmu_ctr_read(struct kvm_vcpu *vcpu, unsigned long cidx,
+> > +                       unsigned long *out_val)
 > > +{
-> > +       struct kvm_pmu *kvpmu = vcpu_to_pmu(vcpu);
-> > +
-> > +       edata->out_val = kvm_pmu_num_counters(kvpmu);
-> > +
-> > +       return 0;
-> > +}
-> > +
-> > +int kvm_riscv_vcpu_pmu_ctr_info(struct kvm_vcpu *vcpu, unsigned long cidx,
-> > +                               struct kvm_vcpu_sbi_ext_data *edata)
-> > +{
-> > +       struct kvm_pmu *kvpmu = vcpu_to_pmu(vcpu);
-> > +
-> > +       if (cidx > RISCV_MAX_COUNTERS || cidx == 1) {
-> > +               edata->err_val = SBI_ERR_INVALID_PARAM;
-> > +               return 0;
-> > +       }
-> > +
-> > +       edata->out_val = kvpmu->pmc[cidx].cinfo.value;
-> > +
-> > +       return 0;
-> > +}
-> > +
-> > +int kvm_riscv_vcpu_pmu_ctr_start(struct kvm_vcpu *vcpu, unsigned long ctr_base,
-> > +                                unsigned long ctr_mask, unsigned long flag, uint64_t ival,
-> > +                                struct kvm_vcpu_sbi_ext_data *edata)
-> > +{
-> > +       /* TODO */
-> > +       return 0;
-> > +}
-> > +
-> > +int kvm_riscv_vcpu_pmu_ctr_stop(struct kvm_vcpu *vcpu, unsigned long ctr_base,
-> > +                               unsigned long ctr_mask, unsigned long flag,
-> > +                               struct kvm_vcpu_sbi_ext_data *edata)
-> > +{
-> > +       /* TODO */
-> > +       return 0;
-> > +}
-> > +
-> > +int kvm_riscv_vcpu_pmu_ctr_cfg_match(struct kvm_vcpu *vcpu, unsigned long ctr_base,
-> > +                                    unsigned long ctr_mask, unsigned long flag,
-> > +                                    unsigned long eidx, uint64_t evtdata,
-> > +                                    struct kvm_vcpu_sbi_ext_data *edata)
-> > +{
-> > +       /* TODO */
-> > +       return 0;
-> > +}
-> > +
-> > +int kvm_riscv_vcpu_pmu_ctr_read(struct kvm_vcpu *vcpu, unsigned long cidx,
-> > +                               struct kvm_vcpu_sbi_ext_data *edata)
-> > +{
-> > +       /* TODO */
-> > +       return 0;
-> > +}
-> > +
-> > +int kvm_riscv_vcpu_pmu_init(struct kvm_vcpu *vcpu)
-> > +{
-> > +       int i = 0, num_fw_ctrs, ret, num_hw_ctrs = 0, hpm_width = 0;
 > > +       struct kvm_pmu *kvpmu = vcpu_to_pmu(vcpu);
 > > +       struct kvm_pmc *pmc;
+> > +       u64 enabled, running;
 > > +
-> > +       ret = riscv_pmu_get_hpm_info(&hpm_width, &num_hw_ctrs);
-> > +       if (ret < 0)
-> > +               return ret;
-> > +
-> > +       if (!hpm_width || !num_hw_ctrs) {
-> > +               pr_err("Cannot initialize VCPU with NULL hpmcounter width or number of counters\n");
->
-> What will happen if underlying M-mode firmware does not implement
-> SBI PMU extension ?
->
-
-riscv_pmu_get_hpm_info will return an error and
-kvm_riscv_vcpu_pmu_init will fail.
-
+> > +       pmc = &kvpmu->pmc[cidx];
+> > +       if (!pmc->perf_event)
 > > +               return -EINVAL;
-> > +       }
 > > +
-> > +       if ((num_hw_ctrs + RISCV_KVM_MAX_FW_CTRS) > RISCV_MAX_COUNTERS) {
-> > +               pr_warn("Limiting fw counters as hw & fw counters exceed maximum counters\n");
->
-> How is this possible ?
->
-> Maximum HW counters is 32 (including time, cycle, and instret),
-> RISCV_KVM_MAX_FW_CTRS = 32, and
-> RISCV_MAX_COUNTERS = 64
-
-This was added to prevent the condition where somebody changed the
-definition RISCV_KVM_MAX_FW_CTRS
-without incrementing MAX_COUNTERS. The error might be subtle as it may
-work on some platforms (with less hardware counter)
-but fail on others (with more hardware counters.)
-I couldn't find a better way to describe the relationship between
-RISCV_KVM_MAX_FW_CTRS and RISCV_MAX_COUNTERS.
-
-I can just put a big comment here instead of the condition check if
-you prefer that way.
-
-
->
-> > +               num_fw_ctrs = RISCV_MAX_COUNTERS - num_hw_ctrs;
-> > +       } else
-> > +               num_fw_ctrs = RISCV_KVM_MAX_FW_CTRS;
-> > +
-> > +       kvpmu->num_hw_ctrs = num_hw_ctrs;
-> > +       kvpmu->num_fw_ctrs = num_fw_ctrs;
-> > +
-> > +       /*
-> > +        * There is no correlation between the logical hardware counter and virtual counters.
-> > +        * However, we need to encode a hpmcounter CSR in the counter info field so that
-> > +        * KVM can trap n emulate the read. This works well in the migration use case as
-> > +        * KVM doesn't care if the actual hpmcounter is available in the hardware or not.
-> > +        */
-> > +       for (i = 0; i < kvm_pmu_num_counters(kvpmu); i++) {
-> > +               /* TIME CSR shouldn't be read from perf interface */
-> > +               if (i == 1)
-> > +                       continue;
-> > +               pmc = &kvpmu->pmc[i];
-> > +               pmc->idx = i;
-> > +               if (i < kvpmu->num_hw_ctrs) {
-> > +                       kvpmu->pmc[i].cinfo.type = SBI_PMU_CTR_TYPE_HW;
-> > +                       if (i < 3)
-> > +                               /* CY, IR counters */
-> > +                               kvpmu->pmc[i].cinfo.width = 63;
-> > +                       else
-> > +                               kvpmu->pmc[i].cinfo.width = hpm_width;
-> > +                       /*
-> > +                        * The CSR number doesn't have any relation with the logical
-> > +                        * hardware counters. The CSR numbers are encoded sequentially
-> > +                        * to avoid maintaining a map between the virtual counter
-> > +                        * and CSR number.
-> > +                        */
-> > +                       pmc->cinfo.csr = CSR_CYCLE + i;
-> > +               } else {
-> > +                       pmc->cinfo.type = SBI_PMU_CTR_TYPE_FW;
-> > +                       pmc->cinfo.width = BITS_PER_LONG - 1;
-> > +               }
-> > +       }
-> > +
-> > +       kvpmu->init_done = true;
+> > +       pmc->counter_val += perf_event_read_value(pmc->perf_event, &enabled, &running);
+> > +       *out_val = pmc->counter_val;
 > > +
 > > +       return 0;
 > > +}
 > > +
-> > +void kvm_riscv_vcpu_pmu_deinit(struct kvm_vcpu *vcpu)
+> > +int kvm_riscv_vcpu_pmu_read_hpm(struct kvm_vcpu *vcpu, unsigned int csr_num,
+> > +                               unsigned long *val, unsigned long new_val,
+> > +                               unsigned long wr_mask)
 > > +{
-> > +       /* TODO */
+> > +       struct kvm_pmu *kvpmu = vcpu_to_pmu(vcpu);
+> > +       int cidx, ret = KVM_INSN_CONTINUE_NEXT_SEPC;
+> > +
+> > +       if (!kvpmu || !kvpmu->init_done)
+> > +               return KVM_INSN_EXIT_TO_USER_SPACE;
+>
+> As discussed previously, this should be KVM_INSN_ILLEGAL_TRAP.
+>
+
+Done.
+> > +
+> > +       if (wr_mask)
+> > +               return KVM_INSN_ILLEGAL_TRAP;
+> > +
+> > +       cidx = csr_num - CSR_CYCLE;
+> > +
+> > +       if (pmu_ctr_read(vcpu, cidx, val) < 0)
+> > +               return KVM_INSN_EXIT_TO_USER_SPACE;
+>
+> Same as above.
+>
+
+Done.
+
+> > +
+> > +       return ret;
 > > +}
 > > +
-> > +void kvm_riscv_vcpu_pmu_reset(struct kvm_vcpu *vcpu)
-> > +{
-> > +       kvm_riscv_vcpu_pmu_deinit(vcpu);
-> > +}
+> >  int kvm_riscv_vcpu_pmu_num_ctrs(struct kvm_vcpu *vcpu, struct kvm_vcpu_sbi_ext_data *edata)
+> >  {
+> >         struct kvm_pmu *kvpmu = vcpu_to_pmu(vcpu);
+> > @@ -69,7 +107,12 @@ int kvm_riscv_vcpu_pmu_ctr_cfg_match(struct kvm_vcpu *vcpu, unsigned long ctr_ba
+> >  int kvm_riscv_vcpu_pmu_ctr_read(struct kvm_vcpu *vcpu, unsigned long cidx,
+> >                                 struct kvm_vcpu_sbi_ext_data *edata)
+> >  {
+> > -       /* TODO */
+> > +       int ret;
+> > +
+> > +       ret = pmu_ctr_read(vcpu, cidx, &edata->out_val);
+> > +       if (ret == -EINVAL)
+> > +               edata->err_val = SBI_ERR_INVALID_PARAM;
+> > +
+> >         return 0;
+> >  }
+> >
 > > --
 > > 2.25.1
 > >
