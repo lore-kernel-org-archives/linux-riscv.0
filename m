@@ -4,67 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C080DC636CC
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Feb 2023 01:45:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20380C38142
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Feb 2023 01:53:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YXGnv614t12M5riet2rgPRL+oDBU3cUkNF2BzS6vWB0=; b=wsQ2zrEljnnvIo
-	9QqJfaqjfDyIyFoI7KcIHF3Ytnp97m/jNOn9I/eBvnFj+UbZOmbhzyuGtj3HuPHN0GDpTLtzJUGWv
-	t9a+NxgisJi1pI4iP6Sg5czycB1Tmvm9dQFXKqNcLn5BbOANoqOll4t1qQrdyWTP8agZjRydMcCpz
-	N7kQtZhWNtYr0s+VK5piKNhM74xcGavc9rD4PtWguGTi2zT8wI1igxX3BEIpEpPXbKr95CO3A4spN
-	1i5p4owTSD/Old9mzgU0akrlhNBXAb4az1ae2AoHQgFeBlyYavHKWoa+XS66Ub5svWUEBm+RmhfVq
-	gy4YYEam1KN/Du87a9ZQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=hkpgpDHCZBXDLp4YYe8s0wfk5eCey/zWbbsTkHxo8Qw=; b=QGMieowQM5TRDm
+	qpGORXtZhlH9/tj4QTTA6kEUjN9fR+BJuYYfFZl+PmYEKittIdNdl9mrg0Lw+HgIOmv3yaDePv7AD
+	Ln4XEVhjw8aV6Fw3VFiZ4+W7YFNz17RE6xsnjdfO/UxcErJsBIGyp6vOs9uGFuviX4QdYdr3IRSxh
+	qf5kFpqwZlMUSkS/krpkcmuJj1u2XBUHUMSIf5MGqrO19Rx5Qb3PBeay2fwcJ4KjGpovESgj/lcCE
+	gh+wUTdo3uTkcbPi5AyuOnWehEoZmwHdtLw/OHy16n78dv7MbTQrKAGJZ5Qsp2/0EhZvwIMB6hduT
+	xH7VjhvIvXhyb+25o9Zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pN2B6-009rVk-3i; Wed, 01 Feb 2023 01:44:48 +0000
-Received: from mail-oi1-f171.google.com ([209.85.167.171])
+	id 1pN2JG-009s5t-LL; Wed, 01 Feb 2023 01:53:14 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pN2B3-009rVC-G0
-	for linux-riscv@lists.infradead.org; Wed, 01 Feb 2023 01:44:46 +0000
-Received: by mail-oi1-f171.google.com with SMTP id d188so14536296oia.3
-        for <linux-riscv@lists.infradead.org>; Tue, 31 Jan 2023 17:44:43 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=fXwTZgiPmgELyuj9MUwWX8YzaCtDhA3ytFvllU7DMXs=;
-        b=cema2drz8che3KsNfT6k8AB1+JzkqC/MWLyLljco2UirusWEgtP85r0Pi4F7WVqWP9
-         QeYkAJyonzNlj6wegJ2oyHv51/fh4bh12jc/WwH/POKmtc45A8TkzindG2n2TCSRsuPp
-         J9uduw285on6rI4Bl+arNFBWNgBzkU1lgbarbNVexhqZr3FsuCMv9NyildDWhVY+w8PV
-         oKJIF8KR6pvuOREpA3O/HWFJaStFeNVbgrNQTPZnp9QIlWgQTf7d3UwFhC4w6ewEeL88
-         p95IVWToAYlExxQPz9XBj/LT4LpGRsUdpFuqwHh/CflRRqV+vVJKxXVqss7DMOwGeGga
-         fR8g==
-X-Gm-Message-State: AO0yUKXdViEQpBsMO5TBb49wmHRty5eYnsbfyT4e1vTvAmuhcRdCVWcV
-	nj3lBr3EyRf0DUa5EVed/CKgK0t2TA==
-X-Google-Smtp-Source: AK7set+FZoHi7elOF65zpP8ZutGk1Jngax+dH8ZskVeZ8YY0Mo5VpXGo0yGCn4+eTAs/apLAEMHCQg==
-X-Received: by 2002:aca:110f:0:b0:378:477c:3e0e with SMTP id 15-20020aca110f000000b00378477c3e0emr302653oir.45.1675215883089;
-        Tue, 31 Jan 2023 17:44:43 -0800 (PST)
-Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id s33-20020a0568302aa100b0068bd3001922sm3076967otu.45.2023.01.31.17.44.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 31 Jan 2023 17:44:42 -0800 (PST)
-Received: (nullmailer pid 2297811 invoked by uid 1000);
-	Wed, 01 Feb 2023 01:44:41 -0000
-Date: Tue, 31 Jan 2023 19:44:41 -0600
-From: Rob Herring <robh@kernel.org>
-To: Jia Jie Ho <jiajie.ho@starfivetech.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>, "David S . Miller" <davem@davemloft.net>, Emil Renner Berthing <kernel@esmil.dk>, linux-kernel@vger.kernel.org, Herbert Xu <herbert@gondor.apana.org.au>, linux-crypto@vger.kernel.org, linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
-Subject: Re: [PATCH v2 1/4] dt-bindings: crypto: Add StarFive crypto module
-Message-ID: <167521588146.2297772.10966946099496116680.robh@kernel.org>
-References: <20230130154242.112613-1-jiajie.ho@starfivetech.com>
- <20230130154242.112613-2-jiajie.ho@starfivetech.com>
+	id 1pN2JD-009s5R-UF
+	for linux-riscv@lists.infradead.org; Wed, 01 Feb 2023 01:53:13 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 7A78F609AD;
+	Wed,  1 Feb 2023 01:53:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F7BBC433D2;
+	Wed,  1 Feb 2023 01:53:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1675216389;
+	bh=RpFg111OSlAsEiBZp9SuzdgJ3YXxrBaF+gupz9LpZ4I=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Js78uiOsWwy2ggvshXrD23mqWrYpmJHeeUCWV28V1SWaHO4juUx1FBuy4DmOEimTl
+	 Rkbb41y7pw7QIAlWLRpNiQaJo1mRl5m6r1crPusCh0SWK2X/56tmVDY5TjMMQMHEqU
+	 KgS/eb7wO1FT7tIxffWq2K/V5hKlG5QQMcCOzg40AX+z03O5kDyogv7YSCfZ+rmv/i
+	 7e3F0JdcLG7F5gG6x+DCOTwycNtFyCObLoDeKeSiD/aK9MwzwfeBb+Ciiu938DaAJM
+	 lg1m546dZqbjgVBPeUqow1KCauU3/ZZUe199Xnn20q4KgS2KYlLGETJSmBwbzkxpPi
+	 uVUC/xuGSTQOA==
+From: guoren@kernel.org
+To: tongtiangen@huawei.com,
+	alexandre.ghiti@canonical.com,
+	muchun.song@linux.dev,
+	palmer@rivosinc.com,
+	guoren@kernel.org,
+	conor@kernel.org,
+	ajones@ventanamicro.com
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Guo Ren <guoren@linux.alibaba.com>,
+	Muchun Song <songmuchun@bytedance.com>
+Subject: [PATCH V3] riscv: mm: hugetlb: Enable ARCH_WANT_HUGETLB_PAGE_OPTIMIZE_VMEMMAP
+Date: Tue, 31 Jan 2023 20:52:59 -0500
+Message-Id: <20230201015259.3222524-1-guoren@kernel.org>
+X-Mailer: git-send-email 2.36.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230130154242.112613-2-jiajie.ho@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230131_174445_553343_C2EAB63D 
-X-CRM114-Status: UNSURE (   9.25  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230131_175312_059883_BB8BA49E 
+X-CRM114-Status: GOOD (  11.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,20 +78,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Guo Ren <guoren@linux.alibaba.com>
 
-On Mon, 30 Jan 2023 23:42:39 +0800, Jia Jie Ho wrote:
-> Add documentation to describe StarFive cryptographic engine.
-> 
-> Co-developed-by: Huan Feng <huan.feng@starfivetech.com>
-> Signed-off-by: Huan Feng <huan.feng@starfivetech.com>
-> Signed-off-by: Jia Jie Ho <jiajie.ho@starfivetech.com>
-> ---
->  .../crypto/starfive,jh7110-crypto.yaml        | 70 +++++++++++++++++++
->  1 file changed, 70 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/crypto/starfive,jh7110-crypto.yaml
-> 
+Add HVO support for RISC-V; see commit 6be24bed9da3 ("mm: hugetlb:
+introduce a new config HUGETLB_PAGE_FREE_VMEMMAP"). This patch is
+similar to commit 1e63ac088f20 ("arm64: mm: hugetlb: enable
+HUGETLB_PAGE_FREE_VMEMMAP for arm64"), and riscv's motivation is the
+same as arm64. The current riscv was ready to enable HVO after fixup,
+ref commit d33deda095d3 ("riscv/mm: hugepage's PG_dcache_clean flag
+is only set in head page").
 
-Reviewed-by: Rob Herring <robh@kernel.org>
+See Documentation/mm/vmemmap_dedup.rst for more details.
+
+The HugeTLB VmemmapvOptimization (HVO) defaults to off in Kconfig.
+
+Here is the riscv test log:
+cat /proc/sys/vm/hugetlb_optimize_vmemmap
+echo 8 > /sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages
+mount -t hugetlbfs none test/ -o pagesize=2048k
+<Try some simple hugetlb test in test dir, no problem found.>
+
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Signed-off-by: Guo Ren <guoren@kernel.org>
+Link: https://lore.kernel.org/linux-riscv/1F5AF29D-708A-483B-A29F-CAEE6F554866@linux.dev/
+Acked-by: Muchun Song <songmuchun@bytedance.com>
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+---
+Changelog:
+V3:
+ - Optimize the commit log (Thx Andrew)
+ - Optimize alphabet order (Thx Conor)
+ - Add Reviewed-by tag
+
+V2:
+ - Optimize the commit log
+ - Remove riscv page compound_head fixup which has been merged.
+ - Rebase on riscv for-next (20230127)
+ - Add HVO author's acked-by
+
+V1:
+https://lore.kernel.org/linux-riscv/20221023133205.3493564-1-guoren@kernel.org/
+---
+ arch/riscv/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index e2b656043abf..54972e719f49 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -45,6 +45,7 @@ config RISCV
+ 	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
+ 	select ARCH_WANT_FRAME_POINTERS
+ 	select ARCH_WANT_GENERAL_HUGETLB
++	select ARCH_WANT_HUGETLB_PAGE_OPTIMIZE_VMEMMAP
+ 	select ARCH_WANT_HUGE_PMD_SHARE if 64BIT
+ 	select ARCH_WANTS_THP_SWAP if HAVE_ARCH_TRANSPARENT_HUGEPAGE
+ 	select BINFMT_FLAT_NO_DATA_START_OFFSET if !MMU
+-- 
+2.36.1
 
 
 _______________________________________________
