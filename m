@@ -4,62 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F3E2C38142
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Feb 2023 04:06:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4033FC05027
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Feb 2023 05:00:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=48axG6DG9wCTzAeG+qzrQMzwe0T05H7BqiJHiuB12oA=; b=Yt7/K+PU47YY01
-	h6NfP3F/F8uFewVCMMAPIatlypZ/RH1Kpble8M7twMWVBjH1qPBOUfZXeNdNlVRBAIr0JuutSJ59U
-	bM3xknbP3nQhnYJue5SASta+LTeEoR0xaxub/y3jkiSBn5DQSBOqJOu0CdOhVyPhweOLS0eNYN7/c
-	vCmm1tSbvPjZJ+8rZaibckq6NDPvVBvt1+D7p1KEa6rC3XKun5ESSL25kUIYKrZArh1S5ZzCxXlOC
-	uksa6J9sdcIiU169P0vpvE9ecNrsVx6Z0QgtthXjWTmSYHRNwRHqFTZRkaVykANHndwxIr6XMsElj
-	72D9St8sFTdXYA7IgFYg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=T3Ygo7IQBdkB+biT8cpiUTzT+o2WLA290KAV6nkTtsM=; b=ivERKXyRNCHL+n
+	NuMebjCOX4bkl52Y7yRO66h9sKGeryFZIhTz6n+I9PjGOBSbVTBhdT4wIbTVSZNuB0nCByxxmIjL/
+	eEmmP+kmm37LT480fO3lNldaJvvnY6HzxZg50nrxcjMXPWOv0etMd+DaDIpz0OtPRGCCMmQRWC4cB
+	7t4MGdCXSAtKm/yXcP3OrEifaNMkb7KUWkZD0ETHvklM1B5dn8Ac+0zdMWaIiWZv4b4c0otImnKmP
+	827TkuMBodoElVo4sLdqNEuxxQZqPla9FJp8R4KPqiNND3Q7A9O/OSHJGhH7qOSZ8HY8WnZB66/zB
+	7xP00zbDJswSrn2I7SVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pN4O3-00ACFU-Hd; Wed, 01 Feb 2023 04:06:19 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1pN5El-00AFjE-FW; Wed, 01 Feb 2023 05:00:47 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pN4O1-00ACF3-52
-	for linux-riscv@lists.infradead.org; Wed, 01 Feb 2023 04:06:18 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 28306B81F76;
-	Wed,  1 Feb 2023 04:06:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15BE2C433EF;
-	Wed,  1 Feb 2023 04:06:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1675224372;
-	bh=9lL8tq6WYJ4419UUBwmrU3ts13QvrafA4MrEPG10cP4=;
-	h=From:To:Cc:Subject:Date:From;
-	b=kLnLLOLemgxLnF5LHv9xce36WDQuVTpnidJmtZQ41pRBql66gcNNcl2IdhnXmlZCw
-	 xr3jpQ5/wbqCmKsd6TUt9lQuj/0tkRhFLxQmuW4p22epyJg7WsNW+FMD1NDc3Mv26e
-	 yGBM6RwGeqGjtoigjpMLOV17+kgiJagFqbdevwEjkjQOajVS/mMLZll7vYCJ85PRpB
-	 fbROS3ed7WPQrYMCH+rXYZxxUsnCWN/TZRfX6M+Jwe8wzS8gSkq0yCzBeIb9u1O7fI
-	 92jyus9XyIoUU7b7pK0jp9qgeevvAeisJnObKGTEON5yNSNy9uOl/8HlK0tU1qx1hw
-	 FSum8unn/d4/A==
-From: guoren@kernel.org
-To: guoren@kernel.org,
-	palmer@rivosinc.com,
-	conor.dooley@microchip.com,
-	liaochang1@huawei.com,
-	bjorn@kernel.org
-Cc: linux-arch@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Guo Ren <guoren@linux.alibaba.com>
-Subject: [PATCH V2] riscv: kprobe: Fixup kernel panic when probing an illegal position
-Date: Tue, 31 Jan 2023 23:06:04 -0500
-Message-Id: <20230201040604.3390509-1-guoren@kernel.org>
-X-Mailer: git-send-email 2.36.1
+	id 1pN5Ei-00AFh5-Au
+	for linux-riscv@lists.infradead.org; Wed, 01 Feb 2023 05:00:46 +0000
+Received: from kwepemi500013.china.huawei.com (unknown [172.30.72.53])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4P68p46Y8jzJrPZ;
+	Wed,  1 Feb 2023 12:58:52 +0800 (CST)
+Received: from M910t (10.110.54.157) by kwepemi500013.china.huawei.com
+ (7.221.188.120) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.34; Wed, 1 Feb
+ 2023 13:00:27 +0800
+Date: Thu, 2 Feb 2023 05:00:31 +0800
+From: Changbin Du <changbin.du@huawei.com>
+To: Conor Dooley <conor.dooley@microchip.com>
+CC: Guo Ren <guoren@kernel.org>, Changbin Du <changbin.du@huawei.com>, Paul
+ Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Hui Wang <hw.huiwang@huawei.com>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, Changbin
+ Du <changbin.du@gmail.com>, Zong Li <zong.li@sifive.com>
+Subject: Re: [PATCH v3] riscv: patch: Fixup lockdep warning in stop_machine
+Message-ID: <20230201210031.x7c5xlgxxiaoahqz@M910t>
+References: <20230130232659.3374212-1-changbin.du@huawei.com>
+ <Y9fdtcoh8POLZ6CD@wendy>
+ <CAJF2gTQm_iHHEOEv+38G6nqjDO5b+oDcUOXi8uKxZLXvG249Kw@mail.gmail.com>
+ <Y9jIPOLxRRrjMo2t@wendy>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <Y9jIPOLxRRrjMo2t@wendy>
+X-Originating-IP: [10.110.54.157]
+X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
+ kwepemi500013.china.huawei.com (7.221.188.120)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230131_200617_512975_D207A0FF 
-X-CRM114-Status: GOOD (  12.58  )
+X-CRM114-CacheID: sfid-20230131_210044_586368_8439ACC1 
+X-CRM114-Status: GOOD (  25.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,91 +72,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guo Ren <guoren@linux.alibaba.com>
+On Tue, Jan 31, 2023 at 07:50:20AM +0000, Conor Dooley wrote:
+> On Tue, Jan 31, 2023 at 03:26:33PM +0800, Guo Ren wrote:
+[snip]
+> > > >
+> > > > -     /*
+> > > > -      * Before reaching here, it was expected to lock the text_mutex
+> > > > -      * already, so we don't need to give another lock here and could
+> > > > -      * ensure that it was safe between each cores.
+> > > > -      */
+> > > > -     lockdep_assert_held(&text_mutex);
+> > >
+> > > I must admit, patches like this do concern me a little, as a someone
+> > > unfamiliar with the world of probing and tracing.
+> > > Seeing an explicit check that the lock was held, leads me to believe
+> > > that the original author (Zong Li I think) thought that the text_mutex
+> > > lock was insufficient.
+> > > Do you think that their fear is unfounded? Explaining why it is safe to
+> > > remove this assertion in the commit message would go a long way towards
+> > > easing my anxiety!
+> > >
+> > > Also, why delete the comment altogether? The comment provides some
+> > > information that doesn't appear to become invalid, even with the
+> > > assertion removed?
+> > Stop_machine separated the mutex context and made a lockdep warning.
+> > So text_mutex can't be used here. We need to find another check
+> > solution. I agree with the patch.
+> 
+> Whether or not you agree with the change is not the point (with your SoB
+> I'd hope you agree with it).
+> I understand that you two are trying to fix a false positive lockdep
+> warning, but what I am asking for an explanation as to why the original
+> author's fear is unfounded.
+> Surely, having added the assertion, they were not thinking of the same
+> code path that you guys are hitting the false positive on?
+> 
+The assertion is reasonable since the fixmap entry is shared. The text_mutex
+does should be held before entering that function. But the false positive cases
+make some functions (ftrace for example) difficult to use due to warning log
+storm.
 
-The kernel would panic when probed for an illegal position. eg:
+Either the lockdep should be fixed for stop_machine, or remove the assertion
+simply now (we can keep the comments). (or do the assertion conditionly?)
 
-(CONFIG_RISCV_ISA_C=n)
+And this is not a riscv only problem but common for architectures which use
+stop_machine to patch text. (arm for example)
 
-echo 'p:hello kernel_clone+0x16 a0=%a0' >> kprobe_events
-echo 1 > events/kprobes/hello/enable
-cat trace
+> Perhaps Zong themselves can tell us what the original fear was?
+> 
+> Thanks,
+> Conor.
 
-Kernel panic - not syncing: stack-protector: Kernel stack
-is corrupted in: __do_sys_newfstatat+0xb8/0xb8
-CPU: 0 PID: 111 Comm: sh Not tainted
-6.2.0-rc1-00027-g2d398fe49a4d #490
-Hardware name: riscv-virtio,qemu (DT)
-Call Trace:
-[<ffffffff80007268>] dump_backtrace+0x38/0x48
-[<ffffffff80c5e83c>] show_stack+0x50/0x68
-[<ffffffff80c6da28>] dump_stack_lvl+0x60/0x84
-[<ffffffff80c6da6c>] dump_stack+0x20/0x30
-[<ffffffff80c5ecf4>] panic+0x160/0x374
-[<ffffffff80c6db94>] generic_handle_arch_irq+0x0/0xa8
-[<ffffffff802deeb0>] sys_newstat+0x0/0x30
-[<ffffffff800158c0>] sys_clone+0x20/0x30
-[<ffffffff800039e8>] ret_from_syscall+0x0/0x4
----[ end Kernel panic - not syncing: stack-protector:
-Kernel stack is corrupted in: __do_sys_newfstatat+0xb8/0xb8 ]---
 
-That is because the kprobe's ebreak instruction broke the kernel's
-original code. The user should guarantee the correction of the probe
-position, but it couldn't make the kernel panic.
 
-This patch adds arch_check_kprobe in arch_prepare_kprobe to prevent an
-illegal position (Such as the middle of an instruction).
-
-Fixes: c22b0bcb1dd0 ("riscv: Add kprobes supported")
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Signed-off-by: Guo Ren <guoren@kernel.org>
----
-Changelog
-V2:
- - Fixup misaligned load (Thx Bjorn)
----
- arch/riscv/kernel/probes/kprobes.c | 18 ++++++++++++++++++
- 1 file changed, 18 insertions(+)
-
-diff --git a/arch/riscv/kernel/probes/kprobes.c b/arch/riscv/kernel/probes/kprobes.c
-index f21592d20306..41c7481afde3 100644
---- a/arch/riscv/kernel/probes/kprobes.c
-+++ b/arch/riscv/kernel/probes/kprobes.c
-@@ -48,6 +48,21 @@ static void __kprobes arch_simulate_insn(struct kprobe *p, struct pt_regs *regs)
- 	post_kprobe_handler(p, kcb, regs);
- }
- 
-+static bool __kprobes arch_check_kprobe(struct kprobe *p)
-+{
-+	unsigned long tmp  = (unsigned long)p->addr - p->offset;
-+	unsigned long addr = (unsigned long)p->addr;
-+
-+	while (tmp <= addr) {
-+		if (tmp == addr)
-+			return true;
-+
-+		tmp += GET_INSN_LENGTH(*(u16 *)tmp);
-+	}
-+
-+	return false;
-+}
-+
- int __kprobes arch_prepare_kprobe(struct kprobe *p)
- {
- 	unsigned long probe_addr = (unsigned long)p->addr;
-@@ -55,6 +70,9 @@ int __kprobes arch_prepare_kprobe(struct kprobe *p)
- 	if (probe_addr & 0x1)
- 		return -EILSEQ;
- 
-+	if (!arch_check_kprobe(p))
-+		return -EILSEQ;
-+
- 	/* copy instruction */
- 	p->opcode = *p->addr;
- 
 -- 
-2.36.1
-
+Cheers,
+Changbin Du
 
 _______________________________________________
 linux-riscv mailing list
