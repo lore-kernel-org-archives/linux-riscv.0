@@ -4,50 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA207C636D7
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Feb 2023 06:31:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDAF9C38142
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Feb 2023 06:47:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6eX/A7pIlZv1QrKvDBr7QaXABeJIxB3H39TuobbywNQ=; b=UXX3NNzPPRJia0
-	x8ZdZcIfUJ5C+tmo4CbvyPinh+eVqyrc5q6PMo4a7OWIQVUxsMAUljcgY5fKsNqJhLOgJ5kDTZHcX
-	9sBdv86FCOGB4sI9s8vvOGL6tJU9EhZ8zubQw2rypn9vWz/AvldHjGw2yW2O36B0aZdYu0HCqsad1
-	yxXkWFPWAS4IEGvoj2DX+3JdK5tduAmE3tR5qx20BHoMgq9oEA9OJ9pyW1s0F7NBC1eEtAnZ0vURl
-	9B0m+r4OA9gWMVYnUuWRA92pJUS4vPaqVxdDzLaaHs6XIiqudHc4GNaqNrmzPL+jjNPNs8TYBZkfk
-	5ssUPLTk7JC0SSy0TfcA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=uC2LQBJ1zMtgWPFM2j1+wXB1NZGWZm1iwJlhXEU+Mxc=; b=17fwqAG99U613O
+	2352PtbIRDSC/AnvJiUT2nU2dRGKr9BOV+Z1bLeFNaMLGQC0T4mWelEveibf76VVCp5As4dIpxJlN
+	P6kzmZcI/qKn8unFAzkAzAoDSGe9qRAZBeC72RBK57hJZmsvSl+lWo4Y+rDHU7nHSSiHH0Pzj6fQ7
+	OjlWNfGN0NjdWgl8zRGlG9hR/q7wi+Nc+DEzdSZmxKDfyVJqah34PPssPydEvlZV5SWxputGNdhIE
+	bUKiIHhlz6FHrwagXRL0ghi53nTfVSI5LH2ZenKt06cYHw314bhg/MOG8utV1/KPq1y0E5I5cO/al
+	0LYqyaE5HLOFhRApHS4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pN6eo-00ATMQ-TW; Wed, 01 Feb 2023 06:31:46 +0000
-Received: from hch by bombadil.infradead.org with local (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pN6el-00ATMB-Va; Wed, 01 Feb 2023 06:31:43 +0000
-Date: Tue, 31 Jan 2023 22:31:43 -0800
-From: Christoph Hellwig <hch@infradead.org>
-To: Matthew Wilcox <willy@infradead.org>
-Cc: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>,
-	Linux-MM <linux-mm@kvack.org>,
-	linux-riscv <linux-riscv@lists.infradead.org>,
-	Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Arnd Bergmann <arnd@arndb.de>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Jessica Clarke <jrtc27@jrtc27.com>,
-	Geert Uytterhoeven <geert.uytterhoeven@gmail.com>,
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	Chris Paterson <Chris.Paterson2@renesas.com>
-Subject: Re: [QUERY]: Block region to mmap
-Message-ID: <Y9oHT1D1X9cdHLr0@infradead.org>
-References: <CA+V-a8tR1KiLSs=Psa=w7kf0zT=yU5_Ekr6-3V1MR==Wtzmksg@mail.gmail.com>
- <Y9KQPxzHBuZGIN4U@casper.infradead.org>
- <CA+V-a8uizF8sQgs8cfTwH3OnK+nvr2dXAoSOPTXCXLFnprHSeA@mail.gmail.com>
- <Y9fhOFEV0kS9U06/@casper.infradead.org>
+	id 1pN6tT-00AV9e-Np; Wed, 01 Feb 2023 06:46:55 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pN6tQ-00AV98-QB
+	for linux-riscv@lists.infradead.org; Wed, 01 Feb 2023 06:46:54 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 18388B820AA;
+	Wed,  1 Feb 2023 06:46:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1C69C433D2;
+	Wed,  1 Feb 2023 06:46:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1675234009;
+	bh=gTXbxviqwiipAfrlkTcVTx4LMrjxFY0gn9AiSEXRjEE=;
+	h=From:To:Cc:Subject:Date:From;
+	b=eCghh/6SgHVgxYCyz3WcktFEU3qWMlkrXdIptT5sbgaK9kcLJ9bVRRnO9rAsD4FLD
+	 bDbjATRN4x1gxo4p++R2Rcb5DyE438+8mqZCkUeOMO7ZsBbvVrMNSIwOJoWmygTYLd
+	 +gHMiP6xmfG2lj8eY3JtTYSz/8kQJJda4euN/X1ws3mbRyM2hJmR+6CHMDOzxyAjtC
+	 iGx3yLa6bd84w6HMwkafXHz0rwszeSqMaNQ6Bqct+wgV8EYhLWKIrJSK9KGWp2V8ey
+	 gFjCsf6QAVbFMk+KPrNqVPgXSF25fE8xBi9tk4OaDDqlNC4APrSbZGHvAT9kLXTCfF
+	 xDuEwPzKN5mdQ==
+From: guoren@kernel.org
+To: guoren@kernel.org,
+	palmer@rivosinc.com,
+	conor.dooley@microchip.com,
+	liaochang1@huawei.com,
+	bjorn@kernel.org
+Cc: linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Guo Ren <guoren@linux.alibaba.com>,
+	Bjorn Topel <bjorn.topel@gmail.com>
+Subject: [PATCH] riscv: kprobe: Fixup misaligned load text
+Date: Wed,  1 Feb 2023 01:46:08 -0500
+Message-Id: <20230201064608.3486136-1-guoren@kernel.org>
+X-Mailer: git-send-email 2.36.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Y9fhOFEV0kS9U06/@casper.infradead.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20230131_224653_011574_84B61321 
+X-CRM114-Status: GOOD (  10.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,28 +77,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 30, 2023 at 03:24:40PM +0000, Matthew Wilcox wrote:
-> > Basically we are making use of the memory protection unit (MPU) so
-> > that only M-mode is allowed to access this region and S/U modes are
-> > blocked.
-> 
-> This sounds like RISC-V terminology.  I have no idea what M, S or U
-> modes are (Supervisor and User, I'd guess for the last two?)
+From: Guo Ren <guoren@linux.alibaba.com>
 
+The current kprobe would cause a misaligned load for the probe point.
+This patch fixup it with two half-word loads instead.
 
-Yes, M = Machine, S = Supervisor, and U = User.
-M omde is the absolutele worst idea of RISC-V and basically a mix
-of microcode and super-SMM mode.
+Fixes: c22b0bcb1dd0 ("riscv: Add kprobes supported")
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Signed-off-by: Guo Ren <guoren@kernel.org>
+Link: https://lore.kernel.org/linux-riscv/878rhig9zj.fsf@all.your.base.are.belong.to.us/
+Reported-by: Bjorn Topel <bjorn.topel@gmail.com>
+---
+ arch/riscv/kernel/probes/kprobes.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-> Before we go too deeply into it, how much would it cost to buy all of
-> these parts and feed them into a shredder?  I'm not entirely joking;
-> if it's less than the software engineering time it'd take to develop
-> and support this feature, we should do it.
+diff --git a/arch/riscv/kernel/probes/kprobes.c b/arch/riscv/kernel/probes/kprobes.c
+index 41c7481afde3..c1160629cef4 100644
+--- a/arch/riscv/kernel/probes/kprobes.c
++++ b/arch/riscv/kernel/probes/kprobes.c
+@@ -74,7 +74,9 @@ int __kprobes arch_prepare_kprobe(struct kprobe *p)
+ 		return -EILSEQ;
+ 
+ 	/* copy instruction */
+-	p->opcode = *p->addr;
++	p->opcode = (kprobe_opcode_t)(*(u16 *)probe_addr);
++	if (GET_INSN_LENGTH(p->opcode) == 4)
++		p->opcode |= (kprobe_opcode_t)(*(u16 *)(probe_addr + 2)) << 16;
+ 
+ 	/* decode instruction */
+ 	switch (riscv_probe_decode_insn(p->addr, &p->ainsn.api)) {
+-- 
+2.36.1
 
-The above suggests this is in no way an actual hardware problem, but the
-stupid decision is done in the M-Mode firmware.  I think it is very
-reasonable to simply not support the devices in Linux until the firmware
-is fixed.
 
 _______________________________________________
 linux-riscv mailing list
