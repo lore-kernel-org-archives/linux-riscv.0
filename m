@@ -4,80 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AB12C05027
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Feb 2023 07:22:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C027C38142
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Feb 2023 07:23:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Date:Message-Id
-	:Subject:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=48ga0EXfSFAesDdfLIWYzWA+59eQF0HyJtkm0jr0d9c=; b=BtttuS9OKgCLGd
-	4cUvIcp73auHvRupufI7lC2iWjcqQqWFfIxZxh0D7JHAy99ZydklwVJVfCU7fv9qdBX8hhdFDTgkd
-	zuRJbSvUY4/o3PQFdr4ROzhqXm9xTJ9w/xaArMuFi5W84SNl6pfFbTVECamIOoF0OU8ufYmDCu8Og
-	ume9y/s0m+M4F1+nkMbgh3o8iuu5FMeD8IAoTl+ZQ/DyKJznmdicg8AMNILdQGqlmqtAmRCySOqV3
-	QHfyvvnMG4C2/p889Z2TsK/4z+KbmM0fxao1rDL52o5352ZydFoidssiNEH9+D67lmAkihXdrVSvx
-	R4V8YOnTw+RjFPjWERQw==;
+	List-Owner; bh=sq29fEOfblAX9bBNOElQrSX0UIciJ4XzBGcDTjeAz4A=; b=MGJhlg0G7G0uIa
+	72ICT2UvIxEJlTEaxZ/pl020lc9Qk8zfPFkJ5tfVZJ5pmv39HlTZ9mZ4l7LSNtpo0oBCMKNhivKfW
+	Ht4sV9iUluo4cpEQbErkpp2HTn/AfLMvao/CTEi6dKA7FSufj/QtnW8YiKtECpcL7kdHx3Qf4LDOz
+	pQFLOVRfC9NCMUqGwMfX8TbcPDSYMN8rMaOWZ9tmUFS2nVPfEIq9ALuVp88mSWNUHaGvDOkKg4VrL
+	FSBqyl5Bg3stFgWyMEEdvSlBXkS6CLDBuas3OpgNPDEMVUTVY+S9nbdTEcKUcp+wNOBdAOKURM7LL
+	7yOr3pDQ9dKN7wtNowCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pN7RX-00AaUX-4w; Wed, 01 Feb 2023 07:22:07 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pN7RU-00AaTO-6e
-	for linux-riscv@lists.infradead.org; Wed, 01 Feb 2023 07:22:06 +0000
-Received: by mail-pl1-x631.google.com with SMTP id m2so12577340plg.4
-        for <linux-riscv@lists.infradead.org>; Tue, 31 Jan 2023 23:22:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
-         :subject:references:in-reply-to:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=5amrPi0ca5+SKsqiXkMIYJy52ckgRLFOkHmllRTMEz4=;
-        b=Q0SV3vi0yfdWEVsqnN0zDmQo0EqKcPcbjpnwBu7G8rkbhnKeB5L8Zy0a4qTYl+jy54
-         1YlMEDXgguElT4cm4nASqmJlJmkDLqu1Eu1mL0EMn3j1eTIGqQ04FjTkQoBo3HxnqktG
-         61qm5u2YR/8UeFNj9D3m79aBcQ68mYiaNLy+ICfKsa2L7n+Ow7shCvvwV7wtp+wPZq5d
-         ueg9x3D441DtzleYbD+vdjdcTT17Mto5dnGWyTYmNCf+qzje5HLkTx3M3j5pwZohfroK
-         Iu77QFDfAHshw3fH9nH9Uwtqbh8oZpwAuAMqg4PnOcReP7Vhr7P14WU9xZnWVKJuAF+m
-         XFMg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
-         :subject:references:in-reply-to:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=5amrPi0ca5+SKsqiXkMIYJy52ckgRLFOkHmllRTMEz4=;
-        b=zQwFSYefgZp/ONLGg1bN+afixmL76PrQUCJUgw9j8oTYSBKN3ogWdSH7INVCim2mvx
-         AulB1X9zI4Keub2HUDjm6Den/i9VJJM5+rnVpAlwGKqFLXHxeai5xrYxaAPPaPjFsjES
-         DlT9FBAoBeZD9ctFR6+UyAW/ECbgNRw2UkSb8OgltRm6smhN75NZ/m+LPQqBMDVCR471
-         jUQlj9KIksRXyhRg/5+D4avzKI63+oesb4dgO4muzvMoLA6A0J1NZKADlqLXhZz22M+6
-         s2+z+lGKav/EE0oFBnpTZayf4l3EjIc6iSJ4Wy+quEH7vVAovHoOdHMzcNrvDL9RP8W6
-         GBQQ==
-X-Gm-Message-State: AO0yUKVyCGuHL3bZy6THHJ6FAJeBTZoNDCejS9ELCDVDZDMAPZWQQsg0
-	YU023DSIbDzmnHZbmgW39nDMoA==
-X-Google-Smtp-Source: AK7set+D19QyrJ75BJrk8CMPqFyIqHg9JpGbBw3I2Vn2h8oPRlQqxPpLGNaXfJvt5COJS+yO2SuHBw==
-X-Received: by 2002:a05:6a20:840c:b0:bc:7371:e3d1 with SMTP id c12-20020a056a20840c00b000bc7371e3d1mr1804825pzd.45.1675236120262;
-        Tue, 31 Jan 2023 23:22:00 -0800 (PST)
-Received: from localhost ([135.180.226.51])
-        by smtp.gmail.com with ESMTPSA id p4-20020aa78604000000b00592de256f2csm9370789pfn.145.2023.01.31.23.21.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 31 Jan 2023 23:21:59 -0800 (PST)
-In-Reply-To: <20220922060958.44203-1-samuel@sholland.org>
-References: <20220922060958.44203-1-samuel@sholland.org>
-Subject: Re: [PATCH] riscv: Fix build with CONFIG_CC_OPTIMIZE_FOR_SIZE=y
-Message-Id: <167523607081.29266.3967297527966644183.b4-ty@rivosinc.com>
-Date: Tue, 31 Jan 2023 23:21:10 -0800
+	id 1pN7SQ-00Aac4-RL; Wed, 01 Feb 2023 07:23:02 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pN7SK-00AaTp-Ly
+	for linux-riscv@lists.infradead.org; Wed, 01 Feb 2023 07:23:02 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id CC90F24E226;
+	Wed,  1 Feb 2023 15:21:49 +0800 (CST)
+Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 1 Feb
+ 2023 15:21:49 +0800
+Received: from [192.168.125.110] (183.27.97.127) by EXMBX172.cuchost.com
+ (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 1 Feb
+ 2023 15:21:48 +0800
+Message-ID: <c507e0b2-5ca3-cffe-55d2-873ed8c24e3d@starfivetech.com>
+Date: Wed, 1 Feb 2023 15:21:48 +0800
 MIME-Version: 1.0
-X-Mailer: b4 0.11.0-dev-e660e
-Cc: linux-kernel@vger.kernel.org, Dao Lu <daolu@rivosinc.com>,
-  Albert Ou <aou@eecs.berkeley.edu>, Heiko Stuebner <heiko@sntech.de>, Paul Walmsley <paul.walmsley@sifive.com>,
-  Anup Patel <anup@brainfault.org>, Jisheng Zhang <jszhang@kernel.org>, Atish Patra <atishp@rivosinc.com>,
-  Guo Ren <guoren@kernel.org>
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>, Samuel Holland <samuel@sholland.org>,
-  linux-riscv@lists.infradead.org
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.3.2
+Subject: Re: [PATCH v3 6/7] riscv: dts: starfive: Add initial StarFive JH7110
+ device tree
+Content-Language: en-US
+To: Conor Dooley <conor@kernel.org>
+CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Palmer
+ Dabbelt" <palmer@dabbelt.com>, Rob Herring <robh+dt@kernel.org>, "Krzysztof
+ Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, Ben Dooks
+	<ben.dooks@sifive.com>, Daniel Lezcano <daniel.lezcano@linaro.org>, "Thomas
+ Gleixner" <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Stephen Boyd
+	<sboyd@kernel.org>, Michael Turquette <mturquette@baylibre.com>, "Philipp
+ Zabel" <p.zabel@pengutronix.de>, Linus Walleij <linus.walleij@linaro.org>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	<linux-kernel@vger.kernel.org>
+References: <20221220011247.35560-1-hal.feng@starfivetech.com>
+ <20221220011247.35560-7-hal.feng@starfivetech.com> <Y6zHy9oL4xzl+6Rd@spud>
+From: Hal Feng <hal.feng@starfivetech.com>
+In-Reply-To: <Y6zHy9oL4xzl+6Rd@spud>
+X-Originating-IP: [183.27.97.127]
+X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX172.cuchost.com
+ (172.16.6.92)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230131_232204_487965_4A98780A 
-X-CRM114-Status: UNSURE (   8.02  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230131_232257_060121_AAFEA983 
+X-CRM114-Status: GOOD (  21.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,38 +82,133 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 22 Sep 2022 01:09:58 -0500, Samuel Holland wrote:
-> commit 8eb060e10185 ("arch/riscv: add Zihintpause support") broke
-> building with CONFIG_CC_OPTIMIZE_FOR_SIZE enabled (gcc 11.1.0):
+On Wed, 28 Dec 2022 22:48:43 +0000, Conor Dooley wrote:
+> Hey,
 > 
->   CC      arch/riscv/kernel/vdso/vgettimeofday.o
-> In file included from <command-line>:
-> ./arch/riscv/include/asm/jump_label.h: In function 'cpu_relax':
-> ././include/linux/compiler_types.h:285:33: warning: 'asm' operand 0 probably does not match constraints
->   285 | #define asm_volatile_goto(x...) asm goto(x)
->       |                                 ^~~
-> ./arch/riscv/include/asm/jump_label.h:41:9: note: in expansion of macro 'asm_volatile_goto'
->    41 |         asm_volatile_goto(
->       |         ^~~~~~~~~~~~~~~~~
-> ././include/linux/compiler_types.h:285:33: error: impossible constraint in 'asm'
->   285 | #define asm_volatile_goto(x...) asm goto(x)
->       |                                 ^~~
-> ./arch/riscv/include/asm/jump_label.h:41:9: note: in expansion of macro 'asm_volatile_goto'
->    41 |         asm_volatile_goto(
->       |         ^~~~~~~~~~~~~~~~~
-> make[1]: *** [scripts/Makefile.build:249: arch/riscv/kernel/vdso/vgettimeofday.o] Error 1
-> make: *** [arch/riscv/Makefile:128: vdso_prepare] Error 2
+> On Tue, Dec 20, 2022 at 09:12:46AM +0800, Hal Feng wrote:
+>> From: Emil Renner Berthing <kernel@esmil.dk>
+>> 
+>> Add initial device tree for the JH7110 RISC-V SoC by StarFive
+>> Technology Ltd.
+>> 
+>> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+>> Co-developed-by: Jianlong Huang <jianlong.huang@starfivetech.com>
+>> Signed-off-by: Jianlong Huang <jianlong.huang@starfivetech.com>
+>> Co-developed-by: Hal Feng <hal.feng@starfivetech.com>
+>> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+>> ---
+>>  arch/riscv/boot/dts/starfive/jh7110.dtsi | 411 +++++++++++++++++++++++
+>>  1 file changed, 411 insertions(+)
+>>  create mode 100644 arch/riscv/boot/dts/starfive/jh7110.dtsi
+>> 
+>> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+>> new file mode 100644
+>> index 000000000000..64d260ea1f29
+>> --- /dev/null
+>> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+>> @@ -0,0 +1,411 @@
+>> +// SPDX-License-Identifier: GPL-2.0 OR MIT
+>> +/*
+>> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
+>> + * Copyright (C) 2022 Emil Renner Berthing <kernel@esmil.dk>
+>> + */
+>> +
+>> +/dts-v1/;
+>> +#include <dt-bindings/clock/starfive,jh7110-crg.h>
+>> +#include <dt-bindings/reset/starfive,jh7110-crg.h>
+>> +
+>> +/ {
+>> +	compatible = "starfive,jh7110";
+>> +	#address-cells = <2>;
+>> +	#size-cells = <2>;
+>> +
+>> +	cpus {
+>> +		#address-cells = <1>;
+>> +		#size-cells = <0>;
+>> +
+>> +		S76_0: cpu@0 {
+>> +			compatible = "sifive,u74-mc", "riscv";
 > 
-> [...]
+> The label here says S76 but the compatible says u74-mc.
 
-Applied, thanks!
+U74-MC has 5 cores including 1 * S7 core and 4 * U74 cores.
 
-[1/1] riscv: Fix build with CONFIG_CC_OPTIMIZE_FOR_SIZE=y
-      https://git.kernel.org/palmer/c/3c349eacc559
+> Which is correct? Your docs say S7 and S76, so I would imagine that it
+> is actually an S76?
+
+I found SiFive website [1] call it S76, but call it S7 in other places.
+So I misunderstood this. Considering the ISA difference you described
+as below, I think it's proper to change the label to "S7_0".
+
+[1] https://www.sifive.com/cores/essential
+
+> 
+>> +			reg = <0>;
+>> +			d-cache-block-size = <64>;
+>> +			d-cache-sets = <64>;
+>> +			d-cache-size = <8192>;
+>> +			d-tlb-sets = <1>;
+>> +			d-tlb-size = <40>;
+>> +			device_type = "cpu";
+>> +			i-cache-block-size = <64>;
+>> +			i-cache-sets = <64>;
+>> +			i-cache-size = <16384>;
+>> +			i-tlb-sets = <1>;
+>> +			i-tlb-size = <40>;
+>> +			mmu-type = "riscv,sv39";
+>> +			next-level-cache = <&ccache>;
+>> +			riscv,isa = "rv64imac";
+> 
+> While I was poking around trying to see if there was some logic behind
+> that compatible, I noticed that SiFive's docs for the S76 say it is
+> RV64GBC *but* the docs for the u74-mc say "4xRV64GBC and 1xRV64IMAC".
+> I assume that rv64imac is the correct one here?
+
+Yes, "RV64IMAC" is correct. The monitor core in U74-MC is a
+S7-series core, not S76.
+
+> 
+>> +			tlb-split;
+>> +			status = "disabled";
+>> +
+>> +			cpu0_intc: interrupt-controller {
+>> +				compatible = "riscv,cpu-intc";
+>> +				interrupt-controller;
+>> +				#interrupt-cells = <1>;
+>> +			};
+>> +		};
+>> +
+>> +		U74_1: cpu@1 {
+>> +			compatible = "sifive,u74-mc", "riscv";
+>> +			reg = <1>;
+>> +			d-cache-block-size = <64>;
+>> +			d-cache-sets = <64>;
+>> +			d-cache-size = <32768>;
+>> +			d-tlb-sets = <1>;
+>> +			d-tlb-size = <40>;
+>> +			device_type = "cpu";
+>> +			i-cache-block-size = <64>;
+>> +			i-cache-sets = <64>;
+>> +			i-cache-size = <32768>;
+>> +			i-tlb-sets = <1>;
+>> +			i-tlb-size = <40>;
+>> +			mmu-type = "riscv,sv39";
+>> +			next-level-cache = <&ccache>;
+>> +			riscv,isa = "rv64imafdc";
+> 
+> That also begs the question:
+> Do your u74s support RV64GBC, as the (current) SiFive documentation
+> suggests?
+
+Actually, U74 doesn't support the full B extension, and the SiFive doc [1]
+describes the ISA of U74 is "RV64GC_Zba_Zbb_Sscofpmf" which "G" includes
+"IMAFD". "_Zba_Zbb_Sscofpmf" is not shown in other device trees such as
+jh7100.dtsi and fu740-c000.dtsi, so I didn't show them here.
+
+[1] https://sifive.cdn.prismic.io/sifive/2dd11994-693c-4360-8aea-5453d8642c42_u74mc_core_complex_manual_21G3.pdf
 
 Best regards,
--- 
-Palmer Dabbelt <palmer@rivosinc.com>
+Hal
 
 _______________________________________________
 linux-riscv mailing list
