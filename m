@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EB2DC636D4
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DACB7C05027
 	for <linux-riscv@archiver.kernel.org>; Thu,  2 Feb 2023 00:16:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,60 +12,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XLrAQD3GMBst3GuHHSEoXPMg3suqnxBrGbOVTqcPazU=; b=e52Gd0+VQuNljS
-	HojHoYd2Ku24zz4/S4Fpw3zSwev7sV+O+uhjkQoK3BNjNIDxLV595IqDwBuJDmbPNahZUd7DduJZD
-	KMZ1duMP27jgmTcAG3SgU7fxKZxTlV3NVK4fEyz5fDSb0j8MgMLnjA97bTYERQVNGutSO+iUodEN1
-	o2ufOkk9v4mF+xwjmkGwz7ci3bVjPQfY8pO35tlwEla8z9VX7EpnPEvfrrP/O06rIuficVbCMoCB/
-	/Buri+Mk1k7o3PMmdIzqbkreHLePn7rozzV3tN6bLr9IOeOqZJ4310k7DK5XD9NSvmF3tq3NpnDGA
-	VBDZP8f3uUxLn16rq94Q==;
+	List-Owner; bh=v/tNxqV0KBUwPL8rRY67zNR25k7854J4Gwec18Of/eg=; b=DBIRSdcmvNZfPz
+	IFdstzfrGqxnDVdZN6FKdrI/6CRG0J9BKQEZqxAER14HyoQY+0+4+ng+mpgdjTt1yFLQXnAI1YS+j
+	QkLVieHbcwJCOwGo27w4wlXj9XKPsarZHefMS3btMcs5qVK5rNwiLBO15aHF/CdH0x4HWGIDrz7rz
+	E8g4kgw7xmxCq3BLC9o41uxgYEEKSxmG5yOy3VP6be+J2vCTHp1x0xEXs+h2cikzYZ0ZVE9h4Em0H
+	0BnmOuxgqHyqnHGMffr20uYe1xCvTGjdaZWlkkIKDLa4RuiVmOrgyOcVVIGd9+rU9uxil7Snq49+m
+	vNE2nWIGfR+GPU92Qjsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNNGj-00Dwks-ON; Thu, 02 Feb 2023 00:16:01 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1pNNGl-00Dwld-1H; Thu, 02 Feb 2023 00:16:03 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNMHs-00DrLG-Fd
-	for linux-riscv@lists.infradead.org; Wed, 01 Feb 2023 23:13:12 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 88so246361pjo.3
-        for <linux-riscv@lists.infradead.org>; Wed, 01 Feb 2023 15:12:57 -0800 (PST)
+	id 1pNMHs-00DrKo-OZ
+	for linux-riscv@lists.infradead.org; Wed, 01 Feb 2023 23:13:13 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id nm12-20020a17090b19cc00b0022c2155cc0bso130169pjb.4
+        for <linux-riscv@lists.infradead.org>; Wed, 01 Feb 2023 15:12:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=cl7UMnqTD5QWwSQtcMHkzcnwz8kfWWwFumdLwjzGjWU=;
-        b=AYyDHKJWglbSzJEBLsLPFIGYX8v9aHwYKVczL2pHtwC5N22rJfU9y9NSfKlgOdh0fv
-         w2W+uyo3DAMX5HmdfdUMCHzWsJeZy1A6LGouRSP4Txaz+2I7rPOOhzpZdOqOYLabMum9
-         RF8gaSlxNxAsjzgxjAIujsLqXF61EP5lrlmVFpApJJZtwve5f+cIe5OLH86MvYz6CW6T
-         rHOlw5+PXp3yiMoz5DPxDc/XfO3kd0E/hj3ETsWis1HuVlSY2A3/7kI9Z2n6DIWw17X5
-         3lvZfhscfxSjPXVvpZspLtv8cxhpBq6IEqz3LxbptRZntG5zYI7hXpPp+IU58crDpYAG
-         e7Fg==
+        bh=Swsmclp46MJMZpiJNbVkRXfXbIV9+a/sdi6Y4jP8Qv8=;
+        b=OJbXUBOr/ZlbJi7vQRyGb87sk7661p12dXbqByJt3JiFMJPd5GDWQu6i0CGaYXFJVw
+         gqSpEQmlvRYM5k+7UEA5Acq29fe4BmqSKqBgJwCY6BwMZKcQmNwDylgmwk9rJ1NwnHhm
+         BakwRqHpr77iAPFGS2XevYsZUhcpvTzk80E1GFspOTZriMbbfL8OKI63RYOlYhcqgDL3
+         95ZYAdVWl0Bu+CNjm9gG5/NDsCdoMtj0I2Yj1y5pB9vwolZoGjbS7cTJqI2cZAydchne
+         pKZQ83gPDuYtrOmk0UyUhSk9/6zfn0qVOD+2p3oJ6/BCH2Co+ERnrrTVEEBFyY5mwA7A
+         KXRg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=cl7UMnqTD5QWwSQtcMHkzcnwz8kfWWwFumdLwjzGjWU=;
-        b=nItcTiJIIybA1xH0orkVe2bUyYGyd8y5ytaa2e6z8q2nmhi2qcKpk261LHKxRfRQI7
-         Tkz07JFszuULy8MZdQUwCgFLuV5Bu7tAjq2wxZ9rpFfa93YTXLiYz5Z0TO+9A21A2Gte
-         O1B2uDQhQw6TK2gqwgY59Rn5NMr9qEPKrCNYrsT9F59FQg8siEIlcVXFKGKj53nk6V8l
-         pHYYU756DnGBjgzN8jRqyThM3SN1j5Q3bdiGGl84fm3zr6bJci0rMMhcoOs5sxAbVnIt
-         EsUaPSYoqW28z7puhnhHK1sPtGD7UkV54yI73ilEQ+bwmszIszocWNPwmhJ+sQUhyQYf
-         Ct9A==
-X-Gm-Message-State: AO0yUKVad0hzq/yrQ/7Mki25SH9i8wTAax5lltI2/zpMcACJ6eXU5X85
-	tjljt4qhHhHWEOD/xw6DWvWV7w==
-X-Google-Smtp-Source: AK7set+Zn3MRswtmIYIu62T6jZNygP14u2L1nwSLIM7HoaQCKkcqy33BWtvgX2o1OqydHiDIklFHUw==
-X-Received: by 2002:a17:90b:3148:b0:22c:5f97:f6b4 with SMTP id ip8-20020a17090b314800b0022c5f97f6b4mr4143148pjb.44.1675293177450;
-        Wed, 01 Feb 2023 15:12:57 -0800 (PST)
+        bh=Swsmclp46MJMZpiJNbVkRXfXbIV9+a/sdi6Y4jP8Qv8=;
+        b=CjqFrYwHFf+fP+63EbYCW99rWszC8ThoGPnofLlYy+Hs/EdoOKleUQDDQQLRtzyPJV
+         BcfOjgg58uSjfp3j4zOqjjdixZuX4pEo04hl4/MZjCyX4+Tccrxf8zLxpiCSxnnF59y/
+         66DKQTC6M36FO0BzM18AP3kV2tO6OuzSbX1zK9ibnKNwF74pJ4MGTd8cC4Rxk9/xAxu3
+         zNsHSt31euwgAOkXq+Z74/07V3entt5haBeZekt8O+JqsptHRhj1sgbaGDF9Py+/rjnc
+         sR8GF0yCAGjwZ7DOBzHZtYq2TnVczbl+ZF1VRlCdjd0mx9J2nmjk72ErZ9K1h2WoLV/R
+         an2A==
+X-Gm-Message-State: AO0yUKWI9w3scFyCmC7YZwi8wqNNnWsdeJ3JNjxXyy6c6UGphMZA1hTC
+	+PJccfCgns0gscFI8pB54PDatg==
+X-Google-Smtp-Source: AK7set9yHunZIISJKCkgU5VKiMMbq92U0RM5RvdeJ6AGpEJExx4sxV6qe6tRixhTqggVjicyO0Ao7g==
+X-Received: by 2002:a17:90a:3dc5:b0:22c:816e:d67d with SMTP id i63-20020a17090a3dc500b0022c816ed67dmr4309913pjc.24.1675293175608;
+        Wed, 01 Feb 2023 15:12:55 -0800 (PST)
 Received: from atishp.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id t3-20020a17090a510300b0022bf0b0e1b7sm1861774pjh.10.2023.02.01.15.12.56
+        by smtp.gmail.com with ESMTPSA id t3-20020a17090a510300b0022bf0b0e1b7sm1861774pjh.10.2023.02.01.15.12.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 01 Feb 2023 15:12:57 -0800 (PST)
+        Wed, 01 Feb 2023 15:12:55 -0800 (PST)
 From: Atish Patra <atishp@rivosinc.com>
 To: linux-kernel@vger.kernel.org
 Cc: Atish Patra <atishp@rivosinc.com>,
-	Anup Patel <anup@brainfault.org>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Andrew Jones <ajones@ventanamicro.com>,
+	Anup Patel <anup@brainfault.org>,
 	Atish Patra <atishp@atishpatra.org>,
 	Eric Lin <eric.lin@sifive.com>,
 	Guo Ren <guoren@kernel.org>,
@@ -77,16 +77,16 @@ Cc: Atish Patra <atishp@rivosinc.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Will Deacon <will@kernel.org>
-Subject: [PATCH v4 05/14] RISC-V: KVM: Return correct code for hsm stop function
-Date: Wed,  1 Feb 2023 15:12:41 -0800
-Message-Id: <20230201231250.3806412-6-atishp@rivosinc.com>
+Subject: [PATCH v4 03/14] RISC-V: Improve SBI PMU extension related definitions
+Date: Wed,  1 Feb 2023 15:12:39 -0800
+Message-Id: <20230201231250.3806412-4-atishp@rivosinc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20230201231250.3806412-1-atishp@rivosinc.com>
 References: <20230201231250.3806412-1-atishp@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230201_151308_611586_9F35526C 
-X-CRM114-Status: GOOD (  14.08  )
+X-CRM114-CacheID: sfid-20230201_151308_838135_76FFD7F3 
+X-CRM114-Status: GOOD (  11.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,34 +103,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-According to the SBI specification, the stop function can only
-return error code SBI_ERR_FAILED. However, currently it returns
--EINVAL which will be mapped SBI_ERR_INVALID_PARAM.
+This patch fixes/improve few minor things in SBI PMU extension
+definition.
 
-Return an linux error code that maps to SBI_ERR_FAILED i.e doesn't map
-to any other SBI error code. While EACCES is not the best error code
-to describe the situation, it is close enough and will be replaced
-with SBI error codes directly anyways.
+1. Align all the firmware event names.
+2. Add macros for bit positions in cache event ID & ops.
 
-Reviewed-by: Anup Patel <anup@brainfault.org>
+The changes were small enough to combine them together instead
+of creating 1 liner patches.
+
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- arch/riscv/kvm/vcpu_sbi_hsm.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/riscv/include/asm/sbi.h | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/kvm/vcpu_sbi_hsm.c b/arch/riscv/kvm/vcpu_sbi_hsm.c
-index 2e915ca..619ac0f 100644
---- a/arch/riscv/kvm/vcpu_sbi_hsm.c
-+++ b/arch/riscv/kvm/vcpu_sbi_hsm.c
-@@ -42,7 +42,7 @@ static int kvm_sbi_hsm_vcpu_start(struct kvm_vcpu *vcpu)
- static int kvm_sbi_hsm_vcpu_stop(struct kvm_vcpu *vcpu)
- {
- 	if (vcpu->arch.power_off)
--		return -EINVAL;
-+		return -EACCES;
+diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+index 4ca7fba..945b7be 100644
+--- a/arch/riscv/include/asm/sbi.h
++++ b/arch/riscv/include/asm/sbi.h
+@@ -169,9 +169,9 @@ enum sbi_pmu_fw_generic_events_t {
+ 	SBI_PMU_FW_ILLEGAL_INSN		= 4,
+ 	SBI_PMU_FW_SET_TIMER		= 5,
+ 	SBI_PMU_FW_IPI_SENT		= 6,
+-	SBI_PMU_FW_IPI_RECVD		= 7,
++	SBI_PMU_FW_IPI_RCVD		= 7,
+ 	SBI_PMU_FW_FENCE_I_SENT		= 8,
+-	SBI_PMU_FW_FENCE_I_RECVD	= 9,
++	SBI_PMU_FW_FENCE_I_RCVD		= 9,
+ 	SBI_PMU_FW_SFENCE_VMA_SENT	= 10,
+ 	SBI_PMU_FW_SFENCE_VMA_RCVD	= 11,
+ 	SBI_PMU_FW_SFENCE_VMA_ASID_SENT	= 12,
+@@ -215,6 +215,9 @@ enum sbi_pmu_ctr_type {
+ #define SBI_PMU_EVENT_CACHE_OP_ID_CODE_MASK 0x06
+ #define SBI_PMU_EVENT_CACHE_RESULT_ID_CODE_MASK 0x01
  
- 	kvm_riscv_vcpu_power_off(vcpu);
++#define SBI_PMU_EVENT_CACHE_ID_SHIFT 3
++#define SBI_PMU_EVENT_CACHE_OP_SHIFT 1
++
+ #define SBI_PMU_EVENT_IDX_INVALID 0xFFFFFFFF
  
+ /* Flags defined for config matching function */
 -- 
 2.25.1
 
