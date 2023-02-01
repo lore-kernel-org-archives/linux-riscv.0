@@ -4,78 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 379E5C05027
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Feb 2023 19:49:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B4FFC636D4
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Feb 2023 19:52:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Cc:Date:Message-Id:Subject:
-	Mime-Version:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=ogvUivw25CJQJaThLo/3Hqe+8Ui8UzKsA3UJOYodiHs=; b=oYt
-	0IOCJ27uUQH+RZ4AGv9ikzJJxGiLlbrhO4xMUXKT2KHMFlPqvk23m0DtVCbIYO3rN/pbrGLm6U8nF
-	8QdfsgiGgSsPdNQKPhWSqtHuyC1+Wt5rgnZ8RRwUsumYcLL58tmHIdjHuMWuYMqLI0aKS4WdtBgs8
-	kxl01duAvvLcTLWozPuEwafGr8MvDRnSbq8ceBKZ8nYrC75ShZF8I6I4LtpX/FMNrvCiBTzbKlvXj
-	wRCn5TYX5XGe/vbirUn3kcz8AZ2x5ZDZu7Uq9B3tJwWPAiHOWSMsxyzV9GfReMCkdYiPKoDCPmP83
-	8LxMGyV7lzBBxA/qBa0J5GXHfZVSCzQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=mHo6Y+V0+Dr+DhpFPrNN3G/Ec0LbstCeuIohS4uc1fs=; b=FQuF8DbwUdOAL+
+	Tj6+zuMsSpI/YpYtHeasnuLNKAWPbGGThM2tK6WiMYaEtlzXW85rMQXOOmdVHY4LCsznrWQxqyiyJ
+	uo1bP3Zmh9Nmw4iB57dgK1PpnrQOKl5sUFw5ymHy063GlTwOmjghCDCguoqK3fbjXUXyKPT9XajDq
+	Uo2DfiPTczqoqo0zRc1vMOOQZtS2dUqkPl9idXb1b+ZveMwMMI6BB7rk58SU5XNsEJHd6q0sExoyV
+	UxWx1l4AE8qsUOX29yTPKAk29p+sSzUvcjK5oVqvyWOWo1CYgR3zA+AaAk+Rd7rWdila/GCT6Ihp7
+	US5OH70ZdpacLXahAy8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNJ78-00DQrJ-Iy; Wed, 01 Feb 2023 19:49:50 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1pNJ9K-00DRAj-Nb; Wed, 01 Feb 2023 19:52:06 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNJ75-00DQqG-Qz
-	for linux-riscv@lists.infradead.org; Wed, 01 Feb 2023 19:49:49 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id v23so19569971plo.1
-        for <linux-riscv@lists.infradead.org>; Wed, 01 Feb 2023 11:49:46 -0800 (PST)
+	id 1pNJ9H-00DR99-3b
+	for linux-riscv@lists.infradead.org; Wed, 01 Feb 2023 19:52:04 +0000
+Received: by mail-ej1-x633.google.com with SMTP id k4so49226817eje.1
+        for <linux-riscv@lists.infradead.org>; Wed, 01 Feb 2023 11:51:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=to:cc:date:message-id:subject:mime-version
-         :content-transfer-encoding:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=1dg+uXzaaDlrvsfZB5ZVYE69CBYsnyR8HC8FMGd9uOk=;
-        b=mUdhzyCgYPNycF/3bkAMsoqXvQQ/tso4Texyq30NkVnpEYdcyRuKmzz2Rr9fp34Eje
-         PStVXCIBfTeS/ewMRxcWIN0eZkpiwVz+K9wrlYOCPExPoX8XDqDeXpo/xdlz8Mb6P8yH
-         rcBTRdi3v3r589fekBvveOZSmC7+ooKvp8fSGwL7tL9TYZnQkCuAxoflAaTlkZplc+kS
-         eEtwnPc7zlSIS/pHv8ONU0y+IeI1t0HUSWZ8XxQfIZDEqXbwAz2erCpu4iuptmGQRHkV
-         n2pvh7Je1PuerQguKUAuzrm4EdS0tWGOF8oz7CtrfidrPzyq9yyoll/nea+iLRYeDveu
-         pE4w==
+        d=linux-foundation.org; s=google;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=vLOt8Htpi1Up/DCPSKgd2HVLgjbb3KJvZ9wNHdxeIi0=;
+        b=F70AJ99pkUxssTeL0XhQsULJ+i1q3hIfT9mQJxKYXMRcGN/4hPjNKQXfjgd8TBqpBG
+         BetUorZ/VTlYCLAfd+XP2RRKW0JVrfaxYcX4T9dpsWXY9GYLSKeTv64OlMI8Kd6WjuJ/
+         BWyXoO4myVBwLlBRPvXQouhFGSPXaEWcUSKkI=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=to:cc:date:message-id:subject:mime-version
-         :content-transfer-encoding:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=1dg+uXzaaDlrvsfZB5ZVYE69CBYsnyR8HC8FMGd9uOk=;
-        b=1zS7jBVn1WFOMutLxkjKCy1GYt/kgQ1GJbU8Cd5F8xOfaGgE55Sxiv8TWs/y/zDYTg
-         W7d9qsnAWKqkwpkN1gPifHLG6YRsKCikU34kMlLasHAtCXWqA7uHgDNOBNzJwVMg2iLq
-         8kZGofnVt/BM50j0kvQxJl95rdAhfaZefZbqT5nlUaUPls5Syw3m0ZyD0rguumzA62wg
-         1jozD47EQAdFICrvw36QsmPA2w5k/Fb9gb5gM/6yelTGbCuQv4RHURqtcJ5bG/REW4vH
-         GI/mJiS88xHtYlHweYD0a9TzmQk8iTNk8Ldd+HK51kt9AP0Hk84WtsbjkpMgUYxx33Il
-         CQdw==
-X-Gm-Message-State: AO0yUKU58GL6x7x9wPagdUftY31nUsO+BvmqwAJVBk/9ENIWYyJqwfsE
-	xiBZxN0MprygBilwhHcGU8tmGg==
-X-Google-Smtp-Source: AK7set+GulbmfTJcMlD3KZbcW1D0M9MZZW397DAJ+hjZSoE0ohBkXfhXkx7rlEzwdgu1mqowUP6nKw==
-X-Received: by 2002:a17:902:d415:b0:196:6298:6226 with SMTP id b21-20020a170902d41500b0019662986226mr3453841ple.49.1675280986263;
-        Wed, 01 Feb 2023 11:49:46 -0800 (PST)
-Received: from smtpclient.apple ([51.52.155.79])
-        by smtp.gmail.com with ESMTPSA id q9-20020a170902b10900b0019608291564sm4015021plr.134.2023.02.01.11.49.44
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 01 Feb 2023 11:49:45 -0800 (PST)
-From: Matt Evans <mev@rivosinc.com>
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3696.120.41.1.1\))
-Subject: [PATCH V2] clocksource: riscv: Patch riscv_clock_next_event() jump
- before first use
-Message-Id: <CDDAB2D0-264E-42F3-8E31-BA210BEB8EC1@rivosinc.com>
-Date: Wed, 1 Feb 2023 19:49:42 +0000
-Cc: linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- Atish Patra <atishp@rivosinc.com>,
- Palmer Dabbelt <palmer@dabbelt.com>
-To: Daniel Lezcano <daniel.lezcano@linaro.org>,
- Thomas Gleixner <tglx@linutronix.de>
-X-Mailer: Apple Mail (2.3696.120.41.1.1)
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=vLOt8Htpi1Up/DCPSKgd2HVLgjbb3KJvZ9wNHdxeIi0=;
+        b=c4fht/O3sRfWYkdecWrd6DI0ACxCUCtm7i2lSQ4RYokzq5q82LvQBavmPyOB66XD45
+         xsH+AhjnqRim89MCj98nnVFPCJjpsYaXn79sNB6PO3yYG/EVqr9W3f5zvgTF3WMa0cnE
+         tb1kXTxqOoE7o6jrGOIMvg3RacryeSMASmqcsF1e4mCKFM1Z0Sq2F/Zf5G2yvf5WoY2R
+         AvVjh0upf+1adzpPR8q2HA81MRSYsfd2jzvJR9zvAqQyGLs3p5IFBw2on9Dp4i5PFE10
+         vKDOwm2mSYD/Wq2VuPzMmGffyyUOidADABKiANBcoO+2sjRtHs35OfPQ0iSKZ8zNApBi
+         ezGw==
+X-Gm-Message-State: AO0yUKXyfKJk9j4C/onNz6YkBLgaoU/x0whZx7+giZVf73KnldWtX2qY
+	PYuKL++nZKfQGACh9O+5dThds+cSlLEpmGx5Gdw=
+X-Google-Smtp-Source: AK7set95K/KazyqDOebSB/KmXSPkJuZz0bToU0ENA3UOjn/ZxlUkF5hGgG0WJ2plNhPPVUJU/nPx/g==
+X-Received: by 2002:a17:906:2ad4:b0:871:dd2:4af0 with SMTP id m20-20020a1709062ad400b008710dd24af0mr3777101eje.26.1675281113102;
+        Wed, 01 Feb 2023 11:51:53 -0800 (PST)
+Received: from mail-ej1-f53.google.com (mail-ej1-f53.google.com. [209.85.218.53])
+        by smtp.gmail.com with ESMTPSA id my31-20020a1709065a5f00b0088cf92eb0e1sm2377626ejc.150.2023.02.01.11.51.51
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 01 Feb 2023 11:51:51 -0800 (PST)
+Received: by mail-ej1-f53.google.com with SMTP id ud5so54717774ejc.4
+        for <linux-riscv@lists.infradead.org>; Wed, 01 Feb 2023 11:51:51 -0800 (PST)
+X-Received: by 2002:a17:906:f8d4:b0:878:51a6:ff35 with SMTP id
+ lh20-20020a170906f8d400b0087851a6ff35mr995069ejb.43.1675281111261; Wed, 01
+ Feb 2023 11:51:51 -0800 (PST)
+MIME-Version: 1.0
+References: <Y9lz6yk113LmC9SI@ZenIV> <CAHk-=whf73Vm2U3jyTva95ihZzefQbThZZxqZuKAF-Xjwq=G4Q@mail.gmail.com>
+ <Y9mD1qp/6zm+jOME@ZenIV> <CAHk-=wjiwFzEGd_60H3nbgVB=R_8KTcfUJmXy=hSXCvLrXQRFA@mail.gmail.com>
+ <8f60f7d8-3e2f-2a91-c7a3-6a005d36d7d3@gmx.de>
+In-Reply-To: <8f60f7d8-3e2f-2a91-c7a3-6a005d36d7d3@gmx.de>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Wed, 1 Feb 2023 11:51:34 -0800
+X-Gmail-Original-Message-ID: <CAHk-=whYidrLJSq80s8C0LSui_h9164cxG6WNV1M77Tk_2QFug@mail.gmail.com>
+Message-ID: <CAHk-=whYidrLJSq80s8C0LSui_h9164cxG6WNV1M77Tk_2QFug@mail.gmail.com>
+Subject: Re: [RFC][PATCHSET] VM_FAULT_RETRY fixes
+To: Helge Deller <deller@gmx.de>
+Cc: Al Viro <viro@zeniv.linux.org.uk>, Peter Xu <peterx@redhat.com>, 
+	linux-arch@vger.kernel.org, linux-alpha@vger.kernel.org, 
+	linux-ia64@vger.kernel.org, linux-hexagon@vger.kernel.org, 
+	linux-m68k@lists.linux-m68k.org, Michal Simek <monstr@monstr.eu>, 
+	Dinh Nguyen <dinguyen@kernel.org>, openrisc@lists.librecores.org, 
+	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	sparclinux@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230201_114948_125633_FF7CFD38 
-X-CRM114-Status: GOOD (  14.02  )
+X-CRM114-CacheID: sfid-20230201_115203_169922_CCC5ACE5 
+X-CRM114-Status: GOOD (  10.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,54 +99,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-A static key is used to select between SBI and Sstc timer usage in
-riscv_clock_next_event(), but currently the direction is resolved
-after cpuhp_setup_state() is called (which sets the next event).  The
-first event will therefore fall through the sbi_set_timer() path; this
-breaks Sstc-only systems.  So, apply the jump patching before first
-use.
+On Wed, Feb 1, 2023 at 12:21 AM Helge Deller <deller@gmx.de> wrote:
+>
+> AFAICS, the only applications which really care about the return
+> code are
+> - testsuites like LTP (i.e. the fstat05 testcase)
 
-Fixes: 9f7a8ff6391f ("RISC-V: Prefer sstc extension if available")
-Signed-off-by: Matt Evans <mev@rivosinc.com>
----
+Those have actually shown issues with various library implementations,
+exactly because real system calls act very differently in this area
+from library wrappers.
 
-V1 -> V2: Commit msg tweak.
+Things like the vdso implementation of gettimeofday() get a SIGSEGV if
+the timeval or timezone pointer is invalid, while the "real system
+call" version returns -1/EFAULT instead.
 
- drivers/clocksource/timer-riscv.c | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+And very similar things happen when glibc ends up wrapping system
+calls and converting buffers manually. At some point, glibc had a
+special 'struct stat' and basically converted the native system call
+to it, so you did 'stat()' on something, and it ended up actually
+using a private on-stack buffer for the system call, followed by a
+"convert that kernel 'struct stat' to the glibc 'struct stat'" phase.
+So once again, instead of -1/EFAULT, you'd first have a successful
+system call, and then get a SIGSEGV  in glibc.
 
-diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
-index 969a552da8d2..a36d173fd6cd 100644
---- a/drivers/clocksource/timer-riscv.c
-+++ b/drivers/clocksource/timer-riscv.c
-@@ -177,6 +177,11 @@ static int __init riscv_timer_init_dt(struct device_node *n)
- 		return error;
- 	}
- 
-+	if (riscv_isa_extension_available(NULL, SSTC)) {
-+		pr_info("Timer interrupt in S-mode is available via sstc extension\n");
-+		static_branch_enable(&riscv_sstc_available);
-+	}
-+
- 	error = cpuhp_setup_state(CPUHP_AP_RISCV_TIMER_STARTING,
- 			 "clockevents/riscv/timer:starting",
- 			 riscv_timer_starting_cpu, riscv_timer_dying_cpu);
-@@ -184,11 +189,6 @@ static int __init riscv_timer_init_dt(struct device_node *n)
- 		pr_err("cpu hp setup state failed for RISCV timer [%d]\n",
- 		       error);
- 
--	if (riscv_isa_extension_available(NULL, SSTC)) {
--		pr_info("Timer interrupt in S-mode is available via sstc extension\n");
--		static_branch_enable(&riscv_sstc_available);
--	}
--
- 	return error;
- }
- 
--- 
-2.30.2
+And as you say, test suites would notice. But no actual normal app
+would ever care.
 
+Of course, there's always the abnormal apps. There _are_ the odd cases
+that actually catch faults and fix them up, and can then be confused
+by changes like that.
 
+It's very very rare, but it happens - things like emulators do tend to
+do some really strange things.
+
+         Linus
 
 _______________________________________________
 linux-riscv mailing list
