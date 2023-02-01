@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 268E1C38142
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Feb 2023 05:49:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 321F0C05027
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Feb 2023 06:19:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mRwivXjDj0CVXgbhSHlNyg1Sz5Rxh9SIFZSNSBG72zY=; b=lIYQu74tZqtgeM
-	NKL0mJc8jyXKvZQ2kRhrr4LTSAY42/hkszbp0gOnb4EXcjUuTa7SgN42y9lFheLjl7eaH+GMN9aA9
-	M0Mf64+4Q9y9lukIH7VSPz6FjyjB1EDzq+iwzfKFzN3re4HMxEw5eHRuHj0EXOurAXDIVAxEBRN7x
-	0Lbu7sld4JGRTPNS3TyXQ3IOfrKLA1v/RxNZLCkjX1ey4YWCt013FQLXBBMtAwQIZjRgIauzL1yv2
-	9SEoFXEzoh+JT+UCdcPP1nR8c6Pa6Ka6nYyOzHXozTyrl7q+T5/tabZyRcoLSMG/Yots9UGlrLFNp
-	C0+j9JQfDb3n4tMUScYQ==;
+	List-Owner; bh=a4qr4Xmf0wFk8UVx1J/ODBFoBzGGEoopB9WOxuZz2rY=; b=cueEPuWHVb/1rL
+	GYB00rVmwBN4oLYBnYmmX57DxGiQQDQIOG7uZOYhu4jXTsOAGtMDglLhrjLhhPg/I4K4IRLnw5vTL
+	+duYNLhn0VS+bsvJDXhUK6y8Nx2LcUkvqJFWXTU8Q4gVr7zMQclcK53Ra15eUJguXCCcO+bnNkJcr
+	vKpeJ8hp+x+cxDpxgeu7MQ0tXBJbWmvm8N2tx+md7k1LJ6q4gCRpnL6A5onDCtu84ZSRIRJ5VY0XQ
+	RH9wiXI5FwdAkOv9awdceHwuMiMwU/J1xQ4ocWiN2ey8Fc4JRhV96ERahHvhA4zapaub4RR4alm+L
+	FrllbV7KjBmQQkgHJpsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pN5zh-00AKNR-2s; Wed, 01 Feb 2023 05:49:17 +0000
+	id 1pN6TC-00ARLB-73; Wed, 01 Feb 2023 06:19:46 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pN5zc-00AKDu-Nk
-	for linux-riscv@lists.infradead.org; Wed, 01 Feb 2023 05:49:15 +0000
+	id 1pN6T6-00ARIY-JS
+	for linux-riscv@lists.infradead.org; Wed, 01 Feb 2023 06:19:44 +0000
 Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 17DB324E203;
-	Wed,  1 Feb 2023 13:48:05 +0800 (CST)
-Received: from EXMBX062.cuchost.com (172.16.6.62) by EXMBX166.cuchost.com
+	by ex01.ufhost.com (Postfix) with ESMTP id 376DD24E208;
+	Wed,  1 Feb 2023 14:19:21 +0800 (CST)
+Received: from EXMBX065.cuchost.com (172.16.6.65) by EXMBX166.cuchost.com
  (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 1 Feb
- 2023 13:48:04 +0800
-Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX062.cuchost.com
- (172.16.6.62) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 1 Feb
- 2023 13:48:04 +0800
+ 2023 14:19:21 +0800
+Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX065.cuchost.com
+ (172.16.6.65) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 1 Feb
+ 2023 14:19:20 +0800
 Received: from EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f]) by
  EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f%17]) with mapi id
- 15.00.1497.044; Wed, 1 Feb 2023 13:48:04 +0800
+ 15.00.1497.044; Wed, 1 Feb 2023 14:19:20 +0800
 From: JeeHeng Sia <jeeheng.sia@starfivetech.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>, Conor Dooley <conor@kernel.org>
+To: Conor Dooley <conor@kernel.org>
 CC: "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
 	"palmer@dabbelt.com" <palmer@dabbelt.com>, "aou@eecs.berkeley.edu"
 	<aou@eecs.berkeley.edu>, "linux-riscv@lists.infradead.org"
 	<linux-riscv@lists.infradead.org>, "linux-kernel@vger.kernel.org"
 	<linux-kernel@vger.kernel.org>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
 	Mason Huo <mason.huo@starfivetech.com>
-Subject: RE: [PATCH v3 3/4] RISC-V: mm: Enable huge page support to
- kernel_page_present() function
-Thread-Topic: [PATCH v3 3/4] RISC-V: mm: Enable huge page support to
- kernel_page_present() function
-Thread-Index: AQHZMi9WxT1gIxNRXUer5+u3a86Dx663AUwAgACtmgCAAe0oYA==
-Date: Wed, 1 Feb 2023 05:48:04 +0000
-Message-ID: <27844cccf1894529a75106edeb7026bb@EXMBX066.cuchost.com>
+Subject: RE: [PATCH v3 2/4] RISC-V: Factor out common code of
+ __cpu_resume_enter()
+Thread-Topic: [PATCH v3 2/4] RISC-V: Factor out common code of
+ __cpu_resume_enter()
+Thread-Index: AQHZMi9SanO5pl00sUCF5bQ9loH2sK62/uuAgAKmkCA=
+Date: Wed, 1 Feb 2023 06:19:20 +0000
+Message-ID: <9937efbe63ba417aad6647ca2fb4a125@EXMBX066.cuchost.com>
 References: <20230127091051.1465278-1-jeeheng.sia@starfivetech.com>
- <20230127091051.1465278-4-jeeheng.sia@starfivetech.com>
- <Y9g9XGzF/X3OwXdP@spud>
- <CAHVXubh2P5TxdMsbW2TY7NxemSFX81UuvgO9schnTEBvzuAn2Q@mail.gmail.com>
-In-Reply-To: <CAHVXubh2P5TxdMsbW2TY7NxemSFX81UuvgO9schnTEBvzuAn2Q@mail.gmail.com>
+ <20230127091051.1465278-3-jeeheng.sia@starfivetech.com>
+ <Y9g7XeTbWjCxB3BT@spud>
+In-Reply-To: <Y9g7XeTbWjCxB3BT@spud>
 Accept-Language: en-US, zh-CN
 Content-Language: en-US
 X-MS-Has-Attach: 
@@ -68,8 +67,8 @@ x-originating-ip: [202.188.176.82]
 x-yovoleruleagent: yovoleflag
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230131_214913_100589_DF229DCB 
-X-CRM114-Status: GOOD (  25.19  )
+X-CRM114-CacheID: sfid-20230131_221941_022552_46CDE740 
+X-CRM114-Status: GOOD (  19.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,84 +88,158 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 > -----Original Message-----
-> From: Alexandre Ghiti <alexghiti@rivosinc.com>
-> Sent: Tuesday, 31 January, 2023 4:19 PM
-> To: Conor Dooley <conor@kernel.org>
-> Cc: JeeHeng Sia <jeeheng.sia@starfivetech.com>; paul.walmsley@sifive.com; palmer@dabbelt.com; aou@eecs.berkeley.edu; linux-
-> riscv@lists.infradead.org; linux-kernel@vger.kernel.org; Leyfoon Tan <leyfoon.tan@starfivetech.com>; Mason Huo
-> <mason.huo@starfivetech.com>
-> Subject: Re: [PATCH v3 3/4] RISC-V: mm: Enable huge page support to kernel_page_present() function
+> From: Conor Dooley <conor@kernel.org>
+> Sent: Tuesday, 31 January, 2023 5:49 AM
+> To: JeeHeng Sia <jeeheng.sia@starfivetech.com>
+> Cc: paul.walmsley@sifive.com; palmer@dabbelt.com; aou@eecs.berkeley.edu; linux-riscv@lists.infradead.org; linux-
+> kernel@vger.kernel.org; Leyfoon Tan <leyfoon.tan@starfivetech.com>; Mason Huo <mason.huo@starfivetech.com>
+> Subject: Re: [PATCH v3 2/4] RISC-V: Factor out common code of __cpu_resume_enter()
 > 
-> Hi,
-> 
-> On Mon, Jan 30, 2023 at 10:57 PM Conor Dooley <conor@kernel.org> wrote:
+> On Fri, Jan 27, 2023 at 05:10:49PM +0800, Sia Jee Heng wrote:
+> > The cpu_resume() function is very similar for the suspend to disk and
+> > suspend to ram cases. Factor out the common code into restore_csr macro
+> > and restore_reg macro.
 > >
-> > +CC Alex
+> > Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
+> > ---
+> >  arch/riscv/include/asm/assembler.h | 62 ++++++++++++++++++++++++++++++
+> >  arch/riscv/kernel/suspend_entry.S  | 34 ++--------------
+> >  2 files changed, 65 insertions(+), 31 deletions(-)
+> >  create mode 100644 arch/riscv/include/asm/assembler.h
 > >
-> > On Fri, Jan 27, 2023 at 05:10:50PM +0800, Sia Jee Heng wrote:
-> > > Currently kernel_page_present() function doesn't support huge page
-> > > detection causes the function to mistakenly return false to the
-> > > hibernation core.
+> > diff --git a/arch/riscv/include/asm/assembler.h b/arch/riscv/include/asm/assembler.h
+> > new file mode 100644
+> > index 000000000000..ef1283d04b70
+> > --- /dev/null
+> > +++ b/arch/riscv/include/asm/assembler.h
+> > @@ -0,0 +1,62 @@
+> > +/* SPDX-License-Identifier: GPL-2.0-only */
+> > +/*
+> > + * Copyright (C) 2023 StarFive Technology Co., Ltd.
+> > + *
+> > + * Author: Jee Heng Sia <jeeheng.sia@starfivetech.com>
+> > + */
+> > +
+> > +#ifndef __ASSEMBLY__
+> > +#error "Only include this from assembly code"
+> > +#endif
+> > +
+> > +#ifndef __ASM_ASSEMBLER_H
+> > +#define __ASM_ASSEMBLER_H
+> > +
+> > +#include <asm/asm.h>
+> > +#include <asm/csr.h>
+> > +#include <asm/asm-offsets.h>
+> > +
+> > +/**
+> > + * restore_csr - restore hart's CSR value
+> > + */
+> > +	.macro restore_csr
+> > +		REG_L	t0, (SUSPEND_CONTEXT_REGS + PT_EPC)(a0)
+> > +		csrw	CSR_EPC, t0
+> > +		REG_L	t0, (SUSPEND_CONTEXT_REGS + PT_STATUS)(a0)
+> > +		csrw	CSR_STATUS, t0
+> > +		REG_L	t0, (SUSPEND_CONTEXT_REGS + PT_BADADDR)(a0)
+> > +		csrw	CSR_TVAL, t0
+> > +		REG_L	t0, (SUSPEND_CONTEXT_REGS + PT_CAUSE)(a0)
+> > +		csrw	CSR_CAUSE, t0
+> > +	.endm
+> > +
+> > +/**
+> > + * restore_reg - Restore registers (except A0 and T0-T6)
+> 
+> arch/riscv/include/asm/assembler.h:34: warning: Incorrect use of kernel-doc format:  * restore_reg - Restore registers (except A0 and
+> T0-T6)
+Ok, will use '/*' instead of '/**'
+> 
+> Otherwise, LGTM.
+> 
+> > + */
+> > +	.macro restore_reg
+> > +		REG_L	ra, (SUSPEND_CONTEXT_REGS + PT_RA)(a0)
+> > +		REG_L	sp, (SUSPEND_CONTEXT_REGS + PT_SP)(a0)
+> > +		REG_L	gp, (SUSPEND_CONTEXT_REGS + PT_GP)(a0)
+> > +		REG_L	tp, (SUSPEND_CONTEXT_REGS + PT_TP)(a0)
+> > +		REG_L	s0, (SUSPEND_CONTEXT_REGS + PT_S0)(a0)
+> > +		REG_L	s1, (SUSPEND_CONTEXT_REGS + PT_S1)(a0)
+> > +		REG_L	a1, (SUSPEND_CONTEXT_REGS + PT_A1)(a0)
+> > +		REG_L	a2, (SUSPEND_CONTEXT_REGS + PT_A2)(a0)
+> > +		REG_L	a3, (SUSPEND_CONTEXT_REGS + PT_A3)(a0)
+> > +		REG_L	a4, (SUSPEND_CONTEXT_REGS + PT_A4)(a0)
+> > +		REG_L	a5, (SUSPEND_CONTEXT_REGS + PT_A5)(a0)
+> > +		REG_L	a6, (SUSPEND_CONTEXT_REGS + PT_A6)(a0)
+> > +		REG_L	a7, (SUSPEND_CONTEXT_REGS + PT_A7)(a0)
+> > +		REG_L	s2, (SUSPEND_CONTEXT_REGS + PT_S2)(a0)
+> > +		REG_L	s3, (SUSPEND_CONTEXT_REGS + PT_S3)(a0)
+> > +		REG_L	s4, (SUSPEND_CONTEXT_REGS + PT_S4)(a0)
+> > +		REG_L	s5, (SUSPEND_CONTEXT_REGS + PT_S5)(a0)
+> > +		REG_L	s6, (SUSPEND_CONTEXT_REGS + PT_S6)(a0)
+> > +		REG_L	s7, (SUSPEND_CONTEXT_REGS + PT_S7)(a0)
+> > +		REG_L	s8, (SUSPEND_CONTEXT_REGS + PT_S8)(a0)
+> > +		REG_L	s9, (SUSPEND_CONTEXT_REGS + PT_S9)(a0)
+> > +		REG_L	s10, (SUSPEND_CONTEXT_REGS + PT_S10)(a0)
+> > +		REG_L	s11, (SUSPEND_CONTEXT_REGS + PT_S11)(a0)
+> > +	.endm
+> > +
+> > +#endif	/* __ASM_ASSEMBLER_H */
+> > diff --git a/arch/riscv/kernel/suspend_entry.S b/arch/riscv/kernel/suspend_entry.S
+> > index aafcca58c19d..74a8fab8e0f6 100644
+> > --- a/arch/riscv/kernel/suspend_entry.S
+> > +++ b/arch/riscv/kernel/suspend_entry.S
+> > @@ -7,6 +7,7 @@
+> >  #include <linux/linkage.h>
+> >  #include <asm/asm.h>
+> >  #include <asm/asm-offsets.h>
+> > +#include <asm/assembler.h>
+> >  #include <asm/csr.h>
+> >  #include <asm/xip_fixup.h>
 > >
-> > This sounds like a bug & should have a fixes tag, no? I assume for
-> > whatever commit enabled huge page support...
-> > We don't support set_memory, which by the looks of things is the other
-> > usecase for this function, so probably doesn't need backporting.
-> 
-> Maybe add this patch in the Fixes tag: commit 9e953cda5cdf ("riscv:
-> Introduce huge page support for 32/64bit kernel").
-Sure, will add the fixes tag.
-> 
+> > @@ -83,39 +84,10 @@ ENTRY(__cpu_resume_enter)
+> >  	add	a0, a1, zero
 > >
-> > Alex, does this change look good to you?
-> 
-> Yes, just one thing though: what about a pgd_leaf() test? Even if very
-> unlikely (I see x86 does not even test it), the privileged spec states
-> it is possible to have a 256TB page.
-I can add it in. But as you are probably aware that x86 and ARM don't even tested it. Thanks.
-> 
-> Thanks,
-> 
-> Alex
-> 
+> >  	/* Restore CSRs */
+> > -	REG_L	t0, (SUSPEND_CONTEXT_REGS + PT_EPC)(a0)
+> > -	csrw	CSR_EPC, t0
+> > -	REG_L	t0, (SUSPEND_CONTEXT_REGS + PT_STATUS)(a0)
+> > -	csrw	CSR_STATUS, t0
+> > -	REG_L	t0, (SUSPEND_CONTEXT_REGS + PT_BADADDR)(a0)
+> > -	csrw	CSR_TVAL, t0
+> > -	REG_L	t0, (SUSPEND_CONTEXT_REGS + PT_CAUSE)(a0)
+> > -	csrw	CSR_CAUSE, t0
+> > +	restore_csr
 > >
-> > > Add huge page detection to the function to solve the problem.
-> > >
-> > > Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
-> > > Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
-> > > Reviewed-by: Mason Huo <mason.huo@starfivetech.com>
-> > > ---
-> > >  arch/riscv/mm/pageattr.c | 6 ++++++
-> > >  1 file changed, 6 insertions(+)
-> > >
-> > > diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
-> > > index 86c56616e5de..792b8d10cdfc 100644
-> > > --- a/arch/riscv/mm/pageattr.c
-> > > +++ b/arch/riscv/mm/pageattr.c
-> > > @@ -221,14 +221,20 @@ bool kernel_page_present(struct page *page)
-> > >       p4d = p4d_offset(pgd, addr);
-> > >       if (!p4d_present(*p4d))
-> > >               return false;
-> > > +     if (p4d_leaf(*p4d))
-> > > +             return true;
-> > >
-> > >       pud = pud_offset(p4d, addr);
-> > >       if (!pud_present(*pud))
-> > >               return false;
-> > > +     if (pud_leaf(*pud))
-> > > +             return true;
-> > >
-> > >       pmd = pmd_offset(pud, addr);
-> > >       if (!pmd_present(*pmd))
-> > >               return false;
-> > > +     if (pmd_leaf(*pmd))
-> > > +             return true;
-> > >
-> > >       pte = pte_offset_kernel(pmd, addr);
-> > >       return pte_present(*pte);
-> > > --
-> > > 2.34.1
-> > >
+> >  	/* Restore registers (except A0 and T0-T6) */
+> > -	REG_L	ra, (SUSPEND_CONTEXT_REGS + PT_RA)(a0)
+> > -	REG_L	sp, (SUSPEND_CONTEXT_REGS + PT_SP)(a0)
+> > -	REG_L	gp, (SUSPEND_CONTEXT_REGS + PT_GP)(a0)
+> > -	REG_L	tp, (SUSPEND_CONTEXT_REGS + PT_TP)(a0)
+> > -	REG_L	s0, (SUSPEND_CONTEXT_REGS + PT_S0)(a0)
+> > -	REG_L	s1, (SUSPEND_CONTEXT_REGS + PT_S1)(a0)
+> > -	REG_L	a1, (SUSPEND_CONTEXT_REGS + PT_A1)(a0)
+> > -	REG_L	a2, (SUSPEND_CONTEXT_REGS + PT_A2)(a0)
+> > -	REG_L	a3, (SUSPEND_CONTEXT_REGS + PT_A3)(a0)
+> > -	REG_L	a4, (SUSPEND_CONTEXT_REGS + PT_A4)(a0)
+> > -	REG_L	a5, (SUSPEND_CONTEXT_REGS + PT_A5)(a0)
+> > -	REG_L	a6, (SUSPEND_CONTEXT_REGS + PT_A6)(a0)
+> > -	REG_L	a7, (SUSPEND_CONTEXT_REGS + PT_A7)(a0)
+> > -	REG_L	s2, (SUSPEND_CONTEXT_REGS + PT_S2)(a0)
+> > -	REG_L	s3, (SUSPEND_CONTEXT_REGS + PT_S3)(a0)
+> > -	REG_L	s4, (SUSPEND_CONTEXT_REGS + PT_S4)(a0)
+> > -	REG_L	s5, (SUSPEND_CONTEXT_REGS + PT_S5)(a0)
+> > -	REG_L	s6, (SUSPEND_CONTEXT_REGS + PT_S6)(a0)
+> > -	REG_L	s7, (SUSPEND_CONTEXT_REGS + PT_S7)(a0)
+> > -	REG_L	s8, (SUSPEND_CONTEXT_REGS + PT_S8)(a0)
+> > -	REG_L	s9, (SUSPEND_CONTEXT_REGS + PT_S9)(a0)
+> > -	REG_L	s10, (SUSPEND_CONTEXT_REGS + PT_S10)(a0)
+> > -	REG_L	s11, (SUSPEND_CONTEXT_REGS + PT_S11)(a0)
+> > +	restore_reg
+> >
+> >  	/* Return zero value */
+> >  	add	a0, zero, zero
+> > --
+> > 2.34.1
+> >
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
