@@ -4,78 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 940E0C38142
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Feb 2023 19:24:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5F82C636D4
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Feb 2023 19:48:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cT+B6bapezUi6QORc+5Ka9ZCm9SCVewt7zjk/n/N9Uk=; b=4JCrieuJvzPTs/
-	nfPuqf//2c/Kb+UMpnR70MSg3TkszMCoWqFPSXEYk6Fi29Kx8jaXL9zM0ycPFXMog5N9gupU8ZIZh
-	9dxN6uNPeqZ4bZqWQ7iiNdRQR8UO1BTKnaXvcwpaPgYDZlJPS5Sp3pJx3j1Fe/jUHZgUme2CLtZac
-	7idwF32wbmdxAUqoaT8WfFUUFZxLzJ6nwvpWjyz9/Fj/2EaY5vZHXLmj6f/h4R2SZhN1QYvBPsjRe
-	YuNRN7u6zhzqtSHuUTgQqH9k/jw5IaUDedfY5/pfYsO9G+L38YsVaBxU+NGJlCjHeSKfK5ZmeYeQm
-	1BoROvVPlxc+AAAeRGNQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=zotLaka2cZCI1cERJiVZftqrgNzLSMUEuw+YOkqwVYI=; b=SMkT/l/kkkSnQZ
+	sID4B1ZbdarJJdYLuq7rJRrt5ZqvJ6UISUfk+3PqsUXXCOQO8hGwsiWlBLWtHkxXufzu23nzLCw5L
+	A5hL4jlqCi3Mzp3Gdu2YWcwMssXlPiPPPm8gxwj0u6l9ce25zJ+/vyGWxOuZoeh5K3KOVKOquXTX+
+	3kJ4YDDFFME0yymywZW65ddKheY4+V0k7UMgYsXsWkufxGsAmYK6lzXOR0a6zYSZo3+mX4keukCPJ
+	NUVE+xIAHJbs1cpXDbdvUC/7W77RNdCb/3yAcZbLaPLf3KY2qSgwmtb+Rl3V8ldHr4oIXZKmUTprh
+	gWd8geTAN5VUAxdFP3Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNIix-00DMUu-Fq; Wed, 01 Feb 2023 19:24:51 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1pNJ5s-00DQfA-9F; Wed, 01 Feb 2023 19:48:32 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNIit-00DMUN-Ok
-	for linux-riscv@lists.infradead.org; Wed, 01 Feb 2023 19:24:49 +0000
-Received: by mail-pf1-x431.google.com with SMTP id 144so13301001pfv.11
-        for <linux-riscv@lists.infradead.org>; Wed, 01 Feb 2023 11:24:46 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/jfUP8j49LnH+0opcjK5BisED0hgZ9+/KVu7XGUypWk=;
-        b=VgMNfl3OOmOnuYFV/FPcOrdEpU4BnAbiU9fTKyr0KZWauWrvblC6jJ4vCCQ6XVWJgv
-         Mo34Ka+19P0n/mzjSRFWtpZIq5/Kbjo9c63HWZeClX4EPk/QZ9VpaXc+GKFpozsT+8OF
-         jVVTeScbkfYT7cVAVfZ0wcQj1CIzSncPtUDyHAHNl557GxH4VacPIpcvFeIi2qatbYUa
-         m6XxaBdUMPCp1cOHkbjDqL5AuQVrAWUTng34WItlqblIs5cD+BUTD0GMUAn6/S6x7orf
-         9DhUDZg4D7MDOQc9ZPUQSLIdhJW/ZZBEZKCl/T1cbHYP7uN7QwrobRvyR5tu7rNkFZq1
-         VYTQ==
+	id 1pNJ5p-00DQec-TW
+	for linux-riscv@lists.infradead.org; Wed, 01 Feb 2023 19:48:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1675280907;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+c79xB9zEm9gbVZK1/vCc0nmGWw5K68MnzSgOcRJD38=;
+	b=JcRQbMHJYmeymltSUOs2n1NR6P8Hsh1ihvegc+xryf7yv9qmSoxhY/nFzVk0m/KR1ssE+h
+	RGui/0Z+yN3ne3KCRWAegC4GBFXkMQ8/g4bseIolNYfO+JheLSLfbDi4zHwWfsQgKdOkUd
+	siqFVch9zwjvuQBKKalMm8T0biUFMnE=
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com
+ [209.85.160.197]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_128_GCM_SHA256) id
+ us-mta-35-F5GXZDoCOFeFVi1PdHFPPQ-1; Wed, 01 Feb 2023 14:48:25 -0500
+X-MC-Unique: F5GXZDoCOFeFVi1PdHFPPQ-1
+Received: by mail-qt1-f197.google.com with SMTP id c16-20020ac85190000000b003b841d1118aso5922483qtn.17
+        for <linux-riscv@lists.infradead.org>; Wed, 01 Feb 2023 11:48:25 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=/jfUP8j49LnH+0opcjK5BisED0hgZ9+/KVu7XGUypWk=;
-        b=xzLJpu1MAiPpiL18cHy8tXdJoZlBWUvdufvE7zvd+/IPAGlKS3HWSAdk23jukG7sh5
-         VNbhbdwpCYTlObdEOXCeWRbAnxM9TAUYTsfRn36U8OHIeWmnNnvqrqo0VXwC1ijUMVIg
-         R7iQd6I8CSSsxsD9soE8PyshPPXeYWwJrdsv4uGtr/ipvBLkMc4/ei2vX8mxjAoQPMSE
-         Vga35VhiJRpfJv+IX/SsVu96Me4IBwmPLWRoriG9YVt9UyXaseZDWsZKtA3im72WMo1k
-         kinM52YkxiBFpxazgBa2fLcByfCfmfcAjik3GQ/eOYvbTyeoKWBQISxM0iiG7qHHCy4P
-         UAFA==
-X-Gm-Message-State: AO0yUKXIUTU3qeeGNng1d+kZpBTLZePkwlF9DkwHWhqYH1LYFJWRK1uA
-	4ZVXV4Y7D/uwf+4mGeZPRhUxdQ==
-X-Google-Smtp-Source: AK7set97wbwaRJjHVc+esR+82RlJV0oLuRwadfZIr1Hm75Qx5+vq0Xs9AAP9Pt/1igkJ5mC9nzNQlQ==
-X-Received: by 2002:a62:81c2:0:b0:58d:c728:6ee6 with SMTP id t185-20020a6281c2000000b0058dc7286ee6mr14017400pfd.34.1675279485493;
-        Wed, 01 Feb 2023 11:24:45 -0800 (PST)
-Received: from smtpclient.apple ([51.52.155.79])
-        by smtp.gmail.com with ESMTPSA id z19-20020a056a001d9300b00581f76c1da1sm10782757pfw.191.2023.02.01.11.24.44
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 01 Feb 2023 11:24:45 -0800 (PST)
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3696.120.41.1.1\))
-Subject: Re: [PATCH] clocksource: riscv: Patch riscv_clock_next_event() jump
- before first use
-From: Matt Evans <mev@rivosinc.com>
-In-Reply-To: <Y9q7tj/jvQouqZ/K@spud>
-Date: Wed, 1 Feb 2023 19:24:42 +0000
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
- linux-riscv@lists.infradead.org
-Message-Id: <BDE69C27-0B75-4072-A1FC-432755A895FB@rivosinc.com>
-References: <512FC581-4097-4433-9C3D-CBCB7CD61954@rivosinc.com>
- <Y9q7tj/jvQouqZ/K@spud>
-To: Conor Dooley <conor@kernel.org>
-X-Mailer: Apple Mail (2.3696.120.41.1.1)
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+c79xB9zEm9gbVZK1/vCc0nmGWw5K68MnzSgOcRJD38=;
+        b=HHGp/qujqOSqnWMP6h1Wn5gFJmdAv9gWwBKhejRUqhnZAmJK8pBcSTflF4NK7vPFmn
+         WKhtLY+ifMKCDJ4J9ieBmQRjpXMgkUu1jENbjkBf+yT6yNiKf/kYkyaDZBRbuJ99V0qK
+         cy9rOR1bFXNUXY5xe5cQatoeoIKtlBNkoY8UVy03DTC6qfsTPgzVVtXF0nDe5QPDEho6
+         wZ5XKrKOTMme4jqCTmfxe5yQwBw3vxPcQ787Cs1yXaueHd2pCdv3oHcGfCX1qZzjGbYS
+         wKJEwb6G/nNvnk/YlEQEoRkshKBDzBflNaQH2ch8vJezrDEP/9XDfDbCFhTgMlIaU2q5
+         NgTA==
+X-Gm-Message-State: AO0yUKUcV0nMXQ6D+bw5eWEHK6RI3DQEmK/5XRRTxBYOLZBNDZIBHTKY
+	fycApahyoR5hnrUMhJDVdIc88iV8DS7vD8OOGvT6AaBXNapP9eikU5O6IHjpSxcLQYseBhRF1r5
+	tScmJkmmmGiAC//8RuKBAGmPWgCCo
+X-Received: by 2002:ac8:4b79:0:b0:3b9:b801:8744 with SMTP id g25-20020ac84b79000000b003b9b8018744mr4668666qts.4.1675280905103;
+        Wed, 01 Feb 2023 11:48:25 -0800 (PST)
+X-Google-Smtp-Source: AK7set+aCjVIaFs+qYlZN/COXif7CSKdOwvIaVTtsTOFsLRWV42aeSjrEadyR6ifeMCBEfyQD+z4OA==
+X-Received: by 2002:ac8:4b79:0:b0:3b9:b801:8744 with SMTP id g25-20020ac84b79000000b003b9b8018744mr4668639qts.4.1675280904733;
+        Wed, 01 Feb 2023 11:48:24 -0800 (PST)
+Received: from x1n (bras-base-aurron9127w-grc-56-70-30-145-63.dsl.bell.ca. [70.30.145.63])
+        by smtp.gmail.com with ESMTPSA id a3-20020a05620a16c300b0070495934152sm4421885qkn.48.2023.02.01.11.48.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 01 Feb 2023 11:48:24 -0800 (PST)
+Date: Wed, 1 Feb 2023 14:48:22 -0500
+From: Peter Xu <peterx@redhat.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Al Viro <viro@zeniv.linux.org.uk>, linux-arch@vger.kernel.org,
+	linux-alpha@vger.kernel.org, linux-ia64@vger.kernel.org,
+	linux-hexagon@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+	Michal Simek <monstr@monstr.eu>, Dinh Nguyen <dinguyen@kernel.org>,
+	openrisc@lists.librecores.org, linux-parisc@vger.kernel.org,
+	linux-riscv@lists.infradead.org, sparclinux@vger.kernel.org
+Subject: Re: [RFC][PATCHSET] VM_FAULT_RETRY fixes
+Message-ID: <Y9rCBqwbLlLf1fHe@x1n>
+References: <Y9lz6yk113LmC9SI@ZenIV>
+ <CAHk-=whf73Vm2U3jyTva95ihZzefQbThZZxqZuKAF-Xjwq=G4Q@mail.gmail.com>
+ <Y9mD1qp/6zm+jOME@ZenIV>
+ <CAHk-=wjiwFzEGd_60H3nbgVB=R_8KTcfUJmXy=hSXCvLrXQRFA@mail.gmail.com>
+ <Y9mM5wiEhepjJcN0@ZenIV>
+ <CAHk-=wjNwwnBckTo8HLSdsd1ndoAR=5RBoZhdOyzhsnDAYWL9g@mail.gmail.com>
+MIME-Version: 1.0
+In-Reply-To: <CAHk-=wjNwwnBckTo8HLSdsd1ndoAR=5RBoZhdOyzhsnDAYWL9g@mail.gmail.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230201_112447_823687_17DBEDF6 
-X-CRM114-Status: GOOD (  18.79  )
+X-CRM114-CacheID: sfid-20230201_114830_140094_164F3031 
+X-CRM114-Status: GOOD (  20.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,56 +101,91 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQ29ub3IsCgo+IE9uIDEgRmViIDIwMjMsIGF0IDE5OjIxLCBDb25vciBEb29sZXkgPGNvbm9y
-QGtlcm5lbC5vcmc+IHdyb3RlOgo+IAo+IEhleSBNYXR0LAo+IAo+IE9uIFdlZCwgRmViIDAxLCAy
-MDIzIGF0IDA2OjQxOjUyUE0gKzAwMDAsIE1hdHQgRXZhbnMgd3JvdGU6Cj4+IEEgc3RhdGljIGtl
-eSBpcyB1c2VkIHRvIHNlbGVjdCBiZXR3ZWVuIFNCSSBhbmQgU3N0YyB0aW1lciB1c2FnZSBpbgo+
-PiByaXNjdl9jbG9ja19uZXh0X2V2ZW50KCksIGJ1dCBjdXJyZW50bHkgdGhlIGRpcmVjdGlvbiBp
-cyByZXNvbHZlZAo+PiBhZnRlciBjcHVocF9zZXR1cF9zdGF0ZSgpIGlzIGNhbGxlZCAod2hpY2gg
-c2V0cyB0aGUgbmV4dCBldmVudCkuICBUaGUKPj4gZmlyc3QgZXZlbnQgd2lsbCB0aGVyZWZvcmUg
-ZmFsbCB0aHJvdWdoIHRoZSBzYmlfc2V0X3RpbWVyKCkgcGF0aDsgdGhpcwo+PiBicmVha3MgU3N0
-Yy1vbmx5IHN5c3RlbXMuICBTbywgYXBwbHkgdGhlIGp1bXAgcGF0Y2hpbmcgYmVmb3JlIGZpcnN0
-Cj4+IHVzZS4KPj4gCj4+IFNpZ25lZC1vZmYtYnk6IE1hdHQgRXZhbnMgPG1ldkByaXZvc2luYy5j
-b20+Cj4gCj4gWW91ciBsb2dpYyBpbiB0aGlzIHBhdGNoIGxvb2tzIGdyYW5kLCBqdXN0IGdvdCB0
-d28gcHJvY2VzcyBiaXRzIGZvciB5YS4KPiBGaXJzdGx5LCB5b3UncmUgbWlzc2luZyBhIGZpeGVz
-IHRhZywgd2hpY2ggSSB3b3VsZCBpbWFnaW5lIGlzOgo+IEZpeGVzOiA5ZjdhOGZmNjM5MWYgKCJS
-SVNDLVY6IFByZWZlciBzc3RjIGV4dGVuc2lvbiBpZiBhdmFpbGFibGUiKQo+IAo+IEFsc28sIG9m
-IGxhdGUsIHRoZSBjbG9ja3NvdXJjZSBtYWludGFpbmVycywgd2hvIHlvdSBoYXZlIG5vdCBDQ2Vk
-LAo+IGhhdmUgYmVlbiB0aGUgb25lcyB0aGF0IHBpY2sgdXAgcGF0Y2hlcyB0aGF0IG9ubHkgdG91
-Y2ggdGhpcyBkcml2ZXIuCj4gTWlnaHQgYmUgd29ydGggYSByZXN1Ym1pc3Npb24gQ0NpbmcgdGhl
-bS4uLgoKQm90aCBnb29kIHBvaW50cywgbWFueSB0aGFua3MuICBUcnVlLCBpdCBmaXhlcyg6KSA5
-ZjdhOGZmNjM5MWYsIGFuZCBUSUwgb24gdGhlIHNoZXBoZXJkIGNoYWluLiAgSeKAmWxsIHJlLXNl
-bmQuCgoKQ2hlZXJzLAoKCk1hdHQKCj4gCj4gQ2hlZXJzLAo+IENvbm9yLgo+IAo+PiAtLS0KPj4g
-ZHJpdmVycy9jbG9ja3NvdXJjZS90aW1lci1yaXNjdi5jIHwgMTAgKysrKystLS0tLQo+PiAxIGZp
-bGUgY2hhbmdlZCwgNSBpbnNlcnRpb25zKCspLCA1IGRlbGV0aW9ucygtKQo+PiAKPj4gZGlmZiAt
-LWdpdCBhL2RyaXZlcnMvY2xvY2tzb3VyY2UvdGltZXItcmlzY3YuYyBiL2RyaXZlcnMvY2xvY2tz
-b3VyY2UvdGltZXItcmlzY3YuYwo+PiBpbmRleCA5NjlhNTUyZGE4ZDIuLmEzNmQxNzNmZDZjZCAx
-MDA2NDQKPj4gLS0tIGEvZHJpdmVycy9jbG9ja3NvdXJjZS90aW1lci1yaXNjdi5jCj4+ICsrKyBi
-L2RyaXZlcnMvY2xvY2tzb3VyY2UvdGltZXItcmlzY3YuYwo+PiBAQCAtMTc3LDYgKzE3NywxMSBA
-QCBzdGF0aWMgaW50IF9faW5pdCByaXNjdl90aW1lcl9pbml0X2R0KHN0cnVjdCBkZXZpY2Vfbm9k
-ZSAqbikKPj4gCQlyZXR1cm4gZXJyb3I7Cj4+IAl9Cj4+IAo+PiArCWlmIChyaXNjdl9pc2FfZXh0
-ZW5zaW9uX2F2YWlsYWJsZShOVUxMLCBTU1RDKSkgewo+PiArCQlwcl9pbmZvKCJUaW1lciBpbnRl
-cnJ1cHQgaW4gUy1tb2RlIGlzIGF2YWlsYWJsZSB2aWEgc3N0YyBleHRlbnNpb25cbiIpOwo+PiAr
-CQlzdGF0aWNfYnJhbmNoX2VuYWJsZSgmcmlzY3Zfc3N0Y19hdmFpbGFibGUpOwo+PiArCX0KPj4g
-Kwo+PiAJZXJyb3IgPSBjcHVocF9zZXR1cF9zdGF0ZShDUFVIUF9BUF9SSVNDVl9USU1FUl9TVEFS
-VElORywKPj4gCQkJICJjbG9ja2V2ZW50cy9yaXNjdi90aW1lcjpzdGFydGluZyIsCj4+IAkJCSBy
-aXNjdl90aW1lcl9zdGFydGluZ19jcHUsIHJpc2N2X3RpbWVyX2R5aW5nX2NwdSk7Cj4+IEBAIC0x
-ODQsMTEgKzE4OSw2IEBAIHN0YXRpYyBpbnQgX19pbml0IHJpc2N2X3RpbWVyX2luaXRfZHQoc3Ry
-dWN0IGRldmljZV9ub2RlICpuKQo+PiAJCXByX2VycigiY3B1IGhwIHNldHVwIHN0YXRlIGZhaWxl
-ZCBmb3IgUklTQ1YgdGltZXIgWyVkXVxuIiwKPj4gCQkgICAgICAgZXJyb3IpOwo+PiAKPj4gLQlp
-ZiAocmlzY3ZfaXNhX2V4dGVuc2lvbl9hdmFpbGFibGUoTlVMTCwgU1NUQykpIHsKPj4gLQkJcHJf
-aW5mbygiVGltZXIgaW50ZXJydXB0IGluIFMtbW9kZSBpcyBhdmFpbGFibGUgdmlhIHNzdGMgZXh0
-ZW5zaW9uXG4iKTsKPj4gLQkJc3RhdGljX2JyYW5jaF9lbmFibGUoJnJpc2N2X3NzdGNfYXZhaWxh
-YmxlKTsKPj4gLQl9Cj4+IC0KPj4gCXJldHVybiBlcnJvcjsKPj4gfQo+PiAKPj4gLS0gCj4+IDIu
-MzAuMgo+PiAKPj4gCj4+IAo+PiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fXwo+PiBsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKPj4gbGludXgtcmlzY3ZAbGlz
-dHMuaW5mcmFkZWFkLm9yZwo+PiBodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xp
-c3RpbmZvL2xpbnV4LXJpc2N2CgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
-ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
-aW51eC1yaXNjdgo=
+On Tue, Jan 31, 2023 at 04:00:22PM -0800, Linus Torvalds wrote:
+> So most of the time it's probably not going to matter all that much
+> which signal gets sent in practice.
+
+I do also see a common pattern of the possibility to have a generic fault
+handler like generic_page_fault().
+
+It probably should start with taking the mmap_sem until providing some
+retval that is much easier to digest further by the arch-dependent code, so
+it can directly do something rather than parsing the bitmask in a
+duplicated way (hence the new retval should hopefully not a bitmask anymore
+but a "what to do").
+
+Maybe it can be something like:
+
+/**
+ * enum page_fault_retval - Higher level fault retval, generalized from
+ * vm_fault_reason above that is only used by hardware page fault handlers.
+ * It generalizes the bitmask-versioned retval into something that the arch
+ * dependent code should react upon.
+ *
+ * @PF_RET_COMPLETED:		The page fault is completed successfully
+ * @PF_RET_BAD_AREA:		The page fault address falls in a bad area
+ *				(e.g., vma not found, expand_stack() fails..)
+ * @PF_RET_ACCESS_ERR:		The page fault has access errors
+ *				(e.g., write fault on !VM_WRITE vmas)
+ * @PF_RET_KERN_FIXUP:		The page fault requires kernel fixups
+ *				(e.g., during copy_to_user() but fault failed?)
+ * @PF_RET_HWPOISON:		The page fault encountered poisoned pages
+ * @PF_RET_SIGNAL:		The page fault encountered poisoned pages
+ * ...
+ */
+enum page_fault_retval {
+	PF_RET_DONE = 0,
+	PF_RET_BAD_AREA,
+	PF_RET_ACCESS_ERR,
+	PF_RET_KERN_FIXUP,
+        PF_RET_HWPOISON,
+        PF_RET_SIGNAL,
+	...
+};
+
+As a start we may still want to return some more information (perhaps still
+the vm_fault_t alongside?  Or another union that will provide different
+information based on different PF_RET_*).  One major thing is I see how we
+handle VM_FAULT_HWPOISON and also the fact that we encode something more
+into the bitmask on page sizes (VM_FAULT_HINDEX_MASK).
+
+So the generic helper could, hopefully, hide the complexity of:
+
+  - Taking and releasing of mmap lock
+  - find_vma(), and also relevant checks on access or stack handling
+  - handle_mm_fault() itself (of course...)
+  - detect signals
+  - handle page fault retries (so, in the new layer of retval there should
+    have nothing telling it to retry; it should always be the ultimate result)
+  - parse different errors into "what the arch code should do", and
+    generalize the common ones, e.g.
+    - OOM, do pagefault_out_of_memory() for user-mode
+    - VM_FAULT_SIGSEGV, which should be able to merge into PF_RET_BAD_AREA?
+    - ...
+
+It'll simplify things if we can unify some small details like whether the
+-EFAULT above should contain a sigbus.
+
+A trivial detail I found when I was looking at this is, x86_64 passes in
+different signals to kernelmode_fixup_or_oops() - in do_user_addr_fault()
+there're three call sites and each of them pass over a differerent signal.
+IIUC that will only make a difference if there's a nested page fault during
+the vsyscall emulation (but I may be wrong too because I'm new to this
+code), and I have no idea when it'll happen and whether that needs to be
+strictly followed.
+
+Thanks,
+
+-- 
+Peter Xu
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
