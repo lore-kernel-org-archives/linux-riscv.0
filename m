@@ -4,65 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC07EC636D3
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Feb 2023 12:01:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD4B1C636CD
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Feb 2023 13:29:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NKd4nBCkNdTxGhBAX6XHegT2s71jZ/VXH5rG8RlfWOQ=; b=qKyJLu/wN9cqB4
-	f41yTmnD0Zh1S65j+3axjg4/nGlr54smlT3qKZ1mk/OeXbGg0ulHPHiYxiYtSIKKpIOw4XS8c5CbY
-	tJsj96Ea5TgTzyVWcKiAuImH9T9qovPNutlL+BfsBlSD8dKSbMAhwCWpNkJWLLWsQX3s0mKMiRwEV
-	PKTWv25TCTlk5xMvlZ8aIcLj79fTKJcDYQJlp6VbreCsVaCqThZ6ufA1UxnB1LU7Cu5aY97oSOxto
-	b6HC7Y6fW8cKaiJuIri1E1WR6r/8ADgW9F1Xp7JshrQ5c1rDAYdOFKfWg6n7jeD8DUqNtwEDNA+bS
-	4r5B2I6ynsKQusIaNgGQ==;
+	List-Owner; bh=37tsnFiw1/Flko0bwoW8SUtHG1BXCNDzEiRCd9hFN5c=; b=JjGkxvRnWlNwzv
+	j+am4bPsGdPQVqSszlOpNPiMAnWQOdFMozVAWLwraZ6+MjYmNgz50nfNdbSZ1U3cru1PLAh2D8V/J
+	zp/MWmwDN3P/3bntHLarqTDS568/nSI/h/lXK7xxjd9rxOOVbcqK6z6IXqJ4D0QGoRLW3fLPbfbnx
+	msyvLrJrOpp24ALQy8l0DE3631mPLmKwjj1EYujHO7kcsTaJyXyCQ7iV+M983zKZslL840edoE95r
+	5hD2iQ3l1wM/iIz+aQA2+W9VmAFMPwoHYuHjbvi7MZEj9rcI3TKNfmiHdd3RT3qEr1aRywzTlZyfu
+	PFNCVxqr+tYf7ouk5tnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNBnN-00BciS-6s; Wed, 01 Feb 2023 12:00:57 +0000
-Received: from smtp80.cstnet.cn ([159.226.251.80] helo=cstnet.cn)
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNBnI-00BchD-PQ
-	for linux-riscv@lists.infradead.org; Wed, 01 Feb 2023 12:00:55 +0000
-Received: from [10.210.135.129] (unknown [111.199.71.227])
-	by APP-01 (Coremail) with SMTP id qwCowAA3Mz9kVNpjuhwYAw--.17119S2;
-	Wed, 01 Feb 2023 20:00:37 +0800 (CST)
-Message-ID: <974b75e8-be10-b29b-1ed1-518736b1e2b6@iscas.ac.cn>
-Date: Wed, 1 Feb 2023 19:58:27 +0800
+	id 1pNDB0-00C3y0-4w; Wed, 01 Feb 2023 13:29:26 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pNDAx-00C3wd-OW
+	for linux-riscv@lists.infradead.org; Wed, 01 Feb 2023 13:29:25 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 6842AB82188;
+	Wed,  1 Feb 2023 13:29:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B988EC433EF;
+	Wed,  1 Feb 2023 13:29:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1675258160;
+	bh=JAkFMc2dp9aZIGy+X9W+0UNRWy7+puxfrgWYGUKvqE4=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=WKU6JBJGVX831/YeO/vIYsFoeoansxJf7b8w4H9k88wixsW4a+ZvxfWZfEUPVbNhr
+	 OKHeNYRnuU3FdrkiRLgpSFU0y2bw89SGaykTQdwiEl1bako/8BQEmSrEuM8zwSua9G
+	 1RzCzjSQgugchSWQZ9xFwvXYCwpd+7HQK6UhCGYxrdNmcBh/YYsYxaR/vqwxsSmxBT
+	 5d+6am272vW6rpWOr6bBMi++KUCfwOrN7sMrQ9/xHYPhjtjcDeDEnV2f2+SDuaqc9p
+	 0MccYrRNUFLXxlltVf/1bzp/LHIRfPwU8fteA3wPgDnhfi6fgLRxsQFhvvDTKTSFNu
+	 qJpHQlaYwirZQ==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Chen Guokai <chenguokai17@mails.ucas.ac.cn>, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, rostedt@goodmis.org,
+ mingo@redhat.com, sfr@canb.auug.org.au
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ liaochang1@huawei.com, Chen Guokai <chenguokai17@mails.ucas.ac.cn>
+Subject: Re: [PATCH v6 00/13] Add OPTPROBES feature on RISCV
+In-Reply-To: <20230127130541.1250865-1-chenguokai17@mails.ucas.ac.cn>
+References: <20230127130541.1250865-1-chenguokai17@mails.ucas.ac.cn>
+Date: Wed, 01 Feb 2023 14:29:17 +0100
+Message-ID: <87zg9xtsya.fsf@all.your.base.are.belong.to.us>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:102.0)
- Gecko/20100101 Thunderbird/102.6.0
-Subject: Re: [PATCH v11 0/3] riscv, mm: detect svnapot cpu support at runtime
-Content-Language: en-US
-To: palmer@dabbelt.com, linux-riscv@lists.infradead.org
-Cc: jeff@riscv.org, xuyinan@ict.ac.cn, conor@kernel.org,
- ajones@ventanamicro.com
-References: <20221216062109.865573-1-panqinglin2020@iscas.ac.cn>
-From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
-In-Reply-To: <20221216062109.865573-1-panqinglin2020@iscas.ac.cn>
-X-CM-TRANSID: qwCowAA3Mz9kVNpjuhwYAw--.17119S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxAr47tFy3ur1UJr1UtF1kKrg_yoW5Ary8pF
-	WUGrn3CF98Ar93KF4avrnF9rs5t3WrGayaqw1fJ34UAwsxtFW5Cws0yF90k3WkXFWfXr1I
-	kF45ZFyj93WDA37anT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvE14x267AKxVWUJVW8JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gr
-	1j6F4UJwAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40E
-	FcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr
-	0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4x0x7Aq67IIx4CEVc8vx2IE
-	rcIFxwCYjI0SjxkI62AI1cAE67vIY487MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4
-	AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE
-	17CEb7AF67AKxVWUAVWUtwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMI
-	IF0xvE2Ix0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4l
-	IxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVWUJVW8JbIYCTnIWI
-	evJa73UjIFyTuYvjfU5sqWUUUUU
-X-Originating-IP: [111.199.71.227]
-X-CM-SenderInfo: 5sdq1xpqjox0asqsiq5lvft2wodfhubq/1tbiAwUJDGPZ5Xr5agAAs1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230201_040053_245593_EB055CFD 
-X-CRM114-Status: GOOD (  20.75  )
+X-CRM114-CacheID: sfid-20230201_052924_107250_F8B796D2 
+X-CRM114-Status: GOOD (  21.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,93 +68,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Palmer,
-
-Just a friendly ping :)
-
-Is there anything else I need to do for this patchset?
-
-Thanks,
-Qinglin
-
-On 2022/12/16 14:21, panqinglin2020@iscas.ac.cn wrote:
-> From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
-> 
-> Svnapot is a RISC-V extension for marking contiguous 4K pages as a non-4K
-> page. This patch set is for using Svnapot in hugetlb fs and huge vmap.
-> 
-> This patchset adds a Kconfig item for using Svnapot in
-> "Platform type"->"SVNAPOT extension support". Its default value is on,
-> and people can set it off if they don't allow kernel to detect Svnapot
-> hardware support and leverage it.
-> 
-> Tested on:
->    - qemu rv64 with "Svnapot support" off and svnapot=true.
->    - qemu rv64 with "Svnapot support" on and svnapot=true.
->    - qemu rv64 with "Svnapot support" off and svnapot=false.
->    - qemu rv64 with "Svnapot support" on and svnapot=false.
-> 
-> 
-> Changes in v2:
->    - detect Svnapot hardware support at boot time.
-> Changes in v3:
->    - do linear mapping again if has_svnapot
-> Changes in v4:
->    - fix some errors/warns reported by checkpatch.pl, thanks @Conor
-> Changes in v5:
->    - modify code according to @Conor and @Heiko
-> Changes in v6:
->    - use static key insead of alternative errata
-> Changes in v7:
->    - add napot_cont_order for possible more napot order in the future
->    - remove linear mapping related code from this patchset to another patch
->    - refactor hugetlb code for svnapot according to thanks @Andrew @Conor
->    - use tools/testing/selftests/vm/map_hugetlb as hugetlb testing program
->    - support svnapot in huge vmap on newer for-next branch
-> Changes in v8:
->    - fix compilation errors in rv32_defconfig
->    - insert some lines of whitespace according to @Conor's suggestion
-> Changes in v9:
->    - use alternative to avoid using static branches inside heavily used
->      inline functions
->    - change napot_cont_mask definition
->    - post test_vmalloc modification about testing vmalloc_huge
-> Changes in v10:
->    - fix some nits caught by @Andrew
->    - collect Reviewed-by/Acked-by
->    - add memory leak warning in KConfig text
->    - replace test_vmalloc patch link with the standard one
-> Changes in v11:
->    - add more detailed warning about HUGETLBFS and SVNAPOT in KConfig text
->    - fix missing reverse-xmas tree
-> 
-> 
-> Qinglin Pan (3):
->    riscv: mm: modify pte format for Svnapot
->    riscv: mm: support Svnapot in hugetlb page
->    riscv: mm: support Svnapot in huge vmap
-> 
->   arch/riscv/Kconfig                   |  21 +-
->   arch/riscv/include/asm/errata_list.h |  15 +-
->   arch/riscv/include/asm/hugetlb.h     |  34 ++-
->   arch/riscv/include/asm/hwcap.h       |   2 +-
->   arch/riscv/include/asm/page.h        |   5 -
->   arch/riscv/include/asm/pgtable-64.h  |  34 +++
->   arch/riscv/include/asm/pgtable.h     |  43 +++-
->   arch/riscv/include/asm/vmalloc.h     |  61 +++++-
->   arch/riscv/kernel/cpu.c              |   1 +
->   arch/riscv/kernel/cpufeature.c       |  15 ++
->   arch/riscv/mm/hugetlbpage.c          | 301 +++++++++++++++++++++++++++
->   11 files changed, 519 insertions(+), 13 deletions(-)
-> 
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Q2hlbiBHdW9rYWkgPGNoZW5ndW9rYWkxN0BtYWlscy51Y2FzLmFjLmNuPiB3cml0ZXM6Cgo+IEFk
+ZCBqdW1wIG9wdGltaXphdGlvbiBzdXBwb3J0IGZvciBSSVNDLVYuCj4KPiBSZXBsYWNlcyBlYnJl
+YWsgaW5zdHJ1Y3Rpb25zIHVzZWQgYnkgbm9ybWFsIGtwcm9iZXMgd2l0aCBhbiBBVUlQQy9KQUxS
+Cj4gaW5zdHJ1Y3Rpb24gcGFpciB3aXRoIHRoZSBhaW0gb2Ygc3VwcHJlc3NpbmcgdGhlIHByb2Jl
+LWhpdCBvdmVyaGVhZC4KPgo+IEFsbCBrbm93biBvcHRwcm9iZS1jYXBhYmxlIFJJU0MgYXJjaGl0
+ZWN0dXJlcyBoYXZlIGJlZW4gdXNpbmcgYSBzaW5nbGUKPiBqdW1wIG9yIGJyYW5jaCBpbnN0cnVj
+dGlvbnMgd2hpbGUgdGhpcyBwYXRjaCBjaG9vc2VzIG5vdC4gUklTQy1WIGhhcyBhCj4gcXVpdGUg
+bGltaXRlZCBqdW1wIHJhbmdlICg0S0Igb3IgMk1CKSBmb3IgYm90aCBpdHMgYnJhbmNoIGFuZCBq
+dW1wCj4gaW5zdHJ1Y3Rpb25zLCB3aGljaCBwcmV2ZW50IG9wdGltaXphdGlvbnMgZnJvbSBzdXBw
+b3J0aW5nIHByb2JlcyB0aGF0Cj4gc3ByZWFkIGFsbCBvdmVyIHRoZSBrZXJuZWwuCj4KPiBBVUlQ
+Qy9KQUxSIGluc3RydWN0aW9uIHBhaXIgaXMgaW50cm9kdWNlZCB3aXRoIGEgbXVjaCB3aWRlciBq
+dW1wIHJhbmdlCj4gKDRHQiksIHdoZXJlIEFVSVBDIGxvYWRzIHRoZSB1cHBlciAxMiBiaXRzIHRv
+IGEgZnJlZSByZWdpc3RlciBhbmQgSkFMUgo+IERlYWNvbmFwcGVuZHMgdGhlIGxvd2VyIDIwIGJp
+dHMgdG8gZm9ybSBhIDMyIGJpdHMgaW1tZWRpYXRlLiBOb3RlIHRoYXQKPiByZXR1cm5zIGZyb20g
+cHJvYmUgaGFuZGxlciByZXF1aXJlIGFub3RoZXIgZnJlZSByZWdpc3Rlci4gQXMga3Byb2Jlcwo+
+IGNhbiBhcHBlYXIgYWxtb3N0IGFueXdoZXJlIGluc2lkZSB0aGUga2VybmVsLCB0aGUgZnJlZSBy
+ZWdpc3RlciBzaG91bGQKPiBiZSBmb3VuZCBnZW5lcmljYWxseSwgbm90IGRlcGVuZGluZyBvbiBj
+YWxsaW5nIGNvbnZlbnRpb24gb3IgYW55IG90aGVyCj4gcmVndWxhdGlvbnMuCj4KPiBUaGUgYWxn
+b3JpdGhtIGZvciBmaW5kaW5nIHRoZSBmcmVlIHJlZ2lzdGVyIGlzIGluc3BpcmVkIGJ5IHRoZSBy
+ZWdpc3Rlcgo+IHJlbmFtaW5nIGluIG1vZGVybiBwcm9jZXNzb3JzLiBGcm9tIHRoZSBwZXJzcGVj
+dGl2ZSBvZiByZWdpc3Rlcgo+IHJlbmFtaW5nLCBhIHJlZ2lzdGVyIGNvdWxkIGJlIHJlcHJlc2Vu
+dGVkIGFzIHR3byBkaWZmZXJlbnQgcmVnaXN0ZXJzIGlmCj4gdHdvIG5laWdoYm9yIGluc3RydWN0
+aW9ucyBib3RoIHdyaXRlIHRvIGl0IGJ1dCBubyBvbmUgZXZlciByZWFkcyBpdC4KPiBFeHRlbmRp
+bmcgdGhpcyBmYWN0LCBhIHJlZ2lzdGVyIGlzIGNvbnNpZGVyZWQgdG8gYmUgZnJlZSBpZiB0aGVy
+ZSBpcyBubwo+IHJlYWQgYmVmb3JlIGl0cyBuZXh0IHdyaXRlIGluIHRoZSBleGVjdXRpb24gZmxv
+dy4gV2UgYXJlIGZyZWUgdG8gY2hhbmdlCj4gaXRzIHZhbHVlIHdpdGhvdXQgaW50ZXJmZXJpbmcg
+bm9ybWFsIGV4ZWN1dGlvbi4KPgo+IFN0YXRpYyBhbmFseXNpcyBzaG93cyB0aGF0IDUxJSBvZiBp
+bnN0cnVjdGlvbnMgb2YgdGhlIGtlcm5lbCAoZGVmYXVsdAo+IGNvbmZpZykgaXMgY2FwYWJsZSBv
+ZiBiZWluZyByZXBsYWNlZCBpLmUuIG9uZSBmcmVlIHJlZ2lzdGVyIGNhbiBiZSBmb3VuZAo+IGF0
+IGJvdGggdGhlIHN0YXJ0IGFuZCBlbmQgb2YgcmVwbGFjZWQgaW5zdHJ1Y3Rpb24gcGFpcnMgd2hp
+bGUgdGhlCj4gcmVwbGFjZWQgaW5zdHJ1Y3Rpb25zIGNhbiBiZSBkaXJlY3RseSBleGVjdXRlZC4g
+V2UgYWxzbyBtYWRlIGFuCj4gZWZmaWNpZW5jeSB0ZXN0IG9uIEdlbSA1IFJJU0NWIHdoaWNoIHNo
+b3dzIGEgbW9yZSB0aGFuIDV4IHNwZWVkdXAgb24gCj4gYnJlYWtwb2ludC1iYXNlZCBpbXBsZW1l
+bnRhdGlvbi4KPgo+IENvbnRyaWJ1dGlvbjoKPiBDaGVuIEd1b2thaSBpbnZlbnRzIHRoZSBhbGdv
+cml0aG0gZm9yIHNlYXJjaGluZyBmcmVlIHJlZ2lzdGVyLCBldmFsdWF0ZQo+IHRoZSByYXRpbyBv
+ZiBvcHRpbWl6YXRpb24sIHRoZSBiYXNpYyBmdW5jdGlvbiBzdXBwb3J0IFJWSSBrZXJuZWwgYmlu
+YXJ5Lgo+IExpYW8gQ2hhbmcgYWRkcyB0aGUgc3VwcG9ydCBmb3IgaHlicmlkIFJWSSBhbmQgUlZD
+IGtlcm5lbCBiaW5hcnksIGZpeAo+IHNvbWUgYnVncyB3aXRoIGRpZmZlcmVudCBrZXJuZWwgY29u
+ZmlndXJlLCByZWZhY3RvciBvdXQgdGhlIGVudGlyZQo+IGZlYXR1cmUgaW50byBzb21lIGluZGl2
+aWR1YWwgcGF0Y2hlcy4KClRoYW5rIHlvdSBmb3IgY29udGludWluZyB0byB3b3JrIG9uIHRoaXMg
+c2VyaWVzISBJIHRvb2sgaXQgZm9yIGEgc3BpbiwKYW5kIGl0IHdvcmtlZCBuaWNlbHkgb24gbXkg
+UUVNVSBzZXR1cC4KCkl0IHdvdWxkIGJlIG5pY2UgdG8gaGF2ZSBpdCBydW4gb24gc29tZSAqYWN0
+dWFsKiBoYXJkd2FyZSBhcyB3ZWxsLiA6LSkKCkkgaGF2ZSBzb21lIGFkZGl0aW9uYWwgY29tbWVu
+dHMgb24gdGhlIHNlcmllcywgYnV0IEknbGwgYWRkIHRob3NlIHRvIHRoZQpyZWxldmFudCBwYXRj
+aC4gSXQncyBtb3N0bHkgbWlub3IgdGhpbmdzIQoKCkJqw7ZybgoKX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cmxp
+bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
+bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
