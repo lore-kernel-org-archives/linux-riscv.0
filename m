@@ -4,73 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E8EAC636CC
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 Jan 2023 22:47:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFCCFC636CC
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Feb 2023 00:00:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4FyaGaKt+fHhndJQTmIWgqTyaBcxkcddBXAs+bmDDYo=; b=NDvfO4WVsRdCQQ
-	cylRPIdo2yuKigoqXsUETsFEYaiC/wT4efXkwsPqPRDkjMGQM3qLE3Pj6wFzc2RBFm+3dOL/h9d4V
-	2bXAgQYZz0ShK3uCrji/a/fjU+RoIf7hGcOv2Zd8nsRl27QJSN9ILOAeu3n4RO1UwnhRkJqVlP9LJ
-	AwjvrM1M3l3b1oAguPCkDXIaCuqdYVmOkfpUwY/ZFdJOjZkX2ptHyRpxdPxnG/MWIz+6RYTuWrHbU
-	qiivten/W5f/1toOA8NJohuay4h+TM6R43BkFxj19r+PNqVybQv/hemMizJ7nRheuGDrfypcgP3mo
-	EtO6nW+O3dZU5dGhtEEA==;
+	List-Owner; bh=4i0VKAJFTD937bmNl8prdm4Gewxh5We25+Pi4qIcBBc=; b=khF2J52i3Wdz0Z
+	pG2MInromMxDIKiGPQcOj1jaaz4d1Koj079XZXwEeBMypLOOqfNNTL/nk4HLI4DY3SHJD6fBWLsXy
+	2VrT1oMsRTLUsu3TjBuO+ju9l5qUQbu+bGH2/wFwx+s82z11cWSQXS6FxUQbIFFj/tIS6rAeboQJa
+	xIPzNl78iX2KvT7c+5xCADuWeJnBeD+qB3l4Xiuoggy/qU79wTASCKv4UDcY3AwZoIkNvtVBIdWVa
+	aZEfzTCgb1BaYtAB4hp2P4vkB2GKbaYA1PTFkh04CRxPoHFpN01m6xPP4Fb/jm9m2OMAe6c5S9pyW
+	/4ADq19B63fuJnxeJwEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMzOv-009al7-84; Tue, 31 Jan 2023 22:46:53 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1pN0YQ-009j84-JY; Wed, 01 Feb 2023 00:00:46 +0000
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pMzOr-009ak3-Nb
-	for linux-riscv@lists.infradead.org; Tue, 31 Jan 2023 22:46:51 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id 5so16644250plo.3
-        for <linux-riscv@lists.infradead.org>; Tue, 31 Jan 2023 14:46:48 -0800 (PST)
+	id 1pN0YN-009j70-OY
+	for linux-riscv@lists.infradead.org; Wed, 01 Feb 2023 00:00:45 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id me3so46543123ejb.7
+        for <linux-riscv@lists.infradead.org>; Tue, 31 Jan 2023 16:00:42 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=atishpatra.org; s=google;
+        d=linux-foundation.org; s=google;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=ChdY/BOQPZ1uBdSScQAnHVJgIw1TfyjijiWytBSiQJU=;
-        b=P/csI0Dsr6pSP+yfsdWmPLyR2OV2O9L2+BIw5ZYpmKa46y6S8PELKWe4xTX4sx2mEN
-         iz0CIV4aU/Xp55F7vPWK75l8XALnKMEi/qkTo8b0lRlStd85P958+Ao3ZedelC7yXENR
-         ORsQfgbiccitrYTxaXdve26+HM4rKn+N02qzY=
+        bh=lRCOdD9CD/IiFJ43pipYPy+q1tidOpGH1rcqkIGuMSQ=;
+        b=fL59Ab7RHJP0bfIYtovRgam/bmLVqgi/HuOZuRtvXpi8XPCKPsz19TVQkwQ/4pcElK
+         nbpNee2j9nRk73RFGNcIlDQDDv7dgJ9GC8xvsYkG1wEa43drPEZkLrJIAfsAF0ElYFBV
+         ZenNmi1Qr0FBP87JP4qtwax7RH2E68mH3aIp0=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=ChdY/BOQPZ1uBdSScQAnHVJgIw1TfyjijiWytBSiQJU=;
-        b=2vjHy5lxPHleTNfWDGP0nrPN8sFobib7FXTUQ1wY3VmgImhFniRnsblrhjSbDHaqJl
-         xcGRon4ji1jLcLPEl/Mt6Ri75sqg79SKhPzo9yQbYTxQJFiYosphIxgdI9Zr+HyyppZq
-         iDBd9Vh1I1RUodYp+TlirImglOxptwaa8nnUFM0O7WPTiTw7T6OMmmBjx0/dLNl0zZ+D
-         RIzh+Ls2kIODMclN9g/nXsvCmskjndvtdN+nkeVHHEm3OZZAqnaklReKfnDBbdbbaLcr
-         ihA/W7FawPALv1fX2ILJQGF6o2hpsQaOJyQUFKdkcPLFuY/3ocFhaWF/JQ5Ph1gWFGbK
-         4X2Q==
-X-Gm-Message-State: AO0yUKWVWS4nNy4VIvWsYPl/e0gtNmIx/ZoBI+E+CjhtEwMuolSC/Sm7
-	YQ7EJ4wksGsPwCEJQuSgx5DLXb82yC5uvZZnp8Nv
-X-Google-Smtp-Source: AK7set8AS0MpCMygHXWVJkHhzF3cP+gjObUvIrlXz6+xUJd4hSDWhV5uI7961IASYnnUHYVzNYuuX139DCNVJlEBhXE=
-X-Received: by 2002:a17:90a:2dc9:b0:22c:dd5:8f54 with SMTP id
- q9-20020a17090a2dc900b0022c0dd58f54mr4059996pjm.62.1675205208315; Tue, 31 Jan
- 2023 14:46:48 -0800 (PST)
+        bh=lRCOdD9CD/IiFJ43pipYPy+q1tidOpGH1rcqkIGuMSQ=;
+        b=sSiZAkHU3n5wJFXEDeNqdozXc5Z4D18Cn/xaFBrQujSjysw2bpzmB83D5rDdznqWcw
+         7XdtYEAb5kNH+hO5m4fXlMtCdZTNfplxWkadYeypLew4QTnF6V6Fc2Tl60RlWCC/2swS
+         0TAAWLgaC1K4pxL3E+AmYKCH1W4Z03aMwX3vTqpfX7rKJVSKt7ju++c+O+nCkT2Rn9Fz
+         eOb+DdkYGF745aF/7X8tzy1q6zzZNn/1D3ExaGr8sJLOGUErdqowOj11vDoCDMTt7ZJx
+         N0LdwZVmgV9IuARz0SOY1gUB0WUE1Xg/b9RvKSwP4r0afESYywq9/FvzaVJTuSVCzExe
+         rEgQ==
+X-Gm-Message-State: AO0yUKU2zLQPcrIJjvLgNRw8Od1LLcdIQOyAov5T85KRMpftQ+VXERQb
+	oY9NVe7Aw9h1sVL4GQDI2gTWe0//48doX5iTGX4=
+X-Google-Smtp-Source: AK7set+Zs/OVGTp9PEPpnC5o4m8dOC5GhbW2UsWc4QiFJP3UhtkxIIjyWtPuyk8mfV37WdQFCq7RYQ==
+X-Received: by 2002:a17:906:88a:b0:86f:1227:7a48 with SMTP id n10-20020a170906088a00b0086f12277a48mr290473eje.17.1675209640990;
+        Tue, 31 Jan 2023 16:00:40 -0800 (PST)
+Received: from mail-ej1-f49.google.com (mail-ej1-f49.google.com. [209.85.218.49])
+        by smtp.gmail.com with ESMTPSA id i9-20020a05640200c900b0049ef04ad502sm1247634edu.40.2023.01.31.16.00.40
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 31 Jan 2023 16:00:40 -0800 (PST)
+Received: by mail-ej1-f49.google.com with SMTP id mc11so24036337ejb.10
+        for <linux-riscv@lists.infradead.org>; Tue, 31 Jan 2023 16:00:40 -0800 (PST)
+X-Received: by 2002:a17:906:184a:b0:878:70c8:14f0 with SMTP id
+ w10-20020a170906184a00b0087870c814f0mr84229eje.20.1675209639791; Tue, 31 Jan
+ 2023 16:00:39 -0800 (PST)
 MIME-Version: 1.0
-References: <20230127182558.2416400-1-atishp@rivosinc.com> <20230127182558.2416400-12-atishp@rivosinc.com>
- <CAAhSdy1+6AprOdzRRTG98p6swisNFO6MUKjXobxW3RWbixvjCg@mail.gmail.com>
-In-Reply-To: <CAAhSdy1+6AprOdzRRTG98p6swisNFO6MUKjXobxW3RWbixvjCg@mail.gmail.com>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Tue, 31 Jan 2023 14:46:36 -0800
-Message-ID: <CAOnJCU+=A1GXvaQis5RrDabPAvAZccmc9HF1KU4ReuRTSx5pCQ@mail.gmail.com>
-Subject: Re: [PATCH v3 11/14] RISC-V: KVM: Implement trap & emulate for hpmcounters
-To: Anup Patel <anup@brainfault.org>
-Cc: Atish Patra <atishp@rivosinc.com>, linux-kernel@vger.kernel.org, 
-	Andrew Jones <ajones@ventanamicro.com>, Guo Ren <guoren@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Sergey Matyukevich <sergey.matyukevich@syntacore.com>, Will Deacon <will@kernel.org>
+References: <Y9lz6yk113LmC9SI@ZenIV> <CAHk-=whf73Vm2U3jyTva95ihZzefQbThZZxqZuKAF-Xjwq=G4Q@mail.gmail.com>
+ <Y9mD1qp/6zm+jOME@ZenIV> <CAHk-=wjiwFzEGd_60H3nbgVB=R_8KTcfUJmXy=hSXCvLrXQRFA@mail.gmail.com>
+ <Y9mM5wiEhepjJcN0@ZenIV>
+In-Reply-To: <Y9mM5wiEhepjJcN0@ZenIV>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Tue, 31 Jan 2023 16:00:22 -0800
+X-Gmail-Original-Message-ID: <CAHk-=wjNwwnBckTo8HLSdsd1ndoAR=5RBoZhdOyzhsnDAYWL9g@mail.gmail.com>
+Message-ID: <CAHk-=wjNwwnBckTo8HLSdsd1ndoAR=5RBoZhdOyzhsnDAYWL9g@mail.gmail.com>
+Subject: Re: [RFC][PATCHSET] VM_FAULT_RETRY fixes
+To: Al Viro <viro@zeniv.linux.org.uk>
+Cc: Peter Xu <peterx@redhat.com>, linux-arch@vger.kernel.org, 
+	linux-alpha@vger.kernel.org, linux-ia64@vger.kernel.org, 
+	linux-hexagon@vger.kernel.org, linux-m68k@lists.linux-m68k.org, 
+	Michal Simek <monstr@monstr.eu>, Dinh Nguyen <dinguyen@kernel.org>, openrisc@lists.librecores.org, 
+	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	sparclinux@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230131_144649_792009_D351216A 
-X-CRM114-Status: GOOD (  23.94  )
+X-CRM114-CacheID: sfid-20230131_160043_828131_9300D1F5 
+X-CRM114-Status: GOOD (  13.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,162 +98,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jan 29, 2023 at 4:44 AM Anup Patel <anup@brainfault.org> wrote:
+On Tue, Jan 31, 2023 at 1:49 PM Al Viro <viro@zeniv.linux.org.uk> wrote:
 >
-> On Fri, Jan 27, 2023 at 11:56 PM Atish Patra <atishp@rivosinc.com> wrote:
-> >
-> > As the KVM guests only see the virtual PMU counters, all hpmcounter
-> > access should trap and KVM emulates the read access on behalf of guests.
-> >
-> > Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-> > Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> > ---
-> >  arch/riscv/include/asm/kvm_vcpu_pmu.h | 16 ++++++++++
-> >  arch/riscv/kvm/vcpu_insn.c            |  4 ++-
-> >  arch/riscv/kvm/vcpu_pmu.c             | 45 ++++++++++++++++++++++++++-
-> >  3 files changed, 63 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/arch/riscv/include/asm/kvm_vcpu_pmu.h b/arch/riscv/include/asm/kvm_vcpu_pmu.h
-> > index 3f43a43..022d45d 100644
-> > --- a/arch/riscv/include/asm/kvm_vcpu_pmu.h
-> > +++ b/arch/riscv/include/asm/kvm_vcpu_pmu.h
-> > @@ -43,6 +43,19 @@ struct kvm_pmu {
-> >  #define vcpu_to_pmu(vcpu) (&(vcpu)->arch.pmu)
-> >  #define pmu_to_vcpu(pmu)  (container_of((pmu), struct kvm_vcpu, arch.pmu))
-> >
-> > +#if defined(CONFIG_32BIT)
-> > +#define KVM_RISCV_VCPU_HPMCOUNTER_CSR_FUNCS \
-> > +{ .base = CSR_CYCLEH,      .count = 31, .func = kvm_riscv_vcpu_pmu_read_hpm }, \
-> > +{ .base = CSR_CYCLE,      .count = 31, .func = kvm_riscv_vcpu_pmu_read_hpm },
-> > +#else
-> > +#define KVM_RISCV_VCPU_HPMCOUNTER_CSR_FUNCS \
-> > +{ .base = CSR_CYCLE,      .count = 31, .func = kvm_riscv_vcpu_pmu_read_hpm },
-> > +#endif
-> > +
-> > +int kvm_riscv_vcpu_pmu_read_hpm(struct kvm_vcpu *vcpu, unsigned int csr_num,
-> > +                               unsigned long *val, unsigned long new_val,
-> > +                               unsigned long wr_mask);
-> > +
-> >  int kvm_riscv_vcpu_pmu_num_ctrs(struct kvm_vcpu *vcpu, struct kvm_vcpu_sbi_ext_data *edata);
-> >  int kvm_riscv_vcpu_pmu_ctr_info(struct kvm_vcpu *vcpu, unsigned long cidx,
-> >                                 struct kvm_vcpu_sbi_ext_data *edata);
-> > @@ -65,6 +78,9 @@ void kvm_riscv_vcpu_pmu_reset(struct kvm_vcpu *vcpu);
-> >  #else
-> >  struct kvm_pmu {
-> >  };
-> > +#define KVM_RISCV_VCPU_HPMCOUNTER_CSR_FUNCS \
-> > +{ .base = 0,      .count = 0, .func = NULL },
-> > +
->
-> Redundant newline here.
->
+> Everything else seems to be going with EFAULT.
 
-Fixed.
+So I think fo kernel faults it's always basically up to the exception
+handler, and sending a signal regardless of that is just wrong.
 
-> >
-> >  static inline int kvm_riscv_vcpu_pmu_init(struct kvm_vcpu *vcpu)
-> >  {
-> > diff --git a/arch/riscv/kvm/vcpu_insn.c b/arch/riscv/kvm/vcpu_insn.c
-> > index 0bb5276..f689337 100644
-> > --- a/arch/riscv/kvm/vcpu_insn.c
-> > +++ b/arch/riscv/kvm/vcpu_insn.c
-> > @@ -213,7 +213,9 @@ struct csr_func {
-> >                     unsigned long wr_mask);
-> >  };
-> >
-> > -static const struct csr_func csr_funcs[] = { };
-> > +static const struct csr_func csr_funcs[] = {
-> > +       KVM_RISCV_VCPU_HPMCOUNTER_CSR_FUNCS
-> > +};
-> >
-> >  /**
-> >   * kvm_riscv_vcpu_csr_return -- Handle CSR read/write after user space
-> > diff --git a/arch/riscv/kvm/vcpu_pmu.c b/arch/riscv/kvm/vcpu_pmu.c
-> > index 7713927..894053a 100644
-> > --- a/arch/riscv/kvm/vcpu_pmu.c
-> > +++ b/arch/riscv/kvm/vcpu_pmu.c
-> > @@ -17,6 +17,44 @@
-> >
-> >  #define kvm_pmu_num_counters(pmu) ((pmu)->num_hw_ctrs + (pmu)->num_fw_ctrs)
-> >
-> > +static int pmu_ctr_read(struct kvm_vcpu *vcpu, unsigned long cidx,
-> > +                       unsigned long *out_val)
-> > +{
-> > +       struct kvm_pmu *kvpmu = vcpu_to_pmu(vcpu);
-> > +       struct kvm_pmc *pmc;
-> > +       u64 enabled, running;
-> > +
-> > +       pmc = &kvpmu->pmc[cidx];
-> > +       if (!pmc->perf_event)
-> > +               return -EINVAL;
-> > +
-> > +       pmc->counter_val += perf_event_read_value(pmc->perf_event, &enabled, &running);
-> > +       *out_val = pmc->counter_val;
-> > +
-> > +       return 0;
-> > +}
-> > +
-> > +int kvm_riscv_vcpu_pmu_read_hpm(struct kvm_vcpu *vcpu, unsigned int csr_num,
-> > +                               unsigned long *val, unsigned long new_val,
-> > +                               unsigned long wr_mask)
-> > +{
-> > +       struct kvm_pmu *kvpmu = vcpu_to_pmu(vcpu);
-> > +       int cidx, ret = KVM_INSN_CONTINUE_NEXT_SEPC;
-> > +
-> > +       if (!kvpmu || !kvpmu->init_done)
-> > +               return KVM_INSN_EXIT_TO_USER_SPACE;
->
-> As discussed previously, this should be KVM_INSN_ILLEGAL_TRAP.
->
+Of course, an exception handler might choose to send a signal, but it
+just shouldn't be the do_page_fault() handler that does it.
 
-Done.
-> > +
-> > +       if (wr_mask)
-> > +               return KVM_INSN_ILLEGAL_TRAP;
-> > +
-> > +       cidx = csr_num - CSR_CYCLE;
-> > +
-> > +       if (pmu_ctr_read(vcpu, cidx, val) < 0)
-> > +               return KVM_INSN_EXIT_TO_USER_SPACE;
->
-> Same as above.
->
+For user faults, I think the rule ends up being that "if there's no
+mapping, or if there is a protection fault, then we should do
+SIGSEGV".
 
-Done.
+If there's an actual mapping in place, and the mapping has the right
+permissions for the access, but fails for some *other* reason, then we
+send SIGBUS.
 
-> > +
-> > +       return ret;
-> > +}
-> > +
-> >  int kvm_riscv_vcpu_pmu_num_ctrs(struct kvm_vcpu *vcpu, struct kvm_vcpu_sbi_ext_data *edata)
-> >  {
-> >         struct kvm_pmu *kvpmu = vcpu_to_pmu(vcpu);
-> > @@ -69,7 +107,12 @@ int kvm_riscv_vcpu_pmu_ctr_cfg_match(struct kvm_vcpu *vcpu, unsigned long ctr_ba
-> >  int kvm_riscv_vcpu_pmu_ctr_read(struct kvm_vcpu *vcpu, unsigned long cidx,
-> >                                 struct kvm_vcpu_sbi_ext_data *edata)
-> >  {
-> > -       /* TODO */
-> > +       int ret;
-> > +
-> > +       ret = pmu_ctr_read(vcpu, cidx, &edata->out_val);
-> > +       if (ret == -EINVAL)
-> > +               edata->err_val = SBI_ERR_INVALID_PARAM;
-> > +
-> >         return 0;
-> >  }
-> >
-> > --
-> > 2.25.1
-> >
->
-> Regards,
-> Anup
+So a shared mmap past the end of the file (but within the area that
+was used for mmap) would SIGBUS, while a write to a read-only mapping
+would SIGSEGV.
 
+Things like unaligned accesses also might SIGBUS rather than SIGSEGV.
 
+And I'm not surprised that there are exceptions to the rule, because
+almost nothing really cares. In most situations, it's a fatal error.
+And even when catching them, the end result is generally the same
+(either "print out helpful message and die", or "longjump to some safe
+code").
 
--- 
-Regards,
-Atish
+So most of the time it's probably not going to matter all that much
+which signal gets sent in practice.
+
+            Linus
 
 _______________________________________________
 linux-riscv mailing list
