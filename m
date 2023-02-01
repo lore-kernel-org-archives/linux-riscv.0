@@ -4,71 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7AFFC05027
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Feb 2023 07:53:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86232C05027
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Feb 2023 08:06:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
+	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zzEEtz2Yih0PT8q1eI572r63wiuF83PuVcexNVCDgq4=; b=U9DX8IRifLH9Qd
-	mofIQHOi84l4JtO5FF0fDx0m+QHbfLwAxfU/iInXlUJo8hWbS/8dql1EAWyWxiGblL41TM++YJIfR
-	aMOferwhALTLsTdaBKxvKG+8I4/UaJLgL46HNMAfE4ZiXTpdCcTWsSBgppxRAlAflQFbpfAqacJEk
-	vmbYVhJTAX7tqCugjJMsj8R295AT4lMIeqvUxj+HzH1Y4lRNG+ELXDAiBvmKagTNHEkr3sJD1sl1W
-	DEa81edY6yyZvnt1T5fxQyhVnWYFdrUN+Jbbhm7zZXUsGLzmuB7avRpXmBSCtGyBtfoLr+B4XW7UJ
-	4XJMC48t+b210mJe/3hg==;
+	List-Owner; bh=iJleOvJkeGZMMkEPSiR7G870f3I8GCwZ3I0p+0hjvtU=; b=FkxDqsweLrDdT8
+	wD8Qlq7HxTKdg45g/2I2oadMF0+BOFSQVjqc1sREJXK9Z8JhEzLUnygVGDumxabK46k19qCQP4KB4
+	NerlKwE3X8rtPC2ryNcf6BoH7vh3j4JquPglhEsDSaJM8i1KXwYzd5L/+RNOLx6ZnMYf/JbZlFwIo
+	Jw02wBGP9kFsxYzarCSYizUz13ph8AORWaEtznh/mxiaPTqHLXX/2Rn71E9m2kzlBbjs6eT3lnly4
+	zeh8buVg55/5IJOBOwYWqR8Wor38fLf/B6AxYl2e+cLiN3Ts1Gbrxk7gzeGhqaDN9Tt5vTBT5KQ/x
+	yWyO2gw5wVUdXgooXV/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pN7vo-00Ai7P-G2; Wed, 01 Feb 2023 07:53:24 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pN7vk-00Ai5x-Cf
-	for linux-riscv@lists.infradead.org; Wed, 01 Feb 2023 07:53:23 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 2562C24E22E;
-	Wed,  1 Feb 2023 15:53:07 +0800 (CST)
-Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 1 Feb
- 2023 15:53:07 +0800
-Received: from [192.168.125.110] (183.27.97.127) by EXMBX172.cuchost.com
- (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 1 Feb
- 2023 15:53:05 +0800
-Message-ID: <abe67217-ce94-c410-5a51-3ad3a6570045@starfivetech.com>
-Date: Wed, 1 Feb 2023 15:53:05 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.2
-Subject: Re: [PATCH v3 6/7] riscv: dts: starfive: Add initial StarFive JH7110
- device tree
-Content-Language: en-US
-To: Conor Dooley <conor@kernel.org>, Icenowy Zheng <uwu@icenowy.me>
-CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Palmer
- Dabbelt" <palmer@dabbelt.com>, Rob Herring <robh+dt@kernel.org>, "Krzysztof
- Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, Ben Dooks
-	<ben.dooks@sifive.com>, Daniel Lezcano <daniel.lezcano@linaro.org>, "Thomas
- Gleixner" <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Stephen Boyd
-	<sboyd@kernel.org>, Michael Turquette <mturquette@baylibre.com>, "Philipp
- Zabel" <p.zabel@pengutronix.de>, Linus Walleij <linus.walleij@linaro.org>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	<linux-kernel@vger.kernel.org>
-References: <20221220011247.35560-1-hal.feng@starfivetech.com>
- <20221220011247.35560-7-hal.feng@starfivetech.com> <Y6zHy9oL4xzl+6Rd@spud>
- <dda144a8397a175f3ce092485f08896c9a66d232.camel@icenowy.me>
- <51F38449-56BA-4260-B46F-0996FD29E169@kernel.org>
-From: Hal Feng <hal.feng@starfivetech.com>
-In-Reply-To: <51F38449-56BA-4260-B46F-0996FD29E169@kernel.org>
-X-Originating-IP: [183.27.97.127]
-X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX172.cuchost.com
- (172.16.6.92)
-X-YovoleRuleAgent: yovoleflag
+	id 1pN88C-00Ak6x-Ac; Wed, 01 Feb 2023 08:06:12 +0000
+Received: from out4-smtp.messagingengine.com ([66.111.4.28])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pN886-00Ak56-2M
+	for linux-riscv@lists.infradead.org; Wed, 01 Feb 2023 08:06:11 +0000
+Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
+	by mailout.nyi.internal (Postfix) with ESMTP id 7579A5C009C;
+	Wed,  1 Feb 2023 03:06:01 -0500 (EST)
+Received: from imap51 ([10.202.2.101])
+  by compute6.internal (MEProxy); Wed, 01 Feb 2023 03:06:01 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-type:date:date:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:sender:subject
+	:subject:to:to; s=fm3; t=1675238761; x=1675325161; bh=05fE/HK6Dq
+	vQfuvfJUrtINoSrSYug5Jz6pNScpWDd9M=; b=gdDAzdJnUgARfIEeRZCLlY2AtO
+	v74aILYBuJUkN5gVMmUtlosl9ppOfH60aqfSoj07Kl6G7zkPDXIcc1Tn7WqGsCSY
+	JHWRmXGc5FjMONZaMfY5WnKfh4+yNPKjapKm7nBNB4gkUJE1FMz0/yaIXkasXZYr
+	Bc1mldhanJo4qytC7b/hiwGs9IV4mRSuggQP/az3Ybajn7Z0am77Hnl5ZJMZym3H
+	vWd/exHbA6TIoDYIzC+RjUXaZJ1HDmXkDOaZTvPw4zzphBjM2enPEEOSrQOYwuoZ
+	QZzR+YVnbCYoWnucl0BxQmxUZqRR2YZ+y9GhCgcrf+tynOql1uNkVhNyJ/cw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:date:date:feedback-id
+	:feedback-id:from:from:in-reply-to:in-reply-to:message-id
+	:mime-version:references:reply-to:sender:subject:subject:to:to
+	:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm3; t=1675238761; x=1675325161; bh=05fE/HK6DqvQfuvfJUrtINoSrSYu
+	g5Jz6pNScpWDd9M=; b=XnK7mTbGT+y2VJPvrPrYkQusdgUqVG+arE0ljbCtLobt
+	xF7R0hFy26tIba5+FFbfuDjPITdtTJywip6T8hEWQUscePYDJ7v+IzjQsead5HQg
+	j54GeZEWOtyXWA/zoi+NWPqgM8vaodQf9A6s7F1nneQc3xLQ1dR1G0GAPw2gaY3A
+	WPculnNFTznKCI1DJmPz7teFuBAB/N4B5VAWHrsG9g28p+n5bGtTj1P7xc1sPsgN
+	kGqaf5MdAfjxWayKoHJX6lVgBfmZ4BOer/Mj44RDf6m3Rn/sqIhLcUzccNIJVMOR
+	0K/E/yN5n+IJMexHT8W4XElTCgy+E91qRKJz7KE+ag==
+X-ME-Sender: <xms:aB3aY0kNRkhEsKKc7NW05bFZlBy0UWXoQG814K_VbXZ6oRacZ0YgdA>
+    <xme:aB3aYz1aBYvMbdLtkMaXJsJdBRmcsfPlBVZMlSTXO070uA5tuWD7Sbpx8jfRoAg3S
+    R9KeXnnBzq6L5r9fR0>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrudefhedguddukecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfgh
+    necuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmd
+    enucfjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdet
+    rhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrg
+    htthgvrhhnpeffheeugeetiefhgeethfejgfdtuefggeejleehjeeutefhfeeggefhkedt
+    keetffenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpe
+    grrhhnugesrghrnhgusgdruggv
+X-ME-Proxy: <xmx:aB3aYyqS9g0SH2SwMkDNfyVSdWwWQ_3vkD-Y8I2CJK8T08FGcXImjA>
+    <xmx:aB3aYwlk6ejAUhE8GGyoNRtrsjcSfpj2rncyHbwPj8DgBJQQXj9lsw>
+    <xmx:aB3aYy1yzx3pB_HtgiksIP1tWk8igi724QtNhtyVToNDcf8KbDHNCQ>
+    <xmx:aR3aY4PmUfRE7zHhmGRTa3xNtxToXlz0tv-QKwHcrevHDVzY3GqBPw>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+	id 4D56FB60450; Wed,  1 Feb 2023 03:06:00 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.9.0-alpha0-107-g82c3c54364-fm-20230131.002-g82c3c543
+Mime-Version: 1.0
+Message-Id: <b064f754-4d94-4c0d-ad27-e0ad223d022c@app.fastmail.com>
+In-Reply-To: <11BE997B-93C7-4D38-99BF-FD025A1FB945@jrtc27.com>
+References:  <CA+V-a8tR1KiLSs=Psa=w7kf0zT=yU5_Ekr6-3V1MR==Wtzmksg@mail.gmail.com>
+ <Y9KQPxzHBuZGIN4U@casper.infradead.org>
+ <CA+V-a8uizF8sQgs8cfTwH3OnK+nvr2dXAoSOPTXCXLFnprHSeA@mail.gmail.com>
+ <Y9fhOFEV0kS9U06/@casper.infradead.org> <Y9oHT1D1X9cdHLr0@infradead.org>
+ <11BE997B-93C7-4D38-99BF-FD025A1FB945@jrtc27.com>
+Date: Wed, 01 Feb 2023 09:05:41 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Jessica Clarke" <jrtc27@jrtc27.com>,
+ "Christoph Hellwig" <hch@infradead.org>
+Cc: "Matthew Wilcox" <willy@infradead.org>,
+ Prabhakar <prabhakar.csengg@gmail.com>, Linux-MM <linux-mm@kvack.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>, "Rob Herring" <robh+dt@kernel.org>,
+ "Krzysztof Kozlowski" <krzysztof.kozlowski+dt@linaro.org>,
+ "Geert Uytterhoeven" <geert.uytterhoeven@gmail.com>,
+ "Fabrizio Castro" <fabrizio.castro.jz@renesas.com>,
+ "Biju Das" <biju.das.jz@bp.renesas.com>,
+ "Chris Paterson" <Chris.Paterson2@renesas.com>
+Subject: Re: [QUERY]: Block region to mmap
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230131_235320_741192_96F0E1EE 
-X-CRM114-Status: UNSURE (   8.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230201_000606_213839_C4AEB787 
+X-CRM114-Status: GOOD (  19.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,49 +110,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCAyOSBEZWMgMjAyMiAwOTowMjoxNSArMDAwMCwgQ29ub3IgRG9vbGV5IHdyb3RlOgo+
-IEhleSBJY2Vub3d5LCBIYWwKPiAKPiBPbiAyOSBEZWNlbWJlciAyMDIyIDA1OjI1OjAwIEdNVCwg
-SWNlbm93eSBaaGVuZyA8dXd1QGljZW5vd3kubWU+IHdyb3RlOgo+PuWcqCAyMDIyLTEyLTI45pif
-5pyf5LiJ55qEIDIyOjQ4ICswMDAw77yMQ29ub3IgRG9vbGV55YaZ6YGT77yaCj4+PiBIZXksCj4+
-PiAKPj4+IE9uIFR1ZSwgRGVjIDIwLCAyMDIyIGF0IDA5OjEyOjQ2QU0gKzA4MDAsIEhhbCBGZW5n
-IHdyb3RlOgpbLi4uXQo+Pj4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgVTc0XzE6
-IGNwdUAxIHsKPj4+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqBjb21wYXRpYmxlID0gInNpZml2ZSx1NzQtbWMiLCAicmlzY3YiOwo+Pj4gPiArwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoHJlZyA9IDwxPjsKPj4+ID4g
-K8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBkLWNhY2hlLWJs
-b2NrLXNpemUgPSA8NjQ+Owo+Pj4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoGQtY2FjaGUtc2V0cyA9IDw2ND47Cj4+PiA+ICvCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgZC1jYWNoZS1zaXplID0gPDMyNzY4PjsKPj4+
-ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBkLXRsYi1z
-ZXRzID0gPDE+Owo+Pj4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoGQtdGxiLXNpemUgPSA8NDA+Owo+Pj4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoGRldmljZV90eXBlID0gImNwdSI7Cj4+PiA+ICvCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgaS1jYWNoZS1ibG9jay1zaXpl
-ID0gPDY0PjsKPj4+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqBpLWNhY2hlLXNldHMgPSA8NjQ+Owo+Pj4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoGktY2FjaGUtc2l6ZSA9IDwzMjc2OD47Cj4+PiA+ICvCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgaS10bGItc2V0cyA9IDwx
-PjsKPj4+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBp
-LXRsYi1zaXplID0gPDQwPjsKPj4+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqBtbXUtdHlwZSA9ICJyaXNjdixzdjM5IjsKPj4+ID4gK8KgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBuZXh0LWxldmVsLWNhY2hlID0gPCZj
-Y2FjaGU+Owo+Pj4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoHJpc2N2LGlzYSA9ICJydjY0aW1hZmRjIjsKPj4+IAo+Pj4gVGhhdCBhbHNvIGJlZ3MgdGhl
-IHF1ZXN0aW9uOgo+Pj4gRG8geW91ciB1NzRzIHN1cHBvcnQgUlY2NEdCQywgYXMgdGhlIChjdXJy
-ZW50KSBTaUZpdmUgZG9jdW1lbnRhdGlvbgo+Pj4gc3VnZ2VzdHM/Cj4+Cj4+SXQgc3VwcG9ydHMg
-UlY2NEdDWmJhWmJiLgo+IAo+IFN3ZWV0LCB0aGFua3MuCj4gCj4+QiBpcyBub3QgYSB3ZWxsLWRl
-ZmluZWQgdGhpbmcgYnkgc3BlY2lmaWNhdGlvbnMsIHNvIGl0IHNob3VsZCBiZQo+PnByZXZlbnRl
-ZCBoZXJlLgo+IAo+IFlhaCwgZG9uJ3Qgd29ycnkgLSBteSBuZXh0IHF1ZXN0aW9uIHdhcyBnb2lu
-ZyB0byBiZSB3aGljaCBiaXRzIHdlcmUgc3VwcG9ydGVkIDopCj4gCj4gSGFsLCBjYW4geW91IHVw
-ZGF0ZSB0aGUgaXNhIHN0cmluZyBpbiB0aGUgbmV4dCB2ZXJzaW9uIHBsZWFzZT8KClRoZSBjdXJy
-ZW50IGlzYSBkZXNjcmlwdGlvbiBpcyBjb3JyZWN0LiBQbGVhc2Ugc2VlIG15IHJlcGx5IFsxXS4K
-VGhhbmsgeW91LgoKWzFdIGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2FsbC9jNTA3ZTBiMi01Y2Ez
-LWNmZmUtNTVkMi04NzNlZDhjMjRlM2RAc3RhcmZpdmV0ZWNoLmNvbS8KCkJlc3QgcmVnYXJkcywK
-SGFsCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
-eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
-Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Wed, Feb 1, 2023, at 08:05, Jessica Clarke wrote:
+> On 1 Feb 2023, at 06:31, Christoph Hellwig <hch@infradead.org> wrote:
+>> On Mon, Jan 30, 2023 at 03:24:40PM +0000, Matthew Wilcox wrote:
+>> 
+>>> Before we go too deeply into it, how much would it cost to buy all of
+>>> these parts and feed them into a shredder?  I'm not entirely joking;
+>>> if it's less than the software engineering time it'd take to develop
+>>> and support this feature, we should do it.
+>> 
+>> The above suggests this is in no way an actual hardware problem, but the
+>> stupid decision is done in the M-Mode firmware.  I think it is very
+>> reasonable to simply not support the devices in Linux until the firmware
+>> is fixed.
+>
+> No, it really is a hardware spec violation. Virtual addresses within
+> the magic range bypass translation with no way to turn it off. The
+> firmware is being (has been?) patched to block those accesses at the
+> physical memory protection level so any attempt to use those virtual
+> addresses will fault, but if Linux wants to support this cursed
+> hardware and its gross spec violation then it needs to forbid any
+> allocation of the VA range.
+
+For a local build of an embedded system it's probably enough to
+set CONFIG_DEFAULT_MMAP_MIN_ADDR and CONFIG_LSM_MMAP_MIN_ADDR
+in order to force userspace outside of the broken address
+range.
+
+If that configuration can no longer run most regular userspace
+binaries, there is probably not much need to detect the hardware
+that needs it and do this automatically in the kernel, beyond
+perhaps some platform specific code that refuses to boot unless
+the config options are set this way on the affected chip
+revisions.
+
+     Arnd
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
