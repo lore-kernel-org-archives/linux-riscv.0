@@ -4,58 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F9BFC636CD
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Feb 2023 00:52:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE0F0C636CD
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Feb 2023 00:57:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jnKJ0xDArMqB158d/4cOEFrsRFnHJLBV6vMVC97+8Oc=; b=B+L7Fu/Eia1PFg
-	x+/wKBfBQiGQqahX5qnBwZr/U/Vtcpc/11MoNw12A5Ys7je7oxPrekYsHDKKj6EzbUiOqMneIBU2H
-	Wk81E+ypXWEhBAk5mRo1LZM95NcX1i5O32XDDHDcBH7p65epXUzTEfmf9Eh35CaAIdUdN3Yz4FL6P
-	+/YAAXng9049p+R7iJoo0IQACD9owrs5MqDRw0poD+P2SiW85eM6Jnp5/ht06AivblFooZesqDbrM
-	vz8e2TeoQQcFe0+fdT3wPo2uQTopejioffca8SCVX3UhmtV5dEgiDGx5208dRI4FqH4Al/3hz5+EO
-	a0iKz2Bgdsz6xsv7b/NA==;
+	List-Owner; bh=k4NEM5DuV/hloIl8Cpk8itopBQQq9qp0yQCY63QvF+Y=; b=Je0MCeYjjRr/wc
+	5CITqWG2AptpXCLkHVgJFOrHdqIwynYio3Se4ckPy11OUOVNhY7m1OfP7LUe7d3NbMB/EfRDnBDJe
+	HDM99ZAo4061FQcgQQuTl3eUE8Yhqxxj6rK6hb2Z0xFrw5K5IKfvZ3bI6Px5DKCrY7VJ1WKUW8LSL
+	RdSx4kPTFrQjZD0VgP5VmAhxT9a5uoeWClPRTk63TzHcWvt7EemCo8X9KY62WyT4Y+ta7urDpsG77
+	qCid8Ma65YsqEyP0WU8y4sMOHvJHBJO5kzC2Pju1HBKB5toGMgMFkup8v3SJDERvE56XRYdw8fH1M
+	WPijK436diWsKt745PFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNNqM-00E0Ie-BG; Thu, 02 Feb 2023 00:52:50 +0000
-Received: from szxga03-in.huawei.com ([45.249.212.189])
+	id 1pNNuh-00E0lc-Ij; Thu, 02 Feb 2023 00:57:19 +0000
+Received: from zeniv.linux.org.uk ([2a03:a000:7:0:5054:ff:fe1c:15ff])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNNqJ-00E0Hp-6s
-	for linux-riscv@lists.infradead.org; Thu, 02 Feb 2023 00:52:49 +0000
-Received: from kwepemi500012.china.huawei.com (unknown [172.30.72.55])
-	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4P6gBK2FbQzJqqg;
-	Thu,  2 Feb 2023 08:48:09 +0800 (CST)
-Received: from [10.67.110.108] (10.67.110.108) by
- kwepemi500012.china.huawei.com (7.221.188.12) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.34; Thu, 2 Feb 2023 08:52:38 +0800
-Message-ID: <f161df27-f2d7-0367-33a0-9ff5e4b880d9@huawei.com>
-Date: Thu, 2 Feb 2023 08:52:38 +0800
+	id 1pNNuf-00E0kv-4P
+	for linux-riscv@lists.infradead.org; Thu, 02 Feb 2023 00:57:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=linux.org.uk; s=zeniv-20220401; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=JxMhQfqfZFKjqgX5e6WFjusNEH9w7UJyidC9GBl0BFE=; b=j7zrUF5m9QNeSdthOmzY2TpKll
+	qPTRkZ/xmNsbI8HChk9xVt34XGsY89y73qsr5zxE8DZeUfti8whyBfVk+Ab+kjUnuReBRNDafmDAX
+	/H78PrFrIrMaoRB9EbZbRJ4Zs7Jenz2oKhC7KateHZc+FvE4EURfaz4BFJx0r55ZQo1Vi5FrSgDFI
+	yYZWY8336bh2CFJag9KhZHfpHAP/3O0kEIxOVWGnOYTJtYRxmwGwCH3+tArIpGL0USY+brYn81wps
+	j1g4I7ez2NpxUerl3TovY+NE3eudMkGv9kBRvPwB8LQ6bXEAiIhDkDZeu/6wMFaHrstuWijmeUQlM
+	aZbRGRgw==;
+Received: from viro by zeniv.linux.org.uk with local (Exim 4.96 #2 (Red Hat Linux))
+	id 1pNNuX-005ZAk-1z;
+	Thu, 02 Feb 2023 00:57:09 +0000
+Date: Thu, 2 Feb 2023 00:57:09 +0000
+From: Al Viro <viro@zeniv.linux.org.uk>
+To: Peter Xu <peterx@redhat.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>,
+	linux-arch@vger.kernel.org, linux-alpha@vger.kernel.org,
+	linux-ia64@vger.kernel.org, linux-hexagon@vger.kernel.org,
+	linux-m68k@lists.linux-m68k.org, Michal Simek <monstr@monstr.eu>,
+	Dinh Nguyen <dinguyen@kernel.org>, openrisc@lists.librecores.org,
+	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	sparclinux@vger.kernel.org
+Subject: Re: [RFC][PATCHSET] VM_FAULT_RETRY fixes
+Message-ID: <Y9sKZTJI7V6qCNRJ@ZenIV>
+References: <Y9lz6yk113LmC9SI@ZenIV>
+ <CAHk-=whf73Vm2U3jyTva95ihZzefQbThZZxqZuKAF-Xjwq=G4Q@mail.gmail.com>
+ <Y9mD1qp/6zm+jOME@ZenIV>
+ <CAHk-=wjiwFzEGd_60H3nbgVB=R_8KTcfUJmXy=hSXCvLrXQRFA@mail.gmail.com>
+ <Y9mM5wiEhepjJcN0@ZenIV>
+ <CAHk-=wjNwwnBckTo8HLSdsd1ndoAR=5RBoZhdOyzhsnDAYWL9g@mail.gmail.com>
+ <Y9rCBqwbLlLf1fHe@x1n>
+ <Y9rlI6d5J2Y/YNQ+@ZenIV>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.4.2
-Subject: Re: [PATCH] riscv: Add header include guards to insn.h
-To: Conor Dooley <conor.dooley@microchip.com>
-CC: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-	<heiko.stuebner@vrull.eu>, <ajones@ventanamicro.com>,
-	<prabhakar.mahadev-lad.rj@bp.renesas.com>, <jszhang@kernel.org>,
-	<vincent.chen@sifive.com>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, Joe Perches <joe@perches.com>
-References: <20230129094242.282620-1-liaochang1@huawei.com>
- <Y9fZ2ZxdMmXgO5aB@wendy> <9a4f98a7-fa03-7960-29ce-0bff018c0ac9@huawei.com>
- <Y9o0Bv7VBM74ePHH@wendy>
-From: "liaochang (A)" <liaochang1@huawei.com>
-In-Reply-To: <Y9o0Bv7VBM74ePHH@wendy>
-X-Originating-IP: [10.67.110.108]
-X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
- kwepemi500012.china.huawei.com (7.221.188.12)
-X-CFilter-Loop: Reflected
+Content-Disposition: inline
+In-Reply-To: <Y9rlI6d5J2Y/YNQ+@ZenIV>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230201_165247_606882_C5C995FD 
-X-CRM114-Status: GOOD (  18.38  )
+X-CRM114-CacheID: sfid-20230201_165717_230245_735289A2 
+X-CRM114-Status: GOOD (  14.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,85 +75,73 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgrlnKggMjAyMy8yLzEgMTc6NDIsIENvbm9yIERvb2xleSDlhpnpgZM6Cj4gSGksCj4gCj4gT24g
-V2VkLCBGZWIgMDEsIDIwMjMgYXQgMDU6Mzc6MjRQTSArMDgwMCwgbGlhb2NoYW5nIChBKSB3cm90
-ZToKPj4g5ZyoIDIwMjMvMS8zMCAyMjo1MywgQ29ub3IgRG9vbGV5IOWGmemBkzoKPj4+IE9uIFN1
-biwgSmFuIDI5LCAyMDIzIGF0IDA1OjQyOjQyUE0gKzA4MDAsIExpYW8gQ2hhbmcgd3JvdGU6Cj4+
-Pj4gQWRkIGhlYWRlciBpbmNsdWRlIGd1YXJkcyB0byBpbnNuLmggdG8gcHJldmVudCByZXBlYXRp
-bmcgZGVjbGFyYXRpb24gb2YKPj4+PiBhbnkgaWRlbnRpZmllcnMgaW4gaW5zbi5oLgo+Pj4KPj4+
-IEknbSBjdXJpb3VzLCBkaWQgeW91IHNwb3QgdGhpcyAiYnkgaGFuZCIgd2hpbGUgZG9pbmcgb3Ro
-ZXIgd29yaywgb3IgZG8KPj4+IHlvdSBoYXZlIGEgdG9vbCB0aGF0IGZvdW5kIGl0IGZvciB5b3U/
-Cj4+Cj4+IEkgZm91bmQgdGhpcyAiYnkgaGFuZCIsIGluc3BpcmVkIGJ5IHNjcmlwdHMvY2hlY2tk
-ZWNsYXJlcy5wbCwgaSB3cml0ZSBhIHRpbnkgdG9vbAo+PiB0byBhbmFseXNlIHRoZSBtaXNzaW5n
-IGhlYWRlciBndWFyZHMgaW4gaGVhZGVyIGZpbGUuCj4gCj4gT2hoLCBjb29sISBJJ2QgbG92ZSB0
-byBhZGQgdGhpcyBvbmUgdG8gdGhlIGNoZWNrcyBvbiBwYXRjaHdvcmsgc28gdGhhdAo+IHdlIGRv
-IG5vdCBlbmQgdXAgYWRkaW5nIGFueSBtb3JlIG9mIHRoZXNlLiBJZiB0aGlzIGlzIGJhc2VkIG9u
-Cj4gY2hlY2tkZWNsYXJlcywgaXMgaXQgR1BMdjI/CgpEZWZpbml0ZWx5LCBpdCBpcyBHUEx2Mixp
-IHdpbGwgYXBwZW5kaW5nIGxpY2VuY2UgaWRlbnRpZmllciBhbmQgY29weXJpZ2h0IGluZm8gbGF0
-ZXIuCgpIae+8jEBKb2UgUGVyY2hlcywgaXMgaXQgb2sgdG8gaW50ZWdyYXRlIHRoaXMgdG9vbCB0
-byBzY3JpcHRzPwoKVGhhbmtzLgoKPiAKPiBUaGFua3MhCj4gCj4+Cj4+ICMhL3Vzci9iaW4vZW52
-IHBlcmwKPj4gdXNlIHN0cmljdDsKPj4KPj4gc3ViIHVzYWdlIHsKPj4gICAgICAgICBwcmludCAi
-VXNhZ2U6IGNoZWNrZ3VhcmRzLnBsIGZpbGUxLmggLi4uXG4iOwo+PiAgICAgICAgIHByaW50ICJX
-YXJuIG9mIG1pc3NpbmcgaGVhZGVyIGd1YXJkc1xuIjsKPj4gICAgICAgICBleGl0IDE7Cj4+IH0K
-Pj4KPj4gaWYgKCQjQVJHViA8IDApIHsKPj4gICAgICAgICB1c2FnZSgpOwo+PiB9Cj4+Cj4+IGZv
-cmVhY2ggbXkgJGZpbGUgKEBBUkdWKSB7Cj4+ICAgICAgICAgb3BlbihteSAkZiwgJzwnLCAkZmls
-ZSkKPj4gICAgICAgICAgICAgb3IgZGllICJDYW5ub3Qgb3BlbiAkZmlsZTogJCEuXG4iOwo+Pgo+
-PiAgICAgICAgIG15ICRzY2FuX2FyZWEgPSAxOwo+PiAgICAgICAgIG15ICRndWFyZHNfd2FybiA9
-IDA7Cj4+Cj4+ICAgICAgICAgIyBUaGUgbGluZXMgb2YgaGVhZGVyIGZpbGUgYXJlIGRpdmlkZWQg
-aW50byBzZXZlcmFsIGFyZWFzIGFzIGZvbGxvd3M6Cj4+ICAgICAgICAgIwo+PiAgICAgICAgICMg
-Li4uIGFyZWExIC4uLgo+PiAgICAgICAgICMgI2lmbmRlZiBfSEVBREVSX0dVQVJECj4+ICAgICAg
-ICAgIyAuLi4gYXJlYTIgLi4uCj4+ICAgICAgICAgIyAjZGVmaW5lIF9IRUFERVJfR1VBUkQKPj4g
-ICAgICAgICAjIC4uLiBhcmVhMyAuLi4KPj4gICAgICAgICAjICNlbmRpZiAvKiBfSEVBREVSX0dV
-QVJEICovCj4+ICAgICAgICAgIyAuLi4gYXJlYTQgLi4uCj4+ICAgICAgICAgIyBFT0YKPj4gICAg
-ICAgICAjCj4+ICAgICAgICAgIyBJZiBhbnkgc3RhdGVtZW50IGlzIGZvdW5kIGluIGFyZWExLCBh
-cmVhMiwgYW5kIGFyZWE0LCBpdAo+PiAgICAgICAgICMgdGhyb3dzIGEgd2FybmluZyBvZiBpbGxl
-Z2FsIHVzYWdlIG9mIGhlYWRlciBndWFyZCB1c2FnZS4KPj4gICAgICAgICB3aGlsZSAoPCRmPikg
-ewo+PiAgICAgICAgICAgICAgICAgaWYgKG0vXiguKik7XHMqJC9vKSB7Cj4+ICAgICAgICAgICAg
-ICAgICAgICAgICAgIGlmICgkc2Nhbl9hcmVhID09IDEgfHwgJHNjYW5fYXJlYSA9PSAyIHx8ICRz
-Y2FuX2FyZWEgPT0gNCkgewo+PiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICsrJGd1
-YXJkc193YXJuOwo+PiAgICAgICAgICAgICAgICAgICAgICAgICB9Cj4+ICAgICAgICAgICAgICAg
-ICB9IGVsc2lmIChtL15ccyooI2lmbmRlZlxzKylbYS16QS1aMC05X10qX0hbX10qXHMqJC9vKSB7
-Cj4+ICAgICAgICAgICAgICAgICAgICAgICAgICsrJHNjYW5fYXJlYTsKPj4gICAgICAgICAgICAg
-ICAgIH0gZWxzaWYgKG0vXlxzKigjZGVmaW5lXHMrKVthLXpBLVowLTlfXSpfSFtfXSpccyokL28p
-IHsKPj4gICAgICAgICAgICAgICAgICAgICAgICAgKyskc2Nhbl9hcmVhOwo+PiAgICAgICAgICAg
-ICAgICAgfSBlbHNpZiAobS9eXHMqKCNlbmRpZilccypcL1wqXHMqW2EtekEtWjAtOV9dKl9IW19d
-KlxzKlwqXC9ccyokL28pIHsKPj4gICAgICAgICAgICAgICAgICAgICAgICAgKyskc2Nhbl9hcmVh
-Owo+PiAgICAgICAgICAgICAgICAgfQo+PiAgICAgICAgIH0KPj4KPj4gICAgICAgICBjbG9zZSgk
-Zik7Cj4+Cj4+ICAgICAgICAgaWYgKCRndWFyZHNfd2Fybikgewo+PiAgICAgICAgICAgICAgICAg
-cHJpbnQgIklsbGVnYWwgdXNhZ2Ugb2YgaGVhZGVyIGd1YXJkIGZvdW5kIGluICRmaWxlLlxuIjsK
-Pj4gICAgICAgICB9Cj4+IH0KPj4KPj4gVGhhbmtzLgo+Pgo+Pj4KPj4+PiBGaXhlczogZWRkZTU1
-ODRjN2FiICgicmlzY3Y6IEFkZCBTVyBzaW5nbGUtc3RlcCBzdXBwb3J0IGZvciBLREIiKQo+Pj4K
-Pj4+IEhlaCwgSSBhcHByZWNpYXRlIHlvdSBnb2luZyBiYWNrIHRvIHRoZSBmaWxlJ3Mgb3JpZ2lu
-YWwgbmFtZSB0byBmaW5kIHRoZQo+Pj4gY29ycmVjdCBmaXhlcyB0YWchCj4+PiBJIGZpZ3VyZSB0
-aGF0IGl0J3MgcHJvYmFibHkgd29ydGggYWRkaW5nIGEgZml4ZXMgdGFnIGZvciB0aGUgcmVuYW1l
-IHRvbywKPj4+IHNvIHRoYXQgdGhlIHN0YWJsZSBib3RzIGRvbid0IGdldCBjb25mdXNlZD8gVGhh
-dCB3b3VsZCBiZToKPj4+IEZpeGVzOiBjOWMxYWYzZjE4NmEgKCJSSVNDLVY6IHJlbmFtZSBwYXJz
-ZV9hc20uaCB0byBpbnNuLmgiKQo+Pj4KPj4+IFByb2JhYmx5IG92ZXJraWxsIHdoZW4geW91IGhh
-dmUgRHJldydzIGFscmVhZHkgZm9yIHNvbWV0aGluZyBzbyB0cml2aWFsLAo+Pj4gYnV0Ogo+Pj4g
-UmV2aWV3ZWQtYnk6IENvbm9yIERvb2xleSA8Y29ub3IuZG9vbGV5QG1pY3JvY2hpcC5jb20+Cj4+
-Pgo+Pj4+IFNpZ25lZC1vZmYtYnk6IExpYW8gQ2hhbmcgPGxpYW9jaGFuZzFAaHVhd2VpLmNvbT4K
-Pj4+PiAtLS0KPj4+PiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9pbnNuLmggfCA0ICsrKysKPj4+
-PiAgMSBmaWxlIGNoYW5nZWQsIDQgaW5zZXJ0aW9ucygrKQo+Pj4+Cj4+Pj4gZGlmZiAtLWdpdCBh
-L2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vaW5zbi5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9p
-bnNuLmgKPj4+PiBpbmRleCAyNWVmOWMwYjE5ZTcuLjIyYzc2MTNiZmRhMyAxMDA2NDQKPj4+PiAt
-LS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2luc24uaAo+Pj4+ICsrKyBiL2FyY2gvcmlzY3Yv
-aW5jbHVkZS9hc20vaW5zbi5oCj4+Pj4gQEAgLTMsNiArMyw5IEBACj4+Pj4gICAqIENvcHlyaWdo
-dCAoQykgMjAyMCBTaUZpdmUKPj4+PiAgICovCj4+Pj4gIAo+Pj4+ICsjaWZuZGVmIF9BU01fUklT
-Q1ZfSU5TTl9ICj4+Pj4gKyNkZWZpbmUgX0FTTV9SSVNDVl9JTlNOX0gKPj4+PiArCj4+Pj4gICNp
-bmNsdWRlIDxsaW51eC9iaXRzLmg+Cj4+Pj4gIAo+Pj4+ICAjZGVmaW5lIFJWX0lOU05fRlVOQ1Qz
-X01BU0sJR0VOTUFTSygxNCwgMTIpCj4+Pj4gQEAgLTM2NSwzICszNjgsNCBAQCBzdGF0aWMgaW5s
-aW5lIHZvaWQgcmlzY3ZfaW5zbl9pbnNlcnRfdXR5cGVfaXR5cGVfaW1tKHUzMiAqdXR5cGVfaW5z
-biwgdTMyICppdHlwZQo+Pj4+ICAJKnV0eXBlX2luc24gfD0gKGltbSAmIFJWX1VfSU1NXzMxXzEy
-X01BU0spICsgKChpbW0gJiBCSVQoMTEpKSA8PCAxKTsKPj4+PiAgCSppdHlwZV9pbnNuIHw9ICgo
-aW1tICYgUlZfSV9JTU1fMTFfMF9NQVNLKSA8PCBSVl9JX0lNTV8xMV8wX09QT0ZGKTsKPj4+PiAg
-fQo+Pj4+ICsjZW5kaWYgLyogX0FTTV9SSVNDVl9JTlNOX0ggKi8KPj4+PiAtLSAKPj4+PiAyLjI1
-LjEKPj4+Pgo+Pj4+Cj4+Cj4+IC0tIAo+PiBCUiwKPj4gTGlhbywgQ2hhbmcKPj4KCi0tIApCUiwK
-TGlhbywgQ2hhbmcKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
-b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
-Y3YK
+On Wed, Feb 01, 2023 at 10:18:11PM +0000, Al Viro wrote:
+> 	* logics for stack expansion includes this twist:
+>         if (!(vma->vm_flags & VM_GROWSDOWN))
+>                 goto map_err;
+>         if (user_mode(regs)) {
+>                 /* Accessing the stack below usp is always a bug.  The
+>                    "+ 256" is there due to some instructions doing
+>                    pre-decrement on the stack and that doesn't show up
+>                    until later.  */
+>                 if (address + 256 < rdusp())
+>                         goto map_err;
+>         }
+>         if (expand_stack(vma, address))
+>                 goto map_err;
+> That's m68k; ISTR similar considerations elsewhere, but I could be
+> wrong.
+
+Hell, yes - 
+        if (!(vma->vm_flags & VM_GROWSDOWN))
+                goto bad_area;
+        if (!(fault_code & FAULT_CODE_WRITE)) {
+                /* Non-faulting loads shouldn't expand stack. */
+                insn = get_fault_insn(regs, insn);
+                if ((insn & 0xc0800000) == 0xc0800000) {
+                        unsigned char asi;
+
+                        if (insn & 0x2000)
+                                asi = (regs->tstate >> 24);
+                        else
+                                asi = (insn >> 5);
+                        if ((asi & 0xf2) == 0x82)
+                                goto bad_area;
+                }
+        }
+        if (expand_stack(vma, address))
+                goto bad_area;
+
+Note that it's very much not a bug - it's a nonfaulting (== speculative)
+load, and the place where we are heading from bad_area in this case is
+this in do_kernel_fault():
+        if (!(fault_code & (FAULT_CODE_WRITE|FAULT_CODE_ITLB)) &&
+            (insn & 0xc0800000) == 0xc0800000) {
+                if (insn & 0x2000)
+                        asi = (regs->tstate >> 24);
+                else  
+                        asi = (insn >> 5);
+                if ((asi & 0xf2) == 0x82) {
+                        if (insn & 0x1000000) {
+                                handle_ldf_stq(insn, regs);
+                        } else {
+                                /* This was a non-faulting load. Just clear the
+                                 * destination register(s) and continue with the next
+                                 * instruction. -jj
+                                 */
+                                handle_ld_nf(insn, regs);
+                        }
+                        return;
+
+(the name is misguiding - it covers userland stuff as well; in this
+particular case the triggering instruction is non-priveleged)
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
