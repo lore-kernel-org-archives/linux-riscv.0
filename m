@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 956A9C61DA4
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFC4AC05027
 	for <linux-riscv@archiver.kernel.org>; Thu,  2 Feb 2023 04:36:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
@@ -12,67 +12,69 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=T6fJaDsEd8xMsNteCfk9NEBPA+pgCBygSjNcQo8/qEA=; b=fJqi8AZmed+QQ5BXY/cV0S+Uwr
-	53RwO8wYrINrP4WoQDdeThS7u9Vkft4eZwOh4MXVUBNFJ9zZeATOW/5MHCbemya9aIsDfulRHBOQp
-	Iiko+6kMT0y7UbM0Cn2NDZeOnHxcS8hK0U+H8ncfS2liUGz3mIL8V+yuHWCTNsSJjCN1LUfy9MDZw
-	9GaCN2MH/DxLekxFsCQTcKQo4bbRYvsjY2Y73YR2TPV3h0huIFUO8uFy35bglDGCd8vRPu2ltu7oA
-	orMC0+40sLOc1bJSSw6H/pRMYgZEz+YkQ7heh42QFlJ1VW2X2szgNu66RppC+FOYfgIiSHdoER4ed
-	2JR1DArQ==;
+	bh=69T7IHyhudT5MJxxHeDAFKPpqColnv0KEaMjzK/Az3I=; b=rYVNi55dsrv8Gkh68OcIhxIIjw
+	EZyfLpwiCk/HXuPatFc0PN0Fm+d0vfIvpSfPE3l5HFpQxYteqQOITERv0JnJQ2kshpBIARIJQfiEE
+	valg3LB2d9/NI1J9yn8FQeiqQhDzS21OpCtxvSVpPZZ5Okv0zgbo+cEkAl/GVM7mhnRVqSRjtTGmq
+	5JgVsih7LzpT5GmFjQEcELWx1TCXe322ytMFqtHzBTw/HBWw/ijRfDFVLeqmAeI71x0Eoon4Ww21z
+	abgp7XTO9JLzYPyBVQnLiQF+gyV05/1RQN31TJvv0pTwZ/lRNsPv0ixQ5dcmtX+Y7sfAqIqXB/w3j
+	NQgJ0JGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNRKT-00ELw8-Mx; Thu, 02 Feb 2023 04:36:09 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1pNRKV-00ELwV-3g; Thu, 02 Feb 2023 04:36:11 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNRKN-00ELua-OZ
-	for linux-riscv@lists.infradead.org; Thu, 02 Feb 2023 04:36:08 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id ha3-20020a17090af3c300b00230222051a6so683672pjb.2
-        for <linux-riscv@lists.infradead.org>; Wed, 01 Feb 2023 20:35:57 -0800 (PST)
+	id 1pNRKO-00ELuW-VN
+	for linux-riscv@lists.infradead.org; Thu, 02 Feb 2023 04:36:09 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id m11so835569pji.0
+        for <linux-riscv@lists.infradead.org>; Wed, 01 Feb 2023 20:35:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=+lsWs8xu6y8TOJFrVJh4wVkkeM62yHYVb9CAywk8XV0=;
-        b=KmCoImL1AE7VPkuauDT2XfqzKBsSi4iJIVhZE3hsIU80Huw90OHCu15uQNzAL0+fz2
-         hvzLONADJGKMve34B+hL9hVPiffZZXkd5ZN6dKpkpFpi3rquziK6yUttOxh+u2W3H5Nq
-         GPJuK29cWD4hQThkE7JUwhh4Lu0Q86Xji2Ww7Jh8mdKnvTW8fxr20cNs+EAUqHGAq/DY
-         EvYRls/XI0GbQfizHAecuwrNGgun+0dNgGN/JhMjv1eb9VyT3w11tZWrPxKKhVZoPR8b
-         QP9AdwXk8+mdTZul6vLKzI5i4KbqDtnR6dkHpoIWrSbSkYh5+gJxgUmRxAUbf8RwssIX
-         c9wg==
+        bh=6Gkj3ggiCbZ84l1wyhC/7UEwOHQf/756d2zbjoNC2xI=;
+        b=tSWFxMLyPur9VVM50fXn79GYe93MgfsPKzfSizif+0vHEffezrLR3YcDXoOA6rGsLg
+         MOBTDILMkZSEsNlYkGjhpRgdiJxvSsgSA1VSYAPqK3/GQ2qcf+Xxx2DhDrtwf21eFjKm
+         j0RSfNrSKcCqjRkqRvkjvZPIiAybg44ogWSroRsToDsF1JfG65C6EcKMAx91Foa8ZOXh
+         sbMyPIgY1fnz+y4OM1plJLMstbMHQJFLn36g14hhU7r9hNYYG214fQKFvlQpBQZfcTdO
+         ltr1BW1fhDjzvqC5coJtii2YxxKlWZi71Uos1Vaw++ZqTwKDhOrGOlCsWwMl6wmxsP1T
+         YS8A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=+lsWs8xu6y8TOJFrVJh4wVkkeM62yHYVb9CAywk8XV0=;
-        b=y/s6rzWuU711pbYKi3tcFgIsqvfoPFKFm5nmzqlBspYf02Gd3vsVRj0jr2lw4mmAfH
-         Hr6XIkeDlUifLOzGCnJbBaAoTGaF/skBbjgffhS3ryllSNy2yoFNZO60LopqaNmZV05c
-         E6JKB1b+ZHTuPqwCcT6ThnouZb1A188oDz/Xm13v2cqTXsNqlvMODgW82twBwo2ZYVuL
-         WnmgKzXBkEnEZlDRo/2yAsYn9tiSFKG11aJugOrPyVhsVwHxKWxfRxhXcgcSKllUq0jS
-         imAcIdJt/wIMdHNIcjt8gexuTClTuVW1lgdSh2FZWxlJSK+lJmaVjAl338b/M+logOkI
-         uisA==
-X-Gm-Message-State: AO0yUKVtBZeFpzB8rZFJhG9rl7ayfDkrvUH/2iqo+v+ALHAw/eb3x8S+
-	37VHi35NP23U2k2XTUcVwCgTQg==
-X-Google-Smtp-Source: AK7set8z3cVaqSiIAbwcSM7hvUIFWappdzO/Z1BHv877MGrLZjFN+K8p1w9dkaSuEwpdlNPHttcgoA==
-X-Received: by 2002:a05:6a20:d68e:b0:bf:65dd:94fd with SMTP id it14-20020a056a20d68e00b000bf65dd94fdmr3103945pzb.59.1675312556722;
-        Wed, 01 Feb 2023 20:35:56 -0800 (PST)
+        bh=6Gkj3ggiCbZ84l1wyhC/7UEwOHQf/756d2zbjoNC2xI=;
+        b=S3a8DOR6+G+0zT/LCOECTWePkqbFg+Dw5a4em7vxZWldGM04r2oYIR/zOC9f9FD8gO
+         Gf0V1tcJNNMy7FC70HkeUGYUcY9UXOC5XemOOPVFOp2ep6M9qwAHuSXTMhfVpWwdzhlE
+         ocgIzeDXgBFwFR0ecKDRlovYdoTLwAXnesH3p+3kugXYt6s0MOExlIA/FMdOqycCEUyg
+         jQdbKodgOfugyICIHNQlYmGoCfDmtH0blJp5zv+hOHc6lYR4xnQZgoOkqudBmhvRdoiX
+         rUIC94f56AuSdoDMvZSF2QEKAke+OwxhPL+tUm0IQMK6wWp6be1cT6GnqxXmVZ8rGLSi
+         N5wA==
+X-Gm-Message-State: AO0yUKWT2KdxQeK1cWen3fvik84XBDMzDaxsmAMI3q77Qmb8TX8Vzldw
+	ikmCcSBgYXPhwANGThvkFfokmra5sOwBooFh
+X-Google-Smtp-Source: AK7set8f1+cC9uG76QNxKI3IoHCHwtn0yh/uZ8Peu6TYqhnAR5vbM7P0GbvjYHbUJXmDA+4KeDBYRg==
+X-Received: by 2002:a05:6a20:428b:b0:be:982b:ed86 with SMTP id o11-20020a056a20428b00b000be982bed86mr6930315pzj.29.1675312554962;
+        Wed, 01 Feb 2023 20:35:54 -0800 (PST)
 Received: from localhost ([135.180.226.51])
-        by smtp.gmail.com with ESMTPSA id s134-20020a632c8c000000b004d346876d37sm11473708pgs.45.2023.02.01.20.35.55
+        by smtp.gmail.com with ESMTPSA id j26-20020a633c1a000000b004daae45558dsm11431697pga.8.2023.02.01.20.35.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 01 Feb 2023 20:35:55 -0800 (PST)
-Date: Wed, 01 Feb 2023 20:35:55 -0800 (PST)
-X-Google-Original-Date: Wed, 01 Feb 2023 20:35:24 PST (-0800)
-Subject: Re: [PATCH v2] riscv: mm: Implement pmdp_collapse_flush for THP
-In-Reply-To: <20230130074815.1694055-1-mchitale@ventanamicro.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-  linux-riscv@lists.infradead.org, mchitale@ventanamicro.com, sunnanyong@huawei.com, ajones@ventanamicro.com
+        Wed, 01 Feb 2023 20:35:54 -0800 (PST)
+Date: Wed, 01 Feb 2023 20:35:54 -0800 (PST)
+X-Google-Original-Date: Wed, 01 Feb 2023 07:43:28 PST (-0800)
+Subject: Re: [PATCH v3 4/6] RISC-V: Use Zicboz in clear_page when available
+In-Reply-To: <20230130120128.1349464-5-ajones@ventanamicro.com>
+CC: linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org,
+  devicetree@vger.kernel.org, heiko@sntech.de, krzysztof.kozlowski+dt@linaro.org, apatel@ventanamicro.com,
+  Atish Patra <atishp@rivosinc.com>, Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+  Conor Dooley <conor.dooley@microchip.com>, robh@kernel.org, jszhang@kernel.org
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: mchitale@ventanamicro.com, apatel@ventanamicro.com
-Message-ID: <mhng-9764af90-4c82-4d80-9aed-a3234e8b889f@palmer-ri-x1c9>
+To: ajones@ventanamicro.com
+Message-ID: <mhng-39982208-6bbb-4be7-83c6-5c05da8bebc1@palmer-ri-x1c9>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230201_203603_843709_3E0D1B42 
-X-CRM114-Status: GOOD (  30.66  )
+X-CRM114-CacheID: sfid-20230201_203605_034203_98DEEDE2 
+X-CRM114-Status: GOOD (  32.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,115 +91,155 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 29 Jan 2023 23:48:15 PST (-0800), mchitale@ventanamicro.com wrote:
-> When THP is enabled, 4K pages are collapsed into a single huge
-> page using the generic pmdp_collapse_flush() which will further
-> use flush_tlb_range() to shoot-down stale TLB entries. Unfortunately,
-> the generic pmdp_collapse_flush() only invalidates cached leaf PTEs
-> using address specific SFENCEs which results in repetitive (or
-> unpredictable) page faults on RISC-V implementations which cache
-> non-leaf PTEs.
+On Mon, 30 Jan 2023 04:01:26 PST (-0800), ajones@ventanamicro.com wrote:
+> Using memset() to zero a 4K page takes 563 total instructions
+> where 20 are branches. clear_page() with Zicboz takes 150 total
+> instructions where 16 are branches. We could reduce the numbers
+> by further unrolling, but, since the cboz block size isn't fixed,
+> we'd need a Duff device to ensure we don't execute too many
+> unrolled steps. Also, cbo.zero doesn't take an offset, so each
+> unrolled step requires it and an add instruction. This increases
+> the chance for icache misses if we unroll many times. For these
+> reasons we only unroll four times. Unrolling four times should be
+> safe as it supports cboz block sizes up to 1K when used with 4K
+> pages and it's only 24 to 32 bytes of unrolled instructions.
 >
-> Provide a RISC-V specific pmdp_collapse_flush() which ensures both
-> cached leaf and non-leaf PTEs are invalidated by using non-address
-> specific SFENCEs as recommended by the RISC-V privileged specification.
+> Another note about the Duff device idea is that it would probably
+> be best to store the number of steps needed at boot time and then
+> load the value in clear_page(). Calculating it in clear_page(),
+> particularly without the Zbb extension, would not be efficient.
 >
-> Fixes: e88b333142e4 ("riscv: mm: add THP support on 64-bit")
-> Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
+> Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
 > ---
->  arch/riscv/include/asm/pgtable.h |  4 ++++
->  arch/riscv/mm/pgtable.c          | 26 ++++++++++++++++++++++++++
->  2 files changed, 30 insertions(+)
+>  arch/riscv/Kconfig                | 13 +++++++++++
+>  arch/riscv/include/asm/insn-def.h |  4 ++++
+>  arch/riscv/include/asm/page.h     |  6 +++++-
+>  arch/riscv/lib/Makefile           |  1 +
+>  arch/riscv/lib/clear_page.S       | 36 +++++++++++++++++++++++++++++++
+>  5 files changed, 59 insertions(+), 1 deletion(-)
+>  create mode 100644 arch/riscv/lib/clear_page.S
 >
-> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> index 4eba9a98d0e3..3e01f4f3ab08 100644
-> --- a/arch/riscv/include/asm/pgtable.h
-> +++ b/arch/riscv/include/asm/pgtable.h
-> @@ -721,6 +721,10 @@ static inline pmd_t pmdp_establish(struct vm_area_struct *vma,
->  	page_table_check_pmd_set(vma->vm_mm, address, pmdp, pmd);
->  	return __pmd(atomic_long_xchg((atomic_long_t *)pmdp, pmd_val(pmd)));
->  }
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 33bbdc33cef8..3759a2f6edd5 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -432,6 +432,19 @@ config RISCV_ISA_ZICBOM
+>
+>  	   If you don't know what to do here, say Y.
+>
+> +config RISCV_ISA_ZICBOZ
+> +	bool "Zicboz extension support for faster zeroing of memory"
+> +	depends on !XIP_KERNEL && MMU
+> +	select RISCV_ALTERNATIVE
+> +	default y
+> +	help
+> +	   Enable the use of the ZICBOZ extension (cbo.zero instruction)
+> +	   when available.
 > +
-> +#define pmdp_collapse_flush pmdp_collapse_flush
-> +extern pmd_t pmdp_collapse_flush(struct vm_area_struct *vma,
-> +				 unsigned long address, pmd_t *pmdp);
->  #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
->
->  /*
-> diff --git a/arch/riscv/mm/pgtable.c b/arch/riscv/mm/pgtable.c
-> index 6645ead1a7c1..5da1916c231e 100644
-> --- a/arch/riscv/mm/pgtable.c
-> +++ b/arch/riscv/mm/pgtable.c
-> @@ -81,3 +81,29 @@ int pmd_free_pte_page(pmd_t *pmd, unsigned long addr)
->  }
->
->  #endif /* CONFIG_HAVE_ARCH_HUGE_VMAP */
-> +#ifdef CONFIG_TRANSPARENT_HUGEPAGE
-> +pmd_t pmdp_collapse_flush(struct vm_area_struct *vma,
-> +					unsigned long address, pmd_t *pmdp)
-> +{
-> +	pmd_t pmd = pmdp_huge_get_and_clear(vma->vm_mm, address, pmdp);
+> +	   The Zicboz extension is used for faster zeroing of memory.
 > +
-> +	VM_BUG_ON(address & ~HPAGE_PMD_MASK);
-> +	VM_BUG_ON(pmd_trans_huge(*pmdp));
-> +	/*
-> +	 * When leaf PTE enteries (regular pages) are collapsed into a leaf
-> +	 * PMD entry (huge page), a valid non-leaf PTE is converted into a
-> +	 * valid leaf PTE at the level 1 page table. The RISC-V privileged v1.12
-> +	 * specification allows implementations to cache valid non-leaf PTEs,
-> +	 * but the section "4.2.1 Supervisor Memory-Management Fence
-> +	 * Instruction" recommends the following:
-> +	 * "If software modifies a non-leaf PTE, it should execute SFENCE.VMA
-> +	 * with rs1=x0. If any PTE along the traversal path had its G bit set,
-> +	 * rs2 must be x0; otherwise, rs2 should be set to the ASID for which
-> +	 * the translation is being modified."
-> +	 * Based on the above recommendation, we should do full flush whenever
-> +	 * leaf PTE entries are collapsed into a leaf PMD entry.
+> +	   If you don't know what to do here, say Y.
+> +
+>  config TOOLCHAIN_HAS_ZIHINTPAUSE
+>  	bool
+>  	default y
+> diff --git a/arch/riscv/include/asm/insn-def.h b/arch/riscv/include/asm/insn-def.h
+> index e01ab51f50d2..6960beb75f32 100644
+> --- a/arch/riscv/include/asm/insn-def.h
+> +++ b/arch/riscv/include/asm/insn-def.h
+> @@ -192,4 +192,8 @@
+>  	INSN_I(OPCODE_MISC_MEM, FUNC3(2), __RD(0),		\
+>  	       RS1(base), SIMM12(2))
+>
+> +#define CBO_zero(base)						\
+> +	INSN_I(OPCODE_MISC_MEM, FUNC3(2), __RD(0),		\
+> +	       RS1(base), SIMM12(4))
+> +
+>  #endif /* __ASM_INSN_DEF_H */
+> diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
+> index 9f432c1b5289..ccd168fe29d2 100644
+> --- a/arch/riscv/include/asm/page.h
+> +++ b/arch/riscv/include/asm/page.h
+> @@ -49,10 +49,14 @@
+>
+>  #ifndef __ASSEMBLY__
+>
+> +#ifdef CONFIG_RISCV_ISA_ZICBOZ
+> +void clear_page(void *page);
+> +#else
+>  #define clear_page(pgaddr)			memset((pgaddr), 0, PAGE_SIZE)
+> +#endif
+>  #define copy_page(to, from)			memcpy((to), (from), PAGE_SIZE)
+>
+> -#define clear_user_page(pgaddr, vaddr, page)	memset((pgaddr), 0, PAGE_SIZE)
+> +#define clear_user_page(pgaddr, vaddr, page)	clear_page(pgaddr)
+>  #define copy_user_page(vto, vfrom, vaddr, topg) \
+>  			memcpy((vto), (vfrom), PAGE_SIZE)
+>
+> diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
+> index 25d5c9664e57..9ee5e2ab5143 100644
+> --- a/arch/riscv/lib/Makefile
+> +++ b/arch/riscv/lib/Makefile
+> @@ -5,5 +5,6 @@ lib-y			+= memset.o
+>  lib-y			+= memmove.o
+>  lib-$(CONFIG_MMU)	+= uaccess.o
+>  lib-$(CONFIG_64BIT)	+= tishift.o
+> +lib-$(CONFIG_RISCV_ISA_ZICBOZ)	+= clear_page.o
+>
+>  obj-$(CONFIG_FUNCTION_ERROR_INJECTION) += error-inject.o
+> diff --git a/arch/riscv/lib/clear_page.S b/arch/riscv/lib/clear_page.S
+> new file mode 100644
+> index 000000000000..49f29139a5b6
+> --- /dev/null
+> +++ b/arch/riscv/lib/clear_page.S
+> @@ -0,0 +1,36 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (c) 2023 Ventana Micro Systems Inc.
+> + */
+> +
+> +#include <linux/linkage.h>
+> +#include <asm/asm.h>
+> +#include <asm/alternative-macros.h>
+> +#include <asm/hwcap.h>
+> +#include <asm/insn-def.h>
+> +#include <asm/page.h>
+> +
+> +/* void clear_page(void *page) */
+> +ENTRY(__clear_page)
+> +WEAK(clear_page)
+> +	li	a2, PAGE_SIZE
+> +	ALTERNATIVE("j .Lno_zicboz", "nop",
+> +		    0, RISCV_ISA_EXT_ZICBOZ, CONFIG_RISCV_ISA_ZICBOZ)
+> +	la	a1, riscv_cboz_block_size
+> +	lw	a1, 0(a1)
 
-It's generally best to ignore the recommendations in the commentary 
-about flushes, they assume a specific software model that doesn't always 
-apply to Linux.  In this case we do need the fence, though, but I 
-changed the comment to explain it differently (an fix at least one 
-spelling mistake).
+You should be able to just "lw a1, riscv_cboz_block_size", which can 
+sometimes generate better code.
 
-I've squashed this in and have it in staging, if that looks good I'll 
-put it on fixes.  Thanks!
+> +	add	a2, a0, a2
+> +.Lzero_loop:
+> +	CBO_zero(a0)
+> +	add	a0, a0, a1
+> +	CBO_zero(a0)
+> +	add	a0, a0, a1
 
-diff --git a/arch/riscv/mm/pgtable.c b/arch/riscv/mm/pgtable.c
-index 5da1916c231e..fef4e7328e49 100644
---- a/arch/riscv/mm/pgtable.c
-+++ b/arch/riscv/mm/pgtable.c
-@@ -90,18 +90,12 @@ pmd_t pmdp_collapse_flush(struct vm_area_struct *vma,
- 	VM_BUG_ON(address & ~HPAGE_PMD_MASK);
- 	VM_BUG_ON(pmd_trans_huge(*pmdp));
- 	/*
--	 * When leaf PTE enteries (regular pages) are collapsed into a leaf
-+	 * When leaf PTE entries (regular pages) are collapsed into a leaf
- 	 * PMD entry (huge page), a valid non-leaf PTE is converted into a
--	 * valid leaf PTE at the level 1 page table. The RISC-V privileged v1.12
--	 * specification allows implementations to cache valid non-leaf PTEs,
--	 * but the section "4.2.1 Supervisor Memory-Management Fence
--	 * Instruction" recommends the following:
--	 * "If software modifies a non-leaf PTE, it should execute SFENCE.VMA
--	 * with rs1=x0. If any PTE along the traversal path had its G bit set,
--	 * rs2 must be x0; otherwise, rs2 should be set to the ASID for which
--	 * the translation is being modified."
--	 * Based on the above recommendation, we should do full flush whenever
--	 * leaf PTE entries are collapsed into a leaf PMD entry.
-+	 * valid leaf PTE at the level 1 page table.  Since the sfence.vma
-+	 * forms that specify an address only apply to leaf PTEs, we need a
-+	 * global flush here.  collapse_huge_page() assumes these flushes are
-+	 * eager, so just do the fence here.
- 	 */
- 	flush_tlb_mm(vma->vm_mm);
- 	return pmd;
+We were talking about this in the patchwork call: this risks overflow if 
+the block size is bigger than a quarter of a page.  That's probably 
+pretty rare, but given that there's already an alternative for the jump 
+it's easy to check.
 
-
-> +	 */
-> +	flush_tlb_mm(vma->vm_mm);
-> +	return pmd;
-> +}
-> +#endif /* CONFIG_TRANSPARENT_HUGEPAGE */
+> +	CBO_zero(a0)
+> +	add	a0, a0, a1
+> +	CBO_zero(a0)
+> +	add	a0, a0, a1
+> +	bltu	a0, a2, .Lzero_loop
+> +	ret
+> +.Lno_zicboz:
+> +	li	a1, 0
+> +	tail	__memset
+> +END(__clear_page)
 
 _______________________________________________
 linux-riscv mailing list
