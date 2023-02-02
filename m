@@ -4,66 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18BFFC61DA4
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Feb 2023 14:36:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E562DC636D6
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Feb 2023 15:00:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZPeSh7zaHivSh5P5dCTKSbNag4LO27SnDgdQp2jaqsU=; b=T6fwYvY7WvDNwo
-	cerwt7VaI/U8sGVwp48PJgRuQ+r5WCQ64+9/ZztfQWXe2cNKMsMZM+xYI1kVYnKAI+Fqpbq/Hw/Es
-	AztjxYnMYb69dPyyusudcLR9OkQiAIMCBK7tjdsdGG3qaPYbFaM+0eGabo2Nx43yLPqzliNa9KNVM
-	DuHjr2pEl6oI2q56A8w4QsO2YD0U+Ig/lzecR3x61YnfIs4zOIMdZ/vnJ9Aq0HGw40/60149DUkWZ
-	qkhnZNVg/Uic54L0y8F6ZcuDEKQhbyHdeDzoCTVsBiIxGJ9NqerZr6C02quljAXrf86JKyOAtFFQG
-	H04i07oN2mcwZNpp8eYg==;
+	List-Owner; bh=YEXygwQEMX5+QPoNZWOQUDYb1Tso/cO2ypTqUkyCoeA=; b=CjsuJIxy7SVDai
+	6jFLcVZcByZavJOfxxM1yRmNcvruEsjHzfaHfpDip+PbggusUbLAVJ1hZQqVXSYF8t2lFgxJobqUf
+	i+bIIQjZHUniu5uDxp50SewVNKMViFxdLmYV2BGxmToC9mi78o2aBZeMubdsvjIua9pRZ/iXoaI6b
+	Xiv+YC/il08X1qEKm0VD7m0zIAddhmDI4s0mrMpyFW4vlEpP+QKmPpZ30KSSnR3nYJhET3yr8l7WT
+	FjX5PVDsGHCkK9i5IwRY0fKdGg57a3Wv21gcjW0mP4in/MyZnNSMMwftCtgDEc1Cj0v4VSquBN2B6
+	T0PdXo2MjRRqjqlVmWww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNaha-00GBBQ-E4; Thu, 02 Feb 2023 14:36:38 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1pNb45-00GDlY-Oy; Thu, 02 Feb 2023 14:59:53 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNahY-00GBAw-1d
-	for linux-riscv@lists.infradead.org; Thu, 02 Feb 2023 14:36:37 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id D05FBB82668;
-	Thu,  2 Feb 2023 14:36:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04285C433D2;
-	Thu,  2 Feb 2023 14:36:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1675348592;
-	bh=PUTKwu61nx4E8yIO29kUBc+gTUgWoPwlBHwWaYyw/p4=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=g2GblDkaciicIjaFVbzvKrsNEdniwR07xXkNTgWhLkHXVdbb1P9YCKIFJWEWlxwV4
-	 diWLV0Xk3kK+cGrjoHFNySYUc1H5kO9KA58YVbjrcy8RglR76/M2gz+3ctU0QCxl31
-	 YTO4rTJoiATsTRBe8C5AUFnkDI8x5n7RCDuHXlmoiaMgJ6x5Jr8UFUl144hdgTjsu8
-	 idB5XuEoivdovE86aYffpwccZLWnTHbH4kxbZdBIq+A4VtlKquUlZvkSc4GRhJsfli
-	 yoVA4MW2ggKd44WzR8GrL0bv8k7A33usqVREPWe/LaNEmMhW+jdcHgjBNtvAk9Ms7i
-	 WS1njy1lUNw1A==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Jessica Clarke <jrtc27@jrtc27.com>
-Cc: Guo Ren <guoren@kernel.org>, Palmer Dabbelt <palmer@rivosinc.com>, Conor
- Dooley <conor.dooley@microchip.com>, liaochang1@huawei.com, linux-arch
- <linux-arch@vger.kernel.org>, Linux Kernel Mailing List
- <linux-kernel@vger.kernel.org>, linux-riscv
- <linux-riscv@lists.infradead.org>, Guo Ren <guoren@linux.alibaba.com>,
- Bjorn Topel <bjorn.topel@gmail.com>
-Subject: Re: [PATCH] riscv: kprobe: Fixup misaligned load text
-In-Reply-To: <5C373F4A-983E-4ACA-AAB0-54E629D5F501@jrtc27.com>
-References: <20230201064608.3486136-1-guoren@kernel.org>
- <87tu05pvur.fsf@all.your.base.are.belong.to.us>
- <CAJF2gTSj12E9+peMF0rNY_psGDyEG5BbMY6V-s4dK0FpkCC9Yw@mail.gmail.com>
- <87cz6s75ze.fsf@all.your.base.are.belong.to.us>
- <5C373F4A-983E-4ACA-AAB0-54E629D5F501@jrtc27.com>
-Date: Thu, 02 Feb 2023 15:36:29 +0100
-Message-ID: <878rhgrv6a.fsf@all.your.base.are.belong.to.us>
+	id 1pNb42-00GDkY-UW
+	for linux-riscv@lists.infradead.org; Thu, 02 Feb 2023 14:59:52 +0000
+Received: by mail-wr1-x431.google.com with SMTP id h16so1942487wrz.12
+        for <linux-riscv@lists.infradead.org>; Thu, 02 Feb 2023 06:59:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=VJXuWjYMjwbPFa35qXTKy9wFE4zpb2ewjJThLel4jN4=;
+        b=hEKVsotfgGwf8yGzpusX0UAczutUtO5B0oucd0f+sO6U22rwODuHT4QkfqfwXvXhRg
+         ho/hVYSxWsOOI4MtY5IEwid4NilUewQPoJhgCscO6YQ1sJs2szr9Vfl9+JwHnnMoGJNP
+         1LLz+f5X6JBhw3vRAg97eGYG3skaaB/QLtYEgEFTor0iQUkZCIJ5GaDMOCcsCS+G6+CX
+         LwfZW+gRluBew25jNu+y4Wr5Jn/yYcRYi5bQF8bxIutnZgPQwmO+um5AhF50V9Yg+YT9
+         1VYgRWehKaYWvqFxyiCKaljmDjrlnf4hBStjS75iDHDtYNajiXE+a+5nMZljdsrg5HxR
+         NL7g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=VJXuWjYMjwbPFa35qXTKy9wFE4zpb2ewjJThLel4jN4=;
+        b=68gRk8+y1RegCQ0vbHKojAmMh+5KjLH9MUvLJT3I96R0FnHDA2Kzz6DmRToFvIfbb/
+         C6eOCd0XLUMCY37QhhKqhX4H/YiVS6JDTgML+Ono4ie/9/lUbJaK04aFqtlOhSZKioeQ
+         VNbx9mlvb8saT5PP9oNk5hFAxMTxd0Z0tPoskdDsgapOw023JVi+vYE/txyCmfGndibO
+         lah0/gnjI4pCfB1QH1qMGz0wvEGg6JUfuYM9KkNYtJDd2cKX39FaFRPdn31rs5aAXibB
+         OQhk8gm96jAZw6QWOeoJqlgA7yngw75uFv4Ae07th+CLp5s9iUlz8w6jgva9Y6z1wWKK
+         NHGQ==
+X-Gm-Message-State: AO0yUKXh7NxF2UCwZvRcI/SsS9aemTcAvWFn0fMSTWsfCMcNbX0KVYms
+	i/SeeyEppQAbnSAN6wE0PeEOLQ==
+X-Google-Smtp-Source: AK7set+ScVRXdqzlp1+dJn9JBWeb9vWKiXkVq/8dz7Cx+fQgfPHbJR8lRGbMgjKGu92H6umfh9m2Lw==
+X-Received: by 2002:adf:f702:0:b0:2bc:8074:b702 with SMTP id r2-20020adff702000000b002bc8074b702mr5883218wrp.19.1675349989348;
+        Thu, 02 Feb 2023 06:59:49 -0800 (PST)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id t16-20020adfe450000000b002bbdcd15e44sm19646402wrm.37.2023.02.02.06.59.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 02 Feb 2023 06:59:48 -0800 (PST)
+Date: Thu, 2 Feb 2023 15:59:48 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Atish Patra <atishp@rivosinc.com>
+Cc: linux-kernel@vger.kernel.org, Anup Patel <anup@brainfault.org>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Atish Patra <atishp@atishpatra.org>, Eric Lin <eric.lin@sifive.com>,
+	Guo Ren <guoren@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH v4 01/14] perf: RISC-V: Define helper functions expose
+ hpm counter width and count
+Message-ID: <20230202145948.jrgjc27t2tbney2l@orel>
+References: <20230201231250.3806412-1-atishp@rivosinc.com>
+ <20230201231250.3806412-2-atishp@rivosinc.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230201231250.3806412-2-atishp@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230202_063636_269348_3D9624E6 
-X-CRM114-Status: UNSURE (   6.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230202_065951_010715_99101AE4 
+X-CRM114-Status: GOOD (  15.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,16 +99,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Jessica Clarke <jrtc27@jrtc27.com> writes:
-
->> +	p->opcode = *insn++;
->> +	if (GET_INSN_LENGTH(p->opcode) == 4)
->> +		p->opcode |= *insn << 16;
+On Wed, Feb 01, 2023 at 03:12:37PM -0800, Atish Patra wrote:
+> KVM module needs to know how many hardware counters and the counter
+> width that the platform supports. Otherwise, it will not be able to show
+> optimal value of virtual counters to the guest. The virtual hardware
+> counters also need to have the same width as the logical hardware
+> counters for simplicity. However, there shouldn't be mapping between
+> virtual hardware counters and logical hardware counters. As we don't
+> support hetergeneous harts or counters with different width as of now,
+> the implementation relies on the counter width of the first available
+> programmable counter.
+> 
+> Reviewed-by: Anup Patel <anup@brainfault.org>
+> Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> ---
+>  drivers/perf/riscv_pmu_sbi.c   | 37 ++++++++++++++++++++++++++++++++--
+>  include/linux/perf/riscv_pmu.h |  3 +++
+>  2 files changed, 38 insertions(+), 2 deletions(-)
 >
-> *insn gets promoted to int not unsigned so this is UB if bit 15 is set.
 
-Ugh. Good catch! I guess we can't get rid of *that* explicit cast to
-kprobe_opcode_t here...
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
 _______________________________________________
 linux-riscv mailing list
