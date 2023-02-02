@@ -4,76 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5962DC05027
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Feb 2023 19:41:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 575E9C05027
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Feb 2023 22:01:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GxWqWufz7MKlkE1jsQionhra5Bx2WbogX5OX5rnImxQ=; b=oHYIC2MKr4UgIBmBxRqxfj87tR
-	0fSDY8iBtcCATC+4VOxrH6w0KDwwVzeyNEXhMlUA9Lsy7QBLrOc4ewpM6XM5zFJV+VjeG0/D1Qcc5
-	BIqj558QeR4SOOrGkquolfti2fN849GCnn4tTJ7LsWT5B4SIamCROWdyWqLjWJyg+QQ+MZzPZk6n9
-	DbVvRu2WZt3w00fANr1oQI9xMMLecWh+olOEMCNc/+o0iNNadGx6GPQs2VaJAdM72atB83joh/wPe
-	IEMNSqyoVT2w7a3ixo7bk2c0nkQda2fIOt+IS06VgSI7H+OM8Z/4UMK0S27PMZ0cOYO9DiaIINcXb
-	j6f8xw3A==;
+	bh=EzBecVhx8ARsrsTX+F3IEJRFWTZ0zF9nvTueUS/x7b8=; b=3qwtnVjQDdYhp0YvjWyVXPKRoD
+	1TFadMGvxINP/WkKpVhV0NL3bCaYwnlxwh9Jxza1rPV7RyHqn1PFN4QlPnJq4yPsXep85lkQXmUKj
+	SRfJEtyxeH9aug4EmMPLwlBUvATIpSaYN7JnaRkrCdGR2BMbAiTfNUOZwjjZ84zR8zIqSrHgH0nqi
+	wcU0V/D6UMa26B0yUtLqi6LtFz3Amy+PeXPu7GVBg6oBDm7piXUSvTZB0Qxl1ngC43suLI2b2TqOb
+	xzn8lE3nLX7TUWO6mev+EX8AftpZWHH0GU1zNhMArR/O5F2Xyyluhp8afNz2bCQVScRTRDCGeQYd7
+	Copbm37g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNfSt-00H5I2-5h; Thu, 02 Feb 2023 19:41:47 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1pNheC-00HISA-Eb; Thu, 02 Feb 2023 22:01:36 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNfSp-00H5H5-JP
-	for linux-riscv@lists.infradead.org; Thu, 02 Feb 2023 19:41:45 +0000
+	id 1pNhe9-00HIRd-79
+	for linux-riscv@lists.infradead.org; Thu, 02 Feb 2023 22:01:34 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 64FC6B827EA;
-	Thu,  2 Feb 2023 19:41:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EAA33C433EF;
-	Thu,  2 Feb 2023 19:41:35 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 2093761D06;
+	Thu,  2 Feb 2023 22:01:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFDA1C433D2;
+	Thu,  2 Feb 2023 22:01:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1675366899;
-	bh=ohgt3lIakhxU8+IrFeKBod3BbAPmwUvAG3g0QpjBq8Y=;
+	s=k20201202; t=1675375291;
+	bh=HBJPKONk3bkIam13pz+zKjhOxtdFmVhfUC/fbULIJ6c=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SGtGiGbmAzt3PIQeZqE9ZEenv8aDaVxgrZFW7FGL5/DzLrR5kkuf1JVX8NiWZUxua
-	 1G6dAK+CvGWq+b9uilq7le95hJfLcZn6AwEdJ6d8VDHpp2QoS5Doi762Os1UPxlloa
-	 iqGxXiA7XLjYLRaY0KmgGIm+bXogRa4LgsDX3Dm4YdbVB2LiZ/BO6LIYvsfJkBfS77
-	 +34VIFEJZstSv7UZigrDcNsRgMes1xI9sPhoJMsxeir6q8fhoNNX43xLqdaP/ECcvP
-	 G7MfKHxzgVlLZ004PYBGrwzgfGXKFt9SaK7fprKyZ7upS7P+c12b1ArOHhIqpQ24Dz
-	 1PlWuUQWmdFwQ==
-Date: Thu, 2 Feb 2023 19:41:33 +0000
+	b=nssX31Yrs9k2sIxmaZrTuYHp25KLSMkllc0j3dsje0/FNkvbyvuR0HJ0VaICbU+7B
+	 WLvJASsNKb4C4QYjYoXPwcI6egNaclEo9RkcuAF/at790eLniOJjsg+YcXrx4z7LP6
+	 lOIaX6LGKmPxMtBKZ7G3DzFa8GoDrJHl8yR6Hr1H+D36ut2yYAo4F+Msnd4cbJY7UJ
+	 /r1fL64E2KYl8DP+Xts8qrnOJIoiDNEHL4N2KUXIXDoY9cZjy+438rFNi6TPAVfhHx
+	 eeaUT4niL3NZQZYtvXZf2y4FdGP99ruAbsPeiLlMzAb6moZm8EZ92DGjmpZTnp0GSm
+	 GShUSNVWezCiQ==
+Date: Thu, 2 Feb 2023 22:01:26 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Hal Feng <hal.feng@starfivetech.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Ben Dooks <ben.dooks@sifive.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 6/7] riscv: dts: starfive: Add initial StarFive JH7110
- device tree
-Message-ID: <Y9wR7Up+iObw5qoE@spud>
-References: <20221220011247.35560-1-hal.feng@starfivetech.com>
- <20221220011247.35560-7-hal.feng@starfivetech.com>
- <Y6zHy9oL4xzl+6Rd@spud>
- <c507e0b2-5ca3-cffe-55d2-873ed8c24e3d@starfivetech.com>
- <Y9og8Q2UnJ452KH/@wendy>
- <df6755ed-a358-ea01-d89e-f3c004b9c297@starfivetech.com>
+To: Conor.Dooley@microchip.com, palmer@dabbelt.com, rppt@kernel.org
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, frowand.list@gmail.com,
+	robh+dt@kernel.org, mick@ics.forth.gr, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	Valentina.FernandezAlanis@microchip.com,
+	Daire.McNamara@microchip.com
+Subject: Re: RISC-V reserved memory problems
+Message-ID: <Y9wytv5KSt1ca+td@spud>
+References: <8e10bf15-9fa9-fe90-1656-35bf3e87e7f8@microchip.com>
+ <f8e67f82-103d-156c-deb0-d6d6e2756f5e@microchip.com>
 MIME-Version: 1.0
-In-Reply-To: <df6755ed-a358-ea01-d89e-f3c004b9c297@starfivetech.com>
+In-Reply-To: <f8e67f82-103d-156c-deb0-d6d6e2756f5e@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230202_114143_980564_80B69409 
-X-CRM114-Status: GOOD (  51.35  )
+X-CRM114-CacheID: sfid-20230202_140133_357049_AC635313 
+X-CRM114-Status: GOOD (  49.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,211 +71,175 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7742971289666548402=="
+Content-Type: multipart/mixed; boundary="===============1860130086819313380=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============7742971289666548402==
+--===============1860130086819313380==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="ds2DvVv+Wo+HxSlv"
+	protocol="application/pgp-signature"; boundary="eZtN57855azcqZYC"
 Content-Disposition: inline
 
 
---ds2DvVv+Wo+HxSlv
+--eZtN57855azcqZYC
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Fri, Feb 03, 2023 at 02:56:41AM +0800, Hal Feng wrote:
-> On Wed, 1 Feb 2023 08:21:05 +0000, Conor Dooley wrote:
-> > On Wed, Feb 01, 2023 at 03:21:48PM +0800, Hal Feng wrote:
-> >> On Wed, 28 Dec 2022 22:48:43 +0000, Conor Dooley wrote:
-> >> > On Tue, Dec 20, 2022 at 09:12:46AM +0800, Hal Feng wrote:
-> >=20
-> >> >> +/ {
-> >> >> +	compatible =3D "starfive,jh7110";
-> >> >> +	#address-cells =3D <2>;
-> >> >> +	#size-cells =3D <2>;
-> >> >> +
-> >> >> +	cpus {
-> >> >> +		#address-cells =3D <1>;
-> >> >> +		#size-cells =3D <0>;
-> >> >> +
-> >> >> +		S76_0: cpu@0 {
-> >> >> +			compatible =3D "sifive,u74-mc", "riscv";
-> >> >=20
-> >> > The label here says S76 but the compatible says u74-mc.
-> >>=20
-> >> U74-MC has 5 cores including 1 * S7 core and 4 * U74 cores.
-> >>=20
-> >> > Which is correct? Your docs say S7 and S76, so I would imagine that =
-it
-> >> > is actually an S76?
-> >>=20
-> >> I found SiFive website [1] call it S76, but call it S7 in other places.
-> >> So I misunderstood this. Considering the ISA difference you described
-> >> as below, I think it's proper to change the label to "S7_0".
-> >=20
-> > I'm less worried about the label & more interested in the compatible.
-> > hart0 is, as you say, not a u74. Should we not be adding a "sifive,s7"
-> > compatible string to Documentation/devicetree/bindings/riscv/cpus.yaml
-> > and using that here instead?
+Hullo Palmer, Mike & whoever else may read this,
+
+Just reviving this thread from a little while ago as I have been in the
+area again recently...
+
+On Tue, Aug 16, 2022 at 08:41:05PM +0000, Conor.Dooley@microchip.com wrote:
+> Hey all,
+> We've run into a bit of a problem with reserved memory on PolarFire, or
+> more accurately a pair of problems that seem to have opposite fixes.
 >=20
-> First of all, it's my fault that I didn't check the revision of U74-MC
-> manual, so most of my previous replies might not make sense.
-
-No that's fine. The manual stuff confused me too when I went looking
-initially, and I still get get mixed up by the fact that there are
-core-complex manuals but not core manuals.
-
-> If we add a new compatible string for S7, should we change the compatibles
-> of hart1~3 to "sifive,u74" also? And then, there may be no point keeping =
-some
-> compatible strings of core complex like "sifive,u74-mc" and "sifive,u54-m=
-c".
-> I'm not sure about this.
+> The first of these problems is triggered when trying to implement a
+> remoteproc driver. To get the reserved memory buffer, remoteproc
+> does an of_reserved_mem_lookup(), something like:
+>=20
+> 	np =3D of_parse_phandle(pdev->of_node, "memory-region", 0);
+> 	if (!np)
+> 		return -EINVAL;
+>=20
+> 	rmem =3D of_reserved_mem_lookup(np);
+> 	if (!rmem)
+> 		return -EINVAL;
+>=20
+> of_reserved_mem_lookup() then uses reserved_mem[i].name to try and find
+> a match - but this was triggering kernel panics for us. We did some
+> debugging and found that the name string's pointer was pointing to an
+> address in the 0x4000_0000 range. The minimum reproduction for this
+> crash is attached - it hacks in some print_reserved_mem()s into
+> setup_vm_final() around a tlb flush so you can see the before/after.
+> (You'll need a reserved memory node in your dts to replicate)
+>=20
+> The output is like so, with the same crash as in the remoteproc driver:
+>=20
+> [    0.000000] Linux version 6.0.0-rc1-00001-g0d9d6953d834 (conor@wendy) =
+(riscv64-unknown-linux-gnu-gcc (g5964b5cd727) 11.1.0, GNU ld (GNU Binutils)=
+ 2.37) #1 SMP Tue Aug 16 13:42:09 IST 2022
 
 [...]
 
-> >> Yes, "RV64IMAC" is correct. The monitor core in U74-MC is a
-> >> S7-series core, not S76.
-> >=20
-> > Cool, thanks.
+> [    0.000000] ---[ end Kernel panic - not syncing: Attempted to kill the=
+ idle task! ]---
 >=20
-> Now I think it might be another version of S76.
-
-The SiFive docs describe the u74-mc core complex, which AFAIU you have,
-as being 1x S7 & 4x U7.
-
-I'd be happy with new binding for "sifive,s7" & then we use that here.
-If you're sure it's S76, we can also use that. S76 is described, in what
-docs I can see, as a core complex containing an S7, so S7 seems likely
-to be correct?
-
-u7, u74 & u74-mc are valid compatibles, added by SiFive, in commit
-75e6d7248efc ("dt-bindings: riscv: Update DT binding docs to support
-SiFive FU740 SoC"). Unfortunately, they never actually *used* those
-compatibles for anything, and just used "sifive,bullet0" for the fu740.
-
-I'll accept any of u7, u74 or u74-mc for those harts.
-
-> >> >> +			tlb-split;
-> >> >> +			status =3D "disabled";
-> >> >> +
-> >> >> +			cpu0_intc: interrupt-controller {
-> >> >> +				compatible =3D "riscv,cpu-intc";
-> >> >> +				interrupt-controller;
-> >> >> +				#interrupt-cells =3D <1>;
-> >> >> +			};
-> >> >> +		};
-> >> >> +
-> >> >> +		U74_1: cpu@1 {
-> >> >> +			compatible =3D "sifive,u74-mc", "riscv";
-> >> >> +			reg =3D <1>;
-> >> >> +			d-cache-block-size =3D <64>;
-> >> >> +			d-cache-sets =3D <64>;
-> >> >> +			d-cache-size =3D <32768>;
-> >> >> +			d-tlb-sets =3D <1>;
-> >> >> +			d-tlb-size =3D <40>;
-> >> >> +			device_type =3D "cpu";
-> >> >> +			i-cache-block-size =3D <64>;
-> >> >> +			i-cache-sets =3D <64>;
-> >> >> +			i-cache-size =3D <32768>;
-> >> >> +			i-tlb-sets =3D <1>;
-> >> >> +			i-tlb-size =3D <40>;
-> >> >> +			mmu-type =3D "riscv,sv39";
-> >> >> +			next-level-cache =3D <&ccache>;
-> >> >> +			riscv,isa =3D "rv64imafdc";
-> >> >=20
-> >> > That also begs the question:
-> >> > Do your u74s support RV64GBC, as the (current) SiFive documentation
-> >> > suggests?
-> >>=20
-> >> Actually, U74 doesn't support the full B extension, and the SiFive doc=
- [1]
-> >=20
-> > Yeah, I knew asking that question that the "RV64GBC" in SiFive's online
-> > documentation was using outdated terminology. Also, that is not the doc
-> > for your core complex as far as I can tell. That is the document for
-> > impid 0x0621_1222, whereas (IIRC) your core is 0x0421_0427.
-> > Jess and I had a look one evening but could not find the 21G1.02.00
-> > revision of this document, which is the one corresponding to 0x421_0427.
-> > See Table 92 for more details.
+> We traced this back to early_init_fdt_scan_reserved_mem() in
+> setup_bootmem() - moving it later back up the boot sequence to
+> after the dt has been remapped etc has fixed the problem for us.
 >=20
-> I found the 21G1.02.00 revision on StarFive internal net, but I'm not sure
-> whether I can make it public and I am checking this.
+> The least movement to get it working is attached, and also pushed
+> here: git.kernel.org/conor/c/1735589baefc
 
-Yeah, certainly don't do anything without cross-checking!
+This one is fixed now, as of commit 50e63dd8ed92 ("riscv: fix reserved
+memory setup").
 
-> This revision records
-> that the ISA of 21G1.02.00 U74 is "RV64GCB" and ISA of 21G1.02.00 S7 is
-> "RV64IMACB". I am asking someone to check with SiFive whether both 21G1.0=
-2.00
-> U74 and S7 support the full B extension.
-
-Having cross-checked a 21G1.01.00 document against a 21G2.01.00 one, I'm
-99% sure that you have _Zba_Zbb.
-The G2.01 document says _Zba_Zbb & has the same instructions listed as
-supported as the G1.02 one.
-I've also tried the Zbb support patches posted by Heiko [2] on a
-VisionFive V2 and had them work - which is why a definitive statement on
-the version of Zbb supported would be really great to have!
-
-[2] - https://lore.kernel.org/linux-riscv/20230113212301.3534711-1-heiko@sn=
-tech.de/
-
-> >> describes the ISA of U74 is "RV64GC_Zba_Zbb_Sscofpmf" which "G" includ=
-es
-> >> "IMAFD".
-> >=20
-> > I could not find the 21G1.02.00 version of this document online, but I
-> > was able to find the 21G1.01.00 version of it & that version does not
-> > support the Sscofpmf extension (but does have Zba/Zbb support).
-> >=20
-> >> "_Zba_Zbb_Sscofpmf" is not shown in other device trees such as
-> >> jh7100.dtsi and fu740-c000.dtsi, so I didn't show them here.
-> >=20
-> > Just because other devicetrees omit them, doesn't mean that you should
-> > too!
-> > This compatible should be an accurate description of your hardware, so
-> > you should add what you actually have.
+> The second problem is a bit more complicated to explain - but we
+> found the solution conflicted with the remoteproc fix as we had
+> to move early_init_fdt_scan_reserved_mem() _earlier_ in the boot
+> process to solve this one.
 >=20
-> Will keep it in mind. Thank you.
+> We want to have a node in our devicetree that contains some memory
+> that is non-cached & marked as reserved-memory. Maybe we have just
+> missed something, but from what we've seen:
+> - the really early setup looks at the dtb, picks the highest bit
+>    of memory and puts the dtb etc there so it can start using it
+> - early_init_fdt_scan_reserved_mem() is then called, which figures
+>    out if memory is reserved or not.
+>=20
+> Unfortunately, the highest bit of memory is the non-cached bit so
+> everything falls over, but we can avoid this by moving the call to
+> early_init_fdt_scan_reserved_mem() above the dtb memblock alloc that
+> takes place right before it in setup_bootmem().
+>=20
+> Obviously, both of these changes are moving the function call in
+> opposite directions and we can only really do one of them. We are not
+> sure if what we are doing with the non-cached reserved-memory section
+> is just not permitted & cannot work - or if this is something that
+> was overlooked for RISC-V specifically and works for other archs.
 
-FWIW, the deadline for getting material in for v6.3 has already passed,
-so you can send the next version of this series without waiting for
-clarification on the compatibles & ISA string. We should have plenty of
-time to get those fixed up before the series gets applied.
+We ended up working around this one by making sure that U-Boot loaded
+the dtb to somewhere that would be inside the kernel's memory map, thus
+avoiding the remapping in the first place.
 
-Thanks,
+We did run into another problem recently though, and 50e63dd8ed92 is
+kinda at fault for it.
+This particular issue was encountered with a devicetree where the
+top-most memory region was entirely reserved & was not observed prior
+to my fix for the first issue.
+
+On RISC-V, the boot sequence is something like:
+	setup_bootmem();
+	setup_vm_final();
+	unflatten_device_tree();
+	early_init_fdt_scan_reserved_mem();
+
+Whereas, before my patch it used to be (give-or-take):
+	setup_bootmem();
+	early_init_fdt_scan_reserved_mem();
+	setup_vm_final();
+	unflatten_device_tree();
+
+The difference being that we used to have scanned the reserved memory
+regions before calling setup_vm_final() & therefore know which regions
+we cannot use. As a reminder, calling early_init_fdt_scan_reserved_mem()
+before we've got the dt in a proper virtual memory address will cause
+the kernel to panic if it tries to read a reserved memory node's label.
+
+As we are now calling setup_vm_final() *before* we know what the
+reserved memory regions are & as RISC-V allocates memblocks from the top
+down, the allocations in setup_vm_final() will be done in the highest
+memory region.
+When early_init_fdt_scan_reserved_mem() then tries to reserve the
+entirety of that top-most memory region, the reservation fails as part
+of this region has already been allocated.
+In the scenario where I found this bug, that top-most region is non-
+cached memory & the kernel ends up panicking.
+The memblock debug code made this pretty easy to spot, otherwise I'd
+probably have spent more than just a few hours trying to figure out why
+it was panicking!
+
+My "this needs to be fixed today" solution for this problem was calling
+memblock_set_bottom_up(true) in setup_bootmem() & that's what we are
+going to carry downstream for now.
+
+I haven't tested it (yet) but I suspect that it would also fix our
+problem of the dtb being remapped into a non-cached region of memory
+that we would later go on to reserve too. Non-cached being an issue
+mainly due to the panicking, but failing to reserve (and using!) memory
+regions that are meant to be reserved is very far from ideal even when
+they are memory that the kernel can actually use.
+
+I have no idea if that is an acceptable solution for upstream though, so
+I guess this is me putting out feelers as to whether this is something I
+should send a patch to do *OR* if this is another sign of the issues
+that you (Mike, Palmer) mentioned in the past.
+If it isn't an acceptable solution, I'm not really too sure how to
+proceed!
+
+Cheers,
 Conor.
 
-> > If you have Zba and Zbb, then add them.
-> > I would double check against your internal documentation for 21G2.02.00
-> > as to whether you do have Sscofpmf, and if you do, add that too!
-> >=20
-> > That way, whenever support for those extensions lands, the jh7110 will
-> > automatically pick it up, rather than needing to have them retrofitted.
-> >=20
-> >> [1] https://sifive.cdn.prismic.io/sifive/2dd11994-693c-4360-8aea-5453d=
-8642c42_u74mc_core_complex_manual_21G3.pdf
 
---ds2DvVv+Wo+HxSlv
+--eZtN57855azcqZYC
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY9wR7QAKCRB4tDGHoIJi
-0o8CAP40o9+u4KY0EeAaTpMPdJI5Q/P7+3Baxjpu5lDe3dcQ0QEA91reS5VWDnuT
-nrd0jpGuwMXYdoMwKiPD7+jz3kmjTgI=
-=LWU1
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY9wytgAKCRB4tDGHoIJi
+0hQAAQDPfZU3MFF5IWgESEp24RybnfA8VsYIW1Vor96XK4WlBwD/ZvCP1WaUNlwU
+1kqHFMkUQaU9EnoUg+qEhMZH8m1ySgA=
+=+yyx
 -----END PGP SIGNATURE-----
 
---ds2DvVv+Wo+HxSlv--
+--eZtN57855azcqZYC--
 
 
---===============7742971289666548402==
+--===============1860130086819313380==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -300,5 +250,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============7742971289666548402==--
+--===============1860130086819313380==--
 
