@@ -4,63 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E01BC61DA4
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Feb 2023 17:30:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB13AC61DA4
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Feb 2023 17:30:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6ENBhLhFFWvDycTNHWSt4/J2AiNTCoxYe9blK4S476I=; b=uf7UpLiWWt7JSW
-	QHVHqQ7hTRsz2TCibXfts/nTXdPvZqm4A8/aXbHo0ofohfsx9PaTALGlXh7x//xxY79FfV8vRpSUm
-	7YsR/rvmXjt7/ucfJOPf1IedPxWVClklAnH+QkSr4yW4m/ZE+rqxkjmeo1rfqGgvua5rTqarcKsQ+
-	Cli2bSvmjUah2vQN+M8dWeUv2DQw/B9VVGJA9sixeUKQguekP1Edny45q6q1PFvfEh1c5pGiQj/4k
-	+3i7H0mtbVLcxrwD5tbSIY3QtxyPnkUxFsNyvUzr3T5M/SpI1Q9S9Q5wX2kErM2TwObdnjoVtHShf
-	bg0sdiCZDd0zj98BKEPA==;
+	List-Owner; bh=hGDYjRFHo4G3ZP/wz88VQj83QAf4l9q2b4XPlizFLTk=; b=prW0AxwVpcS9Q6
+	atN/s1zY4TDwL053c+jfvno0rhVXan4Lmudm5aHawczn3ZWmbZ3/oXJimr+YsD8ssWQFlBLdSldZB
+	fQpigKS2ssv5BrYnIJ1/qPK2mJ0K1yvMz23PmZ7nHcATLcNj+IALtx2pmI1cz8nicFT7Cqi7PDzCk
+	oT14EoV5zTjkUF+/Bv656XxbUMoCRA6LZpW5w6nPlSbEXovZINFjRm2VdUf+wgNuPqQBhqfREi9+a
+	dFRTpXX0JgONoqDDIshrpMzaxZf13z67jJApr3+x5XsgixBK+rGAsu5MbqOzcgrbqaS4A3I+CHjw8
+	DozTZ4rWObvXuyJYvINg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNdPh-00GnLx-9t; Thu, 02 Feb 2023 17:30:21 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pNdPm-00GnO5-LM; Thu, 02 Feb 2023 17:30:26 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNdPf-00GnLL-BZ
-	for linux-riscv@lists.infradead.org; Thu, 02 Feb 2023 17:30:20 +0000
+	id 1pNdPj-00GnLT-IU
+	for linux-riscv@lists.infradead.org; Thu, 02 Feb 2023 17:30:25 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 0CFF261BF2;
+	by ams.source.kernel.org (Postfix) with ESMTPS id C4AC0B82748;
 	Thu,  2 Feb 2023 17:30:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 69B81C4339B;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 6BB70C4339C;
 	Thu,  2 Feb 2023 17:30:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1675359017;
-	bh=4PONHIEudcXNZESaUql5vum3JtEcjpY8pniiHFOE15w=;
+	bh=LriLzzcrjvf2aq9MHuzmDWOO4COF/M+nniJBrNFPJiU=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=HQveGkALcid7UBYNr7QwtKoolhvCGaYfmB3m3zEH1HtC4+U+Ulm2wjrgX2hgqZmcv
-	 uGOFMDhl3/1Lr5mnNvMZbvA0impyok2Ga+PtW6vH4+bmJON5pEp2JKahJXJ/obZ7oM
-	 d5R85b6K8n5OTmrT31WWHiVWSjZ8txpxduKr9IfzmYF4mJX7ncczG1jYMv9YukOzf7
-	 jEBw+mT1ZSPWWS6J7zdgE6ZpXRv+wp3FDdAnayDbUJINVVLY9D7+nMa12sC+7g89BC
-	 BklVVXsXB94VRWLzrx/Ku1TZ99HNCjjBOZ1XvQ5+GFxto+gFEtneUco3fcxf5nnavA
-	 Ydg1Oa3FRpNng==
+	b=CnRcPgvyJWF1VvbsBLfnIFk6aay8Un57fO/Z+N/h2Se0ciBQbNcWtVMoZkRmbZGXT
+	 edYhJ4qszoAaJatmOU3Zl0NBJGgkQ71PIo7vH3JwJof/9m3ckasayATA9wOaB6ZvDY
+	 iPJByZ7fYw+D3pN6RNw4yxKoPAulNkEmIvdt8y56Dk/BkBAnWLsHDyNmaq1MoU+c2G
+	 MMYzQOr1rhkYOehZekSCmtF5osZ0BbVG4SM8TOYueywf2p5xPcHRxd2XCO8RhKuFNQ
+	 Di26NBNBitvR6REAIot0W1bte9XEcuEGgq1ewdCPWNvTeRKnnizTsSOZoswd6mKJFr
+	 4gQRKoxVNdwNw==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 4D25FE270CC;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 5473EC0C40E;
 	Thu,  2 Feb 2023 17:30:17 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH V2] riscv: kprobe: Fixup kernel panic when probing an illegal
- position
+Subject: Re: [PATCH] riscv: disable generation of unwind tables
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id:  <167535901731.19827.1576402289548615657.git-patchwork-notify@kernel.org>
+Message-Id:  <167535901734.19827.9982979775688143971.git-patchwork-notify@kernel.org>
 Date: Thu, 02 Feb 2023 17:30:17 +0000
-References: <20230201040604.3390509-1-guoren@kernel.org>
-In-Reply-To: <20230201040604.3390509-1-guoren@kernel.org>
-To: Guo Ren <guoren@kernel.org>
-Cc: linux-riscv@lists.infradead.org, palmer@rivosinc.com,
- conor.dooley@microchip.com, liaochang1@huawei.com, bjorn@kernel.org,
- linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
- guoren@linux.alibaba.com
+References: <mvmzg9xybqu.fsf@suse.de>
+In-Reply-To: <mvmzg9xybqu.fsf@suse.de>
+To: Andreas Schwab <schwab@suse.de>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230202_093019_472719_FB040592 
-X-CRM114-Status: UNSURE (   8.23  )
+X-CRM114-CacheID: sfid-20230202_093023_785035_0121A833 
+X-CRM114-Status: UNSURE (   9.91  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,22 +80,20 @@ Hello:
 This patch was applied to riscv/linux.git (fixes)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Tue, 31 Jan 2023 23:06:04 -0500 you wrote:
-> From: Guo Ren <guoren@linux.alibaba.com>
+On Wed, 01 Feb 2023 10:29:45 +0100 you wrote:
+> GCC 13 will enable -fasynchronous-unwind-tables by default on riscv.  In
+> the kernel, we don't have any use for unwind tables yet, so disable them.
+> More importantly, the .eh_frame section brings relocations
+> (R_RISC_32_PCREL, R_RISCV_SET{6,8,16}, R_RISCV_SUB{6,8,16}) into modules
+> that we are not prepared to handle.
 > 
-> The kernel would panic when probed for an illegal position. eg:
-> 
-> (CONFIG_RISCV_ISA_C=n)
-> 
-> echo 'p:hello kernel_clone+0x16 a0=%a0' >> kprobe_events
-> echo 1 > events/kprobes/hello/enable
-> cat trace
+> Signed-off-by: Andreas Schwab <schwab@suse.de>
 > 
 > [...]
 
 Here is the summary with links:
-  - [V2] riscv: kprobe: Fixup kernel panic when probing an illegal position
-    https://git.kernel.org/riscv/c/87f48c7ccc73
+  - riscv: disable generation of unwind tables
+    https://git.kernel.org/riscv/c/2f394c0e7d11
 
 You are awesome, thank you!
 -- 
