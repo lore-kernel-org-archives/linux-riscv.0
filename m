@@ -4,75 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53668C05027
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Feb 2023 12:52:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFCE3C61DA4
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Feb 2023 14:00:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wvX9hqHPW6wGnPVZqp7cCtl0/bvaVK8DJBypcY2Z89A=; b=fgPzL5T7aPOfW+
-	kzIa59Z1ABv/J8LMhNK2x50s9f+q1bQNa4JEzJ9Zfec+bm0WczrV6rwBHKTJVgF4gfvBFeGHYgsWC
-	ES0+TCX3JBERUcub/cRmxogq2QImxDMS9EFhrVzEk0DU7u/D0/xwLLxFAxM2N5ja4QMbx0usGv1ha
-	o7tVZwp9kSQcBYk90AGfKV68xIM37hHCrRIj+q/5LstRJ8mj9krX7bPH4T3KTON7iC8FI97+AhSle
-	CwCK9gBL/uBhjegPkTO+67Pc3vb3rJUpOLxMx8qVpj5ycNdvdCLx6phJqja4Dw7JzMbkACMhmImNI
-	eP5b4/+P9SBE8FnjT1og==;
+	List-Owner; bh=Q3TkKi+2oEABU/DKXLIgIyvY+U4OZzZFU8YWU7l3igQ=; b=Q6yFF+vYj6hXXY
+	Z4G+4fEV3PuWD9gacZ1PFeGuBsLtBdEn+EIVqLILgOeEBq24QNLXoi0nsflPvA765zBwL5/e1XrWW
+	hIoFiHewUnqv5M1XbJYHSjjJT6GGbSylJ6QVgGiwn7hCdY+Xi9/A1vSCHOrV5BLaBbIkWzcplLajZ
+	Y4liNXjBHN4EUR960k+qrVaiEfFsQXw27sqVFUxEaHMftEMB1W4ZLSBxl/OP2JgdOp79DhB3pQLSn
+	PNWzC5wusDu2wyj7eUHjOShenD01DOvS04wsptrDY/PziWvvGrTMgUU6NI2ZqUtNn6NPOv0upjhS7
+	GJhg9HYDhTfP4/vpoKwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNZ4a-00Ft8w-Df; Thu, 02 Feb 2023 12:52:16 +0000
-Received: from mail-yb1-xb29.google.com ([2607:f8b0:4864:20::b29])
+	id 1pNa8Y-00G4sX-7p; Thu, 02 Feb 2023 14:00:26 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNZ4Y-00Ft5J-9h
-	for linux-riscv@lists.infradead.org; Thu, 02 Feb 2023 12:52:15 +0000
-Received: by mail-yb1-xb29.google.com with SMTP id 123so2012228ybv.6
-        for <linux-riscv@lists.infradead.org>; Thu, 02 Feb 2023 04:52:03 -0800 (PST)
+	id 1pNa8Q-00G4pa-A2
+	for linux-riscv@lists.infradead.org; Thu, 02 Feb 2023 14:00:20 +0000
+Received: by mail-wr1-x431.google.com with SMTP id t7so1797765wrp.5
+        for <linux-riscv@lists.infradead.org>; Thu, 02 Feb 2023 06:00:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=iTEsYvNbhZUvr3t5FDyaBPDIayK5soN0V1YA6KoE95Q=;
-        b=PPfSS12X5711vg3bhuNrJmUVkzvhGet/0lNfQTXDPw/wtNntkEWqMG9cO2+AQaapQi
-         MZJcaRC71fY2ZMHLvVtk19QBWC1mCJPijp0uWxSPYRqKKnRf1wK8sVEE8LuBsjsuG+5t
-         x1Qfdfr93US48KlEdOPNzlN6NNSHJoWxD+ccOAxBTB+PoK6YHr6Fn8j8ialUwaevYP2c
-         aixY6bNdQwbQ+vFjTT8ZPOtdFdyJvVNLLrIZFSz/pqtkbGzYjg1HuIz6De2bTmz4GpwA
-         Qam0sl8kV1yAtcdu12tzoopbHGDis2sPmqKBDume7Nod8LxoXbavP03tvajPG2IFZ/lT
-         sPbg==
+        bh=eMycSpSWqkLdJLuPU1kAliRBYKe3vnTJI8phLtEWdDI=;
+        b=aX1rwy2YkRI6JACyuVKP5etYUZPG7JUA1R0As0ErGFAkMlpt62aDBJPcsvUThjjLom
+         aHdlUs0Y6cY8dMz8yVgjfbpxGSITYHw/tENe8vYZTa+C3VCETc9gVSndANh7BGPRucVP
+         R0tKqZXPEBxJK7CU1Jh9mDaIMl2DIWJbDIMxIO+/uu35JSJIVJD1vWZOt1mmc88NiiR8
+         0uJvVQMHzoOz3hCH1BMHW6gHyKotDAAsfCIhxpAyANFwjLQYuQ8JhLBmZX6MsjH+pc2S
+         9Z3ShGePx1zGree3SOmONdQ8tYPk7U1WvD59xKqM+rfje4EhiK03hKx4EFr7ihC5IVvW
+         ZjHQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=iTEsYvNbhZUvr3t5FDyaBPDIayK5soN0V1YA6KoE95Q=;
-        b=UsqhUcTiRAX2cA2igET2RYYaGa6ZTpoAocQODtyZwAhLxZZB+ykr6+jYGuJ/BUyWqy
-         33uMX9pZWtZdStsxGS9qv9C2qjY7M+M4AW0Uy0FEv8xxz++2CmyoAkXHsvUmrAuywEID
-         K4yK+AGg+WSlQ82eUFVq7LzVsUtVrg8wMED7kARaPzarzvmj2zUvWxL1oL5lLIuZ3Qz5
-         GsQPhN84ewBU/e87/OTA1JOW9E4Wr+G8yyP6YPTUpHms9BM5y4OzutwWXzXzwUUrYKKm
-         xm0EpYAk3nvXjRT6sZx6l+TbKYNAyf+CnK55BlJC3P3q8E+tAL2sfbdIE/aX4LE9A+DR
-         zdpQ==
-X-Gm-Message-State: AO0yUKUu4ksmAEIg78K7zUjqq3Hkg8StmMWrJohYtr7m1YslnavmRXll
-	3s3DdN7uiHnQ83okFW99NROq5QmizVYtYevLocSUag==
-X-Google-Smtp-Source: AK7set/IzybDVeByN7olzBbtRq2zPCd8ReB2ZColcl64XBQe7/HYO17UuFBtuhM1xYbR1EXmfXF7asG9PYGE8qn+MFw=
-X-Received: by 2002:a25:fe0a:0:b0:7ca:9b40:72a7 with SMTP id
- k10-20020a25fe0a000000b007ca9b4072a7mr435003ybe.130.1675342322566; Thu, 02
- Feb 2023 04:52:02 -0800 (PST)
+        bh=eMycSpSWqkLdJLuPU1kAliRBYKe3vnTJI8phLtEWdDI=;
+        b=OG289+zjgnn46Kh9/fg+Dl/scEjqJG4HdVw/7vo+JtCB1FB/8k4nMwQNQu5Atz95CA
+         VpId7IXddGqaiGM67lyBsXYG5FLmASGP59kZzKBkHfzmLKnuIMblBIsptCptZ/QZv6hd
+         SeEjWTJo7wkv/A5JBFVM+4JQTZnLFhrb5eqdHPgN5GBVArazox4wKIan3knLcdQW5hIh
+         2bp70TDgU8WVfDuLO0ocud8c2LXgYLdkgOrEnkrTBF3JrxCLRJYSdKt2bdGEwaugRSYl
+         OgfRFkbgj80101vQmVWCDaZAa62OSHTqfewTrSJw0iKH+z2eIFDdsfIjrYde6bTaiaKA
+         nPEQ==
+X-Gm-Message-State: AO0yUKWwRTKDtTlOhpZIWlO0NdvIrROgqc6H1W7FMSoyZ/8ytXPL0orB
+	Cl2RXy+f6BjQbKF5OzSdUHFgBjLTpRvGcJBdBepMWw==
+X-Google-Smtp-Source: AK7set991hy80LggrGKuE0EGDn0gAr/4aLuvD+To3+bf8l/YlM8w4oAxF3edTa+/NMUuSWyoDpk+UbMMdtjLXw/6knk=
+X-Received: by 2002:adf:ffcb:0:b0:2bf:e95c:9918 with SMTP id
+ x11-20020adfffcb000000b002bfe95c9918mr211434wrs.330.1675346413910; Thu, 02
+ Feb 2023 06:00:13 -0800 (PST)
 MIME-Version: 1.0
-References: <20221207131731.1291517-1-william.qiu@starfivetech.com>
- <20221207131731.1291517-3-william.qiu@starfivetech.com> <CACRpkdYP7MokLdRtxX9w7p80c=wHDHsoTYWrU53CnpsZ7o6aGg@mail.gmail.com>
- <4529a646-1faf-c858-cfbe-1560ebeb1fba@starfivetech.com>
-In-Reply-To: <4529a646-1faf-c858-cfbe-1560ebeb1fba@starfivetech.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Thu, 2 Feb 2023 13:51:51 +0100
-Message-ID: <CACRpkdYAP_WYwfiFxXybqqa8OJw98cxUwJgW0RUCgLLGaV+LJQ@mail.gmail.com>
-Subject: Re: [PATCH v1 2/3] mmc: starfive: Add sdio/emmc driver support
-To: William Qiu <william.qiu@starfivetech.com>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-mmc@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Jaehoon Chung <jh80.chung@samsung.com>, 
-	Ulf Hansson <ulf.hansson@linaro.org>, linux-kernel@vger.kernel.org
+References: <20230125082333.1577572-3-alexghiti@rivosinc.com> <202302010819.RAsjyv6V-lkp@intel.com>
+In-Reply-To: <202302010819.RAsjyv6V-lkp@intel.com>
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+Date: Thu, 2 Feb 2023 15:00:02 +0100
+Message-ID: <CAHVXubht443DmB6qZMJ=Hyxz=xi65Dkd=PuN_2i=uf783z0B=Q@mail.gmail.com>
+Subject: Re: [PATCH v3 2/6] riscv: Rework kasan population functions
+To: kernel test robot <lkp@intel.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
+	Alexander Potapenko <glider@google.com>, Andrey Konovalov <andreyknvl@gmail.com>, 
+	Dmitry Vyukov <dvyukov@google.com>, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+	Ard Biesheuvel <ardb@kernel.org>, Conor Dooley <conor@kernel.org>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com, 
+	linux-efi@vger.kernel.org, oe-kbuild-all@lists.linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230202_045214_356213_D65C5400 
-X-CRM114-Status: GOOD (  14.58  )
+X-CRM114-CacheID: sfid-20230202_060018_370921_AA9B9658 
+X-CRM114-Status: GOOD (  19.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,28 +90,87 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 2, 2023 at 12:10 PM William Qiu
-<william.qiu@starfivetech.com> wrote:
-> On 2022/12/9 5:09, Linus Walleij wrote:
-
-> >> +       priv->syscon_offset = args.args[0];
-> >> +       priv->syscon_shift  = args.args[1];
-> >> +       priv->syscon_mask   = args.args[2];
-> >
-> > Why should these three things be in the device tree instead of being derived
-> > from the compatible-string or just plain hard-coded as #defines?
-> > I don't get it.
-> >
-> Hi Linus,
+On Wed, Feb 1, 2023 at 1:16 AM kernel test robot <lkp@intel.com> wrote:
 >
-> I'm sorry to bother you, but as for the definition of syscon, after discussing with
-> my colleagues, we think it is easier to distinguish SDIO0 and SDIO1 by defining it in
-> the device tree, and the code compatibility is better.
+> Hi Alexandre,
+>
+> Thank you for the patch! Perhaps something to improve:
+>
+> [auto build test WARNING on linus/master]
+> [also build test WARNING on v6.2-rc6 next-20230131]
+> [If your patch is applied to the wrong git tree, kindly drop us a note.
+> And when submitting patch, we suggest to use '--base' as documented in
+> https://git-scm.com/docs/git-format-patch#_base_tree_information]
+>
+> url:    https://github.com/intel-lab-lkp/linux/commits/Alexandre-Ghiti/riscv-Split-early-and-final-KASAN-population-functions/20230125-163113
+> patch link:    https://lore.kernel.org/r/20230125082333.1577572-3-alexghiti%40rivosinc.com
+> patch subject: [PATCH v3 2/6] riscv: Rework kasan population functions
+> config: riscv-randconfig-r006-20230201 (https://download.01.org/0day-ci/archive/20230201/202302010819.RAsjyv6V-lkp@intel.com/config)
+> compiler: riscv64-linux-gcc (GCC) 12.1.0
+> reproduce (this is a W=1 build):
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
+>         # https://github.com/intel-lab-lkp/linux/commit/c18726e8d14edbd59ec19854b4eb06d83fff716f
+>         git remote add linux-review https://github.com/intel-lab-lkp/linux
+>         git fetch --no-tags linux-review Alexandre-Ghiti/riscv-Split-early-and-final-KASAN-population-functions/20230125-163113
+>         git checkout c18726e8d14edbd59ec19854b4eb06d83fff716f
+>         # save the config file
+>         mkdir build_dir && cp config build_dir/.config
+>         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.1.0 make.cross W=1 O=build_dir ARCH=riscv olddefconfig
+>         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.1.0 make.cross W=1 O=build_dir ARCH=riscv SHELL=/bin/bash arch/riscv/mm/
+>
+> If you fix the issue, kindly add following tag where applicable
+> | Reported-by: kernel test robot <lkp@intel.com>
+>
+> All warnings (new ones prefixed by >>):
+>
+> >> arch/riscv/mm/kasan_init.c:442:6: warning: no previous prototype for 'create_tmp_mapping' [-Wmissing-prototypes]
+>      442 | void create_tmp_mapping(void)
+>          |      ^~~~~~~~~~~~~~~~~~
+>
+>
+> vim +/create_tmp_mapping +442 arch/riscv/mm/kasan_init.c
+>
+>    441
+>  > 442  void create_tmp_mapping(void)
+>    443  {
+>    444          void *ptr;
+>    445          p4d_t *base_p4d;
+>    446
+>    447          /*
+>    448           * We need to clean the early mapping: this is hard to achieve "in-place",
+>    449           * so install a temporary mapping like arm64 and x86 do.
+>    450           */
+>    451          memcpy(tmp_pg_dir, swapper_pg_dir, sizeof(pgd_t) * PTRS_PER_PGD);
+>    452
+>    453          /* Copy the last p4d since it is shared with the kernel mapping. */
+>    454          if (pgtable_l5_enabled) {
+>    455                  ptr = (p4d_t *)pgd_page_vaddr(*pgd_offset_k(KASAN_SHADOW_END));
+>    456                  memcpy(tmp_p4d, ptr, sizeof(p4d_t) * PTRS_PER_P4D);
+>    457                  set_pgd(&tmp_pg_dir[pgd_index(KASAN_SHADOW_END)],
+>    458                          pfn_pgd(PFN_DOWN(__pa(tmp_p4d)), PAGE_TABLE));
+>    459                  base_p4d = tmp_p4d;
+>    460          } else {
+>    461                  base_p4d = (p4d_t *)tmp_pg_dir;
+>    462          }
+>    463
+>    464          /* Copy the last pud since it is shared with the kernel mapping. */
+>    465          if (pgtable_l4_enabled) {
+>    466                  ptr = (pud_t *)p4d_page_vaddr(*(base_p4d + p4d_index(KASAN_SHADOW_END)));
+>    467                  memcpy(tmp_pud, ptr, sizeof(pud_t) * PTRS_PER_PUD);
+>    468                  set_p4d(&base_p4d[p4d_index(KASAN_SHADOW_END)],
+>    469                          pfn_p4d(PFN_DOWN(__pa(tmp_pud)), PAGE_TABLE));
+>    470          }
+>    471  }
+>    472
 
-OK sounds good looking forward to seeing the result :)
+Ok, I have to declare this function static to quiet this warning,
+there will be a v4 soon then.
 
-Yours,
-Linus Walleij
+>
+> --
+> 0-DAY CI Kernel Test Service
+> https://github.com/intel/lkp-tests
 
 _______________________________________________
 linux-riscv mailing list
