@@ -4,86 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 926D0C05027
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Feb 2023 10:59:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 067E7C61DA4
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Feb 2023 11:02:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YvDIudwpsVYA9eeBEpj5f2MFr0YMWdawhjH/ORMOrIs=; b=Pj4a1ml0RRNDAU
-	j6NWLyjbCMdK7jvQW6SGo2XaEUe35LE8MBxA2vvvdj1a1Zeb3mgoUqtZ4z6sv5xeIYOVfSRfpClzA
-	MBBJub4Ri/SB/1md6PgJNcA2sOnoChwzV4RT+eyKb2sT2p3oTdq3hrFJu+TgYfyI1ZuwbM9to5nh+
-	AgdXEzJVkizYF2LKUlyE0fmQzm2Q8LyoasDcjjtnHema6o3xaf9qssEbn3hFXbRvJo9b8LGwqIYTO
-	gkRtrcFW5gCagy4ycMHUJfKtnYBlIq/oh8Gl0v5s1U9y+yB8B0tnXVpZoGxnwz8YovPpCEqTnovXW
-	pFi7aYvRVxCGfMAH6N7g==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=xaz0mAh1T+eMQp0R9e+uYyf69AGNavOOfmyoz8nIIAc=; b=xJG9wX0ECOvzr4
+	6XjV2jYznaKxWGz4K7A1gocToxOiH6pAWc6KRPK3eu4X1giKkCbVo2vaw1b0kQWsdTEEljJeyJ05K
+	Q94B2HsGWmMOdz0h3B8i9ke2+IADUAkO6+oQoMIkg/kuSbdfkx1jKM/g2VVj+ylQk315qmwaWqwOj
+	n3eCrljPCMQ1SS5xfMf0s4F1xkGYIVX30rm0IbtyxbJC+1KLHy2MH0/U5EyvT1HNlqb3XXyxcOQFo
+	bmN71gNOpDwKdAsVBZ2M+mcEp7vl1apC/uweSUVncIY5I+oMGy1SJOoqQdb/KGzzU/EWkChEHocnn
+	ygaKDiN0le2zLtiDVf8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNXJW-00FVHL-2F; Thu, 02 Feb 2023 10:59:34 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1pNXM5-00FW9g-PM; Thu, 02 Feb 2023 11:02:13 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNXJS-00FVCl-NE
-	for linux-riscv@lists.infradead.org; Thu, 02 Feb 2023 10:59:32 +0000
-Received: by mail-wr1-x433.google.com with SMTP id d14so1307325wrr.9
-        for <linux-riscv@lists.infradead.org>; Thu, 02 Feb 2023 02:59:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=jrtc27.com; s=gmail.jrtc27.user;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=UgTiIPOmBXxBHCBI1SPf1jYsG2ew/s8emelTVcWqHf4=;
-        b=P1qpBtdki4WxrIQDdZyF0/6Ft1BgTb9reSHsBkHTObHXZm7BXDLjR1iZ6CotQKJfdE
-         /+v+bohLXLLTthPJZoGMqlj4fLH2NKDhoRPv/5fILRZ5vnUkCpX0IPMQEHZ14Bo2YckI
-         eoWMZzYBsWEsAlxnhqObjdRaKXU1lXlbFJgLjhBpvgDzSbJyE80azV7nCvx5yA/oO6ay
-         M+oQLgFp+H8Q922L2xI9VHWn3bAtwS95NLB/ER+p6JuCPupGAVI2CMLkLOIr+d57wees
-         1rSjTmpp3pVeFKBx4gGm60S5b2s2cauSiRELF5/IYI57uXB8rcBjM0nHqJy2sowIUB4g
-         Fxuw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=UgTiIPOmBXxBHCBI1SPf1jYsG2ew/s8emelTVcWqHf4=;
-        b=CX4o/pXepVg5bnDk38EGDk5xxW/aYthS/eCoX1Fz06KwK8Mv0UGY26ytIGfrVCzmxp
-         rFhoF5/uIr76XMNVy3YlwVmJtLlvHyFq55PKFyQWZ2ztqgRkgZ8Z5Ji11go1kYi/5sbf
-         u3zUZSPuBQT6yXYiyTXlUiepSYRgIFjYpgBeuX4lBzsM68O0XeHbnXI0Xg6R+WFiqAjd
-         2Y/L80UwuNaOGxuAR0ORUySkrYAl0uzCBWkN+LpTgK7/UFyyNGBVlwND5wKs8cLN5lx/
-         C0Sp3xSBfSwMPf739AYHn8q7Np1Jf4q3aujKOx16zWiR9+1luf4x5k2UhhjWIdV/4BVr
-         yW0w==
-X-Gm-Message-State: AO0yUKWYdNdCm/k+bEf5NDvwZutYRKWLFuHwPFDthh2hoqvIQhzb8EQ/
-	VBAv2D0MYDy+m/zq/KQkPqD+/g==
-X-Google-Smtp-Source: AK7set+pJGkZErNzearfcH92dOwxU8jILjbDFDcwGIsKvNIPaDT8LjSefGTMV9xz/L7MFQEJyTsuUw==
-X-Received: by 2002:a05:6000:2:b0:2bf:cbf0:e021 with SMTP id h2-20020a056000000200b002bfcbf0e021mr4738287wrx.71.1675335563311;
-        Thu, 02 Feb 2023 02:59:23 -0800 (PST)
-Received: from smtpclient.apple (global-5-143.n-2.net.cam.ac.uk. [131.111.5.143])
-        by smtp.gmail.com with ESMTPSA id u15-20020a5d6daf000000b002bfe266d710sm1266499wrs.90.2023.02.02.02.59.22
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 02 Feb 2023 02:59:22 -0800 (PST)
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3696.120.41.1.1\))
-Subject: Re: [PATCH] riscv: kprobe: Fixup misaligned load text
-From: Jessica Clarke <jrtc27@jrtc27.com>
-In-Reply-To: <87cz6s75ze.fsf@all.your.base.are.belong.to.us>
-Date: Thu, 2 Feb 2023 10:59:22 +0000
-Cc: Guo Ren <guoren@kernel.org>,
- Palmer Dabbelt <palmer@rivosinc.com>,
- Conor Dooley <conor.dooley@microchip.com>,
- liaochang1@huawei.com,
- linux-arch <linux-arch@vger.kernel.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Guo Ren <guoren@linux.alibaba.com>,
- Bjorn Topel <bjorn.topel@gmail.com>
-Message-Id: <5C373F4A-983E-4ACA-AAB0-54E629D5F501@jrtc27.com>
-References: <20230201064608.3486136-1-guoren@kernel.org>
- <87tu05pvur.fsf@all.your.base.are.belong.to.us>
- <CAJF2gTSj12E9+peMF0rNY_psGDyEG5BbMY6V-s4dK0FpkCC9Yw@mail.gmail.com>
- <87cz6s75ze.fsf@all.your.base.are.belong.to.us>
-To: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-X-Mailer: Apple Mail (2.3696.120.41.1.1)
+	id 1pNXM3-00FW7H-Bm
+	for linux-riscv@lists.infradead.org; Thu, 02 Feb 2023 11:02:13 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id D52D261AB3;
+	Thu,  2 Feb 2023 11:02:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1B71C4339B;
+	Thu,  2 Feb 2023 11:02:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1675335728;
+	bh=lzDIUBwozYSnkNAtq+CbXRRVFuVSaq6m9YLSNh7qQGc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MoJmx3pzVPOfdioUSvGq2DqDBcmghnKSAm4WKHhY1lPV58gO+92ShLq4EzyxcbnNY
+	 Jf+OdjwR1imNuLA/e9WQH249Z9jr/lbBxU1znZGtQ7eSS2Y9btxdFV+kAh4d4GlKeB
+	 vj6o8j9R8WO8WzQDBH4aXVZDRAJQW0w6i3Y8/P7oSvOjGqTAJxZZ3wSg8cbT5e699A
+	 3zHWZKizXZA6Xsry1mnf7nzqiIkCuYCJnhDV30We5RpfeF6IUZrHZaQ2GwzGoDQiyG
+	 QOF09Mhp1+jMIBZPrar5kffHQbUpUD8XFIBbO5klhiBXIOX2LQOr+eyPSKGHqvk6nQ
+	 kVPlLKoHGwbLA==
+Date: Thu, 2 Feb 2023 12:02:02 +0100
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Daire.McNamara@microchip.com
+Cc: linux-riscv@lists.infradead.org, kw@linux.com,
+	Conor.Dooley@microchip.com, devicetree@vger.kernel.org,
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	linux-pci@vger.kernel.org, robh+dt@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org, bhelgaas@google.com
+Subject: Re: [PATCH v3 00/11] PCI: microchip: Partition address translations
+Message-ID: <Y9uYKp24fHGkqI5Z@lpieralisi>
+References: <20230111125323.1911373-1-daire.mcnamara@microchip.com>
+ <d5a5ba3b01953c9db435f2371adee6e2b61d26dd.camel@microchip.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <d5a5ba3b01953c9db435f2371adee6e2b61d26dd.camel@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230202_025930_835243_5A83C0FD 
-X-CRM114-Status: GOOD (  19.10  )
+X-CRM114-CacheID: sfid-20230202_030211_505161_ED572CC3 
+X-CRM114-Status: GOOD (  38.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,63 +71,134 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMiBGZWIgMjAyMywgYXQgMDk6NDgsIEJqw7ZybiBUw7ZwZWwgPGJqb3JuQGtlcm5lbC5vcmc+
-IHdyb3RlOgo+IAo+IEd1byBSZW4gPGd1b3JlbkBrZXJuZWwub3JnPiB3cml0ZXM6Cj4gCj4+IE9u
-IFdlZCwgRmViIDEsIDIwMjMgYXQgNTo0MCBQTSBCasO2cm4gVMO2cGVsIDxiam9ybkBrZXJuZWwu
-b3JnPiB3cm90ZToKPj4+IAo+Pj4gZ3VvcmVuQGtlcm5lbC5vcmcgd3JpdGVzOgo+Pj4gCj4+Pj4g
-RnJvbTogR3VvIFJlbiA8Z3VvcmVuQGxpbnV4LmFsaWJhYmEuY29tPgo+Pj4+IAo+Pj4+IFRoZSBj
-dXJyZW50IGtwcm9iZSB3b3VsZCBjYXVzZSBhIG1pc2FsaWduZWQgbG9hZCBmb3IgdGhlIHByb2Jl
-IHBvaW50Lgo+Pj4+IFRoaXMgcGF0Y2ggZml4dXAgaXQgd2l0aCB0d28gaGFsZi13b3JkIGxvYWRz
-IGluc3RlYWQuCj4+Pj4gCj4+Pj4gRml4ZXM6IGMyMmIwYmNiMWRkMCAoInJpc2N2OiBBZGQga3By
-b2JlcyBzdXBwb3J0ZWQiKQo+Pj4+IFNpZ25lZC1vZmYtYnk6IEd1byBSZW4gPGd1b3JlbkBsaW51
-eC5hbGliYWJhLmNvbT4KPj4+PiBTaWduZWQtb2ZmLWJ5OiBHdW8gUmVuIDxndW9yZW5Aa2VybmVs
-Lm9yZz4KPj4+PiBMaW5rOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNjdi84Nzhy
-aGlnOXpqLmZzZkBhbGwueW91ci5iYXNlLmFyZS5iZWxvbmcudG8udXMvCj4+Pj4gUmVwb3J0ZWQt
-Ynk6IEJqb3JuIFRvcGVsIDxiam9ybi50b3BlbEBnbWFpbC5jb20+Cj4+Pj4gLS0tCj4+Pj4gYXJj
-aC9yaXNjdi9rZXJuZWwvcHJvYmVzL2twcm9iZXMuYyB8IDQgKysrLQo+Pj4+IDEgZmlsZSBjaGFu
-Z2VkLCAzIGluc2VydGlvbnMoKyksIDEgZGVsZXRpb24oLSkKPj4+PiAKPj4+PiBkaWZmIC0tZ2l0
-IGEvYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL2twcm9iZXMuYyBiL2FyY2gvcmlzY3Yva2VybmVs
-L3Byb2Jlcy9rcHJvYmVzLmMKPj4+PiBpbmRleCA0MWM3NDgxYWZkZTMuLmMxMTYwNjI5Y2VmNCAx
-MDA2NDQKPj4+PiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMva3Byb2Jlcy5jCj4+Pj4g
-KysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL2twcm9iZXMuYwo+Pj4+IEBAIC03NCw3ICs3
-NCw5IEBAIGludCBfX2twcm9iZXMgYXJjaF9wcmVwYXJlX2twcm9iZShzdHJ1Y3Qga3Byb2JlICpw
-KQo+Pj4+ICAgICAgICAgICAgICByZXR1cm4gLUVJTFNFUTsKPj4+PiAKPj4+PiAgICAgIC8qIGNv
-cHkgaW5zdHJ1Y3Rpb24gKi8KPj4+PiAtICAgICBwLT5vcGNvZGUgPSAqcC0+YWRkcjsKPj4+PiAr
-ICAgICBwLT5vcGNvZGUgPSAoa3Byb2JlX29wY29kZV90KSgqKHUxNiAqKXByb2JlX2FkZHIpOwo+
-Pj4+ICsgICAgIGlmIChHRVRfSU5TTl9MRU5HVEgocC0+b3Bjb2RlKSA9PSA0KQo+Pj4+ICsgICAg
-ICAgICAgICAgcC0+b3Bjb2RlIHw9IChrcHJvYmVfb3Bjb2RlX3QpKCoodTE2ICopKHByb2JlX2Fk
-ZHIgKyAyKSkKPj4+PiAgICAgIDw8IDE2Owo+Pj4gCj4+PiBVZ2gsIHRob3NlIGNhc3RzLiA6LSgg
-V2hhdCBhYm91dCB0aGUgbWVtY3B5IHZhcmlhbnQgeW91IGhhZCBpbiB0aGUgb3RoZXIKPj4+IHRo
-cmVhZD8KPj4gVGhlIG1lbWNweSB2ZXJzaW9uIHdvdWxkIGZvcmNlIGxvYWQgcHJvYmVfYWRkciAr
-IDIuIFRoaXMgb25lIHdvdWxkCj4+IHNhdmUgYW4gbGggb3BlcmF0aW9uLiBUaGUgY29kZSB0ZXh0
-IGd1YXJhbnRlZXMgaGFsZi13b3JkIGFsaWdubWVudC4gTm8KPj4gbWlzYWxpZ25lZCBsb2FkIGhh
-cHBlbmVkLiBTZWNvbmQsIGtwcm9iZSB3b3VsZG4ndCB3cml0ZSB0aGUgbGFzdCBoYWxmCj4+IG9m
-IDMyYiBpbnN0cnVjdGlvbi4KPiAKPiBPaywgc29tZXRoaW5nIG1vcmUgcmVhZGFibGUsIGxpa2U6
-Cj4gCj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL3Byb2Jlcy9rcHJvYmVzLmMgYi9h
-cmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMva3Byb2Jlcy5jCj4gaW5kZXggZjIxNTkyZDIwMzA2Li4z
-NjAyMzUyYmExNzUgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL2twcm9i
-ZXMuYwo+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3Byb2Jlcy9rcHJvYmVzLmMKPiBAQCAtNTAs
-MTQgKzUwLDE2IEBAIHN0YXRpYyB2b2lkIF9fa3Byb2JlcyBhcmNoX3NpbXVsYXRlX2luc24oc3Ry
-dWN0IGtwcm9iZSAqcCwgc3RydWN0IHB0X3JlZ3MgKnJlZ3MpCj4gCj4gaW50IF9fa3Byb2JlcyBh
-cmNoX3ByZXBhcmVfa3Byb2JlKHN0cnVjdCBrcHJvYmUgKnApCj4gewo+IC0JdW5zaWduZWQgbG9u
-ZyBwcm9iZV9hZGRyID0gKHVuc2lnbmVkIGxvbmcpcC0+YWRkcjsKPiArCXUxNiAqaW5zbiA9ICh1
-MTYgKilwLT5hZGRyOwo+IAo+IC0JaWYgKHByb2JlX2FkZHIgJiAweDEpCj4gKwlpZiAoKHVpbnRw
-dHJfdClpbnNuICYgMHgxKQo+IAkJcmV0dXJuIC1FSUxTRVE7Cj4gCj4gCS8qIGNvcHkgaW5zdHJ1
-Y3Rpb24gKi8KPiAtCXAtPm9wY29kZSA9ICpwLT5hZGRyOwo+IC0KPiArCXAtPm9wY29kZSA9ICpp
-bnNuKys7Cj4gKwlpZiAoR0VUX0lOU05fTEVOR1RIKHAtPm9wY29kZSkgPT0gNCkKPiArCQlwLT5v
-cGNvZGUgfD0gKmluc24gPDwgMTY7CgoqaW5zbiBnZXRzIHByb21vdGVkIHRvIGludCBub3QgdW5z
-aWduZWQgc28gdGhpcyBpcyBVQiBpZiBiaXQgMTUgaXMgc2V0LgoKSmVzcwoKPiArCQo+IAkvKiBk
-ZWNvZGUgaW5zdHJ1Y3Rpb24gKi8KPiAJc3dpdGNoIChyaXNjdl9wcm9iZV9kZWNvZGVfaW5zbihw
-LT5hZGRyLCAmcC0+YWluc24uYXBpKSkgewo+IAljYXNlIElOU05fUkVKRUNURUQ6CS8qIGluc24g
-bm90IHN1cHBvcnRlZCAqLwo+IAo+IAo+IEJqw7Zybgo+IAo+IF9fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fCj4gbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cj4g
-bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwo+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
-b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YKCgpfX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
-cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
-bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Tue, Jan 31, 2023 at 05:03:00PM +0000, Daire.McNamara@microchip.com wrote:
+> Hi all,
+> 
+> Just touching base here.  Can I take it that things are in-hand, and
+> this patchset is moving into the kernel or is there something I need to
+> do at my end?
+
+I will have a look shortly, sorry for the delay.
+
+Thanks,
+Lorenzo
+
+> best regards
+> daire
+> 
+> On Wed, 2023-01-11 at 12:53 +0000, daire.mcnamara@microchip.com wrote:
+> > From: Daire McNamara <daire.mcnamara@microchip.com>
+> > 
+> > Changes since v2:
+> > - Replaced GENMASK(63,0) with GENMASK_ULL(63,0) to remove warning
+> > - Added patch to avoid warning on cast of argument to
+> > devm_add_action_or_reset()
+> > - Added patch to enable building driver as a module
+> > 
+> > Changes since v1:
+> > - Removed unused variables causing compile warnings
+> > - Removed incorrect Signed-off-by: tags
+> > - Capitalised msi and msi-x
+> > - Capitalised FIC and respelled busses to buses
+> > - Capitalised all comments
+> > - Renamed fabric inter connect to Fabric Interface Controller as per
+> > PolarFire SoC TRM
+> > 
+> > Microchip PolarFire SoC is a 64-bit device and has DDR starting at
+> > 0x80000000 and 0x1000000000. Its PCIe rootport is connected to the
+> > CPU
+> > Coreplex via an FPGA fabric. The AXI connections between the Coreplex
+> > and
+> > the fabric are 64-bit and the AXI connections between the fabric and
+> > the
+> > rootport are 32-bit.  For the CPU CorePlex to act as an AXI-Master to
+> > the
+> > PCIe devices and for the PCIe devices to act as bus masters to DDR at
+> > these
+> > base addresses, the fabric can be customised to add/remove offsets
+> > for bits
+> > 38-32 in each direction. These offsets, if present, vary with each
+> > customer's design.
+> > 
+> > To support this variety, the rootport driver must know how much
+> > address
+> > translation (both inbound and outbound) is performed by a particular
+> > customer design and how much address translation must be provided by
+> > the
+> > rootport.
+> > 
+> > This patchset contains a parent/child dma-ranges scheme suggested by
+> > Rob
+> > Herring. It creates an FPGA PCIe parent bus which wraps the PCIe
+> > rootport
+> > and implements a parsing scheme where the root port identifies what
+> > address
+> > translations are performed by the FPGA fabric parent bus, and what
+> > address translations must be done by the rootport itself.
+> > 
+> > See 
+> > https://lore.kernel.org/linux-pci/20220902142202.2437658-1-daire.mcnamara@microchip.com/
+> > for the relevant previous patch submission discussion.
+> > 
+> > It also re-partitions the probe() and init() functions as suggested
+> > by
+> > Bjorn Helgaas to make them more maintainable as the init() function
+> > had
+> > become too large.
+> > 
+> > It also contains some minor fixes and clean-ups that are pre-
+> > requisites:
+> > - to align register, offset, and mask names with the hardware
+> > documentation
+> >   and to have the register definitions appear in the same order as in
+> > the
+> >   hardware documentation;
+> > - to harvest the MSI information from the hardware configuration
+> > register
+> >   as these depend on the FPGA fabric design and can vary with
+> > different
+> >   customer designs;
+> > - to clean up interrupt initialisation to make it more maintainable;
+> > - to fix SEC and DED interrupt handling.
+> > 
+> > I expect Conor will take the dts patch via the soc tree once the PCIe
+> > parts
+> > of the series are accepted.
+> > 
+> > Conor Dooley (1):
+> >   riscv: dts: microchip: add parent ranges and dma-ranges for IKRD
+> >     v2022.09
+> > 
+> > Daire McNamara (10):
+> >   PCI: microchip: Correct the DED and SEC interrupt bit offsets
+> >   PCI: microchip: Remove cast warning for devm_add_action_or_reset()
+> > arg
+> >   PCI: microchip: enable building this driver as a module
+> >   PCI: microchip: Align register, offset, and mask names with hw docs
+> >   PCI: microchip: Enable event handlers to access bridge and ctrl
+> > ptrs
+> >   PCI: microchip: Clean up initialisation of interrupts
+> >   PCI: microchip: Gather MSI information from hardware config
+> > registers
+> >   PCI: microchip: Re-partition code between probe() and init()
+> >   PCI: microchip: Partition outbound address translation
+> >   PCI: microchip: Partition inbound address translation
+> > 
+> >  .../dts/microchip/mpfs-icicle-kit-fabric.dtsi |  62 +-
+> >  drivers/pci/controller/Kconfig                |   2 +-
+> >  drivers/pci/controller/pcie-microchip-host.c  | 688 +++++++++++++---
+> > --
+> >  3 files changed, 533 insertions(+), 219 deletions(-)
+> > 
+> > 
+> > base-commit: 3c1f24109dfc4fb1a3730ed237e50183c6bb26b3
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
