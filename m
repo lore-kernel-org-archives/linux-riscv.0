@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 067E7C61DA4
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Feb 2023 11:02:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58CEAC6379F
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Feb 2023 11:10:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xaz0mAh1T+eMQp0R9e+uYyf69AGNavOOfmyoz8nIIAc=; b=xJG9wX0ECOvzr4
-	6XjV2jYznaKxWGz4K7A1gocToxOiH6pAWc6KRPK3eu4X1giKkCbVo2vaw1b0kQWsdTEEljJeyJ05K
-	Q94B2HsGWmMOdz0h3B8i9ke2+IADUAkO6+oQoMIkg/kuSbdfkx1jKM/g2VVj+ylQk315qmwaWqwOj
-	n3eCrljPCMQ1SS5xfMf0s4F1xkGYIVX30rm0IbtyxbJC+1KLHy2MH0/U5EyvT1HNlqb3XXyxcOQFo
-	bmN71gNOpDwKdAsVBZ2M+mcEp7vl1apC/uweSUVncIY5I+oMGy1SJOoqQdb/KGzzU/EWkChEHocnn
-	ygaKDiN0le2zLtiDVf8g==;
+	List-Owner; bh=zzeZGJYh0lanO2Kgmc//1wGLDJRDNpiLfKJ9iohbngs=; b=KBzIFYpUeQ1+kf
+	bXd3g781/WW+kotYc65zdUoV0fYb0TfgJIW6AdFP1HA1SGjR8ZL8GoQCAIS9n4qYiKVSaXieR2kLd
+	K9TgwWmjSCpweCUbE3lCKnOqPf7NdbkTUC9hXm1jj3o6jzpgBCXri8ubregSCv1d4JXGg05pD63TT
+	9iE8ezE8X4wbRtut0sDxY5KwqyzCu1kFMFVLS/t4oJyFac67n0UNsBb+CTmh+dbKtd1zrwSj+N/N9
+	1S8x8MQblD1OlyLaxYgXRdu19nLfcYI0DfY7WT9/wuiEmJVCCL5Sg12fwPV1bmtaLSkpUaVDIlOz2
+	7v6wlNGHlCh3Ng5KCuXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNXM5-00FW9g-PM; Thu, 02 Feb 2023 11:02:13 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNXM3-00FW7H-Bm
-	for linux-riscv@lists.infradead.org; Thu, 02 Feb 2023 11:02:13 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id D52D261AB3;
-	Thu,  2 Feb 2023 11:02:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1B71C4339B;
-	Thu,  2 Feb 2023 11:02:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1675335728;
-	bh=lzDIUBwozYSnkNAtq+CbXRRVFuVSaq6m9YLSNh7qQGc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MoJmx3pzVPOfdioUSvGq2DqDBcmghnKSAm4WKHhY1lPV58gO+92ShLq4EzyxcbnNY
-	 Jf+OdjwR1imNuLA/e9WQH249Z9jr/lbBxU1znZGtQ7eSS2Y9btxdFV+kAh4d4GlKeB
-	 vj6o8j9R8WO8WzQDBH4aXVZDRAJQW0w6i3Y8/P7oSvOjGqTAJxZZ3wSg8cbT5e699A
-	 3zHWZKizXZA6Xsry1mnf7nzqiIkCuYCJnhDV30We5RpfeF6IUZrHZaQ2GwzGoDQiyG
-	 QOF09Mhp1+jMIBZPrar5kffHQbUpUD8XFIBbO5klhiBXIOX2LQOr+eyPSKGHqvk6nQ
-	 kVPlLKoHGwbLA==
-Date: Thu, 2 Feb 2023 12:02:02 +0100
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Daire.McNamara@microchip.com
-Cc: linux-riscv@lists.infradead.org, kw@linux.com,
-	Conor.Dooley@microchip.com, devicetree@vger.kernel.org,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	linux-pci@vger.kernel.org, robh+dt@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org, bhelgaas@google.com
-Subject: Re: [PATCH v3 00/11] PCI: microchip: Partition address translations
-Message-ID: <Y9uYKp24fHGkqI5Z@lpieralisi>
-References: <20230111125323.1911373-1-daire.mcnamara@microchip.com>
- <d5a5ba3b01953c9db435f2371adee6e2b61d26dd.camel@microchip.com>
+	id 1pNXU9-00FY6e-JN; Thu, 02 Feb 2023 11:10:33 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pNXU2-00FXyI-KI
+	for linux-riscv@lists.infradead.org; Thu, 02 Feb 2023 11:10:31 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id C7E7124E255;
+	Thu,  2 Feb 2023 19:09:54 +0800 (CST)
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 2 Feb
+ 2023 19:09:54 +0800
+Received: from [192.168.120.55] (171.223.208.138) by EXMBX168.cuchost.com
+ (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 2 Feb
+ 2023 19:09:53 +0800
+Message-ID: <4529a646-1faf-c858-cfbe-1560ebeb1fba@starfivetech.com>
+Date: Thu, 2 Feb 2023 19:09:53 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <d5a5ba3b01953c9db435f2371adee6e2b61d26dd.camel@microchip.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.6.1
+Subject: Re: [PATCH v1 2/3] mmc: starfive: Add sdio/emmc driver support
+To: Linus Walleij <linus.walleij@linaro.org>
+CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-mmc@vger.kernel.org>, Rob Herring <robh+dt@kernel.org>, "Krzysztof
+ Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Jaehoon Chung
+	<jh80.chung@samsung.com>, Ulf Hansson <ulf.hansson@linaro.org>,
+	<linux-kernel@vger.kernel.org>
+References: <20221207131731.1291517-1-william.qiu@starfivetech.com>
+ <20221207131731.1291517-3-william.qiu@starfivetech.com>
+ <CACRpkdYP7MokLdRtxX9w7p80c=wHDHsoTYWrU53CnpsZ7o6aGg@mail.gmail.com>
+Content-Language: en-US
+From: William Qiu <william.qiu@starfivetech.com>
+In-Reply-To: <CACRpkdYP7MokLdRtxX9w7p80c=wHDHsoTYWrU53CnpsZ7o6aGg@mail.gmail.com>
+X-Originating-IP: [171.223.208.138]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX168.cuchost.com
+ (172.16.6.78)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230202_030211_505161_ED572CC3 
-X-CRM114-Status: GOOD (  38.80  )
+X-CRM114-CacheID: sfid-20230202_031027_056226_83C52CF8 
+X-CRM114-Status: GOOD (  29.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,127 +77,185 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 31, 2023 at 05:03:00PM +0000, Daire.McNamara@microchip.com wrote:
-> Hi all,
+
+
+On 2022/12/9 5:09, Linus Walleij wrote:
+> Hi William,
 > 
-> Just touching base here.  Can I take it that things are in-hand, and
-> this patchset is moving into the kernel or is there something I need to
-> do at my end?
-
-I will have a look shortly, sorry for the delay.
-
-Thanks,
-Lorenzo
-
-> best regards
-> daire
+> thanks for your patch!
 > 
-> On Wed, 2023-01-11 at 12:53 +0000, daire.mcnamara@microchip.com wrote:
-> > From: Daire McNamara <daire.mcnamara@microchip.com>
-> > 
-> > Changes since v2:
-> > - Replaced GENMASK(63,0) with GENMASK_ULL(63,0) to remove warning
-> > - Added patch to avoid warning on cast of argument to
-> > devm_add_action_or_reset()
-> > - Added patch to enable building driver as a module
-> > 
-> > Changes since v1:
-> > - Removed unused variables causing compile warnings
-> > - Removed incorrect Signed-off-by: tags
-> > - Capitalised msi and msi-x
-> > - Capitalised FIC and respelled busses to buses
-> > - Capitalised all comments
-> > - Renamed fabric inter connect to Fabric Interface Controller as per
-> > PolarFire SoC TRM
-> > 
-> > Microchip PolarFire SoC is a 64-bit device and has DDR starting at
-> > 0x80000000 and 0x1000000000. Its PCIe rootport is connected to the
-> > CPU
-> > Coreplex via an FPGA fabric. The AXI connections between the Coreplex
-> > and
-> > the fabric are 64-bit and the AXI connections between the fabric and
-> > the
-> > rootport are 32-bit.  For the CPU CorePlex to act as an AXI-Master to
-> > the
-> > PCIe devices and for the PCIe devices to act as bus masters to DDR at
-> > these
-> > base addresses, the fabric can be customised to add/remove offsets
-> > for bits
-> > 38-32 in each direction. These offsets, if present, vary with each
-> > customer's design.
-> > 
-> > To support this variety, the rootport driver must know how much
-> > address
-> > translation (both inbound and outbound) is performed by a particular
-> > customer design and how much address translation must be provided by
-> > the
-> > rootport.
-> > 
-> > This patchset contains a parent/child dma-ranges scheme suggested by
-> > Rob
-> > Herring. It creates an FPGA PCIe parent bus which wraps the PCIe
-> > rootport
-> > and implements a parsing scheme where the root port identifies what
-> > address
-> > translations are performed by the FPGA fabric parent bus, and what
-> > address translations must be done by the rootport itself.
-> > 
-> > See 
-> > https://lore.kernel.org/linux-pci/20220902142202.2437658-1-daire.mcnamara@microchip.com/
-> > for the relevant previous patch submission discussion.
-> > 
-> > It also re-partitions the probe() and init() functions as suggested
-> > by
-> > Bjorn Helgaas to make them more maintainable as the init() function
-> > had
-> > become too large.
-> > 
-> > It also contains some minor fixes and clean-ups that are pre-
-> > requisites:
-> > - to align register, offset, and mask names with the hardware
-> > documentation
-> >   and to have the register definitions appear in the same order as in
-> > the
-> >   hardware documentation;
-> > - to harvest the MSI information from the hardware configuration
-> > register
-> >   as these depend on the FPGA fabric design and can vary with
-> > different
-> >   customer designs;
-> > - to clean up interrupt initialisation to make it more maintainable;
-> > - to fix SEC and DED interrupt handling.
-> > 
-> > I expect Conor will take the dts patch via the soc tree once the PCIe
-> > parts
-> > of the series are accepted.
-> > 
-> > Conor Dooley (1):
-> >   riscv: dts: microchip: add parent ranges and dma-ranges for IKRD
-> >     v2022.09
-> > 
-> > Daire McNamara (10):
-> >   PCI: microchip: Correct the DED and SEC interrupt bit offsets
-> >   PCI: microchip: Remove cast warning for devm_add_action_or_reset()
-> > arg
-> >   PCI: microchip: enable building this driver as a module
-> >   PCI: microchip: Align register, offset, and mask names with hw docs
-> >   PCI: microchip: Enable event handlers to access bridge and ctrl
-> > ptrs
-> >   PCI: microchip: Clean up initialisation of interrupts
-> >   PCI: microchip: Gather MSI information from hardware config
-> > registers
-> >   PCI: microchip: Re-partition code between probe() and init()
-> >   PCI: microchip: Partition outbound address translation
-> >   PCI: microchip: Partition inbound address translation
-> > 
-> >  .../dts/microchip/mpfs-icicle-kit-fabric.dtsi |  62 +-
-> >  drivers/pci/controller/Kconfig                |   2 +-
-> >  drivers/pci/controller/pcie-microchip-host.c  | 688 +++++++++++++---
-> > --
-> >  3 files changed, 533 insertions(+), 219 deletions(-)
-> > 
-> > 
-> > base-commit: 3c1f24109dfc4fb1a3730ed237e50183c6bb26b3
+> On Wed, Dec 7, 2022 at 2:17 PM William Qiu <william.qiu@starfivetech.com> wrote:
+> 
+>> Add sdio/emmc driver support for StarFive JH7110 soc.
+>>
+>> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
+> 
+> (...)
+>> +#include <linux/gpio.h>
+> 
+> Never include this legacy header in new code. Also: you don't use it.
+> 
+>> +#include <linux/mfd/syscon.h>
+>> +#include <linux/mmc/host.h>
+>> +#include <linux/module.h>
+>> +#include <linux/of_address.h>
+>> +#include <linux/platform_device.h>
+>> +#include <linux/pm_runtime.h>
+> 
+> You're not using this include either.
+> 
+>> +#include <linux/regmap.h>
+>> +#include <linux/regulator/consumer.h>
+> 
+> Or this.
+> 
+>> +#define ALL_INT_CLR            0x1ffff
+>> +#define MAX_DELAY_CHAIN                32
+>> +
+>> +struct starfive_priv {
+>> +       struct device *dev;
+>> +       struct regmap *reg_syscon;
+>> +       u32 syscon_offset;
+>> +       u32 syscon_shift;
+>> +       u32 syscon_mask;
+>> +};
+>> +
+>> +static unsigned long dw_mci_starfive_caps[] = {
+>> +       MMC_CAP_CMD23,
+>> +       MMC_CAP_CMD23,
+>> +       MMC_CAP_CMD23
+>> +};
+>> +
+>> +static void dw_mci_starfive_set_ios(struct dw_mci *host, struct mmc_ios *ios)
+>> +{
+>> +       int ret;
+>> +       unsigned int clock;
+>> +
+>> +       if (ios->timing == MMC_TIMING_MMC_DDR52 || ios->timing == MMC_TIMING_UHS_DDR50) {
+>> +               clock = (ios->clock > 50000000 && ios->clock <= 52000000) ? 100000000 : ios->clock;
+>> +               ret = clk_set_rate(host->ciu_clk, clock);
+>> +               if (ret)
+>> +                       dev_dbg(host->dev, "Use an external frequency divider %uHz\n", ios->clock);
+>> +               host->bus_hz = clk_get_rate(host->ciu_clk);
+>> +       } else {
+>> +               dev_dbg(host->dev, "Using the internal divider\n");
+>> +       }
+>> +}
+>> +
+>> +static int dw_mci_starfive_execute_tuning(struct dw_mci_slot *slot,
+>> +                                            u32 opcode)
+>> +{
+>> +       static const int grade  = MAX_DELAY_CHAIN;
+>> +       struct dw_mci *host = slot->host;
+>> +       struct starfive_priv *priv = host->priv;
+>> +       int raise_point = -1, fall_point = -1;
+>> +       int err, prev_err = -1;
+> 
+> I don't like these default-init to -1. Can you just skip it and assign it
+> where it makes most sense instead?
+> 
+>> +       int found = 0;
+> 
+> This looks like a bool.
+> 
+>> +       int i;
+>> +       u32 regval;
+>> +
+>> +       for (i = 0; i < grade; i++) {
+>> +               regval = i << priv->syscon_shift;
+>> +               err = regmap_update_bits(priv->reg_syscon, priv->syscon_offset,
+>> +                                               priv->syscon_mask, regval);
+>> +               if (err)
+>> +                       return err;
+>> +               mci_writel(host, RINTSTS, ALL_INT_CLR);
+>> +
+>> +               err = mmc_send_tuning(slot->mmc, opcode, NULL);
+>> +               if (!err)
+>> +                       found = 1;
+>> +
+>> +               if (i > 0) {
+>> +                       if (err && !prev_err)
+>> +                               fall_point = i - 1;
+>> +                       if (!err && prev_err)
+>> +                               raise_point = i;
+>> +               }
+>> +
+>> +               if (raise_point != -1 && fall_point != -1)
+>> +                       goto tuning_out;
+> 
+> There are just these raise point (shouldn't this be "rise_point" in proper
+> english?) and fall point, this misses some comments explaining what is
+> going on, the code is not intuitively eviden. Rise and fall of *what* for
+> example.
+> 
+>> +
+>> +               prev_err = err;
+>> +               err = 0;
+>> +       }
+>> +
+>> +tuning_out:
+>> +       if (found) {
+>> +               if (raise_point == -1)
+>> +                       raise_point = 0;
+>> +               if (fall_point == -1)
+>> +                       fall_point = grade - 1;
+>> +               if (fall_point < raise_point) {
+>> +                       if ((raise_point + fall_point) >
+>> +                           (grade - 1))
+>> +                               i = fall_point / 2;
+>> +                       else
+>> +                               i = (raise_point + grade - 1) / 2;
+>> +               } else {
+>> +                       i = (raise_point + fall_point) / 2;
+>> +               }
+> 
+> Likewise here, explain what grade is, refer to the eMMC spec if necessary.
+> 
+> (...)
+>> +       ret = of_parse_phandle_with_fixed_args(host->dev->of_node,
+>> +                                               "starfive,sys-syscon", 3, 0, &args);
+>> +       if (ret) {
+>> +               dev_err(host->dev, "Failed to parse starfive,sys-syscon\n");
+>> +               return -EINVAL;
+>> +       }
+>> +
+>> +       priv->reg_syscon = syscon_node_to_regmap(args.np);
+>> +       of_node_put(args.np);
+>> +       if (IS_ERR(priv->reg_syscon))
+>> +               return PTR_ERR(priv->reg_syscon);
+>> +
+>> +       priv->syscon_offset = args.args[0];
+>> +       priv->syscon_shift  = args.args[1];
+>> +       priv->syscon_mask   = args.args[2];
+> 
+> Why should these three things be in the device tree instead of being derived
+> from the compatible-string or just plain hard-coded as #defines?
+> I don't get it.
+> 
+Hi Linus,
+
+I'm sorry to bother you, but as for the definition of syscon, after discussing with 
+my colleagues, we think it is easier to distinguish SDIO0 and SDIO1 by defining it in
+the device tree, and the code compatibility is better.
+
+Best Regards
+William Qiu
+>> +static int dw_mci_starfive_probe(struct platform_device *pdev)
+>> +{
+>> +       return dw_mci_pltfm_register(pdev, &starfive_data);
+>> +}
+>> +
+>> +static int dw_mci_starfive_remove(struct platform_device *pdev)
+>> +{
+>> +       return dw_mci_pltfm_remove(pdev);
+>> +}
+> 
+> Can't you just assign dw_mci_pltfm_remove() to .remove?
+> 
+> Other than these things, the driver looks good!
+> 
+> Yours,
+> Linus Walleij
 
 _______________________________________________
 linux-riscv mailing list
