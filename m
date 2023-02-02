@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58CEAC6379F
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Feb 2023 11:10:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6CA1C61DA4
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Feb 2023 11:29:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zzeZGJYh0lanO2Kgmc//1wGLDJRDNpiLfKJ9iohbngs=; b=KBzIFYpUeQ1+kf
-	bXd3g781/WW+kotYc65zdUoV0fYb0TfgJIW6AdFP1HA1SGjR8ZL8GoQCAIS9n4qYiKVSaXieR2kLd
-	K9TgwWmjSCpweCUbE3lCKnOqPf7NdbkTUC9hXm1jj3o6jzpgBCXri8ubregSCv1d4JXGg05pD63TT
-	9iE8ezE8X4wbRtut0sDxY5KwqyzCu1kFMFVLS/t4oJyFac67n0UNsBb+CTmh+dbKtd1zrwSj+N/N9
-	1S8x8MQblD1OlyLaxYgXRdu19nLfcYI0DfY7WT9/wuiEmJVCCL5Sg12fwPV1bmtaLSkpUaVDIlOz2
-	7v6wlNGHlCh3Ng5KCuXg==;
+	List-Owner; bh=jS3FX5pxhcRgpu5jCHD+Z7FhJLTcFv6aQgYtXgv9qnU=; b=qhOwYZsleJSQ5U
+	SXV0v0O4ymIz/ZQzf9t/IQ3ijux0VbXaI9mQ08xs7kw8R90N/cBFpzctQtRJi3u9Hequcvi9sBUUb
+	w1RuqOv5Q6tjAEjW8qsks5U9nPRd+tHnRPBniKwI2EYMkIi7ydKbGM0cHQ774QuhbeFxfmfEzYOzO
+	PTdF4zIKZ/yoLtjIaog7K51UJM9v8gVfwXmDd98gurzx6UaFqmASfYgA2575JUeijwUqXT5+YiMmg
+	syuMtB7oPyhigmy9jaw7nqH2akrHrDmxkwtYnwxKvP7MyAI7A2z+64/v6MrUe8CGoLn7YD6Oh/eWA
+	Pb4tgZX5Ea+VLbE59gOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNXU9-00FY6e-JN; Thu, 02 Feb 2023 11:10:33 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNXU2-00FXyI-KI
-	for linux-riscv@lists.infradead.org; Thu, 02 Feb 2023 11:10:31 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id C7E7124E255;
-	Thu,  2 Feb 2023 19:09:54 +0800 (CST)
-Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 2 Feb
- 2023 19:09:54 +0800
-Received: from [192.168.120.55] (171.223.208.138) by EXMBX168.cuchost.com
- (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 2 Feb
- 2023 19:09:53 +0800
-Message-ID: <4529a646-1faf-c858-cfbe-1560ebeb1fba@starfivetech.com>
-Date: Thu, 2 Feb 2023 19:09:53 +0800
+	id 1pNXm0-00FcCb-I6; Thu, 02 Feb 2023 11:29:00 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pNXlw-00FcBF-Qx
+	for linux-riscv@lists.infradead.org; Thu, 02 Feb 2023 11:28:59 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id F4063B8259E;
+	Thu,  2 Feb 2023 11:28:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60AF0C4339B;
+	Thu,  2 Feb 2023 11:28:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1675337331;
+	bh=OMK+KW7ja98XObBSQHTKdHZe0TjDr1ywfYDnF4/2O7Y=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=F5ILH1TYNDY0t/rZ7LAC4KuEvySrne5Pj94z1Me/o/ek6VYHEENMD/jF1or7rTJe2
+	 uY1tw/Q306zWhStSXlsFirIAss7Ra6G6sxI6YSl5pyUQkV6PpT8MouT317RL2XRwwq
+	 1VsSyyEOXq72lbHDwssBuT5nepFjWWo6DXwFZrJPgv7ITIGGcjv0dTi5YK2Ct/SfcU
+	 itWoV2DcKTWuW72s5EKI21VPdz+JC8Fjod79fMkechr3+yWcPBAlsP0kPOYxVksknt
+	 oUXeWBMW2U0NdMh17dfoquO9MQgeXcVpAhKIUBb8ZbxMAo2X6YCYZqyAWGResv0kXi
+	 qtpBUvaoierJw==
+Date: Thu, 2 Feb 2023 12:28:45 +0100
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: daire.mcnamara@microchip.com
+Cc: conor.dooley@microchip.com, robh+dt@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, kw@linux.com,
+	bhelgaas@google.com, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-pci@vger.kernel.org,
+	robin.murphy@arm.com
+Subject: Re: [PATCH v3 09/11] PCI: microchip: Partition outbound address
+ translation
+Message-ID: <Y9uebWEvuJYO31j1@lpieralisi>
+References: <20230111125323.1911373-1-daire.mcnamara@microchip.com>
+ <20230111125323.1911373-10-daire.mcnamara@microchip.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.6.1
-Subject: Re: [PATCH v1 2/3] mmc: starfive: Add sdio/emmc driver support
-To: Linus Walleij <linus.walleij@linaro.org>
-CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-mmc@vger.kernel.org>, Rob Herring <robh+dt@kernel.org>, "Krzysztof
- Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Jaehoon Chung
-	<jh80.chung@samsung.com>, Ulf Hansson <ulf.hansson@linaro.org>,
-	<linux-kernel@vger.kernel.org>
-References: <20221207131731.1291517-1-william.qiu@starfivetech.com>
- <20221207131731.1291517-3-william.qiu@starfivetech.com>
- <CACRpkdYP7MokLdRtxX9w7p80c=wHDHsoTYWrU53CnpsZ7o6aGg@mail.gmail.com>
-Content-Language: en-US
-From: William Qiu <william.qiu@starfivetech.com>
-In-Reply-To: <CACRpkdYP7MokLdRtxX9w7p80c=wHDHsoTYWrU53CnpsZ7o6aGg@mail.gmail.com>
-X-Originating-IP: [171.223.208.138]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX168.cuchost.com
- (172.16.6.78)
-X-YovoleRuleAgent: yovoleflag
+Content-Disposition: inline
+In-Reply-To: <20230111125323.1911373-10-daire.mcnamara@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230202_031027_056226_83C52CF8 
-X-CRM114-Status: GOOD (  29.91  )
+X-CRM114-CacheID: sfid-20230202_032857_205966_2D4A13F3 
+X-CRM114-Status: GOOD (  35.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,185 +78,235 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+[+CC Robin]
 
+On Wed, Jan 11, 2023 at 12:53:21PM +0000, daire.mcnamara@microchip.com wrote:
+> From: Daire McNamara <daire.mcnamara@microchip.com>
+> 
+> On Microchip PolarFire SoC the PCIe Root Port is behind a set of Fabric
+> Interface Controller (FIC) buses that encapsulate buses like ABP/AHP and
+> AXI-M. Depending on which FIC(s) the Root Port is wired through to cpu
+> space, the Root Port driver needs to take account of the address
+> translation done by a parent (e.g. fabric) node before setting up its
+> own outbound address translation tables to config space and attached
+> devices.
+> 
+> Parse the range properties to determine how much address translation
+> needs to be done in the Root Port.
 
-On 2022/12/9 5:09, Linus Walleij wrote:
-> Hi William,
-> 
-> thanks for your patch!
-> 
-> On Wed, Dec 7, 2022 at 2:17 PM William Qiu <william.qiu@starfivetech.com> wrote:
-> 
->> Add sdio/emmc driver support for StarFive JH7110 soc.
->>
->> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
-> 
-> (...)
->> +#include <linux/gpio.h>
-> 
-> Never include this legacy header in new code. Also: you don't use it.
-> 
->> +#include <linux/mfd/syscon.h>
->> +#include <linux/mmc/host.h>
->> +#include <linux/module.h>
->> +#include <linux/of_address.h>
->> +#include <linux/platform_device.h>
->> +#include <linux/pm_runtime.h>
-> 
-> You're not using this include either.
-> 
->> +#include <linux/regmap.h>
->> +#include <linux/regulator/consumer.h>
-> 
-> Or this.
-> 
->> +#define ALL_INT_CLR            0x1ffff
->> +#define MAX_DELAY_CHAIN                32
->> +
->> +struct starfive_priv {
->> +       struct device *dev;
->> +       struct regmap *reg_syscon;
->> +       u32 syscon_offset;
->> +       u32 syscon_shift;
->> +       u32 syscon_mask;
->> +};
->> +
->> +static unsigned long dw_mci_starfive_caps[] = {
->> +       MMC_CAP_CMD23,
->> +       MMC_CAP_CMD23,
->> +       MMC_CAP_CMD23
->> +};
->> +
->> +static void dw_mci_starfive_set_ios(struct dw_mci *host, struct mmc_ios *ios)
->> +{
->> +       int ret;
->> +       unsigned int clock;
->> +
->> +       if (ios->timing == MMC_TIMING_MMC_DDR52 || ios->timing == MMC_TIMING_UHS_DDR50) {
->> +               clock = (ios->clock > 50000000 && ios->clock <= 52000000) ? 100000000 : ios->clock;
->> +               ret = clk_set_rate(host->ciu_clk, clock);
->> +               if (ret)
->> +                       dev_dbg(host->dev, "Use an external frequency divider %uHz\n", ios->clock);
->> +               host->bus_hz = clk_get_rate(host->ciu_clk);
->> +       } else {
->> +               dev_dbg(host->dev, "Using the internal divider\n");
->> +       }
->> +}
->> +
->> +static int dw_mci_starfive_execute_tuning(struct dw_mci_slot *slot,
->> +                                            u32 opcode)
->> +{
->> +       static const int grade  = MAX_DELAY_CHAIN;
->> +       struct dw_mci *host = slot->host;
->> +       struct starfive_priv *priv = host->priv;
->> +       int raise_point = -1, fall_point = -1;
->> +       int err, prev_err = -1;
-> 
-> I don't like these default-init to -1. Can you just skip it and assign it
-> where it makes most sense instead?
-> 
->> +       int found = 0;
-> 
-> This looks like a bool.
-> 
->> +       int i;
->> +       u32 regval;
->> +
->> +       for (i = 0; i < grade; i++) {
->> +               regval = i << priv->syscon_shift;
->> +               err = regmap_update_bits(priv->reg_syscon, priv->syscon_offset,
->> +                                               priv->syscon_mask, regval);
->> +               if (err)
->> +                       return err;
->> +               mci_writel(host, RINTSTS, ALL_INT_CLR);
->> +
->> +               err = mmc_send_tuning(slot->mmc, opcode, NULL);
->> +               if (!err)
->> +                       found = 1;
->> +
->> +               if (i > 0) {
->> +                       if (err && !prev_err)
->> +                               fall_point = i - 1;
->> +                       if (!err && prev_err)
->> +                               raise_point = i;
->> +               }
->> +
->> +               if (raise_point != -1 && fall_point != -1)
->> +                       goto tuning_out;
-> 
-> There are just these raise point (shouldn't this be "rise_point" in proper
-> english?) and fall point, this misses some comments explaining what is
-> going on, the code is not intuitively eviden. Rise and fall of *what* for
-> example.
-> 
->> +
->> +               prev_err = err;
->> +               err = 0;
->> +       }
->> +
->> +tuning_out:
->> +       if (found) {
->> +               if (raise_point == -1)
->> +                       raise_point = 0;
->> +               if (fall_point == -1)
->> +                       fall_point = grade - 1;
->> +               if (fall_point < raise_point) {
->> +                       if ((raise_point + fall_point) >
->> +                           (grade - 1))
->> +                               i = fall_point / 2;
->> +                       else
->> +                               i = (raise_point + grade - 1) / 2;
->> +               } else {
->> +                       i = (raise_point + fall_point) / 2;
->> +               }
-> 
-> Likewise here, explain what grade is, refer to the eMMC spec if necessary.
-> 
-> (...)
->> +       ret = of_parse_phandle_with_fixed_args(host->dev->of_node,
->> +                                               "starfive,sys-syscon", 3, 0, &args);
->> +       if (ret) {
->> +               dev_err(host->dev, "Failed to parse starfive,sys-syscon\n");
->> +               return -EINVAL;
->> +       }
->> +
->> +       priv->reg_syscon = syscon_node_to_regmap(args.np);
->> +       of_node_put(args.np);
->> +       if (IS_ERR(priv->reg_syscon))
->> +               return PTR_ERR(priv->reg_syscon);
->> +
->> +       priv->syscon_offset = args.args[0];
->> +       priv->syscon_shift  = args.args[1];
->> +       priv->syscon_mask   = args.args[2];
-> 
-> Why should these three things be in the device tree instead of being derived
-> from the compatible-string or just plain hard-coded as #defines?
-> I don't get it.
-> 
-Hi Linus,
+This requires some vetting from RobH/Robin to make sure we are using
+generic DT concepts (ie "ranges" property) the right way.
 
-I'm sorry to bother you, but as for the definition of syscon, after discussing with 
-my colleagues, we think it is easier to distinguish SDIO0 and SDIO1 by defining it in
-the device tree, and the code compatibility is better.
+Lorenzo
 
-Best Regards
-William Qiu
->> +static int dw_mci_starfive_probe(struct platform_device *pdev)
->> +{
->> +       return dw_mci_pltfm_register(pdev, &starfive_data);
->> +}
->> +
->> +static int dw_mci_starfive_remove(struct platform_device *pdev)
->> +{
->> +       return dw_mci_pltfm_remove(pdev);
->> +}
+> Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+>  drivers/pci/controller/pcie-microchip-host.c | 109 +++++++++++++++----
+>  1 file changed, 86 insertions(+), 23 deletions(-)
 > 
-> Can't you just assign dw_mci_pltfm_remove() to .remove?
+> diff --git a/drivers/pci/controller/pcie-microchip-host.c b/drivers/pci/controller/pcie-microchip-host.c
+> index c55911c48ec6..f3dfcdf39c8a 100644
+> --- a/drivers/pci/controller/pcie-microchip-host.c
+> +++ b/drivers/pci/controller/pcie-microchip-host.c
+> @@ -85,27 +85,42 @@
+>  #define IMSI_ADDR				0x190
+>  #define ISTATUS_MSI				0x194
+>  
+> +#define ATR_WINDOW_DESC_SIZE			32
+> +#define ATR_PCIE_ATR_SIZE			0x25
+> +#define ATR_SIZE_SHIFT				1
+> +#define ATR_IMPL_ENABLE				1
+> +
+>  /* PCIe Master table init defines */
+>  #define ATR0_PCIE_WIN0_SRCADDR_PARAM		0x600u
+> -#define  ATR0_PCIE_ATR_SIZE			0x25
+> -#define  ATR0_PCIE_ATR_SIZE_SHIFT		1
+>  #define ATR0_PCIE_WIN0_SRC_ADDR			0x604u
+>  #define ATR0_PCIE_WIN0_TRSL_ADDR_LSB		0x608u
+>  #define ATR0_PCIE_WIN0_TRSL_ADDR_UDW		0x60cu
+>  #define ATR0_PCIE_WIN0_TRSL_PARAM		0x610u
+>  
+> +enum {
+> +	TRSL_ID_PCIE_TXRX,
+> +	TRSL_ID_PCIE_CONFIG,
+> +	TRSL_ID_AXI4_LITE_MASTER,
+> +	TRSL_ID_AXI4_MASTER_0 = 4,
+> +	TRSL_ID_AXI4_MASTER_1,
+> +	TRSL_ID_AXI4_MASTER_2,
+> +	TRSL_ID_AXI4_MASTER_3,
+> +	TRSL_ID_AXI4_STREAM_0,
+> +	TRSL_ID_AXI4_STREAM_1,
+> +	TRSL_ID_AXI4_STREAM_2,
+> +	TRSL_ID_AXI4_STREAM_3,
+> +	TRSL_ID_INTERNAL_BRIDGE_REGISTERS
+> +};
+> +
+> +#define ATR0_PCIE_WIN0_TRSL_MASK_LSB		0x618u
+> +#define ATR0_PCIE_WIN0_TRSL_MASK_UDW		0x61cu
+> +
+>  /* PCIe AXI slave table init defines */
+>  #define ATR0_AXI4_SLV0_SRCADDR_PARAM		0x800u
+> -#define  ATR_SIZE_SHIFT				1
+> -#define  ATR_IMPL_ENABLE			1
+>  #define ATR0_AXI4_SLV0_SRC_ADDR			0x804u
+>  #define ATR0_AXI4_SLV0_TRSL_ADDR_LSB		0x808u
+>  #define ATR0_AXI4_SLV0_TRSL_ADDR_UDW		0x80cu
+>  #define ATR0_AXI4_SLV0_TRSL_PARAM		0x810u
+> -#define  PCIE_TX_RX_INTERFACE			0x00000000u
+> -#define  PCIE_CONFIG_INTERFACE			0x00000001u
+> -
+> -#define ATR_ENTRY_SIZE				32
+>  
+>  /* PCIe Controller Phy Regs */
+>  #define SEC_ERROR_EVENT_CNT			0x20
+> @@ -270,6 +285,7 @@ struct mc_pcie {
+>  	struct irq_domain *event_domain;
+>  	raw_spinlock_t lock;
+>  	struct mc_msi msi;
+> +	u64 outbound_range_offset;
+>  };
+>  
+>  struct cause {
+> @@ -936,36 +952,36 @@ static void mc_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
+>  				 phys_addr_t axi_addr, phys_addr_t pci_addr,
+>  				 size_t size)
+>  {
+> -	u32 atr_sz = ilog2(size) - 1;
+> +	u32 atr_size = ilog2(size) - 1;
+>  	u32 val;
+>  
+>  	if (index == 0)
+> -		val = PCIE_CONFIG_INTERFACE;
+> +		val = TRSL_ID_PCIE_CONFIG;
+>  	else
+> -		val = PCIE_TX_RX_INTERFACE;
+> +		val = TRSL_ID_PCIE_TXRX;
+>  
+> -	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
+> +	writel(val, bridge_base_addr + (index * ATR_WINDOW_DESC_SIZE) +
+>  	       ATR0_AXI4_SLV0_TRSL_PARAM);
+>  
+> -	val = lower_32_bits(axi_addr) | (atr_sz << ATR_SIZE_SHIFT) |
+> +	val = lower_32_bits(axi_addr) | (atr_size << ATR_SIZE_SHIFT) |
+>  			    ATR_IMPL_ENABLE;
+> -	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
+> +	writel(val, bridge_base_addr + (index * ATR_WINDOW_DESC_SIZE) +
+>  	       ATR0_AXI4_SLV0_SRCADDR_PARAM);
+>  
+>  	val = upper_32_bits(axi_addr);
+> -	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
+> +	writel(val, bridge_base_addr + (index * ATR_WINDOW_DESC_SIZE) +
+>  	       ATR0_AXI4_SLV0_SRC_ADDR);
+>  
+>  	val = lower_32_bits(pci_addr);
+> -	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
+> +	writel(val, bridge_base_addr + (index * ATR_WINDOW_DESC_SIZE) +
+>  	       ATR0_AXI4_SLV0_TRSL_ADDR_LSB);
+>  
+>  	val = upper_32_bits(pci_addr);
+> -	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
+> +	writel(val, bridge_base_addr + (index * ATR_WINDOW_DESC_SIZE) +
+>  	       ATR0_AXI4_SLV0_TRSL_ADDR_UDW);
+>  
+>  	val = readl(bridge_base_addr + ATR0_PCIE_WIN0_SRCADDR_PARAM);
+> -	val |= (ATR0_PCIE_ATR_SIZE << ATR0_PCIE_ATR_SIZE_SHIFT);
+> +	val |= (ATR_PCIE_ATR_SIZE << ATR_SIZE_SHIFT);
+>  	writel(val, bridge_base_addr + ATR0_PCIE_WIN0_SRCADDR_PARAM);
+>  	writel(0, bridge_base_addr + ATR0_PCIE_WIN0_SRC_ADDR);
+>  }
+> @@ -978,14 +994,14 @@ static int mc_pcie_setup_windows(struct platform_device *pdev,
+>  	struct pci_host_bridge *bridge = platform_get_drvdata(pdev);
+>  	struct resource_entry *entry;
+>  	u64 pci_addr;
+> -	u32 index = 1;
+> +	u32 index = 1; /* Window 0 used for config space */
+>  
+>  	resource_list_for_each_entry(entry, &bridge->windows) {
+>  		if (resource_type(entry->res) == IORESOURCE_MEM) {
+>  			pci_addr = entry->res->start - entry->offset;
+>  			mc_pcie_setup_window(bridge_base_addr, index,
+> -					     entry->res->start, pci_addr,
+> -					     resource_size(entry->res));
+> +					     entry->res->start - port->outbound_range_offset,
+> +					     pci_addr, resource_size(entry->res));
+>  			index++;
+>  		}
+>  	}
+> @@ -1109,6 +1125,44 @@ static int mc_init_interrupts(struct platform_device *pdev, struct mc_pcie *port
+>  	return 0;
+>  }
+>  
+> +static int mc_check_for_parent_range_handling(struct platform_device *pdev, struct mc_pcie *port)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct device_node *dn = dev->of_node;
+> +	struct of_range_parser parser;
+> +	struct of_range range;
+> +	u64 cpu_addr;
+> +
+> +	/* Find any pcie range */
+> +	if (of_range_parser_init(&parser, dn)) {
+> +		dev_err(dev, "missing ranges property\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	for_each_of_range(&parser, &range) {
+> +		cpu_addr = range.cpu_addr;
+> +		/*
+> +		 * First range is enough - extend if anyone ever needs more
+> +		 * than one fabric interface
+> +		 */
+> +		break;
+> +	}
+> +
+> +	/* Check for one level up; that is enough */
+> +	dn = of_get_parent(dn);
+> +	if (dn) {
+> +		of_range_parser_init(&parser, dn);
+> +		for_each_of_range(&parser, &range) {
+> +			/* Find the parent range that contains cpu_addr */
+> +			if (range.cpu_addr > port->outbound_range_offset &&
+> +			    range.cpu_addr < cpu_addr)
+> +				port->outbound_range_offset = range.cpu_addr;
+> +		}
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>  static int mc_platform_init(struct pci_config_window *cfg)
+>  {
+>  	struct device *dev = cfg->parent;
+> @@ -1117,9 +1171,18 @@ static int mc_platform_init(struct pci_config_window *cfg)
+>  		port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
+>  	int ret;
+>  
+> +	/*
+> +	 * Need information about any parent bus that may be performing some
+> +	 * of the outbound address translation to setup outbound address
+> +	 * translation tables later
+> +	 */
+> +	ret = mc_check_for_parent_range_handling(pdev, port);
+> +	if (ret)
+> +		return ret;
+> +
+>  	/* Configure address translation table 0 for PCIe config space */
+> -	mc_pcie_setup_window(bridge_base_addr, 0, cfg->res.start,
+> -			     cfg->res.start,
+> +	mc_pcie_setup_window(bridge_base_addr, 0, cfg->res.start - port->outbound_range_offset,
+> +			     cfg->res.start - port->outbound_range_offset,
+>  			     resource_size(&cfg->res));
+>  
+>  	/* Need some fixups in config space */
+> -- 
+> 2.25.1
 > 
-> Other than these things, the driver looks good!
 > 
-> Yours,
-> Linus Walleij
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
