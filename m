@@ -4,84 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB746C05027
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Feb 2023 18:49:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DB60C61DA4
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Feb 2023 18:57:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jkbWrmP4WYrxvY4eWSOgJTyvbxHc9iKt8cC00cuScmU=; b=LFnMTDhxNALEeT
-	IfIKgsy+/EESho1mNvznM+Q3JCaO+fHbyNAWvPWPATHdTKQRCiPBQLL25NMRWv2GHEifkzV95GNMs
-	vVKLfZ7e+gh4PKPGTu9b29xWobV6KQjxO/pPD2Z9jgPdmuGp8V4+4NyaUVuLa4QkY/cDoYgmWS888
-	Y91dkvaXdkLHQ5UpsRVlBiOsHguUnp2UJ/TijuAL/Ni99chfcfz0ImNL4BG8Sy+6hAY+TsIowBbEV
-	GS5IV2xFlUHKAUt4MteK2MQWMs/5Hg+QloN5m+ZKFWnQ+A+H0Z/t+p7Cca1TG3Xm3uOgTVwSwL/Uw
-	iEAu06mAeVw+EJx4/XdQ==;
+	List-Owner; bh=SwTRLVEtdtz27vxlhTOOI6YP9SHsRAdlo2hry+w33YY=; b=tWjyZma1rByh/4
+	wSV8ywCnAdQ2CwnT8vHtHkHc4Nb2tw0NbaUeZtasUNwTQsVYhbWnzCZZ4ZqR/HWaFSErDOwbR31aT
+	cRUbQ8n8x5tBmuf3d1YDaoxqlaq/28AHKac72IREp3A/FwThF0sD/CY0k9gKtmSpEG0fNaEn+ULdx
+	TGQ+K7HRYjQUM1QN02qPjrJq8CkOPx81TC8HS85kUUx9UmBNhhID6Fnw2Vf+S7vRhg2dqAndA/lFC
+	iH821//M3Z31bUevTsaxAmPgP89lx8VXBuK3B1F1RskuC8JYT5PtIDfEqdxIu++UO49soGVfy7v/k
+	NkclV/zzc9lraV+MvCTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNedr-00GzuY-BR; Thu, 02 Feb 2023 18:49:03 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNedo-00GztA-D1
-	for linux-riscv@lists.infradead.org; Thu, 02 Feb 2023 18:49:01 +0000
-Received: by mail-wm1-x329.google.com with SMTP id d4-20020a05600c3ac400b003db1de2aef0so2181201wms.2
-        for <linux-riscv@lists.infradead.org>; Thu, 02 Feb 2023 10:48:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=hyIuku1DLw3Kq70v/GpC6w5pbvVSADLCrJO9Kfo6jnE=;
-        b=B+hTTsIpPXufuh3YNnn326L0bofkR55sUD2C8YR4wnrOd/T1pmzVKMOGZ2CELwjlPN
-         +XxqxDdGE7UKGrlA1VOtX5E9ROQUhY5tg0i9lb6iqcfoRnbFieEPHMoHuP+MFQ2M/fz2
-         /KJ7/CM6DXm8xHX2Vxeq3pZ9fbyPAkWPmw/FfqCgM45DFRIv6gkJZ18TmzF6UKyfuL9Q
-         8RzM18wxGX7Z6cvhzE5QsQ1qZpRqQPpO2NhxWleXS73tkmWPhhhpkRY0A98ULGmcg8fF
-         /Y3EeZdihnRtEzs/XWNudPzXhTK6eQ9beFixFwDTWVhmhhtjb/Q5VCO93LxiNG8GqVt2
-         ZBeg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=hyIuku1DLw3Kq70v/GpC6w5pbvVSADLCrJO9Kfo6jnE=;
-        b=IuSyVSW2+Swjm1GGHPNLPb+N/lQkKDPfHKqaQoAEGhzRYv3F+hIINqC/bjgEZ61SmN
-         4Nh2b0QpMgqqm48kZ+JvzAALlnvYhQQSe3rS6JZtH+7tu/8ajZFRTAttfJdt/2EIjEu6
-         txo7tlOivwioovAbJm+0/h7zRGDZaiNs2kfHwlVJM0lUqCFvb/e6IUvxTXW3Gfl4HOLj
-         XAkIKsgzaQqR4TXFpyGrrYywjyH7WC11XZCV0JptN4rP5ibsR+06b0W04LC4ANHksYEA
-         YXJaYEmEH/ZZN0tcstWrUVMB9x8UN4TRtVP27Wgsm5g4QH+gANkulkU8Qu76tEf4+gEa
-         oQIw==
-X-Gm-Message-State: AO0yUKXpJ7qmVA5y75ueThGUx65ReZubsykltXMelLe4zHQzcXCVjvbW
-	/i8AZseR+iUaffBS/UGzemNncA==
-X-Google-Smtp-Source: AK7set9DkB6Y38JyS2pl/dSssNbOlSVrKpDPsMqQqNpIhqkiEvGOx+L4qp0KckHTYsEBBlDSUGZFBw==
-X-Received: by 2002:a05:600c:601b:b0:3dc:443e:4212 with SMTP id az27-20020a05600c601b00b003dc443e4212mr7330912wmb.1.1675363738367;
-        Thu, 02 Feb 2023 10:48:58 -0800 (PST)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id l21-20020a05600c1d1500b003dc59d6f2f8sm655370wms.17.2023.02.02.10.48.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 Feb 2023 10:48:58 -0800 (PST)
-Date: Thu, 2 Feb 2023 19:48:57 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Atish Patra <atishp@rivosinc.com>
-Cc: linux-kernel@vger.kernel.org, Anup Patel <anup@brainfault.org>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Atish Patra <atishp@atishpatra.org>, Eric Lin <eric.lin@sifive.com>,
-	Guo Ren <guoren@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
-	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH v4 14/14] RISC-V: KVM: Increment firmware pmu events
-Message-ID: <20230202184857.knf3cle6j2cd7a4n@orel>
-References: <20230201231250.3806412-1-atishp@rivosinc.com>
- <20230201231250.3806412-15-atishp@rivosinc.com>
+	id 1pNem9-00H0xR-9J; Thu, 02 Feb 2023 18:57:37 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pNem4-00H0si-5K
+	for linux-riscv@lists.infradead.org; Thu, 02 Feb 2023 18:57:35 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 2846524DC94;
+	Fri,  3 Feb 2023 02:56:43 +0800 (CST)
+Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 3 Feb
+ 2023 02:56:43 +0800
+Received: from [172.16.16.234] (113.72.144.195) by EXMBX172.cuchost.com
+ (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 3 Feb
+ 2023 02:56:42 +0800
+Message-ID: <df6755ed-a358-ea01-d89e-f3c004b9c297@starfivetech.com>
+Date: Fri, 3 Feb 2023 02:56:41 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230201231250.3806412-15-atishp@rivosinc.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.6.1
+Subject: Re: [PATCH v3 6/7] riscv: dts: starfive: Add initial StarFive JH7110
+ device tree
+Content-Language: en-US
+To: Conor Dooley <conor.dooley@microchip.com>
+CC: Conor Dooley <conor@kernel.org>, <linux-riscv@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, "Rob
+ Herring" <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, Ben Dooks
+	<ben.dooks@sifive.com>, Daniel Lezcano <daniel.lezcano@linaro.org>, "Thomas
+ Gleixner" <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Stephen Boyd
+	<sboyd@kernel.org>, Michael Turquette <mturquette@baylibre.com>, "Philipp
+ Zabel" <p.zabel@pengutronix.de>, Linus Walleij <linus.walleij@linaro.org>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	<linux-kernel@vger.kernel.org>
+References: <20221220011247.35560-1-hal.feng@starfivetech.com>
+ <20221220011247.35560-7-hal.feng@starfivetech.com> <Y6zHy9oL4xzl+6Rd@spud>
+ <c507e0b2-5ca3-cffe-55d2-873ed8c24e3d@starfivetech.com>
+ <Y9og8Q2UnJ452KH/@wendy>
+From: Hal Feng <hal.feng@starfivetech.com>
+In-Reply-To: <Y9og8Q2UnJ452KH/@wendy>
+X-Originating-IP: [113.72.144.195]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX172.cuchost.com
+ (172.16.6.92)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230202_104900_462652_4E104FBD 
-X-CRM114-Status: GOOD (  10.10  )
+X-CRM114-CacheID: sfid-20230202_105732_560367_0BDE6ABF 
+X-CRM114-Status: GOOD (  34.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,19 +85,158 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 01, 2023 at 03:12:50PM -0800, Atish Patra wrote:
-> KVM supports firmware events now. Invoke the firmware event increment
-> function from appropriate places.
+On Wed, 1 Feb 2023 08:21:05 +0000, Conor Dooley wrote:
+> On Wed, Feb 01, 2023 at 03:21:48PM +0800, Hal Feng wrote:
+>> On Wed, 28 Dec 2022 22:48:43 +0000, Conor Dooley wrote:
+>> > On Tue, Dec 20, 2022 at 09:12:46AM +0800, Hal Feng wrote:
 > 
-> Reviewed-by: Anup Patel <anup@brainfault.org>
-> Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> ---
->  arch/riscv/kvm/tlb.c              | 4 ++++
->  arch/riscv/kvm/vcpu_sbi_replace.c | 7 +++++++
->  2 files changed, 11 insertions(+)
->
+>> >> +/ {
+>> >> +	compatible = "starfive,jh7110";
+>> >> +	#address-cells = <2>;
+>> >> +	#size-cells = <2>;
+>> >> +
+>> >> +	cpus {
+>> >> +		#address-cells = <1>;
+>> >> +		#size-cells = <0>;
+>> >> +
+>> >> +		S76_0: cpu@0 {
+>> >> +			compatible = "sifive,u74-mc", "riscv";
+>> > 
+>> > The label here says S76 but the compatible says u74-mc.
+>> 
+>> U74-MC has 5 cores including 1 * S7 core and 4 * U74 cores.
+>> 
+>> > Which is correct? Your docs say S7 and S76, so I would imagine that it
+>> > is actually an S76?
+>> 
+>> I found SiFive website [1] call it S76, but call it S7 in other places.
+>> So I misunderstood this. Considering the ISA difference you described
+>> as below, I think it's proper to change the label to "S7_0".
+> 
+> I'm less worried about the label & more interested in the compatible.
+> hart0 is, as you say, not a u74. Should we not be adding a "sifive,s7"
+> compatible string to Documentation/devicetree/bindings/riscv/cpus.yaml
+> and using that here instead?
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+First of all, it's my fault that I didn't check the revision of U74-MC
+manual, so most of my previous replies might not make sense.
+
+If we add a new compatible string for S7, should we change the compatibles
+of hart1~3 to "sifive,u74" also? And then, there may be no point keeping some
+compatible strings of core complex like "sifive,u74-mc" and "sifive,u54-mc".
+I'm not sure about this.
+
+> 
+>> 
+>> [1] https://www.sifive.com/cores/essential
+>> 
+>> > 
+>> >> +			reg = <0>;
+>> >> +			d-cache-block-size = <64>;
+>> >> +			d-cache-sets = <64>;
+>> >> +			d-cache-size = <8192>;
+>> >> +			d-tlb-sets = <1>;
+>> >> +			d-tlb-size = <40>;
+>> >> +			device_type = "cpu";
+>> >> +			i-cache-block-size = <64>;
+>> >> +			i-cache-sets = <64>;
+>> >> +			i-cache-size = <16384>;
+>> >> +			i-tlb-sets = <1>;
+>> >> +			i-tlb-size = <40>;
+>> >> +			mmu-type = "riscv,sv39";
+>> >> +			next-level-cache = <&ccache>;
+>> >> +			riscv,isa = "rv64imac";
+>> > 
+>> > While I was poking around trying to see if there was some logic behind
+>> > that compatible, I noticed that SiFive's docs for the S76 say it is
+>> > RV64GBC *but* the docs for the u74-mc say "4xRV64GBC and 1xRV64IMAC".
+>> > I assume that rv64imac is the correct one here?
+>> 
+>> Yes, "RV64IMAC" is correct. The monitor core in U74-MC is a
+>> S7-series core, not S76.
+> 
+> Cool, thanks.
+
+Now I think it might be another version of S76.
+
+> 
+>> >> +			tlb-split;
+>> >> +			status = "disabled";
+>> >> +
+>> >> +			cpu0_intc: interrupt-controller {
+>> >> +				compatible = "riscv,cpu-intc";
+>> >> +				interrupt-controller;
+>> >> +				#interrupt-cells = <1>;
+>> >> +			};
+>> >> +		};
+>> >> +
+>> >> +		U74_1: cpu@1 {
+>> >> +			compatible = "sifive,u74-mc", "riscv";
+>> >> +			reg = <1>;
+>> >> +			d-cache-block-size = <64>;
+>> >> +			d-cache-sets = <64>;
+>> >> +			d-cache-size = <32768>;
+>> >> +			d-tlb-sets = <1>;
+>> >> +			d-tlb-size = <40>;
+>> >> +			device_type = "cpu";
+>> >> +			i-cache-block-size = <64>;
+>> >> +			i-cache-sets = <64>;
+>> >> +			i-cache-size = <32768>;
+>> >> +			i-tlb-sets = <1>;
+>> >> +			i-tlb-size = <40>;
+>> >> +			mmu-type = "riscv,sv39";
+>> >> +			next-level-cache = <&ccache>;
+>> >> +			riscv,isa = "rv64imafdc";
+>> > 
+>> > That also begs the question:
+>> > Do your u74s support RV64GBC, as the (current) SiFive documentation
+>> > suggests?
+>> 
+>> Actually, U74 doesn't support the full B extension, and the SiFive doc [1]
+> 
+> Yeah, I knew asking that question that the "RV64GBC" in SiFive's online
+> documentation was using outdated terminology. Also, that is not the doc
+> for your core complex as far as I can tell. That is the document for
+> impid 0x0621_1222, whereas (IIRC) your core is 0x0421_0427.
+> Jess and I had a look one evening but could not find the 21G1.02.00
+> revision of this document, which is the one corresponding to 0x421_0427.
+> See Table 92 for more details.
+
+I found the 21G1.02.00 revision on StarFive internal net, but I'm not sure
+whether I can make it public and I am checking this. This revision records
+that the ISA of 21G1.02.00 U74 is "RV64GCB" and ISA of 21G1.02.00 S7 is
+"RV64IMACB". I am asking someone to check with SiFive whether both 21G1.02.00
+U74 and S7 support the full B extension.
+
+> 
+>> describes the ISA of U74 is "RV64GC_Zba_Zbb_Sscofpmf" which "G" includes
+>> "IMAFD".
+> 
+> I could not find the 21G1.02.00 version of this document online, but I
+> was able to find the 21G1.01.00 version of it & that version does not
+> support the Sscofpmf extension (but does have Zba/Zbb support).
+> 
+>> "_Zba_Zbb_Sscofpmf" is not shown in other device trees such as
+>> jh7100.dtsi and fu740-c000.dtsi, so I didn't show them here.
+> 
+> Just because other devicetrees omit them, doesn't mean that you should
+> too!
+> This compatible should be an accurate description of your hardware, so
+> you should add what you actually have.
+
+Will keep it in mind. Thank you.
+
+Best regards,
+Hal
+
+> If you have Zba and Zbb, then add them.
+> I would double check against your internal documentation for 21G2.02.00
+> as to whether you do have Sscofpmf, and if you do, add that too!
+> 
+> That way, whenever support for those extensions lands, the jh7110 will
+> automatically pick it up, rather than needing to have them retrofitted.
+> 
+>> [1] https://sifive.cdn.prismic.io/sifive/2dd11994-693c-4360-8aea-5453d8642c42_u74mc_core_complex_manual_21G3.pdf
 
 _______________________________________________
 linux-riscv mailing list
