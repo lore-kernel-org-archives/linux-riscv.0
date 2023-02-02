@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA978C61DA4
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Feb 2023 15:16:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8726C636D4
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Feb 2023 15:27:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3gxZff650v6KfgNqTNAQINxxSK7MhcGuOfDnKnEYEVg=; b=nFREx6HuYkSV6O
-	rAwWuToeeCM90O3rZo2FkvtFajWb5JYGllXy+AfKiIHF2LqIProWE0iLJTJ2BuQywN8lh0MQXCFrc
-	r5uYsJxUut26N40fRA4n9jLXBHvTAVVDOeRiivHQj/lTfJnjChHCcCgtzCiq9qkywnPOPNT74pCV8
-	RA1wjKxxkUdot0iO+If+Ru+YxpBentjjEVW9F+1nyxxq1f7NUcs09wMo060qKtOf1Z41h6OiKCgxC
-	tP1BF2ImvXHzjJAxJ94kWF7u3HCI3k0adOmeHayhb4pdBTBY4Ua4o0WwlIX3nxftBtksnEEdWRYlW
-	mmbIX8k21MdMNTl0Hgkw==;
+	List-Owner; bh=7bc6f0GyQuN2Qms+GXu4dc3+jEBPu74B8meWE9r6nvI=; b=Xa5GQmbN9Ad4w1
+	ND5uAut4lwQipk5Ubeots1EHebrPYxjPknQ2sIqT7BN24yF4zknCWtGTiNDaEQ8fTRU6mGYPscp5a
+	mloCMZy5BsDgpPL7g0ZRCyrbdaYK+m8lx5Pv9bQn7KglkS1ibqXiR4TKFggE17rdrQUQn3XWB1NRm
+	fq81jauy4CcqQ+JjMwyFgzOXtG8eLMk6+Ae93xzpJJbUxmUYYukt7lu6rXbgzDsL6+vwoWbGcujTD
+	xX1g68sjglu96/kstcQW29hnun3s3yVjwePvqJTVoPzWSz79JlMyYxK8oB0rAdQUWjolDLJ5H/u8k
+	vsXKcBYvTBnry6SaPtng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNbKR-00GIbr-Q7; Thu, 02 Feb 2023 15:16:47 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1pNbUz-00GMbd-6i; Thu, 02 Feb 2023 15:27:41 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNbKP-00GIae-Fm
-	for linux-riscv@lists.infradead.org; Thu, 02 Feb 2023 15:16:46 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id y1so2033220wru.2
-        for <linux-riscv@lists.infradead.org>; Thu, 02 Feb 2023 07:16:43 -0800 (PST)
+	id 1pNbTj-00GLx1-GJ
+	for linux-riscv@lists.infradead.org; Thu, 02 Feb 2023 15:26:27 +0000
+Received: by mail-wm1-x332.google.com with SMTP id n13so1680772wmr.4
+        for <linux-riscv@lists.infradead.org>; Thu, 02 Feb 2023 07:26:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=ventanamicro.com; s=google;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=kFKtikxweyiapl+IexctfEvOemBJ00V0d++S9NjR+cA=;
-        b=Xxoh56A0bGbr6ATBS+F/o7XGC9BVns5iYvUq1bgY1JH3FFR2ms2tOlDI/KrPgl6x1/
-         CtUjKGWTSzFfyzOyDbToAsSzXeThYgu6/Sg5uH60HUXXpVx+tGj6993mBkC9ch9FL/cZ
-         lCj4mPFpEV6XvuV4Jd1c2n7eeKvgwml3FjysuBGFh4N3q8cNhGQ4oFlpx9ObLO3BZ8Di
-         WV8d2+WzrxtJYPSs+gU6wxiLUbbh/K2pno3etTmUnQTF1fFaFLxwFSk3/cZka4uYoMtB
-         DKPFEoHS45dhjS9NsQSRMTBPR3NEjmY/eWBZk9uPu1rNllZpEh5PN+kTZoPJZIS1PUqQ
-         8lJA==
+        bh=7JvyQzIXrYzZCLKNZaj6R2VAhQkxcWFvbrbB71vdxiY=;
+        b=NFzaXziAMdjXMefgcdiIfAgykFIib8kqV4hgNeJjK7p5d5YDI2LqUstwoCbzQzurAz
+         io45S8prq1FQH4h5x5dwUpFdaBwyK3neV2Gx5dQQ3zg1scQDvsEqJkvO6Qh2+G4+8tdv
+         Vw+VGgpptbsjVhDVpNayJJ0o0V4+wF94Ou9oCfK9m6VtQdLQKEK5wNUFP9oU2jT5c8rL
+         DWsi+i/SGgJKRq4aN/PUXbz/yIxZjyi35j0Chyy649aw33SAdtKaUTOPhMB4aklU3Ktd
+         cd1N75tJ+YuGpuCsDmQ9thbyXUhda0nxpCxP7sBXIq8wgp/ZS1qiASJYyX1WVlJkXYr9
+         hZhg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=kFKtikxweyiapl+IexctfEvOemBJ00V0d++S9NjR+cA=;
-        b=D6MKVcEH5dxEKfYoZJlJOL/ANUJmNijB0N6PdG/7HsDlClof+UxXsLrwAWcKEgeFdJ
-         qz0j+dTPGcAKRBatGzOlEWCtSD4G7ROSGnpQUNDvKiiTfeaSLTuHJmQnMj2o1VH6ywYc
-         oHpgJpK2jZ00HYcXJy9q2zvR7+ediG4YL0cb6aJEKAsq1vuD9Hz16BukHsjB1LqJqlGy
-         Dvo9+fijBRPwx7kDmixhlNInGMfBektWCc69Cs3GYbm2X4XBbdM0s8z0UMaQSYEzesw1
-         We/TbUafcswN11CkfQKReDrGkLZycdM8IkD0Ci/xnpgtWPIhKUxw+XJXjfKg39xTNcKI
-         DkZQ==
-X-Gm-Message-State: AO0yUKXzA8MuctV3dKzKkxXTIBP6DaKrbNPmB1m38Cq+eAn3TsCnd6Li
-	RLFHydc8dYsRFE+YJipNZCtBeQ==
-X-Google-Smtp-Source: AK7set9YcrVZ/I2ivVOBp6ZoJ4SQrCDwR3cYdEI9FCeixtQZ93JzJvaZ6A2Tfoc6K8O9v/+aSTjmzw==
-X-Received: by 2002:a5d:4d85:0:b0:2be:3ccd:7f37 with SMTP id b5-20020a5d4d85000000b002be3ccd7f37mr5600723wru.52.1675351002561;
-        Thu, 02 Feb 2023 07:16:42 -0800 (PST)
+        bh=7JvyQzIXrYzZCLKNZaj6R2VAhQkxcWFvbrbB71vdxiY=;
+        b=hgIXwkd7oy8q7qWOp7xkU5Tzsgqfg6Bix7rUrH6+/A6GtLq8ZXlSL5rj6yGZt1+Zsx
+         By6eGhqV27Zxjh8zepdF3MRzi/R9C0wLAnw6Y8Cu9cbLbeuapDgGnXffKS1COjStzSg1
+         gdBVeStBGFPsg24L5mSYOthsCNjzTmeFIzq/h8xiyNlvSGSBXSc2I1j7vV+MtDfR4WfI
+         AsbK+8m8vTUheoBWZJhIWFoBZcwVaFh75xOmDO7k6SOTOcfjHPljUW1jcYo8Dfn1ssEq
+         utObwOP1dyUpiQ7pRGvdRhfFZK2Y9btuJVL1D3e0kLn9bvvi7Mgy4gUDChtt4QDm97dN
+         KW3A==
+X-Gm-Message-State: AO0yUKWnFt5QurZy6i3WYP9/YPYY2xe+9l2wL0QKHsVuTcZJv97fScD1
+	u6MmbJVUmIgjIfzeSim8HjQEZA==
+X-Google-Smtp-Source: AK7set9A4n18kl9i4UwguaAeoWR339x/GVj5QRqPXZsZybE64WhTf8z+GJ2nA61mcrarXb55EnXjHg==
+X-Received: by 2002:a05:600c:601b:b0:3db:2063:425d with SMTP id az27-20020a05600c601b00b003db2063425dmr6128224wmb.2.1675351581811;
+        Thu, 02 Feb 2023 07:26:21 -0800 (PST)
 Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id a13-20020adfeecd000000b002bbedd60a9asm19927404wrp.77.2023.02.02.07.16.41
+        by smtp.gmail.com with ESMTPSA id h16-20020a05600c351000b003dc521f336esm41967wmq.14.2023.02.02.07.26.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 Feb 2023 07:16:42 -0800 (PST)
-Date: Thu, 2 Feb 2023 16:16:41 +0100
+        Thu, 02 Feb 2023 07:26:21 -0800 (PST)
+Date: Thu, 2 Feb 2023 16:26:20 +0100
 From: Andrew Jones <ajones@ventanamicro.com>
 To: Atish Patra <atishp@rivosinc.com>
 Cc: linux-kernel@vger.kernel.org, Anup Patel <anup@brainfault.org>,
@@ -72,18 +72,17 @@ Cc: linux-kernel@vger.kernel.org, Anup Patel <anup@brainfault.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH v4 04/14] RISC-V: KVM: Define a probe function for SBI
- extension data structures
-Message-ID: <20230202151641.6edhtlf7fz7xsmdy@orel>
+Subject: Re: [PATCH v4 05/14] RISC-V: KVM: Return correct code for hsm stop
+ function
+Message-ID: <20230202152620.q4vfqqqtbz6cfyf4@orel>
 References: <20230201231250.3806412-1-atishp@rivosinc.com>
- <20230201231250.3806412-5-atishp@rivosinc.com>
- <20230202151433.kspo2g7cqsccoqsq@orel>
+ <20230201231250.3806412-6-atishp@rivosinc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230202151433.kspo2g7cqsccoqsq@orel>
+In-Reply-To: <20230201231250.3806412-6-atishp@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230202_071645_547364_08C18C3F 
-X-CRM114-Status: GOOD (  28.46  )
+X-CRM114-CacheID: sfid-20230202_072623_584246_DBE0DEF5 
+X-CRM114-Status: GOOD (  20.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,92 +99,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 02, 2023 at 04:14:35PM +0100, Andrew Jones wrote:
-> On Wed, Feb 01, 2023 at 03:12:40PM -0800, Atish Patra wrote:
-> > Currently the probe function just checks if an SBI extension is
-> > registered or not. However, the extension may not want to advertise
-> > itself depending on some other condition.
-> > An additional extension specific probe function will allow
-> > extensions to decide if they want to be advertised to the caller or
-> > not. Any extension that does not require additional dependency checks
-> > can avoid implementing this function.
-> > 
-> > Reviewed-by: Anup Patel <anup@brainfault.org>
-> > Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> > ---
-> >  arch/riscv/include/asm/kvm_vcpu_sbi.h |  3 +++
-> >  arch/riscv/kvm/vcpu_sbi_base.c        | 13 +++++++++++--
-> >  2 files changed, 14 insertions(+), 2 deletions(-)
-> > 
-> > diff --git a/arch/riscv/include/asm/kvm_vcpu_sbi.h b/arch/riscv/include/asm/kvm_vcpu_sbi.h
-> > index f79478a..45ba341 100644
-> > --- a/arch/riscv/include/asm/kvm_vcpu_sbi.h
-> > +++ b/arch/riscv/include/asm/kvm_vcpu_sbi.h
-> > @@ -29,6 +29,9 @@ struct kvm_vcpu_sbi_extension {
-> >  	int (*handler)(struct kvm_vcpu *vcpu, struct kvm_run *run,
-> >  		       unsigned long *out_val, struct kvm_cpu_trap *utrap,
-> >  		       bool *exit);
-> > +
-> > +	/* Extension specific probe function */
-> > +	unsigned long (*probe)(struct kvm_vcpu *vcpu);
-> >  };
-> >  
-> >  void kvm_riscv_vcpu_sbi_forward(struct kvm_vcpu *vcpu, struct kvm_run *run);
-> > diff --git a/arch/riscv/kvm/vcpu_sbi_base.c b/arch/riscv/kvm/vcpu_sbi_base.c
-> > index 5d65c63..846d518 100644
-> > --- a/arch/riscv/kvm/vcpu_sbi_base.c
-> > +++ b/arch/riscv/kvm/vcpu_sbi_base.c
-> > @@ -19,6 +19,7 @@ static int kvm_sbi_ext_base_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
-> >  {
-> >  	int ret = 0;
-> >  	struct kvm_cpu_context *cp = &vcpu->arch.guest_context;
-> > +	const struct kvm_vcpu_sbi_extension *sbi_ext;
-> >  
-> >  	switch (cp->a6) {
-> >  	case SBI_EXT_BASE_GET_SPEC_VERSION:
-> > @@ -43,8 +44,16 @@ static int kvm_sbi_ext_base_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
-> >  			 */
-> >  			kvm_riscv_vcpu_sbi_forward(vcpu, run);
-> >  			*exit = true;
-> > -		} else
-> > -			*out_val = kvm_vcpu_sbi_find_ext(cp->a0) ? 1 : 0;
-> > +		} else {
-> > +			sbi_ext = kvm_vcpu_sbi_find_ext(cp->a0);
-> > +			if (sbi_ext) {
-> > +				if (sbi_ext->probe)
-> > +					*out_val = sbi_ext->probe(vcpu);
-> > +				else
-> > +					*out_val = 1;
-> > +			} else
-> > +				*out_val = 0;
+On Wed, Feb 01, 2023 at 03:12:41PM -0800, Atish Patra wrote:
+> According to the SBI specification, the stop function can only
+> return error code SBI_ERR_FAILED. However, currently it returns
+> -EINVAL which will be mapped SBI_ERR_INVALID_PARAM.
 > 
-> Conor points out elsewhere that we need {} on both arms if one arm needs
-> it. We actually don't need {} on either arm, though, or even the if, if
-> we rewrite as
+> Return an linux error code that maps to SBI_ERR_FAILED i.e doesn't map
+> to any other SBI error code. While EACCES is not the best error code
+> to describe the situation, it is close enough and will be replaced
+> with SBI error codes directly anyways.
 > 
->  *out_val = sbi_ext && sbi_ext->probe ? sbi_ext->probe(vcpu) : !!sbi_ext;
-
-I sent too soon, I meant to add
-
-In any case,
+> Reviewed-by: Anup Patel <anup@brainfault.org>
+> Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> ---
+>  arch/riscv/kvm/vcpu_sbi_hsm.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/riscv/kvm/vcpu_sbi_hsm.c b/arch/riscv/kvm/vcpu_sbi_hsm.c
+> index 2e915ca..619ac0f 100644
+> --- a/arch/riscv/kvm/vcpu_sbi_hsm.c
+> +++ b/arch/riscv/kvm/vcpu_sbi_hsm.c
+> @@ -42,7 +42,7 @@ static int kvm_sbi_hsm_vcpu_start(struct kvm_vcpu *vcpu)
+>  static int kvm_sbi_hsm_vcpu_stop(struct kvm_vcpu *vcpu)
+>  {
+>  	if (vcpu->arch.power_off)
+> -		return -EINVAL;
+> +		return -EACCES;
+>  
+>  	kvm_riscv_vcpu_power_off(vcpu);
+>  
+> -- 
+> 2.25.1
+>
 
 Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-
-Thanks,
-drew
-
-
-> 
-> Thanks,
-> drew
-> 
-> > +		}
-> >  		break;
-> >  	case SBI_EXT_BASE_GET_MVENDORID:
-> >  		*out_val = vcpu->arch.mvendorid;
-> > -- 
-> > 2.25.1
-> > 
 
 _______________________________________________
 linux-riscv mailing list
