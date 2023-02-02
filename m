@@ -4,65 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CD60C61DA4
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Feb 2023 08:33:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B4FDC61DA4
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Feb 2023 08:49:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RXZUIcZjV2+2lyADXwFD3qBBZyaowJL6/JZZbM2gIVY=; b=wnvfSxJLdLEcjP
-	0zxzm0KKzuTe3HHjHaI5eqhRx9DWLgXIdEnZNrgF3eIPIvFEakBcsetB4knXRny4iml1dOBPVh83m
-	PSE6xo2sZqZVLV04kQUEgtZfzREdD4HLTi6wt8w1GPFldGK4A+NbE0w1PJCsry7EUDSEHXvAO9Sl8
-	YT07MC51MAaf/fGC/Zz57XyEm2QtOMxgcYyqTLU3mDhqMYpxUu3t4LTU6nMr2RNCJ4UygRxDYOmbJ
-	6mzzyi7+UUAqwioQVzM+05J8bc6XToSZzHuIFkEGBevT+7/0hpjoFWbf59qr4Jpbw+IClH0hYBLu+
-	wcV0nBwxu32uvKBNotkw==;
+	List-Owner; bh=lkSugUmUsUW5UOmiiRKjingPFmm5ptdjaxMiHkBRhLs=; b=Xjz4G45LINx40U
+	HZHaqJY4IF4DH2wPujkkcEe2wwnZ0k85w9ywyeeflfHlOlDxkEPY3kruT9Z7ELcVec4unkL0FbKsv
+	jv4EcF/3Lx1Ls/WwySNYVFLKJP9bwxWU9MfGtnR8j0FN7wQa52ZIbop36w0hmSyTADAlgnz3Se71x
+	4rUxYOc24FBeYak3w2DaeheR4CzfgEQqHxugWBpDCyb6b6arCYaisP0nnWcKYSMqgouChvD9nK31G
+	4CygLCjZD0bk+e6BTErSz735u+m4/AR10OMXXMiSgHdUCCj5o1p4oacl95toGAGr6FGHEuoQJSqJe
+	aNkEj2H3hN2wmf6cAfaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNV25-00Exh3-Ik; Thu, 02 Feb 2023 08:33:25 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pNVHq-00F1pZ-JJ; Thu, 02 Feb 2023 08:49:42 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNV0z-00Ex7d-O4
-	for linux-riscv@lists.infradead.org; Thu, 02 Feb 2023 08:32:18 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id A85D661920;
-	Thu,  2 Feb 2023 08:32:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1CADC433EF;
-	Thu,  2 Feb 2023 08:32:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1675326736;
-	bh=em+SA8bH+Ubycp8Mf1txaZ7e8DD8A60wBth/RmYKOBc=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=u+5WKahB1r6X27Df3qzWXCmH1Ssws9qhIS5elNMhpfG2fNEd5hBYm41/xm5JERarP
-	 SQgY3E1J+aLBWYsYOZvSfZvx3LCMBi7OvW7IUz2q9e2x3LDxsC9WMRFZcrPVB8X9Oa
-	 sSr/Vyfww9U2vUMKQpwMW8sHYozZrHPR8fPWNmJCQtCqEIl+NtfSjxcDJWIvQsvc17
-	 44m+xq/z2kFk1L6zaJ84niYG19C/uMgK83+/k7C2mzHRwjJb7ARXUj3i77KUaEPJok
-	 ClHfWe8w9UFlQNs9hehcNpne1OrBFmflqvqWIWGhtT7nt9wG4LmOqOVlMnsWrKqPTK
-	 ptIANM7k7Gg+Q==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Guo Ren <guoren@kernel.org>
-Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, mhiramat@kernel.org,
- conor.dooley@microchip.com, penberg@kernel.org, mark.rutland@arm.com,
- liaochang <liaochang1@huawei.com>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>
-Subject: Re: [PATCH] riscv: kprobe: Fixup kernel panic when probing an
- illegal position
-In-Reply-To: <CAJF2gTTn52FWRU9-ZqDLpTUe0BkLgttP3NOyk-PzxJbbX75cPg@mail.gmail.com>
-References: <20230126130509.1418251-1-guoren@kernel.org>
- <878rhig9zj.fsf@all.your.base.are.belong.to.us>
- <CAJF2gTQHDmT=XWE=j8+5Y5ogKh4qNMpXCwAa+7wXEkBit0ujXw@mail.gmail.com>
- <87357pravt.fsf@all.your.base.are.belong.to.us>
- <CAJF2gTTn52FWRU9-ZqDLpTUe0BkLgttP3NOyk-PzxJbbX75cPg@mail.gmail.com>
-Date: Thu, 02 Feb 2023 09:32:13 +0100
-Message-ID: <87ilgk79iq.fsf@all.your.base.are.belong.to.us>
+	id 1pNVHn-00F1oX-A6
+	for linux-riscv@lists.infradead.org; Thu, 02 Feb 2023 08:49:40 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id mf7so3906112ejc.6
+        for <linux-riscv@lists.infradead.org>; Thu, 02 Feb 2023 00:49:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=scOOV9S3a4QBlzHpx87cDvuev3VEso20BNEexdmKlT0=;
+        b=O3nVgV9gtylTwn60p8kK9nZJZAoCc9Ha3iSF7VeLPJh/boPlEGgsEPEHEFjH8JnJwd
+         6tmiA7JTfitRNVs4FO8C0pxnMHwq4vv6sZceQKNZJwi7VUaSVMVWPFml6hLKnt9kcd+Y
+         uLwneuso9EiX+opusRuUOkRANvzQqcZqDc3idsjXEGt2My08V6zhbGslYIXHKccK8Pcx
+         c8LZpp9pOB0rQT6HQaySWrbs/EMBFWRMArEOPwlGuHPcBgu1CNCVBt8RIc8hVREJ0uMB
+         /HdDYcwEVvfwxdLlcgZK8Q72tKxZ7W2tfRsQDTne3VkaW0T4ir1YHExTH9YtstvtmoAW
+         ocVA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=scOOV9S3a4QBlzHpx87cDvuev3VEso20BNEexdmKlT0=;
+        b=ahyCsIHwksJQCZT6PoQqvZOAC0p0PJS1ho+Oa/qgSt4VwRbxBDo1+y1n1zmlVRxUQk
+         k82uynQVd5lXirCNCLO6YxAhwggz+2RV1nQy3ILOlN4MvPqF0w1CbJ4M12bfAcc58a1k
+         aLwlCx8KyYxXXJKYBmJpZ/62YtF1NjQSK9B0/+BQ3nWUVhR/CiabQ/8Gy5wbJY5EmHSD
+         EbMTJNfYaujQxCTC2xOVj2TPwu8MlTHeGtVGSFQ0tAWsw3qUPUpNRo4pniKRW5A7n6kr
+         uBNMAE2EJoTGmh9bWs3lENO/scTdUQ58Z+/sNa+qFV1zcPcBaP34iXxhmY/jJpMowjIq
+         ON/w==
+X-Gm-Message-State: AO0yUKX2EMG7rq7DjagIouKRkDTCmYdAcsxkFl9HH7buGt9vAdjxxZkS
+	SvAVZ/E+ovgttijB5qE6CMLMpsAfk0jFlkzxB33ZLQ==
+X-Google-Smtp-Source: AK7set8SjP7qAzOcTogP1InH1AzFV1lpTeuCw9CVQKwooWB2cjtaB7tzWyOwcOgZfvqWksth3Uyd9cPPqpbjKz4stP0=
+X-Received: by 2002:a17:906:1653:b0:88a:7cf5:5d33 with SMTP id
+ n19-20020a170906165300b0088a7cf55d33mr1792317ejd.100.1675327774906; Thu, 02
+ Feb 2023 00:49:34 -0800 (PST)
 MIME-Version: 1.0
+References: <20230128082847.3055316-1-apatel@ventanamicro.com>
+In-Reply-To: <20230128082847.3055316-1-apatel@ventanamicro.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Thu, 2 Feb 2023 14:19:23 +0530
+Message-ID: <CAAhSdy17dUdhn3ijVzps4J0k=_xH6GWC16CHHJPN_2E7xBwdbA@mail.gmail.com>
+Subject: Re: [PATCH v3 1/2] RISC-V: KVM: Fix privilege mode setting in kvm_riscv_vcpu_trap_redirect()
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Atish Patra <atishp@atishpatra.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Andrew Jones <ajones@ventanamicro.com>, kvm@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230202_003217_840649_058FD565 
-X-CRM114-Status: UNSURE (   5.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230202_004939_600215_9D85442D 
+X-CRM114-Status: GOOD (  14.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,18 +88,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Guo Ren <guoren@kernel.org> writes:
-
->> > -               tmp += GET_INSN_LENGTH(*(kprobe_opcode_t *)tmp);
->> > +               memcpy(&opcode, (void *)tmp, sizeof(kprobe_opcode_t));
->> > +               tmp += GET_INSN_LENGTH(opcode);
->>
->> I'd prefer sizeof(opcode).
-> prefer sizeof(opcode) = 4
+On Sat, Jan 28, 2023 at 1:58 PM Anup Patel <apatel@ventanamicro.com> wrote:
 >
-> GET_INSN_LENGTH(opcode) returns 2 or 4;
+> The kvm_riscv_vcpu_trap_redirect() should set guest privilege mode
+> to supervisor mode because guest traps/interrupts are always handled
+> in virtual supervisor mode.
+>
+> Fixes: 9f7013265112 ("RISC-V: KVM: Handle MMIO exits for VCPU")
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 
-Sorry for being unclear. I was referring to the sizeof in the memcpy.
+Queued this patch for Linux-6.3
+
+Thanks,
+Anup
+
+> ---
+>  arch/riscv/kvm/vcpu_exit.c | 3 +++
+>  1 file changed, 3 insertions(+)
+>
+> diff --git a/arch/riscv/kvm/vcpu_exit.c b/arch/riscv/kvm/vcpu_exit.c
+> index c9f741ab26f5..af7c4bc07929 100644
+> --- a/arch/riscv/kvm/vcpu_exit.c
+> +++ b/arch/riscv/kvm/vcpu_exit.c
+> @@ -160,6 +160,9 @@ void kvm_riscv_vcpu_trap_redirect(struct kvm_vcpu *vcpu,
+>
+>         /* Set Guest PC to Guest exception vector */
+>         vcpu->arch.guest_context.sepc = csr_read(CSR_VSTVEC);
+> +
+> +       /* Set Guest privilege mode to supervisor */
+> +       vcpu->arch.guest_context.sstatus |= SR_SPP;
+>  }
+>
+>  /*
+> --
+> 2.34.1
+>
 
 _______________________________________________
 linux-riscv mailing list
