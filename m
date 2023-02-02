@@ -4,81 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F002C61DA4
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Feb 2023 07:41:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9766C05027
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Feb 2023 07:53:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=W6qHvqfk3MAQ8e8y+0VGRu87663H4+iVtwloEKMW2Eg=; b=ru8n2yV++lTTfN
-	RshAI+mqZYsrXby/H6RCBd3pMk9Pqy9J8uEAyGUgWRD8bnCq6l1KuDumrn6C4VSPAtTLkYKY1/Idw
-	8d1p049xvhBEuDTYnH/uGE8W9LtfFJ39fkocbI7FT+XwkADlOYOtzMRGldbHe1JKvfx33vRXPhhFN
-	dbE8Ur9xbe1KLVj6BczjMxa0lrBkEiC3fjzk9cH+k0xf9i2Mla8vkR8zz+/hPFQo/qz5iULe9ZHKm
-	RAMyl75tZbueWuApNjyuL0pNeYkwIOISELl0J1SCV6823OACSos26VftbV4Tsnl6Jtl7ZqL+RUChN
-	3aSrjDzKIlbsTKNgEHlQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cmF4K75vNMN083PrqI1COO7Nv9j/69PkiMBz83axWBw=; b=rJEqXU3zE+8zmFwPsMABb7aFHz
+	EuMjbONuVUU4UQMxxHhb8gyFUyUJeLyMc3tGC57KmEVpE1jPKFQ4VAKUS7ioouWdLI7gwbjG9WNEq
+	+QjTG/Z0RXfvWtGIf+q/TZ7K3gy4Npz8w8F/NnKQc73Zt49LV8ApyEbrkMYsl1oEgqoWIGjDvw1ST
+	Wz/piohLZRIzvAIXSvujSc+JvO2z1A0qTYmPT8W62kcck0fNQIYdwBRerKUqTTCBsbr5GsgaBisEI
+	AYMnClNiQNLuyJJGctKg37BV62RpGUBJsbnE78w8EnBnHmyfapf8HMbvaFr7YChc9VVwnUtCX5hcB
+	q9GNQ2nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNUDp-00Egu6-Ge; Thu, 02 Feb 2023 07:41:29 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
+	id 1pNUPJ-00EmOa-Pe; Thu, 02 Feb 2023 07:53:21 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNUDm-00Egrp-5g
-	for linux-riscv@lists.infradead.org; Thu, 02 Feb 2023 07:41:27 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id q19so1095290edd.2
-        for <linux-riscv@lists.infradead.org>; Wed, 01 Feb 2023 23:41:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=0XfLDxYfYEm9uICYaRyGxwWvu+NhtT5TwzHgJOvcQu8=;
-        b=OrIVTRxoibIG5KE7331yEhEGKvE5mrNtLpkSI43ZdsFTxO4TtLhO9XsSS2mQa/CPMd
-         V5CJalKWi7ArMqYNl5uOLUgql07vG/csSL3BkHwAWIV9TzIRLHTyONiACBj98wJu0MEX
-         EuK5Di4edF3XJ50pU9ohcEWxarSS2UPtezTF68IYNK4ayk+jzkM8nIriSGC+7BHFl4TZ
-         auqoaOMupwieCBt723nmFr2j2DHvlY3NNDsrMYjburknv7UxbJ1nVIYcXTe+HksyJfP5
-         I67gwVo3oQSgvhX9S8cwpkB2G43+rhxK5GF//+Nk6F5LbQPUc/5YdlkIYtKpItHcyVkw
-         hRLQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0XfLDxYfYEm9uICYaRyGxwWvu+NhtT5TwzHgJOvcQu8=;
-        b=2S7A3xB8TUx9t9xGGXLIqunQLPLQEDple0T6edSXIJBE4JUc7QwvXgVz4FPwIkbKNk
-         7dn3LdoAQHL6ayUFxiI+qGmP+9CFx1yIaYQiALoyOwdAAiUK7DoPvJZYff2P0sNynwoI
-         xXDV2CooQVRpkAbwoYTv24GcuEzeSkCmyHPMe0JUjoKNnn7ncPjkUST9n7Ghm4DBTl+C
-         o+suJsEqjTLix8kEAOfJrTV6okSDqjthslNvQ14tIP3fwe3YQh5cY0jCb308obHT55V7
-         d2k3lXtjpQ7lDUyvoYrZegbQiBnXjl7J6fLHnkn60Bnz6VaZd7DqeiBVMnwVstw3F0jD
-         Li0Q==
-X-Gm-Message-State: AO0yUKW3ZtScPXxRiMAdyuMAsCMvaycZmMozmccyjELNTkmPA+vqsZ4K
-	odBkxMLTrSNzRJ99t1gbmXctHA==
-X-Google-Smtp-Source: AK7set9JQjvEEzaQ2A8VNenoBStXX2n8F5JIwi0iVQYzqIh/lm+SWeDrmTFt983wP10AeD0F3U316w==
-X-Received: by 2002:aa7:d49a:0:b0:49d:a87f:ba78 with SMTP id b26-20020aa7d49a000000b0049da87fba78mr5241731edr.35.1675323681711;
-        Wed, 01 Feb 2023 23:41:21 -0800 (PST)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id l13-20020a170906938d00b00889db195470sm5226067ejx.82.2023.02.01.23.41.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 01 Feb 2023 23:41:21 -0800 (PST)
-Date: Thu, 2 Feb 2023 08:41:20 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, heiko@sntech.de,
-	krzysztof.kozlowski+dt@linaro.org, apatel@ventanamicro.com,
-	Atish Patra <atishp@rivosinc.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-	Conor Dooley <conor.dooley@microchip.com>, robh@kernel.org,
-	jszhang@kernel.org
-Subject: Re: [PATCH v3 4/6] RISC-V: Use Zicboz in clear_page when available
-Message-ID: <20230202074120.ogqowzpzcopwpb5z@orel>
-References: <20230130120128.1349464-5-ajones@ventanamicro.com>
- <mhng-39982208-6bbb-4be7-83c6-5c05da8bebc1@palmer-ri-x1c9>
+	id 1pNUPA-00EmHo-WC; Thu, 02 Feb 2023 07:53:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1675324392; x=1706860392;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=p/zYRQXtmX1Ll4pA6xfxwM9O0U6tjnwz5o+IJ7OH76E=;
+  b=aWhbbUU5IVl2XlIJSy8IXx/FTs+nXqdw6B8ByUHkb3YmpAmllXlIw2/7
+   Zk37QSO1MILP4wFSR0sxacDPGjdTD2/jAABAFbSZkvY0ieweA8bbPyJv8
+   etS29Nf5dsdrFKFYQ8N2PmTp183D05voGbCOnAx4P8mRADlYFUhtl0y3x
+   bY29HfZSoELZzeL+x0y5ZA84rji85GvQwX8oAxfkr1aDNHfXIvekZV7/B
+   wYnzvMi36J2OA/DuGmjmlb3zaR537l2d1zB508ag26asG+tnl5WikH8sD
+   cnwXDyOOpggiQ+i/ypm1/psa3/2Jemmv0oWZ64j+FsnEzl1AlZNaWjDiv
+   A==;
+X-IronPort-AV: E=Sophos;i="5.97,266,1669100400"; 
+   d="asc'?scan'208";a="198575674"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 02 Feb 2023 00:53:05 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.16; Thu, 2 Feb 2023 00:53:04 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.16 via Frontend
+ Transport; Thu, 2 Feb 2023 00:53:02 -0700
+Date: Thu, 2 Feb 2023 07:52:37 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Atish Patra <atishp@rivosinc.com>
+CC: <linux-kernel@vger.kernel.org>, Anup Patel <anup@brainfault.org>, Albert
+ Ou <aou@eecs.berkeley.edu>, Andrew Jones <ajones@ventanamicro.com>, Atish
+ Patra <atishp@atishpatra.org>, Eric Lin <eric.lin@sifive.com>, Guo Ren
+	<guoren@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+	<kvm-riscv@lists.infradead.org>, <kvm@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, Mark Rutland <mark.rutland@arm.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Will Deacon <will@kernel.org>
+Subject: Re: [PATCH v4 08/14] RISC-V: KVM: Add SBI PMU extension support
+Message-ID: <Y9trxX9hj6/pi1b1@wendy>
+References: <20230201231250.3806412-1-atishp@rivosinc.com>
+ <20230201231250.3806412-9-atishp@rivosinc.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <mhng-39982208-6bbb-4be7-83c6-5c05da8bebc1@palmer-ri-x1c9>
+In-Reply-To: <20230201231250.3806412-9-atishp@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230201_234126_235677_3D46938C 
-X-CRM114-Status: GOOD (  36.22  )
+X-CRM114-CacheID: sfid-20230201_235313_166178_78DF58AA 
+X-CRM114-Status: GOOD (  26.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,170 +80,213 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============0487329883351004393=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 01, 2023 at 08:35:54PM -0800, Palmer Dabbelt wrote:
-> On Mon, 30 Jan 2023 04:01:26 PST (-0800), ajones@ventanamicro.com wrote:
-> > Using memset() to zero a 4K page takes 563 total instructions
-> > where 20 are branches. clear_page() with Zicboz takes 150 total
-> > instructions where 16 are branches. We could reduce the numbers
-> > by further unrolling, but, since the cboz block size isn't fixed,
-> > we'd need a Duff device to ensure we don't execute too many
-> > unrolled steps. Also, cbo.zero doesn't take an offset, so each
-> > unrolled step requires it and an add instruction. This increases
-> > the chance for icache misses if we unroll many times. For these
-> > reasons we only unroll four times. Unrolling four times should be
-> > safe as it supports cboz block sizes up to 1K when used with 4K
-> > pages and it's only 24 to 32 bytes of unrolled instructions.
-> > 
-> > Another note about the Duff device idea is that it would probably
-> > be best to store the number of steps needed at boot time and then
-> > load the value in clear_page(). Calculating it in clear_page(),
-> > particularly without the Zbb extension, would not be efficient.
-> > 
-> > Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
-> > Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> > ---
-> >  arch/riscv/Kconfig                | 13 +++++++++++
-> >  arch/riscv/include/asm/insn-def.h |  4 ++++
-> >  arch/riscv/include/asm/page.h     |  6 +++++-
-> >  arch/riscv/lib/Makefile           |  1 +
-> >  arch/riscv/lib/clear_page.S       | 36 +++++++++++++++++++++++++++++++
-> >  5 files changed, 59 insertions(+), 1 deletion(-)
-> >  create mode 100644 arch/riscv/lib/clear_page.S
-> > 
-> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > index 33bbdc33cef8..3759a2f6edd5 100644
-> > --- a/arch/riscv/Kconfig
-> > +++ b/arch/riscv/Kconfig
-> > @@ -432,6 +432,19 @@ config RISCV_ISA_ZICBOM
-> > 
-> >  	   If you don't know what to do here, say Y.
-> > 
-> > +config RISCV_ISA_ZICBOZ
-> > +	bool "Zicboz extension support for faster zeroing of memory"
-> > +	depends on !XIP_KERNEL && MMU
-> > +	select RISCV_ALTERNATIVE
-> > +	default y
-> > +	help
-> > +	   Enable the use of the ZICBOZ extension (cbo.zero instruction)
-> > +	   when available.
-> > +
-> > +	   The Zicboz extension is used for faster zeroing of memory.
-> > +
-> > +	   If you don't know what to do here, say Y.
-> > +
-> >  config TOOLCHAIN_HAS_ZIHINTPAUSE
-> >  	bool
-> >  	default y
-> > diff --git a/arch/riscv/include/asm/insn-def.h b/arch/riscv/include/asm/insn-def.h
-> > index e01ab51f50d2..6960beb75f32 100644
-> > --- a/arch/riscv/include/asm/insn-def.h
-> > +++ b/arch/riscv/include/asm/insn-def.h
-> > @@ -192,4 +192,8 @@
-> >  	INSN_I(OPCODE_MISC_MEM, FUNC3(2), __RD(0),		\
-> >  	       RS1(base), SIMM12(2))
-> > 
-> > +#define CBO_zero(base)						\
-> > +	INSN_I(OPCODE_MISC_MEM, FUNC3(2), __RD(0),		\
-> > +	       RS1(base), SIMM12(4))
-> > +
-> >  #endif /* __ASM_INSN_DEF_H */
-> > diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
-> > index 9f432c1b5289..ccd168fe29d2 100644
-> > --- a/arch/riscv/include/asm/page.h
-> > +++ b/arch/riscv/include/asm/page.h
-> > @@ -49,10 +49,14 @@
-> > 
-> >  #ifndef __ASSEMBLY__
-> > 
-> > +#ifdef CONFIG_RISCV_ISA_ZICBOZ
-> > +void clear_page(void *page);
-> > +#else
-> >  #define clear_page(pgaddr)			memset((pgaddr), 0, PAGE_SIZE)
-> > +#endif
-> >  #define copy_page(to, from)			memcpy((to), (from), PAGE_SIZE)
-> > 
-> > -#define clear_user_page(pgaddr, vaddr, page)	memset((pgaddr), 0, PAGE_SIZE)
-> > +#define clear_user_page(pgaddr, vaddr, page)	clear_page(pgaddr)
-> >  #define copy_user_page(vto, vfrom, vaddr, topg) \
-> >  			memcpy((vto), (vfrom), PAGE_SIZE)
-> > 
-> > diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
-> > index 25d5c9664e57..9ee5e2ab5143 100644
-> > --- a/arch/riscv/lib/Makefile
-> > +++ b/arch/riscv/lib/Makefile
-> > @@ -5,5 +5,6 @@ lib-y			+= memset.o
-> >  lib-y			+= memmove.o
-> >  lib-$(CONFIG_MMU)	+= uaccess.o
-> >  lib-$(CONFIG_64BIT)	+= tishift.o
-> > +lib-$(CONFIG_RISCV_ISA_ZICBOZ)	+= clear_page.o
-> > 
-> >  obj-$(CONFIG_FUNCTION_ERROR_INJECTION) += error-inject.o
-> > diff --git a/arch/riscv/lib/clear_page.S b/arch/riscv/lib/clear_page.S
-> > new file mode 100644
-> > index 000000000000..49f29139a5b6
-> > --- /dev/null
-> > +++ b/arch/riscv/lib/clear_page.S
-> > @@ -0,0 +1,36 @@
-> > +/* SPDX-License-Identifier: GPL-2.0-only */
-> > +/*
-> > + * Copyright (c) 2023 Ventana Micro Systems Inc.
-> > + */
-> > +
-> > +#include <linux/linkage.h>
-> > +#include <asm/asm.h>
-> > +#include <asm/alternative-macros.h>
-> > +#include <asm/hwcap.h>
-> > +#include <asm/insn-def.h>
-> > +#include <asm/page.h>
-> > +
-> > +/* void clear_page(void *page) */
-> > +ENTRY(__clear_page)
-> > +WEAK(clear_page)
-> > +	li	a2, PAGE_SIZE
-> > +	ALTERNATIVE("j .Lno_zicboz", "nop",
-> > +		    0, RISCV_ISA_EXT_ZICBOZ, CONFIG_RISCV_ISA_ZICBOZ)
-> > +	la	a1, riscv_cboz_block_size
-> > +	lw	a1, 0(a1)
-> 
-> You should be able to just "lw a1, riscv_cboz_block_size", which can
-> sometimes generate better code.
-> 
-> > +	add	a2, a0, a2
-> > +.Lzero_loop:
-> > +	CBO_zero(a0)
-> > +	add	a0, a0, a1
-> > +	CBO_zero(a0)
-> > +	add	a0, a0, a1
-> 
-> We were talking about this in the patchwork call: this risks overflow if the
-> block size is bigger than a quarter of a page.  That's probably pretty rare,
-> but given that there's already an alternative for the jump it's easy to
-> check.
+--===============0487329883351004393==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="O/gnr0SEjao1pV0b"
+Content-Disposition: inline
 
-I'll pull v4 together with your fixes.
+--O/gnr0SEjao1pV0b
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Thanks!
+Hey Atish,
 
-drew
+On Wed, Feb 01, 2023 at 03:12:44PM -0800, Atish Patra wrote:
+> SBI PMU extension allows KVM guests to configure/start/stop/query about
+> the PMU counters in virtualized enviornment as well.
+>=20
+> In order to allow that, KVM implements the entire SBI PMU extension.
+>=20
+> Reviewed-by: Anup Patel <anup@brainfault.org>
+> Signed-off-by: Atish Patra <atishp@rivosinc.com>
 
-> 
-> > +	CBO_zero(a0)
-> > +	add	a0, a0, a1
-> > +	CBO_zero(a0)
-> > +	add	a0, a0, a1
-> > +	bltu	a0, a2, .Lzero_loop
-> > +	ret
-> > +.Lno_zicboz:
-> > +	li	a1, 0
-> > +	tail	__memset
-> > +END(__clear_page)
+Could complaints from CI for you:
+
++      1 ../arch/riscv/kvm/vcpu_sbi_pmu.c:73:15: warning: no previous proto=
+type for 'kvm_sbi_ext_pmu_probe' [-Wmissing-prototypes]
++      1 ../arch/riscv/kvm/vcpu_sbi_pmu.c:73:15: warning: symbol 'kvm_sbi_e=
+xt_pmu_probe' was not declared. Should it be static?
++      1 ../arch/riscv/kvm/vcpu_sbi_pmu.c:80:37: warning: symbol 'vcpu_sbi_=
+ext_pmu' was not declared. Should it be static?
+
+Thanks,
+Conor.
+
+> ---
+>  arch/riscv/kvm/Makefile       |  2 +-
+>  arch/riscv/kvm/vcpu_sbi.c     | 11 +++++
+>  arch/riscv/kvm/vcpu_sbi_pmu.c | 85 +++++++++++++++++++++++++++++++++++
+>  3 files changed, 97 insertions(+), 1 deletion(-)
+>  create mode 100644 arch/riscv/kvm/vcpu_sbi_pmu.c
+>=20
+> diff --git a/arch/riscv/kvm/Makefile b/arch/riscv/kvm/Makefile
+> index 5de1053..278e97c 100644
+> --- a/arch/riscv/kvm/Makefile
+> +++ b/arch/riscv/kvm/Makefile
+> @@ -25,4 +25,4 @@ kvm-y +=3D vcpu_sbi_base.o
+>  kvm-y +=3D vcpu_sbi_replace.o
+>  kvm-y +=3D vcpu_sbi_hsm.o
+>  kvm-y +=3D vcpu_timer.o
+> -kvm-$(CONFIG_RISCV_PMU_SBI) +=3D vcpu_pmu.o
+> +kvm-$(CONFIG_RISCV_PMU_SBI) +=3D vcpu_pmu.o vcpu_sbi_pmu.o
+> diff --git a/arch/riscv/kvm/vcpu_sbi.c b/arch/riscv/kvm/vcpu_sbi.c
+> index fe2897e..15fde15 100644
+> --- a/arch/riscv/kvm/vcpu_sbi.c
+> +++ b/arch/riscv/kvm/vcpu_sbi.c
+> @@ -20,6 +20,16 @@ static const struct kvm_vcpu_sbi_extension vcpu_sbi_ex=
+t_v01 =3D {
+>  };
+>  #endif
+> =20
+> +#ifdef CONFIG_RISCV_PMU_SBI
+> +extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_pmu;
+> +#else
+> +static const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_pmu =3D {
+> +	.extid_start =3D -1UL,
+> +	.extid_end =3D -1UL,
+> +	.handler =3D NULL,
+> +};
+> +#endif
+> +
+>  static const struct kvm_vcpu_sbi_extension *sbi_ext[] =3D {
+>  	&vcpu_sbi_ext_v01,
+>  	&vcpu_sbi_ext_base,
+> @@ -28,6 +38,7 @@ static const struct kvm_vcpu_sbi_extension *sbi_ext[] =
+=3D {
+>  	&vcpu_sbi_ext_rfence,
+>  	&vcpu_sbi_ext_srst,
+>  	&vcpu_sbi_ext_hsm,
+> +	&vcpu_sbi_ext_pmu,
+>  	&vcpu_sbi_ext_experimental,
+>  	&vcpu_sbi_ext_vendor,
+>  };
+> diff --git a/arch/riscv/kvm/vcpu_sbi_pmu.c b/arch/riscv/kvm/vcpu_sbi_pmu.c
+> new file mode 100644
+> index 0000000..e028b0a
+> --- /dev/null
+> +++ b/arch/riscv/kvm/vcpu_sbi_pmu.c
+> @@ -0,0 +1,85 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (c) 2023 Rivos Inc
+> + *
+> + * Authors:
+> + *     Atish Patra <atishp@rivosinc.com>
+> + */
+> +
+> +#include <linux/errno.h>
+> +#include <linux/err.h>
+> +#include <linux/kvm_host.h>
+> +#include <asm/csr.h>
+> +#include <asm/sbi.h>
+> +#include <asm/kvm_vcpu_sbi.h>
+> +
+> +static int kvm_sbi_ext_pmu_handler(struct kvm_vcpu *vcpu, struct kvm_run=
+ *run,
+> +				   struct kvm_vcpu_sbi_return *retdata)
+> +{
+> +	int ret =3D 0;
+> +	struct kvm_cpu_context *cp =3D &vcpu->arch.guest_context;
+> +	struct kvm_pmu *kvpmu =3D vcpu_to_pmu(vcpu);
+> +	unsigned long funcid =3D cp->a6;
+> +	uint64_t temp;
+> +
+> +	/* Return not supported if PMU is not initialized */
+> +	if (!kvpmu->init_done)
+> +		return -EINVAL;
+> +
+> +	switch (funcid) {
+> +	case SBI_EXT_PMU_NUM_COUNTERS:
+> +		ret =3D kvm_riscv_vcpu_pmu_num_ctrs(vcpu, retdata);
+> +		break;
+> +	case SBI_EXT_PMU_COUNTER_GET_INFO:
+> +		ret =3D kvm_riscv_vcpu_pmu_ctr_info(vcpu, cp->a0, retdata);
+> +		break;
+> +	case SBI_EXT_PMU_COUNTER_CFG_MATCH:
+> +#if defined(CONFIG_32BIT)
+> +		temp =3D ((uint64_t)cp->a5 << 32) | cp->a4;
+> +#else
+> +		temp =3D cp->a4;
+> +#endif
+> +		/*
+> +		 * This can fail if perf core framework fails to create an event.
+> +		 * Forward the error to the user space because its an error happened
+> +		 * within host kernel. The other option would be convert this to
+> +		 * an SBI error and forward to the guest.
+> +		 */
+> +		ret =3D kvm_riscv_vcpu_pmu_ctr_cfg_match(vcpu, cp->a0, cp->a1,
+> +						       cp->a2, cp->a3, temp, retdata);
+> +		break;
+> +	case SBI_EXT_PMU_COUNTER_START:
+> +#if defined(CONFIG_32BIT)
+> +		temp =3D ((uint64_t)cp->a4 << 32) | cp->a3;
+> +#else
+> +		temp =3D cp->a3;
+> +#endif
+> +		ret =3D kvm_riscv_vcpu_pmu_ctr_start(vcpu, cp->a0, cp->a1, cp->a2,
+> +						   temp, retdata);
+> +		break;
+> +	case SBI_EXT_PMU_COUNTER_STOP:
+> +		ret =3D kvm_riscv_vcpu_pmu_ctr_stop(vcpu, cp->a0, cp->a1, cp->a2, retd=
+ata);
+> +		break;
+> +	case SBI_EXT_PMU_COUNTER_FW_READ:
+> +		ret =3D kvm_riscv_vcpu_pmu_ctr_read(vcpu, cp->a0, retdata);
+> +		break;
+> +	default:
+> +		retdata->err_val =3D SBI_ERR_NOT_SUPPORTED;
+> +	}
+> +
+> +	return ret;
+> +}
+> +
+> +unsigned long kvm_sbi_ext_pmu_probe(struct kvm_vcpu *vcpu)
+> +{
+> +	struct kvm_pmu *kvpmu =3D vcpu_to_pmu(vcpu);
+> +
+> +	return kvpmu->init_done;
+> +}
+> +
+> +const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_pmu =3D {
+> +	.extid_start =3D SBI_EXT_PMU,
+> +	.extid_end =3D SBI_EXT_PMU,
+> +	.handler =3D kvm_sbi_ext_pmu_handler,
+> +	.probe =3D kvm_sbi_ext_pmu_probe,
+> +};
+> --=20
+> 2.25.1
+>=20
+>=20
+
+--O/gnr0SEjao1pV0b
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY9trtwAKCRB4tDGHoIJi
+0r9wAQCU2XfX8lMA7q7V3L+bs2Eqe7Zxk1taHg1wI55aDI6a+gD7BHNfxb8G8yn3
+DDFv78dpbG9wXOitf7rHFPZJD8mq0wo=
+=cGWs
+-----END PGP SIGNATURE-----
+
+--O/gnr0SEjao1pV0b--
+
+
+--===============0487329883351004393==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0487329883351004393==--
+
