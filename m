@@ -4,67 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A310C636CC
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Feb 2023 03:15:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73F0BC636CC
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Feb 2023 03:32:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TjsdGRVvMf6pftGwAJ33bguX0dStc9ZQ0j6N7crZw4c=; b=1eYmN2uk3tHXEA
-	rUjC4aKfkw/uYAqnlDI6BUSpc94t5pw8BnHktHTC+5FPp4qPy5LRRzI7Ipo5EYwkrI7LIWmnRBn8E
-	+5DcdC09k2Mm10I3utPCOJwnF+EzTHQ9u0LkyWIqyDOj5UAGC/K3Sp6jDigN9dotE5YRrhL+0Ei2J
-	NyqLXpfdgvcVVi4sTNXTHdiFEu3ZCRT1krA691IIojLUFJMS/iZx2cZRrrS0E6CPhAxKEaU3V0DTo
-	AdfML6cfDipN7gnAv3HxJYNjnluCZg4JwCeqvgoKD6yFmFqmTbDWhCazxkv0htXHXLBpOJcY5ErY+
-	cV4PALOGUAzt5br8+2AA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=wU7CwjtXFLJtvca57xtkTBgbC7s5G3m/Lh+KISx76uI=; b=WHckpd3b1sF8H0aOtyxwYGL5nr
+	vGwKRkDSxnpWk9gGq6kIUiAzjuU0/jKYyiCg203xlZvBb2SSaOBSOvXfD/d+kkOor6YlRGsxm4ejC
+	dcF1+sBPq9x8E9IWdMBgBmBn77vowgmjKAzkXn7huYTB+Ru+OOwyHDGAYiPZRZShnR7EA/EflOpqO
+	/DZ1A3r4z34h78kazHaGxOH4blEbxzjTOLFGP8Uy7vslLDhUPcS6N4E0nnHMg5gbWdJEAeKiu7lZs
+	YSpQdCKzQGg4T9LfaKqY1Eb7mssT+r1WCAWpABQ9FdxjHS0b7l1DnOHQ990oHJvhJqH2/EhA0ELe9
+	I3F1tuLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNmXu-0009dx-HN; Fri, 03 Feb 2023 03:15:26 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNmXq-0009d3-TN
-	for linux-riscv@lists.infradead.org; Fri, 03 Feb 2023 03:15:25 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 281BF24E13F;
-	Fri,  3 Feb 2023 11:14:59 +0800 (CST)
-Received: from EXMBX073.cuchost.com (172.16.6.83) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 3 Feb
- 2023 11:14:59 +0800
-Received: from [192.168.120.49] (171.223.208.138) by EXMBX073.cuchost.com
- (172.16.6.83) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 3 Feb
- 2023 11:14:57 +0800
-Message-ID: <f22614b4-80ae-8b16-b53e-e43c44722668@starfivetech.com>
-Date: Fri, 3 Feb 2023 11:14:56 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.6.1
-Subject: Re: [PATCH v4 6/7] riscv: dts: starfive: jh7110: Add ethernet device
- node
-Content-Language: en-US
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	<linux-riscv@lists.infradead.org>, <netdev@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-CC: "David S . Miller" <davem@davemloft.net>, Eric Dumazet
-	<edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
-	Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>
-References: <20230118061701.30047-1-yanhong.wang@starfivetech.com>
- <20230118061701.30047-7-yanhong.wang@starfivetech.com>
- <55f020de-6058-67d2-ea68-6006186daee3@linaro.org>
-From: yanhong wang <yanhong.wang@starfivetech.com>
-In-Reply-To: <55f020de-6058-67d2-ea68-6006186daee3@linaro.org>
-X-Originating-IP: [171.223.208.138]
-X-ClientProxiedBy: EXCAS061.cuchost.com (172.16.6.21) To EXMBX073.cuchost.com
- (172.16.6.83)
-X-YovoleRuleAgent: yovoleflag
+	id 1pNmo7-000AuW-H1; Fri, 03 Feb 2023 03:32:11 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pNmnx-000AsO-Pz
+	for linux-riscv@lists.infradead.org; Fri, 03 Feb 2023 03:32:03 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id c10-20020a17090a1d0a00b0022e63a94799so7618999pjd.2
+        for <linux-riscv@lists.infradead.org>; Thu, 02 Feb 2023 19:31:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=7ELdr8kr8cfAFHro3oo2nX8Zeaf+T1iI5OEPVbajWl4=;
+        b=jCJnuaG7D0JNqsasbCOptl2FERdbLdwSDouVdFGzdlhZ4c0vC6kncai50bmmbcG/DW
+         Sb7Q7TTuIW399D57jto6QS7jK7rNGJfTigkW4VVmK8ixDAHFWk+AjRyf/EIoK4SW+kaf
+         4oqgE3ORR+Kae4q0iDp42Aaevi8KRRznIjekikScXpDDIySq4G+W3WG5YRVSvm90lcLs
+         i6r167TOVqnrFS1cchC+nMQa+SdsnBqvWgEziNgvGavPegJwuoxvGFv5fZH+5rwlJWHS
+         uRjz49UFgst62dCFszB9MGisu5ceibyxM/Q2gNIrFfVIWNN41LF4scop8rJgL2j92Zaw
+         Yzwg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=7ELdr8kr8cfAFHro3oo2nX8Zeaf+T1iI5OEPVbajWl4=;
+        b=xSuUBTyznfJS6I/whRcOz8UQyEe7aEzGBkXvRC4keov14uT0kjURwzy3yjOMvjUExt
+         GN6QJKGnY9yJsh4oMOpHFXdHgqHjJdwHA2V9bRrysGUm2iA3v39NfxjStCMl9SmQfEQ+
+         N3tPbIu8mkVhA0gdPGu7GRZnu+lZ8NqnvEXcpKO1gBjRNBaLmRLr6RHZWrC38b+0VITk
+         ZaUa1z97PILYI0TC0b+yWTkJPRBBPLuu1oeUCO7GpaI8GV0pc97Tnu5qFWSwv7bhGzpu
+         jeWVVmMjCVMBhA0tFI+/Aho48EAAoaZya1vRvVM2JgwgJ/NFUU7nyaqX6pMG/+zSHuqa
+         JG/Q==
+X-Gm-Message-State: AO0yUKVMfgvxbnuFH4xmdAURWwANDtDQZJBojCeJkwX0QL3Aw8yNuIfl
+	THi8YXbLMIuBjvdGW+8PwBO5QIHYKdxiuG2N
+X-Google-Smtp-Source: AK7set+57aLnObSHcH5qlDN6Mf7iQBt+c9eQWgNCT+CmyqH0+99UE+sJruvk7QuheXFpwkAyk9dl8g==
+X-Received: by 2002:a17:903:41ca:b0:198:d8a4:1ece with SMTP id u10-20020a17090341ca00b00198d8a41ecemr1658070ple.8.1675395117606;
+        Thu, 02 Feb 2023 19:31:57 -0800 (PST)
+Received: from localhost ([216.9.110.6])
+        by smtp.gmail.com with ESMTPSA id q16-20020a170902edd000b001966308ca0dsm420998plk.167.2023.02.02.19.31.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 02 Feb 2023 19:31:56 -0800 (PST)
+Date: Thu, 02 Feb 2023 19:31:56 -0800 (PST)
+X-Google-Original-Date: Thu, 02 Feb 2023 19:31:51 PST (-0800)
+Subject: Re: [PATCH 0/5] mm: Stop alaising VM_FAULT_HINDEX_MASK in arch code
+In-Reply-To: <20221203030356.3917-1-palmer@rivosinc.com>
+CC: linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+  linux-arm-kernel@lists.infradead.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: linux-kernel@vger.kernel.org
+Message-ID: <mhng-15cb5600-7883-4454-aabe-6e695a81a45c@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230202_191523_263547_B5AE4028 
-X-CRM114-Status: GOOD (  12.91  )
+X-CRM114-CacheID: sfid-20230202_193201_851945_3B6E2D38 
+X-CRM114-Status: GOOD (  15.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,60 +84,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Fri, 02 Dec 2022 19:03:51 PST (-0800), Palmer Dabbelt wrote:
+> When reviewing
+> <https://lore.kernel.org/r/20221029084715.3669204-1-tongtiangen@huawei.com>
+> I noticed that the arch-specific VM_FAULT flags used by arm and s390
+> alias with VM_FAULT_HINDEX_MASK.  I'm not sure if it's possible to
+> manifest this as a bug, but it certainly seems fragile.
+>
+> The RISC-V patch is on top of the linked patch above, which isn't in any
+> proper tree yet.  Everything else should apply to 6.1-rc1, but I'm in no
+> particular rush to get that cleanup in so rush on my end for 6.2.  That
+> said I figured it would be easier to send along this now, just in case
+> someone who knows the MM code better thinks it can manifest as a bug.
 
-
-On 2023/1/18 23:51, Krzysztof Kozlowski wrote:
-> On 18/01/2023 07:17, Yanhong Wang wrote:
->> Add JH7110 ethernet device node to support gmac driver for the JH7110
->> RISC-V SoC.
->> 
->> Signed-off-by: Yanhong Wang <yanhong.wang@starfivetech.com>
->> ---
->>  arch/riscv/boot/dts/starfive/jh7110.dtsi | 93 ++++++++++++++++++++++++
->>  1 file changed, 93 insertions(+)
->> 
->> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
->> index c22e8f1d2640..c6de6e3b1a25 100644
->> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
->> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
->> @@ -433,5 +433,98 @@
->>  			reg-shift = <2>;
->>  			status = "disabled";
->>  		};
->> +
->> +		stmmac_axi_setup: stmmac-axi-config {
-> 
-> Why your bindings example is different?
-> 
-
-There are two gmacs on the StarFive VF2 board, and the two
-gmacs use the same configuration on axi, so the 
-stmmac_axi_setup is independent, which is different
-from the bindings example.
-
-
-> Were the bindings tested? Ahh, no they were not... Can you send only
-> tested patches?
-> 
-> Was this tested?
-> 
-Yes, the bindings have been tested on the StarFive VF2 board and work normally.
-
->> +			snps,lpi_en;
->> +			snps,wr_osr_lmt = <4>;
->> +			snps,rd_osr_lmt = <4>;
->> +			snps,blen = <256 128 64 32 0 0 0>;
->> +		};
->> +
-> 
-> Best regards,
-> Krzysztof
-> 
+Just pinging this one, I'm not sure if it was just bad timing on the 
+last one.  That RISC-V patch is still sitting around outside my tree.
 
 _______________________________________________
 linux-riscv mailing list
