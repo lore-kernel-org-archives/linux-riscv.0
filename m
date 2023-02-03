@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6A06C636D6
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Feb 2023 08:19:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BED7FC636CC
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Feb 2023 08:19:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+itzR8wEm0Q37MGj65wZ9n2Ax1BUGqNSKNOtkFfhbNU=; b=dTHsVefem1bRKB
-	zRhT2HCHg3WYwozdkvOqhGcLT9o2dUwEGWBAklx4LaKkM13wHhEnmqGAMRvvxXCxT14VKQBe5N/LH
-	dgMAPyBt6C+M+dhH8C+ZZit5iRobi4KatgjUVEtc58POK3ELYCJqIPV39vzzWEP88ALkR01SBaPmM
-	lO4zTth+PjKVop9gglTgc5wShVaQugsIrq7aBfeOhxUg2za6/7ts6gFe9wH48TlKNRUL3YZGHUC2h
-	7dzhWNdckqueT2TmezvSEOrYXccIWJamBcjcLhtJQuJmtD1+jGT0Moy3mr4B7OWJQqJliAHshHvdK
-	5XeGhjKzWhM+zoyo7WCg==;
+	List-Owner; bh=NSTG/8jqQVJ3FT/08nbJUJPeY5j3ZcN1NmECKJbStwQ=; b=K3OnVuhniJUwyG
+	1k2qfaOB6k/1GBpuIbyWeApB5VWs2yCNjCh9vTt7CqIIGsfydNBgpj93CBfwSGpDW61XiXKzxFd5p
+	mEakgQeEtVAv384ziFK9fv3eso+DiJ2DEP9GfrCx2JDzgWiWCgERpzTmSkxD+3sikptlO/gNhUin7
+	q9b8ZGdeHp+ZdGhDpNdGSZWcZMY+reFXBgJLEGAKWCFOFkrMLzggorv/myZoA+tlectp9RNEWpNDd
+	qG1BFbWfLJu11hY1AZgZnIOFqLprkdcNnP2ZepxvtARIqRJvCASt4mM4plDaO/R/Mj3IdJI/4yNF0
+	U6wENly11HChE2Fx5bmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNrIR-000zOg-P2; Fri, 03 Feb 2023 08:19:47 +0000
+	id 1pNrIS-000zPD-V8; Fri, 03 Feb 2023 08:19:48 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNrIM-000zIJ-CJ
+	id 1pNrIM-000zII-CK
 	for linux-riscv@lists.infradead.org; Fri, 03 Feb 2023 08:19:45 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id B102024E28F;
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 254F524E289;
 	Fri,  3 Feb 2023 16:19:16 +0800 (CST)
-Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 3 Feb
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 3 Feb
  2023 16:19:16 +0800
 Received: from williamqiu-virtual-machine.starfivetech.com (171.223.208.138)
  by EXMBX168.cuchost.com (172.16.6.78) with Microsoft SMTP Server (TLS) id
@@ -43,9 +43,9 @@ CC: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
 	<krzysztof.kozlowski+dt@linaro.org>, Jaehoon Chung <jh80.chung@samsung.com>,
 	Ulf Hansson <ulf.hansson@linaro.org>, William Qiu
 	<william.qiu@starfivetech.com>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v3 3/3] riscv: dts: starfive: Add mmc node
-Date: Fri, 3 Feb 2023 16:19:13 +0800
-Message-ID: <20230203081913.81968-4-william.qiu@starfivetech.com>
+Subject: [PATCH v3 2/3] mmc: starfive: Add sdio/emmc driver support
+Date: Fri, 3 Feb 2023 16:19:12 +0800
+Message-ID: <20230203081913.81968-3-william.qiu@starfivetech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20230203081913.81968-1-william.qiu@starfivetech.com>
 References: <20230203081913.81968-1-william.qiu@starfivetech.com>
@@ -55,8 +55,8 @@ X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX168.cuchost.com
  (172.16.6.78)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230203_001942_730288_009E35A2 
-X-CRM114-Status: GOOD (  10.30  )
+X-CRM114-CacheID: sfid-20230203_001942_865548_3EF9FBE5 
+X-CRM114-Status: GOOD (  25.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,103 +73,259 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This adds the mmc node for the StarFive JH7110 SoC.
-Set mmco node to emmc and set mmc1 node to sd.
+Add sdio/emmc driver support for StarFive JH7110 soc.
 
+Tested-by: Conor Dooley <conor.dooley@microchip.com>
 Signed-off-by: William Qiu <william.qiu@starfivetech.com>
 ---
- .../jh7110-starfive-visionfive-2.dtsi         | 23 ++++++++++++
- arch/riscv/boot/dts/starfive/jh7110.dtsi      | 37 +++++++++++++++++++
- 2 files changed, 60 insertions(+)
+ MAINTAINERS                        |   6 +
+ drivers/mmc/host/Kconfig           |  10 ++
+ drivers/mmc/host/Makefile          |   1 +
+ drivers/mmc/host/dw_mmc-starfive.c | 185 +++++++++++++++++++++++++++++
+ 4 files changed, 202 insertions(+)
+ create mode 100644 drivers/mmc/host/dw_mmc-starfive.c
 
-diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-index c60280b89c73..e1a0248e907f 100644
---- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-@@ -42,6 +42,29 @@ &rtc_osc {
- 	clock-frequency = <32768>;
- };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 85e8f83161d7..0ff348da6463 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -19659,6 +19659,12 @@ F:	Documentation/devicetree/bindings/reset/starfive,jh7100-reset.yaml
+ F:	drivers/reset/starfive/reset-starfive-jh71*
+ F:	include/dt-bindings/reset/starfive?jh71*.h
  
-+&mmc0 {
-+	max-frequency = <100000000>;
-+	bus-width = <8>;
-+	cap-mmc-highspeed;
-+	mmc-ddr-1_8v;
-+	mmc-hs200-1_8v;
-+	non-removable;
-+	cap-mmc-hw-reset;
-+	post-power-on-delay-ms = <200>;
-+	status = "okay";
++STARFIVE JH7110 MMC/SD/SDIO DRIVER
++M:	William Qiu <william.qiu@starfivetech.com>
++S:	Maintained
++F:	Documentation/devicetree/bindings/mmc/starfive*
++F:	drivers/mmc/dw_mmc-starfive.c
++
+ STATIC BRANCH/CALL
+ M:	Peter Zijlstra <peterz@infradead.org>
+ M:	Josh Poimboeuf <jpoimboe@kernel.org>
+diff --git a/drivers/mmc/host/Kconfig b/drivers/mmc/host/Kconfig
+index fb1062a6394c..b87262503403 100644
+--- a/drivers/mmc/host/Kconfig
++++ b/drivers/mmc/host/Kconfig
+@@ -871,6 +871,16 @@ config MMC_DW_ROCKCHIP
+ 	  Synopsys DesignWare Memory Card Interface driver. Select this option
+ 	  for platforms based on RK3066, RK3188 and RK3288 SoC's.
+ 
++config MMC_DW_STARFIVE
++	tristate "StarFive specific extensions for Synopsys DW Memory Card Interface"
++	depends on SOC_STARFIVE
++	depends on MMC_DW
++	select MMC_DW_PLTFM
++	help
++	  This selects support for StarFive JH7110 SoC specific extensions to the
++	  Synopsys DesignWare Memory Card Interface driver. Select this option
++	  for platforms based on StarFive JH7110 SoC.
++
+ config MMC_SH_MMCIF
+ 	tristate "SuperH Internal MMCIF support"
+ 	depends on SUPERH || ARCH_RENESAS || COMPILE_TEST
+diff --git a/drivers/mmc/host/Makefile b/drivers/mmc/host/Makefile
+index 4e4ceb32c4b4..32c0e5564b9a 100644
+--- a/drivers/mmc/host/Makefile
++++ b/drivers/mmc/host/Makefile
+@@ -56,6 +56,7 @@ obj-$(CONFIG_MMC_DW_HI3798CV200) += dw_mmc-hi3798cv200.o
+ obj-$(CONFIG_MMC_DW_K3)		+= dw_mmc-k3.o
+ obj-$(CONFIG_MMC_DW_PCI)	+= dw_mmc-pci.o
+ obj-$(CONFIG_MMC_DW_ROCKCHIP)	+= dw_mmc-rockchip.o
++obj-$(CONFIG_MMC_DW_STARFIVE)	+= dw_mmc-starfive.o
+ obj-$(CONFIG_MMC_SH_MMCIF)	+= sh_mmcif.o
+ obj-$(CONFIG_MMC_JZ4740)	+= jz4740_mmc.o
+ obj-$(CONFIG_MMC_VUB300)	+= vub300.o
+diff --git a/drivers/mmc/host/dw_mmc-starfive.c b/drivers/mmc/host/dw_mmc-starfive.c
+new file mode 100644
+index 000000000000..e4d0bdb40d12
+--- /dev/null
++++ b/drivers/mmc/host/dw_mmc-starfive.c
+@@ -0,0 +1,185 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * StarFive Designware Mobile Storage Host Controller Driver
++ *
++ * Copyright (c) 2022 StarFive Technology Co., Ltd.
++ */
++
++#include <linux/clk.h>
++#include <linux/delay.h>
++#include <linux/mfd/syscon.h>
++#include <linux/mmc/host.h>
++#include <linux/module.h>
++#include <linux/of_address.h>
++#include <linux/platform_device.h>
++#include <linux/regmap.h>
++
++#include "dw_mmc.h"
++#include "dw_mmc-pltfm.h"
++
++#define ALL_INT_CLR		0x1ffff
++#define MAX_DELAY_CHAIN		32
++
++struct starfive_priv {
++	struct device *dev;
++	struct regmap *reg_syscon;
++	u32 syscon_offset;
++	u32 syscon_shift;
++	u32 syscon_mask;
 +};
 +
-+&mmc1 {
-+	max-frequency = <100000000>;
-+	bus-width = <4>;
-+	no-sdio;
-+	no-mmc;
-+	broken-cd;
-+	cap-sd-highspeed;
-+	post-power-on-delay-ms = <200>;
-+	status = "okay";
++static void dw_mci_starfive_set_ios(struct dw_mci *host, struct mmc_ios *ios)
++{
++	int ret;
++	unsigned int clock;
++
++	if (ios->timing == MMC_TIMING_MMC_DDR52 || ios->timing == MMC_TIMING_UHS_DDR50) {
++		clock = (ios->clock > 50000000 && ios->clock <= 52000000) ? 100000000 : ios->clock;
++		ret = clk_set_rate(host->ciu_clk, clock);
++		if (ret)
++			dev_dbg(host->dev, "Use an external frequency divider %uHz\n", ios->clock);
++		host->bus_hz = clk_get_rate(host->ciu_clk);
++	} else {
++		dev_dbg(host->dev, "Using the internal divider\n");
++	}
++}
++
++static int dw_mci_starfive_execute_tuning(struct dw_mci_slot *slot,
++					     u32 opcode)
++{
++	static const int grade  = MAX_DELAY_CHAIN;
++	struct dw_mci *host = slot->host;
++	struct starfive_priv *priv = host->priv;
++	int rise_point = -1, fall_point = -1;
++	int err, prev_err;
++	int i;
++	bool found = 0;
++	u32 regval;
++
++	/* Use grade as the max delay chain, and use the rise_point and 
++	 * fall_point to ensure the best sampling point of a data input
++	 * signals.
++	 */
++	for (i = 0; i < grade; i++) {
++		regval = i << priv->syscon_shift;
++		err = regmap_update_bits(priv->reg_syscon, priv->syscon_offset,
++						priv->syscon_mask, regval);
++		if (err)
++			return err;
++		mci_writel(host, RINTSTS, ALL_INT_CLR);
++
++		err = mmc_send_tuning(slot->mmc, opcode, NULL);
++		if (!err)
++			found = 1;
++
++		if (i > 0) {
++			if (err && !prev_err)
++				fall_point = i - 1;
++			if (!err && prev_err)
++				rise_point = i;
++		}
++
++		if (rise_point != -1 && fall_point != -1)
++			goto tuning_out;
++
++		prev_err = err;
++		err = 0;
++	}
++
++tuning_out:
++	if (found) {
++		if (rise_point == -1)
++			rise_point = 0;
++		if (fall_point == -1)
++			fall_point = grade - 1;
++		if (fall_point < rise_point) {
++			if ((rise_point + fall_point) >
++			    (grade - 1))
++				i = fall_point / 2;
++			else
++				i = (rise_point + grade - 1) / 2;
++		} else {
++			i = (rise_point + fall_point) / 2;
++		}
++
++		regval = i << priv->syscon_shift;
++		err = regmap_update_bits(priv->reg_syscon, priv->syscon_offset,
++						priv->syscon_mask, regval);
++		if (err)
++			return err;
++		mci_writel(host, RINTSTS, ALL_INT_CLR);
++
++		dev_info(host->dev, "Found valid delay chain! use it [delay=%d]\n", i);
++	} else {
++		dev_err(host->dev, "No valid delay chain! use default\n");
++		err = -EINVAL;
++	}
++
++	mci_writel(host, RINTSTS, ALL_INT_CLR);
++	return err;
++}
++
++static int dw_mci_starfive_parse_dt(struct dw_mci *host)
++{
++	struct of_phandle_args args;
++	struct starfive_priv *priv;
++	int ret;
++
++	priv = devm_kzalloc(host->dev, sizeof(*priv), GFP_KERNEL);
++	if (!priv)
++		return -ENOMEM;
++
++	ret = of_parse_phandle_with_fixed_args(host->dev->of_node,
++						"starfive,syscon", 3, 0, &args);
++	if (ret) {
++		dev_err(host->dev, "Failed to parse starfive,syscon\n");
++		return -EINVAL;
++	}
++
++	priv->reg_syscon = syscon_node_to_regmap(args.np);
++	of_node_put(args.np);
++	if (IS_ERR(priv->reg_syscon))
++		return PTR_ERR(priv->reg_syscon);
++
++	priv->syscon_offset = args.args[0];
++	priv->syscon_shift  = args.args[1];
++	priv->syscon_mask   = args.args[2];
++
++	host->priv = priv;
++
++	return 0;
++}
++
++static const struct dw_mci_drv_data starfive_data = {
++	.common_caps 		= MMC_CAP_CMD23,
++	.set_ios 		= dw_mci_starfive_set_ios,
++	.parse_dt 		= dw_mci_starfive_parse_dt,
++	.execute_tuning 	= dw_mci_starfive_execute_tuning,
 +};
 +
- &gmac0_rmii_refin {
- 	clock-frequency = <50000000>;
- };
-diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-index 64d260ea1f29..ae1a664e7af5 100644
---- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-@@ -370,6 +370,11 @@ syscrg: clock-controller@13020000 {
- 			#reset-cells = <1>;
- 		};
- 
-+		sysreg: syscon@13030000 {
-+			compatible = "starfive,sysreg", "syscon";
-+			reg = <0x0 0x13030000 0x0 0x1000>;
-+		};
++static const struct of_device_id dw_mci_starfive_match[] = {
++	{ .compatible = "starfive,jh7110-mmc",
++		.data = &starfive_data },
++	{},
++};
++MODULE_DEVICE_TABLE(of, dw_mci_starfive_match);
 +
- 		gpio: gpio@13040000 {
- 			compatible = "starfive,jh7110-sys-pinctrl";
- 			reg = <0x0 0x13040000 0x0 0x10000>;
-@@ -407,5 +412,37 @@ gpioa: gpio@17020000 {
- 			gpio-controller;
- 			#gpio-cells = <2>;
- 		};
++static int dw_mci_starfive_probe(struct platform_device *pdev)
++{	
++	return dw_mci_pltfm_register(pdev, &starfive_data);;
++}
 +
-+		mmc0: mmc@16010000 {
-+			compatible = "starfive,jh7110-mmc";
-+			reg = <0x0 0x16010000 0x0 0x10000>;
-+			clocks = <&syscrg JH7110_SYSCLK_SDIO0_AHB>,
-+				 <&syscrg JH7110_SYSCLK_SDIO0_SDCARD>;
-+			clock-names = "biu","ciu";
-+			resets = <&syscrg JH7110_SYSRST_SDIO0_AHB>;
-+			reset-names = "reset";
-+			interrupts = <74>;
-+			fifo-depth = <32>;
-+			fifo-watermark-aligned;
-+			data-addr = <0>;
-+			starfive,sysreg = <&sysreg 0x14 0x1a 0x7c000000>;
-+			status = "disabled";
-+		};
++static struct platform_driver dw_mci_starfive_driver = {
++	.probe = dw_mci_starfive_probe,
++	.remove = dw_mci_pltfm_remove,
++	.driver = {
++		.name = "dwmmc_starfive",
++		.probe_type = PROBE_PREFER_ASYNCHRONOUS,
++		.of_match_table = dw_mci_starfive_match,
++	},
++};
++module_platform_driver(dw_mci_starfive_driver);
 +
-+		mmc1: mmc@16020000 {
-+			compatible = "starfive,jh7110-mmc";
-+			reg = <0x0 0x16020000 0x0 0x10000>;
-+			clocks = <&syscrg JH7110_SYSCLK_SDIO1_AHB>,
-+				 <&syscrg JH7110_SYSCLK_SDIO1_SDCARD>;
-+			clock-names = "biu","ciu";
-+			resets = <&syscrg JH7110_SYSRST_SDIO1_AHB>;
-+			reset-names = "reset";
-+			interrupts = <75>;
-+			fifo-depth = <32>;
-+			fifo-watermark-aligned;
-+			data-addr = <0>;
-+			starfive,sysreg = <&sysreg 0x9c 0x1 0x3e>;
-+			status = "disabled";
-+		};
- 	};
- };
++MODULE_DESCRIPTION("StarFive JH7110 Specific DW-MSHC Driver Extension");
++MODULE_LICENSE("GPL");
++MODULE_ALIAS("platform:dwmmc_starfive");
 -- 
 2.34.1
 
