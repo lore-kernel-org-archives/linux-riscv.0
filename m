@@ -4,66 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA969C61DA4
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Feb 2023 05:59:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51CCFC61DA4
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Feb 2023 06:22:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:CC:To:Subject:
+	From:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hoiGIBH7tUdsWVWAQeM8wB0fA7lu7Dkc+BitZ7HPUTU=; b=edlOWciGb9LUKR
-	HBogit0wmjCqeD/9Be2AKbDO4bIvS62Ekn1TK5+ZqhtKtJYH3NxbaVqg12kphLJKQLZGl2kU617kQ
-	BYbE02CitYB5hzdQdlkYzo3wKlcNqqHfdb5pLZieCFe4vaVn80V+LTXq9vhZaYIP9xWpNJMk3SOzC
-	K/GpNKCYd8KVM6pBmCIXA9U4YKS1EObB1+jFWzTSyiDgtUIRWVp6k42UTfMLrfBBQBGmtPLQ++hwK
-	u3578LF3i+dM8mMLJfuUTxqVrncpr42/iKLvcnyJ2QS/gT6ZLDBQRV6mvr++ThOT3L6AsIvVr488L
-	wS0saWUrOHHk5TaCrt5A==;
+	List-Owner; bh=sZdHAo/jfSJ0c3ZbDvLn5zmjTfK8a30a+vML68liiDI=; b=u2XF2fJqg1cUz6
+	0SzImW1lOmrhuwfWxIZyNDVG8bH/2uigGXfVX9oNINm1rtj1YkIG4hZsX8wRCzOxywuYPpWE9KQc1
+	KxjlTClwJO5KcOvFkIxFGwZiPwaWwmCABzCKsA7MGXzX6ruFNmaP4NJtXs1opZEtIBICe7vI7RF2n
+	z/lZcsEqwerFzGRg0tdX3SeYhcyQxdXwwd/oI+0kgGoALyZCgYWQmSxp+bHi8hE4Z8HQCt6C3Oe+I
+	TZ/lqHn3C91YJB8mz962Ienr7miQ4P0g7ujJwIBoVrNkFFV7fAPiyfikpjdtvcvxC1Bu5lXlN51my
+	E223rNdaUsQlpqRbCixg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNp69-000U5E-1L; Fri, 03 Feb 2023 05:58:57 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNp64-000U2N-1u
-	for linux-riscv@lists.infradead.org; Fri, 03 Feb 2023 05:58:55 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 07EFD24E1DB;
-	Fri,  3 Feb 2023 13:58:23 +0800 (CST)
-Received: from EXMBX073.cuchost.com (172.16.6.83) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 3 Feb
- 2023 13:58:22 +0800
-Received: from [192.168.120.49] (171.223.208.138) by EXMBX073.cuchost.com
- (172.16.6.83) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 3 Feb
- 2023 13:58:21 +0800
-Message-ID: <14eed87c-72ce-e9c7-710e-64108cd641ba@starfivetech.com>
-Date: Fri, 3 Feb 2023 13:58:20 +0800
+	id 1pNpSv-000YZW-0T; Fri, 03 Feb 2023 06:22:29 +0000
+Received: from fllv0015.ext.ti.com ([198.47.19.141])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pNpSq-000YYS-SV; Fri, 03 Feb 2023 06:22:26 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by fllv0015.ext.ti.com (8.15.2/8.15.2) with ESMTP id 3136Lf7W035470;
+	Fri, 3 Feb 2023 00:21:41 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1675405301;
+	bh=l25UEVixOyFOcihudAXONA6spJ9+qf/KGX7SmPDUpy8=;
+	h=Date:From:Subject:To:CC:References:In-Reply-To;
+	b=qjR6+d/UB5ekuJr3MiVFs8p0g7m0yrdKHoZaudFhcFOCfbLx2Oh+LhyjBCzcHFyed
+	 SgRi87UzmQOR55kVzJaHdmit8OAFqTT2MTTUihcIjT1ehCTPpSslV1Vk4saKD0rufr
+	 at9rNlCW6mzqUTS3nlqD2ccdgy5vwkRQiqpybA24=
+Received: from DLEE107.ent.ti.com (dlee107.ent.ti.com [157.170.170.37])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 3136LfdC023256
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 3 Feb 2023 00:21:41 -0600
+Received: from DLEE100.ent.ti.com (157.170.170.30) by DLEE107.ent.ti.com
+ (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.16; Fri, 3
+ Feb 2023 00:21:40 -0600
+Received: from lelv0326.itg.ti.com (10.180.67.84) by DLEE100.ent.ti.com
+ (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.16 via
+ Frontend Transport; Fri, 3 Feb 2023 00:21:40 -0600
+Received: from [172.24.222.47] (ileaxei01-snat2.itg.ti.com [10.180.69.6])
+	by lelv0326.itg.ti.com (8.15.2/8.15.2) with ESMTP id 3136LUTK032367;
+	Fri, 3 Feb 2023 00:21:31 -0600
+Message-ID: <4134f4c2-450c-e560-82c2-82fe1fc4e90d@ti.com>
+Date: Fri, 3 Feb 2023 11:51:30 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
  Thunderbird/102.6.1
-Subject: Re: [PATCH v4 4/7] dt-bindings: net: Add support StarFive dwmac
+From: Aradhya Bhatia <a-bhatia1@ti.com>
+Subject: Re: [PATCH v2 3/4] dt-bindings: panel: Introduce dual-link LVDS panel
+To: Rob Herring <robh@kernel.org>
+CC: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+        Tomi Valkeinen
+	<tomba@kernel.org>, Jyri Sarha <jyri.sarha@iki.fi>,
+        David Airlie
+	<airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>,
+        Laurent Pinchart
+	<laurent.pinchart@ideasonboard.com>,
+        Thierry Reding
+	<thierry.reding@gmail.com>,
+        Sam Ravnborg <sam@ravnborg.org>, Maxime Ripard
+	<maxime@cerno.tech>,
+        Liam Girdwood <lgirdwood@gmail.com>, Mark Brown
+	<broonie@kernel.org>,
+        Lad Prabhakar
+	<prabhakar.mahadev-lad.rj@bp.renesas.com>,
+        Paul Walmsley
+	<paul.walmsley@sifive.com>,
+        Palmer Dabbelt <palmer@dabbelt.com>,
+        Albert Ou
+	<aou@eecs.berkeley.edu>,
+        Matthias Brugger <matthias.bgg@gmail.com>,
+        Guo Ren
+	<guoren@kernel.org>,
+        DRI Development List <dri-devel@lists.freedesktop.org>,
+        Devicetree List <devicetree@vger.kernel.org>,
+        Linux Kernel List
+	<linux-kernel@vger.kernel.org>,
+        Linux RISC-V List
+	<linux-riscv@lists.infradead.org>,
+        Linux ARM Kernel List
+	<linux-arm-kernel@lists.infradead.org>,
+        Linux Mediatek List
+	<linux-mediatek@lists.infradead.org>,
+        Linux C-SKY Arch List
+	<linux-csky@vger.kernel.org>,
+        Nishanth Menon <nm@ti.com>, Vignesh Raghavendra
+	<vigneshr@ti.com>,
+        Rahul T R <r-ravikumar@ti.com>, Devarsh Thakkar
+	<devarsht@ti.com>,
+        Jai Luthra <j-luthra@ti.com>, Jayesh Choudhary
+	<j-choudhary@ti.com>
+References: <20230124101238.4542-1-a-bhatia1@ti.com>
+ <20230124101238.4542-4-a-bhatia1@ti.com>
+ <20230130170441.GA2796575-robh@kernel.org>
 Content-Language: en-US
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	<linux-riscv@lists.infradead.org>, <netdev@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-CC: "David S . Miller" <davem@davemloft.net>, Eric Dumazet
-	<edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
-	Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>
-References: <20230118061701.30047-1-yanhong.wang@starfivetech.com>
- <20230118061701.30047-5-yanhong.wang@starfivetech.com>
- <102db6ae-742b-ea20-076e-386a0284a185@linaro.org>
-From: yanhong wang <yanhong.wang@starfivetech.com>
-In-Reply-To: <102db6ae-742b-ea20-076e-386a0284a185@linaro.org>
-X-Originating-IP: [171.223.208.138]
-X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX073.cuchost.com
- (172.16.6.83)
-X-YovoleRuleAgent: yovoleflag
+In-Reply-To: <20230130170441.GA2796575-robh@kernel.org>
+X-EXCLAIMER-MD-CONFIG: e1e8a2fd-e40a-4ac6-ac9b-f7e9cc9ee180
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230202_215852_420432_6DC4D0A6 
-X-CRM114-Status: GOOD (  19.72  )
+X-CRM114-CacheID: sfid-20230202_222225_037646_FF938171 
+X-CRM114-Status: GOOD (  31.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,146 +123,255 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Rob,
 
-
-On 2023/1/18 23:49, Krzysztof Kozlowski wrote:
-> On 18/01/2023 07:16, Yanhong Wang wrote:
->> Add documentation to describe StarFive dwmac driver(GMAC).
->> 
->> Signed-off-by: Yanhong Wang <yanhong.wang@starfivetech.com>
-> 
-> 
-> Subject is poor. You miss device prefix and it's not correct sentence.
-> 
-> "Add support for XYZ"
-> or better:
-> "Add XYZ"
-> 
-
-Thanks. I will change to "Add support for JH7110" in the next version.
-
-> 
+On 30-Jan-23 22:34, Rob Herring wrote:
+> On Tue, Jan 24, 2023 at 03:42:37PM +0530, Aradhya Bhatia wrote:
+>> Dual-link LVDS interfaces have 2 links, with even pixels traveling on
+>> one link, and odd pixels on the other. These panels are also generic in
+>> nature, with no documented constraints, much like their single-link
+>> counterparts, "panel-lvds".
+>>
+>> Add a new compatible, "panel-dual-lvds", and a dt-binding document for
+>> these panels.
+>>
+>> Signed-off-by: Aradhya Bhatia <a-bhatia1@ti.com>
 >> ---
->>  .../devicetree/bindings/net/snps,dwmac.yaml   |   1 +
->>  .../bindings/net/starfive,jh7110-dwmac.yaml   | 113 ++++++++++++++++++
->>  MAINTAINERS                                   |   5 +
->>  3 files changed, 119 insertions(+)
->>  create mode 100644 Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
->> 
->> diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
->> index baf2c5b9e92d..8b07bc9c8b00 100644
->> --- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
->> +++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
->> @@ -91,6 +91,7 @@ properties:
->>          - snps,dwmac-5.20
->>          - snps,dwxgmac
->>          - snps,dwxgmac-2.10
->> +        - starfive,jh7110-dwmac
->>  
->>    reg:
->>      minItems: 1
->> diff --git a/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml b/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
+>>   .../display/panel/panel-dual-lvds.yaml        | 149 ++++++++++++++++++
+>>   MAINTAINERS                                   |   1 +
+>>   2 files changed, 150 insertions(+)
+>>   create mode 100644 Documentation/devicetree/bindings/display/panel/panel-dual-lvds.yaml
+>>
+>> diff --git a/Documentation/devicetree/bindings/display/panel/panel-dual-lvds.yaml b/Documentation/devicetree/bindings/display/panel/panel-dual-lvds.yaml
 >> new file mode 100644
->> index 000000000000..eb0767da834a
+>> index 000000000000..e2ce1768e9a3
 >> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
->> @@ -0,0 +1,113 @@
+>> +++ b/Documentation/devicetree/bindings/display/panel/panel-dual-lvds.yaml
+>> @@ -0,0 +1,149 @@
 >> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->> +# Copyright (C) 2022 StarFive Technology Co., Ltd.
 >> +%YAML 1.2
 >> +---
->> +$id: http://devicetree.org/schemas/net/starfive,jh7110-dwmac.yaml#
+>> +$id: http://devicetree.org/schemas/display/panel/panel-dual-lvds.yaml#
 >> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 >> +
->> +title: StarFive JH7110 DWMAC glue layer
+>> +title: Generic Dual-Link LVDS Display Panel
 >> +
 >> +maintainers:
->> +  - Yanhong Wang <yanhong.wang@starfivetech.com>
+>> +  - Aradhya Bhatia <a-bhatia1@ti.com>
+>> +  - Thierry Reding <thierry.reding@gmail.com>
 >> +
->> +select:
->> +  properties:
->> +    compatible:
->> +      contains:
->> +        enum:
->> +          - starfive,jh7110-dwmac
->> +  required:
->> +    - compatible
+>> +description: |
+>> +  A dual-LVDS interface is a dual-link connection with the even pixels
+>> +  traveling on one link, and the odd pixels traveling on the other.
+>> +
+>> +allOf:
+>> +  - $ref: panel-common.yaml#
+>> +  - $ref: /schemas/display/lvds.yaml#
 >> +
 >> +properties:
 >> +  compatible:
 >> +    items:
 >> +      - enum:
->> +          - starfive,jh7110-dwmac
->> +      - const: snps,dwmac-5.20
->> +
->> +  clocks:
->> +    items:
->> +      - description: GMAC main clock
->> +      - description: GMAC AHB clock
->> +      - description: PTP clock
->> +      - description: TX clock
->> +      - description: GTXC clock
->> +      - description: GTX clock
->> +
->> +  clock-names:
->> +    items:
->> +      - const: stmmaceth
->> +      - const: pclk
->> +      - const: ptp_ref
->> +      - const: tx
->> +      - const: gtxc
->> +      - const: gtx
->> +
->> +  resets:
->> +    items:
->> +      - description: MAC Reset signal.
+>> +          - lincolntech,lcd185-101ct
+>> +          - microtips,mf-101hiebcaf0
+>> +      - const: panel-dual-lvds
 > 
-> Drop trailing dot
+> Why do we need a new compatible? You have ports and properties to see if
+> the panel is dual link.
+
+Do you mean to say that we can have a generic dual-link panel
+dt-binding, which will allow others to add their own dual-link panel
+compatibles, but instead with the mandatory compatible "panel-lvds"?
+
+> 
+> We already have dual link LVDS supported in advantech,idk-2121wr.yaml
+> which says is compatible with 'panel-lvds', so that decision has already
+> been made. The hint was you added the compatible match to the driver
+> with 0 other changes needed.
 > 
 
-I will fix.
+The code which represents the HW difference between the 2 types of
+panels was merged in drm/drm_of.c along with the advantech binding.
 
->> +      - description: AHB Reset signal.
+And a dual-link panel can still be made to work as single-link, as Tomi
+had pointed out in the previous series[1]. So, it wouldn't be wrong to
+say that a dual-link panel is panel-lvds.
+
+The reason I have been pushing for a new compatible and binding is
+because the 2nd sink in dual-lvds panels make them different enough
+their from single link counterparts. At the very least, we should have
+different bindings for the both of them, for ease of maintenance in
+future, when more properties will get added. So, if you indeed are
+suggesting that we have a separate dt-binding for these panels, but not
+a new generic compatible, then I can get behind that.
+
+And If we do go that way, I think one of your suggestions on advantech
+dt-binding series[2] also gets relevant here.
+
+oneOf:
+  - required: [ports]
+  - required: [port]
+
+This way, we can have dual-lvds panels support single link mode as well.
+
+> That schema is missing type definitions and constraints for
+> dual-lvds-odd-pixels/dual-lvds-even-pixels so there does need to be some
+> changes to add those.
+
+You are right. AFAIK, the the advantech,idk-2121wr panel is also a
+generic model. Which is why, these patches started out as a renaming of
+the advantech binding and making the properties generic. But the diff
+got bigger and I decided to make a new file.
+
+The idea for future work, now, is to merge the "advantech,idk-2121wr"
+compatible along with other panel specific compatibles in this binding.
+
+
+Regards
+Aradhya
+
+
+[1]: https://lore.kernel.org/all/808e831f-4282-0e58-ebb2-2f556aaeaca4@ideasonboard.com/
+[2]: https://lore.kernel.org/all/CAL_Jsq+5FMHK4W4UQU24g+rm3CLjnhRcB29skygRB++GaJyM0A@mail.gmail.com/
+
 > 
-> Ditto
-> 
-
-I will fix.
-
 >> +
->> +  reset-names:
->> +    items:
->> +      - const: stmmaceth
->> +      - const: ahb
-> 
-> You have two resets. Why do you change them to three for all variants?
-> It's not explained in commit 2/7, so this is confusing.
-> 
-
-Refer to the definition of clocks, define the value of maxItems slightly larger (3),
-and reserve a little expandable space without affecting other definitions.
-If you need to configure 3 resets in the future, you only need to define it
-in individual schemas, and you don't need to adjust this item anymore.  
-I will adjust maxItems to 2 in the next version.
-
+>> +  ports:
+>> +    $ref: /schemas/graph.yaml#/properties/ports
 >> +
->> +allOf:
->> +  - $ref: snps,dwmac.yaml#
+>> +    properties:
+>> +      port@0:
+>> +        $ref: /schemas/graph.yaml#/$defs/port-base
+>> +        unevaluatedProperties: false
+>> +        description: The sink for first set of LVDS pixels.
 >> +
->> +unevaluatedProperties: true
+>> +        properties:
+>> +          dual-lvds-odd-pixels:
+>> +            type: boolean
+>> +
+>> +          dual-lvds-even-pixels:
+>> +            type: boolean
+>> +
+>> +        oneOf:
+>> +          - required: [dual-lvds-odd-pixels]
+>> +          - required: [dual-lvds-even-pixels]
+>> +
+>> +      port@1:
+>> +        $ref: /schemas/graph.yaml#/$defs/port-base
+>> +        unevaluatedProperties: false
+>> +        description: The sink for second set of LVDS pixels.
+>> +
+>> +        properties:
+>> +          dual-lvds-even-pixels:
+>> +            type: boolean
+>> +
+>> +          dual-lvds-odd-pixels:
+>> +            type: boolean
+>> +
+>> +        oneOf:
+>> +          - required: [dual-lvds-even-pixels]
+>> +          - required: [dual-lvds-odd-pixels]
+>> +
+>> +    allOf:
+>> +      - if:
+>> +          properties:
+>> +            port@0:
+>> +              required:
+>> +                - dual-lvds-odd-pixels
+>> +        then:
+>> +          properties:
+>> +            port@1:
+>> +              properties:
+>> +                dual-lvds-odd-pixels: false
+>> +
+>> +      - if:
+>> +          properties:
+>> +            port@0:
+>> +              required:
+>> +                - dual-lvds-even-pixels
+>> +        then:
+>> +          properties:
+>> +            port@1:
+>> +              properties:
+>> +                dual-lvds-even-pixels: false
+>> +
+>> +    required:
+>> +      - port@0
+>> +      - port@1
+>> +
+>> +  port: false
+>> +
+>> +unevaluatedProperties: false
 >> +
 >> +required:
 >> +  - compatible
->> +  - clocks
->> +  - clock-names
->> +  - resets
->> +  - reset-names
+>> +  - width-mm
+>> +  - height-mm
+>> +  - data-mapping
+>> +  - panel-timing
+>> +  - ports
 >> +
-> 
-> 
-> Best regards,
-> Krzysztof
-> 
+>> +examples:
+>> +  - |
+>> +    panel {
+>> +      compatible = "microtips,mf-101hiebcaf0", "panel-dual-lvds";
+>> +
+>> +      width-mm = <217>;
+>> +      height-mm = <136>;
+>> +
+>> +      data-mapping = "vesa-24";
+>> +
+>> +      panel-timing {
+>> +        clock-frequency = <150275000>;
+>> +        hactive = <1920>;
+>> +        vactive = <1200>;
+>> +        hfront-porch = <32>;
+>> +        hsync-len = <52>;
+>> +        hback-porch = <24>;
+>> +        vfront-porch = <24>;
+>> +        vsync-len = <8>;
+>> +        vback-porch = <3>;
+>> +        de-active = <1>;
+>> +      };
+>> +
+>> +      ports {
+>> +        #address-cells = <1>;
+>> +        #size-cells = <0>;
+>> +
+>> +        port@0 {
+>> +          reg = <0>;
+>> +          dual-lvds-odd-pixels;
+>> +          lcd_in0: endpoint {
+>> +            remote-endpoint = <&oldi_out0>;
+>> +          };
+>> +        };
+>> +
+>> +        port@1 {
+>> +          reg = <1>;
+>> +          dual-lvds-even-pixels;
+>> +          lcd_in1: endpoint {
+>> +            remote-endpoint = <&oldi_out1>;
+>> +          };
+>> +        };
+>> +      };
+>> +    };
+>> +
+>> +...
+>> diff --git a/MAINTAINERS b/MAINTAINERS
+>> index 5e18388b4579..6025bb024586 100644
+>> --- a/MAINTAINERS
+>> +++ b/MAINTAINERS
+>> @@ -6461,6 +6461,7 @@ T:	git git://anongit.freedesktop.org/drm/drm-misc
+>>   S:	Maintained
+>>   F:	drivers/gpu/drm/panel/panel-lvds.c
+>>   F:	Documentation/devicetree/bindings/display/lvds.yaml
+>> +F:	Documentation/devicetree/bindings/display/panel/panel-dual-lvds.yaml
+>>   F:	Documentation/devicetree/bindings/display/panel/panel-lvds.yaml
+>>   
+>>   DRM DRIVER FOR MANTIX MLAF057WE51 PANELS
+>> -- 
+>> 2.39.0
+>>
 
 _______________________________________________
 linux-riscv mailing list
