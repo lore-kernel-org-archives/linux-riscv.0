@@ -4,84 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B316EC61DA4
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Feb 2023 09:00:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4552C636CC
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Feb 2023 09:02:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FAatkzO0a/O7guJor6uHtoC7WNoWB2cdIO3Enj79KPE=; b=nNoffI8StYWZTU
-	1WXGN0Kqvr0cjYuGAiBK3sLMIR9bhbmlXkr0cO2En67pBS2ha1NqS+nYnszCryeXnYEVscR+uSOcf
-	705jUWurmstJkYNPs9vJJaAxC+wGm+JvMK9HHVTEcYrQJlZe9ik8ci8nnFiwX7jU5544CMis/5kGO
-	fOxAzEbDs/LJ+3osZFQH/MOFAyYonL16i1KS5vJCbP+T4XzyTbrAaHCIpPW1vK9q713XhzYN0f3aL
-	msh+jvS7IgVWGasJMlw5j/UkQBER7NhI67OdfRA/GIMMHWD4qI/A3w16Z193hJksNNO8TKZwVYHmJ
-	KNDqEgC5m2M80P2cUbfw==;
+	List-Owner; bh=iJywpZ4TN/VeNRDtkW9DEVuiEJQmYKeIuIUEpgjtfNo=; b=OfC+edktdvpPB6
+	Hbh8TrG4uVbrev7J9xvvVwqTdTPwDoKCtVrxmeyTjLqK7q1yp6TRU3UibHyWX+6lRbbCUtIkBOUF5
+	uTbxpXXyf9oBBnCreet8xQfXm+6A5eng/l4yZvmez/mhBNfnHr0pnm5rLLbZs/kgLwcIpN4EQmpds
+	heqxz35w2mLdcHUnM6CUhExhYpybfEJ1sNEsyed7iQZ+h6AESqD0iBACpElZUODLejmjN5GGn8Yby
+	MNJPang+IuqCmYNtyv+S5nf9J/0neoKVT92nNF5c87So7gxlbP0ppri3M4v1bejPaSwlYvMEoaoSF
+	akqYXrAnQ/MqqozxVeEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNrvn-0015RE-Tj; Fri, 03 Feb 2023 09:00:27 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNrvm-0015QC-1L
-	for linux-riscv@lists.infradead.org; Fri, 03 Feb 2023 09:00:27 +0000
-Received: by mail-wm1-x333.google.com with SMTP id m5-20020a05600c4f4500b003db03b2559eso3292173wmq.5
-        for <linux-riscv@lists.infradead.org>; Fri, 03 Feb 2023 01:00:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=qXoAdHhN/nXWyLyZPUiTv4Q4XmY1KdAGzUzsHG/Rk/4=;
-        b=EQ75a+A2a/ajqx8kGm+he/MG5JqJRScsCs7zePqdvT18OKGHTuLnVCDHxC+mDWrDZG
-         OhTQEQto6HF0AgYT4Avbgk/mQ65mHW52eY9ahBiurEBaJThzk8t/O38jeGsVQRWClp6s
-         KHsYlkOwGaAKKTaHgKAE1E8arVdP+OD0tkAnJbahzPvSZqpqIwgb+nGudQe4bDkV7Aix
-         zKqp9xm6nnThzNeQ9tw7xERnlLBPPmOF7KhlqhOCT/HW5te9PdcJNyjHCOKsNyP1HYGP
-         DaEZwgiTY2cI/iuquNk0hUomjalP7z+V2eNFdExLL2DQcbjz4XJQr8w3lIdWqxzKo8tC
-         Ycag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=qXoAdHhN/nXWyLyZPUiTv4Q4XmY1KdAGzUzsHG/Rk/4=;
-        b=yvbWQCyBV5QKJlIut+805ZSs3dWt51oW3Q5FtG/cjhDKm2bDy4nyYJTHfg9JBoQxzY
-         LAv8gHLsSvBdXAB+nAIkI0c/hdy8QxoUa4e33g5qOcxybMLvvhT7eCATBzBmUD5cxifk
-         WPRzDPfGvBxNVQhkMEG2Qp8xn1JynWR/Qxksw/4ayGtq2AgGX6WrBMWzjZuE+yJPfohj
-         jdRN2U102mhYAs2+zYxi3yft8fQ6K/3S5T4CvqsWU4wvwpgnW7miYeXAtElPaGDDbTUd
-         3gKG6mJTZcO8jkwBI/UyNWlImaNwgw0Jlf7rMwiQxGXjjDNWKiJRk7W4ecHCDeuSgGiX
-         90EQ==
-X-Gm-Message-State: AO0yUKV1MKkNYiSA6GuczY3VPs4z2KUkuAAG890D2NJroAnYkiFEujGG
-	Kbjn0yIrZw/BqLs8QzV3lbiDDg==
-X-Google-Smtp-Source: AK7set9UG7Ud3p7osiXX4INl9ByMEzwhEn6pf64Y4FQLsiE5MeXOWMKgknfwGwLF5zdgnCno4AhqXg==
-X-Received: by 2002:a05:600c:3acb:b0:3db:f0a:8707 with SMTP id d11-20020a05600c3acb00b003db0f0a8707mr9116756wms.40.1675414822412;
-        Fri, 03 Feb 2023 01:00:22 -0800 (PST)
-Received: from [192.168.1.109] ([178.197.216.144])
-        by smtp.gmail.com with ESMTPSA id p17-20020a05600c205100b003dd1bd0b915sm4170806wmg.22.2023.02.03.01.00.21
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 03 Feb 2023 01:00:21 -0800 (PST)
-Message-ID: <5de1f657-2632-9165-b6ed-96327fab1de4@linaro.org>
-Date: Fri, 3 Feb 2023 10:00:20 +0100
+	id 1pNrxT-0015gt-1K; Fri, 03 Feb 2023 09:02:11 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pNrxP-0015fZ-81
+	for linux-riscv@lists.infradead.org; Fri, 03 Feb 2023 09:02:09 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 7654524E201;
+	Fri,  3 Feb 2023 17:01:54 +0800 (CST)
+Received: from EXMBX073.cuchost.com (172.16.6.83) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 3 Feb
+ 2023 17:01:54 +0800
+Received: from [192.168.120.49] (171.223.208.138) by EXMBX073.cuchost.com
+ (172.16.6.83) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 3 Feb
+ 2023 17:01:53 +0800
+Message-ID: <a385e270-c217-4a29-1539-701450b32062@starfivetech.com>
+Date: Fri, 3 Feb 2023 17:01:52 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.7.1
-Subject: Re: [PATCH v3 1/3] dt-bindings: mmc: Add StarFive MMC module
-To: William Qiu <william.qiu@starfivetech.com>,
- linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
- linux-mmc@vger.kernel.org
-Cc: Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Jaehoon Chung <jh80.chung@samsung.com>, Ulf Hansson
- <ulf.hansson@linaro.org>, linux-kernel@vger.kernel.org
-References: <20230203081913.81968-1-william.qiu@starfivetech.com>
- <20230203081913.81968-2-william.qiu@starfivetech.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.6.1
+Subject: Re: [PATCH v4 6/7] riscv: dts: starfive: jh7110: Add ethernet device
+ node
 Content-Language: en-US
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20230203081913.81968-2-william.qiu@starfivetech.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	<linux-riscv@lists.infradead.org>, <netdev@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+CC: "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+	<edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
+	Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>
+References: <20230118061701.30047-1-yanhong.wang@starfivetech.com>
+ <20230118061701.30047-7-yanhong.wang@starfivetech.com>
+ <55f020de-6058-67d2-ea68-6006186daee3@linaro.org>
+ <f22614b4-80ae-8b16-b53e-e43c44722668@starfivetech.com>
+ <870f6ec5-5378-760b-7a30-324ee2d178cf@linaro.org>
+ <048b3ab0-7c13-b7f7-403c-f4e1d5574a10@starfivetech.com>
+ <f937ed98-a65e-e75e-24b4-0219e0403ac0@linaro.org>
+From: yanhong wang <yanhong.wang@starfivetech.com>
+In-Reply-To: <f937ed98-a65e-e75e-24b4-0219e0403ac0@linaro.org>
+X-Originating-IP: [171.223.208.138]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX073.cuchost.com
+ (172.16.6.83)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230203_010026_113720_1AFFBCC0 
-X-CRM114-Status: UNSURE (   8.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230203_010207_457848_EE4CC2B0 
+X-CRM114-Status: GOOD (  10.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,21 +85,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 03/02/2023 09:19, William Qiu wrote:
-> Add documentation to describe StarFive designware mobile storage
-> host controller driver.
+
+
+On 2023/2/3 15:56, Krzysztof Kozlowski wrote:
+> On 03/02/2023 08:40, yanhong wang wrote:
+>>>
+>> 
+>> Sorry, I didn't check all the bindings, only the modified ones, the command 
+>> used is as follows: 
+>> "make dt_binding_check DT_SCHEMA_FILES=Documentation/devicetree/bindings/net/snps,dwmac.yaml"
+>> "make dt_binding_check DT_SCHEMA_FILES=Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml"
 > 
-> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
-> ---
->  .../bindings/mmc/starfive,jh7110-mmc.yaml     | 77 +++++++++++++++++++
->  1 file changed, 77 insertions(+)
+> That's good actually, except that you change binding used by others, so
+> you affect other files.
+> 
+> However in this DTS you will have now warnings (dtbs_check with
+> simple-bus or dtbs W=1) because of using non-MMIO node in your soc-bus.
+> The stmmac-axi-config probably should be moved outside of soc node. Or
+> you keep two of them - one in each ethernet node.
+> 
 
+Thanks. The stmmac-axi-config probably will be moved outside of soc node in the next version.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
-Best regards,
-Krzysztof
-
+> Best regards,
+> Krzysztof
+> 
 
 _______________________________________________
 linux-riscv mailing list
