@@ -4,135 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8190C636D3
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Feb 2023 23:41:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E8C9C636D6
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Feb 2023 00:24:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=crzn+hQfFza+rR4THh9XrunAMiTsZLUyIzOZCHja9eo=; b=pOix5uJd62S5s7
-	rH3aIvQV4XE3UTUKmeuLI2Guh6M8P169+wqKRXtl4BhA7qlFBb+998ai2ohuchXzErmUWt9ngafRk
-	TppNquALrKW+FKPGNdKkGuJO7qzvBDNmrgWw9zxXehSncGje1gcT+/f1mace/2GkhQkmG1LijeBR2
-	LLSbcpSdiH/TcO64Yne5dlKcbJkf4+kjAdjVj4hnHQKeYxo94yNsM7aZLxBN7i2kBJTywVSHvv0vJ
-	hD4BPgPEukX9SAGqHjObWYFi+mPPNVPI/RZ3MAeueZNzUQe37l6n5M9Yh+Cvoo7TcOqTgY8G8B/3Q
-	6gK6mcOohSRYi1nbmAxw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=Jhq3K1B33G3NI2sB1ivvgMIRQ22aYTMf13zJuK4XEAk=; b=I2istxFQg8nS6jY0L0LsJtdq1w
+	ER1+KE6RqF0IEa4KjODFJL59io5rHZ2DYAoBZ5lMVMuskAFAeEQMIyIuykrepJgkeyiQD6T4utuDJ
+	A0w1Q7rplcLSRaANUYI9idd2qFFHa9t/i1i6KO+Xs1ovCvz/8832fEkeR05gxAkcTnKmRlYlLMZy1
+	XV305/z84elc/Gub9fgnbhzzHye1kD/Thcs02AHJei1/Sd83/y9OAMT55c7Z2thUoY0ET0fY2lv0M
+	XajMhQDauqj6XO1mnfKDFeIWFZbvhYr78fezOTRSPMAewLMZIT7eLGYT5f3LOzU0PAF/E5UbStft1
+	2ilLTNmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNjCO-00HQaL-RD; Thu, 02 Feb 2023 23:41:00 +0000
-Received: from mail-psaapc01on20722.outbound.protection.outlook.com ([2a01:111:f400:feae::722] helo=APC01-PSA-obe.outbound.protection.outlook.com)
+	id 1pNjsk-00HVGX-Eq; Fri, 03 Feb 2023 00:24:46 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNjCM-00HQYW-Et; Thu, 02 Feb 2023 23:41:00 +0000
-Received: from SI2PR06MB3929.apcprd06.prod.outlook.com (2603:1096:4:f9::13) by
- SI2PR06MB5244.apcprd06.prod.outlook.com (2603:1096:4:1e4::6) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.6086.6; Thu, 2 Feb 2023 15:08:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=DU7gUFgkMJDkBY2ZpMxKbdKHtWCvyVw1wFkO0mSqVxSHcPd7Avka6hz87s4kvO+c49XchoJg+cFSJ7gHEDdqiHWHuQ1i2HBkzhjA5OYqRt5YK3vq1OjVLNXyuXIAfSb5g4ihj86BQefvCQ37CNaKnLDKdAIu01xXcRTFDWjKR8ib5F/2zA+/wKkpOzyozqH4k1ZlW7yI2ko9KS+DAy8bCHtMysyjubiNMCxBRlOmoLmy3JdupcvHrIW3kKL/8Ji0I3TETsU1iGrp0/XgZBFRcQT0wND9wnn4ybV8UkbkyCLG23MlayJ1Q6k3qvvMlIUXmRLAvzQ7AoW2TonMpsYksw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NwmYgmsvrXVf/ye8fcTFO0/kkTAM3I7aGPkv3SAs1w0=;
- b=Va9tgY7wUexHhx9/AMa6K+vgMusZCr5AgtAcufStaHuul9IZbmbbZGcZx0gKHxUNK+0A5Soy57Xpd2XGWNRHE8krYT6buEm2oAOtw5sJZmrMuvFSHGIIWRQXqKshnCx7pQa3G5sR/SWMdnb6NpHm9F2jwcjQpgigjfsd8ufNqRxibfBVEyz0d1umVtNk8EUxIO4g8A7+FqqKFdYZaWrdxN1YPHP5bwKxT9SUKSbmpY0kMnP7AkDhXLv5szCx/s7aG7AKc39ycG6U8s+auEeQdBQalUYUlTSjfQLZsXHeN4/8R38j708k8H/+bgf+c2+YY0Up49lddittl9q4GQt69A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
- header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NwmYgmsvrXVf/ye8fcTFO0/kkTAM3I7aGPkv3SAs1w0=;
- b=zjdz91GTH3Zv9l0lUjneMtU2oZ/q4WWLy3kTC4u66qJ12lglC3WQlQWF3i0LRm1TFW+HJ8xnpTOdOtGj1NZlRl5FkoyytPrZDkbtW5iE9jV4EzTR9BAn/UORYawFjBeqqEOAVD2YlPJZUuVNHGPOae7BmVsLYsb3aIkQ1tSzS0xJXgWAlPaOTP3UvtMcZqJrnIApa5V/LaGXff4K0//fcf6kxLcStVFcgy3HaQso0xxqo3a7bUKg0c2etgnUtUmUT6y6CG7BS/9ukervD8LBIEOCQzbw36IiynII3SZQdP5K2jUcWPK9FUVld6aBXUWDYnz7IW+wwX1T8C49x03Vgg==
-Received: from TY2PR06MB3213.apcprd06.prod.outlook.com (2603:1096:404:97::16)
- by SI2PR06MB3929.apcprd06.prod.outlook.com (2603:1096:4:f9::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6086.7; Thu, 2 Feb
- 2023 02:59:19 +0000
-Received: from TY2PR06MB3213.apcprd06.prod.outlook.com
- ([fe80::b113:70f9:7dc9:543f]) by TY2PR06MB3213.apcprd06.prod.outlook.com
- ([fe80::b113:70f9:7dc9:543f%7]) with mapi id 15.20.6064.022; Thu, 2 Feb 2023
- 02:59:19 +0000
-From: Neal Liu <neal_liu@aspeedtech.com>
-To: Andrew Jeffery <andrew@aj.id.au>
-CC: kbuild test robot <lkp@intel.com>, Andrew Morton
-	<akpm@linux-foundation.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-aspeed@lists.ozlabs.org"
-	<linux-aspeed@lists.ozlabs.org>, "linux-arm-msm@vger.kernel.org"
-	<linux-arm-msm@vger.kernel.org>, "amd-gfx@lists.freedesktop.org"
-	<amd-gfx@lists.freedesktop.org>, Linux Memory Management List
-	<linux-mm@kvack.org>, "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"kvmarm@lists.cs.columbia.edu" <kvmarm@lists.cs.columbia.edu>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-trace-kernel@vger.kernel.org"
-	<linux-trace-kernel@vger.kernel.org>
-Subject: RE: [linux-next:master] BUILD REGRESSION
- 66eee64b235411d512bed4d672c2d00683239daf
-Thread-Topic: [linux-next:master] BUILD REGRESSION
- 66eee64b235411d512bed4d672c2d00683239daf
-Thread-Index: AQHZNqLYPleILitAVkyvMXcyMi0fNa669sTw
-Date: Thu, 2 Feb 2023 02:59:18 +0000
-Message-ID:  <TY2PR06MB321334CFD4ED1BD4AF97965380D69@TY2PR06MB3213.apcprd06.prod.outlook.com>
-References: <63da97b5.3V1HSQEat507LFIr%lkp@intel.com>
- <76f4dea0-9a39-4238-a213-0167477f5d54@app.fastmail.com>
-In-Reply-To: <76f4dea0-9a39-4238-a213-0167477f5d54@app.fastmail.com>
-Accept-Language: en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=aspeedtech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: 	TY2PR06MB3213:EE_|SI2PR06MB3929:EE_|SI2PR06MB5244:EE_
-x-ms-office365-filtering-correlation-id: 0000665a-9487-4af9-31d1-08db04c97a6c
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info:  BKb/ldn1nm1OAwkJG1HF270esNNM7v92acGqv7wuSpZHAd2NtqCjUneNWbyPOoVEE7l/CfVix4kpFhjsdZUYMw0BxCqkcvbnaiiJY3Vq92r3RffwV/8r8wEjVeOcs+3wf/+8/U/imFn0UhlGrzUzsMGQFOD8gwSOrxHJYwXbFzk+KB6dM6Ehct5VjH3ypj9T2ICr8+oAqgUDRJ4pcJ8Wx6mXn6OzrGT6ck6RtUZYPT0XMKcqOHrdPjc2Q8U4q5tPfHyg8dMEG9nU7iDEadup0BZYynv5OWxCnwE5zYCf97BWz8hNnWVHMg6Za5ya411L8JD6IYc+0OyFJ2btp+iiAHJA9J1RqFvRPtuG5YrooLZZEpC018mKFSpYor1xd9d1CEzvSuXA6Oj9XFoNSSsBz+mmbfqRYdZGQhR053c3GuN6DdGTsuUBDDFLBuYeZRAVWsQEjwAQ6vCbNyLAJYdHHPvdrOPkck/Q6HewWlgindNTeajNXYQLwSoN2aCgnnUuO7M1RuMz4lxDPxHeZWq/653ltHLjLA6/YeMrdLrvy02ycEpH1kzPdCDjyRzOEa1ndIFFclmjlz9Rko5p0TMVSmNZaX21zTqWmEFT0J5lHOu20QcO4T8jHba/Ey/2uCNio+gfe9ugF8tB8itlAJYqqipMDlKt2txKDZwx/DSatVxmXdLJKO+2RvNtmBpaqmLcWGnugd03Mw55K3VgDnGatPcqtQuRiV8KMppU+PiVDVg=
-x-forefront-antispam-report:  CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY2PR06MB3213.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230025)(136003)(346002)(376002)(396003)(39850400004)(366004)(451199018)(6916009)(8676002)(4326008)(41300700001)(64756008)(66446008)(66556008)(66946007)(66476007)(76116006)(86362001)(38070700005)(54906003)(8936002)(38100700002)(5660300002)(122000001)(7416002)(52536014)(33656002)(316002)(55016003)(9686003)(26005)(71200400001)(186003)(7696005)(2906002)(966005)(83380400001)(478600001)(6506007);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0:  =?us-ascii?Q?ElUlFQ0BxtxBRmDV5JTfD1Yp/0OgzJIB1GxO0twWmXi+D82QwQ1wpiuurf3y?=
- =?us-ascii?Q?Pc5b2kgVDI0oVuvs6CEvgn7hqsDMTSC4xU5wGUB7YPWzG+xJhMrPtzDsbWTC?=
- =?us-ascii?Q?yCGjQ8Vu90sGEs7I2T/f0INspMZZWviH2AS27HNZtPtz7Zn7ex2bgnFRJ1TB?=
- =?us-ascii?Q?lvZO49JsU/BGUeq453+mk17NLB+F97FsE4L2FXf7mk+7uHQW6z3Ef8oD7Bdb?=
- =?us-ascii?Q?QpAh0m+V3IeVN/HBPv0Wvy3kLJiwKFVlN0HeweUSB5pBRwlAgpdhKQxWMQGm?=
- =?us-ascii?Q?/8R+Q1VUcl/+CuBt6rXrPg3THhtOoC2GFemU3BSQ/rJCo5eQFQB0iGWVO5by?=
- =?us-ascii?Q?DLXbjx+LqWDDMLg2MHa4nstjmJreDpo4B/3Pl79QdjL/TmfvOeEHAbNv56jz?=
- =?us-ascii?Q?3DMoKpOMWeffgjOPrOzYlXzE8SbHFHf9pAowEuvNVjvHwKrHGgXnKAEhDNHj?=
- =?us-ascii?Q?YeGE9VwEki9P44nTkpz8+xOLIm7IEy5t1uulZhDGBMRkCfZkRHiwqzoXBsfY?=
- =?us-ascii?Q?AVKGXPPsjNPRl/agfccuid9X/Dt5k+1VLYqlYKDyrGzi7nrkZz0/dn6DduHS?=
- =?us-ascii?Q?FBmHKEgJofTrrtPekwg1iPw+kwvXr/Bbian0zkMvKkfaClf4mCzuVMHiDg5S?=
- =?us-ascii?Q?P4JObLzkqxIgQchXq7+oDD5zLKSNehXGSQ+avDbws4S3zvyhwg/QlsnGVS0Z?=
- =?us-ascii?Q?c4JSmzPJDmIIBfDuaHMLjf1nPVKvDUTSnQUgoSkxNw6Bq4crJAE6Hk86vTTx?=
- =?us-ascii?Q?JguY04ozKr6KuqJ3KqajDoj7gQZlDeV2tDhXvevaBl0ECtz8PEz1GaJaiF3W?=
- =?us-ascii?Q?pf5sFMudFH2kgpQBqOvAZ7aWcB9kIpkDA/406yUI+kFp1rpLwqaoTztQ0MEw?=
- =?us-ascii?Q?jozUmq5DNG3ADAUnMV3JBEFTrkkAUiRAguBMp4FuhRqfMkn9J9vYdww7MZDT?=
- =?us-ascii?Q?hTueL2Mnz1GZSPd1tCpX9pUQdf/DCXpLGMnUeU1NaMeOOzpj1Z4+PWcZH04Z?=
- =?us-ascii?Q?J6vqsx2tfvgzCgoz6LyfSn9yI/qz86XOgpabKghDnjUQ8jo5f55kwL02Ppm6?=
- =?us-ascii?Q?yBVdbyDVfvOmTZav2t4Ue8lH/mSLgstylxZW+GTUG8ZfFvYg6msdhOMsJ+ZB?=
- =?us-ascii?Q?hw30U1hPsqkm2brR7a6GSt+tpuL7MTLIw3SY19yPi1oEo0fNVb01wOXAY7CV?=
- =?us-ascii?Q?d+ehLh+XS+2oD8Z3TrYbGnJZnbA/ve05ZGdgzwrIj+KiFK6o9tyJx3dYXTzq?=
- =?us-ascii?Q?eOFec54oIcQsdp6NdIFal8b1kyo7kpoPhyc1EGEvLjK/0+n/Il8f2BuNuSix?=
- =?us-ascii?Q?EsGahXMmYR4DPfY8J5LtkSMig0ECxriuwkEbbDzO3/g4plK2KdPAcjf9RChO?=
- =?us-ascii?Q?K0sCfrzCmQqm8SdIpPIHk2o4p6ophqjbIiGfiisf9CiVVLatzDCebPZrMgeP?=
- =?us-ascii?Q?ozKdP4XqxF/3K31B8QuDyYNdIjEoxp5ggGKbZ5tPiKp1fQCKm+WWJ3jekr6r?=
- =?us-ascii?Q?1ZAg/1hvC8KH1So8GHKBCKrfmqWYH9MQmlVVfKGbh0EO+LnlDIcaCA0lHtQY?=
- =?us-ascii?Q?bvQmhs/ue8o93QAceZtCQt4KSbhLaW9V4UA1ZPry?=
-MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TY2PR06MB3213.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0000665a-9487-4af9-31d1-08db04c97a6c
-X-MS-Exchange-CrossTenant-originalarrivaltime: 02 Feb 2023 02:59:19.1437
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: Zi3FHqtDe6U3xsU9SGyghQmZl5G1QkFgVNgiBJgiosg03YiIbL4vAZtIRQdTTM4CbmblJjjWH635XwZsdReyPw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SI2PR06MB3929
-X-OriginatorOrg: aspeedtech.com
+	id 1pNjsg-00HVEu-NG
+	for linux-riscv@lists.infradead.org; Fri, 03 Feb 2023 00:24:44 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id be8so3658785plb.7
+        for <linux-riscv@lists.infradead.org>; Thu, 02 Feb 2023 16:24:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=hg6i68J4TobeoqlekmsngWftuTPTv+G6KXcOdLK3leg=;
+        b=trvbCnrSg+4Hjwt0pDcD/npkOjyXxWK0/F7hfrJwRn1wuEcAww+eNLkeb9AyGp52Zy
+         AK2x9UaBaxdID1/Xwzbx5A31+3dLIc/bCDtZhReDGRo+Go4mYXJz1Aa/aK3tzRy/0MoW
+         CvM9RrIYk+Rz7D9V7Y5lF+p4X0wf10UD9dJlbTf7Ajr8mpo7CKVnIYHI4v3InlP+6PrP
+         znWLEEvkmrn7ADHeB6QNn9FP4BZPC4ilktk6xsGuHqHr73U4OiG5ebrMHCaRVIUERzyg
+         B637XrrylYMl0ZMrcoJhs1CcQO5NYoJWJXD99fwMh/gr7CoAPj08hWNtECEMfqjdjBet
+         ItKQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=hg6i68J4TobeoqlekmsngWftuTPTv+G6KXcOdLK3leg=;
+        b=3lPXJVNWlknC8zuZidQHeVh0BvUlwYHV3i8DXd1e84r2fTp4N5r1a4qHw1JUjcyCHI
+         PDxGSv7nzGyHvBgmSg1ICVJApBZD9IPoDPBWoCiwUS+dMyOy7vrbcsn26+ahkqQ1Uj5X
+         MgtM+BHomJ/id7foHS89ArwuZd9GdrGAbTLvOt35v7OqE9U35VsWWOfMB0U8TR5+advJ
+         /3kelx/+lbYI591mahNpM0U6h9MCaOa4bbWnVG2/AMrNgtS/bhJ6LaL4PlTi4kEeF0Nr
+         D9nGS4e9N8q61gCEWjvVu3Ygpn8w+RSsIOLAr6q4r60ToG8+B2K7ekubdA8480R1k5Ex
+         7mIA==
+X-Gm-Message-State: AO0yUKVDfWBE32tUf0o07ygJ/GC7ny8Lx3J9kvayZ0CplnVrsJkyq64m
+	D8Vm6FvMu1FX/2aA7D6BOfYitw==
+X-Google-Smtp-Source: AK7set+pf7PQ1ZGCqlI8Er9tb5JhQwcK9KfqGIR52SYoaFZglHAdBVnRyV4EGcxl7VS97t3JzdDK3A==
+X-Received: by 2002:a17:902:f54c:b0:198:9988:5e2f with SMTP id h12-20020a170902f54c00b0019899885e2fmr9557563plf.26.1675383881285;
+        Thu, 02 Feb 2023 16:24:41 -0800 (PST)
+Received: from localhost ([135.180.226.51])
+        by smtp.gmail.com with ESMTPSA id x23-20020a1709027c1700b001946a3f4d9csm267083pll.38.2023.02.02.16.24.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 02 Feb 2023 16:24:40 -0800 (PST)
+Date: Thu, 02 Feb 2023 16:24:40 -0800 (PST)
+X-Google-Original-Date: Thu, 02 Feb 2023 15:42:40 PST (-0800)
+Subject: Re: [PATCH v2 1/7] RISC-V: Add AIA related CSR defines
+In-Reply-To: <20230128072737.2995881-2-apatel@ventanamicro.com>
+CC: pbonzini@redhat.com, atishp@atishpatra.org,
+  Paul Walmsley <paul.walmsley@sifive.com>, ajones@ventanamicro.com, anup@brainfault.org, kvm@vger.kernel.org,
+  kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+  apatel@ventanamicro.com, Conor Dooley <conor.dooley@microchip.com>
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: apatel@ventanamicro.com
+Message-ID: <mhng-36482541-2867-4ade-948f-a2cfc2e039e5@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230202_154058_551295_57078595 
-X-CRM114-Status: GOOD (  13.06  )
+X-CRM114-CacheID: sfid-20230202_162442_993261_24238A1E 
+X-CRM114-Status: GOOD (  17.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,44 +86,183 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> Hi Neal,
-> 
-> On Thu, 2 Feb 2023, at 03:17, kernel test robot wrote:
-> > tree/branch:
-> > https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
-> > master
-> > branch HEAD: 66eee64b235411d512bed4d672c2d00683239daf  Add
-> linux-next
-> > specific files for 20230201
-> >
-> >
-> > Unverified Error/Warning (likely false positive, please contact us if
-> > interested):
-> >
-> > drivers/crypto/aspeed/aspeed-acry.c:295:37: sparse: sparse: incorrect
-> > type in assignment (different base types)
-> > drivers/crypto/aspeed/aspeed-acry.c:305:28: sparse: sparse: cast
-> > removes address space '__iomem' of expression
-> > drivers/crypto/aspeed/aspeed-acry.c:606:24: sparse: sparse: symbol
-> > 'aspeed_acry_akcipher_algs' was not declared. Should it be static?
-> 
-> Can you please look into these issues with the ACRY driver?
-> 
-> Cheers,
-> 
-> Andrew
+On Fri, 27 Jan 2023 23:27:31 PST (-0800), apatel@ventanamicro.com wrote:
+> The RISC-V AIA specification improves handling per-HART local interrupts
+> in a backward compatible manner. This patch adds defines for new RISC-V
+> AIA CSRs.
+>
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+> ---
+>  arch/riscv/include/asm/csr.h | 95 +++++++++++++++++++++++++++++++++++-
+>  1 file changed, 94 insertions(+), 1 deletion(-)
+>
+> diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+> index 0e571f6483d9..3c8d68152bce 100644
+> --- a/arch/riscv/include/asm/csr.h
+> +++ b/arch/riscv/include/asm/csr.h
+> @@ -7,7 +7,7 @@
+>  #define _ASM_RISCV_CSR_H
+>
+>  #include <asm/asm.h>
+> -#include <linux/const.h>
+> +#include <linux/bits.h>
+>
+>  /* Status register flags */
+>  #define SR_SIE		_AC(0x00000002, UL) /* Supervisor Interrupt Enable */
+> @@ -73,7 +73,10 @@
+>  #define IRQ_S_EXT		9
+>  #define IRQ_VS_EXT		10
+>  #define IRQ_M_EXT		11
+> +#define IRQ_S_GEXT		12
+>  #define IRQ_PMU_OVF		13
+> +#define IRQ_LOCAL_MAX		(IRQ_PMU_OVF + 1)
+> +#define IRQ_LOCAL_MASK		GENMASK((IRQ_LOCAL_MAX - 1), 0)
+>
+>  /* Exception causes */
+>  #define EXC_INST_MISALIGNED	0
+> @@ -156,6 +159,27 @@
+>  				 (_AC(1, UL) << IRQ_S_TIMER) | \
+>  				 (_AC(1, UL) << IRQ_S_EXT))
+>
+> +/* AIA CSR bits */
+> +#define TOPI_IID_SHIFT		16
+> +#define TOPI_IID_MASK		GENMASK(11, 0)
+> +#define TOPI_IPRIO_MASK		GENMASK(7, 0)
+> +#define TOPI_IPRIO_BITS		8
+> +
+> +#define TOPEI_ID_SHIFT		16
+> +#define TOPEI_ID_MASK		GENMASK(10, 0)
+> +#define TOPEI_PRIO_MASK		GENMASK(10, 0)
+> +
+> +#define ISELECT_IPRIO0		0x30
+> +#define ISELECT_IPRIO15		0x3f
+> +#define ISELECT_MASK		GENMASK(8, 0)
+> +
+> +#define HVICTL_VTI		BIT(30)
+> +#define HVICTL_IID		GENMASK(27, 16)
+> +#define HVICTL_IID_SHIFT	16
+> +#define HVICTL_DPR		BIT(9)
+> +#define HVICTL_IPRIOM		BIT(8)
+> +#define HVICTL_IPRIO		GENMASK(7, 0)
+> +
+>  /* xENVCFG flags */
+>  #define ENVCFG_STCE			(_AC(1, ULL) << 63)
+>  #define ENVCFG_PBMTE			(_AC(1, ULL) << 62)
+> @@ -250,6 +274,18 @@
+>  #define CSR_STIMECMP		0x14D
+>  #define CSR_STIMECMPH		0x15D
+>
+> +/* Supervisor-Level Window to Indirectly Accessed Registers (AIA) */
+> +#define CSR_SISELECT		0x150
+> +#define CSR_SIREG		0x151
+> +
+> +/* Supervisor-Level Interrupts (AIA) */
+> +#define CSR_STOPEI		0x15c
+> +#define CSR_STOPI		0xdb0
+> +
+> +/* Supervisor-Level High-Half CSRs (AIA) */
+> +#define CSR_SIEH		0x114
+> +#define CSR_SIPH		0x154
+> +
+>  #define CSR_VSSTATUS		0x200
+>  #define CSR_VSIE		0x204
+>  #define CSR_VSTVEC		0x205
+> @@ -279,8 +315,32 @@
+>  #define CSR_HGATP		0x680
+>  #define CSR_HGEIP		0xe12
+>
+> +/* Virtual Interrupts and Interrupt Priorities (H-extension with AIA) */
+> +#define CSR_HVIEN		0x608
+> +#define CSR_HVICTL		0x609
+> +#define CSR_HVIPRIO1		0x646
+> +#define CSR_HVIPRIO2		0x647
+> +
+> +/* VS-Level Window to Indirectly Accessed Registers (H-extension with AIA) */
+> +#define CSR_VSISELECT		0x250
+> +#define CSR_VSIREG		0x251
+> +
+> +/* VS-Level Interrupts (H-extension with AIA) */
+> +#define CSR_VSTOPEI		0x25c
+> +#define CSR_VSTOPI		0xeb0
+> +
+> +/* Hypervisor and VS-Level High-Half CSRs (H-extension with AIA) */
+> +#define CSR_HIDELEGH		0x613
+> +#define CSR_HVIENH		0x618
+> +#define CSR_HVIPH		0x655
+> +#define CSR_HVIPRIO1H		0x656
+> +#define CSR_HVIPRIO2H		0x657
+> +#define CSR_VSIEH		0x214
+> +#define CSR_VSIPH		0x254
+> +
+>  #define CSR_MSTATUS		0x300
+>  #define CSR_MISA		0x301
+> +#define CSR_MIDELEG		0x303
+>  #define CSR_MIE			0x304
+>  #define CSR_MTVEC		0x305
+>  #define CSR_MENVCFG		0x30a
+> @@ -297,6 +357,25 @@
+>  #define CSR_MIMPID		0xf13
+>  #define CSR_MHARTID		0xf14
+>
+> +/* Machine-Level Window to Indirectly Accessed Registers (AIA) */
+> +#define CSR_MISELECT		0x350
+> +#define CSR_MIREG		0x351
+> +
+> +/* Machine-Level Interrupts (AIA) */
+> +#define CSR_MTOPEI		0x35c
+> +#define CSR_MTOPI		0xfb0
+> +
+> +/* Virtual Interrupts for Supervisor Level (AIA) */
+> +#define CSR_MVIEN		0x308
+> +#define CSR_MVIP		0x309
+> +
+> +/* Machine-Level High-Half CSRs (AIA) */
+> +#define CSR_MIDELEGH		0x313
+> +#define CSR_MIEH		0x314
+> +#define CSR_MVIENH		0x318
+> +#define CSR_MVIPH		0x319
+> +#define CSR_MIPH		0x354
+> +
+>  #ifdef CONFIG_RISCV_M_MODE
+>  # define CSR_STATUS	CSR_MSTATUS
+>  # define CSR_IE		CSR_MIE
+> @@ -307,6 +386,13 @@
+>  # define CSR_TVAL	CSR_MTVAL
+>  # define CSR_IP		CSR_MIP
+>
+> +# define CSR_IEH		CSR_MIEH
+> +# define CSR_ISELECT	CSR_MISELECT
+> +# define CSR_IREG	CSR_MIREG
+> +# define CSR_IPH		CSR_MIPH
+> +# define CSR_TOPEI	CSR_MTOPEI
+> +# define CSR_TOPI	CSR_MTOPI
+> +
+>  # define SR_IE		SR_MIE
+>  # define SR_PIE		SR_MPIE
+>  # define SR_PP		SR_MPP
+> @@ -324,6 +410,13 @@
+>  # define CSR_TVAL	CSR_STVAL
+>  # define CSR_IP		CSR_SIP
+>
+> +# define CSR_IEH		CSR_SIEH
+> +# define CSR_ISELECT	CSR_SISELECT
+> +# define CSR_IREG	CSR_SIREG
+> +# define CSR_IPH		CSR_SIPH
+> +# define CSR_TOPEI	CSR_STOPEI
+> +# define CSR_TOPI	CSR_STOPI
+> +
+>  # define SR_IE		SR_SIE
+>  # define SR_PIE		SR_SPIE
+>  # define SR_PP		SR_SPP
 
-I just send patch to fix the first 2 warnings, and the last one warning is already fixed by another patch.
-[PATCH-next] crypto: aspeed: fix type warnings
-https://patchwork.ozlabs.org/project/linux-aspeed/patch/20230119014859.1900136-1-yangyingliang@huawei.com/
-Thanks
-
--Neal
+Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
 
 _______________________________________________
 linux-riscv mailing list
