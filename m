@@ -4,88 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF319C61DA4
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Feb 2023 07:57:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B65EC61DA4
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Feb 2023 07:58:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ARKDmdWkgFKptkKBShs3hmSAGb3TRVpzYKt3yMIcPKQ=; b=2rqrBB+yVIhP2V
-	WczG2PTlA26X8yIHWxs1607aTCniXHLQ44jeClUQ4QvIzycsgnvCm0zvpjWOjHBCppM0fXh9iZdPS
-	tTYYqdc4EvHYNkX15cLXDq+OOLIP/P/+r3jRVK8KAiB2EESUQCAkzsFk1B/mC0h2NA0GeqQHwWpCu
-	V43dCWpSzVjU7CrLJ9BV/aG5xs2cdK/qnJtKXOdgIq/2MBHLQbDOAPk6Qtqdb/Y02s0oIHlyzCJ9A
-	nMvl05JUKLyxZAm4dtMYW74093fXj9ki2f1RANA3JfKlIFRQn+w5AM2YpWc0j11za2oggZfkcAYnQ
-	JO0jz/g0FIc7veovS0bA==;
+	List-Owner; bh=pQmXA89yHwEuggYwuE9+Vjzy1j3c5BvnLImkhb3UUAs=; b=DMv+ypzyLu73ZC
+	1XU5dR+INIyxgDRP3aFtEn2em5BctYF0yeidegnbHbqK2TaCxPUqYn7CYcsWdP7aeSJ5WhaHrrg60
+	wEnZsR1vtXlVrC9urkFU1pjpe2moMvXPis10PsFgeUbdoJeK05UYTnmqYnx14/mSV/DurFp/o/xxJ
+	1iEF4/bK7HJQA6n3oxcGtf29bvsD6aux7TpIu16Kf5fLwwpA04afuS9sYMyWq1JQtkQKOwR149/Dz
+	TCtfPQBA8jUYsmt20X3sp6dXw0vqEjwx88+Y+JhJzzUscBNQRN6Eg4DucX+muisN+Al8ct3Xy2fPZ
+	o7eNaZ0sRqR1b/jqKE7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNqx9-000tI7-PD; Fri, 03 Feb 2023 07:57:47 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1pNqy5-000tfb-Qu; Fri, 03 Feb 2023 07:58:45 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNqx6-000tG5-E6
-	for linux-riscv@lists.infradead.org; Fri, 03 Feb 2023 07:57:45 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id u10so151263wmj.3
-        for <linux-riscv@lists.infradead.org>; Thu, 02 Feb 2023 23:57:41 -0800 (PST)
+	id 1pNqy3-000teM-0N
+	for linux-riscv@lists.infradead.org; Fri, 03 Feb 2023 07:58:44 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id o16-20020a17090ad25000b00230759a8c06so1263247pjw.2
+        for <linux-riscv@lists.infradead.org>; Thu, 02 Feb 2023 23:58:42 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7CyWdPwmsoEln1rCKIxbXcZ7tw/K7pVLqcNgYwRXhLM=;
-        b=qeEtJh7XqAY0yLch8uJT0okFxdxSfVQMb+caj4/4avTyvhkfLGWbT8QCgKb+OpNCiM
-         BQomcoPaDsgR7bDkY53DbhdjVpFMwulyNNb9OOwkrn/sKBwikfUPQnUfozJ64BFLuiUt
-         xWeC211abj7DZburSd8LUvnwmDnZ/GxARuM/vQzsiiIRkSxkuiuiLzOScEz0wMnKAx97
-         xnVrPby2OK48H+a2l/7q8RJargAGFa4RzUv7ty0CoxHXxY8g2+aXo+L8R4nSU49o+oUz
-         MTOZOE3NOs12RXZA2sVTRa8lrAg8tIzrI25yqp+FYcKVKF6lf3Wl3w9k21qFXu6IRepY
-         gpEA==
+        d=atishpatra.org; s=google;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=i99J2pmlc+pek02YkZ8nESdE1CjXKdwjOkhiDfukAeg=;
+        b=Sh7tY9cHfXBOFOW5S5uAlPN05R/xzTnAbB0mmbqndgniiu94FxnWuAaAm9qmIUSIkN
+         qRCBTYVydLP5qCYUHgyPGxipO789g/iIFW6Owe6hqAS2uVMd5pTljfk7m0WZftpBpSFO
+         Puk5N5xZ2lhclDBA8AHsmHwR0EgQL6/pS2x+M=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=7CyWdPwmsoEln1rCKIxbXcZ7tw/K7pVLqcNgYwRXhLM=;
-        b=qN8nWnh90eKzTv8ZgFDVx5r6yfe+nUa+2ESjCVGlOS5KOrDpALbbtXGMigk4kQdRpo
-         ph+Tofz4+LDQoGQd7oOPVnqtFC51lf8AdNWwOlW75p6dC0g6bdrTcKb1j2OhU4rwFlS3
-         xwZd0dnjcB12Kd0MQr0eK5IIRu5zZM51vZRxmDQkVjwmk82E37z4qmxNNbnMi/9qnPk9
-         m9zoWcdrnj0jZMx+oxvYCk/pICLpmkESvP40+1w7d4RU17jti7gvRrQbFJoIL1blmH6y
-         3YzLc/C+r7bYtYWSL0SBYXhMddjkO2SSS+fEX1ha5rZ9nfiSxESeUiT94AMdPkfu/IYW
-         9KJw==
-X-Gm-Message-State: AO0yUKU88d8c/YNVMPywozhCJFAtYlaYdZJdiWyRAuEuT2Hy2ik/u8H2
-	5SWkg/XjUHOFRuL5M61HfXP5I0ie1TxFARjq
-X-Google-Smtp-Source: AK7set8WQ9mK5+Pi5uHnx+x6D/DxqO0jmoKX9oJzYvMOazm1WiLafrGet+oGikERH3pgrcl+jJ0CPA==
-X-Received: by 2002:a05:600c:3b1e:b0:3db:1200:996e with SMTP id m30-20020a05600c3b1e00b003db1200996emr8797906wms.16.1675411060803;
-        Thu, 02 Feb 2023 23:57:40 -0800 (PST)
-Received: from alex-rivos.home (lfbn-lyo-1-450-160.w2-7.abo.wanadoo.fr. [2.7.42.160])
-        by smtp.gmail.com with ESMTPSA id g10-20020a05600c310a00b003de77597f16sm1972622wmo.21.2023.02.02.23.57.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 Feb 2023 23:57:40 -0800 (PST)
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-	Alexander Potapenko <glider@google.com>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Conor Dooley <conor@kernel.org>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kasan-dev@googlegroups.com,
-	linux-efi@vger.kernel.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH v4 5/6] riscv: Fix ptdump when KASAN is enabled
-Date: Fri,  3 Feb 2023 08:52:31 +0100
-Message-Id: <20230203075232.274282-6-alexghiti@rivosinc.com>
-X-Mailer: git-send-email 2.37.2
-In-Reply-To: <20230203075232.274282-1-alexghiti@rivosinc.com>
-References: <20230203075232.274282-1-alexghiti@rivosinc.com>
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=i99J2pmlc+pek02YkZ8nESdE1CjXKdwjOkhiDfukAeg=;
+        b=zohPDU6SI1CMdQcIbdnnbkBVHyQsKDsIf1+hfJGc4jl9CooH2OVXZrb7gf+A7Psiue
+         L8teOEun6/pbpikCsktkLp3leWZIvgpUFQ1VBdG7CIGi5NBd2Lkygs5/DfilRiRJ06IY
+         lAA3ltUpuYN6k53Z9/as39JmXmJtpau8L8BpCFAUqmfTFNQDwcLa/USOStPcvutPdUkk
+         Xo9V3FmZuCfINKUN8j4RFvX8Dmk5rh8F/oymKmzJs8bfLN7Zg0zbYTsSqwE/InM6zG43
+         uVsLb+6j3/kDdZlS9zqzr1ovtCt854K50OkYp1sfl1pAtzXzZvyfhgr2mCtskSkQiaSD
+         YLkQ==
+X-Gm-Message-State: AO0yUKXdw5cTp4mWxXt/RN44EPuZts8pa5ci0AB5EqVmdFZAokqYZpC5
+	tQP/aUskMJx7DxdWvIKu4sVCG6s07FK9x28FvQEV
+X-Google-Smtp-Source: AK7set/LUCUS12AMHBelCxeNEkLPsGXsG7KXWdCQZPA6uBHaqE1ujJKSECijijC6oDwX24pxa4KylELSv345afb5ZkU=
+X-Received: by 2002:a17:902:ecc1:b0:193:794:ba9 with SMTP id
+ a1-20020a170902ecc100b0019307940ba9mr2238861plh.22.1675411121784; Thu, 02 Feb
+ 2023 23:58:41 -0800 (PST)
 MIME-Version: 1.0
+References: <20230203075232.274282-1-alexghiti@rivosinc.com> <20230203075232.274282-5-alexghiti@rivosinc.com>
+In-Reply-To: <20230203075232.274282-5-alexghiti@rivosinc.com>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Thu, 2 Feb 2023 23:58:30 -0800
+Message-ID: <CAOnJCUK==Ma=p0mLLRJBB=3qTyMOTbiDNVYSmXpJr0HCsZ8Kxw@mail.gmail.com>
+Subject: Re: [PATCH v4 4/6] riscv: Fix EFI stub usage of KASAN instrumented
+ strcmp function
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
+	Alexander Potapenko <glider@google.com>, Andrey Konovalov <andreyknvl@gmail.com>, 
+	Dmitry Vyukov <dvyukov@google.com>, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+	Ard Biesheuvel <ardb@kernel.org>, Conor Dooley <conor@kernel.org>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com, 
+	linux-efi@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230202_235744_494334_61C36A41 
-X-CRM114-Status: GOOD (  12.37  )
+X-CRM114-CacheID: sfid-20230202_235843_197794_07E6D68F 
+X-CRM114-Status: GOOD (  15.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,89 +88,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The KASAN shadow region was moved next to the kernel mapping but the
-ptdump code was not updated and it appears to break the dump of the kernel
-page table, so fix this by moving the KASAN shadow region in ptdump.
+On Thu, Feb 2, 2023 at 11:56 PM Alexandre Ghiti <alexghiti@rivosinc.com> wrote:
+>
+> The EFI stub must not use any KASAN instrumented code as the kernel
+> proper did not initialize the thread pointer and the mapping for the
+> KASAN shadow region.
+>
+> Avoid using the generic strcmp function, instead use the one in
+> drivers/firmware/efi/libstub/string.c.
+>
+> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+> Acked-by: Ard Biesheuvel <ardb@kernel.org>
+> ---
+>  arch/riscv/kernel/image-vars.h | 2 --
+>  1 file changed, 2 deletions(-)
+>
+> diff --git a/arch/riscv/kernel/image-vars.h b/arch/riscv/kernel/image-vars.h
+> index 7e2962ef73f9..15616155008c 100644
+> --- a/arch/riscv/kernel/image-vars.h
+> +++ b/arch/riscv/kernel/image-vars.h
+> @@ -23,8 +23,6 @@
+>   * linked at. The routines below are all implemented in assembler in a
+>   * position independent manner
+>   */
+> -__efistub_strcmp               = strcmp;
+> -
+>  __efistub__start               = _start;
+>  __efistub__start_kernel                = _start_kernel;
+>  __efistub__end                 = _end;
+> --
+> 2.37.2
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
-Fixes: f7ae02333d13 ("riscv: Move KASAN mapping next to the kernel mapping")
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
----
- arch/riscv/mm/ptdump.c | 24 ++++++++++++------------
- 1 file changed, 12 insertions(+), 12 deletions(-)
 
-diff --git a/arch/riscv/mm/ptdump.c b/arch/riscv/mm/ptdump.c
-index 830e7de65e3a..20a9f991a6d7 100644
---- a/arch/riscv/mm/ptdump.c
-+++ b/arch/riscv/mm/ptdump.c
-@@ -59,10 +59,6 @@ struct ptd_mm_info {
- };
- 
- enum address_markers_idx {
--#ifdef CONFIG_KASAN
--	KASAN_SHADOW_START_NR,
--	KASAN_SHADOW_END_NR,
--#endif
- 	FIXMAP_START_NR,
- 	FIXMAP_END_NR,
- 	PCI_IO_START_NR,
-@@ -74,6 +70,10 @@ enum address_markers_idx {
- 	VMALLOC_START_NR,
- 	VMALLOC_END_NR,
- 	PAGE_OFFSET_NR,
-+#ifdef CONFIG_KASAN
-+	KASAN_SHADOW_START_NR,
-+	KASAN_SHADOW_END_NR,
-+#endif
- #ifdef CONFIG_64BIT
- 	MODULES_MAPPING_NR,
- 	KERNEL_MAPPING_NR,
-@@ -82,10 +82,6 @@ enum address_markers_idx {
- };
- 
- static struct addr_marker address_markers[] = {
--#ifdef CONFIG_KASAN
--	{0, "Kasan shadow start"},
--	{0, "Kasan shadow end"},
--#endif
- 	{0, "Fixmap start"},
- 	{0, "Fixmap end"},
- 	{0, "PCI I/O start"},
-@@ -97,6 +93,10 @@ static struct addr_marker address_markers[] = {
- 	{0, "vmalloc() area"},
- 	{0, "vmalloc() end"},
- 	{0, "Linear mapping"},
-+#ifdef CONFIG_KASAN
-+	{0, "Kasan shadow start"},
-+	{0, "Kasan shadow end"},
-+#endif
- #ifdef CONFIG_64BIT
- 	{0, "Modules/BPF mapping"},
- 	{0, "Kernel mapping"},
-@@ -362,10 +362,6 @@ static int __init ptdump_init(void)
- {
- 	unsigned int i, j;
- 
--#ifdef CONFIG_KASAN
--	address_markers[KASAN_SHADOW_START_NR].start_address = KASAN_SHADOW_START;
--	address_markers[KASAN_SHADOW_END_NR].start_address = KASAN_SHADOW_END;
--#endif
- 	address_markers[FIXMAP_START_NR].start_address = FIXADDR_START;
- 	address_markers[FIXMAP_END_NR].start_address = FIXADDR_TOP;
- 	address_markers[PCI_IO_START_NR].start_address = PCI_IO_START;
-@@ -377,6 +373,10 @@ static int __init ptdump_init(void)
- 	address_markers[VMALLOC_START_NR].start_address = VMALLOC_START;
- 	address_markers[VMALLOC_END_NR].start_address = VMALLOC_END;
- 	address_markers[PAGE_OFFSET_NR].start_address = PAGE_OFFSET;
-+#ifdef CONFIG_KASAN
-+	address_markers[KASAN_SHADOW_START_NR].start_address = KASAN_SHADOW_START;
-+	address_markers[KASAN_SHADOW_END_NR].start_address = KASAN_SHADOW_END;
-+#endif
- #ifdef CONFIG_64BIT
- 	address_markers[MODULES_MAPPING_NR].start_address = MODULES_VADDR;
- 	address_markers[KERNEL_MAPPING_NR].start_address = kernel_map.virt_addr;
+Reviewed-by: Atish Patra <atishp@rivosinc.com>
+
 -- 
-2.37.2
-
+Regards,
+Atish
 
 _______________________________________________
 linux-riscv mailing list
