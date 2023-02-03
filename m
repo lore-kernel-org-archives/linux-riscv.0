@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4592BC61DA4
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6A06C636D6
 	for <linux-riscv@archiver.kernel.org>; Fri,  3 Feb 2023 08:19:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,30 +12,30 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+jgJzlgpooJjJfTK9SIjWP356g0boLsHrrSbka1kbqE=; b=ksCtQTAqREEBJf
-	Anu/eZaXCSZ8QD/FIZTBbuc1EnYtsIHhv+TVZf86QR4xaRiCjNdW0lS5wSw2vwsVkrAXQCVE1nzxM
-	fu3gwOzFewJd3WYPIynlYszDOek2oe4TSbltX2aDxgTI6KBz97QXoTdd9G0x4890pQ2qe91jveU+8
-	s29C5cKeeFWq8QeE5yXvV2Qei+43N4g8nZ+QpavkfkRVbJglAa/TYcoL7CABEmxkcStquEVzSYrn8
-	O+hIJ+Ne9xr8xhhHlZi7dysEGCnxlVn6ssM8+njNGTVoAX/SyjANWmYdn6KG6+UgQ3VbnbwgfQycP
-	16SMSPtOMQMqsZbB4Lfg==;
+	List-Owner; bh=+itzR8wEm0Q37MGj65wZ9n2Ax1BUGqNSKNOtkFfhbNU=; b=dTHsVefem1bRKB
+	zRhT2HCHg3WYwozdkvOqhGcLT9o2dUwEGWBAklx4LaKkM13wHhEnmqGAMRvvxXCxT14VKQBe5N/LH
+	dgMAPyBt6C+M+dhH8C+ZZit5iRobi4KatgjUVEtc58POK3ELYCJqIPV39vzzWEP88ALkR01SBaPmM
+	lO4zTth+PjKVop9gglTgc5wShVaQugsIrq7aBfeOhxUg2za6/7ts6gFe9wH48TlKNRUL3YZGHUC2h
+	7dzhWNdckqueT2TmezvSEOrYXccIWJamBcjcLhtJQuJmtD1+jGT0Moy3mr4B7OWJQqJliAHshHvdK
+	5XeGhjKzWhM+zoyo7WCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNrIP-000zNP-Gm; Fri, 03 Feb 2023 08:19:45 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	id 1pNrIR-000zOg-P2; Fri, 03 Feb 2023 08:19:47 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNrIK-000zIC-6E
-	for linux-riscv@lists.infradead.org; Fri, 03 Feb 2023 08:19:43 +0000
+	id 1pNrIM-000zIJ-CJ
+	for linux-riscv@lists.infradead.org; Fri, 03 Feb 2023 08:19:45 +0000
 Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 86E4024E1D4;
-	Fri,  3 Feb 2023 16:19:15 +0800 (CST)
+	by ex01.ufhost.com (Postfix) with ESMTP id B102024E28F;
+	Fri,  3 Feb 2023 16:19:16 +0800 (CST)
 Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX165.cuchost.com
  (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 3 Feb
- 2023 16:19:15 +0800
+ 2023 16:19:16 +0800
 Received: from williamqiu-virtual-machine.starfivetech.com (171.223.208.138)
  by EXMBX168.cuchost.com (172.16.6.78) with Microsoft SMTP Server (TLS) id
- 15.0.1497.42; Fri, 3 Feb 2023 16:19:14 +0800
+ 15.0.1497.42; Fri, 3 Feb 2023 16:19:15 +0800
 From: William Qiu <william.qiu@starfivetech.com>
 To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
 	<linux-mmc@vger.kernel.org>
@@ -43,9 +43,9 @@ CC: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
 	<krzysztof.kozlowski+dt@linaro.org>, Jaehoon Chung <jh80.chung@samsung.com>,
 	Ulf Hansson <ulf.hansson@linaro.org>, William Qiu
 	<william.qiu@starfivetech.com>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v3 1/3] dt-bindings: mmc: Add StarFive MMC module
-Date: Fri, 3 Feb 2023 16:19:11 +0800
-Message-ID: <20230203081913.81968-2-william.qiu@starfivetech.com>
+Subject: [PATCH v3 3/3] riscv: dts: starfive: Add mmc node
+Date: Fri, 3 Feb 2023 16:19:13 +0800
+Message-ID: <20230203081913.81968-4-william.qiu@starfivetech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20230203081913.81968-1-william.qiu@starfivetech.com>
 References: <20230203081913.81968-1-william.qiu@starfivetech.com>
@@ -55,8 +55,8 @@ X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX168.cuchost.com
  (172.16.6.78)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230203_001940_517288_94368D89 
-X-CRM114-Status: GOOD (  12.84  )
+X-CRM114-CacheID: sfid-20230203_001942_730288_009E35A2 
+X-CRM114-Status: GOOD (  10.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,98 +73,103 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add documentation to describe StarFive designware mobile storage
-host controller driver.
+This adds the mmc node for the StarFive JH7110 SoC.
+Set mmco node to emmc and set mmc1 node to sd.
 
 Signed-off-by: William Qiu <william.qiu@starfivetech.com>
 ---
- .../bindings/mmc/starfive,jh7110-mmc.yaml     | 77 +++++++++++++++++++
- 1 file changed, 77 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/mmc/starfive,jh7110-mmc.yaml
+ .../jh7110-starfive-visionfive-2.dtsi         | 23 ++++++++++++
+ arch/riscv/boot/dts/starfive/jh7110.dtsi      | 37 +++++++++++++++++++
+ 2 files changed, 60 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/mmc/starfive,jh7110-mmc.yaml b/Documentation/devicetree/bindings/mmc/starfive,jh7110-mmc.yaml
-new file mode 100644
-index 000000000000..deacf8e9cfb2
---- /dev/null
-+++ b/Documentation/devicetree/bindings/mmc/starfive,jh7110-mmc.yaml
-@@ -0,0 +1,77 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/mmc/starfive,jh7110-mmc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+index c60280b89c73..e1a0248e907f 100644
+--- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+@@ -42,6 +42,29 @@ &rtc_osc {
+ 	clock-frequency = <32768>;
+ };
+ 
++&mmc0 {
++	max-frequency = <100000000>;
++	bus-width = <8>;
++	cap-mmc-highspeed;
++	mmc-ddr-1_8v;
++	mmc-hs200-1_8v;
++	non-removable;
++	cap-mmc-hw-reset;
++	post-power-on-delay-ms = <200>;
++	status = "okay";
++};
 +
-+title: StarFive Designware Mobile Storage Host Controller
++&mmc1 {
++	max-frequency = <100000000>;
++	bus-width = <4>;
++	no-sdio;
++	no-mmc;
++	broken-cd;
++	cap-sd-highspeed;
++	post-power-on-delay-ms = <200>;
++	status = "okay";
++};
 +
-+description:
-+  StarFive uses the Synopsys designware mobile storage host controller
-+  to interface a SoC with storage medium such as eMMC or SD/MMC cards.
+ &gmac0_rmii_refin {
+ 	clock-frequency = <50000000>;
+ };
+diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+index 64d260ea1f29..ae1a664e7af5 100644
+--- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+@@ -370,6 +370,11 @@ syscrg: clock-controller@13020000 {
+ 			#reset-cells = <1>;
+ 		};
+ 
++		sysreg: syscon@13030000 {
++			compatible = "starfive,sysreg", "syscon";
++			reg = <0x0 0x13030000 0x0 0x1000>;
++		};
 +
-+allOf:
-+  - $ref: synopsys-dw-mshc-common.yaml#
+ 		gpio: gpio@13040000 {
+ 			compatible = "starfive,jh7110-sys-pinctrl";
+ 			reg = <0x0 0x13040000 0x0 0x10000>;
+@@ -407,5 +412,37 @@ gpioa: gpio@17020000 {
+ 			gpio-controller;
+ 			#gpio-cells = <2>;
+ 		};
 +
-+maintainers:
-+  - William Qiu <william.qiu@starfivetech.com>
++		mmc0: mmc@16010000 {
++			compatible = "starfive,jh7110-mmc";
++			reg = <0x0 0x16010000 0x0 0x10000>;
++			clocks = <&syscrg JH7110_SYSCLK_SDIO0_AHB>,
++				 <&syscrg JH7110_SYSCLK_SDIO0_SDCARD>;
++			clock-names = "biu","ciu";
++			resets = <&syscrg JH7110_SYSRST_SDIO0_AHB>;
++			reset-names = "reset";
++			interrupts = <74>;
++			fifo-depth = <32>;
++			fifo-watermark-aligned;
++			data-addr = <0>;
++			starfive,sysreg = <&sysreg 0x14 0x1a 0x7c000000>;
++			status = "disabled";
++		};
 +
-+properties:
-+  compatible:
-+    const: starfive,jh7110-mmc
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    items:
-+      - description: biu clock
-+      - description: ciu clock
-+
-+  clock-names:
-+    items:
-+      - const: biu
-+      - const: ciu
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  starfive,sysreg:
-+    $ref: /schemas/types.yaml#/definitions/phandle-array
-+    items:
-+      - items:
-+          - description: phandle to System Register Controller syscon node
-+          - description: offset of SYS_SYSCONSAIF__SYSCFG register for MMC controller
-+          - description: shift of SYS_SYSCONSAIF__SYSCFG register for MMC controller
-+          - description: mask of SYS_SYSCONSAIF__SYSCFG register for MMC controller
-+    description:
-+      Should be four parameters, the phandle to System Register Controller
-+      syscon node and the offset/shift/mask of SYS_SYSCONSAIF__SYSCFG register
-+      for MMC controller.
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - interrupts
-+  - starfive,sysreg
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    mmc@16010000 {
-+        compatible = "starfive,jh7110-mmc";
-+        reg = <0x16010000 0x10000>;
-+        clocks = <&syscrg 91>,
-+                 <&syscrg 93>;
-+        clock-names = "biu","ciu";
-+        resets = <&syscrg 64>;
-+        reset-names = "reset";
-+        interrupts = <74>;
-+        fifo-depth = <32>;
-+        fifo-watermark-aligned;
-+        data-addr = <0>;
-+        starfive,sysreg = <&sysreg 0x14 0x1a 0x7c000000>;
-+    };
++		mmc1: mmc@16020000 {
++			compatible = "starfive,jh7110-mmc";
++			reg = <0x0 0x16020000 0x0 0x10000>;
++			clocks = <&syscrg JH7110_SYSCLK_SDIO1_AHB>,
++				 <&syscrg JH7110_SYSCLK_SDIO1_SDCARD>;
++			clock-names = "biu","ciu";
++			resets = <&syscrg JH7110_SYSRST_SDIO1_AHB>;
++			reset-names = "reset";
++			interrupts = <75>;
++			fifo-depth = <32>;
++			fifo-watermark-aligned;
++			data-addr = <0>;
++			starfive,sysreg = <&sysreg 0x9c 0x1 0x3e>;
++			status = "disabled";
++		};
+ 	};
+ };
 -- 
 2.34.1
 
