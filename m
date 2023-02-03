@@ -4,73 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48F5CC61DA4
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Feb 2023 12:01:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F2CFC61DA4
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Feb 2023 14:28:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Rxve2h7Iqn3e5gHdHkB6B5TgnddxLX/ZyTN7SjKO6hI=; b=1/Z7AF7tv7qlgd
-	eH7jHEblDYDvQs11F8zjpOdfIJ2gxrSxPFatojPQ7F9N0HPG4cHrADsaAc2LKwkET7/+YNHAibBDs
-	L306S9KpWPbiRfHMdQWqJkIvcYk8IP63LZAPeWwYqREdO5G1rL21KGsgLMhb6ggTEV1vmMR1Npv0x
-	IbEdoNzzWr9IwUdcEfVaRFxVh7FwLF8GfPcvYp/0RyWULCnGHiuMrSnNKP0VVmaWp3y5/jr3a6RcP
-	CKx5VRcB3mBZLSFHcU7yWZ/5y19heiNHWAlcfPyrAajq0OzAwgzDdBPW/ug4V+F0JScS3SX2LsHjr
-	islC6BnzMPwHxCVIM7VQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Am0N9bRuGyxrOHLGJILE4kq3CCdyzzNdqwfXE1LES4w=; b=jhpqBS+hRMq7/v
+	/R9E57aeE7XctP1lw2xm7rtNFmtTBotcBn7A0v/w5mgjSSdR9YdbbOgHXu0IYbhXFf+SW0JYWKi/I
+	mwiPxFx7q2oDdHrX20Tb1ub/upKuFmuFgSjxFqg+2NhrUYebjnh1XvVSAp5SXwqw2dEk7ur2SDVEk
+	/HV0/eVUBtYeBYEBDRbVpXny0gnuNKjX3EF1/77pjDMK+MNdN1dMAwtce+8RIdHav6BznsHQlaNFK
+	LZX+5oBUNfI1q3q9g9Lq0e2Cw4UasxFmOztKHSp4kbWJqAkTPqTzDoYSwPq7jg8/dhPFmsN2tnwZe
+	u1TnP6CDslatYwY6RKZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNukp-001ft8-EE; Fri, 03 Feb 2023 12:01:19 +0000
-Received: from mail-vk1-xa2e.google.com ([2607:f8b0:4864:20::a2e])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNukm-001frc-93
-	for linux-riscv@lists.infradead.org; Fri, 03 Feb 2023 12:01:17 +0000
-Received: by mail-vk1-xa2e.google.com with SMTP id l20so2421902vkm.11
-        for <linux-riscv@lists.infradead.org>; Fri, 03 Feb 2023 04:01:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=bVBPlUOA2Saz8Z2ELzkGmW92oTRqygdhDOd3NoQ2OvM=;
-        b=C0uuf321Wlpg5+wIml2URGup0sUV3eCPnVIs2mDubn8aIXCDxAhcQSy9bMxjMoDglN
-         WcXKKTa6sG7igE+h+BLd8BeJdcl8aT3AGLNm/QAUA8CLyEZ3tLodnzc9O6xFxOH9H2rm
-         RG7c3hxqIFNYoSIwwLgsm/pxZCwRhRha88p+JP4D/8dVsQxT5KKKcCaFXDWjhWbf4VwI
-         DKHc1USEDM+uqwVFaEleFuPeRlzU2HoNi+DorLJNKMj9937DweWd35ye2+U8oXmJA2Jn
-         suSVFvjiD+nJ1WVEq4UEg8W3YIvny6e1yTg4NCLHFkgbu2oeqlA3w0vuckXv9FQDGlIL
-         /Ong==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=bVBPlUOA2Saz8Z2ELzkGmW92oTRqygdhDOd3NoQ2OvM=;
-        b=5hfHKTKa+33ajPP5J2i80jT5nMZ6h2ayS+olef0EnoXV0TeeIMfUIlkjlNIQejr+1I
-         BPQDz7/7TrwxCI0kJ6U7WC4hYMS9H4Q/zCCiMcoo27DBCZolSfkf/ghPj0vs+fD0zWrs
-         GoUFXh87d3YkWsRuyAdlIj6jz5W9zPBpou4GPLBs2+AyKhqFc04IxEUc6ByF7+T6XLPh
-         /eWitcabKrQ2KOHMrox9hjlzwmsN73cZ26lqw5KiNkAfCr3btQsIYCWfXGetXT5sKxjC
-         ULw2oBbiCiSB/PPvip9csbFO2zxZDzQM2A6jIfNhLmmlLJ7R/Pv1TXUT3DfQT5z8ykLe
-         8Uiw==
-X-Gm-Message-State: AO0yUKUNuAoqfATbIwv9Jpyk/bN4I4tkgTLGsB+736NTmcKYup6skvj8
-	9Ain8ZuOJtVatZ7+6hOOm3yVBUk6gnWTSDJxMp1RDw==
-X-Google-Smtp-Source: AK7set8Q/OFTvZSYsRPT84VinKFWhLoPFlGow5ONcJ4RtLja8SFxkXGoz+YFgryocUWfojsT3S3jNMO/0HXz/NNCAyc=
-X-Received: by 2002:a1f:6e0c:0:b0:3e1:95e8:fe1e with SMTP id
- j12-20020a1f6e0c000000b003e195e8fe1emr1584545vkc.1.1675425672447; Fri, 03 Feb
- 2023 04:01:12 -0800 (PST)
+	id 1pNx3D-002Qab-Rm; Fri, 03 Feb 2023 14:28:27 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pNwtf-002LZ2-Oi
+	for linux-riscv@lists.infradead.org; Fri, 03 Feb 2023 14:18:41 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id EE43E24E020;
+	Fri,  3 Feb 2023 22:18:03 +0800 (CST)
+Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 3 Feb
+ 2023 22:18:04 +0800
+Received: from ubuntu.localdomain (113.72.144.84) by EXMBX172.cuchost.com
+ (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 3 Feb
+ 2023 22:18:02 +0800
+From: Hal Feng <hal.feng@starfivetech.com>
+To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-gpio@vger.kernel.org>
+CC: Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, "Rob
+ Herring" <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Linus Walleij
+	<linus.walleij@linaro.org>, Andreas Schwab <schwab@suse.de>, "Emil Renner
+ Berthing" <emil.renner.berthing@canonical.com>, Jianlong Huang
+	<jianlong.huang@starfivetech.com>, Hal Feng <hal.feng@starfivetech.com>,
+	<linux-kernel@vger.kernel.org>
+Subject: [PATCH v4 0/4] Basic pinctrl support for StarFive JH7110 RISC-V SoC
+Date: Fri, 3 Feb 2023 22:17:57 +0800
+Message-ID: <20230203141801.59083-1-hal.feng@starfivetech.com>
+X-Mailer: git-send-email 2.38.1
 MIME-Version: 1.0
-References: <20230128072737.2995881-3-apatel@ventanamicro.com> <mhng-0f9bdf58-5289-4db4-8fd7-38898824c44f@palmer-ri-x1c9>
-In-Reply-To: <mhng-0f9bdf58-5289-4db4-8fd7-38898824c44f@palmer-ri-x1c9>
-From: Anup Patel <apatel@ventanamicro.com>
-Date: Fri, 3 Feb 2023 17:31:01 +0530
-Message-ID: <CAK9=C2X8C4yswGhDwe1OzQXTELXQxp8=ayiFxh1aVMk4TxeDjw@mail.gmail.com>
-Subject: Re: [PATCH v2 2/7] RISC-V: Detect AIA CSRs from ISA string
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: pbonzini@redhat.com, atishp@atishpatra.org, 
-	Paul Walmsley <paul.walmsley@sifive.com>, ajones@ventanamicro.com, anup@brainfault.org, 
-	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+X-Originating-IP: [113.72.144.84]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX172.cuchost.com
+ (172.16.6.92)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230203_040116_323763_378BF639 
-X-CRM114-Status: GOOD (  25.99  )
+X-CRM114-CacheID: sfid-20230203_061836_210020_D74C9893 
+X-CRM114-Status: GOOD (  15.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,99 +74,104 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 3, 2023 at 5:54 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
->
-> On Fri, 27 Jan 2023 23:27:32 PST (-0800), apatel@ventanamicro.com wrote:
-> > We have two extension names for AIA ISA support: Smaia (M-mode AIA CSRs)
-> > and Ssaia (S-mode AIA CSRs).
->
-> This has pretty much the same problem that we had with the other
-> AIA-related ISA string patches, where there's that ambiguity with the
-> non-ratified chapters.  IIRC when this came up in GCC the rough idea was
-> to try and document that we're going to interpret the standard ISA
-> strings that way, but now that we're doing custom ISA extensions it
-> seems saner to just define on here that removes the ambiguity.
->
-> I just sent
-> <https://lore.kernel.org/r/20230203001201.14770-1-palmer@rivosinc.com/>
-> which documents that.
+This patch series adds basic pinctrl support for StarFive JH7110 SoC.
 
-I am not sure why you say that these are custom extensions.
+Changes since v3:
+- Rebased on Linus's "devel" branch of linux-pinctrl repo, which was based on
+  on tag v6.2-rc1.
+- Dropped patch 1.
+Patch 2 & 3:
+- Added a reference for '-pins$' patternProperties.
+- Put "additionalProperties: false" before properties section. (by Rob)
+- Improved the description.
+- Changed the node name in examples from "gpio" to "pinctrl".
+Patch 4:
+- Added some missing headers. (by Andreas)
 
-Multiple folks have clarified that both Smaia and Ssaia are frozen
-ISA extensions as-per RVI process. The individual chapters which
-are in the draft state have nothing to do with Smaia and Ssaia CSRs.
+  v3: https://lore.kernel.org/all/20221220005529.34744-1-hal.feng@starfivetech.com/
 
-Please refer:
-https://github.com/riscv/riscv-aia/pull/36
-https://lists.riscv.org/g/tech-aia/message/336
-https://lists.riscv.org/g/tech-aia/message/337
+Changes since v2:
+- Rebased on tag v6.1.
+Patch 1:
+- Renamed pinctrl-starfive-jh7110.h to
+  starfive,jh7110-pinctrl.h. (by Krzysztof)
+- Separated the register values in the binding header and stored them in
+  a new file arch/riscv/boot/dts/starfive/jh7110-pinfunc.h. (by Krzysztof)
+- Split patch 1 into sys part and aon part. Merged them into patch 2
+  and patch 3 respectively.
+Patch 2 & 3:
+- Dropped "reg-names" and the description of "interrupts". Dropped quotes
+  behind "$ref" and kept consisitent quotes. (by Krzysztof)
+- Moved gpio properties behind interrupt properties.
+- Moved "required" behind "patternProperties". (by Krzysztof)
+- Rewrote the examples of bindings. (by Krzysztof and Emil)
+- Added Co-developed-by tag for Emil.
+- Dropped unused "clocks" property in patch 3.
+Patch 4 & 5:
+- Renamed "pinctrl-starfive.*" to "pinctrl-starfive-jh7110.*" and replaced
+  all "starfive_" prefix with "jh7110_" in these files. (by Emil)
+- Dropped macro GPIO_NUM_PER_WORD. (by Emil)
+- Dropped unused flag member in starfive_pinctrl_soc_info structure. (by Emil)
+- Renamed "pinctrl-jh7110-sys.c" to "pinctrl-starfive-jh7110-sys.c".
+  Renamed "pinctrl-jh7110-aon.c" to "pinctrl-starfive-jh7110-aon.c". (by Emil)
+- Added individual Kconfig options for sys and aon pinctrl drivers. (by Emil)
+- Made the sys and aon pinctrl drivers be modules. (by Emil)
+- Added "JH7110_" prefix for macro SYS_GPO_PDA_0_74_CFG,
+  SYS_GPO_PDA_89_94_CFG and AON_GPO_PDA_0_5_CFG. (by Emil)
+- Dropped jh7110_sys_pinctrl_probe() and jh7110_aon_pinctrl_probe().
+  Got the match data in the common jh7110_pinctrl_probe() and used it
+  to probe. (by Emil)
+- Dropped the of_match_ptr macro(). (by Emil)
+- Set the MODULE_LICENSE as "GPL" according to commit bf7fbeeae6db.
 
->
-> > We extend the ISA string parsing to detect Smaia and Ssaia extensions.
-> >
-> > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> > Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-> > ---
-> >  arch/riscv/include/asm/hwcap.h | 2 ++
-> >  arch/riscv/kernel/cpu.c        | 2 ++
-> >  arch/riscv/kernel/cpufeature.c | 2 ++
-> >  3 files changed, 6 insertions(+)
-> >
-> > diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-> > index 86328e3acb02..341ef30a3718 100644
-> > --- a/arch/riscv/include/asm/hwcap.h
-> > +++ b/arch/riscv/include/asm/hwcap.h
-> > @@ -59,6 +59,8 @@ enum riscv_isa_ext_id {
-> >       RISCV_ISA_EXT_ZIHINTPAUSE,
-> >       RISCV_ISA_EXT_SSTC,
-> >       RISCV_ISA_EXT_SVINVAL,
-> > +     RISCV_ISA_EXT_SMAIA,
-> > +     RISCV_ISA_EXT_SSAIA,
-> >       RISCV_ISA_EXT_ID_MAX
-> >  };
-> >  static_assert(RISCV_ISA_EXT_ID_MAX <= RISCV_ISA_EXT_MAX);
-> > diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-> > index 1b9a5a66e55a..a215ec929160 100644
-> > --- a/arch/riscv/kernel/cpu.c
-> > +++ b/arch/riscv/kernel/cpu.c
-> > @@ -162,6 +162,8 @@ arch_initcall(riscv_cpuinfo_init);
-> >   *    extensions by an underscore.
-> >   */
-> >  static struct riscv_isa_ext_data isa_ext_arr[] = {
-> > +     __RISCV_ISA_EXT_DATA(smaia, RISCV_ISA_EXT_SMAIA),
-> > +     __RISCV_ISA_EXT_DATA(ssaia, RISCV_ISA_EXT_SSAIA),
->
-> This will conflict with that ISA string refactoring I just merged.  It
-> should be a pretty mechanical merge conflict, but if you want we can do
-> a shared tag with the first few patches and I can handle the merge
-> conflict locally.
+  v2: https://lore.kernel.org/all/20221118011108.70715-1-hal.feng@starfivetech.com/
 
-I am planning to send this series as a second PR for Linux-6.3 after your
-PR (which includes ISA string refactoring) is merged. Is that okay with you?
+Changes since v1:
+- Rebased on tag v6.1-rc5.
+- Dropped patch 22 and 23 since they were merged in v6.1-rc1.
+- Removed some unused macros and register values which do not belong to
+  bindings. Simplified pinctrl definitions in patch 24. (by Krzysztof)
+- Split the bindings into sys pinctrl bindings and aon pinctrl bindings,
+  and split patch 25 into two patches.
+- Made the bindings follow generic pinctrl bindings. (by Krzysztof)
+- Fixed some wrong indentation in bindings, and checked it with
+  `make dt_binding_check`.
+- Split the patch 26 into two patches which added sys and aon pinctrl
+  driver respectively.
+- Restructured the pinctrl drivers so made them follow generic pinctrl
+  bindings. Rewrote `dt_node_to_map` and extracted the public code to make
+  it clearer.
 
-With that said, it would request you to ACK this patch as well.
+  v1: https://lore.kernel.org/all/20220929143225.17907-1-hal.feng@linux.starfivetech.com/
 
->
-> >       __RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
-> >       __RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
-> >       __RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
-> > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> > index 93e45560af30..3c5b51f519d5 100644
-> > --- a/arch/riscv/kernel/cpufeature.c
-> > +++ b/arch/riscv/kernel/cpufeature.c
-> > @@ -228,6 +228,8 @@ void __init riscv_fill_hwcap(void)
-> >                               SET_ISA_EXT_MAP("zihintpause", RISCV_ISA_EXT_ZIHINTPAUSE);
-> >                               SET_ISA_EXT_MAP("sstc", RISCV_ISA_EXT_SSTC);
-> >                               SET_ISA_EXT_MAP("svinval", RISCV_ISA_EXT_SVINVAL);
-> > +                             SET_ISA_EXT_MAP("smaia", RISCV_ISA_EXT_SMAIA);
-> > +                             SET_ISA_EXT_MAP("ssaia", RISCV_ISA_EXT_SSAIA);
-> >                       }
-> >  #undef SET_ISA_EXT_MAP
-> >               }
+Jianlong Huang (4):
+  dt-bindings: pinctrl: Add StarFive JH7110 sys pinctrl
+  dt-bindings: pinctrl: Add StarFive JH7110 aon pinctrl
+  pinctrl: starfive: Add StarFive JH7110 sys controller driver
+  pinctrl: starfive: Add StarFive JH7110 aon controller driver
 
-Thanks,
-Anup
+ .../pinctrl/starfive,jh7110-aon-pinctrl.yaml  | 123 +++
+ .../pinctrl/starfive,jh7110-sys-pinctrl.yaml  | 141 +++
+ MAINTAINERS                                   |   8 +-
+ drivers/pinctrl/starfive/Kconfig              |  33 +
+ drivers/pinctrl/starfive/Makefile             |   4 +
+ .../starfive/pinctrl-starfive-jh7110-aon.c    | 177 ++++
+ .../starfive/pinctrl-starfive-jh7110-sys.c    | 449 ++++++++
+ .../starfive/pinctrl-starfive-jh7110.c        | 982 ++++++++++++++++++
+ .../starfive/pinctrl-starfive-jh7110.h        |  70 ++
+ .../pinctrl/starfive,jh7110-pinctrl.h         | 137 +++
+ 10 files changed, 2121 insertions(+), 3 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/starfive,jh7110-aon-pinctrl.yaml
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/starfive,jh7110-sys-pinctrl.yaml
+ create mode 100644 drivers/pinctrl/starfive/pinctrl-starfive-jh7110-aon.c
+ create mode 100644 drivers/pinctrl/starfive/pinctrl-starfive-jh7110-sys.c
+ create mode 100644 drivers/pinctrl/starfive/pinctrl-starfive-jh7110.c
+ create mode 100644 drivers/pinctrl/starfive/pinctrl-starfive-jh7110.h
+ create mode 100644 include/dt-bindings/pinctrl/starfive,jh7110-pinctrl.h
+
+-- 
+2.38.1
+
 
 _______________________________________________
 linux-riscv mailing list
