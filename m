@@ -4,69 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D66E7C636CC
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Feb 2023 07:40:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47E88C61DA4
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Feb 2023 07:52:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JF16oUAPl1+dL5mcS0q5ty5xE3XgksjxhP8ODZ066yA=; b=WF8s/q2jLAkGwA
-	d3y2A6OXp6JkjCvdiSesTEorL0E7EhbbAsYlaPsMPsYxAmCZaRhbnzwd9DpDUPSyPxh5peU3Z0iu4
-	AUfIhbJnVQx8V6ZfuoQHG193/B75w0XjjkvTuhoDLpea3iBs3RFdEQYW2n/+O+GVj7ZTYLPRGaAQe
-	1ql4MyF16mJ3njkzUbBKr2wpjyZIugoj/Re8zB7EQd7JMxT365fXjEUrse7H6kqJA0dnB180DI1AD
-	Nl0Y0nR2R23cGrIiU9AH/JJTxeTObwTXdbjoiE/2IGAfIIW2dH4BVOI/HD7IZEYgNnuAo/4kcwgoo
-	bh0p2NdRlZ2/WW7xd3Cw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=kGRLpm2DE9+3odmOTibwrcN3cfyS0CqkJT91St1vYqg=; b=QGVN7CmnR+ONyl
+	vTDkGe9MKMXCoCfsAVV8k19G/Yz1cPE54g6ofQbNIu1QBgQekc0ol62is8AXucfHco+Z+W1KCE7Iz
+	7JsoRPvEm0GbtilOZjvMkqiq1gogYRnWyvcE+4Js8X094RNKthruyG5BlRDa5iJluMS+ZKIUtFeGH
+	yzAsnC1gqYpojBpKWkKYPks6Co1GW53jjOQ81d4Ne4HaTJi2R2ggqKlPcQ1/vlzi4uTwsRMohZk8/
+	64ia7+H2lMKt0eJ6ZWDX5HWp9JIts03q/w4C76jRUAPMnGvWsFlfrjLGgx+vtQobadbasb1YmO8NQ
+	z1qtJ+CqAr3MkioYum3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNqgl-000qMq-Ht; Fri, 03 Feb 2023 07:40:51 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pNqgf-000qFv-KS
-	for linux-riscv@lists.infradead.org; Fri, 03 Feb 2023 07:40:50 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 2DE5824E1D4;
-	Fri,  3 Feb 2023 15:40:12 +0800 (CST)
-Received: from EXMBX073.cuchost.com (172.16.6.83) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 3 Feb
- 2023 15:40:12 +0800
-Received: from [192.168.120.49] (171.223.208.138) by EXMBX073.cuchost.com
- (172.16.6.83) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 3 Feb
- 2023 15:40:10 +0800
-Message-ID: <048b3ab0-7c13-b7f7-403c-f4e1d5574a10@starfivetech.com>
-Date: Fri, 3 Feb 2023 15:40:09 +0800
+	id 1pNqsC-000s66-4I; Fri, 03 Feb 2023 07:52:40 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pNqs8-000s5R-Lg
+	for linux-riscv@lists.infradead.org; Fri, 03 Feb 2023 07:52:38 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id u10so144368wmj.3
+        for <linux-riscv@lists.infradead.org>; Thu, 02 Feb 2023 23:52:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=NlhJRyLGWhYCTglJAyNtdlMktkkn7B+K+8DalaA2gVM=;
+        b=qQ4IzbW+3YUP1LGsXZqe+TW2yoNdt5CgIM9iCfoPeTDgRcMgdCF93Uik1VA+RXDJ6w
+         /jbovzM4aJ6zefnsmmc88ugJf7g0TqnY8PFjV1D9ZMT9NBBQZwHCHJdn7r9+cbiLzmti
+         RJQFrxE2IfePta/OjJhTxnpSxtTui+FBNymB1THoXsoy+lDE6UJ/ey1mOQt3Qvu0B/Uw
+         AlsMy8Ua932t0qE+8JUTdRuYjP3YYPr4rNlE4U+KJzZkzxnJvzedEiWKGEK9vRGiXXsU
+         84/XnF4I6ebriVsJtPGVUt3r3y0fHhqmgE4BiUj13dmhDv5+mEvv3RCtikwPAUhRrNg9
+         WChA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=NlhJRyLGWhYCTglJAyNtdlMktkkn7B+K+8DalaA2gVM=;
+        b=GVtlHc2R0J4NlumUB8DyYkJTfa81ocBLlN+7jXaADRl5niI8a9lr0eLai/LOmgf7u3
+         ip0asIUUTUDe7U05aulhJ4gilmE3B4g9mlu7b32VsRHxbfxaHOJQBjskmAJghPEzXH8J
+         f91GKgdNLXYtb9Bmm8XFEWbYsdwJ2rnuqiwnoBB8G9yNaz+0P9jy/53QHJUlHXQ7ZYnx
+         zDe6irytiltiFzuIX5A9b/9nOsFFmJhkN071jDPTBpXfhddA+XXWWQclvw7XcT12Q8jD
+         Rx2Owwl3w+e0+9c8ZHDek3dm0jMDpcpOz9o6b8lGAg1KqBJcnq4E8R3vvBIUGCNTNVYb
+         opVg==
+X-Gm-Message-State: AO0yUKVf/9rINj3tKeEqtI8mctNIjV+MoBqhxkv55yv1IBGJLSs1xaLi
+	kJm9HYYnlxxpM1W9FcueUk0qGA==
+X-Google-Smtp-Source: AK7set90A1kagYMQXQLp0Dpaj79ES5rzB/gI2zg7vosBGRuakhbiQzPbMNfGJHjyZk7AI2wAtWkDHQ==
+X-Received: by 2002:a05:600c:1e19:b0:3dc:52fc:7f06 with SMTP id ay25-20020a05600c1e1900b003dc52fc7f06mr8189377wmb.41.1675410755367;
+        Thu, 02 Feb 2023 23:52:35 -0800 (PST)
+Received: from alex-rivos.home (lfbn-lyo-1-450-160.w2-7.abo.wanadoo.fr. [2.7.42.160])
+        by smtp.gmail.com with ESMTPSA id v17-20020a05600c445100b003dc433355aasm2020861wmn.18.2023.02.02.23.52.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 02 Feb 2023 23:52:35 -0800 (PST)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+	Alexander Potapenko <glider@google.com>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Dmitry Vyukov <dvyukov@google.com>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Conor Dooley <conor@kernel.org>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	kasan-dev@googlegroups.com,
+	linux-efi@vger.kernel.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH v4 0/6] RISC-V kasan rework
+Date: Fri,  3 Feb 2023 08:52:26 +0100
+Message-Id: <20230203075232.274282-1-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.37.2
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.6.1
-Subject: Re: [PATCH v4 6/7] riscv: dts: starfive: jh7110: Add ethernet device
- node
-Content-Language: en-US
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	<linux-riscv@lists.infradead.org>, <netdev@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-CC: "David S . Miller" <davem@davemloft.net>, Eric Dumazet
-	<edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
-	Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>
-References: <20230118061701.30047-1-yanhong.wang@starfivetech.com>
- <20230118061701.30047-7-yanhong.wang@starfivetech.com>
- <55f020de-6058-67d2-ea68-6006186daee3@linaro.org>
- <f22614b4-80ae-8b16-b53e-e43c44722668@starfivetech.com>
- <870f6ec5-5378-760b-7a30-324ee2d178cf@linaro.org>
-From: yanhong wang <yanhong.wang@starfivetech.com>
-In-Reply-To: <870f6ec5-5378-760b-7a30-324ee2d178cf@linaro.org>
-X-Originating-IP: [171.223.208.138]
-X-ClientProxiedBy: EXCAS061.cuchost.com (172.16.6.21) To EXMBX073.cuchost.com
- (172.16.6.83)
-X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230202_234046_359669_5395C36A 
-X-CRM114-Status: GOOD (  18.49  )
+X-CRM114-CacheID: sfid-20230202_235236_954420_ECB34660 
+X-CRM114-Status: GOOD (  13.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,65 +99,71 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+As described in patch 2, our current kasan implementation is intricate,
+so I tried to simplify the implementation and mimic what arm64/x86 are
+doing.
 
+In addition it fixes UEFI bootflow with a kasan kernel and kasan inline
+instrumentation: all kasan configurations were tested on a large ubuntu
+kernel with success with KASAN_KUNIT_TEST and KASAN_MODULE_TEST.
 
-On 2023/2/3 15:09, Krzysztof Kozlowski wrote:
-> On 03/02/2023 04:14, yanhong wang wrote:
->> 
->> 
->> On 2023/1/18 23:51, Krzysztof Kozlowski wrote:
->>> On 18/01/2023 07:17, Yanhong Wang wrote:
->>>> Add JH7110 ethernet device node to support gmac driver for the JH7110
->>>> RISC-V SoC.
->>>>
->>>> Signed-off-by: Yanhong Wang <yanhong.wang@starfivetech.com>
->>>> ---
->>>>  arch/riscv/boot/dts/starfive/jh7110.dtsi | 93 ++++++++++++++++++++++++
->>>>  1 file changed, 93 insertions(+)
->>>>
->>>> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
->>>> index c22e8f1d2640..c6de6e3b1a25 100644
->>>> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
->>>> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
->>>> @@ -433,5 +433,98 @@
->>>>  			reg-shift = <2>;
->>>>  			status = "disabled";
->>>>  		};
->>>> +
->>>> +		stmmac_axi_setup: stmmac-axi-config {
->>>
->>> Why your bindings example is different?
->>>
->> 
->> There are two gmacs on the StarFive VF2 board, and the two
->> gmacs use the same configuration on axi, so the 
->> stmmac_axi_setup is independent, which is different
->> from the bindings example.
->> 
->> 
->>> Were the bindings tested? Ahh, no they were not... Can you send only
->>> tested patches?
->>>
->>> Was this tested?
->>>
->> Yes, the bindings have been tested on the StarFive VF2 board and work normally.
-> 
-> Then please tell me how did you test the bindings on the board? How is
-> it even possible and how the board is related to bindings? As you could
-> easily see from Rob's reply they fail, so I have doubts that they were
-> tested. If you still claim they were - please paste the output from
-> testing command.
-> 
+inline ubuntu config + uefi:
+ sv39: OK
+ sv48: OK
+ sv57: OK
 
-Sorry, I didn't check all the bindings, only the modified ones, the command 
-used is as follows: 
-"make dt_binding_check DT_SCHEMA_FILES=Documentation/devicetree/bindings/net/snps,dwmac.yaml"
-"make dt_binding_check DT_SCHEMA_FILES=Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml"
+outline ubuntu config + uefi:
+ sv39: OK
+ sv48: OK
+ sv57: OK
 
-> 
-> Best regards,
-> Krzysztof
-> 
+Actually 1 test always fails with KASAN_KUNIT_TEST that I have to check:
+# kasan_bitops_generic: EXPECTATION FAILED at mm/kasan/kasan__test.c:1020
+KASAN failure expected in "set_bit(nr, addr)", but none occurrred
+
+Note that Palmer recently proposed to remove COMMAND_LINE_SIZE from the
+userspace abi
+https://lore.kernel.org/lkml/20221211061358.28035-1-palmer@rivosinc.com/T/
+so that we can finally increase the command line to fit all kasan kernel
+parameters.
+
+All of this should hopefully fix the syzkaller riscv build that has been
+failing for a few months now, any test is appreciated and if I can help
+in any way, please ask.
+
+base-commit-tag: v6.2-rc6
+
+v4:
+- Fix build warning by declaring create_tmp_mapping as static, kernel
+  test robot
+
+v3:
+- Add AB from Ard in patch 4, thanks
+- Fix checkpatch issues in patch 1, thanks Conor
+
+v2:
+- Rebase on top of v6.2-rc3
+- patch 4 is now way simpler than it used to be since Ard already moved
+  the string functions into the efistub.
+
+Alexandre Ghiti (6):
+  riscv: Split early and final KASAN population functions
+  riscv: Rework kasan population functions
+  riscv: Move DTB_EARLY_BASE_VA to the kernel address space
+  riscv: Fix EFI stub usage of KASAN instrumented strcmp function
+  riscv: Fix ptdump when KASAN is enabled
+  riscv: Unconditionnally select KASAN_VMALLOC if KASAN
+
+ arch/riscv/Kconfig             |   1 +
+ arch/riscv/kernel/image-vars.h |   2 -
+ arch/riscv/mm/init.c           |   2 +-
+ arch/riscv/mm/kasan_init.c     | 516 ++++++++++++++++++---------------
+ arch/riscv/mm/ptdump.c         |  24 +-
+ 5 files changed, 298 insertions(+), 247 deletions(-)
+
+-- 
+2.37.2
+
 
 _______________________________________________
 linux-riscv mailing list
