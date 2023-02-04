@@ -4,67 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C7F9C05027
-	for <linux-riscv@archiver.kernel.org>; Sat,  4 Feb 2023 00:27:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73AE7C05027
+	for <linux-riscv@archiver.kernel.org>; Sat,  4 Feb 2023 01:19:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vvV9s15+kRv+CmAw+URkZzhiuyMAJ3gGzQ8gaF6vHVQ=; b=gj7D9JsAUiZ5qx
-	gUK7eD2ImE9MIWP5CSKaHZjYeM0quupeecqcm+kkWfLPCqOmc6w1Cd1MBCINavakSWMQXXWGLfarR
-	YCEsC6yVZyewzSrNwv3f2LvKsFqaZOjzwMOZQBMApw2897I6KBoxvcamKlkrSO9qcQjpVu1xuyH/c
-	EG8WW2QdGuZO3jD5u+u3W8xLQO+tjXtKZHoMt9sUe3yXR+4zbATlnSJdbHJkZ2He8e1suBu98aEJu
-	GNwxs8LReQDDTwS6PDD1NLYgluvmiAZ1Ej3095cq6tiIYQL2w3ztAJfNGX1kh4++QJde75HmI+IXJ
-	ZsP0J4JQI3szIuEV4Y+g==;
+	List-Owner; bh=vESOVcpVfQhIkcxOBmDdhrIHpmx7yRQVinJXcv1Mnyg=; b=iePbGXCCtWrR8A
+	5+Mx2eTf+WMZQ6qg85Ib54d9KG6bhv5zqWhf4SVbvw4RYSgYp4Ku4bRMViMl0ynHZBAuTiGfGOw1Q
+	fI6SLDfXt8roNWwhSyfzdd/H1c0lmrKPuKcThheWxxLAtkVr1GlZ8q8qZTJQCT37eZOdFYhAtpSnJ
+	2LJl1juwGdS31ksHgqwQl7TErVVgMnNzP2i0N8VBbQkqmzuay5gPxgHaTZ8VrQhRngn1luFu/nZTA
+	LmUU+3eZsws1jEiv4cISwv5oWTL6zDTNVscUgHJMNhLlWGZAbyfVgPSnuxFhQESL3qYkG7L6fqNca
+	QOg/s6ZZDWhc+6MOqBLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pO6OR-0047IS-49; Sat, 04 Feb 2023 00:26:59 +0000
-Received: from zeniv.linux.org.uk ([2a03:a000:7:0:5054:ff:fe1c:15ff])
+	id 1pO7DB-004BTh-1T; Sat, 04 Feb 2023 01:19:25 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pO6OM-0047H5-E8
-	for linux-riscv@lists.infradead.org; Sat, 04 Feb 2023 00:26:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=linux.org.uk; s=zeniv-20220401; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=X1SywhkHbG+zrm/9j112oMCqd94g661HYfNMjX5RclA=; b=l22rn3Nv6NXWTGOgkjEtnA2GLe
-	gE6yjykTrey8R5abzO4M+LY1/1bP94RD/4pRww8GIABSPDrmpY/QNLF6mhIU0YTLPwvuTA9mYQ5DL
-	Z0V+zPIrOBzTzBaaBmzopE0gOhN0hl4voghRUCwzhOR8eB8juSVP6sLogXt97BOp8bqkUBF6uNESd
-	5OwrUzL1nXumwVYN5P62it0hP/GEVLEbSk4gLKR5NwzpyssdlKx4824Kt4N8R7LhTKKVHTuly09mW
-	kYKHF8mB2qbWNOpmHBTVhgnJBGzhR6g66/+qHmyoq2gHxoV+N82EC9zgsyLrSUOVGtLj5O9zsjJH8
-	4WRuP7wA==;
-Received: from viro by zeniv.linux.org.uk with local (Exim 4.96 #2 (Red Hat Linux))
-	id 1pO6O7-0064I1-1l;
-	Sat, 04 Feb 2023 00:26:39 +0000
-Date: Sat, 4 Feb 2023 00:26:39 +0000
-From: Al Viro <viro@zeniv.linux.org.uk>
-To: Peter Xu <peterx@redhat.com>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>,
-	linux-arch@vger.kernel.org, linux-alpha@vger.kernel.org,
-	linux-ia64@vger.kernel.org, linux-hexagon@vger.kernel.org,
-	linux-m68k@lists.linux-m68k.org, Michal Simek <monstr@monstr.eu>,
-	Dinh Nguyen <dinguyen@kernel.org>, openrisc@lists.librecores.org,
-	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	sparclinux@vger.kernel.org
-Subject: Re: [RFC][PATCHSET] VM_FAULT_RETRY fixes
-Message-ID: <Y92mP1GT28KfnPEQ@ZenIV>
-References: <Y9lz6yk113LmC9SI@ZenIV>
- <CAHk-=whf73Vm2U3jyTva95ihZzefQbThZZxqZuKAF-Xjwq=G4Q@mail.gmail.com>
- <Y9mD1qp/6zm+jOME@ZenIV>
- <CAHk-=wjiwFzEGd_60H3nbgVB=R_8KTcfUJmXy=hSXCvLrXQRFA@mail.gmail.com>
- <Y9mM5wiEhepjJcN0@ZenIV>
- <CAHk-=wjNwwnBckTo8HLSdsd1ndoAR=5RBoZhdOyzhsnDAYWL9g@mail.gmail.com>
- <Y9rCBqwbLlLf1fHe@x1n>
- <Y9rlI6d5J2Y/YNQ+@ZenIV>
- <Y9w/lrL6g4yauXz4@x1n>
+	id 1pO7D3-004BSl-Cg
+	for linux-riscv@lists.infradead.org; Sat, 04 Feb 2023 01:19:23 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id B9795B82C52
+	for <linux-riscv@lists.infradead.org>; Sat,  4 Feb 2023 01:19:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68858C4339B
+	for <linux-riscv@lists.infradead.org>; Sat,  4 Feb 2023 01:19:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1675473554;
+	bh=aimDTfZ9jhALpWMGCB3SDe6SKvH7g0Fiij2TZD51ciw=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=f8Yknfd6ODJUK6wWG9nfvXBsbBRmGvB68TJuyHjq8ogGQuUSOCi6by/C+61xR0PCo
+	 uP6ci2qKxcZleDdootCxSAQLURHIjcW6ioIE2is7IhK7CWx9vE09szKydSm+QdyHCM
+	 epGNSx0sX6NJUFu5AL4ZNg/PRmFWi3QhhKpMw19PoO0ZlBo9Shl9sdfZQ3Q8mLOB5A
+	 lmSu3FxlUgm+js5g8BRcdJckAFID1I/tFckxNWB8jrnskGXJgQ+sg+X/vjny20Bh1P
+	 U/70xumQdYFxI+5z/DAJ0fG602t+pjJwc1Gk2876CGBrDb9EiyYNBYe/O96kla2R/v
+	 eRTcJgj/fh0mg==
+Received: by mail-ej1-f42.google.com with SMTP id m2so19987975ejb.8
+        for <linux-riscv@lists.infradead.org>; Fri, 03 Feb 2023 17:19:14 -0800 (PST)
+X-Gm-Message-State: AO0yUKUJPVEEvNG1BOQw8DNM/QfpXPugQNkmuZtX01PUrsOlvl8FuhmC
+	Q6a10h2MgRS+7+sGXVb3t6Lnqez/eUQ7ADwuPPA=
+X-Google-Smtp-Source: AK7set8qbN0cH0qYPTuS4AcKBRoZsBRE2EE76+rE4byQYKQZJsOg1ERN66I8mc3K4drcO2j2nYafjnuMhLzbmeDWyeA=
+X-Received: by 2002:a17:906:8419:b0:884:c19c:7c6 with SMTP id
+ n25-20020a170906841900b00884c19c07c6mr3303954ejx.120.1675473552654; Fri, 03
+ Feb 2023 17:19:12 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Y9w/lrL6g4yauXz4@x1n>
+References: <20230112090603.1295340-1-guoren@kernel.org> <20230112090603.1295340-2-guoren@kernel.org>
+ <Y7/6AtX5X0+5qF6Y@FVFF77S0Q05N> <CAJF2gTTqW5A8qS5CQEr=kakxKw5FaFRDswet6CnBGUDasNJnbQ@mail.gmail.com>
+ <Y9eh8DpjrmcLIQb5@FVFF77S0Q05N>
+In-Reply-To: <Y9eh8DpjrmcLIQb5@FVFF77S0Q05N>
+From: Guo Ren <guoren@kernel.org>
+Date: Sat, 4 Feb 2023 09:19:01 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTRLjoRjnB=CTapcQjJ3GW+XsQXx0cvJJVBwjuu=AqGzJg@mail.gmail.com>
+Message-ID: <CAJF2gTRLjoRjnB=CTapcQjJ3GW+XsQXx0cvJJVBwjuu=AqGzJg@mail.gmail.com>
+Subject: Re: [PATCH -next V7 1/7] riscv: ftrace: Fixup panic by disabling preemption
+To: palmer@dabbelt.com, Mark Rutland <mark.rutland@arm.com>
+Cc: anup@brainfault.org, paul.walmsley@sifive.com, conor.dooley@microchip.com, 
+	heiko@sntech.de, rostedt@goodmis.org, mhiramat@kernel.org, jolsa@redhat.com, 
+	bp@suse.de, jpoimboe@kernel.org, suagrfillet@gmail.com, andy.chiu@sifive.com, 
+	e.shatokhin@yadro.com, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230203_162654_656434_77DE0C87 
-X-CRM114-Status: GOOD (  27.54  )
+X-CRM114-CacheID: sfid-20230203_171917_743869_5EEC304A 
+X-CRM114-Status: GOOD (  38.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,296 +85,91 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 02, 2023 at 05:56:22PM -0500, Peter Xu wrote:
+On Mon, Jan 30, 2023 at 6:54 PM Mark Rutland <mark.rutland@arm.com> wrote:
+>
+> On Sat, Jan 28, 2023 at 05:37:46PM +0800, Guo Ren wrote:
+> > On Thu, Jan 12, 2023 at 8:16 PM Mark Rutland <mark.rutland@arm.com> wrote:
+> > >
+> > > Hi Guo,
+> > >
+> > > On Thu, Jan 12, 2023 at 04:05:57AM -0500, guoren@kernel.org wrote:
+> > > > From: Andy Chiu <andy.chiu@sifive.com>
+> > > >
+> > > > In RISCV, we must use an AUIPC + JALR pair to encode an immediate,
+> > > > forming a jump that jumps to an address over 4K. This may cause errors
+> > > > if we want to enable kernel preemption and remove dependency from
+> > > > patching code with stop_machine(). For example, if a task was switched
+> > > > out on auipc. And, if we changed the ftrace function before it was
+> > > > switched back, then it would jump to an address that has updated 11:0
+> > > > bits mixing with previous XLEN:12 part.
+> > > >
+> > > > p: patched area performed by dynamic ftrace
+> > > > ftrace_prologue:
+> > > > p|      REG_S   ra, -SZREG(sp)
+> > > > p|      auipc   ra, 0x? ------------> preempted
+> > > >                                       ...
+> > > >                               change ftrace function
+> > > >                                       ...
+> > > > p|      jalr    -?(ra) <------------- switched back
+> > > > p|      REG_L   ra, -SZREG(sp)
+> > > > func:
+> > > >       xxx
+> > > >       ret
+> > >
+> > > As mentioned on the last posting, I don't think this is sufficient to fix the
+> > > issue. I've replied with more detail there:
+> > >
+> > >   https://lore.kernel.org/lkml/Y7%2F3hoFjS49yy52W@FVFF77S0Q05N/
+> > >
+> > > Even in a non-preemptible SMP kernel, if one CPU can be in the middle of
+> > > executing the ftrace_prologue while another CPU is patching the
+> > > ftrace_prologue, you have the exact same issue.
+> > >
+> > > For example, if CPU X is in the prologue fetches the old AUIPC and the new
+> > > JALR (because it races with CPU Y modifying those), CPU X will branch to the
+> > > wrong address. The race window is much smaller in the absence of preemption,
+> > > but it's still there (and will be exacerbated in virtual machines since the
+> > > hypervisor can preempt a vCPU at any time).
+> > >
+> > > Note that the above is even assuming that instruction fetches are atomic, which
+> > > I'm not sure is the case; for example arm64 has special CMODX / "Concurrent
+> > > MODification and eXecutuion of instructions" rules which mean only certain
+> > > instructions can be patched atomically.
+> > >
+> > > Either I'm missing something that provides mutual exclusion between the
+> > > patching and execution of the ftrace_prologue, or this patch is not sufficient.
+> > This patch is sufficient because riscv isn't the same as arm64. It
+> > uses default arch_ftrace_update_code, which uses stop_machine.
+> > See kernel/trace/ftrace.c:
+> > void __weak arch_ftrace_update_code(int command)
+> > {
+> >         ftrace_run_stop_machine(command);
+> > }
+>
+> Ah; sorry, I had misunderstood here, since the commit message spoke in terms of
+> removing that.
+>
+> As long as stop_machine() is used I agree this is safe; sorry for the noise.
+Okay.
 
-> IMHO it'll be merely impossible to merge things across most (if not to say,
-> all) archs.  It will need to be start from one or at least a few that still
-> shares a major common base - I would still rely on x86 as a start - then we
-> try to use the helper in as much archs as possible.
-> 
-> Even on x86, I do also see challenges so I'm not sure whether a common
-> enough routine can be abstracted indeed.  But I believe there's a way to do
-> this because obviously we still see tons of duplicated logics falling
-> around.  It may definitely need time to think out where's the best spot to
-> start, and how to gradually move towards covering more archs starting from
-> one.
+Hi Palmer,
 
-FWIW, after going through everything from alpha to loongarch (in alphabetic
-order, skipping the itanic) the following seems to be suitable for all of
-them:
+Please take Andy's fixup patch. We would continue to find a way for PREEMPTION.
 
-generic_fault(address, flags, vm_flags, regs)
-{
-	struct mm_struct *mm = current->mm;
-	struct vm_area_struct *vma;
-	vm_fault_t fault;
+>
+> > ps:
+> >  Yes, it's not good, and it's expensive.
+>
+> We can't have everything! :)
+>
+> Thanks,
+> Mark.
 
-	perf_sw_event(PERF_COUNT_SW_PAGE_FAULTS, 1, regs, address);
 
-	if (unlikely(!mmap_read_trylock(mm))) {
-		if (!(flags & FAULT_FLAG_USER) &&
-		    !search_exception_tables(instruction_pointer(regs))) {
-			/*
-			 * Fault from code in kernel from
-			 * which we do not expect faults.
-			 */
-			return KERN;
-		}
-retry:
-		mmap_read_lock(mm);
-	} else {
-		might_sleep();
-#ifdef CONFIG_DEBUG_VM
-		if (!(flags & FAULT_FLAG_USER) &&
-		    !search_exception_tables(instruction_pointer(regs)))
-			return KERN;
-#endif
-	}
-	vma = find_vma(mm, address);
-	if (!vma)
-		goto Eunmapped;
-	if (unlikely(vma->vm_start > address)) {
-		if (!(vma->vm_flags & VM_GROWSDOWN))
-			goto Eunmapped;
-		if (addr < FIRST_USER_ADDRESS)
-			goto Eunmapped;
-		if (expand_stack(vma, address))
-			goto Eunmapped;
-	}
 
-	/* Ok, we have a good vm_area for this memory access, so
-	   we can handle it.  */
-	if (!(vma->vm_flags & vm_flags))
-		goto Eaccess;
-
-	/* If for any reason at all we couldn't handle the fault,
-	   make sure we exit gracefully rather than endlessly redo
-	   the fault.  */
-	fault = handle_mm_fault(vma, address, flags, regs);
-
-	if (unlikely(fault & VM_FAULT_RETRY)) {
-		if (!(flags & FAULT_FLAG_USER)) {
-			if (fatal_signal_pending(current))
-				return KERN;
-		} else {
-			if (signal_pending(current))
-				return FOAD;
-		}
-		flags |= FAULT_FLAG_TRIED;
-		goto retry;
-	}
-
-	if (fault & VM_FAULT_COMPLETED)
-		return DONE;
-
-	mmap_read_unlock(mm);
-
-	if (likely(!(fault & VM_FAULT_ERROR)))
-		return DONE;
-
-	if (!(flags & FAULT_FLAG_USER))
-		return KERN;
-
-	if (fault & VM_FAULT_OOM) {
-		pagefault_out_of_memory();
-		return FOAD;
-	}
-
-	if (fault & VM_FAULT_SIGSEGV)
-		return SIGSEGV;
-
-	if (fault & VM_FAULT_SIGBUS)
-		return SIGBUS;
-
-	if (fault & VM_FAULT_HWPOISON)
-		return POISON + PAGE_SHIFT;	// POISON == 256
-
-	if (fault & VM_FAULT_HWPOISON_LARGE)
-		return POISON + hstate_index_to_shift(VM_FAULT_GET_HINDEX(fault));
-
-	BUG();
-
-Eunmapped:
-	mmap_read_unlock(mm);
-	return flags & FAULT_FLAG_USER ? MAPERR : KERN;
-Eaccess:
-	mmap_read_unlock(mm);
-	return flags & FAULT_FLAG_USER ? ACCERR : KERN;
-}
-
-possible return values (and that's obviously not the identifiers to be
-used for real; for now I'm just looking for feasibility of it all):
-	DONE		success, nothing else to be done
-	FOAD		OOM/fatal signal with VM_FAULT_RETRY/
-			signal with VM_FAULT_RETRY from userland - nothing
-			to be done here.
-	KERN		kernel mode failed fault, fixup or oops
-	MAPERR		unmapped address, SIGSEGV/SEGV_MAPERR for you
-	ACCERR		nothing in vm_flags present in ->vm_flags of vma;
-			SIGSEGV/SEGV_ACCERR
-	SIGSEGV		VM_FAULT_SIGSEGV; some architectures treat that
-			as SEGV_MAPERR, some as SEGV_ACCERR.
-	SIGBUS		VM_FAULT_SIGBUS; SIGBUS/BUS_ADRERR
-	POISON + shift	VM_FAULT_HWPOISON and VM_FAULT_HWPOISON_LARGE, with
-			log2(affected page size) encoded into return value.
-
-This is obviously not even close to final helper, but... alpha, arc, arm, arm64,
-csky, hexagon, loongarch convert to that cleanly.
-
-Itanic very much does not (due to weird dual stacks, awful address space layout,
-etc.), but then git rm arch/ia64 is long overdue.
-
-Fairly typical look after conversion:
-
-arc: 
-{
-	struct task_struct *tsk = current;
-	struct mm_struct *mm = tsk->mm;
-	unsigned int mask;
-	unsigned int flags;
-	unsigned int res;
-
-	/*
-	 * NOTE! We MUST NOT take any locks for this case. We may
-	 * be in an interrupt or a critical region, and should
-	 * only copy the information from the master page table,
-	 * nothing more.
-	 */
-	if (address >= VMALLOC_START && !user_mode(regs)) {
-		if (unlikely(handle_kernel_vaddr_fault(address)))
-			goto no_context;
-		else
-			return;
-	}
-
-	/*
-	 * If we're in an interrupt or have no user
-	 * context, we must not take the fault..
-	 */
-	if (faulthandler_disabled() || !mm)
-		goto no_context;
-
-	flags = FAULT_FLAG_DEFAULT;
-	if (user_mode(regs))
-		flags |= FAULT_FLAG_USER;
-	mask = VM_READ;
-	if (regs->ecr_cause & ECR_C_PROTV_STORE) {	/* ST/EX */
-		flags |= FAULT_FLAG_WRITE;
-		mask = VM_WRITE;
-	} else if ((regs->ecr_vec == ECR_V_PROTV) &&
-	         (regs->ecr_cause == ECR_C_PROTV_INST_FETCH)) {
-		mask = VM_EXEC;
-	}
-
-	res = generic_fault(address, flags, mask, regs);
-	if (likely(res == DONE))
-		return;
-	if (res == FOAD)
-		return;
-	if (res == KERN) {
-no_context:
-		if (fixup_exception(regs))
-			return;
-		die("Oops", regs, address);
-	}
-
-	tsk->thread.fault_address = address;
-	if (res == SIGBUS)
-		force_sig_fault(SIGBUS, BUS_ADRERR, (void __user *) address);
-	else
-		force_sig_fault(SIGSEGV, res == ACCERR ? SEGV_ACCERR : SEGV_MAPERR,
-				(void __user *) address);
-}
-
-Or this arm64:
-
-{
-	const struct fault_info *inf;
-	struct mm_struct *mm = current->mm;
-	unsigned long vm_flags;
-	unsigned int mm_flags = FAULT_FLAG_DEFAULT;
-	unsigned long addr = untagged_addr(far);
-	unsigned int res;
-
-	if (kprobe_page_fault(regs, esr))
-		return 0;
-
-	/*
-	 * If we're in an interrupt or have no user context, we must not take
-	 * the fault.
-	 */
-	if (faulthandler_disabled() || !mm)
-		goto no_context;
-
-	if (user_mode(regs))
-		mm_flags |= FAULT_FLAG_USER;
-
-	/*
-	 * vm_flags tells us what bits we must have in vma->vm_flags
-	 * for the fault to be benign, __do_page_fault() would check
-	 * vma->vm_flags & vm_flags and returns an error if the
-	 * intersection is empty
-	 */
-	if (is_el0_instruction_abort(esr)) {
-		/* It was exec fault */
-		vm_flags = VM_EXEC;
-		mm_flags |= FAULT_FLAG_INSTRUCTION;
-	} else if (is_write_abort(esr)) {
-		/* It was write fault */
-		vm_flags = VM_WRITE;
-		mm_flags |= FAULT_FLAG_WRITE;
-	} else {
-		/* It was read fault */
-		vm_flags = VM_READ;
-		/* Write implies read */
-		vm_flags |= VM_WRITE;
-		/* If EPAN is absent then exec implies read */
-		if (!cpus_have_const_cap(ARM64_HAS_EPAN))
-			vm_flags |= VM_EXEC;
-	}
-
-	if (is_ttbr0_addr(addr) && is_el1_permission_fault(addr, esr, regs)) {
-		if (is_el1_instruction_abort(esr))
-			die_kernel_fault("execution of user memory",
-					 addr, esr, regs);
-
-		if (!search_exception_tables(regs->pc))
-			die_kernel_fault("access to user memory outside uaccess routines",
-					 addr, esr, regs);
-	}
-
-	res = generic_fault(addr, mm_flags, vm_flags, regs);
-	if (likely(res == DONE))
-		return 0;
-	if (res == FOAD)
-		return 0;
-	if (res == KERN) {
-no_context:
-		__do_kernel_fault(addr, esr, regs);
-		return 0;
-	}
-	inf = esr_to_fault_info(esr);
-	set_thread_esr(addr, esr);
-	if (res == SIGBUS) {
-		/*
-		 * We had some memory, but were unable to successfully fix up
-		 * this page fault.
-		 */
-		arm64_force_sig_fault(SIGBUS, BUS_ADRERR, far, inf->name);
-	} else if (res > POISON) {
-		arm64_force_sig_mceerr(BUS_MCEERR_AR, far, res - POISON, inf->name);
-	} else {
-		/*
-		 * Something tried to access memory that isn't in our memory
-		 * map.
-		 */
-		arm64_force_sig_fault(SIGSEGV,
-				      res == ACCERR ? SEGV_ACCERR : SEGV_MAPERR,
-				      far, inf->name);
-	}
-
-	return 0;
-}
+-- 
+Best Regards
+ Guo Ren
 
 _______________________________________________
 linux-riscv mailing list
