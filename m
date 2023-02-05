@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5112C61DA4
-	for <linux-riscv@archiver.kernel.org>; Sun,  5 Feb 2023 02:17:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD7A6C636CC
+	for <linux-riscv@archiver.kernel.org>; Sun,  5 Feb 2023 02:17:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=whG77X5aKWHaNTQftbeKKO0wdqCoZype10YOoLDoYss=; b=x81b66E0N8F+O+
-	+AneKcn0M+YpgeRFSroBiZ9LBFtolycCnU5lZu/04KQ8OgGNKsfr09MxHlKEdNGcpNuUeM96jHkgI
-	P/0WV0y97jlbe266sw04GpDKRiGtqRxIcVISfb48bV815+quRdfk4LbZXbviEEuE7Og4mTRXeGjwa
-	pp1NIcOE2/uLRKjgn5N3tkVr7rz1qcKEq3iNbLb56ZbvDFVy6drK92bI0naII7wKnvueL4kmEAmXe
-	a2ys86FtZZ+v64e6f7/5gt2cnd0WwGceklI1Vpryt58fXN7vbiCrJP8x02HSKIipoeanZdyyRi+4a
-	6keYuu5tUnJY1vd74zzQ==;
+	List-Owner; bh=smMJ5Kv76LTPCI/mKxdw+cY+1KHVMXBUc98hYIeAW0g=; b=TzMAfVe8eOWV9B
+	0A6oKg2s4ewpf0e0wonkto2/eRukEHxlwnrQ4lR/YYEB11Xh8o0VvZC3QNN/RC4xz5Rj/RCXkrsd0
+	j0YYSRcb6dRrlsDvx/nkZQHztIDHBL6bm6CobcDjDhxDg7hTheW7gQT3gexRHC6KzEqdT9seiu0Fz
+	H37QH6Dh67JUm9Z+wdHgs54LM1g+pWESWMwNfwIsRvGLsK0lfNuJ2CU0yIFzPicmKXEp5G7pwQW+g
+	UCSTs2xq2Fek7jMxUO3wQi6kraWWUNCfXXSs33Eo1EUf7U5YAjhlfonHY1nzhKNSeZOkOIwSmaglF
+	ANACTTmknkJUzOKU9H6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pOUaM-005rpH-So; Sun, 05 Feb 2023 02:16:55 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1pOUaQ-005rtC-V9; Sun, 05 Feb 2023 02:16:59 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pOTd8-005oCf-0F
+	id 1pOTd8-005oEs-2u
 	for linux-riscv@lists.infradead.org; Sun, 05 Feb 2023 01:15:45 +0000
-Received: by mail-pl1-x633.google.com with SMTP id g13so4085495ple.10
-        for <linux-riscv@lists.infradead.org>; Sat, 04 Feb 2023 17:15:25 -0800 (PST)
+Received: by mail-pj1-x102e.google.com with SMTP id mi9so8533559pjb.4
+        for <linux-riscv@lists.infradead.org>; Sat, 04 Feb 2023 17:15:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=zPkrRraxSxPO8Bas1c93CWcZiwYxt6lnwNFP5o7eW+0=;
-        b=PnGxq0Ksntq7Itg+YeOS+4xtHTpJRfRn2qVKZXOSX9aCT1nDbSCO8tSNH3Ss9Z6RYJ
-         rMHRuCxYPNEAWYlW0U4uPOHGt9f9N01MNHKtkemgQlgRmL3SvhjxWZ7rlGBlRSPmLVIB
-         ugtYUzXjgSiiTjJeOvco4hm35WuvFfwTZuOQ/RUOtloUVpB2gH+7k52WMi+p1BOtS/dl
-         92QlI6l5gjud3L4agFG4BGQBIrP6DJVlekXnjHkoSsAOSXFvRUPj13p5nAehIXxicszg
-         2Z6cvzHr6ouSB+nfLlG72leoJAsSfoMSaPA843qFsqgWGIyV1tlzqeJHre4+3NKVhRN0
-         wYHg==
+        bh=gG9hdNpqSHyyiW/kY0PtWrSKIXU+zOCOJ2WI9yMHzdg=;
+        b=NrgdXdgsnEPBD0D7s8HlbYKiz6iJJDx0D/nBEP5Qqi61Ch7DapV4hAhTIibqHhM+Ly
+         W6QhKTE0QSPNmdDHOe/GFSyI+s76VYwQbcYmT+O0qIbzui5CNEvbffIMmUh6Q5tYzzlh
+         ezWQg5X/RGfP6CwIXjOE2f/TUL4m+laTITDHrv85qcx5wLzmPa8qJHO4EVsvM0LBtpBu
+         AYowC8LX9onYBl5i72QZ/4NwbXOxJOi8aQMmGgBT5xS90MIGX6CB1N8p3iROisyOsUlv
+         Jd1V4R93o4PyacN72SJJkSF/Ap4YErqQLehzYI9Ssc0C4Xub+CrgR8Ne5qAS57Zcxr4c
+         Ie6Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=zPkrRraxSxPO8Bas1c93CWcZiwYxt6lnwNFP5o7eW+0=;
-        b=x1GIrjzoXUeHfwMT83qxrL3xX17BZZ3zzT2rX4yaL1H+CmYZzCvy+x3K+9egiAn0zU
-         eWiZPpaxbzxibCai650QuAVUf7coJ5IHgKnInkR9oSXLxFmKYhAiWYb0FIqfRJP9MLjQ
-         ub932we2iR8l64+elDAPxmG4uDIbOsAJWwGozHEK4ESgD4/YFdMo+HQzE35Lael5lcTa
-         RaAZxiFZCFUOQe5FldELQBC3pBNSv90Ro31xeDZgs0W9X0SIrYIpjuKp0A0GFweBYEtS
-         ZTOdUlNfIQkw8AdfpxSfgfkvIA5kznAJavSNkGwoTVGoN0xyZlIZIR3bdKZ6tiyY1Z1g
-         CKVQ==
-X-Gm-Message-State: AO0yUKUb9ZIfwxFVb57glBXh8dyX/EQgUVtrlf+i79CqaEj9AY5P4rsB
-	l9oOVgibUWjIYuEjhsyRoNYrJA==
-X-Google-Smtp-Source: AK7set+y355g8GXNv7L+yDXV6nynKVR2hWweLQHKUUCN1zPTxPUe/D4Kdpqr4IkICqzkOYVxiR7GGg==
-X-Received: by 2002:a17:90a:e7c2:b0:230:1acb:191c with SMTP id kb2-20020a17090ae7c200b002301acb191cmr15877237pjb.14.1675559724666;
-        Sat, 04 Feb 2023 17:15:24 -0800 (PST)
+        bh=gG9hdNpqSHyyiW/kY0PtWrSKIXU+zOCOJ2WI9yMHzdg=;
+        b=nZIQkUdDecx7ncd0HCCPDnxnWH6dJoKBGMRxW/xlYTannAH9I4f2dUTCza536huV0+
+         EIw1u72Px8E7IYo9bdu9SX6UXbWB5eSzmgHhl8NmU7gEIdakFUrThBThwQIwvG8DWQRd
+         XTC50EZCeOToOCgkcrqOBPk8zOLsTU6NyRmcouGtAkw35cvqHqCfwXgCTgc01mxXxl1K
+         fl+YP0ssT7cn9N+xTxFPf6yrf6WFeaa1QznMym/CCcgdsN3Z7cYKDAjtZKbF2R4zdLLz
+         sFmXFfdUUukDM9jHuAlRc95TKU0EDgDHXSu6307N3zQAWKMfc5BPaPqwyquc6mUB01kI
+         /Xwg==
+X-Gm-Message-State: AO0yUKWUJwTsuYva6iCxX6vRwjMx1cC7PjZG4/90W7SrMgsawKP6GvoR
+	PN2APxbhj2bl1bnnHbzgLQ7H0A==
+X-Google-Smtp-Source: AK7set+olOeEhVPuVuQQRmpyyi+q7ViFoGVFHgOxpZ8EjOgorDRGrTpxCtG273Lp9b7bYT/JOlcp7w==
+X-Received: by 2002:a17:90a:c092:b0:230:ac49:9802 with SMTP id o18-20020a17090ac09200b00230ac499802mr230784pjs.22.1675559729917;
+        Sat, 04 Feb 2023 17:15:29 -0800 (PST)
 Received: from atishp.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id c7-20020a17090a020700b0023080c4c3bcsm2721917pjc.31.2023.02.04.17.15.23
+        by smtp.gmail.com with ESMTPSA id c7-20020a17090a020700b0023080c4c3bcsm2721917pjc.31.2023.02.04.17.15.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 04 Feb 2023 17:15:24 -0800 (PST)
+        Sat, 04 Feb 2023 17:15:29 -0800 (PST)
 From: Atish Patra <atishp@rivosinc.com>
 To: linux-kernel@vger.kernel.org
 Cc: Atish Patra <atishp@rivosinc.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
 	Anup Patel <anup@brainfault.org>,
 	Albert Ou <aou@eecs.berkeley.edu>,
+	Andrew Jones <ajones@ventanamicro.com>,
 	Atish Patra <atishp@atishpatra.org>,
 	Guo Ren <guoren@kernel.org>,
 	Heiko Stuebner <heiko@sntech.de>,
@@ -76,16 +76,16 @@ Cc: Atish Patra <atishp@rivosinc.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Will Deacon <will@kernel.org>
-Subject: [PATCH v5 02/14] perf: RISC-V: Improve privilege mode filtering for perf
-Date: Sat,  4 Feb 2023 17:15:03 -0800
-Message-Id: <20230205011515.1284674-3-atishp@rivosinc.com>
+Subject: [PATCH v5 08/14] RISC-V: KVM: Add SBI PMU extension support
+Date: Sat,  4 Feb 2023 17:15:09 -0800
+Message-Id: <20230205011515.1284674-9-atishp@rivosinc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20230205011515.1284674-1-atishp@rivosinc.com>
 References: <20230205011515.1284674-1-atishp@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230204_171542_193202_6DB3B627 
-X-CRM114-Status: GOOD (  14.41  )
+X-CRM114-CacheID: sfid-20230204_171542_196520_DCCB7941 
+X-CRM114-Status: GOOD (  19.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,80 +102,152 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, the host driver doesn't have any method to identify if the
-requested perf event is from kvm or bare metal. As KVM runs in HS
-mode, there are no separate hypervisor privilege mode to distinguish
-between the attributes for guest/host.
+SBI PMU extension allows KVM guests to configure/start/stop/query about
+the PMU counters in virtualized enviornment as well.
 
-Improve the privilege mode filtering by using the event specific
-config1 field.
+In order to allow that, KVM implements the entire SBI PMU extension.
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 Reviewed-by: Anup Patel <anup@brainfault.org>
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- drivers/perf/riscv_pmu_sbi.c   | 27 ++++++++++++++++++++++-----
- include/linux/perf/riscv_pmu.h |  2 ++
- 2 files changed, 24 insertions(+), 5 deletions(-)
+ arch/riscv/kvm/Makefile       |  2 +-
+ arch/riscv/kvm/vcpu_sbi.c     | 11 +++++
+ arch/riscv/kvm/vcpu_sbi_pmu.c | 87 +++++++++++++++++++++++++++++++++++
+ 3 files changed, 99 insertions(+), 1 deletion(-)
+ create mode 100644 arch/riscv/kvm/vcpu_sbi_pmu.c
 
-diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-index 6b53adc..71174fa 100644
---- a/drivers/perf/riscv_pmu_sbi.c
-+++ b/drivers/perf/riscv_pmu_sbi.c
-@@ -301,6 +301,27 @@ int riscv_pmu_get_hpm_info(u32 *hw_ctr_width, u32 *num_hw_ctr)
- }
- EXPORT_SYMBOL_GPL(riscv_pmu_get_hpm_info);
+diff --git a/arch/riscv/kvm/Makefile b/arch/riscv/kvm/Makefile
+index 5de1053..278e97c 100644
+--- a/arch/riscv/kvm/Makefile
++++ b/arch/riscv/kvm/Makefile
+@@ -25,4 +25,4 @@ kvm-y += vcpu_sbi_base.o
+ kvm-y += vcpu_sbi_replace.o
+ kvm-y += vcpu_sbi_hsm.o
+ kvm-y += vcpu_timer.o
+-kvm-$(CONFIG_RISCV_PMU_SBI) += vcpu_pmu.o
++kvm-$(CONFIG_RISCV_PMU_SBI) += vcpu_pmu.o vcpu_sbi_pmu.o
+diff --git a/arch/riscv/kvm/vcpu_sbi.c b/arch/riscv/kvm/vcpu_sbi.c
+index fe2897e..15fde15 100644
+--- a/arch/riscv/kvm/vcpu_sbi.c
++++ b/arch/riscv/kvm/vcpu_sbi.c
+@@ -20,6 +20,16 @@ static const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_v01 = {
+ };
+ #endif
  
-+static unsigned long pmu_sbi_get_filter_flags(struct perf_event *event)
++#ifdef CONFIG_RISCV_PMU_SBI
++extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_pmu;
++#else
++static const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_pmu = {
++	.extid_start = -1UL,
++	.extid_end = -1UL,
++	.handler = NULL,
++};
++#endif
++
+ static const struct kvm_vcpu_sbi_extension *sbi_ext[] = {
+ 	&vcpu_sbi_ext_v01,
+ 	&vcpu_sbi_ext_base,
+@@ -28,6 +38,7 @@ static const struct kvm_vcpu_sbi_extension *sbi_ext[] = {
+ 	&vcpu_sbi_ext_rfence,
+ 	&vcpu_sbi_ext_srst,
+ 	&vcpu_sbi_ext_hsm,
++	&vcpu_sbi_ext_pmu,
+ 	&vcpu_sbi_ext_experimental,
+ 	&vcpu_sbi_ext_vendor,
+ };
+diff --git a/arch/riscv/kvm/vcpu_sbi_pmu.c b/arch/riscv/kvm/vcpu_sbi_pmu.c
+new file mode 100644
+index 0000000..9fdc1e1
+--- /dev/null
++++ b/arch/riscv/kvm/vcpu_sbi_pmu.c
+@@ -0,0 +1,87 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (c) 2023 Rivos Inc
++ *
++ * Authors:
++ *     Atish Patra <atishp@rivosinc.com>
++ */
++
++#include <linux/errno.h>
++#include <linux/err.h>
++#include <linux/kvm_host.h>
++#include <asm/csr.h>
++#include <asm/sbi.h>
++#include <asm/kvm_vcpu_sbi.h>
++
++static int kvm_sbi_ext_pmu_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
++				   struct kvm_vcpu_sbi_return *retdata)
 +{
-+	unsigned long cflags = 0;
-+	bool guest_events = false;
++	int ret = 0;
++	struct kvm_cpu_context *cp = &vcpu->arch.guest_context;
++	struct kvm_pmu *kvpmu = vcpu_to_pmu(vcpu);
++	unsigned long funcid = cp->a6;
++	u64 temp;
 +
-+	if (event->attr.config1 & RISCV_PMU_CONFIG1_GUEST_EVENTS)
-+		guest_events = true;
-+	if (event->attr.exclude_kernel)
-+		cflags |= guest_events ? SBI_PMU_CFG_FLAG_SET_VSINH : SBI_PMU_CFG_FLAG_SET_SINH;
-+	if (event->attr.exclude_user)
-+		cflags |= guest_events ? SBI_PMU_CFG_FLAG_SET_VUINH : SBI_PMU_CFG_FLAG_SET_UINH;
-+	if (guest_events && event->attr.exclude_hv)
-+		cflags |= SBI_PMU_CFG_FLAG_SET_SINH;
-+	if (event->attr.exclude_host)
-+		cflags |= SBI_PMU_CFG_FLAG_SET_UINH | SBI_PMU_CFG_FLAG_SET_SINH;
-+	if (event->attr.exclude_guest)
-+		cflags |= SBI_PMU_CFG_FLAG_SET_VSINH | SBI_PMU_CFG_FLAG_SET_VUINH;
++	/* Return not supported if PMU is not initialized */
++	if (!kvpmu->init_done) {
++		retdata->err_val = SBI_ERR_NOT_SUPPORTED;
++		return 0;
++	}
 +
-+	return cflags;
++	switch (funcid) {
++	case SBI_EXT_PMU_NUM_COUNTERS:
++		ret = kvm_riscv_vcpu_pmu_num_ctrs(vcpu, retdata);
++		break;
++	case SBI_EXT_PMU_COUNTER_GET_INFO:
++		ret = kvm_riscv_vcpu_pmu_ctr_info(vcpu, cp->a0, retdata);
++		break;
++	case SBI_EXT_PMU_COUNTER_CFG_MATCH:
++#if defined(CONFIG_32BIT)
++		temp = ((uint64_t)cp->a5 << 32) | cp->a4;
++#else
++		temp = cp->a4;
++#endif
++		/*
++		 * This can fail if perf core framework fails to create an event.
++		 * Forward the error to userspace because it's an error happened
++		 * within the host kernel. The other option would be to convert
++		 * this an SBI error and forward to the guest.
++		 */
++		ret = kvm_riscv_vcpu_pmu_ctr_cfg_match(vcpu, cp->a0, cp->a1,
++						       cp->a2, cp->a3, temp, retdata);
++		break;
++	case SBI_EXT_PMU_COUNTER_START:
++#if defined(CONFIG_32BIT)
++		temp = ((uint64_t)cp->a4 << 32) | cp->a3;
++#else
++		temp = cp->a3;
++#endif
++		ret = kvm_riscv_vcpu_pmu_ctr_start(vcpu, cp->a0, cp->a1, cp->a2,
++						   temp, retdata);
++		break;
++	case SBI_EXT_PMU_COUNTER_STOP:
++		ret = kvm_riscv_vcpu_pmu_ctr_stop(vcpu, cp->a0, cp->a1, cp->a2, retdata);
++		break;
++	case SBI_EXT_PMU_COUNTER_FW_READ:
++		ret = kvm_riscv_vcpu_pmu_ctr_read(vcpu, cp->a0, retdata);
++		break;
++	default:
++		retdata->err_val = SBI_ERR_NOT_SUPPORTED;
++	}
++
++	return ret;
 +}
 +
- static int pmu_sbi_ctr_get_idx(struct perf_event *event)
- {
- 	struct hw_perf_event *hwc = &event->hw;
-@@ -311,11 +332,7 @@ static int pmu_sbi_ctr_get_idx(struct perf_event *event)
- 	uint64_t cbase = 0;
- 	unsigned long cflags = 0;
- 
--	if (event->attr.exclude_kernel)
--		cflags |= SBI_PMU_CFG_FLAG_SET_SINH;
--	if (event->attr.exclude_user)
--		cflags |= SBI_PMU_CFG_FLAG_SET_UINH;
--
-+	cflags = pmu_sbi_get_filter_flags(event);
- 	/* retrieve the available counter index */
- #if defined(CONFIG_32BIT)
- 	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_CFG_MATCH, cbase,
-diff --git a/include/linux/perf/riscv_pmu.h b/include/linux/perf/riscv_pmu.h
-index a1c3f77..43fc892 100644
---- a/include/linux/perf/riscv_pmu.h
-+++ b/include/linux/perf/riscv_pmu.h
-@@ -26,6 +26,8 @@
- 
- #define RISCV_PMU_STOP_FLAG_RESET 1
- 
-+#define RISCV_PMU_CONFIG1_GUEST_EVENTS 0x1
++static unsigned long kvm_sbi_ext_pmu_probe(struct kvm_vcpu *vcpu)
++{
++	struct kvm_pmu *kvpmu = vcpu_to_pmu(vcpu);
 +
- struct cpu_hw_events {
- 	/* currently enabled events */
- 	int			n_events;
++	return kvpmu->init_done;
++}
++
++const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_pmu = {
++	.extid_start = SBI_EXT_PMU,
++	.extid_end = SBI_EXT_PMU,
++	.handler = kvm_sbi_ext_pmu_handler,
++	.probe = kvm_sbi_ext_pmu_probe,
++};
 -- 
 2.25.1
 
