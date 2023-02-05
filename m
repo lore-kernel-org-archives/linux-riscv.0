@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7001CC61DA4
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7897C636CC
 	for <linux-riscv@archiver.kernel.org>; Sun,  5 Feb 2023 02:16:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,54 +12,54 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bJZHyZ1Zwuy9kQnPbJ36hVmcjb1eTizyRpu/i0o949E=; b=hwpWNI6z1laEtv
-	0t6r+U9SxQ+XxXcaYZiGA0nsZZ8i3M9CZYHu4wDIcEadRbrpO4iprj8Q2gsNoamR6qZwiQQaGnI/w
-	IlBBir/bYmvdRdRJ3Z0jSXA6smvt/M5lR9MyYQECQDfzIHCF88BkL1Do8Sp4xxJW+7DDuK8G3iIIQ
-	/jENSL1XMFPI0wrHqZE6zVATo4LNMfxFp2y/SW6z60VsrsuPdcIH+SbkQSQbuBX+WVTyhZtW1jRjH
-	sghLuQxzbwYWs3Ta9wMr7uL5cV491i2y9ga5K/wWF8TVRmN8iwD+dSiWYQX7+h1saRhVxKsJ/y4ux
-	DAnxOX4n5pcxYC0HsMKQ==;
+	List-Owner; bh=a0s7NHrdR754UsMJW4goB+w2ar3UDTZFb9Adi/GL0n0=; b=WfsmtQx3IJgl+2
+	e9EGJbR1m0Dt8Xy8UlL/P6LU9esPAoa5qSeKTvbUH9BQLGrWouXXZrVKWFcf9wVTANC5CiOVGKnmO
+	n7G05vufNUTeUD96iocC7yl629K/+QpQWtwxV6vL9VaSVcxLRCR0DRkkBcEh5eRhCNQ7MU2CYg2jK
+	NU89ACKL+pe2Ax0H/NmzKbPDApY47ylI/otamRzhOIik3tevwFKLaWf2lMeoEFZxgUuraNokL/fmS
+	0DfEg8Iv1DlSPBq3rFOE8KikQ2WzmfEt0SED7q8iodLcxiNW5PzsGbuG8CZkIS4RV+JX7vrCUnD8J
+	QE6nNFLh1/DAEztNZ1MA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pOUa5-005rcY-CM; Sun, 05 Feb 2023 02:16:37 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	id 1pOUa3-005rc5-ID; Sun, 05 Feb 2023 02:16:35 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pOTcs-005oDg-Qe
-	for linux-riscv@lists.infradead.org; Sun, 05 Feb 2023 01:15:32 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id n20-20020a17090aab9400b00229ca6a4636so12204058pjq.0
-        for <linux-riscv@lists.infradead.org>; Sat, 04 Feb 2023 17:15:26 -0800 (PST)
+	id 1pOTcs-005oCb-Co
+	for linux-riscv@lists.infradead.org; Sun, 05 Feb 2023 01:15:30 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id r8so8898977pls.2
+        for <linux-riscv@lists.infradead.org>; Sat, 04 Feb 2023 17:15:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=CL8v0AQsX+ZaW68BNuHu0nM6ZE+yLKRe23LChc9y1ZE=;
-        b=ZRH+09m+6M7w5O02O/M1IQSX6OH9TPKSMDeduT/LPjQfAoHWtVmRHc7KboHPEaBuDh
-         e30NIc9hGxOiY3e47LJBY4kbDXEGMn2gvW6j3SIMbRpEdistHyBgozYCQJ4OdE8nNHcx
-         u3S5BzL/0EutLz3NwbN2HdsSaWW43/erZLr5RJSHNa6qYLu089XGcFkmyoLBEgajHyHW
-         bmmgjiguVeOJntuVmuAt4LBPBF5OMkkG/z6m2aYXWqKpHsxzMcEz81T0/2R1nKJ/hIgo
-         loxj97sBJufboe2zjWthIhnQYZP1aC5tcaAhTFzsIvQEDdn8gUK8/hSX3njbdPQ7sPzy
-         uaqw==
+        bh=svX9QoI7+pu9KPeMOFBJn1yDl6Mnh/aSAvVAOGuYZfA=;
+        b=UWWqvu8ePBkTP/f/Im+K0H/bNL/4zKa4o1kI6YLXeiV/XRHxhnq/UqlTohNKQYSFfd
+         m2UxfODelUBj4tsTSem8Ta5Um6OpE9jup1MJsc1vyMgbmWEMWodnGydA9Npw8rqoB3Nr
+         zyQQzmAj10eUlrfRefLVvB8HXB+CVmvso7lp1k8XGnFcDQxrESBPR5vMhiUPN7et66eC
+         E0/TWd/Qbctc9NzaDESSuyCAIrC3vglE0+oE9UrDJ+wJi52VhxA/FwMQhCFh/a+LEHM/
+         E+BC8uoYtypHLFQaNyX12aSHnxo1s5C9lt8NjtST+gBDTrBDiT59LguPB7YhM4WPOHAl
+         rauQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=CL8v0AQsX+ZaW68BNuHu0nM6ZE+yLKRe23LChc9y1ZE=;
-        b=2sviJth91GPYx2xSKSSP7qrD5dVoW8yM4G8Zgh011NN7SpM6B4Q8SHwP8GXmdAvx0W
-         4fo0aiS1EELp8wlsroZx4OhsvKwITBmOcFOLgNj5wwDGDvb3LceuarroeaJkEXNSn0/T
-         D6bN2tAR9uzsp4biz8lnq1cxOpnJlrf/1yqeo2wy7XsV123ZrPY+HN/DpyEoLK5QuzAM
-         ebAWHF2KrB/6QDeDnsMe4AfF6+m/Lm+KKkA0NT7YIk1sEZtsEHRTYCJhCFdMIHz9+gYC
-         JZo+A8TiI0Qmy8fXuuCZkMTFKpZRNpc0KSkWZjy/+C6365VYVCwV5hInKtawmJaZTc0R
-         qOEQ==
-X-Gm-Message-State: AO0yUKW0vhZXlX+gUh2Mcn2Z1zHRctito4Mhueg8LpVz6rhPLOMavxwM
-	G3tuW2NtoqFybo/Y7TUZA4btuQ==
-X-Google-Smtp-Source: AK7set8RpnACAcot1AknBBPjsvtsA7H1/tXvbKnuz/e95wuvEaah03h17AYyNjAOK8R3bSJl4avgDg==
-X-Received: by 2002:a17:90b:3ec3:b0:22c:6cd4:2686 with SMTP id rm3-20020a17090b3ec300b0022c6cd42686mr16241370pjb.30.1675559726394;
-        Sat, 04 Feb 2023 17:15:26 -0800 (PST)
+        bh=svX9QoI7+pu9KPeMOFBJn1yDl6Mnh/aSAvVAOGuYZfA=;
+        b=CT83avPgiKGk7lcMQQ5l9Cxed+bsUfE7vcr1oUl9SzhL7SGVX36rMoHHA/DhiE5Wwi
+         cAu89G5UGb4+OZMshw0ZNds9LXlhfC3woaXhdK24kSFWbDCFJSaImYcXZZa0dJv0xg9P
+         GvhAqNdRj+KRw/z5Eq3y87zNiuoFgepqeIv7A22tsZv77GcMfHAW3HA+oW39tycuQEx2
+         pw1DU8JHY5tqrtOIzo49/m4Uav1PC/+TyMc+Tnbdx/KHdWhLQEGi4YukEATNofBNw7f+
+         v2BNtGDJR0o7L5ikjlTiRCFe26vl8eFsjHvFMtYBykrzjsm1s9faJOCPEoBmgg8e7ne8
+         0l0A==
+X-Gm-Message-State: AO0yUKXy3spx6VYZXAbsC2daee0jlX4Lykul88vP9p4aU4bq/MEw602g
+	W6LoGyeEp4h1wpgbhkrEqlPjUw==
+X-Google-Smtp-Source: AK7set+Xyt5S9nTOhNQhOx6D8ZIswnKXzhNJjKsuo14bbUAnnbqzHvHmwnIDP5qP1M47Lk99is8gOw==
+X-Received: by 2002:a17:90b:4a4c:b0:226:c196:db55 with SMTP id lb12-20020a17090b4a4c00b00226c196db55mr16098855pjb.18.1675559723756;
+        Sat, 04 Feb 2023 17:15:23 -0800 (PST)
 Received: from atishp.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id c7-20020a17090a020700b0023080c4c3bcsm2721917pjc.31.2023.02.04.17.15.25
+        by smtp.gmail.com with ESMTPSA id c7-20020a17090a020700b0023080c4c3bcsm2721917pjc.31.2023.02.04.17.15.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 04 Feb 2023 17:15:26 -0800 (PST)
+        Sat, 04 Feb 2023 17:15:23 -0800 (PST)
 From: Atish Patra <atishp@rivosinc.com>
 To: linux-kernel@vger.kernel.org
 Cc: Atish Patra <atishp@rivosinc.com>,
@@ -76,16 +76,16 @@ Cc: Atish Patra <atishp@rivosinc.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Will Deacon <will@kernel.org>
-Subject: [PATCH v5 04/14] RISC-V: KVM: Define a probe function for SBI extension data structures
-Date: Sat,  4 Feb 2023 17:15:05 -0800
-Message-Id: <20230205011515.1284674-5-atishp@rivosinc.com>
+Subject: [PATCH v5 01/14] perf: RISC-V: Define helper functions expose hpm counter width and count
+Date: Sat,  4 Feb 2023 17:15:02 -0800
+Message-Id: <20230205011515.1284674-2-atishp@rivosinc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20230205011515.1284674-1-atishp@rivosinc.com>
 References: <20230205011515.1284674-1-atishp@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230204_171526_900809_EE979414 
-X-CRM114-Status: GOOD (  13.51  )
+X-CRM114-CacheID: sfid-20230204_171526_465995_25390D13 
+X-CRM114-Status: GOOD (  19.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,61 +102,107 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently the probe function just checks if an SBI extension is
-registered or not. However, the extension may not want to advertise
-itself depending on some other condition.
-An additional extension specific probe function will allow
-extensions to decide if they want to be advertised to the caller or
-not. Any extension that does not require additional dependency checks
-can avoid implementing this function.
+KVM module needs to know how many hardware counters and the counter
+width that the platform supports. Otherwise, it will not be able to show
+optimal value of virtual counters to the guest. The virtual hardware
+counters also need to have the same width as the logical hardware
+counters for simplicity. However, there shouldn't be mapping between
+virtual hardware counters and logical hardware counters. As we don't
+support hetergeneous harts or counters with different width as of now,
+the implementation relies on the counter width of the first available
+programmable counter.
 
 Reviewed-by: Anup Patel <anup@brainfault.org>
 Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- arch/riscv/include/asm/kvm_vcpu_sbi.h | 3 +++
- arch/riscv/kvm/vcpu_sbi_base.c        | 7 +++++--
- 2 files changed, 8 insertions(+), 2 deletions(-)
+ drivers/perf/riscv_pmu_sbi.c   | 37 ++++++++++++++++++++++++++++++++--
+ include/linux/perf/riscv_pmu.h |  3 +++
+ 2 files changed, 38 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/include/asm/kvm_vcpu_sbi.h b/arch/riscv/include/asm/kvm_vcpu_sbi.h
-index f79478a..45ba341 100644
---- a/arch/riscv/include/asm/kvm_vcpu_sbi.h
-+++ b/arch/riscv/include/asm/kvm_vcpu_sbi.h
-@@ -29,6 +29,9 @@ struct kvm_vcpu_sbi_extension {
- 	int (*handler)(struct kvm_vcpu *vcpu, struct kvm_run *run,
- 		       unsigned long *out_val, struct kvm_cpu_trap *utrap,
- 		       bool *exit);
-+
-+	/* Extension specific probe function */
-+	unsigned long (*probe)(struct kvm_vcpu *vcpu);
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index f6507ef..6b53adc 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -44,7 +44,7 @@ static const struct attribute_group *riscv_pmu_attr_groups[] = {
  };
  
- void kvm_riscv_vcpu_sbi_forward(struct kvm_vcpu *vcpu, struct kvm_run *run);
-diff --git a/arch/riscv/kvm/vcpu_sbi_base.c b/arch/riscv/kvm/vcpu_sbi_base.c
-index 5d65c63..be47828 100644
---- a/arch/riscv/kvm/vcpu_sbi_base.c
-+++ b/arch/riscv/kvm/vcpu_sbi_base.c
-@@ -19,6 +19,7 @@ static int kvm_sbi_ext_base_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
- {
- 	int ret = 0;
- 	struct kvm_cpu_context *cp = &vcpu->arch.guest_context;
-+	const struct kvm_vcpu_sbi_extension *sbi_ext;
+ /*
+- * RISC-V doesn't have hetergenous harts yet. This need to be part of
++ * RISC-V doesn't have heterogeneous harts yet. This need to be part of
+  * per_cpu in case of harts with different pmu counters
+  */
+ static union sbi_pmu_ctr_info *pmu_ctr_list;
+@@ -52,6 +52,9 @@ static bool riscv_pmu_use_irq;
+ static unsigned int riscv_pmu_irq_num;
+ static unsigned int riscv_pmu_irq;
  
- 	switch (cp->a6) {
- 	case SBI_EXT_BASE_GET_SPEC_VERSION:
-@@ -43,8 +44,10 @@ static int kvm_sbi_ext_base_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
- 			 */
- 			kvm_riscv_vcpu_sbi_forward(vcpu, run);
- 			*exit = true;
--		} else
--			*out_val = kvm_vcpu_sbi_find_ext(cp->a0) ? 1 : 0;
-+		} else {
-+			sbi_ext = kvm_vcpu_sbi_find_ext(cp->a0);
-+			*out_val = sbi_ext && sbi_ext->probe ? sbi_ext->probe(vcpu) : !!sbi_ext;
-+		}
- 		break;
- 	case SBI_EXT_BASE_GET_MVENDORID:
- 		*out_val = vcpu->arch.mvendorid;
++/* Cache the available counters in a bitmask */
++static unsigned long cmask;
++
+ struct sbi_pmu_event_data {
+ 	union {
+ 		union {
+@@ -267,6 +270,37 @@ static bool pmu_sbi_ctr_is_fw(int cidx)
+ 	return (info->type == SBI_PMU_CTR_TYPE_FW) ? true : false;
+ }
+ 
++/*
++ * Returns the counter width of a programmable counter and number of hardware
++ * counters. As we don't support heterogeneous CPUs yet, it is okay to just
++ * return the counter width of the first programmable counter.
++ */
++int riscv_pmu_get_hpm_info(u32 *hw_ctr_width, u32 *num_hw_ctr)
++{
++	int i;
++	union sbi_pmu_ctr_info *info;
++	u32 hpm_width = 0, hpm_count = 0;
++
++	if (!cmask)
++		return -EINVAL;
++
++	for_each_set_bit(i, &cmask, RISCV_MAX_COUNTERS) {
++		info = &pmu_ctr_list[i];
++		if (!info)
++			continue;
++		if (!hpm_width && info->csr != CSR_CYCLE && info->csr != CSR_INSTRET)
++			hpm_width = info->width;
++		if (info->type == SBI_PMU_CTR_TYPE_HW)
++			hpm_count++;
++	}
++
++	*hw_ctr_width = hpm_width;
++	*num_hw_ctr = hpm_count;
++
++	return 0;
++}
++EXPORT_SYMBOL_GPL(riscv_pmu_get_hpm_info);
++
+ static int pmu_sbi_ctr_get_idx(struct perf_event *event)
+ {
+ 	struct hw_perf_event *hwc = &event->hw;
+@@ -812,7 +846,6 @@ static void riscv_pmu_destroy(struct riscv_pmu *pmu)
+ static int pmu_sbi_device_probe(struct platform_device *pdev)
+ {
+ 	struct riscv_pmu *pmu = NULL;
+-	unsigned long cmask = 0;
+ 	int ret = -ENODEV;
+ 	int num_counters;
+ 
+diff --git a/include/linux/perf/riscv_pmu.h b/include/linux/perf/riscv_pmu.h
+index e17e86a..a1c3f77 100644
+--- a/include/linux/perf/riscv_pmu.h
++++ b/include/linux/perf/riscv_pmu.h
+@@ -73,6 +73,9 @@ void riscv_pmu_legacy_skip_init(void);
+ static inline void riscv_pmu_legacy_skip_init(void) {};
+ #endif
+ struct riscv_pmu *riscv_pmu_alloc(void);
++#ifdef CONFIG_RISCV_PMU_SBI
++int riscv_pmu_get_hpm_info(u32 *hw_ctr_width, u32 *num_hw_ctr);
++#endif
+ 
+ #endif /* CONFIG_RISCV_PMU */
+ 
 -- 
 2.25.1
 
