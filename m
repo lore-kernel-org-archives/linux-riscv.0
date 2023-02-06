@@ -4,75 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4036AC636D3
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Feb 2023 17:10:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6968BC05027
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Feb 2023 17:12:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Dydg2WZ8xBRGjs4+BusZGuWwUXTwHPtDaNBAidTVduM=; b=DWweIc7U3+0hy5
-	uvNEdL9fqoI4upfvotywjcMIHkvBismadT3McW7q6S0IrdvcA/7mmk3oyX8P4pRsqj77GphDZ8sen
-	LCxOmPIAa4kPkqL3CQgEMJILuxF3NU2dcdvkGSw1HLmfTtj9aGr+qboIoC1pi4DFMRSf9tiSiVq0/
-	01lVwelf6vVRcUqvGLMtdjp1k8bYV4gkeJPNZns4kUV4Vqr4WRMNXUHr2JVvaG7EQiGo2j+Yb/2/W
-	NmLB2lAcVFJ9RBp80w1+L1D5M8FfFW0psypFlzgtK2FJIvntooVqLVztCD2POgaKOPuXpLuTH/wsu
-	DBTvEfOTvZzXELWL8MqA==;
+	List-Owner; bh=f81913PYBGv2d2nNgl2K48+uyzlDUYdGvciBCTRValc=; b=Ab9Ezxs3fZUAuI
+	n0THvL/NIZXiVurXbUxTLoTzKrT4f3vsPKiQ0SqU6gCW4ijYhdbRM5crbjLhI3tqNPtNm3r4Hxgd7
+	Vn19ZS4tuLilmuso8kxODt25kiHZExjGfn1D5psJvletm4ptlz3RmbQXk0jdCXx6SFv2IMaKZCayU
+	fvveMI0AiblfHv8yzMezUiFUvxeDQRG4n/F/pU9iP/vuIK6wDI6GgeNe1E4k+G/01sbBc6cSSJxtx
+	6Xn+HPmBjMmAbGOALxkzlj1m4b9HuKwCdTXgYwaxY59RCR/WzN+RmxjQMNtiM+HIqnt9kTve4zsSj
+	wCzIwqUFVcGMYjMRm4IA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pP50f-009PpT-67; Mon, 06 Feb 2023 17:10:29 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pP50c-009PoH-4w
-	for linux-riscv@lists.infradead.org; Mon, 06 Feb 2023 17:10:27 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id mf7so36150201ejc.6
-        for <linux-riscv@lists.infradead.org>; Mon, 06 Feb 2023 09:10:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=s+7Z2cOA9b/F6NBgvxsrcP4ZS7u9jEZz7dS0YggiAC8=;
-        b=klRJCUB3P8jvqG1L4PMKVvOqYsS3ZL0aav/DUYxRDN9vC/Z7eMeNmA+4mKPkNolFi4
-         31NWphbtNJEmXTfksusWa0Y1Rd/6Z6wlk5LsdZDBYr6aqp42FFwOE9FH3BtNyIwZGIUT
-         6bnjyHzW01Mpnj36PY7gXFKetFHKu+fy8mC3MDQAQFPbFq01d4mz3/HD2iOjpWKpouCD
-         6p+X2CQIL5YdagBuKABInsUTjHPal/zxL7R6Qt9iHGDFsnQVRKSFSxztufOMR7aaCSD/
-         qVrMdZVI+JE3bzj9kTO9TwLBP8uwHwqRXTQWzbAt3xeqkCL0UarUj6th2QlpKvsxIuQW
-         EU3w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=s+7Z2cOA9b/F6NBgvxsrcP4ZS7u9jEZz7dS0YggiAC8=;
-        b=tIoezXNMhk5uHQNu+JhnGjYMs7vKUeqP/iKhPpoUdWyTnGtAytsFfGbgym470NlGaG
-         thlenBKI4twGRptJnfr9Opf3wcJ1xjhujRGoVN/PMX7odeqjneGFQVj66r6vizreLwT1
-         EG0kuUTKYyxEzm4IXxAYRg9C/l2FVm7t3oz9RwHFwZdVHFjVtc4/oIAKwlvscDHLKhi2
-         Xx13CFM4hcJ7Hb4XMqYcJXmo8a2JVhSJrXg3PM353mYhjEUcRE0WMjLvzx08c8xGFk9L
-         c5CTx82RAcqMPNJ3igj/8y4qwFsplbHqH85Kec6K5Iysdy8sdqDG80PcD3sZSj5lKYPe
-         WuHQ==
-X-Gm-Message-State: AO0yUKVnOxidtUhQuNVlUm8jr659GO11hPCkDNwL6jTIXjsmK1XRIK9b
-	Zbks2MJxoZYuYJbz1OvGIYp7/Nptx32IwkyEclgYvg==
-X-Google-Smtp-Source: AK7set8wMWGnXKm11wWHAFvKfD+LEwczk3Y5c/GytIWCTrE9WAGT3bSIDM5CqHjptGQ/5sn+yXsmmwoOVKL6iiEjV4U=
-X-Received: by 2002:a17:906:5945:b0:884:8380:20db with SMTP id
- g5-20020a170906594500b00884838020dbmr5153447ejr.301.1675703423313; Mon, 06
- Feb 2023 09:10:23 -0800 (PST)
+	id 1pP52i-009QUl-9N; Mon, 06 Feb 2023 17:12:36 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pP52c-009QR2-KB
+	for linux-riscv@lists.infradead.org; Mon, 06 Feb 2023 17:12:34 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 9C2A424E01A;
+	Tue,  7 Feb 2023 01:12:17 +0800 (CST)
+Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 7 Feb
+ 2023 01:12:17 +0800
+Received: from [172.16.16.234] (113.72.145.145) by EXMBX172.cuchost.com
+ (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 7 Feb
+ 2023 01:12:15 +0800
+Message-ID: <ddb197c3-9c77-c8c2-1d41-1691de05847e@starfivetech.com>
+Date: Tue, 7 Feb 2023 01:12:13 +0800
 MIME-Version: 1.0
-References: <20230205011515.1284674-1-atishp@rivosinc.com>
-In-Reply-To: <20230205011515.1284674-1-atishp@rivosinc.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Mon, 6 Feb 2023 22:40:12 +0530
-Message-ID: <CAAhSdy1ABfu_=-9NB7C1Pb9NzBpg7D+GA-W3XGLFRO2w=d6bkw@mail.gmail.com>
-Subject: Re: [PATCH v5 00/14] KVM perf support
-To: Atish Patra <atishp@rivosinc.com>
-Cc: linux-kernel@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, 
-	Andrew Jones <ajones@ventanamicro.com>, Atish Patra <atishp@atishpatra.org>, 
-	Guo Ren <guoren@kernel.org>, Heiko Stuebner <heiko@sntech.de>, kvm-riscv@lists.infradead.org, 
-	kvm@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Mark Rutland <mark.rutland@arm.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Will Deacon <will@kernel.org>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.6.1
+Subject: Re: [PATCH v1 2/4] hwmon: (sfctemp) Add StarFive JH71x0 temperature
+ sensor
+Content-Language: en-US
+To: Guenter Roeck <linux@roeck-us.net>
+CC: <linux-hwmon@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, Jean Delvare
+	<jdelvare@suse.com>, Jonathan Corbet <corbet@lwn.net>, Conor Dooley
+	<conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Rob Herring
+	<robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, <linux-kernel@vger.kernel.org>
+References: <20230103013145.9570-1-hal.feng@starfivetech.com>
+ <20230103013145.9570-3-hal.feng@starfivetech.com>
+ <20230103221017.GA217155@roeck-us.net>
+From: Hal Feng <hal.feng@starfivetech.com>
+In-Reply-To: <20230103221017.GA217155@roeck-us.net>
+X-Originating-IP: [113.72.145.145]
+X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX172.cuchost.com
+ (172.16.6.92)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230206_091026_217254_96AF3E53 
-X-CRM114-Status: GOOD (  24.74  )
+X-CRM114-CacheID: sfid-20230206_091231_148078_7584235A 
+X-CRM114-Status: GOOD (  35.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,149 +81,272 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Feb 5, 2023 at 6:45 AM Atish Patra <atishp@rivosinc.com> wrote:
->
-> This series extends perf support for KVM. The KVM implementation relies
-> on the SBI PMU extension and trap n emulation of hpmcounter CSRs.
-> The KVM implementation exposes the virtual counters to the guest and internally
-> manage the counters using kernel perf counters.
->
-> This series doesn't support the counter overflow as the Sscofpmf extension
-> doesn't allow trap & emulation mechanism of scountovf CSR yet. The required
-> changes to allow that are being under discussions. Supporting overflow interrupt
-> also requires AIA interrupt filtering support.
->
-> 1. PATCH 1-5 are generic KVM/PMU driver improvements.
-> 2. PATCH 9 disables hpmcounter for now. It will be enabled to maintain ABI
-> requirement once the ONE reg interface is settled.
->
-> perf stat works in kvm guests with this series.
->
-> Here is example of running perf stat in a guest running in KVM.
->
-> ===========================================================================
-> / # /host/apps/perf stat -e instructions -e cycles -e r8000000000000005 \
-> > -e r8000000000000006 -e r8000000000000007 -e r8000000000000008 \
-> > -e r800000000000000a perf bench sched messaging -g 10 -l 10
->
-> # Running 'sched/messaging' benchmark:
-> # 20 sender and receiver processes per group
-> # 10 groups == 400 processes run
->
->      Total time: 7.769 [sec]
->
->  Performance counter stats for 'perf bench sched messaging -g 10 -l 10':
->
->        73556259604      cycles
->        73387266056      instructions              #    1.00  insn per cycle
->                  0      dTLB-store-misses
->                  0      iTLB-load-misses
->                  0      r8000000000000005
->               2595      r8000000000000006
->               2272      r8000000000000007
->                 10      r8000000000000008
->                  0      r800000000000000a
->
->       12.173720400 seconds time elapsed
->
->        1.002716000 seconds user
->       21.931047000 seconds sys
->
->
-> Note: The SBI_PMU_FW_SET_TIMER (eventid : r8000000000000005) is zero
-> as kvm guest supports sstc now.
->
-> This series can be found here as well.
-> https://github.com/atishp04/linux/tree/kvm_perf_v5
->
-> TODO:
-> 1. Add sscofpmf support.
-> 2. Add One reg interface for the following operations:
->         1. Enable/Disable PMU (should it at VM level rather than vcpu ?)
->         2. Number of hpmcounter and width of the counters
->         3. Init PMU
->         4. Allow guest user to access cycle & instret without trapping
-> 3. Move counter mask to a bitmask instead of unsigned long so that it can work
->    for RV32 systems where number of total counters are more than 32.
->    This will also accomodate future systems which may define maximum counters
->    to be more than 64.
->
-> Changes from v4->v5:
-> 1. Few checkpatch --strict error fixes.
-> 2. Some other minor nit comment addressed.
-> 3. Fixed an issue around counter indexing.
->
-> Changes from v3->v4:
-> 1. Addressed all the comments on v3.
-> 2. Modified the vcpu_pmu_init to void return type.
-> 3. Redirect illegal instruction trap to guest for invalid hpmcounter access
->    instead of exiting to the userpsace.
-> 4. Got rid of unecessary error messages.
->
-> Changes v2->v3:
-> 1. Changed the exported functions to GPL only export.
-> 2. Addressed all the nit comments on v2.
-> 3. Split non-kvm related changes into separate patches.
-> 4. Reorgainze the PATCH 11 and 10 based on Drew's suggestions.
->
-> Changes from v1->v2:
-> 1. Addressed comments from Andrew.
-> 2. Removed kvpmu sanity check.
-> 3. Added a kvm pmu init flag and the sanity check to probe function.
-> 4. Improved the linux vs sbi error code handling.
->
->
-> Atish Patra (14):
-> perf: RISC-V: Define helper functions expose hpm counter width and
-> count
-> perf: RISC-V: Improve privilege mode filtering for perf
-> RISC-V: Improve SBI PMU extension related definitions
-> RISC-V: KVM: Define a probe function for SBI extension data structures
-> RISC-V: KVM: Return correct code for hsm stop function
-> RISC-V: KVM: Modify SBI extension handler to return SBI error code
-> RISC-V: KVM: Add skeleton support for perf
-> RISC-V: KVM: Add SBI PMU extension support
-> RISC-V: KVM: Make PMU functionality depend on Sscofpmf
-> RISC-V: KVM: Disable all hpmcounter access for VS/VU mode
-> RISC-V: KVM: Implement trap & emulate for hpmcounters
-> RISC-V: KVM: Implement perf support without sampling
-> RISC-V: KVM: Support firmware events
-> RISC-V: KVM: Increment firmware pmu events
+On Tue, 3 Jan 2023 14:10:17 -0800, Guenter Roeck wrote:
+> On Tue, Jan 03, 2023 at 09:31:43AM +0800, Hal Feng wrote:
+>> From: Emil Renner Berthing <kernel@esmil.dk>
+>> 
+>> Register definitions and conversion constants based on sfctemp driver by
+>> Samin in the StarFive 5.10 kernel.
+>> 
+>> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+>> Co-developed-by: Samin Guo <samin.guo@starfivetech.com>
+>> Signed-off-by: Samin Guo <samin.guo@starfivetech.com>
+>> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+> 
+> This is obviously version 4 of the previous patch series,
+> with various enhancements. Please do not "sell" that as
+> v1 of a new patch series. Submit it as next version,
+> and provide a change log.
 
-I have queued PATCH1-to-PATCH6 for Linux-6.3
+Sorry to reply too late. I will resend this series as v4 tomorrow.
 
-Please send v6 based on riscv_kvm_queue.
+> 
+>> ---
+>>  Documentation/hwmon/index.rst   |   1 +
+>>  Documentation/hwmon/sfctemp.rst |  33 +++
+>>  MAINTAINERS                     |   8 +
+>>  drivers/hwmon/Kconfig           |  10 +
+>>  drivers/hwmon/Makefile          |   1 +
+>>  drivers/hwmon/sfctemp.c         | 350 ++++++++++++++++++++++++++++++++
+>>  6 files changed, 403 insertions(+)
+>>  create mode 100644 Documentation/hwmon/sfctemp.rst
+>>  create mode 100644 drivers/hwmon/sfctemp.c
+>> 
+>> diff --git a/Documentation/hwmon/index.rst b/Documentation/hwmon/index.rst
+>> index c1d11cf13eef..f7ede608b6e3 100644
+>> --- a/Documentation/hwmon/index.rst
+>> +++ b/Documentation/hwmon/index.rst
+>> @@ -179,6 +179,7 @@ Hardware Monitoring Kernel Drivers
+>>     sch5627
+>>     sch5636
+>>     scpi-hwmon
+>> +   sfctemp
+>>     sht15
+>>     sht21
+>>     sht3x
+>> diff --git a/Documentation/hwmon/sfctemp.rst b/Documentation/hwmon/sfctemp.rst
+>> new file mode 100644
+>> index 000000000000..9fbd5bb1f356
+>> --- /dev/null
+>> +++ b/Documentation/hwmon/sfctemp.rst
+>> @@ -0,0 +1,33 @@
+>> +.. SPDX-License-Identifier: GPL-2.0
+>> +
+>> +Kernel driver sfctemp
+>> +=====================
+>> +
+>> +Supported chips:
+>> + - StarFive JH7100
+>> + - StarFive JH7110
+>> +
+>> +Authors:
+>> + - Emil Renner Berthing <kernel@esmil.dk>
+>> +
+>> +Description
+>> +-----------
+>> +
+>> +This driver adds support for reading the built-in temperature sensor on the
+>> +JH7100 and JH7110 RISC-V SoCs by StarFive Technology Co. Ltd.
+>> +
+>> +``sysfs`` interface
+>> +-------------------
+>> +
+>> +The temperature sensor can be enabled, disabled and queried via the standard
+>> +hwmon interface in sysfs under ``/sys/class/hwmon/hwmonX`` for some value of
+>> +``X``:
+>> +
+>> +================ ==== =============================================
+>> +Name             Perm Description
+>> +================ ==== =============================================
+>> +temp1_enable     RW   Enable or disable temperature sensor.
+>> +                      Automatically enabled by the driver,
+>> +                      but may be disabled to save power.
+>> +temp1_input      RO   Temperature reading in milli-degrees Celsius.
+>> +================ ==== =============================================
+>> diff --git a/MAINTAINERS b/MAINTAINERS
+>> index 85e8f83161d7..ab3cd5827b26 100644
+>> --- a/MAINTAINERS
+>> +++ b/MAINTAINERS
+>> @@ -18661,6 +18661,14 @@ L:	netdev@vger.kernel.org
+>>  S:	Supported
+>>  F:	drivers/net/ethernet/sfc/
+>>  
+>> +SFCTEMP HWMON DRIVER
+>> +M:	Emil Renner Berthing <kernel@esmil.dk>
+>> +L:	linux-hwmon@vger.kernel.org
+>> +S:	Maintained
+>> +F:	Documentation/devicetree/bindings/hwmon/starfive,jh71x0-temp.yaml
+>> +F:	Documentation/hwmon/sfctemp.rst
+>> +F:	drivers/hwmon/sfctemp.c
+>> +
+>>  SFF/SFP/SFP+ MODULE SUPPORT
+>>  M:	Russell King <linux@armlinux.org.uk>
+>>  L:	netdev@vger.kernel.org
+>> diff --git a/drivers/hwmon/Kconfig b/drivers/hwmon/Kconfig
+>> index 7ac3daaf59ce..c6bbfcca3a14 100644
+>> --- a/drivers/hwmon/Kconfig
+>> +++ b/drivers/hwmon/Kconfig
+>> @@ -1910,6 +1910,16 @@ config SENSORS_STTS751
+>>  	  This driver can also be built as a module. If so, the module
+>>  	  will be called stts751.
+>>  
+>> +config SENSORS_SFCTEMP
+>> +	tristate "Starfive JH71x0 temperature sensor"
+>> +	depends on SOC_STARFIVE || COMPILE_TEST
+>> +	help
+>> +	  If you say yes here you get support for temperature sensor
+>> +	  on the Starfive JH71x0 SoCs.
+>> +
+>> +	  This driver can also be built as a module.  If so, the module
+>> +	  will be called sfctemp.
+>> +
+>>  config SENSORS_SMM665
+>>  	tristate "Summit Microelectronics SMM665"
+>>  	depends on I2C
+>> diff --git a/drivers/hwmon/Makefile b/drivers/hwmon/Makefile
+>> index 11d076cad8a2..5a4a02c5535c 100644
+>> --- a/drivers/hwmon/Makefile
+>> +++ b/drivers/hwmon/Makefile
+>> @@ -179,6 +179,7 @@ obj-$(CONFIG_SENSORS_SBRMI)	+= sbrmi.o
+>>  obj-$(CONFIG_SENSORS_SCH56XX_COMMON)+= sch56xx-common.o
+>>  obj-$(CONFIG_SENSORS_SCH5627)	+= sch5627.o
+>>  obj-$(CONFIG_SENSORS_SCH5636)	+= sch5636.o
+>> +obj-$(CONFIG_SENSORS_SFCTEMP)	+= sfctemp.o
+>>  obj-$(CONFIG_SENSORS_SL28CPLD)	+= sl28cpld-hwmon.o
+>>  obj-$(CONFIG_SENSORS_SHT15)	+= sht15.o
+>>  obj-$(CONFIG_SENSORS_SHT21)	+= sht21.o
+>> diff --git a/drivers/hwmon/sfctemp.c b/drivers/hwmon/sfctemp.c
+>> new file mode 100644
+>> index 000000000000..e56716ad9587
+>> --- /dev/null
+>> +++ b/drivers/hwmon/sfctemp.c
+>> @@ -0,0 +1,350 @@
+>> +// SPDX-License-Identifier: GPL-2.0
+>> +/*
+>> + * Copyright (C) 2021 Emil Renner Berthing <kernel@esmil.dk>
+>> + * Copyright (C) 2021 Samin Guo <samin.guo@starfivetech.com>
+>> + */
+>> +#include <linux/clk.h>
+>> +#include <linux/completion.h>
+>> +#include <linux/delay.h>
+>> +#include <linux/hwmon.h>
+>> +#include <linux/interrupt.h>
+>> +#include <linux/io.h>
+>> +#include <linux/module.h>
+>> +#include <linux/mutex.h>
+>> +#include <linux/of.h>
+>> +#include <linux/platform_device.h>
+>> +#include <linux/reset.h>
+>> +
+>> +/*
+>> + * TempSensor reset. The RSTN can be de-asserted once the analog core has
+>> + * powered up. Trst(min 100ns)
+>> + * 0:reset  1:de-assert
+>> + */
+>> +#define SFCTEMP_RSTN	BIT(0)
+> 
+> Missing include of linux/bits.h
 
-Regards,
-Anup
+Will add it. Thanks.
 
->
-> arch/riscv/include/asm/kvm_host.h     |   4 +
-> arch/riscv/include/asm/kvm_vcpu_pmu.h | 111 +++++
-> arch/riscv/include/asm/kvm_vcpu_sbi.h |  13 +-
-> arch/riscv/include/asm/sbi.h          |   7 +-
-> arch/riscv/kvm/Makefile               |   1 +
-> arch/riscv/kvm/main.c                 |   3 +-
-> arch/riscv/kvm/tlb.c                  |   4 +
-> arch/riscv/kvm/vcpu.c                 |   7 +
-> arch/riscv/kvm/vcpu_insn.c            |   4 +-
-> arch/riscv/kvm/vcpu_pmu.c             | 627 ++++++++++++++++++++++++++
-> arch/riscv/kvm/vcpu_sbi.c             |  72 ++-
-> arch/riscv/kvm/vcpu_sbi_base.c        |  27 +-
-> arch/riscv/kvm/vcpu_sbi_hsm.c         |  28 +-
-> arch/riscv/kvm/vcpu_sbi_pmu.c         |  87 ++++
-> arch/riscv/kvm/vcpu_sbi_replace.c     |  50 +-
-> arch/riscv/kvm/vcpu_sbi_v01.c         |  17 +-
-> drivers/perf/riscv_pmu_sbi.c          |  64 ++-
-> include/linux/perf/riscv_pmu.h        |   5 +
-> 18 files changed, 1021 insertions(+), 110 deletions(-)
-> create mode 100644 arch/riscv/include/asm/kvm_vcpu_pmu.h
-> create mode 100644 arch/riscv/kvm/vcpu_pmu.c
-> create mode 100644 arch/riscv/kvm/vcpu_sbi_pmu.c
->
-> --
-> 2.25.1
->
+> 
+>> +
+>> +/*
+>> + * TempSensor analog core power down. The analog core will be powered up
+>> + * Tpu(min 50us) after PD is de-asserted. RSTN should be held low until the
+>> + * analog core is powered up.
+>> + * 0:power up  1:power down
+>> + */
+>> +#define SFCTEMP_PD	BIT(1)
+>> +
+>> +/*
+>> + * TempSensor start conversion enable.
+>> + * 0:disable  1:enable
+>> + */
+>> +#define SFCTEMP_RUN	BIT(2)
+>> +
+>> +/*
+>> + * TempSensor conversion value output.
+>> + * Temp(C)=DOUT*Y/4094 - K
+>> + */
+>> +#define SFCTEMP_DOUT_POS	16
+>> +#define SFCTEMP_DOUT_MSK	GENMASK(27, 16)
+>> +
+>> +/* DOUT to Celcius conversion constants */
+>> +#define SFCTEMP_Y1000	237500L
+>> +#define SFCTEMP_Z	4094L
+>> +#define SFCTEMP_K1000	81100L
+>> +
+>> +struct sfctemp {
+>> +	/* serialize access to hardware register and enabled below */
+>> +	struct mutex lock;
+>> +	struct completion conversion_done;
+>> +	void __iomem *regs;
+>> +	struct clk *clk_sense;
+>> +	struct clk *clk_bus;
+>> +	struct reset_control *rst_sense;
+>> +	struct reset_control *rst_bus;
+>> +	bool enabled;
+>> +};
+>> +
+>> +static irqreturn_t sfctemp_isr(int irq, void *data)
+>> +{
+>> +	struct sfctemp *sfctemp = data;
+>> +
+>> +	complete(&sfctemp->conversion_done);
+>> +	return IRQ_HANDLED;
+>> +}
+>> +
+>> +static void sfctemp_power_up(struct sfctemp *sfctemp)
+>> +{
+>> +	/* make sure we're powered down first */
+>> +	writel(SFCTEMP_PD, sfctemp->regs);
+>> +	udelay(1);
+>> +
+>> +	writel(0, sfctemp->regs);
+>> +	/* wait t_pu(50us) + t_rst(100ns) */
+>> +	usleep_range(60, 200);
+>> +
+>> +	/* de-assert reset */
+>> +	writel(SFCTEMP_RSTN, sfctemp->regs);
+>> +	udelay(1); /* wait t_su(500ps) */
+>> +}
+>> +
+>> +static void sfctemp_power_down(struct sfctemp *sfctemp)
+>> +{
+>> +	writel(SFCTEMP_PD, sfctemp->regs);
+>> +}
+>> +
+>> +static void sfctemp_run_single(struct sfctemp *sfctemp)
+>> +{
+>> +	writel(SFCTEMP_RSTN | SFCTEMP_RUN, sfctemp->regs);
+>> +	udelay(1);
+>> +	writel(SFCTEMP_RSTN, sfctemp->regs);
+> 
+> The datasheet (or, rather, programming manual) does not appear
+> to be public, so I have to guess here.
+> 
+> The code suggests that running a single conversion may be a choice,
+> not a requirement. If it is indeed a choice, the reasoning needs to be
+> explained since it adds a lot of complexity and dependencies to the
+> driver (for example, interrupt support is only mandatory or even needed
+> due to this choice). It also adds a significant delay to temperature
+> read operations, which may have practical impact on thermal control
+> software.
+> 
+> If the chip only supports single temperature readings, that needs to be
+> explained as well (and why SFCTEMP_RUN has to be reset in that case).
+
+The chip supports continuous conversion. When you set SFCTEMP_RUN, the
+temperature raw data will be generated all the time. However, it will
+also generate interrupts all the time when the conversion is finished,
+because of the hardware limitation. So in this driver, we just support
+the single conversion.
+
+Thank you for your feedback.
+
+Best regards,
+Hal
 
 _______________________________________________
 linux-riscv mailing list
