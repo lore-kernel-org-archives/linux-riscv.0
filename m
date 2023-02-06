@@ -4,66 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79743C61DA4
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Feb 2023 21:49:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69034C61DA4
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Feb 2023 22:34:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Date:Subject:Message-Id:References:
-	In-Reply-To:Cc:To:From:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:References:
+	In-Reply-To:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iyThqhRksukf4c+FaN4938SREI3k11l1XqtXuuDgSvA=; b=lb9S5OdzgNwxkQ
-	rnrfIUKf/hv53UiIXMHRvdRhA/b2mVy6XQcoqEqTLgYRGE8OxzkKnpUnyBefl3GbXraRbl/Pts17Z
-	AyPUjEJk6fvOhGKSdKPk18JN08ykInea3kw20/CmCOJsBckw/NGUFe2AdW3MfM0VLkx7TCBEtU03A
-	PBOiTUYiP6JoxSvSmkjaoYtnAidGJzhMHq7HD/9OFGWjINcuTchXAC6gG7UFJW+/QEoQzN95GW7IC
-	sXhM56Qb2qF8tBY9Cx6+UnIF0F0DuejLhdMprHxOcKtU50HnqyC6VKTLe8hEcqBRoBkb87si2BBBo
-	OQpMZhycRbW4UeiKN4tQ==;
+	List-Owner; bh=7K9vu1t1A51yv7Jf11Kh/tPiMJ/iptpg+rMakX3YNuo=; b=hR97s/2TkSuQb1
+	Esid6TGOkJ3FDpK8/wew/gdS5olIAs1hVpS72K3EAmcOgPz3h2o3evhl+tHNZNXn2HeOt49jpx/qX
+	3OL+DRPt49ID8Z1wrjsjTJ94vL/7NPuRHkpuTMP3KExYuNx75NaZVLqBCbzgYkiXrygZ5pVAR/r1d
+	ZhXdIBla46mb6lbsvZOAOmB5wlEgHjc1rEVxGNg1P6LqVzHwRnzArbG94s/TklcRlY6chI9ue6YP2
+	w1qANEkgSG4+fd/zEa4Km9mFcVDxukoNUtsA2rRr2rxYE0pU4v09NT9gI6T5p/I9V6FdzYlVWX0qk
+	IjIZk6zCfUhW70qzmehQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pP9MR-00A17g-Hv; Mon, 06 Feb 2023 21:49:15 +0000
-Received: from mail-oi1-f176.google.com ([209.85.167.176])
+	id 1pPA3i-00A4Jm-6N; Mon, 06 Feb 2023 22:33:58 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pP9MN-00A174-OS
-	for linux-riscv@lists.infradead.org; Mon, 06 Feb 2023 21:49:13 +0000
-Received: by mail-oi1-f176.google.com with SMTP id v15so3780023oie.9
-        for <linux-riscv@lists.infradead.org>; Mon, 06 Feb 2023 13:49:10 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=date:subject:message-id:references:in-reply-to:cc:to:from
-         :mime-version:content-transfer-encoding:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=ZFI+/lEvE5K9+MX/lX7wGVqblszW07L3zZfHhu2VpE8=;
-        b=rVel24n8pulNAiP/XDASpVQsMqrkpxM+NMu/MFKTxSo9lfCzSj/1Ew5iOpfj3oftC/
-         oXyIF/w9mHSNchxhJnWO/h0suLa3nTKUd4BI5devNDDCo94/spa+EqcdhTagI00Da7n9
-         u8uvkYkkL1uGAwQzWya4L1IBDWfi0T0RJPKa8NvOeUfL3gKtxifCjmdA7a8hhnUkEU0x
-         HePbLsxpU5RoUGx00nIc0BZaMrsp9J98TELUr3jMdApUsTBhBEDkNB8f1nXdmyFC/vhi
-         WiJxRt+hWIesysKokcNOf5K1eZ8Rcheta3t+vjjahlvevAtAgXwc6cx4F++H0B7g/tTL
-         Dtng==
-X-Gm-Message-State: AO0yUKWT+3QMUFGVCeYyVXpTGQikh0ov/SBTjvwI+lySHcMTR6l+dTyp
-	K1k2nwFZZw6qhDgDmqwusw==
-X-Google-Smtp-Source: AK7set/b9EK0D0dcwYXOHIkT9giyg++xP/90Rp97QYsgMQU7HZYqOVA5S9DL/zc4egmaNaVWRMDoUQ==
-X-Received: by 2002:a05:6808:3cf:b0:36e:bb55:d51a with SMTP id o15-20020a05680803cf00b0036ebb55d51amr104844oie.52.1675720150212;
-        Mon, 06 Feb 2023 13:49:10 -0800 (PST)
-Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id bm49-20020a0568081ab100b0035c073aa0d8sm4716586oib.18.2023.02.06.13.49.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Feb 2023 13:49:09 -0800 (PST)
-Received: (nullmailer pid 1563640 invoked by uid 1000);
-	Mon, 06 Feb 2023 21:49:09 -0000
-MIME-Version: 1.0
-From: Rob Herring <robh@kernel.org>
-To: Evan Green <evan@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, heiko@sntech.de, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, slewis@rivosinc.com, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, vineetg@rivosinc.com, Palmer Dabbelt <palmer@dabbelt.com>, Conor Dooley <conor@kernel.org>, Rob Herring <robh+dt@kernel.org>, linux-kernel@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@rivosinc.com>
-In-Reply-To: <20230206201455.1790329-5-evan@rivosinc.com>
+	id 1pPA3e-00A4J7-I7
+	for linux-riscv@lists.infradead.org; Mon, 06 Feb 2023 22:33:56 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id BBD5161059;
+	Mon,  6 Feb 2023 22:33:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DFCEC433D2;
+	Mon,  6 Feb 2023 22:33:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1675722833;
+	bh=ZA9Xx8DGms3yzuK80v5ou07FlZ01ez04TS8bPZTxAME=;
+	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
+	b=NdIUTcxsYPskCQ2Yy5lKrRaQ0IA7bSuVGirD7ueo3QUjTxMTCyebwE67MBan0Va/p
+	 YmVwDBFj3OC4D6K10etyu7IXq0SKoUZa8QUPQxpf47qq4/kAqunZ0yFmhcvjbiHz+z
+	 tuuko9d4wphr3BTuPZEN046j9OiOkAsAuioHMQR+NGSe4XyVoX7qUQgNFXyHEoHCzR
+	 HmT6LEvYy6GvRj43M1XgD0jYDWevOUEFT8+Qs0iZDVO1HwcES8hykWO1Zc5GBDpv8C
+	 fYaCv8Rcv2sdVoHsMGw7VGQrCLyjUhmfEOdyOk2Fg7IwANunOIqAyXDjjeznMgj9ix
+	 9N9rZUMD2Ke8A==
+Date: Mon, 06 Feb 2023 22:32:45 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Evan Green <evan@rivosinc.com>, Palmer Dabbelt <palmer@rivosinc.com>
+Subject: Re: [PATCH v2 0/6] RISC-V Hardware Probing User Interface
+User-Agent: K-9 Mail for Android
+In-Reply-To: <20230206201455.1790329-1-evan@rivosinc.com>
 References: <20230206201455.1790329-1-evan@rivosinc.com>
- <20230206201455.1790329-5-evan@rivosinc.com>
-Message-Id: <167571795981.1495930.2331543227113728240.robh@kernel.org>
-Subject: Re: [PATCH v2 4/6] dt-bindings: Add RISC-V misaligned access
- performance
-Date: Mon, 06 Feb 2023 15:49:09 -0600
+Message-ID: <9E71182A-BEE9-4A0D-9AF5-783F6689B90E@kernel.org>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230206_134911_818317_7548508F 
-X-CRM114-Status: GOOD (  13.21  )
+X-CRM114-CacheID: sfid-20230206_143354_722576_4AA01A54 
+X-CRM114-Status: GOOD (  38.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,60 +65,135 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: heiko@sntech.de, Jisheng Zhang <jszhang@kernel.org>, linux-doc@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>, Andrew Bresticker <abrestic@rivosinc.com>, Atish Patra <atishp@rivosinc.com>, Rob Herring <robh+dt@kernel.org>, Conor Dooley <conor.dooley@microchip.com>, Celeste Liu <coelacanthus@outlook.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Qinglin Pan <panqinglin2020@iscas.ac.cn>, Bagas Sanjaya <bagasdotme@gmail.com>, Shuah Khan <shuah@kernel.org>, linux-riscv@lists.infradead.org, Jonathan Corbet <corbet@lwn.net>, Xianting Tian <xianting.tian@linux.alibaba.com>, Tsukasa OI <research_trasio@irq.a4lg.com>, Tobias Klauser <tklauser@distanz.ch>, Andrew Jones <ajones@ventanamicro.com>, devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>, vineetg@rivosinc.com, Mark Brown <broonie@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Ruizhe Pan <c141028@gmail.com>, Anup Patel <apatel@ventanamicro.com>, linux-kselftest@vger.kernel.org, Randy Dunlap <rdunlap@infradead.org>, linux-kernel@vger.kernel.org, slewis@rivosinc.com, dram <dramforever@live.com>, Dao Lu <daolu@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>, Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, Guo Ren <guoren@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hey Evan,
+Having been talking to Palmer about this series at FOSDEM,
+it was a very pleasant surprise to see this when I saw this in my inbox when I landed back home.
+I do very much intend reviewing this, but... 
 
-On Mon, 06 Feb 2023 12:14:53 -0800, Evan Green wrote:
-> From: Palmer Dabbelt <palmer@rivosinc.com>
-> 
-> This key allows device trees to specify the performance of misaligned
-> accesses to main memory regions from each CPU in the system.
-> 
-> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-> Signed-off-by: Evan Green <evan@rivosinc.com>
-> ---
-> 
-> (no changes since v1)
-> 
->  Documentation/devicetree/bindings/riscv/cpus.yaml | 15 +++++++++++++++
->  1 file changed, 15 insertions(+)
-> 
+On 6 February 2023 20:14:49 GMT, Evan Green <evan@rivosinc.com> wrote:
+>
+>These are very much up for discussion, as it's a pretty big new user
+>interface and it's quite a bit different from how we've historically
+>done things: this isn't just providing an ISA string to userspace, this
+>has its own format for providing information to userspace.
+>
+>There's been a bunch of off-list discussions about this, including at
+>Plumbers.  The original plan was to do something involving providing an
+>ISA string to userspace, but ISA strings just aren't sufficient for a
+>stable ABI any more: in order to parse an ISA string users need the
+>version of the specifications that the string is written to, the version
+>of each extension (sometimes at a finer granularity than the RISC-V
+>releases/versions encode), and the expected use case for the ISA string
+>(ie, is it a U-mode or M-mode string).  That's a lot of complexity to
+>try and keep ABI compatible and it's probably going to continue to grow,
+>as even if there's no more complexity in the specifications we'll have
+>to deal with the various ISA string parsing oddities that end up all
+>over userspace.
+>
+>Instead this patch set takes a very different approach and provides a set
+>of key/value pairs that encode various bits about the system.  The big
+>advantage here is that we can clearly define what these mean so we can
+>ensure ABI stability, but it also allows us to encode information that's
+>unlikely to ever appear in an ISA string (see the misaligned access
+>performance, for example).  The resulting interface looks a lot like
+>what arm64 and x86 do, and will hopefully fit well into something like
+>ACPI in the future.
+>
+>The actual user interface is a syscall.  I'm not really sure that's the
+>right way to go about this, but it makes for flexible prototying.
+>Various other approaches have been talked about like making HWCAP2 a
+>pointer, having a VDSO routine, or exposing this via sysfs.  Those seem
+>like generally reasonable approaches, but I've yet to figure out a way
 
-My bot found errors running 'make DT_CHECKER_FLAGS=-m dt_binding_check'
-on your patch (DT_CHECKER_FLAGS is new in v5.13):
+This all looks to be the same cover message as Palmer submitted with the v1,
+so, as I'd mentioned to him the other day, I'd like to do a bit
+of an investigation into the sysfs approach drew suggested
+on the v1.
+So, if it's a little bit before you hear - I've certainly not forgotten about the series!
 
-yamllint warnings/errors:
-./Documentation/devicetree/bindings/riscv/cpus.yaml:91:72: [error] syntax error: mapping values are not allowed here (syntax)
+Thanks,
+Conor.
 
-dtschema/dtc warnings/errors:
-make[1]: *** Deleting file 'Documentation/devicetree/bindings/riscv/cpus.example.dts'
-Documentation/devicetree/bindings/riscv/cpus.yaml:91:72: mapping values are not allowed here
-make[1]: *** [Documentation/devicetree/bindings/Makefile:26: Documentation/devicetree/bindings/riscv/cpus.example.dts] Error 1
-make[1]: *** Waiting for unfinished jobs....
-./Documentation/devicetree/bindings/riscv/cpus.yaml:91:72: mapping values are not allowed here
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/riscv/cpus.yaml: ignoring, error parsing file
-make: *** [Makefile:1508: dt_binding_check] Error 2
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20230206201455.1790329-5-evan@rivosinc.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+>to get the general case working without a syscall as that's the only way
+>I've come up with to deal with the heterogenous CPU case.  Happy to hear
+>if someone has a better idea, though, as I don't really want to add a
+>syscall if we can avoid it.
+>
+>An example series in glibc exposing this syscall and using it in an
+>ifunc selector for memcpy can be found at [1].
+>
+>[1] https://public-inbox.org/libc-alpha/20230206194819.1679472-1-evan@rivosinc.com/T/#t
+>
+>Changes in v2:
+> - Changed the interface to look more like poll(). Rather than supplying
+>   key_offset and getting back an array of values with numerically
+>   contiguous keys, have the user pre-fill the key members of the array,
+>   and the kernel will fill in the corresponding values. For any key it
+>   doesn't recognize, it will set the key of that element to -1. This
+>   allows usermode to quickly ask for exactly the elements it cares
+>   about, and not get bogged down in a back and forth about newer keys
+>   that older kernels might not recognize. In other words, the kernel
+>   can communicate that it doesn't recognize some of the keys while
+>   still providing the data for the keys it does know.
+> - Added a shortcut to the cpuset parameters that if a size of 0 and
+>   NULL is provided for the CPU set, the kernel will use a cpu mask of
+>   all online CPUs. This is convenient because I suspect most callers
+>   will only want to act on a feature if it's supported on all CPUs, and
+>   it's a headache to dynamically allocate an array of all 1s, not to
+>   mention a waste to have the kernel loop over all of the offline bits.
+> - Fixed logic error in if(of_property_read_string...) that caused crash
+> - Include cpufeature.h in cpufeature.h to avoid undeclared variable
+>   warning.
+> - Added a _MASK define
+> - Fix random checkpatch complaints
+> - Updated the selftests to the new API and added some more.
+> - Fixed indentation, comments in .S, and general checkpatch complaints.
+>
+>Evan Green (4):
+>  RISC-V: Move struct riscv_cpuinfo to new header
+>  RISC-V: Add a syscall for HW probing
+>  RISC-V: hwprobe: Support probing of misaligned access performance
+>  selftests: Test the new RISC-V hwprobe interface
+>
+>Palmer Dabbelt (2):
+>  RISC-V: hwprobe: Add support for RISCV_HWPROBE_BASE_BEHAVIOR_IMA
+>  dt-bindings: Add RISC-V misaligned access performance
+>
+> .../devicetree/bindings/riscv/cpus.yaml       |  15 ++
+> Documentation/riscv/hwprobe.rst               |  66 ++++++
+> Documentation/riscv/index.rst                 |   1 +
+> arch/riscv/include/asm/cpufeature.h           |  23 +++
+> arch/riscv/include/asm/hwprobe.h              |  13 ++
+> arch/riscv/include/asm/smp.h                  |   9 +
+> arch/riscv/include/asm/syscall.h              |   3 +
+> arch/riscv/include/uapi/asm/hwprobe.h         |  35 ++++
+> arch/riscv/include/uapi/asm/unistd.h          |   8 +
+> arch/riscv/kernel/cpu.c                       |  11 +-
+> arch/riscv/kernel/cpufeature.c                |  31 ++-
+> arch/riscv/kernel/sys_riscv.c                 | 192 +++++++++++++++++-
+> tools/testing/selftests/Makefile              |   1 +
+> tools/testing/selftests/riscv/Makefile        |  58 ++++++
+> .../testing/selftests/riscv/hwprobe/Makefile  |  10 +
+> .../testing/selftests/riscv/hwprobe/hwprobe.c |  89 ++++++++
+> .../selftests/riscv/hwprobe/sys_hwprobe.S     |  12 ++
+> tools/testing/selftests/riscv/libc.S          |  46 +++++
+> 18 files changed, 613 insertions(+), 10 deletions(-)
+> create mode 100644 Documentation/riscv/hwprobe.rst
+> create mode 100644 arch/riscv/include/asm/cpufeature.h
+> create mode 100644 arch/riscv/include/asm/hwprobe.h
+> create mode 100644 arch/riscv/include/uapi/asm/hwprobe.h
+> create mode 100644 tools/testing/selftests/riscv/Makefile
+> create mode 100644 tools/testing/selftests/riscv/hwprobe/Makefile
+> create mode 100644 tools/testing/selftests/riscv/hwprobe/hwprobe.c
+> create mode 100644 tools/testing/selftests/riscv/hwprobe/sys_hwprobe.S
+> create mode 100644 tools/testing/selftests/riscv/libc.S
+>
 
 _______________________________________________
 linux-riscv mailing list
