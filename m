@@ -4,68 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63537C05027
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Feb 2023 16:16:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB916C636D3
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Feb 2023 16:31:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9lkWrcAo8tU7ZeLo4pQMQhElQgK25QVhbVTyQkGuZuk=; b=fJRisue++ca4fd
-	n2GBZtWI/f7n7Bx5hqJNbo2AwHx8Je+OUd+CItwMb6ZITZcmGZIRFyLBukuFbeuAE2OePv4n1gkIG
-	GRpKtH7l1vmAn359lSs1ALplO3ttIvbpgzsFdt9zv97ChDO27jm/Y+1xDACpNPgvFp96iw8/uWShB
-	WGe7Cb0DcLqV17qBia7/vivzxu2v/BV0HGkPkL1DXmJ/xC+hMNdmwIPBECD+CINPtWAgLY+xnxMva
-	05v/qBJLMhC4UzudLj4elnUKnDGuDHzA+SLUgCyoIJdCXvkCci3VhlUXV9WBIkDeI/1igC3zT16IM
-	bu2qOKsVS9Sk+KrQuodA==;
+	List-Owner; bh=+ogPJe3LV8yCS2KEyNtkFPlbhwrVt8Phj8EEfIB1XCw=; b=rovW4vGLLrHych
+	bpNgWAl8AvcnILFWbcgID8/lEqvz62DS9uVrU8RKZoA/7ESPDItyaV0yEXITqlPB9ZiSnEG0X5/jy
+	HiXC1HjxO5jPCO0P1KrrBnnBH4R0Hfu/DmUKYDws/hlXP3jhZ1H3qP3La22iqki1yevmVXeEGzi+Z
+	1GklWgqDeMqDlN494Vjvhhz9RC4VEhtiPnkSHH6d+mcmTvBnOKPdCFZOTXNjSBAsJ45d6T/72LsFa
+	YS2nQny7fy9hJ0NkASMVN+fxKwOBNWIGrhO06nZ6DMtP+2VSKDrUCpRMLkGmKOoLnhMOchPxQ+lGe
+	TjFd3SyObxXuhzjUHMjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pP4A9-009FzO-4E; Mon, 06 Feb 2023 16:16:13 +0000
-Received: from mail-ot1-f47.google.com ([209.85.210.47])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pP45m-009DxV-Jr
-	for linux-riscv@lists.infradead.org; Mon, 06 Feb 2023 16:11:43 +0000
-Received: by mail-ot1-f47.google.com with SMTP id 70-20020a9d084c000000b0068bccf754f1so3333613oty.7
-        for <linux-riscv@lists.infradead.org>; Mon, 06 Feb 2023 08:11:41 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DZyIIxd0QDJe2eibkr6jP0ZOO/rzo/3V0A75/9lkRTg=;
-        b=TjmqigQt7fQKSxZVoRigZksdXAaX50wMD/DJkQJhN6FT86TWZse0Xnxd3llUHfUHNj
-         7JlSmER6Hu6ujrrI2Wfr12lJu0OuBlUNaFhY5ZbsMMaYg0GRfhxqcPwyrPsDGyx3glej
-         e6/GGznaVnO0kyu5He38/Jn2oxOYB0VHe+6Yn618flyq/hTYg3ap7I1JM63s2cRa4IbS
-         9hhNg5jv26obfz7xXZyHrHOmauEwyKqmQzZEczuXC6qPzZe6e5UIy86HPk+TLud+Bm5A
-         wkxenZmcbwL83SPrEr77nXRQ/lcGu6BS96py4zoFI0fSawShDLTIbbSePzUZWbcCHi/C
-         nc5g==
-X-Gm-Message-State: AO0yUKWM6KwJOXlziW83fK1OvdhzuPr6ErWWiMbn+EY1tTlcz1lpTDaz
-	METj/QDFJ28r1ywRVjEbNw==
-X-Google-Smtp-Source: AK7set+iTHOenGkRMkTkO2+v1ukFLDnWlQnmJQtdoTqg8mRqe/aJlMy1yM4UmY7oA/jZzPvcV1HOPA==
-X-Received: by 2002:a9d:4549:0:b0:68d:6a22:396c with SMTP id p9-20020a9d4549000000b0068d6a22396cmr67122oti.3.1675699900416;
-        Mon, 06 Feb 2023 08:11:40 -0800 (PST)
-Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id m14-20020a9d6ace000000b0068bce0cd4e1sm5092762otq.9.2023.02.06.08.11.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Feb 2023 08:11:40 -0800 (PST)
-Received: (nullmailer pid 162328 invoked by uid 1000);
-	Mon, 06 Feb 2023 16:11:39 -0000
-Date: Mon, 6 Feb 2023 10:11:39 -0600
-From: Rob Herring <robh@kernel.org>
-To: Hal Feng <hal.feng@starfivetech.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, linux-gpio@vger.kernel.org, Emil Renner Berthing <emil.renner.berthing@canonical.com>, Palmer Dabbelt <palmer@dabbelt.com>, Jianlong Huang <jianlong.huang@starfivetech.com>, Andreas Schwab <schwab@suse.de>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, linux-riscv@lists.infradead.org, Linus Walleij <linus.walleij@linaro.org>
-Subject: Re: [PATCH v4 2/4] dt-bindings: pinctrl: Add StarFive JH7110 aon
- pinctrl
-Message-ID: <167569988090.161822.12197118549919509895.robh@kernel.org>
-References: <20230203141801.59083-1-hal.feng@starfivetech.com>
- <20230203141801.59083-3-hal.feng@starfivetech.com>
+	id 1pP4P6-009KzL-NP; Mon, 06 Feb 2023 16:31:40 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pP4P1-009KqW-9F
+	for linux-riscv@lists.infradead.org; Mon, 06 Feb 2023 16:31:38 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 2305724E01A;
+	Tue,  7 Feb 2023 00:30:44 +0800 (CST)
+Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 7 Feb
+ 2023 00:30:44 +0800
+Received: from [172.16.16.234] (113.72.145.145) by EXMBX172.cuchost.com
+ (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 7 Feb
+ 2023 00:30:43 +0800
+Message-ID: <ca8fb8fd-aa1a-bcef-122f-83bc8647d01d@starfivetech.com>
+Date: Tue, 7 Feb 2023 00:30:41 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230203141801.59083-3-hal.feng@starfivetech.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.6.1
+Subject: Re: [PATCH v4 1/4] dt-bindings: pinctrl: Add StarFive JH7110 sys
+ pinctrl
+Content-Language: en-US
+To: Rob Herring <robh@kernel.org>
+CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-gpio@vger.kernel.org>, Conor Dooley <conor@kernel.org>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Linus Walleij
+	<linus.walleij@linaro.org>, Andreas Schwab <schwab@suse.de>, "Emil Renner
+ Berthing" <emil.renner.berthing@canonical.com>, Jianlong Huang
+	<jianlong.huang@starfivetech.com>, <linux-kernel@vger.kernel.org>
+References: <20230203141801.59083-1-hal.feng@starfivetech.com>
+ <20230203141801.59083-2-hal.feng@starfivetech.com>
+ <20230206161016.GA156592-robh@kernel.org>
+From: Hal Feng <hal.feng@starfivetech.com>
+In-Reply-To: <20230206161016.GA156592-robh@kernel.org>
+X-Originating-IP: [113.72.145.145]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX172.cuchost.com
+ (172.16.6.92)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230206_081142_685064_B8A98C0B 
-X-CRM114-Status: UNSURE (   9.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230206_083135_662668_A8E914CD 
+X-CRM114-Status: GOOD (  14.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,27 +80,104 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-On Fri, 03 Feb 2023 22:17:59 +0800, Hal Feng wrote:
-> From: Jianlong Huang <jianlong.huang@starfivetech.com>
+On Mon, 6 Feb 2023 10:10:16 -0600, Rob Herring wrote:
+> On Fri, Feb 03, 2023 at 10:17:58PM +0800, Hal Feng wrote:
+>> diff --git a/Documentation/devicetree/bindings/pinctrl/starfive,jh7110-sys-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/starfive,jh7110-sys-pinctrl.yaml
+>> new file mode 100644
+>> index 000000000000..22554e68ec91
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/pinctrl/starfive,jh7110-sys-pinctrl.yaml
+>> @@ -0,0 +1,141 @@
+>> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/pinctrl/starfive,jh7110-sys-pinctrl.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: StarFive JH7110 SYS Pin Controller
+>> +
+>> +description: |
+>> +  Bindings for the JH7110 RISC-V SoC from StarFive Technology Ltd.
+>> +
+>> +  Out of the SoC's many pins only the ones named PAD_GPIO0 to PAD_GPIO63
+>> +  can be multiplexed and have configurable bias, drive strength,
+>> +  schmitt trigger etc.
+>> +  Some peripherals have their I/O go through the 64 "GPIOs". This also
+>> +  includes a number of other UARTs, I2Cs, SPIs, PWMs etc.
+>> +  All these peripherals are connected to all 64 GPIOs such that
+>> +  any GPIO can be set up to be controlled by any of the peripherals.
+>> +
+>> +maintainers:
+>> +  - Jianlong Huang <jianlong.huang@starfivetech.com>
+>> +
+>> +properties:
+>> +  compatible:
+>> +    const: starfive,jh7110-sys-pinctrl
+>> +
+>> +  reg:
+>> +    maxItems: 1
+>> +
+>> +  clocks:
+>> +    maxItems: 1
+>> +
+>> +  resets:
+>> +    maxItems: 1
+>> +
+>> +  interrupts:
+>> +    maxItems: 1
+>> +
+>> +  interrupt-controller: true
+>> +
+>> +  '#interrupt-cells':
+>> +    const: 2
+>> +
+>> +  gpio-controller: true
+>> +
+>> +  '#gpio-cells':
+>> +    const: 2
+>> +
+>> +patternProperties:
+>> +  '-[0-9]+$':
+>> +    type: object
+>> +    additionalProperties: false
+>> +    patternProperties:
+>> +      '-pins$':
+>> +        type: object
+>> +        description: |
+>> +          A pinctrl node should contain at least one subnode representing the
+>> +          pinctrl groups available on the machine. Each subnode will list the
+>> +          pins it needs, and how they should be configured, with regard to
+>> +          muxer configuration, bias, input enable/disable, input schmitt
+>> +          trigger enable/disable, slew-rate and drive strength.
+>> +        $ref: /schemas/pinctrl/pincfg-node.yaml
 > 
-> Add pinctrl bindings for StarFive JH7110 SoC aon pinctrl controller.
+> On 2nd look, this should be:
 > 
-> Signed-off-by: Jianlong Huang <jianlong.huang@starfivetech.com>
-> Co-developed-by: Emil Renner Berthing <kernel@esmil.dk>
-> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
-> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
-> ---
->  .../pinctrl/starfive,jh7110-aon-pinctrl.yaml  | 123 ++++++++++++++++++
->  .../pinctrl/starfive,jh7110-pinctrl.h         |  22 ++++
->  2 files changed, 145 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pinctrl/starfive,jh7110-aon-pinctrl.yaml
+> allOf:
+>   - $ref: /schemas/pinctrl/pincfg-node.yaml
+>   - $ref: /schemas/pinctrl/pinmux-node.yaml
+
+Will fix accordingly. Thanks.
+
 > 
+>> +        additionalProperties: false
+>> +
+>> +        properties:
+>> +          pinmux:
+>> +            description: |
+>> +              The list of GPIOs and their mux settings that properties in the
+>> +              node apply to. This should be set using the GPIOMUX or PINMUX
+>> +              macros.
+>> +            $ref: /schemas/pinctrl/pinmux-node.yaml#/properties/pinmux
+> 
+> And drop this.
+> 
+> Same in other patch. With that, Reviewed-by stands.
 
-With the issue noted fixed:
+Will fix it. Thank you for your review.
 
-Reviewed-by: Rob Herring <robh@kernel.org>
-
+Best regards,
+Hal
 
 _______________________________________________
 linux-riscv mailing list
