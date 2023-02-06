@@ -4,86 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BE1AC61DA4
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Feb 2023 09:22:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDF30C61DA4
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Feb 2023 09:56:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zzwuOKD0MoYbuzHfaeH4INl8WejK/DPVebtKEacGtPo=; b=m/T9ITgu8D+AjL
-	chBFI1UV+ypXfxciaJyWeZrtB1PIZczg8Fo9FgjleRdBZIXDbqbo7uhjjd9z+eXTtQ1KWxvpk/Agj
-	90f3I1lBifkPwzNcx7Ju9p9fp5SzhkFb5QBx6Cq7y/XroxFzErk0SZOds0jFl5fFpa3ZgxB1ElcCN
-	HarDED21q5+tyrtNoSKJ1cz3j1mwneecIEh79rKbs5TV5NcgPMyByYmX9DdNTj3bxRB3EHVdXOTn2
-	ggKcBJ94IIe5VPoGk9tbSuROA4kdh/bZW0bRJagtlqGWiHRJKXbU2vyBWbuA+Iwm47vqUmLA6VTr3
-	i94OpCsmsa2uQC8Oq/mQ==;
+	List-Owner; bh=Rez1ZxomeuDrf6EdU3AXsGU3Exo21vbxhR89EXMkd1E=; b=v2Pj3SaeKkDx6e
+	71JdB7W5UOfpzAcuMY+jDFDXM+YeX6I3Vdf7KcYxa4I3K0tl2peumH+B0plgKuntR3O1Z9Wksu/jx
+	PZ4XHQHHdNUOHz6PdtlmCs77d2JVImCbpVpp4CqRxo/Odyuk/mghraz+3UTmHtLsv03cHruv3CTo+
+	a0/7iVRBraeASZkaRVxHpJ38GmNPoBAgHQSBqCObnP3vesavZ/ob6j93SMMcD+VoHU0K0s3nFkvH5
+	/1t1dnQ1Qb2POyQlTNcwv1c7KtbmasjJoaB3Ipjy0vF9rZJ0mHrjgBntdF9hqLHSuTSQVp8+nCCRb
+	Kxt9gIfz0temgF2o2DIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pOxhT-007qtL-Lo; Mon, 06 Feb 2023 09:22:11 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pOxhQ-007qrg-V0
-	for linux-riscv@lists.infradead.org; Mon, 06 Feb 2023 09:22:10 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id z13so679711wmp.2
-        for <linux-riscv@lists.infradead.org>; Mon, 06 Feb 2023 01:22:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=h3/29hABhm9XLu3Rv4E2s416ZzobvTLA9/Se1Cqam/I=;
-        b=WI4D8Out1HjIQVrO/FV9gjJNBFw7MjrXUgijfPA13egtBA1GHPTZXvsBLROC5JtR8Q
-         fbWdPu9tLzA+KlMHzJcHOfwUVbMQ/AkRgQztMcSyfGfkWZFsgFz077cgBGq8Kf9WpAya
-         BR/3SwJcYVPatEVrXi927F4xH78Sq0otcGlqBBaDyu3+Vuhui3Lx/sy0zyQlAkek2pRF
-         wGA5W6RuODcPJFwKmeZnUTy9lRMCR+zr5rpRVv1jOrnDYUrITHFZcmELB3io5LSAqUh9
-         JacHCtXTyUUImDe+M4hG7pVZSOii1zmFJ84qGdsb7+qbFvEn6R5t+oM8OCviytDfrd2i
-         JI9g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=h3/29hABhm9XLu3Rv4E2s416ZzobvTLA9/Se1Cqam/I=;
-        b=qddyWYPkEEY3gPzKK7sUWrivsORwpr8cvM3PjYc42XhAn+q/N2tUKnYtwoR4xGdmex
-         a/M2bK0Y7sFsJ6h8Pe/ECBIgUm4/1W9mhR9UhV4ykVZYpfMO6C9UkzhbfHQRDUGNNF2E
-         luFwP4gJTKh2Jo36mit9xJim/f21nyb7rOmLAmrnl2/AmzlBRMmNeY7vHz1A1jJcJ2vw
-         O1yExvBg7a8/IoU4Xf4nxePJ36aAuwMQ/GyYHuqerIBgYV2B1xBGoTDCCLW6DTCcwQCe
-         GVABaK3PrXKVImzABqHhkfODdTQYS33k78s5U9eJ3hNHFNV26rJfAgmS3LsfNvAJ5mL0
-         rOcQ==
-X-Gm-Message-State: AO0yUKXaHFIE6R0VBh18JTSVpigKzoDZg9frAQPAWKoU6Kr3O6SCWNPH
-	/oPQ3ac4wsQTTanAxlAJzGAKpg==
-X-Google-Smtp-Source: AK7set81zyYOD4pHEoWMQOkNV1bM2HP8Wb+ewmqDF1dAPQAsKrrMrfEeL1eYsVwOIFBZTQL6TkdbNw==
-X-Received: by 2002:a05:600c:3c9a:b0:3dc:c5c:b94f with SMTP id bg26-20020a05600c3c9a00b003dc0c5cb94fmr18269461wmb.39.1675675325243;
-        Mon, 06 Feb 2023 01:22:05 -0800 (PST)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id h16-20020a05600c351000b003dc521f336esm10868423wmq.14.2023.02.06.01.22.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Feb 2023 01:22:04 -0800 (PST)
-Date: Mon, 6 Feb 2023 10:22:04 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Atish Patra <atishp@atishpatra.org>
-Cc: Atish Patra <atishp@rivosinc.com>, linux-kernel@vger.kernel.org,
-	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
-	Eric Lin <eric.lin@sifive.com>, Guo Ren <guoren@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, kvm-riscv@lists.infradead.org,
-	kvm@vger.kernel.org, linux-riscv@lists.infradead.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH v4 07/14] RISC-V: KVM: Add skeleton support for perf
-Message-ID: <20230206092204.aiyo43uxlm4xdmgn@orel>
-References: <20230201231250.3806412-1-atishp@rivosinc.com>
- <20230201231250.3806412-8-atishp@rivosinc.com>
- <20230202170345.uwi72dauzunlzxex@orel>
- <CAOnJCUJfc8y729GiUdtqhv+PZu8v9rH+kfpwPwdW=GQPEs9FNw@mail.gmail.com>
- <CAOnJCUKn_pLKqYO71S6MrZd=rnTdSShZk+XksX2uxTiVtthmTA@mail.gmail.com>
+	id 1pOyEn-007xt5-SS; Mon, 06 Feb 2023 09:56:37 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pOyEk-007xs6-QI
+	for linux-riscv@lists.infradead.org; Mon, 06 Feb 2023 09:56:36 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CD3F1113E;
+	Mon,  6 Feb 2023 01:57:13 -0800 (PST)
+Received: from FVFF77S0Q05N (unknown [10.57.91.13])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CB16D3F71E;
+	Mon,  6 Feb 2023 01:56:28 -0800 (PST)
+Date: Mon, 6 Feb 2023 09:56:26 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Guo Ren <guoren@kernel.org>
+Cc: Evgenii Shatokhin <e.shatokhin@yadro.com>, suagrfillet@gmail.com,
+	andy.chiu@sifive.com, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>,
+	anup@brainfault.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
+	conor.dooley@microchip.com, heiko@sntech.de, rostedt@goodmis.org,
+	mhiramat@kernel.org, jolsa@redhat.com, bp@suse.de,
+	jpoimboe@kernel.org, linux@yadro.com
+Subject: Re: [PATCH -next V7 0/7] riscv: Optimize function trace
+Message-ID: <Y+DOyqehZvBJlb8N@FVFF77S0Q05N>
+References: <20230112090603.1295340-1-guoren@kernel.org>
+ <c68bac83-5c88-80b1-bac9-e1fd4ea8f07e@yadro.com>
+ <CAJF2gTQm11px3mqyrNk1SRiJZud1yeY2avK99UX9KetWAGe5BA@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAOnJCUKn_pLKqYO71S6MrZd=rnTdSShZk+XksX2uxTiVtthmTA@mail.gmail.com>
+In-Reply-To: <CAJF2gTQm11px3mqyrNk1SRiJZud1yeY2avK99UX9KetWAGe5BA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230206_012209_004271_56CC51CB 
-X-CRM114-Status: GOOD (  34.27  )
+X-CRM114-CacheID: sfid-20230206_015634_916781_3F47CCA1 
+X-CRM114-Status: GOOD (  20.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,120 +68,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Feb 04, 2023 at 11:37:47PM -0800, Atish Patra wrote:
-> On Fri, Feb 3, 2023 at 12:47 AM Atish Patra <atishp@atishpatra.org> wrote:
+On Sat, Feb 04, 2023 at 02:40:52PM +0800, Guo Ren wrote:
+> On Mon, Jan 16, 2023 at 11:02 PM Evgenii Shatokhin
+> <e.shatokhin@yadro.com> wrote:
 > >
-> > On Thu, Feb 2, 2023 at 9:03 AM Andrew Jones <ajones@ventanamicro.com> wrote:
-> > >
-> > > On Wed, Feb 01, 2023 at 03:12:43PM -0800, Atish Patra wrote:
-> > > > This patch only adds barebone structure of perf implementation. Most of
-> > > > the function returns zero at this point and will be implemented
-> > > > fully in the future.
-> > > >
-> > > > Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> > > > ---
-> > > >  arch/riscv/include/asm/kvm_host.h     |   4 +
-> > > >  arch/riscv/include/asm/kvm_vcpu_pmu.h |  78 +++++++++++++++
-> > > >  arch/riscv/kvm/Makefile               |   1 +
-> > > >  arch/riscv/kvm/vcpu.c                 |   7 ++
-> > > >  arch/riscv/kvm/vcpu_pmu.c             | 136 ++++++++++++++++++++++++++
-> > > >  5 files changed, 226 insertions(+)
-> > > >  create mode 100644 arch/riscv/include/asm/kvm_vcpu_pmu.h
-> > > >  create mode 100644 arch/riscv/kvm/vcpu_pmu.c
-> > > >
-> > > > diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
-> > > > index 93f43a3..b90be9a 100644
-> > > > --- a/arch/riscv/include/asm/kvm_host.h
-> > > > +++ b/arch/riscv/include/asm/kvm_host.h
-> > > > @@ -18,6 +18,7 @@
-> > > >  #include <asm/kvm_vcpu_insn.h>
-> > > >  #include <asm/kvm_vcpu_sbi.h>
-> > > >  #include <asm/kvm_vcpu_timer.h>
-> > > > +#include <asm/kvm_vcpu_pmu.h>
-> > > >
-> > > >  #define KVM_MAX_VCPUS                        1024
-> > > >
-> > > > @@ -228,6 +229,9 @@ struct kvm_vcpu_arch {
-> > > >
-> > > >       /* Don't run the VCPU (blocked) */
-> > > >       bool pause;
-> > > > +
-> > > > +     /* Performance monitoring context */
-> > > > +     struct kvm_pmu pmu_context;
-> > > >  };
-> > > >
-> > > >  static inline void kvm_arch_hardware_unsetup(void) {}
-> > > > diff --git a/arch/riscv/include/asm/kvm_vcpu_pmu.h b/arch/riscv/include/asm/kvm_vcpu_pmu.h
-> > > > new file mode 100644
-> > > > index 0000000..e2b4038
-> > > > --- /dev/null
-> > > > +++ b/arch/riscv/include/asm/kvm_vcpu_pmu.h
-> > > > @@ -0,0 +1,78 @@
-> > > > +/* SPDX-License-Identifier: GPL-2.0-only */
-> > > > +/*
-> > > > + * Copyright (c) 2023 Rivos Inc
-> > > > + *
-> > > > + * Authors:
-> > > > + *     Atish Patra <atishp@rivosinc.com>
-> > > > + */
-> > > > +
-> > > > +#ifndef __KVM_VCPU_RISCV_PMU_H
-> > > > +#define __KVM_VCPU_RISCV_PMU_H
-> > > > +
-> > > > +#include <linux/perf/riscv_pmu.h>
-> > > > +#include <asm/kvm_vcpu_sbi.h>
-> > > > +#include <asm/sbi.h>
-> > > > +
-> > > > +#ifdef CONFIG_RISCV_PMU_SBI
-> > > > +#define RISCV_KVM_MAX_FW_CTRS        32
-> > > > +
-> > > > +#if RISCV_KVM_MAX_FW_CTRS > 32
-> > > > +#error "Maximum firmware counter can't exceed 32 without increasing the RISCV_MAX_COUNTERS"
-> > >
-> > > "The number of firmware counters cannot exceed 32 without increasing RISCV_MAX_COUNTERS"
-> > >
-> > > > +#endif
-> > > > +
-> > > > +#define RISCV_MAX_COUNTERS      64
-> > >
-> > > But instead of that message, what I think we need is something like
-> > >
-> > >  #define RISCV_KVM_MAX_HW_CTRS  32
-> > >  #define RISCV_KVM_MAX_FW_CTRS  32
-> > >  #define RISCV_MAX_COUNTERS     (RISCV_KVM_MAX_HW_CTRS + RISCV_KVM_MAX_FW_CTRS)
-> > >
-> > >  static_assert(RISCV_MAX_COUNTERS <= 64)
-> > >
-> > > And then in pmu_sbi_device_probe() should ensure
-> > >
-> > >   num_counters <= RISCV_MAX_COUNTERS
-> > >
-> > > and pmu_sbi_get_ctrinfo() should ensure
-> > >
-> > >   num_hw_ctr <= RISCV_KVM_MAX_HW_CTRS
-> > >   num_fw_ctr <= RISCV_KVM_MAX_FW_CTRS
-> > >
-> > > which has to be done at runtime.
-> > >
+> > Hi,
 > >
-> > Sure. I will add the additional sanity checks.
+> > On 12.01.2023 12:05, guoren@kernel.org wrote:
+> > > From: Guo Ren <guoren@linux.alibaba.com>
+> > >
+> > > The previous ftrace detour implementation fc76b8b8011 ("riscv: Using
+> > > PATCHABLE_FUNCTION_ENTRY instead of MCOUNT") contain three problems.
+> > >
+> > >   - The most horrible bug is preemption panic which found by Andy [1].
+> > >     Let's disable preemption for ftrace first, and Andy could continue
+> > >     the ftrace preemption work.
 > >
+> > It seems, the patches #2-#7 of this series do not require "riscv:
+> > ftrace: Fixup panic by disabling preemption" and can be used without it.
+> >
+> > How about moving that patch out of the series and processing it separately?
+> Okay.
 > 
-> As explained above, I feel we shouldn't mix the firmware number of
-> counters that the host gets and it exposes to a guest.
-> So I have not included this suggestion in the v5.
-> I have changed the num_fw_ctrs to PMU_FW_MAX though to accurately
-> reflect the firmware counters KVM is actually using.
+> >
+> > As it was pointed out in the discussion of that patch, some other
+> > solution to non-atomic changes of the prologue might be needed anyway.
+> I think you mean Mark Rutland's DYNAMIC_FTRACE_WITH_CALL_OPS. But that
+> still needs to be ready. Let's disable PREEMPT for ftrace first.
 
-Sounds good
+FWIW, taking the patch to disable FTRACE with PREEMPT for now makes sense to
+me, too.
 
-> I don't know if there is any benefit of static_assert over #error.
-> Please let me know if you feel strongly about that.
+The DYNAMIC_FTRACE_WITH_CALL_OPS patches should be in v6.3. They're currently
+queued in the arm64 tree in the for-next/ftrace branch:
 
-One "normal" line vs. three #-lines?
+  git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git for-next/ftrace
+  https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git/ 
+
+... and those *should* be in v6.3.
+
+Patches to imeplement DIRECT_CALLS atop that are in review at the moment:
+
+  https://lore.kernel.org/linux-arm-kernel/20230201163420.1579014-1-revest@chromium.org/
+
+... and if riscv uses the CALL_OPS approach, I believe it can do much the same
+there.
+
+If riscv wants to do a single atomic patch to each patch-site (to avoid
+stop_machine()), then direct calls would always needs to bounce through the
+ftrace_caller trampoline (and acquire the direct call from the ftrace_ops), but
+that might not be as bad as it sounds -- from benchmarking on arm64, the bulk
+of the overhead seen with direct calls is when using the list_ops or having to
+do a hash lookup, and both of those are avoided with the CALL_OPS approach.
+Calling directly from the patch-site is a minor optimization relative to
+skipping that work.
 
 Thanks,
-drew
+Mark.
 
 _______________________________________________
 linux-riscv mailing list
