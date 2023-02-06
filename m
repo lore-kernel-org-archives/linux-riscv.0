@@ -4,73 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38A8CC636CD
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Feb 2023 03:10:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22C6CC05027
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Feb 2023 06:14:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=G+C6Kc1CYreu7I/asd0XqqXelIpKvldgZWnIl41gdhQ=; b=MJh/v78VjCuZVI
-	+vmnJL0Ykk4kh5rN1IubdStTJKFbjmTu/nx5tMyOW7RBu5CUzcbeK+7RtUaHk6Wv/KOL6D83LBXpx
-	oUj5wSuQkSspu7h3tQ9TiuAWF4egrjMDAkdh4vAdXh9WXcYDlWbW0oW6RWMIdEJKi7He12jBLgBMq
-	WKiTMMTAQOAj6QuZzK/5VbhdAW1fxXl6ScJI222ctgAnDNMRctUkUrBafG0Fd27yaCjqdWgVvfUka
-	+PjyDLoO5wOQfjel8GstIQlPAbKCzhOVC8c86gvBLyK6cFBDWRroph6uQ1FgxJUr29VenljpjFFeu
-	n3rDqH33OjoJEh+ITtRw==;
+	List-Owner; bh=erh94AzTCavXLOl0wy4v6WP2cQS9cp68t9Jf++ANtwg=; b=Qldc4p2egTBISD
+	6t1AfujZYgoOsl944J41ySRJY6pzDlepS+7onARNeydD5Vp2TRHASbF3dcUygeRR8fnc9AMlPDhFX
+	xv+E6rCr19CiTTF6aOS1FTCKMEPC9MzLOr2mKj/0YlKZ3VQjR+eNLMqMK4HtquJ2GYQXPKglJMReh
+	jQ4XI9jQMOFWFWOqpI8mJuefcN/1azYWSiIQusmh2zgNwjJQ+bwsdeQYU9gEwCiRW5EKe7Ryhljh1
+	0qPF3P0B9WZAknDqPBVpQtqcZn90Xl8lYFS3/eH4gXz33LBdMhtHhYgtJFy6p2Rp9vVKxY+79uLkW
+	Ck7SFwzqQiKOVdaMk/nA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pOrtn-007FF5-MA; Mon, 06 Feb 2023 03:10:31 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pOrtk-007FEg-B9
-	for linux-riscv@lists.infradead.org; Mon, 06 Feb 2023 03:10:29 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 24F1F60C13
-	for <linux-riscv@lists.infradead.org>; Mon,  6 Feb 2023 03:10:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16328C433A8
-	for <linux-riscv@lists.infradead.org>; Mon,  6 Feb 2023 03:10:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1675653026;
-	bh=nqhet8AEH/ERw6EgCSei5hYnW8DmeRHxsYNumUSvwbY=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=Djrdlt17tFAs5kmQ+hq2mmen6079HT9RIn+DVBPGhaKD2U4E9s+l8LnlkBCnWPMnf
-	 VMQ4nyV5WLWGr6S2SdjOvyJhNFb0hdBYeyZxEjqAteA70KsleXKjcU2GgyVaS83+7q
-	 PiaixkvbVNpcEbIeQ1luetuniK0Ji5D4gZYfMeZeRponPvL5eM5Zsm6zOWrVyQNvcf
-	 utaYB0C8DWpbnE0yalhhOtDSExEzvWHQTQ1QXFs6GR40Qo+vDx7SBAojCZi30aaZdn
-	 wkstLxVYLQ/0xACODjamM9e8fjLIZhDGrKzkEf0QFMiKiZ/5JvI2XArlwK3XwT35We
-	 NTe5ddkcOuYfA==
-Received: by mail-ej1-f48.google.com with SMTP id mc11so30425231ejb.10
-        for <linux-riscv@lists.infradead.org>; Sun, 05 Feb 2023 19:10:26 -0800 (PST)
-X-Gm-Message-State: AO0yUKVLwneHh+XFLnPMZOcCvtPfKbYoD+CjFY8t59kHObDGVAqbqzNj
-	oYfyhuJxBY6G4n3PDoPPE1oJJCkx9lNDLzN71XY=
-X-Google-Smtp-Source: AK7set/MwuNHj3cEDBq/n80X1OTFxhSGWKa4ldcgofmG5jw+SyQf1PSEiXQXk+siHZwTVsRqsSrlncJkMA1Ypzks4JM=
-X-Received: by 2002:a17:906:8419:b0:884:c19c:7c6 with SMTP id
- n25-20020a170906841900b00884c19c07c6mr4723974ejx.120.1675653024117; Sun, 05
- Feb 2023 19:10:24 -0800 (PST)
+	id 1pOulM-007Rnn-2i; Mon, 06 Feb 2023 06:14:00 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pOulH-007Rj7-LU
+	for linux-riscv@lists.infradead.org; Mon, 06 Feb 2023 06:13:58 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 7B8FA24E3B3;
+	Mon,  6 Feb 2023 14:13:13 +0800 (CST)
+Received: from EXMBX067.cuchost.com (172.16.6.67) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 6 Feb
+ 2023 14:13:13 +0800
+Received: from [192.168.125.89] (183.27.96.33) by EXMBX067.cuchost.com
+ (172.16.6.67) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 6 Feb
+ 2023 14:13:12 +0800
+Message-ID: <c851138c-148a-bc5f-219b-1573d7e7e318@starfivetech.com>
+Date: Mon, 6 Feb 2023 14:13:11 +0800
 MIME-Version: 1.0
-References: <20230201064608.3486136-1-guoren@kernel.org> <87tu05pvur.fsf@all.your.base.are.belong.to.us>
- <CAJF2gTSj12E9+peMF0rNY_psGDyEG5BbMY6V-s4dK0FpkCC9Yw@mail.gmail.com>
- <87cz6s75ze.fsf@all.your.base.are.belong.to.us> <5C373F4A-983E-4ACA-AAB0-54E629D5F501@jrtc27.com>
- <878rhgrv6a.fsf@all.your.base.are.belong.to.us>
-In-Reply-To: <878rhgrv6a.fsf@all.your.base.are.belong.to.us>
-From: Guo Ren <guoren@kernel.org>
-Date: Mon, 6 Feb 2023 11:10:12 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTTuva2HmoJymP1atfKxudS67XY8pygukgEH98D=o3dwUw@mail.gmail.com>
-Message-ID: <CAJF2gTTuva2HmoJymP1atfKxudS67XY8pygukgEH98D=o3dwUw@mail.gmail.com>
-Subject: Re: [PATCH] riscv: kprobe: Fixup misaligned load text
-To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-Cc: Jessica Clarke <jrtc27@jrtc27.com>, Palmer Dabbelt <palmer@rivosinc.com>, 
-	Conor Dooley <conor.dooley@microchip.com>, liaochang1@huawei.com, 
-	linux-arch <linux-arch@vger.kernel.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>, Guo Ren <guoren@linux.alibaba.com>, 
-	Bjorn Topel <bjorn.topel@gmail.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.6.1
+Subject: Re: [PATCH v1] irqchip/irq-sifive-plic: Add syscore callbacks for
+ hibernation
+Content-Language: en-US
+To: Marc Zyngier <maz@kernel.org>
+CC: Thomas Gleixner <tglx@linutronix.de>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, Ley Foon Tan
+	<leyfoon.tan@starfivetech.com>, Sia Jee Heng <jeeheng.sia@starfivetech.com>
+References: <20230113094216.116036-1-mason.huo@starfivetech.com>
+ <864js01j26.wl-maz@kernel.org>
+From: Mason Huo <mason.huo@starfivetech.com>
+In-Reply-To: <864js01j26.wl-maz@kernel.org>
+X-Originating-IP: [183.27.96.33]
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX067.cuchost.com
+ (172.16.6.67)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230205_191028_462219_AF66424C 
-X-CRM114-Status: GOOD (  10.07  )
+X-CRM114-CacheID: sfid-20230205_221356_085065_A3BD17BA 
+X-CRM114-Status: GOOD (  28.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,22 +71,144 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBGZWIgMiwgMjAyMyBhdCAxMDozNiBQTSBCasO2cm4gVMO2cGVsIDxiam9ybkBrZXJu
-ZWwub3JnPiB3cm90ZToKPgo+IEplc3NpY2EgQ2xhcmtlIDxqcnRjMjdAanJ0YzI3LmNvbT4gd3Jp
-dGVzOgo+Cj4gPj4gKyAgICBwLT5vcGNvZGUgPSAqaW5zbisrOwo+ID4+ICsgICAgaWYgKEdFVF9J
-TlNOX0xFTkdUSChwLT5vcGNvZGUpID09IDQpCj4gPj4gKyAgICAgICAgICAgIHAtPm9wY29kZSB8
-PSAqaW5zbiA8PCAxNjsKPiA+Cj4gPiAqaW5zbiBnZXRzIHByb21vdGVkIHRvIGludCBub3QgdW5z
-aWduZWQgc28gdGhpcyBpcyBVQiBpZiBiaXQgMTUgaXMgc2V0Lgo+Cj4gVWdoLiBHb29kIGNhdGNo
-ISBJIGd1ZXNzIHdlIGNhbid0IGdldCByaWQgb2YgKnRoYXQqIGV4cGxpY2l0IGNhc3QgdG8KPiBr
-cHJvYmVfb3Bjb2RlX3QgaGVyZS4uLgpIaSBCam9ybiAmIEplc3NpY2EsClRoeCBmb3IgcmV2aWV3
-aW5nLgoKVGhlIG5ldyB2ZXJzaW9uIGNhbWUgb3V0OgpodHRwczovL2xvcmUua2VybmVsLm9yZy9s
-aW51eC1yaXNjdi8yMDIzMDIwNDA2MzUzMS43NDAyMjAtMS1ndW9yZW5Aa2VybmVsLm9yZy8KCgoK
-CgotLQpCZXN0IFJlZ2FyZHMKIEd1byBSZW4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
-aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
-dGluZm8vbGludXgtcmlzY3YK
+
+
+On 2023/2/5 18:51, Marc Zyngier wrote:
+> On Fri, 13 Jan 2023 09:42:16 +0000,
+> Mason Huo <mason.huo@starfivetech.com> wrote:
+>> 
+>> The priority and enable registers of plic will be reset
+>> during hibernation power cycle in poweroff mode,
+>> add the syscore callbacks to save/restore those registers.
+>> 
+>> Signed-off-by: Mason Huo <mason.huo@starfivetech.com>
+>> Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+>> Reviewed-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
+>> ---
+>>  drivers/irqchip/irq-sifive-plic.c | 93 ++++++++++++++++++++++++++++++-
+>>  1 file changed, 91 insertions(+), 2 deletions(-)
+>> 
+>> diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+>> index ff47bd0dec45..80306de45d2b 100644
+>> --- a/drivers/irqchip/irq-sifive-plic.c
+>> +++ b/drivers/irqchip/irq-sifive-plic.c
+>> @@ -17,6 +17,7 @@
+>>  #include <linux/of_irq.h>
+>>  #include <linux/platform_device.h>
+>>  #include <linux/spinlock.h>
+>> +#include <linux/syscore_ops.h>
+>>  #include <asm/smp.h>
+>>  
+>>  /*
+>> @@ -67,6 +68,8 @@ struct plic_priv {
+>>  	struct irq_domain *irqdomain;
+>>  	void __iomem *regs;
+>>  	unsigned long plic_quirks;
+>> +	unsigned int nr_irqs;
+>> +	u32 *priority_reg;
+>>  };
+>>  
+>>  struct plic_handler {
+>> @@ -79,10 +82,13 @@ struct plic_handler {
+>>  	raw_spinlock_t		enable_lock;
+>>  	void __iomem		*enable_base;
+>>  	struct plic_priv	*priv;
+>> +	/* To record interrupts that are enabled before suspend. */
+>> +	u32 enable_reg[MAX_DEVICES / 32];
+> 
+> What does MAX_DEVICES represent here? How is it related to the number
+> of interrupts you're trying to save? It seems to be related to the
+> number of CPUs, so it hardly makes any sense so far.
+> 
+The comment of this macro describes that "The largest number supported
+by devices marked as 'sifive,plic-1.0.0', is 1024, of which
+device 0 is defined as non-existent by the RISC-V Privileged Spec."
+As far as I understand, the *device* here means HW IRQ source,
+and the HW IRQ 0 is non-existent.
+
+>>  };
+>>  static int plic_parent_irq __ro_after_init;
+>>  static bool plic_cpuhp_setup_done __ro_after_init;
+>>  static DEFINE_PER_CPU(struct plic_handler, plic_handlers);
+>> +static struct plic_priv *priv_data;
+>>  
+>>  static int plic_irq_set_type(struct irq_data *d, unsigned int type);
+>>  
+>> @@ -229,6 +235,78 @@ static int plic_irq_set_type(struct irq_data *d, unsigned int type)
+>>  	return IRQ_SET_MASK_OK;
+>>  }
+>>  
+>> +static void plic_irq_resume(void)
+>> +{
+>> +	unsigned int i, cpu;
+>> +	u32 __iomem *reg;
+>> +
+>> +	for (i = 0; i < priv_data->nr_irqs; i++)
+>> +		writel(priv_data->priority_reg[i],
+>> +				priv_data->regs + PRIORITY_BASE + i * PRIORITY_PER_ID);
+> 
+> From what I can tell, this driver uses exactly 2 priorities: 0 and 1.
+> And yet you use a full 32bit to encode those. Does it seem like a good
+> idea?
+> 
+Yes, currently this driver uses oly 2 priorities.
+But, according to the sifive spec, the priority register is a 32bit register,
+and it supports 7 levels of priority. 
+
+>> +
+>> +	for_each_cpu(cpu, cpu_present_mask) {
+>> +		struct plic_handler *handler = per_cpu_ptr(&plic_handlers, cpu);
+>> +
+>> +		if (!handler->present)
+>> +			continue;
+>> +
+>> +		for (i = 0; i < DIV_ROUND_UP(priv_data->nr_irqs, 32); i++) {
+>> +			reg = handler->enable_base + i * sizeof(u32);
+>> +			raw_spin_lock(&handler->enable_lock);
+>> +			writel(handler->enable_reg[i], reg);
+>> +			raw_spin_unlock(&handler->enable_lock);
+> 
+> Why do you need to take/release the lock around *each* register
+> access? Isn't that lock constant for a given CPU?
+> 
+OK, will fix it in the next version.
+
+>> +		}
+>> +	}
+>> +}
+>> +
+>> +static int plic_irq_suspend(void)
+>> +{
+>> +	unsigned int i, cpu;
+>> +	u32 __iomem *reg;
+>> +
+>> +	for (i = 0; i < priv_data->nr_irqs; i++)
+>> +		priv_data->priority_reg[i] =
+>> +			readl(priv_data->regs + PRIORITY_BASE + i * PRIORITY_PER_ID);
+>> +
+>> +	for_each_cpu(cpu, cpu_present_mask) {
+>> +		struct plic_handler *handler = per_cpu_ptr(&plic_handlers, cpu);
+>> +
+>> +		if (!handler->present)
+>> +			continue;
+>> +
+>> +		for (i = 0; i < DIV_ROUND_UP(priv_data->nr_irqs, 32); i++) {
+>> +			reg = handler->enable_base + i * sizeof(u32);
+>> +			raw_spin_lock(&handler->enable_lock);
+>> +			handler->enable_reg[i] = readl(reg);
+>> +			raw_spin_unlock(&handler->enable_lock);
+> 
+> Same remarks.
+> 
+> 	M.
+> 
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
