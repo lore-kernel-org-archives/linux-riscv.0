@@ -4,70 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AA1CC636D3
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Feb 2023 17:36:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6DAEC636D4
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Feb 2023 18:05:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=BWEFbKQhvaPoYi6B+20phLY0mC3gsUP989awa91B/Vg=; b=QCJEr/caMJ1JRm
-	H4/pwswGIXKemA8arkixEp/q2KvzLVVa/1kgvD6ibS+1TMw71CvlAQQGyxnnBtRQkLiVMZtIG253k
-	szWyek3Mk1lsNGJjFoPioXiR/nWDKmVhZS3gYGgs/x/pH37aznrkvXno2p0/kG46WPiE9tnVaTBYE
-	/QTt6Ixr7rJds0zQq+DXul90GVsoldtwplRrI/BIdBzN2qc0dKbFHUN8IJlEGmu+24+v6WRvaPUXK
-	dYkiwIItar5AM163gWBEINrCmd96sog8gaqKH2/9KNJAECE0NbPCydjzzNB4To5Xg8ZqntMnQ8Tym
-	YfGrVVzHgZQ0g+OzLyuw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DwknTIkwUC2MTwqdyyBcKSkdTIYol3No7SR9P6hV/vw=; b=y2hp15fa9Za/XMKF/w4bme75nS
+	IiiqA5yHgUkrCh6WKTG/544fNL3r2BY3obpT9+0HDkQ7Kj1b2dLSATzbiEBEGffoxypmK/EgF2czR
+	eLdmS5XJbwqj7HnwCs3dG8uEtOAQ22GuZBhnL2cqqJT3G9xXHHkYKvqneI2QU56kXlbykqJ4RNhhm
+	hi+zw0aFu4FdVIy7el1y3WspWwjOUP3ZK6YmyWD+3BEjSMwm31bJwQRX3OejyhQ8WOhYahQ37UXzN
+	aPgCVBXj6gKzAt+GqqXssl6oQd6jAKsLRYluhWP+7k9ju3kPo6NMuwHw27l0otU2hGzo1EnjvZzLI
+	cQhVElpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPRt4-00CwUG-BC; Tue, 07 Feb 2023 17:36:10 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	id 1pPSLK-00D0T3-NT; Tue, 07 Feb 2023 18:05:22 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPRsw-00CwTG-Kx
-	for linux-riscv@lists.infradead.org; Tue, 07 Feb 2023 17:36:08 +0000
-Received: by mail-ej1-x629.google.com with SMTP id lu11so44600614ejb.3
-        for <linux-riscv@lists.infradead.org>; Tue, 07 Feb 2023 09:36:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=BZ6y0HfdU+5U+iTOtrcJ4GxWnnDEHocKk/DZG1/+ooM=;
-        b=TwzAwA2xXYZ/V6lNMp/SIYufRe4LwLnRoZESGvbDUn5HMDW4rguxJJMztGKAYjIk3o
-         fG5Q87YAZYLElVMN9eEVvVnE/NCPzsjekAmPFPkOvVm3geVi4p6X8qk1yD27v2n4nGNI
-         IXwR1ODRM1T5hiuZAeygXR//XQCc+d+f5D3iR7RCnG+W+Xs2nT6UOrVabyBUqW7eebOI
-         kSPnLtV/qflRK/KW73RECl5KPD1uRhbhO9lltyFxaz64DrphZkSRpyy2566HwJ82sJRt
-         bx0bM8qKCigg1JYhFI/YlU9kgCJuEUnPqfCgQqWC4AvqkNQR3R99nsSSd5XYyxhsuH2u
-         57ow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=BZ6y0HfdU+5U+iTOtrcJ4GxWnnDEHocKk/DZG1/+ooM=;
-        b=7NHy6H3GQ/GlGWbp2xhDXBALX2pUXCF4kskU7tRs57jHunUkJ1up9MI6B4bC8hZhK8
-         b2fT0kgQZqO1hx2zbaexMsjZihWsZSYvtIXbBx5anz4CCMrrjCXdne6DBEoA1FpadC14
-         PyyEXw5LpsfTPV4u+lqKmTtbAYK70DrN6STp8jWt2T2tq+MLA2JrSIDHNvPPjrbRWsgX
-         0+W7Xg+I0ZuZF2+13+jFcsMfGRN63XCsjQXKfGa6FYy2FwZdRYcB/5GBJcLXOpIhEDrr
-         Qt4WyFJBi+5HOgHzsPdir0rtsmS53xIVTCaB/gEDvoh5g9TlIpuB/yXNb+PWJirmcNYw
-         +//w==
-X-Gm-Message-State: AO0yUKUtk7eaFrP2x9WFLRBJMQn8i6mZxbQojZaXLXfSHpJNdfNEpuQr
-	twUCBp1weEjVWtYDztRnUsBzVlli10gWD/GcGguLrA==
-X-Google-Smtp-Source: AK7set+1X+nDNSzXfWLcK/qx4Ts9Ui6/V+Vi26x3FAphUtadBkrkCKKfEKwMyQipsGnI8EZHnBdV0FsGtRhAhGiGk4Y=
-X-Received: by 2002:a17:906:3ad1:b0:884:8380:20db with SMTP id
- z17-20020a1709063ad100b00884838020dbmr891330ejd.301.1675791359418; Tue, 07
- Feb 2023 09:35:59 -0800 (PST)
+	id 1pPSLG-00D0SV-GL; Tue, 07 Feb 2023 18:05:21 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id AD7CB60F8D;
+	Tue,  7 Feb 2023 18:05:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D97FFC4339B;
+	Tue,  7 Feb 2023 18:05:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1675793116;
+	bh=H2ys2pYdG89Ku64gAFGM6WT2YOc0n7GzZTdp0ffbLLg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=RxM/tp4CkjXmsq8wO/dTfmLWZ32PQ7NFatNaGZNu+evrSclfmPGJ5PI7W/dcyUa9C
+	 8jSqCk1MMOIYzYdL5iGWfpbE2MC6yFctuUL2gzhgssB1hmz5zUW846bjz3498ooOO3
+	 i8FEft99VTDkMSvLOX7Lyl8W0KRuVY+Eqq3ci/hfiYhIxSiArKxODBgdiR0Y7pVAV1
+	 CgX9rGLWPUjfARygXTMkr6cu+7mg1vQ5kq7sKahG1xyHR7w8Xh3+yCWlHoW/AaEDiA
+	 19kw6Ggrc7uw+CiLSjdGJG8YBN/vveiV2qcDENgDdwpzKZosANA5FWc0GsMVkwXg1N
+	 kClw+abn+EUqQ==
+Date: Tue, 7 Feb 2023 18:05:11 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, pbonzini@redhat.com,
+	atishp@atishpatra.org, Paul Walmsley <paul.walmsley@sifive.com>,
+	ajones@ventanamicro.com, anup@brainfault.org, kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/7] RISC-V: Detect AIA CSRs from ISA string
+Message-ID: <Y+KS16ZNXrDU+xun@spud>
+References: <20230128072737.2995881-3-apatel@ventanamicro.com>
+ <mhng-0f9bdf58-5289-4db4-8fd7-38898824c44f@palmer-ri-x1c9>
+ <CAK9=C2X8C4yswGhDwe1OzQXTELXQxp8=ayiFxh1aVMk4TxeDjw@mail.gmail.com>
 MIME-Version: 1.0
-From: Anup Patel <anup@brainfault.org>
-Date: Tue, 7 Feb 2023 23:05:48 +0530
-Message-ID: <CAAhSdy25NgCY23u=icRgcZpEZzNgJkyEN92KEVL8D-SvUwTBXg@mail.gmail.com>
-Subject: [GIT PULL] KVM/riscv changes for 6.3
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Atish Patra <atishp@atishpatra.org>, 
-	Andrew Jones <ajones@ventanamicro.com>, KVM General <kvm@vger.kernel.org>, 
-	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>
+In-Reply-To: <CAK9=C2X8C4yswGhDwe1OzQXTELXQxp8=ayiFxh1aVMk4TxeDjw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230207_093602_949920_D7F31288 
-X-CRM114-Status: GOOD (  10.50  )
+X-CRM114-CacheID: sfid-20230207_100518_669029_B928475D 
+X-CRM114-Status: GOOD (  39.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,101 +70,178 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1221081377134904878=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Paolo,
 
-We have the following KVM RISC-V changes for 6.3:
-1) Fix wrong usage of PGDIR_SIZE to check page sizes
-2) Fix privilege mode setting in kvm_riscv_vcpu_trap_redirect()
-3) Redirect illegal instruction traps to guest
-4) SBI PMU support for guest
+--===============1221081377134904878==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="m0n7JpZfETbh6abr"
+Content-Disposition: inline
 
-Please pull.
 
-I will send another PR for 6.3 containing AIA CSR
-virtualization after Palmer has sent his first PR for 6.3
-so that I can resolve conflicts with arch/riscv changes.
-I hope you are okay with this ??
+--m0n7JpZfETbh6abr
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Regards,
-Anup
+Hey Anup, Palmer,
 
-The following changes since commit 4ec5183ec48656cec489c49f989c508b68b518e3:
+On Fri, Feb 03, 2023 at 05:31:01PM +0530, Anup Patel wrote:
+> On Fri, Feb 3, 2023 at 5:54 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+> >
+> > On Fri, 27 Jan 2023 23:27:32 PST (-0800), apatel@ventanamicro.com wrote:
+> > > We have two extension names for AIA ISA support: Smaia (M-mode AIA CS=
+Rs)
+> > > and Ssaia (S-mode AIA CSRs).
+> >
+> > This has pretty much the same problem that we had with the other
+> > AIA-related ISA string patches, where there's that ambiguity with the
+> > non-ratified chapters.  IIRC when this came up in GCC the rough idea was
+> > to try and document that we're going to interpret the standard ISA
+> > strings that way, but now that we're doing custom ISA extensions it
+> > seems saner to just define on here that removes the ambiguity.
+> >
+> > I just sent
+> > <https://lore.kernel.org/r/20230203001201.14770-1-palmer@rivosinc.com/>
+> > which documents that.
+>=20
+> I am not sure why you say that these are custom extensions.
+>=20
+> Multiple folks have clarified that both Smaia and Ssaia are frozen
+> ISA extensions as-per RVI process. The individual chapters which
+> are in the draft state have nothing to do with Smaia and Ssaia CSRs.
+>=20
+> Please refer:
+> https://github.com/riscv/riscv-aia/pull/36
+> https://lists.riscv.org/g/tech-aia/message/336
+> https://lists.riscv.org/g/tech-aia/message/337
 
-  Linux 6.2-rc7 (2023-02-05 13:13:28 -0800)
+All of these links seem to discuss the draft chapters somehow being
+incompatible with the non-draft ones. I would very expect that that,
+as pointed out in several places there, that the draft chapters
+finalisation would not lead to meaningful (and incompatible!) changes
+being made to the non-draft chapters.
 
-are available in the Git repository at:
+Maybe yourself and Palmer are looking at this from different
+perspectives? Looking at his patch from Friday:
+https://lore.kernel.org/linux-riscv/20230203001201.14770-1-palmer@rivosinc.=
+com/
+He specifically mentioned this aspect, as opposed to the aspect that
+your links refer to.
 
-  https://github.com/kvm-riscv/linux.git tags/kvm-riscv-6.3-1
+Surely a duo-plic, if that ever comes to be, could be detected from
+compatible strings in DT or w/e - but how do you intend differentiating
+between an implementation of S*aia that contains the IOMMU support in
+Chapter 9 in a finalised form, versus an implementation that may make
+"different decisions" when it comes to that chapter of the spec?
+I thought that would be handled by extension versions, but I am told
+that those are not a thing any more.
+If that's not true, and there'll be a version number that we can pull in
+=66rom a DT and parse which will distinguish between the two, then please
+correct my misunderstanding here!
 
-for you to fetch changes up to c39cea6f38eefe356d64d0bc1e1f2267e282cdd3:
+Thanks,
+Conor.
 
-  RISC-V: KVM: Increment firmware pmu events (2023-02-07 20:36:08 +0530)
+> > > We extend the ISA string parsing to detect Smaia and Ssaia extensions.
+> > >
+> > > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> > > Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+> > > ---
+> > >  arch/riscv/include/asm/hwcap.h | 2 ++
+> > >  arch/riscv/kernel/cpu.c        | 2 ++
+> > >  arch/riscv/kernel/cpufeature.c | 2 ++
+> > >  3 files changed, 6 insertions(+)
+> > >
+> > > diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/=
+hwcap.h
+> > > index 86328e3acb02..341ef30a3718 100644
+> > > --- a/arch/riscv/include/asm/hwcap.h
+> > > +++ b/arch/riscv/include/asm/hwcap.h
+> > > @@ -59,6 +59,8 @@ enum riscv_isa_ext_id {
+> > >       RISCV_ISA_EXT_ZIHINTPAUSE,
+> > >       RISCV_ISA_EXT_SSTC,
+> > >       RISCV_ISA_EXT_SVINVAL,
+> > > +     RISCV_ISA_EXT_SMAIA,
+> > > +     RISCV_ISA_EXT_SSAIA,
+> > >       RISCV_ISA_EXT_ID_MAX
+> > >  };
+> > >  static_assert(RISCV_ISA_EXT_ID_MAX <=3D RISCV_ISA_EXT_MAX);
+> > > diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+> > > index 1b9a5a66e55a..a215ec929160 100644
+> > > --- a/arch/riscv/kernel/cpu.c
+> > > +++ b/arch/riscv/kernel/cpu.c
+> > > @@ -162,6 +162,8 @@ arch_initcall(riscv_cpuinfo_init);
+> > >   *    extensions by an underscore.
+> > >   */
+> > >  static struct riscv_isa_ext_data isa_ext_arr[] =3D {
+> > > +     __RISCV_ISA_EXT_DATA(smaia, RISCV_ISA_EXT_SMAIA),
+> > > +     __RISCV_ISA_EXT_DATA(ssaia, RISCV_ISA_EXT_SSAIA),
+> >
+> > This will conflict with that ISA string refactoring I just merged.  It
+> > should be a pretty mechanical merge conflict, but if you want we can do
+> > a shared tag with the first few patches and I can handle the merge
+> > conflict locally.
+>=20
+> I am planning to send this series as a second PR for Linux-6.3 after your
+> PR (which includes ISA string refactoring) is merged. Is that okay with y=
+ou?
+>=20
+> With that said, it would request you to ACK this patch as well.
+>=20
+> >
+> > >       __RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
+> > >       __RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
+> > >       __RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
+> > > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufe=
+ature.c
+> > > index 93e45560af30..3c5b51f519d5 100644
+> > > --- a/arch/riscv/kernel/cpufeature.c
+> > > +++ b/arch/riscv/kernel/cpufeature.c
+> > > @@ -228,6 +228,8 @@ void __init riscv_fill_hwcap(void)
+> > >                               SET_ISA_EXT_MAP("zihintpause", RISCV_IS=
+A_EXT_ZIHINTPAUSE);
+> > >                               SET_ISA_EXT_MAP("sstc", RISCV_ISA_EXT_S=
+STC);
+> > >                               SET_ISA_EXT_MAP("svinval", RISCV_ISA_EX=
+T_SVINVAL);
+> > > +                             SET_ISA_EXT_MAP("smaia", RISCV_ISA_EXT_=
+SMAIA);
+> > > +                             SET_ISA_EXT_MAP("ssaia", RISCV_ISA_EXT_=
+SSAIA);
+> > >                       }
+> > >  #undef SET_ISA_EXT_MAP
+> > >               }
+>=20
+> Thanks,
+> Anup
 
-----------------------------------------------------------------
-KVM/riscv changes for 6.3
+--m0n7JpZfETbh6abr
+Content-Type: application/pgp-signature; name="signature.asc"
 
-- Fix wrong usage of PGDIR_SIZE to check page sizes
-- Fix privilege mode setting in kvm_riscv_vcpu_trap_redirect()
-- Redirect illegal instruction traps to guest
-- SBI PMU support for guest
+-----BEGIN PGP SIGNATURE-----
 
-----------------------------------------------------------------
-Alexandre Ghiti (1):
-      KVM: RISC-V: Fix wrong usage of PGDIR_SIZE to check page sizes
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY+KS0wAKCRB4tDGHoIJi
+0vYeAQDID5gy1NNsVol0uOM4K67baVkasU31cYZaNQ0VNxM0gQD+OzIE9sYy8CY/
+keBJVPVev2OwtuUzoEEyRZuB12t4fw0=
+=V2HQ
+-----END PGP SIGNATURE-----
 
-Andy Chiu (1):
-      RISC-V: KVM: Redirect illegal instruction traps to guest
+--m0n7JpZfETbh6abr--
 
-Anup Patel (1):
-      RISC-V: KVM: Fix privilege mode setting in kvm_riscv_vcpu_trap_redirect()
 
-Atish Patra (14):
-      perf: RISC-V: Define helper functions expose hpm counter width and count
-      perf: RISC-V: Improve privilege mode filtering for perf
-      RISC-V: Improve SBI PMU extension related definitions
-      RISC-V: KVM: Define a probe function for SBI extension data structures
-      RISC-V: KVM: Return correct code for hsm stop function
-      RISC-V: KVM: Modify SBI extension handler to return SBI error code
-      RISC-V: KVM: Add skeleton support for perf
-      RISC-V: KVM: Add SBI PMU extension support
-      RISC-V: KVM: Make PMU functionality depend on Sscofpmf
-      RISC-V: KVM: Disable all hpmcounter access for VS/VU mode
-      RISC-V: KVM: Implement trap & emulate for hpmcounters
-      RISC-V: KVM: Implement perf support without sampling
-      RISC-V: KVM: Support firmware events
-      RISC-V: KVM: Increment firmware pmu events
-
- arch/riscv/include/asm/kvm_host.h     |   4 +
- arch/riscv/include/asm/kvm_vcpu_pmu.h | 107 ++++++
- arch/riscv/include/asm/kvm_vcpu_sbi.h |  13 +-
- arch/riscv/include/asm/sbi.h          |   7 +-
- arch/riscv/kvm/Makefile               |   1 +
- arch/riscv/kvm/main.c                 |   3 +-
- arch/riscv/kvm/mmu.c                  |   8 +-
- arch/riscv/kvm/tlb.c                  |   4 +
- arch/riscv/kvm/vcpu.c                 |   7 +
- arch/riscv/kvm/vcpu_exit.c            |   9 +
- arch/riscv/kvm/vcpu_insn.c            |   4 +-
- arch/riscv/kvm/vcpu_pmu.c             | 633 ++++++++++++++++++++++++++++++++++
- arch/riscv/kvm/vcpu_sbi.c             |  72 ++--
- arch/riscv/kvm/vcpu_sbi_base.c        |  27 +-
- arch/riscv/kvm/vcpu_sbi_hsm.c         |  28 +-
- arch/riscv/kvm/vcpu_sbi_pmu.c         |  86 +++++
- arch/riscv/kvm/vcpu_sbi_replace.c     |  50 +--
- arch/riscv/kvm/vcpu_sbi_v01.c         |  17 +-
- drivers/perf/riscv_pmu_sbi.c          |  64 +++-
- include/linux/perf/riscv_pmu.h        |   5 +
- 20 files changed, 1035 insertions(+), 114 deletions(-)
- create mode 100644 arch/riscv/include/asm/kvm_vcpu_pmu.h
- create mode 100644 arch/riscv/kvm/vcpu_pmu.c
- create mode 100644 arch/riscv/kvm/vcpu_sbi_pmu.c
+--===============1221081377134904878==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1221081377134904878==--
+
