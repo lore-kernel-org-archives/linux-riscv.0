@@ -4,74 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7C7DC61DA4
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Feb 2023 00:32:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 407C5C61DA4
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Feb 2023 02:32:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sdrhf5g+5uj+hDCwt9wuQvjFzCXaStYEu90cnJ5cJpM=; b=nZcvH2secL0Bu4deomWMEEn0/Q
-	QKRhA+xzLw5NxVu+Behs7xpkYUhNWItK2Bb5E63i9JePKDXNXrUqWWOsAPC6Q+gSFCi8D8so29Ux9
-	ThA9IW0xXI1ZHbRkgUAE68NAmNJE0fZuwTe9APS54wTydEW3l2YvozOMhfC+xyHP4TLy4IjTgmFI/
-	nX95wxM3mCgbIOhtgbbl/sy3T9vnXRpEf9N1a2afDt7VKdcFcbSlREL810Y6RZd9EWXPVzEvXqPR9
-	SyJcC4a7hz3SqzWFmE1ac41Af2jASqC9KABTtgJR4//BDZHlbtw/DvfbTiDiTeUgzz5Hn5Fxf3luq
-	oCwGlKoQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ek2g4Zw3rF59HIm63ZERUAQs4RTGlgJ83h+kXFi20HY=; b=ZuVPFbRI1ARKdc
+	NJHtaoW0IY5nkkpVOOoDhIvcnG+oE97/cu6Z3F/4/9UK8VcgPbaaIyVkkmLSsKjXopSd6InCxhkvI
+	EeZi8JIrtBUau4k2cia5QLIlk+UHXkCQeJLv3obPZvojIpRX5bc67oEADTl8OeUUuGSUnPPfhT/UK
+	4vJaXn3ML8hpKKdAoqTKyInVfWCcZRS7RLckexya8M350P4iNeQ2V6q1BDQ2bsNGzORdgfW/SILFI
+	LCQTWwFF62rOFzhsyYJVcggl8Fb7Lql8emFiCDnVLn8meclVBUz6gka7is8IqOVH4yajhi8pUumNy
+	XZrJkt4yrsFXrNv584kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPBuX-00AH1h-2a; Tue, 07 Feb 2023 00:32:37 +0000
+	id 1pPDm6-00AVtL-HC; Tue, 07 Feb 2023 02:32:02 +0000
 Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPBuM-00AGyh-2K; Tue, 07 Feb 2023 00:32:27 +0000
+	id 1pPDm2-00AVsK-VB
+	for linux-riscv@lists.infradead.org; Tue, 07 Feb 2023 02:32:00 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 535ADB8167C;
-	Tue,  7 Feb 2023 00:32:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 991E0C433D2;
-	Tue,  7 Feb 2023 00:32:16 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 917E6B816C8
+	for <linux-riscv@lists.infradead.org>; Tue,  7 Feb 2023 02:31:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACAD6C4339E
+	for <linux-riscv@lists.infradead.org>; Tue,  7 Feb 2023 02:31:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1675729943;
-	bh=iZCN6sGc9yW2zYcxaQotSvnk+ZA53AaN/sDVv0yII50=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=r7OTSPs0ofYJfz2HfC9yS/lpbY7S0BFzpXiLK3x7Ke/Y6aWFhktLvs6Bvgj2Al5Wk
-	 B6UkcQ+D4VR40u7HKhXzSQ4KgoVE+1waBFZlM5JqHCpnVJMmvdP6KTKtVHMcYXlvDW
-	 HvMYz5Nv/QvWcqkqgdC8HtG5iSFLz+5CT0wM3dg+r8XfX8Uoay6JHXFHAsy/jvcyaE
-	 Y+YyyHfN2C/hXNPxeqGA7nAR2Ackxd1K6CCBh1BVMg4QrPnhB6To8MjHdG4AQb2uIw
-	 smNsNDMgzHTMzUtoipazT928V76wO/Qhc/hW1DhF+HtdqhyqNOakQKfsfeblr/+0mf
-	 LLy3JzbNDtsBw==
-Date: Tue, 7 Feb 2023 00:32:12 +0000
-From: Mark Brown <broonie@kernel.org>
-To: David Hildenbrand <david@redhat.com>
-Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
-	Hugh Dickins <hughd@google.com>, John Hubbard <jhubbard@nvidia.com>,
-	Jason Gunthorpe <jgg@nvidia.com>,
-	Mike Rapoport <rppt@linux.ibm.com>, Yang Shi <shy828301@gmail.com>,
-	Vlastimil Babka <vbabka@suse.cz>, Nadav Amit <namit@vmware.com>,
-	Andrea Arcangeli <aarcange@redhat.com>,
-	Peter Xu <peterx@redhat.com>, linux-mm@kvack.org, x86@kernel.org,
-	linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, openrisc@lists.librecores.org,
-	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
-	linux-um@lists.infradead.org, linux-xtensa@linux-xtensa.org,
-	Russell King <linux@armlinux.org.uk>
-Subject: Re: [PATCH mm-unstable v1 04/26] arm/mm: support
- __HAVE_ARCH_PTE_SWP_EXCLUSIVE
-Message-ID: <Y+GcDFMNHw2cdDN1@sirena.org.uk>
-References: <20230113171026.582290-1-david@redhat.com>
- <20230113171026.582290-5-david@redhat.com>
+	s=k20201202; t=1675737111;
+	bh=YNJzTPstzfVtUYzB7oLj22npuuOQ+S7JUDF7ZiXgA9I=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=rFhOdaHKeXENP6WkZQgrDA1v9V3zzeOWnL6Umu9e0FtZ8MOKYa70OLV5kzw+gKwK4
+	 lAHDrAQ+eyyslQP92e/ZFvqI0oEbMCXNdN2c1Uj1IoBQtWDd4laHtwDy4jWnxqWSnk
+	 WKnbhnxoDhvUfN1XEvBOLtajFUml0Hiq+2AtuGLo52EkThgwXOgExwE86Mvs6jToo7
+	 YasCkK8x0W2/BzNh3vfbJus5lENdAIoBSBLxde+qn7h9PAwlsQ21qZs4pJYd0o/sl+
+	 woENYyOXPJm0q8HLeNI3IgYNGIAl/sn1RndkLhPllyxIyYe0a8WS8D2YUBtli5RK3n
+	 a5RYcHbxLCpoQ==
+Received: by mail-ej1-f49.google.com with SMTP id m2so39663231ejb.8
+        for <linux-riscv@lists.infradead.org>; Mon, 06 Feb 2023 18:31:51 -0800 (PST)
+X-Gm-Message-State: AO0yUKUyDB+ox4EKP1tC0J97q3T+o4F4g5+FpZHVIWTefPd/P6DZFp3o
+	YOwX3ca3QAlKv44MIFvXgnv8iJ/YGou06wy0dsA=
+X-Google-Smtp-Source: AK7set/ugU5LEV6s3oXRzQ8fYC/n7btWtYlDIwJQZiAM5/v4sHJ4oabsYtaJIYsxGoUYOGrr6vWt2yZZt6uCQDIxByw=
+X-Received: by 2002:a17:906:3e04:b0:884:c19c:7c6 with SMTP id
+ k4-20020a1709063e0400b00884c19c07c6mr379762eji.120.1675737109913; Mon, 06 Feb
+ 2023 18:31:49 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <20230113171026.582290-5-david@redhat.com>
-X-Cookie: No guts, no glory.
+References: <20230107133549.4192639-1-guoren@kernel.org> <20230107133549.4192639-2-guoren@kernel.org>
+ <Y7xMvAJXjHaus0Bm@FVFF77S0Q05N> <CAJF2gTRzS0hBdqBUNbijvKKx3Kf_mY55XSkUyPJsfOK8p15_Mw@mail.gmail.com>
+ <Y7/3hoFjS49yy52W@FVFF77S0Q05N> <CAJF2gTQXRt-mmuA=kKKdQojgLG-eQm6PqTuwf0ccw4cdYdbYfQ@mail.gmail.com>
+ <Y9enOQUDsMbY1Y/f@FVFF77S0Q05N>
+In-Reply-To: <Y9enOQUDsMbY1Y/f@FVFF77S0Q05N>
+From: Guo Ren <guoren@kernel.org>
+Date: Tue, 7 Feb 2023 10:31:38 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTRpVHygPuxTAyJaYWRaA5kQdULMKp2HnGscTSeh88R1CQ@mail.gmail.com>
+Message-ID: <CAJF2gTRpVHygPuxTAyJaYWRaA5kQdULMKp2HnGscTSeh88R1CQ@mail.gmail.com>
+Subject: Re: [PATCH -next V6 1/7] riscv: ftrace: Fixup panic by disabling preemption
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: anup@brainfault.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
+	conor.dooley@microchip.com, heiko@sntech.de, rostedt@goodmis.org, 
+	mhiramat@kernel.org, jolsa@redhat.com, bp@suse.de, jpoimboe@kernel.org, 
+	suagrfillet@gmail.com, andy.chiu@sifive.com, e.shatokhin@yadro.com, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230206_163226_407518_2AD81392 
-X-CRM114-Status: GOOD (  19.33  )
+X-CRM114-CacheID: sfid-20230206_183159_345188_871ECC5A 
+X-CRM114-Status: GOOD (  30.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,130 +81,87 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5233839403609876199=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jan 30, 2023 at 7:17 PM Mark Rutland <mark.rutland@arm.com> wrote:
+>
+> On Sat, Jan 28, 2023 at 06:00:20PM +0800, Guo Ren wrote:
+> > On Thu, Jan 12, 2023 at 8:05 PM Mark Rutland <mark.rutland@arm.com> wrote:
+>
+> > > Ignoring things which require HW changes, you could consider doing something
+> > > like what I'm doing for arm64 with DYNAMIC_FTRACE_WITH_CALL_OPS:
+> > >
+> > >   https://lore.kernel.org/lkml/20230109135828.879136-1-mark.rutland@arm.com/
+> > The idea of DYNAMIC_FTRACE_WITH_CALL_OPS (Using data load/store +
+> > indirect jump instead of auipc+jalr) is similar to Andy's solution
+> > (See youtube link, last page of ppt).
+>
+> Sure; I was present in that room and I spoke with Andy at the time.
+>
+> The solutions are similar, but the important detail with
+> DYNAMIC_FTRACE_WITH_CALL_OPS is that the load and indirect branch is moved into
+> a common trampoline so that each call-site can be smaller. The ops pointer is
+> placed *before* the function entry point and doesn't need to be skipped with a
+> direct branch (which Andy's approach could also do if he aligned functions
+> similarly).
+>
+> > But the key problem is you also expand the size of the prologue of the
+> > function. 64BIT is already expensive, and we can't afford more of it. I would
+> > change to seek a new atomic auipc+jalr ISA extension to solve this problem.
+>
+> Sure, and that's nice for *new* hardware, but I'm talking about a solution
+> which works on *current* hardware.
+>
+> > DYNAMIC_FTRACE_WITH_CALL_OPS  would speed up ftrace_(regs)_caller (Mostly for
+> > kernel debug), but it won't help DYNAMIC_FTRACE_WITH_DIRECT_CALLS. So I do
+> > not so care about the ftrace_(regs)_caller performance gain.
+>
+> Actually, the plan is that it *will* help DYNAMIC_FTRACE_WITH_DIRECT_CALLS; we
+> just didn't make all the necessary changes in one go.
+>
+> Florent Revest is looking at implementing that by placing the direct call
+> pointer into the ops, so the common trampoline can load that directly.
+>
+> He has an older draft available at:
+>
+>   https://github.com/FlorentRevest/linux/commits/indirect-direct-calls-3
+Thx for sharing :)
 
---===============5233839403609876199==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="NWKvUnutYufNxY+M"
-Content-Disposition: inline
+>
+> ... and since then, having spoken to Steven, we came up with a plan to make all
+> direct calls require an ops (which is the case for DIRECT_CALLS_MULTI), and
+> place a trampoline pointer in the ops.
+>
+> That way, the common trampoline can do something like (in arm64 asm):
+>
+> |       LDR     <tmp>, [<ops>, #OPS_TRAMP_PTR]
+> |       CBNZ    <tmp>, __call_tramp_directly
+> |
+> |       // ... regular regs trampoline logic here
+> |
+> | __call_tramp_directly:
+> |
+> |       // ... shuffle registers here
+> |
+> |       BR      <tmp>
+>
+> ... and I believe the same should work for riscv.
+I agree; I would try next.
 
-
---NWKvUnutYufNxY+M
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Jan 13, 2023 at 06:10:04PM +0100, David Hildenbrand wrote:
-> Let's support __HAVE_ARCH_PTE_SWP_EXCLUSIVE by stealing one bit from the
-> offset. This reduces the maximum swap space per file to 64 GiB (was 128
-> GiB).
->=20
-> While at it drop the PTE_TYPE_FAULT from __swp_entry_to_pte() which is
-> defined to be 0 and is rather confusing because we should be dealing
-> with "Linux PTEs" not "hardware PTEs". Also, properly mask the type in
-> __swp_entry().
-
-Today's -next (and at least back to Friday, older logs are unclear - I
-only noticed -next issues today) fails to NFS boot on an AT91SAM9G20-EK
-(an old ARMv5 platform) with multi_v5_defconfig, a bisect appears to
-point to this patch (20aae9eff5acd8f5 in today's -next) as the culprit.
-
-The failure happens at some point after starting userspace, the kernel
-starts spamming the console with messages in the form:
-
-    get_swap_device: Bad swap file entry 10120d20
-
-repeating the same entry number, though different numbers per boot.  The
-system is booting a Debian userspace and shouldn't have swap configured
-(I verfified that successful boots don't), though it only has 64M of RAM
-so there will be some memory pressure, especially during boot.  The
-exact point things fall over seems to vary a little.
-
-A sample failing job with the full log is here:
-
-    https://lava.sirena.org.uk/scheduler/job/262719
-
-Full bisect log:
-
-git bisect start
-# bad: [129af770823407ee115a56c69a04b440fd2fbe61] Add linux-next specific f=
-iles for 20230206
-git bisect bad 129af770823407ee115a56c69a04b440fd2fbe61
-# good: [4ec5183ec48656cec489c49f989c508b68b518e3] Linux 6.2-rc7
-git bisect good 53b3c6467004c627f42d96ef839b223a749bcdd9
-# good: [17b9d0b05d4fa79afb7bd00edb1b97397418a57a] Merge branch 'master' of=
- git://git.kernel.org/pub/scm/linux/kernel/git/herbert/cryptodev-2.6.git
-git bisect good 17b9d0b05d4fa79afb7bd00edb1b97397418a57a
-# good: [7044a4e1fab22f437d275b1cf85f5c925741276b] Merge branch 'for-next' =
-of git://git.kernel.org/pub/scm/linux/kernel/git/trace/linux-trace.git
-git bisect good 7044a4e1fab22f437d275b1cf85f5c925741276b
-# good: [bef6844b00f0c24543d60b79c558f353a43709f1] Merge branch 'staging-ne=
-xt' of git://git.kernel.org/pub/scm/linux/kernel/git/gregkh/staging.git
-git bisect good bef6844b00f0c24543d60b79c558f353a43709f1
-# good: [f6737c53676f9db99daee069407daf203e75bc0f] Merge branch 'for-next' =
-of git://git.kernel.org/pub/scm/linux/kernel/git/rppt/memblock.git
-git bisect good f6737c53676f9db99daee069407daf203e75bc0f
-# bad: [05cda97ecb7046f4192a921741aae33b300dd628] mm: factor out a swap_wri=
-tepage_bdev helper
-git bisect bad 05cda97ecb7046f4192a921741aae33b300dd628
-# good: [ee0800c2f6a9e605947ce499d79fb7e2be16d6dd] mm: convert page_add_ano=
-n_rmap() to use a folio internally
-git bisect good ee0800c2f6a9e605947ce499d79fb7e2be16d6dd
-# bad: [590a2b5f0a9b740e415e0d52bd8a0f87fc15b87b] ceph: convert ceph_writep=
-ages_start() to use filemap_get_folios_tag()
-git bisect bad 590a2b5f0a9b740e415e0d52bd8a0f87fc15b87b
-# good: [92644f583d5124b60bc20a3dd21b0bc9142f020c] mm/khugepaged: introduce=
- release_pte_folio() to replace release_pte_page()
-git bisect good 92644f583d5124b60bc20a3dd21b0bc9142f020c
-# bad: [cca10df1029373cda5904887544ca6fcbbd2bac7] sh/mm: support __HAVE_ARC=
-H_PTE_SWP_EXCLUSIVE
-git bisect bad cca10df1029373cda5904887544ca6fcbbd2bac7
-# bad: [ad464ff2c0f91fcacc24167fc435aa45fe0b7d1b] m68k/mm: remove dummy __s=
-wp definitions for nommu
-git bisect bad ad464ff2c0f91fcacc24167fc435aa45fe0b7d1b
-# bad: [20aae9eff5acd8f50f72adca1176f9269a46b827] arm/mm: support __HAVE_AR=
-CH_PTE_SWP_EXCLUSIVE
-git bisect bad 20aae9eff5acd8f50f72adca1176f9269a46b827
-# good: [2321ba3e3733f513e46e29b9c70512ecddbf1085] mm/debug_vm_pgtable: mor=
-e pte_swp_exclusive() sanity checks
-git bisect good 2321ba3e3733f513e46e29b9c70512ecddbf1085
-# good: [4a446b3dd335d0bd14a5ca3e563688de3637be0c] arc/mm: support __HAVE_A=
-RCH_PTE_SWP_EXCLUSIVE
-git bisect good 4a446b3dd335d0bd14a5ca3e563688de3637be0c
-# first bad commit: [20aae9eff5acd8f50f72adca1176f9269a46b827] arm/mm: supp=
-ort __HAVE_ARCH_PTE_SWP_EXCLUSIVE
-
---NWKvUnutYufNxY+M
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmPhnAwACgkQJNaLcl1U
-h9D7vgf/U3zBEYllgLPQkDLvGQVNlA4YlBJWjoZUOxdqvOZpwxsxFZ/aia+43O0B
-TMZThl9G4WF69YEjqEYV7m4FyfodFzxRw67Z/BCVTINhlSPp8SakUVz0PyMB6IzP
-CpyMhm1L4Qk4wu+FOVPxQ2pEdWlYa2RWWD3TUQUIw/kTwiBILlQAQocSsrKSHSya
-QoivSxIlvDbX1b3D2XPYaTnnQfHnGrcTXKHxR+r01jHeLvwrQ/Q8wEVSsB/lgItx
-bcLc4KvDG0yCWfPa30KHM30ccbZvLmWVw7D7WqT0ASjc2Rkvgi1G7q3QpOOZPWC+
-QjoJLvNMLQb/bbvVbDMElcjLaSuyQw==
-=EHrm
------END PGP SIGNATURE-----
-
---NWKvUnutYufNxY+M--
+>
+> Thanks,
+> Mark.
 
 
---===============5233839403609876199==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+
+-- 
+Best Regards
+ Guo Ren
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5233839403609876199==--
-
