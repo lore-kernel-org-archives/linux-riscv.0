@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F003C636D3
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Feb 2023 20:40:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ED3EC636D3
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Feb 2023 20:58:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c2E4RbBugk+6x1p9jwK9omM5yC5q9Q4eC8wh8lov1NU=; b=s+MXXDvKprzchzB/fA6w8GEj77
-	Tb/T4/RAOiKCVdBQ23FqhVqa/PvHss0x962ljoXP38FhqoANLFx+7b3S7a+j50YSimbjJNGVS5mvb
-	UCkTXeJrJsDbH+F+J7BE4roMn5XNnrzRzp6X9EZJqLyhm8yEdZWGZIyJCGXKoXmAa6JBGv2X0trBg
-	ms/khuB1VL9VzNbf+t5cxXQKpu06FEG1QQ35LWg/vh7imEMxtrjjqIRBR2YEzXwk+6n7NyvBnMczF
-	eocQZjUJ4Q2u3Pg+9EMtFkS7+jOoZ1ZYuE7ZWnOmx4v9TY9UVzkaDhRaHzNb1W+72Bi4sNd2hILKZ
-	k5qWJNgA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=YN7kGP3jQcm46xJoV3/v5tqWNRDTbpmtzuL8JC69GKU=; b=laKktX9eMluVuW
+	7eMKYILK5S6LvdgFj3w+zomzMXDpKl4ihJLaoSSBXkBZaknNyLKN03yo6g2oBU2ucpdYBD8CvbTaA
+	IKDyOOdEgeEqQa4kAfLKso6tEBJGKhHLIH5CGitBwu5PRRmewFqfX2+OhUPA80Z+Rq3NlULzqocG4
+	CNqdFkJsqEpVmwx8b3sfXfGcP6qRG3XOA1b4tv1VAFH5cjxoieRvbwd0m0OElUs6tUvUOLzAeBIG1
+	gs/L7IWICPNl/VmY9n01Tm6su6bDvUI5PS7I8Yd4UnEenaQS0kbFgmF449SUOb2OAF9aMQKo0y0M3
+	Hfp9RInBLPx3XRx6Tnew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPUl7-00DLuo-V4; Tue, 07 Feb 2023 20:40:09 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pPV2T-00DOc2-EN; Tue, 07 Feb 2023 20:58:05 +0000
+Received: from mail-oa1-f54.google.com ([209.85.160.54])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPUkw-00DLrD-Am; Tue, 07 Feb 2023 20:40:00 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 092F461181;
-	Tue,  7 Feb 2023 20:39:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC9A6C433EF;
-	Tue,  7 Feb 2023 20:39:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1675802396;
-	bh=w+rrQhOyjX+xSn+lkCQA/ZfXpy18C9NT1orJsYu8WrQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jh1hM7/xhNsp/euzJURNrI+OgX9NYfI06u2yZss0I6KDbq+5mrqpNKv8MsLvkwADB
-	 lQVMSiYfmlhEGfJ8RT7Wyx1XMNSSU3n1K3AA0HyOQ/e2OrqIZTTuBA6xNg2Iy+tF+p
-	 8YA7hGhyU2ppwZAdeqqXhoKcCS4xLok2D12P55uEl+xu/KT5UiW880XEbUwHpOQgG7
-	 rFApPUaz18FwXMUy1KfE7zc4IygGCc3fjLTJVvn3M7OlqpfY8jiVToMNaa7ldr6YsP
-	 kW6BoUPcRZb7OoxuxQGq/t6TsGqZ5s0MfMGNZVDKOqKHUv8+qM3erYHWl0G4oaO9FJ
-	 YSP3OLGluXDHg==
-Date: Tue, 7 Feb 2023 20:39:51 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Atish Patra <atishp@atishpatra.org>
-Cc: Stephano Cetola <stephano@riscv.org>, Jeff Scheel <jeff@riscv.org>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, pbonzini@redhat.com,
-	Paul Walmsley <paul.walmsley@sifive.com>, ajones@ventanamicro.com,
-	anup@brainfault.org, kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/7] RISC-V: Detect AIA CSRs from ISA string
-Message-ID: <Y+K3FyGrNUQJZao8@spud>
-References: <20230128072737.2995881-3-apatel@ventanamicro.com>
- <mhng-0f9bdf58-5289-4db4-8fd7-38898824c44f@palmer-ri-x1c9>
- <CAK9=C2X8C4yswGhDwe1OzQXTELXQxp8=ayiFxh1aVMk4TxeDjw@mail.gmail.com>
- <Y+KS16ZNXrDU+xun@spud>
- <CAOnJCUKKRRCrKN17ytczYXVLTcMkFaZsg6QXKjPUuSk=PqL6JQ@mail.gmail.com>
+	id 1pPV2Q-00DOaR-BA
+	for linux-riscv@lists.infradead.org; Tue, 07 Feb 2023 20:58:03 +0000
+Received: by mail-oa1-f54.google.com with SMTP id 586e51a60fabf-1685cf2003aso20596082fac.12
+        for <linux-riscv@lists.infradead.org>; Tue, 07 Feb 2023 12:58:01 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=yqtKI6VvbLeNL2RUrUWXNfeUaIXVwWm1vJplGrZvFTs=;
+        b=3xVyvHlGXmlGXwAyEhvN9+ZhBft4nvdQk2edeO6OmdgDn4Wmj4NGAgzNVvQEYyHidl
+         PxyQeLc164WkZFHhyZkjhuFvdYId+89Pja9h/FK3I4A0dr/CyqI7hzSc/SYBiIzYSGsj
+         TrS4reSzhO8czV+bhqsEFSV7i5cjbU8J9xVOhGH9y+A9qnsOPoH8XNAi6V3OnbgTtGbE
+         YfFcuvkWpaAq2Z713vHW0VBgkVd8vGAUly5Dy5M5kgrGz1BO2Y8cU/8osVs3p8TOEQFj
+         BLECS9q1pF0GYxfPntcZJjDDoDUik/H8jf7PBaLKuMF5Iwfo9XiR1veVJ7eus1GV4mao
+         iFNA==
+X-Gm-Message-State: AO0yUKUdaUrP1Bg63AG7gyA1HzXoD8u4jJuBbwlg3Ul1tAb0B7mR9UK2
+	PvItIX7XMzlpbLRIPQYuKQ==
+X-Google-Smtp-Source: AK7set9bFssBm+5bRaiQQaqfvXv/9qHnz1QnYd/r18TnCsF10XdNoZ3shz76XhSe7GxcLpeT/Kg5Gw==
+X-Received: by 2002:a05:6870:ec91:b0:16a:2a6d:9e40 with SMTP id eo17-20020a056870ec9100b0016a2a6d9e40mr2489358oab.29.1675803481127;
+        Tue, 07 Feb 2023 12:58:01 -0800 (PST)
+Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
+        by smtp.gmail.com with ESMTPSA id b9-20020a9d6b89000000b0068bcef4f543sm7025713otq.21.2023.02.07.12.58.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 07 Feb 2023 12:58:00 -0800 (PST)
+Received: (nullmailer pid 4142751 invoked by uid 1000);
+	Tue, 07 Feb 2023 20:58:00 -0000
+Date: Tue, 7 Feb 2023 14:58:00 -0600
+From: Rob Herring <robh@kernel.org>
+To: Walker Chen <walker.chen@starfivetech.com>
+Cc: linux-riscv@lists.infradead.org, dmaengine@vger.kernel.org, devicetree@vger.kernel.org, Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, Vinod Koul <vkoul@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Emil Renner Berthing <kernel@esmil.dk>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 1/3] dt-bindings: dma: snps,dw-axi-dmac: Update resets
+ and add snps,num-hs-if
+Message-ID: <20230207205800.GA4140140-robh@kernel.org>
+References: <20230206113811.23133-1-walker.chen@starfivetech.com>
+ <20230206113811.23133-2-walker.chen@starfivetech.com>
 MIME-Version: 1.0
-In-Reply-To: <CAOnJCUKKRRCrKN17ytczYXVLTcMkFaZsg6QXKjPUuSk=PqL6JQ@mail.gmail.com>
+Content-Disposition: inline
+In-Reply-To: <20230206113811.23133-2-walker.chen@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230207_123959_046425_941E7419 
-X-CRM114-Status: GOOD (  38.98  )
+X-CRM114-CacheID: sfid-20230207_125802_407999_7D57D2DD 
+X-CRM114-Status: GOOD (  20.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,136 +76,87 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============9045515870965239635=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Mon, Feb 06, 2023 at 07:38:09PM +0800, Walker Chen wrote:
+> Add two reset items and properties 'snps,num-hs-if'.
+> The DMA controller needs to be reset before being used in JH7110 SoC.
+> Another difference from the original version is that the hardware
+> handshake number of DMA can be up to 56 while the number in original
+> version is less than 16, and different registers are selected according
+> to this.
+> 
+> Signed-off-by: Walker Chen <walker.chen@starfivetech.com>
+> ---
+>  .../bindings/dma/snps,dw-axi-dmac.yaml          | 17 ++++++++++++++++-
+>  1 file changed, 16 insertions(+), 1 deletion(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml b/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
+> index 67aa7bb6d36a..1a8d8c20e254 100644
+> --- a/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
+> +++ b/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
+> @@ -9,6 +9,7 @@ title: Synopsys DesignWare AXI DMA Controller
+>  maintainers:
+>    - Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>
+>    - Jee Heng Sia <jee.heng.sia@intel.com>
+> +  - Walker Chen <walker.chen@starfivetech.com>
+>  
+>  description:
+>    Synopsys DesignWare AXI DMA Controller DT Binding
+> @@ -21,6 +22,7 @@ properties:
+>      enum:
+>        - snps,axi-dma-1.01a
+>        - intel,kmb-axi-dma
+> +      - starfive,axi-dma
 
---===============9045515870965239635==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="zu6F9f3ZsZxSjFKz"
-Content-Disposition: inline
+This should be SoC specific.
 
+>  
+>    reg:
+>      minItems: 1
+> @@ -59,7 +61,12 @@ properties:
+>      maximum: 8
+>  
+>    resets:
+> -    maxItems: 1
+> +    maxItems: 2
+> +
+> +  reset-names:
+> +    items:
+> +      - const: axi-rst
+> +      - const: ahb-rst
 
---zu6F9f3ZsZxSjFKz
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+'-rst' is redundant.
 
-On Tue, Feb 07, 2023 at 10:15:22AM -0800, Atish Patra wrote:
-> On Tue, Feb 7, 2023 at 10:05 AM Conor Dooley <conor@kernel.org> wrote:
-> > On Fri, Feb 03, 2023 at 05:31:01PM +0530, Anup Patel wrote:
-> > > On Fri, Feb 3, 2023 at 5:54 AM Palmer Dabbelt <palmer@dabbelt.com> wr=
-ote:
-> > > >
-> > > > On Fri, 27 Jan 2023 23:27:32 PST (-0800), apatel@ventanamicro.com w=
-rote:
-> > > > > We have two extension names for AIA ISA support: Smaia (M-mode AI=
-A CSRs)
-> > > > > and Ssaia (S-mode AIA CSRs).
-> > > >
-> > > > This has pretty much the same problem that we had with the other
-> > > > AIA-related ISA string patches, where there's that ambiguity with t=
-he
-> > > > non-ratified chapters.  IIRC when this came up in GCC the rough ide=
-a was
-> > > > to try and document that we're going to interpret the standard ISA
-> > > > strings that way, but now that we're doing custom ISA extensions it
-> > > > seems saner to just define on here that removes the ambiguity.
-> > > >
-> > > > I just sent
-> > > > <https://lore.kernel.org/r/20230203001201.14770-1-palmer@rivosinc.c=
-om/>
-> > > > which documents that.
-> > >
-> > > I am not sure why you say that these are custom extensions.
-> > >
-> > > Multiple folks have clarified that both Smaia and Ssaia are frozen
-> > > ISA extensions as-per RVI process. The individual chapters which
-> > > are in the draft state have nothing to do with Smaia and Ssaia CSRs.
-> > >
-> > > Please refer:
-> > > https://github.com/riscv/riscv-aia/pull/36
-> > > https://lists.riscv.org/g/tech-aia/message/336
-> > > https://lists.riscv.org/g/tech-aia/message/337
-> >
-> > All of these links seem to discuss the draft chapters somehow being
-> > incompatible with the non-draft ones. I would very expect that that,
-> > as pointed out in several places there, that the draft chapters
-> > finalisation would not lead to meaningful (and incompatible!) changes
-> > being made to the non-draft chapters.
-> >
->=20
-> Here is the status of all RVI specs. It states that the Smaia, Ssaia
-> extensions are frozen (i.e. public review complete).
-> https://wiki.riscv.org/display/HOME/Specification+Status
->=20
-> I have added stephano/Jeff to confirm the same.
->=20
-> AFAIK, IOMMU spec is close to the public review phase and should be
-> frozen in this or next quarter.
-> IIRC, this chapter in AIA will be frozen along with IOMMU spec.
->=20
-> Anup: Please correct me if that's not correct.
->=20
-> > Maybe yourself and Palmer are looking at this from different
-> > perspectives? Looking at his patch from Friday:
-> > https://lore.kernel.org/linux-riscv/20230203001201.14770-1-palmer@rivos=
-inc.com/
-> > He specifically mentioned this aspect, as opposed to the aspect that
-> > your links refer to.
-> >
-> > Surely a duo-plic, if that ever comes to be, could be detected from
-> > compatible strings in DT or w/e - but how do you intend differentiating
-> > between an implementation of S*aia that contains the IOMMU support in
-> > Chapter 9 in a finalised form, versus an implementation that may make
-> > "different decisions" when it comes to that chapter of the spec?
->=20
-> We will most likely have an extension specific to iommu spec as well.
+>  
+>    snps,dma-masters:
+>      description: |
+> @@ -74,6 +81,14 @@ properties:
+>      $ref: /schemas/types.yaml#/definitions/uint32
+>      enum: [0, 1, 2, 3, 4, 5, 6]
+>  
+> +  snps,num-hs-if:
+> +    description: |
+> +      The number of hardware handshake. If it is more than 16,
+> +      CHx_CFG2 is used to configure the DMA transfer instead of CHx_CFG.
 
-Right, but unless I am misunderstanding you, that is an extension for the
-IOMMU spec, not for Chapter 9 of the AIA spec?
+Can't you infer this from the compatible string?
 
-I would say that it is likely that if you have AIA and IOMMU that you'd
-want to be implementing Chapter 9, but that would not appear sufficient to
-draw a conclusion from.
-
-Maybe the RVI lads that you've added (or Anup for that matter!) can
-clarify if there is a requirement that if you do AIA and IOMMU that you
-must do Chapter 9.
-If not, my prior question about a differentiation mechanism still applies
-I think!
-
-> > I thought that would be handled by extension versions, but I am told
-> > that those are not a thing any more.
-> > If that's not true, and there'll be a version number that we can pull in
-> > from a DT and parse which will distinguish between the two, then please
-> > correct my misunderstanding here!
-
---zu6F9f3ZsZxSjFKz
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY+K3FwAKCRB4tDGHoIJi
-0nRUAQCzGk/oJbWN9mf9OIFLN+uyotpOGeyxY90lVVK4R5DBpgD/SR9y2qhD9PD/
-NukTfTz4ynWyNGYdGD5ZL6W7V2x9DAg=
-=ZDei
------END PGP SIGNATURE-----
-
---zu6F9f3ZsZxSjFKz--
-
-
---===============9045515870965239635==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    minimum: 1
+> +    maximum: 256
+> +
+>    snps,priority:
+>      description: |
+>        Channel priority specifier associated with the DMA channels.
+> -- 
+> 2.17.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============9045515870965239635==--
-
