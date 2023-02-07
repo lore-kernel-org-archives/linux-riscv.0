@@ -4,83 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EFADC636D6
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Feb 2023 11:00:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C14FC636CC
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Feb 2023 11:00:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TtvdizyOgUpRm/ojlPjTHGmd+OZfeIpGlU/k4JhINBY=; b=2WUhQ4pIie/xYo
-	FToj15VQZVpPFC0v9PX41JV811R3CxcBfU2pKLDb5TyEIpem/YErXB3iS/e9w698WSOzE+SpNW5Js
-	FOVGF22+InLD50tC4wee3aw31lhYLPjAYz0PH0SX+yBLwcdtg9XwcytRpUh5uqbex3dj5UpPp+y0i
-	YUeZ0xeWEc8Q+/0s3ZBjkk+Quj75SYWICfqxf6L7gM4so/SeRs2MHJq/1AlZbgefy+r4B3qtOYS1f
-	Si24lasHE5vrR3Bae9IhA/LfculWj0z8W9s2mKpO1PhqsDZ2Ef5U/bCmFJZ9syfCKDUnH+UEY5h2y
-	w8E0Dc50M74ic0XKF7zw==;
+	List-Owner; bh=fZX3MsT5SNchcfx5INoK39BxdgdTzgj0tsd+jOcango=; b=bbWmton7ZraLU+
+	nTl1Hdg6NnWBTkkRJDgqvcl9fsn8ISi6bUlsKmVb0zuyVy5qVk5D39rg1emLxahj3bZQIzkXRV/z+
+	/zGkHYewa3kY9ES41fhyeGcEHkD1JoUXrIGZtyyZ48WPnxUd60dU1vD+zLKp9aIEeDepSfE1rcAgU
+	a1cHYVnAe8vxbyVVUs9BTtrdBN66Kur0oprvXMGXVfcu7a5+lz1Bg4Vmcw/6kL/qE1FxKSLPFgyXe
+	wkNptQD8dGZFrXQoIHfiyCOo1IC5TBS/3ATOxLtAHXObeJNujiTfBemRzaARZIcXF/CoUvQS6Nm5b
+	P9PxgCscw9mfUzHRWgtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPLiB-00BqXX-Sk; Tue, 07 Feb 2023 11:00:31 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1pPLiD-00BqY9-AS; Tue, 07 Feb 2023 11:00:33 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPKiG-00BbLO-7e
+	id 1pPKiH-00BbLr-0o
 	for linux-riscv@lists.infradead.org; Tue, 07 Feb 2023 09:56:36 +0000
-Received: by mail-pl1-x636.google.com with SMTP id i2so1697301ple.13
-        for <linux-riscv@lists.infradead.org>; Tue, 07 Feb 2023 01:56:31 -0800 (PST)
+Received: by mail-pj1-x102b.google.com with SMTP id d2so10760645pjd.5
+        for <linux-riscv@lists.infradead.org>; Tue, 07 Feb 2023 01:56:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=U3Hr20eyCmr1XHvNCY+x9mO1pacGqN3TdQd+bzW/k8M=;
-        b=4HEe0hzldZYwed5Z8Cp2++a5PJtmn28f8PTxEBZtcLZlF8EZm170x+BYoMl26u3x5T
-         TRKm4iw2gy0MRLw6KZq/QzFP+V9r0l3hY4NGP5/PiII1Ol1HyHOOqjSWKLRHGo8ywXFb
-         FvjnfuaC/OjtogkNOItzaP6cyDqZG/+6ugri5f74tfAJ/jfTwl4FEbfz4rCTwAv3uwDU
-         lvTK/D9mtthTxn+aicm5Xw4+b3rtrifXhYBMCGHpEgMbxzSCTP7nM4Pq9N7GxMgiLOyC
-         53mUzm4iUP5qMNNC8rqchdmoVr6Ligi6Fa3/nC6Cq6Igfk11s1aHMv32+2c9BBhyBNt/
-         Kcow==
+        bh=7bBrWzpq7M02ECVIO9gyLMkgsYGf96qlJ2xLFArrFiw=;
+        b=RZdqDs25xResS/KYEDi/LtQFjek0M+Plb/4s7ffMGS3hx5ZzV4nC3lSe6hphmBNMYc
+         ohPhw0Hffp1TF8CvnrZbYI/IGviC7OKfGm1gGf85RcIKMMXUZbZheC3Prsz1oF4E0ZH5
+         hzKTtIm4AXANG8W8gUKbQjrizR36Dv81M5mOPqk36sqOn5CjoP+bGmdiMwB5ZL0MwJXa
+         J8JFKBnNKaZhAVAuWAVBKa+RkPkutzJL5LSsjz5MBsRfYEpnV6mIhFhV2/WDSAND/Cwl
+         xtwXLkLb5JFo34JL15qk7gNKbbTQh9mJZi0xNfBZMYhE8ZTrDtCYQ9ltix3keZw8CjJs
+         oSMw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=U3Hr20eyCmr1XHvNCY+x9mO1pacGqN3TdQd+bzW/k8M=;
-        b=fGBu0xXn7PhbY3w90CNrE8g/BFNyzj+d4aErra1I/99JzYqqBwH1k3wELr8spjb38O
-         wy9sqgbK0hhWZCJB1yeFnDtnj03jcg9Uoe0mroEFYRUa0UZBuu50iL/InWVBycs7tXLF
-         h2FbxFAPNgg+MAdzS7hprvBQl6rFikyetEMf9eyyvT3ZYBpCVEP1XmU0TXhctZ9BEmoK
-         TWlFjzQzq8WkDvbmLlFy3iyyOmTbOwbZwqsyDZbdeAnYMv56LK8gsn9/a9zrfMFR4eSJ
-         5iozRjnCjJwNtJ2uOp8gJyreBSY6X5iid8yNRGMaoxRJ5eclCH8jYm6Ot2gzthaPHkbe
-         hFWQ==
-X-Gm-Message-State: AO0yUKX4+hqD1N+fbFbP9vDi82IZQqYxwhNuM9695YiY9D1gmzQwT8aN
-	E2rAwHgpJNjg6beGfPEFIAVgVA==
-X-Google-Smtp-Source: AK7set8QQLOwrqLTTA0LlDm/5ideQ9RT0pkFR/RF033vPbcn2NcFmH2jpV7biDMrXUHPtAQvFVZnzw==
-X-Received: by 2002:a17:903:2444:b0:189:5ef4:6ae9 with SMTP id l4-20020a170903244400b001895ef46ae9mr2840251pls.45.1675763790800;
-        Tue, 07 Feb 2023 01:56:30 -0800 (PST)
+        bh=7bBrWzpq7M02ECVIO9gyLMkgsYGf96qlJ2xLFArrFiw=;
+        b=2c3APnjQZ/w+4yZbwiEGpCrEKPGOdvCqbBVW7W9wBe+TP6HBwhk2mA5rmietX0O02Y
+         88zoRIryamUK6+BYF7mneXcurtMP3Qf4CSi5GKbwp82SWfje+kcP7LqJB9rDMk93B+M/
+         9DyCmKAF2FMMuuna8e/zlcMNn/p7/S22XWF9ZAg4mgKHusMwOxZmhC/Xx28ePCxgvaEi
+         vh88GFhZSbHuHD2C/J0ScyfF20GdTn8eab88tgD/43n3eayVxrZxrk5giyCI6Rg03rQY
+         pd3v+ZUZYBET9S+XedLgRYmMYhJzzDlU4QodbqvGtGz0d7+tT2dLhaJzQ4zfd5LNCUOq
+         3LHQ==
+X-Gm-Message-State: AO0yUKV0XS//Qcy9UddGXborwbXrJB9djWeJkSfpx8s+lmdE8V81ci/S
+	ZVBs4v/rgAzlWTeDoiqE0fvDRg==
+X-Google-Smtp-Source: AK7set+yWUejKGqKbCenoyjAhUDv3HTfD5iunwTnaUqSClL1mPUrIF1mJqLBV0a3M9F3PPfyImKdPg==
+X-Received: by 2002:a17:902:e88d:b0:196:433e:2384 with SMTP id w13-20020a170902e88d00b00196433e2384mr2470244plg.57.1675763791523;
+        Tue, 07 Feb 2023 01:56:31 -0800 (PST)
 Received: from atishp.ba.rivosinc.com ([66.220.2.162])
         by smtp.gmail.com with ESMTPSA id w8-20020a1709027b8800b0019602b2c00csm4030598pll.175.2023.02.07.01.56.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 07 Feb 2023 01:56:30 -0800 (PST)
+        Tue, 07 Feb 2023 01:56:31 -0800 (PST)
 From: Atish Patra <atishp@rivosinc.com>
 To: linux-kernel@vger.kernel.org
 Cc: Atish Patra <atishp@rivosinc.com>,
-	Anup Patel <anup@brainfault.org>,
 	Andrew Jones <ajones@ventanamicro.com>,
+	Anup Patel <anup@brainfault.org>,
 	Atish Patra <atishp@atishpatra.org>,
 	kvm-riscv@lists.infradead.org,
 	kvm@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>
-Subject: [PATCH v6 3/8] RISC-V: KVM: Make PMU functionality depend on Sscofpmf
-Date: Tue,  7 Feb 2023 01:55:24 -0800
-Message-Id: <20230207095529.1787260-4-atishp@rivosinc.com>
+Subject: [PATCH v6 4/8] RISC-V: KVM: Disable all hpmcounter access for VS/VU mode
+Date: Tue,  7 Feb 2023 01:55:25 -0800
+Message-Id: <20230207095529.1787260-5-atishp@rivosinc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20230207095529.1787260-1-atishp@rivosinc.com>
 References: <20230207095529.1787260-1-atishp@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230207_015632_278764_C182B46F 
-X-CRM114-Status: GOOD (  10.58  )
+X-CRM114-CacheID: sfid-20230207_015633_117957_C008FB7A 
+X-CRM114-Status: UNSURE (   9.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,36 +98,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The privilege mode filtering feature must be available in the host so
-that the host can inhibit the counters while the execution is in HS mode.
-Otherwise, the guests may have access to critical guest information.
+Any guest must not get access to any hpmcounter including cycle/instret
+without any checks. We achieve that by disabling all the bits except TM
+bit in hcounteren.
 
-Reviewed-by: Anup Patel <anup@brainfault.org>
+However, instret and cycle access for guest user space can be enabled
+upon explicit request (via ONE REG) or on first trap from VU mode
+to maintain ABI requirement in the future. This patch doesn't support
+that as ONE REG interface is not settled yet.
+
 Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+Reviewed-by: Anup Patel <anup@brainfault.org>
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- arch/riscv/kvm/vcpu_pmu.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ arch/riscv/kvm/main.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/arch/riscv/kvm/vcpu_pmu.c b/arch/riscv/kvm/vcpu_pmu.c
-index e79721b..6c1f073 100644
---- a/arch/riscv/kvm/vcpu_pmu.c
-+++ b/arch/riscv/kvm/vcpu_pmu.c
-@@ -79,6 +79,14 @@ void kvm_riscv_vcpu_pmu_init(struct kvm_vcpu *vcpu)
- 	struct kvm_pmu *kvpmu = vcpu_to_pmu(vcpu);
- 	struct kvm_pmc *pmc;
+diff --git a/arch/riscv/kvm/main.c b/arch/riscv/kvm/main.c
+index 58c5489..c5d400f 100644
+--- a/arch/riscv/kvm/main.c
++++ b/arch/riscv/kvm/main.c
+@@ -49,7 +49,8 @@ int kvm_arch_hardware_enable(void)
+ 	hideleg |= (1UL << IRQ_VS_EXT);
+ 	csr_write(CSR_HIDELEG, hideleg);
  
-+	/*
-+	 * PMU functionality should be only available to guests if privilege mode
-+	 * filtering is available in the host. Otherwise, guest will always count
-+	 * events while the execution is in hypervisor mode.
-+	 */
-+	if (!riscv_isa_extension_available(NULL, SSCOFPMF))
-+		return;
-+
- 	ret = riscv_pmu_get_hpm_info(&hpm_width, &num_hw_ctrs);
- 	if (ret < 0 || !hpm_width || !num_hw_ctrs)
- 		return;
+-	csr_write(CSR_HCOUNTEREN, -1UL);
++	/* VS should access only the time counter directly. Everything else should trap */
++	csr_write(CSR_HCOUNTEREN, 0x02);
+ 
+ 	csr_write(CSR_HVIP, 0);
+ 
 -- 
 2.25.1
 
