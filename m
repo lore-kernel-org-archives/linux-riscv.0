@@ -4,72 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 407C5C61DA4
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Feb 2023 02:32:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35E13C61DA4
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Feb 2023 02:45:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ek2g4Zw3rF59HIm63ZERUAQs4RTGlgJ83h+kXFi20HY=; b=ZuVPFbRI1ARKdc
-	NJHtaoW0IY5nkkpVOOoDhIvcnG+oE97/cu6Z3F/4/9UK8VcgPbaaIyVkkmLSsKjXopSd6InCxhkvI
-	EeZi8JIrtBUau4k2cia5QLIlk+UHXkCQeJLv3obPZvojIpRX5bc67oEADTl8OeUUuGSUnPPfhT/UK
-	4vJaXn3ML8hpKKdAoqTKyInVfWCcZRS7RLckexya8M350P4iNeQ2V6q1BDQ2bsNGzORdgfW/SILFI
-	LCQTWwFF62rOFzhsyYJVcggl8Fb7Lql8emFiCDnVLn8meclVBUz6gka7is8IqOVH4yajhi8pUumNy
-	XZrJkt4yrsFXrNv584kg==;
+	List-Owner; bh=L0Cr70AZZXD6dT+DXfc63RxJtHeYMqunNUHkBqsyxJ8=; b=0+AEccrDz2ExD7
+	5vn7E7ESravDQ3tq5zyYgAU3oUdzbJHmrFczJDxgAUvRyXZ/+bOOGzlTlqtDFihLoC9TlncYjeQH8
+	0mS4HxQ2qBPqGblOz0OG6LPhFtIHLOOk78HDEPdv58Kaje1Dr1yl45c9BbyyCgRYqV/Qu1drsUZVf
+	CX7kor+5ZoeitOunnYXc5x0sKQApuZEuarebRwRmzNPkHQeicZdgcz+WOkGIPODg2XSjeU+BCyHhZ
+	nmRDHNCkCwKElxuvPom7kG6dqwn4m7L4gFC7IB0d4xaaF33/5TCnGRS+ZeH13oAV3oVWCk5to8/O3
+	5cIIa/3/iV3GwTvgp8kA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPDm6-00AVtL-HC; Tue, 07 Feb 2023 02:32:02 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPDm2-00AVsK-VB
-	for linux-riscv@lists.infradead.org; Tue, 07 Feb 2023 02:32:00 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 917E6B816C8
-	for <linux-riscv@lists.infradead.org>; Tue,  7 Feb 2023 02:31:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACAD6C4339E
-	for <linux-riscv@lists.infradead.org>; Tue,  7 Feb 2023 02:31:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1675737111;
-	bh=YNJzTPstzfVtUYzB7oLj22npuuOQ+S7JUDF7ZiXgA9I=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=rFhOdaHKeXENP6WkZQgrDA1v9V3zzeOWnL6Umu9e0FtZ8MOKYa70OLV5kzw+gKwK4
-	 lAHDrAQ+eyyslQP92e/ZFvqI0oEbMCXNdN2c1Uj1IoBQtWDd4laHtwDy4jWnxqWSnk
-	 WKnbhnxoDhvUfN1XEvBOLtajFUml0Hiq+2AtuGLo52EkThgwXOgExwE86Mvs6jToo7
-	 YasCkK8x0W2/BzNh3vfbJus5lENdAIoBSBLxde+qn7h9PAwlsQ21qZs4pJYd0o/sl+
-	 woENYyOXPJm0q8HLeNI3IgYNGIAl/sn1RndkLhPllyxIyYe0a8WS8D2YUBtli5RK3n
-	 a5RYcHbxLCpoQ==
-Received: by mail-ej1-f49.google.com with SMTP id m2so39663231ejb.8
-        for <linux-riscv@lists.infradead.org>; Mon, 06 Feb 2023 18:31:51 -0800 (PST)
-X-Gm-Message-State: AO0yUKUyDB+ox4EKP1tC0J97q3T+o4F4g5+FpZHVIWTefPd/P6DZFp3o
-	YOwX3ca3QAlKv44MIFvXgnv8iJ/YGou06wy0dsA=
-X-Google-Smtp-Source: AK7set/ugU5LEV6s3oXRzQ8fYC/n7btWtYlDIwJQZiAM5/v4sHJ4oabsYtaJIYsxGoUYOGrr6vWt2yZZt6uCQDIxByw=
-X-Received: by 2002:a17:906:3e04:b0:884:c19c:7c6 with SMTP id
- k4-20020a1709063e0400b00884c19c07c6mr379762eji.120.1675737109913; Mon, 06 Feb
- 2023 18:31:49 -0800 (PST)
+	id 1pPDyi-00AZYB-Cq; Tue, 07 Feb 2023 02:45:04 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pPDyd-00AZSb-0l
+	for linux-riscv@lists.infradead.org; Tue, 07 Feb 2023 02:45:01 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 58D0624E1FC;
+	Tue,  7 Feb 2023 10:43:58 +0800 (CST)
+Received: from EXMBX073.cuchost.com (172.16.6.83) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 7 Feb
+ 2023 10:43:58 +0800
+Received: from [192.168.120.49] (171.223.208.138) by EXMBX073.cuchost.com
+ (172.16.6.83) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 7 Feb
+ 2023 10:43:57 +0800
+Message-ID: <c9ab22b5-3ffb-d034-b8b8-b056b82a96ce@starfivetech.com>
+Date: Tue, 7 Feb 2023 10:43:55 +0800
 MIME-Version: 1.0
-References: <20230107133549.4192639-1-guoren@kernel.org> <20230107133549.4192639-2-guoren@kernel.org>
- <Y7xMvAJXjHaus0Bm@FVFF77S0Q05N> <CAJF2gTRzS0hBdqBUNbijvKKx3Kf_mY55XSkUyPJsfOK8p15_Mw@mail.gmail.com>
- <Y7/3hoFjS49yy52W@FVFF77S0Q05N> <CAJF2gTQXRt-mmuA=kKKdQojgLG-eQm6PqTuwf0ccw4cdYdbYfQ@mail.gmail.com>
- <Y9enOQUDsMbY1Y/f@FVFF77S0Q05N>
-In-Reply-To: <Y9enOQUDsMbY1Y/f@FVFF77S0Q05N>
-From: Guo Ren <guoren@kernel.org>
-Date: Tue, 7 Feb 2023 10:31:38 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRpVHygPuxTAyJaYWRaA5kQdULMKp2HnGscTSeh88R1CQ@mail.gmail.com>
-Message-ID: <CAJF2gTRpVHygPuxTAyJaYWRaA5kQdULMKp2HnGscTSeh88R1CQ@mail.gmail.com>
-Subject: Re: [PATCH -next V6 1/7] riscv: ftrace: Fixup panic by disabling preemption
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: anup@brainfault.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
-	conor.dooley@microchip.com, heiko@sntech.de, rostedt@goodmis.org, 
-	mhiramat@kernel.org, jolsa@redhat.com, bp@suse.de, jpoimboe@kernel.org, 
-	suagrfillet@gmail.com, andy.chiu@sifive.com, e.shatokhin@yadro.com, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.6.1
+Subject: Re: [PATCH v4 2/7] dt-bindings: net: snps,dwmac: Update the maxitems
+ number of resets and reset-names
+Content-Language: en-US
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	<linux-riscv@lists.infradead.org>, <netdev@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+CC: "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+	<edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
+	Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>
+References: <20230118061701.30047-1-yanhong.wang@starfivetech.com>
+ <20230118061701.30047-3-yanhong.wang@starfivetech.com>
+ <15a87640-d8c7-d7aa-bdfb-608fa2e497cb@linaro.org>
+From: yanhong wang <yanhong.wang@starfivetech.com>
+In-Reply-To: <15a87640-d8c7-d7aa-bdfb-608fa2e497cb@linaro.org>
+X-Originating-IP: [171.223.208.138]
+X-ClientProxiedBy: EXCAS061.cuchost.com (172.16.6.21) To EXMBX073.cuchost.com
+ (172.16.6.83)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230206_183159_345188_871ECC5A 
-X-CRM114-Status: GOOD (  30.25  )
+X-CRM114-CacheID: sfid-20230206_184459_259270_7B3744E1 
+X-CRM114-Status: GOOD (  10.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,80 +81,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 30, 2023 at 7:17 PM Mark Rutland <mark.rutland@arm.com> wrote:
->
-> On Sat, Jan 28, 2023 at 06:00:20PM +0800, Guo Ren wrote:
-> > On Thu, Jan 12, 2023 at 8:05 PM Mark Rutland <mark.rutland@arm.com> wrote:
->
-> > > Ignoring things which require HW changes, you could consider doing something
-> > > like what I'm doing for arm64 with DYNAMIC_FTRACE_WITH_CALL_OPS:
-> > >
-> > >   https://lore.kernel.org/lkml/20230109135828.879136-1-mark.rutland@arm.com/
-> > The idea of DYNAMIC_FTRACE_WITH_CALL_OPS (Using data load/store +
-> > indirect jump instead of auipc+jalr) is similar to Andy's solution
-> > (See youtube link, last page of ppt).
->
-> Sure; I was present in that room and I spoke with Andy at the time.
->
-> The solutions are similar, but the important detail with
-> DYNAMIC_FTRACE_WITH_CALL_OPS is that the load and indirect branch is moved into
-> a common trampoline so that each call-site can be smaller. The ops pointer is
-> placed *before* the function entry point and doesn't need to be skipped with a
-> direct branch (which Andy's approach could also do if he aligned functions
-> similarly).
->
-> > But the key problem is you also expand the size of the prologue of the
-> > function. 64BIT is already expensive, and we can't afford more of it. I would
-> > change to seek a new atomic auipc+jalr ISA extension to solve this problem.
->
-> Sure, and that's nice for *new* hardware, but I'm talking about a solution
-> which works on *current* hardware.
->
-> > DYNAMIC_FTRACE_WITH_CALL_OPS  would speed up ftrace_(regs)_caller (Mostly for
-> > kernel debug), but it won't help DYNAMIC_FTRACE_WITH_DIRECT_CALLS. So I do
-> > not so care about the ftrace_(regs)_caller performance gain.
->
-> Actually, the plan is that it *will* help DYNAMIC_FTRACE_WITH_DIRECT_CALLS; we
-> just didn't make all the necessary changes in one go.
->
-> Florent Revest is looking at implementing that by placing the direct call
-> pointer into the ops, so the common trampoline can load that directly.
->
-> He has an older draft available at:
->
->   https://github.com/FlorentRevest/linux/commits/indirect-direct-calls-3
-Thx for sharing :)
-
->
-> ... and since then, having spoken to Steven, we came up with a plan to make all
-> direct calls require an ops (which is the case for DIRECT_CALLS_MULTI), and
-> place a trampoline pointer in the ops.
->
-> That way, the common trampoline can do something like (in arm64 asm):
->
-> |       LDR     <tmp>, [<ops>, #OPS_TRAMP_PTR]
-> |       CBNZ    <tmp>, __call_tramp_directly
-> |
-> |       // ... regular regs trampoline logic here
-> |
-> | __call_tramp_directly:
-> |
-> |       // ... shuffle registers here
-> |
-> |       BR      <tmp>
->
-> ... and I believe the same should work for riscv.
-I agree; I would try next.
-
->
-> Thanks,
-> Mark.
 
 
+On 2023/1/18 23:47, Krzysztof Kozlowski wrote:
+> On 18/01/2023 07:16, Yanhong Wang wrote:
+>> Some boards(such as StarFive VisionFive v2) require more than one value
+>> which defined by resets property, so the original definition can not
+>> meet the requirements. In order to adapt to different requirements,
+>> adjust the maxitems number definition.
+>> 
+>> Signed-off-by: Yanhong Wang <yanhong.wang@starfivetech.com>
+>> ---
+>>  Documentation/devicetree/bindings/net/snps,dwmac.yaml | 9 +++------
+>>  1 file changed, 3 insertions(+), 6 deletions(-)
+>> 
+>> diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+>> index e26c3e76ebb7..baf2c5b9e92d 100644
+>> --- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+>> +++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+>> @@ -133,12 +133,9 @@ properties:
+>>          - ptp_ref
+>>  
+>>    resets:
+>> -    maxItems: 1
+> 
+> Also, this does not make sense on its own and messes constraints for all
+> other users. So another no for entire patch.
+> 
 
--- 
-Best Regards
- Guo Ren
+Thanks. Change the properties of 'resets' and reset-names like this:
+
+  resets:
+    minItems: 1
+    maxItems: 2
+
+  reset-names:
+    minItems: 1
+    maxItems: 2
+
+Is it right?  Do you have any other better suggestions?
+
+> Best regards,
+> Krzysztof
+> 
 
 _______________________________________________
 linux-riscv mailing list
