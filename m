@@ -4,68 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D956C636D4
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Feb 2023 07:03:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49E1FC636CD
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Feb 2023 07:24:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ivcO6uqKIHUR9QXroe9feqPD6QACejRpRLX5WPgEpgY=; b=1UFwOVFPvSLp8t
-	HO4/yWRfoxhMn0nEK6DkQ75mP2NHm+tVOnlPiQeFat0wbKukH/bWJElpj+ycbePtkMcr4Ev9X+qoU
-	O+GKp6RA/1bJG9FFaxoWS/PmOC9+KmW7dCQwKMOPMZkhuBPUyKEqFk6ID3bNawZEvQ1GBSBgDkg95
-	tYN4Zrk9GSCq5Do5LVi8/R3diLLa6pZ/Jo3kpAejjwh5mXr6kS2NN5KgU0i7Lu2gp++dA//cPGOi2
-	PTl/A6T4Uz4aw8daeQuCaMxigp9XFbb0AzfAG++fLmcuMc4ddLhw8UIRh+DUGy9QV0sqgZnPNdvZC
-	mKBqBrLFs7vCJ4DJm9jQ==;
+	List-Owner; bh=XE2omoRp86QUJOOqO7kgSq64T5u4vYSHFvydV5o6Jl4=; b=ZBRQnEVIOe4GMh
+	1JSNknpfenR3i7c+H3Oj1DN+b4eOQCOc6l+8Gkdt+Nk22KbYK1bAaNul7MYTFAv9DAkv4fTprFy5s
+	KQUu8enKc21XS4jbuRnmgnaBb9V599Jqy49Dze5xU28PQh/07zE8+d/gmT2AgYD5g9Ezcoad1akMR
+	9lsVfipgtHwlmGvgDR/PoX+N7bUwlQWlXf7dwK7var8z59L+iLn6wdDmzgTBrm9V/DY5v/up9rxlf
+	S9ZXoFkq6w1zJg2G76oKfDmAC75qTAwKJLEUGyEv7KUcRpjRf/UsX9KDc0UhoaFo8YWa13EMeu+/N
+	f/EFbv3Q4Eb3fD2PFi9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPI0H-00B4Q3-Da; Tue, 07 Feb 2023 07:02:57 +0000
-Received: from mga11.intel.com ([192.55.52.93])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPI0D-00B4O7-PR
-	for linux-riscv@lists.infradead.org; Tue, 07 Feb 2023 07:02:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1675753373; x=1707289373;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=6ptH8NtvzL1DrlH7wz/ndbERaBEk8PIEAMBa7K2WDsg=;
-  b=UDQDU1pSC257+4WNmXvQVu2NYKR46d8SMAtV8RLuISacgwpWC4FSoowN
-   EjX55XhPjbIdjbC825NDTemXuONbAB2UJydL58Hbkw/lPYnufa2XEM4l5
-   4xN2EKTHL8S9tqZgnAjBwbA3YRblHbpRxz4RAajmqTdPOfZSp5Qcq3zNg
-   TURezipXx68LquXuP3q5zVe49kEdJponxmXtszI3dHc3NNjGxPAsCF4vX
-   QTWcfydcOEJewv6OU0KIyEWEIHidsPoJqFh6rwus48XRj02/nnvFGA047
-   wN+EnaC0npKTTGNH+4Z54jrm4jF8H0yi9bdOi1bb3Mb+ii6V7gXFdlvtz
-   Q==;
-X-IronPort-AV: E=McAfee;i="6500,9779,10613"; a="327111613"
-X-IronPort-AV: E=Sophos;i="5.97,278,1669104000"; 
-   d="scan'208";a="327111613"
-Received: from orsmga006.jf.intel.com ([10.7.209.51])
-  by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Feb 2023 23:02:50 -0800
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6500,9779,10613"; a="644331114"
-X-IronPort-AV: E=Sophos;i="5.97,278,1669104000"; 
-   d="scan'208";a="644331114"
-Received: from lkp-server01.sh.intel.com (HELO 4455601a8d94) ([10.239.97.150])
-  by orsmga006.jf.intel.com with ESMTP; 06 Feb 2023 23:02:44 -0800
-Received: from kbuild by 4455601a8d94 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1pPI03-0003EX-31;
-	Tue, 07 Feb 2023 07:02:43 +0000
-Date: Tue, 7 Feb 2023 15:02:29 +0800
-From: kernel test robot <lkp@intel.com>
-To: Evan Green <evan@rivosinc.com>, Palmer Dabbelt <palmer@rivosinc.com>
-Subject: Re: [PATCH v2 5/6] RISC-V: hwprobe: Support probing of misaligned
- access performance
-Message-ID: <202302071444.L48pajcK-lkp@intel.com>
-References: <20230206201455.1790329-6-evan@rivosinc.com>
+	id 1pPIKX-00B7uP-Uj; Tue, 07 Feb 2023 07:23:53 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pPIKQ-00B7nL-KZ
+	for linux-riscv@lists.infradead.org; Tue, 07 Feb 2023 07:23:50 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 8266224E344;
+	Tue,  7 Feb 2023 15:23:18 +0800 (CST)
+Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 7 Feb
+ 2023 15:23:18 +0800
+Received: from ubuntu.localdomain (183.27.96.33) by EXMBX172.cuchost.com
+ (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 7 Feb
+ 2023 15:23:17 +0800
+From: Hal Feng <hal.feng@starfivetech.com>
+To: <linux-hwmon@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-doc@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+CC: Jean Delvare <jdelvare@suse.com>, Guenter Roeck <linux@roeck-us.net>,
+	Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh+dt@kernel.org>,
+	"Krzysztof Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
+	<conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, Samin Guo <samin.guo@starfivetech.com>,
+	Hal Feng <hal.feng@starfivetech.com>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH v4 1/2] dt-bindings: hwmon: Add starfive,jh71x0-temp
+Date: Tue, 7 Feb 2023 15:23:13 +0800
+Message-ID: <20230207072314.62040-2-hal.feng@starfivetech.com>
+X-Mailer: git-send-email 2.38.1
+In-Reply-To: <20230207072314.62040-1-hal.feng@starfivetech.com>
+References: <20230207072314.62040-1-hal.feng@starfivetech.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230206201455.1790329-6-evan@rivosinc.com>
+X-Originating-IP: [183.27.96.33]
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX172.cuchost.com
+ (172.16.6.92)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230206_230253_901671_A1BC1975 
-X-CRM114-Status: GOOD (  19.84  )
+X-CRM114-CacheID: sfid-20230206_232347_052958_17D8148B 
+X-CRM114-Status: GOOD (  11.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,272 +71,108 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: heiko@sntech.de, Jisheng Zhang <jszhang@kernel.org>, linux-doc@vger.kernel.org, Andrew Bresticker <abrestic@rivosinc.com>, oe-kbuild-all@lists.linux.dev, Atish Patra <atishp@rivosinc.com>, Celeste Liu <coelacanthus@outlook.com>, slewis@rivosinc.com, linux-riscv@lists.infradead.org, Jonathan Corbet <corbet@lwn.net>, Xianting Tian <xianting.tian@linux.alibaba.com>, Tsukasa OI <research_trasio@irq.a4lg.com>, Andrew Jones <ajones@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>, vineetg@rivosinc.com, Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <apatel@ventanamicro.com>, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Evan Green <evan@rivosinc.com>, Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, Guo Ren <guoren@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Evan,
+From: Emil Renner Berthing <kernel@esmil.dk>
 
-Thank you for the patch! Yet something to improve:
+Add bindings for the temperature sensor on the StarFive JH7100 and
+JH7110 SoCs.
 
-[auto build test ERROR on shuah-kselftest/next]
-[also build test ERROR on shuah-kselftest/fixes robh/for-next soc/for-next linus/master v6.2-rc7]
-[cannot apply to next-20230207]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+Reviewed-by: Rob Herring <robh@kernel.org>
+---
+ .../bindings/hwmon/starfive,jh71x0-temp.yaml  | 75 +++++++++++++++++++
+ 1 file changed, 75 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/hwmon/starfive,jh71x0-temp.yaml
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Evan-Green/RISC-V-Move-struct-riscv_cpuinfo-to-new-header/20230207-041746
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/shuah/linux-kselftest.git next
-patch link:    https://lore.kernel.org/r/20230206201455.1790329-6-evan%40rivosinc.com
-patch subject: [PATCH v2 5/6] RISC-V: hwprobe: Support probing of misaligned access performance
-config: riscv-randconfig-s052-20230206 (https://download.01.org/0day-ci/archive/20230207/202302071444.L48pajcK-lkp@intel.com/config)
-compiler: riscv64-linux-gcc (GCC) 12.1.0
-reproduce:
-        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-        chmod +x ~/bin/make.cross
-        # apt-get install sparse
-        # sparse version: v0.6.4-39-gce1a6720-dirty
-        # https://github.com/intel-lab-lkp/linux/commit/9e77be253d64809a98f31c17abd12761dd9fad8e
-        git remote add linux-review https://github.com/intel-lab-lkp/linux
-        git fetch --no-tags linux-review Evan-Green/RISC-V-Move-struct-riscv_cpuinfo-to-new-header/20230207-041746
-        git checkout 9e77be253d64809a98f31c17abd12761dd9fad8e
-        # save the config file
-        mkdir build_dir && cp config build_dir/.config
-        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.1.0 make.cross C=1 CF='-fdiagnostic-prefix -D__CHECK_ENDIAN__' O=build_dir ARCH=riscv olddefconfig
-        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.1.0 make.cross C=1 CF='-fdiagnostic-prefix -D__CHECK_ENDIAN__' O=build_dir ARCH=riscv SHELL=/bin/bash arch/riscv/kernel/
-
-If you fix the issue, kindly add following tag where applicable
-| Reported-by: kernel test robot <lkp@intel.com>
-
-All errors (new ones prefixed by >>):
-
-   arch/riscv/kernel/cpufeature.c: In function 'riscv_fill_hwcap':
->> arch/riscv/kernel/cpufeature.c:258:23: error: implicit declaration of function 'hartid_to_cpuid_map' [-Werror=implicit-function-declaration]
-     258 |                 cpu = hartid_to_cpuid_map(hartid);
-         |                       ^~~~~~~~~~~~~~~~~~~
-   cc1: some warnings being treated as errors
-
-
-vim +/hartid_to_cpuid_map +258 arch/riscv/kernel/cpufeature.c
-
-    93	
-    94	void __init riscv_fill_hwcap(void)
-    95	{
-    96		struct device_node *node;
-    97		const char *isa, *misaligned;
-    98		char print_str[NUM_ALPHA_EXTS + 1];
-    99		int i, j, rc;
-   100		unsigned long isa2hwcap[26] = {0};
-   101		unsigned long hartid, cpu;
-   102	
-   103		isa2hwcap['i' - 'a'] = COMPAT_HWCAP_ISA_I;
-   104		isa2hwcap['m' - 'a'] = COMPAT_HWCAP_ISA_M;
-   105		isa2hwcap['a' - 'a'] = COMPAT_HWCAP_ISA_A;
-   106		isa2hwcap['f' - 'a'] = COMPAT_HWCAP_ISA_F;
-   107		isa2hwcap['d' - 'a'] = COMPAT_HWCAP_ISA_D;
-   108		isa2hwcap['c' - 'a'] = COMPAT_HWCAP_ISA_C;
-   109	
-   110		elf_hwcap = 0;
-   111	
-   112		bitmap_zero(riscv_isa, RISCV_ISA_EXT_MAX);
-   113	
-   114		for_each_of_cpu_node(node) {
-   115			unsigned long this_hwcap = 0;
-   116			DECLARE_BITMAP(this_isa, RISCV_ISA_EXT_MAX);
-   117			const char *temp;
-   118	
-   119			rc = riscv_of_processor_hartid(node, &hartid);
-   120			if (rc < 0)
-   121				continue;
-   122	
-   123			if (of_property_read_string(node, "riscv,isa", &isa)) {
-   124				pr_warn("Unable to find \"riscv,isa\" devicetree entry\n");
-   125				continue;
-   126			}
-   127	
-   128			temp = isa;
-   129	#if IS_ENABLED(CONFIG_32BIT)
-   130			if (!strncmp(isa, "rv32", 4))
-   131				isa += 4;
-   132	#elif IS_ENABLED(CONFIG_64BIT)
-   133			if (!strncmp(isa, "rv64", 4))
-   134				isa += 4;
-   135	#endif
-   136			/* The riscv,isa DT property must start with rv64 or rv32 */
-   137			if (temp == isa)
-   138				continue;
-   139			bitmap_zero(this_isa, RISCV_ISA_EXT_MAX);
-   140			for (; *isa; ++isa) {
-   141				const char *ext = isa++;
-   142				const char *ext_end = isa;
-   143				bool ext_long = false, ext_err = false;
-   144	
-   145				switch (*ext) {
-   146				case 's':
-   147					/**
-   148					 * Workaround for invalid single-letter 's' & 'u'(QEMU).
-   149					 * No need to set the bit in riscv_isa as 's' & 'u' are
-   150					 * not valid ISA extensions. It works until multi-letter
-   151					 * extension starting with "Su" appears.
-   152					 */
-   153					if (ext[-1] != '_' && ext[1] == 'u') {
-   154						++isa;
-   155						ext_err = true;
-   156						break;
-   157					}
-   158					fallthrough;
-   159				case 'x':
-   160				case 'z':
-   161					ext_long = true;
-   162					/* Multi-letter extension must be delimited */
-   163					for (; *isa && *isa != '_'; ++isa)
-   164						if (unlikely(!islower(*isa)
-   165							     && !isdigit(*isa)))
-   166							ext_err = true;
-   167					/* Parse backwards */
-   168					ext_end = isa;
-   169					if (unlikely(ext_err))
-   170						break;
-   171					if (!isdigit(ext_end[-1]))
-   172						break;
-   173					/* Skip the minor version */
-   174					while (isdigit(*--ext_end))
-   175						;
-   176					if (ext_end[0] != 'p'
-   177					    || !isdigit(ext_end[-1])) {
-   178						/* Advance it to offset the pre-decrement */
-   179						++ext_end;
-   180						break;
-   181					}
-   182					/* Skip the major version */
-   183					while (isdigit(*--ext_end))
-   184						;
-   185					++ext_end;
-   186					break;
-   187				default:
-   188					if (unlikely(!islower(*ext))) {
-   189						ext_err = true;
-   190						break;
-   191					}
-   192					/* Find next extension */
-   193					if (!isdigit(*isa))
-   194						break;
-   195					/* Skip the minor version */
-   196					while (isdigit(*++isa))
-   197						;
-   198					if (*isa != 'p')
-   199						break;
-   200					if (!isdigit(*++isa)) {
-   201						--isa;
-   202						break;
-   203					}
-   204					/* Skip the major version */
-   205					while (isdigit(*++isa))
-   206						;
-   207					break;
-   208				}
-   209				if (*isa != '_')
-   210					--isa;
-   211	
-   212	#define SET_ISA_EXT_MAP(name, bit)						\
-   213				do {							\
-   214					if ((ext_end - ext == sizeof(name) - 1) &&	\
-   215					     !memcmp(ext, name, sizeof(name) - 1) &&	\
-   216					     riscv_isa_extension_check(bit))		\
-   217						set_bit(bit, this_isa);			\
-   218				} while (false)						\
-   219	
-   220				if (unlikely(ext_err))
-   221					continue;
-   222				if (!ext_long) {
-   223					int nr = *ext - 'a';
-   224	
-   225					if (riscv_isa_extension_check(nr)) {
-   226						this_hwcap |= isa2hwcap[nr];
-   227						set_bit(nr, this_isa);
-   228					}
-   229				} else {
-   230					SET_ISA_EXT_MAP("sscofpmf", RISCV_ISA_EXT_SSCOFPMF);
-   231					SET_ISA_EXT_MAP("svpbmt", RISCV_ISA_EXT_SVPBMT);
-   232					SET_ISA_EXT_MAP("zicbom", RISCV_ISA_EXT_ZICBOM);
-   233					SET_ISA_EXT_MAP("zihintpause", RISCV_ISA_EXT_ZIHINTPAUSE);
-   234					SET_ISA_EXT_MAP("sstc", RISCV_ISA_EXT_SSTC);
-   235					SET_ISA_EXT_MAP("svinval", RISCV_ISA_EXT_SVINVAL);
-   236				}
-   237	#undef SET_ISA_EXT_MAP
-   238			}
-   239	
-   240			/*
-   241			 * All "okay" hart should have same isa. Set HWCAP based on
-   242			 * common capabilities of every "okay" hart, in case they don't
-   243			 * have.
-   244			 */
-   245			if (elf_hwcap)
-   246				elf_hwcap &= this_hwcap;
-   247			else
-   248				elf_hwcap = this_hwcap;
-   249	
-   250			if (bitmap_empty(riscv_isa, RISCV_ISA_EXT_MAX))
-   251				bitmap_copy(riscv_isa, this_isa, RISCV_ISA_EXT_MAX);
-   252			else
-   253				bitmap_and(riscv_isa, riscv_isa, this_isa, RISCV_ISA_EXT_MAX);
-   254	
-   255			/*
-   256			 * Check for the performance of misaligned accesses.
-   257			 */
- > 258			cpu = hartid_to_cpuid_map(hartid);
-   259			if (cpu < 0)
-   260				continue;
-   261	
-   262			if (!of_property_read_string(node, "riscv,misaligned-access-performance",
-   263						     &misaligned)) {
-   264				if (strcmp(misaligned, "emulated") == 0)
-   265					per_cpu(misaligned_access_speed, cpu) =
-   266						RISCV_HWPROBE_MISALIGNED_EMULATED;
-   267	
-   268				if (strcmp(misaligned, "slow") == 0)
-   269					per_cpu(misaligned_access_speed, cpu) =
-   270						RISCV_HWPROBE_MISALIGNED_SLOW;
-   271	
-   272				if (strcmp(misaligned, "fast") == 0)
-   273					per_cpu(misaligned_access_speed, cpu) =
-   274						RISCV_HWPROBE_MISALIGNED_FAST;
-   275			}
-   276		}
-   277	
-   278		/* We don't support systems with F but without D, so mask those out
-   279		 * here. */
-   280		if ((elf_hwcap & COMPAT_HWCAP_ISA_F) && !(elf_hwcap & COMPAT_HWCAP_ISA_D)) {
-   281			pr_info("This kernel does not support systems with F but not D\n");
-   282			elf_hwcap &= ~COMPAT_HWCAP_ISA_F;
-   283		}
-   284	
-   285		memset(print_str, 0, sizeof(print_str));
-   286		for (i = 0, j = 0; i < NUM_ALPHA_EXTS; i++)
-   287			if (riscv_isa[0] & BIT_MASK(i))
-   288				print_str[j++] = (char)('a' + i);
-   289		pr_info("riscv: base ISA extensions %s\n", print_str);
-   290	
-   291		memset(print_str, 0, sizeof(print_str));
-   292		for (i = 0, j = 0; i < NUM_ALPHA_EXTS; i++)
-   293			if (elf_hwcap & BIT_MASK(i))
-   294				print_str[j++] = (char)('a' + i);
-   295		pr_info("riscv: ELF capabilities %s\n", print_str);
-   296	
-   297		for_each_set_bit(i, riscv_isa, RISCV_ISA_EXT_MAX) {
-   298			j = riscv_isa_ext2key(i);
-   299			if (j >= 0)
-   300				static_branch_enable(&riscv_isa_ext_keys[j]);
-   301		}
-   302	}
-   303	
-
+diff --git a/Documentation/devicetree/bindings/hwmon/starfive,jh71x0-temp.yaml b/Documentation/devicetree/bindings/hwmon/starfive,jh71x0-temp.yaml
+new file mode 100644
+index 000000000000..262c59648a1a
+--- /dev/null
++++ b/Documentation/devicetree/bindings/hwmon/starfive,jh71x0-temp.yaml
+@@ -0,0 +1,75 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/hwmon/starfive,jh71x0-temp.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: StarFive JH71x0 Temperature Sensor
++
++maintainers:
++  - Emil Renner Berthing <kernel@esmil.dk>
++
++description: |
++  StarFive Technology Co. JH71x0 embedded temperature sensor
++
++properties:
++  compatible:
++    enum:
++      - starfive,jh7100-temp
++      - starfive,jh7110-temp
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    minItems: 2
++    maxItems: 2
++
++  clock-names:
++    items:
++      - const: "sense"
++      - const: "bus"
++
++  '#thermal-sensor-cells':
++    const: 0
++
++  interrupts:
++    maxItems: 1
++
++  resets:
++    minItems: 2
++    maxItems: 2
++
++  reset-names:
++    items:
++      - const: "sense"
++      - const: "bus"
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - interrupts
++  - resets
++  - reset-names
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/starfive-jh7100.h>
++    #include <dt-bindings/reset/starfive-jh7100.h>
++
++    temperature-sensor@124a0000 {
++        compatible = "starfive,jh7100-temp";
++        reg = <0x124a0000 0x10000>;
++        clocks = <&clkgen JH7100_CLK_TEMP_SENSE>,
++                 <&clkgen JH7100_CLK_TEMP_APB>;
++        clock-names = "sense", "bus";
++        #thermal-sensor-cells = <0>;
++        interrupts = <122>;
++        resets = <&rstgen JH7100_RSTN_TEMP_SENSE>,
++                 <&rstgen JH7100_RSTN_TEMP_APB>;
++        reset-names = "sense", "bus";
++    };
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests
+2.38.1
+
 
 _______________________________________________
 linux-riscv mailing list
