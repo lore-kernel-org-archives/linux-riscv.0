@@ -4,81 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76EB2C05027
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Feb 2023 03:05:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5ECDC636D3
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Feb 2023 03:51:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xVrMkuupy+3olJo7mMS5920+2naqAgLIHEhDUWqG2Qc=; b=ZFiOAaDgYv05L0
-	12jZrj250aVHMRXnls2syOrGIvpudEWZJJBBfOe35aI+7/hx6BiG9ttBdHLgDyISHhQC4Ep7x58Vh
-	tm2jdpLNssZHmNbdPYYf+zbukaRtzEtQPegHvuZ3N4LMrVMPJg4kMtmwIIXV4mSVvfeAlVPdFO/3w
-	erjJuxEKhynUX4TYZ+kRPvgVuSweR7I/qUg8/DZ/4UNLyq/yzcqtIi5x1Q71F0LRP9U3AvT2SUsxi
-	AoI+hcCT1ci0OkA4ykGzhtEqw39NKOVCd18q8/w8cBJbKY1gI2ywXwb72cHW/eO9doiHu+HSrc4ps
-	/+LNSCm7dTu+ouYJsVUw==;
+	List-Owner; bh=xco6PxHWSadaNEsxvJYC4fTPBT5i4tIzbR6OMQFZ7dg=; b=cRYP5KbCBzETm9
+	jy+XZKM7FjP2r21xsjMxR7wnpyOblF6cuQOFACun+k8EXFMo1rGiefggj4bLb1RR5BchQhrE/5vKi
+	HdxCuL8LQjukmf6WLatsN/JWAk845WzYxoqQS7A876HaS/WwRvyyV1ca41VJer0raVRqB8VzDR4aC
+	K8sAIgdpZSpHi075wTkIZT8gvMcPsJtdUV0iHUQFgIuLJZWPSR0MLk8pljbfK8/ie2yEfv9KImqy9
+	OJjBi3sDiRXRuBQaf5iPkN2Ku23Xw2Zbrnc3OmjGuH0aPIBQGbTqJxvx3tsBS0pYI1YEKaTfiMyHy
+	kVOSYr9cfUH3R0/bQOYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPEIg-00AbGz-ES; Tue, 07 Feb 2023 03:05:42 +0000
-Received: from out2-smtp.messagingengine.com ([66.111.4.26])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPEIc-00AbEh-Db
-	for linux-riscv@lists.infradead.org; Tue, 07 Feb 2023 03:05:41 +0000
-Received: from compute1.internal (compute1.nyi.internal [10.202.2.41])
-	by mailout.nyi.internal (Postfix) with ESMTP id 9CAC65C016D;
-	Mon,  6 Feb 2023 22:05:32 -0500 (EST)
-Received: from mailfrontend1 ([10.202.2.162])
-  by compute1.internal (MEProxy); Mon, 06 Feb 2023 22:05:32 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:date:date:feedback-id
-	:feedback-id:from:from:in-reply-to:in-reply-to:message-id
-	:mime-version:references:reply-to:sender:subject:subject:to:to
-	:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm3; t=1675739132; x=1675825532; bh=uM1UO9XIp7afVPZ81JNU3mTA9pU3
-	uATOl+OKWoLABwo=; b=Zvtnw6gYgKCDuKEV2RFjFXJ5FBEXx07IhXfjRWlutWgR
-	kjoYsCYUtD8bMFQQMAAPJ2PIuVbxVk9d4k/iYLeW8dQCYuYY9zxLNpq7URI76DVN
-	rpNHp7s/osPWxMn3MWcB7ym0eYCbDN799o3/RKPPOCSzgmB3ToaFWW2UYofXExSR
-	ndLAbYsjuLgaDHe1HNYgdRDo2VTpGWOUggV0alEIU5VjiP5y2HASQQpVxnotAaeo
-	b5l8Viq7MpHXVTc+9ht6pxDiGKJyqsoCmj/Ua+t8X0zOn1jXnJYp+ylss0EAvm8Z
-	HFV+UrB2YeMZjWLZg5TiN/2P6Snn6Xu6d+I0ykKSrQ==
-X-ME-Sender: <xms:-7_hY0yLaEiT5vxTUdBxDl-vvGPLAP1mE_FFygN7UrQe0D5vgzifpQ>
-    <xme:-7_hY4Szr1ub8i-OhfgaEdSV_aXmPpYC_CVWy-QN0DPNVtmcbkvEP05P-yBKHRg01
-    yUQYrm2yh5xejc7o3Y>
-X-ME-Received: <xmr:-7_hY2VfKNJGhBNKvlaq-mkjmucCCUtWwnT1e0a-uzfXOdof5jwQa6sL81qclAEq8FxRQtBmDm6yKZt3Zeec1AtYAhre6s4F3Zo>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrudegjedgheefucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
-    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
-    cujfgurhepfffhvfevufgjkfhfgggtsehttdertddttddvnecuhfhrohhmpefhihhnnhcu
-    vfhhrghinhcuoehfthhhrghinheslhhinhhugidqmheikehkrdhorhhgqeenucggtffrrg
-    htthgvrhhnpeefieehjedvtefgiedtudethfekieelhfevhefgvddtkeekvdekhefftdek
-    vedvueenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrhfuihiivg
-    eptdenucfrrghrrghmpehmrghilhhfrhhomhepfhhthhgrihhnsehlihhnuhigqdhmieek
-    khdrohhrgh
-X-ME-Proxy: <xmx:-7_hYyjI5Iz3INyBJhpCTT5TJZ5eguGUSw4EWj-E50vQaXUmRg-j4A>
-    <xmx:-7_hY2DtYPpZ6GepDE2Z3WOUI8UqbtKGsjK77kkGMM3eTVpQJUF72Q>
-    <xmx:-7_hYzLu70VewWrME5ni_dMDJUopI-i1X5tWdo4D7e4nFjjgyeToxg>
-    <xmx:_L_hY66XXXQfZtOPGo4LQ-zlSJhsj6TcgDuPub_gnxS18hq1XxileQ>
-Feedback-ID: i58a146ae:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
- 6 Feb 2023 22:05:28 -0500 (EST)
-Date: Tue, 7 Feb 2023 14:07:03 +1100 (AEDT)
-From: Finn Thain <fthain@linux-m68k.org>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-cc: Al Viro <viro@zeniv.linux.org.uk>, linux-arch@vger.kernel.org, 
-    linux-alpha@vger.kernel.org, linux-ia64@vger.kernel.org, 
-    linux-hexagon@vger.kernel.org, linux-m68k@lists.linux-m68k.org, 
-    Michal Simek <monstr@monstr.eu>, Dinh Nguyen <dinguyen@kernel.org>, 
-    openrisc@lists.librecores.org, linux-parisc@vger.kernel.org, 
-    linux-riscv@lists.infradead.org, sparclinux@vger.kernel.org
-Subject: Re: [PATCH 04/10] m68k: fix livelock in uaccess
-In-Reply-To: <CAHk-=wirpn8qX5hCyeS0a4GCQH5p-2ACXgzJTj7zjZ5rGux_Bw@mail.gmail.com>
-Message-ID: <fc3d0151-30a0-c029-3e43-68664d4d50e6@linux-m68k.org>
-References: <Y9lz6yk113LmC9SI@ZenIV> <Y9l0aBPUEpf1bci9@ZenIV> <92a4aa45-0a7c-a389-798a-2f3e3cfa516f@linux-m68k.org> <CAHk-=wirpn8qX5hCyeS0a4GCQH5p-2ACXgzJTj7zjZ5rGux_Bw@mail.gmail.com>
+	id 1pPF0g-00Afx8-2b; Tue, 07 Feb 2023 03:51:10 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pPF0Z-00AfvY-Pw
+	for linux-riscv@lists.infradead.org; Tue, 07 Feb 2023 03:51:08 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 1E13024E15C;
+	Tue,  7 Feb 2023 11:50:37 +0800 (CST)
+Received: from EXMBX067.cuchost.com (172.16.6.67) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 7 Feb
+ 2023 11:50:37 +0800
+Received: from [192.168.125.89] (183.27.96.33) by EXMBX067.cuchost.com
+ (172.16.6.67) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 7 Feb
+ 2023 11:50:36 +0800
+Message-ID: <21d774af-76bb-538e-b0f6-f52295116fa7@starfivetech.com>
+Date: Tue, 7 Feb 2023 11:50:35 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.6.1
+Subject: Re: [PATCH v1] irqchip/irq-sifive-plic: Add syscore callbacks for
+ hibernation
+To: Marc Zyngier <maz@kernel.org>
+CC: Thomas Gleixner <tglx@linutronix.de>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, Ley Foon Tan
+	<leyfoon.tan@starfivetech.com>, Sia Jee Heng <jeeheng.sia@starfivetech.com>
+References: <20230113094216.116036-1-mason.huo@starfivetech.com>
+ <864js01j26.wl-maz@kernel.org>
+ <c851138c-148a-bc5f-219b-1573d7e7e318@starfivetech.com>
+ <86v8kfyn62.wl-maz@kernel.org>
+Content-Language: en-US
+From: Mason Huo <mason.huo@starfivetech.com>
+In-Reply-To: <86v8kfyn62.wl-maz@kernel.org>
+X-Originating-IP: [183.27.96.33]
+X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX067.cuchost.com
+ (172.16.6.67)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230206_190538_802047_F7854896 
-X-CRM114-Status: GOOD (  17.06  )
+X-CRM114-CacheID: sfid-20230206_195104_189401_D82A4274 
+X-CRM114-Status: GOOD (  29.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,194 +78,111 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 5 Feb 2023, Linus Torvalds wrote:
 
-> On Sat, Feb 4, 2023 at 10:16 PM Finn Thain <fthain@linux-m68k.org> wrote:
-> >
-> > That could be a bug I was chasing back in 2021 but never found. The mmap
-> > stressors in stress-ng were triggering a crash on a Mac Quadras, though
-> > only rarely. Sometimes it would run all day without a failure.
-> >
-> > Last year when I started using GCC 12 to build the kernel, I saw the same
-> > workload fail again but the failure mode had become a silent hang/livelock
-> > instead of the oopses I got with GCC 6.
-> >
-> > When I press the NMI button after the livelock I always see
-> > do_page_fault() in the backtrace. So I've been testing your patch. I've
-> > been running the same stress-ng reproducer for about 12 hours now with no
-> > failures which looks promising.
-> >
-> > In case that stress-ng testing is of use:
-> > Tested-by: Finn Thain <fthain@linux-m68k.org>
-> 
-> Could you test the thing that Mark Rutland pointed to? He had an
-> actual test-case for this for the arm64 fixes some years ago.
-> 
-> See
-> 
->    https://lore.kernel.org/all/Y9pD+TMP+%2FSyfeJm@FVFF77S0Q05N/
-> 
-> for his email with links to his old test-case?
-> 
 
-With qemu-system-m68k v7.2 runing Linux v6.1, killing Mark's program did 
-not trigger any failure.
+On 2023/2/6 20:48, Marc Zyngier wrote:
+> On Mon, 06 Feb 2023 06:13:11 +0000,
+> Mason Huo <mason.huo@starfivetech.com> wrote:
+>> 
+>> 
+>> 
+>> On 2023/2/5 18:51, Marc Zyngier wrote:
+>> > On Fri, 13 Jan 2023 09:42:16 +0000,
+>> > Mason Huo <mason.huo@starfivetech.com> wrote:
+>> >> 
+>> >> The priority and enable registers of plic will be reset
+>> >> during hibernation power cycle in poweroff mode,
+>> >> add the syscore callbacks to save/restore those registers.
+>> >> 
+>> >> Signed-off-by: Mason Huo <mason.huo@starfivetech.com>
+>> >> Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+>> >> Reviewed-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
+>> >> ---
+>> >>  drivers/irqchip/irq-sifive-plic.c | 93 ++++++++++++++++++++++++++++++-
+>> >>  1 file changed, 91 insertions(+), 2 deletions(-)
+>> >> 
+>> >> diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+>> >> index ff47bd0dec45..80306de45d2b 100644
+>> >> --- a/drivers/irqchip/irq-sifive-plic.c
+>> >> +++ b/drivers/irqchip/irq-sifive-plic.c
+>> >> @@ -17,6 +17,7 @@
+>> >>  #include <linux/of_irq.h>
+>> >>  #include <linux/platform_device.h>
+>> >>  #include <linux/spinlock.h>
+>> >> +#include <linux/syscore_ops.h>
+>> >>  #include <asm/smp.h>
+>> >>  
+>> >>  /*
+>> >> @@ -67,6 +68,8 @@ struct plic_priv {
+>> >>  	struct irq_domain *irqdomain;
+>> >>  	void __iomem *regs;
+>> >>  	unsigned long plic_quirks;
+>> >> +	unsigned int nr_irqs;
+>> >> +	u32 *priority_reg;
+>> >>  };
+>> >>  
+>> >>  struct plic_handler {
+>> >> @@ -79,10 +82,13 @@ struct plic_handler {
+>> >>  	raw_spinlock_t		enable_lock;
+>> >>  	void __iomem		*enable_base;
+>> >>  	struct plic_priv	*priv;
+>> >> +	/* To record interrupts that are enabled before suspend. */
+>> >> +	u32 enable_reg[MAX_DEVICES / 32];
+>> > 
+>> > What does MAX_DEVICES represent here? How is it related to the number
+>> > of interrupts you're trying to save? It seems to be related to the
+>> > number of CPUs, so it hardly makes any sense so far.
+>> > 
+>> The comment of this macro describes that "The largest number supported
+>> by devices marked as 'sifive,plic-1.0.0', is 1024, of which
+>> device 0 is defined as non-existent by the RISC-V Privileged Spec."
+>> As far as I understand, the *device* here means HW IRQ source,
+>> and the HW IRQ 0 is non-existent.
+> 
+> So why is it sized to that maximum value? The binding gives you the
+> *real* value that the HW implements.
+> 
+OK, will change to use binding value.
 
-With my Quadra 650 running the same binaries, killing Mark's program 
-produces the BUG splat below. I can confirm that Al's patch fixes it.
+>> 
+>> >>  };
+>> >>  static int plic_parent_irq __ro_after_init;
+>> >>  static bool plic_cpuhp_setup_done __ro_after_init;
+>> >>  static DEFINE_PER_CPU(struct plic_handler, plic_handlers);
+>> >> +static struct plic_priv *priv_data;
+>> >>  
+>> >>  static int plic_irq_set_type(struct irq_data *d, unsigned int type);
+>> >>  
+>> >> @@ -229,6 +235,78 @@ static int plic_irq_set_type(struct irq_data *d, unsigned int type)
+>> >>  	return IRQ_SET_MASK_OK;
+>> >>  }
+>> >>  
+>> >> +static void plic_irq_resume(void)
+>> >> +{
+>> >> +	unsigned int i, cpu;
+>> >> +	u32 __iomem *reg;
+>> >> +
+>> >> +	for (i = 0; i < priv_data->nr_irqs; i++)
+>> >> +		writel(priv_data->priority_reg[i],
+>> >> +				priv_data->regs + PRIORITY_BASE + i * PRIORITY_PER_ID);
+>> > 
+>> > From what I can tell, this driver uses exactly 2 priorities: 0 and 1.
+>> > And yet you use a full 32bit to encode those. Does it seem like a good
+>> > idea?
+>> > 
+>> Yes, currently this driver uses oly 2 priorities.
+>> But, according to the sifive spec, the priority register is a 32bit register,
+>> and it supports 7 levels of priority.
+> 
+> And? This is a Linux driver, not an implementation validation
+> tool. What is the point of saving/restoring stuff that is *never*
+> used? :-(
+> 
+> 	M.
+> OK, will save/restore the priority in 1 bit. 
 
-[  199.060000] BUG: scheduling while atomic: test/48/0x0003e2e6
-[  199.060000] Modules linked in:
-[  199.060000] CPU: 0 PID: 48 Comm: test Tainted: G        W          6.1.0-mac #3
-[  199.060000] Stack from 00a6204c:
-[  199.060000]         00a6204c 004c1979 004c1979 00000000 00a6215e 00a6206c 00408d62 004c1979
-[  199.060000]         00a62074 0003ad4a 00a620a8 004099e2 00983480 00000000 00a6215e 00000000
-[  199.060000]         00000002 00983480 00a62000 0040970a 00a6209c 00a6209c 00a620c0 00a620c0
-[  199.060000]         00409b94 00000000 00bcf0c0 00a62198 00a357fc 00a6216c 00120e5c 00bcf0d0
-[  199.060000]         00000003 00000001 00000001 0123f039 00000000 00a357fc 00aead38 005870dc
-[  199.060000]         005870dc 00a31200 00000000 00000000 00000000 00010000 0000c000 00000000
-[  199.060000] Call Trace: [<00408d62>] dump_stack+0x10/0x16
-[  199.060000]  [<0003ad4a>] __schedule_bug+0x5e/0x70
-[  199.060000]  [<004099e2>] __schedule+0x2d8/0x446
-[  199.060000]  [<0040970a>] __schedule+0x0/0x446
-[  199.060000]  [<00409b94>] schedule+0x44/0x8e
-[  199.060000]  [<00120e5c>] handle_userfault+0x298/0x3de
-[  199.060000]  [<00010000>] zer_rp2+0x14/0x18
-[  199.060000]  [<0000c000>] cu_dmrs+0x0/0x16
-[  199.060000]  [<00001200>] kernel_pg_dir+0x200/0x1000
-[  199.060000]  [<00010000>] zer_rp2+0x14/0x18
-[  199.060000]  [<0000c000>] cu_dmrs+0x0/0x16
-[  199.060000]  [<00001200>] kernel_pg_dir+0x200/0x1000
-[  199.060000]  [<00010000>] zer_rp2+0x14/0x18
-[  199.060000]  [<0000c000>] cu_dmrs+0x0/0x16
-[  199.060000]  [<000ab0a0>] handle_mm_fault+0xa34/0xa56
-[  199.060000]  [<000c0000>] __alloc_pages_bulk+0x26/0x3f8
-[  199.060000]  [<00007056>] do_page_fault+0xd8/0x28a
-[  199.060000]  [<00006098>] buserr_c+0x1a6/0x6b0
-[  199.060000]  [<000056fc>] do_040writeback1+0x0/0x1d8
-[  199.060000]  [<00002ac0>] buserr+0x20/0x28
-[  199.060000]  [<000062cc>] buserr_c+0x3da/0x6b0
-[  199.060000]  [<000056fc>] do_040writeback1+0x0/0x1d8
-[  199.060000]  [<00002ac0>] buserr+0x20/0x28
-[  199.060000]  [<000062cc>] buserr_c+0x3da/0x6b0
-[  199.060000]  [<000056fc>] do_040writeback1+0x0/0x1d8
-[  199.060000]  [<00002ac0>] buserr+0x20/0x28
-[  199.060000]  [<000062cc>] buserr_c+0x3da/0x6b0
-[  199.060000]  [<000056fc>] do_040writeback1+0x0/0x1d8
-[  199.060000]  [<00002ac0>] buserr+0x20/0x28
-[  199.060000]  [<000062cc>] buserr_c+0x3da/0x6b0
-[  199.060000]  [<000056fc>] do_040writeback1+0x0/0x1d8
-[  199.060000]  [<00002ac0>] buserr+0x20/0x28
-[  199.060000]  [<000062cc>] buserr_c+0x3da/0x6b0
-[  199.060000]  [<000056fc>] do_040writeback1+0x0/0x1d8
-[  199.060000]  [<00002ac0>] buserr+0x20/0x28
-[  199.060000]  [<000062cc>] buserr_c+0x3da/0x6b0
-[  199.060000]  [<000056fc>] do_040writeback1+0x0/0x1d8
-[  199.060000]  [<00002ac0>] buserr+0x20/0x28
-[  199.060000]  [<000062cc>] buserr_c+0x3da/0x6b0
-[  199.060000]  [<000056fc>] do_040writeback1+0x0/0x1d8
-[  199.060000]  [<00002ac0>] buserr+0x20/0x28
-[  199.060000]  [<000062cc>] buserr_c+0x3da/0x6b0
-[  199.060000]  [<000056fc>] do_040writeback1+0x0/0x1d8
-[  199.060000]  [<00002ac0>] buserr+0x20/0x28
-[  199.060000]  [<000062cc>] buserr_c+0x3da/0x6b0
-[  199.060000]  [<000056fc>] do_040writeback1+0x0/0x1d8
-[  199.060000]  [<00002ac0>] buserr+0x20/0x28
-[  199.060000]  [<000062cc>] buserr_c+0x3da/0x6b0
-[  199.060000]  [<000056fc>] do_040writeback1+0x0/0x1d8
-[  199.060000]  [<00002ac0>] buserr+0x20/0x28
-[  199.060000]  [<000062cc>] buserr_c+0x3da/0x6b0
-[  199.060000]  [<000056fc>] do_040writeback1+0x0/0x1d8
-[  199.060000]  [<00002ac0>] buserr+0x20/0x28
-[  199.060000]  [<000062cc>] buserr_c+0x3da/0x6b0
-[  199.060000]  [<000056fc>] do_040writeback1+0x0/0x1d8
-[  199.060000]  [<00002ac0>] buserr+0x20/0x28
-[  199.060000]  [<000062cc>] buserr_c+0x3da/0x6b0
-[  199.060000]  [<000056fc>] do_040writeback1+0x0/0x1d8
-[  199.060000]  [<00002ac0>] buserr+0x20/0x28
-[  199.060000]  [<000062cc>] buserr_c+0x3da/0x6b0
-[  199.060000]  [<000056fc>] do_040writeback1+0x0/0x1d8
-[  199.060000]  [<00002ac0>] buserr+0x20/0x28
-[  199.060000]  [<000062cc>] buserr_c+0x3da/0x6b0
-[  199.060000]  [<000056fc>] do_040writeback1+0x0/0x1d8
-[  199.060000]  [<00002ac0>] buserr+0x20/0x28
-[  199.060000]  [<000062cc>] buserr_c+0x3da/0x6b0
-[  199.060000]  [<000056fc>] do_040writeback1+0x0/0x1d8
-[  199.060000]  [<00002ac0>] buserr+0x20/0x28
-[  199.060000]  [<000062cc>] buserr_c+0x3da/0x6b0
-[  199.060000]  [<000056fc>] do_040writeback1+0x0/0x1d8
-[  199.060000]  [<00002ac0>] buserr+0x20/0x28
-[  199.060000]  [<000062cc>] buserr_c+0x3da/0x6b0
-[  199.060000]  [<000056fc>] do_040writeback1+0x0/0x1d8
-[  199.060000]  [<00002ac0>] buserr+0x20/0x28
-[  199.060000]  [<000062cc>] buserr_c+0x3da/0x6b0
-[  199.060000]  [<000056fc>] do_040writeback1+0x0/0x1d8
-[  199.060000]  [<00002ac0>] buserr+0x20/0x28
-[  199.060000]  [<000062cc>] buserr_c+0x3da/0x6b0
-[  199.060000]  [<000056fc>] do_040writeback1+0x0/0x1d8
-[  199.060000]  [<00002ac0>] buserr+0x20/0x28
-[  199.060000]  [<000062cc>] buserr_c+0x3da/0x6b0
-[  199.060000]  [<000056fc>] do_040writeback1+0x0/0x1d8
-[  199.060000]  [<00002ac0>] buserr+0x20/0x28
-[  199.060000]  [<000062cc>] buserr_c+0x3da/0x6b0
-[  199.060000]  [<000056fc>] do_040writeback1+0x0/0x1d8
-[  199.060000]  [<00002ac0>] buserr+0x20/0x28
-[  199.060000]  [<000062cc>] buserr_c+0x3da/0x6b0
-[  199.060000]  [<000056fc>] do_040writeback1+0x0/0x1d8
-[  199.060000]  [<00002ac0>] buserr+0x20/0x28
-[  199.060000]  [<000062cc>] buserr_c+0x3da/0x6b0
-[  199.060000]  [<000056fc>] do_040writeback1+0x0/0x1d8
-[  199.060000]  [<00002ac0>] buserr+0x20/0x28
-[  199.060000]  [<000062cc>] buserr_c+0x3da/0x6b0
-[  199.060000]  [<000056fc>] do_040writeback1+0x0/0x1d8
-[  199.060000]  [<00002ac0>] buserr+0x20/0x28
-[  199.060000]  [<000062cc>] buserr_c+0x3da/0x6b0
-[  199.060000]  [<000056fc>] do_040writeback1+0x0/0x1d8
-[  199.060000]  [<00002ac0>] buserr+0x20/0x28
-[  199.060000]  [<000062cc>] buserr_c+0x3da/0x6b0
-[  199.060000]  [<000056fc>] do_040writeback1+0x0/0x1d8
-[  199.060000]  [<00002ac0>] buserr+0x20/0x28
-[  199.060000]  [<000062cc>] buserr_c+0x3da/0x6b0
-[  199.060000]  [<000056fc>] do_040writeback1+0x0/0x1d8
-[  199.060000]  [<00002ac0>] buserr+0x20/0x28
-[  199.060000]  [<000062cc>] buserr_c+0x3da/0x6b0
-[  199.060000]  [<000056fc>] do_040writeback1+0x0/0x1d8
-[  199.060000]  [<00002ac0>] buserr+0x20/0x28
-[  199.060000]  [<000062cc>] buserr_c+0x3da/0x6b0
-[  199.060000]  [<000056fc>] do_040writeback1+0x0/0x1d8
-[  199.060000]  [<00002ac0>] buserr+0x20/0x28
-[  199.060000]  [<000062cc>] buserr_c+0x3da/0x6b0
-[  199.060000]  [<000056fc>] do_040writeback1+0x0/0x1d8
-[  199.060000]  [<00002ac0>] buserr+0x20/0x28
-[  199.060000]  [<000062cc>] buserr_c+0x3da/0x6b0
-[  199.060000]  [<000056fc>] do_040writeback1+0x0/0x1d8
-[  199.060000]  [<00002ac0>] buserr+0x20/0x28
-[  199.060000]  [<000062cc>] buserr_c+0x3da/0x6b0
-[  199.060000]  [<000056fc>] do_040writeback1+0x0/0x1d8
-[  199.060000]  [<00002ac0>] buserr+0x20/0x28
-[  199.060000]  [<000062cc>] buserr_c+0x3da/0x6b0
-[  199.060000]  [<000056fc>] do_040writeback1+0x0/0x1d8
-[  199.060000]  [<00002ac0>] buserr+0x20/0x28
-[  199.060000]  [<000062cc>] buserr_c+0x3da/0x6b0
-[  199.060000]  [<000056fc>] do_040writeback1+0x0/0x1d8
-[  199.060000]  [<00002ac0>] buserr+0x20/0x28
-[  199.060000]  [<000062cc>] buserr_c+0x3da/0x6b0
-[  199.060000]  [<000056fc>] do_040writeback1+0x0/0x1d8
-[  199.060000]  [<00002ac0>] buserr+0x20/0x28
-[  199.060000]  [<000062cc>] buserr_c+0x3da/0x6b0
-[  199.060000]  [<000056fc>] do_040writeback1+0x0/0x1d8
-[  199.060000]  [<00002ac0>] buserr+0x20/0x28
-[  199.060000]  [<000062cc>] buserr_c+0x3da/0x6b0
-[  199.060000]  [<000056fc>] do_040writeback1+0x0/0x1d8
-[  199.060000]  [<00002ac0>] buserr+0x20/0x28
-[  199.060000]  [<000062cc>] buserr_c+0x3da/0x6b0
-[  199.060000]  [<00001000>] kernel_pg_dir+0x0/0x1000
-[  199.060000]  [<00002ac0>] buserr+0x20/0x28
-[  199.060000]  [<00001000>] kernel_pg_dir+0x0/0x1000
-[  199.060000]  [<00008001>] mac_irq_disable+0x3b/0x98
-[  199.060000]  [<00001000>] kernel_pg_dir+0x0/0x1000
-[  199.060000]  [<00008001>] mac_irq_disable+0x3b/0x98
-[  199.060000] 
+Thanks
+Mason
 
 _______________________________________________
 linux-riscv mailing list
