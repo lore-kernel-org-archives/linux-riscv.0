@@ -4,73 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17054C636CD
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Feb 2023 14:58:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6195C636CD
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Feb 2023 14:59:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xYpthM9EZXlR7DSZzyKkd4r3/3YEdC+mmH3YR9ee2AU=; b=I7lkPA+T3zKN44
-	P+u4PsPemoMVkdqNFOCU2KRF132YRjDwikXyOIIKOCm28OBfsI9AZcv6qfideXM2o6KEIaKt5yaLd
-	h0xgemIn1bfvYTL2KDeAGrUZ/z2xV9NmULEQNLD5VArzOWGuJ61niPrkvJtaQ/MJeteeuFMti3Lc1
-	0Eju0P994nTe6qpDDayz2egvCvVx13a6oFHlKmBWML7PeiLFr7DiDO39y+Yn2i2uwvMCc6bthqewQ
-	qhnBEc8jctD04yxAU3r91G5tzzuPg/uWZKiUMntT7W0xJmKj+sdVcRQEDW5hBwDok5HT887GfTL2t
-	OjgK/LtfySkOHnpAAWAA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EsXs2W3Fg09HKzyeRS0a068O7fjd9p7LyLejB5ufveM=; b=vTlskNuIhhUn4BZMj4uHQ8Hc8Z
+	UNpZ/bGbcHIWwPwuGvTaxcnoI/P2gswUi+VHfh6v3lljcQUovrdjza+eblKrIx+qhvlsZs5lXNvNt
+	neXVRkOtKpS93IcpZmn3B3UgzpTC0c6kyzGcu+YmfMOFepFI38pv6lbALz/Jjapqi5eGPNjCP1O1H
+	S7K9MM3EiHyU+KTxcVm7vMgHhp+OcsvgVMsX5Y3nZA3eBNbJHyzVmazubgFfWpimypKOP4QdlGgUz
+	Dbmao8iIb0NGaEc0MbxvMTwJCcPL3WGUtWUUrwEh7Vr1lc/iafSyIsPVaLK/mHCxF71I55AeMfbpN
+	u+NPNEmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPPQO-00Caor-BU; Tue, 07 Feb 2023 14:58:24 +0000
-Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
+	id 1pPPRQ-00CbAJ-VK; Tue, 07 Feb 2023 14:59:28 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPPQK-00Calx-VA
-	for linux-riscv@lists.infradead.org; Tue, 07 Feb 2023 14:58:22 +0000
-Received: by mail-ed1-x536.google.com with SMTP id l14so5950105eds.4
-        for <linux-riscv@lists.infradead.org>; Tue, 07 Feb 2023 06:58:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=m9dXzspMSenNlI5oCamUoCDWEueYdcmA62RT2TViylY=;
-        b=2moa32bRD5/aRbpTqfOpVvFxqg7F3DCkT6Wwjk1WD8tGYkbbmJD2dCA0NnLITyBwDW
-         S9mZwGy8VJynNqb8rK2CZ9NNE502+WK61EqEs3OOMHe1+j3HZh80Pw30dIUGw/ccRwh+
-         e7c5vhKdu0c0W4yGNb/Cb7ZT8V1sV5QZ7ksxme7irlkrEonCcyf4FlaoxQCZFvchNTm6
-         h52Q7C4WR2MEzDjmVQoZGr3O5N+Z2gbBatLnTR9eYdSV8NUC6YMYNTrQHQYyjnu8BSTL
-         xGL/HtFfuEKDGQ36ggD4tXyXntLsGSjQayEROksSwwAKdYzAnGouK+NjMykJdCAftYoi
-         UAIg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=m9dXzspMSenNlI5oCamUoCDWEueYdcmA62RT2TViylY=;
-        b=NCBW7d55bvgkQXXiOPlndegnjnalefEOs/63nQVCKQqW2LU1pldWws1GEoyCeTVSfz
-         kiiU6LMw6vbRuA8VjIbUY7KfmjY3XAlisjXCT3QPceUoQuWzk9niyFszwKlXi45sEC0U
-         ijfVBpG+lfQ0q1BASHNWqpsN6ap9RLNaFIFYxtu86q1l8ILf2NZop22fJQ9AH6ybHFaC
-         cQzIuIsqTQJ5/anu56nscF8mww8MsEKzozfeeOjeFcAAIqH+/VK/ytcLSqz+6ILH/0WA
-         q4NfsofKXOVCz/ucn0hBthLbWhpqh2KrlmG3m/QiyrD5fxt3Js40T506JCUn6VmZKeRo
-         a/rw==
-X-Gm-Message-State: AO0yUKUyL48qZgo6kataTHG47tIdH0Fi5jNdk/QYkVFTirvw9EHBBs2H
-	x9qWk22nHnopfZigfjqnLlaVUUjus1Rop7qnNhwipw==
-X-Google-Smtp-Source: AK7set9ktBVamZDOe0rLwj4ElOxpqxvlknofQcBsPZjUtzWEjZj6aoCr5xhjGxwbLh0FKu5sHXjKgb9NqDrBX+NfYSs=
-X-Received: by 2002:a50:cd17:0:b0:4aa:bb33:1368 with SMTP id
- z23-20020a50cd17000000b004aabb331368mr713976edi.3.1675781896444; Tue, 07 Feb
- 2023 06:58:16 -0800 (PST)
+	id 1pPPRL-00Cb8F-9G
+	for linux-riscv@lists.infradead.org; Tue, 07 Feb 2023 14:59:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1675781964; x=1707317964;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=OicyPzpRNU8Z1eFB4XpAJrafR2sRh80kAptfV3bDIBA=;
+  b=Hhelz6fcEKegael2ZGUoQFgUarB/oQUCoATgDIBopcDC4dxcoNTFao0W
+   bBg3K1ALbqS+FNCqiv3o3VOLf36pvv/qCK+0m+9aQ6AJU1V/vlGTJlxaS
+   jhFGecVY5sS755f8UG2dcXjgpGW/dxM4M+YUJDFdGtlMSu2EYdPHNJCKR
+   2M9kQCQN3RrXsTriVKXBnYZ5lMP6EFK18oNHwNMLzkmach8bwK75hQSFC
+   lPz3yUFK4hZ3+QqibHLqS8hUqqUKYSsYEDPbMk04wVAwVxRbkmYLQdcTe
+   WDS1mR6EHeW4Rd5XQEDbrYNkfFzRo+GTPDXOOG20Kx+EQYDm9izkDvqBA
+   g==;
+X-IronPort-AV: E=Sophos;i="5.97,278,1669100400"; 
+   d="asc'?scan'208";a="199924994"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 07 Feb 2023 07:59:22 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.16; Tue, 7 Feb 2023 07:59:20 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.16 via Frontend
+ Transport; Tue, 7 Feb 2023 07:59:19 -0700
+Date: Tue, 7 Feb 2023 14:58:54 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Conor Dooley <conor@kernel.org>, <palmer@dabbelt.com>
+CC: <palmer@dabbelt.com>, <linux-riscv@lists.infradead.org>,
+	<linux-doc@vger.kernel.org>, <corbet@lwn.net>, kernel test robot
+	<lkp@intel.com>
+Subject: Re: [PATCH] Documentation: riscv: fix insufficient list item indent
+Message-ID: <Y+JnLkFlZ7ACW7A+@wendy>
+References: <20230129235701.2393241-1-conor@kernel.org>
 MIME-Version: 1.0
-References: <20230207095529.1787260-1-atishp@rivosinc.com>
-In-Reply-To: <20230207095529.1787260-1-atishp@rivosinc.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Tue, 7 Feb 2023 20:28:05 +0530
-Message-ID: <CAAhSdy2jfD6ieiwkO7Mcdsb7DeCE4A86H6usTSmuWKpnHter_A@mail.gmail.com>
-Subject: Re: [PATCH v6 0/8] KVM perf support
-To: Atish Patra <atishp@rivosinc.com>
-Cc: linux-kernel@vger.kernel.org, Andrew Jones <ajones@ventanamicro.com>, 
-	Atish Patra <atishp@atishpatra.org>, kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>
+In-Reply-To: <20230129235701.2393241-1-conor@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230207_065821_013249_081F14D7 
-X-CRM114-Status: GOOD (  24.24  )
+X-CRM114-CacheID: sfid-20230207_065923_361332_332B85FC 
+X-CRM114-Status: GOOD (  17.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,142 +75,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3173946422142722383=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 7, 2023 at 3:26 PM Atish Patra <atishp@rivosinc.com> wrote:
->
-> This series extends perf support for KVM. The KVM implementation relies
-> on the SBI PMU extension and trap n emulation of hpmcounter CSRs.
-> The KVM implementation exposes the virtual counters to the guest and internally
-> manage the counters using kernel perf counters.
->
-> This series doesn't support the counter overflow as the Sscofpmf extension
-> doesn't allow trap & emulation mechanism of scountovf CSR yet. The required
-> changes to allow that are being under discussions. Supporting overflow interrupt
-> also requires AIA interrupt filtering support.
->
-> perf stat works in kvm guests with this series.
->
-> Here is example of running perf stat in a guest running in KVM.
->
-> ===========================================================================
-> / # /host/apps/perf stat -e instructions -e cycles -e r8000000000000005 \
-> > -e r8000000000000006 -e r8000000000000007 -e r8000000000000008 \
-> > -e r800000000000000a perf bench sched messaging -g 10 -l 10
->
-> # Running 'sched/messaging' benchmark:
-> # 20 sender and receiver processes per group
-> # 10 groups == 400 processes run
->
->      Total time: 7.769 [sec]
->
->  Performance counter stats for 'perf bench sched messaging -g 10 -l 10':
->
->        73556259604      cycles
->        73387266056      instructions              #    1.00  insn per cycle
->                  0      dTLB-store-misses
->                  0      iTLB-load-misses
->                  0      r8000000000000005
->               2595      r8000000000000006
->               2272      r8000000000000007
->                 10      r8000000000000008
->                  0      r800000000000000a
->
->       12.173720400 seconds time elapsed
->
->        1.002716000 seconds user
->       21.931047000 seconds sys
->
->
-> Note: The SBI_PMU_FW_SET_TIMER (eventid : r8000000000000005) is zero
-> as kvm guest supports sstc now.
->
-> This series can be found here as well.
-> https://github.com/atishp04/linux/tree/kvm_perf_v6
->
-> TODO:
-> 1. Add sscofpmf support.
-> 2. Add One reg interface for the following operations:
->         1. Enable/Disable PMU (should it at VM level rather than vcpu ?)
->         2. Number of hpmcounter and width of the counters
->         3. Init PMU
->         4. Allow guest user to access cycle & instret without trapping
-> 3. Move counter mask to a bitmask instead of unsigned long so that it can work
->    for RV32 systems where number of total counters are more than 32.
->    This will also accomodate future systems which may define maximum counters
->    to be more than 64.
->
-> Changes from v5->v6:
-> 1. Addressed remainig RB tags.
-> 2. Rebased on kvm-queue which already has merged first 6 patches from v5.
-> 3. Added static time compilation checks for max counters.
-> 4. Addressed other nit comments.
->
-> Changes from v4->v5:
-> 1. Few checkpatch --strict error fixes.
-> 2. Some other minor nit comment addressed.
-> 3. Fixed an issue around counter indexing.
->
-> Changes from v3->v4:
-> 1. Addressed all the comments on v3.
-> 2. Modified the vcpu_pmu_init to void return type.
-> 3. Redirect illegal instruction trap to guest for invalid hpmcounter access
->    instead of exiting to the userpsace.
-> 4. Got rid of unecessary error messages.
->
-> Changes v2->v3:
-> 1. Changed the exported functions to GPL only export.
-> 2. Addressed all the nit comments on v2.
-> 3. Split non-kvm related changes into separate patches.
-> 4. Reorgainze the PATCH 11 and 10 based on Drew's suggestions.
->
-> Changes from v1->v2:
-> 1. Addressed comments from Andrew.
-> 2. Removed kvpmu sanity check.
-> 3. Added a kvm pmu init flag and the sanity check to probe function.
-> 4. Improved the linux vs sbi error code handling.
->
->
-> Atish Patra (8):
-> RISC-V: KVM: Add skeleton support for perf
-> RISC-V: KVM: Add SBI PMU extension support
-> RISC-V: KVM: Make PMU functionality depend on Sscofpmf
-> RISC-V: KVM: Disable all hpmcounter access for VS/VU mode
-> RISC-V: KVM: Implement trap & emulate for hpmcounters
-> RISC-V: KVM: Implement perf support without sampling
-> RISC-V: KVM: Support firmware events
-> RISC-V: KVM: Increment firmware pmu events
+--===============3173946422142722383==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="hsTdfmcL9RL1SmJJ"
+Content-Disposition: inline
 
-I have queued this series for Linux-6.3
+--hsTdfmcL9RL1SmJJ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Thanks,
-Anup
+Hey Palmer,
 
->
-> arch/riscv/include/asm/kvm_host.h     |   4 +
-> arch/riscv/include/asm/kvm_vcpu_pmu.h | 108 +++++
-> arch/riscv/kvm/Makefile               |   1 +
-> arch/riscv/kvm/main.c                 |   3 +-
-> arch/riscv/kvm/tlb.c                  |   4 +
-> arch/riscv/kvm/vcpu.c                 |   7 +
-> arch/riscv/kvm/vcpu_insn.c            |   4 +-
-> arch/riscv/kvm/vcpu_pmu.c             | 630 ++++++++++++++++++++++++++
-> arch/riscv/kvm/vcpu_sbi.c             |  11 +
-> arch/riscv/kvm/vcpu_sbi_pmu.c         |  86 ++++
-> arch/riscv/kvm/vcpu_sbi_replace.c     |   7 +
-> 11 files changed, 863 insertions(+), 2 deletions(-)
-> create mode 100644 arch/riscv/include/asm/kvm_vcpu_pmu.h
-> create mode 100644 arch/riscv/kvm/vcpu_pmu.c
-> create mode 100644 arch/riscv/kvm/vcpu_sbi_pmu.c
->
-> --
-> 2.25.1
->
+If you do end up having WiFi could you pick this up so that the
+regressions report thingy stops whining at me?
+
+Thanks!
+
+On Sun, Jan 29, 2023 at 11:57:01PM +0000, Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+>=20
+> When adding the ISA string ordering rules, I didn't sufficiently indent
+> one of the list items.
+>=20
+> Reported-by: kernel test robot <lkp@intel.com>
+> Fixes: f07b2b3f9d47 ("Documentation: riscv: add a section about ISA strin=
+g ordering in /proc/cpuinfo")
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+>  Documentation/riscv/uabi.rst | 8 ++++----
+>  1 file changed, 4 insertions(+), 4 deletions(-)
+>=20
+> diff --git a/Documentation/riscv/uabi.rst b/Documentation/riscv/uabi.rst
+> index 2ebec4c52230..8960fac42c40 100644
+> --- a/Documentation/riscv/uabi.rst
+> +++ b/Documentation/riscv/uabi.rst
+> @@ -21,10 +21,10 @@ so for our purposes the following rules apply:
+>     single-letter extensions and before any higher-privileged extensions.
+> =20
+>  #. For additional standard extensions, the first letter following the 'Z'
+> -  conventionally indicates the most closely related alphabetical
+> -  extension category. If multiple 'Z' extensions are named, they will be=
+ ordered
+> -  first by category, in canonical order, as listed above, then alphabeti=
+cally
+> -  within a category.
+> +   conventionally indicates the most closely related alphabetical
+> +   extension category. If multiple 'Z' extensions are named, they will be
+> +   ordered first by category, in canonical order, as listed above, then
+> +   alphabetically within a category.
+> =20
+>  #. Standard supervisor-level extensions (starting with 'S') will be list=
+ed
+>     after standard unprivileged extensions.  If multiple supervisor-level
+> --=20
+> 2.39.1
+>=20
+>=20
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+>=20
+
+--hsTdfmcL9RL1SmJJ
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY+JnLgAKCRB4tDGHoIJi
+0jrBAQDo9V22DCMDGEeyZk6oNVd1BNfStf/m/MAnA0yL8FK5rwD/dgSF0mueCVBu
+orU7PrVXdB5zobtEo9lCSWw1WvrVDg8=
+=ryht
+-----END PGP SIGNATURE-----
+
+--hsTdfmcL9RL1SmJJ--
+
+
+--===============3173946422142722383==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3173946422142722383==--
+
