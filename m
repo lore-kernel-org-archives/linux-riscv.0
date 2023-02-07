@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 863DCC636CC
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Feb 2023 07:24:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63B2BC636D4
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Feb 2023 07:24:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=QB1mmGN+1jAFnahkh/qpqz8EA7kLFwxTHd7v7YPpQoQ=; b=zDrSKHX5YX1Gth
-	6lbQmJrTZksmuIu8/kg1ihFtB6qTxKC0pPZTvmvaqdpLwKzM5memCHxjGyVCHoVrDCUvVEN+yUHdm
-	KgVURavInQdmhfpYumyctjgC+px5uVCN8adyM2+6p6dvJyLWExt8dIBFvaE+xyUIzcZRdVlqZYfCo
-	0jj6NFURoLfBOFlmIxR9VZm09r8vhJTEMM5JlZcx2LscK+APmFLELiftL5u9efJOsQzLsOx0m1h+v
-	h9iyHVV2MdxVgeEHp9OE2LW0wRqb8jfM/f5aJIsGkUwQvr7N29mPnVHkZO/pFNkCUJMWxadl+COeL
-	J/kuV6LrWnaO9OcFXLeA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=8jGLhB8KkxvmBVdn7P9i7PhqTAFwKxPmjlZm+zJeI1I=; b=egwnnO9LEy+LBU
+	eUzVXalgCnaVAhcjS+7ydoznV6ZcJD7uA6bqsAzY0xx1eXDzog/sFwt90/T48t1OPwyA63cg1Gjxw
+	i4oCB4OKEQwYlnOJphMV692QoI8kni79y1fYRLyok0jT7qsWO3izNKnaplRLuIwg4KfTCKtrdBk2E
+	3mQlt6qm3wBBhqNLJ3PQ6E1p8GvNrDp+FJ3b34HkhJiiqolFOXEO2LBlrCKkWZTnnBSQC4AzIqMei
+	X9+5gUf5g6l8Zod6E912YvQ2kSYYNOvPogtPLdSpiqfJ2kcNo7fGMXmuKHCPNWZjqD4oy1/PCD6Gs
+	diQBP5p2v6tSdFlRUGcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPIKW-00B7tO-CC; Tue, 07 Feb 2023 07:23:52 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
+	id 1pPIKZ-00B7uw-7A; Tue, 07 Feb 2023 07:23:55 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPIKQ-00B7n7-KU
-	for linux-riscv@lists.infradead.org; Tue, 07 Feb 2023 07:23:50 +0000
+	id 1pPIKQ-00B7nI-Ka
+	for linux-riscv@lists.infradead.org; Tue, 07 Feb 2023 07:23:52 +0000
 Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 9D2D024E0D8;
-	Tue,  7 Feb 2023 15:23:17 +0800 (CST)
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 4FAB924E1CD;
+	Tue,  7 Feb 2023 15:23:19 +0800 (CST)
 Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX165.cuchost.com
  (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 7 Feb
- 2023 15:23:18 +0800
+ 2023 15:23:19 +0800
 Received: from ubuntu.localdomain (183.27.96.33) by EXMBX172.cuchost.com
  (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 7 Feb
- 2023 15:23:16 +0800
+ 2023 15:23:18 +0800
 From: Hal Feng <hal.feng@starfivetech.com>
 To: <linux-hwmon@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-doc@vger.kernel.org>, <linux-riscv@lists.infradead.org>
@@ -46,18 +46,20 @@ CC: Jean Delvare <jdelvare@suse.com>, Guenter Roeck <linux@roeck-us.net>,
 	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Emil Renner Berthing
 	<emil.renner.berthing@canonical.com>, Samin Guo <samin.guo@starfivetech.com>,
 	Hal Feng <hal.feng@starfivetech.com>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v4 0/2] hwmon: Add StarFive JH71X0 temperature sensor
-Date: Tue, 7 Feb 2023 15:23:12 +0800
-Message-ID: <20230207072314.62040-1-hal.feng@starfivetech.com>
+Subject: [PATCH v4 2/2] hwmon: (sfctemp) Add StarFive JH71x0 temperature sensor
+Date: Tue, 7 Feb 2023 15:23:14 +0800
+Message-ID: <20230207072314.62040-3-hal.feng@starfivetech.com>
 X-Mailer: git-send-email 2.38.1
+In-Reply-To: <20230207072314.62040-1-hal.feng@starfivetech.com>
+References: <20230207072314.62040-1-hal.feng@starfivetech.com>
 MIME-Version: 1.0
 X-Originating-IP: [183.27.96.33]
 X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX172.cuchost.com
  (172.16.6.92)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230206_232346_979083_6EDCC142 
-X-CRM114-Status: GOOD (  13.88  )
+X-CRM114-CacheID: sfid-20230206_232347_223289_00A7758A 
+X-CRM114-Status: GOOD (  28.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,66 +76,487 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This adds a driver for the temperature sensor on the JH7100 and JH7110,
-RISC-V SoCs by StarFive Technology Co. Ltd.. The JH7100 is used on the
-BeagleV Starlight board and StarFive VisionFive board. The JH7110 is
-used on the StarFive VisionFive 2 board.
+From: Emil Renner Berthing <kernel@esmil.dk>
 
-v4:
-* Change the node name from "tmon" to "temperature-sensor" in dt-binding
-  example, which is more generic.
-* Add support for StarFive JH7110 SoC besides JH7100.
-* Add clock and reset support in the dt-bindings and driver.
-* Add the missing headers in patch 2.
-* Use devm_platform_ioremap_resource() to remap instead of
-  platform_get_resource() and devm_ioremap_resource().
-* Use dev_err_probe() instead of dev_err().
-* Add Signed-off-by tag for Hal Feng. Add Co-developed-by tag for
-  Samin Guo in patch 2.
+Register definitions and conversion constants based on sfctemp driver by
+Samin in the StarFive 5.10 kernel.
 
-v3:
-* Handle timeouts from wait_for_completion_interruptible_timeout
-  properly.
-
-v2:
-* Fix checkpatch.pl --strict warnings
-  - Add myself to MAINTAINERS
-  - Fix multiline comments
-  - Use proper case and whitespace for #defines
-  - Add comment to sfctemp::lock mutex.
-* Remaining comments by Guenter Roeck
-  - Add Documentation/hwmon/sfctemp.rst
-  - Use devm_add_action() and devm_hwmon_device_register_with_info()
-    instead of a driver .remove function.
-  - Don't do test conversion at probe time.
-  - #include <linux/io.h>
-  - Remove unused #defines
-  - Use int return variable in sfctemp_convert().
-* Add Samin's Signed-off-by to patch 2/2
-
-History:
-v3: https://lore.kernel.org/all/20210726171802.1052716-1-kernel@esmil.dk/
-v2: https://lore.kernel.org/all/20210624162108.832518-1-esmil@mailme.dk/
-v1: https://lore.kernel.org/all/20210616181545.496149-1-kernel@esmil.dk/
-
-Emil Renner Berthing (2):
-  dt-bindings: hwmon: Add starfive,jh71x0-temp
-  hwmon: (sfctemp) Add StarFive JH71x0 temperature sensor
-
- .../bindings/hwmon/starfive,jh71x0-temp.yaml  |  75 ++++
- Documentation/hwmon/index.rst                 |   1 +
- Documentation/hwmon/sfctemp.rst               |  33 ++
- MAINTAINERS                                   |   8 +
- drivers/hwmon/Kconfig                         |  10 +
- drivers/hwmon/Makefile                        |   1 +
- drivers/hwmon/sfctemp.c                       | 352 ++++++++++++++++++
- 7 files changed, 480 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/hwmon/starfive,jh71x0-temp.yaml
+Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+Co-developed-by: Samin Guo <samin.guo@starfivetech.com>
+Signed-off-by: Samin Guo <samin.guo@starfivetech.com>
+Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+---
+ Documentation/hwmon/index.rst   |   1 +
+ Documentation/hwmon/sfctemp.rst |  33 +++
+ MAINTAINERS                     |   8 +
+ drivers/hwmon/Kconfig           |  10 +
+ drivers/hwmon/Makefile          |   1 +
+ drivers/hwmon/sfctemp.c         | 352 ++++++++++++++++++++++++++++++++
+ 6 files changed, 405 insertions(+)
  create mode 100644 Documentation/hwmon/sfctemp.rst
  create mode 100644 drivers/hwmon/sfctemp.c
 
-
-base-commit: 4ec5183ec48656cec489c49f989c508b68b518e3
+diff --git a/Documentation/hwmon/index.rst b/Documentation/hwmon/index.rst
+index fe2cc6b73634..a666e3706ea2 100644
+--- a/Documentation/hwmon/index.rst
++++ b/Documentation/hwmon/index.rst
+@@ -180,6 +180,7 @@ Hardware Monitoring Kernel Drivers
+    sch5627
+    sch5636
+    scpi-hwmon
++   sfctemp
+    sht15
+    sht21
+    sht3x
+diff --git a/Documentation/hwmon/sfctemp.rst b/Documentation/hwmon/sfctemp.rst
+new file mode 100644
+index 000000000000..9fbd5bb1f356
+--- /dev/null
++++ b/Documentation/hwmon/sfctemp.rst
+@@ -0,0 +1,33 @@
++.. SPDX-License-Identifier: GPL-2.0
++
++Kernel driver sfctemp
++=====================
++
++Supported chips:
++ - StarFive JH7100
++ - StarFive JH7110
++
++Authors:
++ - Emil Renner Berthing <kernel@esmil.dk>
++
++Description
++-----------
++
++This driver adds support for reading the built-in temperature sensor on the
++JH7100 and JH7110 RISC-V SoCs by StarFive Technology Co. Ltd.
++
++``sysfs`` interface
++-------------------
++
++The temperature sensor can be enabled, disabled and queried via the standard
++hwmon interface in sysfs under ``/sys/class/hwmon/hwmonX`` for some value of
++``X``:
++
++================ ==== =============================================
++Name             Perm Description
++================ ==== =============================================
++temp1_enable     RW   Enable or disable temperature sensor.
++                      Automatically enabled by the driver,
++                      but may be disabled to save power.
++temp1_input      RO   Temperature reading in milli-degrees Celsius.
++================ ==== =============================================
+diff --git a/MAINTAINERS b/MAINTAINERS
+index fb1471cb5ed3..6f5de1438f65 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -18917,6 +18917,14 @@ L:	netdev@vger.kernel.org
+ S:	Supported
+ F:	drivers/net/ethernet/sfc/
+ 
++SFCTEMP HWMON DRIVER
++M:	Emil Renner Berthing <kernel@esmil.dk>
++L:	linux-hwmon@vger.kernel.org
++S:	Maintained
++F:	Documentation/devicetree/bindings/hwmon/starfive,jh71x0-temp.yaml
++F:	Documentation/hwmon/sfctemp.rst
++F:	drivers/hwmon/sfctemp.c
++
+ SFF/SFP/SFP+ MODULE SUPPORT
+ M:	Russell King <linux@armlinux.org.uk>
+ L:	netdev@vger.kernel.org
+diff --git a/drivers/hwmon/Kconfig b/drivers/hwmon/Kconfig
+index 3176c33af6c6..572e1b2541bb 100644
+--- a/drivers/hwmon/Kconfig
++++ b/drivers/hwmon/Kconfig
+@@ -1930,6 +1930,16 @@ config SENSORS_STTS751
+ 	  This driver can also be built as a module. If so, the module
+ 	  will be called stts751.
+ 
++config SENSORS_SFCTEMP
++	tristate "Starfive JH71x0 temperature sensor"
++	depends on SOC_STARFIVE || COMPILE_TEST
++	help
++	  If you say yes here you get support for temperature sensor
++	  on the Starfive JH71x0 SoCs.
++
++	  This driver can also be built as a module.  If so, the module
++	  will be called sfctemp.
++
+ config SENSORS_SMM665
+ 	tristate "Summit Microelectronics SMM665"
+ 	depends on I2C
+diff --git a/drivers/hwmon/Makefile b/drivers/hwmon/Makefile
+index e2e4e87b282f..337e1b19678a 100644
+--- a/drivers/hwmon/Makefile
++++ b/drivers/hwmon/Makefile
+@@ -180,6 +180,7 @@ obj-$(CONFIG_SENSORS_SBRMI)	+= sbrmi.o
+ obj-$(CONFIG_SENSORS_SCH56XX_COMMON)+= sch56xx-common.o
+ obj-$(CONFIG_SENSORS_SCH5627)	+= sch5627.o
+ obj-$(CONFIG_SENSORS_SCH5636)	+= sch5636.o
++obj-$(CONFIG_SENSORS_SFCTEMP)	+= sfctemp.o
+ obj-$(CONFIG_SENSORS_SL28CPLD)	+= sl28cpld-hwmon.o
+ obj-$(CONFIG_SENSORS_SHT15)	+= sht15.o
+ obj-$(CONFIG_SENSORS_SHT21)	+= sht21.o
+diff --git a/drivers/hwmon/sfctemp.c b/drivers/hwmon/sfctemp.c
+new file mode 100644
+index 000000000000..79749b5195be
+--- /dev/null
++++ b/drivers/hwmon/sfctemp.c
+@@ -0,0 +1,352 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (C) 2021 Emil Renner Berthing <kernel@esmil.dk>
++ * Copyright (C) 2021 Samin Guo <samin.guo@starfivetech.com>
++ */
++
++#include <linux/bits.h>
++#include <linux/clk.h>
++#include <linux/completion.h>
++#include <linux/delay.h>
++#include <linux/hwmon.h>
++#include <linux/interrupt.h>
++#include <linux/io.h>
++#include <linux/module.h>
++#include <linux/mutex.h>
++#include <linux/of.h>
++#include <linux/platform_device.h>
++#include <linux/reset.h>
++
++/*
++ * TempSensor reset. The RSTN can be de-asserted once the analog core has
++ * powered up. Trst(min 100ns)
++ * 0:reset  1:de-assert
++ */
++#define SFCTEMP_RSTN	BIT(0)
++
++/*
++ * TempSensor analog core power down. The analog core will be powered up
++ * Tpu(min 50us) after PD is de-asserted. RSTN should be held low until the
++ * analog core is powered up.
++ * 0:power up  1:power down
++ */
++#define SFCTEMP_PD	BIT(1)
++
++/*
++ * TempSensor start conversion enable.
++ * 0:disable  1:enable
++ */
++#define SFCTEMP_RUN	BIT(2)
++
++/*
++ * TempSensor conversion value output.
++ * Temp(C)=DOUT*Y/4094 - K
++ */
++#define SFCTEMP_DOUT_POS	16
++#define SFCTEMP_DOUT_MSK	GENMASK(27, 16)
++
++/* DOUT to Celcius conversion constants */
++#define SFCTEMP_Y1000	237500L
++#define SFCTEMP_Z	4094L
++#define SFCTEMP_K1000	81100L
++
++struct sfctemp {
++	/* serialize access to hardware register and enabled below */
++	struct mutex lock;
++	struct completion conversion_done;
++	void __iomem *regs;
++	struct clk *clk_sense;
++	struct clk *clk_bus;
++	struct reset_control *rst_sense;
++	struct reset_control *rst_bus;
++	bool enabled;
++};
++
++static irqreturn_t sfctemp_isr(int irq, void *data)
++{
++	struct sfctemp *sfctemp = data;
++
++	complete(&sfctemp->conversion_done);
++	return IRQ_HANDLED;
++}
++
++static void sfctemp_power_up(struct sfctemp *sfctemp)
++{
++	/* make sure we're powered down first */
++	writel(SFCTEMP_PD, sfctemp->regs);
++	udelay(1);
++
++	writel(0, sfctemp->regs);
++	/* wait t_pu(50us) + t_rst(100ns) */
++	usleep_range(60, 200);
++
++	/* de-assert reset */
++	writel(SFCTEMP_RSTN, sfctemp->regs);
++	udelay(1); /* wait t_su(500ps) */
++}
++
++static void sfctemp_power_down(struct sfctemp *sfctemp)
++{
++	writel(SFCTEMP_PD, sfctemp->regs);
++}
++
++static void sfctemp_run_single(struct sfctemp *sfctemp)
++{
++	writel(SFCTEMP_RSTN | SFCTEMP_RUN, sfctemp->regs);
++	udelay(1);
++	writel(SFCTEMP_RSTN, sfctemp->regs);
++}
++
++static int sfctemp_enable(struct sfctemp *sfctemp)
++{
++	int ret = 0;
++
++	mutex_lock(&sfctemp->lock);
++	if (sfctemp->enabled)
++		goto done;
++
++	ret = clk_prepare_enable(sfctemp->clk_bus);
++	if (ret)
++		goto err;
++	ret = reset_control_deassert(sfctemp->rst_bus);
++	if (ret)
++		goto err_disable_bus;
++
++	ret = clk_prepare_enable(sfctemp->clk_sense);
++	if (ret)
++		goto err_assert_bus;
++	ret = reset_control_deassert(sfctemp->rst_sense);
++	if (ret)
++		goto err_disable_sense;
++
++	sfctemp_power_up(sfctemp);
++	sfctemp->enabled = true;
++done:
++	mutex_unlock(&sfctemp->lock);
++	return ret;
++
++err_disable_sense:
++	clk_disable_unprepare(sfctemp->clk_sense);
++err_assert_bus:
++	reset_control_assert(sfctemp->rst_bus);
++err_disable_bus:
++	clk_disable_unprepare(sfctemp->clk_bus);
++err:
++	mutex_unlock(&sfctemp->lock);
++	return ret;
++}
++
++static int sfctemp_disable(struct sfctemp *sfctemp)
++{
++	mutex_lock(&sfctemp->lock);
++	if (!sfctemp->enabled)
++		goto done;
++
++	sfctemp_power_down(sfctemp);
++	reset_control_assert(sfctemp->rst_sense);
++	clk_disable_unprepare(sfctemp->clk_sense);
++	reset_control_assert(sfctemp->rst_bus);
++	clk_disable_unprepare(sfctemp->clk_bus);
++	sfctemp->enabled = false;
++done:
++	mutex_unlock(&sfctemp->lock);
++	return 0;
++}
++
++static void sfctemp_disable_action(void *data)
++{
++	sfctemp_disable(data);
++}
++
++static int sfctemp_convert(struct sfctemp *sfctemp, long *val)
++{
++	int ret;
++
++	mutex_lock(&sfctemp->lock);
++	if (!sfctemp->enabled) {
++		ret = -ENODATA;
++		goto out;
++	}
++
++	sfctemp_run_single(sfctemp);
++
++	ret = wait_for_completion_interruptible_timeout(&sfctemp->conversion_done,
++							msecs_to_jiffies(10));
++	if (ret <= 0) {
++		if (ret == 0)
++			ret = -ETIMEDOUT;
++		goto out;
++	}
++
++	/* calculate temperature in milli Celcius */
++	*val = (long)((readl(sfctemp->regs) & SFCTEMP_DOUT_MSK) >> SFCTEMP_DOUT_POS)
++		* SFCTEMP_Y1000 / SFCTEMP_Z - SFCTEMP_K1000;
++
++	ret = 0;
++out:
++	mutex_unlock(&sfctemp->lock);
++	return ret;
++}
++
++static umode_t sfctemp_is_visible(const void *data, enum hwmon_sensor_types type,
++				  u32 attr, int channel)
++{
++	switch (type) {
++	case hwmon_temp:
++		switch (attr) {
++		case hwmon_temp_enable:
++			return 0644;
++		case hwmon_temp_input:
++			return 0444;
++		}
++		return 0;
++	default:
++		return 0;
++	}
++}
++
++static int sfctemp_read(struct device *dev, enum hwmon_sensor_types type,
++			u32 attr, int channel, long *val)
++{
++	struct sfctemp *sfctemp = dev_get_drvdata(dev);
++
++	switch (type) {
++	case hwmon_temp:
++		switch (attr) {
++		case hwmon_temp_enable:
++			*val = sfctemp->enabled;
++			return 0;
++		case hwmon_temp_input:
++			return sfctemp_convert(sfctemp, val);
++		}
++		return -EINVAL;
++	default:
++		return -EINVAL;
++	}
++}
++
++static int sfctemp_write(struct device *dev, enum hwmon_sensor_types type,
++			 u32 attr, int channel, long val)
++{
++	struct sfctemp *sfctemp = dev_get_drvdata(dev);
++
++	switch (type) {
++	case hwmon_temp:
++		switch (attr) {
++		case hwmon_temp_enable:
++			if (val == 0)
++				return sfctemp_disable(sfctemp);
++			if (val == 1)
++				return sfctemp_enable(sfctemp);
++			break;
++		}
++		return -EINVAL;
++	default:
++		return -EINVAL;
++	}
++}
++
++static const struct hwmon_channel_info *sfctemp_info[] = {
++	HWMON_CHANNEL_INFO(chip, HWMON_C_REGISTER_TZ),
++	HWMON_CHANNEL_INFO(temp, HWMON_T_ENABLE | HWMON_T_INPUT),
++	NULL
++};
++
++static const struct hwmon_ops sfctemp_hwmon_ops = {
++	.is_visible = sfctemp_is_visible,
++	.read = sfctemp_read,
++	.write = sfctemp_write,
++};
++
++static const struct hwmon_chip_info sfctemp_chip_info = {
++	.ops = &sfctemp_hwmon_ops,
++	.info = sfctemp_info,
++};
++
++static int sfctemp_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct device *hwmon_dev;
++	struct sfctemp *sfctemp;
++	int ret;
++
++	sfctemp = devm_kzalloc(dev, sizeof(*sfctemp), GFP_KERNEL);
++	if (!sfctemp)
++		return -ENOMEM;
++
++	dev_set_drvdata(dev, sfctemp);
++	mutex_init(&sfctemp->lock);
++	init_completion(&sfctemp->conversion_done);
++
++	sfctemp->regs = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(sfctemp->regs))
++		return PTR_ERR(sfctemp->regs);
++
++	sfctemp->clk_sense = devm_clk_get(dev, "sense");
++	if (IS_ERR(sfctemp->clk_sense))
++		return dev_err_probe(dev, PTR_ERR(sfctemp->clk_sense),
++				     "error getting sense clock\n");
++
++	sfctemp->clk_bus = devm_clk_get(dev, "bus");
++	if (IS_ERR(sfctemp->clk_bus))
++		return dev_err_probe(dev, PTR_ERR(sfctemp->clk_bus),
++				     "error getting bus clock\n");
++
++	sfctemp->rst_sense = devm_reset_control_get_exclusive(dev, "sense");
++	if (IS_ERR(sfctemp->rst_sense))
++		return dev_err_probe(dev, PTR_ERR(sfctemp->rst_sense),
++				     "error getting sense reset\n");
++
++	sfctemp->rst_bus = devm_reset_control_get_exclusive(dev, "bus");
++	if (IS_ERR(sfctemp->rst_bus))
++		return dev_err_probe(dev, PTR_ERR(sfctemp->rst_bus),
++				     "error getting busreset\n");
++
++	ret = reset_control_assert(sfctemp->rst_sense);
++	if (ret)
++		return dev_err_probe(dev, ret, "error asserting sense reset\n");
++
++	ret = reset_control_assert(sfctemp->rst_bus);
++	if (ret)
++		return dev_err_probe(dev, ret, "error asserting bus reset\n");
++
++	ret = platform_get_irq(pdev, 0);
++	if (ret < 0)
++		return ret;
++
++	ret = devm_request_irq(dev, ret, sfctemp_isr, 0, pdev->name, sfctemp);
++	if (ret)
++		return dev_err_probe(dev, ret, "error requesting irq\n");
++
++	ret = devm_add_action(dev, sfctemp_disable_action, sfctemp);
++	if (ret)
++		return ret;
++
++	ret = sfctemp_enable(sfctemp);
++	if (ret)
++		return dev_err_probe(dev, ret, "error enabling temperature sensor: %d\n", ret);
++
++	hwmon_dev = devm_hwmon_device_register_with_info(dev, pdev->name, sfctemp,
++							 &sfctemp_chip_info, NULL);
++	return PTR_ERR_OR_ZERO(hwmon_dev);
++}
++
++static const struct of_device_id sfctemp_of_match[] = {
++	{ .compatible = "starfive,jh7100-temp" },
++	{ .compatible = "starfive,jh7110-temp" },
++	{ /* sentinel */ }
++};
++MODULE_DEVICE_TABLE(of, sfctemp_of_match);
++
++static struct platform_driver sfctemp_driver = {
++	.probe  = sfctemp_probe,
++	.driver = {
++		.name = "sfctemp",
++		.of_match_table = sfctemp_of_match,
++	},
++};
++module_platform_driver(sfctemp_driver);
++
++MODULE_AUTHOR("Emil Renner Berthing");
++MODULE_DESCRIPTION("StarFive JH71x0 temperature sensor driver");
++MODULE_LICENSE("GPL");
 -- 
 2.38.1
 
