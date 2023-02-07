@@ -4,67 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ED3EC636D3
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Feb 2023 20:58:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38037C636D3
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Feb 2023 21:19:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YN7kGP3jQcm46xJoV3/v5tqWNRDTbpmtzuL8JC69GKU=; b=laKktX9eMluVuW
-	7eMKYILK5S6LvdgFj3w+zomzMXDpKl4ihJLaoSSBXkBZaknNyLKN03yo6g2oBU2ucpdYBD8CvbTaA
-	IKDyOOdEgeEqQa4kAfLKso6tEBJGKhHLIH5CGitBwu5PRRmewFqfX2+OhUPA80Z+Rq3NlULzqocG4
-	CNqdFkJsqEpVmwx8b3sfXfGcP6qRG3XOA1b4tv1VAFH5cjxoieRvbwd0m0OElUs6tUvUOLzAeBIG1
-	gs/L7IWICPNl/VmY9n01Tm6su6bDvUI5PS7I8Yd4UnEenaQS0kbFgmF449SUOb2OAF9aMQKo0y0M3
-	Hfp9RInBLPx3XRx6Tnew==;
+	List-Owner; bh=Z9SxsolZDhCmDa08SdWb7aWLYkyOguwLpXN53fiBio0=; b=u2a+iY2cElxH7j
+	311XNO5sDaJ7V52sUIeXvpZ4rzEmWHgkd/K5TdV6+d55+IRQ8jhOjeaG5yAftTFhPkFdeBlFDQEIL
+	W5ouWQRX3BtuDpmQCpZeCGxzUavkmxymGAsBw7z7YhIc3n1gGO48bU6u2F7/re7BuFbNMYHx7ScgD
+	+K/7bFEay3ZCRxkGT77F2w8krnbhGmIWYIPLC+4uJLS01+4ViJIHRZBLiTRDlGAkexSY/k7Zmc06T
+	va9LJ+HVXODvwzcHCcbGEbtS36C5aI4UFiiIfDP4I0fIn4azvbOrt9GHKHmKRqGyjgCQGzh966EYR
+	xzVxf7hhP0Qc3PD6mUBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPV2T-00DOc2-EN; Tue, 07 Feb 2023 20:58:05 +0000
-Received: from mail-oa1-f54.google.com ([209.85.160.54])
+	id 1pPVMk-00DTtc-TJ; Tue, 07 Feb 2023 21:19:02 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPV2Q-00DOaR-BA
-	for linux-riscv@lists.infradead.org; Tue, 07 Feb 2023 20:58:03 +0000
-Received: by mail-oa1-f54.google.com with SMTP id 586e51a60fabf-1685cf2003aso20596082fac.12
-        for <linux-riscv@lists.infradead.org>; Tue, 07 Feb 2023 12:58:01 -0800 (PST)
+	id 1pPVMg-00DTsj-RW
+	for linux-riscv@lists.infradead.org; Tue, 07 Feb 2023 21:19:00 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id pj3so16345006pjb.1
+        for <linux-riscv@lists.infradead.org>; Tue, 07 Feb 2023 13:18:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=l0gc5keUcXf5U42aZBPSOFCzzi7Lkby3WUvehhaBKbA=;
+        b=VqOOoB7rkICaPhrTdeAoRHvNfIQCJ204MGU94d8Ggkr7EJAlzUjNF6kI/HBErZMhOp
+         KGEISZNOzaMddz4lMLtnAVatyKPHy3CSqtNu16mmrONEYSTrN8Kwqg3qIRPRfklPS731
+         3N/FY1m5zvleZ9i8gm1hNsQTd+u1BdBGVp43u3Ilnf7Yk5VLnGotDQ2JDMa09VAcm269
+         sLGzQXo3ZmjltnUG+QjnS67iSMClmBlZ3PtTN5cVAh7WrjrXih9vJ4vZBqBvFtt7Dmll
+         dkT20QzzfY3K0GCQukTcpcog5RDGqcuk3w8cYTDVTpds1IU7PpV4RaeykVv3m6oEg6vk
+         2lRA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=yqtKI6VvbLeNL2RUrUWXNfeUaIXVwWm1vJplGrZvFTs=;
-        b=3xVyvHlGXmlGXwAyEhvN9+ZhBft4nvdQk2edeO6OmdgDn4Wmj4NGAgzNVvQEYyHidl
-         PxyQeLc164WkZFHhyZkjhuFvdYId+89Pja9h/FK3I4A0dr/CyqI7hzSc/SYBiIzYSGsj
-         TrS4reSzhO8czV+bhqsEFSV7i5cjbU8J9xVOhGH9y+A9qnsOPoH8XNAi6V3OnbgTtGbE
-         YfFcuvkWpaAq2Z713vHW0VBgkVd8vGAUly5Dy5M5kgrGz1BO2Y8cU/8osVs3p8TOEQFj
-         BLECS9q1pF0GYxfPntcZJjDDoDUik/H8jf7PBaLKuMF5Iwfo9XiR1veVJ7eus1GV4mao
-         iFNA==
-X-Gm-Message-State: AO0yUKUdaUrP1Bg63AG7gyA1HzXoD8u4jJuBbwlg3Ul1tAb0B7mR9UK2
-	PvItIX7XMzlpbLRIPQYuKQ==
-X-Google-Smtp-Source: AK7set9bFssBm+5bRaiQQaqfvXv/9qHnz1QnYd/r18TnCsF10XdNoZ3shz76XhSe7GxcLpeT/Kg5Gw==
-X-Received: by 2002:a05:6870:ec91:b0:16a:2a6d:9e40 with SMTP id eo17-20020a056870ec9100b0016a2a6d9e40mr2489358oab.29.1675803481127;
-        Tue, 07 Feb 2023 12:58:01 -0800 (PST)
-Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id b9-20020a9d6b89000000b0068bcef4f543sm7025713otq.21.2023.02.07.12.58.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 07 Feb 2023 12:58:00 -0800 (PST)
-Received: (nullmailer pid 4142751 invoked by uid 1000);
-	Tue, 07 Feb 2023 20:58:00 -0000
-Date: Tue, 7 Feb 2023 14:58:00 -0600
-From: Rob Herring <robh@kernel.org>
-To: Walker Chen <walker.chen@starfivetech.com>
-Cc: linux-riscv@lists.infradead.org, dmaengine@vger.kernel.org, devicetree@vger.kernel.org, Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, Vinod Koul <vkoul@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Emil Renner Berthing <kernel@esmil.dk>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 1/3] dt-bindings: dma: snps,dw-axi-dmac: Update resets
- and add snps,num-hs-if
-Message-ID: <20230207205800.GA4140140-robh@kernel.org>
-References: <20230206113811.23133-1-walker.chen@starfivetech.com>
- <20230206113811.23133-2-walker.chen@starfivetech.com>
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=l0gc5keUcXf5U42aZBPSOFCzzi7Lkby3WUvehhaBKbA=;
+        b=xATP1YkYsv8M59zRTFBOEj6JYcCXoYVZcemggm8tq9zSPt5U4GQbVOrcCsrxe0tKkG
+         GgPduoqmvxy02fZ0FRZqXFEbBhN2hYprVhCwrT4m72Np8HxGnJD8Rw5pd6RSX25dYjTq
+         95CEQ4rqnufMFX1fexHthWBNPDKNj/ATknbha9xVh9NGaJfHaxURSJ8jGW5IvgCMWVxJ
+         Fpi9NNwYRcjOT+UpaEr2gIiQ1lsWKlnk67lMCZscbQU3s0mk/R2TFbcE/qC0hRE/gJx+
+         D56mYTvJNmjlncTueFnTZkIXgYmSgTZ+0UAY7p4Lw3B4v15jSdEcei5vy5c3JcwFY5cl
+         12Uw==
+X-Gm-Message-State: AO0yUKWPqvSNOBAszyeyVu2vRD4JATvO+DXmfAPdW6EbBRqYk95B8Ppj
+	QnFRp8ZyPjkUdltNGM6J4zToQQ==
+X-Google-Smtp-Source: AK7set/tcOAwjePvlCcDOHogBghvok/qBEaHnXi93rhmnMJDEPyGUHdl1epz2OQpc7DQKqLl1X7mQg==
+X-Received: by 2002:a17:903:124f:b0:199:1a32:413c with SMTP id u15-20020a170903124f00b001991a32413cmr4865089plh.45.1675804734592;
+        Tue, 07 Feb 2023 13:18:54 -0800 (PST)
+Received: from [192.168.50.116] (c-24-4-73-83.hsd1.ca.comcast.net. [24.4.73.83])
+        by smtp.gmail.com with ESMTPSA id p21-20020a170902ead500b001991fd2faabsm3875816pld.277.2023.02.07.13.18.53
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 07 Feb 2023 13:18:54 -0800 (PST)
+Message-ID: <91cd3bf5-9c68-df1e-32a8-55f2cfedd84a@rivosinc.com>
+Date: Tue, 7 Feb 2023 13:18:52 -0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230206113811.23133-2-walker.chen@starfivetech.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.7.1
+Subject: Re: [PATCH -next v13 10/19] riscv: Allocate user's vector context in
+ the first-use trap
+Content-Language: en-US
+To: Andy Chiu <andy.chiu@sifive.com>, linux-riscv@lists.infradead.org,
+ palmer@dabbelt.com, anup@brainfault.org, atishp@atishpatra.org,
+ kvm-riscv@lists.infradead.org, kvm@vger.kernel.org
+Cc: greentime.hu@sifive.com, guoren@linux.alibaba.com,
+ Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Heiko Stuebner <heiko.stuebner@vrull.eu>,
+ Andrew Jones <ajones@ventanamicro.com>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ Conor Dooley <conor.dooley@microchip.com>, Jisheng Zhang
+ <jszhang@kernel.org>, Vincent Chen <vincent.chen@sifive.com>,
+ Guo Ren <guoren@kernel.org>, Li Zhengyu <lizhengyu3@huawei.com>,
+ Masahiro Yamada <masahiroy@kernel.org>, Changbin Du <changbin.du@intel.com>,
+ Richard Henderson <richard.henderson@linaro.org>
+References: <20230125142056.18356-1-andy.chiu@sifive.com>
+ <20230125142056.18356-11-andy.chiu@sifive.com>
+From: Vineet Gupta <vineetg@rivosinc.com>
+In-Reply-To: <20230125142056.18356-11-andy.chiu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230207_125802_407999_7D57D2DD 
-X-CRM114-Status: GOOD (  20.20  )
+X-CRM114-CacheID: sfid-20230207_131859_110636_4343448F 
+X-CRM114-Status: GOOD (  10.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,85 +99,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 06, 2023 at 07:38:09PM +0800, Walker Chen wrote:
-> Add two reset items and properties 'snps,num-hs-if'.
-> The DMA controller needs to be reset before being used in JH7110 SoC.
-> Another difference from the original version is that the hardware
-> handshake number of DMA can be up to 56 while the number in original
-> version is less than 16, and different registers are selected according
-> to this.
-> 
-> Signed-off-by: Walker Chen <walker.chen@starfivetech.com>
-> ---
->  .../bindings/dma/snps,dw-axi-dmac.yaml          | 17 ++++++++++++++++-
->  1 file changed, 16 insertions(+), 1 deletion(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml b/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
-> index 67aa7bb6d36a..1a8d8c20e254 100644
-> --- a/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
-> +++ b/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
-> @@ -9,6 +9,7 @@ title: Synopsys DesignWare AXI DMA Controller
->  maintainers:
->    - Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>
->    - Jee Heng Sia <jee.heng.sia@intel.com>
-> +  - Walker Chen <walker.chen@starfivetech.com>
->  
->  description:
->    Synopsys DesignWare AXI DMA Controller DT Binding
-> @@ -21,6 +22,7 @@ properties:
->      enum:
->        - snps,axi-dma-1.01a
->        - intel,kmb-axi-dma
-> +      - starfive,axi-dma
+Hi Andy,
 
-This should be SoC specific.
-
->  
->    reg:
->      minItems: 1
-> @@ -59,7 +61,12 @@ properties:
->      maximum: 8
->  
->    resets:
-> -    maxItems: 1
-> +    maxItems: 2
+On 1/25/23 06:20, Andy Chiu wrote:
+> +static bool insn_is_vector(u32 insn_buf)
+> +{
+> +	u32 opcode = insn_buf & __INSN_OPCODE_MASK;
+> +	/*
+> +	 * All V-related instructions, including CSR operations are 4-Byte. So,
+> +	 * do not handle if the instruction length is not 4-Byte.
+> +	 */
+> +	if (unlikely(GET_INSN_LENGTH(insn_buf) != 4))
+> +		return false;
+> +	if (opcode == OPCODE_VECTOR) {
+> +		return true;
+> +	} else if (opcode == OPCODE_LOADFP || opcode == OPCODE_STOREFP) {
+> +		u32 width = EXTRACT_LOAD_STORE_FP_WIDTH(insn_buf);
 > +
-> +  reset-names:
-> +    items:
-> +      - const: axi-rst
-> +      - const: ahb-rst
+> +		if (width == LSFP_WIDTH_RVV_8 || width == LSFP_WIDTH_RVV_16 ||
+> +		    width == LSFP_WIDTH_RVV_32 || width == LSFP_WIDTH_RVV_64)
+> +			return true;
 
-'-rst' is redundant.
+What is the purpose of checking FP opcodes here ?
 
->  
->    snps,dma-masters:
->      description: |
-> @@ -74,6 +81,14 @@ properties:
->      $ref: /schemas/types.yaml#/definitions/uint32
->      enum: [0, 1, 2, 3, 4, 5, 6]
->  
-> +  snps,num-hs-if:
-> +    description: |
-> +      The number of hardware handshake. If it is more than 16,
-> +      CHx_CFG2 is used to configure the DMA transfer instead of CHx_CFG.
-
-Can't you infer this from the compatible string?
-
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    minimum: 1
-> +    maximum: 256
+> +	} else if (opcode == RVG_OPCODE_SYSTEM) {
+> +		u32 csr = EXTRACT_SYSTEM_CSR(insn_buf);
 > +
->    snps,priority:
->      description: |
->        Channel priority specifier associated with the DMA channels.
-> -- 
-> 2.17.1
-> 
+> +		if ((csr >= CSR_VSTART && csr <= CSR_VCSR) ||
+> +		    (csr >= CSR_VL && csr <= CSR_VLENB))
+> +			return true;
+> +	}
+> +	return false;
+> +}
+
 
 _______________________________________________
 linux-riscv mailing list
