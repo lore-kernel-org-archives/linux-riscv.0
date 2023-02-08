@@ -4,76 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E590FC636D7
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Feb 2023 14:29:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4CDFC05027
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Feb 2023 14:46:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=eIYhBGqg+OitXue0vwtAdC1YJL4JhXanQOybJXg8nV4=; b=UmC2omu18VWxvY
-	/pAuV69naPI7tSJRC0TBbRiumWE0zcMKgTf/wik35N/4vL3ZxfyTCCalGNeO6JAfPCacAlNwWZ1YH
-	QKIGcY1NYol2eqAO4p6JQb1C8HfK1y7VSb4MRA65GXCLZkbxvqadumuGwd+1yScb8YUZI7KDEozKR
-	nSSypAf5xOVqCSZCCA5ZrvOiA0JoePetyTG59X7bfR3LjTD67Pf3NDSx8s8a8sVo1xYL1kVHRcACP
-	lJ7j4N7P7yIFx/QUK+12e59sgGeGRAoQzS33IcuQOUNup1SSyEVnizxB5sMAwIKTMW+2UgC8sWmTG
-	M/K+KHk36yaDx46tl9sQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=u8ilCDgD65EP9FEToV4hVYDCxmwxiwDppR38EosTTPk=; b=dIZpHDK+e8JR1Q
+	0drO2MzIZUObukujXF/VD+fk8TW+7GBZQuedAlJDze79LjLFljKp5aUxOx2HNdlO/L0GlGbwZalWc
+	b4Ac/JLbOMv8PImtyud9RViThZNtq87fFnDOtSxzG0zU2byycAXRtU17aNnwF0Fk7Ab32Jf9RM5Vt
+	oF4rixXbiJIGmL6cDv4i3fh80k+8TOQq5uiZaLAjvZNvLjADg9ekkkxJzQnuPKis2cKEsoCXuIwuj
+	w8t24xNUcRSmb/OstXBmcCslJbnwplYaQxQTDXtkwqAMViFuxj+yrNF+RhZUcwwvHisriUE74t8Bg
+	jeaHAHKLzmw8aBBLjCow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPlRY-00FuRB-99; Wed, 08 Feb 2023 14:29:04 +0000
-Received: from mail-qv1-xf2e.google.com ([2607:f8b0:4864:20::f2e])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPlRV-00FuQK-R6
-	for linux-riscv@lists.infradead.org; Wed, 08 Feb 2023 14:29:03 +0000
-Received: by mail-qv1-xf2e.google.com with SMTP id d13so11478616qvj.8
-        for <linux-riscv@lists.infradead.org>; Wed, 08 Feb 2023 06:29:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=WE/gPMaBx/EpR5LKoE9r3aKinik7P+lmgz6oMIYx50w=;
-        b=EOFxZlwAB1StI8zpJndrYVj7J0psxYy6yegyPIg3C2TulkuZGJm3VP14lay3pEE112
-         V2Y8foL64OZMz3sW5kbvVrAXGZvu3op1WNS70VYOSURfuMNcSGNtCmjFX9rwcDk+mAsJ
-         x49xaDCjBfZgcsTKG4P5z/xzm7p5cNhTyfscbCXaL/gPhEaHn90Q3Vjd0yJMbGZqWTzU
-         SG/4xcDh8WVYfxBJutnljGxbV22nBKwhc0lX9cUOSakhTtljgbjP6sezHfJbHG+YHezo
-         TkCAsZQZPHSI9hFpJIWipUA+SwyYLpVT+FBSFubUTfMCBahGNiFxMowfyuv60sGVL7QV
-         ji9Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=WE/gPMaBx/EpR5LKoE9r3aKinik7P+lmgz6oMIYx50w=;
-        b=b349/vED8SrGZQX/NEXuYRdc6iVUaeeGIhqew6qVovPNOed6kWxQ4+dBI90T5tjBp1
-         jEx4n1J12k7vVk6vqqg6uXxh3gcveG0gAh0uZMrCRRCw37o0IhoBKmaEDQlVcZbvDLuV
-         tWUV7X+M859F9MGpcsoBn9PB13CXW2m7WixG6JugFsilwuLQ/yFUg/yWxrgEY7dttHXj
-         t/+t7a7pGZljc946rQEEWbj/uT2Opht3WzmzX6VZ+iY33zP/b5VKGSEwfr+bGEpO4qaI
-         4cFUBvuIWZtWGhqdj4auMVHEsf9fHKQHxTMh4RJRbxW7gOk0BmYhqSUYyYlsq/XkViRw
-         jzUQ==
-X-Gm-Message-State: AO0yUKU88kRSPNvPz1ULgTwKvXq5RVrZqJNuBrCXOKpVBsTPIA/6I2R0
-	lKjs18mgTo0mfsxXleEFQNc=
-X-Google-Smtp-Source: AK7set9kjct65w5o2q9gAXAEsn6yKOcJGveWGLTdVDRJXy4Qo289gjhNhlft6R4OLwmPx1rF0VjF2g==
-X-Received: by 2002:ad4:5ba7:0:b0:568:9110:d359 with SMTP id 7-20020ad45ba7000000b005689110d359mr10123799qvq.1.1675866539320;
-        Wed, 08 Feb 2023 06:28:59 -0800 (PST)
-Received: from localhost.localdomain (pppoe-209-91-167-254.vianet.ca. [209.91.167.254])
-        by smtp.gmail.com with ESMTPSA id dw27-20020a05620a601b00b00706c1f7a608sm11762098qkb.89.2023.02.08.06.28.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Feb 2023 06:28:58 -0800 (PST)
-From: Trevor Woerner <twoerner@gmail.com>
-To: linux-kernel@vger.kernel.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv@lists.infradead.org
-Subject: [PATCH] MAINTAINERS: update Allwinner sunXi SoC support entry
-Date: Wed,  8 Feb 2023 09:28:41 -0500
-Message-Id: <20230208142841.19597-1-twoerner@gmail.com>
-X-Mailer: git-send-email 2.36.0.rc2.17.g4027e30c53
+	id 1pPliA-00FwyT-1z; Wed, 08 Feb 2023 14:46:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pPli6-00FwxL-C1
+	for linux-riscv@lists.infradead.org; Wed, 08 Feb 2023 14:46:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2B5F11042;
+	Wed,  8 Feb 2023 06:46:49 -0800 (PST)
+Received: from FVFF77S0Q05N.cambridge.arm.com (FVFF77S0Q05N.cambridge.arm.com [10.1.30.155])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7B9E13F8C6;
+	Wed,  8 Feb 2023 06:46:04 -0800 (PST)
+Date: Wed, 8 Feb 2023 14:46:01 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Guo Ren <guoren@kernel.org>
+Cc: Evgenii Shatokhin <e.shatokhin@yadro.com>, suagrfillet@gmail.com,
+	andy.chiu@sifive.com, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>,
+	anup@brainfault.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
+	conor.dooley@microchip.com, heiko@sntech.de, rostedt@goodmis.org,
+	mhiramat@kernel.org, jolsa@redhat.com, bp@suse.de,
+	jpoimboe@kernel.org, linux@yadro.com
+Subject: Re: [PATCH -next V7 0/7] riscv: Optimize function trace
+Message-ID: <Y+O1qY453BnhqgQZ@FVFF77S0Q05N.cambridge.arm.com>
+References: <20230112090603.1295340-1-guoren@kernel.org>
+ <c68bac83-5c88-80b1-bac9-e1fd4ea8f07e@yadro.com>
+ <CAJF2gTQm11px3mqyrNk1SRiJZud1yeY2avK99UX9KetWAGe5BA@mail.gmail.com>
+ <Y+DOyqehZvBJlb8N@FVFF77S0Q05N>
+ <CAJF2gTQ6U1vH79Mu53eQ-GVaFx36C-hEt9Qf6=_vAkHfmgFh1Q@mail.gmail.com>
+ <Y+IXB4xQ7ACQWC9U@FVFF77S0Q05N>
+ <CAJF2gTTrX+8wCm-g=L9+3BkCRrZ8SCUM2w1e5duq-+Bsa213mA@mail.gmail.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CAJF2gTTrX+8wCm-g=L9+3BkCRrZ8SCUM2w1e5duq-+Bsa213mA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230208_062901_912259_9040EBE8 
-X-CRM114-Status: UNSURE (   9.32  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230208_064610_522387_633B7455 
+X-CRM114-Status: GOOD (  24.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,48 +67,114 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-VXBkYXRlIHRoZSBpbmZvcm1hdGlvbiBpbiB0aGUgIkFsbHdpbm5lciBzdW5YaSBTb0Mgc3VwcG9y
-dCIgYmxvY2s6Ci0gaW5jbHVkZSBtb3JlIFJJU0MtViBpbmZvcm1hdGlvbgotIG1vdmUgdGhlIGJs
-b2NrIHRvIGtlZXAgaXQgaW4gYWxwaGFiZXRpY2FsIG9yZGVyCi0gIkwiIGJlZm9yZSAiVCIgKGFz
-IHJlcG9ydGVkIGJ5IGNoZWNrcGF0Y2gucGwpCgpTaWduZWQtb2ZmLWJ5OiBUcmV2b3IgV29lcm5l
-ciA8dHdvZXJuZXJAZ21haWwuY29tPgotLS0KIE1BSU5UQUlORVJTIHwgMzYgKysrKysrKysrKysr
-KysrKysrKy0tLS0tLS0tLS0tLS0tLS0tCiAxIGZpbGUgY2hhbmdlZCwgMTkgaW5zZXJ0aW9ucygr
-KSwgMTcgZGVsZXRpb25zKC0pCgpkaWZmIC0tZ2l0IGEvTUFJTlRBSU5FUlMgYi9NQUlOVEFJTkVS
-UwppbmRleCBiOGFkODQ0YmNhNzcuLmZmMzlkMzRjYjRjYSAxMDA2NDQKLS0tIGEvTUFJTlRBSU5F
-UlMKKysrIGIvTUFJTlRBSU5FUlMKQEAgLTE4NTYsMjMgKzE4NTYsNiBAQCBNOglFbWlsaW8gTMOz
-cGV6IDxlbWlsaW9AZWxvcGV6LmNvbS5hcj4KIFM6CU1haW50YWluZWQKIEY6CWRyaXZlcnMvY2xr
-L3N1bnhpLwogCi1BUk0vQWxsd2lubmVyIHN1blhpIFNvQyBzdXBwb3J0Ci1NOglDaGVuLVl1IFRz
-YWkgPHdlbnNAY3NpZS5vcmc+Ci1NOglKZXJuZWogU2tyYWJlYyA8amVybmVqLnNrcmFiZWNAZ21h
-aWwuY29tPgotTToJU2FtdWVsIEhvbGxhbmQgPHNhbXVlbEBzaG9sbGFuZC5vcmc+Ci1MOglsaW51
-eC1hcm0ta2VybmVsQGxpc3RzLmluZnJhZGVhZC5vcmcgKG1vZGVyYXRlZCBmb3Igbm9uLXN1YnNj
-cmliZXJzKQotUzoJTWFpbnRhaW5lZAotVDoJZ2l0IGdpdDovL2dpdC5rZXJuZWwub3JnL3B1Yi9z
-Y20vbGludXgva2VybmVsL2dpdC9zdW54aS9saW51eC5naXQKLUw6CWxpbnV4LXN1bnhpQGxpc3Rz
-LmxpbnV4LmRldgotRjoJYXJjaC9hcm0vbWFjaC1zdW54aS8KLUY6CWFyY2gvYXJtNjQvYm9vdC9k
-dHMvYWxsd2lubmVyLwotRjoJZHJpdmVycy9jbGsvc3VueGktbmcvCi1GOglkcml2ZXJzL3BpbmN0
-cmwvc3VueGkvCi1GOglkcml2ZXJzL3NvYy9zdW54aS8KLU46CWFsbHdpbm5lcgotTjoJc3VuW3g0
-NTY3ODldaQotTjoJc3VuWzI1XTBpCi0KIEFSTS9BbWxvZ2ljIE1lc29uIFNvQyBDTE9DSyBGUkFN
-RVdPUksKIE06CU5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPgogTToJ
-SmVyb21lIEJydW5ldCA8amJydW5ldEBiYXlsaWJyZS5jb20+CkBAIC0yNjIwLDYgKzI2MDMsMjUg
-QEAgRjoJYXJjaC9hcm0vYm9vdC9kdHMvcnRkKgogRjoJYXJjaC9hcm0vbWFjaC1yZWFsdGVrLwog
-RjoJYXJjaC9hcm02NC9ib290L2R0cy9yZWFsdGVrLwogCitBUk0vUklTQy1WL0FsbHdpbm5lciBz
-dW5YaSBTb0Mgc3VwcG9ydAorTToJQ2hlbi1ZdSBUc2FpIDx3ZW5zQGNzaWUub3JnPgorTToJSmVy
-bmVqIFNrcmFiZWMgPGplcm5lai5za3JhYmVjQGdtYWlsLmNvbT4KK006CVNhbXVlbCBIb2xsYW5k
-IDxzYW11ZWxAc2hvbGxhbmQub3JnPgorTDoJbGludXgtYXJtLWtlcm5lbEBsaXN0cy5pbmZyYWRl
-YWQub3JnIChtb2RlcmF0ZWQgZm9yIG5vbi1zdWJzY3JpYmVycykKK0w6CWxpbnV4LXJpc2N2QGxp
-c3RzLmluZnJhZGVhZC5vcmcKK0w6CWxpbnV4LXN1bnhpQGxpc3RzLmxpbnV4LmRldgorUzoJTWFp
-bnRhaW5lZAorVDoJZ2l0IGdpdDovL2dpdC5rZXJuZWwub3JnL3B1Yi9zY20vbGludXgva2VybmVs
-L2dpdC9zdW54aS9saW51eC5naXQKK0Y6CWFyY2gvYXJtL21hY2gtc3VueGkvCitGOglhcmNoL2Fy
-bTY0L2Jvb3QvZHRzL2FsbHdpbm5lci8KK0Y6CWFyY2gvcmlzY3YvYm9vdC9kdHMvYWxsd2lubmVy
-LworRjoJZHJpdmVycy9jbGsvc3VueGktbmcvCitGOglkcml2ZXJzL3BpbmN0cmwvc3VueGkvCitG
-Oglkcml2ZXJzL3NvYy9zdW54aS8KK046CWFsbHdpbm5lcgorTjoJc3VuW3g0NTY3ODldaQorTjoJ
-c3VuWzI1XTBpCisKIEFSTS9SSVNDLVYvUkVORVNBUyBBUkNISVRFQ1RVUkUKIE06CUdlZXJ0IFV5
-dHRlcmhvZXZlbiA8Z2VlcnQrcmVuZXNhc0BnbGlkZXIuYmU+CiBNOglNYWdudXMgRGFtbSA8bWFn
-bnVzLmRhbW1AZ21haWwuY29tPgotLSAKMi4zNi4wLnJjMi4xNy5nNDAyN2UzMGM1MwoKCl9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
-aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
-bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Wed, Feb 08, 2023 at 10:30:56AM +0800, Guo Ren wrote:
+> Hi Mark,
+> 
+> Thx for the thoughtful reply.
+> 
+> On Tue, Feb 7, 2023 at 5:17 PM Mark Rutland <mark.rutland@arm.com> wrote:
+> > Note that I'm assuming you will *always* go through a common ftrace_caller
+> > trampoline (even for direct calls), with the trampoline responsible for
+> > recovering the direct trampoline (or ops->func) from the ops pointer.
+> >
+> > That would only require 64-bit alignment on 64-bit (or 32-bit alignment on
+> > 32-bit) to keep the literal naturally-aligned; the rest of the instructions
+> > wouldn't require additional alignment.
+> >
+> > For example, I would expect that (for 64-bit) you'd use:
+> >
+> >   # place 2 NOPs *immediately before* the function, and 3 NOPs at the start
+> >   -fpatchable-function-entry=5,2
+> >
+> >   # Align the function to 8-bytes
+> >   -falign=functions=8
+> >
+> > ... and your trampoline in each function could be initialized to:
+> >
+> >   # Note: aligned to 8 bytes
+> >   addr-08               // Literal (first 32-bits)      // set to ftrace_nop_ops
+> >   addr-04               // Literal (last 32-bits)       // set to ftrace_nop_ops
+> >   addr+00       func:   mv      t0, ra
+> >   addr+04               auipc   t1, ftrace_caller
+> >   addr+08               nop
+> >
+> > ... and when enabled can be set to:
+> >
+> >   # Note: aligned to 8 bytes
+> >   addr-08               // Literal (first 32-bits)      // patched to ops ptr
+> >   addr-04               // Literal (last 32-bits)       // patched to ops ptr
+> >   addr+00       func:   mv      t0, ra
+> We needn't "mv t0, ra" here because our "jalr" could work with t0 and
+> won't affect ra. Let's do it in the trampoline code, and then we can
+> save another word here.
+
+Ah; I thought JALR always clobbered ra? Or can that specify the register to
+save the link address to?
+
+I'm not that familiar with riscv asm, so I've probably just got that wrong.
+
+> >   addr+04               auipc   t1, ftrace_caller
+> >   addr+08               jalr    ftrace_caller(t1)
+> 
+> Here is the call-site:
+>    # Note: aligned to 8 bytes
+>    addr-08               // Literal (first 32-bits)      // patched to ops ptr
+>    addr-04               // Literal (last 32-bits)       // patched to ops ptr
+>    addr+00               auipc   t0, ftrace_caller
+>    addr+04               jalr    ftrace_caller(t0)
+
+I'm a bit confused there; I thought that the `symbol(reg)` addressing mode was
+generating additional bits that the AUPIC didn't -- have I got that wrong?
+
+What specifies which register the JALR will write the link address to?
+
+> > Note: this *only* requires patching the literal and NOP<->JALR; the MV and
+> > AUIPC aren't harmful and can always be there. This way, you won't need to use
+> > stop_machine().
+> Yes, simplest nop is better than c.j. I confused.
+> 
+> >
+> > With that, the ftrace_caller trampoline can recover the `ops` pointer at a
+> > negative offset from `ra`, and can recover the instrumented function's return
+> > address in `t0`. Using the `ops` pointer, it can figure out whether to branch
+> > to a direct trampoline or whether to save/restore the regs around invoking
+> > ops->func.
+> >
+> > For 32-bit it would be exactly the same, except you'd only need a single nop
+> > before the function, and the offset would be -0x10.
+> Yes, we reduced another 4 bytes & a smaller alignment for better code
+> size when 32-bit.
+>    # Note: aligned to 4 bytes
+>    addr-04               // Literal (last 32-bits)       // patched to ops ptr
+>    addr+00               auipc   t0, ftrace_caller
+>    addr+04               jalr    ftrace_caller(t0)
+> >
+
+> > That's what arm64 does; the only difference is that riscv would *always* need
+> > to go via the trampoline in order to make direct calls.
+> We need one more trampoline here beside ftrace_caller &
+> ftrace_regs_caller: It's "direct_caller".
+> 
+> addr+04         nop -> direct_caller/ftrace_caller/ftrace_regs_caller
+
+I'd strongly recommend that you instead implement FTRACE_WITH_ARGS and
+deprecate FTRACE_WITH_REGS, like arm64 has done, then you only need a single
+ftrace_caller, as I mentioned above. That way there's no risk that you need to
+patch the AUIPC after initialization.
+
+The arm64 FTRACE_WITH_ARGS conversion is in mainline, and arm64's
+FTRACE_WITH_CALL_OPS is based upon that. Florent's DIRECT_CALLS patches add the
+direct call logic to the same ftrace_caller trampoline.
+
+Thanks,
+Mark.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
