@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A485C636CC
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Feb 2023 00:05:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B565AC636CD
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Feb 2023 00:15:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0VlrdNEY3Z4mBiO6Vqj+Q9kZ/A0Kjy2cKloO3MeTiVQ=; b=YugMIFyxOAhE2W
-	nHVdlz//+/Rpwwm4RDxXJMiWUrSc7xDmCRmq0XpzqJ/FfMq1Jj9Rferp9VyJwgaT0WjL5kuTkxEL4
-	jLbCTTEaSI9SEnraEhpxq3PAhBNFARo/QrkCgM3iauxqIGEfgTs9k6mDNXX5mkZpW4fil1MLpCzBl
-	YWFz6RZQ/ZXPZ95xQsVMwr12xGTq6ofSVZmISkBImJuAqrMXzpOE9FCoi1Ljcndgwvc+Ycq36wVqf
-	MyKOYAe9HQsHT3jVmNsg1IFJOXTlT29k71oEXPw5F8zcb31QcYwAfOlhzd99HiGNpxD1t+VAMN+TZ
-	/pe4e7xa+HbdzPqtjdgw==;
+	List-Owner; bh=JXzqROU9YyPw2T6U8e3pE+bIiIZkL9/Dlx7GWdC9FG4=; b=Pm7D5ZVXG3wm6f
+	Oh9fabpemvsnCu4t5t1elk2XnpvEsU68Z8YJsR+NjPcjra9Z6ZUUy7KLWEOQhdNXU/ox+abd2FHY4
+	n1cKgOVWi8TlV1agbOlts+mwRcR3p9KaEWjx3AT+KMm2cGjy20LvfF01sTI0k8FQ8Bhr0jaT2A7YP
+	I9br3/vNIldCb3rXKFlDBzT0jW6DJZVc4CV6ZQ3kgJ+6G7/x2sXTTRrEZBkqDApzFmwgQGujKItdw
+	i99uxogKbyuz9Ck0+9qvPkZ9B5BO5kl8LcgmBJ45SXDHQc2eCke+9kTJa+TCCIsfNW/fZuIZWtMjg
+	+3J6EvWCyMxqWD49whGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPXxE-00Dhyn-ST; Wed, 08 Feb 2023 00:04:52 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1pPY7j-00Dihp-CU; Wed, 08 Feb 2023 00:15:43 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPXxA-00Dhxt-PA
-	for linux-riscv@lists.infradead.org; Wed, 08 Feb 2023 00:04:50 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id u9so13162184plf.3
-        for <linux-riscv@lists.infradead.org>; Tue, 07 Feb 2023 16:04:47 -0800 (PST)
+	id 1pPY7g-00DigH-10
+	for linux-riscv@lists.infradead.org; Wed, 08 Feb 2023 00:15:42 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id n2so11983838pfo.3
+        for <linux-riscv@lists.infradead.org>; Tue, 07 Feb 2023 16:15:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=atishpatra.org; s=google;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=dfEPQhR9+nvRYFuut3HlmHRlPkp8cAR6z45/icvtvuw=;
-        b=bY80V9xOPF3ktFiiVHSWnzAiW7EJ+dEDiCHGs3IiSfFYGRXEEuUKNi+EsMjFtPWZ6v
-         6ER4zszQSi4bzyZ31Q8wKhOv8RmhRopyjRvd5Q6KwjPUGj13I96N7ZNYSqnIJgcn2n9Y
-         WsJA4YpowQfpU6KDhEdlxhItrUUBVdcMfE3Ak=
+        bh=xCv8W7WdogSbDpeP2kgdyu7zVlADOch/4XysyJuPygA=;
+        b=cHDP174edMqzvkCR8WlOJaBBOTi8D6FK2VHF9wDGI3Cpmjhkfd9WipjT2dT6e6hRb/
+         xvbCATH/F8mqrZ1ori7QLy+gj4zN56Dixtz3oaPryo9aMu2gUlWOVclHwtjZZ9nQvpS7
+         98DyxInWRqTJ4oa7PvOft8iJIPYpOGcCjaL8Q=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=dfEPQhR9+nvRYFuut3HlmHRlPkp8cAR6z45/icvtvuw=;
-        b=NCmkX7kuNZ5VdbTX4cFcUUO0ZzQF1E2xDMTA3J2E9cfGGZFdhk9vtFXvblwf1WuGGy
-         PC6PIRhG9iE14jj/JNZiKoXFSzqdkuLHpr80fFpGW5euNqXMDokqlCmTgDdQS3tDDIL2
-         f/ULaQS2DEsVhQuoLQJBHtaQZx0jhKSKKBRlB/d2Cu9HWMBZizjYFqBT0G0DZwo1lDGh
-         Wkhnw8e5CBKWVZNiUF4bT66+5JCRe/S385nl2IOdpyrTBAkhVUqp/ntB0YYhSBAZDdPn
-         D4FjjAmDmv5nXnRr28SBVqjYtJ2frT8f5tNVDaKz1i7OdfrCpskzfqEH3c4+tCI0vMl8
-         SxfQ==
-X-Gm-Message-State: AO0yUKXjxLmEeXml0FmQ+YR2rjfob24JLRkPrOWlSfXvXnhQc6MGMj0n
-	apwA10hXj175SQKAFI2T6+TfbNC9mUub/22vvsjT
-X-Google-Smtp-Source: AK7set+x2RMP9jPOWJjqB5AuZaFMEzKB81CZ5V6vAu5s3Oc0iy8TPASMirZbhn0c2Wzd3Tp69FACa6p/DaneNwBZ4Mk=
-X-Received: by 2002:a17:902:8348:b0:193:794:ba9 with SMTP id
- z8-20020a170902834800b0019307940ba9mr1322433pln.22.1675814687080; Tue, 07 Feb
- 2023 16:04:47 -0800 (PST)
+        bh=xCv8W7WdogSbDpeP2kgdyu7zVlADOch/4XysyJuPygA=;
+        b=Le/0kIGM0V/D4XIDOJ8Oa1q9WY+G5PYzXUs/1HS/oDKVlrvGcnRc12DcQwSVeD/iHA
+         Ufaml9rtzS0DUMkX0H3vfMmH9noP4uTCdESu07neIAWu++Mma47ZDVMjK42uAfODen6s
+         Yuyp2vKmulrypzenZYM49CHfCOEqC77E5sCuZw012URZJxi8H6mE/xpyzRnGB0am5ISL
+         53w70sCz1PZsQg5JLnyG633EzlmtZ2E9UOMKfDAZ39/yHbR9rvI9e9i5dTctN/ARyo9r
+         bi/nPn0Mq3lfBXpPEAGq8ZvjWvLwGXj9tH2r5bn9FCg6M3RT0BwXmYrByyOjliup/4kY
+         jPlw==
+X-Gm-Message-State: AO0yUKVB2eoCgc55RxfRMd8kHVyN3F2FJHfY4AxzDYG8YgkLIQfMgKuQ
+	wAp2lcMVq0Nv/RQNM1yYcqynFWAD8ZGXDJvalWFZ
+X-Google-Smtp-Source: AK7set/hSCzA7GFkQ6gyqqdxrRjs9yIt0M6ozGwwA30Of3/PLD6nF4yTDw1NiYGsF3mKWx+pLRa2RE0JjKIjLKtBv0w=
+X-Received: by 2002:a63:7a56:0:b0:4c7:ef33:bbe1 with SMTP id
+ j22-20020a637a56000000b004c7ef33bbe1mr1058168pgn.73.1675815336358; Tue, 07
+ Feb 2023 16:15:36 -0800 (PST)
 MIME-Version: 1.0
-References: <20230128072737.2995881-1-apatel@ventanamicro.com> <20230128072737.2995881-6-apatel@ventanamicro.com>
-In-Reply-To: <20230128072737.2995881-6-apatel@ventanamicro.com>
+References: <20230128072737.2995881-1-apatel@ventanamicro.com> <20230128072737.2995881-8-apatel@ventanamicro.com>
+In-Reply-To: <20230128072737.2995881-8-apatel@ventanamicro.com>
 From: Atish Patra <atishp@atishpatra.org>
-Date: Tue, 7 Feb 2023 16:04:35 -0800
-Message-ID: <CAOnJCUKh6s6v0TK=4KRZk9GXN23ebvPuy2OHtWBtTOpnN4g9dg@mail.gmail.com>
-Subject: Re: [PATCH v2 5/7] RISC-V: KVM: Add ONE_REG interface for AIA CSRs
+Date: Tue, 7 Feb 2023 16:15:22 -0800
+Message-ID: <CAOnJCUKxWw86mwWvQ=4kO=AGvk8_GH1Y80wu+oux4DL385dqNg@mail.gmail.com>
+Subject: Re: [PATCH v2 7/7] RISC-V: KVM: Implement guest external interrupt
+ line management
 To: Anup Patel <apatel@ventanamicro.com>
 Cc: Paolo Bonzini <pbonzini@redhat.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
 	Paul Walmsley <paul.walmsley@sifive.com>, Andrew Jones <ajones@ventanamicro.com>, 
 	Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230207_160449_107969_E5B5A061 
-X-CRM114-Status: GOOD (  26.76  )
+X-CRM114-CacheID: sfid-20230207_161540_142503_C5316B3B 
+X-CRM114-Status: GOOD (  30.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,236 +87,395 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 On Fri, Jan 27, 2023 at 11:28 PM Anup Patel <apatel@ventanamicro.com> wrote:
 >
-> We extend the CSR ONE_REG interface to access both general CSRs and
-> AIA CSRs. To achieve this, we introduce "subtype" field in the ONE_REG
-> id which can be used for grouping registers within a particular "type"
-> of ONE_REG registers.
+> The RISC-V host will have one guest external interrupt line for each
+> VS-level IMSICs associated with a HART. The guest external interrupt
+> lines are per-HART resources and hypervisor can use HGEIE, HGEIP, and
+> HIE CSRs to manage these guest external interrupt lines.
 >
 > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 > ---
->  arch/riscv/include/uapi/asm/kvm.h | 15 ++++-
->  arch/riscv/kvm/vcpu.c             | 96 ++++++++++++++++++++++++-------
->  2 files changed, 89 insertions(+), 22 deletions(-)
+>  arch/riscv/include/asm/kvm_aia.h |  10 ++
+>  arch/riscv/kvm/aia.c             | 241 +++++++++++++++++++++++++++++++
+>  arch/riscv/kvm/main.c            |   3 +-
+>  arch/riscv/kvm/vcpu.c            |   2 +
+>  4 files changed, 255 insertions(+), 1 deletion(-)
 >
-> diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
-> index 71992ff1f9dd..d0704eff0121 100644
-> --- a/arch/riscv/include/uapi/asm/kvm.h
-> +++ b/arch/riscv/include/uapi/asm/kvm.h
-> @@ -64,7 +64,7 @@ struct kvm_riscv_core {
->  #define KVM_RISCV_MODE_S       1
->  #define KVM_RISCV_MODE_U       0
+> diff --git a/arch/riscv/include/asm/kvm_aia.h b/arch/riscv/include/asm/kvm_aia.h
+> index 1de0717112e5..0938e0cadf80 100644
+> --- a/arch/riscv/include/asm/kvm_aia.h
+> +++ b/arch/riscv/include/asm/kvm_aia.h
+> @@ -44,10 +44,15 @@ struct kvm_vcpu_aia {
 >
-> -/* CSR registers for KVM_GET_ONE_REG and KVM_SET_ONE_REG */
-> +/* General CSR registers for KVM_GET_ONE_REG and KVM_SET_ONE_REG */
->  struct kvm_riscv_csr {
->         unsigned long sstatus;
->         unsigned long sie;
-> @@ -78,6 +78,10 @@ struct kvm_riscv_csr {
->         unsigned long scounteren;
->  };
+>  #define irqchip_in_kernel(k)           ((k)->arch.aia.in_kernel)
 >
-> +/* AIA CSR registers for KVM_GET_ONE_REG and KVM_SET_ONE_REG */
-> +struct kvm_riscv_aia_csr {
-> +};
+> +extern unsigned int kvm_riscv_aia_nr_hgei;
+>  DECLARE_STATIC_KEY_FALSE(kvm_riscv_aia_available);
+>  #define kvm_riscv_aia_available() \
+>         static_branch_unlikely(&kvm_riscv_aia_available)
+>
+> +static inline void kvm_riscv_vcpu_aia_imsic_release(struct kvm_vcpu *vcpu)
+> +{
+> +}
 > +
->  /* TIMER registers for KVM_GET_ONE_REG and KVM_SET_ONE_REG */
->  struct kvm_riscv_timer {
->         __u64 frequency;
-> @@ -105,6 +109,7 @@ enum KVM_RISCV_ISA_EXT_ID {
->         KVM_RISCV_ISA_EXT_SVINVAL,
->         KVM_RISCV_ISA_EXT_ZIHINTPAUSE,
->         KVM_RISCV_ISA_EXT_ZICBOM,
-> +       KVM_RISCV_ISA_EXT_SSAIA,
->         KVM_RISCV_ISA_EXT_MAX,
->  };
+>  #define KVM_RISCV_AIA_IMSIC_TOPEI      (ISELECT_MASK + 1)
+>  static inline int kvm_riscv_vcpu_aia_imsic_rmw(struct kvm_vcpu *vcpu,
+>                                                unsigned long isel,
+> @@ -119,6 +124,11 @@ static inline void kvm_riscv_aia_destroy_vm(struct kvm *kvm)
+>  {
+>  }
 >
-> @@ -134,6 +139,8 @@ enum KVM_RISCV_SBI_EXT_ID {
->  /* If you need to interpret the index values, here is the key: */
->  #define KVM_REG_RISCV_TYPE_MASK                0x00000000FF000000
->  #define KVM_REG_RISCV_TYPE_SHIFT       24
-> +#define KVM_REG_RISCV_SUBTYPE_MASK     0x0000000000FF0000
-> +#define KVM_REG_RISCV_SUBTYPE_SHIFT    16
+> +int kvm_riscv_aia_alloc_hgei(int cpu, struct kvm_vcpu *owner,
+> +                            void __iomem **hgei_va, phys_addr_t *hgei_pa);
+> +void kvm_riscv_aia_free_hgei(int cpu, int hgei);
+> +void kvm_riscv_aia_wakeon_hgei(struct kvm_vcpu *owner, bool enable);
+> +
+>  void kvm_riscv_aia_enable(void);
+>  void kvm_riscv_aia_disable(void);
+>  int kvm_riscv_aia_init(void);
+> diff --git a/arch/riscv/kvm/aia.c b/arch/riscv/kvm/aia.c
+> index 3d68189e0bb1..f375069fdaf4 100644
+> --- a/arch/riscv/kvm/aia.c
+> +++ b/arch/riscv/kvm/aia.c
+> @@ -7,11 +7,46 @@
+>   *     Anup Patel <apatel@ventanamicro.com>
+>   */
 >
->  /* Config registers are mapped as type 1 */
->  #define KVM_REG_RISCV_CONFIG           (0x01 << KVM_REG_RISCV_TYPE_SHIFT)
-> @@ -147,8 +154,12 @@ enum KVM_RISCV_SBI_EXT_ID {
+> +#include <linux/bitops.h>
+> +#include <linux/irq.h>
+> +#include <linux/irqdomain.h>
+>  #include <linux/kvm_host.h>
+> +#include <linux/percpu.h>
+> +#include <linux/spinlock.h>
+>  #include <asm/hwcap.h>
 >
->  /* Control and status registers are mapped as type 3 */
->  #define KVM_REG_RISCV_CSR              (0x03 << KVM_REG_RISCV_TYPE_SHIFT)
-> +#define KVM_REG_RISCV_CSR_GENERAL      0x0
-> +#define KVM_REG_RISCV_CSR_AIA          0x1
->  #define KVM_REG_RISCV_CSR_REG(name)    \
-> -               (offsetof(struct kvm_riscv_csr, name) / sizeof(unsigned long))
-> +       (offsetof(struct kvm_riscv_csr, name) / sizeof(unsigned long))
-> +#define KVM_REG_RISCV_CSR_AIA_REG(name)        \
-> +       (offsetof(struct kvm_riscv_aia_csr, name) / sizeof(unsigned long))
+> +struct aia_hgei_control {
+> +       raw_spinlock_t lock;
+> +       unsigned long free_bitmap;
+> +       struct kvm_vcpu *owners[BITS_PER_LONG];
+> +};
+> +static DEFINE_PER_CPU(struct aia_hgei_control, aia_hgei);
+> +static int hgei_parent_irq;
+> +
+> +unsigned int kvm_riscv_aia_nr_hgei;
+>  DEFINE_STATIC_KEY_FALSE(kvm_riscv_aia_available);
 >
->  /* Timer registers are mapped as type 4 */
->  #define KVM_REG_RISCV_TIMER            (0x04 << KVM_REG_RISCV_TYPE_SHIFT)
+> +static int aia_find_hgei(struct kvm_vcpu *owner)
+> +{
+> +       int i, hgei;
+> +       unsigned long flags;
+> +       struct aia_hgei_control *hgctrl = this_cpu_ptr(&aia_hgei);
+> +
+> +       raw_spin_lock_irqsave(&hgctrl->lock, flags);
+> +
+> +       hgei = -1;
+> +       for (i = 1; i <= kvm_riscv_aia_nr_hgei; i++) {
+> +               if (hgctrl->owners[i] == owner) {
+> +                       hgei = i;
+> +                       break;
+> +               }
+> +       }
+> +
+> +       raw_spin_unlock_irqrestore(&hgctrl->lock, flags);
+> +
+> +       return hgei;
+> +}
+> +
+>  static void aia_set_hvictl(bool ext_irq_pending)
+>  {
+>         unsigned long hvictl;
+> @@ -55,6 +90,7 @@ void kvm_riscv_vcpu_aia_sync_interrupts(struct kvm_vcpu *vcpu)
+>
+>  bool kvm_riscv_vcpu_aia_has_interrupts(struct kvm_vcpu *vcpu, u64 mask)
+>  {
+> +       int hgei;
+>         unsigned long seip;
+>
+>         if (!kvm_riscv_aia_available())
+> @@ -72,6 +108,10 @@ bool kvm_riscv_vcpu_aia_has_interrupts(struct kvm_vcpu *vcpu, u64 mask)
+>         if (!kvm_riscv_aia_initialized(vcpu->kvm) || !seip)
+>                 return false;
+>
+> +       hgei = aia_find_hgei(vcpu);
+> +       if (hgei > 0)
+> +               return (csr_read(CSR_HGEIP) & BIT(hgei)) ? true : false;
+> +
+>         return false;
+>  }
+>
+> @@ -343,6 +383,144 @@ int kvm_riscv_vcpu_aia_rmw_ireg(struct kvm_vcpu *vcpu, unsigned int csr_num,
+>         return KVM_INSN_EXIT_TO_USER_SPACE;
+>  }
+>
+> +int kvm_riscv_aia_alloc_hgei(int cpu, struct kvm_vcpu *owner,
+> +                            void __iomem **hgei_va, phys_addr_t *hgei_pa)
+> +{
+> +       int ret = -ENOENT;
+> +       unsigned long flags;
+> +       struct aia_hgei_control *hgctrl = per_cpu_ptr(&aia_hgei, cpu);
+> +
+> +       if (!kvm_riscv_aia_available())
+> +               return -ENODEV;
+> +       if (!hgctrl)
+> +               return -ENODEV;
+> +
+> +       raw_spin_lock_irqsave(&hgctrl->lock, flags);
+> +
+> +       if (hgctrl->free_bitmap) {
+> +               ret = __ffs(hgctrl->free_bitmap);
+> +               hgctrl->free_bitmap &= ~BIT(ret);
+> +               hgctrl->owners[ret] = owner;
+> +       }
+> +
+> +       raw_spin_unlock_irqrestore(&hgctrl->lock, flags);
+> +
+> +       /* TODO: To be updated later by AIA in-kernel irqchip support */
+> +       if (hgei_va)
+> +               *hgei_va = NULL;
+> +       if (hgei_pa)
+> +               *hgei_pa = 0;
+> +
+> +       return ret;
+> +}
+> +
+> +void kvm_riscv_aia_free_hgei(int cpu, int hgei)
+> +{
+> +       unsigned long flags;
+> +       struct aia_hgei_control *hgctrl = per_cpu_ptr(&aia_hgei, cpu);
+> +
+> +       if (!kvm_riscv_aia_available() || !hgctrl)
+> +               return;
+> +
+> +       raw_spin_lock_irqsave(&hgctrl->lock, flags);
+> +
+> +       if (hgei > 0 && hgei <= kvm_riscv_aia_nr_hgei) {
+> +               if (!(hgctrl->free_bitmap & BIT(hgei))) {
+> +                       hgctrl->free_bitmap |= BIT(hgei);
+> +                       hgctrl->owners[hgei] = NULL;
+> +               }
+> +       }
+> +
+> +       raw_spin_unlock_irqrestore(&hgctrl->lock, flags);
+> +}
+> +
+> +void kvm_riscv_aia_wakeon_hgei(struct kvm_vcpu *owner, bool enable)
+> +{
+> +       int hgei;
+> +
+> +       if (!kvm_riscv_aia_available())
+> +               return;
+> +
+> +       hgei = aia_find_hgei(owner);
+> +       if (hgei > 0) {
+> +               if (enable)
+> +                       csr_set(CSR_HGEIE, BIT(hgei));
+> +               else
+> +                       csr_clear(CSR_HGEIE, BIT(hgei));
+> +       }
+> +}
+> +
+> +static irqreturn_t hgei_interrupt(int irq, void *dev_id)
+> +{
+> +       int i;
+> +       unsigned long hgei_mask, flags;
+> +       struct aia_hgei_control *hgctrl = this_cpu_ptr(&aia_hgei);
+> +
+> +       hgei_mask = csr_read(CSR_HGEIP) & csr_read(CSR_HGEIE);
+> +       csr_clear(CSR_HGEIE, hgei_mask);
+> +
+> +       raw_spin_lock_irqsave(&hgctrl->lock, flags);
+> +
+> +       for_each_set_bit(i, &hgei_mask, BITS_PER_LONG) {
+> +               if (hgctrl->owners[i])
+> +                       kvm_vcpu_kick(hgctrl->owners[i]);
+> +       }
+> +
+> +       raw_spin_unlock_irqrestore(&hgctrl->lock, flags);
+> +
+> +       return IRQ_HANDLED;
+> +}
+> +
+> +static int aia_hgei_init(void)
+> +{
+> +       int cpu, rc;
+> +       struct irq_domain *domain;
+> +       struct aia_hgei_control *hgctrl;
+> +
+> +       /* Initialize per-CPU guest external interrupt line management */
+> +       for_each_possible_cpu(cpu) {
+> +               hgctrl = per_cpu_ptr(&aia_hgei, cpu);
+> +               raw_spin_lock_init(&hgctrl->lock);
+> +               if (kvm_riscv_aia_nr_hgei) {
+> +                       hgctrl->free_bitmap =
+> +                               BIT(kvm_riscv_aia_nr_hgei + 1) - 1;
+> +                       hgctrl->free_bitmap &= ~BIT(0);
+> +               } else
+> +                       hgctrl->free_bitmap = 0;
+> +       }
+> +
+> +       /* Find INTC irq domain */
+> +       domain = irq_find_matching_fwnode(riscv_get_intc_hwnode(),
+> +                                         DOMAIN_BUS_ANY);
+> +       if (!domain) {
+> +               kvm_err("unable to find INTC domain\n");
+> +               return -ENOENT;
+> +       }
+> +
+> +       /* Map per-CPU SGEI interrupt from INTC domain */
+> +       hgei_parent_irq = irq_create_mapping(domain, IRQ_S_GEXT);
+> +       if (!hgei_parent_irq) {
+> +               kvm_err("unable to map SGEI IRQ\n");
+> +               return -ENOMEM;
+> +       }
+> +
+> +       /* Request per-CPU SGEI interrupt */
+> +       rc = request_percpu_irq(hgei_parent_irq, hgei_interrupt,
+> +                               "riscv-kvm", &aia_hgei);
+> +       if (rc) {
+> +               kvm_err("failed to request SGEI IRQ\n");
+> +               return rc;
+> +       }
+> +
+> +       return 0;
+> +}
+> +
+> +static void aia_hgei_exit(void)
+> +{
+> +       /* Free per-CPU SGEI interrupt */
+> +       free_percpu_irq(hgei_parent_irq, &aia_hgei);
+> +}
+> +
+>  void kvm_riscv_aia_enable(void)
+>  {
+>         if (!kvm_riscv_aia_available())
+> @@ -357,21 +535,79 @@ void kvm_riscv_aia_enable(void)
+>         csr_write(CSR_HVIPRIO1H, 0x0);
+>         csr_write(CSR_HVIPRIO2H, 0x0);
+>  #endif
+> +
+> +       /* Enable per-CPU SGEI interrupt */
+> +       enable_percpu_irq(hgei_parent_irq,
+> +                         irq_get_trigger_type(hgei_parent_irq));
+> +       csr_set(CSR_HIE, BIT(IRQ_S_GEXT));
+>  }
+>
+>  void kvm_riscv_aia_disable(void)
+>  {
+> +       int i;
+> +       unsigned long flags;
+> +       struct kvm_vcpu *vcpu;
+> +       struct aia_hgei_control *hgctrl = this_cpu_ptr(&aia_hgei);
+> +
+>         if (!kvm_riscv_aia_available())
+>                 return;
+>
+> +       /* Disable per-CPU SGEI interrupt */
+> +       csr_clear(CSR_HIE, BIT(IRQ_S_GEXT));
+> +       disable_percpu_irq(hgei_parent_irq);
+> +
+>         aia_set_hvictl(false);
+> +
+> +       raw_spin_lock_irqsave(&hgctrl->lock, flags);
+> +
+> +       for (i = 0; i <= kvm_riscv_aia_nr_hgei; i++) {
+> +               vcpu = hgctrl->owners[i];
+> +               if (!vcpu)
+> +                       continue;
+> +
+> +               /*
+> +                * We release hgctrl->lock before notifying IMSIC
+> +                * so that we don't have lock ordering issues.
+> +                */
+> +               raw_spin_unlock_irqrestore(&hgctrl->lock, flags);
+> +
+> +               /* Notify IMSIC */
+> +               kvm_riscv_vcpu_aia_imsic_release(vcpu);
+> +
+> +               /*
+> +                * Wakeup VCPU if it was blocked so that it can
+> +                * run on other HARTs
+> +                */
+> +               if (csr_read(CSR_HGEIE) & BIT(i)) {
+> +                       csr_clear(CSR_HGEIE, BIT(i));
+> +                       kvm_vcpu_kick(vcpu);
+> +               }
+> +
+> +               raw_spin_lock_irqsave(&hgctrl->lock, flags);
+> +       }
+> +
+
+We shouldn't access vcpu related data here as
+kvm_arch_destroy_vm/kvm_destroy_vcpus
+is called before hardware_disable_all is invoked.
+
+> +       raw_spin_unlock_irqrestore(&hgctrl->lock, flags);
+>  }
+>
+>  int kvm_riscv_aia_init(void)
+>  {
+> +       int rc;
+> +
+>         if (!riscv_isa_extension_available(NULL, SxAIA))
+>                 return -ENODEV;
+>
+> +       /* Figure-out number of bits in HGEIE */
+> +       csr_write(CSR_HGEIE, -1UL);
+> +       kvm_riscv_aia_nr_hgei = fls_long(csr_read(CSR_HGEIE));
+> +       csr_write(CSR_HGEIE, 0);
+> +       if (kvm_riscv_aia_nr_hgei)
+> +               kvm_riscv_aia_nr_hgei--;
+> +
+> +       /* Initialize guest external interrupt line management */
+> +       rc = aia_hgei_init();
+> +       if (rc)
+> +               return rc;
+> +
+>         /* Enable KVM AIA support */
+>         static_branch_enable(&kvm_riscv_aia_available);
+>
+> @@ -380,4 +616,9 @@ int kvm_riscv_aia_init(void)
+>
+>  void kvm_riscv_aia_exit(void)
+>  {
+> +       if (!kvm_riscv_aia_available())
+> +               return;
+> +
+> +       /* Cleanup the HGEI state */
+> +       aia_hgei_exit();
+>  }
+> diff --git a/arch/riscv/kvm/main.c b/arch/riscv/kvm/main.c
+> index d8ff44eb04ca..5cf37dbe8a38 100644
+> --- a/arch/riscv/kvm/main.c
+> +++ b/arch/riscv/kvm/main.c
+> @@ -125,7 +125,8 @@ int kvm_arch_init(void *opaque)
+>         kvm_info("VMID %ld bits available\n", kvm_riscv_gstage_vmid_bits());
+>
+>         if (kvm_riscv_aia_available())
+> -               kvm_info("AIA available\n");
+> +               kvm_info("AIA available with %d guest external interrupts\n",
+> +                        kvm_riscv_aia_nr_hgei);
+>
+>         return 0;
+>  }
 > diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-> index 3cf50eadc8ce..37933ea20274 100644
+> index 151b35b3b05f..1daa1936b642 100644
 > --- a/arch/riscv/kvm/vcpu.c
 > +++ b/arch/riscv/kvm/vcpu.c
-> @@ -58,6 +58,7 @@ static const unsigned long kvm_isa_ext_arr[] = {
->         [KVM_RISCV_ISA_EXT_I] = RISCV_ISA_EXT_i,
->         [KVM_RISCV_ISA_EXT_M] = RISCV_ISA_EXT_m,
+> @@ -240,10 +240,12 @@ int kvm_cpu_has_pending_timer(struct kvm_vcpu *vcpu)
 >
-> +       KVM_ISA_EXT_ARR(SSAIA),
->         KVM_ISA_EXT_ARR(SSTC),
->         KVM_ISA_EXT_ARR(SVINVAL),
->         KVM_ISA_EXT_ARR(SVPBMT),
-> @@ -96,6 +97,7 @@ static bool kvm_riscv_vcpu_isa_disable_allowed(unsigned long ext)
->         case KVM_RISCV_ISA_EXT_C:
->         case KVM_RISCV_ISA_EXT_I:
->         case KVM_RISCV_ISA_EXT_M:
-> +       case KVM_RISCV_ISA_EXT_SSAIA:
->         case KVM_RISCV_ISA_EXT_SSTC:
->         case KVM_RISCV_ISA_EXT_SVINVAL:
->         case KVM_RISCV_ISA_EXT_ZIHINTPAUSE:
-> @@ -451,30 +453,79 @@ static int kvm_riscv_vcpu_set_reg_core(struct kvm_vcpu *vcpu,
->         return 0;
->  }
->
-> +static int kvm_riscv_vcpu_general_get_csr(struct kvm_vcpu *vcpu,
-> +                                         unsigned long reg_num,
-> +                                         unsigned long *out_val)
-> +{
-> +       struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
-> +
-> +       if (reg_num >= sizeof(struct kvm_riscv_csr) / sizeof(unsigned long))
-> +               return -EINVAL;
-> +
-> +       if (reg_num == KVM_REG_RISCV_CSR_REG(sip)) {
-> +               kvm_riscv_vcpu_flush_interrupts(vcpu);
-> +               *out_val = (csr->hvip >> VSIP_TO_HVIP_SHIFT) & VSIP_VALID_MASK;
-> +       } else
-> +               *out_val = ((unsigned long *)csr)[reg_num];
-> +
-> +       return 0;
-> +}
-> +
->  static int kvm_riscv_vcpu_get_reg_csr(struct kvm_vcpu *vcpu,
->                                       const struct kvm_one_reg *reg)
+>  void kvm_arch_vcpu_blocking(struct kvm_vcpu *vcpu)
 >  {
-> -       struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
-> +       int rc;
->         unsigned long __user *uaddr =
->                         (unsigned long __user *)(unsigned long)reg->addr;
->         unsigned long reg_num = reg->id & ~(KVM_REG_ARCH_MASK |
->                                             KVM_REG_SIZE_MASK |
->                                             KVM_REG_RISCV_CSR);
-> -       unsigned long reg_val;
-> +       unsigned long reg_val, reg_subtype;
->
->         if (KVM_REG_SIZE(reg->id) != sizeof(unsigned long))
->                 return -EINVAL;
-> +
-> +       reg_subtype = (reg_num & KVM_REG_RISCV_SUBTYPE_MASK)
-> +                       >> KVM_REG_RISCV_SUBTYPE_SHIFT;
-> +       reg_num &= ~KVM_REG_RISCV_SUBTYPE_MASK;
-> +       switch (reg_subtype) {
-> +       case KVM_REG_RISCV_CSR_GENERAL:
-> +               rc = kvm_riscv_vcpu_general_get_csr(vcpu, reg_num, &reg_val);
-> +               break;
-> +       case KVM_REG_RISCV_CSR_AIA:
-> +               rc = kvm_riscv_vcpu_aia_get_csr(vcpu, reg_num, &reg_val);
-> +               break;
-> +       default:
-> +               rc = -EINVAL;
-> +               break;
-> +       }
-> +       if (rc)
-> +               return rc;
-> +
-> +       if (copy_to_user(uaddr, &reg_val, KVM_REG_SIZE(reg->id)))
-> +               return -EFAULT;
-> +
-> +       return 0;
-> +}
-> +
-> +static inline int kvm_riscv_vcpu_general_set_csr(struct kvm_vcpu *vcpu,
-> +                                                unsigned long reg_num,
-> +                                                unsigned long reg_val)
-> +{
-> +       struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
-> +
->         if (reg_num >= sizeof(struct kvm_riscv_csr) / sizeof(unsigned long))
->                 return -EINVAL;
->
->         if (reg_num == KVM_REG_RISCV_CSR_REG(sip)) {
-> -               kvm_riscv_vcpu_flush_interrupts(vcpu);
-> -               reg_val = (csr->hvip >> VSIP_TO_HVIP_SHIFT) & VSIP_VALID_MASK;
-> -       } else
-> -               reg_val = ((unsigned long *)csr)[reg_num];
-> +               reg_val &= VSIP_VALID_MASK;
-> +               reg_val <<= VSIP_TO_HVIP_SHIFT;
-> +       }
->
-> -       if (copy_to_user(uaddr, &reg_val, KVM_REG_SIZE(reg->id)))
-> -               return -EFAULT;
-> +       ((unsigned long *)csr)[reg_num] = reg_val;
-> +
-> +       if (reg_num == KVM_REG_RISCV_CSR_REG(sip))
-> +               WRITE_ONCE(vcpu->arch.irqs_pending_mask, 0);
->
->         return 0;
+> +       kvm_riscv_aia_wakeon_hgei(vcpu, true);
 >  }
-> @@ -482,31 +533,36 @@ static int kvm_riscv_vcpu_get_reg_csr(struct kvm_vcpu *vcpu,
->  static int kvm_riscv_vcpu_set_reg_csr(struct kvm_vcpu *vcpu,
->                                       const struct kvm_one_reg *reg)
+>
+>  void kvm_arch_vcpu_unblocking(struct kvm_vcpu *vcpu)
 >  {
-> -       struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
-> +       int rc;
->         unsigned long __user *uaddr =
->                         (unsigned long __user *)(unsigned long)reg->addr;
->         unsigned long reg_num = reg->id & ~(KVM_REG_ARCH_MASK |
->                                             KVM_REG_SIZE_MASK |
->                                             KVM_REG_RISCV_CSR);
-> -       unsigned long reg_val;
-> +       unsigned long reg_val, reg_subtype;
->
->         if (KVM_REG_SIZE(reg->id) != sizeof(unsigned long))
->                 return -EINVAL;
-> -       if (reg_num >= sizeof(struct kvm_riscv_csr) / sizeof(unsigned long))
-> -               return -EINVAL;
->
->         if (copy_from_user(&reg_val, uaddr, KVM_REG_SIZE(reg->id)))
->                 return -EFAULT;
->
-> -       if (reg_num == KVM_REG_RISCV_CSR_REG(sip)) {
-> -               reg_val &= VSIP_VALID_MASK;
-> -               reg_val <<= VSIP_TO_HVIP_SHIFT;
-> +       reg_subtype = (reg_num & KVM_REG_RISCV_SUBTYPE_MASK)
-> +                       >> KVM_REG_RISCV_SUBTYPE_SHIFT;
-> +       reg_num &= ~KVM_REG_RISCV_SUBTYPE_MASK;
-> +       switch (reg_subtype) {
-> +       case KVM_REG_RISCV_CSR_GENERAL:
-> +               rc = kvm_riscv_vcpu_general_set_csr(vcpu, reg_num, reg_val);
-> +               break;
-> +       case KVM_REG_RISCV_CSR_AIA:
-> +               rc = kvm_riscv_vcpu_aia_set_csr(vcpu, reg_num, reg_val);
-> +               break;
-> +       default:
-> +               rc = -EINVAL;
-> +               break;
->         }
-> -
-> -       ((unsigned long *)csr)[reg_num] = reg_val;
-> -
-> -       if (reg_num == KVM_REG_RISCV_CSR_REG(sip))
-> -               WRITE_ONCE(vcpu->arch.irqs_pending_mask, 0);
-> +       if (rc)
-> +               return rc;
->
->         return 0;
+> +       kvm_riscv_aia_wakeon_hgei(vcpu, false);
 >  }
+>
+>  int kvm_arch_vcpu_runnable(struct kvm_vcpu *vcpu)
 > --
 > 2.34.1
 >
-
-This can be split into two patches. The first patch can just modify
-the existing implementation
-to parse subtypes for general CSRs. AIA support can be added in the next one.
 
 
 -- 
