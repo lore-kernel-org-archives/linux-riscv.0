@@ -4,89 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34B7CC636CC
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Feb 2023 10:05:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01907C636CC
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Feb 2023 11:23:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:Subject:From:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MOsOskUKlBdQD9WAxzG2WCQxxew1/acQNmwHtDAzkc0=; b=j7haYJn9r49XsN
-	s0wDax+2TnOFdqSV+57T00pxWpoUBzvVTgCy66gzwytzyWlWNb4juDIcQwh9YIBo2auFNvQ+dRgNa
-	H9sEHltYhNbH2vI/eOUBg0u6jU/XWkL++VBqk6K2HcHDwGtlPQhP3F+iIexztkmcVZ2SxFfRzWkq2
-	lxWiXbETBl+Zc1u6Gee5iUfSO1rs/aJ0LyikeFC1ai+MllMEdfLOl4AY2zRx/W7ltuF7tcs9NocC8
-	6cCKLMLSO6El5ZNBv10Ho25LOrmOkFTKTrxaZ0wfVfG1AUrs77n0lJh57DLqTAAkOY0OksVQ1bdk7
-	Y82RttD49YH/mafStfEg==;
+	List-Owner; bh=k/Y7caiyDS6p3d5UTzjMxC6Ce1pVLO3JWXPSb7CVvck=; b=nprME3Obas2i5E
+	+NWZV1rEDq5DgiLnlj2HeZUx0Fht5i8zB8lbZgmCml/H0G+Yphf2SLIRtBwciVuiHJU1QYn/Hj9Qc
+	mm/CKaQjqqdyzr7UW+lEnOlXZMxdr6zmWHxUkS8Nev5kxyG2odc5a9U7vl91qF3reeYJsjwloDWA/
+	WvL5TVZIE2UGhZ6hSrT78CnjsdhsB00ha10xEZO5Tt8chVYSF25dD2koLrLtffIqqv9xaXb/qH825
+	uLXLA7w4cXtvuv7TcBig3vUq3yOCyfjwJd3egQ8WMTTplYYfMtzev97P8Aykt/dwoXeg60q1XGiTO
+	QtzPJk5lRhvNRrzLHirQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPhKU-00F7Cb-R4; Wed, 08 Feb 2023 10:05:30 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1pPiXy-00FSmk-AX; Wed, 08 Feb 2023 11:23:30 +0000
+Received: from relay7-d.mail.gandi.net ([217.70.183.200])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPhFO-00F4vj-LQ; Wed, 08 Feb 2023 10:00:20 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by sin.source.kernel.org (Postfix) with ESMTPS id 51ECDCE092B;
-	Wed,  8 Feb 2023 10:00:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99653C433EF;
-	Wed,  8 Feb 2023 10:00:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1675850410;
-	bh=s4vaxrnc1mvUSnF8N75rkyowNIgbPMRpjaPxjxZkNdA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=X6aQJuDLJ8b0xyWlTxlWTqJluGbIRsWyhr0yE99EhnqK64aGHk5SplHb3ADAuxb9I
-	 o7DkMUvAeYEwlXRfj1uSn00lrZWZErjXZfs3IyR9hLdwM8mNgae0qDwf7AmUQBPHQp
-	 CZYblt4ABUbD2odM8Po7srQVHiRqdWBx0Bgz8TUKR+uWgCxY7qoV+v1SGx9hob3vXa
-	 Tb4Zo14DqDmL2RBpsPVwV4KlL8vhxPOdnyf3ZRvQmyeFd2O/vwBu6/eoa672voZI02
-	 IpiG6dFe3aoxTS+WXFA0IbjccXU9LBG8AYQS4mV2enjY1awcs0z4cLIKiPrmViGvDs
-	 JgHcm3sag7j3g==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1pPhFG-008cXn-Rw;
-	Wed, 08 Feb 2023 10:00:08 +0000
-Date: Wed, 08 Feb 2023 10:00:06 +0000
-Message-ID: <86o7q4zdcp.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: David Matlack <dmatlack@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Sean Christopherson <seanjc@google.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	kvmarm@lists.cs.columbia.edu,
-	linux-mips@vger.kernel.org,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	Raghavendra Rao Ananta <rananta@google.com>
-Subject: Re: [PATCH v2 2/7] KVM: arm64: Use kvm_arch_flush_remote_tlbs()
-In-Reply-To: <20230126184025.2294823-3-dmatlack@google.com>
-References: <20230126184025.2294823-1-dmatlack@google.com>
-	<20230126184025.2294823-3-dmatlack@google.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/28.2
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: dmatlack@google.com, pbonzini@redhat.com, james.morse@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, chenhuacai@kernel.org, aleksandar.qemu.devel@gmail.com, anup@brainfault.org, atishp@atishpatra.org, paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, seanjc@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvmarm@lists.cs.columbia.edu, linux-mips@vger.kernel.org, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, rananta@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1pPiXn-00FSih-Mg; Wed, 08 Feb 2023 11:23:21 +0000
+Received: (Authenticated sender: alex@ghiti.fr)
+	by mail.gandi.net (Postfix) with ESMTPSA id 9D4FA20008;
+	Wed,  8 Feb 2023 11:23:09 +0000 (UTC)
+Message-ID: <ba99ed28-61e4-4acd-ce17-338f5a49ef26@ghiti.fr>
+Date: Wed, 8 Feb 2023 12:23:09 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.4.2
+From: Alexandre Ghiti <alex@ghiti.fr>
+Subject: Re: API for setting multiple PTEs at once
+To: Matthew Wilcox <willy@infradead.org>, linux-arch@vger.kernel.org
+Cc: Yin Fengwei <fengwei.yin@intel.com>, linux-mm@kvack.org,
+ linux-alpha@vger.kernel.org, linux-csky@vger.kernel.org,
+ linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+ Dinh Nguyen <dinguyen@kernel.org>, linux-parisc@vger.kernel.org,
+ linux-sh@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ loongarch@lists.linux.dev, openrisc@lists.librecores.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ sparclinux@vger.kernel.org, linux-xtensa@linux-xtensa.org
+References: <Y9wnr8SGfGGbi/bk@casper.infradead.org>
+ <Y+K0O35jNNzxiXE6@casper.infradead.org>
+Content-Language: en-US
+In-Reply-To: <Y+K0O35jNNzxiXE6@casper.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230208_020015_122724_9D75AC3E 
-X-CRM114-Status: GOOD (  28.79  )
+X-CRM114-CacheID: sfid-20230208_032319_904361_0C51AB72 
+X-CRM114-Status: GOOD (  15.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,137 +61,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 26 Jan 2023 18:40:20 +0000,
-David Matlack <dmatlack@google.com> wrote:
-> 
-> Use kvm_arch_flush_remote_tlbs() instead of
-> CONFIG_HAVE_KVM_ARCH_TLB_FLUSH_ALL. The two mechanisms solve the same
-> problem, allowing architecture-specific code to provide a non-IPI
-> implementation of remote TLB flushing.
-> 
-> Dropping CONFIG_HAVE_KVM_ARCH_TLB_FLUSH_ALL allows KVM to standardize
-> all architectures on kvm_arch_flush_remote_tlbs() instead of maintaining
-> two mechanisms.
-> 
-> Opt to standardize on kvm_arch_flush_remote_tlbs() since it avoids
-> duplicating the generic TLB stats across architectures that implement
-> their own remote TLB flush.
-> 
-> This adds an extra function call to the ARM64 kvm_flush_remote_tlbs()
-> path, but that is a small cost in comparison to flushing remote TLBs.
-> 
-> No functional change intended.
-> 
-> Signed-off-by: David Matlack <dmatlack@google.com>
-> ---
->  arch/arm64/include/asm/kvm_host.h | 3 +++
->  arch/arm64/kvm/Kconfig            | 1 -
->  arch/arm64/kvm/mmu.c              | 6 +++---
->  virt/kvm/Kconfig                  | 3 ---
->  virt/kvm/kvm_main.c               | 2 --
->  5 files changed, 6 insertions(+), 9 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index 113e20fdbb56..062800f1dc54 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -998,6 +998,9 @@ int __init kvm_set_ipa_limit(void);
->  #define __KVM_HAVE_ARCH_VM_ALLOC
->  struct kvm *kvm_arch_alloc_vm(void);
->  
-> +#define __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS
-> +int kvm_arch_flush_remote_tlbs(struct kvm *kvm);
-> +
->  static inline bool kvm_vm_is_protected(struct kvm *kvm)
->  {
->  	return false;
-> diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
-> index ca6eadeb7d1a..e9ac57098a0b 100644
-> --- a/arch/arm64/kvm/Kconfig
-> +++ b/arch/arm64/kvm/Kconfig
-> @@ -25,7 +25,6 @@ menuconfig KVM
->  	select MMU_NOTIFIER
->  	select PREEMPT_NOTIFIERS
->  	select HAVE_KVM_CPU_RELAX_INTERCEPT
-> -	select HAVE_KVM_ARCH_TLB_FLUSH_ALL
->  	select KVM_MMIO
->  	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
->  	select KVM_XFER_TO_GUEST_WORK
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index 01352f5838a0..8840f65e0e40 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -80,15 +80,15 @@ static bool memslot_is_logging(struct kvm_memory_slot *memslot)
->  }
->  
->  /**
-> - * kvm_flush_remote_tlbs() - flush all VM TLB entries for v7/8
-> + * kvm_arch_flush_remote_tlbs() - flush all VM TLB entries for v7/8
->   * @kvm:	pointer to kvm structure.
->   *
->   * Interface to HYP function to flush all VM TLB entries
->   */
-> -void kvm_flush_remote_tlbs(struct kvm *kvm)
-> +int kvm_arch_flush_remote_tlbs(struct kvm *kvm)
->  {
-> -	++kvm->stat.generic.remote_tlb_flush_requests;
->  	kvm_call_hyp(__kvm_tlb_flush_vmid, &kvm->arch.mmu);
-> +	return 0;
->  }
->  
->  static bool kvm_is_device_pfn(unsigned long pfn)
-> diff --git a/virt/kvm/Kconfig b/virt/kvm/Kconfig
-> index b74916de5183..484d0873061c 100644
-> --- a/virt/kvm/Kconfig
-> +++ b/virt/kvm/Kconfig
-> @@ -62,9 +62,6 @@ config HAVE_KVM_CPU_RELAX_INTERCEPT
->  config KVM_VFIO
->         bool
->  
-> -config HAVE_KVM_ARCH_TLB_FLUSH_ALL
-> -       bool
-> -
->  config HAVE_KVM_INVALID_WAKEUPS
->         bool
->  
-> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-> index 277507463678..fefd3e3c8fe1 100644
-> --- a/virt/kvm/kvm_main.c
-> +++ b/virt/kvm/kvm_main.c
-> @@ -347,7 +347,6 @@ bool kvm_make_all_cpus_request(struct kvm *kvm, unsigned int req)
->  }
->  EXPORT_SYMBOL_GPL(kvm_make_all_cpus_request);
->  
-> -#ifndef CONFIG_HAVE_KVM_ARCH_TLB_FLUSH_ALL
->  void kvm_flush_remote_tlbs(struct kvm *kvm)
->  {
->  	++kvm->stat.generic.remote_tlb_flush_requests;
-> @@ -368,7 +367,6 @@ void kvm_flush_remote_tlbs(struct kvm *kvm)
->  		++kvm->stat.generic.remote_tlb_flush;
->  }
+Hi Matthew,
 
-For context, we currently have this:
+On 2/7/23 21:27, Matthew Wilcox wrote:
+> On Thu, Feb 02, 2023 at 09:14:23PM +0000, Matthew Wilcox wrote:
+>> For those of you not subscribed, linux-mm is currently discussing
+>> how best to handle page faults on large folios.  I simply made it work
+>> when adding large folio support.  Now Yin Fengwei is working on
+>> making it fast.
+> OK, here's an actual implementation:
+>
+> https://lore.kernel.org/linux-mm/20230207194937.122543-3-willy@infradead.org/
+>
+> It survives a run of xfstests.  If your architecture doesn't store its
+> PFNs at PAGE_SHIFT, you're going to want to implement your own set_ptes(),
 
-	if (!kvm_arch_flush_remote_tlb(kvm)
-	    || kvm_make_all_cpus_request(kvm, KVM_REQ_TLB_FLUSH))
-		++kvm->stat.generic.remote_tlb_flush;
 
-Is there any reason why we shouldn't move the KVM_REQ_TLB_FLUSH call
-into the arch-specific helpers? This is architecture specific, even if
-the majority of the supported architecture cannot do broadcast
-invalidation like arm64 does.
+riscv stores its pfn at PAGE_PFN_SHIFT instead of PAGE_SHIFT, se we need 
+to reimplement set_ptes. But I have been playing with your patchset and 
+we never fall into the case where set_ptes is called with nr > 1, any 
+idea why? I booted a large ubuntu defconfig and launched 
+will_it_scale.page_fault4.
+
+I'll come up with the proper implementation of set_ptes anyway soon.
 
 Thanks,
 
-	M.
+Alex
 
--- 
-Without deviation from the norm, progress is not possible.
+
+> or you'll see entirely the wrong pages mapped into userspace.  You may
+> also wish to implement set_ptes() if it can be done more efficiently
+> than __pte(pteval(pte) + PAGE_SIZE).
+>
+> Architectures that implement things like flush_icache_page() and
+> update_mmu_cache() may want to propose batched versions of those.
+> That's alpha, csky, m68k, mips, nios2, parisc, sh,
+> arm, loongarch, openrisc, powerpc, riscv, sparc and xtensa.
+> Maintainers BCC'd, mailing lists CC'd.
+>
+> I'm happy to collect implementations and submit them as part of a v6.
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
