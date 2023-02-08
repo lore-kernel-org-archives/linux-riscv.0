@@ -4,76 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 825CEC636CC
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Feb 2023 16:40:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B3EDC636CC
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Feb 2023 16:44:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oIaRoqnXllW1ycPMXg7eIaB0TR4IywYHIfzUPCF1W1E=; b=2Ee9nWiEqE0dlTiJdaUzeXmG9I
-	RjoEyhlYpH6lM0+vw9550picQ2d40K4iskxZHsu7yptiQp/TBzSfxmdedrBj1hvbv+ExeELqvBz0t
-	4ryezWcAmLlADI9CN0fuKa4kF3xRoEhkpuPj0vjjd1Gup+3OCQ0cVvIeXG2wRcUPffEh7IvdYoxK9
-	oVfiYeK3CaenA2IP0vcZu5a4IY6lyDPLXyueNmDVcvb0xjtLRF/ijwcmYtEt1mmxdlR3XlfDRHtnn
-	Mtr2hi5M5HB3UiKGb7MrUf3/d8Eycn6XkfNVH0NvUQwzy0NN2axldHU9KqqVosEstmqNBM3l4ooBp
-	Aa7zfD2Q==;
+	bh=TMwGtXtDXvb7yiSYgfgwK6wXP6Q7kxHK7W2EtvvEOcg=; b=Ig830OCzAEnOx5Ky2U7gwZtSHk
+	VllRaE9r2EK5Yg7cyj6aa2QkaaW0u4q7vRVpLFoxKoxlw0UDmIoPC73FjrTMxHBOBoEK9RuANl/lI
+	bxYk2K1BXbTvhn3Hg2LPAsNhbfALJWd07xapOdrqrmPpilubp3T+aBn4IfhHScVY42MjD2n6bDSH7
+	t2HHO1tOaeE9WVw5P1pUjG1pC8Dw4uR9jkuR2AgiNdMEHaH6finH1xnc2QqoGf4NLZR3LBAOMStlz
+	JFsOFOz05IpTnG/Q0dsyKQe/yqWIhFYWK0JgCpWvatQOtH3w5LIhxv4EgUKT9zxJ7sUbbSGxLthuv
+	oR+IKEiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPnUM-00GHhd-Qa; Wed, 08 Feb 2023 16:40:06 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pPnYL-00GJsz-QP; Wed, 08 Feb 2023 16:44:13 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPnUC-00GHeG-FE; Wed, 08 Feb 2023 16:39:57 +0000
+	id 1pPnXM-00GJNb-Rr; Wed, 08 Feb 2023 16:43:14 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id DD4546172F;
-	Wed,  8 Feb 2023 16:39:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C217C433EF;
-	Wed,  8 Feb 2023 16:39:47 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 693CB6172B;
+	Wed,  8 Feb 2023 16:43:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D5950C433D2;
+	Wed,  8 Feb 2023 16:43:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1675874394;
-	bh=k2WDmJefTVbmF4UtYjVTRVt38vEfq5VHOD9s78R7eyg=;
+	s=k20201202; t=1675874591;
+	bh=9JnV3h9dVys98lzdeX7nLKiew6Xl3wZrBHZ3W+YcEV4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Rm1BIDwVjM+vtyitHjo1e7C/8O3osDSw3ddUWkl4Wx2bC5t9PAYPPNOMyPOnhDGBE
-	 x0/ntl8Z+mYIwUFJ4SJYgRaphWg6Yt4w739Gu/lXfntdZ6JeZX0Y+rfAbGvNs2ZHt8
-	 st0eJcGbt8o4IXvW5Pd80HgnuHqj+dz7ZtRrgPBzs0UpJBQvPfkACmHMCJmVksp2u1
-	 7j+OBIBzFLzMDdGcGKQCjlEbr0xBVw1CpjWop+Te/iJBfsS4i7ncKglT5iTBbI8VBo
-	 HOM9qBR39AlYqQf2ZmUflFWYvSQAKch5roLODmzzrvB8D8QMKelVKI/xJc21XFfhdD
-	 dus+tchf6H0SA==
-Date: Wed, 8 Feb 2023 16:39:44 +0000
-From: Mark Brown <broonie@kernel.org>
-To: David Hildenbrand <david@redhat.com>
-Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
-	Hugh Dickins <hughd@google.com>, John Hubbard <jhubbard@nvidia.com>,
-	Jason Gunthorpe <jgg@nvidia.com>,
-	Mike Rapoport <rppt@linux.ibm.com>, Yang Shi <shy828301@gmail.com>,
-	Vlastimil Babka <vbabka@suse.cz>, Nadav Amit <namit@vmware.com>,
-	Andrea Arcangeli <aarcange@redhat.com>,
-	Peter Xu <peterx@redhat.com>, linux-mm@kvack.org, x86@kernel.org,
-	linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, openrisc@lists.librecores.org,
-	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
-	linux-um@lists.infradead.org, linux-xtensa@linux-xtensa.org,
-	Russell King <linux@armlinux.org.uk>
-Subject: Re: [PATCH mm-unstable v1 04/26] arm/mm: support
- __HAVE_ARCH_PTE_SWP_EXCLUSIVE
-Message-ID: <Y+PQUMwH4AZSVpjb@sirena.org.uk>
-References: <20230113171026.582290-1-david@redhat.com>
- <20230113171026.582290-5-david@redhat.com>
- <Y+GcDFMNHw2cdDN1@sirena.org.uk>
- <39fd91e3-c93b-23c6-afc6-cbe473bb0ca9@redhat.com>
+	b=cVf7PoPR0hfFREHoNOntlFKcTWcwIEawIPfSU4oA0o+namPfcpnELDHhsKGZ7+fCO
+	 /908A6h77w8wfHs97Oh5qBsYnqOBSm1OTlIB+DyYkZTZd1eztbXcnAix+5cEFonI8M
+	 9MblElIhNvZdsIly571mIkuVeE0AdDTVO5uKP1e4uo/gE0pmBD9ePYLYDD72QS8syD
+	 6npy2WkXvy8MhU3l230C3zju6IJDPusKOF1qWRnw4zOfFlHsl1j7VW9A6SjjGUPoN2
+	 GOpwrcRCY2Ctg6FNmo9x6h5U4Bh5EzCDiD+U7jzpuGEYQZmT2DL/hMF6/1JRBC2nFb
+	 q6E3jf+uuWwuA==
+Date: Wed, 8 Feb 2023 16:43:06 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Trevor Woerner <twoerner@gmail.com>
+Cc: linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH] riscv: dts: nezha-d1: add gpio-line-names
+Message-ID: <Y+PRGjn8a26pe5Dy@spud>
+References: <20230208014504.18899-1-twoerner@gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <39fd91e3-c93b-23c6-afc6-cbe473bb0ca9@redhat.com>
-X-Cookie: Walk softly and carry a megawatt laser.
+In-Reply-To: <20230208014504.18899-1-twoerner@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230208_083956_625416_37DF7673 
-X-CRM114-Status: GOOD (  19.53  )
+X-CRM114-CacheID: sfid-20230208_084313_015596_2A6EA48F 
+X-CRM114-Status: GOOD (  17.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,69 +72,140 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4300407171480259101=="
+Content-Type: multipart/mixed; boundary="===============3369554693952350164=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============4300407171480259101==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="W0tQR/5xWRekS1hu"
+--===============3369554693952350164==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="S4azWlTkoRx3v2FI"
 Content-Disposition: inline
 
 
---W0tQR/5xWRekS1hu
+--S4azWlTkoRx3v2FI
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Wed, Feb 08, 2023 at 03:12:06PM +0100, David Hildenbrand wrote:
-> On 07.02.23 01:32, Mark Brown wrote:
+Hey Trevor,
 
-> > Today's -next (and at least back to Friday, older logs are unclear - I
-> > only noticed -next issues today) fails to NFS boot on an AT91SAM9G20-EK
-> > (an old ARMv5 platform) with multi_v5_defconfig, a bisect appears to
-> > point to this patch (20aae9eff5acd8f5 in today's -next) as the culprit.
-
-> It's been in -next for quite a while, thanks for the report!
-
-Yeah, there's been some other things obscuring the issue.
-
-> Could you give the following a test?
+On Tue, Feb 07, 2023 at 08:45:03PM -0500, Trevor Woerner wrote:
+> Add descriptive names so users can associate specific lines with their
+> respective pins on the 40-pin header according to the schematics found at:
 >=20
+> 	http://dl.linux-sunxi.org/D1/D1_Nezha_development_board_schematic_diagra=
+m_20210224.pdf
+
+Dunno about the sunxi folk, but ideally that'd be a Link: tag IMO.
+
 >=20
-> From 8c4bdbd9862f85782d5919d044c172b584063e83 Mon Sep 17 00:00:00 2001
-> From: David Hildenbrand <david@redhat.com>
-> Date: Wed, 8 Feb 2023 15:08:01 +0100
-> Subject: [PATCH] arm/mm: Fix swp type masking in __swp_entry()
+> Signed-off-by: Trevor Woerner <twoerner@gmail.com>
+> ---
+>  .../boot/dts/allwinner/sun20i-d1-nezha.dts    | 53 +++++++++++++++++++
+>  1 file changed, 53 insertions(+)
 >=20
-> We're masking with the number of type bits instead of the type mask, which
-> is obviously wrong.
+> diff --git a/arch/riscv/boot/dts/allwinner/sun20i-d1-nezha.dts b/arch/ris=
+cv/boot/dts/allwinner/sun20i-d1-nezha.dts
+> index a0769185be97..33489c7619cb 100644
+> --- a/arch/riscv/boot/dts/allwinner/sun20i-d1-nezha.dts
+> +++ b/arch/riscv/boot/dts/allwinner/sun20i-d1-nezha.dts
+> @@ -90,6 +90,15 @@ pcf8574a: gpio@38 {
+>  		gpio-controller;
+>  		#gpio-cells =3D <2>;
+>  		#interrupt-cells =3D <2>;
+> +		gpio-line-names =3D
+> +			"pin13 [PP0,gpio8] ",
+> +			"pin16 [PP1,gpio10]",
+> +			"pin18 [PP2,gpio11]",
+> +			"pin26 [PP3,gpio17]",
+> +			"pin22 [PP4,gpio14]",
+> +			"pin28 [PP5,gpio19]",
+> +			"pin37 [PP6,gpio23]",
+> +			"pin11 [PP7,gpio6] ";
 
-Tested-by: Mark Brown <broonie@kernel.org>
+dtbs_check does not like this:
+arch/riscv/boot/dts/allwinner/sun20i-d1-nezha.dtb: gpio@38: 'gpio-line-name=
+s' does not match any of the regexes: '^(.+-hog(-[0-9]+)?)$', 'pinctrl-[0-9=
+]+'
+        From schema: Documentation/devicetree/bindings/gpio/nxp,pcf8575.yaml
 
-but note that I had to manually apply it, though it's pretty trivial so
-I probably applied the right thing.
+>  	};
+>  };
+> =20
+> @@ -164,3 +173,47 @@ &usbphy {
+>  	usb1_vbus-supply =3D <&reg_vcc>;
+>  	status =3D "okay";
+>  };
+> +
+> +&pio {
+> +	gpio-line-names =3D
+> +		/* Port A */
+> +		"", "", "", "", "", "", "", "",
+> +		"", "", "", "", "", "", "", "",
+> +		"", "", "", "", "", "", "", "",
+> +		"", "", "", "", "", "", "", "",
+> +		/* Port B */
+> +		"pin5  [PB0, gpio2/twi2-sck]",
+> +		"pin3  [PB1, gpio1/twi2-sda]",
+> +		"",
+> +		"pin38 [PB3, gpio24/i2s2-din]",
+> +		"pin40 [PB4, gpio25/i2s2-dout]",
+> +		"pin12 [PB5, gpio7/i2s-clk]",
+> +		"pin35 [PB6, gpio22/i2s2-lrck]",
+> +		"",
+> +		"pin8  [PB8, gpio4/uart0-txd]",
+> +		"pin10 [PB9, gpio5/uart0-rxd]",
+> +		"",
+> +		"",
+> +		"pin15 [PB12,gpio9]",
 
---W0tQR/5xWRekS1hu
+Why not pick a consistent styling w.r.t. the space between PB#, & gpio?
+
+Cheers,
+Conor.
+
+> +		"", "", "", "",
+> +		"", "", "", "", "", "", "", "",
+> +		"", "", "", "", "", "", "", "",
+> +		/* Port C */
+> +		"",
+> +		"pin31 [PC1, gpio21]",
+> +		"", "", "", "", "", "",
+> +		"", "", "", "", "", "", "", "",
+> +		"", "", "", "", "", "", "", "",
+> +		"", "", "", "", "", "", "", "",
+> +		/* Port D */
+> +		"", "", "", "", "", "", "", "",
+> +		"", "",
+> +		"pin24 [PD10,gpio16/spi1-ce0]",
+> +		"pin23 [PD11,gpio15/spi1-clk]",
+> +		"pin19 [PD12,gpio12/spi1-mosi]",
+> +		"pin21 [PD13,gpio13/spi1-miso]",
+> +		"pin27 [PD14,gpio18/spi1-hold]",
+> +		"pin29 [PD15,gpio20/spi1-wp]",
+> +		"", "", "", "", "", "",
+> +		"pin7  [PD22,gpio3/pwm]";
+> +};
+> --=20
+> 2.36.0.rc2.17.g4027e30c53
+>=20
+
+--S4azWlTkoRx3v2FI
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmPj0FAACgkQJNaLcl1U
-h9C7hQf/VKRwP16M1jInUqUdUtyzPdvalnHTpasxKVZ8Sy0U3jwXMqNUqmnpEOSO
-UB3Q8audVEzRc8pj92dk3jilZBDPHyP58UUKRsjkrZVz22Q2/R16FcjaLrdlwNlj
-GWMfEWv5OKYPHaxP4W/VX0sXzS0XMTuulvAF1BOQRlOAS3L3jYsYUtzI2pkzJm1G
-64ICND0ZQRerzQmdQd6oO2tVhymhv8Y1LPY4TT0HikINGVpwwCJoOiocmstgqqGW
-uE+M+XJ9Lp/p78SIjfccjF1rdCWlc5MJJLS/qZzYnm6OnkKMOlBAUX9bwqvyrvE9
-quDK6fshhrFo/uJ5YVAQnAEuDKLv9g==
-=rC9E
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY+PRGgAKCRB4tDGHoIJi
+0iRiAP4vgkyStKLRofn1o81fjP/aeDkslORttfK0szBbB8AwZgD7B96WjbtVAZkn
+oXsPbP3B0H5zboAMRKCEfxhs0feWaQY=
+=E3Jw
 -----END PGP SIGNATURE-----
 
---W0tQR/5xWRekS1hu--
+--S4azWlTkoRx3v2FI--
 
 
---===============4300407171480259101==
+--===============3369554693952350164==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -158,5 +216,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============4300407171480259101==--
+--===============3369554693952350164==--
 
