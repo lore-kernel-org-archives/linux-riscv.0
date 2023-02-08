@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 989B5C05027
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Feb 2023 19:56:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E4DCC636D3
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Feb 2023 19:59:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FRPE2mCfseGT3K68fXUVveqPG3rY+VLYW9+K9laS1EQ=; b=JFhToz4rhmLD59m3ecKFcdGLqb
-	Cvhnm5n0Dfyh/ZtvO8tepZx1Z3HL3G2KGR27AUrstH2RynuvyZivwYKbuD446gASDtmhIvByS0jGO
-	+M02p61sSK43NzaIsYoiono9egmUy8dQV8s4ekhbkq9dW9eJbbEjHbMJAxdCNVZ/IMzRCtWvGuOf8
-	zzNI9l5NByrIhOXXGI4+yPpuWRyGFXvDl7VxaxOu5eNs+jpds7asR/QQaENTiq+wzjhJAldC2DShU
-	xHDY2huzMgP2YfaR4rkUJLjsCr3mco/v/Uh4oNNV5SrFnXwfp5CSbJkcOp0L5YLjBGU7JtiX3gB1U
-	sn+v/jbg==;
+	bh=MhZ/WQEaYSKPnDNzmlIwQZbUqCOjlFV2aq8nyWRuQnk=; b=m6q9dtrDLjW7WP0pk4/yxyA8u1
+	qDj/C2q8IplYjlRfyxiyZui1dMt4666aTVDsLdAkbVm9ts1a3nhIXf9296dBBdPt66qJZOdd7uWUV
+	Kpcmve+cuZXpj/U9JhBX9PdPozWE2N9jIw/h9JF/vcMQRcfdSbBUr598pVxYVdiOdp6pCFraSHRJ7
+	sTXe5YALxudPliuPKLgziBUv9lTAOABqbyhcUES0T3ez5lotxqXjBfFAaOWzBrFJlcWdhxybhTL9S
+	72DHzczE0eks3lltTFDW8a5c1dLiYq5JyU4ObXFDi8VkrnC4dLrIWs6igESR8u2WPbnEHfbO5Qo/g
+	rmPH5JbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPqY6-00GoPX-6C; Wed, 08 Feb 2023 19:56:10 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pPqb5-00GowZ-6V; Wed, 08 Feb 2023 19:59:15 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPqY0-00GoOK-34
-	for linux-riscv@lists.infradead.org; Wed, 08 Feb 2023 19:56:07 +0000
+	id 1pPqb2-00Gov9-DQ
+	for linux-riscv@lists.infradead.org; Wed, 08 Feb 2023 19:59:13 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 3C03C617CA;
-	Wed,  8 Feb 2023 19:56:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7AB6AC433EF;
-	Wed,  8 Feb 2023 19:55:59 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id D0AC4617BE;
+	Wed,  8 Feb 2023 19:59:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09504C433EF;
+	Wed,  8 Feb 2023 19:59:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1675886162;
-	bh=Nj7MhMOma/HhW6EJVI/dLGhU2fOrQO9qpmLNfI/Who4=;
+	s=k20201202; t=1675886346;
+	bh=0L/axqFrTla1CjyJcAYNEtPZxT9IS5v2UY5FZZEsCkQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FcEo3DMVV4Y7zsWygtvXpZ31miHsh4fX1lyo9Z2R7rBcUexvI/yMFmEMPUd3Casfk
-	 Q8sYLT2sNaRJ+9Qj1Ve8Oeu+XmdS78gf2n/DymN3UiJ3KylKavgJql5I1RgwZFZE4v
-	 KQ/ZeE4ZoUSn8q16KrBtyXmkjbCo3xpQvUGOGd+D5/U9PdPRTh8vCxo16SVlZBcGMg
-	 Ebb7W28UH1pG2cszbdgIbDeGYQsRypqEhkW1xRlWEcXdaLm0acZp0rn7qSFCoXE2ry
-	 sU9GYsazGaEWdMj/aFnHMqQELDmjQSTFfHBMPg7Fwyc09MWDZET2zmaaZtoT6FmaPE
-	 qkDpl8yODLD9g==
-Date: Wed, 8 Feb 2023 19:55:56 +0000
+	b=AFqrMlQmq/8t32iG+XK1RwRmiNQkaDdASAMhJ5U2dk/ihWKkwE4y7Bjji7Hg96vyU
+	 WAZZKauygf7/Uyzr2hM76BT/f/d3qklXvwqLPiTW0awBdxYYkyirs561FZmYIsljS+
+	 /7/zSLfvTStUgDEIzQ2biuTb0GlGVrU4WAp6C6ROgv97vMdpUgfC+nNbur0eBEA7rD
+	 iLIjN+lSEOLmNSWuRRnOdtl7SH7zLEwqzJpQ5VnVaaN+PW9JobJDXunpOEGP53oDF7
+	 OkZEIHrssruZ/bBCJ0Kz253RcOWxNqKNOXSTjss1a1ZeePJ+s37UxXWbVZIIxvh/jf
+	 /XMOZ8E+BF8xA==
+Date: Wed, 8 Feb 2023 19:59:00 +0000
 From: Conor Dooley <conor@kernel.org>
 To: Sunil V L <sunilvl@ventanamicro.com>
 Cc: Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
@@ -54,16 +54,18 @@ Cc: Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
 	linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-doc@vger.kernel.org, Anup Patel <apatel@ventanamicro.com>,
 	Andrew Jones <ajones@ventanamicro.com>,
-	Atish Patra <atishp@rivosinc.com>
-Subject: Re: [PATCH 04/24] RISC-V: ACPI: Add empty headers to enable ACPI core
-Message-ID: <Y+P+TF1MJ2OnwHVX@spud>
+	Atish Patra <atishp@rivosinc.com>,
+	Robert Moore <robert.moore@intel.com>,
+	acpica-devel@lists.linuxfoundation.org
+Subject: Re: [PATCH 02/24] ACPICA: MADT: Add RISC-V INTC interrupt controller
+Message-ID: <Y+P/BDbP68vNTOao@spud>
 References: <20230130182225.2471414-1-sunilvl@ventanamicro.com>
- <20230130182225.2471414-5-sunilvl@ventanamicro.com>
+ <20230130182225.2471414-3-sunilvl@ventanamicro.com>
 MIME-Version: 1.0
-In-Reply-To: <20230130182225.2471414-5-sunilvl@ventanamicro.com>
+In-Reply-To: <20230130182225.2471414-3-sunilvl@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230208_115604_230672_F45FC7E9 
-X-CRM114-Status: GOOD (  20.20  )
+X-CRM114-CacheID: sfid-20230208_115912_560312_362566A5 
+X-CRM114-Status: GOOD (  22.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,113 +77,110 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5512597651241688373=="
+Content-Type: multipart/mixed; boundary="===============5320790054924736869=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============5512597651241688373==
+--===============5320790054924736869==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="NmY+w7HCTBD70FFj"
+	protocol="application/pgp-signature"; boundary="C3CfOFtGyHgf+Q8p"
 Content-Disposition: inline
 
 
---NmY+w7HCTBD70FFj
+--C3CfOFtGyHgf+Q8p
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Mon, Jan 30, 2023 at 11:52:05PM +0530, Sunil V L wrote:
-> Few header files are required unconditionally by ACPI core.
+On Mon, Jan 30, 2023 at 11:52:03PM +0530, Sunil V L wrote:
+> The ECR to add RISC-V INTC interrupt controller is approved by
+> the UEFI forum and will be availabl in the next revision of
 
-nit: A few. Without the article this has a different meaning.
+nit: available
 
-> So add empty header files for now and update it when needed.
-
-s/ and update it when needed// ;)
-
+> the ACPI specification.
 >=20
-> Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
-> ---
->  arch/riscv/include/asm/acenv.h | 17 +++++++++++++++++
->  arch/riscv/include/asm/cpu.h   |  9 +++++++++
->  2 files changed, 26 insertions(+)
->  create mode 100644 arch/riscv/include/asm/acenv.h
->  create mode 100644 arch/riscv/include/asm/cpu.h
+> This patch is not yet merged in ACPICA but a PR is raised.
 >=20
-> diff --git a/arch/riscv/include/asm/acenv.h b/arch/riscv/include/asm/acen=
-v.h
-> new file mode 100644
-> index 000000000000..bbc38ecdf753
-> --- /dev/null
-> +++ b/arch/riscv/include/asm/acenv.h
-> @@ -0,0 +1,17 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * RISC-V specific ACPICA environments and implementation
-> + *
-> + * Copyright (C) 2014, Linaro Ltd.
-> + *   Author: Hanjun Guo <hanjun.guo@linaro.org>
-> + *   Author: Graeme Gregory <graeme.gregory@linaro.org>
-> + * Copyright (C) 2023, Ventana Micro Systems Inc.
-> + *   Author: Sunil V L <sunilvl@ventanamicro.com>
+> ACPICA PR: https://github.com/acpica/acpica/pull/804
 
-More out of idle curiosity than anything else, but what, may I ask, is
-copyrightable about 2 empty files?
-Triply so given there are !3! contributors to said empty file!
-
-> + */
-> +
-> +#ifndef _ASM_ACENV_H
-> +#define _ASM_ACENV_H
-> +
-> +/* It is required unconditionally by ACPI core, update it when needed. */
-
-How come this file gets a comment and the other doesn't?
-Also the comment doesn't really make much sense to me in a vacuum, and
-ideally would read like:
-"This header is required unconditionally by the ACPI core"
-That is, if a comment is really even needed.
+I had a quick check with git grep, and as this doesn't appear to be a
+regular pattern in the history, so could you please make this a regular
+Link: trailer?
 
 Cheers,
 Conor.
 
+> Reference: Mantis ID: 2348
+>=20
+> Cc: Robert Moore <robert.moore@intel.com>
+> Cc: acpica-devel@lists.linuxfoundation.org
+> Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
+> ---
+>  include/acpi/actbl2.h | 21 ++++++++++++++++++++-
+>  1 file changed, 20 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/include/acpi/actbl2.h b/include/acpi/actbl2.h
+> index b2973dbe37ee..c432fd15db65 100644
+> --- a/include/acpi/actbl2.h
+> +++ b/include/acpi/actbl2.h
+> @@ -891,7 +891,8 @@ enum acpi_madt_type {
+>  	ACPI_MADT_TYPE_MSI_PIC =3D 21,
+>  	ACPI_MADT_TYPE_BIO_PIC =3D 22,
+>  	ACPI_MADT_TYPE_LPC_PIC =3D 23,
+> -	ACPI_MADT_TYPE_RESERVED =3D 24,	/* 24 to 0x7F are reserved */
+> +	ACPI_MADT_TYPE_RINTC =3D 24,
+> +	ACPI_MADT_TYPE_RESERVED =3D 25,	/* 25 to 0x7F are reserved */
+>  	ACPI_MADT_TYPE_OEM_RESERVED =3D 0x80	/* 0x80 to 0xFF are reserved for O=
+EM use */
+>  };
+> =20
+> @@ -1250,6 +1251,24 @@ enum acpi_madt_lpc_pic_version {
+>  	ACPI_MADT_LPC_PIC_VERSION_RESERVED =3D 2	/* 2 and greater are reserved =
+*/
+>  };
+> =20
+> +/* 24: RISC-V INTC */
+> +struct acpi_madt_rintc {
+> +	struct acpi_subtable_header header;
+> +	u8 version;
+> +	u8 reserved;
+> +	u32 flags;
+> +	u64 hart_id;
+> +	u32 uid;		/* ACPI processor UID */
+> +};
 > +
-> +#endif /* _ASM_ACENV_H */
-> diff --git a/arch/riscv/include/asm/cpu.h b/arch/riscv/include/asm/cpu.h
-> new file mode 100644
-> index 000000000000..51ec1a89a7a9
-> --- /dev/null
-> +++ b/arch/riscv/include/asm/cpu.h
-> @@ -0,0 +1,9 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright (C) 2014 ARM Ltd.
-> + * Copyright (C) 2023 Ventana Micro Systems Inc.
-> + */
-> +#ifndef __ASM_CPU_H
-> +#define __ASM_CPU_H
+> +/* Values for RISC-V INTC Version field above */
 > +
-> +#endif /* __ASM_CPU_H */
+> +enum acpi_madt_rintc_version {
+> +	ACPI_MADT_RINTC_VERSION_NONE =3D 0,
+> +	ACPI_MADT_RINTC_VERSION_V1 =3D 1,
+> +	ACPI_MADT_RINTC_VERSION_RESERVED =3D 2	/* 2 and greater are reserved */
+> +};
+> +
+>  /* 80: OEM data */
+> =20
+>  struct acpi_madt_oem_data {
 > --=20
 > 2.38.0
 >=20
 
---NmY+w7HCTBD70FFj
+--C3CfOFtGyHgf+Q8p
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY+P+TAAKCRB4tDGHoIJi
-0lCXAQCMJNnnXM92WRsao6hIMtmCm8CiXSb5vBbh41ZMlT//rgD8DVM5pRplyPUB
-oIfuBKsZMkhJ3PwPcrbDHKHeWNlxLgg=
-=8eKC
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY+P/BAAKCRB4tDGHoIJi
+0oxgAP9WC8kaZpNByCNLjTup93CdqUIB1TlRT73uQ3yz9WixvQD/Rvbx0KtjGQdl
+xUQvPl6J6xLQx7FkEo52jziNk7hw9wU=
+=J+2F
 -----END PGP SIGNATURE-----
 
---NmY+w7HCTBD70FFj--
+--C3CfOFtGyHgf+Q8p--
 
 
---===============5512597651241688373==
+--===============5320790054924736869==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -192,5 +191,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============5512597651241688373==--
+--===============5320790054924736869==--
 
