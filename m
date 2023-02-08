@@ -4,61 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84149C636CC
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Feb 2023 16:28:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D307C636CC
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Feb 2023 16:36:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qQfmUbILvl5Rj8HgN7RrA3NS/BFmHPhlo2SgL+ZKtE0=; b=qZUCodPtfxvO050CdL35B6dTXR
-	1ZjqqBhHRbw5/EFdmd82ujTmWjvjw4cRY69O2JHwD0WP8Xdih8D9QI9S8gSbmZlXVVMzw6dDFeS6y
-	TPzRYFZGvmwM8t3WhFvS4p5QD9dfV6xIVmE467B6SwSczoJy+kJ4K63e1n/t+qFJNxrH52FC6OhCm
-	ClsgfUH3el9VfQIwsLvCs5SkG/fJAFF9fcYAnZoP+8ix5Vqgp7nkxlprqRHKZ3YvSzAQgERqaM/6h
-	FJKf+Oabu/xnRPL41fo/6Pw3SyKH+IKUGjaPWrdvQmUmqwb06PvHxiIQQraxO1hrc8M/wgze35dYI
-	IxdDRrrQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=0mdkhaRARBiYSSx9MXJ59NFb6E3+sViMcp4RCDrtAbU=; b=EzXyGIMBQfyx8q
+	Si8H2RSp+uTo7UC1j3HqFzHbq0fbyGJqR0evWNvmShFeO/EoCGBN3vJdr8UWC0uN8NFpwr87d6sPc
+	/AWR7fn08ECItNfqAgHZ3miT6ndWQjZtdRp/nvqUXxZ0yHyfwpKQwGGNisLxMMvMq3kxaG4BXiu+q
+	grEsle7p7pBbix8IjE0NgrrRDD+JG5qnoO7Q6xGLEdiZBbROz+tJedhe5AG8RzDcmXHECcAlqvYBp
+	M0/7t7uZA+3J+4MN1/mRfXWbEPd/LuQrBjxRYs8tI/Hsbg1aQFiM3wSiMMKPvGtY2WFUm55QnSS1X
+	j24P9hOXED8SsR0evKEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPnJQ-00GG3h-Ft; Wed, 08 Feb 2023 16:28:48 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pPnQj-00GGny-IO; Wed, 08 Feb 2023 16:36:21 +0000
+Received: from mga17.intel.com ([192.55.52.151])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPnJN-00GG3I-9d
-	for linux-riscv@lists.infradead.org; Wed, 08 Feb 2023 16:28:46 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 817486172A;
-	Wed,  8 Feb 2023 16:28:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A93BCC433D2;
-	Wed,  8 Feb 2023 16:28:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1675873723;
-	bh=C7+N9mRaBPOFc2SBvsjZMyh3t4Zdy9AIEyoV7hwJ0gs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GgZ54k/UjrcxZLbOevM41Jpx8L/10l4ULONIL5wr8WRLjzeLJ9NnytMYyiaZjZg2F
-	 R4cntQYSBX6y4/UFrIlT+FlCPhfkvlS0fGvMbcTvrdnE86bc51fOm/YrSwYpSFX7Kv
-	 biwW2Wk8OHWpl7tFnE4zpaAk+YmSgnGLo1H9TQkYtZazhEYUqAgJfFHZK8fSPjreJ1
-	 4tTE9mIJmz2MSnjjCl4nxEFSQeKfcUGzaWKHd37Ro646Xtt97fj3l1RRGpznhSNbfJ
-	 /MCCcAAwAsEsCVoVDpExpJBfBCTKI4BIbpMKQvpB0WxpXH+tbl5h6KJNquTbqj/ipI
-	 I+7KeCI5yQ0UQ==
-Date: Wed, 8 Feb 2023 16:28:39 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Trevor Woerner <twoerner@gmail.com>, palmer@dabbelt.com,
-	Jernej Skrabec <jernej.skrabec@gmail.com>
-Cc: linux-kernel@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	Chen-Yu Tsai <wens@csie.org>, Samuel Holland <samuel@sholland.org>,
-	linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH] MAINTAINERS: update Allwinner sunXi SoC support entry
-Message-ID: <Y+PNt8JObYK5WZKb@spud>
-References: <20230208142841.19597-1-twoerner@gmail.com>
+	id 1pPnQf-00GGn4-Fx; Wed, 08 Feb 2023 16:36:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1675874177; x=1707410177;
+  h=date:from:to:cc:subject:message-id:mime-version:
+   content-transfer-encoding;
+  bh=z0IUoGq44Ie/D98tP3PnKFsEfCc3lnBcoW+pcHZVejk=;
+  b=cFd7+MMV3rck83u89U5FTuz885PWXl4kN3rpepF0WkEopV/SVoy5rYfL
+   mdnF8wWZTGIDLcNckjjY4HJSfuYRmIEWz6nV+YC/7akOKPPF3nQuyjdO0
+   WzKWP8Cf+HMwR0oKzdir9UpB5qr0nWaasAKHxbhMuJscBbl2qfe+9qcJ+
+   bhNoMlMuwDVwUGBAOXGHHAd76yqTNXeMAs8HYC/GGaxlMQc5Bu74bfvkc
+   KTs3l/VtUt4DQBDlla5GQe0DpSKNIt9MGTLuKxIAqwJUUSGuHa86ofREs
+   3wlUfo0XY4an8P2B/5fKWkrj+k6mfUy7xMpjclvJmi3B51BSCO7pN/q6z
+   Q==;
+X-IronPort-AV: E=McAfee;i="6500,9779,10615"; a="310205623"
+X-IronPort-AV: E=Sophos;i="5.97,281,1669104000"; 
+   d="scan'208";a="310205623"
+Received: from orsmga001.jf.intel.com ([10.7.209.18])
+  by fmsmga107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Feb 2023 08:36:12 -0800
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6500,9779,10615"; a="699704461"
+X-IronPort-AV: E=Sophos;i="5.97,281,1669104000"; 
+   d="scan'208";a="699704461"
+Received: from lkp-server01.sh.intel.com (HELO 4455601a8d94) ([10.239.97.150])
+  by orsmga001.jf.intel.com with ESMTP; 08 Feb 2023 08:36:09 -0800
+Received: from kbuild by 4455601a8d94 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1pPnQW-0004YA-1k;
+	Wed, 08 Feb 2023 16:36:08 +0000
+Date: Thu, 09 Feb 2023 00:35:28 +0800
+From: kernel test robot <lkp@intel.com>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: linux-trace-kernel@vger.kernel.org, linux-s390@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-can@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ kvmarm@lists.cs.columbia.edu, amd-gfx@lists.freedesktop.org,
+ Linux Memory Management List <linux-mm@kvack.org>
+Subject: [linux-next:master] BUILD REGRESSION
+ 38d2b86a665b5e86371a1a30228bce259aa6c101
+Message-ID: <63e3cf50.D71+8M3OXb6sK1SD%lkp@intel.com>
+User-Agent: Heirloom mailx 12.5 6/20/10
 MIME-Version: 1.0
-In-Reply-To: <20230208142841.19597-1-twoerner@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230208_082845_411835_9476ED00 
-X-CRM114-Status: GOOD (  16.73  )
+X-CRM114-CacheID: sfid-20230208_083617_592190_7B52D06B 
+X-CRM114-Status: UNSURE (   7.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,85 +80,200 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3363507523168536614=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
+branch HEAD: 38d2b86a665b5e86371a1a30228bce259aa6c101  Add linux-next specific files for 20230208
 
---===============3363507523168536614==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="Qb4K182P4OIRGlj0"
-Content-Disposition: inline
+Error/Warning reports:
 
+https://lore.kernel.org/oe-kbuild-all/202301300743.bp7Dpazv-lkp@intel.com
+https://lore.kernel.org/oe-kbuild-all/202301301801.y5O08tQx-lkp@intel.com
+https://lore.kernel.org/oe-kbuild-all/202301302110.mEtNwkBD-lkp@intel.com
+https://lore.kernel.org/oe-kbuild-all/202301310939.TAgCOEZb-lkp@intel.com
+https://lore.kernel.org/oe-kbuild-all/202302011836.kA3BxqdY-lkp@intel.com
+https://lore.kernel.org/oe-kbuild-all/202302061911.C7xvHX9v-lkp@intel.com
+https://lore.kernel.org/oe-kbuild-all/202302062224.ByzeTXh1-lkp@intel.com
 
---Qb4K182P4OIRGlj0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Error/Warning: (recently discovered and may have been fixed)
 
-On Wed, Feb 08, 2023 at 09:28:41AM -0500, Trevor Woerner wrote:
-> Update the information in the "Allwinner sunXi SoC support" block:
-> - include more RISC-V information
-> - move the block to keep it in alphabetical order
-> - "L" before "T" (as reported by checkpatch.pl)
->=20
-> Signed-off-by: Trevor Woerner <twoerner@gmail.com>
+Documentation/riscv/uabi.rst:24: WARNING: Enumerated list ends without a blank line; unexpected unindent.
+ERROR: modpost: "devm_platform_ioremap_resource" [drivers/dma/fsl-edma.ko] undefined!
+ERROR: modpost: "devm_platform_ioremap_resource" [drivers/dma/idma64.ko] undefined!
+FAILED: load BTF from vmlinux: No data available
+arch/arm64/kvm/arm.c:2207: warning: expecting prototype for Initialize Hyp(). Prototype was for kvm_arm_init() instead
+drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.h:62:10: fatal error: mod_info_packet.h: No such file or directory
+drivers/gpu/drm/amd/amdgpu/../display/dc/dcn31/dcn31_hubbub.c:1011:6: warning: no previous prototype for 'hubbub31_init' [-Wmissing-prototypes]
+drivers/gpu/drm/amd/amdgpu/../display/dc/dcn32/dcn32_hubbub.c:948:6: warning: no previous prototype for 'hubbub32_init' [-Wmissing-prototypes]
+drivers/gpu/drm/amd/amdgpu/../display/dc/dcn32/dcn32_hubp.c:158:6: warning: no previous prototype for 'hubp32_init' [-Wmissing-prototypes]
+drivers/gpu/drm/amd/amdgpu/../display/dc/dcn32/dcn32_resource_helpers.c:62:18: warning: variable 'cursor_bpp' set but not used [-Wunused-but-set-variable]
+drivers/gpu/drm/amd/amdgpu/../display/dc/link/accessories/link_dp_trace.c:148:6: warning: no previous prototype for 'link_dp_trace_set_edp_power_timestamp' [-Wmissing-prototypes]
+drivers/gpu/drm/amd/amdgpu/../display/dc/link/accessories/link_dp_trace.c:158:10: warning: no previous prototype for 'link_dp_trace_get_edp_poweron_timestamp' [-Wmissing-prototypes]
+drivers/gpu/drm/amd/amdgpu/../display/dc/link/accessories/link_dp_trace.c:163:10: warning: no previous prototype for 'link_dp_trace_get_edp_poweroff_timestamp' [-Wmissing-prototypes]
+drivers/gpu/drm/amd/amdgpu/../display/dc/link/protocols/link_dp_capability.c:1295:32: warning: variable 'result_write_min_hblank' set but not used [-Wunused-but-set-variable]
+drivers/gpu/drm/amd/amdgpu/../display/dc/link/protocols/link_dp_capability.c:279:42: warning: variable 'ds_port' set but not used [-Wunused-but-set-variable]
+drivers/gpu/drm/amd/amdgpu/../display/dc/link/protocols/link_dp_training.c:1585:38: warning: variable 'result' set but not used [-Wunused-but-set-variable]
+drivers/net/can/dev/bittiming.c:145:24: error: too many arguments to function 'can_calc_bittiming'
+drivers/net/can/dev/bittiming.c:79:24: error: too many arguments to function 'can_calc_bittiming'
+ftrace-ops.c:(.init.text+0x2b8): undefined reference to `__udivdi3'
+libbpf: failed to find '.BTF' ELF section in vmlinux
 
-> -ARM/Allwinner sunXi SoC support
-> -L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
-> -L:	linux-sunxi@lists.linux.dev
+Unverified Error/Warning (likely false positive, please contact us if interested):
 
-> +ARM/RISC-V/Allwinner sunXi SoC support
-> +L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
-> +L:	linux-riscv@lists.infradead.org
-> +L:	linux-sunxi@lists.linux.dev
+arch/s390/boot/vmem.c:256 setup_vmem() error: uninitialized symbol 'start'.
+arch/s390/boot/vmem.c:258 setup_vmem() error: uninitialized symbol 'end'.
+arch/s390/include/asm/mem_detect.h:86 get_mem_detect_end() error: uninitialized symbol 'end'.
 
-IIRC having the arm list is needed here because the arch/arm{,64}
-entries specifically exclude the dts subdir. RISC-V doesn't do that
-though, so adding the list here is mostly redundant.
+Error/Warning ids grouped by kconfigs:
 
-Not that it matters for this patch, but might be worth doing for the
-RISC-V entry at some point.
+gcc_recent_errors
+|-- alpha-allyesconfig
+|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-accessories-link_dp_trace.c:warning:no-previous-prototype-for-link_dp_trace_get_edp_poweroff_timestamp
+|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-accessories-link_dp_trace.c:warning:no-previous-prototype-for-link_dp_trace_get_edp_poweron_timestamp
+|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-accessories-link_dp_trace.c:warning:no-previous-prototype-for-link_dp_trace_set_edp_power_timestamp
+|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-protocols-link_dp_capability.c:warning:variable-ds_port-set-but-not-used
+|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-protocols-link_dp_capability.c:warning:variable-result_write_min_hblank-set-but-not-used
+|   `-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-protocols-link_dp_training.c:warning:variable-result-set-but-not-used
+|-- alpha-randconfig-r005-20230205
+|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-accessories-link_dp_trace.c:warning:no-previous-prototype-for-link_dp_trace_get_edp_poweroff_timestamp
+|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-accessories-link_dp_trace.c:warning:no-previous-prototype-for-link_dp_trace_get_edp_poweron_timestamp
+|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-accessories-link_dp_trace.c:warning:no-previous-prototype-for-link_dp_trace_set_edp_power_timestamp
+|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-protocols-link_dp_capability.c:warning:variable-ds_port-set-but-not-used
+|   `-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-protocols-link_dp_capability.c:warning:variable-result_write_min_hblank-set-but-not-used
+|-- alpha-randconfig-r031-20230208
+|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-accessories-link_dp_trace.c:warning:no-previous-prototype-for-link_dp_trace_get_edp_poweroff_timestamp
+|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-accessories-link_dp_trace.c:warning:no-previous-prototype-for-link_dp_trace_get_edp_poweron_timestamp
+|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-accessories-link_dp_trace.c:warning:no-previous-prototype-for-link_dp_trace_set_edp_power_timestamp
+|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-protocols-link_dp_capability.c:warning:variable-ds_port-set-but-not-used
+|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-protocols-link_dp_capability.c:warning:variable-result_write_min_hblank-set-but-not-used
+|   `-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-protocols-link_dp_training.c:warning:variable-result-set-but-not-used
+|-- arc-allyesconfig
+|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-accessories-link_dp_trace.c:warning:no-previous-prototype-for-link_dp_trace_get_edp_poweroff_timestamp
+|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-accessories-link_dp_trace.c:warning:no-previous-prototype-for-link_dp_trace_get_edp_poweron_timestamp
+|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-accessories-link_dp_trace.c:warning:no-previous-prototype-for-link_dp_trace_set_edp_power_timestamp
+|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-protocols-link_dp_capability.c:warning:variable-ds_port-set-but-not-used
+|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-protocols-link_dp_capability.c:warning:variable-result_write_min_hblank-set-but-not-used
+|   `-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-protocols-link_dp_training.c:warning:variable-result-set-but-not-used
+|-- arm-allyesconfig
+|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-accessories-link_dp_trace.c:warning:no-previous-prototype-for-link_dp_trace_get_edp_poweroff_timestamp
+|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-accessories-link_dp_trace.c:warning:no-previous-prototype-for-link_dp_trace_get_edp_poweron_timestamp
+|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-accessories-link_dp_trace.c:warning:no-previous-prototype-for-link_dp_trace_set_edp_power_timestamp
+|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-protocols-link_dp_capability.c:warning:variable-ds_port-set-but-not-used
+|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-protocols-link_dp_capability.c:warning:variable-result_write_min_hblank-set-but-not-used
+|   `-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-protocols-link_dp_training.c:warning:variable-result-set-but-not-used
+|-- arm64-allyesconfig
+|   |-- arch-arm64-kvm-arm.c:warning:expecting-prototype-for-Initialize-Hyp().-Prototype-was-for-kvm_arm_init()-instead
+|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-dcn31-dcn31_hubbub.c:warning:no-previous-prototype-for-hubbub31_init
+|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-dcn32-dcn32_hubbub.c:warning:no-previous-prototype-for-hubbub32_init
+|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-dcn32-dcn32_hubp.c:warning:no-previous-prototype-for-hubp32_init
+|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-dcn32-dcn32_resource_helpers.c:warning:variable-cursor_bpp-set-but-not-used
+|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-accessories-link_dp_trace.c:warning:no-previous-prototype-for-link_dp_trace_get_edp_poweroff_timestamp
+|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-accessories-link_dp_trace.c:warning:no-previous-prototype-for-link_dp_trace_get_edp_poweron_timestamp
+|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-accessories-link_dp_trace.c:warning:no-previous-prototype-for-link_dp_trace_set_edp_power_timestamp
+|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-protocols-link_dp_capability.c:warning:variable-ds_port-set-but-not-used
+|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-protocols-link_dp_capability.c:warning:variable-result_write_min_hblank-set-but-not-used
+|   `-- drivers-gpu-drm-amd-amdgpu-..-display-dc-link-protocols-link_dp_training.c:warning:variable-result-set-but-not-used
+|-- csky-randconfig-r023-20230205
+|   `-- drivers-gpu-drm-amd-amdgpu-..-display-amdgpu_dm-amdgpu_dm.h:fatal-error:mod_info_packet.h:No-such-file-or-directory
+|-- i386-allyesconfig
+|   |-- drivers-gpu-drm-amd-amdgpu-..-display-dc-dcn31-dcn31_hubbub.c:warning:no-previous-prototype-for-hubbub31_init
 
-Also Trevor, I was about to send the above but noticed that your CC list
-is a bit odd, changing the maintainers entry without CCing any of the
-maintainers listed in it!
-I assume you ran get_maintainer.pl & there was a regex match for riscv
-in it, so only got Palmer & co.
-I've added the sunxi folk to CC & depending on workflow they may ask you
-to resend this.
+elapsed time: 734m
 
-FWIW if you lot use b4, the msg-id is:
-20230208142841.19597-1-twoerner@gmail.com
+configs tested: 79
+configs skipped: 3
 
-Cheers,
-Conor.
+gcc tested configs:
+um                           x86_64_defconfig
+arc                                 defconfig
+um                             i386_defconfig
+powerpc                           allnoconfig
+alpha                               defconfig
+x86_64                            allnoconfig
+x86_64                              defconfig
+x86_64                          rhel-8.3-func
+s390                                defconfig
+x86_64                    rhel-8.3-kselftests
+s390                             allmodconfig
+m68k                             allyesconfig
+x86_64                               rhel-8.3
+m68k                             allmodconfig
+arc                              allyesconfig
+s390                             allyesconfig
+arm                                 defconfig
+i386                 randconfig-a011-20230206
+x86_64               randconfig-a013-20230206
+x86_64                           allyesconfig
+x86_64               randconfig-a011-20230206
+alpha                            allyesconfig
+i386                 randconfig-a014-20230206
+x86_64               randconfig-a015-20230206
+x86_64               randconfig-a012-20230206
+x86_64               randconfig-a016-20230206
+i386                 randconfig-a012-20230206
+x86_64                           rhel-8.3-bpf
+i386                 randconfig-a016-20230206
+x86_64                           rhel-8.3-syz
+i386                 randconfig-a013-20230206
+x86_64                         rhel-8.3-kunit
+i386                                defconfig
+x86_64                           rhel-8.3-kvm
+sh                               allmodconfig
+x86_64               randconfig-a014-20230206
+ia64                             allmodconfig
+i386                 randconfig-a015-20230206
+mips                             allyesconfig
+arm64                            allyesconfig
+powerpc                          allmodconfig
+arm                              allyesconfig
+i386                             allyesconfig
+s390                 randconfig-r044-20230206
+arc                  randconfig-r043-20230205
+arm                  randconfig-r046-20230205
+arc                  randconfig-r043-20230206
+riscv                randconfig-r042-20230206
+i386                          randconfig-c001
+powerpc                      cm5200_defconfig
+mips                        vocore2_defconfig
+powerpc                  iss476-smp_defconfig
+sh                          r7785rp_defconfig
+sh                        edosk7705_defconfig
+arm                         at91_dt_defconfig
+ia64                         bigsur_defconfig
 
+clang tested configs:
+x86_64                          rhel-8.3-rust
+i386                 randconfig-a002-20230206
+i386                 randconfig-a003-20230206
+i386                 randconfig-a001-20230206
+x86_64               randconfig-a002-20230206
+x86_64               randconfig-a004-20230206
+x86_64               randconfig-a003-20230206
+x86_64               randconfig-a001-20230206
+x86_64               randconfig-a005-20230206
+x86_64               randconfig-a006-20230206
+i386                 randconfig-a004-20230206
+hexagon              randconfig-r041-20230205
+i386                 randconfig-a005-20230206
+riscv                randconfig-r042-20230205
+i386                 randconfig-a006-20230206
+hexagon              randconfig-r045-20230206
+hexagon              randconfig-r041-20230206
+arm                  randconfig-r046-20230206
+s390                 randconfig-r044-20230205
+hexagon              randconfig-r045-20230205
+powerpc                 mpc836x_rdk_defconfig
+arm                     davinci_all_defconfig
+mips                        qi_lb60_defconfig
 
---Qb4K182P4OIRGlj0
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY+PNtwAKCRB4tDGHoIJi
-0kDIAQDWdvyj262sL9izmrDv21mnh+0Sis8AAtWRYHpiSnBjCwD/YCGSzHggTMcl
-sFZp9o8YamSATf2K1K7j1rqb3M4tJgA=
-=i4oP
------END PGP SIGNATURE-----
-
---Qb4K182P4OIRGlj0--
-
-
---===============3363507523168536614==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3363507523168536614==--
-
