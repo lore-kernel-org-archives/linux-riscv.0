@@ -4,84 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1123CC05027
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Feb 2023 16:58:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E787BC05027
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Feb 2023 17:56:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ze9jZNadMtszKifFWVjh1P8z9L2UolggyBM4iS4glAk=; b=Uj+F1vboYWRq5l
-	jtbb1RRcDSyGeFBciJGU4kK7FEMgoWJTz5N7TljM4mIPlveaYLqQPlaUanPvsxK08Br+nIeO9t0kw
-	K5z915FdLqGdKSOYWBwvxl03Uo6E38qNbg8yiVfxJs4StEnKPI/bz9WCH3eP9aciZaypzEvfpqTJu
-	fFB5wG4lbOHcI1J5Dk90rrs8Qllady/1YvnxiunwCW+cd6zhtw4CussYy4jwyXz7WvmNaCtCCdAFn
-	tYo558LSwX8YleKp1VZPtTTKq/o+lzrzJZqhYzCf2qiD6Jjks6CJTgWK9iqO5Ah9YHSHNtE/A+VW9
-	Xb7OxPYPg4xbBAxkT5Ng==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=gvvhhlK8sc3etnLatyqj+2SQXZlzXe29rkmiZ86Mk68=; b=aW6/81XJ9LT21MtF2xOOeRDfgy
+	SBnmEj6bqtuKWzUpSs5HlXQo/owwt53+rI2vge/pU9TYsC+aypVohquuL3N+ksBa85YuGZcUUW5uo
+	A0V144TDfa0VQNApgzeNhVbg/VfMD8ecrSEjMr8oiVAMJNOU/N0mECjgv0PB3dAep599ISpVEwEl0
+	lNhYveJ28nCeQ+BxSG93Ik4wPvYCTxPKr1hLSFON7spXi4ck8e9BQ/ubQqBcAqzqibnWIZsKqzJRv
+	NOywm3ZRd0AHzj5cRJvLMBYohhlgpVnfBeLuelyoOgiFD7gSUtfLXz8XilNFuNc7+wCP2JcwWI9a2
+	yMvvYcSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPnlW-00GNkf-Rl; Wed, 08 Feb 2023 16:57:50 +0000
-Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
+	id 1pPog5-00GWw7-Cx; Wed, 08 Feb 2023 17:56:17 +0000
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPnlT-00GNjj-4k; Wed, 08 Feb 2023 16:57:48 +0000
-Received: by mail-qt1-x830.google.com with SMTP id m12so21474812qth.4;
-        Wed, 08 Feb 2023 08:57:46 -0800 (PST)
+	id 1pPog1-00GWuh-R7
+	for linux-riscv@lists.infradead.org; Wed, 08 Feb 2023 17:56:15 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id e10-20020a17090a630a00b0022bedd66e6dso3359144pjj.1
+        for <linux-riscv@lists.infradead.org>; Wed, 08 Feb 2023 09:56:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=p40yUwStxrTwrm1i0BG8hTSkPrclrhU7LySkzWtVeSQ=;
-        b=pRbKeS+4nS4noT4Qu99I2I0Y52Clu2wQLmNDUbHqZt+nwUQgV5xIQ/5htCxIRuAbPc
-         0ppGluqSaodYaZLq/vinXbhpO7vyWfD7CAdUgDxtonx79FW8uLZfaGwM14kFa9qvfpkT
-         qxuXrCY+kW02CBSqFum24piX+jH8oRO6G+pOtS2rr8IzyQmU/nIQDxMqDzSWXLcz8mkK
-         SMR0WSJe7PwY/sUPzUVxsQJVaN21QQbk2Cyqhtwx37DNGHMqPj2bwY3sTZSeWdF8961W
-         EoWQcjZ+Dx6b9gifq+Wqvx+9emt2RSoIXlFcVt81BOI29L5wfYY3wWeW6FYzlluCCcPH
-         iEjA==
+        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=gG/WkXZTAUlwvzHLZNVpvm8mQ39tyKfuQBX/kYBdkgw=;
+        b=iiBzhEUvmFJRwoF+qVJzvzPb7b8rRGARPABcPQV9sI4+/QVnESZ4GsLPIO36w7l2wg
+         wT1eHSfgxM/KFitaFrhB2cISovXV6b9GKnrJDBM8UkJbgBhS4/GgZ5MZhfkAaY/SLINf
+         rTdStWKVdAwm7Xeo4+MdmGhI10NXBzeLoZUKbGaU9owSnrCg3IIyIHWXtwlQj9RKlf2l
+         PKF/mhpK5uuqZlzvp810QvLvlglRPeDw6LT/0uyh+PsIOPiLTFSIzpM8qHn09C+72xcm
+         ZwGEo0hdy3opgPTtQBn6+zyTSJj2gM3z9r5zm9Smzl+b5MGGVthl9/lHp1C3X03wrYNT
+         KLCA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=p40yUwStxrTwrm1i0BG8hTSkPrclrhU7LySkzWtVeSQ=;
-        b=spQKw+3/8ruDpLabSD/LVvEKfOM/edfqqz+BfpCdLfLpqveNedhRcg7scuX3SkOGqj
-         sFZoyosoiZ0T1mmwQ27U50rIHnitNIrC2G9lk29/8K0A/IvHN9JwiSgLm1MLmwGoIE9D
-         4TyX4GcqnhYVYCWEjcWDUiqzGm5TQrD/xFJbD3xs+cRBlBEQU9E0hGvX/c4YLn7nNt+F
-         X3F+opk/MBlpoRyVQM3+75+C6hnsKOkIkpU7Vk/L8Ua5fpQQC83mMibpg+pHg8lzREa8
-         4Fm3y0klK8ehe3BBNE8/xhfL7hnP7il6SAN3lQEIwn+y5TUQY5rqeHLf3qTcqhwUTcaH
-         oZMQ==
-X-Gm-Message-State: AO0yUKV4HRnVSVIG+Iu76ILSf9E+qRF0fEr7/R46hQfrzoNTP4hwj3AL
-	20WBzCC20SGfhw1XaOIFb8s=
-X-Google-Smtp-Source: AK7set93BFBKyDcDH4kf4S3mJ5vR93Pg00QiC2uzDqpaNy+0GwvHnWjHmj3pBOXax42P6YwEhDn4rg==
-X-Received: by 2002:a05:622a:1008:b0:3b8:6cb0:8d28 with SMTP id d8-20020a05622a100800b003b86cb08d28mr11823600qte.6.1675875465964;
-        Wed, 08 Feb 2023 08:57:45 -0800 (PST)
-Received: from localhost (pppoe-209-91-167-254.vianet.ca. [209.91.167.254])
-        by smtp.gmail.com with ESMTPSA id x17-20020ac86b51000000b003a7eb5baf3csm11567488qts.69.2023.02.08.08.57.44
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=gG/WkXZTAUlwvzHLZNVpvm8mQ39tyKfuQBX/kYBdkgw=;
+        b=ZI/wE055xNksHfvBFDvKFtxzLbrdnwyEHiJMfKtJTewvgNPcntxPQ83gFohuncSL4N
+         /wGRLg2C3YDFsqhQw4e5OsGd4RBHDJoQqr07NKxQ335ZYvYYjUfYX0hQUT4Sfd2PcZR+
+         yvcqPOlfKnhH2svR+tnuZ+n2ZqlffFHcR5Z/s+20kYzrkp4xd4tBuuBXD89tJ2XcL58U
+         v6Lt5FIwORIsAbsyIzXNAkzGIyI12ZUS2u96qJlqD8SoH+QAlN5CGWSuTB+N5fHd4vyv
+         RgU+o4RDJqtpPZIYM+ZO1qaLCQG3bNNg4/XRFIHsYkQjZvgPqXNUw5f48UXip94LhWm+
+         2RXw==
+X-Gm-Message-State: AO0yUKVsdjm/JaSeHa/Qksx/+zTqDgVaTxHDjcLdwIXvBHVOLXozcfGo
+	vM5yjOpnJ3aS7UXmMYizhrlMNA==
+X-Google-Smtp-Source: AK7set+IvKf9JG8iTJHj7qXU2eE80ms2QI7mR9bDPaVSOxfo071drYvo75zvCNHaOlO+nG1YOZKYdw==
+X-Received: by 2002:a17:902:e545:b0:199:60:b9c8 with SMTP id n5-20020a170902e54500b001990060b9c8mr10269320plf.45.1675878968150;
+        Wed, 08 Feb 2023 09:56:08 -0800 (PST)
+Received: from localhost ([135.180.226.51])
+        by smtp.gmail.com with ESMTPSA id s12-20020a170902b18c00b001949f21e1d2sm11208714plr.308.2023.02.08.09.56.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Feb 2023 08:57:45 -0800 (PST)
-Date: Wed, 8 Feb 2023 11:57:43 -0500
-From: Trevor Woerner <twoerner@gmail.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH] riscv: dts: nezha-d1: add gpio-line-names
-Message-ID: <20230208165743.GA8848@localhost>
-References: <20230208014504.18899-1-twoerner@gmail.com>
- <Y+PRGjn8a26pe5Dy@spud>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Y+PRGjn8a26pe5Dy@spud>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+        Wed, 08 Feb 2023 09:56:06 -0800 (PST)
+Date: Wed, 08 Feb 2023 09:56:06 -0800 (PST)
+X-Google-Original-Date: Wed, 08 Feb 2023 09:56:04 PST (-0800)
+Subject: Re: [PATCH] riscv: avoid enabling vectorized code generation
+In-Reply-To: <20221216185012.2342675-1-abdulras@google.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, abdulras@google.com
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: abdulras@google.com
+Message-ID: <mhng-4c71ada6-003c-414f-9a74-efa3ccd2856b@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230208_085747_207000_BEC15717 
-X-CRM114-Status: GOOD (  22.05  )
+X-CRM114-CacheID: sfid-20230208_095613_898647_DBF67822 
+X-CRM114-Status: GOOD (  21.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,110 +84,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
+On Fri, 16 Dec 2022 10:50:12 PST (-0800), abdulras@google.com wrote:
+> The compiler is free to generate vectorized operations for zero'ing
+> memory.  The kernel does not use the vector unit on RISCV, similar to
+> architectures such as x86 where we use `-mno-mmx` et al to prevent the
+> implicit vectorization.  Perform a similar check for
+> `-mno-implicit-float` to avoid this on RISC-V targets.
+>
+> Signed-off-by: Saleem Abdulrasool <abdulras@google.com>
+> ---
+>  arch/riscv/Makefile | 4 ++++
+>  1 file changed, 4 insertions(+)
+>
+> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+> index 0d13b597cb55..68433476a96e 100644
+> --- a/arch/riscv/Makefile
+> +++ b/arch/riscv/Makefile
+> @@ -89,6 +89,10 @@ KBUILD_AFLAGS_MODULE += $(call as-option,-Wa$(comma)-mno-relax)
+>  # architectures.  It's faster to have GCC emit only aligned accesses.
+>  KBUILD_CFLAGS += $(call cc-option,-mstrict-align)
+>
+> +# Ensure that we do not vectorize the kernel code when the `v` extension is
+> +# enabled.  This mirrors the `-mno-mmx` et al on x86.
+> +KBUILD_CFLAGS += $(call cc-option,-mno-implicit-float)
+> +
+>  ifeq ($(CONFIG_STACKPROTECTOR_PER_TASK),y)
+>  prepare: stack_protector_prepare
+>  stack_protector_prepare: prepare0
 
-Thank you for your review!
+Sorry to just restart the thread, but there's been discussions on this 
+in a bunch of places.  From my understanding, we don't actually need 
+this: we have this tricky line in the Makefile
 
-On Wed 2023-02-08 @ 04:43:06 PM, Conor Dooley wrote:
-> On Tue, Feb 07, 2023 at 08:45:03PM -0500, Trevor Woerner wrote:
-> > Add descriptive names so users can associate specific lines with their
-> > respective pins on the 40-pin header according to the schematics found at:
-> > 
-> > 	http://dl.linux-sunxi.org/D1/D1_Nezha_development_board_schematic_diagram_20210224.pdf
-> 
-> Dunno about the sunxi folk, but ideally that'd be a Link: tag IMO.
+    KBUILD_CFLAGS += -march=$(subst fd,,$(riscv-march-y))
 
-Okay, np.
+that removes the floating-point extenions from what the kernel is built 
+with, so adding `-mno-implicit-float` doesn't actually do anything (and 
+we'd end up with essentially the same thing for V when it gets added).
 
-> > 
-> > Signed-off-by: Trevor Woerner <twoerner@gmail.com>
-> > ---
-> >  .../boot/dts/allwinner/sun20i-d1-nezha.dts    | 53 +++++++++++++++++++
-> >  1 file changed, 53 insertions(+)
-> > 
-> > diff --git a/arch/riscv/boot/dts/allwinner/sun20i-d1-nezha.dts b/arch/riscv/boot/dts/allwinner/sun20i-d1-nezha.dts
-> > index a0769185be97..33489c7619cb 100644
-> > --- a/arch/riscv/boot/dts/allwinner/sun20i-d1-nezha.dts
-> > +++ b/arch/riscv/boot/dts/allwinner/sun20i-d1-nezha.dts
-> > @@ -90,6 +90,15 @@ pcf8574a: gpio@38 {
-> >  		gpio-controller;
-> >  		#gpio-cells = <2>;
-> >  		#interrupt-cells = <2>;
-> > +		gpio-line-names =
-> > +			"pin13 [PP0,gpio8] ",
-> > +			"pin16 [PP1,gpio10]",
-> > +			"pin18 [PP2,gpio11]",
-> > +			"pin26 [PP3,gpio17]",
-> > +			"pin22 [PP4,gpio14]",
-> > +			"pin28 [PP5,gpio19]",
-> > +			"pin37 [PP6,gpio23]",
-> > +			"pin11 [PP7,gpio6] ";
-> 
-> dtbs_check does not like this:
-> arch/riscv/boot/dts/allwinner/sun20i-d1-nezha.dtb: gpio@38: 'gpio-line-names' does not match any of the regexes: '^(.+-hog(-[0-9]+)?)$', 'pinctrl-[0-9]+'
->         From schema: Documentation/devicetree/bindings/gpio/nxp,pcf8575.yaml
-> 
-> >  	};
-> >  };
-
-Okay, I'll look for other examples of giving names to io-expanders to see
-what's needed to keep dtc happy.
-
-> >  
-> > @@ -164,3 +173,47 @@ &usbphy {
-> >  	usb1_vbus-supply = <&reg_vcc>;
-> >  	status = "okay";
-> >  };
-> > +
-> > +&pio {
-> > +	gpio-line-names =
-> > +		/* Port A */
-> > +		"", "", "", "", "", "", "", "",
-> > +		"", "", "", "", "", "", "", "",
-> > +		"", "", "", "", "", "", "", "",
-> > +		"", "", "", "", "", "", "", "",
-> > +		/* Port B */
-> > +		"pin5  [PB0, gpio2/twi2-sck]",
-> > +		"pin3  [PB1, gpio1/twi2-sda]",
-> > +		"",
-> > +		"pin38 [PB3, gpio24/i2s2-din]",
-> > +		"pin40 [PB4, gpio25/i2s2-dout]",
-> > +		"pin12 [PB5, gpio7/i2s-clk]",
-> > +		"pin35 [PB6, gpio22/i2s2-lrck]",
-> > +		"",
-> > +		"pin8  [PB8, gpio4/uart0-txd]",
-> > +		"pin10 [PB9, gpio5/uart0-rxd]",
-> > +		"",
-> > +		"",
-> > +		"pin15 [PB12,gpio9]",
-> 
-> Why not pick a consistent styling w.r.t. the space between PB#, & gpio?
-
-I thought it looked better when doing:
-
-	nezha-allwinner-d1:~# gpioinfo
-	gpiochip0 - 224 lines:
-		...
-		line  32: "pin5  [PB0, gpio2/twi2-sck]" kernel input active-high [used]
-		line  33: "pin3  [PB1, gpio1/twi2-sda]" kernel input active-high [used]
-		line  34:      unnamed  "interrupt"   input  active-high [used]
-		line  35: "pin38 [PB3, gpio24/i2s2-din]" unused input active-high
-		line  36: "pin40 [PB4, gpio25/i2s2-dout]" unused input active-high
-		line  37: "pin12 [PB5, gpio7/i2s-clk]" unused input active-high
-		line  38: "pin35 [PB6, gpio22/i2s2-lrck]" unused input active-high
-		line  39:      unnamed       unused   input  active-high
-		line  40: "pin8  [PB8, gpio4/uart0-txd]" kernel input active-high [used]
-		line  41: "pin10 [PB9, gpio5/uart0-rxd]" kernel input active-high [used]
-		...
-
-I guess "better" is subjective :-)
-
-I'll do a v2, thanks!
+So unless I'm missing something, we don't need this.
 
 _______________________________________________
 linux-riscv mailing list
