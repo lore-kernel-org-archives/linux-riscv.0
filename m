@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9919C636D6
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Feb 2023 14:37:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14D81C6379F
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Feb 2023 14:37:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=X2+CyroRVyDEhVcib53hGYksTwO/yuhBvcASMHk1r8s=; b=wWusMj5RrHB4A3
-	EWLDFts+UW6AiwSf5XFYLb7RCBlhHPpHSRl+st3QmoTdS1cr1eStjX79G96/tF263dv0MCKdVHPGA
-	fZhlJShyA7PWbucbp7J6w6wUCGEx//K7MNCN710vgjM8Y5inWjqd4cyuV5TDbw4r4JBCVKIfveUOp
-	8yu4HJXu6nhdl57k+KN/ueNCdtel1rgGEcYDQJFQRCOAk21Y2whqDUD0ykfecWEWV552mGbgzpCMd
-	hD8TKnXmpvkIX789SeK90LL4khECDGl1ytlAqXQn9X0bjxZ0ozLmxycyTZ7W80y8PK11Y1fjUZnDx
-	OBBKntqNaA8aCpkJNSwA==;
+	List-Owner; bh=v5MssBsfSQmGocF8ZHJ6t+pQqo99xEKeft/tV4BFHWc=; b=nB7sE67naTN769
+	ozt+BcXsLBi55kT70L46thv1cOhCHC/RZIEgBY4e5eRsWGwgSAGl5Sc01Q8ZiU2eAq8edXAOrkdUO
+	mOrLb9zxM/hqlFe6kVrYY57LgckBdqDyl0jLVXF7JcYMSGc3VTa8Dg80BHVg0OLcnF8ebLfS8kvqE
+	7HSEQ6m4VaSCJYxOpibbEJlpyz0SfAhYicjcljPPTjQHCAqijGU3EAVJfIMX1MMz6AG12b4RTMmj2
+	1CrPlOGlRVAULlwHg8/6XCRBeksuTmaf1a0C61VEAOpLMGjcmx8ntHUZILybNU19ecv4uzBmOFkJ8
+	yrrjEbpv65SxzRACogjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQ83Q-0020Jp-TT; Thu, 09 Feb 2023 14:37:40 +0000
+	id 1pQ83S-0020KE-2U; Thu, 09 Feb 2023 14:37:42 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQ83K-0020Ed-FF
+	id 1pQ83K-0020Ee-FG
 	for linux-riscv@lists.infradead.org; Thu, 09 Feb 2023 14:37:38 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 4014324E0FC;
-	Thu,  9 Feb 2023 22:37:05 +0800 (CST)
-Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 9 Feb
- 2023 22:37:05 +0800
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 8AD5124E0D8;
+	Thu,  9 Feb 2023 22:37:04 +0800 (CST)
+Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 9 Feb
+ 2023 22:37:04 +0800
 Received: from ubuntu.localdomain (183.27.96.33) by EXMBX172.cuchost.com
  (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 9 Feb
- 2023 22:37:04 +0800
+ 2023 22:37:03 +0800
 From: Hal Feng <hal.feng@starfivetech.com>
 To: <linux-gpio@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-riscv@lists.infradead.org>
@@ -46,9 +46,9 @@ CC: Linus Walleij <linus.walleij@linaro.org>, Andreas Schwab <schwab@suse.de>,
 	<emil.renner.berthing@canonical.com>, Jianlong Huang
 	<jianlong.huang@starfivetech.com>, Hal Feng <hal.feng@starfivetech.com>,
 	<linux-kernel@vger.kernel.org>
-Subject: [PATCH v5 2/4] dt-bindings: pinctrl: Add StarFive JH7110 aon pinctrl
-Date: Thu, 9 Feb 2023 22:37:00 +0800
-Message-ID: <20230209143702.44408-3-hal.feng@starfivetech.com>
+Subject: [PATCH v5 1/4] dt-bindings: pinctrl: Add StarFive JH7110 sys pinctrl
+Date: Thu, 9 Feb 2023 22:36:59 +0800
+Message-ID: <20230209143702.44408-2-hal.feng@starfivetech.com>
 X-Mailer: git-send-email 2.38.1
 In-Reply-To: <20230209143702.44408-1-hal.feng@starfivetech.com>
 References: <20230209143702.44408-1-hal.feng@starfivetech.com>
@@ -58,8 +58,8 @@ X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX172.cuchost.com
  (172.16.6.92)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230209_063734_825603_60CFF568 
-X-CRM114-Status: GOOD (  14.89  )
+X-CRM114-CacheID: sfid-20230209_063734_833144_86C16BB4 
+X-CRM114-Status: GOOD (  17.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,7 +78,7 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Jianlong Huang <jianlong.huang@starfivetech.com>
 
-Add pinctrl bindings for StarFive JH7110 SoC aon pinctrl controller.
+Add pinctrl bindings for StarFive JH7110 SoC sys pinctrl controller.
 
 Reviewed-by: Rob Herring <robh@kernel.org>
 Signed-off-by: Jianlong Huang <jianlong.huang@starfivetech.com>
@@ -86,41 +86,49 @@ Co-developed-by: Emil Renner Berthing <kernel@esmil.dk>
 Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
 Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
 ---
- .../pinctrl/starfive,jh7110-aon-pinctrl.yaml  | 124 ++++++++++++++++++
- .../pinctrl/starfive,jh7110-pinctrl.h         |  22 ++++
- 2 files changed, 146 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/pinctrl/starfive,jh7110-aon-pinctrl.yaml
+ .../pinctrl/starfive,jh7110-sys-pinctrl.yaml  | 142 ++++++++++++++++++
+ MAINTAINERS                                   |   6 +-
+ .../pinctrl/starfive,jh7110-pinctrl.h         | 115 ++++++++++++++
+ 3 files changed, 261 insertions(+), 2 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/starfive,jh7110-sys-pinctrl.yaml
+ create mode 100644 include/dt-bindings/pinctrl/starfive,jh7110-pinctrl.h
 
-diff --git a/Documentation/devicetree/bindings/pinctrl/starfive,jh7110-aon-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/starfive,jh7110-aon-pinctrl.yaml
+diff --git a/Documentation/devicetree/bindings/pinctrl/starfive,jh7110-sys-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/starfive,jh7110-sys-pinctrl.yaml
 new file mode 100644
-index 000000000000..b470901f5f56
+index 000000000000..222b9e240f8a
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/pinctrl/starfive,jh7110-aon-pinctrl.yaml
-@@ -0,0 +1,124 @@
++++ b/Documentation/devicetree/bindings/pinctrl/starfive,jh7110-sys-pinctrl.yaml
+@@ -0,0 +1,142 @@
 +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
 +%YAML 1.2
 +---
-+$id: http://devicetree.org/schemas/pinctrl/starfive,jh7110-aon-pinctrl.yaml#
++$id: http://devicetree.org/schemas/pinctrl/starfive,jh7110-sys-pinctrl.yaml#
 +$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+title: StarFive JH7110 AON Pin Controller
++title: StarFive JH7110 SYS Pin Controller
 +
 +description: |
 +  Bindings for the JH7110 RISC-V SoC from StarFive Technology Ltd.
 +
-+  Out of the SoC's many pins only the ones named PAD_RGPIO0 to PAD_RGPIO3
++  Out of the SoC's many pins only the ones named PAD_GPIO0 to PAD_GPIO63
 +  can be multiplexed and have configurable bias, drive strength,
 +  schmitt trigger etc.
-+  Some peripherals such as PWM have their I/O go through the 4 "GPIOs".
++  Some peripherals have their I/O go through the 64 "GPIOs". This also
++  includes a number of other UARTs, I2Cs, SPIs, PWMs etc.
++  All these peripherals are connected to all 64 GPIOs such that
++  any GPIO can be set up to be controlled by any of the peripherals.
 +
 +maintainers:
 +  - Jianlong Huang <jianlong.huang@starfivetech.com>
 +
 +properties:
 +  compatible:
-+    const: starfive,jh7110-aon-pinctrl
++    const: starfive,jh7110-sys-pinctrl
 +
 +  reg:
++    maxItems: 1
++
++  clocks:
 +    maxItems: 1
 +
 +  resets:
@@ -161,7 +169,8 @@ index 000000000000..b470901f5f56
 +          pinmux:
 +            description: |
 +              The list of GPIOs and their mux settings that properties in the
-+              node apply to. This should be set using the GPIOMUX macro.
++              node apply to. This should be set using the GPIOMUX or PINMUX
++              macros.
 +
 +          bias-disable: true
 +
@@ -188,6 +197,7 @@ index 000000000000..b470901f5f56
 +required:
 +  - compatible
 +  - reg
++  - clocks
 +  - interrupts
 +  - interrupt-controller
 +  - '#interrupt-cells'
@@ -198,62 +208,182 @@ index 000000000000..b470901f5f56
 +
 +examples:
 +  - |
-+    pinctrl@17020000 {
-+        compatible = "starfive,jh7110-aon-pinctrl";
-+        reg = <0x17020000 0x10000>;
-+        resets = <&aoncrg 2>;
-+        interrupts = <85>;
++    pinctrl@13040000 {
++        compatible = "starfive,jh7110-sys-pinctrl";
++        reg = <0x13040000 0x10000>;
++        clocks = <&syscrg 112>;
++        resets = <&syscrg 2>;
++        interrupts = <86>;
 +        interrupt-controller;
 +        #interrupt-cells = <2>;
 +        gpio-controller;
 +        #gpio-cells = <2>;
 +
-+        pwm-0 {
-+            pwm-pins {
-+                pinmux = <0xff030802>;
++        uart0-0 {
++            tx-pins {
++                pinmux = <0xff140005>;
 +                bias-disable;
 +                drive-strength = <12>;
 +                input-disable;
 +                input-schmitt-disable;
 +                slew-rate = <0>;
 +            };
++
++            rx-pins {
++                pinmux = <0x0E000406>;
++                bias-pull-up;
++                drive-strength = <2>;
++                input-enable;
++                input-schmitt-enable;
++                slew-rate = <0>;
++            };
 +        };
 +    };
 +
 +...
+diff --git a/MAINTAINERS b/MAINTAINERS
+index f61eb221415b..babd133cdc4b 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -19890,13 +19890,15 @@ F:	Documentation/devicetree/bindings/clock/starfive,jh7100-*.yaml
+ F:	drivers/clk/starfive/clk-starfive-jh7100*
+ F:	include/dt-bindings/clock/starfive-jh7100*.h
+ 
+-STARFIVE JH7100 PINCTRL DRIVER
++STARFIVE JH71X0 PINCTRL DRIVERS
+ M:	Emil Renner Berthing <kernel@esmil.dk>
++M:	Jianlong Huang <jianlong.huang@starfivetech.com>
+ L:	linux-gpio@vger.kernel.org
+ S:	Maintained
+-F:	Documentation/devicetree/bindings/pinctrl/starfive,jh7100-pinctrl.yaml
++F:	Documentation/devicetree/bindings/pinctrl/starfive,jh71*.yaml
+ F:	drivers/pinctrl/starfive/
+ F:	include/dt-bindings/pinctrl/pinctrl-starfive-jh7100.h
++F:	include/dt-bindings/pinctrl/starfive,jh7110-pinctrl.h
+ 
+ STARFIVE JH7100 RESET CONTROLLER DRIVER
+ M:	Emil Renner Berthing <kernel@esmil.dk>
 diff --git a/include/dt-bindings/pinctrl/starfive,jh7110-pinctrl.h b/include/dt-bindings/pinctrl/starfive,jh7110-pinctrl.h
-index 57c1659e4bbf..3865f0139639 100644
---- a/include/dt-bindings/pinctrl/starfive,jh7110-pinctrl.h
+new file mode 100644
+index 000000000000..57c1659e4bbf
+--- /dev/null
 +++ b/include/dt-bindings/pinctrl/starfive,jh7110-pinctrl.h
-@@ -104,6 +104,28 @@
- #define	PAD_QSPI_DATA2		93
- #define	PAD_QSPI_DATA3		94
- 
-+/* aon_iomux pins */
-+#define	PAD_TESTEN		0
-+#define	PAD_RGPIO0		1
-+#define	PAD_RGPIO1		2
-+#define	PAD_RGPIO2		3
-+#define	PAD_RGPIO3		4
-+#define	PAD_RSTN		5
-+#define	PAD_GMAC0_MDC		6
-+#define	PAD_GMAC0_MDIO		7
-+#define	PAD_GMAC0_RXD0		8
-+#define	PAD_GMAC0_RXD1		9
-+#define	PAD_GMAC0_RXD2		10
-+#define	PAD_GMAC0_RXD3		11
-+#define	PAD_GMAC0_RXDV		12
-+#define	PAD_GMAC0_RXC		13
-+#define	PAD_GMAC0_TXD0		14
-+#define	PAD_GMAC0_TXD1		15
-+#define	PAD_GMAC0_TXD2		16
-+#define	PAD_GMAC0_TXD3		17
-+#define	PAD_GMAC0_TXEN		18
-+#define	PAD_GMAC0_TXC		19
+@@ -0,0 +1,115 @@
++/* SPDX-License-Identifier: GPL-2.0 OR MIT */
++/*
++ * Copyright (C) 2022 Emil Renner Berthing <kernel@esmil.dk>
++ * Copyright (C) 2022 StarFive Technology Co., Ltd.
++ */
 +
- #define GPOUT_LOW		0
- #define GPOUT_HIGH		1
- 
++#ifndef __DT_BINDINGS_PINCTRL_STARFIVE_JH7110_H__
++#define __DT_BINDINGS_PINCTRL_STARFIVE_JH7110_H__
++
++/* sys_iomux pins */
++#define	PAD_GPIO0		0
++#define	PAD_GPIO1		1
++#define	PAD_GPIO2		2
++#define	PAD_GPIO3		3
++#define	PAD_GPIO4		4
++#define	PAD_GPIO5		5
++#define	PAD_GPIO6		6
++#define	PAD_GPIO7		7
++#define	PAD_GPIO8		8
++#define	PAD_GPIO9		9
++#define	PAD_GPIO10		10
++#define	PAD_GPIO11		11
++#define	PAD_GPIO12		12
++#define	PAD_GPIO13		13
++#define	PAD_GPIO14		14
++#define	PAD_GPIO15		15
++#define	PAD_GPIO16		16
++#define	PAD_GPIO17		17
++#define	PAD_GPIO18		18
++#define	PAD_GPIO19		19
++#define	PAD_GPIO20		20
++#define	PAD_GPIO21		21
++#define	PAD_GPIO22		22
++#define	PAD_GPIO23		23
++#define	PAD_GPIO24		24
++#define	PAD_GPIO25		25
++#define	PAD_GPIO26		26
++#define	PAD_GPIO27		27
++#define	PAD_GPIO28		28
++#define	PAD_GPIO29		29
++#define	PAD_GPIO30		30
++#define	PAD_GPIO31		31
++#define	PAD_GPIO32		32
++#define	PAD_GPIO33		33
++#define	PAD_GPIO34		34
++#define	PAD_GPIO35		35
++#define	PAD_GPIO36		36
++#define	PAD_GPIO37		37
++#define	PAD_GPIO38		38
++#define	PAD_GPIO39		39
++#define	PAD_GPIO40		40
++#define	PAD_GPIO41		41
++#define	PAD_GPIO42		42
++#define	PAD_GPIO43		43
++#define	PAD_GPIO44		44
++#define	PAD_GPIO45		45
++#define	PAD_GPIO46		46
++#define	PAD_GPIO47		47
++#define	PAD_GPIO48		48
++#define	PAD_GPIO49		49
++#define	PAD_GPIO50		50
++#define	PAD_GPIO51		51
++#define	PAD_GPIO52		52
++#define	PAD_GPIO53		53
++#define	PAD_GPIO54		54
++#define	PAD_GPIO55		55
++#define	PAD_GPIO56		56
++#define	PAD_GPIO57		57
++#define	PAD_GPIO58		58
++#define	PAD_GPIO59		59
++#define	PAD_GPIO60		60
++#define	PAD_GPIO61		61
++#define	PAD_GPIO62		62
++#define	PAD_GPIO63		63
++#define	PAD_SD0_CLK		64
++#define	PAD_SD0_CMD		65
++#define	PAD_SD0_DATA0		66
++#define	PAD_SD0_DATA1		67
++#define	PAD_SD0_DATA2		68
++#define	PAD_SD0_DATA3		69
++#define	PAD_SD0_DATA4		70
++#define	PAD_SD0_DATA5		71
++#define	PAD_SD0_DATA6		72
++#define	PAD_SD0_DATA7		73
++#define	PAD_SD0_STRB		74
++#define	PAD_GMAC1_MDC		75
++#define	PAD_GMAC1_MDIO		76
++#define	PAD_GMAC1_RXD0		77
++#define	PAD_GMAC1_RXD1		78
++#define	PAD_GMAC1_RXD2		79
++#define	PAD_GMAC1_RXD3		80
++#define	PAD_GMAC1_RXDV		81
++#define	PAD_GMAC1_RXC		82
++#define	PAD_GMAC1_TXD0		83
++#define	PAD_GMAC1_TXD1		84
++#define	PAD_GMAC1_TXD2		85
++#define	PAD_GMAC1_TXD3		86
++#define	PAD_GMAC1_TXEN		87
++#define	PAD_GMAC1_TXC		88
++#define	PAD_QSPI_SCLK		89
++#define	PAD_QSPI_CS0		90
++#define	PAD_QSPI_DATA0		91
++#define	PAD_QSPI_DATA1		92
++#define	PAD_QSPI_DATA2		93
++#define	PAD_QSPI_DATA3		94
++
++#define GPOUT_LOW		0
++#define GPOUT_HIGH		1
++
++#define GPOEN_ENABLE		0
++#define GPOEN_DISABLE		1
++
++#define GPI_NONE		255
++
++#endif
 -- 
 2.38.1
 
