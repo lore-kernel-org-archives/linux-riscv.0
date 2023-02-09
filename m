@@ -4,64 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01B00C61DA4
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Feb 2023 08:03:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F1A4C61DA4
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Feb 2023 08:07:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5L5bRBLI3jR8/WoyeERzbiUhMiVmtk+hhwC/eu++YKE=; b=hBZMaMk6z7TCQa
-	ASyovXNvdig5wXlb1i0+nm2nZCqe37coM9GJpy74NEUwKwvKIZvPW9QZqh1i87QiQuf3k64mCjrcr
-	r9pqY6EOl7uTi/L/G1ENHxiE673QIxg/Kj9d0YCd6MmSfhDn5K2ji83g2SYH6sntJv6jx1LG9tiGC
-	Mtvh+h/S/zLAoAPbqSQjtEGcTce5OMj+omUpAYflvEZa8taJ4Fea3WW4fOH39WtCO8twVw8OqeBeU
-	7+eklHb8mGJ4s4Xi2Vypl7j7vuY5UOhCdI1k7aiWDyLw8wEBnywv6zeJPlDjR0LK+LksB8czkl+kG
-	TxS8qPj44Jnpb05zBhbA==;
+	List-Owner; bh=q1tyQZvtoLwq5K/0vFaLfcylPpZTBzUIq19TArkupAY=; b=gxRsjn8M/FfujF
+	UOsn2eXB9+S1KhX2XsJ5cKs2sPk97EsFzXYF/wVegGvJDdaWzlwSQHdmhNzaVIGkpmLa2+1sTFzNv
+	UlxpCdP4HCGAy331kYaKjzGwWSAVPhh09/dX9eH5bZMRFknTYcArTGu7Qm62R6qmh5qmzwCS+tesr
+	Qf3eTrZdsOtjwYjuzJzZzjJ2XlJdayHYgDdXXHqBf7yNH2LFSbLqWgSHen3LXRdkpTS8wuXzLEC3K
+	9jX6iG3E/l+7VhyleiAtHTJWACn7e3LG4SF1+r3WwnIsoF7wuX2riK12c6FfXVNezQNCHXGT4sR3P
+	szgNt+5QxmhYilf2DJnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQ1tn-000VIy-2g; Thu, 09 Feb 2023 08:03:19 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQ1ti-000VHB-PO
-	for linux-riscv@lists.infradead.org; Thu, 09 Feb 2023 08:03:17 +0000
-Received: from [198.18.0.1] (unknown [124.16.141.244])
-	by APP-05 (Coremail) with SMTP id zQCowAA3PfW1qORje+RGBA--.7846S2;
-	Thu, 09 Feb 2023 16:03:01 +0800 (CST)
-Message-ID: <9c20cf72-09cc-b005-6d92-a23d053c86ea@iscas.ac.cn>
-Date: Thu, 9 Feb 2023 16:03:01 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:102.0)
- Gecko/20100101 Thunderbird/102.7.1
-Subject: Re: [PATCH v12 0/3] riscv, mm: detect svnapot cpu support at runtime
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: linux-riscv@lists.infradead.org
-References: <11ea7918-00db-3f30-2504-53692936aaae@iscas.ac.cn>
- <a1cdf5e6-a6d8-654c-1af2-adb9f0b260c3@iscas.ac.cn> <Y+ShK27/hnApM89n@wendy>
-From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
-In-Reply-To: <Y+ShK27/hnApM89n@wendy>
-X-CM-TRANSID: zQCowAA3PfW1qORje+RGBA--.7846S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxWr1xXr18CF1UAr48CF4rXwb_yoWrKr4fpF
-	WkGFnxCFW5Crn3GwsIvryUt34Yyr4rKw17Xr15J34rA39rtrWjgw1qgFn09w1DXrWfGr10
-	yF43Wa47u34DArDanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9qb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwV
-	C2z280aVCY1x0267AKxVW0oVCq3wAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x0
-	82IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUAVWUtw
-	Av7VC2z280aVAFwI0_Gr1j6F4UJwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41l
-	c7I2V7IY0VAS07AlzVAYIcxG8wCY02Avz4vE14v_GFyl42xK82IYc2Ij64vIr41l4I8I3I
-	0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWU
-	GVWUWwC2zVAF1VAY17CE14v26r1Y6r17MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI
-	0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0
-	rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r
-	4UJbIYCTnIWIevJa73UjIFyTuYvjxUy7PiUUUUU
-X-Originating-IP: [124.16.141.244]
-X-CM-SenderInfo: 5sdq1xpqjox0asqsiq5lvft2wodfhubq/1tbiAwwRDGPkWFfCBAABsd
+	id 1pQ1xs-000VxR-Cw; Thu, 09 Feb 2023 08:07:32 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pQ1xo-000Vwo-01
+	for linux-riscv@lists.infradead.org; Thu, 09 Feb 2023 08:07:30 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 28D14B81FF4;
+	Thu,  9 Feb 2023 08:07:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9EA6C433EF;
+	Thu,  9 Feb 2023 08:07:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1675930044;
+	bh=+cixDLgbEuQ9XxFlWqxES+2DSULudenrzv2VNUtX5sA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=LKsd+1QACuU5cXRjQ6wtdNhZewKdCbzpTYglFjBqRty3qRFX8NwRvOrIpM5wx14On
+	 rclifDe7TKJ6bBHbp4kud4PsxDUIuHhcM8nRBgexTWV7oyQmOrdYl8AUwOW/hfCgfm
+	 DZKD4d3Rb2q86h9hlMm7ifSgqLx/2P9FPm73HyEMRT8XsJ2YhLw9Tiacbep9pv7F9h
+	 SqD466zbjjzjStYSV5bhQprfzumFRdFXViaHhkqZy0rHNC7IhOkr4Zp/mOjgqoP6sa
+	 KcBDldPNPrgzsy3CJ4r5pHkrZslejyxnfTLaT2QICFIdSbwIuhwBZnRWno9nGCGQ0K
+	 QsSh9gwrfDtPQ==
+Received: from ip-185-104-136-29.ptr.icomera.net ([185.104.136.29] helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1pQ1xi-008uHn-72;
+	Thu, 09 Feb 2023 08:07:22 +0000
+Date: Thu, 09 Feb 2023 08:07:05 +0000
+Message-ID: <874jrv1cuu.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mason Huo <mason.huo@starfivetech.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	<linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>,
+	Ley Foon Tan
+	<leyfoon.tan@starfivetech.com>,
+	Sia Jee Heng <jeeheng.sia@starfivetech.com>
+Subject: Re: [PATCH v2] irqchip/irq-sifive-plic: Add syscore callbacks for hibernation
+In-Reply-To: <20230209034322.69943-1-mason.huo@starfivetech.com>
+References: <20230209034322.69943-1-mason.huo@starfivetech.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.104.136.29
+X-SA-Exim-Rcpt-To: mason.huo@starfivetech.com, tglx@linutronix.de, palmer@dabbelt.com, paul.walmsley@sifive.com, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, leyfoon.tan@starfivetech.com, jeeheng.sia@starfivetech.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230209_000315_213746_EC7CB1C4 
-X-CRM114-Status: GOOD (  22.47  )
+X-CRM114-CacheID: sfid-20230209_000728_361662_C5DA5931 
+X-CRM114-Status: GOOD (  35.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,94 +85,240 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGV5IQoKT24gMjAyMy8yLzkgMTU6MzAsIENvbm9yIERvb2xleSB3cm90ZToKPiBIZXkhCj4gCj4g
-T24gVGh1LCBGZWIgMDksIDIwMjMgYXQgMTI6MDA6MzJQTSArMDgwMCwgUWluZ2xpbiBQYW4gd3Jv
-dGU6Cj4+IEhpIGFsbCwKPj4KPj4gU29ycnkgZm9yIGJvdGhlcmluZyA6KAo+Pgo+PiBUaGlzIHBh
-dGNoc2V0IGhhcyBhIGJpdCBvZiBhIGZvcm1hdHRpbmcgcHJvYmxlbS4KPj4gUGxlYXNlIHVzZSBh
-bm90aGVyIG9uZToKPj4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcmlzY3YvMjAyMzAy
-MDkwMzUzNDMuMTUyODItMS1wYW5xaW5nbGluMDBAZ21haWwuY29tL1QvI3QKPiAKPiBJZiB5b3Un
-cmUgcmVzZW5kaW5nLCBwbGVhc2UgZWl0aGVyIG1hcmsgYXMgUkVTRU5EIG9yIGluY3JlbWVudCB0
-aGUKPiB2ZXJzaW9uIG51bWJlciBzbyB0aGF0IHRvb2xzIGRvbid0IGdldCBjb25mdXNlZC4KPiBJ
-biB0aGlzIGNhc2UgdGhvdWdoLCB0b29scyBmb3VuZCBzb21lIGlzc3VlcyB3aXRoIGJvdGggdmVy
-c2lvbgo+IHVuZm9ydHVuYXRlbHk6Cj4gaHR0cHM6Ly9wYXRjaHdvcmsua2VybmVsLm9yZy9wcm9q
-ZWN0L2xpbnV4LXJpc2N2L3BhdGNoLzIwMjMwMjA5MDM1MzQzLjE1MjgyLTItcGFucWluZ2xpbjAw
-QGdtYWlsLmNvbS8KPiBodHRwczovL3BhdGNod29yay5rZXJuZWwub3JnL3Byb2plY3QvbGludXgt
-cmlzY3YvcGF0Y2gvMjAyMzAyMDkwMzUzNDMuMTUyODItMy1wYW5xaW5nbGluMDBAZ21haWwuY29t
-Lwo+IChpZiB5b3UgY2xpY2sgb24gdGhlIGRlc2NyaXB0aW9ucyB5b3Ugc2hvdWxkIGdldCBtb3Jl
-IGluZm9ybWF0aW9uIG9uCj4gd2hhdCBpcyB3cm9uZykKPiAKPiBZb3UgY2FuIGZpeCB0aG9zZSB1
-cCBhbmQgc2VuZCBhIHYxMyBhbmQgaXQnbGwgYWxsIGJlIGNsZWFyIHRoZW4gOykKCllvdXIgaW5m
-b3JtYXRpb24gaXMgdmVyeSBoZWxwZnVsLCB0aGFua3Mgc28gbXVjaCEKCkkgd2lsbCBzZW5kIGEg
-djEzIGxhdGVyLiBCdXQgSSBhbSB2ZXJ5IGN1cmlvdXMgYWJvdXQgd2h5CmNvbmNodW9kL2FscGhh
-bnVtZXJpY19zZWxlY3RzIGlzIGZhaWxlZCBhbmQgd2hhdCBjb250ZW50IGlzIGluCnRoaXMgdGVz
-dD8gQ291bGQgeW91IHBsZWFzZSBnaXZlIG1lIHNvbWUgaGludHMgYWJvdXQgaXQ/IDspCgpSZWdh
-cmRzLApRaW5nbGluLgoKPiAKPiBDaGVlcnMsCj4gQ29ub3IuCj4gCj4+Cj4+IFRoYW5rcywKPj4g
-UWluZ2xpbgo+Pgo+PiBPbiAyMDIzLzIvOSAxMToxMywgUWluZ2xpbiBQYW4gd3JvdGU6Cj4+Pgo+
-Pj4gU3ZuYXBvdCBpcyBhIFJJU0MtViBleHRlbnNpb24gZm9yIG1hcmtpbmcgY29udGlndW91cyA0
-SyBwYWdlcyBhcyBhIG5vbi00Swo+Pj4gcGFnZS4gVGhpcyBwYXRjaCBzZXQgaXMgZm9yIHVzaW5n
-IFN2bmFwb3QgaW4gaHVnZXRsYiBmcyBhbmQgaHVnZSB2bWFwLgo+Pj4KPj4+IFRoaXMgcGF0Y2hz
-ZXQgYWRkcyBhIEtjb25maWcgaXRlbSBmb3IgdXNpbmcgU3ZuYXBvdCBpbgo+Pj4gIlBsYXRmb3Jt
-IHR5cGUiLT4iU1ZOQVBPVCBleHRlbnNpb24gc3VwcG9ydCIuIEl0cyBkZWZhdWx0IHZhbHVlIGlz
-IG9uLAo+Pj4gYW5kIHBlb3BsZSBjYW4gc2V0IGl0IG9mZiBpZiB0aGV5IGRvbid0IGFsbG93IGtl
-cm5lbCB0byBkZXRlY3QgU3ZuYXBvdAo+Pj4gaGFyZHdhcmUgc3VwcG9ydCBhbmQgbGV2ZXJhZ2Ug
-aXQuCj4+Pgo+Pj4gVGVzdGVkIG9uOgo+Pj4gICDCoCAtIHFlbXUgcnY2NCB3aXRoICJTdm5hcG90
-IHN1cHBvcnQiIG9mZiBhbmQgc3ZuYXBvdD10cnVlLgo+Pj4gICDCoCAtIHFlbXUgcnY2NCB3aXRo
-ICJTdm5hcG90IHN1cHBvcnQiIG9uIGFuZCBzdm5hcG90PXRydWUuCj4+PiAgIMKgIC0gcWVtdSBy
-djY0IHdpdGggIlN2bmFwb3Qgc3VwcG9ydCIgb2ZmIGFuZCBzdm5hcG90PWZhbHNlLgo+Pj4gICDC
-oCAtIHFlbXUgcnY2NCB3aXRoICJTdm5hcG90IHN1cHBvcnQiIG9uIGFuZCBzdm5hcG90PWZhbHNl
-Lgo+Pj4KPj4+Cj4+PiBDaGFuZ2VzIGluIHYyOgo+Pj4gICDCoCAtIGRldGVjdCBTdm5hcG90IGhh
-cmR3YXJlIHN1cHBvcnQgYXQgYm9vdCB0aW1lLgo+Pj4gQ2hhbmdlcyBpbiB2MzoKPj4+ICAgwqAg
-LSBkbyBsaW5lYXIgbWFwcGluZyBhZ2FpbiBpZiBoYXNfc3ZuYXBvdAo+Pj4gQ2hhbmdlcyBpbiB2
-NDoKPj4+ICAgwqAgLSBmaXggc29tZSBlcnJvcnMvd2FybnMgcmVwb3J0ZWQgYnkgY2hlY2twYXRj
-aC5wbCwgdGhhbmtzIEBDb25vcgo+Pj4gQ2hhbmdlcyBpbiB2NToKPj4+ICAgwqAgLSBtb2RpZnkg
-Y29kZSBhY2NvcmRpbmcgdG8gQENvbm9yIGFuZCBASGVpa28KPj4+IENoYW5nZXMgaW4gdjY6Cj4+
-PiAgIMKgIC0gdXNlIHN0YXRpYyBrZXkgaW5zZWFkIG9mIGFsdGVybmF0aXZlIGVycmF0YQo+Pj4g
-Q2hhbmdlcyBpbiB2NzoKPj4+ICAgwqAgLSBhZGQgbmFwb3RfY29udF9vcmRlciBmb3IgcG9zc2li
-bGUgbW9yZSBuYXBvdCBvcmRlciBpbiB0aGUgZnV0dXJlCj4+PiAgIMKgIC0gcmVtb3ZlIGxpbmVh
-ciBtYXBwaW5nIHJlbGF0ZWQgY29kZSBmcm9tIHRoaXMgcGF0Y2hzZXQgdG8gYW5vdGhlciBwYXRj
-aAo+Pj4gICDCoCAtIHJlZmFjdG9yIGh1Z2V0bGIgY29kZSBmb3Igc3ZuYXBvdCBhY2NvcmRpbmcg
-dG8gdGhhbmtzIEBBbmRyZXcgQENvbm9yCj4+PiAgIMKgIC0gdXNlIHRvb2xzL3Rlc3Rpbmcvc2Vs
-ZnRlc3RzL3ZtL21hcF9odWdldGxiIGFzIGh1Z2V0bGIgdGVzdGluZyBwcm9ncmFtCj4+PiAgIMKg
-IC0gc3VwcG9ydCBzdm5hcG90IGluIGh1Z2Ugdm1hcCBvbiBuZXdlciBmb3ItbmV4dCBicmFuY2gK
-Pj4+IENoYW5nZXMgaW4gdjg6Cj4+PiAgIMKgIC0gZml4IGNvbXBpbGF0aW9uIGVycm9ycyBpbiBy
-djMyX2RlZmNvbmZpZwo+Pj4gICDCoCAtIGluc2VydCBzb21lIGxpbmVzIG9mIHdoaXRlc3BhY2Ug
-YWNjb3JkaW5nIHRvIEBDb25vcidzIHN1Z2dlc3Rpb24KPj4+IENoYW5nZXMgaW4gdjk6Cj4+PiAg
-IMKgIC0gdXNlIGFsdGVybmF0aXZlIHRvIGF2b2lkIHVzaW5nIHN0YXRpYyBicmFuY2hlcyBpbnNp
-ZGUgaGVhdmlseSB1c2VkCj4+PiAgIMKgwqDCoCBpbmxpbmUgZnVuY3Rpb25zCj4+PiAgIMKgIC0g
-Y2hhbmdlIG5hcG90X2NvbnRfbWFzayBkZWZpbml0aW9uCj4+PiAgIMKgIC0gcG9zdCB0ZXN0X3Zt
-YWxsb2MgbW9kaWZpY2F0aW9uIGFib3V0IHRlc3Rpbmcgdm1hbGxvY19odWdlCj4+PiBDaGFuZ2Vz
-IGluIHYxMDoKPj4+ICAgwqAgLSBmaXggc29tZSBuaXRzIGNhdWdodCBieSBAQW5kcmV3Cj4+PiAg
-IMKgIC0gY29sbGVjdCBSZXZpZXdlZC1ieS9BY2tlZC1ieQo+Pj4gICDCoCAtIGFkZCBtZW1vcnkg
-bGVhayB3YXJuaW5nIGluIEtDb25maWcgdGV4dAo+Pj4gICDCoCAtIHJlcGxhY2UgdGVzdF92bWFs
-bG9jIHBhdGNoIGxpbmsgd2l0aCB0aGUgc3RhbmRhcmQgb25lCj4+PiBDaGFuZ2VzIGluIHYxMToK
-Pj4+ICAgwqAgLSBhZGQgbW9yZSBkZXRhaWxlZCB3YXJuaW5nIGFib3V0IEhVR0VUTEJGUyBhbmQg
-U1ZOQVBPVCBpbiBLQ29uZmlnIHRleHQKPj4+ICAgwqAgLSBmaXggbWlzc2luZyByZXZlcnNlLXht
-YXMgdHJlZQo+Pj4gQ2hhbmdlcyBpbiB2MTI6Cj4+PiAgIMKgIC0gcmViYXNlIG9uIHRoZSBuZXcg
-SVNBIGV4dGVuc2lvbiBBUEkgWzFdCj4+Pgo+Pj4gWzFdaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcv
-YWxsLzIwMjMwMTI4MTcyODU2LjM4MTQtNS1qc3poYW5nQGtlcm5lbC5vcmcvCj4+Pgo+Pj4gUWlu
-Z2xpbiBQYW4gKDMpOgo+Pj4gICDCoCByaXNjdjogbW06IG1vZGlmeSBwdGUgZm9ybWF0IGZvciBT
-dm5hcG90Cj4+PiAgIMKgIHJpc2N2OiBtbTogc3VwcG9ydCBTdm5hcG90IGluIGh1Z2V0bGIgcGFn
-ZQo+Pj4gICDCoCByaXNjdjogbW06IHN1cHBvcnQgU3ZuYXBvdCBpbiBodWdlIHZtYXAKPj4+Cj4+
-PiAgIMKgYXJjaC9yaXNjdi9LY29uZmlnwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oCB8wqAgMjEgKy0KPj4+ICAgwqBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2h1Z2V0bGIuaMKgwqDC
-oCB8wqAgMzQgKysrLQo+Pj4gICDCoGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vaHdjYXAuaMKgwqDC
-oMKgwqAgfMKgwqAgOSArLQo+Pj4gICDCoGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vcGFnZS5owqDC
-oMKgwqDCoMKgIHzCoMKgIDUgLQo+Pj4gICDCoGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vcGd0YWJs
-ZS02NC5oIHzCoCAzNCArKysrCj4+PiAgIMKgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wZ3RhYmxl
-LmjCoMKgwqAgfMKgIDM5ICsrKy0KPj4+ICAgwqBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3ZtYWxs
-b2MuaMKgwqDCoCB8wqAgNjEgKysrKystCj4+PiAgIMKgYXJjaC9yaXNjdi9rZXJuZWwvY3B1LmPC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfMKgwqAgMSArCj4+PiAgIMKgYXJjaC9yaXNjdi9rZXJu
-ZWwvY3B1ZmVhdHVyZS5jwqDCoMKgwqDCoCB8wqDCoCAxICsKPj4+ICAgwqBhcmNoL3Jpc2N2L21t
-L2h1Z2V0bGJwYWdlLmPCoMKgwqDCoMKgwqDCoMKgIHwgMzAxICsrKysrKysrKysrKysrKysrKysr
-KysrKysrKysKPj4+ICAgwqAxMCBmaWxlcyBjaGFuZ2VkLCA0OTMgaW5zZXJ0aW9ucygrKSwgMTMg
-ZGVsZXRpb25zKC0pCj4+Pgo+Pgo+Pgo+PiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fXwo+PiBsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKPj4gbGludXgtcmlz
-Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwo+PiBodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
-bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2CgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
-c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
-aW5mby9saW51eC1yaXNjdgo=
+On Thu, 09 Feb 2023 03:43:22 +0000,
+Mason Huo <mason.huo@starfivetech.com> wrote:
+> 
+> The priority and enable registers of plic will be reset
+> during hibernation power cycle in poweroff mode,
+> add the syscore callbacks to save/restore those registers.
+> 
+> Signed-off-by: Mason Huo <mason.huo@starfivetech.com>
+> Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+> Reviewed-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
+> ---
+>  drivers/irqchip/irq-sifive-plic.c | 94 ++++++++++++++++++++++++++++++-
+>  1 file changed, 92 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+> index ff47bd0dec45..4683e49d90ad 100644
+> --- a/drivers/irqchip/irq-sifive-plic.c
+> +++ b/drivers/irqchip/irq-sifive-plic.c
+> @@ -17,6 +17,7 @@
+>  #include <linux/of_irq.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/spinlock.h>
+> +#include <linux/syscore_ops.h>
+>  #include <asm/smp.h>
+>  
+>  /*
+> @@ -67,6 +68,8 @@ struct plic_priv {
+>  	struct irq_domain *irqdomain;
+>  	void __iomem *regs;
+>  	unsigned long plic_quirks;
+> +	unsigned int nr_irqs;
+> +	unsigned long *priority_reg;
+
+This isn't a pointer to registers. This is a save area for the
+values. Please fix the naming.
+
+>  };
+>  
+>  struct plic_handler {
+> @@ -78,11 +81,13 @@ struct plic_handler {
+>  	 */
+>  	raw_spinlock_t		enable_lock;
+>  	void __iomem		*enable_base;
+> +	u32			*enable_reg;
+
+Same thing here.
+
+>  	struct plic_priv	*priv;
+>  };
+>  static int plic_parent_irq __ro_after_init;
+>  static bool plic_cpuhp_setup_done __ro_after_init;
+>  static DEFINE_PER_CPU(struct plic_handler, plic_handlers);
+> +static struct plic_priv *priv_data;
+>  
+>  static int plic_irq_set_type(struct irq_data *d, unsigned int type);
+>  
+> @@ -229,6 +234,68 @@ static int plic_irq_set_type(struct irq_data *d, unsigned int type)
+>  	return IRQ_SET_MASK_OK;
+>  }
+>  
+> +static int plic_irq_suspend(void)
+> +{
+> +	unsigned int i, cpu;
+> +	u32 __iomem *reg;
+> +
+> +	for (i = 0; i < priv_data->nr_irqs; i++)
+> +		if (readl(priv_data->regs + PRIORITY_BASE + i * PRIORITY_PER_ID))
+> +			__set_bit(i, priv_data->priority_reg);
+> +		else
+> +			__clear_bit(i, priv_data->priority_reg);
+> +
+> +	for_each_cpu(cpu, cpu_present_mask) {
+> +		struct plic_handler *handler = per_cpu_ptr(&plic_handlers, cpu);
+> +
+> +		if (!handler->present)
+> +			continue;
+> +
+> +		raw_spin_lock(&handler->enable_lock);
+> +		for (i = 0; i < DIV_ROUND_UP(priv_data->nr_irqs, 32); i++) {
+> +			reg = handler->enable_base + i * sizeof(u32);
+> +			handler->enable_reg[i] = readl(reg);
+> +		}
+> +		raw_spin_unlock(&handler->enable_lock);
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static void plic_irq_resume(void)
+> +{
+> +	unsigned int i, cpu;
+> +	u32 __iomem *reg;
+> +
+> +	for (i = 0; i < priv_data->nr_irqs; i++)
+> +		writel(test_bit(i, priv_data->priority_reg),
+> +				priv_data->regs + PRIORITY_BASE + i * PRIORITY_PER_ID);
+
+I suggest you write the priority value instead of the result of
+test_bit(). Yes, they are the same for now. They may change in the
+future.
+
+> +
+> +	for_each_cpu(cpu, cpu_present_mask) {
+> +		struct plic_handler *handler = per_cpu_ptr(&plic_handlers, cpu);
+> +
+> +		if (!handler->present)
+> +			continue;
+> +
+> +		raw_spin_lock(&handler->enable_lock);
+> +		for (i = 0; i < DIV_ROUND_UP(priv_data->nr_irqs, 32); i++) {
+> +			reg = handler->enable_base + i * sizeof(u32);
+> +			writel(handler->enable_reg[i], reg);
+> +		}
+> +		raw_spin_unlock(&handler->enable_lock);
+> +	}
+> +}
+> +
+> +static struct syscore_ops plic_irq_syscore_ops = {
+> +	.suspend	= plic_irq_suspend,
+> +	.resume		= plic_irq_resume,
+> +};
+> +
+> +static void plic_irq_pm_init(void)
+> +{
+> +	register_syscore_ops(&plic_irq_syscore_ops);
+> +}
+
+I think we can live without this single line helper.
+
+> +
+>  static int plic_irqdomain_map(struct irq_domain *d, unsigned int irq,
+>  			      irq_hw_number_t hwirq)
+>  {
+> @@ -345,12 +412,14 @@ static int __init __plic_init(struct device_node *node,
+>  	u32 nr_irqs;
+>  	struct plic_priv *priv;
+>  	struct plic_handler *handler;
+> +	unsigned int cpu;
+>  
+>  	priv = kzalloc(sizeof(*priv), GFP_KERNEL);
+>  	if (!priv)
+>  		return -ENOMEM;
+>  
+>  	priv->plic_quirks = plic_quirks;
+> +	priv_data = priv;
+
+And what happens if you have more than a single PLIC in the system, as
+described in [1]?
+
+You also already have this pointer in each per-CPU handler structure.
+Why do you need a global one?
+
+>  
+>  	priv->regs = of_iomap(node, 0);
+>  	if (WARN_ON(!priv->regs)) {
+> @@ -363,15 +432,23 @@ static int __init __plic_init(struct device_node *node,
+>  	if (WARN_ON(!nr_irqs))
+>  		goto out_iounmap;
+>  
+> +	priv->nr_irqs = nr_irqs;
+> +
+> +	priv->priority_reg = kcalloc(DIV_ROUND_UP(nr_irqs,
+> +		sizeof(unsigned long) * 8),
+> +		sizeof(unsigned long), GFP_KERNEL);
+
+Is this trying to be a substitute to bitmap_alloc()?
+
+> +	if (!priv->priority_reg)
+> +		goto out_free_priority_reg;
+> +
+>  	nr_contexts = of_irq_count(node);
+>  	if (WARN_ON(!nr_contexts))
+> -		goto out_iounmap;
+> +		goto out_free_priority_reg;
+>  
+>  	error = -ENOMEM;
+>  	priv->irqdomain = irq_domain_add_linear(node, nr_irqs + 1,
+>  			&plic_irqdomain_ops, priv);
+>  	if (WARN_ON(!priv->irqdomain))
+> -		goto out_iounmap;
+> +		goto out_free_priority_reg;
+>  
+>  	for (i = 0; i < nr_contexts; i++) {
+>  		struct of_phandle_args parent;
+> @@ -441,6 +518,11 @@ static int __init __plic_init(struct device_node *node,
+>  		handler->enable_base = priv->regs + CONTEXT_ENABLE_BASE +
+>  			i * CONTEXT_ENABLE_SIZE;
+>  		handler->priv = priv;
+> +
+> +		handler->enable_reg =  kcalloc(DIV_ROUND_UP(nr_irqs, 32),
+> +			32, GFP_KERNEL);
+
+nit: either you write this on a single line, or you align the second
+line with the opening bracket of the previous one.
+
+> +		if (!handler->enable_reg)
+> +			goto out_free_enable_reg;
+>  done:
+>  		for (hwirq = 1; hwirq <= nr_irqs; hwirq++) {
+>  			plic_toggle(handler, hwirq, 0);
+> @@ -461,11 +543,19 @@ static int __init __plic_init(struct device_node *node,
+>  				  plic_starting_cpu, plic_dying_cpu);
+>  		plic_cpuhp_setup_done = true;
+>  	}
+> +	plic_irq_pm_init();
+>
+>  	pr_info("%pOFP: mapped %d interrupts with %d handlers for"
+>  		" %d contexts.\n", node, nr_irqs, nr_handlers, nr_contexts);
+>  	return 0;
+>  
+> +out_free_enable_reg:
+> +	for_each_cpu(cpu, cpu_present_mask) {
+> +		handler = per_cpu_ptr(&plic_handlers, cpu);
+> +		kfree(handler->enable_reg);
+> +	}
+> +out_free_priority_reg:
+> +	kfree(priv->priority_reg);
+>  out_iounmap:
+>  	iounmap(priv->regs);
+>  out_free_priv:
+
+	M.
+
+[1] https://patchwork.kernel.org/project/linux-riscv/patch/20200302231146.15530-3-atish.patra@wdc.com/
+
+-- 
+Without deviation from the norm, progress is not possible.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
