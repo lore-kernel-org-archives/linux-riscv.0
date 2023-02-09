@@ -4,83 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EE0BC05027
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Feb 2023 03:54:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1554C61DA4
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Feb 2023 04:00:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oY9zKQ9WuBMRNVqQxVMzWE+8nexYwTy91R53KBYRBFI=; b=MjhLCWHCvvQQ8+
-	YFWzPYxvVxZjOquPRGAyQJ8GpMa2LoiRKPuUmKyDATjU5qasf/gFA25ozHKkLkICJPcoPOUEtZM2F
-	GFIf7NNL1gxM8nQcqbgbHa0Dc2LpOC7zZFSLwxr6/AP19PLXc2Gp0t/f7XqgS+uaW80LlWEKbZAsb
-	NhgH+tdHqtcJYZ/dm+zdUbbtfAqmg6NYDge/hHlVi8PeHRuW/zzykYI6W0/H361ZPhKpiABVqIxor
-	dnA1wJ+w6OAUECl2fa1wrlnl1mO2BzRuU+cZQoDChrohHTckwBPsb7NLGiRESsoWFVHAvSiq0w2Pq
-	IiK6Hpng5eT93k7PvgWQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
+	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NKKbjgLuLWnZyqwUR286O+I+Mgwr/aVOEExJKHBZjsU=; b=B2Vf5ZVTyeHKxJwoq3iF2MKtOn
+	XQ+yJKiskndnE1i34fb+UC/xXexhr9SsbiQpmG8YIqhjQZLSuWjwjQzhYz/aofuL8pkP8DxK5wWYh
+	kgaNJZS6FxHC2Bz6vutMnQyEg5rvqBwRDBHprvsMDpZsvR+yna8+g4GlKJkXRI6CSE2L6adMmAzpZ
+	9rc0+2QYdQmgKlvRcZUq2+JZ0eGkN2BpomBuA+x9WMn7fku7HmNAelwa+t0hjgufKTGRo3JwEbQay
+	dxttxNDRvXsAYv/m1f3QS0oL+gNVDR2UF0Nt4grdfT6ummZDS5a8pbQ0A4cALmfmVk9hUrvdRyV+v
+	m9MdOK9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPy0t-0004Lo-3z; Thu, 09 Feb 2023 03:54:23 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPy0q-0004Jb-0J
-	for linux-riscv@lists.infradead.org; Thu, 09 Feb 2023 03:54:21 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id s89-20020a17090a2f6200b0023125ebb4b1so1062788pjd.3
-        for <linux-riscv@lists.infradead.org>; Wed, 08 Feb 2023 19:54:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=iZnqjoJrXJVJvIjHPJ8ek1t3j3J0PKnJZrTASYBNePo=;
-        b=M8/M/gfvbZ7mQkzUfJTiMTUImIFIotjvgiLzYzLXvst/bxa8dJhMBXHWRJvAagO23v
-         sqsxa5sc7xmjVRugb+JqxiC3Q6kTEALHF7yy3HG6YVKPP48cZvdj/C0eqTwNqRKoFj8m
-         Aunfk/PIBNWLp+XqMrm+vKxAo9YBGwMU86UQT/QChYWg3NQHiwm2F4SgWJWclh08Adte
-         2E03kME3/a7j6PzCOeXKYzwNJJOteN3JYlH2UvLUvIHmpjsouQ81UlvgoXLmuyPo3lKm
-         CZ5c+NxZvCiMzidYP9e5X/+GVBuVeNcf+1M89vkXoNdL3DXCp/ha00/x3zfDEm/D1Eey
-         udXw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=iZnqjoJrXJVJvIjHPJ8ek1t3j3J0PKnJZrTASYBNePo=;
-        b=LhC/0fxiT9oeJwH/SXaa/w3VAEhpGvWsfEDASebvnwBEWKKdvp63qRRCf50gmpvATT
-         urA0pS9c1F+ccxiObR36YWjUGAzbLszC+LoaFHyToDKIaXUloFp5ArTzADQlSCePLB+u
-         0w2USw0EiAqDAFGlNClPma+lZSatg2ZJR9GhVF4rTcJUHnyyG7yFfkQ5Tv+RaxYurmIb
-         91lU5jCmLR24L+hQx6Qhhbst4f3HNdOMAHltq1yorFVnAIp2H+mSmAuHjM9BVWpUdkZ3
-         u+z9SNqYtdTDHkbjVOnA4K1ZKNUCdVnT4qIG/9A4LdpHqkLJACZghQpyRLy/THdMK8sY
-         Cfyg==
-X-Gm-Message-State: AO0yUKXRx9wqI0IbG81yM+FkuFRGZJr6kS0p29aQAu6JLF1KWot+9fwj
-	QgUpsMDSlsfEmYXF0Luo4Rc=
-X-Google-Smtp-Source: AK7set+73GWTXdeoBAXF+tbJYVorHM2/zq5JkPuZjOBtP5YNpfotxjIRULrS9R2lpKl9s0jM2SIvVQ==
-X-Received: by 2002:a17:902:b718:b0:198:f8e2:2e33 with SMTP id d24-20020a170902b71800b00198f8e22e33mr2729030pls.30.1675914857084;
-        Wed, 08 Feb 2023 19:54:17 -0800 (PST)
-Received: from localhost.localdomain ([47.75.78.161])
-        by smtp.gmail.com with ESMTPSA id p5-20020a170902eac500b00192820d00d0sm252602pld.120.2023.02.08.19.54.14
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 08 Feb 2023 19:54:16 -0800 (PST)
-From: Qinglin Pan <panqinglin00@gmail.com>
-To: palmer@dabbelt.com,
-	linux-riscv@lists.infradead.org
-Cc: jeff@riscv.org,
-	xuyinan@ict.ac.cn,
-	conor@kernel.org,
-	ajones@ventanamicro.com,
-	Qinglin Pan <panqinglin2020@iscas.ac.cn>,
-	Qinglin Pan <panqinglin00@gmail.com>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v12 3/3] riscv: mm: support Svnapot in huge vmap
-Date: Thu,  9 Feb 2023 11:53:43 +0800
-Message-Id: <20230209035343.15282-4-panqinglin00@gmail.com>
-X-Mailer: git-send-email 2.39.1
-In-Reply-To: <20230209035343.15282-1-panqinglin00@gmail.com>
-References: <20230209035343.15282-1-panqinglin00@gmail.com>
+	id 1pPy70-00053n-Jk; Thu, 09 Feb 2023 04:00:42 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pPy6w-00052V-P5
+	for linux-riscv@lists.infradead.org; Thu, 09 Feb 2023 04:00:41 +0000
+Received: from [198.18.0.1] (unknown [124.16.141.244])
+	by APP-05 (Coremail) with SMTP id zQCowAAnLfHgb+RjP2dBBA--.5796S2;
+	Thu, 09 Feb 2023 12:00:32 +0800 (CST)
+Message-ID: <a1cdf5e6-a6d8-654c-1af2-adb9f0b260c3@iscas.ac.cn>
+Date: Thu, 9 Feb 2023 12:00:32 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:102.0)
+ Gecko/20100101 Thunderbird/102.7.1
+Subject: Re: [PATCH v12 0/3] riscv, mm: detect svnapot cpu support at runtime
+To: linux-riscv@lists.infradead.org
+References: <11ea7918-00db-3f30-2504-53692936aaae@iscas.ac.cn>
+From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
+In-Reply-To: <11ea7918-00db-3f30-2504-53692936aaae@iscas.ac.cn>
+X-CM-TRANSID: zQCowAAnLfHgb+RjP2dBBA--.5796S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxWw43Jw45AryxGw4fXw43ZFb_yoW5uFW7pF
+	W8Grs3AF98Arn3GrsxZr9Fvryrtr1rGa47Xw1fXa45Awn8trWjvw4qvF909aykXrWfXF10
+	yF47ZF1j9a4DZ37anT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9vb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4
+	vEx4A2jsIEc7CjxVAFwI0_Cr1j6rxdM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq
+	07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r126r
+	1DMcIj6I8E87Iv67AKxVWxJVW8Jr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48J
+	Mxk0xIA0c2IEe2xFo4CEbIxvr21lc2xSY4AK67AK6r45MxAIw28IcxkI7VAKI48JMxC20s
+	026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_
+	JrI_JrWlx4CE17CEb7AF67AKxVWUJVWUXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14
+	v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xva
+	j40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JV
+	W8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU5LAwDUUUUU==
+X-Originating-IP: [124.16.141.244]
+X-CM-SenderInfo: 5sdq1xpqjox0asqsiq5lvft2wodfhubq/1tbiAwkRDGPkWFdGIAAAs5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230208_195420_075744_769B2D08 
-X-CRM114-Status: UNSURE (   9.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230208_200039_204645_331A7099 
+X-CRM114-Status: GOOD (  19.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,103 +71,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
-
-As HAVE_ARCH_HUGE_VMAP and HAVE_ARCH_HUGE_VMALLOC is supported, we can
-implement arch_vmap_pte_range_map_size and arch_vmap_pte_supported_shift
-for Svnapot to support huge vmap about napot size.
-
-It can be tested by huge vmap used in pci driver. Huge vmalloc with svnapot
-can be tested by test_vmalloc with [1] applied, and probe this
-module to run fix_size_alloc_test with use_huge true.
-
-[1]https://lore.kernel.org/all/20221212055657.698420-1-panqinglin2020@iscas.ac.cn/
-
-Signed-off-by: Qinglin Pan <panqinglin00@gmail.com>
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-
-diff --git a/arch/riscv/include/asm/vmalloc.h b/arch/riscv/include/asm/vmalloc.h
-index 48da5371f1e9..58d3e447f191 100644
---- a/arch/riscv/include/asm/vmalloc.h
-+++ b/arch/riscv/include/asm/vmalloc.h
-@@ -17,6 +17,65 @@ static inline bool arch_vmap_pmd_supported(pgprot_t prot)
- 	return true;
- }
- 
--#endif
-+#ifdef CONFIG_RISCV_ISA_SVNAPOT
-+#include <linux/pgtable.h>
- 
-+#define arch_vmap_pte_range_map_size arch_vmap_pte_range_map_size
-+static inline unsigned long arch_vmap_pte_range_map_size(unsigned long addr, unsigned long end,
-+							 u64 pfn, unsigned int max_page_shift)
-+{
-+	unsigned long map_size = PAGE_SIZE;
-+	unsigned long size, order;
-+
-+	if (!has_svnapot())
-+		return map_size;
-+
-+	for_each_napot_order_rev(order) {
-+		if (napot_cont_shift(order) > max_page_shift)
-+			continue;
-+
-+		size = napot_cont_size(order);
-+		if (end - addr < size)
-+			continue;
-+
-+		if (!IS_ALIGNED(addr, size))
-+			continue;
-+
-+		if (!IS_ALIGNED(PFN_PHYS(pfn), size))
-+			continue;
-+
-+		map_size = size;
-+		break;
-+	}
-+
-+	return map_size;
-+}
-+
-+#define arch_vmap_pte_supported_shift arch_vmap_pte_supported_shift
-+static inline int arch_vmap_pte_supported_shift(unsigned long size)
-+{
-+	int shift = PAGE_SHIFT;
-+	unsigned long order;
-+
-+	if (!has_svnapot())
-+		return shift;
-+
-+	WARN_ON_ONCE(size >= PMD_SIZE);
-+
-+	for_each_napot_order_rev(order) {
-+		if (napot_cont_size(order) > size)
-+			continue;
-+
-+		if (!IS_ALIGNED(size, napot_cont_size(order)))
-+			continue;
-+
-+		shift = napot_cont_shift(order);
-+		break;
-+	}
-+
-+	return shift;
-+}
-+
-+#endif /* CONFIG_RISCV_ISA_SVNAPOT */
-+#endif /* CONFIG_HAVE_ARCH_HUGE_VMAP */
- #endif /* _ASM_RISCV_VMALLOC_H */
--- 
-2.39.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgYWxsLAoKU29ycnkgZm9yIGJvdGhlcmluZyA6KAoKVGhpcyBwYXRjaHNldCBoYXMgYSBiaXQg
+b2YgYSBmb3JtYXR0aW5nIHByb2JsZW0uClBsZWFzZSB1c2UgYW5vdGhlciBvbmU6Cmh0dHBzOi8v
+bG9yZS5rZXJuZWwub3JnL2xpbnV4LXJpc2N2LzIwMjMwMjA5MDM1MzQzLjE1MjgyLTEtcGFucWlu
+Z2xpbjAwQGdtYWlsLmNvbS9ULyN0CgpUaGFua3MsClFpbmdsaW4KCk9uIDIwMjMvMi85IDExOjEz
+LCBRaW5nbGluIFBhbiB3cm90ZToKPiAKPiBTdm5hcG90IGlzIGEgUklTQy1WIGV4dGVuc2lvbiBm
+b3IgbWFya2luZyBjb250aWd1b3VzIDRLIHBhZ2VzIGFzIGEgbm9uLTRLCj4gcGFnZS4gVGhpcyBw
+YXRjaCBzZXQgaXMgZm9yIHVzaW5nIFN2bmFwb3QgaW4gaHVnZXRsYiBmcyBhbmQgaHVnZSB2bWFw
+Lgo+IAo+IFRoaXMgcGF0Y2hzZXQgYWRkcyBhIEtjb25maWcgaXRlbSBmb3IgdXNpbmcgU3ZuYXBv
+dCBpbgo+ICJQbGF0Zm9ybSB0eXBlIi0+IlNWTkFQT1QgZXh0ZW5zaW9uIHN1cHBvcnQiLiBJdHMg
+ZGVmYXVsdCB2YWx1ZSBpcyBvbiwKPiBhbmQgcGVvcGxlIGNhbiBzZXQgaXQgb2ZmIGlmIHRoZXkg
+ZG9uJ3QgYWxsb3cga2VybmVsIHRvIGRldGVjdCBTdm5hcG90Cj4gaGFyZHdhcmUgc3VwcG9ydCBh
+bmQgbGV2ZXJhZ2UgaXQuCj4gCj4gVGVzdGVkIG9uOgo+ICDCoCAtIHFlbXUgcnY2NCB3aXRoICJT
+dm5hcG90IHN1cHBvcnQiIG9mZiBhbmQgc3ZuYXBvdD10cnVlLgo+ICDCoCAtIHFlbXUgcnY2NCB3
+aXRoICJTdm5hcG90IHN1cHBvcnQiIG9uIGFuZCBzdm5hcG90PXRydWUuCj4gIMKgIC0gcWVtdSBy
+djY0IHdpdGggIlN2bmFwb3Qgc3VwcG9ydCIgb2ZmIGFuZCBzdm5hcG90PWZhbHNlLgo+ICDCoCAt
+IHFlbXUgcnY2NCB3aXRoICJTdm5hcG90IHN1cHBvcnQiIG9uIGFuZCBzdm5hcG90PWZhbHNlLgo+
+IAo+IAo+IENoYW5nZXMgaW4gdjI6Cj4gIMKgIC0gZGV0ZWN0IFN2bmFwb3QgaGFyZHdhcmUgc3Vw
+cG9ydCBhdCBib290IHRpbWUuCj4gQ2hhbmdlcyBpbiB2MzoKPiAgwqAgLSBkbyBsaW5lYXIgbWFw
+cGluZyBhZ2FpbiBpZiBoYXNfc3ZuYXBvdAo+IENoYW5nZXMgaW4gdjQ6Cj4gIMKgIC0gZml4IHNv
+bWUgZXJyb3JzL3dhcm5zIHJlcG9ydGVkIGJ5IGNoZWNrcGF0Y2gucGwsIHRoYW5rcyBAQ29ub3IK
+PiBDaGFuZ2VzIGluIHY1Ogo+ICDCoCAtIG1vZGlmeSBjb2RlIGFjY29yZGluZyB0byBAQ29ub3Ig
+YW5kIEBIZWlrbwo+IENoYW5nZXMgaW4gdjY6Cj4gIMKgIC0gdXNlIHN0YXRpYyBrZXkgaW5zZWFk
+IG9mIGFsdGVybmF0aXZlIGVycmF0YQo+IENoYW5nZXMgaW4gdjc6Cj4gIMKgIC0gYWRkIG5hcG90
+X2NvbnRfb3JkZXIgZm9yIHBvc3NpYmxlIG1vcmUgbmFwb3Qgb3JkZXIgaW4gdGhlIGZ1dHVyZQo+
+ICDCoCAtIHJlbW92ZSBsaW5lYXIgbWFwcGluZyByZWxhdGVkIGNvZGUgZnJvbSB0aGlzIHBhdGNo
+c2V0IHRvIGFub3RoZXIgcGF0Y2gKPiAgwqAgLSByZWZhY3RvciBodWdldGxiIGNvZGUgZm9yIHN2
+bmFwb3QgYWNjb3JkaW5nIHRvIHRoYW5rcyBAQW5kcmV3IEBDb25vcgo+ICDCoCAtIHVzZSB0b29s
+cy90ZXN0aW5nL3NlbGZ0ZXN0cy92bS9tYXBfaHVnZXRsYiBhcyBodWdldGxiIHRlc3RpbmcgcHJv
+Z3JhbQo+ICDCoCAtIHN1cHBvcnQgc3ZuYXBvdCBpbiBodWdlIHZtYXAgb24gbmV3ZXIgZm9yLW5l
+eHQgYnJhbmNoCj4gQ2hhbmdlcyBpbiB2ODoKPiAgwqAgLSBmaXggY29tcGlsYXRpb24gZXJyb3Jz
+IGluIHJ2MzJfZGVmY29uZmlnCj4gIMKgIC0gaW5zZXJ0IHNvbWUgbGluZXMgb2Ygd2hpdGVzcGFj
+ZSBhY2NvcmRpbmcgdG8gQENvbm9yJ3Mgc3VnZ2VzdGlvbgo+IENoYW5nZXMgaW4gdjk6Cj4gIMKg
+IC0gdXNlIGFsdGVybmF0aXZlIHRvIGF2b2lkIHVzaW5nIHN0YXRpYyBicmFuY2hlcyBpbnNpZGUg
+aGVhdmlseSB1c2VkCj4gIMKgwqDCoCBpbmxpbmUgZnVuY3Rpb25zCj4gIMKgIC0gY2hhbmdlIG5h
+cG90X2NvbnRfbWFzayBkZWZpbml0aW9uCj4gIMKgIC0gcG9zdCB0ZXN0X3ZtYWxsb2MgbW9kaWZp
+Y2F0aW9uIGFib3V0IHRlc3Rpbmcgdm1hbGxvY19odWdlCj4gQ2hhbmdlcyBpbiB2MTA6Cj4gIMKg
+IC0gZml4IHNvbWUgbml0cyBjYXVnaHQgYnkgQEFuZHJldwo+ICDCoCAtIGNvbGxlY3QgUmV2aWV3
+ZWQtYnkvQWNrZWQtYnkKPiAgwqAgLSBhZGQgbWVtb3J5IGxlYWsgd2FybmluZyBpbiBLQ29uZmln
+IHRleHQKPiAgwqAgLSByZXBsYWNlIHRlc3Rfdm1hbGxvYyBwYXRjaCBsaW5rIHdpdGggdGhlIHN0
+YW5kYXJkIG9uZQo+IENoYW5nZXMgaW4gdjExOgo+ICDCoCAtIGFkZCBtb3JlIGRldGFpbGVkIHdh
+cm5pbmcgYWJvdXQgSFVHRVRMQkZTIGFuZCBTVk5BUE9UIGluIEtDb25maWcgdGV4dAo+ICDCoCAt
+IGZpeCBtaXNzaW5nIHJldmVyc2UteG1hcyB0cmVlCj4gQ2hhbmdlcyBpbiB2MTI6Cj4gIMKgIC0g
+cmViYXNlIG9uIHRoZSBuZXcgSVNBIGV4dGVuc2lvbiBBUEkgWzFdCj4gCj4gWzFdaHR0cHM6Ly9s
+b3JlLmtlcm5lbC5vcmcvYWxsLzIwMjMwMTI4MTcyODU2LjM4MTQtNS1qc3poYW5nQGtlcm5lbC5v
+cmcvCj4gCj4gUWluZ2xpbiBQYW4gKDMpOgo+ICDCoCByaXNjdjogbW06IG1vZGlmeSBwdGUgZm9y
+bWF0IGZvciBTdm5hcG90Cj4gIMKgIHJpc2N2OiBtbTogc3VwcG9ydCBTdm5hcG90IGluIGh1Z2V0
+bGIgcGFnZQo+ICDCoCByaXNjdjogbW06IHN1cHBvcnQgU3ZuYXBvdCBpbiBodWdlIHZtYXAKPiAK
+PiAgwqBhcmNoL3Jpc2N2L0tjb25maWfCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+IHzCoCAyMSArLQo+ICDCoGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vaHVnZXRsYi5owqDCoMKgIHzC
+oCAzNCArKystCj4gIMKgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9od2NhcC5owqDCoMKgwqDCoCB8
+wqDCoCA5ICstCj4gIMKgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wYWdlLmjCoMKgwqDCoMKgwqAg
+fMKgwqAgNSAtCj4gIMKgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wZ3RhYmxlLTY0LmggfMKgIDM0
+ICsrKysKPiAgwqBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BndGFibGUuaMKgwqDCoCB8wqAgMzkg
+KysrLQo+ICDCoGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vdm1hbGxvYy5owqDCoMKgIHzCoCA2MSAr
+KysrKy0KPiAgwqBhcmNoL3Jpc2N2L2tlcm5lbC9jcHUuY8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oCB8wqDCoCAxICsKPiAgwqBhcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmPCoMKgwqDCoMKg
+IHzCoMKgIDEgKwo+ICDCoGFyY2gvcmlzY3YvbW0vaHVnZXRsYnBhZ2UuY8KgwqDCoMKgwqDCoMKg
+wqAgfCAzMDEgKysrKysrKysrKysrKysrKysrKysrKysrKysrKwo+ICDCoDEwIGZpbGVzIGNoYW5n
+ZWQsIDQ5MyBpbnNlcnRpb25zKCspLCAxMyBkZWxldGlvbnMoLSkKPiAKCgpfX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
+c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
+Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
