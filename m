@@ -4,79 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19A47C61DA4
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Feb 2023 09:11:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F27DC05027
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Feb 2023 09:16:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oeloqptLkF5UOv1w3YoO0X70wiPPPMY/eiQaR/5URJE=; b=yx4GFFyW/5aWz5
-	OV/xBKz6p9ssMzgFIbM0FlA6TZERg/nWftLzk/jFRYmAjqDih5LlxQTaT2/SXhCN9a2klhNA7MdqD
-	cBRuWzt+rHvw2stzGwDj5FKO0o1H0dmI2X9Y0RO5PILvAK5g8DNJevY3+b/AGjNGIAvFeJo/gg6f/
-	NBmldw6REbXvdKl6Xe+XHB2NP11g1By+ELSEYqiKRoagt8sziPM9FVY51g0fjlkOGEWORqKdH/R7p
-	mCAOzsg+cvh2AdfhiNmw6dGa/nXZ5kqB+CPVt2ry5R9MMp/eedFCa2Ei8s3Q9KFKRb9YHuZN5rFOv
-	39W8wvTtNUu3KTPjo/Dw==;
+	List-Owner; bh=QpLoQvcM6844lhflXUE+/Av2515H9I49fGtETByBPrk=; b=pVcxBaY/ZzInla
+	733SlfolzmnPKpCEph/AN7IUwTQRg+Ra4oPmYLm2++/v8dEpvWzPdeEw+PN/KsRK7FObXDIw2GEkl
+	cqJ7eMPEvVhjIuJjPljIfpdEALaNZteVnfU+zyOmjgeGLfN62GfRBRKAEx94o3trXX/q2i0wNcj+h
+	XuTylZUL337bEdINVdLf8tf8BRrj/HdNinHNetu8OzBqQPp+6kbWFIy9e3QPjaBCbtO53FMFRu6Pm
+	+hfFCxF/89I9kW7DjI0lzOYU16alNFg/2vjQXJ0HGLcvkDKsK2n4pKJCwprPMcueb76bFxcWWMAvb
+	XfakCSnDkqkk0bpJ2tug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQ2y7-000gnP-DU; Thu, 09 Feb 2023 09:11:51 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1pQ32I-000iXS-GN; Thu, 09 Feb 2023 09:16:10 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQ2xw-000gib-Or
-	for linux-riscv@lists.infradead.org; Thu, 09 Feb 2023 09:11:42 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 3E7CBB82033
-	for <linux-riscv@lists.infradead.org>; Thu,  9 Feb 2023 09:11:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E84F6C433A1
-	for <linux-riscv@lists.infradead.org>; Thu,  9 Feb 2023 09:11:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1675933897;
-	bh=rUqnl2yhgg/wSh6GmALm2a+1dBTMU8RKuIViEGLb7cg=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=rjXcILcrjp8XTkk6APFP6VS9zYkrvh5Zyu1rMTYhweavvwRYgaQkAOBzjLPmn8DJX
-	 pIWwXN2OSkeR7R33hzjvtKOqw/kKKEpRf2JTXkEojhFJ1iG6CLw6nOCy5YnmSPBevK
-	 +XsDcAm+Xw1U3wa7WnQ/u8GGL6fAiJ3KHrHw+gVNm0QMoHrE+K7EoDWqx7Ard1jKqk
-	 ab4CqeDFPYghFbIqv9t3rblWBYQf2h+7IlLisATFxh8EuwkGjAfcjiHaGv/K/JglrW
-	 vcVDBf+1W90zIqwhAZDgQJCae1axNi4GAU+o9BCZmQzBzQsgQZpYAaFfn/2laHWTzJ
-	 lsE4XIcBixwnA==
-Received: by mail-ed1-f49.google.com with SMTP id da9so1495309edb.12
-        for <linux-riscv@lists.infradead.org>; Thu, 09 Feb 2023 01:11:37 -0800 (PST)
-X-Gm-Message-State: AO0yUKVQOJZY1zkPLSpB6MdVs8tt/nBmFp9y58KyGjlLr0kRUA0tW6Gb
-	jajOSyR7UsiV7TbTFrosAdi1yXJLXFfdmL+0c2Q=
-X-Google-Smtp-Source: AK7set+2zd+izyEqpj97HFiy856DccBJtPH7FTm1sSwGv31V2vQsWyM66vU6jjahWs1vauH5/qlsb6uSqOnq3gA7zik=
-X-Received: by 2002:a50:99c3:0:b0:49d:ec5d:28b1 with SMTP id
- n3-20020a5099c3000000b0049dec5d28b1mr2400808edb.7.1675933896149; Thu, 09 Feb
- 2023 01:11:36 -0800 (PST)
+	id 1pQ32G-000iVk-RZ
+	for linux-riscv@bombadil.infradead.org; Thu, 09 Feb 2023 09:16:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=OyTk5mKIE3B1ZinYp02jJK4zD74KkckOpjPi4wSOd20=; b=g6rFLWSz2chGjkuh6H17awOihK
+	6Us7IMKjgWdiU7SUusjVoleoKnVoc9E1C0AZUVuPJH/eG9vhkCOcyB5xzZyKtfOhBWN38CVMC+mRv
+	iZeo75YI8aYv2+fNGv88qYYLBOHa+OsfVrwae3I8/30QLvVPTeuDcODQZRDTvo3ajmzb/LW3J5Rtb
+	hSpBGhYmh7xKLJhDkwxohPVNxNtMZtzrECprr0wsa4Q4i8+vOkSi2mJeGxE5fWlVH7U56Al8nZwVb
+	HJoddPP4Ab0U3q/vuWQuGNqS74vH0GMX4iBxo9uZRL492KW0xKRsT/iTCNNDx1a0QcPWvmMkpw4J2
+	yMHoiqMg==;
+Received: from 167-179-156-38.a7b39c.syd.nbn.aussiebb.net ([167.179.156.38] helo=formenos.hmeau.com)
+	by casper.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pQ329-0023fP-Fd
+	for linux-riscv@lists.infradead.org; Thu, 09 Feb 2023 09:16:05 +0000
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.94.2 #2 (Debian))
+	id 1pQ30m-009DIL-7L; Thu, 09 Feb 2023 17:14:37 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Thu, 09 Feb 2023 17:14:36 +0800
+Date: Thu, 9 Feb 2023 17:14:36 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Jia Jie Ho <jiajie.ho@starfivetech.com>
+Cc: "David S . Miller" <davem@davemloft.net>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-crypto@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 4/4] crypto: starfive - Add hash and HMAC support
+Message-ID: <Y+S5fBjZQZli9nBg@gondor.apana.org.au>
+References: <20230130154242.112613-1-jiajie.ho@starfivetech.com>
+ <20230130154242.112613-5-jiajie.ho@starfivetech.com>
 MIME-Version: 1.0
-References: <20230112090603.1295340-1-guoren@kernel.org> <c68bac83-5c88-80b1-bac9-e1fd4ea8f07e@yadro.com>
- <CAJF2gTQm11px3mqyrNk1SRiJZud1yeY2avK99UX9KetWAGe5BA@mail.gmail.com>
- <Y+DOyqehZvBJlb8N@FVFF77S0Q05N> <CAJF2gTQ6U1vH79Mu53eQ-GVaFx36C-hEt9Qf6=_vAkHfmgFh1Q@mail.gmail.com>
- <Y+IXB4xQ7ACQWC9U@FVFF77S0Q05N> <CAJF2gTTrX+8wCm-g=L9+3BkCRrZ8SCUM2w1e5duq-+Bsa213mA@mail.gmail.com>
- <8154e7e618d84e298bad1dc95f26c000@AcuMS.aculab.com> <CAJF2gTQGxxgusRgPdNaw4-d+o0a4vefUj7PNpZuym6VKQC4dhw@mail.gmail.com>
- <f00256bcbe114669acca1b0105cefb99@AcuMS.aculab.com>
-In-Reply-To: <f00256bcbe114669acca1b0105cefb99@AcuMS.aculab.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Thu, 9 Feb 2023 17:11:24 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTQuEiBMg=2KQXb3UZNaH_AdwCHNyNe07dbPd7JDGGExzg@mail.gmail.com>
-Message-ID: <CAJF2gTQuEiBMg=2KQXb3UZNaH_AdwCHNyNe07dbPd7JDGGExzg@mail.gmail.com>
-Subject: Re: [PATCH -next V7 0/7] riscv: Optimize function trace
-To: David Laight <David.Laight@aculab.com>
-Cc: Mark Rutland <mark.rutland@arm.com>, Evgenii Shatokhin <e.shatokhin@yadro.com>, 
-	"suagrfillet@gmail.com" <suagrfillet@gmail.com>, "andy.chiu@sifive.com" <andy.chiu@sifive.com>, 
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Guo Ren <guoren@linux.alibaba.com>, 
-	"anup@brainfault.org" <anup@brainfault.org>, "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>, 
-	"palmer@dabbelt.com" <palmer@dabbelt.com>, 
-	"conor.dooley@microchip.com" <conor.dooley@microchip.com>, "heiko@sntech.de" <heiko@sntech.de>, 
-	"rostedt@goodmis.org" <rostedt@goodmis.org>, "mhiramat@kernel.org" <mhiramat@kernel.org>, 
-	"jolsa@redhat.com" <jolsa@redhat.com>, "bp@suse.de" <bp@suse.de>, 
-	"jpoimboe@kernel.org" <jpoimboe@kernel.org>, "linux@yadro.com" <linux@yadro.com>
+Content-Disposition: inline
+In-Reply-To: <20230130154242.112613-5-jiajie.ho@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230209_011141_162867_E04A1BD1 
-X-CRM114-Status: GOOD (  14.27  )
+X-CRM114-CacheID: sfid-20230209_091602_003651_0FF1D174 
+X-CRM114-Status: UNSURE (   9.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,42 +80,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 9, 2023 at 5:00 PM David Laight <David.Laight@aculab.com> wrote:
+On Mon, Jan 30, 2023 at 11:42:42PM +0800, Jia Jie Ho wrote:
 >
-> From: Guo Ren
-> > Sent: 09 February 2023 01:51
-> ...
-> > Yours cost one more instruction, right?
-> >          addr-12  auipc
-> >          addr-8    jalr
-> >          addr-4    // Literal (32-bits)
-> >          addr+0   nop or jmp addr-n // one more?
-> >          addr+4   function_code
->
-> Yes, it is 4 bytes larger but there is one less
-> instruction executed (only one nop) when ftrace is disabled.
-> That probably matters more than anything in the ftrace
-> 'prologue' code.
-I've got your point, thx. I would consider your advice and make the tradeoff.
+> +	cryp->hash_data = (void *)__get_free_pages(GFP_KERNEL | GFP_DMA32, pages);
 
->
-> I also suspect that you can use a 32bit integer as
-> a table index in 64bit mode to save a word there.
-Yes, good idea. I've asked Mark Rutland. Let's wait for his feedback.
-It also helps arm64.
+Why do you copy everything before you feed it to the hardware?
+If the issue is alignment then surely you should only to copy
+a small amount of header (and perhaps trailer) for that?
 
->
->         David
->
-> -
-> Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-> Registration No: 1397386 (Wales)
+> +static int starfive_hash_export(struct ahash_request *req, void *out)
+> +{
+> +	struct starfive_cryp_request_ctx *rctx = ahash_request_ctx(req);
+> +
+> +	memcpy(out, rctx, sizeof(*rctx));
+> +
+> +	return 0;
+> +}
 
+You are supposed to extract the entire hardware state after each
+operation and store that in the request context.  Since your
+request context doesn't appear to contain any hash state, this 
+can't possibly work.
 
+Does your hardware allow the non-finalised hash state to be
+exported, and re-imported later? If not then you can only
+implement support for digest and must use a fallback for
+everything else.
 
+Cheers,
 -- 
-Best Regards
- Guo Ren
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
 _______________________________________________
 linux-riscv mailing list
