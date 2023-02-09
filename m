@@ -4,47 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 084AEC64EC4
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Feb 2023 23:27:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83083C636CC
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Feb 2023 01:31:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zE7juIouGdmqAJ8bOceUGsHsmCII1Wq2yMAIVM+hUkc=; b=CGBSUaBxtzcQh2
-	Fd+8c1YxFPRuAcsTRSsf+GY3WFtXvWvfDpZaN33W7IExo/i6Gkb9EtOZrIorvP00OKcrEFPl5KsU3
-	aJHyoREZMpZWfhSnccAtQ7vbHH+8rbQaGondqMdbFqVC4YrlJYeB0QdmscqV0V0QmiSXrH5IMWpiZ
-	2mbBvKUzoqiCBMunhobadTx39n3t2xb8++UMu67PSdWq73VkopYCxOq8hn2O6cl/iT+xjAyYyIlVn
-	EIUmf65GCO2f7NB45IRWT+mOdsUXE4XUZF6BuJJXbdM1TDtBokAb94eIe/6u8HmvfUcwpPerkadbq
-	rmThbpgiTy/usl/9g8rg==;
+	List-Owner; bh=R05wE57x6wKO3GXtCh4tKVTDSipb2lTaKZsqF8yE7ps=; b=rzMn7c6CUmHmJE
+	0XsqSqxwnhh/WKiya8xDRgJ+O7zdJ5NTrv9Sl6fsw3Y0hZEqX42RU3Np7d+5bTJrANgS+tzfqEdPt
+	KMyxB56ed7ifINN1TYCKvyXYbXxjEZs/Cb//VkDLyJ+mj1J13sENom9najJ4jBljih304MWes07/Q
+	R5Lw3PiCuSgj61x19gK9lDrM4hMRfAnqb15VtQxl1zQKb9BN1fWlDEDCaLl0YyjThBlpUCB6Hyzrr
+	BJgcm5f2TSE+53heG5ujUv2BsdH/jqHAYcwBJnf/Uv7grlWFl0Badoj7z2+TVAJyFNFSQBKiAhMST
+	w/5j0vrgxDdpjpdj1AiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPtq8-00HBON-4p; Wed, 08 Feb 2023 23:27:00 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1pPvmt-00HPvu-0c; Thu, 09 Feb 2023 01:31:47 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPtq4-00HBNu-Mf
-	for linux-riscv@lists.infradead.org; Wed, 08 Feb 2023 23:26:58 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1pPtpy-0003au-UI; Thu, 09 Feb 2023 00:26:50 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: palmer@rivosinc.com, Conor Dooley <conor@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- christoph.muellner@vrull.eu, ajones@ventanamicro.com
-Subject: Re: [PATCH 1/2] RISC-V: fix ordering of Zbb extension
-Date: Thu, 09 Feb 2023 00:26:50 +0100
-Message-ID: <2135493.irdbgypaU6@diego>
-In-Reply-To: <C32D5495-F772-4887-9CAD-66206ECCFC3F@kernel.org>
-References:  <20230208225328.1636017-1-heiko@sntech.de>
- <20230208225328.1636017-2-heiko@sntech.de>
- <C32D5495-F772-4887-9CAD-66206ECCFC3F@kernel.org>
+	id 1pPvmp-00HPvI-P4
+	for linux-riscv@lists.infradead.org; Thu, 09 Feb 2023 01:31:45 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 0117AB81FEA
+	for <linux-riscv@lists.infradead.org>; Thu,  9 Feb 2023 01:31:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 176E8C433A7
+	for <linux-riscv@lists.infradead.org>; Thu,  9 Feb 2023 01:31:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1675906299;
+	bh=aYaN7NXRw0ihNR+IL/yGz5yH+5GqO6mxr4X8PdaZnj4=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=siGYUNOg2wrrXSZ4e95rNkJJfbu3Y45ev3m1v06eXF4jB44fcEoNegj1Vahw5OtL0
+	 xEqprlwErEqer0L5H+PRK5Ipsywpt5kKjiqnZyluXb9K8JRSTr6cxgBsBHaWEUFovZ
+	 vp5VGB2020uFgHy6epXWOSZbhS4jkaOAAqicDfK5mQ8+9LlmtW4RqDo7YKLdMJDV0t
+	 TPLmU0pn4IMZTlCZB7EtUSLuvaioTGYPD6CksXAJdLaU4+vsFJ3V04wc17D57caxl1
+	 kRnKJs+4qllWRk5Ce44ERNI/n+jbVbWevgWdGdb1gtXfIYDotHULQOWCyxXsq9wNRo
+	 0tT0ea3H6U6JA==
+Received: by mail-ej1-f53.google.com with SMTP id sa10so2115021ejc.9
+        for <linux-riscv@lists.infradead.org>; Wed, 08 Feb 2023 17:31:38 -0800 (PST)
+X-Gm-Message-State: AO0yUKXT4eEa2TezxfQQDescrnGhwN4RCNLUsSK5Jx85lLRMJw89N6kG
+	+B/AYHuwhtLdeFwbaX5YyoSPLB7eJwFfPNSjOr0=
+X-Google-Smtp-Source: AK7set+qmRqoasUpDzhPwymmA1qkI+3NCkGEKe2NpeNzkWqJwSssQ9kHsZ/YyzGRyn8zv9Q3ixAdPd1Gnp+qH9itwMw=
+X-Received: by 2002:a17:906:3e04:b0:884:c19c:7c6 with SMTP id
+ k4-20020a1709063e0400b00884c19c07c6mr1991658eji.120.1675906297178; Wed, 08
+ Feb 2023 17:31:37 -0800 (PST)
 MIME-Version: 1.0
+References: <20230112090603.1295340-1-guoren@kernel.org> <c68bac83-5c88-80b1-bac9-e1fd4ea8f07e@yadro.com>
+ <CAJF2gTQm11px3mqyrNk1SRiJZud1yeY2avK99UX9KetWAGe5BA@mail.gmail.com>
+ <Y+DOyqehZvBJlb8N@FVFF77S0Q05N> <CAJF2gTQ6U1vH79Mu53eQ-GVaFx36C-hEt9Qf6=_vAkHfmgFh1Q@mail.gmail.com>
+ <Y+IXB4xQ7ACQWC9U@FVFF77S0Q05N> <CAJF2gTTrX+8wCm-g=L9+3BkCRrZ8SCUM2w1e5duq-+Bsa213mA@mail.gmail.com>
+ <Y+O1qY453BnhqgQZ@FVFF77S0Q05N.cambridge.arm.com>
+In-Reply-To: <Y+O1qY453BnhqgQZ@FVFF77S0Q05N.cambridge.arm.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Thu, 9 Feb 2023 09:31:25 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTT_aMBx3mPnzWWqj6uGM75yT_62x+_wZ4HkWd7BqEzvug@mail.gmail.com>
+Message-ID: <CAJF2gTT_aMBx3mPnzWWqj6uGM75yT_62x+_wZ4HkWd7BqEzvug@mail.gmail.com>
+Subject: Re: [PATCH -next V7 0/7] riscv: Optimize function trace
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Evgenii Shatokhin <e.shatokhin@yadro.com>, suagrfillet@gmail.com, andy.chiu@sifive.com, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Guo Ren <guoren@linux.alibaba.com>, anup@brainfault.org, paul.walmsley@sifive.com, 
+	palmer@dabbelt.com, conor.dooley@microchip.com, heiko@sntech.de, 
+	rostedt@goodmis.org, mhiramat@kernel.org, jolsa@redhat.com, bp@suse.de, 
+	jpoimboe@kernel.org, linux@yadro.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230208_152656_787297_EAE2DAC2 
-X-CRM114-Status: GOOD (  16.14  )
+X-CRM114-CacheID: sfid-20230208_173144_158047_CA1D28CE 
+X-CRM114-Status: GOOD (  35.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,51 +88,137 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Donnerstag, 9. Februar 2023, 00:20:10 CET schrieb Conor Dooley:
-> Hey Heiko,
-> 
-> On 8 February 2023 22:53:27 GMT, Heiko Stuebner <heiko@sntech.de> wrote:
-> >From: Heiko Stuebner <heiko.stuebner@vrull.eu>
+On Wed, Feb 8, 2023 at 10:46 PM Mark Rutland <mark.rutland@arm.com> wrote:
+>
+> On Wed, Feb 08, 2023 at 10:30:56AM +0800, Guo Ren wrote:
+> > Hi Mark,
 > >
-> >As Andrew reported,
-> >    Zb* comes after Zi* according 27.11 "Subset Naming Convention"
-> >so fix the ordering accordingly.
+> > Thx for the thoughtful reply.
 > >
-> >Reported-by: Andrew Jones <ajones@ventanamicro.com>
-> >Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
-> 
-> The whole "getting it wrong immediately after fixing it up" ;)
-> 
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> > On Tue, Feb 7, 2023 at 5:17 PM Mark Rutland <mark.rutland@arm.com> wrote:
+> > > Note that I'm assuming you will *always* go through a common ftrace_caller
+> > > trampoline (even for direct calls), with the trampoline responsible for
+> > > recovering the direct trampoline (or ops->func) from the ops pointer.
+> > >
+> > > That would only require 64-bit alignment on 64-bit (or 32-bit alignment on
+> > > 32-bit) to keep the literal naturally-aligned; the rest of the instructions
+> > > wouldn't require additional alignment.
+> > >
+> > > For example, I would expect that (for 64-bit) you'd use:
+> > >
+> > >   # place 2 NOPs *immediately before* the function, and 3 NOPs at the start
+> > >   -fpatchable-function-entry=5,2
+> > >
+> > >   # Align the function to 8-bytes
+> > >   -falign=functions=8
+> > >
+> > > ... and your trampoline in each function could be initialized to:
+> > >
+> > >   # Note: aligned to 8 bytes
+> > >   addr-08               // Literal (first 32-bits)      // set to ftrace_nop_ops
+> > >   addr-04               // Literal (last 32-bits)       // set to ftrace_nop_ops
+> > >   addr+00       func:   mv      t0, ra
+> > >   addr+04               auipc   t1, ftrace_caller
+> > >   addr+08               nop
+> > >
+> > > ... and when enabled can be set to:
+> > >
+> > >   # Note: aligned to 8 bytes
+> > >   addr-08               // Literal (first 32-bits)      // patched to ops ptr
+> > >   addr-04               // Literal (last 32-bits)       // patched to ops ptr
+> > >   addr+00       func:   mv      t0, ra
+> > We needn't "mv t0, ra" here because our "jalr" could work with t0 and
+> > won't affect ra. Let's do it in the trampoline code, and then we can
+> > save another word here.
+>
+> Ah; I thought JALR always clobbered ra? Or can that specify the register to
+> save the link address to?
+Yes, that's the feature of riscv :) We could use any register to save
+the link address.
 
-I'm still hopefully that I'll learn at some point that "b" comes after "i",
-at least with riscv extensions. Decades of sorting the other way around are
-hard to break :-D .
-
-> >---
-> > arch/riscv/kernel/cpu.c | 2 +-
-> > 1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> I'm not that familiar with riscv asm, so I've probably just got that wrong.
+>
+> > >   addr+04               auipc   t1, ftrace_caller
+> > >   addr+08               jalr    ftrace_caller(t1)
 > >
-> >diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-> >index 420228e219f7..8400f0cc9704 100644
-> >--- a/arch/riscv/kernel/cpu.c
-> >+++ b/arch/riscv/kernel/cpu.c
-> >@@ -185,9 +185,9 @@ arch_initcall(riscv_cpuinfo_init);
-> >  * New entries to this struct should follow the ordering rules described above.
-> >  */
-> > static struct riscv_isa_ext_data isa_ext_arr[] = {
-> >-	__RISCV_ISA_EXT_DATA(zbb, RISCV_ISA_EXT_ZBB),
-> > 	__RISCV_ISA_EXT_DATA(zicbom, RISCV_ISA_EXT_ZICBOM),
-> > 	__RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
-> >+	__RISCV_ISA_EXT_DATA(zbb, RISCV_ISA_EXT_ZBB),
-> > 	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
-> > 	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
-> > 	__RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
-> 
+> > Here is the call-site:
+> >    # Note: aligned to 8 bytes
+> >    addr-08               // Literal (first 32-bits)      // patched to ops ptr
+> >    addr-04               // Literal (last 32-bits)       // patched to ops ptr
+> >    addr+00               auipc   t0, ftrace_caller
+> >    addr+04               jalr    ftrace_caller(t0)
+Sorry, it should be:
+         addr+04               jalr    t0, ftrace_caller(t0)
+
+>
+> I'm a bit confused there; I thought that the `symbol(reg)` addressing mode was
+> generating additional bits that the AUPIC didn't -- have I got that wrong?
+>
+> What specifies which register the JALR will write the link address to?
+According to the spec, auipc t1,0x0 should write PC + 0x0<<12 (which
+is equal to PC) to t1 and then jalr t0, (t0)0 jumps to the address
+stored in t0 + 0x0 and stores the return address to t0.
+
+That means auipc defines xxx << 12 bits, jalr defines lowest 12 bits.
+
+>
+> > > Note: this *only* requires patching the literal and NOP<->JALR; the MV and
+> > > AUIPC aren't harmful and can always be there. This way, you won't need to use
+> > > stop_machine().
+> > Yes, simplest nop is better than c.j. I confused.
+> >
+> > >
+> > > With that, the ftrace_caller trampoline can recover the `ops` pointer at a
+> > > negative offset from `ra`, and can recover the instrumented function's return
+> > > address in `t0`. Using the `ops` pointer, it can figure out whether to branch
+> > > to a direct trampoline or whether to save/restore the regs around invoking
+> > > ops->func.
+> > >
+> > > For 32-bit it would be exactly the same, except you'd only need a single nop
+> > > before the function, and the offset would be -0x10.
+> > Yes, we reduced another 4 bytes & a smaller alignment for better code
+> > size when 32-bit.
+> >    # Note: aligned to 4 bytes
+> >    addr-04               // Literal (last 32-bits)       // patched to ops ptr
+> >    addr+00               auipc   t0, ftrace_caller
+> >    addr+04               jalr    ftrace_caller(t0)
+addr+04               jalr    t0, ftrace_caller(t0)
+
+> > >
+>
+> > > That's what arm64 does; the only difference is that riscv would *always* need
+> > > to go via the trampoline in order to make direct calls.
+> > We need one more trampoline here beside ftrace_caller &
+> > ftrace_regs_caller: It's "direct_caller".
+> >
+> > addr+04         nop -> direct_caller/ftrace_caller/ftrace_regs_caller
+>
+> I'd strongly recommend that you instead implement FTRACE_WITH_ARGS and
+> deprecate FTRACE_WITH_REGS, like arm64 has done, then you only need a single
+> ftrace_caller, as I mentioned above. That way there's no risk that you need to
+> patch the AUIPC after initialization.
+>
+> The arm64 FTRACE_WITH_ARGS conversion is in mainline, and arm64's
+> FTRACE_WITH_CALL_OPS is based upon that. Florent's DIRECT_CALLS patches add the
+> direct call logic to the same ftrace_caller trampoline.
+Thx for the suggestion of only keeping the ftrace_caller idea, but
+it's another topic.
+
+What I want to point out:
+If we keep "auipc (addr+00)" fixed, we could use the different
+trampolines at "jalr (addr+0x4)" (All of them must be in one 2k
+aligned area).
+
+>
+> Thanks,
+> Mark.
 
 
 
-
+-- 
+Best Regards
+ Guo Ren
 
 _______________________________________________
 linux-riscv mailing list
