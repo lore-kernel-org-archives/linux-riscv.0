@@ -4,78 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C257C61DA4
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Feb 2023 22:47:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14052C61DA4
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Feb 2023 23:25:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HR5c6KmlHRcm58ZZW31NP9e0qM8daDpHXswZkCtl238=; b=I+bGcK43/AKYwd
-	kseXpnRmNJzvf5vPsPgSTPoZhBw6XIOQ7Uh+TPLQewhwLyST8kz1SHKhuAFaXGXc7k6jMq1H4aXpo
-	kNNVTwu+nA3B0qEngltf6ryKhhIVtoshnze3FDOfbWkx2jTIcj+hueKkOQPJRJA7CJaBb+a8fqAw5
-	PwCPhs0QzxpFOeo4p/W7Xkx3io6eJk/JZIP7pWZZx5RgpeXx65q6lY2YWFVNc7MyNpBCgAYYlZbpb
-	v50g4mh4fb3mmDY+mJ8pqA/g5cx/w2s6YiAga5H/r0Tx/wWhZmgWjCs3nG/dOJUd+SWCbwYhRO/cT
-	39ucI6fajKhQ5FO3xmQQ==;
+	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Message-Id:Date
+	:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=dxECq/6HB07srRNiI0D3/62TLkkt1UFteSDdwYdax8c=; b=LQtHuwlVK4rN7d
+	O75cGczzSvSxp110ERljF53RnnNOL6iwxSHeuyq6ni0c2Ew3YLqIjgioOZ56D7jgFenYagc/C3ydT
+	HyTjmckv0WgvD00nbG8S2GTqLFRwXsXOpw+wrg/sH8Tpw9hP5oiZxQ7PC0A5IoNpWn83VWSqaR5Y8
+	Jr0ltrEXRZijyzkHk7hMfxJ4scdfDSs1oslUXaS+zpy2yfJNJDvlRKl+40JCCRnVysI3j3evzVTsn
+	P/mP683TMzp8j7TSyvXeTa3lHtwR9kmKABz5toFJi0GKuBMOYIyItwV/a340dGMUlf0QVPht1VulX
+	buDffsf9rJw6PPn+y2wQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQFh3-003RAb-Ge; Thu, 09 Feb 2023 22:47:05 +0000
-Received: from eu-smtp-delivery-151.mimecast.com ([185.58.85.151])
+	id 1pQGHY-003VZy-Hb; Thu, 09 Feb 2023 23:24:48 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQFh0-003R94-QO
-	for linux-riscv@lists.infradead.org; Thu, 09 Feb 2023 22:47:04 +0000
-Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
- relay.mimecast.com with ESMTP with both STARTTLS and AUTH (version=TLSv1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
- uk-mta-120-y9Hy2ItONBePGdE4Dx08xA-1; Thu, 09 Feb 2023 22:46:55 +0000
-X-MC-Unique: y9Hy2ItONBePGdE4Dx08xA-1
-Received: from AcuMS.Aculab.com (10.202.163.4) by AcuMS.aculab.com
- (10.202.163.4) with Microsoft SMTP Server (TLS) id 15.0.1497.45; Thu, 9 Feb
- 2023 22:46:53 +0000
-Received: from AcuMS.Aculab.com ([::1]) by AcuMS.aculab.com ([::1]) with mapi
- id 15.00.1497.045; Thu, 9 Feb 2023 22:46:53 +0000
-From: David Laight <David.Laight@ACULAB.COM>
-To: 'Guo Ren' <guoren@kernel.org>, Mark Rutland <mark.rutland@arm.com>
-CC: Evgenii Shatokhin <e.shatokhin@yadro.com>, "suagrfillet@gmail.com"
-	<suagrfillet@gmail.com>, "andy.chiu@sifive.com" <andy.chiu@sifive.com>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Guo Ren
-	<guoren@linux.alibaba.com>, "anup@brainfault.org" <anup@brainfault.org>,
-	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>, "palmer@dabbelt.com"
-	<palmer@dabbelt.com>, "conor.dooley@microchip.com"
-	<conor.dooley@microchip.com>, "heiko@sntech.de" <heiko@sntech.de>,
-	"rostedt@goodmis.org" <rostedt@goodmis.org>, "mhiramat@kernel.org"
-	<mhiramat@kernel.org>, "jolsa@redhat.com" <jolsa@redhat.com>, "bp@suse.de"
-	<bp@suse.de>, "jpoimboe@kernel.org" <jpoimboe@kernel.org>, "linux@yadro.com"
-	<linux@yadro.com>
-Subject: RE: [PATCH -next V7 0/7] riscv: Optimize function trace
-Thread-Topic: [PATCH -next V7 0/7] riscv: Optimize function trace
-Thread-Index: AQHZPCY58FsBcndYrkieV7dCV5LmRa7HNcCg
-Date: Thu, 9 Feb 2023 22:46:53 +0000
-Message-ID: <90ad3009049e4d39a952b6e4c170740b@AcuMS.aculab.com>
-References: <20230112090603.1295340-1-guoren@kernel.org>
- <c68bac83-5c88-80b1-bac9-e1fd4ea8f07e@yadro.com>
- <CAJF2gTQm11px3mqyrNk1SRiJZud1yeY2avK99UX9KetWAGe5BA@mail.gmail.com>
- <Y+DOyqehZvBJlb8N@FVFF77S0Q05N>
- <CAJF2gTQ6U1vH79Mu53eQ-GVaFx36C-hEt9Qf6=_vAkHfmgFh1Q@mail.gmail.com>
- <Y+IXB4xQ7ACQWC9U@FVFF77S0Q05N>
- <CAJF2gTTrX+8wCm-g=L9+3BkCRrZ8SCUM2w1e5duq-+Bsa213mA@mail.gmail.com>
- <Y+O1qY453BnhqgQZ@FVFF77S0Q05N.cambridge.arm.com>
- <CAJF2gTT_aMBx3mPnzWWqj6uGM75yT_62x+_wZ4HkWd7BqEzvug@mail.gmail.com>
-In-Reply-To: <CAJF2gTT_aMBx3mPnzWWqj6uGM75yT_62x+_wZ4HkWd7BqEzvug@mail.gmail.com>
-Accept-Language: en-GB, en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [10.202.205.107]
+	id 1pQGHU-003VYe-LM
+	for linux-riscv@lists.infradead.org; Thu, 09 Feb 2023 23:24:46 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id rm7-20020a17090b3ec700b0022c05558d22so3832759pjb.5
+        for <linux-riscv@lists.infradead.org>; Thu, 09 Feb 2023 15:24:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:to:cc:subject:date:message-id:reply-to;
+        bh=B3pPfVMpUiPSyCCzmCrD57AemmKpys6aCeZPw1vQkzc=;
+        b=jgWwWwa7nwguVHP8E/H0kL40mtIJGHHQz64K8tE8/mv9uI/opH6H6e97FUaas0zr6f
+         dr8+LAiVB1IFEqTn8CRHISEMxueB9PE/dctAB/0i6Pxp/8ZSJTVWiwBwd8ZcREB+t8bl
+         Vuvz0dzZ890xH9YUzXBgVmR6nBlqgx8Z3n4m5/l4HcsHAADYr9K5MsP1E+v76RlhA87A
+         iootOfpzAYK6GzPDIfn3gLxYiUOpHuMFSP4ZwgehL1mHbkpnuUe6q34DOnw2bZ6Mt28I
+         lWUvXcevpy0UyWSB50Bm8EWjNlV2ITTlux2jSbPEa0gmjU5SWwpb0o27kEP3v76gFV4s
+         jWAg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
+         :subject:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=B3pPfVMpUiPSyCCzmCrD57AemmKpys6aCeZPw1vQkzc=;
+        b=HK47g3afnRhLzl3weoqXaNx0HP8oA1HmwQ32+FthKj5QAuV55Mf97i/paypDwH/uLN
+         A1pi2FZk0WaI4wKeCgcpT5wN1i9qyewnn1K7Cs3sBygJLsNFo9VeTpCl+DgGUuRI+Jp4
+         obX7hq/MhQc8smavbL1QBeTntxCDqvDNKnK2ARuWqfBRBEPNXXKxB4lEx5gaXoJzr27E
+         r4Fnh/CAke4DPx+K0dstOTtSnLq9+YkaS3AX695B6LDXsB7treTTq5uqqJ0CeOEt58x2
+         Tq/lFuuHeMcbvi5K4XbNwCxAJV65FobAv254NOfAiBDk1GJ2eYhqB0JEL5YRpVSq0G2R
+         S5bA==
+X-Gm-Message-State: AO0yUKWXb0qVWC0ExQ83Ii/jbknFWDKL2zFmu2yzk2WhD6WMp6q6BfFp
+	9Goip0BxSf3CLJ8vI1Quy50dEg==
+X-Google-Smtp-Source: AK7set/Q1MtO27htVLVMwKNv9osyKF2JaGo6dqafw5qA+gpYJFRK6skDPE8u0sHqFzi+/+dJlWJ1mg==
+X-Received: by 2002:a17:903:2288:b0:19a:5939:51e3 with SMTP id b8-20020a170903228800b0019a593951e3mr5594520plh.24.1675985081800;
+        Thu, 09 Feb 2023 15:24:41 -0800 (PST)
+Received: from localhost ([50.221.140.188])
+        by smtp.gmail.com with ESMTPSA id e18-20020a170902ed9200b0019904abc93dsm2043766plj.250.2023.02.09.15.24.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 09 Feb 2023 15:24:41 -0800 (PST)
+Subject: [PATCH] clocksource/drivers/riscv: Refuse to probe on T-Head
+Date: Thu,  9 Feb 2023 15:23:02 -0800
+Message-Id: <20230209232302.25658-1-palmer@rivosinc.com>
+X-Mailer: git-send-email 2.39.1
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: aculab.com
-Content-Language: en-US
+Cc: daniel.lezcano@linaro.org, tglx@linutronix.de,
+  Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, aou@eecs.berkeley.edu,
+  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, linux@rivosinc.com,
+  Palmer Dabbelt <palmer@rivosinc.com>
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230209_144703_147769_F22F256C 
-X-CRM114-Status: GOOD (  13.21  )
+X-CRM114-CacheID: sfid-20230209_152444_949218_5620C464 
+X-CRM114-Status: GOOD (  16.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,46 +89,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guo Ren
-> Sent: 09 February 2023 01:31
-...
-> > I'm a bit confused there; I thought that the `symbol(reg)` addressing mode was
-> > generating additional bits that the AUPIC didn't -- have I got that wrong?
-> >
-> > What specifies which register the JALR will write the link address to?
->
-> According to the spec, auipc t1,0x0 should write PC + 0x0<<12 (which
-> is equal to PC) to t1 and then jalr t0, (t0)0 jumps to the address
-> stored in t0 + 0x0 and stores the return address to t0.
-> 
-> That means auipc defines xxx << 12 bits, jalr defines lowest 12 bits.
+From: Palmer Dabbelt <palmer@rivosinc.com>
 
-...
-> What I want to point out:
-> If we keep "auipc (addr+00)" fixed, we could use the different
-> trampolines at "jalr (addr+0x4)" (All of them must be in one 2k
-> aligned area).
+As of d9f15a9de44a ("Revert "clocksource/drivers/riscv: Events are
+stopped during CPU suspend"") this driver no longer functions correctly
+for the T-Head firmware.  That shouldn't impact any users, as we've got
+a functioning driver that's higher priority, but let's just be safe and
+ban it from probing at all.
 
-I looked up auipc:
-"AUIPC is used to build PC-relative addresses and uses the U-type format.
-AUIPC forms a 32-bit offset from the U-immediate, filling in the lowest
-12 bits with zeros, adds this offset to the address of the AUIPC instruction,
-then places the result in rd."
+Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+---
+This feel super ugly to me, but I'm not sure how to do this more
+cleanly.  I'm not even sure if it's necessary, but I just ran back into
+the driver reviewing some other patches so I figured I'd say something.
+---
+ drivers/clocksource/timer-riscv.c | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
-So it generates 'pc + (val << 12)'.
-And the jalr then adds in a 12bit offset.
+diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
+index a0d66fabf073..d2d0236d1ae6 100644
+--- a/drivers/clocksource/timer-riscv.c
++++ b/drivers/clocksource/timer-riscv.c
+@@ -139,6 +139,22 @@ static int __init riscv_timer_init_dt(struct device_node *n)
+ 	if (cpuid != smp_processor_id())
+ 		return 0;
+ 
++	/*
++	 * The T-Head firmware does not route timer interrups to the core
++	 * during non-retentive suspend.  This is allowed by the specifications
++	 * (no interrupts are required to wake up the core during non-retentive
++	 * suspend), but most systems don't behave that way and Linux just
++	 * assumes that interrupts work.
++	 *
++	 * There's another timer for the T-Head sytems that behave this way
++	 * that is already probed by default, but just to be sure skip
++	 * initializing the SBI driver as it'll just break things later.
++	 */
++	if (sbi_get_mvendorid() == THEAD_VENDOR_ID) {
++		pr_debug_once("Skipping SBI timer on T-Head due to missed wakeups");
++		return 0;
++	}
++
+ 	domain = NULL;
+ 	child = of_get_compatible_child(n, "riscv,cpu-intc");
+ 	if (!child) {
+-- 
+2.39.1
 
-I think that means that if you have two trampolines you might need
-to change both instructions even if the two trampolines are actually
-adjacent instructions.
-It is the distance from the call site that mustn't cross a 2k
-boundary - not the absolute address of the trampoline itself.
 
-	David
-
--
-Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-Registration No: 1397386 (Wales)
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
