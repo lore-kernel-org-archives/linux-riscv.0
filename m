@@ -4,81 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6D06C05027
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Feb 2023 23:39:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A958C61DA4
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Feb 2023 23:39:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Date:Message-Id
-	:Subject:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BqcFakHwm4zD0hQcXi3ZArZReWqqFCjMzQx5LCGeu2g=; b=H0H1/JfxFmT89v
-	hDV4/NckS0iMk2P8KMofH/58ZoORlAMVAjTYerjVkz3cIlKS16Fc9c11a6xJCqXjZmJY6RnScFEAx
-	vcuS0+HA6SsuaAdpWWnqvlD4wc+GmI1EDevaVdDIKL8o5AYNV0xWVdx2/oLQLMiHbbl7p2c+kqiLk
-	8EHRmGn7R4uUl23mTKVSVn+Ook+qmmUjB1XCWUxMdLN17TZiWBuKkIHH7pSZBQoKRK7bgsG5k4v7i
-	55mfkYkjS6ebVCWDlAyQ2bNr1kVe5+YP8Av02pIPHUETW5nbzv4bRGGMUHaJz7/l8pBgC6curPlG6
-	twECV0qa6v4MRJ625ffw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=yr5YJy5Tm+ZeLe1YXU/cpZdfi0NlVTJMw2RbLaJnzPc=; b=i+FdnLLYwHLYJwhmHDdGDq6SPz
+	6UmlLziTJ3h6wGtGppXfECTHtvLR1bHQCHT99mSHT0P3KCIE0QLVwX+AU4zhwXaKdXqdiOkBG8/Yk
+	Qf4owb7jKTsm8FTQ8VwsOF6gaGLcWr+1mROg8Y12/CEMZ/PWul3qTKsqbnyNvdP4SnUEpu0gmrCrb
+	vOPg+AmRrMF1dbW/27zCO5X4CBzumqOpwctpDu5z1GyP+eT2UOLA3Bp6CtKHzm5IaXjqvAz/NEDqR
+	MLaDcojmkU3MxDhh5GwII5PdD3/gVUGAI7z/kjdsv6pxg4Cy/px8U66B3uiJlo4TkvdUOZ9TaeX4F
+	3nGahCpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQGW0-003c2k-M1; Thu, 09 Feb 2023 23:39:44 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1pQGW5-003c4b-3B; Thu, 09 Feb 2023 23:39:49 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQGVq-003bx2-Mr
-	for linux-riscv@lists.infradead.org; Thu, 09 Feb 2023 23:39:38 +0000
-Received: by mail-pl1-x636.google.com with SMTP id w5so4693324plg.8
-        for <linux-riscv@lists.infradead.org>; Thu, 09 Feb 2023 15:39:31 -0800 (PST)
+	id 1pQGVq-003bxv-TR
+	for linux-riscv@lists.infradead.org; Thu, 09 Feb 2023 23:39:39 +0000
+Received: by mail-pl1-x631.google.com with SMTP id o8so2344879pls.11
+        for <linux-riscv@lists.infradead.org>; Thu, 09 Feb 2023 15:39:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
-         :subject:references:in-reply-to:from:to:cc:subject:date:message-id
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=7wT/0184QjMo+hmna041cEtaG6eN6ojeXECE1DHEFSQ=;
-        b=Xi7uN1iNuU6j8CyhuB+Q8Ro1+tDhMRMhE/eXW2mnOjxw3fbzNdpTaoozEmDFmv3NKP
-         TTwFmi/nHzkFHh3j2mH9k+rZz76OvBfY3MLcVZTjRO+NS225lIwC/UYKImZ6IHcza652
-         mkqaXi96YHTKRA7sEq5c7juc4yJXOO734qBCIiRyfXF7sqOslnY4umQ0+HPkzyy6mTk/
-         pyS9TDPisKRCyMVx9wnbMNNyh5r5mLZyhOrTkGw/+J5dvjrdk1r+Nq1WWSLbo3k7yNuF
-         ZD5TL4s6km07a4CExde3fA0zx/BRmdu255qXu4O3e33Vjfsi5tYHywWJnyBPBJFMgXsE
-         4ZXw==
+        bh=adGyWVOR2nlTk/KUDUV+jez2l94K5Pjv+2axtOX1duc=;
+        b=S+EeEmO/AgJdkddnM+GWSByan9rLpwI4+43Gudk5YalfLOzLAuwamWpHK1A3g3yUED
+         2LnBV8HTZPc5z9nodgYPXMOI/udYa0xc9TX+C4DsT/U87QDK1AcC8BCnSXXNJJ6fT5Zs
+         61SmNWhg80g9TqDEubKkH6lE7kKTZ+w0xi2dRR7ZSRj599yP6SBBqSC5op2UzK8IxpPI
+         s2CIbVc4Xnip8zB854CKHUooPrlnKf2DT9RLPxe5ahTT7lwNfQOV9C5pPCAXsQ4FqKgh
+         5gHPZTOJngYLLtrbDWUKwWu0s44ZhIBjeDqMW8+WWJElEZkfDoT/F9R5Iq3aoULeaNbp
+         wQmw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
-         :subject:references:in-reply-to:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=7wT/0184QjMo+hmna041cEtaG6eN6ojeXECE1DHEFSQ=;
-        b=4kbZEF5FrnUQJ0TxLNeq1FeiQBPEcdmdiGf0Xt9mIzX9kds1S7ilbUYmBWsrzzEkra
-         BV2uysP18FyAsGg4d64VeuFiE2KBXxmzHv7whQ/Wnp3N95McObqZL4X7Jt0KdKkdDIzw
-         huQE/RmXU5hxiY1ZnPd5RfjSYhmf4XMtoRODOrlgL2gIreSlWlykpf+yxoEiZN71Ap6K
-         9lZ4ijp69zlL4qD9AExuLUsJ3yzogaHPqpGrkj4H8u5vHIdtOV6mKFbADDdDfRigu84h
-         Kqvi0ZHTG4TeWe142CH1up2ZepbAlfHxfXtp2/6Cz8YQHACNOZHUONhyVAqj5NY52KBG
-         qJBg==
-X-Gm-Message-State: AO0yUKVuzcjCgM73XdPf54Kus9nEXzQfxU8WSXpy5dhPCQDfe4PK02xU
-	xZ+NwVjIKtY/jWL5UDumeYl5aw==
-X-Google-Smtp-Source: AK7set8c2bbe8BRUkWxwcIOXpfZBXg+wJf1MhsMcEj0bP58SBsJBwEnMePwyfOKDTOgwEhAv8IJ7UA==
-X-Received: by 2002:a05:6a20:42a1:b0:be:c5de:7157 with SMTP id o33-20020a056a2042a100b000bec5de7157mr15363619pzj.53.1675985971490;
-        Thu, 09 Feb 2023 15:39:31 -0800 (PST)
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=adGyWVOR2nlTk/KUDUV+jez2l94K5Pjv+2axtOX1duc=;
+        b=xYG6EKTMOFPqXaq5nWO71BW/JMQM+/Q03OecSbOtWW+yg59icFGUl9OekZBUYV3bq1
+         YrBD6xk+PSGqpLoXsdqQYpraBK7oU9v0AXLJQm7yuUxnb2tBsgIHRDJ6T8v5wIupQ0P/
+         2oA/73glyivJgibH11He2aEJhCNVvQgt23XuVe/nJhp/wFtJBhp7C/4wk9AJA7x4+TN0
+         lsy4TInwP5YBnLVDTwRD+pDYwS+RKcifoa/wQ0do0m0TOQSJv4bF+nvW8AmztbYVYdH+
+         LtH9qizZTHKw0bonGRmkZsZSIhQoYNhoPITGmMoHx16FvHC6H9mKghonpS+CFsgYM78S
+         IW4g==
+X-Gm-Message-State: AO0yUKVsPJvFoqwJjbZEA9WwUKNhVt/e+c8uPk5Nhp0PZwfAukuPsSPj
+	uLiTFctvjgqtXOmkVCsYsinQBBJYlZjRltk6
+X-Google-Smtp-Source: AK7set/PIVkjEJocB7mqQ2J4zvRNKQNxBKAt4KUZK4EGawWrd33e2I/AS6Uk8j9LVQifXxOgK4Aitg==
+X-Received: by 2002:a17:902:e385:b0:199:4d57:63a7 with SMTP id g5-20020a170902e38500b001994d5763a7mr5588208ple.52.1675985972689;
+        Thu, 09 Feb 2023 15:39:32 -0800 (PST)
 Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id b25-20020aa78119000000b00581ad007a9fsm1978680pfi.153.2023.02.09.15.39.30
+        by smtp.gmail.com with ESMTPSA id w19-20020a170902d3d300b0019611a075fasm2077211plb.58.2023.02.09.15.39.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 Feb 2023 15:39:30 -0800 (PST)
-In-Reply-To: <20230127035306.1819561-1-guoren@kernel.org>
-References: <20230127035306.1819561-1-guoren@kernel.org>
-Subject: Re: [PATCH V2] riscv: Fixup race condition on PG_dcache_clean in
- flush_icache_pte
-Message-Id: <167598585275.27143.16666537067061607902.b4-ty@rivosinc.com>
-Date: Thu, 09 Feb 2023 15:37:32 -0800
-MIME-Version: 1.0
-X-Mailer: b4 0.13-dev-ca426
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-  Guo Ren <guoren@kernel.org>
+        Thu, 09 Feb 2023 15:39:32 -0800 (PST)
+Date: Thu, 09 Feb 2023 15:39:32 -0800 (PST)
+X-Google-Original-Date: Thu, 09 Feb 2023 15:38:52 PST (-0800)
+Subject: Re: [PATCH] clocksource/drivers/riscv: Refuse to probe on T-Head
+In-Reply-To: <87a0a7c9-6069-b043-2fc2-8d1bc05ddb1a@sholland.org>
+CC: linux-riscv@lists.infradead.org, daniel.lezcano@linaro.org, tglx@linutronix.de,
+  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org, linux@rivosinc.com
 From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Arnd Bergmann <arnd@arndb.de>, Conor Dooley <conor.dooley@microchip.com>,
-  apatel@ventanamicro.com, atishp@atishpatra.org, Mark Rutland <mark.rutland@arm.com>, bjorn@kernel.org,
-  tongtiangen@huawei.com, ajones@ventanamicro.com, Andrew Waterman <andrew@sifive.com>,
-  guoren@kernel.org
+To: samuel@sholland.org
+Message-ID: <mhng-25d39bba-2df2-4976-a3c0-b867a54cb61c@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230209_153934_802805_113CFF39 
-X-CRM114-Status: UNSURE (   7.63  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230209_153934_991065_48EEBFCE 
+X-CRM114-Status: GOOD (  27.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,31 +84,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, 09 Feb 2023 15:35:53 PST (-0800), samuel@sholland.org wrote:
+> Hi Palmer,
+>
+> On 2/9/23 17:23, Palmer Dabbelt wrote:
+>> From: Palmer Dabbelt <palmer@rivosinc.com>
+>>
+>> As of d9f15a9de44a ("Revert "clocksource/drivers/riscv: Events are
+>> stopped during CPU suspend"") this driver no longer functions correctly
+>> for the T-Head firmware.  That shouldn't impact any users, as we've got
+>
+> The current situation is that the C9xx CLINT binding was just accepted,
+> so the CLINT is not yet described in any devicetree. So at least with
+> upstream OpenSBI, which needs the CLINT DT node, the SBI timer extension
+> never worked at all.
+>
+>> a functioning driver that's higher priority, but let's just be safe and
+>> ban it from probing at all.
+>>
+>> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+>> ---
+>> This feel super ugly to me, but I'm not sure how to do this more
+>> cleanly.  I'm not even sure if it's necessary, but I just ran back into
+>> the driver reviewing some other patches so I figured I'd say something.
+>
+> This is not necessary as long as we add the riscv,timer node with the
+> riscv,timer-cannot-wake-cpu property before we add the CLINT node. So it
+> should not be a problem for any C9xx platform going forward.
 
-On Thu, 26 Jan 2023 22:53:06 -0500, guoren@kernel.org wrote:
-> In commit 588a513d3425 ("arm64: Fix race condition on PG_dcache_clean
-> in __sync_icache_dcache()"), we found RISC-V has the same issue as the
-> previous arm64. The previous implementation didn't guarantee the correct
-> sequence of operations, which means flush_icache_all() hasn't been
-> called when the PG_dcache_clean was set. That would cause a risk of page
-> synchronization.
-> 
-> [...]
+Awesome, that sounds way better.
 
-Applied, thanks!
-
-[1/1] riscv: Fixup race condition on PG_dcache_clean in flush_icache_pte
-      https://git.kernel.org/palmer/c/950b879b7f02
-
-Best regards,
--- 
-Palmer Dabbelt <palmer@rivosinc.com>
-
+>
+> Regards,
+> Samuel
+>
+>> ---
+>>  drivers/clocksource/timer-riscv.c | 16 ++++++++++++++++
+>>  1 file changed, 16 insertions(+)
+>>
+>> diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
+>> index a0d66fabf073..d2d0236d1ae6 100644
+>> --- a/drivers/clocksource/timer-riscv.c
+>> +++ b/drivers/clocksource/timer-riscv.c
+>> @@ -139,6 +139,22 @@ static int __init riscv_timer_init_dt(struct device_node *n)
+>>  	if (cpuid != smp_processor_id())
+>>  		return 0;
+>>
+>> +	/*
+>> +	 * The T-Head firmware does not route timer interrups to the core
+>> +	 * during non-retentive suspend.  This is allowed by the specifications
+>> +	 * (no interrupts are required to wake up the core during non-retentive
+>> +	 * suspend), but most systems don't behave that way and Linux just
+>> +	 * assumes that interrupts work.
+>> +	 *
+>> +	 * There's another timer for the T-Head sytems that behave this way
+>> +	 * that is already probed by default, but just to be sure skip
+>> +	 * initializing the SBI driver as it'll just break things later.
+>> +	 */
+>> +	if (sbi_get_mvendorid() == THEAD_VENDOR_ID) {
+>> +		pr_debug_once("Skipping SBI timer on T-Head due to missed wakeups");
+>> +		return 0;
+>> +	}
+>> +
+>>  	domain = NULL;
+>>  	child = of_get_compatible_child(n, "riscv,cpu-intc");
+>>  	if (!child) {
 
 _______________________________________________
 linux-riscv mailing list
