@@ -4,70 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 039CEC61DA4
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Feb 2023 09:04:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19A47C61DA4
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Feb 2023 09:11:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gIqiCaHr4oCF60ink1QN2yeKwJ+6so2hRbQAzO9neV0=; b=r6EDbvV1QhZoH5zyr3fMRIFqY+
-	wU17Vqji6csdW5kjUINirVPUKVXJ0CGcQdqKnZxHL2fLNIxFnhlmgEIn+Ub309tswICf0QWnPJjiY
-	LOqqfR3fTrjrDS1qOPC1j5pmE6Lje/xAA7IO28DMP4oe71Ucei5F2GgOjxRkTXdy2DJDGLyg98iK2
-	eEbXrVXm3mUSYSnbKNqIS9Eo8GEt6a353Sy1cq8jLakG0Zsrw2chm9ilKYU1MZLfHJO9SwX94G9uF
-	gXXQV3ye78HcOAZBda2havXlr0ppj4zaSTjBPMhoe8HLo93cHQ4Xl/EBMAGqm57QY8MsHwtsCUvAU
-	tpYkkz1g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=oeloqptLkF5UOv1w3YoO0X70wiPPPMY/eiQaR/5URJE=; b=yx4GFFyW/5aWz5
+	OV/xBKz6p9ssMzgFIbM0FlA6TZERg/nWftLzk/jFRYmAjqDih5LlxQTaT2/SXhCN9a2klhNA7MdqD
+	cBRuWzt+rHvw2stzGwDj5FKO0o1H0dmI2X9Y0RO5PILvAK5g8DNJevY3+b/AGjNGIAvFeJo/gg6f/
+	NBmldw6REbXvdKl6Xe+XHB2NP11g1By+ELSEYqiKRoagt8sziPM9FVY51g0fjlkOGEWORqKdH/R7p
+	mCAOzsg+cvh2AdfhiNmw6dGa/nXZ5kqB+CPVt2ry5R9MMp/eedFCa2Ei8s3Q9KFKRb9YHuZN5rFOv
+	39W8wvTtNUu3KTPjo/Dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQ2qr-000eyb-JD; Thu, 09 Feb 2023 09:04:21 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1pQ2y7-000gnP-DU; Thu, 09 Feb 2023 09:11:51 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQ2qo-000exm-Su
-	for linux-riscv@lists.infradead.org; Thu, 09 Feb 2023 09:04:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1675933458; x=1707469458;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=B22J8C980OM1Kvqfd4PEL6BBxLh6LNsp47XsaCW9fb4=;
-  b=hIRQJJGDUfw9/NreacGx+h/dayyQKhxiGt29GqjlcrANcFKDAwWSpDJ/
-   uGqIt93/tY9inztrr/lGlofKPi56pK0AWzVl0tS+2odg3fNN7uLYsP4L3
-   cBkIM7n4oa0I/nVp81pvs0X5IaxcP4Qso8mIu3Ps1g5gt3CWyGr1pg6RR
-   eYkcM4EK0soBbfTvnl7nilwv/iwVNNjARnxcj2hQ6JvkKGTMsbq4ckfdR
-   Oixka0MDKhLDda/GOVJFXze/ix1/43/84O4QAWF7WmdW2SBbr7o7NxFdW
-   qoPs1+VjmyQ684NhsIvTnbaXJbLLGC+SH/5bzKHgBHzSlbGhMEcdkKdhm
-   g==;
-X-IronPort-AV: E=Sophos;i="5.97,283,1669100400"; 
-   d="asc'?scan'208";a="211236035"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 09 Feb 2023 02:04:17 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.16; Thu, 9 Feb 2023 02:04:17 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.16 via Frontend
- Transport; Thu, 9 Feb 2023 02:04:15 -0700
-Date: Thu, 9 Feb 2023 09:03:50 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Andrew Jones <ajones@ventanamicro.com>
-CC: Conor Dooley <conor@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
-	<palmer@rivosinc.com>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <christoph.muellner@vrull.eu>, Heiko
- Stuebner <heiko.stuebner@vrull.eu>
-Subject: Re: [PATCH 1/2] RISC-V: fix ordering of Zbb extension
-Message-ID: <Y+S29qPN6jmMwvi3@wendy>
-References: <20230208225328.1636017-1-heiko@sntech.de>
- <20230208225328.1636017-2-heiko@sntech.de>
- <C32D5495-F772-4887-9CAD-66206ECCFC3F@kernel.org>
- <20230209082520.solukez3jrshv3qo@orel>
+	id 1pQ2xw-000gib-Or
+	for linux-riscv@lists.infradead.org; Thu, 09 Feb 2023 09:11:42 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 3E7CBB82033
+	for <linux-riscv@lists.infradead.org>; Thu,  9 Feb 2023 09:11:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E84F6C433A1
+	for <linux-riscv@lists.infradead.org>; Thu,  9 Feb 2023 09:11:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1675933897;
+	bh=rUqnl2yhgg/wSh6GmALm2a+1dBTMU8RKuIViEGLb7cg=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=rjXcILcrjp8XTkk6APFP6VS9zYkrvh5Zyu1rMTYhweavvwRYgaQkAOBzjLPmn8DJX
+	 pIWwXN2OSkeR7R33hzjvtKOqw/kKKEpRf2JTXkEojhFJ1iG6CLw6nOCy5YnmSPBevK
+	 +XsDcAm+Xw1U3wa7WnQ/u8GGL6fAiJ3KHrHw+gVNm0QMoHrE+K7EoDWqx7Ard1jKqk
+	 ab4CqeDFPYghFbIqv9t3rblWBYQf2h+7IlLisATFxh8EuwkGjAfcjiHaGv/K/JglrW
+	 vcVDBf+1W90zIqwhAZDgQJCae1axNi4GAU+o9BCZmQzBzQsgQZpYAaFfn/2laHWTzJ
+	 lsE4XIcBixwnA==
+Received: by mail-ed1-f49.google.com with SMTP id da9so1495309edb.12
+        for <linux-riscv@lists.infradead.org>; Thu, 09 Feb 2023 01:11:37 -0800 (PST)
+X-Gm-Message-State: AO0yUKVQOJZY1zkPLSpB6MdVs8tt/nBmFp9y58KyGjlLr0kRUA0tW6Gb
+	jajOSyR7UsiV7TbTFrosAdi1yXJLXFfdmL+0c2Q=
+X-Google-Smtp-Source: AK7set+2zd+izyEqpj97HFiy856DccBJtPH7FTm1sSwGv31V2vQsWyM66vU6jjahWs1vauH5/qlsb6uSqOnq3gA7zik=
+X-Received: by 2002:a50:99c3:0:b0:49d:ec5d:28b1 with SMTP id
+ n3-20020a5099c3000000b0049dec5d28b1mr2400808edb.7.1675933896149; Thu, 09 Feb
+ 2023 01:11:36 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <20230209082520.solukez3jrshv3qo@orel>
+References: <20230112090603.1295340-1-guoren@kernel.org> <c68bac83-5c88-80b1-bac9-e1fd4ea8f07e@yadro.com>
+ <CAJF2gTQm11px3mqyrNk1SRiJZud1yeY2avK99UX9KetWAGe5BA@mail.gmail.com>
+ <Y+DOyqehZvBJlb8N@FVFF77S0Q05N> <CAJF2gTQ6U1vH79Mu53eQ-GVaFx36C-hEt9Qf6=_vAkHfmgFh1Q@mail.gmail.com>
+ <Y+IXB4xQ7ACQWC9U@FVFF77S0Q05N> <CAJF2gTTrX+8wCm-g=L9+3BkCRrZ8SCUM2w1e5duq-+Bsa213mA@mail.gmail.com>
+ <8154e7e618d84e298bad1dc95f26c000@AcuMS.aculab.com> <CAJF2gTQGxxgusRgPdNaw4-d+o0a4vefUj7PNpZuym6VKQC4dhw@mail.gmail.com>
+ <f00256bcbe114669acca1b0105cefb99@AcuMS.aculab.com>
+In-Reply-To: <f00256bcbe114669acca1b0105cefb99@AcuMS.aculab.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Thu, 9 Feb 2023 17:11:24 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQuEiBMg=2KQXb3UZNaH_AdwCHNyNe07dbPd7JDGGExzg@mail.gmail.com>
+Message-ID: <CAJF2gTQuEiBMg=2KQXb3UZNaH_AdwCHNyNe07dbPd7JDGGExzg@mail.gmail.com>
+Subject: Re: [PATCH -next V7 0/7] riscv: Optimize function trace
+To: David Laight <David.Laight@aculab.com>
+Cc: Mark Rutland <mark.rutland@arm.com>, Evgenii Shatokhin <e.shatokhin@yadro.com>, 
+	"suagrfillet@gmail.com" <suagrfillet@gmail.com>, "andy.chiu@sifive.com" <andy.chiu@sifive.com>, 
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Guo Ren <guoren@linux.alibaba.com>, 
+	"anup@brainfault.org" <anup@brainfault.org>, "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>, 
+	"palmer@dabbelt.com" <palmer@dabbelt.com>, 
+	"conor.dooley@microchip.com" <conor.dooley@microchip.com>, "heiko@sntech.de" <heiko@sntech.de>, 
+	"rostedt@goodmis.org" <rostedt@goodmis.org>, "mhiramat@kernel.org" <mhiramat@kernel.org>, 
+	"jolsa@redhat.com" <jolsa@redhat.com>, "bp@suse.de" <bp@suse.de>, 
+	"jpoimboe@kernel.org" <jpoimboe@kernel.org>, "linux@yadro.com" <linux@yadro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230209_010418_961176_2B305AA7 
-X-CRM114-Status: GOOD (  12.95  )
+X-CRM114-CacheID: sfid-20230209_011141_162867_E04A1BD1 
+X-CRM114-Status: GOOD (  14.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,69 +88,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1114798012237876844=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============1114798012237876844==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="hNr57WA66Fc7v39A"
-Content-Disposition: inline
+On Thu, Feb 9, 2023 at 5:00 PM David Laight <David.Laight@aculab.com> wrote:
+>
+> From: Guo Ren
+> > Sent: 09 February 2023 01:51
+> ...
+> > Yours cost one more instruction, right?
+> >          addr-12  auipc
+> >          addr-8    jalr
+> >          addr-4    // Literal (32-bits)
+> >          addr+0   nop or jmp addr-n // one more?
+> >          addr+4   function_code
+>
+> Yes, it is 4 bytes larger but there is one less
+> instruction executed (only one nop) when ftrace is disabled.
+> That probably matters more than anything in the ftrace
+> 'prologue' code.
+I've got your point, thx. I would consider your advice and make the tradeoff.
 
---hNr57WA66Fc7v39A
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+>
+> I also suspect that you can use a 32bit integer as
+> a table index in 64bit mode to save a word there.
+Yes, good idea. I've asked Mark Rutland. Let's wait for his feedback.
+It also helps arm64.
 
-On Thu, Feb 09, 2023 at 09:25:20AM +0100, Andrew Jones wrote:
-> On Wed, Feb 08, 2023 at 11:20:10PM +0000, Conor Dooley wrote:
-> > Hey Heiko,
-> >=20
-> > On 8 February 2023 22:53:27 GMT, Heiko Stuebner <heiko@sntech.de> wrote:
-> > >From: Heiko Stuebner <heiko.stuebner@vrull.eu>
-> > >
-> > >As Andrew reported,
-> > >    Zb* comes after Zi* according 27.11 "Subset Naming Convention"
-> > >so fix the ordering accordingly.
-> > >
-> > >Reported-by: Andrew Jones <ajones@ventanamicro.com>
-> > >Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
-> >=20
-> > The whole "getting it wrong immediately after fixing it up" ;)
->=20
-> Hi Conor,
->=20
-> Do you know any patchwork savvy people that could whip up a check
-> for this array? :-)
-
-Maybe that is more of a checkpatch type thing?
-
-Either way, I'll put it on the todo list I suppose!
-
---hNr57WA66Fc7v39A
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY+S29gAKCRB4tDGHoIJi
-0g7fAP9oVUIeufGJdmfpCNWTvatLD+qZqM6xhguUpuIizocYtQEAlN4fj4zu3jTO
-ex8o2+z+i3+9g/A71DmaXbiPPOIrGQA=
-=581v
------END PGP SIGNATURE-----
-
---hNr57WA66Fc7v39A--
+>
+>         David
+>
+> -
+> Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
+> Registration No: 1397386 (Wales)
 
 
---===============1114798012237876844==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+
+-- 
+Best Regards
+ Guo Ren
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1114798012237876844==--
-
