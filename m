@@ -4,56 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61437C05027
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Feb 2023 03:44:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DDC5C61DA4
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Feb 2023 03:54:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Flx1fmJ4G5/qaJ8fY4dD7kdAgN9ikefDhvMuANzvzHk=; b=VPCIgDzup/fvp0
-	B1BcyjWoUcAE0GYa66Rfc7Yg5ijzIdxBO9c75G3GAVA3Pj6sOiHbCx/t1DSEaYoaWS+TaJ3wtku83
-	8IqCfTik70qiPNGboAjypWPXec8pp19t5733vAGyhgABPG3Qx2+W3CVLu/YekmGmZHtSWKn6hIySU
-	BCW5S6Ws2knJfV2vxt2bYy5Sld9y8lVT5cXwTdZRSWPQ8csZtL5GPOIiCCkKQQ0rPlZ8a9nKIpkka
-	dUtQAMjPNMWLD9Z7L7DWplo6sQi3BtRfFHU2axUKC6pAbl2mO6VMs3DYiOlWZT3GdqOVHJ63X8KX5
-	y2BVxe81a9SDoCCAjgRw==;
+	List-Owner; bh=as4qfthJMHXUUnHyhxOXPxrR2FX2701JMC/NRc6qQzs=; b=MAVq9rAroWhfZb
+	dIekM7GumFvfmodnW6vbkEPj/DmYZNqflX184YUw+1LAVYLoDCawN7VfJEWzafIB6EsTI1r8kggyp
+	NtdBZqfN8Tw7q61JUvpAokMwdzs8tTmAPJn2J/8nlx9kXvmtm9g+eJQETbs7fMI8RcI/AqC1QCeF7
+	Sg+xFNku4CiEbfbHtiE81L9mNzes3t36thl6kIPaZD/qlnAnpule10ilKRlK96K167CKmRJerTO32
+	i76ed/1azRlHXtG5QKDXUfPsPvX24UyNgVxu2YGlpXzLaqgR6oci0Wjf4vEQpSACWhAyauk5Lyw97
+	86CwweR9LCGPLqNCYOyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPxrE-00035n-2X; Thu, 09 Feb 2023 03:44:24 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPxr8-00031g-1g
-	for linux-riscv@lists.infradead.org; Thu, 09 Feb 2023 03:44:22 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id E8A7024E3F2;
-	Thu,  9 Feb 2023 11:43:24 +0800 (CST)
-Received: from EXMBX067.cuchost.com (172.16.6.67) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 9 Feb
- 2023 11:43:25 +0800
-Received: from ubuntu.localdomain (183.27.96.33) by EXMBX067.cuchost.com
- (172.16.6.67) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 9 Feb
- 2023 11:43:24 +0800
-From: Mason Huo <mason.huo@starfivetech.com>
-To: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>, "Mason
- Huo" <mason.huo@starfivetech.com>, Ley Foon Tan
-	<leyfoon.tan@starfivetech.com>, Sia Jee Heng <jeeheng.sia@starfivetech.com>
-Subject: [PATCH v2] irqchip/irq-sifive-plic: Add syscore callbacks for hibernation
-Date: Thu, 9 Feb 2023 11:43:22 +0800
-Message-ID: <20230209034322.69943-1-mason.huo@starfivetech.com>
-X-Mailer: git-send-email 2.39.0
+	id 1pPy0T-0004Et-LH; Thu, 09 Feb 2023 03:53:57 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pPy0Q-0004EM-CD
+	for linux-riscv@lists.infradead.org; Thu, 09 Feb 2023 03:53:55 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id m2so1535544plg.4
+        for <linux-riscv@lists.infradead.org>; Wed, 08 Feb 2023 19:53:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=12dTRWaMWZUAG31L2kEM0o5/KiMO3deRVWjq9P0fDIc=;
+        b=e5TLdepd+V8n6CZEueibyDm4A37unRbqxewxb4Ove1khAXMYMYoJyuUIshTjZ4cTuY
+         XL7mplJBO4SuMXK00+g+bWxfddJE752rrR2nrmPNzcg95GjMAnJu9rGubzy9I4FAC9wt
+         0fwPsKgeCvKlc95gS7ImU/ESg76C19mCFL1gUA4dzF9aJD90nmWf9Q+YEADnrTp8sRAx
+         LSHdOMk78UmKZe3c3ql3p5qQtgnKJBu/gC5O4r42U+aoPYAPM1RmwghCnNbCgFpvVlN6
+         QbWJmT6IV1YN13X5a7zBfo2k17rTt9052mA23cr19p+o6Ea4Bs4MMggeXowlkJ440adz
+         PEPw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=12dTRWaMWZUAG31L2kEM0o5/KiMO3deRVWjq9P0fDIc=;
+        b=rwPr20R+lSfCbiYBWysX7rVIlR+KFpKWtRCt4WBeR7kvgFVfEQi9B6QYF7dFZQSrbV
+         S0UrY1aIwFuRBfnx7RP4XTwAybrC+9tSDjXIpCOFrUsPRTvf4PWedsMQfvUJ8ON+8OEi
+         Ib0B43yOf+pjJ14frdbfyGzJA39LtAhoo3uOIC3rCXAjkEf2f4Y99S6eEcMQSeNTQVOf
+         HH2+0O/fK1/3f2XclEIzg/A2VPo2+RHD0O7H1Gl4FeLCh0IlaQMnluVDpvrCM8q5PC2r
+         Ym0nNgR5ZhjvIu4NdhgQRzXh0OxrgRlyCQ4vqKSp5BEQeUWBRKys6zKtaq2PM7MdkSiW
+         G9dA==
+X-Gm-Message-State: AO0yUKVYZnA0rc11SIycecvguDR284G89/ehdTSMAjSEgoDEO0L4dxKE
+	vqMXiFC4YnXephk42//kSnI=
+X-Google-Smtp-Source: AK7set/vQAv21gb8LjGESbUJsYeQTutgFtDuRboP1A/GkDi8tm4cnkUaVPLNAC15FMS3eBBBWFC4qA==
+X-Received: by 2002:a17:903:1207:b0:196:5f75:66f9 with SMTP id l7-20020a170903120700b001965f7566f9mr12192678plh.63.1675914830936;
+        Wed, 08 Feb 2023 19:53:50 -0800 (PST)
+Received: from localhost.localdomain ([47.75.78.161])
+        by smtp.gmail.com with ESMTPSA id p5-20020a170902eac500b00192820d00d0sm252602pld.120.2023.02.08.19.53.48
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 08 Feb 2023 19:53:50 -0800 (PST)
+From: Qinglin Pan <panqinglin00@gmail.com>
+To: palmer@dabbelt.com,
+	linux-riscv@lists.infradead.org
+Cc: jeff@riscv.org,
+	xuyinan@ict.ac.cn,
+	conor@kernel.org,
+	ajones@ventanamicro.com,
+	Qinglin Pan <panqinglin00@gmail.com>
+Subject: [PATCH v12 0/3] riscv, mm: detect svnapot cpu support at runtime
+Date: Thu,  9 Feb 2023 11:53:40 +0800
+Message-Id: <20230209035343.15282-1-panqinglin00@gmail.com>
+X-Mailer: git-send-email 2.39.1
 MIME-Version: 1.0
-X-Originating-IP: [183.27.96.33]
-X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX067.cuchost.com
- (172.16.6.67)
-X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230208_194418_492682_664BE039 
-X-CRM114-Status: GOOD (  17.77  )
+X-CRM114-CacheID: sfid-20230208_195354_474913_7477997B 
+X-CRM114-Status: GOOD (  12.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,196 +91,77 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The priority and enable registers of plic will be reset
-during hibernation power cycle in poweroff mode,
-add the syscore callbacks to save/restore those registers.
+Svnapot is a RISC-V extension for marking contiguous 4K pages as a non-4K
+page. This patch set is for using Svnapot in hugetlb fs and huge vmap.
 
-Signed-off-by: Mason Huo <mason.huo@starfivetech.com>
-Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
-Reviewed-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
----
- drivers/irqchip/irq-sifive-plic.c | 94 ++++++++++++++++++++++++++++++-
- 1 file changed, 92 insertions(+), 2 deletions(-)
+This patchset adds a Kconfig item for using Svnapot in
+"Platform type"->"SVNAPOT extension support". Its default value is on,
+and people can set it off if they don't allow kernel to detect Svnapot
+hardware support and leverage it.
 
-diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-index ff47bd0dec45..4683e49d90ad 100644
---- a/drivers/irqchip/irq-sifive-plic.c
-+++ b/drivers/irqchip/irq-sifive-plic.c
-@@ -17,6 +17,7 @@
- #include <linux/of_irq.h>
- #include <linux/platform_device.h>
- #include <linux/spinlock.h>
-+#include <linux/syscore_ops.h>
- #include <asm/smp.h>
- 
- /*
-@@ -67,6 +68,8 @@ struct plic_priv {
- 	struct irq_domain *irqdomain;
- 	void __iomem *regs;
- 	unsigned long plic_quirks;
-+	unsigned int nr_irqs;
-+	unsigned long *priority_reg;
- };
- 
- struct plic_handler {
-@@ -78,11 +81,13 @@ struct plic_handler {
- 	 */
- 	raw_spinlock_t		enable_lock;
- 	void __iomem		*enable_base;
-+	u32			*enable_reg;
- 	struct plic_priv	*priv;
- };
- static int plic_parent_irq __ro_after_init;
- static bool plic_cpuhp_setup_done __ro_after_init;
- static DEFINE_PER_CPU(struct plic_handler, plic_handlers);
-+static struct plic_priv *priv_data;
- 
- static int plic_irq_set_type(struct irq_data *d, unsigned int type);
- 
-@@ -229,6 +234,68 @@ static int plic_irq_set_type(struct irq_data *d, unsigned int type)
- 	return IRQ_SET_MASK_OK;
- }
- 
-+static int plic_irq_suspend(void)
-+{
-+	unsigned int i, cpu;
-+	u32 __iomem *reg;
-+
-+	for (i = 0; i < priv_data->nr_irqs; i++)
-+		if (readl(priv_data->regs + PRIORITY_BASE + i * PRIORITY_PER_ID))
-+			__set_bit(i, priv_data->priority_reg);
-+		else
-+			__clear_bit(i, priv_data->priority_reg);
-+
-+	for_each_cpu(cpu, cpu_present_mask) {
-+		struct plic_handler *handler = per_cpu_ptr(&plic_handlers, cpu);
-+
-+		if (!handler->present)
-+			continue;
-+
-+		raw_spin_lock(&handler->enable_lock);
-+		for (i = 0; i < DIV_ROUND_UP(priv_data->nr_irqs, 32); i++) {
-+			reg = handler->enable_base + i * sizeof(u32);
-+			handler->enable_reg[i] = readl(reg);
-+		}
-+		raw_spin_unlock(&handler->enable_lock);
-+	}
-+
-+	return 0;
-+}
-+
-+static void plic_irq_resume(void)
-+{
-+	unsigned int i, cpu;
-+	u32 __iomem *reg;
-+
-+	for (i = 0; i < priv_data->nr_irqs; i++)
-+		writel(test_bit(i, priv_data->priority_reg),
-+				priv_data->regs + PRIORITY_BASE + i * PRIORITY_PER_ID);
-+
-+	for_each_cpu(cpu, cpu_present_mask) {
-+		struct plic_handler *handler = per_cpu_ptr(&plic_handlers, cpu);
-+
-+		if (!handler->present)
-+			continue;
-+
-+		raw_spin_lock(&handler->enable_lock);
-+		for (i = 0; i < DIV_ROUND_UP(priv_data->nr_irqs, 32); i++) {
-+			reg = handler->enable_base + i * sizeof(u32);
-+			writel(handler->enable_reg[i], reg);
-+		}
-+		raw_spin_unlock(&handler->enable_lock);
-+	}
-+}
-+
-+static struct syscore_ops plic_irq_syscore_ops = {
-+	.suspend	= plic_irq_suspend,
-+	.resume		= plic_irq_resume,
-+};
-+
-+static void plic_irq_pm_init(void)
-+{
-+	register_syscore_ops(&plic_irq_syscore_ops);
-+}
-+
- static int plic_irqdomain_map(struct irq_domain *d, unsigned int irq,
- 			      irq_hw_number_t hwirq)
- {
-@@ -345,12 +412,14 @@ static int __init __plic_init(struct device_node *node,
- 	u32 nr_irqs;
- 	struct plic_priv *priv;
- 	struct plic_handler *handler;
-+	unsigned int cpu;
- 
- 	priv = kzalloc(sizeof(*priv), GFP_KERNEL);
- 	if (!priv)
- 		return -ENOMEM;
- 
- 	priv->plic_quirks = plic_quirks;
-+	priv_data = priv;
- 
- 	priv->regs = of_iomap(node, 0);
- 	if (WARN_ON(!priv->regs)) {
-@@ -363,15 +432,23 @@ static int __init __plic_init(struct device_node *node,
- 	if (WARN_ON(!nr_irqs))
- 		goto out_iounmap;
- 
-+	priv->nr_irqs = nr_irqs;
-+
-+	priv->priority_reg = kcalloc(DIV_ROUND_UP(nr_irqs,
-+		sizeof(unsigned long) * 8),
-+		sizeof(unsigned long), GFP_KERNEL);
-+	if (!priv->priority_reg)
-+		goto out_free_priority_reg;
-+
- 	nr_contexts = of_irq_count(node);
- 	if (WARN_ON(!nr_contexts))
--		goto out_iounmap;
-+		goto out_free_priority_reg;
- 
- 	error = -ENOMEM;
- 	priv->irqdomain = irq_domain_add_linear(node, nr_irqs + 1,
- 			&plic_irqdomain_ops, priv);
- 	if (WARN_ON(!priv->irqdomain))
--		goto out_iounmap;
-+		goto out_free_priority_reg;
- 
- 	for (i = 0; i < nr_contexts; i++) {
- 		struct of_phandle_args parent;
-@@ -441,6 +518,11 @@ static int __init __plic_init(struct device_node *node,
- 		handler->enable_base = priv->regs + CONTEXT_ENABLE_BASE +
- 			i * CONTEXT_ENABLE_SIZE;
- 		handler->priv = priv;
-+
-+		handler->enable_reg =  kcalloc(DIV_ROUND_UP(nr_irqs, 32),
-+			32, GFP_KERNEL);
-+		if (!handler->enable_reg)
-+			goto out_free_enable_reg;
- done:
- 		for (hwirq = 1; hwirq <= nr_irqs; hwirq++) {
- 			plic_toggle(handler, hwirq, 0);
-@@ -461,11 +543,19 @@ static int __init __plic_init(struct device_node *node,
- 				  plic_starting_cpu, plic_dying_cpu);
- 		plic_cpuhp_setup_done = true;
- 	}
-+	plic_irq_pm_init();
- 
- 	pr_info("%pOFP: mapped %d interrupts with %d handlers for"
- 		" %d contexts.\n", node, nr_irqs, nr_handlers, nr_contexts);
- 	return 0;
- 
-+out_free_enable_reg:
-+	for_each_cpu(cpu, cpu_present_mask) {
-+		handler = per_cpu_ptr(&plic_handlers, cpu);
-+		kfree(handler->enable_reg);
-+	}
-+out_free_priority_reg:
-+	kfree(priv->priority_reg);
- out_iounmap:
- 	iounmap(priv->regs);
- out_free_priv:
+Tested on:
+  - qemu rv64 with "Svnapot support" off and svnapot=true.
+  - qemu rv64 with "Svnapot support" on and svnapot=true.
+  - qemu rv64 with "Svnapot support" off and svnapot=false.
+  - qemu rv64 with "Svnapot support" on and svnapot=false.
+
+
+Changes in v2:
+  - detect Svnapot hardware support at boot time.
+Changes in v3:
+  - do linear mapping again if has_svnapot
+Changes in v4:
+  - fix some errors/warns reported by checkpatch.pl, thanks @Conor
+Changes in v5:
+  - modify code according to @Conor and @Heiko
+Changes in v6:
+  - use static key insead of alternative errata
+Changes in v7:
+  - add napot_cont_order for possible more napot order in the future
+  - remove linear mapping related code from this patchset to another patch
+  - refactor hugetlb code for svnapot according to thanks @Andrew @Conor
+  - use tools/testing/selftests/vm/map_hugetlb as hugetlb testing program
+  - support svnapot in huge vmap on newer for-next branch
+Changes in v8:
+  - fix compilation errors in rv32_defconfig
+  - insert some lines of whitespace according to @Conor's suggestion
+Changes in v9:
+  - use alternative to avoid using static branches inside heavily used
+    inline functions
+  - change napot_cont_mask definition
+  - post test_vmalloc modification about testing vmalloc_huge
+Changes in v10:
+  - fix some nits caught by @Andrew
+  - collect Reviewed-by/Acked-by
+  - add memory leak warning in KConfig text
+  - replace test_vmalloc patch link with the standard one
+Changes in v11:
+  - add more detailed warning about HUGETLBFS and SVNAPOT in KConfig text
+  - fix missing reverse-xmas tree
+Changes in v12:
+  - rebase on the new ISA extension API [1]
+
+[1]https://lore.kernel.org/all/20230128172856.3814-5-jszhang@kernel.org/
+
+Qinglin Pan (3):
+  riscv: mm: modify pte format for Svnapot
+  riscv: mm: support Svnapot in hugetlb page
+  riscv: mm: support Svnapot in huge vmap
+
+ arch/riscv/Kconfig                  |  21 +-
+ arch/riscv/include/asm/hugetlb.h    |  34 +++-
+ arch/riscv/include/asm/hwcap.h      |   9 +-
+ arch/riscv/include/asm/page.h       |   5 -
+ arch/riscv/include/asm/pgtable-64.h |  34 ++++
+ arch/riscv/include/asm/pgtable.h    |  39 +++-
+ arch/riscv/include/asm/vmalloc.h    |  61 +++++-
+ arch/riscv/kernel/cpu.c             |   1 +
+ arch/riscv/kernel/cpufeature.c      |   1 +
+ arch/riscv/mm/hugetlbpage.c         | 301 ++++++++++++++++++++++++++++
+ 10 files changed, 493 insertions(+), 13 deletions(-)
+
 -- 
-2.39.0
+2.39.1
 
 
 _______________________________________________
