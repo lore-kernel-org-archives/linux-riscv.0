@@ -4,78 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F248EC636CC
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Feb 2023 02:00:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2225DC636CC
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Feb 2023 02:02:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HdwOq82GuTB68PhsYyL5aZSTSrmzTbTSHRSZLfUuBF4=; b=XQPfDq6cdIk/35
-	a2rpbKRrSn4bobNs0Z3cbEZVjQpyjuDyRy1wKed+IKod/NLBYw6u+S6WNyADIe8rNVgM/kgIPrE2m
-	VMtiUMPsSDhuyXeO44OGPTvOQgQKZM5zZXjNre23erljKCu9bNRgAt3VB6xgy1GQU0b8x9aV5Kfzb
-	pvzTdY7VfCgwwCr8lyFw5XiNBIPi7ZRWcQlihkuow5sIxBnGeUP2hDMLvWS/39O9pdwtV70WsKhyu
-	B51mwpi7ic5VHS1jbVS9e6P5CXPWU3E+R2M9rMRWipXPOMELSyt6hYfY3Ns2YHYtJFLDkx78uQSBh
-	ONv5A8xZX5vdmJBh72Ew==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EJiudBAhigUQGUlmn5l0vZn2NAtjvAAOi6cc93GeeTM=; b=qgvsSNiAgZQR3n9Jh2njmOJmA9
+	7OMOeHlq6vApN1CUMs1wWWK0VTpf9ya95F8jptea6qVvheKfXjOyDlR48oW8jSg0R/jVJMHL1r8U5
+	1C7qsPr6MM6SPNzlvRuQMiC7DOoZNr8E0OQ6aisYZW4RXYqlmK4BYJVSEtFRW5UobMkaPTgmUZJB5
+	It3AaJb2bf/XluE8W3WBmZcOB9z2FlxoW+l0ro9s/TQda80vQcuuTiEt8xFhNMXkCBv09PyghBElt
+	BvQiQnp7TWUsq+uBYinGXb596ECm2Y+0hNTCarnqzY50GgtXExM2IQcW1KkzDWoISG2eF8b6sQy4E
+	R7C5HBug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPwE7-00HSVH-5s; Thu, 09 Feb 2023 01:59:55 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1pPwGw-00HSqi-9f; Thu, 09 Feb 2023 02:02:50 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPwE3-00HSUj-OW
-	for linux-riscv@lists.infradead.org; Thu, 09 Feb 2023 01:59:53 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 0B7A9B81FEE
-	for <linux-riscv@lists.infradead.org>; Thu,  9 Feb 2023 01:59:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CEBDC433B0
-	for <linux-riscv@lists.infradead.org>; Thu,  9 Feb 2023 01:59:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1675907987;
-	bh=rUKMm7oiU/lnp/xTwmLzVH6F5E6MDUT/spmkpMaHzp8=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=anEibXhuUkV8TI1zMF2pQdHLbqXIFijtf3shGCV6d4gHGbKgFRsG7rHV6KUvwKk6k
-	 X64jWlXZT7L7aMr4529uRes/drlag7rA2KGilvZshtc/meuQypM4S72IO7Y0FKOQFQ
-	 a3tz+nIR+Oru05zotKEnXFvKGHdQnGGGwGXc/bOqWL+REyBlmbNf4JmGu5zOzeccgx
-	 IlJ/rIoVF1KsLkCftGDlqi6qR7prN4wPkSPGCpx+plUGSCJjJVQHKetLfyMU6yHkTr
-	 OQfLjEbGWe99LX+O/B5nz1X1DQ9WppgmFo9gwOJayY8hlN/OAFu8QOhvSLlFsaRNdK
-	 7llTAbtyS1qZQ==
-Received: by mail-ed1-f51.google.com with SMTP id fj20so871082edb.1
-        for <linux-riscv@lists.infradead.org>; Wed, 08 Feb 2023 17:59:47 -0800 (PST)
-X-Gm-Message-State: AO0yUKUcxpudMMYrLDH2xJQU3OUCqHziBiiJGV2ibW/4V7A1gdMQZDJE
-	IR2kNYtSKCxhInhoqHzCUS9naa0xLRJJPLyOdps=
-X-Google-Smtp-Source: AK7set/e+IJz9Iar5asStsm7ZHMPiMeqR4PLCAlhWg6+xwg9DnHHSo15RE3zeO97wTPGif0JdSTvpfOG3hBWI72jzsU=
-X-Received: by 2002:a50:935a:0:b0:4aa:a4d9:5ab3 with SMTP id
- n26-20020a50935a000000b004aaa4d95ab3mr2463287eda.65.1675907985331; Wed, 08
- Feb 2023 17:59:45 -0800 (PST)
+	id 1pPwGs-00HSpm-9X
+	for linux-riscv@lists.infradead.org; Thu, 09 Feb 2023 02:02:47 +0000
+Received: by mail-pl1-x635.google.com with SMTP id k13so1380196plg.0
+        for <linux-riscv@lists.infradead.org>; Wed, 08 Feb 2023 18:02:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=u2fxHLSSkjd2gBaPqrUy06GUa2igJ/NteR1ux0m4AxU=;
+        b=KSZcawBfCEusNKjw99nBJeFxw3WPMe/KyOvtBZHVw5YW/DTxS6OLbUYvCS9G+NJm70
+         mwgK2m1MawIVypnUZSDUL5ooqvX52HCw/iNnfQQ2NrYDFp17s5cefLMKgElAeaTRx+sp
+         34ow9t+FxCzDAY45HPR2ZmcrMkvlLb3U+kBbCB7BCJ4R4thiesJpD8m4jOFb7eVEpwco
+         OuhFsoBFDczXU7GgZXfthXym73ci9xTGv2qmpQEA7iP6eRQyH0YwAawADGmtTkZcuNFR
+         N3Bc1NihCdIx6KGnCjfglcwV8++p5wDsF6ZgZrQWqf5g+enspmMwQi8qeh/a5sq6eYVu
+         KuIw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=u2fxHLSSkjd2gBaPqrUy06GUa2igJ/NteR1ux0m4AxU=;
+        b=LY4roIr4L9+bazgJW/EO5wC7jA5L25GgrU4w9sNVRtjy0SJ1GSM/f5NDWBILbXEXTN
+         d9YFtRRb9YI7dADQZ5wNAsG+3MKjfXiFX4h2lvcFhUSNslAdS+hDpkZZdeVdGr7bMeyp
+         H4MvaKEsuI697G44I5xwVWUsidIoPOPXSD4m9fMSKpriF0jhmmGi23RSsyDfULVQZpSR
+         Orsqno+iSo7ngJv8ek7wlBc3hpeWntZAE++JVWLJml5hb7AGl5+IyzczjRrbKjkAizNl
+         nrcoqd+xkiJ8FOMpBoW70y3zIU3tVnoOjQNg29aVp52vLUyr2FGpRhg3YSX+9BgOenKp
+         X5uQ==
+X-Gm-Message-State: AO0yUKVrwQMraf2QQSyVlgktIQmZMovbSppdHY1EqRu3hCUeIslFP5UV
+	2T2+Wo8xw5L/ws5FS70Csu0=
+X-Google-Smtp-Source: AK7set9boXIbPx56DkwTV7WOExTM1A9N8lAUSIGwpgu/SuCa/+u3NsWnrbYVHr/7FAqfK6RznLu3/g==
+X-Received: by 2002:a17:902:b48a:b0:198:adc4:22a2 with SMTP id y10-20020a170902b48a00b00198adc422a2mr3075077plr.29.1675908161514;
+        Wed, 08 Feb 2023 18:02:41 -0800 (PST)
+Received: from debian.me (subs02-180-214-232-72.three.co.id. [180.214.232.72])
+        by smtp.gmail.com with ESMTPSA id d2-20020a170902654200b0019919b7e5b1sm126062pln.168.2023.02.08.18.02.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 08 Feb 2023 18:02:40 -0800 (PST)
+Received: by debian.me (Postfix, from userid 1000)
+	id D50B81056B3; Thu,  9 Feb 2023 09:02:37 +0700 (WIB)
+Date: Thu, 9 Feb 2023 09:02:37 +0700
+From: Bagas Sanjaya <bagasdotme@gmail.com>
+To: Sunil V L <sunilvl@ventanamicro.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Marc Zyngier <maz@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Jonathan Corbet <corbet@lwn.net>
+Cc: linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+	Anup Patel <apatel@ventanamicro.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Atish Patra <atishp@rivosinc.com>
+Subject: Re: [PATCH 24/24] Documentation/kernel-parameters.txt: Add RISC-V
+ for ACPI parameter
+Message-ID: <Y+RUPcCgH48XdbBB@debian.me>
+References: <20230130182225.2471414-1-sunilvl@ventanamicro.com>
+ <20230130182225.2471414-25-sunilvl@ventanamicro.com>
 MIME-Version: 1.0
-References: <20230112090603.1295340-1-guoren@kernel.org> <c68bac83-5c88-80b1-bac9-e1fd4ea8f07e@yadro.com>
- <CAJF2gTQm11px3mqyrNk1SRiJZud1yeY2avK99UX9KetWAGe5BA@mail.gmail.com>
- <Y+DOyqehZvBJlb8N@FVFF77S0Q05N> <CAJF2gTQ6U1vH79Mu53eQ-GVaFx36C-hEt9Qf6=_vAkHfmgFh1Q@mail.gmail.com>
- <Y+IXB4xQ7ACQWC9U@FVFF77S0Q05N> <CAJF2gTTrX+8wCm-g=L9+3BkCRrZ8SCUM2w1e5duq-+Bsa213mA@mail.gmail.com>
- <8154e7e618d84e298bad1dc95f26c000@AcuMS.aculab.com> <CAJF2gTQGxxgusRgPdNaw4-d+o0a4vefUj7PNpZuym6VKQC4dhw@mail.gmail.com>
-In-Reply-To: <CAJF2gTQGxxgusRgPdNaw4-d+o0a4vefUj7PNpZuym6VKQC4dhw@mail.gmail.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Thu, 9 Feb 2023 09:59:33 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTQ61BHUgtPaaH49Srp6Y5NGD4Bvdvw1GF57owuw-h-+nQ@mail.gmail.com>
-Message-ID: <CAJF2gTQ61BHUgtPaaH49Srp6Y5NGD4Bvdvw1GF57owuw-h-+nQ@mail.gmail.com>
-Subject: Re: [PATCH -next V7 0/7] riscv: Optimize function trace
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: David Laight <david.laight@aculab.com>, Evgenii Shatokhin <e.shatokhin@yadro.com>, 
-	"suagrfillet@gmail.com" <suagrfillet@gmail.com>, "andy.chiu@sifive.com" <andy.chiu@sifive.com>, 
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Guo Ren <guoren@linux.alibaba.com>, 
-	"anup@brainfault.org" <anup@brainfault.org>, "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>, 
-	"palmer@dabbelt.com" <palmer@dabbelt.com>, 
-	"conor.dooley@microchip.com" <conor.dooley@microchip.com>, "heiko@sntech.de" <heiko@sntech.de>, 
-	"rostedt@goodmis.org" <rostedt@goodmis.org>, "mhiramat@kernel.org" <mhiramat@kernel.org>, 
-	"jolsa@redhat.com" <jolsa@redhat.com>, "bp@suse.de" <bp@suse.de>, 
-	"jpoimboe@kernel.org" <jpoimboe@kernel.org>, "linux@yadro.com" <linux@yadro.com>
+In-Reply-To: <20230130182225.2471414-25-sunilvl@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230208_175952_141141_FAA4F185 
-X-CRM114-Status: GOOD (  28.12  )
+X-CRM114-CacheID: sfid-20230208_180246_372585_C2D31CEF 
+X-CRM114-Status: UNSURE (   9.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,90 +98,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1908092221026835529=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 9, 2023 at 9:51 AM Guo Ren <guoren@kernel.org> wrote:
->
-> On Thu, Feb 9, 2023 at 6:29 AM David Laight <David.Laight@aculab.com> wrote:
-> >
-> > > >   # Note: aligned to 8 bytes
-> > > >   addr-08               // Literal (first 32-bits)      // patched to ops ptr
-> > > >   addr-04               // Literal (last 32-bits)       // patched to ops ptr
-> > > >   addr+00       func:   mv      t0, ra
-> > > We needn't "mv t0, ra" here because our "jalr" could work with t0 and
-> > > won't affect ra. Let's do it in the trampoline code, and then we can
-> > > save another word here.
-> > > >   addr+04               auipc   t1, ftrace_caller
-> > > >   addr+08               jalr    ftrace_caller(t1)
-> >
-> > Is that some kind of 'load high' and 'add offset' pair?
-> Yes.
->
-> > I guess 64bit kernels guarantee to put all module code
-> > within +-2G of the main kernel?
-> Yes, 32-bit is enough. So we only need one 32-bit literal size for the
-> current rv64, just like CONFIG_32BIT.
-We need kernel_addr_base + this 32-bit Literal.
 
-@Mark Rutland
-What do you think the idea about reducing one more 32-bit in
-call-site? (It also sould work for arm64.)
-
->
-> >
-> > > Here is the call-site:
-> > >    # Note: aligned to 8 bytes
-> > >    addr-08               // Literal (first 32-bits)      // patched to ops ptr
-> > >    addr-04               // Literal (last 32-bits)       // patched to ops ptr
-> > >    addr+00               auipc   t0, ftrace_caller
-> > >    addr+04               jalr    ftrace_caller(t0)
-> >
-> > Could you even do something like:
-> >         addr-n  call ftrace-function
-> >         addr-n+x        literals
-> >         addr+0  nop or jmp addr-n
-> >         addr+4  function_code
-> Yours cost one more instruction, right?
->          addr-12  auipc
->          addr-8    jalr
->          addr-4    // Literal (32-bits)
->          addr+0   nop or jmp addr-n // one more?
->          addr+4   function_code
->
-> > So that all the code executed when tracing is enabled
-> > is before the label and only one 'nop' is in the body.
-> > The called code can use the return address to find the
-> > literals and then modify it to return to addr+4.
-> > The code cost when trace is enabled is probably irrelevant
-> > here - dominated by what happens later.
-> > It probably isn't even worth aligning a 64bit constant.
-> > Doing two reads probably won't be noticable.
-> >
-> > What you do want to ensure is that the initial patch is
-> > overwriting nop - just in case the gap isn't there.
-> >
-> >         David
-> >
-> > -
-> > Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-> > Registration No: 1397386 (Wales)
->
->
->
-> --
-> Best Regards
->  Guo Ren
+--===============1908092221026835529==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="cG9EA2l6QrebhrXH"
+Content-Disposition: inline
 
 
+--cG9EA2l6QrebhrXH
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
--- 
-Best Regards
- Guo Ren
+On Mon, Jan 30, 2023 at 11:52:25PM +0530, Sunil V L wrote:
+>  			For ARM64, ONLY "acpi=3Doff", "acpi=3Don" or "acpi=3Dforce"
+>  			are available
+> +			For RISC-V, ONLY "acpi=3Doff", "acpi=3Don" or "acpi=3Dforce"
+> +			are available
+> =20
+
+Something repetitive here. What about "For ARM64 and RISC-V, the
+available options are only "acpi=3Doff", "acpi=3Don", and "acpi=3Dforce""?
+
+Thanks.
+
+--=20
+An old man doll... just what I always wanted! - Clara
+
+--cG9EA2l6QrebhrXH
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQSSYQ6Cy7oyFNCHrUH2uYlJVVFOowUCY+RUOQAKCRD2uYlJVVFO
+o+9EAQC8GivmfHn93hRgfCI68JrrUjUfdRGd1PEo48XaFxXfpwEA4gk7qbFhwMKz
+RYZmDaevf6DABr9JSuIpV2NrsUIsTwI=
+=LwV8
+-----END PGP SIGNATURE-----
+
+--cG9EA2l6QrebhrXH--
+
+
+--===============1908092221026835529==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1908092221026835529==--
+
