@@ -4,62 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5397FC636D3
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Feb 2023 03:14:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61437C05027
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Feb 2023 03:44:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Subject:From:Cc:To:MIME-Version:Date:Message-ID:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qTQUWdkaj5YCuvBpYLNMlEpLUpPZK16l3Gub+EPc0Dc=; b=o49bIhe0UiT71qFfbXJJAcRy/Q
-	r5ofz1lYDI+nkQDBxIaPde5tGKCnm1kgnk5qJuitF2YsMpUVd7kCLGL7idR6OWS81VyMoVgoAFGd9
-	y3ayJo1gV4bN+dKTTLSqIWNzhYPWDJVZ70N6isTVWB6cVHWO1TUwHyCPcYScvoHuB1QYO1i10Ie25
-	RR5hc9f3h2JMaBMTF3jAv72xf3qpchfmOs3gpV0+XtLiHneu5UF+eEwPyv7Bjpvq9MwAOYRI05PdS
-	SmGA6H4FCzxd4E/IFpZ/tM7XxWRgjNzRZ4OqrvnSQvJ/C52EIH4LXv4WFM8k0QBYIRG8G4DduaZVP
-	rnl1UGaQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Flx1fmJ4G5/qaJ8fY4dD7kdAgN9ikefDhvMuANzvzHk=; b=VPCIgDzup/fvp0
+	B1BcyjWoUcAE0GYa66Rfc7Yg5ijzIdxBO9c75G3GAVA3Pj6sOiHbCx/t1DSEaYoaWS+TaJ3wtku83
+	8IqCfTik70qiPNGboAjypWPXec8pp19t5733vAGyhgABPG3Qx2+W3CVLu/YekmGmZHtSWKn6hIySU
+	BCW5S6Ws2knJfV2vxt2bYy5Sld9y8lVT5cXwTdZRSWPQ8csZtL5GPOIiCCkKQQ0rPlZ8a9nKIpkka
+	dUtQAMjPNMWLD9Z7L7DWplo6sQi3BtRfFHU2axUKC6pAbl2mO6VMs3DYiOlWZT3GdqOVHJ63X8KX5
+	y2BVxe81a9SDoCCAjgRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPxNn-0000Nl-A4; Thu, 09 Feb 2023 03:13:59 +0000
-Received: from smtp80.cstnet.cn ([159.226.251.80] helo=cstnet.cn)
+	id 1pPxrE-00035n-2X; Thu, 09 Feb 2023 03:44:24 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pPxNj-0000MV-5f
-	for linux-riscv@lists.infradead.org; Thu, 09 Feb 2023 03:13:57 +0000
-Received: from [198.18.0.1] (unknown [124.16.141.244])
-	by APP-01 (Coremail) with SMTP id qwCowACnpUHsZORjI_grBA--.61761S2;
-	Thu, 09 Feb 2023 11:13:49 +0800 (CST)
-Message-ID: <a9ead3a1-11a4-2196-1d29-b6ff4d5ab47c@iscas.ac.cn>
-Date: Thu, 9 Feb 2023 11:13:48 +0800
+	id 1pPxr8-00031g-1g
+	for linux-riscv@lists.infradead.org; Thu, 09 Feb 2023 03:44:22 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id E8A7024E3F2;
+	Thu,  9 Feb 2023 11:43:24 +0800 (CST)
+Received: from EXMBX067.cuchost.com (172.16.6.67) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 9 Feb
+ 2023 11:43:25 +0800
+Received: from ubuntu.localdomain (183.27.96.33) by EXMBX067.cuchost.com
+ (172.16.6.67) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 9 Feb
+ 2023 11:43:24 +0800
+From: Mason Huo <mason.huo@starfivetech.com>
+To: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>, "Mason
+ Huo" <mason.huo@starfivetech.com>, Ley Foon Tan
+	<leyfoon.tan@starfivetech.com>, Sia Jee Heng <jeeheng.sia@starfivetech.com>
+Subject: [PATCH v2] irqchip/irq-sifive-plic: Add syscore callbacks for hibernation
+Date: Thu, 9 Feb 2023 11:43:22 +0800
+Message-ID: <20230209034322.69943-1-mason.huo@starfivetech.com>
+X-Mailer: git-send-email 2.39.0
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:102.0)
- Gecko/20100101 Thunderbird/102.7.1
-To: palmer@dabbelt.com, linux-riscv@lists.infradead.org
-Cc: jeff@riscv.org, xuyinan@ict.ac.cn, conor@kernel.org,
- ajones@ventanamicro.com
-From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
-Subject: [PATCH v12 2/3] riscv: mm: support Svnapot in hugetlb page
-X-CM-TRANSID: qwCowACnpUHsZORjI_grBA--.61761S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxKrW8Wr47AFWkWry5Ar13Arb_yoWDJr4rpF
-	1xC34fXrW7tr1UGw4xZrs5Jrn8Jw1SqayUJr93Ja1rAw1IvrZxZasxC34ayrnxCrWkX3yx
-	CrW5KFsxAF9rXF7anT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9E14x267AKxVWUJVW8JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
-	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVCY1x0267AKxV
-	WxJr0_GcWlnxkEFVAIw20F6cxK64vIFxWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG
-	64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26F
-	4j6r4UJwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lF7I21c0EjII2zVCS5cI2
-	0VAGYxC7Mxk0xIA0c2IEe2xFo4CEbIxvr21lc2xSY4AK67AK6r48MxAIw28IcxkI7VAKI4
-	8JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xv
-	wVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUAVWUtwCIc40Y0x0EwIxGrwCI42IY6xIIjx
-	v20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20E
-	Y4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267
-	AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUjXdb5UUUUU==
-X-Originating-IP: [124.16.141.244]
-X-CM-SenderInfo: 5sdq1xpqjox0asqsiq5lvft2wodfhubq/1tbiCQoRDGPkW-sZHAAAs8
+X-Originating-IP: [183.27.96.33]
+X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX067.cuchost.com
+ (172.16.6.67)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230208_191355_615821_E2D25918 
-X-CRM114-Status: GOOD (  13.13  )
+X-CRM114-CacheID: sfid-20230208_194418_492682_664BE039 
+X-CRM114-Status: GOOD (  17.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,413 +65,201 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+The priority and enable registers of plic will be reset
+during hibernation power cycle in poweroff mode,
+add the syscore callbacks to save/restore those registers.
 
-Svnapot can be used to support 64KB hugetlb page, so it can become a new
-option when using hugetlbfs. Add a basic implementation of hugetlb page,
-and support 64KB as a size in it by using Svnapot.
+Signed-off-by: Mason Huo <mason.huo@starfivetech.com>
+Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+Reviewed-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
+---
+ drivers/irqchip/irq-sifive-plic.c | 94 ++++++++++++++++++++++++++++++-
+ 1 file changed, 92 insertions(+), 2 deletions(-)
 
-For test, boot kernel with command line contains "default_hugepagesz=64K
-hugepagesz=64K hugepages=20" and run a simple test like this:
-
-tools/testing/selftests/vm/map_hugetlb 1 16
-
-And it should be passed.
-
-Signed-off-by: Qinglin Pan <panqinglin2020@iscas.ac.cn>
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 5b051ca93fa7..7ad4dae019e4 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -44,7 +44,7 @@ config RISCV
-  	select ARCH_USE_QUEUED_RWLOCKS
-  	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
-  	select ARCH_WANT_FRAME_POINTERS
--	select ARCH_WANT_GENERAL_HUGETLB
-+	select ARCH_WANT_GENERAL_HUGETLB if !RISCV_ISA_SVNAPOT
-  	select ARCH_WANT_HUGE_PMD_SHARE if 64BIT
-  	select ARCH_WANTS_THP_SWAP if HAVE_ARCH_TRANSPARENT_HUGEPAGE
-  	select BINFMT_FLAT_NO_DATA_START_OFFSET if !MMU
-diff --git a/arch/riscv/include/asm/hugetlb.h 
-b/arch/riscv/include/asm/hugetlb.h
-index ec19d6afc896..fe6f23006641 100644
---- a/arch/riscv/include/asm/hugetlb.h
-+++ b/arch/riscv/include/asm/hugetlb.h
-@@ -2,7 +2,6 @@
-  #ifndef _ASM_RISCV_HUGETLB_H
-  #define _ASM_RISCV_HUGETLB_H
-
--#include <asm-generic/hugetlb.h>
-  #include <asm/page.h>
-
-  static inline void arch_clear_hugepage_flags(struct page *page)
-@@ -11,4 +10,37 @@ static inline void arch_clear_hugepage_flags(struct 
-page *page)
-  }
-  #define arch_clear_hugepage_flags arch_clear_hugepage_flags
-
-+#ifdef CONFIG_RISCV_ISA_SVNAPOT
-+#define __HAVE_ARCH_HUGE_PTE_CLEAR
-+void huge_pte_clear(struct mm_struct *mm, unsigned long addr,
-+		    pte_t *ptep, unsigned long sz);
-+
-+#define __HAVE_ARCH_HUGE_SET_HUGE_PTE_AT
-+void set_huge_pte_at(struct mm_struct *mm,
-+		     unsigned long addr, pte_t *ptep, pte_t pte);
-+
-+#define __HAVE_ARCH_HUGE_PTEP_GET_AND_CLEAR
-+pte_t huge_ptep_get_and_clear(struct mm_struct *mm,
-+			      unsigned long addr, pte_t *ptep);
-+
-+#define __HAVE_ARCH_HUGE_PTEP_CLEAR_FLUSH
-+pte_t huge_ptep_clear_flush(struct vm_area_struct *vma,
-+			    unsigned long addr, pte_t *ptep);
-+
-+#define __HAVE_ARCH_HUGE_PTEP_SET_WRPROTECT
-+void huge_ptep_set_wrprotect(struct mm_struct *mm,
-+			     unsigned long addr, pte_t *ptep);
-+
-+#define __HAVE_ARCH_HUGE_PTEP_SET_ACCESS_FLAGS
-+int huge_ptep_set_access_flags(struct vm_area_struct *vma,
-+			       unsigned long addr, pte_t *ptep,
-+			       pte_t pte, int dirty);
-+
-+pte_t arch_make_huge_pte(pte_t entry, unsigned int shift, vm_flags_t 
-flags);
-+#define arch_make_huge_pte arch_make_huge_pte
-+
-+#endif /*CONFIG_RISCV_ISA_SVNAPOT*/
-+
-+#include <asm-generic/hugetlb.h>
-+
-  #endif /* _ASM_RISCV_HUGETLB_H */
-diff --git a/arch/riscv/mm/hugetlbpage.c b/arch/riscv/mm/hugetlbpage.c
-index 932dadfdca54..31e83beaab42 100644
---- a/arch/riscv/mm/hugetlbpage.c
-+++ b/arch/riscv/mm/hugetlbpage.c
-@@ -2,6 +2,305 @@
-  #include <linux/hugetlb.h>
-  #include <linux/err.h>
-
-+#ifdef CONFIG_RISCV_ISA_SVNAPOT
-+pte_t *huge_pte_alloc(struct mm_struct *mm,
-+		      struct vm_area_struct *vma,
-+		      unsigned long addr,
-+		      unsigned long sz)
+diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+index ff47bd0dec45..4683e49d90ad 100644
+--- a/drivers/irqchip/irq-sifive-plic.c
++++ b/drivers/irqchip/irq-sifive-plic.c
+@@ -17,6 +17,7 @@
+ #include <linux/of_irq.h>
+ #include <linux/platform_device.h>
+ #include <linux/spinlock.h>
++#include <linux/syscore_ops.h>
+ #include <asm/smp.h>
+ 
+ /*
+@@ -67,6 +68,8 @@ struct plic_priv {
+ 	struct irq_domain *irqdomain;
+ 	void __iomem *regs;
+ 	unsigned long plic_quirks;
++	unsigned int nr_irqs;
++	unsigned long *priority_reg;
+ };
+ 
+ struct plic_handler {
+@@ -78,11 +81,13 @@ struct plic_handler {
+ 	 */
+ 	raw_spinlock_t		enable_lock;
+ 	void __iomem		*enable_base;
++	u32			*enable_reg;
+ 	struct plic_priv	*priv;
+ };
+ static int plic_parent_irq __ro_after_init;
+ static bool plic_cpuhp_setup_done __ro_after_init;
+ static DEFINE_PER_CPU(struct plic_handler, plic_handlers);
++static struct plic_priv *priv_data;
+ 
+ static int plic_irq_set_type(struct irq_data *d, unsigned int type);
+ 
+@@ -229,6 +234,68 @@ static int plic_irq_set_type(struct irq_data *d, unsigned int type)
+ 	return IRQ_SET_MASK_OK;
+ }
+ 
++static int plic_irq_suspend(void)
 +{
-+	unsigned long order;
-+	pte_t *pte = NULL;
-+	pgd_t *pgd;
-+	p4d_t *p4d;
-+	pud_t *pud;
-+	pmd_t *pmd;
++	unsigned int i, cpu;
++	u32 __iomem *reg;
 +
-+	pgd = pgd_offset(mm, addr);
-+	p4d = p4d_alloc(mm, pgd, addr);
-+	if (!p4d)
-+		return NULL;
-+
-+	pud = pud_alloc(mm, p4d, addr);
-+	if (!pud)
-+		return NULL;
-+
-+	if (sz == PUD_SIZE) {
-+		pte = (pte_t *)pud;
-+		goto out;
-+	}
-+
-+	if (sz == PMD_SIZE) {
-+		if (want_pmd_share(vma, addr) && pud_none(*pud))
-+			pte = huge_pmd_share(mm, vma, addr, pud);
++	for (i = 0; i < priv_data->nr_irqs; i++)
++		if (readl(priv_data->regs + PRIORITY_BASE + i * PRIORITY_PER_ID))
++			__set_bit(i, priv_data->priority_reg);
 +		else
-+			pte = (pte_t *)pmd_alloc(mm, pud, addr);
-+		goto out;
-+	}
++			__clear_bit(i, priv_data->priority_reg);
 +
-+	pmd = pmd_alloc(mm, pud, addr);
-+	if (!pmd)
-+		return NULL;
++	for_each_cpu(cpu, cpu_present_mask) {
++		struct plic_handler *handler = per_cpu_ptr(&plic_handlers, cpu);
 +
-+	for_each_napot_order(order) {
-+		if (napot_cont_size(order) == sz) {
-+			pte = pte_alloc_map(mm, pmd, addr & napot_cont_mask(order));
-+			break;
++		if (!handler->present)
++			continue;
++
++		raw_spin_lock(&handler->enable_lock);
++		for (i = 0; i < DIV_ROUND_UP(priv_data->nr_irqs, 32); i++) {
++			reg = handler->enable_base + i * sizeof(u32);
++			handler->enable_reg[i] = readl(reg);
 +		}
++		raw_spin_unlock(&handler->enable_lock);
 +	}
 +
-+out:
-+	WARN_ON_ONCE(pte && pte_present(*pte) && !pte_huge(*pte));
-+	return pte;
-+}
-+
-+pte_t *huge_pte_offset(struct mm_struct *mm,
-+		       unsigned long addr,
-+		       unsigned long sz)
-+{
-+	unsigned long order;
-+	pte_t *pte = NULL;
-+	pgd_t *pgd;
-+	p4d_t *p4d;
-+	pud_t *pud;
-+	pmd_t *pmd;
-+
-+	pgd = pgd_offset(mm, addr);
-+	if (!pgd_present(*pgd))
-+		return NULL;
-+
-+	p4d = p4d_offset(pgd, addr);
-+	if (!p4d_present(*p4d))
-+		return NULL;
-+
-+	pud = pud_offset(p4d, addr);
-+	if (sz == PUD_SIZE)
-+		/* must be pud huge, non-present or none */
-+		return (pte_t *)pud;
-+
-+	if (!pud_present(*pud))
-+		return NULL;
-+
-+	pmd = pmd_offset(pud, addr);
-+	if (sz == PMD_SIZE)
-+		/* must be pmd huge, non-present or none */
-+		return (pte_t *)pmd;
-+
-+	if (!pmd_present(*pmd))
-+		return NULL;
-+
-+	for_each_napot_order(order) {
-+		if (napot_cont_size(order) == sz) {
-+			pte = pte_offset_kernel(pmd, addr & napot_cont_mask(order));
-+			break;
-+		}
-+	}
-+	return pte;
-+}
-+
-+static pte_t get_clear_contig(struct mm_struct *mm,
-+			      unsigned long addr,
-+			      pte_t *ptep,
-+			      unsigned long pte_num)
-+{
-+	pte_t orig_pte = ptep_get(ptep);
-+	unsigned long i;
-+
-+	for (i = 0; i < pte_num; i++, addr += PAGE_SIZE, ptep++) {
-+		pte_t pte = ptep_get_and_clear(mm, addr, ptep);
-+
-+		if (pte_dirty(pte))
-+			orig_pte = pte_mkdirty(orig_pte);
-+
-+		if (pte_young(pte))
-+			orig_pte = pte_mkyoung(orig_pte);
-+	}
-+
-+	return orig_pte;
-+}
-+
-+static pte_t get_clear_contig_flush(struct mm_struct *mm,
-+				    unsigned long addr,
-+				    pte_t *ptep,
-+				    unsigned long pte_num)
-+{
-+	pte_t orig_pte = get_clear_contig(mm, addr, ptep, pte_num);
-+	struct vm_area_struct vma = TLB_FLUSH_VMA(mm, 0);
-+	bool valid = !pte_none(orig_pte);
-+
-+	if (valid)
-+		flush_tlb_range(&vma, addr, addr + (PAGE_SIZE * pte_num));
-+
-+	return orig_pte;
-+}
-+
-+pte_t arch_make_huge_pte(pte_t entry, unsigned int shift, vm_flags_t flags)
-+{
-+	unsigned long order;
-+
-+	for_each_napot_order(order) {
-+		if (shift == napot_cont_shift(order)) {
-+			entry = pte_mknapot(entry, order);
-+			break;
-+		}
-+	}
-+	if (order == NAPOT_ORDER_MAX)
-+		entry = pte_mkhuge(entry);
-+
-+	return entry;
-+}
-+
-+void set_huge_pte_at(struct mm_struct *mm,
-+		     unsigned long addr,
-+		     pte_t *ptep,
-+		     pte_t pte)
-+{
-+	int i, pte_num;
-+
-+	if (!pte_napot(pte)) {
-+		set_pte_at(mm, addr, ptep, pte);
-+		return;
-+	}
-+
-+	pte_num = napot_pte_num(napot_cont_order(pte));
-+	for (i = 0; i < pte_num; i++, ptep++, addr += PAGE_SIZE)
-+		set_pte_at(mm, addr, ptep, pte);
-+}
-+
-+int huge_ptep_set_access_flags(struct vm_area_struct *vma,
-+			       unsigned long addr,
-+			       pte_t *ptep,
-+			       pte_t pte,
-+			       int dirty)
-+{
-+	struct mm_struct *mm = vma->vm_mm;
-+	unsigned long order;
-+	pte_t orig_pte;
-+	int i, pte_num;
-+
-+	if (!pte_napot(pte))
-+		return ptep_set_access_flags(vma, addr, ptep, pte, dirty);
-+
-+	order = napot_cont_order(pte);
-+	pte_num = napot_pte_num(order);
-+	ptep = huge_pte_offset(mm, addr, napot_cont_size(order));
-+	orig_pte = get_clear_contig_flush(mm, addr, ptep, pte_num);
-+
-+	if (pte_dirty(orig_pte))
-+		pte = pte_mkdirty(pte);
-+
-+	if (pte_young(orig_pte))
-+		pte = pte_mkyoung(pte);
-+
-+	for (i = 0; i < pte_num; i++, addr += PAGE_SIZE, ptep++)
-+		set_pte_at(mm, addr, ptep, pte);
-+
-+	return true;
-+}
-+
-+pte_t huge_ptep_get_and_clear(struct mm_struct *mm,
-+			      unsigned long addr,
-+			      pte_t *ptep)
-+{
-+	pte_t orig_pte = ptep_get(ptep);
-+	int pte_num;
-+
-+	if (!pte_napot(orig_pte))
-+		return ptep_get_and_clear(mm, addr, ptep);
-+
-+	pte_num = napot_pte_num(napot_cont_order(orig_pte));
-+
-+	return get_clear_contig(mm, addr, ptep, pte_num);
-+}
-+
-+void huge_ptep_set_wrprotect(struct mm_struct *mm,
-+			     unsigned long addr,
-+			     pte_t *ptep)
-+{
-+	pte_t pte = ptep_get(ptep);
-+	unsigned long order;
-+	int i, pte_num;
-+
-+	if (!pte_napot(pte)) {
-+		ptep_set_wrprotect(mm, addr, ptep);
-+		return;
-+	}
-+
-+	order = napot_cont_order(pte);
-+	pte_num = napot_pte_num(order);
-+	ptep = huge_pte_offset(mm, addr, napot_cont_size(order));
-+
-+	for (i = 0; i < pte_num; i++, addr += PAGE_SIZE, ptep++)
-+		ptep_set_wrprotect(mm, addr, ptep);
-+}
-+
-+pte_t huge_ptep_clear_flush(struct vm_area_struct *vma,
-+			    unsigned long addr,
-+			    pte_t *ptep)
-+{
-+	pte_t pte = ptep_get(ptep);
-+	int pte_num;
-+
-+	if (!pte_napot(pte))
-+		return ptep_clear_flush(vma, addr, ptep);
-+
-+	pte_num = napot_pte_num(napot_cont_order(pte));
-+
-+	return get_clear_contig_flush(vma->vm_mm, addr, ptep, pte_num);
-+}
-+
-+void huge_pte_clear(struct mm_struct *mm,
-+		    unsigned long addr,
-+		    pte_t *ptep,
-+		    unsigned long sz)
-+{
-+	pte_t pte = READ_ONCE(*ptep);
-+	int i, pte_num;
-+
-+	if (!pte_napot(pte)) {
-+		pte_clear(mm, addr, ptep);
-+		return;
-+	}
-+
-+	pte_num = napot_pte_num(napot_cont_order(pte));
-+	for (i = 0; i < pte_num; i++, addr += PAGE_SIZE, ptep++)
-+		pte_clear(mm, addr, ptep);
-+}
-+
-+bool __init is_napot_size(unsigned long size)
-+{
-+	unsigned long order;
-+
-+	if (!has_svnapot())
-+		return false;
-+
-+	for_each_napot_order(order) {
-+		if (size == napot_cont_size(order))
-+			return true;
-+	}
-+	return false;
-+}
-+
-+static __init int napot_hugetlbpages_init(void)
-+{
-+	if (has_svnapot()) {
-+		unsigned long order;
-+
-+		for_each_napot_order(order)
-+			hugetlb_add_hstate(order);
-+	}
 +	return 0;
 +}
-+arch_initcall(napot_hugetlbpages_init);
 +
-+#else
-+
-+bool __init is_napot_size(unsigned long size)
++static void plic_irq_resume(void)
 +{
-+	return false;
++	unsigned int i, cpu;
++	u32 __iomem *reg;
++
++	for (i = 0; i < priv_data->nr_irqs; i++)
++		writel(test_bit(i, priv_data->priority_reg),
++				priv_data->regs + PRIORITY_BASE + i * PRIORITY_PER_ID);
++
++	for_each_cpu(cpu, cpu_present_mask) {
++		struct plic_handler *handler = per_cpu_ptr(&plic_handlers, cpu);
++
++		if (!handler->present)
++			continue;
++
++		raw_spin_lock(&handler->enable_lock);
++		for (i = 0; i < DIV_ROUND_UP(priv_data->nr_irqs, 32); i++) {
++			reg = handler->enable_base + i * sizeof(u32);
++			writel(handler->enable_reg[i], reg);
++		}
++		raw_spin_unlock(&handler->enable_lock);
++	}
 +}
 +
-+#endif /*CONFIG_RISCV_ISA_SVNAPOT*/
++static struct syscore_ops plic_irq_syscore_ops = {
++	.suspend	= plic_irq_suspend,
++	.resume		= plic_irq_resume,
++};
 +
-  int pud_huge(pud_t pud)
-  {
-  	return pud_leaf(pud);
-@@ -18,6 +317,8 @@ bool __init arch_hugetlb_valid_size(unsigned long size)
-  		return true;
-  	else if (IS_ENABLED(CONFIG_64BIT) && size == PUD_SIZE)
-  		return true;
-+	else if (is_napot_size(size))
-+		return true;
-  	else
-  		return false;
-  }
++static void plic_irq_pm_init(void)
++{
++	register_syscore_ops(&plic_irq_syscore_ops);
++}
++
+ static int plic_irqdomain_map(struct irq_domain *d, unsigned int irq,
+ 			      irq_hw_number_t hwirq)
+ {
+@@ -345,12 +412,14 @@ static int __init __plic_init(struct device_node *node,
+ 	u32 nr_irqs;
+ 	struct plic_priv *priv;
+ 	struct plic_handler *handler;
++	unsigned int cpu;
+ 
+ 	priv = kzalloc(sizeof(*priv), GFP_KERNEL);
+ 	if (!priv)
+ 		return -ENOMEM;
+ 
+ 	priv->plic_quirks = plic_quirks;
++	priv_data = priv;
+ 
+ 	priv->regs = of_iomap(node, 0);
+ 	if (WARN_ON(!priv->regs)) {
+@@ -363,15 +432,23 @@ static int __init __plic_init(struct device_node *node,
+ 	if (WARN_ON(!nr_irqs))
+ 		goto out_iounmap;
+ 
++	priv->nr_irqs = nr_irqs;
++
++	priv->priority_reg = kcalloc(DIV_ROUND_UP(nr_irqs,
++		sizeof(unsigned long) * 8),
++		sizeof(unsigned long), GFP_KERNEL);
++	if (!priv->priority_reg)
++		goto out_free_priority_reg;
++
+ 	nr_contexts = of_irq_count(node);
+ 	if (WARN_ON(!nr_contexts))
+-		goto out_iounmap;
++		goto out_free_priority_reg;
+ 
+ 	error = -ENOMEM;
+ 	priv->irqdomain = irq_domain_add_linear(node, nr_irqs + 1,
+ 			&plic_irqdomain_ops, priv);
+ 	if (WARN_ON(!priv->irqdomain))
+-		goto out_iounmap;
++		goto out_free_priority_reg;
+ 
+ 	for (i = 0; i < nr_contexts; i++) {
+ 		struct of_phandle_args parent;
+@@ -441,6 +518,11 @@ static int __init __plic_init(struct device_node *node,
+ 		handler->enable_base = priv->regs + CONTEXT_ENABLE_BASE +
+ 			i * CONTEXT_ENABLE_SIZE;
+ 		handler->priv = priv;
++
++		handler->enable_reg =  kcalloc(DIV_ROUND_UP(nr_irqs, 32),
++			32, GFP_KERNEL);
++		if (!handler->enable_reg)
++			goto out_free_enable_reg;
+ done:
+ 		for (hwirq = 1; hwirq <= nr_irqs; hwirq++) {
+ 			plic_toggle(handler, hwirq, 0);
+@@ -461,11 +543,19 @@ static int __init __plic_init(struct device_node *node,
+ 				  plic_starting_cpu, plic_dying_cpu);
+ 		plic_cpuhp_setup_done = true;
+ 	}
++	plic_irq_pm_init();
+ 
+ 	pr_info("%pOFP: mapped %d interrupts with %d handlers for"
+ 		" %d contexts.\n", node, nr_irqs, nr_handlers, nr_contexts);
+ 	return 0;
+ 
++out_free_enable_reg:
++	for_each_cpu(cpu, cpu_present_mask) {
++		handler = per_cpu_ptr(&plic_handlers, cpu);
++		kfree(handler->enable_reg);
++	}
++out_free_priority_reg:
++	kfree(priv->priority_reg);
+ out_iounmap:
+ 	iounmap(priv->regs);
+ out_free_priv:
 -- 
-2.39.1
+2.39.0
 
 
 _______________________________________________
