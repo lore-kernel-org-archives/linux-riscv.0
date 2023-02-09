@@ -4,75 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 689CBC61DA4
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Feb 2023 18:49:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5691C636D3
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Feb 2023 19:05:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=0M8u/L74M5KBle7LOLVHKNrGgFIA4h/kNLkKnciD+c8=; b=F8zRb7j7UoxY7CcPUNumV5RlRW
-	0lgQBq4eFHzbf5MH90YKeHpjYkR6N+TgDujO4edAhnRm/4ODDXOKufvB6Nbzl8KkuRQvXakXuBh6l
-	NOO27dNL+imsfetJt5hf7D39tqRrpcpHr6/QgikGACuThdC6iubj++PpdFvIkwejIHPykoZdxMKmd
-	TT/gre1Xs0gND4Pj49H/NXJF3A4GW6WrghDEjkcHuTXOlReEXAqWzhWWOtB4F8l9WTh05+McjMsxT
-	jxKO9Lm8rCYjVwdeIu5JMIFC4QtAeTT7GzDh4rpKTp8aAazWUjZEcu1Kf+xtmOWv1jFOmGL6zAGKS
-	9mld61jQ==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h3wvbhud322yqzu8nEyk0w7i7YK7pseY4615e8YN0Q4=; b=hzy4U2M6tydx0Pi6SrkSlyGIcd
+	XHWOHsKZLz6EKKGzCCmwKssafgwpacyYTx23rde1KYJOcra4XJy2MBFpt8QWLHl2T2R/OGSFEvsFK
+	+gbzZ0+sYYVDpqyh2vD+jU5T4oTCVJJfzXQLQVzv7s0CfFUOHkff8iDqkRz4WGp+oLIkwPStYTSk6
+	p5iABhBlawGIQevzOFFpzuR3/KRSp1rFavtjvtN797/FXoeRJiOg958nZ4iKuMExDisJcxsBPxcWG
+	TbMIJoiMQOjC9S1ncv0CQf9I5f1zmWk8P/PrU6NoZKKzTTOUaCODSokzyvG/FDLG2cZVWZz2SZy5m
+	lHGxDkvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQByk-002tku-4l; Thu, 09 Feb 2023 18:49:06 +0000
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
+	id 1pQCEK-002wE9-5r; Thu, 09 Feb 2023 19:05:12 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQByf-002tiC-Qe
-	for linux-riscv@lists.infradead.org; Thu, 09 Feb 2023 18:49:03 +0000
-Received: by mail-pg1-x529.google.com with SMTP id 141so2230119pgc.0
-        for <linux-riscv@lists.infradead.org>; Thu, 09 Feb 2023 10:48:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=jBCCRT/9+pLKu5FymkoHc9xf4Gc9hpzzFtrQnNwvTxw=;
-        b=bKF5d5Nd8lyHPOWWI1AwfhtshWiysfT7QgeZlxRG/tNrLtNbT2neFQwDH4LoqWpldT
-         +CbG8L2bzmr0hfZ8gavYm2gU3AWV4Oz+K5vZA/JcGJh760dQpCMnNNYJO1c5lIT2TZj9
-         xtMd6E8wyOvler1mJnGXghGbzu7HpGyKgAcctGAz/+MmyOycRlyCkzDPp3ZvUZJLZy3j
-         rd8Q2mcXIffUDGpm/H8Lw/ExWODfC/8w+00KTreqJidGP4srGgEMTeju68DRk44aLOZZ
-         zoJUCFicRoyniTDTrgujH1Wwq98xBVJsn8WaS6TNUTXU4Zu2BBMVMUYsRnZuwIvHXIs9
-         7esA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=jBCCRT/9+pLKu5FymkoHc9xf4Gc9hpzzFtrQnNwvTxw=;
-        b=VFdWiqhAzjqGi7bC1L4VVD5Qa6QEUL9PeAGCcNAOlHUx5lCsNjj2KHRd2oGdUDoG+j
-         SKVyJUNyUpTupnoDz8jk3h79biO9Mc5xkJO0ZjYCArZUqgc5BziLmeH2CLmTBiuikOAS
-         jRW+QxYM8vOzNoPQu8FbGM1c6cjiOq8cusPFWjnR5ZYTfvQsJSiP6S5rQZc/p9O+QXIo
-         FK1PAkuIk2qpJDm6+oPCfbzZ04pYPfBFU+YH38f2qJ57U0a5Ke+gRAHeretWX3hcFeQz
-         +bktPHjl2grVCLtpGJduWpgyfbUzu5KDWaicn0hkyOmbYPWmjPJLUqhHVqUl9UFkfH0l
-         x35w==
-X-Gm-Message-State: AO0yUKUGFa/nNZsdlqBYuw6hjJVecEG7QQfjeYyztxj6Gl0DHDGwWmm6
-	ugZmKRpBJkAZ9Bk3wIbctRyaEdk6xsGB9vU5
-X-Google-Smtp-Source: AK7set+8uRYm02PUJG2CI1RNNKf0Dv8QTlWW8X4JW7B0f5RBh37dYdguHZpdEr6DnQO8aegWmvmpXg==
-X-Received: by 2002:a62:164b:0:b0:5a8:5247:2593 with SMTP id 72-20020a62164b000000b005a852472593mr3046770pfw.28.1675968538638;
-        Thu, 09 Feb 2023 10:48:58 -0800 (PST)
-Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id n12-20020aa78a4c000000b005a7e9d0c419sm1767046pfa.58.2023.02.09.10.48.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 Feb 2023 10:48:58 -0800 (PST)
-Date: Thu, 09 Feb 2023 10:48:58 -0800 (PST)
-X-Google-Original-Date: Thu, 09 Feb 2023 10:46:25 PST (-0800)
-Subject: Re: [PATCH] Documentation: riscv: fix insufficient list item indent
-In-Reply-To: <Y9c0EU5epWCeoPB8@debian.me>
-CC: Conor Dooley <conor@kernel.org>, Conor Dooley <conor.dooley@microchip.com>,
-  linux-riscv@lists.infradead.org, linux-doc@vger.kernel.org, corbet@lwn.net, lkp@intel.com
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: bagasdotme@gmail.com
-Message-ID: <mhng-4defd1c9-ee2a-4f95-89f9-7c47ee6b97e9@palmer-ri-x1c9a>
-Mime-Version: 1.0 (MHng)
+	id 1pQCEG-002wCf-QU; Thu, 09 Feb 2023 19:05:10 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 76F95B822BE;
+	Thu,  9 Feb 2023 19:05:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C169C433EF;
+	Thu,  9 Feb 2023 19:05:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1675969505;
+	bh=buvYIsrhn1oB7B2jLvbD4S8NrUtc03iq+TFR/uY3GJA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pBa/7OssRr955SL08GKrYJ1lJqn20kDxi4Epp1Quie+ePadJ8xGcxMq/lUgfrBb3x
+	 D9gxfY7MHPZpXMHAn9lY+hA7qX82n4RCS57ExKNVvKcf5fhXiAKE7J6n2Z4Cm1ks3E
+	 lPcHEXYS74mevTl76d7oNnLFUowtNOABEd3TAuIGYGRWJFgRd4kxs3IwEyzH8fgaHS
+	 DxVp7xPWw/N03j+hxgYdPRDcFmXaEpCJwtLw5ODpGV3Yfl1oaEt2uwhSuQZAucCPP7
+	 Bc0NrM/bMSXe+0i4GFBoumIDJNO6ffz0+kWL72SZ5CqgIfyOPitN8OtM6paLRbxzuK
+	 I90rhe4vM02eQ==
+Date: Thu, 9 Feb 2023 19:04:59 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org, 'Anup Patel ' <apatel@ventanamicro.com>,
+	'Palmer Dabbelt ' <palmer@dabbelt.com>,
+	'Paul Walmsley ' <paul.walmsley@sifive.com>,
+	'Krzysztof Kozlowski ' <krzysztof.kozlowski+dt@linaro.org>,
+	'Atish Patra ' <atishp@rivosinc.com>,
+	'Heiko Stuebner ' <heiko@sntech.de>,
+	'Jisheng Zhang ' <jszhang@kernel.org>,
+	'Rob Herring ' <robh@kernel.org>,
+	'Albert Ou ' <aou@eecs.berkeley.edu>,
+	'Conor Dooley ' <conor.dooley@microchip.com>
+Subject: Re: [PATCH v4 5/8] RISC-V: cpufeature: Put vendor_id to work
+Message-ID: <Y+VD2/owMIvqzOx8@spud>
+References: <20230209152628.129914-1-ajones@ventanamicro.com>
+ <20230209152628.129914-6-ajones@ventanamicro.com>
+MIME-Version: 1.0
+In-Reply-To: <20230209152628.129914-6-ajones@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230209_104901_885740_BCDF91D1 
-X-CRM114-Status: GOOD (  20.81  )
+X-CRM114-CacheID: sfid-20230209_110509_215503_90407C3B 
+X-CRM114-Status: GOOD (  26.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,65 +75,158 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============6662951287482923990=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 29 Jan 2023 19:05:53 PST (-0800), bagasdotme@gmail.com wrote:
-> On Sun, Jan 29, 2023 at 11:57:01PM +0000, Conor Dooley wrote:
->> From: Conor Dooley <conor.dooley@microchip.com>
->> 
->> When adding the ISA string ordering rules, I didn't sufficiently indent
->> one of the list items.
->> 
->> Reported-by: kernel test robot <lkp@intel.com>
->> Fixes: f07b2b3f9d47 ("Documentation: riscv: add a section about ISA string ordering in /proc/cpuinfo")
->> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
->
-> Seems like you forget to add link to the report:
->
-> Link: https://lore.kernel.org/linux-doc/202301300743.bp7Dpazv-lkp@intel.com/
 
-Is that the normal way to do it?  I've only been adding the Reported-by 
-like the bot suggests, but I guess it's kind of nice information to have 
-the bug report as well.  From looking at git history it's kind of a mix.
+--===============6662951287482923990==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="f0wBqtZLHXrhN6vM"
+Content-Disposition: inline
 
-Maybe the bot should suggest this in the bug report, right next to the other
-tag?
 
->> ---
->>  Documentation/riscv/uabi.rst | 8 ++++----
->>  1 file changed, 4 insertions(+), 4 deletions(-)
->> 
->> diff --git a/Documentation/riscv/uabi.rst b/Documentation/riscv/uabi.rst
->> index 2ebec4c52230..8960fac42c40 100644
->> --- a/Documentation/riscv/uabi.rst
->> +++ b/Documentation/riscv/uabi.rst
->> @@ -21,10 +21,10 @@ so for our purposes the following rules apply:
->>     single-letter extensions and before any higher-privileged extensions.
->>  
->>  #. For additional standard extensions, the first letter following the 'Z'
->> -  conventionally indicates the most closely related alphabetical
->> -  extension category. If multiple 'Z' extensions are named, they will be ordered
->> -  first by category, in canonical order, as listed above, then alphabetically
->> -  within a category.
->> +   conventionally indicates the most closely related alphabetical
->> +   extension category. If multiple 'Z' extensions are named, they will be
->> +   ordered first by category, in canonical order, as listed above, then
->> +   alphabetically within a category.
->>  
->>  #. Standard supervisor-level extensions (starting with 'S') will be listed
->>     after standard unprivileged extensions.  If multiple supervisor-level
->
-> The warning is fixed, thanks!
->
-> Reviewed-by: Bagas Sanjaya <bagasdotme@gmail.com>
->
-> -- 
-> An old man doll... just what I always wanted! - Clara
+--f0wBqtZLHXrhN6vM
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hey Drew,
+
+On Thu, Feb 09, 2023 at 04:26:25PM +0100, Andrew Jones wrote:
+> When [ab]using alternatives as cpufeature "static keys", which can
+> be used in assembly, also put vendor_id to work as application-
+> specific data. This will be initially used in Zicboz's application to
+> clear_page(), as Zicboz's block size must also be considered. In that
+> case, vendor_id's role will be to convey the maximum block size which
+> the Zicboz clear_page() implementation supports.
+>=20
+> cpufeature alternative applications which need to check for the
+> existence or absence of other cpufeatures may also be able to make
+> use of this.
+>=20
+> Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+> ---
+>  arch/riscv/kernel/cpufeature.c | 10 ++++++++--
+>  1 file changed, 8 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeatur=
+e.c
+> index 0d2db03cf167..74736b4f0624 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -278,6 +278,11 @@ void __init riscv_fill_hwcap(void)
+>  }
+> =20
+>  #ifdef CONFIG_RISCV_ALTERNATIVE
+
+I think a comment here about what "application check" means would be
+nice.
+That wording just feels clunky & the meaning is not immediately
+graspable?
+
+/*
+ * riscv_cpufeature_application_check() - Check if a cpufeature applies.
+ * The presence of a cpufeature does not mean it is necessarily
+ * useable. This function is used to apply the alternative on a
+ * case-by-case basis.
+ */
+
+Dunno, does something like that convey the intent?
+
+> +static bool riscv_cpufeature_application_check(u32 feature, u16 data)
+> +{
+> +	return data =3D=3D 0;
+> +}
+> +
+>  void __init_or_module riscv_cpufeature_patch_func(struct alt_entry *begi=
+n,
+>  						  struct alt_entry *end,
+>  						  unsigned int stage)
+> @@ -289,8 +294,6 @@ void __init_or_module riscv_cpufeature_patch_func(str=
+uct alt_entry *begin,
+>  		return;
+> =20
+>  	for (alt =3D begin; alt < end; alt++) {
+> -		if (alt->vendor_id !=3D 0)
+> -			continue;
+
+Can you remind me what makes this "safe"?
+My understanding was that a vendor_id of zero was safe, as zero is
+reserved in JEDEC.
+What is stopping someone stuffing this with a given value and
+colliding with a real vendor's errata?
+
+	for (alt =3D begin; alt < end; alt++) {
+		if (alt->vendor_id !=3D A_VENDOR_ID)
+			continue;
+		if (alt->errata_id >=3D ERRATA_A_NUMBER)
+			continue;
+
+		tmp =3D (1U << alt->errata_id);
+		if (cpu_req_errata & tmp) {
+			oldptr =3D ALT_OLD_PTR(alt);
+			altptr =3D ALT_ALT_PTR(alt);
+
+			/* On vm-alternatives, the mmu isn't running yet */
+			if (stage =3D=3D RISCV_ALTERNATIVES_EARLY_BOOT)
+				memcpy((void *)__pa_symbol(oldptr),
+				       (void *)__pa_symbol(altptr),
+				       alt->alt_len);
+			else
+				patch_text_nosync(oldptr, altptr, alt->alt_len);
+		}
+	}
+
+I've probably just missing something, my brain swapped out alternatives
+the other week. Hopefully whatever I missed isn't embarrassingly obvious!
+
+Cheers,
+Conor.
+
+>  		if (alt->errata_id >=3D RISCV_ISA_EXT_MAX) {
+>  			WARN(1, "This extension id:%d is not in ISA extension list",
+>  				alt->errata_id);
+> @@ -300,6 +303,9 @@ void __init_or_module riscv_cpufeature_patch_func(str=
+uct alt_entry *begin,
+>  		if (!__riscv_isa_extension_available(NULL, alt->errata_id))
+>  			continue;
+> =20
+> +		if (!riscv_cpufeature_application_check(alt->errata_id, alt->vendor_id=
+))
+> +			continue;
+> +
+>  		oldptr =3D ALT_OLD_PTR(alt);
+>  		altptr =3D ALT_ALT_PTR(alt);
+>  		patch_text_nosync(oldptr, altptr, alt->alt_len);
+> --=20
+> 2.39.1
+>=20
+
+--f0wBqtZLHXrhN6vM
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY+VD2wAKCRB4tDGHoIJi
+0tdiAP4kOYMLH3byXTeESx+WKaoDFDZ+WqWL6KuJR0lPG7+/NAD+K/lQRdCtXEIy
+6baWI5c3148YvFzQA5sN3KeX/j3CtQM=
+=sV7f
+-----END PGP SIGNATURE-----
+
+--f0wBqtZLHXrhN6vM--
+
+
+--===============6662951287482923990==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6662951287482923990==--
+
