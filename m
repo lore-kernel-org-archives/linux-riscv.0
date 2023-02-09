@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 514C5C61DA4
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Feb 2023 21:14:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD615C61DA4
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Feb 2023 21:48:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tBvrEyFPSpyqFxBmKO+NF6/qleu5kNNN2aACQ4KwpIo=; b=eLwxHZv0GFuvi8WUXagGS5i9qV
-	BGaOpV95BzlvRYWp3MgEZwYJazwOOYW3/kSgnURj2RqrzNrxp+R10gbVXA2pW9Kj7A7z9vStVj7rX
-	5yQYn5xyPYZBfIDXduLeVNh8/itLkOGx24ETxUwMHRbkVNri92Tf9Ul3i7E5c1nW2ZmvwofCRA1hV
-	KqI6ERFsCe9yfuaJYpgE30pOK2XPNiWDEjpRvEh2lbsn0CXos7sh6rgqINTchI/D6cwnju5y79opR
-	UeziXFTlCN/D32tqJdFeBUTU5ovKOUgadr4fSCrXxXulbVtIgfvrFB9leC9aQMXE+HglYgY5HxP2V
-	A2J4PxVA==;
+	bh=YHqrOT67IK/SmOcYg1i9VOGH6yJW3DNbkp1RaJlZUXg=; b=a6TytnCN4H67f4T50NZM6vnE7c
+	wsjOHo5abms5Xg6MrpiJaAvyjLq+wu1fjEVdMur4K0zDuaEysFKJ7zQ1LUIqJQIoJtMuVVIip/8h7
+	yYCtretr1AW/z90of3Zu7SAeQFxBNeGbJxQc3yHM1jWyFD6LpN8LtxwuKG0qUeZJIOq53kP3N6/1f
+	4YPBXP1JVi6C0moBfsmXVSlTFb1ESG0oW6KC6th42w+TlsSToLipHQ4WDLWJwttRF8yIMyzkNoTBC
+	P7Bsju3egRB3Am1i9YPzsU4LH5V72ldUbs+0yBs/BKpzJH4y4eyb68L7rgJnuqvizyUIfvK93CbLv
+	S9NWKuIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQEEn-003FrK-UW; Thu, 09 Feb 2023 21:13:49 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pQElw-003JkF-CA; Thu, 09 Feb 2023 21:48:04 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQEEl-003Fqd-1j
-	for linux-riscv@lists.infradead.org; Thu, 09 Feb 2023 21:13:48 +0000
+	id 1pQElt-003JjR-2X
+	for linux-riscv@lists.infradead.org; Thu, 09 Feb 2023 21:48:02 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 210BD61BBE;
-	Thu,  9 Feb 2023 21:13:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64891C433EF;
-	Thu,  9 Feb 2023 21:13:40 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 53810B816DD;
+	Thu,  9 Feb 2023 21:47:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9696C433D2;
+	Thu,  9 Feb 2023 21:47:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1675977223;
-	bh=DUiPVlHbL2i0BESbk6WD0HB3BwdUtI3zLk+jk/oecSk=;
+	s=k20201202; t=1675979278;
+	bh=mErqtIQBoeSkdSxOuenf0IjrrVZ2mXhZeJP7FHByKv4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=R99QZlvYfFH5BdG12Odtu+dq7zA3DAXy676GePCzsshtibVimjpNyI1fuj+FQ3TC6
-	 6e+t/pCXTKUGH0PE2MSqDGMIDyVyrSS/dlrK94DB4cN5MksGMut5jB5ixj7N3GoO6N
-	 ktTvYmbl5NJ/bALFTKG/HDt9/V7iev1gqSu3ZxlspESouHg0ZHOv654JjRVCBQKmc3
-	 W96DSJWFVEp22NFG+fpqbV4IdxLnytmsWzs8zEuS1QrAC8VlEh5hEVZjUJjfMBbUxv
-	 n+0q2N5vuNyOduNVOtMnEX5Z/qNx28UviuCsEU5KFn9f12IncZxnrHKx7MKca85Y1M
-	 /4DTTCuCA09Fg==
-Date: Thu, 9 Feb 2023 21:13:37 +0000
+	b=SstulZTHFiZBnb+Ul+dLXXuM1lUa2z/NHAz4mWnpHEkkZIo7xZly4ps8MY0PzEBdn
+	 /NKR5KfxakdDN2OKlemJEHGbf/gFlbNtwuBTgEhH2LH8YvjqA7g3QsaPrpSumHxuLB
+	 2rYVFPq/09Yd5pp24WCwdIBxRoAIaLK242olaedynGus+O/mEDrDYwnIaY6ApUAXn/
+	 Fr+UZ7Z7NqoChGYZnS+yM0T7PxBpCwvLrzOtbI49e9aaBAjzXOZvmCH7KrNMxQw1bQ
+	 zkm4gfeV7i2BrXXZhZ7rpEC/S6HRFHxWpQnvS4TVXLPOp10xAnC7etmwSA7oMW16w9
+	 w29t8/39fOSjA==
+Date: Thu, 9 Feb 2023 21:47:52 +0000
 From: Conor Dooley <conor@kernel.org>
 To: Sunil V L <sunilvl@ventanamicro.com>
 Cc: Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
@@ -55,15 +55,16 @@ Cc: Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
 	linux-doc@vger.kernel.org, Anup Patel <apatel@ventanamicro.com>,
 	Andrew Jones <ajones@ventanamicro.com>,
 	Atish Patra <atishp@rivosinc.com>
-Subject: Re: [PATCH 20/24] RISC-V: ACPI: cpu: Enable cpuinfo for ACPI systems
-Message-ID: <Y+ViASnch0Fp1rju@spud>
+Subject: Re: [PATCH 19/24] RISC-V: ACPI: cpufeature: Add ACPI support in
+ riscv_fill_hwcap()
+Message-ID: <Y+VqCLVETZBRn6iX@spud>
 References: <20230130182225.2471414-1-sunilvl@ventanamicro.com>
- <20230130182225.2471414-21-sunilvl@ventanamicro.com>
+ <20230130182225.2471414-20-sunilvl@ventanamicro.com>
 MIME-Version: 1.0
-In-Reply-To: <20230130182225.2471414-21-sunilvl@ventanamicro.com>
+In-Reply-To: <20230130182225.2471414-20-sunilvl@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230209_131347_195012_A87EF33D 
-X-CRM114-Status: GOOD (  23.93  )
+X-CRM114-CacheID: sfid-20230209_134801_453964_EF481F35 
+X-CRM114-Status: GOOD (  25.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,140 +76,165 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4007085554310162944=="
+Content-Type: multipart/mixed; boundary="===============8466934024341614067=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============4007085554310162944==
+--===============8466934024341614067==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="lYAs3kYMw0C9GEQE"
+	protocol="application/pgp-signature"; boundary="tx9qe1Dbq1j6lMq2"
 Content-Disposition: inline
 
 
---lYAs3kYMw0C9GEQE
+--tx9qe1Dbq1j6lMq2
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Mon, Jan 30, 2023 at 11:52:21PM +0530, Sunil V L wrote:
-> On ACPI based platforms, few details like ISA need to be read
-> from the ACPI table. Enable cpuinfo on ACPI based systems.
+On Mon, Jan 30, 2023 at 11:52:20PM +0530, Sunil V L wrote:
+> On ACPI based systems, the information about the hart
+> like ISA, extesions supported are defined in RISC-V Hart
+> Capabilities Table (RHCT). Enable filling up hwcap structure
+> based on the information in RHCT.
 >=20
 > Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
 > ---
->  arch/riscv/kernel/cpu.c | 36 +++++++++++++++++++++++++++++-------
->  1 file changed, 29 insertions(+), 7 deletions(-)
+>  arch/riscv/kernel/cpufeature.c | 45 ++++++++++++++++++++++++++++------
+>  1 file changed, 38 insertions(+), 7 deletions(-)
 >=20
-> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-> index 1b9a5a66e55a..bd6c0fcfe4ce 100644
-> --- a/arch/riscv/kernel/cpu.c
-> +++ b/arch/riscv/kernel/cpu.c
-> @@ -3,6 +3,7 @@
->   * Copyright (C) 2012 Regents of the University of California
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeatur=
+e.c
+> index 93e45560af30..c10177c608f8 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -6,12 +6,14 @@
+>   * Copyright (C) 2017 SiFive
 >   */
 > =20
 > +#include <linux/acpi.h>
->  #include <linux/cpu.h>
->  #include <linux/init.h>
->  #include <linux/seq_file.h>
-> @@ -256,26 +257,47 @@ static void c_stop(struct seq_file *m, void *v)
->  {
->  }
+>  #include <linux/bitmap.h>
+>  #include <linux/ctype.h>
+>  #include <linux/libfdt.h>
+>  #include <linux/log2.h>
+>  #include <linux/module.h>
+>  #include <linux/of.h>
+> +#include <asm/acpi.h>
+>  #include <asm/alternative.h>
+>  #include <asm/cacheflush.h>
+>  #include <asm/errata_list.h>
+> @@ -21,6 +23,7 @@
+>  #include <asm/processor.h>
+>  #include <asm/smp.h>
+>  #include <asm/switch_to.h>
+> +#include <linux/of_device.h>
+
+Is there a reason this header is not added with the other linux ones?
+
 > =20
-> +#ifdef CONFIG_ACPI
-> +void acpi_print_hart_info(struct seq_file *m,
-> +			  unsigned long cpu)
-
-Surely this fits on one line?
-
-> +{
-> +	const char *isa;
-> +
-> +	if (!acpi_get_riscv_isa(NULL, get_acpi_id_for_cpu(cpu), &isa))
-> +		print_isa(m, isa);
-
-Do you really need to guard this function? Aren't there nop'ed versions
-of acpi_get_riscv_isa() and get_acpi_id_for_cpu() in acpi.h?
-
-IMO, basically any use of ifdeffery you can cleanly remove from a c file
-is a worthwhile change.
-
-> +
-
-Extra blank line here FYI.
-
-> +}
-> +#endif
-> +
->  static int c_show(struct seq_file *m, void *v)
->  {
->  	unsigned long cpu_id =3D (unsigned long)v - 1;
-> -	struct device_node *node =3D of_get_cpu_node(cpu_id, NULL);
->  	struct riscv_cpuinfo *ci =3D per_cpu_ptr(&riscv_cpuinfo, cpu_id);
-> +	struct device_node *node;
->  	const char *compat, *isa;
+>  #define NUM_ALPHA_EXTS ('z' - 'a' + 1)
 > =20
->  	seq_printf(m, "processor\t: %lu\n", cpu_id);
->  	seq_printf(m, "hart\t\t: %lu\n", cpuid_to_hartid_map(cpu_id));
-> -	if (!of_property_read_string(node, "riscv,isa", &isa))
-> -		print_isa(m, isa);
+> @@ -93,7 +96,10 @@ void __init riscv_fill_hwcap(void)
+>  	char print_str[NUM_ALPHA_EXTS + 1];
+>  	int i, j, rc;
+>  	unsigned long isa2hwcap[26] =3D {0};
+> +	struct acpi_table_header *rhct;
+> +	acpi_status status;
+>  	unsigned long hartid;
+> +	unsigned int cpu;
+> =20
+>  	isa2hwcap['i' - 'a'] =3D COMPAT_HWCAP_ISA_I;
+>  	isa2hwcap['m' - 'a'] =3D COMPAT_HWCAP_ISA_M;
+> @@ -106,18 +112,38 @@ void __init riscv_fill_hwcap(void)
+> =20
+>  	bitmap_zero(riscv_isa, RISCV_ISA_EXT_MAX);
+> =20
+> -	for_each_of_cpu_node(node) {
+> +	if (!acpi_disabled) {
 > +
-> +	if (acpi_disabled) {
-> +		node =3D of_get_cpu_node(cpu_id, NULL);
-> +		if (!of_property_read_string(node, "riscv,isa", &isa))
-> +			print_isa(m, isa);
-> +		if (!of_property_read_string(node, "compatible", &compat)
-> +		    && strcmp(compat, "riscv"))
-                    ^^ this should be on the line above
-TBH the whole series is in need of a checkpatch --strict run IMO,
-there's a bunch of coding style issues throughout.
 
-> +			seq_printf(m, "uarch\t\t: %s\n", compat);
-> +		of_node_put(node);
+Extraneous blank line.
+
+> +		status =3D acpi_get_table(ACPI_SIG_RHCT, 0, &rhct);
+> +		if (ACPI_FAILURE(status))
+> +			return;
 > +	}
-> +#ifdef CONFIG_ACPI
-> +	else
-> +		acpi_print_hart_info(m, cpu_id);
+> +
+> +	for_each_possible_cpu(cpu) {
+>  		unsigned long this_hwcap =3D 0;
+>  		DECLARE_BITMAP(this_isa, RISCV_ISA_EXT_MAX);
+>  		const char *temp;
+> =20
+> -		rc =3D riscv_of_processor_hartid(node, &hartid);
+> -		if (rc < 0)
+> -			continue;
+> +		if (acpi_disabled) {
+> +			node =3D of_cpu_device_node_get(cpu);
+> +			if (node) {
+> +				rc =3D riscv_of_processor_hartid(node, &hartid);
+> +				if (rc < 0)
+> +					continue;
+> =20
+> -		if (of_property_read_string(node, "riscv,isa", &isa)) {
+> -			pr_warn("Unable to find \"riscv,isa\" devicetree entry\n");
+> -			continue;
+> +				if (of_property_read_string(node, "riscv,isa", &isa)) {
+> +					pr_warn("Unable to find \"riscv,isa\" devicetree entry\n");
+> +					continue;
+> +				}
+> +				of_node_put(node);
+> +			}
+> +		} else {
+> +			rc =3D acpi_get_riscv_isa(rhct, get_acpi_id_for_cpu(cpu), &isa);
+> +			if (rc < 0) {
+> +				pr_warn("Unable to get ISA for the hart - %d\n",
+> +						cpu);
 
-Delete the ifdeffery here too please :)
+The alignment here is wrong, but the whole thing fits on a single line.
+
+> +				continue;
+> +			}
+>  		}
+> =20
+>  		temp =3D isa;
+> @@ -248,6 +274,11 @@ void __init riscv_fill_hwcap(void)
+>  			bitmap_and(riscv_isa, riscv_isa, this_isa, RISCV_ISA_EXT_MAX);
+>  	}
+> =20
+> +#ifdef CONFIG_ACPI
+
+Is this guard actually needed, or is acpi_put_table() always available?
 
 Cheers,
 Conor.
 
+> +	if (!acpi_disabled)
+> +		acpi_put_table((struct acpi_table_header *)rhct);
 > +#endif
 > +
->  	print_mmu(m);
-> -	if (!of_property_read_string(node, "compatible", &compat)
-> -	    && strcmp(compat, "riscv"))
-> -		seq_printf(m, "uarch\t\t: %s\n", compat);
->  	seq_printf(m, "mvendorid\t: 0x%lx\n", ci->mvendorid);
->  	seq_printf(m, "marchid\t\t: 0x%lx\n", ci->marchid);
->  	seq_printf(m, "mimpid\t\t: 0x%lx\n", ci->mimpid);
->  	seq_puts(m, "\n");
-> -	of_node_put(node);
-> =20
->  	return 0;
->  }
+>  	/* We don't support systems with F but without D, so mask those out
+>  	 * here. */
+>  	if ((elf_hwcap & COMPAT_HWCAP_ISA_F) && !(elf_hwcap & COMPAT_HWCAP_ISA_=
+D)) {
 > --=20
 > 2.38.0
->
+>=20
 
---lYAs3kYMw0C9GEQE
+--tx9qe1Dbq1j6lMq2
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY+ViAQAKCRB4tDGHoIJi
-0vwtAPwKUcxsKZbj5EQcYSNTBdh9vOSoaePgBA+etKu/vUSzQAEAgoV/ifyiHBpa
-FmQgavvEOHSnPG7rQ97kcJAAxkAmHwg=
-=c/EG
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY+VqCAAKCRB4tDGHoIJi
+0m5QAPwMDmitQMHMHgWtvl8vIeneoI4WB6elm/3BD+sWuPP5KAEA6kzrjw0V+tgt
+KGBDasSPck7Ye/6hmVuYcnvm5llFhg0=
+=F1+4
 -----END PGP SIGNATURE-----
 
---lYAs3kYMw0C9GEQE--
+--tx9qe1Dbq1j6lMq2--
 
 
---===============4007085554310162944==
+--===============8466934024341614067==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -219,5 +245,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============4007085554310162944==--
+--===============8466934024341614067==--
 
