@@ -4,79 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECB9FC05027
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Feb 2023 14:14:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3A25C61DA4
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Feb 2023 14:37:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xWLfHazGPm03OA58wI11zMbd64roMKlpxXP99qxWiVk=; b=sGLO8zoLkl4LVU
-	LRK81Xnzag5luOvzJf6U/9guO62mMtk6kojjSI7IuJmaDwq6IQ73TXd+a2bvaiPXtWU5rmvUT4oYB
-	iSK66Ys1QUFLz8y5NzvBQ8/Kokam12HE/bK9rdjCZDPLLHGjOv5ybpftYBMYx84BZJkuDTdxGDiQq
-	KzTGCMwozffQL0elG4zdNGuoc66/H6bO5eTcmcbdjuJeeemkWLwR1ZNTH+Bdw4dX/slVyNk6wld90
-	OiPrSeAHk9JRFsErOGY+ASVHL06EnKV0dK+gQbU/xFE4ipFWVXd3uBcyn1mtgJPsoSrbOY3Oe9Y2w
-	pwZg0jrJN+JH8KUyeqXw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Ves3hODr+BqhlxckT+w+MoRnf/mhGhsjdnX2wZSAfyc=; b=PA5oAIEDjoa2/m
+	qPplTdzD+KHDCfRiUv1S2BHExpTMYi2h3vDXwAyv+8VuAESXHS3Z/guP1Ay0ZUKrsT2RSc0ciM+SV
+	HeIGz1S/j90wHr24sG1/wKfporUhGx7b1/h+/67yCQOYHfirj7LHXTekIfYazJoGx1FV3E6orbD2Y
+	6SHXSNwmbTMShcLGyPvWvi5dD8CTRGzJjAsPG+PBmGEai7UdNx9KyIw11V+z+n1lCHeT41ki0C9/h
+	GLLV1Ib6ctWwbHt8+BRhHYnyKt0T8wR5skSThZ/3Zh2Nf/semqiJegON/J2J7dvt/1fVYu4BU7eE7
+	gWqpxoARDav3S8fbNm0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQ7hG-001wV4-EL; Thu, 09 Feb 2023 14:14:46 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQ7hD-001wUA-S6
-	for linux-riscv@lists.infradead.org; Thu, 09 Feb 2023 14:14:45 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 24so1639700pgt.7
-        for <linux-riscv@lists.infradead.org>; Thu, 09 Feb 2023 06:14:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to:subject
-         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=oqWfb8pLyRkDFnVX+wRbHU5hQT0vbQp/FHjrPTcj2YI=;
-        b=cQ7ec47jP+8zsJol1/JPm1LDj/yLxCNIza1g30e8kbb5AYd6Mtif3FsLxJbJ94nasZ
-         7GtPcPeuXcfBSRBKEBac7ay01TICKKgg0FmsuVTF3/qkv6iPwmcGwSxoAh/JccFT2k/x
-         /bbnA7mYziGdgFGshdGajcd2Ez5lQX9Qa95LjIWbXrk7tnMTf0LOl7BDVCgKyjKOAcFl
-         EwMAky4LD4mClcttf/ikyGt7MY/0xrMTpL3hngUPLXbVrNMcZZm8UVrrJKS2uBcefsj3
-         uhwj6Li7nb0lWFzp07A8JqEar98jad6I96KQCbjVm9nypYRcwsSHQ4JK4UYyOhpKG/ko
-         ph+w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to:subject
-         :user-agent:mime-version:date:message-id:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=oqWfb8pLyRkDFnVX+wRbHU5hQT0vbQp/FHjrPTcj2YI=;
-        b=J5QVtvcQPQtoG95fZDoCzXOXuUGkekG3cBzHA+peHMj6BAPibgaHcZnJxUXbTTGF2J
-         zHrDpwvE4etgnNlONS6glrOhO/FMWnQH+VJqskaYemFEQxJaT1mEy3UY+/9R1QFC+Ng/
-         fDxaexs7SJcx0kJd7bYnf9JQZXaIcMeSK18umdJxO+S2tL+cooGq5ZekY3OEHmY7K2Km
-         j05YFuLq3BNMrfAH86Ll6Ng977Yavo7ykyChEGhkIyCFOJwxrbR3j1E3smi28MuvE7sw
-         mgH2nSWBshFHRkOu+CnqulZvbi/3o1nN5uk2jm4LX6Tu0zxS4ldhx2Shl7HbbRIxjfd0
-         rctA==
-X-Gm-Message-State: AO0yUKWF3OQ4R6yzfmnrRBNJ8BlRKBM9VfMVKJQO8sXNiPu1YOwWiBPb
-	SsUprTrUgCe5MO3gLTqELU0=
-X-Google-Smtp-Source: AK7set/paiUPN3+gTbxGh8Q5+S/9EMnhPUbLB8lwN4C1MJy7+0lFj+RETueALiyNZQzGR0PBFUfdPA==
-X-Received: by 2002:a62:1503:0:b0:5a8:4c7e:bb01 with SMTP id 3-20020a621503000000b005a84c7ebb01mr3861409pfv.6.1675952082877;
-        Thu, 09 Feb 2023 06:14:42 -0800 (PST)
-Received: from [198.18.0.1] ([47.75.78.161])
-        by smtp.gmail.com with ESMTPSA id z5-20020aa785c5000000b005a85db65bf2sm1360504pfn.129.2023.02.09.06.14.39
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 09 Feb 2023 06:14:42 -0800 (PST)
-Message-ID: <33ea8d3e-e4f1-07f4-3c05-f09e9cdd4427@gmail.com>
-Date: Thu, 9 Feb 2023 22:14:37 +0800
+	id 1pQ83O-0020In-GW; Thu, 09 Feb 2023 14:37:38 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pQ83I-0020Dw-9j
+	for linux-riscv@lists.infradead.org; Thu, 09 Feb 2023 14:37:36 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 0B7E224E2D9;
+	Thu,  9 Feb 2023 22:37:04 +0800 (CST)
+Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 9 Feb
+ 2023 22:37:04 +0800
+Received: from ubuntu.localdomain (183.27.96.33) by EXMBX172.cuchost.com
+ (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 9 Feb
+ 2023 22:37:03 +0800
+From: Hal Feng <hal.feng@starfivetech.com>
+To: <linux-gpio@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>
+CC: Linus Walleij <linus.walleij@linaro.org>, Andreas Schwab <schwab@suse.de>,
+	Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor@kernel.org>, "Palmer
+ Dabbelt" <palmer@dabbelt.com>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, Jianlong Huang
+	<jianlong.huang@starfivetech.com>, Hal Feng <hal.feng@starfivetech.com>,
+	<linux-kernel@vger.kernel.org>
+Subject: [PATCH v5 0/4] Basic pinctrl support for StarFive JH7110 RISC-V SoC
+Date: Thu, 9 Feb 2023 22:36:58 +0800
+Message-ID: <20230209143702.44408-1-hal.feng@starfivetech.com>
+X-Mailer: git-send-email 2.38.1
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:102.0)
- Gecko/20100101 Thunderbird/102.7.1
-Subject: Re: [PATCH v13 1/3] riscv: mm: modify pte format for Svnapot
-To: paul.walmsley@sifive.com, palmer@dabbelt.com,
- linux-riscv@lists.infradead.org
-Cc: jeff@riscv.org, xuyinan@ict.ac.cn, conor@kernel.org,
- ajones@ventanamicro.com, Qinglin Pan <panqinglin2020@iscas.ac.cn>
-References: <20230209131647.17245-1-panqinglin00@gmail.com>
- <20230209131647.17245-2-panqinglin00@gmail.com>
-From: Qinglin Pan <panqinglin00@gmail.com>
-In-Reply-To: <20230209131647.17245-2-panqinglin00@gmail.com>
+X-Originating-IP: [183.27.96.33]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX172.cuchost.com
+ (172.16.6.92)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230209_061443_948659_24E7184A 
-X-CRM114-Status: GOOD (  29.02  )
+X-CRM114-CacheID: sfid-20230209_063732_746732_BFEF2363 
+X-CRM114-Status: GOOD (  16.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,221 +69,116 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2023/2/9 21:16, Qinglin Pan wrote:
-> From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
-> 
-> Add one alternative to enable/disable svnapot support, enable this static
-> key when "svnapot" is in the "riscv,isa" field of fdt and SVNAPOT compile
-> option is set. It will influence the behavior of has_svnapot. All code
-> dependent on svnapot should make sure that has_svnapot return true firstly.
-> 
-> Modify PTE definition for Svnapot, and creates some functions in pgtable.h
-> to mark a PTE as napot and check if it is a Svnapot PTE. Until now, only
-> 64KB napot size is supported in spec, so some macros has only 64KB version.
-> 
-> Signed-off-by: Qinglin Pan <panqinglin00@gmail.com>
-> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-> 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 7c814fbf9527..abbb7b94488d 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -397,6 +397,25 @@ config RISCV_ISA_C
->   
->   	  If you don't know what to do here, say Y.
->   
-> +config RISCV_ISA_SVNAPOT
-> +	bool "SVNAPOT extension support"
-> +	depends on 64BIT && MMU
-> +	default y
-> +	select RISCV_ALTERNATIVE
-> +	help
-> +	  Allow kernel to detect the SVNAPOT ISA-extension dynamically at boot
-> +	  time and enable its usage.
-> +
-> +	  The SVNAPOT extension is used to mark contiguous PTEs as a range
-> +	  of contiguous virtual-to-physical translations for a naturally
-> +	  aligned power-of-2 (NAPOT) granularity larger than the base 4KB page
-> +	  size. When HUGETLBFS is also selected this option unconditionally
-> +	  allocates some memory for each NAPOT page size supported by the kernel.
-> +	  When optimizing for low memory consumption and for platforms without
-> +	  the SVNAPOT extension, it may be better to say N here.
-> +
-> +	  If you don't know what to do here, say Y.
-> +
->   config RISCV_ISA_SVPBMT
->   	bool "SVPBMT extension support"
->   	depends on 64BIT && MMU
-> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-> index ee9c80fe0062..6e368d3f6631 100644
-> --- a/arch/riscv/include/asm/hwcap.h
-> +++ b/arch/riscv/include/asm/hwcap.h
-> @@ -43,10 +43,11 @@
->   #define RISCV_ISA_EXT_SSCOFPMF         26
->   #define RISCV_ISA_EXT_SSTC             27
->   #define RISCV_ISA_EXT_SVINVAL          28
-> -#define RISCV_ISA_EXT_SVPBMT           29
-> -#define RISCV_ISA_EXT_ZBB              30
-> -#define RISCV_ISA_EXT_ZICBOM           31
-> -#define RISCV_ISA_EXT_ZIHINTPAUSE      32
-> +#define RISCV_ISA_EXT_SVNAPOT          29
-> +#define RISCV_ISA_EXT_SVPBMT           30
-> +#define RISCV_ISA_EXT_ZBB              31
-> +#define RISCV_ISA_EXT_ZICBOM           32
-> +#define RISCV_ISA_EXT_ZIHINTPAUSE      33
+This patch series adds basic pinctrl support for StarFive JH7110 SoC.
 
-I forget to define RISCV_ISA_EXT_SVNAPOT in the bottom directly :(
-It will be fixed (if necessary) in v14.
+Changes since v4:
+Patch 1 & 2:
+- Added pinmux-node.yaml reference for '-pins$' patternProperties.
+- Dropped reference for pinmux properties.
 
-Thanks,
-Qinglin.
+  v4: https://lore.kernel.org/all/20230203141801.59083-1-hal.feng@starfivetech.com/
 
->   
->   #ifndef __ASSEMBLY__
->   
-> diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
-> index 9f432c1b5289..24a3dd265183 100644
-> --- a/arch/riscv/include/asm/page.h
-> +++ b/arch/riscv/include/asm/page.h
-> @@ -16,11 +16,6 @@
->   #define PAGE_SIZE	(_AC(1, UL) << PAGE_SHIFT)
->   #define PAGE_MASK	(~(PAGE_SIZE - 1))
->   
-> -#ifdef CONFIG_64BIT
-> -#define HUGE_MAX_HSTATE		2
-> -#else
-> -#define HUGE_MAX_HSTATE		1
-> -#endif
->   #define HPAGE_SHIFT		PMD_SHIFT
->   #define HPAGE_SIZE		(_AC(1, UL) << HPAGE_SHIFT)
->   #define HPAGE_MASK              (~(HPAGE_SIZE - 1))
-> diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
-> index 42a042c0e13e..7a5097202e15 100644
-> --- a/arch/riscv/include/asm/pgtable-64.h
-> +++ b/arch/riscv/include/asm/pgtable-64.h
-> @@ -78,6 +78,40 @@ typedef struct {
->    */
->   #define _PAGE_PFN_MASK  GENMASK(53, 10)
->   
-> +/*
-> + * [63] Svnapot definitions:
-> + * 0 Svnapot disabled
-> + * 1 Svnapot enabled
-> + */
-> +#define _PAGE_NAPOT_SHIFT	63
-> +#define _PAGE_NAPOT		BIT(_PAGE_NAPOT_SHIFT)
-> +/*
-> + * Only 64KB (order 4) napot ptes supported.
-> + */
-> +#define NAPOT_CONT_ORDER_BASE 4
-> +enum napot_cont_order {
-> +	NAPOT_CONT64KB_ORDER = NAPOT_CONT_ORDER_BASE,
-> +	NAPOT_ORDER_MAX,
-> +};
-> +
-> +#define for_each_napot_order(order)						\
-> +	for (order = NAPOT_CONT_ORDER_BASE; order < NAPOT_ORDER_MAX; order++)
-> +#define for_each_napot_order_rev(order)						\
-> +	for (order = NAPOT_ORDER_MAX - 1;					\
-> +	     order >= NAPOT_CONT_ORDER_BASE; order--)
-> +#define napot_cont_order(val)	(__builtin_ctzl((val.pte >> _PAGE_PFN_SHIFT) << 1))
-> +
-> +#define napot_cont_shift(order)	((order) + PAGE_SHIFT)
-> +#define napot_cont_size(order)	BIT(napot_cont_shift(order))
-> +#define napot_cont_mask(order)	(~(napot_cont_size(order) - 1UL))
-> +#define napot_pte_num(order)	BIT(order)
-> +
-> +#ifdef CONFIG_RISCV_ISA_SVNAPOT
-> +#define HUGE_MAX_HSTATE		(2 + (NAPOT_ORDER_MAX - NAPOT_CONT_ORDER_BASE))
-> +#else
-> +#define HUGE_MAX_HSTATE		2
-> +#endif
-> +
->   /*
->    * [62:61] Svpbmt Memory Type definitions:
->    *
-> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> index 2a88362dffa5..76502bc7bef2 100644
-> --- a/arch/riscv/include/asm/pgtable.h
-> +++ b/arch/riscv/include/asm/pgtable.h
-> @@ -264,10 +264,47 @@ static inline pte_t pud_pte(pud_t pud)
->   	return __pte(pud_val(pud));
->   }
->   
-> +#ifdef CONFIG_RISCV_ISA_SVNAPOT
-> +
-> +static __always_inline bool has_svnapot(void)
-> +{
-> +	return riscv_has_extension_likely(RISCV_ISA_EXT_SVNAPOT);
-> +}
-> +
-> +static inline unsigned long pte_napot(pte_t pte)
-> +{
-> +	return pte_val(pte) & _PAGE_NAPOT;
-> +}
-> +
-> +static inline pte_t pte_mknapot(pte_t pte, unsigned int order)
-> +{
-> +	int pos = order - 1 + _PAGE_PFN_SHIFT;
-> +	unsigned long napot_bit = BIT(pos);
-> +	unsigned long napot_mask = ~GENMASK(pos, _PAGE_PFN_SHIFT);
-> +
-> +	return __pte((pte_val(pte) & napot_mask) | napot_bit | _PAGE_NAPOT);
-> +}
-> +
-> +#else
-> +
-> +static __always_inline bool has_svnapot(void) { return false; }
-> +
-> +static inline unsigned long pte_napot(pte_t pte)
-> +{
-> +	return 0;
-> +}
-> +
-> +#endif /* CONFIG_RISCV_ISA_SVNAPOT */
-> +
->   /* Yields the page frame number (PFN) of a page table entry */
->   static inline unsigned long pte_pfn(pte_t pte)
->   {
-> -	return __page_val_to_pfn(pte_val(pte));
-> +	unsigned long res  = __page_val_to_pfn(pte_val(pte));
-> +
-> +	if (has_svnapot() && pte_napot(pte))
-> +		res = res & (res - 1UL);
-> +
-> +	return res;
->   }
->   
->   #define pte_page(x)     pfn_to_page(pte_pfn(x))
-> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-> index 420228e219f7..5670909619c8 100644
-> --- a/arch/riscv/kernel/cpu.c
-> +++ b/arch/riscv/kernel/cpu.c
-> @@ -191,6 +191,7 @@ static struct riscv_isa_ext_data isa_ext_arr[] = {
->   	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
->   	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
->   	__RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
-> +	__RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
->   	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
->   	__RISCV_ISA_EXT_DATA("", RISCV_ISA_EXT_MAX),
->   };
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> index 21fb567e1b22..271e391d436d 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -223,6 +223,7 @@ void __init riscv_fill_hwcap(void)
->   				SET_ISA_EXT_MAP("sscofpmf", RISCV_ISA_EXT_SSCOFPMF);
->   				SET_ISA_EXT_MAP("sstc", RISCV_ISA_EXT_SSTC);
->   				SET_ISA_EXT_MAP("svinval", RISCV_ISA_EXT_SVINVAL);
-> +				SET_ISA_EXT_MAP("svnapot", RISCV_ISA_EXT_SVNAPOT);
->   				SET_ISA_EXT_MAP("svpbmt", RISCV_ISA_EXT_SVPBMT);
->   				SET_ISA_EXT_MAP("zbb", RISCV_ISA_EXT_ZBB);
->   				SET_ISA_EXT_MAP("zicbom", RISCV_ISA_EXT_ZICBOM);
+Changes since v3:
+- Rebased on Linus's "devel" branch of linux-pinctrl repo, which was based on
+  on tag v6.2-rc1.
+- Dropped patch 1.
+Patch 2 & 3:
+- Added a reference for '-pins$' patternProperties.
+- Put "additionalProperties: false" before properties section. (by Rob)
+- Improved the description.
+- Changed the node name in examples from "gpio" to "pinctrl".
+Patch 4:
+- Added some missing headers. (by Andreas)
+
+  v3: https://lore.kernel.org/all/20221220005529.34744-1-hal.feng@starfivetech.com/
+
+Changes since v2:
+- Rebased on tag v6.1.
+Patch 1:
+- Renamed pinctrl-starfive-jh7110.h to
+  starfive,jh7110-pinctrl.h. (by Krzysztof)
+- Separated the register values in the binding header and stored them in
+  a new file arch/riscv/boot/dts/starfive/jh7110-pinfunc.h. (by Krzysztof)
+- Split patch 1 into sys part and aon part. Merged them into patch 2
+  and patch 3 respectively.
+Patch 2 & 3:
+- Dropped "reg-names" and the description of "interrupts". Dropped quotes
+  behind "$ref" and kept consisitent quotes. (by Krzysztof)
+- Moved gpio properties behind interrupt properties.
+- Moved "required" behind "patternProperties". (by Krzysztof)
+- Rewrote the examples of bindings. (by Krzysztof and Emil)
+- Added Co-developed-by tag for Emil.
+- Dropped unused "clocks" property in patch 3.
+Patch 4 & 5:
+- Renamed "pinctrl-starfive.*" to "pinctrl-starfive-jh7110.*" and replaced
+  all "starfive_" prefix with "jh7110_" in these files. (by Emil)
+- Dropped macro GPIO_NUM_PER_WORD. (by Emil)
+- Dropped unused flag member in starfive_pinctrl_soc_info structure. (by Emil)
+- Renamed "pinctrl-jh7110-sys.c" to "pinctrl-starfive-jh7110-sys.c".
+  Renamed "pinctrl-jh7110-aon.c" to "pinctrl-starfive-jh7110-aon.c". (by Emil)
+- Added individual Kconfig options for sys and aon pinctrl drivers. (by Emil)
+- Made the sys and aon pinctrl drivers be modules. (by Emil)
+- Added "JH7110_" prefix for macro SYS_GPO_PDA_0_74_CFG,
+  SYS_GPO_PDA_89_94_CFG and AON_GPO_PDA_0_5_CFG. (by Emil)
+- Dropped jh7110_sys_pinctrl_probe() and jh7110_aon_pinctrl_probe().
+  Got the match data in the common jh7110_pinctrl_probe() and used it
+  to probe. (by Emil)
+- Dropped the of_match_ptr macro(). (by Emil)
+- Set the MODULE_LICENSE as "GPL" according to commit bf7fbeeae6db.
+
+  v2: https://lore.kernel.org/all/20221118011108.70715-1-hal.feng@starfivetech.com/
+
+Changes since v1:
+- Rebased on tag v6.1-rc5.
+- Dropped patch 22 and 23 since they were merged in v6.1-rc1.
+- Removed some unused macros and register values which do not belong to
+  bindings. Simplified pinctrl definitions in patch 24. (by Krzysztof)
+- Split the bindings into sys pinctrl bindings and aon pinctrl bindings,
+  and split patch 25 into two patches.
+- Made the bindings follow generic pinctrl bindings. (by Krzysztof)
+- Fixed some wrong indentation in bindings, and checked it with
+  `make dt_binding_check`.
+- Split the patch 26 into two patches which added sys and aon pinctrl
+  driver respectively.
+- Restructured the pinctrl drivers so made them follow generic pinctrl
+  bindings. Rewrote `dt_node_to_map` and extracted the public code to make
+  it clearer.
+
+  v1: https://lore.kernel.org/all/20220929143225.17907-1-hal.feng@linux.starfivetech.com/
+
+Jianlong Huang (4):
+  dt-bindings: pinctrl: Add StarFive JH7110 sys pinctrl
+  dt-bindings: pinctrl: Add StarFive JH7110 aon pinctrl
+  pinctrl: starfive: Add StarFive JH7110 sys controller driver
+  pinctrl: starfive: Add StarFive JH7110 aon controller driver
+
+ .../pinctrl/starfive,jh7110-aon-pinctrl.yaml  | 124 +++
+ .../pinctrl/starfive,jh7110-sys-pinctrl.yaml  | 142 +++
+ MAINTAINERS                                   |   8 +-
+ drivers/pinctrl/starfive/Kconfig              |  33 +
+ drivers/pinctrl/starfive/Makefile             |   4 +
+ .../starfive/pinctrl-starfive-jh7110-aon.c    | 177 ++++
+ .../starfive/pinctrl-starfive-jh7110-sys.c    | 449 ++++++++
+ .../starfive/pinctrl-starfive-jh7110.c        | 982 ++++++++++++++++++
+ .../starfive/pinctrl-starfive-jh7110.h        |  70 ++
+ .../pinctrl/starfive,jh7110-pinctrl.h         | 137 +++
+ 10 files changed, 2123 insertions(+), 3 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/starfive,jh7110-aon-pinctrl.yaml
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/starfive,jh7110-sys-pinctrl.yaml
+ create mode 100644 drivers/pinctrl/starfive/pinctrl-starfive-jh7110-aon.c
+ create mode 100644 drivers/pinctrl/starfive/pinctrl-starfive-jh7110-sys.c
+ create mode 100644 drivers/pinctrl/starfive/pinctrl-starfive-jh7110.c
+ create mode 100644 drivers/pinctrl/starfive/pinctrl-starfive-jh7110.h
+ create mode 100644 include/dt-bindings/pinctrl/starfive,jh7110-pinctrl.h
+
+-- 
+2.38.1
+
 
 _______________________________________________
 linux-riscv mailing list
