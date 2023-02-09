@@ -4,106 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16904C636D6
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Feb 2023 16:13:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F942C61DA4
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Feb 2023 16:51:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PT4v32XB9H+Y7EIPmLHmeANJfvrvL2lk+iS3YUK1K5o=; b=hto2b5DJPfnJ6nsYdlrPTsx9mz
-	qNIPU708pZ+Q3pAjRGFhqSbRXRHpdDo3NAapTr9MhSUAZOW4H8C1DHKx7aluSTVTF/24Al+chEQ76
-	716RCKGj66XkEbFD+HE3E0SXURKEJPxT5tcE5vdFlS2UKM4LSwRCSLcsEitxUxSRBqAyI41vhoz1J
-	ekMx7qsP8vh62g56R9QPrZLITslffqB6IfQX4BrSfmTBBFZq5/+ZU2DOVGhCQIXEOKbCVpTi60f8i
-	24CKZj1f14HKHdJD91bWGsWtDhzhxgof6upkE8OSzTRhUCiWwD315lDP4PbPu7/Cur397pP7+Om3M
-	oWb6pXsA==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=304woTyFSjNVpUOxAkvpaHxTS0YTfvqchQ8pgaPy1Y8=; b=xN0ZG5e/gg4cp1bWUaDQEkgDtz
+	SPisEbcSfL+bzlh5FQT7fJN3X+LW5dzKyEAR99qaJDNXT0dbxXpaFstP1647+RJZGwS4It6MgvBHa
+	itrXUcGYKscPV6A32H3rrVRnyluNyAEjv2cqvQc1tZNdNaJUURwo1BNCAvGmEOJWQHF9XkBJkcPAX
+	ImiZDES69qvf3jSxfLqY68XzqwBeFQuSoPuzm7awHMHMLbtorC0qBSM2OGepPqTbqZRYmUA/uSLFe
+	YlxAWtLrPqcnfpsPliN7Gx05DEFqFQLmwFR3mEez8kbzJSOFbqxU+W1HoUiwFiwjxumjg/f5dMDjL
+	UYRO7Utw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQ9YQ-002NkN-TR; Thu, 09 Feb 2023 16:13:46 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pQA8w-002Tkx-1M; Thu, 09 Feb 2023 16:51:30 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQ7ws-001z1T-7L; Thu, 09 Feb 2023 14:30:55 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 7820061AB9;
-	Thu,  9 Feb 2023 14:30:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83C41C433EF;
-	Thu,  9 Feb 2023 14:30:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1675953052;
-	bh=n5q92jtNB++4BoYIauYygzacB4DdXZvQYlYHsoaQZHo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=L4cNRE4MQxZhPNyBF/08CXXf/FWNQlzUwcRLG/0S65J/4ZChTqeAH+gdyIm7+puo/
-	 e1NMfqyqjToGWx/m2stUfU7oe9VJ+8njI+o0jyklZ6aQ10e0wIfN7idp96BYLv9Fv3
-	 QhfxNouUc0qZTgyD3UIjJF1eoI/sa7sYlEflw9jIrrOTdIfoFZo0OmH5vYc0Tjwjlg
-	 7k/6gJhmjkwo6pEOCZrEJ5FmUMlxfm8y1s7LLhR+jeJXraVBKucJ1jUqjs66gKI0qH
-	 XjavWBRymrRU2MvlL95tjkP7Fwb0aTwHP4DAbOFosKC6AT8CudX5DVtLZ+LDNj9wE2
-	 dDufUua3aqd7w==
-Date: Thu, 9 Feb 2023 14:30:29 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>
-Cc: miquel.raynal@bootlin.com, richard@nod.at, vigneshr@ti.com,
-	jic23@kernel.org, tudor.ambarus@microchip.com, pratyush@kernel.org,
-	sanju.mehta@amd.com, chin-ting_kuo@aspeedtech.com, clg@kaod.org,
-	kdasu.kdev@gmail.com, f.fainelli@gmail.com, rjui@broadcom.com,
-	sbranden@broadcom.com, eajames@linux.ibm.com, olteanv@gmail.com,
-	han.xu@nxp.com, john.garry@huawei.com, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, narmstrong@baylibre.com,
-	khilman@baylibre.com, matthias.bgg@gmail.com, haibo.chen@nxp.com,
-	linus.walleij@linaro.org, daniel@zonque.org,
-	haojian.zhuang@gmail.com, robert.jarzmik@free.fr, agross@kernel.org,
-	bjorn.andersson@linaro.org, heiko@sntech.de,
-	krzysztof.kozlowski@linaro.org, andi@etezian.org,
-	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
-	wens@csie.org, jernej.skrabec@gmail.com, samuel@sholland.org,
-	masahisa.kojima@linaro.org, jaswinder.singh@linaro.org,
-	rostedt@goodmis.org, mingo@redhat.com, l.stelmach@samsung.com,
-	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
-	pabeni@redhat.com, alex.aring@gmail.com, stefan@datenfreihafen.org,
-	kvalo@kernel.org, git@amd.com, linux-spi@vger.kernel.org,
-	linux-kernel@vger.kernel.org, joel@jms.id.au, andrew@aj.id.au,
-	radu_nicolae.pirea@upb.ro, nicolas.ferre@microchip.com,
-	alexandre.belloni@bootlin.com, claudiu.beznea@microchip.com,
-	bcm-kernel-feedback-list@broadcom.com, fancer.lancer@gmail.com,
-	kernel@pengutronix.de, festevam@gmail.com, linux-imx@nxp.com,
-	jbrunet@baylibre.com, martin.blumenstingl@googlemail.com,
-	avifishman70@gmail.com, tmaimon77@gmail.com, tali.perry1@gmail.com,
-	venture@google.com, yuenn@google.com, benjaminfair@google.com,
-	yogeshgaur.83@gmail.com, konrad.dybcio@somainline.org,
-	alim.akhtar@samsung.com, ldewangan@nvidia.com,
-	thierry.reding@gmail.com, jonathanh@nvidia.com,
-	michal.simek@amd.com, linux-aspeed@lists.ozlabs.org,
-	openbmc@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-sunxi@lists.linux.dev, linux-tegra@vger.kernel.org,
-	netdev@vger.kernel.org, linux-wpan@vger.kernel.org,
-	libertas-dev@lists.infradead.org, linux-wireless@vger.kernel.org,
-	linux-mtd@lists.infradead.org, lars@metafoo.de,
-	Michael.Hennerich@analog.com, linux-iio@vger.kernel.org,
-	michael@walle.cc, palmer@dabbelt.com,
-	linux-riscv@lists.infradead.org, amitrkcian2002@gmail.com,
-	Dhruva Gole <d-gole@ti.com>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
-	William Zhang <william.zhang@broadcom.com>
-Subject: Re: [PATCH v3 01/13] spi: Replace all spi->chip_select and
- spi->cs_gpiod references with function call
-Message-ID: <Y+UDhWK6u9NkMTxv@sirena.org.uk>
-References: <20230202152258.512973-1-amit.kumar-mahapatra@amd.com>
- <20230202152258.512973-2-amit.kumar-mahapatra@amd.com>
-MIME-Version: 1.0
-In-Reply-To: <20230202152258.512973-2-amit.kumar-mahapatra@amd.com>
-X-Cookie: Androphobia:
+	id 1pQA8s-002TjW-4P
+	for linux-riscv@lists.infradead.org; Thu, 09 Feb 2023 16:51:28 +0000
+Received: by mail-pl1-x629.google.com with SMTP id r8so3498194pls.2
+        for <linux-riscv@lists.infradead.org>; Thu, 09 Feb 2023 08:51:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=gFqj+biyDpY9pXqvmkLkzDhno/QTWqjT+mpxmEuFlIE=;
+        b=VDTA9tS4LubStVk5KAn8x5cPGoOp99eJz0Kygp3vdTQUGkoiRVuoIS7n9bY8qwL85b
+         rjwClE3hOwhV3Of1ekxPfOGBgY5HAqnTT+dM/8+tL0bXG6nJurzutM+JzB9Rn6VyUnEV
+         GwSFt5EGOT2WL6Ibb7gaLwB85VqyWQnig8hDaaeXqkLPTTwOmAdcXirHzFpYCrDxtz75
+         Bx0weyxL/oQVROo7My9Uxt8p7vvNM9uVFU2UVdz9cdJyTibKGf2ZvKkJiCtheffJdCMT
+         IC82A+fCcrwt85502UiQ+XNLw2e+eXNbVDC6A08p023lu6BAWviul2X62bRmJpnUNXM8
+         +pgw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=gFqj+biyDpY9pXqvmkLkzDhno/QTWqjT+mpxmEuFlIE=;
+        b=JNNq7OHznNcyA36hcn72pc0oTUtF0jsdb24bXLPAqPx8mhtuErvlZCAmYmHnL3a+LH
+         6LtrUdw/DibcTyrQqQXxulg7nd04USX70+I9zksPcta+HOjks96/n5ua+AWOYYzdfaCZ
+         0+OVM0eZenfoaggIOEKWLqVdkH/WaVV25TTQ2m6jaO+BHTk2l6ixYOFahDyIQMX6xUh/
+         I2ubAvufiuELrOsRARSRwzDcdJ9C6askRdiaXP2cdVHIm5T9KVzROHJ5jIirJB1ILwnd
+         yuG7Lb/lcSjDHPgFpzBevgwKHOyOe1OJDcQR3/vjbGcLDvadC9TD3HEJaxvNJcZDoJiq
+         qCWA==
+X-Gm-Message-State: AO0yUKWPtQu7JWkMjAhim2oIuhncTwOWkIg48lGccKahrDNkczd+N+Qz
+	14trieGnaGUwsN48/ucCTEz8pA==
+X-Google-Smtp-Source: AK7set9dXtbFLqR0SLyd6Rfiqg0GWw0+da8IB1XBCGr+lJRziUoT47+K2T9x09vL9nopKJoJT5bMlA==
+X-Received: by 2002:a17:90b:1c86:b0:22c:792:d342 with SMTP id oo6-20020a17090b1c8600b0022c0792d342mr13638710pjb.26.1675961483220;
+        Thu, 09 Feb 2023 08:51:23 -0800 (PST)
+Received: from localhost ([135.180.226.51])
+        by smtp.gmail.com with ESMTPSA id jw14-20020a17090b464e00b002338ff973d4sm101213pjb.11.2023.02.09.08.51.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 09 Feb 2023 08:51:22 -0800 (PST)
+Date: Thu, 09 Feb 2023 08:51:22 -0800 (PST)
+X-Google-Original-Date: Thu, 09 Feb 2023 08:51:16 PST (-0800)
+Subject: RE: [PATCH v2 4/6] dt-bindings: Add RISC-V misaligned access performance
+In-Reply-To: <4bd24def02014939a87eb8430ba0070d@AcuMS.aculab.com>
+CC: robh@kernel.org, evan@rivosinc.com, Conor Dooley <conor@kernel.org>,
+  Vineet Gupta <vineetg@rivosinc.com>, heiko@sntech.de, slewis@rivosinc.com, aou@eecs.berkeley.edu,
+  krzysztof.kozlowski+dt@linaro.org, Paul Walmsley <paul.walmsley@sifive.com>, devicetree@vger.kernel.org,
+  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: David.Laight@ACULAB.COM
+Message-ID: <mhng-8736b349-e27a-4372-81ca-3a25d2ec1e94@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230209_063054_362427_0DA3B0CE 
-X-CRM114-Status: GOOD (  12.61  )
-X-Mailman-Approved-At: Thu, 09 Feb 2023 08:13:45 -0800
+X-CRM114-CacheID: sfid-20230209_085126_366799_6C1ABF32 
+X-CRM114-Status: GOOD (  33.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,73 +86,125 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7059578986502904133=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, 08 Feb 2023 04:45:10 PST (-0800), David.Laight@ACULAB.COM wrote:
+> From: Rob Herring
+>> Sent: 07 February 2023 17:06
+>>
+>> On Mon, Feb 06, 2023 at 12:14:53PM -0800, Evan Green wrote:
+>> > From: Palmer Dabbelt <palmer@rivosinc.com>
+>> >
+>> > This key allows device trees to specify the performance of misaligned
+>> > accesses to main memory regions from each CPU in the system.
+>> >
+>> > Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+>> > Signed-off-by: Evan Green <evan@rivosinc.com>
+>> > ---
+>> >
+>> > (no changes since v1)
+>> >
+>> >  Documentation/devicetree/bindings/riscv/cpus.yaml | 15 +++++++++++++++
+>> >  1 file changed, 15 insertions(+)
+>> >
+>> > diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml
+>> b/Documentation/devicetree/bindings/riscv/cpus.yaml
+>> > index c6720764e765..2c09bd6f2927 100644
+>> > --- a/Documentation/devicetree/bindings/riscv/cpus.yaml
+>> > +++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
+>> > @@ -85,6 +85,21 @@ properties:
+>> >      $ref: "/schemas/types.yaml#/definitions/string"
+>> >      pattern: ^rv(?:64|32)imaf?d?q?c?b?v?k?h?(?:_[hsxz](?:[a-z])+)*$
+>> >
+>> > +  riscv,misaligned-access-performance:
+>> > +    description:
+>> > +      Identifies the performance of misaligned memory accesses to main memory
+>> > +      regions.  There are three flavors of unaligned access performance: "emulated"
+>> > +      means that misaligned accesses are emulated via software and thus
+>> > +      extremely slow, "slow" means that misaligned accesses are supported by
+>> > +      hardware but still slower that aligned accesses sequences, and "fast"
+>> > +      means that misaligned accesses are as fast or faster than the
+>> > +      cooresponding aligned accesses sequences.
+>> > +    $ref: "/schemas/types.yaml#/definitions/string"
+>> > +    enum:
+>> > +      - emulated
+>> > +      - slow
+>> > +      - fast
+>>
+>> I don't think this belongs in DT. (I'm not sure about a userspace
+>> interface either.)
 
---===============7059578986502904133==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="iWU3nY956KPhZko1"
-Content-Disposition: inline
+[Kind of answered below.]
 
+>> Can't this be tested and determined at runtime? Do misaligned accesses
+>> and compare the performance. We already do this for things like memcpy
+>> or crypto implementation selection.
 
---iWU3nY956KPhZko1
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+We've had a history of broken firmware emulation of misaligned accesses 
+wreaking havoc.  We don't run into concrete bugs there because we avoid 
+misaligned accesses as much as possible in the kernel, but I'd be 
+worried that we'd trigger a lot of these when probing for misaligned 
+accesses.
 
-On Thu, Feb 02, 2023 at 08:52:46PM +0530, Amit Kumar Mahapatra wrote:
-> Supporting multi-cs in spi drivers would require the chip_select & cs_gpi=
-od
-> members of struct spi_device to be an array. But changing the type of the=
-se
-> members to array would break the spi driver functionality. To make the
-> transition smoother introduced four new APIs to get/set the
+> There is also an long discussion about misaligned accesses
+> for loooongarch.
+>
+> Basically if you want to run a common kernel (and userspace)
+> you have to default to compiling everything with -mno-stict-align
+> so that the compiler generates byte accesses for anything
+> marked 'packed' (etc).
+>
+> Run-time tests can optimise some hot-spots.
+>
+> In any case 'slow' is probably pointless - unless the accesses
+> take more than 1 or 2 extra cycles.
 
-This break an arm multi_v7_defconfig build:
+[Also below.]
 
-/build/stage/linux/drivers/spi/spi-pl022.c: In function =E2=80=98pl022_tran=
-sfer_one_message=E2=80=99:
-/build/stage/linux/drivers/spi/spi-pl022.c:1592:31: error: =E2=80=98struct =
-spi_message=E2=80=99 has no member named =E2=80=98spi_get_csgpiod=E2=80=99
- 1592 |         pl022->cur_gpiod =3D msg->spi_get_csgpiod(spi, 0);
-      |                               ^~
-/build/stage/linux/drivers/spi/spi-pl022.c:1592:49: error: =E2=80=98spi=E2=
-=80=99 undeclared (first use in this function)
- 1592 |         pl022->cur_gpiod =3D msg->spi_get_csgpiod(spi, 0);
-      |                                                 ^~~
-/build/stage/linux/drivers/spi/spi-pl022.c:1592:49: note: each undeclared i=
-dentifier is reported only once for each function it appears in
+> Oh, and you really never, ever want to emulate them.
 
---iWU3nY956KPhZko1
-Content-Type: application/pgp-signature; name="signature.asc"
+Unfortunately we're kind of stuck with this one: the specs used to 
+require that misaligned accesses were supported and thus there's a bunch 
+of firmwares that emulate them (and various misaligned accesses spread 
+around, though they're kind of a mess).  The specs no longer require 
+this support, but just dropping it from firmware will break binaries.
 
------BEGIN PGP SIGNATURE-----
+There's been some vague plans to dig out of this, but it'd require some 
+sort of firmware interface additions in order to turn off the emulation 
+and that's going to take a while.  As it stands we've got a bunch of 
+users that just want to know when they can emit misaligned accesses.
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmPlA4QACgkQJNaLcl1U
-h9Ai+wf+IWbvrI/uIEjinXzailRkkSP40/uzdnv8AAKF5zA3laimeZYZPCoKfD4X
-GzBSQEjiZOJmPZ0wBaHHFFaxHSBlL6rtUoA6r+EEktjzWc6vOsmoUVRt74R+ZMHw
-1FyvWR07nFAstJD2rPfPhIZ5bt4yiRX/CmA2SxN1qW74IwjKYAy6jLvbpSAZ4byY
-KRnij11f/xqUuiao0L/PTya+dYLUOBEQvXm5JBAIqhZaQVH4G7Ppov0MR15cEMug
-OG9oMzu197RFh7WgO6lj8rI9Cssl4vvj6+3owDZ/nK+LFq62Z6AvBGbaP7SoHOOI
-Xcz8JdTcCAH0XAgza9flmPUQME9cmQ==
-=4wBC
------END PGP SIGNATURE-----
+> Technically misaligned reads on (some) x86-64 cpu are slower
+> than aligned ones, but the difference is marginal.
+> I've measured two 64bit misaligned reads every clock.
+> But it is consistently slower by much less than one clock
+> per cache line.
 
---iWU3nY956KPhZko1--
+The "fast" case is explicitly written to catch that flavor of 
+implementation.
 
+The "slow" one is a bit vaguer, but the general idea is to catch 
+implementations that end up with some sort of pipeline flush on 
+misaligned accesses.  We've got a lot of very small in-order processors 
+in RISC-V land, and while I haven't gotten around to benchmarking them 
+all my guess is that the spec requirement for support ended up with some 
+simple implementations.
 
---===============7059578986502904133==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+FWIW: I checked the c906 RTL and it's setting some exception-related 
+info on misaligned accesses, but I'd need to actually benchmark on to 
+know for sure and they're kind of a headache to deal with.
+
+>
+> 	David
+>
+> -
+> Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
+> Registration No: 1397386 (Wales)
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7059578986502904133==--
-
