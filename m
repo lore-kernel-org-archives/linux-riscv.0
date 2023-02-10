@@ -4,71 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5714DC61DA4
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Feb 2023 01:40:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7007BC61DA4
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Feb 2023 02:19:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HDjGTFTKn5REQPkcB/oKZbtG459la4KE8UuGj7H/PjA=; b=1g3L6mj6F/WVc+
-	Kj8t7KRYjawoYBazMP9afuBqE5CN4OjW39+0IXRLGNvMFOCNsOSyyrLEo+3WLEx+a0DP+us5NmiWW
-	z1XQcQrZvuglPnw50XTPbl1nDPyLMDxL2MapL1vZTqGxSYWXaSQAHh++M6Ics9hyfIiwqzNBdNciB
-	THcm3rEFPMVjfI+UuFAIGHsKMYWO+C6EvCf53KbZTz6fsyVxb+Ly6l/cDwbB3rIhqip3KfJSQFD+N
-	tuHhJ1RnASEPZkGvxMkIoVB0c/FRqhZ0/t740TuDigZ8iN/lCQa5GsjjiYSjyRj2litTG3tDGmJFj
-	tlfLYwVhzXxhCgx1HJTA==;
+	List-Owner; bh=bhlGr2YTJYLLSY2EqYV5vYtRp45owmX19w3kJwct1s8=; b=4qo8EYS6eK3qIY
+	9p+PgKnHrcAZDhrw2x8trJC/H5dzfX5MszDtiogoOcb+2W8DMzuZAnQ3nsUqdbI+9wAfpqjttW6cz
+	j+Ps/TO1EYER1PdHJO58hHV4UyIdBAHaW0WP5LX01kHKeIRX0xeoiEPDIEi+0ZSCznTSnzflDNtj5
+	BlF9WS0zaxlSVwmGAzmuf4GDF7stiRBJ5bEc87Dx2k2yqZbvhgmWMT6edmUtkJF77YhJnS+ncewLO
+	r/8q/3K1QJaH/8z36OpiPAcgXlNig3Hk8owzdsHnG3gLmB9zT07/qLhxbNddaQ//tFV3b8Whw36ii
+	A5q4+zPQv+fcdi2PfyYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQIOX-003rI2-R0; Fri, 10 Feb 2023 01:40:09 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQIOS-003rFw-DG
-	for linux-riscv@lists.infradead.org; Fri, 10 Feb 2023 01:40:08 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id DF39024E161;
-	Fri, 10 Feb 2023 09:39:26 +0800 (CST)
-Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 10 Feb
- 2023 09:39:26 +0800
-Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX168.cuchost.com
- (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 10 Feb
- 2023 09:39:26 +0800
-Received: from EXMBX168.cuchost.com ([fe80::3c2d:dee5:4938:3fc4]) by
- EXMBX168.cuchost.com ([fe80::3c2d:dee5:4938:3fc4%16]) with mapi id
- 15.00.1497.044; Fri, 10 Feb 2023 09:39:26 +0800
-From: JiaJie Ho <jiajie.ho@starfivetech.com>
-To: Herbert Xu <herbert@gondor.apana.org.au>
-CC: "David S . Miller" <davem@davemloft.net>, Rob Herring
-	<robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
-	Conor Dooley <conor.dooley@microchip.com>, "linux-crypto@vger.kernel.org"
-	<linux-crypto@vger.kernel.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>
-Subject: RE: [PATCH v2 4/4] crypto: starfive - Add hash and HMAC support
-Thread-Topic: [PATCH v2 4/4] crypto: starfive - Add hash and HMAC support
-Thread-Index: AQHZNMIM/vLXVq3JgUiER7vBRC/T367F50EAgAGPv4A=
-Date: Fri, 10 Feb 2023 01:39:26 +0000
-Message-ID: <4f40b91f0756417ba5edbc742a3cd349@EXMBX168.cuchost.com>
-References: <20230130154242.112613-1-jiajie.ho@starfivetech.com>
- <20230130154242.112613-5-jiajie.ho@starfivetech.com>
- <Y+TBDqkjsuMiA/P7@gondor.apana.org.au>
-In-Reply-To: <Y+TBDqkjsuMiA/P7@gondor.apana.org.au>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [202.190.105.77]
-x-yovoleruleagent: yovoleflag
+	id 1pQJ01-003vOp-4b; Fri, 10 Feb 2023 02:18:53 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pQIzy-003vO8-Cz
+	for linux-riscv@lists.infradead.org; Fri, 10 Feb 2023 02:18:51 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id D9E36B822F0
+	for <linux-riscv@lists.infradead.org>; Fri, 10 Feb 2023 02:18:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C564C433A1
+	for <linux-riscv@lists.infradead.org>; Fri, 10 Feb 2023 02:18:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1675995526;
+	bh=f41SyKetgyTJk5AoqYDZA6qemHFr7tnVd+NQEEf/jhw=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=DOG5qwcJg0TujMpmdgcev0f+2tdrfCilTG2wuskQVb74UD5klnBmLZiQhz0VOe4Si
+	 vvSfB9oZzkKciOBWK+etmPI7Imlh95Re1G9kGBY+jrYv0/KDPJ5cF3bNsOnH9FAA3G
+	 TvqFL0Q945S/mrqFyAL1zZ80Q2dXdyQgs1m8UNzW6JRKIUVSr7HF7yv946fQAjjw8w
+	 i+JrCRR675ipxNacq8+H/dmlVNKyXQjWUBmzAcxBRfC6+LFCzkyzjf2+Q37nUPaWrd
+	 afJ43eLGlqHP2bmASZiNHMz/KlW6TJjq6fgmxlB1BIqv1MM6SzucGg2LPWXBEb9lsP
+	 qlUvrj7xB+zAQ==
+Received: by mail-ej1-f46.google.com with SMTP id gr7so12224035ejb.5
+        for <linux-riscv@lists.infradead.org>; Thu, 09 Feb 2023 18:18:45 -0800 (PST)
+X-Gm-Message-State: AO0yUKWHHAeCGaKMI8zcx0s2kwU48dybaXh+xxQGVj+zuvu5RU2yG7ra
+	w5TOgIZDA/us6uYVKvblOW8Ro4uC7kryWQBt7Zg=
+X-Google-Smtp-Source: AK7set8TcWdcPxU1RclSrshoCn2NZql4i4WcAJAAwP6sVzZJ83BCJxACCuKYPTvQ6ICKOUSbEQUk7mjOIYYvMYnd9lk=
+X-Received: by 2002:a17:906:6b1a:b0:879:e5ab:94c7 with SMTP id
+ q26-20020a1709066b1a00b00879e5ab94c7mr951800ejr.8.1675995524338; Thu, 09 Feb
+ 2023 18:18:44 -0800 (PST)
 MIME-Version: 1.0
+References: <20230112090603.1295340-1-guoren@kernel.org> <c68bac83-5c88-80b1-bac9-e1fd4ea8f07e@yadro.com>
+ <CAJF2gTQm11px3mqyrNk1SRiJZud1yeY2avK99UX9KetWAGe5BA@mail.gmail.com>
+ <Y+DOyqehZvBJlb8N@FVFF77S0Q05N> <CAJF2gTQ6U1vH79Mu53eQ-GVaFx36C-hEt9Qf6=_vAkHfmgFh1Q@mail.gmail.com>
+ <Y+IXB4xQ7ACQWC9U@FVFF77S0Q05N> <CAJF2gTTrX+8wCm-g=L9+3BkCRrZ8SCUM2w1e5duq-+Bsa213mA@mail.gmail.com>
+ <Y+O1qY453BnhqgQZ@FVFF77S0Q05N.cambridge.arm.com> <CAJF2gTT_aMBx3mPnzWWqj6uGM75yT_62x+_wZ4HkWd7BqEzvug@mail.gmail.com>
+ <90ad3009049e4d39a952b6e4c170740b@AcuMS.aculab.com>
+In-Reply-To: <90ad3009049e4d39a952b6e4c170740b@AcuMS.aculab.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Fri, 10 Feb 2023 10:18:32 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTTmPfjm2_ds_MU3NmA1+qPBdvW+0x9pLhio63ZEGZc3HA@mail.gmail.com>
+Message-ID: <CAJF2gTTmPfjm2_ds_MU3NmA1+qPBdvW+0x9pLhio63ZEGZc3HA@mail.gmail.com>
+Subject: Re: [PATCH -next V7 0/7] riscv: Optimize function trace
+To: David Laight <David.Laight@aculab.com>
+Cc: Mark Rutland <mark.rutland@arm.com>, Evgenii Shatokhin <e.shatokhin@yadro.com>, 
+	"suagrfillet@gmail.com" <suagrfillet@gmail.com>, "andy.chiu@sifive.com" <andy.chiu@sifive.com>, 
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Guo Ren <guoren@linux.alibaba.com>, 
+	"anup@brainfault.org" <anup@brainfault.org>, "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>, 
+	"palmer@dabbelt.com" <palmer@dabbelt.com>, 
+	"conor.dooley@microchip.com" <conor.dooley@microchip.com>, "heiko@sntech.de" <heiko@sntech.de>, 
+	"rostedt@goodmis.org" <rostedt@goodmis.org>, "mhiramat@kernel.org" <mhiramat@kernel.org>, 
+	"jolsa@redhat.com" <jolsa@redhat.com>, "bp@suse.de" <bp@suse.de>, 
+	"jpoimboe@kernel.org" <jpoimboe@kernel.org>, "linux@yadro.com" <linux@yadro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230209_174004_852629_4D7DE9B0 
-X-CRM114-Status: GOOD (  12.10  )
+X-CRM114-CacheID: sfid-20230209_181850_765367_4F203251 
+X-CRM114-Status: GOOD (  23.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,58 +93,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-> -----Original Message-----
-> From: Herbert Xu <herbert@gondor.apana.org.au>
-> Sent: 9 February, 2023 5:47 PM
-> To: JiaJie Ho <jiajie.ho@starfivetech.com>
-> Cc: David S . Miller <davem@davemloft.net>; Rob Herring
-> <robh+dt@kernel.org>; Krzysztof Kozlowski
-> <krzysztof.kozlowski+dt@linaro.org>; Emil Renner Berthing
-> <kernel@esmil.dk>; Conor Dooley <conor.dooley@microchip.com>; linux-
-> crypto@vger.kernel.org; devicetree@vger.kernel.org; linux-
-> kernel@vger.kernel.org; linux-riscv@lists.infradead.org
-> Subject: Re: [PATCH v2 4/4] crypto: starfive - Add hash and HMAC support
-> 
-> On Mon, Jan 30, 2023 at 11:42:42PM +0800, Jia Jie Ho wrote:
+On Fri, Feb 10, 2023 at 6:47 AM David Laight <David.Laight@aculab.com> wrote:
+>
+> From: Guo Ren
+> > Sent: 09 February 2023 01:31
+> ...
+> > > I'm a bit confused there; I thought that the `symbol(reg)` addressing mode was
+> > > generating additional bits that the AUPIC didn't -- have I got that wrong?
+> > >
+> > > What specifies which register the JALR will write the link address to?
 > >
-> > +static inline int starfive_hash_wait_hmac_done(struct
-> > +starfive_cryp_ctx *ctx) {
-> > +	struct starfive_cryp_dev *cryp = ctx->cryp;
-> > +	u32 status;
-> > +
-> > +	return readl_relaxed_poll_timeout(cryp->base +
-> STARFIVE_HASH_SHACSR, status,
-> > +					  (status &
-> STARFIVE_HASH_HMAC_DONE), 10, 100000); }
-> > +
-> > +static inline int starfive_hash_wait_busy(struct starfive_cryp_ctx
-> > +*ctx) {
-> > +	struct starfive_cryp_dev *cryp = ctx->cryp;
-> > +	u32 status;
-> > +
-> > +	return readl_relaxed_poll_timeout(cryp->base +
-> STARFIVE_HASH_SHACSR, status,
-> > +					  !(status & STARFIVE_HASH_BUSY),
-> 10, 100000); }
-> > +
-> > +static inline int starfive_hash_wait_key_done(struct
-> > +starfive_cryp_ctx *ctx) {
-> > +	struct starfive_cryp_dev *cryp = ctx->cryp;
-> > +	u32 status;
-> > +
-> > +	return readl_relaxed_poll_timeout(cryp->base +
-> STARFIVE_HASH_SHACSR, status,
-> > +					  (status &
-> STARFIVE_HASH_KEY_DONE), 10, 100000); }
-> 
-> Is there no IRQ mechanism for this?
+> > According to the spec, auipc t1,0x0 should write PC + 0x0<<12 (which
+> > is equal to PC) to t1 and then jalr t0, (t0)0 jumps to the address
+> > stored in t0 + 0x0 and stores the return address to t0.
+> >
+> > That means auipc defines xxx << 12 bits, jalr defines lowest 12 bits.
+>
+> ...
+> > What I want to point out:
+> > If we keep "auipc (addr+00)" fixed, we could use the different
+> > trampolines at "jalr (addr+0x4)" (All of them must be in one 2k
+> > aligned area).
+>
+> I looked up auipc:
+> "AUIPC is used to build PC-relative addresses and uses the U-type format.
+> AUIPC forms a 32-bit offset from the U-immediate, filling in the lowest
+> 12 bits with zeros, adds this offset to the address of the AUIPC instruction,
+> then places the result in rd."
+>
+> So it generates 'pc + (val << 12)'.
+> And the jalr then adds in a 12bit offset.
+Correct!
 
-Only hmac done has IRQ, I'll add that in the next version.
+>
+> I think that means that if you have two trampolines you might need
+> to change both instructions even if the two trampolines are actually
+> adjacent instructions.
+> It is the distance from the call site that mustn't cross a 2k
+> boundary - not the absolute address of the trampoline itself.
+We could have multiple adjacent trampolines, which must be kept in the
+same 2k boundary area. Then we needn't change auipc part when
+modifying.
 
-Thanks
-Jia Jie
+>
+>         David
+>
+> -
+> Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
+> Registration No: 1397386 (Wales)
+
+
+
+-- 
+Best Regards
+ Guo Ren
 
 _______________________________________________
 linux-riscv mailing list
