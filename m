@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45D6CC636CD
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Feb 2023 06:18:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A64DDC05027
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Feb 2023 06:18:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=lEVhIK0e2M41cM0TUBviJq1d/TTtdg/jTi+O/tfIqFc=; b=vLk4rkyECCwPpg
-	mYI7fBEvxDkRgnMez5Xawr8cuWSD1gIHQ2OThaAwAdyvkjgi3FcHgXruWie3ERB1kSwame/vuplas
-	zKyb/7pUPXNUHFQ01T/675q1kZa3sO+qHVnFKLqwgAWiK9fNQ3cISqOF8em2vSKaTSntPsVfXAsDU
-	fhq2FJxDKKVno7jPgJ++m73EoeRE1Qm3oBTg8w1y1ANl/HpX3xnOYaY0N2rcJqiybl++mOaZsqFTs
-	QPQnB/q7oFohjCbUoS2n5+CJLpnOut/AIWiI+7Vz5dVTgLn9j5sWUgCIQct9vAoeQquLVuhw62rNO
-	PfaH8D9hLPSTpAA7yvow==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=syB0ZwOUQgpoEQ8MYTd2mmIFXgv6iAg2eHFhcYOwf88=; b=yoY3JtDtOmIgYY
+	b+85HvPtl8rIFgxMMZx4m88Tplny9RChkYjotW2oUGnLBZogdYVowKIgrl6FV2IGWhsISMckLWUqX
+	CGf/0ZsbeoS2IcwpanOdcSNy7jkwxyU+jZ3oRTkgQ8APslud5HguX5FDXVOgp3AcyCfKLvotEVB5c
+	+3X/WBrsnvVEC5TlmuEsjf1HWc+S8neUyI34CffbkHeLwgpCji76Geh0btIdN69IZUZaJIwqDNYm6
+	rnqogFOrSD/f61tT2tEzmiI8qw9MaAAQqSF8rhjm1hMhEJUeFz7UZLHILi4la+LklqEbMdZnIOF0D
+	SdGL7cS2nT3LfGc4pyEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQMjo-004QyE-Hn; Fri, 10 Feb 2023 06:18:24 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	id 1pQMjt-004R1I-7W; Fri, 10 Feb 2023 06:18:29 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQMjl-004QjL-6G; Fri, 10 Feb 2023 06:18:23 +0000
+	id 1pQMjo-004Qk9-Uw; Fri, 10 Feb 2023 06:18:26 +0000
 Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 5AFF824DC09;
-	Fri, 10 Feb 2023 14:17:16 +0800 (CST)
+	by ex01.ufhost.com (Postfix) with ESMTP id 1567C24E26C;
+	Fri, 10 Feb 2023 14:17:18 +0800 (CST)
 Received: from EXMBX162.cuchost.com (172.16.6.72) by EXMBX166.cuchost.com
  (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 10 Feb
- 2023 14:17:16 +0800
+ 2023 14:17:17 +0800
 Received: from ubuntu.localdomain (183.27.96.33) by EXMBX162.cuchost.com
  (172.16.6.72) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 10 Feb
- 2023 14:17:15 +0800
+ 2023 14:17:17 +0800
 From: Changhuang Liang <changhuang.liang@starfivetech.com>
 To: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
 	Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
@@ -46,19 +46,20 @@ CC: Jack Zhu <jack.zhu@starfivetech.com>, Changhuang Liang
 	<changhuang.liang@starfivetech.com>, <linux-phy@lists.infradead.org>,
 	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<linux-riscv@lists.infradead.org>
-Subject: [PATCH v1 0/4] Add JH7110 MIPI DPHY RX support
-Date: Thu, 9 Feb 2023 22:17:09 -0800
-Message-ID: <20230210061713.6449-1-changhuang.liang@starfivetech.com>
+Subject: [PATCH v1 2/4] dt-bindings: phy: Add starfive,jh7110-dphy-rx
+Date: Thu, 9 Feb 2023 22:17:11 -0800
+Message-ID: <20230210061713.6449-3-changhuang.liang@starfivetech.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20230210061713.6449-1-changhuang.liang@starfivetech.com>
+References: <20230210061713.6449-1-changhuang.liang@starfivetech.com>
 MIME-Version: 1.0
 X-Originating-IP: [183.27.96.33]
 X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX162.cuchost.com
  (172.16.6.72)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230209_221821_675605_70ADDE26 
-X-CRM114-Status: UNSURE (   9.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230209_221825_312137_27875262 
+X-CRM114-Status: GOOD (  12.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,74 +76,102 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patchset adds power mipi dphy rx driver for the StarFive JH7110 SoC.
-It use to transfer the CSI cameras data. The series has been tested on
-the VisionFive 2 board.
+Starfive SoC like the jh7110 use a MIPI D-PHY RX controller based on
+a M31 IP. Add a binding for it.
 
-This patchset should be applied after the patchset [1]:
-[1] https://lore.kernel.org/all/20230120024445.244345-1-xingyu.wu@starfivetech.com/
-
-Changhuang Liang (4):
-  riscv: dts: starfive: jh7110: Add aon syscon node
-  dt-bindings: phy: Add starfive,jh7110-dphy-rx
-  phy: starfive: Add mipi dphy rx support
-  riscv: dts: starfive: Add dphy rx node
-
- .../bindings/phy/starfive,jh7110-dphy-rx.yaml |  78 ++++
- MAINTAINERS                                   |   7 +
- arch/riscv/boot/dts/starfive/jh7110.dtsi      |  18 +
- drivers/phy/Kconfig                           |   1 +
- drivers/phy/Makefile                          |   1 +
- drivers/phy/starfive/Kconfig                  |  13 +
- drivers/phy/starfive/Makefile                 |   2 +
- drivers/phy/starfive/phy-starfive-dphy-rx.c   | 362 ++++++++++++++++++
- 8 files changed, 482 insertions(+)
+Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
+---
+ .../bindings/phy/starfive,jh7110-dphy-rx.yaml | 78 +++++++++++++++++++
+ 1 file changed, 78 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/phy/starfive,jh7110-dphy-rx.yaml
- create mode 100644 drivers/phy/starfive/Kconfig
- create mode 100644 drivers/phy/starfive/Makefile
- create mode 100644 drivers/phy/starfive/phy-starfive-dphy-rx.c
 
-
-base-commit: 830b3c68c1fb1e9176028d02ef86f3cf76aa2476
-prerequisite-patch-id: 4dc515731ce237184553c1606ffb3afaeb51c3d8
-prerequisite-patch-id: 09c98554df52d17ba5fd604125f8cdd62cbe80d1
-prerequisite-patch-id: a798370d170dc2bcc79ed86f741c21c1e6d87c78
-prerequisite-patch-id: bd9fd8b5cb2376dc7a5e08e1a1fbb969cf475926
-prerequisite-patch-id: c57ebb83bc43ccd2a8366ff166eb499da1e1d2cf
-prerequisite-patch-id: a1673a9e9f19d6fab5a51abb721e54e36636f067
-prerequisite-patch-id: 94860423c7acc9025249d4bb36652a585bd0a797
-prerequisite-patch-id: b5084253283929d9a6d0e66c350400c7c85d034d
-prerequisite-patch-id: 6e369dbe9dca2785e4ea7d0b80e525e227a90a6e
-prerequisite-patch-id: e08806183c152714c563f3a21c6d7b2f539c4d6e
-prerequisite-patch-id: 79db8036abdc48fd36da227652ec62627a6b548b
-prerequisite-patch-id: 06971b8e6bddc0e87e63bfdb0ce8bfb653bd73aa
-prerequisite-patch-id: 16309a0e23811a2c55d2e56886de3e8eccc51554
-prerequisite-patch-id: bf4f7ab0b6cfa90b6e49e66c7d75ed2eaaebbe78
-prerequisite-patch-id: 38468d532e87867990055d3320679f18c5f52278
-prerequisite-patch-id: 4710f2ac22dca0bdd9ff5d744d2c37cab3c74515
-prerequisite-patch-id: 6bb9a780c62af3bcc2368dfd20303c7b1bc91e23
-prerequisite-patch-id: 258ea5f9b8bf41b6981345dcc81795f25865d38f
-prerequisite-patch-id: 8b6f2c9660c0ac0ee4e73e4c21aca8e6b75e81b9
-prerequisite-patch-id: e3b986b9c60b2b93b7812ec174c9e1b4cfb14c97
-prerequisite-patch-id: a2b3a9cff8a683422eb0ccf3a0850091401812d4
-prerequisite-patch-id: e0ba7af0f8d3d41844da9fbcba14b548cbc18f55
-prerequisite-patch-id: bc0176325c11a632c6abaa83e54e891cc92d1c74
-prerequisite-patch-id: bd3076c3fde77b417bc5b402b97563f2928d623d
-prerequisite-patch-id: 795c5ea9868c12fd62c14220140f0706f3db66ce
-prerequisite-patch-id: 2ddada18ab6ea5cd1da14212aaf59632f5203d40
-prerequisite-patch-id: c65a2ff3aaed45702d1b52ae7827940a8d33268a
-prerequisite-patch-id: 7acbc9c924e802712d3574dd74a6b3576089f78c
-prerequisite-patch-id: b43dd09005f22eae3f0b25830d06797adfd7ffa8
-prerequisite-patch-id: d426704849c21687b4ef32c7d399081706e34c51
-prerequisite-patch-id: 9f71c539a241baf1e73c7e7dfde5b0b04c66a502
-prerequisite-patch-id: 83b1dd8af8868e86d33f8f70eb458d3cc0200719
-prerequisite-patch-id: 9fddcb61301b615ad6f0102f2235265a01ccc2a2
-prerequisite-patch-id: 0c04762f1d20f09cd2a1356334a86e520907d111
-prerequisite-patch-id: 40240bed0abde4db2387a70bfc6066d9062c635c
-prerequisite-patch-id: 69f1d40d67a5c3f0425ba5b3c52924d5dcd41af0
-prerequisite-patch-id: 2bc43b375b470f7e8bbe937b78678ba3856e3b8f
---
+diff --git a/Documentation/devicetree/bindings/phy/starfive,jh7110-dphy-rx.yaml b/Documentation/devicetree/bindings/phy/starfive,jh7110-dphy-rx.yaml
+new file mode 100644
+index 000000000000..1c1e5c7cbee2
+--- /dev/null
++++ b/Documentation/devicetree/bindings/phy/starfive,jh7110-dphy-rx.yaml
+@@ -0,0 +1,78 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/phy/starfive,jh7110-dphy-rx.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Starfive SoC MIPI D-PHY Rx Controller
++
++maintainers:
++  - Jack Zhu <jack.zhu@starfivetech.com>
++  - Changhuang Liang <changhuang.liang@starfivetech.com>
++
++description: |
++  The Starfive SOC has a MIPI CSI D-PHY based on M31 IP use to transfer
++  the CSI cameras data.
++
++properties:
++  compatible:
++    items:
++      - const: "starfive,jh7110-dphy-rx"
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    minItems: 3
++    maxItems: 3
++
++  clock-names:
++    items:
++      - const: cfg
++      - const: ref
++      - const: tx
++
++  resets:
++    minItems: 2
++    maxItems: 2
++
++  starfive,aon-syscon:
++    $ref: '/schemas/types.yaml#/definitions/phandle-array'
++    items:
++      items:
++        - description: phandle of AON SYSCON
++        - description: register offset
++    description: The register of dphy rx driver can be configured
++      by AON SYSCON in this property.
++
++  "#phy-cells":
++    const: 0
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - resets
++  - starfive,aon-syscon
++  - "#phy-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/starfive,jh7110-crg.h>
++    #include <dt-bindings/reset/starfive,jh7110-crg.h>
++
++    dphy@19820000 {
++      compatible = "starfive,jh7110-dphy-rx";
++      reg = <0x19820000 0x10000>;
++      clocks = <&ispcrg JH7110_ISPCLK_M31DPHY_CFGCLK_IN>,
++               <&ispcrg JH7110_ISPCLK_M31DPHY_REFCLK_IN>,
++               <&ispcrg JH7110_ISPCLK_M31DPHY_TXCLKESC_LAN0>;
++      clock-names = "cfg", "ref", "tx";
++      resets = <&ispcrg JH7110_ISPRST_M31DPHY_HW>,
++               <&ispcrg JH7110_ISPRST_M31DPHY_B09_ALWAYS_ON>;
++      starfive,aon-syscon = <&aon_syscon 0x00>;
++      #phy-cells = <0>;
++    };
+-- 
 2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
