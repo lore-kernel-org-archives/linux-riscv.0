@@ -4,65 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F1DAC636CD
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Feb 2023 07:06:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0A3DC636CD
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Feb 2023 07:58:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vtfWIdno8Y22L6hi/bVZoBGWyAcDDsQex7lPOO6sAMA=; b=BZl23EqX3JD+PZ
-	87yfTBLTE83IAwwto+iQY9bNKkg371V2Bbio9O8D1JRarjjcUOn5UJ+FK7Cop8R/HG7pNjj7FnzKx
-	EADXRjVeiRshARwE1kZ+dY0ISxBI9nTxdCXVveinvNsHLJQBtRvYQeQ4YvLp82Mqotb9+s/NHAYVj
-	mbxfNx6B7Pugv7B8OQ8vpE8sqJCt3mKyKFR9eoapAQfYTVbs+i1DKkHVmagHFJGDaP0dfFipgGMi8
-	Cb5+S5Y5XorQoTnaMthi8x6imvFIwUhqkX80zAdSSAQ4Peaq+Y9EZydsJ5Wi2vhrHZNx7sIviL64K
-	g8pwPE5102QTN8it435Q==;
+	List-Owner; bh=Y6oZHIA0Dc+zo1lzo5EMTtyYMQKFEAHCC92Xszwar4c=; b=c58HETCn/P0dEy
+	KmIPGuj1tyUHyzONTu4GEnU6HyaI63U5r5r7x84ujyqUeFN0Cce0pZyYdu4No/A4mysQNBxc5oxLI
+	MOEEiSlFEftU279UH538YAORDgOEPxrqs64X5WcNXJ23n8uVwrNsVmEzYSrJEMevcQwFnPThIBxaO
+	DTLro0hZLlF2mxcpJ7gphMwaecpbIle8SiDGdi0WORYKpGsw1NKEo33rJmm1PhE2qkZdQIZshbJBq
+	BMZpumMZv7YS/OEzIqX7PYa8KLSgjBZMwRouVa7m9d+uNPqR8Sg/b7/eAV2EdSnFQaudwrOG0PUyJ
+	ioIOI5KamYvqnF0/VLAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQNUE-004Z0M-22; Fri, 10 Feb 2023 07:06:22 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQNU8-004Ywy-3W
-	for linux-riscv@lists.infradead.org; Fri, 10 Feb 2023 07:06:20 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 7591C24E291;
-	Fri, 10 Feb 2023 15:05:32 +0800 (CST)
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 10 Feb
- 2023 15:05:32 +0800
-Received: from [192.168.125.128] (183.27.96.33) by EXMBX061.cuchost.com
- (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 10 Feb
- 2023 15:05:31 +0800
-Message-ID: <8feda5d9-8510-acbf-1ec2-3a0e67df0adc@starfivetech.com>
-Date: Fri, 10 Feb 2023 15:01:13 +0800
+	id 1pQOId-004gtr-WC; Fri, 10 Feb 2023 07:58:28 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pQOIZ-004gsF-Pj
+	for linux-riscv@lists.infradead.org; Fri, 10 Feb 2023 07:58:25 +0000
+Received: by mail-ej1-x633.google.com with SMTP id rp23so13557874ejb.7
+        for <linux-riscv@lists.infradead.org>; Thu, 09 Feb 2023 23:58:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=PVwvLPdoCG9Eqj6NqnBPjX2qD9B50cXR8ttDSJSuM4A=;
+        b=E54giWET6EZ//rnbVLCk30jHwlkvwBQTSRrKzWxqC+Dh6I7jwRkUuOeD33TKOW84N+
+         HSjXBJcigaAkSHJNXcG3ArSe16CRpP78pNFkEKbw7AvEJS6+k92zhsWL95lpfKHn6iKs
+         V4BdmkzPUHwX+rSCo3mXCYGfFOI4u/vYzRRN+g0gEnBYFCZg0cHZ8gNbEh8r/JB4Y3Kk
+         sCd2fsDHefJuMqZy2BUNJZLozJU3TFo3SoRb8ke7opEBIFLKCsnUiN2BSw0nxEhGPHKm
+         hSSJOOEWtAwVwCONnPwtqGYxK/swhMP3vFLcnB00OY4L3eSHP9oRWnT+RJ3J3F/69FPO
+         OlKQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PVwvLPdoCG9Eqj6NqnBPjX2qD9B50cXR8ttDSJSuM4A=;
+        b=mwBfRLJX8mzc2Nsow6krNaABwyxRzaeaLhj+lMgt5mnTgwx6QGcWfvmrj13/fVMdJY
+         oc45QikFlYIta54bcXULxwgHI26DHp7yIiKl+69gwnnvepbqdPlFQ/VMsRkODQVkVTtv
+         ZlRc/mK0Yf9nniE/cBCpfHmVMWD0iSphHsgtcn1EY7TcdrHCeVowOx4CbL+NQwq4YsrY
+         2O6I++e9J++vcKYua5iV4/hmvqGUIF7Av23sZGXAFA2P6gsTK21SG94jp9CDkhODw6Q3
+         1SvVCkv5wToMrMzJ9ev5E2SbRD/jZWeFdYiu5h0csPnaAAEpWW1XDAWie5ksVxQASMxd
+         j20A==
+X-Gm-Message-State: AO0yUKW4CZynq8sapJNDGgvjtF9owssqFJoTNWW71pSq55zIIEDl/1sK
+	8ZVfFc+bC66PkXp1PkxC9vz/jQ==
+X-Google-Smtp-Source: AK7set/pSgw0sSEPaDn8vw6CqyxZeGxDr7nF3C2NkVx7d7q6Hx9lxU+IbrZm1BkKwVQiHeukXBoE7w==
+X-Received: by 2002:a17:906:9494:b0:878:5f35:b8d6 with SMTP id t20-20020a170906949400b008785f35b8d6mr12555289ejx.51.1676015900046;
+        Thu, 09 Feb 2023 23:58:20 -0800 (PST)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id 23-20020a170906101700b008aedc51fc02sm2048340ejm.210.2023.02.09.23.58.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 09 Feb 2023 23:58:19 -0800 (PST)
+Date: Fri, 10 Feb 2023 08:58:18 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org, 'Anup Patel ' <apatel@ventanamicro.com>,
+	'Palmer Dabbelt ' <palmer@dabbelt.com>,
+	'Paul Walmsley ' <paul.walmsley@sifive.com>,
+	'Krzysztof Kozlowski ' <krzysztof.kozlowski+dt@linaro.org>,
+	'Atish Patra ' <atishp@rivosinc.com>,
+	'Heiko Stuebner ' <heiko@sntech.de>,
+	'Jisheng Zhang ' <jszhang@kernel.org>,
+	'Rob Herring ' <robh@kernel.org>,
+	'Albert Ou ' <aou@eecs.berkeley.edu>,
+	'Conor Dooley ' <conor.dooley@microchip.com>
+Subject: Re: [PATCH v4 5/8] RISC-V: cpufeature: Put vendor_id to work
+Message-ID: <20230210075818.chh5myc2tmcvjplc@orel>
+References: <20230209152628.129914-1-ajones@ventanamicro.com>
+ <20230209152628.129914-6-ajones@ventanamicro.com>
+ <Y+VD2/owMIvqzOx8@spud>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.6.1
-Subject: Re: [PATCH v2 2/3] drivers: watchdog: Add StarFive Watchdog driver
-Content-Language: en-US
-To: Guenter Roeck <linux@roeck-us.net>
-CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-watchdog@vger.kernel.org>, Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Rob Herring
-	<robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, "Palmer
- Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, "Philipp
- Zabel" <p.zabel@pengutronix.de>, Samin Guo <samin.guo@starfivetech.com>,
-	<linux-kernel@vger.kernel.org>
-References: <20221219094233.179153-1-xingyu.wu@starfivetech.com>
- <20221219094233.179153-3-xingyu.wu@starfivetech.com>
- <20230201224619.GA3194283@roeck-us.net>
-From: Xingyu Wu <xingyu.wu@starfivetech.com>
-In-Reply-To: <20230201224619.GA3194283@roeck-us.net>
-X-Originating-IP: [183.27.96.33]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX061.cuchost.com
- (172.16.6.61)
-X-YovoleRuleAgent: yovoleflag
+Content-Disposition: inline
+In-Reply-To: <Y+VD2/owMIvqzOx8@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230209_230617_086349_71621ECA 
-X-CRM114-Status: GOOD (  53.18  )
+X-CRM114-CacheID: sfid-20230209_235823_882508_5D99221D 
+X-CRM114-Status: GOOD (  36.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,574 +100,129 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2023/2/2 6:46, Guenter Roeck wrote:
-> On Mon, Dec 19, 2022 at 05:42:32PM +0800, Xingyu Wu wrote:
->> Add watchdog driver for the StarFive JH7110 SoC.
->> 
->> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+On Thu, Feb 09, 2023 at 07:04:59PM +0000, Conor Dooley wrote:
+> Hey Drew,
 > 
-> This driver is almost impossible for me to review. There is a lot of code
-> which doesn't make sense to me. I'll outline some of it below, but this is
-> by far not a complete review.
-
-Thanks for your review. It is enough complete and useful.
-
+> On Thu, Feb 09, 2023 at 04:26:25PM +0100, Andrew Jones wrote:
+> > When [ab]using alternatives as cpufeature "static keys", which can
+> > be used in assembly, also put vendor_id to work as application-
+> > specific data. This will be initially used in Zicboz's application to
+> > clear_page(), as Zicboz's block size must also be considered. In that
+> > case, vendor_id's role will be to convey the maximum block size which
+> > the Zicboz clear_page() implementation supports.
+> > 
+> > cpufeature alternative applications which need to check for the
+> > existence or absence of other cpufeatures may also be able to make
+> > use of this.
+> > 
+> > Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+> > ---
+> >  arch/riscv/kernel/cpufeature.c | 10 ++++++++--
+> >  1 file changed, 8 insertions(+), 2 deletions(-)
+> > 
+> > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> > index 0d2db03cf167..74736b4f0624 100644
+> > --- a/arch/riscv/kernel/cpufeature.c
+> > +++ b/arch/riscv/kernel/cpufeature.c
+> > @@ -278,6 +278,11 @@ void __init riscv_fill_hwcap(void)
+> >  }
+> >  
+> >  #ifdef CONFIG_RISCV_ALTERNATIVE
 > 
->>[...]
->> +
->> +#include <linux/clk.h>
->> +#include <linux/delay.h>
->> +#include <linux/err.h>
->> +#include <linux/interrupt.h>
->> +#include <linux/io.h>
->> +#include <linux/iopoll.h>
->> +#include <linux/module.h>
->> +#include <linux/moduleparam.h>
->> +#include <linux/of.h>
->> +#include <linux/of_device.h>
->> +#include <linux/platform_device.h>
->> +#include <linux/pm_runtime.h>
->> +#include <linux/reset.h>
->> +#include <linux/reset-controller.h>
->> +#include <linux/slab.h>
->> +#include <linux/timer.h>
->> +#include <linux/types.h>
->> +#include <linux/uaccess.h>
->> +#include <linux/watchdog.h>
+> I think a comment here about what "application check" means would be
+> nice.
+> That wording just feels clunky & the meaning is not immediately
+> graspable?
 > 
-> Several of those include files are unnecessary.
-
-Will drop it.
-
+> /*
+>  * riscv_cpufeature_application_check() - Check if a cpufeature applies.
+>  * The presence of a cpufeature does not mean it is necessarily
+>  * useable. This function is used to apply the alternative on a
+>  * case-by-case basis.
+>  */
 > 
->> [...]
->> +
->> +static bool nowayout = WATCHDOG_NOWAYOUT;
->> +static int tmr_margin;
->> +static int tmr_atboot = STARFIVE_WDT_ATBOOT;
->> +static int soft_noboot;
->> +
->> +module_param(tmr_margin, int, 0);
->> +module_param(tmr_atboot, int, 0);
->> +module_param(nowayout, bool, 0);
->> +module_param(soft_noboot, int, 0);
->> +
->> +MODULE_PARM_DESC(tmr_margin, "Watchdog tmr_margin in seconds. (default="
->> +		 __MODULE_STRING(STARFIVE_WDT_DEFAULT_TIME) ")");
-> 
-> Use "timeout" or "heartbeat".
+> Dunno, does something like that convey the intent?
 
-Will fix.
+Indeed, a comment would be helpful. I'll put something similar to what you
+propose in the next version.
 
 > 
->> +MODULE_PARM_DESC(tmr_atboot,
->> +		 "Watchdog is started at boot time if set to 1, default="
->> +		 __MODULE_STRING(STARFIVE_WDT_ATBOOT));
+> > +static bool riscv_cpufeature_application_check(u32 feature, u16 data)
+> > +{
+> > +	return data == 0;
+> > +}
+> > +
+> >  void __init_or_module riscv_cpufeature_patch_func(struct alt_entry *begin,
+> >  						  struct alt_entry *end,
+> >  						  unsigned int stage)
+> > @@ -289,8 +294,6 @@ void __init_or_module riscv_cpufeature_patch_func(struct alt_entry *begin,
+> >  		return;
+> >  
+> >  	for (alt = begin; alt < end; alt++) {
+> > -		if (alt->vendor_id != 0)
+> > -			continue;
 > 
-> Use "early_enable"
+> Can you remind me what makes this "safe"?
+> My understanding was that a vendor_id of zero was safe, as zero is
+> reserved in JEDEC.
+> What is stopping someone stuffing this with a given value and
+> colliding with a real vendor's errata?
+> 
+> 	for (alt = begin; alt < end; alt++) {
+> 		if (alt->vendor_id != A_VENDOR_ID)
+> 			continue;
+> 		if (alt->errata_id >= ERRATA_A_NUMBER)
+> 			continue;
+> 
+> 		tmp = (1U << alt->errata_id);
+> 		if (cpu_req_errata & tmp) {
+> 			oldptr = ALT_OLD_PTR(alt);
+> 			altptr = ALT_ALT_PTR(alt);
+> 
+> 			/* On vm-alternatives, the mmu isn't running yet */
+> 			if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
+> 				memcpy((void *)__pa_symbol(oldptr),
+> 				       (void *)__pa_symbol(altptr),
+> 				       alt->alt_len);
+> 			else
+> 				patch_text_nosync(oldptr, altptr, alt->alt_len);
+> 		}
+> 	}
+> 
+> I've probably just missing something, my brain swapped out alternatives
+> the other week. Hopefully whatever I missed isn't embarrassingly obvious!
 
-Will fix.
+You're right. I was assuming the errata_id space for errata didn't overlap
+with the errata_id space for cpufeatures. It doesn't, atm, but by luck,
+not design. I could try to ensure that somehow, but probably the better
+approach would be to use the upper bits of errata_id for the application
+data and to leave vendor_id alone. Thanks for catching my oversight!
 
-> 
->> +MODULE_PARM_DESC(nowayout, "Watchdog cannot be stopped once started (default="
->> +		 __MODULE_STRING(WATCHDOG_NOWAYOUT) ")");
->> +MODULE_PARM_DESC(soft_noboot,
->> +		 "Watchdog action, set to 1 to ignore reboots, 0 to reboot (default 0)");
-> 
-> I do not understand what this module parameter is supposed to be used for,
-> and what the "soft_' prefix is supposed to mean.
-
-This 'soft_noboot' means watchdog reset enabled status. If 'soft_noboot' is set to 1,
-it means reset is disabled and do not reboot.Or 'reboot_disbled' instead? 
-
-> 
->> [...]
->> +#ifdef CONFIG_OF
->> +/* Register bias in JH7110 */
->> +static const struct starfive_wdt_variant drv_data_jh7110 = {
->> +	.control = STARFIVE_WDT_JH7110_CONTROL,
->> +	.load = STARFIVE_WDT_JH7110_LOAD,
->> +	.enable = STARFIVE_WDT_JH7110_CONTROL,
->> +	.value = STARFIVE_WDT_JH7110_VALUE,
->> +	.int_clr = STARFIVE_WDT_JH7110_INTCLR,
->> +	.unlock = STARFIVE_WDT_JH7110_LOCK,
->> +	.unlock_key = STARFIVE_WDT_JH7110_UNLOCK_KEY,
->> +	.irq_is_raise = STARFIVE_WDT_JH7110_IMS,
->> +	.enrst_shift = STARFIVE_WDT_JH7110_RESEN_SHIFT,
->> +	.en_shift = STARFIVE_WDT_JH7110_EN_SHIFT,
->> +};
->> +
->> +static const struct of_device_id starfive_wdt_match[] = {
->> +	{ .compatible = "starfive,jh7110-wdt", .data = &drv_data_jh7110 },
->> +	{}
->> +};
->> +MODULE_DEVICE_TABLE(of, starfive_wdt_match);
->> +#endif
->> +
->> +static const struct platform_device_id starfive_wdt_ids[] = {
->> +	{
->> +		.name = "starfive-jh7110-wdt",
->> +		.driver_data = (unsigned long)&drv_data_jh7110,
-> 
-> This will fail to compile if CONFIG_OF=n.
-
-Will drop '#ifdef CONFIG_OF'.
-
-> 
->> +	},
->> +	{}
->> +};
->> +MODULE_DEVICE_TABLE(platform, starfive_wdt_ids);
->> +
->> +static int starfive_wdt_get_clock_rate(struct starfive_wdt *wdt)
->> +{
->> +	if (!IS_ERR(wdt->core_clk)) {
->> +		wdt->freq = clk_get_rate(wdt->core_clk);
-> 
-> wdt->freq can at least in theory be 0, which would
-> result in a zero-divide crash later on.
-
-Will add a check whether rate is 0 to avoid zero-divide crash.
-
-> 
->> +		return 0;
->> +	}
->> +	dev_err(wdt->dev, "get clock rate failed.\n");
->> +
->> +	return -ENOENT;
-> 
-> The above code can not be reached.
-> 
->> +}
->> +
->> +static int starfive_wdt_enable_clock(struct starfive_wdt *wdt)
->> +{
->> +	int ret = 0;
->> +
->> +	wdt->apb_clk = devm_clk_get_enabled(wdt->dev, "apb");
->> +	if (IS_ERR(wdt->apb_clk)) {
->> +		dev_err(wdt->dev, "failed to get and enable apb clock.\n");
->> +		ret = PTR_ERR(wdt->apb_clk);
->> +		return ret;
->> +	}
->> +
->> +	wdt->core_clk = devm_clk_get_enabled(wdt->dev, "core");
->> +	if (IS_ERR(wdt->core_clk)) {
->> +		dev_err(wdt->dev, "failed to get and enable core clock.\n");
->> +		ret = PTR_ERR(wdt->core_clk);
->> +	}
->> +
->> +	return ret;
->> +}
->> +
->> +static int starfive_wdt_reset_init(struct starfive_wdt *wdt)
->> +{
->> +	int ret = 0;
->> +
->> +	wdt->rsts = devm_reset_control_array_get_exclusive(wdt->dev);
->> +	if (!IS_ERR(wdt->rsts)) {
-> 
-> Error handling should come first, and return immediately.
-
-Will change the order and return error first.
-
-> 
->> +		ret = reset_control_deassert(wdt->rsts);
->> +		if (ret)
->> +			dev_err(wdt->dev, "failed to deassert rsts.\n");
->> +	} else {
->> +		dev_err(wdt->dev, "failed to get rsts error.\n");
->> +		ret = PTR_ERR(wdt->rsts);
->> +	}
->> +
->> +	return ret;
->> +}
->> [...]
->> +
->> +/* interrupt status whether has been raised from the counter */
->> +static bool starfive_wdt_raise_irq_status(struct starfive_wdt *wdt)
->> +{
->> +	return !!readl(wdt->base + wdt->drv_data->irq_is_raise);
->> +}
->> +
->> +static void starfive_wdt_int_clr(struct starfive_wdt *wdt)
->> +{
->> +	writel(STARFIVE_WDT_INTCLR, wdt->base + wdt->drv_data->int_clr);
->> +}
-> 
-> There is no explanation for this interrupt handling (or, rather,
-> non-handling since there is no interrupt handler. What is the purpose
-> of even having all this code ?
-
-Because the watchdog raise an interrupt signal on the hardware when timeout,
-although we do not use interrupt handler on the sorfware, but the watchdog
-initialization or reload also need to clear the hardware interrupt signal.
-
-> 
->> [...]
->> +
->> +static unsigned int starfive_wdt_max_timeout(struct starfive_wdt *wdt)
->> +{
->> +	return DIV_ROUND_UP(STARFIVE_WDT_MAXCNT, wdt->freq) - 1;
->> +}
-> 
-> For a frequency of 1 MHz, this results in a maximum timeout of 4294.
-> 
-> This value is then used in starfive_wdt_set_timeout(), but as
-> (4294 * 1000000) / 2, which is then again compared against
-> STARFIVE_WDT_MAXCNT. Somewhere this calculation is wrong.
-
-Modify to 'DIV_ROUND_UP(STARFIVE_WDT_MAXCNT, (wdt->freq / 2)) - 1'.
-
-> 
-> [...]
->> +
->> +static int starfive_wdt_restart(struct watchdog_device *wdd, unsigned long action,
->> +				void *data)
->> +{
->> +	struct starfive_wdt *wdt = watchdog_get_drvdata(wdd);
->> +
->> +	spin_lock(&wdt->lock);
->> +	starfive_wdt_unlock(wdt);
->> +	/* disable watchdog, to be safe */
->> +	starfive_wdt_disable(wdt);
->> +
->> +	if (soft_noboot)
->> +		starfive_wdt_disable_reset(wdt);
->> +	else
->> +		starfive_wdt_enable_reset(wdt);
->> +
-> 
-> This is a _restart_ handler. Disabling it doesn't make any sense.
-
-Will drop 'starfive_wdt_disable_reset(wdt)' part.
-
-> 
->> +	/* put native values into count */
->> +	starfive_wdt_set_count(wdt, wdt->count);
->> +
->> +	/* set the watchdog to go and reset */
->> +	starfive_wdt_int_clr(wdt);
->> +	starfive_wdt_enable(wdt);
->> +
->> +	starfive_wdt_lock(wdt);
->> +	spin_unlock(&wdt->lock);
->> +
->> +	return 0;
->> +}
->> +
->> +static int starfive_wdt_set_timeout(struct watchdog_device *wdd,
->> +				    unsigned int timeout)
->> +{
->> +	struct starfive_wdt *wdt = watchdog_get_drvdata(wdd);
->> +
->> +	unsigned long freq = wdt->freq;
->> +	unsigned int count;
->> +
->> +	spin_lock(&wdt->lock);
->> +
->> +	if (timeout < wdt->wdt_device.min_timeout)
->> +		return -EINVAL;
-> 
-> This is checked by the watchdog core.
-
-Will drop it.
-
-> 
->> +
->> +	/*
->> +	 * This watchdog takes twice timeouts to reset.
->> +	 * In order to reduce time to reset, should set half count value.
->> +	 */
->> +	count = timeout * freq / 2;
->> +
->> +	if (count > STARFIVE_WDT_MAXCNT) {
-> 
-> count is an unsigned int, which is pretty much everywhere a 32-bit
-> value. STARFIVE_WDT_MAXCNT is 0xffffffff. How is an unsigned integer
-> ever supposed to be larger than 0xffffffff ?
-> 
->> +		dev_warn(wdt->dev, "timeout %d too big,use the MAX-timeout set.\n",
->> +			 timeout);
->> +		timeout = starfive_wdt_max_timeout(wdt);
->> +		count = timeout * freq;
-> 
-> This is confusing. First, the timeout range is checked by the calling code,
-> which makes sure it is never larger than max_timeout. max_timeout is
-> set to the value returned by starfive_wdt_max_timeout().
-> Thus, count = timeout * freq / 2 will _never_ be larger than
-> STARFIVE_WDT_MAXCNT. Even if it ever was, it doesn't make sense
-> to use a count value of timeout * freq in that case, ie a value which
-> could be twice as large as the supposed maximum value.
-
-Change 'count' type to 'u64'. And if 'count' is larger than STARFIVE_WDT_MAXCNT,
-'count' is equal to STARFIVE_WDT_MAXCNT. Does that seem OK?
-
-> 
->> +	}
->> +
->> +	dev_info(wdt->dev, "Heartbeat: timeout=%d, count/2=%d (%08x)\n",
->> +		 timeout, count, count);
-> 
-> No. Drop such noise. Make it a debug message if you think you need it.
-
-Will modify it to 'dev_dbg'.
-
-> 
->> +
->> +	starfive_wdt_unlock(wdt);
->> +	starfive_wdt_disable(wdt);
->> +	starfive_wdt_set_reload_count(wdt, count);
->> +	starfive_wdt_enable(wdt);
->> +	starfive_wdt_lock(wdt);
->> +
->> +	wdt->count = count;
->> +	wdd->timeout = timeout;
->> +
->> +	spin_unlock(&wdt->lock);
->> +
->> +	return 0;
->> +}
->> +
->> +#define OPTIONS (WDIOF_SETTIMEOUT | WDIOF_KEEPALIVEPING | WDIOF_MAGICCLOSE)
->> +
->> +static const struct watchdog_info starfive_wdt_ident = {
->> +	.options = OPTIONS,
->> +	.firmware_version = 0,
-> 
-> It is not necessary to initilize a static variable with 0.
-
-Will drop '0'.
-
-> 
->> +	.identity = "StarFive Watchdog",
->> +};
->> +
->> +static const struct watchdog_ops starfive_wdt_ops = {
->> +	.owner = THIS_MODULE,
->> +	.start = starfive_wdt_start,
->> +	.stop = starfive_wdt_pm_stop,
->> +	.ping = starfive_wdt_keepalive,
->> +	.set_timeout = starfive_wdt_set_timeout,
->> +	.restart = starfive_wdt_restart,
->> +	.get_timeleft = starfive_wdt_get_timeleft,
->> +};
->> +
->> +static const struct watchdog_device starfive_wdd = {
->> +	.info = &starfive_wdt_ident,
->> +	.ops = &starfive_wdt_ops,
->> +	.timeout = STARFIVE_WDT_DEFAULT_TIME,
->> +};
->> +
->> +static inline const struct starfive_wdt_variant *
->> +starfive_wdt_get_drv_data(struct platform_device *pdev)
->> +{
->> +	const struct starfive_wdt_variant *variant;
->> +
->> +	variant = of_device_get_match_data(&pdev->dev);
->> +	if (!variant) {
->> +		/* Device matched by platform_device_id */
->> +		variant = (struct starfive_wdt_variant *)
->> +			   platform_get_device_id(pdev)->driver_data;
->> +	}
->> +
->> +	return variant;
->> +}
->> +
->> +static int starfive_wdt_probe(struct platform_device *pdev)
->> +{
->> +	struct device *dev = &pdev->dev;
->> +	struct starfive_wdt *wdt;
->> +	int started = 0;
-> 
-> What is this variable supposed to be used for ? It is alway 0.
-
-This variable is used to switch for debugging whether to allow the watchdog
-to be started at boot time by driver. I think I should remove it.
-
-> 
->> [...]
->> +
->> +	if (tmr_atboot && started == 0) {
->> +		starfive_wdt_start(&wdt->wdt_device);
->> +	} else if (!tmr_atboot) {
->> +		/*
->> +		 *if we're not enabling the watchdog, then ensure it is
->> +		 * disabled if it has been left running from the bootloader
->> +		 * or other source.
->> +		 */
->> +		starfive_wdt_stop(&wdt->wdt_device);
-> 
-> If it _is_ running from the boot loader, the watchdog core is not
-> informed about it. If it is started here, it is not informed either.
-> This is unusual and will need to be explained.
-> Why ?
-
-Is is okay to remove the 'started'?
-
-> 
->> +	}
->> +
->> +#ifdef CONFIG_PM
->> +	clk_disable_unprepare(wdt->core_clk);
->> +	clk_disable_unprepare(wdt->apb_clk);
->> +#endif
-> 
-> I do not understand the above code. Why stop the watchdog if CONFIG_PM
-> is enabled, even if it is supposed to be running ?
-
-There misses a check about 'early_enable' and add 'if (!early_enable)'.
-There means that disable clock when watchdog sleep and CONFIG_PM is enable.
-Then enable clock when watchdog work by 'starfive_wdt_runtime_resume' function.
-
-> 
->> +
->> +	platform_set_drvdata(pdev, wdt);
->> +
->> +	return 0;
->> +
->> +err_clk_disable:
->> +	clk_disable_unprepare(wdt->core_clk);
->> +	clk_disable_unprepare(wdt->apb_clk);
->> +
->> +	return ret;
->> +}
->> +
->> +static int starfive_wdt_remove(struct platform_device *dev)
->> +{
->> +	struct starfive_wdt *wdt = platform_get_drvdata(dev);
->> +
->> +	starfive_wdt_mask_and_disable_reset(wdt, true);
->> +	watchdog_unregister_device(&wdt->wdt_device);
->> +
->> +	clk_disable_unprepare(wdt->core_clk);
->> +	clk_disable_unprepare(wdt->apb_clk);
->> +	pm_runtime_disable(wdt->dev);
->> +
->> +	return 0;
->> +}
->> +
->> +static void starfive_wdt_shutdown(struct platform_device *dev)
->> +{
->> +	struct starfive_wdt *wdt = platform_get_drvdata(dev);
->> +
->> +	starfive_wdt_mask_and_disable_reset(wdt, true);
->> +
->> +	starfive_wdt_pm_stop(&wdt->wdt_device);
->> +}
->> +
->> +#ifdef CONFIG_PM_SLEEP
->> +static int starfive_wdt_suspend(struct device *dev)
->> +{
->> +	int ret;
->> +	struct starfive_wdt *wdt = dev_get_drvdata(dev);
->> +
->> +	starfive_wdt_unlock(wdt);
->> +
->> +	/* Save watchdog state, and turn it off. */
->> +	wdt->reload = starfive_wdt_get_count(wdt);
->> +
->> +	starfive_wdt_mask_and_disable_reset(wdt, true);
->> +
->> +	/* Note that WTCNT doesn't need to be saved. */
->> +	starfive_wdt_stop(&wdt->wdt_device);
->> +	pm_runtime_force_suspend(dev);
->> +
->> +	starfive_wdt_lock(wdt);
->> +
->> +	return 0;
->> +}
->> +
->> +static int starfive_wdt_resume(struct device *dev)
->> +{
->> +	int ret;
->> +	struct starfive_wdt *wdt = dev_get_drvdata(dev);
->> +
->> +	starfive_wdt_unlock(wdt);
->> +
->> +	pm_runtime_force_resume(dev);
->> +
->> +	/* Restore watchdog state. */
->> +	starfive_wdt_set_reload_count(wdt, wdt->reload);
->> +
->> +	starfive_wdt_restart(&wdt->wdt_device, 0, NULL);
-> 
-> I do not understand this call. Per its definition it is a restart handler,
-> supposed to restart the hardware. Why would anyone want to restart the
-> system on resume ?
-
-The watchdog start counting from 'count' to 0 on everytime resume like a restart.
-So I directly use a restart.
-
-> 
->> +
->> +	starfive_wdt_mask_and_disable_reset(wdt, false);
->> +
->> +	starfive_wdt_lock(wdt);
->> +
->> +	return 0;
->> +}
->> +#endif /* CONFIG_PM_SLEEP */
->> +
->> +#ifdef CONFIG_PM
->> +static int starfive_wdt_runtime_suspend(struct device *dev)
->> +{
->> +	struct starfive_wdt *wdt = dev_get_drvdata(dev);
->> +
->> +	clk_disable_unprepare(wdt->apb_clk);
->> +	clk_disable_unprepare(wdt->core_clk);
->> +
->> +	return 0;
->> +}
->> +
->> +static int starfive_wdt_runtime_resume(struct device *dev)
->> +{
->> +	struct starfive_wdt *wdt = dev_get_drvdata(dev);
->> +	int ret;
->> +
->> +	ret = clk_prepare_enable(wdt->apb_clk);
->> +	if (ret) {
->> +		dev_err(wdt->dev, "failed to enable apb_clk.\n");
->> +		return ret;
->> +	}
->> +
->> +	ret = clk_prepare_enable(wdt->core_clk);
->> +	if (ret)
->> +		dev_err(wdt->dev, "failed to enable core_clk.\n");
->> +
->> +	return ret;
->> +}
->> +#endif /* CONFIG_PM */
->> +
->> +static const struct dev_pm_ops starfive_wdt_pm_ops = {
->> +	SET_RUNTIME_PM_OPS(starfive_wdt_runtime_suspend, starfive_wdt_runtime_resume, NULL)
->> +	SET_SYSTEM_SLEEP_PM_OPS(starfive_wdt_suspend, starfive_wdt_resume)
->> +};
->> +
->> +static struct platform_driver starfive_wdt_driver = {
->> +	.probe		= starfive_wdt_probe,
->> +	.remove		= starfive_wdt_remove,
->> +	.shutdown	= starfive_wdt_shutdown,
->> +	.id_table	= starfive_wdt_ids,
->> +	.driver		= {
->> +		.name	= "starfive-wdt",
->> +		.pm	= &starfive_wdt_pm_ops,
->> +		.of_match_table = of_match_ptr(starfive_wdt_match),
->> +	},
->> +};
->> +
->> +module_platform_driver(starfive_wdt_driver);
->> +
->> +MODULE_AUTHOR("Xingyu Wu <xingyu.wu@starfivetech.com>");
->> +MODULE_AUTHOR("Samin Guo <samin.guo@starfivetech.com>");
->> +MODULE_DESCRIPTION("StarFive Watchdog Device Driver");
->> +MODULE_LICENSE("GPL v2");
+Thanks,
+drew
 
 
-Thank for your review, I will modify this according to your suggestions.
+> 
+> Cheers,
+> Conor.
+> 
+> >  		if (alt->errata_id >= RISCV_ISA_EXT_MAX) {
+> >  			WARN(1, "This extension id:%d is not in ISA extension list",
+> >  				alt->errata_id);
+> > @@ -300,6 +303,9 @@ void __init_or_module riscv_cpufeature_patch_func(struct alt_entry *begin,
+> >  		if (!__riscv_isa_extension_available(NULL, alt->errata_id))
+> >  			continue;
+> >  
+> > +		if (!riscv_cpufeature_application_check(alt->errata_id, alt->vendor_id))
+> > +			continue;
+> > +
+> >  		oldptr = ALT_OLD_PTR(alt);
+> >  		altptr = ALT_ALT_PTR(alt);
+> >  		patch_text_nosync(oldptr, altptr, alt->alt_len);
+> > -- 
+> > 2.39.1
+> > 
 
-Best regards,
-Xingyu Wu
 
 
 _______________________________________________
