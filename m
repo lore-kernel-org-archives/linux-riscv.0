@@ -4,59 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 998D3C636CD
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Feb 2023 05:46:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4573EC636CD
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Feb 2023 06:05:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HAKzCaUbjs+LJ5aWp6c+ftSGBz5/j1372s0o7c2g+P4=; b=sEvuoRdsra9GWK
-	54zWSSECgnX3HEqs0l6qUlReVjiW6xlFH9+JA5TEyfqceIQnhIVEyjCttJDRroignwOekqTUb2dM2
-	sHL3xkxmiGOwwcfvDc1QoozJhW2okts4YF24QiyB1lwap6px4W56X3oNSJWuBeTrqSUW9mjMYEINS
-	FTeossuRmAkBbGMP5o6Y17bY2EEPd2cU8FmpPwtCk8bQPkJgB8rH0tALBNkfHt49kCQi2u+2VZGXm
-	86ZGnrwEdBYJcIhCazX/FTmxSBxZs4rJPbAPDmsF9Y2o8mjNZ0mhGDA80oTHj4hgihRtOGfAgyvu1
-	rpYJrgfIJ0Um7Cna5syg==;
+	List-Owner; bh=Npn9PZ3/1B+LaPOwEHdJi8syR8xV34aCxVGvFZeZMwM=; b=KXMT/wu1kHLOcM
+	j0AYs4ouFUtZIbqQknpWJLZoOi7m2eEpNv+GzHqU6NNWR2rtHSu2AVzaZQUKH+lvM6VJhlp6xYFir
+	HjleNeK6lyPDNcqkPT3YECdjIVhpqnwPwKoIe6bf/UbgPLpwJShhB11ncGzvLDI4So19y+zaVS9Qm
+	PH1jUtvXqU4C7sYYj409IrJardaqWA+jysTItlws/Lp+sUQ9rpBbRus6TozO3vIQB5X3IDYzUTZms
+	TRZD9ISE1IkBwVcRDXQDPa1Ghezf4ETXHXC+Wm+skXCAZX3s7NfbxZhKvgR4U9HZnIuvQIyFDWA+J
+	oA80y1PUCtx+D3p5Q2HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQMF6-004KEx-7I; Fri, 10 Feb 2023 05:46:40 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pQMX5-004Ox7-9s; Fri, 10 Feb 2023 06:05:15 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQMF3-004KEM-2D
-	for linux-riscv@lists.infradead.org; Fri, 10 Feb 2023 05:46:38 +0000
+	id 1pQMX1-004Ow4-2l; Fri, 10 Feb 2023 06:05:12 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 7191B61CA4;
-	Fri, 10 Feb 2023 05:46:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38786C433EF;
-	Fri, 10 Feb 2023 05:46:32 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 548E361CA4;
+	Fri, 10 Feb 2023 06:05:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C77ADC433D2;
+	Fri, 10 Feb 2023 06:05:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1676007993;
-	bh=QSn6XoyFpXD2W04LGu/g0NJ0eT/MSQSv9o2g+wm9Txs=;
+	s=k20201202; t=1676009109;
+	bh=R+M0ft2NoW5OEkw9Yp/lx0D4Vb1O1La2tMhNLmrHwBk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=R/salf5gPkyaTBrzxN7b928+NuEIvT5jSi/Q3nqQJg6gxqW2i4m35UKBbDcGHfot0
-	 U0bq7Kt6S6mvTmcXjWMhI0eIBNEOLiMI5o+dlEcm9Y9yVRP0/dAkzCdMIyQJXF1Ryz
-	 C3OkKRZBUhxZBHbzPegzM0/tupFziDqVeBJ0flUTluZN5OAToHilLNJlcrr/2SshRB
-	 LDWsrk/KiUamiaknRoB9VXhUx2gzDzZWwYKJbTqXYKgvrNgNQt1ZpC2BqS0JXlsyOE
-	 sZdMSjGuAa8VwCzfEfsEZscbtwYoyX3TiF1psLUjn2PafhVmsTWyYyARbEtjrABLXP
-	 +SiSxEiknHXgQ==
-Date: Fri, 10 Feb 2023 11:16:29 +0530
+	b=UzFaShVbYUL6AnzcrewjwVNrWiJJde9hTV8N08ircjXv3C51e3nW1I8NUd2RMI+7M
+	 3qFjHfFG7uUtTMfQ3B0mmemAuWTzOCQsVIym1QDac0Fwh6uGDPSj2lZQFVTwFfBf+J
+	 qXnz//A5czX2LOvB+wyWER7bwOfG59bq2nmKpbzKWgYYw14Kf2JzmmQlTomzMeLQhA
+	 +POxMFnDWrSFug3xwaq+SJuL5KJIXJArxMGqB99mLZ2l/k2nVd4Lq/Gs3AhFG9XiUR
+	 hLRjRPu2RUQIFYOBXTlsc2I6Deu+PJSzIOoLmDbZH50Qu31YrxFNc0fxfN1/oMMCik
+	 pcYUxYygwH29Q==
+Date: Fri, 10 Feb 2023 11:35:05 +0530
 From: Vinod Koul <vkoul@kernel.org>
-To: shravan kumar <shravan.chippa@microchip.com>
-Cc: green.wan@sifive.com, palmer@dabbelt.com, paul.walmsley@sifive.com,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	dmaengine@vger.kernel.org
-Subject: Re: [PATCH v1] dmaengine: sf-pdma: pdma_desc memory leak fix
-Message-ID: <Y+XaNflpN01k2AMI@matsya>
-References: <20230120100623.3530634-1-shravan.chippa@microchip.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Olivier Dautricourt <olivierdautricourt@gmail.com>,
+	Stefan Roese <sr@denx.de>, Hector Martin <marcan@marcan.st>,
+	Sven Peter <sven@svenpeter.dev>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Andreas =?iso-8859-1?Q?F=E4rber?= <afaerber@suse.de>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Andy Gross <agross@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konrad.dybcio@linaro.org>,
+	Viresh Kumar <vireshk@kernel.org>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Green Wan <green.wan@sifive.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	=?utf-8?B?77+9ZXI=?= <povik+lin@cutebit.org>,
+	Peng Fan <peng.fan@nxp.com>, Paul Cercueil <paul@crapouillou.net>,
+	- <chuanhua.lei@intel.com>, Long Cheng <long.cheng@mediatek.com>,
+	Rajesh Gumasta <rgumasta@nvidia.com>,
+	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
+	Biju Das <biju.das.jz@bp.renesas.com>,
+	Miquel Raynal <miquel.raynal@bootlin.com>,
+	Palmer Debbelt <palmer@sifive.com>,
+	Masahiro Yamada <yamada.masahiro@socionext.com>,
+	Amelie Delaunay <amelie.delaunay@foss.st.com>,
+	Linus Walleij <linus.walleij@linaro.org>, dmaengine@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+	asahi@lists.linux.dev, linux-tegra@vger.kernel.org,
+	linux-actions@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-mediatek@lists.infradead.org, Rob Herring <robh@kernel.org>
+Subject: Re: [PATCH v2 1/2] dt-bindings: dma: drop unneeded quotes
+Message-ID: <Y+XekQsIwpixyPD0@matsya>
+References: <20230124081117.31186-1-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230120100623.3530634-1-shravan.chippa@microchip.com>
+In-Reply-To: <20230124081117.31186-1-krzysztof.kozlowski@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230209_214637_186672_387C822A 
-X-CRM114-Status: GOOD (  13.04  )
+X-CRM114-CacheID: sfid-20230209_220511_183723_E0C34BF0 
+X-CRM114-Status: UNSURE (   8.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,36 +116,11 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 20-01-23, 15:36, shravan kumar wrote:
-> From: Shravan Chippa <shravan.chippa@microchip.com>
-> 
-> Commit b2cc5c465c2c ("dmaengine: sf-pdma: Add multithread support for a
-> DMA channel") changed sf_pdma_prep_dma_memcpy() to unconditionally
-> allocate a new sf_pdma_desc each time it is called.
-> 
-> The driver previously recycled descs, by checking the in_use flag, only
-> allocating additional descs if the existing one was in use. This logic
-> was removed in commit b2cc5c465c2c ("dmaengine: sf-pdma: Add multithread
-> support for a DMA channel"), but sf_pdma_free_desc() was not changed to
-> handle the new behaviour.
-> 
-> As a result, each time sf_pdma_prep_dma_memcpy() is called, the previous
-> descriptor is leaked, over time leading to memory starvation:
-> 
->   unreferenced object 0xffffffe008447300 (size 192):
->   comm "irq/39-mchp_dsc", pid 343, jiffies 4294906910 (age 981.200s)
->   hex dump (first 32 bytes):
->     00 00 00 ff 00 00 00 00 b8 c1 00 00 00 00 00 00  ................
->     00 00 70 08 10 00 00 00 00 00 00 c0 00 00 00 00  ..p.............
->   backtrace:
->     [<00000000064a04f4>] kmemleak_alloc+0x1e/0x28
->     [<00000000018927a7>] kmem_cache_alloc+0x11e/0x178
->     [<000000002aea8d16>] sf_pdma_prep_dma_memcpy+0x40/0x112
-> 
-> Add the missing kfree() to sf_pdma_free_desc(), and remove the redundant
-> in_use flag.
+On 24-01-23, 09:11, Krzysztof Kozlowski wrote:
+> Cleanup by removing unneeded quotes from refs and redundant blank lines.
+> No functional impact except adjusting to preferred coding style.
 
-Applied, thanks
+Applied both, thanks
 
 -- 
 ~Vinod
