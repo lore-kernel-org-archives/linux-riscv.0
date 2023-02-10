@@ -4,75 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D8EEC05027
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Feb 2023 23:48:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13809C05027
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Feb 2023 01:06:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=gfxyJHpKCZtNpZ71Goid1E+kHPnhxcWvhWrBcEogzgY=; b=ufFdmiPdatOWfQF0mjA2S2WgZt
-	d5vqBCxjdvLQcHz+XJZ+rLN3/G/KEURwx1a6oqGZTEIgHN8P01cm5sq/Pxn5LJ4Yk6dJw5lAatH6x
-	9dBc6G/uTRq+Oc21GfMC4q6Atr1gcAhDTpVp/DWCXxPq9s7DVwkdmPv7fLZ7aLbsTx8V6J1YbORTC
-	EhgKrI/JaVldh25ESonrsGco45Y+DliuXwJfJ1UVaof3vbp4m7I1x5gEwEwD4plsTvRfyoyyDXoyt
-	w0h0n/IWp1sgDmZpF+ARoKSUfK+dUFkqAgasaWei5jVObYMCxkVqfx2cuWePTaoBML44RazrEWrnz
-	sLpj5CPw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Oa8Ndosm09wmYllH6nT9QwHn4SxmF3X+E/+2ixuiV5I=; b=sHT/1Pl4SBjC67
+	h7aQ3wrDEiVVqxTxD2nGo12sQfK431TVV3Pj5IQcwHP5nonMkSjRAe4oa16RxEavJqtqhKVwdCsMn
+	qNusbv2UH5duvDNM9y/6Ho7P0QGHBXeMADG9TuoxLo7mQoctyzlQKg3VPG/rvugJuAvYUZJANmtDg
+	iGLizfz8pZTMisk7/9ppUP4AlIod8QzH6v+UcYIIqLOLKt/DanPEiJcMRvbMLMkyx5CSsxmpkQSA2
+	WP9NaHCx5kfAfOULvVZT64PbE+3t6pUIV0X8ZEuBfEm33yiJRgjopxTC+LYy96AixxpkWr3WU8kbb
+	iQRjEne5N8IokASXCz6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQGeQ-003eAX-Ag; Thu, 09 Feb 2023 23:48:26 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQGeM-003e9P-RK
-	for linux-riscv@lists.infradead.org; Thu, 09 Feb 2023 23:48:24 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id f15-20020a17090ac28f00b00230a32f0c9eso3887160pjt.4
-        for <linux-riscv@lists.infradead.org>; Thu, 09 Feb 2023 15:48:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=TbWYdqHwSto9YO7YB+6UGbw5fXLIzmmd65qc7lLKVWc=;
-        b=voxfkaqKTjidecOv8HFOLzIviY9xDjRoVvioBFOWhSdCEJOPDorptBWE98l/Qd4mLF
-         5vb87gMNXo95OnE3zYO9LqzZ//zrzdTxBnd7pHEJCuNxmmy5MDz0bYYvdcOpYBUNNRQe
-         8jIuQAMrYIKrq2M09Z3cI4ZqAVE5CAO8p+TXFjFJtiUfB3xV6oDdJWuya3nJLH538xh+
-         W2MuiRB1BrrgXit7boq1g4vjJZuh5XfcZwu2ggOqHoUBi03nbhbV+5cxSAJAG7KwlwJZ
-         ubmNAqOnh9KwwbUw4tkgDQqbhdJVboD6t/EG8wNCfQm48Q/fJeleZhuR0I/qaoLKruFR
-         MVCQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TbWYdqHwSto9YO7YB+6UGbw5fXLIzmmd65qc7lLKVWc=;
-        b=J7azEEumA7edGCGkuBNxGNyK9WiTrqSMT3pA0DwGaGBq6nCNbFmJSxpiAWiGlYOyXv
-         bMWFEyz3SZSKSy+Jvarh2Ww696CK/gvgAOgFrF0mutPiI0Ntt/GOhp8ISd56/Q41oxTD
-         +oNqD+MGQ+UIXUxIJ3Fuj3XIt43OKGZaRg/JIxsiNkZ4twLKgCb8Y4oHWO5V5yylFxK4
-         J3VkFHQ0EWR0cnCUqHbdpx7KJvkQAxxUCucxx2l37cN+eKMtPxp/xXQx4QbRVxvyavUx
-         wohZuu3aGJuGgYZvKSKbUn1v08K6IpMzoFjPcG5nQhJ8iZ2+ZQt9KPBlgFSnPEIsDUFc
-         W4vw==
-X-Gm-Message-State: AO0yUKV3nideToiSPX/b2nupkBd4oT9b1vfDh4bqK6vIL7JgSOOZiuL/
-	uPIjtJU5LD0KVhuQBYSp5UIUUe3I7asHcKCf
-X-Google-Smtp-Source: AK7set8BpY5cU5Bd5cEH6MQ9aM5cGH2OqoALs0sQq+FyHtNt11Dq6OnthUY0jZwTvEmqw/3PHOqajA==
-X-Received: by 2002:a17:902:da8b:b0:199:bd4:9fbb with SMTP id j11-20020a170902da8b00b001990bd49fbbmr15173197plx.43.1675986498356;
-        Thu, 09 Feb 2023 15:48:18 -0800 (PST)
-Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id jd2-20020a170903260200b001946a3f4d9csm2097465plb.38.2023.02.09.15.48.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 Feb 2023 15:48:17 -0800 (PST)
-Date: Thu, 09 Feb 2023 15:48:17 -0800 (PST)
-X-Google-Original-Date: Thu, 09 Feb 2023 15:47:34 PST (-0800)
-Subject: Re: [PATCH] clocksource/drivers/riscv: Refuse to probe on T-Head
-In-Reply-To: <Y+WEfc2fYd3qJmUe@spud>
-CC: linux-riscv@lists.infradead.org, daniel.lezcano@linaro.org, tglx@linutronix.de,
-  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org, linux@rivosinc.com
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Conor Dooley <conor@kernel.org>
-Message-ID: <mhng-c66f0475-5f2c-4aab-a532-7ce026fd5413@palmer-ri-x1c9a>
-Mime-Version: 1.0 (MHng)
+	id 1pQHs5-003nJK-Fg; Fri, 10 Feb 2023 01:06:37 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pQHs1-003nCo-UD
+	for linux-riscv@lists.infradead.org; Fri, 10 Feb 2023 01:06:36 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id DA45C24E214;
+	Fri, 10 Feb 2023 09:05:37 +0800 (CST)
+Received: from EXMBX065.cuchost.com (172.16.6.65) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 10 Feb
+ 2023 09:05:35 +0800
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX065.cuchost.com
+ (172.16.6.65) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 10 Feb
+ 2023 09:05:35 +0800
+Received: from EXMBX168.cuchost.com ([fe80::3c2d:dee5:4938:3fc4]) by
+ EXMBX168.cuchost.com ([fe80::3c2d:dee5:4938:3fc4%16]) with mapi id
+ 15.00.1497.044; Fri, 10 Feb 2023 09:05:35 +0800
+From: JiaJie Ho <jiajie.ho@starfivetech.com>
+To: Herbert Xu <herbert@gondor.apana.org.au>
+CC: "David S . Miller" <davem@davemloft.net>, Rob Herring
+	<robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
+	Conor Dooley <conor.dooley@microchip.com>, "linux-crypto@vger.kernel.org"
+	<linux-crypto@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>
+Subject: RE: [PATCH v2 4/4] crypto: starfive - Add hash and HMAC support
+Thread-Topic: [PATCH v2 4/4] crypto: starfive - Add hash and HMAC support
+Thread-Index: AQHZNMIM/vLXVq3JgUiER7vBRC/T367F3jsAgACIQGD//3/YAIABh3JA
+Date: Fri, 10 Feb 2023 01:05:35 +0000
+Message-ID: <40ea0c9789b840e6a51ea799fa8da9e6@EXMBX168.cuchost.com>
+References: <20230130154242.112613-1-jiajie.ho@starfivetech.com>
+ <20230130154242.112613-5-jiajie.ho@starfivetech.com>
+ <Y+S5fBjZQZli9nBg@gondor.apana.org.au>
+ <88a62a7a11814d629e2198583a0349b6@EXMBX168.cuchost.com>
+ <Y+TARjfzt2FMG6oJ@gondor.apana.org.au>
+In-Reply-To: <Y+TARjfzt2FMG6oJ@gondor.apana.org.au>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [202.190.105.77]
+x-yovoleruleagent: yovoleflag
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230209_154822_908528_2A3632D5 
-X-CRM114-Status: GOOD (  24.52  )
+X-CRM114-CacheID: sfid-20230209_170634_217154_6B71F992 
+X-CRM114-Status: GOOD (  14.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,63 +82,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 09 Feb 2023 15:40:45 PST (-0800), Conor Dooley wrote:
-> Hey Palmer,
->
-> On Thu, Feb 09, 2023 at 03:23:02PM -0800, Palmer Dabbelt wrote:
->> From: Palmer Dabbelt <palmer@rivosinc.com>
->> 
->> As of d9f15a9de44a ("Revert "clocksource/drivers/riscv: Events are
->> stopped during CPU suspend"") this driver no longer functions correctly
->> for the T-Head firmware.  That shouldn't impact any users, as we've got
->> a functioning driver that's higher priority, but let's just be safe and
->> ban it from probing at all.
->> 
->> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
->> ---
->> This feel super ugly to me, but I'm not sure how to do this more
->> cleanly.  I'm not even sure if it's necessary, but I just ran back into
->> the driver reviewing some other patches so I figured I'd say something.
->
-> I'm not super sure what you're trying to fix here. That revert went
-> through to restore behaviour for the SiFive stuff that do deliver events
-> in suspend.
 
-My worry was that we'd end up probing the SBI driver on T-Head systems, 
-where it doesn't work (as the combination of SBI timer and SBI suspend 
-depends on unspecified behavior).  So we'd be better off just failing 
-early and obviously in the case, rather than letting users think they 
-could get away with only the SBI drivers.
 
-> Subsequently, we added a DT property (probably the wrong one tbh, but
-> that's all said and done now) that communicates that a timer is
-> incapable of waking the cpus. See commit 98ce3981716c ("dt-bindings:
-> timer: Add bindings for the RISC-V timer device") & the full patchset is
-> at:
-> https://lore.kernel.org/linux-riscv/20230103141102.772228-1-apatel@ventanamicro.com/
->
-> AFAIU, the binding for the T-HEAD clint was only accepted in the last
-> week & there's nothing actually using this timer. IIRC, when I wanted to
-> test the timer, Samuel cooked me up a WIP openSBI etc to enable it.
+> -----Original Message-----
+> From: Herbert Xu <herbert@gondor.apana.org.au>
+> Sent: 9 February, 2023 5:44 PM
+> To: JiaJie Ho <jiajie.ho@starfivetech.com>
+> Cc: David S . Miller <davem@davemloft.net>; Rob Herring
+> <robh+dt@kernel.org>; Krzysztof Kozlowski
+> <krzysztof.kozlowski+dt@linaro.org>; Emil Renner Berthing
+> <kernel@esmil.dk>; Conor Dooley <conor.dooley@microchip.com>; linux-
+> crypto@vger.kernel.org; devicetree@vger.kernel.org; linux-
+> kernel@vger.kernel.org; linux-riscv@lists.infradead.org
+> Subject: Re: [PATCH v2 4/4] crypto: starfive - Add hash and HMAC support
+> 
+> On Thu, Feb 09, 2023 at 09:33:06AM +0000, JiaJie Ho wrote:
+> >
+> > The DMA can only support 32-bit addressing.
+> > So, I am copying everything in case kernel allocated memory region >32-bit
+> for a user app.
+> 
+> Does your hardware support scatter-and-gather? If so you should at least
+> allocate individual pages rather than one contiguous buffer.
+> 
+> Then you can allocate them on-demand rather than before-hand.
+> 
+> It would also be nice to not do the copy if the input you were given was in
+> low memory (and contiguous if your hardware doesn't do SG).
+> 
 
-That makes sense.  I'd assumed these DTs just had the SBI timer in there 
-(as a bunch of other stuff requires it), but from Samuel's reply it 
-sounds like I was just wrong here.  I guess we're sort of in a grey area 
-for DTs that aren't in the kernel source tree, but this code is ugly 
-enough I'm OK just ignoring those.
+I'll try this then.
 
-> So ye, I don't think this is needed fortunately!
-
-Ya, I think so too.
-
->
-> Cheers,
-> Conor.
+Thanks,
+Jia Jie
 
 _______________________________________________
 linux-riscv mailing list
