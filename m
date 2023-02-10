@@ -4,74 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77FBDC05027
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Feb 2023 21:40:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E417C05027
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Feb 2023 22:45:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=n33ThEn/7HF4rSWQeS3GMIt4ZHwKvFE30gU9raboaCc=; b=04KT1JIoNovC/T
-	feA0h5GFsoCZ+C36u64OT1ervqtiTD+Lg/X3wkf66RYQa23m6VwRn1fssG9c0YtYj5M+knWtGuzyN
-	1ZxgDoscNpmR0kwV/a6zHgy3j85JTRh/b2k+mW0OszUlVL4xZuXdBpvCQsx22yIqM4n7J3xMH3JNv
-	s4LtKvcEnl21T4MyONvT83cqN23AFyZiLIyYYleINUPNWW+BS0u0X50lCs7EFpWJJU1mKeAAOdO+d
-	Vg+lM6EL2Rh6hbEJaUczmZgUiShsp6uWjWbM2Ti7DanPDfHAWuPjvsI4EFW/bFcu9yHYHtud34HGG
-	MbbNEmZOphetuGvmyA2A==;
+	List-Owner; bh=m8ULWAabZIJD5xwSnTljYYyIcbOa/iRZmROq9Z96NaQ=; b=3pNezyE9TXRzbu
+	9Q/N6HbGDFCBvV1CUhiVc91ygJgIK/78P51LirbFd9flrrOKGiXTE1Tcmn1fd7gnHfv0ZKlMLstJC
+	9l5AQjeTuNTnvAa73e30OHYgwXt5azMbNToYMRsyWu12BODrJCE3DVbjohTBbRMXscngVltrzjl8V
+	hU8rlDgfp3AnulT9pI7Q21z5fOFuKt5X/RUex5Ug/48cj8BZOqoNNmWOSegcno0p3h3YGgiN0DNq5
+	T02N4nJ6B4Se7F6wFNCORU3NeQ95enQlFnF58SYt8pRD2OySjnHZKC0UccjtNm4JlOhtYz4DL0DaL
+	UKoYl+1ncJMcf+trPRig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQb8F-007g6I-5l; Fri, 10 Feb 2023 21:40:35 +0000
-Received: from mail-qt1-x82f.google.com ([2607:f8b0:4864:20::82f])
+	id 1pQc8x-007owf-GO; Fri, 10 Feb 2023 22:45:23 +0000
+Received: from mail-yw1-x1130.google.com ([2607:f8b0:4864:20::1130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQb8B-007g45-Fl
-	for linux-riscv@lists.infradead.org; Fri, 10 Feb 2023 21:40:33 +0000
-Received: by mail-qt1-x82f.google.com with SMTP id v17so7438231qto.3
-        for <linux-riscv@lists.infradead.org>; Fri, 10 Feb 2023 13:40:23 -0800 (PST)
+	id 1pQc8s-007ov9-P9
+	for linux-riscv@lists.infradead.org; Fri, 10 Feb 2023 22:45:22 +0000
+Received: by mail-yw1-x1130.google.com with SMTP id 00721157ae682-52ee632329dso13696737b3.6
+        for <linux-riscv@lists.infradead.org>; Fri, 10 Feb 2023 14:45:17 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linuxfoundation.org; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=3m9mzJgOmnFAF5E0Gh0vvMFl+gWOnJrG3P7Q4uZSJpM=;
-        b=FOi8JipCBRS4V2YpboOf6h+LHfc6tY/smSivYw/m4bY4jZrzqvh3gz2idzc5tQB1+t
-         hQRjx2QqCo7xme8NhWMMW6u5qbmNOvEG8okPyM1dxzcQoTbqto0ouvsGAagiZOQhQpMi
-         MiKCe1lWZH/9GSRVrlkAflx2j8L0KUq9c8HRg=
+        d=linaro.org; s=google;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=C8zbQ5UeRyMGBzBZKt+eKJGEp6xhDoMWS6ByqtAI+qQ=;
+        b=jQ66+heze0J6Ozux4oG4WwoV+2CsrGPIRzg+v+qWUt4V83/YkynKLfwyVpYb+1LWaP
+         dPW+6PSP90qh1UZoiGZy855Nf6gP2UwsCAio30PTEy4a8ujL7chBJ9yn0b++wrXuI0c+
+         O1zVLv78LwEp/tzHG+hVFbN+DyHr4mAcv0zuwNizBDOhrrkE7Ed9hCnPLTZ9QDOGgvpp
+         PNQ51xkGp2cOp041e2sIipfx6dTL41Jbck530hz0dmBsuaiwp/P6QznD6xUh2QbsTp1x
+         kxiHqPlVnGJ0PF4Wy3GubcS5OpPTubUhMTtkjwfjsnrRnHKlCzvUFnpCs3YDG0/xXD7/
+         zssA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3m9mzJgOmnFAF5E0Gh0vvMFl+gWOnJrG3P7Q4uZSJpM=;
-        b=WN6ivdNtjgMHedgXKW2fTDhKpfmB4rx0aVP/re26WSYTOIr3EN4LK68YRQzzhZCrO2
-         q2PhUULS/HuufwHdADWAIcPNAAjdfoF1O+ORvd7Wox7M0e8ULYmDb99V4LpXYQ6Tzu8r
-         OJIfZ5KIxZUjtWpo/y/8GGitekngtLfsaPjWF4OMdY7fViKRZARmbU2Gt+vRCIOAxYFJ
-         V8Qzaj/WvL6kJUzIrHaCpbzsTT2r34I3v9ZSGbzaJXS2gBTqMOhb3A/Y4lF9DPRKW9ZB
-         2Jt2JmTjZgWGA/XD2oKME0Cp+puj54RSj74YuSPppXxULjhsqTZqGWzH6grxCrE2b89E
-         8yZw==
-X-Gm-Message-State: AO0yUKWqt1QDFceXziPwaBEtoja8Qk8UOb2/k+k+ygWuRyuLcDB6hghQ
-	+4Rk6k7D8SIRePf+mSeWaDgWkg==
-X-Google-Smtp-Source: AK7set/7a0yNk56qgYviH/1+i942jj2RD2aQW+Bo+LGwkbPTZQ+WzHt/8LIGq6IOB3WUmRtbiXvGwg==
-X-Received: by 2002:a05:622a:4c14:b0:3b9:bc8c:c1ff with SMTP id ey20-20020a05622a4c1400b003b9bc8cc1ffmr12609691qtb.10.1676065222795;
-        Fri, 10 Feb 2023 13:40:22 -0800 (PST)
-Received: from nitro.local (bras-base-mtrlpq5031w-grc-30-209-226-106-7.dsl.bell.ca. [209.226.106.7])
-        by smtp.gmail.com with ESMTPSA id b65-20020a378044000000b0071f0054b094sm4266837qkd.43.2023.02.10.13.40.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Feb 2023 13:40:22 -0800 (PST)
-Date: Fri, 10 Feb 2023 16:40:20 -0500
-From: Konstantin Ryabitsev <konstantin@linuxfoundation.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: RISC-V Patchwork
-Message-ID: <20230210214020.dyaqddrjlymh5i5s@nitro.local>
-References: <Y0ifX4gYDD0DIkYd@spud>
- <mhng-ec7cf859-caaa-4b72-8dd9-d88e81d6126a@palmer-ri-x1c9a>
- <Y0moBigLHn5HulNi@spud>
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=C8zbQ5UeRyMGBzBZKt+eKJGEp6xhDoMWS6ByqtAI+qQ=;
+        b=8Fy26P1cOKFEu0icLDePTn1n/H3dQ/65oogggA36T/0IHnAOpslw8OMRJdS8FkMjA0
+         NRQNVK/+RpNOGK5ahd/M+aSvAsWGdXDmtqz1F6+FZ0m0dmJqDZ3VVyfYoc/3n+OpueBA
+         NGcikjpSdYzgnYysRSQ5dtrcKQMTct0h8QvZyCatMDr9UIYijM7THDnfnD2ZidRW37mW
+         T43JUfFljali73VVfH5YlYF3WTO0E0bBWGYnpY+1I/UHkh7gVKgTUGgdunHIx6edS7X8
+         zT3HZXmJNv1z0KBo3aZTWETzsux9uGWqa1PxGpXUmFFzaF93jLsRqbVe7xxWDHjaSiaE
+         noWg==
+X-Gm-Message-State: AO0yUKXUs5Wlhl8w7dbnWfug5ffz8iYyRFeIlGoiKPAGjqtLmTvNo6SL
+	aLHtsNqk0fRXkATsDldQJAhgCQIkXJy2r1v8lfYQ3Gv5zDaNKg==
+X-Google-Smtp-Source: AK7set/6Xvi8CzuNgX79rZvneMkeXDi2US6l2P8G1w1iVzuJBaisym39eN4L1EuUt3tZClsyw0XAtI+QRSxWibIX0QQ=
+X-Received: by 2002:a0d:ff45:0:b0:52e:e6ed:308c with SMTP id
+ p66-20020a0dff45000000b0052ee6ed308cmr61064ywf.524.1676069117008; Fri, 10 Feb
+ 2023 14:45:17 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Y0moBigLHn5HulNi@spud>
+References: <20230209143702.44408-1-hal.feng@starfivetech.com>
+In-Reply-To: <20230209143702.44408-1-hal.feng@starfivetech.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Fri, 10 Feb 2023 23:45:05 +0100
+Message-ID: <CACRpkdbao9M5dMHFO_QE8z4_E6DZLZsMUW1OnUNjKSfQc59=ew@mail.gmail.com>
+Subject: Re: [PATCH v5 0/4] Basic pinctrl support for StarFive JH7110 RISC-V SoC
+To: Hal Feng <hal.feng@starfivetech.com>
+Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, Andreas Schwab <schwab@suse.de>, 
+	Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, 
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
+	Jianlong Huang <jianlong.huang@starfivetech.com>, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230210_134031_558259_203D4721 
-X-CRM114-Status: GOOD (  17.72  )
+X-CRM114-CacheID: sfid-20230210_144518_847785_11F8DE1C 
+X-CRM114-Status: UNSURE (   7.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,27 +91,15 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 14, 2022 at 07:18:46PM +0100, Conor Dooley wrote:
-> > > I just copied the suggested scissors format from the git-mailinfo man
-> > > page and pasted that. I didn't know this prior to 5 mins ago, but
-> > > `b4 mbox` splits it on the scissors line, into a patch and an email
-> > > inside the mbox - but for w/e reason, `git am` (or `b4 shazam`) then
-> > > seems to try and apply the email instead of the patch? Or else pasting
-> > > the patch into mutt was a terrible idea? Maybe it's worth mentioning to
-> > > Konstantin that things get messed up here, I'll do it tomorrow if I
-> > > remember.
-> > 
-> > If the man pages suggest doing this but the tools fail then it's worth
-> > fixing something, even if it's just the man page ;)
-> 
-> Konstantin, perhaps you can shed some light on what's happening here?
-> FWIW I see this on 0.10.0-dev-d8d41.
+On Thu, Feb 9, 2023 at 3:37 PM Hal Feng <hal.feng@starfivetech.com> wrote:
 
-Sorry, just going through my old mail and I noticed that I never followed up
-on this. We added full ability to support scissors with b4-0.11.
+> This patch series adds basic pinctrl support for StarFive JH7110 SoC.
 
-Cheers,
--K
+This v4 version applied, the driver is in good shape and all bindings ACKed,
+nice work on this driver!
+
+Yours,
+Linus Walleij
 
 _______________________________________________
 linux-riscv mailing list
