@@ -4,72 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB9F5C636CD
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Feb 2023 05:08:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 998D3C636CD
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Feb 2023 05:46:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=awWt4zvyDDCrM30TDddk1dso3paHv9iOB417n90GTIQ=; b=3lQrAm7adPP8A2
-	uXRP399YQANbqecfQb/o9b+uomQqO/2uZ8LxJvSO6Okko1qPQOqvKm0Qr8aKTj55xp6v2pg5sf/7y
-	j9vPFxJVneqd3AoYIl/p4YaA16EvNdJpS2gRpTOJFf43uVXYuzUFbISLzxEu6DUoxVdrt0ociGE1P
-	uLYaJafWIqLxwOsEcexiwMAJBF/X4kmuGPu/qnNeoC4pWDzTATe0eONd/Jzx25WexQHo26llTh5Se
-	Gug/IHrFG9JzFcpeMby+ZyvjGyo1lY6RWhGMTgWoOUgmzENAP8VKX3ZUDSJB//4ReChUYZgcinXUR
-	FvxNrJqulzGc/bAbE8jQ==;
+	List-Owner; bh=HAKzCaUbjs+LJ5aWp6c+ftSGBz5/j1372s0o7c2g+P4=; b=sEvuoRdsra9GWK
+	54zWSSECgnX3HEqs0l6qUlReVjiW6xlFH9+JA5TEyfqceIQnhIVEyjCttJDRroignwOekqTUb2dM2
+	sHL3xkxmiGOwwcfvDc1QoozJhW2okts4YF24QiyB1lwap6px4W56X3oNSJWuBeTrqSUW9mjMYEINS
+	FTeossuRmAkBbGMP5o6Y17bY2EEPd2cU8FmpPwtCk8bQPkJgB8rH0tALBNkfHt49kCQi2u+2VZGXm
+	86ZGnrwEdBYJcIhCazX/FTmxSBxZs4rJPbAPDmsF9Y2o8mjNZ0mhGDA80oTHj4hgihRtOGfAgyvu1
+	rpYJrgfIJ0Um7Cna5syg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQLeD-004Fy6-Od; Fri, 10 Feb 2023 05:08:33 +0000
-Received: from gandalf.ozlabs.org ([150.107.74.76])
+	id 1pQMF6-004KEx-7I; Fri, 10 Feb 2023 05:46:40 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQLe2-004FvL-PB; Fri, 10 Feb 2023 05:08:24 +0000
-Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	id 1pQMF3-004KEM-2D
+	for linux-riscv@lists.infradead.org; Fri, 10 Feb 2023 05:46:38 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.ozlabs.org (Postfix) with ESMTPSA id 4PChZj6hzVz4xwy;
-	Fri, 10 Feb 2023 16:08:13 +1100 (AEDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ellerman.id.au;
-	s=201909; t=1676005696;
-	bh=gjOEhpmQ4QzYiJxNRSCplO6mzBIo8CgdHMudas4f4m4=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=VzBHDakF5oapgbqSwyCXW4NlOxuhWIXgHT5bnjksmwxnwzB2j77QlwtNy9auFKO5k
-	 R5zuzvTLv5v6JR0g4zAQSDALbGO0+HtyCcaxIv+XCmtUOUNdsZXpr/60HJ8m0se9Ac
-	 HCqPfRmHl1K9cRm2zGL0JLt1dLbvDoohuA4JmvWcFN0J1XTPyIZXfr0n3q8zPBgbwM
-	 2KTETWI8PkOX6ZP5se3LmuOaFIoUbfwmRFq7s/gffXRM+ntl6Tsz8s7uIuoBncovYH
-	 169scsrJUZSYlGwI60JQl2lk38JbvV/eRPo8tLjsBgWQeltv5kZiHwGm5Gqurl9z/4
-	 hTaeq+aYRbc4A==
-From: Michael Ellerman <mpe@ellerman.id.au>
-To: David Hildenbrand <david@redhat.com>, linux-kernel@vger.kernel.org
-Cc: Andrew Morton <akpm@linux-foundation.org>, Hugh Dickins
- <hughd@google.com>, John Hubbard <jhubbard@nvidia.com>, Jason Gunthorpe
- <jgg@nvidia.com>, Mike Rapoport <rppt@linux.ibm.com>, Yang Shi
- <shy828301@gmail.com>, Vlastimil Babka <vbabka@suse.cz>, Nadav Amit
- <namit@vmware.com>, Andrea Arcangeli <aarcange@redhat.com>, Peter Xu
- <peterx@redhat.com>, linux-mm@kvack.org, x86@kernel.org,
- linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
- linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
- loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org, openrisc@lists.librecores.org,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-um@lists.infradead.org, linux-xtensa@linux-xtensa.org, David
- Hildenbrand <david@redhat.com>, Nicholas Piggin <npiggin@gmail.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>
-Subject: Re: [PATCH mm-unstable v1 17/26] powerpc/mm: support
- __HAVE_ARCH_PTE_SWP_EXCLUSIVE on 32bit book3s
-In-Reply-To: <20230113171026.582290-18-david@redhat.com>
-References: <20230113171026.582290-1-david@redhat.com>
- <20230113171026.582290-18-david@redhat.com>
-Date: Fri, 10 Feb 2023 16:08:07 +1100
-Message-ID: <87cz6iw1jc.fsf@mpe.ellerman.id.au>
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 7191B61CA4;
+	Fri, 10 Feb 2023 05:46:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38786C433EF;
+	Fri, 10 Feb 2023 05:46:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1676007993;
+	bh=QSn6XoyFpXD2W04LGu/g0NJ0eT/MSQSv9o2g+wm9Txs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=R/salf5gPkyaTBrzxN7b928+NuEIvT5jSi/Q3nqQJg6gxqW2i4m35UKBbDcGHfot0
+	 U0bq7Kt6S6mvTmcXjWMhI0eIBNEOLiMI5o+dlEcm9Y9yVRP0/dAkzCdMIyQJXF1Ryz
+	 C3OkKRZBUhxZBHbzPegzM0/tupFziDqVeBJ0flUTluZN5OAToHilLNJlcrr/2SshRB
+	 LDWsrk/KiUamiaknRoB9VXhUx2gzDzZWwYKJbTqXYKgvrNgNQt1ZpC2BqS0JXlsyOE
+	 sZdMSjGuAa8VwCzfEfsEZscbtwYoyX3TiF1psLUjn2PafhVmsTWyYyARbEtjrABLXP
+	 +SiSxEiknHXgQ==
+Date: Fri, 10 Feb 2023 11:16:29 +0530
+From: Vinod Koul <vkoul@kernel.org>
+To: shravan kumar <shravan.chippa@microchip.com>
+Cc: green.wan@sifive.com, palmer@dabbelt.com, paul.walmsley@sifive.com,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	dmaengine@vger.kernel.org
+Subject: Re: [PATCH v1] dmaengine: sf-pdma: pdma_desc memory leak fix
+Message-ID: <Y+XaNflpN01k2AMI@matsya>
+References: <20230120100623.3530634-1-shravan.chippa@microchip.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230120100623.3530634-1-shravan.chippa@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230209_210823_230868_E61C58F8 
-X-CRM114-Status: GOOD (  24.58  )
+X-CRM114-CacheID: sfid-20230209_214637_186672_387C822A 
+X-CRM114-Status: GOOD (  13.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,103 +73,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-David Hildenbrand <david@redhat.com> writes:
-> We already implemented support for 64bit book3s in commit bff9beaa2e80
-> ("powerpc/pgtable: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE for book3s")
->
-> Let's support __HAVE_ARCH_PTE_SWP_EXCLUSIVE also in 32bit by reusing yet
-> unused LSB 2 / MSB 29. There seems to be no real reason why that bit cannot
-> be used, and reusing it avoids having to steal one bit from the swap
-> offset.
->
-> While at it, mask the type in __swp_entry().
->
-> Cc: Michael Ellerman <mpe@ellerman.id.au>
-> Cc: Nicholas Piggin <npiggin@gmail.com>
-> Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
-> Signed-off-by: David Hildenbrand <david@redhat.com>
-> ---
->  arch/powerpc/include/asm/book3s/32/pgtable.h | 38 +++++++++++++++++---
->  1 file changed, 33 insertions(+), 5 deletions(-)
+On 20-01-23, 15:36, shravan kumar wrote:
+> From: Shravan Chippa <shravan.chippa@microchip.com>
+> 
+> Commit b2cc5c465c2c ("dmaengine: sf-pdma: Add multithread support for a
+> DMA channel") changed sf_pdma_prep_dma_memcpy() to unconditionally
+> allocate a new sf_pdma_desc each time it is called.
+> 
+> The driver previously recycled descs, by checking the in_use flag, only
+> allocating additional descs if the existing one was in use. This logic
+> was removed in commit b2cc5c465c2c ("dmaengine: sf-pdma: Add multithread
+> support for a DMA channel"), but sf_pdma_free_desc() was not changed to
+> handle the new behaviour.
+> 
+> As a result, each time sf_pdma_prep_dma_memcpy() is called, the previous
+> descriptor is leaked, over time leading to memory starvation:
+> 
+>   unreferenced object 0xffffffe008447300 (size 192):
+>   comm "irq/39-mchp_dsc", pid 343, jiffies 4294906910 (age 981.200s)
+>   hex dump (first 32 bytes):
+>     00 00 00 ff 00 00 00 00 b8 c1 00 00 00 00 00 00  ................
+>     00 00 70 08 10 00 00 00 00 00 00 c0 00 00 00 00  ..p.............
+>   backtrace:
+>     [<00000000064a04f4>] kmemleak_alloc+0x1e/0x28
+>     [<00000000018927a7>] kmem_cache_alloc+0x11e/0x178
+>     [<000000002aea8d16>] sf_pdma_prep_dma_memcpy+0x40/0x112
+> 
+> Add the missing kfree() to sf_pdma_free_desc(), and remove the redundant
+> in_use flag.
 
-I gave this a quick test on a ppc32 machine, everything seems fine.
+Applied, thanks
 
-Your test_swp_exclusive.c passes, and an LTP run looks normal.
-
-Acked-by: Michael Ellerman <mpe@ellerman.id.au> (powerpc)
-
-cheers
-
-> diff --git a/arch/powerpc/include/asm/book3s/32/pgtable.h b/arch/powerpc/include/asm/book3s/32/pgtable.h
-> index 75823f39e042..0ecb3a58f23f 100644
-> --- a/arch/powerpc/include/asm/book3s/32/pgtable.h
-> +++ b/arch/powerpc/include/asm/book3s/32/pgtable.h
-> @@ -42,6 +42,9 @@
->  #define _PMD_PRESENT_MASK (PAGE_MASK)
->  #define _PMD_BAD	(~PAGE_MASK)
->  
-> +/* We borrow the _PAGE_USER bit to store the exclusive marker in swap PTEs. */
-> +#define _PAGE_SWP_EXCLUSIVE	_PAGE_USER
-> +
->  /* And here we include common definitions */
->  
->  #define _PAGE_KERNEL_RO		0
-> @@ -363,17 +366,42 @@ static inline void __ptep_set_access_flags(struct vm_area_struct *vma,
->  #define pmd_page(pmd)		pfn_to_page(pmd_pfn(pmd))
->  
->  /*
-> - * Encode and decode a swap entry.
-> - * Note that the bits we use in a PTE for representing a swap entry
-> - * must not include the _PAGE_PRESENT bit or the _PAGE_HASHPTE bit (if used).
-> - *   -- paulus
-> + * Encode/decode swap entries and swap PTEs. Swap PTEs are all PTEs that
-> + * are !pte_none() && !pte_present().
-> + *
-> + * Format of swap PTEs (32bit PTEs):
-> + *
-> + *                         1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 3 3
-> + *   0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
-> + *   <----------------- offset --------------------> < type -> E H P
-> + *
-> + *   E is the exclusive marker that is not stored in swap entries.
-> + *   _PAGE_PRESENT (P) and __PAGE_HASHPTE (H) must be 0.
-> + *
-> + * For 64bit PTEs, the offset is extended by 32bit.
->   */
->  #define __swp_type(entry)		((entry).val & 0x1f)
->  #define __swp_offset(entry)		((entry).val >> 5)
-> -#define __swp_entry(type, offset)	((swp_entry_t) { (type) | ((offset) << 5) })
-> +#define __swp_entry(type, offset)	((swp_entry_t) { ((type) & 0x1f) | ((offset) << 5) })
->  #define __pte_to_swp_entry(pte)		((swp_entry_t) { pte_val(pte) >> 3 })
->  #define __swp_entry_to_pte(x)		((pte_t) { (x).val << 3 })
->  
-> +#define __HAVE_ARCH_PTE_SWP_EXCLUSIVE
-> +static inline int pte_swp_exclusive(pte_t pte)
-> +{
-> +	return pte_val(pte) & _PAGE_SWP_EXCLUSIVE;
-> +}
-> +
-> +static inline pte_t pte_swp_mkexclusive(pte_t pte)
-> +{
-> +	return __pte(pte_val(pte) | _PAGE_SWP_EXCLUSIVE);
-> +}
-> +
-> +static inline pte_t pte_swp_clear_exclusive(pte_t pte)
-> +{
-> +	return __pte(pte_val(pte) & ~_PAGE_SWP_EXCLUSIVE);
-> +}
-> +
->  /* Generic accessors to PTE bits */
->  static inline int pte_write(pte_t pte)		{ return !!(pte_val(pte) & _PAGE_RW);}
->  static inline int pte_read(pte_t pte)		{ return 1; }
-> -- 
-> 2.39.0
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+-- 
+~Vinod
 
 _______________________________________________
 linux-riscv mailing list
