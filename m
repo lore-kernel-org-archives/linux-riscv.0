@@ -4,65 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C99B4C636CD
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Feb 2023 18:29:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2CE6C05027
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Feb 2023 19:00:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WZD+avYycx0cKcwsGisuLsVtkrFoCRBHA2H3sy20oF0=; b=ae+tzYQlq8Igk4
-	Xja8OER7LGdUP+W8l5RPAJ64M9bx9ZOIVfNAmkFikLYDZruk1NZAIPEIrwX+iS7aeFgbSF5F8FLE2
-	Z7+EvvtuZhR9KZt5O3dzOe+y3N/2qiBW9EfPL1c0ctF+5Z2atyVMX6aJasHXvMt0Av2wY8TMla7TO
-	xguv+jCvs38s0rO6ojrzr0l/J35isoY3lyXYYvmMGmZW5ZanZDjURd8BjLOhhB/4jGYaB7b0VFKL+
-	wwgdgdBQow28lvlnkMTiHWxdol4NRoc3w9/C8R8fiG8pBDXgnQ2anD15iFiRuKeNkcb0wnQEsFTHe
-	K21DViJ4os7hHp//qoig==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=XVK9pm5ajGCp35XmR4EL3nGweMHfmLyO3Y/BR3CnKvQ=; b=GZo7r8DEeoBrs9
+	MULlVvpq+wFFX59eYGPSp/UwRk8lvbXLgdDMxP7yHMOTVZhAB4XUDD279K8pwcRXAFyrJg2HXKk31
+	XnYQgIpIzH3b2L0suTjiXABewuMsOhp4fCs32sb4lGd909dGReCDeEHOJ00TgISYpalNvW/Cqyt5b
+	Yvq6grqDnZhoA8ew6u0yvR+SycDvyZB0YfQr9jk0haOcq4AMDupJnu3htlDQyMmF9WTqIfAZ/QGNO
+	QRFpPoBVtqxiavXLxlkZWXOR98MMRy1ZW6BbfUrC++bV6R3TdwXY2VhCMHbmIiV3qQonwsj8telr6
+	gK1835LOripgtUukBV+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQY9b-006wcq-Mq; Fri, 10 Feb 2023 18:29:47 +0000
-Received: from mail-oi1-f176.google.com ([209.85.167.176])
+	id 1pQYcp-0071mz-Pr; Fri, 10 Feb 2023 18:59:59 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQY9X-006waZ-GU; Fri, 10 Feb 2023 18:29:45 +0000
-Received: by mail-oi1-f176.google.com with SMTP id dt8so5222030oib.0;
-        Fri, 10 Feb 2023 10:29:42 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=wGTEo37sO/PejdrEzawXo41Wh2Us1e4LKILpN2RdcKM=;
-        b=uL8aowhiiu42u/k7uIse6dN36Q2C0gYTOK0sbu1g92TKoPaafDfjenjhaGeewrKVvR
-         8Ww6F/D6XtZT1AuCuzmrXaC8nulRWvMNASKvBk3WhzaFI5QMWqJ16XIuJ3wrtq1Y8XBd
-         pOLQTPlcV93xhg0q+K8p4pW812QxcJpeX86k16Yr1PnhrxgKbQGRMwwWillzAdi0aJ7L
-         Fqywz10Bd02RgKEG/faHYewg0Dkc7h3Pyb5742+3H4HymXNzAHdeKOn9CtG5cL9zNnma
-         Mi10zLFalaGatsZa4ey6IeRSpgIvwEMTy77cM4ORIk5NBelUb/3WRRh4mFC+aWkeo7IE
-         HhoQ==
-X-Gm-Message-State: AO0yUKXOPv4S1e2nkZfAriNNYyFhsMSA1THq9SiFJEvntcWBoIopBBUj
-	Icbd3+lDMLUBNAHUi8cdOQ==
-X-Google-Smtp-Source: AK7set/47StQR2IteFFtY5K4A8e4jlFxeqFxgq613Kt0yzg/tmsRzIzQLGKF92qW8nmFbDRMVTy8Vw==
-X-Received: by 2002:a05:6808:616:b0:364:862d:29c5 with SMTP id y22-20020a056808061600b00364862d29c5mr7107671oih.26.1676053776722;
-        Fri, 10 Feb 2023 10:29:36 -0800 (PST)
-Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id q2-20020a0568080ec200b0037d6c3fc8aasm616760oiv.45.2023.02.10.10.29.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Feb 2023 10:29:36 -0800 (PST)
-Received: (nullmailer pid 2916782 invoked by uid 1000);
-	Fri, 10 Feb 2023 18:29:35 -0000
-Date: Fri, 10 Feb 2023 12:29:35 -0600
-From: Rob Herring <robh@kernel.org>
-To: Changhuang Liang <changhuang.liang@starfivetech.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>, Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Jack Zhu <jack.zhu@starfivetech.com>, linux-phy@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v1 2/4] dt-bindings: phy: Add starfive,jh7110-dphy-rx
-Message-ID: <20230210182935.GA2914589-robh@kernel.org>
-References: <20230210061713.6449-1-changhuang.liang@starfivetech.com>
- <20230210061713.6449-3-changhuang.liang@starfivetech.com>
+	id 1pQYcm-0071lo-Sh
+	for linux-riscv@lists.infradead.org; Fri, 10 Feb 2023 18:59:58 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 7C1EC61E00;
+	Fri, 10 Feb 2023 18:59:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0E94C433D2;
+	Fri, 10 Feb 2023 18:59:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1676055595;
+	bh=9BszgULLhrjZUrMT7h1Hy6Og2pfG9wGMuc+rzuzf73g=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Vfrps96qq1/ciidcs7XVvISvINRisZfNp8qsDP4lRS0wAxwzTdEsNzg2PpjcuZPNa
+	 MjUybeUTptBFrxeC5WbiQnpOPEQSshNIyrS/AAykhqXNA2adovyymjkp8iovYpgAcI
+	 V+5w4E45SmMEHhlAPfNIW8c9bmQk7djtaHhmbpezDDLDuJw2uneJBWiAgkTsgVaE74
+	 wTPHkRtn2PsP8Bsh9ab/hZ7vLGLRp8YT3LbcYM71SNQF9rWobKECBfvpOkmoXBcwwy
+	 ox1H4NsgUgU+8EkGd9d18AUfMyM1xfmDKKIwtV3qR+8bkytmZ3A0DIP7xkf3kjK/XF
+	 7I5WIZaxVejOQ==
+From: Conor Dooley <conor@kernel.org>
+To: palmer@dabbelt.com
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-riscv@lists.infradead.org,
+	guoren@kernel.org
+Subject: [PATCH v1] RISC-V: add a spin_shadow_stack declaration
+Date: Fri, 10 Feb 2023 18:59:45 +0000
+Message-Id: <20230210185945.915806-1-conor@kernel.org>
+X-Mailer: git-send-email 2.39.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230210061713.6449-3-changhuang.liang@starfivetech.com>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1096; i=conor.dooley@microchip.com; h=from:subject; bh=gkX7HOlAwOcgC/4SIJxgSQcYTAUGNEsKMRdeRXPzJWo=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDMnPpsi6tbgUS9y1On3Y/8eZ4o2vd5rPtFy4/NP3/8eEst9m R7ku6ihlYRDjYJAVU2RJvN3XIrX+j8sO5563MHNYmUCGMHBxCsBEfnAwMtw2jH5QoHPgzvb/u44uuv Du5oI5X+YZPRC00P/KaXrGYrESw/+AZyfD1ijXrv5g0eRomvHI8uByq2drwqrzGO4pb5Eqq2cBAA==
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230210_102943_571937_0EAA4223 
-X-CRM114-Status: GOOD (  19.63  )
+X-CRM114-CacheID: sfid-20230210_105956_994975_278CF926 
+X-CRM114-Status: UNSURE (   9.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,118 +75,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 09, 2023 at 10:17:11PM -0800, Changhuang Liang wrote:
-> Starfive SoC like the jh7110 use a MIPI D-PHY RX controller based on
-> a M31 IP. Add a binding for it.
-> 
-> Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
-> ---
->  .../bindings/phy/starfive,jh7110-dphy-rx.yaml | 78 +++++++++++++++++++
->  1 file changed, 78 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/phy/starfive,jh7110-dphy-rx.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/phy/starfive,jh7110-dphy-rx.yaml b/Documentation/devicetree/bindings/phy/starfive,jh7110-dphy-rx.yaml
-> new file mode 100644
-> index 000000000000..1c1e5c7cbee2
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/phy/starfive,jh7110-dphy-rx.yaml
-> @@ -0,0 +1,78 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/phy/starfive,jh7110-dphy-rx.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Starfive SoC MIPI D-PHY Rx Controller
-> +
-> +maintainers:
-> +  - Jack Zhu <jack.zhu@starfivetech.com>
-> +  - Changhuang Liang <changhuang.liang@starfivetech.com>
-> +
-> +description: |
+From: Conor Dooley <conor.dooley@microchip.com>
 
-Don't need '|'
+The patchwork automation reported a sparse complaint that
+spin_shadow_stack was not declared and should be static:
+../arch/riscv/kernel/traps.c:335:15: warning: symbol 'spin_shadow_stack' was not declared. Should it be static?
 
-> +  The Starfive SOC has a MIPI CSI D-PHY based on M31 IP use to transfer
-> +  the CSI cameras data.
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - const: "starfive,jh7110-dphy-rx"
+However, this is used in entry.S and therefore shouldn't be static.
+The same applies to the shadow_stack that this pseudo spinlock is
+trying to protect, so do like its charge and add a declaration to
+thread_info.h
 
-Drop quotes.
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+Applies on top of Guo Ren's generic entry series.
+---
+ arch/riscv/include/asm/thread_info.h | 1 +
+ 1 file changed, 1 insertion(+)
 
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    minItems: 3
-> +    maxItems: 3
+diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
+index 7de4fb96f0b5..e0d202134b44 100644
+--- a/arch/riscv/include/asm/thread_info.h
++++ b/arch/riscv/include/asm/thread_info.h
+@@ -43,6 +43,7 @@
+ #ifndef __ASSEMBLY__
+ 
+ extern long shadow_stack[SHADOW_OVERFLOW_STACK_SIZE / sizeof(long)];
++extern unsigned long spin_shadow_stack;
+ 
+ #include <asm/processor.h>
+ #include <asm/csr.h>
+-- 
+2.39.1
 
-Just maxItems is enough.
-
-> +
-> +  clock-names:
-> +    items:
-> +      - const: cfg
-> +      - const: ref
-> +      - const: tx
-> +
-> +  resets:
-> +    minItems: 2
-> +    maxItems: 2
-
-Need to define what each reset is.
-
-> +
-> +  starfive,aon-syscon:
-> +    $ref: '/schemas/types.yaml#/definitions/phandle-array'
-
-Drop quotes.
-
-> +    items:
-> +      items:
-> +        - description: phandle of AON SYSCON
-> +        - description: register offset
-> +    description: The register of dphy rx driver can be configured
-> +      by AON SYSCON in this property.
-> +
-> +  "#phy-cells":
-> +    const: 0
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - clock-names
-> +  - resets
-> +  - starfive,aon-syscon
-> +  - "#phy-cells"
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/starfive,jh7110-crg.h>
-> +    #include <dt-bindings/reset/starfive,jh7110-crg.h>
-> +
-> +    dphy@19820000 {
-> +      compatible = "starfive,jh7110-dphy-rx";
-> +      reg = <0x19820000 0x10000>;
-> +      clocks = <&ispcrg JH7110_ISPCLK_M31DPHY_CFGCLK_IN>,
-> +               <&ispcrg JH7110_ISPCLK_M31DPHY_REFCLK_IN>,
-> +               <&ispcrg JH7110_ISPCLK_M31DPHY_TXCLKESC_LAN0>;
-> +      clock-names = "cfg", "ref", "tx";
-> +      resets = <&ispcrg JH7110_ISPRST_M31DPHY_HW>,
-> +               <&ispcrg JH7110_ISPRST_M31DPHY_B09_ALWAYS_ON>;
-> +      starfive,aon-syscon = <&aon_syscon 0x00>;
-> +      #phy-cells = <0>;
-> +    };
-> -- 
-> 2.25.1
-> 
 
 _______________________________________________
 linux-riscv mailing list
