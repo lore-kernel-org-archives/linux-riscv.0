@@ -4,56 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E35F5C636CD
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Feb 2023 10:02:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4EAAC636CD
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Feb 2023 12:02:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=LCOaTzuPyaait4KMrCXR+fC077F7qhleuierLGTClAk=; b=XAB8F4YK+pK9uW
-	OswFlRVXAlo4pmWKSKYWo2FDPQhtikii7ZcriRFBEN6PXHeBouMsHd3KpVSXGRM21eo8wbKPqGbcR
-	60C5ZOkYpwp96dXS0HyqFFFjHBeP5/4KqgJtkuSFaPpgomyeV83W2ay6sPlgvkzktZepoUAVjMw9l
-	mfZZa3ROa9somD1PM6UEJe5zokUJX0yeRss4jZHP53LoSVJUM71hegQDPICeYCRI69QQtnRK8seGU
-	aQgPHKzXMYVCwcj6z73lKRX2Lf9VStAvxm5249sd3pJ3g8kFThXTUQgcclIXDC6GBCqooR2SUWDK5
-	lBnU6tprD91LvV95CbxQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=nwVHFGk0Ubm9fiyx3RLpNr0IYOlPITHF41ie9CW/31c=; b=4oK+iki2xu9taX
+	+6GQz+o15jVlMyPy8IoVERbHLP6fjViFtmc0ufCKcD3T/t0OF9fNDQsRMlpIhwNUVB3vXDFGdEq9i
+	5ue31Ug2o6b9qke5CMAcC928Woj0yaLJyPsk7NohYavU8mfQVojq3WmU5fXWYD2H921Krwusk3ci9
+	yBLJTINcwpSzbi6J9JDvW7YgzeWdMMYK4MQtZ+ddnN6QO0eAQ2MAPo2ZZrZ48cpxJt2vKC0Dgz31C
+	L7RlSpchfFuilEDLNU9ar9uLyVqDrmfYmFyiU593cnKOppuHWK1P33JnzgxMA9wjINuPz41BO1IZC
+	JekjtxXlzVLe1pVwRq0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQQEB-005C1p-5O; Fri, 10 Feb 2023 10:01:59 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQQE6-005Bv2-4N
-	for linux-riscv@lists.infradead.org; Fri, 10 Feb 2023 10:01:57 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id A1CD424E346;
-	Fri, 10 Feb 2023 18:01:24 +0800 (CST)
-Received: from EXMBX067.cuchost.com (172.16.6.67) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 10 Feb
- 2023 18:01:24 +0800
-Received: from ubuntu.localdomain (183.27.96.33) by EXMBX067.cuchost.com
- (172.16.6.67) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 10 Feb
- 2023 18:01:23 +0800
-From: Mason Huo <mason.huo@starfivetech.com>
-To: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>, "Mason
- Huo" <mason.huo@starfivetech.com>, Ley Foon Tan
-	<leyfoon.tan@starfivetech.com>, Sia Jee Heng <jeeheng.sia@starfivetech.com>
-Subject: [PATCH v3] irqchip/irq-sifive-plic: Add syscore callbacks for hibernation
-Date: Fri, 10 Feb 2023 18:01:22 +0800
-Message-ID: <20230210100122.80255-1-mason.huo@starfivetech.com>
-X-Mailer: git-send-email 2.39.0
+	id 1pQS6B-005bAd-GX; Fri, 10 Feb 2023 12:01:51 +0000
+Received: from mail-yb1-xb2e.google.com ([2607:f8b0:4864:20::b2e])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pQS61-005b4v-4P
+	for linux-riscv@lists.infradead.org; Fri, 10 Feb 2023 12:01:42 +0000
+Received: by mail-yb1-xb2e.google.com with SMTP id 139so4621603ybe.3
+        for <linux-riscv@lists.infradead.org>; Fri, 10 Feb 2023 04:01:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=1jwrQQNf1AnNFQoY1CSsZGZlA1OyRM3AQRwMVKGcGFE=;
+        b=VzJJrY1czOnLI9zserZvykrCI4wQ1fcILGSc9Z8/fJIfT05M6hIIAQLvc9FQdyKLkI
+         tvSsySFDam20WtD8cxWf1JdXg5Z3Z3fS0/qxL9Fkd/sARb/Xj8DPoHRqtWrYQpdHxlbw
+         b7TuZb3tV/TQ4082VejWZYsD7EpVNggjx6Ic2WeqCXlN+ZAtfEnKwabrnmmdvQuT2EAI
+         QjaAHaHuz01QtkFlynN6uBYdm+qOmRT/AYGI3/YTqqxoZWmkpraKFUxMUawa38Z5KzzE
+         6qxAN7htjNkaVbPNe6YcJZCL8jSm5Afl595a2ZXxP5RWgqfqlWcT1sukaJURnbUZtsza
+         ghJA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=1jwrQQNf1AnNFQoY1CSsZGZlA1OyRM3AQRwMVKGcGFE=;
+        b=lU0gLI5r3R86olzeV5vZV9sS42EUCJZ/wPFCfdf9mRyREYpcLO3vMM4vN8C99MDxBM
+         wSww+5UImjQYfmiHjn87GunYc9GcPryoiWogRJqzkCLR52pD/AwE/g8QSHXsQZLt8elz
+         buEq3DvRwNWdpBK+z3d+mt8NW/Y0u2q8Oe8fqgNlIXGqRWb6AUHNK+LZ+cviOqKbVG8D
+         NQwJo3HJeQjwDTmoVY81i28pPdW0tVPpzZazkv1r0Cm7VTYz90gp7spitjhAgltp+24F
+         URlxKJaRIabQAienylaiGM205EDa3q4sRpVHslBEnMniUZKFx7rrKnaZ/kH3P71nWmUL
+         POfQ==
+X-Gm-Message-State: AO0yUKUdKV+MFELF6192aPWnr18fS7yJ9h4jjNvj4pYKSah1uiMInVdc
+	QEqF039qTXW4+axB8vO/VM/ycA3m7fdmLTZJw2wEFg==
+X-Google-Smtp-Source: AK7set9qynGF/Sxd+zA/Vyt+YbgEjGY7FcWEXpsQ103JEwyyPC23370Zjfe5WzDNa+02nvNq74+n690DSsNrLEMYRbY=
+X-Received: by 2002:a05:6902:4c5:b0:8c7:f1f7:35a2 with SMTP id
+ v5-20020a05690204c500b008c7f1f735a2mr930408ybs.541.1676030498397; Fri, 10 Feb
+ 2023 04:01:38 -0800 (PST)
 MIME-Version: 1.0
-X-Originating-IP: [183.27.96.33]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX067.cuchost.com
- (172.16.6.67)
-X-YovoleRuleAgent: yovoleflag
+References: <20230125142056.18356-1-andy.chiu@sifive.com> <20230125142056.18356-11-andy.chiu@sifive.com>
+ <Y9MIr2iR5rzlIGKQ@spud> <CABgGipW_3tBbc3G91dqiAZCGeN-PbUvLS3n=bU0nWz0rRX9T8Q@mail.gmail.com>
+ <36A0C855-5EA7-49B5-B92E-B28E684AC3D8@kernel.org>
+In-Reply-To: <36A0C855-5EA7-49B5-B92E-B28E684AC3D8@kernel.org>
+From: Andy Chiu <andy.chiu@sifive.com>
+Date: Fri, 10 Feb 2023 20:00:00 +0800
+Message-ID: <CABgGipXMwnVPFY3D34zVQ1_MObYiYze-vvU23_yC12Q+xN+1ew@mail.gmail.com>
+Subject: Re: [PATCH -next v13 10/19] riscv: Allocate user's vector context in
+ the first-use trap
+To: Conor Dooley <conor@kernel.org>
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, anup@brainfault.org, 
+	atishp@atishpatra.org, kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
+	vineetg@rivosinc.com, greentime.hu@sifive.com, guoren@linux.alibaba.com, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Heiko Stuebner <heiko.stuebner@vrull.eu>, Andrew Jones <ajones@ventanamicro.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
+	Conor Dooley <conor.dooley@microchip.com>, Jisheng Zhang <jszhang@kernel.org>, 
+	Vincent Chen <vincent.chen@sifive.com>, Guo Ren <guoren@kernel.org>, 
+	Li Zhengyu <lizhengyu3@huawei.com>, Masahiro Yamada <masahiroy@kernel.org>, 
+	Changbin Du <changbin.du@intel.com>, Richard Henderson <richard.henderson@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230210_020155_465245_5D057613 
-X-CRM114-Status: GOOD (  18.07  )
+X-CRM114-CacheID: sfid-20230210_040141_237618_449590BF 
+X-CRM114-Status: UNSURE (   6.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,185 +97,13 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The priority and enable registers of plic will be reset
-during hibernation power cycle in poweroff mode,
-add the syscore callbacks to save/restore those registers.
+On Mon, Feb 6, 2023 at 9:40 PM Conor Dooley <conor@kernel.org> wrote:
+> I suppose my question was "is it safe to warn and carry on, rather than disallow use of vector in this situation".
+Yes, I think it is safe to warn and carry on. This is a check for
+memory leak if future code did not allocate/free datap correctly.
 
-Signed-off-by: Mason Huo <mason.huo@starfivetech.com>
-Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
-Reviewed-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
----
- drivers/irqchip/irq-sifive-plic.c | 93 ++++++++++++++++++++++++++++++-
- 1 file changed, 91 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-index ff47bd0dec45..f9d314afecf1 100644
---- a/drivers/irqchip/irq-sifive-plic.c
-+++ b/drivers/irqchip/irq-sifive-plic.c
-@@ -17,6 +17,7 @@
- #include <linux/of_irq.h>
- #include <linux/platform_device.h>
- #include <linux/spinlock.h>
-+#include <linux/syscore_ops.h>
- #include <asm/smp.h>
- 
- /*
-@@ -67,6 +68,8 @@ struct plic_priv {
- 	struct irq_domain *irqdomain;
- 	void __iomem *regs;
- 	unsigned long plic_quirks;
-+	unsigned int nr_irqs;
-+	unsigned long *prio_save;
- };
- 
- struct plic_handler {
-@@ -78,6 +81,7 @@ struct plic_handler {
- 	 */
- 	raw_spinlock_t		enable_lock;
- 	void __iomem		*enable_base;
-+	u32			*enable_save;
- 	struct plic_priv	*priv;
- };
- static int plic_parent_irq __ro_after_init;
-@@ -229,6 +233,71 @@ static int plic_irq_set_type(struct irq_data *d, unsigned int type)
- 	return IRQ_SET_MASK_OK;
- }
- 
-+static int plic_irq_suspend(void)
-+{
-+	unsigned int i, cpu;
-+	u32 __iomem *reg;
-+	struct plic_priv *priv;
-+
-+	priv = per_cpu_ptr(&plic_handlers, smp_processor_id())->priv;
-+
-+	for (i = 0; i < priv->nr_irqs; i++)
-+		if (readl(priv->regs + PRIORITY_BASE + i * PRIORITY_PER_ID))
-+			__set_bit(i, priv->prio_save);
-+		else
-+			__clear_bit(i, priv->prio_save);
-+
-+	for_each_cpu(cpu, cpu_present_mask) {
-+		struct plic_handler *handler = per_cpu_ptr(&plic_handlers, cpu);
-+
-+		if (!handler->present)
-+			continue;
-+
-+		raw_spin_lock(&handler->enable_lock);
-+		for (i = 0; i < DIV_ROUND_UP(priv->nr_irqs, 32); i++) {
-+			reg = handler->enable_base + i * sizeof(u32);
-+			handler->enable_save[i] = readl(reg);
-+		}
-+		raw_spin_unlock(&handler->enable_lock);
-+	}
-+
-+	return 0;
-+}
-+
-+static void plic_irq_resume(void)
-+{
-+	unsigned int i, index, cpu;
-+	u32 __iomem *reg;
-+	struct plic_priv *priv;
-+
-+	priv = per_cpu_ptr(&plic_handlers, smp_processor_id())->priv;
-+
-+	for (i = 0; i < priv->nr_irqs; i++) {
-+		index = (i / BITS_PER_LONG);
-+		writel((priv->prio_save[index] & BIT(i % BITS_PER_LONG)) ? 1 : 0,
-+		       priv->regs + PRIORITY_BASE + i * PRIORITY_PER_ID);
-+	}
-+
-+	for_each_cpu(cpu, cpu_present_mask) {
-+		struct plic_handler *handler = per_cpu_ptr(&plic_handlers, cpu);
-+
-+		if (!handler->present)
-+			continue;
-+
-+		raw_spin_lock(&handler->enable_lock);
-+		for (i = 0; i < DIV_ROUND_UP(priv->nr_irqs, 32); i++) {
-+			reg = handler->enable_base + i * sizeof(u32);
-+			writel(handler->enable_save[i], reg);
-+		}
-+		raw_spin_unlock(&handler->enable_lock);
-+	}
-+}
-+
-+static struct syscore_ops plic_irq_syscore_ops = {
-+	.suspend	= plic_irq_suspend,
-+	.resume		= plic_irq_resume,
-+};
-+
- static int plic_irqdomain_map(struct irq_domain *d, unsigned int irq,
- 			      irq_hw_number_t hwirq)
- {
-@@ -345,6 +414,7 @@ static int __init __plic_init(struct device_node *node,
- 	u32 nr_irqs;
- 	struct plic_priv *priv;
- 	struct plic_handler *handler;
-+	unsigned int cpu;
- 
- 	priv = kzalloc(sizeof(*priv), GFP_KERNEL);
- 	if (!priv)
-@@ -363,15 +433,21 @@ static int __init __plic_init(struct device_node *node,
- 	if (WARN_ON(!nr_irqs))
- 		goto out_iounmap;
- 
-+	priv->nr_irqs = nr_irqs;
-+
-+	priv->prio_save = bitmap_alloc(nr_irqs, GFP_KERNEL);
-+	if (!priv->prio_save)
-+		goto out_free_priority_reg;
-+
- 	nr_contexts = of_irq_count(node);
- 	if (WARN_ON(!nr_contexts))
--		goto out_iounmap;
-+		goto out_free_priority_reg;
- 
- 	error = -ENOMEM;
- 	priv->irqdomain = irq_domain_add_linear(node, nr_irqs + 1,
- 			&plic_irqdomain_ops, priv);
- 	if (WARN_ON(!priv->irqdomain))
--		goto out_iounmap;
-+		goto out_free_priority_reg;
- 
- 	for (i = 0; i < nr_contexts; i++) {
- 		struct of_phandle_args parent;
-@@ -441,6 +517,11 @@ static int __init __plic_init(struct device_node *node,
- 		handler->enable_base = priv->regs + CONTEXT_ENABLE_BASE +
- 			i * CONTEXT_ENABLE_SIZE;
- 		handler->priv = priv;
-+
-+		handler->enable_save =  kcalloc(DIV_ROUND_UP(nr_irqs, 32),
-+						32, GFP_KERNEL);
-+		if (!handler->enable_save)
-+			goto out_free_enable_reg;
- done:
- 		for (hwirq = 1; hwirq <= nr_irqs; hwirq++) {
- 			plic_toggle(handler, hwirq, 0);
-@@ -461,11 +542,19 @@ static int __init __plic_init(struct device_node *node,
- 				  plic_starting_cpu, plic_dying_cpu);
- 		plic_cpuhp_setup_done = true;
- 	}
-+	register_syscore_ops(&plic_irq_syscore_ops);
- 
- 	pr_info("%pOFP: mapped %d interrupts with %d handlers for"
- 		" %d contexts.\n", node, nr_irqs, nr_handlers, nr_contexts);
- 	return 0;
- 
-+out_free_enable_reg:
-+	for_each_cpu(cpu, cpu_present_mask) {
-+		handler = per_cpu_ptr(&plic_handlers, cpu);
-+		kfree(handler->enable_save);
-+	}
-+out_free_priority_reg:
-+	kfree(priv->prio_save);
- out_iounmap:
- 	iounmap(priv->regs);
- out_free_priv:
--- 
-2.39.0
-
+Thanks,
+Andy
 
 _______________________________________________
 linux-riscv mailing list
