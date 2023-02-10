@@ -4,68 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 153BFC05027
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Feb 2023 21:00:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AFD9C636D4
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Feb 2023 21:03:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pUyus7O5+jdj8GBsTqmjQZz2qZPEl5fadtgO+9W2ZEE=; b=xR4jrBTWKD9waYf0Gfw1aVxsVp
-	iD/FOGuGsmWk2jWSJssxGgks/QyhQjPpwCGm9L4mN3EqGZk2oAVP7UmAJT+W1+D0jBtva5NTPUmBG
-	JQBKYWoeDgyicfA8Hc8wukeYXGOGugJBdvXDm2ugy6+Ocu5ShyvTxRI+CyOjzpe6PFjix/2NWWT/7
-	EaNI/GxZpgbwYBAtEHFIlIKrKluLt/ZXOCv29/y31ngi9Y2KM3SKuYeN9Ra7ZB/i69zRtT32RPu32
-	j5BShF0IP7PwsjY9t4P6xVchUgNZrxveez0xwwZZoCzASm+5G3OHIM47VoKpjWxB0YJ43fL6U/zVl
-	DlDQ8ETw==;
+	bh=jQ6+6u6sV+SKL2RoArIK0gLPWIhNJtjw5WHhER/JI48=; b=X2sI17rP5RsixXt6lIVv/CyMWE
+	mMMO/ND1gCruS2gOrrsCNKlTCuJHKNnUlz8x2o9waHphJ/FLPRNs6yMT0jvZmH8YQvQQI3D9gL8a5
+	AAFgiu0nuoErKLICfs1Dtec4A4pf10XIB+ywx3s0Y5BFQXbtKtFAgsjbZyD9/VcQNB9Cm/qWKZPu8
+	qtkzoEXqTX506H1n8/7JD5XtC4G7YTaQaV8MZmcwnjB7eiZf2HEStluuqvsSAlJjGD1nIovVUf1Bf
+	i5LFMNQY4dnLMANnYCuaJUmdS/ehQWaeXgdCSN0P1XnPvh9a+usfeelq3P8HrdMfTlgnEwTQGC48b
+	qz+HFJXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQaVS-007WyU-CA; Fri, 10 Feb 2023 21:00:30 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1pQaY4-007Xkl-8Y; Fri, 10 Feb 2023 21:03:12 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQa1N-007Ooc-9o; Fri, 10 Feb 2023 20:29:27 +0000
+	id 1pQa9N-007RAN-Fz; Fri, 10 Feb 2023 20:37:43 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id A5675B825AF;
-	Fri, 10 Feb 2023 20:29:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88680C433D2;
-	Fri, 10 Feb 2023 20:29:17 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 8263E61E90;
+	Fri, 10 Feb 2023 20:37:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 275F4C433EF;
+	Fri, 10 Feb 2023 20:37:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1676060960;
-	bh=awvndo+mybz2kVTD7nD6CvCPAo8Dbu9CN95oGBexSLY=;
+	s=k20201202; t=1676061459;
+	bh=kQcgBSgO4Pqd5pDJgSZbOuSbBKNIGIndQLymWgAO8R8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Yfzs0irKw93PU4uYAGv0q1twSy1cKOM+IrcBYBoUhYBztneR8QwGMdlF5JEyykIo4
-	 xN+Z2ISKx4AokaV7XTPOJ8iIQ9+eCaIYnEFCtP0rYEkoYQM7EgzCV+6glS5t0xtU7h
-	 fAeYN+MS2liBp/SKFZnx/B8JLwhA3cbqlNxLyKjlNDk3365RPp3IEdMdhrMsQUDTqu
-	 FfNC/V9G7VQ8p/TW5bTP7WkpeAfrBjwZIYeXYDkVYsG0AFcDL7WvKGWGcW3PCx0wQV
-	 zI9/fgID6QrHWuUQZZcu0AWaeiMRp+zXYd0fhvM0hFrRW8oJ/kmw3/f9ZQwnsx3DWn
-	 wGgmO3SWThSQg==
-Date: Fri, 10 Feb 2023 20:29:15 +0000
+	b=qHjTKPxAdg1gmrYBi4vhRVNACilMQYwGyPPMLgVNF9QeXdfp4VOIUZaZZrXsqkh5q
+	 YKzI3XvYrdiWDuCB49ASSxVcvcenNUDPwACZ5fjgsiAI3qUXc2LTvmbUszU7b/5nf9
+	 /I72vAB2w5WOrvOWEddhvDlBydvYelP4/KeOS+HmfEC0xb9UXdb7EUrLmGSgV1Xelw
+	 LjGIxuJQDUZkmNGoaTj56V8Mv2B0dYaNTUYiEwNSb96XKoUojzwgQky60l8aiIUFYP
+	 WMhYtzdgF+6Q21nLPxlDE8YsL2Xeu7TgbEEiF63wPtPaR3qIpCgrjuCKHZg+wQd2qP
+	 3jqVLhF34VIhA==
+Date: Fri, 10 Feb 2023 20:37:34 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, 'Anup Patel ' <apatel@ventanamicro.com>,
-	'Palmer Dabbelt ' <palmer@dabbelt.com>,
-	'Paul Walmsley ' <paul.walmsley@sifive.com>,
-	'Krzysztof Kozlowski ' <krzysztof.kozlowski+dt@linaro.org>,
-	'Atish Patra ' <atishp@rivosinc.com>,
-	'Heiko Stuebner ' <heiko@sntech.de>,
-	'Jisheng Zhang ' <jszhang@kernel.org>,
-	'Rob Herring ' <robh@kernel.org>,
-	'Albert Ou ' <aou@eecs.berkeley.edu>,
-	'Conor Dooley ' <conor.dooley@microchip.com>
-Subject: Re: [PATCH v4 5/8] RISC-V: cpufeature: Put vendor_id to work
-Message-ID: <Y+apG/nVSLJY8nsN@spud>
-References: <20230209152628.129914-1-ajones@ventanamicro.com>
- <20230209152628.129914-6-ajones@ventanamicro.com>
- <Y+VD2/owMIvqzOx8@spud>
- <20230210075818.chh5myc2tmcvjplc@orel>
+To: Trevor Woerner <twoerner@gmail.com>
+Cc: linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v3 2/2] riscv: dts: nezha-d1: add gpio-line-names
+Message-ID: <Y+arDr+XTp85CDRc@spud>
+References: <20230210025132.36605-1-twoerner@gmail.com>
+ <20230210025132.36605-2-twoerner@gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <20230210075818.chh5myc2tmcvjplc@orel>
+In-Reply-To: <20230210025132.36605-2-twoerner@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230210_122925_725204_789E3937 
-X-CRM114-Status: GOOD (  28.07  )
+X-CRM114-CacheID: sfid-20230210_123741_655050_6327273D 
+X-CRM114-Status: GOOD (  30.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,102 +74,181 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2767952802158378879=="
+Content-Type: multipart/mixed; boundary="===============4507644002950608355=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============2767952802158378879==
+--===============4507644002950608355==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="7xsCUnNAv8LreRDc"
+	protocol="application/pgp-signature"; boundary="hZ8ik5mZsnIy+h/o"
 Content-Disposition: inline
 
 
---7xsCUnNAv8LreRDc
+--hZ8ik5mZsnIy+h/o
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Fri, Feb 10, 2023 at 08:58:18AM +0100, Andrew Jones wrote:
-> On Thu, Feb 09, 2023 at 07:04:59PM +0000, Conor Dooley wrote:
-> > On Thu, Feb 09, 2023 at 04:26:25PM +0100, Andrew Jones wrote:
+Hey Trevor,
 
-> > > +static bool riscv_cpufeature_application_check(u32 feature, u16 data)
-> > > +{
-> > > +	return data =3D=3D 0;
-> > > +}
-> > > +
-> > >  void __init_or_module riscv_cpufeature_patch_func(struct alt_entry *=
-begin,
-> > >  						  struct alt_entry *end,
-> > >  						  unsigned int stage)
-> > > @@ -289,8 +294,6 @@ void __init_or_module riscv_cpufeature_patch_func=
-(struct alt_entry *begin,
-> > >  		return;
-> > > =20
-> > >  	for (alt =3D begin; alt < end; alt++) {
-> > > -		if (alt->vendor_id !=3D 0)
-> > > -			continue;
-> >=20
-> > Can you remind me what makes this "safe"?
-> > My understanding was that a vendor_id of zero was safe, as zero is
-> > reserved in JEDEC.
-> > What is stopping someone stuffing this with a given value and
-> > colliding with a real vendor's errata?
-> >=20
-> > 	for (alt =3D begin; alt < end; alt++) {
-> > 		if (alt->vendor_id !=3D A_VENDOR_ID)
-> > 			continue;
-> > 		if (alt->errata_id >=3D ERRATA_A_NUMBER)
-> > 			continue;
-> >=20
-> > 		tmp =3D (1U << alt->errata_id);
-> > 		if (cpu_req_errata & tmp) {
-> > 			oldptr =3D ALT_OLD_PTR(alt);
-> > 			altptr =3D ALT_ALT_PTR(alt);
-> >=20
-> > 			/* On vm-alternatives, the mmu isn't running yet */
-> > 			if (stage =3D=3D RISCV_ALTERNATIVES_EARLY_BOOT)
-> > 				memcpy((void *)__pa_symbol(oldptr),
-> > 				       (void *)__pa_symbol(altptr),
-> > 				       alt->alt_len);
-> > 			else
-> > 				patch_text_nosync(oldptr, altptr, alt->alt_len);
-> > 		}
-> > 	}
-> >=20
-> > I've probably just missing something, my brain swapped out alternatives
-> > the other week. Hopefully whatever I missed isn't embarrassingly obviou=
-s!
+Just one thing about process sorta stuff, ordinarily a new version is
+not posted as a reply to the last one.
+If you look on lore, you'll see it looks a bit odd:
+https://lore.kernel.org/all/20230210025132.36605-2-twoerner@gmail.com/
+(scroll to "thread overview")
+
+Tooling may/may not do the right thing w.r.t. testing/application of
+the patches as a result.
+
+On Thu, Feb 09, 2023 at 09:51:32PM -0500, Trevor Woerner wrote:
+> Add descriptive names so users can associate specific lines with their
+> respective pins on the 40-pin header according to the schematics.
 >=20
-> You're right. I was assuming the errata_id space for errata didn't overlap
-> with the errata_id space for cpufeatures. It doesn't, atm, but by luck,
-> not design. I could try to ensure that somehow, but probably the better
-> approach would be to use the upper bits of errata_id for the application
-> data and to leave vendor_id alone. Thanks for catching my oversight!
+> Signed-off-by: Trevor Woerner <twoerner@gmail.com>
 
-Sounds like a better idea at least.
-I suppose the ideal would be to add another arg and not abuse things,
-but maybe that's one for the future, idk.
-Is this somewhere that an assertion should be used to make sure that
-we don't grow the list of extensions such that the regions collide?
+Comment looks nice & there are no more warnings from dtbs_check :)
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
+Thanks,
+Conor.
 
---7xsCUnNAv8LreRDc
+> Link: http://dl.linux-sunxi.org/D1/D1_Nezha_development_board_schematic_d=
+iagram_20210224.pdf
+> ---
+> changes since v2:
+> - (no changes, skip to a v3 to align with the other patch in this group)
+>=20
+> changes since v1:
+> - this patch needs to be placed in order, and come second, after a patch =
+to
+>   update the schema for the nxp,pcf8575, put this patch in a group where =
+it
+>   wasn't previously
+> - use a Link: to point to the schematic
+> - add a comment section describing the rational behind the naming that was
+>   used
+> - make the spacing of each line name uniform, don't try to "line them up"
+>   vertically
+> ---
+>  .../boot/dts/allwinner/sun20i-d1-nezha.dts    | 72 +++++++++++++++++++
+>  1 file changed, 72 insertions(+)
+>=20
+> diff --git a/arch/riscv/boot/dts/allwinner/sun20i-d1-nezha.dts b/arch/ris=
+cv/boot/dts/allwinner/sun20i-d1-nezha.dts
+> index a0769185be97..4ed33c1e7c9c 100644
+> --- a/arch/riscv/boot/dts/allwinner/sun20i-d1-nezha.dts
+> +++ b/arch/riscv/boot/dts/allwinner/sun20i-d1-nezha.dts
+> @@ -1,6 +1,25 @@
+>  // SPDX-License-Identifier: (GPL-2.0+ or MIT)
+>  // Copyright (C) 2021-2022 Samuel Holland <samuel@sholland.org>
+> =20
+> +/*
+> + * gpio line names
+> + *
+> + * The Nezha-D1 has a 40-pin IO header. Some of these pins are routed
+> + * directly to pads on the SoC, others come from an 8-bit pcf857x IO
+> + * expander. Therefore, these line names are specified in two places:
+> + * one set for the pcf857x, and one set for the pio controller.
+> + *
+> + * Lines which are routed to the 40-pin header are named as follows:
+> + *	<pin#> [<pin name>]
+> + * where:
+> + *	<pin#>		is the actual pin number of the 40-pin header
+> + *	<pin name>	is the name of the pin by function/gpio#
+> + *
+> + * For details regarding pin numbers and names see the schematics (under
+> + * "IO EXPAND"):
+> + * http://dl.linux-sunxi.org/D1/D1_Nezha_development_board_schematic_dia=
+gram_20210224.pdf
+> + */
+> +
+>  #include <dt-bindings/gpio/gpio.h>
+>  #include <dt-bindings/input/input.h>
+> =20
+> @@ -90,6 +109,15 @@ pcf8574a: gpio@38 {
+>  		gpio-controller;
+>  		#gpio-cells =3D <2>;
+>  		#interrupt-cells =3D <2>;
+> +		gpio-line-names =3D
+> +			"pin13 [gpio8]",
+> +			"pin16 [gpio10]",
+> +			"pin18 [gpio11]",
+> +			"pin26 [gpio17]",
+> +			"pin22 [gpio14]",
+> +			"pin28 [gpio19]",
+> +			"pin37 [gpio23]",
+> +			"pin11 [gpio6]";
+>  	};
+>  };
+> =20
+> @@ -164,3 +192,47 @@ &usbphy {
+>  	usb1_vbus-supply =3D <&reg_vcc>;
+>  	status =3D "okay";
+>  };
+> +
+> +&pio {
+> +	gpio-line-names =3D
+> +		/* Port A */
+> +		"", "", "", "", "", "", "", "",
+> +		"", "", "", "", "", "", "", "",
+> +		"", "", "", "", "", "", "", "",
+> +		"", "", "", "", "", "", "", "",
+> +		/* Port B */
+> +		"pin5 [gpio2/twi2-sck]",
+> +		"pin3 [gpio1/twi2-sda]",
+> +		"",
+> +		"pin38 [gpio24/i2s2-din]",
+> +		"pin40 [gpio25/i2s2-dout]",
+> +		"pin12 [gpio7/i2s-clk]",
+> +		"pin35 [gpio22/i2s2-lrck]",
+> +		"",
+> +		"pin8 [gpio4/uart0-txd]",
+> +		"pin10 [gpio5/uart0-rxd]",
+> +		"",
+> +		"",
+> +		"pin15 [gpio9]",
+> +		"", "", "", "",
+> +		"", "", "", "", "", "", "", "",
+> +		"", "", "", "", "", "", "", "",
+> +		/* Port C */
+> +		"",
+> +		"pin31 [gpio21]",
+> +		"", "", "", "", "", "",
+> +		"", "", "", "", "", "", "", "",
+> +		"", "", "", "", "", "", "", "",
+> +		"", "", "", "", "", "", "", "",
+> +		/* Port D */
+> +		"", "", "", "", "", "", "", "",
+> +		"", "",
+> +		"pin24 [gpio16/spi1-ce0]",
+> +		"pin23 [gpio15/spi1-clk]",
+> +		"pin19 [gpio12/spi1-mosi]",
+> +		"pin21 [gpio13/spi1-miso]",
+> +		"pin27 [gpio18/spi1-hold]",
+> +		"pin29 [gpio20/spi1-wp]",
+> +		"", "", "", "", "", "",
+> +		"pin7 [gpio3/pwm]";
+> +};
+> --=20
+> 2.36.0.rc2.17.g4027e30c53
+>=20
+
+--hZ8ik5mZsnIy+h/o
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY+apGgAKCRB4tDGHoIJi
-0vyLAQDpS9n7LVVJt8LlcNnOTLvjLUeaZrmjq28+8ehSZqXxqQEAwHeXU7iYR7dU
-mYzMTnLj5cqwE5sI2nPAqz70mM6LJww=
-=Xv4r
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY+arDgAKCRB4tDGHoIJi
+0vNzAP9wY996zdS8j0ZJ6vVTM/3fQQST8EkENXy1piEExyrn9gD+KQrB1AMu5qII
+DUtpxzPnxhq5rv8Iib6vl7gDq1pkLwc=
+=PAXW
 -----END PGP SIGNATURE-----
 
---7xsCUnNAv8LreRDc--
+--hZ8ik5mZsnIy+h/o--
 
 
---===============2767952802158378879==
+--===============4507644002950608355==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -183,5 +259,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============2767952802158378879==--
+--===============4507644002950608355==--
 
