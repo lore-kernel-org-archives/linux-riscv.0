@@ -4,77 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E417C05027
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Feb 2023 22:45:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BF43C636CC
+	for <linux-riscv@archiver.kernel.org>; Sat, 11 Feb 2023 03:23:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=m8ULWAabZIJD5xwSnTljYYyIcbOa/iRZmROq9Z96NaQ=; b=3pNezyE9TXRzbu
-	9Q/N6HbGDFCBvV1CUhiVc91ygJgIK/78P51LirbFd9flrrOKGiXTE1Tcmn1fd7gnHfv0ZKlMLstJC
-	9l5AQjeTuNTnvAa73e30OHYgwXt5azMbNToYMRsyWu12BODrJCE3DVbjohTBbRMXscngVltrzjl8V
-	hU8rlDgfp3AnulT9pI7Q21z5fOFuKt5X/RUex5Ug/48cj8BZOqoNNmWOSegcno0p3h3YGgiN0DNq5
-	T02N4nJ6B4Se7F6wFNCORU3NeQ95enQlFnF58SYt8pRD2OySjnHZKC0UccjtNm4JlOhtYz4DL0DaL
-	UKoYl+1ncJMcf+trPRig==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=pc7tsOleicnnWcHgecsDkTEoFitu83FUTNE8i+MLwbI=; b=t/USAaHT21zB8l
+	3AbQBB7USwDa+m327XOkUZ6s9CFePvlAzUBs01rTJ6Idg3n44u65c4zs9+9DTro3jtfB0a2gwQstZ
+	6E4vhHDXn8qo3ECI4nQo4IjEvQOQj8yy3mnBCCws6JWplnujXQ7V1+DHKlqJyPDUs6gYKcL33XenM
+	eWW3DrPnza+pCoYFBP1SONAMEPLuGzMEp9C+zu1fId6OmvbmLB8Rs5HjuS57Hw2tYbL6OQMVRbWZH
+	i/JVC6S6WkdZDUsyN71ypBotuBdqHCtgiGhHPQ/W7TBuw9h76qBO3/V1z0BQCvl1su3Y1YZwqJFOa
+	VZnZ/5NumPLPO7INrtsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQc8x-007owf-GO; Fri, 10 Feb 2023 22:45:23 +0000
-Received: from mail-yw1-x1130.google.com ([2607:f8b0:4864:20::1130])
+	id 1pQgTS-008Tlv-JK; Sat, 11 Feb 2023 03:22:50 +0000
+Received: from madras.collabora.co.uk ([46.235.227.172])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQc8s-007ov9-P9
-	for linux-riscv@lists.infradead.org; Fri, 10 Feb 2023 22:45:22 +0000
-Received: by mail-yw1-x1130.google.com with SMTP id 00721157ae682-52ee632329dso13696737b3.6
-        for <linux-riscv@lists.infradead.org>; Fri, 10 Feb 2023 14:45:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=C8zbQ5UeRyMGBzBZKt+eKJGEp6xhDoMWS6ByqtAI+qQ=;
-        b=jQ66+heze0J6Ozux4oG4WwoV+2CsrGPIRzg+v+qWUt4V83/YkynKLfwyVpYb+1LWaP
-         dPW+6PSP90qh1UZoiGZy855Nf6gP2UwsCAio30PTEy4a8ujL7chBJ9yn0b++wrXuI0c+
-         O1zVLv78LwEp/tzHG+hVFbN+DyHr4mAcv0zuwNizBDOhrrkE7Ed9hCnPLTZ9QDOGgvpp
-         PNQ51xkGp2cOp041e2sIipfx6dTL41Jbck530hz0dmBsuaiwp/P6QznD6xUh2QbsTp1x
-         kxiHqPlVnGJ0PF4Wy3GubcS5OpPTubUhMTtkjwfjsnrRnHKlCzvUFnpCs3YDG0/xXD7/
-         zssA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=C8zbQ5UeRyMGBzBZKt+eKJGEp6xhDoMWS6ByqtAI+qQ=;
-        b=8Fy26P1cOKFEu0icLDePTn1n/H3dQ/65oogggA36T/0IHnAOpslw8OMRJdS8FkMjA0
-         NRQNVK/+RpNOGK5ahd/M+aSvAsWGdXDmtqz1F6+FZ0m0dmJqDZ3VVyfYoc/3n+OpueBA
-         NGcikjpSdYzgnYysRSQ5dtrcKQMTct0h8QvZyCatMDr9UIYijM7THDnfnD2ZidRW37mW
-         T43JUfFljali73VVfH5YlYF3WTO0E0bBWGYnpY+1I/UHkh7gVKgTUGgdunHIx6edS7X8
-         zT3HZXmJNv1z0KBo3aZTWETzsux9uGWqa1PxGpXUmFFzaF93jLsRqbVe7xxWDHjaSiaE
-         noWg==
-X-Gm-Message-State: AO0yUKXUs5Wlhl8w7dbnWfug5ffz8iYyRFeIlGoiKPAGjqtLmTvNo6SL
-	aLHtsNqk0fRXkATsDldQJAhgCQIkXJy2r1v8lfYQ3Gv5zDaNKg==
-X-Google-Smtp-Source: AK7set/6Xvi8CzuNgX79rZvneMkeXDi2US6l2P8G1w1iVzuJBaisym39eN4L1EuUt3tZClsyw0XAtI+QRSxWibIX0QQ=
-X-Received: by 2002:a0d:ff45:0:b0:52e:e6ed:308c with SMTP id
- p66-20020a0dff45000000b0052ee6ed308cmr61064ywf.524.1676069117008; Fri, 10 Feb
- 2023 14:45:17 -0800 (PST)
+	id 1pQgPN-008Rhi-Gs; Sat, 11 Feb 2023 03:18:39 +0000
+Received: from localhost (unknown [86.120.32.152])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by madras.collabora.co.uk (Postfix) with ESMTPSA id E20ED6602112;
+	Sat, 11 Feb 2023 03:18:32 +0000 (GMT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1676085513;
+	bh=LNDJxjgOHZY/eKro/BYac5WDP/pGehw2tg2CONtqn2Q=;
+	h=From:To:Cc:Subject:Date:From;
+	b=HQoyAHzUSYcBTbkOlPiVQHjFJZH8Q1anOFaBK7aWcCdwa+BPuqeNEz8nRgYuf5eLk
+	 UIXUYdhWbw2EaE2ndJCMAi7y6MYmhmtBhlq/Qhd9AUZP2SgDVG0wEg82H6PnoiIZ/g
+	 P4/fn/t4P+5HGfszaushNeBZj9U4zxx5Vdt2llPbvTZn9uW5sP9JBlqowgqksLP+jG
+	 M8vfRqUFzpvwlxEzfVMjp0Fdx4qRzavPAKFKvnlsI9kP8LebVASZD/H3Lv/Fh7Kv9C
+	 93aOUEQTb1tt0At6R3yXB3CWh7/+5ThDcz9bA/nMujXCyNnz8+Akd2CYdRUgjUGXLS
+	 Aue/+FZSRQboQ==
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+To: Lee Jones <lee@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Conor Dooley <conor@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Sagar Kadam <sagar.kadam@sifive.com>,
+	Yanhong Wang <yanhong.wang@starfivetech.com>
+Cc: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	kernel@collabora.com
+Subject: [PATCH 00/12] Enable networking support for StarFive JH7100 SoC
+Date: Sat, 11 Feb 2023 05:18:09 +0200
+Message-Id: <20230211031821.976408-1-cristian.ciocaltea@collabora.com>
+X-Mailer: git-send-email 2.39.1
 MIME-Version: 1.0
-References: <20230209143702.44408-1-hal.feng@starfivetech.com>
-In-Reply-To: <20230209143702.44408-1-hal.feng@starfivetech.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Fri, 10 Feb 2023 23:45:05 +0100
-Message-ID: <CACRpkdbao9M5dMHFO_QE8z4_E6DZLZsMUW1OnUNjKSfQc59=ew@mail.gmail.com>
-Subject: Re: [PATCH v5 0/4] Basic pinctrl support for StarFive JH7110 RISC-V SoC
-To: Hal Feng <hal.feng@starfivetech.com>
-Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, Andreas Schwab <schwab@suse.de>, 
-	Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, 
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
-	Jianlong Huang <jianlong.huang@starfivetech.com>, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230210_144518_847785_11F8DE1C 
-X-CRM114-Status: UNSURE (   7.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230210_191837_807929_A3E621CE 
+X-CRM114-Status: GOOD (  12.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,15 +92,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 9, 2023 at 3:37 PM Hal Feng <hal.feng@starfivetech.com> wrote:
+This patch series adds ethernet support for the StarFive JH7100 SoC and 
+makes it available for the StarFive VisionFive V1 and BeagleV Starlight 
+boards, although I could only validate on the former SBC.
 
-> This patch series adds basic pinctrl support for StarFive JH7110 SoC.
+The work is heavily based on the reference implementation [1] and requires 
+the non-coherent DMA support provided by Emil via the Sifive Composable 
+Cache controller.
 
-This v4 version applied, the driver is in good shape and all bindings ACKed,
-nice work on this driver!
+Also note there is an overlap in "[PATCH 08/12] net: stmmac: Add glue layer 
+for StarFive JH7100 SoC" with the Yanhong Wang's upstreaming attempt [2]:
+"[PATCH v4 5/7] net: stmmac: Add glue layer for StarFive JH7110 SoCs". 
 
-Yours,
-Linus Walleij
+Since I cannot test the JH7110 SoC, I dropped the support for it from Emil's
+variant of the stmmac glue layer. Hence, we might need a bit of coordination
+in order to get this properly merged.
+
+[1] https://github.com/starfive-tech/linux/commits/visionfive
+[2] https://lore.kernel.org/linux-riscv/20230118061701.30047-6-yanhong.wang@starfivetech.com/
+
+Cristian Ciocaltea (7):
+  dt-bindings: riscv: sifive-ccache: Add compatible for StarFive JH7100
+    SoC
+  dt-bindings: riscv: sifive-ccache: Add 'uncached-offset' property
+  dt-bindings: net: Add StarFive JH7100 SoC
+  riscv: dts: starfive: Add dma-noncoherent for JH7100 SoC
+  riscv: dts: starfive: jh7100: Add ccache DT node
+  riscv: dts: starfive: jh7100: Add sysmain and gmac DT nodes
+  riscv: dts: starfive: jh7100-common: Setup pinmux and enable gmac
+
+Emil Renner Berthing (5):
+  soc: sifive: ccache: Add StarFive JH7100 support
+  soc: sifive: ccache: Add non-coherent DMA handling
+  riscv: Implement non-coherent DMA support via SiFive cache flushing
+  dt-bindings: mfd: syscon: Add StarFive JH7100 sysmain compatible
+  net: stmmac: Add glue layer for StarFive JH7100 SoC
+
+ .../devicetree/bindings/mfd/syscon.yaml       |   1 +
+ .../devicetree/bindings/net/snps,dwmac.yaml   |  15 +-
+ .../bindings/net/starfive,jh7100-dwmac.yaml   | 106 ++++++++++++
+ .../bindings/riscv/sifive,ccache0.yaml        |  33 +++-
+ MAINTAINERS                                   |   6 +
+ arch/riscv/Kconfig                            |   6 +-
+ .../boot/dts/starfive/jh7100-common.dtsi      |  78 +++++++++
+ arch/riscv/boot/dts/starfive/jh7100.dtsi      |  55 +++++++
+ arch/riscv/mm/dma-noncoherent.c               |  37 ++++-
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |  12 ++
+ drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
+ .../ethernet/stmicro/stmmac/dwmac-starfive.c  | 155 ++++++++++++++++++
+ drivers/soc/sifive/Kconfig                    |   1 +
+ drivers/soc/sifive/sifive_ccache.c            |  71 +++++++-
+ include/soc/sifive/sifive_ccache.h            |  21 +++
+ 15 files changed, 587 insertions(+), 11 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/starfive,jh7100-dwmac.yaml
+ create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
+
+-- 
+2.39.1
+
 
 _______________________________________________
 linux-riscv mailing list
