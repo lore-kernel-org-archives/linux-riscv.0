@@ -4,86 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7DD1C636D3
-	for <linux-riscv@archiver.kernel.org>; Sun, 12 Feb 2023 16:26:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42BB0C05027
+	for <linux-riscv@archiver.kernel.org>; Sun, 12 Feb 2023 16:31:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QcXnZb/+fPUmVVKGGQ+aLrat6duZMnGAhBRzNRayzlc=; b=LfKwa/3ZCLhfis
-	H17xQfh14uoB0RMnpYkRaS2Yyt3C2kJM6pPmhqgStv6MfcsFIc0vZ+h9lQ42sQlQBj6saeW8v7ygf
-	rZoUcLlO4LC9DboLdSarRheVU0J+0LnSojEsyuoL0TeGqxtBs9twYaYoNOZBsnimbotx2y0gc/Bi5
-	fWL8if8fqbxVTLaImnqXcyWZ1zoOZ4ix7BRkb0dNeHDgWXogAtIR6NIF+RKkNEthmuKFAna799laa
-	LkeGBlmiF673k9ub64+iFPQ9Mhwn9Vi6EdztxCui6Gv+f/4dHW+pV9+JFs9C41JRG7vS4adiJOq/O
-	WHLjHDi6YBkYqHygZKWw==;
+	List-Owner; bh=KyGfC+ua7WfhiokizzIK22GVSuqOyH4o6JsB8I7yqDU=; b=zia81V3zn8bwkS
+	7kb2zjKFuZin/u+jskYx8W2eO1nV2xEgW4PlqhBpQgoiTsY3i1e+ZY03C5Q6cdj0B4d23oUKIwySY
+	52OVoQgQMGGCCXujumDL++RBFe6Hjt0R+8ZBq1DONKTq6WCgCWjBXc0BfFBhwKld4r39sGNTIEkH0
+	FJ2133RNoopACZ/LWk0qbftfekjHvrQovpSiKTp4ofb1pG0Dzj0YWJ6EqN/6EBcZ9C6l75UdJypNc
+	R6U/0gTXQh/KF2f2uQySdznVz5pqd/Q23iaUg9LREGp7MSK1e3GlrssVpe7OZiEMbUVfjvPvUusC9
+	VsSflVpWvdd0v2DsjrIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRFBf-00Br8a-Oz; Sun, 12 Feb 2023 16:26:47 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1pRFGW-00BsEl-FK; Sun, 12 Feb 2023 16:31:48 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRFBR-00Br3A-IY; Sun, 12 Feb 2023 16:26:34 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id A62E8B80D33;
-	Sun, 12 Feb 2023 16:26:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD8E1C433D2;
-	Sun, 12 Feb 2023 16:26:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1676219190;
-	bh=PHaVWIiDiKuPiyj9CpZVeYgSGEpSXGrmMvcZSQN2a1w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WHZ1dOpcNlciKJV60ceMatG/ln4gwqhaZjp3ZE5RHjwYiIsNbKgPfiLOmHrkEtBNT
-	 0LBqZ54vZ15wL/dO9fbXmNbGA5IZXywhsLgmuVeT8Mxh6nsVQ2XXz5mIslqXmGe9/g
-	 AzIa8vrmuhuYMA0WsrKUzqY1iJ2X6VnzRjkJW1xeJOjb+i+e+3nJ6w3tM54rnCLk9r
-	 bZn+yK6CEohAWfFi7LJuH0EYEVZLCz4dM4UGrtoZL997U+pcfquEEXsVB3fsWZbkQi
-	 9pDJGG+mrF8objq54yFjgqFeB5zDvEOjRdynh9jYkrT7/GybhbLGr2AHJa/rTTFxa0
-	 QsuwvU4Larsqw==
-Date: Sun, 12 Feb 2023 18:26:06 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Guenter Roeck <linux@roeck-us.net>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Arnd Bergmann <arnd@arndb.de>, Brian Cain <bcain@quicinc.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Greg Ungerer <gerg@linux-m68k.org>, Guo Ren <guoren@kernel.org>,
-	Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>,
-	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Michal Simek <monstr@monstr.eu>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Rich Felker <dalias@libc.org>,
-	Richard Weinberger <richard@nod.at>,
-	Russell King <linux@armlinux.org.uk>,
-	Stafford Horne <shorne@gmail.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Vineet Gupta <vgupta@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
-	Yoshinori Sato <ysato@users.sourceforge.jp>,
-	linux-alpha@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, linux-mm@kvack.org,
-	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org,
-	linux-um@lists.infradead.org, linux-xtensa@linux-xtensa.org,
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
-	openrisc@lists.librecores.org, sparclinux@vger.kernel.org,
-	x86@kernel.org, Huacai Chen <chenhuacai@loongson.cn>
-Subject: Re: [PATCH v2 4/4] mm, arch: add generic implementation of
- pfn_valid() for FLATMEM
-Message-ID: <Y+kTHsaq8FAG72CX@kernel.org>
-References: <20230129124235.209895-1-rppt@kernel.org>
- <20230129124235.209895-5-rppt@kernel.org>
- <20230212161320.GA3784076@roeck-us.net>
+	id 1pRFGS-00BsD4-L8
+	for linux-riscv@lists.infradead.org; Sun, 12 Feb 2023 16:31:45 +0000
+Received: by mail-ej1-x633.google.com with SMTP id qb15so24478034ejc.1
+        for <linux-riscv@lists.infradead.org>; Sun, 12 Feb 2023 08:31:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=DRnNrh0Tp9ZXxpjFA/ywNJuMyWK+ZOFUY36BgSa0sFI=;
+        b=Nx1SlVzz+aBsCyvWUEdtlBtjS407l6At6bZQtLStUK75pis/Au5mahXmyfQoOBX7Pm
+         xpLasDmyVLp1nfOQxx/av+ZdZG3MGxYkgMeS7CvVi+9tdUC+jFGxYa4ieDyarb8cZONh
+         pZorZWDSzz5dUEOlwIINwhEGIRZl9gd6oehd+vJXW7iw1odkYxFWhLyH+z5CVktYftt6
+         rg9xodQJ2xOkg5pXDT+vJHc5hn5G/NQueb+/bVlGz1dzCEbK48iuWVWa7lwZYFE/iRKO
+         udI5iSvmHqqQ7XgCPmmfTxAvuZEP1EkmNN07WjZQw4puAa0MxbnyLzsmwJ6ZPVEe1UDc
+         A3bQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DRnNrh0Tp9ZXxpjFA/ywNJuMyWK+ZOFUY36BgSa0sFI=;
+        b=gsDoj1WsIua971be7JQk7T+KX+ix8G+gNibU494YKIdQGOZZZJNe5yjU/2odg5nSPH
+         4gHNiU+93Dom+ayHyc+J8PZC2dxgihFmnDnRcvQhULEqSMt7835jaN46MRlvzPtW316D
+         bTZ27xvtvlASK3+6w4yzQNkQp4oNtnqOJqcnqHS4loAuGmWZfCOmZdplRBT5lLCYiKkf
+         ldpYQG9cf1nlMIvlTCzBeGYXCMwNFbh14dAaP4DLfeHfjZ63Cv6EBbjJ/srA0zQYAhDy
+         zUjNwAhNUM+XcoTSv8FPCiasKAsXbQQrVdpC6xXEdGZODkLvGNoHREnhuGTJCttK9zUQ
+         lNAg==
+X-Gm-Message-State: AO0yUKVb5tniuqsT038Gbl1RFdp6wewQwHnhiOxSh8Jy/yrCFTUz0RMg
+	j7vMEwRZD+/SHaHREUwFbUSfTmlOS6E6bkd2ldU=
+X-Google-Smtp-Source: AK7set9e8llSTJr2CLKFAlDSEgcVcdigtMmlauBE+/GL5OCHoDDlyoMZHUqxUPVIrmbpdpzGrMWbZA==
+X-Received: by 2002:a17:907:6e0f:b0:8ae:6b88:e52d with SMTP id sd15-20020a1709076e0f00b008ae6b88e52dmr20536984ejc.7.1676219499814;
+        Sun, 12 Feb 2023 08:31:39 -0800 (PST)
+Received: from localhost ([145.224.109.44])
+        by smtp.gmail.com with ESMTPSA id d4-20020a170906040400b008448d273670sm5465070eja.49.2023.02.12.08.31.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 12 Feb 2023 08:31:39 -0800 (PST)
+Date: Sun, 12 Feb 2023 17:31:37 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Samuel Holland <samuel@sholland.org>
+Cc: Heiko Stuebner <heiko@sntech.de>, Jisheng Zhang <jszhang@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org,
+	Christoph Muellner <christoph.muellner@vrull.eu>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Guo Ren <guoren@kernel.org>,
+	Heiko Stuebner <heiko.stuebner@vrull.eu>,
+	Nathan Chancellor <nathan@kernel.org>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] riscv: Fix Zbb alternative IDs
+Message-ID: <20230212163137.y7ylsgyqlrlripgr@orel>
+References: <20230212021534.59121-1-samuel@sholland.org>
+ <20230212021534.59121-3-samuel@sholland.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230212161320.GA3784076@roeck-us.net>
+In-Reply-To: <20230212021534.59121-3-samuel@sholland.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230212_082633_789082_4A3CE7BE 
-X-CRM114-Status: GOOD (  13.85  )
+X-CRM114-CacheID: sfid-20230212_083144_709647_09D1562E 
+X-CRM114-Status: GOOD (  10.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,29 +96,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Guenter,
-
-On Sun, Feb 12, 2023 at 08:13:20AM -0800, Guenter Roeck wrote:
-> On Sun, Jan 29, 2023 at 02:42:35PM +0200, Mike Rapoport wrote:
-> > From: "Mike Rapoport (IBM)" <rppt@kernel.org>
-> > 
-> > Every architecture that supports FLATMEM memory model defines its own
-> > version of pfn_valid() that essentially compares a pfn to max_mapnr.
-> > 
-> > Use mips/powerpc version implemented as static inline as a generic
-> > implementation of pfn_valid() and drop its per-architecture definitions.
-> > 
+On Sat, Feb 11, 2023 at 08:15:33PM -0600, Samuel Holland wrote:
+> Commit 4bf8860760d9 ("riscv: cpufeature: extend
+> riscv_cpufeature_patch_func to all ISA extensions") switched ISA
+> extension alternatives to use the RISCV_ISA_EXT_* macros instead of
+> CPUFEATURE_*. This was mismerged when applied on top of the Zbb series,
+> so the Zbb alternatives referenced the wrong errata ID values.
 > 
-> With this patch in the tree, sh4 and sh4eb qemu emulations no longer boot.
-> Reverting this patch fixes the problem.
- 
-Can you please test with only partial revert for arch/sh?
+> Fixes: 9daca9a5b9ac ("Merge patch series "riscv: improve boot time isa extensions handling"")
+> Signed-off-by: Samuel Holland <samuel@sholland.org>
+> ---
+> 
+>  arch/riscv/include/asm/errata_list.h | 5 -----
+>  arch/riscv/lib/strcmp.S              | 2 +-
+>  arch/riscv/lib/strlen.S              | 2 +-
+>  arch/riscv/lib/strncmp.S             | 2 +-
+>  4 files changed, 3 insertions(+), 8 deletions(-)
+>
 
-> Guenter
-
--- 
-Sincerely yours,
-Mike.
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
 _______________________________________________
 linux-riscv mailing list
