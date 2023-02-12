@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F141DC636D4
-	for <linux-riscv@archiver.kernel.org>; Sun, 12 Feb 2023 20:55:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ED39C05027
+	for <linux-riscv@archiver.kernel.org>; Sun, 12 Feb 2023 20:55:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=d4g8orp6EfIcjgrc3vd6//q6YKZwc6Ui6+I08Gb/VLo=; b=tfcp8n9GHHU+bf
-	o+KawLAsL7uyLez1WW3S0DuRThCkPTqw+9S1W9bf/6pLmROYMl1jJo9v/ovtgrvHK1WRyujxwvJMv
-	3oxD4TCH7ZzaceH7C9HD6GjVBu7MAw7HharwKCggvCtAseJ6l5OKQjy/2WhrzJ4tr7YHGTP9yvWa5
-	hCKPUGnWuN16QOH91TH9jgxoAnK27ZYNMCnEXEQy79KupEttc4E1GCuZ6f6lJcrY/mD7NsoghZJQt
-	wiv05aP0a52sULGXGX+JEu/4BtKs1B1QO3I4JzqH1s7QbmDG+egtrVqK2A6jBi48mXmMEMwq74bte
-	vS/f8wLrx6seRapHdcyg==;
+	List-Owner; bh=APPBFV6CRoqXHqktsWWB/afC0BGjmBb94Rg5RVnRkOs=; b=ZRSce0SpLrVeVg
+	AG9BKNMUgfejYYviySP2GKOtNEfZyHui+bz0nWUS2Ny5hqP0gboDqXgdhPhoJbNwzoqYKUMj6Gky8
+	hs73a13bme2koSX6MYsIcMc+JSGzV1jjb1TJYzPd5n4WEKCbOrvBY4vCPi+jPSYN4t2kbq2DvFVyE
+	8G9xjZQZIfHY9PNj6M0ClZMvOPHgwQppsiKJLJwctQm5E1x9xaIz+IpEgnAUiIknSQdWQKMa3dORL
+	fD78zjrJxk6H0X1r/kxHMcxcGjgVrTsvbe9vOOVYVhOueqpCa8m3XVnOmKB5ouXGkxya2sV8IKqsd
+	hjFGM9OqNqP1///F0frw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRJNZ-00CJWN-8t; Sun, 12 Feb 2023 20:55:21 +0000
-Received: from mail-qt1-x829.google.com ([2607:f8b0:4864:20::829])
+	id 1pRJNS-00CJUM-Ao; Sun, 12 Feb 2023 20:55:14 +0000
+Received: from mail-qv1-xf30.google.com ([2607:f8b0:4864:20::f30])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRJNP-00CJSr-9L
-	for linux-riscv@lists.infradead.org; Sun, 12 Feb 2023 20:55:13 +0000
-Received: by mail-qt1-x829.google.com with SMTP id c2so11944473qtw.5
-        for <linux-riscv@lists.infradead.org>; Sun, 12 Feb 2023 12:55:10 -0800 (PST)
+	id 1pRJNO-00CJSj-U5
+	for linux-riscv@lists.infradead.org; Sun, 12 Feb 2023 20:55:12 +0000
+Received: by mail-qv1-xf30.google.com with SMTP id j5so5065555qvi.3
+        for <linux-riscv@lists.infradead.org>; Sun, 12 Feb 2023 12:55:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=2Au6CyYPAK9MMu54GU8ZYr6dkPuGof5usEwyOLzycXk=;
-        b=R5iDCdhKZDRcDyk6JEWeTsc3H3qiETZQnTUJtmJ7rVJMEcsUsSBA5yhUDN63euSzlh
-         HHlW6D1ZkGAtKB3FEcWCEi7AeUU6SqXYGwnNkAOyEdoCu4NuZqU/NleRYmQ9CmXSTlv5
-         Zc017d0fbYZ8dQhPYHvX/d1QKIOmQwQXeOZyDrhwdqhIXy6BMfSoUeFEQWTCMtCa3fa0
-         9IC0+uNjJ+ZGv/dj/WgYIGF4thtFPnjmZRmg8B9kUhM5VinzObUMmmVq5IJ9yhE9JYLS
-         bsu4EPDygZjMu2XYYpjt7zIJzhweyCR/XB3PCYvwFT/+6E7BZMRNHJNG+3cr5OzTpt+C
-         mepg==
+        bh=vQdHW+PhZq9WcInZ2+SoRq4atvNxsCBkR2bKm9EuIOs=;
+        b=GkttBvPlAObOivWdQ0mXQJnKbbGtSDX0YG4FGKozO5eqFdmh2+9C3DSiMsnK6F5Xma
+         /sa+Usls+PdZKAGCKeHzxJUlUh641FtZ7jrtlshH3zNja8o4XZ35goIqz9nJ9JrfczET
+         Sp2MzSAOi5Mx6KSt//w+0/74AbweY6E+c9Taqz50P52EQihVyktFL1MXjMFP/rNIrc4R
+         nzqVh+NAo/xMF0zWYjH++GsLAVPBM1ER3CUCgcmRV3DjeIq2erLqdlbhfF9jpK/jbmlX
+         0g2tp0S0Eexk0yqkBqaKx1s3/qEqGch0MMvQycUlGZcl4r5wnJMFTnSaag2Gx+39JGek
+         t7Ag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=2Au6CyYPAK9MMu54GU8ZYr6dkPuGof5usEwyOLzycXk=;
-        b=lYch+EIqqMCHj98ojrdQ1HFUlJ8Nc4vZI8fI4iwk/kJvSAEkfpzzBkXiZfm/mNJdE1
-         zMMxvAygc1+eAd0fJCPk5UQQ7GFsJfZaroelZsygz38nmkJHAIqc/uxJpal3LnFRPJ8p
-         AElYdvZUlUUmcOlXWqGbas13K+VNvlsgdLK0WEdT0pvpVvVdvSmnHnumB1WMEJ4XbxAo
-         6bA8BzfcJd6Ye11LmJilOFDM3cvxOyFSJbKWZ6t1MYvu5Ob6HiO1eQL4ryk3zwC92Bru
-         5eyRQSqz+aB7V5qwg0+/gl+zrtu/rn4eeVBwXDRhOnYl8IKxMwObShjq9pYHe8nZt3+5
-         S1+g==
-X-Gm-Message-State: AO0yUKVjrSjz2rmt5ugaHw+L2RF0JF4qUZBmWEz0FHxWKCe9tgwE4syU
-	csDUrznHEV9RaJstFZA4Co2Qf+r1cupC+Q==
-X-Google-Smtp-Source: AK7set+mdFGsW7vWxO83UMH+FHZxLgRCvHWUm7dPLycj8dlzQiwvTE/P6DPhram2BQe/Le8dmLYBvQ==
-X-Received: by 2002:ac8:5e92:0:b0:3b9:bc8c:c20a with SMTP id r18-20020ac85e92000000b003b9bc8cc20amr17289416qtx.21.1676235309701;
-        Sun, 12 Feb 2023 12:55:09 -0800 (PST)
+        bh=vQdHW+PhZq9WcInZ2+SoRq4atvNxsCBkR2bKm9EuIOs=;
+        b=tLK7ue6dS48Q30meH1hyw0wQTBNPFhjgx7E37QQkQOJ4sffxzbWEbIHrVIJtuegFkU
+         SWKTYydIf3IdnsiSwWubYH3c7wdBYUswcRybJgamIpkGFY4qfHQwb0DoKWv+xS/6Gmgj
+         K033K24y8nESCGubKK+hHcDktMVuqxyEBFq4Yxci5Ur638ekshx3vTkL/sDdCEQ2vyY3
+         jfS0wE613djfM6vv1/s5e+ARgRVd9ZB36BoClZJZTOVQ5TLKISdx0fZo7pfLc/jD0m3w
+         9VXQx+HVK3qWiCuyDklYAY00ph33hpsflenFYAele3lmbJZKtwHR1DhQakeVe4rSbLTE
+         wr7Q==
+X-Gm-Message-State: AO0yUKXgi7L8/aDQBUdflad7obg4rk0cYIRvpP7at3w8gh80Je6Y3HU9
+	EB9BNJKQQZi7zMwTJN8809FpUOxWkqdWvg==
+X-Google-Smtp-Source: AK7set/7PO+QFexTHSQTgL0s0TsPzpuVBx6+y8AuSbEd+yCd227mmBNu++ZlMRl7YxkXXkgXnheaiQ==
+X-Received: by 2002:a05:6214:e61:b0:56b:ec1f:db0d with SMTP id jz1-20020a0562140e6100b0056bec1fdb0dmr33894218qvb.34.1676235308881;
+        Sun, 12 Feb 2023 12:55:08 -0800 (PST)
 Received: from jesse-desktop.jtp-bos.lab (pool-108-26-182-112.bstnma.fios.verizon.net. [108.26.182.112])
         by smtp.gmail.com with ESMTPSA id o62-20020a374141000000b0072ad54e36b2sm8289233qka.93.2023.02.12.12.55.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 12 Feb 2023 12:55:09 -0800 (PST)
+        Sun, 12 Feb 2023 12:55:08 -0800 (PST)
 From: Jesse Taube <mr.bossman075@gmail.com>
 X-Google-Original-From: Jesse Taube <Mr.Bossman075@gmail.com>
 To: linux-riscv@lists.infradead.org
@@ -69,17 +69,19 @@ Cc: linux-kernel@vger.kernel.org,
 	Waldemar Brodkorb <wbx@openadk.org>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>
-Subject: [PATCH v2 2/3] riscv: Kconfig: Allow RV32 to build with no MMU
-Date: Sun, 12 Feb 2023 15:55:05 -0500
-Message-Id: <20230212205506.1992714-3-Mr.Bossman075@gmail.com>
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	kernel test robot <lkp@intel.com>
+Subject: [PATCH v2 1/3] clk: k210: remove an implicit 64-bit division
+Date: Sun, 12 Feb 2023 15:55:04 -0500
+Message-Id: <20230212205506.1992714-2-Mr.Bossman075@gmail.com>
 X-Mailer: git-send-email 2.39.0
 In-Reply-To: <20230212205506.1992714-1-Mr.Bossman075@gmail.com>
 References: <20230212205506.1992714-1-Mr.Bossman075@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230212_125511_386067_FDB5A318 
-X-CRM114-Status: GOOD (  10.06  )
+X-CRM114-CacheID: sfid-20230212_125510_988067_C2ECB27A 
+X-CRM114-Status: GOOD (  12.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,43 +98,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Yimin Gu <ustcymgu@gmail.com>
+From: Conor Dooley <conor.dooley@microchip.com>
 
-Some RISC-V 32bit cores do not have an MMU, and the kernel should be
-able to build for them. This patch enables the RV32 to be built with
-no MMU support.
+The K210 clock driver depends on SOC_CANAAN, which is only selectable
+when !MMU on RISC-V. !MMU is not possible on 32-bit yet, but patches
+have been sent for its enabling. The kernel test robot reported this
+implicit 64-bit division there.
 
-Signed-off-by: Yimin Gu <ustcymgu@gmail.com>
-CC: Jesse Taube <Mr.Bossman075@gmail.com>
-Tested-by: Waldemar Brodkorb <wbx@openadk.org>
+Replace the implicit division with an explicit one.
+
+Reported-by: kernel test robot <lkp@intel.com>
+Link: https://lore.kernel.org/linux-riscv/202301201538.zNlqgE4L-lkp@intel.com/
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 Signed-off-by: Jesse Taube <Mr.Bossman075@gmail.com>
 ---
- arch/riscv/Kconfig | 5 ++---
- 1 file changed, 2 insertions(+), 3 deletions(-)
+ drivers/clk/clk-k210.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 59d18881f35b..49759dbe6a8f 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -163,8 +163,8 @@ config MMU
+diff --git a/drivers/clk/clk-k210.c b/drivers/clk/clk-k210.c
+index 67a7cb3503c3..4eed667eddaf 100644
+--- a/drivers/clk/clk-k210.c
++++ b/drivers/clk/clk-k210.c
+@@ -495,7 +495,7 @@ static unsigned long k210_pll_get_rate(struct clk_hw *hw,
+ 	f = FIELD_GET(K210_PLL_CLKF, reg) + 1;
+ 	od = FIELD_GET(K210_PLL_CLKOD, reg) + 1;
  
- config PAGE_OFFSET
- 	hex
--	default 0xC0000000 if 32BIT
--	default 0x80000000 if 64BIT && !MMU
-+	default 0xC0000000 if 32BIT && MMU
-+	default 0x80000000 if !MMU
- 	default 0xff60000000000000 if 64BIT
+-	return (u64)parent_rate * f / (r * od);
++	return div_u64((u64)parent_rate * f, r * od);
+ }
  
- config KASAN_SHADOW_OFFSET
-@@ -262,7 +262,6 @@ config ARCH_RV32I
- 	select GENERIC_LIB_ASHRDI3
- 	select GENERIC_LIB_LSHRDI3
- 	select GENERIC_LIB_UCMPDI2
--	select MMU
- 
- config ARCH_RV64I
- 	bool "RV64I"
+ static const struct clk_ops k210_pll_ops = {
 -- 
 2.39.0
 
