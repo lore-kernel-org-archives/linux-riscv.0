@@ -4,103 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DD68C636D4
-	for <linux-riscv@archiver.kernel.org>; Sun, 12 Feb 2023 16:13:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEA19C636D3
+	for <linux-riscv@archiver.kernel.org>; Sun, 12 Feb 2023 16:26:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=N/neViWkqqDFBKemIOd4PyL+Fb4an2IJKG4xAc14alQ=; b=LvRbDjGVqXmaEG
-	XVfMnpqzoy+/AD6Ex5+DfpHhY/DcVkVt7nAR60trb9D2ztbuziUbJjq1t60+9jW2Go/l46tcV3CM/
-	NgzFafZqjDeoPTXnfEhHvXZWwXBAgacvQqiZPKUFbD3WaLXl0bR/ZcyCFzsemcUbuTwi8DTJo72O1
-	Gx6uM5GfbkRk456o8o7FJoj7NByM4WhFTfEDOR3fHPaz0x1Qs9gtlQF6LHdHuWKL6Cwy4wIHUNKJQ
-	hRosMyeg+KeNi1IxRx2K4qMSdRuu482ouML4c4cluaqrQ3aeqESpphbtoFafh1TK4axW2Qoq9YoSp
-	f+FUFu0aFX71IrcgoLig==;
+	List-Owner; bh=I4l3BH3Kd92pVLZVdkgHBzMzLsOI4i2adCgJWNypYm4=; b=VbKZE7tu3oYoQN
+	BQ1zG5Ioe830OKYvhF96gQtBhRwpjfmIOSDAPxdM/wfz8+RugXYy0LSgjWKNnty3Zmf7y5Lri2DGL
+	LCZ9+nOH0HnHycBUC1p4X/n9PJ3eu6rl0zVE1i/5KsWQnNAPBbeJYfYKSA3fGCJ0bKEP9Ct3L5YDL
+	bvmZyn8ty0igqyQIYuxHmnFbeOgqHytOwk50HGks0zWx0zd2cTtkylSPLvQnDFVoXDTEm31QWU61e
+	M10cVUAxeEJ/5qcUqPUcSLhFFQCquKj4Kyq7ZxHyjH6Mlys10p3Oy70Zkxxw21NcFjAQKW/EdFlCc
+	PKjBRI1MKXsC2/I5JbCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pREyv-00Bp1V-QO; Sun, 12 Feb 2023 16:13:37 +0000
-Received: from mail-oa1-x36.google.com ([2001:4860:4864:20::36])
+	id 1pRFBU-00Br4r-1B; Sun, 12 Feb 2023 16:26:37 +0000
+Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pREyh-00Boyf-5Z; Sun, 12 Feb 2023 16:13:26 +0000
-Received: by mail-oa1-x36.google.com with SMTP id 586e51a60fabf-15fe106c7c7so12652347fac.8;
-        Sun, 12 Feb 2023 08:13:22 -0800 (PST)
+	id 1pRFBQ-00Br2x-PZ
+	for linux-riscv@lists.infradead.org; Sun, 12 Feb 2023 16:26:34 +0000
+Received: by mail-ed1-x52f.google.com with SMTP id a10so9954797edu.9
+        for <linux-riscv@lists.infradead.org>; Sun, 12 Feb 2023 08:26:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
+        d=ventanamicro.com; s=google;
         h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=m9JNrWha4YKLX9rD9uaO4Le+Z0yMwIJejyvjLhFB0mM=;
-        b=RPfdfqoXr1Cw8prltm7TREoupX5eaNpNd+CDIlDXf9L709PnPoKQLyqZ+zboWylzWR
-         vxu85Zr3W8llfd+943ctWIFMuj/eUOowqYJKaVeMEAuOZh7DSd87i28bvDxNAQ6PoOwC
-         wXW2mjy0Nv7rWdLT7K6lR96N0WQft3GWf2KAFrqyzdPjhTZH7LFIYRkc0u2koR60TrCD
-         1hpxf+WoKXg0JbOE+h0e0CkhGndeecaH5fbwJ/zhVif01anzu3CRcpBwMXBGR6L77UGt
-         T0ZqZhaH9160JyrIQvfc6bBDGV0wnlmjvzDTuOmCpyHfThC29vCqk4lTBNsczBdn8qUd
-         qBXA==
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=3PCYy6Wbh7GsA27zvT/r5W62MOOvZT1L4mCL8SLtH5Y=;
+        b=FjcwRHU/TfAzQU0y6k9Qnc5WV+05vgp/eF+XzNlZO0UrGQT+a0ShpXhneDxozggAHT
+         xjo9triMvt6QUQN0hJY+ukUpVLzgshbOx1DCj4zg6RCY0C4R1fpUCRwqM0L3UpCmaDtV
+         ApMEdoS+Oz9NtZW9Qs+fwwF99N55C8Qic5dGCVXhHTBiMDcS9oTIgLn0lxLNeobZTGYQ
+         MFRk0M312Who+wBXtzW3bwsDE9BkpiBE38gqmp9/40k/FgUaFe0v3PXrzmhxFwx8LjZD
+         T62lhV2nEKzL/MwA1alcbNfLryI8z+t77UPJnaf2IlV5DpZnHMzzTHxnDNdTCZumjUUW
+         d/Gg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:sender:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=m9JNrWha4YKLX9rD9uaO4Le+Z0yMwIJejyvjLhFB0mM=;
-        b=KLFL0p+xsfwnzNYCN1tc8w6pQxCET+4eiFm4WZFLd3BbEIGLoHqZ+rk7PHlLEN8MZN
-         I0SQawt5/bfs7XcJPHW0NoYr3RxGjgRobbMSx0vZ2hM8aTpG+XexSihWoqdJFCcDUmnf
-         +qJnsKCfZ85hLJPuthXEGEznsKk/xUyGkQcnETHMYE1V2eTL6CQ/VkjCKUcEUVL89TTe
-         T3R0GCtRD365sNP97UNUG6EHxq+QbdHPpnbtQ6tc8QOo0WY3dMCUHisAm+a8o/H6IrB9
-         8KQRwRTNWDIXK2rftP2SiwdrLzuLHFKaNw/1Bb7j/1d/fMuCOqKIdqXDSDwspGw5+aAZ
-         T/NA==
-X-Gm-Message-State: AO0yUKXWNFe+yrS+Mb8LbF5dmjs+8mI8Zf8jLUz4CMzycP/9N8TTWRFt
-	sfY7At9mvjNPsft1MmQRvio=
-X-Google-Smtp-Source: AK7set9kfP8sfCh4EsN95J/ZdmLAzZQPNePNkWSy8sPECM/cP6PHARZOJXcrMxdY1LlBw1JK0pRDxg==
-X-Received: by 2002:a05:6870:b48d:b0:16d:ec6a:71ec with SMTP id y13-20020a056870b48d00b0016dec6a71ecmr2441541oap.27.1676218402068;
-        Sun, 12 Feb 2023 08:13:22 -0800 (PST)
-Received: from server.roeck-us.net ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
-        by smtp.gmail.com with ESMTPSA id n2-20020a056870844200b0010c727a3c79sm3225235oak.26.2023.02.12.08.13.20
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=3PCYy6Wbh7GsA27zvT/r5W62MOOvZT1L4mCL8SLtH5Y=;
+        b=NvrySAkvHts3wNsSS5d4gR7nHG7gRswOsB5RFfrdGXkvsJkL6pRSFSX+1xWa9nPOFe
+         p2zZ39X2bfhFPd4jiqoz6jRli6WA3nW+KpbIaZ9CF0zVgN+L8UgY8i5GU7y3b7T7OGXK
+         91z5fljests+GcJyJYI6mdVAN6ajdD2bmdnNdhaU/aArkHvOSOJxcpq2Skqfnq0B8nXZ
+         yV5SXJSeoZNNs/+9rpTKS/l+QWZCe1XVznVKk6OJ5/tlb9T3WNB4eeccuSFQs9KfC62x
+         CK1ETYGr6FEjbXu/RHqTA/xKC+Gg0pGqSZBwJghKJXFK3XXnPFLy5E6jFD23sL5NDymF
+         0Byg==
+X-Gm-Message-State: AO0yUKUEISS6ty2/8gDQlVfUnM5Nw0ejzA5Rj7cvPSgF3TkFDBysx6GL
+	QVEkyIaKb7lF2bGotG5mc7UHbQ==
+X-Google-Smtp-Source: AK7set9ZPfY01Ct3ZIJaSAiXOKv2Api9L0ewq9QnDS38whEHPPbgFxAwFAtPcgJDTdZ1UKAn2rDazg==
+X-Received: by 2002:a50:8d1d:0:b0:4ac:c4ed:f1d5 with SMTP id s29-20020a508d1d000000b004acc4edf1d5mr1694361eds.1.1676219189631;
+        Sun, 12 Feb 2023 08:26:29 -0800 (PST)
+Received: from localhost ([145.224.109.44])
+        by smtp.gmail.com with ESMTPSA id z16-20020a5096d0000000b004aad0a9144fsm5395432eda.51.2023.02.12.08.26.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 12 Feb 2023 08:13:21 -0800 (PST)
-Date: Sun, 12 Feb 2023 08:13:20 -0800
-From: Guenter Roeck <linux@roeck-us.net>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Arnd Bergmann <arnd@arndb.de>, Brian Cain <bcain@quicinc.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Greg Ungerer <gerg@linux-m68k.org>, Guo Ren <guoren@kernel.org>,
-	Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>,
-	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Michal Simek <monstr@monstr.eu>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Rich Felker <dalias@libc.org>,
-	Richard Weinberger <richard@nod.at>,
-	Russell King <linux@armlinux.org.uk>,
-	Stafford Horne <shorne@gmail.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Vineet Gupta <vgupta@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
-	Yoshinori Sato <ysato@users.sourceforge.jp>,
-	linux-alpha@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, linux-mm@kvack.org,
-	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org,
-	linux-um@lists.infradead.org, linux-xtensa@linux-xtensa.org,
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
-	openrisc@lists.librecores.org, sparclinux@vger.kernel.org,
-	x86@kernel.org, Huacai Chen <chenhuacai@loongson.cn>
-Subject: Re: [PATCH v2 4/4] mm, arch: add generic implementation of
- pfn_valid() for FLATMEM
-Message-ID: <20230212161320.GA3784076@roeck-us.net>
-References: <20230129124235.209895-1-rppt@kernel.org>
- <20230129124235.209895-5-rppt@kernel.org>
+        Sun, 12 Feb 2023 08:26:29 -0800 (PST)
+Date: Sun, 12 Feb 2023 17:26:27 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org, 'Anup Patel ' <apatel@ventanamicro.com>,
+	'Palmer Dabbelt ' <palmer@dabbelt.com>,
+	'Paul Walmsley ' <paul.walmsley@sifive.com>,
+	'Krzysztof Kozlowski ' <krzysztof.kozlowski+dt@linaro.org>,
+	'Atish Patra ' <atishp@rivosinc.com>,
+	'Heiko Stuebner ' <heiko@sntech.de>,
+	'Jisheng Zhang ' <jszhang@kernel.org>,
+	'Rob Herring ' <robh@kernel.org>,
+	'Albert Ou ' <aou@eecs.berkeley.edu>,
+	'Conor Dooley ' <conor.dooley@microchip.com>
+Subject: Re: [PATCH v4 5/8] RISC-V: cpufeature: Put vendor_id to work
+Message-ID: <20230212162627.4k76d7y3b3rgezkw@orel>
+References: <20230209152628.129914-1-ajones@ventanamicro.com>
+ <20230209152628.129914-6-ajones@ventanamicro.com>
+ <Y+VD2/owMIvqzOx8@spud>
+ <20230210075818.chh5myc2tmcvjplc@orel>
+ <Y+apG/nVSLJY8nsN@spud>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230129124235.209895-5-rppt@kernel.org>
+In-Reply-To: <Y+apG/nVSLJY8nsN@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230212_081324_516340_0D2C26EA 
-X-CRM114-Status: GOOD (  11.03  )
+X-CRM114-CacheID: sfid-20230212_082632_839779_61DEFB16 
+X-CRM114-Status: GOOD (  32.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,52 +102,81 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jan 29, 2023 at 02:42:35PM +0200, Mike Rapoport wrote:
-> From: "Mike Rapoport (IBM)" <rppt@kernel.org>
+On Fri, Feb 10, 2023 at 08:29:15PM +0000, Conor Dooley wrote:
+> On Fri, Feb 10, 2023 at 08:58:18AM +0100, Andrew Jones wrote:
+> > On Thu, Feb 09, 2023 at 07:04:59PM +0000, Conor Dooley wrote:
+> > > On Thu, Feb 09, 2023 at 04:26:25PM +0100, Andrew Jones wrote:
 > 
-> Every architecture that supports FLATMEM memory model defines its own
-> version of pfn_valid() that essentially compares a pfn to max_mapnr.
+> > > > +static bool riscv_cpufeature_application_check(u32 feature, u16 data)
+> > > > +{
+> > > > +	return data == 0;
+> > > > +}
+> > > > +
+> > > >  void __init_or_module riscv_cpufeature_patch_func(struct alt_entry *begin,
+> > > >  						  struct alt_entry *end,
+> > > >  						  unsigned int stage)
+> > > > @@ -289,8 +294,6 @@ void __init_or_module riscv_cpufeature_patch_func(struct alt_entry *begin,
+> > > >  		return;
+> > > >  
+> > > >  	for (alt = begin; alt < end; alt++) {
+> > > > -		if (alt->vendor_id != 0)
+> > > > -			continue;
+> > > 
+> > > Can you remind me what makes this "safe"?
+> > > My understanding was that a vendor_id of zero was safe, as zero is
+> > > reserved in JEDEC.
+> > > What is stopping someone stuffing this with a given value and
+> > > colliding with a real vendor's errata?
+> > > 
+> > > 	for (alt = begin; alt < end; alt++) {
+> > > 		if (alt->vendor_id != A_VENDOR_ID)
+> > > 			continue;
+> > > 		if (alt->errata_id >= ERRATA_A_NUMBER)
+> > > 			continue;
+> > > 
+> > > 		tmp = (1U << alt->errata_id);
+> > > 		if (cpu_req_errata & tmp) {
+> > > 			oldptr = ALT_OLD_PTR(alt);
+> > > 			altptr = ALT_ALT_PTR(alt);
+> > > 
+> > > 			/* On vm-alternatives, the mmu isn't running yet */
+> > > 			if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
+> > > 				memcpy((void *)__pa_symbol(oldptr),
+> > > 				       (void *)__pa_symbol(altptr),
+> > > 				       alt->alt_len);
+> > > 			else
+> > > 				patch_text_nosync(oldptr, altptr, alt->alt_len);
+> > > 		}
+> > > 	}
+> > > 
+> > > I've probably just missing something, my brain swapped out alternatives
+> > > the other week. Hopefully whatever I missed isn't embarrassingly obvious!
+> > 
+> > You're right. I was assuming the errata_id space for errata didn't overlap
+> > with the errata_id space for cpufeatures. It doesn't, atm, but by luck,
+> > not design. I could try to ensure that somehow, but probably the better
+> > approach would be to use the upper bits of errata_id for the application
+> > data and to leave vendor_id alone. Thanks for catching my oversight!
 > 
-> Use mips/powerpc version implemented as static inline as a generic
-> implementation of pfn_valid() and drop its per-architecture definitions.
-> 
+> Sounds like a better idea at least.
+> I suppose the ideal would be to add another arg and not abuse things,
+> but maybe that's one for the future, idk.
 
-With this patch in the tree, sh4 and sh4eb qemu emulations no longer boot.
-Reverting this patch fixes the problem.
+We could add another arg without too much trouble and even use some macro
+trickier to only pass it when it's needed. OTOH, the errata_id is 32-bits,
+which is overkill, since errata are assigned increasing integers from
+zero, and I don't want to over-bloat this structure. Maybe I can split
+errata_id into two 16-bit parameters to avoid completely adding yet
+another.
 
-Guenter
+> Is this somewhere that an assertion should be used to make sure that
+> we don't grow the list of extensions such that the regions collide?
 
----
-# bad: [6ba8a227fd19d19779005fb66ad7562608e1df83] Add linux-next specific files for 20230210
-# good: [4ec5183ec48656cec489c49f989c508b68b518e3] Linux 6.2-rc7
-git bisect start 'HEAD' 'v6.2-rc7'
-# good: [94613f0efc69ed41f9229ef5c294db3ec37145da] Merge branch 'master' of git://git.kernel.org/pub/scm/linux/kernel/git/herbert/cryptodev-2.6.git
-git bisect good 94613f0efc69ed41f9229ef5c294db3ec37145da
-# good: [19e62c715fe70dae4582c2874ed3e66715d09af6] Merge branch 'rcu/next' of git://git.kernel.org/pub/scm/linux/kernel/git/paulmck/linux-rcu.git
-git bisect good 19e62c715fe70dae4582c2874ed3e66715d09af6
-# good: [5d8b7ecef7f4a681b6e5538db59ff26c389c0ab6] Merge branch 'for-next' of https://gitlab.com/peda-linux/mux.git
-git bisect good 5d8b7ecef7f4a681b6e5538db59ff26c389c0ab6
-# good: [c349bf6ec83903b20fe570c5609b9a864a64e09c] Merge branch 'for-next' of git://git.kernel.org/pub/scm/linux/kernel/git/krisman/unicode.git
-git bisect good c349bf6ec83903b20fe570c5609b9a864a64e09c
-# good: [5a06a9f17454df38f35672be522ff5eb9b4277d2] selftest: add testing unsharing and counting ksm zero page
-git bisect good 5a06a9f17454df38f35672be522ff5eb9b4277d2
-# bad: [f5d115a7b06e5661ed5218ffa9a2644c4ff1c135] Merge branch 'mm-nonmm-unstable' into mm-everything
-git bisect bad f5d115a7b06e5661ed5218ffa9a2644c4ff1c135
-# bad: [acb018d6ea0c055381fba7dddaef386ee28f8075] mm/vmalloc.c: allow vread() to read out vm_map_ram areas
-git bisect bad acb018d6ea0c055381fba7dddaef386ee28f8075
-# good: [1a5d9782ac969dc6e61c6786500b5160603188ea] mm/mmap: remove __vma_adjust()
-git bisect good 1a5d9782ac969dc6e61c6786500b5160603188ea
-# good: [4b32363697de957dcc890b6245bec3f58903639a] arm: include asm-generic/memory_model.h from page.h rather than memory.h
-git bisect good 4b32363697de957dcc890b6245bec3f58903639a
-# bad: [328cf3fa6682ce6a4de6f8bb8009c833dc33f3c8] mm/migrate: convert isolate_movable_page() to use folios
-git bisect bad 328cf3fa6682ce6a4de6f8bb8009c833dc33f3c8
-# bad: [b704c765b08cabe82adf76a4d1a74f3688eee410] mm/mempolicy: convert queue_pages_pmd() to queue_folios_pmd()
-git bisect bad b704c765b08cabe82adf76a4d1a74f3688eee410
-# bad: [e5734c8b0edfd2a053a5c256189586a3b1e9f63d] mm, arch: add generic implementation of pfn_valid() for FLATMEM
-git bisect bad e5734c8b0edfd2a053a5c256189586a3b1e9f63d
-# good: [ad8aecea034c591b9754bc5908da9719853aa7fa] mips: drop definition of pfn_valid() for DISCONTIGMEM
-git bisect good ad8aecea034c591b9754bc5908da9719853aa7fa
-# first bad commit: [e5734c8b0edfd2a053a5c256189586a3b1e9f63d] mm, arch: add generic implementation of pfn_valid() for FLATMEM
+It's probably best to split errata_id for the application data and not
+worry about collisions.
+
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
