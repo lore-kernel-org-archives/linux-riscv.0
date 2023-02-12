@@ -4,71 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9478DC05027
-	for <linux-riscv@archiver.kernel.org>; Sun, 12 Feb 2023 18:45:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0B40C05027
+	for <linux-riscv@archiver.kernel.org>; Sun, 12 Feb 2023 19:49:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LVOMjn9guyaBll7JMaYy5cTVD2a9GifYiBz1Q88Y9TY=; b=iDOy+mjCxAnTbhPdOGxYr6YOwz
-	TbB/bmYl4W1CSpnpEHp5Q/u+ndXDCTQN+9/y4Mup+SNpy5xkzQhk8mqCk3bzAwv2v0E1n1sQ3t7Vd
-	ciIUnnKvslcSfAJXOa4T9h+Pg9BXA2+V3m668XRzWXxDulgWNb8fMJv7sDVsJJ8KFAArj11cH4pLt
-	Il79xtIRh8rDP38+YsHVSoWmG8wkiVPRpVgg1mzocHvWFiveCFMaHzgTQmFPVh5xzJzhrmMgVm/R3
-	dIt20TvuaXJkpp62mizIZPVnpi/3E+uQbbbLvgK7xdkAC5Ms41Lca5YoGoBfG4POMbMEdztdAJkdV
-	b42ppQ8A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=NrBu4VmAireBuTjt+wsRCasJZ470mz/bkIPJ2g7VTxA=; b=ktvQQxKtjgzFCU
+	1U4hmOHXlPO2UXJIjemsKv8IRef3LKDbOfzOajWAVwdwVXtVTyhR+mnWTMzDf+EfRpesl6x5MvLbZ
+	PqvA7oO9PoToOsJxZsVHBFVxj+5zywrbZi9YsML0JRYb+roU981d+6i6UxFquaV2rvu6dxLGHhTLf
+	ywVtJLVzZDrtyZmjpZfq+X842VeCC/ctWV4ju2k5mHQnrneG1UI8FmDjeq1HO0j0UEariZcrR3C1p
+	XgbYmaVMpSqHj/VnadCEUtm7Vbsd8PCJ1//+UZYfs6B94I2zbY/mgjgpTP88i970Avbk5sxE4n6bS
+	v7HhbqIAEkLtrjkNtSiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRHM9-00C6a1-8R; Sun, 12 Feb 2023 18:45:45 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1pRIM4-00CDcE-9t; Sun, 12 Feb 2023 19:49:44 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRHM5-00C6ZG-Lp; Sun, 12 Feb 2023 18:45:43 +0000
+	id 1pRIM0-00CDbc-SD
+	for linux-riscv@lists.infradead.org; Sun, 12 Feb 2023 19:49:42 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 2BB0EB80D31;
-	Sun, 12 Feb 2023 18:45:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9054C433D2;
-	Sun, 12 Feb 2023 18:45:34 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id F110060DC5;
+	Sun, 12 Feb 2023 19:49:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD224C4339B;
+	Sun, 12 Feb 2023 19:49:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1676227537;
-	bh=tnPPngd7rmN7Pd2Bo0dYoAqjVVSybHD1OGhV6WT90xY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RM9IOqTjeWw0/KN0HrtxeHjqXD2NWfOZcl1FbykdM0ov+L7jSzNVuXivB0pxBFMdl
-	 SvY5UyIxpX7L63OFiOLV4FEDR/8jJDWOrWAR3mVEQJGNkyZIbR7QqG1p0MtrjCgR3F
-	 utGyi3uRel5KKLb6j1kR8aRnYNMBPbuB7HWEG0y4aTDvTazvFSDjJWYsIA9ukt+SUV
-	 UbJtrHYd0uwiwoN3wR796y5TS+AFiXdkdUnLhkVkTOn8ilNdqt2nAkQVMiBca549lz
-	 ZUkwLownwlITqHxmjbMOI4cr4neYYWkuPdC9quVnQB2RZiPMBpn4HN+r4QBfqZsQ2s
-	 olHbyibjmDLIg==
-Date: Sun, 12 Feb 2023 18:45:31 +0000
+	s=k20201202; t=1676231379;
+	bh=bJOEvyuymFhCOG6/ug2QH+yGahnP1BYTZIgTm6FgBS0=;
+	h=From:To:Cc:Subject:Date:From;
+	b=qPB0lUPB+1mFxWswFOwIB/5shsKbrrWn1dnMR9EJSwkE2wiwDqq7nXNbSwfHejyLd
+	 vQ0TRDURlkb2GpNb2ff4DJuLa9hJTpX/TuhLtRMdeuK0myMJdx221xZ7a9EdRf4+X8
+	 V2ai6iQn1QASf96z95HrK4T6Mp+r+dHcGPtbdP4ajZ5DtpVgPgOBRjo+FM+ZdJzEIU
+	 IQiaY/sG91yaKmOx9NgL1m0/MhQ9bDxlxviTdIAuLi3qU7ApxEmMowLBboY8ASigJS
+	 GzNoiC53wCgB3pGZgmMGMSfxBZw1G680D1Hnxt1C4k4is2sBUEskGMdqgvAyJTHUVA
+	 VYm9VtiGYWbZg==
 From: Conor Dooley <conor@kernel.org>
-To: Guenter Roeck <linux@roeck-us.net>
-Cc: Jisheng Zhang <jszhang@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Andrew Jones <ajones@ventanamicro.com>,
+To: palmer@dabbelt.com
+Cc: conor@kernel.org,
 	Conor Dooley <conor.dooley@microchip.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org
-Subject: Re: [PATCH v5 00/13] riscv: improve boot time isa extensions handling
-Message-ID: <Y+kzy1y3Z3j3Ohs9@spud>
-References: <20230128172856.3814-1-jszhang@kernel.org>
- <20230212154333.GA3760469@roeck-us.net>
- <Y+kM//nuDv29Z9qJ@spud>
- <Y+kU9nDBTttZRLLq@spud>
- <Y+kcgcncQO/2DNLo@spud>
- <Y+kqi8bQE+8hLfOF@spud>
- <a059a815-dcb0-c575-b5a4-f9433e268e9b@roeck-us.net>
- <Y+kt04c1iRlzUNLA@spud>
- <48d2ac96-abdd-23bc-b167-08dc2c1a1dbe@roeck-us.net>
+	samuel@sholland.org,
+	linux@roeck-us.net,
+	linux-riscv@lists.infradead.org,
+	ajones@ventanamicro.com
+Subject: [PATCH v1] RISC-V: take text_mutex during alternative patching
+Date: Sun, 12 Feb 2023 19:47:36 +0000
+Message-Id: <20230212194735.491785-1-conor@kernel.org>
+X-Mailer: git-send-email 2.39.1
 MIME-Version: 1.0
-In-Reply-To: <48d2ac96-abdd-23bc-b167-08dc2c1a1dbe@roeck-us.net>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4856; i=conor.dooley@microchip.com; h=from:subject; bh=3KA3WbOvjC1FOxYg0f9f+wrnFuVLzON/j82MfcJP3Mc=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDMkvnULZJgr7X94qusj7t/mM3T7u7cu4U5WW6OhZ96SyTshw dOboKGVhEONgkBVTZEm83dcitf6Pyw7nnrcwc1iZQIYwcHEKwES+WTP8T/NKORPWb6BddnHy9YRTrr 2aQW67Wh7N6co40F6To7OMk5FhjaSx7imXrDPT737YIFn0YfnVqe+tTLeejT1u3PO55aIHLwA=
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230212_104542_024942_1FC097AA 
-X-CRM114-Status: GOOD (  31.68  )
+X-CRM114-CacheID: sfid-20230212_114941_098039_D96374F8 
+X-CRM114-Status: GOOD (  13.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,118 +71,141 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0247247972433353112=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Conor Dooley <conor.dooley@microchip.com>
 
---===============0247247972433353112==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="UYsJLzonAkMi3tM1"
-Content-Disposition: inline
+Guenter reported a splat during boot, that Samuel pointed out was the
+lockdep assertion failing in patch_insn_write():
 
+WARNING: CPU: 0 PID: 0 at arch/riscv/kernel/patch.c:63 patch_insn_write+0x222/0x2f6
+epc : patch_insn_write+0x222/0x2f6
+ ra : patch_insn_write+0x21e/0x2f6
+epc : ffffffff800068c6 ra : ffffffff800068c2 sp : ffffffff81803df0
+ gp : ffffffff81a1ab78 tp : ffffffff81814f80 t0 : ffffffffffffe000
+ t1 : 0000000000000001 t2 : 4c45203a76637369 s0 : ffffffff81803e40
+ s1 : 0000000000000004 a0 : 0000000000000000 a1 : ffffffffffffffff
+ a2 : 0000000000000004 a3 : 0000000000000000 a4 : 0000000000000001
+ a5 : 0000000000000000 a6 : 0000000000000000 a7 : 0000000052464e43
+ s2 : ffffffff80b4889c s3 : 000000000000082c s4 : ffffffff80b48828
+ s5 : 0000000000000828 s6 : ffffffff8131a0a0 s7 : 0000000000000fff
+ s8 : 0000000008000200 s9 : ffffffff8131a520 s10: 0000000000000018
+ s11: 000000000000000b t3 : 0000000000000001 t4 : 000000000000000d
+ t5 : ffffffffd8180000 t6 : ffffffff81803bc8
+status: 0000000200000100 badaddr: 0000000000000000 cause: 0000000000000003
+[<ffffffff800068c6>] patch_insn_write+0x222/0x2f6
+[<ffffffff80006a36>] patch_text_nosync+0xc/0x2a
+[<ffffffff80003b86>] riscv_cpufeature_patch_func+0x52/0x98
+[<ffffffff80003348>] _apply_alternatives+0x46/0x86
+[<ffffffff80c02d36>] apply_boot_alternatives+0x3c/0xfa
+[<ffffffff80c03ad8>] setup_arch+0x584/0x5b8
+[<ffffffff80c0075a>] start_kernel+0xa2/0x8f8
 
---UYsJLzonAkMi3tM1
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+This issue was exposed by 702e64550b12 ("riscv: fpu: switch has_fpu() to
+riscv_has_extension_likely()"), as it is the patching in has_fpu() that
+triggers the splats in Guenter's report.
 
-On Sun, Feb 12, 2023 at 10:38:26AM -0800, Guenter Roeck wrote:
-> On 2/12/23 10:20, Conor Dooley wrote:
-> > On Sun, Feb 12, 2023 at 10:14:13AM -0800, Guenter Roeck wrote:
-> > > On 2/12/23 10:06, Conor Dooley wrote:
-> > > > On Sun, Feb 12, 2023 at 05:06:09PM +0000, Conor Dooley wrote:
-> > > > > On Sun, Feb 12, 2023 at 04:33:58PM +0000, Conor Dooley wrote:
-> > > > > > On Sun, Feb 12, 2023 at 03:59:59PM +0000, Conor Dooley wrote:
-> > > > >=20
-> > > > > So as not to lead anyone up the garden path, let me correct mysel=
-f:
-> > > > >=20
-> > > > > > Hmm, so this appears to be us attempting to patch in alternativ=
-es where
-> > > > > > none actually exists - seemingly F & D.
-> > > > >=20
-> > > > > And of course that's not true, riscv_has_extension_likely() now u=
-ses
-> > > > > alternatives as of:
-> > > > > bdda5d554e43 ("riscv: introduce riscv_has_extension_[un]likely()")
-> > > > >=20
-> > > > >   From a quick look, it just happens that the only users are F & =
-D.
-> > > > >=20
-> > > >=20
-> > > > Samuel pointed out that this is a lockdep splat on irc.
-> > > > There's a patch on the list that removes the lockdep annotation
-> > > > entirely:
-> > > > https://patchwork.kernel.org/project/linux-riscv/patch/202302021141=
-16.3695793-1-changbin.du@huawei.com/
-> > > >=20
-> > > > So ye, no surprises that it was config based!
-> > > >=20
-> > > > Palmer posted a "better" fix for that lockdep warning a while ago:
-> > > > https://lore.kernel.org/all/20220322022331.32136-1-palmer@rivosinc.=
-com/
-> > > >=20
-> > > > So we'd have to duplicate/reuse that for cpufeature/errata patching.
-> > > >=20
-> > > >=20
-> > >=20
-> > > This does not (only) happen in stop_machine().
-> >=20
-> > Yah, sorry I meant that it's the same lockdep splat as is being
-> > addressed there.
-> > The first patch deletes the lockdep stuff entirely, so removes the
-> > splat. I was thinking that we'd need to take Palmer's (IMO better)
-> > patch and do the same thing for patching alternatives, but I figure we
-> > can just take the text_mutex itself for alternatives & not have to
-> > dance around the lock.
-> >=20
-> > I'll go do that I suppose!
->=20
-> Thanks a lot for the clarification. That sounds like the backtrace
-> can be largely ignored.
+Take the text_mutex before doing any code patching to satisfy lockdep.
 
-Yeah, sorry that I phrased that confusingly in the first place.
+Fixes: ff689fd21cb1 ("riscv: add RISC-V Svpbmt extension support")
+Fixes: a35707c3d850 ("riscv: add memory-type errata for T-Head")
+Fixes: 1a0e5dbd3723 ("riscv: sifive: Add SiFive alternative ports")
+Reported-by: Guenter Roeck <linux@roeck-us.net>
+Link: https://lore.kernel.org/all/20230212154333.GA3760469@roeck-us.net/
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+Applies on top of Samuel's critical fixes in his "Fix alternatives
+issues on for-next":
+https://lore.kernel.org/all/20230212021534.59121-1-samuel@sholland.org/
+---
+ arch/riscv/errata/sifive/errata.c | 3 +++
+ arch/riscv/errata/thead/errata.c  | 8 ++++++--
+ arch/riscv/kernel/cpufeature.c    | 4 ++++
+ 3 files changed, 13 insertions(+), 2 deletions(-)
 
-> However, I still see that the patch series
-> results in boot hangs with the sifive_u qemu emulation, where
-> the log ends with "Oops - illegal instruction". Is that problem
-> being addressed as well ?
+diff --git a/arch/riscv/errata/sifive/errata.c b/arch/riscv/errata/sifive/errata.c
+index ef9a4eec0dba..da55cb247e89 100644
+--- a/arch/riscv/errata/sifive/errata.c
++++ b/arch/riscv/errata/sifive/errata.c
+@@ -4,6 +4,7 @@
+  */
+ 
+ #include <linux/kernel.h>
++#include <linux/memory.h>
+ #include <linux/module.h>
+ #include <linux/string.h>
+ #include <linux/bug.h>
+@@ -107,8 +108,10 @@ void __init_or_module sifive_errata_patch_func(struct alt_entry *begin,
+ 
+ 		tmp = (1U << alt->errata_id);
+ 		if (cpu_req_errata & tmp) {
++			mutex_lock(&text_mutex);
+ 			patch_text_nosync(ALT_OLD_PTR(alt), ALT_ALT_PTR(alt),
+ 					  alt->alt_len);
++			mutex_lock(&text_mutex);
+ 			cpu_apply_errata |= tmp;
+ 		}
+ 	}
+diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
+index 1dd90a5f86f0..3b96a06d3c54 100644
+--- a/arch/riscv/errata/thead/errata.c
++++ b/arch/riscv/errata/thead/errata.c
+@@ -5,6 +5,7 @@
+ 
+ #include <linux/bug.h>
+ #include <linux/kernel.h>
++#include <linux/memory.h>
+ #include <linux/module.h>
+ #include <linux/string.h>
+ #include <linux/uaccess.h>
+@@ -101,10 +102,13 @@ void __init_or_module thead_errata_patch_func(struct alt_entry *begin, struct al
+ 			altptr = ALT_ALT_PTR(alt);
+ 
+ 			/* On vm-alternatives, the mmu isn't running yet */
+-			if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
++			if (stage == RISCV_ALTERNATIVES_EARLY_BOOT) {
+ 				memcpy(oldptr, altptr, alt->alt_len);
+-			else
++			} else {
++				mutex_lock(&text_mutex);
+ 				patch_text_nosync(oldptr, altptr, alt->alt_len);
++				mutex_unlock(&text_mutex);
++			}
+ 		}
+ 	}
+ 
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 21fb567e1b22..59d58ee0f68d 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -10,6 +10,7 @@
+ #include <linux/ctype.h>
+ #include <linux/libfdt.h>
+ #include <linux/log2.h>
++#include <linux/memory.h>
+ #include <linux/module.h>
+ #include <linux/of.h>
+ #include <asm/alternative.h>
+@@ -292,8 +293,11 @@ void __init_or_module riscv_cpufeature_patch_func(struct alt_entry *begin,
+ 
+ 		oldptr = ALT_OLD_PTR(alt);
+ 		altptr = ALT_ALT_PTR(alt);
++
++		mutex_lock(&text_mutex);
+ 		patch_text_nosync(oldptr, altptr, alt->alt_len);
+ 		riscv_alternative_fix_offsets(oldptr, alt->alt_len, oldptr - altptr);
++		mutex_unlock(&text_mutex);
+ 	}
+ }
+ #endif
+-- 
+2.39.1
 
-Hmm, if it died on the last commit in this series, then I am not sure.
-If you meant with riscv/for-next or linux-next that's fixed by a patch
-=66rom Samuel:
-https://patchwork.kernel.org/project/linux-riscv/patch/20230212021534.59121=
--3-samuel@sholland.org/
-
-Cheers,
-Conor.
-
-
---UYsJLzonAkMi3tM1
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY+kzywAKCRB4tDGHoIJi
-0gBGAP4k1y38xuLeW0feO86J6WPfcRHKXkpqSNJOsp3tA5EFmgD/ZOgAcxE1Wu5k
-jMaQUwn6jGt4r3URuDAAXxYfbvNYiwc=
-=wpnv
------END PGP SIGNATURE-----
-
---UYsJLzonAkMi3tM1--
-
-
---===============0247247972433353112==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0247247972433353112==--
-
