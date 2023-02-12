@@ -4,62 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0B40C05027
-	for <linux-riscv@archiver.kernel.org>; Sun, 12 Feb 2023 19:49:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AF60C636D3
+	for <linux-riscv@archiver.kernel.org>; Sun, 12 Feb 2023 19:53:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=NrBu4VmAireBuTjt+wsRCasJZ470mz/bkIPJ2g7VTxA=; b=ktvQQxKtjgzFCU
-	1U4hmOHXlPO2UXJIjemsKv8IRef3LKDbOfzOajWAVwdwVXtVTyhR+mnWTMzDf+EfRpesl6x5MvLbZ
-	PqvA7oO9PoToOsJxZsVHBFVxj+5zywrbZi9YsML0JRYb+roU981d+6i6UxFquaV2rvu6dxLGHhTLf
-	ywVtJLVzZDrtyZmjpZfq+X842VeCC/ctWV4ju2k5mHQnrneG1UI8FmDjeq1HO0j0UEariZcrR3C1p
-	XgbYmaVMpSqHj/VnadCEUtm7Vbsd8PCJ1//+UZYfs6B94I2zbY/mgjgpTP88i970Avbk5sxE4n6bS
-	v7HhbqIAEkLtrjkNtSiQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
+	Date:References:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=nXfHGJy6Y3GQq6H6eweF4rK2BbvuCI9ZBv1wfaMwmP4=; b=WfkKHuECQmUkNX
+	65bAu5MVcp+Kck9kLkAH6FqDmS/kOtpbSoLIi4WthzvwF27jWzQi9Y1RsjG+zqsddsBz0NkKLbXuQ
+	Io8/A5FTIPX1SYLgWFcE3ThZDUWWZnTogCgXfphH2TsmFUtbEXRIMu24vYV0v/A0l8BtHc4wsnPzy
+	IRRQSaWNKbH4xPH7kb9rQwgfIWrxMd8h0LnvVjItEsI64/fRvGZvacp+//tGxfZqgtZaysT0QE8uQ
+	HwdYbUaT5Iz6GLQY0mrfGLHcARhdguJ9WWOwE5zvBg9STnCEDDvdOVO4dsTYADB3M+lNfY+cSWlNL
+	QP10mElHUC182cmvt9Sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRIM4-00CDcE-9t; Sun, 12 Feb 2023 19:49:44 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pRIPU-00CDyJ-4H; Sun, 12 Feb 2023 19:53:16 +0000
+Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRIM0-00CDbc-SD
-	for linux-riscv@lists.infradead.org; Sun, 12 Feb 2023 19:49:42 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id F110060DC5;
-	Sun, 12 Feb 2023 19:49:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD224C4339B;
-	Sun, 12 Feb 2023 19:49:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1676231379;
-	bh=bJOEvyuymFhCOG6/ug2QH+yGahnP1BYTZIgTm6FgBS0=;
-	h=From:To:Cc:Subject:Date:From;
-	b=qPB0lUPB+1mFxWswFOwIB/5shsKbrrWn1dnMR9EJSwkE2wiwDqq7nXNbSwfHejyLd
-	 vQ0TRDURlkb2GpNb2ff4DJuLa9hJTpX/TuhLtRMdeuK0myMJdx221xZ7a9EdRf4+X8
-	 V2ai6iQn1QASf96z95HrK4T6Mp+r+dHcGPtbdP4ajZ5DtpVgPgOBRjo+FM+ZdJzEIU
-	 IQiaY/sG91yaKmOx9NgL1m0/MhQ9bDxlxviTdIAuLi3qU7ApxEmMowLBboY8ASigJS
-	 GzNoiC53wCgB3pGZgmMGMSfxBZw1G680D1Hnxt1C4k4is2sBUEskGMdqgvAyJTHUVA
-	 VYm9VtiGYWbZg==
-From: Conor Dooley <conor@kernel.org>
-To: palmer@dabbelt.com
-Cc: conor@kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	samuel@sholland.org,
-	linux@roeck-us.net,
-	linux-riscv@lists.infradead.org,
-	ajones@ventanamicro.com
-Subject: [PATCH v1] RISC-V: take text_mutex during alternative patching
-Date: Sun, 12 Feb 2023 19:47:36 +0000
-Message-Id: <20230212194735.491785-1-conor@kernel.org>
-X-Mailer: git-send-email 2.39.1
+	id 1pRIPQ-00CDwb-Ob
+	for linux-riscv@lists.infradead.org; Sun, 12 Feb 2023 19:53:14 +0000
+Received: from pps.filterd (m0246629.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 31CIq0OX010593;
+	Sun, 12 Feb 2023 19:53:07 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=from : to : cc :
+ subject : references : date : in-reply-to : message-id : content-type :
+ mime-version; s=corp-2022-7-12;
+ bh=Aamssj6bWIrT5YsmBF5eGQNq+0DEEZSluZDogH+dgG4=;
+ b=D0iE2oi4dKdjneVHEIO9hID1YI4FEvbr8lObRZ+KP9abzI3M4MRetPlLsVkAooGig/wq
+ hVfFl9TViK2Bugq/lPSr0ZPFWfPRUAcQN1XzWZWC5eLD/bNJcsesAYuHQSIAFBfhtye9
+ gefUbl8P9aASWwdwlkl5OJBy3dIxVUo4XKq4ucgbPV7TBjX0fGVGdTXhMo34Vblelc/n
+ NZew6wkUI7MrHCYQpVG/OWlrwp1lxEMiq7JHeXXUmZg4B3cTblvGGBclvVXalyNfvAJf
+ BN61zl4+5xaKuaUIbFvtWD+LlwGZlKMHQy6/rhX+VqKJEtQ4WYOjfKWO14bhYJcWILho XA== 
+Received: from iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta01.appoci.oracle.com [130.35.100.223])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 3np2w9sjbj-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Sun, 12 Feb 2023 19:53:06 +0000
+Received: from pps.filterd (iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (8.17.1.5/8.17.1.5) with ESMTP id 31CGXpMe028882;
+	Sun, 12 Feb 2023 19:53:05 GMT
+Received: from nam11-bn8-obe.outbound.protection.outlook.com (mail-bn8nam11lp2168.outbound.protection.outlook.com [104.47.58.168])
+	by iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 3np1f3b9ug-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Sun, 12 Feb 2023 19:53:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=TEg7p5jjUAsgSRJrByPly4h5k2UiXRhFd/jUV2GVdyh9/DS3VVNN+Y0yQhjEiZ8+kWpttBAHah+zq5OM/qJOR2rPZsJ+V/NnLlwoi0JmIZifwPeEcgYryYpfSuzWlaIHQK9nt2X4gcazv2e/ddITj1g8NSxiQzY8kM13ORh4JWeaUmdjDJ/drCULQk4ABgjNFpc9tyHePPKueSWVRzfDgte0oQDerLCSDqveBxa2wus0cZ/rJSuJtI6aJox+F4eToCnFYFynkwRKQ+Hem9znWzDXL6rnTnn3LEjFCD5ZQQtycsrB/pIFSKY6rZt4OaAU1k6zEQnxSabWSgruB9OPdQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Aamssj6bWIrT5YsmBF5eGQNq+0DEEZSluZDogH+dgG4=;
+ b=gzpnfe1tDiZ0ErZjZs+bqfPKovpFC2yADeMfZY54P0Ss4lhFV9jWz3cnJI2QYqPz1ahfrhWiPT4PdcMsPHjY9hx6aihFg6UUyBcDdwfaKmoWSmF4mqgW5Ey5a82Dx3cs6BaFKSDyd/D+S4tOB+oHM2lOZICLdxmY8otF6z86atmxiLPqV+xfB8KwdV/Q6j0C+dKcpMcx2Kt625f/WfEdo4pEg3lk2sseWuQbl8IQudWNUYvaSl9icf6ZAoQauhEX2+YmaRv8tkozGGRCj3UcjsEaSdeZvcmZRj+6644Iq9TxHwaUk6+EjFvqPSl1f0W9jhEN1FSJEzrYB+elZmHrPw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Aamssj6bWIrT5YsmBF5eGQNq+0DEEZSluZDogH+dgG4=;
+ b=pigUfduws33xcHvJlY7Oaep1IHZo7rWIxFG9mkPyJetjlfUMSYLhsp+6MnEdApBuHemeb7iZiSHk1/uiu5mdAGxD7xaBn+pvFc+hwqnosUCyRfTA5sLqk+7OO/JYCXD6MWbgm6VPTevYEXtQ4pFPuwkLLyNTQDcN2uvpEU+W6Io=
+Received: from DS0PR10MB6798.namprd10.prod.outlook.com (2603:10b6:8:13c::20)
+ by SA1PR10MB5784.namprd10.prod.outlook.com (2603:10b6:806:23f::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6111.8; Sun, 12 Feb
+ 2023 19:53:03 +0000
+Received: from DS0PR10MB6798.namprd10.prod.outlook.com
+ ([fe80::b30f:e3aa:6ba:5c8d]) by DS0PR10MB6798.namprd10.prod.outlook.com
+ ([fe80::b30f:e3aa:6ba:5c8d%5]) with mapi id 15.20.6111.009; Sun, 12 Feb 2023
+ 19:53:03 +0000
+From: Nick Alcock <nick.alcock@oracle.com>
+To: Leon Romanovsky <leon@kernel.org>
+Cc: Conor Dooley <conor@kernel.org>, mcgrof@kernel.org,
+        linux-modules@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 8/8] kbuild, PCI: microchip: comment out MODULE_LICENSE
+ in non-modules
+References: <20230210164749.368998-1-nick.alcock@oracle.com>
+	<20230210164749.368998-9-nick.alcock@oracle.com>
+	<Y+aMh5e9bWaTphiZ@spud> <871qmx1fv5.fsf@esperi.org.uk>
+	<Y+akw9VBjg9oZ7QV@spud> <Y+kx3fb2Lzlg+u5+@unreal>
+Emacs: the prosecution rests its case.
+Date: Sun, 12 Feb 2023 19:52:57 +0000
+In-Reply-To: <Y+kx3fb2Lzlg+u5+@unreal> (Leon Romanovsky's message of "Sun, 12
+	Feb 2023 20:37:17 +0200")
+Message-ID: <87wn4my82u.fsf@esperi.org.uk>
+User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/28.1.91 (gnu/linux)
+X-ClientProxiedBy: LO4P123CA0523.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:2c5::7) To DS0PR10MB6798.namprd10.prod.outlook.com
+ (2603:10b6:8:13c::20)
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4856; i=conor.dooley@microchip.com; h=from:subject; bh=3KA3WbOvjC1FOxYg0f9f+wrnFuVLzON/j82MfcJP3Mc=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDMkvnULZJgr7X94qusj7t/mM3T7u7cu4U5WW6OhZ96SyTshw dOboKGVhEONgkBVTZEm83dcitf6Pyw7nnrcwc1iZQIYwcHEKwES+WTP8T/NKORPWb6BddnHy9YRTrr 2aQW67Wh7N6co40F6To7OMk5FhjaSx7imXrDPT737YIFn0YfnVqe+tTLeejT1u3PO55aIHLwA=
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR10MB6798:EE_|SA1PR10MB5784:EE_
+X-MS-Office365-Filtering-Correlation-Id: b015601a-2bca-44a0-d20c-08db0d32c036
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: 	jcJtZaVosJJpkxpDW9XPOUff1JHa2Ipn+z2TZYbBJZD7i7v09y/x8v7nUbr+mxWuMdctra9qH7e0k96lq+SrYToFWHumCmUFV1VXSMghImxBgKnx9IUotGftCPJDUkY8EZ3S2CZI39s7ZK8Eb5yc+r7wPJpIjEfbS0Qv34SFnZ6wEkGLlH1lFsVoOgdC3W8FUuo/Q2P9CrXCeccz6Szefcs8Wz2LHc6ZyumF7xJX5V6Nozuirr3ExFIyb9YBZ3S2IrICl3V7uOXaN7vqxhcbVF9YQ5YA8ygDc3MIPDUsIwbNS2YlT0CRMsaIzbEymkYAatmNcFPqZGc93TPf0Q3oC65gF3pK5bMw16U4J3BXGwKfiHD/kqV7ij2TIB/puJz8AE9EzOMC+8ItTKtmAFw0KPWFuoHIgBfJeJynWAy0pDAPR/UauGOsozBMZRL87NH6vP7tJ/0P/opKtxyBfCDMEEw0KAw4N8wvPODw3/xjaFwCt2SASK0GuCT+LjUV5hevGImL31+H7/lfC05FY+D8VXnkbOlahQPcn8DdqhD+qGAeGZmwUCQCV8jJLWjee5wbTzydkxCWmRcwHWXLZ6lwdviUg53Gs9eFn2YBQhgfnuB2b7Qyk+9bkbEDUrI3vKMZCNa18y0FsPxdZC8+9wCibw==
+X-Forefront-Antispam-Report: 	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR10MB6798.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230025)(136003)(376002)(346002)(39860400002)(366004)(396003)(451199018)(2906002)(36756003)(44832011)(86362001)(38100700002)(316002)(8936002)(4326008)(66946007)(6916009)(66556008)(8676002)(66476007)(41300700001)(5660300002)(6666004)(6506007)(186003)(9686003)(6512007)(478600001)(6486002);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 	=?us-ascii?Q?PBx4T5f+gYXoxexmyRFFW5VG4B3fOa+j79RBwcnH7pYQOeLdfXCjjeZp5awh?=
+ =?us-ascii?Q?PNl+/VYCbCQTkt/69rGXQBFPwVS8iJsGG/kToybO8vu//jk5Cc5Hjh2nuV7Q?=
+ =?us-ascii?Q?r9RY2cqFCgmgTUJ3q0SK9pcUtsJtwmJTmjP8BmU3UyQ4uHa+hjLWlyGbFeCY?=
+ =?us-ascii?Q?iHeldsxftnn/pPH3H5reRJorE40CWks9+ItPqIbwgXIt8J/Lp9GnoVAtQx6S?=
+ =?us-ascii?Q?WzWQi37kcKSjfqhzesGCsf2q/7BwyL4sArnY54d4WtcqcMZW1bf46kl2SDuY?=
+ =?us-ascii?Q?ab50ZBAlD8AiynsgLJIqBiXwJSVVvTALhoOGIg/oWXtAZLFylBPpSeM/NGlV?=
+ =?us-ascii?Q?I/zSxpDkHa/qs6BkNOCzUFTWQUbHE5gnY3bjVf47Jf6ZBtvlSWoHaDNdSbSX?=
+ =?us-ascii?Q?uqXOU+Gx+bVrMgTAe/0r+G1pn/nMm82RQVO2+c9sN3YmqElLHfjaCG6ja7Y6?=
+ =?us-ascii?Q?+g+oLZP/tHYYn3fDTG5ZQNsJnhUG03lfqavi18Zk/eOusoBaQZO48dgj8Zpe?=
+ =?us-ascii?Q?qXp7dh9stEfOb+b3TvxXFAZIy2WL9+WZnyRO2jvI7Vj4NVxQMdBF7z4itNFE?=
+ =?us-ascii?Q?jUEbbtdWszsOExsfGfugBbDMEc2s2yypLIILdiO4EyhLuFm/COMslKMJe810?=
+ =?us-ascii?Q?ECuUp83FBYOmAxe7mNV/pv8TvG3QLH1nzi04OU1g2HsuB6w2LQ0wwTVdOUCw?=
+ =?us-ascii?Q?yRakbSAJPsiYLLyDIhMWsl4NlJaSQZvLulGIMbOVuSiH4EOU26V+WcTL23a3?=
+ =?us-ascii?Q?+ogim8DzIjRQUa16st57NKQxJNuD04yhh/qo+f8Pu4Dz8HThZna4EneGTCur?=
+ =?us-ascii?Q?aSNczXqPZ4QlsjFAAsIo6Xyo6XLDcKNdogFgGsac+I/gHop9ntXw/vNeE0la?=
+ =?us-ascii?Q?uW6y0QSerRNNGclyg6oTn01qq2dWD5DniBagGGSgYGFSfWqR1sv5HTDMlahd?=
+ =?us-ascii?Q?Va8Da0kGueGQmpXtScFx16ytKSbCwv5IeJJzy/e0ktsZraGdevjMi6VP8/I0?=
+ =?us-ascii?Q?QfbPgtv+0o/NkVMRynokEvLWvRcYb9xJ0cq80J8A4tPV0II9WzVz01Vx6RNV?=
+ =?us-ascii?Q?eobVgccoKwxu2ra/GqlFl+tVpYzlRukWFIIIc6063WB5jcr5XohvWa98b21K?=
+ =?us-ascii?Q?hC6zrPwG4BwYznkTVFn/KIkJ0Mlu9CjYjw9hJOSPp9mpzPzOJ0lIzEpDQdUi?=
+ =?us-ascii?Q?QV+Qe3rKLxalhQf01BWr2ytM9JUnY0lP5TbKwYH3oFobXuvOnyZM4NDiveA9?=
+ =?us-ascii?Q?Zbr46kK2MtjBz2W+6pf1KMm8Vknq9QzucChWcUv8Qk7wiOpBPtQq5b2zZ/aF?=
+ =?us-ascii?Q?GUe+B9BIqYp6NyFrh/k+9bLcWmtrLpImJtLXxB9sitBqDNRfsBDTapu8CHLl?=
+ =?us-ascii?Q?Bbc2jcRGB3Olzc40G/jyUnFO9MSMq2H7eHCSmZKB3Vc4fq/hvu5UPNWboEkZ?=
+ =?us-ascii?Q?AgfggxqNWUS5yarMa/xdveLBeygWpnmvK1aF5sXHMJf/za+Ocp934q6B6ioK?=
+ =?us-ascii?Q?7fDT8EEJhkXLIEprMrcTCckyu2ww+NCw+DBbcZAwM+49Xa+z8S/k3QPfMNvN?=
+ =?us-ascii?Q?uqSz8B4Or+SQWWf1g0qsFJijJG9/1zcwBhqx71a8Xj0eVu2ZPqZ6Y6jckxBY?=
+ =?us-ascii?Q?ww=3D=3D?=
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: 	VGyWcSPu19J5RI/zCTunJsFwgtXpvM6jfQQsJXv6UP9M9mW9l/VnhwlFUzB5U9XGmGIFdlBqQpmD29Q1Yzz9+XyGIYzdnqLgXZMW8IzRufZ8NL0SyKWRjkTVLlKZ2lYtzCWGPmcKqa8aSoofyffwOKpgEM3xYMoPTt1mUzvt2ey9KaoKTa38W74RILqgriGF1nLlRruuWNIuw/XyG2m5yL15xaRkcJGMDxLNzJf93Sn9KaVRrZDWfxaniM6zOXbiYareBH3RI5I/yaF/xuGCoqvHMtB+2MhMbb3vq5zDivspBed8Oz+e6AUg2mM4Z0ssJjbZl9CVb89PGtJOHsNM8Jo56J3aQ6qNdHhqCNKjwAFCYaLXWaUjBJtUVlYBW1i45EmjwGriwMtPmjvs1X6lOHadzhsIl4JJg5KH+IIGWE/1fQffbHPaN2ix+m2wLvMVfT6mkII6CpU+t07I/ZD9OmQujfDBXzY1nyKdjZIPqTc2i9/4i/7Pj6Zpi8z3rlgAzh5pLqnL46KmrIezl8z8Mo0GE/xpD64VbC+QM4nkrQWwkPStWmZuFbvORxvWTHANd4VJpl+WgSci9p8Afd2F17KHPkOqY7VsTqf/SYO9Fm0Iv5GtRb2SKKfSRkK6XuiBa/IBcXzIGqKM7E0nae7GJeAFbgGbHvBoO1O7yp/dVaA9jp13diYb3tM23qPNARB7an9/SxCHYisUjZlujG+uKYhyXHJHyN7z14KkAzgZNlKNTa/UQhuSb+T14xGJvYToPLn07lRW33QmZCEnAWRknPQFUBFctJ6zaaXK4DsDwI5dmSIRS20wi3o6pQVfGKQdgJCfa7Hjz6fDeHH8v8V4Cw==
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b015601a-2bca-44a0-d20c-08db0d32c036
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR10MB6798.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Feb 2023 19:53:02.9120
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: j4NWF278rVyadcICBWvI07WxxKOT/5OqmMz+Pd3stcW4+hwH6Ia6vZlwuIFPMn1/EspRX9nhb7InM3CYfYYGQA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR10MB5784
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.219,Aquarius:18.0.930,Hydra:6.0.562,FMLib:17.11.170.22
+ definitions=2023-02-12_09,2023-02-09_03,2023-02-09_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 malwarescore=0 bulkscore=0 adultscore=0
+ mlxlogscore=784 phishscore=0 spamscore=0 mlxscore=0 suspectscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2212070000
+ definitions=main-2302120181
+X-Proofpoint-GUID: E5kbyDmLX66JS_0fGovJAv8Ap074oiqr
+X-Proofpoint-ORIG-GUID: E5kbyDmLX66JS_0fGovJAv8Ap074oiqr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230212_114941_098039_D96374F8 
-X-CRM114-Status: GOOD (  13.77  )
+X-CRM114-CacheID: sfid-20230212_115312_815178_7C637937 
+X-CRM114-Status: GOOD (  22.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,134 +171,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+On 12 Feb 2023, Leon Romanovsky uttered the following:
 
-Guenter reported a splat during boot, that Samuel pointed out was the
-lockdep assertion failing in patch_insn_write():
+> On Fri, Feb 10, 2023 at 08:10:43PM +0000, Conor Dooley wrote:
+>> On Fri, Feb 10, 2023 at 07:26:38PM +0000, Nick Alcock wrote:
+>> > On 10 Feb 2023, Conor Dooley said:
+>> > > FYI $subject seems wrong, this is a PCI patch AFAICT.
+>
+> <...>
+>
+>> > kbuild is present in every patch in the series because this is a
+>> > kbuild-driven change (the thing it disturbs is part of the build system,
+>> > the construction of modules.builtin*). This seems to be common practice
+>> > for kbuild-related treewide changes.
+>> 
+>> Okay, I'll take your word for it. It just looked/looks odd to me!
+>
+> It looks odd to me too. Please add SPDX tag in modules which don't have
+> it already, instead of commenting code.
 
-WARNING: CPU: 0 PID: 0 at arch/riscv/kernel/patch.c:63 patch_insn_write+0x222/0x2f6
-epc : patch_insn_write+0x222/0x2f6
- ra : patch_insn_write+0x21e/0x2f6
-epc : ffffffff800068c6 ra : ffffffff800068c2 sp : ffffffff81803df0
- gp : ffffffff81a1ab78 tp : ffffffff81814f80 t0 : ffffffffffffe000
- t1 : 0000000000000001 t2 : 4c45203a76637369 s0 : ffffffff81803e40
- s1 : 0000000000000004 a0 : 0000000000000000 a1 : ffffffffffffffff
- a2 : 0000000000000004 a3 : 0000000000000000 a4 : 0000000000000001
- a5 : 0000000000000000 a6 : 0000000000000000 a7 : 0000000052464e43
- s2 : ffffffff80b4889c s3 : 000000000000082c s4 : ffffffff80b48828
- s5 : 0000000000000828 s6 : ffffffff8131a0a0 s7 : 0000000000000fff
- s8 : 0000000008000200 s9 : ffffffff8131a520 s10: 0000000000000018
- s11: 000000000000000b t3 : 0000000000000001 t4 : 000000000000000d
- t5 : ffffffffd8180000 t6 : ffffffff81803bc8
-status: 0000000200000100 badaddr: 0000000000000000 cause: 0000000000000003
-[<ffffffff800068c6>] patch_insn_write+0x222/0x2f6
-[<ffffffff80006a36>] patch_text_nosync+0xc/0x2a
-[<ffffffff80003b86>] riscv_cpufeature_patch_func+0x52/0x98
-[<ffffffff80003348>] _apply_alternatives+0x46/0x86
-[<ffffffff80c02d36>] apply_boot_alternatives+0x3c/0xfa
-[<ffffffff80c03ad8>] setup_arch+0x584/0x5b8
-[<ffffffff80c0075a>] start_kernel+0xa2/0x8f8
+OK, I now have two votes for removal-and-SPDX (you and Luis) and nobody
+suggesting that keeping it in but commented out is actually a good idea:
+I'll respin with removals instead, and add SPDX to anything so adjusted
+that doesn't already have it (if anything).
 
-This issue was exposed by 702e64550b12 ("riscv: fpu: switch has_fpu() to
-riscv_has_extension_likely()"), as it is the patching in has_fpu() that
-triggers the splats in Guenter's report.
+(I'll stick both the removal and addition in the same commit, so there
+is no point at which such files have no declared license at all.)
 
-Take the text_mutex before doing any code patching to satisfy lockdep.
-
-Fixes: ff689fd21cb1 ("riscv: add RISC-V Svpbmt extension support")
-Fixes: a35707c3d850 ("riscv: add memory-type errata for T-Head")
-Fixes: 1a0e5dbd3723 ("riscv: sifive: Add SiFive alternative ports")
-Reported-by: Guenter Roeck <linux@roeck-us.net>
-Link: https://lore.kernel.org/all/20230212154333.GA3760469@roeck-us.net/
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
-Applies on top of Samuel's critical fixes in his "Fix alternatives
-issues on for-next":
-https://lore.kernel.org/all/20230212021534.59121-1-samuel@sholland.org/
----
- arch/riscv/errata/sifive/errata.c | 3 +++
- arch/riscv/errata/thead/errata.c  | 8 ++++++--
- arch/riscv/kernel/cpufeature.c    | 4 ++++
- 3 files changed, 13 insertions(+), 2 deletions(-)
-
-diff --git a/arch/riscv/errata/sifive/errata.c b/arch/riscv/errata/sifive/errata.c
-index ef9a4eec0dba..da55cb247e89 100644
---- a/arch/riscv/errata/sifive/errata.c
-+++ b/arch/riscv/errata/sifive/errata.c
-@@ -4,6 +4,7 @@
-  */
- 
- #include <linux/kernel.h>
-+#include <linux/memory.h>
- #include <linux/module.h>
- #include <linux/string.h>
- #include <linux/bug.h>
-@@ -107,8 +108,10 @@ void __init_or_module sifive_errata_patch_func(struct alt_entry *begin,
- 
- 		tmp = (1U << alt->errata_id);
- 		if (cpu_req_errata & tmp) {
-+			mutex_lock(&text_mutex);
- 			patch_text_nosync(ALT_OLD_PTR(alt), ALT_ALT_PTR(alt),
- 					  alt->alt_len);
-+			mutex_lock(&text_mutex);
- 			cpu_apply_errata |= tmp;
- 		}
- 	}
-diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
-index 1dd90a5f86f0..3b96a06d3c54 100644
---- a/arch/riscv/errata/thead/errata.c
-+++ b/arch/riscv/errata/thead/errata.c
-@@ -5,6 +5,7 @@
- 
- #include <linux/bug.h>
- #include <linux/kernel.h>
-+#include <linux/memory.h>
- #include <linux/module.h>
- #include <linux/string.h>
- #include <linux/uaccess.h>
-@@ -101,10 +102,13 @@ void __init_or_module thead_errata_patch_func(struct alt_entry *begin, struct al
- 			altptr = ALT_ALT_PTR(alt);
- 
- 			/* On vm-alternatives, the mmu isn't running yet */
--			if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
-+			if (stage == RISCV_ALTERNATIVES_EARLY_BOOT) {
- 				memcpy(oldptr, altptr, alt->alt_len);
--			else
-+			} else {
-+				mutex_lock(&text_mutex);
- 				patch_text_nosync(oldptr, altptr, alt->alt_len);
-+				mutex_unlock(&text_mutex);
-+			}
- 		}
- 	}
- 
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 21fb567e1b22..59d58ee0f68d 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -10,6 +10,7 @@
- #include <linux/ctype.h>
- #include <linux/libfdt.h>
- #include <linux/log2.h>
-+#include <linux/memory.h>
- #include <linux/module.h>
- #include <linux/of.h>
- #include <asm/alternative.h>
-@@ -292,8 +293,11 @@ void __init_or_module riscv_cpufeature_patch_func(struct alt_entry *begin,
- 
- 		oldptr = ALT_OLD_PTR(alt);
- 		altptr = ALT_ALT_PTR(alt);
-+
-+		mutex_lock(&text_mutex);
- 		patch_text_nosync(oldptr, altptr, alt->alt_len);
- 		riscv_alternative_fix_offsets(oldptr, alt->alt_len, oldptr - altptr);
-+		mutex_unlock(&text_mutex);
- 	}
- }
- #endif
 -- 
-2.39.1
-
+NULL && (void)
 
 _______________________________________________
 linux-riscv mailing list
