@@ -4,64 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76FD7C05027
-	for <linux-riscv@archiver.kernel.org>; Sun, 12 Feb 2023 16:00:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DD68C636D4
+	for <linux-riscv@archiver.kernel.org>; Sun, 12 Feb 2023 16:13:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l4R7FQgYMtMp9ER4U1jD0OIo1jvaeFvgWwFiyKuiEGQ=; b=u8lDA02S4aWjlyGMGYkRPJ7kxi
-	M/kbNie2hkmtUEzanm9ZdIzDZhTl9zRF6loYUjbTPxbBp4n18C5HuzBzOkDVgXd+pAEs0FIAU0QtX
-	5/LufkATw51lOKWtRuW1kq2QMcpgZaJapXjjzWVN1OyQa7AiO0fuu11IC2NYGVURo9vxnYFccvNaZ
-	/cGFf2IdUKXdwSiy3pHptbihGQL530435lZYIz/Lyk32NFJnfMOLPfBSS3iN+IzG5gshWT4k3LnNB
-	hozNyPg2803GqS99o0Baab3iXejqqykHRsEonYKmOdkgdfY8tRd4CoKaWUAZx7gwk0fs8TSVisC+L
-	hxpHZpWA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=N/neViWkqqDFBKemIOd4PyL+Fb4an2IJKG4xAc14alQ=; b=LvRbDjGVqXmaEG
+	XVfMnpqzoy+/AD6Ex5+DfpHhY/DcVkVt7nAR60trb9D2ztbuziUbJjq1t60+9jW2Go/l46tcV3CM/
+	NgzFafZqjDeoPTXnfEhHvXZWwXBAgacvQqiZPKUFbD3WaLXl0bR/ZcyCFzsemcUbuTwi8DTJo72O1
+	Gx6uM5GfbkRk456o8o7FJoj7NByM4WhFTfEDOR3fHPaz0x1Qs9gtlQF6LHdHuWKL6Cwy4wIHUNKJQ
+	hRosMyeg+KeNi1IxRx2K4qMSdRuu482ouML4c4cluaqrQ3aeqESpphbtoFafh1TK4axW2Qoq9YoSp
+	f+FUFu0aFX71IrcgoLig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRElx-00Bnda-3s; Sun, 12 Feb 2023 16:00:13 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pREyv-00Bp1V-QO; Sun, 12 Feb 2023 16:13:37 +0000
+Received: from mail-oa1-x36.google.com ([2001:4860:4864:20::36])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRElt-00BnbO-0r; Sun, 12 Feb 2023 16:00:11 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 354D060C16;
-	Sun, 12 Feb 2023 16:00:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 815C6C433EF;
-	Sun, 12 Feb 2023 16:00:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1676217605;
-	bh=3GS8eS2ABWfh0rKkL4X5c0vwSZUS8lS05Wt8LGvnde4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=epq7qhuUPVzNCg5kDrHOAESjF+42lFOCDPmjSr4bpHwkObV4+BWzN4EIwZPp3vkpV
-	 nXgzvcOFCOmdqQIZnPnZn3umFGWRhkN/EFMTEnw0Z3LdvTLZfOptkq+o6rTVQWYOn3
-	 VAenbnB/61Oo6b+XF97ZQ7Hd8GHeVFJQMMQreoHN62BwuKu+Sx7xpW1pwh46RenyzI
-	 aG3F6uxOURocRa5OXBEDKZterHjMC6yoy5Cklu+sLsEaAdWvjuffMqRIweANdIMMog
-	 B2TciqKLuGbAdPCkd0VtsirhrbVuRJ5rlgGsbCGZ4MA6+KoI6KJAWSppL6VjOBjRAR
-	 34hTCgNchxvvw==
-Date: Sun, 12 Feb 2023 15:59:59 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Guenter Roeck <linux@roeck-us.net>
-Cc: Jisheng Zhang <jszhang@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org
-Subject: Re: [PATCH v5 00/13] riscv: improve boot time isa extensions handling
-Message-ID: <Y+kM//nuDv29Z9qJ@spud>
-References: <20230128172856.3814-1-jszhang@kernel.org>
- <20230212154333.GA3760469@roeck-us.net>
+	id 1pREyh-00Boyf-5Z; Sun, 12 Feb 2023 16:13:26 +0000
+Received: by mail-oa1-x36.google.com with SMTP id 586e51a60fabf-15fe106c7c7so12652347fac.8;
+        Sun, 12 Feb 2023 08:13:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=m9JNrWha4YKLX9rD9uaO4Le+Z0yMwIJejyvjLhFB0mM=;
+        b=RPfdfqoXr1Cw8prltm7TREoupX5eaNpNd+CDIlDXf9L709PnPoKQLyqZ+zboWylzWR
+         vxu85Zr3W8llfd+943ctWIFMuj/eUOowqYJKaVeMEAuOZh7DSd87i28bvDxNAQ6PoOwC
+         wXW2mjy0Nv7rWdLT7K6lR96N0WQft3GWf2KAFrqyzdPjhTZH7LFIYRkc0u2koR60TrCD
+         1hpxf+WoKXg0JbOE+h0e0CkhGndeecaH5fbwJ/zhVif01anzu3CRcpBwMXBGR6L77UGt
+         T0ZqZhaH9160JyrIQvfc6bBDGV0wnlmjvzDTuOmCpyHfThC29vCqk4lTBNsczBdn8qUd
+         qBXA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=m9JNrWha4YKLX9rD9uaO4Le+Z0yMwIJejyvjLhFB0mM=;
+        b=KLFL0p+xsfwnzNYCN1tc8w6pQxCET+4eiFm4WZFLd3BbEIGLoHqZ+rk7PHlLEN8MZN
+         I0SQawt5/bfs7XcJPHW0NoYr3RxGjgRobbMSx0vZ2hM8aTpG+XexSihWoqdJFCcDUmnf
+         +qJnsKCfZ85hLJPuthXEGEznsKk/xUyGkQcnETHMYE1V2eTL6CQ/VkjCKUcEUVL89TTe
+         T3R0GCtRD365sNP97UNUG6EHxq+QbdHPpnbtQ6tc8QOo0WY3dMCUHisAm+a8o/H6IrB9
+         8KQRwRTNWDIXK2rftP2SiwdrLzuLHFKaNw/1Bb7j/1d/fMuCOqKIdqXDSDwspGw5+aAZ
+         T/NA==
+X-Gm-Message-State: AO0yUKXWNFe+yrS+Mb8LbF5dmjs+8mI8Zf8jLUz4CMzycP/9N8TTWRFt
+	sfY7At9mvjNPsft1MmQRvio=
+X-Google-Smtp-Source: AK7set9kfP8sfCh4EsN95J/ZdmLAzZQPNePNkWSy8sPECM/cP6PHARZOJXcrMxdY1LlBw1JK0pRDxg==
+X-Received: by 2002:a05:6870:b48d:b0:16d:ec6a:71ec with SMTP id y13-20020a056870b48d00b0016dec6a71ecmr2441541oap.27.1676218402068;
+        Sun, 12 Feb 2023 08:13:22 -0800 (PST)
+Received: from server.roeck-us.net ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
+        by smtp.gmail.com with ESMTPSA id n2-20020a056870844200b0010c727a3c79sm3225235oak.26.2023.02.12.08.13.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 12 Feb 2023 08:13:21 -0800 (PST)
+Date: Sun, 12 Feb 2023 08:13:20 -0800
+From: Guenter Roeck <linux@roeck-us.net>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Arnd Bergmann <arnd@arndb.de>, Brian Cain <bcain@quicinc.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Greg Ungerer <gerg@linux-m68k.org>, Guo Ren <guoren@kernel.org>,
+	Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>,
+	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Michal Simek <monstr@monstr.eu>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Rich Felker <dalias@libc.org>,
+	Richard Weinberger <richard@nod.at>,
+	Russell King <linux@armlinux.org.uk>,
+	Stafford Horne <shorne@gmail.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Vineet Gupta <vgupta@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	linux-alpha@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org, linux-mm@kvack.org,
+	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+	linux-um@lists.infradead.org, linux-xtensa@linux-xtensa.org,
+	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
+	openrisc@lists.librecores.org, sparclinux@vger.kernel.org,
+	x86@kernel.org, Huacai Chen <chenhuacai@loongson.cn>
+Subject: Re: [PATCH v2 4/4] mm, arch: add generic implementation of
+ pfn_valid() for FLATMEM
+Message-ID: <20230212161320.GA3784076@roeck-us.net>
+References: <20230129124235.209895-1-rppt@kernel.org>
+ <20230129124235.209895-5-rppt@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <20230212154333.GA3760469@roeck-us.net>
+Content-Disposition: inline
+In-Reply-To: <20230129124235.209895-5-rppt@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230212_080009_202758_01F049CF 
-X-CRM114-Status: GOOD (  33.44  )
+X-CRM114-CacheID: sfid-20230212_081324_516340_0D2C26EA 
+X-CRM114-Status: GOOD (  11.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,203 +112,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3059599346466537228=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Sun, Jan 29, 2023 at 02:42:35PM +0200, Mike Rapoport wrote:
+> From: "Mike Rapoport (IBM)" <rppt@kernel.org>
+> 
+> Every architecture that supports FLATMEM memory model defines its own
+> version of pfn_valid() that essentially compares a pfn to max_mapnr.
+> 
+> Use mips/powerpc version implemented as static inline as a generic
+> implementation of pfn_valid() and drop its per-architecture definitions.
+> 
 
---===============3059599346466537228==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="D1LdKf84bSz7dc9I"
-Content-Disposition: inline
+With this patch in the tree, sh4 and sh4eb qemu emulations no longer boot.
+Reverting this patch fixes the problem.
 
+Guenter
 
---D1LdKf84bSz7dc9I
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hey Guenter,
-
-On Sun, Feb 12, 2023 at 07:43:33AM -0800, Guenter Roeck wrote:
-> On Sun, Jan 29, 2023 at 01:28:43AM +0800, Jisheng Zhang wrote:
-> > Generally, riscv ISA extensions are fixed for any specific hardware
-> > platform, so a hart's features won't change after booting, this
-> > chacteristic makes it straightforward to use a static branch to check
-> > a specific ISA extension is supported or not to optimize performance.
-> >=20
-> > However, some ISA extensions such as SVPBMT and ZICBOM are handled
-> > via. the alternative sequences.
-> >=20
-> > Basically, for ease of maintenance, we prefer to use static branches
-> > in C code, but recently, Samuel found that the static branch usage in
-> > cpu_relax() breaks building with CONFIG_CC_OPTIMIZE_FOR_SIZE[1]. As
-> > Samuel pointed out, "Having a static branch in cpu_relax() is
-> > problematic because that function is widely inlined, including in some
-> > quite complex functions like in the VDSO. A quick measurement shows
-> > this static branch is responsible by itself for around 40% of the jump
-> > table."
-> >=20
-> > Samuel's findings pointed out one of a few downsides of static branches
-> > usage in C code to handle ISA extensions detected at boot time:
-> > static branch's metadata in the __jump_table section, which is not
-> > discarded after ISA extensions are finalized, wastes some space.
-> >=20
-> > I want to try to solve the issue for all possible dynamic handling of
-> > ISA extensions at boot time. Inspired by Mark[2], this patch introduces
-> > riscv_has_extension_*() helpers, which work like static branches but
-> > are patched using alternatives, thus the metadata can be freed after
-> > patching.
-> >=20
->=20
-> This patch series results in boot failures when trying to boot the
-> qemu sifive_u emulation. There are many log messages along the line of
->=20
-> [    0.000000] WARNING: CPU: 0 PID: 0 at arch/riscv/kernel/patch.c:63 pat=
-ch_insn_write+0x222/0x2f6
-> [    0.000000] Modules linked in:
-> [    0.000000] CPU: 0 PID: 0 Comm: swapper Tainted: G        W          6=
-=2E2.0-rc7-next-20230210 #1
-> [    0.000000] Hardware name: SiFive HiFive Unleashed A00 (DT)
-> [    0.000000] epc : patch_insn_write+0x222/0x2f6
-> [    0.000000]  ra : patch_insn_write+0x21e/0x2f6
-> [    0.000000] epc : ffffffff800068c6 ra : ffffffff800068c2 sp : ffffffff=
-81803df0
-> [    0.000000]  gp : ffffffff81a1ab78 tp : ffffffff81814f80 t0 : ffffffff=
-ffffe000
-> [    0.000000]  t1 : 0000000000000001 t2 : 4c45203a76637369 s0 : ffffffff=
-81803e40
-> [    0.000000]  s1 : 0000000000000004 a0 : 0000000000000000 a1 : ffffffff=
-ffffffff
-> [    0.000000]  a2 : 0000000000000004 a3 : 0000000000000000 a4 : 00000000=
-00000001
-> [    0.000000]  a5 : 0000000000000000 a6 : 0000000000000000 a7 : 00000000=
-52464e43
-> [    0.000000]  s2 : ffffffff80b4889c s3 : 000000000000082c s4 : ffffffff=
-80b48828
-> [    0.000000]  s5 : 0000000000000828 s6 : ffffffff8131a0a0 s7 : 00000000=
-00000fff
-> [    0.000000]  s8 : 0000000008000200 s9 : ffffffff8131a520 s10: 00000000=
-00000018
-> [    0.000000]  s11: 000000000000000b t3 : 0000000000000001 t4 : 00000000=
-0000000d
-> [    0.000000]  t5 : ffffffffd8180000 t6 : ffffffff81803bc8
-> [    0.000000] status: 0000000200000100 badaddr: 0000000000000000 cause: =
-0000000000000003
-> [    0.000000] [<ffffffff800068c6>] patch_insn_write+0x222/0x2f6
-> [    0.000000] [<ffffffff80006a36>] patch_text_nosync+0xc/0x2a
-> [    0.000000] [<ffffffff80003b86>] riscv_cpufeature_patch_func+0x52/0x98
-> [    0.000000] [<ffffffff80003348>] _apply_alternatives+0x46/0x86
-> [    0.000000] [<ffffffff80c02d36>] apply_boot_alternatives+0x3c/0xfa
-> [    0.000000] [<ffffffff80c03ad8>] setup_arch+0x584/0x5b8
-> [    0.000000] [<ffffffff80c0075a>] start_kernel+0xa2/0x8f8
-> [    0.000000] irq event stamp: 0
-> [    0.000000] hardirqs last  enabled at (0): [<0000000000000000>] 0x0
-> [    0.000000] hardirqs last disabled at (0): [<0000000000000000>] 0x0
-> [    0.000000] softirqs last  enabled at (0): [<0000000000000000>] 0x0
-> [    0.000000] softirqs last disabled at (0): [<0000000000000000>] 0x0
-> [    0.000000] ---[ end trace 0000000000000000 ]---
-> [    0.000000] ------------[ cut here ]------------
->=20
-> then qemu hangs until the session is aborted.
-
-I have come across the same issue on PolarFire SoC while looking at
-Samuel's fixes for Zbb & the D1:
-https://lore.kernel.org/all/20230212021534.59121-1-samuel@sholland.org/
-
-Boot over NFS still works, which I think points to a hole in how my CI
-is operating - it assumed the completed boot + bootrr being happy to
-mean that there was nothing wrong!
-
-On the VisionFive 2 & D1 Nezha I don't see these splats though.
-It appears to be config related as the config I build for Icicle sees
-these splats in QEMU but the D1 config does not.
-I'll go do some digging!
-
->=20
-> Similar messages are also seen with the "virt" emulation, but there the b=
-oot
-> does not hang but fails to find a root device.
->=20
-> Guenter
->=20
->=20
->=20
-> ---
-> bisect:
->=20
-> # bad: [6ba8a227fd19d19779005fb66ad7562608e1df83] Add linux-next specific=
- files for 20230210
-> # good: [4ec5183ec48656cec489c49f989c508b68b518e3] Linux 6.2-rc7
-> git bisect start 'HEAD' 'v6.2-rc7'
-> # bad: [94613f0efc69ed41f9229ef5c294db3ec37145da] Merge branch 'master' o=
-f git://git.kernel.org/pub/scm/linux/kernel/git/herbert/cryptodev-2.6.git
-> git bisect bad 94613f0efc69ed41f9229ef5c294db3ec37145da
-> # bad: [8928ece68de4371dc6e1d3336d3029c1e18ae3b4] Merge branch 'for_next'=
- of git://git.kernel.org/pub/scm/linux/kernel/git/jack/linux-fs.git
-> git bisect bad 8928ece68de4371dc6e1d3336d3029c1e18ae3b4
-> # good: [78a9f460e33d103256f3abb38f02f4759710c7dc] soc: document merges
-> git bisect good 78a9f460e33d103256f3abb38f02f4759710c7dc
-> # good: [b35b2472ebafa29d0bbe79fbee1da6ef3c4ec619] Merge branch 'for-next=
-' of git://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git
-> git bisect good b35b2472ebafa29d0bbe79fbee1da6ef3c4ec619
-> # bad: [57a87a64b520c37dd49f5fde84d09a4adb391180] Merge branch 'for-next'=
- of git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git
-> git bisect bad 57a87a64b520c37dd49f5fde84d09a4adb391180
-> # good: [cfc8ba01cc84b24ec6eb293ec9fba893f7cd4581] Merge branch 'clk-next=
-' of git://git.kernel.org/pub/scm/linux/kernel/git/clk/linux.git
-> git bisect good cfc8ba01cc84b24ec6eb293ec9fba893f7cd4581
-> # good: [6acecfa485d3de955c35a18730c106ddf1e7600e] powerpc/kcsan: Add KCS=
-AN Support
-> git bisect good 6acecfa485d3de955c35a18730c106ddf1e7600e
-> # good: [8a16dea453dbc3e834b162640028e505882cd11e] Merge branch 'next' of=
- git://git.kernel.org/pub/scm/linux/kernel/git/powerpc/linux.git
-> git bisect good 8a16dea453dbc3e834b162640028e505882cd11e
-> # good: [6be1ff430dab9fc047762b10b2c9669399ea1f37] riscv: pgtable: Fixup =
-comment for KERN_VIRT_SIZE
-> git bisect good 6be1ff430dab9fc047762b10b2c9669399ea1f37
-> # good: [e0c267e03b0c77c9ac79ac08eada41ba8eb1b95f] riscv: module: move fi=
-nd_section to module.h
-> git bisect good e0c267e03b0c77c9ac79ac08eada41ba8eb1b95f
-> # good: [e8ad17d2b5f38e595d597a3e2419d6d7cc727b17] riscv: KVM: Switch has=
-_svinval() to riscv_has_extension_unlikely()
-> git bisect good e8ad17d2b5f38e595d597a3e2419d6d7cc727b17
-> # good: [75ab93a244a516d1d3c03c4e27d5d0deff76ebfb] Merge patch series "Zb=
-b string optimizations"
-> git bisect good 75ab93a244a516d1d3c03c4e27d5d0deff76ebfb
-> # bad: [9daca9a5b9ac35361ce2d8d5ec10b19b7048d6cd] Merge patch series "ris=
-cv: improve boot time isa extensions handling"
-> git bisect bad 9daca9a5b9ac35361ce2d8d5ec10b19b7048d6cd
-> # good: [03966594e1170303c037b0cded35c464a13a4a45] riscv: remove riscv_is=
-a_ext_keys[] array and related usage
-> git bisect good 03966594e1170303c037b0cded35c464a13a4a45
-> # first bad commit: [9daca9a5b9ac35361ce2d8d5ec10b19b7048d6cd] Merge patc=
-h series "riscv: improve boot time isa extensions handling"
-
---D1LdKf84bSz7dc9I
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY+kM/wAKCRB4tDGHoIJi
-0tvZAPwP4FSXrOgazgMKLxsKHo1j96GB6dSyd5HFkWqHpdIWtQEAkhUsLOE+vmE0
-kdCi6U++YL4SEz7gKD0YiH3QeNokXws=
-=6Ej4
------END PGP SIGNATURE-----
-
---D1LdKf84bSz7dc9I--
-
-
---===============3059599346466537228==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+---
+# bad: [6ba8a227fd19d19779005fb66ad7562608e1df83] Add linux-next specific files for 20230210
+# good: [4ec5183ec48656cec489c49f989c508b68b518e3] Linux 6.2-rc7
+git bisect start 'HEAD' 'v6.2-rc7'
+# good: [94613f0efc69ed41f9229ef5c294db3ec37145da] Merge branch 'master' of git://git.kernel.org/pub/scm/linux/kernel/git/herbert/cryptodev-2.6.git
+git bisect good 94613f0efc69ed41f9229ef5c294db3ec37145da
+# good: [19e62c715fe70dae4582c2874ed3e66715d09af6] Merge branch 'rcu/next' of git://git.kernel.org/pub/scm/linux/kernel/git/paulmck/linux-rcu.git
+git bisect good 19e62c715fe70dae4582c2874ed3e66715d09af6
+# good: [5d8b7ecef7f4a681b6e5538db59ff26c389c0ab6] Merge branch 'for-next' of https://gitlab.com/peda-linux/mux.git
+git bisect good 5d8b7ecef7f4a681b6e5538db59ff26c389c0ab6
+# good: [c349bf6ec83903b20fe570c5609b9a864a64e09c] Merge branch 'for-next' of git://git.kernel.org/pub/scm/linux/kernel/git/krisman/unicode.git
+git bisect good c349bf6ec83903b20fe570c5609b9a864a64e09c
+# good: [5a06a9f17454df38f35672be522ff5eb9b4277d2] selftest: add testing unsharing and counting ksm zero page
+git bisect good 5a06a9f17454df38f35672be522ff5eb9b4277d2
+# bad: [f5d115a7b06e5661ed5218ffa9a2644c4ff1c135] Merge branch 'mm-nonmm-unstable' into mm-everything
+git bisect bad f5d115a7b06e5661ed5218ffa9a2644c4ff1c135
+# bad: [acb018d6ea0c055381fba7dddaef386ee28f8075] mm/vmalloc.c: allow vread() to read out vm_map_ram areas
+git bisect bad acb018d6ea0c055381fba7dddaef386ee28f8075
+# good: [1a5d9782ac969dc6e61c6786500b5160603188ea] mm/mmap: remove __vma_adjust()
+git bisect good 1a5d9782ac969dc6e61c6786500b5160603188ea
+# good: [4b32363697de957dcc890b6245bec3f58903639a] arm: include asm-generic/memory_model.h from page.h rather than memory.h
+git bisect good 4b32363697de957dcc890b6245bec3f58903639a
+# bad: [328cf3fa6682ce6a4de6f8bb8009c833dc33f3c8] mm/migrate: convert isolate_movable_page() to use folios
+git bisect bad 328cf3fa6682ce6a4de6f8bb8009c833dc33f3c8
+# bad: [b704c765b08cabe82adf76a4d1a74f3688eee410] mm/mempolicy: convert queue_pages_pmd() to queue_folios_pmd()
+git bisect bad b704c765b08cabe82adf76a4d1a74f3688eee410
+# bad: [e5734c8b0edfd2a053a5c256189586a3b1e9f63d] mm, arch: add generic implementation of pfn_valid() for FLATMEM
+git bisect bad e5734c8b0edfd2a053a5c256189586a3b1e9f63d
+# good: [ad8aecea034c591b9754bc5908da9719853aa7fa] mips: drop definition of pfn_valid() for DISCONTIGMEM
+git bisect good ad8aecea034c591b9754bc5908da9719853aa7fa
+# first bad commit: [e5734c8b0edfd2a053a5c256189586a3b1e9f63d] mm, arch: add generic implementation of pfn_valid() for FLATMEM
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3059599346466537228==--
-
