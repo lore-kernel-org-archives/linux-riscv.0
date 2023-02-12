@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0902BC636D3
-	for <linux-riscv@archiver.kernel.org>; Sun, 12 Feb 2023 15:48:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76FD7C05027
+	for <linux-riscv@archiver.kernel.org>; Sun, 12 Feb 2023 16:00:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gTBY4l/II7S3aEKwSCly79H/uC5FaCPK65ANEi+tqPs=; b=BwVEY+INaSQ253yhcF7TmlXs7W
-	kyUAWAjvOkN/vnrR1wZoWZ1p6vI7zgTl/FtxpdZVAErIDfrTtc433Jw9UNd7yTHmTFKdqm8Zv+Wvq
-	Zxntoead7s4BKj4/FnC1oZkJKBfy4gS7O8WXX1HkUI/mKhk5ajlFLZnlKokvFY6dJFvc3qGf1ysKZ
-	9wq860OqLXrZqQTtwJQ7OTY/RmaevUTTMj1wW+HsgoeTbWGilxti5Jp0PoH1pZUpVTcu6o3HAOM/z
-	T4cM9iAHVTeSYKouqJuKMmvmatkuhE246uK6EpiVgtxBNOAOJanSYYCOifwwAjUYeENxqr+FfnP6E
-	17P/+8EA==;
+	bh=l4R7FQgYMtMp9ER4U1jD0OIo1jvaeFvgWwFiyKuiEGQ=; b=u8lDA02S4aWjlyGMGYkRPJ7kxi
+	M/kbNie2hkmtUEzanm9ZdIzDZhTl9zRF6loYUjbTPxbBp4n18C5HuzBzOkDVgXd+pAEs0FIAU0QtX
+	5/LufkATw51lOKWtRuW1kq2QMcpgZaJapXjjzWVN1OyQa7AiO0fuu11IC2NYGVURo9vxnYFccvNaZ
+	/cGFf2IdUKXdwSiy3pHptbihGQL530435lZYIz/Lyk32NFJnfMOLPfBSS3iN+IzG5gshWT4k3LnNB
+	hozNyPg2803GqS99o0Baab3iXejqqykHRsEonYKmOdkgdfY8tRd4CoKaWUAZx7gwk0fs8TSVisC+L
+	hxpHZpWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pREai-00BkMf-Tr; Sun, 12 Feb 2023 15:48:37 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1pRElx-00Bnda-3s; Sun, 12 Feb 2023 16:00:13 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pREaf-00BkJE-0l
-	for linux-riscv@lists.infradead.org; Sun, 12 Feb 2023 15:48:34 +0000
+	id 1pRElt-00BnbO-0r; Sun, 12 Feb 2023 16:00:11 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 9A421B80D2D;
-	Sun, 12 Feb 2023 15:48:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC434C433EF;
-	Sun, 12 Feb 2023 15:48:27 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 354D060C16;
+	Sun, 12 Feb 2023 16:00:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 815C6C433EF;
+	Sun, 12 Feb 2023 16:00:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1676216910;
-	bh=Vukdoymwm/wEA58+hycxqrl3bmx2LN+x0akzNw5Yu2s=;
+	s=k20201202; t=1676217605;
+	bh=3GS8eS2ABWfh0rKkL4X5c0vwSZUS8lS05Wt8LGvnde4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=s4hRk23TmcLpC3qBZrOU7D2TKEUlF7xHXzs3SYhgVfrPxWvNBDxb2dvz/pbrehLJ5
-	 ibjxhOPLcd/aUKIHHA1rK9qmS1W+ilXlxSnSAB90r2GzrogU0/PQoVDbYP8FOQ6pMu
-	 ho4fp2QY+4mJnQGoYqPj0cVZQrEobBnIlodAHaSLR7u7QhXuM9BJm3flou3ajE0b3V
-	 RO9IXfldG2mgrpJ5UDLsln9X64bd/kUzM5uNTBoVY9gDXF9d0PnUDjXYGxIhR1aK7N
-	 +xTDGqNAXTXgdMYkGuHn927KUviECLNxqll2KcUXjocfIKRUqVLgKHeK6CTJqkTToG
-	 gxFxDyC6rPnLQ==
-Date: Sun, 12 Feb 2023 15:48:25 +0000
+	b=epq7qhuUPVzNCg5kDrHOAESjF+42lFOCDPmjSr4bpHwkObV4+BWzN4EIwZPp3vkpV
+	 nXgzvcOFCOmdqQIZnPnZn3umFGWRhkN/EFMTEnw0Z3LdvTLZfOptkq+o6rTVQWYOn3
+	 VAenbnB/61Oo6b+XF97ZQ7Hd8GHeVFJQMMQreoHN62BwuKu+Sx7xpW1pwh46RenyzI
+	 aG3F6uxOURocRa5OXBEDKZterHjMC6yoy5Cklu+sLsEaAdWvjuffMqRIweANdIMMog
+	 B2TciqKLuGbAdPCkd0VtsirhrbVuRJ5rlgGsbCGZ4MA6+KoI6KJAWSppL6VjOBjRAR
+	 34hTCgNchxvvw==
+Date: Sun, 12 Feb 2023 15:59:59 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Samuel Holland <samuel@sholland.org>
-Cc: Heiko Stuebner <heiko@sntech.de>, Jisheng Zhang <jszhang@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	linux-riscv@lists.infradead.org,
+To: Guenter Roeck <linux@roeck-us.net>
+Cc: Jisheng Zhang <jszhang@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Heiko Stuebner <heiko@sntech.de>,
 	Andrew Jones <ajones@ventanamicro.com>,
-	Christoph Muellner <christoph.muellner@vrull.eu>,
 	Conor Dooley <conor.dooley@microchip.com>,
-	Guo Ren <guoren@kernel.org>,
-	Heiko Stuebner <heiko.stuebner@vrull.eu>,
-	Nathan Chancellor <nathan@kernel.org>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] riscv: Fix early alternative patching
-Message-ID: <Y+kKSTuyvpw06VCG@spud>
-References: <20230212021534.59121-1-samuel@sholland.org>
- <20230212021534.59121-2-samuel@sholland.org>
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org
+Subject: Re: [PATCH v5 00/13] riscv: improve boot time isa extensions handling
+Message-ID: <Y+kM//nuDv29Z9qJ@spud>
+References: <20230128172856.3814-1-jszhang@kernel.org>
+ <20230212154333.GA3760469@roeck-us.net>
 MIME-Version: 1.0
-In-Reply-To: <20230212021534.59121-2-samuel@sholland.org>
+In-Reply-To: <20230212154333.GA3760469@roeck-us.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230212_074833_243944_C63601C9 
-X-CRM114-Status: GOOD (  16.26  )
+X-CRM114-CacheID: sfid-20230212_080009_202758_01F049CF 
+X-CRM114-Status: GOOD (  33.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,73 +73,194 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8631968194157607930=="
+Content-Type: multipart/mixed; boundary="===============3059599346466537228=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============8631968194157607930==
+--===============3059599346466537228==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="ZZwqfOBoXuz7+HRs"
+	protocol="application/pgp-signature"; boundary="D1LdKf84bSz7dc9I"
 Content-Disposition: inline
 
 
---ZZwqfOBoXuz7+HRs
+--D1LdKf84bSz7dc9I
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Sat, Feb 11, 2023 at 08:15:32PM -0600, Samuel Holland wrote:
-> Now that the text to patch is located using a relative offset from the
-> alternative entry, the text address should be computed without applying
-> the kernel mapping offset, both before and after VM setup.
+Hey Guenter,
+
+On Sun, Feb 12, 2023 at 07:43:33AM -0800, Guenter Roeck wrote:
+> On Sun, Jan 29, 2023 at 01:28:43AM +0800, Jisheng Zhang wrote:
+> > Generally, riscv ISA extensions are fixed for any specific hardware
+> > platform, so a hart's features won't change after booting, this
+> > chacteristic makes it straightforward to use a static branch to check
+> > a specific ISA extension is supported or not to optimize performance.
+> >=20
+> > However, some ISA extensions such as SVPBMT and ZICBOM are handled
+> > via. the alternative sequences.
+> >=20
+> > Basically, for ease of maintenance, we prefer to use static branches
+> > in C code, but recently, Samuel found that the static branch usage in
+> > cpu_relax() breaks building with CONFIG_CC_OPTIMIZE_FOR_SIZE[1]. As
+> > Samuel pointed out, "Having a static branch in cpu_relax() is
+> > problematic because that function is widely inlined, including in some
+> > quite complex functions like in the VDSO. A quick measurement shows
+> > this static branch is responsible by itself for around 40% of the jump
+> > table."
+> >=20
+> > Samuel's findings pointed out one of a few downsides of static branches
+> > usage in C code to handle ISA extensions detected at boot time:
+> > static branch's metadata in the __jump_table section, which is not
+> > discarded after ISA extensions are finalized, wastes some space.
+> >=20
+> > I want to try to solve the issue for all possible dynamic handling of
+> > ISA extensions at boot time. Inspired by Mark[2], this patch introduces
+> > riscv_has_extension_*() helpers, which work like static branches but
+> > are patched using alternatives, thus the metadata can be freed after
+> > patching.
+> >=20
 >=20
-> Fixes: 8d23e94a4433 ("riscv: switch to relative alternative entries")
+> This patch series results in boot failures when trying to boot the
+> qemu sifive_u emulation. There are many log messages along the line of
+>=20
+> [    0.000000] WARNING: CPU: 0 PID: 0 at arch/riscv/kernel/patch.c:63 pat=
+ch_insn_write+0x222/0x2f6
+> [    0.000000] Modules linked in:
+> [    0.000000] CPU: 0 PID: 0 Comm: swapper Tainted: G        W          6=
+=2E2.0-rc7-next-20230210 #1
+> [    0.000000] Hardware name: SiFive HiFive Unleashed A00 (DT)
+> [    0.000000] epc : patch_insn_write+0x222/0x2f6
+> [    0.000000]  ra : patch_insn_write+0x21e/0x2f6
+> [    0.000000] epc : ffffffff800068c6 ra : ffffffff800068c2 sp : ffffffff=
+81803df0
+> [    0.000000]  gp : ffffffff81a1ab78 tp : ffffffff81814f80 t0 : ffffffff=
+ffffe000
+> [    0.000000]  t1 : 0000000000000001 t2 : 4c45203a76637369 s0 : ffffffff=
+81803e40
+> [    0.000000]  s1 : 0000000000000004 a0 : 0000000000000000 a1 : ffffffff=
+ffffffff
+> [    0.000000]  a2 : 0000000000000004 a3 : 0000000000000000 a4 : 00000000=
+00000001
+> [    0.000000]  a5 : 0000000000000000 a6 : 0000000000000000 a7 : 00000000=
+52464e43
+> [    0.000000]  s2 : ffffffff80b4889c s3 : 000000000000082c s4 : ffffffff=
+80b48828
+> [    0.000000]  s5 : 0000000000000828 s6 : ffffffff8131a0a0 s7 : 00000000=
+00000fff
+> [    0.000000]  s8 : 0000000008000200 s9 : ffffffff8131a520 s10: 00000000=
+00000018
+> [    0.000000]  s11: 000000000000000b t3 : 0000000000000001 t4 : 00000000=
+0000000d
+> [    0.000000]  t5 : ffffffffd8180000 t6 : ffffffff81803bc8
+> [    0.000000] status: 0000000200000100 badaddr: 0000000000000000 cause: =
+0000000000000003
+> [    0.000000] [<ffffffff800068c6>] patch_insn_write+0x222/0x2f6
+> [    0.000000] [<ffffffff80006a36>] patch_text_nosync+0xc/0x2a
+> [    0.000000] [<ffffffff80003b86>] riscv_cpufeature_patch_func+0x52/0x98
+> [    0.000000] [<ffffffff80003348>] _apply_alternatives+0x46/0x86
+> [    0.000000] [<ffffffff80c02d36>] apply_boot_alternatives+0x3c/0xfa
+> [    0.000000] [<ffffffff80c03ad8>] setup_arch+0x584/0x5b8
+> [    0.000000] [<ffffffff80c0075a>] start_kernel+0xa2/0x8f8
+> [    0.000000] irq event stamp: 0
+> [    0.000000] hardirqs last  enabled at (0): [<0000000000000000>] 0x0
+> [    0.000000] hardirqs last disabled at (0): [<0000000000000000>] 0x0
+> [    0.000000] softirqs last  enabled at (0): [<0000000000000000>] 0x0
+> [    0.000000] softirqs last disabled at (0): [<0000000000000000>] 0x0
+> [    0.000000] ---[ end trace 0000000000000000 ]---
+> [    0.000000] ------------[ cut here ]------------
+>=20
+> then qemu hangs until the session is aborted.
 
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+I have come across the same issue on PolarFire SoC while looking at
+Samuel's fixes for Zbb & the D1:
+https://lore.kernel.org/all/20230212021534.59121-1-samuel@sholland.org/
 
-> Signed-off-by: Samuel Holland <samuel@sholland.org>
+Boot over NFS still works, which I think points to a hole in how my CI
+is operating - it assumed the completed boot + bootrr being happy to
+mean that there was nothing wrong!
+
+On the VisionFive 2 & D1 Nezha I don't see these splats though.
+It appears to be config related as the config I build for Icicle sees
+these splats in QEMU but the D1 config does not.
+I'll go do some digging!
+
+>=20
+> Similar messages are also seen with the "virt" emulation, but there the b=
+oot
+> does not hang but fails to find a root device.
+>=20
+> Guenter
+>=20
+>=20
+>=20
 > ---
+> bisect:
 >=20
->  arch/riscv/errata/thead/errata.c | 4 +---
->  1 file changed, 1 insertion(+), 3 deletions(-)
->=20
-> diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/e=
-rrata.c
-> index c0bea5c94128..1dd90a5f86f0 100644
-> --- a/arch/riscv/errata/thead/errata.c
-> +++ b/arch/riscv/errata/thead/errata.c
-> @@ -102,9 +102,7 @@ void __init_or_module thead_errata_patch_func(struct =
-alt_entry *begin, struct al
-> =20
->  			/* On vm-alternatives, the mmu isn't running yet */
->  			if (stage =3D=3D RISCV_ALTERNATIVES_EARLY_BOOT)
-> -				memcpy((void *)__pa_symbol(oldptr),
-> -				       (void *)__pa_symbol(altptr),
-> -				       alt->alt_len);
-> +				memcpy(oldptr, altptr, alt->alt_len);
->  			else
->  				patch_text_nosync(oldptr, altptr, alt->alt_len);
->  		}
-> --=20
-> 2.37.4
->=20
+> # bad: [6ba8a227fd19d19779005fb66ad7562608e1df83] Add linux-next specific=
+ files for 20230210
+> # good: [4ec5183ec48656cec489c49f989c508b68b518e3] Linux 6.2-rc7
+> git bisect start 'HEAD' 'v6.2-rc7'
+> # bad: [94613f0efc69ed41f9229ef5c294db3ec37145da] Merge branch 'master' o=
+f git://git.kernel.org/pub/scm/linux/kernel/git/herbert/cryptodev-2.6.git
+> git bisect bad 94613f0efc69ed41f9229ef5c294db3ec37145da
+> # bad: [8928ece68de4371dc6e1d3336d3029c1e18ae3b4] Merge branch 'for_next'=
+ of git://git.kernel.org/pub/scm/linux/kernel/git/jack/linux-fs.git
+> git bisect bad 8928ece68de4371dc6e1d3336d3029c1e18ae3b4
+> # good: [78a9f460e33d103256f3abb38f02f4759710c7dc] soc: document merges
+> git bisect good 78a9f460e33d103256f3abb38f02f4759710c7dc
+> # good: [b35b2472ebafa29d0bbe79fbee1da6ef3c4ec619] Merge branch 'for-next=
+' of git://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git
+> git bisect good b35b2472ebafa29d0bbe79fbee1da6ef3c4ec619
+> # bad: [57a87a64b520c37dd49f5fde84d09a4adb391180] Merge branch 'for-next'=
+ of git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git
+> git bisect bad 57a87a64b520c37dd49f5fde84d09a4adb391180
+> # good: [cfc8ba01cc84b24ec6eb293ec9fba893f7cd4581] Merge branch 'clk-next=
+' of git://git.kernel.org/pub/scm/linux/kernel/git/clk/linux.git
+> git bisect good cfc8ba01cc84b24ec6eb293ec9fba893f7cd4581
+> # good: [6acecfa485d3de955c35a18730c106ddf1e7600e] powerpc/kcsan: Add KCS=
+AN Support
+> git bisect good 6acecfa485d3de955c35a18730c106ddf1e7600e
+> # good: [8a16dea453dbc3e834b162640028e505882cd11e] Merge branch 'next' of=
+ git://git.kernel.org/pub/scm/linux/kernel/git/powerpc/linux.git
+> git bisect good 8a16dea453dbc3e834b162640028e505882cd11e
+> # good: [6be1ff430dab9fc047762b10b2c9669399ea1f37] riscv: pgtable: Fixup =
+comment for KERN_VIRT_SIZE
+> git bisect good 6be1ff430dab9fc047762b10b2c9669399ea1f37
+> # good: [e0c267e03b0c77c9ac79ac08eada41ba8eb1b95f] riscv: module: move fi=
+nd_section to module.h
+> git bisect good e0c267e03b0c77c9ac79ac08eada41ba8eb1b95f
+> # good: [e8ad17d2b5f38e595d597a3e2419d6d7cc727b17] riscv: KVM: Switch has=
+_svinval() to riscv_has_extension_unlikely()
+> git bisect good e8ad17d2b5f38e595d597a3e2419d6d7cc727b17
+> # good: [75ab93a244a516d1d3c03c4e27d5d0deff76ebfb] Merge patch series "Zb=
+b string optimizations"
+> git bisect good 75ab93a244a516d1d3c03c4e27d5d0deff76ebfb
+> # bad: [9daca9a5b9ac35361ce2d8d5ec10b19b7048d6cd] Merge patch series "ris=
+cv: improve boot time isa extensions handling"
+> git bisect bad 9daca9a5b9ac35361ce2d8d5ec10b19b7048d6cd
+> # good: [03966594e1170303c037b0cded35c464a13a4a45] riscv: remove riscv_is=
+a_ext_keys[] array and related usage
+> git bisect good 03966594e1170303c037b0cded35c464a13a4a45
+> # first bad commit: [9daca9a5b9ac35361ce2d8d5ec10b19b7048d6cd] Merge patc=
+h series "riscv: improve boot time isa extensions handling"
 
---ZZwqfOBoXuz7+HRs
+--D1LdKf84bSz7dc9I
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHQEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY+kKSQAKCRB4tDGHoIJi
-0hTXAP9igWO796XC6hLAXjhirFkpfB6Cxc4+Iy3v0XaTjWbkKQD43amLsSE0ma63
-mWwEfULUWh6gbSdqjnv3HsVqCG9+DA==
-=O9Y0
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY+kM/wAKCRB4tDGHoIJi
+0tvZAPwP4FSXrOgazgMKLxsKHo1j96GB6dSyd5HFkWqHpdIWtQEAkhUsLOE+vmE0
+kdCi6U++YL4SEz7gKD0YiH3QeNokXws=
+=6Ej4
 -----END PGP SIGNATURE-----
 
---ZZwqfOBoXuz7+HRs--
+--D1LdKf84bSz7dc9I--
 
 
---===============8631968194157607930==
+--===============3059599346466537228==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -151,5 +271,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============8631968194157607930==--
+--===============3059599346466537228==--
 
