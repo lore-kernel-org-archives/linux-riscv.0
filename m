@@ -4,103 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03E4AC636D3
-	for <linux-riscv@archiver.kernel.org>; Sun, 12 Feb 2023 17:39:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D842FC05027
+	for <linux-riscv@archiver.kernel.org>; Sun, 12 Feb 2023 18:06:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=q3AltZGC3rWqWtfD5vg6gIlaL7T5rGowsatLbuKZRvU=; b=4jR0hTWPcihdHm
-	3QNg7C1UP5wdWKriGjX8qd/9DCd3IKZQSAph+OWIn9YXvEQN8HgvuhSJZ2qmRsG75sSE5Hq/JghgM
-	VdordqPhbO3YWIBbA1SkeD5nqIuys7Zufv2ZS/wtwZR5AsX1MfJyUUrAmaM+6j6WavPtukH1CqKKu
-	NMUlMfkzXbQgdFQ14bzc0mx8MGWKSBbq3/EfGSmeHTrRhxjOdyD2bKFqoC1kacfm+kDjLuQJvL9fC
-	34qLbXkgPV8xIchvS29m4nW1MScn1tXFbGbiUffva3NL3aAQHpjUoC6L1jBquVGOiAI/LJXm7y/gL
-	Xf4fwTsm6E8wquSwLTDw==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Cc:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d6poBRLS3BZ2vOacsXh+atn+k4e6ZgOrRut+XfpOG0w=; b=hRrfe8CPCwQosogZUScYBSvc38
+	xArBtaB+tWKZ+9sWHUlDc1jC0Pe6fm6+a2QGFcZS42f4dUQbwru032m90EAFKpzdHs7xKbADu8pS5
+	HmqcnfHugqHmnApXToyRjrnCqu9kr9lgmYknfnDCY3GZ0w+uDV/+/wFgSMdap22V3P3HFske4P1gB
+	NA3/wXIaps27RRzDyNWIWEFMR/wXl18NkgcHSYn4UwkW0ldq94EwWIhQ3pKl5pv9lI3SG0xrrDOWk
+	cgOymMeL3etzqSsSDKun5LnmRY1MDVtt7Jy2EVb6fqMl+jiUvwuIyJK8zU0QY+uwfVx8aML5eQVoM
+	/z2hXSpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRGJV-00BzFA-HU; Sun, 12 Feb 2023 17:38:57 +0000
-Received: from mail-oa1-x2c.google.com ([2001:4860:4864:20::2c])
+	id 1pRGjx-00C2Fb-C4; Sun, 12 Feb 2023 18:06:17 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRGJK-00BzB1-Ab; Sun, 12 Feb 2023 17:38:47 +0000
-Received: by mail-oa1-x2c.google.com with SMTP id 586e51a60fabf-15fe106c7c7so12815473fac.8;
-        Sun, 12 Feb 2023 09:38:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=gEc3d6k45zjDeEZHbol4IIwzjmxqM4mBWgDI31Sfc5o=;
-        b=R330sse/EVLRGFL0igafPWieDgvfGLbUv1mxwjjJZAHpBvZcU2/Gg7Ye7o55WJDp/T
-         d/MkHSIY+rV5WmpmEtSQ3EcpkVyHgH/g8WGwdicgdAr8s7fVYzB3M6AQYSXN1fWO7dsD
-         adnG3ljI9LKreMS0IYacGj+zm2/uKWOjveyAMeTbeBXzAlA0+lDjE38oWr0kFL4x/3pl
-         NtGAiadx3cotdBgXvBg6mFyqYNavUvZnDTVR9OSu3hxj7Glcs0NmbhgPuh+/V46P8f0N
-         UAStFFymZhcq+751kC0Xe8LgThvdTeD+HxCq3F5UGXwSHXYBMgqQ0gCOk/Vyqx7W2YhY
-         u2kw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=gEc3d6k45zjDeEZHbol4IIwzjmxqM4mBWgDI31Sfc5o=;
-        b=VQqA00cpwV1eHP24rOw22/Mg3AjqXlp398/LCbOSfItuaPIyJRFO/8EFAw2iLUI+NN
-         DUldOXIXSOE4q5Rb/wyvznvdu45x7Nsa+zMPvTbPUuCwgYcE5EBDDB69Gw7j6oydkSEE
-         rZepRYNKVoW95MdHQSe4uH9oAz8chc6SW4tc62KqMEm6SH9V5rrWk6J37O+MIBzypgbS
-         Ti7dtxFiaFkNO6SYzZZxVakPNFdy+pkHmgAOTZ9ZnvyMgHfpc0vzJvPIUmJ536+vosvP
-         f/H1mXYzW9vguRtGb07dAERZB53UsapM+g9beaMd5AXJ1oyDLKWKYTv/ymmKwdIkmWtm
-         6OlQ==
-X-Gm-Message-State: AO0yUKUtSlWNXFSZI5oPR3LmesgPGMNdzB2XzMLRM18FnsE6aIg3/u9x
-	NkzXbfDMXV5EzbWtbva/qBM=
-X-Google-Smtp-Source: AK7set/4d6sAa3sFADK7k8Ny8wL2J6QT+VlS2G9nj4JhFjRiy2CF6KFV2p0y673SokHVHJOuHdHtkw==
-X-Received: by 2002:a05:6870:2885:b0:16e:a65:3b8e with SMTP id gy5-20020a056870288500b0016e0a653b8emr473342oab.9.1676223521592;
-        Sun, 12 Feb 2023 09:38:41 -0800 (PST)
-Received: from ?IPV6:2600:1700:e321:62f0:329c:23ff:fee3:9d7c? ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
-        by smtp.gmail.com with ESMTPSA id n40-20020a056870822800b0013bc95650c8sm4012885oae.54.2023.02.12.09.38.37
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 12 Feb 2023 09:38:41 -0800 (PST)
-Message-ID: <64f2ba37-d869-0160-1a89-d7f15d243d05@roeck-us.net>
-Date: Sun, 12 Feb 2023 09:38:36 -0800
+	id 1pRGjs-00C2EM-Ob; Sun, 12 Feb 2023 18:06:14 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id A302360CA0;
+	Sun, 12 Feb 2023 18:06:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C830C433D2;
+	Sun, 12 Feb 2023 18:06:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1676225169;
+	bh=lp88wKQLqiF3Hiyw44dr0tpOeS79utafc+HLRjWlnYg=;
+	h=Date:From:To:Subject:References:In-Reply-To:From;
+	b=raJG3DXHPsmVeD91Ru+9mmbE/4O4IYRntyJ3WTHhIqt2KY2fmSrEnXz2x5bq8NLps
+	 pbLRXwK3BiBMN1LQNpUmZCcOYpPg4GlwJVZGv3W1Etv/r+cmPBQvo/yc5vFInIaF9b
+	 Aie6WTLql1XOemrAWDJjniRKO6aD23VkBeEQaZ5XAfmnB9/NOML93vi5Zp3aNbLeA9
+	 ykexNiySadnHumXTDovz1HQUOmqPcZYSSJhMLjkIS7tqhzIw7Ea6MPcVJYWuyDJk/L
+	 inx7/PxQvnaZ7X3yZ/28faDwVb99ZToMT7ZkoRcFGuHtZ6v5zzyxCZqO26gp2fMHwV
+	 UQfnSLYUISkLw==
+Date: Sun, 12 Feb 2023 18:06:03 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Jisheng Zhang <jszhang@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+	Guenter Roeck <linux@roeck-us.net>
+Subject: Re: [PATCH v5 00/13] riscv: improve boot time isa extensions handling
+Message-ID: <Y+kqi8bQE+8hLfOF@spud>
+References: <20230128172856.3814-1-jszhang@kernel.org>
+ <20230212154333.GA3760469@roeck-us.net>
+ <Y+kM//nuDv29Z9qJ@spud>
+ <Y+kU9nDBTttZRLLq@spud>
+ <Y+kcgcncQO/2DNLo@spud>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.4.2
-Subject: Re: [PATCH v2 4/4] mm, arch: add generic implementation of
- pfn_valid() for FLATMEM
-Content-Language: en-US
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>, Arnd Bergmann <arnd@arndb.de>,
- Brian Cain <bcain@quicinc.com>, "David S. Miller" <davem@davemloft.net>,
- Dinh Nguyen <dinguyen@kernel.org>, Geert Uytterhoeven
- <geert@linux-m68k.org>, Greg Ungerer <gerg@linux-m68k.org>,
- Guo Ren <guoren@kernel.org>, Helge Deller <deller@gmx.de>,
- Huacai Chen <chenhuacai@kernel.org>, Matt Turner <mattst88@gmail.com>,
- Max Filippov <jcmvbkbc@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>,
- Michal Simek <monstr@monstr.eu>, Palmer Dabbelt <palmer@dabbelt.com>,
- Rich Felker <dalias@libc.org>, Richard Weinberger <richard@nod.at>,
- Russell King <linux@armlinux.org.uk>, Stafford Horne <shorne@gmail.com>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Vineet Gupta <vgupta@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
- Yoshinori Sato <ysato@users.sourceforge.jp>, linux-alpha@vger.kernel.org,
- linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
- linux-ia64@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
- linux-mm@kvack.org, linux-parisc@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
- linux-snps-arc@lists.infradead.org, linux-um@lists.infradead.org,
- linux-xtensa@linux-xtensa.org, linuxppc-dev@lists.ozlabs.org,
- loongarch@lists.linux.dev, openrisc@lists.librecores.org,
- sparclinux@vger.kernel.org, x86@kernel.org,
- Huacai Chen <chenhuacai@loongson.cn>
-References: <20230129124235.209895-1-rppt@kernel.org>
- <20230129124235.209895-5-rppt@kernel.org>
- <20230212161320.GA3784076@roeck-us.net> <Y+kTHsaq8FAG72CX@kernel.org>
-From: Guenter Roeck <linux@roeck-us.net>
-In-Reply-To: <Y+kTHsaq8FAG72CX@kernel.org>
+In-Reply-To: <Y+kcgcncQO/2DNLo@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230212_093846_378427_96F66967 
-X-CRM114-Status: GOOD (  12.44  )
+X-CRM114-CacheID: sfid-20230212_100612_884247_8B9B27DD 
+X-CRM114-Status: GOOD (  15.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,37 +76,77 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============1282200074689488654=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2/12/23 08:26, Mike Rapoport wrote:
-> Hi Guenter,
-> 
-> On Sun, Feb 12, 2023 at 08:13:20AM -0800, Guenter Roeck wrote:
->> On Sun, Jan 29, 2023 at 02:42:35PM +0200, Mike Rapoport wrote:
->>> From: "Mike Rapoport (IBM)" <rppt@kernel.org>
->>>
->>> Every architecture that supports FLATMEM memory model defines its own
->>> version of pfn_valid() that essentially compares a pfn to max_mapnr.
->>>
->>> Use mips/powerpc version implemented as static inline as a generic
->>> implementation of pfn_valid() and drop its per-architecture definitions.
->>>
->>
->> With this patch in the tree, sh4 and sh4eb qemu emulations no longer boot.
->> Reverting this patch fixes the problem.
->   
-> Can you please test with only partial revert for arch/sh?
-> 
 
-Sure, that works as well.
+--===============1282200074689488654==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="GmLjP+yv5qcdEtuf"
+Content-Disposition: inline
 
-Guenter
 
+--GmLjP+yv5qcdEtuf
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Sun, Feb 12, 2023 at 05:06:09PM +0000, Conor Dooley wrote:
+> On Sun, Feb 12, 2023 at 04:33:58PM +0000, Conor Dooley wrote:
+> > On Sun, Feb 12, 2023 at 03:59:59PM +0000, Conor Dooley wrote:
+>=20
+> So as not to lead anyone up the garden path, let me correct myself:
+>=20
+> > Hmm, so this appears to be us attempting to patch in alternatives where
+> > none actually exists - seemingly F & D.
+>=20
+> And of course that's not true, riscv_has_extension_likely() now uses
+> alternatives as of:
+> bdda5d554e43 ("riscv: introduce riscv_has_extension_[un]likely()")
+>=20
+> From a quick look, it just happens that the only users are F & D.
+>=20
+
+Samuel pointed out that this is a lockdep splat on irc.
+There's a patch on the list that removes the lockdep annotation
+entirely:
+https://patchwork.kernel.org/project/linux-riscv/patch/20230202114116.36957=
+93-1-changbin.du@huawei.com/
+
+So ye, no surprises that it was config based!
+
+Palmer posted a "better" fix for that lockdep warning a while ago:
+https://lore.kernel.org/all/20220322022331.32136-1-palmer@rivosinc.com/
+
+So we'd have to duplicate/reuse that for cpufeature/errata patching.
+
+
+
+--GmLjP+yv5qcdEtuf
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY+kqiwAKCRB4tDGHoIJi
+0vcsAQDNCg9J+6Vcsh5GKfX2XL35m7Wf0yDTU5M28FIiLYqBUgEAshGaQIbqzGuw
+8lC8srYQoSDY+hH/TPM6ZvHj9k1AqQY=
+=Vm7y
+-----END PGP SIGNATURE-----
+
+--GmLjP+yv5qcdEtuf--
+
+
+--===============1282200074689488654==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1282200074689488654==--
+
