@@ -4,69 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 820DFC05027
-	for <linux-riscv@archiver.kernel.org>; Sun, 12 Feb 2023 18:20:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF769C636D3
+	for <linux-riscv@archiver.kernel.org>; Sun, 12 Feb 2023 18:37:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=flx9pH/UQtJYaukrRGzUQEkB6ridpNxSuECZ+jqhpbo=; b=NpK4/pbNnezMNJXI5LnjsGcSAL
-	TTFBDfdyp1asj3YQxM3/c7oGov9+7xFn+FT3a2ehFtnEH3xYi7u7WkD+2f5LYM9LdvwrxFrMhrlYU
-	dAPkdxs/Q0ZzNVEOyL8ic4v+gTTD42oKsbQvWOWlZOyV3w/UctMQnxr8ztO+BHbQUDaCLWEgwg2aS
-	zybOT9UYj8ZE6VkRpw/496cpsMBTfxXZ9jafIpOPIGaDY0BDRnJZuLBy0PNAn6vxfx5rqf+7TmyNZ
-	3wglr/Ifv+UkDhPlEz+S6ToBi8vzd0NdZ17f63Dmy8NACHHgLtQYFMJLTLPba5krUjq3xxRn+MUou
-	g5xSPePg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=3oD4JSd8BB8pQCJ1fqb2NwcpYhNmMi8jFnJ+N8bjuys=; b=ZenpWL7W/ygNl6
+	HMubLjRhVcAYOyjCsqgmV2XvD2ZnxisKLwqT93fwOUR6jhEBo/lr5LtqSYVssgzLcjGaIwjPBeqUz
+	UDgBf1S6j1SjaIUiu5Y8W//UZOMnet2WBBq/cn+tLb680I+KVojTBsCdFZtL7Y0Jv72ms9VqwvEKn
+	WPodrBRxIrgTczXIwHhtzLSCeumG6MSvZKrm0JfnnRSg7J2pe9diFjvHE5dhIw61q8J0VcY+DXb43
+	2KGOGwcTh9CObcSnlHIsTGMbLx5n7ujG5qU8p8lB+b26/LHRq2i/FW9fGWFD8VPPrNCNKKu7wTQap
+	hg4236EvKTU+wRnt4zRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRGxS-00C3mV-28; Sun, 12 Feb 2023 18:20:14 +0000
+	id 1pRHE7-00C5ep-7D; Sun, 12 Feb 2023 18:37:27 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRGxO-00C3lY-75; Sun, 12 Feb 2023 18:20:11 +0000
+	id 1pRHE4-00C5dx-GV
+	for linux-riscv@lists.infradead.org; Sun, 12 Feb 2023 18:37:25 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 8A13D60DB6;
-	Sun, 12 Feb 2023 18:20:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2BACDC433EF;
-	Sun, 12 Feb 2023 18:20:05 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 1FE0C60CA0;
+	Sun, 12 Feb 2023 18:37:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC042C433EF;
+	Sun, 12 Feb 2023 18:37:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1676226009;
-	bh=MJjysyKBHGe9JZ/bqgooxVcRfzQCFzHhpHVyrLvWeA4=;
+	s=k20201202; t=1676227042;
+	bh=lZKQIEO7UGeivhn0TxcsgdRpjPn0tConcYHrlR26cWo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=enQuMwuBn6D1txzxnlMuUu8ScrNWig9UjQGKD3652roF/zJR5ynT6DibKKroUQdNL
-	 SCnOxAZfTlMGflXLK8xXj6Wq85KudB0sH+5yPds/d+hsfy/A/RyFZfB4/9+L7ulH1n
-	 kHip0k1TGvb3iew8gX8mwxp1QJzdPZtiC0V1KSx1HY7N0kYpqlY95LeYSMfwVg/sz1
-	 IUio0/iMp3+iSO6NepZVELn4vDb1I1ISnzWsPczD7EQssrLsUe/95qjbKvxTjyfjM4
-	 pjGELgtKA8jQQQYKSr9UcKlJ9/uqLjtB9Cg41x4Ztl0j9cbt2LLI5ZB8LXWnUyJGgh
-	 WHnr6C8KhYIKg==
-Date: Sun, 12 Feb 2023 18:20:03 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Guenter Roeck <linux@roeck-us.net>
-Cc: Jisheng Zhang <jszhang@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org
-Subject: Re: [PATCH v5 00/13] riscv: improve boot time isa extensions handling
-Message-ID: <Y+kt04c1iRlzUNLA@spud>
-References: <20230128172856.3814-1-jszhang@kernel.org>
- <20230212154333.GA3760469@roeck-us.net>
- <Y+kM//nuDv29Z9qJ@spud>
- <Y+kU9nDBTttZRLLq@spud>
- <Y+kcgcncQO/2DNLo@spud>
- <Y+kqi8bQE+8hLfOF@spud>
- <a059a815-dcb0-c575-b5a4-f9433e268e9b@roeck-us.net>
+	b=JMGMzKRRXBU+ePfdud7KxhsZKGxgA3FMJMpTsOl2bCpWU9WXIaszBciS/mAKBWzmt
+	 pFk40VxZzRjpRKEDwB7JRf05dGe8/z5/QKxKI6t/6DShauKCSQ6i/uUH4nxWKrcWBi
+	 inrFk4G1EAHmkx+AQ2CkyBRwr3RVhWChB2ggbkWJNRgsFRgvTOL+RKXkW+mPCRqHjQ
+	 ATuke1lgxtUp9dE+3u0ySSJ6E7z12SBSNWiTfESMeYQ7uiv7i0v5QJPCXfqAyAyGzy
+	 V2tQzd+WYXOY3G+XanuoZ8par1ufewgtcBo8qKmBOW2F/kPvF4f2pjfclUpvloNjuA
+	 SdICanzCUxcdQ==
+Date: Sun, 12 Feb 2023 20:37:17 +0200
+From: Leon Romanovsky <leon@kernel.org>
+To: Nick Alcock <nick.alcock@oracle.com>
+Cc: Conor Dooley <conor@kernel.org>, mcgrof@kernel.org,
+	linux-modules@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 8/8] kbuild, PCI: microchip: comment out MODULE_LICENSE
+ in non-modules
+Message-ID: <Y+kx3fb2Lzlg+u5+@unreal>
+References: <20230210164749.368998-1-nick.alcock@oracle.com>
+ <20230210164749.368998-9-nick.alcock@oracle.com>
+ <Y+aMh5e9bWaTphiZ@spud>
+ <871qmx1fv5.fsf@esperi.org.uk>
+ <Y+akw9VBjg9oZ7QV@spud>
 MIME-Version: 1.0
-In-Reply-To: <a059a815-dcb0-c575-b5a4-f9433e268e9b@roeck-us.net>
+Content-Disposition: inline
+In-Reply-To: <Y+akw9VBjg9oZ7QV@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230212_102010_389005_0C0152CF 
-X-CRM114-Status: GOOD (  23.09  )
+X-CRM114-CacheID: sfid-20230212_103724_629785_7E5B48ED 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,92 +73,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1283465155046251154=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Fri, Feb 10, 2023 at 08:10:43PM +0000, Conor Dooley wrote:
+> On Fri, Feb 10, 2023 at 07:26:38PM +0000, Nick Alcock wrote:
+> > On 10 Feb 2023, Conor Dooley said:
+> > > FYI $subject seems wrong, this is a PCI patch AFAICT.
 
---===============1283465155046251154==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="LL9KTVybbDibeZ25"
-Content-Disposition: inline
+<...>
 
+> > kbuild is present in every patch in the series because this is a
+> > kbuild-driven change (the thing it disturbs is part of the build system,
+> > the construction of modules.builtin*). This seems to be common practice
+> > for kbuild-related treewide changes.
+> 
+> Okay, I'll take your word for it. It just looked/looks odd to me!
 
---LL9KTVybbDibeZ25
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+It looks odd to me too. Please add SPDX tag in modules which don't have
+it already, instead of commenting code.
 
-On Sun, Feb 12, 2023 at 10:14:13AM -0800, Guenter Roeck wrote:
-> On 2/12/23 10:06, Conor Dooley wrote:
-> > On Sun, Feb 12, 2023 at 05:06:09PM +0000, Conor Dooley wrote:
-> > > On Sun, Feb 12, 2023 at 04:33:58PM +0000, Conor Dooley wrote:
-> > > > On Sun, Feb 12, 2023 at 03:59:59PM +0000, Conor Dooley wrote:
-> > >=20
-> > > So as not to lead anyone up the garden path, let me correct myself:
-> > >=20
-> > > > Hmm, so this appears to be us attempting to patch in alternatives w=
-here
-> > > > none actually exists - seemingly F & D.
-> > >=20
-> > > And of course that's not true, riscv_has_extension_likely() now uses
-> > > alternatives as of:
-> > > bdda5d554e43 ("riscv: introduce riscv_has_extension_[un]likely()")
-> > >=20
-> > >  From a quick look, it just happens that the only users are F & D.
-> > >=20
-> >=20
-> > Samuel pointed out that this is a lockdep splat on irc.
-> > There's a patch on the list that removes the lockdep annotation
-> > entirely:
-> > https://patchwork.kernel.org/project/linux-riscv/patch/20230202114116.3=
-695793-1-changbin.du@huawei.com/
-> >=20
-> > So ye, no surprises that it was config based!
-> >=20
-> > Palmer posted a "better" fix for that lockdep warning a while ago:
-> > https://lore.kernel.org/all/20220322022331.32136-1-palmer@rivosinc.com/
-> >=20
-> > So we'd have to duplicate/reuse that for cpufeature/errata patching.
-> >=20
-> >=20
->=20
-> This does not (only) happen in stop_machine().
-
-Yah, sorry I meant that it's the same lockdep splat as is being
-addressed there.
-The first patch deletes the lockdep stuff entirely, so removes the
-splat. I was thinking that we'd need to take Palmer's (IMO better)
-patch and do the same thing for patching alternatives, but I figure we
-can just take the text_mutex itself for alternatives & not have to
-dance around the lock.
-
-I'll go do that I suppose!
-
---LL9KTVybbDibeZ25
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY+kt0wAKCRB4tDGHoIJi
-0lCHAP9dmIfODGeFB30mrFC0ZS7H8294Wq2cp9dIc6LMlnpd2AEAiBTRGyJfm/jN
-XVO7+oQ9i0CJT3HiApBW4j9H3mFCbgU=
-=gBzF
------END PGP SIGNATURE-----
-
---LL9KTVybbDibeZ25--
-
-
---===============1283465155046251154==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thanks
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1283465155046251154==--
-
