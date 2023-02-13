@@ -4,88 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31EA6C636D7
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Feb 2023 07:55:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CD68C636CC
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Feb 2023 08:31:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JTql+OvokAo+GtOUw8yQM0+al6wSyIZP8kbh64Xi9bg=; b=IyDkwADdc7L7tl
-	ADvGtDKy2uEDGQgAkDc3EdDztEqmlIuoNRo+lqcTuLMf2P0qlf2M1dJRdbYQmlG3qKyCTPs8dp5/C
-	OVSU0j9i0a3O9vUGZVQFNGeaVlCEomfE2121qbyTqhlXKEIA2gGi/fCbAr6x4EGm9/QAN5Z3Gj14/
-	4acyU8B7FS3WbCKx8aGpzUlQK2g4ty8rdcAyBqQVwHlSlS5/dCYH2FjU1OJKMmzVUqmlAs/Aqi+Hf
-	zYq8qZ7oT0/QPJBWMu73jgrzKMHCjKsXJlYMLkth1W5brdKO5bFAZhe/akjmfhZUeaiaR++KCTYdl
-	JrvAoIAj8B8v8UQdK0bQ==;
+	List-Owner; bh=gydUkQY6XWTCziXNm0jf4EEQlCHvRmUyZQ7bEROJrUc=; b=SEHkKLxO5YvsVb
+	cyTeZ6YG6uFvAbpSNDv1/+/qX5GrqpauqP6Ja2rGnxrOTrYPIXv9wsxGW5c3+yh/ANyJYcr71TZo8
+	gR93AHgc5T6f4+yD8Y/UwEDdu1LPWy/HJpWTcIzKC9Bk+4A50S4BXT89otkjMX9KQQDR/N7TBkuKO
+	lpEasaUQSMawxSQIms7LH5QHkvp4mwR5+8AAXbIbrmR7LJHtN4aA8DwSUmpm/fkJ88eRHJQ7Xazgk
+	Ytzqo+aXRS2uM+ga8XjH9tVZb1FVZ+s04hNMGSUvBYp7p7nYbnxZuSJO4GivnawHwTFckInM1BSVb
+	CpoNJt5kNOFVs3f1yPfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRTfr-00DUjn-QN; Mon, 13 Feb 2023 07:54:55 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1pRUEp-00Dbl6-1H; Mon, 13 Feb 2023 08:31:03 +0000
+Received: from imap5.colo.codethink.co.uk ([78.40.148.171])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRTfg-00DUfw-Pu; Mon, 13 Feb 2023 07:54:46 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 16B7EB80E01;
-	Mon, 13 Feb 2023 07:54:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3884FC433EF;
-	Mon, 13 Feb 2023 07:54:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1676274881;
-	bh=6metnuiv9QkmKFu+JTHLVBvZLre3nFtuNi3AR7PlA78=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=P/NLBLn1QBccO0iLmwEVdjTRTOu/1JTVdr0CvbgYz4ThLcAoENpkQwi1mRk7/P19V
-	 Brn+rbVYSD8LBBQWtetps+o6x9tV427CYirqerxd+gmGggehAz5OXTZeiD3MkT7U29
-	 s/as2HenQlPGtPPTTf3fp/G4jLA+MmtrrPcey6hAK36CzGgOAg/0LtwnODYIfT0DI9
-	 MUeph4dw/P2V8jMyhN9SftHlhcEV/JNhGKIKb6cMv7netYSdbt356AlVVkhPoiPUvd
-	 r4aExWVaj3CL3McIngU/VdH3ENcuJwfiC6rBQVcgRCzZo3MtbE8U1j5N/4s5pn2pxp
-	 sfCWQJUUPJk8Q==
-Date: Mon, 13 Feb 2023 09:54:17 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Guenter Roeck <linux@roeck-us.net>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Arnd Bergmann <arnd@arndb.de>, Brian Cain <bcain@quicinc.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Greg Ungerer <gerg@linux-m68k.org>, Guo Ren <guoren@kernel.org>,
-	Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>,
-	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Michal Simek <monstr@monstr.eu>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Rich Felker <dalias@libc.org>,
-	Richard Weinberger <richard@nod.at>,
-	Russell King <linux@armlinux.org.uk>,
-	Stafford Horne <shorne@gmail.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Vineet Gupta <vgupta@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
-	Yoshinori Sato <ysato@users.sourceforge.jp>,
-	linux-alpha@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, linux-mm@kvack.org,
-	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org,
-	linux-um@lists.infradead.org, linux-xtensa@linux-xtensa.org,
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
-	openrisc@lists.librecores.org, sparclinux@vger.kernel.org,
-	x86@kernel.org, Huacai Chen <chenhuacai@loongson.cn>
-Subject: Re: [PATCH v2 4/4] mm, arch: add generic implementation of
- pfn_valid() for FLATMEM
-Message-ID: <Y+nsqV6u/PqNlwDS@kernel.org>
-References: <20230129124235.209895-1-rppt@kernel.org>
- <20230129124235.209895-5-rppt@kernel.org>
- <20230212161320.GA3784076@roeck-us.net>
- <Y+mRz6Wfocopv9jw@kernel.org>
- <15a2c023-fdfa-9543-ac36-a846e5f8a000@roeck-us.net>
+	id 1pRUEl-00Dbim-JV; Mon, 13 Feb 2023 08:31:02 +0000
+Received: from [167.98.27.226] (helo=[172.16.101.148])
+	by imap5.colo.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
+	id 1pRUEB-002EmZ-C6; Mon, 13 Feb 2023 08:30:23 +0000
+Message-ID: <f1a6c357-b7e0-2869-72e0-e850b63e6ca9@codethink.co.uk>
+Date: Mon, 13 Feb 2023 08:30:22 +0000
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <15a2c023-fdfa-9543-ac36-a846e5f8a000@roeck-us.net>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.7.1
+Subject: Re: [PATCH 05/12] riscv: Implement non-coherent DMA support via
+ SiFive cache flushing
+Content-Language: en-GB
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+ Lee Jones <lee@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Emil Renner Berthing <kernel@esmil.dk>, Conor Dooley <conor@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Jose Abreu <joabreu@synopsys.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Richard Cochran <richardcochran@gmail.com>,
+ Sagar Kadam <sagar.kadam@sifive.com>,
+ Yanhong Wang <yanhong.wang@starfivetech.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ netdev@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, kernel@collabora.com
+References: <20230211031821.976408-1-cristian.ciocaltea@collabora.com>
+ <20230211031821.976408-6-cristian.ciocaltea@collabora.com>
+From: Ben Dooks <ben.dooks@codethink.co.uk>
+Organization: Codethink Limited.
+In-Reply-To: <20230211031821.976408-6-cristian.ciocaltea@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230212_235445_150099_44B54399 
-X-CRM114-Status: GOOD (  21.65  )
+X-CRM114-CacheID: sfid-20230213_003059_702981_95370173 
+X-CRM114-Status: GOOD (  18.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,53 +73,129 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Andrew, 
-
-On Sun, Feb 12, 2023 at 10:37:15PM -0800, Guenter Roeck wrote:
-> On 2/12/23 17:26, Mike Rapoport wrote:
-> > On Sun, Feb 12, 2023 at 08:13:20AM -0800, Guenter Roeck wrote:
-> > > On Sun, Jan 29, 2023 at 02:42:35PM +0200, Mike Rapoport wrote:
-> > > > From: "Mike Rapoport (IBM)" <rppt@kernel.org>
-> > > > 
-> > > > Every architecture that supports FLATMEM memory model defines its own
-> > > > version of pfn_valid() that essentially compares a pfn to max_mapnr.
-> > > > 
-> > > > Use mips/powerpc version implemented as static inline as a generic
-> > > > implementation of pfn_valid() and drop its per-architecture definitions.
-> > > > 
-> > > 
-> > > With this patch in the tree, sh4 and sh4eb qemu emulations no longer boot.
-> > > Reverting this patch fixes the problem.
-> > 
-> > This should be a better fix than a revert:
-> > 
-> > diff --git a/arch/sh/mm/init.c b/arch/sh/mm/init.c
-> > index 506784702430..bf1b54055316 100644
-> > --- a/arch/sh/mm/init.c
-> > +++ b/arch/sh/mm/init.c
-> > @@ -301,6 +301,7 @@ void __init paging_init(void)
-> >   	 */
-> >   	max_low_pfn = max_pfn = memblock_end_of_DRAM() >> PAGE_SHIFT;
-> >   	min_low_pfn = __MEMORY_START >> PAGE_SHIFT;
-> > +	set_max_mapnr(max_low_pfn - min_low_pfn);
-> >   	nodes_clear(node_online_map);
+On 11/02/2023 03:18, Cristian Ciocaltea wrote:
+> From: Emil Renner Berthing <kernel@esmil.dk>
 > 
-> Confirmed, this fixes the problem for me.
- 
-What is your preference for this and m68k fix? Fixups on top of mm-stable
-or v3 of the entire series? 
+> This variant is used on the StarFive JH7100 SoC.
+> 
+> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> ---
+>   arch/riscv/Kconfig              |  6 ++++--
+>   arch/riscv/mm/dma-noncoherent.c | 37 +++++++++++++++++++++++++++++++--
+>   2 files changed, 39 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 9c687da7756d..05f6c77faf6f 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -232,12 +232,14 @@ config LOCKDEP_SUPPORT
+>   	def_bool y
+>   
+>   config RISCV_DMA_NONCOHERENT
+> -	bool
+> +	bool "Support non-coherent DMA"
+> +	default SOC_STARFIVE
+>   	select ARCH_HAS_DMA_PREP_COHERENT
+> +	select ARCH_HAS_DMA_SET_UNCACHED
+> +	select ARCH_HAS_DMA_CLEAR_UNCACHED
+>   	select ARCH_HAS_SYNC_DMA_FOR_DEVICE
+>   	select ARCH_HAS_SYNC_DMA_FOR_CPU
+>   	select ARCH_HAS_SETUP_DMA_OPS
+> -	select DMA_DIRECT_REMAP
+>   
+>   config AS_HAS_INSN
+>   	def_bool $(as-instr,.insn r 51$(comma) 0$(comma) 0$(comma) t0$(comma) t0$(comma) zero)
+> diff --git a/arch/riscv/mm/dma-noncoherent.c b/arch/riscv/mm/dma-noncoherent.c
+> index d919efab6eba..e07e53aea537 100644
+> --- a/arch/riscv/mm/dma-noncoherent.c
+> +++ b/arch/riscv/mm/dma-noncoherent.c
+> @@ -9,14 +9,21 @@
+>   #include <linux/dma-map-ops.h>
+>   #include <linux/mm.h>
+>   #include <asm/cacheflush.h>
+> +#include <soc/sifive/sifive_ccache.h>
+>   
+>   static bool noncoherent_supported;
+>   
+>   void arch_sync_dma_for_device(phys_addr_t paddr, size_t size,
+>   			      enum dma_data_direction dir)
+>   {
+> -	void *vaddr = phys_to_virt(paddr);
+> +	void *vaddr;
+>   
+> +	if (sifive_ccache_handle_noncoherent()) {
+> +		sifive_ccache_flush_range(paddr, size);
+> +		return;
+> +	}
+> +
+> +	vaddr = phys_to_virt(paddr);
+>   	switch (dir) {
+>   	case DMA_TO_DEVICE:
+>   		ALT_CMO_OP(clean, vaddr, size, riscv_cbom_block_size);
+> @@ -35,8 +42,14 @@ void arch_sync_dma_for_device(phys_addr_t paddr, size_t size,
+>   void arch_sync_dma_for_cpu(phys_addr_t paddr, size_t size,
+>   			   enum dma_data_direction dir)
+>   {
+> -	void *vaddr = phys_to_virt(paddr);
+> +	void *vaddr;
+> +
+> +	if (sifive_ccache_handle_noncoherent()) {
+> +		sifive_ccache_flush_range(paddr, size);
+> +		return;
+> +	}
 
-> Thanks,
-> Guenter
+ok, what happens if we have an system where the ccache and another level
+of cache also requires maintenance operations?
+
+>   
+> +	vaddr = phys_to_virt(paddr);
+>   	switch (dir) {
+>   	case DMA_TO_DEVICE:
+>   		break;
+> @@ -49,10 +62,30 @@ void arch_sync_dma_for_cpu(phys_addr_t paddr, size_t size,
+>   	}
+>   }
+>   
+> +void *arch_dma_set_uncached(void *addr, size_t size)
+> +{
+> +	if (sifive_ccache_handle_noncoherent())
+> +		return sifive_ccache_set_uncached(addr, size);
+> +
+> +	return addr;
+> +}
+> +
+> +void arch_dma_clear_uncached(void *addr, size_t size)
+> +{
+> +	if (sifive_ccache_handle_noncoherent())
+> +		sifive_ccache_clear_uncached(addr, size);
+> +}
+> +
+>   void arch_dma_prep_coherent(struct page *page, size_t size)
+>   {
+>   	void *flush_addr = page_address(page);
+>   
+> +	if (sifive_ccache_handle_noncoherent()) {
+> +		memset(flush_addr, 0, size);
+> +		sifive_ccache_flush_range(__pa(flush_addr), size);
+> +		return;
+> +	}
+> +
+>   	ALT_CMO_OP(flush, flush_addr, size, riscv_cbom_block_size);
+>   }
+>   
 
 -- 
-Sincerely yours,
-Mike.
+Ben Dooks				http://www.codethink.co.uk/
+Senior Engineer				Codethink - Providing Genius
+
+https://www.codethink.co.uk/privacy.html
+
 
 _______________________________________________
 linux-riscv mailing list
