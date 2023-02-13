@@ -4,93 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D91BC636CC
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Feb 2023 06:02:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02C71C636CC
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Feb 2023 06:02:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NF+nBjOTn5FJzMHnKU8jnzsjqnUDxzT7PH+Otgl+Rfw=; b=r7mUsVLw1ThY50
-	iY1UYbDGEDfyPOnoyq41+pkytvBVOiVKNvuPW9r19Pmvv1yvOe0U0i5Wpx6WlCMgVXzIfBUYYODRv
-	QdhGfd6L/42jxss0fdKJI68LgiW4r2dtv4pnrqreQrIwRHka+uCcn5jxI88TQXAH97mZCQwdO8+7g
-	YdN4rNMf36PIDRsOthWA7r3rdvL9LXu1jnxhzaVWtZ+wLXJ6uH9xBHMAf9ndVMdH7tMR7YVW0ORpb
-	J+2zFhrhf80akfl8InceGdaASL/KZcfQWIKX3tjvIcfgZoTZOJQNS83lD8IcKvzcZtAzztTgc8lZX
-	vHadR+r2jF9sPVwKq4nw==;
+	List-Owner; bh=i+lT0KHUrvYU/sCDU0DAsDoBm3meKPSgnTAAtDWXSiU=; b=GrbtGp2vqtFwrl
+	g7Pav4H+SdjFtIa3AOM9qTDs2tCoC2E4nZ2IF1aNgKz3/7PBKdcj/ZdhQjt1+1OQvcHcR+Uid33hv
+	waBiZnhX9arVlKg+Lks4IEYlRjGv+wWrVgmxm5T3/efd3/mZd66QLgjEnPNLNziZFvPW8QSV1SH1A
+	U79zZa+g6h1HKTD0MHHP4dz6022NRqnMt2BF/QGPdsSWNJBZDeTFzhKFxB6Ns03zghb5PbcPrI1vP
+	/KptTI+RRmMOGVKVXyNAoWMhlTUNPgfnH34ORMTeKVK/3IipIavgZ5BiJdoU7IiIkcjOGG1EZ1/MD
+	Hp7hpVxVAzABoXwDZJLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRRvG-00DHwQ-Hv; Mon, 13 Feb 2023 06:02:42 +0000
+	id 1pRRvP-00DHyy-8a; Mon, 13 Feb 2023 06:02:51 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRRvF-00DHvy-Gh
-	for linux-riscv@bombadil.infradead.org; Mon, 13 Feb 2023 06:02:41 +0000
+	id 1pRRvN-00DHy7-GK
+	for linux-riscv@bombadil.infradead.org; Mon, 13 Feb 2023 06:02:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=8YCem4BrJJv8uMiBliK+eUgJsgA757fo9l+siWv19bQ=; b=XOWSiB72pCNNb1lOnMX9Hyh2W5
-	WtUrutFIWHzrcncjXCCSqaAfctAC8NnddiQAqz+2oI1+crZ5fm9pjpJ3HTf/TmCj+vAxtsrUDRy35
-	EyV0DOLop1pMt5f9D9HW4vW+L7j2JLuwt4ftVquK2hY4g5/ZwrnIZoSvSP8YDO5JLVz3amEyNvb9G
-	vITtdHI/9PKLNaeHcIgLGnB9KEamhS9OmirUxz4AhM5Ha0Wbm8VUoVuB0FeFp8UeDlDFxOtpJYsrm
-	pTQQcxhrviPN/shZJGttgkdteEmo6so4av3TrlMQZGIi669cz6k+YXQWyf17evlWIhMDL5YZnnl3g
-	h3cF0XGw==;
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	bh=Zsprz/VkYP6JnZQvaX4OtVPneKai8SEDj1BTi+BhY/U=; b=L288A+gHpkeUWAMrh7om4kX6R6
+	kEyjNsJkw/FvyUT9MIX4/JaneXW3y8OqcYgm535w3NSHZMe9fJABSCmypuU4M0QqGVoG7svDLSUrS
+	sQSsklTXjaLAUN4Gi8enhcBZN3mvStLvv475sp/onlIWF6gMN74uyVFtcmJF1LXy8k8GZtHvXz1oD
+	JtzF2T5cXX1XG4Ij5jzumy6o+LCcaQNN+pObOmmUMBMvsO19pmMcZKykEIKoIAst+lDk48bn32Nj7
+	qgY5cD3By/PfhAl+bEEsobRqZhqepylfsBWjAnscMXlXki2BcaumVqybLHVEevcAd7uziMnXvvC5Z
+	Ipyenl5g==;
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pRQqR-009BQg-0B
+	id 1pRQqb-009BSY-2Z
 	for linux-riscv@lists.infradead.org;
-	Mon, 13 Feb 2023 04:53:42 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id pj3so10786827pjb.1
-        for <linux-riscv@lists.infradead.org>; Sun, 12 Feb 2023 20:54:19 -0800 (PST)
+	Mon, 13 Feb 2023 04:53:53 +0000
+Received: by mail-pl1-x633.google.com with SMTP id be8so12299695plb.7
+        for <linux-riscv@lists.infradead.org>; Sun, 12 Feb 2023 20:54:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=8YCem4BrJJv8uMiBliK+eUgJsgA757fo9l+siWv19bQ=;
-        b=K5WRT8kvkrTRnxFXNxNWmZZe1eWQeiMi1qunE1LIKywvna8j3v5SzYl1jChj3QeZjI
-         oNQVdHcccQpG2WuR1gzQg9kq/+0VuzgdVWD7JtRLTBXEFTOX1GEgMl7e5WBjD6OfQPdd
-         71LTAu0tFhni4ZSn88ImId4fpVYObX1bY6JW37HXCp7hvg9l286KFURTu9ooi1NBKqLt
-         u26MG8kM25n8svLfFhRQp8B3l5+xVXSXRfyHCQXaBio+kKCjC+Q8QLGXOyPk+PiaEIGE
-         UxpBMq4IRtaJ3U/MEkWjmDf10E4N70sMBA71dAXlsLakRYCt8pcisJr17siP90QETbWq
-         4NMQ==
+        bh=Zsprz/VkYP6JnZQvaX4OtVPneKai8SEDj1BTi+BhY/U=;
+        b=7eSn2qdyORPNxiUoyovTXFhpXsZHqi8gnCLRE8GgSFK5tj4/mM+NE2BEscg9ShWtpB
+         PzxBxeovnUU8KeQiZs+IWnuGNyAcMW1KXbhp2VQESntSd2LWuz+pzNCUJWIPxB0JU5Ab
+         EesW3hY9NeyIHHfTNOmY/6BwGaMaUJiMo3GIx05W9NZJ0qvDJ0bluOBnu//KNpG2uyou
+         4SOQKrmR4F5ng8nIZLAVUY7neQXbZCIE2lfTveTDHH94wb4oRM14reOmS/4svizRqEPL
+         rwqB8M6hauOSNhA0VumODFAY0bMXd/4v8bTFTh5K1IeqLZXyl0c6K01GuPfSNRRgUsul
+         zsOw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=8YCem4BrJJv8uMiBliK+eUgJsgA757fo9l+siWv19bQ=;
-        b=XGQ83wMPcUHXG2lS9YJXez+KQSkfdgaDKCoajOf2n4U8nRXsC8Op1Du7SUgj6dcftx
-         3rteMrI47AflqH1ylgGRljn0Bk1QTYOvIAI5HuuXvoeT41VqUAZa1I80rMcfqvVgj8E5
-         XjVj0K4ekMQv5C558aORl5MMOtORhnhAuUNhWixVv57suC6ic83QhJKAkIaXt81r8GAx
-         ryQGRK5zDnw5AeWRM4n0rCC2oY+lLd/WVPaYMU3O36fh5Gtn4aSmGTgs28UpPYC6X4yo
-         IMnA8id8vvbNeZDAPyUC3Lx6Pi8kkkWCHi7piDx/XMmioCpIL56nQLy89D9G0ndzdUVR
-         ktwQ==
-X-Gm-Message-State: AO0yUKXEEnScZ4x63rLZFOtWAQWcKtUDNaNMAwg59dHd37nEEjx6gwaP
-	ZhAciU+pTfbRQdESp702ayswbQ==
-X-Google-Smtp-Source: AK7set9FL/syEzV/2KBqufzNCOsrJUvHtlRk/LJL1zmvxtRWPEp1GVPCimz+TSI3kDQUud1c6m89VA==
-X-Received: by 2002:a17:902:e74c:b0:199:2a36:6c3f with SMTP id p12-20020a170902e74c00b001992a366c3fmr27035701plf.6.1676264058174;
-        Sun, 12 Feb 2023 20:54:18 -0800 (PST)
+        bh=Zsprz/VkYP6JnZQvaX4OtVPneKai8SEDj1BTi+BhY/U=;
+        b=gvx208lm3wM0tMrJmoXc5N+Xka42bbFevrGmJTAhHqYjwz6EUFeECzcoc/y1OLuFph
+         5eGY8r73NK2VxVS/ux31tCV8WGsb/FwRKsNSIyD15qASNpedQ2ITCgitmUMLdnn/wVtK
+         RnlP6/jXyv0xYvgVF4230LdAdZop//rPAgSdamEV84l7b4jvH+4FR5H2K5njisrZmvO4
+         meJWRqWWEn7vwfCDaRos8IWv0hw08KqbowBcpdMLS9IkPF7udzeqSuZq2qkSTz2+Nn91
+         zE4isdD+ilPO4dqbu2plMZ/xE9erYryNVhKNT8rxuv/BHfNGPZdkEa34Kdc5lSHqD8Y/
+         iU1g==
+X-Gm-Message-State: AO0yUKVB54fPNgD6RO10UZBy6FL/TJAdGQGB49OVjnBH8RYt7GbI7se9
+	Zi1SryCxwl/28TH2kKzxqlBp9A==
+X-Google-Smtp-Source: AK7set/p0rkBQR17h7qM1KcTLnHTByuWpmwwvmpl6P367bUJpgMQejcCNRaERuAYYCD3D7dwaqjSJg==
+X-Received: by 2002:a17:902:e545:b0:199:60:b9c8 with SMTP id n5-20020a170902e54500b001990060b9c8mr29757848plf.45.1676264068264;
+        Sun, 12 Feb 2023 20:54:28 -0800 (PST)
 Received: from debug.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id e5-20020a170902784500b00189e7cb8b89sm7078303pln.127.2023.02.12.20.54.17
+        by smtp.gmail.com with ESMTPSA id e5-20020a170902784500b00189e7cb8b89sm7078303pln.127.2023.02.12.20.54.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 12 Feb 2023 20:54:17 -0800 (PST)
+        Sun, 12 Feb 2023 20:54:27 -0800 (PST)
 From: Deepak Gupta <debug@rivosinc.com>
 To: linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	Andrew Morton <akpm@linux-foundation.org>
-Cc: Deepak Gupta <debug@rivosinc.com>,
-	linux-mm@kvack.org
-Subject: [PATCH v1 RFC Zisslpcfi 11/20] mmu: maybe_mkwrite updated to manufacture shadow stack PTEs
-Date: Sun, 12 Feb 2023 20:53:40 -0800
-Message-Id: <20230213045351.3945824-12-debug@rivosinc.com>
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: Deepak Gupta <debug@rivosinc.com>
+Subject: [PATCH v1 RFC Zisslpcfi 18/20] riscv signal: Save and restore of shadow stack for signal
+Date: Sun, 12 Feb 2023 20:53:47 -0800
+Message-Id: <20230213045351.3945824-19-debug@rivosinc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20230213045351.3945824-1-debug@rivosinc.com>
 References: <20230213045351.3945824-1-debug@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230213_045339_937650_542C83FF 
-X-CRM114-Status: GOOD (  13.89  )
+X-CRM114-CacheID: sfid-20230213_045350_965526_D3498D12 
+X-CRM114-Status: GOOD (  12.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,80 +108,98 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-maybe_mkwrite creates PTEs with WRITE encodings for underlying arch if
-VM_WRITE is turned on in vma->vm_flags. Shadow stack memory is a write-
-able memory except it can only be written by certain specific
-instructions. This patch allows maybe_mkwrite to create shadow stack PTEs
-if vma is shadow stack VMA. Each arch can define which combination of VMA
-flags means a shadow stack.
-
-Additionally pte_mkshdwstk must be provided by arch specific PTE
-construction headers to create shadow stack PTEs. (in arch specific
-pgtable.h).
-
-This patch provides dummy/stub pte_mkshdwstk if CONFIG_USER_SHADOW_STACK
-is not selected.
+Save shadow stack pointer in ucontext structure while delivering signal.
+Restore shadow stack pointer from ucontext on sigreturn.
 
 Signed-off-by: Deepak Gupta <debug@rivosinc.com>
 ---
- include/linux/mm.h      | 23 +++++++++++++++++++++--
- include/linux/pgtable.h |  4 ++++
- 2 files changed, 25 insertions(+), 2 deletions(-)
+ arch/riscv/kernel/signal.c | 45 ++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 45 insertions(+)
 
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index 8f857163ac89..a7705bc49bfe 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -1093,6 +1093,21 @@ static inline unsigned long thp_size(struct page *page)
- void free_compound_page(struct page *page);
+diff --git a/arch/riscv/kernel/signal.c b/arch/riscv/kernel/signal.c
+index bfb2afa4135f..b963bbce5879 100644
+--- a/arch/riscv/kernel/signal.c
++++ b/arch/riscv/kernel/signal.c
+@@ -103,6 +103,7 @@ SYSCALL_DEFINE0(rt_sigreturn)
+ 	struct pt_regs *regs = current_pt_regs();
+ 	struct rt_sigframe __user *frame;
+ 	struct task_struct *task;
++	struct thread_info *info = NULL;
+ 	sigset_t set;
  
- #ifdef CONFIG_MMU
-+
-+#ifdef CONFIG_USER_SHADOW_STACK
-+bool arch_is_shadow_stack_vma(struct vm_area_struct *vma);
+ 	/* Always make any pending restarted system calls return -EINTR */
+@@ -124,6 +125,27 @@ SYSCALL_DEFINE0(rt_sigreturn)
+ 	if (restore_altstack(&frame->uc.uc_stack))
+ 		goto badframe;
+ 
++#if defined(CONFIG_USER_SHADOW_STACK)
++	/*
++	 * TODO: Restore shadow stack as a form of token stored on shadow stack itself as a safe
++	 * way to restore.
++	 * A token on shadow gives following properties
++	 *	- Safe save and restore for shadow stack switching. Any save of shadow stack
++	 *	  must have had saved a token on shadow stack. Similarly any restore of shadow
++	 *	  stack must check the token before restore. Since writing to shadow stack with
++	 *	  address of shadow stack itself is not easily allowed. A restore without a save
++	 *	  is quite difficult for an attacker to perform.
++	 *	- A natural break. A token in shadow stack provides a natural break in shadow stack
++	 *	  So a single linear range can be bucketed into different shadow stack segments.
++	 *	  Any sspop; sscheckra will detect the condition and fault to kernel.
++	 */
++	info = current_thread_info();
++	if (info->user_cfi_state.ubcfi_en &&
++	    __copy_from_user(&info->user_cfi_state.user_shdw_stk, &frame->uc.uc_ss_ptr,
++				sizeof(unsigned long)))
++		goto badframe;
 +#endif
 +
-+static inline bool
-+is_shadow_stack_vma(struct vm_area_struct *vma)
-+{
-+#ifdef CONFIG_USER_SHADOW_STACK
-+	return arch_is_shadow_stack_vma(vma);
-+#else
-+	return false;
-+#endif
-+}
-+
- /*
-  * Do pte_mkwrite, but only if the vma says VM_WRITE.  We do this when
-  * servicing faults for write access.  In the normal case, do always want
-@@ -1101,8 +1116,12 @@ void free_compound_page(struct page *page);
-  */
- static inline pte_t maybe_mkwrite(pte_t pte, struct vm_area_struct *vma)
+ 	regs->cause = -1UL;
+ 
+ 	return regs->a0;
+@@ -180,6 +202,7 @@ static int setup_rt_frame(struct ksignal *ksig, sigset_t *set,
+ 	struct pt_regs *regs)
  {
--	if (likely(vma->vm_flags & VM_WRITE))
--		pte = pte_mkwrite(pte);
-+	if (likely(vma->vm_flags & VM_WRITE)) {
-+		if (unlikely(is_shadow_stack_vma(vma)))
-+			pte = pte_mkshdwstk(pte);
-+		else
-+			pte = pte_mkwrite(pte);
-+	}
- 	return pte;
- }
+ 	struct rt_sigframe __user *frame;
++	struct thread_info *info = NULL;
+ 	long err = 0;
  
-diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-index 1159b25b0542..94b157218c73 100644
---- a/include/linux/pgtable.h
-+++ b/include/linux/pgtable.h
-@@ -1736,4 +1736,8 @@ pgprot_t vm_get_page_prot(unsigned long vm_flags)			\
- }									\
- EXPORT_SYMBOL(vm_get_page_prot);
- 
-+#ifndef CONFIG_USER_SHADOW_STACK
-+#define pte_mkshdwstk(pte) pte
+ 	frame = get_sigframe(ksig, regs, sizeof(*frame));
+@@ -191,6 +214,23 @@ static int setup_rt_frame(struct ksignal *ksig, sigset_t *set,
+ 	/* Create the ucontext. */
+ 	err |= __put_user(0, &frame->uc.uc_flags);
+ 	err |= __put_user(NULL, &frame->uc.uc_link);
++#if defined(CONFIG_USER_SHADOW_STACK)
++	/*
++	 * TODO: Save a pointer to shadow stack itself on shadow stack as a form of token.
++	 * A token on shadow gives following properties
++	 *	- Safe save and restore for shadow stack switching. Any save of shadow stack
++	 *	  must have had saved a token on shadow stack. Similarly any restore of shadow
++	 *	  stack must check the token before restore. Since writing to shadow stack with
++	 *	  address of shadow stack itself is not easily allowed. A restore without a save
++	 *	  is quite difficult for an attacker to perform.
++	 *	- A natural break. A token in shadow stack provides a natural break in shadow stack
++	 *	  So a single linear range can be bucketed into different shadow stack segments. Any
++	 *	  sspop; sscheckra will detect the condition and fault to kernel.
++	 */
++	info = current_thread_info();
++	if (info->user_cfi_state.ubcfi_en)
++		err |= __put_user(info->user_cfi_state.user_shdw_stk, &frame->uc.uc_ss_ptr);
 +#endif
-+
- #endif /* _LINUX_PGTABLE_H */
+ 	err |= __save_altstack(&frame->uc.uc_stack, regs->sp);
+ 	err |= setup_sigcontext(frame, regs);
+ 	err |= __copy_to_user(&frame->uc.uc_sigmask, set, sizeof(*set));
+@@ -201,6 +241,11 @@ static int setup_rt_frame(struct ksignal *ksig, sigset_t *set,
+ #ifdef CONFIG_MMU
+ 	regs->ra = (unsigned long)VDSO_SYMBOL(
+ 		current->mm->context.vdso, rt_sigreturn);
++#if defined(CONFIG_USER_SHADOW_STACK)
++	/* if bcfi is enabled x1 (ra) and x5 (t0) must match */
++	if (info->user_cfi_state.ubcfi_en)
++		regs->t0 = regs->ra;
++#endif
+ #else
+ 	/*
+ 	 * For the nommu case we don't have a VDSO.  Instead we push two
 -- 
 2.25.1
 
