@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 095E8C636CC
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Feb 2023 04:55:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E53CC6379F
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Feb 2023 04:55:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9S8xoPa2wMEpP/R47NGrj69RdHQjj4MoF6JhrSgKl5g=; b=JaOOLbm/VLW06P
-	taRkbY9dG8nPhufDDkC73a136MAItom5cP1MHU7bfUIOIUDRQyaJvZk/i5RsduLiC2il74dd7m/aV
-	2NJolzYe575H11hw7+M6EXs7FjfVCr8/or7LWgPKa4hnaIy9k2QxZXSvQmEnDIth3lXu5D56dmne3
-	bBohlAoo6fN7UvYc/2bp7xhi1r6rYPW9rW29f6msRzgoQan7p0d9BRz93FbfV/2b/QPA99I++WLO7
-	7Lv1m4tb7siGRLlnqJ6ZelQ5Ficdiq1Xe0GeQZQXgPMOTlcC9RPyQTL96FWktrXJEmFgDoFmRPNmS
-	bVkj+JF7qcBrhuZK6lqQ==;
+	List-Owner; bh=VrnQLBrgAdR/11ZOmyCylVTmqltMpFWg0P1DdL/33cE=; b=pbWVWCWo17dDrx
+	9VgHKaRH8URWGhNTTVZS4MjdatrjFLLt0FLd9VUxzAePGObRFuDaDoERaTkzxpL+Ci5pUO0RPoIGm
+	axvnJmt3I9Q6jJK2Qq2P11oXR4Xc4bjePALzrYP5Afx+1Q93WGgybKe++8gmDR0o+XybXu3u8Dx0O
+	HX92yJvKJnZQ//D04BBNrnqqsGneUrBmSyDDrdzjXZv6sKwraUdMBYGQnrxnGTZ+LjWcHcgbDI+qw
+	QPfmAd3hBUxH4aHaMoiZoZXVZbByAHsQC1wPCczziq/ZJ5dODl+4i9rW1NX/JUWffWsrbN+NU/wE9
+	GUmcjiuDaBATdkB2DhUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRQre-00D9q1-Gu; Mon, 13 Feb 2023 04:54:54 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1pRQrh-00D9sg-8U; Mon, 13 Feb 2023 04:54:58 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRQrB-00D9U2-5v
-	for linux-riscv@lists.infradead.org; Mon, 13 Feb 2023 04:54:28 +0000
-Received: by mail-pl1-x630.google.com with SMTP id b5so12304509plz.5
-        for <linux-riscv@lists.infradead.org>; Sun, 12 Feb 2023 20:54:24 -0800 (PST)
+	id 1pRQrC-00D9VR-Kp
+	for linux-riscv@lists.infradead.org; Mon, 13 Feb 2023 04:54:35 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id d2so10743803pjd.5
+        for <linux-riscv@lists.infradead.org>; Sun, 12 Feb 2023 20:54:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=NyKgXXAf6eIxCQNqJDUpc+Bj2CrwyhmFgAHD2REeyJQ=;
-        b=EXvhS/VncGgKvwJ3Q0vZAYHmSdbk7Ij5M1B09iI7kQPmHIhtYw0rjfb6raSugnp38T
-         RmNzvD40b33QG81EShtF2MT2OnlPOZTgPjpHaiOK24MRNbT55VmbG0wr5uOlczteExqe
-         7RyzXdUw1jdcb3u3wJdELeWUM43o7pNbFJcVOiNL1mEjeC1ZstyzXdFxHLminnErv+6t
-         5Gh0QI8ML2GvM2ZfYK5uGt1BPhOYeh2whz4oZIvrTreSdNvkkyj2I+Y//kj6Jiov3w3K
-         Jk+yFBa6l72SXXXD2fakph5Hh2wqGj5Gb42T4I9/9BIeNQHqONbq+9UgRdavksLsUOeW
-         yE7w==
+        bh=9sWo6wCd+6s/qv8qKQzFAIRIpzM1RXjpCLCKpSqwk7c=;
+        b=wt3q+VJD6Cp/b63Im6YhKcHv2i1AyapK9Tkrv/Lhww4i7czsTc+eUGnKJic8SCla3/
+         PZeWAHDzQcpwxfG87wj9siHJ53pcxmGJj0Al/qZsMz4b8wLG4BExSAIQ4Nh0yVWI8eA1
+         mdxKCUjoG1enCDnovmujulzh9ivudh8B7fewqOfdwU/ZGjXrEe0tnW65F6JP3I73DJ0O
+         2pC+POBx+yCDZm97cI3uisSvoGWjp5y005oxdW98wIerdHNjp+Fv0zqfuea3nWldQhEm
+         4GleUJiZnFqHyNc5rExalqnFx+zUnW254K9Y/BfKidu8I/uoOfcdaSt+6r9FSxD1x7yu
+         usKA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=NyKgXXAf6eIxCQNqJDUpc+Bj2CrwyhmFgAHD2REeyJQ=;
-        b=M/FF7jLe3Vwx4ny1kLdLYX7BRAW8bm4AC3B3spfkTaPixtVgE9RYXBqV7rUV3mTCQJ
-         GOFr3SDbznBK6yozLHxmDCXxDkBprwW59pZVskLxkLz2DKkB8yd+c1cLoGN6BtDvjPOX
-         waXlpz4Fgea/pYnR6NXJbKBvHhihOXTJzlwZeJLFBA5fdmh7mYkZcxhGZctQFigNm7Tj
-         BS977brrBOaNuW5+EaAjTxP957zucGqvGayOIgFCqSjfNx6ArxSOtsF7yJZJtt1EOHvo
-         J3xId6Auqz4HLa7NCctJ+EaeOEL+durUps5yFgnVBN09IkrnbjUfbn29QwvPwAahQviv
-         LPjw==
-X-Gm-Message-State: AO0yUKXC0Qd1r1VZdUXvJE+GunjpbPDMbGR7itYLTtOM7l0nACwKp5ER
-	17Na/A+j7pmuavTBWvfq2N6Ew8IY8phOqSyn
-X-Google-Smtp-Source: AK7set+NkvkqLLx1ODFEJuYixtO6pgsq1Kd5F2Cn+dnuIzgerTzZYBASHAeY5bJ7M/OE6P4BYW1Gjw==
-X-Received: by 2002:a17:903:1c2:b0:199:1d6f:3cab with SMTP id e2-20020a17090301c200b001991d6f3cabmr28540571plh.21.1676264064208;
-        Sun, 12 Feb 2023 20:54:24 -0800 (PST)
+        bh=9sWo6wCd+6s/qv8qKQzFAIRIpzM1RXjpCLCKpSqwk7c=;
+        b=sYzOO6P2xmSvTp6lAn0rH/j2P3yhgUthe5j3xEgU+xJiq6nxnhMFnym5U74u8tP4lt
+         AdFGDh7EjzSz7YEGe5RnwKlqcml5SnC2uscII6+fTnkGHKs5axw5UQJmxo3O0LCI3oSZ
+         TDQaEFH6vIF5N9M9AnK3ZYoFA6DqfbbZdF0stPcO6P9q+5xFtBGUrC94nC3svD2H7W3s
+         tLYJhDLZ/LQoMnHr+cUXFrF5sy3F0u8k+S7hI4HL4JRwH+imVSK8wZ0/55D+sQlQM8rL
+         gOoQaAfGX3o31t4l2zCDdYcPBrKGxr8xc4BQ1z3xpPhqL3fNQCycKOyWQjwUJEADCgJa
+         H4qw==
+X-Gm-Message-State: AO0yUKW5aDKrwHC1YPLtyA8FHswMilP7EqeS4fO1J1mE14hGZn7wYKlY
+	fv1L88aNK9R+o1b7IoGN/lPVlg==
+X-Google-Smtp-Source: AK7set/We3gZfKBWsBui9LQ+h2dQamScS+mnmA55bftJ1qX9qQdJsEmqonYKb0jOGqlzZmSqaU7JgA==
+X-Received: by 2002:a17:903:124b:b0:19a:9406:b234 with SMTP id u11-20020a170903124b00b0019a9406b234mr5720720plh.45.1676264065599;
+        Sun, 12 Feb 2023 20:54:25 -0800 (PST)
 Received: from debug.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id e5-20020a170902784500b00189e7cb8b89sm7078303pln.127.2023.02.12.20.54.23
+        by smtp.gmail.com with ESMTPSA id e5-20020a170902784500b00189e7cb8b89sm7078303pln.127.2023.02.12.20.54.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 12 Feb 2023 20:54:23 -0800 (PST)
+        Sun, 12 Feb 2023 20:54:25 -0800 (PST)
 From: Deepak Gupta <debug@rivosinc.com>
 To: linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
@@ -67,16 +67,16 @@ To: linux-kernel@vger.kernel.org,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>
 Cc: Deepak Gupta <debug@rivosinc.com>
-Subject: [PATCH v1 RFC Zisslpcfi 15/20] sslp prctl: arch-agnostic prctl for shadow stack and landing pad instr
-Date: Sun, 12 Feb 2023 20:53:44 -0800
-Message-Id: <20230213045351.3945824-16-debug@rivosinc.com>
+Subject: [PATCH v1 RFC Zisslpcfi 16/20] riscv: Implements sslp prctls
+Date: Sun, 12 Feb 2023 20:53:45 -0800
+Message-Id: <20230213045351.3945824-17-debug@rivosinc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20230213045351.3945824-1-debug@rivosinc.com>
 References: <20230213045351.3945824-1-debug@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230212_205425_780604_20AD6090 
-X-CRM114-Status: GOOD (  11.27  )
+X-CRM114-CacheID: sfid-20230212_205433_292889_E34453AD 
+X-CRM114-Status: GOOD (  13.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,115 +93,128 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Three architectures (x86, aarch64, riscv) have announced support for
-shadow stack and enforcing requirement of landing pad instructions on
-indirect call/jmp. This patch adds arch-agnostic prtcl support to enable
-/disable/get/set status of shadow stack and forward control (landing pad)
-flow cfi statuses.
-
-New prctls are
-      - PR_GET_SHADOW_STACK_STATUS, PR_SET_SHADOW_STACK_STATUS
-      - PR_GET_INDIRECT_BR_LP_STATUS, PR_SET_INDIRECT_BR_LP_STATUS
+New prctls are PR_GET_SHADOW_STACK_STATUS/PR_SET_SHADOW_STACK_STATUS and
+PR_GET_INDIRECT_BR_LP_STATUS/PR_SET_INDIRECT_BR_LP_STATUS are implemented
+on riscv in this patch.
 
 Signed-off-by: Deepak Gupta <debug@rivosinc.com>
 ---
- include/uapi/linux/prctl.h | 26 +++++++++++++++++++++++++
- kernel/sys.c               | 40 ++++++++++++++++++++++++++++++++++++++
- 2 files changed, 66 insertions(+)
+ arch/riscv/include/asm/processor.h |  4 +-
+ arch/riscv/kernel/process.c        | 88 +++++++++++++++++++++++++++++-
+ 2 files changed, 90 insertions(+), 2 deletions(-)
 
-diff --git a/include/uapi/linux/prctl.h b/include/uapi/linux/prctl.h
-index a5e06dcbba13..0f401cb2d6d1 100644
---- a/include/uapi/linux/prctl.h
-+++ b/include/uapi/linux/prctl.h
-@@ -284,4 +284,30 @@ struct prctl_mm_map {
- #define PR_SET_VMA		0x53564d41
- # define PR_SET_VMA_ANON_NAME		0
+diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
+index 39c36f739ebb..c088584580b4 100644
+--- a/arch/riscv/include/asm/processor.h
++++ b/arch/riscv/include/asm/processor.h
+@@ -46,7 +46,9 @@ struct cfi_status {
+ 	unsigned int ufcfi_en : 1; /* Enable for forward cfi. Note that ELP goes in sstatus */
+ 	unsigned int ubcfi_en : 1; /* Enable for backward cfi. */
+ 	unsigned int audit_mode : 1;
+-	unsigned int rsvd1 : 29;
++	unsigned int ufcfi_locked : 1;
++	unsigned int ubcfi_locked : 1;
++	unsigned int rsvd1 : 27;
+ 	unsigned int lp_label; /* saved label value (25bit) */
+ 	long user_shdw_stk; /* Current user shadow stack pointer */
+ 	long shdw_stk_base; /* Base address of shadow stack */
+diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
+index bfd8511914d9..1218ed4fd29f 100644
+--- a/arch/riscv/kernel/process.c
++++ b/arch/riscv/kernel/process.c
+@@ -257,4 +257,90 @@ int arch_elf_setup_cfi_state(const struct arch_elf_state *state)
  
-+/*
-+ * get shadow stack status for current thread. Assumes shadow stack is min 4 byte aligned.
-+ * Note shadow stack can be 8 byte aligned on 64bit.
-+ * Lower 2 bits can give status of locked and enabled/disabled.
-+ * size and address range can be obtained via /proc/maps. get_shadow_stack_status will
-+ * return base of shadow stack.
-+ */
-+#define PR_GET_SHADOW_STACK_STATUS      65
-+/*
-+ * set shadow stack status for current thread (including enabling, disabling or locking)
-+ * note that it will only set the status and setup of the shadow stack. Allocating shadow
-+ * stack should be done separately using mmap.
-+ */
-+#define PR_SET_SHADOW_STACK_STATUS      66
-+# define PR_SHADOW_STACK_LOCK           (1UL << 0)
-+# define PR_SHADOW_STACK_ENABLE         (1UL << 1)
-+
-+/* get status of requirement of a landing pad instruction for current thread */
-+#define PR_GET_INDIRECT_BR_LP_STATUS    67
-+/*
-+ * set status of requirement of a landing pad instruction for current thread
-+ * (including enabling, disabling or locking)
-+ */
-+#define PR_SET_INDIRECT_BR_LP_STATUS    68
-+# define PR_INDIRECT_BR_LP_LOCK         (1UL << 0)
-+# define PR_INDIRECT_BR_LP_ENABLE       (1UL << 1)
- #endif /* _LINUX_PRCTL_H */
-diff --git a/kernel/sys.c b/kernel/sys.c
-index 88b31f096fb2..da8c65d474df 100644
---- a/kernel/sys.c
-+++ b/kernel/sys.c
-@@ -2284,6 +2284,26 @@ int __weak arch_prctl_spec_ctrl_set(struct task_struct *t, unsigned long which,
- 	return -EINVAL;
+ 	return ret;
  }
- 
-+int __weak arch_get_shadow_stack_status(struct task_struct *t, unsigned long __user *status)
+-#endif
+\ No newline at end of file
++#endif
++
++#ifdef CONFIG_USER_SHADOW_STACK
++int arch_get_shadow_stack_status(struct task_struct *t, unsigned long __user *status)
 +{
-+	return -EINVAL;
++	unsigned long bcfi_status = 0;
++	struct thread_info *info = NULL;
++
++	if (!arch_supports_shadow_stack())
++		return -EINVAL;
++
++	info = current_thread_info();
++	bcfi_status |= info->user_cfi_state.ubcfi_locked ? (1UL << 0) : 0;
++	bcfi_status |= info->user_cfi_state.ubcfi_en ? ((1UL << 1) |
++		       (info->user_cfi_state.user_shdw_stk)) : 0;
++
++	return copy_to_user(status, &bcfi_status, sizeof(bcfi_status)) ? -EFAULT : 0;
 +}
 +
-+int __weak arch_set_shadow_stack_status(struct task_struct *t, unsigned long __user *status)
++int arch_set_shadow_stack_status(struct task_struct *t, unsigned long __user *status)
 +{
-+	return -EINVAL;
++	unsigned long bcfi_status = 0;
++	struct thread_info *info = NULL;
++	unsigned long shdw_stk = 0;
++
++	if (!arch_supports_shadow_stack())
++		return -EINVAL;
++
++	info = current_thread_info();
++	/* bcfi status is locked and further can't be modified by user */
++	if (info->user_cfi_state.ubcfi_locked)
++		return -EINVAL;
++
++	if (copy_from_user(&bcfi_status, status, sizeof(bcfi_status)))
++		return -EFAULT;
++	/* clear two least significant bits. Always assume min 4 byte alignment */
++	shdw_stk = (long) (bcfi_status & (~3));
++
++	if (shdw_stk >= TASK_SIZE)
++		return -EINVAL;
++
++	info->user_cfi_state.ubcfi_en = (bcfi_status & (1UL << 1)) ? 1 : 0;
++	info->user_cfi_state.ubcfi_locked = (bcfi_status & (1UL << 0)) ? 1 : 0;
++	info->user_cfi_state.user_shdw_stk = (long) shdw_stk;
++
++	return 0;
++}
++#endif
++
++#ifdef CONFIG_USER_INDIRECT_BR_LP
++int arch_get_indir_br_lp_status(struct task_struct *t, unsigned long __user *status)
++{
++	unsigned long fcfi_status = 0;
++	struct thread_info *info = NULL;
++
++	if (!arch_supports_indirect_br_lp_instr())
++		return -EINVAL;
++
++	info = current_thread_info();
++	fcfi_status |= info->user_cfi_state.ufcfi_locked ? (1UL << 0) : 0;
++	fcfi_status |= info->user_cfi_state.ufcfi_en ? (1UL << 1) : 0;
++
++	return copy_to_user(status, &fcfi_status, sizeof(fcfi_status)) ? -EFAULT : 0;
 +}
 +
-+int __weak arch_get_indir_br_lp_status(struct task_struct *t, unsigned long __user *status)
++int arch_set_indir_br_lp_status(struct task_struct *t, unsigned long __user *status)
 +{
-+	return -EINVAL;
-+}
++	unsigned long fcfi_status = 0;
++	struct thread_info *info = NULL;
 +
-+int __weak arch_set_indir_br_lp_status(struct task_struct *t, unsigned long __user *status)
-+{
-+	return -EINVAL;
-+}
++	if (!arch_supports_indirect_br_lp_instr())
++		return -EINVAL;
 +
- #define PR_IO_FLUSHER (PF_MEMALLOC_NOIO | PF_LOCAL_THROTTLE)
- 
- #ifdef CONFIG_ANON_VMA_NAME
-@@ -2628,6 +2648,26 @@ SYSCALL_DEFINE5(prctl, int, option, unsigned long, arg2, unsigned long, arg3,
- 	case PR_SET_VMA:
- 		error = prctl_set_vma(arg2, arg3, arg4, arg5);
- 		break;
-+	case PR_GET_SHADOW_STACK_STATUS:
-+		if (arg3 || arg4 || arg5)
-+			return -EINVAL;
-+		error = arch_get_shadow_stack_status(me, (unsigned long __user *) arg2);
-+		break;
-+	case PR_SET_SHADOW_STACK_STATUS:
-+		if (arg3 || arg4 || arg5)
-+			return -EINVAL;
-+		error = arch_set_shadow_stack_status(me, (unsigned long __user *) arg2);
-+		break;
-+	case PR_GET_INDIRECT_BR_LP_STATUS:
-+		if (arg3 || arg4 || arg5)
-+			return -EINVAL;
-+		error = arch_get_indir_br_lp_status(me, (unsigned long __user *) arg2);
-+		break;
-+	case PR_SET_INDIRECT_BR_LP_STATUS:
-+		if (arg3 || arg4 || arg5)
-+			return -EINVAL;
-+		error = arch_set_indir_br_lp_status(me, (unsigned long __user *) arg2);
-+		break;
- 	default:
- 		error = -EINVAL;
- 		break;
++	info = current_thread_info();
++	/* bcfi status is locked and further can't be modified by user */
++	if (info->user_cfi_state.ufcfi_locked)
++		return -EINVAL;
++
++	if (copy_from_user(&fcfi_status, status, sizeof(fcfi_status)))
++		return -EFAULT;
++
++	info->user_cfi_state.ufcfi_en = (fcfi_status & (1UL << 1)) ? 1 : 0;
++	info->user_cfi_state.ufcfi_locked = (fcfi_status & (1UL << 0)) ? 1 : 0;
++
++	return 0;
++}
++#endif
 -- 
 2.25.1
 
