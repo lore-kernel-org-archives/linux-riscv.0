@@ -4,78 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90DC0C636D4
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Feb 2023 11:39:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28DC7C636CC
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Feb 2023 12:05:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=l4fWMzHYE4lcsXL/33AUx9RziglLocG2nKjP403eg20=; b=J8K/q/Ar+kEstb
-	dLl0E/4BhlR73Q7i+OE9FS5wP0UJYUqyEKsXrG2fozomuJcYvKYbRfI3lws5mX3kNILzh/4QsE82q
-	Z8FWn4zNLeN9XGNkxsFGg/9w4+yVRCFdZ8G/kxi7/DynYzqAibGvSAza47FY+KAxcEJZJV6mNjtyF
-	Nrti3A9VodEnfbJXkddRMpdXEFUWxbywk0z5sR4XVDNN47Fh5g3F70qEOTi1/WS2QLx6YAQfUdWHT
-	2cRJvDBPTNxcImrjBzzLfSTEARPHalp3OwEvNaF+VUaK4jQ36Ay+18yqxxuAcz+Mv4Tqy9vDXE7Ty
-	HCg9yq0GkOX7W+THhJbA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=uYjO8NrCAAJFlQIa5AMY+jKcueqn7KlHP0yoGmvmj1g=; b=AQgmUpnNg/s3T5
+	5aZa8wqUkG7nhDtJBU1V1ctkLHBKtY37wA13nWrlvz2GaSaGNJTUIOHpOKTHTQO1/qsq/EjcSHNIQ
+	u5u6Rqy+M5QXoXSov6OD/dqJC+SjS2uHHY8BDklm1ZxXn+aePoo8uuCUEFCEr2ILOORH5NcmR5K0X
+	zTNET+Jl2Pvy2u/Nr4Rv7K504CvRWeuG5P266DxxlmXPvy6BOnZgQz+eJAaCVwyvyZdvwcVESneLx
+	4kIA9aep1HV18ZVjG+mlQmGG2L+fLTWAsUB59gEGam7ebj6S1lHzf5Mz7ITcRkDp1VwPgCuG4mT/Z
+	1ZvceVbMMDQEYYF18Z4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRXBJ-00ETLj-1l; Mon, 13 Feb 2023 11:39:37 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1pRXaM-00EZ5h-Mo; Mon, 13 Feb 2023 12:05:31 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRXAz-00ET8k-KI
-	for linux-riscv@lists.infradead.org; Mon, 13 Feb 2023 11:39:19 +0000
-Received: by mail-wm1-x333.google.com with SMTP id k8-20020a05600c1c8800b003dc57ea0dfeso11071013wms.0
-        for <linux-riscv@lists.infradead.org>; Mon, 13 Feb 2023 03:39:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=MmPXTSwtX+DYJX5iCL8CrL/WLnsVXpfe6dY/lJz+OWU=;
-        b=eRN2LY+Mo/1oV6Vs40v9B5lGPUSW2Srg3dIAvZU8vJdoAG6RXMJeN5gBcC/4oq4wpM
-         zuyEE4JyME6XZKBm7opmvFLNY0066ISu88ehed3FSquqOL2vFRMKAfpnXI57dDfVVCBi
-         2638w5lhYnZ2i3/a0G9WEr9g9peM7fOW2MpSaWYxSPebgN8MU3VMgV5HbNzgP1/JffYz
-         +66CzXrv2TiLd+EbCzdL9spMIjKRIAvp+J19DfRPQM3nG8hAuurXy8XwuzjDk7TYIrtq
-         /CbhfBpYPI+XhWkTwI3ASE3WM8oOgTaTDweYLMs2/Wti6Ez7nPNAl3zpEDpV2mk6ORIr
-         +HVg==
+	id 1pRXaI-00EZ4B-5j
+	for linux-riscv@lists.infradead.org; Mon, 13 Feb 2023 12:05:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1676289923;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=LWwnaVVkHZ3TxJmod/JcejUfCO6MlIwBZ7PTsYBSbh0=;
+	b=VzNheLmbzJCsnqCRQg+KLzt353UOvXUl05xdpY+UzS93XoodXSQc/x8xwgMxpnNHcnwKfg
+	tSWnbQfXIwXb39AuaOeF4MYOozcSyRFhqazm2TKuDqWm/XOIOF70yR/p2YDwjVjGhSsb0D
+	AJWr6bVXpD3izisLDjBhCMpEY9fF9p4=
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_128_GCM_SHA256) id
+ us-mta-655-TGfbFTp2M8WUTwqnfEDVHw-1; Mon, 13 Feb 2023 07:05:19 -0500
+X-MC-Unique: TGfbFTp2M8WUTwqnfEDVHw-1
+Received: by mail-wm1-f70.google.com with SMTP id b19-20020a05600c4e1300b003e10d3e1c23so8695295wmq.1
+        for <linux-riscv@lists.infradead.org>; Mon, 13 Feb 2023 04:05:19 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        h=content-transfer-encoding:in-reply-to:organization:from:references
+         :cc:to:content-language:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=MmPXTSwtX+DYJX5iCL8CrL/WLnsVXpfe6dY/lJz+OWU=;
-        b=GHGwXmaDp+oX6iBvSZDg1sBhzPm42WzCGuft272EJFxZos5jOXDetBoIRGCXLCHhAq
-         WIxkN6mSRxHUPCx1PiNft8i5uElU/TgoPoSziKa/5iin3awKROrPcJpkHnNP1eRXg2xJ
-         DTKcRBbG+U+t7FxiNkNs91+7XLJxoL/0M+bzL+wkH8Z+pJ5zae8lWZHNkbp3zMFSUBzk
-         o9SYBon7sEmnPuCaxnGx+wCUFwlGmIF/c+Ws6qyeoPOi9YBd7SfhmZSyrHGsRxg0mf81
-         8Rqpc4PKE3eeP+QJhLm5vWorR4V9IcSutlVXByeruyfLtxKSOY8xVGYHAPiVZxmp07C/
-         yFzg==
-X-Gm-Message-State: AO0yUKXHgVBDYl6Q/y2t9VqID3ht9LBNcdAHNv0DgIjtPn35QggIe2iY
-	4KFlFWvGj55rmBC6aVQmOtTbzQ==
-X-Google-Smtp-Source: AK7set9oL6vwesYJT0DzvExxtj8EGWBKXXUNTUjyCtM1qJs9ZrpKEAZeuywgZnERtvIXqBqczECP0g==
-X-Received: by 2002:a05:600c:3197:b0:3dc:5240:53b6 with SMTP id s23-20020a05600c319700b003dc524053b6mr18722033wmp.6.1676288355536;
-        Mon, 13 Feb 2023 03:39:15 -0800 (PST)
-Received: from localhost.localdomain (cpc98982-watf12-2-0-cust57.15-2.cable.virginm.net. [82.26.13.58])
-        by smtp.gmail.com with ESMTPSA id p21-20020a05600c359500b003db06224953sm14578354wmq.41.2023.02.13.03.39.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Feb 2023 03:39:15 -0800 (PST)
-From: Rajnesh Kanwal <rkanwal@rivosinc.com>
-To: rkanwal@rivosinc.com
-Cc: jirislaby@kernel.org,
-	pmladek@suse.com,
-	senozhatsky@chromium.org,
-	rostedt@goodmis.org,
-	john.ogness@linutronix.de,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH 1/1] kernel: Match preferred console first.
-Date: Mon, 13 Feb 2023 11:39:12 +0000
-Message-Id: <20230213113912.1237943-1-rkanwal@rivosinc.com>
-X-Mailer: git-send-email 2.25.1
+        bh=LWwnaVVkHZ3TxJmod/JcejUfCO6MlIwBZ7PTsYBSbh0=;
+        b=2K+stlzq2XjqEmrm/nq118r6dgVgHbXho4zeyHae7kXXhj3/1LJp4ZSNK6FMcH3/jq
+         iSgy6Z1cU8Mpr0OK8jl8oh2LO4rJW2Y8V8bNRB3/lCzZNYZRPuooWeibnb3xDJY2leoQ
+         siJ0md4tZsQnc44kj/GrlDahE9mYbrFBYQy0RCP6jWPXgtgVOpa+IBK/G2Tjd7SKI8qK
+         2h+HA4heEU3XXHeQTsOAwvSFQaAq8TTDYVtGN47GyRzhCGgRheTWBjfCuZcVEy9/QoE5
+         sOmlmYIhxpnw7NOT6QAbGzJlvjoTkGtJOqdl3W6t5XbeTtwJOep7r3d+87XcRYG3oV3M
+         OMQg==
+X-Gm-Message-State: AO0yUKX/21aAG+Pwn7vGhngftkUTCfLXFolJsiNUGfiaL+uuhb+9JOQh
+	+v9hKoM2GGXEHZDn3n//wdbtYXQmA4OY0uy7rnqHOFC3yOQ9sHF4T0CDWoYz4T2C2OjYO6PA29M
+	c8e6O0tkrqVy0TcRs+W9+cW42afBq
+X-Received: by 2002:a05:600c:704:b0:3df:d8c5:ec18 with SMTP id i4-20020a05600c070400b003dfd8c5ec18mr19163996wmn.13.1676289918369;
+        Mon, 13 Feb 2023 04:05:18 -0800 (PST)
+X-Google-Smtp-Source: AK7set/TvfuGOjSTFiefa5UXGSPN6E8+yK5KOhZR7JAxIR0Nqy6UHZc73gYlaZp/IBbv/pX2T70tdA==
+X-Received: by 2002:a05:600c:704:b0:3df:d8c5:ec18 with SMTP id i4-20020a05600c070400b003dfd8c5ec18mr19163980wmn.13.1676289918082;
+        Mon, 13 Feb 2023 04:05:18 -0800 (PST)
+Received: from ?IPV6:2003:cb:c705:6d00:5870:9639:1c17:8162? (p200300cbc7056d00587096391c178162.dip0.t-ipconnect.de. [2003:cb:c705:6d00:5870:9639:1c17:8162])
+        by smtp.gmail.com with ESMTPSA id y9-20020adfee09000000b002c550eb062fsm5407008wrn.14.2023.02.13.04.05.17
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 13 Feb 2023 04:05:17 -0800 (PST)
+Message-ID: <2d6eefb8-c7c5-7d32-9a75-ae716f828cd9@redhat.com>
+Date: Mon, 13 Feb 2023 13:05:16 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.6.0
+Subject: Re: [PATCH v1 RFC Zisslpcfi 11/20] mmu: maybe_mkwrite updated to
+ manufacture shadow stack PTEs
+To: Deepak Gupta <debug@rivosinc.com>, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Andrew Morton <akpm@linux-foundation.org>
+Cc: linux-mm@kvack.org
+References: <20230213045351.3945824-1-debug@rivosinc.com>
+ <20230213045351.3945824-12-debug@rivosinc.com>
+From: David Hildenbrand <david@redhat.com>
+Organization: Red Hat
+In-Reply-To: <20230213045351.3945824-12-debug@rivosinc.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230213_033917_930608_2CEA718F 
-X-CRM114-Status: GOOD (  21.66  )
+X-CRM114-CacheID: sfid-20230213_040526_359097_5D227C58 
+X-CRM114-Status: GOOD (  22.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,160 +99,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-For cases where the driver registers the console with the index set to -1
-the `try_enable_preferred_console()` doesn't work as expected for multiple
-hvc consoles.
+On 13.02.23 05:53, Deepak Gupta wrote:
+> maybe_mkwrite creates PTEs with WRITE encodings for underlying arch if
+> VM_WRITE is turned on in vma->vm_flags. Shadow stack memory is a write-
+> able memory except it can only be written by certain specific
+> instructions. This patch allows maybe_mkwrite to create shadow stack PTEs
+> if vma is shadow stack VMA. Each arch can define which combination of VMA
+> flags means a shadow stack.
+> 
+> Additionally pte_mkshdwstk must be provided by arch specific PTE
+> construction headers to create shadow stack PTEs. (in arch specific
+> pgtable.h).
+> 
+> This patch provides dummy/stub pte_mkshdwstk if CONFIG_USER_SHADOW_STACK
+> is not selected.
+> 
+> Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+> ---
+>   include/linux/mm.h      | 23 +++++++++++++++++++++--
+>   include/linux/pgtable.h |  4 ++++
+>   2 files changed, 25 insertions(+), 2 deletions(-)
+> 
+> diff --git a/include/linux/mm.h b/include/linux/mm.h
+> index 8f857163ac89..a7705bc49bfe 100644
+> --- a/include/linux/mm.h
+> +++ b/include/linux/mm.h
+> @@ -1093,6 +1093,21 @@ static inline unsigned long thp_size(struct page *page)
+>   void free_compound_page(struct page *page);
+>   
+>   #ifdef CONFIG_MMU
+> +
+> +#ifdef CONFIG_USER_SHADOW_STACK
+> +bool arch_is_shadow_stack_vma(struct vm_area_struct *vma);
+> +#endif
+> +
+> +static inline bool
+> +is_shadow_stack_vma(struct vm_area_struct *vma)
+> +{
+> +#ifdef CONFIG_USER_SHADOW_STACK
+> +	return arch_is_shadow_stack_vma(vma);
+> +#else
+> +	return false;
+> +#endif
+> +}
+> +
+>   /*
+>    * Do pte_mkwrite, but only if the vma says VM_WRITE.  We do this when
+>    * servicing faults for write access.  In the normal case, do always want
+> @@ -1101,8 +1116,12 @@ void free_compound_page(struct page *page);
+>    */
+>   static inline pte_t maybe_mkwrite(pte_t pte, struct vm_area_struct *vma)
+>   {
+> -	if (likely(vma->vm_flags & VM_WRITE))
+> -		pte = pte_mkwrite(pte);
+> +	if (likely(vma->vm_flags & VM_WRITE)) {
+> +		if (unlikely(is_shadow_stack_vma(vma)))
+> +			pte = pte_mkshdwstk(pte);
+> +		else
+> +			pte = pte_mkwrite(pte);
+> +	}
+>   	return pte;
 
-For example with `CONFIG_HVC_RISCV_SBI` and `CONFIG_VIRTIO_CONSOLE` enabled
-and cmdline set to "console=hvc0 console=hvc1" where hvc0 being RISCV_SBI
-and hvc1 being VIRTIO_CONSOLE (the preferred one as per the preferred
-selection logic in `__add_preferred_console`). hvc1 never gets enabled as hvc0
-matches first with the driver name "hvc" and index set to -1.
+Exactly what we are trying to avoid in the x86 approach right now. 
+Please see the x86 series on details, we shouldn't try reinventing the 
+wheel but finding a core-mm approach that fits multiple architectures.
 
-Here is the hvc console structure from hvc_console.c L217.
-static struct console hvc_console = {
-        .name           = "hvc",
-        .write          = hvc_console_print,
-        .device         = hvc_console_device,
-        .setup          = hvc_console_setup,
-        .flags          = CON_PRINTBUFFER,
-        .index          = -1,
-};
+https://lkml.kernel.org/r/20230119212317.8324-1-rick.p.edgecombe@intel.com
 
-The expected flow is that hvc1 should take precedence but given hvc console has
-the index set to -1, the current logic will try to assign the first console that
-matches, which is hvc0 and return. Never touching other possible consoles.
+-- 
+Thanks,
 
-This change makes sure the preferred console is checked first and then iterate
-the remaining list.
-
-Signed-off-by: Rajnesh Kanwal <rkanwal@rivosinc.com>
----
- drivers/tty/hvc/hvc_console.c |  2 +-
- kernel/printk/printk.c        | 78 ++++++++++++++++++++++++-----------
- 2 files changed, 56 insertions(+), 24 deletions(-)
-
-diff --git a/drivers/tty/hvc/hvc_console.c b/drivers/tty/hvc/hvc_console.c
-index a683e21df19c..f05bb92d9419 100644
---- a/drivers/tty/hvc/hvc_console.c
-+++ b/drivers/tty/hvc/hvc_console.c
-@@ -230,7 +230,7 @@ static struct console hvc_console = {
-  * -- index will remain -1
-  * (2) we are first and the user specified no driver
-  * -- index will be set to 0, then we will fail setup.
-- * (3)  we are first and the user specified our driver
-+ * (3) we are first and the user specified our driver
-  * -- index will be set to user specified driver, and we will fail
-  * (4) we are after driver, and this initcall will register us
-  * -- if the user didn't specify a driver then the console will match
-diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
-index a5ed2e53547c..3be3ace255a9 100644
---- a/kernel/printk/printk.c
-+++ b/kernel/printk/printk.c
-@@ -3148,6 +3148,49 @@ static int __init keep_bootcon_setup(char *str)
-
- early_param("keep_bootcon", keep_bootcon_setup);
-
-+/* Tries to enable newcon console device matching it with passed in
-+ * console_cmdline. In case if match fails the function return -EAGAIN
-+ * meaning the caller should try with the next console_cmdline.
-+ */
-+static int __try_enable_console(struct console *newcon,
-+				struct console_cmdline *c, bool user_specified,
-+				bool preferred)
-+{
-+	int err;
-+
-+	if (c->user_specified != user_specified)
-+		return -EAGAIN;
-+
-+	if (!newcon->match ||
-+	    newcon->match(newcon, c->name, c->index, c->options) != 0) {
-+		/* default matching */
-+		BUILD_BUG_ON(sizeof(c->name) != sizeof(newcon->name));
-+		if (strcmp(c->name, newcon->name) != 0)
-+			return -EAGAIN;
-+
-+		if (newcon->index >= 0 && newcon->index != c->index)
-+			return -EAGAIN;
-+
-+		if (newcon->index < 0)
-+			newcon->index = c->index;
-+
-+		if (_braille_register_console(newcon, c))
-+			return 0;
-+
-+		if (newcon->setup &&
-+		    (err = newcon->setup(newcon, c->options)) != 0)
-+			return err;
-+
-+		newcon->flags |= CON_ENABLED;
-+		if (preferred)
-+			newcon->flags |= CON_CONSDEV;
-+
-+		return 0;
-+	}
-+
-+	return -EAGAIN;
-+}
-+
- /*
-  * This is called by register_console() to try to match
-  * the newly registered console with any of the ones selected
-@@ -3163,34 +3206,23 @@ static int try_enable_preferred_console(struct console *newcon,
- 	struct console_cmdline *c;
- 	int i, err;
-
-+	/* Try to match preferred console first. */
-+	if (preferred_console >= 0) {
-+		c = &console_cmdline[preferred_console];
-+		err = __try_enable_console(newcon, c, user_specified, true);
-+		if (err != EAGAIN)
-+			return err;
-+	}
-+
- 	for (i = 0, c = console_cmdline;
- 	     i < MAX_CMDLINECONSOLES && c->name[0];
- 	     i++, c++) {
--		if (c->user_specified != user_specified)
-+		if (i == preferred_console)
- 			continue;
--		if (!newcon->match ||
--		    newcon->match(newcon, c->name, c->index, c->options) != 0) {
--			/* default matching */
--			BUILD_BUG_ON(sizeof(c->name) != sizeof(newcon->name));
--			if (strcmp(c->name, newcon->name) != 0)
--				continue;
--			if (newcon->index >= 0 &&
--			    newcon->index != c->index)
--				continue;
--			if (newcon->index < 0)
--				newcon->index = c->index;
--
--			if (_braille_register_console(newcon, c))
--				return 0;
-
--			if (newcon->setup &&
--			    (err = newcon->setup(newcon, c->options)) != 0)
--				return err;
--		}
--		newcon->flags |= CON_ENABLED;
--		if (i == preferred_console)
--			newcon->flags |= CON_CONSDEV;
--		return 0;
-+		err = __try_enable_console(newcon, c, user_specified, false);
-+		if (err != EAGAIN)
-+			return err;
- 	}
-
- 	/*
---
-2.25.1
+David / dhildenb
 
 
 _______________________________________________
