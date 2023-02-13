@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A647C636CC
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Feb 2023 09:20:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94983C636CC
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Feb 2023 09:23:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jjQNqccRzY+tMSdxknq71GwnN08bwyKdrfIx+ZIC50g=; b=rAJuP9ZBtS4cpI
-	00sJ3G84D6+PwWDiB05Ws7aBhB0d+gQQQjhpxL6dcMuhm9kVcG//U/pX0XvxA415sbiJDHTzGzXRO
-	IGYXXgmxPpP6eonphG7kYld8vutt+OVq6NxA06CqV7BeIYdxMV7QqmFhQq+F8lt2TkUS6ohsc5Kgi
-	lT5Whr/Q4iqYC0Ig+bVCLNgQG9xBXngf0wo7xffIgWCKT02wOG2Y8l839Z23vir8KawQrPDq3aWst
-	A485D1HGbeQT6H+M46uhrh0IbXiZ4zGulVhM7joQVZvD0jaTH6sj0UtODLqOqfA797YA27T2Oo8+b
-	QmDW90akg6hAk5p5GUmg==;
+	List-Owner; bh=USD5m7Qmo6KicRO7njNBzYKWVMwWPFXYsVsUTlQeqHs=; b=gWjK37/FK+XrmB
+	hHE9d8hksfqO+V+vPjxejMMKV0zvlbgCj9OhoHVOmx36PCRtIQGVnxpJnxDXSk4wNp+sS3uLEOx3R
+	DfZH18ZGTmzMWKIuTfbGTC89KvK+MFj3wnofjPbwh8eMzGimCWYdJjRBykzcTZ5qLx26sDSG+4TAX
+	oji+u3eD+lqOzzNaNT2LyS9UqqXed1EIFOCir3NBeJJR1wy0umjWvahkZW2ifE7blMYcG1au37DyN
+	0Quv1Vwnw3XD9LOV3umtu4XGGMbcKg5pQ6FkhXGCCNhoNfQFY5KBJpJiXcOUgewsY574SBPzkt5yj
+	203+B3ls3jCl+YWUDQCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRV0n-00Do5O-Tx; Mon, 13 Feb 2023 09:20:37 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1pRV3c-00Dp9a-19; Mon, 13 Feb 2023 09:23:32 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRV0K-00Dns8-2D
-	for linux-riscv@lists.infradead.org; Mon, 13 Feb 2023 09:20:10 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id bk16so11365427wrb.11
-        for <linux-riscv@lists.infradead.org>; Mon, 13 Feb 2023 01:20:07 -0800 (PST)
+	id 1pRV3C-00Dozx-Qw
+	for linux-riscv@lists.infradead.org; Mon, 13 Feb 2023 09:23:08 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id k3so3763973wrv.5
+        for <linux-riscv@lists.infradead.org>; Mon, 13 Feb 2023 01:23:04 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=linaro.org; s=google;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=bNLG0F4sytAFJuPLCGJpmTMcMTuRJI0BMdm+O22mIWk=;
-        b=h65cQMGeWFtfyp2uBNLZIv4aNJ8crvS/MegClRzuhEPjPg+BDdR7aqGJ9/8XON1Bbu
-         2XZckirgzIKPNipgdUySyNJHJrZukrIayPooX+QCE92pl9aI7oQ7xxgpdLjhBnpDDAPx
-         ZhZyBa5ldmmym80vqoKngS1doGl41+7ZaRSDZNOjybDPD4DsJsWs3Z+64em6pAzfT/Iu
-         xCCuMtGP0ejC69sEtvzbxgq3YINw3hLGcc2NKAVJf7649m1FuUeyHhG+EzSEIGZu4wDd
-         rWYQWhSxHz6TCKYelQvbL1+SZVCWz5+AjihuLGHlsfu4ryj01UUEvu3Emw3dWnybevup
-         XjdA==
+        bh=nceynFwfOSQ9gK3dwBYGl+Y9+g5oSlogmBdnLLAMDvE=;
+        b=qF9OgKwoIo3IN1BRJSx1gzKZ8I4VRcThWO2fHPpvwU/3bFl/NndvGECxwJCyvo05tD
+         S6hmSGetGMkTK1MSG4AkXFW+t1rV7Adxnv+oGwp5L7s//YXWBqku8JzYmTVUWZ4+XG18
+         IcZp4C637ehPWZONZ0dTO256y5ayeOOcNR41VtTYZsRizzcPOiYKg1tanzLmBiYnpEw/
+         TjzrW5HsIu1uqQ1Eq1w9deYclwP+PH2A8juwEUrwXSLWEF8ngX07zdhgK9wUHHo3Opra
+         l5jcyE/Bp886nNY/JyOQjsypQB9pLUme36IO70cvMByt/5R6yoTD7zx0ev38D5a8LKf+
+         bCEw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=bNLG0F4sytAFJuPLCGJpmTMcMTuRJI0BMdm+O22mIWk=;
-        b=Pj2krlqphiZV2bQX1cdrUUfnZDwDf6hS0Q93/OzvqVEI6WqJ3x+ol6Gdhvg828mFYg
-         KHjqAolGizdO2rq/gNMw1OCNxAXPDKWPAqTdX+hiJuV300q/wDELS203hxMLKMCgXw5+
-         8hRKr86xtCvekFlMvp3Ul2vihFE82QA5LD08vr5WTSAgwAxJ1JdgWjBvJqKzlDlAkjul
-         q51QM2x5BaNy+JrCH8WcUlJL6/87XTbGFUezk2L2XET1tyrQH0mHrf89fr0ATrgOtYMV
-         4wzv3x6OOCE+xO3pT8hokkF6+LVUek8At1I5UoDZDT3jUoR1v92kTq3eEvXW70PTlYj0
-         JWmA==
-X-Gm-Message-State: AO0yUKV5pJVLUHHdkExpaGBZ6diblgSRkr01qes2VkbIgi2TeSBfLLq7
-	mDcyi/oCNiZGg98CChvl9qPsqQ==
-X-Google-Smtp-Source: AK7set9P9Rf/AgDFodMfFUkknlWiakKXK72hhfRuVm1tf2m8kXJEnbrxw1VZm/dlh2YKzny9lQPCuw==
-X-Received: by 2002:a5d:4682:0:b0:2c5:588f:c5c4 with SMTP id u2-20020a5d4682000000b002c5588fc5c4mr2650463wrq.37.1676280006817;
-        Mon, 13 Feb 2023 01:20:06 -0800 (PST)
+        bh=nceynFwfOSQ9gK3dwBYGl+Y9+g5oSlogmBdnLLAMDvE=;
+        b=zueNpPhh0Mse32EzB/1mMMZNNLu7sohH2+HXYTViLbfXgxkbe8nLn44SzDZEoNh+o9
+         bDWaIjCOBCEUjncuLY4WICXHCYJPGA13HfDJv8LOYWbRMvAPzjbefKsksxCPa61QX0h+
+         8DRDAIxzw/F/YDP1cokyXakmB8HeYXkjBSHHOTm5hNoOJXJbcCoYCHn5WZL6C7DF/E2Q
+         zgsMlJqMd6xUwMWpxToozKzfkkKCQit7Jn205pJGSw9nE/yqSyfcmnXLVtNDtMFMgYhN
+         r45chy2siHVY4uRuc5UqMBEX9w2cWRPZayaBGzyQsWRu3UPK9eIBsUUl8cLtMYelZgTe
+         9yXw==
+X-Gm-Message-State: AO0yUKUMVul41aoFZMqTa431o5BGdesnPmlAXyCdsbpmhUlfyyFbF8iB
+	WzBfB9XDM2OcPirNI8SjORHKsg==
+X-Google-Smtp-Source: AK7set/WMjt6si446XYviUem9Dvz4X7zmBCVn/zBEupkIDEh5g+cbzG/LyjEhdhl1+XKTXHF20iTbw==
+X-Received: by 2002:a05:6000:1f8a:b0:2c5:5297:24ae with SMTP id bw10-20020a0560001f8a00b002c5529724aemr4519362wrb.2.1676280183186;
+        Mon, 13 Feb 2023 01:23:03 -0800 (PST)
 Received: from [192.168.1.109] ([178.197.216.144])
-        by smtp.gmail.com with ESMTPSA id m18-20020a5d6252000000b002c3dc4131f5sm10133668wrv.18.2023.02.13.01.20.04
+        by smtp.gmail.com with ESMTPSA id o7-20020a056000010700b002c559def236sm1438290wrx.57.2023.02.13.01.23.00
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 13 Feb 2023 01:20:06 -0800 (PST)
-Message-ID: <17e7a0f4-38b2-cfc7-3058-1fea7bb28b81@linaro.org>
-Date: Mon, 13 Feb 2023 10:20:03 +0100
+        Mon, 13 Feb 2023 01:23:02 -0800 (PST)
+Message-ID: <c895f199-2902-4c22-2453-829d946a8d11@linaro.org>
+Date: Mon, 13 Feb 2023 10:23:00 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.7.1
-Subject: Re: [PATCH 01/12] dt-bindings: riscv: sifive-ccache: Add compatible
- for StarFive JH7100 SoC
+Subject: Re: [PATCH 02/12] dt-bindings: riscv: sifive-ccache: Add
+ 'uncached-offset' property
 Content-Language: en-US
 To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
  Lee Jones <lee@kernel.org>, Rob Herring <robh+dt@kernel.org>,
@@ -88,12 +88,12 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-stm32@st-md-mailman.stormreply.com,
  linux-arm-kernel@lists.infradead.org, kernel@collabora.com
 References: <20230211031821.976408-1-cristian.ciocaltea@collabora.com>
- <20230211031821.976408-2-cristian.ciocaltea@collabora.com>
+ <20230211031821.976408-3-cristian.ciocaltea@collabora.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20230211031821.976408-2-cristian.ciocaltea@collabora.com>
+In-Reply-To: <20230211031821.976408-3-cristian.ciocaltea@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230213_012008_972521_4437C087 
-X-CRM114-Status: UNSURE (   7.17  )
+X-CRM114-CacheID: sfid-20230213_012306_891261_EC667BF8 
+X-CRM114-Status: UNSURE (   7.56  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -112,14 +112,12 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 11/02/2023 04:18, Cristian Ciocaltea wrote:
-> Document the compatible for the SiFive Composable Cache Controller found
-> on the StarFive JH7100 SoC.
-> 
-> This also requires extending the 'reg' property to handle distinct
-> ranges, as specified via 'reg-names'.
+> Add the 'uncached-offset' property to be used for specifying the
+> uncached memory offset required for handling non-coherent DMA
+> transactions.
 
-
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Only one offset can be non-coherent? If this is for DMA, why
+dma-noncoherent cannot be used?
 
 Best regards,
 Krzysztof
