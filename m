@@ -4,59 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE7DDC636D4
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Feb 2023 22:40:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DD21C636D4
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Feb 2023 22:54:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4oBXz8ZcYNUCdSanT9FDwMVqLwo4Tzil7HTZEaxM47o=; b=LPaLMCme7iJgJoRF8vd8/9EAuy
-	sM2SVbsdAND2/jR67Et93q4+wOJwe+KL4kTajF6fbkyC8ND+l+JwrKCXmA5SubtaQzpwi0gv3cPEU
-	mwFrWe5erdnn2+qiFiLvAiUtn6Jw04mMwKLaCZs04ipZKPFH7GsM7RfNSNjACqfQYCx0Uj8qeeA33
-	VJBr6UPgfFsbPfigcF6B8zo7Temapx+VIJMq/hFH3R6TproS/a6K41NuHmJp5YJBUnWDLWuWod0Ob
-	auwYDJQzO5PPKM8XgDLgxGIKUqJaAJYEjmgcHyEEhWjn8f4t/Fs1+YpCWM8RVE66722igoV8dh0z7
-	i6xFHTpw==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=M3u1GCEN3k126lJYR1ZK8l3p/4+VVwWIZZUtTAJ3JEE=; b=0rFr29L5l8Mq4X
+	seZ2mq/HLx/IESAbwaunLIx3ExxrPP+9ZUAacrGSu+zbneoRTBXeeTkDDOUn81TYRzasQ5dIvdvXD
+	godzF+pn7Js7/R4dtFPj7Q2APRGOUg5/sMmWwf67uCQNNJicJDbz7O6plOGZ1Z5KTaJv48Yqu60OP
+	WjyBb6dCi4jn0NkraCVUwrgQNYwCLMM1lToTCPq5PZpodjTqRDx09v9yBcA/9I8eIMXGCr4pTLcRs
+	ah3UhoU9H9N/XGvsF89m02TYsn18VfTZsRkwM2ue6lxpSVhEh8jXYk2mZRjcAX/Pr7vT4Lx63cwB6
+	LGsUQ+0m01YxRIlrt2/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRhVB-00GfCr-BN; Mon, 13 Feb 2023 22:40:49 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1pRhiK-00GhFc-9m; Mon, 13 Feb 2023 22:54:24 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRhV7-00GfBq-GF
-	for linux-riscv@lists.infradead.org; Mon, 13 Feb 2023 22:40:47 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id D4E42B815D2;
-	Mon, 13 Feb 2023 22:40:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 005FCC433EF;
-	Mon, 13 Feb 2023 22:40:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1676328042;
-	bh=unDxIoor1sFklvwyyZd77Oty09Zn9AKM0OFWSWqZyO0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nS2HNmffuLmICr/UpU67iQHXmgSrI/i7/Rb3i2B/eBR0fbDvhMlmqPyRIyfeMFi1p
-	 gvpiyDoj9Jmmviu9e+4jU1jGC+gvqgJP6e3Egbnl/KQ6+m5zXJRHhZe/1256M/VVRW
-	 NmcL47rSYy/mfTPKdEHBCTrxdE2rvsjSAHAdJlCx24Vw8kvmIK7BYhJzDTwuVALLNj
-	 Li9T3u0e2QHYdefofX+wUQ1OUYf6fCwR6VfXs0wCA3CRhxEfH4+NfOvj/c5+s+QdIX
-	 SYEsg8W6BUQCcdgRwIU/EYb3ZtKwfFdGuYaDqIaKV65AqFt1pV0O4dZYUNBVdO1O2j
-	 RJ2s42iJnW9/w==
-Date: Mon, 13 Feb 2023 22:40:38 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Guenter Roeck <linux@roeck-us.net>, heiko@sntech.de
-Cc: palmer@dabbelt.com, Conor Dooley <conor.dooley@microchip.com>,
-	samuel@sholland.org, linux-riscv@lists.infradead.org,
-	ajones@ventanamicro.com
-Subject: Re: [PATCH v1] RISC-V: take text_mutex during alternative patching
-Message-ID: <Y+q8ZnZ2A8g7BNdS@spud>
-References: <20230212194735.491785-1-conor@kernel.org>
- <4658b0b0-dfd1-b5d8-f50a-3dbd81065cf1@roeck-us.net>
+	id 1pRhiE-00GhDL-FF
+	for linux-riscv@lists.infradead.org; Mon, 13 Feb 2023 22:54:19 +0000
+Received: by mail-pl1-x634.google.com with SMTP id ja21so7566353plb.13
+        for <linux-riscv@lists.infradead.org>; Mon, 13 Feb 2023 14:54:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=522NNid6LgSf8RrS5VU4Hzm30KHabJK+kCnv1UqFDb0=;
+        b=mtte59o9IYhPKzWfl/qT9tfiUcxy6kAiA6N3oEJ4/kDtAk6IHaeV8Ah3DKN7hi4djP
+         roRG5azvNbUTt71U22BMRTRMmNjtGT0QUT/0tdhFIicPVCYnKF0k/w1B2pV25aPu+3Cc
+         xUMDjVcRf+lrvAo0wJWWvjx12ohbRo9ajXkqJ2DACWfl3qX9m/8FuM8q0T22wHgnLcuW
+         flpdu4daI+21oLgWczWmJyvsZ91Sg/s2YpEMpxHaSTqmc+fxgasIBV0DpnYorh76uUI+
+         uHXUhMsFbSRTnOc6toBJlfTYRj0iYDIAecWaIu1T+ldiRGVlf+WPl2Z9DWIsOIoBLp94
+         KRqw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=522NNid6LgSf8RrS5VU4Hzm30KHabJK+kCnv1UqFDb0=;
+        b=dBNjBmGVnzeLfhRP89TXFIAgqhdHpZPpowhPegiTCTvwsj77QQBYG7PdeaMyLPXaCF
+         2GFLdNcBXiEq1HU5+CXs85i0Khr9APsNtVFjm4mx3V+RJxai4n/kBQxS9CWPM985BI53
+         AXxAZvEtID6F+V6jE9loGO9YmYZ+DYgPhdEcFNDAPekZeQRMWD6l5pKXRUyNfg/LcAzE
+         6vLGgNgydFy1St5qp2oqjQEPqPMTqE8b2kzsrSy3vcWqJtL+98si6XDGh0DWSu8LEPbF
+         uwa6KlaY92EMhllfx+YrDYUvzxGlteEfg5vmo9rZpVw/wVXPaXus6p7yxu1lW1stuf12
+         0eGA==
+X-Gm-Message-State: AO0yUKV5HNtay/gzw8STxG6SGIsH3b4woaQSFc/mo/fAnTyQSIUVsxs5
+	nMxsuOM59icQFF7gOm8kTO6ISw==
+X-Google-Smtp-Source: AK7set9pHsxVA/aZc7KMCzq2WCIjJ4lcMDk1bqdJg3wOOdIz4ZzT5DwjszXnvCGrpL0mXz+ckJW81w==
+X-Received: by 2002:a17:903:230a:b0:196:6162:1a76 with SMTP id d10-20020a170903230a00b0019661621a76mr709034plh.0.1676328854376;
+        Mon, 13 Feb 2023 14:54:14 -0800 (PST)
+Received: from [192.168.50.116] (c-24-4-73-83.hsd1.ca.comcast.net. [24.4.73.83])
+        by smtp.gmail.com with ESMTPSA id w12-20020a1709027b8c00b0019a73a45e60sm6614676pll.19.2023.02.13.14.54.12
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 13 Feb 2023 14:54:14 -0800 (PST)
+Message-ID: <82551518-7b7e-8ac9-7325-5d99d3be0406@rivosinc.com>
+Date: Mon, 13 Feb 2023 14:54:11 -0800
 MIME-Version: 1.0
-In-Reply-To: <4658b0b0-dfd1-b5d8-f50a-3dbd81065cf1@roeck-us.net>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.7.1
+Subject: Re: [PATCH -next v13 10/19] riscv: Allocate user's vector context in
+ the first-use trap
+Content-Language: en-US
+To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
+ Andy Chiu <andy.chiu@sifive.com>, linux-riscv@lists.infradead.org,
+ palmer@dabbelt.com, anup@brainfault.org, atishp@atishpatra.org,
+ kvm-riscv@lists.infradead.org, kvm@vger.kernel.org
+Cc: greentime.hu@sifive.com, guoren@linux.alibaba.com,
+ Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Heiko Stuebner <heiko.stuebner@vrull.eu>,
+ Andrew Jones <ajones@ventanamicro.com>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ Conor Dooley <conor.dooley@microchip.com>, Jisheng Zhang
+ <jszhang@kernel.org>, Vincent Chen <vincent.chen@sifive.com>,
+ Guo Ren <guoren@kernel.org>, Li Zhengyu <lizhengyu3@huawei.com>,
+ Masahiro Yamada <masahiroy@kernel.org>,
+ Richard Henderson <richard.henderson@linaro.org>
+References: <20230125142056.18356-1-andy.chiu@sifive.com>
+ <20230125142056.18356-11-andy.chiu@sifive.com>
+ <875ycdy22c.fsf@all.your.base.are.belong.to.us>
+From: Vineet Gupta <vineetg@rivosinc.com>
+In-Reply-To: <875ycdy22c.fsf@all.your.base.are.belong.to.us>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230213_144045_853853_5DB3865A 
-X-CRM114-Status: GOOD (  19.96  )
+X-CRM114-CacheID: sfid-20230213_145418_515378_1F666247 
+X-CRM114-Status: GOOD (  12.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,116 +101,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0789421615427806366=="
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============0789421615427806366==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="224F8P7jiz/m8+eE"
-Content-Disposition: inline
-
-
---224F8P7jiz/m8+eE
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-+CC Heiko
-
-On Sun, Feb 12, 2023 at 03:08:55PM -0800, Guenter Roeck wrote:
-> On 2/12/23 11:47, Conor Dooley wrote:
-> > From: Conor Dooley <conor.dooley@microchip.com>
-> >=20
-> > Guenter reported a splat during boot, that Samuel pointed out was the
-> > lockdep assertion failing in patch_insn_write():
-> >=20
-> > WARNING: CPU: 0 PID: 0 at arch/riscv/kernel/patch.c:63 patch_insn_write=
-+0x222/0x2f6
-> > epc : patch_insn_write+0x222/0x2f6
-> >   ra : patch_insn_write+0x21e/0x2f6
-> > epc : ffffffff800068c6 ra : ffffffff800068c2 sp : ffffffff81803df0
-> >   gp : ffffffff81a1ab78 tp : ffffffff81814f80 t0 : ffffffffffffe000
-> >   t1 : 0000000000000001 t2 : 4c45203a76637369 s0 : ffffffff81803e40
-> >   s1 : 0000000000000004 a0 : 0000000000000000 a1 : ffffffffffffffff
-> >   a2 : 0000000000000004 a3 : 0000000000000000 a4 : 0000000000000001
-> >   a5 : 0000000000000000 a6 : 0000000000000000 a7 : 0000000052464e43
-> >   s2 : ffffffff80b4889c s3 : 000000000000082c s4 : ffffffff80b48828
-> >   s5 : 0000000000000828 s6 : ffffffff8131a0a0 s7 : 0000000000000fff
-> >   s8 : 0000000008000200 s9 : ffffffff8131a520 s10: 0000000000000018
-> >   s11: 000000000000000b t3 : 0000000000000001 t4 : 000000000000000d
-> >   t5 : ffffffffd8180000 t6 : ffffffff81803bc8
-> > status: 0000000200000100 badaddr: 0000000000000000 cause: 0000000000000=
-003
-> > [<ffffffff800068c6>] patch_insn_write+0x222/0x2f6
-> > [<ffffffff80006a36>] patch_text_nosync+0xc/0x2a
-> > [<ffffffff80003b86>] riscv_cpufeature_patch_func+0x52/0x98
-> > [<ffffffff80003348>] _apply_alternatives+0x46/0x86
-> > [<ffffffff80c02d36>] apply_boot_alternatives+0x3c/0xfa
-> > [<ffffffff80c03ad8>] setup_arch+0x584/0x5b8
-> > [<ffffffff80c0075a>] start_kernel+0xa2/0x8f8
-> >=20
-> > This issue was exposed by 702e64550b12 ("riscv: fpu: switch has_fpu() to
-> > riscv_has_extension_likely()"), as it is the patching in has_fpu() that
-> > triggers the splats in Guenter's report.
-> >=20
-> > Take the text_mutex before doing any code patching to satisfy lockdep.
-> >=20
-> > Fixes: ff689fd21cb1 ("riscv: add RISC-V Svpbmt extension support")
-> > Fixes: a35707c3d850 ("riscv: add memory-type errata for T-Head")
-> > Fixes: 1a0e5dbd3723 ("riscv: sifive: Add SiFive alternative ports")
-> > Reported-by: Guenter Roeck <linux@roeck-us.net>
-> > Link: https://lore.kernel.org/all/20230212154333.GA3760469@roeck-us.net/
-> > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
->=20
->=20
-> Applying this patch together with
->=20
-> riscv: Fix early alternative patching
-> riscv: Fix Zbb alternative IDs
->=20
-> _and_ disabling CONFIG_RISCV_ISA_ZBB fixes all problems observed with
-> riscv64 for me. With that,
->=20
-> Tested-by: Guenter Roeck <linux@roeck-us.net>
->=20
-> Unfortunately I still see boot failures when trying to boot riscv32
-> images, so something is still broken. I don't know yet if that is
-> a generic problem or if it is related to a riscv patch.
-> I am still trying to track that down ...
-
-Heiko, would you be able to look at this please?
-There's some more information in the Link: above.
-
-Thanks
-Conor.
-
-
---224F8P7jiz/m8+eE
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY+q8ZgAKCRB4tDGHoIJi
-0nT5AP9+s8sU0OK5nXQkbZn8K3xeYNeOKFA1ZMRBY/BQ5u1efQEA9K6BHqpxllAf
-HJVZuGK2vZ2Rr1d23CRTxL0IFEqhtgU=
-=sCci
------END PGP SIGNATURE-----
-
---224F8P7jiz/m8+eE--
-
-
---===============0789421615427806366==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0789421615427806366==--
-
+CgpPbiAyLzcvMjMgMDY6MzYsIEJqw7ZybiBUw7ZwZWwgd3JvdGU6Cj4+ICtib29sIHJ2dl9maXJz
+dF91c2VfaGFuZGxlcihzdHJ1Y3QgcHRfcmVncyAqcmVncykKPj4gK3sKPj4gKwlfX3VzZXIgdTMy
+ICplcGMgPSAodTMyICopcmVncy0+ZXBjOwo+PiArCXUzMiB0dmFsID0gKHUzMilyZWdzLT5iYWRh
+ZGRyOwo+PiArCj4+ICsJLyogSWYgViBoYXMgYmVlbiBlbmFibGVkIHRoZW4gaXQgaXMgbm90IHRo
+ZSBmaXJzdC11c2UgdHJhcCAqLwo+PiArCWlmICh2c3RhdGVfcXVlcnkocmVncykpCj4+ICsJCXJl
+dHVybiBmYWxzZTsKPj4gKwkvKiBHZXQgdGhlIGluc3RydWN0aW9uICovCj4+ICsJaWYgKCF0dmFs
+KSB7Cj4+ICsJCWlmIChfX2dldF91c2VyKHR2YWwsIGVwYykpCj4+ICsJCQlyZXR1cm4gZmFsc2U7
+Cj4+ICsJfQo+PiArCS8qIEZpbHRlciBvdXQgbm9uLVYgaW5zdHJ1Y3Rpb25zICovCj4+ICsJaWYg
+KCFpbnNuX2lzX3ZlY3Rvcih0dmFsKSkKPj4gKwkJcmV0dXJuIGZhbHNlOwo+PiArCS8qIFNhbml0
+eSBjaGVjay4gZGF0YXAgc2hvdWxkIGJlIG51bGwgYnkgdGhlIHRpbWUgb2YgdGhlIGZpcnN0LXVz
+ZSB0cmFwICovCj4+ICsJV0FSTl9PTihjdXJyZW50LT50aHJlYWQudnN0YXRlLmRhdGFwKTsKPj4g
+KwkvKgo+PiArCSAqIE5vdyB3ZSBzdXJlIHRoYXQgdGhpcyBpcyBhIFYgaW5zdHJ1Y3Rpb24uIEFu
+ZCBpdCBleGVjdXRlcyBpbiB0aGUKPj4gKwkgKiBjb250ZXh0IHdoZXJlIFZTIGhhcyBiZWVuIG9m
+Zi4gU28sIHRyeSB0byBhbGxvY2F0ZSB0aGUgdXNlcidzIFYKPj4gKwkgKiBjb250ZXh0IGFuZCBy
+ZXN1bWUgZXhlY3V0aW9uLgo+PiArCSAqLwo+PiArCWlmIChydnZfdGhyZWFkX3phbGxvYygpKSB7
+Cj4+ICsJCWZvcmNlX3NpZyhTSUdLSUxMKTsKPj4gKwkJcmV0dXJuIHRydWU7Cj4+ICsJfQo+IFNo
+b3VsZCB0aGUgYWx0c3RhY2sgc2l6ZSBiZSB0YWtlbiBpbnRvIGNvbnNpZGVyYXRpb24sIGxpa2Ug
+eDg2IGRvZXMgaW4KPiB2YWxpZGF0ZV9zaWdhbHRzdGFjaygpIChzZWUgX194c3RhdGVfcmVxdWVz
+dF9wZXJtKCkpLgoKRm9yIGEgcHJlZXhpc3RpbmcgYWx0ZXJuYXRlIHN0YWNrID8gT3RoZXJ3aXNl
+IHRoZXJlIGlzIG5vIAoiY29uZmlndXJhdGlvbiIgbGlrZSB4ODYgdG8gY3Jvc3MtY2hlY2sgYWdh
+aW5zdCBhbmQgViBmYXVsdCBpbXBsaWVzIApsYXJnZSdpc2ggc2lnbmFsIHN0YWNrLgpTZWUgYmVs
+b3cgYXMgd2VsbC4KCj4gUmVsYXRlZDsgV291bGQgaXQgbWFrZSBzZW5zZSB0byBpbXBsZW1lbnQg
+c2lnYWx0c3RhY2tfc2l6ZV92YWxpZCgpIGZvcgo+IHJpc2N2LCBhbmFsb2dvdXMgdG8geDg2PwoK
+SW5kZWVkIHdlIG5lZWQgdG8gZG8gdGhhdCBmb3IgdGhlIGNhc2Ugd2hlcmUgYWx0IHN0YWNrIGlz
+IGJlaW5nIHNldHVwLCAKKmFmdGVyKiBWIGZhdWx0LW9uLWZpcnN0IHVzZS4KQnV0IGhvdyB0byBo
+YW5kbGUgYW4gZXhpc3RpbmcgYWx0IHN0YWNrIHdoaWNoIG1pZ2h0IG5vdCBiZSBiaWcgZW5vdWdo
+IHRvIApoYW5kbGUgViBzdGF0ZSA/CgotVmluZWV0CgpfX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
+Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
+L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
