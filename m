@@ -4,152 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D7A5C636D4
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Feb 2023 16:44:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8A99C636CC
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Feb 2023 16:51:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KOddqR2QReU9eCcm/Y7IVFCGeeKKmPXOkqh9QPTax3Y=; b=aRC4ZF1GJbLwCW
-	shqRBkDUANtjgOYfi6SLS1nEOrykeKPcp/tkpU+OsyLfSz6WgZhlORUjSVHKGnM9rFt0jvpEz2Aqc
-	a+sDoRppg7vEYfNF5klMORuQJDNGInUR7oetFIlz5ztEs81oi8TX5hQ5w7O1m8gU1dfp4zbK1DyJA
-	F0r681gDcySIp8lo7Xhm7RvpS5Im4CBnUGYVEcoO4j6Hpx5hiuhSG4Ub40c1xTh4JUxE8Sdx1rHPS
-	wIdUVQEEgkrUl3CFtEG71VBEeKGkwiFNwh2NsG20g5xOP7aCPrbwVjj0MeRCzmDPe8+PAfW3Zmkha
-	A678dAex5T2Wjw26pl+g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cQANRMJ9Sr7S5lMN2UUaB6KH95j8zod2GDqBdDn9vjQ=; b=FXQbcaljMphKn7scEmagZAweIs
+	TSDVtWYFBzZcCEfxuHv6LIrw6tim81mhHolNXoPd0GvxZgOfMKJpl3njT7oQ+B5UE9lOAbElQqhCE
+	b+L8AO3Rfy1687SK+Gj2q3j7vGVE/G1U/hT+BedviaMP+IpyXgemxVTxoVxZiAphZEKs/ZZKsgjfM
+	+/V4VLUsQcYcswp1qE4ih7e5S2aoeF1/B+I0JsdXt09E4CCJNEenGes7VtdRp5MdA7zrNxGpAdgFE
+	wNyZC9kFdK4Crp5sLI87cfmPz5dytXb5tReGeQ3v1ujDkbDWksikORzYlqVtP3KPDtH27/HZlbHEV
+	LaDvDulA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRbwL-00FXem-7R; Mon, 13 Feb 2023 16:44:29 +0000
-Received: from mail-dm3nam02on20611.outbound.protection.outlook.com ([2a01:111:f400:7e83::611] helo=NAM02-DM3-obe.outbound.protection.outlook.com)
+	id 1pRc35-00Fa8G-3m; Mon, 13 Feb 2023 16:51:27 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pQZJP-007BU4-Dw; Fri, 10 Feb 2023 19:44:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=RBh59YWoNUeJ0OV2NiLIPX+dOg1Hngkr/rOhAxBwrxarZVDHP0aVkEgslIXY3RJeupeWUl7u6i6/IZj34Jw8eCL5+RdarSsOuAnETe3cBAY3MT/7i8dTMxsbbcjvMYC3KO/anJ6VmrHTyvzx08RMF5Zl09Rx+H/1UQt7Qrl6nUdVoRgg0R00eK4d9Z1S41vGOI4AiYyGFdew1bDHCEwqWWg0nvocAn6bulklExr3d+LZQouUuOJ2nhFfVBuIvm6os91HLlh231Zd7n/0OOaMF+Sdt52vnQjEV2nTcsKy3lEwygR/Czc8R2npp0a/s+ujn9sFx1CCjpx2EwM/LgZlFQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2pEjyARU/iDHF4qEL808MswcLI+5ZEPTvCc976Kw1g4=;
- b=kmMAulDukidVJBGfPA07XsMyS/r2FhQCdk4iBKdqk5C4+g18fKyXKOoos+3f1QdgzXheqTUtyCzHNkHQGY+oXSP2NP2QhOacXB15xP++pWzXKBZEc8p9D1/AJ9HrkbWv1uZ6xcADS+HlhSK4mJcMiuRvZKZavhIxB7xmpS59kCB0VWLMzcuEAhXaDvU0RIhs6Gmo2v2L6QYSOnHlpfu4UnjZImCqwR5sOgvdJ6bzqDV4Nrk80VRuqefJDrQ37bBAZ7vIjxmeYfqmxzvZ8FoVjv4yiDQKoEQAPWf8ZeRxq9s2+4klMcrDDC6ni5R1fFPVLpEJ01Ze5jvXishgf7I/6w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2pEjyARU/iDHF4qEL808MswcLI+5ZEPTvCc976Kw1g4=;
- b=nVKlxqAo4Bocpx2c+2xoaI1tTQxycj04jmV1zNZB6nWmgdE0XFcXqFY2Cmo4OHUaz/Yr4LixPFcEH+egWlP9lpwKQd6p9GG6+LOr4b5b3ykQt0rxsY9L5tbtQZJgEDeujORIkTKN6fwV3bMLqGmwzukuBPytpJMNNb9RbfsH8PM=
-Received: from MW4PR04CA0220.namprd04.prod.outlook.com (2603:10b6:303:87::15)
- by BL1PR12MB5030.namprd12.prod.outlook.com (2603:10b6:208:313::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6086.21; Fri, 10 Feb
- 2023 19:43:55 +0000
-Received: from CO1NAM11FT017.eop-nam11.prod.protection.outlook.com
- (2603:10b6:303:87:cafe::3c) by MW4PR04CA0220.outlook.office365.com
- (2603:10b6:303:87::15) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6086.21 via Frontend
- Transport; Fri, 10 Feb 2023 19:43:54 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=SATLEXMB03.amd.com; pr=C
-Received: from SATLEXMB03.amd.com (165.204.84.17) by
- CO1NAM11FT017.mail.protection.outlook.com (10.13.175.108) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.6086.21 via Frontend Transport; Fri, 10 Feb 2023 19:43:54 +0000
-Received: from SATLEXMB06.amd.com (10.181.40.147) by SATLEXMB03.amd.com
- (10.181.40.144) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.34; Fri, 10 Feb
- 2023 13:43:54 -0600
-Received: from SATLEXMB03.amd.com (10.181.40.144) by SATLEXMB06.amd.com
- (10.181.40.147) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.34; Fri, 10 Feb
- 2023 13:43:53 -0600
-Received: from xhdsneeli40.xilinx.com (10.180.168.240) by SATLEXMB03.amd.com
- (10.181.40.144) with Microsoft SMTP Server id 15.1.2375.34 via Frontend
- Transport; Fri, 10 Feb 2023 13:43:27 -0600
-From: Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>
-To: <broonie@kernel.org>, <miquel.raynal@bootlin.com>, <richard@nod.at>,
-	<vigneshr@ti.com>, <jic23@kernel.org>, <tudor.ambarus@microchip.com>,
-	<pratyush@kernel.org>, <sanju.mehta@amd.com>, <chin-ting_kuo@aspeedtech.com>,
-	<clg@kaod.org>, <kdasu.kdev@gmail.com>, <f.fainelli@gmail.com>,
-	<rjui@broadcom.com>, <sbranden@broadcom.com>, <eajames@linux.ibm.com>,
-	<olteanv@gmail.com>, <han.xu@nxp.com>, <john.garry@huawei.com>,
-	<shawnguo@kernel.org>, <s.hauer@pengutronix.de>, <narmstrong@baylibre.com>,
-	<khilman@baylibre.com>, <matthias.bgg@gmail.com>, <haibo.chen@nxp.com>,
-	<linus.walleij@linaro.org>, <daniel@zonque.org>, <haojian.zhuang@gmail.com>,
-	<robert.jarzmik@free.fr>, <agross@kernel.org>, <bjorn.andersson@linaro.org>,
-	<heiko@sntech.de>, <krzysztof.kozlowski@linaro.org>, <andi@etezian.org>,
-	<mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>, <wens@csie.org>,
-	<jernej.skrabec@gmail.com>, <samuel@sholland.org>,
-	<masahisa.kojima@linaro.org>, <jaswinder.singh@linaro.org>,
-	<rostedt@goodmis.org>, <mingo@redhat.com>, <l.stelmach@samsung.com>,
-	<davem@davemloft.net>, <edumazet@google.com>, <kuba@kernel.org>,
-	<pabeni@redhat.com>, <alex.aring@gmail.com>, <stefan@datenfreihafen.org>,
-	<kvalo@kernel.org>, <james.schulman@cirrus.com>, <david.rhodes@cirrus.com>,
-	<tanureal@opensource.cirrus.com>, <rf@opensource.cirrus.com>,
-	<perex@perex.cz>, <tiwai@suse.com>, <npiggin@gmail.com>,
-	<christophe.leroy@csgroup.eu>, <mpe@ellerman.id.au>, <oss@buserror.net>,
-	<windhl@126.com>, <yangyingliang@huawei.com>
-CC: <git@amd.com>, <linux-spi@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <joel@jms.id.au>, <andrew@aj.id.au>,
-	<radu_nicolae.pirea@upb.ro>, <nicolas.ferre@microchip.com>,
-	<alexandre.belloni@bootlin.com>, <claudiu.beznea@microchip.com>,
-	<bcm-kernel-feedback-list@broadcom.com>, <fancer.lancer@gmail.com>,
-	<kernel@pengutronix.de>, <festevam@gmail.com>, <linux-imx@nxp.com>,
-	<jbrunet@baylibre.com>, <martin.blumenstingl@googlemail.com>,
-	<avifishman70@gmail.com>, <tmaimon77@gmail.com>, <tali.perry1@gmail.com>,
-	<venture@google.com>, <yuenn@google.com>, <benjaminfair@google.com>,
-	<yogeshgaur.83@gmail.com>, <konrad.dybcio@somainline.org>,
-	<alim.akhtar@samsung.com>, <ldewangan@nvidia.com>,
-	<thierry.reding@gmail.com>, <jonathanh@nvidia.com>, <michal.simek@amd.com>,
-	<linux-aspeed@lists.ozlabs.org>, <openbmc@lists.ozlabs.org>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<linux-rpi-kernel@lists.infradead.org>, <linux-amlogic@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>, <linux-arm-msm@vger.kernel.org>,
-	<linux-rockchip@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
-	<linux-stm32@st-md-mailman.stormreply.com>, <linux-sunxi@lists.linux.dev>,
-	<linux-tegra@vger.kernel.org>, <netdev@vger.kernel.org>,
-	<linux-wpan@vger.kernel.org>, <libertas-dev@lists.infradead.org>,
-	<linux-wireless@vger.kernel.org>, <linux-mtd@lists.infradead.org>,
-	<lars@metafoo.de>, <Michael.Hennerich@analog.com>,
-	<linux-iio@vger.kernel.org>, <michael@walle.cc>, <palmer@dabbelt.com>,
-	<linux-riscv@lists.infradead.org>, <alsa-devel@alsa-project.org>,
-	<patches@opensource.cirrus.com>, <linuxppc-dev@lists.ozlabs.org>,
-	<amitrkcian2002@gmail.com>, Amit Kumar Mahapatra
-	<amit.kumar-mahapatra@amd.com>
-Subject: [PATCH v4 15/15] spi: spi-zynqmp-gqspi: Add parallel memories support in GQSPI driver
-Date: Sat, 11 Feb 2023 01:06:46 +0530
-Message-ID: <20230210193647.4159467-16-amit.kumar-mahapatra@amd.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20230210193647.4159467-1-amit.kumar-mahapatra@amd.com>
-References: <20230210193647.4159467-1-amit.kumar-mahapatra@amd.com>
+	id 1pRc32-00Fa6T-47
+	for linux-riscv@lists.infradead.org; Mon, 13 Feb 2023 16:51:25 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id DB02C61202;
+	Mon, 13 Feb 2023 16:51:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2830EC433EF;
+	Mon, 13 Feb 2023 16:51:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1676307081;
+	bh=hdUq2Luq23RINKGxSUxGVQp79jBS8lzD3Eqz+8CvlJk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=TFPrK+l+mxRsLqUL3UYvZzzKPo4Wz8ryZ+xeBLj7AAAr5EN9qRlmeVBvaZpzEbV9P
+	 lGjk5l3QX87Ohzys03sxCmCWFT+iVdI5kigcxT+jgrCLLm+vWEO6j+/tGCfwKPUabe
+	 K4BFzHfX8i0Ci90c+ns2TfxfdKnpwr7n2ChxeIBky3v6TPBvPkzVqADjsz83R9UfOS
+	 sKvi9ZhEOgGxf4Rfrq5acluN4PKb/9NnKln//FOkKW7JcLvvoCHMiv294hwiYJF7Yo
+	 vKLlTRspkuQfHy11I/chhwiSNSG9nYZIFZ+g5RRQnz3HvTGGWc4H24UkVw+oVorBeR
+	 5llOSEvxfYzLw==
+Date: Mon, 13 Feb 2023 16:51:17 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Nick Alcock <nick.alcock@oracle.com>
+Cc: Leon Romanovsky <leon@kernel.org>, mcgrof@kernel.org,
+	linux-modules@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 8/8] kbuild, PCI: microchip: comment out MODULE_LICENSE
+ in non-modules
+Message-ID: <Y+pqhTmuCRFUa/Vi@spud>
+References: <20230210164749.368998-1-nick.alcock@oracle.com>
+ <20230210164749.368998-9-nick.alcock@oracle.com>
+ <Y+aMh5e9bWaTphiZ@spud>
+ <871qmx1fv5.fsf@esperi.org.uk>
+ <Y+akw9VBjg9oZ7QV@spud>
+ <Y+kx3fb2Lzlg+u5+@unreal>
+ <87k00ly25v.fsf@esperi.org.uk>
 MIME-Version: 1.0
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1NAM11FT017:EE_|BL1PR12MB5030:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5a41c5ad-c5cb-49d1-dec8-08db0b9f2497
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: 	ahkxxtplneOGUGnzkrkW4XoS/1TyIlwpHPNgptyHgBxYWr4qS0X91lcBWaJVeshoin3Cb6Svotu/t3O7pXJqpoz8oG/ZZEJP6ldNyex/OkvcNUwFpDdfeWrCMnIu5BLo8ovAA5UQC/B2k7c0OvSkL0hVdkA8zD5SjHJ3nIzv0qAdiVeIExAbxCD0KTJ7+z2qbDt7jde6svkhT5/c/adLWNPV+2c42LF/KBs188BCpvVjnAj26VoHAr48yGLYbIhfSZxoLsFM/q7VF1bZKgaced4rWChjTfR9p/3+j1Jec0KkIWvxVSwJ/57R8VufPbgJCXJchyC4uf32ngHbv3ah1dCAmQG1muIVSS80z2seh01n/8pjU/JAfxBqZ0NorI1ab6rwKogkU7i93dqSH/6w4XyCWppAFWzIxq0AMu1PlHk4RhjaP0GONHrd7N1zzxcu9YXxTYZlmRqx5yq+F+Off3a14mG4jb+J83NuuTt+36oHCkUuYwU22MUhqiOO35oEpmNHsKRqp23CZpc8XeQZmuwKhStzJTWe1nBV/GgXuqRB8wC+jxhvkbIUk781tW3sUb+xrGVS8ZxAWPJwvGADLRrO6XQw51xJSM5zuSSBOwfM5yv/WN6y3OzKmQ4VSyYjvmZg0aezXkHeSO9pyK2OzhbfsG+Q5budDqoRPoheM3nJgrgj/+KVo+2JdSUPuR7b5nQNW1RPncfC+In0hx0FI+bTQ/6S8yprEdVSdORnD1lXoC+kSeycZHBQkFiO78lBorEwYB6XaFf8w3zWKFErQmoJO6kRaFDHJPbmfX+s97KQU2mKhHsuws60hpNz8mecDYLbHvBKgTFBCTBQeBacocfSZKV6GrT5AHFCQHpQHDI=
-X-Forefront-Antispam-Report: 	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB03.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230025)(4636009)(346002)(376002)(39860400002)(396003)(136003)(451199018)(36840700001)(46966006)(40470700004)(8676002)(316002)(110136005)(5660300002)(4326008)(8936002)(54906003)(70206006)(41300700001)(70586007)(82740400003)(81166007)(356005)(36756003)(86362001)(921005)(26005)(1076003)(6666004)(186003)(2616005)(7276002)(7336002)(7406005)(7416002)(7366002)(40460700003)(40480700001)(47076005)(1191002)(82310400005)(478600001)(2906002)(426003)(36860700001)(83380400001)(336012)(36900700001)(2101003)(83996005)(84006005)(41080700001);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Feb 2023 19:43:54.2664
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5a41c5ad-c5cb-49d1-dec8-08db0b9f2497
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB03.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: 	CO1NAM11FT017.eop-nam11.prod.protection.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL1PR12MB5030
+In-Reply-To: <87k00ly25v.fsf@esperi.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230210_114359_843739_2618DBA6 
-X-CRM114-Status: GOOD (  18.77  )
-X-Mailman-Approved-At: Mon, 13 Feb 2023 08:43:18 -0800
+X-CRM114-CacheID: sfid-20230213_085124_289376_E6B86F2D 
+X-CRM114-Status: GOOD (  40.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,117 +74,166 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6366667349376315995=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-During GQSPI driver probe set ctlr->multi-cs-cap for enabling multi CS
-capability of the controller. In parallel mode the controller can either
-split the data between both the flash or can send the same data to both the
-flashes, this is determined by the STRIPE bit. While sending commands to
-the flashes the GQSPI driver send the same command to both the flashes by
-resetting the STRIPE bit, but while writing/reading data to & from the
-flash the GQSPI driver splits the data evenly between both the flashes by
-setting the STRIPE bit.
 
-Signed-off-by: Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>
----
- drivers/spi/spi-zynqmp-gqspi.c | 39 +++++++++++++++++++++++++++++++++-
- 1 file changed, 38 insertions(+), 1 deletion(-)
+--===============6366667349376315995==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="V8wF6pIbk/VN+PxO"
+Content-Disposition: inline
 
-diff --git a/drivers/spi/spi-zynqmp-gqspi.c b/drivers/spi/spi-zynqmp-gqspi.c
-index 4759f704bf5c..9e44371bfda2 100644
---- a/drivers/spi/spi-zynqmp-gqspi.c
-+++ b/drivers/spi/spi-zynqmp-gqspi.c
-@@ -23,6 +23,7 @@
- #include <linux/spinlock.h>
- #include <linux/workqueue.h>
- #include <linux/spi/spi-mem.h>
-+#include <linux/mtd/spi-nor.h>
- 
- /* Generic QSPI register offsets */
- #define GQSPI_CONFIG_OFST		0x00000100
-@@ -192,6 +193,7 @@ struct qspi_platform_data {
-  * @op_lock:		Operational lock
-  * @speed_hz:          Current SPI bus clock speed in hz
-  * @has_tapdelay:	Used for tapdelay register available in qspi
-+ * @is_parallel:		Used for multi CS support
-  */
- struct zynqmp_qspi {
- 	struct spi_controller *ctlr;
-@@ -214,8 +216,33 @@ struct zynqmp_qspi {
- 	struct mutex op_lock;
- 	u32 speed_hz;
- 	bool has_tapdelay;
-+	bool is_parallel;
- };
- 
-+/**
-+ * zynqmp_gqspi_update_stripe - For GQSPI controller data stripe capabilities
-+ * @op:	Pointer to mem ops
-+ * Return:      Status of the data stripe
-+ *
-+ * Returns true if data stripe need to be enabled, else returns false
-+ */
-+bool zynqmp_gqspi_update_stripe(const struct spi_mem_op *op)
-+{
-+	if (op->cmd.opcode ==  SPINOR_OP_BE_4K ||
-+	    op->cmd.opcode ==  SPINOR_OP_BE_32K ||
-+	    op->cmd.opcode ==  SPINOR_OP_CHIP_ERASE ||
-+	    op->cmd.opcode ==  SPINOR_OP_SE ||
-+	    op->cmd.opcode ==  SPINOR_OP_BE_32K_4B ||
-+	    op->cmd.opcode ==  SPINOR_OP_SE_4B ||
-+	    op->cmd.opcode == SPINOR_OP_BE_4K_4B ||
-+	    op->cmd.opcode ==  SPINOR_OP_WRSR ||
-+	    op->cmd.opcode ==  SPINOR_OP_BRWR ||
-+	    (op->cmd.opcode ==  SPINOR_OP_WRSR2 && !op->addr.nbytes))
-+		return false;
-+
-+	return true;
-+}
-+
- /**
-  * zynqmp_gqspi_read - For GQSPI controller read operation
-  * @xqspi:	Pointer to the zynqmp_qspi structure
-@@ -470,7 +497,14 @@ static void zynqmp_qspi_chipselect(struct spi_device *qspi, bool is_high)
- 
- 	genfifoentry |= GQSPI_GENFIFO_MODE_SPI;
- 
--	if (qspi->cs_index_mask & GQSPI_SELECT_UPPER_CS) {
-+	if ((qspi->cs_index_mask & GQSPI_SELECT_LOWER_CS) &&
-+	    (qspi->cs_index_mask & GQSPI_SELECT_UPPER_CS)) {
-+		zynqmp_gqspi_selectslave(xqspi,
-+					 GQSPI_SELECT_FLASH_CS_BOTH,
-+					 GQSPI_SELECT_FLASH_BUS_BOTH);
-+		if (!xqspi->is_parallel)
-+			xqspi->is_parallel = true;
-+	} else if (qspi->cs_index_mask & GQSPI_SELECT_UPPER_CS) {
- 		zynqmp_gqspi_selectslave(xqspi,
- 					 GQSPI_SELECT_FLASH_CS_UPPER,
- 					 GQSPI_SELECT_FLASH_BUS_LOWER);
-@@ -1139,6 +1173,8 @@ static int zynqmp_qspi_exec_op(struct spi_mem *mem,
- 	}
- 
- 	if (op->data.nbytes) {
-+		if (xqspi->is_parallel && zynqmp_gqspi_update_stripe(op))
-+			genfifoentry |= GQSPI_GENFIFO_STRIPE;
- 		reinit_completion(&xqspi->data_completion);
- 		if (op->data.dir == SPI_MEM_DATA_OUT) {
- 			xqspi->txbuf = (u8 *)op->data.buf.out;
-@@ -1334,6 +1370,7 @@ static int zynqmp_qspi_probe(struct platform_device *pdev)
- 	ctlr->bits_per_word_mask = SPI_BPW_MASK(8);
- 	ctlr->dev.of_node = np;
- 	ctlr->auto_runtime_pm = true;
-+	ctlr->multi_cs_cap = true;
- 
- 	ret = devm_spi_register_controller(&pdev->dev, ctlr);
- 	if (ret) {
--- 
-2.25.1
 
+--V8wF6pIbk/VN+PxO
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Mon, Feb 13, 2023 at 04:13:00PM +0000, Nick Alcock wrote:
+> [Modified resend: my MTA claimed not to send it but then sent it to some
+>  recipients anyway, and then I was asked not to do some of the things
+>  I'd offered after I sent it.]
+>=20
+> On 12 Feb 2023, Leon Romanovsky told this:
+>=20
+> > On Fri, Feb 10, 2023 at 08:10:43PM +0000, Conor Dooley wrote:
+> >> On Fri, Feb 10, 2023 at 07:26:38PM +0000, Nick Alcock wrote:
+> >> > On 10 Feb 2023, Conor Dooley said:
+> >> > > FYI $subject seems wrong, this is a PCI patch AFAICT.
+> >
+> > <...>
+> >
+> >> > kbuild is present in every patch in the series because this is a
+> >> > kbuild-driven change (the thing it disturbs is part of the build sys=
+tem,
+> >> > the construction of modules.builtin*). This seems to be common pract=
+ice
+> >> > for kbuild-related treewide changes.
+> >>=20
+> >> Okay, I'll take your word for it. It just looked/looks odd to me!
+> >
+> > It looks odd to me too. Please add SPDX tag in modules which don't have
+> > it already, instead of commenting code.
+>=20
+> Alas... nearly all of them *do* have it already, and in most cases it is
+> different. Usually not *very* different, but different. In most cases it
+> is more specific, e.g. drivers/soc/fujitsu/a64fx-diag.c, where we have
+> MODULE_LICENSE("GPL") but SPDX says it's GPL-2.0-only, but then there
+> are things like lib/packing.c, which throughout its history in the tree
+> has combined // SPDX-License-Identifier: BSD-3-Clause OR GPL-2.0
+> and MODULE_LICENSE("GPL v2"); which are just not the same thing.
+>=20
+> I commented the MODULE_LICENSEs out specifically because I wanted to
+> avoid getting into hundreds of simultaneous license flamewars while
+> trying to get *a different thing entirely* into the kernel (kallmodsyms,
+> which depends on modules.builtin.objs being correct).
+>=20
+> I still don't want to get into hundreds of simultaneous license
+> flamewars or get my employer into legal hot water, so I think I'll leave
+> things commented out and let individual maintainers decide whether they
+> want to reconcile any contradictory info that may exist or not (and as
+> noted *most* of these are conflicting.)
+>=20
+>=20
+> This email is the closest thing I have to indicating what Luis would
+> prefer (and the only reason I'm doing this is because I need it before
+> Luis's modules.builtin.objs change can work):
+>=20
+> <https://lore.kernel.org/linux-modules/Y5AgMuMu75gne6Ka@bombadil.infradea=
+d.org/>
+>=20
+> Yes, Luis thinks we can just use SPDX, but given that they are usually
+> different, making such a change seems well beyond my pay grade. Even in
+> the PCI domain, we see (second column, MODULE_LICENSE: third: SPDX,
+> sorry about the line lengths).
+>=20
+> drivers/pci/controller/dwc/pcie-histb.c:		GPL v2		// SPDX-License-Identif=
+ier: GPL-2.0
+> drivers/pci/controller/mobiveil/pcie-mobiveil-plat.c:	GPL v2		// SPDX-Lic=
+ense-Identifier: GPL-2.0
+> drivers/pci/controller/pci-tegra.c: 			GPL		// SPDX-License-Identifier: G=
+PL-2.0+
+> drivers/pci/controller/pci-versatile.c:			GPL v2		// SPDX-License-Identif=
+ier: GPL-2.0
+> drivers/pci/controller/pcie-hisi-error.c:		GPL v2		// SPDX-License-Identi=
+fier: GPL-2.0
+> drivers/pci/controller/pcie-microchip-host.c:		GPL		// SPDX-License-Ident=
+ifier: GPL-2.0
+> drivers/pci/endpoint/pci-ep-cfs.c:			GPL v2		// SPDX-License-Identifier: =
+GPL-2.0
+> drivers/pci/endpoint/pci-epc-core.c:			GPL v2		// SPDX-License-Identifier=
+: GPL-2.0
+> drivers/pci/endpoint/pci-epc-mem.c:			GPL v2		// SPDX-License-Identifier:=
+ GPL-2.0
+> drivers/pci/endpoint/pci-epf-core.c:			GPL v2		// SPDX-License-Identifier=
+: GPL-2.0
+> drivers/pci/hotplug/acpiphp_core.c:			GPL		// SPDX-License-Identifier: GP=
+L-2.0+
+> drivers/pci/hotplug/shpchp_core.c:			GPL		// SPDX-License-Identifier: GPL=
+-2.0+
+>=20
+> Not much in the way of consistency here: GPL sometimes means 2.0+ but
+> sometimes it means 2.0. GPL v2 appears to consistently mean GPL-2.0, but
+> if you look at other affected modules you soon see inconsistency:
+>=20
+> drivers/powercap/powercap_sys.c: GPL v2		// SPDX-License-Identifier: GPL-=
+2.0-only
+> drivers/firmware/imx/imx-scu.c: GPL v2		// SPDX-License-Identifier: GPL-2=
+=2E0+
+> arch/x86/crypto/blake2s-glue.c: GPL v2		// SPDX-License-Identifier: GPL-2=
+=2E0 OR MIT
+> drivers/iommu/sun50i-iommu.c: Dual BSD/GPL	// SPDX-License-Identifier: (G=
+PL-2.0-only OR BSD-2-Clause)
+
+See bf7fbeeae6db ("module: Cure the MODULE_LICENSE "GPL" vs. "GPL v2"
+bogosity") for more information on the contents of MODULE_LICENSE.
+
+I don't really have a comment on the rest of this, other than thinking
+that, for the microchip one, you should leave it as is & the driver be
+changed to be module capable.
+
+>=20
+> We even have
+>=20
+> drivers/gpu/drm/drm_mipi_dsi.c: "GPL and additional rights" (header is
+> non-SPDX -- a BSD license header with advertising clause!)
+>=20
+> So SPDX is usually more precise than the MODULE_LICENSE, but is it more
+> *accurate*? I have no idea, and I don't see how I could possibly know:
+> going by the presence of advertising clauses that obviously nobody is
+> obeying it doesn't seem like we can trust header comments to be any more
+> accurate than MODULE_LICENSE. Best to just leave both in (and comment it
+> out so it has no side-effects on the build any more, which is all I'm
+> after).
+>=20
+> --=20
+> NULL && (void)
+
+--V8wF6pIbk/VN+PxO
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY+pqdAAKCRB4tDGHoIJi
+0pNmAQDabF/bd4lGSJqLIeDKr2MotZr5XyVPWaLlf4T25b/JbgD/QrKOrtI1pcij
+CkmQGgWoQRFzWsh6sCn2D5YbVpYi9AI=
+=vCVM
+-----END PGP SIGNATURE-----
+
+--V8wF6pIbk/VN+PxO--
+
+
+--===============6366667349376315995==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6366667349376315995==--
+
