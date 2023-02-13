@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E53CC6379F
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Feb 2023 04:55:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 309B7C636CC
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Feb 2023 04:55:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VrnQLBrgAdR/11ZOmyCylVTmqltMpFWg0P1DdL/33cE=; b=pbWVWCWo17dDrx
-	9VgHKaRH8URWGhNTTVZS4MjdatrjFLLt0FLd9VUxzAePGObRFuDaDoERaTkzxpL+Ci5pUO0RPoIGm
-	axvnJmt3I9Q6jJK2Qq2P11oXR4Xc4bjePALzrYP5Afx+1Q93WGgybKe++8gmDR0o+XybXu3u8Dx0O
-	HX92yJvKJnZQ//D04BBNrnqqsGneUrBmSyDDrdzjXZv6sKwraUdMBYGQnrxnGTZ+LjWcHcgbDI+qw
-	QPfmAd3hBUxH4aHaMoiZoZXVZbByAHsQC1wPCczziq/ZJ5dODl+4i9rW1NX/JUWffWsrbN+NU/wE9
-	GUmcjiuDaBATdkB2DhUw==;
+	List-Owner; bh=wyq2FQBTrRXSejXSYmM5vMl/iah006NRZ3Qe8EVsIe0=; b=XazGJ9OH+S4ZFU
+	XQpcvOileosWH1k+nT0z5olqOm1TNbc3zCmFzhZp+0zhqLd8We78R75Oc2ZrwOfkxzS3oyac4bL3u
+	CVPTjEg9QwEi+bqCmL2S8D0tu3qv9V/tXYeRYs9NoV/ltyY9OZsBwzfTjdg9xv+tlenR0KKeobIz/
+	CDQs+VCjVXWMjuzdYCUS98yD9u4qMDN5BF4we7+dQl/KvDzai2f4StvYDwYKFC9BnL1r7X/i51lyi
+	nE/Xo3mvhsGJ1+Q6LIKiUWS2FqKhlRGW1IXosxOqAnulsRtEyAiB3vTucAgKr2ssSU6af5sobnT3U
+	CkNh1Cr93HLQH4x0xMzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRQrh-00D9sg-8U; Mon, 13 Feb 2023 04:54:58 +0000
+	id 1pRQrm-00D9xh-TX; Mon, 13 Feb 2023 04:55:03 +0000
 Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRQrC-00D9VR-Kp
+	id 1pRQrD-00D9WH-Fg
 	for linux-riscv@lists.infradead.org; Mon, 13 Feb 2023 04:54:35 +0000
-Received: by mail-pj1-x1033.google.com with SMTP id d2so10743803pjd.5
-        for <linux-riscv@lists.infradead.org>; Sun, 12 Feb 2023 20:54:26 -0800 (PST)
+Received: by mail-pj1-x1033.google.com with SMTP id v6-20020a17090ad58600b00229eec90a7fso13050167pju.0
+        for <linux-riscv@lists.infradead.org>; Sun, 12 Feb 2023 20:54:27 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=9sWo6wCd+6s/qv8qKQzFAIRIpzM1RXjpCLCKpSqwk7c=;
-        b=wt3q+VJD6Cp/b63Im6YhKcHv2i1AyapK9Tkrv/Lhww4i7czsTc+eUGnKJic8SCla3/
-         PZeWAHDzQcpwxfG87wj9siHJ53pcxmGJj0Al/qZsMz4b8wLG4BExSAIQ4Nh0yVWI8eA1
-         mdxKCUjoG1enCDnovmujulzh9ivudh8B7fewqOfdwU/ZGjXrEe0tnW65F6JP3I73DJ0O
-         2pC+POBx+yCDZm97cI3uisSvoGWjp5y005oxdW98wIerdHNjp+Fv0zqfuea3nWldQhEm
-         4GleUJiZnFqHyNc5rExalqnFx+zUnW254K9Y/BfKidu8I/uoOfcdaSt+6r9FSxD1x7yu
-         usKA==
+        bh=3kFxia6anvFekuQwjCC0QPCBdBTnfubmGffGfTpNbSM=;
+        b=Afh0xW9utFfUPrEQU4hWTDRSLlXwhIpd8cKrKCCTb090OxZcC7+dw1lGI4WLigSRcR
+         SlTrKyg46yjgyducZFlnzNgMFLW5ERNIE51qDZs52oKKqKeicOr0GQ+2vSpH+tMZHU2f
+         xYrN3xaSDbe059vhC8YmE0Mo0lm4LvpwwnWJlS9G0hlCENclXKagmo2zWcBcb/mdENgY
+         1gAOJIewodgaQQlqmUK6bvaKGXX2/aGrqMFG9OmQDkZFfYSfsjHFpOrGmHNtyqkqNXHp
+         spSkkxoNxWE3KUzm1/n3/sYW083aXMKfQdw4fAAEkBpyepXmSDGgPYoR/nS0jY3uaDuw
+         o80A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=9sWo6wCd+6s/qv8qKQzFAIRIpzM1RXjpCLCKpSqwk7c=;
-        b=sYzOO6P2xmSvTp6lAn0rH/j2P3yhgUthe5j3xEgU+xJiq6nxnhMFnym5U74u8tP4lt
-         AdFGDh7EjzSz7YEGe5RnwKlqcml5SnC2uscII6+fTnkGHKs5axw5UQJmxo3O0LCI3oSZ
-         TDQaEFH6vIF5N9M9AnK3ZYoFA6DqfbbZdF0stPcO6P9q+5xFtBGUrC94nC3svD2H7W3s
-         tLYJhDLZ/LQoMnHr+cUXFrF5sy3F0u8k+S7hI4HL4JRwH+imVSK8wZ0/55D+sQlQM8rL
-         gOoQaAfGX3o31t4l2zCDdYcPBrKGxr8xc4BQ1z3xpPhqL3fNQCycKOyWQjwUJEADCgJa
-         H4qw==
-X-Gm-Message-State: AO0yUKW5aDKrwHC1YPLtyA8FHswMilP7EqeS4fO1J1mE14hGZn7wYKlY
-	fv1L88aNK9R+o1b7IoGN/lPVlg==
-X-Google-Smtp-Source: AK7set/We3gZfKBWsBui9LQ+h2dQamScS+mnmA55bftJ1qX9qQdJsEmqonYKb0jOGqlzZmSqaU7JgA==
-X-Received: by 2002:a17:903:124b:b0:19a:9406:b234 with SMTP id u11-20020a170903124b00b0019a9406b234mr5720720plh.45.1676264065599;
-        Sun, 12 Feb 2023 20:54:25 -0800 (PST)
+        bh=3kFxia6anvFekuQwjCC0QPCBdBTnfubmGffGfTpNbSM=;
+        b=8Fi25o32s7XJ1dGNYFA+v8gQhOp7r0I+3Oes8rmFb7nZSPURQmC/xUZJa0+ihRtVBR
+         yZPA1WmfGx+KIQz3j0UageECEPfZiVJQAOOlD0q+xkk1GyytN5MaN4rG2yY2Qe0INnJZ
+         /n0cMQAC9UilLMBSNoIIXbh1WHfN1qBv/2tle1eThG+pmC+BQCumEXDWvAke8Q7kHHj/
+         XOT62BPOZY8Nia6y6ApDjAO+hnnzVkyvRtfYaCPGwKtRUaUYzA2cMvYdRgw82fixjd73
+         a/4JnmQEuWarz7dfQkcMK9PALwLLRuMTqRu+ktGVc5GAF8KxIyZOxd3ts5UysNpoxe9O
+         itvg==
+X-Gm-Message-State: AO0yUKWor5ZrhExVNyvJMN1AtyaFBnvvpTglObY6t35BuM8npf7ZgdPK
+	fllxLksfNmrWzKrrVQyN64kH5A==
+X-Google-Smtp-Source: AK7set9VuKBu8EY+mqmdMSQsVnXb77Y1JO5W24ZyHIbOWCePXvCVZrSZJKZ86C/lIOIyZdIFSrBmVw==
+X-Received: by 2002:a17:902:f64f:b0:198:adc4:229f with SMTP id m15-20020a170902f64f00b00198adc4229fmr16162307plg.26.1676264066962;
+        Sun, 12 Feb 2023 20:54:26 -0800 (PST)
 Received: from debug.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id e5-20020a170902784500b00189e7cb8b89sm7078303pln.127.2023.02.12.20.54.24
+        by smtp.gmail.com with ESMTPSA id e5-20020a170902784500b00189e7cb8b89sm7078303pln.127.2023.02.12.20.54.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 12 Feb 2023 20:54:25 -0800 (PST)
+        Sun, 12 Feb 2023 20:54:26 -0800 (PST)
 From: Deepak Gupta <debug@rivosinc.com>
 To: linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
@@ -67,16 +67,16 @@ To: linux-kernel@vger.kernel.org,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>
 Cc: Deepak Gupta <debug@rivosinc.com>
-Subject: [PATCH v1 RFC Zisslpcfi 16/20] riscv: Implements sslp prctls
-Date: Sun, 12 Feb 2023 20:53:45 -0800
-Message-Id: <20230213045351.3945824-17-debug@rivosinc.com>
+Subject: [PATCH v1 RFC Zisslpcfi 17/20] riscv ucontext: adding shadow stack pointer field in ucontext
+Date: Sun, 12 Feb 2023 20:53:46 -0800
+Message-Id: <20230213045351.3945824-18-debug@rivosinc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20230213045351.3945824-1-debug@rivosinc.com>
 References: <20230213045351.3945824-1-debug@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230212_205433_292889_E34453AD 
-X-CRM114-Status: GOOD (  13.76  )
+X-CRM114-CacheID: sfid-20230212_205433_269158_B39C64A5 
+X-CRM114-Status: GOOD (  14.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,128 +93,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-New prctls are PR_GET_SHADOW_STACK_STATUS/PR_SET_SHADOW_STACK_STATUS and
-PR_GET_INDIRECT_BR_LP_STATUS/PR_SET_INDIRECT_BR_LP_STATUS are implemented
-on riscv in this patch.
+Shadow stack needs to be saved and restored on signal delivery and
+signal return.
+
+ucontext structure on riscv has existing large padding for possible
+future extension of uc_sigmask. This patch steals XLEN/8 bytes from
+padding to keep structure size and offset of existing member fields
+same.
 
 Signed-off-by: Deepak Gupta <debug@rivosinc.com>
 ---
- arch/riscv/include/asm/processor.h |  4 +-
- arch/riscv/kernel/process.c        | 88 +++++++++++++++++++++++++++++-
- 2 files changed, 90 insertions(+), 2 deletions(-)
+ arch/riscv/include/uapi/asm/ucontext.h | 32 +++++++++++++++++++++++---
+ 1 file changed, 29 insertions(+), 3 deletions(-)
 
-diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-index 39c36f739ebb..c088584580b4 100644
---- a/arch/riscv/include/asm/processor.h
-+++ b/arch/riscv/include/asm/processor.h
-@@ -46,7 +46,9 @@ struct cfi_status {
- 	unsigned int ufcfi_en : 1; /* Enable for forward cfi. Note that ELP goes in sstatus */
- 	unsigned int ubcfi_en : 1; /* Enable for backward cfi. */
- 	unsigned int audit_mode : 1;
--	unsigned int rsvd1 : 29;
-+	unsigned int ufcfi_locked : 1;
-+	unsigned int ubcfi_locked : 1;
-+	unsigned int rsvd1 : 27;
- 	unsigned int lp_label; /* saved label value (25bit) */
- 	long user_shdw_stk; /* Current user shadow stack pointer */
- 	long shdw_stk_base; /* Base address of shadow stack */
-diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-index bfd8511914d9..1218ed4fd29f 100644
---- a/arch/riscv/kernel/process.c
-+++ b/arch/riscv/kernel/process.c
-@@ -257,4 +257,90 @@ int arch_elf_setup_cfi_state(const struct arch_elf_state *state)
- 
- 	return ret;
- }
--#endif
-\ No newline at end of file
-+#endif
-+
+diff --git a/arch/riscv/include/uapi/asm/ucontext.h b/arch/riscv/include/uapi/asm/ucontext.h
+index 516bd0bb0da5..72303e5618a1 100644
+--- a/arch/riscv/include/uapi/asm/ucontext.h
++++ b/arch/riscv/include/uapi/asm/ucontext.h
+@@ -21,9 +21,12 @@ struct ucontext {
+ 	 * at the end of this structure and explicitly state it can be
+ 	 * expanded, so we didn't want to box ourselves in here.
+ 	 */
+-	__u8		  __unused[1024 / 8 - sizeof(sigset_t)];
+-	/*
+-	 * We can't put uc_sigmask at the end of this structure because we need
++	__u8		  __unused[1024 / 8 - sizeof(sigset_t)
 +#ifdef CONFIG_USER_SHADOW_STACK
-+int arch_get_shadow_stack_status(struct task_struct *t, unsigned long __user *status)
-+{
-+	unsigned long bcfi_status = 0;
-+	struct thread_info *info = NULL;
-+
-+	if (!arch_supports_shadow_stack())
-+		return -EINVAL;
-+
-+	info = current_thread_info();
-+	bcfi_status |= info->user_cfi_state.ubcfi_locked ? (1UL << 0) : 0;
-+	bcfi_status |= info->user_cfi_state.ubcfi_en ? ((1UL << 1) |
-+		       (info->user_cfi_state.user_shdw_stk)) : 0;
-+
-+	return copy_to_user(status, &bcfi_status, sizeof(bcfi_status)) ? -EFAULT : 0;
-+}
-+
-+int arch_set_shadow_stack_status(struct task_struct *t, unsigned long __user *status)
-+{
-+	unsigned long bcfi_status = 0;
-+	struct thread_info *info = NULL;
-+	unsigned long shdw_stk = 0;
-+
-+	if (!arch_supports_shadow_stack())
-+		return -EINVAL;
-+
-+	info = current_thread_info();
-+	/* bcfi status is locked and further can't be modified by user */
-+	if (info->user_cfi_state.ubcfi_locked)
-+		return -EINVAL;
-+
-+	if (copy_from_user(&bcfi_status, status, sizeof(bcfi_status)))
-+		return -EFAULT;
-+	/* clear two least significant bits. Always assume min 4 byte alignment */
-+	shdw_stk = (long) (bcfi_status & (~3));
-+
-+	if (shdw_stk >= TASK_SIZE)
-+		return -EINVAL;
-+
-+	info->user_cfi_state.ubcfi_en = (bcfi_status & (1UL << 1)) ? 1 : 0;
-+	info->user_cfi_state.ubcfi_locked = (bcfi_status & (1UL << 0)) ? 1 : 0;
-+	info->user_cfi_state.user_shdw_stk = (long) shdw_stk;
-+
-+	return 0;
-+}
++				   - sizeof(unsigned long)
 +#endif
++				  ];
++	/* We can't put uc_sigmask at the end of this structure because we need
+ 	 * to be able to expand sigcontext in the future.  For example, the
+ 	 * vector ISA extension will almost certainly add ISA state.  We want
+ 	 * to ensure all user-visible ISA state can be saved and restored via a
+@@ -31,7 +34,30 @@ struct ucontext {
+ 	 * infinite extensibility.  Since we know this will be extended and we
+ 	 * assume sigset_t won't be extended an extreme amount, we're
+ 	 * prioritizing this.
++	 */				  
 +
-+#ifdef CONFIG_USER_INDIRECT_BR_LP
-+int arch_get_indir_br_lp_status(struct task_struct *t, unsigned long __user *status)
-+{
-+	unsigned long fcfi_status = 0;
-+	struct thread_info *info = NULL;
-+
-+	if (!arch_supports_indirect_br_lp_instr())
-+		return -EINVAL;
-+
-+	info = current_thread_info();
-+	fcfi_status |= info->user_cfi_state.ufcfi_locked ? (1UL << 0) : 0;
-+	fcfi_status |= info->user_cfi_state.ufcfi_en ? (1UL << 1) : 0;
-+
-+	return copy_to_user(status, &fcfi_status, sizeof(fcfi_status)) ? -EFAULT : 0;
-+}
-+
-+int arch_set_indir_br_lp_status(struct task_struct *t, unsigned long __user *status)
-+{
-+	unsigned long fcfi_status = 0;
-+	struct thread_info *info = NULL;
-+
-+	if (!arch_supports_indirect_br_lp_instr())
-+		return -EINVAL;
-+
-+	info = current_thread_info();
-+	/* bcfi status is locked and further can't be modified by user */
-+	if (info->user_cfi_state.ufcfi_locked)
-+		return -EINVAL;
-+
-+	if (copy_from_user(&fcfi_status, status, sizeof(fcfi_status)))
-+		return -EFAULT;
-+
-+	info->user_cfi_state.ufcfi_en = (fcfi_status & (1UL << 1)) ? 1 : 0;
-+	info->user_cfi_state.ufcfi_locked = (fcfi_status & (1UL << 0)) ? 1 : 0;
-+
-+	return 0;
-+}
++	/*
++	 * Zisslpcfi will need state in ucontext to save and restore across
++	 * makecontext/setcontext. Such one state is shadow stack pointer. We may need
++	 * to save label (of the target function) as well (but that's to be decided).
++	 * Stealing 8 (64bit) / 4 (32bit) bytes from padding (__unused) reserved
++	 * for expanding sigset_t. We could've expanded the size of ucontext. But
++	 * shadow stack is something which by default would be enabled via ELF.
++	 * ucontext expansion makes more sense for situations like vector where
++	 * app is willingly opting in to get special functionality. Opt-in allows
++	 * for enlightening in ucontext restore. Second reason is shadow stack
++	 * doesn't need a lot of state and only shadow stack pointer. Tax on
++	 * ecosystem due to a small size change (8 bytes) of ucontext is more than
++	 * simply keeping the size same and shoving the ss pointer in here. Please
++	 * note that shadow stack pointer is pointing to a shadow stack address.
++	 * Shadow stack address has shadow stack restore token using which shadow
++	 * stack should be restored.
++	 * Please note that we're keeping uc_ss_ptr at that this location so that
++	 * every other offsets are same and thus works for compatibility.
+ 	 */
++#ifdef CONFIG_USER_SHADOW_STACK
++	unsigned long uc_ss_ptr;
 +#endif
+ 	struct sigcontext uc_mcontext;
+ };
+ 
 -- 
 2.25.1
 
