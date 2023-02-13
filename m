@@ -4,95 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F2C9C636CC
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Feb 2023 06:03:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 074C1C636D4
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Feb 2023 06:26:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cVQa6T2lr/5Qn8/XvmkJMHUhOKQwBVpTSqchwBBbFdA=; b=m8XCq7f6jeomNY
-	tNIwq5pwUdAL/1v2YR14pvUI9Yc+6bkbYcv42IqWOSiW0NY4UOkGj/qegzvJjhNAkcL7JKCrGpi1r
-	ygKE2D4IiBQAwVSFW/zBp8m69A5AXbvH3sHb5DliK9q6vTFYMBOe7UYbqa9Ha+XK8nXjDzR9D7n05
-	PS1AXlu1nzk7PlyNIYBI+anO1qoIDPokdMB6vD9S+KCcf/aL2PEsqxVddNRac7UJOTuQFyXj+Aozr
-	lZPb+aDJxYdZEZGzF8ZSLo7Po61b6yWEMxAWRGLSeUpfvBIz3tK/llh7yXz2pJ+WvdDAGjyyhwhBu
-	YGIvidNPTis2NhXMp6WQ==;
+	List-Owner; bh=DDWdADbMGTUm40V5W3hC5aQbVrUQa6VBMQZD2TFA+Ks=; b=Y3IU1196FXPuOT
+	Ma04H2/97XlWLv5Xu77w54fSWS0YRCujg58N71mT0CEXMb9+kiqDK39f9wtWWF7LFnZ1rXV1fZndl
+	luDSVB5ADDHi9si11XPGU9exDIuMR5MJFrDadeXNjgNPUPtKlXQGalmj1/x73QxNPfrTB7lXrcImL
+	X0mRZ5E20xltzPJ/ixFxjG7pgt0IKsUAGlYvbD97TIvcwIE9+3843FcMUBgNVRsWKZBVUBaQAvZe0
+	60Uoc4y2e8RkI3grog1b/53uvg8yrToeFbr7oFLHe/hRC9OeL6Xc12l8SD1wqqclWpTugd9l7/JzL
+	J3TaE06fEpNnt4qQrOPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRRva-00DI3L-Ji; Mon, 13 Feb 2023 06:03:02 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1pRSHz-00DKxk-Ms; Mon, 13 Feb 2023 06:26:11 +0000
+Received: from mail-oi1-x22a.google.com ([2607:f8b0:4864:20::22a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRRvX-00DI0s-F4
-	for linux-riscv@bombadil.infradead.org; Mon, 13 Feb 2023 06:02:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=w7d4Qtypw6ksd0rXUCdfOWzkU5LDKwcQ9sGuN3ONcAw=; b=k5Jk8JhzYzbnok1c4Zb7WJfAt1
-	gsGvQQvq91MNDmmxJDVRKoQVzlRLgMehHk/iBMxm0hM2ooLBetQE0XF/F5IWOclBI0aMvXoP8gjgr
-	+dVa2cr38T5BVqRd1QgjISorSUVh0Ma+zkVoGx8Xw19+as+E7rRQZzmiNxkp6OFpPgINNMuQ9XOoy
-	56EvWtZjFxmdhNnpeXQDeX2IqpO9ARYjgOzQBDKlXETu55VHVzNEmpndrKZjg75pJtqniFYj2VSrm
-	Jf2E4jXNgkz4CF9LZTC6D1Hns+mxJc22MKHdCTonmPEKytOH6TZ9FyRIgRRhrg6Kd0dXbMdEEqQSu
-	6WSE12yA==;
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
-	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pRQqc-009BQe-0J
-	for linux-riscv@lists.infradead.org;
-	Mon, 13 Feb 2023 04:53:52 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id bx22so10759987pjb.3
-        for <linux-riscv@lists.infradead.org>; Sun, 12 Feb 2023 20:54:31 -0800 (PST)
+	id 1pRSHn-00DKur-L5; Mon, 13 Feb 2023 06:26:02 +0000
+Received: by mail-oi1-x22a.google.com with SMTP id cz14so9345843oib.12;
+        Sun, 12 Feb 2023 22:25:59 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=w7d4Qtypw6ksd0rXUCdfOWzkU5LDKwcQ9sGuN3ONcAw=;
-        b=31KnFLQ1jXjMLjTchl1w4moDo9CD9TiKyNs+4OObUXS/bu6U2VBl4731Df6PD7Y9/g
-         2XNYNTjZyG7bXyvHEUioI3gERdD7LvSkrCK98xrIHVYmvA5asSACcG8DzwHY9Elw91gc
-         KrYDDfbQ0WGQKLe3OQqMCXoSdQognrXbgKTQeLFi2du2ewZSoi8M3yoq4iVIAUO0iC8j
-         c+HEm7ay6XzwKJD0dg054Mp6qh6jGMCArVxGFrAxDUUDqIrGtX7IhEKyTa8tCMlq6uPJ
-         YpP8FzRMvT6ihcXz/hH1cCXAqlBEJCSPIWcmpziCZgstPBhZ07n1DnUYd6pvHpmuIT8C
-         lNMQ==
+        d=gmail.com; s=20210112;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :sender:from:to:cc:subject:date:message-id:reply-to;
+        bh=WBfrO2gGyOvBRZ1A5wp4UK8YioFxtCNN29YZ0C6yJUM=;
+        b=oDTaHYE7Ifi7cTfoJaBKOA+euRlCFlo+ykP9tRkGsweDWCjfPlRLBkVyxOHGFcmNqc
+         PSZTRHnsx3UreCHv1p9ynDEvrC5nGpdC4VXbwWYrd2yYwCkykGDPLP2SNyHtKIRZ0Fzf
+         m5Q5HPiFjmx/8JH/hVxhNaJo4GLuifz/a00mQ5ccFU5DlCskiDprH6pwoBt/q7h6DDjY
+         XLGT8w6vJ24mYBL9QM1YV+CRlakf167YfDtx3KOo8lkNAunfJWM4pqGoRQPXTLOlgYkl
+         nosLoRl5OZPv9+Xx589w5Zoaba/auqZwvIrVa4S9ZAslff1MJvy24KQ2HNmX2D2e/q/v
+         LF/A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=w7d4Qtypw6ksd0rXUCdfOWzkU5LDKwcQ9sGuN3ONcAw=;
-        b=JOqvR9VykCk1Nwy0Z2/ygusWrX9csBvacep3zHR3iqF0c2JaXhmdrJ5lfHdC8p/KFS
-         MhwODG71ZFMhuJWKBxautiEx1fUSSX6f4qQ//Gt6GsEmFY0rMMRnknCERNREACNTPfjk
-         m8ZYlamuNgku/nByUzy3mu4zw4eXENh9+SK9i9VXz4i9EGdFIXSQ9mn580VPdgzSkx9w
-         d7I1eyQ28LsTogpzboT1LW/iSWDvoSK8urASQlLi41+amHAkVGUpfkXDN9J3R8j3+e08
-         otsTa0nMpiu0tsEZ2FWew6QEXfUn90odwEUISn1vx35RurGyQ3VnixEDf+cqeVDU1rKM
-         EIdg==
-X-Gm-Message-State: AO0yUKVaf8jZAqing/HZw96ZjVoUnCncZmM8jenxzah/F2ylsDWERvD8
-	mf0F/BsHJSBt/kkeF4hOW4rhi/QuUZG5KaaN
-X-Google-Smtp-Source: AK7set/LsQt20km3cdR/Kp4fADKzzPOahuIH182d8bTSETTWkRIjfVk2zOeUnxJfWQP4yrfUrjZ6+g==
-X-Received: by 2002:a17:902:e843:b0:199:2a89:f912 with SMTP id t3-20020a170902e84300b001992a89f912mr27069676plg.20.1676264070858;
-        Sun, 12 Feb 2023 20:54:30 -0800 (PST)
-Received: from debug.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id e5-20020a170902784500b00189e7cb8b89sm7078303pln.127.2023.02.12.20.54.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 12 Feb 2023 20:54:30 -0800 (PST)
-From: Deepak Gupta <debug@rivosinc.com>
-To: linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: Deepak Gupta <debug@rivosinc.com>
-Subject: [PATCH v1 RFC Zisslpcfi 20/20] riscv: select config for shadow stack and landing pad instr support
-Date: Sun, 12 Feb 2023 20:53:49 -0800
-Message-Id: <20230213045351.3945824-21-debug@rivosinc.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20230213045351.3945824-1-debug@rivosinc.com>
-References: <20230213045351.3945824-1-debug@rivosinc.com>
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=WBfrO2gGyOvBRZ1A5wp4UK8YioFxtCNN29YZ0C6yJUM=;
+        b=blBhb+FICTfzESshDAdzewFHzsuDSqxPKg9Nzh2M9UV6GKNdVhF2Il03onXa/f3JRT
+         sO5CZbhIck+cCkCHbZ6JVE9sP96arl8wgNpuO3rxUPHLvOq1AXMDjHRl2sac1tJsV97O
+         jhidoU0Urjm95LooEeuTCnEZo2opOcaXk2mM+CVT35BbIu9Iw6fbGK/PwgrTMDaHnmU3
+         HzTREKMONls6DR6L78uYn+kTve43626FJetOYHZqd3YqntM7UTUVX/Yi/IVB1SrtqXVB
+         lSyAC3dCnkYFkGQl4uPF4DI9mHRfseM442f4SAV+cMhIsW0N0t/sVrhwdEDF64P6wFzI
+         dGgQ==
+X-Gm-Message-State: AO0yUKWzGS8KgVEnly3OVt3D6zIf1KTu30YtULYH2k92F1mdD0JClg4k
+	2+yWSC1VxsnovMFB9z5h0hk=
+X-Google-Smtp-Source: AK7set/+6jsdhTf2sJtfJcDHaoQnUg14v4tlGoQakT99S8J8gTSqtG1+VHr+8pC/SE0SaaNJlMokqg==
+X-Received: by 2002:a05:6808:d2:b0:363:b918:643b with SMTP id t18-20020a05680800d200b00363b918643bmr10584927oic.31.1676269558366;
+        Sun, 12 Feb 2023 22:25:58 -0800 (PST)
+Received: from ?IPV6:2600:1700:e321:62f0:329c:23ff:fee3:9d7c? ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
+        by smtp.gmail.com with ESMTPSA id dq3-20020a056808428300b0037d8148cf04sm1851027oib.46.2023.02.12.22.25.54
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 12 Feb 2023 22:25:57 -0800 (PST)
+Message-ID: <8267dc7e-329f-73cf-b50e-9bf2606b8751@roeck-us.net>
+Date: Sun, 12 Feb 2023 22:25:52 -0800
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.4.2
+Subject: Re: [PATCH v2 2/4] m68k: use asm-generic/memory_model.h for both MMU
+ and !MMU
+Content-Language: en-US
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, Arnd Bergmann <arnd@arndb.de>,
+ Brian Cain <bcain@quicinc.com>, "David S. Miller" <davem@davemloft.net>,
+ Dinh Nguyen <dinguyen@kernel.org>, Geert Uytterhoeven
+ <geert@linux-m68k.org>, Greg Ungerer <gerg@linux-m68k.org>,
+ Guo Ren <guoren@kernel.org>, Helge Deller <deller@gmx.de>,
+ Huacai Chen <chenhuacai@kernel.org>, Matt Turner <mattst88@gmail.com>,
+ Max Filippov <jcmvbkbc@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>,
+ Michal Simek <monstr@monstr.eu>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Rich Felker <dalias@libc.org>, Richard Weinberger <richard@nod.at>,
+ Russell King <linux@armlinux.org.uk>, Stafford Horne <shorne@gmail.com>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Vineet Gupta <vgupta@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>, linux-alpha@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+ linux-ia64@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+ linux-mm@kvack.org, linux-parisc@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
+ linux-snps-arc@lists.infradead.org, linux-um@lists.infradead.org,
+ linux-xtensa@linux-xtensa.org, linuxppc-dev@lists.ozlabs.org,
+ loongarch@lists.linux.dev, openrisc@lists.librecores.org,
+ sparclinux@vger.kernel.org, x86@kernel.org
+References: <20230129124235.209895-1-rppt@kernel.org>
+ <20230129124235.209895-3-rppt@kernel.org>
+ <20230212173513.GA4052259@roeck-us.net> <Y+mPJYpVBk1YutDL@kernel.org>
+From: Guenter Roeck <linux@roeck-us.net>
+In-Reply-To: <Y+mPJYpVBk1YutDL@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230213_045350_629167_6C2E0982 
-X-CRM114-Status: UNSURE (   7.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230212_222600_133690_3B25E00E 
+X-CRM114-Status: GOOD (  21.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,38 +111,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch selects config shadow stack support and landing pad instr
-support. Since shadow stack support and landing instr support relies
-on ELF header, this change also selects ARCH_USE_GNU_PROPERTY and
-ARCH_BINFMT_ELF_STATE.
+On 2/12/23 17:15, Mike Rapoport wrote:
+> Hi,
+> 
+> On Sun, Feb 12, 2023 at 09:35:13AM -0800, Guenter Roeck wrote:
+>> Hi,
+>>
+>> On Sun, Jan 29, 2023 at 02:42:33PM +0200, Mike Rapoport wrote:
+>>> From: "Mike Rapoport (IBM)" <rppt@kernel.org>
+>>>
+>>> The MMU variant uses generic definitions of page_to_pfn() and
+>>> pfn_to_page(), but !MMU defines them in include/asm/page_no.h for no
+>>> good reason.
+>>>
+>>> Include asm-generic/memory_model.h in the common include/asm/page.h and
+>>> drop redundant definitions.
+>>>
+>>> Signed-off-by: Mike Rapoport (IBM) <rppt@kernel.org>
+>>> Reviewed-by: Geert Uytterhoeven <geert@linux-m68k.org>
+>>> Acked-by: Geert Uytterhoeven <geert@linux-m68k.org>
+>>
+>> This patch results in a boot failure when trying to boot the mcf5208evb qemu
+>> emulation. Reverting it together with "mm, arch: add generic implementation
+>> of pfn_valid() for FLATMEM" fixes the problem. There is no error log - the
+>> emulation hangs silently until aborted.
+> 
+> With the patch below I was able to get to the mount of the root file system,
+> but I don't have one, so I couldn't test the boot properly.
+> 
+> diff --git a/arch/m68k/include/asm/page_no.h b/arch/m68k/include/asm/page_no.h
+> index 43ff6b109ebb..060e4c0e7605 100644
+> --- a/arch/m68k/include/asm/page_no.h
+> +++ b/arch/m68k/include/asm/page_no.h
+> @@ -28,6 +28,8 @@ extern unsigned long memory_end;
+>   #define	virt_addr_valid(kaddr)	(((unsigned long)(kaddr) >= PAGE_OFFSET) && \
+>   				((unsigned long)(kaddr) < memory_end))
+>   
+> +#define ARCH_PFN_OFFSET PHYS_PFN(PAGE_OFFSET_RAW)
+> +
+>   #endif /* __ASSEMBLY__ */
+>   
+>   #endif /* _M68K_PAGE_NO_H */
+>   
 
-Signed-off-by: Deepak Gupta <debug@rivosinc.com>
----
- arch/riscv/Kconfig | 4 ++++
- 1 file changed, 4 insertions(+)
+Yes, that works.
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index e2b656043abf..9a39ada1d9d0 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -132,6 +132,10 @@ config RISCV
- 	select SYSCTL_EXCEPTION_TRACE
- 	select THREAD_INFO_IN_TASK
- 	select TRACE_IRQFLAGS_SUPPORT
-+	select USER_SHADOW_STACK
-+	select USER_INDIRECT_BR_LP
-+	select ARCH_USE_GNU_PROPERTY
-+	select ARCH_BINFMT_ELF_STATE
- 	select UACCESS_MEMCPY if !MMU
- 	select ZONE_DMA32 if 64BIT
- 	select HAVE_DYNAMIC_FTRACE if !XIP_KERNEL && MMU && $(cc-option,-fpatchable-function-entry=8)
--- 
-2.25.1
+Thanks,
+Guenter
+
+>> Guenter
+>>
+>> ---
+>> bisect log:
+>>
+>> # bad: [6ba8a227fd19d19779005fb66ad7562608e1df83] Add linux-next specific files for 20230210
+>> # good: [4ec5183ec48656cec489c49f989c508b68b518e3] Linux 6.2-rc7
+>> git bisect start 'HEAD' 'v6.2-rc7'
+>> # good: [94613f0efc69ed41f9229ef5c294db3ec37145da] Merge branch 'master' of git://git.kernel.org/pub/scm/linux/kernel/git/herbert/cryptodev-2.6.git
+>> git bisect good 94613f0efc69ed41f9229ef5c294db3ec37145da
+>> # good: [19e62c715fe70dae4582c2874ed3e66715d09af6] Merge branch 'rcu/next' of git://git.kernel.org/pub/scm/linux/kernel/git/paulmck/linux-rcu.git
+>> git bisect good 19e62c715fe70dae4582c2874ed3e66715d09af6
+>> # good: [5d8b7ecef7f4a681b6e5538db59ff26c389c0ab6] Merge branch 'for-next' of https://gitlab.com/peda-linux/mux.git
+>> git bisect good 5d8b7ecef7f4a681b6e5538db59ff26c389c0ab6
+>> # good: [c349bf6ec83903b20fe570c5609b9a864a64e09c] Merge branch 'for-next' of git://git.kernel.org/pub/scm/linux/kernel/git/krisman/unicode.git
+>> git bisect good c349bf6ec83903b20fe570c5609b9a864a64e09c
+>> # good: [5a06a9f17454df38f35672be522ff5eb9b4277d2] selftest: add testing unsharing and counting ksm zero page
+>> git bisect good 5a06a9f17454df38f35672be522ff5eb9b4277d2
+>> # bad: [f5d115a7b06e5661ed5218ffa9a2644c4ff1c135] Merge branch 'mm-nonmm-unstable' into mm-everything
+>> git bisect bad f5d115a7b06e5661ed5218ffa9a2644c4ff1c135
+>> # bad: [acb018d6ea0c055381fba7dddaef386ee28f8075] mm/vmalloc.c: allow vread() to read out vm_map_ram areas
+>> git bisect bad acb018d6ea0c055381fba7dddaef386ee28f8075
+>> # good: [1a5d9782ac969dc6e61c6786500b5160603188ea] mm/mmap: remove __vma_adjust()
+>> git bisect good 1a5d9782ac969dc6e61c6786500b5160603188ea
+>> # good: [4b32363697de957dcc890b6245bec3f58903639a] arm: include asm-generic/memory_model.h from page.h rather than memory.h
+>> git bisect good 4b32363697de957dcc890b6245bec3f58903639a
+>> # bad: [328cf3fa6682ce6a4de6f8bb8009c833dc33f3c8] mm/migrate: convert isolate_movable_page() to use folios
+>> git bisect bad 328cf3fa6682ce6a4de6f8bb8009c833dc33f3c8
+>> # bad: [b704c765b08cabe82adf76a4d1a74f3688eee410] mm/mempolicy: convert queue_pages_pmd() to queue_folios_pmd()
+>> git bisect bad b704c765b08cabe82adf76a4d1a74f3688eee410
+>> # bad: [e5734c8b0edfd2a053a5c256189586a3b1e9f63d] mm, arch: add generic implementation of pfn_valid() for FLATMEM
+>> git bisect bad e5734c8b0edfd2a053a5c256189586a3b1e9f63d
+>> # bad: [ad8aecea034c591b9754bc5908da9719853aa7fa] mips: drop definition of pfn_valid() for DISCONTIGMEM
+>> git bisect bad ad8aecea034c591b9754bc5908da9719853aa7fa
+>> # bad: [1f6271a0dfdf952c2e3981f424784d48f243a2be] m68k: use asm-generic/memory_model.h for both MMU and !MMU
+>> git bisect bad 1f6271a0dfdf952c2e3981f424784d48f243a2be
+>> # first bad commit: [1f6271a0dfdf952c2e3981f424784d48f243a2be] m68k: use asm-generic/memory_model.h for both MMU and !MMU
+> 
 
 
 _______________________________________________
