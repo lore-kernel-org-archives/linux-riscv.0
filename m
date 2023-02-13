@@ -4,76 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3936CC6379F
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Feb 2023 04:54:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9531EC636D7
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Feb 2023 04:54:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=apCSjf5BLptAbJ7ZAHwVmBeI+9J15Nr4Eot+Uo8U+28=; b=hiEz8sMjmCOQdQ
-	5b6/p5iQb1UiRf2FHAo6fzM7yJ1S3bKUfWQmAO2XtYdOc/8ghS9ngKyv2Nm94DIwrckLncEKH3U0y
-	lXBBzXlwWwqbiUEYjtBhG4u3Mr7fGJFzn9rtM2H+ulCetSAIaPQu9d1DlmXd6rlp9cJ1EXXzHZn2g
-	dE4wGOQN6RHCrjVSpvpuvpU5Y29qfhkjmMNoT3fl45QxMkQFgXWaKIy9i0dgtyWxXjmOPlajhubKv
-	ZQ6pmnvECFfKqnFqqYN7VLAjD1ppI+SFqQelmdfgtI0ynIfw0mS7KtMrKj7+N5Yt0XwVbPovZZOoc
-	AldL7jZslRfQpGc0fjRw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=x+kR9CWwQBpSRlgVh2fqR//zOB6tTcosjxynW3gGgYc=; b=dvLzBDUkvM5W7v
+	RQ1qN9gBroq2I0LNO4VEv2WyeUVDDvshHARA/EFzCxWNoMy4dwLfolO+fS2DwMiVanDoZSEb/e6tx
+	AnW/p5TXTr9RQEjV+xWyfn4dSPDCcnqkn6IW8R+3f1AcqooTTJ9M9CUjqmnQAKHUeFjDRDpA4WnDV
+	KuvaQ97FB7NQ8Pmm7MoQN0+CMh66/bu6VhIujG6LGOnLKP3umDWKaZi7dxq6O20zjUtvocuMxApIk
+	TCQ/DA7rqGggQhXTyQPdq9viS/GJVqfwEhdrZll5cyIyO16Rl7XmM+Qro2uJxHdFlJ9Da0J38elBB
+	VnHDb0+sx6Jd2SN79ERA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRQqu-00D9IK-VF; Mon, 13 Feb 2023 04:54:08 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1pRQqw-00D9J2-D6; Mon, 13 Feb 2023 04:54:10 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRQqp-00D9GN-SA
-	for linux-riscv@lists.infradead.org; Mon, 13 Feb 2023 04:54:06 +0000
-Received: by mail-pl1-x634.google.com with SMTP id e17so3444344plg.12
-        for <linux-riscv@lists.infradead.org>; Sun, 12 Feb 2023 20:54:02 -0800 (PST)
+	id 1pRQqq-00D9GY-EP
+	for linux-riscv@lists.infradead.org; Mon, 13 Feb 2023 04:54:07 +0000
+Received: by mail-pl1-x636.google.com with SMTP id e17so3444391plg.12
+        for <linux-riscv@lists.infradead.org>; Sun, 12 Feb 2023 20:54:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=tTK+xfsR0j+xCNHQsqpg9k6oGbLrp123IoZ4WeUeiW0=;
-        b=br3K0OFLOLof60ras95igFKBghZGWly2Q/NOKBv+SdHVbeiNa/5kkviR8DuUOzHb5B
-         XvJNmvmT4N381bU88daxdzoQ2tkb6utSR+ZHqJZujHFnB6nWMMHFdKDvPKReWKLwubJW
-         0Chmt8KyjudEpkvTZ6Q0ZWEk8qdNzI8J+L5ZFB3mrXQQhyutoqvrYDixJkWEolbrpnn6
-         9rPlCtIfOd+YZTbHm16JCqxUJwdV5BQ4j5KMAb3YOxzu/CwtRI9pOWwC75Ok7mgjKSUZ
-         hJUikhZNY6X4T542UhOYRi63eacekCJIXRTwaBOk25rrdwYEEhzOVKZaFdSv7rO5EuxC
-         VcxQ==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PDt2xtowm1vGovkYD2IOPyMg5XU+WITSemeLQt38+wk=;
+        b=GCKt9FdzGzyUdkocjCliMYjgCOa0QLOjiBhttAdZOxargwxJw4vxLJDmHp57SYMfvU
+         df4SL6t3EB6DwCr+yMREIqZPNA8lH1KY/NmjCtwPh7RiF2sS7CiZ+NVMmais/oNJuTRH
+         oG9Xrug0dghHSuhHhbgxN9qJXDUVlSZvObtB30dIISrsnoeeYB0xZZ+8gPVYP3YKnZCO
+         dt88KRAfl30IBpKYZCytTsdN/Ze3ePYzwWGTvqiW7lM1M2AfAWANpaxMxFedjYeFVoMB
+         HvpyZQbKyRm57FGGHC2NuTZLmtqE8+b7eRudJLnJAgLJFszO3O7vTBEFeEwvQCyU/ukk
+         guYA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=tTK+xfsR0j+xCNHQsqpg9k6oGbLrp123IoZ4WeUeiW0=;
-        b=jkBtrwIlcKxIA0qVFPd6y0f9tAz8JhHdBVbRWpvbKZ8A3StPP0yfdILAMFGZQi8+er
-         4jDGcnS2jooRi3Gi3L4Sr3wPWe76TsImEfa1Kv6Pp+MynT+OSElZn1hpJ866FhVqMnHf
-         YhYkvMpNaS6AWuNbd70zynNpqpuTCrtiMh2qo3Jmylj3MX/xK8ZZhvtXTZ8k17ZSfH4F
-         X4xyVSkhDjXSje62n7u7DQuTqh6BqdUVN9pgbLDS910cR3Ww0N12hWZUm8ifhPdWFr1E
-         CnEyXTmUrvXS7471I3GxBN4kNMiPl9+EFuduwT3Oo+K9BVPofpFbdJJYCE86YGIFAogC
-         RkIw==
-X-Gm-Message-State: AO0yUKW2oldKQoUkigZBcOAEFodhSpgPwRZWL3DTljnsOXkOyNuCpnNf
-	X/FliDr8hj5NH9JuTN983bFsAx06njzYAN2R
-X-Google-Smtp-Source: AK7set8xKRBvy/axmiQXhbS6PaG2dl35Kqax95hqZ2di9iPhyHTj7L0l7ihqDU/zTPKXG1WsBJH+tw==
-X-Received: by 2002:a17:903:4091:b0:19a:73f7:675f with SMTP id z17-20020a170903409100b0019a73f7675fmr7653867plc.60.1676264041975;
-        Sun, 12 Feb 2023 20:54:01 -0800 (PST)
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=PDt2xtowm1vGovkYD2IOPyMg5XU+WITSemeLQt38+wk=;
+        b=JGoxJ7bSbFLBqlNyLYJID+q3WfsvPRf5/1ySj85Js9+4sFJhsImgUCoyu7/9iAXer/
+         Xc0l5IvsyyJfoem1uF0NRrUeRxS8njUBtUFqLqYYju+DUCgPESh4O7Wf3mOCJu6pjX6Q
+         dwxxZKGDgZgiN8Yf0lB20Of7GK/E7/0oeSeAu7HGQiS1biVy7WJs5baJigV2yM2NNY5M
+         v/22t1KpWjeQaYX62dbFOySXyx8sUNm5dBBRgt5YxXQQuLN4+rmTB6LHQyeQ6sm/PuKs
+         GP38RIChDYXytT6LSiPGBBoNYh+8jphMjhz2+UlgfLf8+SKWyMBAm/2tif4DUqrZ6tA2
+         KmxQ==
+X-Gm-Message-State: AO0yUKUZWhe3TNdKHsIKkZGGEnY0Ugy0K3XFPjDM6FbQQ9aZfG7Q8frK
+	t288Pp0+VYw6ul7jNDQ1pjoFdQ==
+X-Google-Smtp-Source: AK7set9Y52bDpNDCM5e4MJvhFWuMbirMIwWV6jFT56ImTqva5KruRhYx1rh/voDp7RXfFbY6juKL1A==
+X-Received: by 2002:a17:902:f809:b0:199:e58a:61c2 with SMTP id ix9-20020a170902f80900b00199e58a61c2mr13328153plb.29.1676264043302;
+        Sun, 12 Feb 2023 20:54:03 -0800 (PST)
 Received: from debug.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id e5-20020a170902784500b00189e7cb8b89sm7078303pln.127.2023.02.12.20.54.01
+        by smtp.gmail.com with ESMTPSA id e5-20020a170902784500b00189e7cb8b89sm7078303pln.127.2023.02.12.20.54.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 12 Feb 2023 20:54:01 -0800 (PST)
+        Sun, 12 Feb 2023 20:54:02 -0800 (PST)
 From: Deepak Gupta <debug@rivosinc.com>
 To: linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
+	linux-riscv@lists.infradead.org
 Cc: Deepak Gupta <debug@rivosinc.com>
-Subject: [PATCH v1 RFC Zisslpcfi 00/20] riscv control-flow integrity for U mode
-Date: Sun, 12 Feb 2023 20:53:29 -0800
-Message-Id: <20230213045351.3945824-1-debug@rivosinc.com>
+Subject: [PATCH v1 RFC Zisslpcfi 01/20] sslp stubs: shadow stack and landing pad stubs
+Date: Sun, 12 Feb 2023 20:53:30 -0800
+Message-Id: <20230213045351.3945824-2-debug@rivosinc.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20230213045351.3945824-1-debug@rivosinc.com>
+References: <20230213045351.3945824-1-debug@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230212_205404_197046_07B62124 
-X-CRM114-Status: GOOD (  29.93  )
+X-CRM114-CacheID: sfid-20230212_205404_502084_3AD918F5 
+X-CRM114-Status: UNSURE (   7.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,265 +91,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello All,
+In absence of shadow stack config and landing pad instr config, stubs are
+needed to indicate whether shadow stack & landing pad instr is supported.
 
-I've been working on linux support for shadow stack and landing pad
-instruction on riscv for a while.
+In absence of config, these stubs return false (indicating no support)
+In presence of config, an extern declaration is added and arch specific
+implementation can choose to implement detection.
 
-These are still RFC quality. But atleast they're in a shape which can
-start a discussion and I can get some feedback. So I decided to sending
-out patches.
+Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+---
+ include/linux/processor.h | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
 
-This patch series implements `zisslpcfi` extension which helps software
-to enforce control-flow integrity (cfi) on riscv CPUs. Currently spec is
-called zisslpcfi [1] spec. This literally means "unprivileged integer
-shadow stack & landing pad based control-flow integrity".
-
-Three major architectures [1, 2, 3] either already support or have
-indicated support for control flow integrity extensions based on shadow
-stack (for backward edge) and landing pads for indirect call/jmp (for
-forward edge). Since these mechanisms are solving one common security
-issue (control flow hijacking attacks) plaguing software ecosystem,
-there're bound to be common similarities and thus need of abstracting
-or having common code. These commonalities are:
-  - Concept of shadow stack for program
-  - Protection of shadow stack from regular stores but still allowing
-    return address to be store via special mechanism(s)
-  - Concept of indirect branch tracking and thus landing pad instruction
-    as target for indirect branches.
-
-Due to commonality in three arches for shadow stack and landing pad instr
-support, patch series defines following arch-agnostic configs:
-  - CONFIG_USER_SHADOW_STACK: Selecting this config means kernel will
-    have support for programs compiled with optin of shadow stacks.
-  - CONFIG_USER_INDIRECT_BR_LP: Selecting this config means kernel will
-    have support for program compiled with optin of landing pad
-    instructions on indirect branches.
-
-There're stubs for abstraction on non-riscv architectures and specific
-implementation for riscv architecture. Architecture owners can implement
-those stubs abstractions on respective architectures to implement shadow
-stack and branch tracking mechanism.
-
-Additional highlights of this patch series specifically targeted towards
-implementation of `zisslpcfi`
-
-Shadow stack and landing pad state
-----------------------------------
-On riscv I choose to insert shadow stack and landing pad state in
-thread_info. pt_regs is one choice but I didn't see a compelling reason
-to put these in pt_regs. If you do have a compelling reason to put this
-in pt_regs, we can make that change.
-
-Shadow stack
-------------
-Shadow stack is already present on x86 [2] and is going to be part of
-riscv and aarch64 [3] architecture. Since shadow stack are writeable
-memory but at the same time are not allowed to be writeable by regular
-stores. They have special meaning and this patch series proposes a new
-`mmap` protection flag `PROT_SHADOWSTACK`. Repsective architecture can
-choose to implement this memory protection. With respect to vma flags, 
-riscv implementation chooses to have only `VM_WRITE` as shadow stack
-meaning and is analogous to riscv architecture's  PTE encodings
-(X=0,R=0,W=1) as shadow stack. On riscv, all stores to shadow stack
-memory raise access store faults. Similarly all shadow stack load and
-stores on non-shadow stack memory (but valid) will raise access
-load/store faults. This patch series creates a synthetic exception code
-(=14) which is reserved in privileged spec and feeds that into common
-page fault handling routine.
-
-ELF parsing
-------------
-There're two ways to enable forward cfi and backward cfi
-- prctls: `ld` can issue prctls to enable it on the runtime.
-- elf marker: Some sort of marker in elf header which kernel can recognize
-              and setup forward and backward cfi state.
-
-This patch series uses .note.gnu.property section and assumes two flags
-exist there for forward cfi and backward cfi, if present kernel setups
-the respective cfi state.
-
-Please note that this part will change because risc-v is moving towards
-using `.riscv.attributes` section to host such flags. So I'll change the
-implementation in future revisions.
-
-Signal & ucontext
-------------------
-This patch series steals 4(32bit)/8(64bit) bytes from a padding structure
-in ucontext. This padding exist for future use case which we don't know yet.
-But stealing few bytes from this padding allows us to keep the structure
-size same and save some compatiblity issues. Signal patches still need
-some work (have to work out a shadow stack token save on signal delivery
-and restore mechanism on sigreturn. This will prevent any abuse of
-sigreturns to hijack control flow)
-
-Audit mode
------------
-Since this is a RFC, current set of patches suppresses cfi violations in
-program and let the program make forward progress. However this shouldn't
-be allowed by default and can be built into a policy.
-
-More on `zisslpcfi` riscv extension
-------------------------------------
-
-zisslpcfi (CFI) extends ISA in following manner:
-
-Forward cfi (indirect call/jmp)
-- Landing pad instruction requirement for indirect call/jmp
-  All indirect call and jump must land on landing pad instruction `lpcll`
-  else CPU will raise illegal instruction exception. `lpcll` stands for
-  land pad check lower label.
-
-- Static label (25bit label) checking instructions for indirect call/jmp
-  Extension provides mechanism using which a compiler generated label
-  value can be set in a designated CSR at call site and it can be checked
-  at the call target. If mismatch happens, CPU will raise illegal
-  instruction exception. Compiler can generate hash based on function
-  signature type. Extension provide mechanisms using which label value
-  is part of the instruction itself as immediate and thus has static
-  immutable property.
-
-Backward cfi (returns)
-- Shadow stack (SS) for function returns
-  Extension provides sspush x1/x5, sspop x1/x5 and sschkra instructions.
-  sspush will push on shadow stack while sspop will pop from shadow stack
-  sschkra will succeed only when x1 == x5 is true else it will raise
-  illegal instruction exception. Shadow stacks introduces new virtual
-  memory type and thus new PTE encodings. Existing reserved encoding of
-  R=0,W=1,X=0 is now shadow stack PTE encoding (only if backward cfi is
-  enabled for current mode). New virtual memory type allows CPU to
-  distinguish so that stores coming from sspush or ssamoswap can succeed
-  while regular stores raise access violations.
-
-opcodes:
-zisslpcfi opcodes are carved out of new opcode encodings. These opcodes
-encodings were reserved until now. A new extension called zimops make
-these opcodes into "may be operations". zimops stands for unprivileged
-may be operations (mops) and if implemented default behavior is to mov 0
-to rd. zisslpcfi extension changes executable in a way where it should be
-able to run on riscv cpu which implements cfi extension as well as riscv
-cpu which doesn't implement cfi extension. As long as zimops is
-implemented, all such instructions will not fault and simply move 0 to rd.
-A hart implementing cfi must implement zimops. Any future extension can
-re-purpose zimops to change behavior and claim them while also not
-breaking binary/executable compatiblity . zisslpcfi is first such
-extension to modify zimops behavior.
-
-Instructions:
-zisslpcfi defines following instructions.
-
-Backward control flow:
-
-sspush x1/x5:
-Decrement shadow stack pointer and pushes x1 or x5 on shadow stack.
-
-sspop x1/x5:
-Pops from shadow stack into x1 or x5. Increments shadow stack pointer.
-
-ssprr:
-Reads current shadow stack pointer into a destination register.
-
-sschckra:
-Compares x1 with x5. Raises illegal instr exception if x1 != x5.
-
-ssamoswap:
-Atomically swaps value on top of shadow stack.
-
-
-Forward control flow:
-
-Forward control flow extends architecture to allow software to set labels
-(25bits of label) at call/jmp site and check labels at target. Extension
-gives instructions to set label as part of immediate in instruction itself
-. Since immediate is limited in terms of bit length, labels are set and
-checked in ladder fashion of 9, 8 and 8 bits.
-
-lpsll, lpsml, lpsul:
-sets lower (9bit), mid (8bit) and upper (8bit) label values in CSR_LPLR
-respectively.
-
-lpcll, lpcml, lpcul:
-checks lower (9bit), mid (8bit) and upper (8bit) label values with
-CSR_LPLR respectively. Check label instructions raise illegal instruction
-fault when labels mismatch. `lpcll` has dual purpose; it acts as landing
-pad instruction as well label checking for lower 9 bits.
-
-
-Tests and other bits
-********************
-For convenience this patch has been tested with followng qemu impl.
-https://github.com/deepak0414/qemu/tree/scfi_menvcfg_gh_Zisslpcfi-0.1
-
-I've been able to boot linux kernel using this implementation and run
-very basic simple tests apps. For convenience here is the branch which
-has implementation.
-https://github.com/deepak0414/linux-riscv-cfi/tree/Zisslpcfi-0.4_v6.1-rc2
-
-In order to perform unit-tests on qemu-impl, I've been using riscv-test
-and created unit tests to test implementation. riscv-tests branch URL is
-below
-https://github.com/deepak0414/riscv-tests/tree/cfi_tests
-
-[1] - https://github.com/riscv/riscv-cfi
-[2] - https://www.intel.com/content/dam/develop/external/us/en/documents/catc17-introduction-intel-cet-844137.pdf
-[3] - https://community.arm.com/arm-community-blogs/b/architectures-and-processors-blog/posts/arm-a-profile-architecture-2022
-
-Deepak Gupta (20):
-  sslp stubs: shadow stack and landing pad stubs
-  riscv: zisslpcfi enumeration
-  riscv: zisslpcfi extension csr and bit definitions
-  riscv: kernel enabling user code for shadow stack and landing pad
-  mmap : Introducing new protection "PROT_SHADOWSTACK" for mmap
-  riscv: Implementing "PROT_SHADOWSTACK" on riscv
-  elf: ELF header parsing in GNU property for cfi state
-  riscv: ELF header parsing in GNU property for riscv zisslpcfi
-  riscv mmu: riscv shadow stack page fault handling
-  riscv mmu: write protect and shadow stack
-  mmu: maybe_mkwrite updated to manufacture shadow stack PTEs
-  riscv mm: manufacture shadow stack pte and is vma shadowstack
-  riscv: illegal instruction handler for cfi violations
-  riscv: audit mode for cfi violations
-  sslp prctl: arch-agnostic prctl for shadow stack and landing pad instr
-  riscv: Implements sslp prctls
-  riscv ucontext: adding shadow stack pointer field in ucontext
-  riscv signal: Save and restore of shadow stack for signal
-  config: adding two new config for control flow integrity
-  riscv: select config for shadow stack and landing pad instr support
-
- arch/riscv/Kconfig                     |   4 +
- arch/riscv/include/asm/csr.h           |  28 ++++
- arch/riscv/include/asm/elf.h           |  54 ++++++++
- arch/riscv/include/asm/hwcap.h         |   6 +-
- arch/riscv/include/asm/mman.h          |  19 +++
- arch/riscv/include/asm/pgtable.h       |  21 ++-
- arch/riscv/include/asm/processor.h     |  26 ++++
- arch/riscv/include/asm/thread_info.h   |   5 +
- arch/riscv/include/uapi/asm/ucontext.h |  32 ++++-
- arch/riscv/kernel/asm-offsets.c        |   5 +
- arch/riscv/kernel/cpu.c                |   1 +
- arch/riscv/kernel/cpufeature.c         |   1 +
- arch/riscv/kernel/entry.S              |  40 ++++++
- arch/riscv/kernel/process.c            | 155 +++++++++++++++++++++
- arch/riscv/kernel/signal.c             |  45 ++++++
- arch/riscv/kernel/sys_riscv.c          |  22 +++
- arch/riscv/kernel/traps.c              | 183 ++++++++++++++++++++++++-
- arch/riscv/mm/fault.c                  |  23 +++-
- arch/riscv/mm/init.c                   |   2 +-
- arch/riscv/mm/pageattr.c               |   7 +
- fs/binfmt_elf.c                        |   5 +
- include/linux/elf.h                    |   8 ++
- include/linux/mm.h                     |  23 +++-
- include/linux/pgtable.h                |   4 +
- include/linux/processor.h              |  17 +++
- include/uapi/asm-generic/mman-common.h |   6 +
- include/uapi/linux/elf.h               |   6 +
- include/uapi/linux/prctl.h             |  26 ++++
- init/Kconfig                           |  19 +++
- kernel/sys.c                           |  40 ++++++
- mm/mmap.c                              |   4 +
- 31 files changed, 825 insertions(+), 12 deletions(-)
- create mode 100644 arch/riscv/include/asm/mman.h
-
+diff --git a/include/linux/processor.h b/include/linux/processor.h
+index dc78bdc7079a..228aa95a7cd7 100644
+--- a/include/linux/processor.h
++++ b/include/linux/processor.h
+@@ -59,4 +59,21 @@ do {								\
+ 
+ #endif
+ 
++#ifndef CONFIG_USER_SHADOW_STACK
++static inline bool arch_supports_shadow_stack(void)
++{
++	return false;
++}
++#else
++extern bool arch_supports_shadow_stack(void);
++#endif
++
++#ifndef CONFIG_USER_INDIRECT_BR_LP
++static inline bool arch_supports_indirect_br_lp_instr(void)
++{
++	return false;
++}
++#else
++extern bool arch_supports_indirect_br_lp_instr(void);
++#endif
+ #endif /* _LINUX_PROCESSOR_H */
 -- 
 2.25.1
 
