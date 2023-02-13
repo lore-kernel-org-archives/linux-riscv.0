@@ -4,59 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34BF7C636D4
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Feb 2023 17:39:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6668C636CC
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Feb 2023 17:43:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=gl0zakFEyxHZqp0xef5P6ZmqtXR5Fi03mCDuokimnZs=; b=vBrGLtaEZnbMVI
-	FolFIZf2RUcZoGRPQKGCXsYpd82hiL5d1jwK74MFDUNbli+DRgPWYIzMVazkba9vl84bIYFIn2zhh
-	BsH/0cwpM2VceE1JJF61OdkUfjes3wxxFpBEETw35nZrWH2lrxrfTiIAI1YSiEUEZJbry0GRniQja
-	m1qk0Y+9VpDKz0VRAKp7gegU3Jduv+1lgBTG79KgP8Hv4Bdf3wMDhSsqkxxGgMwm22DegrFpBscFz
-	K5tpH7YmqxlprmNk0CvclPQmUqV/dFbjE2BxDdhSnH+L5xqpPjW+ZRup6jvxxIpzmhuelsWwMb38B
-	HP0dhM0Zw9BGAsJ5sTGA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=TS4HYS7wTadqMnOD7DAsdAX5cbj4asOSCqqVm4BRF9g=; b=1JCnQ4Or9p2p2q
+	fRXylSgNpa/+Q+X1Hs6DX4KQsPC14TN1d8zk3tPLVtvKHYVg47yk8swX5nqvynDlajskcrlnyQNZ/
+	wDh/3PY4H/fhjDndyU/+ad9BXSrEc4xg8RdTRmrppHpKraYrutiQfs8cxnMH+/qvZ22vlQ/NvsG5X
+	6naNlS3QYpv3VWO68/v+62MCAGD+AhwCjWIPj2p+HHz7bdnxcWfcWtVWrR6TTTGKRAjZT0YqgrtMI
+	0slQ5mcc9JIVRI+yTxL9xP3HxdhJLID508LqvheMf86rtwf+JTKVjF4z5ug0CkjR/KyD22a5MwFVA
+	Hc5rmaW04HGCH+maKk5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRcnl-00Fi2r-Uo; Mon, 13 Feb 2023 17:39:41 +0000
-Received: from bg4.exmail.qq.com ([43.154.221.58])
+	id 1pRcqv-00FicO-FM; Mon, 13 Feb 2023 17:42:57 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRcnf-00Fhzm-DR
-	for linux-riscv@lists.infradead.org; Mon, 13 Feb 2023 17:39:39 +0000
-X-QQ-mid: bizesmtp77t1676309951tzkk79m5
-Received: from localhost.localdomain ( [119.123.130.249])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 14 Feb 2023 01:39:10 +0800 (CST)
-X-QQ-SSF: 01200000006000C0T000B00A0000000
-X-QQ-FEAT: hoArX50alxGi7QKq3d0oPCwa0FRp3MK19V8qTwYUSBbMVhndQWh0x4zYP7WTx
-	4wAEJkqh47zn4h8QLeqxQG11mwFod3Yd0yEklDcESWITmQ3dqfoQyezpoPzFQ/Ceoqf1/Fq
-	JYCK3HRSFiGGWzSfiLD37gjVPTNLX+CJtJ4QucZ3eYsIxeX8dQob17RVgDwh3u8ztAGovdv
-	Wg/ngMIkakC+4GhkXetA+WyVUaG0EnrVKcuNT/g3beWvlji0QEKzruHTOrNQvTvSTMFPJyN
-	6aCDIQ16Qal31uwFPhZ8cMrv8vKExmjk/NH0myRe3ope7dCME2eSw0nJ1EA04VwIbuHCLrf
-	0S7WZ2QOHnEnkutUnCNoJVRbHnukcd2txH4A/5HDGjfOv/swzoVQPhbQrbhIO65K3f3Yzrj
-X-QQ-GoodBg: 0
-From: Falcon <falcon@tinylab.org>
-To: linux-riscv@lists.infradead.org,
-	Palmer Dabbelt <palmer@rivosinc.com>
-Cc: Nicholas Piggin <npiggin@gmail.com>,
-	Paul Burton <paulburton@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Guo Ren <guoren@kernel.org>,
-	Vincent Chen <vincent.chen@sifive.com>,
-	Falcon <falcon@tinylab.org>
-Subject: [PATCH] RISC-V: Enable dead code elimination
-Date: Tue, 14 Feb 2023 01:39:06 +0800
-Message-Id: <20230213173906.214784-1-falcon@tinylab.org>
-X-Mailer: git-send-email 2.25.1
+	id 1pRcqs-00FibU-BJ
+	for linux-riscv@lists.infradead.org; Mon, 13 Feb 2023 17:42:55 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id bg2so3355622pjb.4
+        for <linux-riscv@lists.infradead.org>; Mon, 13 Feb 2023 09:42:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=63tgpONA5oEu3r5P/vFkJgnRoA403HiDXnWl8FkdsxY=;
+        b=CVfpMPtijfInoSnQpBF8R6F6pOwoURmAmUhAO0Ls5W0RJ19Kqny2+q9xHUtsqxuMFE
+         4VoIyg7DLnr/Kv1UtH8rj/8j/Ef50RH/8nHsHONO1lJ8ORhIQjnSUpnu1Q/i2fJwhJTu
+         dYyCbgxrwmZIZh/+bCnMDaB7q38U9Yb75ltIpkZwIMSUUAmAdPPb+clSG24WmGTeRgV5
+         kkHmwES5ttEJkxeYuw6x5nORJIV2GsQMk0RauPIsYPg/j3ebpXAUGVpTG4REF1wXYfOK
+         AeypvyUChsBD3cBxc5x/hEohE1TT5FpPtaVATqkfdiR29VOpLKsfZTK3tSEArG9s1W80
+         dgnw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=63tgpONA5oEu3r5P/vFkJgnRoA403HiDXnWl8FkdsxY=;
+        b=S1Kq2lrE4Y4pw3pM98EIMwHSOyNZIGLHlXcC5VgX6quk7yB9195DG4BLDwxqI3r6hY
+         HjsQ0OiP11sjKsWfO0XIQuDGwE3pqmVvSpUVLx4FDI/cxlsHMCDmbLoAZyqH3t/P6Jtv
+         5LCUAULS4nWs47Slb8dFgDbfxaTwaJWGTaff/xsynLOLiHhG+tIsTDT0p6KZmYYm5C+k
+         93BboeuSkWr0x56BhIuyZ1bInMz2L+6p8dbckbrJM2/yrXLWYG3nWf5XyIu+BbeVYL6v
+         ghfz8tNgRnHfxiXFwr59xcEmm7eHLp1j38BLQRkafeCZxu3txQW9gSjPmVQRPA/MiYFo
+         pIjw==
+X-Gm-Message-State: AO0yUKX+uj//UrtUVmJ7Z5uJkInob4CEnGiNnIUrl7kN4evOCfYf+9t8
+	tmlBjlExo7Q0gSRAqBRP0y1FdA==
+X-Google-Smtp-Source: AK7set86hl+mztS6xB+aIB6Jg2wbDUvNJaUXGkDMvsSk3YuBBmWG2qIWwzDKoxBGkz7EE3uL9bZIbA==
+X-Received: by 2002:a05:6a20:6d27:b0:bc:80bd:462d with SMTP id fv39-20020a056a206d2700b000bc80bd462dmr13919386pzb.46.1676310171263;
+        Mon, 13 Feb 2023 09:42:51 -0800 (PST)
+Received: from sunil-laptop ([49.206.14.226])
+        by smtp.gmail.com with ESMTPSA id u5-20020a17090a890500b0023086d280c5sm7609169pjn.3.2023.02.13.09.42.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Feb 2023 09:42:50 -0800 (PST)
+Date: Mon, 13 Feb 2023 23:12:40 +0530
+From: Sunil V L <sunilvl@ventanamicro.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Marc Zyngier <maz@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Jonathan Corbet <corbet@lwn.net>, linux-riscv@lists.infradead.org,
+	linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org, Anup Patel <apatel@ventanamicro.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Atish Patra <atishp@rivosinc.com>
+Subject: Re: [PATCH 20/24] RISC-V: ACPI: cpu: Enable cpuinfo for ACPI systems
+Message-ID: <Y+p2kKdfogLkhkj2@sunil-laptop>
+References: <20230130182225.2471414-1-sunilvl@ventanamicro.com>
+ <20230130182225.2471414-21-sunilvl@ventanamicro.com>
+ <Y+ViASnch0Fp1rju@spud>
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:tinylab.org:qybglogicsvr:qybglogicsvr7
+Content-Disposition: inline
+In-Reply-To: <Y+ViASnch0Fp1rju@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230213_093937_087718_7B280D8D 
-X-CRM114-Status: UNSURE (   9.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230213_094254_434382_709BDB03 
+X-CRM114-Status: GOOD (  25.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,60 +99,99 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Select CONFIG_HAVE_LD_DEAD_CODE_DATA_ELIMINATION for RISC-V, allowing
-the user to enable dead code elimination. In order for this to work,
-ensure that we keep the alternative table by annotating them with KEEP.
+On Thu, Feb 09, 2023 at 09:13:37PM +0000, Conor Dooley wrote:
+> On Mon, Jan 30, 2023 at 11:52:21PM +0530, Sunil V L wrote:
+> > On ACPI based platforms, few details like ISA need to be read
+> > from the ACPI table. Enable cpuinfo on ACPI based systems.
+> > 
+> > Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
+> > ---
+> >  arch/riscv/kernel/cpu.c | 36 +++++++++++++++++++++++++++++-------
+> >  1 file changed, 29 insertions(+), 7 deletions(-)
+> > 
+> > diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+> > index 1b9a5a66e55a..bd6c0fcfe4ce 100644
+> > --- a/arch/riscv/kernel/cpu.c
+> > +++ b/arch/riscv/kernel/cpu.c
+> > @@ -3,6 +3,7 @@
+> >   * Copyright (C) 2012 Regents of the University of California
+> >   */
+> >  
+> > +#include <linux/acpi.h>
+> >  #include <linux/cpu.h>
+> >  #include <linux/init.h>
+> >  #include <linux/seq_file.h>
+> > @@ -256,26 +257,47 @@ static void c_stop(struct seq_file *m, void *v)
+> >  {
+> >  }
+> >  
+> > +#ifdef CONFIG_ACPI
+> > +void acpi_print_hart_info(struct seq_file *m,
+> > +			  unsigned long cpu)
+> 
+> Surely this fits on one line?
+> 
+Okay
 
-This boots well on qemu with both rv32_defconfig & rv64 defconfig, but
-it only shrinks their builds by ~1%, a smaller config is thereforce
-customized to test this feature:
+> > +{
+> > +	const char *isa;
+> > +
+> > +	if (!acpi_get_riscv_isa(NULL, get_acpi_id_for_cpu(cpu), &isa))
+> > +		print_isa(m, isa);
+> 
+> Do you really need to guard this function? Aren't there nop'ed versions
+> of acpi_get_riscv_isa() and get_acpi_id_for_cpu() in acpi.h?
+> 
+> IMO, basically any use of ifdeffery you can cleanly remove from a c file
+> is a worthwhile change.
+> 
+You are right. Let me remove ifdef.
 
-          | rv32                   | rv64
-  --------|------------------------|---------------------
-   No DCE | 4460684                | 4893488
-      DCE | 3986716                | 4376400
-   Shrink |  473968 (~10.6%)       |  517088 (~10.5%)
+> > +
+> 
+> Extra blank line here FYI.
+> 
+> > +}
+> > +#endif
+> > +
+> >  static int c_show(struct seq_file *m, void *v)
+> >  {
+> >  	unsigned long cpu_id = (unsigned long)v - 1;
+> > -	struct device_node *node = of_get_cpu_node(cpu_id, NULL);
+> >  	struct riscv_cpuinfo *ci = per_cpu_ptr(&riscv_cpuinfo, cpu_id);
+> > +	struct device_node *node;
+> >  	const char *compat, *isa;
+> >  
+> >  	seq_printf(m, "processor\t: %lu\n", cpu_id);
+> >  	seq_printf(m, "hart\t\t: %lu\n", cpuid_to_hartid_map(cpu_id));
+> > -	if (!of_property_read_string(node, "riscv,isa", &isa))
+> > -		print_isa(m, isa);
+> > +
+> > +	if (acpi_disabled) {
+> > +		node = of_get_cpu_node(cpu_id, NULL);
+> > +		if (!of_property_read_string(node, "riscv,isa", &isa))
+> > +			print_isa(m, isa);
+> > +		if (!of_property_read_string(node, "compatible", &compat)
+> > +		    && strcmp(compat, "riscv"))
+>                     ^^ this should be on the line above
+> TBH the whole series is in need of a checkpatch --strict run IMO,
+> there's a bunch of coding style issues throughout.
+> 
+I just moved this line as is. Sure, let me fix it. Thanks.
 
-The config used above only reserves necessary options to boot on qemu
-with serial console, more like the size-critical embedded scenes:
+> > +			seq_printf(m, "uarch\t\t: %s\n", compat);
+> > +		of_node_put(node);
+> > +	}
+> > +#ifdef CONFIG_ACPI
+> > +	else
+> > +		acpi_print_hart_info(m, cpu_id);
+> 
+> Delete the ifdeffery here too please :)
+> 
+Okay
 
-  - rv64 config: https://pastebin.com/crz82T0s
-  - rv32 config: rv64 config + 32-bit.config
-
-Signed-off-by: Falcon <falcon@tinylab.org>
----
- arch/riscv/Kconfig              | 1 +
- arch/riscv/kernel/vmlinux.lds.S | 2 +-
- 2 files changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index e2b656043abf..8a73d7180cb8 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -103,6 +103,7 @@ config RISCV
- 	select HAVE_KPROBES_ON_FTRACE if !XIP_KERNEL
- 	select HAVE_KRETPROBES if !XIP_KERNEL
- 	select HAVE_RETHOOK if !XIP_KERNEL
-+	select HAVE_LD_DEAD_CODE_DATA_ELIMINATION
- 	select HAVE_MOVE_PMD
- 	select HAVE_MOVE_PUD
- 	select HAVE_PCI
-diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
-index 4e6c88aa4d87..51218cfe1ee4 100644
---- a/arch/riscv/kernel/vmlinux.lds.S
-+++ b/arch/riscv/kernel/vmlinux.lds.S
-@@ -101,7 +101,7 @@ SECTIONS
- 	. = ALIGN(8);
- 	.alternative : {
- 		__alt_start = .;
--		*(.alternative)
-+		KEEP(*(.alternative))
- 		__alt_end = .;
- 	}
- 	__init_end = .;
--- 
-2.25.1
-
+Thanks,
+Sunil
 
 _______________________________________________
 linux-riscv mailing list
