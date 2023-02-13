@@ -4,86 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF05AC636CC
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Feb 2023 17:00:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26202C636D4
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Feb 2023 17:06:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UkH0CacmwnI33sb+WbdDgCzas/elgXBQeVH1L4OLBW4=; b=1+3QurS0PKhXBb
-	gzpqxmcuNomgVIm61gejrXLbdfg3t2ATlLuO6dvcbaM+IHFExuFT2gPVHSb7Uey5oxG2R531wucUO
-	277UtMDZMCHFtdTS+1U5kieXoTxa9AZN5mxG11b4OfCtUqHaBVtAPVJ46Kjya6qLtnYKXoqXNZkZn
-	58aXtyqgEDwGlvGpU64JDKGR6oOXctfaxKPYfYlbL+e10QcnH1MrfGhoxMEY9Fc5E70vHtTVyz3k2
-	re83HfB6Sg285lfWa8bgKJvXJEd5YuPp1QzvW78hk6rgSStUIHGy8Dhf33EOvRsCLgXg4mchrKXoL
-	DnwDUdaWvoX1HYtUbhNg==;
+	List-Owner; bh=wdNsrMXkGkf3HpoDHFcuj3E+LOIo8HTz83JpCrYCEYo=; b=JIEQaRTP3uevVT
+	nczVqERa4GNuXoZsgQrPictng/VUxeAlpNq4xtk0qcayIg/RLG9kzgMYEpFaQhDdAK2sN1o1MNJuQ
+	YcZNERmHYU9H9lJJrs7N7tw5me9YYt3hxORRmtlp36uT9BOGAa9gjZl2iO4FP0dLl8OlQlimjFWqM
+	rAlSU2+pElFJ+2aD37RKtcYjHRyAWECfVS0jul0piFhN7hYJvNqEaE0YxlYcLPjPv8e3Q/Y0Gl00z
+	eRi2B1WHs3b9Bgvzd+sJ3S+fF7EVCcEKakmRw878oZ5KEfATprAmUSmVnNzrRP0UoHrY69Of4vNTI
+	zo0ZtiLyjwePjR9Llytw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRcC7-00FbtA-Mu; Mon, 13 Feb 2023 17:00:47 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1pRcHd-00Fcq9-B1; Mon, 13 Feb 2023 17:06:29 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRcC4-00FbsE-Rm
-	for linux-riscv@lists.infradead.org; Mon, 13 Feb 2023 17:00:46 +0000
-Received: by mail-pl1-x629.google.com with SMTP id ja21so6533644plb.13
-        for <linux-riscv@lists.infradead.org>; Mon, 13 Feb 2023 09:00:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=AOr10dVQbwIfzRH4wxSUN+tKAOUvGyW77RFxYDyWSw4=;
-        b=Xk36lugwkefIX90CnHzFXRA2f1HXASTndOD4qPGSoj03JXeST2jZYc/msSMfare3wt
-         62MADYzitn+/RB0O0f/LMln+42KaNpohSTwnAZzxcZhLRAzeFNRRls4nsVvP04A4NvPJ
-         ejJTS9PLdybPtkMBCJOQ4mYKUFcsKl7ie7DTzI+P0Osa1txj1TU51lEVUKc/SyFzzCB3
-         YJDFzOlLotAFvXr+Y7Vf3EslcJ7ir+IrynEkttlIxOMEkYLAAVMrDkJogT289hMVXwYp
-         9GaZKvWd/kSdG9pRkPq7hwHYAN6UcpBbCG1rMehOKUfH90hqcZ+ZbuxvxljTgT6ysRu1
-         7B1Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=AOr10dVQbwIfzRH4wxSUN+tKAOUvGyW77RFxYDyWSw4=;
-        b=BzVrKcgOryuEZeszTNrWZfLQGYsfSG+HeEuw2USNSzgTZ8xgwTnEAahschaMjeC2m7
-         IgbLVI2MYwoBdoQ3GXjOXEOnlvJ5wMOcAcGlPvDTr02MwdXXreqMxqvX7tqjjQV0DAZr
-         zImF7hTlvcyApR0NVDrD2FBiH74Ib5KCqcLonOTRckUi6O5//QBcz5viMj/2YxdgnObi
-         qx68OAK7TYn4OTrUlpkRyHQt8tuht/d3FCqEl9IOR9XK2uR7Zxsr4FOxMsLPTokIQRqR
-         ypgHhgRsdBCaNU881FiOaBdEf85xJKWncBQA1pt47B81J2WpFbSKh8RhsPn94HHDq1Uz
-         2BXw==
-X-Gm-Message-State: AO0yUKWaN/mqiZh/ciqac9yLV9dDpTPIdADkJyhKc3Nmg/IhciGXvEGF
-	9q0oXTSO9M3bT6nXqQaW+DP6sAcCZ0k9TM+A
-X-Google-Smtp-Source: AK7set+tXR5i3JgVKgzvBSZ6MCb2c+hLPyLbC7HBzkafBheEhsQIPS/rB1Goy5hWggPnOhYK1EIjuQ==
-X-Received: by 2002:a17:902:e313:b0:19a:a39b:a88b with SMTP id q19-20020a170902e31300b0019aa39ba88bmr2587418plc.37.1676307641914;
-        Mon, 13 Feb 2023 09:00:41 -0800 (PST)
-Received: from sunil-laptop ([49.206.14.226])
-        by smtp.gmail.com with ESMTPSA id y13-20020a170902ed4d00b00198fc0a191bsm646134plb.160.2023.02.13.09.00.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Feb 2023 09:00:41 -0800 (PST)
-Date: Mon, 13 Feb 2023 22:30:33 +0530
-From: Sunil V L <sunilvl@ventanamicro.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Marc Zyngier <maz@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Jonathan Corbet <corbet@lwn.net>, linux-riscv@lists.infradead.org,
-	linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org, Anup Patel <apatel@ventanamicro.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Atish Patra <atishp@rivosinc.com>
-Subject: Re: [PATCH 14/24] RISC-V: ACPI: smpboot: Add function to retrieve
- the hartid
-Message-ID: <Y+pssW1GCMW3oZjL@sunil-laptop>
-References: <20230130182225.2471414-1-sunilvl@ventanamicro.com>
- <20230130182225.2471414-15-sunilvl@ventanamicro.com>
- <Y+VX8EclC1cE2fdI@spud>
+	id 1pRcHY-00Fcoj-La
+	for linux-riscv@lists.infradead.org; Mon, 13 Feb 2023 17:06:27 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 05734611B4;
+	Mon, 13 Feb 2023 17:06:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6596AC433D2;
+	Mon, 13 Feb 2023 17:06:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1676307981;
+	bh=bNVKiFGzFNcgLu9Ct0qPxdKZ+t9ooRo2mpmfqxrFIyk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Mdo34bAownW6S8yU6TMr0sLxud3egcvCKiOFv9SCMu85L4jQV31fV4tQVQZbHmEYW
+	 03GA6Xb/el6HMKuPSJRvPus5nsqgj5VvfZwF5rTnwEFkVhyStRjkC+rCAnd1IrrVoU
+	 5YWy3sVXhXX3Suj2SNcCpxKFi91utbQj29uASxSI8g29PTw62OGTBDP/5lxZ9kqGHd
+	 MpLyat2v78cnZm0NASAJlU+zoUXDqt8xUXuMLqClEdAAF1MK9/Ogqb4qtDOKE259vm
+	 740uYWf3+ybPO2xJlE3kDuL6X54oM5/UUPI/gok5CGe7GTBjGPawMW4Xz184qTvJDM
+	 YYy4yiTA2GXvQ==
+Date: Mon, 13 Feb 2023 19:06:11 +0200
+From: Leon Romanovsky <leon@kernel.org>
+To: Nick Alcock <nick.alcock@oracle.com>
+Cc: Conor Dooley <conor@kernel.org>, mcgrof@kernel.org,
+	linux-modules@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 8/8] kbuild, PCI: microchip: comment out MODULE_LICENSE
+ in non-modules
+Message-ID: <Y+puA2V5BoH/Cbr2@unreal>
+References: <20230210164749.368998-1-nick.alcock@oracle.com>
+ <20230210164749.368998-9-nick.alcock@oracle.com>
+ <Y+aMh5e9bWaTphiZ@spud>
+ <871qmx1fv5.fsf@esperi.org.uk>
+ <Y+akw9VBjg9oZ7QV@spud>
+ <Y+kx3fb2Lzlg+u5+@unreal>
+ <87k00ly25v.fsf@esperi.org.uk>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <Y+VX8EclC1cE2fdI@spud>
+In-Reply-To: <87k00ly25v.fsf@esperi.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230213_090044_919130_9C31682B 
-X-CRM114-Status: GOOD (  29.36  )
+X-CRM114-CacheID: sfid-20230213_090625_924026_24BF21FF 
+X-CRM114-Status: GOOD (  38.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,107 +80,109 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 09, 2023 at 08:30:40PM +0000, Conor Dooley wrote:
-> Hey Sunil, Drew,
+On Mon, Feb 13, 2023 at 04:13:00PM +0000, Nick Alcock wrote:
+> [Modified resend: my MTA claimed not to send it but then sent it to some
+>  recipients anyway, and then I was asked not to do some of the things
+>  I'd offered after I sent it.]
 > 
-> @drew, a question below that I'm sorta aiming at you...
+> On 12 Feb 2023, Leon Romanovsky told this:
 > 
-> On Mon, Jan 30, 2023 at 11:52:15PM +0530, Sunil V L wrote:
-> > hartid is in RINTC structuire in MADT table. Instead of parsing
+> > On Fri, Feb 10, 2023 at 08:10:43PM +0000, Conor Dooley wrote:
+> >> On Fri, Feb 10, 2023 at 07:26:38PM +0000, Nick Alcock wrote:
+> >> > On 10 Feb 2023, Conor Dooley said:
+> >> > > FYI $subject seems wrong, this is a PCI patch AFAICT.
+> >
+> > <...>
+> >
+> >> > kbuild is present in every patch in the series because this is a
+> >> > kbuild-driven change (the thing it disturbs is part of the build system,
+> >> > the construction of modules.builtin*). This seems to be common practice
+> >> > for kbuild-related treewide changes.
+> >> 
+> >> Okay, I'll take your word for it. It just looked/looks odd to me!
+> >
+> > It looks odd to me too. Please add SPDX tag in modules which don't have
+> > it already, instead of commenting code.
 > 
-> Nit: missing articles before RINTC and MADT. Also typo "structure".
+> Alas... nearly all of them *do* have it already, and in most cases it is
+> different. Usually not *very* different, but different. In most cases it
+> is more specific, e.g. drivers/soc/fujitsu/a64fx-diag.c, where we have
+> MODULE_LICENSE("GPL") but SPDX says it's GPL-2.0-only, but then there
+> are things like lib/packing.c, which throughout its history in the tree
+> has combined // SPDX-License-Identifier: BSD-3-Clause OR GPL-2.0
+> and MODULE_LICENSE("GPL v2"); which are just not the same thing.
 > 
-> Perhaps you'd benefit from a spell checker in your git editor.
+> I commented the MODULE_LICENSEs out specifically because I wanted to
+> avoid getting into hundreds of simultaneous license flamewars while
+> trying to get *a different thing entirely* into the kernel (kallmodsyms,
+> which depends on modules.builtin.objs being correct).
 > 
-Okay.
+> I still don't want to get into hundreds of simultaneous license
+> flamewars or get my employer into legal hot water, so I think I'll leave
+> things commented out and let individual maintainers decide whether they
+> want to reconcile any contradictory info that may exist or not (and as
+> noted *most* of these are conflicting.)
+> 
+> 
+> This email is the closest thing I have to indicating what Luis would
+> prefer (and the only reason I'm doing this is because I need it before
+> Luis's modules.builtin.objs change can work):
+> 
+> <https://lore.kernel.org/linux-modules/Y5AgMuMu75gne6Ka@bombadil.infradead.org/>
+> 
+> Yes, Luis thinks we can just use SPDX, but given that they are usually
+> different, making such a change seems well beyond my pay grade. Even in
+> the PCI domain, we see (second column, MODULE_LICENSE: third: SPDX,
+> sorry about the line lengths).
+> 
+> drivers/pci/controller/dwc/pcie-histb.c:		GPL v2		// SPDX-License-Identifier: GPL-2.0
+> drivers/pci/controller/mobiveil/pcie-mobiveil-plat.c:	GPL v2		// SPDX-License-Identifier: GPL-2.0
+> drivers/pci/controller/pci-tegra.c: 			GPL		// SPDX-License-Identifier: GPL-2.0+
+> drivers/pci/controller/pci-versatile.c:			GPL v2		// SPDX-License-Identifier: GPL-2.0
+> drivers/pci/controller/pcie-hisi-error.c:		GPL v2		// SPDX-License-Identifier: GPL-2.0
+> drivers/pci/controller/pcie-microchip-host.c:		GPL		// SPDX-License-Identifier: GPL-2.0
+> drivers/pci/endpoint/pci-ep-cfs.c:			GPL v2		// SPDX-License-Identifier: GPL-2.0
+> drivers/pci/endpoint/pci-epc-core.c:			GPL v2		// SPDX-License-Identifier: GPL-2.0
+> drivers/pci/endpoint/pci-epc-mem.c:			GPL v2		// SPDX-License-Identifier: GPL-2.0
+> drivers/pci/endpoint/pci-epf-core.c:			GPL v2		// SPDX-License-Identifier: GPL-2.0
+> drivers/pci/hotplug/acpiphp_core.c:			GPL		// SPDX-License-Identifier: GPL-2.0+
+> drivers/pci/hotplug/shpchp_core.c:			GPL		// SPDX-License-Identifier: GPL-2.0+
+> 
+> Not much in the way of consistency here: GPL sometimes means 2.0+ but
+> sometimes it means 2.0. GPL v2 appears to consistently mean GPL-2.0, but
+> if you look at other affected modules you soon see inconsistency:
+> 
+> drivers/powercap/powercap_sys.c: GPL v2		// SPDX-License-Identifier: GPL-2.0-only
+> drivers/firmware/imx/imx-scu.c: GPL v2		// SPDX-License-Identifier: GPL-2.0+
+> arch/x86/crypto/blake2s-glue.c: GPL v2		// SPDX-License-Identifier: GPL-2.0 OR MIT
+> drivers/iommu/sun50i-iommu.c: Dual BSD/GPL	// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> 
+> We even have
+> 
+> drivers/gpu/drm/drm_mipi_dsi.c: "GPL and additional rights" (header is
+> non-SPDX -- a BSD license header with advertising clause!)
+> 
+> So SPDX is usually more precise than the MODULE_LICENSE, but is it more
+> *accurate*? I have no idea, and I don't see how I could possibly know:
+> going by the presence of advertising clauses that obviously nobody is
+> obeying it doesn't seem like we can trust header comments to be any more
+> accurate than MODULE_LICENSE. Best to just leave both in (and comment it
+> out so it has no side-effects on the build any more, which is all I'm
+> after).
 
-> > the ACPI table every time we need for a cpu, cache it and provide
-> > a function to read it.
-> > 
-> > This is similar to acpi_get_madt_gicc() in arm64.
-> 
-> -ENOTFOUND, do you mean acpi_cpu_get_madt_gicc()?
->
-Yes. Will update.
+You are overcomplicating things.
 
-> > 
-> > Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
-> > ---
-> >  arch/riscv/include/asm/acpi.h | 14 +++++++++++++-
-> >  arch/riscv/kernel/smpboot.c   | 21 +++++++++++++++++++++
-> >  2 files changed, 34 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/arch/riscv/include/asm/acpi.h b/arch/riscv/include/asm/acpi.h
-> > index d1f1e53ec657..69a880b7257a 100644
-> > --- a/arch/riscv/include/asm/acpi.h
-> > +++ b/arch/riscv/include/asm/acpi.h
-> > @@ -65,6 +65,18 @@ int acpi_numa_get_nid(unsigned int cpu);
-> >  static inline int acpi_numa_get_nid(unsigned int cpu) { return NUMA_NO_NODE; }
-> >  #endif /* CONFIG_ACPI_NUMA */
-> >  
-> > -#endif
-> > +struct acpi_madt_rintc *acpi_get_madt_rintc(int cpu);
-> > +struct acpi_madt_rintc *acpi_cpu_get_madt_rintc(int cpu);
-> > +static inline u32 get_acpi_id_for_cpu(int cpu)
-> > +{
-> > +	return	acpi_cpu_get_madt_rintc(cpu)->uid;
-> > +}
-> > +#else
-> > +static inline u32 get_acpi_id_for_cpu(int cpu)
-> > +{
-> > +	return -1;
-> > +}
-> > +
-> > +#endif /* CONFIG_ACPI */
-> >  
-> >  #endif /*_ASM_ACPI_H*/
-> > diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-> > index e48cf88d0bc1..3a8b7a9eb5ac 100644
-> > --- a/arch/riscv/kernel/smpboot.c
-> > +++ b/arch/riscv/kernel/smpboot.c
-> > @@ -73,6 +73,25 @@ void __init smp_prepare_cpus(unsigned int max_cpus)
-> >  
-> >  #ifdef CONFIG_ACPI
-> >  static unsigned int cpu_count = 1;
-> > +static unsigned int intc_count;
-> > +static struct acpi_madt_rintc cpu_madt_rintc[NR_CPUS];
-> > +
-> > +struct acpi_madt_rintc *acpi_get_madt_rintc(int cpu)
-> > +{
-> > +	return &cpu_madt_rintc[cpu];
-> > +}
-> > +
-> > +struct acpi_madt_rintc *acpi_cpu_get_madt_rintc(int cpu)
-> > +{
-> > +	int i;
-> 
-> Since we are C11 now, you don't even need to declare this outside of the
-> loop, right?
->
-Okay.
- 
-> > +
-> > +	for (i = 0; i < NR_CPUS; i++) {
-> 
-> @drew, perhaps you know since you were fiddling not too long ago with
-> cpumask stuff - at what point does for_each_possible_cpu() become
-> usable?
-> I had a bit of a poke & couldn't immediately tell if it'd be okay to use
-> it here.
->
-It should be possible. Thanks!
- 
-> > +		if (riscv_hartid_to_cpuid(cpu_madt_rintc[i].hart_id) == cpu)
-> > +			return &cpu_madt_rintc[i];
-> > +	}
-> > +	return NULL;
-> 
-> Another nit: newline before return please :)
->
-Sure.
+First, GPL == GPL v2.
+Second, SPDX is the right one. License in module is needed to limit
+EXPORT_SYMBOL* exposure.
+Third, we have git log and git blame to audit and revert any change.
+There is no need in leaving (even as commented) dead code.
 
-Thanks,
-Sunil 
+Thanks
+
+> 
+> -- 
+> NULL && (void)
 
 _______________________________________________
 linux-riscv mailing list
