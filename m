@@ -4,92 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71FDFC6379F
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Feb 2023 14:56:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABFF7C636D4
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Feb 2023 15:17:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hlMbzp+a1CSje8k50pmCejmHMCBaefkuecLWfEiFFUk=; b=T8I0G/5J60FSnT
-	+QhzqjF5YKru62etOYkXyFPYLaZbZ2uvR7lJ/J3uJJKM5rhnqsDH9VDYmxZVkW1ECprn/GGRbHn72
-	ejhFCDFNeO5s4Aee64vBh/SFGnD8swsJXH0W3Obb7YaEKTHemdZlYrjhcbrNl3OCfTaCxvSVnqEmW
-	UvGhsx8M5hI0q7LuvwW122rvgV+zaA4FV6HT4nnQcwaZzBeNpCq8pA1YDK9L9YKHxu7TJeyEgJLeO
-	aEUEwM4xZs1nR/vv3JDolC0z+5jQzWw8fWIzGU29nOAgAD/SbTKrNoNtnvwz682Lmv6Ew99/WnmIW
-	A6olFkPT0NOhiVM3pCDg==;
+	List-Owner; bh=razG4tt+GBJA8rZa3yQbeEe8szdEbSFhu5QLWoEUyk0=; b=ewTF/cneQ5A9WN
+	1CRIYbCw8TRSRUNfwd6ij70/2mx5PyAL7DZKqI7ICC5m46SVlPKNuEKyWFT7ROei7HfCDbPAcqhx/
+	gdyQ+kL7a5Q+k1/98GSYXd+LRpCaDR0mLuLkMd/GRoXW36t0vhlm7VjBh2EDcnBvyPdAYRsrJBi0L
+	DbQZk1go5Cxcp1oOO4r14vuEVHma9FxUL7qKbtf7zBCTopz60oM8fmZ65B/xVDkMy4mS9OyzkW78w
+	0scC2ztj/AkY34eS5NkvRmGmAY6CFNnWXau0hpJRYpCt6bzFgI8QdGbDoUL4lYD5jVEXuqvb1wa0Y
+	7mS2RcsOGaLcDwpkwh7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRaFu-00F4Da-Sv; Mon, 13 Feb 2023 14:56:34 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1pRaZp-00FAQ8-GJ; Mon, 13 Feb 2023 15:17:09 +0000
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRaFr-00F4By-9i
-	for linux-riscv@lists.infradead.org; Mon, 13 Feb 2023 14:56:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1676300186;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=UcbvgdOnqyzXVAQogo/oCkD+sYlM47nFoe7fwRrExSo=;
-	b=hS+TfkJcbEl3SBRsqWNqXMDEG2+xrfESdtZWPzM6u59AiiHWDbni2gc4aauP0ybGPjFIPg
-	CtdGX2LiA23PDqQ3NtlBb7NXh4AnkJX+ctU4Znkwjf2Rv81NAyy5S4n3ol9hlTItQidGDL
-	13WlYKrLN9BEygn9ka8YZy2aZf6fhus=
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_128_GCM_SHA256) id
- us-mta-135-mUpJW2gjMwW3VBQ0Y9jXSA-1; Mon, 13 Feb 2023 09:56:25 -0500
-X-MC-Unique: mUpJW2gjMwW3VBQ0Y9jXSA-1
-Received: by mail-wm1-f70.google.com with SMTP id k17-20020a05600c1c9100b003dd41ad974bso6970800wms.3
-        for <linux-riscv@lists.infradead.org>; Mon, 13 Feb 2023 06:56:24 -0800 (PST)
+	id 1pRaZn-00FAP3-8J
+	for linux-riscv@lists.infradead.org; Mon, 13 Feb 2023 15:17:08 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id o13so12249360pjg.2
+        for <linux-riscv@lists.infradead.org>; Mon, 13 Feb 2023 07:17:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=fW9P4YF/3a14nOH87/GWxu30MpWhz8jhu4XnTy7s6ak=;
+        b=h5Vlh1gY5rc7zpbKn+Y6D2QfpTGNjy5blXlIPIP/vu9xDQiPFQEknETCY/aSdY2Ixf
+         XmT1+6F8o+mk/rfKRcJ1MgxW3LUNh4GucCzZkiKFGnGReu5hv7PZwldXIsevouVROrwL
+         Wr6CsQJR4XU3q2Gl076MmPfJa0JUY3wAcq9ADPb+4hwlTGNl+D4XgR6Qv50M9sOJ5KqX
+         r5v/a/1rHYBF/VlaBklsAOx5yYs4x8zjyPmbXd8i4ihGWSwcBLQ6UrbO/1/A83XWpaVc
+         xj+G31N3gGli3nHdiMDD88MCqtMkdeRWTPGBOpuLd6xF1E3B7M6rWgnQ4u69IsTJ2Y55
+         FhJA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:organization:from:references
-         :cc:to:content-language:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=UcbvgdOnqyzXVAQogo/oCkD+sYlM47nFoe7fwRrExSo=;
-        b=AmHvozmHsZeTnS53PCwcpAmll22/on74MwtwhAvHi+5Tk5ok/Uj0MS1OWxOFQHPhuu
-         0wDq9svRJgZL3TT5fifJWtSMddwEMzlJYyAjXqs+tilWiL8suY3pOLs6eVAhXJL1AoQM
-         qhx9BbHRubHOo/7K1inlo0JIKxXRkeudxle8NuKoW2X6TWEc0UlaIaj8iynLt3oj3JrM
-         jfatC/oj25fhfwpQtJnO/UPJFULetgjY90SWPaW8h/eNg5+XSo2Wek8GeQeYjIAunIBY
-         5VRDkq5Mq0P29aTFejl6TIEuZ5hc2M5OPfrroIupxfDgTeY4qEFR/aq2fJ7Y6XIb8nf1
-         z6tQ==
-X-Gm-Message-State: AO0yUKX3jL7Xn4vZ+Po2ZCBF6zjR2bJvThtFeJ0BgtXCWxe5lbNjSmds
-	9XtR+wMXEOdgxr3r0XGRADEeicqXHp30X5BjsGcYdxeExteywWca4Ho5w2SqSOALzv8vHD1Zj60
-	gHuUwNq3fQaW2foCGHhAznlED3dDku131DQ==
-X-Received: by 2002:adf:e5ce:0:b0:2c5:4d97:4a23 with SMTP id a14-20020adfe5ce000000b002c54d974a23mr6683048wrn.70.1676300183676;
-        Mon, 13 Feb 2023 06:56:23 -0800 (PST)
-X-Google-Smtp-Source: AK7set/wp7iAqKD66CPLnH5FMLYm4u2nsJT3GTHCfZvBlZXNJR8IoCTQJqlclnW3q98J4QCVN7UwtQ==
-X-Received: by 2002:adf:e5ce:0:b0:2c5:4d97:4a23 with SMTP id a14-20020adfe5ce000000b002c54d974a23mr6683036wrn.70.1676300183412;
-        Mon, 13 Feb 2023 06:56:23 -0800 (PST)
-Received: from ?IPV6:2003:cb:c705:6d00:5870:9639:1c17:8162? (p200300cbc7056d00587096391c178162.dip0.t-ipconnect.de. [2003:cb:c705:6d00:5870:9639:1c17:8162])
-        by smtp.gmail.com with ESMTPSA id g9-20020a5d5409000000b002c558228b6dsm3365811wrv.12.2023.02.13.06.56.22
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 13 Feb 2023 06:56:22 -0800 (PST)
-Message-ID: <7693247c-a55d-a375-3621-1b07115a9d99@redhat.com>
-Date: Mon, 13 Feb 2023 15:56:22 +0100
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=fW9P4YF/3a14nOH87/GWxu30MpWhz8jhu4XnTy7s6ak=;
+        b=HQYSiHBVJ66MoOGZ+NVl84aJB+PJkdxBy3DMLHfhNEBZhLc84AMDuTk9g8beVVtioK
+         xTTRd8yulyPWz/4CfT+5O2vnDga4b0Y9oxhAN9snoIfgjoh1eYI7AkbiIHMLigQJoGAG
+         DZ0p5lTXEQKgXZ9gLl+7AZ/MoJ020cl/Y8LljJzRfJaUHuc4tuykhYT/SW1z0O6/hueL
+         G4aDU8PcM2eo8yq5ZknMrt696DszMPcIxhX+ZykbF0bDXhkJSXMCW4564qCnKn/GS0Ip
+         Z35mK6953a1kgMNY4qaAeMwF+651oTiiKswtqGgWj9L0Wzpvfm++KXdLkSXtwz9rXOLz
+         tMIw==
+X-Gm-Message-State: AO0yUKVwv7cDA1Sntg44C+oU3a7R+DvQmrm93mY39Mz1QZTDGeI7o9+m
+	etW35xFto/2kvOB+pUqa8RxmFA==
+X-Google-Smtp-Source: AK7set+fu87w7xVckZc0DhTU5ZxMyzfrfk9Q5YAK7jJg7eAg2wOdCS49Vbz2Fhc1bhaHIkiNCkZvmg==
+X-Received: by 2002:a05:6a20:3cac:b0:b8:7905:b6c4 with SMTP id b44-20020a056a203cac00b000b87905b6c4mr28794030pzj.61.1676301425646;
+        Mon, 13 Feb 2023 07:17:05 -0800 (PST)
+Received: from sunil-laptop ([49.206.14.226])
+        by smtp.gmail.com with ESMTPSA id v17-20020a62a511000000b005825b8e0540sm8052212pfm.204.2023.02.13.07.16.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Feb 2023 07:17:04 -0800 (PST)
+Date: Mon, 13 Feb 2023 20:46:56 +0530
+From: Sunil V L <sunilvl@ventanamicro.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Marc Zyngier <maz@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Jonathan Corbet <corbet@lwn.net>, linux-riscv@lists.infradead.org,
+	linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org, Anup Patel <apatel@ventanamicro.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Atish Patra <atishp@rivosinc.com>
+Subject: Re: [PATCH 05/24] RISC-V: ACPI: Add basic functions to build ACPI
+ core
+Message-ID: <Y+pUaAsaTBm9vPgO@sunil-laptop>
+References: <20230130182225.2471414-1-sunilvl@ventanamicro.com>
+ <20230130182225.2471414-6-sunilvl@ventanamicro.com>
+ <Y+QM9zQyJfSgzc7R@spud>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.6.0
-Subject: Re: [PATCH v1 RFC Zisslpcfi 11/20] mmu: maybe_mkwrite updated to
- manufacture shadow stack PTEs
-To: Deepak Gupta <debug@rivosinc.com>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org
-References: <20230213045351.3945824-1-debug@rivosinc.com>
- <20230213045351.3945824-12-debug@rivosinc.com>
- <2d6eefb8-c7c5-7d32-9a75-ae716f828cd9@redhat.com>
- <20230213143754.GC3943238@debug.ba.rivosinc.com>
-From: David Hildenbrand <david@redhat.com>
-Organization: Red Hat
-In-Reply-To: <20230213143754.GC3943238@debug.ba.rivosinc.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+Content-Disposition: inline
+In-Reply-To: <Y+QM9zQyJfSgzc7R@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230213_065631_445039_B8EEAEEB 
-X-CRM114-Status: GOOD (  24.98  )
+X-CRM114-CacheID: sfid-20230213_071707_316245_CB7B52C8 
+X-CRM114-Status: GOOD (  21.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,104 +95,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 13.02.23 15:37, Deepak Gupta wrote:
-> On Mon, Feb 13, 2023 at 01:05:16PM +0100, David Hildenbrand wrote:
->> On 13.02.23 05:53, Deepak Gupta wrote:
->>> maybe_mkwrite creates PTEs with WRITE encodings for underlying arch if
->>> VM_WRITE is turned on in vma->vm_flags. Shadow stack memory is a write-
->>> able memory except it can only be written by certain specific
->>> instructions. This patch allows maybe_mkwrite to create shadow stack PTEs
->>> if vma is shadow stack VMA. Each arch can define which combination of VMA
->>> flags means a shadow stack.
->>>
->>> Additionally pte_mkshdwstk must be provided by arch specific PTE
->>> construction headers to create shadow stack PTEs. (in arch specific
->>> pgtable.h).
->>>
->>> This patch provides dummy/stub pte_mkshdwstk if CONFIG_USER_SHADOW_STACK
->>> is not selected.
->>>
->>> Signed-off-by: Deepak Gupta <debug@rivosinc.com>
->>> ---
->>>   include/linux/mm.h      | 23 +++++++++++++++++++++--
->>>   include/linux/pgtable.h |  4 ++++
->>>   2 files changed, 25 insertions(+), 2 deletions(-)
->>>
->>> diff --git a/include/linux/mm.h b/include/linux/mm.h
->>> index 8f857163ac89..a7705bc49bfe 100644
->>> --- a/include/linux/mm.h
->>> +++ b/include/linux/mm.h
->>> @@ -1093,6 +1093,21 @@ static inline unsigned long thp_size(struct page *page)
->>>   void free_compound_page(struct page *page);
->>>   #ifdef CONFIG_MMU
->>> +
->>> +#ifdef CONFIG_USER_SHADOW_STACK
->>> +bool arch_is_shadow_stack_vma(struct vm_area_struct *vma);
->>> +#endif
->>> +
->>> +static inline bool
->>> +is_shadow_stack_vma(struct vm_area_struct *vma)
->>> +{
->>> +#ifdef CONFIG_USER_SHADOW_STACK
->>> +	return arch_is_shadow_stack_vma(vma);
->>> +#else
->>> +	return false;
->>> +#endif
->>> +}
->>> +
->>>   /*
->>>    * Do pte_mkwrite, but only if the vma says VM_WRITE.  We do this when
->>>    * servicing faults for write access.  In the normal case, do always want
->>> @@ -1101,8 +1116,12 @@ void free_compound_page(struct page *page);
->>>    */
->>>   static inline pte_t maybe_mkwrite(pte_t pte, struct vm_area_struct *vma)
->>>   {
->>> -	if (likely(vma->vm_flags & VM_WRITE))
->>> -		pte = pte_mkwrite(pte);
->>> +	if (likely(vma->vm_flags & VM_WRITE)) {
->>> +		if (unlikely(is_shadow_stack_vma(vma)))
->>> +			pte = pte_mkshdwstk(pte);
->>> +		else
->>> +			pte = pte_mkwrite(pte);
->>> +	}
->>>   	return pte;
->>
->> Exactly what we are trying to avoid in the x86 approach right now.
->> Please see the x86 series on details, we shouldn't try reinventing the
->> wheel but finding a core-mm approach that fits multiple architectures.
->>
->> https://lkml.kernel.org/r/20230119212317.8324-1-rick.p.edgecombe@intel.com
+On Wed, Feb 08, 2023 at 08:58:31PM +0000, Conor Dooley wrote:
+> On Mon, Jan 30, 2023 at 11:52:06PM +0530, Sunil V L wrote:
+> > Introduce acpi.c and its related header files to provide
+> > fundamental needs of extern variables and functions for ACPI core.
+> > 	- asm/acpi.h for arch specific variables and functions needed by
+> > 	  ACPI driver core;
+> > 	- acpi.c - Add function to initialize ACPI tables.
+> > 	- acpi.c for RISC-V related ACPI implementation for ACPI driver
+> > 	  core;
+> > 
+> > Code is mostly leveraged from ARM64.
 > 
-> Thanks David for comment here. I looked at x86 approach. This patch
-> actually written in a way which is not re-inventing wheel and is following
-> a core-mm approach that fits multiple architectures.
 > 
-> Change above checks `is_shadow_stack_vma` and if it returns true then only
-> it manufactures shadow stack pte else it'll make a regular writeable mapping.
 > 
-> Now if we look at `is_shadow_stack_vma` implementation, it returns false if
-> `CONFIG_USER_SHADOW_STACK` is not defined. If `CONFIG_USER_SHADOW_STACK is
-> defined then it calls `arch_is_shadow_stack_vma` which should be implemented
-> by arch specific code. This allows each architecture to define their own vma
-> flag encodings for shadow stack (riscv chooses presence of only `VM_WRITE`
-> which is analogous to choosen PTE encodings on riscv W=1,R=0,X=0)
+> > diff --git a/arch/riscv/kernel/acpi.c b/arch/riscv/kernel/acpi.c
 > 
-> Additionally pte_mkshdwstk will be nop if not implemented by architecture.
+> > + * __acpi_map_table() will be called before page_init(), so early_ioremap()
 > 
-> Let me know if this make sense. If I am missing something here, let me know.
+> rg "\bpage_init\("
+> arch/riscv/kernel/acpi.c
+> 54: * __acpi_map_table() will be called before page_init(), so early_ioremap()
+> 
+> arch/arm64/kernel/acpi.c
+> 86: * __acpi_map_table() will be called before page_init(), so early_ioremap()
+> 
+> This function doesn't appear to exist, perhaps what you are looking for is
+> paging_init()?
+> 
+Yes, will update.
 
-See the discussion in that thread. The idea is to pass a VMA to 
-pte_mkwrite() and let it handle how to actually set it writable.
+> > + * or early_memremap() should be called here to for ACPI table mapping.
+> > + */
+> > +void __init __iomem *__acpi_map_table(unsigned long phys, unsigned long size)
+> > +{
+> > +	if (!size)
+> > +		return NULL;
+> > +
+> > +	return early_memremap(phys, size);
+> > +}
+> 
+> > +void __init acpi_boot_table_init(void)
+> > +{
+> > +	/*
+> > +	 * Enable ACPI instead of device tree unless
+> > +	 * - ACPI has been disabled explicitly (acpi=off), or
+> > +	 * - firmware has not populated ACPI ptr in EFI system table
+> > +	 */
+> > +
+> > +	if (param_acpi_off || (efi.acpi20 == EFI_INVALID_TABLE_ADDR))
+> 
+> There's an extraneous set of () around the second item here.
+> 
+Okay.
+> > +		goto done;
+> > +	/*
+> 
+> A small nit: a newline before opening the comment block here please!
 
--- 
-Thanks,
-
-David / dhildenb
+Thanks, will fix these in the next revision.
+-Sunil
 
 
 _______________________________________________
