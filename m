@@ -4,90 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28DC7C636CC
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Feb 2023 12:05:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 907A0C636CC
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Feb 2023 12:46:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uYjO8NrCAAJFlQIa5AMY+jKcueqn7KlHP0yoGmvmj1g=; b=AQgmUpnNg/s3T5
-	5aZa8wqUkG7nhDtJBU1V1ctkLHBKtY37wA13nWrlvz2GaSaGNJTUIOHpOKTHTQO1/qsq/EjcSHNIQ
-	u5u6Rqy+M5QXoXSov6OD/dqJC+SjS2uHHY8BDklm1ZxXn+aePoo8uuCUEFCEr2ILOORH5NcmR5K0X
-	zTNET+Jl2Pvy2u/Nr4Rv7K504CvRWeuG5P266DxxlmXPvy6BOnZgQz+eJAaCVwyvyZdvwcVESneLx
-	4kIA9aep1HV18ZVjG+mlQmGG2L+fLTWAsUB59gEGam7ebj6S1lHzf5Mz7ITcRkDp1VwPgCuG4mT/Z
-	1ZvceVbMMDQEYYF18Z4w==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rzwvRyh5Sd/BXBCSx4apLyJxMlxbc6372N5APOs8nY4=; b=zauS6hvyHfQHBn/rbzVU/9JwJH
+	+KdiK1FTB6Ydw9oeq8U+2dumxMK+86xG7Czl6NWz/CoY60jsBh5Uu5qtGGtqaHW2jBMbtQ/vpwMHm
+	tqEf8DVL4kXZCI5rm7n+9dEP8T4pnKJg/iuuTzsbn+nhCbpKQaPcTSZ+LpQ/iQAJp5V6nq42RxgBi
+	lO0GBHSBuhgqCS5/igDxRcjqgnHK/kDe8/pb3a87P257L/Z/H6htb3tgh3K7sUkqrI/ERGKMnqOg5
+	SuB+iamBIfjkbLWVoF+ixkGXUYER+9n0NUPa7aseCzwtI7VuoWbM3GKcW6GMTMKHIXaZqkbB0yvro
+	S7ruQcjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRXaM-00EZ5h-Mo; Mon, 13 Feb 2023 12:05:31 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1pRYDg-00Egx6-00; Mon, 13 Feb 2023 12:46:08 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRXaI-00EZ4B-5j
-	for linux-riscv@lists.infradead.org; Mon, 13 Feb 2023 12:05:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1676289923;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=LWwnaVVkHZ3TxJmod/JcejUfCO6MlIwBZ7PTsYBSbh0=;
-	b=VzNheLmbzJCsnqCRQg+KLzt353UOvXUl05xdpY+UzS93XoodXSQc/x8xwgMxpnNHcnwKfg
-	tSWnbQfXIwXb39AuaOeF4MYOozcSyRFhqazm2TKuDqWm/XOIOF70yR/p2YDwjVjGhSsb0D
-	AJWr6bVXpD3izisLDjBhCMpEY9fF9p4=
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_128_GCM_SHA256) id
- us-mta-655-TGfbFTp2M8WUTwqnfEDVHw-1; Mon, 13 Feb 2023 07:05:19 -0500
-X-MC-Unique: TGfbFTp2M8WUTwqnfEDVHw-1
-Received: by mail-wm1-f70.google.com with SMTP id b19-20020a05600c4e1300b003e10d3e1c23so8695295wmq.1
-        for <linux-riscv@lists.infradead.org>; Mon, 13 Feb 2023 04:05:19 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:organization:from:references
-         :cc:to:content-language:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=LWwnaVVkHZ3TxJmod/JcejUfCO6MlIwBZ7PTsYBSbh0=;
-        b=2K+stlzq2XjqEmrm/nq118r6dgVgHbXho4zeyHae7kXXhj3/1LJp4ZSNK6FMcH3/jq
-         iSgy6Z1cU8Mpr0OK8jl8oh2LO4rJW2Y8V8bNRB3/lCzZNYZRPuooWeibnb3xDJY2leoQ
-         siJ0md4tZsQnc44kj/GrlDahE9mYbrFBYQy0RCP6jWPXgtgVOpa+IBK/G2Tjd7SKI8qK
-         2h+HA4heEU3XXHeQTsOAwvSFQaAq8TTDYVtGN47GyRzhCGgRheTWBjfCuZcVEy9/QoE5
-         sOmlmYIhxpnw7NOT6QAbGzJlvjoTkGtJOqdl3W6t5XbeTtwJOep7r3d+87XcRYG3oV3M
-         OMQg==
-X-Gm-Message-State: AO0yUKX/21aAG+Pwn7vGhngftkUTCfLXFolJsiNUGfiaL+uuhb+9JOQh
-	+v9hKoM2GGXEHZDn3n//wdbtYXQmA4OY0uy7rnqHOFC3yOQ9sHF4T0CDWoYz4T2C2OjYO6PA29M
-	c8e6O0tkrqVy0TcRs+W9+cW42afBq
-X-Received: by 2002:a05:600c:704:b0:3df:d8c5:ec18 with SMTP id i4-20020a05600c070400b003dfd8c5ec18mr19163996wmn.13.1676289918369;
-        Mon, 13 Feb 2023 04:05:18 -0800 (PST)
-X-Google-Smtp-Source: AK7set/TvfuGOjSTFiefa5UXGSPN6E8+yK5KOhZR7JAxIR0Nqy6UHZc73gYlaZp/IBbv/pX2T70tdA==
-X-Received: by 2002:a05:600c:704:b0:3df:d8c5:ec18 with SMTP id i4-20020a05600c070400b003dfd8c5ec18mr19163980wmn.13.1676289918082;
-        Mon, 13 Feb 2023 04:05:18 -0800 (PST)
-Received: from ?IPV6:2003:cb:c705:6d00:5870:9639:1c17:8162? (p200300cbc7056d00587096391c178162.dip0.t-ipconnect.de. [2003:cb:c705:6d00:5870:9639:1c17:8162])
-        by smtp.gmail.com with ESMTPSA id y9-20020adfee09000000b002c550eb062fsm5407008wrn.14.2023.02.13.04.05.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 13 Feb 2023 04:05:17 -0800 (PST)
-Message-ID: <2d6eefb8-c7c5-7d32-9a75-ae716f828cd9@redhat.com>
-Date: Mon, 13 Feb 2023 13:05:16 +0100
+	id 1pRYDd-00EgwM-QG
+	for linux-riscv@lists.infradead.org; Mon, 13 Feb 2023 12:46:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1676292366; x=1707828366;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=zddgii00RYTRCzy4JajwyXC5VS7tCsfV5RBESAwfvSg=;
+  b=jUt3I+FbW25ghA/sNvZClt8toKtwD8x9dx7Zda7tdC68Bm8jukScfnFM
+   y2I+znOdNS8zBcRmos95qJCMKt4E68CuDnNipIzrVuoy8oXXkIh56HWBD
+   1sNZOUU96X+xC/kPn6MxEf/nGjRMZHVnmsISIGLgNbJhxwYrsjwikCaO4
+   ikS8Yclf5ZWISOtcLvaB7Nk9DtzzLj60KPAlzVC5eKY/RU0iJorv58RIf
+   dEjKjtkx3GzHzuRp2EMXGAS3IfVpfZZN36dhN1AFO99NeL3dSgSB49+Gk
+   mRYVaIEKcMwWvi+2X4lHjV1LGNrBRwdvKx3ek3WRH7otUoHazWy8QR6RO
+   A==;
+X-IronPort-AV: E=Sophos;i="5.97,294,1669100400"; 
+   d="asc'?scan'208";a="200687912"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 13 Feb 2023 05:46:06 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.16; Mon, 13 Feb 2023 05:46:05 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.16 via Frontend
+ Transport; Mon, 13 Feb 2023 05:46:03 -0700
+Date: Mon, 13 Feb 2023 12:45:38 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Conor Dooley <conor@kernel.org>
+CC: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>,
+	Thierry Reding <thierry.reding@gmail.com>, Daire McNamara
+	<daire.mcnamara@microchip.com>, <linux-kernel@vger.kernel.org>,
+	<linux-pwm@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH v13 1/2] pwm: add microchip soft ip corePWM driver
+Message-ID: <Y+ow8tfAHo1yv1XL@wendy>
+References: <20221221112912.147210-1-conor@kernel.org>
+ <20221221112912.147210-2-conor@kernel.org>
+ <20230110224805.3pqxd3yv4wyci2zj@pengutronix.de>
+ <20230112120141.fpjwhtjuaxrwqt5m@pengutronix.de>
+ <Y8Ai0aF5A+O43kjZ@wendy>
+ <Y8ruML/XnJHjVWy/@spud>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.6.0
-Subject: Re: [PATCH v1 RFC Zisslpcfi 11/20] mmu: maybe_mkwrite updated to
- manufacture shadow stack PTEs
-To: Deepak Gupta <debug@rivosinc.com>, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, Andrew Morton <akpm@linux-foundation.org>
-Cc: linux-mm@kvack.org
-References: <20230213045351.3945824-1-debug@rivosinc.com>
- <20230213045351.3945824-12-debug@rivosinc.com>
-From: David Hildenbrand <david@redhat.com>
-Organization: Red Hat
-In-Reply-To: <20230213045351.3945824-12-debug@rivosinc.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+In-Reply-To: <Y8ruML/XnJHjVWy/@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230213_040526_359097_5D227C58 
-X-CRM114-Status: GOOD (  22.18  )
+X-CRM114-CacheID: sfid-20230213_044605_921408_8E755530 
+X-CRM114-Status: GOOD (  34.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,85 +81,151 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============2616817112840606142=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 13.02.23 05:53, Deepak Gupta wrote:
-> maybe_mkwrite creates PTEs with WRITE encodings for underlying arch if
-> VM_WRITE is turned on in vma->vm_flags. Shadow stack memory is a write-
-> able memory except it can only be written by certain specific
-> instructions. This patch allows maybe_mkwrite to create shadow stack PTEs
-> if vma is shadow stack VMA. Each arch can define which combination of VMA
-> flags means a shadow stack.
-> 
-> Additionally pte_mkshdwstk must be provided by arch specific PTE
-> construction headers to create shadow stack PTEs. (in arch specific
-> pgtable.h).
-> 
-> This patch provides dummy/stub pte_mkshdwstk if CONFIG_USER_SHADOW_STACK
-> is not selected.
-> 
-> Signed-off-by: Deepak Gupta <debug@rivosinc.com>
-> ---
->   include/linux/mm.h      | 23 +++++++++++++++++++++--
->   include/linux/pgtable.h |  4 ++++
->   2 files changed, 25 insertions(+), 2 deletions(-)
-> 
-> diff --git a/include/linux/mm.h b/include/linux/mm.h
-> index 8f857163ac89..a7705bc49bfe 100644
-> --- a/include/linux/mm.h
-> +++ b/include/linux/mm.h
-> @@ -1093,6 +1093,21 @@ static inline unsigned long thp_size(struct page *page)
->   void free_compound_page(struct page *page);
->   
->   #ifdef CONFIG_MMU
-> +
-> +#ifdef CONFIG_USER_SHADOW_STACK
-> +bool arch_is_shadow_stack_vma(struct vm_area_struct *vma);
-> +#endif
-> +
-> +static inline bool
-> +is_shadow_stack_vma(struct vm_area_struct *vma)
-> +{
-> +#ifdef CONFIG_USER_SHADOW_STACK
-> +	return arch_is_shadow_stack_vma(vma);
-> +#else
-> +	return false;
-> +#endif
-> +}
-> +
->   /*
->    * Do pte_mkwrite, but only if the vma says VM_WRITE.  We do this when
->    * servicing faults for write access.  In the normal case, do always want
-> @@ -1101,8 +1116,12 @@ void free_compound_page(struct page *page);
->    */
->   static inline pte_t maybe_mkwrite(pte_t pte, struct vm_area_struct *vma)
->   {
-> -	if (likely(vma->vm_flags & VM_WRITE))
-> -		pte = pte_mkwrite(pte);
-> +	if (likely(vma->vm_flags & VM_WRITE)) {
-> +		if (unlikely(is_shadow_stack_vma(vma)))
-> +			pte = pte_mkshdwstk(pte);
-> +		else
-> +			pte = pte_mkwrite(pte);
-> +	}
->   	return pte;
+--===============2616817112840606142==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="d06DW3i8sK38cMCJ"
+Content-Disposition: inline
 
-Exactly what we are trying to avoid in the x86 approach right now. 
-Please see the x86 series on details, we shouldn't try reinventing the 
-wheel but finding a core-mm approach that fits multiple architectures.
+--d06DW3i8sK38cMCJ
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-https://lkml.kernel.org/r/20230119212317.8324-1-rick.p.edgecombe@intel.com
+Hey Uwe!
 
--- 
-Thanks,
+Was nice to meet you at FOSDEM, if I'd seen that presentation before
+working on this driver I think the version count would have been
+substantially lower!
 
-David / dhildenb
+On Fri, Jan 20, 2023 at 07:40:32PM +0000, Conor Dooley wrote:
+> On Thu, Jan 12, 2023 at 03:10:09PM +0000, Conor Dooley wrote:
+> > On Thu, Jan 12, 2023 at 01:01:41PM +0100, Uwe Kleine-K=F6nig wrote:
+> > > On Tue, Jan 10, 2023 at 11:48:05PM +0100, Uwe Kleine-K=F6nig wrote:
 
+> *sigh*, me again...
+>=20
+> Picked this up this afternoon to try and respin a v14 and ran into a bit
+> of an issue with this suggestion:
+>=20
+> > > 	*prescale =3D div_u64(tmp, MCHPCOREPWM_PERIOD_STEPS_MAX)
+> > > 	if (*prescale)
+> > > 		*prescale -=3D 1;
+>=20
+> In theory this works out, but with integer division it doesn't AFAICT.
+>=20
+> Take for example:
+> period_ns =3D 10,000
+> clk_rate =3D 62.5 MHz
+>=20
+> The prescale calculation is:
+> (10000 * 62.5E6) / (1E9 * 255) - 1 =3D 1.451 -> 1
+>=20
+> For period_steps then:
+> (10000 * 62.5E6) / (1E9 * (1 + 1)) - 1 =3D 311.5 -> 311
+>=20
+> prescale is a u16, since it's valid for that division to return 256.
+> The register is only 8 bits wide though, so 311 overflows it and 55 ends
+> up in the register.
+> The period then is:
+> (55 + 1) * (1 + 1) / 62.5E6, or a period of 1792 ns.
+>=20
+> I think it needs to be a div_u64_round_up(), which I know is not a real
+> function, otherwise we compute invalid values for period steps.
+>=20
+> Quoting you previously:
+> > I thought a bit about that (without pencil and paper on my way to work
+> > today), and the optimal solution is non-trivial. In fact you have to
+> > pick parameters A and B such that for a given C
+> >=20
+> > 	(A + 1) * (B + 1) is maximal with
+> >=20
+> > 	0 <=3D A < 0x100
+> > 	0 <=3D B < 0xff
+> > 	(A + 1) * (B + 1) <=3D C
+>=20
+> As we need (period_steps + 1) * (prescale + 1) maximal, *but* also want
+> to maximise period_steps so that duty resolution etc is maximal too.
+> We pick prescale, using the formula below, by setting period_steps to
+> the maximum possible value:
+> > 	            period * clk_rate
+> > 	prescale =3D -------------------
+> > 	           NSEC_PER_SEC * 0xff
+>=20
+> Given we set period_steps to the max here, we only actually pick the
+> lower bound on prescale, not the actual value of it.
+> We must round it to the nearest possible value before using it to go
+> back and calculate period_steps.
+>=20
+> With the previous code, missing the -=3D 1, the division result was purely
+> truncated:
+> (10000 * 62.5E6) / (1E9 * 255) =3D 2.451 -> 2
+> That 2 was written into the register, and then the hardware rounds that
+> up to 3, as does the period_steps calculation.
+>=20
+> period_steps here is:
+> (10000 * 62.5E6) / (1E9 * (2 + 1)) - 1 =3D 207.833 -> 207
+>=20
+> Finally, the period:
+> (207 + 1) * (2 + 1) / 62.5E6, or a period of 9984 ns.
+>=20
+> This is the same operation, unless I am yet again overlooking something,
+> as doing a div_u64_round_up() type thing, followed by a subtraction of 1
+>=20
+> We don't need to worry about writing something too big into the register
+> either, as we are protected against values of tmp that, when divided by
+> 0xff, would produce values larger than 255:
+> > /*
+> >  * The hardware adds one to the register value, so decrement by one to
+> >  * account for the offset
+> >  */
+> > if (tmp >=3D MCHPCOREPWM_PERIOD_MAX) { (PERIOD_MAX is 0xff00)
+> > 	*prescale =3D MCHPCOREPWM_PRESCALE_MAX - 1;
+> > 	*period_steps =3D MCHPCOREPWM_PERIOD_STEPS_MAX - 1;
+> >=20
+> > 	return;
+> > }
+>=20
+> What am I missing this time? haha
+
+So my "plan" I guess is to rebase this on v6.3-rc1 & re-submit with the
+various minor bits fixed.
+Trying the proposed "fixes" to the period calculation that we had
+discussed pointed out the above issue, and it appears, to me at least,
+that we made a mess of translating from regular calculations to integer
+ones.
+
+Cheers,
+Conor.
+
+
+--d06DW3i8sK38cMCJ
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY+ow8gAKCRB4tDGHoIJi
+0icOAQCcx3scSfDj18iHQbxSESPavXkS87/Xlcb5j3+R2yDf9gEAm/owNFfpq3/t
+XxD5zIYT0u1k/G0Mxamq3ZHD+wVtIQ0=
+=+gkG
+-----END PGP SIGNATURE-----
+
+--d06DW3i8sK38cMCJ--
+
+
+--===============2616817112840606142==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2616817112840606142==--
+
