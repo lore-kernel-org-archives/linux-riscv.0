@@ -4,61 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05EE7C636D4
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Feb 2023 19:50:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE1E8C6379F
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Feb 2023 20:01:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DA9Xdd5zvdk8opWP6Qwzv64ili8Zjn/AnaiyGtKkkfo=; b=YaCe0GjbIJt2TGG6wtLvWAED+H
-	LyaKq2Jyz72gRqprR1/kBYb0B6EFQDHBqT61qt6m0gO6h48i2rM7m+YmTXTXIZe/Km7qyNtI8XtiP
-	38dcIqFP+9L1idzoyNNSMbKOtQPysdOT1IIX9LAXFx8poFBy5slUdm0uESTi5BQ5TFfGrbolEadp/
-	SeDpmstcw8BKR20J/Yayvd8jrjgmmYYkGtPlCzJX19Yiot/MJ4ublWUgEVDgDCnPIhYKmi1PQY+wT
-	LQcgLLkkBJ3bdcHwhaMQBdBcCWDCLAERk49mCmqgJaoQa9Si7uw68DvJ54ZrzCdt0ryJiPg+9FCoK
-	5j3iUwGw==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ap/T++iY0s2d5e6toI71bBPM5KPkOAxGz2ajnCPsCSY=; b=tm8liiReJ9FZh6p0b0+SOZkwGj
+	3g5uCH5+jYp7TUaBja/AwcDwaJYrik+5E0+eheKMfg0G2rO5WbYEHC7v282yEsx5U4Ljd890RwhU2
+	uEwPGGFgKAgd7HQj907GEWpPN9/BEWBgfaWdhQDISVCO9HyILs7rFMmUuSlhbfdXmy6Jyf9OEt/th
+	otTm7aqpzgmtQxmR7MYZTb5qe+rUHsWqK7JUZ+mXZOQ2vyKtIN1xt0/cigq7XgWRkMkRGRaX6D4U5
+	56a56reMcmDuxQDMGukAE+lmd4xBWdV+24sVFmoz6jeneFwjtjAAj3272fEbbtWqHATG+kL9JqOc9
+	qWfR2xCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRepj-00G3dO-DI; Mon, 13 Feb 2023 19:49:51 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1pRf0m-00G5O5-VK; Mon, 13 Feb 2023 20:01:16 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRepg-00G3cZ-DU
-	for linux-riscv@lists.infradead.org; Mon, 13 Feb 2023 19:49:49 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id E80A2B81617;
-	Mon, 13 Feb 2023 19:49:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05913C433EF;
-	Mon, 13 Feb 2023 19:49:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1676317785;
-	bh=mhvgqYfAqTjy/VKv9b0aYKBmBeJxoIq2bTrUjjXJRqU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=brVXOcna0MFGLoe+hPERwo6OwYDuT73MEadplSo7J4EbFvsgokLiDws3SRCHwfPDX
-	 R48jBuHv7CERQ1kbKdhib11togTXY6iNnSFt4PHRw39ZtSSg1ba0PSXm21d7l+qSwW
-	 2i6K5dv/CTN8wMQCurBIClODHk5cxEJ3aD/hzaigLpbzAjjiby2oBVzgv8CQrAw9kJ
-	 05H7av4Ulx+5PJ8L8ffAi5yRWfCwoN3CrJZs+Ahy3Oke7ef2x3jQL5C3Nd+lf34Qh2
-	 gUlQFNO6uLVn4gidD5e5GRQUByHYXKKXQRU1H7V0sTuyO1ythyn3j1MB9b8Rdit8bf
-	 PNU0zAj4cS+Fg==
-Date: Mon, 13 Feb 2023 19:49:41 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Jesse Taube <mr.bossman075@gmail.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Yimin Gu <ustcymgu@gmail.com>, Waldemar Brodkorb <wbx@openadk.org>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>
-Subject: Re: [PATCH v2 3/3] riscv: configs: Add nommu defconfig for RV32
-Message-ID: <Y+qUVbhFUrb289xG@spud>
-References: <20230212205506.1992714-1-Mr.Bossman075@gmail.com>
- <20230212205506.1992714-4-Mr.Bossman075@gmail.com>
+	id 1pRf0k-00G5Ln-3p
+	for linux-riscv@lists.infradead.org; Mon, 13 Feb 2023 20:01:16 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id e17so5846030plg.12
+        for <linux-riscv@lists.infradead.org>; Mon, 13 Feb 2023 12:01:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=w/ylDHJlU1BFl20coGEiz1808doT/68HrQMyJm0KLIY=;
+        b=pXRJHdDi1FBiTWcyaGAee5cATMQnJvUp3NbKoj+XlSja5seq3XzvjkeO0qeYppE1ui
+         eZqKh0rOjjZEQSLvUv8oKMnsHLkM0WawTpLFFV8ZjaYqLpcb7HfIyJEexzh3hbeXl0Dn
+         LuyZZUw6nIzFtxuSfFJVUUARRsFc12DuBqH6rNcEGnD4IoX+o9EfThkdZ2JebFH3gYmP
+         CRW+PqwqyV+XkvO5FV4DXIhtX9Aq3cAqJdHEU3UXPX7BgDeRTH4Lv7UZm4sDVHm63ZSq
+         xiYbHdEu1+BAZbxQrB8ADcvkUUhOEbtmP542VDbIDL5c+PWelWzPOKXIdP7iUQMfVTdI
+         GDBg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=w/ylDHJlU1BFl20coGEiz1808doT/68HrQMyJm0KLIY=;
+        b=5Cdc5x8MgY4nBOe3lq8f4AB6gkwEsIDxCDb6kfrYOER76d/7WLRl2HX/HnZylipvHf
+         j4xmZwNECRuCgdBYvZGx7e7bVUjypV/1WL+9IIQ49V2l9yjNII7ehTvHQO9RfRe5haeG
+         5AIaK+0KgbJqDYjehsOe0a+cP2GlXmXnQreGGEFbCcMtofNxn43WTsr5B6b1JKtTyEzW
+         Pkhd1VFOhXwrKKSnL9DzhwuhF7sHYUy9r+Wt0QegfZIg0zPheb8RPAeRoeZk31h9PuPZ
+         jseYPtumrMQAL985M8fHix+1pVIjK/dfprV1X07S2gDLAHH1Tjskh9jDTl3Gh4HWOHm1
+         IQpw==
+X-Gm-Message-State: AO0yUKWtyc1tZSF5+Dw7ObCcnfxmbmj5U55Z6SpWCuRwL/BptjRrxB8t
+	M6vfxvPZTrD6+SaduW/bhjKLHBm/0Pxg+gVS
+X-Google-Smtp-Source: AK7set+IUYie8T4ysBZbfM8RDgBJuy1q7vvaVvTl80/SQVMK6LuRzrIIVld8uHAf7Br81bxAQGwapw==
+X-Received: by 2002:a17:902:f304:b0:19a:85a7:dcb9 with SMTP id c4-20020a170902f30400b0019a85a7dcb9mr114129ple.2.1676318471954;
+        Mon, 13 Feb 2023 12:01:11 -0800 (PST)
+Received: from debug.ba.rivosinc.com ([66.220.2.162])
+        by smtp.gmail.com with ESMTPSA id t23-20020a170902b21700b00196047fc25dsm8630945plr.42.2023.02.13.12.01.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Feb 2023 12:01:11 -0800 (PST)
+Date: Mon, 13 Feb 2023 12:01:09 -0800
+From: Deepak Gupta <debug@rivosinc.com>
+To: David Hildenbrand <david@redhat.com>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org
+Subject: Re: [PATCH v1 RFC Zisslpcfi 11/20] mmu: maybe_mkwrite updated to
+ manufacture shadow stack PTEs
+Message-ID: <20230213200109.GA4016181@debug.ba.rivosinc.com>
+References: <20230213045351.3945824-1-debug@rivosinc.com>
+ <20230213045351.3945824-12-debug@rivosinc.com>
+ <2d6eefb8-c7c5-7d32-9a75-ae716f828cd9@redhat.com>
+ <20230213143754.GC3943238@debug.ba.rivosinc.com>
+ <7693247c-a55d-a375-3621-1b07115a9d99@redhat.com>
 MIME-Version: 1.0
-In-Reply-To: <20230212205506.1992714-4-Mr.Bossman075@gmail.com>
+Content-Disposition: inline
+In-Reply-To: <7693247c-a55d-a375-3621-1b07115a9d99@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230213_114948_618324_BCE9506D 
-X-CRM114-Status: GOOD (  14.28  )
+X-CRM114-CacheID: sfid-20230213_120114_375207_1C117CE9 
+X-CRM114-Status: GOOD (  16.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,75 +89,114 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4363187933133648659=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Mon, Feb 13, 2023 at 03:56:22PM +0100, David Hildenbrand wrote:
+>On 13.02.23 15:37, Deepak Gupta wrote:
+>>On Mon, Feb 13, 2023 at 01:05:16PM +0100, David Hildenbrand wrote:
+>>>On 13.02.23 05:53, Deepak Gupta wrote:
+>>>>maybe_mkwrite creates PTEs with WRITE encodings for underlying arch if
+>>>>VM_WRITE is turned on in vma->vm_flags. Shadow stack memory is a write-
+>>>>able memory except it can only be written by certain specific
+>>>>instructions. This patch allows maybe_mkwrite to create shadow stack PTEs
+>>>>if vma is shadow stack VMA. Each arch can define which combination of VMA
+>>>>flags means a shadow stack.
+>>>>
+>>>>Additionally pte_mkshdwstk must be provided by arch specific PTE
+>>>>construction headers to create shadow stack PTEs. (in arch specific
+>>>>pgtable.h).
+>>>>
+>>>>This patch provides dummy/stub pte_mkshdwstk if CONFIG_USER_SHADOW_STACK
+>>>>is not selected.
+>>>>
+>>>>Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+>>>>---
+>>>>  include/linux/mm.h      | 23 +++++++++++++++++++++--
+>>>>  include/linux/pgtable.h |  4 ++++
+>>>>  2 files changed, 25 insertions(+), 2 deletions(-)
+>>>>
+>>>>diff --git a/include/linux/mm.h b/include/linux/mm.h
+>>>>index 8f857163ac89..a7705bc49bfe 100644
+>>>>--- a/include/linux/mm.h
+>>>>+++ b/include/linux/mm.h
+>>>>@@ -1093,6 +1093,21 @@ static inline unsigned long thp_size(struct page *page)
+>>>>  void free_compound_page(struct page *page);
+>>>>  #ifdef CONFIG_MMU
+>>>>+
+>>>>+#ifdef CONFIG_USER_SHADOW_STACK
+>>>>+bool arch_is_shadow_stack_vma(struct vm_area_struct *vma);
+>>>>+#endif
+>>>>+
+>>>>+static inline bool
+>>>>+is_shadow_stack_vma(struct vm_area_struct *vma)
+>>>>+{
+>>>>+#ifdef CONFIG_USER_SHADOW_STACK
+>>>>+	return arch_is_shadow_stack_vma(vma);
+>>>>+#else
+>>>>+	return false;
+>>>>+#endif
+>>>>+}
+>>>>+
+>>>>  /*
+>>>>   * Do pte_mkwrite, but only if the vma says VM_WRITE.  We do this when
+>>>>   * servicing faults for write access.  In the normal case, do always want
+>>>>@@ -1101,8 +1116,12 @@ void free_compound_page(struct page *page);
+>>>>   */
+>>>>  static inline pte_t maybe_mkwrite(pte_t pte, struct vm_area_struct *vma)
+>>>>  {
+>>>>-	if (likely(vma->vm_flags & VM_WRITE))
+>>>>-		pte = pte_mkwrite(pte);
+>>>>+	if (likely(vma->vm_flags & VM_WRITE)) {
+>>>>+		if (unlikely(is_shadow_stack_vma(vma)))
+>>>>+			pte = pte_mkshdwstk(pte);
+>>>>+		else
+>>>>+			pte = pte_mkwrite(pte);
+>>>>+	}
+>>>>  	return pte;
+>>>
+>>>Exactly what we are trying to avoid in the x86 approach right now.
+>>>Please see the x86 series on details, we shouldn't try reinventing the
+>>>wheel but finding a core-mm approach that fits multiple architectures.
+>>>
+>>>https://lkml.kernel.org/r/20230119212317.8324-1-rick.p.edgecombe@intel.com
+>>
+>>Thanks David for comment here. I looked at x86 approach. This patch
+>>actually written in a way which is not re-inventing wheel and is following
+>>a core-mm approach that fits multiple architectures.
+>>
+>>Change above checks `is_shadow_stack_vma` and if it returns true then only
+>>it manufactures shadow stack pte else it'll make a regular writeable mapping.
+>>
+>>Now if we look at `is_shadow_stack_vma` implementation, it returns false if
+>>`CONFIG_USER_SHADOW_STACK` is not defined. If `CONFIG_USER_SHADOW_STACK is
+>>defined then it calls `arch_is_shadow_stack_vma` which should be implemented
+>>by arch specific code. This allows each architecture to define their own vma
+>>flag encodings for shadow stack (riscv chooses presence of only `VM_WRITE`
+>>which is analogous to choosen PTE encodings on riscv W=1,R=0,X=0)
+>>
+>>Additionally pte_mkshdwstk will be nop if not implemented by architecture.
+>>
+>>Let me know if this make sense. If I am missing something here, let me know.
+>
+>See the discussion in that thread. The idea is to pass a VMA to 
+>pte_mkwrite() and let it handle how to actually set it writable.
+>
 
---===============4363187933133648659==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="ebkPMjNMgdMpUKGJ"
-Content-Disposition: inline
+Thanks. I see. Instances where `pte_mkwrite` is directly invoked by checking
+VM_WRITE and thus instead of fixing all those instance, make pte_mkwrite itself
+take vma flag or vma.
 
-
---ebkPMjNMgdMpUKGJ
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-Hey Jesse,
-
-On Sun, Feb 12, 2023 at 03:55:06PM -0500, Jesse Taube wrote:
-> 32bit risc-v can be configured to run without MMU. This patch adds
-> an example configuration for RV32 nommu virtual machine.
-
-There's a patch on the list (I think it came in after you sent v1) that
-pointed out that the rv32_defconfig in the tree is not actually used if
-you do `make ARCH=riscv rv32_defconfig`, but instead a make target is
-used. How would you feel about replacing this final patch with the
-below? That way rv32_nommu_virt_defconfig would always be kept in sync
-with the rv64 version.
-
-Cheers,
-Conor.
-
-diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-index 7123511d977c..785d438ae5fe 100644
---- a/arch/riscv/Makefile
-+++ b/arch/riscv/Makefile
-@@ -173,3 +173,7 @@ rv64_randconfig:
- PHONY += rv32_defconfig
- rv32_defconfig:
- 	$(Q)$(MAKE) -f $(srctree)/Makefile defconfig 32-bit.config
-+
-+PHONY += rv32_nommu_virt_defconfig
-+rv32_nommu_virt_defconfig:
-+	$(Q)$(MAKE) -f $(srctree)/Makefile nommu_virt_defconfig 32-bit.config
-
-
---ebkPMjNMgdMpUKGJ
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY+qUVQAKCRB4tDGHoIJi
-0kFgAQCYPofRMpx2bKqIEIsrpZ9a6/XDF3qu48tQ1nCqMAhS7wEAxLDTChTgBccl
-Jwsbb/bx+fBRBYIUI22Ki1sDz+k1uwA=
-=YZsi
------END PGP SIGNATURE-----
-
---ebkPMjNMgdMpUKGJ--
-
-
---===============4363187933133648659==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+I'll revise.
+>-- 
+>Thanks,
+>
+>David / dhildenb
+>
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4363187933133648659==--
-
