@@ -4,79 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4021AC6379F
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Feb 2023 04:54:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B57B3C636CC
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Feb 2023 04:54:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QlCxHn6177rlstXzNOrSxzxV5JypmJM/BK0D9iuIDeY=; b=oUvsw9hdpv6yx2
-	KMuXwFsZZJdvXaGB8JxmJdIpVLfj2GcuToWlwAipjeb64pxUr//+bcOp3fhNy1Nn1aJLAT2gf2Rv5
-	YFbUwJsoOlQzmQs922jtlNkxH31vwEoUGhrFRzmLxDvC3lFBa6zIFN3GhuHDFC/oVQTdXB+QYuN9B
-	LkypIOmEXYPM/dFMNQCqGrRrfY/5LkV8KHZL+ee/DNlGVPhsp+HQ27iH8IHc6VWyierk6fik/Lc6i
-	JxgnDEqJlCBIyU+aIo75MZKKRtjB064psJ+N1RGbJk6EPTXxcz6EmgbxIlz9TgJ8SEP9OgK6Miwlv
-	qsfRg/PdhfXC4sdy1P8Q==;
+	List-Owner; bh=Fn3axs8lHwUkWPHLfwZ/JjXWkss8WdhOUa6oicj4AeI=; b=flXeGa4RBEU5vJ
+	Vowf5fT6dU2i8L8n91wuXqEhcy1gycf4Jx2cO3WozmaMSz7xLmN0DtndSevnj0pwq+syUcTnz0cr4
+	qbka5HTsxUzyUCXLXXDjIeR7Kw5VOA1HXZ9JO7EwgZubyChFoek8i/0GpGSZ5oD6qye03PJ586Jgc
+	knRZ/D9MltihrAsyX6aVO/59XoQp4pI825/+Wm15z4wxvu/dEK9qlIB2jJfVPCqlH92BGM/6c5/Q9
+	aqvnobmY193TZrdUN6k+DfCBV46l7Ov4pqKLRIKJ5+DxYcnlMOsdPMBeJxivFBUnAP7a9OjDY7Xt4
+	9Sx03DfCIkm01mHi3jMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRQrR-00D9gQ-VZ; Mon, 13 Feb 2023 04:54:42 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1pRQrU-00D9ik-P3; Mon, 13 Feb 2023 04:54:45 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRQr9-00D9HC-38
-	for linux-riscv@lists.infradead.org; Mon, 13 Feb 2023 04:54:24 +0000
-Received: by mail-pl1-x633.google.com with SMTP id o8so9930231pls.11
-        for <linux-riscv@lists.infradead.org>; Sun, 12 Feb 2023 20:54:23 -0800 (PST)
+	id 1pRQrA-00D9TS-8t
+	for linux-riscv@bombadil.infradead.org; Mon, 13 Feb 2023 04:54:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=o6mU7eTgSI6j468x6JlFr8IfE22BslDPe1KItKKWUgQ=; b=am9kEKPpClUvzsdTcfB/9cM4LB
+	T6fAjlTv3ujWpFucXYPzwAH+hy5PR1gONu9HWl07kaohjecHM4cvE44nw2nDplbdLF82h5HWuCMaC
+	4j4dwA/Q7rUenUVPDuB368mCVEJXtJrdRsd9BRTeC2b+jtzeVkXv1RYlTVlGyBHR0l/z+qY+G+iNC
+	+JlFEfiMFJDzGQEmch2lgBVLqXE3QVNLvLhG1C/Jbtg8pJkWw8VkWiUm4gl+2QlU6sm6kbiE74Rhf
+	eM23icVHZjH3qxJF+DWjUuJZj8KsG800Y0oR3VXF5gnagul91qFTeL79fUPLT223RxtCUHpoCrJzL
+	+RMcZcNg==;
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1pRQqP-009BQY-0c
+	for linux-riscv@lists.infradead.org;
+	Mon, 13 Feb 2023 04:53:41 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id a8-20020a17090a6d8800b002336b48f653so9653631pjk.3
+        for <linux-riscv@lists.infradead.org>; Sun, 12 Feb 2023 20:54:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=C+FPHf6hRIJPFXwDXSpkdTEJ33J583V063C2UTppgJs=;
-        b=PIc3jlcyk7tBVDiMhDV7vQZElpm10o3G2cwhqlaW4z2UIEx5lX08doq/7HmwkcA5/B
-         mXA4mD3Qibw1ZZXxBKWGnAHzkaBgpiPxYs3SSCxrss438iFkUzY+I1LbmCO0Wy7Qv4zy
-         OaGCmO23kCrbduaQZBVgTYiLM/xSzD/oJvobRKtEDu6wJbbzlkleuglQwO3UeTxWhlgA
-         fAtMy+u3iW8kehvHhqtC3eqchwEPIk5+4Fgy7oyU8w/+z6lfr5E2IZ2FvGNy0muTuG8G
-         kF9cuzHt65MD3IYO5Qezafy2tL+DHy52TBkbL+mYMz2pP3AJNcMSZFeiBzRu8l1mioSD
-         7LlQ==
+        bh=o6mU7eTgSI6j468x6JlFr8IfE22BslDPe1KItKKWUgQ=;
+        b=qYf8FTmWzIZq1sj/cRWNqkDlyaUrlHtAkUn706G2DjlsOFiB0iWKuqtT+MxmEI3t6T
+         Ff0DhMKpSFR6ca05rAxMPooGPzA1kFOzhjYrqNY3J0Ka4Zz14ybBi+36q/CVw1rjCcJQ
+         s21yu/DiDLNr4UUmwy6Wsgi9sOq9iax7KYKB0pZOhEhM5LpPkR5ngeHS/g47Fh7aN/AI
+         cMC9Y8a3hzHTiL32AkRANplY0UlHrCUshHymlqQKPn6qaw5BdiwO3FgxJ0F1Iu/SSLhy
+         5pCenej/IO1VFA3WT/JAMOuCLszHyDZbQ8niFlM4YacqhxIEIz1YG6akTVFEeYQFxrxP
+         0ULQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=C+FPHf6hRIJPFXwDXSpkdTEJ33J583V063C2UTppgJs=;
-        b=hlt6IJEMzOH3ZxFoNz7Hw41dDHX2L/aMRy1GGkMHOU5ebclWXb2aFbca5RHaUR7vxF
-         VCVZwEvvrh4gLkrCmiLY3liJ+3AlXUHvNY69ZhHKW/nU2JOXrQFYNBPHwN4pcH9+MN6I
-         IVhDldHcZQt9HCOXXA4a5wbvV50EqignNBxsUdEjS+SCs0xO4Pxm+PIZaqJX7LvzMvax
-         V/vjRfeC8fk0q2QSxwblNnma7tDdH1JF1jJjyqnUVwiFnG+5JQdZAwtK03LS2O2mhR/n
-         moLuq7kJ6RV7t7fBMRFEqoNbLYHf4BEr7qXTKYGj49yIU2O/W7j7QLtCLQgK6Ljw6OxJ
-         vEzQ==
-X-Gm-Message-State: AO0yUKXF4e6WaAwgXrm0uPHLV7gFKIeeY0jvVaoPopQk10d7b1XG/oVZ
-	AFeH7wB+0B5MtBSZKKvsojBmtQ==
-X-Google-Smtp-Source: AK7set+VN154o5HYEXLyYzceYsxMjWF7xqCTBzBvD1DF80PZB4FAd3bVA3SAcm+ftMrJgNi5gBcRcA==
-X-Received: by 2002:a17:902:dad0:b0:199:1f42:8bed with SMTP id q16-20020a170902dad000b001991f428bedmr14338448plx.12.1676264062760;
-        Sun, 12 Feb 2023 20:54:22 -0800 (PST)
+        bh=o6mU7eTgSI6j468x6JlFr8IfE22BslDPe1KItKKWUgQ=;
+        b=CCOiSOlYTGqPMkkC7GSGD8DJKlsgae0esAz5g7EbtzZV1aNqKDdt4r7bx+lhs6pQjL
+         ksPrO+8SqwLmEUGxNmya81fWGGN1b7WDroz3hoHItCYehNTx6e3X7aTA4n0L3d20Xjh8
+         XopUn5vLZXMlvBxSM2G4IkXShNdtWVZ46EVdCtMPFd8pRHlPMC8N9zDV2AIYI2O0PEct
+         d1PyohhG+k+YulmsevoTU4D6JcNrqGSz/ZFI5wq8Z+O+01FoHkQNBVB330aPSlnHLeCt
+         btA5xFOngGJ1Y7dgKNZzxBFwdqohhZ12queZo4rO22IE5/GzE6h5u7OWHVOTpOefwgHc
+         QjBg==
+X-Gm-Message-State: AO0yUKXh2o2TLrU9W29bgRnaGfj3iQWn5LoyF5j1tjnYiGFMqRai9IHf
+	zCG/7qVEBk+RQ6NTnuqn6+nWmA==
+X-Google-Smtp-Source: AK7set8HPfJbTibzxMHxoi7mMOcMVGZORNN77Z7301T7+NMj1/NsI1Getj9LRbOMwSbpaixi5cPnoA==
+X-Received: by 2002:a17:903:1c2:b0:198:e1b8:9476 with SMTP id e2-20020a17090301c200b00198e1b89476mr29006123plh.15.1676264053898;
+        Sun, 12 Feb 2023 20:54:13 -0800 (PST)
 Received: from debug.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id e5-20020a170902784500b00189e7cb8b89sm7078303pln.127.2023.02.12.20.54.21
+        by smtp.gmail.com with ESMTPSA id e5-20020a170902784500b00189e7cb8b89sm7078303pln.127.2023.02.12.20.54.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 12 Feb 2023 20:54:22 -0800 (PST)
+        Sun, 12 Feb 2023 20:54:13 -0800 (PST)
 From: Deepak Gupta <debug@rivosinc.com>
 To: linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: Deepak Gupta <debug@rivosinc.com>
-Subject: [PATCH v1 RFC Zisslpcfi 14/20] riscv: audit mode for cfi violations
-Date: Sun, 12 Feb 2023 20:53:43 -0800
-Message-Id: <20230213045351.3945824-15-debug@rivosinc.com>
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Kees Cook <keescook@chromium.org>
+Cc: Deepak Gupta <debug@rivosinc.com>,
+	linux-mm@kvack.org
+Subject: [PATCH v1 RFC Zisslpcfi 08/20] riscv: ELF header parsing in GNU property for riscv zisslpcfi
+Date: Sun, 12 Feb 2023 20:53:37 -0800
+Message-Id: <20230213045351.3945824-9-debug@rivosinc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20230213045351.3945824-1-debug@rivosinc.com>
 References: <20230213045351.3945824-1-debug@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230212_205423_197536_28E2FFBB 
-X-CRM114-Status: GOOD (  12.06  )
+X-CRM114-CacheID: sfid-20230213_045338_529226_A4A7B318 
+X-CRM114-Status: GOOD (  19.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,73 +111,180 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Adding an audit mode per task which suppresses cfi violations reported
-as illegal instruction exception.
+Binaries enabled for Zisslpcfi will have new instructions that may fault
+on risc-v cpus which dont implement Zimops or Zicfi. This change adds
+
+ - support for parsing new backward and forward cfi flags in
+   PT_GNU_PROPERTY
+ - setting cfi state on recognizing cfi flags in ELF
+ - enable back cfi and forward cfi in sstatus
 
 Signed-off-by: Deepak Gupta <debug@rivosinc.com>
 ---
- arch/riscv/include/asm/processor.h | 3 ++-
- arch/riscv/kernel/process.c        | 2 ++
- arch/riscv/kernel/traps.c          | 7 ++++++-
- 3 files changed, 10 insertions(+), 2 deletions(-)
+ arch/riscv/include/asm/elf.h | 54 +++++++++++++++++++++++++++++
+ arch/riscv/kernel/process.c  | 67 ++++++++++++++++++++++++++++++++++++
+ 2 files changed, 121 insertions(+)
 
-diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-index f065309927b1..39c36f739ebb 100644
---- a/arch/riscv/include/asm/processor.h
-+++ b/arch/riscv/include/asm/processor.h
-@@ -45,7 +45,8 @@ struct thread_struct {
- struct cfi_status {
- 	unsigned int ufcfi_en : 1; /* Enable for forward cfi. Note that ELP goes in sstatus */
- 	unsigned int ubcfi_en : 1; /* Enable for backward cfi. */
--	unsigned int rsvd1 : 30;
-+	unsigned int audit_mode : 1;
-+	unsigned int rsvd1 : 29;
- 	unsigned int lp_label; /* saved label value (25bit) */
- 	long user_shdw_stk; /* Current user shadow stack pointer */
- 	long shdw_stk_base; /* Base address of shadow stack */
+diff --git a/arch/riscv/include/asm/elf.h b/arch/riscv/include/asm/elf.h
+index e7acffdf21d2..60ac2d2390ee 100644
+--- a/arch/riscv/include/asm/elf.h
++++ b/arch/riscv/include/asm/elf.h
+@@ -14,6 +14,7 @@
+ #include <asm/auxvec.h>
+ #include <asm/byteorder.h>
+ #include <asm/cacheinfo.h>
++#include <linux/processor.h>
+ 
+ /*
+  * These are used to set parameters in the core dumps.
+@@ -140,4 +141,57 @@ extern int compat_arch_setup_additional_pages(struct linux_binprm *bprm,
+ 				compat_arch_setup_additional_pages
+ 
+ #endif /* CONFIG_COMPAT */
++
++#define RISCV_ELF_FCFI (1 << 0)
++#define RISCV_ELF_BCFI (1 << 1)
++
++#ifdef CONFIG_ARCH_BINFMT_ELF_STATE
++struct arch_elf_state {
++	int flags;
++};
++
++#define INIT_ARCH_ELF_STATE {                  \
++	.flags = 0,                             \
++}
++#endif
++
++#ifdef CONFIG_ARCH_USE_GNU_PROPERTY
++static inline int arch_parse_elf_property(u32 type, const void *data,
++					  size_t datasz, bool compat,
++					  struct arch_elf_state *arch)
++{
++	/*
++	 * TODO: Do we want to support in 32bit/compat?
++	 * may be return 0 for now.
++	 */
++	if (IS_ENABLED(CONFIG_COMPAT) && compat)
++		return 0;
++	if ((type & GNU_PROPERTY_RISCV_FEATURE_1_AND) == GNU_PROPERTY_RISCV_FEATURE_1_AND) {
++		const u32 *p = data;
++
++		if (datasz != sizeof(*p))
++			return -ENOEXEC;
++		if (arch_supports_indirect_br_lp_instr() &&
++		   (*p & GNU_PROPERTY_RISCV_FEATURE_1_FCFI))
++			arch->flags |= RISCV_ELF_FCFI;
++		if (arch_supports_shadow_stack() && (*p & GNU_PROPERTY_RISCV_FEATURE_1_BCFI))
++			arch->flags |= RISCV_ELF_BCFI;
++	}
++	return 0;
++}
++
++static inline int arch_elf_pt_proc(void *ehdr, void *phdr,
++				   struct file *f, bool is_interp,
++				   struct arch_elf_state *state)
++{
++	return 0;
++}
++
++static inline int arch_check_elf(void *ehdr, bool has_interp,
++				 void *interp_ehdr,
++				 struct arch_elf_state *state)
++{
++	return 0;
++}
++#endif
+ #endif /* _ASM_RISCV_ELF_H */
 diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-index db676262e61e..bfd8511914d9 100644
+index 8955f2432c2d..db676262e61e 100644
 --- a/arch/riscv/kernel/process.c
 +++ b/arch/riscv/kernel/process.c
-@@ -246,11 +246,13 @@ int arch_elf_setup_cfi_state(const struct arch_elf_state *state)
+@@ -24,6 +24,7 @@
+ #include <asm/switch_to.h>
+ #include <asm/thread_info.h>
+ #include <asm/cpuidle.h>
++#include <linux/mman.h>
  
- 		info->user_cfi_state.user_shdw_stk = (shadow_stack_base + shadow_stk_size);
- 		info->user_cfi_state.shdw_stk_base = shadow_stack_base;
-+		info->user_cfi_state.audit_mode = 1;
- 	}
- 	/* setup forward cfi state */
- 	if (arch_supports_indirect_br_lp_instr() && (state->flags & RISCV_ELF_FCFI)) {
- 		info->user_cfi_state.ufcfi_en = 1;
- 		info->user_cfi_state.lp_label = 0;
-+		info->user_cfi_state.audit_mode = 1;
- 	}
+ register unsigned long gp_in_global __asm__("gp");
  
- 	return ret;
-diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-index a292699f4f25..1901a8b73de5 100644
---- a/arch/riscv/kernel/traps.c
-+++ b/arch/riscv/kernel/traps.c
-@@ -165,6 +165,7 @@ int handle_illegal_instruction(struct pt_regs *regs)
- 	if (arch_supports_indirect_br_lp_instr() &&
- #ifdef CONFIG_USER_INDIRECT_BR_LP
- 	    info->user_cfi_state.ufcfi_en &&
-+	    info->user_cfi_state.audit_mode &&
+@@ -135,6 +136,14 @@ void start_thread(struct pt_regs *regs, unsigned long pc,
+ 	else
+ 		regs->status |= SR_UXL_64;
  #endif
- 	    (regs->status & SR_ELP)) {
- 		pr_warn("cfi violation (elp): comm = %s, task = %p\n", task->comm, task);
-@@ -172,7 +173,11 @@ int handle_illegal_instruction(struct pt_regs *regs)
- 		return 0;
- 	}
- 	/* if faulting opcode is sscheckra/lpcll/lpcml/lpcll, advance PC and resume */
--	if (is_cfi_violation_insn(insn)) {
-+	if (is_cfi_violation_insn(insn)
-+#if defined(CONFIG_USER_SHADOW_STACK) || defined(CONFIG_USER_INDIRECT_BR_LP)
-+	    && info->user_cfi_state.audit_mode
++#ifdef CONFIG_USER_SHADOW_STACK
++	if (current_thread_info()->user_cfi_state.ufcfi_en)
++		regs->status |= SR_UFCFIEN;
 +#endif
-+	) {
- 		/* no compressed form for zisslpcfi instructions */
- 		regs->epc += 4;
- 		return 0;
++#ifdef CONFIG_USER_INDIRECT_BR_LP
++	if (current_thread_info()->user_cfi_state.ubcfi_en)
++		regs->status |= SR_UBCFIEN;
++#endif
+ }
+ 
+ void flush_thread(void)
+@@ -189,3 +198,61 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+ 	p->thread.sp = (unsigned long)childregs; /* kernel sp */
+ 	return 0;
+ }
++
++
++int allocate_shadow_stack(unsigned long *shadow_stack_base, unsigned long *shdw_size)
++{
++	int flags = MAP_ANONYMOUS | MAP_PRIVATE;
++	struct mm_struct *mm = current->mm;
++	unsigned long addr, populate, size;
++	*shadow_stack = 0;
++
++	if (!shdw_size)
++		return -EINVAL;
++
++	size = *shdw_size;
++
++	/* If size is 0, then try to calculate yourself */
++	if (size == 0)
++		size = round_up(min_t(unsigned long long, rlimit(RLIMIT_STACK), SZ_4G), PAGE_SIZE);
++	mmap_write_lock(mm);
++	addr = do_mmap(NULL, 0, size, PROT_SHADOWSTACK, flags, 0,
++		       &populate, NULL);
++	mmap_write_unlock(mm);
++	if (IS_ERR_VALUE(addr))
++		return PTR_ERR((void *)addr);
++	*shadow_stack_base = addr;
++	*shdw_size = size;
++	return 0;
++}
++
++#if defined(CONFIG_USER_SHADOW_STACK) || defined(CONFIG_USER_INDIRECT_BR_LP)
++/* gets called from load_elf_binary(). This'll setup shadow stack and forward cfi enable */
++int arch_elf_setup_cfi_state(const struct arch_elf_state *state)
++{
++	int ret = 0;
++	unsigned long shadow_stack_base = 0;
++	unsigned long shadow_stk_size = 0;
++	struct thread_info *info = NULL;
++
++	info = current_thread_info();
++	/* setup back cfi state */
++	/* setup cfi state only if implementation supports it */
++	if (arch_supports_shadow_stack() && (state->flags & RISCV_ELF_BCFI)) {
++		info->user_cfi_state.ubcfi_en = 1;
++		ret = allocate_shadow_stack(&shadow_stack_base, &shadow_stk_size);
++		if (ret)
++			return ret;
++
++		info->user_cfi_state.user_shdw_stk = (shadow_stack_base + shadow_stk_size);
++		info->user_cfi_state.shdw_stk_base = shadow_stack_base;
++	}
++	/* setup forward cfi state */
++	if (arch_supports_indirect_br_lp_instr() && (state->flags & RISCV_ELF_FCFI)) {
++		info->user_cfi_state.ufcfi_en = 1;
++		info->user_cfi_state.lp_label = 0;
++	}
++
++	return ret;
++}
++#endif
+\ No newline at end of file
 -- 
 2.25.1
 
