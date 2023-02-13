@@ -4,72 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 907A0C636CC
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Feb 2023 12:46:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 742E7C636D4
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Feb 2023 13:09:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rzwvRyh5Sd/BXBCSx4apLyJxMlxbc6372N5APOs8nY4=; b=zauS6hvyHfQHBn/rbzVU/9JwJH
-	+KdiK1FTB6Ydw9oeq8U+2dumxMK+86xG7Czl6NWz/CoY60jsBh5Uu5qtGGtqaHW2jBMbtQ/vpwMHm
-	tqEf8DVL4kXZCI5rm7n+9dEP8T4pnKJg/iuuTzsbn+nhCbpKQaPcTSZ+LpQ/iQAJp5V6nq42RxgBi
-	lO0GBHSBuhgqCS5/igDxRcjqgnHK/kDe8/pb3a87P257L/Z/H6htb3tgh3K7sUkqrI/ERGKMnqOg5
-	SuB+iamBIfjkbLWVoF+ixkGXUYER+9n0NUPa7aseCzwtI7VuoWbM3GKcW6GMTMKHIXaZqkbB0yvro
-	S7ruQcjg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=jLvydJUw4re0DuBosYOdDOTSfniV8bnKRRr3QSabvOk=; b=X3TV09buUuYNue
+	AVsp8zvqXb1WKesAy1EFCHdZ3EcHvuEzmPSyFm5097ZJdG755KmM634KBCYCm45WaK7IiBdt/W3ph
+	9xtOaZ4yW9ft8ZU52HhRNyaf4FZYX9FRfkMKnyHdstV/zP2j+3cqH92vV2MWyYT+37bDyJP5MSsj9
+	ZqoxOrKNWdwvb2l9HolCC+4HBICptw1X0rERa/FSVe5ynTHpcthrDcQIqnBh72mK6gwIV6L/nPfx/
+	zE6rvwrURD/VrjMqHvl5dPobVr7Y4YKtRdLyCRP72AUOzwvUZizLDuwwnR+Kgsl83HgS75gWkyEit
+	KbcCJmNciu/cWO7c0i5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRYDg-00Egx6-00; Mon, 13 Feb 2023 12:46:08 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRYDd-00EgwM-QG
-	for linux-riscv@lists.infradead.org; Mon, 13 Feb 2023 12:46:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1676292366; x=1707828366;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=zddgii00RYTRCzy4JajwyXC5VS7tCsfV5RBESAwfvSg=;
-  b=jUt3I+FbW25ghA/sNvZClt8toKtwD8x9dx7Zda7tdC68Bm8jukScfnFM
-   y2I+znOdNS8zBcRmos95qJCMKt4E68CuDnNipIzrVuoy8oXXkIh56HWBD
-   1sNZOUU96X+xC/kPn6MxEf/nGjRMZHVnmsISIGLgNbJhxwYrsjwikCaO4
-   ikS8Yclf5ZWISOtcLvaB7Nk9DtzzLj60KPAlzVC5eKY/RU0iJorv58RIf
-   dEjKjtkx3GzHzuRp2EMXGAS3IfVpfZZN36dhN1AFO99NeL3dSgSB49+Gk
-   mRYVaIEKcMwWvi+2X4lHjV1LGNrBRwdvKx3ek3WRH7otUoHazWy8QR6RO
-   A==;
-X-IronPort-AV: E=Sophos;i="5.97,294,1669100400"; 
-   d="asc'?scan'208";a="200687912"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 13 Feb 2023 05:46:06 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.16; Mon, 13 Feb 2023 05:46:05 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
- (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.16 via Frontend
- Transport; Mon, 13 Feb 2023 05:46:03 -0700
-Date: Mon, 13 Feb 2023 12:45:38 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Conor Dooley <conor@kernel.org>
-CC: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>,
-	Thierry Reding <thierry.reding@gmail.com>, Daire McNamara
-	<daire.mcnamara@microchip.com>, <linux-kernel@vger.kernel.org>,
-	<linux-pwm@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH v13 1/2] pwm: add microchip soft ip corePWM driver
-Message-ID: <Y+ow8tfAHo1yv1XL@wendy>
-References: <20221221112912.147210-1-conor@kernel.org>
- <20221221112912.147210-2-conor@kernel.org>
- <20230110224805.3pqxd3yv4wyci2zj@pengutronix.de>
- <20230112120141.fpjwhtjuaxrwqt5m@pengutronix.de>
- <Y8Ai0aF5A+O43kjZ@wendy>
- <Y8ruML/XnJHjVWy/@spud>
+	id 1pRYaC-00El0I-NV; Mon, 13 Feb 2023 13:09:25 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pRYa6-00Ekwa-6V
+	for linux-riscv@lists.infradead.org; Mon, 13 Feb 2023 13:09:22 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id BCBCB24E154;
+	Mon, 13 Feb 2023 21:08:47 +0800 (CST)
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 13 Feb
+ 2023 21:08:47 +0800
+Received: from [192.168.125.74] (183.27.97.168) by EXMBX168.cuchost.com
+ (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 13 Feb
+ 2023 21:08:46 +0800
+Message-ID: <7152f39a-5220-63a0-3e13-ef165b0ab0c1@starfivetech.com>
+Date: Mon, 13 Feb 2023 21:08:46 +0800
 MIME-Version: 1.0
-In-Reply-To: <Y8ruML/XnJHjVWy/@spud>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.7.2
+Subject: Re: [PATCH v1 2/3] dma: dw-axi-dmac: Add support for StarFive DMA
+Content-Language: en-US
+To: Vinod Koul <vkoul@kernel.org>
+CC: <linux-riscv@lists.infradead.org>, <dmaengine@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
+	Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor@kernel.org>, "Palmer
+ Dabbelt" <palmer@dabbelt.com>, Emil Renner Berthing <kernel@esmil.dk>,
+	<linux-kernel@vger.kernel.org>
+References: <20230206113811.23133-1-walker.chen@starfivetech.com>
+ <20230206113811.23133-3-walker.chen@starfivetech.com>
+ <Y+YHa7jVpTs9Qg73@matsya>
+From: Walker Chen <walker.chen@starfivetech.com>
+In-Reply-To: <Y+YHa7jVpTs9Qg73@matsya>
+X-Originating-IP: [183.27.97.168]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX168.cuchost.com
+ (172.16.6.78)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230213_044605_921408_8E755530 
-X-CRM114-Status: GOOD (  34.23  )
+X-CRM114-CacheID: sfid-20230213_050918_561202_DD7254E5 
+X-CRM114-Status: GOOD (  12.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,151 +73,77 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2616817112840606142=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============2616817112840606142==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="d06DW3i8sK38cMCJ"
-Content-Disposition: inline
+On 2023/2/10 16:59, Vinod Koul wrote:
+> On 06-02-23, 19:38, Walker Chen wrote:
+>> Adding DMA reset operation in device probe, and using different
+>> registers according to the hardware handshake number.
+> 
+> subsystem tag is dmaengine: xxx
 
---d06DW3i8sK38cMCJ
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+OK, the tag will be changed to dmaengine.
 
-Hey Uwe!
+> 
+>> 
+>> Signed-off-by: Walker Chen <walker.chen@starfivetech.com>
+>> ---
+>>  .../dma/dw-axi-dmac/dw-axi-dmac-platform.c    | 25 ++++++++++++++++---
+>>  drivers/dma/dw-axi-dmac/dw-axi-dmac.h         |  3 +++
+>>  2 files changed, 24 insertions(+), 4 deletions(-)
+>> 
+>> diff --git a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
+>> index a183d93bd7e2..3581810033d2 100644
+>> --- a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
+>> +++ b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
+>> @@ -25,6 +25,7 @@
+>>  #include <linux/platform_device.h>
+>>  #include <linux/pm_runtime.h>
+>>  #include <linux/property.h>
+>> +#include <linux/reset.h>
+>>  #include <linux/slab.h>
+>>  #include <linux/types.h>
+>>  
+>> @@ -86,7 +87,8 @@ static inline void axi_chan_config_write(struct axi_dma_chan *chan,
+>>  
+>>  	cfg_lo = (config->dst_multblk_type << CH_CFG_L_DST_MULTBLK_TYPE_POS |
+>>  		  config->src_multblk_type << CH_CFG_L_SRC_MULTBLK_TYPE_POS);
+>> -	if (chan->chip->dw->hdata->reg_map_8_channels) {
+>> +	if (chan->chip->dw->hdata->reg_map_8_channels &&
+>> +	    !chan->chip->dw->hdata->use_cfg2) {
+> 
+> what about older/other platforms that dont have use_cfg2?
 
-Was nice to meet you at FOSDEM, if I'd seen that presentation before
-working on this driver I think the version count would have been
-substantially lower!
+The use_cfg2 variable's default value is false, the original logic will not be affected.
+Rob herring gave a suggestion that it is assigned according to compatible string, like that:
+if (of_device_is_compatible(node, "starfive,jh7110-axi-dma")) {
+	...
+	chip->dw->hdata->use_cfg2 = true;
+}
 
-On Fri, Jan 20, 2023 at 07:40:32PM +0000, Conor Dooley wrote:
-> On Thu, Jan 12, 2023 at 03:10:09PM +0000, Conor Dooley wrote:
-> > On Thu, Jan 12, 2023 at 01:01:41PM +0100, Uwe Kleine-K=F6nig wrote:
-> > > On Tue, Jan 10, 2023 at 11:48:05PM +0100, Uwe Kleine-K=F6nig wrote:
+> 
+>>  		cfg_hi = config->tt_fc << CH_CFG_H_TT_FC_POS |
+>>  			 config->hs_sel_src << CH_CFG_H_HS_SEL_SRC_POS |
+>>  			 config->hs_sel_dst << CH_CFG_H_HS_SEL_DST_POS |
+>> @@ -541,8 +543,6 @@ static void dw_axi_dma_set_hw_channel(struct axi_dma_chan *chan, bool set)
+>>  			(chan->id * DMA_APB_HS_SEL_BIT_SIZE));
+>>  	reg_value |= (val << (chan->id * DMA_APB_HS_SEL_BIT_SIZE));
+>>  	lo_hi_writeq(reg_value, chip->apb_regs + DMAC_APB_HW_HS_SEL_0);
+>> -
+>> -	return;
+>>  }
+>>  
 
-> *sigh*, me again...
->=20
-> Picked this up this afternoon to try and respin a v14 and ran into a bit
-> of an issue with this suggestion:
->=20
-> > > 	*prescale =3D div_u64(tmp, MCHPCOREPWM_PERIOD_STEPS_MAX)
-> > > 	if (*prescale)
-> > > 		*prescale -=3D 1;
->=20
-> In theory this works out, but with integer division it doesn't AFAICT.
->=20
-> Take for example:
-> period_ns =3D 10,000
-> clk_rate =3D 62.5 MHz
->=20
-> The prescale calculation is:
-> (10000 * 62.5E6) / (1E9 * 255) - 1 =3D 1.451 -> 1
->=20
-> For period_steps then:
-> (10000 * 62.5E6) / (1E9 * (1 + 1)) - 1 =3D 311.5 -> 311
->=20
-> prescale is a u16, since it's valid for that division to return 256.
-> The register is only 8 bits wide though, so 311 overflows it and 55 ends
-> up in the register.
-> The period then is:
-> (55 + 1) * (1 + 1) / 62.5E6, or a period of 1792 ns.
->=20
-> I think it needs to be a div_u64_round_up(), which I know is not a real
-> function, otherwise we compute invalid values for period steps.
->=20
-> Quoting you previously:
-> > I thought a bit about that (without pencil and paper on my way to work
-> > today), and the optimal solution is non-trivial. In fact you have to
-> > pick parameters A and B such that for a given C
-> >=20
-> > 	(A + 1) * (B + 1) is maximal with
-> >=20
-> > 	0 <=3D A < 0x100
-> > 	0 <=3D B < 0xff
-> > 	(A + 1) * (B + 1) <=3D C
->=20
-> As we need (period_steps + 1) * (prescale + 1) maximal, *but* also want
-> to maximise period_steps so that duty resolution etc is maximal too.
-> We pick prescale, using the formula below, by setting period_steps to
-> the maximum possible value:
-> > 	            period * clk_rate
-> > 	prescale =3D -------------------
-> > 	           NSEC_PER_SEC * 0xff
->=20
-> Given we set period_steps to the max here, we only actually pick the
-> lower bound on prescale, not the actual value of it.
-> We must round it to the nearest possible value before using it to go
-> back and calculate period_steps.
->=20
-> With the previous code, missing the -=3D 1, the division result was purely
-> truncated:
-> (10000 * 62.5E6) / (1E9 * 255) =3D 2.451 -> 2
-> That 2 was written into the register, and then the hardware rounds that
-> up to 3, as does the period_steps calculation.
->=20
-> period_steps here is:
-> (10000 * 62.5E6) / (1E9 * (2 + 1)) - 1 =3D 207.833 -> 207
->=20
-> Finally, the period:
-> (207 + 1) * (2 + 1) / 62.5E6, or a period of 9984 ns.
->=20
-> This is the same operation, unless I am yet again overlooking something,
-> as doing a div_u64_round_up() type thing, followed by a subtraction of 1
->=20
-> We don't need to worry about writing something too big into the register
-> either, as we are protected against values of tmp that, when divided by
-> 0xff, would produce values larger than 255:
-> > /*
-> >  * The hardware adds one to the register value, so decrement by one to
-> >  * account for the offset
-> >  */
-> > if (tmp >=3D MCHPCOREPWM_PERIOD_MAX) { (PERIOD_MAX is 0xff00)
-> > 	*prescale =3D MCHPCOREPWM_PRESCALE_MAX - 1;
-> > 	*period_steps =3D MCHPCOREPWM_PERIOD_STEPS_MAX - 1;
-> >=20
-> > 	return;
-> > }
->=20
-> What am I missing this time? haha
+Thanks
 
-So my "plan" I guess is to rebase this on v6.3-rc1 & re-submit with the
-various minor bits fixed.
-Trying the proposed "fixes" to the period calculation that we had
-discussed pointed out the above issue, and it appears, to me at least,
-that we made a mess of translating from regular calculations to integer
-ones.
+Best regards,
+Walker
 
-Cheers,
-Conor.
-
-
---d06DW3i8sK38cMCJ
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY+ow8gAKCRB4tDGHoIJi
-0icOAQCcx3scSfDj18iHQbxSESPavXkS87/Xlcb5j3+R2yDf9gEAm/owNFfpq3/t
-XxD5zIYT0u1k/G0Mxamq3ZHD+wVtIQ0=
-=+gkG
------END PGP SIGNATURE-----
-
---d06DW3i8sK38cMCJ--
-
-
---===============2616817112840606142==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2616817112840606142==--
-
