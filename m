@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8A99C636CC
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Feb 2023 16:51:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5806DC636D4
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Feb 2023 16:57:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cQANRMJ9Sr7S5lMN2UUaB6KH95j8zod2GDqBdDn9vjQ=; b=FXQbcaljMphKn7scEmagZAweIs
-	TSDVtWYFBzZcCEfxuHv6LIrw6tim81mhHolNXoPd0GvxZgOfMKJpl3njT7oQ+B5UE9lOAbElQqhCE
-	b+L8AO3Rfy1687SK+Gj2q3j7vGVE/G1U/hT+BedviaMP+IpyXgemxVTxoVxZiAphZEKs/ZZKsgjfM
-	+/V4VLUsQcYcswp1qE4ih7e5S2aoeF1/B+I0JsdXt09E4CCJNEenGes7VtdRp5MdA7zrNxGpAdgFE
-	wNyZC9kFdK4Crp5sLI87cfmPz5dytXb5tReGeQ3v1ujDkbDWksikORzYlqVtP3KPDtH27/HZlbHEV
-	LaDvDulA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=YzmRq1k/tZcH/uT3WDVTb/yI6qEoiCIT3HvFAPpA/xM=; b=xmI+od64CP0pww
+	/ygihcEYS+pJFWwR9vTjLJdRTaupMuPXP1jozWxfMYCbolEAWJ7ViobnHeSDHhcx9n1/SCpzRZWJn
+	3NS8ESIF/yFtoZ7tuHNjPEDe6UfjbVCOO3atH+KpVpO3/pB83UJ42owl4+abSTNFYesgQZyokEvHF
+	4LQwhHO5ep6bo2dxWvMQi3WucKoFLb4nCbs5L7UZ5mcqcsVimalfM1rcNdggaODM09hQtwDB3wHQY
+	yOXwPkLCQpR/T58nFfiowxmbPVs5UMvS3VlAAAZu1XnMNjDtjyCCKvhPG56V08zH+2jZ5KnYhxfMM
+	iLVfjILQWFo3gal92kEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRc35-00Fa8G-3m; Mon, 13 Feb 2023 16:51:27 +0000
+	id 1pRc8o-00Fb8d-N5; Mon, 13 Feb 2023 16:57:22 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRc32-00Fa6T-47
-	for linux-riscv@lists.infradead.org; Mon, 13 Feb 2023 16:51:25 +0000
+	id 1pRc8m-00Fb7b-2U
+	for linux-riscv@lists.infradead.org; Mon, 13 Feb 2023 16:57:21 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id DB02C61202;
-	Mon, 13 Feb 2023 16:51:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2830EC433EF;
-	Mon, 13 Feb 2023 16:51:19 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id B59E2611B4;
+	Mon, 13 Feb 2023 16:57:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54B47C4339C;
+	Mon, 13 Feb 2023 16:57:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1676307081;
-	bh=hdUq2Luq23RINKGxSUxGVQp79jBS8lzD3Eqz+8CvlJk=;
+	s=k20201202; t=1676307438;
+	bh=ef21h0MzKbePTAgMmCqsteVlUArbe4r01a+6XKMdXIc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TFPrK+l+mxRsLqUL3UYvZzzKPo4Wz8ryZ+xeBLj7AAAr5EN9qRlmeVBvaZpzEbV9P
-	 lGjk5l3QX87Ohzys03sxCmCWFT+iVdI5kigcxT+jgrCLLm+vWEO6j+/tGCfwKPUabe
-	 K4BFzHfX8i0Ci90c+ns2TfxfdKnpwr7n2ChxeIBky3v6TPBvPkzVqADjsz83R9UfOS
-	 sKvi9ZhEOgGxf4Rfrq5acluN4PKb/9NnKln//FOkKW7JcLvvoCHMiv294hwiYJF7Yo
-	 vKLlTRspkuQfHy11I/chhwiSNSG9nYZIFZ+g5RRQnz3HvTGGWc4H24UkVw+oVorBeR
-	 5llOSEvxfYzLw==
-Date: Mon, 13 Feb 2023 16:51:17 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Nick Alcock <nick.alcock@oracle.com>
-Cc: Leon Romanovsky <leon@kernel.org>, mcgrof@kernel.org,
-	linux-modules@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 8/8] kbuild, PCI: microchip: comment out MODULE_LICENSE
- in non-modules
-Message-ID: <Y+pqhTmuCRFUa/Vi@spud>
-References: <20230210164749.368998-1-nick.alcock@oracle.com>
- <20230210164749.368998-9-nick.alcock@oracle.com>
- <Y+aMh5e9bWaTphiZ@spud>
- <871qmx1fv5.fsf@esperi.org.uk>
- <Y+akw9VBjg9oZ7QV@spud>
- <Y+kx3fb2Lzlg+u5+@unreal>
- <87k00ly25v.fsf@esperi.org.uk>
+	b=I7lvMHaI8QA86U3B12poWtqC4oevr297M5WJcVJ0TnLjkHetcquXI9u9aOFB706/a
+	 sE0uBXUmjlXueH1R9QNWRaFuPd4FeMSW228GKkBdkhZKKS9+Jv6wkNQ6GzTsgjaj+i
+	 a/vUGbyCfpVFmw3jnhlUmpOm7bx3z6lpW+0eM52Urw7j52FSx0vfVcFYQkRBGs/IPD
+	 yy/5eUlNucMqgWE8uQCtqAKVnAU1kOtgdtqoAH5GodI4BumKxvkkafQ2NbGVWwnCST
+	 JrCIQE+Yrxv5P/i6SOdZwj6dN7B5+/JAqsKvDBhMwxA+ehSVynjqFPybfQadwLoZAK
+	 9xmX+jDzVA4mg==
+Date: Tue, 14 Feb 2023 00:46:47 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Samuel Holland <samuel@sholland.org>
+Cc: Heiko Stuebner <heiko@sntech.de>, Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Christoph Muellner <christoph.muellner@vrull.eu>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Guo Ren <guoren@kernel.org>,
+	Heiko Stuebner <heiko.stuebner@vrull.eu>,
+	Nathan Chancellor <nathan@kernel.org>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] riscv: Fix early alternative patching
+Message-ID: <Y+ppd3YEM0BB6O5l@xhacker>
+References: <20230212021534.59121-1-samuel@sholland.org>
+ <20230212021534.59121-2-samuel@sholland.org>
 MIME-Version: 1.0
-In-Reply-To: <87k00ly25v.fsf@esperi.org.uk>
+Content-Disposition: inline
+In-Reply-To: <20230212021534.59121-2-samuel@sholland.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230213_085124_289376_E6B86F2D 
-X-CRM114-Status: GOOD (  40.55  )
+X-CRM114-CacheID: sfid-20230213_085720_197083_7F55F0EA 
+X-CRM114-Status: GOOD (  15.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,166 +74,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6366667349376315995=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Sat, Feb 11, 2023 at 08:15:32PM -0600, Samuel Holland wrote:
+> Now that the text to patch is located using a relative offset from the
+> alternative entry, the text address should be computed without applying
+> the kernel mapping offset, both before and after VM setup.
 
---===============6366667349376315995==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="V8wF6pIbk/VN+PxO"
-Content-Disposition: inline
+Good catch!
+> 
+> Fixes: 8d23e94a4433 ("riscv: switch to relative alternative entries")
+> Signed-off-by: Samuel Holland <samuel@sholland.org>
 
-
---V8wF6pIbk/VN+PxO
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Mon, Feb 13, 2023 at 04:13:00PM +0000, Nick Alcock wrote:
-> [Modified resend: my MTA claimed not to send it but then sent it to some
->  recipients anyway, and then I was asked not to do some of the things
->  I'd offered after I sent it.]
->=20
-> On 12 Feb 2023, Leon Romanovsky told this:
->=20
-> > On Fri, Feb 10, 2023 at 08:10:43PM +0000, Conor Dooley wrote:
-> >> On Fri, Feb 10, 2023 at 07:26:38PM +0000, Nick Alcock wrote:
-> >> > On 10 Feb 2023, Conor Dooley said:
-> >> > > FYI $subject seems wrong, this is a PCI patch AFAICT.
-> >
-> > <...>
-> >
-> >> > kbuild is present in every patch in the series because this is a
-> >> > kbuild-driven change (the thing it disturbs is part of the build sys=
-tem,
-> >> > the construction of modules.builtin*). This seems to be common pract=
-ice
-> >> > for kbuild-related treewide changes.
-> >>=20
-> >> Okay, I'll take your word for it. It just looked/looks odd to me!
-> >
-> > It looks odd to me too. Please add SPDX tag in modules which don't have
-> > it already, instead of commenting code.
->=20
-> Alas... nearly all of them *do* have it already, and in most cases it is
-> different. Usually not *very* different, but different. In most cases it
-> is more specific, e.g. drivers/soc/fujitsu/a64fx-diag.c, where we have
-> MODULE_LICENSE("GPL") but SPDX says it's GPL-2.0-only, but then there
-> are things like lib/packing.c, which throughout its history in the tree
-> has combined // SPDX-License-Identifier: BSD-3-Clause OR GPL-2.0
-> and MODULE_LICENSE("GPL v2"); which are just not the same thing.
->=20
-> I commented the MODULE_LICENSEs out specifically because I wanted to
-> avoid getting into hundreds of simultaneous license flamewars while
-> trying to get *a different thing entirely* into the kernel (kallmodsyms,
-> which depends on modules.builtin.objs being correct).
->=20
-> I still don't want to get into hundreds of simultaneous license
-> flamewars or get my employer into legal hot water, so I think I'll leave
-> things commented out and let individual maintainers decide whether they
-> want to reconcile any contradictory info that may exist or not (and as
-> noted *most* of these are conflicting.)
->=20
->=20
-> This email is the closest thing I have to indicating what Luis would
-> prefer (and the only reason I'm doing this is because I need it before
-> Luis's modules.builtin.objs change can work):
->=20
-> <https://lore.kernel.org/linux-modules/Y5AgMuMu75gne6Ka@bombadil.infradea=
-d.org/>
->=20
-> Yes, Luis thinks we can just use SPDX, but given that they are usually
-> different, making such a change seems well beyond my pay grade. Even in
-> the PCI domain, we see (second column, MODULE_LICENSE: third: SPDX,
-> sorry about the line lengths).
->=20
-> drivers/pci/controller/dwc/pcie-histb.c:		GPL v2		// SPDX-License-Identif=
-ier: GPL-2.0
-> drivers/pci/controller/mobiveil/pcie-mobiveil-plat.c:	GPL v2		// SPDX-Lic=
-ense-Identifier: GPL-2.0
-> drivers/pci/controller/pci-tegra.c: 			GPL		// SPDX-License-Identifier: G=
-PL-2.0+
-> drivers/pci/controller/pci-versatile.c:			GPL v2		// SPDX-License-Identif=
-ier: GPL-2.0
-> drivers/pci/controller/pcie-hisi-error.c:		GPL v2		// SPDX-License-Identi=
-fier: GPL-2.0
-> drivers/pci/controller/pcie-microchip-host.c:		GPL		// SPDX-License-Ident=
-ifier: GPL-2.0
-> drivers/pci/endpoint/pci-ep-cfs.c:			GPL v2		// SPDX-License-Identifier: =
-GPL-2.0
-> drivers/pci/endpoint/pci-epc-core.c:			GPL v2		// SPDX-License-Identifier=
-: GPL-2.0
-> drivers/pci/endpoint/pci-epc-mem.c:			GPL v2		// SPDX-License-Identifier:=
- GPL-2.0
-> drivers/pci/endpoint/pci-epf-core.c:			GPL v2		// SPDX-License-Identifier=
-: GPL-2.0
-> drivers/pci/hotplug/acpiphp_core.c:			GPL		// SPDX-License-Identifier: GP=
-L-2.0+
-> drivers/pci/hotplug/shpchp_core.c:			GPL		// SPDX-License-Identifier: GPL=
--2.0+
->=20
-> Not much in the way of consistency here: GPL sometimes means 2.0+ but
-> sometimes it means 2.0. GPL v2 appears to consistently mean GPL-2.0, but
-> if you look at other affected modules you soon see inconsistency:
->=20
-> drivers/powercap/powercap_sys.c: GPL v2		// SPDX-License-Identifier: GPL-=
-2.0-only
-> drivers/firmware/imx/imx-scu.c: GPL v2		// SPDX-License-Identifier: GPL-2=
-=2E0+
-> arch/x86/crypto/blake2s-glue.c: GPL v2		// SPDX-License-Identifier: GPL-2=
-=2E0 OR MIT
-> drivers/iommu/sun50i-iommu.c: Dual BSD/GPL	// SPDX-License-Identifier: (G=
-PL-2.0-only OR BSD-2-Clause)
-
-See bf7fbeeae6db ("module: Cure the MODULE_LICENSE "GPL" vs. "GPL v2"
-bogosity") for more information on the contents of MODULE_LICENSE.
-
-I don't really have a comment on the rest of this, other than thinking
-that, for the microchip one, you should leave it as is & the driver be
-changed to be module capable.
-
->=20
-> We even have
->=20
-> drivers/gpu/drm/drm_mipi_dsi.c: "GPL and additional rights" (header is
-> non-SPDX -- a BSD license header with advertising clause!)
->=20
-> So SPDX is usually more precise than the MODULE_LICENSE, but is it more
-> *accurate*? I have no idea, and I don't see how I could possibly know:
-> going by the presence of advertising clauses that obviously nobody is
-> obeying it doesn't seem like we can trust header comments to be any more
-> accurate than MODULE_LICENSE. Best to just leave both in (and comment it
-> out so it has no side-effects on the build any more, which is all I'm
-> after).
->=20
-> --=20
-> NULL && (void)
-
---V8wF6pIbk/VN+PxO
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY+pqdAAKCRB4tDGHoIJi
-0pNmAQDabF/bd4lGSJqLIeDKr2MotZr5XyVPWaLlf4T25b/JbgD/QrKOrtI1pcij
-CkmQGgWoQRFzWsh6sCn2D5YbVpYi9AI=
-=vCVM
------END PGP SIGNATURE-----
-
---V8wF6pIbk/VN+PxO--
-
-
---===============6366667349376315995==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Reviewed-by: Jisheng Zhang <jszhang@kernel.org>
+> ---
+> 
+>  arch/riscv/errata/thead/errata.c | 4 +---
+>  1 file changed, 1 insertion(+), 3 deletions(-)
+> 
+> diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
+> index c0bea5c94128..1dd90a5f86f0 100644
+> --- a/arch/riscv/errata/thead/errata.c
+> +++ b/arch/riscv/errata/thead/errata.c
+> @@ -102,9 +102,7 @@ void __init_or_module thead_errata_patch_func(struct alt_entry *begin, struct al
+>  
+>  			/* On vm-alternatives, the mmu isn't running yet */
+>  			if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
+> -				memcpy((void *)__pa_symbol(oldptr),
+> -				       (void *)__pa_symbol(altptr),
+> -				       alt->alt_len);
+> +				memcpy(oldptr, altptr, alt->alt_len);
+>  			else
+>  				patch_text_nosync(oldptr, altptr, alt->alt_len);
+>  		}
+> -- 
+> 2.37.4
+> 
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6366667349376315995==--
-
