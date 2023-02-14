@@ -4,129 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6905C05027
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Feb 2023 07:56:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FC5FC64EC7
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Feb 2023 07:56:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ujzIjy5ZxLDGn8FuTtP7KT658f0TFZIvjErQqf6B4LM=; b=UtjoZxJIjVyM6P
-	YjGLHweIBIEE6G2B5404xF2tqrasUnd9zupul8VpuTdjyGNCgYFtw0xyVA3E8HRlUfVQ1Tru4aoiI
-	XHt2p2EbrnSf4a32VmTSy8W/eb3xqZiBgo7FgjuhWmfhqqvjHjBdH+/ArhuclDgjX/2QJO9k/FBB9
-	1lhOkqtLlcgVEYQskDvMvXiyE7lsvlRdYoqe7iLLR8NB0FubFvW7X/7UTOhWUVQUYpOhS4a0uBBEp
-	ikw1ElKIho6Vj5tjDjWlx/9td9zRamqfBhrdJphDyGE1xw/ZMlc3dlVKXpyIdDu2Wx6P6nyktqL3b
-	SOdd6YsEvZz3wIfuXP6Q==;
+	List-Owner; bh=00/ZZYeGqFXOPxvGhSqmJME8G3I0tlW6iE/DBy+D0C0=; b=pKRF317+LgdDBn
+	KyKiJLbdOfUBRj1UR2OWHcx5zsuOO0pW3uxteGgbPJNsi4SBMtmgl4dl6iyXt6/oQY0YplmuFLq4f
+	BIZgAMoBb+bQwxifvd7Jk2WyS8y2yUwfcKRgZS71gR9Jk5s+9vxdHSL6JCyMq5Ap+BqN/yofg/gVE
+	/UmaPLH+KtYe8g7XynaYSKS5AfdTRs30mHE3dq9t+YO940fHF5ZQgYMvaKX7oPLiXvlgM/EhKygGo
+	zrZEG7wKcouks34VUPXaB/xTZ3BFSrUO3q7hrpkWJADg1bzEKPgkmXleq7oS/XfHqKUKzLhCVdAX3
+	1qRw/ehLqpsqzvcolmnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRqAk-000Nef-MP; Tue, 14 Feb 2023 07:56:18 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1pRqAt-000Njp-Kg; Tue, 14 Feb 2023 07:56:27 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRqAb-000NYv-NR
-	for linux-riscv@lists.infradead.org; Tue, 14 Feb 2023 07:56:11 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id k8-20020a05600c1c8800b003dc57ea0dfeso13050696wms.0
-        for <linux-riscv@lists.infradead.org>; Mon, 13 Feb 2023 23:56:09 -0800 (PST)
+	id 1pRqAe-000Na3-Td
+	for linux-riscv@lists.infradead.org; Tue, 14 Feb 2023 07:56:14 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id w5so16195974plg.8
+        for <linux-riscv@lists.infradead.org>; Mon, 13 Feb 2023 23:56:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZhdZ6IBARLttHQe1cf2NcgGY75q7JNAgsxtr1kT5kgY=;
-        b=WUnQautY0C4VnR179UT3EoCgDMh692PX4JIH++p5EPvA1yrRO/fl+UiJJROeSG56Yd
-         auQNeE8xqAyEf2IHwlM8Mj9jimF0w+QT0uVnsG4fXjaKwWGWrlEj1LzF57NiupT0LR6o
-         bmTpD6Q5aa1n+5RVS1uxfUzvjrBt7j3ahNAKmewc/SJFd0wUI235VxB1hzncC1Zwofn4
-         iTxWoEUEDV/EgpiqiXMLeqy9nMGNFgyZOQKozpWaPfsGJXr8kf9J4mLtVL7bqCZOI0Sa
-         86d5rOYBfoFKhmFjCdMHzcpyZzXumz+WTxxqPTlVAK+W5T/30s7a7qUBT+LxpqB5vQJs
-         GczQ==
+        d=atishpatra.org; s=google;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=qelBQClw7mXq80SVJvQ3JIsOiducFvvsAUEKszfdTWI=;
+        b=Zjsnk3G1m3c2j2vBbWEw29s+tBSpeyW8l+mBJUemvwZ3ZIl3mAlMHMiMg5UmykQdgU
+         QXQRxZ/gY57Pg7TekPEUcPMnvtA3Y338kmwhxKOKiNC7KsEZ9lgXJYWfRaMX+wIRFCe5
+         xmv5uzQgyI0T25jmd4sjvlc52XI/mhrlH7U9Q=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ZhdZ6IBARLttHQe1cf2NcgGY75q7JNAgsxtr1kT5kgY=;
-        b=MmfUUypZSiBpBx28R+eQOQ3gGbnQsVQiCrUSqPikYV4fsa4QmUk8jMVVWdGSxn+i1t
-         PkMth5YFzCNfsPslSytRzg3xQFV+W8UuBwH09hgF0ISRXerLypV+IS9tNOZkeUZrKAo9
-         0Aeo7KGMsO0uI8cxkfBEbS8KmlZu5VFe1IV4oCzhcLrDlN6MvSdIQBYZ91I9Kl9A05g3
-         valgxQhI5tINqjuKNisDQf+EVkoN2CmI9Xo3bz2G61T6BEoHPPWwGzEJiTJ3Y4oBNuWG
-         6xRsZb5EDnP7AjqUuKEtm/OiUYxeufbb41k5gtWz7yz9L6vjv7fz7KziKEpoglsueKok
-         ktMQ==
-X-Gm-Message-State: AO0yUKX24Vjvqcqd0uMo3SiFQxEDQqcHG0Sg/VQal3HW3IYZWDd3p/Ed
-	KHvjrtj9JZNUXBkeMqMXicyxyA==
-X-Google-Smtp-Source: AK7set+5svVjdMsSqau0ZmaI2FYzntenTemQL7K+vXqbwh34mh13dF3yJpt5o+d+QGqy0l0pY1qf1g==
-X-Received: by 2002:a05:600c:a29e:b0:3da:1e35:dfec with SMTP id hu30-20020a05600ca29e00b003da1e35dfecmr1257049wmb.4.1676361368417;
-        Mon, 13 Feb 2023 23:56:08 -0800 (PST)
-Received: from alex-rivos.ba.rivosinc.com (lfbn-lyo-1-450-160.w2-7.abo.wanadoo.fr. [2.7.42.160])
-        by smtp.gmail.com with ESMTPSA id q14-20020a05600c46ce00b003db12112fcfsm17947356wmo.4.2023.02.13.23.56.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Feb 2023 23:56:08 -0800 (PST)
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-To: Jonathan Corbet <corbet@lwn.net>,
-	Richard Henderson <richard.henderson@linaro.org>,
-	Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
-	Matt Turner <mattst88@gmail.com>,
-	Vineet Gupta <vgupta@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Michal Simek <monstr@monstr.eu>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	"James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>,
-	Helge Deller <deller@gmx.de>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Yoshinori Sato <ysato@users.sourceforge.jp>,
-	Rich Felker <dalias@libc.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	x86@kernel.org,
-	"H . Peter Anvin" <hpa@zytor.com>,
-	Chris Zankel <chris@zankel.net>,
-	Max Filippov <jcmvbkbc@gmail.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-alpha@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-ia64@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org,
-	linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	linux-xtensa@linux-xtensa.org,
-	linux-arch@vger.kernel.org
-Cc: Palmer Dabbelt <palmer@rivosinc.com>
-Subject: [PATCH v3 06/24] microblaze: Remove COMMAND_LINE_SIZE from uapi
-Date: Tue, 14 Feb 2023 08:49:07 +0100
-Message-Id: <20230214074925.228106-7-alexghiti@rivosinc.com>
-X-Mailer: git-send-email 2.37.2
-In-Reply-To: <20230214074925.228106-1-alexghiti@rivosinc.com>
-References: <20230214074925.228106-1-alexghiti@rivosinc.com>
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=qelBQClw7mXq80SVJvQ3JIsOiducFvvsAUEKszfdTWI=;
+        b=4U5d6YNGHT+BCEB6D9vsHm3CoTs90wIxQacPzdeJIMT+SBp9x5be4+e1+yNLdGS2QS
+         iSuKu17wmNhlaTxmuZkWavItnT0N8bpZUU7lcfupYbfEevZvElDGiwgt7aNGN/DUgjFd
+         023q26rhu8phe2DAeVuiTA+MCvRK0iMAW7MQxpzi15FEil/LxXX95wmhv4/Cm7A7tPSv
+         LI0D5MqXz3mlsiSqjx2CZOEFSEZsRR+ZIijXUtrrZ7gQlh6TWOjbT7Vd/A99xCksqTcE
+         eVwnnr7Ezjkg94PDdAlqJgA7raPvWu2gmS+hAPK5oJotF3O/JTGUYC2DjhvdViI/Ic5v
+         yPUQ==
+X-Gm-Message-State: AO0yUKWFstCH6atMqkqzfd/uCpG6yZGgoEh2QPmsDWEYhe/OFhdCKAuU
+	Zg4m2NQ/0CRA5nLyQX2wgynL2OIWErs6JkjdcS9X
+X-Google-Smtp-Source: AK7set83Sbzb8jCkDb4xrCrdqGGfaYuMy9wt+/YQodEHLIM55YAQJY9anSobjjDFMQ5cSu0tBC593mHUT8KAO6pp7Bk=
+X-Received: by 2002:a17:90a:3b08:b0:230:88c4:a922 with SMTP id
+ d8-20020a17090a3b0800b0023088c4a922mr193163pjc.103.1676361369599; Mon, 13 Feb
+ 2023 23:56:09 -0800 (PST)
 MIME-Version: 1.0
+References: <20230210142711.1177212-1-rkanwal@rivosinc.com>
+In-Reply-To: <20230210142711.1177212-1-rkanwal@rivosinc.com>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Mon, 13 Feb 2023 23:55:58 -0800
+Message-ID: <CAOnJCU+i63tk8kthtqWB09av7GQJcCrgYipqMJv+XPeLtOF90g@mail.gmail.com>
+Subject: Re: [PATCH v2 1/1] riscv/kvm: Fix VM hang in case of timer delta
+ being zero.
+To: Rajnesh Kanwal <rkanwal@rivosinc.com>
+Cc: anup@brainfault.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230213_235609_869264_5F2EE08B 
-X-CRM114-Status: GOOD (  11.66  )
+X-CRM114-CacheID: sfid-20230213_235613_010870_6AE414F2 
+X-CRM114-Status: GOOD (  18.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,46 +84,65 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Palmer Dabbelt <palmer@rivosinc.com>
+On Fri, Feb 10, 2023 at 6:27 AM Rajnesh Kanwal <rkanwal@rivosinc.com> wrote:
+>
+> In case when VCPU is blocked due to WFI, we schedule the timer
+> from `kvm_riscv_vcpu_timer_blocking()` to keep timer interrupt
+> ticking.
+>
+> But in case when delta_ns comes to be zero, we never schedule
+> the timer and VCPU keeps sleeping indefinitely until any activity
+> is done with VM console.
+>
+> This is easily reproduce-able using kvmtool.
+> ./lkvm-static run -c1 --console virtio -p "earlycon root=/dev/vda" \
+>          -k ./Image -d rootfs.ext4
+>
+> Also, just add a print in kvm_riscv_vcpu_vstimer_expired() to
+> check the interrupt delivery and run `top` or similar auto-upating
+> cmd from guest. Within sometime one can notice that print from
+> timer expiry routine stops and the `top` cmd output will stop
+> updating.
+>
+> This change fixes this by making sure we schedule the timer even
+> with delta_ns being zero to bring the VCPU out of sleep immediately.
+>
+> Fixes: 8f5cb44b1bae ("RISC-V: KVM: Support sstc extension")
+> Signed-off-by: Rajnesh Kanwal <rkanwal@rivosinc.com>
+> ---
+> v2: Added Fixes tag in commit message.
+>
+> v1: https://lore.kernel.org/all/20230210135136.1115213-1-rkanwal@rivosinc.com/
+>
+>  arch/riscv/kvm/vcpu_timer.c | 6 ++----
+>  1 file changed, 2 insertions(+), 4 deletions(-)
+>
+> diff --git a/arch/riscv/kvm/vcpu_timer.c b/arch/riscv/kvm/vcpu_timer.c
+> index ad34519c8a13..3ac2ff6a65da 100644
+> --- a/arch/riscv/kvm/vcpu_timer.c
+> +++ b/arch/riscv/kvm/vcpu_timer.c
+> @@ -147,10 +147,8 @@ static void kvm_riscv_vcpu_timer_blocking(struct kvm_vcpu *vcpu)
+>                 return;
+>
+>         delta_ns = kvm_riscv_delta_cycles2ns(t->next_cycles, gt, t);
+> -       if (delta_ns) {
+> -               hrtimer_start(&t->hrt, ktime_set(0, delta_ns), HRTIMER_MODE_REL);
+> -               t->next_set = true;
+> -       }
+> +       hrtimer_start(&t->hrt, ktime_set(0, delta_ns), HRTIMER_MODE_REL);
+> +       t->next_set = true;
+>  }
+>
+>  static void kvm_riscv_vcpu_timer_unblocking(struct kvm_vcpu *vcpu)
+> --
+> 2.25.1
+>
 
-As far as I can tell this is not used by userspace and thus should not
-be part of the user-visible API.
 
-Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
----
- arch/microblaze/include/asm/setup.h      | 2 +-
- arch/microblaze/include/uapi/asm/setup.h | 2 --
- 2 files changed, 1 insertion(+), 3 deletions(-)
-
-diff --git a/arch/microblaze/include/asm/setup.h b/arch/microblaze/include/asm/setup.h
-index a06cc1f97aa9..2becbf3b8baf 100644
---- a/arch/microblaze/include/asm/setup.h
-+++ b/arch/microblaze/include/asm/setup.h
-@@ -7,7 +7,7 @@
- #ifndef _ASM_MICROBLAZE_SETUP_H
- #define _ASM_MICROBLAZE_SETUP_H
- 
--#include <uapi/asm/setup.h>
-+#define COMMAND_LINE_SIZE	256
- 
- # ifndef __ASSEMBLY__
- extern char cmd_line[COMMAND_LINE_SIZE];
-diff --git a/arch/microblaze/include/uapi/asm/setup.h b/arch/microblaze/include/uapi/asm/setup.h
-index 6831794e6f2c..51aed65880e7 100644
---- a/arch/microblaze/include/uapi/asm/setup.h
-+++ b/arch/microblaze/include/uapi/asm/setup.h
-@@ -12,8 +12,6 @@
- #ifndef _UAPI_ASM_MICROBLAZE_SETUP_H
- #define _UAPI_ASM_MICROBLAZE_SETUP_H
- 
--#define COMMAND_LINE_SIZE	256
--
- # ifndef __ASSEMBLY__
- 
- # endif /* __ASSEMBLY__ */
+Reviewed-by: Atish Patra <atishp@rivosinc.com>
 -- 
-2.37.2
-
+Regards,
+Atish
 
 _______________________________________________
 linux-riscv mailing list
