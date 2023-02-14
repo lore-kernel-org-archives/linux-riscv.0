@@ -4,109 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73667C61DA4
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Feb 2023 09:45:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE292C61DA4
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Feb 2023 09:54:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aeljaSytfyKk7vgx/kl0zmztjlyThKpxQdYh7wMYyrs=; b=d1TyiReN4my0P4
-	xOzbLgv5XZt8YRY0QKm6jkT+6WN20VimhxgJcgbBCoGDpJOyduDgf5/UohaaJ9QvLMW8VUFfXEFBk
-	JuZZoPtvjCEokff9s6dgBXAD+V/IrKyvNODKBHLPFPiitRj9dTHXLMWNcA+rYzThb27Q7iC5/uqUl
-	6AlIfbT/jOoEYSFjPMBvqmDgt/5S7sPuffgdxhusSAuI8ggNkcNEUnVp+ZInxBgapaOZj8jpTnFwS
-	jJGbl565ZOkLniNsbjq59G4QPgU+TasevTIVKnqxkujvOhLtzaFsS5aIOZqduNHiIjmRhWwc70AeG
-	grYcHC21qSn9j7ZrxlEA==;
+	List-Owner; bh=814IEXLopmWOjwFn0lSpgPiSYBS8I7PuYXARkCOMUbs=; b=QkWqJWgZpvM+H3
+	z5uowF99ju/jUIB36DsmZYAmMX6MfSq5NKZJtwbgyXXrZJTZvOw0Y6b47NhfdBNhPr6cvki4sqYcq
+	fowggwUj+9c9D8oJBZ9DB0u8Txy7wB1XJdmfXIJia06wlk2K3D/FtpErwMKdvTF44bqBdfg3AM14y
+	iu1r8MSTM6bsSZalUm/gmGN2qntRp6K9R9w8orTqwxuygpRvZbVl1MhZig+XZMVIrchn+nWJIs4my
+	eo70e3OgsZR7Xpp8hKngFEmrTidHwhNQ+Kx69Is7F/x/KZi30H0l//TZoB1Lrmw+Byc+3/PquwloD
+	1gWaQ8Cjn91zuXXVhK7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRrsc-000mcI-1S; Tue, 14 Feb 2023 09:45:42 +0000
-Received: from mout.gmx.net ([212.227.17.22])
+	id 1pRs0u-000pBv-R2; Tue, 14 Feb 2023 09:54:16 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRrsZ-000maI-8R; Tue, 14 Feb 2023 09:45:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.de; s=s31663417;
-	t=1676367870; bh=ERFp+UKx/iNbj6Y6kJUSMmT/xdPleSppwgENqVxf/VM=;
-	h=X-UI-Sender-Class:Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=Za6u4dReX/HTRyphBPafGiLsxCJ+KKmFXzBp1N3wK/BdK0FrKi1Znyq7KSHyqIyd/
-	 kgfg1K7p6XNdoVzNndtK42V0pk1FbtgyitZSCQWfWujqXuBYwphv2YLUpu/j4syKSL
-	 9RAZMIGf3dW2anwxyU5UMo1EVcbifIrk3T62A2sIhCPMYdsaAzhIY5t2nwHlg40Zt7
-	 HtazUlk5mlSfLPOR/KKhdC1Dq5qLUvlQDvzaYGy2cDXLDVpukIxIWr8q4OHqWuB3tT
-	 6cx52IlEbcB5iPGAwJpjsjaFv5wT4dz6E7YwfLhROeby+gu9v1sPXxrdEBwhQ+jslK
-	 7mKSZA/LRAQdg==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [192.168.20.60] ([92.116.155.167]) by mail.gmx.net (mrgmx104
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1Mr9Bu-1ooy3k2CyE-00oHk0; Tue, 14
- Feb 2023 10:44:30 +0100
-Message-ID: <32c2584a-8777-26b9-ae29-80df9dfa7833@gmx.de>
-Date: Tue, 14 Feb 2023 10:44:14 +0100
+	id 1pRs0q-000pAb-Tg
+	for linux-riscv@lists.infradead.org; Tue, 14 Feb 2023 09:54:15 +0000
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id DC3083F138
+	for <linux-riscv@lists.infradead.org>; Tue, 14 Feb 2023 09:53:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1676368439;
+	bh=JE/306lAIMQuM4AipngiHVIJwz47UBkV+PO3Q0pMIF8=;
+	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=YmgCoHQZG+A61GRK1u+T2GEhjKRQyAEy4eFcxeQSDvcPBgectNvGdbymus08pYAiW
+	 c3NACCGemyl7d9PqeNFg6yrnayxALRerQiiKNBiQQ1HuduvWlAb97mf4Q5GlQBoAFA
+	 +jP+ksXsp2zHmDTwHIHuVmpnO0AtBy2mdlbHVeeNTU6Et+aJPQLXOLleoY5Ob0EjVx
+	 x8NOW0jQwDsfVoySTdllrMJWmcEJz0p9QeeJ/NXWWk78QqQdY4grh9MCjJolyUi5mJ
+	 CFvSjM+Hj0BuHOqBSNXnZhaPmXSzr2UaYoPzmNEEsV638p1i5fd4gG8IS18JIU8fCk
+	 aZB1zu7dHuwWA==
+Received: by mail-qk1-f198.google.com with SMTP id 130-20020a370588000000b0072fcbe20069so9190303qkf.22
+        for <linux-riscv@lists.infradead.org>; Tue, 14 Feb 2023 01:53:59 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=JE/306lAIMQuM4AipngiHVIJwz47UBkV+PO3Q0pMIF8=;
+        b=z/DXL4+wPaYr+eBIeqk9ZAY60Ngv4YBj36p0qgT84Pkgb3es+PK+tGa9qPHGbDW0r+
+         sUbFBBW7f0MflUzwrUNIGaHDveIg0O2fkedidF4yU5lj6I8fUWGVJJzPqF46AKcpS79D
+         f2tP61GzFvHrR5YVqwcJAzn4u11pMr63hx2Wn/ArhOMzrZyUu86GDjngJfur3fNT9R5c
+         JboP1dCKOon6dYmFQnJCzlbX9xz2jIcebRaa9bwnb3d6ZJVynKOQSLykPb00n1pd+uEw
+         dR7Ispp3hu9DzD4HjwgNH6oQX0gHmwDTgRAyofsnnxs4CX3OQG5vzDvJ2K867fZ/WI//
+         c5Mg==
+X-Gm-Message-State: AO0yUKUIL07P4vDEY5lyKKt0FbMMO3UinkIEkG5bJuMO+1lZumaurwlG
+	MLGaT5wjzplrNp6NbzuQO3qwt+wDOC7WE1uzOpWhpBSQxTcvQYWXTeYSd1dY+5TmNLEov887eP9
+	I95xsJG75SwMotCEyBPifWLd0SWthrMJ+fMHXJb8voyZFZG/rKi09b+30eOS41w==
+X-Received: by 2002:a37:be82:0:b0:706:865e:b9a with SMTP id o124-20020a37be82000000b00706865e0b9amr55179qkf.118.1676368438345;
+        Tue, 14 Feb 2023 01:53:58 -0800 (PST)
+X-Google-Smtp-Source: AK7set+P1tLvVDMoWJksLgtZmywCs4zIgltb1yweBhnu/pJ0jYCGp6Zovo2ROkR5fEIrexl5hhzt+EmJIcp1JbGGxLw=
+X-Received: by 2002:a37:be82:0:b0:706:865e:b9a with SMTP id
+ o124-20020a37be82000000b00706865e0b9amr55163qkf.118.1676368438074; Tue, 14
+ Feb 2023 01:53:58 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.7.1
-Subject: Re: [PATCH v3 19/24] parisc: Remove empty <uapi/asm/setup.h>
-Content-Language: en-US
-To: =?UTF-8?Q?Philippe_Mathieu-Daud=c3=a9?= <philmd@linaro.org>,
- Alexandre Ghiti <alexghiti@rivosinc.com>, Jonathan Corbet <corbet@lwn.net>,
- Richard Henderson <richard.henderson@linaro.org>,
- Ivan Kokshaysky <ink@jurassic.park.msu.ru>, Matt Turner
- <mattst88@gmail.com>, Vineet Gupta <vgupta@kernel.org>,
- Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
- Geert Uytterhoeven <geert@linux-m68k.org>, Michal Simek <monstr@monstr.eu>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- "James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>,
- Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>,
- "David S . Miller" <davem@davemloft.net>,
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- x86@kernel.org, "H . Peter Anvin" <hpa@zytor.com>,
- Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>,
- Arnd Bergmann <arnd@arndb.de>, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
- linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-ia64@vger.kernel.org, loongarch@lists.linux.dev,
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-xtensa@linux-xtensa.org, linux-arch@vger.kernel.org
-Cc: Palmer Dabbelt <palmer@rivosinc.com>
-References: <20230214074925.228106-1-alexghiti@rivosinc.com>
- <20230214074925.228106-20-alexghiti@rivosinc.com>
- <6f9c7a6b-4f6b-dead-2d9b-14b405f18397@linaro.org>
-From: Helge Deller <deller@gmx.de>
-In-Reply-To: <6f9c7a6b-4f6b-dead-2d9b-14b405f18397@linaro.org>
-X-Provags-ID: V03:K1:6i9MLH1uyN4UjvbKa9qFgGzxyogAl9vzFG+CnYpeJmhfg1aCjEo
- fgPVjxDy4iWSOp0fQduaCkCLS49XMnxFV3Cebj1wXgxrmR7Mk+7ALLo+bEOtaCQ7LtdzxdY
- sCyP+X8u7wZGNhDO2HoSYGEmEl3/72yEi0kFbG3gxrNGYWo22p1QITkOnVbWjeRtGq3QAhO
- 81HzmD9N+fT9Dd0qQJFHw==
-UI-OutboundReport: notjunk:1;M01:P0:/sXWrTs+GHs=;mOBmE8xN1RO7T/4g1DSsoRwJcwg
- 9UZR9rEyA6LxshPy2Pz3oePTMgiIj4+AJ5S/kMjQzK+6c4x3H5hr27yLtzKfDT5PmjzMBJ+Of
- 3zfIEJQlV54kh1Ta/E2FfIdf+80zKMSI52rgvhwMkMmCjI3cvExJnD5nlbysiqstKtT+wFzv2
- Z260NQ1Y6j9s9OOAoLni9UrAct6Rzpr/LUuWUMgXKKuXfF7kU52/jKJgDV1uBFAO6e5+U9ium
- VU7bbslf79RWKAUFAz+cqTgWfg2fuGDImyE9L+3DmCjQMG4Je3gjyU6QTxHzjARx67lC7Pl/p
- bedRk356yNR+IaCi4+oVkCwy2AY9dZJ/arcneDsIauL5AATahoUIulBRN7BP8SDlfJek6s/Jl
- DdbP1C/VuGwfRMSoxHG8JGSkxMV5vKemlpgKIjZBdDtJFI77SS55OS105zLh5z4ZUEQAw5+iD
- gVWGMHv/5YX1gJCtlIOQqpAHCfa/KUliQGzWaNumDuHSbS1WfcGa+yV5bTGOpiX0VvFOGSRQB
- U8RMxnOZrwFy8bBzFJhabD91opgpUnM1Drax9wp+qCBQVYPpwhhcgl6on9cy9pH9R+aFk3mO1
- nccDm7RKozeMO0SgmShqcIoAo/MMXzhU+k4jUwmlvTNKux7KYJMrIZ3ji9OPa5aewlpMHOTna
- SozD4wCdOT6JL2dhqNqhu36n4+0Z9IWZgWgaFVcSdY0J6JSMrCZl1PwuiDm7p3APkGs2WM/5J
- r7eIJOkBYD6bzCYdI23czK+lvIluKLxeFS4fLTCAb1WjYXxNnV13KwV1j8Yk4Fb+FVUt28ZT4
- 0LWoGNHs7csGcm5b93meJrBGDiIruUcZg9DNckv8YppQk7vzTqpr/lTUzz0R/0FKX3/+tbfQa
- Xa6y4Nti/opEugZMRO7Vpm0AV2+BhhBkSR95zi7OPWYYGnYk/coI5tYGHEiard+vIs75wAtJz
- L71IAbhumB1qAsU4XQRHfRtAGXM=
+References: <20221220011247.35560-1-hal.feng@starfivetech.com> <20221220011247.35560-8-hal.feng@starfivetech.com>
+In-Reply-To: <20221220011247.35560-8-hal.feng@starfivetech.com>
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Date: Tue, 14 Feb 2023 10:53:41 +0100
+Message-ID: <CAJM55Z9Y_fF+4Dtu++C_jVS0+ohXp5U0GyuJCBpUh-SpTMGrVA@mail.gmail.com>
+Subject: Re: [PATCH v3 7/7] riscv: dts: starfive: Add StarFive JH7110
+ VisionFive 2 board device tree
+To: Hal Feng <hal.feng@starfivetech.com>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+	Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Ben Dooks <ben.dooks@sifive.com>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
+	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Stephen Boyd <sboyd@kernel.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Linus Walleij <linus.walleij@linaro.org>, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230214_014539_603111_A9FAAF5E 
-X-CRM114-Status: UNSURE (   9.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230214_015413_413417_D611CA8E 
+X-CRM114-Status: GOOD (  20.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,19 +96,224 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMi8xNC8yMyAxMDowOCwgUGhpbGlwcGUgTWF0aGlldS1EYXVkw6kgd3JvdGU6Cj4gT24gMTQv
-Mi8yMyAwODo0OSwgQWxleGFuZHJlIEdoaXRpIHdyb3RlOgo+PiBGcm9tOiBQYWxtZXIgRGFiYmVs
-dCA8cGFsbWVyQHJpdm9zaW5jLmNvbT4KPj4KPj4gU2lnbmVkLW9mZi1ieTogUGFsbWVyIERhYmJl
-bHQgPHBhbG1lckByaXZvc2luYy5jb20+Cj4+IC0tLQo+PiDCoCBhcmNoL3BhcmlzYy9pbmNsdWRl
-L3VhcGkvYXNtL3NldHVwLmggfCA1IC0tLS0tCj4+IMKgIDEgZmlsZSBjaGFuZ2VkLCA1IGRlbGV0
-aW9ucygtKQo+PiDCoCBkZWxldGUgbW9kZSAxMDA2NDQgYXJjaC9wYXJpc2MvaW5jbHVkZS91YXBp
-L2FzbS9zZXR1cC5oCj4KPiBSZXZpZXdlZC1ieTogUGhpbGlwcGUgTWF0aGlldS1EYXVkw6kgPHBo
-aWxtZEBsaW5hcm8ub3JnPgoKQWNrZWQtYnk6IEhlbGdlIERlbGxlciA8ZGVsbGVyQGdteC5kZT4K
-CgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
-cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
-L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Tue, 20 Dec 2022 at 02:12, Hal Feng <hal.feng@starfivetech.com> wrote:
+>
+> From: Emil Renner Berthing <kernel@esmil.dk>
+>
+> Add a minimal device tree for StarFive JH7110 VisionFive 2 board
+> which has version A and version B. Support booting and basic
+> clock/reset/pinctrl/uart drivers.
+>
+> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+> Co-developed-by: Jianlong Huang <jianlong.huang@starfivetech.com>
+> Signed-off-by: Jianlong Huang <jianlong.huang@starfivetech.com>
+> Co-developed-by: Hal Feng <hal.feng@starfivetech.com>
+> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+> ---
+>  arch/riscv/boot/dts/starfive/Makefile         |   1 +
+>  .../jh7110-starfive-visionfive-2-va.dts       |  13 ++
+>  .../jh7110-starfive-visionfive-2-vb.dts       |  13 ++
+>  .../jh7110-starfive-visionfive-2.dtsi         | 111 ++++++++++++++++++
+>  4 files changed, 138 insertions(+)
+>  create mode 100644 arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-va.dts
+>  create mode 100644 arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-vb.dts
+>  create mode 100644 arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+>
+> diff --git a/arch/riscv/boot/dts/starfive/Makefile b/arch/riscv/boot/dts/starfive/Makefile
+> index 0ea1bc15ab30..79e925a4a227 100644
+> --- a/arch/riscv/boot/dts/starfive/Makefile
+> +++ b/arch/riscv/boot/dts/starfive/Makefile
+> @@ -1,2 +1,3 @@
+>  # SPDX-License-Identifier: GPL-2.0
+>  dtb-$(CONFIG_SOC_STARFIVE) += jh7100-beaglev-starlight.dtb
+> +dtb-$(CONFIG_SOC_STARFIVE) += jh7110-starfive-visionfive-2-va.dtb jh7110-starfive-visionfive-2-vb.dtb
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-va.dts b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-va.dts
+> new file mode 100644
+> index 000000000000..188d3fddbe88
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-va.dts
+> @@ -0,0 +1,13 @@
+> +// SPDX-License-Identifier: GPL-2.0 OR MIT
+> +/*
+> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
+> + * Copyright (C) 2022 Emil Renner Berthing <kernel@esmil.dk>
+> + */
+> +
+> +/dts-v1/;
+> +#include "jh7110-starfive-visionfive-2.dtsi"
+> +
+> +/ {
+> +       model = "StarFive VisionFive 2 VA";
+> +       compatible = "starfive,visionfive-2-va", "starfive,jh7110";
+> +};
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-vb.dts b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-vb.dts
+> new file mode 100644
+> index 000000000000..f75c10536f84
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-vb.dts
+> @@ -0,0 +1,13 @@
+> +// SPDX-License-Identifier: GPL-2.0 OR MIT
+> +/*
+> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
+> + * Copyright (C) 2022 Emil Renner Berthing <kernel@esmil.dk>
+> + */
+> +
+> +/dts-v1/;
+> +#include "jh7110-starfive-visionfive-2.dtsi"
+> +
+> +/ {
+> +       model = "StarFive VisionFive 2 VB";
+> +       compatible = "starfive,visionfive-2-vb", "starfive,jh7110";
+
+Hi Hal,
+
+I just want to double check, is "VisionFive 2 VA" / "visoinfive-2-va"
+and "VisionFive 2 VB" / "visionfive-2-vb" really what you want? I
+still think having these names match what is printed on the silkscreen
+makes it a lot easier for everybody. Even your own releases calls the
+boards "v1.2A" and "v1.3B":
+https://github.com/starfive-tech/VisionFive2/releases/
+
+So I'd suggest
+model = "StarFive VisionFive 2 v1.3B";
+compatible = "starfive,visionfive-2-v1.3b", "starfive,jh7110";
+
+I haven't seen these "VA" and "VB" anywhere else, so if you don't want
+the version numbers and can promise that there will be no incompatible
+future revisions of the boards then maybe just drop the "V". Eg.
+model = "StarFive VisionFive 2 B";
+compatible = "starfive,visionfive-2-b", "starfive,jh7110";
+
+/Emil
+
+> +};
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+> new file mode 100644
+> index 000000000000..c60280b89c73
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+> @@ -0,0 +1,111 @@
+> +// SPDX-License-Identifier: GPL-2.0 OR MIT
+> +/*
+> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
+> + * Copyright (C) 2022 Emil Renner Berthing <kernel@esmil.dk>
+> + */
+> +
+> +/dts-v1/;
+> +#include "jh7110.dtsi"
+> +#include "jh7110-pinfunc.h"
+> +#include <dt-bindings/gpio/gpio.h>
+> +
+> +/ {
+> +       aliases {
+> +               serial0 = &uart0;
+> +       };
+> +
+> +       chosen {
+> +               stdout-path = "serial0:115200n8";
+> +       };
+> +
+> +       cpus {
+> +               timebase-frequency = <4000000>;
+> +       };
+> +
+> +       memory@40000000 {
+> +               device_type = "memory";
+> +               reg = <0x0 0x40000000 0x1 0x0>;
+> +       };
+> +
+> +       gpio-restart {
+> +               compatible = "gpio-restart";
+> +               gpios = <&gpio 35 GPIO_ACTIVE_HIGH>;
+> +               priority = <224>;
+> +       };
+> +};
+> +
+> +&osc {
+> +       clock-frequency = <24000000>;
+> +};
+> +
+> +&rtc_osc {
+> +       clock-frequency = <32768>;
+> +};
+> +
+> +&gmac0_rmii_refin {
+> +       clock-frequency = <50000000>;
+> +};
+> +
+> +&gmac0_rgmii_rxin {
+> +       clock-frequency = <125000000>;
+> +};
+> +
+> +&gmac1_rmii_refin {
+> +       clock-frequency = <50000000>;
+> +};
+> +
+> +&gmac1_rgmii_rxin {
+> +       clock-frequency = <125000000>;
+> +};
+> +
+> +&i2stx_bclk_ext {
+> +       clock-frequency = <12288000>;
+> +};
+> +
+> +&i2stx_lrck_ext {
+> +       clock-frequency = <192000>;
+> +};
+> +
+> +&i2srx_bclk_ext {
+> +       clock-frequency = <12288000>;
+> +};
+> +
+> +&i2srx_lrck_ext {
+> +       clock-frequency = <192000>;
+> +};
+> +
+> +&tdm_ext {
+> +       clock-frequency = <49152000>;
+> +};
+> +
+> +&mclk_ext {
+> +       clock-frequency = <12288000>;
+> +};
+> +
+> +&uart0 {
+> +       pinctrl-names = "default";
+> +       pinctrl-0 = <&uart0_pins>;
+> +       status = "okay";
+> +};
+> +
+> +&gpio {
+> +       uart0_pins: uart0-0 {
+> +               tx-pins {
+> +                       pinmux = <GPIOMUX(5, GPOUT_SYS_UART0_TX, GPOEN_ENABLE, GPI_NONE)>;
+> +                       bias-disable;
+> +                       drive-strength = <12>;
+> +                       input-disable;
+> +                       input-schmitt-disable;
+> +                       slew-rate = <0>;
+> +               };
+> +
+> +               rx-pins {
+> +                       pinmux = <GPIOMUX(6, GPOUT_LOW, GPOEN_DISABLE, GPI_SYS_UART0_RX)>;
+> +                       bias-disable; /* external pull-up */
+> +                       drive-strength = <2>;
+> +                       input-enable;
+> +                       input-schmitt-enable;
+> +                       slew-rate = <0>;
+> +               };
+> +       };
+> +};
+> --
+> 2.38.1
+>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
