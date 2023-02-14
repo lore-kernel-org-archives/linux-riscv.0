@@ -4,52 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87A2EC05027
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Feb 2023 09:56:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 134FDC61DA4
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Feb 2023 10:40:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kt6TEUloXFPi2TLd7iscXPe+sY85+e4EJCKRxD4oiB0=; b=ogZZSDaXGrFZEo
-	Uvpw3AMRt3QTRpW+z4aL0BXnIYyPFs8GX/N61ha92+nlHlIW+yWsX1h4gio/0UlJ5nY2DuZMgJBQf
-	zMLpGJIpo9Exz2d3Nhtr4j4puklYsSYHX1swgZaQ1XRWKUSrKf2F4CmiEz0u0n/IM4XO5+v+4NrKA
-	+dNtvCDQBR78q705EPKU5Rz4Ua2QH16T5m4/3PzVUGqkI6gkV9e6UrT3N4Onr9dywexzmb7NDxjml
-	9YNOON8gop92t92lN+D7pQHNON6DWK/m2JpeJ4s0K8Rh8BAWU+Szpp4Yhg5R4ARwil5JH4193Bb7m
-	NM4gBKcVZqUxjZ4oH7ig==;
+	List-Owner; bh=JcR2nhuXoSOeAffE6zWOmxhpqDkHYwHBDon4n+SYBcs=; b=1VdS25trGrUKio
+	jms6IRPiegz2X9oAVlaKkxoix2iRRNAB7vjBoAMUQ2dURgBwFPp0GMxysL6TtOe22ZNaiE0J7TE4d
+	VWSxVMRChbPugB627v1kwRNmev9JGls+Qt48FlEyUJNE5+36Z+h6Ct8qm5X/G5DvMZIzyiziDm820
+	ctSqYLRtHmVocczF29sCwhIGeReNlSJTvMqieCgGBzCNu46AXKsSMcD/T3XWYfx4y6Y2jKeU7oqvx
+	KvXKOmve/7dKsZwqFRGyqDrLo664TEyJELmjCjy/EaN83cAH/kO9eD9BUAGdpX9VBvIxG1HLnoczo
+	/orXyrYPQ9KaTqVQbLZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRs2h-000pdh-DD; Tue, 14 Feb 2023 09:56:07 +0000
-Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
+	id 1pRsj9-0013nn-5n; Tue, 14 Feb 2023 10:39:59 +0000
+Received: from outpost1.zedat.fu-berlin.de ([130.133.4.66])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRs2W-000pYF-5b; Tue, 14 Feb 2023 09:55:57 +0000
-Received: (Authenticated sender: alex@ghiti.fr)
-	by mail.gandi.net (Postfix) with ESMTPSA id AB0771BF20A;
-	Tue, 14 Feb 2023 09:55:43 +0000 (UTC)
-Message-ID: <0bf59207-838b-2a0b-a95e-925a6bbf1913@ghiti.fr>
-Date: Tue, 14 Feb 2023 10:55:43 +0100
+	id 1pRsj4-0013lA-SO; Tue, 14 Feb 2023 10:39:56 +0000
+Received: from inpost2.zedat.fu-berlin.de ([130.133.4.69])
+          by outpost.zedat.fu-berlin.de (Exim 4.95)
+          with esmtps (TLS1.3)
+          tls TLS_AES_256_GCM_SHA384
+          (envelope-from <glaubitz@zedat.fu-berlin.de>)
+          id 1pRshz-000K86-Qj; Tue, 14 Feb 2023 11:38:47 +0100
+Received: from p5b13aa49.dip0.t-ipconnect.de ([91.19.170.73] helo=[192.168.178.81])
+          by inpost2.zedat.fu-berlin.de (Exim 4.95)
+          with esmtpsa (TLS1.3)
+          tls TLS_AES_256_GCM_SHA384
+          (envelope-from <glaubitz@physik.fu-berlin.de>)
+          id 1pRshz-003Z8i-EF; Tue, 14 Feb 2023 11:38:47 +0100
+Message-ID: <6a420bb0e033562bc7f67cc8f218f994e0892d3b.camel@physik.fu-berlin.de>
+Subject: Re: [PATCH v3 10/24] sparc: Remove COMMAND_LINE_SIZE from uapi
+From: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
+To: WANG Xuerui <kernel@xen0n.name>, Sergey Shtylyov <s.shtylyov@omp.ru>, 
+ Alexandre Ghiti <alexghiti@rivosinc.com>, Jonathan Corbet <corbet@lwn.net>,
+ Richard Henderson <richard.henderson@linaro.org>, Ivan Kokshaysky
+ <ink@jurassic.park.msu.ru>,  Matt Turner <mattst88@gmail.com>, Vineet Gupta
+ <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>,  Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Huacai Chen
+ <chenhuacai@kernel.org>,  Geert Uytterhoeven <geert@linux-m68k.org>, Michal
+ Simek <monstr@monstr.eu>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ "James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>, Helge
+ Deller <deller@gmx.de>,  Michael Ellerman <mpe@ellerman.id.au>, Nicholas
+ Piggin <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Paul Walmsley <paul.walmsley@sifive.com>,  Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Heiko Carstens
+ <hca@linux.ibm.com>,  Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev
+ <agordeev@linux.ibm.com>, Christian Borntraeger
+ <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, Yoshinori
+ Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, "David S
+ . Miller" <davem@davemloft.net>, Thomas Gleixner <tglx@linutronix.de>, Ingo
+ Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
+ <dave.hansen@linux.intel.com>, x86@kernel.org, "H . Peter Anvin"
+ <hpa@zytor.com>,  Chris Zankel <chris@zankel.net>, Max Filippov
+ <jcmvbkbc@gmail.com>, Arnd Bergmann <arnd@arndb.de>, 
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org, 
+ loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org, 
+ linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org, 
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
+ linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+ sparclinux@vger.kernel.org,  linux-xtensa@linux-xtensa.org,
+ linux-arch@vger.kernel.org
+Cc: Palmer Dabbelt <palmer@rivosinc.com>
+Date: Tue, 14 Feb 2023 11:38:45 +0100
+In-Reply-To: <f3db61bb-5c89-2724-769f-9d606f587f92@xen0n.name>
+References: <20230214074925.228106-1-alexghiti@rivosinc.com>
+	 <20230214074925.228106-11-alexghiti@rivosinc.com>
+	 <017f0b40-8021-8b3b-24d2-c70661b6b292@omp.ru>
+	 <f3db61bb-5c89-2724-769f-9d606f587f92@xen0n.name>
+User-Agent: Evolution 3.46.4 
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.7.1
-Subject: Re: API for setting multiple PTEs at once
-Content-Language: en-US
-To: Matthew Wilcox <willy@infradead.org>, linux-arch@vger.kernel.org
-Cc: Yin Fengwei <fengwei.yin@intel.com>, linux-mm@kvack.org,
- linux-alpha@vger.kernel.org, linux-csky@vger.kernel.org,
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
- Dinh Nguyen <dinguyen@kernel.org>, linux-parisc@vger.kernel.org,
- linux-sh@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- loongarch@lists.linux.dev, openrisc@lists.librecores.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- sparclinux@vger.kernel.org, linux-xtensa@linux-xtensa.org
-References: <Y9wnr8SGfGGbi/bk@casper.infradead.org>
- <Y+K0O35jNNzxiXE6@casper.infradead.org>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <Y+K0O35jNNzxiXE6@casper.infradead.org>
+X-Original-Sender: glaubitz@physik.fu-berlin.de
+X-Originating-IP: 91.19.170.73
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230214_015556_372694_F2A854D8 
-X-CRM114-Status: GOOD (  16.17  )
+X-CRM114-CacheID: sfid-20230214_023955_072722_C9322EF3 
+X-CRM114-Status: GOOD (  16.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,51 +95,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgTWF0dGhldywKCk9uIDIvNy8yMyAyMToyNywgTWF0dGhldyBXaWxjb3ggd3JvdGU6Cj4gT24g
-VGh1LCBGZWIgMDIsIDIwMjMgYXQgMDk6MTQ6MjNQTSArMDAwMCwgTWF0dGhldyBXaWxjb3ggd3Jv
-dGU6Cj4+IEZvciB0aG9zZSBvZiB5b3Ugbm90IHN1YnNjcmliZWQsIGxpbnV4LW1tIGlzIGN1cnJl
-bnRseSBkaXNjdXNzaW5nCj4+IGhvdyBiZXN0IHRvIGhhbmRsZSBwYWdlIGZhdWx0cyBvbiBsYXJn
-ZSBmb2xpb3MuICBJIHNpbXBseSBtYWRlIGl0IHdvcmsKPj4gd2hlbiBhZGRpbmcgbGFyZ2UgZm9s
-aW8gc3VwcG9ydC4gIE5vdyBZaW4gRmVuZ3dlaSBpcyB3b3JraW5nIG9uCj4+IG1ha2luZyBpdCBm
-YXN0Lgo+IE9LLCBoZXJlJ3MgYW4gYWN0dWFsIGltcGxlbWVudGF0aW9uOgo+Cj4gaHR0cHM6Ly9s
-b3JlLmtlcm5lbC5vcmcvbGludXgtbW0vMjAyMzAyMDcxOTQ5MzcuMTIyNTQzLTMtd2lsbHlAaW5m
-cmFkZWFkLm9yZy8KPgo+IEl0IHN1cnZpdmVzIGEgcnVuIG9mIHhmc3Rlc3RzLiAgSWYgeW91ciBh
-cmNoaXRlY3R1cmUgZG9lc24ndCBzdG9yZSBpdHMKPiBQRk5zIGF0IFBBR0VfU0hJRlQsIHlvdSdy
-ZSBnb2luZyB0byB3YW50IHRvIGltcGxlbWVudCB5b3VyIG93biBzZXRfcHRlcygpLAo+IG9yIHlv
-dSdsbCBzZWUgZW50aXJlbHkgdGhlIHdyb25nIHBhZ2VzIG1hcHBlZCBpbnRvIHVzZXJzcGFjZS4g
-IFlvdSBtYXkKPiBhbHNvIHdpc2ggdG8gaW1wbGVtZW50IHNldF9wdGVzKCkgaWYgaXQgY2FuIGJl
-IGRvbmUgbW9yZSBlZmZpY2llbnRseQo+IHRoYW4gX19wdGUocHRldmFsKHB0ZSkgKyBQQUdFX1NJ
-WkUpLgo+Cj4gQXJjaGl0ZWN0dXJlcyB0aGF0IGltcGxlbWVudCB0aGluZ3MgbGlrZSBmbHVzaF9p
-Y2FjaGVfcGFnZSgpIGFuZAo+IHVwZGF0ZV9tbXVfY2FjaGUoKSBtYXkgd2FudCB0byBwcm9wb3Nl
-IGJhdGNoZWQgdmVyc2lvbnMgb2YgdGhvc2UuCj4gVGhhdCdzIGFscGhhLCBjc2t5LCBtNjhrLCBt
-aXBzLCBuaW9zMiwgcGFyaXNjLCBzaCwKPiBhcm0sIGxvb25nYXJjaCwgb3BlbnJpc2MsIHBvd2Vy
-cGMsIHJpc2N2LCBzcGFyYyBhbmQgeHRlbnNhLgo+IE1haW50YWluZXJzIEJDQydkLCBtYWlsaW5n
-IGxpc3RzIENDJ2QuCj4KPiBJJ20gaGFwcHkgdG8gY29sbGVjdCBpbXBsZW1lbnRhdGlvbnMgYW5k
-IHN1Ym1pdCB0aGVtIGFzIHBhcnQgb2YgYSB2Ni4KCgpQbGVhc2UgZmluZCBiZWxvdyB0aGUgcmlz
-Y3YgaW1wbGVtZW50YXRpb24gZm9yIHNldF9wdGVzOgoKZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yv
-aW5jbHVkZS9hc20vcGd0YWJsZS5oIApiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcGd0YWJsZS5o
-CmluZGV4IGViZWU1NmQ0NzAwMy4uMTBiZjgxMjc3NmE0IDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2
-L2luY2x1ZGUvYXNtL3BndGFibGUuaAorKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BndGFi
-bGUuaApAQCAtNDYzLDYgKzQ2MywyMCBAQCBzdGF0aWMgaW5saW5lIHZvaWQgc2V0X3B0ZV9hdChz
-dHJ1Y3QgbW1fc3RydWN0ICptbSwKIMKgwqDCoMKgwqDCoMKgIF9fc2V0X3B0ZV9hdChtbSwgYWRk
-ciwgcHRlcCwgcHRldmFsKTsKIMKgfQoKKyNkZWZpbmUgc2V0X3B0ZXMgc2V0X3B0ZXMKK3N0YXRp
-YyBpbmxpbmUgdm9pZCBzZXRfcHRlcyhzdHJ1Y3QgbW1fc3RydWN0ICptbSwgdW5zaWduZWQgbG9u
-ZyBhZGRyLAorwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoCBwdGVfdCAqcHRlcCwgcHRlX3QgcHRlLCB1bnNpZ25lZCBpbnQgbnIpCit7CivCoMKgwqDC
-oMKgwqAgZm9yICg7OykgeworwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBzZXRfcHRlX2F0
-KG1tLCBhZGRyLCBwdGVwLCBwdGUpOworwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBpZiAo
-LS1uciA9PSAwKQorwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAg
-YnJlYWs7CivCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHB0ZXArKzsKK8KgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqAgYWRkciArPSBQQUdFX1NJWkU7CivCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgIHB0ZSA9IF9fcHRlKHB0ZV92YWwocHRlKSArICgxIDw8IF9QQUdFX1BGTl9TSElG
-VCkpOworwqDCoMKgwqDCoMKgIH0KK30KKwogwqBzdGF0aWMgaW5saW5lIHZvaWQgcHRlX2NsZWFy
-KHN0cnVjdCBtbV9zdHJ1Y3QgKm1tLAogwqDCoMKgwqDCoMKgwqAgdW5zaWduZWQgbG9uZyBhZGRy
-LCBwdGVfdCAqcHRlcCkKIMKgewoKClRoYW5rcywKCkFsZXgKCgpfX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
-dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
-YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Tue, 2023-02-14 at 16:59 +0800, WANG Xuerui wrote:
+> On 2023/2/14 16:50, Sergey Shtylyov wrote:
+> > On 2/14/23 10:49 AM, Alexandre Ghiti wrote:
+> > 
+> > > From: Palmer Dabbelt <palmer@rivosinc.com>
+> > > 
+> > > As far as I can tell this is not used by userspace and thus should not
+> > > be part of the user-visible API.
+> > > 
+> > > Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+> > > ---
+> > >   arch/sparc/include/asm/setup.h      | 6 +++++-
+> > >   arch/sparc/include/uapi/asm/setup.h | 7 -------
+> > >   2 files changed, 5 insertions(+), 8 deletions(-)
+> > > 
+> > > diff --git a/arch/sparc/include/asm/setup.h b/arch/sparc/include/asm/setup.h
+> > > index 72205684e51e..d1384ed92547 100644
+> > > --- a/arch/sparc/include/asm/setup.h
+> > > +++ b/arch/sparc/include/asm/setup.h
+> > > @@ -7,7 +7,11 @@
+> > >   
+> > >   #include <linux/interrupt.h>
+> > >   
+> > > -#include <uapi/asm/setup.h>
+> > > +#if defined(__sparc__) && defined(__arch64__)
+> > 
+> >     Mhm, I don't think these two can be #define'd simulaneously...
+> 
+> I believe it's just a SPARC-ism [1] [2] that may look strange and be 
+> easily confused for __aarch64__ (notice the extra 'a')...
+
+Yep, that's correct. On 64-bit Linux/SPARC, gcc/clang define __sparc__ AND __arch64__.
+
+Adrian
+
+-- 
+ .''`.  John Paul Adrian Glaubitz
+: :' :  Debian Developer
+`. `'   Physicist
+  `-    GPG: 62FF 8A75 84E0 2956 9546  0006 7426 3B37 F5B5 F913
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
