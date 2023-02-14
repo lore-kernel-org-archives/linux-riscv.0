@@ -4,86 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 134FDC61DA4
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Feb 2023 10:40:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01ABCC61DA4
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Feb 2023 11:42:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JcR2nhuXoSOeAffE6zWOmxhpqDkHYwHBDon4n+SYBcs=; b=1VdS25trGrUKio
-	jms6IRPiegz2X9oAVlaKkxoix2iRRNAB7vjBoAMUQ2dURgBwFPp0GMxysL6TtOe22ZNaiE0J7TE4d
-	VWSxVMRChbPugB627v1kwRNmev9JGls+Qt48FlEyUJNE5+36Z+h6Ct8qm5X/G5DvMZIzyiziDm820
-	ctSqYLRtHmVocczF29sCwhIGeReNlSJTvMqieCgGBzCNu46AXKsSMcD/T3XWYfx4y6Y2jKeU7oqvx
-	KvXKOmve/7dKsZwqFRGyqDrLo664TEyJELmjCjy/EaN83cAH/kO9eD9BUAGdpX9VBvIxG1HLnoczo
-	/orXyrYPQ9KaTqVQbLZw==;
+	List-Owner; bh=rWRGf8VCoqY6izdkdM0DZ2GnCGn6c5SGwelw2ufPpiY=; b=Jd6WKpwfl3JFkA
+	dXFbKt/Ufo9iaZ2Or8xm4axigh8Bv0Qc9Lsv3otFKcPpmFLJX6/JAwSkCP3Nmm3tMUqe+x6JHCPl6
+	pGkD4Co2b8bp7NtabUO/mzLd0RQ2yUTJlwIJ7lFold7j/bujwWuuYKrupZ4B37n9YGVOL5n2xkJ6p
+	zI1vzNBwYqlFyG7CGg/OUiRklMRIhOJUVjUpzRhLYL1KkvpZiu4lOID8I4kh3HFTiZUnpdER+ZweX
+	PuOaqDysPX+NHDE+ZQroWemHF4tYryUfI8ICBvKbY1AqgX7Bnfty+JxK1ylqCdqVVdGzGwkFLw8pb
+	Qgoo6f+oPgzan7GkXmlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRsj9-0013nn-5n; Tue, 14 Feb 2023 10:39:59 +0000
-Received: from outpost1.zedat.fu-berlin.de ([130.133.4.66])
+	id 1pRthQ-001Rtb-RC; Tue, 14 Feb 2023 11:42:16 +0000
+Received: from smtp-out2.suse.de ([2001:67c:2178:6::1d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRsj4-0013lA-SO; Tue, 14 Feb 2023 10:39:56 +0000
-Received: from inpost2.zedat.fu-berlin.de ([130.133.4.69])
-          by outpost.zedat.fu-berlin.de (Exim 4.95)
-          with esmtps (TLS1.3)
-          tls TLS_AES_256_GCM_SHA384
-          (envelope-from <glaubitz@zedat.fu-berlin.de>)
-          id 1pRshz-000K86-Qj; Tue, 14 Feb 2023 11:38:47 +0100
-Received: from p5b13aa49.dip0.t-ipconnect.de ([91.19.170.73] helo=[192.168.178.81])
-          by inpost2.zedat.fu-berlin.de (Exim 4.95)
-          with esmtpsa (TLS1.3)
-          tls TLS_AES_256_GCM_SHA384
-          (envelope-from <glaubitz@physik.fu-berlin.de>)
-          id 1pRshz-003Z8i-EF; Tue, 14 Feb 2023 11:38:47 +0100
-Message-ID: <6a420bb0e033562bc7f67cc8f218f994e0892d3b.camel@physik.fu-berlin.de>
-Subject: Re: [PATCH v3 10/24] sparc: Remove COMMAND_LINE_SIZE from uapi
-From: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
-To: WANG Xuerui <kernel@xen0n.name>, Sergey Shtylyov <s.shtylyov@omp.ru>, 
- Alexandre Ghiti <alexghiti@rivosinc.com>, Jonathan Corbet <corbet@lwn.net>,
- Richard Henderson <richard.henderson@linaro.org>, Ivan Kokshaysky
- <ink@jurassic.park.msu.ru>,  Matt Turner <mattst88@gmail.com>, Vineet Gupta
- <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>,  Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Huacai Chen
- <chenhuacai@kernel.org>,  Geert Uytterhoeven <geert@linux-m68k.org>, Michal
- Simek <monstr@monstr.eu>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- "James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>, Helge
- Deller <deller@gmx.de>,  Michael Ellerman <mpe@ellerman.id.au>, Nicholas
- Piggin <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>,
- Paul Walmsley <paul.walmsley@sifive.com>,  Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Heiko Carstens
- <hca@linux.ibm.com>,  Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev
- <agordeev@linux.ibm.com>, Christian Borntraeger
- <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, Yoshinori
- Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, "David S
- . Miller" <davem@davemloft.net>, Thomas Gleixner <tglx@linutronix.de>, Ingo
- Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
- <dave.hansen@linux.intel.com>, x86@kernel.org, "H . Peter Anvin"
- <hpa@zytor.com>,  Chris Zankel <chris@zankel.net>, Max Filippov
- <jcmvbkbc@gmail.com>, Arnd Bergmann <arnd@arndb.de>, 
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org, 
- loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org, 
- linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org, 
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
- linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
- sparclinux@vger.kernel.org,  linux-xtensa@linux-xtensa.org,
- linux-arch@vger.kernel.org
-Cc: Palmer Dabbelt <palmer@rivosinc.com>
-Date: Tue, 14 Feb 2023 11:38:45 +0100
-In-Reply-To: <f3db61bb-5c89-2724-769f-9d606f587f92@xen0n.name>
-References: <20230214074925.228106-1-alexghiti@rivosinc.com>
-	 <20230214074925.228106-11-alexghiti@rivosinc.com>
-	 <017f0b40-8021-8b3b-24d2-c70661b6b292@omp.ru>
-	 <f3db61bb-5c89-2724-769f-9d606f587f92@xen0n.name>
-User-Agent: Evolution 3.46.4 
+	id 1pRthM-001Rrd-Ur
+	for linux-riscv@lists.infradead.org; Tue, 14 Feb 2023 11:42:14 +0000
+Received: from relay2.suse.de (relay2.suse.de [149.44.160.134])
+	by smtp-out2.suse.de (Postfix) with ESMTP id D06EF1F383;
+	Tue, 14 Feb 2023 11:42:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
+	t=1676374924; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=fUeGf6y5tf2KsuLMak22k+k24KUuAb9SQgUxv43Mdwc=;
+	b=hTgKoLtMn1WEz7RJ32zme/BnvJ+Ux68vY4Si9TGBg6PaogO8Fpn2fZyEDg3eIUcGIRSaPm
+	HwAj6fQXxtCDh9fm0X2kcnmUTD8iMEqXfDDPYsthQoeIygeY5vXGBwiXLdPDgGlIHnEhUY
+	9UEAcL9pPsSVL4Z7MyCDoXVBL85ZZpg=
+Received: from suse.cz (pmladek.udp.ovpn2.prg.suse.de [10.100.201.202])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by relay2.suse.de (Postfix) with ESMTPS id 673672C141;
+	Tue, 14 Feb 2023 11:42:04 +0000 (UTC)
+Date: Tue, 14 Feb 2023 12:42:00 +0100
+From: Petr Mladek <pmladek@suse.com>
+To: Rajnesh Kanwal <rkanwal@rivosinc.com>
+Cc: jirislaby@kernel.org, senozhatsky@chromium.org, rostedt@goodmis.org,
+	john.ogness@linutronix.de, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 1/1] kernel: Match preferred console first.
+Message-ID: <Y+tziG0Uo5ey+Ocy@alley>
+References: <20230213113912.1237943-1-rkanwal@rivosinc.com>
 MIME-Version: 1.0
-X-Original-Sender: glaubitz@physik.fu-berlin.de
-X-Originating-IP: 91.19.170.73
+Content-Disposition: inline
+In-Reply-To: <20230213113912.1237943-1-rkanwal@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230214_023955_072722_C9322EF3 
-X-CRM114-Status: GOOD (  16.77  )
+X-CRM114-CacheID: sfid-20230214_034213_204829_6BD32A2A 
+X-CRM114-Status: GOOD (  27.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,46 +72,98 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2023-02-14 at 16:59 +0800, WANG Xuerui wrote:
-> On 2023/2/14 16:50, Sergey Shtylyov wrote:
-> > On 2/14/23 10:49 AM, Alexandre Ghiti wrote:
-> > 
-> > > From: Palmer Dabbelt <palmer@rivosinc.com>
-> > > 
-> > > As far as I can tell this is not used by userspace and thus should not
-> > > be part of the user-visible API.
-> > > 
-> > > Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-> > > ---
-> > >   arch/sparc/include/asm/setup.h      | 6 +++++-
-> > >   arch/sparc/include/uapi/asm/setup.h | 7 -------
-> > >   2 files changed, 5 insertions(+), 8 deletions(-)
-> > > 
-> > > diff --git a/arch/sparc/include/asm/setup.h b/arch/sparc/include/asm/setup.h
-> > > index 72205684e51e..d1384ed92547 100644
-> > > --- a/arch/sparc/include/asm/setup.h
-> > > +++ b/arch/sparc/include/asm/setup.h
-> > > @@ -7,7 +7,11 @@
-> > >   
-> > >   #include <linux/interrupt.h>
-> > >   
-> > > -#include <uapi/asm/setup.h>
-> > > +#if defined(__sparc__) && defined(__arch64__)
-> > 
-> >     Mhm, I don't think these two can be #define'd simulaneously...
+On Mon 2023-02-13 11:39:12, Rajnesh Kanwal wrote:
+> For cases where the driver registers the console with the index set to -1
+> the `try_enable_preferred_console()` doesn't work as expected for multiple
+> hvc consoles.
 > 
-> I believe it's just a SPARC-ism [1] [2] that may look strange and be 
-> easily confused for __aarch64__ (notice the extra 'a')...
+> For example with `CONFIG_HVC_RISCV_SBI` and `CONFIG_VIRTIO_CONSOLE` enabled
+> and cmdline set to "console=hvc0 console=hvc1" where hvc0 being RISCV_SBI
+> and hvc1 being VIRTIO_CONSOLE (the preferred one as per the preferred
+> selection logic in `__add_preferred_console`). hvc1 never gets enabled as hvc0
+> matches first with the driver name "hvc" and index set to -1.
+> 
+> Here is the hvc console structure from hvc_console.c L217.
+> static struct console hvc_console = {
+>         .name           = "hvc",
+>         .write          = hvc_console_print,
+>         .device         = hvc_console_device,
+>         .setup          = hvc_console_setup,
+>         .flags          = CON_PRINTBUFFER,
+>         .index          = -1,
+> };
+> 
+> The expected flow is that hvc1 should take precedence but given hvc console has
+> the index set to -1, the current logic will try to assign the first console that
+> matches, which is hvc0 and return. Never touching other possible consoles.
+> 
+> This change makes sure the preferred console is checked first and then iterate
+> the remaining list.
+> 
+> Signed-off-by: Rajnesh Kanwal <rkanwal@rivosinc.com>
 
-Yep, that's correct. On 64-bit Linux/SPARC, gcc/clang define __sparc__ AND __arch64__.
+Unfortunately, we could not do this. We have already been there, see
+the commit dac8bbbae1d0ccba96402 ("Revert "printk: fix double printing
+with earlycon") for more details.
 
-Adrian
+It is sad. The patch would make perfect sense. But we could not take
+it because people would report regressions.
 
--- 
- .''`.  John Paul Adrian Glaubitz
-: :' :  Debian Developer
-`. `'   Physicist
-  `-    GPG: 62FF 8A75 84E0 2956 9546  0006 7426 3B37 F5B5 F913
+I am afraid that we could only better document the existing behavior.
+
+Proposed patch:
+
+--- a/Documentation/admin-guide/serial-console.rst
++++ b/Documentation/admin-guide/serial-console.rst
+@@ -33,8 +33,11 @@ The format of this option is::
+ 			9600n8. The maximum baudrate is 115200.
+ 
+ You can specify multiple console= options on the kernel command line.
+-Output will appear on all of them. The last device will be used when
+-you open ``/dev/console``. So, for example::
++
++The behavior is well defined when each device type is mentioned
++only once. In this case, the output will appear on all requested
++consoles. And the last device will be used when you open
++``/dev/console``. So, for example::
+ 
+ 	console=ttyS1,9600 console=tty0
+ 
+@@ -42,7 +45,29 @@ defines that opening ``/dev/console`` will get you the current foreground
+ virtual console, and kernel messages will appear on both the VGA
+ console and the 2nd serial port (ttyS1 or COM2) at 9600 baud.
+ 
+-Note that you can only define one console per device type (serial, video).
++The behavior is more complicated when a device type is defined more
++times. In this case, there are the following two rules:
++
++1. The output will appear only on the first device of each defined type.
++
++2. ``/dev/console`` will be associated with the first registered device
++   when the last defined device is ignored because of the 1st rule.
++
++The result might be surprising. For example, the following two command
++lines have the same result:
++
++	console=ttyS1,9600 console=tty0 console=tty1
++	console=tty0 console=ttyS1,9600 console=tty1
++
++The kernel messages are printed only on ``tty0`` and ``ttyS1``. And
++``/dev/console`` gets associated with ``tty0``. It is because kernel
++tries to register graphical consoles before serial ones. It does it
++because of the default behavior when no console device is specified,
++see below.
++
++Note that the last ``console=tty1`` parameter still makes a difference.
++The kernel command line is used also by systemd. It would use the last
++defined ``tty1`` as the login console.
+ 
+ If no console device is specified, the first device found capable of
+ acting as a system console will be used. At this time, the system
+
+
+Best Regards,
+Petr
 
 _______________________________________________
 linux-riscv mailing list
