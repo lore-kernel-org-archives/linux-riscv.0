@@ -4,89 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A79FC61DA4
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Feb 2023 09:00:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C53A5C61DA4
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Feb 2023 09:00:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UiTep6NK+6l82GACuWyp4QkYl9b2Ve2RwnoWQoU5TwA=; b=r7kczEa2WkrBuz
-	N136dtwt+2zLpokdHLsikUYs2EHlaNxnF/nn6gcsrhme3xjbXcGZnk1MyMuLpnAP+a1uo/ZGmSrYU
-	yqJgaBiE3OPwKOk/Mtn+c0E62mJBTk2aSvAhwN1fgvK8C8XUZdFqxLlllRbiJwDXG+NONOmKQxqko
-	+F8/JJWQ3n//U1sxQ9o1ODFTnikH8FA/p+gtCJp3mgSN4LU88XwUC2FDr4rzzUU6qnruBHrhH0Dj6
-	Cet/BxlFsJX2WMsNWynnW3Q8Lq8D0CpxtnAFS7MrANgdVUp9kbAMg5rGQGOkVcaOytPddMSPR8WBq
-	SkSsFzB1outF0raehY3Q==;
+	List-Owner; bh=rpjD63HAWxPLzA/qkVym0RC2hqMnlCmSRGG26AUu8qc=; b=TBYMS5P++zN60u
+	Kj1hPbYhudZIFC3X0hnCPRHOwJ5faHs3K91SC19W8fRYssq0mgRAmESRsSy/fZQQ6PjbJYEKzXk1/
+	iIAPBRQzrMUmlFbSu30CgyHSGcHSBix7YgplFl/24UZ2jLTNp9auA63/a104PYOuTjd2xnN71VXqq
+	7D35RykLC1RuzDKJhoVCFWlTPMvVQujF95JQTcOBKp/ZpuPOZGyR+TtBPAN1T2vUHktvT4LF4KQEm
+	tgVJtsKwQZ/mcDaRN47EnaH61Hz/VvoDXdFhvfbj2DU2dDdPOtGOt9lRHDHjelp/FlrJQSztWQbVM
+	SH2a2Na4D36czZAgvVDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRrAZ-000c7n-1E; Tue, 14 Feb 2023 09:00:11 +0000
-Received: from mail.xen0n.name ([115.28.160.31] helo=mailbox.box.xen0n.name)
+	id 1pRrAl-000cBP-2F; Tue, 14 Feb 2023 09:00:23 +0000
+Received: from bg4.exmail.qq.com ([43.155.65.254])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRrAU-000c54-VW; Tue, 14 Feb 2023 09:00:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=xen0n.name; s=mail;
-	t=1676365191; bh=i0XIzR1Y5NYJLkaxQFngDX1j91Olf/QjeHaXDd3DD/c=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=AhilTiebsZniB4h/3TCzhrMAQ0m1fI8D/hKY2T+4ArseJ+m3Ze12b64a7BZ4L0BhC
-	 Cbii2w7OdAf8LC8paKh0dS4uxyxEGslyDxyzPafGMqQIX/0BH2c+SoMYy+3DyDz8fs
-	 BbZrEFqt55X8c4cMx2sqOxvYHoYE3tKQfpxZHtYc=
-Received: from [100.100.57.122] (unknown [58.34.185.106])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mailbox.box.xen0n.name (Postfix) with ESMTPSA id B491D600F8;
-	Tue, 14 Feb 2023 16:59:47 +0800 (CST)
-Message-ID: <f3db61bb-5c89-2724-769f-9d606f587f92@xen0n.name>
-Date: Tue, 14 Feb 2023 16:59:46 +0800
+	id 1pRrAf-000c87-6u
+	for linux-riscv@lists.infradead.org; Tue, 14 Feb 2023 09:00:20 +0000
+X-QQ-Spam: true
+X-QQ-mid: bizesmtp67t1676364152tmd31697
+Received: from localhost.localdomain ( [116.30.131.224])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 14 Feb 2023 16:42:31 +0800 (CST)
+X-QQ-SSF: 01200000000000C0T000000A0000000
+From: Wu Zhangjin <falcon@tinylab.org>
+To: Conor Dooley <conor@kernel.org>
+Cc: Wu Zhangjin <falcon@tinylab.org>,
+	linux-riscv@lists.infradead.org,
+	Palmer Dabbelt <palmer@rivosinc.com>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Paul Burton <paulburton@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Guo Ren <guoren@kernel.org>,
+	Vincent Chen <vincent.chen@sifive.com>,
+	Willy Tarreau <w@1wt.eu>,
+	"Paul E . McKenney" <paulmck@kernel.org>,
+	Nicholas Mc Guire <hofrat@osadl.org>
+Subject: Re: Re: [PATCH] RISC-V: Enable dead code elimination
+Date: Tue, 14 Feb 2023 16:42:29 +0800
+Message-Id: <20230214084229.42623-1-falcon@tinylab.org>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <Y+qSBu3YZH0JPY4I@spud>
+References: <Y+qSBu3YZH0JPY4I@spud>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:102.0)
- Gecko/20100101 Thunderbird/102.7.2
-Subject: Re: [PATCH v3 10/24] sparc: Remove COMMAND_LINE_SIZE from uapi
-To: Sergey Shtylyov <s.shtylyov@omp.ru>,
- Alexandre Ghiti <alexghiti@rivosinc.com>, Jonathan Corbet <corbet@lwn.net>,
- Richard Henderson <richard.henderson@linaro.org>,
- Ivan Kokshaysky <ink@jurassic.park.msu.ru>, Matt Turner
- <mattst88@gmail.com>, Vineet Gupta <vgupta@kernel.org>,
- Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Huacai Chen <chenhuacai@kernel.org>,
- Geert Uytterhoeven <geert@linux-m68k.org>, Michal Simek <monstr@monstr.eu>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- "James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>,
- Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
- Nicholas Piggin <npiggin@gmail.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>,
- Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>,
- "David S . Miller" <davem@davemloft.net>,
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- x86@kernel.org, "H . Peter Anvin" <hpa@zytor.com>,
- Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>,
- Arnd Bergmann <arnd@arndb.de>, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
- linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-ia64@vger.kernel.org, loongarch@lists.linux.dev,
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-xtensa@linux-xtensa.org, linux-arch@vger.kernel.org
-Cc: Palmer Dabbelt <palmer@rivosinc.com>
-References: <20230214074925.228106-1-alexghiti@rivosinc.com>
- <20230214074925.228106-11-alexghiti@rivosinc.com>
- <017f0b40-8021-8b3b-24d2-c70661b6b292@omp.ru>
-Content-Language: en-US
-From: WANG Xuerui <kernel@xen0n.name>
-In-Reply-To: <017f0b40-8021-8b3b-24d2-c70661b6b292@omp.ru>
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:tinylab.org:qybglogicsvr:qybglogicsvr2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230214_010007_508858_5FC76441 
-X-CRM114-Status: GOOD (  13.90  )
+X-CRM114-CacheID: sfid-20230214_010017_570886_687AA26C 
+X-CRM114-Status: GOOD (  23.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,51 +67,166 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2023/2/14 16:50, Sergey Shtylyov wrote:
-> On 2/14/23 10:49 AM, Alexandre Ghiti wrote:
+On 2023-02-13 19:39 UTC, Conor wrote:
+> On Tue, Feb 14, 2023 at 01:39:06AM +0800, Falcon wrote:
+> > Select CONFIG_HAVE_LD_DEAD_CODE_DATA_ELIMINATION for RISC-V, allowing
+> > the user to enable dead code elimination. In order for this to work,
+> > ensure that we keep the alternative table by annotating them with KEEP.
+> >
+> > This boots well on qemu with both rv32_defconfig & rv64 defconfig, but
+> > it only shrinks their builds by ~1%, a smaller config is thereforce
+> > customized to test this feature:
+> >
+> >           | rv32                   | rv64
+> >   --------|------------------------|---------------------
+> >    No DCE | 4460684                | 4893488
+> >       DCE | 3986716                | 4376400
+> >    Shrink |  473968 (~10.6%)       |  517088 (~10.5%)
+> >
+> > The config used above only reserves necessary options to boot on qemu
+> > with serial console, more like the size-critical embedded scenes:
+> >
+> >   - rv64 config: https://pastebin.com/crz82T0s
+> >   - rv32 config: rv64 config + 32-bit.config
+> >
+> > Signed-off-by: Falcon <falcon@tinylab.org>
 > 
->> From: Palmer Dabbelt <palmer@rivosinc.com>
->>
->> As far as I can tell this is not used by userspace and thus should not
->> be part of the user-visible API.
->>
->> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
->> ---
->>   arch/sparc/include/asm/setup.h      | 6 +++++-
->>   arch/sparc/include/uapi/asm/setup.h | 7 -------
->>   2 files changed, 5 insertions(+), 8 deletions(-)
->>
->> diff --git a/arch/sparc/include/asm/setup.h b/arch/sparc/include/asm/setup.h
->> index 72205684e51e..d1384ed92547 100644
->> --- a/arch/sparc/include/asm/setup.h
->> +++ b/arch/sparc/include/asm/setup.h
->> @@ -7,7 +7,11 @@
->>   
->>   #include <linux/interrupt.h>
->>   
->> -#include <uapi/asm/setup.h>
->> +#if defined(__sparc__) && defined(__arch64__)
-> 
->     Mhm, I don't think these two can be #define'd simulaneously...
+> I feel like I "need" to ask - is Falcon your actual name?
+>
 
-I believe it's just a SPARC-ism [1] [2] that may look strange and be 
-easily confused for __aarch64__ (notice the extra 'a')...
+Oh, no ;-) my actual name is 'Wu Zhangjin', will update both Signed-off-by and
+Author lines in v2, and also the configuration in my `~/.gitconfig` later,
+'Falcon' is the nickname used in my own open source projects.
 
-[1]: 
-https://github.com/gcc-mirror/gcc/blob/basepoints/gcc-12/gcc/config/sparc/sparc.h#L301
-[2]: 
-https://github.com/llvm/llvm-project/blob/llvmorg-17-init/clang/lib/Basic/Targets/Sparc.cpp#L241
+FYI, this guy is me, but the email address is not often used now:
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/log/?h=v6.2-rc8&qt=author&q=wuzhangjin%40gmail.com
 
--- 
-WANG "xen0n" Xuerui
+By the way, just introduce why i send such a patch. I worked on gc-sections 10+
+years ago: http://elinux.org/Work_on_Tiny_Linux_Kernel, and the repo is here:
+https://github.com/tinyclub/tinylinux/tree/2.6.35/dev/gc-sections 
 
-Linux/LoongArch mailing list: https://lore.kernel.org/loongarch/
+Several days ago, the article 'Nolibc: a minimal C-library replacement shipped
+with the kernel' from https://lwn.net/Articles/920158/ waked up my memory about
+shrinking the dead system calls automatically, my old gc-sections work have
+tried to let more system calls configurable, but that is manual and not
+flexible.
 
+With the new integrated user-space nolibc, the elimination of dead system calls
+become easier. but we also need the 'gc-sections' support, which has already
+been upstreamed by Nick, this patch tries to add it for risc-v.
+
+Based on `tools/include/nolibc` from Willy, the extremely small applications
+(match the idea of 'Kernel-only deployments' from Paul) used system calls can
+be easily dumped out with the help of objdump. To only reserve the system calls
+used, we also need to enable gc-sections for nolibc to eliminate the unused c
+functions and the system calls they called, see an example here:
+https://gitee.com/tinylab/linux-lab/commit/2027573595aca46fe6ab19ee381c5ef92be62f5f,
+and then, the `arch/riscv/kernel/syscall_table.c` can be simply updated to
+something like this:
+
+    #include <linux/linkage.h>
+    #include <linux/syscalls.h>
+    #include <asm-generic/syscalls.h>
+    #include <asm/syscall.h>
+
+    #undef __SYSCALL
+    #define __SYSCALL(nr, call)     [nr] = (call),
+
+    void * const sys_call_table[__NR_syscalls] = {
+    	[0 ... __NR_syscalls - 1] = sys_ni_syscall,
+
+    #ifdef HAVE_LD_DEAD_SYSCALL_ELIMINATION
+    	#include <asm/unistd_used.h>
+    #else
+    	#include <asm/unistd.h>
+    #endif
+
+    };
+
+The `asm/unistd_used.h` can be generated automatically from a nolibc-objdump
+script or more generically from a `CONFIG_SYSCALLS_USED` configuration (may be
+required by the other libcs). A draft version of such a nolibc-objdump script:
+https://gitee.com/tinylab/linux-lab/commit/057afb26fea336d20864b3889346fbac00924740
+
+For example, such a simple hello.c:
+
+    #ifndef NOLIBC
+    #include <stdio.h>
+    #include <unistd.h>
+    #else
+    #define __NOLIBC__
+    #endif
+    
+    int main(int argc, char *argv[])
+    {
+    	printf("Hello, nolibc!\n");
+    
+    #ifdef __NOLIBC__
+    	reboot(LINUX_REBOOT_CMD_HALT);
+    #endif
+    
+    	return 0;
+    }
+
+It only requires `sys_write`, `sys_reboot` and `sys_exit`, so, the
+`asm/unistd_used.h` looks like this:
+
+    asm/unistd_used.h:
+
+    	[142] = sys_reboot,
+    	[93] = sys_exit,
+    	[64] = sys_write,
+
+Without the explicit using in the above system call table, the unused system
+calls and their callees, if also not called internally in the kernel, they will
+be eliminated by gc-sections automatically, this can be observed by simply
+adding a `--print-gc-sections` after the `--gc-sections` in Makefile:
+
+    Makefile:
+
+    - LDFLAGS_vmlinux += --gc-sections
+    + LDFLAGS_vmlinux += --gc-sections --print-gc-sections
+
+If `CONFIG_COMPAT` enabled, the `arch/riscv/kernel/compat_syscall_table.c` file
+should be updated similarly too.
+
+To share more changes, the old `asm/unistd.h` can be changed to something like
+`asm/unistd_wrapper.h` and the control of `HAVE_LD_DEAD_SYSCALL_ELIMINATION` should
+be moved in.
+
+    arch/riscv/kernel/syscall_table.c:
+
+    - #include <asm/unistd.h>
+    + #include <asm/unistd_wrapper.h>
+
+    arch/riscv/kernel/compat_syscall_table.c:
+
+    - #include <asm/unistd.h>
+    + #include <asm/unistd_wrapper.h>
+
+    asm/unistd_wrapper.h:
+
+    #ifdef HAVE_LD_DEAD_SYSCALL_ELIMINATION
+    	#include <asm/unistd_used.h>
+    #else
+    	#include <asm/unistd.h>
+    #endif
+
+With the above change, the unused system calls will be eliminated automatically
+by gc-sections. tests shows, in rv64, with the above rv64 config, it saves
+another (4376400-4172848)=203552 bytes, by ~4.6%.
+
+Beside the size optimization, dead system call elimination may also help
+security (shrink the path to protect) and safety (shrink the work to estimate).
+
+>
+> Sorry,
+> Conor.
 
 _______________________________________________
 linux-riscv mailing list
