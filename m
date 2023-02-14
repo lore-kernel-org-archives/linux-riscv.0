@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4A2AC05027
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Feb 2023 07:59:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54782C05027
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Feb 2023 08:00:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kcccpf4QvM0+76bE7CxXL3a8ni4CK8KzCG04gHmCPgc=; b=lU7baNbfLHfLj/
-	0GQ/knu1fzAnQmquIhLIOlO2ExCGBxIDr59M8cLwQ+Q0FlFJQfEq7Q2JkBrpMVyJEhLM1yKZO2ym3
-	3VnNXlM+Uubu6JtWiKcyBOxSr5qTqc27naGukTrnoNu80plqcoxtO916ANekFEhSJN+ROZVpk2GHo
-	oAqq0RGpvqHQZj2rZ/gthFpOraQxrZgw+WsjqPFfkogo+Pxb788bO8He9EH+ydHZr6dhoxncSXrd9
-	np5IOWPzm4vVdqCRcgQuo3HwmomspvmqifDrTFIVEHspbGuNR41WmgnINzS8tJNRKSK/lF5KDQzSZ
-	7MomCLhQML0tJhlCoJAg==;
+	List-Owner; bh=OwEWBPPQ2T8BH9YgUq4an9sc/o6DfXMN5jjtreXscOI=; b=0GWajQkEirvYi3
+	FmW9BRO19dsF9+AcVdAJZyZ68ThpXscRnGSUGYv7jGGFxDlBFHm7jA3b269I+Wz+ZxaSiKMZxlPAt
+	Kf9pBT8CdslikcVl1hazVbwvoVVYGoLgRMpOkvLIosxF5Ew6rixBdGAiZqvacpDHXc71zmMpJ+RTq
+	4osy8zYS3ZCFG0qgpfkWlGb5/I37Oh1bvnWMhEIeGbFKLqypnlN/yk3plu6Ej0JFdMl5kuQNDBD6l
+	3aN/U2A0veanLne4qQFtLJB60M1Iczny1EaMPHaiNR/hZl5Ss4Z4vp05cPFHeVEJwdmLUlq05kpSn
+	+bVeMtTsmLGPjJoVFCkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRqDf-000PB3-2Q; Tue, 14 Feb 2023 07:59:19 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1pRqEg-000Pdm-Cu; Tue, 14 Feb 2023 08:00:22 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pRqDb-000P8x-79
-	for linux-riscv@lists.infradead.org; Tue, 14 Feb 2023 07:59:16 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id m14so14675623wrg.13
-        for <linux-riscv@lists.infradead.org>; Mon, 13 Feb 2023 23:59:14 -0800 (PST)
+	id 1pRqEb-000Pa9-BF
+	for linux-riscv@lists.infradead.org; Tue, 14 Feb 2023 08:00:19 +0000
+Received: by mail-wr1-x436.google.com with SMTP id co8so10950076wrb.1
+        for <linux-riscv@lists.infradead.org>; Tue, 14 Feb 2023 00:00:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=sKk4GN0spR9gtNWG0hZUgVWkUK+7Um33RqMXGa01caM=;
-        b=5mP6q9BM0qHn9ItmjYG+RAEsvlPcjV7W6jVv8m3uX6Xy8xX47dHXqzHeQe7TjqTIgD
-         XdTQ4cnNLsqCvrZ2I/lG623c4t+EyMZX0oCCn2FSvdSyqBnxHSzgs0fZG07Sz+fzhW9k
-         wcTpQ/rtBWqG579EawU5Q1Hl1pgPrnrUYqlA9iTGlPxxW88r3XpZcdpG1DpAhZWxL/7Y
-         jg6Podz4ehO6/h/Vuc3goKhWZ8oBqxvn53/Ru/S9ao0uNcA8foQScWbCR0TmDs2+3G5b
-         ayxaQ/GeBeBoCjGRs9sJRYCMA6Mo1hIpNscNciXeJfZuC+bbej7aWHI78NSYxMHnjPmH
-         6tYg==
+        bh=E2QJZPzpdHOLfexOQ+hmmrB7dRtnPULpm3pE6FQ2lH4=;
+        b=C0BKrtLVD9dPrMd/+CblqjI5N9M4hOpsDT1jeSn//bLeSUNyeNRV2ooJMH08nRoIQS
+         ONq/MOqxPFeZlIoEGN8YZASLSSCQrg/eqCEelFWRVVb63y8KZQCVcX9vSbHRqPFNlIC+
+         TeDkuM4gHepb+qbD6N2SfjuNFdvJq7OfgVO1JdSYMLlWn78H0eT8NaQauwrQE90tLJhI
+         b1szqM+4oXeT3F3RMSC8v9UVQoYQ0bd3kq2oH3oFxQhhmDUZnumwnDBU79bcGQ9C57OO
+         fNw5HdPiDMupP3h9vBjMMu4K1PcELsOrXFsLgwmva/L1FqjXaNcw+hnfIvHNys5eSmUu
+         jWQA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=sKk4GN0spR9gtNWG0hZUgVWkUK+7Um33RqMXGa01caM=;
-        b=jT+qAnZip2QuP+UxcdvfucfyzHbXT5shhuv/3KwzGjEYDz6rYlo1rFm4ckAtVp5RxQ
-         UPyg5OSgHL7Gs5VGrqucg7jrqKE5AjZiCEiSyPHCuPW+Z7elMSpoKNgf4dEhjqtJTC9/
-         X3Caxcy1zrOLXz9F6vWqvOFi52KuW9CLSKxDDFjyBlXVRnFfwqHD3SF1WWSD2zBut/9E
-         YGDukD86FuPsyz5KKUZ7RXzeRwUU3JJUF0MNBB9PZM2Zi4Mn2tCPDkdCDLrGx1aZxJCM
-         LZY+1SovVC7m7mE0Mp8JzT7hbSkBRdJWXhfOZIL/UkXXJFyngHJ5eYfu3NbLtwwem/vE
-         bsOA==
-X-Gm-Message-State: AO0yUKV3lWQf8pNu3MDqZXu0BTskbkkGCPYN3ASZdvnZ4/drN6AtlWDM
-	JUvhXT1mNhAH3qm6gwxgO/XFuQ==
-X-Google-Smtp-Source: AK7set8lqeB9mVjVbFOfgyWnY8813vnjKKFmjbTcrsvjzmsHHkFtSxC/mHYd2secDiukidPqMYXitw==
-X-Received: by 2002:adf:fac4:0:b0:2c5:5357:60b8 with SMTP id a4-20020adffac4000000b002c5535760b8mr1023860wrs.48.1676361553556;
-        Mon, 13 Feb 2023 23:59:13 -0800 (PST)
+        bh=E2QJZPzpdHOLfexOQ+hmmrB7dRtnPULpm3pE6FQ2lH4=;
+        b=WfbdCf/D6xZxusKqF3W7gYNLQyNn1wnrARrwzNDK/M6UsJnjU60y5/OnTE0D7oTrys
+         cFuNtE+NyYirRFK1qxz2HSfHx7x8uXgcNuf04faqii8JdX1G07wQK8s9Wa8jvmGWw4qp
+         ekPnJlpyVzAEo8zD8iYSjDqzWGznp2CspUnnIMAgqnmJoR8XAhpBZsqJSxxUOphe5bks
+         kR0BrXZPJN17Ns1bpyoWZxtsqvsHvCpj8et7FaaqCsB2zxr0yJBFdIWG80KTETX3e6SU
+         UJFWN8B2q93KkgK00i7gW7Tn9ZkaYSxM/jmHJY0qRqqC8jBspeSMlmgtI/t7trL8Nzk7
+         mBcg==
+X-Gm-Message-State: AO0yUKWLprYQyGP/ApsfqQt3GRaJZkFSepPCSwJOuHLSb8c7LGkeoCyh
+	sGXG59N8fBDiQgKX9kpsggBn2A==
+X-Google-Smtp-Source: AK7set+XzNXYkHtZqTwMW8TxEbRzyb1kB86Lv95kElQfHkdnpF1SNAaWiJ77PP4F49Qltd39nZaGEA==
+X-Received: by 2002:adf:ea0f:0:b0:2c5:54a7:363c with SMTP id q15-20020adfea0f000000b002c554a7363cmr1349716wrm.23.1676361615303;
+        Tue, 14 Feb 2023 00:00:15 -0800 (PST)
 Received: from alex-rivos.ba.rivosinc.com (lfbn-lyo-1-450-160.w2-7.abo.wanadoo.fr. [2.7.42.160])
-        by smtp.gmail.com with ESMTPSA id g17-20020a056000119100b002c54e26bca5sm7843497wrx.49.2023.02.13.23.59.12
+        by smtp.gmail.com with ESMTPSA id l2-20020a5d6742000000b002c55cdb1de5sm3293178wrw.116.2023.02.14.00.00.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Feb 2023 23:59:13 -0800 (PST)
+        Tue, 14 Feb 2023 00:00:15 -0800 (PST)
 From: Alexandre Ghiti <alexghiti@rivosinc.com>
 To: Jonathan Corbet <corbet@lwn.net>,
 	Richard Henderson <richard.henderson@linaro.org>,
@@ -117,16 +117,16 @@ To: Jonathan Corbet <corbet@lwn.net>,
 	linux-xtensa@linux-xtensa.org,
 	linux-arch@vger.kernel.org
 Cc: Palmer Dabbelt <palmer@rivosinc.com>
-Subject: [PATCH v3 09/24] powerpc: Remove COMMAND_LINE_SIZE from uapi
-Date: Tue, 14 Feb 2023 08:49:10 +0100
-Message-Id: <20230214074925.228106-10-alexghiti@rivosinc.com>
+Subject: [PATCH v3 10/24] sparc: Remove COMMAND_LINE_SIZE from uapi
+Date: Tue, 14 Feb 2023 08:49:11 +0100
+Message-Id: <20230214074925.228106-11-alexghiti@rivosinc.com>
 X-Mailer: git-send-email 2.37.2
 In-Reply-To: <20230214074925.228106-1-alexghiti@rivosinc.com>
 References: <20230214074925.228106-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230213_235915_307144_70E8740A 
-X-CRM114-Status: GOOD (  12.18  )
+X-CRM114-CacheID: sfid-20230214_000017_399139_2D3C3A4A 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,34 +150,43 @@ be part of the user-visible API.
 
 Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
 ---
- arch/powerpc/include/asm/setup.h      | 2 +-
- arch/powerpc/include/uapi/asm/setup.h | 2 --
- 2 files changed, 1 insertion(+), 3 deletions(-)
+ arch/sparc/include/asm/setup.h      | 6 +++++-
+ arch/sparc/include/uapi/asm/setup.h | 7 -------
+ 2 files changed, 5 insertions(+), 8 deletions(-)
 
-diff --git a/arch/powerpc/include/asm/setup.h b/arch/powerpc/include/asm/setup.h
-index e29e83f8a89c..31786d1db2ef 100644
---- a/arch/powerpc/include/asm/setup.h
-+++ b/arch/powerpc/include/asm/setup.h
-@@ -2,7 +2,7 @@
- #ifndef _ASM_POWERPC_SETUP_H
- #define _ASM_POWERPC_SETUP_H
+diff --git a/arch/sparc/include/asm/setup.h b/arch/sparc/include/asm/setup.h
+index 72205684e51e..d1384ed92547 100644
+--- a/arch/sparc/include/asm/setup.h
++++ b/arch/sparc/include/asm/setup.h
+@@ -7,7 +7,11 @@
+ 
+ #include <linux/interrupt.h>
  
 -#include <uapi/asm/setup.h>
-+#define COMMAND_LINE_SIZE	2048
++#if defined(__sparc__) && defined(__arch64__)
++# define COMMAND_LINE_SIZE 2048
++#else
++# define COMMAND_LINE_SIZE 256
++#endif
  
- #ifndef __ASSEMBLY__
- extern void ppc_printk_progress(char *s, unsigned short hex);
-diff --git a/arch/powerpc/include/uapi/asm/setup.h b/arch/powerpc/include/uapi/asm/setup.h
-index c54940b09d06..f2ca747aa45b 100644
---- a/arch/powerpc/include/uapi/asm/setup.h
-+++ b/arch/powerpc/include/uapi/asm/setup.h
-@@ -2,6 +2,4 @@
- #ifndef _UAPI_ASM_POWERPC_SETUP_H
- #define _UAPI_ASM_POWERPC_SETUP_H
+ extern char reboot_command[];
  
--#define COMMAND_LINE_SIZE	2048
+diff --git a/arch/sparc/include/uapi/asm/setup.h b/arch/sparc/include/uapi/asm/setup.h
+index 3c208a4dd464..c3cf1b0d30b3 100644
+--- a/arch/sparc/include/uapi/asm/setup.h
++++ b/arch/sparc/include/uapi/asm/setup.h
+@@ -6,11 +6,4 @@
+ #ifndef _UAPI_SPARC_SETUP_H
+ #define _UAPI_SPARC_SETUP_H
+ 
+-#if defined(__sparc__) && defined(__arch64__)
+-# define COMMAND_LINE_SIZE 2048
+-#else
+-# define COMMAND_LINE_SIZE 256
+-#endif
 -
- #endif /* _UAPI_ASM_POWERPC_SETUP_H */
+-
+ #endif /* _UAPI_SPARC_SETUP_H */
 -- 
 2.37.2
 
