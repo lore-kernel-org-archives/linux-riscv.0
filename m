@@ -4,76 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F003C05027
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Feb 2023 20:41:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26ED2C61DA4
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Feb 2023 21:34:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iTcMWNeXwj8oa1hrjZpFOOT0eueV8XGGdFm+Goh+eaI=; b=k5D/s6g380KvEyUr0VFpEcwcME
-	QLYgI71WkLyrf5i8eIKKkYEfcbnueDH6mOIWL3dIPSHqeeA8EFlp2yczaJPWA+VXHmHP5c0OC0hWc
-	XKC8CP1of7xz1cqqUDxrhhexEkMllL3X2q9BCn7PPrCMc+2IBVCjcgnjIHLUMKS9ZUNhahG/NNDFI
-	BK4RNS5ABwRUEXsOAWnd8xkcBxOjTAx+CpuIge21W8I2ma4JOR9Si6wfTTwTrpQY2U2GuQK/d5X+D
-	LNX/mjKfU5uTzxUh5S0ZVGgu5ykHaPrZfB9pw1xD7Qeth35DCNarvF4usEOGdQhZlSCLRLObPQEuJ
-	pFn32D4A==;
+	bh=8WKCrxaPqLabMCpRDHbIQgVkqEjf/PZQc5ATOHHzX4Q=; b=gMqbfT54RGaso2YlqG1y/La+OK
+	X9Pb/KsYuIxy+er+OnbQdAWLs4Rte0fQlJWTiw7rtBs6c3wF+5WJxvFvJvu650riO5wPJtfjqrdg9
+	I2xXUjhRxtZIK1KQOWGCKdKB4bU5lZb/SdDL1YjedkhIhNly5mvz899FTkb9Cqqy2vImY/JUyQdpo
+	+AhzVaHzDt174/1FtLhT2URbo4uyP+tzKObh6M7lRCz87Kj7Zl3izymwo8qm55wgb6yYmICvHez4Z
+	62rEgtHfqKb6hcqgMfl8Ob5KkLXUqRP1i+9PYt57UH+yDwmHJeh2priNem3mAg0JGzsYm4H3Dp2qw
+	L/7z0G4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pS26h-003PLf-It; Tue, 14 Feb 2023 20:40:55 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1pS2vv-003aGw-JW; Tue, 14 Feb 2023 21:33:51 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pS26X-003PJT-8q; Tue, 14 Feb 2023 20:40:46 +0000
+	id 1pS2oi-003X5A-R9
+	for linux-riscv@lists.infradead.org; Tue, 14 Feb 2023 21:26:29 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 9D61EB81F19;
-	Tue, 14 Feb 2023 20:40:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81A53C433EF;
-	Tue, 14 Feb 2023 20:40:37 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 229C6B81F45;
+	Tue, 14 Feb 2023 21:26:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A0C4C433EF;
+	Tue, 14 Feb 2023 21:26:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1676407242;
-	bh=lrMHbP8q0keqDRMjaD+3mRme+hAn8zfTo/aQ3vWmmtc=;
+	s=k20201202; t=1676409981;
+	bh=clJ0I3LCRmL0vWDC9Hymc1AAmH2ySeO6uZdkjUwkz4Q=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=K/u+uC3yXfTg2vn7K6SjTSKS0TShbZeExViWDXYRuKdIdJt4lWLgsUzFtTB9+oBix
-	 OYnxLELivlgY8ZusvjtadeoIEYDKgolLDGsf88AmCk/pu6B/3sov1k+yqIVp3Wzd+H
-	 7ZeqyGufHpAH2yxyRFGDtxnBBfzUHyqeGQSl/9on8JO1jHFd8sBCzkz3b0vOEmeuDz
-	 rBUYbuc48nEhILbcRULwjH3sOLcDmzxq/Q/QC+3EYgEPBTEjO8WYvl2gUcv3Tx3DMs
-	 YoMc9fb6Rk8PcH10uGGA4vTj4U2dKCTKV5MXgAbGr7SYx+XWlKVZPMM1UjF/NOEStN
-	 J1yvMSBThs9bA==
-Date: Tue, 14 Feb 2023 20:40:35 +0000
+	b=lbGDKwQPY4B0oKJUk6o14xlicXoNxc0n4V2coiARvV23mVAdR6FAc3SapQ2PA3ZAO
+	 QqrMCD4oCk1nBYMNrwgoNxlpyvKN69BvhsliiscJW785pYCQqeqfhmNZiQzyEUfFTm
+	 etZUNRJwpVhtCsRTwvqBt0T0sDMvpzhrcudbw0kkSSx3sBn6ChRaKa7O5pQ1pQ65Jg
+	 FXoGMhIjgwmD5GIZFDG7/igT1vV+2jlUS6GNj6oaomk7mX+G3mfb5O5WpUjXUUxsSG
+	 Y+arJSNIYVeFD/kMOgqFscRb68x/O0u9a3/jy/geQolhB7HZb/XRxAkQViuT2OtICP
+	 +Jfji91IMBDdA==
+Date: Tue, 14 Feb 2023 21:26:16 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+To: Evan Green <evan@rivosinc.com>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>, vineetg@rivosinc.com,
+	heiko@sntech.de, slewis@rivosinc.com,
+	Albert Ou <aou@eecs.berkeley.edu>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Emil Renner Berthing <kernel@esmil.dk>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Sagar Kadam <sagar.kadam@sifive.com>,
-	Yanhong Wang <yanhong.wang@starfivetech.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, kernel@collabora.com
-Subject: Re: [PATCH 01/12] dt-bindings: riscv: sifive-ccache: Add compatible
- for StarFive JH7100 SoC
-Message-ID: <Y+vxw28NWPfaW7ql@spud>
-References: <20230211031821.976408-1-cristian.ciocaltea@collabora.com>
- <20230211031821.976408-2-cristian.ciocaltea@collabora.com>
+	Rob Herring <robh+dt@kernel.org>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 4/6] dt-bindings: Add RISC-V misaligned access
+ performance
+Message-ID: <Y+v8eNlcG+jbB2oy@spud>
+References: <20230206201455.1790329-1-evan@rivosinc.com>
+ <20230206201455.1790329-5-evan@rivosinc.com>
 MIME-Version: 1.0
-In-Reply-To: <20230211031821.976408-2-cristian.ciocaltea@collabora.com>
+In-Reply-To: <20230206201455.1790329-5-evan@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230214_124045_628420_DD6EEF8D 
-X-CRM114-Status: GOOD (  22.42  )
+X-CRM114-CacheID: sfid-20230214_132625_236031_EF7DF907 
+X-CRM114-Status: GOOD (  18.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,141 +74,94 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2863023992696800983=="
+Content-Type: multipart/mixed; boundary="===============8526466462637771855=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============2863023992696800983==
+--===============8526466462637771855==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="c503JmGKmuhITlWZ"
+	protocol="application/pgp-signature"; boundary="LZipd+p+IRBav5Wm"
 Content-Disposition: inline
 
 
---c503JmGKmuhITlWZ
+--LZipd+p+IRBav5Wm
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-Hey all,
-
-On Sat, Feb 11, 2023 at 05:18:10AM +0200, Cristian Ciocaltea wrote:
-> Document the compatible for the SiFive Composable Cache Controller found
-> on the StarFive JH7100 SoC.
+On Mon, Feb 06, 2023 at 12:14:53PM -0800, Evan Green wrote:
+> From: Palmer Dabbelt <palmer@rivosinc.com>
 >=20
-> This also requires extending the 'reg' property to handle distinct
-> ranges, as specified via 'reg-names'.
+> This key allows device trees to specify the performance of misaligned
+> accesses to main memory regions from each CPU in the system.
 >=20
-> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+> Signed-off-by: Evan Green <evan@rivosinc.com>
 > ---
->  .../bindings/riscv/sifive,ccache0.yaml        | 28 ++++++++++++++++++-
->  1 file changed, 27 insertions(+), 1 deletion(-)
 >=20
-> diff --git a/Documentation/devicetree/bindings/riscv/sifive,ccache0.yaml =
-b/Documentation/devicetree/bindings/riscv/sifive,ccache0.yaml
-> index 31d20efaa6d3..2b864b2f12c9 100644
-> --- a/Documentation/devicetree/bindings/riscv/sifive,ccache0.yaml
-> +++ b/Documentation/devicetree/bindings/riscv/sifive,ccache0.yaml
-> @@ -25,6 +25,7 @@ select:
->            - sifive,ccache0
->            - sifive,fu540-c000-ccache
->            - sifive,fu740-c000-ccache
-> +          - starfive,jh7100-ccache
+> (no changes since v1)
+>=20
+>  Documentation/devicetree/bindings/riscv/cpus.yaml | 15 +++++++++++++++
+>  1 file changed, 15 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Document=
+ation/devicetree/bindings/riscv/cpus.yaml
+> index c6720764e765..2c09bd6f2927 100644
+> --- a/Documentation/devicetree/bindings/riscv/cpus.yaml
+> +++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
+> @@ -85,6 +85,21 @@ properties:
+>      $ref: "/schemas/types.yaml#/definitions/string"
+>      pattern: ^rv(?:64|32)imaf?d?q?c?b?v?k?h?(?:_[hsxz](?:[a-z])+)*$
 > =20
->    required:
->      - compatible
-> @@ -37,6 +38,7 @@ properties:
->                - sifive,ccache0
->                - sifive,fu540-c000-ccache
->                - sifive,fu740-c000-ccache
-> +              - starfive,jh7100-ccache
->            - const: cache
->        - items:
->            - const: starfive,jh7110-ccache
-> @@ -70,7 +72,13 @@ properties:
->        - description: DirFail interrupt
-> =20
->    reg:
-> -    maxItems: 1
-> +    minItems: 1
-> +    maxItems: 2
-> +
-> +  reg-names:
-> +    items:
-> +      - const: control
-> +      - const: sideband
+> +  riscv,misaligned-access-performance:
+> +    description:
+> +      Identifies the performance of misaligned memory accesses to main m=
+emory
+> +      regions.  There are three flavors of unaligned access performance:=
+ "emulated"
 
-So why is this called "sideband"?
-In the docs for the JH7100 it is called LIM & it's called LIM in our
-docs for the PolarFire SoC (at the same address btw) and we run the HSS
-out of it! LIM being "loosely integrated memory", which by the limit
-hits on Google may be a SiFive-ism?
+Is the performance: emulated the source of the dt_binding_check issues?
+And the fix is as simple as:
+-    description:
++    description: |
+?
 
-I'm not really sure if adding it as a "reg" section is the right thing
-to do as it's not "just" a register bank.
-Perhaps Rob/Krzysztof have a take on that one?
-
-> =20
->    next-level-cache: true
-> =20
-> @@ -89,6 +97,7 @@ allOf:
->            contains:
->              enum:
->                - sifive,fu740-c000-ccache
-> +              - starfive,jh7100-ccache
->                - starfive,jh7110-ccache
->                - microchip,mpfs-ccache
-> =20
-> @@ -106,12 +115,29 @@ allOf:
->              Must contain entries for DirError, DataError and DataFail si=
-gnals.
->            maxItems: 3
-> =20
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: starfive,jh7100-ccache
+> +      means that misaligned accesses are emulated via software and thus
+> +      extremely slow, "slow" means that misaligned accesses are supporte=
+d by
+> +      hardware but still slower that aligned accesses sequences, and "fa=
+st"
+> +      means that misaligned accesses are as fast or faster than the
+> +      cooresponding aligned accesses sequences.
+> +    $ref: "/schemas/types.yaml#/definitions/string"
+> +    enum:
+> +      - emulated
+> +      - slow
+> +      - fast
 > +
-> +    then:
-> +      properties:
-> +        reg:
-> +          maxItems: 2
-> +
-> +    else:
-> +      properties:
-> +        reg:
-> +          maxItems: 1
-> +
->    - if:
->        properties:
->          compatible:
->            contains:
->              enum:
->                - sifive,fu740-c000-ccache
-> +              - starfive,jh7100-ccache
->                - starfive,jh7110-ccache
+>    # RISC-V requires 'timebase-frequency' in /cpus, so disallow it here
+>    timebase-frequency: false
 > =20
->      then:
 > --=20
-> 2.39.1
+> 2.25.1
 >=20
 
---c503JmGKmuhITlWZ
+--LZipd+p+IRBav5Wm
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY+vxwgAKCRB4tDGHoIJi
-0oxaAQCGMYKDUNPRgSzkFdb5w580ar4q22vbuohV/qlN+nqmZAD9Ec7wuDk6FVks
-xfGCasNhDtktyM9Twv343D+jik817wY=
-=2zVT
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY+v8eAAKCRB4tDGHoIJi
+0pLfAQCliZsffpMCiR56h2wbSY9QS5JYkNkV6WZVn6zmd4HGtQEA28WgtVfwkxTb
+ekWi8UF52cG+B6xOsdzg1pmIBx7IlQI=
+=SICO
 -----END PGP SIGNATURE-----
 
---c503JmGKmuhITlWZ--
+--LZipd+p+IRBav5Wm--
 
 
---===============2863023992696800983==
+--===============8526466462637771855==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -230,5 +172,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============2863023992696800983==--
+--===============8526466462637771855==--
 
