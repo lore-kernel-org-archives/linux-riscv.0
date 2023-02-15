@@ -4,74 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE322C61DA4
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Feb 2023 00:03:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01D39C61DA4
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Feb 2023 00:03:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:From:Mime-Version:Message-ID:In-Reply-To:Subject:
-	Date:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=Kx9YO7FJo4hYGyGH08DffB3CKcfcal93gKcqCL4JP/M=; b=CpHaSFHWeVhIFNJQdx//Uh5gdW
-	mOaeeyIvAMkHBUoPSYqFCSpeTuSYSuDC9puuhJ8EDdqJyygzTSM750txm5LyTJDWpb46iyy3+6fAt
-	nSvPtyGNv3nDEB4FC73jyI5MoBc49jB2iSS7utUhFq0eHOZtYzQN78qHIwD0zk/N/9YLfYbwSjC3z
-	Noge58YHVJSE172nrab/Mh4lY5kNpFRgUpxIzj8ZdcCmdTCKkZBYy+hMrZCj0rKpqdQN6VzTNiv7I
-	pi3BHbys67E0U78tsVGD0m6Od9FWctXNeSnRFuhyMxmNpogo35OypXf/6APNRaFYGbMs+b1CAavMc
-	ZRO9wbRw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=63CEUfwoG1OmB0hbElTj2dzDpkRRCSE+rAycxjAZ56U=; b=0uhW3FTMQqM7HA
+	cagGJfZEH93z5nG9mMHuWSxSBt0JcCv8xEkLoRRbYPQfu/cqmsOZfFROndce6W6kDAq5WI5Idx1Wr
+	dsCxOE7ZnKWUh/Hgr4Elc0lgdANS8kigzYvm5E/PRUS1gshCtKAywMZApDWkq2n291yUW/V9BfeVw
+	6RUckadPrxNcpd+tIE7REJlc0asndqlV5ppy3J0OQg01zVR823f7E3le31EPA30qWoEaE2fLXBFI0
+	acDXH+Nq+d1voilRo3xGYd2soqJZFKc5sEqhLtwZVk3Vw6uoqz9sk55zqiO5dDOcLd0vXMZ634Yqx
+	IvIms/VPwRr/R8+5E8qQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pS5GA-003zZM-VQ; Wed, 15 Feb 2023 00:02:54 +0000
-Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pS5G6-003zXk-G6
-	for linux-riscv@lists.infradead.org; Wed, 15 Feb 2023 00:02:53 +0000
-Received: by mail-pj1-x1033.google.com with SMTP id w20-20020a17090a8a1400b00233d7314c1cso394613pjn.5
-        for <linux-riscv@lists.infradead.org>; Tue, 14 Feb 2023 16:02:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=to:from:content-transfer-encoding:mime-version:message-id
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=WbFovadKcl/JZxK4Bjf6R66tD5TDSZlcwBjyZK7kphs=;
-        b=NWTezG1DVyenY3xUETeqQjvR9TAb/Zov9eU2Yf8vrIoUv2Dzf5aaT9sSbc+xufYdOO
-         u51awyyzyZ32M5/VZkOppCdzJf6ADdzM34T6o8leJ4EbnVJZnJp84MKhe+znBv9UAjvJ
-         vZvpnkBNouM81P09I96pC/IuxbjUtsizIMOIGdJ1rojXyEhOSZxHo9G7w+DD8n7NJ1Pj
-         zT7wleoczdF6bKuYbPVWNzgVzJIhKJhUSJIfQyQ9Ri6eAwgER0nuLS0oLaXcZrtbJQnu
-         Hwxh+laJ8YyGZmFV11oaTs8u/XFyeSEK30zTohWDXl75l7ShwtF70gw3Y6CaZtqIgztv
-         FdjQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=to:from:content-transfer-encoding:mime-version:message-id
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WbFovadKcl/JZxK4Bjf6R66tD5TDSZlcwBjyZK7kphs=;
-        b=42bBKM1F9H23xr1zrqJYQErDDl5z+AwvjEi27CmhhoM47y0AoPPCK2c2jbqOumaKYK
-         PSFbDPGwFZae8dZ3jcjI4565fqYFAVrUMonFLQh1qyetiIsSRoZjQbdjTiWR5Dm1JSLa
-         sr8Y0dUP06uDwFbaHU4wGG77AKTrReFBuExZzh+/KBMtwmRvMDI3uhC6dG6mRnebxtmW
-         RGMb1f3+IZNcW1DHoS6APEC9FQVQQ1DT1ldWoG96DRLIo01EvbYOEyI4kLIKJF27SA2I
-         u8ECqdFkQEyExxObWa8UcxUUFM3z7roX/tlMir3Py9tG8Rduzwp53T1+E0JQsQWhPzHN
-         Htfw==
-X-Gm-Message-State: AO0yUKUIRFjIypmpgGg2l/G7gfNzSqTACx18n5iav+On4X64RpaLX03X
-	NqlFbxd4XTeMxLiAPAWB52IYInYPOqA6ZItH
-X-Google-Smtp-Source: AK7set+6Y853n/N5t+vbHSaAjDqsCQPLVR+jnlBV0n84XFSHISWBfJoXBPP4YXeFIfYFLl/jCCUHoA==
-X-Received: by 2002:a17:902:cf4e:b0:19a:8647:1267 with SMTP id e14-20020a170902cf4e00b0019a86471267mr354415plg.42.1676419369354;
-        Tue, 14 Feb 2023 16:02:49 -0800 (PST)
-Received: from localhost ([135.180.226.51])
-        by smtp.gmail.com with ESMTPSA id b2-20020a170902d30200b0019a733a75a2sm8756686plc.60.2023.02.14.16.02.48
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Feb 2023 16:02:48 -0800 (PST)
-Date: Tue, 14 Feb 2023 16:02:48 -0800 (PST)
-X-Google-Original-Date: Tue, 14 Feb 2023 16:02:33 PST (-0800)
-Subject: Re: [PATCH] RISC-V: Guard alternative asm macros with !LINKER_SCRIPT
-In-Reply-To: <20230214201358.10647-1-palmer@rivosinc.com>
-Message-ID: <mhng-858f0ba6-5ea1-4f41-b0b1-42f33c09dfe2@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: linux-riscv@lists.infradead.org
+	id 1pS5Gz-003zsM-3L; Wed, 15 Feb 2023 00:03:45 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pS5Gu-003zdj-BU
+	for linux-riscv@lists.infradead.org; Wed, 15 Feb 2023 00:03:43 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 670F924E1CF;
+	Wed, 15 Feb 2023 08:02:50 +0800 (CST)
+Received: from EXMBX067.cuchost.com (172.16.6.67) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 15 Feb
+ 2023 08:02:50 +0800
+Received: from [192.168.125.89] (183.27.97.168) by EXMBX067.cuchost.com
+ (172.16.6.67) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 15 Feb
+ 2023 08:02:49 +0800
+Message-ID: <0cecf0a7-a37c-e1ac-2cdc-89baa01725ff@starfivetech.com>
+Date: Wed, 15 Feb 2023 08:02:48 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.6.1
+Subject: Re: [PATCH v3] irqchip/irq-sifive-plic: Add syscore callbacks for
+ hibernation
+To: Dan Carpenter <error27@gmail.com>, <oe-kbuild@lists.linux.dev>, "Thomas
+ Gleixner" <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>
+CC: <lkp@intel.com>, <oe-kbuild-all@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>, "Ley Foon
+ Tan" <leyfoon.tan@starfivetech.com>, Sia Jee Heng
+	<jeeheng.sia@starfivetech.com>
+References: <202302140709.CdkxgtPi-lkp@intel.com>
+Content-Language: en-US
+From: Mason Huo <mason.huo@starfivetech.com>
+In-Reply-To: <202302140709.CdkxgtPi-lkp@intel.com>
+X-Originating-IP: [183.27.97.168]
+X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX067.cuchost.com
+ (172.16.6.67)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230214_160250_776706_F54E20A7 
-X-CRM114-Status: GOOD (  16.19  )
+X-CRM114-CacheID: sfid-20230214_160340_864862_997FE241 
+X-CRM114-Status: GOOD (  14.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,50 +72,200 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 14 Feb 2023 12:13:58 PST (-0800), Palmer Dabbelt wrote:
-> Without this I get a handful of .macro related directives that trip up
-> LD.
->
-> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-> ---
-> I'm not sure when this started failing, but I recently tried a build on
-> my local machine (with crossdev-based toolchains) and it failed.
 
-It's actually just because I had 
-https://lore.kernel.org/all/20221216062109.865573-3-panqinglin2020@iscas.ac.cn/ 
-applied, I'll squash this in if that's OK with folks over there.
 
-> ---
->  arch/riscv/include/asm/alternative-macros.h | 4 ++++
->  1 file changed, 4 insertions(+)
->
-> diff --git a/arch/riscv/include/asm/alternative-macros.h b/arch/riscv/include/asm/alternative-macros.h
-> index cc6a81c00f2f..afc87528cf71 100644
-> --- a/arch/riscv/include/asm/alternative-macros.h
-> +++ b/arch/riscv/include/asm/alternative-macros.h
-> @@ -6,6 +6,8 @@
->
->  #ifdef __ASSEMBLY__
->
-> +#ifndef LINKER_SCRIPT
-> +
->  .macro ALT_ENTRY oldptr newptr vendor_id errata_id new_len
->  	.4byte \oldptr - .
->  	.4byte \newptr - .
-> @@ -53,6 +55,8 @@
->  #define __ALTERNATIVE_CFG(...)		ALTERNATIVE_CFG __VA_ARGS__
->  #define __ALTERNATIVE_CFG_2(...)	ALTERNATIVE_CFG_2 __VA_ARGS__
->
-> +#endif /* LINKER_SCRIPT */
-> +
->  #else /* !__ASSEMBLY__ */
->
->  #include <asm/asm.h>
+On 2023/2/14 15:54, Dan Carpenter wrote:
+> Hi Mason,
+> 
+> https://git-scm.com/docs/git-format-patch#_base_tree_information]
+> 
+> url:    https://github.com/intel-lab-lkp/linux/commits/Mason-Huo/irqchip-irq-sifive-plic-Add-syscore-callbacks-for-hibernation/20230210-180324
+> patch link:    https://lore.kernel.org/r/20230210100122.80255-1-mason.huo%40starfivetech.com
+> patch subject: [PATCH v3] irqchip/irq-sifive-plic: Add syscore callbacks for hibernation
+> config: riscv-randconfig-m031-20230212 (https://download.01.org/0day-ci/archive/20230214/202302140709.CdkxgtPi-lkp@intel.com/config)
+> compiler: riscv32-linux-gcc (GCC) 12.1.0
+> 
+> If you fix the issue, kindly add following tag where applicable
+> | Reported-by: kernel test robot <lkp@intel.com>
+> | Reported-by: Dan Carpenter <error27@gmail.com>
+> | Link: https://lore.kernel.org/r/202302140709.CdkxgtPi-lkp@intel.com/
+> 
+> smatch warnings:
+> drivers/irqchip/irq-sifive-plic.c:521 __plic_init() warn: double check that we're allocating correct size: 4 vs 32
+> 
+> vim +521 drivers/irqchip/irq-sifive-plic.c
+> 
+> dd46337ca69662 Lad Prabhakar     2022-06-30  409  static int __init __plic_init(struct device_node *node,
+> dd46337ca69662 Lad Prabhakar     2022-06-30  410  			      struct device_node *parent,
+> dd46337ca69662 Lad Prabhakar     2022-06-30  411  			      unsigned long plic_quirks)
+> 8237f8bc4f6eb7 Christoph Hellwig 2018-07-26  412  {
+> 6adfe8d2f5b353 Anup Patel        2019-02-12  413  	int error = 0, nr_contexts, nr_handlers = 0, i;
+> 8237f8bc4f6eb7 Christoph Hellwig 2018-07-26  414  	u32 nr_irqs;
+> f1ad1133b18f2a Atish Patra       2020-03-02  415  	struct plic_priv *priv;
+> 2234ae846ccb9e Anup Patel        2020-05-18  416  	struct plic_handler *handler;
+> 2858a4d6b620ef Mason Huo         2023-02-10  417  	unsigned int cpu;
+> 8237f8bc4f6eb7 Christoph Hellwig 2018-07-26  418  
+> f1ad1133b18f2a Atish Patra       2020-03-02  419  	priv = kzalloc(sizeof(*priv), GFP_KERNEL);
+> f1ad1133b18f2a Atish Patra       2020-03-02  420  	if (!priv)
+> f1ad1133b18f2a Atish Patra       2020-03-02  421  		return -ENOMEM;
+> 8237f8bc4f6eb7 Christoph Hellwig 2018-07-26  422  
+> dd46337ca69662 Lad Prabhakar     2022-06-30  423  	priv->plic_quirks = plic_quirks;
+> dd46337ca69662 Lad Prabhakar     2022-06-30  424  
+> f1ad1133b18f2a Atish Patra       2020-03-02  425  	priv->regs = of_iomap(node, 0);
+> f1ad1133b18f2a Atish Patra       2020-03-02  426  	if (WARN_ON(!priv->regs)) {
+> f1ad1133b18f2a Atish Patra       2020-03-02  427  		error = -EIO;
+> f1ad1133b18f2a Atish Patra       2020-03-02  428  		goto out_free_priv;
+> f1ad1133b18f2a Atish Patra       2020-03-02  429  	}
+> 8237f8bc4f6eb7 Christoph Hellwig 2018-07-26  430  
+> 8237f8bc4f6eb7 Christoph Hellwig 2018-07-26  431  	error = -EINVAL;
+> 8237f8bc4f6eb7 Christoph Hellwig 2018-07-26  432  	of_property_read_u32(node, "riscv,ndev", &nr_irqs);
+> 8237f8bc4f6eb7 Christoph Hellwig 2018-07-26  433  	if (WARN_ON(!nr_irqs))
+> 8237f8bc4f6eb7 Christoph Hellwig 2018-07-26  434  		goto out_iounmap;
+> 8237f8bc4f6eb7 Christoph Hellwig 2018-07-26  435  
+> 2858a4d6b620ef Mason Huo         2023-02-10  436  	priv->nr_irqs = nr_irqs;
+> 2858a4d6b620ef Mason Huo         2023-02-10  437  
+> 2858a4d6b620ef Mason Huo         2023-02-10  438  	priv->prio_save = bitmap_alloc(nr_irqs, GFP_KERNEL);
+> 2858a4d6b620ef Mason Huo         2023-02-10  439  	if (!priv->prio_save)
+> 2858a4d6b620ef Mason Huo         2023-02-10  440  		goto out_free_priority_reg;
+> 2858a4d6b620ef Mason Huo         2023-02-10  441  
+> 6adfe8d2f5b353 Anup Patel        2019-02-12  442  	nr_contexts = of_irq_count(node);
+> 6adfe8d2f5b353 Anup Patel        2019-02-12  443  	if (WARN_ON(!nr_contexts))
+> 2858a4d6b620ef Mason Huo         2023-02-10  444  		goto out_free_priority_reg;
+> 8237f8bc4f6eb7 Christoph Hellwig 2018-07-26  445  
+> 8237f8bc4f6eb7 Christoph Hellwig 2018-07-26  446  	error = -ENOMEM;
+> f1ad1133b18f2a Atish Patra       2020-03-02  447  	priv->irqdomain = irq_domain_add_linear(node, nr_irqs + 1,
+> f1ad1133b18f2a Atish Patra       2020-03-02  448  			&plic_irqdomain_ops, priv);
+> f1ad1133b18f2a Atish Patra       2020-03-02  449  	if (WARN_ON(!priv->irqdomain))
+> 2858a4d6b620ef Mason Huo         2023-02-10  450  		goto out_free_priority_reg;
+> 8237f8bc4f6eb7 Christoph Hellwig 2018-07-26  451  
+> 6adfe8d2f5b353 Anup Patel        2019-02-12  452  	for (i = 0; i < nr_contexts; i++) {
+> 8237f8bc4f6eb7 Christoph Hellwig 2018-07-26  453  		struct of_phandle_args parent;
+> 8237f8bc4f6eb7 Christoph Hellwig 2018-07-26  454  		irq_hw_number_t hwirq;
+> ad635e723e1737 Sunil V L         2022-05-27  455  		int cpu;
+> ad635e723e1737 Sunil V L         2022-05-27  456  		unsigned long hartid;
+> 8237f8bc4f6eb7 Christoph Hellwig 2018-07-26  457  
+> 8237f8bc4f6eb7 Christoph Hellwig 2018-07-26  458  		if (of_irq_parse_one(node, i, &parent)) {
+> 8237f8bc4f6eb7 Christoph Hellwig 2018-07-26  459  			pr_err("failed to parse parent for context %d.\n", i);
+> 8237f8bc4f6eb7 Christoph Hellwig 2018-07-26  460  			continue;
+> 8237f8bc4f6eb7 Christoph Hellwig 2018-07-26  461  		}
+> 8237f8bc4f6eb7 Christoph Hellwig 2018-07-26  462  
+> a4c3733d32a72f Christoph Hellwig 2019-10-28  463  		/*
+> a4c3733d32a72f Christoph Hellwig 2019-10-28  464  		 * Skip contexts other than external interrupts for our
+> a4c3733d32a72f Christoph Hellwig 2019-10-28  465  		 * privilege level.
+> a4c3733d32a72f Christoph Hellwig 2019-10-28  466  		 */
+> 098fdbc3531f06 Niklas Cassel     2022-03-02  467  		if (parent.args[0] != RV_IRQ_EXT) {
+> 098fdbc3531f06 Niklas Cassel     2022-03-02  468  			/* Disable S-mode enable bits if running in M-mode. */
+> 098fdbc3531f06 Niklas Cassel     2022-03-02  469  			if (IS_ENABLED(CONFIG_RISCV_M_MODE)) {
+> 098fdbc3531f06 Niklas Cassel     2022-03-02  470  				void __iomem *enable_base = priv->regs +
+> 098fdbc3531f06 Niklas Cassel     2022-03-02  471  					CONTEXT_ENABLE_BASE +
+> 098fdbc3531f06 Niklas Cassel     2022-03-02  472  					i * CONTEXT_ENABLE_SIZE;
+> 098fdbc3531f06 Niklas Cassel     2022-03-02  473  
+> 098fdbc3531f06 Niklas Cassel     2022-03-02  474  				for (hwirq = 1; hwirq <= nr_irqs; hwirq++)
+> 098fdbc3531f06 Niklas Cassel     2022-03-02  475  					__plic_toggle(enable_base, hwirq, 0);
+> 098fdbc3531f06 Niklas Cassel     2022-03-02  476  			}
+> 8237f8bc4f6eb7 Christoph Hellwig 2018-07-26  477  			continue;
+> 098fdbc3531f06 Niklas Cassel     2022-03-02  478  		}
+> 8237f8bc4f6eb7 Christoph Hellwig 2018-07-26  479  
+> ad635e723e1737 Sunil V L         2022-05-27  480  		error = riscv_of_parent_hartid(parent.np, &hartid);
+> ad635e723e1737 Sunil V L         2022-05-27  481  		if (error < 0) {
+> 8237f8bc4f6eb7 Christoph Hellwig 2018-07-26  482  			pr_warn("failed to parse hart ID for context %d.\n", i);
+> 8237f8bc4f6eb7 Christoph Hellwig 2018-07-26  483  			continue;
+> 8237f8bc4f6eb7 Christoph Hellwig 2018-07-26  484  		}
+> 8237f8bc4f6eb7 Christoph Hellwig 2018-07-26  485  
+> f99fb607fb2bc0 Atish Patra       2018-10-02  486  		cpu = riscv_hartid_to_cpuid(hartid);
+> fc03acaeab358c Atish Patra       2019-02-12  487  		if (cpu < 0) {
+> fc03acaeab358c Atish Patra       2019-02-12  488  			pr_warn("Invalid cpuid for context %d\n", i);
+> fc03acaeab358c Atish Patra       2019-02-12  489  			continue;
+> fc03acaeab358c Atish Patra       2019-02-12  490  		}
+> fc03acaeab358c Atish Patra       2019-02-12  491  
+> 6b7ce8927b5a4d Anup Patel        2020-06-01  492  		/* Find parent domain and register chained handler */
+> 6b7ce8927b5a4d Anup Patel        2020-06-01  493  		if (!plic_parent_irq && irq_find_host(parent.np)) {
+> 6b7ce8927b5a4d Anup Patel        2020-06-01  494  			plic_parent_irq = irq_of_parse_and_map(node, i);
+> 6b7ce8927b5a4d Anup Patel        2020-06-01  495  			if (plic_parent_irq)
+> 6b7ce8927b5a4d Anup Patel        2020-06-01  496  				irq_set_chained_handler(plic_parent_irq,
+> 6b7ce8927b5a4d Anup Patel        2020-06-01  497  							plic_handle_irq);
+> 6b7ce8927b5a4d Anup Patel        2020-06-01  498  		}
+> 6b7ce8927b5a4d Anup Patel        2020-06-01  499  
+> 9ce06497c2722a Christoph Hellwig 2019-09-03  500  		/*
+> 9ce06497c2722a Christoph Hellwig 2019-09-03  501  		 * When running in M-mode we need to ignore the S-mode handler.
+> 9ce06497c2722a Christoph Hellwig 2019-09-03  502  		 * Here we assume it always comes later, but that might be a
+> 9ce06497c2722a Christoph Hellwig 2019-09-03  503  		 * little fragile.
+> 9ce06497c2722a Christoph Hellwig 2019-09-03  504  		 */
+> 8237f8bc4f6eb7 Christoph Hellwig 2018-07-26  505  		handler = per_cpu_ptr(&plic_handlers, cpu);
+> 3fecb5aac28888 Anup Patel        2019-02-12  506  		if (handler->present) {
+> 3fecb5aac28888 Anup Patel        2019-02-12  507  			pr_warn("handler already present for context %d.\n", i);
+> ccbe80bad571c2 Atish Patra       2020-03-02  508  			plic_set_threshold(handler, PLIC_DISABLE_THRESHOLD);
+> 9ce06497c2722a Christoph Hellwig 2019-09-03  509  			goto done;
+> 3fecb5aac28888 Anup Patel        2019-02-12  510  		}
+> 3fecb5aac28888 Anup Patel        2019-02-12  511  
+> f1ad1133b18f2a Atish Patra       2020-03-02  512  		cpumask_set_cpu(cpu, &priv->lmask);
+> 8237f8bc4f6eb7 Christoph Hellwig 2018-07-26  513  		handler->present = true;
+> 0d3616bbd03cdf Niklas Cassel     2022-03-02  514  		handler->hart_base = priv->regs + CONTEXT_BASE +
+> 0d3616bbd03cdf Niklas Cassel     2022-03-02  515  			i * CONTEXT_SIZE;
+> 86c7cbf1e8d1d4 Anup Patel        2019-02-12  516  		raw_spin_lock_init(&handler->enable_lock);
+> 0d3616bbd03cdf Niklas Cassel     2022-03-02  517  		handler->enable_base = priv->regs + CONTEXT_ENABLE_BASE +
+> 0d3616bbd03cdf Niklas Cassel     2022-03-02  518  			i * CONTEXT_ENABLE_SIZE;
+> f1ad1133b18f2a Atish Patra       2020-03-02  519  		handler->priv = priv;
+> 2858a4d6b620ef Mason Huo         2023-02-10  520  
+> 2858a4d6b620ef Mason Huo         2023-02-10 @521  		handler->enable_save =  kcalloc(DIV_ROUND_UP(nr_irqs, 32),
+> 2858a4d6b620ef Mason Huo         2023-02-10  522  						32, GFP_KERNEL);
+> 
+> Smatch is correct that this should be allocating
+> sizeof(*handler->enable_save) which is 4 bytes instead of 32 bytes.
+> I looked at the code, and this is a bits vs bytes bug.
+> 
+Hi Dan,
+Yes, and will fix it in next revision.
+
+Thanks
+Mason
+> 2858a4d6b620ef Mason Huo         2023-02-10  523  		if (!handler->enable_save)
+> 2858a4d6b620ef Mason Huo         2023-02-10  524  			goto out_free_enable_reg;
+> 9ce06497c2722a Christoph Hellwig 2019-09-03  525  done:
+> a1706a1c5062e0 Samuel Holland    2022-07-01  526  		for (hwirq = 1; hwirq <= nr_irqs; hwirq++) {
+> 86c7cbf1e8d1d4 Anup Patel        2019-02-12  527  			plic_toggle(handler, hwirq, 0);
+> a1706a1c5062e0 Samuel Holland    2022-07-01  528  			writel(1, priv->regs + PRIORITY_BASE +
+> a1706a1c5062e0 Samuel Holland    2022-07-01  529  				  hwirq * PRIORITY_PER_ID);
+> a1706a1c5062e0 Samuel Holland    2022-07-01  530  		}
+> 6adfe8d2f5b353 Anup Patel        2019-02-12  531  		nr_handlers++;
+> 8237f8bc4f6eb7 Christoph Hellwig 2018-07-26  532  	}
+> 8237f8bc4f6eb7 Christoph Hellwig 2018-07-26  533  
+> 2234ae846ccb9e Anup Patel        2020-05-18  534  	/*
+> 2234ae846ccb9e Anup Patel        2020-05-18  535  	 * We can have multiple PLIC instances so setup cpuhp state only
+> 2234ae846ccb9e Anup Patel        2020-05-18  536  	 * when context handler for current/boot CPU is present.
+> 2234ae846ccb9e Anup Patel        2020-05-18  537  	 */
+> 2234ae846ccb9e Anup Patel        2020-05-18  538  	handler = this_cpu_ptr(&plic_handlers);
+> 2234ae846ccb9e Anup Patel        2020-05-18  539  	if (handler->present && !plic_cpuhp_setup_done) {
+> ccbe80bad571c2 Atish Patra       2020-03-02  540  		cpuhp_setup_state(CPUHP_AP_IRQ_SIFIVE_PLIC_STARTING,
+> ccbe80bad571c2 Atish Patra       2020-03-02  541  				  "irqchip/sifive/plic:starting",
+> ccbe80bad571c2 Atish Patra       2020-03-02  542  				  plic_starting_cpu, plic_dying_cpu);
+> 2234ae846ccb9e Anup Patel        2020-05-18  543  		plic_cpuhp_setup_done = true;
+> 2234ae846ccb9e Anup Patel        2020-05-18  544  	}
+> 2858a4d6b620ef Mason Huo         2023-02-10  545  	register_syscore_ops(&plic_irq_syscore_ops);
+> 2234ae846ccb9e Anup Patel        2020-05-18  546  
+> 0e375f51017bcc Anup Patel        2020-05-18  547  	pr_info("%pOFP: mapped %d interrupts with %d handlers for"
+> 0e375f51017bcc Anup Patel        2020-05-18  548  		" %d contexts.\n", node, nr_irqs, nr_handlers, nr_contexts);
+> 8237f8bc4f6eb7 Christoph Hellwig 2018-07-26  549  	return 0;
+> 8237f8bc4f6eb7 Christoph Hellwig 2018-07-26  550  
+> 2858a4d6b620ef Mason Huo         2023-02-10  551  out_free_enable_reg:
+> 2858a4d6b620ef Mason Huo         2023-02-10  552  	for_each_cpu(cpu, cpu_present_mask) {
+> 2858a4d6b620ef Mason Huo         2023-02-10  553  		handler = per_cpu_ptr(&plic_handlers, cpu);
+> 2858a4d6b620ef Mason Huo         2023-02-10  554  		kfree(handler->enable_save);
+> 2858a4d6b620ef Mason Huo         2023-02-10  555  	}
+> 2858a4d6b620ef Mason Huo         2023-02-10  556  out_free_priority_reg:
+> 2858a4d6b620ef Mason Huo         2023-02-10  557  	kfree(priv->prio_save);
+> 8237f8bc4f6eb7 Christoph Hellwig 2018-07-26  558  out_iounmap:
+> f1ad1133b18f2a Atish Patra       2020-03-02  559  	iounmap(priv->regs);
+> f1ad1133b18f2a Atish Patra       2020-03-02  560  out_free_priv:
+> f1ad1133b18f2a Atish Patra       2020-03-02  561  	kfree(priv);
+> 8237f8bc4f6eb7 Christoph Hellwig 2018-07-26  562  	return error;
+> 8237f8bc4f6eb7 Christoph Hellwig 2018-07-26  563  }
+> 
 
 _______________________________________________
 linux-riscv mailing list
