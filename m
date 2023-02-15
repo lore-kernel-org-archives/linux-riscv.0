@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9833CC636D4
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Feb 2023 14:37:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A45AC636D4
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Feb 2023 14:38:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3NaMicPeYZTCYqHyuBkwEBcTyw6Gt532lKPj+zHdr3o=; b=gmQAG4WlbclZiq
-	Jf9r4PX8Go+TPU0J4TRITG4jl0L8NyPG3aAf/v4pCD++q5GfWD6IIvqy+hTsjGNwLmGz4paJhOPun
-	4t5f0x1quuWeE9A5JH2JfKQsEDpYzINwVIRRyaxlwyPbJJXg7Bm8sYoq1q1bhewb3KT+A/rj9d9J3
-	9coOEDR4K4GCLY6PItyOY6D4+8OdOPh4/UL7LZuBihaV02xnacN91fy2lVMTX/6Irl9CBf7vNN3ow
-	bBCa+vs31McW7ftAnvpE8G1SFcP/NvWhXxFhr4Z/eUFxWsKqq04PL+//iN42g9zR5vL/DcqAgsDY7
-	w3jaGKQPNTQ/+tEyK4Ag==;
+	List-Owner; bh=jyTjhjGOLseZxH8AQQMNYc6eciw0j2lDnqa5P2S03HI=; b=napnQfWYzz8S++
+	lFCxyCTIwHnpoGCwqNVQiUt06ijNJb4tVIlj2lPBDXDXhjZ3ohHak8TrqOgd6OLGZkn77LP4grRw2
+	y/HK5DjmX6hfkWzwxGPjborCQAAUJ3FenFtFRGkG3Xjf559vDIpBnwCN7gJxfBoyumFdjvjsJxivM
+	7WX8S+DODKo4//BuhyKZ25X/ElYpipBx0oCPrIO7wuwOCrhEKtIKY1N7c8obmjyuQarU6JdpV0FvE
+	+MZflFl7ddbvPb7qnE5m9ImOYeiGVCcCWFVX6DYMQtiqg1kiY1AEN2HjlRBtfrUm+25Z/wtBOGVik
+	mhkTKNSA6ACynbtppD4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSIud-006EIr-W2; Wed, 15 Feb 2023 14:37:36 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1pSIvd-006ET3-LD; Wed, 15 Feb 2023 14:38:37 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSIua-006EI5-Nf
-	for linux-riscv@lists.infradead.org; Wed, 15 Feb 2023 14:37:34 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id m20-20020a05600c3b1400b003e1e754657aso1743752wms.2
-        for <linux-riscv@lists.infradead.org>; Wed, 15 Feb 2023 06:37:31 -0800 (PST)
+	id 1pSIva-006ERa-Jy
+	for linux-riscv@lists.infradead.org; Wed, 15 Feb 2023 14:38:36 +0000
+Received: by mail-wr1-x431.google.com with SMTP id y1so19389892wru.2
+        for <linux-riscv@lists.infradead.org>; Wed, 15 Feb 2023 06:38:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=6T1tjsb98FN3v4tidb0bt6QGsUcKMvFQDV82PTYx96Q=;
-        b=INxhNJqbQk8OjrTsp01knjRKKZMmlBgSwnFoY1G9niH4R9rUkZw5cXYPCp7NobPxs4
-         anMS8huUhM3dFlgphKqf3iRbr559v7nVeMkH5uMhHijB5nB3DMN8tcT3GbMJbr49L/dM
-         56vH04hlAgIgrOIteCX/JwxK6IMYVvv0JSkAZAeIcPl9iuM6DZfj9bBiDli0rYuDoRrU
-         GTgvoqLEZPclQCStDKm575BnHTV8b//ZeGBLODVrPccej/N9kDSVXvgSEjMcsQa1UEXq
-         6/GMksWqyXV8v0QnqAKdid6Lm8Ao0WfHaJ1+qVTLpKIukG106KZwZRbP6q4m0pY/Q36D
-         3P9Q==
+        bh=dDDQpcu4wlArU6dZYMfeUKSEQsg6b1kdryOeCUrFQlc=;
+        b=NWWiA7pEQ+rkqfq6PxjAcfVNFkh/3naJV1qTqerZm0mmH+bBEsJWA+oh5IwlpOL+AR
+         KXJ7H0JHrAp17b0C+1P0EDUTnuDad6z1StppmmFKeMYRzqBEF3AGsqgBNWd1EXa3LGM+
+         tapyOWmDfrPK0EU9s24YUWPS6qTqye3oovAJGa1pJupXz6nwhjkr+q6Reclx3sk9qFJu
+         XBx6069D3Wbt7BpXxmJ9T1iuGjsn1zcCKIfJYCvjGHUacLH4MuHMP6cQh14cOZVXoq7a
+         /29ySlqZo/dPkpGQ3aqKvkoH086Qd9+B+FfSjJzwbgfmBhtWniu+UssrHq8ODeuVJoTf
+         BBpA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=6T1tjsb98FN3v4tidb0bt6QGsUcKMvFQDV82PTYx96Q=;
-        b=EuFUu6Q2O+UQOdzdbKgmEfDctOE5YY4rSVOeWRxTYy5ZfP/7R+S7fs7oNGt+FVhqCj
-         O8j0U+k1W1k76SYlEIdlgjeOsXTBty+EcYIwFYVs5qzb5JZBzpU9Mtr0OB1UC0KVcCGI
-         E5iSUwIdLfWl47lonpfRKZDVp+iYALqr2cOR1UCKNCDsFGi+/Q9h6zCK1EbhKBn5H4pQ
-         /hQc9DFHsd4OVgX7KT+BAoQ57SsKVGX2jZv1+z6HRnKRxoovuK4/RFtQSO7n8kYQzqmt
-         xxCGA9xT/RrWd0lVP2X0nZ4jmp4XZ8dCPMKb5Kfk3EnFcy/x9BUWeAJLZ9TZNGBIQEzk
-         G95g==
-X-Gm-Message-State: AO0yUKVVtMtaMybxMysNufRONIIzfX316CqgGxC91hX5Wxlc51Di5pxu
-	POujZc31Xnt3vETwmnL+8HokRw==
-X-Google-Smtp-Source: AK7set/X+AXt1w+FAaMuV9BwkXPxCbPMNoe5oZMv4HHF7AGTayiaHyBuR1kymX395Sd+pMRaRnQ7Wg==
-X-Received: by 2002:a05:600c:340a:b0:3e1:11bd:f577 with SMTP id y10-20020a05600c340a00b003e111bdf577mr2146695wmp.26.1676471849838;
-        Wed, 15 Feb 2023 06:37:29 -0800 (PST)
+        bh=dDDQpcu4wlArU6dZYMfeUKSEQsg6b1kdryOeCUrFQlc=;
+        b=X5xX60GGVeJjbe+PX2KcmmZekS29PiIvxErbX9ViGbXlBIh8GCiTTkjEhLItoH5sys
+         Dz3ES5sjg17rf8ZlRv9kFPrACQGvmo7DFFFYpP6R9G2Ei/DT59Gvk9GsDtQ5EfmgqjQc
+         dNuVUP7DWO1L+6a7LKNWvEe0HgYcAj2Ylt0go0NpjjnPOQmvk6/5wGjyCIwrL/R7rX/A
+         lSmeVRFstAexegjkpzBSr8zwSbLs7VyBIVog8l/K+9H6DjVZuBLrK/xUHqbdURahrAnK
+         OST95QhIcHpht8mXCd6MhOXCZpJUmYSm4cn0iCw9EH1RRPPfFqhILaExnZALtQQFbEwt
+         RdKw==
+X-Gm-Message-State: AO0yUKUNTyNH5ORaiwx9LVRYB2vRdmJ2P7yUDOHS0D+37JKKM4LrHAje
+	aTt2O/13iPnGWJfGWHQzkOsaZQ==
+X-Google-Smtp-Source: AK7set9Df7sPhWCSuF3fCAo3V27citHHiLZ7aQJdxJGeprd+nLleiF9LWkfZ3+y7qC+M4ZRkrTuxnA==
+X-Received: by 2002:a5d:5552:0:b0:2c5:5dbf:1cc2 with SMTP id g18-20020a5d5552000000b002c55dbf1cc2mr1659354wrw.32.1676471910785;
+        Wed, 15 Feb 2023 06:38:30 -0800 (PST)
 Received: from alex-rivos.home (lfbn-lyo-1-450-160.w2-7.abo.wanadoo.fr. [2.7.42.160])
-        by smtp.gmail.com with ESMTPSA id a24-20020a1cf018000000b003dfee43863fsm2292294wmb.26.2023.02.15.06.37.29
+        by smtp.gmail.com with ESMTPSA id q4-20020a05600000c400b002c54737e908sm13906189wrx.91.2023.02.15.06.38.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Feb 2023 06:37:29 -0800 (PST)
+        Wed, 15 Feb 2023 06:38:30 -0800 (PST)
 From: Alexandre Ghiti <alexghiti@rivosinc.com>
 To: Michael Ellerman <mpe@ellerman.id.au>,
 	Nicholas Piggin <npiggin@gmail.com>,
@@ -70,17 +70,18 @@ To: Michael Ellerman <mpe@ellerman.id.au>,
 	linuxppc-dev@lists.ozlabs.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Cc: Alexandre Ghiti <alex@ghiti.fr>
-Subject: [PATCH v8 1/3] riscv: Introduce CONFIG_RELOCATABLE
-Date: Wed, 15 Feb 2023 15:36:24 +0100
-Message-Id: <20230215143626.453491-2-alexghiti@rivosinc.com>
+Cc: Alexandre Ghiti <alex@ghiti.fr>,
+	Anup Patel <anup@brainfault.org>
+Subject: [PATCH v8 2/3] powerpc: Move script to check relocations at compile time in scripts/
+Date: Wed, 15 Feb 2023 15:36:25 +0100
+Message-Id: <20230215143626.453491-3-alexghiti@rivosinc.com>
 X-Mailer: git-send-email 2.37.2
 In-Reply-To: <20230215143626.453491-1-alexghiti@rivosinc.com>
 References: <20230215143626.453491-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230215_063732_800798_C728944C 
-X-CRM114-Status: GOOD (  22.12  )
+X-CRM114-CacheID: sfid-20230215_063834_681206_EB3919C2 
+X-CRM114-Status: GOOD (  14.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,238 +93,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Alexandre Ghiti <alex@ghiti.fr>
-
-This config allows to compile 64b kernel as PIE and to relocate it at
-any virtual address at runtime: this paves the way to KASLR.
-Runtime relocation is possible since relocation metadata are embedded into
-the kernel.
-
-Note that relocating at runtime introduces an overhead even if the
-kernel is loaded at the same address it was linked at and that the compiler
-options are those used in arm64 which uses the same RELA relocation
-format.
-
-Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
----
- arch/riscv/Kconfig              | 14 +++++++++
- arch/riscv/Makefile             |  7 +++--
- arch/riscv/kernel/efi-header.S  |  6 ++--
- arch/riscv/kernel/vmlinux.lds.S | 10 ++++--
- arch/riscv/mm/Makefile          |  4 +++
- arch/riscv/mm/init.c            | 54 ++++++++++++++++++++++++++++++++-
- 6 files changed, 87 insertions(+), 8 deletions(-)
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index e2b656043abf..e0ee7ce4b2e3 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -544,6 +544,20 @@ config COMPAT
- 
- 	  If you want to execute 32-bit userspace applications, say Y.
- 
-+config RELOCATABLE
-+	bool "Build a relocatable kernel"
-+	depends on MMU && 64BIT && !XIP_KERNEL
-+	help
-+          This builds a kernel as a Position Independent Executable (PIE),
-+          which retains all relocation metadata required to relocate the
-+          kernel binary at runtime to a different virtual address than the
-+          address it was linked at.
-+          Since RISCV uses the RELA relocation format, this requires a
-+          relocation pass at runtime even if the kernel is loaded at the
-+          same address it was linked at.
-+
-+          If unsure, say N.
-+
- endmenu # "Kernel features"
- 
- menu "Boot options"
-diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-index 82153960ac00..97c34136b027 100644
---- a/arch/riscv/Makefile
-+++ b/arch/riscv/Makefile
-@@ -7,9 +7,12 @@
- #
- 
- OBJCOPYFLAGS    := -O binary
--LDFLAGS_vmlinux :=
-+ifeq ($(CONFIG_RELOCATABLE),y)
-+	LDFLAGS_vmlinux += -shared -Bsymbolic -z notext -z norelro
-+	KBUILD_CFLAGS += -fPIE
-+endif
- ifeq ($(CONFIG_DYNAMIC_FTRACE),y)
--	LDFLAGS_vmlinux := --no-relax
-+	LDFLAGS_vmlinux += --no-relax
- 	KBUILD_CPPFLAGS += -DCC_USING_PATCHABLE_FUNCTION_ENTRY
- 	CC_FLAGS_FTRACE := -fpatchable-function-entry=8
- endif
-diff --git a/arch/riscv/kernel/efi-header.S b/arch/riscv/kernel/efi-header.S
-index 8e733aa48ba6..f7ee09c4f12d 100644
---- a/arch/riscv/kernel/efi-header.S
-+++ b/arch/riscv/kernel/efi-header.S
-@@ -33,7 +33,7 @@ optional_header:
- 	.byte	0x02					// MajorLinkerVersion
- 	.byte	0x14					// MinorLinkerVersion
- 	.long	__pecoff_text_end - efi_header_end	// SizeOfCode
--	.long	__pecoff_data_virt_size			// SizeOfInitializedData
-+	.long	__pecoff_data_virt_end - __pecoff_text_end	// SizeOfInitializedData
- 	.long	0					// SizeOfUninitializedData
- 	.long	__efistub_efi_pe_entry - _start		// AddressOfEntryPoint
- 	.long	efi_header_end - _start			// BaseOfCode
-@@ -91,9 +91,9 @@ section_table:
- 		IMAGE_SCN_MEM_EXECUTE			// Characteristics
- 
- 	.ascii	".data\0\0\0"
--	.long	__pecoff_data_virt_size			// VirtualSize
-+	.long	__pecoff_data_virt_end - __pecoff_text_end	// VirtualSize
- 	.long	__pecoff_text_end - _start		// VirtualAddress
--	.long	__pecoff_data_raw_size			// SizeOfRawData
-+	.long	__pecoff_data_raw_end - __pecoff_text_end	// SizeOfRawData
- 	.long	__pecoff_text_end - _start		// PointerToRawData
- 
- 	.long	0					// PointerToRelocations
-diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
-index 4e6c88aa4d87..8be2de3be08c 100644
---- a/arch/riscv/kernel/vmlinux.lds.S
-+++ b/arch/riscv/kernel/vmlinux.lds.S
-@@ -122,9 +122,15 @@ SECTIONS
- 		*(.sdata*)
- 	}
- 
-+	.rela.dyn : ALIGN(8) {
-+		__rela_dyn_start = .;
-+		*(.rela .rela*)
-+		__rela_dyn_end = .;
-+	}
-+
- #ifdef CONFIG_EFI
- 	.pecoff_edata_padding : { BYTE(0); . = ALIGN(PECOFF_FILE_ALIGNMENT); }
--	__pecoff_data_raw_size = ABSOLUTE(. - __pecoff_text_end);
-+	__pecoff_data_raw_end = ABSOLUTE(.);
- #endif
- 
- 	/* End of data section */
-@@ -134,7 +140,7 @@ SECTIONS
- 
- #ifdef CONFIG_EFI
- 	. = ALIGN(PECOFF_SECTION_ALIGNMENT);
--	__pecoff_data_virt_size = ABSOLUTE(. - __pecoff_text_end);
-+	__pecoff_data_virt_end = ABSOLUTE(.);
- #endif
- 	_end = .;
- 
-diff --git a/arch/riscv/mm/Makefile b/arch/riscv/mm/Makefile
-index 2ac177c05352..b85e9e82f082 100644
---- a/arch/riscv/mm/Makefile
-+++ b/arch/riscv/mm/Makefile
-@@ -1,6 +1,10 @@
- # SPDX-License-Identifier: GPL-2.0-only
- 
- CFLAGS_init.o := -mcmodel=medany
-+ifdef CONFIG_RELOCATABLE
-+CFLAGS_init.o += -fno-pie
-+endif
-+
- ifdef CONFIG_FTRACE
- CFLAGS_REMOVE_init.o = $(CC_FLAGS_FTRACE)
- CFLAGS_REMOVE_cacheflush.o = $(CC_FLAGS_FTRACE)
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 7f01c2e56efe..3862696c2ac9 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -20,6 +20,9 @@
- #include <linux/dma-map-ops.h>
- #include <linux/crash_dump.h>
- #include <linux/hugetlb.h>
-+#ifdef CONFIG_RELOCATABLE
-+#include <linux/elf.h>
-+#endif
- 
- #include <asm/fixmap.h>
- #include <asm/tlbflush.h>
-@@ -146,7 +149,7 @@ static void __init print_vm_layout(void)
- 		print_ml("kasan", KASAN_SHADOW_START, KASAN_SHADOW_END);
- #endif
- 
--		print_ml("kernel", (unsigned long)KERNEL_LINK_ADDR,
-+		print_ml("kernel", (unsigned long)kernel_map.virt_addr,
- 			 (unsigned long)ADDRESS_SPACE_END);
- 	}
- }
-@@ -854,6 +857,44 @@ static __init void set_satp_mode(uintptr_t dtb_pa)
- #error "setup_vm() is called from head.S before relocate so it should not use absolute addressing."
- #endif
- 
-+#ifdef CONFIG_RELOCATABLE
-+extern unsigned long __rela_dyn_start, __rela_dyn_end;
-+
-+static void __init relocate_kernel(void)
-+{
-+	Elf64_Rela *rela = (Elf64_Rela *)&__rela_dyn_start;
-+	/*
-+	 * This holds the offset between the linked virtual address and the
-+	 * relocated virtual address.
-+	 */
-+	uintptr_t reloc_offset = kernel_map.virt_addr - KERNEL_LINK_ADDR;
-+	/*
-+	 * This holds the offset between kernel linked virtual address and
-+	 * physical address.
-+	 */
-+	uintptr_t va_kernel_link_pa_offset = KERNEL_LINK_ADDR - kernel_map.phys_addr;
-+
-+	for ( ; rela < (Elf64_Rela *)&__rela_dyn_end; rela++) {
-+		Elf64_Addr addr = (rela->r_offset - va_kernel_link_pa_offset);
-+		Elf64_Addr relocated_addr = rela->r_addend;
-+
-+		if (rela->r_info != R_RISCV_RELATIVE)
-+			continue;
-+
-+		/*
-+		 * Make sure to not relocate vdso symbols like rt_sigreturn
-+		 * which are linked from the address 0 in vmlinux since
-+		 * vdso symbol addresses are actually used as an offset from
-+		 * mm->context.vdso in VDSO_OFFSET macro.
-+		 */
-+		if (relocated_addr >= KERNEL_LINK_ADDR)
-+			relocated_addr += reloc_offset;
-+
-+		*(Elf64_Addr *)addr = relocated_addr;
-+	}
-+}
-+#endif /* CONFIG_RELOCATABLE */
-+
- #ifdef CONFIG_XIP_KERNEL
- static void __init create_kernel_page_table(pgd_t *pgdir,
- 					    __always_unused bool early)
-@@ -1039,6 +1080,17 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
- 	BUG_ON((kernel_map.virt_addr + kernel_map.size) > ADDRESS_SPACE_END - SZ_4K);
- #endif
- 
-+#ifdef CONFIG_RELOCATABLE
-+	/*
-+	 * Early page table uses only one PUD, which makes it possible
-+	 * to map PUD_SIZE aligned on PUD_SIZE: if the relocation offset
-+	 * makes the kernel cross over a PUD_SIZE boundary, raise a bug
-+	 * since a part of the kernel would not get mapped.
-+	 */
-+	BUG_ON(PUD_SIZE - (kernel_map.virt_addr & (PUD_SIZE - 1)) < kernel_map.size);
-+	relocate_kernel();
-+#endif
-+
- 	apply_early_boot_alternatives();
- 	pt_ops_set_early();
- 
--- 
-2.37.2
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogQWxleGFuZHJlIEdoaXRpIDxhbGV4QGdoaXRpLmZyPgoKUmVsb2NhdGluZyBrZXJuZWwg
+YXQgcnVudGltZSBpcyBkb25lIHZlcnkgZWFybHkgaW4gdGhlIGJvb3QgcHJvY2Vzcywgc28KaXQg
+aXMgbm90IGNvbnZlbmllbnQgdG8gY2hlY2sgZm9yIHJlbG9jYXRpb25zIHRoZXJlIGFuZCByZWFj
+dCBpbiBjYXNlIGEKcmVsb2NhdGlvbiB3YXMgbm90IGV4cGVjdGVkLgoKUG93ZXJwYyBhcmNoaXRl
+Y3R1cmUgaGFzIGEgc2NyaXB0IHRoYXQgYWxsb3dzIHRvIGNoZWNrIGF0IGNvbXBpbGUgdGltZQpm
+b3Igc3VjaCB1bmV4cGVjdGVkIHJlbG9jYXRpb25zOiBleHRyYWN0IHRoZSBjb21tb24gbG9naWMg
+dG8gc2NyaXB0cy8Kc28gdGhhdCBvdGhlciBhcmNoaXRlY3R1cmVzIGNhbiB0YWtlIGFkdmFudGFn
+ZSBvZiBpdC4KClNpZ25lZC1vZmYtYnk6IEFsZXhhbmRyZSBHaGl0aSA8YWxleEBnaGl0aS5mcj4K
+UmV2aWV3ZWQtYnk6IEFudXAgUGF0ZWwgPGFudXBAYnJhaW5mYXVsdC5vcmc+CkFja2VkLWJ5OiBN
+aWNoYWVsIEVsbGVybWFuIDxtcGVAZWxsZXJtYW4uaWQuYXU+IChwb3dlcnBjKQotLS0KIGFyY2gv
+cG93ZXJwYy90b29scy9yZWxvY3NfY2hlY2suc2ggfCAxOCArKy0tLS0tLS0tLS0tLS0tLS0KIHNj
+cmlwdHMvcmVsb2NzX2NoZWNrLnNoICAgICAgICAgICAgfCAyMCArKysrKysrKysrKysrKysrKysr
+KwogMiBmaWxlcyBjaGFuZ2VkLCAyMiBpbnNlcnRpb25zKCspLCAxNiBkZWxldGlvbnMoLSkKIGNy
+ZWF0ZSBtb2RlIDEwMDc1NSBzY3JpcHRzL3JlbG9jc19jaGVjay5zaAoKZGlmZiAtLWdpdCBhL2Fy
+Y2gvcG93ZXJwYy90b29scy9yZWxvY3NfY2hlY2suc2ggYi9hcmNoL3Bvd2VycGMvdG9vbHMvcmVs
+b2NzX2NoZWNrLnNoCmluZGV4IDYzNzkyYWYwMDQxNy4uNmIzNTBlNzUwMTRjIDEwMDc1NQotLS0g
+YS9hcmNoL3Bvd2VycGMvdG9vbHMvcmVsb2NzX2NoZWNrLnNoCisrKyBiL2FyY2gvcG93ZXJwYy90
+b29scy9yZWxvY3NfY2hlY2suc2gKQEAgLTE1LDIxICsxNSw4IEBAIGlmIFsgJCMgLWx0IDMgXTsg
+dGhlbgogCWV4aXQgMQogZmkKIAotIyBIYXZlIEtidWlsZCBzdXBwbHkgdGhlIHBhdGggdG8gb2Jq
+ZHVtcCBhbmQgbm0gc28gd2UgaGFuZGxlIGNyb3NzIGNvbXBpbGF0aW9uLgotb2JqZHVtcD0iJDEi
+Ci1ubT0iJDIiCi12bWxpbnV4PSIkMyIKLQotIyBSZW1vdmUgZnJvbSB0aGUgYmFkIHJlbG9jYXRp
+b25zIHRob3NlIHRoYXQgbWF0Y2ggYW4gdW5kZWZpbmVkIHdlYWsgc3ltYm9sCi0jIHdoaWNoIHdp
+bGwgcmVzdWx0IGluIGFuIGFic29sdXRlIHJlbG9jYXRpb24gdG8gMC4KLSMgV2VhayB1bnJlc29s
+dmVkIHN5bWJvbHMgYXJlIG9mIHRoYXQgZm9ybSBpbiBubSBvdXRwdXQ6Ci0jICIgICAgICAgICAg
+ICAgICAgICB3IF9iaW5hcnlfX2J0Zl92bWxpbnV4X2Jpbl9lbmQiCi11bmRlZl93ZWFrX3N5bWJv
+bHM9JCgkbm0gIiR2bWxpbnV4IiB8IGF3ayAnJDEgfiAvdy8geyBwcmludCAkMiB9JykKLQogYmFk
+X3JlbG9jcz0kKAotJG9iamR1bXAgLVIgIiR2bWxpbnV4IiB8Ci0JIyBPbmx5IGxvb2sgYXQgcmVs
+b2NhdGlvbiBsaW5lcy4KLQlncmVwIC1FICdcPFJfJyB8Ciske3NyY3RyZWV9L3NjcmlwdHMvcmVs
+b2NzX2NoZWNrLnNoICIkQCIgfAogCSMgVGhlc2UgcmVsb2NhdGlvbnMgYXJlIG9rYXkKIAkjIE9u
+IFBQQzY0OgogCSMJUl9QUEM2NF9SRUxBVElWRSwgUl9QUEM2NF9OT05FCkBAIC00NCw4ICszMSw3
+IEBAIFJfUFBDX0FERFIxNl9MTwogUl9QUENfQUREUjE2X0hJCiBSX1BQQ19BRERSMTZfSEEKIFJf
+UFBDX1JFTEFUSVZFCi1SX1BQQ19OT05FJyB8Ci0JKFsgIiR1bmRlZl93ZWFrX3N5bWJvbHMiIF0g
+JiYgZ3JlcCAtRiAtdyAtdiAiJHVuZGVmX3dlYWtfc3ltYm9scyIgfHwgY2F0KQorUl9QUENfTk9O
+RScKICkKIAogaWYgWyAteiAiJGJhZF9yZWxvY3MiIF07IHRoZW4KZGlmZiAtLWdpdCBhL3Njcmlw
+dHMvcmVsb2NzX2NoZWNrLnNoIGIvc2NyaXB0cy9yZWxvY3NfY2hlY2suc2gKbmV3IGZpbGUgbW9k
+ZSAxMDA3NTUKaW5kZXggMDAwMDAwMDAwMDAwLi4xMzdjNjYwNDk5ZjMKLS0tIC9kZXYvbnVsbAor
+KysgYi9zY3JpcHRzL3JlbG9jc19jaGVjay5zaApAQCAtMCwwICsxLDIwIEBACisjIS9iaW4vc2gK
+KyMgU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0yLjAtb3ItbGF0ZXIKKworIyBHZXQgYSBs
+aXN0IG9mIGFsbCB0aGUgcmVsb2NhdGlvbnMsIHJlbW92ZSBmcm9tIGl0IHRoZSByZWxvY2F0aW9u
+cworIyB0aGF0IGFyZSBrbm93biB0byBiZSBsZWdpdGltYXRlIGFuZCByZXR1cm4gdGhpcyBsaXN0
+IHRvIGFyY2ggc3BlY2lmaWMKKyMgc2NyaXB0IHRoYXQgd2lsbCBsb29rIGZvciBzdXNwaWNpb3Vz
+IHJlbG9jYXRpb25zLgorCitvYmpkdW1wPSIkMSIKK25tPSIkMiIKK3ZtbGludXg9IiQzIgorCisj
+IFJlbW92ZSBmcm9tIHRoZSBwb3NzaWJsZSBiYWQgcmVsb2NhdGlvbnMgdGhvc2UgdGhhdCBtYXRj
+aCBhbiB1bmRlZmluZWQKKyPCoHdlYWsgc3ltYm9sIHdoaWNoIHdpbGwgcmVzdWx0IGluIGFuIGFi
+c29sdXRlIHJlbG9jYXRpb24gdG8gMC4KKyMgV2VhayB1bnJlc29sdmVkIHN5bWJvbHMgYXJlIG9m
+IHRoYXQgZm9ybSBpbiBubSBvdXRwdXQ6CisjICIgICAgICAgICAgICAgICAgICB3IF9iaW5hcnlf
+X2J0Zl92bWxpbnV4X2Jpbl9lbmQiCit1bmRlZl93ZWFrX3N5bWJvbHM9JCgkbm0gIiR2bWxpbnV4
+IiB8IGF3ayAnJDEgfiAvdy8geyBwcmludCAkMiB9JykKKworJG9iamR1bXAgLVIgIiR2bWxpbnV4
+IiB8CisJZ3JlcCAtRSAnXDxSXycgfAorCShbICIkdW5kZWZfd2Vha19zeW1ib2xzIiBdICYmIGdy
+ZXAgLUYgLXcgLXYgIiR1bmRlZl93ZWFrX3N5bWJvbHMiIHx8IGNhdCkKLS0gCjIuMzcuMgoKCl9f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2
+IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0
+cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
