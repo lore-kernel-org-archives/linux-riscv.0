@@ -4,64 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C239C05027
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Feb 2023 02:48:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF9CCC61DA4
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Feb 2023 03:08:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3YSv/0R6HsmTI3sGur1Ni2G9pZR4C+vyJEOzhvcIkeY=; b=QCYoLjYuA588V5
-	y1Y0WbLXv97fN+izBWhuIXKoDissmBC5vJvd0+C8tQeSOLzojWbR+vWT17GTFLetCHHopJBKYen4n
-	SAxWR4kyl5LUcZf6SWEHAS+HdFLxVrpiEvqfTaAi/bltsaR2yGUqP54aGxENFq3+JI6DT2YwhMSRt
-	aaG6qdQdXLqTTphgMbT+nN9W3YiYBs8hM9PZFbTEQzSxhrkdav+PvV28/bAwI4/3nr+6t7U3a/+LZ
-	hmHC7YThDEI99xFKGK4sDRlvwHCyFHeZgF0Mk1xntf7k27ZyXr0WTFjNSdJgQySh9Gs1fbO5JozHs
-	znjDJAiKk0cKAFBJjD/g==;
+	List-Owner; bh=/AQ8DqeuIbA0ykiRuHN8Ybeu/PuYhBTy+3Kz0pKlxbA=; b=ij/pGc041ozBfC
+	+FZuQFjBfv9oNX8HlI/0htbdzUmVzL1N0lr1L09UyK0frgKQsTK2IcYmPiQiocMQrh9oBYZsGPTm7
+	mjxveHQjVj2QdbWN7HXHuLZvGKRNal9aCdbGpXKlvZecUhZDvDyeHFQigVKBlHImiF4wwbMLWH1IR
+	uJosTBC4As7+jAEK5/2JeftTztNVTyop/SMyhvjX+cWKUKK7V/iJzmmx0ug1G9TXLUXsPEtWE18h/
+	gx+c8tpR7eKgALd7p7U1By1qHLgoSPJpaJ7dCAE2vF0F/L2n2e4a08VHniBnK6L7gnHUNl15PYG0v
+	OfK/SfhsdrQZcLFBA0sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pS7q3-004SKF-Ey; Wed, 15 Feb 2023 02:48:07 +0000
-Received: from smtp80.cstnet.cn ([159.226.251.80] helo=cstnet.cn)
+	id 1pS89L-004UKe-QO; Wed, 15 Feb 2023 03:08:03 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pS7pz-004SIh-3y
-	for linux-riscv@lists.infradead.org; Wed, 15 Feb 2023 02:48:05 +0000
-Received: from [198.18.0.1] (unknown [124.16.141.244])
-	by APP-01 (Coremail) with SMTP id qwCowABn6NbVR+xjDZwpBQ--.30914S2;
-	Wed, 15 Feb 2023 10:47:50 +0800 (CST)
-Message-ID: <0711567e-39a4-09a4-aefa-4c5a55e196c9@iscas.ac.cn>
-Date: Wed, 15 Feb 2023 10:47:49 +0800
+	id 1pS89F-004UHt-33
+	for linux-riscv@lists.infradead.org; Wed, 15 Feb 2023 03:08:01 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 56AC524E15C;
+	Wed, 15 Feb 2023 11:07:17 +0800 (CST)
+Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 15 Feb
+ 2023 11:07:17 +0800
+Received: from [192.168.125.110] (183.27.97.168) by EXMBX172.cuchost.com
+ (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 15 Feb
+ 2023 11:07:16 +0800
+Message-ID: <8b35344f-0f78-b4e6-2b5e-e6ec6b101a75@starfivetech.com>
+Date: Wed, 15 Feb 2023 11:07:15 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:102.0)
- Gecko/20100101 Thunderbird/102.7.1
-Subject: Re: [PATCH v11 0/3] riscv, mm: detect svnapot cpu support at runtime
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: linux-riscv@lists.infradead.org, jeff@riscv.org, xuyinan@ict.ac.cn,
- Conor Dooley <conor@kernel.org>, ajones@ventanamicro.com
-References: <mhng-cbb4813a-0cec-47f8-905e-48fa410657a5@palmer-ri-x1c9>
-From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
-In-Reply-To: <mhng-cbb4813a-0cec-47f8-905e-48fa410657a5@palmer-ri-x1c9>
-X-CM-TRANSID: qwCowABn6NbVR+xjDZwpBQ--.30914S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxXF18Cw4Uuw45KrW8GFW7Arb_yoWrAFy3pa
-	y8Krn3JFy5Crn3GrsIvry7tryrtw1rKa43Xw1fJFy5Awn8JFWjqr4q9Fs093WkXFWfXr1I
-	yF47XF1Uuas8J37anT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9G14x267AKxVWUJVW8JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gr
-	1j6F4UJwAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40E
-	FcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUAVWUtwAv7VC2z280aVAFwI0_Gr
-	0_Cr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4x0x7Aq67IIx4CEVc8vx2IE
-	rcIFxwCYjI0SjxkI62AI1cAE67vIY487MxkIecxEwVAFwVW8JwCF04k20xvY0x0EwIxGrw
-	CFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE
-	14v26r106r1rMI8E67AF67kF1VAFwI0_JF0_Jw1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2
-	IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxK
-	x2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI
-	0_Jr0_GrUvcSsGvfC2KfnxnUUI43ZEXa7VUjTmh7UUUUU==
-X-Originating-IP: [124.16.141.244]
-X-CM-SenderInfo: 5sdq1xpqjox0asqsiq5lvft2wodfhubq/1tbiBwEDDGPsNKRzbAAAsJ
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.3.2
+Subject: Re: [PATCH v3 6/7] riscv: dts: starfive: Add initial StarFive JH7110
+ device tree
+Content-Language: en-US
+To: Conor Dooley <conor@kernel.org>
+CC: Conor Dooley <conor.dooley@microchip.com>,
+	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Palmer
+ Dabbelt" <palmer@dabbelt.com>, Rob Herring <robh+dt@kernel.org>, "Krzysztof
+ Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, Ben Dooks
+	<ben.dooks@sifive.com>, Daniel Lezcano <daniel.lezcano@linaro.org>, "Thomas
+ Gleixner" <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Stephen Boyd
+	<sboyd@kernel.org>, Michael Turquette <mturquette@baylibre.com>, "Philipp
+ Zabel" <p.zabel@pengutronix.de>, Linus Walleij <linus.walleij@linaro.org>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	<linux-kernel@vger.kernel.org>
+References: <20221220011247.35560-1-hal.feng@starfivetech.com>
+ <20221220011247.35560-7-hal.feng@starfivetech.com> <Y6zHy9oL4xzl+6Rd@spud>
+ <c507e0b2-5ca3-cffe-55d2-873ed8c24e3d@starfivetech.com>
+ <Y9og8Q2UnJ452KH/@wendy>
+ <df6755ed-a358-ea01-d89e-f3c004b9c297@starfivetech.com>
+ <Y9wR7Up+iObw5qoE@spud>
+From: Hal Feng <hal.feng@starfivetech.com>
+In-Reply-To: <Y9wR7Up+iObw5qoE@spud>
+X-Originating-IP: [183.27.97.168]
+X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX172.cuchost.com
+ (172.16.6.92)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230214_184803_570486_EDD07C83 
-X-CRM114-Status: GOOD (  19.85  )
+X-CRM114-CacheID: sfid-20230214_190757_621267_883DECA7 
+X-CRM114-Status: GOOD (  51.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,83 +82,210 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgUGFsbWVyLAoKT24gMi8xNS8yMyA4OjAyIEFNLCBQYWxtZXIgRGFiYmVsdCB3cm90ZToKPiBP
-biBUaHUsIDE1IERlYyAyMDIyIDIyOjIxOjA2IFBTVCAoLTA4MDApLCBwYW5xaW5nbGluMjAyMEBp
-c2Nhcy5hYy5jbiB3cm90ZToKPj4gRnJvbTogUWluZ2xpbiBQYW4gPHBhbnFpbmdsaW4yMDIwQGlz
-Y2FzLmFjLmNuPgo+Pgo+PiBTdm5hcG90IGlzIGEgUklTQy1WIGV4dGVuc2lvbiBmb3IgbWFya2lu
-ZyBjb250aWd1b3VzIDRLIHBhZ2VzIGFzIGEgbm9uLTRLCj4+IHBhZ2UuIFRoaXMgcGF0Y2ggc2V0
-IGlzIGZvciB1c2luZyBTdm5hcG90IGluIGh1Z2V0bGIgZnMgYW5kIGh1Z2Ugdm1hcC4KPj4KPj4g
-VGhpcyBwYXRjaHNldCBhZGRzIGEgS2NvbmZpZyBpdGVtIGZvciB1c2luZyBTdm5hcG90IGluCj4+
-ICJQbGF0Zm9ybSB0eXBlIi0+IlNWTkFQT1QgZXh0ZW5zaW9uIHN1cHBvcnQiLiBJdHMgZGVmYXVs
-dCB2YWx1ZSBpcyBvbiwKPj4gYW5kIHBlb3BsZSBjYW4gc2V0IGl0IG9mZiBpZiB0aGV5IGRvbid0
-IGFsbG93IGtlcm5lbCB0byBkZXRlY3QgU3ZuYXBvdAo+PiBoYXJkd2FyZSBzdXBwb3J0IGFuZCBs
-ZXZlcmFnZSBpdC4KPj4KPj4gVGVzdGVkIG9uOgo+PiDCoCAtIHFlbXUgcnY2NCB3aXRoICJTdm5h
-cG90IHN1cHBvcnQiIG9mZiBhbmQgc3ZuYXBvdD10cnVlLgo+PiDCoCAtIHFlbXUgcnY2NCB3aXRo
-ICJTdm5hcG90IHN1cHBvcnQiIG9uIGFuZCBzdm5hcG90PXRydWUuCj4+IMKgIC0gcWVtdSBydjY0
-IHdpdGggIlN2bmFwb3Qgc3VwcG9ydCIgb2ZmIGFuZCBzdm5hcG90PWZhbHNlLgo+PiDCoCAtIHFl
-bXUgcnY2NCB3aXRoICJTdm5hcG90IHN1cHBvcnQiIG9uIGFuZCBzdm5hcG90PWZhbHNlLgo+Pgo+
-Pgo+PiBDaGFuZ2VzIGluIHYyOgo+PiDCoCAtIGRldGVjdCBTdm5hcG90IGhhcmR3YXJlIHN1cHBv
-cnQgYXQgYm9vdCB0aW1lLgo+PiBDaGFuZ2VzIGluIHYzOgo+PiDCoCAtIGRvIGxpbmVhciBtYXBw
-aW5nIGFnYWluIGlmIGhhc19zdm5hcG90Cj4+IENoYW5nZXMgaW4gdjQ6Cj4+IMKgIC0gZml4IHNv
-bWUgZXJyb3JzL3dhcm5zIHJlcG9ydGVkIGJ5IGNoZWNrcGF0Y2gucGwsIHRoYW5rcyBAQ29ub3IK
-Pj4gQ2hhbmdlcyBpbiB2NToKPj4gwqAgLSBtb2RpZnkgY29kZSBhY2NvcmRpbmcgdG8gQENvbm9y
-IGFuZCBASGVpa28KPj4gQ2hhbmdlcyBpbiB2NjoKPj4gwqAgLSB1c2Ugc3RhdGljIGtleSBpbnNl
-YWQgb2YgYWx0ZXJuYXRpdmUgZXJyYXRhCj4+IENoYW5nZXMgaW4gdjc6Cj4+IMKgIC0gYWRkIG5h
-cG90X2NvbnRfb3JkZXIgZm9yIHBvc3NpYmxlIG1vcmUgbmFwb3Qgb3JkZXIgaW4gdGhlIGZ1dHVy
-ZQo+PiDCoCAtIHJlbW92ZSBsaW5lYXIgbWFwcGluZyByZWxhdGVkIGNvZGUgZnJvbSB0aGlzIHBh
-dGNoc2V0IHRvIGFub3RoZXIgCj4+IHBhdGNoCj4+IMKgIC0gcmVmYWN0b3IgaHVnZXRsYiBjb2Rl
-IGZvciBzdm5hcG90IGFjY29yZGluZyB0byB0aGFua3MgQEFuZHJldyBAQ29ub3IKPj4gwqAgLSB1
-c2UgdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMvdm0vbWFwX2h1Z2V0bGIgYXMgaHVnZXRsYiB0ZXN0
-aW5nIHByb2dyYW0KPj4gwqAgLSBzdXBwb3J0IHN2bmFwb3QgaW4gaHVnZSB2bWFwIG9uIG5ld2Vy
-IGZvci1uZXh0IGJyYW5jaAo+PiBDaGFuZ2VzIGluIHY4Ogo+PiDCoCAtIGZpeCBjb21waWxhdGlv
-biBlcnJvcnMgaW4gcnYzMl9kZWZjb25maWcKPj4gwqAgLSBpbnNlcnQgc29tZSBsaW5lcyBvZiB3
-aGl0ZXNwYWNlIGFjY29yZGluZyB0byBAQ29ub3IncyBzdWdnZXN0aW9uCj4+IENoYW5nZXMgaW4g
-djk6Cj4+IMKgIC0gdXNlIGFsdGVybmF0aXZlIHRvIGF2b2lkIHVzaW5nIHN0YXRpYyBicmFuY2hl
-cyBpbnNpZGUgaGVhdmlseSB1c2VkCj4+IMKgwqDCoCBpbmxpbmUgZnVuY3Rpb25zCj4+IMKgIC0g
-Y2hhbmdlIG5hcG90X2NvbnRfbWFzayBkZWZpbml0aW9uCj4+IMKgIC0gcG9zdCB0ZXN0X3ZtYWxs
-b2MgbW9kaWZpY2F0aW9uIGFib3V0IHRlc3Rpbmcgdm1hbGxvY19odWdlCj4+IENoYW5nZXMgaW4g
-djEwOgo+PiDCoCAtIGZpeCBzb21lIG5pdHMgY2F1Z2h0IGJ5IEBBbmRyZXcKPj4gwqAgLSBjb2xs
-ZWN0IFJldmlld2VkLWJ5L0Fja2VkLWJ5Cj4+IMKgIC0gYWRkIG1lbW9yeSBsZWFrIHdhcm5pbmcg
-aW4gS0NvbmZpZyB0ZXh0Cj4+IMKgIC0gcmVwbGFjZSB0ZXN0X3ZtYWxsb2MgcGF0Y2ggbGluayB3
-aXRoIHRoZSBzdGFuZGFyZCBvbmUKPj4gQ2hhbmdlcyBpbiB2MTE6Cj4+IMKgIC0gYWRkIG1vcmUg
-ZGV0YWlsZWQgd2FybmluZyBhYm91dCBIVUdFVExCRlMgYW5kIFNWTkFQT1QgaW4gS0NvbmZpZyB0
-ZXh0Cj4+IMKgIC0gZml4IG1pc3NpbmcgcmV2ZXJzZS14bWFzIHRyZWUKPj4KPj4KPj4gUWluZ2xp
-biBQYW4gKDMpOgo+PiDCoCByaXNjdjogbW06IG1vZGlmeSBwdGUgZm9ybWF0IGZvciBTdm5hcG90
-Cj4+IMKgIHJpc2N2OiBtbTogc3VwcG9ydCBTdm5hcG90IGluIGh1Z2V0bGIgcGFnZQo+PiDCoCBy
-aXNjdjogbW06IHN1cHBvcnQgU3ZuYXBvdCBpbiBodWdlIHZtYXAKPj4KPj4gwqBhcmNoL3Jpc2N2
-L0tjb25maWfCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfMKgIDIxICstCj4+
-IMKgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9lcnJhdGFfbGlzdC5oIHzCoCAxNSArLQo+PiDCoGFy
-Y2gvcmlzY3YvaW5jbHVkZS9hc20vaHVnZXRsYi5owqDCoMKgwqAgfMKgIDM0ICsrLQo+PiDCoGFy
-Y2gvcmlzY3YvaW5jbHVkZS9hc20vaHdjYXAuaMKgwqDCoMKgwqDCoCB8wqDCoCAyICstCj4+IMKg
-YXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wYWdlLmjCoMKgwqDCoMKgwqDCoCB8wqDCoCA1IC0KPj4g
-wqBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BndGFibGUtNjQuaMKgIHzCoCAzNCArKysKPj4gwqBh
-cmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BndGFibGUuaMKgwqDCoMKgIHzCoCA0MyArKystCj4+IMKg
-YXJjaC9yaXNjdi9pbmNsdWRlL2FzbS92bWFsbG9jLmjCoMKgwqDCoCB8wqAgNjEgKysrKystCj4+
-IMKgYXJjaC9yaXNjdi9rZXJuZWwvY3B1LmPCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8wqDC
-oCAxICsKPj4gwqBhcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmPCoMKgwqDCoMKgwqAgfMKg
-IDE1ICsrCj4+IMKgYXJjaC9yaXNjdi9tbS9odWdldGxicGFnZS5jwqDCoMKgwqDCoMKgwqDCoMKg
-IHwgMzAxICsrKysrKysrKysrKysrKysrKysrKysrKysrKwo+PiDCoDExIGZpbGVzIGNoYW5nZWQs
-IDUxOSBpbnNlcnRpb25zKCspLCAxMyBkZWxldGlvbnMoLSkKPiAKPiBUaGlzIGlzIHRyaWdnZXJp
-bmcgc29tZSBidWlsZCBmYWlsdXJlcy7CoCBJIHNlbnQgYWxvbmcgYSBmaXggYmVmb3JlIAo+IHJl
-YWxpemluZyB0aGV5J3JlIGFjdHVhbGx5IGNvbWluZyBmcm9tIHRoaXMgcGF0Y2ggc2V0OiAKPiBo
-dHRwczovL2xvcmUua2VybmVsLm9yZy9hbGwvMjAyMzAyMTQyMDEzNTguMTA2NDctMS1wYWxtZXJA
-cml2b3NpbmMuY29tLyAKPiAuwqAgSWYgaXQncyBPSyBJJ2xsIGp1c3Qgc3F1YXNoIHRoYXQgaW4g
-aGVyZSwgc28gSSBjYW4gYXZvaWQgYSBicm9rZW4gYnVpbGQuCgpUaGVyZSBpcyBhIG5ld2VyIHYx
-MyhpbiBbMV0pIGJhc2VkIG9uIG5ldyBJU0EgZXh0ZW5zaW9uIEFQSS4gQnV0IGl0IApzdGlsbCBo
-YXZlIGNvbmNodW9kL2J1aWxkX3J2NjRfZ2NjX2FsbG1vZGNvbmZpZyBjaGVjayBmYWlsZWQgaW4g
-aXRbMl0uCkkgaGF2ZSBubyBpZGVhIHdoZXRoZXIgaXQgaXMgY2F1c2VkIGJ5IG15IHBhdGNoc2V0
-IHNpbmNlIHRoZSBvdXRwdXQgCnNlZW1zIG5vdCByZWxhdGVkIHRvIG15IGNvZGUuLiBQbGVhc2Ug
-bGV0IG1lIGtub3cgaWYgdGhlcmUgaXMgYW55dGhpbmcgSQpuZWVkIHRvIG1vZGlmeS4KCgpbMV06
-IApodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNjdi8yMDIzMDIwOTEzMTY0Ny4xNzI0
-NS0xLXBhbnFpbmdsaW4wMEBnbWFpbC5jb20vClsyXTogCmh0dHBzOi8vcGF0Y2h3b3JrLmtlcm5l
-bC5vcmcvcHJvamVjdC9saW51eC1yaXNjdi9wYXRjaC8yMDIzMDIwOTEzMTY0Ny4xNzI0NS00LXBh
-bnFpbmdsaW4wMEBnbWFpbC5jb20vClszXTogaHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vY29ub3It
-cHdib3QvMGExODUwNTk0YWJkZjNhZWJlNGIzMDI2YTUyYTY4MmQKCgpfX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
-bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
-Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Thu, 2 Feb 2023 19:41:33 +0000, Conor Dooley wrote:
+> On Fri, Feb 03, 2023 at 02:56:41AM +0800, Hal Feng wrote:
+>> On Wed, 1 Feb 2023 08:21:05 +0000, Conor Dooley wrote:
+>> > On Wed, Feb 01, 2023 at 03:21:48PM +0800, Hal Feng wrote:
+>> >> On Wed, 28 Dec 2022 22:48:43 +0000, Conor Dooley wrote:
+>> >> > On Tue, Dec 20, 2022 at 09:12:46AM +0800, Hal Feng wrote:
+>> > 
+>> >> >> +/ {
+>> >> >> +	compatible = "starfive,jh7110";
+>> >> >> +	#address-cells = <2>;
+>> >> >> +	#size-cells = <2>;
+>> >> >> +
+>> >> >> +	cpus {
+>> >> >> +		#address-cells = <1>;
+>> >> >> +		#size-cells = <0>;
+>> >> >> +
+>> >> >> +		S76_0: cpu@0 {
+>> >> >> +			compatible = "sifive,u74-mc", "riscv";
+>> >> > 
+>> >> > The label here says S76 but the compatible says u74-mc.
+>> >> 
+>> >> U74-MC has 5 cores including 1 * S7 core and 4 * U74 cores.
+>> >> 
+>> >> > Which is correct? Your docs say S7 and S76, so I would imagine that it
+>> >> > is actually an S76?
+>> >> 
+>> >> I found SiFive website [1] call it S76, but call it S7 in other places.
+>> >> So I misunderstood this. Considering the ISA difference you described
+>> >> as below, I think it's proper to change the label to "S7_0".
+>> > 
+>> > I'm less worried about the label & more interested in the compatible.
+>> > hart0 is, as you say, not a u74. Should we not be adding a "sifive,s7"
+>> > compatible string to Documentation/devicetree/bindings/riscv/cpus.yaml
+>> > and using that here instead?
+>> 
+>> First of all, it's my fault that I didn't check the revision of U74-MC
+>> manual, so most of my previous replies might not make sense.
+> 
+> No that's fine. The manual stuff confused me too when I went looking
+> initially, and I still get get mixed up by the fact that there are
+> core-complex manuals but not core manuals.
+> 
+>> If we add a new compatible string for S7, should we change the compatibles
+>> of hart1~3 to "sifive,u74" also? And then, there may be no point keeping some
+>> compatible strings of core complex like "sifive,u74-mc" and "sifive,u54-mc".
+>> I'm not sure about this.
+> 
+> [...]
+> 
+>> >> Yes, "RV64IMAC" is correct. The monitor core in U74-MC is a
+>> >> S7-series core, not S76.
+>> > 
+>> > Cool, thanks.
+>> 
+>> Now I think it might be another version of S76.
+> 
+> The SiFive docs describe the u74-mc core complex, which AFAIU you have,
+> as being 1x S7 & 4x U7.
+> 
+> I'd be happy with new binding for "sifive,s7" & then we use that here.
+> If you're sure it's S76, we can also use that. S76 is described, in what
+> docs I can see, as a core complex containing an S7, so S7 seems likely
+> to be correct?
+
+I will add a new binding for "sifive,s7" and modify the code as follows.
+
+	S7_0: cpu@0 {
+		compatible = "sifive,s7", "riscv";
+		...
+		riscv,isa = "rv64imac_zicsr_zba_zbb";
+		...
+	};
+
+> 
+> u7, u74 & u74-mc are valid compatibles, added by SiFive, in commit
+> 75e6d7248efc ("dt-bindings: riscv: Update DT binding docs to support
+> SiFive FU740 SoC"). Unfortunately, they never actually *used* those
+> compatibles for anything, and just used "sifive,bullet0" for the fu740.
+> 
+> I'll accept any of u7, u74 or u74-mc for those harts.
+> 
+>> >> >> +			tlb-split;
+>> >> >> +			status = "disabled";
+>> >> >> +
+>> >> >> +			cpu0_intc: interrupt-controller {
+>> >> >> +				compatible = "riscv,cpu-intc";
+>> >> >> +				interrupt-controller;
+>> >> >> +				#interrupt-cells = <1>;
+>> >> >> +			};
+>> >> >> +		};
+>> >> >> +
+>> >> >> +		U74_1: cpu@1 {
+>> >> >> +			compatible = "sifive,u74-mc", "riscv";
+>> >> >> +			reg = <1>;
+>> >> >> +			d-cache-block-size = <64>;
+>> >> >> +			d-cache-sets = <64>;
+>> >> >> +			d-cache-size = <32768>;
+>> >> >> +			d-tlb-sets = <1>;
+>> >> >> +			d-tlb-size = <40>;
+>> >> >> +			device_type = "cpu";
+>> >> >> +			i-cache-block-size = <64>;
+>> >> >> +			i-cache-sets = <64>;
+>> >> >> +			i-cache-size = <32768>;
+>> >> >> +			i-tlb-sets = <1>;
+>> >> >> +			i-tlb-size = <40>;
+>> >> >> +			mmu-type = "riscv,sv39";
+>> >> >> +			next-level-cache = <&ccache>;
+>> >> >> +			riscv,isa = "rv64imafdc";
+>> >> > 
+>> >> > That also begs the question:
+>> >> > Do your u74s support RV64GBC, as the (current) SiFive documentation
+>> >> > suggests?
+>> >> 
+>> >> Actually, U74 doesn't support the full B extension, and the SiFive doc [1]
+>> > 
+>> > Yeah, I knew asking that question that the "RV64GBC" in SiFive's online
+>> > documentation was using outdated terminology. Also, that is not the doc
+>> > for your core complex as far as I can tell. That is the document for
+>> > impid 0x0621_1222, whereas (IIRC) your core is 0x0421_0427.
+>> > Jess and I had a look one evening but could not find the 21G1.02.00
+>> > revision of this document, which is the one corresponding to 0x421_0427.
+>> > See Table 92 for more details.
+>> 
+>> I found the 21G1.02.00 revision on StarFive internal net, but I'm not sure
+>> whether I can make it public and I am checking this.
+> 
+> Yeah, certainly don't do anything without cross-checking!
+> 
+>> This revision records
+>> that the ISA of 21G1.02.00 U74 is "RV64GCB" and ISA of 21G1.02.00 S7 is
+>> "RV64IMACB". I am asking someone to check with SiFive whether both 21G1.02.00
+>> U74 and S7 support the full B extension.
+> 
+> Having cross-checked a 21G1.01.00 document against a 21G2.01.00 one, I'm
+> 99% sure that you have _Zba_Zbb.
+> The G2.01 document says _Zba_Zbb & has the same instructions listed as
+> supported as the G1.02 one.
+> I've also tried the Zbb support patches posted by Heiko [2] on a
+> VisionFive V2 and had them work - which is why a definitive statement on
+> the version of Zbb supported would be really great to have!
+> 
+> [2] - https://lore.kernel.org/linux-riscv/20230113212301.3534711-1-heiko@sntech.de/
+
+The 21G1.02.00 document is still not allowed to be public so far. By
+comparing with instructions included in b extensions [1], I can confirm
+that the 21G1.02.00 only supports Zba and Zbb.
+
+[1] https://github.com/riscv/riscv-bitmanip/blob/main/bitmanip/overview.adoc#
+
+Zicsr is also supported as described in 21G1.02.00 document. So I will
+modify as follows.
+
+	U74_1: cpu@1 {
+		compatible = "sifive,u74-mc", "riscv";
+		...
+		riscv,isa = "rv64imafdc_zicsr_zba_zbb";
+		...
+	};
+
+Best regards,
+Hal
+
+> 
+>> >> describes the ISA of U74 is "RV64GC_Zba_Zbb_Sscofpmf" which "G" includes
+>> >> "IMAFD".
+>> > 
+>> > I could not find the 21G1.02.00 version of this document online, but I
+>> > was able to find the 21G1.01.00 version of it & that version does not
+>> > support the Sscofpmf extension (but does have Zba/Zbb support).
+>> > 
+>> >> "_Zba_Zbb_Sscofpmf" is not shown in other device trees such as
+>> >> jh7100.dtsi and fu740-c000.dtsi, so I didn't show them here.
+>> > 
+>> > Just because other devicetrees omit them, doesn't mean that you should
+>> > too!
+>> > This compatible should be an accurate description of your hardware, so
+>> > you should add what you actually have.
+>> 
+>> Will keep it in mind. Thank you.
+> 
+> FWIW, the deadline for getting material in for v6.3 has already passed,
+> so you can send the next version of this series without waiting for
+> clarification on the compatibles & ISA string. We should have plenty of
+> time to get those fixed up before the series gets applied.
+> 
+> Thanks,
+> Conor.
+> 
+>> > If you have Zba and Zbb, then add them.
+>> > I would double check against your internal documentation for 21G2.02.00
+>> > as to whether you do have Sscofpmf, and if you do, add that too!
+>> > 
+>> > That way, whenever support for those extensions lands, the jh7110 will
+>> > automatically pick it up, rather than needing to have them retrofitted.
+>> > 
+>> >> [1] https://sifive.cdn.prismic.io/sifive/2dd11994-693c-4360-8aea-5453d8642c42_u74mc_core_complex_manual_21G3.pdf
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
