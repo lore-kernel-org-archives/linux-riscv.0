@@ -4,62 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6E07C636CC
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Feb 2023 18:40:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E134DC636CC
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Feb 2023 19:07:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
+	Date:References:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IFSjMgbkP2PW2UO1u4wZhYjQCrT+63r8ZRbojaqvd4Y=; b=h22umIPe4wg0cM
-	NqbVsLH+fE/BFTdDCVAgoa6ZJpgB9lQdaRqNTREIcZXfU5RujpnGP7SEmEsqslSpUxYocaIDrRHFK
-	xQ8bdrZF8wndi6R3omluKgSaXmw596Yrizwkw8/mPraI+h14DreRR906wt+ehT1UQv5StvLUDYnP1
-	SgtsBLrnV5AHfJJh5JFcfNhxnCT3942W+8pEnzfXGv+Myuvws+yg38k7IqUjjx4nzTd5jCR3WO8P0
-	g6FMMuUfVLRfET5kFaq65z67+SV4FLbBbuRMKI2R/cu9YSmuUcLHcv4aBvlrhJQt67haI7UJtl9Hp
-	BpOXl8OIRm2qvntn6BLw==;
+	List-Owner; bh=ow8CYuH87i5x4dI9iB1hzehy36MAtnqGOVBv1FwZyNI=; b=kACgyamoywm5B/
+	vuFepSSOQ72U5J5yE0e9GBzkkbcjYwnChTSFABNEGU5jPvb70AlAa2RozgOvW0uLCcIgBnJ0VvrPQ
+	Xjld+lQ5q5+hBOLjUOA8aSrHRn8JYSSTkskr21p44ZqtCv2Ydw1MdRSuhXes3Sr6rl0577dWX3pUD
+	blP0uoE6zHaAYffuFkSJ1R3CvJl2DF7/Fc80uYt0eu287fsGuXawZOQdZFoFmfoDyq8bm8yOkGmGv
+	bLOHQzY8jebvmWPxm7eGEMB/OJBZiHDBJHE98TUGrxFRA/icOK7f956ZJnLqe+nydSUHp8Or8kNMb
+	0IytStUBlqub/AOW/qTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSMhc-006t7t-7u; Wed, 15 Feb 2023 18:40:24 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1pSN7X-006vsI-3g; Wed, 15 Feb 2023 19:07:11 +0000
+Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSMhZ-006t7B-97
-	for linux-riscv@lists.infradead.org; Wed, 15 Feb 2023 18:40:22 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id EA253B82357;
-	Wed, 15 Feb 2023 18:40:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 931D9C433D2;
-	Wed, 15 Feb 2023 18:40:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1676486417;
-	bh=dPK19CgIB81ZCZEd2/taVIPB2X5OIwHHIcrbwbtu1sA=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=DIkJD995mSAYn5t0gDqp+AAtHZJqqKIeunn2IuXMglkb+eTZ7rStBaBchbnOX/pzk
-	 hthikYxUa7SoHZJrq4kjbwrUgHZU6fDAsYzXhUpPJ61j3SE9bryBd/H5XoeqLKVsJG
-	 8XWnAm+YPrAq1QDCoaDx4KkvqhKKxDFkEvX4SpIzvlQtgU7ameGUgVNs04YI9GU+qY
-	 K8hddIwh9+dfPThBWdzYbadxg1GyljsqXJ8kInnRT9eK+X5d7D2gs8owk7bldT/XYi
-	 +VBNpWZwtsFLgGHUu0m8CM/tFq9UMZlQT7cne+iJc92N5KCfAIGogCMKu+dh6UbzWp
-	 Ap0hDk1Owxo7A==
-Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 6D375C41676;
-	Wed, 15 Feb 2023 18:40:17 +0000 (UTC)
+	id 1pSN7T-006vqs-3a
+	for linux-riscv@lists.infradead.org; Wed, 15 Feb 2023 19:07:09 +0000
+Received: from pps.filterd (m0333521.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 31FIiSXr030902;
+	Wed, 15 Feb 2023 19:06:57 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=from : to : cc :
+ subject : references : date : in-reply-to : message-id : content-type :
+ mime-version; s=corp-2022-7-12;
+ bh=s0sIBcUKuyrVyK/LVScaQiw+4LrWC8knDP2Wf10JF0Y=;
+ b=NESviJnY65S5+g+ink6EXGs45VUT6FRTP1046WBeg8CGsMNxFyNmlNW47JaMRkkyeOWw
+ MD7mDrcVAPHUd8hqRZLcxFoAFwSC1sl5XGzoC3wgDTsZx83Sl+XeKM38kzP78WPf1HBT
+ goAifWqhi4g1slzjXbSi1LBVvh1VPWWi9y2UCEtdesQEH0m7cWJtgtk+wnZTzKvKsJM3
+ Y+8ajEhy1CG2JhqQjL8PFz9yASpbQykpxBPkvkzyjpAkLsCK5MBLBOwz2j2DnwmTcSuU
+ iUgIEMjoJlbeiA7YyhQzAWylcviGCbawb2sjq+dJB4k29iTEWbnAjR+ARuL918qWDeRt gA== 
+Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta02.appoci.oracle.com [147.154.18.20])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 3np1xb98a4-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 15 Feb 2023 19:06:56 +0000
+Received: from pps.filterd (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (8.17.1.5/8.17.1.5) with ESMTP id 31FHSoct024595;
+	Wed, 15 Feb 2023 19:06:55 GMT
+Received: from nam11-dm6-obe.outbound.protection.outlook.com (mail-dm6nam11lp2168.outbound.protection.outlook.com [104.47.57.168])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 3np1f82h09-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 15 Feb 2023 19:06:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=NL7MBBgQlWoK1aKLr2+sAx63/lrKc79AER//SwYZwBPptxR2JecOTb5VVhmSWpUKCVXCE47zucREnc/xEnTsSn/l0pdyTqRKtF7pxZqESdh1yDkReLLNujXi9vpO41fEpihLqotXm54dj0lpQVaTgXr+IuGTgjZXCE8TqszDGrnZ2hxbI9f50FGgiV2plqvQ0kEPwpbNE/3dtvqM1y2J3+CTImKoD/o/y1khQHLQNTlL7LOpFJ6BBfIkYGhJ2ZMs12SX5yyTptjHWj9VjVusllg+qtrowqMHZSaE5DmgKfYRF46V039EEHxjm+1UJsgDHnrScN7QhQPtVlrtZvn6gw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=s0sIBcUKuyrVyK/LVScaQiw+4LrWC8knDP2Wf10JF0Y=;
+ b=ATUTQqkhN7EfOeqRWlOFV6kw9ARmKHfKrPtslfhBZ5xzf8NuEWuX2iGLFVhPLFxNMs/O7W94Wz+ZFxvtZcthquXqBaTXtYO0m/qiEMFQ2/JRBjSySGDNPSXjmlS7+meA4HctemINMbCB9QtoE4/HXZ/TpbzF9uKr9qWVP+EjY/EIVlJqC0b4MUS65dGgn54e+bHayYsTk9oZAo+SHYzMzz2Uh8zAHW/oHHzXDFxVAMTXmlsxL4a3v8mCx3AYu+OjvXYyvyrzKPlh6Qkxobj3gDTGTRW2UfFlREPs57cdDbgkKoakqt8kv2HJi6tm8BLmRcjh9lqqoA+GvtTU23brRQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=s0sIBcUKuyrVyK/LVScaQiw+4LrWC8knDP2Wf10JF0Y=;
+ b=Mt1mHNiF1HSiWv1AczrTLUlprlF+l6Fov0KphMD9r7Rl05Jg+MS/2KkdFjHByW0mqPwq4bLeBxwVyH8xNsSZwyYkY3qOAftdpONcjfBBydVyTTBae4YSqg1gQNaYMpKFxm4BjSObw+/xbULvLFMxcvx+SxIYPgZvNTY3b10Elh0=
+Received: from DS0PR10MB6798.namprd10.prod.outlook.com (2603:10b6:8:13c::20)
+ by PH7PR10MB5747.namprd10.prod.outlook.com (2603:10b6:510:127::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6111.10; Wed, 15 Feb
+ 2023 19:06:53 +0000
+Received: from DS0PR10MB6798.namprd10.prod.outlook.com
+ ([fe80::b30f:e3aa:6ba:5c8d]) by DS0PR10MB6798.namprd10.prod.outlook.com
+ ([fe80::b30f:e3aa:6ba:5c8d%5]) with mapi id 15.20.6111.012; Wed, 15 Feb 2023
+ 19:06:53 +0000
+From: Nick Alcock <nick.alcock@oracle.com>
+To: Leon Romanovsky <leon@kernel.org>
+Cc: Conor Dooley <conor@kernel.org>, mcgrof@kernel.org,
+        linux-modules@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 8/8] kbuild, PCI: microchip: comment out MODULE_LICENSE
+ in non-modules
+References: <20230210164749.368998-1-nick.alcock@oracle.com>
+	<20230210164749.368998-9-nick.alcock@oracle.com>
+	<Y+aMh5e9bWaTphiZ@spud> <871qmx1fv5.fsf@esperi.org.uk>
+	<Y+akw9VBjg9oZ7QV@spud> <Y+kx3fb2Lzlg+u5+@unreal>
+	<87k00ly25v.fsf@esperi.org.uk> <Y+puA2V5BoH/Cbr2@unreal>
+Emacs: more boundary conditions than the Middle East.
+Date: Wed, 15 Feb 2023 19:06:46 +0000
+In-Reply-To: <Y+puA2V5BoH/Cbr2@unreal> (Leon Romanovsky's message of "Mon, 13
+	Feb 2023 19:06:11 +0200")
+Message-ID: <873576wxx5.fsf@esperi.org.uk>
+User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/28.1.91 (gnu/linux)
+X-ClientProxiedBy: LO0P265CA0006.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:355::17) To DS0PR10MB6798.namprd10.prod.outlook.com
+ (2603:10b6:8:13c::20)
 MIME-Version: 1.0
-Subject: Re: [PATCH v1 0/3] Remove toolchain dependencies for Zicbom
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id:  <167648641743.2129.4018218851754248725.git-patchwork-notify@kernel.org>
-Date: Wed, 15 Feb 2023 18:40:17 +0000
-References: <20230108163356.3063839-1-conor@kernel.org>
-In-Reply-To: <20230108163356.3063839-1-conor@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
- conor.dooley@microchip.com, arnd@arndb.de, geert+renesas@glider.be,
- heiko@sntech.de, guoren@kernel.org, ajones@ventanamicro.com,
- prabhakar.mahadev-lad.rj@bp.renesas.com
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR10MB6798:EE_|PH7PR10MB5747:EE_
+X-MS-Office365-Filtering-Correlation-Id: d575c20a-95d6-4ebc-8fad-08db0f87ccae
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: 	gIuRVRKdGE+Yc4smGK8WKqArsSfoPXRAdQFIiZ+Jie7UUmBcJt9UBkdIXj7uVu4Z8oKGP5OZXyUcVY0UeIHX8zVVOqIJzyqU71KKnnRUAK/kEwbaLeJ1PpcKnJtj3XrcLaGzhpFGmZAHsoG09Bv4AmKYfaorgPRfU5M6+s3KGnN+ZDxgAk9Gy9JR4T70y9E549qHhUy+lLWkD1qxxDn1K4dLqGDFQwWXnbdvO9fTEGK9nmCTbKJw/hWGV2dh9F/zxA3VBd3AgCM1VrxtSg+CV+DlqqOJiY0S2l5x6Cygjg3Zl4hKKAdQ+34yNqpCIfaSyi9sH8ez4vMQXIZD5uhBWNELXMpvmFslsWc7W0QpoKavwJU+hqclRaIwZRvswlk9rB6iS926ayBf+iOLjopTiKq4F8i8ZBJpDWVqugzlZ8iPAQMAzmcvKA3SuwPl4wAMRrI8tLXwEKcs8M+z7iVyBvDfurVVCfZYDpseOuclWxf6eGbIi/uYN9jKO6dMWZ7aI9hVg8Ug6PX9bxulUluuilmYT96jQXj6+9woueTJKAqUGCkw5p0DPSJ8SmUlFAeqHhUdFhjQk/S2GXE8f6ps2CeenHWvXV+A8Eaply6zLLM/pvzFSl7fd1SZ8yHGotUJm1gqiGgnAYuJHdYVEQt9kQ==
+X-Forefront-Antispam-Report: 	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR10MB6798.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230025)(396003)(39860400002)(136003)(366004)(346002)(376002)(451199018)(36756003)(66476007)(316002)(4326008)(66556008)(41300700001)(66946007)(8676002)(6916009)(38100700002)(86362001)(6506007)(6666004)(9686003)(6512007)(186003)(5660300002)(8936002)(44832011)(2906002)(6486002)(478600001)(83380400001);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 	=?us-ascii?Q?RhO1J5Ot9ZsVKipdqUQK3xJYczhen0Tskev36ulZ2200TIA5QJjFuGryfZOm?=
+ =?us-ascii?Q?Viby4JV/qLT3yQNx/qS9Kw8scE3lx2Ie5gZd5qA6TBXNPf3YCA3PDgnaQhhC?=
+ =?us-ascii?Q?GA1DccJ/ugpWXILlc86RKgZDD0ZkUd2EsaUuKesZn3Ir5FqZtBHobowq0w25?=
+ =?us-ascii?Q?hZqXLrLWh/y5CJCTsdfzot6HXWz/LCsP9tZGhsG8EvHRJ/940zKpaKD8EBol?=
+ =?us-ascii?Q?Nr1CNnTj97HCJy5dn0mWQgn19tnCRjotOjBahjJ1F79wfbhvCvZM+46ra0gF?=
+ =?us-ascii?Q?Pyii0t5PaaXpXQMlT/rBu7ftk971MHmUJrB/evpZm3mIT1aOEVQJ9KSt0Sbz?=
+ =?us-ascii?Q?eiPXl9nEOVTeDCSpGF4Kg0A4DZf1LhVmklIhsEsZC0+rLKn8guXAxDMMkGSj?=
+ =?us-ascii?Q?j9/vf+xMCQQ8SbhuaQZFSmqA9ogU8iU2Z6Ag5RAUC4jr6Z3KEfIbneFlcISu?=
+ =?us-ascii?Q?2NLEMVzYqcgaqRG5zh3o7UyQeesa0NuuSJsobZuCYT5STC/DtYeLPLfBi6UE?=
+ =?us-ascii?Q?+yQJNR9JJL0U9fXeLeoK1qBNFqqpJ+zM4w0Z3DSUDhUvpTGqbiHKWTTLLLmH?=
+ =?us-ascii?Q?YU6w/uBT5tsyYmO4K/owaWDtje8RieMK1IhnFM9Y7kBroE3GoVm8RKeJXZCP?=
+ =?us-ascii?Q?iC6VeXebrijMb7XuXAna9mTNCTX9Au+mudavmOyMV7KWLcNaFA740JolMwaI?=
+ =?us-ascii?Q?ozjzkYDrON2goJ9trkCUSRGTDR9+XYTanLJLd10YC53fRxZ/tI57ljuGGr7F?=
+ =?us-ascii?Q?NdVxstN5o39t+krXfsWvy72CCKH/TmmRUO2VgT7+7MHOr6hLsHoJB1/jAHVe?=
+ =?us-ascii?Q?Y37KVgTM1uM3rlfv3pAO4HjFEyM5zqL6e7UMUqnEtcDFmzsUHZLa0/7Xzut3?=
+ =?us-ascii?Q?svurFPTWWZQjJpFYghkQ9wt+Ty9+Cj2en5wLtWyT2M9qRZLjSMQe+sjHW10N?=
+ =?us-ascii?Q?5faXgAEvYmiugpgKuFYVlz81by88hfgA+pyUUTAwSmeAbqve1YNi7MsIV2U/?=
+ =?us-ascii?Q?5aZCYe/oUQusY1Uv0kHId9ONS/nG2PkG26hLY4LtakWomwnEIxsy+KJBC6Io?=
+ =?us-ascii?Q?LRaa34Np9aYQyzN58lfTT2Wj1ppASCvGei6ZTSZkt5Cb81yWVZ5XT/Cf75mZ?=
+ =?us-ascii?Q?DuVNHuPXj9QFuFOiKeM6M274TMIqOVi/94K4m7X4I2gPjdNwsjpG8jUHYDTw?=
+ =?us-ascii?Q?KjfGtFjyQ4/2ACmmJPE/te3jPkOL/rFlXepv3GZk+a3ZDWrs+kzSt6BO6kkS?=
+ =?us-ascii?Q?fyq7iDborz+55PzXm+MFxYbcaq4GJjz3iakMz1jtSHEBGCh7muHPtdstfh1h?=
+ =?us-ascii?Q?hgtFjrAPIm4xYeHaJwJmmapYHfwLRFGaqTm+wTRTtl3LGK/n6EJk5viUTTB2?=
+ =?us-ascii?Q?xMVqQ4aJ5T0NR+vrStkGtge/JzjWoP6LE8FfRj1BV2H/zDbcs8wfPr2UGUeB?=
+ =?us-ascii?Q?y/ELLRYu5lccmIyP+TsCcWH3NMq1J1S95Ut46rau1SkTF+ZjGdJuPrZ3X+Ys?=
+ =?us-ascii?Q?DSLEoq2X14v0NS/heTKuLoVfCO9V2ZjNxnGHk4t5XzaxWbFfq3nXSVvuiLEk?=
+ =?us-ascii?Q?6kEETzY2014LmajG9wc3PXe/z/lwi/BtcL39kaMtRHnWRvREoIAVw8fg/FUu?=
+ =?us-ascii?Q?KA=3D=3D?=
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: 	78aRDdhkor/DZ9hIwdzb4q2/PEEP3CrpFt2XRn5WrSq17Sok4TBbQO2tGKHRUtqXRo6S+0x0Tb5mm+oVeI3IXFqd9s+35/bowwjnNhqj/w6vZtR8HAdqNlbvzhBYBSQ8UUmR/q/FstASfMV45hZmiWN68D3ZyDEdlywk6kZBNz6IOoLdn0xgtq9JrNaGMJoiXBKw3ilH50v06CoDZyQutkXlnAvsbZwnUMNDHm0DodIrDNhNuABY5AElfS5Oj0mjWGqRFwUUKw0ENx49zqwwa8cW7p+urV0sqR8TNO2PdlhZRoWop5JxQ89uCdRbnRrecqLmQMK6ypEKWdy8zekd5x44fDw0ocxJ4Di9zr3apF8wL8chTQ8vYEsMT3aBUANy6e4iqWBrxd1LDIIgBGcf64/iYkjOeB91JC9gqALOWFV48vACg2h2vVg9O6o/hguFzlIyQrg6X9tCtnDDtnhPB8F0DhUCktmAu9lD1IH0WcgR18GeJSxFUIsvJsq3GFI+E0LnYvOo78gZFroAKj5jokubBrw1M8kPk8+e5reOGZcbfOHnEBDfG9gmMwWcdVh/g9wsG7Py+4PIuyWqgnlw5W++R5Yz3TvylCATBCVChe0ak3yupukwm3CEVlWME6qcogdSOFiVItHauoG2JINQb0EgsGugS+Gq72KexoeX9iFU2HtTUv2nMc+Rb9WOrFOr1Y7bIL2Sx6Mj3Rk6I68JR9WqqcS1HwbzzO9dnKOs71V67mgZQTq1Y9wH+PEIC9FtkGssUc+zuwNf2q1npziQZ63CvVZs3hnW2k13/h0WQ7SDeO77ncXMEp+HBPZASG5gVJ82PvvmSMJmWxVWEV9eSA==
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d575c20a-95d6-4ebc-8fad-08db0f87ccae
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR10MB6798.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Feb 2023 19:06:53.3158
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: lA5gV0aAi/O8qtARzU8jZ3ScqpjH+1oA4wWA0ZMY9NSFWVjsi7EVETOYXu20opIQzMM2pUCSKTrXz18KHC5bJg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR10MB5747
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.219,Aquarius:18.0.930,Hydra:6.0.562,FMLib:17.11.170.22
+ definitions=2023-02-15_09,2023-02-15_01,2023-02-09_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 mlxlogscore=999 mlxscore=0 adultscore=0
+ malwarescore=0 phishscore=0 bulkscore=0 spamscore=0 suspectscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2212070000
+ definitions=main-2302150169
+X-Proofpoint-ORIG-GUID: GsZj66oU4u_Uzp9LKhYpBtsHgRu_W2Kd
+X-Proofpoint-GUID: GsZj66oU4u_Uzp9LKhYpBtsHgRu_W2Kd
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230215_104021_477772_1C8EC09E 
-X-CRM114-Status: GOOD (  11.70  )
+X-CRM114-CacheID: sfid-20230215_110707_869045_7DF7129B 
+X-CRM114-Status: GOOD (  20.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,38 +172,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
+On 13 Feb 2023, Leon Romanovsky said:
 
-This series was applied to riscv/linux.git (for-next)
-by Palmer Dabbelt <palmer@rivosinc.com>:
+> On Mon, Feb 13, 2023 at 04:13:00PM +0000, Nick Alcock wrote:
+>> So SPDX is usually more precise than the MODULE_LICENSE, but is it more
+>> *accurate*? I have no idea, and I don't see how I could possibly know:
+>> going by the presence of advertising clauses that obviously nobody is
+>> obeying it doesn't seem like we can trust header comments to be any more
+>> accurate than MODULE_LICENSE. Best to just leave both in (and comment it
+>> out so it has no side-effects on the build any more, which is all I'm
+>> after).
+>
+> You are overcomplicating things.
+>
+> First, GPL == GPL v2.
+> Second, SPDX is the right one. License in module is needed to limit
+> EXPORT_SYMBOL* exposure.
+> Third, we have git log and git blame to audit and revert any change.
+> There is no need in leaving (even as commented) dead code.
 
-On Sun,  8 Jan 2023 16:33:53 +0000 you wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
-> 
-> Hey all,
-> 
-> I've yoinked patch 1 from Drew's series adding support for Zicboz &
-> attached two more patches here that remove the need for, and then drop
-> the toolchain support checks for Zicbom. The goal is to remove the need
-> for checking the presence of toolchain Zicbom support in the work being
-> done to support non instruction based CMOs [1].
-> 
-> [...]
+Agreed. I audited the lot anyway -- all those files I'm touching that
+lack SPDXes (14 of them) have copyright headers at the top of the file
+anyway, so there is *definitely* no legal implication from dropping
+this. Moving to just dropping them in the next round.
 
-Here is the summary with links:
-  - [v1,1/3] RISC-V: insn-def: Add I-type insn-def
-    https://git.kernel.org/riscv/c/6067c3aae52f
-  - [v1,2/3] RISC-V: replace cbom instructions with an insn-def
-    https://git.kernel.org/riscv/c/dd23e9535889
-  - [v1,3/3] RISC-V: remove toolchain version checks for Zicbom
-    https://git.kernel.org/riscv/c/75c53905f873
-
-You are awesome, thank you!
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+NULL && (void)
 
 _______________________________________________
 linux-riscv mailing list
