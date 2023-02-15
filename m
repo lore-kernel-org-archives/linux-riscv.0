@@ -4,56 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7C54C61DA4
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Feb 2023 00:05:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 339AEC61DA4
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Feb 2023 00:08:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TN/UVTH9v51Z9/0eHcAg1zGmXfVWKBUEVfmYdMF2Sx8=; b=vng5mO8x5MFVFr
-	RZuupBDLfILocRhyHnrsrAPXmUrcFoXjR/oGstHuzNeAU/kutiJ6YkOpBUHwjtMkxAubgc27HxrfY
-	Wnh3VjBz0UjzRgkEbWnM9xdaXovpD2PX4Ft55Krz+EG3QbmXepY6c6gCIADrDBLJlk5MurzoBSxhj
-	P50Zv3amcGC87XyKvUNzN+JhFibkJNk9fQ4suVYu9DXuBFMFG8z6G2wmHtWQyBpkYhyGIPjbkgEf0
-	wPB6Q3EeWQMHY/kMbbQ/hz8+wBceqlJ8ZV52dU7kDVA7ip2MYC2qkh3Un46YIPV5y+QagN0fDC1Bt
-	hGxJ1CJr/ITPEZz6FN8A==;
+	List-Owner; bh=M7fmMVY3euTpDm3nQgb+QhLSJpgn1QtOp2ey+Vf2zsk=; b=qPPTaD5ZutFpMV
+	EC10C3hNojLVYz+WSQnHNBkHeQbru+9caGR7LHfauagZSUNN5fCYbxkIVUxgjxo24Mq9DiHMcrk2I
+	igQgGhakOizJNzXY211DNHY6TpxwU/HEISiLy6qIISybChhjNejlBq8jaddVH0TRgNMYWLpPcsRyY
+	AIxvKqFR2EU9p5IWzNkOuuk7LcjiGbCdRuFdvp/QUpmz4avmym1SgBrmq/p0yxt2N3c3DSds9+Wlh
+	eh7rGgFvOg+cYAQznUqhxk0Z8IL/a/54SPB9B8+V4SxWwZn54RJAvJ3HOBODwR2nly+GXyiGcb3Iz
+	FszmK+n8y3klggHEXE8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pS5IW-0040Q7-0X; Wed, 15 Feb 2023 00:05:20 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1pS5LW-004106-K0; Wed, 15 Feb 2023 00:08:26 +0000
+Received: from madras.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e5ab])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pS5IQ-0040OH-Ge
-	for linux-riscv@bombadil.infradead.org; Wed, 15 Feb 2023 00:05:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=v+YCB1fx4UPA9iEkgC9GqZSNjcLUQaLXo5P2YNuoVqs=; b=gulMP2V/waJdjiu05gvVHbNrv6
-	hgj16IWg8ovGkNxY3/qNWLG1GfEPbEdR7zfggUscuiwUOvFdgepGat8uqxdFP23N6aSQsJOg02vw5
-	0u3NieyYTCx3MaJr1Ro89AENDlpJwyFFxp93FwPxy5kC43eS41FIRuPu/2JS/ma342VVSivoAN5yo
-	iRQHVihKskj6YRpY4CGVg9yYs/rrJ+ALVCXlnLvMQ8JdenlQ8NHn6PkkUqVjWJDjCvgmeXfhx5eKr
-	DlRjiOwnh433a96MCrwGLUXJ5wYNYR4unNbEoKHd+oMrT3ViYiyCr9u3hscvF5Qjsic6ulV658bi1
-	ossiVp4g==;
-Received: from willy by casper.infradead.org with local (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pS5IM-006wkh-Nt; Wed, 15 Feb 2023 00:05:10 +0000
-From: "Matthew Wilcox (Oracle)" <willy@infradead.org>
-To: linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-arch@vger.kernel.org
-Cc: "Matthew Wilcox (Oracle)" <willy@infradead.org>
-Subject: [PATCH 10/7] riscv: Implement the new page table range API
-Date: Wed, 15 Feb 2023 00:04:43 +0000
-Message-Id: <20230215000446.1655635-2-willy@infradead.org>
-X-Mailer: git-send-email 2.37.1
-In-Reply-To: <20230215000446.1655635-1-willy@infradead.org>
-References: <20230211033948.891959-1-willy@infradead.org>
- <20230215000446.1655635-1-willy@infradead.org>
+	id 1pS5LL-0040wE-EB; Wed, 15 Feb 2023 00:08:16 +0000
+Received: from [192.168.1.90] (unknown [86.120.32.152])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by madras.collabora.co.uk (Postfix) with ESMTPSA id 890DE660217D;
+	Wed, 15 Feb 2023 00:08:04 +0000 (GMT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1676419686;
+	bh=zoW3noIDVP825JbgOO/Z2/ogb3Eb9ppZTgw5s0u1c6c=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=UfvWpf+J3tW+akDw4oW44yeBej/Sq4UK3l7YLde3GTyggOvzrm6Ey9KYOBf0Dch/y
+	 1pFHF63nR3TlRsC3Aj0VOX5DvVHeNBKnuyZqRF0tRlnNIrSbCP+hU1ZCnSmvUg3qvX
+	 R6vNoD1ZEVdWkz2ZsquvmQtfWOI5VpL2yHXn0oh/AkXfFKK4NVnnZfAbG2SXw1HGbV
+	 SX5mfN82oCQaQ0Xa5ehpLghlF/WW4YSASlkw5Wb9F6CFzEzN+Vt8y89a3mdJDd4bdo
+	 QbITCjffcDyanACGG60Jp9Yu089C5uEnzns31zBFW5/BwbFb25oYS0BgapW32IKtJK
+	 GJD1oSkYLWrcA==
+Message-ID: <d1769dac-9e80-2f0d-6a5c-386ef70e1547@collabora.com>
+Date: Wed, 15 Feb 2023 02:08:01 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.7.2
+Subject: Re: [PATCH 08/12] net: stmmac: Add glue layer for StarFive JH7100 SoC
+Content-Language: en-US
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Emil Renner Berthing <kernel@esmil.dk>, Conor Dooley <conor@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Jose Abreu <joabreu@synopsys.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Richard Cochran <richardcochran@gmail.com>,
+ Sagar Kadam <sagar.kadam@sifive.com>,
+ Yanhong Wang <yanhong.wang@starfivetech.com>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, kernel@collabora.com
+References: <20230211031821.976408-1-cristian.ciocaltea@collabora.com>
+ <20230211031821.976408-9-cristian.ciocaltea@collabora.com>
+ <Y+e+N/aiqCctIp6e@lunn.ch>
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <Y+e+N/aiqCctIp6e@lunn.ch>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20230214_160815_629147_1C33F8BA 
+X-CRM114-Status: GOOD (  15.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,138 +85,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add set_ptes(), update_mmu_cache_range() and flush_dcache_folio().
-
-The PG_dcache_clear flag changes from being a per-page bit to being a
-per-folio bit.
-
-Signed-off-by: Matthew Wilcox (Oracle) <willy@infradead.org>
----
- arch/riscv/include/asm/cacheflush.h | 19 +++++++++----------
- arch/riscv/include/asm/pgtable.h    | 25 ++++++++++++++++++-------
- arch/riscv/mm/cacheflush.c          | 11 ++---------
- 3 files changed, 29 insertions(+), 26 deletions(-)
-
-diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/include/asm/cacheflush.h
-index 03e3b95ae6da..10e5e96f09b5 100644
---- a/arch/riscv/include/asm/cacheflush.h
-+++ b/arch/riscv/include/asm/cacheflush.h
-@@ -15,20 +15,19 @@ static inline void local_flush_icache_all(void)
- 
- #define PG_dcache_clean PG_arch_1
- 
--static inline void flush_dcache_page(struct page *page)
-+static inline void flush_dcache_folio(struct folio *folio)
- {
--	/*
--	 * HugeTLB pages are always fully mapped and only head page will be
--	 * set PG_dcache_clean (see comments in flush_icache_pte()).
--	 */
--	if (PageHuge(page))
--		page = compound_head(page);
--
--	if (test_bit(PG_dcache_clean, &page->flags))
--		clear_bit(PG_dcache_clean, &page->flags);
-+	if (test_bit(PG_dcache_clean, &folio->flags))
-+		clear_bit(PG_dcache_clean, &folio->flags);
- }
-+#define flush_dcache_folio flush_dcache_folio
- #define ARCH_IMPLEMENTS_FLUSH_DCACHE_PAGE 1
- 
-+static inline void flush_dcache_page(struct page *page)
-+{
-+	flush_dcache_folio(page_folio(page));
-+}
-+
- /*
-  * RISC-V doesn't have an instruction to flush parts of the instruction cache,
-  * so instead we just flush the whole thing.
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 13222fd5c4b4..03706c833e70 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -405,8 +405,8 @@ static inline pte_t pte_modify(pte_t pte, pgprot_t newprot)
- 
- 
- /* Commit new configuration to MMU hardware */
--static inline void update_mmu_cache(struct vm_area_struct *vma,
--	unsigned long address, pte_t *ptep)
-+static inline void update_mmu_cache_range(struct vm_area_struct *vma,
-+		unsigned long address, pte_t *ptep, unsigned int nr)
- {
- 	/*
- 	 * The kernel assumes that TLBs don't cache invalid entries, but
-@@ -415,8 +415,10 @@ static inline void update_mmu_cache(struct vm_area_struct *vma,
- 	 * Relying on flush_tlb_fix_spurious_fault would suffice, but
- 	 * the extra traps reduce performance.  So, eagerly SFENCE.VMA.
- 	 */
--	flush_tlb_page(vma, address);
-+	flush_tlb_range(vma, address, address + nr * PAGE_SIZE);
- }
-+#define update_mmu_cache(vma, addr, ptep) \
-+	update_mmu_cache_range(vma, addr, ptep, 1)
- 
- #define __HAVE_ARCH_UPDATE_MMU_TLB
- #define update_mmu_tlb update_mmu_cache
-@@ -456,12 +458,21 @@ static inline void __set_pte_at(struct mm_struct *mm,
- 	set_pte(ptep, pteval);
- }
- 
--static inline void set_pte_at(struct mm_struct *mm,
--	unsigned long addr, pte_t *ptep, pte_t pteval)
-+static inline void set_ptes(struct mm_struct *mm, unsigned long addr,
-+		pte_t *ptep, pte_t pteval, unsigned int nr)
- {
--	page_table_check_ptes_set(mm, addr, ptep, pteval, 1);
--	__set_pte_at(mm, addr, ptep, pteval);
-+	page_table_check_ptes_set(mm, addr, ptep, pteval, nr);
-+
-+	for (;;) {
-+		__set_pte_at(mm, addr, ptep, pteval);
-+		if (--nr == 0)
-+			break;
-+		ptep++;
-+		addr += PAGE_SIZE;
-+		pte_val(pteval) += 1 << _PAGE_PFN_SHIFT;
-+	}
- }
-+#define set_pte_at(mm, addr, ptep, pte) set_ptes(mm, addr, ptep, pte, 1)
- 
- static inline void pte_clear(struct mm_struct *mm,
- 	unsigned long addr, pte_t *ptep)
-diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
-index 3cc07ed45aeb..b725c3f6f57f 100644
---- a/arch/riscv/mm/cacheflush.c
-+++ b/arch/riscv/mm/cacheflush.c
-@@ -81,16 +81,9 @@ void flush_icache_mm(struct mm_struct *mm, bool local)
- #ifdef CONFIG_MMU
- void flush_icache_pte(pte_t pte)
- {
--	struct page *page = pte_page(pte);
-+	struct folio *folio = page_folio(pte_page(pte));
- 
--	/*
--	 * HugeTLB pages are always fully mapped, so only setting head page's
--	 * PG_dcache_clean flag is enough.
--	 */
--	if (PageHuge(page))
--		page = compound_head(page);
--
--	if (!test_and_set_bit(PG_dcache_clean, &page->flags))
-+	if (!test_and_set_bit(PG_dcache_clean, &folio->flags))
- 		flush_icache_all();
- }
- #endif /* CONFIG_MMU */
--- 
-2.39.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMi8xMS8yMyAxODoxMSwgQW5kcmV3IEx1bm4gd3JvdGU6Cj4+ICsKPj4gKyNkZWZpbmUgSkg3
+MTAwX1NZU01BSU5fUkVHSVNURVIyOCAweDcwCj4+ICsvKiBUaGUgdmFsdWUgYmVsb3cgaXMgbm90
+IGEgdHlwbywganVzdCByZWFsbHkgYmFkIG5hbWluZyBieSBTdGFyRml2ZSDCr1xfKOODhClfL8Kv
+ICovCj4+ICsjZGVmaW5lIEpINzEwMF9TWVNNQUlOX1JFR0lTVEVSNDkgMHhjOAo+IAo+IFNlZW1z
+IGxpa2UgdGhlIGNvbW1lbnQgc2hvdWxkIGJlIG9uZSBsaW5lIGVhcmxpZXI/Cj4gCj4gVGhlcmUg
+aXMgdmFsdWUgaW4gYmFzaW5nIHRoZSBuYW1lcyBvbiB0aGUgZGF0YXNoZWV0LCBidXQgeW91IGNv
+dWxkCj4gYXBwZW5kIHNvbWV0aGluZyBtZWFuaW5nZnVsIG9uIHRoZSBlbmQ6Cj4gCj4gI2RlZmlu
+ZSBKSDcxMDBfU1lTTUFJTl9SRUdJU1RFUjQ5X0RMWUNIQUlOIDB4YzgKPiAKPiA/Pz8KClVuZm9y
+dHVuYXRlbHkgdGhlIEpINzEwMCBkYXRhc2hlZXQgSSBoYXZlIGFjY2VzcyB0byBkb2Vzbid0IHBy
+b3ZpZGUgYW55IAppbmZvcm1hdGlvbiByZWdhcmRpbmcgdGhlIFNZU0NUUkwtTUFJTlNZUyByZWxh
+dGVkIHJlZ2lzdGVycy4gTWF5YmUgRW1pbCAKY291bGQgcHJvdmlkZSBzb21lIGRldGFpbHMgaGVy
+ZT8KCj4+ICsJaWYgKCFvZl9wcm9wZXJ0eV9yZWFkX3UzMihucCwgInN0YXJmaXZlLGd0eGNsay1k
+bHljaGFpbiIsICZndHhjbGtfZGx5Y2hhaW4pKSB7Cj4+ICsJCXJldCA9IHJlZ21hcF93cml0ZShz
+eXNtYWluLCBKSDcxMDBfU1lTTUFJTl9SRUdJU1RFUjQ5LCBndHhjbGtfZGx5Y2hhaW4pOwo+PiAr
+CQlpZiAocmV0KQo+PiArCQkJcmV0dXJuIGRldl9lcnJfcHJvYmUoZGV2LCByZXQsICJlcnJvciBz
+ZWxlY3RpbmcgZ3R4Y2xrIGRlbGF5IGNoYWluXG4iKTsKPj4gKwl9Cj4gCj4gWW91IHNob3VsZCBw
+cm9iYWJseSBkb2N1bWVudCB0aGF0IGlmIHN0YXJmaXZlLGd0eGNsay1kbHljaGFpbiBpcyBub3QK
+PiBmb3VuZCBpbiB0aGUgRFQgYmxvYiwgdGhlIHZhbHVlIGZvciB0aGUgZGVsYXkgY2hhaW4gaXMg
+dW5kZWZpbmVkLiAgSXQKPiB3b3VsZCBhY3R1YWxseSBiZSBiZXR0ZXIgdG8gZGVmaW5lIGl0LCBz
+ZXQgaXQgdG8gMCBmb3IgZXhhbXBsZS4gVGhhdAo+IHdheSwgeW91IGtub3cgeW91IGRvbid0IGhh
+dmUgYW55IGRlcGVuZGVuY3kgb24gdGhlIGJvb3Rsb2FkZXIgZm9yCj4gZXhhbXBsZS4KClN1cmUs
+IEkgd2lsbCBzZXQgaXQgdG8gMC4KCj4gCj4gCUFuZHJldwoKVGhhbmtzIGZvciByZXZpZXdpbmcs
+CkNyaXN0aWFuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
+ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
+Cg==
