@@ -4,79 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC907C636D4
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Feb 2023 07:59:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5F39C6379F
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Feb 2023 08:02:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xMHUUU8ofkJcpR3WJCuxuzSawLDEvCHpAwl4pGdTsQ8=; b=fbrDDYlutZ+1fEYAQXgqLeBure
-	KVQJpSsMDkpv49fs66KQYcqpaHkmlfBgZOlaAtU8AQa71k2s4iuO5dqdH/SR3AJa8VtQlz9gQ4COP
-	ni2vcctU4joFV8YYDwM6O7JmWBnG0BxxHUfvGOMIlLgE8ttzdNnNXO45dnW1dXUr4g8ZjbFsAPDkE
-	l3GVmYbXsuGP5vsBlYe/+KDqb2KWNXHsq3UJG4Pz3lBItTSFXaTL6oGg6BH6/9eHLgkxVNFOD8npj
-	poeU6HTWAy34aEeEH+mp4Yqyyy7+VlpN0Kj08tKSGKIA9G7m7L2+6t5sbnA50Te1iarXa7wQx303U
-	Qcqp1TqQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=XSz5nTFXECOI6DkBQxCl+t54UYkqzvXePMpWUX3+XpA=; b=PpWrce6qDG/zXb
+	HCczzJS2tCigHy8BZeNGZxgffoRM5SDtOIfPGeAP3ZdCe1i9PRymnNB1zAU5tK1NqkTeEYm1EnaYn
+	diMzZv842vfP0Uyd7ZnDetZgEFOaJa5JxihWLD25kmhGs5/ShvYSoeYdah4AH7EfB4CrCknrOashx
+	7eXEOfNT4JzZhVXlV85mJLQy5EECOeuE/eW0I1zfh6NJ4PdCyvdqzSWKHXB/EYECNFEFZ2OhmDvqf
+	ux6yuaCm5mdoM6xI6MlS6rNTQqe1JNZuLaGHn/ySxxtxF7Zw3dYlYq0xcjrcr1Wjz9YBrE7ez9DKP
+	KPlWvAsakrLSynrbwQ8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSChX-0057Gh-VI; Wed, 15 Feb 2023 07:59:39 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1pSCk1-0057fQ-0L; Wed, 15 Feb 2023 08:02:13 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSChU-0057Fa-Bk
-	for linux-riscv@lists.infradead.org; Wed, 15 Feb 2023 07:59:38 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 9432DB81DD3;
-	Wed, 15 Feb 2023 07:59:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4747C433D2;
-	Wed, 15 Feb 2023 07:59:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1676447973;
-	bh=AlCe6D2Z5HBYC7NYZS/tW0FzZvw6nnZ59icnVKOLKFk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jhATrRqocqdcwNHySsDVAM4AJyFs9yiQMEbw5gRi0OLjrfbo7rGn0WM4F7C6BDEaY
-	 88FIpaZCHfsdHcN11pSI6TtSBfcrqPbIxuKukZooWrUCi+eXeA7PC25EPIX6olT+T2
-	 DuHwtXABCp2ui7Jny/a1Y+1mtz5pRO4X/T0EkdMUFou4v/pSWfEWce2cEt6q3vGOes
-	 /9sI7CpeRXKAbgTNSP7rM8yChLnkdEQYFFSppjo/AK9YHOIKgFTxYuOqqZf0xc6Wfm
-	 fz/AoRswpVXS0tsxu8Fezhh9KOsPURglgrpfmZLyIG7jvH1mc5Wj7JLi5Ti55GPR3r
-	 fOUfSyC3YvktA==
-Date: Wed, 15 Feb 2023 07:59:27 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Hal Feng <hal.feng@starfivetech.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Ben Dooks <ben.dooks@sifive.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 6/7] riscv: dts: starfive: Add initial StarFive JH7110
- device tree
-Message-ID: <Y+yQ3+0lyo5OQr2z@spud>
-References: <20221220011247.35560-1-hal.feng@starfivetech.com>
- <20221220011247.35560-7-hal.feng@starfivetech.com>
- <Y6zHy9oL4xzl+6Rd@spud>
- <c507e0b2-5ca3-cffe-55d2-873ed8c24e3d@starfivetech.com>
- <Y9og8Q2UnJ452KH/@wendy>
- <df6755ed-a358-ea01-d89e-f3c004b9c297@starfivetech.com>
- <Y9wR7Up+iObw5qoE@spud>
- <8b35344f-0f78-b4e6-2b5e-e6ec6b101a75@starfivetech.com>
- <Y+yM6HgAbDoWlu1G@spud>
-MIME-Version: 1.0
-In-Reply-To: <Y+yM6HgAbDoWlu1G@spud>
+	id 1pSCjy-0057dw-Np
+	for linux-riscv@lists.infradead.org; Wed, 15 Feb 2023 08:02:11 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id rp23so46063262ejb.7
+        for <linux-riscv@lists.infradead.org>; Wed, 15 Feb 2023 00:02:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=wYpuouRtqGGYmfeCWWTT/2rWXrPC61M4tuQYBc16990=;
+        b=Ewy3+ElsaB8wC+43QB/lfm6tQzdZpiyQ90g2dcojPYfreVDuUoUiZIX1QRFQ4ur+8d
+         YpynnM+VOqTiBoS2gcwOCQgRMBHEHRa7DDwYgt+9gFT3Ax5RR/fK88ZjaB4ShaijJJQd
+         pKAF0DuwZeJWtxQRb/as5Rpco5nFCUbGTlK3ZrPdCaN2FJeQWaiILYYaksPdcwGRaUjt
+         pZ3+WeMMQFf3l0iYpMZhFIRp/UzxlavSH8s97HpohyoB1Wiiq27aNfG58bV2FJ3bQe3r
+         eCjGzailwH8oX3hMJek/7Y3xI0sT2pD05SE07tn61F7FzTTQUB3rW0/C9gZNuqVWZSbV
+         ulrQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=wYpuouRtqGGYmfeCWWTT/2rWXrPC61M4tuQYBc16990=;
+        b=AGG/evCeeog4l7eWHArS8T9yWWbSGLb3jNz5FD3qIhidk7LtNkHJlZVByeWhPVeWVl
+         RI0TsTlby7jHsEUhJ6rOh5SaAcQfegTNcIG81xxRpn35e9Wt3yE9jSVLAG8TZswEkJ43
+         mII9J9tNtl4N9YU1PvKEzi/qwLGb3G/4EdDQnjOW6O7kbtFuqLDkhq/KZdpTes/35bC8
+         2v6L5q56ZsfrPRoL0QMFTCqjfrsqCA4nlXFLT1VarqJ3CQb3vke+856eC5Hoo6WWTO68
+         XYsAo6AY36Z2p2X5Fx8lgmSiF7pWqj9H560OssBrj2hqHsAnu325ORyW/eOiFR2Ot7Cn
+         Riww==
+X-Gm-Message-State: AO0yUKVXrvovr9wy7pE9CwhIhSm+qD26IZh8fsWCS8HTlvaKQHOOsk48
+	8Dtcfn0odUIVq6zaVZ28DL4=
+X-Google-Smtp-Source: AK7set8L1CiiJwryrzPT+bqNoU9kWn4IRGRjCWQD3hofSiPU02XlmrnSQ8929Pfwkl3yRRdX0hnQzg==
+X-Received: by 2002:a17:907:584:b0:870:d9a:9ebb with SMTP id vw4-20020a170907058400b008700d9a9ebbmr1578180ejb.38.1676448126256;
+        Wed, 15 Feb 2023 00:02:06 -0800 (PST)
+Received: from felia.fritz.box ([2a02:810d:2a40:1104:983e:41b3:46f3:e161])
+        by smtp.gmail.com with ESMTPSA id p2-20020a1709066a8200b0087bdae9a1ebsm9394619ejr.94.2023.02.15.00.02.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 15 Feb 2023 00:02:05 -0800 (PST)
+From: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+To: William Qiu <william.qiu@starfivetech.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>
+Cc: linux-riscv@lists.infradead.org,
+	linux-mmc@vger.kernel.org,
+	kernel-janitors@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Lukas Bulwahn <lukas.bulwahn@gmail.com>
+Subject: [PATCH] MAINTAINERS: repair file entry for STARFIVE JH7110 MMC/SD/SDIO DRIVER
+Date: Wed, 15 Feb 2023 09:02:03 +0100
+Message-Id: <20230215080203.27445-1-lukas.bulwahn@gmail.com>
+X-Mailer: git-send-email 2.17.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230214_235936_713215_F5BCEEBD 
-X-CRM114-Status: GOOD (  43.62  )
+X-CRM114-CacheID: sfid-20230215_000210_796450_400956F7 
+X-CRM114-Status: GOOD (  11.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,163 +84,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8966864887096593075=="
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Commit bfde6b3869f5 ("mmc: starfive: Add sdio/emmc driver support") adds a
+section in MAINTAINERS refering to the file drivers/mmc/dw_mmc-starfive.c,
+but the file is actually located at drivers/mmc/host/dw_mmc-starfive.c.
 
---===============8966864887096593075==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="kQ9J72Cft2Lox+eu"
-Content-Disposition: inline
+Hence, ./scripts/get_maintainer.pl --self-test=patterns complains about a
+broken reference.
 
+Repair this file entry in STARFIVE JH7110 MMC/SD/SDIO DRIVER.
 
---kQ9J72Cft2Lox+eu
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Fixes: bfde6b3869f5 ("mmc: starfive: Add sdio/emmc driver support")
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+---
+ MAINTAINERS | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-On Wed, Feb 15, 2023 at 07:42:32AM +0000, Conor Dooley wrote:
-> Hey Hal!
->=20
-> On Wed, Feb 15, 2023 at 11:07:15AM +0800, Hal Feng wrote:
-> > On Thu, 2 Feb 2023 19:41:33 +0000, Conor Dooley wrote:
-> > > On Fri, Feb 03, 2023 at 02:56:41AM +0800, Hal Feng wrote:
-> > >> On Wed, 1 Feb 2023 08:21:05 +0000, Conor Dooley wrote:
-> > >> > On Wed, Feb 01, 2023 at 03:21:48PM +0800, Hal Feng wrote:
-> > >> >> On Wed, 28 Dec 2022 22:48:43 +0000, Conor Dooley wrote:
-> > >> >> > On Tue, Dec 20, 2022 at 09:12:46AM +0800, Hal Feng wrote:
-> > >> >=20
-> > >> >> >> +/ {
-> > >> >> >> +	compatible =3D "starfive,jh7110";
-> > >> >> >> +	#address-cells =3D <2>;
-> > >> >> >> +	#size-cells =3D <2>;
-> > >> >> >> +
-> > >> >> >> +	cpus {
-> > >> >> >> +		#address-cells =3D <1>;
-> > >> >> >> +		#size-cells =3D <0>;
-> > >> >> >> +
-> > >> >> >> +		S76_0: cpu@0 {
-> > >> >> >> +			compatible =3D "sifive,u74-mc", "riscv";
-> > >> >> >=20
-> > >> >> > The label here says S76 but the compatible says u74-mc.
-> > >> >>=20
-> > >> >> U74-MC has 5 cores including 1 * S7 core and 4 * U74 cores.
-> > >> >>=20
-> > >> >> > Which is correct? Your docs say S7 and S76, so I would imagine =
-that it
-> > >> >> > is actually an S76?
-> > >> >>=20
-> > >> >> I found SiFive website [1] call it S76, but call it S7 in other p=
-laces.
-> > >> >> So I misunderstood this. Considering the ISA difference you descr=
-ibed
-> > >> >> as below, I think it's proper to change the label to "S7_0".
-> > >> >=20
-> > >> > I'm less worried about the label & more interested in the compatib=
-le.
-> > >> > hart0 is, as you say, not a u74. Should we not be adding a "sifive=
-,s7"
-> > >> > compatible string to Documentation/devicetree/bindings/riscv/cpus.=
-yaml
-> > >> > and using that here instead?
-> > >>=20
-> > >> First of all, it's my fault that I didn't check the revision of U74-=
-MC
-> > >> manual, so most of my previous replies might not make sense.
-> > >=20
-> > > No that's fine. The manual stuff confused me too when I went looking
-> > > initially, and I still get get mixed up by the fact that there are
-> > > core-complex manuals but not core manuals.
-> > >=20
-> > >> If we add a new compatible string for S7, should we change the compa=
-tibles
-> > >> of hart1~3 to "sifive,u74" also? And then, there may be no point kee=
-ping some
-> > >> compatible strings of core complex like "sifive,u74-mc" and "sifive,=
-u54-mc".
-> > >> I'm not sure about this.
-> > >=20
-> > > [...]
-> > >=20
-> > >> >> Yes, "RV64IMAC" is correct. The monitor core in U74-MC is a
-> > >> >> S7-series core, not S76.
-> > >> >=20
-> > >> > Cool, thanks.
-> > >>=20
-> > >> Now I think it might be another version of S76.
-> > >=20
-> > > The SiFive docs describe the u74-mc core complex, which AFAIU you hav=
-e,
-> > > as being 1x S7 & 4x U7.
-> > >=20
-> > > I'd be happy with new binding for "sifive,s7" & then we use that here.
-> > > If you're sure it's S76, we can also use that. S76 is described, in w=
-hat
-> > > docs I can see, as a core complex containing an S7, so S7 seems likely
-> > > to be correct?
-> >=20
-> > I will add a new binding for "sifive,s7" and modify the code as follows.
-> >=20
-> > 	S7_0: cpu@0 {
-> > 		compatible =3D "sifive,s7", "riscv";
-> > 		...
-> > 		riscv,isa =3D "rv64imac_zicsr_zba_zbb";
->=20
-> I'm not sure that I'd bother with the zicsr, it gets added automagically
-> by the Makefile if needed:
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 945b86f93cf7..74a30e724f7c 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -19935,7 +19935,7 @@ STARFIVE JH7110 MMC/SD/SDIO DRIVER
+ M:	William Qiu <william.qiu@starfivetech.com>
+ S:	Maintained
+ F:	Documentation/devicetree/bindings/mmc/starfive*
+-F:	drivers/mmc/dw_mmc-starfive.c
++F:	drivers/mmc/host/dw_mmc-starfive.c
+ 
+ STARFIVE JH71XX PMU CONTROLLER DRIVER
+ M:	Walker Chen <walker.chen@starfivetech.com>
+-- 
+2.17.1
 
-Meh, I probably shouldn't have replied to this first thing in the
-morning as this comment of mine doesn't really make sense.
-I skipped the middle part of my point here...
-What I meant was that you can avoid zicsr & zifencei because when the
-binding was defined they were included in i. I meant to use the
-following as a kinda explanation of it depending on the version of the
-ISA spec & that we just assume that zicsr & zifencei are present.
-I suppose you can add them to the isa string if you like, dtbs_check
-shouldn't complain!
-
-> | # Newer binutils versions default to ISA spec version 20191213 which mo=
-ves some
-> | # instructions from the I extension to the Zicsr and Zifencei extension=
-s.
-> | toolchain-need-zicsr-zifencei :=3D $(call cc-option-yn, -march=3D$(risc=
-v-march-y)_zicsr_zifencei)
-> | riscv-march-$(toolchain-need-zicsr-zifencei) :=3D $(riscv-march-y)_zics=
-r_zifencei
->=20
-> Otherwise, thanks for the actual confirmation of zba/zbb!
->=20
-> Thanks,
-> Conor.
->=20
-
-
-
---kQ9J72Cft2Lox+eu
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY+yQ3wAKCRB4tDGHoIJi
-0kxzAPwN73uyE4IsaZf4b1X4/Vmjb/o64MHCIZFKFohWkyQhBQEA4Rycf080nEpr
-wuhi9sHdevKSoKg9OzsIer2j0qfAxwY=
-=eXZM
------END PGP SIGNATURE-----
-
---kQ9J72Cft2Lox+eu--
-
-
---===============8966864887096593075==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8966864887096593075==--
-
