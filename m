@@ -4,69 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C960FC636CC
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Feb 2023 07:47:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC907C636D4
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Feb 2023 07:59:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8aJ2wtLy72gU8uQy2beg0nvEz8IvikZMH+I5ivLiJyg=; b=a070q59DUYX6EY
-	ciNprzaIWCZPkIdnR/SP/Ln8XOvaT82YhxrKzhhEy6yhepSOvfd2LAdxcuZPxKHksL5E1Off3b/Xt
-	JXJjwUh3qOdCBymheJgi3Re/4zsfcq2cIAhoac9PO8iukaw3Z8FdRL7Z8UumgtWeqRskWvtFTQhBf
-	CmFLT3w3yo9rm60UbYWEDPXwWabDSXPmsUQ9/IJFsRUsZgSF9DmOTK3eW9v1cqmggl3WCntlkX0HU
-	Wlt/17UC0V4W0c03qSG5e+EkidSB53/iACeg0HKLyk3AtuJ3t3FsNKSJ4Q6yqcalccTdPykHSwyov
-	q8qWvdZGU1bXw0rwdFWg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xMHUUU8ofkJcpR3WJCuxuzSawLDEvCHpAwl4pGdTsQ8=; b=fbrDDYlutZ+1fEYAQXgqLeBure
+	KVQJpSsMDkpv49fs66KQYcqpaHkmlfBgZOlaAtU8AQa71k2s4iuO5dqdH/SR3AJa8VtQlz9gQ4COP
+	ni2vcctU4joFV8YYDwM6O7JmWBnG0BxxHUfvGOMIlLgE8ttzdNnNXO45dnW1dXUr4g8ZjbFsAPDkE
+	l3GVmYbXsuGP5vsBlYe/+KDqb2KWNXHsq3UJG4Pz3lBItTSFXaTL6oGg6BH6/9eHLgkxVNFOD8npj
+	poeU6HTWAy34aEeEH+mp4Yqyyy7+VlpN0Kj08tKSGKIA9G7m7L2+6t5sbnA50Te1iarXa7wQx303U
+	Qcqp1TqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSCVU-0055TU-IF; Wed, 15 Feb 2023 07:47:12 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSCVQ-0055R9-CT
-	for linux-riscv@lists.infradead.org; Wed, 15 Feb 2023 07:47:11 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 5027E24E28B;
-	Wed, 15 Feb 2023 15:46:12 +0800 (CST)
-Received: from EXMBX073.cuchost.com (172.16.6.83) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 15 Feb
- 2023 15:46:12 +0800
-Received: from [192.168.120.49] (171.223.208.138) by EXMBX073.cuchost.com
- (172.16.6.83) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 15 Feb
- 2023 15:46:11 +0800
-Message-ID: <e066920c-26a9-0f0e-3304-2b9940274d57@starfivetech.com>
-Date: Wed, 15 Feb 2023 15:46:09 +0800
+	id 1pSChX-0057Gh-VI; Wed, 15 Feb 2023 07:59:39 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pSChU-0057Fa-Bk
+	for linux-riscv@lists.infradead.org; Wed, 15 Feb 2023 07:59:38 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 9432DB81DD3;
+	Wed, 15 Feb 2023 07:59:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4747C433D2;
+	Wed, 15 Feb 2023 07:59:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1676447973;
+	bh=AlCe6D2Z5HBYC7NYZS/tW0FzZvw6nnZ59icnVKOLKFk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jhATrRqocqdcwNHySsDVAM4AJyFs9yiQMEbw5gRi0OLjrfbo7rGn0WM4F7C6BDEaY
+	 88FIpaZCHfsdHcN11pSI6TtSBfcrqPbIxuKukZooWrUCi+eXeA7PC25EPIX6olT+T2
+	 DuHwtXABCp2ui7Jny/a1Y+1mtz5pRO4X/T0EkdMUFou4v/pSWfEWce2cEt6q3vGOes
+	 /9sI7CpeRXKAbgTNSP7rM8yChLnkdEQYFFSppjo/AK9YHOIKgFTxYuOqqZf0xc6Wfm
+	 fz/AoRswpVXS0tsxu8Fezhh9KOsPURglgrpfmZLyIG7jvH1mc5Wj7JLi5Ti55GPR3r
+	 fOUfSyC3YvktA==
+Date: Wed, 15 Feb 2023 07:59:27 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Hal Feng <hal.feng@starfivetech.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Ben Dooks <ben.dooks@sifive.com>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 6/7] riscv: dts: starfive: Add initial StarFive JH7110
+ device tree
+Message-ID: <Y+yQ3+0lyo5OQr2z@spud>
+References: <20221220011247.35560-1-hal.feng@starfivetech.com>
+ <20221220011247.35560-7-hal.feng@starfivetech.com>
+ <Y6zHy9oL4xzl+6Rd@spud>
+ <c507e0b2-5ca3-cffe-55d2-873ed8c24e3d@starfivetech.com>
+ <Y9og8Q2UnJ452KH/@wendy>
+ <df6755ed-a358-ea01-d89e-f3c004b9c297@starfivetech.com>
+ <Y9wR7Up+iObw5qoE@spud>
+ <8b35344f-0f78-b4e6-2b5e-e6ec6b101a75@starfivetech.com>
+ <Y+yM6HgAbDoWlu1G@spud>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.6.1
-Subject: Re: [PATCH v4 2/7] dt-bindings: net: snps,dwmac: Update the maxitems
- number of resets and reset-names
-Content-Language: en-US
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	<linux-riscv@lists.infradead.org>, <netdev@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-CC: "David S . Miller" <davem@davemloft.net>, Eric Dumazet
-	<edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
-	Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>
-References: <20230118061701.30047-1-yanhong.wang@starfivetech.com>
- <20230118061701.30047-3-yanhong.wang@starfivetech.com>
- <15a87640-d8c7-d7aa-bdfb-608fa2e497cb@linaro.org>
- <c9ab22b5-3ffb-d034-b8b8-b056b82a96ce@starfivetech.com>
- <aa85caa3-6051-46ab-d927-8c552d5a718d@linaro.org>
-From: yanhong wang <yanhong.wang@starfivetech.com>
-In-Reply-To: <aa85caa3-6051-46ab-d927-8c552d5a718d@linaro.org>
-X-Originating-IP: [171.223.208.138]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX073.cuchost.com
- (172.16.6.83)
-X-YovoleRuleAgent: yovoleflag
+In-Reply-To: <Y+yM6HgAbDoWlu1G@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230214_234708_758775_37956997 
-X-CRM114-Status: GOOD (  11.22  )
+X-CRM114-CacheID: sfid-20230214_235936_713215_F5BCEEBD 
+X-CRM114-Status: GOOD (  43.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,68 +88,163 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8966864887096593075=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
+--===============8966864887096593075==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="kQ9J72Cft2Lox+eu"
+Content-Disposition: inline
 
-On 2023/2/7 15:59, Krzysztof Kozlowski wrote:
-> On 07/02/2023 03:43, yanhong wang wrote:
->> 
->> 
->> On 2023/1/18 23:47, Krzysztof Kozlowski wrote:
->>> On 18/01/2023 07:16, Yanhong Wang wrote:
->>>> Some boards(such as StarFive VisionFive v2) require more than one value
->>>> which defined by resets property, so the original definition can not
->>>> meet the requirements. In order to adapt to different requirements,
->>>> adjust the maxitems number definition.
->>>>
->>>> Signed-off-by: Yanhong Wang <yanhong.wang@starfivetech.com>
->>>> ---
->>>>  Documentation/devicetree/bindings/net/snps,dwmac.yaml | 9 +++------
->>>>  1 file changed, 3 insertions(+), 6 deletions(-)
->>>>
->>>> diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
->>>> index e26c3e76ebb7..baf2c5b9e92d 100644
->>>> --- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
->>>> +++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
->>>> @@ -133,12 +133,9 @@ properties:
->>>>          - ptp_ref
->>>>  
->>>>    resets:
->>>> -    maxItems: 1
->>>
->>> Also, this does not make sense on its own and messes constraints for all
->>> other users. So another no for entire patch.
->>>
->> 
->> Thanks. Change the properties of 'resets' and reset-names like this:
->> 
->>   resets:
->>     minItems: 1
->>     maxItems: 2
->> 
->>   reset-names:
->>     minItems: 1
->>     maxItems: 2
->> 
->> Is it right?  Do you have any other better suggestions?
-> 
-> Isn't this allowing two reset items for every variant of snps,dwmac?
-> 
 
-Sorry for not getting back to you faster.
-After referring to the above modification, i used the command 'make DT_CHECKER_FLAGS=-m dt_binding_check'
-to check all the bindings(including 'starfive,jh7110-dwmac.yaml'), no errors are reported,
-and the errors reported by Rob Herring are gone.
+--kQ9J72Cft2Lox+eu
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> Best regards,
-> Krzysztof
-> 
+On Wed, Feb 15, 2023 at 07:42:32AM +0000, Conor Dooley wrote:
+> Hey Hal!
+>=20
+> On Wed, Feb 15, 2023 at 11:07:15AM +0800, Hal Feng wrote:
+> > On Thu, 2 Feb 2023 19:41:33 +0000, Conor Dooley wrote:
+> > > On Fri, Feb 03, 2023 at 02:56:41AM +0800, Hal Feng wrote:
+> > >> On Wed, 1 Feb 2023 08:21:05 +0000, Conor Dooley wrote:
+> > >> > On Wed, Feb 01, 2023 at 03:21:48PM +0800, Hal Feng wrote:
+> > >> >> On Wed, 28 Dec 2022 22:48:43 +0000, Conor Dooley wrote:
+> > >> >> > On Tue, Dec 20, 2022 at 09:12:46AM +0800, Hal Feng wrote:
+> > >> >=20
+> > >> >> >> +/ {
+> > >> >> >> +	compatible =3D "starfive,jh7110";
+> > >> >> >> +	#address-cells =3D <2>;
+> > >> >> >> +	#size-cells =3D <2>;
+> > >> >> >> +
+> > >> >> >> +	cpus {
+> > >> >> >> +		#address-cells =3D <1>;
+> > >> >> >> +		#size-cells =3D <0>;
+> > >> >> >> +
+> > >> >> >> +		S76_0: cpu@0 {
+> > >> >> >> +			compatible =3D "sifive,u74-mc", "riscv";
+> > >> >> >=20
+> > >> >> > The label here says S76 but the compatible says u74-mc.
+> > >> >>=20
+> > >> >> U74-MC has 5 cores including 1 * S7 core and 4 * U74 cores.
+> > >> >>=20
+> > >> >> > Which is correct? Your docs say S7 and S76, so I would imagine =
+that it
+> > >> >> > is actually an S76?
+> > >> >>=20
+> > >> >> I found SiFive website [1] call it S76, but call it S7 in other p=
+laces.
+> > >> >> So I misunderstood this. Considering the ISA difference you descr=
+ibed
+> > >> >> as below, I think it's proper to change the label to "S7_0".
+> > >> >=20
+> > >> > I'm less worried about the label & more interested in the compatib=
+le.
+> > >> > hart0 is, as you say, not a u74. Should we not be adding a "sifive=
+,s7"
+> > >> > compatible string to Documentation/devicetree/bindings/riscv/cpus.=
+yaml
+> > >> > and using that here instead?
+> > >>=20
+> > >> First of all, it's my fault that I didn't check the revision of U74-=
+MC
+> > >> manual, so most of my previous replies might not make sense.
+> > >=20
+> > > No that's fine. The manual stuff confused me too when I went looking
+> > > initially, and I still get get mixed up by the fact that there are
+> > > core-complex manuals but not core manuals.
+> > >=20
+> > >> If we add a new compatible string for S7, should we change the compa=
+tibles
+> > >> of hart1~3 to "sifive,u74" also? And then, there may be no point kee=
+ping some
+> > >> compatible strings of core complex like "sifive,u74-mc" and "sifive,=
+u54-mc".
+> > >> I'm not sure about this.
+> > >=20
+> > > [...]
+> > >=20
+> > >> >> Yes, "RV64IMAC" is correct. The monitor core in U74-MC is a
+> > >> >> S7-series core, not S76.
+> > >> >=20
+> > >> > Cool, thanks.
+> > >>=20
+> > >> Now I think it might be another version of S76.
+> > >=20
+> > > The SiFive docs describe the u74-mc core complex, which AFAIU you hav=
+e,
+> > > as being 1x S7 & 4x U7.
+> > >=20
+> > > I'd be happy with new binding for "sifive,s7" & then we use that here.
+> > > If you're sure it's S76, we can also use that. S76 is described, in w=
+hat
+> > > docs I can see, as a core complex containing an S7, so S7 seems likely
+> > > to be correct?
+> >=20
+> > I will add a new binding for "sifive,s7" and modify the code as follows.
+> >=20
+> > 	S7_0: cpu@0 {
+> > 		compatible =3D "sifive,s7", "riscv";
+> > 		...
+> > 		riscv,isa =3D "rv64imac_zicsr_zba_zbb";
+>=20
+> I'm not sure that I'd bother with the zicsr, it gets added automagically
+> by the Makefile if needed:
+
+Meh, I probably shouldn't have replied to this first thing in the
+morning as this comment of mine doesn't really make sense.
+I skipped the middle part of my point here...
+What I meant was that you can avoid zicsr & zifencei because when the
+binding was defined they were included in i. I meant to use the
+following as a kinda explanation of it depending on the version of the
+ISA spec & that we just assume that zicsr & zifencei are present.
+I suppose you can add them to the isa string if you like, dtbs_check
+shouldn't complain!
+
+> | # Newer binutils versions default to ISA spec version 20191213 which mo=
+ves some
+> | # instructions from the I extension to the Zicsr and Zifencei extension=
+s.
+> | toolchain-need-zicsr-zifencei :=3D $(call cc-option-yn, -march=3D$(risc=
+v-march-y)_zicsr_zifencei)
+> | riscv-march-$(toolchain-need-zicsr-zifencei) :=3D $(riscv-march-y)_zics=
+r_zifencei
+>=20
+> Otherwise, thanks for the actual confirmation of zba/zbb!
+>=20
+> Thanks,
+> Conor.
+>=20
+
+
+
+--kQ9J72Cft2Lox+eu
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY+yQ3wAKCRB4tDGHoIJi
+0kxzAPwN73uyE4IsaZf4b1X4/Vmjb/o64MHCIZFKFohWkyQhBQEA4Rycf080nEpr
+wuhi9sHdevKSoKg9OzsIer2j0qfAxwY=
+=eXZM
+-----END PGP SIGNATURE-----
+
+--kQ9J72Cft2Lox+eu--
+
+
+--===============8966864887096593075==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8966864887096593075==--
+
