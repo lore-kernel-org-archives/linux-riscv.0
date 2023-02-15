@@ -4,98 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06813C636D4
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Feb 2023 13:01:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AC94C636CC
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Feb 2023 13:02:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sT0Dl0jcfOWV1Qrdb0r4eHDbfNjp9cXL9qXGfM6O8Cs=; b=HnorZ3qHO9OLl7
-	gbbpYVgUNRdAvc/jShwoZwXryzXY2BdMYATWNtXV5qgvfjT6UUOwsStI05gvuBqAYasXW3sRFJhDO
-	rAiQqKBjDK/KG+MlZfUdzQpBBL4NRDRfMFPexMpLJ8bpspkUbhMfDLzVPX1wEBrxslG+juTdUVPfR
-	qKAfGG5vu6wpAcob+kjkv+ZyyOoj26sD+pKAKZZZxM+qrQ/yJ6FpSmjO6xcVjz6nn4+qPMva17HVf
-	z1SfWgttZDpRYgu8BmEdV51osI2VkIUJJrbcKe0JFG0yk4y1+0JU/QWoPU8zdG4c5pVSCUqBkGUiK
-	iYkk8BH315BtIwidOtxA==;
+	List-Owner; bh=rSDz4xPMLmTKu9haehWx6RA0uXNsby8iznCSt8TL0q4=; b=GcmvPFFlNBe57l
+	aOQDL3bknnVjWgetE1nzKsBgdiGHShw05RaDNAhWV+zKkh5cdOwEjmKiVYlxv93stA5cuAiNfQ1w3
+	rwq60Ara4XBqqURcy4LXTQqRP6nwpIU6SvVyqC75VeUhCrxiOL8hpxaf1IspEgIuvXZGPB/Vyrw7Y
+	vJsn/25ItNoUMsm5gdGhrpPmP7hCIOQ48a+BwbOBMwTygfxYVfrCGG13YdBWz4x/+Eqqjp0IEARM2
+	buF1OcsZ6XsEeBzhFpLOH0EpugXnXDMEZnLvZ98A3uvrCo9JrXbwh9Wx2sMxSF4xOIq8bSBpNhFoC
+	rKREFmXHdCpy3JHtpsYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSHPF-005tlM-Lz; Wed, 15 Feb 2023 13:01:05 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1pSHQS-005u0R-T6; Wed, 15 Feb 2023 13:02:20 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSHPB-005ti5-CK; Wed, 15 Feb 2023 13:01:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=T80Dv/pbeHv4yQbIV1WRGowSCcOuo+FwhGVSDYirNyo=; b=typStl4V61M+0LWV6CYl45n1NF
-	m4W0eM90AoKd85qmixDcPpthnLk+b95bwsgFFcBvnssjyLxRNyWUkf38MBdHnC5hJMHQXzrAXfE4u
-	sjXI9CnPsT2tyWCtaFGJReOhVBJ7C1Ky0fJf6uDeq4qgqxhR8LjP5C0F4+mFpu0QYM/1ri8+MwHzB
-	Qf+rKkAOQgWN+tf3cp48UNgtPLftSBYrStzhBTXcXjZymQMX0JdBeGP5uBPfD69mswliqG6fC1C8X
-	g8JyK0lQvJ+nNDGbGSfSRKRlMGVdmWQAdYU5t1SmOnXYVevrwp2QWkhQ7cr4d8xZJhXA4l/PEejz+
-	YbEfXprg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:60068)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1pSHNj-0006l6-Uv; Wed, 15 Feb 2023 12:59:31 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1pSHNS-0004uV-TZ; Wed, 15 Feb 2023 12:59:14 +0000
-Date: Wed, 15 Feb 2023 12:59:14 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Jonathan Corbet <corbet@lwn.net>,
-	Richard Henderson <richard.henderson@linaro.org>,
-	Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
-	Matt Turner <mattst88@gmail.com>, Vineet Gupta <vgupta@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Michal Simek <monstr@monstr.eu>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	"James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>,
-	Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+	id 1pSHQQ-005tzd-RV; Wed, 15 Feb 2023 13:02:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=eRF7KZGWyAp2wUobvfy12AosGt3ryJM8iRWImzBIITg=; b=cS94lxxHZcrUCuuGzYJ4htZ3/i
+	LRXjsPFxOuWozRskJ5HLCWJMzSKKOAjWg8iAvoZlC9ErfbMrfsXA5UG2gU5cXJFIL7nnAMSYZR1mq
+	/bayB1PBehfeF237Nz6izZaVXSiuxAmvC5rci4ueLCEv9o6iji+GV2N+YbLdwQSBrccY=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1pSHPz-0053H4-FB; Wed, 15 Feb 2023 14:01:51 +0100
+Date: Wed, 15 Feb 2023 14:01:51 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Conor Dooley <conor@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Yoshinori Sato <ysato@users.sourceforge.jp>,
-	Rich Felker <dalias@libc.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H . Peter Anvin" <hpa@zytor.com>, Chris Zankel <chris@zankel.net>,
-	Max Filippov <jcmvbkbc@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-xtensa@linux-xtensa.org,
-	linux-arch@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>
-Subject: Re: [PATCH v3 03/24] arm: Remove COMMAND_LINE_SIZE from uapi
-Message-ID: <Y+zXIgwO5wteLQZ5@shell.armlinux.org.uk>
-References: <20230214074925.228106-1-alexghiti@rivosinc.com>
- <20230214074925.228106-4-alexghiti@rivosinc.com>
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Sagar Kadam <sagar.kadam@sifive.com>,
+	Yanhong Wang <yanhong.wang@starfivetech.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, kernel@collabora.com
+Subject: Re: [PATCH 07/12] dt-bindings: net: Add StarFive JH7100 SoC
+Message-ID: <Y+zXv90rGfQupjPP@lunn.ch>
+References: <20230211031821.976408-1-cristian.ciocaltea@collabora.com>
+ <20230211031821.976408-8-cristian.ciocaltea@collabora.com>
+ <Y+e74UIV/Td91lKB@lunn.ch>
+ <586971af-2d78-456d-a605-6c7b2aefda91@collabora.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230214074925.228106-4-alexghiti@rivosinc.com>
+In-Reply-To: <586971af-2d78-456d-a605-6c7b2aefda91@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230215_050101_425985_C7947BC2 
-X-CRM114-Status: GOOD (  10.35  )
+X-CRM114-CacheID: sfid-20230215_050218_908312_6BD8B167 
+X-CRM114-Status: GOOD (  21.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,21 +87,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 14, 2023 at 08:49:04AM +0100, Alexandre Ghiti wrote:
-> From: Palmer Dabbelt <palmer@rivosinc.com>
+On Wed, Feb 15, 2023 at 02:34:23AM +0200, Cristian Ciocaltea wrote:
+> On 2/11/23 18:01, Andrew Lunn wrote:
+> > > +  starfive,gtxclk-dlychain:
+> > > +    $ref: /schemas/types.yaml#/definitions/uint32
+> > > +    description: GTX clock delay chain setting
+> > 
+> > Please could you add more details to this. Is this controlling the
+> > RGMII delays? 0ns or 2ns?
 > 
-> As far as I can tell this is not used by userspace and thus should not
-> be part of the user-visible API.
+> This is what gets written to JH7100_SYSMAIN_REGISTER49 and it's currently
+> set to 4 in patch 12/12. As already mentioned, I don't have the register
+> information in the datasheet, but I'll update this as soon as we get some
+> details.
+
+I have seen what happens to this value, but i have no idea what it
+actually means. And without knowing what it means, i cannot say if it
+is being used correctly or not. And it could be related to the next
+part of my comment...
+
 > 
-> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+> > > +    gmac: ethernet@10020000 {
+> > > +      compatible = "starfive,jh7100-dwmac", "snps,dwmac";
+> > > +      reg = <0x0 0x10020000 0x0 0x10000>;
+> > > +      clocks = <&clkgen JH7100_CLK_GMAC_ROOT_DIV>,
+> > > +               <&clkgen JH7100_CLK_GMAC_AHB>,
+> > > +               <&clkgen JH7100_CLK_GMAC_PTP_REF>,
+> > > +               <&clkgen JH7100_CLK_GMAC_GTX>,
+> > > +               <&clkgen JH7100_CLK_GMAC_TX_INV>;
+> > > +      clock-names = "stmmaceth", "pclk", "ptp_ref", "gtxc", "tx";
+> > > +      resets = <&rstgen JH7100_RSTN_GMAC_AHB>;
+> > > +      reset-names = "ahb";
+> > > +      interrupts = <6>, <7>;
+> > > +      interrupt-names = "macirq", "eth_wake_irq";
+> > > +      max-frame-size = <9000>;
+> > > +      phy-mode = "rgmii-txid";
+> > 
+> > This is unusual. Does your board have a really long RX clock line to
+> > insert the 2ns delay needed on the RX side?
+> 
+> Just tested with "rgmii" and didn't notice any issues. If I'm not missing
+> anything, I'll do the change in the next revision.
 
-Looks good to me. What's the merge plan for this?
+rgmii-id is generally the value to be used. That indicates the board
+needs 2ns delays adding by something, either the MAC or the PHY. And
+then i always recommend the MAC driver does nothing, pass the value to
+the PHY and let the PHY add the delays.
 
-Thanks.
+So try both rgmii and rgmii-id and do a lot of bi directional
+transfers. Then look at the reported ethernet frame check sum error
+counts, both local and the link peer. I would expect one setting gives
+you lots of errors, and the other works much better.
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 40Mbps down 10Mbps up. Decent connectivity at last!
+    Andrew
 
 _______________________________________________
 linux-riscv mailing list
