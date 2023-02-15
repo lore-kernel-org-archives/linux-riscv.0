@@ -4,73 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF9CCC61DA4
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Feb 2023 03:08:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A317BC61DA4
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Feb 2023 03:17:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/AQ8DqeuIbA0ykiRuHN8Ybeu/PuYhBTy+3Kz0pKlxbA=; b=ij/pGc041ozBfC
-	+FZuQFjBfv9oNX8HlI/0htbdzUmVzL1N0lr1L09UyK0frgKQsTK2IcYmPiQiocMQrh9oBYZsGPTm7
-	mjxveHQjVj2QdbWN7HXHuLZvGKRNal9aCdbGpXKlvZecUhZDvDyeHFQigVKBlHImiF4wwbMLWH1IR
-	uJosTBC4As7+jAEK5/2JeftTztNVTyop/SMyhvjX+cWKUKK7V/iJzmmx0ug1G9TXLUXsPEtWE18h/
-	gx+c8tpR7eKgALd7p7U1By1qHLgoSPJpaJ7dCAE2vF0F/L2n2e4a08VHniBnK6L7gnHUNl15PYG0v
-	OfK/SfhsdrQZcLFBA0sg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=LZ65gDQvp87QGlGc/+O9Ma/PrG9b07Ofgsh/U4fhmXU=; b=1kUlK66D4lYek7W0lFVT1puS3v
+	eqnoh440N0d4fALCfd2uXJhekabdFeVaqrP+e0CfJoIIsfhlJZB0xhbKqm8KNitwRwU7mghZHbp0t
+	/WG1q74FY8vnfa5k+xKS4qQ+VMaqe3O34u5BI2QLbHUjPDse+dp2YfqFlq4KdryT1HdL3B/Tzv12w
+	M/UjuRUHn9BbOvC7OugVODGXXhaGPThJEkl0/9N+gv50llZppnC7n1jQhstXSukYmSpbU9+SDSrJb
+	ozcTWY5BDipX5Pn1gF7Pq7CMwIcqLetOAbfAHrXK7wtdNA0mbtEgjpfPW4+EKAQwSr5hbFZ4FA89+
+	xqCei9cA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pS89L-004UKe-QO; Wed, 15 Feb 2023 03:08:03 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pS89F-004UHt-33
-	for linux-riscv@lists.infradead.org; Wed, 15 Feb 2023 03:08:01 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 56AC524E15C;
-	Wed, 15 Feb 2023 11:07:17 +0800 (CST)
-Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 15 Feb
- 2023 11:07:17 +0800
-Received: from [192.168.125.110] (183.27.97.168) by EXMBX172.cuchost.com
- (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 15 Feb
- 2023 11:07:16 +0800
-Message-ID: <8b35344f-0f78-b4e6-2b5e-e6ec6b101a75@starfivetech.com>
-Date: Wed, 15 Feb 2023 11:07:15 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.2
-Subject: Re: [PATCH v3 6/7] riscv: dts: starfive: Add initial StarFive JH7110
- device tree
-Content-Language: en-US
-To: Conor Dooley <conor@kernel.org>
-CC: Conor Dooley <conor.dooley@microchip.com>,
-	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Palmer
- Dabbelt" <palmer@dabbelt.com>, Rob Herring <robh+dt@kernel.org>, "Krzysztof
- Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, Ben Dooks
-	<ben.dooks@sifive.com>, Daniel Lezcano <daniel.lezcano@linaro.org>, "Thomas
- Gleixner" <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Stephen Boyd
-	<sboyd@kernel.org>, Michael Turquette <mturquette@baylibre.com>, "Philipp
- Zabel" <p.zabel@pengutronix.de>, Linus Walleij <linus.walleij@linaro.org>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	<linux-kernel@vger.kernel.org>
-References: <20221220011247.35560-1-hal.feng@starfivetech.com>
- <20221220011247.35560-7-hal.feng@starfivetech.com> <Y6zHy9oL4xzl+6Rd@spud>
- <c507e0b2-5ca3-cffe-55d2-873ed8c24e3d@starfivetech.com>
- <Y9og8Q2UnJ452KH/@wendy>
- <df6755ed-a358-ea01-d89e-f3c004b9c297@starfivetech.com>
- <Y9wR7Up+iObw5qoE@spud>
-From: Hal Feng <hal.feng@starfivetech.com>
-In-Reply-To: <Y9wR7Up+iObw5qoE@spud>
-X-Originating-IP: [183.27.97.168]
-X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX172.cuchost.com
- (172.16.6.92)
-X-YovoleRuleAgent: yovoleflag
+	id 1pS8IH-004V45-Su; Wed, 15 Feb 2023 03:17:17 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pS8IE-004V3X-C4
+	for linux-riscv@lists.infradead.org; Wed, 15 Feb 2023 03:17:16 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id o13so16968432pjg.2
+        for <linux-riscv@lists.infradead.org>; Tue, 14 Feb 2023 19:17:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=3HoOW7mnikI/W6qgH9CzqhnH7tqIVURB7YzkTuqqxeg=;
+        b=yRLLo+Y2l9Rqw6rar1SCyG1SxgiM4k2LfTdR7HicsoJ3ot5+CNso463IU5kURN1h86
+         nSFxSUeaFV+/D+mlWEOgnks7/Y7ZVhJVAKTYCKDTrGq9/HdNNX1yUcykVibwEyQ9jpsq
+         fU2wTqpQfQzfy7JvALOZOQzvr7brLByl3XKurkcI3DHXCgcX79yvkS83ZaA37iqJpA4C
+         KDea2/o8hQGM0PGNNPafiUtTbhNWi6DCUjkL8d/7qDUr80FhqUKabcI2fl9lQK7gQu4M
+         02O+3gWIonFsGFOLw244Xs+ECHNZsDJtJA1ZejtNyupqPwLJb7iaz5xgprNxEmyL672c
+         dJKA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=3HoOW7mnikI/W6qgH9CzqhnH7tqIVURB7YzkTuqqxeg=;
+        b=Vj7n1zBqO008nOrmP1619N6zmSDH1hCVXLu01maQ2w6l1veln2yVlBgeX5s8Se1wFV
+         /4M59xUc3+ud/npguj7gKtuSoFLC7+QQv5yS6kb8OofsAYzkU5DRaUqo38B7TXSUxpzk
+         jRABDUWZ8BM+GC8ia0bm+xyqbHlp9empbqdID21IGjz5FBAJABxIs0NtXYCOPYtnVM5w
+         uRbxEE2P4xO+piYdZ6iWfe/mdFYNQGeIgZ3LW9FUOyBmjg49gZJ7MfsDSqls7hp1nMLg
+         YnO8gwwqQFvhckuNEYs618Suy8Si59DhlP7ODuT7vn6K5dZoqNFJEbMTYfJHla1K2rvo
+         yX8A==
+X-Gm-Message-State: AO0yUKX+LSJbv9/UWcJStqvWOnmryRR0o3iJRuxyf2IBERdfzpmPbLHT
+	TRJsaRtYssx3gsfLn82g8DnJq/NcuciYC6BX
+X-Google-Smtp-Source: AK7set+1aqVANLzDp5HMuErgCQtOQR3yuVXnnsXY/YD+E/CloFSoZS7gNIcwS34GPrlK9OomuYcunQ==
+X-Received: by 2002:a17:903:32c1:b0:19a:6b55:a453 with SMTP id i1-20020a17090332c100b0019a6b55a453mr1399170plr.9.1676431032105;
+        Tue, 14 Feb 2023 19:17:12 -0800 (PST)
+Received: from localhost ([135.180.226.51])
+        by smtp.gmail.com with ESMTPSA id s7-20020a170902988700b00198f2407ea1sm10792632plp.241.2023.02.14.19.17.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Feb 2023 19:17:11 -0800 (PST)
+Date: Tue, 14 Feb 2023 19:17:11 -0800 (PST)
+X-Google-Original-Date: Tue, 14 Feb 2023 19:17:04 PST (-0800)
+Subject: Re: [PATCH v16 0/9] RISC-V IPI Improvements
+In-Reply-To: <86357k1ihd.wl-maz@kernel.org>
+CC: apatel@ventanamicro.com, Paul Walmsley <paul.walmsley@sifive.com>,
+  tglx@linutronix.de, daniel.lezcano@linaro.org, marcan@marcan.st, sven@svenpeter.dev,
+  alyssa@rosenzweig.io, atishp@atishpatra.org, Alistair Francis <Alistair.Francis@wdc.com>,
+  anup@brainfault.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+  asahi@lists.linux.dev
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Marc Zyngier <maz@kernel.org>
+Message-ID: <mhng-a886c4b4-d748-420f-889b-76ada4f9a432@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230214_190757_621267_883DECA7 
-X-CRM114-Status: GOOD (  51.39  )
+X-CRM114-CacheID: sfid-20230214_191714_653984_96EFCB04 
+X-CRM114-Status: GOOD (  18.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,208 +87,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 2 Feb 2023 19:41:33 +0000, Conor Dooley wrote:
-> On Fri, Feb 03, 2023 at 02:56:41AM +0800, Hal Feng wrote:
->> On Wed, 1 Feb 2023 08:21:05 +0000, Conor Dooley wrote:
->> > On Wed, Feb 01, 2023 at 03:21:48PM +0800, Hal Feng wrote:
->> >> On Wed, 28 Dec 2022 22:48:43 +0000, Conor Dooley wrote:
->> >> > On Tue, Dec 20, 2022 at 09:12:46AM +0800, Hal Feng wrote:
->> > 
->> >> >> +/ {
->> >> >> +	compatible = "starfive,jh7110";
->> >> >> +	#address-cells = <2>;
->> >> >> +	#size-cells = <2>;
->> >> >> +
->> >> >> +	cpus {
->> >> >> +		#address-cells = <1>;
->> >> >> +		#size-cells = <0>;
->> >> >> +
->> >> >> +		S76_0: cpu@0 {
->> >> >> +			compatible = "sifive,u74-mc", "riscv";
->> >> > 
->> >> > The label here says S76 but the compatible says u74-mc.
->> >> 
->> >> U74-MC has 5 cores including 1 * S7 core and 4 * U74 cores.
->> >> 
->> >> > Which is correct? Your docs say S7 and S76, so I would imagine that it
->> >> > is actually an S76?
->> >> 
->> >> I found SiFive website [1] call it S76, but call it S7 in other places.
->> >> So I misunderstood this. Considering the ISA difference you described
->> >> as below, I think it's proper to change the label to "S7_0".
->> > 
->> > I'm less worried about the label & more interested in the compatible.
->> > hart0 is, as you say, not a u74. Should we not be adding a "sifive,s7"
->> > compatible string to Documentation/devicetree/bindings/riscv/cpus.yaml
->> > and using that here instead?
->> 
->> First of all, it's my fault that I didn't check the revision of U74-MC
->> manual, so most of my previous replies might not make sense.
-> 
-> No that's fine. The manual stuff confused me too when I went looking
-> initially, and I still get get mixed up by the fact that there are
-> core-complex manuals but not core manuals.
-> 
->> If we add a new compatible string for S7, should we change the compatibles
->> of hart1~3 to "sifive,u74" also? And then, there may be no point keeping some
->> compatible strings of core complex like "sifive,u74-mc" and "sifive,u54-mc".
->> I'm not sure about this.
-> 
+On Sun, 05 Feb 2023 03:04:14 PST (-0800), Marc Zyngier wrote:
+> On Tue, 03 Jan 2023 14:12:12 +0000,
+> Anup Patel <apatel@ventanamicro.com> wrote:
+>>
+>> This series aims to improve IPI support in Linux RISC-V in following ways:
+>>  1) Treat IPIs as normal per-CPU interrupts instead of having custom RISC-V
+>>     specific hooks. This also makes Linux RISC-V IPI support aligned with
+>>     other architectures.
+>>  2) Remote TLB flushes and icache flushes should prefer local IPIs instead
+>>     of SBI calls whenever we have specialized hardware (such as RISC-V AIA
+>>     IMSIC and RISC-V SWI) which allows S-mode software to directly inject
+>>     IPIs without any assistance from M-mode runtime firmware.
+>
 > [...]
-> 
->> >> Yes, "RV64IMAC" is correct. The monitor core in U74-MC is a
->> >> S7-series core, not S76.
->> > 
->> > Cool, thanks.
->> 
->> Now I think it might be another version of S76.
-> 
-> The SiFive docs describe the u74-mc core complex, which AFAIU you have,
-> as being 1x S7 & 4x U7.
-> 
-> I'd be happy with new binding for "sifive,s7" & then we use that here.
-> If you're sure it's S76, we can also use that. S76 is described, in what
-> docs I can see, as a core complex containing an S7, so S7 seems likely
-> to be correct?
+>
+> I'm queuing patches 3 and 9 via the irqchip tree as they are
+> standalone.
+>
+> For the rest, I need an Ack from the riscv maintainers as they change
+> a large amount of arch-specific code, and the couple of irqchip
+> patches depend on these changes.
+>
+> Palmer, Paul?
 
-I will add a new binding for "sifive,s7" and modify the code as follows.
+I haven't gotten time to give this a proper review, but I think we've 
+got enough of a mess with our interrupt handling that it doesn't really 
+matter so
 
-	S7_0: cpu@0 {
-		compatible = "sifive,s7", "riscv";
-		...
-		riscv,isa = "rv64imac_zicsr_zba_zbb";
-		...
-	};
+Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
 
-> 
-> u7, u74 & u74-mc are valid compatibles, added by SiFive, in commit
-> 75e6d7248efc ("dt-bindings: riscv: Update DT binding docs to support
-> SiFive FU740 SoC"). Unfortunately, they never actually *used* those
-> compatibles for anything, and just used "sifive,bullet0" for the fu740.
-> 
-> I'll accept any of u7, u74 or u74-mc for those harts.
-> 
->> >> >> +			tlb-split;
->> >> >> +			status = "disabled";
->> >> >> +
->> >> >> +			cpu0_intc: interrupt-controller {
->> >> >> +				compatible = "riscv,cpu-intc";
->> >> >> +				interrupt-controller;
->> >> >> +				#interrupt-cells = <1>;
->> >> >> +			};
->> >> >> +		};
->> >> >> +
->> >> >> +		U74_1: cpu@1 {
->> >> >> +			compatible = "sifive,u74-mc", "riscv";
->> >> >> +			reg = <1>;
->> >> >> +			d-cache-block-size = <64>;
->> >> >> +			d-cache-sets = <64>;
->> >> >> +			d-cache-size = <32768>;
->> >> >> +			d-tlb-sets = <1>;
->> >> >> +			d-tlb-size = <40>;
->> >> >> +			device_type = "cpu";
->> >> >> +			i-cache-block-size = <64>;
->> >> >> +			i-cache-sets = <64>;
->> >> >> +			i-cache-size = <32768>;
->> >> >> +			i-tlb-sets = <1>;
->> >> >> +			i-tlb-size = <40>;
->> >> >> +			mmu-type = "riscv,sv39";
->> >> >> +			next-level-cache = <&ccache>;
->> >> >> +			riscv,isa = "rv64imafdc";
->> >> > 
->> >> > That also begs the question:
->> >> > Do your u74s support RV64GBC, as the (current) SiFive documentation
->> >> > suggests?
->> >> 
->> >> Actually, U74 doesn't support the full B extension, and the SiFive doc [1]
->> > 
->> > Yeah, I knew asking that question that the "RV64GBC" in SiFive's online
->> > documentation was using outdated terminology. Also, that is not the doc
->> > for your core complex as far as I can tell. That is the document for
->> > impid 0x0621_1222, whereas (IIRC) your core is 0x0421_0427.
->> > Jess and I had a look one evening but could not find the 21G1.02.00
->> > revision of this document, which is the one corresponding to 0x421_0427.
->> > See Table 92 for more details.
->> 
->> I found the 21G1.02.00 revision on StarFive internal net, but I'm not sure
->> whether I can make it public and I am checking this.
-> 
-> Yeah, certainly don't do anything without cross-checking!
-> 
->> This revision records
->> that the ISA of 21G1.02.00 U74 is "RV64GCB" and ISA of 21G1.02.00 S7 is
->> "RV64IMACB". I am asking someone to check with SiFive whether both 21G1.02.00
->> U74 and S7 support the full B extension.
-> 
-> Having cross-checked a 21G1.01.00 document against a 21G2.01.00 one, I'm
-> 99% sure that you have _Zba_Zbb.
-> The G2.01 document says _Zba_Zbb & has the same instructions listed as
-> supported as the G1.02 one.
-> I've also tried the Zbb support patches posted by Heiko [2] on a
-> VisionFive V2 and had them work - which is why a definitive statement on
-> the version of Zbb supported would be really great to have!
-> 
-> [2] - https://lore.kernel.org/linux-riscv/20230113212301.3534711-1-heiko@sntech.de/
+if you want to take it for this cycle that's fine with me, but I'm also 
+fine holding off so it can have a while to bake in linux-next -- there's 
+no real rush for any of this, as there's no hardware yet.
 
-The 21G1.02.00 document is still not allowed to be public so far. By
-comparing with instructions included in b extensions [1], I can confirm
-that the 21G1.02.00 only supports Zba and Zbb.
-
-[1] https://github.com/riscv/riscv-bitmanip/blob/main/bitmanip/overview.adoc#
-
-Zicsr is also supported as described in 21G1.02.00 document. So I will
-modify as follows.
-
-	U74_1: cpu@1 {
-		compatible = "sifive,u74-mc", "riscv";
-		...
-		riscv,isa = "rv64imafdc_zicsr_zba_zbb";
-		...
-	};
-
-Best regards,
-Hal
-
-> 
->> >> describes the ISA of U74 is "RV64GC_Zba_Zbb_Sscofpmf" which "G" includes
->> >> "IMAFD".
->> > 
->> > I could not find the 21G1.02.00 version of this document online, but I
->> > was able to find the 21G1.01.00 version of it & that version does not
->> > support the Sscofpmf extension (but does have Zba/Zbb support).
->> > 
->> >> "_Zba_Zbb_Sscofpmf" is not shown in other device trees such as
->> >> jh7100.dtsi and fu740-c000.dtsi, so I didn't show them here.
->> > 
->> > Just because other devicetrees omit them, doesn't mean that you should
->> > too!
->> > This compatible should be an accurate description of your hardware, so
->> > you should add what you actually have.
->> 
->> Will keep it in mind. Thank you.
-> 
-> FWIW, the deadline for getting material in for v6.3 has already passed,
-> so you can send the next version of this series without waiting for
-> clarification on the compatibles & ISA string. We should have plenty of
-> time to get those fixed up before the series gets applied.
-> 
+>
 > Thanks,
-> Conor.
-> 
->> > If you have Zba and Zbb, then add them.
->> > I would double check against your internal documentation for 21G2.02.00
->> > as to whether you do have Sscofpmf, and if you do, add that too!
->> > 
->> > That way, whenever support for those extensions lands, the jh7110 will
->> > automatically pick it up, rather than needing to have them retrofitted.
->> > 
->> >> [1] https://sifive.cdn.prismic.io/sifive/2dd11994-693c-4360-8aea-5453d8642c42_u74mc_core_complex_manual_21G3.pdf
-
+>
+> 	M.
 
 _______________________________________________
 linux-riscv mailing list
