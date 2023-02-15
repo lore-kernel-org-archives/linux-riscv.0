@@ -4,67 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44615C636D4
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Feb 2023 22:09:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1159C636D4
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Feb 2023 22:38:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vfNKgXx/VdPhG52oYtS+1w2NY7SbuOTaWP8Gd4MiV3M=; b=h4DiR4kZ6Waqu2VG3ZVb91UrsE
-	o+bf2WEAF4dlDr5XoGPKaC5mpSCKpq4ZMlJiqnCvNuTwBjcWk8zH2Ac3jDRuMwABmxxypStqi2mgB
-	hkkxYpl/C5NOSJfQAMPpo5VftEVwNbOFhWlObudYdOyFQNTuJKTupOHo41KvXtooUKugQBVWaW7cU
-	5FsysBjQzUDhBmSYXWOrP8Ys9A8Y86nA+BEie4+CmwFX8L7Jw+q4ufQGs6fl45uFO27qnSYdkMlxb
-	owA/RwiWwv4SYWcsutl5W6faQy9arh4IjRffNXVg4VICBLHUMPH8SjAX1MI/nC3CaAA7cMDw4Y13x
-	l83TH2/A==;
+	bh=z1PROFlS4YqZW6f4fmkLgLvI9UmjgrQD1vuXJy9Y6iA=; b=f3bMsCORuFRIQDoJEUZEtVMhr6
+	/F6t6bkVbn2Mqd+B/LMB5MePnKD8rXeILx7/H4281BZrL4d5SxckrsA9WVmKD6MaBFSoDzlHyvPVD
+	4COHBVHPYEmYLp3+dnFDdEKZ79taGzSVmTxOtVVJzoSYbO/+74+FljUj5I4cZdLeCcSxmEnzQHbF4
+	FTIk+F55a65tqZe1NyRMHzvdowShxt/16YzTM8MbsjpH1uM+gtG12p0n0pwR2LKMXNuCzOOAJiKJA
+	qXR0OEwaqcprttf9LCgzUUS8+jsgir25iemb0b3ICvYxLBgpwyN2c8eyAQekUo3p/y4relav3mv4M
+	6glxcwqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSPxq-007eVt-K4; Wed, 15 Feb 2023 22:09:22 +0000
+	id 1pSQPa-007iHw-On; Wed, 15 Feb 2023 22:38:02 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSPxn-007eVE-A4
-	for linux-riscv@lists.infradead.org; Wed, 15 Feb 2023 22:09:20 +0000
+	id 1pSQPX-007iH4-R0
+	for linux-riscv@lists.infradead.org; Wed, 15 Feb 2023 22:38:01 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id D9DBC61DCA;
-	Wed, 15 Feb 2023 22:09:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C7F2C4339C;
-	Wed, 15 Feb 2023 22:09:15 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 2858961DD0;
+	Wed, 15 Feb 2023 22:37:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39DFDC433EF;
+	Wed, 15 Feb 2023 22:37:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1676498958;
-	bh=Qqz6yS3ExjwKNY1LOZ57WHYVmDwA8NRKmkF1c3n4DgY=;
+	s=k20201202; t=1676500678;
+	bh=NvXLo4zERJELs3A0OEbINEn9B1MOqPEhBbBoM1rX5Sc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Wx6Sh4+TpPW7RHv7Y2gPqBgcrpsNsCou4HUbe10xvxmTqvE8BFbXg/tlq2fK4P18+
-	 WlFjc70udg2g/7oDBqhmK1aZ6LyU7BYjFOKfclopHBP/p1aaOeQ6b0NULsL4SWUhux
-	 e0z8yQLKBfVc/JXJ119aAqyp1C4cJG4ICS+QZFsSmT6Je264NHb3V/qP+Rc9ALiwvh
-	 eMKfw7OWifvGbVj9jA7qZj+2CnrW6goIyJAQK/VNBeqfsemPGxIWKIQz9DO4rxTY9D
-	 2bklbGXH71ITCTjciEZj0aXG40fto5VWXdP/+dfpup8UegpMwKPfanblVtnKXHc9Eo
-	 Qs+i5AxrF4KDQ==
-Date: Wed, 15 Feb 2023 22:09:12 +0000
+	b=cg1aZIRXEngBsn1Qg0rZaUeexAmJiiImPjpo2Ks+7c0VvaIrFt6Abyu9m+0Mvk70d
+	 RKB7m11YqKvzWlqEjRIV/X3QfTm/vGyCctgxWP0XlFvcebgjjqwBwfB8qVA5vFKokK
+	 nwohXTC168+65/ECwiM6zxf61BoS0n1keoteZkRhAkpoA22BXd3AVM89KvZ1bA3uqh
+	 e29Ajs4P22ZsPV7nHO6qgz5ejXyn6PDND7HURaQeeaDHMNl1I9TpiPGg+I4xGvXIy9
+	 GuIRiyxCe7NA4M8vH4mEFVlF62VlIUs4y267CBDD9W4F4F1XmzBV3xNW8wF6LfjKQj
+	 WV0MAuX2lPtEQ==
+Date: Wed, 15 Feb 2023 22:37:51 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Evan Green <evan@rivosinc.com>
-Cc: Palmer Dabbelt <palmer@rivosinc.com>, vineetg@rivosinc.com,
-	heiko@sntech.de, slewis@rivosinc.com,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Andrew Bresticker <abrestic@rivosinc.com>,
-	Celeste Liu <coelacanthus@outlook.com>, Guo Ren <guoren@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
+To: Pu Lehui <pulehui@huaweicloud.com>
+Cc: bpf@vger.kernel.org, linux-riscv@lists.infradead.org,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
+	Yonghong Song <yhs@fb.com>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>,
+	Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	dram <dramforever@live.com>, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 3/6] RISC-V: hwprobe: Add support for
- RISCV_HWPROBE_BASE_BEHAVIOR_IMA
-Message-ID: <Y+1YCC7iKGfzhCCs@spud>
-References: <20230206201455.1790329-1-evan@rivosinc.com>
- <20230206201455.1790329-4-evan@rivosinc.com>
+	Conor Dooley <conor.dooley@microchip.com>,
+	Guo Ren <guoren@kernel.org>, Luke Nelson <luke.r.nels@gmail.com>,
+	Xi Wang <xi.wang@gmail.com>, Pu Lehui <pulehui@huawei.com>
+Subject: Re: [PATCH bpf-next v1 1/4] riscv: Extend patch_text for multiple
+ instructions
+Message-ID: <Y+1evzv1PkuETdVm@spud>
+References: <20230215135205.1411105-1-pulehui@huaweicloud.com>
+ <20230215135205.1411105-2-pulehui@huaweicloud.com>
 MIME-Version: 1.0
-In-Reply-To: <20230206201455.1790329-4-evan@rivosinc.com>
+In-Reply-To: <20230215135205.1411105-2-pulehui@huaweicloud.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230215_140919_429858_B3A332AC 
-X-CRM114-Status: GOOD (  12.84  )
+X-CRM114-CacheID: sfid-20230215_143759_935706_7952BF97 
+X-CRM114-Status: GOOD (  10.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,58 +81,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0700944428223310087=="
+Content-Type: multipart/mixed; boundary="===============8584190701720102687=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============0700944428223310087==
+--===============8584190701720102687==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="mNM1TIv0ctRwSSPF"
+	protocol="application/pgp-signature"; boundary="zfz/HF4ZANB5RmXZ"
 Content-Disposition: inline
 
 
---mNM1TIv0ctRwSSPF
+--zfz/HF4ZANB5RmXZ
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On Mon, Feb 06, 2023 at 12:14:52PM -0800, Evan Green wrote:
+On Wed, Feb 15, 2023 at 09:52:02PM +0800, Pu Lehui wrote:
+> From: Pu Lehui <pulehui@huawei.com>
+>=20
+> Extend patch_text for multiple instructions. This
+> is the preparaiton for multiple instructions text
+> patching in riscv bpf trampoline, and may be useful
+> for other scenario.
 
-> +		case RISCV_HWPROBE_KEY_IMA_EXT_0:
-> +			{
-> +				u64 val = 0;
-> +
-> +				if (has_fpu())
-> +					val |= RISCV_HWPROBE_IMA_FD;
+In the future, please use the full width for your commit message (or
+fix your editor if it thinks fifty-something chars is the full width).
 
-The indent caught my eye here for a sec so my attention was drawn back
-here. Would you mind adding a line of whitespace between these checks?
-Cheers,
+Otherwise, looks grand...
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+
+Thanks,
 Conor.
 
-> +				if (elf_hwcap & RISCV_ISA_EXT_c)
-> +					val |= RISCV_HWPROBE_IMA_C;
-> +				ret = set_hwprobe(pairs, val);
-> +			}
-> +			break;
-> +
 
-
---mNM1TIv0ctRwSSPF
+--zfz/HF4ZANB5RmXZ
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY+1YCAAKCRB4tDGHoIJi
-0uGtAQCbl6xjnQJVTf3forD97h5nVmEJHAI/kgAdmSnS/g91VQEAiv+nI/S86US6
-MjLBBDqGuTNOMf3KxxztJ2Oi85UlSw8=
-=83wP
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY+1evwAKCRB4tDGHoIJi
+0otNAQD6dzDRBTtWgsltvV157r3eLCncHyAAlAEHTxf6GkoQwgEA1I7d2AKYYUF1
+7I9rFNKoujbABR5RcyUYKdUBGnSVjAc=
+=mAMb
 -----END PGP SIGNATURE-----
 
---mNM1TIv0ctRwSSPF--
+--zfz/HF4ZANB5RmXZ--
 
 
---===============0700944428223310087==
+--===============8584190701720102687==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -138,5 +140,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============0700944428223310087==--
+--===============8584190701720102687==--
 
