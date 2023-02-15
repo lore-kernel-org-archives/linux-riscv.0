@@ -4,93 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65DD6C636D4
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Feb 2023 13:12:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6842BC636D4
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Feb 2023 13:50:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lwOeQWeyXuBWYe20OxR6aFG3rID4/NCbYziLAjMbtxc=; b=YYdDUViBSEnkRe
-	JSkSAjjrwL0zBzVVG2fUWs1BQuh/bUbX0nBqBDdGiHX32Cm04OJWxaMGVflKsx7vX66CpC+8M8LWt
-	9/3b/CnT3zS5R0shyjpvfCptIuwKjInwNZPtiE99ZryT1jNBc11GYKBY2Pf/eJAxkEqwxznFBy+us
-	ckhp4G29ZL7RqninS0rArir7fuK8CWqGNMKW551MO5lTSgXCZy+YHAkIi+Ye/8ZKuXmBCUdKJKYVd
-	C+IzWed+8M8m4Mg/xFelsi1bru/Oaarv0EFePJMc1CsyponQoyUsBM+aNSKBQeqmschnKS9VBqj74
-	d9X6QfSAlV6daoNKA4gw==;
+	List-Owner; bh=zj61ojsBO00oERCsNc61mdtauiTa7SnsNPdUlp1ci9E=; b=BGu0ACaW98mB9H
+	Dovt5j/675VVCkTcnwl0EQGT+elp8ccyLMhor3pC0TwZFkuGRom+wh4EBrLn4D1buj0ruw0ieN6wm
+	ZjlmFuj2y29t5AV/KYClWvGCymHmlXNMKGR0nxuCW4keLdvMebog3RI5qJ2akqJ3j8x2ynQ5zP5Fv
+	kGj6H4bvNgX2rm94E/gUwvVjdp6NdoKEfZWeUazbMQlWEIT97w13pAW5mHqJfkVMUe/YvLDfD6orY
+	U5btuecxcQZFYKc+qGBt6K4/dUNI88qm9H6dyrmEKhzjKmRY3mbVNA6nWaTIH1AogkmhmfIqBW2OV
+	l2HvdTqGyG04Ohmtg2QQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSHZk-005w5p-4S; Wed, 15 Feb 2023 13:11:56 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1pSIAj-0066go-5c; Wed, 15 Feb 2023 13:50:09 +0000
+Received: from [45.249.212.51] (helo=dggsgout11.his.huawei.com)
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSHZY-005w1k-Mf
-	for linux-riscv@lists.infradead.org; Wed, 15 Feb 2023 13:11:46 +0000
-Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 473833F57F
-	for <linux-riscv@lists.infradead.org>; Wed, 15 Feb 2023 13:11:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1676466701;
-	bh=1XdYb1DRbOmlAI6DRkBJIyrIK+/5tdCGTTdbxhb+wmw=;
-	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=mBoW16fVkEwXTxRnSNlMI4i0CwJNHPgXgs9XoZ3Gz52zAbyHNX7xo7E9/g3ZSCshY
-	 JCVik0cxPmdu+1CpkzlBRYX1OVC/nToz3fwt7OVKVjnA8ZoEk1KDEpAy9ts+0R0kaR
-	 N4HlRKOR/1xp5oCHzmnb3Hor+3nHAGPQK4tP5RRFqNBk+1htCtgdxOod4IvvjYl6F+
-	 0AUeBBlYK6ICVh6V/VhYfXUk+YwAWUD7jhcknezEZI+p1VmzAi3xNpT1H/Sjp3ybtl
-	 UEQ6aBxNVrUBny8sni+5C8hQXi17rCyRXqI2quJLe539sTK8mdAUnFzQhmiT9iPo/x
-	 BqPTO+GEk3jDg==
-Received: by mail-qt1-f199.google.com with SMTP id cr22-20020a05622a429600b003b694a9f291so11051802qtb.1
-        for <linux-riscv@lists.infradead.org>; Wed, 15 Feb 2023 05:11:41 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=1XdYb1DRbOmlAI6DRkBJIyrIK+/5tdCGTTdbxhb+wmw=;
-        b=dCsFQiqrUN48JQ/6THGUHwHLb4HZBK8usdEG30bBdVN5sTI5fykvaNcMqHyiWtp+cw
-         ikwzCgMOiXLdANj6KwePCFQ0mMu/S9L1c6zDB0hyCJoSKkRuqgwf4MhVb2fabjBqina4
-         uwsiqczEBWnL29SS0KPml49GiuC4pDapuOvKKnSzb7voPzb7pmeGL9MUNq7Trfm2s3j+
-         aZOTscnea9HGGxR7D80FchCaF07No2h6ozmXGdZ6nFm0KcRrl583u5rblSxLmTBLzATz
-         Ifg5I4jaH32tqTitJfIZYowsngeR783HOSvtoCKEHgKpbRQLTPOqSbBlZLuGW+mSNjcc
-         5SLw==
-X-Gm-Message-State: AO0yUKWoGiaJkUQziBlJIXA5CFo4Z5WmYMRURv1dEQwyyUoYhhm4cmhM
-	dbjWzyskggH21AdiNtMgj3yOBbiyHZXpTclor5J1nFPMznZMq7bN007NjyviCzouhzSPQAiP4fB
-	gnQgDgy4/j0sTBbKSwv6wQH+7D1/38GykRhkci2HrO+C82nIbRz1p90r2/fI7/A==
-X-Received: by 2002:a05:622a:164f:b0:3bc:e3a8:d1d6 with SMTP id y15-20020a05622a164f00b003bce3a8d1d6mr228741qtj.229.1676466699837;
-        Wed, 15 Feb 2023 05:11:39 -0800 (PST)
-X-Google-Smtp-Source: AK7set+4/1NxoBcvUdWQnW9B5yPBwHcyWHA8dOVvJArdaItgCToDNjAmHnj0L1BgI9mhCHcGqlTdul+lrgFnVADu40o=
-X-Received: by 2002:a05:622a:164f:b0:3bc:e3a8:d1d6 with SMTP id
- y15-20020a05622a164f00b003bce3a8d1d6mr228728qtj.229.1676466699567; Wed, 15
- Feb 2023 05:11:39 -0800 (PST)
+	id 1pSIAf-0066ZL-PI
+	for linux-riscv@lists.infradead.org; Wed, 15 Feb 2023 13:50:07 +0000
+Received: from mail02.huawei.com (unknown [172.30.67.153])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4PGzwC2Hjcz4f3k5l
+	for <linux-riscv@lists.infradead.org>; Wed, 15 Feb 2023 21:49:47 +0800 (CST)
+Received: from localhost.localdomain (unknown [10.67.175.61])
+	by APP1 (Coremail) with SMTP id cCh0CgDnUSz64uxjC3LEDQ--.36740S4;
+	Wed, 15 Feb 2023 21:49:49 +0800 (CST)
+From: Pu Lehui <pulehui@huaweicloud.com>
+To: bpf@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yhs@fb.com>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>,
+	Stanislav Fomichev <sdf@google.com>,
+	Hao Luo <haoluo@google.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Guo Ren <guoren@kernel.org>,
+	Luke Nelson <luke.r.nels@gmail.com>,
+	Xi Wang <xi.wang@gmail.com>,
+	Pu Lehui <pulehui@huawei.com>,
+	Pu Lehui <pulehui@huaweicloud.com>
+Subject: [PATCH bpf-next v1 2/4] riscv, bpf: Factor out emit_call for kernel and bpf context
+Date: Wed, 15 Feb 2023 21:52:03 +0800
+Message-Id: <20230215135205.1411105-3-pulehui@huaweicloud.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20230215135205.1411105-1-pulehui@huaweicloud.com>
+References: <20230215135205.1411105-1-pulehui@huaweicloud.com>
 MIME-Version: 1.0
-References: <20230211031821.976408-1-cristian.ciocaltea@collabora.com>
- <20230211031821.976408-2-cristian.ciocaltea@collabora.com> <Y+vxw28NWPfaW7ql@spud>
-In-Reply-To: <Y+vxw28NWPfaW7ql@spud>
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Date: Wed, 15 Feb 2023 14:11:22 +0100
-Message-ID: <CAJM55Z_x3omY9DQtxPUgLX0NKEm3PCXDkFFDVAzG7opFLsZX+A@mail.gmail.com>
-Subject: Re: [PATCH 01/12] dt-bindings: riscv: sifive-ccache: Add compatible
- for StarFive JH7100 SoC
-To: Conor Dooley <conor@kernel.org>
-Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, Lee Jones <lee@kernel.org>, 
-	Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Emil Renner Berthing <kernel@esmil.dk>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Jose Abreu <joabreu@synopsys.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Richard Cochran <richardcochran@gmail.com>, Sagar Kadam <sagar.kadam@sifive.com>, 
-	Yanhong Wang <yanhong.wang@starfivetech.com>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, kernel@collabora.com
+X-CM-TRANSID: cCh0CgDnUSz64uxjC3LEDQ--.36740S4
+X-Coremail-Antispam: 1UD129KBjvJXoWxurWfuw13GrWUJFykWFyrXrb_yoW5Zr4xpF
+	W5CFn3C3yvqF1SgFyDGFs5Zr1akr4v9r13tF93W395KFsFqrsrKF15Ka1Yqa4YyryrGr4r
+	JFsFkFnxu3WUZrJanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPj14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jryl82xGYIkIc2
+	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
+	Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJw
+	A2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq3wAS
+	0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2
+	IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0
+	Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2kIc2
+	xKxwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v2
+	6r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2
+	Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_
+	Cr0_Gr1UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8Jw
+	CI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfUOJPEUUUU
+	U
+X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230215_051145_164590_93FC7407 
-X-CRM114-Status: GOOD (  30.21  )
+X-CRM114-CacheID: sfid-20230215_055006_236319_0FBF994B 
+X-CRM114-Status: GOOD (  11.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,122 +101,111 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 14 Feb 2023 at 21:42, Conor Dooley <conor@kernel.org> wrote:
->
-> Hey all,
->
-> On Sat, Feb 11, 2023 at 05:18:10AM +0200, Cristian Ciocaltea wrote:
-> > Document the compatible for the SiFive Composable Cache Controller found
-> > on the StarFive JH7100 SoC.
-> >
-> > This also requires extending the 'reg' property to handle distinct
-> > ranges, as specified via 'reg-names'.
-> >
-> > Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-> > ---
-> >  .../bindings/riscv/sifive,ccache0.yaml        | 28 ++++++++++++++++++-
-> >  1 file changed, 27 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/Documentation/devicetree/bindings/riscv/sifive,ccache0.yaml b/Documentation/devicetree/bindings/riscv/sifive,ccache0.yaml
-> > index 31d20efaa6d3..2b864b2f12c9 100644
-> > --- a/Documentation/devicetree/bindings/riscv/sifive,ccache0.yaml
-> > +++ b/Documentation/devicetree/bindings/riscv/sifive,ccache0.yaml
-> > @@ -25,6 +25,7 @@ select:
-> >            - sifive,ccache0
-> >            - sifive,fu540-c000-ccache
-> >            - sifive,fu740-c000-ccache
-> > +          - starfive,jh7100-ccache
-> >
-> >    required:
-> >      - compatible
-> > @@ -37,6 +38,7 @@ properties:
-> >                - sifive,ccache0
-> >                - sifive,fu540-c000-ccache
-> >                - sifive,fu740-c000-ccache
-> > +              - starfive,jh7100-ccache
-> >            - const: cache
-> >        - items:
-> >            - const: starfive,jh7110-ccache
-> > @@ -70,7 +72,13 @@ properties:
-> >        - description: DirFail interrupt
-> >
-> >    reg:
-> > -    maxItems: 1
-> > +    minItems: 1
-> > +    maxItems: 2
-> > +
-> > +  reg-names:
-> > +    items:
-> > +      - const: control
-> > +      - const: sideband
->
-> So why is this called "sideband"?
-> In the docs for the JH7100 it is called LIM & it's called LIM in our
-> docs for the PolarFire SoC (at the same address btw) and we run the HSS
-> out of it! LIM being "loosely integrated memory", which by the limit
-> hits on Google may be a SiFive-ism?
->
-> I'm not really sure if adding it as a "reg" section is the right thing
-> to do as it's not "just" a register bank.
-> Perhaps Rob/Krzysztof have a take on that one?
+From: Pu Lehui <pulehui@huawei.com>
 
-Yes, this seems to be a leftover I didn't manage to clean up yet. The
-"sideband" range is called L2 LIM in the datasheet and seems to be a
-way to use the cache directly. The Sifive docs read "When cache ways
-are disabled, they are addressable in the L2 Loosely-Integrated Memory
-(L2 LIM) address space [..]". This feature is not used by Linux on the
-JH7100, so can just be removed here.
+The current emit_call function is not suitable for kernel
+function call as it store return value to bpf R0 register.
+We can separate it out for common use. Meanwhile, simplify
+judgment logic, that is, fixed function address can use jal
+or auipc+jalr, while the unfixed can use only auipc+jalr.
 
-/Emil
+Signed-off-by: Pu Lehui <pulehui@huawei.com>
+---
+ arch/riscv/net/bpf_jit_comp64.c | 30 +++++++++++++-----------------
+ 1 file changed, 13 insertions(+), 17 deletions(-)
 
-> >
-> >    next-level-cache: true
-> >
-> > @@ -89,6 +97,7 @@ allOf:
-> >            contains:
-> >              enum:
-> >                - sifive,fu740-c000-ccache
-> > +              - starfive,jh7100-ccache
-> >                - starfive,jh7110-ccache
-> >                - microchip,mpfs-ccache
-> >
-> > @@ -106,12 +115,29 @@ allOf:
-> >              Must contain entries for DirError, DataError and DataFail signals.
-> >            maxItems: 3
-> >
-> > +  - if:
-> > +      properties:
-> > +        compatible:
-> > +          contains:
-> > +            const: starfive,jh7100-ccache
-> > +
-> > +    then:
-> > +      properties:
-> > +        reg:
-> > +          maxItems: 2
-> > +
-> > +    else:
-> > +      properties:
-> > +        reg:
-> > +          maxItems: 1
-> > +
-> >    - if:
-> >        properties:
-> >          compatible:
-> >            contains:
-> >              enum:
-> >                - sifive,fu740-c000-ccache
-> > +              - starfive,jh7100-ccache
-> >                - starfive,jh7110-ccache
-> >
-> >      then:
-> > --
-> > 2.39.1
-> >
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
+index f2417ac54edd..69ebab81d935 100644
+--- a/arch/riscv/net/bpf_jit_comp64.c
++++ b/arch/riscv/net/bpf_jit_comp64.c
+@@ -428,12 +428,12 @@ static void emit_sext_32_rd(u8 *rd, struct rv_jit_context *ctx)
+ 	*rd = RV_REG_T2;
+ }
+ 
+-static int emit_jump_and_link(u8 rd, s64 rvoff, bool force_jalr,
++static int emit_jump_and_link(u8 rd, s64 rvoff, bool fixed_addr,
+ 			      struct rv_jit_context *ctx)
+ {
+ 	s64 upper, lower;
+ 
+-	if (rvoff && is_21b_int(rvoff) && !force_jalr) {
++	if (rvoff && fixed_addr && is_21b_int(rvoff)) {
+ 		emit(rv_jal(rd, rvoff >> 1), ctx);
+ 		return 0;
+ 	} else if (in_auipc_jalr_range(rvoff)) {
+@@ -454,24 +454,17 @@ static bool is_signed_bpf_cond(u8 cond)
+ 		cond == BPF_JSGE || cond == BPF_JSLE;
+ }
+ 
+-static int emit_call(bool fixed, u64 addr, struct rv_jit_context *ctx)
++static int emit_call(u64 addr, bool fixed_addr, struct rv_jit_context *ctx)
+ {
+ 	s64 off = 0;
+ 	u64 ip;
+-	u8 rd;
+-	int ret;
+ 
+ 	if (addr && ctx->insns) {
+ 		ip = (u64)(long)(ctx->insns + ctx->ninsns);
+ 		off = addr - ip;
+ 	}
+ 
+-	ret = emit_jump_and_link(RV_REG_RA, off, !fixed, ctx);
+-	if (ret)
+-		return ret;
+-	rd = bpf_to_rv_reg(BPF_REG_0, ctx);
+-	emit_mv(rd, RV_REG_A0, ctx);
+-	return 0;
++	return emit_jump_and_link(RV_REG_RA, off, fixed_addr, ctx);
+ }
+ 
+ static void emit_atomic(u8 rd, u8 rs, s16 off, s32 imm, bool is64,
+@@ -913,7 +906,7 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+ 	/* JUMP off */
+ 	case BPF_JMP | BPF_JA:
+ 		rvoff = rv_offset(i, off, ctx);
+-		ret = emit_jump_and_link(RV_REG_ZERO, rvoff, false, ctx);
++		ret = emit_jump_and_link(RV_REG_ZERO, rvoff, true, ctx);
+ 		if (ret)
+ 			return ret;
+ 		break;
+@@ -1032,17 +1025,20 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+ 	/* function call */
+ 	case BPF_JMP | BPF_CALL:
+ 	{
+-		bool fixed;
++		bool fixed_addr;
+ 		u64 addr;
+ 
+ 		mark_call(ctx);
+-		ret = bpf_jit_get_func_addr(ctx->prog, insn, extra_pass, &addr,
+-					    &fixed);
++		ret = bpf_jit_get_func_addr(ctx->prog, insn, extra_pass,
++					    &addr, &fixed_addr);
+ 		if (ret < 0)
+ 			return ret;
+-		ret = emit_call(fixed, addr, ctx);
++
++		ret = emit_call(addr, fixed_addr, ctx);
+ 		if (ret)
+ 			return ret;
++
++		emit_mv(bpf_to_rv_reg(BPF_REG_0, ctx), RV_REG_A0, ctx);
+ 		break;
+ 	}
+ 	/* tail call */
+@@ -1057,7 +1053,7 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+ 			break;
+ 
+ 		rvoff = epilogue_offset(ctx);
+-		ret = emit_jump_and_link(RV_REG_ZERO, rvoff, false, ctx);
++		ret = emit_jump_and_link(RV_REG_ZERO, rvoff, true, ctx);
+ 		if (ret)
+ 			return ret;
+ 		break;
+-- 
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
