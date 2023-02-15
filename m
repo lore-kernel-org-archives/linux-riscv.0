@@ -4,59 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C76E6C636CC
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Feb 2023 11:33:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73BE6C636CC
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Feb 2023 11:51:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ivaXVLnbTg3+USQhWlXhAK80FZL7J+i73in5udfjVTE=; b=1zsjsgoW8diVBa
-	djWd+7CEorW5+YwOLeAFIqXTEvEDAat2DF8Ou5KKXMiMSjC0MdF1s2WniFJTU1MtTxpuEeK5oCLjm
-	IqLY8y1vG1ImzGhE12J+yh7EyoIEp3CfWkeY54x12c2fEibBOoknQySLLWDTjptUbdr0vybG0QvGf
-	gp8Xk+Kh/U9weVl0CiXsXBDBD8eh0tVVT5CI+8qP0720MMs+AVLr8Zx0uXjith5XY4pPI0qEbpKq6
-	3bKpBuit6U+apvJo4b07hHvW9zYgmcFzCCJHrhzLFMhYpq9kgjM9N0hnH6BsWl/O9iV/JMQYQd94k
-	PccKgqB3KgmGvjjXOccQ==;
+	List-Owner; bh=Pw1IxSJEHLmRloTBrym8eko6TwGVBqXh9RlcOe6O6vY=; b=G09A4sKSXzTTOp
+	yrh9b34mWKVDm7uPI3xyGJbNvkI/DpJ4xSMpkTZhkgMNHDF8oiNffvo/I8uMwo8muDpr5OOMAHzgn
+	ZFKxIMLXHTJTokLJt4wes4MNF6NH3hKbovWgQXMt80zqV9D3IbelOspBB99fu9hHuCkiI4vCZm0Zf
+	pewDAC/m5UWWLbyMKO5GUy6qhLasKgdRjJ7xxyIj8YzViD+Ns0hC6yvbbdUFNC+K05KCpZQMZVuis
+	MTIw4SxXpEhSAykzYE+6VvTGscYREes7PpobsEIHgWvNUswz7zoZqlQCgx9+B1k/Tv2WRB9Hnb/hB
+	oezqlZPvZRd/GAtLB6Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSG2L-005cFc-Ko; Wed, 15 Feb 2023 11:33:21 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSG2H-005c7v-99
-	for linux-riscv@lists.infradead.org; Wed, 15 Feb 2023 11:33:19 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 4B19524E31D;
-	Wed, 15 Feb 2023 19:32:52 +0800 (CST)
-Received: from EXMBX068.cuchost.com (172.16.6.68) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 15 Feb
- 2023 19:32:52 +0800
-Received: from williamqiu-virtual-machine.starfivetech.com (171.223.208.138)
- by EXMBX068.cuchost.com (172.16.6.68) with Microsoft SMTP Server (TLS) id
- 15.0.1497.42; Wed, 15 Feb 2023 19:32:51 +0800
-From: William Qiu <william.qiu@starfivetech.com>
-To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-mmc@vger.kernel.org>
-CC: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Jaehoon Chung <jh80.chung@samsung.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>, William Qiu
-	<william.qiu@starfivetech.com>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v4 2/4] mmc: starfive: Add sdio/emmc driver support
-Date: Wed, 15 Feb 2023 19:32:47 +0800
-Message-ID: <20230215113249.47727-3-william.qiu@starfivetech.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20230215113249.47727-1-william.qiu@starfivetech.com>
-References: <20230215113249.47727-1-william.qiu@starfivetech.com>
+	id 1pSGKA-005f7x-HM; Wed, 15 Feb 2023 11:51:46 +0000
+Received: from madras.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e5ab])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pSGJz-005f4p-0a; Wed, 15 Feb 2023 11:51:36 +0000
+Received: from [192.168.1.90] (unknown [86.120.32.152])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by madras.collabora.co.uk (Postfix) with ESMTPSA id 319A86602181;
+	Wed, 15 Feb 2023 11:51:29 +0000 (GMT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1676461890;
+	bh=QSCp6bo6FjxCSjfy/l3o4z89Z1La9kTv6gN3Uu+EpL4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=A4rqdwtauXFIbQbOGHfLvjjQ6dlZiEqLF0CG/sWghsauCpAP2mXYKVMwkBAi8uEqZ
+	 WyAnVKG1j4VGABIVUzHJKddu8kq1OX83D1bLDMHtGsHI0oTkwtBXfMA4Hpi9kWPQHQ
+	 SEL0utAZxVaMKf2Rn3/aUwiy2nTVGox5FI2O/ZIxZdnaanRmdNZIk8hG7PXJMdadHn
+	 7p01MjXuIbSf0cggW1k1sHvKuqRRXNk2UdSqWWaS2ECm5wmKJXU5+bWLLesiDLkBTy
+	 0Qf3noLv63LboE1TWJ1VuVVP0d2wQjP+LjbDiK6j9PO8YUdgtvqbiop5Cg/d3aw3Ar
+	 FDekpJ+BswxCw==
+Message-ID: <68708ef5-9a7f-b7e5-a7a0-e08f6d5ae3a3@collabora.com>
+Date: Wed, 15 Feb 2023 13:51:26 +0200
 MIME-Version: 1.0
-X-Originating-IP: [171.223.208.138]
-X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX068.cuchost.com
- (172.16.6.68)
-X-YovoleRuleAgent: yovoleflag
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.7.2
+Subject: Re: [PATCH 08/12] net: stmmac: Add glue layer for StarFive JH7100 SoC
+Content-Language: en-US
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Lee Jones <lee@kernel.org>,
+ Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Emil Renner Berthing <kernel@esmil.dk>, Conor Dooley <conor@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Jose Abreu <joabreu@synopsys.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Richard Cochran <richardcochran@gmail.com>,
+ Sagar Kadam <sagar.kadam@sifive.com>,
+ Yanhong Wang <yanhong.wang@starfivetech.com>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, kernel@collabora.com
+References: <20230211031821.976408-1-cristian.ciocaltea@collabora.com>
+ <20230211031821.976408-9-cristian.ciocaltea@collabora.com>
+ <Y+e+N/aiqCctIp6e@lunn.ch>
+ <d1769dac-9e80-2f0d-6a5c-386ef70e1547@collabora.com>
+ <CAJM55Z8Uq2ZU3KvJZKDLZUJDLEyvHjCRJKcYn5CAOR0c2rhT7Q@mail.gmail.com>
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <CAJM55Z8Uq2ZU3KvJZKDLZUJDLEyvHjCRJKcYn5CAOR0c2rhT7Q@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230215_033317_655489_4CB694EF 
-X-CRM114-Status: GOOD (  25.20  )
+X-CRM114-CacheID: sfid-20230215_035135_291313_A8909C95 
+X-CRM114-Status: GOOD (  17.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,270 +88,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add sdio/emmc driver support for StarFive JH7110 soc.
-
-Tested-by: Conor Dooley <conor.dooley@microchip.com>
-Signed-off-by: William Qiu <william.qiu@starfivetech.com>
----
- MAINTAINERS                        |   6 +
- drivers/mmc/host/Kconfig           |  10 ++
- drivers/mmc/host/Makefile          |   1 +
- drivers/mmc/host/dw_mmc-starfive.c | 186 +++++++++++++++++++++++++++++
- 4 files changed, 203 insertions(+)
- create mode 100644 drivers/mmc/host/dw_mmc-starfive.c
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 85e8f83161d7..644ac9479a6e 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -19640,6 +19640,12 @@ F:	Documentation/devicetree/bindings/clock/starfive,jh71*.yaml
- F:	drivers/clk/starfive/clk-starfive-jh71*
- F:	include/dt-bindings/clock/starfive?jh71*.h
- 
-+STARFIVE JH7110 MMC/SD/SDIO DRIVER
-+M:	William Qiu <william.qiu@starfivetech.com>
-+S:	Supported
-+F:	Documentation/devicetree/bindings/mmc/starfive*
-+F:	drivers/mmc/host/dw_mmc-starfive.c
-+
- STARFIVE JH71X0 PINCTRL DRIVERS
- M:	Emil Renner Berthing <kernel@esmil.dk>
- M:	Jianlong Huang <jianlong.huang@starfivetech.com>
-diff --git a/drivers/mmc/host/Kconfig b/drivers/mmc/host/Kconfig
-index fb1062a6394c..b87262503403 100644
---- a/drivers/mmc/host/Kconfig
-+++ b/drivers/mmc/host/Kconfig
-@@ -871,6 +871,16 @@ config MMC_DW_ROCKCHIP
- 	  Synopsys DesignWare Memory Card Interface driver. Select this option
- 	  for platforms based on RK3066, RK3188 and RK3288 SoC's.
- 
-+config MMC_DW_STARFIVE
-+	tristate "StarFive specific extensions for Synopsys DW Memory Card Interface"
-+	depends on SOC_STARFIVE
-+	depends on MMC_DW
-+	select MMC_DW_PLTFM
-+	help
-+	  This selects support for StarFive JH7110 SoC specific extensions to the
-+	  Synopsys DesignWare Memory Card Interface driver. Select this option
-+	  for platforms based on StarFive JH7110 SoC.
-+
- config MMC_SH_MMCIF
- 	tristate "SuperH Internal MMCIF support"
- 	depends on SUPERH || ARCH_RENESAS || COMPILE_TEST
-diff --git a/drivers/mmc/host/Makefile b/drivers/mmc/host/Makefile
-index 4e4ceb32c4b4..32c0e5564b9a 100644
---- a/drivers/mmc/host/Makefile
-+++ b/drivers/mmc/host/Makefile
-@@ -56,6 +56,7 @@ obj-$(CONFIG_MMC_DW_HI3798CV200) += dw_mmc-hi3798cv200.o
- obj-$(CONFIG_MMC_DW_K3)		+= dw_mmc-k3.o
- obj-$(CONFIG_MMC_DW_PCI)	+= dw_mmc-pci.o
- obj-$(CONFIG_MMC_DW_ROCKCHIP)	+= dw_mmc-rockchip.o
-+obj-$(CONFIG_MMC_DW_STARFIVE)	+= dw_mmc-starfive.o
- obj-$(CONFIG_MMC_SH_MMCIF)	+= sh_mmcif.o
- obj-$(CONFIG_MMC_JZ4740)	+= jz4740_mmc.o
- obj-$(CONFIG_MMC_VUB300)	+= vub300.o
-diff --git a/drivers/mmc/host/dw_mmc-starfive.c b/drivers/mmc/host/dw_mmc-starfive.c
-new file mode 100644
-index 000000000000..40f5969b07a6
---- /dev/null
-+++ b/drivers/mmc/host/dw_mmc-starfive.c
-@@ -0,0 +1,186 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * StarFive Designware Mobile Storage Host Controller Driver
-+ *
-+ * Copyright (c) 2022 StarFive Technology Co., Ltd.
-+ */
-+
-+#include <linux/clk.h>
-+#include <linux/delay.h>
-+#include <linux/mfd/syscon.h>
-+#include <linux/mmc/host.h>
-+#include <linux/module.h>
-+#include <linux/of_address.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+
-+#include "dw_mmc.h"
-+#include "dw_mmc-pltfm.h"
-+
-+#define ALL_INT_CLR		0x1ffff
-+#define MAX_DELAY_CHAIN		32
-+
-+struct starfive_priv {
-+	struct device *dev;
-+	struct regmap *reg_syscon;
-+	u32 syscon_offset;
-+	u32 syscon_shift;
-+	u32 syscon_mask;
-+};
-+
-+static void dw_mci_starfive_set_ios(struct dw_mci *host, struct mmc_ios *ios)
-+{
-+	int ret;
-+	unsigned int clock;
-+
-+	if (ios->timing == MMC_TIMING_MMC_DDR52 || ios->timing == MMC_TIMING_UHS_DDR50) {
-+		clock = (ios->clock > 50000000 && ios->clock <= 52000000) ? 100000000 : ios->clock;
-+		ret = clk_set_rate(host->ciu_clk, clock);
-+		if (ret)
-+			dev_dbg(host->dev, "Use an external frequency divider %uHz\n", ios->clock);
-+		host->bus_hz = clk_get_rate(host->ciu_clk);
-+	} else {
-+		dev_dbg(host->dev, "Using the internal divider\n");
-+	}
-+}
-+
-+static int dw_mci_starfive_execute_tuning(struct dw_mci_slot *slot,
-+					     u32 opcode)
-+{
-+	static const int grade  = MAX_DELAY_CHAIN;
-+	struct dw_mci *host = slot->host;
-+	struct starfive_priv *priv = host->priv;
-+	int rise_point = -1, fall_point = -1;
-+	int err, prev_err;
-+	int i;
-+	bool found = 0;
-+	u32 regval;
-+
-+	/*
-+	 * Use grade as the max delay chain, and use the rise_point and
-+	 * fall_point to ensure the best sampling point of a data input
-+	 * signals.
-+	 */
-+	for (i = 0; i < grade; i++) {
-+		regval = i << priv->syscon_shift;
-+		err = regmap_update_bits(priv->reg_syscon, priv->syscon_offset,
-+						priv->syscon_mask, regval);
-+		if (err)
-+			return err;
-+		mci_writel(host, RINTSTS, ALL_INT_CLR);
-+
-+		err = mmc_send_tuning(slot->mmc, opcode, NULL);
-+		if (!err)
-+			found = 1;
-+
-+		if (i > 0) {
-+			if (err && !prev_err)
-+				fall_point = i - 1;
-+			if (!err && prev_err)
-+				rise_point = i;
-+		}
-+
-+		if (rise_point != -1 && fall_point != -1)
-+			goto tuning_out;
-+
-+		prev_err = err;
-+		err = 0;
-+	}
-+
-+tuning_out:
-+	if (found) {
-+		if (rise_point == -1)
-+			rise_point = 0;
-+		if (fall_point == -1)
-+			fall_point = grade - 1;
-+		if (fall_point < rise_point) {
-+			if ((rise_point + fall_point) >
-+			    (grade - 1))
-+				i = fall_point / 2;
-+			else
-+				i = (rise_point + grade - 1) / 2;
-+		} else {
-+			i = (rise_point + fall_point) / 2;
-+		}
-+
-+		regval = i << priv->syscon_shift;
-+		err = regmap_update_bits(priv->reg_syscon, priv->syscon_offset,
-+						priv->syscon_mask, regval);
-+		if (err)
-+			return err;
-+		mci_writel(host, RINTSTS, ALL_INT_CLR);
-+
-+		dev_info(host->dev, "Found valid delay chain! use it [delay=%d]\n", i);
-+	} else {
-+		dev_err(host->dev, "No valid delay chain! use default\n");
-+		err = -EINVAL;
-+	}
-+
-+	mci_writel(host, RINTSTS, ALL_INT_CLR);
-+	return err;
-+}
-+
-+static int dw_mci_starfive_parse_dt(struct dw_mci *host)
-+{
-+	struct of_phandle_args args;
-+	struct starfive_priv *priv;
-+	int ret;
-+
-+	priv = devm_kzalloc(host->dev, sizeof(*priv), GFP_KERNEL);
-+	if (!priv)
-+		return -ENOMEM;
-+
-+	ret = of_parse_phandle_with_fixed_args(host->dev->of_node,
-+						"starfive,sysreg", 3, 0, &args);
-+	if (ret) {
-+		dev_err(host->dev, "Failed to parse starfive,sysreg\n");
-+		return -EINVAL;
-+	}
-+
-+	priv->reg_syscon = syscon_node_to_regmap(args.np);
-+	of_node_put(args.np);
-+	if (IS_ERR(priv->reg_syscon))
-+		return PTR_ERR(priv->reg_syscon);
-+
-+	priv->syscon_offset = args.args[0];
-+	priv->syscon_shift  = args.args[1];
-+	priv->syscon_mask   = args.args[2];
-+
-+	host->priv = priv;
-+
-+	return 0;
-+}
-+
-+static const struct dw_mci_drv_data starfive_data = {
-+	.common_caps		= MMC_CAP_CMD23,
-+	.set_ios		= dw_mci_starfive_set_ios,
-+	.parse_dt		= dw_mci_starfive_parse_dt,
-+	.execute_tuning		= dw_mci_starfive_execute_tuning,
-+};
-+
-+static const struct of_device_id dw_mci_starfive_match[] = {
-+	{ .compatible = "starfive,jh7110-mmc",
-+		.data = &starfive_data },
-+	{},
-+};
-+MODULE_DEVICE_TABLE(of, dw_mci_starfive_match);
-+
-+static int dw_mci_starfive_probe(struct platform_device *pdev)
-+{
-+	return dw_mci_pltfm_register(pdev, &starfive_data);
-+}
-+
-+static struct platform_driver dw_mci_starfive_driver = {
-+	.probe = dw_mci_starfive_probe,
-+	.remove = dw_mci_pltfm_remove,
-+	.driver = {
-+		.name = "dwmmc_starfive",
-+		.probe_type = PROBE_PREFER_ASYNCHRONOUS,
-+		.of_match_table = dw_mci_starfive_match,
-+	},
-+};
-+module_platform_driver(dw_mci_starfive_driver);
-+
-+MODULE_DESCRIPTION("StarFive JH7110 Specific DW-MSHC Driver Extension");
-+MODULE_LICENSE("GPL");
-+MODULE_ALIAS("platform:dwmmc_starfive");
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMi8xNS8yMyAxMzoyMCwgRW1pbCBSZW5uZXIgQmVydGhpbmcgd3JvdGU6Cj4gT24gV2VkLCAx
+NSBGZWIgMjAyMyBhdCAwMTowOSwgQ3Jpc3RpYW4gQ2lvY2FsdGVhCj4gPGNyaXN0aWFuLmNpb2Nh
+bHRlYUBjb2xsYWJvcmEuY29tPiB3cm90ZToKPj4KPj4gT24gMi8xMS8yMyAxODoxMSwgQW5kcmV3
+IEx1bm4gd3JvdGU6Cj4+Pj4gKwo+Pj4+ICsjZGVmaW5lIEpINzEwMF9TWVNNQUlOX1JFR0lTVEVS
+MjggMHg3MAo+Pj4+ICsvKiBUaGUgdmFsdWUgYmVsb3cgaXMgbm90IGEgdHlwbywganVzdCByZWFs
+bHkgYmFkIG5hbWluZyBieSBTdGFyRml2ZSDCr1xfKOODhClfL8KvICovCj4+Pj4gKyNkZWZpbmUg
+Skg3MTAwX1NZU01BSU5fUkVHSVNURVI0OSAweGM4Cj4+Pgo+Pj4gU2VlbXMgbGlrZSB0aGUgY29t
+bWVudCBzaG91bGQgYmUgb25lIGxpbmUgZWFybGllcj8KPiAKPiBXZWxsIHllcywgdGhlIHZlcnkg
+Z2VuZXJpYyByZWdpc3RlciBuYW1lcyBhcmUgYWxzbyBiYWQsIGJ1dCB0aGlzCj4gY29tbWVudCBy
+ZWZlcnMgdG8gdGhlIGZhY3QgdGhhdCBpdCBraW5kIG9mIG1ha2VzIHNlbnNlIHRoYXQgcmVnaXN0
+ZXIKPiAyOCBoYXMgdGhlIG9mZnNldAo+ICAgIDI4ICogNCBieXRlcyBwci4gcmVnaXN0ZXIgPSAw
+eDcwCj4gLi5idXQgdGhlbiByZWdpc3RlciA0OSBpcyBvZGRseSBvdXQgb2YgcGxhY2UgYXQgb2Zm
+c2V0IDB4YzggaW5zdGVhZCBvZgo+ICAgIDQ5ICogNCBieXRlcyBwci4gcmVnaXN0ZXIgPSAweGM0
+Cj4gCj4+PiBUaGVyZSBpcyB2YWx1ZSBpbiBiYXNpbmcgdGhlIG5hbWVzIG9uIHRoZSBkYXRhc2hl
+ZXQsIGJ1dCB5b3UgY291bGQKPj4+IGFwcGVuZCBzb21ldGhpbmcgbWVhbmluZ2Z1bCBvbiB0aGUg
+ZW5kOgo+Pj4KPj4+ICNkZWZpbmUgSkg3MTAwX1NZU01BSU5fUkVHSVNURVI0OV9ETFlDSEFJTiAw
+eGM4Cj4+Cj4+IFVuZm9ydHVuYXRlbHkgdGhlIEpINzEwMCBkYXRhc2hlZXQgSSBoYXZlIGFjY2Vz
+cyB0byBkb2Vzbid0IHByb3ZpZGUgYW55Cj4+IGluZm9ybWF0aW9uIHJlZ2FyZGluZyB0aGUgU1lT
+Q1RSTC1NQUlOU1lTIHJlbGF0ZWQgcmVnaXN0ZXJzLiBNYXliZSBFbWlsCj4+IGNvdWxkIHByb3Zp
+ZGUgc29tZSBkZXRhaWxzIGhlcmU/Cj4gCj4gVGhpcyBpcyByZXZlcnNlIGVuZ2luZWVyZWQgZnJv
+bSB0aGUgYXV0byBnZW5lcmF0ZWQgaGVhZGVycyBpbiB0aGVpciB1LWJvb3Q6Cj4gaHR0cHM6Ly9n
+aXRodWIuY29tL3N0YXJmaXZlLXRlY2gvdS1ib290L2Jsb2IvSkg3MTAwX1Zpc2lvbkZpdmVfZGV2
+ZWwvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9hcmNoLWpoNzEwMC9zeXNjb25fc3lzbWFpbl9jdHJs
+X21hY3JvLmgKPiAKPiBDaHJpc3RpYW4sIEknbSBoYXBweSB0aGF0IHlvdSdyZSB3b3JraW5nIG9u
+IHRoaXMsIGJ1dCBtZXNzIGxpa2UgdGhpcwo+IGFuZCB3YWl0aW5nIGZvciB0aGUgbm9uLWNvaGVy
+ZW50IGRtYSB0byBiZSBzb3J0ZWQgaXMgd2h5IEkgZGlkbid0IHNlbmQKPiBpdCB1cHN0cmVhbSB5
+ZXQuCgpUaGFuayB5b3UgZm9yIGNsYXJpZnlpbmcgdGhpcyBhbmQgZm9yIGFsbCB0aGUgd29yayB5
+b3UgaGF2ZSBkb25lIHNvIGZhciwgCkVtaWwhIElmIHlvdSBkb24ndCBtaW5kLCBJIHdvdWxkIGJl
+IGdsYWQgdG8gY29udGludWUgaGVscGluZyB3aXRoIHRoaXMgCm1haW5saW5pbmcgZWZmb3J0LgoK
+Pj4+PiArICAgIGlmICghb2ZfcHJvcGVydHlfcmVhZF91MzIobnAsICJzdGFyZml2ZSxndHhjbGst
+ZGx5Y2hhaW4iLCAmZ3R4Y2xrX2RseWNoYWluKSkgewo+Pj4+ICsgICAgICAgICAgICByZXQgPSBy
+ZWdtYXBfd3JpdGUoc3lzbWFpbiwgSkg3MTAwX1NZU01BSU5fUkVHSVNURVI0OSwgZ3R4Y2xrX2Rs
+eWNoYWluKTsKPj4+PiArICAgICAgICAgICAgaWYgKHJldCkKPj4+PiArICAgICAgICAgICAgICAg
+ICAgICByZXR1cm4gZGV2X2Vycl9wcm9iZShkZXYsIHJldCwgImVycm9yIHNlbGVjdGluZyBndHhj
+bGsgZGVsYXkgY2hhaW5cbiIpOwo+Pj4+ICsgICAgfQo+Pj4KPj4+IFlvdSBzaG91bGQgcHJvYmFi
+bHkgZG9jdW1lbnQgdGhhdCBpZiBzdGFyZml2ZSxndHhjbGstZGx5Y2hhaW4gaXMgbm90Cj4+PiBm
+b3VuZCBpbiB0aGUgRFQgYmxvYiwgdGhlIHZhbHVlIGZvciB0aGUgZGVsYXkgY2hhaW4gaXMgdW5k
+ZWZpbmVkLiAgSXQKPj4+IHdvdWxkIGFjdHVhbGx5IGJlIGJldHRlciB0byBkZWZpbmUgaXQsIHNl
+dCBpdCB0byAwIGZvciBleGFtcGxlLiBUaGF0Cj4+PiB3YXksIHlvdSBrbm93IHlvdSBkb24ndCBo
+YXZlIGFueSBkZXBlbmRlbmN5IG9uIHRoZSBib290bG9hZGVyIGZvcgo+Pj4gZXhhbXBsZS4KPj4K
+Pj4gU3VyZSwgSSB3aWxsIHNldCBpdCB0byAwLgo+Pgo+Pj4KPj4+ICAgICAgICBBbmRyZXcKPj4K
+Pj4gVGhhbmtzIGZvciByZXZpZXdpbmcsCj4+IENyaXN0aWFuCj4+Cj4+IF9fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4+IGxpbnV4LXJpc2N2IG1haWxpbmcg
+bGlzdAo+PiBsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCj4+IGh0dHA6Ly9saXN0cy5p
+bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YKCl9fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
+dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
+b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
