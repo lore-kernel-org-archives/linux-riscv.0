@@ -4,69 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83AD7C636CC
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Feb 2023 14:04:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAEEAC636D4
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Feb 2023 14:36:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LaQpg6Cf2kwa7gKj5GLn8ZtKJMVypbN3JfjV3fWqLbM=; b=kGCI7+ZvLwEgDF
-	VEaTFuOEPjwDoYf5CSEkLP45EGWu1Qpg2FvBJGdNYxIILqJSYmkultjoFcDyGkS1bNM4zD8mqKx/r
-	N3PQYU6UwU3O9MsSafXQaXn4UwtKAYJBh9gWqFWJRU/sN0SbdaNeGYV8OtTmAqUWCFSW42cr+KrOw
-	hjGkFF2IrOmBPqs+8YuXSYibE8VEBPzTNKp79pSERxdnAsMj8w2g+x+o0X4dVRyLT///+UVf+z799
-	L2C5XJ2Uc+47lf2icXwYzgZQK1QiWx3Kqhz2lDoqrN2kg6BZxn6Ro9Tamt6bmzgEAQ3naCoFJAO1C
-	MfysWZqwiNi3RdS5uWiQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=amhL5vLM7p3BDnmvJYO9lmhuHdBjUderFJLKZBihhoA=; b=5Bj9rojUb3jEY7
+	csyLf+zWuVMeNyUK6ghYNcKSk3Chv1jTZpiuoyrdHEgSP+JeHbAancBHfLoK56c+Q7xuOE1gjAR2T
+	olu+X9vdm8i7R5kCl7SuRG1xxfP5s9XKEaYo6M7LcvFrkkEs/m1QRoO8lNI6VMd8L6wz017JJ8kMS
+	48poFxRgE40Zl+RC2xOKApAOn4omnzGLiHgj4Am7w5nnpzgMqsOvoQICl6Kl50n3NxTpdPdXzwnv/
+	kB4/8W3UK+9iLRhBc2ThKML2AMeFG7eYOM9ZuqGGVo/9RhTLRyMnfqoh66t979IKZdTosz2up69ua
+	KVV8v86QYUbAllBz42gA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSIOS-0068oK-7e; Wed, 15 Feb 2023 14:04:20 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSIOM-0068kz-Gi
-	for linux-riscv@lists.infradead.org; Wed, 15 Feb 2023 14:04:18 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 7AD6B24E313;
-	Wed, 15 Feb 2023 22:03:45 +0800 (CST)
-Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 15 Feb
- 2023 22:03:45 +0800
-Received: from [192.168.125.110] (183.27.97.168) by EXMBX172.cuchost.com
- (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 15 Feb
- 2023 22:03:44 +0800
-Message-ID: <af42ed91-95aa-014a-1efb-6f70ee5a0433@starfivetech.com>
-Date: Wed, 15 Feb 2023 22:03:43 +0800
+	id 1pSIth-006EAS-B2; Wed, 15 Feb 2023 14:36:37 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pSIte-006E98-Jp
+	for linux-riscv@lists.infradead.org; Wed, 15 Feb 2023 14:36:36 +0000
+Received: by mail-wr1-x432.google.com with SMTP id h16so19344593wrz.12
+        for <linux-riscv@lists.infradead.org>; Wed, 15 Feb 2023 06:36:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=jRBV0SjOH4m1jqJftOHPSfzIM3NEGl9hHTTwCxPywOE=;
+        b=3Y9vxYu6ar2dSB1kCRjCTzicJeTftRBdXwzP+5fueQmlRdReC3ZqXOQCw66BayRRw4
+         t3XNyatq5AjKpvkWNSeSyD3WoE/CFp3DcFJeJCPHHEF//3aYjSd/uacqdvw/GQqsCYdo
+         wSH2haym4J25PhWHEu/Uz7mNTc9n3wmHR4bw9pswNCnwq8f5ElyGeRw/31e1Cox/ZgxY
+         kQ/PMH72LSyKwfKcxeBqbTD6pEvf7lnmcCv8NBu5010VHTEwugEgEaGlpGN9pMplxDNI
+         2KEFNrML6RHJ2FAyHwNXamlbaa3LC6ywSeDdgQESFnQ47ia5GVKqv4DTGxGGblmQ/vCf
+         W9Sg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=jRBV0SjOH4m1jqJftOHPSfzIM3NEGl9hHTTwCxPywOE=;
+        b=kc4qSobOsmGF4OubjetO81tOX3v5S6we628r6gU8VmMs3VbDgU9D3MwQl06lkDayzf
+         nspkEtk+kTIhfvgdJAlakP/rxRQTPdBzCwsW2kWZgs6JWoihYsMGuZK0xOUV9kunKcpN
+         Me5KA3/ITyr9zg9MhwJhAc/hpNJlbvHGDioMxQr2tY2y6AHXBkYlr/iHlFKH3hIhIgj3
+         YvtdYMiK72gzf2WV9m5dKboloqp2ZL/ngC+k27ZLH8Kf644ge8iXi4/x0+GujgkcteZ+
+         p5TMi8KTrSrCjixzrB0A1OCogNOVpUZoyhkTHmWXRl78hEbRJp5hHBX2a4bSYj/BLjgC
+         k1xw==
+X-Gm-Message-State: AO0yUKWWTfhjfxK8uKU+TG3zsTuBeGBG4MjHm/Lp3uFIJOvCoVT7yCPQ
+	J/LpCKItamM6kwkG0ZR4QpbThQ==
+X-Google-Smtp-Source: AK7set9r973hQ5UHjGnbObY0O9BnXI60Uko7b5o7mmb/X0KABjEgyxP2XnPeDtYgbbaurkyV430ZZg==
+X-Received: by 2002:a05:6000:10c1:b0:2c5:56ff:4321 with SMTP id b1-20020a05600010c100b002c556ff4321mr2138475wrx.4.1676471789041;
+        Wed, 15 Feb 2023 06:36:29 -0800 (PST)
+Received: from alex-rivos.home (lfbn-lyo-1-450-160.w2-7.abo.wanadoo.fr. [2.7.42.160])
+        by smtp.gmail.com with ESMTPSA id 4-20020a05600c024400b003e01493b136sm2232092wmj.43.2023.02.15.06.36.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 15 Feb 2023 06:36:28 -0800 (PST)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+To: Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH v8 0/3] Introduce 64b relocatable kernel
+Date: Wed, 15 Feb 2023 15:36:23 +0100
+Message-Id: <20230215143626.453491-1-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.37.2
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.2
-Subject: Re: [PATCH v3 7/7] riscv: dts: starfive: Add StarFive JH7110
- VisionFive 2 board device tree
-Content-Language: en-US
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Conor
- Dooley" <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring
-	<robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, Ben Dooks
-	<ben.dooks@sifive.com>, Daniel Lezcano <daniel.lezcano@linaro.org>, "Thomas
- Gleixner" <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Stephen Boyd
-	<sboyd@kernel.org>, Michael Turquette <mturquette@baylibre.com>, "Philipp
- Zabel" <p.zabel@pengutronix.de>, Linus Walleij <linus.walleij@linaro.org>,
-	<linux-kernel@vger.kernel.org>
-References: <20221220011247.35560-1-hal.feng@starfivetech.com>
- <20221220011247.35560-8-hal.feng@starfivetech.com>
- <CAJM55Z9Y_fF+4Dtu++C_jVS0+ohXp5U0GyuJCBpUh-SpTMGrVA@mail.gmail.com>
-From: Hal Feng <hal.feng@starfivetech.com>
-In-Reply-To: <CAJM55Z9Y_fF+4Dtu++C_jVS0+ohXp5U0GyuJCBpUh-SpTMGrVA@mail.gmail.com>
-X-Originating-IP: [183.27.97.168]
-X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX172.cuchost.com
- (172.16.6.92)
-X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230215_060414_933182_FCD6AAB6 
-X-CRM114-Status: GOOD (  19.99  )
+X-CRM114-CacheID: sfid-20230215_063634_891301_AFF58A80 
+X-CRM114-Status: GOOD (  17.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,106 +94,91 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2/14/2023 5:53 PM, Emil Renner Berthing wrote:
-> On Tue, 20 Dec 2022 at 02:12, Hal Feng <hal.feng@starfivetech.com> wrote:
->>
->> From: Emil Renner Berthing <kernel@esmil.dk>
->>
->> Add a minimal device tree for StarFive JH7110 VisionFive 2 board
->> which has version A and version B. Support booting and basic
->> clock/reset/pinctrl/uart drivers.
->>
->> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
->> Co-developed-by: Jianlong Huang <jianlong.huang@starfivetech.com>
->> Signed-off-by: Jianlong Huang <jianlong.huang@starfivetech.com>
->> Co-developed-by: Hal Feng <hal.feng@starfivetech.com>
->> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
->> ---
->>  arch/riscv/boot/dts/starfive/Makefile         |   1 +
->>  .../jh7110-starfive-visionfive-2-va.dts       |  13 ++
->>  .../jh7110-starfive-visionfive-2-vb.dts       |  13 ++
->>  .../jh7110-starfive-visionfive-2.dtsi         | 111 ++++++++++++++++++
->>  4 files changed, 138 insertions(+)
->>  create mode 100644 arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-va.dts
->>  create mode 100644 arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-vb.dts
->>  create mode 100644 arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
->>
->> diff --git a/arch/riscv/boot/dts/starfive/Makefile b/arch/riscv/boot/dts/starfive/Makefile
->> index 0ea1bc15ab30..79e925a4a227 100644
->> --- a/arch/riscv/boot/dts/starfive/Makefile
->> +++ b/arch/riscv/boot/dts/starfive/Makefile
->> @@ -1,2 +1,3 @@
->>  # SPDX-License-Identifier: GPL-2.0
->>  dtb-$(CONFIG_SOC_STARFIVE) += jh7100-beaglev-starlight.dtb
->> +dtb-$(CONFIG_SOC_STARFIVE) += jh7110-starfive-visionfive-2-va.dtb jh7110-starfive-visionfive-2-vb.dtb
->> diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-va.dts b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-va.dts
->> new file mode 100644
->> index 000000000000..188d3fddbe88
->> --- /dev/null
->> +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-va.dts
->> @@ -0,0 +1,13 @@
->> +// SPDX-License-Identifier: GPL-2.0 OR MIT
->> +/*
->> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
->> + * Copyright (C) 2022 Emil Renner Berthing <kernel@esmil.dk>
->> + */
->> +
->> +/dts-v1/;
->> +#include "jh7110-starfive-visionfive-2.dtsi"
->> +
->> +/ {
->> +       model = "StarFive VisionFive 2 VA";
->> +       compatible = "starfive,visionfive-2-va", "starfive,jh7110";
->> +};
->> diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-vb.dts b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-vb.dts
->> new file mode 100644
->> index 000000000000..f75c10536f84
->> --- /dev/null
->> +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-vb.dts
->> @@ -0,0 +1,13 @@
->> +// SPDX-License-Identifier: GPL-2.0 OR MIT
->> +/*
->> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
->> + * Copyright (C) 2022 Emil Renner Berthing <kernel@esmil.dk>
->> + */
->> +
->> +/dts-v1/;
->> +#include "jh7110-starfive-visionfive-2.dtsi"
->> +
->> +/ {
->> +       model = "StarFive VisionFive 2 VB";
->> +       compatible = "starfive,visionfive-2-vb", "starfive,jh7110";
-> 
-> Hi Hal,
-> 
-> I just want to double check, is "VisionFive 2 VA" / "visoinfive-2-va"
-> and "VisionFive 2 VB" / "visionfive-2-vb" really what you want? I
-> still think having these names match what is printed on the silkscreen
-> makes it a lot easier for everybody. Even your own releases calls the
-> boards "v1.2A" and "v1.3B":
-> https://github.com/starfive-tech/VisionFive2/releases/
-> 
-> So I'd suggest
-> model = "StarFive VisionFive 2 v1.3B";
-> compatible = "starfive,visionfive-2-v1.3b", "starfive,jh7110";
-> 
-> I haven't seen these "VA" and "VB" anywhere else, so if you don't want
-> the version numbers and can promise that there will be no incompatible
-> future revisions of the boards then maybe just drop the "V". Eg.
-> model = "StarFive VisionFive 2 B";
-> compatible = "starfive,visionfive-2-b", "starfive,jh7110";
+After multiple attempts, this patchset is now based on the fact that the
+64b kernel mapping was moved outside the linear mapping.
 
-The version A board has reached the end of life. As far as I know, the
-version B board will not update also unless there are some important
-requirements and StarFive decides to update. Furthermore, it's too late
-to change the compatible as patch 1 was already accepted. Will it be
-easier to read if I modify it as below?
+The first patch allows to build relocatable kernels but is not selected
+by default. That patch is a requirement for KASLR.
+The second and third patches take advantage of an already existing powerpc
+script that checks relocations at compile-time, and uses it for riscv.
 
-	model = "StarFive VisionFive 2 vB";
-	compatible = "starfive,visionfive-2-vb", "starfive,jh7110";
+This patchset is rebased on top of:
 
-Best regards,
-Hal
+RISC-V kasan rework (https://lore.kernel.org/lkml/Y6TTvku%2FyuSjm42j@spud/T/)
+riscv: Use PUD/P4D/PGD pages for the linear mapping (https://lore.kernel.org/lkml/20230125114229.hrhsyw4aegrnmoau@orel/T/)
+riscv: Allow to downgrade paging mode from the command line (https://lore.kernel.org/lkml/CAHVXubjeSMvfTPnvrnYRupOGx6+vUvUGfRS3piTeo=TH2cHKNg@mail.gmail.com/)
+base-commit-tag: v6.2-rc7
+
+Changes in v8:
+  * Fix UEFI boot by moving rela.dyn section into the data so that PE/COFF
+    loader actually copies the relocations too
+  * Fix check that used PGDIR instead of PUD which was not correct
+    for sv48 and sv57
+  * Fix PE/COFF header data size definition as it led to size of 0
+
+Changes in v7:
+  * Rebase on top of v5.15
+  * Fix LDFLAGS_vmlinux which was overriden when CONFIG_DYNAMIC_FTRACE was
+    set
+  * Make relocate_kernel static
+  * Add Ack from Michael
+
+Changes in v6:
+  * Remove the kernel move to vmalloc zone
+  * Rebased on top of for-next
+  * Remove relocatable property from 32b kernel as the kernel is mapped in
+    the linear mapping and would then need to be copied physically too
+  * CONFIG_RELOCATABLE depends on !XIP_KERNEL
+  * Remove Reviewed-by from first patch as it changed a bit
+
+Changes in v5:
+  * Add "static __init" to create_kernel_page_table function as reported by
+    Kbuild test robot
+  * Add reviewed-by from Zong
+  * Rebase onto v5.7
+
+Changes in v4:
+  * Fix BPF region that overlapped with kernel's as suggested by Zong
+  * Fix end of module region that could be larger than 2GB as suggested by Zong
+  * Fix the size of the vm area reserved for the kernel as we could lose
+    PMD_SIZE if the size was already aligned on PMD_SIZE
+  * Split compile time relocations check patch into 2 patches as suggested by Anup
+  * Applied Reviewed-by from Zong and Anup
+
+Changes in v3:
+  * Move kernel mapping to vmalloc
+
+Changes in v2:
+  * Make RELOCATABLE depend on MMU as suggested by Anup
+  * Rename kernel_load_addr into kernel_virt_addr as suggested by Anup
+  * Use __pa_symbol instead of __pa, as suggested by Zong
+  * Rebased on top of v5.6-rc3
+  * Tested with sv48 patchset
+  * Add Reviewed/Tested-by from Zong and Anup
+
+Alexandre Ghiti (3):
+  riscv: Introduce CONFIG_RELOCATABLE
+  powerpc: Move script to check relocations at compile time in scripts/
+  riscv: Check relocations at compile time
+
+ arch/powerpc/tools/relocs_check.sh | 18 ++--------
+ arch/riscv/Kconfig                 | 14 ++++++++
+ arch/riscv/Makefile                |  7 ++--
+ arch/riscv/Makefile.postlink       | 36 ++++++++++++++++++++
+ arch/riscv/kernel/efi-header.S     |  6 ++--
+ arch/riscv/kernel/vmlinux.lds.S    | 10 ++++--
+ arch/riscv/mm/Makefile             |  4 +++
+ arch/riscv/mm/init.c               | 54 +++++++++++++++++++++++++++++-
+ arch/riscv/tools/relocs_check.sh   | 26 ++++++++++++++
+ scripts/relocs_check.sh            | 20 +++++++++++
+ 10 files changed, 171 insertions(+), 24 deletions(-)
+ create mode 100644 arch/riscv/Makefile.postlink
+ create mode 100755 arch/riscv/tools/relocs_check.sh
+ create mode 100755 scripts/relocs_check.sh
+
+--
+2.37.2
+
 
 _______________________________________________
 linux-riscv mailing list
