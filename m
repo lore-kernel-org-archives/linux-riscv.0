@@ -4,61 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16ACFC05027
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Feb 2023 00:22:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F778C05027
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Feb 2023 00:24:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B/NbTlnc4cHtTQKt9DSli4q3v+Uadiz4YAGnI4sakc8=; b=qAvdwCBqHEOUduqFJr9+x8EJ+m
-	22eCNbnQmIFNkzIXTqkJzswXE48mBfNHubftD/XZLZhDeHsYcLA9IwET2DOKmWZh/uI+LpJFvo2o3
-	+mYkUneMxqty1849N7kzBfDIMAmCHNAufz4ViJHDHZo1mqg8k/yYFosNz0f2kisWWQ7kmkG//gCZX
-	fcECFyG+GJL8DjNKwasW6zcAlFYGiQuOTrL24aGYiRG77wIDizkVb7H2b2bFTAlopAcql0TI9iLDR
-	1+hG9DsfrIjhdXJ9d371KB275fxWqwWl5zc2TMR5CPQ/6q1aA4WmoBID8c7Wa8nNHgvlW9oJLFSxG
-	+y1n7PUw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:Message-ID:Date:
+	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=exw67QbiAkmdCW7xxP0WK5mj/6yq+XNbJ+eOQ9gOf1Y=; b=qkS
+	XdAIJCaCia734WjV3NPJlIzfkvKLx52/PE05FPQbPqm0Dp7tZOt3B98TgTnp5On8mKHAb6u8CskO0
+	pjdnC2ATOB0pJQ2rXvP4xj0pdQu5HGBHr0attjum8ILuz/3JdGcGQzgHFWJ2YylNjB1/ReJwCSkM5
+	3M3NO6V2axNa84dHhbMeQZK4/56EDEiLoj0/vf+f1Cu2438n/DUIK5GLYsIXc/GNS7H0CJgCvzM0+
+	8Nm3BwhnK7HS2tpkPncu+hqZmGO0UiYCF9EXzCPU24dWk/nAAbGQ9WKQ1j8u+19OBaHZKFd7gg+f/
+	3QhSGohxtA+WoxKrRyYfYzR3euizo9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pS5Z8-0042yZ-1m; Wed, 15 Feb 2023 00:22:30 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1pS5bN-0043Fs-Ra; Wed, 15 Feb 2023 00:24:49 +0000
+Received: from mail-il1-f198.google.com ([209.85.166.198])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pS5Z4-0042xP-5d
-	for linux-riscv@lists.infradead.org; Wed, 15 Feb 2023 00:22:28 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 8E666B81F71;
-	Wed, 15 Feb 2023 00:22:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40A7EC433D2;
-	Wed, 15 Feb 2023 00:22:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1676420543;
-	bh=eJkD9W/AbhdZZvu56hhtgijrudKqphBNpTK3MVykL7M=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CgEOEVVIQX5DYodku9Kr0QA7wV9XaU+JvzxjqVb0FKTjVlyeSRDCiPIKYYGy2ubWn
-	 2U0u6RtU4EkrUdJHXoZ/On7SinFDS6VpC2BxnN/AcuS3pGNFPTNTHBuSnczk18PILh
-	 ccojlJ/NTJkBSmRhVg1bADjMN/R7D+rO9q2l8MDD+NnfBN55Ju45hm03nraeL65zft
-	 vUqMlEgh2RhLGwGJzkqHVZGuKBeKZrIY0C6Mg6BPmpSAMXuavpoUpBXtm5kYDhShNA
-	 mrWWtZF8kDsnzTytlC5mV7bM5eX399ubF14ZzeUApClLQYtErQz0T2UOWRajF+jtHK
-	 PbBdGfur53gPA==
-Date: Wed, 15 Feb 2023 00:22:18 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Changbin Du <changbin.du@huawei.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Hui Wang <hw.huiwang@huawei.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Guo Ren <guoren@kernel.org>, Zong Li <zong.li@sifive.com>
-Subject: Re: [PATCH v4] riscv: patch: Fixup lockdep warning in stop_machine
-Message-ID: <Y+wlula69tYrSZjQ@spud>
-References: <20230202114116.3695793-1-changbin.du@huawei.com>
+	id 1pS5bL-0043FC-8K
+	for linux-riscv@lists.infradead.org; Wed, 15 Feb 2023 00:24:48 +0000
+Received: by mail-il1-f198.google.com with SMTP id 15-20020a92190f000000b00315509b129aso3580056ilz.3
+        for <linux-riscv@lists.infradead.org>; Tue, 14 Feb 2023 16:24:45 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=to:from:subject:message-id:date:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ro3IO5v8s0ZmI31rZ+/7uZhdNatRdqyjN3Q7MJ9bUDE=;
+        b=k/KBHQzG6XQdBmBgugLM9KZLNdG4Ien2eLvf3jWnl1dD8wBU9rXQHjw3yzfw3w1Yxp
+         q674wRSehZ7rwhKoDDIikO5bmbrTu67WBovJDmMidz/uJtFI769waHhHrP28jEQpU2zP
+         GSbQczGj3zRSuF92X7fvbC8hhsl8GOTNcdu8VesjqYxyHpecfPPaiqUbm0tJtJH7ZVEp
+         fesUAWCn8IqrL4s5lrUSzYn3ZgvupMn73fqIrSr8sttyDjS+hon4Axq8Ix4rcr2eIYrZ
+         U97JOO6kYZQ8fSoldknqUmnjX9El6KGvFUHcd2+igOhehAB3IfffzWNo6PvlU5x7YRgE
+         xPMg==
+X-Gm-Message-State: AO0yUKXkM2Mv8sdV/ZWjyJTNA4ZZM/NZgh+QfXCn+6B+gggBuyssMvdZ
+	n5C2FLadCibBJNpxvbnuoHZ4t/XK5+FO0dFzhC5nfdgItzPM
+X-Google-Smtp-Source: AK7set9GCZdZeaKJmAxT+CSMD13tyiuHxwB3Hc3iPf09iLvoaW1NcFzTRdcnemPgGm6esp4cjSIC+H2OUftu5ThHdq5ub64KHvku
 MIME-Version: 1.0
-In-Reply-To: <20230202114116.3695793-1-changbin.du@huawei.com>
+X-Received: by 2002:a92:bd10:0:b0:314:1b0:1cfd with SMTP id
+ c16-20020a92bd10000000b0031401b01cfdmr183923ile.0.1676420684954; Tue, 14 Feb
+ 2023 16:24:44 -0800 (PST)
+Date: Tue, 14 Feb 2023 16:24:44 -0800
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <0000000000006bc5be05f4b21b7b@google.com>
+Subject: [syzbot] riscv/fixes boot error: INFO: rcu detected stall in corrupted
+From: syzbot <syzbot+42670398d6ddb118138f@syzkaller.appspotmail.com>
+To: aou@eecs.berkeley.edu, brauner@kernel.org, bristot@redhat.com, 
+	bsegall@google.com, dietmar.eggemann@arm.com, juri.lelli@redhat.com, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	mgorman@suse.de, mingo@redhat.com, palmer@dabbelt.com, 
+	paul.walmsley@sifive.com, peterz@infradead.org, rostedt@goodmis.org, 
+	syzkaller-bugs@googlegroups.com, vincent.guittot@linaro.org, 
+	vschneid@redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230214_162226_540470_AFF51DC6 
-X-CRM114-Status: GOOD (  31.84  )
+X-CRM114-CacheID: sfid-20230214_162447_314405_29117557 
+X-CRM114-Status: UNSURE (   4.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,213 +73,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3263712621364953650=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hello,
 
---===============3263712621364953650==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="WkuUbfOnrC+6zab3"
-Content-Disposition: inline
+syzbot found the following issue on:
 
+HEAD commit:    950b879b7f02 riscv: Fixup race condition on PG_dcache_clea..
+git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git fixes
+console output: https://syzkaller.appspot.com/x/log.txt?x=137aaec0c80000
+kernel config:  https://syzkaller.appspot.com/x/.config?x=b3cd714c8e9a6e01
+dashboard link: https://syzkaller.appspot.com/bug?extid=42670398d6ddb118138f
+compiler:       riscv64-linux-gnu-gcc (Debian 10.2.1-6) 10.2.1 20210110, GNU ld (GNU Binutils for Debian) 2.35.2
+userspace arch: riscv64
 
---WkuUbfOnrC+6zab3
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+IMPORTANT: if you fix the issue, please add the following tag to the commit:
+Reported-by: syzbot+42670398d6ddb118138f@syzkaller.appspotmail.com
 
-Hey Changbin,
-
-On Thu, Feb 02, 2023 at 07:41:16PM +0800, Changbin Du wrote:
-> The task of ftrace_arch_code_modify(_post)_prepare() caller is
-> stop_machine, whose caller and work thread are of different tasks. The
-> lockdep checker needs the same task context, or it's wrong. That means
-> it's a bug here to use lockdep_assert_held because we don't guarantee
-> the same task context.
->=20
-> kernel/locking/lockdep.c:
-> int __lock_is_held(const struct lockdep_map *lock, int read)
-> {
->         struct task_struct *curr =3D current;
->         int i;
->=20
->         for (i =3D 0; i < curr->lockdep_depth; i++) {
-> 			^^^^^^^^^^^^^^^^^^^
->                 struct held_lock *hlock =3D curr->held_locks + i;
-> 					  ^^^^^^^^^^^^^^^^
->                 if (match_held_lock(hlock, lock)) {
->                         if (read =3D=3D -1 || !!hlock->read =3D=3D read)
->                                 return LOCK_STATE_HELD;
->=20
-> The __lock_is_held depends on current held_locks records; if
-> stop_machine makes the checker running on another task, that's wrong.
->=20
-> Here is the log:
-> [   15.761523] ------------[ cut here ]------------
-> [   15.762125] WARNING: CPU: 0 PID: 15 at arch/riscv/kernel/patch.c:63 pa=
-tch_insn_write+0x72/0x364
-> [   15.763258] Modules linked in:
-> [   15.764154] CPU: 0 PID: 15 Comm: migration/0 Not tainted 6.1.0-rc1-000=
-14-g66924be85884-dirty #377
-> [   15.765339] Hardware name: riscv-virtio,qemu (DT)
-> [   15.765985] Stopper: multi_cpu_stop+0x0/0x192 <- stop_cpus.constprop.0=
-+0x90/0xe2
-> [   15.766711] epc : patch_insn_write+0x72/0x364
-> [   15.767011]  ra : patch_insn_write+0x70/0x364
-> [   15.767276] epc : ffffffff8000721e ra : ffffffff8000721c sp : ff200000=
-0067bca0
-> [   15.767622]  gp : ffffffff81603f90 tp : ff60000002432a00 t0 : 73000000=
-00000000
-> [   15.767919]  t1 : 0000000000000000 t2 : 73695f6b636f6c5f s0 : ff200000=
-0067bcf0
-> [   15.768238]  s1 : 0000000000000008 a0 : 0000000000000000 a1 : 00000000=
-00000000
-> [   15.768537]  a2 : 0000000000000000 a3 : 0000000000000000 a4 : 00000000=
-00000000
-> [   15.768837]  a5 : 0000000000000000 a6 : 0000000000000000 a7 : 00000000=
-00000000
-> [   15.769139]  s2 : ffffffff80009faa s3 : ff2000000067bd10 s4 : ffffffff=
-ffffffff
-> [   15.769447]  s5 : 0000000000000001 s6 : 0000000000000001 s7 : 00000000=
-00000003
-> [   15.769740]  s8 : 0000000000000002 s9 : 0000000000000004 s10: 00000000=
-00000003
-> [   15.770027]  s11: 0000000000000002 t3 : 0000000000000000 t4 : ffffffff=
-819af097
-> [   15.770323]  t5 : ffffffff819af098 t6 : ff2000000067ba28
-> [   15.770574] status: 0000000200000100 badaddr: 0000000000000000 cause: =
-0000000000000003
-> [   15.771102] [<ffffffff80007520>] patch_text_nosync+0x10/0x3a
-> [   15.771421] [<ffffffff80009c66>] ftrace_update_ftrace_func+0x74/0x10a
-> [   15.771704] [<ffffffff800fa17e>] ftrace_modify_all_code+0xb0/0x16c
-> [   15.771958] [<ffffffff800fa24c>] __ftrace_modify_code+0x12/0x1c
-> [   15.772196] [<ffffffff800e110e>] multi_cpu_stop+0x14a/0x192
-> [   15.772454] [<ffffffff800e0a34>] cpu_stopper_thread+0x96/0x14c
-> [   15.772699] [<ffffffff8003f4ea>] smpboot_thread_fn+0xf8/0x1cc
-> [   15.772945] [<ffffffff8003ac9c>] kthread+0xe2/0xf8
-> [   15.773160] [<ffffffff80003e98>] ret_from_exception+0x0/0x14
-> [   15.773471] ---[ end trace 0000000000000000 ]---
->=20
-> By the way, this also fixes the same issue for patch_text().
-
-Given this lockdep stuff seems to have pointed out that we weren't
-taking the lock for alternative patching just this past week [1], I'm
-really not convinced that deleting this is a good idea.
-
-Thanks,
-Conor.
-
-1 - https://patchwork.kernel.org/project/linux-riscv/patch/20230212194735.4=
-91785-1-conor@kernel.org/
-
->=20
-> Fixes: 0ff7c3b33127 ("riscv: Use text_mutex instead of patch_lock")
-> Co-developed-by: Guo Ren <guoren@kernel.org>
-> Signed-off-by: Guo Ren <guoren@kernel.org>
-> Cc: Zong Li <zong.li@sifive.com>
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> Signed-off-by: Changbin Du <changbin.du@huawei.com>
-> ---
-> Changes in v4:
->  - preserve and update comments.
->=20
-> Changes in v3:
->  - denote this also fixes function patch_text().
->=20
-> Changes in v2:
->  - Rewrite commit log with lockdep explanation [Guo Ren]
->  - Rebase on v6.1 [Guo Ren]
->=20
-> v1:
-> https://lore.kernel.org/linux-riscv/20210417023532.354714-1-changbin.du@g=
-mail.com/
-> ---
->  arch/riscv/kernel/ftrace.c |  5 ++---
->  arch/riscv/kernel/patch.c  | 15 ++++++++-------
->  2 files changed, 10 insertions(+), 10 deletions(-)
->=20
-> diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
-> index 2086f6585773..f73660e73822 100644
-> --- a/arch/riscv/kernel/ftrace.c
-> +++ b/arch/riscv/kernel/ftrace.c
-> @@ -126,9 +126,8 @@ int ftrace_make_nop(struct module *mod, struct dyn_ft=
-race *rec,
->  /*
->   * This is called early on, and isn't wrapped by
->   * ftrace_arch_code_modify_{prepare,post_process}() and therefor doesn't=
- hold
-> - * text_mutex, which triggers a lockdep failure.  SMP isn't running so w=
-e could
-> - * just directly poke the text, but it's simpler to just take the lock
-> - * ourselves.
-> + * text_mutex. SMP isn't running so we could just directly poke the text=
-, but
-> + * it's simpler to just take the lock ourselves.
->   */
->  int ftrace_init_nop(struct module *mod, struct dyn_ftrace *rec)
->  {
-> diff --git a/arch/riscv/kernel/patch.c b/arch/riscv/kernel/patch.c
-> index 765004b60513..8eb243703efe 100644
-> --- a/arch/riscv/kernel/patch.c
-> +++ b/arch/riscv/kernel/patch.c
-> @@ -49,19 +49,20 @@ static void patch_unmap(int fixmap)
->  }
->  NOKPROBE_SYMBOL(patch_unmap);
-> =20
-> +/*
-> + * Before reaching here, it was expected to lock the text_mutex
-> + * already, so we don't need to give another lock here and could
-> + * ensure that it was safe between each cores. We do not add
-> + * lockdep assertion here since it would trigger a false positive
-> + * when called by stop_machine (The lockdep checker requires the
-> + * same task context).
-> + */
->  static int patch_insn_write(void *addr, const void *insn, size_t len)
->  {
->  	void *waddr =3D addr;
->  	bool across_pages =3D (((uintptr_t) addr & ~PAGE_MASK) + len) > PAGE_SI=
-ZE;
->  	int ret;
-> =20
-> -	/*
-> -	 * Before reaching here, it was expected to lock the text_mutex
-> -	 * already, so we don't need to give another lock here and could
-> -	 * ensure that it was safe between each cores.
-> -	 */
-> -	lockdep_assert_held(&text_mutex);
-> -
->  	if (across_pages)
->  		patch_map(addr + len, FIX_TEXT_POKE1);
-> =20
-> --=20
-> 2.25.1
->=20
-
---WkuUbfOnrC+6zab3
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY+wlugAKCRB4tDGHoIJi
-0tEdAQDCk0GoSZIq2hLA5IPoLAur8UbX6Kz0sPg9vuXQZkkABQD+JTDT6T8aRDnD
-h9/lKCNM4RJkoLBjnjs7ZXBhCt7W+wc=
-=obS5
------END PGP SIGNATURE-----
-
---WkuUbfOnrC+6zab3--
+rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+rcu: 	0-...0: (1 GPs behind) idle=36ec/1/0x4000000000000000 softirq=6589/6590 fqs=9960
+	(detected by 1, t=30504 jiffies, g=14713, q=4 ncpus=2)
+Task dump for CPU 0:
+task:cmp             state:R  running task     stack:0     pid:2746  ppid:2744   flags:0x00000008
+Call Trace:
+[<ffffffff834348b8>] context_switch kernel/sched/core.c:5244 [inline]
+[<ffffffff834348b8>] __schedule+0x624/0x1254 kernel/sched/core.c:6555
+rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+rcu: 	0-...0: (1 GPs behind) idle=36ec/1/0x4000000000000000 softirq=6589/6590 fqs=28261
+	(detected by 1, t=122009 jiffies, g=14713, q=4 ncpus=2)
+Task dump for CPU 0:
+task:cmp             state:R  running task     stack:0     pid:2746  ppid:2744   flags:0x00000008
+Call Trace:
+[<ffffffff834348b8>] context_switch kernel/sched/core.c:5244 [inline]
+[<ffffffff834348b8>] __schedule+0x624/0x1254 kernel/sched/core.c:6555
 
 
---===============3263712621364953650==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+---
+This report is generated by a bot. It may contain errors.
+See https://goo.gl/tpsmEJ for more information about syzbot.
+syzbot engineers can be reached at syzkaller@googlegroups.com.
+
+syzbot will keep track of this issue. See:
+https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3263712621364953650==--
-
