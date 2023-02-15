@@ -4,61 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5E97C636D4
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Feb 2023 15:00:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E51CAC636CC
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Feb 2023 15:00:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vErcEssxxFlBNWgLORQpwz70LmBls8vwBGyfOr88UtE=; b=cOpXFAmKX8Od/7
-	po92A8NnlRpJEyoeqV7Qf1ujlKuqIUqtSz0qH3xFZiAzCobSYnMTbJkoqYdeDx+y66DtePFFASJNH
-	OiMivAlRiaPZ/eozcoq2IyjKEe64UxfXhI1uaLSzvzKh9TZ+vLAVTJRiMvwSrkhVDI/G2chsXppE9
-	GXbg2Ufh6i2dYCfsWf7tjSMM/eGlxAXy/5xdnqPsxRhfBXd0mWLBMZN0nrt9qNcOz3imgTq599i5x
-	kOLD1A+H8PYr2Xt0q1tziZXaCzW3Kmvzg0rhmhX6MYD516LA5rIFY3wBq4AAVen5klgXg8aaEJWUw
-	kaGip6mUcqB6PnKJ/i4w==;
+	List-Owner; bh=vBafr30MA+7gpmcDGD25texQTfxRonEIJ/1aRBXnXyo=; b=mTY0xTzfJ70iH4
+	G9iNRNbvemS4rehMpgXngAxsabvFtiH7qjSA3aGHHpPp2UZ7dmHTd+4ZSxMfjhpJ95d8ktGVANAQU
+	gsMC8dkjOSbTkIk2bUzi2GK6lMmWoDvJ03J/Ms2P8bnSrVPPhupcn2uG0KIVRN83aD9qiqW8WpU0i
+	JysFinO7DA5kEi+7NHzIJPhu/RxpsRhxiqGSCfkUW1l9kr19Op2nWkGw5LRaZd+W/80ZWZnM2KPgU
+	7oMxDxeljYzjksR2WzFaYTr+kzh3R06Wp7n5Qc9+X8ZpZZb3/TYk8/UMHytU4TSPaWSgp0o9YnHev
+	gvMc7c3ttqOfEuRS+f9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSJGq-006Izo-4a; Wed, 15 Feb 2023 15:00:32 +0000
+	id 1pSJGs-006J12-DD; Wed, 15 Feb 2023 15:00:34 +0000
 Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSJGl-006IwX-Rn
-	for linux-riscv@lists.infradead.org; Wed, 15 Feb 2023 15:00:29 +0000
+	id 1pSJGl-006IwZ-Rl
+	for linux-riscv@lists.infradead.org; Wed, 15 Feb 2023 15:00:30 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by sin.source.kernel.org (Postfix) with ESMTPS id 59D38CE25BA;
-	Wed, 15 Feb 2023 15:00:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 9F484C4339E;
+	by sin.source.kernel.org (Postfix) with ESMTPS id 21142CE25BC;
+	Wed, 15 Feb 2023 15:00:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 9A3A8C4339C;
 	Wed, 15 Feb 2023 15:00:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1676473220;
-	bh=ud2L+CyOw+iN+RQc5ipA+9ORS66YoRHSKvp73hwiWuA=;
+	bh=vIvNdQMQXrgoAxwdaaKi3PizO4j+e1b0mdibYmVrxZA=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=ZampP9JBkORbrYbWgBtKTadR8CbQcMuPi9v4B1Z4s96Tu0QM73Qi14cfyZHFggusC
-	 QflKam+rpLoiXslBnH0T0AVlDVaOEWjnLHYUcomjaJzXtNLWr5b3Sa2uHaXIY0zf+o
-	 kPaSM8VtAT0JCdKdTsHjAe8ikM0xImzAKQ1YEWwUYm9VUxsXFrHVEeBKbzIABJRxxS
-	 KvLRTOBtAwPnkdCqoTkOkGVHVPWfX1eCL8GeFGdx+cUryltvJ02krDJMmpLMHMdG8D
-	 VGqbGU7llDSXyAV+JdltytD9xe/H/nhwLbkQarJXdaKeuSp2l0GnF6sWzwsUbs0uD9
-	 R76Qokvwsph/g==
+	b=otkUonvqZM/arFi6I9XK/hejDvguVhaRVTPQk6hQXVk95hsmyMv57M8a71vmhUSRR
+	 RzaYMdISYjh6mikHtbRljEk6Bn9uQOofu5OgXvYC8dbrarQDSqM6URTLoYlFSa+tD1
+	 +E2QPq4IYX6H3ozZkCwZZGEoWZSrkIlteXYXZJAey8KsIRr1v6L7PEX9grKpWDOqhz
+	 b08VUigHnykM7DUBj2bs0mKiF24U7mqjVaWisJkshVUF6rcHAmZy/pJarI9AVkWtVa
+	 8JOuAMw0IZ6H6sqxp8VPvboc+fwhh4cpTblfwGLqQYOaqP5TosTL3zgGS2+ZHa3aq5
+	 vu+LKuHSxvl/w==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 7FFBEE29F42;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 76187C4166F;
 	Wed, 15 Feb 2023 15:00:20 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v3] RISC-V: re-order Kconfig selects alphanumerically
+Subject: Re: [PATCH v1 0/2] dt-bindings: Add a cpu-capacity property for RISC-V
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id:  <167647322052.11521.12635022434797203165.git-patchwork-notify@kernel.org>
+Message-Id:  <167647322047.11521.3970704369661052762.git-patchwork-notify@kernel.org>
 Date: Wed, 15 Feb 2023 15:00:20 +0000
-References: <20221219172836.134709-1-conor@kernel.org>
-In-Reply-To: <20221219172836.134709-1-conor@kernel.org>
+References: <20230104180513.1379453-1-conor@kernel.org>
+In-Reply-To: <20230104180513.1379453-1-conor@kernel.org>
 To: Conor Dooley <conor@kernel.org>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, bjorn@kernel.org,
- conor.dooley@microchip.com, bjorn@rivosinc.com
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
+ conor.dooley@microchip.com, leyfoon.tan@starfivetech.com,
+ sudeep.holla@arm.com, robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org,
+ corbet@lwn.net, alexs@kernel.org, siyanteng@loongson.cn,
+ lpieralisi@kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230215_070028_143663_5F4E9DE7 
-X-CRM114-Status: UNSURE (   8.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230215_070028_194485_25A579B5 
+X-CRM114-Status: GOOD (  11.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,23 +80,26 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This patch was applied to riscv/linux.git (for-next)
+This series was applied to riscv/linux.git (for-next)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Mon, 19 Dec 2022 17:28:37 +0000 you wrote:
+On Wed,  4 Jan 2023 18:05:12 +0000 you wrote:
 > From: Conor Dooley <conor.dooley@microchip.com>
 > 
-> Selects should be sorted alphanumerically, and were tidied up originally
-> by Palmer in commit e8c7ef7d5819 ("RISC-V: Sort select statements
-> alphanumerically") since then, things have gotten out of order again.
-> Fish RMK's original script out of commit b1b3f49ce460 ("ARM: config:
-> sort select statements alphanumerically") and do some spring cleaning.
+> Hey,
+> 
+> Ever since RISC-V starting using generic arch topology code, the code
+> paths for cpu-capacity have been there but there's no binding defined to
+> actually convey the information. Defining the same property as used on
+> arm seems to be the only logical thing to do, so do it.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v3] RISC-V: re-order Kconfig selects alphanumerically
-    https://git.kernel.org/riscv/c/5f365c133b83
+  - [v1,1/2] dt-bindings: arm: move cpu-capacity to a shared loation
+    https://git.kernel.org/riscv/c/7d2078310cbf
+  - [v1,2/2] dt-bindings: riscv: add a capacity-dmips-mhz cpu property
+    https://git.kernel.org/riscv/c/991994509ee9
 
 You are awesome, thank you!
 -- 
