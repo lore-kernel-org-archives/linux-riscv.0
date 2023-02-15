@@ -4,126 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D5A4C636D4
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Feb 2023 13:05:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65DD6C636D4
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Feb 2023 13:12:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
-	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1ioYwrRUJopWMrVy2l5Wo7sZntWwvAZkSb5pRRFGPLc=; b=D7C9coRuPPY85a
-	hhPPk6H9i8zo503+WTl4uIIL/TMtJvqPALAgPlP73EiWRtsdAqShNMBV0sma2gnsoZHLiP5hvrHia
-	Pnnl+17uMpiaKCn5pe8yG9NIdUncLmX0W8V452lghJnW+3B++dv5a+g3l8sWjs1nclL8mYVABWzZw
-	nT6ZwQLC1nEuoauic7T/JJArztnUBXMgV/H7sGGuR251gXEBYLOfzosEYAAgAzrtg5toEtQ/9/ChD
-	xILKLcggDPp64RSUH7Wr+cIqqG1mHduRjcRfT1eV9OOJnLdzUoQKNN4DorpDPCOUp34AFLyfV+8gY
-	P8YmZgDOlR/JQPdcphSw==;
+	List-Owner; bh=lwOeQWeyXuBWYe20OxR6aFG3rID4/NCbYziLAjMbtxc=; b=YYdDUViBSEnkRe
+	JSkSAjjrwL0zBzVVG2fUWs1BQuh/bUbX0nBqBDdGiHX32Cm04OJWxaMGVflKsx7vX66CpC+8M8LWt
+	9/3b/CnT3zS5R0shyjpvfCptIuwKjInwNZPtiE99ZryT1jNBc11GYKBY2Pf/eJAxkEqwxznFBy+us
+	ckhp4G29ZL7RqninS0rArir7fuK8CWqGNMKW551MO5lTSgXCZy+YHAkIi+Ye/8ZKuXmBCUdKJKYVd
+	C+IzWed+8M8m4Mg/xFelsi1bru/Oaarv0EFePJMc1CsyponQoyUsBM+aNSKBQeqmschnKS9VBqj74
+	d9X6QfSAlV6daoNKA4gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSHTU-005uYP-PN; Wed, 15 Feb 2023 13:05:28 +0000
-Received: from new2-smtp.messagingengine.com ([66.111.4.224])
+	id 1pSHZk-005w5p-4S; Wed, 15 Feb 2023 13:11:56 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSHTQ-005uWY-Pm; Wed, 15 Feb 2023 13:05:26 +0000
-Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
-	by mailnew.nyi.internal (Postfix) with ESMTP id 2D40B582003;
-	Wed, 15 Feb 2023 08:05:20 -0500 (EST)
-Received: from imap51 ([10.202.2.101])
-  by compute6.internal (MEProxy); Wed, 15 Feb 2023 08:05:20 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-type:date:date:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:sender:subject
-	:subject:to:to; s=fm3; t=1676466320; x=1676473520; bh=NzdIn9sEy/
-	TdUrl/ZdBVY4dMEk2Tnlph7NyUne+YOMM=; b=PPD6X7vdu8v5pQCFFeEkwZ+xGH
-	hQxkzIm/THMwEiH6lmaNEBYbBzt3pargJVOdi2J1QMA6KHvLC9K1XeMABvJeeUMa
-	lTPgSxuAXiTHnvnPs7+H7Vr/fKIWrN+XZApp3CpAC5yE5WgT9W327fh6++AuDJlF
-	B9gywk5zLcSwCMvFm6irNxbf5/UMEQOklyQcP+yNMbxqWsOqNEYHAAgGHFLNZqZS
-	WLgt7CmsFbv+vqD/Mh8pW6i09fttS8BnRngWkrvO1YOvB+eqJf9YBCzB8hRdQL8g
-	Zrmyq7fkrOXYnHgcPd99guxknzQGmfAMstEvWh3k4ZTVkZadU+R5weMlaG7A==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:date:date:feedback-id
-	:feedback-id:from:from:in-reply-to:in-reply-to:message-id
-	:mime-version:references:reply-to:sender:subject:subject:to:to
-	:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm1; t=1676466320; x=1676473520; bh=NzdIn9sEy/TdUrl/ZdBVY4dMEk2T
-	nlph7NyUne+YOMM=; b=Tp/P1vDtiwaXsxOOvmxonT9LDeiFaEudeIfZX0AV5xmw
-	X3ENq+2GlESFOAR7xURKTITb3Q9/bLEcQhyKkak30WygkBgQXOUwH+1TEYwAnfSW
-	VN79grgOoloKlVxQxKg9d/GE/aNuuNhUwV2IHK4xpJLpSY9XO1XpwbGHxBbR0DF/
-	IjnWEESEaF5s9xx5Zj0yYZVtiwtJOFrRCp6Vfpm8unxAKwLTF76Egia3fqB+SRTf
-	HhmCGeRY4V0PNJ2mo3ZpzkurciWsN1Fx3VZnNvLG3nNn/NwNqCwiyIzXTWlmQOpN
-	G3WAp6KoO5IxE4n9w+AW7QNxTKU5fRGQe3g4//HLhw==
-X-ME-Sender: <xms:jdjsY_Wh-8LcQ3nmLEwGZ7X-cUO_UZrmKOzBi9pl67XX_YGZ0IXNyA>
-    <xme:jdjsY3kveCSQ-Laj-6oAgDyXLkBUjq7fx_C7UYY5m4XU_HQAFhNFJiZGPFSylztsR
-    Jx6pcGWaR_WFw62yQQ>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrudeihedggeduucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
-    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
-    cujfgurhepofgfggfkjghffffhvfevufgtsehttdertderredtnecuhfhrohhmpedftehr
-    nhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrth
-    htvghrnhepffehueegteeihfegtefhjefgtdeugfegjeelheejueethfefgeeghfektdek
-    teffnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprg
-    hrnhgusegrrhhnuggsrdguvg
-X-ME-Proxy: <xmx:jdjsY7ZEvyr4y1ulYt1S1iPqX3mkImnPSdU2AD0rfL5VPKqJb7xP1w>
-    <xmx:jdjsY6Ux13tFNHeawURlV0JH7DjSnY4lgf_B232j8MtUR1dl7xMefQ>
-    <xmx:jdjsY5klmieqtEjUAp2jmIMBcwIQHQA6TF9wkqBiRc9-j4DSJjfhdQ>
-    <xmx:kNjsY5_DeMdprgdbaWkVv0vgYRqpvs9Cxn7CSU6n-WZIW-e7MJJXrA>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id 79450B60086; Wed, 15 Feb 2023 08:05:17 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.9.0-alpha0-156-g081acc5ed5-fm-20230206.001-g081acc5e
-Mime-Version: 1.0
-Message-Id: <f3e1585c-0d9d-4709-9b21-74a63d8cc9ac@app.fastmail.com>
-In-Reply-To: <Y+zXIgwO5wteLQZ5@shell.armlinux.org.uk>
-References: <20230214074925.228106-1-alexghiti@rivosinc.com>
- <20230214074925.228106-4-alexghiti@rivosinc.com>
- <Y+zXIgwO5wteLQZ5@shell.armlinux.org.uk>
-Date: Wed, 15 Feb 2023 14:04:59 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Russell King" <linux@armlinux.org.uk>,
- "Alexandre Ghiti" <alexghiti@rivosinc.com>
-Cc: "Jonathan Corbet" <corbet@lwn.net>,
- "Richard Henderson" <richard.henderson@linaro.org>,
- "Ivan Kokshaysky" <ink@jurassic.park.msu.ru>,
- "Matt Turner" <mattst88@gmail.com>, "Vineet Gupta" <vgupta@kernel.org>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Will Deacon" <will@kernel.org>, "Huacai Chen" <chenhuacai@kernel.org>,
- "WANG Xuerui" <kernel@xen0n.name>,
- "Geert Uytterhoeven" <geert@linux-m68k.org>,
- "Michal Simek" <monstr@monstr.eu>,
- "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
- "James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>,
- "Helge Deller" <deller@gmx.de>, "Michael Ellerman" <mpe@ellerman.id.au>,
- "Nicholas Piggin" <npiggin@gmail.com>,
- "Christophe Leroy" <christophe.leroy@csgroup.eu>,
- "Paul Walmsley" <paul.walmsley@sifive.com>,
- "Palmer Dabbelt" <palmer@dabbelt.com>,
- "Albert Ou" <aou@eecs.berkeley.edu>,
- "Heiko Carstens" <hca@linux.ibm.com>,
- "Vasily Gorbik" <gor@linux.ibm.com>,
- "Alexander Gordeev" <agordeev@linux.ibm.com>,
- "Christian Borntraeger" <borntraeger@linux.ibm.com>,
- "Sven Schnelle" <svens@linux.ibm.com>,
- "Yoshinori Sato" <ysato@users.sourceforge.jp>,
- "Rich Felker" <dalias@libc.org>,
- "David S . Miller" <davem@davemloft.net>,
- "Thomas Gleixner" <tglx@linutronix.de>, "Ingo Molnar" <mingo@redhat.com>,
- "Borislav Petkov" <bp@alien8.de>,
- "Dave Hansen" <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>, "Chris Zankel" <chris@zankel.net>,
- "Max Filippov" <jcmvbkbc@gmail.com>, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
- linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-ia64@vger.kernel.org, loongarch@lists.linux.dev,
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-xtensa@linux-xtensa.org, Linux-Arch <linux-arch@vger.kernel.org>,
- "Palmer Dabbelt" <palmer@rivosinc.com>
-Subject: Re: [PATCH v3 03/24] arm: Remove COMMAND_LINE_SIZE from uapi
+	id 1pSHZY-005w1k-Mf
+	for linux-riscv@lists.infradead.org; Wed, 15 Feb 2023 13:11:46 +0000
+Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 473833F57F
+	for <linux-riscv@lists.infradead.org>; Wed, 15 Feb 2023 13:11:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1676466701;
+	bh=1XdYb1DRbOmlAI6DRkBJIyrIK+/5tdCGTTdbxhb+wmw=;
+	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=mBoW16fVkEwXTxRnSNlMI4i0CwJNHPgXgs9XoZ3Gz52zAbyHNX7xo7E9/g3ZSCshY
+	 JCVik0cxPmdu+1CpkzlBRYX1OVC/nToz3fwt7OVKVjnA8ZoEk1KDEpAy9ts+0R0kaR
+	 N4HlRKOR/1xp5oCHzmnb3Hor+3nHAGPQK4tP5RRFqNBk+1htCtgdxOod4IvvjYl6F+
+	 0AUeBBlYK6ICVh6V/VhYfXUk+YwAWUD7jhcknezEZI+p1VmzAi3xNpT1H/Sjp3ybtl
+	 UEQ6aBxNVrUBny8sni+5C8hQXi17rCyRXqI2quJLe539sTK8mdAUnFzQhmiT9iPo/x
+	 BqPTO+GEk3jDg==
+Received: by mail-qt1-f199.google.com with SMTP id cr22-20020a05622a429600b003b694a9f291so11051802qtb.1
+        for <linux-riscv@lists.infradead.org>; Wed, 15 Feb 2023 05:11:41 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=1XdYb1DRbOmlAI6DRkBJIyrIK+/5tdCGTTdbxhb+wmw=;
+        b=dCsFQiqrUN48JQ/6THGUHwHLb4HZBK8usdEG30bBdVN5sTI5fykvaNcMqHyiWtp+cw
+         ikwzCgMOiXLdANj6KwePCFQ0mMu/S9L1c6zDB0hyCJoSKkRuqgwf4MhVb2fabjBqina4
+         uwsiqczEBWnL29SS0KPml49GiuC4pDapuOvKKnSzb7voPzb7pmeGL9MUNq7Trfm2s3j+
+         aZOTscnea9HGGxR7D80FchCaF07No2h6ozmXGdZ6nFm0KcRrl583u5rblSxLmTBLzATz
+         Ifg5I4jaH32tqTitJfIZYowsngeR783HOSvtoCKEHgKpbRQLTPOqSbBlZLuGW+mSNjcc
+         5SLw==
+X-Gm-Message-State: AO0yUKWoGiaJkUQziBlJIXA5CFo4Z5WmYMRURv1dEQwyyUoYhhm4cmhM
+	dbjWzyskggH21AdiNtMgj3yOBbiyHZXpTclor5J1nFPMznZMq7bN007NjyviCzouhzSPQAiP4fB
+	gnQgDgy4/j0sTBbKSwv6wQH+7D1/38GykRhkci2HrO+C82nIbRz1p90r2/fI7/A==
+X-Received: by 2002:a05:622a:164f:b0:3bc:e3a8:d1d6 with SMTP id y15-20020a05622a164f00b003bce3a8d1d6mr228741qtj.229.1676466699837;
+        Wed, 15 Feb 2023 05:11:39 -0800 (PST)
+X-Google-Smtp-Source: AK7set+4/1NxoBcvUdWQnW9B5yPBwHcyWHA8dOVvJArdaItgCToDNjAmHnj0L1BgI9mhCHcGqlTdul+lrgFnVADu40o=
+X-Received: by 2002:a05:622a:164f:b0:3bc:e3a8:d1d6 with SMTP id
+ y15-20020a05622a164f00b003bce3a8d1d6mr228728qtj.229.1676466699567; Wed, 15
+ Feb 2023 05:11:39 -0800 (PST)
+MIME-Version: 1.0
+References: <20230211031821.976408-1-cristian.ciocaltea@collabora.com>
+ <20230211031821.976408-2-cristian.ciocaltea@collabora.com> <Y+vxw28NWPfaW7ql@spud>
+In-Reply-To: <Y+vxw28NWPfaW7ql@spud>
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Date: Wed, 15 Feb 2023 14:11:22 +0100
+Message-ID: <CAJM55Z_x3omY9DQtxPUgLX0NKEm3PCXDkFFDVAzG7opFLsZX+A@mail.gmail.com>
+Subject: Re: [PATCH 01/12] dt-bindings: riscv: sifive-ccache: Add compatible
+ for StarFive JH7100 SoC
+To: Conor Dooley <conor@kernel.org>
+Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, Lee Jones <lee@kernel.org>, 
+	Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Emil Renner Berthing <kernel@esmil.dk>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Jose Abreu <joabreu@synopsys.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Richard Cochran <richardcochran@gmail.com>, Sagar Kadam <sagar.kadam@sifive.com>, 
+	Yanhong Wang <yanhong.wang@starfivetech.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, kernel@collabora.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230215_050524_925973_87489415 
-X-CRM114-Status: GOOD (  11.68  )
+X-CRM114-CacheID: sfid-20230215_051145_164590_93FC7407 
+X-CRM114-Status: GOOD (  30.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,25 +107,122 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 15, 2023, at 13:59, Russell King (Oracle) wrote:
-> On Tue, Feb 14, 2023 at 08:49:04AM +0100, Alexandre Ghiti wrote:
->> From: Palmer Dabbelt <palmer@rivosinc.com>
->> 
->> As far as I can tell this is not used by userspace and thus should not
->> be part of the user-visible API.
->> 
->> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+On Tue, 14 Feb 2023 at 21:42, Conor Dooley <conor@kernel.org> wrote:
 >
-> Looks good to me. What's the merge plan for this?
+> Hey all,
+>
+> On Sat, Feb 11, 2023 at 05:18:10AM +0200, Cristian Ciocaltea wrote:
+> > Document the compatible for the SiFive Composable Cache Controller found
+> > on the StarFive JH7100 SoC.
+> >
+> > This also requires extending the 'reg' property to handle distinct
+> > ranges, as specified via 'reg-names'.
+> >
+> > Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> > ---
+> >  .../bindings/riscv/sifive,ccache0.yaml        | 28 ++++++++++++++++++-
+> >  1 file changed, 27 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/Documentation/devicetree/bindings/riscv/sifive,ccache0.yaml b/Documentation/devicetree/bindings/riscv/sifive,ccache0.yaml
+> > index 31d20efaa6d3..2b864b2f12c9 100644
+> > --- a/Documentation/devicetree/bindings/riscv/sifive,ccache0.yaml
+> > +++ b/Documentation/devicetree/bindings/riscv/sifive,ccache0.yaml
+> > @@ -25,6 +25,7 @@ select:
+> >            - sifive,ccache0
+> >            - sifive,fu540-c000-ccache
+> >            - sifive,fu740-c000-ccache
+> > +          - starfive,jh7100-ccache
+> >
+> >    required:
+> >      - compatible
+> > @@ -37,6 +38,7 @@ properties:
+> >                - sifive,ccache0
+> >                - sifive,fu540-c000-ccache
+> >                - sifive,fu740-c000-ccache
+> > +              - starfive,jh7100-ccache
+> >            - const: cache
+> >        - items:
+> >            - const: starfive,jh7110-ccache
+> > @@ -70,7 +72,13 @@ properties:
+> >        - description: DirFail interrupt
+> >
+> >    reg:
+> > -    maxItems: 1
+> > +    minItems: 1
+> > +    maxItems: 2
+> > +
+> > +  reg-names:
+> > +    items:
+> > +      - const: control
+> > +      - const: sideband
+>
+> So why is this called "sideband"?
+> In the docs for the JH7100 it is called LIM & it's called LIM in our
+> docs for the PolarFire SoC (at the same address btw) and we run the HSS
+> out of it! LIM being "loosely integrated memory", which by the limit
+> hits on Google may be a SiFive-ism?
+>
+> I'm not really sure if adding it as a "reg" section is the right thing
+> to do as it's not "just" a register bank.
+> Perhaps Rob/Krzysztof have a take on that one?
 
-The easiest way is probably if I merge it through the whole
-series through the asm-generic tree. The timing is a bit
-unfortunate as we're just ahead of the merge window, so unless
-we really need this in 6.3, I'd suggest that Alexandre resend
-the series to me in two weeks with the Acks added in and I'll
-pick it up for 6.4.
+Yes, this seems to be a leftover I didn't manage to clean up yet. The
+"sideband" range is called L2 LIM in the datasheet and seems to be a
+way to use the cache directly. The Sifive docs read "When cache ways
+are disabled, they are addressable in the L2 Loosely-Integrated Memory
+(L2 LIM) address space [..]". This feature is not used by Linux on the
+JH7100, so can just be removed here.
 
-     Arnd
+/Emil
+
+> >
+> >    next-level-cache: true
+> >
+> > @@ -89,6 +97,7 @@ allOf:
+> >            contains:
+> >              enum:
+> >                - sifive,fu740-c000-ccache
+> > +              - starfive,jh7100-ccache
+> >                - starfive,jh7110-ccache
+> >                - microchip,mpfs-ccache
+> >
+> > @@ -106,12 +115,29 @@ allOf:
+> >              Must contain entries for DirError, DataError and DataFail signals.
+> >            maxItems: 3
+> >
+> > +  - if:
+> > +      properties:
+> > +        compatible:
+> > +          contains:
+> > +            const: starfive,jh7100-ccache
+> > +
+> > +    then:
+> > +      properties:
+> > +        reg:
+> > +          maxItems: 2
+> > +
+> > +    else:
+> > +      properties:
+> > +        reg:
+> > +          maxItems: 1
+> > +
+> >    - if:
+> >        properties:
+> >          compatible:
+> >            contains:
+> >              enum:
+> >                - sifive,fu740-c000-ccache
+> > +              - starfive,jh7100-ccache
+> >                - starfive,jh7110-ccache
+> >
+> >      then:
+> > --
+> > 2.39.1
+> >
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
