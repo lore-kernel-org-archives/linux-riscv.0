@@ -4,68 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 000CEC636D4
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Feb 2023 14:45:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C07D7C636D4
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Feb 2023 14:49:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dJ2oP7XgoOsL9fFAqqbbYt2voiwysD/fVs417cumoG8=; b=lLMJZRxbssJF05
-	WBz6ghfxbeR96xL7s+tPzzeWMJxacecPZwn8CZI8Ik1ocBSkhaWlH/qaB/DvklTqMZDo3br7Uiw55
-	PXF5lICsmuyKbH8wD0RqBGQVPIV7jGhGVR8H5VXpFaFybM5HOKZ6XEihvHWOoQv6pbDqwTFolx9W4
-	iJKEtVKtD7I0TtxghKtb0LMX+LtDg8rcxjn3xfRJXU7qddz/sM0mPcieQ/Ye6Sd6vovmgTpN+XyP6
-	rTPWNOBe4amCLOwniG62MTE1nvIZL7sV0RXiRgMn0EYBohp9ZUyGCxyf2ySbQACZVgStPglajjjnq
-	MmjxREEESLaiGs2N5WHQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=0H26Onlu/JfSzFEr1ZZ75Dpl6O2FanVPomosaWHI0iE=; b=EQ12xhV5iTNNnV
+	05GDDzh1nwReSyYzrefhVNgkirjEQcLVfaAfAmH0mhR4cKouofK5MGXnFRYjlKKzvagoOhf/HZj0g
+	52YKqxwLefR2jJ/PEmhq8Fl/rlDvO0glThPAX8j82PEW8bL7BN6coRoQ9d4bHulPWhndvjkCPOjKa
+	XBBpPUwSO5J9jQ1mUpiHhP3W+s9lNpIasGS+uRzH101HMu/y/OOPOdFlY5o2j6XwsD2XQWT1L9y63
+	w5Wev6HnThpW1Sltn4nBipSg97PhdqP14InbPmOdEiHwhXa71TCI3i/WB6zyCKk+nyNiPbUWSSqSP
+	YdDalhEt9nyDVTsgpHJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSJ23-006FuG-8q; Wed, 15 Feb 2023 14:45:15 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1pSJ65-006Gkw-2d; Wed, 15 Feb 2023 14:49:25 +0000
+Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSJ20-006FtV-RM
-	for linux-riscv@lists.infradead.org; Wed, 15 Feb 2023 14:45:14 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 1B491B8223B;
-	Wed, 15 Feb 2023 14:45:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65161C433D2;
-	Wed, 15 Feb 2023 14:45:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1676472309;
-	bh=bnWl6GLIuptbwEqTWE8WhV0O9nBtEn5SL4rBx9vtF8A=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=sOGDwE1w4CBDcGSuFbtLps2hGPxxSPFBXzByncCsgw2aWgVU6Z2WewfglHBiIcAXL
-	 qiNTt5LN9VpWlXC4gAx4x+OiGq2DBJAZLkQSl3yAtxP3Ro3AS4z/dxSICGv6byBkrL
-	 r0bT6OksFen8zrzA/jWpUNVKAfx9yQlUX+wWZPhbdgRHYORHWDv1zxSCctzsrIZoJF
-	 FjOcFhYuFa4MywHf0NSapBbJ9VnEuSiG3P2R9UxpF8CbWhIQbZtODpogU7iv+wziw8
-	 IJ9wcVH+Mhgc3OFOoNbQXWmAR/LVtezPebB2BLKvcCr2aAGZj5X8nkQhvkdzbU2PLs
-	 bAO9JG1G62RoA==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Pu Lehui <pulehui@huaweicloud.com>, bpf@vger.kernel.org,
- linux-riscv@lists.infradead.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Cc: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
- <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Martin KaFai
- Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, Yonghong Song
- <yhs@fb.com>, John Fastabend <john.fastabend@gmail.com>, KP Singh
- <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>, Hao Luo
- <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>, Palmer Dabbelt
- <palmer@dabbelt.com>, Conor Dooley <conor.dooley@microchip.com>, Guo Ren
- <guoren@kernel.org>, Luke Nelson <luke.r.nels@gmail.com>, Xi Wang
- <xi.wang@gmail.com>, Pu Lehui <pulehui@huawei.com>, Pu Lehui
- <pulehui@huaweicloud.com>
-Subject: Re: [PATCH bpf-next v1 0/4] Support bpf trampoline for RV64
-In-Reply-To: <20230215135205.1411105-1-pulehui@huaweicloud.com>
-References: <20230215135205.1411105-1-pulehui@huaweicloud.com>
-Date: Wed, 15 Feb 2023 15:45:06 +0100
-Message-ID: <87mt5ft2bx.fsf@all.your.base.are.belong.to.us>
+	id 1pSJ61-006Gk6-Bo
+	for linux-riscv@lists.infradead.org; Wed, 15 Feb 2023 14:49:23 +0000
+Received: by mail-pg1-x52d.google.com with SMTP id b22so7453277pgw.3
+        for <linux-riscv@lists.infradead.org>; Wed, 15 Feb 2023 06:49:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=qpnqzDbzpwFZzmxwIgY9cm0ESK7hZqwfohZzSxiSOx4=;
+        b=hyFdeoikXmbC8TDjJe0JWbfsVNWyEPQbPPxtPZatyRdeal/Qqn1wyjqgpKhvmIb4Yq
+         X1hvZjIg6tVyb8tVT96hv4GhSPutWaFmqg9zwOeesJQW3M38QwsHswv2SHtCR8c78lOE
+         5GK9duULWdRkrMo2JC8U6duygB9RFOhaUgHnsRi/0PK+ux83JdO+BIwvjc8JWyU9u9yp
+         mV6p2y9h/Eh4fky2+N7mjh3FEEuIxt9pIWBXe2ChOs3eOv9sevXfNeBlBaKW4FhTLWXV
+         eeVSvLbLQqKa2lUMC92E44hT86/M7UAtqx0YH1oUoMpWs7OLamagFUNK+nwKizWOYSAD
+         Ojkw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=qpnqzDbzpwFZzmxwIgY9cm0ESK7hZqwfohZzSxiSOx4=;
+        b=czOLJC5bsS9Xkvvh4Y+C8VH18gCehO6pfgI3yYhxcyq8OxxzReU3eAtY31Y41ndqd+
+         G12huWDUVELOvxGVl1AKvTV3LlknJKU74up5Q2NMMPwAvQtJLqHNkf5KIJH53GiGxiXo
+         3Fmg9u8hc1Yf6W0BR8MF6sCXK5K/KtFihUpAlMok8RoGgA2A3sxuC0pnMSfMiYyIxFWv
+         U3COIdeDiPXzuuVch+NyhHUVmgokDOsFzn0wBadBbsTM7wF95aqNAqFunFn9Nn7CcbIS
+         2csdB9iuceifJ/OLSBvPvHBLl+6w4xzi+qc22QbMVzn+nTkdfQRR0FPP8c0QnmhBvHxu
+         Rh9Q==
+X-Gm-Message-State: AO0yUKX6MdtbTpK5YYF1rMdJrWIcnUqc1shUJUsfo1VUihae20IDHPmO
+	5uaWqcjRKnsuK5hq6gWwsO5uEw==
+X-Google-Smtp-Source: AK7set+XXo/cibAoiupiPHcxkcT+4+qQa2b5PxDeOIXhjc7yqmodMsNfqIIeM3nMc41TOvhgCKhlrA==
+X-Received: by 2002:a62:7b11:0:b0:5a8:5fa4:8c6a with SMTP id w17-20020a627b11000000b005a85fa48c6amr1605669pfc.0.1676472557521;
+        Wed, 15 Feb 2023 06:49:17 -0800 (PST)
+Received: from mnissler.ba.rivosinc.com (mnissler.eu.rivosinc.com. [162.19.61.220])
+        by smtp.gmail.com with ESMTPSA id 8-20020aa79108000000b005a84de20c24sm11688010pfh.209.2023.02.15.06.49.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 15 Feb 2023 06:49:17 -0800 (PST)
+From: Mattias Nissler <mnissler@rivosinc.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org
+Cc: Mattias Nissler <mnissler@rivosinc.com>
+Subject: [PATCH] riscv: Avoid enabling interrupts in die()
+Date: Wed, 15 Feb 2023 14:48:28 +0000
+Message-Id: <20230215144828.3370316-1-mnissler@rivosinc.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230215_064513_056445_729DD35C 
-X-CRM114-Status: UNSURE (   8.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230215_064921_422241_AA037078 
+X-CRM114-Status: GOOD (  10.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,29 +82,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgTGVodWksCgpQdSBMZWh1aSA8cHVsZWh1aUBodWF3ZWljbG91ZC5jb20+IHdyaXRlczoKCj4g
-QlBGIHRyYW1wb2xpbmUgaXMgdGhlIGNyaXRpY2FsIGluZnJhc3RydWN0dXJlIG9mIHRoZSBicGYK
-PiBzdWJzeXN0ZW0sIGFjdGluZyBhcyBhIG1lZGlhdG9yIGJldHdlZW4ga2VybmVsIGZ1bmN0aW9u
-cwo+IGFuZCBCUEYgcHJvZ3JhbXMuIE51bWVyb3VzIGltcG9ydGFudCBmZWF0dXJlcywgc3VjaCBh
-cwo+IHVzaW5nIGVicGYgcHJvZ3JhbSBmb3IgemVybyBvdmVyaGVhZCBrZXJuZWwgaW50cm9zcGVj
-dGlvbiwKPiByZWx5IG9uIHRoaXMga2V5IGNvbXBvbmVudC4gV2UgY2FuJ3Qgd2FpdCB0byBzdXBw
-b3J0IGJwZgo+IHRyYW1wb2xpbmUgb24gUlY2NC4gU2luY2UgUlY2NCBkb2VzIG5vdCBzdXBwb3J0
-IGZ0cmFjZQo+IGRpcmVjdCBjYWxsIHlldCwgdGhlIGN1cnJlbnQgUlY2NCBicGYgdHJhbXBvbGlu
-ZSBpcyBvbmx5Cj4gdXNlZCBpbiBicGYgY29udGV4dC4KClRoYW5rcyBhIGxvdCBmb3IgY29udGlu
-dWluZyB0aGlzIHdvcmsuIEkgYWdyZWUgd2l0aCB5b3UgdGhhdCBpdCdzCnZhbHVhYmxlIHRvIGhh
-dmUgQlBGIHRyYW1wb2xpbmUgc3VwcG9ydCwgZXZlbiB3aXRob3V0IHByb3BlciBkaXJlY3QgY2Fs
-bApzdXBwb3J0ICh3ZSdsbCBnZXQgdGhlcmUgc29vbikuIFRoZSB0cmFtcG9saW5lIGVuYWJsZXMg
-a2Z1bmMgY2FsbHMuIE9uCnRoYXQgbm90ZTsgSSBkb24ndCBzZWUgdGhhdCB5b3UgZW5hYmxlICJi
-cGZfaml0X3N1cHBvcnRzX2tmdW5jX2NhbGwoKSIKYW55d2hlcmUgaW4gdGhlIHNlcmllcy4gIFdp
-dGggQlBGIHRyYW1wb2xpbmUgc3VwcG9ydCwgdGhlIFJJU0MtViBCUEYKZmluYWxseSBjYW4gc3Vw
-cG9ydCBrZnVuYyBjYWxscyEKCkknZCBhZGQgdGhlIGZvbGxvd2luZyB0byBicGZfaml0X2NvbXA2
-NC5jOgoKYm9vbCBicGZfaml0X3N1cHBvcnRzX2tmdW5jX2NhbGwodm9pZCkKewogICAgICAgIHJl
-dHVybiB0cnVlOwp9Cgo6LSkKCkknbGwgZG8gYSByZXZpZXcgQVNBUC4KCgpCasO2cm4KCl9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
-aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
-bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+While working on something else, I noticed that the kernel would start
+accepting interrupts again after crashing in an interrupt handler. Since
+the kernel is already in inconsistent state, enabling interrupts is
+dangerous and opens up risk of kernel state deteriorating further.
+Interrupts do get enabled via what looks like an unintended side effect of
+spin_unlock_irq, so switch to the more cautious
+spin_lock_irqsave/spin_unlock_irqrestore instead.
+
+Fixes: 76d2a0493a17 ("RISC-V: Init and Halt Code")
+Signed-off-by: Mattias Nissler <mnissler@rivosinc.com>
+---
+ arch/riscv/kernel/traps.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+index 549bde5c970a..70c98ce23be2 100644
+--- a/arch/riscv/kernel/traps.c
++++ b/arch/riscv/kernel/traps.c
+@@ -34,10 +34,11 @@ void die(struct pt_regs *regs, const char *str)
+ 	static int die_counter;
+ 	int ret;
+ 	long cause;
++	unsigned long flags;
+ 
+ 	oops_enter();
+ 
+-	spin_lock_irq(&die_lock);
++	spin_lock_irqsave(&die_lock, flags);
+ 	console_verbose();
+ 	bust_spinlocks(1);
+ 
+@@ -54,7 +55,7 @@ void die(struct pt_regs *regs, const char *str)
+ 
+ 	bust_spinlocks(0);
+ 	add_taint(TAINT_DIE, LOCKDEP_NOW_UNRELIABLE);
+-	spin_unlock_irq(&die_lock);
++	spin_unlock_irqrestore(&die_lock, flags);
+ 	oops_exit();
+ 
+ 	if (in_interrupt())
+-- 
+2.25.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
