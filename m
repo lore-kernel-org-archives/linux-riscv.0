@@ -4,70 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12FCEC61DA4
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Feb 2023 18:20:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 721A1C6379F
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Feb 2023 18:21:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XFKAmNucKk/s/j/rMs2Feh6/1bjnVXRf+yrTAXdx494=; b=GKukeF0CIhwYKUZtWuJICViKfq
-	aUiJg0GC4tZy5tXr/6+cgl+qqp78xu5k5nhlO5gs7zGtMGh0Xlnub48KqrzvIss5iAN+s3oeKnlsh
-	d1GHrpioQIr2vMLaOeocH0f4pRjfYT0SzN7wGlPdyEc9z0QBXvqJ38hqsgyFTuOQ8RElfvdXNDnX7
-	WeJBhprXoYp1OkZ475ydl/aeVtotBacJcryEWbBWrP6J7juVCBI9sIlWFjWbon7HVZRIeARbsYqo+
-	bpxEZWK3CiVerAJYr4T97dtWKSYGb5m6646Y01PJeu2bF1BNWnVRGplM0Nk3w9kxzK7ARIMyRETeH
-	2ap/5KAg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=5UH4jxrC+bpCThJj+zi2uhkFRXhR1KoJJbD3bsYyNCo=; b=GwLKKXnrhDI7J2
+	orQ/l8/GqO97R66TnNDA9T7msBXS1Cxshvb0vgBqN4wxFO1V3rq3eZOL3KHMOs2G47/Oe42ohVmId
+	HXckIKUXA+ARq1gxyUlyy9x3RHam3xMfU8wrRtq4qmlYkAUg3/XMbG1VRPRqM5xo9oQ1Zdw8Sqnbz
+	ju5d7sx9Qw3Kj9Az0HVTpmjQ7ymPJniKbxOVazQcVNJMcYZ6RQDW2GXR7ct0kL76Fi5XXfsVuYb38
+	v87E9UqgZGN2TmkdnO2g0JfLLIK/c3L1zkC1I2T9RpsLlsg7weYzWRmH3q0YshN88S2VztJBbOeKM
+	SUXeyGDWGQlyTkDcxUeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSisA-00BTKZ-3B; Thu, 16 Feb 2023 18:20:46 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1pSisM-00BTMm-DP; Thu, 16 Feb 2023 18:20:58 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSis6-00BTJr-8T
-	for linux-riscv@lists.infradead.org; Thu, 16 Feb 2023 18:20:44 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id A52D6B825E2;
-	Thu, 16 Feb 2023 18:20:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 071CFC433D2;
-	Thu, 16 Feb 2023 18:20:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1676571639;
-	bh=jK04dJp0pBaLqeMaRgMoUwmpJaZiVkQJQAEC+NYBGZU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=J/ynTfzxEjIbO4oAwSK1Hbwj7eaBIhBw3bZXLs2Io67aP7zyaNaiFGk5hsSR0vdon
-	 9MGT/Iv8MPFmFQuJbEdvQ+dtiI4SN8+IyBPQ05h6iZfB1JC441ntei2IuQ5KdNgNXe
-	 9xjgQpJdpeTZ3OPWHNT4VtSYbH7BuHoB3YqZGRtKDzvXczDUOrMd3nQIQP9Gglk/Ja
-	 uvZOw6tDh2Ay9jt8XoQEvlWT5attfigQ0XkXLZyjeb5HhwIvnLcmmT47D6a+8wztr4
-	 v1p3pc4bH+b9hcHPTRw/77gkhKa8Rsxb/r2lxmKVUWxWQZPp1z5bbEViIzt2F45hI3
-	 nyiJeINLDIUiw==
-Date: Thu, 16 Feb 2023 18:20:34 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Hal Feng <hal.feng@starfivetech.com>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-clk@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 07/11] dt-bindings: clock: Add StarFive JH7110 system
- clock and reset generator
-Message-ID: <Y+5z8skN2DuvxDEL@spud>
-References: <20221220005054.34518-1-hal.feng@starfivetech.com>
- <20221220005054.34518-8-hal.feng@starfivetech.com>
- <Y6JB37Pd5TZoGMy4@spud>
- <7a7bccb1-4d47-3d32-36e6-4aab7b5b8dad@starfivetech.com>
- <Y6tSWB2+98a8k9Qw@spud>
- <5cf0fe71-fd17-fb28-c01e-28356081ba76@starfivetech.com>
+	id 1pSisJ-00BTLn-RQ
+	for linux-riscv@lists.infradead.org; Thu, 16 Feb 2023 18:20:57 +0000
+Received: by mail-pl1-x630.google.com with SMTP id l9so353929plk.3
+        for <linux-riscv@lists.infradead.org>; Thu, 16 Feb 2023 10:20:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=MgvYXC/YwJq34AMN9II76hX03Nd4KT2jWXyTADHEnv4=;
+        b=pdNcm8bSgevrSaZy31y3t4t9v1m4YYznVaEm0s/HBgp1I1aMx3aOngBEWd5qngNxDG
+         /AF60Dlr9YvAxjoM/qhbuFnaBjY/diBQAQPsSQ6uTJmZ9I+F61Ki+7BdrNK/j5A4ewhs
+         gywSqXhU1JMXs7GTmVgaASC9eC5Tp7QFdtFRZ+fPLnAB/2KmkUIUJQ2c4TWHMzPPzOq7
+         GiId2YGRBXT5KdqUrIEfj9F92Mw2gNm0gyRKsobkRFw1z1Vb2loISbb6xdLLROKcI64t
+         35sAKjUm/pS00cyYnoSffxHGr2cEeezy00q26I4DuFUSlso3FlcMiuw6Q/eCaRwuArNs
+         MQDg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=MgvYXC/YwJq34AMN9II76hX03Nd4KT2jWXyTADHEnv4=;
+        b=p0llldNVBqzz9nwub6tU6aS2vywWqODJ84WTHCP+D1WTAgY8/AJhczJQeXd50UNv+L
+         IvK0En2O0vo2d3qLlSygsx6uc89OrAbMZtv/8G+qEVpizNvswWqcCShDfQ6JZeR3qrBR
+         el3gXmZ2PaJ4InWmBsb4W5+timNkxll5ojt4P36Km9y6S/SI5xGSangOO+UHskolZyNP
+         1sIXqM1zUO84usCur46oc+tUnf2bTyeZyIhQRGQ+STWsF3Ysrw/NcXAlEjtVKPtjj4Il
+         L8m5qQMeGGTVpsdPHWnW651rfDS6FUhdaZJbsjOL9/TfhdEE9MiJyI+NSxHxtFAAp1uZ
+         99lQ==
+X-Gm-Message-State: AO0yUKUMdPDr7IzDLpWUFBYGzPLumJUmTXyqcCg8KBjkj8v0zc4WLKIe
+	4k/ts9tAAC5GcjeLOUszPAXUoA==
+X-Google-Smtp-Source: AK7set9ADd0lkOoShwpMoMr1ZMdv/q6YpixBWzT32AwgiQCDHW12Oh4+5ycBen8zn5TAT5BA/CaSoQ==
+X-Received: by 2002:a17:90a:35d:b0:233:c301:32c5 with SMTP id 29-20020a17090a035d00b00233c30132c5mr7904526pjf.45.1676571651833;
+        Thu, 16 Feb 2023 10:20:51 -0800 (PST)
+Received: from kerodi.Dlink ([49.206.14.226])
+        by smtp.gmail.com with ESMTPSA id n21-20020a637215000000b004dff15fc121sm1517574pgc.36.2023.02.16.10.20.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 16 Feb 2023 10:20:51 -0800 (PST)
+From: Sunil V L <sunilvl@ventanamicro.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Marc Zyngier <maz@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>
+Subject: [PATCH V2 00/21] Add basic ACPI support for RISC-V
+Date: Thu, 16 Feb 2023 23:50:22 +0530
+Message-Id: <20230216182043.1946553-1-sunilvl@ventanamicro.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-In-Reply-To: <5cf0fe71-fd17-fb28-c01e-28356081ba76@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230216_102042_636008_BABC6F4A 
-X-CRM114-Status: GOOD (  43.37  )
+X-CRM114-CacheID: sfid-20230216_102055_907183_C4966150 
+X-CRM114-Status: GOOD (  14.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,246 +87,128 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3564788585193753227=="
+Cc: Anup Patel <apatel@ventanamicro.com>, linux-doc@vger.kernel.org, Atish Patra <atishp@rivosinc.com>, linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+This patch series enables the basic ACPI infrastructure for RISC-V.
+Supporting external interrupt controllers is in progress and hence it is
+tested using poll based HVC SBI console and RAM disk.
 
---===============3564788585193753227==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="tfomlMJXp+aiuG3l"
-Content-Disposition: inline
+The first patch in this series is one of the patch from Jisheng's
+series [1] which is not merged yet. This patch is required to support
+ACPI since efi_init() which gets called before sbi_init() can enable
+static branches and hits panic.
 
+The series depends on Anup's IPI improvement series [2].
 
---tfomlMJXp+aiuG3l
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+[1] https://lore.kernel.org/all/20220821140918.3613-1-jszhang@kernel.org/
+[2] https://lore.kernel.org/lkml/20230103141221.772261-7-apatel@ventanamicro.com/T/
 
-Hey Hal!
+Changes since V1:
+	1) Dropped PCI changes and instead added dummy interfaces just to enable
+	   building ACPI core when CONFIG_PCI is enabled. Actual PCI changes will
+	   be added in future along with external interrupt controller support
+	   in ACPI.
+	2) Squashed couple of patches so that new code added gets built in each
+	   commit.
+	3) Fixed the missing wake_cpu code in timer refactor patch as pointed by
+	   Conor
+	4) Fixed an issue with SMP disabled.
+	5) Addressed other comments from Conor.
+	6) Updated documentation patch as per feedback from Sanjaya.
+	7) Fixed W=1 and checkpatch --strict issues.
+	8) Added ACK/RB tags
 
-On Thu, Feb 16, 2023 at 10:42:20PM +0800, Hal Feng wrote:
-> On Tue, 27 Dec 2022 20:15:20 +0000, Conor Dooley wrote:
-> > On Mon, Dec 26, 2022 at 12:26:32AM +0800, Hal Feng wrote:
-> >> On Tue, 20 Dec 2022 23:14:39 +0000, Conor Dooley wrote:
-> >> > On Tue, Dec 20, 2022 at 08:50:50AM +0800, Hal Feng wrote:
-> >> > > From: Emil Renner Berthing <kernel@esmil.dk>
-> >> > >=20
-> >> > > Add bindings for the system clock and reset generator (SYSCRG) on =
-the
-> >> > > JH7110 RISC-V SoC by StarFive Ltd.
-> >> > >=20
-> >> > > Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
-> >> > > Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
-> >=20
-> >> > > +  clocks:
-> >> > > +    items:
-> >> > > +      - description: Main Oscillator (24 MHz)
-> >> > > +      - description: GMAC1 RMII reference
-> >> > > +      - description: GMAC1 RGMII RX
-> >> > > +      - description: External I2S TX bit clock
-> >> > > +      - description: External I2S TX left/right channel clock
-> >> > > +      - description: External I2S RX bit clock
-> >> > > +      - description: External I2S RX left/right channel clock
-> >> > > +      - description: External TDM clock
-> >> > > +      - description: External audio master clock
-> >> >=20
-> >> > So, from peeking at the clock driver & the dt - it looks like a bunc=
-h of
-> >> > these are not actually required?
-> >>=20
-> >> These clocks are used as root clocks or optional parent clocks in cloc=
-k tree.
-> >> Some of them are optional, but they are required if we want to describ=
-e the
-> >> complete clock tree of JH7110 SoC.
-> >=20
-> > Perhaps I have a misunderstand of what required means. To me, required
-> > means "you must provide this clock for the SoC to operate in all
-> > configurations".
-> > Optional therefore would be for things that are needed only for some
-> > configurations and may be omitted if not required.
-> >=20
-> > From your comment below, boards with a JH7110 may choose not to populate
-> > both external clock inputs to a mux. In that case, "dummy" clocks should
-> > not have to be provided in the DT of such boards to satisfy this binding
-> > which seems wrong to me..
->=20
-> Please see the picture of these external clocks in clock tree.
->=20
-> # mount -t debugfs none /mnt
-> # cat /mnt/clk/clk_summary
->                                  enable  prepare  protect                =
-                duty  hardware
->    clock                          count    count    count        rate   a=
-ccuracy phase  cycle    enable
-> -------------------------------------------------------------------------=
-------------------------------
->  *mclk_ext*                             0        0        0    12288000  =
-        0     0  50000         Y
->  *tdm_ext*                              0        0        0    49152000  =
-        0     0  50000         Y
->  *i2srx_lrck_ext*                       0        0        0      192000  =
-        0     0  50000         Y
->  *i2srx_bclk_ext*                       0        0        0    12288000  =
-        0     0  50000         Y
->  *i2stx_lrck_ext*                       0        0        0      192000  =
-        0     0  50000         Y
->  *i2stx_bclk_ext*                       0        0        0    12288000  =
-        0     0  50000         Y
->  *gmac1_rgmii_rxin*                     0        0        0   125000000  =
-        0     0  50000         Y
->     gmac1_rx                          0        0        0   125000000    =
-      0     0  50000         Y
->        gmac1_rx_inv                   0        0        0   125000000    =
-      0   180  50000         Y
->  *gmac1_rmii_refin*                     0        0        0    50000000  =
-        0     0  50000         Y
->     gmac1_rmii_rtx                    0        0        0    50000000    =
-      0     0  50000         Y
->        gmac1_tx                       0        0        0    50000000    =
-      0     0  50000         N
->           gmac1_tx_inv                0        0        0    50000000    =
-      0   180  50000         Y
->  *osc*                                  4        4        0    24000000  =
-        0     0  50000         Y
->     apb_func                          0        0        0    24000000    =
-      0     0  50000         Y
->  ...
->=20
-> The clock "gmac1_rgmii_rxin" and the clock "gmac1_rmii_refin" are
-> actually used as the parent of other clocks.
+These changes are available at
+https://github.com/vlsunil/linux/commits/acpi_b1_us_review_ipi17_V2
 
-> The "dummy" clocks
-> you said are all internal clocks.
+Testing:
+1) Build Qemu with ACPI support using below branch
+https://github.com/vlsunil/qemu/tree/acpi_b1_us_review_V3
 
-No, what I meant by "dummy" clocks is that if you make clocks "required"
-in the binding that are not needed by the hardware for operation a
-customer of yours might have to add "dummy" clocks to their devicetree
-to pass dtbs_check.
+2) Build EDK2 as per instructions in
+https://github.com/vlsunil/riscv-uefi-edk2-docs/wiki/RISC-V-Qemu-Virt-support
 
-> For the audio related clocks (mclk_ext/tdm_ext/i2srx_lrck_ext/
-> i2srx_bclk_ext/i2stx_lrck_ext/i2stx_bclk_ext), they will be used
-> as the parent clocks in audio related drivers. Note that some
-> clocks need to select different clocks as parent according to
-> requirement.
-> So all these external clocks are required.
->=20
-> >=20
-> > It would seem to me that you need to set minItems < maxItems here to
-> > account for that & you do in fact need clock-names.
-> >=20
-> >>=20
-> >> > I'd have ploughed through this, but having read Krzysztof's comments=
- on
-> >> > the DTS I'm not sure that this binding is correct.
-> >> > https://lore.kernel.org/linux-riscv/20221220011247.35560-1-hal.feng@=
-starfivetech.com/T/#mdf67621a2344dce801aa8015d4963593a2c28bcc
-> >> >=20
-> >> > I *think* the DT is correct - the fixed clocks are all inputs from c=
-lock
-> >> > sources on the board and as such they are empty in soc.dtsi and are
-> >> > populated in board.dts?
-> >>=20
-> >> Yes, the fixed clocks are all clock sources on the board and input to =
-the SoC.
-> >>=20
-> >> >=20
-> >> > However, are they all actually required? In the driver I see:
-> >> > 	JH71X0__MUX(JH7110_SYSCLK_GMAC1_RX, "gmac1_rx", 2,
-> >> > 		    JH7110_SYSCLK_GMAC1_RGMII_RXIN,
-> >> > 		    JH7110_SYSCLK_GMAC1_RMII_RTX),
-> >> > That macro is:
-> >> > #define JH71X0__MUX(_idx, _name, _nparents, ...) [_idx] =3D {			\
-> >> > 	.name =3D _name,								\
-> >> > 	.flags =3D 0,								\
-> >> > 	.max =3D ((_nparents) - 1) << JH71X0_CLK_MUX_SHIFT,			\
-> >> > 	.parents =3D { __VA_ARGS__ },						\
-> >> > }
+3) Build Linux after enabling SBI HVC and SBI earlycon
+CONFIG_RISCV_SBI_V01=y
+CONFIG_SERIAL_EARLYCON_RISCV_SBI=y
+CONFIG_HVC_RISCV_SBI=y
 
-> >> > AFAICT, RMII reference feeds RMII_RTX & RGMII RX *is* RGMII_RXIN?
-> >> > Does that mean you need to populate only one of GMAC1 RMII reference
-> >> > and GMAC1 RMGII RX and the other is optional?
+4) Build buildroot.
 
-> >> Yes, actually only one of them is chosen as the root clock
-> >> source of the clock "gmac1_rx".
-|  *gmac1_rgmii_rxin*  =20
-|     gmac1_rx         =20
-|        gmac1_rx_inv  =20
-|  *gmac1_rmii_refin*  =20
-|     gmac1_rmii_rtx   =20
-|        gmac1_tx      =20
-|           gmac1_tx_inv
-|
-| description: GMAC1 RMII reference
-| description: GMAC1 RGMII RX
+Run with below command.
+qemu-system-riscv64   -nographic \
+-drive file=Build/RiscVVirtQemu/RELEASE_GCC5/FV/RISCV_VIRT.fd,if=pflash,format=raw,unit=1 \
+-machine virt,acpi -smp 16 -m 2G \
+-kernel arch/riscv/boot/Image \
+-initrd buildroot/output/images/rootfs.cpio \
+-append "root=/dev/ram ro console=hvc0 earlycon=sbi"
 
 
-So you're telling me that you can either:
-- Provide GMAC1 RMII reference and GMAC1 RGMII RX & then use different
-  clocks for gmac1_rx and gmac1_tx
-- Provide only GMAC1 RMII reference & use it for both gmac1_tx *and*
-  gmac1_rx
+Jisheng Zhang (1):
+  riscv: move sbi_init() earlier before jump_label_init()
 
-Is that correct?
+Sunil V L (20):
+  ACPICA: MADT: Add RISC-V INTC interrupt controller
+  ACPICA: Add structure definitions for RISC-V RHCT
+  RISC-V: Add support to build the ACPI core
+  ACPI: Kconfig: Enable ACPI_PROCESSOR for RISC-V
+  ACPI: OSL: Make should_use_kmap() 0 for RISC-V.
+  ACPI: processor_core: RISC-V: Enable mapping processor to the hartid
+  drivers/acpi: RISC-V: Add RHCT related code
+  RISC-V: smpboot: Create wrapper smp_setup()
+  RISC-V: smpboot: Add ACPI support in smp_setup()
+  RISC-V: ACPI: Add a function to retrieve the hartid
+  RISC-V: cpufeature: Add ACPI support in riscv_fill_hwcap()
+  RISC-V: cpu: Enable cpuinfo for ACPI systems
+  irqchip/riscv-intc: Add ACPI support
+  clocksource/timer-riscv: Refactor riscv_timer_init_dt()
+  clocksource/timer-riscv: Add ACPI support
+  RISC-V: time.c: Add ACPI support for time_init()
+  RISC-V: Add ACPI initialization in setup_arch()
+  RISC-V: Enable ACPI in defconfig
+  MAINTAINERS: Add entry for drivers/acpi/riscv
+  Documentation/kernel-parameters.txt: Add RISC-V for ACPI parameter
 
-> >> >=20
-> >> > > +
-> >> > > +  clock-names:
-> >> > > +    items:
-> >> > > +      - const: osc
-> >> > > +      - const: gmac1_rmii_refin
-> >> > > +      - const: gmac1_rgmii_rxin
-> >> > > +      - const: i2stx_bclk_ext
-> >> > > +      - const: i2stx_lrck_ext
-> >> > > +      - const: i2srx_bclk_ext
-> >> > > +      - const: i2srx_lrck_ext
-> >> > > +      - const: tdm_ext
-> >> > > +      - const: mclk_ext
-> >> >=20
-> >> > If all clocks are in fact required though, isn't this kinda pointles=
-s to
-> >> > have since we already know that the order is fixed from the "clocks"
-> >> > property?
-> >> > Krzk/Rob?
-> >>=20
-> >> The clock-names are used to easily identify these clocks in the clock =
-driver.
-> >=20
-> > *IF* all clocks were in fact required, which they aren't, you could rely
-> > on the order alone in the driver as it is enforced by the binding.
->=20
-> OK, I'll remove "clock-names" property in the bindings and device tree.
-> Instead, will use index to get these clocks in drivers.
+ .../admin-guide/kernel-parameters.txt         |   8 +-
+ MAINTAINERS                                   |   7 +
+ arch/riscv/Kconfig                            |   5 +
+ arch/riscv/configs/defconfig                  |   2 +
+ arch/riscv/include/asm/acenv.h                |  11 +
+ arch/riscv/include/asm/acpi.h                 |  87 ++++++
+ arch/riscv/include/asm/cpu.h                  |   8 +
+ arch/riscv/kernel/Makefile                    |   2 +
+ arch/riscv/kernel/acpi.c                      | 248 ++++++++++++++++++
+ arch/riscv/kernel/cpu.c                       |  31 ++-
+ arch/riscv/kernel/cpufeature.c                |  41 ++-
+ arch/riscv/kernel/setup.c                     |  27 +-
+ arch/riscv/kernel/smpboot.c                   |  75 +++++-
+ arch/riscv/kernel/time.c                      |  25 +-
+ drivers/acpi/Kconfig                          |   2 +-
+ drivers/acpi/Makefile                         |   2 +
+ drivers/acpi/osl.c                            |   2 +-
+ drivers/acpi/processor_core.c                 |  29 ++
+ drivers/acpi/riscv/Makefile                   |   2 +
+ drivers/acpi/riscv/rhct.c                     |  92 +++++++
+ drivers/clocksource/timer-riscv.c             |  93 ++++---
+ drivers/irqchip/irq-riscv-intc.c              |  78 +++++-
+ include/acpi/actbl2.h                         |  68 ++++-
+ 23 files changed, 854 insertions(+), 91 deletions(-)
+ create mode 100644 arch/riscv/include/asm/acenv.h
+ create mode 100644 arch/riscv/include/asm/acpi.h
+ create mode 100644 arch/riscv/include/asm/cpu.h
+ create mode 100644 arch/riscv/kernel/acpi.c
+ create mode 100644 drivers/acpi/riscv/Makefile
+ create mode 100644 drivers/acpi/riscv/rhct.c
 
-Hang on until you answer my question above before deleting this from the
-dt-binding & driver ;)
+-- 
+2.34.1
 
-
---tfomlMJXp+aiuG3l
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY+5z8gAKCRB4tDGHoIJi
-0l/OAP4mjA8CLknFT2rh06ebAfVs/7Tq4xi/y0ZV1CybXw0gpgEAvrvV1QJ39Y/d
-ugfr6YG/I/ZWeyu4M8p2/ls9gz+0uww=
-=uJUs
------END PGP SIGNATURE-----
-
---tfomlMJXp+aiuG3l--
-
-
---===============3564788585193753227==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3564788585193753227==--
-
