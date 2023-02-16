@@ -4,58 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53D07C61DA4
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Feb 2023 22:04:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23736C61DA4
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Feb 2023 22:25:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jY8th5gPqK8xLKE4ZvHmGJagHawNRYAHGzIZ6ofLS7c=; b=NJILZmzYdmRIBF1KDWvU/EtZrp
-	ppoJNWo3brqyaujq1wcsiuCTIOya05ByigJ58qF3/gR1Oj1JyxQmzb1bk48kHZVU7hFjA4VsmXc8o
-	mUwTO4BfwHM32WHNbMHSFNtugqtaN9lPlUrKjBKlv9xv5wLaLwQsDjzkNDKOIkG74Uhq+62Nx40hK
-	PZ8pwG74JmvANsdIryBs6NqhaNEqfbIBRmVSoz2C6BE53PgI3/ATytWwVJi0w/ouzpoMtA0gfTmxl
-	+8cczoNwcH7n55cruyH3OBp9DMUwfZmUJyoZ5MNC4tDOOyAUq/WnlWLOymRDpVKBDqFSpib/gG4Fv
-	C3qGBeyA==;
+	bh=m0Y2RlDW3ik1ehEYqoBmnT+A3MVenLNYE76GxXQ8FeA=; b=I72nOrdkEXtb2kkXIL/4sDSQvU
+	T25pt8mgPBwkxj1k4Wfv9LwZ+wBm+rewa1V7ZystEF14QiQOsa4QkgQDKz1HNKLntnaWhEvbzeS55
+	FqMBNQ2Wb/0ww7MffNeoMyDs/2tDvoPPulo/9RBZ9u3XKt0DuLj/2B7/Gh+s03sWtKrLFDiBaR3Zl
+	wgi1Pw2s3TOpejOWkTvFtMmqnJA3pHUstzohNJwwhkEcsqkjzM3fnhIYSyri/Pf8BqFHmCfm3z3mr
+	zFOJngnfiW5X8tEQw46pHIRTtz1R+4DhtNl7Sa7WpEXYVSotNFS2br8VHThZqgp2k2PKU2hMfLbHw
+	c753Vi8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSmMp-00BydM-7u; Thu, 16 Feb 2023 22:04:39 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1pSmgP-00C0ed-FT; Thu, 16 Feb 2023 22:24:53 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSmMl-00Bycb-Ne
-	for linux-riscv@lists.infradead.org; Thu, 16 Feb 2023 22:04:37 +0000
+	id 1pSmgM-00C0eC-6M
+	for linux-riscv@lists.infradead.org; Thu, 16 Feb 2023 22:24:52 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by sin.source.kernel.org (Postfix) with ESMTPS id 2B3A5CE2D90;
-	Thu, 16 Feb 2023 22:04:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A4D6C433EF;
-	Thu, 16 Feb 2023 22:04:25 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id A5126B829D1;
+	Thu, 16 Feb 2023 22:24:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2EE29C433EF;
+	Thu, 16 Feb 2023 22:24:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1676585067;
-	bh=4OfXclkD5TB3DQfBzld5waapcTpqPssdaHhGHa8l04k=;
+	s=k20201202; t=1676586287;
+	bh=AkZM/C98uZwsgM85uiCRPO8EwcX7/vGb5dRzoigiFTA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Rcn9s7t4ikwn8nMH7TOTVJRVzmQMp0CJtPlWffl+EUQBzG52Eu9H/vj68hR/0a4Nf
-	 /kRk0z4KN4Lil17CEQ/vXFpfGbnUvc/9O4wxjQ+ec5fLkKLXMA2biQjWhafAIiPSqG
-	 VNNaQH8bIYUpvDGgjM9HsRNBRp8hq3wUPXawsRi74LxnZU5AstbZmGy2m59VyNxn3C
-	 DmKNIfes7TP2dDscEWr4o/Yp3cmOIJFJVgKgS3SJMiVarasgz5c3H0TenVdTyuWv3P
-	 KebF7du2u2MmeVqBSGvoMkqNN3sYGpKqF9T2ZSMNNIGQOp48RuP4loZTrPosk5PK7X
-	 WWvCcBCU8hIgQ==
-Date: Thu, 16 Feb 2023 22:04:23 +0000
+	b=h4twjsHpYg1ZsRqwRiklnPfq4ZL4PLdfXIOwL4h/BMGngn3raqEE+AFRX1+MzO+rI
+	 9kdpAw/cISlY2uNSKIhFBvBn+9/Vg0MXjApHlpFLECWOBFDKeAKjoZP01mgOBwqt0x
+	 FuOnjxyytzEFmLvfvBcf5v/oEbAjvwWy1RhdiMo1WPmzZXMJUwmkAzUFYYIbSGd5UW
+	 3obfXS5e3o6e91XRY//h/6oZEjzpS80cQzgtzbmxQAund+ojjNesgnCP2pi3Nyjc8v
+	 +j362C3E0UB1uIZH/wFy21eps9zuTshDeDXbsn/7ySECxAmJc2lHMzXJhVSG6CTi/F
+	 CwijcSlo/c7eg==
+Date: Thu, 16 Feb 2023 22:24:43 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Qinglin Pan <panqinglin2020@iscas.ac.cn>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
-	jeff@riscv.org, xuyinan@ict.ac.cn, ajones@ventanamicro.com
-Subject: Re: [PATCH v11 0/3] riscv, mm: detect svnapot cpu support at runtime
-Message-ID: <Y+6oZ4mu1/jcfDIg@spud>
-References: <mhng-cbb4813a-0cec-47f8-905e-48fa410657a5@palmer-ri-x1c9>
- <0711567e-39a4-09a4-aefa-4c5a55e196c9@iscas.ac.cn>
+To: Jassi Brar <jassisinghbrar@gmail.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 0/7] MPFS system controller/mailbox fixes
+Message-ID: <Y+6tK/OS13THpQo4@spud>
+References: <20230111134513.2495510-1-conor.dooley@microchip.com>
+ <CABb+yY3+83AP0B4RUGTabqjR=7rXJFMgAvXsM5Go3sz2RMJA1g@mail.gmail.com>
+ <Y8w5NO9E/j/6eT5d@spud>
 MIME-Version: 1.0
-In-Reply-To: <0711567e-39a4-09a4-aefa-4c5a55e196c9@iscas.ac.cn>
+In-Reply-To: <Y8w5NO9E/j/6eT5d@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230216_140435_968479_60DA73D7 
-X-CRM114-Status: GOOD (  20.13  )
+X-CRM114-CacheID: sfid-20230216_142450_564368_116E367C 
+X-CRM114-Status: GOOD (  53.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,65 +69,138 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6080320505423748573=="
+Content-Type: multipart/mixed; boundary="===============3298691305900406867=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============6080320505423748573==
+--===============3298691305900406867==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="DqDPxayv/TxQmlx7"
+	protocol="application/pgp-signature"; boundary="cHIZQMqJK0RslrQL"
 Content-Disposition: inline
 
 
---DqDPxayv/TxQmlx7
-Content-Type: text/plain; charset=iso-8859-1
+--cHIZQMqJK0RslrQL
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Wed, Feb 15, 2023 at 10:47:49AM +0800, Qinglin Pan wrote:
-> On 2/15/23 8:02 AM, Palmer Dabbelt wrote:
-> > On Thu, 15 Dec 2022 22:21:06 PST (-0800), panqinglin2020@iscas.ac.cn wr=
-ote:
+Hey Jassi,
 
-> > This is triggering some build failures.=A0 I sent along a fix before
-> > realizing they're actually coming from this patch set:
-> > https://lore.kernel.org/all/20230214201358.10647-1-palmer@rivosinc.com/
-> > .=A0 If it's OK I'll just squash that in here, so I can avoid a broken
-> > build.
+On Sat, Jan 21, 2023 at 07:12:52PM +0000, Conor Dooley wrote:
+> On Sat, Jan 21, 2023 at 10:01:41AM -0600, Jassi Brar wrote:
+> > On Wed, Jan 11, 2023 at 7:45 AM Conor Dooley <conor.dooley@microchip.co=
+m> wrote:
+> > >
+> > > In order to differentiate between the service succeeding & the system
+> > > controller being inoperative or otherwise unable to function, I had to
+> > > switch the controller to poll a busy bit in the system controller's
+> > > registers to see if it has completed a service.
+> > > This makes sense anyway, as the interrupt corresponds to "data ready"
+> > > rather than "tx done", so I have changed the mailbox controller driver
+> > > to do that & left the interrupt solely for signalling data ready.
+> > > It just so happened that all of the services that I had worked with a=
+nd
+> > > tested up to this point were "infallible" & did not set a status, so =
+the
+> > > particular code paths were never tested.
+> > >
+> > > Jassi, the mailbox and soc patches depend on each other, as the change
+> > > in what the interrupt is used for requires changing the client driver=
+'s
+> > > behaviour too, as mbox_send_message() will now return when the system
+> > > controller is no longer busy rather than when the data is ready.
+> > > I'm happy to send the lot via the soc tree with your Ack and/or reive=
+w,
+> > > if that also works you?
+> > >
+> > Ok, let me review them and get back to you.
 >=20
-> There is a newer v13(in [1]) based on new ISA extension API. But it still
-> have conchuod/build_rv64_gcc_allmodconfig check failed in it[2].
-> I have no idea whether it is caused by my patchset since the output seems
-> not related to my code.. Please let me know if there is anything I
-> need to modify.
+> FYI, I did sent a v2 on Friday:
+> https://lore.kernel.org/all/20230120143734.3438755-1-conor.dooley@microch=
+ip.com/
+>=20
+> The change is just a timeout duration though.
+>=20
+> > > Secondly, I have a question about what to do if a service does fail, =
+but
+> > > not due to a timeout - eg the above example where the "new" image for
+> > > the FPGA is actually older than the one that currently exists.
+> > > Ideally, if a service fails due to something other than the transacti=
+on
+> > > timing out, I would go and read the status registers to see what the
+> > > cause of failure was.
+> > > I could not find a function in the mailbox framework that allows the
+> > > client to request that sort of information from the client. Trying to
+> > > do something with the auxiliary bus, or exporting some function to a
+> > > device specific header seemed like a circumvention of the mailbox
+> > > framework.
+> > > Do you think it would be a good idea to implement something like
+> > > mbox_client_peek_status(struct mbox_chan *chan, void *data) to allow
+> > > clients to request this type of information?
+> > >
+> > .last_tx_done() is supposed to make sure everything is ok.
+>=20
+> Hm, might've explained badly as I think you've misunderstood. Or (see
+> below) I might have mistakenly thought that last_tx_done() was only meant
+> to signify that tx was done.
+>=20
+> Anyways, I'll try to clarify.
+> Some services don't set a status, but whether a status is, or isn't,
+> set has nothing to do with whether the service has completed.
+> One service that sets a status is "Authenticate Bitstream". This
+> service sets a status of 0x0 if the bitstream in question is okay _and_
+> something that the FPGA can be upgraded to. It returns a failure of 0x18
+> if the bitstream is valid _but_ is the same as that currently programmed.
+> (and of course a whole host of other possible errors in-between)
+>=20
+> These statuses, and whether they are a bad outcome or not, is dependant
+> on the service and I don't think should be handled in the mailbox
+> controller driver.
+>=20
+> > If the expected status bit is "sometimes not set", that means that bit
+> > is not the complete status.
+>=20
+> If the "busy" bit goes low, then the transmission must be complete,
+> there should be no need to check other bits for *completion*, but...
+>=20
+> > You have to check multiple registers to
+> > detect if and what caused the failure.
+>=20
+> ...maybe I have just misunderstood the role of .last_tx_done(). The
+> comment in mailbox-controller.h lead me to believe that it was used just
+> to check if it had been completed.
+>=20
+> Am I allowed to use .last_tx_done() to pass information back to the
+> mailbox client? If I could, that'd certainly be a nice way to get the
+> information on whether the service failed etc.
+>=20
+> Hopefully that, plus when you have a chance to look at the code, will
+> make what I am asking about a little clearer!
 
-Yah, looking at that it is actually just noise. For some reason the
-before-the-patch build the scatterlist warnings got merged with other
-warnings.
-If you look at the "raw" version of the gist it's pretty easy to see:
-https://gist.githubusercontent.com/conor-pwbot/0a1850594abdf3aebe4b3026a52a=
-682d/raw/a5ed91502e27795c57c573824a66aff7f68f4323/stderr
+Just wondering if you've had a chance to look at this again! I know it's
+missed the merge window this time around but I would like to get this
+behaviour fixed as other work depends on it.
 
-I dunno what caused that, I'll have to take a look.
-You can consider that one to be noise, sorry!
+Thanks,
+Conor.
 
 
---DqDPxayv/TxQmlx7
+--cHIZQMqJK0RslrQL
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY+6oZwAKCRB4tDGHoIJi
-0oP4AP47pY9AuXkE9ceLNm3GgxbVCwG8GvPqhMxDnIHn94W7xAEA9/aJeb+VP7gv
-p8jEU6eoNbrqtk20kUD+A/g0NGzqbQw=
-=Wp2q
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY+6tKwAKCRB4tDGHoIJi
+0l6cAQCsWrIH+pqBwAf69uZLhrJvtlpPqSCTYxGM7EMsGHBwnQD+OgimOQeWf7mr
+9KgBmT+TJwYcmQ2Rk1rSxiDu3y+fhgo=
+=AfHa
 -----END PGP SIGNATURE-----
 
---DqDPxayv/TxQmlx7--
+--cHIZQMqJK0RslrQL--
 
 
---===============6080320505423748573==
+--===============3298691305900406867==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -136,5 +211,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============6080320505423748573==--
+--===============3298691305900406867==--
 
