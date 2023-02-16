@@ -4,78 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ADF5C636CC
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Feb 2023 15:52:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51527C636CC
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Feb 2023 17:20:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tMRHR7mumXGPm9bo+Ffj+KMSdVoRb3gAnPpoLUceAxw=; b=xmq6Om0l3ocsOA
-	UdCtW8kiC3EQrjcIw13jwA0pb0tnP1EYyD63AWGq2wThNJQECbdwisjEKW2P9LBnIVcYHv/5/liY+
-	cpVUVctETQjDFVUwf1yRUog8fVnSYn1oCdMbFNDgKUAGHzfp8wk5SHOnlXXGRLlWbsbf3k0pyvGom
-	p9kPvQi7YB8zgrBffhelnZjP36zaJh7tqK0yC7MEsB2pLhuSBpjoKb8muLUhqy3KsWkVd2mNY6zAT
-	zoEu0L17RYPges6jLFl7f1SgL6zPuWmdwhLapswWerfpw3nMRTCI/c/FdU+KbKCkFhUNLWcfrrb+P
-	neJJjCzEIcfDPAlLOjTA==;
+	List-Owner; bh=qy9SqYtOHsEpEqaHKdhm3bTiFs5qZTUWzT9arpDpJiU=; b=PkC3E2dLcORHn1
+	ZB9kENftb787HzBhqzVK0Og/zVKN2Uted8pmfZKPDSGf42puZI/sfkd4f0R6ieDa15kwaXhH4N1pH
+	8H/j7je6vXhmtEkBZGn00CHeAXvtMp/7Vcd6wGIvgcD7AYoxjBIpCeRXhTwPcwjr27SHBIXjs0EJ8
+	uVf3iY+CyJFN3otAcNxPVIhrvVX1lD7nCo8yDesYqvcURUvrRT1E/wY3pwTT6l+ODw/uYpVfILXta
+	2/fPG9k6qwR1/Wm5kOzkDKCLM1rAClpMY1THC7lpCl6qzCBF9rE5Oje2feTpF8pPZAQj0zg9Xyd7v
+	+DyAxZs57K2NI9p2ERdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSgYC-00AyZ5-T8; Thu, 16 Feb 2023 15:52:00 +0000
-Received: from madras.collabora.co.uk ([46.235.227.172])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSgXy-00AySu-5Y; Thu, 16 Feb 2023 15:51:47 +0000
-Received: from [192.168.1.90] (unknown [86.120.32.152])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by madras.collabora.co.uk (Postfix) with ESMTPSA id 8AAD166021A3;
-	Thu, 16 Feb 2023 15:51:40 +0000 (GMT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1676562701;
-	bh=zKMiYpoes0iudILSJDimdQN0K8gtppZKMtn1e8Ml7qQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=lTNf0P4pZlesM+9raKdOYwM2EIJpVkRHpwIIO8a2Cjrd/LXYN/OEe/L0vvTwUfTE3
-	 +/9dxkFlDpw1XTHKekO6/iGGbTjg+bnsQSSCVvjiEoLWcZ8FutfQgtMKa/qs7sWwOV
-	 C7XrnSpFp7rl/XhJQo0KqC+IE8Xh5dZbjHmL/NtmBzRXEbaRyue3LFhzO/V90lo5rs
-	 UPd+QgjfnkooxOCslc3R24PGpgHx/vuT0pCXO5xHbZgX/q2tQVcS21F3c4W0aSL64E
-	 NWEOifSRVOKOpZfEH2sW+bPlT4Zxh+KJ8DBRTHxi3meSQDsF+gQ8UGcDzoUU92ga00
-	 lw7j+obymckFg==
-Message-ID: <cfa0f980-4bb6-4419-909c-3fce697cf8f9@collabora.com>
-Date: Thu, 16 Feb 2023 17:51:37 +0200
+	id 1pShvI-00BK6T-If; Thu, 16 Feb 2023 17:19:56 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pShvD-00BK2K-DY
+	for linux-riscv@lists.infradead.org; Thu, 16 Feb 2023 17:19:54 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id B771E24E154;
+	Fri, 17 Feb 2023 01:19:24 +0800 (CST)
+Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 17 Feb
+ 2023 01:19:24 +0800
+Received: from [172.16.16.234] (113.72.147.207) by EXMBX172.cuchost.com
+ (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 17 Feb
+ 2023 01:19:23 +0800
+Message-ID: <10c2bcb2-e8ca-572f-9e35-84bc8dbf699e@starfivetech.com>
+Date: Fri, 17 Feb 2023 01:19:20 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
  Thunderbird/102.7.2
-Subject: Re: [PATCH 07/12] dt-bindings: net: Add StarFive JH7100 SoC
+Subject: Re: [PATCH v3 08/11] dt-bindings: clock: Add StarFive JH7110
+ always-on clock and reset generator
+To: Conor Dooley <conor@kernel.org>
+CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-clk@vger.kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring
+	<robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Stephen Boyd <sboyd@kernel.org>,
+	"Michael Turquette" <mturquette@baylibre.com>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, <linux-kernel@vger.kernel.org>
+References: <20221220005054.34518-1-hal.feng@starfivetech.com>
+ <20221220005054.34518-9-hal.feng@starfivetech.com> <Y6JC6PZaRMYxZG5Z@spud>
 Content-Language: en-US
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Emil Renner Berthing <kernel@esmil.dk>, Conor Dooley <conor@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Giuseppe Cavallaro <peppe.cavallaro@st.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Jose Abreu <joabreu@synopsys.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Richard Cochran <richardcochran@gmail.com>,
- Sagar Kadam <sagar.kadam@sifive.com>,
- Yanhong Wang <yanhong.wang@starfivetech.com>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, kernel@collabora.com
-References: <20230211031821.976408-1-cristian.ciocaltea@collabora.com>
- <20230211031821.976408-8-cristian.ciocaltea@collabora.com>
- <Y+e74UIV/Td91lKB@lunn.ch>
- <586971af-2d78-456d-a605-6c7b2aefda91@collabora.com>
- <Y+zXv90rGfQupjPP@lunn.ch>
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <Y+zXv90rGfQupjPP@lunn.ch>
+From: Hal Feng <hal.feng@starfivetech.com>
+In-Reply-To: <Y6JC6PZaRMYxZG5Z@spud>
+X-Originating-IP: [113.72.147.207]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX172.cuchost.com
+ (172.16.6.92)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230216_075146_396160_801B93E2 
-X-CRM114-Status: GOOD (  22.76  )
+X-CRM114-CacheID: sfid-20230216_091951_793293_069C5DE8 
+X-CRM114-Status: GOOD (  17.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,72 +74,125 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2/15/23 15:01, Andrew Lunn wrote:
-> On Wed, Feb 15, 2023 at 02:34:23AM +0200, Cristian Ciocaltea wrote:
->> On 2/11/23 18:01, Andrew Lunn wrote:
->>>> +  starfive,gtxclk-dlychain:
->>>> +    $ref: /schemas/types.yaml#/definitions/uint32
->>>> +    description: GTX clock delay chain setting
->>>
->>> Please could you add more details to this. Is this controlling the
->>> RGMII delays? 0ns or 2ns?
->>
->> This is what gets written to JH7100_SYSMAIN_REGISTER49 and it's currently
->> set to 4 in patch 12/12. As already mentioned, I don't have the register
->> information in the datasheet, but I'll update this as soon as we get some
->> details.
+On Tue, 20 Dec 2022 23:19:04 +0000, Conor Dooley wrote:
+> On Tue, Dec 20, 2022 at 08:50:51AM +0800, Hal Feng wrote:
+>> From: Emil Renner Berthing <kernel@esmil.dk>
+>> 
+>> Add bindings for the always-on clock and reset generator (AONCRG) on the
+>> JH7110 RISC-V SoC by StarFive Ltd.
+>> 
+>> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+>> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+>> ---
+>>  .../clock/starfive,jh7110-aoncrg.yaml         | 76 +++++++++++++++++++
+>>  .../dt-bindings/clock/starfive,jh7110-crg.h   | 18 +++++
+>>  .../dt-bindings/reset/starfive,jh7110-crg.h   | 12 +++
+>>  3 files changed, 106 insertions(+)
+>>  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-aoncrg.yaml
+>> 
+>> diff --git a/Documentation/devicetree/bindings/clock/starfive,jh7110-aoncrg.yaml b/Documentation/devicetree/bindings/clock/starfive,jh7110-aoncrg.yaml
+>> new file mode 100644
+>> index 000000000000..a3cf0570d950
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/clock/starfive,jh7110-aoncrg.yaml
+>> @@ -0,0 +1,76 @@
+>> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/clock/starfive,jh7110-aoncrg.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: StarFive JH7110 Always-On Clock and Reset Generator
+>> +
+>> +maintainers:
+>> +  - Emil Renner Berthing <kernel@esmil.dk>
+>> +
+>> +properties:
+>> +  compatible:
+>> +    const: starfive,jh7110-aoncrg
+>> +
+>> +  reg:
+>> +    maxItems: 1
+>> +
+>> +  clocks:
+>> +    items:
+>> +      - description: Main Oscillator (24 MHz)
+>> +      - description: RTC Oscillator (32.768 kHz)
+>> +      - description: GMAC0 RMII reference
+>> +      - description: GMAC0 RGMII RX
 > 
-> I have seen what happens to this value, but i have no idea what it
-> actually means. And without knowing what it means, i cannot say if it
-> is being used correctly or not. And it could be related to the next
-> part of my comment...
-> 
->>
->>>> +    gmac: ethernet@10020000 {
->>>> +      compatible = "starfive,jh7100-dwmac", "snps,dwmac";
->>>> +      reg = <0x0 0x10020000 0x0 0x10000>;
->>>> +      clocks = <&clkgen JH7100_CLK_GMAC_ROOT_DIV>,
->>>> +               <&clkgen JH7100_CLK_GMAC_AHB>,
->>>> +               <&clkgen JH7100_CLK_GMAC_PTP_REF>,
->>>> +               <&clkgen JH7100_CLK_GMAC_GTX>,
->>>> +               <&clkgen JH7100_CLK_GMAC_TX_INV>;
->>>> +      clock-names = "stmmaceth", "pclk", "ptp_ref", "gtxc", "tx";
->>>> +      resets = <&rstgen JH7100_RSTN_GMAC_AHB>;
->>>> +      reset-names = "ahb";
->>>> +      interrupts = <6>, <7>;
->>>> +      interrupt-names = "macirq", "eth_wake_irq";
->>>> +      max-frame-size = <9000>;
->>>> +      phy-mode = "rgmii-txid";
->>>
->>> This is unusual. Does your board have a really long RX clock line to
->>> insert the 2ns delay needed on the RX side?
->>
->> Just tested with "rgmii" and didn't notice any issues. If I'm not missing
->> anything, I'll do the change in the next revision.
-> 
-> rgmii-id is generally the value to be used. That indicates the board
-> needs 2ns delays adding by something, either the MAC or the PHY. And
-> then i always recommend the MAC driver does nothing, pass the value to
-> the PHY and let the PHY add the delays.
-> 
-> So try both rgmii and rgmii-id and do a lot of bi directional
-> transfers. Then look at the reported ethernet frame check sum error
-> counts, both local and the link peer. I would expect one setting gives
-> you lots of errors, and the other works much better.
+> Gotta ask the same question here about the muxing - are all of these
+> clocks truly required?
 
-I gave "rgmii-id" a try and it's not usable, I get too many errors. So 
-"rgmii" should be the right choice here.
+Please see the following clock tree.
 
-Thanks,
-Cristian
+                                 enable  prepare  protect                                duty  hardware
+   clock                          count    count    count        rate   accuracy phase  cycle    enable
+-------------------------------------------------------------------------------------------------------
+ *rtc_osc*                              0        0        0       32768          0     0  50000         Y
+    rtc_32k                           0        0        0       32768          0     0  50000         Y
+ *gmac0_rgmii_rxin*                     0        0        0   125000000          0     0  50000         Y
+    gmac0_rx                          0        0        0   125000000          0     0  50000         Y
+       gmac0_rx_inv                   0        0        0   125000000          0   180  50000         Y
+ *gmac0_rmii_refin*                     0        0        0    50000000          0     0  50000         Y
+    gmac0_rmii_rtx                    0        0        0    25000000          0     0  50000         Y
+       gmac0_tx                       0        0        0    25000000          0     0  50000         N
+          gmac0_tx_inv                0        0        0    25000000          0   180  50000         Y
+ *osc*                                  3        3        0    24000000          0     0  50000         Y
+    rtc_cal                           0        0        0    24000000          0     0  50000         N
+    rtc_internal                      0        0        0       32000          0     0  50000         Y
+    apb_func                          0        0        0    24000000          0     0  50000         Y
+    osc_div4                          0        0        0     6000000          0     0  50000         Y
+    pll2_out                          2        2        0  1188000000          0     0  50000         Y
+       bus_root                       1        1        0  1188000000          0     0  50000         Y
+          axi_cfg0                    2        2        0   396000000          0     0  50000         Y
+             *stg_axiahb*               3        3        0   198000000          0     0  50000         Y
+                gmac0_axi             0        0        0   198000000          0     0  50000         N
+                gmac0_ahb             0        0        0   198000000          0     0  50000         N
+                *apb_bus*               2        2        0    49500000          0     0  50000         Y
+                   rtc_apb            0        0        0    49500000          0     0  50000         Y
+                   otpc_apb           0        0        0    49500000          0     0  50000         Y
+    pll0_out                          1        1        0  1250000000          0     0  50000         Y
+       *gmac0_gtxclk*                   0        0        0   156250000          0     0  50000         N
+          gmac0_gtxc                  0        0        0   156250000          0     0  50000         N
 
->      Andrew
+Most input clocks are used as parent of the clocks registered
+in aon clock driver (patch 10) except the clock "gmac0_gtxclk".
+But I still think there is no harm in building a complete
+clock tree, so we can adjust the parent clocks easily.
+
 > 
+>> +      - description: STG AXI/AHB
+>> +      - description: APB Bus
+>> +      - description: GMAC0 GTX
+>> +
+>> +  clock-names:
+>> +    items:
+>> +      - const: osc
+>> +      - const: rtc_osc
+>> +      - const: gmac0_rmii_refin
+>> +      - const: gmac0_rgmii_rxin
+>> +      - const: stg_axiahb
+>> +      - const: apb_bus
+>> +      - const: gmac0_gtxclk
+> 
+> And if they are, is this actually needed since the order must be as
+> above?
+
+Will remove "clock-names" in the binding and device tree. Thanks.
+
+Best regards,
+Hal
+
+> 
+> As I said in the previous patch, I've probably missed something...
+> 
+
 
 _______________________________________________
 linux-riscv mailing list
