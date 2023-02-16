@@ -4,81 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FCF3C636CC
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Feb 2023 18:24:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B51BC636CC
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Feb 2023 18:50:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ru3TiLYzNqZccs2JaKgUF0LrqyHC0OTqQQrCTxV4yZI=; b=RFSxuqQZi0orlO
-	LECURuhzDmTJFf9AJGz0tyX/3JzKmha8n1mkyCgsWb/UPO55Hk+0R5w9fuk90IurCeqbOrBW6JDXQ
-	Q+e0PiyZ/+pZISbka4QX55aBCdQ8os/xb6VBC9HKGwx8O0kxsh0zm9ckb1en7ZfyOxNHRmEEFrpJi
-	u8v5hPLiQxYen/3QStkmWGqD+K3UpI9M2NRe3F+s3kuqWnYqfrTFqtOWReQyYbPyYFZCL9AGO8E5L
-	K56SgRZg1cGOtechkmPQQ8CkPPFhdRcHwiwXTZfWMb+8ZAPvLISAHg40WYEK9ECXsGgFtdS0tlIVs
-	YVv//1UTnAbSt+oIHfww==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hv4eKNGkgCljaec9suN0Z3eJqvMiTt+hPWRsWk8r31k=; b=nkMpVU0iF0O2BAAYGyVlU66vyX
+	zZHCBoVQ1hwC61GSAjoKSTqtIouSswEJO0mXfb/wpw3zKh3jpQeVcYBS18FiYBl0BJRkmpLq+NGht
+	DKwGVlaecI9ib7VKRvAROfyX05KOfGZjN73WiF2gd0dNkHcgC9vdcGrC/hH36oFaP7bYni6vigqmT
+	8zHHeDI1G6YPIp2YxA+xiB/T3z7loe/mnKwaiUqJHLzwR+lnQsMcDdj9eGAgjxNEKBp86/a6qx0b1
+	4WYnf/MzONzOV4Nf0HxXj+y36mo5BQD11rGOkPajWF8d5gXf+pLxWnqluEVTkmKvTR6rMhn/z66Sv
+	o1U80QUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSivP-00BVcs-65; Thu, 16 Feb 2023 18:24:07 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1pSjL9-00Ba2C-6o; Thu, 16 Feb 2023 18:50:43 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSitt-00BUXr-Ue
-	for linux-riscv@lists.infradead.org; Thu, 16 Feb 2023 18:22:36 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id bt4-20020a17090af00400b002341621377cso6729010pjb.2
-        for <linux-riscv@lists.infradead.org>; Thu, 16 Feb 2023 10:22:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Rc+EdRzJ0SRGUPyQRF18IAjDuJpqdPevv1iUeqHNSDY=;
-        b=MT+u6Ji2DSotNL/3ZJ31+4cfLb/HUgIEAzHyb/4A3W3hXKL7CuBMT7DFaf8PRm7cRi
-         hkX1t1QcAn6Fsh4g9bblEZv+ilGLrh4phGy+dWKqmPb5y5cpQtlH3TAu+YOU0SnV0Luk
-         HDucHKXRMGxNFDuLtGBJm3I9tnzVAAQ1MUc6DNMO077XW2R/1eEDaW0Jd2emJHRAWPjM
-         HGm8QIKeax6/ljYPvC/5GtfUEcuV0hqZzqfkU0/3+9ZK0znENu0rEkld1JzriqhbZHHh
-         XyGAE624cdyEKo/bR2ibxnm20fA1861ECmsz+HbEDZY/Me4+oPLiv4hAMXBd3+rQsqSP
-         LmUQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Rc+EdRzJ0SRGUPyQRF18IAjDuJpqdPevv1iUeqHNSDY=;
-        b=e8K8/2K05NqLq9p8pYY/FeSbmhLv2XjdL980XJWgn3Uv5ZsJIJ++GAMDDggAZTmQQk
-         qQ7bWZxeNcg5FoAFUHms4E9Lw09Cy46XYIQALKxoD2MzxECWYPGWG6n6gI9z8+ae/zgo
-         y+v8OLbrTOZ4jhjawtzuLI3tMe/HjISp8Y0qSjk7L6AEyK3K/uyTAZ+id3TxncSx6KOl
-         KsSqeurTBqWzMlsSU3aQ8UKjhZGchHzG95DLLZJxHtNsws/SfoZ5YZGLmxs70glueIN9
-         jn5J2zhhtEyjyaMAIPoeKEmlOVaX0dMo3c234Yhd8TspoP46ViqwJcXeL4NllBUs5C4n
-         iedQ==
-X-Gm-Message-State: AO0yUKVuZUx6wRCjUJP0dgoDT5KeY6QzI1kDS860RCClT4N9/3MRZblB
-	a4XrFIV+kUnNAemb0RCskSJk0w==
-X-Google-Smtp-Source: AK7set9M9fF7YNnpHhSlQVgpgwmmQbyWXyDh9qg54yswDsPTDVjsTPAME9mc2ETjA4Y1JYejJYwZog==
-X-Received: by 2002:a05:6a20:d49b:b0:bd:278:f68f with SMTP id im27-20020a056a20d49b00b000bd0278f68fmr6832215pzb.52.1676571753281;
-        Thu, 16 Feb 2023 10:22:33 -0800 (PST)
-Received: from kerodi.Dlink ([49.206.14.226])
-        by smtp.gmail.com with ESMTPSA id n21-20020a637215000000b004dff15fc121sm1517574pgc.36.2023.02.16.10.22.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 16 Feb 2023 10:22:32 -0800 (PST)
-From: Sunil V L <sunilvl@ventanamicro.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
+	id 1pSjKz-00BZzm-Az; Thu, 16 Feb 2023 18:50:34 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id ACE43B82951;
+	Thu, 16 Feb 2023 18:50:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DCEAC433D2;
+	Thu, 16 Feb 2023 18:50:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1676573430;
+	bh=AImnf+2dqdDiUhTA+4XLQG6ccdNzGaAOj2rHAnNmR9s=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=cwn2YrfskMK7b8K/KimZBAxY/yyMR/7dHYwkZ62/Ai0XU+LFgqyfNyyeGPdpBVD/z
+	 L5tR6ut4sU5d0mPmnlz4O3RGW1dEEEeJyiVGZcmuEcDFtLfUYmMsbc7TzqPoodANtP
+	 hlNgL9cbxXz3nPmhgZoJsHw8Cy5xVuoVntsQFQ6gUp4p8vv50rlYukm/+dJLWsXO4+
+	 +BG8W2lJu5PqVhOQHPmkCR52mXRI0bIV8ckrCigczowbjO0Q2bcMVpdbKMbf+/eUYw
+	 MWuW3ALreFOeCyBrbqK6ki6aic8OAe4gScHw7OhlSTUzSD/6Vqo+dHijYTR0D/n+rN
+	 58PVJwgvIXBGA==
+Date: Thu, 16 Feb 2023 18:50:22 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Marc Zyngier <maz@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>
-Subject: [PATCH V2 21/21] Documentation/kernel-parameters.txt: Add RISC-V for ACPI parameter
-Date: Thu, 16 Feb 2023 23:50:43 +0530
-Message-Id: <20230216182043.1946553-22-sunilvl@ventanamicro.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20230216182043.1946553-1-sunilvl@ventanamicro.com>
-References: <20230216182043.1946553-1-sunilvl@ventanamicro.com>
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Sagar Kadam <sagar.kadam@sifive.com>,
+	Yanhong Wang <yanhong.wang@starfivetech.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
+	daire.mcnamara@microchip.com
+Subject: Re: [PATCH 04/12] soc: sifive: ccache: Add non-coherent DMA handling
+Message-ID: <Y+567t+kDjZI+fbo@spud>
+References: <20230211031821.976408-1-cristian.ciocaltea@collabora.com>
+ <20230211031821.976408-5-cristian.ciocaltea@collabora.com>
 MIME-Version: 1.0
+In-Reply-To: <20230211031821.976408-5-cristian.ciocaltea@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230216_102234_048320_B3689037 
-X-CRM114-Status: GOOD (  10.27  )
+X-CRM114-CacheID: sfid-20230216_105033_542506_37E54DA0 
+X-CRM114-Status: GOOD (  15.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,52 +85,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, linux-doc@vger.kernel.org, "Rafael J . Wysocki" <rafael.j.wysocki@intel.com>, Atish Patra <atishp@rivosinc.com>, linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7280368432041129954=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-With ACPI support added for RISC-V, this kernel parameter is also
-supported on RISC-V. Hence, update the documentation.
 
-Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
-Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
----
- Documentation/admin-guide/kernel-parameters.txt | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+--===============7280368432041129954==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="dCe6axd58RjANF5F"
+Content-Disposition: inline
 
-diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index 6cfa6e3996cf..b3a5a5844daa 100644
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -1,17 +1,17 @@
--	acpi=		[HW,ACPI,X86,ARM64]
-+	acpi=		[HW,ACPI,X86,ARM64,RISC-V]
- 			Advanced Configuration and Power Interface
- 			Format: { force | on | off | strict | noirq | rsdt |
- 				  copy_dsdt }
- 			force -- enable ACPI if default was off
--			on -- enable ACPI but allow fallback to DT [arm64]
-+			on -- enable ACPI but allow fallback to DT [arm64,riscv]
- 			off -- disable ACPI if default was on
- 			noirq -- do not use ACPI for IRQ routing
- 			strict -- Be less tolerant of platforms that are not
- 				strictly ACPI specification compliant.
- 			rsdt -- prefer RSDT over (default) XSDT
- 			copy_dsdt -- copy DSDT to memory
--			For ARM64, ONLY "acpi=off", "acpi=on" or "acpi=force"
--			are available
-+			For ARM64 and RISC-V, ONLY "acpi=off", "acpi=on" or
-+			"acpi=force" are available
- 
- 			See also Documentation/power/runtime_pm.rst, pci=noacpi
- 
--- 
-2.34.1
 
+--dCe6axd58RjANF5F
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Emil,
+
++CC Daire
+
+On Sat, Feb 11, 2023 at 05:18:13AM +0200, Cristian Ciocaltea wrote:
+> From: Emil Renner Berthing <kernel@esmil.dk>
+>=20
+> Add functions to flush the caches and handle non-coherent DMA.
+>=20
+> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+> [replace <asm/cacheflush.h> with <linux/cacheflush.h>]
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> ---
+
+> +void *sifive_ccache_set_uncached(void *addr, size_t size)
+> +{
+> +	phys_addr_t phys_addr =3D __pa(addr) + uncached_offset;
+> +	void *mem_base;
+> +
+> +	mem_base =3D memremap(phys_addr, size, MEMREMAP_WT);
+> +	if (!mem_base) {
+> +		pr_err("%s memremap failed for addr %p\n", __func__, addr);
+> +		return ERR_PTR(-EINVAL);
+> +	}
+> +
+> +	return mem_base;
+> +}
+
+The rest of this I either get b/c we did it, or will become moot so I
+amn't worried about it, but can you please explain this, in particular
+the memremap that you're doing here?
+
+Cheers,
+Conor.
+
+
+--dCe6axd58RjANF5F
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY+567gAKCRB4tDGHoIJi
+0isoAQCgGCQCl64HiPsxg1E4/GDsGMTIJGdrEEQIXQCaEdTjeAD9Hv8l410SaOFy
+q5SvBa8IxUyuUjr2p8ixdFb2JfHoEAk=
+=7P7u
+-----END PGP SIGNATURE-----
+
+--dCe6axd58RjANF5F--
+
+
+--===============7280368432041129954==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7280368432041129954==--
+
