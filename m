@@ -4,68 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DEFEC636CC
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Feb 2023 07:54:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46CBBC636CC
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Feb 2023 08:13:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4YK5BfMYQBp0dtfMl3G4PuE78bwLfantl7CpLfbphdI=; b=jAOkgGK2ACvZIc
-	FwEbZWBF+M19Kh3nL6toPaXYwSS5Oop4pdmXwQaK/WqP9asdJFKvVAJ9vXAtzVjXAeFujrGHI73eL
-	Ak6cTNcCQuM4n4f7gYOm1M4UuneMe2BroP5YqPmQDJUWdbFIrNFJ1NfrNOxAOP2IQc3TJ+EM3pnoc
-	r/PFwx5iqIeFL0fJ+RSaWViwC72pi14nvwyrodDDbImvxb87sJJMb/PrEGIDIPjnIUI4h/qGukFoe
-	VJ2FcNr2MF+Rlv/3dW8V5RKtC2EiZEvOIwXuzNCPeNTXDbCgt0nkdxCmR7cXaFb4PRaNNPEHmz0iq
-	8d76ZU8A5DN4WqXmBCxg==;
+	List-Owner; bh=YZc96cYP8ctiWVE0gF9FcPRUQ5U//mNyvcFE2e9Lwf4=; b=18KPnmJ8tV9pHs
+	eInyhiVa11v/0SCJjhPdPu0xWUZSAtk52a9mAnigGodAwOrrm823Jwtk9ktPX92cT9d4rcfBMPP6l
+	WinT9DggUMudeR8eLYorKpBd/+e0DN/W2l0q6d35qmruVq8HUB1zXLWNbmOaTq15C41bTzZVfftYJ
+	AtCH2YU3mopGXtPu0K8EKJ9PUATGR7Vin89p3/rpz59goXov8Ddn9svLJTumN+SlWsioFdcbaXNgq
+	Mc7E5LJFF716nlVmnNRs+h/QoGyx+qXK3BL2OMlN2+OuiPbWAVqGstI8xVxPiO6cx+sV9NOnB7jp7
+	0Y970ICvp08KD96jq0sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSZ6P-008sjz-DB; Thu, 16 Feb 2023 07:54:49 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pSZOS-008wwP-Eo; Thu, 16 Feb 2023 08:13:28 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSZ6L-008sit-P5
-	for linux-riscv@lists.infradead.org; Thu, 16 Feb 2023 07:54:47 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 6BEC961EAB;
-	Thu, 16 Feb 2023 07:54:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63B89C433EF;
-	Thu, 16 Feb 2023 07:54:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1676534083;
-	bh=KA/5JF5HlerkurForNO9JKH5IFf6vgsN6Wv08r1dIwM=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=l/WJ5eYYPOVw4F5vwb0QTZCVSVofcMD8FP6A6jZfcJsTs2qNkbEuZntflodp7jdjM
-	 U395s6xJr3Ll2QU3lJST1ALbt4JjCwjremXGiRU5dIC5tj5OdJJfnKsDviK988ESrg
-	 ubh/YJjD7lWxQj2S7uVO+AvKs+5wnP6RqHzSuzYIbtwrklFdnJwaooLHvzXNchiCJV
-	 oPe8Uf9t6Lpb5xP8xV1MpO0NN298ErBhPmfmz652cxGdDFBHhAKM+N1HDdJ2Vnb4w+
-	 GVi7KzDV0DsuEtITSI1/EX3SBp/6eBaCipwNuoVWfckGLCHbaANlCeHa4zKCVfl9Nj
-	 lFEOtMN0c9oCQ==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Guo Ren <guoren@kernel.org>, Andrea Parri <parri.andrea@gmail.com>
-Cc: "liaochang (A)" <liaochang1@huawei.com>, palmer@dabbelt.com,
- paul.walmsley@sifive.com, mhiramat@kernel.org, conor.dooley@microchip.com,
- penberg@kernel.org, mark.rutland@arm.com, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>, Changbin
- Du <changbin.du@huawei.com>
-Subject: Re: [PATCH] riscv: kprobe: Optimize kprobe with accurate atomicity
-In-Reply-To: <CAJF2gTQsRcUpMk8nvFkEsz_fpVV+v6tpUDcPzaNjqfj+i_VvXA@mail.gmail.com>
-References: <20230126161559.1467374-1-guoren@kernel.org>
- <0abbbdd4-6b85-9659-03ee-97c56a5b77c1@huawei.com>
- <CAJF2gTS0s4X_uwLaEeSqKAyRmxCR2vxRuHhz7-SP2w4bBqzr+Q@mail.gmail.com>
- <87r0vc9h4g.fsf@all.your.base.are.belong.to.us>
- <CAJF2gTQZWO8Ubi60nHn-J-8czqBnsp1Kdyoim3uLNkjbYd-H8Q@mail.gmail.com>
- <87ilgntdef.fsf@all.your.base.are.belong.to.us>
- <CAJF2gTTaartwjVdmtmsm1FqmYVuAq5_nGYU5zc6nkdTtCm200A@mail.gmail.com>
- <Y9jz+zUDebQ4VLlF@andrea>
- <CAJF2gTQsRcUpMk8nvFkEsz_fpVV+v6tpUDcPzaNjqfj+i_VvXA@mail.gmail.com>
-Date: Thu, 16 Feb 2023 08:54:41 +0100
-Message-ID: <878rgy3v0e.fsf@all.your.base.are.belong.to.us>
+	id 1pSZOP-008wv9-LH
+	for linux-riscv@lists.infradead.org; Thu, 16 Feb 2023 08:13:27 +0000
+Received: by mail-ej1-x633.google.com with SMTP id jg8so3219947ejc.6
+        for <linux-riscv@lists.infradead.org>; Thu, 16 Feb 2023 00:13:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=B6MIr9w0JhLAMdjA5iNWKYrwooq+WRfPQyN5izB+i3U=;
+        b=pM5IQ7LP/GCPE4auZwxMqseFV38G3mMxAdbs6vTFEwJjVhIfIsGImLrwsSeHpVXrbu
+         /TFZ9CUB0VU3lHMSpNGgs0cVL6xrQT489uLY+s37f/W3rXBDMvYrbUg1rkHC9ZopIku6
+         sAvxuqT64Tg7HF8NhlG0JylB6yCUyFGzrYYpnWcAUKjwGLSPsQAfWayFbKV3ezbTPBOT
+         eAPPtHp1DApkbBPIbPd3NTOpTEfIieg97i18aor8pSWJ82izcLoObiv4ZHBqIpJeYz77
+         Y2/jqAh/Gcdic+qAQVoUhVSrpcJ0dV8kYbl6yxbnxJN7uvDuANeY/dyM5z7emqCj3hNa
+         9tSQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=B6MIr9w0JhLAMdjA5iNWKYrwooq+WRfPQyN5izB+i3U=;
+        b=C3+/zu63ynU1F0KRR1PlIMMStldb5Il2DnRLJu+Ymi7nRzX6pH4XgeemqF3FRRgm8f
+         yCw9ycGiJ5UMOmPZQQq9ltvsevPQOlOvjdq583VBi0tOP+IrzppaD+LqjrghHKgqPQLr
+         4ov2Dohoed84k6d4DBXcuWAAgGMRlwPmvdcTnEbyEk11RR/J7caRa9NFbCbpyT4x82Zh
+         9tAzb6HF3hzfwquBZ2yE+AZF24vgG8Q0aCYi1MuxGJaFJ+5ryyKr1GtO5a1YuKKXFKoU
+         Yfli09lpTAxH8f3cite+38kB36njLleqhYzZ3Nc3EGkJT52Ng2bQ1UhdidkaXy2nNyv6
+         oisA==
+X-Gm-Message-State: AO0yUKXh77mAn3NUpEAVPEkGiX98IcfaHMq+uAwg6Hy488l6KQ8kSRm2
+	mD9euu3f4Q2r26GY61I3nbeeGw==
+X-Google-Smtp-Source: AK7set/Uy+Hmc8Q4dAMmjxdpjZHwIV47rA2IrMvPHIp0cqv896niQ9ZsYsSe1BbZoyLJJfKLOqFwug==
+X-Received: by 2002:a17:906:6c87:b0:7d3:c516:6ef4 with SMTP id s7-20020a1709066c8700b007d3c5166ef4mr5921075ejr.20.1676535203797;
+        Thu, 16 Feb 2023 00:13:23 -0800 (PST)
+Received: from [192.168.1.109] ([178.197.216.144])
+        by smtp.gmail.com with ESMTPSA id my10-20020a1709065a4a00b0084d35ffbc20sm483150ejc.68.2023.02.16.00.13.22
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 16 Feb 2023 00:13:23 -0800 (PST)
+Message-ID: <2bc63ab2-2fd6-3fae-33d5-a6096b78cec0@linaro.org>
+Date: Thu, 16 Feb 2023 09:13:21 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.7.1
+Subject: Re: [PATCH v4 2/7] dt-bindings: net: snps,dwmac: Update the maxitems
+ number of resets and reset-names
+Content-Language: en-US
+To: yanhong wang <yanhong.wang@starfivetech.com>,
+ linux-riscv@lists.infradead.org, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Cc: "David S . Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Emil Renner Berthing <kernel@esmil.dk>,
+ Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
+ Heiner Kallweit <hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>
+References: <20230118061701.30047-1-yanhong.wang@starfivetech.com>
+ <20230118061701.30047-3-yanhong.wang@starfivetech.com>
+ <15a87640-d8c7-d7aa-bdfb-608fa2e497cb@linaro.org>
+ <c9ab22b5-3ffb-d034-b8b8-b056b82a96ce@starfivetech.com>
+ <aa85caa3-6051-46ab-d927-8c552d5a718d@linaro.org>
+ <e066920c-26a9-0f0e-3304-2b9940274d57@starfivetech.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <e066920c-26a9-0f0e-3304-2b9940274d57@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230215_235445_932950_FC07167A 
-X-CRM114-Status: GOOD (  19.32  )
+X-CRM114-CacheID: sfid-20230216_001325_747604_9E0D42D6 
+X-CRM114-Status: GOOD (  15.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,57 +100,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-R3VvIFJlbiA8Z3VvcmVuQGtlcm5lbC5vcmc+IHdyaXRlczoKCj4gT24gVHVlLCBKYW4gMzEsIDIw
-MjMgYXQgNjo1NyBQTSBBbmRyZWEgUGFycmkgPHBhcnJpLmFuZHJlYUBnbWFpbC5jb20+IHdyb3Rl
-Ogo+Pgo+PiA+ID4gSXQncyB0aGUgY29uY3VycmVudCBtb2RpZmljYXRpb24gdGhhdCBJIHdhcyBy
-ZWZlcnJpbmcgdG8gKHJlbW92aW5nCj4+ID4gPiBzdG9wX21hY2hpbmUoKSkuIFlvdSdyZSBzYXlp
-bmcgIml0J2xsIGFsd2F5cyB3b3JrIiwgSSdtIHNheWluZyAiSSdtIG5vdAo+PiA+ID4gc28gc3Vy
-ZSIuIDotKSBFLmcuLCB3cml0aW5nIGMuZWJyZWFrIG9uIGFuIDMyYiBpbnNuLiBDYW4geW91IHNh
-eSB0aGF0Cj4+ID4gU29mdHdhcmUgbXVzdCBlbnN1cmUgd3JpdGUgYy5lYnJlYWsgb24gdGhlIGhl
-YWQgb2YgYW4gMzJiIGluc24uCj4+ID4KPj4gPiBUaGF0IG1lYW5zIElGVSBvbmx5IHNlZToKPj4g
-PiAgLSBjLmVicmVhayArIGJyb2tlbi9pbGxlZ2FsIGluc24uCj4+ID4gb3IKPj4gPiAgLSBvcmln
-aW4gaW5zbgo+PiA+Cj4+ID4gRXZlbiBpbiB0aGUgd29yc3QgY2FzZSwgc3VjaCBhcyBJRlUgZmV0
-Y2hlcyBpbnN0cnVjdGlvbnMgb25lIGJ5IG9uZToKPj4gPiBJZiB0aGUgSUZVIGdldHMgdGhlIG9y
-aWdpbiBpbnNuLCBpdCB3aWxsIHNraXAgdGhlIGJyb2tlbi9pbGxlZ2FsIGluc24uCj4+ID4gSWYg
-dGhlIElGVSBnZXRzIHRoZSBjLmVicmVhayArIGJyb2tlbi9pbGxlZ2FsIGluc24sIHRoZW4gYW4g
-ZWJyZWFrCj4+ID4gZXhjZXB0aW9uIGlzIHJhaXNlZC4KPj4gPgo+PiA+IEJlY2F1c2UgYy5lYnJl
-YWsgd291bGQgcmFpc2UgYW4gZXhjZXB0aW9uLCBJIGRvbid0IHNlZSBhbnkgcHJvYmxlbS4KPj4K
-Pj4gVGhhdCdzIHRoZSBwcm9ibGVtLCB0aGlzIGRpc2N1c3Npb24gaXM6Cj4+Cj4+IFJldmlld2Vy
-OiAiSSdtIG5vdCBzdXJlLCB0aGF0J3Mgbm90IHdyaXR0ZW4gaW4gb3VyIHNwZWMiCj4+IFN1Ym1p
-dHRlcjogIkkgc2FpZCBpdCwgaXQncyBjYWxsZWQgLWFjY3VyYXRlIGF0b21pY2l0eS0iCj4gSSBy
-ZWFsbHkgZG9uJ3Qgc2VlIGFueSBoYXJkd2FyZSB0aGF0IGNvdWxkIGJyZWFrIHRoZSBhdG9taWNp
-dHkgb2YgdGhpcwo+IGMuZWJyZWFrIHNjZW5hcmlvOgo+ICAtIGMuZWJyZWFrIG9uIHRoZSBoZWFk
-IG9mIDMyYiBpbnNuCj4gIC0gZWJyZWFrIG9uIGFuIGFsaWduZWQgMzJiIGluc24KPgo+IElmIElG
-VSBmZXRjaGVzIHdpdGggY2FjaGVsaW5lLCBhbGwgaXMgYXRvbWljaXR5Lgo+IElmIElGVSBmZXRj
-aGVzIHdpdGggMTZiaXQgb25lIGJ5IG9uZSwgdGhlIGZpcnN0IGMuZWJyZWFrIHdvdWxkIHJhaXNl
-Cj4gYW4gZXhjZXB0aW9uIGFuZCBza2lwIHRoZSBuZXh0IGJyb2tlL2lsbGVnYWwgaW5zdHJ1Y3Rp
-b24uCj4gRXZlbiBpZiBJRlUgZmV0Y2hlcyB3aXRob3V0IGFueSBzZXF1ZW5jZSwgdGhlIElEVSBt
-dXN0IGRlY29kZSBvbmUgYnkKPiBvbmUsIHJpZ2h0PyBUaGUgZmlyc3QgaGFsZiBjLmVicmVhayB3
-b3VsZCBwcm90ZWN0IGFuZCBwcmV2ZW50IHRoZSBuZXh0Cj4gYnJva2UvaWxsZWdhbCBpbnN0cnVj
-dGlvbi4gU3BlY3VsYXRpdmUgZXhlY3V0aW9uIG9uIGJyb2tlL2lsbGVnYWwKPiBpbnN0cnVjdGlv
-biB3b24ndCBjYXVzZSBhbnkgZXhjZXB0aW9ucy4KPgo+IEl0J3MgYSBjb21tb24gaXNzdWUsIG5v
-dCBhIHNwZWNpZmljIElTQSBpc3N1ZS4KPiAzMmIgaW5zdHJ1Y3Rpb24gQSAtPiAxNmIgZWJyZWFr
-ICsgMTZiIGJyb2tlbi9pbGxlZ2FsIC0+IDMyYgo+IGluc3RydWN0aW9uIEEuIEl0J3Mgc2FmZSB0
-byB0cmFuc2Zvcm0uCgpXYWtpbmcgdXAgdGhpcyB0aHJlYWQgYWdhaW4sIG5vdyB0aGF0IENoYW5n
-YmluIGhhcyBzaG93ZWQgc29tZSBpbnRlcmVzdApmcm9tIGFub3RoZXIgdGhyZWFkIFsxXS4KCkd1
-bywgd2UgY2FuJ3QgcmVhbGx5IGFkZCB5b3VyIHBhdGNoZXMsIGFuZCBjbGFpbSB0aGF0IHRoZXkn
-cmUgZ2VuZXJpYywKIndvcmtzIG9uIGFsbCIgUklTQy1WIHN5c3RlbXMuIFdoaWxlIGl0IG1pZ2h0
-IHdvcmsgZm9yIHlvdXIgSS9EIGNvaGVyZW50CnN5c3RlbSwgdGhhdCBkb2VzIG5vdCBpbXBseSB0
-aGF0IGl0J2xsIHdvcmsgb24gYWxsIHBsYXRmb3Jtcy4gUklTQy1WCmFsbG93cyBmb3IgaW1wbGVt
-ZW50YXRpb25zIHRoYXQgYXJlIEkvRCBpbmNvaGVyZW50LCBhbmQgaGVyZSB5b3VyCklGVS1pbXBs
-ZW1lbnRhdGlvbnMgYXJndW1lbnRzIGRvIG5vdCBob2xkLiBJJ2QgcmVhbGx5IHJlY29tbWVuZCB0
-bwpyZWFkdXAgb24gWzJdLgoKTm93IGhvdyBjb3VsZCB3ZSBtb3ZlIG9uIHdpdGggeW91ciBwYXRj
-aGVzPyBHZXQgaXQgaW4gYSBzcGVjLCBvciBmb2xkCnRoZSBwYXRjaGVzIGluIGFzIGEgS2NvbmZp
-Zy5zb2NzLXRoaW5nIGZvciB0aGUgcGxhdGZvcm1zIHdoZXJlIHRoaXMgaXMKT0suIFdoYXQgYXJl
-IHlvdSB0aG91Z2h0cyBvbiB0aGUgbGF0dGVyPwoKCkJqw7ZybgoKWzFdIGh0dHBzOi8vbG9yZS5r
-ZXJuZWwub3JnL2xpbnV4LXJpc2N2LzIwMjMwMjE1MDM0NTMyLnhzNzI2bDdtcDZ4bG5rZGZATTkx
-MHQvClsyXSBodHRwczovL2dpdGh1Yi5jb20vcmlzY3YvcmlzY3Ytai1leHRlbnNpb24vYmxvYi9t
-YXN0ZXIvaWQtY29uc2lzdGVuY3ktcHJvcG9zYWwucGRmCgpfX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
-cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
-bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On 15/02/2023 08:46, yanhong wang wrote:
+> 
+> 
+> On 2023/2/7 15:59, Krzysztof Kozlowski wrote:
+>> On 07/02/2023 03:43, yanhong wang wrote:
+>>>
+>>>
+>>> On 2023/1/18 23:47, Krzysztof Kozlowski wrote:
+>>>> On 18/01/2023 07:16, Yanhong Wang wrote:
+>>>>> Some boards(such as StarFive VisionFive v2) require more than one value
+>>>>> which defined by resets property, so the original definition can not
+>>>>> meet the requirements. In order to adapt to different requirements,
+>>>>> adjust the maxitems number definition.
+>>>>>
+>>>>> Signed-off-by: Yanhong Wang <yanhong.wang@starfivetech.com>
+>>>>> ---
+>>>>>  Documentation/devicetree/bindings/net/snps,dwmac.yaml | 9 +++------
+>>>>>  1 file changed, 3 insertions(+), 6 deletions(-)
+>>>>>
+>>>>> diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+>>>>> index e26c3e76ebb7..baf2c5b9e92d 100644
+>>>>> --- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+>>>>> +++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+>>>>> @@ -133,12 +133,9 @@ properties:
+>>>>>          - ptp_ref
+>>>>>  
+>>>>>    resets:
+>>>>> -    maxItems: 1
+>>>>
+>>>> Also, this does not make sense on its own and messes constraints for all
+>>>> other users. So another no for entire patch.
+>>>>
+>>>
+>>> Thanks. Change the properties of 'resets' and reset-names like this:
+>>>
+>>>   resets:
+>>>     minItems: 1
+>>>     maxItems: 2
+>>>
+>>>   reset-names:
+>>>     minItems: 1
+>>>     maxItems: 2
+>>>
+>>> Is it right?  Do you have any other better suggestions?
+>>
+>> Isn't this allowing two reset items for every variant of snps,dwmac?
+>>
+> 
+> Sorry for not getting back to you faster.
+> After referring to the above modification, i used the command 'make DT_CHECKER_FLAGS=-m dt_binding_check'
+> to check all the bindings(including 'starfive,jh7110-dwmac.yaml'), no errors are reported,
+> and the errors reported by Rob Herring are gone.
+
+I don't see how does it answer my question. I claim you loosen the
+constraints and allow now two resets for everyone. You say you don't see
+errors. I never claimed there will be errors. I claimed what I said -
+you allow now to reset everywhere, which might not be correct
+description of every hardware.
+
+Best regards,
+Krzysztof
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
