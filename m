@@ -4,80 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36851C64ED8
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Feb 2023 15:34:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD26DC636CC
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Feb 2023 15:42:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:Subject:From:References:Cc:To:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
+	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Httf5dBOBhAKQ0Md9uY6pCoO+OKJNhYSOkalK0SI9Co=; b=ie7DBp+EkaqQ/3
-	FiNnELD1wQj58hMTGOMoU3+yHw71BZDFW+eGH6o7vy0IrXW/0W0zXL113/dhxkw8CuUDf4mRLEKAl
-	UOczo0wntIOImiWvrkKr8v4u3rOK3cMPat34MFpy/K8YuHwUX2sU4Ek1cXAEcVmmduLkTV/VmszJe
-	tqdztLK/qnIp4oZwRG2i2ueu2paXQljJuqvoXp6qTPk7GOXZ+QCS3fFXwOVzaTMI/eC0G1T2tHmfg
-	ZNp5gBfTxAgMW8b787IIdc6Ym6JqxrNyWPc1wx0ejlktpe+rk/aeyh/hTSrYDplZCySs+ev+w7WBG
-	+bxudvCz0AhAbJYJN6Qw==;
+	List-Owner; bh=r+gkavF0BiULyvD3qFaOUPaSY+Tz6Hdz2wJq9rK150g=; b=qn5+FZbR41HMi6
+	2IwKtL/GORNKylWlpaS6ZCiIiG/AnHmx/m5SnBeI/AkfHijstcZgFy124QgR98rWI5MtJO8lCcmXc
+	TF8h6vMk8nDVN30Ay46miLOgRVH1yHtxzjZNEw9sx5aXdDMSh9z5VrIEPME2yTaLTsADrPTcj41M3
+	ip0/BZOsQ/DmlW/T5nuk6CpYhFIeqk5x1ttRA+ef6/GAVOlhrBLQrQeFdmiqZqMVX3VGhu9DB9FyZ
+	AubHU/cruuvW3XCd+9ieumq+9yj4uFUalw7fB3rGdyS0cbdtVS2/TVwGwH0MDI2ivbesjlVDVhXyP
+	HVWiE7KpZeZ8GEa6/4QA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSgGp-00Atmd-Ck; Thu, 16 Feb 2023 15:34:03 +0000
-Received: from mail-oi1-x22f.google.com ([2607:f8b0:4864:20::22f])
+	id 1pSgPC-00AwZa-FE; Thu, 16 Feb 2023 15:42:42 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSgGm-00Atku-Fl
-	for linux-riscv@lists.infradead.org; Thu, 16 Feb 2023 15:34:01 +0000
-Received: by mail-oi1-x22f.google.com with SMTP id w11so2020616oiv.5
-        for <linux-riscv@lists.infradead.org>; Thu, 16 Feb 2023 07:33:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=content-transfer-encoding:in-reply-to:subject:from:references:cc:to
-         :content-language:user-agent:mime-version:date:message-id:sender
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=EyzxZhqh6YfkyJvAQfK+TjUN2QvpPZ3g8rfS+Zqgu80=;
-        b=NKqyZi6SU+hYRN9sBC0DKa67QByz61rim64w0zLXwj2jTyNCafdtTBeqbGPAhv80Gh
-         bSllxp8xNVJ8Lt0mvM0hD0NhliiTvtjx9L0noOZ+NbEIdHy3opepcLaPNmnBTZ8cBNKv
-         pnfy7n3ccS5BRW+LvWpcHG4IoFQATGX+n6aiDwjj5uTyvVBaRXFb1nhzAb1r3mw1+N7W
-         IcBK0Fk2puGXsViD7hDdhrh89WgzKSm6c1qF4Y8ZEWHO0+hv2S0VWaDS8b+YOdvJOFO/
-         GQvzFZK6Kn4d+bKzMH3Tb8ZWih/cjrKU2aKouKoz/GvKhCn+cx7+leK3SgO2lBCWFY7M
-         ZihA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:subject:from:references:cc:to
-         :content-language:user-agent:mime-version:date:message-id:sender
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=EyzxZhqh6YfkyJvAQfK+TjUN2QvpPZ3g8rfS+Zqgu80=;
-        b=SEMHstm0qh9JdtUUOyMcDY7QMbEI2pn+DjgQ5wyJ0sl42g264QbG/hUOry7vUzp9Tx
-         LuFuXwWt+p6H9MUupcAEoEA8waGEU+ukM0fSuMyXHbWAeNNKaj3vyN7yF58P9nNSbbvm
-         zmQk5XISlUQ5Uwi3dvN/BdCDZUxfZyQPC033LRQv5TFJdgJjDOEaPFCZ7Xso2xvKl0Ix
-         DkPzE+fzljvVZUVQku03bB4Me1n8OernQMvjRe6h6VzhUdbcbUUkznU/OIO5Qef6rj7P
-         dVbtUeopqNONvbobqyRKWhGfJkCDanqHcayB49k83QPlJSysYY6X2OQvEjqt1wzGfskA
-         1hdQ==
-X-Gm-Message-State: AO0yUKVKOTb3VCUJDIn/3WUZpz+PyQqBHMyTO/aUn+i5JALwd7fKG81H
-	yqQiO5F/KwilvZUqnualCUI=
-X-Google-Smtp-Source: AK7set9Co1Se/I9FuolqXeZ+2ay8FitWhV4owZdfa6ZcXz1G1cuoPT+2kdO2KXeBLKhQhFbXpIOMjg==
-X-Received: by 2002:aca:2202:0:b0:378:648:afec with SMTP id b2-20020aca2202000000b003780648afecmr3113820oic.30.1676561638265;
-        Thu, 16 Feb 2023 07:33:58 -0800 (PST)
-Received: from ?IPV6:2600:1700:e321:62f0:329c:23ff:fee3:9d7c? ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
-        by smtp.gmail.com with ESMTPSA id v25-20020a0568301bd900b0068bbf5f2e49sm756780ota.37.2023.02.16.07.33.56
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 16 Feb 2023 07:33:57 -0800 (PST)
-Message-ID: <479cbefe-7b19-9d2d-4a3c-2bf25e479ce4@roeck-us.net>
-Date: Thu, 16 Feb 2023 07:33:55 -0800
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.4.2
-Content-Language: en-US
-To: =?UTF-8?Q?Heiko_St=c3=bcbner?= <heiko@sntech.de>,
- Conor Dooley <conor@kernel.org>
-Cc: palmer@dabbelt.com, Conor Dooley <conor.dooley@microchip.com>,
- samuel@sholland.org, linux-riscv@lists.infradead.org, ajones@ventanamicro.com
-References: <20230212194735.491785-1-conor@kernel.org> <Y+q8ZnZ2A8g7BNdS@spud>
- <1944134.usQuhbGJ8B@diego> <45316784.fMDQidcC6G@diego>
-From: Guenter Roeck <linux@roeck-us.net>
-Subject: Re: [PATCH v1] RISC-V: take text_mutex during alternative patching
-In-Reply-To: <45316784.fMDQidcC6G@diego>
+	id 1pSgP8-00AwYS-Qm
+	for linux-riscv@lists.infradead.org; Thu, 16 Feb 2023 15:42:40 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 6374361843;
+	Thu, 16 Feb 2023 15:42:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BA81C4339C;
+	Thu, 16 Feb 2023 15:42:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1676562158;
+	bh=JYk/endDShTG37Jctnr/vqjuecsJ99nFH6xFQSWOsd4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=QKuMBwREDFYGGNUtf00KirkTJKGRbSR7nMlJQlXT1aKUc63KXV4bBaMnRWZZpxPBY
+	 qExZlooQVCHZoSC3PSyFq9xnygWq1uPmredFQvWjqG/YAQbWaTfhMCSPlOhubo5xd8
+	 uxAszFOwsteA/YFHBIQIV/LE2o5yDK7uD3kHBNuboK9h2ok+U3pVvYTXqPlZgo8qKA
+	 AmlKUhp7Ni/DUo2lNcreUfOXmaSDH8NLmML9aD54eUqvDsb1+C0YoFFo4AaUFyKycr
+	 2UTR2aiGwC7RzvisovXeZOfJQYSWE6KWdIlQ5U9k3y21PQcj4yV7GGoAywl+tTMmGA
+	 UBxxgeePD85nw==
+Date: Fri, 17 Feb 2023 00:42:34 +0900
+From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+To: guoren@kernel.org
+Cc: palmer@dabbelt.com, paul.walmsley@sifive.com,
+ conor.dooley@microchip.com, penberg@kernel.org, mark.rutland@arm.com,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, Guo Ren
+ <guoren@linux.alibaba.com>
+Subject: Re: [PATCH] riscv: kprobe: Optimize kprobe with accurate atomicity
+Message-Id: <20230217004234.dbf3159e821e6581a62374b1@kernel.org>
+In-Reply-To: <20230126161559.1467374-1-guoren@kernel.org>
+References: <20230126161559.1467374-1-guoren@kernel.org>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230216_073400_563836_37002D60 
-X-CRM114-Status: GOOD (  16.43  )
+X-CRM114-CacheID: sfid-20230216_074238_982520_52B3C005 
+X-CRM114-Status: GOOD (  30.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,61 +69,172 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMi8xNS8yMyAxNDowMCwgSGVpa28gU3TDvGJuZXIgd3JvdGU6ClsgLi4uIF0KPiAKPiBTbyBu
-b3cgSSd2ZSBhbHNvIHRlc3RlZCBQYWxtZXIncyBmb3ItbmV4dCBhdAo+ICAgIGNvbW1pdCBlYzYz
-MTE5MTllYTYgKCJNZXJnZSBwYXRjaCBzZXJpZXMgInJpc2N2OiBPcHRpbWl6ZSBmdW5jdGlvbiB0
-cmFjZSIiKQo+IAo+IGFnYWluIHdpdGggdGhlIHNhbWUgdmFyaWFudHMKPiAtIHFlbXUtcmlzY3Yz
-MiB3aXRob3V0IHpiYgo+IC0gcWVtdS1yaXNjdjMyIHdpdGggemJiCj4gLSBxZW11LXJpc2N2NjQg
-d2l0aG91dCB6YmIKPiAtIHFlbXUtcmlzY3Y2NCB3aXRoIHpiYgo+IAo+IEFuZCBhbGwgb2YgdGhl
-bSBib290ZWQgZmluZSBpbnRvIGEgbmZzLXJvb3QgKGRlYmlhbiBmb3IgcmlzY3Y2NCBhbmQgYQo+
-IGJ1aWxkcm9vdCBmb3IgcmlzY3YzMikuCj4gCj4gSSBldmVuIGZvcmNlZCBhIGJ1ZyBpbnRvIHRo
-ZSB6YmIgY29kZSB0byBtYWtlIHN1cmUgdGhlIHBhdGNoaW5nIHdvcmtlZAo+IGNvcnJlY3RseSAo
-d2hlcmUgdGhlIGtlcm5lbCBmYWlsZWQgYXMgZXhwZWN0ZWQpLgo+IAo+IFFlbXUtdmVyc2lvbiBm
-b3IgbWUgd2FzIDcuMi41MCAodjcuMi4wLTc0NC1nNWEzNjMzOTI5YS1kaXJ0eSkKPiAKPiBJIGRp
-ZCB0cnkgdGhlIG9uZSBmcm9tIERlYmlhbi1zdGFibGUgKHFlbXUtNS4yKSBidXQgdGhhdCB3YXMg
-dG9vIG9sZCBhbmQKPiBkaWRuJ3Qgc3VwcG9ydCBaYmIgeWV0Lgo+IAo+IE9uZSB0aGluZyBvZiBu
-b3RlLCB0aGUgImFjdGl2ZSIgMzJiaXQgY29uZmlnIEkgaGFkLCBzb21laG93IGRpZG4ndCBwcm9k
-dWNlCj4gd29ya2luZyBpbWFnZXMgYW5kIEkgbmVlZGVkIHRvIHN0YXJ0IGEgbmV3IGJ1aWxkIHVz
-aW5nIHRoZSBydjMyX2RlZmNvbmZpZy4KPiAKPiBTbyByaWdodCBub3csIEknbSBub3Qgc3VyZSB3
-aGF0IG1vcmUgdG8gdGVzdCB0aG91Z2guCj4gCgpBbm90aGVyIGV4YW1wbGU6CgotIGJ1aWxkIGRl
-ZmNvbmZpZwotIHJ1bgogICBxZW11LXN5c3RlbS1yaXNjdjY0IC1NIHZpcnQgLW0gNTEyTSAtbm8t
-cmVib290IC1rZXJuZWwgYXJjaC9yaXNjdi9ib290L0ltYWdlIFwKICAgICAtc25hcHNob3QgLWRl
-dmljZSB2aXJ0aW8tYmxrLWRldmljZSxkcml2ZT1kMCAtZHJpdmUgZmlsZT1yb290ZnMuZXh0Mixp
-Zj1ub25lLGlkPWQwLGZvcm1hdD1yYXcgXAogICAgIC1hcHBlbmQgInJvb3Q9L2Rldi92ZGEgY29u
-c29sZT10dHlTMCwxMTUyMDAgZWFybHljb249dWFydDgyNTAsbW1pbywweDEwMDAwMDAwLDExNTIw
-MCIgXAogICAgIC1ub2dyYXBoaWMgLW1vbml0b3Igbm9uZQoKV2l0aCBDT05GSUdfUklTQ1ZfSVNB
-X1pCQj15LCB0aGF0IHJlc3VsdHMgaW4KClsgICAgMC44MTgyNjNdIC9kZXYvcm9vdDogQ2FuJ3Qg
-b3BlbiBibG9ja2RldgpbICAgIDAuODE4ODU2XSBWRlM6IENhbm5vdCBvcGVuIHJvb3QgZGV2aWNl
-ICIvZGV2L3ZkYSIgb3IgdW5rbm93bi1ibG9jaygwLDApOiBlcnJvciAtNgpbICAgIDAuODE5MTc3
-XSBQbGVhc2UgYXBwZW5kIGEgY29ycmVjdCAicm9vdD0iIGJvb3Qgb3B0aW9uOyBoZXJlIGFyZSB0
-aGUgYXZhaWxhYmxlIHBhcnRpdGlvbnM6ClsgICAgMC44MTk4MDhdIGZlMDAgICAgICAgICAgIDE2
-Mzg0IHZkYQpbICAgIDAuODE5OTQ0XSAgZHJpdmVyOiB2aXJ0aW9fYmxrClsgICAgMC44MjA1MzRd
-IEtlcm5lbCBwYW5pYyAtIG5vdCBzeW5jaW5nOiBWRlM6IFVuYWJsZSB0byBtb3VudCByb290IGZz
-IG9uIHVua25vd24tYmxvY2soMCwwKQpbICAgIDAuODIxMTAxXSBDUFU6IDAgUElEOiAxIENvbW06
-IHN3YXBwZXIvMCBOb3QgdGFpbnRlZCA2LjIuMC1yYzgtbmV4dC0yMDIzMDIxNi0wMDAwMi1nODAz
-MzI4MjVlMjQwICM0ClsgICAgMC44MjE2NzJdIEhhcmR3YXJlIG5hbWU6IHJpc2N2LXZpcnRpbyxx
-ZW11IChEVCkKWyAgICAwLjgyMjA1MF0gQ2FsbCBUcmFjZToKWyAgICAwLjgyMjQyN10gWzxmZmZm
-ZmZmZjgwMDA1M2U0Pl0gZHVtcF9iYWNrdHJhY2UrMHgxYy8weDI0ClsgICAgMC44MjI4MzRdIFs8
-ZmZmZmZmZmY4MDdmOTBlND5dIHNob3dfc3RhY2srMHgyYy8weDM4ClsgICAgMC44MjMwODVdIFs8
-ZmZmZmZmZmY4MDgwM2FlYT5dIGR1bXBfc3RhY2tfbHZsKzB4M2MvMHg1NApbICAgIDAuODIzMzUx
-XSBbPGZmZmZmZmZmODA4MDNiMTY+XSBkdW1wX3N0YWNrKzB4MTQvMHgxYwpbICAgIDAuODIzNjAx
-XSBbPGZmZmZmZmZmODA3Zjk0NGM+XSBwYW5pYysweDEwMi8weDI5ZQpbICAgIDAuODIzODM0XSBb
-PGZmZmZmZmZmODBhMDE1ZTI+XSBtb3VudF9ibG9ja19yb290KzB4MThjLzB4MjNlClsgICAgMC44
-MjQxNDhdIFs8ZmZmZmZmZmY4MGEwMTg3Yz5dIG1vdW50X3Jvb3QrMHgxZTgvMHgyMTgKWyAgICAw
-LjgyNDM5OF0gWzxmZmZmZmZmZjgwYTAxOWVlPl0gcHJlcGFyZV9uYW1lc3BhY2UrMHgxNDIvMHgx
-ODQKWyAgICAwLjgyNDY1NV0gWzxmZmZmZmZmZjgwYTAxMTgyPl0ga2VybmVsX2luaXRfZnJlZWFi
-bGUrMHgyMzYvMHgyNWEKWyAgICAwLjgyNDkzNF0gWzxmZmZmZmZmZjgwODA0NjAyPl0ga2VybmVs
-X2luaXQrMHgxZS8weDEwYQpbICAgIDAuODI1MjAxXSBbPGZmZmZmZmZmODAwMDM1NjA+XSByZXRf
-ZnJvbV9leGNlcHRpb24rMHgwLzB4MTYKWyAgICAwLjgyNjE4MF0gLS0tWyBlbmQgS2VybmVsIHBh
-bmljIC0gbm90IHN5bmNpbmc6IFZGUzogVW5hYmxlIHRvIG1vdW50IHJvb3QgZnMgb24gdW5rbm93
-bi1ibG9jaygwLDApIF0tLS0KClRoaXMgd29ya3MgZmluZSBpZiBDT05GSUdfUklTQ1ZfSVNBX1pC
-QiBpcyBub3QgZW5hYmxlZC4KClRlc3RlZCB3aXRoIGdjYyAxMS4zLCBiaW51dGlscyAyLjM5LCBx
-ZW11IHY3LjIuMCBhbmQgcWVtdSBidWlsdCBmcm9tIG1haW5saW5lLgoKR3VlbnRlcgoKCl9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
-aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
-bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Thu, 26 Jan 2023 11:15:59 -0500
+guoren@kernel.org wrote:
+
+> From: Guo Ren <guoren@linux.alibaba.com>
+> 
+> The previous implementation was based on the stop_matchine mechanism,
+> which reduced the speed of arm/disarm_kprobe. Using minimum ebreak
+> instruction would get accurate atomicity.
+> 
+> This patch removes the patch_text of riscv, which is based on
+> stop_machine. Then riscv only reserved patch_text_nosync, and developers
+> need to be more careful in dealing with patch_text atomicity.
+> 
+> When CONFIG_RISCV_ISA_C=n, the ebreak could replace the whole
+> instruction. When CONFIG_RISCV_ISA_C=y, the patch uses 16-bit length
+> c.ebreak instruction, which may occupy the first part of the 32-bit
+> instruction and leave half the rest of the broken instruction. Because
+> ebreak could detour the flow to skip it, leaving it in the kernel text
+> memory is okay.
+> 
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> Signed-off-by: Guo Ren <guoren@kernel.org>
+
+I'm not sure how the RISCV specification ensures this type of self
+code modification. But if you think calling the stop_machine() for
+*each* probe arm/disarm is slow, there may be another way to avoid
+ot by introducing a batch arming interface too. (reserve-commit way)
+
+BTW, for the BPF usecase which is usually only for function
+entry/exit, we will use Fprobes. Since that will use ftrace batch
+text patching, I think we already avoid such slowdown.
+
+FYI, for ftrace dynamic event usecase, there is another reason to slow
+down the enable/disable dynamic event itself (to sync up the event
+enabled status to ensure all event handler has been done, it waits
+for rcu-sync for each operation.)
+
+Thank you,
+
+> ---
+>  arch/riscv/include/asm/patch.h     |  1 -
+>  arch/riscv/kernel/patch.c          | 33 ------------------------------
+>  arch/riscv/kernel/probes/kprobes.c | 29 ++++++++++++++++++--------
+>  3 files changed, 21 insertions(+), 42 deletions(-)
+> 
+> diff --git a/arch/riscv/include/asm/patch.h b/arch/riscv/include/asm/patch.h
+> index 9a7d7346001e..2500782e6f5b 100644
+> --- a/arch/riscv/include/asm/patch.h
+> +++ b/arch/riscv/include/asm/patch.h
+> @@ -7,6 +7,5 @@
+>  #define _ASM_RISCV_PATCH_H
+>  
+>  int patch_text_nosync(void *addr, const void *insns, size_t len);
+> -int patch_text(void *addr, u32 insn);
+>  
+>  #endif /* _ASM_RISCV_PATCH_H */
+> diff --git a/arch/riscv/kernel/patch.c b/arch/riscv/kernel/patch.c
+> index 765004b60513..8bd51ed8b806 100644
+> --- a/arch/riscv/kernel/patch.c
+> +++ b/arch/riscv/kernel/patch.c
+> @@ -98,36 +98,3 @@ int patch_text_nosync(void *addr, const void *insns, size_t len)
+>  	return ret;
+>  }
+>  NOKPROBE_SYMBOL(patch_text_nosync);
+> -
+> -static int patch_text_cb(void *data)
+> -{
+> -	struct patch_insn *patch = data;
+> -	int ret = 0;
+> -
+> -	if (atomic_inc_return(&patch->cpu_count) == num_online_cpus()) {
+> -		ret =
+> -		    patch_text_nosync(patch->addr, &patch->insn,
+> -					    GET_INSN_LENGTH(patch->insn));
+> -		atomic_inc(&patch->cpu_count);
+> -	} else {
+> -		while (atomic_read(&patch->cpu_count) <= num_online_cpus())
+> -			cpu_relax();
+> -		smp_mb();
+> -	}
+> -
+> -	return ret;
+> -}
+> -NOKPROBE_SYMBOL(patch_text_cb);
+> -
+> -int patch_text(void *addr, u32 insn)
+> -{
+> -	struct patch_insn patch = {
+> -		.addr = addr,
+> -		.insn = insn,
+> -		.cpu_count = ATOMIC_INIT(0),
+> -	};
+> -
+> -	return stop_machine_cpuslocked(patch_text_cb,
+> -				       &patch, cpu_online_mask);
+> -}
+> -NOKPROBE_SYMBOL(patch_text);
+> diff --git a/arch/riscv/kernel/probes/kprobes.c b/arch/riscv/kernel/probes/kprobes.c
+> index 475989f06d6d..27f8960c321c 100644
+> --- a/arch/riscv/kernel/probes/kprobes.c
+> +++ b/arch/riscv/kernel/probes/kprobes.c
+> @@ -24,12 +24,18 @@ post_kprobe_handler(struct kprobe *, struct kprobe_ctlblk *, struct pt_regs *);
+>  static void __kprobes arch_prepare_ss_slot(struct kprobe *p)
+>  {
+>  	unsigned long offset = GET_INSN_LENGTH(p->opcode);
+> +#ifdef CONFIG_RISCV_ISA_C
+> +	u32 opcode = __BUG_INSN_16;
+> +#else
+> +	u32 opcode = __BUG_INSN_32;
+> +#endif
+>  
+>  	p->ainsn.api.restore = (unsigned long)p->addr + offset;
+>  
+> -	patch_text(p->ainsn.api.insn, p->opcode);
+> -	patch_text((void *)((unsigned long)(p->ainsn.api.insn) + offset),
+> -		   __BUG_INSN_32);
+> +	patch_text_nosync(p->ainsn.api.insn, &p->opcode, offset);
+> +	patch_text_nosync((void *)((unsigned long)(p->ainsn.api.insn) + offset),
+> +			  &opcode, GET_INSN_LENGTH(opcode));
+> +
+>  }
+>  
+>  static void __kprobes arch_prepare_simulate(struct kprobe *p)
+> @@ -114,16 +120,23 @@ void *alloc_insn_page(void)
+>  /* install breakpoint in text */
+>  void __kprobes arch_arm_kprobe(struct kprobe *p)
+>  {
+> -	if ((p->opcode & __INSN_LENGTH_MASK) == __INSN_LENGTH_32)
+> -		patch_text(p->addr, __BUG_INSN_32);
+> -	else
+> -		patch_text(p->addr, __BUG_INSN_16);
+> +#ifdef CONFIG_RISCV_ISA_C
+> +	u32 opcode = __BUG_INSN_16;
+> +#else
+> +	u32 opcode = __BUG_INSN_32;
+> +#endif
+> +	patch_text_nosync(p->addr, &opcode, GET_INSN_LENGTH(opcode));
+>  }
+>  
+>  /* remove breakpoint from text */
+>  void __kprobes arch_disarm_kprobe(struct kprobe *p)
+>  {
+> -	patch_text(p->addr, p->opcode);
+> +#ifdef CONFIG_RISCV_ISA_C
+> +	u32 opcode = __BUG_INSN_16;
+> +#else
+> +	u32 opcode = __BUG_INSN_32;
+> +#endif
+> +	patch_text_nosync(p->addr, &p->opcode, GET_INSN_LENGTH(opcode));
+>  }
+>  
+>  void __kprobes arch_remove_kprobe(struct kprobe *p)
+> -- 
+> 2.36.1
+> 
+
+
+-- 
+Masami Hiramatsu (Google) <mhiramat@kernel.org>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
