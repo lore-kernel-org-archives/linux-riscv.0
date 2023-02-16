@@ -4,80 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8D77C636CC
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Feb 2023 07:07:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3408C61DA4
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Feb 2023 07:11:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:Subject:From:References:Cc:To:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=k+e0VP0YrI65ku7mPZ3Eb5RrLbza9RbcI6v4fYYbmOY=; b=t+8Ate3QmL5nlB
-	ReGYOahunGVNuTDLTUh8MrV844Yd1PjptTRKsmZkCsfg20bCHDdf/tlgyRVD5AU7I2fMkKg4sOtrM
-	h4JtpkQ7stAKxOTpjolIRkw4HqX4JKKFDK3+B/e9A3Nabf3NeX9rJsea6vkgOyEINhfcmzrJ2rk40
-	78RC44HHO4mOq4NI55Kk2uRN9h/iwmSmx1KJa2tVSjVK/i5l5WXVxZSpBEiMKM00gYwYFdyHd5qdl
-	AeIyL7BpDfUSVx2H+m0QyQqpOkgNHK2A/QEWRf+NatIhPXej5ly4Fpx0P6e5isv/8GMiw1Emai+VV
-	emB2pGCZHxRXl134lfCg==;
+	List-Owner; bh=9mMZACjLKsWkIo9mTG980IwhcBeUDwKxqtQO9AvOrLo=; b=pDKCdtCAXUE3Ms
+	BI911GxvVctB9tBNOdX1LXgQp0SzgZhlmk3iDgtquc4dxnpdJvxNtDjRfHrouXcGenJTsj4XuqD9A
+	FXozAnWrSLn/iy0+G2XXi2kd4ljK50zdMGpAJ2gSx9R/0C4dY/MxvbwSJi61hbK/rAaWGBMzQ5SYY
+	pTO4gV1tcJPNegrzseHjWdgV4VJgN0C82xW3LF/nalaw5ERKHzxUIXrZcJ4ARkrKhuxWMF4f48JO4
+	U8oTsFugsFOXClZTt9evBwIJ0mRjPBLKM+uEgvZ5R2ZbRF6sSxE3mVRH8H5Z7UAd6hrlEKjZLiN68
+	sgxxaEjq+vvCuz/gZswQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSYMk-008lYG-Pp; Thu, 16 Feb 2023 07:07:38 +0000
-Received: from mail-oa1-x29.google.com ([2001:4860:4864:20::29])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSYMg-008lXk-Jf
-	for linux-riscv@lists.infradead.org; Thu, 16 Feb 2023 07:07:36 +0000
-Received: by mail-oa1-x29.google.com with SMTP id 586e51a60fabf-16cc1e43244so1523935fac.12
-        for <linux-riscv@lists.infradead.org>; Wed, 15 Feb 2023 23:07:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=content-transfer-encoding:in-reply-to:subject:from:references:cc:to
-         :content-language:user-agent:mime-version:date:message-id:sender
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=zmOQFdaAIyAOfFLdMeRV51+677qt49slvFEMnxIm3Lc=;
-        b=M/7nKIKeBPnso2TkBqvxCbSwZyktqApzaM22W9Ca5gkcmNgWtQpBZnMiqjQX8I9y7z
-         bt/9NdnShKCYCRBKyfq9r8Y6HMfbOg0whqQnXcuxLcnNfw31x8jazZ3hx7Ezv1F8J/2l
-         Mo1l6t91/gDi9m2im5bI5dNcnB+IDBwc+lAquvsp8p0TAi3gzTJVKBj5Tbpt8KviVFIo
-         vsRlnCtDoCkOhPGP97qTbcRflJDvG+HBcD+lv8JvE5WgtEBKvd9P/cJHPCsynAC4xrP6
-         KeKBqHZ50pg/5d8OYOz3EEHkxyoMrwLIqj+IluiN37pdsEtBdNULJuMWWZlKa6yCYysi
-         av9Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:subject:from:references:cc:to
-         :content-language:user-agent:mime-version:date:message-id:sender
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=zmOQFdaAIyAOfFLdMeRV51+677qt49slvFEMnxIm3Lc=;
-        b=RcDyPlvhBxwYNZ5xESLxBnRGnVFHNqAhkMZRxj3F1aW0Ff0JuH6vviGJ08D5G2Ztmg
-         OsaF46Xf4sJvws/XvPEkFeFnOMuzpq1EWfe3aFMv/FIDYVFW3nK8ETCL9+WvkUi4Q2K9
-         MutOzMlOMGeYkZEq0bulVc7ACJuTL8/0vz0ZDQX2IvfVwFEmkt6C03W0Bo4MoP6f+Mol
-         klIitAK20O11+hXCPUgMUpQe0WUyb3TV6oTz1gKQl6qWPX3lxP1JZh4GhUwbZbINGeg3
-         kYBBvLQ55qtQQO4SoWkLIpMVn7mDv2J8lBB+ZB/cmfii3PDDIQt+cSOrqJPqS8fsGz/I
-         tYig==
-X-Gm-Message-State: AO0yUKVYox8BpVvvx8iyqtGAbPFG9SfEcbNCOkhRXMdRfWm1C+qqdseW
-	VrRWFzSPd2CPyF1Qz3dVvkM=
-X-Google-Smtp-Source: AK7set/dfoZ+n5DMS9ZdRvqZzyq3xjMZFgmUDiZlQpYFrZwh9H69EaX/tIJax3V+CLDonim5O5WOOw==
-X-Received: by 2002:a05:6871:287:b0:169:c549:6843 with SMTP id i7-20020a056871028700b00169c5496843mr2709257oae.46.1676531252560;
-        Wed, 15 Feb 2023 23:07:32 -0800 (PST)
-Received: from ?IPV6:2600:1700:e321:62f0:329c:23ff:fee3:9d7c? ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
-        by smtp.gmail.com with ESMTPSA id w1-20020a056870a2c100b0016dfaa8abf3sm317952oak.8.2023.02.15.23.07.30
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 15 Feb 2023 23:07:31 -0800 (PST)
-Message-ID: <b7da47c4-a7bb-b64b-4a26-735a4a4f02a1@roeck-us.net>
-Date: Wed, 15 Feb 2023 23:07:29 -0800
+	id 1pSYQj-008lzs-Cx; Thu, 16 Feb 2023 07:11:45 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pSYQf-008lxu-39
+	for linux-riscv@lists.infradead.org; Thu, 16 Feb 2023 07:11:44 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 3AF6F24E35B;
+	Thu, 16 Feb 2023 15:11:08 +0800 (CST)
+Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 16 Feb
+ 2023 15:11:08 +0800
+Received: from [192.168.125.128] (183.27.97.168) by EXMBX061.cuchost.com
+ (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 16 Feb
+ 2023 15:11:07 +0800
+Message-ID: <1f18bfdc-7a04-4914-d970-7ef1d4f99653@starfivetech.com>
+Date: Thu, 16 Feb 2023 15:11:38 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.4.2
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.7.2
+Subject: Re: [PATCH v2 2/3] drivers: watchdog: Add StarFive Watchdog driver
 Content-Language: en-US
-To: =?UTF-8?Q?Heiko_St=c3=bcbner?= <heiko@sntech.de>,
- Conor Dooley <conor@kernel.org>
-Cc: palmer@dabbelt.com, Conor Dooley <conor.dooley@microchip.com>,
- samuel@sholland.org, linux-riscv@lists.infradead.org, ajones@ventanamicro.com
-References: <20230212194735.491785-1-conor@kernel.org> <Y+q8ZnZ2A8g7BNdS@spud>
- <1944134.usQuhbGJ8B@diego> <45316784.fMDQidcC6G@diego>
-From: Guenter Roeck <linux@roeck-us.net>
-Subject: Re: [PATCH v1] RISC-V: take text_mutex during alternative patching
-In-Reply-To: <45316784.fMDQidcC6G@diego>
+To: Guenter Roeck <linux@roeck-us.net>
+CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-watchdog@vger.kernel.org>, Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Rob Herring
+	<robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, "Palmer
+ Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, "Philipp
+ Zabel" <p.zabel@pengutronix.de>, Samin Guo <samin.guo@starfivetech.com>,
+	<linux-kernel@vger.kernel.org>
+References: <20221219094233.179153-1-xingyu.wu@starfivetech.com>
+ <20221219094233.179153-3-xingyu.wu@starfivetech.com>
+ <20230201224619.GA3194283@roeck-us.net>
+From: Xingyu Wu <xingyu.wu@starfivetech.com>
+In-Reply-To: <20230201224619.GA3194283@roeck-us.net>
+X-Originating-IP: [183.27.97.168]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX061.cuchost.com
+ (172.16.6.61)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230215_230734_667116_D8774693 
-X-CRM114-Status: GOOD (  14.44  )
+X-CRM114-CacheID: sfid-20230215_231141_327709_F069F6DC 
+X-CRM114-Status: GOOD (  10.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,39 +74,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMi8xNS8yMyAxNDowMCwgSGVpa28gU3TDvGJuZXIgd3JvdGU6ClsgLi4uIF0KPiBhZ2FpbiB3
-aXRoIHRoZSBzYW1lIHZhcmlhbnRzCj4gLSBxZW11LXJpc2N2MzIgd2l0aG91dCB6YmIKPiAtIHFl
-bXUtcmlzY3YzMiB3aXRoIHpiYgo+IC0gcWVtdS1yaXNjdjY0IHdpdGhvdXQgemJiCj4gLSBxZW11
-LXJpc2N2NjQgd2l0aCB6YmIKPiAKPiBBbmQgYWxsIG9mIHRoZW0gYm9vdGVkIGZpbmUgaW50byBh
-IG5mcy1yb290IChkZWJpYW4gZm9yIHJpc2N2NjQgYW5kIGEKPiBidWlsZHJvb3QgZm9yIHJpc2N2
-MzIpLgo+IAo+IEkgZXZlbiBmb3JjZWQgYSBidWcgaW50byB0aGUgemJiIGNvZGUgdG8gbWFrZSBz
-dXJlIHRoZSBwYXRjaGluZyB3b3JrZWQKPiBjb3JyZWN0bHkgKHdoZXJlIHRoZSBrZXJuZWwgZmFp
-bGVkIGFzIGV4cGVjdGVkKS4KPiAKPiBRZW11LXZlcnNpb24gZm9yIG1lIHdhcyA3LjIuNTAgKHY3
-LjIuMC03NDQtZzVhMzYzMzkyOWEtZGlydHkpCj4gCj4gSSBkaWQgdHJ5IHRoZSBvbmUgZnJvbSBE
-ZWJpYW4tc3RhYmxlIChxZW11LTUuMikgYnV0IHRoYXQgd2FzIHRvbyBvbGQgYW5kCj4gZGlkbid0
-IHN1cHBvcnQgWmJiIHlldC4KPiAKPiBPbmUgdGhpbmcgb2Ygbm90ZSwgdGhlICJhY3RpdmUiIDMy
-Yml0IGNvbmZpZyBJIGhhZCwgc29tZWhvdyBkaWRuJ3QgcHJvZHVjZQo+IHdvcmtpbmcgaW1hZ2Vz
-IGFuZCBJIG5lZWRlZCB0byBzdGFydCBhIG5ldyBidWlsZCB1c2luZyB0aGUgcnYzMl9kZWZjb25m
-aWcuCj4gCj4gU28gcmlnaHQgbm93LCBJJ20gbm90IHN1cmUgd2hhdCBtb3JlIHRvIHRlc3QgdGhv
-dWdoLgo+IAoKVHJ5IHRoaXM6CgotIFVzZSBuZXh0LTIwMjMwMjE2IGFzIGJhc2UuCi0gQXBwbHkK
-ICAgICBSSVNDLVY6IHRha2UgdGV4dF9tdXRleCBkdXJpbmcgYWx0ZXJuYXRpdmUgcGF0Y2hpbmcK
-ICAgICBSSVNDLVY6IERvbid0IGNoZWNrIHRleHRfbXV0ZXggZHVyaW5nIHN0b3BfbWFjaGluZQog
-ICBvbiB0b3Agb2YgaXQuCi0gQ29uZmlndXJlIGRlZmNvbmZpZyArIENPTkZJR19QUk9WRV9MT0NL
-SU5HLgotIFJ1biBzb21ldGhpbmcgbGlrZQogICBxZW11LXN5c3RlbS1yaXNjdjY0IC1NIHZpcnQg
-LW0gNTEyTSAtbm8tcmVib290IFwKICAgICAta2VybmVsIGFyY2gvcmlzY3YvYm9vdC9JbWFnZSAt
-aW5pdHJkIHJvb3Rmcy5jcGlvIFwKICAgICAtYXBwZW5kICJyZGluaXQ9L3NiaW4vaW5pdCBjb25z
-b2xlPXR0eVMwLDExNTIwMCBlYXJseWNvbj11YXJ0ODI1MCxtbWlvLDB4MTAwMDAwMDAsMTE1MjAw
-IiBcCiAgICAgLW5vZ3JhcGhpYyAtbW9uaXRvciBub25lCgpUaGF0IHNob3VsZCBnaXZlIHlvdQoK
-V0FSTklORzogQ1BVOiAwIFBJRDogMCBhdCBrZXJuZWwvdHJhY2UvdHJhY2VfZXZlbnRzLmM6NDQ4
-IHRyYWNlX2V2ZW50X3Jhd19pbml0KzB4ZGUvMHg2NDIKLi4uCmV2ZW50IG5laWdoX3VwZGF0ZSBo
-YXMgdW5zYWZlIGRlcmVmZXJlbmNlIG9mIGFyZ3VtZW50IDkKYW5kIGxvdHMgb2YgZm9sbG93LXVw
-IG1lc3NhZ2VzLgoKSSB0cmllZCB3aXRoIHFlbXUgdjcuMi4wIGFuZCBxZW11IG1hc3RlciAodjcu
-Mi4wLTE0MzQtZzZhNTBmNjRjYTApLgoKR3VlbnRlcgoKCl9fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
-aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
-YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On 2023/2/2 6:46, Guenter Roeck wrote:
+> On Mon, Dec 19, 2022 at 05:42:32PM +0800, Xingyu Wu wrote:
+>> Add watchdog driver for the StarFive JH7110 SoC.
+>> 
+>> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+>> +
+>>[...]
+>> +
+>> +static const struct watchdog_info starfive_wdt_ident = {
+>> +	.options = OPTIONS,
+>> +	.firmware_version = 0,
+> 
+> It is not necessary to initilize a static variable with 0.
+> 
+>> +	.identity = "StarFive Watchdog",
+>> +};
+
+Hi Guenter,
+
+It would be a compilation error if drop the '0'. I found that other files
+initialize this static variable as well.
+
+
+Best regards,
+Xingyu Wu
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
