@@ -4,54 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 175A0C61DA4
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Feb 2023 11:32:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FFE5C636CC
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Feb 2023 12:05:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
+	Date:References:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OqqWKSEHhlSmVYDVNyqOlhTGJINz3MXuOFaiPxpj/lE=; b=R+e3fH7wa8i23f
-	IZnklnxyO7Z5q7dRHs2BylgWTZFBXffXjlPRDYiwS1XQWc3pnf5+xouaxoLAH9bd9+0XuQ/VCfoEK
-	999kUbKoPX7ivAGt6VB1XKm8sUlOiFMRDd2aL9etUP68+cAeAKs4zFQRHVQ+kGWNTeG2EDZZxE1Ln
-	OhIFpgqP7BNu8pZ5wnwHOIE72QYz+2Vph+1p5A6SATnb9EfrBuXj/AK+l4yKCuP/7Qn+DB/l5+l5h
-	j5HWCPJJ3oU8RZl6KudDXoSbs6B0SwTVbxSQdAT12duAebkhEB0lqU9TnjCKXTGUDX3Zuyw6sbuE8
-	F969OpMAvFBZuivLIwuw==;
+	List-Owner; bh=IxSE638KrF2UrVOGIT1P1XhKEq89Fg5Rzqco2I3yiYQ=; b=nRZrNo5Uhq93D6
+	NeEs9HtoAiJeGRt9gtYkPGHQu2XqZdgwE1/YwcPqFCzvNa9XxbciSJChmmmM9MKWfrNMKIolMbOUo
+	Axweclkw/1zK6hg6XAvCRNio5faW6GiCf74rQiX49XWzHJk4SwCz+MHNzOpuU4qHTHrMYbTxIpUZ0
+	oFQaxpQU5/J8Kv2idZK3/wlJ7qw25t3+sm8Zo/shq/VMgCFAgyFXXQCwbF8kU1/CnILxRZBSYmtJA
+	scafbJazLBkAbXLNmZ6SkCpzIfV/EkF8zwk3r922vZDP3hXQPbuYw/KIzETIgM3pniyjqluP/E4ei
+	a4eGGV0vPU/qkKExUEjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pScUU-009wtp-Sn; Thu, 16 Feb 2023 11:31:54 +0000
-Received: from szxga03-in.huawei.com ([45.249.212.189])
+	id 1pSd0v-00A5Tc-0H; Thu, 16 Feb 2023 12:05:25 +0000
+Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pScUR-009wsS-NC
-	for linux-riscv@lists.infradead.org; Thu, 16 Feb 2023 11:31:54 +0000
-Received: from kwepemi500013.china.huawei.com (unknown [172.30.72.53])
-	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4PHXj22TzbzFqRN;
-	Thu, 16 Feb 2023 19:27:02 +0800 (CST)
-Received: from M910t (10.110.54.157) by kwepemi500013.china.huawei.com
- (7.221.188.120) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.17; Thu, 16 Feb
- 2023 19:31:46 +0800
-Date: Thu, 16 Feb 2023 19:31:26 +0800
-From: Changbin Du <changbin.du@huawei.com>
-To: Conor Dooley <conor@kernel.org>
-CC: <palmer@dabbelt.com>, Palmer Dabbelt <palmerdabbelt@google.com>,
-	<linux-riscv@lists.infradead.org>, Steven Rostedt <rostedt@goodmis.org>,
-	Changbin Du <changbin.du@gmail.com>, Palmer Dabbelt <palmer@rivosinc.com>,
-	Conor Dooley <conor.dooley@microchip.com>, <changbin.du@huawei.com>
-Subject: Re: [PATCH v3] RISC-V: Don't check text_mutex during stop_machine
-Message-ID: <20230216113126.kio4uqovoo4p6ubm@M910t>
-References: <20230215164317.727657-1-conor@kernel.org>
+	id 1pSd0s-00A5R5-Gq
+	for linux-riscv@lists.infradead.org; Thu, 16 Feb 2023 12:05:24 +0000
+Received: from pps.filterd (m0246632.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 31G8FroQ020165;
+	Thu, 16 Feb 2023 12:05:17 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=from : to : cc :
+ subject : references : date : in-reply-to : message-id : content-type :
+ mime-version; s=corp-2022-7-12;
+ bh=95e8rDq+apX9FrXY/4KW89soKvYzCbX49K3apwoddkg=;
+ b=lyldH37McxvFJWWxr8w5wZG9PMs7bd6R/thEQBL5pdr7tMwbJnCG3YHUj1SbN46Fy9kq
+ o89B7e7fy1kOaG3Ym4szFIlLzJwm3upOugzY6jA1SEWCl4x5mwiuLfD5bqWFUUPwI7l8
+ CM8FWLVZWiHm7+zC7aucy8sr6Z0KjHJLTvWoL9PAuMsNKcfXZyew9sjs6VOUi6JPvnLV
+ wIP6V1ITW98CgVI689NFR68gU1OYTOUSAKhd46RBpqdbtIpBYe4nwgyk6I0af3i5XH8P
+ 0OiVt7cTtxhx/eqw6jQ9S+I/KWb86mIYR0zXhGcau+lrrduEdGi8aVTn1y4Wyn+elu+s Rw== 
+Received: from phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta03.appoci.oracle.com [138.1.37.129])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 3np2mtjxxw-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 16 Feb 2023 12:05:16 +0000
+Received: from pps.filterd (phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
+	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (8.17.1.5/8.17.1.5) with ESMTP id 31GAcEhs013504;
+	Thu, 16 Feb 2023 12:05:16 GMT
+Received: from nam10-bn7-obe.outbound.protection.outlook.com (mail-bn7nam10lp2103.outbound.protection.outlook.com [104.47.70.103])
+	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 3np1f87vw5-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 16 Feb 2023 12:05:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=cHW0DgWtK9ER1vPHRnMeKFMm3z7Kgz342IrmhM71iWPQul7hlhi+IDZjgZp/UuH7qR63GQjk8kFiQ/fD+6Br/24wbiSj1x4CjaMasvgI/vr9KaWT9itd/SqdxIoULykfZA+Hn/tDVqrQLSrSngrCfW+kWcE4u7Cr+pUx37JEY5TfIfmeUEYQvTt4CcvZy1czOxosobWWVMWYU98tGZkse9e4G8lYeFqRADNHkywCfatpbC11HEYNmMGmh97wc4FYA52X/k3PX65aZG0G6o0s4DinU6iBPHNDn4AopIfbFdJ/tiRLBl/+h+Gs1hbjm52kEEr2dI98LENw1JWz+pnZfw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=95e8rDq+apX9FrXY/4KW89soKvYzCbX49K3apwoddkg=;
+ b=hvOhyNIkiZ634qIYTxpkMFwJd6qWqDLO64IGchVKbhMPMF0fhdIpAeJi6x7/dX6pHi6oid4APz0j+puGAWI/41Q6c3cpbndRI0zKJanVxmhzagDHqavuPUeAEtSOYf5KDB88XnvxlOyRVpatk7S24yb99W26xSyZFP5MHZJRS3ELigsc+/ISzRL7dpnKJYeW3boOEOIQtbpxUHzA7YChG27D4c30PiOWFBvisTMqe1MfwjEKhzjAfsxBw0VII5fRubCyeLl5d9ITnXtStDIf/cZ72ZEYHNZsYoSWwQ3W7Qw8I1lxqwcRqDCPVEB3UIGAIlAGMW5fZr8GPuzqw3Oqmg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=95e8rDq+apX9FrXY/4KW89soKvYzCbX49K3apwoddkg=;
+ b=o3zP9HAG/xkJptu/K520qU6tnTAdrySmhWX+P+saAuPPi1IMyD7FOjcOeNfXDJeDwij1cD4BOcTLM6CTEts4mNDhkD4rR2XZwY1OYDHK377n8R0jRxaMkLHIuE7MHXzHyeGu4GYOjFN+f2vMnHiBHf5B+jLCxZvOAqEcIg+MyJI=
+Received: from DS0PR10MB6798.namprd10.prod.outlook.com (2603:10b6:8:13c::20)
+ by SJ0PR10MB4765.namprd10.prod.outlook.com (2603:10b6:a03:2af::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6111.10; Thu, 16 Feb
+ 2023 12:05:13 +0000
+Received: from DS0PR10MB6798.namprd10.prod.outlook.com
+ ([fe80::d0f7:e4fd:bd4:b760]) by DS0PR10MB6798.namprd10.prod.outlook.com
+ ([fe80::d0f7:e4fd:bd4:b760%3]) with mapi id 15.20.6134.006; Thu, 16 Feb 2023
+ 12:05:13 +0000
+From: Nick Alcock <nick.alcock@oracle.com>
+To: Leon Romanovsky <leon@kernel.org>
+Cc: Jonathan Corbet <corbet@lwn.net>, Conor Dooley <conor@kernel.org>,
+        mcgrof@kernel.org, linux-modules@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+        linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 8/8] kbuild, PCI: microchip: comment out MODULE_LICENSE
+ in non-modules
+References: <20230210164749.368998-1-nick.alcock@oracle.com>
+	<20230210164749.368998-9-nick.alcock@oracle.com>
+	<Y+aMh5e9bWaTphiZ@spud> <871qmx1fv5.fsf@esperi.org.uk>
+	<Y+akw9VBjg9oZ7QV@spud> <Y+kx3fb2Lzlg+u5+@unreal>
+	<87ilg5mq0r.fsf@meer.lwn.net> <Y+qOS9fx9B3Y3gd6@unreal>
+Emacs: because idle RAM is the Devil's playground.
+Date: Thu, 16 Feb 2023 12:05:07 +0000
+In-Reply-To: <Y+qOS9fx9B3Y3gd6@unreal> (Leon Romanovsky's message of "Mon, 13
+	Feb 2023 21:23:55 +0200")
+Message-ID: <87y1oxvmrw.fsf@esperi.org.uk>
+User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/28.1.91 (gnu/linux)
+X-ClientProxiedBy: LO2P265CA0247.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:8a::19) To DS0PR10MB6798.namprd10.prod.outlook.com
+ (2603:10b6:8:13c::20)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230215164317.727657-1-conor@kernel.org>
-X-Originating-IP: [10.110.54.157]
-X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
- kwepemi500013.china.huawei.com (7.221.188.120)
-X-CFilter-Loop: Reflected
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR10MB6798:EE_|SJ0PR10MB4765:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8e58d848-e170-4299-a7d1-08db10160f50
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: 	n12z/xszz+lQYu/vWQlAnpqftZfAvOdPbwLuMuMKWGs+zCmkyy9lJXBvTP9EYg0rHjMLSE+EymZTyJoHd29qUURH/2VovENpiXwEDrAO/vWiA7ZZuUcJ4ZRlAIVa+Km75VZncCcrUQNQIYUPmUgGEHDb3wNEI+4FfWU5TNP8l/h4GyL+4tFsITqhE6gtn7SHvIYaRd8qhuCjxnZ1FLJ5UWpzN+AzeUNV7WCapM4t3Ec9NDB3UYII9szFyuYDvbyaMMYD9+WIIDOX19pnFj3QQ0EVY6ZXiJwVsH0LkfQKeRyj8m+JlhmVzwwUQ2MuyoQbfLJS9kbHaI3q5us4GV5+p7SUmdmUjXvs3XqgJMuACZsW0ugB9qlqIjXcX6poezrvS6qd9e1KlYtEv0OyDRHCEnamlEj1ZZsjv+u9CUNK2eXcEqvMJ9bcbN9I9sSVr6TSMc8eQLeXlbyMrplK4D7m+/PRksDkx8q8+ILXsEzRBaR5hePW4FF16ozD7PfK12QqZrI9ELNUxqrMyrkEAQEDlP87Axx2gNGavWNnLg3MfAz/LmwIoab8RbjK8sR4c6MAO0Yi2uXbXQT2sYN6llc4edecZjAqe5DKiX2ljLuSvMw2Bm7RKCFrqvsmkLwkZMa3IB+BYkZx4ESTD39Djjyv9g==
+X-Forefront-Antispam-Report: 	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR10MB6798.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230025)(366004)(376002)(39860400002)(346002)(136003)(396003)(451199018)(66946007)(66476007)(66556008)(6916009)(6506007)(9686003)(6666004)(186003)(4326008)(6512007)(8676002)(38100700002)(2906002)(86362001)(54906003)(6486002)(316002)(41300700001)(44832011)(36756003)(8936002)(478600001)(4744005)(5660300002);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 	=?us-ascii?Q?V6uadGOw0/PjYP5sLaumiCjeXKhZr0hmIIL9TyMOztopcAIyg4P/7RwYZ8W6?=
+ =?us-ascii?Q?7ET2hm5YbFajVoQ+Lkc3Wgpk36bBRhojTMh4TWFRT2CZkC+fU9ci5naSgOuL?=
+ =?us-ascii?Q?ctPq53ji1f+TJpgTZS4f2BVlObY1e0QQQcXk90Y68mzgMNKB054Ejy3tOwbU?=
+ =?us-ascii?Q?scP2/MKQWyVmq+Qlc/HmjIbDRIvXJnLGWEGZ4BeToBCO1FIYsaef+oMIJHjP?=
+ =?us-ascii?Q?E1N3PGwacjURekm9vhMaIrT4ih5qldBjrILFzCvczLwTBoqveN1ffU2lhEY/?=
+ =?us-ascii?Q?qKB8TCFWulG4O7kFJJDYDzvorsJTZckOCG8TmkXn0VH7v1UurRv0fojkHClg?=
+ =?us-ascii?Q?nZ66Dj1yKMOs+cVLOMv4YJ3BQyRM13RcLMRLmEyZiO8duVVRJbAaHTfeMay9?=
+ =?us-ascii?Q?noLNOkY3ahwg+ATDesWktg/WkZr6HcCHMVDhCwfN+9pNntOXPvLYrKsNcOrF?=
+ =?us-ascii?Q?FVHFU+nhFFxxc2iCouIAnFcxKqqAFJ6TC43oDZCA+1jQfE+Uv+ErZw+fvbIN?=
+ =?us-ascii?Q?CFj+auZx1c5Kyk3KludbghCm7BP+im85ZjmoQSjndYnxpH5grhYSrEEjY5zg?=
+ =?us-ascii?Q?nnaFq8x2cjMwRqXyQWCGAlRxTEethJZ2AFiAXismR2lPnHoDiUDRXPIl2MUE?=
+ =?us-ascii?Q?y/VUphczdrr8yr3+7WkfxatwEvWAnMx3gXN5E3aAnbK+8fa1SVtcLHSZKmh4?=
+ =?us-ascii?Q?X+dZ4rd0f5b9VPUsN0xnvGIQfnXGDBuJkjKKNnT8wXmtsC2cx6O9n/a2pKtq?=
+ =?us-ascii?Q?MJLP96iQO3gTOBMHf8rZvCQxVTJoXtzh1ZwZB4PUMFln6pHyVtdxl8tNGRfn?=
+ =?us-ascii?Q?qm4bNNIk1BxQsOCIKIh0WVsHSh5TGEzDNWejhosbu25jMp6tFE0ch3m0/jUh?=
+ =?us-ascii?Q?CAkLvyABCeLj0FuZGm5/IUafthKcJEJPS/0AAAlmXb4E293t4/tRi/bRo7ad?=
+ =?us-ascii?Q?naDm499p1KwrFmWK+Kf9lJ97pNYH9D8YLEcWLZvmY4JZQummIAqBu5vzsymL?=
+ =?us-ascii?Q?wXkjU1vMVXWgza1VJecmC4v5/6d9uGVqB5dK12gJkHNIS8ppeqzbioR91Vr7?=
+ =?us-ascii?Q?Ui5e9O7+XbSGLrTsK0BQ6T32Vq1kA50xWr8hEhYDxJm+UNmyQncq+dEMVmvo?=
+ =?us-ascii?Q?RNTBvB/NcoaTOJ2CzO04th/XZR01ScJry+3zvpNjnxVu0hhukAms2nS11Qjk?=
+ =?us-ascii?Q?thQmoL1xhTp253ugXoPogmzkqC0EHVQBy5o0ldjW6MMwW45Lxw36afqhgmSn?=
+ =?us-ascii?Q?526V8y80lVQWlEXK6ZsaQ+Eq4A7zWKjJjmvzel2NY50vUAo3rPZ7v6UYQyU5?=
+ =?us-ascii?Q?Ai/J+EVv1Y/skMyUerSroIKzXMAjXK0EfeM3xwpvY9ct7Mls1qxR/EM8L2wu?=
+ =?us-ascii?Q?m+whDKIwUcEUriJ61hfDqT5+E7peo6jaNthACw69w4c/XWuiQKmtt3cAIkNl?=
+ =?us-ascii?Q?GnMuwBSsAsLydJUMsz+JMhtZaGG/lcgO1PGImfex5qP4qI6N9jFFuvhuJfI6?=
+ =?us-ascii?Q?syWxEjD4D/OU3R2vtxffX1wY6So/tqV1xM1vILgHMo8rfMVFpr+eSyhpv/GI?=
+ =?us-ascii?Q?wr6pxEI518fJ5UVryt8eTfvs+5kbb90IbHvkOojK2tmvv/gSTWMwleHRkB4J?=
+ =?us-ascii?Q?Aw=3D=3D?=
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: 	cr/BgzTChz3OkRThozLxM5F1s3AYcX8RHO4hBKVlIYIRRn78IxTRwINPTyI5j5r+Qv2dnt3gp/eYmRCpbvnvmI99XUM8CWmFNzJc4XgkNvsP5ZXl6GXKV86fRmrZCbnxx+0ooZn+L5hZIA48YO/FnrvN1YiL+ww1jGdpXRr46OQoHnkbgFWPpBteaMg1OlmeoNaWpqK7Ii4X7wCPXUuLZV4Uo9fxXd3O08mdnyv1taMvphW5zK1uzUKJBNlOjvi6+GwrxpCXmFUcoQZ5rz1OY4clFQHtiDxejnB+7lLCYTSXr5jno6b9suWNL1LuZdWzPQr2ilYtG+LGbz6hwRDYN9U1cgvNM/Z4FYHuLoWnx+X1s/+xsFUSFzhoCl+HyLThEc4/YGcHP11pjhWT63zMFPnfJ4KR2Rk1gO8cnHt0h8i4I6Nn2qUlY0PB8Y0VbznuiGPbKTAyrWlcac9A9IlCflZyi87f90WQQz3Xhg/Am2IQp9w3OCbqx5d5yg0w9p6sUYVOqL0sKmUBEht3m5WIcse/aiCZfdfQleooUR/gIGrOM3ukUu2HB6I64AlkDlPH6A2ncmw+a8TyArtQouiRrVIOLRa4nhB5iSax9ZZrGz36FbXJM+cfIekGEfcaDyzC9nrgYa7flEgwYnQephBNoZalkqIID6Xf7e7yBNnyXsPD7HSm+xEj2swrbFFscARzXGd9BA/2nfhKtFoVibt9Bdbr8+QjE7/Qjv9tgJPLSNyVnbLrXCQSwbE2zRkm1yDyQOmIgLlQEJO20f9sAQ2lWU4s62/p8DbIMVgH+ueECPcRMVHZDioAW3VTg7ou4tRNORzd0347yunW9TAM/ae/AUQ536jt6IBv2ayRXv0bIw2f6aGmIq1e07IYUwh13sgt
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8e58d848-e170-4299-a7d1-08db10160f50
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR10MB6798.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Feb 2023 12:05:13.7046
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: SYd/+3JMd7l2ccsyuR6wIUjKKpMPFDrgmYG2aNxa8l+IffaAeIdkRUu3nASqoLUif66oPlWfCcgbty1v0Pq0tg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR10MB4765
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.219,Aquarius:18.0.930,Hydra:6.0.562,FMLib:17.11.170.22
+ definitions=2023-02-16_09,2023-02-16_01,2023-02-09_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 adultscore=0 suspectscore=0
+ phishscore=0 spamscore=0 bulkscore=0 mlxlogscore=766 malwarescore=0
+ mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2212070000 definitions=main-2302160103
+X-Proofpoint-GUID: YFsmeqTav1Wji5eiD1CweEGubXCk5JKx
+X-Proofpoint-ORIG-GUID: YFsmeqTav1Wji5eiD1CweEGubXCk5JKx
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230216_033152_119835_03990005 
-X-CRM114-Status: GOOD (  36.95  )
+X-CRM114-CacheID: sfid-20230216_040522_704647_6349794C 
+X-CRM114-Status: GOOD (  14.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,162 +173,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 15, 2023 at 04:43:17PM +0000, Conor Dooley wrote:
-> From: Palmer Dabbelt <palmerdabbelt@google.com>
-> 
-> We're currently using stop_machine() to update ftrace, which means that
-> the thread that takes text_mutex during ftrace_prepare() may not be the
-> same as the thread that eventually patches the code.  This isn't
-> actually a race because the lock is still held (preventing any other
-> concurrent accesses) and there is only one thread running during
-> stop_machine(), but it does trigger a lockdep failure.
-> 
-> This patch just elides the lockdep check during stop_machine.
-> 
-> Fixes: c15ac4fd60d5 ("riscv/ftrace: Add dynamic function tracer support")
-> Suggested-by: Steven Rostedt <rostedt@goodmis.org>
-> Reported-by: Changbin Du <changbin.du@gmail.com>
-> Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
-> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
-> Resending this version as I am quite averse to deleting the assertion!
-> 
-> Changes since v2 [<20220322022331.32136-1-palmer@rivosinc.com>]:
-> * rebase on riscv/for-next as it as been a year.
-> * incorporate Changbin's suggestion that init_nop should take the lock
->   rather than call prepare() & post_process().
-> 
-> Changes since v1 [<20210506071041.417854-1-palmer@dabbelt.com>]:
-> * Use ftrace_arch_ocde_modify_{prepare,post_process}() to set the flag.
->   I remember having a reason I wanted the function when I wrote the v1,
->   but it's been almost a year and I forget what that was -- maybe I was
->   just crazy, the patch was sent at midnight.
-> * Fix DYNAMIC_FTRACE=n builds.
-> ---
->  arch/riscv/include/asm/ftrace.h |  7 +++++++
->  arch/riscv/kernel/ftrace.c      | 15 +++++++++++++--
->  arch/riscv/kernel/patch.c       | 10 +++++++++-
->  3 files changed, 29 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/riscv/include/asm/ftrace.h b/arch/riscv/include/asm/ftrace.h
-> index 04dad3380041..3ac7609f4ee9 100644
-> --- a/arch/riscv/include/asm/ftrace.h
-> +++ b/arch/riscv/include/asm/ftrace.h
-> @@ -81,8 +81,15 @@ do {									\
->  struct dyn_ftrace;
->  int ftrace_init_nop(struct module *mod, struct dyn_ftrace *rec);
->  #define ftrace_init_nop ftrace_init_nop
-> +extern int riscv_ftrace_in_stop_machine;
->  #endif
->  
-> +#else /* CONFIG_DYNAMIC_FTRACE */
-> +
-> +#ifndef __ASSEMBLY__
-> +#define riscv_ftrace_in_stop_machine 0
->  #endif
->  
-> +#endif /* CONFIG_DYNAMIC_FTRACE */
-> +
->  #endif /* _ASM_RISCV_FTRACE_H */
-> diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
-> index 2086f6585773..661bfa72f359 100644
-> --- a/arch/riscv/kernel/ftrace.c
-> +++ b/arch/riscv/kernel/ftrace.c
-> @@ -11,14 +11,25 @@
->  #include <asm/cacheflush.h>
->  #include <asm/patch.h>
->  
-> +int riscv_ftrace_in_stop_machine;
-> +
->  #ifdef CONFIG_DYNAMIC_FTRACE
->  void ftrace_arch_code_modify_prepare(void) __acquires(&text_mutex)
->  {
->  	mutex_lock(&text_mutex);
-> +
-> +	/*
-> +	 * The code sequences we use for ftrace can't be patched while the
-> +	 * kernel is running, so we need to use stop_machine() to modify them
-> +	 * for now.  This doesn't play nice with text_mutex, we use this flag
-> +	 * to elide the check.
-> +	 */
-> +	riscv_ftrace_in_stop_machine = true;
->  }
->  
->  void ftrace_arch_code_modify_post_process(void) __releases(&text_mutex)
->  {
-> +	riscv_ftrace_in_stop_machine = false;
->  	mutex_unlock(&text_mutex);
->  }
->  
-> @@ -134,9 +145,9 @@ int ftrace_init_nop(struct module *mod, struct dyn_ftrace *rec)
->  {
->  	int out;
->  
-> -	ftrace_arch_code_modify_prepare();
-> +	mutex_lock(&text_mutex);
->  	out = ftrace_make_nop(mod, rec, MCOUNT_ADDR);
-> -	ftrace_arch_code_modify_post_process();
-> +	mutex_unlock(&text_mutex);
->  
->  	return out;
->  }
-> diff --git a/arch/riscv/kernel/patch.c b/arch/riscv/kernel/patch.c
-> index 765004b60513..56b70271518d 100644
-> --- a/arch/riscv/kernel/patch.c
-> +++ b/arch/riscv/kernel/patch.c
-> @@ -11,6 +11,7 @@
->  #include <asm/kprobes.h>
->  #include <asm/cacheflush.h>
->  #include <asm/fixmap.h>
-> +#include <asm/ftrace.h>
->  #include <asm/patch.h>
->  
->  struct patch_insn {
-> @@ -59,8 +60,15 @@ static int patch_insn_write(void *addr, const void *insn, size_t len)
->  	 * Before reaching here, it was expected to lock the text_mutex
->  	 * already, so we don't need to give another lock here and could
->  	 * ensure that it was safe between each cores.
-> +	 *
-> +	 * We're currently using stop_machine() for ftrace, and while that
-> +	 * ensures text_mutex is held before installing the mappings it does
-> +	 * not ensure text_mutex is held by the calling thread.  That's safe
-> +	 * but triggers a lockdep failure, so just elide it for that specific
-> +	 * case.
->  	 */
-> -	lockdep_assert_held(&text_mutex);
-> +	if (!riscv_ftrace_in_stop_machine)
-> +		lockdep_assert_held(&text_mutex);
->  
->  	if (across_pages)
->  		patch_map(addr + len, FIX_TEXT_POKE1);
-This misses this function.
+On 13 Feb 2023, Leon Romanovsky told this:
 
-int patch_text(void *addr, u32 insn)
-{
-	struct patch_insn patch = {
-		.addr = addr,
-		.insn = insn,
-		.cpu_count = ATOMIC_INIT(0),
-	};
+> On Mon, Feb 13, 2023 at 10:30:44AM -0700, Jonathan Corbet wrote:
+>> Wouldn't it be better to let this work proceed while making a note
+>> of the files still needing SPDX tags?
 
-	return stop_machine_cpuslocked(patch_text_cb,
-				       &patch, cpu_online_mask);
-}
+Since I have this list anyway, I might as well emit it, even if I
+believe the general consensus is now to not add SPDXes but leave that up
+to individual maintainers (phew).
 
-> -- 
-> 2.39.1
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-> 
+The files (otherwise touched in the full series) that don't have SPDX tags:
+
+drivers/bus/arm-cci.c
+drivers/bus/imx-weim.c
+drivers/bus/simple-pm-bus.c
+drivers/gpu/drm/drm_mipi_dsi.c
+drivers/irqchip/irq-mvebu-pic.c
+drivers/reset/reset-axs10x.c
+drivers/reset/reset-hsdk.c
+drivers/soc/sunxi/sunxi_sram.c
+drivers/video/console/vgacon.c
+drivers/video/fbdev/asiliantfb.c
+drivers/video/fbdev/gbefb.c
+drivers/video/fbdev/imsttfb.c
+drivers/xen/xenbus/xenbus_probe.c
+lib/glob.c
 
 -- 
-Cheers,
-Changbin Du
+NULL && (void)
 
 _______________________________________________
 linux-riscv mailing list
