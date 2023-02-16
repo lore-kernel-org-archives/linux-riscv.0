@@ -4,76 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F715C636CC
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Feb 2023 17:55:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12FCEC61DA4
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Feb 2023 18:20:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xtNZQ+yyBtXTQp0sbcLiO4+jQ1Lm7ouWPHOMRYnBsk0=; b=sFisNaUdA8C3S5
-	A9HEfeDMNqQ2aP/dulrg7xqluEaFw3Nwzc5O36uiXn47WVYu8ikl5SqWBU0QQFZ6YuzJqh/3oL+Sh
-	iZLWSqSRBPTItv4b7pcf8KY88XXtbQJIp3UuKYPPt2ltPq8MMjFG8Ug8GZoOTeiqRmq+gwQzvs5+m
-	W5sclipixgdMp6dyRasZ4Ho6VnbAgKyXNc2Xo/Crx/kJ1C1RSRFtlsLKUzcy3F67p26TRy1Mdiexo
-	FvCohsfFEqidyAMHjLOymBIgkqjTTfRskyN0nhlBzypP7BI7HDpmRSu2nhdMFw780LIY76eRi/xd7
-	YJftZM65VKyszbGvXfqg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XFKAmNucKk/s/j/rMs2Feh6/1bjnVXRf+yrTAXdx494=; b=GKukeF0CIhwYKUZtWuJICViKfq
+	aUiJg0GC4tZy5tXr/6+cgl+qqp78xu5k5nhlO5gs7zGtMGh0Xlnub48KqrzvIss5iAN+s3oeKnlsh
+	d1GHrpioQIr2vMLaOeocH0f4pRjfYT0SzN7wGlPdyEc9z0QBXvqJ38hqsgyFTuOQ8RElfvdXNDnX7
+	WeJBhprXoYp1OkZ475ydl/aeVtotBacJcryEWbBWrP6J7juVCBI9sIlWFjWbon7HVZRIeARbsYqo+
+	bpxEZWK3CiVerAJYr4T97dtWKSYGb5m6646Y01PJeu2bF1BNWnVRGplM0Nk3w9kxzK7ARIMyRETeH
+	2ap/5KAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSiTj-00BP7Z-21; Thu, 16 Feb 2023 17:55:31 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1pSisA-00BTKZ-3B; Thu, 16 Feb 2023 18:20:46 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSiTf-00BP5t-Nm; Thu, 16 Feb 2023 17:55:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=U8HRVsC8weUc6GSIfzXEInXuXcTfhl4YDU5SDrGogxA=; b=KH3WV85edpy0UAdBCnY5WK/i6D
-	rnKSqHF/tzTZJ9sizmE/UMspW69CyQ8syUFWmx4DLvtFLDD6wrxxxz6T/l3kyyZ0OwI13x8sFTRbE
-	msKUvskpf5UB5sVlgzjxwi5faotzUz611+/z2KWbaKyOo9cQQ2lkvbNzA0Dw73gBOA/0=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1pSiSu-005D4t-OV; Thu, 16 Feb 2023 18:54:40 +0100
-Date: Thu, 16 Feb 2023 18:54:40 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+	id 1pSis6-00BTJr-8T
+	for linux-riscv@lists.infradead.org; Thu, 16 Feb 2023 18:20:44 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id A52D6B825E2;
+	Thu, 16 Feb 2023 18:20:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 071CFC433D2;
+	Thu, 16 Feb 2023 18:20:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1676571639;
+	bh=jK04dJp0pBaLqeMaRgMoUwmpJaZiVkQJQAEC+NYBGZU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=J/ynTfzxEjIbO4oAwSK1Hbwj7eaBIhBw3bZXLs2Io67aP7zyaNaiFGk5hsSR0vdon
+	 9MGT/Iv8MPFmFQuJbEdvQ+dtiI4SN8+IyBPQ05h6iZfB1JC441ntei2IuQ5KdNgNXe
+	 9xjgQpJdpeTZ3OPWHNT4VtSYbH7BuHoB3YqZGRtKDzvXczDUOrMd3nQIQP9Gglk/Ja
+	 uvZOw6tDh2Ay9jt8XoQEvlWT5attfigQ0XkXLZyjeb5HhwIvnLcmmT47D6a+8wztr4
+	 v1p3pc4bH+b9hcHPTRw/77gkhKa8Rsxb/r2lxmKVUWxWQZPp1z5bbEViIzt2F45hI3
+	 nyiJeINLDIUiw==
+Date: Thu, 16 Feb 2023 18:20:34 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Hal Feng <hal.feng@starfivetech.com>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-clk@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>,
+	Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Conor Dooley <conor@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Sagar Kadam <sagar.kadam@sifive.com>,
-	Yanhong Wang <yanhong.wang@starfivetech.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, kernel@collabora.com
-Subject: Re: [PATCH 07/12] dt-bindings: net: Add StarFive JH7100 SoC
-Message-ID: <Y+5t4Jlb0ytw40pu@lunn.ch>
-References: <20230211031821.976408-1-cristian.ciocaltea@collabora.com>
- <20230211031821.976408-8-cristian.ciocaltea@collabora.com>
- <Y+e74UIV/Td91lKB@lunn.ch>
- <586971af-2d78-456d-a605-6c7b2aefda91@collabora.com>
- <Y+zXv90rGfQupjPP@lunn.ch>
- <cfa0f980-4bb6-4419-909c-3fce697cf8f9@collabora.com>
+	Stephen Boyd <sboyd@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 07/11] dt-bindings: clock: Add StarFive JH7110 system
+ clock and reset generator
+Message-ID: <Y+5z8skN2DuvxDEL@spud>
+References: <20221220005054.34518-1-hal.feng@starfivetech.com>
+ <20221220005054.34518-8-hal.feng@starfivetech.com>
+ <Y6JB37Pd5TZoGMy4@spud>
+ <7a7bccb1-4d47-3d32-36e6-4aab7b5b8dad@starfivetech.com>
+ <Y6tSWB2+98a8k9Qw@spud>
+ <5cf0fe71-fd17-fb28-c01e-28356081ba76@starfivetech.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <cfa0f980-4bb6-4419-909c-3fce697cf8f9@collabora.com>
+In-Reply-To: <5cf0fe71-fd17-fb28-c01e-28356081ba76@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230216_095527_794680_0A237D8B 
-X-CRM114-Status: UNSURE (   8.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230216_102042_636008_BABC6F4A 
+X-CRM114-Status: GOOD (  43.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,25 +79,246 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3564788585193753227=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> I gave "rgmii-id" a try and it's not usable, I get too many errors. So
-> "rgmii" should be the right choice here.
 
-I would actually say it shows we don't understand what is going on
-with delays. "rgmii" is not every often the correct value. The fact it
-works suggests the MAC is adding delays.
+--===============3564788585193753227==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="tfomlMJXp+aiuG3l"
+Content-Disposition: inline
 
-What value are you using for starfive,gtxclk-dlychain ? Try 0 and then
-"rgmii-id"
 
-	Andrew			 
+--tfomlMJXp+aiuG3l
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
+Hey Hal!
+
+On Thu, Feb 16, 2023 at 10:42:20PM +0800, Hal Feng wrote:
+> On Tue, 27 Dec 2022 20:15:20 +0000, Conor Dooley wrote:
+> > On Mon, Dec 26, 2022 at 12:26:32AM +0800, Hal Feng wrote:
+> >> On Tue, 20 Dec 2022 23:14:39 +0000, Conor Dooley wrote:
+> >> > On Tue, Dec 20, 2022 at 08:50:50AM +0800, Hal Feng wrote:
+> >> > > From: Emil Renner Berthing <kernel@esmil.dk>
+> >> > >=20
+> >> > > Add bindings for the system clock and reset generator (SYSCRG) on =
+the
+> >> > > JH7110 RISC-V SoC by StarFive Ltd.
+> >> > >=20
+> >> > > Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+> >> > > Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+> >=20
+> >> > > +  clocks:
+> >> > > +    items:
+> >> > > +      - description: Main Oscillator (24 MHz)
+> >> > > +      - description: GMAC1 RMII reference
+> >> > > +      - description: GMAC1 RGMII RX
+> >> > > +      - description: External I2S TX bit clock
+> >> > > +      - description: External I2S TX left/right channel clock
+> >> > > +      - description: External I2S RX bit clock
+> >> > > +      - description: External I2S RX left/right channel clock
+> >> > > +      - description: External TDM clock
+> >> > > +      - description: External audio master clock
+> >> >=20
+> >> > So, from peeking at the clock driver & the dt - it looks like a bunc=
+h of
+> >> > these are not actually required?
+> >>=20
+> >> These clocks are used as root clocks or optional parent clocks in cloc=
+k tree.
+> >> Some of them are optional, but they are required if we want to describ=
+e the
+> >> complete clock tree of JH7110 SoC.
+> >=20
+> > Perhaps I have a misunderstand of what required means. To me, required
+> > means "you must provide this clock for the SoC to operate in all
+> > configurations".
+> > Optional therefore would be for things that are needed only for some
+> > configurations and may be omitted if not required.
+> >=20
+> > From your comment below, boards with a JH7110 may choose not to populate
+> > both external clock inputs to a mux. In that case, "dummy" clocks should
+> > not have to be provided in the DT of such boards to satisfy this binding
+> > which seems wrong to me..
+>=20
+> Please see the picture of these external clocks in clock tree.
+>=20
+> # mount -t debugfs none /mnt
+> # cat /mnt/clk/clk_summary
+>                                  enable  prepare  protect                =
+                duty  hardware
+>    clock                          count    count    count        rate   a=
+ccuracy phase  cycle    enable
+> -------------------------------------------------------------------------=
+------------------------------
+>  *mclk_ext*                             0        0        0    12288000  =
+        0     0  50000         Y
+>  *tdm_ext*                              0        0        0    49152000  =
+        0     0  50000         Y
+>  *i2srx_lrck_ext*                       0        0        0      192000  =
+        0     0  50000         Y
+>  *i2srx_bclk_ext*                       0        0        0    12288000  =
+        0     0  50000         Y
+>  *i2stx_lrck_ext*                       0        0        0      192000  =
+        0     0  50000         Y
+>  *i2stx_bclk_ext*                       0        0        0    12288000  =
+        0     0  50000         Y
+>  *gmac1_rgmii_rxin*                     0        0        0   125000000  =
+        0     0  50000         Y
+>     gmac1_rx                          0        0        0   125000000    =
+      0     0  50000         Y
+>        gmac1_rx_inv                   0        0        0   125000000    =
+      0   180  50000         Y
+>  *gmac1_rmii_refin*                     0        0        0    50000000  =
+        0     0  50000         Y
+>     gmac1_rmii_rtx                    0        0        0    50000000    =
+      0     0  50000         Y
+>        gmac1_tx                       0        0        0    50000000    =
+      0     0  50000         N
+>           gmac1_tx_inv                0        0        0    50000000    =
+      0   180  50000         Y
+>  *osc*                                  4        4        0    24000000  =
+        0     0  50000         Y
+>     apb_func                          0        0        0    24000000    =
+      0     0  50000         Y
+>  ...
+>=20
+> The clock "gmac1_rgmii_rxin" and the clock "gmac1_rmii_refin" are
+> actually used as the parent of other clocks.
+
+> The "dummy" clocks
+> you said are all internal clocks.
+
+No, what I meant by "dummy" clocks is that if you make clocks "required"
+in the binding that are not needed by the hardware for operation a
+customer of yours might have to add "dummy" clocks to their devicetree
+to pass dtbs_check.
+
+> For the audio related clocks (mclk_ext/tdm_ext/i2srx_lrck_ext/
+> i2srx_bclk_ext/i2stx_lrck_ext/i2stx_bclk_ext), they will be used
+> as the parent clocks in audio related drivers. Note that some
+> clocks need to select different clocks as parent according to
+> requirement.
+> So all these external clocks are required.
+>=20
+> >=20
+> > It would seem to me that you need to set minItems < maxItems here to
+> > account for that & you do in fact need clock-names.
+> >=20
+> >>=20
+> >> > I'd have ploughed through this, but having read Krzysztof's comments=
+ on
+> >> > the DTS I'm not sure that this binding is correct.
+> >> > https://lore.kernel.org/linux-riscv/20221220011247.35560-1-hal.feng@=
+starfivetech.com/T/#mdf67621a2344dce801aa8015d4963593a2c28bcc
+> >> >=20
+> >> > I *think* the DT is correct - the fixed clocks are all inputs from c=
+lock
+> >> > sources on the board and as such they are empty in soc.dtsi and are
+> >> > populated in board.dts?
+> >>=20
+> >> Yes, the fixed clocks are all clock sources on the board and input to =
+the SoC.
+> >>=20
+> >> >=20
+> >> > However, are they all actually required? In the driver I see:
+> >> > 	JH71X0__MUX(JH7110_SYSCLK_GMAC1_RX, "gmac1_rx", 2,
+> >> > 		    JH7110_SYSCLK_GMAC1_RGMII_RXIN,
+> >> > 		    JH7110_SYSCLK_GMAC1_RMII_RTX),
+> >> > That macro is:
+> >> > #define JH71X0__MUX(_idx, _name, _nparents, ...) [_idx] =3D {			\
+> >> > 	.name =3D _name,								\
+> >> > 	.flags =3D 0,								\
+> >> > 	.max =3D ((_nparents) - 1) << JH71X0_CLK_MUX_SHIFT,			\
+> >> > 	.parents =3D { __VA_ARGS__ },						\
+> >> > }
+
+> >> > AFAICT, RMII reference feeds RMII_RTX & RGMII RX *is* RGMII_RXIN?
+> >> > Does that mean you need to populate only one of GMAC1 RMII reference
+> >> > and GMAC1 RMGII RX and the other is optional?
+
+> >> Yes, actually only one of them is chosen as the root clock
+> >> source of the clock "gmac1_rx".
+|  *gmac1_rgmii_rxin*  =20
+|     gmac1_rx         =20
+|        gmac1_rx_inv  =20
+|  *gmac1_rmii_refin*  =20
+|     gmac1_rmii_rtx   =20
+|        gmac1_tx      =20
+|           gmac1_tx_inv
+|
+| description: GMAC1 RMII reference
+| description: GMAC1 RGMII RX
+
+
+So you're telling me that you can either:
+- Provide GMAC1 RMII reference and GMAC1 RGMII RX & then use different
+  clocks for gmac1_rx and gmac1_tx
+- Provide only GMAC1 RMII reference & use it for both gmac1_tx *and*
+  gmac1_rx
+
+Is that correct?
+
+> >> >=20
+> >> > > +
+> >> > > +  clock-names:
+> >> > > +    items:
+> >> > > +      - const: osc
+> >> > > +      - const: gmac1_rmii_refin
+> >> > > +      - const: gmac1_rgmii_rxin
+> >> > > +      - const: i2stx_bclk_ext
+> >> > > +      - const: i2stx_lrck_ext
+> >> > > +      - const: i2srx_bclk_ext
+> >> > > +      - const: i2srx_lrck_ext
+> >> > > +      - const: tdm_ext
+> >> > > +      - const: mclk_ext
+> >> >=20
+> >> > If all clocks are in fact required though, isn't this kinda pointles=
+s to
+> >> > have since we already know that the order is fixed from the "clocks"
+> >> > property?
+> >> > Krzk/Rob?
+> >>=20
+> >> The clock-names are used to easily identify these clocks in the clock =
+driver.
+> >=20
+> > *IF* all clocks were in fact required, which they aren't, you could rely
+> > on the order alone in the driver as it is enforced by the binding.
+>=20
+> OK, I'll remove "clock-names" property in the bindings and device tree.
+> Instead, will use index to get these clocks in drivers.
+
+Hang on until you answer my question above before deleting this from the
+dt-binding & driver ;)
+
+
+--tfomlMJXp+aiuG3l
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY+5z8gAKCRB4tDGHoIJi
+0l/OAP4mjA8CLknFT2rh06ebAfVs/7Tq4xi/y0ZV1CybXw0gpgEAvrvV1QJ39Y/d
+ugfr6YG/I/ZWeyu4M8p2/ls9gz+0uww=
+=uJUs
+-----END PGP SIGNATURE-----
+
+--tfomlMJXp+aiuG3l--
+
+
+--===============3564788585193753227==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3564788585193753227==--
+
