@@ -4,78 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AB9DC05027
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Feb 2023 11:03:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 675F2C636D4
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Feb 2023 11:50:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=A6ES/jpUWFmu+Crg7DUlsZyuByGfhGymiqcNcDEbVtc=; b=A14g1VUr3gFDhx
-	ATi4QuR30D8b3SDhMBTibCuR4VU1NPel4ekua3QoMie5IAl3I/U7ojUQy+miDHxjf6UFEO/Ag47rK
-	oFE9BMIkUKeEdNNvEM7fiInnGjoj49k87WeLG4hZxRc02mwIYUaEgINEoo44AgWWKiFRgujFkWsBo
-	2RWZP+KBqK4YLcd9znQ0VBjvRQg8Mzvl5KdH/gP2AJfm8WYw+Kq91VQYS3ub4ZmjsU194mqdT1H0e
-	LcihgVr1K7uk1xOzvJFB44XVQsgcOdJD/X3tU2wY3ak3K+HckRkJjHlUfXh6a0Vyx1jGPBXcx8dPj
-	UK/dKi/f2eaYOawZveCQ==;
+	List-Owner; bh=kSAoCsPBTg7YW7TO85ueyOR62ffEu+npUlqTtT8Fbuc=; b=TcZYHJEAgMc8Ak
+	gJpUx9MYxSPLOpqDvbyGcZF/J7yxKeCaTXzV0ZxemKCre9KLNXXDUCkWOXiwhQ6q1PJFZwMzqMVcZ
+	Ztph4mF9NZosMLnavVmRuiatFS4m1NL8QXuiIrvAeBdSxQ9ZqCdodun1ojIGbIY92Zz9FyTLTk/wB
+	n8hucZv8u7nBSitok2wNcdejtDUNow7+vjQrvWiU9RFimmj2NZ4OGkhE2wyHIwvcv8VJJTSNIY+gU
+	IxbnntQXBMVR8RXDCiX5y7kGyYzjM50WtQ1n2ZlVvhfHGrZXfs7PTPKw37Ql3oWAXtmU4jFqh3efs
+	hPIHKHgfc1dfhID9vA/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSyWO-00DoUU-N1; Fri, 17 Feb 2023 11:03:20 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pSzG7-00E1lq-7g; Fri, 17 Feb 2023 11:50:35 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSyWL-00DoSu-E8
-	for linux-riscv@lists.infradead.org; Fri, 17 Feb 2023 11:03:18 +0000
+	id 1pSzG4-00E1jm-Ad
+	for linux-riscv@lists.infradead.org; Fri, 17 Feb 2023 11:50:33 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id E413661355;
-	Fri, 17 Feb 2023 11:03:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5431AC433EF;
-	Fri, 17 Feb 2023 11:03:16 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 3EC0661ADD;
+	Fri, 17 Feb 2023 11:50:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CEC6C433D2;
+	Fri, 17 Feb 2023 11:50:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1676631796;
-	bh=9ZLkpk51KcRG2L0a/ZGuVwCZFOFi/NrEBRRkzAW9XoY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Uw1dRbJKXxtimOJpE0w9kMEozKIDHPp6y3anPrzpvtfqTCN/+lACjtOoTQwQL2Si7
-	 w6qLqPwbfv4L8jbU8t3gkVeXiOXE8oMNa9oM2wBAqt9T9Pxxk7qDbL67DgRHqKGs+F
-	 BEjtB1w0SJBq7fgfqqVH1OIMD1eKLLmcBnrhplE8VQ1Iz8uQRpKBUPfvK4k/vUx1S7
-	 i90Dmpj+8zTz/hM/h9h9Xiv7D3BdDuJ0d0lmyUfQWchpxJkZe2zrhXmmPfwKZ7JVH6
-	 02HzvfpOJ7n88i4hl/JE4+h+uXDpDBcQmB2K4rRMe8k88F+FbSt+VUQMMwym3xqpEN
-	 CX3ulzUe3YeJw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1pSyWI-00BALj-00;
-	Fri, 17 Feb 2023 11:03:14 +0000
-Date: Fri, 17 Feb 2023 11:03:13 +0000
-Message-ID: <86ilg0y2oe.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Mason Huo <mason.huo@starfivetech.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	<linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>,
-	"Ley\
- Foon Tan" <leyfoon.tan@starfivetech.com>,
-	Sia Jee Heng
-	<jeeheng.sia@starfivetech.com>
-Subject: Re: [PATCH v3] irqchip/irq-sifive-plic: Add syscore callbacks for hibernation
-In-Reply-To: <f07e1037-641d-c1f6-f3c0-5cf0b8bbbc3c@starfivetech.com>
-References: <20230210100122.80255-1-mason.huo@starfivetech.com>
-	<f07e1037-641d-c1f6-f3c0-5cf0b8bbbc3c@starfivetech.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/28.2
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: mason.huo@starfivetech.com, tglx@linutronix.de, palmer@dabbelt.com, paul.walmsley@sifive.com, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, leyfoon.tan@starfivetech.com, jeeheng.sia@starfivetech.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1676634628;
+	bh=4IWmFISaxKmIBlvYi5tinpHd5wzh/1iH3X4fDAlUEA4=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=hvqRlujjx7SyYlN8zwMuR8MyS5x3afCa9htNftsvYhvXgdjM+eJs3W6FvcAfEvMTs
+	 B2xJl5+Vzf5+xEqQsYX4lIsIoy1UL5ai1FnC2Vr87Jq3TEnY00014XAtshfbkBbmh/
+	 4TqxLO5mZhGhDTejP7yzImvphY44i8QpnXV7Uyw8529xyXBfSBMdRE3+7IIggrr9vk
+	 iqnV072FlQ/8Xe3E7l1HCLFb/0FpzP06emc5k1VV4xKCe2jAYdV8dahU0SRJUVo3W/
+	 eD1rUanrQnJd1tdtOfRHiC+WvPjUDgZNVzAsYikguJtD8QQ6ylWuDciSAvdh8NvZHR
+	 ujl+4RIevBkTQ==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Alexandre Ghiti <alexghiti@rivosinc.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+ Alexander Potapenko <glider@google.com>, Andrey Konovalov
+ <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>, Vincenzo
+ Frascino <vincenzo.frascino@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Conor Dooley <conor@kernel.org>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com,
+ linux-efi@vger.kernel.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: Re: [PATCH v4 1/6] riscv: Split early and final KASAN population
+ functions
+In-Reply-To: <20230203075232.274282-2-alexghiti@rivosinc.com>
+References: <20230203075232.274282-1-alexghiti@rivosinc.com>
+ <20230203075232.274282-2-alexghiti@rivosinc.com>
+Date: Fri, 17 Feb 2023 12:50:25 +0100
+Message-ID: <87r0uotsse.fsf@all.your.base.are.belong.to.us>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230217_030317_556834_9660E6FA 
-X-CRM114-Status: GOOD (  13.99  )
+X-CRM114-CacheID: sfid-20230217_035032_440872_4817BE9A 
+X-CRM114-Status: UNSURE (   7.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,28 +76,18 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 17 Feb 2023 00:12:37 +0000,
-Mason Huo <mason.huo@starfivetech.com> wrote:
-> 
-> Hi Marc,
-> 
-> Do you have any comment on v3 patch that fixed the issues you
-> commented in v2?
-
-I didn't look, and I'm done queuing patches for the next cycle
-anyway. You can post the next version once 6.3-rc1 is out.
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+QWxleGFuZHJlIEdoaXRpIDxhbGV4Z2hpdGlAcml2b3NpbmMuY29tPiB3cml0ZXM6Cgo+IFRoaXMg
+aXMgYSBwcmVsaW1pbmFyeSB3b3JrIHRoYXQgYWxsb3dzIHRvIG1ha2UgdGhlIGNvZGUgbW9yZQo+
+IHVuZGVyc3RhbmRhYmxlLgo+Cj4gU2lnbmVkLW9mZi1ieTogQWxleGFuZHJlIEdoaXRpIDxhbGV4
+Z2hpdGlAcml2b3NpbmMuY29tPgo+IC0tLQo+ICBhcmNoL3Jpc2N2L21tL2thc2FuX2luaXQuYyB8
+IDE4NSArKysrKysrKysrKysrKysrKysrKysrKy0tLS0tLS0tLS0tLS0tCj4gIDEgZmlsZSBjaGFu
+Z2VkLCAxMTYgaW5zZXJ0aW9ucygrKSwgNjkgZGVsZXRpb25zKC0pCgpSZXZpZXdlZC1ieTogQmrD
+tnJuIFTDtnBlbCA8Ympvcm5Acml2b3NpbmMuY29tPgoKX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
+c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
+bi9saXN0aW5mby9saW51eC1yaXNjdgo=
