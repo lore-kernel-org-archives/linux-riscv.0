@@ -4,69 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87865C61DA4
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Feb 2023 02:28:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 251B8C61DA4
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Feb 2023 02:29:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zVKUAdtB4rrGUn7ODEpGhdSuSKg+LZcA8csfT1aWoLw=; b=VgnLCsH/23golZ
-	WUyTz4z7UUXCpyByagCmmfwLWg3Nk2A79cihqMP5bo9Puud8mH+e1nbBDgJmOt7bNnkYztyb03Iqo
-	agwtVQ6Vi11odNSKWA9+i95l1wkjpPLrY/byKtvRENO2TxbfxXCLggSvMuxAFbNDEtSgrsZPJ/zUV
-	MjxDqSRVzY5UaDwaWc5LYmqdlrwwvNGTDz4VyNEGM2QeudpEQSRvAODLw1ycGTUlLD36IFfgiLXic
-	Hv15cg8NUB13vLycsCHORWA4zkC/WsvPXyboL/jTzO1+VxBd6mBQGMRhRwv+3gt8/H8WjFFkkmsiq
-	nZLLuOM1XN5QHKmSCADA==;
+	List-Owner; bh=C0GWMzG0iBTejale0S0ygoiJLyMUc2I8iIehpaat2e8=; b=fG5o0iBO1PsqaT
+	UBc+9BJEmuRw4uwfXahN2Fls/YFbHmu09oFY+AUZvPCM2k5tk8WZ8jMZ3CP0iCxN5SffolyXQwSiW
+	KzhCEr4946Bgg5NAeVqMvlb6A4KmLhLB9QzgEnjC/U70ghfxLqvNH9sUjFywLoytmNCuvt8gJSyDy
+	ecr+IvaC6PnHpQkskHQAqbGTI1PgeQNW6LWpXFXyl28vlvR7Pc/F+ZJzMZ24GyNuB8KXLhY/mgtxF
+	7qqTKGFxyNRexMm5YAN5qA/VDJNmORUO5NT8jV6TVYlIugBdHCyBY+sBuUvqj43ZCDcyS1tJZmj2v
+	QcKZOA5iRH0R06k9Zm+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSqTj-00COkA-L5; Fri, 17 Feb 2023 02:28:03 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSqTe-00COiA-0v
-	for linux-riscv@lists.infradead.org; Fri, 17 Feb 2023 02:28:01 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 79BA024E287;
-	Fri, 17 Feb 2023 10:27:29 +0800 (CST)
-Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 17 Feb
- 2023 10:27:29 +0800
-Received: from [192.168.125.82] (183.27.98.67) by EXMBX172.cuchost.com
- (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 17 Feb
- 2023 10:27:28 +0800
-Message-ID: <68e61f28-daec-ce72-726a-1fffe8e94829@starfivetech.com>
-Date: Fri, 17 Feb 2023 10:27:27 +0800
+	id 1pSqUk-00COty-7J; Fri, 17 Feb 2023 02:29:06 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pSqUh-00COsx-EB
+	for linux-riscv@lists.infradead.org; Fri, 17 Feb 2023 02:29:05 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 53A7DB82AF6
+	for <linux-riscv@lists.infradead.org>; Fri, 17 Feb 2023 02:29:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 924D4C433A1
+	for <linux-riscv@lists.infradead.org>; Fri, 17 Feb 2023 02:28:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1676600939;
+	bh=Ra2Kc03LZoibfd4WyHiHEUN5GcCOOJLNJsxaG6GQ8mE=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=TUScOgEXjlXbt2ARWyJA/mh1j775DvdVW1NJdvruQlphXipRbG3E8kgqgo4nagXsf
+	 3ndO2INDD4Zz22/K6qR/GoXJ64iEcVQsbZdlFFjZ8S/hpGDd/GlMvcbpSGSibCwk0u
+	 RqmAQrIUns6AmlNlExiTBdWPoMYdNoNbEthj+d4tQxJMV3txf7dwQIMd5mZ1GsU/SL
+	 E8+09KsQAo5tsxH0NUq8IVsl72fYs05iK9QPHK4D3m1FpA8mgFlLU9qQGExT5kRJYh
+	 r7JJ6gY4GdceAbvtYLYdELyzmFChDU1IixiMANDE0Mem5lNjdu/+2DgEug603XEEBO
+	 OSaP7pjiwwQYg==
+Received: by mail-ed1-f46.google.com with SMTP id ee31so563732edb.3
+        for <linux-riscv@lists.infradead.org>; Thu, 16 Feb 2023 18:28:59 -0800 (PST)
+X-Gm-Message-State: AO0yUKW9lbJeLfCt/y/ZEDgiUyjGV9Z97eewk+vul6zbkibWR7X8POnr
+	Z79uryWfBg/yuj2A5Mm7sc5qWf0P1sRPD/FPvmg=
+X-Google-Smtp-Source: AK7set9dHgzJsIxZkFtFpNM0y0jTcrTO/PULnhjZIThysYzt75rjc9hkBF9wYjkdmvrhADwLvqw7MHzMcFSAYcEFXys=
+X-Received: by 2002:a17:906:eb9a:b0:87b:fa21:7953 with SMTP id
+ mh26-20020a170906eb9a00b0087bfa217953mr3794180ejb.8.1676600937720; Thu, 16
+ Feb 2023 18:28:57 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.2
-Subject: Re: [PATCH v3 07/11] dt-bindings: clock: Add StarFive JH7110 system
- clock and reset generator
-Content-Language: en-US
-To: Conor Dooley <conor@kernel.org>
-CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-clk@vger.kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring
-	<robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Stephen Boyd <sboyd@kernel.org>,
-	"Michael Turquette" <mturquette@baylibre.com>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Emil Renner Berthing
-	<emil.renner.berthing@canonical.com>, <linux-kernel@vger.kernel.org>
-References: <20221220005054.34518-1-hal.feng@starfivetech.com>
- <20221220005054.34518-8-hal.feng@starfivetech.com> <Y6JB37Pd5TZoGMy4@spud>
- <7a7bccb1-4d47-3d32-36e6-4aab7b5b8dad@starfivetech.com>
- <Y6tSWB2+98a8k9Qw@spud>
- <5cf0fe71-fd17-fb28-c01e-28356081ba76@starfivetech.com>
- <Y+5z8skN2DuvxDEL@spud>
-From: Hal Feng <hal.feng@starfivetech.com>
-In-Reply-To: <Y+5z8skN2DuvxDEL@spud>
-X-Originating-IP: [183.27.98.67]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX172.cuchost.com
- (172.16.6.92)
-X-YovoleRuleAgent: yovoleflag
+References: <20230126161559.1467374-1-guoren@kernel.org> <0abbbdd4-6b85-9659-03ee-97c56a5b77c1@huawei.com>
+ <CAJF2gTS0s4X_uwLaEeSqKAyRmxCR2vxRuHhz7-SP2w4bBqzr+Q@mail.gmail.com>
+ <87r0vc9h4g.fsf@all.your.base.are.belong.to.us> <CAJF2gTQZWO8Ubi60nHn-J-8czqBnsp1Kdyoim3uLNkjbYd-H8Q@mail.gmail.com>
+ <87ilgntdef.fsf@all.your.base.are.belong.to.us> <CAJF2gTTaartwjVdmtmsm1FqmYVuAq5_nGYU5zc6nkdTtCm200A@mail.gmail.com>
+ <Y9jz+zUDebQ4VLlF@andrea> <CAJF2gTQsRcUpMk8nvFkEsz_fpVV+v6tpUDcPzaNjqfj+i_VvXA@mail.gmail.com>
+ <878rgy3v0e.fsf@all.your.base.are.belong.to.us>
+In-Reply-To: <878rgy3v0e.fsf@all.your.base.are.belong.to.us>
+From: Guo Ren <guoren@kernel.org>
+Date: Fri, 17 Feb 2023 10:28:45 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTTacQXg7e3s9s3dALCnPjstGGMPtk5L5SsN_MWKEov+pQ@mail.gmail.com>
+Message-ID: <CAJF2gTTacQXg7e3s9s3dALCnPjstGGMPtk5L5SsN_MWKEov+pQ@mail.gmail.com>
+Subject: Re: [PATCH] riscv: kprobe: Optimize kprobe with accurate atomicity
+To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+Cc: Andrea Parri <parri.andrea@gmail.com>, "liaochang (A)" <liaochang1@huawei.com>, palmer@dabbelt.com, 
+	paul.walmsley@sifive.com, mhiramat@kernel.org, conor.dooley@microchip.com, 
+	penberg@kernel.org, mark.rutland@arm.com, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>, 
+	Changbin Du <changbin.du@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230216_182758_369471_D638DADB 
-X-CRM114-Status: GOOD (  38.95  )
+X-CRM114-CacheID: sfid-20230216_182903_816808_3FACE4B0 
+X-CRM114-Status: GOOD (  30.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,192 +83,77 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 16 Feb 2023 18:20:34 +0000, Conor Dooley wrote:
-> Hey Hal!
-> 
-> On Thu, Feb 16, 2023 at 10:42:20PM +0800, Hal Feng wrote:
->> On Tue, 27 Dec 2022 20:15:20 +0000, Conor Dooley wrote:
->> > On Mon, Dec 26, 2022 at 12:26:32AM +0800, Hal Feng wrote:
->> >> On Tue, 20 Dec 2022 23:14:39 +0000, Conor Dooley wrote:
->> >> > On Tue, Dec 20, 2022 at 08:50:50AM +0800, Hal Feng wrote:
->> >> > > From: Emil Renner Berthing <kernel@esmil.dk>
->> >> > > 
->> >> > > Add bindings for the system clock and reset generator (SYSCRG) on the
->> >> > > JH7110 RISC-V SoC by StarFive Ltd.
->> >> > > 
->> >> > > Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
->> >> > > Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
->> > 
->> >> > > +  clocks:
->> >> > > +    items:
->> >> > > +      - description: Main Oscillator (24 MHz)
->> >> > > +      - description: GMAC1 RMII reference
->> >> > > +      - description: GMAC1 RGMII RX
->> >> > > +      - description: External I2S TX bit clock
->> >> > > +      - description: External I2S TX left/right channel clock
->> >> > > +      - description: External I2S RX bit clock
->> >> > > +      - description: External I2S RX left/right channel clock
->> >> > > +      - description: External TDM clock
->> >> > > +      - description: External audio master clock
->> >> > 
->> >> > So, from peeking at the clock driver & the dt - it looks like a bunch of
->> >> > these are not actually required?
->> >> 
->> >> These clocks are used as root clocks or optional parent clocks in clock tree.
->> >> Some of them are optional, but they are required if we want to describe the
->> >> complete clock tree of JH7110 SoC.
->> > 
->> > Perhaps I have a misunderstand of what required means. To me, required
->> > means "you must provide this clock for the SoC to operate in all
->> > configurations".
->> > Optional therefore would be for things that are needed only for some
->> > configurations and may be omitted if not required.
->> > 
->> > From your comment below, boards with a JH7110 may choose not to populate
->> > both external clock inputs to a mux. In that case, "dummy" clocks should
->> > not have to be provided in the DT of such boards to satisfy this binding
->> > which seems wrong to me..
->> 
->> Please see the picture of these external clocks in clock tree.
->> 
->> # mount -t debugfs none /mnt
->> # cat /mnt/clk/clk_summary
->>                                  enable  prepare  protect                                duty  hardware
->>    clock                          count    count    count        rate   accuracy phase  cycle    enable
->> -------------------------------------------------------------------------------------------------------
->>  *mclk_ext*                             0        0        0    12288000          0     0  50000         Y
->>  *tdm_ext*                              0        0        0    49152000          0     0  50000         Y
->>  *i2srx_lrck_ext*                       0        0        0      192000          0     0  50000         Y
->>  *i2srx_bclk_ext*                       0        0        0    12288000          0     0  50000         Y
->>  *i2stx_lrck_ext*                       0        0        0      192000          0     0  50000         Y
->>  *i2stx_bclk_ext*                       0        0        0    12288000          0     0  50000         Y
->>  *gmac1_rgmii_rxin*                     0        0        0   125000000          0     0  50000         Y
->>     gmac1_rx                          0        0        0   125000000          0     0  50000         Y
->>        gmac1_rx_inv                   0        0        0   125000000          0   180  50000         Y
->>  *gmac1_rmii_refin*                     0        0        0    50000000          0     0  50000         Y
->>     gmac1_rmii_rtx                    0        0        0    50000000          0     0  50000         Y
->>        gmac1_tx                       0        0        0    50000000          0     0  50000         N
->>           gmac1_tx_inv                0        0        0    50000000          0   180  50000         Y
->>  *osc*                                  4        4        0    24000000          0     0  50000         Y
->>     apb_func                          0        0        0    24000000          0     0  50000         Y
->>  ...
->> 
->> The clock "gmac1_rgmii_rxin" and the clock "gmac1_rmii_refin" are
->> actually used as the parent of other clocks.
-> 
->> The "dummy" clocks
->> you said are all internal clocks.
-> 
-> No, what I meant by "dummy" clocks is that if you make clocks "required"
-> in the binding that are not needed by the hardware for operation a
-> customer of yours might have to add "dummy" clocks to their devicetree
-> to pass dtbs_check.
-> 
->> For the audio related clocks (mclk_ext/tdm_ext/i2srx_lrck_ext/
->> i2srx_bclk_ext/i2stx_lrck_ext/i2stx_bclk_ext), they will be used
->> as the parent clocks in audio related drivers. Note that some
->> clocks need to select different clocks as parent according to
->> requirement.
->> So all these external clocks are required.
->> 
->> > 
->> > It would seem to me that you need to set minItems < maxItems here to
->> > account for that & you do in fact need clock-names.
->> > 
->> >> 
->> >> > I'd have ploughed through this, but having read Krzysztof's comments on
->> >> > the DTS I'm not sure that this binding is correct.
->> >> > https://lore.kernel.org/linux-riscv/20221220011247.35560-1-hal.feng@starfivetech.com/T/#mdf67621a2344dce801aa8015d4963593a2c28bcc
->> >> > 
->> >> > I *think* the DT is correct - the fixed clocks are all inputs from clock
->> >> > sources on the board and as such they are empty in soc.dtsi and are
->> >> > populated in board.dts?
->> >> 
->> >> Yes, the fixed clocks are all clock sources on the board and input to the SoC.
->> >> 
->> >> > 
->> >> > However, are they all actually required? In the driver I see:
->> >> > 	JH71X0__MUX(JH7110_SYSCLK_GMAC1_RX, "gmac1_rx", 2,
->> >> > 		    JH7110_SYSCLK_GMAC1_RGMII_RXIN,
->> >> > 		    JH7110_SYSCLK_GMAC1_RMII_RTX),
->> >> > That macro is:
->> >> > #define JH71X0__MUX(_idx, _name, _nparents, ...) [_idx] = {			\
->> >> > 	.name = _name,								\
->> >> > 	.flags = 0,								\
->> >> > 	.max = ((_nparents) - 1) << JH71X0_CLK_MUX_SHIFT,			\
->> >> > 	.parents = { __VA_ARGS__ },						\
->> >> > }
-> 
->> >> > AFAICT, RMII reference feeds RMII_RTX & RGMII RX *is* RGMII_RXIN?
->> >> > Does that mean you need to populate only one of GMAC1 RMII reference
->> >> > and GMAC1 RMGII RX and the other is optional?
-> 
->> >> Yes, actually only one of them is chosen as the root clock
->> >> source of the clock "gmac1_rx".
-> |  *gmac1_rgmii_rxin*   
-> |     gmac1_rx          
-> |        gmac1_rx_inv   
-> |  *gmac1_rmii_refin*   
-> |     gmac1_rmii_rtx    
-> |        gmac1_tx       
-> |           gmac1_tx_inv
-> |
-> | description: GMAC1 RMII reference
-> | description: GMAC1 RGMII RX
-> 
-> 
-> So you're telling me that you can either:
-> - Provide GMAC1 RMII reference and GMAC1 RGMII RX & then use different
->   clocks for gmac1_rx and gmac1_tx
-> - Provide only GMAC1 RMII reference & use it for both gmac1_tx *and*
->   gmac1_rx
-> 
-> Is that correct?
-
-Yes, it is.
-
-Best regards,
-Hal
-
-> 
->> >> > 
->> >> > > +
->> >> > > +  clock-names:
->> >> > > +    items:
->> >> > > +      - const: osc
->> >> > > +      - const: gmac1_rmii_refin
->> >> > > +      - const: gmac1_rgmii_rxin
->> >> > > +      - const: i2stx_bclk_ext
->> >> > > +      - const: i2stx_lrck_ext
->> >> > > +      - const: i2srx_bclk_ext
->> >> > > +      - const: i2srx_lrck_ext
->> >> > > +      - const: tdm_ext
->> >> > > +      - const: mclk_ext
->> >> > 
->> >> > If all clocks are in fact required though, isn't this kinda pointless to
->> >> > have since we already know that the order is fixed from the "clocks"
->> >> > property?
->> >> > Krzk/Rob?
->> >> 
->> >> The clock-names are used to easily identify these clocks in the clock driver.
->> > 
->> > *IF* all clocks were in fact required, which they aren't, you could rely
->> > on the order alone in the driver as it is enforced by the binding.
->> 
->> OK, I'll remove "clock-names" property in the bindings and device tree.
->> Instead, will use index to get these clocks in drivers.
-> 
-> Hang on until you answer my question above before deleting this from the
-> dt-binding & driver ;)
-> 
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBGZWIgMTYsIDIwMjMgYXQgMzo1NCBQTSBCasO2cm4gVMO2cGVsIDxiam9ybkBrZXJu
+ZWwub3JnPiB3cm90ZToKPgo+IEd1byBSZW4gPGd1b3JlbkBrZXJuZWwub3JnPiB3cml0ZXM6Cj4K
+PiA+IE9uIFR1ZSwgSmFuIDMxLCAyMDIzIGF0IDY6NTcgUE0gQW5kcmVhIFBhcnJpIDxwYXJyaS5h
+bmRyZWFAZ21haWwuY29tPiB3cm90ZToKPiA+Pgo+ID4+ID4gPiBJdCdzIHRoZSBjb25jdXJyZW50
+IG1vZGlmaWNhdGlvbiB0aGF0IEkgd2FzIHJlZmVycmluZyB0byAocmVtb3ZpbmcKPiA+PiA+ID4g
+c3RvcF9tYWNoaW5lKCkpLiBZb3UncmUgc2F5aW5nICJpdCdsbCBhbHdheXMgd29yayIsIEknbSBz
+YXlpbmcgIkknbSBub3QKPiA+PiA+ID4gc28gc3VyZSIuIDotKSBFLmcuLCB3cml0aW5nIGMuZWJy
+ZWFrIG9uIGFuIDMyYiBpbnNuLiBDYW4geW91IHNheSB0aGF0Cj4gPj4gPiBTb2Z0d2FyZSBtdXN0
+IGVuc3VyZSB3cml0ZSBjLmVicmVhayBvbiB0aGUgaGVhZCBvZiBhbiAzMmIgaW5zbi4KPiA+PiA+
+Cj4gPj4gPiBUaGF0IG1lYW5zIElGVSBvbmx5IHNlZToKPiA+PiA+ICAtIGMuZWJyZWFrICsgYnJv
+a2VuL2lsbGVnYWwgaW5zbi4KPiA+PiA+IG9yCj4gPj4gPiAgLSBvcmlnaW4gaW5zbgo+ID4+ID4K
+PiA+PiA+IEV2ZW4gaW4gdGhlIHdvcnN0IGNhc2UsIHN1Y2ggYXMgSUZVIGZldGNoZXMgaW5zdHJ1
+Y3Rpb25zIG9uZSBieSBvbmU6Cj4gPj4gPiBJZiB0aGUgSUZVIGdldHMgdGhlIG9yaWdpbiBpbnNu
+LCBpdCB3aWxsIHNraXAgdGhlIGJyb2tlbi9pbGxlZ2FsIGluc24uCj4gPj4gPiBJZiB0aGUgSUZV
+IGdldHMgdGhlIGMuZWJyZWFrICsgYnJva2VuL2lsbGVnYWwgaW5zbiwgdGhlbiBhbiBlYnJlYWsK
+PiA+PiA+IGV4Y2VwdGlvbiBpcyByYWlzZWQuCj4gPj4gPgo+ID4+ID4gQmVjYXVzZSBjLmVicmVh
+ayB3b3VsZCByYWlzZSBhbiBleGNlcHRpb24sIEkgZG9uJ3Qgc2VlIGFueSBwcm9ibGVtLgo+ID4+
+Cj4gPj4gVGhhdCdzIHRoZSBwcm9ibGVtLCB0aGlzIGRpc2N1c3Npb24gaXM6Cj4gPj4KPiA+PiBS
+ZXZpZXdlcjogIkknbSBub3Qgc3VyZSwgdGhhdCdzIG5vdCB3cml0dGVuIGluIG91ciBzcGVjIgo+
+ID4+IFN1Ym1pdHRlcjogIkkgc2FpZCBpdCwgaXQncyBjYWxsZWQgLWFjY3VyYXRlIGF0b21pY2l0
+eS0iCj4gPiBJIHJlYWxseSBkb24ndCBzZWUgYW55IGhhcmR3YXJlIHRoYXQgY291bGQgYnJlYWsg
+dGhlIGF0b21pY2l0eSBvZiB0aGlzCj4gPiBjLmVicmVhayBzY2VuYXJpbzoKPiA+ICAtIGMuZWJy
+ZWFrIG9uIHRoZSBoZWFkIG9mIDMyYiBpbnNuCj4gPiAgLSBlYnJlYWsgb24gYW4gYWxpZ25lZCAz
+MmIgaW5zbgo+ID4KPiA+IElmIElGVSBmZXRjaGVzIHdpdGggY2FjaGVsaW5lLCBhbGwgaXMgYXRv
+bWljaXR5Lgo+ID4gSWYgSUZVIGZldGNoZXMgd2l0aCAxNmJpdCBvbmUgYnkgb25lLCB0aGUgZmly
+c3QgYy5lYnJlYWsgd291bGQgcmFpc2UKPiA+IGFuIGV4Y2VwdGlvbiBhbmQgc2tpcCB0aGUgbmV4
+dCBicm9rZS9pbGxlZ2FsIGluc3RydWN0aW9uLgo+ID4gRXZlbiBpZiBJRlUgZmV0Y2hlcyB3aXRo
+b3V0IGFueSBzZXF1ZW5jZSwgdGhlIElEVSBtdXN0IGRlY29kZSBvbmUgYnkKPiA+IG9uZSwgcmln
+aHQ/IFRoZSBmaXJzdCBoYWxmIGMuZWJyZWFrIHdvdWxkIHByb3RlY3QgYW5kIHByZXZlbnQgdGhl
+IG5leHQKPiA+IGJyb2tlL2lsbGVnYWwgaW5zdHJ1Y3Rpb24uIFNwZWN1bGF0aXZlIGV4ZWN1dGlv
+biBvbiBicm9rZS9pbGxlZ2FsCj4gPiBpbnN0cnVjdGlvbiB3b24ndCBjYXVzZSBhbnkgZXhjZXB0
+aW9ucy4KPiA+Cj4gPiBJdCdzIGEgY29tbW9uIGlzc3VlLCBub3QgYSBzcGVjaWZpYyBJU0EgaXNz
+dWUuCj4gPiAzMmIgaW5zdHJ1Y3Rpb24gQSAtPiAxNmIgZWJyZWFrICsgMTZiIGJyb2tlbi9pbGxl
+Z2FsIC0+IDMyYgo+ID4gaW5zdHJ1Y3Rpb24gQS4gSXQncyBzYWZlIHRvIHRyYW5zZm9ybS4KPgo+
+IFdha2luZyB1cCB0aGlzIHRocmVhZCBhZ2Fpbiwgbm93IHRoYXQgQ2hhbmdiaW4gaGFzIHNob3dl
+ZCBzb21lIGludGVyZXN0Cj4gZnJvbSBhbm90aGVyIHRocmVhZCBbMV0uCj4KPiBHdW8sIHdlIGNh
+bid0IHJlYWxseSBhZGQgeW91ciBwYXRjaGVzLCBhbmQgY2xhaW0gdGhhdCB0aGV5J3JlIGdlbmVy
+aWMsCj4gIndvcmtzIG9uIGFsbCIgUklTQy1WIHN5c3RlbXMuIFdoaWxlIGl0IG1pZ2h0IHdvcmsg
+Zm9yIHlvdXIgSS9EIGNvaGVyZW50Cj4gc3lzdGVtLCB0aGF0IGRvZXMgbm90IGltcGx5IHRoYXQg
+aXQnbGwgd29yayBvbiBhbGwgcGxhdGZvcm1zLiBSSVNDLVYKPiBhbGxvd3MgZm9yIGltcGxlbWVu
+dGF0aW9ucyB0aGF0IGFyZSBJL0QgaW5jb2hlcmVudCwgYW5kIGhlcmUgeW91cgo+IElGVS1pbXBs
+ZW1lbnRhdGlvbnMgYXJndW1lbnRzIGRvIG5vdCBob2xkLiBJJ2QgcmVhbGx5IHJlY29tbWVuZCB0
+bwo+IHJlYWR1cCBvbiBbMl0uClNvcnJ5LCBbMl0gaXNuJ3QgcmVsYXRlZCB0byB0aGlzIHBhdGNo
+LgoKVGhpcyBwYXRjaCBkaWRuJ3QgaGF2ZSBJL0QgaW5jb2hlcmVudCBwcm9ibGVtIGJlY2F1c2Ug
+d2UgYnJvYWRjYXN0IHRoZQpJUEkgZmVuY2UuaSBpbiBwYXRjaF90ZXh0X25vc3luYy4KCkNvbXBh
+cmVkIHRvIHRoZSBzdG9wX21hY2hpbmUgdmVyc2lvbiwgdGhlcmUgaXMgYSBjcmF6eSBuZXN0ZWQg
+SVBJCmJyb2FkY2FzdCBjb3N0LgpzdG9wX21hY2hpbmUgLT4gcGF0Y2hfdGV4dF9ub3N5bmMgLT4g
+Zmx1c2hfaWNhY2hlX2FsbAp2b2lkIGZsdXNoX2ljYWNoZV9hbGwodm9pZCkKewogICAgICAgIGxv
+Y2FsX2ZsdXNoX2ljYWNoZV9hbGwoKTsKCiAgICAgICAgaWYgKElTX0VOQUJMRUQoQ09ORklHX1JJ
+U0NWX1NCSSkpCiAgICAgICAgICAgICAgICBzYmlfcmVtb3RlX2ZlbmNlX2koTlVMTCk7CiAgICAg
+ICAgZWxzZQogICAgICAgICAgICAgICAgb25fZWFjaF9jcHUoaXBpX3JlbW90ZV9mZW5jZV9pLCBO
+VUxMLCAxKTsKfQpFWFBPUlRfU1lNQk9MKGZsdXNoX2ljYWNoZV9hbGwpOwoKCj4KPiBOb3cgaG93
+IGNvdWxkIHdlIG1vdmUgb24gd2l0aCB5b3VyIHBhdGNoZXM/IEdldCBpdCBpbiBhIHNwZWMsIG9y
+IGZvbGQKPiB0aGUgcGF0Y2hlcyBpbiBhcyBhIEtjb25maWcuc29jcy10aGluZyBmb3IgdGhlIHBs
+YXRmb3JtcyB3aGVyZSB0aGlzIGlzCj4gT0suIFdoYXQgYXJlIHlvdSB0aG91Z2h0cyBvbiB0aGUg
+bGF0dGVyPwoKSSBkaWRuJ3QgdGFsayBhYm91dCBJL0QgaW5jb2hlcmVudC9jb2hlcmVudDsgd2hh
+dCBJIHNheSBpcyB0aGUgYmFzaWMKc2l6ZSBvZiB0aGUgaW5zdHJ1Y3Rpb24gZWxlbWVudC4KSW4g
+YW4gSS9EIGNhY2hlIHN5c3RlbSwgd2h5IGNvdWxkbid0IExTVSBzdG9yZS1oYWxmIGd1YXJhbnRl
+ZQphdG9taWNpdHkgZm9yIEktY2FjaGUgZmV0Y2g/IEhvdyBJLWNhY2hlIGNvdWxkIGZldGNoIG9u
+bHkgb25lIGJ5dGUgb2YKdGhhdCBTdG9yZS1oYWxmIHZhbHVlPwpXZSd2ZSBhc3N1bWVkIHRoaXMg
+Z3VhcmFudGVlIGluIHRoZSByaXNjdiBqdW1wX2xhYmVsIGltcGxlbWVudGF0aW9uLApzbyB3aHkg
+bm90IHRoaXMgcGF0Y2ggY291bGRuJ3Q/Cgo+Cj4KPiBCasO2cm4KPgo+IFsxXSBodHRwczovL2xv
+cmUua2VybmVsLm9yZy9saW51eC1yaXNjdi8yMDIzMDIxNTAzNDUzMi54czcyNmw3bXA2eGxua2Rm
+QE05MTB0Lwo+IFsyXSBodHRwczovL2dpdGh1Yi5jb20vcmlzY3YvcmlzY3Ytai1leHRlbnNpb24v
+YmxvYi9tYXN0ZXIvaWQtY29uc2lzdGVuY3ktcHJvcG9zYWwucGRmCgoKCi0tIApCZXN0IFJlZ2Fy
+ZHMKIEd1byBSZW4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
+b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
+Y3YK
