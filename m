@@ -4,74 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C4C2C05027
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Feb 2023 04:04:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A981C05027
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Feb 2023 07:29:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:CC:To:From:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HUHXcA0b+DhtqcS7xg1rVco6+FP10CAf9WtibJN/17o=; b=M9pdmeIJNY2JTH
-	vLrDsO2gXYAOBABVvWeS4uUm8brugLlyOUyZpSGvKWhakLDiEt5aerd9O06CG2nbjz86UUg+lz2C1
-	TIk6N9NbG6Bu0Xc9EEUhzJexCb8Hrqm3i8oLpq2FGRZU39eErc83gjuhSJ1UNrnSVb1U+3v7pKgoq
-	dfaPL+iuygUI1nIGnFkKi7sdHqMR70escGpSNyDE3qZ+/F6haZQW4PbcflfWp65uszd/dSBUl2Z3/
-	0O65YOi8IdLg1Zohd55eRo415pGYmXeBSYBaRNZCOidRFw/jrE76lq23AUhiaK51zY9xpJVhOut6p
-	hG2nTvpnEo5qAyimmsRw==;
+	List-Owner; bh=Q4jodpEkf/wdxZZGwTlFs1ef/6Z2pM7alCb2sRRezlc=; b=K2oxNzQZAKa0ex
+	77sPAgx3j5jWEo7sauFGRXwnyZytbnjJ5EhTRaiOawFAdL4pLoXcItM8Zh1ZyWgh+VOQJbXdh8Fqx
+	ljx26e50E+D8HcrkIk64IiG8C/XeRWn2dIteFem8/olyjn4cpj7DHBCvkHFi80jVlgpxDqMp5F11Z
+	HX5VW6v3lChrC8nJODThNKWMzBMCb3UWs1I4NgLnEPrLzFxzYojAQ6B84lZRfJa12iEuSepcOIEIa
+	m2LeQG98q1E9rZQFJaNecwnCWqgjy94sPsg4JZXLeKKAe84TYwB7vCpZmxrq2ZfqJYtMpqLZyy4Aj
+	kyvGwKgmGXoVP3MDEEzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSrzC-00CYUd-At; Fri, 17 Feb 2023 04:04:38 +0000
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSrz8-00CYTt-UF
-	for linux-riscv@lists.infradead.org; Fri, 17 Feb 2023 04:04:36 +0000
-Received: by mail-ed1-x531.google.com with SMTP id l11so121634edb.11
-        for <linux-riscv@lists.infradead.org>; Thu, 16 Feb 2023 20:04:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=HxmUSlJXaf6nTG5D0bylzf06QH492H43qo5VyH1HCv0=;
-        b=Oe48S6nFeeuh57y6PJwlajhHUNdjJbA56bg8u8jzeqWafp9VdwUQWtaI4Iv9kimQOw
-         bEeU8umc6LtnIkAx+iarURZvIHJP+nV23abXYGn5Mt7fKbMFiawcO1G+uSjsLlPAFlWw
-         AhZzpg4wuH4yNoOEacLgs0Hb97xZJlOSZYyo1d8FQgjUUCpKhdBdH1woT6o2mIGsPyjq
-         J4+/ZCP087BKhcE9R/JGgMkO3b8MXVhx/rwYxZs8mZkgbIO9ey0/f9ujCSzRVw4SCJ6v
-         HqLZ7KODZVRXdFuhgf9Kct+UPi40QOqyAXrwt9/KxC7toh6TEtebKVaXHnTYqIz4oCgJ
-         j/Jw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=HxmUSlJXaf6nTG5D0bylzf06QH492H43qo5VyH1HCv0=;
-        b=gcIVBUwTDu3hxNrNIB2ujYqKkpIwJDR/g+Wt1HMImQkfmpH+gQdU9lLsqJt5GI8L5B
-         PT9dujXnAiBXAM6YE9UreL0+TAqaCBrHwiee08dT06bhYsfBZb5nWyTPKy8R03q04xEx
-         c/786/aXSeYlXOzvH8AGTc6A3H/viKi0MCSggt+LlcYQT2Zyv/0VYxH2F9AGUUYFanJl
-         ph0XMf/EhVqFHBv/oKk7wsSh9HHYQqnH07Wg3Dw6pSq/nFf215/aR7RTPNinImgrHr3d
-         YQu0LOXYgFcFpTqbGj6u6O7luEvgXPhshpMH2s+h6+0KPwJ/SzacwOaSK/VORnWLErgn
-         CZDA==
-X-Gm-Message-State: AO0yUKWHmy8lzM/WiChl/rdwdPD1KGd71u3sBa94sff07tDGE3rCyDu4
-	uyRm/caIeJj3Ufau1DyGAsfUH6vNERzHWu/crsY=
-X-Google-Smtp-Source: AK7set/SgkK+MozdQWfxYPFwSGuOVWulvR54xmNEnad8gOmp2yXZCJe4oU1TESzW5Sre9sFJlDU6+Y+2s4Zslm33OoI=
-X-Received: by 2002:a17:906:6896:b0:8a5:c8bd:4ac4 with SMTP id
- n22-20020a170906689600b008a5c8bd4ac4mr3901584ejr.15.1676606669190; Thu, 16
- Feb 2023 20:04:29 -0800 (PST)
+	id 1pSvB7-00D5ub-VZ; Fri, 17 Feb 2023 07:29:09 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pSvB2-00D5o7-V6
+	for linux-riscv@lists.infradead.org; Fri, 17 Feb 2023 07:29:08 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 5D5A624DE83;
+	Fri, 17 Feb 2023 15:28:32 +0800 (CST)
+Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 17 Feb
+ 2023 15:28:32 +0800
+Received: from [192.168.125.128] (183.27.98.67) by EXMBX061.cuchost.com
+ (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 17 Feb
+ 2023 15:28:30 +0800
+Message-ID: <267ab62d-d680-d505-4183-ccb8c654419e@starfivetech.com>
+Date: Fri, 17 Feb 2023 15:29:00 +0800
 MIME-Version: 1.0
-References: <20230111134513.2495510-1-conor.dooley@microchip.com>
- <CABb+yY3+83AP0B4RUGTabqjR=7rXJFMgAvXsM5Go3sz2RMJA1g@mail.gmail.com>
- <Y8w5NO9E/j/6eT5d@spud> <Y+6tK/OS13THpQo4@spud>
-In-Reply-To: <Y+6tK/OS13THpQo4@spud>
-From: Jassi Brar <jassisinghbrar@gmail.com>
-Date: Thu, 16 Feb 2023 22:04:17 -0600
-Message-ID: <CABb+yY2u0LNiwiJeOwhYU69U_m+5bx5rsHOk5jbyJTRbVcjeYw@mail.gmail.com>
-Subject: Re: [PATCH v1 0/7] MPFS system controller/mailbox fixes
-To: Conor Dooley <conor@kernel.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>, 
-	Daire McNamara <daire.mcnamara@microchip.com>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.7.2
+Subject: Re: [PATCH v2 2/3] drivers: watchdog: Add StarFive Watchdog driver
+Content-Language: en-US
+From: Xingyu Wu <xingyu.wu@starfivetech.com>
+To: Guenter Roeck <linux@roeck-us.net>
+CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-watchdog@vger.kernel.org>, Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Rob Herring
+	<robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, "Palmer
+ Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, "Philipp
+ Zabel" <p.zabel@pengutronix.de>, Samin Guo <samin.guo@starfivetech.com>,
+	<linux-kernel@vger.kernel.org>
+References: <20221219094233.179153-1-xingyu.wu@starfivetech.com>
+ <20221219094233.179153-3-xingyu.wu@starfivetech.com>
+ <20230201224619.GA3194283@roeck-us.net>
+ <1f18bfdc-7a04-4914-d970-7ef1d4f99653@starfivetech.com>
+ <bfc81429-1829-bec1-ac29-0559f6a01215@roeck-us.net>
+ <c0b03600-13a9-b9e7-e4f3-701fd5b55c86@starfivetech.com>
+In-Reply-To: <c0b03600-13a9-b9e7-e4f3-701fd5b55c86@starfivetech.com>
+X-Originating-IP: [183.27.98.67]
+X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX061.cuchost.com
+ (172.16.6.61)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230216_200435_019830_2370F2F4 
-X-CRM114-Status: GOOD (  40.83  )
+X-CRM114-CacheID: sfid-20230216_232905_327443_ED1A2F94 
+X-CRM114-Status: UNSURE (   9.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,84 +78,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 16, 2023 at 4:24 PM Conor Dooley <conor@kernel.org> wrote:
-> >
-> > > > Secondly, I have a question about what to do if a service does fail, but
-> > > > not due to a timeout - eg the above example where the "new" image for
-> > > > the FPGA is actually older than the one that currently exists.
-> > > > Ideally, if a service fails due to something other than the transaction
-> > > > timing out, I would go and read the status registers to see what the
-> > > > cause of failure was.
-> > > > I could not find a function in the mailbox framework that allows the
-> > > > client to request that sort of information from the client. Trying to
-> > > > do something with the auxiliary bus, or exporting some function to a
-> > > > device specific header seemed like a circumvention of the mailbox
-> > > > framework.
-> > > > Do you think it would be a good idea to implement something like
-> > > > mbox_client_peek_status(struct mbox_chan *chan, void *data) to allow
-> > > > clients to request this type of information?
-> > > >
-> > > .last_tx_done() is supposed to make sure everything is ok.
-> >
-> > Hm, might've explained badly as I think you've misunderstood. Or (see
-> > below) I might have mistakenly thought that last_tx_done() was only meant
-> > to signify that tx was done.
-> >
-> > Anyways, I'll try to clarify.
-> > Some services don't set a status, but whether a status is, or isn't,
-> > set has nothing to do with whether the service has completed.
-> > One service that sets a status is "Authenticate Bitstream". This
-> > service sets a status of 0x0 if the bitstream in question is okay _and_
-> > something that the FPGA can be upgraded to. It returns a failure of 0x18
-> > if the bitstream is valid _but_ is the same as that currently programmed.
-> > (and of course a whole host of other possible errors in-between)
-> >
-> > These statuses, and whether they are a bad outcome or not, is dependant
-> > on the service and I don't think should be handled in the mailbox
-> > controller driver.
-> >
-> > > If the expected status bit is "sometimes not set", that means that bit
-> > > is not the complete status.
-> >
-> > If the "busy" bit goes low, then the transmission must be complete,
-> > there should be no need to check other bits for *completion*, but...
-> >
-> > > You have to check multiple registers to
-> > > detect if and what caused the failure.
-> >
-> > ...maybe I have just misunderstood the role of .last_tx_done(). The
-> > comment in mailbox-controller.h lead me to believe that it was used just
-> > to check if it had been completed.
-> >
-> > Am I allowed to use .last_tx_done() to pass information back to the
-> > mailbox client? If I could, that'd certainly be a nice way to get the
-> > information on whether the service failed etc.
-> >
-> > Hopefully that, plus when you have a chance to look at the code, will
-> > make what I am asking about a little clearer!
->
-> Just wondering if you've had a chance to look at this again! I know it's
-> missed the merge window this time around but I would like to get this
-> behaviour fixed as other work depends on it.
->
-My opinion about adding a new api just to accommodate remote f/w's
-behaviour change across updates is still no.
-last_tx_done() is more abstract than you think -- it has to play with
-dozens of behaviors of remotes. So may just wrap your whatever logic,
-of "tx is done", in that.
-
-This query within the patchset threw me off -- I thought you needed
-the new api for the patchset, so I didn't look further.
-Looking at it now, I am ok with applying Patches 1,2 and 3. If you want.
-
-cheers.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMjAyMy8yLzE3IDEwOjMwLCBYaW5neXUgV3Ugd3JvdGU6Cj4gT24gMjAyMy8yLzE2IDIyOjU3
+LCBHdWVudGVyIFJvZWNrIHdyb3RlOgo+PiBPbiAyLzE1LzIzIDIzOjExLCBYaW5neXUgV3Ugd3Jv
+dGU6Cj4+PiBPbiAyMDIzLzIvMiA2OjQ2LCBHdWVudGVyIFJvZWNrIHdyb3RlOgo+Pj4+IE9uIE1v
+biwgRGVjIDE5LCAyMDIyIGF0IDA1OjQyOjMyUE0gKzA4MDAsIFhpbmd5dSBXdSB3cm90ZToKPj4+
+Pj4gQWRkIHdhdGNoZG9nIGRyaXZlciBmb3IgdGhlIFN0YXJGaXZlIEpINzExMCBTb0MuCj4+Pj4+
+Cj4+Pj4+IFNpZ25lZC1vZmYtYnk6IFhpbmd5dSBXdSA8eGluZ3l1Lnd1QHN0YXJmaXZldGVjaC5j
+b20+Cj4+Pj4+ICsKPj4+Pj4gWy4uLl0KPj4+Pj4gKwo+Pj4+PiArc3RhdGljIGNvbnN0IHN0cnVj
+dCB3YXRjaGRvZ19pbmZvIHN0YXJmaXZlX3dkdF9pZGVudCA9IHsKPj4+Pj4gK8KgwqDCoCAub3B0
+aW9ucyA9IE9QVElPTlMsCj4+Pj4+ICvCoMKgwqAgLmZpcm13YXJlX3ZlcnNpb24gPSAwLAo+Pj4+
+Cj4+Pj4gSXQgaXMgbm90IG5lY2Vzc2FyeSB0byBpbml0aWxpemUgYSBzdGF0aWMgdmFyaWFibGUg
+d2l0aCAwLgo+Pj4+Cj4+Pj4+ICvCoMKgwqAgLmlkZW50aXR5ID0gIlN0YXJGaXZlIFdhdGNoZG9n
+IiwKPj4+Pj4gK307Cj4+Pgo+Pj4gSGkgR3VlbnRlciwKPj4+Cj4+PiBJdCB3b3VsZCBiZSBhIGNv
+bXBpbGF0aW9uIGVycm9yIGlmIGRyb3AgdGhlICcwJy4gSSBmb3VuZCB0aGF0IG90aGVyIGZpbGVz
+Cj4+IAo+PiBOby4KPj4gCj4+PiBpbml0aWFsaXplIHRoaXMgc3RhdGljIHZhcmlhYmxlIGFzIHdl
+bGwuCj4+Pgo+PiAKPj4gQWgsIHRoZSBvbGQgIm90aGVycyBkbyBpdCwgc28gZG8gSSIgYXJndW1l
+bnQuCj4+IFNvcnJ5LCB0aGF0IGlzIG5vdCBhIHZhbGlkIGFyZ3VtZW50Lgo+PiAKPiAKPiBDYW4g
+SSBhc3NpZ24g4oCYZmlybXdhcmVfdmVyc2lvbuKAmSB0byBhIG1hY3JvIGRlZmluaXRpb24gaW4g
+dGhlIHByb2JlPwo+IAoKT3IgZHJvcCB0aGUgJ2Zpcm13YXJlX3ZlcnNpb24nID8KCkJlc3QgcmVn
+YXJkcywKWGluZ3l1IFd1CgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
+ZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
+eC1yaXNjdgo=
