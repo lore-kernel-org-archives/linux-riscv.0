@@ -4,67 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9F51C05027
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Feb 2023 15:10:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC1D7C05027
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Feb 2023 15:25:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JZC4sXqs4zY9dHLn+u0nqo6qJWyXFWaS8h5B2g+FAzQ=; b=VzcHB9CzXZqBN8
-	RttFGNhgbMOY32uWj79i53cxEL4Igj6JZhu3oBv8nHj2NL15NIw3JzLwD14fFTezoLnU6bVboYDGH
-	268x93aFCGwXLZOTxIa3jHUlnPWFUqoJCz9G2tBCvVW1G5tcwUOOgRDgVnOnIoNwZlYmCyd+kty8S
-	Va0Vgzf9hBKRnuPt00PtEetRgrEzBoeBJhhadGiF7QtFLYnRUa77kwNypbPvk46noXv1XVknyjl+s
-	k0vSOm5BwQcjR2wAGo1Yo0bmvWGYaUrEPaRsbrzERF0LGH/3CFSnqePdc09KUjzzoDHHOuorgqXU/
-	2wtEcbHdtDANfGreLpkw==;
+	List-Owner; bh=20t9B8DOha5vkt05sm9UO234rS5+CqQRF7GuSJAAEnw=; b=LtlvkabWt9jLGA
+	V5Sz6BVzZRB1RAS9qkJLouj6m0O7BUmctewgj+h/SJM+HP/wXb6y5tVdnuZD73lw2WCt4rlxbO3s6
+	KWnWaNbgF1Zd3FFaNiiusaAX385xHQxDocykzVklmpWBIfFcmzHE8wuczly24l5PPhQ/OoYAIp0wp
+	ybjWBQtiBcGRrLW06czs+VBw4fETIZJMSihSdJst5wSFSvh94QSCGzPS3nrEj5zPic1bcDRMqhTPT
+	WMP+uG6s7Y7g+aLsHN/bvKTZ78+4x9QFDS8vwhK6Ex9wLsxtLxUdllP3wODtMGONbIGnKRCM5syyc
+	7Hq5rpP3IFYDTrYS/hMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pT2NG-00EltM-Ri; Fri, 17 Feb 2023 15:10:10 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pT2cA-00ErT9-P1; Fri, 17 Feb 2023 15:25:34 +0000
+Received: from madras.collabora.co.uk ([46.235.227.172])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pT2CK-00EgIM-FT
-	for linux-riscv@lists.infradead.org; Fri, 17 Feb 2023 14:58:54 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	id 1pT2bz-00ErPv-FU; Fri, 17 Feb 2023 15:25:25 +0000
+Received: from [192.168.1.90] (unknown [86.120.32.152])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 8002561D4F;
-	Fri, 17 Feb 2023 14:58:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CECF2C433D2;
-	Fri, 17 Feb 2023 14:58:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1676645931;
-	bh=MtqNCOwgfK+uXpcr0rZdEnDp31xRiNLfgJsnxPeWYqI=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=Y+nxlJ/gcm1x1jXsY3cF3B2F4DeZFxJ9wZOVnugbYAbAfjCUaUNp6p8wLm6FsPubc
-	 y2vH2kqB56EDNmv6n9vtjALmNGH0PYbk1CIRl/oF53U5XcUxCzzv9XtK04QMvq4Qhg
-	 n8t43QZ+dFseHw1S4ynHE9XUtR4jMpd2TtHiKWBgTrrnP9fdYcYAmbp4ojbYCkQni9
-	 4JWBeXVn+vRxHUTHYiG8pQT89DD73jY/kZVn5jLYwZklPZsb1ujOFPKmcJKTzRnW6X
-	 e7Z54JinCqoqpi2P+C/zcmlGwW5QT/aNTofmP7TJgXMt/maIyvhVUGBl4v5sE6sAGU
-	 6ClN341Ryg/0A==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Andrey Ryabinin <ryabinin.a.a@gmail.com>,
- Alexander Potapenko <glider@google.com>, Andrey Konovalov
- <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>, Vincenzo
- Frascino <vincenzo.frascino@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
- Conor Dooley <conor@kernel.org>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com,
- linux-efi@vger.kernel.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: Re: [PATCH v4 3/6] riscv: Move DTB_EARLY_BASE_VA to the kernel
- address space
-In-Reply-To: <20230203075232.274282-4-alexghiti@rivosinc.com>
-References: <20230203075232.274282-1-alexghiti@rivosinc.com>
- <20230203075232.274282-4-alexghiti@rivosinc.com>
-Date: Fri, 17 Feb 2023 15:58:48 +0100
-Message-ID: <873574uymv.fsf@all.your.base.are.belong.to.us>
+	(Authenticated sender: cristicc)
+	by madras.collabora.co.uk (Postfix) with ESMTPSA id C11E866021B3;
+	Fri, 17 Feb 2023 15:25:16 +0000 (GMT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1676647518;
+	bh=u3KoxZVrumBXHky7NSspaxJOp8H2j+XZUk4y1KNptJI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=XNw8qC13BbGUvncrt5In0WQZMUFKRE5HdluJEsHVNO/neSDYGjDNHVgripQYaAWXh
+	 JLCH4M8sJLPqpv6EhIGO909UOxpEdI2axn+OHveHwr29oR8BE/H7jsHms1I/v3et2N
+	 dGNG3+th8t0XkQewAVreP1A+JMU2dUkccFzNhWbADg9zOxXurEaKiq0IG+gwqi1W+D
+	 vrgwIw0q9wchaowLs+RDdpT2QpNRlRY7TvDK/6kka8eAWesC3yazUltbJ2NgAThB4k
+	 EMxee89Oke3CkrbBA+JrMWIeSBhcvIWurXxoUNloMg9mjjcrMytfEdWH2wSHxjo1Rb
+	 AsJkSUdQVLuuQ==
+Message-ID: <350b400f-210a-a2cf-0828-25beb1b93a43@collabora.com>
+Date: Fri, 17 Feb 2023 17:25:14 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.7.2
+Subject: Re: [PATCH 07/12] dt-bindings: net: Add StarFive JH7100 SoC
+Content-Language: en-US
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Emil Renner Berthing <kernel@esmil.dk>, Conor Dooley <conor@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Jose Abreu <joabreu@synopsys.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Richard Cochran <richardcochran@gmail.com>,
+ Sagar Kadam <sagar.kadam@sifive.com>,
+ Yanhong Wang <yanhong.wang@starfivetech.com>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, kernel@collabora.com
+References: <20230211031821.976408-1-cristian.ciocaltea@collabora.com>
+ <20230211031821.976408-8-cristian.ciocaltea@collabora.com>
+ <Y+e74UIV/Td91lKB@lunn.ch>
+ <586971af-2d78-456d-a605-6c7b2aefda91@collabora.com>
+ <Y+zXv90rGfQupjPP@lunn.ch>
+ <cfa0f980-4bb6-4419-909c-3fce697cf8f9@collabora.com>
+ <Y+5t4Jlb0ytw40pu@lunn.ch>
+ <a824a7f6-0a62-7cab-180b-f20297311a2b@collabora.com>
+ <Y++BZWhJm1LpdrA9@lunn.ch>
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <Y++BZWhJm1LpdrA9@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230217_065852_640022_653612F9 
-X-CRM114-Status: UNSURE (   9.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230217_072523_678099_F5CE0511 
+X-CRM114-Status: GOOD (  22.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,22 +91,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-QWxleGFuZHJlIEdoaXRpIDxhbGV4Z2hpdGlAcml2b3NpbmMuY29tPiB3cml0ZXM6Cgo+IFRoZSBl
-YXJseSB2aXJ0dWFsIGFkZHJlc3Mgc2hvdWxkIGxpZSBpbiB0aGUga2VybmVsIGFkZHJlc3Mgc3Bh
-Y2UgZm9yCj4gaW5saW5lIGthc2FuIGluc3RydW1lbnRhdGlvbiB0byBzdWNjZWVkLCBvdGhlcndp
-c2Uga2FzYW4gdHJpZXMgdG8KPiBkZXJlZmVyZW5jZSBhbiBhZGRyZXNzIHRoYXQgZG9lcyBub3Qg
-ZXhpc3QgaW4gdGhlIGFkZHJlc3Mgc3BhY2UgKHNpbmNlCj4ga2FzYW4gb25seSBtYXBzICprZXJu
-ZWwqIGFkZHJlc3Mgc3BhY2UsIG5vdCB0aGUgdXNlcnNwYWNlKS4KPgo+IFNpbXBseSB1c2UgdGhl
-IHZlcnkgZmlyc3QgYWRkcmVzcyBvZiB0aGUga2VybmVsIGFkZHJlc3Mgc3BhY2UgZm9yIHRoZQo+
-IGVhcmx5IGZkdCBtYXBwaW5nLgo+Cj4gSXQgYWxsb3dlZCBhbiBVYnVudHUga2VybmVsIHRvIGJv
-b3Qgc3VjY2Vzc2Z1bGx5IHdpdGggaW5saW5lCj4gaW5zdHJ1bWVudGF0aW9uLgo+Cj4gU2lnbmVk
-LW9mZi1ieTogQWxleGFuZHJlIEdoaXRpIDxhbGV4Z2hpdGlAcml2b3NpbmMuY29tPgoKUmV2aWV3
-ZWQtYnk6IEJqw7ZybiBUw7ZwZWwgPGJqb3JuQHJpdm9zaW5jLmNvbT4KCl9fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
-dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
-b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On 2/17/23 15:30, Andrew Lunn wrote:
+>>> I would actually say it shows we don't understand what is going on
+>>> with delays. "rgmii" is not every often the correct value. The fact it
+>>> works suggests the MAC is adding delays.
+>>>
+>>> What value are you using for starfive,gtxclk-dlychain ?
+>>
+>> This is set to '4' in patch 12/12.
+>>
+>>> Try 0 and then "rgmii-id"
+>>
+>> I made some more tests and it seems the only stable configuration is "rgmii"
+>> with "starfive,gtxclk-dlychain" set to 4:
+>>
+>> phy-mode | dlychain | status
+>> ---------+----------+--------------------------------------------
+>> rgmii    |        4 | OK (no issues observed)
+>> rgmii-id |        4 | BROKEN (errors reported [1])
+>> rgmii    |        0 | UNRELIABLE (no errors, but frequent stalls)
+>> rgmii-id |        0 | BROKEN (errors reported)
+>>
+>> [1] Reported errors in case of BROKEN status:
+>> $ grep '' /sys/class/net/eth0/statistics/* | grep -v ':0$'
+> 
+> Thanks for the testing.
+> 
+> So it seems like something is adding delays when it probably should
+> not. Ideally we want to know what.
+> 
+> There is a danger here, something which has happened in the past. A
+> PHY which ignored "rgmii" and actually did power on defaults which was
+> "rgmii-id". As a result, lots of boards put "rmgii" in there DT blob,
+> which 'worked'. Until a board came along which really did need
+> "rgmii". The developer bringing that board up debugged the PHY, found
+> the problem and made it respect "rgmii" so their board worked. And the
+> fix broke a number of 'working' boards which had the wrong "rgmii"
+> instead of "rgmii-id".
+
+Thanks for the heads-up.
+
+> So you have a choice. Go with 4 and "rgmii", but put in a big fat
+> warning, "Works somehow but is technically wrong and will probably
+> break sometime in the future". Or try to understand what is really
+> going on here, were are the delays coming from, and fix the issue.
+> 
+>        Andrew
+
+I will try to analyze this further.
+
+Regards,
+Cristian
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
