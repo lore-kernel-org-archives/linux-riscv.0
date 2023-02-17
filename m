@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 092D5C636D7
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Feb 2023 00:50:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58FDCC636CC
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Feb 2023 00:51:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QbyEi2Luo8xcMstN/6SSvnzEwrRgLBleYvTX0bhSX7s=; b=ZTQvzVSqmRoEmO
-	ZBK4GTzUtrKNUDLTQwZ5+cMSYL8/Jawt0rAxzb5GcggzQ21uL7WamB/kq54GtneKd3tZI4UYExjJV
-	ncVwZMYMwCbz5XTMJHqa+qWjm0zrYs+rp6fjJ/ibQappPkeE4GAeCvNmTs16cyEfEa9UNjkVCKyq6
-	8lEJRHmMSHuz9NYp9vzQj27aCW6R+DtZ28PLkBE3Z9ApBBANpb4YBH9kleqcqPzjv1fhDxzM0Znr4
-	hiYJ5MKG2GW0WCDU45I9bPcU8Uhh/IjREArQJC37iWjsFucjwHamOleHUYDEiBojFXWJDF+W9I4Im
-	qdzHwMqtYLOPtaSpI+fA==;
+	List-Owner; bh=KFA2S9IBoKLe/7mUFlVeUNdyF8GWiNuo5YWbOAyIeXw=; b=h785mf7hCXxtrr
+	089vQUMrHR7DIszQpgW9zN8ezqgRMXZO60NdEcIxxvlUpiuDn0csMQbF708an8oMxgWaTleSJxkTb
+	O5wpTsk80j+mzms/iRLweN0a9hoZHwFkol4OPNvdcmBdk5QX4ohftF+bvabWHbPR4nhw4ScyBGWcG
+	LtFIxls/px/l04F+KlvnLrjxQUDMjbbqlmcaok3Ibx8oSq7wX9J2x9wOEE7AG9qTtmUFWiL8bnegl
+	MqI8J+mQDSZFegw8oeZU9bN0LB0xPV1e6CNCmA61fBOoSAbr2kxgILHrG8Hw/b7mICfs5tuV3QBS+
+	WoNxYJyLzs1DGfnAWxbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSoxQ-00CFgu-M6; Fri, 17 Feb 2023 00:50:36 +0000
-Received: from smtpbgeu1.qq.com ([52.59.177.22])
+	id 1pSoxi-00CFmc-4p; Fri, 17 Feb 2023 00:50:54 +0000
+Received: from smtpbguseast1.qq.com ([54.204.34.129])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSoxI-00CFcI-O1
-	for linux-riscv@lists.infradead.org; Fri, 17 Feb 2023 00:50:34 +0000
-X-QQ-mid: bizesmtp76t1676594981tzj20bxn
+	id 1pSoxe-00CFeG-Ot
+	for linux-riscv@lists.infradead.org; Fri, 17 Feb 2023 00:50:52 +0000
+X-QQ-mid: bizesmtp76t1676594986t2mmsk6j
 Received: from localhost.localdomain ( [116.30.131.224])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 17 Feb 2023 08:49:37 +0800 (CST)
+	id ; Fri, 17 Feb 2023 08:49:43 +0800 (CST)
 X-QQ-SSF: 01200000000000C0T000000A0000000
-X-QQ-FEAT: HH6/KuQOBEYape0K7eNPpGClNte1p9KwHz5G63svXw4+DTBNwFMoPpE5XUhx6
-	05cCvEABd10oan5cv3LUnUMcUAHqyNqZq4+jTSCoUmilAXTQ9duURc8/ruw7SY6oor0tBev
-	RoFEB3fWfD1W8TD67x5MtiQ+DjwwcYO78oT04ndKAyzBOChBjxfUcAYeQ4FX5k0S5OoK8Ox
-	gFEhgXjlsxlrY99cZIG/3rP3A79PqE/96cPTSu6w0R+hXn7r4u9vMv+S2yzV/ofwTvSCq12
-	zwDKb63xgVmxw+JXjn9VgOf31CWsu7Tgnd7untYTG8+Nkyy+99r1iatC9zrXPQh7OdEa1UY
-	DB2saWPTsE8kVbMerbuqMOpDMVViphDIwHBwBVQOPZPg8P/98pX6ELE5xO/vKjwq+wBju5K
-	sOzMCFPNoHQ=
+X-QQ-FEAT: 5CNn+SP0K2vhxP3ij/QWqUpDn2ZGtGF/HTyDPtXoKH89iqmX5zLubkqspz2kF
+	NtTnLYIU+0SgEHfMgM5sR432r0TwmkrBhe3kSySu0yLsgT/Mzi+EbeZyoycxW8ekbNOfRH1
+	EXwhkOKRPC/LUAyhLqRb0s1KBws0EFd+HfFVJy6b2pICKxi0PJuR8HR9PRmB9M2cvkHWsfc
+	8XLlUBY56KbU6ixoaSQW5xoQnB2/2OYtiW0RP0OwXyXI4+lqxgiNSKr/RMA0F5hV4Ns5IqG
+	cUjDHnF+OJ33xh5c0CET//3UA93C/o1KyTGve+1c/7fiRLD7ejxwfy/voNuaapE0xHPZcwr
+	pwOpy7EwBDywpDN/XTzr4UT0Y0uFav3R5GDMcnFLi7Baqd7sxf2ep2dZisXQosML7Wc74Ad
+	DQ1lmWv68Z4=
 X-QQ-GoodBg: 0
 From: Zhangjin Wu <falcon@tinylab.org>
 To: linux-riscv@lists.infradead.org,
@@ -50,9 +50,9 @@ Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Nicholas Mc Guire <hofrat@osadl.org>,
 	Zhangjin Wu <falcon@tinylab.org>
-Subject: [RFC PATCH 2/5] MIPS: Add dead syscalls elimination support
-Date: Fri, 17 Feb 2023 08:49:22 +0800
-Message-Id: <29e5a037ac439c40970b40692286feb6f010f8f3.1676594211.git.falcon@tinylab.org>
+Subject: [RFC PATCH 3/5] RISC-V: Enable dead code elimination
+Date: Fri, 17 Feb 2023 08:49:23 +0800
+Message-Id: <234017be6d06ef84844583230542e31068fa3685.1676594211.git.falcon@tinylab.org>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <cover.1676594211.git.falcon@tinylab.org>
 References: <cover.1676594211.git.falcon@tinylab.org>
@@ -60,8 +60,8 @@ MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
 Feedback-ID: bizesmtp:tinylab.org:qybglogicsvr:qybglogicsvr7
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230216_165029_409382_DAB92FCE 
-X-CRM114-Status: GOOD (  11.02  )
+X-CRM114-CacheID: sfid-20230216_165051_411627_B07828FA 
+X-CRM114-Status: GOOD (  10.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,89 +78,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-By enabling CONFIG_HAVE_LD_DEAD_CODE_DATA_ELIMINATION and setting
-CONFIG_SYSCALLS_USED, It is able to remove the left 'dead' syscalls.
+Select CONFIG_HAVE_LD_DEAD_CODE_DATA_ELIMINATION for RISC-V, allowing
+the user to enable dead code elimination. In order for this to work,
+ensure that we keep the alternative table by annotating them with KEEP.
 
-For example, if setting CONFIG_SYSCALLS_USED="write exit reboot", a
-'used' variant of the *.tbl will be generated, accordingly, the kernel
-api unistd_nr_*.h and syscall_table_*.h will be generated from the
-'used' *tbl variant. the user api version of unistd_*.h is reserved
-as-is.
+This boots well on qemu with both rv32_defconfig & rv64 defconfig, but
+it only shrinks their builds by ~1%, a smaller config is thereforce
+customized to test this feature:
 
-Here is a test result on qemu with a minimal malta config.
+          | rv32                   | rv64
+  --------|------------------------|---------------------
+   No DCE | 4460684                | 4893488
+      DCE | 3986716                | 4376400
+   Shrink |  473968 (~10.6%)       |  517088 (~10.5%)
 
-                    | mipsel malta    | config
-    ----------------|-----------------|-------------------
-            vmlinux | 5041628         | https://pastebin.com/0bE2ibLD
-      + gc-sections | 4474060 (-11.2%)| CONFIG_HAVE_LD_DEAD_CODE_DATA_ELIMINATION=y
-    + syscalls_used | 4265280 (-4.67%)| CONFIG_SYSCALLS_USED="_newselect"
-    + syscalls_used | 4274364 (-4.46%)| CONFIG_SYSCALLS_USED="write exit reboot"
+The config used above only reserves necessary options to boot on qemu
+with serial console, more like the size-critical embedded scenes:
 
-notes:
-
-- The shrink ratios of the syscalls_used lines are based on the
-  gc-sections line.
-
-- "write exit reboot" are used by a hello.c to simply print "Hello,
-   World!", exit and shutdown qemu.
-
-- "_newselect" is used by rcutorture to do a long-time sleep.
+  - rv64 config: https://pastebin.com/crz82T0s
+  - rv32 config: rv64 config + 32-bit.config
 
 Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
 ---
- arch/mips/Kconfig                  |  1 +
- arch/mips/kernel/syscalls/Makefile | 24 ++++++++++++++++++++++--
- 2 files changed, 23 insertions(+), 2 deletions(-)
+ arch/riscv/Kconfig              | 1 +
+ arch/riscv/kernel/vmlinux.lds.S | 2 +-
+ 2 files changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
-index 15cb692b0a09..868d9a871b3e 100644
---- a/arch/mips/Kconfig
-+++ b/arch/mips/Kconfig
-@@ -102,6 +102,7 @@ config MIPS
- 	select TRACE_IRQFLAGS_SUPPORT
- 	select ARCH_HAS_ELFCORE_COMPAT
- 	select HAVE_ARCH_KCSAN if 64BIT
-+	select HAVE_SYSCALLS_USED
- 
- config MIPS_FIXUP_BIGPHYS_ADDR
- 	bool
-diff --git a/arch/mips/kernel/syscalls/Makefile b/arch/mips/kernel/syscalls/Makefile
-index e6b21de65cca..8ffba5301cf0 100644
---- a/arch/mips/kernel/syscalls/Makefile
-+++ b/arch/mips/kernel/syscalls/Makefile
-@@ -26,10 +26,30 @@ sysnr_pfx_unistd_nr_n32 := N32
- sysnr_pfx_unistd_nr_n64 := 64
- sysnr_pfx_unistd_nr_o32 := O32
- 
--$(kapi)/unistd_nr_%.h: $(src)/syscall_%.tbl $(sysnr) FORCE
-+ifdef CONFIG_SYSCALLS_USED
-+syscalls_used := $(shell echo $(CONFIG_SYSCALLS_USED) | tr -s ' ' | tr ' ' '|')
-+endif
-+
-+ifneq ($(syscalls_used),)
-+utbl := arch/$(SRCARCH)/include/generated/tbl
-+_tbl := $(src)/syscall_%.tbl
-+ tbl := $(utbl)/syscall_used_%.tbl
-+
-+$(shell mkdir -p $(utbl))
-+
-+quiet_cmd_used = USED    $@
-+      cmd_used = sed -E -e "/^[0-9]*[[:space:]]/{/(^($(syscalls_used))[[:space:]]|[[:space:]]($(syscalls_used))[[:space:]]|[[:space:]]($(syscalls_used))$$)/!{s/^/\#/g}}" $< > $@;
-+
-+$(tbl): $(_tbl) $(objtree)/.config
-+	$(call cmd,used)
-+else
-+tbl := $(src)/syscall_%.tbl
-+endif
-+
-+$(kapi)/unistd_nr_%.h: $(tbl) $(sysnr) FORCE
- 	$(call if_changed,sysnr)
- 
--$(kapi)/syscall_table_%.h: $(src)/syscall_%.tbl $(systbl) FORCE
-+$(kapi)/syscall_table_%.h: $(tbl) $(systbl) FORCE
- 	$(call if_changed,systbl)
- 
- uapisyshdr-y		+= unistd_n32.h			\
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index e2b656043abf..8a73d7180cb8 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -103,6 +103,7 @@ config RISCV
+ 	select HAVE_KPROBES_ON_FTRACE if !XIP_KERNEL
+ 	select HAVE_KRETPROBES if !XIP_KERNEL
+ 	select HAVE_RETHOOK if !XIP_KERNEL
++	select HAVE_LD_DEAD_CODE_DATA_ELIMINATION
+ 	select HAVE_MOVE_PMD
+ 	select HAVE_MOVE_PUD
+ 	select HAVE_PCI
+diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
+index 4e6c88aa4d87..51218cfe1ee4 100644
+--- a/arch/riscv/kernel/vmlinux.lds.S
++++ b/arch/riscv/kernel/vmlinux.lds.S
+@@ -101,7 +101,7 @@ SECTIONS
+ 	. = ALIGN(8);
+ 	.alternative : {
+ 		__alt_start = .;
+-		*(.alternative)
++		KEEP(*(.alternative))
+ 		__alt_end = .;
+ 	}
+ 	__init_end = .;
 -- 
 2.25.1
 
