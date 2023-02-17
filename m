@@ -4,71 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 588AFC636D4
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Feb 2023 12:21:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F139C05027
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Feb 2023 12:30:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NL9AaVM2YlyNKR/c6nJyP0tyo+LDge4FaW239/kP+m0=; b=PdY4imZ6G7cqYi
-	P0NLEfk1/LrPyOHUfRhEgdmq67B5v2GFZalyL2QHpRcBlBk6ypSVgjod7qqZpQZbZ1tXekI3EwzOL
-	l1Zw6/dbj881wNT1xE2dcRCzXs3/C29yKlTxWbWGMHypx+8oW/3loUgXf2M5tjTzoNlWL0bU1IS04
-	A29iHtpqhrgdWvfLBNEh4qSVtTCWFrdgzGqjIyks45hMY9X5/ov+ljbeJhsAaJ2xqtUiwLH+C73HV
-	47swmxWofiC/WDfdtjYi7ACqh1W+xrdb9gRhzTTd83wbV3tf/tqqGbr3jdRkbenG7/DvGoP72+3I7
-	dsZrU8fTbneLZWsUU9Gg==;
+	List-Owner; bh=mBZzvWgMGNJFZRcN0SUW6VoUeVIhadtNLhAbZMcccm4=; b=FA+SgI7BDau2yN
+	8Az7l6T9AHoKpoCBgyZFKU3FKgaiqm6NczDZzBrvI/XqY4twKFihl5pqdsBTlTlc4fLFjE0ZK8BiM
+	7rnRYs6EA+MAjH9AZTlOa5V0+PMhZVBPBNd/PRXuvEo3a1CVyW0OJ8VJnfqT3N3hc+OYrhj1fVPYe
+	DV0ji5XS8UKLRgTCeBlFCvV60RlDn27IqJIJ5RChQHXaTXFzIbOKZNmkEUMIOqnHgHKhH+attR7Mx
+	bn7Yvkj1cJY1TTv1tWt8ghHPxwF5SykDdOAqnEh2acRFZQwtm02sUCBd1LT2QvnGt5Qgsk45uwDKg
+	uk9Vmj4zSeZ6UpksRC+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSzjQ-00E6KZ-GA; Fri, 17 Feb 2023 12:20:52 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSzjK-00E6Ie-D4
-	for linux-riscv@lists.infradead.org; Fri, 17 Feb 2023 12:20:49 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id C1BF624E07C;
-	Fri, 17 Feb 2023 20:20:17 +0800 (CST)
-Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 17 Feb
- 2023 20:20:17 +0800
-Received: from [192.168.125.82] (183.27.98.67) by EXMBX172.cuchost.com
- (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 17 Feb
- 2023 20:20:17 +0800
-Message-ID: <d3b06d0b-ff17-ebab-bae5-e1ec836fe667@starfivetech.com>
-Date: Fri, 17 Feb 2023 20:20:14 +0800
+	id 1pSzs8-00E84l-4r; Fri, 17 Feb 2023 12:29:52 +0000
+Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pSzs4-00E82b-Oz
+	for linux-riscv@lists.infradead.org; Fri, 17 Feb 2023 12:29:50 +0000
+Received: by mail-ed1-x530.google.com with SMTP id co2so3155679edb.13
+        for <linux-riscv@lists.infradead.org>; Fri, 17 Feb 2023 04:29:47 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=owHO+6hTU2ouz0uogNlGw+4ukbVs6LtcIj1FaIc6ylU=;
+        b=IN7oUN9MYAGNu0eC5xo/ZJ+6pIBCOwIc3g5MLbZh0iDahoKTwpLW+4qJ3qc78siA93
+         xPLXfG16PWftxhZWkXdfjuD/y9xHy4FdBJT6ivHwQtWSKRsD2uO8t5vUy5fUsVIwgi3u
+         6d1EvXrMOwMXxCuIdRV0fU1ikA+T+vUKQj1PwkFMuqKnwSae8nMG0AmxvmgfB0oiXj66
+         zWFfRLk0MoqhaDt0ZSCYndOQMVuQbeYjs0yZsZi998xJZH5WsQQ7YVFpUqSnA0XfUb1y
+         b6zG48Zhd7IV3cMiSCfSk0+JIkQ6IZjsLXqoreIXddXD2A1thm5+2trvDVyHupZUEDGK
+         s6gw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=owHO+6hTU2ouz0uogNlGw+4ukbVs6LtcIj1FaIc6ylU=;
+        b=tzorgGUOnvzwCUnm05nFtTb7+3PYt6EzIrkUsCt2HdK9N9psET9mF45xeB42kt5ZAv
+         u7dwwFjO7InGpWfZLfdfZdqEI7On7XardIALjuQnjJiK/P/B6suX57vWpfPGB3sQahbO
+         ULZt54yEovQYDzryUWXya123xWkeCSuFvEJODAJ6WJu4UWQybkTuIx3rvZsVHg6tUO40
+         AfQxibIY18PECVdgTMpC/fuGZuCB1bKsKjJhn3k+gIh7X1irBJK2vNoOdbTkuxR4R8fI
+         WxeqMEa2vOsqoUJqqHLCl97KsO90F0VPV/39TnfF+JuDk9JjX1kvL4XfF1oN3zkZ+cYv
+         HCLQ==
+X-Gm-Message-State: AO0yUKXp/EA3gxxenaVoGL8ltV0WHzgmFlr5Of0Zv2puWMJQ5aiXAEGJ
+	XdOa6RZxBrIhoAXSi/KFWwTInA==
+X-Google-Smtp-Source: AK7set9N7xVNqMd0G9iIwCDESBeEDD5Uz3Gi2qu6Ti19IdUZpRxNeWSlDpZJjBuxK/19pMqkO3pPvA==
+X-Received: by 2002:a17:907:2ce1:b0:8ae:e30f:4091 with SMTP id hz1-20020a1709072ce100b008aee30f4091mr6119942ejc.30.1676636985822;
+        Fri, 17 Feb 2023 04:29:45 -0800 (PST)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id jy28-20020a170907763c00b008b17b123a47sm1242060ejc.208.2023.02.17.04.29.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 17 Feb 2023 04:29:45 -0800 (PST)
+Date: Fri, 17 Feb 2023 13:29:43 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Ben Dooks <ben.dooks@codethink.co.uk>
+Cc: linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org, 'Anup Patel ' <apatel@ventanamicro.com>,
+	'Palmer Dabbelt ' <palmer@dabbelt.com>,
+	'Paul Walmsley ' <paul.walmsley@sifive.com>,
+	'Krzysztof Kozlowski ' <krzysztof.kozlowski+dt@linaro.org>,
+	'Atish Patra ' <atishp@rivosinc.com>,
+	'Heiko Stuebner ' <heiko@sntech.de>,
+	'Jisheng Zhang ' <jszhang@kernel.org>,
+	'Rob Herring ' <robh@kernel.org>,
+	'Albert Ou ' <aou@eecs.berkeley.edu>,
+	'Conor Dooley ' <conor.dooley@microchip.com>
+Subject: Re: [PATCH v4 6/8] RISC-V: Use Zicboz in clear_page when available
+Message-ID: <20230217122943.24caosketyvfcc4f@orel>
+References: <20230209152628.129914-1-ajones@ventanamicro.com>
+ <20230209152628.129914-7-ajones@ventanamicro.com>
+ <4a25cf89-bcf0-e78c-a8ab-7ba0c4f8e2bf@codethink.co.uk>
+ <b348f0cc-4868-2924-9935-00ec18b36da9@codethink.co.uk>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.2
-Subject: Re: [PATCH v3 07/11] dt-bindings: clock: Add StarFive JH7110 system
- clock and reset generator
-Content-Language: en-US
-To: Conor Dooley <conor.dooley@microchip.com>
-CC: Conor Dooley <conor@kernel.org>, <linux-riscv@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-clk@vger.kernel.org>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Stephen Boyd <sboyd@kernel.org>,
-	"Michael Turquette" <mturquette@baylibre.com>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Emil Renner Berthing
-	<emil.renner.berthing@canonical.com>, <linux-kernel@vger.kernel.org>
-References: <20221220005054.34518-1-hal.feng@starfivetech.com>
- <20221220005054.34518-8-hal.feng@starfivetech.com> <Y6JB37Pd5TZoGMy4@spud>
- <7a7bccb1-4d47-3d32-36e6-4aab7b5b8dad@starfivetech.com>
- <Y6tSWB2+98a8k9Qw@spud>
- <5cf0fe71-fd17-fb28-c01e-28356081ba76@starfivetech.com>
- <Y+5z8skN2DuvxDEL@spud>
- <68e61f28-daec-ce72-726a-1fffe8e94829@starfivetech.com>
- <Y+8x/KSujhgNLAd6@wendy>
-From: Hal Feng <hal.feng@starfivetech.com>
-In-Reply-To: <Y+8x/KSujhgNLAd6@wendy>
-X-Originating-IP: [183.27.98.67]
-X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX172.cuchost.com
- (172.16.6.92)
-X-YovoleRuleAgent: yovoleflag
+Content-Disposition: inline
+In-Reply-To: <b348f0cc-4868-2924-9935-00ec18b36da9@codethink.co.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230217_042046_795409_A8293410 
-X-CRM114-Status: GOOD (  34.09  )
+X-CRM114-CacheID: sfid-20230217_042948_844140_0745C4B3 
+X-CRM114-Status: GOOD (  48.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,167 +97,207 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 17 Feb 2023 07:51:24 +0000, Conor Dooley wrote:
-> On Fri, Feb 17, 2023 at 10:27:27AM +0800, Hal Feng wrote:
->> On Thu, 16 Feb 2023 18:20:34 +0000, Conor Dooley wrote:
->> > Hey Hal!
->> > 
->> > On Thu, Feb 16, 2023 at 10:42:20PM +0800, Hal Feng wrote:
->> >> On Tue, 27 Dec 2022 20:15:20 +0000, Conor Dooley wrote:
->> >> > On Mon, Dec 26, 2022 at 12:26:32AM +0800, Hal Feng wrote:
->> >> >> On Tue, 20 Dec 2022 23:14:39 +0000, Conor Dooley wrote:
->> >> >> > On Tue, Dec 20, 2022 at 08:50:50AM +0800, Hal Feng wrote:
->> >> >> > > From: Emil Renner Berthing <kernel@esmil.dk>
->> >> >> > > 
->> >> >> > > Add bindings for the system clock and reset generator (SYSCRG) on the
->> >> >> > > JH7110 RISC-V SoC by StarFive Ltd.
->> >> >> > > 
->> >> >> > > Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
->> >> >> > > Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
->> >> > 
->> >> >> > > +  clocks:
->> >> >> > > +    items:
->> >> >> > > +      - description: Main Oscillator (24 MHz)
->> >> >> > > +      - description: GMAC1 RMII reference
->> >> >> > > +      - description: GMAC1 RGMII RX
->> >> >> > > +      - description: External I2S TX bit clock
->> >> >> > > +      - description: External I2S TX left/right channel clock
->> >> >> > > +      - description: External I2S RX bit clock
->> >> >> > > +      - description: External I2S RX left/right channel clock
->> >> >> > > +      - description: External TDM clock
->> >> >> > > +      - description: External audio master clock
->> >> >> > 
->> >> >> > So, from peeking at the clock driver & the dt - it looks like a bunch of
->> >> >> > these are not actually required?
->> >> >> 
->> >> >> These clocks are used as root clocks or optional parent clocks in clock tree.
->> >> >> Some of them are optional, but they are required if we want to describe the
->> >> >> complete clock tree of JH7110 SoC.
->> >> > 
->> >> > Perhaps I have a misunderstand of what required means. To me, required
->> >> > means "you must provide this clock for the SoC to operate in all
->> >> > configurations".
->> >> > Optional therefore would be for things that are needed only for some
->> >> > configurations and may be omitted if not required.
->> >> > 
->> >> > From your comment below, boards with a JH7110 may choose not to populate
->> >> > both external clock inputs to a mux. In that case, "dummy" clocks should
->> >> > not have to be provided in the DT of such boards to satisfy this binding
->> >> > which seems wrong to me..
->> >> 
->> >> Please see the picture of these external clocks in clock tree.
->> >> 
->> >> # mount -t debugfs none /mnt
->> >> # cat /mnt/clk/clk_summary
->> >>                                  enable  prepare  protect                                duty  hardware
->> >>    clock                          count    count    count        rate   accuracy phase  cycle    enable
->> >> -------------------------------------------------------------------------------------------------------
->> >>  *mclk_ext*                             0        0        0    12288000          0     0  50000         Y
->> >>  *tdm_ext*                              0        0        0    49152000          0     0  50000         Y
->> >>  *i2srx_lrck_ext*                       0        0        0      192000          0     0  50000         Y
->> >>  *i2srx_bclk_ext*                       0        0        0    12288000          0     0  50000         Y
->> >>  *i2stx_lrck_ext*                       0        0        0      192000          0     0  50000         Y
->> >>  *i2stx_bclk_ext*                       0        0        0    12288000          0     0  50000         Y
->> >>  *gmac1_rgmii_rxin*                     0        0        0   125000000          0     0  50000         Y
->> >>     gmac1_rx                          0        0        0   125000000          0     0  50000         Y
->> >>        gmac1_rx_inv                   0        0        0   125000000          0   180  50000         Y
->> >>  *gmac1_rmii_refin*                     0        0        0    50000000          0     0  50000         Y
->> >>     gmac1_rmii_rtx                    0        0        0    50000000          0     0  50000         Y
->> >>        gmac1_tx                       0        0        0    50000000          0     0  50000         N
->> >>           gmac1_tx_inv                0        0        0    50000000          0   180  50000         Y
->> >>  *osc*                                  4        4        0    24000000          0     0  50000         Y
->> >>     apb_func                          0        0        0    24000000          0     0  50000         Y
->> >>  ...
->> >> 
->> >> The clock "gmac1_rgmii_rxin" and the clock "gmac1_rmii_refin" are
->> >> actually used as the parent of other clocks.
->> > 
->> >> The "dummy" clocks
->> >> you said are all internal clocks.
->> > 
->> > No, what I meant by "dummy" clocks is that if you make clocks "required"
->> > in the binding that are not needed by the hardware for operation a
->> > customer of yours might have to add "dummy" clocks to their devicetree
->> > to pass dtbs_check.
->> > 
->> >> For the audio related clocks (mclk_ext/tdm_ext/i2srx_lrck_ext/
->> >> i2srx_bclk_ext/i2stx_lrck_ext/i2stx_bclk_ext), they will be used
->> >> as the parent clocks in audio related drivers. Note that some
->> >> clocks need to select different clocks as parent according to
->> >> requirement.
->> >> So all these external clocks are required.
->> >> 
->> >> > 
->> >> > It would seem to me that you need to set minItems < maxItems here to
->> >> > account for that & you do in fact need clock-names.
->> >> > 
->> >> >> 
->> >> >> > I'd have ploughed through this, but having read Krzysztof's comments on
->> >> >> > the DTS I'm not sure that this binding is correct.
->> >> >> > https://lore.kernel.org/linux-riscv/20221220011247.35560-1-hal.feng@starfivetech.com/T/#mdf67621a2344dce801aa8015d4963593a2c28bcc
->> >> >> > 
->> >> >> > I *think* the DT is correct - the fixed clocks are all inputs from clock
->> >> >> > sources on the board and as such they are empty in soc.dtsi and are
->> >> >> > populated in board.dts?
->> >> >> 
->> >> >> Yes, the fixed clocks are all clock sources on the board and input to the SoC.
->> >> >> 
->> >> >> > 
->> >> >> > However, are they all actually required? In the driver I see:
->> >> >> > 	JH71X0__MUX(JH7110_SYSCLK_GMAC1_RX, "gmac1_rx", 2,
->> >> >> > 		    JH7110_SYSCLK_GMAC1_RGMII_RXIN,
->> >> >> > 		    JH7110_SYSCLK_GMAC1_RMII_RTX),
->> >> >> > That macro is:
->> >> >> > #define JH71X0__MUX(_idx, _name, _nparents, ...) [_idx] = {			\
->> >> >> > 	.name = _name,								\
->> >> >> > 	.flags = 0,								\
->> >> >> > 	.max = ((_nparents) - 1) << JH71X0_CLK_MUX_SHIFT,			\
->> >> >> > 	.parents = { __VA_ARGS__ },						\
->> >> >> > }
->> > 
->> >> >> > AFAICT, RMII reference feeds RMII_RTX & RGMII RX *is* RGMII_RXIN?
->> >> >> > Does that mean you need to populate only one of GMAC1 RMII reference
->> >> >> > and GMAC1 RMGII RX and the other is optional?
->> > 
->> >> >> Yes, actually only one of them is chosen as the root clock
->> >> >> source of the clock "gmac1_rx".
->> > |  *gmac1_rgmii_rxin*   
->> > |     gmac1_rx          
->> > |        gmac1_rx_inv   
->> > |  *gmac1_rmii_refin*   
->> > |     gmac1_rmii_rtx    
->> > |        gmac1_tx       
->> > |           gmac1_tx_inv
->> > |
->> > | description: GMAC1 RMII reference
->> > | description: GMAC1 RGMII RX
->> > 
->> > 
->> > So you're telling me that you can either:
->> > - Provide GMAC1 RMII reference and GMAC1 RGMII RX & then use different
->> >   clocks for gmac1_rx and gmac1_tx
->> > - Provide only GMAC1 RMII reference & use it for both gmac1_tx *and*
->> >   gmac1_rx
->> > 
->> > Is that correct?
->> 
->> Yes, it is.
-> 
-> Which would then make GMAC1 RGMII RX optional, rather than required?
+On Fri, Feb 17, 2023 at 10:50:07AM +0000, Ben Dooks wrote:
+> On 17/02/2023 10:18, Ben Dooks wrote:
+> > On 09/02/2023 15:26, Andrew Jones wrote:
+> > > Using memset() to zero a 4K page takes 563 total instructions, where
+> > > 20 are branches. clear_page(), with Zicboz and a 64 byte block size,
+> > > takes 169 total instructions, where 4 are branches and 33 are nops.
+> > > Even though the block size is a variable, thanks to alternatives, we
+> > > can still implement a Duff device without having to do any preliminary
+> > > calculations. This is achieved by taking advantage of 'vendor_id'
+> > > being used as application-specific data for alternatives, enabling us
+> > > to stop patching / unrolling when 4K bytes have been zeroed (we would
+> > > loop and continue after 4K if the page size would be larger)
+> > > =
 
-If thinking in this way, I must say yes, it is optional. But actually
-GMAC1 RGMII RX feeds gmac1_rx by default. 
-For a mux, it usually works if you populate only one input to it.
-Does it mean all the other inputs are optional? And how can we define
-which input is required?
+> > > For 4K pages, unrolling 16 times allows block sizes of 64 and 128 to
+> > > only loop a few times and larger block sizes to not loop at all. Since
+> > > cbo.zero doesn't take an offset, we also need an 'add' after each
+> > > instruction, making the loop body 112 to 160 bytes. Hopefully this
+> > > is small enough to not cause icache misses.
+> > > =
 
-Best regards,
-Hal
+> > > Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+> > > Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> > > ---
+> > > =A0 arch/riscv/Kconfig=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 |=
+ 13 ++++++
+> > > =A0 arch/riscv/include/asm/insn-def.h |=A0 4 ++
+> > > =A0 arch/riscv/include/asm/page.h=A0=A0=A0=A0 |=A0 6 ++-
+> > > =A0 arch/riscv/kernel/cpufeature.c=A0=A0=A0 | 11 +++++
+> > > =A0 arch/riscv/lib/Makefile=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 |=A0 1 +
+> > > =A0 arch/riscv/lib/clear_page.S=A0=A0=A0=A0=A0=A0 | 71 ++++++++++++++=
++++++++++++++++++
+> > > =A0 6 files changed, 105 insertions(+), 1 deletion(-)
+> > > =A0 create mode 100644 arch/riscv/lib/clear_page.S
+> > > =
+
+> > > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> > > index 029d1d3b40bd..9590a1661caf 100644
+> > > --- a/arch/riscv/Kconfig
+> > > +++ b/arch/riscv/Kconfig
+> > > @@ -456,6 +456,19 @@ config RISCV_ISA_ZICBOM
+> > > =A0=A0=A0=A0=A0=A0=A0=A0 If you don't know what to do here, say Y.
+> > > +config RISCV_ISA_ZICBOZ
+> > > +=A0=A0=A0 bool "Zicboz extension support for faster zeroing of memor=
+y"
+> > > +=A0=A0=A0 depends on !XIP_KERNEL && MMU
+> > > +=A0=A0=A0 select RISCV_ALTERNATIVE
+> > > +=A0=A0=A0 default y
+> > > +=A0=A0=A0 help
+> > > +=A0=A0=A0=A0=A0=A0 Enable the use of the ZICBOZ extension (cbo.zero =
+instruction)
+> > > +=A0=A0=A0=A0=A0=A0 when available.
+> > > +
+> > > +=A0=A0=A0=A0=A0=A0 The Zicboz extension is used for faster zeroing o=
+f memory.
+> > > +
+> > > +=A0=A0=A0=A0=A0=A0 If you don't know what to do here, say Y.
+> > > +
+> > > =A0 config TOOLCHAIN_HAS_ZIHINTPAUSE
+> > > =A0=A0=A0=A0=A0 bool
+> > > =A0=A0=A0=A0=A0 default y
+> > > diff --git a/arch/riscv/include/asm/insn-def.h
+> > > b/arch/riscv/include/asm/insn-def.h
+> > > index e01ab51f50d2..6960beb75f32 100644
+> > > --- a/arch/riscv/include/asm/insn-def.h
+> > > +++ b/arch/riscv/include/asm/insn-def.h
+> > > @@ -192,4 +192,8 @@
+> > > =A0=A0=A0=A0=A0 INSN_I(OPCODE_MISC_MEM, FUNC3(2), __RD(0),=A0=A0=A0=
+=A0=A0=A0=A0 \
+> > > =A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 RS1(base), SIMM12(2))
+> > > +#define CBO_zero(base)=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
+=A0=A0=A0=A0=A0=A0=A0=A0 \
+> > > +=A0=A0=A0 INSN_I(OPCODE_MISC_MEM, FUNC3(2), __RD(0),=A0=A0=A0=A0=A0=
+=A0=A0 \
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 RS1(base), SIMM12(4))
+> > > +
+> > > =A0 #endif /* __ASM_INSN_DEF_H */
+> > > diff --git a/arch/riscv/include/asm/page.h
+> > > b/arch/riscv/include/asm/page.h
+> > > index 9f432c1b5289..ccd168fe29d2 100644
+> > > --- a/arch/riscv/include/asm/page.h
+> > > +++ b/arch/riscv/include/asm/page.h
+> > > @@ -49,10 +49,14 @@
+> > > =A0 #ifndef __ASSEMBLY__
+> > > +#ifdef CONFIG_RISCV_ISA_ZICBOZ
+> > > +void clear_page(void *page);
+> > > +#else
+> > > =A0 #define clear_page(pgaddr)=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 memse=
+t((pgaddr), 0, PAGE_SIZE)
+> > > +#endif
+> > > =A0 #define copy_page(to, from)=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 memc=
+py((to), (from), PAGE_SIZE)
+> > > -#define clear_user_page(pgaddr, vaddr, page)=A0=A0=A0 memset((pgaddr=
+), 0,
+> > > PAGE_SIZE)
+> > > +#define clear_user_page(pgaddr, vaddr, page)=A0=A0=A0 clear_page(pga=
+ddr)
+> > > =A0 #define copy_user_page(vto, vfrom, vaddr, topg) \
+> > > =A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 memcpy((vto), (vfrom), PAGE_S=
+IZE)
+> > > diff --git a/arch/riscv/kernel/cpufeature.c
+> > > b/arch/riscv/kernel/cpufeature.c
+> > > index 74736b4f0624..42246bbfa532 100644
+> > > --- a/arch/riscv/kernel/cpufeature.c
+> > > +++ b/arch/riscv/kernel/cpufeature.c
+> > > @@ -280,6 +280,17 @@ void __init riscv_fill_hwcap(void)
+> > > =A0 #ifdef CONFIG_RISCV_ALTERNATIVE
+> > > =A0 static bool riscv_cpufeature_application_check(u32 feature, u16 d=
+ata)
+> > > =A0 {
+> > > +=A0=A0=A0 switch (feature) {
+> > > +=A0=A0=A0 case RISCV_ISA_EXT_ZICBOZ:
+> > > +=A0=A0=A0=A0=A0=A0=A0 /*
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0 * Zicboz alternative applications provide t=
+he maximum
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0 * supported block size order, or zero when =
+it doesn't
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0 * matter. If the current block size exceeds=
+ the maximum,
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0 * then the alternative cannot be applied.
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0 */
+> > > +=A0=A0=A0=A0=A0=A0=A0 return data =3D=3D 0 || riscv_cboz_block_size =
+<=3D (1U << data);
+> > > +=A0=A0=A0 }
+> =
+
+> =
+
+> =
+
+> > > +
+> > > =A0=A0=A0=A0=A0 return data =3D=3D 0;
+> > > =A0 }
+> > > diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
+> > > index 6c74b0bedd60..26cb2502ecf8 100644
+> > > --- a/arch/riscv/lib/Makefile
+> > > +++ b/arch/riscv/lib/Makefile
+> > > @@ -8,5 +8,6 @@ lib-y=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 +=3D strlen.o
+> > > =A0 lib-y=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 +=3D strncmp.o
+> > > =A0 lib-$(CONFIG_MMU)=A0=A0=A0 +=3D uaccess.o
+> > > =A0 lib-$(CONFIG_64BIT)=A0=A0=A0 +=3D tishift.o
+> > > +lib-$(CONFIG_RISCV_ISA_ZICBOZ)=A0=A0=A0 +=3D clear_page.o
+> > > =A0 obj-$(CONFIG_FUNCTION_ERROR_INJECTION) +=3D error-inject.o
+> > > diff --git a/arch/riscv/lib/clear_page.S b/arch/riscv/lib/clear_page.S
+> > > new file mode 100644
+> > > index 000000000000..5b851e727f7c
+> > > --- /dev/null
+> > > +++ b/arch/riscv/lib/clear_page.S
+> > > @@ -0,0 +1,71 @@
+> > > +/* SPDX-License-Identifier: GPL-2.0-only */
+> > > +/*
+> > > + * Copyright (c) 2023 Ventana Micro Systems Inc.
+> > > + */
+> > > +
+> > > +#include <linux/linkage.h>
+> > > +#include <asm/asm.h>
+> > > +#include <asm/alternative-macros.h>
+> > > +#include <asm/hwcap.h>
+> > > +#include <asm/insn-def.h>
+> > > +#include <asm/page.h>
+> > > +
+> > > +#define CBOZ_ALT(order, old, new)=A0=A0=A0 \
+> > > +=A0=A0=A0 ALTERNATIVE(old, new, order, RISCV_ISA_EXT_ZICBOZ,
+> > > CONFIG_RISCV_ISA_ZICBOZ)
+> > =
+
+> > I thought this was meant to be a CPUFEATURE_ZICBOZ thing for the
+> > alternatives?
+> > =
+
+> > I may also be missing something, but when backporting this to 5.19
+> > to test it on our system the "order" argument is in fact the vendor-id
+> > so this doesn't work as the alternatives don't get patched in at-all.
+> =
+
+> So it looks like when backporting I missed the updated in
+> arch/riscv/kernel/cpufeature.c for testing the block size
+> which explains the issues I was seeing with the assembly
+> code.
+> =
+
+> I'm not sure why it wouldn't assemble for me with the
+> RISCV_ISA_EXT_ZICBOZ being undefined.
+> =
+
+> With using vendor-id with the RISCV_ISA_EXT_ZICBOZ as the
+> errata-id, would the RISCV_ISA_EXT space need to be reserved
+> for any vendor specific IDs?
+
+Hi Ben,
+
+I'll be sending a new version where I don't touch vendor-id anymore, but
+rather break errata_id into two parts: id and application-data.
+
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
