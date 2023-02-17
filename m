@@ -4,36 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE8B7C636D4
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Feb 2023 10:18:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 000C6C05027
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Feb 2023 10:50:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6465R32fdre7DzLDm3ZenBXoSe5Ez9IE/seMJv6Nz9k=; b=ycjCPuHoaQdJvN
-	YP9o+Ae0db70qnVsIifatsqBfop6jmkHp6xsZ/Q69QzA+N91g/Si09bTXXSmYGe2RmM+59TOMpjeK
-	RmJjwULWPQQv+8c6msJ/NuRD0BGukOW5PKevadXR7ptaHXIbnzEzJ9Hlg2pXcnoueovPpmOCof0ei
-	BUnCuMhgtXG3GzmOyiw/OUdICBRQKMsDAN4NoSWNOu/lZcjECeb0d4T/fvOUFToRXVAYXqKP7zrMF
-	pwsYCeyP5npA/5pxCU4m87mO9Z1opOa0C3+0miSE/4tG4bIEiGlJgu1gdhdwPSR6Q1zxZvZip2uoj
-	VbMRmQe7Y4+0tEJ29egg==;
+	List-Owner; bh=O8HTgXRdZ0VCfkJxcJSZPQhqOf/agfur4YCtir+bLkQ=; b=dua/CZDgBmykgv
+	q1lrdzjrUkvocp24oDge0xhL5SyC/2cuLKgBZaj5ikEd6BhnVPtmvLy4Y5DOLxFq4Nn3f1qhLCBCO
+	v+jeVMrER32KfSezWvZBTo4KsEytLgHcnk5o0g3LxTnXZGX60IN1O8UMXkwhFl2bmi6n8jUQwyC70
+	hybEYa/5AEdkp8mCEbxb6KIidKrHMKNEocwbueubqQTgWWYEBvRNh9KhzNeyWRD687V9dvm5y3Bp5
+	GZWxvAs9bZyLdkHI2wCbVKee+7VQNqG+M1nFcWVDiAcBxj14FIh6/1O254dTNbixLx2Ouwusfcglw
+	34cVg0FwKgYzGXMMtL+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSxp7-00DeSb-AX; Fri, 17 Feb 2023 10:18:37 +0000
+	id 1pSyJj-00DkSu-A3; Fri, 17 Feb 2023 10:50:15 +0000
 Received: from imap4.hz.codethink.co.uk ([188.40.203.114])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSxp3-00DeQn-JG; Fri, 17 Feb 2023 10:18:35 +0000
+	id 1pSyJg-00DkRu-8z; Fri, 17 Feb 2023 10:50:14 +0000
 Received: from [167.98.27.226] (helo=[10.35.4.184])
 	by imap4.hz.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
-	id 1pSxox-004Ucb-FN; Fri, 17 Feb 2023 10:18:27 +0000
-Message-ID: <4a25cf89-bcf0-e78c-a8ab-7ba0c4f8e2bf@codethink.co.uk>
-Date: Fri, 17 Feb 2023 10:18:26 +0000
+	id 1pSyJc-004VYl-FE; Fri, 17 Feb 2023 10:50:08 +0000
+Message-ID: <b348f0cc-4868-2924-9935-00ec18b36da9@codethink.co.uk>
+Date: Fri, 17 Feb 2023 10:50:07 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.7.2
 Subject: Re: [PATCH v4 6/8] RISC-V: Use Zicboz in clear_page when available
 Content-Language: en-GB
+From: Ben Dooks <ben.dooks@codethink.co.uk>
 To: Andrew Jones <ajones@ventanamicro.com>, linux-riscv@lists.infradead.org,
  kvm-riscv@lists.infradead.org, devicetree@vger.kernel.org
 Cc: 'Anup Patel ' <apatel@ventanamicro.com>,
@@ -46,12 +47,12 @@ Cc: 'Anup Patel ' <apatel@ventanamicro.com>,
  'Conor Dooley ' <conor.dooley@microchip.com>
 References: <20230209152628.129914-1-ajones@ventanamicro.com>
  <20230209152628.129914-7-ajones@ventanamicro.com>
-From: Ben Dooks <ben.dooks@codethink.co.uk>
+ <4a25cf89-bcf0-e78c-a8ab-7ba0c4f8e2bf@codethink.co.uk>
 Organization: Codethink Limited.
-In-Reply-To: <20230209152628.129914-7-ajones@ventanamicro.com>
+In-Reply-To: <4a25cf89-bcf0-e78c-a8ab-7ba0c4f8e2bf@codethink.co.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230217_021833_844382_6A21DB20 
-X-CRM114-Status: GOOD (  37.38  )
+X-CRM114-CacheID: sfid-20230217_025012_496327_A402683A 
+X-CRM114-Status: GOOD (  29.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,253 +64,131 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 09/02/2023 15:26, Andrew Jones wrote:
-> Using memset() to zero a 4K page takes 563 total instructions, where
-> 20 are branches. clear_page(), with Zicboz and a 64 byte block size,
-> takes 169 total instructions, where 4 are branches and 33 are nops.
-> Even though the block size is a variable, thanks to alternatives, we
-> can still implement a Duff device without having to do any preliminary
-> calculations. This is achieved by taking advantage of 'vendor_id'
-> being used as application-specific data for alternatives, enabling us
-> to stop patching / unrolling when 4K bytes have been zeroed (we would
-> loop and continue after 4K if the page size would be larger)
-> 
-> For 4K pages, unrolling 16 times allows block sizes of 64 and 128 to
-> only loop a few times and larger block sizes to not loop at all. Since
-> cbo.zero doesn't take an offset, we also need an 'add' after each
-> instruction, making the loop body 112 to 160 bytes. Hopefully this
-> is small enough to not cause icache misses.
-> 
-> Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->   arch/riscv/Kconfig                | 13 ++++++
->   arch/riscv/include/asm/insn-def.h |  4 ++
->   arch/riscv/include/asm/page.h     |  6 ++-
->   arch/riscv/kernel/cpufeature.c    | 11 +++++
->   arch/riscv/lib/Makefile           |  1 +
->   arch/riscv/lib/clear_page.S       | 71 +++++++++++++++++++++++++++++++
->   6 files changed, 105 insertions(+), 1 deletion(-)
->   create mode 100644 arch/riscv/lib/clear_page.S
-> 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 029d1d3b40bd..9590a1661caf 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -456,6 +456,19 @@ config RISCV_ISA_ZICBOM
->   
->   	   If you don't know what to do here, say Y.
->   
-> +config RISCV_ISA_ZICBOZ
-> +	bool "Zicboz extension support for faster zeroing of memory"
-> +	depends on !XIP_KERNEL && MMU
-> +	select RISCV_ALTERNATIVE
-> +	default y
-> +	help
-> +	   Enable the use of the ZICBOZ extension (cbo.zero instruction)
-> +	   when available.
-> +
-> +	   The Zicboz extension is used for faster zeroing of memory.
-> +
-> +	   If you don't know what to do here, say Y.
-> +
->   config TOOLCHAIN_HAS_ZIHINTPAUSE
->   	bool
->   	default y
-> diff --git a/arch/riscv/include/asm/insn-def.h b/arch/riscv/include/asm/insn-def.h
-> index e01ab51f50d2..6960beb75f32 100644
-> --- a/arch/riscv/include/asm/insn-def.h
-> +++ b/arch/riscv/include/asm/insn-def.h
-> @@ -192,4 +192,8 @@
->   	INSN_I(OPCODE_MISC_MEM, FUNC3(2), __RD(0),		\
->   	       RS1(base), SIMM12(2))
->   
-> +#define CBO_zero(base)						\
-> +	INSN_I(OPCODE_MISC_MEM, FUNC3(2), __RD(0),		\
-> +	       RS1(base), SIMM12(4))
-> +
->   #endif /* __ASM_INSN_DEF_H */
-> diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
-> index 9f432c1b5289..ccd168fe29d2 100644
-> --- a/arch/riscv/include/asm/page.h
-> +++ b/arch/riscv/include/asm/page.h
-> @@ -49,10 +49,14 @@
->   
->   #ifndef __ASSEMBLY__
->   
-> +#ifdef CONFIG_RISCV_ISA_ZICBOZ
-> +void clear_page(void *page);
-> +#else
->   #define clear_page(pgaddr)			memset((pgaddr), 0, PAGE_SIZE)
-> +#endif
->   #define copy_page(to, from)			memcpy((to), (from), PAGE_SIZE)
->   
-> -#define clear_user_page(pgaddr, vaddr, page)	memset((pgaddr), 0, PAGE_SIZE)
-> +#define clear_user_page(pgaddr, vaddr, page)	clear_page(pgaddr)
->   #define copy_user_page(vto, vfrom, vaddr, topg) \
->   			memcpy((vto), (vfrom), PAGE_SIZE)
->   
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> index 74736b4f0624..42246bbfa532 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -280,6 +280,17 @@ void __init riscv_fill_hwcap(void)
->   #ifdef CONFIG_RISCV_ALTERNATIVE
->   static bool riscv_cpufeature_application_check(u32 feature, u16 data)
->   {
-> +	switch (feature) {
-> +	case RISCV_ISA_EXT_ZICBOZ:
-> +		/*
-> +		 * Zicboz alternative applications provide the maximum
-> +		 * supported block size order, or zero when it doesn't
-> +		 * matter. If the current block size exceeds the maximum,
-> +		 * then the alternative cannot be applied.
-> +		 */
-> +		return data == 0 || riscv_cboz_block_size <= (1U << data);
-> +	}
-> +
->   	return data == 0;
->   }
->   
-> diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
-> index 6c74b0bedd60..26cb2502ecf8 100644
-> --- a/arch/riscv/lib/Makefile
-> +++ b/arch/riscv/lib/Makefile
-> @@ -8,5 +8,6 @@ lib-y			+= strlen.o
->   lib-y			+= strncmp.o
->   lib-$(CONFIG_MMU)	+= uaccess.o
->   lib-$(CONFIG_64BIT)	+= tishift.o
-> +lib-$(CONFIG_RISCV_ISA_ZICBOZ)	+= clear_page.o
->   
->   obj-$(CONFIG_FUNCTION_ERROR_INJECTION) += error-inject.o
-> diff --git a/arch/riscv/lib/clear_page.S b/arch/riscv/lib/clear_page.S
-> new file mode 100644
-> index 000000000000..5b851e727f7c
-> --- /dev/null
-> +++ b/arch/riscv/lib/clear_page.S
-> @@ -0,0 +1,71 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright (c) 2023 Ventana Micro Systems Inc.
-> + */
-> +
-> +#include <linux/linkage.h>
-> +#include <asm/asm.h>
-> +#include <asm/alternative-macros.h>
-> +#include <asm/hwcap.h>
-> +#include <asm/insn-def.h>
-> +#include <asm/page.h>
-> +
-> +#define CBOZ_ALT(order, old, new)	\
-> +	ALTERNATIVE(old, new, order, RISCV_ISA_EXT_ZICBOZ, CONFIG_RISCV_ISA_ZICBOZ)
-
-I thought this was meant to be a CPUFEATURE_ZICBOZ thing for the
-alternatives?
-
-I may also be missing something, but when backporting this to 5.19
-to test it on our system the "order" argument is in fact the vendor-id
-so this doesn't work as the alternatives don't get patched in at-all.
-
-> +
-> +/* void clear_page(void *page) */
-> +ENTRY(__clear_page)
-> +WEAK(clear_page)
-> +	li	a2, PAGE_SIZE
-> +
-> +	/*
-> +	 * If Zicboz isn't present, or somehow has a block
-> +	 * size larger than 4K, then fallback to memset.
-> +	 */
-> +	CBOZ_ALT(12, "j .Lno_zicboz", "nop")
-
-I can't see how the CBOZ_ALT is checking for the CBOZ block
-size being bigger than 4k... I guess we should have also
-tested the block size is an exact multiple of page size?
-
-It would also be better if we just didn't enable it and printed
-an warn when we initialise and then never advertise the feature
-in the first place?
-
-> +
-> +	lw	a1, riscv_cboz_block_size
-> +	add	a2, a0, a2
-> +.Lzero_loop:
-> +	CBO_zero(a0)
-> +	add	a0, a0, a1
-> +	CBOZ_ALT(11, "bltu a0, a2, .Lzero_loop; ret", "nop; nop")
-> +	CBO_zero(a0)
-> +	add	a0, a0, a1
-> +	CBOZ_ALT(10, "bltu a0, a2, .Lzero_loop; ret", "nop; nop")
-> +	CBO_zero(a0)
-> +	add	a0, a0, a1
-> +	CBO_zero(a0)
-> +	add	a0, a0, a1
-> +	CBOZ_ALT(9, "bltu a0, a2, .Lzero_loop; ret", "nop; nop")
-
-I'm also wondering why we are using CBOZ_ALT past the first
-check. I don't see why it shouldn't just be a loop with a siz
-check like:
-
-Lzero_loop:
-	CBO_zero(a0)
-	add	a0, a0, a1
-	blge	a0, a2, .Lzero_done
-	....
-
-
-If you wanted to do multiple CBO_zero(a0) then maybe testing
-and branching would be easier to allow a certain amount of
-loop unrolling.
-
-
-> +	CBO_zero(a0)
-> +	add	a0, a0, a1
-> +	CBO_zero(a0)
-> +	add	a0, a0, a1
-> +	CBO_zero(a0)
-> +	add	a0, a0, a1
-> +	CBO_zero(a0)
-> +	add	a0, a0, a1
-> +	CBOZ_ALT(8, "bltu a0, a2, .Lzero_loop; ret", "nop; nop")
-> +	CBO_zero(a0)
-> +	add	a0, a0, a1
-> +	CBO_zero(a0)
-> +	add	a0, a0, a1
-> +	CBO_zero(a0)
-> +	add	a0, a0, a1
-> +	CBO_zero(a0)
-> +	add	a0, a0, a1
-> +	CBO_zero(a0)
-> +	add	a0, a0, a1
-> +	CBO_zero(a0)
-> +	add	a0, a0, a1
-> +	CBO_zero(a0)
-> +	add	a0, a0, a1
-> +	CBO_zero(a0)
-> +	add	a0, a0, a1
-> +	bltu	a0, a2, .Lzero_loop
-> +	ret
-> +.Lno_zicboz:
-> +	li	a1, 0
-> +	tail	__memset
-> +END(__clear_page)
-
-Whilst this seems to work, I am not sure why and it probably wants
-more testing.
-
--- 
-Ben Dooks				http://www.codethink.co.uk/
-Senior Engineer				Codethink - Providing Genius
-
-https://www.codethink.co.uk/privacy.html
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMTcvMDIvMjAyMyAxMDoxOCwgQmVuIERvb2tzIHdyb3RlOgo+IE9uIDA5LzAyLzIwMjMgMTU6
+MjYsIEFuZHJldyBKb25lcyB3cm90ZToKPj4gVXNpbmcgbWVtc2V0KCkgdG8gemVybyBhIDRLIHBh
+Z2UgdGFrZXMgNTYzIHRvdGFsIGluc3RydWN0aW9ucywgd2hlcmUKPj4gMjAgYXJlIGJyYW5jaGVz
+LiBjbGVhcl9wYWdlKCksIHdpdGggWmljYm96IGFuZCBhIDY0IGJ5dGUgYmxvY2sgc2l6ZSwKPj4g
+dGFrZXMgMTY5IHRvdGFsIGluc3RydWN0aW9ucywgd2hlcmUgNCBhcmUgYnJhbmNoZXMgYW5kIDMz
+IGFyZSBub3BzLgo+PiBFdmVuIHRob3VnaCB0aGUgYmxvY2sgc2l6ZSBpcyBhIHZhcmlhYmxlLCB0
+aGFua3MgdG8gYWx0ZXJuYXRpdmVzLCB3ZQo+PiBjYW4gc3RpbGwgaW1wbGVtZW50IGEgRHVmZiBk
+ZXZpY2Ugd2l0aG91dCBoYXZpbmcgdG8gZG8gYW55IHByZWxpbWluYXJ5Cj4+IGNhbGN1bGF0aW9u
+cy4gVGhpcyBpcyBhY2hpZXZlZCBieSB0YWtpbmcgYWR2YW50YWdlIG9mICd2ZW5kb3JfaWQnCj4+
+IGJlaW5nIHVzZWQgYXMgYXBwbGljYXRpb24tc3BlY2lmaWMgZGF0YSBmb3IgYWx0ZXJuYXRpdmVz
+LCBlbmFibGluZyB1cwo+PiB0byBzdG9wIHBhdGNoaW5nIC8gdW5yb2xsaW5nIHdoZW4gNEsgYnl0
+ZXMgaGF2ZSBiZWVuIHplcm9lZCAod2Ugd291bGQKPj4gbG9vcCBhbmQgY29udGludWUgYWZ0ZXIg
+NEsgaWYgdGhlIHBhZ2Ugc2l6ZSB3b3VsZCBiZSBsYXJnZXIpCj4+Cj4+IEZvciA0SyBwYWdlcywg
+dW5yb2xsaW5nIDE2IHRpbWVzIGFsbG93cyBibG9jayBzaXplcyBvZiA2NCBhbmQgMTI4IHRvCj4+
+IG9ubHkgbG9vcCBhIGZldyB0aW1lcyBhbmQgbGFyZ2VyIGJsb2NrIHNpemVzIHRvIG5vdCBsb29w
+IGF0IGFsbC4gU2luY2UKPj4gY2JvLnplcm8gZG9lc24ndCB0YWtlIGFuIG9mZnNldCwgd2UgYWxz
+byBuZWVkIGFuICdhZGQnIGFmdGVyIGVhY2gKPj4gaW5zdHJ1Y3Rpb24sIG1ha2luZyB0aGUgbG9v
+cCBib2R5IDExMiB0byAxNjAgYnl0ZXMuIEhvcGVmdWxseSB0aGlzCj4+IGlzIHNtYWxsIGVub3Vn
+aCB0byBub3QgY2F1c2UgaWNhY2hlIG1pc3Nlcy4KPj4KPj4gU2lnbmVkLW9mZi1ieTogQW5kcmV3
+IEpvbmVzIDxham9uZXNAdmVudGFuYW1pY3JvLmNvbT4KPj4gQWNrZWQtYnk6IENvbm9yIERvb2xl
+eSA8Y29ub3IuZG9vbGV5QG1pY3JvY2hpcC5jb20+Cj4+IC0tLQo+PiDCoCBhcmNoL3Jpc2N2L0tj
+b25maWfCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfCAxMyArKysrKysKPj4gwqAgYXJj
+aC9yaXNjdi9pbmNsdWRlL2FzbS9pbnNuLWRlZi5oIHzCoCA0ICsrCj4+IMKgIGFyY2gvcmlzY3Yv
+aW5jbHVkZS9hc20vcGFnZS5owqDCoMKgwqAgfMKgIDYgKystCj4+IMKgIGFyY2gvcmlzY3Yva2Vy
+bmVsL2NwdWZlYXR1cmUuY8KgwqDCoCB8IDExICsrKysrCj4+IMKgIGFyY2gvcmlzY3YvbGliL01h
+a2VmaWxlwqDCoMKgwqDCoMKgwqDCoMKgwqAgfMKgIDEgKwo+PiDCoCBhcmNoL3Jpc2N2L2xpYi9j
+bGVhcl9wYWdlLlPCoMKgwqDCoMKgwqAgfCA3MSArKysrKysrKysrKysrKysrKysrKysrKysrKysr
+KysrCj4+IMKgIDYgZmlsZXMgY2hhbmdlZCwgMTA1IGluc2VydGlvbnMoKyksIDEgZGVsZXRpb24o
+LSkKPj4gwqAgY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3YvbGliL2NsZWFyX3BhZ2UuUwo+
+Pgo+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9LY29uZmlnIGIvYXJjaC9yaXNjdi9LY29uZmln
+Cj4+IGluZGV4IDAyOWQxZDNiNDBiZC4uOTU5MGExNjYxY2FmIDEwMDY0NAo+PiAtLS0gYS9hcmNo
+L3Jpc2N2L0tjb25maWcKPj4gKysrIGIvYXJjaC9yaXNjdi9LY29uZmlnCj4+IEBAIC00NTYsNiAr
+NDU2LDE5IEBAIGNvbmZpZyBSSVNDVl9JU0FfWklDQk9NCj4+IMKgwqDCoMKgwqDCoMKgwqAgSWYg
+eW91IGRvbid0IGtub3cgd2hhdCB0byBkbyBoZXJlLCBzYXkgWS4KPj4gK2NvbmZpZyBSSVNDVl9J
+U0FfWklDQk9aCj4+ICvCoMKgwqAgYm9vbCAiWmljYm96IGV4dGVuc2lvbiBzdXBwb3J0IGZvciBm
+YXN0ZXIgemVyb2luZyBvZiBtZW1vcnkiCj4+ICvCoMKgwqAgZGVwZW5kcyBvbiAhWElQX0tFUk5F
+TCAmJiBNTVUKPj4gK8KgwqDCoCBzZWxlY3QgUklTQ1ZfQUxURVJOQVRJVkUKPj4gK8KgwqDCoCBk
+ZWZhdWx0IHkKPj4gK8KgwqDCoCBoZWxwCj4+ICvCoMKgwqDCoMKgwqAgRW5hYmxlIHRoZSB1c2Ug
+b2YgdGhlIFpJQ0JPWiBleHRlbnNpb24gKGNiby56ZXJvIGluc3RydWN0aW9uKQo+PiArwqDCoMKg
+wqDCoMKgIHdoZW4gYXZhaWxhYmxlLgo+PiArCj4+ICvCoMKgwqDCoMKgwqAgVGhlIFppY2JveiBl
+eHRlbnNpb24gaXMgdXNlZCBmb3IgZmFzdGVyIHplcm9pbmcgb2YgbWVtb3J5Lgo+PiArCj4+ICvC
+oMKgwqDCoMKgwqAgSWYgeW91IGRvbid0IGtub3cgd2hhdCB0byBkbyBoZXJlLCBzYXkgWS4KPj4g
+Kwo+PiDCoCBjb25maWcgVE9PTENIQUlOX0hBU19aSUhJTlRQQVVTRQo+PiDCoMKgwqDCoMKgIGJv
+b2wKPj4gwqDCoMKgwqDCoCBkZWZhdWx0IHkKPj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5j
+bHVkZS9hc20vaW5zbi1kZWYuaCAKPj4gYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2luc24tZGVm
+LmgKPj4gaW5kZXggZTAxYWI1MWY1MGQyLi42OTYwYmViNzVmMzIgMTAwNjQ0Cj4+IC0tLSBhL2Fy
+Y2gvcmlzY3YvaW5jbHVkZS9hc20vaW5zbi1kZWYuaAo+PiArKysgYi9hcmNoL3Jpc2N2L2luY2x1
+ZGUvYXNtL2luc24tZGVmLmgKPj4gQEAgLTE5Miw0ICsxOTIsOCBAQAo+PiDCoMKgwqDCoMKgIElO
+U05fSShPUENPREVfTUlTQ19NRU0sIEZVTkMzKDIpLCBfX1JEKDApLMKgwqDCoMKgwqDCoMKgIFwK
+Pj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIFJTMShiYXNlKSwgU0lNTTEyKDIpKQo+PiArI2Rl
+ZmluZSBDQk9femVybyhiYXNlKcKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqAgXAo+PiArwqDCoMKgIElOU05fSShPUENPREVfTUlTQ19NRU0sIEZVTkMzKDIpLCBf
+X1JEKDApLMKgwqDCoMKgwqDCoMKgIFwKPj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgIFJTMShiYXNl
+KSwgU0lNTTEyKDQpKQo+PiArCj4+IMKgICNlbmRpZiAvKiBfX0FTTV9JTlNOX0RFRl9IICovCj4+
+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BhZ2UuaCAKPj4gYi9hcmNoL3Jp
+c2N2L2luY2x1ZGUvYXNtL3BhZ2UuaAo+PiBpbmRleCA5ZjQzMmMxYjUyODkuLmNjZDE2OGZlMjlk
+MiAxMDA2NDQKPj4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wYWdlLmgKPj4gKysrIGIv
+YXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wYWdlLmgKPj4gQEAgLTQ5LDEwICs0OSwxNCBAQAo+PiDC
+oCAjaWZuZGVmIF9fQVNTRU1CTFlfXwo+PiArI2lmZGVmIENPTkZJR19SSVNDVl9JU0FfWklDQk9a
+Cj4+ICt2b2lkIGNsZWFyX3BhZ2Uodm9pZCAqcGFnZSk7Cj4+ICsjZWxzZQo+PiDCoCAjZGVmaW5l
+IGNsZWFyX3BhZ2UocGdhZGRyKcKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgbWVtc2V0KChwZ2FkZHIp
+LCAwLCBQQUdFX1NJWkUpCj4+ICsjZW5kaWYKPj4gwqAgI2RlZmluZSBjb3B5X3BhZ2UodG8sIGZy
+b20pwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBtZW1jcHkoKHRvKSwgKGZyb20pLCBQQUdFX1NJWkUp
+Cj4+IC0jZGVmaW5lIGNsZWFyX3VzZXJfcGFnZShwZ2FkZHIsIHZhZGRyLCBwYWdlKcKgwqDCoCBt
+ZW1zZXQoKHBnYWRkciksIDAsIAo+PiBQQUdFX1NJWkUpCj4+ICsjZGVmaW5lIGNsZWFyX3VzZXJf
+cGFnZShwZ2FkZHIsIHZhZGRyLCBwYWdlKcKgwqDCoCBjbGVhcl9wYWdlKHBnYWRkcikKPj4gwqAg
+I2RlZmluZSBjb3B5X3VzZXJfcGFnZSh2dG8sIHZmcm9tLCB2YWRkciwgdG9wZykgXAo+PiDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBtZW1jcHkoKHZ0byksICh2ZnJvbSksIFBBR0VfU0laRSkK
+Pj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL2NwdWZlYXR1cmUuYyAKPj4gYi9hcmNo
+L3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMKPj4gaW5kZXggNzQ3MzZiNGYwNjI0Li40MjI0NmJi
+ZmE1MzIgMTAwNjQ0Cj4+IC0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL2NwdWZlYXR1cmUuYwo+PiAr
+KysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMKPj4gQEAgLTI4MCw2ICsyODAsMTcg
+QEAgdm9pZCBfX2luaXQgcmlzY3ZfZmlsbF9od2NhcCh2b2lkKQo+PiDCoCAjaWZkZWYgQ09ORklH
+X1JJU0NWX0FMVEVSTkFUSVZFCj4+IMKgIHN0YXRpYyBib29sIHJpc2N2X2NwdWZlYXR1cmVfYXBw
+bGljYXRpb25fY2hlY2sodTMyIGZlYXR1cmUsIHUxNiBkYXRhKQo+PiDCoCB7Cj4+ICvCoMKgwqAg
+c3dpdGNoIChmZWF0dXJlKSB7Cj4+ICvCoMKgwqAgY2FzZSBSSVNDVl9JU0FfRVhUX1pJQ0JPWjoK
+Pj4gK8KgwqDCoMKgwqDCoMKgIC8qCj4+ICvCoMKgwqDCoMKgwqDCoMKgICogWmljYm96IGFsdGVy
+bmF0aXZlIGFwcGxpY2F0aW9ucyBwcm92aWRlIHRoZSBtYXhpbXVtCj4+ICvCoMKgwqDCoMKgwqDC
+oMKgICogc3VwcG9ydGVkIGJsb2NrIHNpemUgb3JkZXIsIG9yIHplcm8gd2hlbiBpdCBkb2Vzbid0
+Cj4+ICvCoMKgwqDCoMKgwqDCoMKgICogbWF0dGVyLiBJZiB0aGUgY3VycmVudCBibG9jayBzaXpl
+IGV4Y2VlZHMgdGhlIG1heGltdW0sCj4+ICvCoMKgwqDCoMKgwqDCoMKgICogdGhlbiB0aGUgYWx0
+ZXJuYXRpdmUgY2Fubm90IGJlIGFwcGxpZWQuCj4+ICvCoMKgwqDCoMKgwqDCoMKgICovCj4+ICvC
+oMKgwqDCoMKgwqDCoCByZXR1cm4gZGF0YSA9PSAwIHx8IHJpc2N2X2Nib3pfYmxvY2tfc2l6ZSA8
+PSAoMVUgPDwgZGF0YSk7Cj4+ICvCoMKgwqAgfQoKCgo+PiArCj4+IMKgwqDCoMKgwqAgcmV0dXJu
+IGRhdGEgPT0gMDsKPj4gwqAgfQo+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9saWIvTWFrZWZp
+bGUgYi9hcmNoL3Jpc2N2L2xpYi9NYWtlZmlsZQo+PiBpbmRleCA2Yzc0YjBiZWRkNjAuLjI2Y2Iy
+NTAyZWNmOCAxMDA2NDQKPj4gLS0tIGEvYXJjaC9yaXNjdi9saWIvTWFrZWZpbGUKPj4gKysrIGIv
+YXJjaC9yaXNjdi9saWIvTWFrZWZpbGUKPj4gQEAgLTgsNSArOCw2IEBAIGxpYi15wqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoCArPSBzdHJsZW4ubwo+PiDCoCBsaWItecKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqAgKz0gc3RybmNtcC5vCj4+IMKgIGxpYi0kKENPTkZJR19NTVUpwqDCoMKgICs9IHVhY2Nlc3Mu
+bwo+PiDCoCBsaWItJChDT05GSUdfNjRCSVQpwqDCoMKgICs9IHRpc2hpZnQubwo+PiArbGliLSQo
+Q09ORklHX1JJU0NWX0lTQV9aSUNCT1opwqDCoMKgICs9IGNsZWFyX3BhZ2Uubwo+PiDCoCBvYmot
+JChDT05GSUdfRlVOQ1RJT05fRVJST1JfSU5KRUNUSU9OKSArPSBlcnJvci1pbmplY3Qubwo+PiBk
+aWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9saWIvY2xlYXJfcGFnZS5TIGIvYXJjaC9yaXNjdi9saWIv
+Y2xlYXJfcGFnZS5TCj4+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4+IGluZGV4IDAwMDAwMDAwMDAw
+MC4uNWI4NTFlNzI3ZjdjCj4+IC0tLSAvZGV2L251bGwKPj4gKysrIGIvYXJjaC9yaXNjdi9saWIv
+Y2xlYXJfcGFnZS5TCj4+IEBAIC0wLDAgKzEsNzEgQEAKPj4gKy8qIFNQRFgtTGljZW5zZS1JZGVu
+dGlmaWVyOiBHUEwtMi4wLW9ubHkgKi8KPj4gKy8qCj4+ICsgKiBDb3B5cmlnaHQgKGMpIDIwMjMg
+VmVudGFuYSBNaWNybyBTeXN0ZW1zIEluYy4KPj4gKyAqLwo+PiArCj4+ICsjaW5jbHVkZSA8bGlu
+dXgvbGlua2FnZS5oPgo+PiArI2luY2x1ZGUgPGFzbS9hc20uaD4KPj4gKyNpbmNsdWRlIDxhc20v
+YWx0ZXJuYXRpdmUtbWFjcm9zLmg+Cj4+ICsjaW5jbHVkZSA8YXNtL2h3Y2FwLmg+Cj4+ICsjaW5j
+bHVkZSA8YXNtL2luc24tZGVmLmg+Cj4+ICsjaW5jbHVkZSA8YXNtL3BhZ2UuaD4KPj4gKwo+PiAr
+I2RlZmluZSBDQk9aX0FMVChvcmRlciwgb2xkLCBuZXcpwqDCoMKgIFwKPj4gK8KgwqDCoCBBTFRF
+Uk5BVElWRShvbGQsIG5ldywgb3JkZXIsIFJJU0NWX0lTQV9FWFRfWklDQk9aLCAKPj4gQ09ORklH
+X1JJU0NWX0lTQV9aSUNCT1opCj4gCj4gSSB0aG91Z2h0IHRoaXMgd2FzIG1lYW50IHRvIGJlIGEg
+Q1BVRkVBVFVSRV9aSUNCT1ogdGhpbmcgZm9yIHRoZQo+IGFsdGVybmF0aXZlcz8KPiAKPiBJIG1h
+eSBhbHNvIGJlIG1pc3Npbmcgc29tZXRoaW5nLCBidXQgd2hlbiBiYWNrcG9ydGluZyB0aGlzIHRv
+IDUuMTkKPiB0byB0ZXN0IGl0IG9uIG91ciBzeXN0ZW0gdGhlICJvcmRlciIgYXJndW1lbnQgaXMg
+aW4gZmFjdCB0aGUgdmVuZG9yLWlkCj4gc28gdGhpcyBkb2Vzbid0IHdvcmsgYXMgdGhlIGFsdGVy
+bmF0aXZlcyBkb24ndCBnZXQgcGF0Y2hlZCBpbiBhdC1hbGwuCgpTbyBpdCBsb29rcyBsaWtlIHdo
+ZW4gYmFja3BvcnRpbmcgSSBtaXNzZWQgdGhlIHVwZGF0ZWQgaW4KYXJjaC9yaXNjdi9rZXJuZWwv
+Y3B1ZmVhdHVyZS5jIGZvciB0ZXN0aW5nIHRoZSBibG9jayBzaXplCndoaWNoIGV4cGxhaW5zIHRo
+ZSBpc3N1ZXMgSSB3YXMgc2VlaW5nIHdpdGggdGhlIGFzc2VtYmx5CmNvZGUuCgpJJ20gbm90IHN1
+cmUgd2h5IGl0IHdvdWxkbid0IGFzc2VtYmxlIGZvciBtZSB3aXRoIHRoZQpSSVNDVl9JU0FfRVhU
+X1pJQ0JPWiBiZWluZyB1bmRlZmluZWQuCgpXaXRoIHVzaW5nIHZlbmRvci1pZCB3aXRoIHRoZSBS
+SVNDVl9JU0FfRVhUX1pJQ0JPWiBhcyB0aGUKZXJyYXRhLWlkLCB3b3VsZCB0aGUgUklTQ1ZfSVNB
+X0VYVCBzcGFjZSBuZWVkIHRvIGJlIHJlc2VydmVkCmZvciBhbnkgdmVuZG9yIHNwZWNpZmljIElE
+cz8KCgotLSAKQmVuIERvb2tzCQkJCWh0dHA6Ly93d3cuY29kZXRoaW5rLmNvLnVrLwpTZW5pb3Ig
+RW5naW5lZXIJCQkJQ29kZXRoaW5rIC0gUHJvdmlkaW5nIEdlbml1cwoKaHR0cHM6Ly93d3cuY29k
+ZXRoaW5rLmNvLnVrL3ByaXZhY3kuaHRtbAoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
+aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
+dGluZm8vbGludXgtcmlzY3YK
