@@ -4,85 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F1BDC61DA4
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Feb 2023 23:19:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 120D8C636CC
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Feb 2023 00:13:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bWIzRH3zqN6k9my5RIsgJ/D0GKjNwNDfTm+1bJq5y9s=; b=nAORxCS+RbG8Mo
-	otMUPf/CJoI8zwXxflLf02Uwh6rjvZA5HKOdL3PCCaIl2nRE5TykmctVvmRcRb6qgY2LGHWhCMUbs
-	fW2dCvrt7ZacouvrwgAg8nXS81HO8jWpLicFdjrqyI4FEY/OtBmT8ITs70iw04yHKtLv0SXkSVSKY
-	kM0jXb8VQL95ipn46vOUMU/BnAAiqKC6XwqZxkJ/nFOVqRHxD19XHZPvwLY9AOOHnoxDqnAJPuAiE
-	74cRuyeneU8rhLEfcUdy7+h6q89zn2HR9qD58QqaRftsJF8wEWxrtarmx07r8ILmLA/5fDpibGHcm
-	euSTUa17zIM13glm5baw==;
+	List-Owner; bh=27KNAlqReg/M2ZkH8xCv8wk5YvTz2WGcx4PA8utuNSg=; b=xeQmQjrbe+Zm/c
+	yZNw90LDj/56r5fTjefY4AmWWiBK7NT2m7CSpjPtHfAC+CqTr7EPlVsqAiSc4TkBgupkJp+lvhT36
+	H4utErW0RMQnFIacNsBBeH88s+X2dlSiAgkfG9RyVI799xyTgcyYikDKmHzn4bPAWXpb0oi5ll3H7
+	2Ug4lazO8ZdGEZTr3VMuL4f55ZaDFeC8TeKoD82Ld5Eb9SLLoO+8bFdcO8KkAtBCfcp0adl1aeKF9
+	Je2F+jogmy6zdkXJr355Fy9mx3USMBUw3KYLeZRwlcgLAZ+4dD19Q+F86wLN0cv00nQWuCAGfHkHl
+	jzbkCHKh4S8YJ72oeHZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSnXJ-00C6cH-Kg; Thu, 16 Feb 2023 23:19:33 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pSnXG-00C6as-K7
-	for linux-riscv@lists.infradead.org; Thu, 16 Feb 2023 23:19:32 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id w11so4707820lfu.11
-        for <linux-riscv@lists.infradead.org>; Thu, 16 Feb 2023 15:19:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=QuO7vwGoOqdehwY6pqxVzJ9kdVjxxXH/3O2BPwil+Ps=;
-        b=zYVTTyh/hg97GwfGgLK3MjOi0ALc/LOCuuyuUxgdlGxBYM5iui3yw2y/DJ/yZbiMKn
-         PpEZ8PuSpksvmy+jfy1rFSc9xfLF/4p1r80LMmvSj30bRggPoJsaVIZyDPdCrMn8bjno
-         pixn8w08Zf8lPPHPFPgNm7ICQjbU+mzAnvDbO9ZE346uW897c6el7wTUAW011DK6pJBG
-         MncC+8Id/WGOAIeleavJ1vrvX19IT9aNgYn8HKr74tlv4jqj9kMQ0XfdR9sGbmuPI2ij
-         yfYjmTPC/ZKivABzI3T44Pfv2TrmHa/QF4gl2BxWvW6TyFySOAejiXJJzblE0+Y4rRW/
-         f6CQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=QuO7vwGoOqdehwY6pqxVzJ9kdVjxxXH/3O2BPwil+Ps=;
-        b=HTGjnrE9su5S2the+mY6ZrhSGmz7IkRACIKXbXjs+EMG47vEe5r5Q2dBsncHAB+ey6
-         r8qNbhIZJPWY30RTHCiumIDPQs+NKPRJX2mFjVsyttF30xYRYbq724fFUAaM+DJiVb5L
-         7yIXCuH3im/cMG4M4kvAdNxXrVCAA77F5SWE5Tt76CxDgOwltTKWt5ah8PMEv+l7+8g2
-         sBgLDI/7qTbxJaFzmFIXJFRNAJ4LOyKlZyVRXAZVNtOO7sE0hZOC6e6C4tG9RicAi22a
-         iyaHJPtH4Fh6h2uCnjoVeilMGMlG0VnE7AJnfye9OKporylRfNfCZmgWed3BpwGQ8QNX
-         dfng==
-X-Gm-Message-State: AO0yUKXbuZM8vlyrU2B/5AHy2rerPuxPPuv6157njS20dxQPl7U/S0xS
-	ZOrN7+44OL1JGoUqVazI6HFVe3Im623RMgUipSWXeg==
-X-Google-Smtp-Source: AK7set/bHPEPiCF7ABIwAYwHhJ93j6aVjwc5DsJvP1JwGfHRwCixVRwQ4IYybqkOks8P+AzIzxXJUhvC/3k9tQ82wtE=
-X-Received: by 2002:a05:6512:507:b0:4dc:807a:d14a with SMTP id
- o7-20020a056512050700b004dc807ad14amr413602lfb.9.1676589567141; Thu, 16 Feb
- 2023 15:19:27 -0800 (PST)
+	id 1pSoNW-00CC8f-Sl; Fri, 17 Feb 2023 00:13:30 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pSoNS-00CC5K-Ao
+	for linux-riscv@lists.infradead.org; Fri, 17 Feb 2023 00:13:29 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 58FEF24E1A6;
+	Fri, 17 Feb 2023 08:12:39 +0800 (CST)
+Received: from EXMBX067.cuchost.com (172.16.6.67) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 17 Feb
+ 2023 08:12:39 +0800
+Received: from [192.168.125.89] (183.27.98.67) by EXMBX067.cuchost.com
+ (172.16.6.67) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 17 Feb
+ 2023 08:12:38 +0800
+Message-ID: <f07e1037-641d-c1f6-f3c0-5cf0b8bbbc3c@starfivetech.com>
+Date: Fri, 17 Feb 2023 08:12:37 +0800
 MIME-Version: 1.0
-References: <20230206201455.1790329-1-evan@rivosinc.com> <20230206201455.1790329-3-evan@rivosinc.com>
- <ded4018d-c90f-41c7-9e54-da954bdef49e@app.fastmail.com> <CALs-HsuwOqR+y-GriKOiRx068bgOv3qTOpsJTaA02htiiynWmw@mail.gmail.com>
- <6FA7F803-1B4A-418E-9368-E205F3A6CF27@jrtc27.com> <ed5133d1-5592-4367-8919-4416be506455@app.fastmail.com>
-In-Reply-To: <ed5133d1-5592-4367-8919-4416be506455@app.fastmail.com>
-From: Evan Green <evan@rivosinc.com>
-Date: Thu, 16 Feb 2023 15:18:51 -0800
-Message-ID: <CALs-HstoeoTWjTEZrLWouCgwq0t3tDB6uL=tB68RJDs1ub4Frw@mail.gmail.com>
-Subject: Re: [PATCH v2 2/6] RISC-V: Add a syscall for HW probing
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Jessica Clarke <jrtc27@jrtc27.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
-	linux-doc@vger.kernel.org, Andrew Bresticker <abrestic@rivosinc.com>, 
-	Atish Patra <atishp@rivosinc.com>, Palmer Dabbelt <palmer@rivosinc.com>, 
-	"Conor.Dooley" <conor.dooley@microchip.com>, Celeste Liu <coelacanthus@outlook.com>, 
-	slewis@rivosinc.com, Bagas Sanjaya <bagasdotme@gmail.com>, 
-	linux-riscv <linux-riscv@lists.infradead.org>, Jonathan Corbet <corbet@lwn.net>, 
-	Tobias Klauser <tklauser@distanz.ch>, Andrew Jones <ajones@ventanamicro.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Vineet Gupta <vineetg@rivosinc.com>, 
-	Dao Lu <daolu@rivosinc.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Ruizhe Pan <c141028@gmail.com>, Anup Patel <apatel@ventanamicro.com>, 
-	Randy Dunlap <rdunlap@infradead.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Conor Dooley <conor@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, guoren <guoren@kernel.org>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.7.2
+Subject: Re: [PATCH v3] irqchip/irq-sifive-plic: Add syscore callbacks for
+ hibernation
+Content-Language: en-US
+To: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>, "Ley
+ Foon Tan" <leyfoon.tan@starfivetech.com>, Sia Jee Heng
+	<jeeheng.sia@starfivetech.com>
+References: <20230210100122.80255-1-mason.huo@starfivetech.com>
+From: Mason Huo <mason.huo@starfivetech.com>
+In-Reply-To: <20230210100122.80255-1-mason.huo@starfivetech.com>
+X-Originating-IP: [183.27.98.67]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX067.cuchost.com
+ (172.16.6.67)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230216_151930_871479_AC0C11F8 
-X-CRM114-Status: GOOD (  29.55  )
+X-CRM114-CacheID: sfid-20230216_161326_687091_F2F76B2C 
+X-CRM114-Status: GOOD (  22.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,60 +70,197 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBGZWIgMTYsIDIwMjMgYXQgNTozMCBBTSBBcm5kIEJlcmdtYW5uIDxhcm5kQGFybmRi
-LmRlPiB3cm90ZToKPgo+IE9uIFdlZCwgRmViIDE1LCAyMDIzLCBhdCAyMzo0MywgSmVzc2ljYSBD
-bGFya2Ugd3JvdGU6Cj4gPiBPbiAxNSBGZWIgMjAyMywgYXQgMjE6MTQsIEV2YW4gR3JlZW4gPGV2
-YW5Acml2b3NpbmMuY29tPiB3cm90ZToKPiA+PiBPbiBXZWQsIEZlYiAxNSwgMjAyMyBhdCAxOjU3
-IEFNIEFybmQgQmVyZ21hbm4gPGFybmRAYXJuZGIuZGU+IHdyb3RlOgo+ID4+IFBhbG1lciBjYW4g
-cHJvYmFibHkgc3BlYWsgdG8gdGhpcyB3aXRoIG1vcmUgYXV0aG9yaXR5LCBidXQgbXkKPiA+PiB1
-bmRlcnN0YW5kaW5nIGFib3V0IHRoZSBtb3RpdmF0aW9uIGZvciBhbiBhcHByb2FjaCBsaWtlIHRo
-aXMgZ29lcwo+ID4+IHNvbWV0aGluZyBsaWtlOgo+ID4+ICogV2l0aCB0aGUgbmF0dXJlIG9mIFJJ
-U0MtViwgd2UgZXhwZWN0IGEgbG90IG9mIHRoZXNlIHR5cGVzIG9mIGJpdHMKPiA+PiBhbmQgYm9i
-cywgbWFueSBtb3JlIHRoYW4gd2UndmUgc2VlbiB3aXRoIHRoZSBsaWtlcyBvZiB4ODYgYW5kIEFS
-TS4KPiA+Cj4gPiBXZeKAmXJlIGFscmVhZHkgYXQgKEkgdGhpbmspIDUxIHN0YW5kYXJkIHVzZXIt
-bGV2ZWwgZXh0ZW5zaW9ucyB0aGF0IExMVk0KPiA+IGtub3dzIGFib3V0Lgo+Cj4gRG8geW91IGhh
-dmUgYW4gZXN0aW1hdGUgb2YgaG93IG1hbnkgb2YgdGhlc2UgcmVxdWlyZSBrZXJuZWwgc3VwcG9y
-dAo+IGJleW9uZCBpZGVudGlmeWluZyB0aGUgZXh0ZW5zaW9ucz8KPgo+ID4+ICogV2UgYWxzbyBl
-eHBlY3QgaW4gc29tZSBjYXNlcyB0aGVzZSB2YWx1ZXMgdG8gYmUgaW5jb25zaXN0ZW50IGFjcm9z
-cyBDUFVzLgo+ID4KPiA+IFRoYXTigJlzIGFsc28gdHJ1ZSBvZiBzb21lIEFybSBTb0NzLgo+Cj4g
-UmlnaHQsIGJ1dCBpdCdzIGFsc28gc29tZXRoaW5nIHRoYXQgd2Ugc2hvdWxkIG5vdCBlbmNvdXJh
-Z2UsIG9yCj4gbmVlZCB0byBtYWtlIGVhc3kgdG8gdXNlLiBPbiBhcm02NCwgdGhlIGtlcm5lbCBz
-dXBwb3J0IGZvciBoYXZpbmcKPiBhc3ltbWV0cmljIGFhcmNoMzIgbW9kZSB3YXMga2VwdCB0byBh
-biBhYnNvbHV0ZSBtaW5pbXVtLCBhbmQgYW4KPiBhcHBsaWNhdGlvbiBpcyBleHBlY3RlZCB0byBn
-ZXQgdGhlIGluZm9ybWF0aW9uIGZyb20gL3Byb2MvY3B1aW5mbwo+IGJlZm9yZSBwaW5uaW5nIGRv
-d24gYSB0YXNrIHRvIHRoZSBjb3JyZWN0IHN1YnNldCBvZiBhbGwgQ1BVcy4KPgo+ID4+ICogU28s
-IGEgc3lzY2FsbCB3aXRoIGEgdkRTTyBmdW5jdGlvbiBpbiBmcm9udCBvZiBpdCBzZWVtZWQgbGlr
-ZSBhCj4gPj4gZ29vZCBjb21iaW5hdGlvbiBvZiBzcGVlZCBhbmQgZmxleGliaWxpdHkuCj4gPj4K
-PiA+PiBZb3UncmUgY2VydGFpbmx5IHJpZ2h0IHRoYXQgSFdDQVBuIHdvdWxkIHdvcmsgZm9yIHdo
-YXQgd2UncmUgZXhwb3NpbmcKPiA+PiB0b2RheSwgc28gdGhlIHF1ZXN0aW9uIHByb2JhYmx5IGNv
-bWVzIGRvd24gdG8gb3VyIHJlbGF0aXZlIHByZWRpY3Rpb25zCj4gPj4gb2YgaG93IHRoaXMgZGF0
-YSB3aWxsIGdyb3cuCj4gPgo+ID4gVGhlIG90aGVyIGJpZyBwcm9ibGVtIGlzIHZlbmRvciBleHRl
-bnNpb25zLgoKU2luY2UgdGhlIGtleSByYW5nZSBjYW4gZ3JvdyB3aXRob3V0IGFjY3J1aW5nIGEg
-cHJvY2VzcyBzdGFydHVwIHRpbWUKcGVuYWx0eSwgdGhpcyBwcm9wb3NhbCBoYW5kbGVzIHZlbmRv
-ciBleHRlbnNpb25zIGZhaXJseSB3ZWxsLCBubz8KKENvbnRyYXN0aW5nIGF0IGxlYXN0IGFnYWlu
-c3QgaHdjYXAgYml0cywgd2hpY2ggb25jZSBhbGxvY2F0ZWQgaGF2ZSB0bwpiZSBjb3BpZWQgaW50
-byBldmVyeSBuZXcgcHJvY2VzcyBmb3JldmVyKS4KCj4KPiBNeSBiaWdnZXN0IGNvbmNlcm4gaXMg
-aG93IHRoaXMgd291bGQgYmUgc3luY2hyb25pemVkIGJldHdlZW4gdGhlCj4gaW50ZXJmYWNlcyB0
-aGF0IGFyZSBhdmFpbGFibGUgdG8gdXNlcnMuIFdoYXQgd2UgaGF2ZSBvbiBvdGhlciBhcmNoaXRl
-Y3R1cmVzCj4gaXMgYSBzZXQgb2Ygc3RyaW5nIGlkZW50aWZpZXJzIGluIC9wcm9jL2NwdWluZm8g
-YW5kIGEgYml0bWFzayBpbiBIV0NBUC4KPiBJZGVhbGx5IHRoZXNlIGFyZSBhZGRlZCBpbiBwYWly
-cyBzbyB0aGUgaW5mb3JtYXRpb24gYXZhaWxhYmxlIHRvIHNoZWxsCj4gc2NyaXB0cyBpbiBodW1h
-biByZWFkZXJzIGlzIHRoZSBzYW1lIHRoYXQgaXMgYXZhaWxhYmxlIGluIHRoZSBhdXh2ZWMKPiBk
-YXRhLgo+Cj4gQWRkaW5nIGEgdGhpcmQgaW50ZXJmYWNlIHdpdGggdGhlIHNhbWUgaW5mb3JtYXRp
-b24gb3IgYSBzdXBlcnNldAo+IHJlcXVpcmVzIG1vcmUgd29yayBpbiBlbnN1cmluZyB0aGF0IGVh
-Y2ggZXh0ZW5zaW9uIGlzIGF2YWlsYWJsZQo+IGluIGV4YWN0bHkgdGhlIHJpZ2h0IHBsYWNlcy4g
-SWRlYWxseSBJIHRoaW5rIHRoZXJlIHNob3VsZCBiZSBvbmx5Cj4gb25lIHRhYmxlIG9mIHBvc3Np
-YmxlIENQVSBmZWF0dXJlcyBzbyBub2JvZHkgaGFzIHRvIG1ha2UgdGhlCj4gZGVjaXNpb24gYWJv
-dXQgd2hpY2ggb25lcyBhcmUgaW1wb3J0YW50IGVub3VnaCB0byBhZGQgdG8gb25lCj4gaW50ZXJm
-YWNlIG9yIGFub3RoZXIuCgpUaGF0IG1ha2VzIHNlbnNlLiBJbiB0aGlzIGNhc2UsIHRoZSBwcm9w
-b3NhbCBpcyB0aGF0IFJJU0MtViB3b3VsZCB1c2UKdGhpcyBtZWNoYW5pc20gYW5kIGdlbmVyYWxs
-eSBhYmFuZG9uIGh3Y2FwLiBTbyBteSBob3BlIGlzIHRoZXJlIHNob3VsZApzdGlsbCBvbmx5IGJl
-IGFib3V0IDIgc3BvdHMgdG8gbWFpbnRhaW4uCi1FdmFuCgpfX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
-cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
-bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Hi Marc,
+
+Do you have any comment on v3 patch that fixed the issues you commented in v2?
+
+Thanks
+Mason
+
+On 2023/2/10 18:01, Mason Huo wrote:
+> The priority and enable registers of plic will be reset
+> during hibernation power cycle in poweroff mode,
+> add the syscore callbacks to save/restore those registers.
+> 
+> Signed-off-by: Mason Huo <mason.huo@starfivetech.com>
+> Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+> Reviewed-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
+> ---
+>  drivers/irqchip/irq-sifive-plic.c | 93 ++++++++++++++++++++++++++++++-
+>  1 file changed, 91 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+> index ff47bd0dec45..f9d314afecf1 100644
+> --- a/drivers/irqchip/irq-sifive-plic.c
+> +++ b/drivers/irqchip/irq-sifive-plic.c
+> @@ -17,6 +17,7 @@
+>  #include <linux/of_irq.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/spinlock.h>
+> +#include <linux/syscore_ops.h>
+>  #include <asm/smp.h>
+>  
+>  /*
+> @@ -67,6 +68,8 @@ struct plic_priv {
+>  	struct irq_domain *irqdomain;
+>  	void __iomem *regs;
+>  	unsigned long plic_quirks;
+> +	unsigned int nr_irqs;
+> +	unsigned long *prio_save;
+>  };
+>  
+>  struct plic_handler {
+> @@ -78,6 +81,7 @@ struct plic_handler {
+>  	 */
+>  	raw_spinlock_t		enable_lock;
+>  	void __iomem		*enable_base;
+> +	u32			*enable_save;
+>  	struct plic_priv	*priv;
+>  };
+>  static int plic_parent_irq __ro_after_init;
+> @@ -229,6 +233,71 @@ static int plic_irq_set_type(struct irq_data *d, unsigned int type)
+>  	return IRQ_SET_MASK_OK;
+>  }
+>  
+> +static int plic_irq_suspend(void)
+> +{
+> +	unsigned int i, cpu;
+> +	u32 __iomem *reg;
+> +	struct plic_priv *priv;
+> +
+> +	priv = per_cpu_ptr(&plic_handlers, smp_processor_id())->priv;
+> +
+> +	for (i = 0; i < priv->nr_irqs; i++)
+> +		if (readl(priv->regs + PRIORITY_BASE + i * PRIORITY_PER_ID))
+> +			__set_bit(i, priv->prio_save);
+> +		else
+> +			__clear_bit(i, priv->prio_save);
+> +
+> +	for_each_cpu(cpu, cpu_present_mask) {
+> +		struct plic_handler *handler = per_cpu_ptr(&plic_handlers, cpu);
+> +
+> +		if (!handler->present)
+> +			continue;
+> +
+> +		raw_spin_lock(&handler->enable_lock);
+> +		for (i = 0; i < DIV_ROUND_UP(priv->nr_irqs, 32); i++) {
+> +			reg = handler->enable_base + i * sizeof(u32);
+> +			handler->enable_save[i] = readl(reg);
+> +		}
+> +		raw_spin_unlock(&handler->enable_lock);
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static void plic_irq_resume(void)
+> +{
+> +	unsigned int i, index, cpu;
+> +	u32 __iomem *reg;
+> +	struct plic_priv *priv;
+> +
+> +	priv = per_cpu_ptr(&plic_handlers, smp_processor_id())->priv;
+> +
+> +	for (i = 0; i < priv->nr_irqs; i++) {
+> +		index = (i / BITS_PER_LONG);
+> +		writel((priv->prio_save[index] & BIT(i % BITS_PER_LONG)) ? 1 : 0,
+> +		       priv->regs + PRIORITY_BASE + i * PRIORITY_PER_ID);
+> +	}
+> +
+> +	for_each_cpu(cpu, cpu_present_mask) {
+> +		struct plic_handler *handler = per_cpu_ptr(&plic_handlers, cpu);
+> +
+> +		if (!handler->present)
+> +			continue;
+> +
+> +		raw_spin_lock(&handler->enable_lock);
+> +		for (i = 0; i < DIV_ROUND_UP(priv->nr_irqs, 32); i++) {
+> +			reg = handler->enable_base + i * sizeof(u32);
+> +			writel(handler->enable_save[i], reg);
+> +		}
+> +		raw_spin_unlock(&handler->enable_lock);
+> +	}
+> +}
+> +
+> +static struct syscore_ops plic_irq_syscore_ops = {
+> +	.suspend	= plic_irq_suspend,
+> +	.resume		= plic_irq_resume,
+> +};
+> +
+>  static int plic_irqdomain_map(struct irq_domain *d, unsigned int irq,
+>  			      irq_hw_number_t hwirq)
+>  {
+> @@ -345,6 +414,7 @@ static int __init __plic_init(struct device_node *node,
+>  	u32 nr_irqs;
+>  	struct plic_priv *priv;
+>  	struct plic_handler *handler;
+> +	unsigned int cpu;
+>  
+>  	priv = kzalloc(sizeof(*priv), GFP_KERNEL);
+>  	if (!priv)
+> @@ -363,15 +433,21 @@ static int __init __plic_init(struct device_node *node,
+>  	if (WARN_ON(!nr_irqs))
+>  		goto out_iounmap;
+>  
+> +	priv->nr_irqs = nr_irqs;
+> +
+> +	priv->prio_save = bitmap_alloc(nr_irqs, GFP_KERNEL);
+> +	if (!priv->prio_save)
+> +		goto out_free_priority_reg;
+> +
+>  	nr_contexts = of_irq_count(node);
+>  	if (WARN_ON(!nr_contexts))
+> -		goto out_iounmap;
+> +		goto out_free_priority_reg;
+>  
+>  	error = -ENOMEM;
+>  	priv->irqdomain = irq_domain_add_linear(node, nr_irqs + 1,
+>  			&plic_irqdomain_ops, priv);
+>  	if (WARN_ON(!priv->irqdomain))
+> -		goto out_iounmap;
+> +		goto out_free_priority_reg;
+>  
+>  	for (i = 0; i < nr_contexts; i++) {
+>  		struct of_phandle_args parent;
+> @@ -441,6 +517,11 @@ static int __init __plic_init(struct device_node *node,
+>  		handler->enable_base = priv->regs + CONTEXT_ENABLE_BASE +
+>  			i * CONTEXT_ENABLE_SIZE;
+>  		handler->priv = priv;
+> +
+> +		handler->enable_save =  kcalloc(DIV_ROUND_UP(nr_irqs, 32),
+> +						32, GFP_KERNEL);
+> +		if (!handler->enable_save)
+> +			goto out_free_enable_reg;
+>  done:
+>  		for (hwirq = 1; hwirq <= nr_irqs; hwirq++) {
+>  			plic_toggle(handler, hwirq, 0);
+> @@ -461,11 +542,19 @@ static int __init __plic_init(struct device_node *node,
+>  				  plic_starting_cpu, plic_dying_cpu);
+>  		plic_cpuhp_setup_done = true;
+>  	}
+> +	register_syscore_ops(&plic_irq_syscore_ops);
+>  
+>  	pr_info("%pOFP: mapped %d interrupts with %d handlers for"
+>  		" %d contexts.\n", node, nr_irqs, nr_handlers, nr_contexts);
+>  	return 0;
+>  
+> +out_free_enable_reg:
+> +	for_each_cpu(cpu, cpu_present_mask) {
+> +		handler = per_cpu_ptr(&plic_handlers, cpu);
+> +		kfree(handler->enable_save);
+> +	}
+> +out_free_priority_reg:
+> +	kfree(priv->prio_save);
+>  out_iounmap:
+>  	iounmap(priv->regs);
+>  out_free_priv:
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
