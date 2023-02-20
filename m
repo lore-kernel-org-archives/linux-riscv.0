@@ -4,71 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE44CC636D6
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Feb 2023 04:22:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C23DC636D6
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Feb 2023 04:37:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QKxd5wtKVPsq9gmTWfjqHRVSBfV3ZzNTsjQCF+laHm0=; b=rrTzrdqB85H1Z+
-	PuXD8FVGrDUvTd2bh3+XUxxZgLjRsu14ffGWj/9qMqQNmYlxMF7HeG8m3XsmVQ+Vn6tWre8DNhxBr
-	YRW5OkULhLH+QcKxBucWx+Vl0JzlnVHa4twCcgg7PxEN5IzSsiqfeSBk3jBZ/UXyP5qY02PlRsqAQ
-	S4AL4jNOHUxrTsiVCMnvZp0ys76MdhD5y37Hp41io47Zl9sw+qO25IOupoD5kzxRMGoIW58Ibd+cW
-	a9Sl4QSpk9UuWIKYif+pMCjlBSi+g5wST8TOzL06B9jmaxKibwBldN14doze/Gjo7hzmKlpn6XUaQ
-	bjqrB/PzRXelrQbATfZw==;
+	List-Owner; bh=gGlSPYRP6Q69Y5jAVGICJmlL9Op/h8Y635K6MssLF9I=; b=YbX2y2Ro09GPz1
+	147or/sB7yDraQBstAXAID/5Wkc7cOVrRtFsVfnImJyH7vIoInJqvWwWl1ZE3lechheqthjQDru95
+	KgWHBdVLjhSlMysAF3eISYm2JD9x6xwNyMEdZZqkkF72R0MmLKjk881Ff05+EcYMcBm9Yyr3sepz3
+	BJJxOkvt53ERNpeIxX7o6uRi518HqXPw3Y4Vubb3gQadsrpTZWNWIOgIfr6/W7GKq469RFNOPHP8+
+	UMxIRkNqhXjpM3axV2e2K6NT1wTZa+G7gGXu6A5DjyXJ9QCvKGah2ka8FwKhfAqcWcPcffrKFLhji
+	MD7NJCZFY4ZL7mxNPeTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pTxhI-002xiA-9t; Mon, 20 Feb 2023 04:22:40 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pTxhD-002xg2-24
-	for linux-riscv@lists.infradead.org; Mon, 20 Feb 2023 04:22:38 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id E17AC24DBCE;
-	Mon, 20 Feb 2023 12:21:35 +0800 (CST)
-Received: from EXMBX063.cuchost.com (172.16.7.63) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 20 Feb
- 2023 12:21:35 +0800
-Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX063.cuchost.com
- (172.16.7.63) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 20 Feb
- 2023 12:21:35 +0800
-Received: from EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f]) by
- EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f%17]) with mapi id
- 15.00.1497.044; Mon, 20 Feb 2023 12:21:35 +0800
-From: JeeHeng Sia <jeeheng.sia@starfivetech.com>
-To: Pavel Machek <pavel@ucw.cz>
-CC: "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>, "aou@eecs.berkeley.edu"
-	<aou@eecs.berkeley.edu>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
-	Mason Huo <mason.huo@starfivetech.com>
-Subject: RE: [PATCH 3/3] RISC-V: Add arch functions to support
- hibernation/suspend-to-disk
-Thread-Topic: [PATCH 3/3] RISC-V: Add arch functions to support
- hibernation/suspend-to-disk
-Thread-Index: AQHZIZTz+V7+Gz83+Eel+CLGjWDN767UeZmAgAMGpQA=
-Date: Mon, 20 Feb 2023 04:21:35 +0000
-Message-ID: <be39247014cd4e12b871ef0e40f09f12@EXMBX066.cuchost.com>
-References: <20230106060535.104321-1-jeeheng.sia@starfivetech.com>
- <20230106060535.104321-4-jeeheng.sia@starfivetech.com>
- <Y/DaH0vjMsln4Ghr@duo.ucw.cz>
-In-Reply-To: <Y/DaH0vjMsln4Ghr@duo.ucw.cz>
-Accept-Language: en-US, zh-CN
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [202.188.176.82]
-x-yovoleruleagent: yovoleflag
+	id 1pTxvH-002yxq-Gt; Mon, 20 Feb 2023 04:37:07 +0000
+Received: from mail-ua1-x92e.google.com ([2607:f8b0:4864:20::92e])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pTxvE-002ywu-7d
+	for linux-riscv@lists.infradead.org; Mon, 20 Feb 2023 04:37:06 +0000
+Received: by mail-ua1-x92e.google.com with SMTP id u19so104204uad.12
+        for <linux-riscv@lists.infradead.org>; Sun, 19 Feb 2023 20:37:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=vW3SjDhHqWHMVSsNmZhVWE2xaUo+F2XQu/b/bwpzrYM=;
+        b=oGlsgZzS/dLKb8pyM6kFC4HSH7T/ttdwR9fMSx4Ge17fKrWCJ4+0aARjWSylD1IFbH
+         r2pznwSEZPiUAECAH7vXXj096XKUX/wC/VXlrHBiSsM7jyckRHP5PUm8b8UCOGCj+Yp6
+         w5p+8+xMMu+91rezsUcD0rjXj4HwT54k+G+tiSFJB0+GajBkeEzG/kKbXtitqE6+rIW1
+         I78pC8n/qM8hdYCb+kBfKYwb4eNrB/ATVeXEsT4spVkBNwXgUdkcOM3YiK45WRINoWa1
+         L01Qkmj5SvhlKCXOCxawmBV22igO+c6us2zUffsw/oAxfN9mjc/fHwEHrkugpp4taB32
+         J+/w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=vW3SjDhHqWHMVSsNmZhVWE2xaUo+F2XQu/b/bwpzrYM=;
+        b=iofoJKkihlwtI0hbgFmnVAH+JFezIpunnDPpytYEFSFjmsya+AtuoQBUryK+yUB0bI
+         bLPhJxHbJUsGRMlYIOpPAqS1zexQ1jYNw86a21dW+yngKxXIeT5xtnAvnQiBtckHfbff
+         D18iWndLzZUeMrPxJzVja0UHZ1XIESRORriBP0enaadWkRqm38u/ZE2BPZI8ZoG7+bok
+         oH1JTdu77bMIpSToC7JBALFn9klnYEa9QHzkblyp+qhUi0MRDg7rcY6X98bJU2leM0/o
+         NkG+30bIczdEC/Ks6WTo9Xy5LyAZYb71Zp1/kdjWrfGjUasQk72rnTwSmes5UFa2zSWc
+         /0Ww==
+X-Gm-Message-State: AO0yUKU2HeIjdlF8ftIedETYjXehd/TAlTeHSSrvJoFCzYPO/DHW2A7r
+	DGD8ORh5+YmRP2Eenq82Vk7AIaA2dkYk/NqXhgtLPA==
+X-Google-Smtp-Source: AK7set8lJ71u8xZ5NZye9XUtlI1bfHkPZlqL8px++W8ibh9g6TXKjzSz1dZiZ/5nJC+gXKlPBPdVx+EeJ52SMY5butg=
+X-Received: by 2002:ab0:5b54:0:b0:68a:8f33:9567 with SMTP id
+ v20-20020ab05b54000000b0068a8f339567mr432419uae.2.1676867821482; Sun, 19 Feb
+ 2023 20:37:01 -0800 (PST)
 MIME-Version: 1.0
+References: <20230103141409.772298-1-apatel@ventanamicro.com>
+ <20230103141409.772298-7-apatel@ventanamicro.com> <Y7X62v5Zp6+thx5A@spud>
+In-Reply-To: <Y7X62v5Zp6+thx5A@spud>
+From: Anup Patel <apatel@ventanamicro.com>
+Date: Mon, 20 Feb 2023 10:06:49 +0530
+Message-ID: <CAK9=C2UPa5SATTG1pJdckqaoJxh-8EBz8xsENirZQ-vbaHTgjg@mail.gmail.com>
+Subject: Re: [PATCH v2 6/9] dt-bindings: interrupt-controller: Add RISC-V
+ advanced PLIC
+To: Conor Dooley <conor@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Atish Patra <atishp@atishpatra.org>, 
+	Alistair Francis <Alistair.Francis@wdc.com>, Anup Patel <anup@brainfault.org>, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230219_202235_410099_68661572 
-X-CRM114-Status: GOOD (  21.56  )
+X-CRM114-CacheID: sfid-20230219_203704_371497_C9B0AC94 
+X-CRM114-Status: GOOD (  39.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,72 +91,195 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-This is the old series, could you review the latest series at: https://patchwork.kernel.org/project/linux-riscv/list/?series=716143 ?
-
-> -----Original Message-----
-> From: Pavel Machek <pavel@ucw.cz>
-> Sent: Saturday, 18 February, 2023 10:01 PM
-> To: JeeHeng Sia <jeeheng.sia@starfivetech.com>
-> Cc: paul.walmsley@sifive.com; palmer@dabbelt.com; aou@eecs.berkeley.edu; linux-riscv@lists.infradead.org; linux-
-> kernel@vger.kernel.org; Leyfoon Tan <leyfoon.tan@starfivetech.com>; Mason Huo <mason.huo@starfivetech.com>
-> Subject: Re: [PATCH 3/3] RISC-V: Add arch functions to support hibernation/suspend-to-disk
-> 
-> Hi!
-> 
-> > @@ -21,6 +21,11 @@ struct suspend_context {
-> >  #endif
-> >  };
+On Thu, Jan 5, 2023 at 3:47 AM Conor Dooley <conor@kernel.org> wrote:
+>
+> Hey Anup,
+>
+> On Tue, Jan 03, 2023 at 07:44:06PM +0530, Anup Patel wrote:
+> > We add DT bindings document for RISC-V advanced platform level
+> > interrupt controller (APLIC) defined by the RISC-V advanced
+> > interrupt architecture (AIA) specification.
 > >
-> > +/* This parameter will be assigned to 0 during resume and will be used by
-> > + * hibernation core for the subsequent resume sequence
-> > + */
-> > +extern int in_suspend;
-> 
-> "/*" should be on separate line. (This occurs multiple times.)
-already resolved in v3 series.
-> 
-> > +ENTRY(core_restore_code)
-> > +	/* switch to temp page table */
-> > +	csrw satp, s1
-> > +	sfence.vma
-> > +	beqz	s4, done
-> > +loop:
-> > +	/* The below code will restore the hibernated image. */
-> > +	ld	a1, HIBERN_PBE_ADDR(s4)
-> > +	ld	a0, HIBERN_PBE_ORIG(s4)
+> > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> > ---
+> >  .../interrupt-controller/riscv,aplic.yaml     | 159 ++++++++++++++++++
+> >  1 file changed, 159 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml
+>
+> > +  interrupts-extended:
+> > +    minItems: 1
+> > +    maxItems: 16384
+> > +    description:
+> > +      Given APLIC domain directly injects external interrupts to a set of
+> > +      RISC-V HARTS (or CPUs). Each node pointed to should be a riscv,cpu-intc
+> > +      node, which has a riscv node (i.e. RISC-V HART) as parent.
 > > +
-> > +	lui     a4, 0x1
-> > +	add     a4, a4, a0
-> 
-> Do you have enough registers to move a4 = 0x1 assignment before the
-> loop:?
-I am sorry but I don't understand the question. Could you elaborate please?
-> 
-> > +static int __init riscv_hibernate__init(void)
-> > +{
-> > +	hibernate_cpu_context = kcalloc(1, sizeof(struct suspend_context), GFP_KERNEL);
+> > +  msi-parent:
+> > +    description:
+> > +      Given APLIC domain forwards wired interrupts as MSIs to a AIA incoming
+> > +      message signaled interrupt controller (IMSIC). This property should be
+> > +      considered only when the interrupts-extended property is absent.
+>
+> Considered by what?
+> On v1 you said:
+> <quote>
+> If both "interrupts-extended" and "msi-parent" are present then it means
+> the APLIC domain supports both MSI mode and Direct mode in HW. In this
+> case, the APLIC driver has to choose between MSI mode or Direct mode.
+> <\quote>
+>
+> The description is still pretty ambiguous IMO. Perhaps incorporate
+> some of that expanded comment into the property description?
+> Say, "If both foo and bar are present, the APLIC domain has hardware
+> support for both MSI and direct mode. Software may then chose either
+> mode".
+> Have I misunderstood your comment on v1? It read as if having both
+> present indicated that both were possible & that "should be considered
+> only..." was more of a suggestion and a comment about the Linux driver's
+> behaviour.
+> Apologies if I have misunderstood, but I suppose if I have then the
+> binding's description could be improved!!
+
+Yes, when both DT properties are present then it's up to Linux
+APLIC driver to choose the appropriate APLIC mode.
+
+I forgot to update the text here in v2 but I will update it in v3.
+Thanks for pointing.
+
+>
+> > +  riscv,children:
+> > +    $ref: /schemas/types.yaml#/definitions/phandle-array
+> > +    minItems: 1
+> > +    maxItems: 1024
+> > +    items:
+> > +      maxItems: 1
+> > +    description:
+> > +      A list of child APLIC domains for the given APLIC domain. Each child
+> > +      APLIC domain is assigned child index in increasing order with the
+>
+> btw, missing article before child (& a comma after order I think).
+
+Okay, I will update.
+
+>
+> > +      first child APLIC domain assigned child index 0. The APLIC domain
+> > +      child index is used by firmware to delegate interrupts from the
+> > +      given APLIC domain to a particular child APLIC domain.
 > > +
-> 
-> kzalloc?
-sure, will change it.
-> 
-> > +	if (WARN_ON(!hibernate_cpu_context))
-> > +		return -ENOMEM;
+> > +  riscv,delegate:
+> > +    $ref: /schemas/types.yaml#/definitions/phandle-array
+> > +    minItems: 1
+> > +    maxItems: 1024
+>
+> Is it valid to have a delegate property without children? If not, the
+> binding should reflect that dependency IMO.
+
+Okay, I will update.
+
+>
+> > +    items:
+> > +      items:
+> > +        - description: child APLIC domain phandle
+> > +        - description: first interrupt number (inclusive)
+> > +        - description: last interrupt number (inclusive)
+> > +    description:
+> > +      A interrupt delegation list where each entry is a triple consisting
+> > +      of child APLIC domain phandle, first interrupt number, and last
+> > +      interrupt number. The firmware will configure interrupt delegation
+>
+> btw, drop the article before firmware here.
+> Also, "firmware will" or "firmware must"? Semantics perhaps, but they
+> are different!
+
+I think "firmware must" is better because APLIC M-mode domains are
+not accessible to S-mode so firmware must configure delegation for
+at least all APLIC M-mode domains.
+
+>
+> Kinda for my own curiosity here, but do you expect these properties to
+> generally be dynamically filled in by the bootloader or read by the
+> bootloader to set up the configuration?
+
+Firmware (or bootloader) will look at this property and setup delegation
+before booting the OS kernel.
+
+>
+> > +      registers based on interrupt delegation list.
+>
+> I'm sorry Anup, but this child versus delegate thing is still not clear
+> to me binding wise. See below.
+
+There are two different information in-context of APLIC domain:
+
+1) HW child domain numbering: If an APLIC domain has N children
+    then HW will have a fixed child index for each of the N children
+    in the range 0 to N-1. This HW child index is required at the time
+    of setting up interrupt delegation in sourcecfgX registers. The
+    "riscv,children" DT property helps firmware (or bootloader) find
+    the total number of child APLIC domains and corresponding
+    HW child index number.
+
+2) IRQ delegation to child domains: An APLIC domain can delegate
+   any IRQ range(s) to a particular APLIC child domain. The
+   "riscv,delegate" DT property is simply a table where we have
+   one row for each IRQ range which is delegated to some child
+   APLIC domain. This property is more of a system setting fixed
+   by the RISC-V platform vendor.
+
+>
+> > +    aplic0: interrupt-controller@c000000 {
+> > +      compatible = "riscv,qemu-aplic", "riscv,aplic";
+> > +      interrupts-extended = <&cpu1_intc 11>,
+> > +                            <&cpu2_intc 11>,
+> > +                            <&cpu3_intc 11>,
+> > +                            <&cpu4_intc 11>;
+> > +      reg = <0xc000000 0x4080>;
+> > +      interrupt-controller;
+> > +      #interrupt-cells = <2>;
+> > +      riscv,num-sources = <63>;
+> > +      riscv,children = <&aplic1>, <&aplic2>;
+> > +      riscv,delegate = <&aplic1 1 63>;
+>
+> Is aplic2 here for demonstrative purposes only, since it has not been
+> delegated any interrupts?
+
+Yes, it's for demonstrative purposes only.
+
+> I suppose it is hardware present on the SoC that is not being used by
+> the current configuration?
+
+Yes, in this example aplic2 is unused because it has no interrupts
+delegated to it.
+
+>
+> Thanks,
+> Conor.
+>
+> > +    };
 > > +
-> > +	return 0;
-> > +}
+> > +    aplic1: interrupt-controller@d000000 {
+> > +      compatible = "riscv,qemu-aplic", "riscv,aplic";
+> > +      interrupts-extended = <&cpu1_intc 9>,
+> > +                            <&cpu2_intc 9>;
+> > +      reg = <0xd000000 0x4080>;
+> > +      interrupt-controller;
+> > +      #interrupt-cells = <2>;
+> > +      riscv,num-sources = <63>;
+> > +    };
 > > +
-> > +early_initcall(riscv_hibernate__init);
-> 
-> Does this really need to be done early?
-yes. To make sure it is initialized before next resume.
-> 
-> Best regards,
-> 								Pavel
-> --
-> People of Russia, stop Putin before his war on Ukraine escalates.
+> > +    aplic2: interrupt-controller@e000000 {
+> > +      compatible = "riscv,qemu-aplic", "riscv,aplic";
+> > +      interrupts-extended = <&cpu3_intc 9>,
+> > +                            <&cpu4_intc 9>;
+> > +      reg = <0xe000000 0x4080>;
+> > +      interrupt-controller;
+> > +      #interrupt-cells = <2>;
+> > +      riscv,num-sources = <63>;
+> > +    };
+>
+
+Regards,
+Anup
 
 _______________________________________________
 linux-riscv mailing list
