@@ -4,79 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E19C1C05027
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Feb 2023 07:11:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69768C05027
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Feb 2023 08:20:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=A4685K64obe2n5l5BSasg7Sum7JXsCmGdCrJuKM0+9k=; b=GZDCKvvDH2Cb9a
-	Hwneus5x0IIST7uuR24hQ8QM93A+6N9bkakBuNr/Hx0Dyrq8VFZ6yZhpHYBUncplmVDvaCO92o6sh
-	RF6oSCUPT+zWMBBQ5txuHwWMGPP7XAW3c6k4TTl58oJyH00kwfsQR/Csuce5PPD0L2zMEgArJKVaX
-	DyrRJ5c4dAIg4gdwsoLSlA+PJfSx4CXnXx4WoJAYuEfi+GQnyAf+HJRqkgIERCH2BLQG78MP6x1cs
-	oluIt0svcriXda0bH9wHJVjAZRW3DQJep6lYupJfJtYdQ2YlTZu/WQ3kTp7QXJZtv/ZrDGiJcN6q0
-	UWD8lSpuh7lly/S4VBdg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=v7/QtEnWbwf3xESr5YcKfPWFtGAEn1QOyXE0KZi/PEI=; b=qYvNtkgT/oKAU6
+	EnuULWkTAdcrnTMtUsjerALrnBhKyGxau87HRS05qeFJtRT6nTBwK/++cVcKGNGpTfMij5pdPzazr
+	6SjOfwGNLTLjvOxJeon4mE8L+pixIoBqEuQ1A1qrAi0ECJpfyhKSDb1+pNZ+GOG60kC/4VlFgRY2f
+	VPNVmeL7t9AyRbY+C8NaZ+/7oxeNwJxLDsHeuxPsnZSxVVSWJcbtCiis1DdzRfwkyOB/eF+N1GOXN
+	pBbnkqhb6oR6P8Uh8u55AWKzAmKUy2yJqhZKYg8Aoo5/pXvEOj5RG/NtI3EhtwFCtirOXJJYDsLFi
+	pNuHzIN3ek0Xchy5vjHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pU0KX-003ClT-OK; Mon, 20 Feb 2023 07:11:21 +0000
-Received: from [45.249.212.51] (helo=dggsgout11.his.huawei.com)
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pU0KS-003CjW-V8
-	for linux-riscv@lists.infradead.org; Mon, 20 Feb 2023 07:11:19 +0000
-Received: from mail02.huawei.com (unknown [172.30.67.143])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4PKtqg5z6cz4f41Vp
-	for <linux-riscv@lists.infradead.org>; Mon, 20 Feb 2023 15:10:55 +0800 (CST)
-Received: from localhost.localdomain (unknown [10.67.175.61])
-	by APP2 (Coremail) with SMTP id Syh0CgCHd+UAHfNjs3eqDw--.52533S2;
-	Mon, 20 Feb 2023 15:10:57 +0800 (CST)
-From: Pu Lehui <pulehui@huaweicloud.com>
-To: bpf@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yhs@fb.com>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>,
-	Stanislav Fomichev <sdf@google.com>,
-	Hao Luo <haoluo@google.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Pu Lehui <pulehui@huawei.com>,
-	Pu Lehui <pulehui@huaweicloud.com>
-Subject: [PATCH bpf-next] riscv, bpf: Add kfunc support for RV64
-Date: Mon, 20 Feb 2023 15:13:21 +0800
-Message-Id: <20230220071321.2906034-1-pulehui@huaweicloud.com>
+	id 1pU1PF-003ILj-81; Mon, 20 Feb 2023 08:20:18 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pU1On-003IHk-2W
+	for linux-riscv@lists.infradead.org; Mon, 20 Feb 2023 08:19:54 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 0F1DD24E2C2;
+	Mon, 20 Feb 2023 16:19:01 +0800 (CST)
+Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 20 Feb
+ 2023 16:19:01 +0800
+Received: from localhost.localdomain (183.27.98.67) by EXMBX061.cuchost.com
+ (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 20 Feb
+ 2023 16:19:00 +0800
+From: Xingyu Wu <xingyu.wu@starfivetech.com>
+To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-watchdog@vger.kernel.org>, Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>
+CC: Rob Herring <robh+dt@kernel.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Xingyu Wu
+	<xingyu.wu@starfivetech.com>, Samin Guo <samin.guo@starfivetech.com>,
+	<linux-kernel@vger.kernel.org>, Conor Dooley <conor@kernel.org>
+Subject: [PATCH v3 1/2] dt-bindings: watchdog: Add watchdog for StarFive JH7110
+Date: Mon, 20 Feb 2023 16:19:25 +0800
+Message-ID: <20230220081926.267695-2-xingyu.wu@starfivetech.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20230220081926.267695-1-xingyu.wu@starfivetech.com>
+References: <20230220081926.267695-1-xingyu.wu@starfivetech.com>
 MIME-Version: 1.0
-X-CM-TRANSID: Syh0CgCHd+UAHfNjs3eqDw--.52533S2
-X-Coremail-Antispam: 1UD129KBjvdXoWrury3GFyxXrW7try3Jry7KFg_yoW3GFg_ur
-	1xJa4xW3y5JF48XF1j9F4fArykGws3CFykXrn2vryjk3Z8WF15ta4kKryUX347Zr1YvrZr
-	urn5Ja9aqw42qjkaLaAFLSUrUUUUUb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbxAFF20E14v26ryj6rWUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j
-	6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
-	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
-	n2kIc2xKxwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F4
-	0E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_Wryl
-	IxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxV
-	AFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6rWUJVWrZr1UMIIF0xvEx4A2jsIE14v2
-	6r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0J
-	UQvtAUUUUU=
-X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
-X-CFilter-Loop: Reflected
+X-Originating-IP: [183.27.98.67]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX061.cuchost.com
+ (172.16.6.61)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230219_231117_230909_97BCDF0E 
-X-CRM114-Status: UNSURE (   6.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230220_001951_850234_4839821D 
+X-CRM114-Status: GOOD (  13.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,24 +71,104 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-QXMgYW5vdGhlciBpbXBvcnRhbnQgbWlzc2luZyBwaWVjZSBvZiBSVjY0IEpJVCwga2Z1bmMgYWxs
-b3cgYnBmIHByb2dyYW1zCmNhbGwga2VybmVsIGZ1bmN0aW9ucy4gRm9yIG5vdywgUlY2NCBpcyBz
-dWZmaWNpZW50IHRvIGVuYWJsZSBpdC4KClN1Z2dlc3RlZC1ieTogQmrDtnJuIFTDtnBlbCA8Ympv
-cm5Acml2b3NpbmMuY29tPgpTaWduZWQtb2ZmLWJ5OiBQdSBMZWh1aSA8cHVsZWh1aUBodWF3ZWku
-Y29tPgotLS0KIGFyY2gvcmlzY3YvbmV0L2JwZl9qaXRfY29tcDY0LmMgfCA1ICsrKysrCiAxIGZp
-bGUgY2hhbmdlZCwgNSBpbnNlcnRpb25zKCspCgpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9uZXQv
-YnBmX2ppdF9jb21wNjQuYyBiL2FyY2gvcmlzY3YvbmV0L2JwZl9qaXRfY29tcDY0LmMKaW5kZXgg
-ZjVhNjY4NzM2Yzc5Li5hOTI3MDM2NmRjNTcgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3YvbmV0L2Jw
-Zl9qaXRfY29tcDY0LmMKKysrIGIvYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb21wNjQuYwpAQCAt
-MTc1MSwzICsxNzUxLDggQEAgdm9pZCBicGZfaml0X2J1aWxkX2VwaWxvZ3VlKHN0cnVjdCBydl9q
-aXRfY29udGV4dCAqY3R4KQogewogCV9fYnVpbGRfZXBpbG9ndWUoZmFsc2UsIGN0eCk7CiB9CisK
-K2Jvb2wgYnBmX2ppdF9zdXBwb3J0c19rZnVuY19jYWxsKHZvaWQpCit7CisJcmV0dXJuIHRydWU7
-Cit9Ci0tIAoyLjI1LjEKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
-ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
-LXJpc2N2Cg==
+Add bindings to describe the watchdog for the StarFive JH7110 SoC.
+
+Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+---
+ .../watchdog/starfive,jh7110-wdt.yaml         | 74 +++++++++++++++++++
+ 1 file changed, 74 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/watchdog/starfive,jh7110-wdt.yaml
+
+diff --git a/Documentation/devicetree/bindings/watchdog/starfive,jh7110-wdt.yaml b/Documentation/devicetree/bindings/watchdog/starfive,jh7110-wdt.yaml
+new file mode 100644
+index 000000000000..05ba7069e29a
+--- /dev/null
++++ b/Documentation/devicetree/bindings/watchdog/starfive,jh7110-wdt.yaml
+@@ -0,0 +1,74 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/watchdog/starfive,jh7110-wdt.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: StarFive Watchdog
++
++maintainers:
++  - Samin Guo <samin.guo@starfivetech.com>
++  - Xingyu Wu <xingyu.wu@starfivetech.com>
++
++description:
++  The watchdog is a 32 bit counter and has two timeout phases.
++  At the first phase, the signal of watchdog interrupt output(WDOGINT)
++  will rise when counter is 0. The counter will reload the timeout value.
++  And then, if counter decreases to 0 again and WDOGINT isn't cleared,
++  the watchdog will reset the system unless the watchdog reset is disabled.
++
++allOf:
++  - $ref: watchdog.yaml#
++
++properties:
++  compatible:
++    const: starfive,jh7110-wdt
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: APB clock
++      - description: Core clock
++
++  clock-names:
++    items:
++      - const: apb
++      - const: core
++
++  resets:
++    items:
++      - description: APB reset
++      - description: Core reset
++
++  reset-names:
++    items:
++      - const: apb
++      - const: core
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - resets
++  - reset-names
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    watchdog@13070000 {
++        compatible = "starfive,jh7110-wdt";
++        reg = <0x13070000 0x10000>;
++        clocks = <&clk 122>,
++                 <&clk 123>;
++        clock-names = "apb", "core";
++        resets = <&rst 109>,
++                 <&rst 110>;
++        reset-names = "apb", "core";
++    };
+-- 
+2.25.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
