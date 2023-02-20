@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9860C636D6
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Feb 2023 19:47:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6396C6379F
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Feb 2023 19:51:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Idag5gmUa0u6TaQUNmmpMWjj7Vuif8Wz1tDsJ6Igsvw=; b=kKajzGa9381ogE
-	85FUSsEQfMFgYX68SWLu1jlSQ3bIVnyvTkIrM4jeHRaqIUs6Q04xl4OPZkJVXFKcpF0RTa5qjqQEp
-	EBolfE/YTbICjZabLc8PJLZSA9ZRmTOmkJPxJyqbZOq1fONfBnSaCzXH4V3o0gisroIsiGQ+i/mfk
-	3Xc0+C53sVHLvy4MY6ngNJz21PUB4EPKD2EYXjk6vXGyEzkMeUhw85oXXL/z7a7ypistcL4d4sg7H
-	icHP9Je7rdPZQuRfFSLsi8K05pBKb12vPrI8I0ZWjxHVSXuOeiEg3FWdKMaP+D/5nVDsYeqO0g4Nj
-	jzkCMqQxIZni+VUcDbbg==;
+	List-Owner; bh=XBYaTqnUDGF0Rf1HZUbHEdAOR5vy704FXYXk7qmXBBk=; b=TahWlGTZsnHg5H
+	i3NyoQdwXVaVP7wuUEx3mIpRZVQUaTNjbUtbk54k2M4h6BPuC4E5Sjad5IwFEighJaTGE94x6Rluq
+	6O8Df6V39hkGSXxzEDJ2MB4K8nGfuiJtLxYqomVBSYQmjLEIrdWeEvTS8sGAW+7TiJ5Ij0FINW3P4
+	W/q0BtxXse9AGWzT6OJFhKezlawB99EO/wtN2SbyygzKnTqRWxPfTArKBOblH2CfviRH8Dc8wZm+/
+	oFSTYHJ8TC2BU7250wJKRszFWKXk59jG+JvdtdoGcAM1gedeE+f19KCfu3cLaG7de/GRi6y6v0kHF
+	WvwT7BdAFFaYbrSVHSjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUC8N-005PRX-Fh; Mon, 20 Feb 2023 19:47:35 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1pUCBv-005Q01-A9; Mon, 20 Feb 2023 19:51:15 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUC8L-005PPy-6R
-	for linux-riscv@lists.infradead.org; Mon, 20 Feb 2023 19:47:34 +0000
-Received: by mail-ed1-x533.google.com with SMTP id h16so8954557edz.10
-        for <linux-riscv@lists.infradead.org>; Mon, 20 Feb 2023 11:47:29 -0800 (PST)
+	id 1pUCBs-005Pyh-U0
+	for linux-riscv@lists.infradead.org; Mon, 20 Feb 2023 19:51:14 +0000
+Received: by mail-ed1-x529.google.com with SMTP id cq23so8522421edb.1
+        for <linux-riscv@lists.infradead.org>; Mon, 20 Feb 2023 11:51:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=ventanamicro.com; s=google;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=3yUq4FLB/m803F8fK5gZnIqcPnrhr2EPp/zQNvrCSCU=;
-        b=Nlw2qqdiuA+f6FDd37PV1+VWypIXmelCRTvF41kn2/XQJVs/PUbZeL1cChlgHIL6tA
-         YEqLLvfPvioOkiry08GiJPu+nhAHiFRZDW5UTHJcvttvvlUokneNZnR8HMKYc9AKkDCP
-         EYMqikEdcIwdBySNMkJLuxT5xtuP/4PYwyOPb9oXgeF1trSqPB95edwgQVDuIXujf7N3
-         230nnVnBABlLfdyrt7wEz1qYOaX9thIsPOFRrspnuQ4k/FT/smsCwTIOc7RXfGShK6bZ
-         kWLfGcKvVoDTQAIsA1z59gDh/EWLkKyNfyLLZdyoSHe/VfBmlIr8hMWgnQKxDPX7AXeW
-         /u+Q==
+        bh=JiNBdogVb/ctJRbRDskVYVFlh5rTlqKKL5FmI6kPZ8w=;
+        b=cuiQ8z5ITbd3IB7rit7AwPXG0vORAkRAG63Zp9/IcLR8dKofsaq8zcD1HztVYPB4NF
+         Dvlwh1lC0n26Z8wGxQvGI/WAzN3PSKOyy9JYHe44YeuhapZVNnvVV0l/nKOPIyK8MSku
+         EFxR5PpAVadFmkAcAAnD5xhlggWWqDHmLuNXoii5IL1o+Strz6vQg5kQgNhru0pQ6wot
+         0nuMV/gP7WFxothHDTqQZ/mRELysY8kig5lSEvIS25JCI5dh3YYzmXOlB8MoV+KBqeLZ
+         qx/JV9oF0YRh/ZUBaqHZ96dx4Od0X/o18nmdeI4g5LKpOHf+oNvOY7wqMH+aZcJadJ5r
+         SdJQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=3yUq4FLB/m803F8fK5gZnIqcPnrhr2EPp/zQNvrCSCU=;
-        b=XH/FXx5/I/tz8MJzBPZgcH3nVQRLx4yV9WjJwnhhnNz2vxt421cVeXVMId0iDUYiXM
-         g4dF1DGDIozV+msj5u7lG8RLHxFdhkWWHB/WLEa4ha5+a4osj3+KPGwhKlxUmNtZgMS8
-         ZfSOVLJx05z3XuXtAZWSZSBamXIHY54R+vpxM+s2PpnvzHFFJZ4pRCi+IJEILT6jvGTY
-         MM6DcDLly7LR0Y4EWRZQpK5DNo9gvZmGzPa6eTpVE82MLifNEzP/zwSfePyfNIBf/oj7
-         faF65RKQeLv2dpIFN5EG5eWx/Wkagrs1j3aZWgGjOCTKmYfSCpwvjhdQYCwGQHB6Iva+
-         70aQ==
-X-Gm-Message-State: AO0yUKWtjoda13wSFGcCkoqFVB84aKeGVQ0nhRdwYHSFDh7q/FErG5kH
-	tGPeKFKDoATgwY6MJGEBCg7bhQ==
-X-Google-Smtp-Source: AK7set8RywwJjUsXHxcla4nZoFxtGhrqCjIKnFCmuP2n+AzhTmEkkrnNyLjn4u75+PR+ezJZq/UB3w==
-X-Received: by 2002:a17:906:9bec:b0:8b2:fa6d:45e6 with SMTP id de44-20020a1709069bec00b008b2fa6d45e6mr11552300ejc.2.1676922447830;
-        Mon, 20 Feb 2023 11:47:27 -0800 (PST)
+        bh=JiNBdogVb/ctJRbRDskVYVFlh5rTlqKKL5FmI6kPZ8w=;
+        b=8A8tzTFD85jqvQ8dH2U5a+MHoh1CPEmrCg6I5M+FT5B0Eszupak8SsHem5Mgd7MTNv
+         HFOFlaSkHmE+jHIFu+8jvJWDxiu7oFNkuHnPUu256v7r8FEM38Wca9WOQuRAvcE0kZK9
+         Y9Gvk/4mlxdVzWeQo8s167BVRmE7HcwklRfcRLNEr/buytPCBNxU8jimjFNObO+crogt
+         AxM3zVgMKRAx2sLN9KSNDwoopkswes3uJsmsw+m6myr2VuW4uN3OEEdnvziPUN+xQIFX
+         ZUF1SqJwsyGboffytndbNb5bNRPWEOHI6YbrYeaW/pcpnn2gL3SmF0DTXe8G2wuag50e
+         yHsA==
+X-Gm-Message-State: AO0yUKXyCHdiV5L/jXb8nnLUGQBTZqp6xYNa1I+LuGRTHyqDcOrKpEZM
+	NoZTErPyE2kj0Syq9JFbst8upw==
+X-Google-Smtp-Source: AK7set9V4qNdEX1rBCkKVXTOHRcZ49m2r691BtX2HHFvehjI813L7cOfgHotp9O0ya6YpqHH/ZRG4Q==
+X-Received: by 2002:a17:907:764c:b0:88e:e498:109b with SMTP id kj12-20020a170907764c00b0088ee498109bmr10663251ejc.5.1676922669248;
+        Mon, 20 Feb 2023 11:51:09 -0800 (PST)
 Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id z12-20020a1709064e0c00b008c405ebc32esm3249911eju.28.2023.02.20.11.47.27
+        by smtp.gmail.com with ESMTPSA id um8-20020a170907cb0800b008cca31606a8sm2356990ejc.51.2023.02.20.11.51.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Feb 2023 11:47:27 -0800 (PST)
-Date: Mon, 20 Feb 2023 20:47:26 +0100
+        Mon, 20 Feb 2023 11:51:08 -0800 (PST)
+Date: Mon, 20 Feb 2023 20:51:07 +0100
 From: Andrew Jones <ajones@ventanamicro.com>
 To: Sunil V L <sunilvl@ventanamicro.com>
 Cc: Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
@@ -73,17 +73,16 @@ Cc: Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
 	Anup Patel <apatel@ventanamicro.com>,
 	Atish Patra <atishp@rivosinc.com>,
 	"Rafael J . Wysocki" <rafael.j.wysocki@intel.com>
-Subject: Re: [PATCH V2 15/21] clocksource/timer-riscv: Refactor
- riscv_timer_init_dt()
-Message-ID: <20230220194726.meppdac4y7qdjsoj@orel>
+Subject: Re: [PATCH V2 16/21] clocksource/timer-riscv: Add ACPI support
+Message-ID: <20230220195107.ixdfumgvfnobjlnt@orel>
 References: <20230216182043.1946553-1-sunilvl@ventanamicro.com>
- <20230216182043.1946553-16-sunilvl@ventanamicro.com>
+ <20230216182043.1946553-17-sunilvl@ventanamicro.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230216182043.1946553-16-sunilvl@ventanamicro.com>
+In-Reply-To: <20230216182043.1946553-17-sunilvl@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230220_114733_263693_E259D829 
-X-CRM114-Status: GOOD (  22.02  )
+X-CRM114-CacheID: sfid-20230220_115112_985118_3BFEBBFE 
+X-CRM114-Status: GOOD (  16.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,142 +99,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 16, 2023 at 11:50:37PM +0530, Sunil V L wrote:
-> Refactor the timer init function such that few things can be
-> shared by both DT and ACPI based platforms.
+On Thu, Feb 16, 2023 at 11:50:38PM +0530, Sunil V L wrote:
+> Initialize the timer driver based on RHCT table on ACPI based
+> platforms.
 > 
-> Co-developed-by: Anup Patel <apatel@ventanamicro.com>
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 > Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
 > Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
 > ---
->  drivers/clocksource/timer-riscv.c | 82 +++++++++++++++----------------
->  1 file changed, 40 insertions(+), 42 deletions(-)
+>  drivers/clocksource/timer-riscv.c | 11 +++++++++++
+>  1 file changed, 11 insertions(+)
 > 
 > diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
-> index 1b4b36df5484..2ae8e300d303 100644
+> index 2ae8e300d303..5fb0eac52bdd 100644
 > --- a/drivers/clocksource/timer-riscv.c
 > +++ b/drivers/clocksource/timer-riscv.c
-> @@ -119,61 +119,28 @@ static irqreturn_t riscv_timer_interrupt(int irq, void *dev_id)
->  	return IRQ_HANDLED;
+> @@ -10,6 +10,7 @@
+>  
+>  #define pr_fmt(fmt) "riscv-timer: " fmt
+>  
+> +#include <linux/acpi.h>
+>  #include <linux/clocksource.h>
+>  #include <linux/clockchips.h>
+>  #include <linux/cpu.h>
+> @@ -201,3 +202,13 @@ static int __init riscv_timer_init_dt(struct device_node *n)
 >  }
 >  
-> -static int __init riscv_timer_init_dt(struct device_node *n)
-> +static int __init riscv_timer_init_common(void)
->  {
-> -	int cpuid, error;
-> -	unsigned long hartid;
-> -	struct device_node *child;
-> -	struct irq_domain *domain;
-> +	int error;
-> +	struct irq_domain *domain = NULL;
-
-domain is always assigned below, so we don't need to set it NULL here.
-
-> +	struct fwnode_handle *intc_fwnode = riscv_get_intc_hwnode();
->  
-> -	error = riscv_of_processor_hartid(n, &hartid);
-> -	if (error < 0) {
-> -		pr_warn("Not valid hartid for node [%pOF] error = [%lu]\n",
-> -			n, hartid);
-> -		return error;
-> -	}
-> -
-> -	cpuid = riscv_hartid_to_cpuid(hartid);
-> -	if (cpuid < 0) {
-> -		pr_warn("Invalid cpuid for hartid [%lu]\n", hartid);
-> -		return cpuid;
-> -	}
-> -
-> -	if (cpuid != smp_processor_id())
-> -		return 0;
-> -
-> -	child = of_find_compatible_node(NULL, NULL, "riscv,timer");
-> -	if (child) {
-> -		riscv_timer_cannot_wake_cpu = of_property_read_bool(child,
-> -					"riscv,timer-cannot-wake-cpu");
-> -		of_node_put(child);
-> -	}
-> -
-> -	domain = NULL;
-> -	child = of_get_compatible_child(n, "riscv,cpu-intc");
-> -	if (!child) {
-> -		pr_err("Failed to find INTC node [%pOF]\n", n);
-> -		return -ENODEV;
-> -	}
-> -	domain = irq_find_host(child);
-> -	of_node_put(child);
-> +	domain = irq_find_matching_fwnode(intc_fwnode, DOMAIN_BUS_ANY);
->  	if (!domain) {
-> -		pr_err("Failed to find IRQ domain for node [%pOF]\n", n);
-> +		pr_err("Failed to find irq_domain for INTC node [%pfwP]\n",
-> +		       intc_fwnode);
->  		return -ENODEV;
->  	}
->  
->  	riscv_clock_event_irq = irq_create_mapping(domain, RV_IRQ_TIMER);
->  	if (!riscv_clock_event_irq) {
-> -		pr_err("Failed to map timer interrupt for node [%pOF]\n", n);
-> +		pr_err("Failed to map timer interrupt for node [%pfwP]\n", intc_fwnode);
->  		return -ENODEV;
->  	}
->  
-> -	pr_info("%s: Registering clocksource cpuid [%d] hartid [%lu]\n",
-> -	       __func__, cpuid, hartid);
->  	error = clocksource_register_hz(&riscv_clocksource, riscv_timebase);
->  	if (error) {
-> -		pr_err("RISCV timer register failed [%d] for cpu = [%d]\n",
-> -		       error, cpuid);
-> +		pr_err("RISCV timer registration failed [%d]\n", error);
->  		return error;
->  	}
->  
-> @@ -202,4 +169,35 @@ static int __init riscv_timer_init_dt(struct device_node *n)
->  	return error;
->  }
->  
-> +static int __init riscv_timer_init_dt(struct device_node *n)
+>  TIMER_OF_DECLARE(riscv_timer, "riscv", riscv_timer_init_dt);
+> +
+> +#ifdef CONFIG_ACPI
+> +static int __init riscv_timer_acpi_init(struct acpi_table_header *table)
 > +{
-> +	int cpuid, error;
-> +	unsigned long hartid;
-> +	struct device_node *child;
-> +
-> +	error = riscv_of_processor_hartid(n, &hartid);
-> +	if (error < 0) {
-> +		pr_warn("Invalid hartid for node [%pOF] error = [%lu]\n",
-> +			n, hartid);
-> +		return error;
-> +	}
-> +
-> +	cpuid = riscv_hartid_to_cpuid(hartid);
-> +	if (cpuid < 0) {
-> +		pr_warn("Invalid cpuid for hartid [%lu]\n", hartid);
-> +		return cpuid;
-> +	}
-> +
-> +	if (cpuid != smp_processor_id())
-> +		return 0;
-> +
-> +	child = of_find_compatible_node(NULL, NULL, "riscv,timer");
-> +	if (child) {
-> +		riscv_timer_cannot_wake_cpu = of_property_read_bool(child,
-> +					"riscv,timer-cannot-wake-cpu");
-> +		of_node_put(child);
-> +	}
-
-need blank line here
-
 > +	return riscv_timer_init_common();
 > +}
 > +
->  TIMER_OF_DECLARE(riscv_timer, "riscv", riscv_timer_init_dt);
+> +TIMER_ACPI_DECLARE(aclint_mtimer, ACPI_SIG_RHCT, riscv_timer_acpi_init);
+> +
+> +#endif
 > -- 
 > 2.34.1
 >
 
-Otherwise,
+This could probably be squashed into the last patch, but anyway
 
 Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
