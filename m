@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C23DC636D6
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Feb 2023 04:37:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C7A5C05027
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Feb 2023 05:10:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gGlSPYRP6Q69Y5jAVGICJmlL9Op/h8Y635K6MssLF9I=; b=YbX2y2Ro09GPz1
-	147or/sB7yDraQBstAXAID/5Wkc7cOVrRtFsVfnImJyH7vIoInJqvWwWl1ZE3lechheqthjQDru95
-	KgWHBdVLjhSlMysAF3eISYm2JD9x6xwNyMEdZZqkkF72R0MmLKjk881Ff05+EcYMcBm9Yyr3sepz3
-	BJJxOkvt53ERNpeIxX7o6uRi518HqXPw3Y4Vubb3gQadsrpTZWNWIOgIfr6/W7GKq469RFNOPHP8+
-	UMxIRkNqhXjpM3axV2e2K6NT1wTZa+G7gGXu6A5DjyXJ9QCvKGah2ka8FwKhfAqcWcPcffrKFLhji
-	MD7NJCZFY4ZL7mxNPeTQ==;
+	List-Owner; bh=uFufnEqUo/tx6iVtHAy8Nq/LfIJRzxa6PwRX69uxRmE=; b=rxXbEPAylrI/Di
+	I+F9mrPN4QEE9JiUegPZuckg3BAUEcG04vLyk2On+qvz/nYTkenFHRoKyl4eoVr9Olj+706oAJrTI
+	UMJbieai94J9icpmrS4/CIsYlyetzQak0aWo3uLADmXElZYHsen722BCMC5NcgnOWv8+Yas6CIyrb
+	NVMh4WV0jvsQ3saSNFJ4TpHnYXhUUQqWM7kdRi526MNzixFJMlgPBQVDl7wSCD0uveNIXDiQOptl/
+	X0lvM6Kx0rbbIDbewtKuhrq0AeBAUL6YM9XuefljdVpywqNiha0y4cxccr+V1Fv2TiV013jyHoxSW
+	dzydVnxUTLmTWgubly5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pTxvH-002yxq-Gt; Mon, 20 Feb 2023 04:37:07 +0000
-Received: from mail-ua1-x92e.google.com ([2607:f8b0:4864:20::92e])
+	id 1pTyRK-00324r-GZ; Mon, 20 Feb 2023 05:10:14 +0000
+Received: from mail-vk1-xa2e.google.com ([2607:f8b0:4864:20::a2e])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pTxvE-002ywu-7d
-	for linux-riscv@lists.infradead.org; Mon, 20 Feb 2023 04:37:06 +0000
-Received: by mail-ua1-x92e.google.com with SMTP id u19so104204uad.12
-        for <linux-riscv@lists.infradead.org>; Sun, 19 Feb 2023 20:37:03 -0800 (PST)
+	id 1pTyRH-003242-Hn
+	for linux-riscv@lists.infradead.org; Mon, 20 Feb 2023 05:10:13 +0000
+Received: by mail-vk1-xa2e.google.com with SMTP id g35so220542vkd.6
+        for <linux-riscv@lists.infradead.org>; Sun, 19 Feb 2023 21:10:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=ventanamicro.com; s=google;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=vW3SjDhHqWHMVSsNmZhVWE2xaUo+F2XQu/b/bwpzrYM=;
-        b=oGlsgZzS/dLKb8pyM6kFC4HSH7T/ttdwR9fMSx4Ge17fKrWCJ4+0aARjWSylD1IFbH
-         r2pznwSEZPiUAECAH7vXXj096XKUX/wC/VXlrHBiSsM7jyckRHP5PUm8b8UCOGCj+Yp6
-         w5p+8+xMMu+91rezsUcD0rjXj4HwT54k+G+tiSFJB0+GajBkeEzG/kKbXtitqE6+rIW1
-         I78pC8n/qM8hdYCb+kBfKYwb4eNrB/ATVeXEsT4spVkBNwXgUdkcOM3YiK45WRINoWa1
-         L01Qkmj5SvhlKCXOCxawmBV22igO+c6us2zUffsw/oAxfN9mjc/fHwEHrkugpp4taB32
-         J+/w==
+        bh=NgBPiBFudnfp+7ZvqZ/TkWNG31i8uXBHpDwh2oWMqzE=;
+        b=BDBIi58gFTYL1Ye7j2+aVGb70PhaM+5gaPYE8OtvNOkBlo7FTuGosQ8ay6pWKO2h6m
+         kS9KKzq5TEJ2hWGzG0sI5nB3LW/7nI6yrJHRnInnrC5vbkGG8YCJ4y3WW5Iooh4el4eQ
+         bEb42TocXTFACSywTV1SjaK7X/96qaPoCdOj0LocD77SCoSrPuqSZQIxtISDdVA5ntJ0
+         eQRzfTQGp3RxpUHAbgp5o5/hzCrVGvyD6CkgCOKTxcmg1xigEhpyDyncoAQPYYKrbG06
+         f1LwWcRQ6m6PYNltlepXhqFYnOKoWugCGEtPDsq0bNCpYdQWLlqe2TvOEt6ST9ZD+uvG
+         0/+A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=vW3SjDhHqWHMVSsNmZhVWE2xaUo+F2XQu/b/bwpzrYM=;
-        b=iofoJKkihlwtI0hbgFmnVAH+JFezIpunnDPpytYEFSFjmsya+AtuoQBUryK+yUB0bI
-         bLPhJxHbJUsGRMlYIOpPAqS1zexQ1jYNw86a21dW+yngKxXIeT5xtnAvnQiBtckHfbff
-         D18iWndLzZUeMrPxJzVja0UHZ1XIESRORriBP0enaadWkRqm38u/ZE2BPZI8ZoG7+bok
-         oH1JTdu77bMIpSToC7JBALFn9klnYEa9QHzkblyp+qhUi0MRDg7rcY6X98bJU2leM0/o
-         NkG+30bIczdEC/Ks6WTo9Xy5LyAZYb71Zp1/kdjWrfGjUasQk72rnTwSmes5UFa2zSWc
-         /0Ww==
-X-Gm-Message-State: AO0yUKU2HeIjdlF8ftIedETYjXehd/TAlTeHSSrvJoFCzYPO/DHW2A7r
-	DGD8ORh5+YmRP2Eenq82Vk7AIaA2dkYk/NqXhgtLPA==
-X-Google-Smtp-Source: AK7set8lJ71u8xZ5NZye9XUtlI1bfHkPZlqL8px++W8ibh9g6TXKjzSz1dZiZ/5nJC+gXKlPBPdVx+EeJ52SMY5butg=
-X-Received: by 2002:ab0:5b54:0:b0:68a:8f33:9567 with SMTP id
- v20-20020ab05b54000000b0068a8f339567mr432419uae.2.1676867821482; Sun, 19 Feb
- 2023 20:37:01 -0800 (PST)
+        bh=NgBPiBFudnfp+7ZvqZ/TkWNG31i8uXBHpDwh2oWMqzE=;
+        b=G6BZJoCTNfrf1gHdvhP+cCUr9w2urToypU7ttVXLRub/UPJDvFY2adjDYsDDybJ/sU
+         qpjyUmdijlAOcrnKVt16fo1Kd/XW/OEOb+2l5Jgzdo18hwfi4e9ssIdPyANwRysHFMZR
+         d6RDLkJRuPDDpK35RquutukbD0peG7tvOn3VdNhK0nDgHJ/7W/ZGrVMtR3fLibyLHIBp
+         9Cj+F9w8+HtBlwbrdPjSQz103325duALsFlQeR3Ws+9dfIaAZrVDtQkZmNgQXkzkcNpa
+         yketOOIdF7CGTjz++dQt6DYk2HVkqs0V+pWOfXHyVggJFUkE/bRhGbkt1fH9Plq4701z
+         Z6UQ==
+X-Gm-Message-State: AO0yUKUnLd0g7jXtaTQj5yGv4V7sgKoGEk8vetHDewoJQNSTJQNIIJ1P
+	N+La163sHfdjs0wYLtCW2qckkrBfiHpLNLukF5u/Dw==
+X-Google-Smtp-Source: AK7set8FC6hXeAgP2mDNjCcg4nLEnoSw3NsjrH4zo8zCcxifANoD+MXxgaK8eYhqFpLzsjpz6TDINMrGKctI5n+y9eY=
+X-Received: by 2002:a1f:a682:0:b0:3d5:9b32:7ba4 with SMTP id
+ p124-20020a1fa682000000b003d59b327ba4mr119794vke.15.1676869807876; Sun, 19
+ Feb 2023 21:10:07 -0800 (PST)
 MIME-Version: 1.0
 References: <20230103141409.772298-1-apatel@ventanamicro.com>
- <20230103141409.772298-7-apatel@ventanamicro.com> <Y7X62v5Zp6+thx5A@spud>
-In-Reply-To: <Y7X62v5Zp6+thx5A@spud>
+ <20230103141409.772298-7-apatel@ventanamicro.com> <4bd8c6da-6ad4-5e1a-169c-48f48560b36b@dram.page>
+In-Reply-To: <4bd8c6da-6ad4-5e1a-169c-48f48560b36b@dram.page>
 From: Anup Patel <apatel@ventanamicro.com>
-Date: Mon, 20 Feb 2023 10:06:49 +0530
-Message-ID: <CAK9=C2UPa5SATTG1pJdckqaoJxh-8EBz8xsENirZQ-vbaHTgjg@mail.gmail.com>
+Date: Mon, 20 Feb 2023 10:39:56 +0530
+Message-ID: <CAK9=C2XpGRH98MvrnwiuS7zhT8woKnnihGSinkNP1vcKz3WtRQ@mail.gmail.com>
 Subject: Re: [PATCH v2 6/9] dt-bindings: interrupt-controller: Add RISC-V
  advanced PLIC
-To: Conor Dooley <conor@kernel.org>
+To: Vivian Wang <uwu@dram.page>
 Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
 	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Rob Herring <robh+dt@kernel.org>, 
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Atish Patra <atishp@atishpatra.org>, 
@@ -73,8 +73,8 @@ Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	devicetree@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230219_203704_371497_C9B0AC94 
-X-CRM114-Status: GOOD (  39.78  )
+X-CRM114-CacheID: sfid-20230219_211011_616739_131C6B7A 
+X-CRM114-Status: GOOD (  38.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,11 +91,9 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 5, 2023 at 3:47 AM Conor Dooley <conor@kernel.org> wrote:
+On Sun, Feb 19, 2023 at 5:18 PM Vivian Wang <uwu@dram.page> wrote:
 >
-> Hey Anup,
->
-> On Tue, Jan 03, 2023 at 07:44:06PM +0530, Anup Patel wrote:
+> On 1/3/23 22:14, Anup Patel wrote:
 > > We add DT bindings document for RISC-V advanced platform level
 > > interrupt controller (APLIC) defined by the RISC-V advanced
 > > interrupt architecture (AIA) specification.
@@ -105,48 +103,16 @@ On Thu, Jan 5, 2023 at 3:47 AM Conor Dooley <conor@kernel.org> wrote:
 > >  .../interrupt-controller/riscv,aplic.yaml     | 159 ++++++++++++++++++
 > >  1 file changed, 159 insertions(+)
 > >  create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml
->
-> > +  interrupts-extended:
-> > +    minItems: 1
-> > +    maxItems: 16384
-> > +    description:
-> > +      Given APLIC domain directly injects external interrupts to a set of
-> > +      RISC-V HARTS (or CPUs). Each node pointed to should be a riscv,cpu-intc
-> > +      node, which has a riscv node (i.e. RISC-V HART) as parent.
-> > +
-> > +  msi-parent:
-> > +    description:
-> > +      Given APLIC domain forwards wired interrupts as MSIs to a AIA incoming
-> > +      message signaled interrupt controller (IMSIC). This property should be
-> > +      considered only when the interrupts-extended property is absent.
->
-> Considered by what?
-> On v1 you said:
-> <quote>
-> If both "interrupts-extended" and "msi-parent" are present then it means
-> the APLIC domain supports both MSI mode and Direct mode in HW. In this
-> case, the APLIC driver has to choose between MSI mode or Direct mode.
-> <\quote>
->
-> The description is still pretty ambiguous IMO. Perhaps incorporate
-> some of that expanded comment into the property description?
-> Say, "If both foo and bar are present, the APLIC domain has hardware
-> support for both MSI and direct mode. Software may then chose either
-> mode".
-> Have I misunderstood your comment on v1? It read as if having both
-> present indicated that both were possible & that "should be considered
-> only..." was more of a suggestion and a comment about the Linux driver's
-> behaviour.
-> Apologies if I have misunderstood, but I suppose if I have then the
-> binding's description could be improved!!
-
-Yes, when both DT properties are present then it's up to Linux
-APLIC driver to choose the appropriate APLIC mode.
-
-I forgot to update the text here in v2 but I will update it in v3.
-Thanks for pointing.
-
->
+> >
+> > diff --git a/Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml b/Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml
+> > new file mode 100644
+> > index 000000000000..b7f20aad72c2
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml
+> > @@ -0,0 +1,159 @@
+> >
+> > <snip>
+> >
 > > +  riscv,children:
 > > +    $ref: /schemas/types.yaml#/definitions/phandle-array
 > > +    minItems: 1
@@ -156,12 +122,6 @@ Thanks for pointing.
 > > +    description:
 > > +      A list of child APLIC domains for the given APLIC domain. Each child
 > > +      APLIC domain is assigned child index in increasing order with the
->
-> btw, missing article before child (& a comma after order I think).
-
-Okay, I will update.
-
->
 > > +      first child APLIC domain assigned child index 0. The APLIC domain
 > > +      child index is used by firmware to delegate interrupts from the
 > > +      given APLIC domain to a particular child APLIC domain.
@@ -170,13 +130,6 @@ Okay, I will update.
 > > +    $ref: /schemas/types.yaml#/definitions/phandle-array
 > > +    minItems: 1
 > > +    maxItems: 1024
->
-> Is it valid to have a delegate property without children? If not, the
-> binding should reflect that dependency IMO.
-
-Okay, I will update.
-
->
 > > +    items:
 > > +      items:
 > > +        - description: child APLIC domain phandle
@@ -186,97 +139,73 @@ Okay, I will update.
 > > +      A interrupt delegation list where each entry is a triple consisting
 > > +      of child APLIC domain phandle, first interrupt number, and last
 > > +      interrupt number. The firmware will configure interrupt delegation
->
-> btw, drop the article before firmware here.
-> Also, "firmware will" or "firmware must"? Semantics perhaps, but they
-> are different!
-
-I think "firmware must" is better because APLIC M-mode domains are
-not accessible to S-mode so firmware must configure delegation for
-at least all APLIC M-mode domains.
-
->
-> Kinda for my own curiosity here, but do you expect these properties to
-> generally be dynamically filled in by the bootloader or read by the
-> bootloader to set up the configuration?
-
-Firmware (or bootloader) will look at this property and setup delegation
-before booting the OS kernel.
-
->
 > > +      registers based on interrupt delegation list.
->
-> I'm sorry Anup, but this child versus delegate thing is still not clear
-> to me binding wise. See below.
-
-There are two different information in-context of APLIC domain:
-
-1) HW child domain numbering: If an APLIC domain has N children
-    then HW will have a fixed child index for each of the N children
-    in the range 0 to N-1. This HW child index is required at the time
-    of setting up interrupt delegation in sourcecfgX registers. The
-    "riscv,children" DT property helps firmware (or bootloader) find
-    the total number of child APLIC domains and corresponding
-    HW child index number.
-
-2) IRQ delegation to child domains: An APLIC domain can delegate
-   any IRQ range(s) to a particular APLIC child domain. The
-   "riscv,delegate" DT property is simply a table where we have
-   one row for each IRQ range which is delegated to some child
-   APLIC domain. This property is more of a system setting fixed
-   by the RISC-V platform vendor.
-
->
-> > +    aplic0: interrupt-controller@c000000 {
-> > +      compatible = "riscv,qemu-aplic", "riscv,aplic";
-> > +      interrupts-extended = <&cpu1_intc 11>,
-> > +                            <&cpu2_intc 11>,
-> > +                            <&cpu3_intc 11>,
-> > +                            <&cpu4_intc 11>;
-> > +      reg = <0xc000000 0x4080>;
-> > +      interrupt-controller;
-> > +      #interrupt-cells = <2>;
-> > +      riscv,num-sources = <63>;
-> > +      riscv,children = <&aplic1>, <&aplic2>;
-> > +      riscv,delegate = <&aplic1 1 63>;
->
-> Is aplic2 here for demonstrative purposes only, since it has not been
-> delegated any interrupts?
-
-Yes, it's for demonstrative purposes only.
-
-> I suppose it is hardware present on the SoC that is not being used by
-> the current configuration?
-
-Yes, in this example aplic2 is unused because it has no interrupts
-delegated to it.
-
->
-> Thanks,
-> Conor.
->
-> > +    };
 > > +
-> > +    aplic1: interrupt-controller@d000000 {
-> > +      compatible = "riscv,qemu-aplic", "riscv,aplic";
-> > +      interrupts-extended = <&cpu1_intc 9>,
-> > +                            <&cpu2_intc 9>;
-> > +      reg = <0xd000000 0x4080>;
-> > +      interrupt-controller;
-> > +      #interrupt-cells = <2>;
-> > +      riscv,num-sources = <63>;
-> > +    };
-> > +
-> > +    aplic2: interrupt-controller@e000000 {
-> > +      compatible = "riscv,qemu-aplic", "riscv,aplic";
-> > +      interrupts-extended = <&cpu3_intc 9>,
-> > +                            <&cpu4_intc 9>;
-> > +      reg = <0xe000000 0x4080>;
-> > +      interrupt-controller;
-> > +      #interrupt-cells = <2>;
-> > +      riscv,num-sources = <63>;
-> > +    };
 >
+> I'm not sure if this is the right place to ask, since it could be more
+> of a OpenSBI/QEMU problem, but I think a more detailed description about
+> what 'the firmware' does is appropriate here.
+>
+> My main confusion is how to describe wired interrupts connected to
+> APLICs. Say we have two APLIC nodes with labels aplic_m and aplic_s that
+> are the APLIC domains for M-mode and S-mode respectively. IIUC, wired
+> interrupts are connected directly to aplic_m. So how do I refer to it in
+> the device nodes?
+
+Please see my previous reply to Conor about these DT properties.
+The riscv,children DT property describes HW child numbering whereas
+the riscv,delegate DT propert is a table of IRQ delegation.
+
+In your example, let's assume we have N wired interrupts. This
+means we will have devices connected to the root APLIC domain
+(aplic_m). Now since aplic_s is a child of aplic_m, we will have
+N wired interrupts going from from aplic_m to aplic_s where
+aplic_m will route a wired/device interrupt x to aplic_s if
+sourcecfg[x].D = 1 and sourcecfg[x].child = 0.
+
+>
+>  1. <&aplic_s num IRQ_TYPE_foo>, but it would be a lie to M-mode
+>     software, which could be a problem. QEMU 7.2.0 seems to take this
+>     approach. (I could also be misunderstanding QEMU and it actually
+>     does connect wired interrupts to the S-mode APLIC, but then
+>     riscv,children and riscv,delegate would be lies.)
+
+No, it's not a lie. The <&aplic_s num IRQ_TYPE_foo> in a device DT
+node is based on the IRQ delegation fixed by the RISC-V platform.
+QEMU has its own strategy of delegating IRQs to APLIC S-mode
+while other platforms can use a different strategy.
+
+>  2. <&aplic_m ...>, and when M-mode software gives S-mode software
+>     access to devices, it delegates relevant interrupts and patches it
+>     into <&aplic_s num IRQ_TYPE_foo>. Seems to be the 'correct'
+>     approach, but pretty complicated.
+
+The APLIC M-mode domain is not accessible to S-mode software so
+Linux cannot create an irqdomain using APLIC M-mode DT node. This
+means device DT nodes must have <&aplic_s num IRQ_TYPE_foo>
+which points to APLIC S-mode domain.
+
+It is totally up to RISC-V firmware and platform if it wants to dynamically
+add/patch <&aplic_s num IRQ_TYPE_foo> in device DT nodes. Currently,
+we do not patch device DT nodes in OpenSBI and instead have the
+device DT nodes point to correct APLIC domain based on the IRQ
+delegation.
+
+>  3. <&aplic_m ...>, S-mode software sees this, and sees that aplic_m has
+>     num in riscv,delegate, so goes to find the child it's been delegated
+>     to, which is (should be) aplic_s. A bit annoyingly abstraction
+>     breaking, since S-mode shouldn't even need to know about aplic_m.
+
+Yes, S-mode should know about aplic_m and if it tries to access aplic_m
+then it will get an access fault.
+
+This is exactly why device DT node should have "interrupts" DT property
+pointing to the actual APLIC domain which is delivering interrupt to S-mode.
+
+>
+> I see that others are also confused by riscv,delegate and riscv,children
+> properties. It would be great if we could clarify the expected behavior
+> here rather than just saying 'the firmware will do the thing'.
 
 Regards,
 Anup
