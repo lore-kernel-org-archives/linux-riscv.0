@@ -4,60 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4214FC636CC
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Feb 2023 08:22:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81117C05027
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Feb 2023 08:29:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=B7PhknFKgVGRzl7UbW2a2lpNME3XzV1lxXgeTs+zEiE=; b=TIO6bNVZdLQhaG
-	D/vP6/roHsFuTj/INvEhYT/WdNPvcMk86cksrQ1kAdSrLVfzLwm124g6ElxqaJ8AqFa/ULmZm/24d
-	Swuv92ZU7BZA2Xit6uM/fbdyZai+JWG9FCMinZ3k3sWhybOhdngUO56zsWG4Wlskyb5Hn0EnDqYaa
-	4jQCn6T6Orvf5ReTZGQjDah90roXaBPlEcCyQ/r9c7+3q7b0MFXxt9nLrP9olPL5ZEJiS2zsGKGMo
-	Li7hroTBftMfcrgugzyW6qAIGQlsjPzC/G4OsPERJES2FIqEVwXI5eES8010RFPREbCyd/5/AWmf7
-	Y35/g0vUM2swvwH3Y7qg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5CaB9pQIVvSLV/D0Ev5t/CIrPMIclV96/k++dI4hlGk=; b=e2mos1GQ/8Ia1VnFskBfeRyU9F
+	+WlNvV7Bvw2o+7tHcBeyzFTNqPNjWTcP7GO8w9mqXiH900MzbM6mqAaLD84zgL4M6GXtEsfNXAwGA
+	YFu3rMxXfb9CXa9Tj20Xy3IT4vPCAP0YQYcwidntRG6i70Pui1c9WOkBW9k9QlFN5yQQDQdzkAQRg
+	W+mSp61zhQZMMLmu0oMjAVie2Sqgyg/Kev+la9+JFZV+UgRDlAXnwWkdWwm9oyusmVl6xq3MZIcBP
+	uJhmugJg/loA6/lOMIPMLBL4iL89JUgQK8RMxwoD+a4E0HjTtwUr8BYWPKcBHBbghndS5ZOhBgVYF
+	mCIJ8IsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pU1Qn-003Id9-Om; Mon, 20 Feb 2023 08:21:53 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pU1Qj-003IHj-Vi
-	for linux-riscv@lists.infradead.org; Mon, 20 Feb 2023 08:21:51 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 1832C24E2BC;
-	Mon, 20 Feb 2023 16:19:01 +0800 (CST)
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 20 Feb
- 2023 16:19:01 +0800
-Received: from localhost.localdomain (183.27.98.67) by EXMBX061.cuchost.com
- (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 20 Feb
- 2023 16:18:59 +0800
-From: Xingyu Wu <xingyu.wu@starfivetech.com>
-To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-watchdog@vger.kernel.org>, Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Guenter Roeck <linux@roeck-us.net>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>
-CC: Rob Herring <robh+dt@kernel.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Xingyu Wu
-	<xingyu.wu@starfivetech.com>, Samin Guo <samin.guo@starfivetech.com>,
-	<linux-kernel@vger.kernel.org>, Conor Dooley <conor@kernel.org>
-Subject: [PATCH v3 0/2] Add watchdog driver for StarFive JH7110 RISC-V SoC
-Date: Mon, 20 Feb 2023 16:19:24 +0800
-Message-ID: <20230220081926.267695-1-xingyu.wu@starfivetech.com>
-X-Mailer: git-send-email 2.25.1
+	id 1pU1YC-003Jju-EO; Mon, 20 Feb 2023 08:29:35 +0000
+Received: from mx1.emlix.com ([136.243.223.33])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pU1Xy-003Jdp-4x; Mon, 20 Feb 2023 08:29:21 +0000
+Received: from mailer.emlix.com (unknown [81.20.119.6])
+	(using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mx1.emlix.com (Postfix) with ESMTPS id 167505F997;
+	Mon, 20 Feb 2023 09:29:09 +0100 (CET)
+From: Rolf Eike Beer <eb@emlix.com>
+To: Matthew Wilcox <willy@infradead.org>, linux-arch@vger.kernel.org,
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: Yin Fengwei <fengwei.yin@intel.com>, linux-mm@kvack.org,
+ linux-alpha@vger.kernel.org, linux-csky@vger.kernel.org,
+ linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+ Dinh Nguyen <dinguyen@kernel.org>, linux-parisc@vger.kernel.org,
+ linux-sh@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ loongarch@lists.linux.dev, openrisc@lists.librecores.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ sparclinux@vger.kernel.org, linux-xtensa@linux-xtensa.org
+Subject: Re: API for setting multiple PTEs at once
+Date: Mon, 20 Feb 2023 09:29:58 +0100
+Message-ID: <5649318.DvuYhMxLoT@devpool47>
+Organization: emlix GmbH
+In-Reply-To: <0bf59207-838b-2a0b-a95e-925a6bbf1913@ghiti.fr>
+References:  <Y9wnr8SGfGGbi/bk@casper.infradead.org>
+ <Y+K0O35jNNzxiXE6@casper.infradead.org>
+ <0bf59207-838b-2a0b-a95e-925a6bbf1913@ghiti.fr>
 MIME-Version: 1.0
-X-Originating-IP: [183.27.98.67]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX061.cuchost.com
- (172.16.6.61)
-X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230220_002150_334508_5B32855E 
-X-CRM114-Status: GOOD (  14.78  )
+X-CRM114-CacheID: sfid-20230220_002919_853732_56754D75 
+X-CRM114-Status: GOOD (  26.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,71 +63,151 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7770081265076294383=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch serises are to add watchdog driver for the StarFive JH7110
-RISC-V SoC. The first patch adds docunmentation to describe device
-tree bindings. The subsequent patch adds watchdog driver and support
-JH7110 SoC. And the addition of device tree node will be submitted
-after the JH7110 dts merge. This patchset is based on 6.2.
+--===============7770081265076294383==
+Content-Type: multipart/signed; boundary="nextPart5907765.lOV4Wx5bFT";
+ micalg="pgp-sha256"; protocol="application/pgp-signature"
 
-The watchdog driver has been tested on the VisionFive 2 boards which
-equip with JH7110 SoC and works normally.
+--nextPart5907765.lOV4Wx5bFT
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="UTF-8"; protected-headers="v1"
+From: Rolf Eike Beer <eb@emlix.com>
+Subject: Re: API for setting multiple PTEs at once
+Date: Mon, 20 Feb 2023 09:29:58 +0100
+Message-ID: <5649318.DvuYhMxLoT@devpool47>
+Organization: emlix GmbH
+In-Reply-To: <0bf59207-838b-2a0b-a95e-925a6bbf1913@ghiti.fr>
+MIME-Version: 1.0
 
-Changes since v2: 
-- Added watchdog.yaml and unevaluatedProperties in the dt-binding.
-- Removed some unnecessary include files.
-- Changed the 'module_param' name and dropped 'soft_noboot'.
-- Rrmoved 'CONFIG_OF'.
-- Added a check if clock rate is 0.
-- Modified the max_timeout calculation formula.
-- Removed restart function.
-- Removed duplicate checks on the upper and lower bounds of 'count'.
-- Removed 'started' variable.
-- Added pm_runtime_get_sync() and pm_runtime_put_sync().
-- Removed 'firmware_version = 0' variable.
-- Drop the device tree node commit.
+On Dienstag, 14. Februar 2023 10:55:43 CET Alexandre Ghiti wrote:
+> Hi Matthew,
+>=20
+> On 2/7/23 21:27, Matthew Wilcox wrote:
+> > On Thu, Feb 02, 2023 at 09:14:23PM +0000, Matthew Wilcox wrote:
+> >> For those of you not subscribed, linux-mm is currently discussing
+> >> how best to handle page faults on large folios.  I simply made it work
+> >> when adding large folio support.  Now Yin Fengwei is working on
+> >> making it fast.
+> >=20
+> > OK, here's an actual implementation:
+> >=20
+> > https://lore.kernel.org/linux-mm/20230207194937.122543-3-willy@infradea=
+d.o
+> > rg/
+> >=20
+> > It survives a run of xfstests.  If your architecture doesn't store its
+> > PFNs at PAGE_SHIFT, you're going to want to implement your own set_ptes=
+(),
+> > or you'll see entirely the wrong pages mapped into userspace.  You may
+> > also wish to implement set_ptes() if it can be done more efficiently
+> > than __pte(pteval(pte) + PAGE_SIZE).
+> >=20
+> > Architectures that implement things like flush_icache_page() and
+> > update_mmu_cache() may want to propose batched versions of those.
+> > That's alpha, csky, m68k, mips, nios2, parisc, sh,
+> > arm, loongarch, openrisc, powerpc, riscv, sparc and xtensa.
+> > Maintainers BCC'd, mailing lists CC'd.
+> >=20
+> > I'm happy to collect implementations and submit them as part of a v6.
+>=20
+> Please find below the riscv implementation for set_ptes:
+>=20
+> diff --git a/arch/riscv/include/asm/pgtable.h
+> b/arch/riscv/include/asm/pgtable.h
+> index ebee56d47003..10bf812776a4 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -463,6 +463,20 @@ static inline void set_pte_at(struct mm_struct *mm,
+>          __set_pte_at(mm, addr, ptep, pteval);
+>   }
+>=20
+> +#define set_ptes set_ptes
+> +static inline void set_ptes(struct mm_struct *mm, unsigned long addr,
+> +                           pte_t *ptep, pte_t pte, unsigned int nr)
+> +{
+> +       for (;;) {
+> +               set_pte_at(mm, addr, ptep, pte);
+> +               if (--nr =3D=3D 0)
+> +                       break;
+> +               ptep++;
+> +               addr +=3D PAGE_SIZE;
+> +               pte =3D __pte(pte_val(pte) + (1 << _PAGE_PFN_SHIFT));
+> +       }
+> +}
 
-Changes since v1:
-- Renamed the dt-binding 'starfive,wdt.yaml' to 'starfive,jh7110-wdt.yaml'.
-- Dropped the '_clk' and 'rst_' about the 'clock-names' and 'reset-names'
-  in the dt-binding.
-- Updated the example context in the dt-binding 'starfive,jh7110-wdt.yaml'
-  to be independent of other patchset.
-- Deleted unused macros like 'JH7110_WDOG_INT_EN'.
-- Changed the type of 'freq' in the struct from u64 to u32.
-- Used 'devm_clk_get_enabled()' instead of 'devm_clk_get()' and
-  'clk_prepare_enable()'.
-- Removed the operation to get the frequency from the device tree.
-- Added watchdog_stop_on_unregister() and watchdog_stop_on_reboot().
-- Removed any operations about interrupt.
+Given that this is the same code as the original version (surprise!), what=
+=20
+about doing something like this in the generic code instead:
 
-v2: https://lore.kernel.org/all/20221219094233.179153-1-xingyu.wu@starfivetech.com/
-v1: https://lore.kernel.org/all/20221202093943.149674-1-xingyu.wu@starfivetech.com/
+#ifndef PTE_PAGE_STEP
+#define PTE_PAGE_STEP PAGE_SIZE
+#endif
 
-Xingyu Wu (2):
-  dt-bindings: watchdog: Add watchdog for StarFive JH7110
-  drivers: watchdog: Add StarFive Watchdog driver
+[=E2=80=A6]
 
- .../watchdog/starfive,jh7110-wdt.yaml         |  74 ++
- MAINTAINERS                                   |   7 +
- drivers/watchdog/Kconfig                      |   9 +
- drivers/watchdog/Makefile                     |   2 +
- drivers/watchdog/starfive-wdt.c               | 651 ++++++++++++++++++
- 5 files changed, 743 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/watchdog/starfive,jh7110-wdt.yaml
- create mode 100644 drivers/watchdog/starfive-wdt.c
+> +               pte =3D __pte(pte_val(pte) + PTE_PAGE_STEP);
+
+The name of the define is an obvious candidate for bike-shedding, feel free=
+ to=20
+name it as you want.
+
+Or if that isn't sound enough maybe introduce something like:
+
+static inline pte_t
+set_ptes_next_pte(pte_t pte)
+{
+	return __pte(pte_val(pte) + (1 << _PAGE_PFN_SHIFT));
+}
+
+Greetings,
+
+Eike
+=2D-=20
+Rolf Eike Beer, emlix GmbH, http://www.emlix.com
+=46on +49 551 30664-0, Fax +49 551 30664-11
+Gothaer Platz 3, 37083 G=C3=B6ttingen, Germany
+Sitz der Gesellschaft: G=C3=B6ttingen, Amtsgericht G=C3=B6ttingen HR B 3160
+Gesch=C3=A4ftsf=C3=BChrung: Heike Jordan, Dr. Uwe Kracke =E2=80=93 Ust-IdNr=
+=2E: DE 205 198 055
+
+emlix - smart embedded open source
+
+--nextPart5907765.lOV4Wx5bFT
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part.
+Content-Transfer-Encoding: 7Bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iLMEAAEIAB0WIQQ/Uctzh31xzAxFCLur5FH7Xu2t/AUCY/MvhgAKCRCr5FH7Xu2t
+/E96A/9/8q/Nw4RXmkex96nOqUtHteq72XctyEiwy7GrvS5dHVEeF79ebvwfpWIc
+Q6IMXFvld2oH9gZNXFrKV13KlDICP8qZscK88++MqxHdNVgMw/o6sU5yAdaiaKEh
+/bf9Rzx9VJTkDekQ7nP4YDLaAybLYSJ3fXX9PXr+j3HfhBsJxg==
+=hoWZ
+-----END PGP SIGNATURE-----
+
+--nextPart5907765.lOV4Wx5bFT--
 
 
-base-commit: c9c3395d5e3dcc6daee66c6908354d47bf98cb0c
--- 
-2.25.1
 
+
+
+--===============7770081265076294383==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7770081265076294383==--
+
+
+
+
