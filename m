@@ -4,62 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69998C64EC7
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Feb 2023 08:34:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D73C4C6379F
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Feb 2023 09:00:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DkRgiCKhvx1loi3oIeonwLtUjcXQ7rnwqPGPOFkwYig=; b=w1rFc9eYzAk0vm
-	vYzlvYB/1O4lDWqeUS23ff119cUyEAPfOkTxdtfLeoeBpIikHNq3Z25LzJJfO9MiZjYNzwnvyAwYL
-	aM7bg8wkS9ttJ1awk6lwc4Lx8rCtFYGwoErW4hNUGNgeJlBrShNusGfnohi+fEmWqVzD9Pp4ryiS3
-	o7MiN9u4LugqhS3yNjrVFM13Jt0vEwCJWqTIwBgFkJnKCjWq+RxqAANeCc6MOppInreZNnJ+enf+F
-	f52cZoFRF/jGIgNYurYyu4jpflRnWw8ITYQcaCTvz8hm1eZaXOrHTsBydWJCIbeX/XsuFSYF/xfkq
-	Vr1dh37Ul9bckwJrHxkQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=V2X/B+rWFmDQvpd5ucolYB5GEUbaeT5bFJkCuz7gYo0=; b=T/cvXIQtc35G+/
+	RBmVYqaXty0D/JJ+QjRROsbiOBF16ACa0YcBXh3T8M76kO2n+oWD1slebiSLoClr2UP2T+t2vxYZM
+	QCgwShgu+cp3lWvQa1LhxdZkruCW60ywcr8v1scrVTl8Bfp7tMBBF1B1CnKd3jYocseJOeGJIwic7
+	fF+xcZRxWEPHv21JE1ss00mC3Hm+AbhewFkEIue0Ltq3T6JD6wfRQhLRQpc3rS3nLwjeIWFcQG3CX
+	KCwJrGPs+lh+76kzZEAub5QhfaEDr1xxpswq+prw5Y55s8prQlVFc5omMLba++bhkMyi2psTXRjLI
+	tPS9IJDqGQvzh78AvSQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUO6k-0074FQ-Gr; Tue, 21 Feb 2023 08:34:42 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUO6b-0073nZ-JK
-	for linux-riscv@lists.infradead.org; Tue, 21 Feb 2023 08:34:35 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 4F3CD24E212;
-	Tue, 21 Feb 2023 16:33:34 +0800 (CST)
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 21 Feb
- 2023 16:33:34 +0800
-Received: from localhost.localdomain (183.27.98.67) by EXMBX061.cuchost.com
- (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 21 Feb
- 2023 16:33:32 +0800
-From: Xingyu Wu <xingyu.wu@starfivetech.com>
-To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Michael
- Turquette" <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Emil Renner Berthing <kernel@esmil.dk>
-CC: Rob Herring <robh+dt@kernel.org>, Conor Dooley <conor@kernel.org>, "Paul
- Walmsley" <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>,
-	Xingyu Wu <xingyu.wu@starfivetech.com>, <linux-kernel@vger.kernel.org>,
-	<linux-clk@vger.kernel.org>
-Subject: [PATCH v2 05/11] reset: starfive: jh7110: Add StarFive Image-Signal-Process reset support
-Date: Tue, 21 Feb 2023 16:33:17 +0800
-Message-ID: <20230221083323.302471-6-xingyu.wu@starfivetech.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20230221083323.302471-1-xingyu.wu@starfivetech.com>
-References: <20230221083323.302471-1-xingyu.wu@starfivetech.com>
+	id 1pUOVp-00774t-40; Tue, 21 Feb 2023 09:00:37 +0000
+Received: from mail-vs1-xe35.google.com ([2607:f8b0:4864:20::e35])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pUOVm-00773n-0r
+	for linux-riscv@lists.infradead.org; Tue, 21 Feb 2023 09:00:35 +0000
+Received: by mail-vs1-xe35.google.com with SMTP id 6so3723954vsv.7
+        for <linux-riscv@lists.infradead.org>; Tue, 21 Feb 2023 01:00:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1676970028;
+        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=snrQn0Tlo0gQ0uyxV6hinZ9sS9jKVp6Wr9FYbxThYg0=;
+        b=Ihnac5gfGHfOeKIQ6rEZ747/YTP2w/waPucMxpymT9yMA4q5aG/5WwANfn3AIGnxSG
+         L0TBbDRH1Iz1xP3I2Ip0KkjxjJ3TmsoeCBstrVs6DtpCf9VeCxhNr3fjIjkVf8N7E6Z+
+         rrnCykcs5UxfoLJ6+ljrRqGjd4nWN0g4klu6u3heskV2b1v4BQoiV9aDetD5y2YR2H8U
+         eI9cBVXZeCi4Kb/JLeCv3OwstOTqNN6vg5zKFyxS1ibf+2cAiWLRb5aVi4Nud3aFPhKm
+         ZwU74tNe2xcAlRVdDtyd4xCwRqrRbKLE9yN9ftJ6F3FegpXAU3Tk0vDR0mCeNIyR9Jyn
+         /h+g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1676970028;
+        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=snrQn0Tlo0gQ0uyxV6hinZ9sS9jKVp6Wr9FYbxThYg0=;
+        b=0rwpRO14VEGvgSo8v8ErpuieiASm9BWESwBZIUx+jel+pvgI5JqqPMm37Uc4VEeXkv
+         H7brjWaelm4EAviEHWDpgoeKTscGmnp69VJoEme/nDO6DlmnNIm9QM0pFki/cI4oEfmc
+         0IjgBiANHSE5ZnFiZCy+m3zyf6EDWzbk046wF7uAX2kS0thjaEGUSq7eVkYx2JTSNy4O
+         Ntb6GH0AWHJny0DVFnBdM5Sp/G36H1wtPlRVTZpL8hFSXnUmH9PzruFBC4FgzCf8HU5Y
+         vDY0V9XgvULHqsWMO4/tl3RA9b0AL3lcj1hyecwxa+zPWce8wRjloZNeqsjSOA1K69cC
+         PwBA==
+X-Gm-Message-State: AO0yUKUb6PljnKOp0RFtGeDSP8eKtSMYvqFdhpY+k/YcYMWaoSeR+BQz
+	JAhAjDWn89bZthB2BprCLqCTucsliT39f2xU7uyBb/xXatue+IK+
+X-Google-Smtp-Source: AK7set+3kFO9Mj/lchoJZ/OJccFPwKQD+LlOMwYfhMHf93Wr+N7ICLxTR5wKhJAMLAVWhex11pcwB4yjBiMiNk5Me/4=
+X-Received: by 2002:a05:6102:a24:b0:41e:991d:8814 with SMTP id
+ 4-20020a0561020a2400b0041e991d8814mr134187vsb.71.1676970028117; Tue, 21 Feb
+ 2023 01:00:28 -0800 (PST)
 MIME-Version: 1.0
-X-Originating-IP: [183.27.98.67]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX061.cuchost.com
- (172.16.6.61)
-X-YovoleRuleAgent: yovoleflag
+From: Naresh Kamboju <naresh.kamboju@linaro.org>
+Date: Tue, 21 Feb 2023 14:30:17 +0530
+Message-ID: <CA+G9fYt9T=ELCLaB9byxaLW2Qf4pZcDO=huCA0D8ug2V2+irJQ@mail.gmail.com>
+Subject: stable-rc: 5.10: riscv: defconfig: clang-nightly: build failed -
+ Invalid or unknown z ISA extension: 'zifencei'
+To: llvm@lists.linux.dev, linux-riscv <linux-riscv@lists.infradead.org>, 
+	linux-stable <stable@vger.kernel.org>, lkft-triage@lists.linaro.org
+Cc: Nathan Chancellor <nathan@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Sasha Levin <sashal@kernel.org>, conor@kernel.org, Heiko Stuebner <heiko@sntech.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230221_003433_941445_5A4C4782 
-X-CRM114-Status: GOOD (  11.00  )
+X-CRM114-CacheID: sfid-20230221_010034_142906_6BCBFCFB 
+X-CRM114-Status: UNSURE (   3.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,46 +85,69 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add auxiliary_device_id to support StarFive JH7110 Image-Signal-Process
-resets of which the auxiliary device name is
-"clk_starfive_jh71x0.reset-isp".
+The riscv defconfig and tinyconfig builds failed with clang-nightly
+due to below build warnings / errors on latest stable-rc 5.10.
 
-Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
----
- drivers/reset/starfive/reset-starfive-jh7110.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+Regression on riscv:
+  - build/clang-nightly-tinyconfig - FAILED
+  - build/clang-nightly-defconfig - FAILED
 
-diff --git a/drivers/reset/starfive/reset-starfive-jh7110.c b/drivers/reset/starfive/reset-starfive-jh7110.c
-index 94ebb363c6bc..e3b7b6941217 100644
---- a/drivers/reset/starfive/reset-starfive-jh7110.c
-+++ b/drivers/reset/starfive/reset-starfive-jh7110.c
-@@ -46,6 +46,12 @@ static const struct reset_info jh7110_stg_info = {
- 	.status_offset = 0x78,
- };
- 
-+static const struct reset_info jh7110_isp_info = {
-+	.nr_resets = JH7110_ISPRST_END,
-+	.assert_offset = 0x38,
-+	.status_offset = 0x3C,
-+};
-+
- static const struct auxiliary_device_id jh7110_reset_ids[] = {
- 	{
- 		.name = "clk_starfive_jh71x0.reset-sys",
-@@ -59,6 +65,10 @@ static const struct auxiliary_device_id jh7110_reset_ids[] = {
- 		.name = "clk_starfive_jh71x0.reset-stg",
- 		.driver_data = (kernel_ulong_t)&jh7110_stg_info,
- 	},
-+	{
-+		.name = "clk_starfive_jh71x0.reset-isp",
-+		.driver_data = (kernel_ulong_t)&jh7110_isp_info,
-+	},
- 	{ /* sentinel */ }
- };
- MODULE_DEVICE_TABLE(auxiliary, jh7110_reset_ids);
--- 
-2.25.1
+Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
 
+metadata:
+-----
+  git_repo: https://gitlab.com/Linaro/lkft/mirrors/stable/linux-stable-rc
+  git_sha: 7d11e4c4fc56eb25c5b41da93748dbcf21956316
+  git_short_log: 7d11e4c4fc56 ("Linux 5.10.169-rc1")
+  git_describe: v5.10.168-58-g7d11e4c4fc56
+
+Build log:
+----
+make --silent --keep-going --jobs=8
+O=/home/tuxbuild/.cache/tuxmake/builds/1/build ARCH=riscv
+CROSS_COMPILE=riscv64-linux-gnu- HOSTCC=clang CC=clang LLVM=1
+LLVM_IAS=1 LD=riscv64-linux-gnu-ld
+riscv64-linux-gnu-ld: -march=rv64i2p0_m2p0_a2p0_zicsr2p0_zifencei2p0:
+Invalid or unknown z ISA extension: 'zifencei'
+riscv64-linux-gnu-ld: failed to merge target specific data of file
+init/version.o
+riscv64-linux-gnu-ld: -march=rv64i2p0_m2p0_a2p0_zicsr2p0_zifencei2p0:
+Invalid or unknown z ISA extension: 'zifencei'
+riscv64-linux-gnu-ld: failed to merge target specific data of file
+init/do_mounts.o
+riscv64-linux-gnu-ld: -march=rv64i2p0_m2p0_a2p0_zicsr2p0_zifencei2p0:
+Invalid or unknown z ISA extension: 'zifencei'
+riscv64-linux-gnu-ld: failed to merge target specific data of file
+init/noinitramfs.o
+riscv64-linux-gnu-ld: -march=rv64i2p0_m2p0_a2p0_zicsr2p0_zifencei2p0:
+Invalid or unknown z ISA extension: 'zifencei'
+riscv64-linux-gnu-ld: failed to merge target specific data of file
+init/calibrate.o
+riscv64-linux-gnu-ld: -march=rv64i2p0_m2p0_a2p0_zicsr2p0_zifencei2p0:
+Invalid or unknown z ISA extension: 'zifencei'
+
+Build details,
+https://qa-reports.linaro.org/lkft/linux-stable-rc-linux-5.10.y/build/v5.10.168-58-g7d11e4c4fc56/testrun/14869376/suite/build/test/clang-nightly-tinyconfig/details/
+
+Build history,
+https://qa-reports.linaro.org/lkft/linux-stable-rc-linux-5.10.y/build/v5.10.168-58-ga96fb51aec5a/testrun/14866489/suite/build/test/clang-nightly-defconfig/details/
+
+https://qa-reports.linaro.org/lkft/linux-stable-rc-linux-5.10.y/build/v5.10.168-58-g7d11e4c4fc56/testrun/14869376/suite/build/test/clang-nightly-tinyconfig/history/
+
+steps to reproduce:
+-----------
+# To install tuxmake on your system globally:
+# sudo pip3 install -U tuxmake
+#
+# See https://docs.tuxmake.org/ for complete documentation.
+# Original tuxmake command with fragments listed below.
+# tuxmake --runtime podman --target-arch riscv --toolchain
+clang-nightly --kconfig tinyconfig LLVM=1 LLVM_IAS=1
+LD=riscv64-linux-gnu-ld
+
+--
+Linaro LKFT
+https://lkft.linaro.org
 
 _______________________________________________
 linux-riscv mailing list
