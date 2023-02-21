@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F014C61DA3
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AD43C64ED9
 	for <linux-riscv@archiver.kernel.org>; Tue, 21 Feb 2023 20:15:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,79 +12,82 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lLJ9EEhHsunDc+WJ100hoicqJRYxRyx6/MEyf7CpG4Y=; b=V/zlp73P0N3con
-	kfwE2A0yaV+LsdUUmH1jOPa+rS1m91MGkGKhi04jOHLjev54JxReswkwU3QLaYp4ssahTlMoKnxOI
-	jWg/Q1BIPnb2CDu/zHxN8Blr9GlQGnLW9wkUCi2+lj0zblrcIm8aO6xtISK4CmB6+pgJcJukbomYg
-	TQYuQO1SGtR8AQn74jiTcNdfLzfJNFxYDDg4HONqG14j5IYrA1iveuVCPCgzoBk2Xn0hksVMiftom
-	MlA12wBlPv8w4E5NqaEn0t7pxvwLSWNz0p1eogLA25lqMsKxBh2OplDQJxswkDcRCtSZoveroMhzj
-	/Fs8CPgabO9vJX/Ornhw==;
+	List-Owner; bh=h7RPQLlI1+YDAxT1ZdJQK0our+dfrzbJ/L+O+jfcmtY=; b=eLL8z/BKrX3P0L
+	uINkOKKt+dHWAa6BFZOxUepH9xR3E6vYg5AAINBXCnva4Sy5xaExeU3GqJfmMg34/M+okVOqupCDz
+	Jl6/GFsU1ud9cTYmCnVxJ10XQkiUz+jDVSGEE81RyvoWVX8ZrXLKHRFbjyEGL2MEyDtUmz9rkrAej
+	wJzjpLzNU5H/wcJWN54W3gy2DLCF656M40zktQrxV+1DzVDv0FcuTG/DuhI6Sq+lioCz4VS9H+p4b
+	44Sln88Wc25Hr639QR/0D5Br8pQWFSdogvODHOYKjwI27uVuhgUQuBAHpRUvjabqCtI8Hf7kTTIqI
+	lnRW1AMfrFKAOKvkCrrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUZ30-009fgs-BH; Tue, 21 Feb 2023 20:15:34 +0000
-Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
+	id 1pUZ39-009fmR-Ao; Tue, 21 Feb 2023 20:15:43 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUY0w-009Uok-C1
-	for linux-riscv@lists.infradead.org; Tue, 21 Feb 2023 19:09:25 +0000
-Received: by mail-ed1-x532.google.com with SMTP id da10so22604048edb.3
-        for <linux-riscv@lists.infradead.org>; Tue, 21 Feb 2023 11:09:22 -0800 (PST)
+	id 1pUY15-009Uw7-Jj
+	for linux-riscv@lists.infradead.org; Tue, 21 Feb 2023 19:09:33 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id z10so3035995ple.6
+        for <linux-riscv@lists.infradead.org>; Tue, 21 Feb 2023 11:09:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=K7rGW7hYEauj0lEHNx054QYhURQUQQG6A8fMOX9HH84=;
-        b=cC0ULT7/+BrHU2ZvV2TFw46UvQ/44ePZIIwdLcHDoSg8FUU1oNlaQ7Vv/h1ge8HGtl
-         SgNA+8Vt7WTURfWna3wXHm4egrYzEjFssuiE/tSKZf80ouVpb9TCCbkve1Wo98b153i6
-         x4w1A0Dka/Rcokbu/RGvMn9wXff/oA0e6ORxiGp7SsETSDQOETyhtKxuwLt1v3Xmn88X
-         zHRQKpxFv63xVx4jXQzuDL08VRddAa/f8/hpj3h79+8Pwk3yl5Qf0SvlUzAkFhrMRG9A
-         pezlqblmliS8oYq7P9gkFYb0bqJ+30J5gKsS2OBbpln4qmIqbWv7tZFNsJYoTduTXu3e
-         OPbQ==
+        bh=U7/hoqMIAepRETH3jO107eIeJ+UfvD3eJMNfG127+yc=;
+        b=ML/TqptG2y+VNZ2s/uAwCExQP7/61kxgdFtDZ8nEq3wGRDEc91VdXGlefahRUf+5Ev
+         D5bFiGPuRxXvq9M/OSE55rY7CFBgzaxJVRtT9+py7Pc7cumJvItPTNJ/4BiGcKB84xKG
+         K4WRVNELN9VHiSRbrqxnlpC7ffrBBrKfm3jMVlb4b9sATIkqgm/Wx5MlTmuotddpmRXa
+         S77iJPdrZqZeC86zfBY7ahCJ+ny1Jj+utqMW8rQjIehGx2eo5QX2S6H2jSJTrwDYZDNp
+         +3znT9hpdypBkXtX+sBYzU6Yywt8GM/ynhJBMJXRPoH2gkhEYk7iOImshHWzdxTykrFN
+         BvFQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=K7rGW7hYEauj0lEHNx054QYhURQUQQG6A8fMOX9HH84=;
-        b=spjAKn+4aiyXfZQWmZTDs3OIHJbURujmPNec4t/R3y06OJOPKOmq1L0Q4452ul8yrk
-         q9M2O/EtI9TiK17ONPoaxBWxlWSj6xVL8WBZZdRU8wpDeCWo5Hxm2nPjHWCOOJWQCl2f
-         h2JgKqlqKrN6Io0OmEetQzuZRRSu0sttyca/4vQc1L7NA88ifu+moZ5T5pLrKiQOyaZP
-         NV24EYrVmTkmexvuuzEgFgMq0kwtyJ8tHzdQxYjWb0Bw1ZA7CUMLLEMtfiosdCOMA96X
-         1SY0NOSYCpc5cgvK8iTGFIN6JTaV2QF7U56UjTSCBTEXUQFfV7LJHXDkYTmlXirGgQ3D
-         XBNQ==
-X-Gm-Message-State: AO0yUKVUWS984+6lqwwUhXTg8JyQ4GEL1Fd7DJHdqAhMCJ6L5wONKKTv
-	FLKP0VuY8MC2SFpyS7XLg+rQQwbVPuuBMVat
-X-Google-Smtp-Source: AK7set9FgSEil/ObjCnoBx5+EIDW01ef3uYae3HN5WaDBbhvpW7zd/e0eZAry1Z286cMc6/eMEx5VA==
-X-Received: by 2002:a17:906:dac1:b0:8b1:2b8b:a1fa with SMTP id xi1-20020a170906dac100b008b12b8ba1famr21315665ejb.47.1677006560758;
-        Tue, 21 Feb 2023 11:09:20 -0800 (PST)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id lg17-20020a170906f89100b008b1797a53b4sm6729902ejb.215.2023.02.21.11.09.20
+        bh=U7/hoqMIAepRETH3jO107eIeJ+UfvD3eJMNfG127+yc=;
+        b=FBwPip2Y+H1uaCeC59G9oL8mC8PLKqLp9YBvrXnfdR1X8yIc02h8uCLDiulStMfntI
+         O+tvvpPSsZkHAHVKFZIXrMtgQQJxc378A3n/97YU+NAXGGakYjzFrWmKGRFGfLS62yYN
+         bEd4CDVfCSifErP78jM6+J84NejqVh8BNgMEl0F9+gZkkg1P7PUAAhiyMohRGQztiUC9
+         RJ98vmMc72DHJwf7qM8REmRrB9TiJjmdtVVu225wdScRoGryY+buKdWqEXdV3eivxTOm
+         2seJlGcFKu/sAikoL1S911y+tj1CccyUeBjtJYyFc9BOTZiT2Ntxz3uI/zJ11AgyeYad
+         4Yog==
+X-Gm-Message-State: AO0yUKUyYzGknzGAKG22Zk6xIVziJRdNVutksQTqRLGvk/D4iWpDQB4a
+	9/GGJp+vx9Fa5VtKQcj47okiKw==
+X-Google-Smtp-Source: AK7set982kHyTiT0GJPk7lv5utET6rOdXXqJdN+FNbr7Y9VXQETYIeB8bJZmgEP2rHoVE/dpxgWkBg==
+X-Received: by 2002:a17:902:ecc1:b0:19a:8680:ba86 with SMTP id a1-20020a170902ecc100b0019a8680ba86mr6821900plh.50.1677006569611;
+        Tue, 21 Feb 2023 11:09:29 -0800 (PST)
+Received: from evan.ba.rivosinc.com ([66.220.2.162])
+        by smtp.gmail.com with ESMTPSA id b16-20020a170902b61000b0019602b2c00csm1583863pls.175.2023.02.21.11.09.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Feb 2023 11:09:20 -0800 (PST)
-From: Andrew Jones <ajones@ventanamicro.com>
-To: linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	kvm-riscv@lists.infradead.org
-Cc: 'Rob Herring ' <robh@kernel.org>,
-	'Jisheng Zhang ' <jszhang@kernel.org>,
-	'Anup Patel ' <apatel@ventanamicro.com>,
-	'Conor Dooley ' <conor.dooley@microchip.com>,
-	'Krzysztof Kozlowski ' <krzysztof.kozlowski+dt@linaro.org>,
-	'Heiko Stuebner ' <heiko@sntech.de>,
-	'Paul Walmsley ' <paul.walmsley@sifive.com>,
-	'Palmer Dabbelt ' <palmer@dabbelt.com>,
-	'Albert Ou ' <aou@eecs.berkeley.edu>,
-	'Ben Dooks ' <ben.dooks@codethink.co.uk>,
-	'Atish Patra ' <atishp@rivosinc.com>
-Subject: [PATCH v5 2/8] RISC-V: Factor out body of riscv_init_cbom_blocksize loop
-Date: Tue, 21 Feb 2023 20:09:10 +0100
-Message-Id: <20230221190916.572454-3-ajones@ventanamicro.com>
-X-Mailer: git-send-email 2.39.1
-In-Reply-To: <20230221190916.572454-1-ajones@ventanamicro.com>
-References: <20230221190916.572454-1-ajones@ventanamicro.com>
+        Tue, 21 Feb 2023 11:09:29 -0800 (PST)
+From: Evan Green <evan@rivosinc.com>
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: heiko@sntech.de,
+	Conor Dooley <conor@kernel.org>,
+	slewis@rivosinc.com,
+	vineetg@rivosinc.com,
+	Evan Green <evan@rivosinc.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Andrew Bresticker <abrestic@rivosinc.com>,
+	Atish Patra <atishp@rivosinc.com>,
+	Celeste Liu <coelacanthus@outlook.com>,
+	Guo Ren <guoren@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v3 3/7] RISC-V: hwprobe: Add support for RISCV_HWPROBE_BASE_BEHAVIOR_IMA
+Date: Tue, 21 Feb 2023 11:08:54 -0800
+Message-Id: <20230221190858.3159617-4-evan@rivosinc.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20230221190858.3159617-1-evan@rivosinc.com>
+References: <20230221190858.3159617-1-evan@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230221_110922_416178_F02D566F 
-X-CRM114-Status: GOOD (  10.77  )
+X-CRM114-CacheID: sfid-20230221_110931_708236_3C27E4E2 
+X-CRM114-Status: GOOD (  18.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,82 +104,122 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Refactor riscv_init_cbom_blocksize() to prepare for it to be used
-for both cbom block size and cboz block size.
+We have an implicit set of base behaviors that userspace depends on,
+which are mostly defined in various ISA specifications.
 
-Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Co-developed-by: Palmer Dabbelt <palmer@rivosinc.com>
+Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+Signed-off-by: Evan Green <evan@rivosinc.com>
 ---
- arch/riscv/mm/cacheflush.c | 45 +++++++++++++++++++++-----------------
- 1 file changed, 25 insertions(+), 20 deletions(-)
 
-diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
-index 3cc07ed45aeb..eaf23fc14966 100644
---- a/arch/riscv/mm/cacheflush.c
-+++ b/arch/riscv/mm/cacheflush.c
-@@ -98,34 +98,39 @@ void flush_icache_pte(pte_t pte)
- unsigned int riscv_cbom_block_size;
- EXPORT_SYMBOL_GPL(riscv_cbom_block_size);
+Changes in v3:
+ - Refactored base ISA behavior probe to allow kernel probing as well,
+   in prep for vDSO data initialization.
+ - Fixed doc warnings in IMA text list, use :c:macro:.
+
+ Documentation/riscv/hwprobe.rst       | 21 +++++++++++++++++++++
+ arch/riscv/include/asm/hwprobe.h      |  2 +-
+ arch/riscv/include/uapi/asm/hwprobe.h |  5 +++++
+ arch/riscv/kernel/sys_riscv.c         | 20 ++++++++++++++++++++
+ 4 files changed, 47 insertions(+), 1 deletion(-)
+
+diff --git a/Documentation/riscv/hwprobe.rst b/Documentation/riscv/hwprobe.rst
+index 88b015a2026e..9f2da414fbf8 100644
+--- a/Documentation/riscv/hwprobe.rst
++++ b/Documentation/riscv/hwprobe.rst
+@@ -37,3 +37,24 @@ The following keys are defined:
+   defined by the RISC-V privileged architecture specification.
+ * :c:macro:`RISCV_HWPROBE_KEY_MIMPLID`: Contains the value of ``mimplid``, as
+   defined by the RISC-V privileged architecture specification.
++* :c:macro:`RISCV_HWPROBE_KEY_BASE_BEHAVIOR`: A bitmask containing the base
++  user-visible behavior that this kernel supports.  The following base user ABIs
++  are defined:
++
++  * :c:macro:`RISCV_HWPROBE_BASE_BEHAVIOR_IMA`: Support for rv32ima or
++    rv64ima, as defined by version 2.2 of the user ISA and version 1.10 of the
++    privileged ISA, with the following known exceptions (more exceptions may be
++    added, but only if it can be demonstrated that the user ABI is not broken):
++
++    * The :fence.i: instruction cannot be directly executed by userspace
++      programs (it may still be executed in userspace via a
++      kernel-controlled mechanism such as the vDSO).
++* :c:macro:`RISCV_HWPROBE_KEY_IMA_EXT_0`: A bitmask containing the extensions
++  that are compatible with the :c:macro:`RISCV_HWPROBE_BASE_BEHAVIOR_IMA`:
++  base system behavior.
++
++  * :c:macro:`RISCV_HWPROBE_IMA_FD`: The F and D extensions are supported, as
++    defined by commit cd20cee ("FMIN/FMAX now implement
++    minimumNumber/maximumNumber, not minNum/maxNum") of the RISC-V ISA manual.
++  * :c:macro:`RISCV_HWPROBE_IMA_C`: The C extension is supported, as defined
++    by version 2.2 of the RISC-V ISA manual.
+diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hwprobe.h
+index 08d1c3bdd78a..7e52f1e1fe10 100644
+--- a/arch/riscv/include/asm/hwprobe.h
++++ b/arch/riscv/include/asm/hwprobe.h
+@@ -8,6 +8,6 @@
  
-+static void cbo_get_block_size(struct device_node *node,
-+			       const char *name, u32 *block_size,
-+			       unsigned long *first_hartid)
-+{
-+	unsigned long hartid;
-+	u32 val;
-+
-+	if (riscv_of_processor_hartid(node, &hartid))
-+		return;
-+
-+	if (of_property_read_u32(node, name, &val))
-+		return;
-+
-+	if (!*block_size) {
-+		*block_size = val;
-+		*first_hartid = hartid;
-+	} else if (*block_size != val) {
-+		pr_warn("%s mismatched between harts %lu and %lu\n",
-+			name, *first_hartid, hartid);
-+	}
-+}
-+
- void riscv_init_cbom_blocksize(void)
- {
- 	struct device_node *node;
- 	unsigned long cbom_hartid;
--	u32 val, probed_block_size;
--	int ret;
-+	u32 probed_block_size;
+ #include <uapi/asm/hwprobe.h>
  
- 	probed_block_size = 0;
- 	for_each_of_cpu_node(node) {
--		unsigned long hartid;
--
--		ret = riscv_of_processor_hartid(node, &hartid);
--		if (ret)
--			continue;
--
- 		/* set block-size for cbom extension if available */
--		ret = of_property_read_u32(node, "riscv,cbom-block-size", &val);
--		if (ret)
--			continue;
--
--		if (!probed_block_size) {
--			probed_block_size = val;
--			cbom_hartid = hartid;
--		} else {
--			if (probed_block_size != val)
--				pr_warn("cbom-block-size mismatched between harts %lu and %lu\n",
--					cbom_hartid, hartid);
--		}
-+		cbo_get_block_size(node, "riscv,cbom-block-size",
-+				   &probed_block_size, &cbom_hartid);
- 	}
+-#define RISCV_HWPROBE_MAX_KEY 2
++#define RISCV_HWPROBE_MAX_KEY 4
  
- 	if (probed_block_size)
+ #endif
+diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
+index 591802047460..fc5665411782 100644
+--- a/arch/riscv/include/uapi/asm/hwprobe.h
++++ b/arch/riscv/include/uapi/asm/hwprobe.h
+@@ -20,6 +20,11 @@ struct riscv_hwprobe {
+ #define RISCV_HWPROBE_KEY_MVENDORID	0
+ #define RISCV_HWPROBE_KEY_MARCHID	1
+ #define RISCV_HWPROBE_KEY_MIMPID	2
++#define RISCV_HWPROBE_KEY_BASE_BEHAVIOR	3
++#define		RISCV_HWPROBE_BASE_BEHAVIOR_IMA	(1 << 0)
++#define RISCV_HWPROBE_KEY_IMA_EXT_0	4
++#define		RISCV_HWPROBE_IMA_FD		(1 << 0)
++#define		RISCV_HWPROBE_IMA_C		(1 << 1)
+ /* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
+ 
+ #endif
+diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
+index 02c2f1f7417e..f2b224550923 100644
+--- a/arch/riscv/kernel/sys_riscv.c
++++ b/arch/riscv/kernel/sys_riscv.c
+@@ -9,6 +9,7 @@
+ #include <asm/cacheflush.h>
+ #include <asm/hwprobe.h>
+ #include <asm/sbi.h>
++#include <asm/switch_to.h>
+ #include <asm/uaccess.h>
+ #include <asm/unistd.h>
+ #include <asm-generic/mman-common.h>
+@@ -124,6 +125,25 @@ static void hwprobe_one_pair(struct riscv_hwprobe *pair,
+ 	case RISCV_HWPROBE_KEY_MIMPID:
+ 		hwprobe_arch_id(pair, cpus);
+ 		break;
++	/*
++	 * The kernel already assumes that the base single-letter ISA
++	 * extensions are supported on all harts, and only supports the
++	 * IMA base, so just cheat a bit here and tell that to
++	 * userspace.
++	 */
++	case RISCV_HWPROBE_KEY_BASE_BEHAVIOR:
++		pair->value = RISCV_HWPROBE_BASE_BEHAVIOR_IMA;
++		break;
++
++	case RISCV_HWPROBE_KEY_IMA_EXT_0:
++		pair->value = 0;
++		if (has_fpu())
++			pair->value |= RISCV_HWPROBE_IMA_FD;
++
++		if (elf_hwcap & RISCV_ISA_EXT_c)
++			pair->value |= RISCV_HWPROBE_IMA_C;
++
++		break;
+ 
+ 	/*
+ 	 * For forward compatibility, unknown keys don't fail the whole
 -- 
-2.39.1
+2.25.1
 
 
 _______________________________________________
