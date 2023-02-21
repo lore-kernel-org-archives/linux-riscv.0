@@ -4,64 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FD85C636D7
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Feb 2023 23:18:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE734C636D7
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Feb 2023 23:39:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V9pcsuA/i7Os/alDKF0crjMGtHtfqW9yydIYrQz4DdA=; b=ohXmnCfwZivkJ8MzOETY3zzKER
-	9Nc7ZTmrmtZsGujrewWYNbnm9MqIa8WRGLehNC88W//q9DtAxZn97LUj/gQUP890OjZrSmTSbSq9U
-	HFpdzsHrts38Mc8jREjXIEU9+pMAiAHsSVTMOH7wVcsN4jp+jNEEBojbH9z5jcUB+7UmKn05AwLeF
-	BwLiPsA/SuIWtauIZc36niDkG7tGF73iaU0f4SIHExx69/huHiW+citlChXiD2wFDWxQcfdj3OVB9
-	VwflQIpoT1kca6RhEtIYcvCyETmJBSS1q+Pzaf8SONkTr37cHTj5C99eDR+yvwlJyjCYlC88lpFQA
-	A+clWR9w==;
+	bh=OoRMCZZXSmv7i9G7TSjV6c2/4l9cIDIqisFWprBhwSA=; b=1KKaV4Pm+Q0JStvatadAIrVaE/
+	D0tQryPMgbLG7tWErAYqzyA/BTTt5l6UZlWHuMwvNp0dS0GHE7OMK8uM4AQlCLmABEBfbgnyf7K8Q
+	GT3Y8zNxSRd6A3QTBV+5CF02VdJir8uagnDzgtjxTz+tRhWc/swQBbcWILWOZSQ0yjOg2FfayB3Ib
+	jTkAuzq89OGbtlyWsN3KiqYep0Uczklm7+Iyr7zCpVApd8HZMm2/AbvisqQBIJ38vB2DEf3CvcDK/
+	ZcZrFh0mUTBzo4gxNWwU7kivM7s7uaTfsDqWe2fg7hkS/Kl8kg4S9romGNGuPITa7Z5FHravvcOx2
+	Xf6wEcTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUbtc-00A6dB-Ro; Tue, 21 Feb 2023 23:18:04 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pUcEY-00A8oo-Vh; Tue, 21 Feb 2023 23:39:42 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUbta-00A6cW-1o
-	for linux-riscv@lists.infradead.org; Tue, 21 Feb 2023 23:18:03 +0000
+	id 1pUcEW-00A8o0-Ej
+	for linux-riscv@lists.infradead.org; Tue, 21 Feb 2023 23:39:42 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 5DCE4611EB;
-	Tue, 21 Feb 2023 23:18:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1C12C433EF;
-	Tue, 21 Feb 2023 23:17:58 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id E10D0B8118F;
+	Tue, 21 Feb 2023 23:39:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 305F4C433D2;
+	Tue, 21 Feb 2023 23:39:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1677021480;
-	bh=Mh//mLUoyP5yIuIIjymXpRAj8FV23s77Ahtu7KJhh4o=;
+	s=k20201202; t=1677022777;
+	bh=ie0GAExwZPpmXLWLkpfA8sVNwYvYbybeiZNOj6h8WEI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Qo4sH0rGPaRwtE/jWl91YCy9BGsPsoFN12cToQolh/EGEFCjn515f0fEsN0phuWZZ
-	 5v1SZyRZZ3qkfgBH33r1tZVX9KD3pO+zPtGIYBJmgtGebZFgG4Ya6PEP56o6Hz+6vF
-	 QIxRfosAqo5LoMF7nxnrpaUMoFWcYn3YRkXyaDGtsUa3TTbKnI+U1Gw4HB0Gk4llpX
-	 xso+KKkh4iCcXo5Dohdk8pvjGohJp/LTpo8iENgwZEv8F+1KiZ3JHQ5+N6srGMCGOJ
-	 iWTIeiahOSnScylPBbh2vi7RiwqF8wKCsvsVzC7SgyFIDEbpb/cB+iCPRh9eQPt0+a
-	 lRzfIxbJfUbig==
-Date: Tue, 21 Feb 2023 23:17:56 +0000
+	b=tTbwBBUEzXr2PONY2NQhckcJSZb82zbvfiyxjZ989wicvTS9uHXoL9n7squ+tJaFi
+	 Rouxs8i5zSa0M1wYR92LiOH5C6E9wC4iK/ghvVBJTdGrEwM6TO8ODO9MUrCtqy0j7x
+	 c/4fwKmmUVG7w7uqupmuclAqb1eKDGoaBnQ8xOAtgrKM9Q3WXGI65AviknIZe99KZg
+	 KJVDEnwkYoUYrpbt5/o9fr84D6a3Q2ETfDQILnspFjB1FwYJedXAvtQvLFffhms53q
+	 UAnpaPrXmOf9gpsekw7ZkA7NYRE//ho1Y2Pdwx8GzGOAt4kYPP9m35PfOzPOamTTa5
+	 8ZzXBju3bxPig==
+Date: Tue, 21 Feb 2023 23:39:32 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Naresh Kamboju <naresh.kamboju@linaro.org>, llvm@lists.linux.dev,
-	linux-riscv <linux-riscv@lists.infradead.org>,
-	linux-stable <stable@vger.kernel.org>, lkft-triage@lists.linaro.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Sasha Levin <sashal@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Subject: Re: stable-rc: 5.10: riscv: defconfig: clang-nightly: build failed -
- Invalid or unknown z ISA extension: 'zifencei'
-Message-ID: <Y/VRJF0QKKqkFN6g@spud>
-References: <CA+G9fYt9T=ELCLaB9byxaLW2Qf4pZcDO=huCA0D8ug2V2+irJQ@mail.gmail.com>
- <Y/SLn5fto6+9xX0r@wendy>
- <Y/VGu9IOJEKi6VwS@dev-arch.thelio-3990X>
+To: Stephen Boyd <sboyd@kernel.org>
+Cc: Hal Feng <hal.feng@starfivetech.com>, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 07/11] dt-bindings: clock: Add StarFive JH7110 system
+ clock and reset generator
+Message-ID: <Y/VWNPfApsfm3/UD@spud>
+References: <20221220005054.34518-1-hal.feng@starfivetech.com>
+ <20221220005054.34518-8-hal.feng@starfivetech.com>
+ <Y6JB37Pd5TZoGMy4@spud>
+ <7a7bccb1-4d47-3d32-36e6-4aab7b5b8dad@starfivetech.com>
+ <Y6tSWB2+98a8k9Qw@spud>
+ <5cf0fe71-fd17-fb28-c01e-28356081ba76@starfivetech.com>
+ <Y+5z8skN2DuvxDEL@spud>
+ <72953dc9371b87da8d03c63633d7d9dd.sboyd@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <Y/VGu9IOJEKi6VwS@dev-arch.thelio-3990X>
+In-Reply-To: <72953dc9371b87da8d03c63633d7d9dd.sboyd@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230221_151802_193215_87E483C7 
-X-CRM114-Status: GOOD (  27.08  )
+X-CRM114-CacheID: sfid-20230221_153940_792078_F8E24747 
+X-CRM114-Status: GOOD (  26.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,114 +81,120 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2220575507039080679=="
+Content-Type: multipart/mixed; boundary="===============1483181128734343625=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============2220575507039080679==
+--===============1483181128734343625==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="whT7Q92xxSfANgK+"
+	protocol="application/pgp-signature"; boundary="VknuSA68ljcWlQyJ"
 Content-Disposition: inline
 
 
---whT7Q92xxSfANgK+
+--VknuSA68ljcWlQyJ
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Tue, Feb 21, 2023 at 03:33:31PM -0700, Nathan Chancellor wrote:
-> On Tue, Feb 21, 2023 at 09:15:11AM +0000, Conor Dooley wrote:
-> > On Tue, Feb 21, 2023 at 02:30:17PM +0530, Naresh Kamboju wrote:
-> > > The riscv defconfig and tinyconfig builds failed with clang-nightly
-> > > due to below build warnings / errors on latest stable-rc 5.10.
+On Tue, Feb 21, 2023 at 02:17:17PM -0800, Stephen Boyd wrote:
+> Quoting Conor Dooley (2023-02-16 10:20:34)
+> > On Thu, Feb 16, 2023 at 10:42:20PM +0800, Hal Feng wrote:
+> > > On Tue, 27 Dec 2022 20:15:20 +0000, Conor Dooley wrote:
+> > > > On Mon, Dec 26, 2022 at 12:26:32AM +0800, Hal Feng wrote:
+> > > Please see the picture of these external clocks in clock tree.
 > > >=20
-> > > Regression on riscv:
-> > >   - build/clang-nightly-tinyconfig - FAILED
-> > >   - build/clang-nightly-defconfig - FAILED
+> > > # mount -t debugfs none /mnt
+> > > # cat /mnt/clk/clk_summary
+> > >                                  enable  prepare  protect            =
+                    duty  hardware
+> > >    clock                          count    count    count        rate=
+   accuracy phase  cycle    enable
+> > > ---------------------------------------------------------------------=
+----------------------------------
+> > >  *mclk_ext*                             0        0        0    122880=
+00          0     0  50000         Y
+> > >  *tdm_ext*                              0        0        0    491520=
+00          0     0  50000         Y
+> > >  *i2srx_lrck_ext*                       0        0        0      1920=
+00          0     0  50000         Y
+> > >  *i2srx_bclk_ext*                       0        0        0    122880=
+00          0     0  50000         Y
+> > >  *i2stx_lrck_ext*                       0        0        0      1920=
+00          0     0  50000         Y
+> > >  *i2stx_bclk_ext*                       0        0        0    122880=
+00          0     0  50000         Y
+> > >  *gmac1_rgmii_rxin*                     0        0        0   1250000=
+00          0     0  50000         Y
+> > >     gmac1_rx                          0        0        0   125000000=
+          0     0  50000         Y
+> > >        gmac1_rx_inv                   0        0        0   125000000=
+          0   180  50000         Y
+> > >  *gmac1_rmii_refin*                     0        0        0    500000=
+00          0     0  50000         Y
+> > >     gmac1_rmii_rtx                    0        0        0    50000000=
+          0     0  50000         Y
+> > >        gmac1_tx                       0        0        0    50000000=
+          0     0  50000         N
+> > >           gmac1_tx_inv                0        0        0    50000000=
+          0   180  50000         Y
+> > >  *osc*                                  4        4        0    240000=
+00          0     0  50000         Y
+> > >     apb_func                          0        0        0    24000000=
+          0     0  50000         Y
+> > >  ...
+> > >=20
+> > > The clock "gmac1_rgmii_rxin" and the clock "gmac1_rmii_refin" are
+> > > actually used as the parent of other clocks.
 > >=20
-> > > Build log:
-> > > ----
-> > > make --silent --keep-going --jobs=3D8
-> > > O=3D/home/tuxbuild/.cache/tuxmake/builds/1/build ARCH=3Driscv
-> > > CROSS_COMPILE=3Driscv64-linux-gnu- HOSTCC=3Dclang CC=3Dclang LLVM=3D1
-> > > LLVM_IAS=3D1 LD=3Driscv64-linux-gnu-ld
-> > > riscv64-linux-gnu-ld: -march=3Drv64i2p0_m2p0_a2p0_zicsr2p0_zifencei2p=
-0:
-> > > Invalid or unknown z ISA extension: 'zifencei'
-> > > riscv64-linux-gnu-ld: failed to merge target specific data of file
-> > > init/version.o
-> > > riscv64-linux-gnu-ld: -march=3Drv64i2p0_m2p0_a2p0_zicsr2p0_zifencei2p=
-0:
-> > > Invalid or unknown z ISA extension: 'zifencei'
-> > > riscv64-linux-gnu-ld: failed to merge target specific data of file
-> > > init/do_mounts.o
-> > > riscv64-linux-gnu-ld: -march=3Drv64i2p0_m2p0_a2p0_zicsr2p0_zifencei2p=
-0:
-> > > Invalid or unknown z ISA extension: 'zifencei'
-> > > riscv64-linux-gnu-ld: failed to merge target specific data of file
-> > > init/noinitramfs.o
-> > > riscv64-linux-gnu-ld: -march=3Drv64i2p0_m2p0_a2p0_zicsr2p0_zifencei2p=
-0:
-> > > Invalid or unknown z ISA extension: 'zifencei'
-> > > riscv64-linux-gnu-ld: failed to merge target specific data of file
-> > > init/calibrate.o
-> > > riscv64-linux-gnu-ld: -march=3Drv64i2p0_m2p0_a2p0_zicsr2p0_zifencei2p=
-0:
-> > > Invalid or unknown z ISA extension: 'zifencei'
+> > > The "dummy" clocks
+> > > you said are all internal clocks.
 > >=20
-> > > Build details,
-> > > https://qa-reports.linaro.org/lkft/linux-stable-rc-linux-5.10.y/build=
-/v5.10.168-58-g7d11e4c4fc56/testrun/14869376/suite/build/test/clang-nightly=
--tinyconfig/details/
-> >=20
-> > binutils 2.35 by the looks of things, I **think** that zifencei didn't
-> > land until 2.36. zicsr and zifence get added via cc-option-yn, which,
-> > IIRC, doesn't do anything with the linker. I dunno if anyone in RISC-V
-> > land cares this much about "odd" configurations back in 5.10, but while
-> > a fix is outstanding, you could use a newer binutils?
+> > No, what I meant by "dummy" clocks is that if you make clocks "required"
+> > in the binding that are not needed by the hardware for operation a
+> > customer of yours might have to add "dummy" clocks to their devicetree
+> > to pass dtbs_check.
 >=20
-> This is new in clang-17 so I bisected LLVM down to commit 22e199e6afb1
-> ("[RISCV] Accept zicsr and zifencei command line options"), so I think
-> we need something like commit aae538cd03bc ("riscv: fix detection of
-> toolchain Zihintpause support") for zifencei to make sure all three
-> tools stay in sync, since I suspect that this is reproducible in
-> mainline with GNU ld. We just happen not to notice when using
-> LLVM=3D1 LLVM_IAS=3D1 since the tools have symmetrical support.
+> They can set the phandle specifier to '<0>' to fill in the required
+> property when there isn't anything there. If this is inside an SoC, it
+> is always connected because silicon can't change after it is made
+> (unless this is an FPGA). Therefore, any and all input clocks should be
+> listed as required.
 
-At least if it is in mainline there'll be interest in fixing it!
-Nobody was shipping hardware worth mention when 5.10 was en vogue, so
-little interest in it :(
+> If the clk controller has inputs that are
+> pads/balls/pins on the SoC then they can be optional if a valid design
+> can leave those pins not connected.
 
-> I can work up something like that change tomorrow if that seems like the
-> path worth taking.
+=46rom the discussion on the dts patches, where the clocks have been put
+(intentionally) into board.dts, I've been under the impression that we
+are in this situation.
+Up to Hal to tell us if the hardware is capable of having those inputs
+left unfilled!
 
-I'm not sure if this one is the same as Zihintpause though, because
-zifencei & zicsr were part of i prior to a spec update, so we may need
-to be careful about the spec version that clang/llvm is using if we
-decide not to pass zifencei/zicsr to it. See arch/riscv/Makefile, about
-L55 for a comment...
-I'll go get myself a clang-17 tomorrow and give things a whirl if you
-want Nathan?
+FWIW, there's a v4 [1] of this series - but the question has yet to be
+resolved.
 
-Cheers,
+Thanks,
 Conor.
 
---whT7Q92xxSfANgK+
+1 - https://lore.kernel.org/all/20230221024645.127922-1-hal.feng@starfivete=
+ch.com/
+
+--VknuSA68ljcWlQyJ
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY/VRJAAKCRB4tDGHoIJi
-0iDBAP4pOrkepLUC1dzex3KN1VvvGvYahiVr0Y2E42GJuoT7ZgD+KUgJ9xGpMiZh
-vl3u969fkX/wptXNeEpGotMF0w2OxQs=
-=Mg48
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY/VWMAAKCRB4tDGHoIJi
+0vMnAP9+HziqXbEJ1GX8HIr5jD+lzSjYpeu8k3IfZk1pte1WdAEAwNfSAKDpB2Sz
+rYa+dCvHzPRG/YzqUU8wOHnRfqNDxQw=
+=9xTC
 -----END PGP SIGNATURE-----
 
---whT7Q92xxSfANgK+--
+--VknuSA68ljcWlQyJ--
 
 
---===============2220575507039080679==
+--===============1483181128734343625==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -191,5 +205,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============2220575507039080679==--
+--===============1483181128734343625==--
 
