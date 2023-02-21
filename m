@@ -4,75 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A742C61DA3
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Feb 2023 01:57:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8F2CC636D6
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Feb 2023 02:28:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=U4d+A/bDy9JFU7SkYDmEjMvAPqyVl4hdanNp30dEwDM=; b=2HUOSKLXRvyFpq
-	omUum7pfRv/ZZtlr82T7R5AllXTbIgaWSUwmu3yNRt4FnQusZU4Qr5BqHaw1yG1eI+QTCjY3uSZrx
-	KpmGKKQxYT4fyXqMp/lcERJ10Mr4ORWu3EjchnvJq4pKAmiW4qV4COnx+8kEovUeJSqB25GDlGP60
-	6cUaXrMmrHyyXoVc1ODOcQCT+xn/PvuOe2TRnvx30DcAEnbLXtJ65kKJll7iaxAY7jaFTHmhhnFOx
-	u872ZJgzdPhoXblkgOTEsf+VCdcxZgBMZLpWXr52YltLgaoLTh3x7iT5dUslSf6bk9XlsOd295t6O
-	rRjjhHbaFEgVXrhVzgzA==;
+	List-Owner; bh=i04I85Dut0VhZs1jNTENV0BV+PcbsyijfoY5j7btW9Y=; b=i2/RqpA8bzqRLC
+	keYTa+qVqgVXoPYXYZ1Xx3K3YWe7P5xRB9YVikcXOAe2PI7lPp3uAi3gzfoDhSt3y4KJxhA07XeJL
+	/TMndbj03Vr5xJVeq0PKJOHe02mrxWgMcWAolMJf8jpTz+6zFC+FgpkzXMxqJueShq4eO19ir6RSH
+	jRXolzxJK/nLje99TkYyOZqbFKHW/uulok5YpFq3Kcm3HjZxin29F/MfBcJPJCw8e/qIOPvHvBfre
+	M7017fWJNKXOVU7oAPNTqf4Gu3tABAyLqJpxcBQcEpySuQ4yf0jtjafSBx9/jWP6fIf2dnhs0hXJO
+	dUpVg+mbCPcoLkKbx3Bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUHu8-006FTE-M5; Tue, 21 Feb 2023 01:57:16 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUHu5-006FSe-9X
-	for linux-riscv@lists.infradead.org; Tue, 21 Feb 2023 01:57:15 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 9397960F04
-	for <linux-riscv@lists.infradead.org>; Tue, 21 Feb 2023 01:57:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02F4FC433A0
-	for <linux-riscv@lists.infradead.org>; Tue, 21 Feb 2023 01:57:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1676944632;
-	bh=/ZBcMX1qAKu2yYzC+BDZcfFTGrPMHh07Ryjbq5oCRnk=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=mxZuFUUKcFbleMmWWxYYyCoYNwFtfS0gzIke3k41LtUbz3B6q/IcASCHL1nSfy/VA
-	 RnrKw7qqBLKeEVAIkuSh5CI/yO5LaDgis4E8DFdQwVcGRtWu4TduFGYhwmrsn11fYW
-	 LFhLKMap+AK3UymiD8vbwhHI6J+yBthllJs87CajHN9WlO1AiZQfMhXR4CJF8hsBNb
-	 a/M4Ue6eyWIpbQp6HYTUYGztMbYQP+SZUjTm7Y2iiLAewAPJrp7/D5mB+2dgRdsrAH
-	 zWKhRZeV8VeoBiEIS4AZbr/Swaa8wz34B4EB7I+snB4WoZnNJx+7SLzo9yuqbq2Pft
-	 u95DBE9CoNOxQ==
-Received: by mail-ed1-f43.google.com with SMTP id f13so10782757edz.6
-        for <linux-riscv@lists.infradead.org>; Mon, 20 Feb 2023 17:57:11 -0800 (PST)
-X-Gm-Message-State: AO0yUKU1fIkTS18QRYFxizg8WovhcOiQLSh1hENCr9C4jL0nIDvFHMKH
-	1qocjC38zSohpwNcF7VwbxH59qt4nhcxdAMhzpQ=
-X-Google-Smtp-Source: AK7set9rQ/WzVTKn9eq+BToIr/uj+hkRyODYgBXpsZKoHS+1y/R90Lbtl2siQQ0d1Jt3pjFeGESYOLCtV3i0N3g9aMs=
-X-Received: by 2002:a50:baa4:0:b0:4aa:a4f1:3edc with SMTP id
- x33-20020a50baa4000000b004aaa4f13edcmr954197ede.7.1676944630133; Mon, 20 Feb
- 2023 17:57:10 -0800 (PST)
+	id 1pUINr-006Ioe-IS; Tue, 21 Feb 2023 02:27:59 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pUINm-006Ilr-OY
+	for linux-riscv@lists.infradead.org; Tue, 21 Feb 2023 02:27:57 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 338E624E202;
+	Tue, 21 Feb 2023 10:27:18 +0800 (CST)
+Received: from EXMBX073.cuchost.com (172.16.6.83) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 21 Feb
+ 2023 10:27:07 +0800
+Received: from [192.168.120.49] (171.223.208.138) by EXMBX073.cuchost.com
+ (172.16.6.83) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 21 Feb
+ 2023 10:27:06 +0800
+Message-ID: <dfddde90-ddce-d0e5-d31c-bbbbecaf7323@starfivetech.com>
+Date: Tue, 21 Feb 2023 10:27:05 +0800
 MIME-Version: 1.0
-References: <20230126161559.1467374-1-guoren@kernel.org> <0abbbdd4-6b85-9659-03ee-97c56a5b77c1@huawei.com>
- <CAJF2gTS0s4X_uwLaEeSqKAyRmxCR2vxRuHhz7-SP2w4bBqzr+Q@mail.gmail.com>
- <87r0vc9h4g.fsf@all.your.base.are.belong.to.us> <CAJF2gTQZWO8Ubi60nHn-J-8czqBnsp1Kdyoim3uLNkjbYd-H8Q@mail.gmail.com>
- <87ilgntdef.fsf@all.your.base.are.belong.to.us> <CAJF2gTTaartwjVdmtmsm1FqmYVuAq5_nGYU5zc6nkdTtCm200A@mail.gmail.com>
- <Y9jz+zUDebQ4VLlF@andrea> <CAJF2gTQsRcUpMk8nvFkEsz_fpVV+v6tpUDcPzaNjqfj+i_VvXA@mail.gmail.com>
- <878rgy3v0e.fsf@all.your.base.are.belong.to.us> <CAJF2gTTacQXg7e3s9s3dALCnPjstGGMPtk5L5SsN_MWKEov+pQ@mail.gmail.com>
- <87lekwzr0h.fsf@all.your.base.are.belong.to.us>
-In-Reply-To: <87lekwzr0h.fsf@all.your.base.are.belong.to.us>
-From: Guo Ren <guoren@kernel.org>
-Date: Tue, 21 Feb 2023 09:56:58 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTTFNHB61EzRv4F1wgXQADwdYD_ocPQ1G5iPyip2+KxRMQ@mail.gmail.com>
-Message-ID: <CAJF2gTTFNHB61EzRv4F1wgXQADwdYD_ocPQ1G5iPyip2+KxRMQ@mail.gmail.com>
-Subject: Re: [PATCH] riscv: kprobe: Optimize kprobe with accurate atomicity
-To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-Cc: Andrea Parri <parri.andrea@gmail.com>, "liaochang (A)" <liaochang1@huawei.com>, palmer@dabbelt.com, 
-	paul.walmsley@sifive.com, mhiramat@kernel.org, conor.dooley@microchip.com, 
-	penberg@kernel.org, mark.rutland@arm.com, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>, 
-	Changbin Du <changbin.du@huawei.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.7.2
+Subject: Re: [PATCH v4 5/7] net: stmmac: Add glue layer for StarFive JH7110
+ SoCs
+Content-Language: en-US
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+CC: <linux-riscv@lists.infradead.org>, <netdev@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "David S .
+ Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, "Jakub
+ Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
+	<robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
+	Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>,
+	<samin.guo@starfivetech.com>
+References: <20230118061701.30047-1-yanhong.wang@starfivetech.com>
+ <20230118061701.30047-6-yanhong.wang@starfivetech.com>
+ <CAJM55Z-zvb5CJq4PU4c=YKvY0xPY216MAALFsmWTcVFjSd=wEA@mail.gmail.com>
+From: yanhong wang <yanhong.wang@starfivetech.com>
+In-Reply-To: <CAJM55Z-zvb5CJq4PU4c=YKvY0xPY216MAALFsmWTcVFjSd=wEA@mail.gmail.com>
+X-Originating-IP: [171.223.208.138]
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX073.cuchost.com
+ (172.16.6.83)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230220_175713_454668_E4EFE9A3 
-X-CRM114-Status: GOOD (  51.98  )
+X-CRM114-CacheID: sfid-20230220_182755_130511_C2F7A157 
+X-CRM114-Status: GOOD (  25.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,131 +77,230 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBGZWIgMTcsIDIwMjMgYXQgMzozMiBQTSBCasO2cm4gVMO2cGVsIDxiam9ybkBrZXJu
-ZWwub3JnPiB3cm90ZToKPgo+IEd1byBSZW4gPGd1b3JlbkBrZXJuZWwub3JnPiB3cml0ZXM6Cj4K
-PiA+IE9uIFRodSwgRmViIDE2LCAyMDIzIGF0IDM6NTQgUE0gQmrDtnJuIFTDtnBlbCA8Ympvcm5A
-a2VybmVsLm9yZz4gd3JvdGU6Cj4gPj4KPiA+PiBHdW8gUmVuIDxndW9yZW5Aa2VybmVsLm9yZz4g
-d3JpdGVzOgo+ID4+Cj4gPj4gPiBPbiBUdWUsIEphbiAzMSwgMjAyMyBhdCA2OjU3IFBNIEFuZHJl
-YSBQYXJyaSA8cGFycmkuYW5kcmVhQGdtYWlsLmNvbT4gd3JvdGU6Cj4gPj4gPj4KPiA+PiA+PiA+
-ID4gSXQncyB0aGUgY29uY3VycmVudCBtb2RpZmljYXRpb24gdGhhdCBJIHdhcyByZWZlcnJpbmcg
-dG8gKHJlbW92aW5nCj4gPj4gPj4gPiA+IHN0b3BfbWFjaGluZSgpKS4gWW91J3JlIHNheWluZyAi
-aXQnbGwgYWx3YXlzIHdvcmsiLCBJJ20gc2F5aW5nICJJJ20gbm90Cj4gPj4gPj4gPiA+IHNvIHN1
-cmUiLiA6LSkgRS5nLiwgd3JpdGluZyBjLmVicmVhayBvbiBhbiAzMmIgaW5zbi4gQ2FuIHlvdSBz
-YXkgdGhhdAo+ID4+ID4+ID4gU29mdHdhcmUgbXVzdCBlbnN1cmUgd3JpdGUgYy5lYnJlYWsgb24g
-dGhlIGhlYWQgb2YgYW4gMzJiIGluc24uCj4gPj4gPj4gPgo+ID4+ID4+ID4gVGhhdCBtZWFucyBJ
-RlUgb25seSBzZWU6Cj4gPj4gPj4gPiAgLSBjLmVicmVhayArIGJyb2tlbi9pbGxlZ2FsIGluc24u
-Cj4gPj4gPj4gPiBvcgo+ID4+ID4+ID4gIC0gb3JpZ2luIGluc24KPiA+PiA+PiA+Cj4gPj4gPj4g
-PiBFdmVuIGluIHRoZSB3b3JzdCBjYXNlLCBzdWNoIGFzIElGVSBmZXRjaGVzIGluc3RydWN0aW9u
-cyBvbmUgYnkgb25lOgo+ID4+ID4+ID4gSWYgdGhlIElGVSBnZXRzIHRoZSBvcmlnaW4gaW5zbiwg
-aXQgd2lsbCBza2lwIHRoZSBicm9rZW4vaWxsZWdhbCBpbnNuLgo+ID4+ID4+ID4gSWYgdGhlIElG
-VSBnZXRzIHRoZSBjLmVicmVhayArIGJyb2tlbi9pbGxlZ2FsIGluc24sIHRoZW4gYW4gZWJyZWFr
-Cj4gPj4gPj4gPiBleGNlcHRpb24gaXMgcmFpc2VkLgo+ID4+ID4+ID4KPiA+PiA+PiA+IEJlY2F1
-c2UgYy5lYnJlYWsgd291bGQgcmFpc2UgYW4gZXhjZXB0aW9uLCBJIGRvbid0IHNlZSBhbnkgcHJv
-YmxlbS4KPiA+PiA+Pgo+ID4+ID4+IFRoYXQncyB0aGUgcHJvYmxlbSwgdGhpcyBkaXNjdXNzaW9u
-IGlzOgo+ID4+ID4+Cj4gPj4gPj4gUmV2aWV3ZXI6ICJJJ20gbm90IHN1cmUsIHRoYXQncyBub3Qg
-d3JpdHRlbiBpbiBvdXIgc3BlYyIKPiA+PiA+PiBTdWJtaXR0ZXI6ICJJIHNhaWQgaXQsIGl0J3Mg
-Y2FsbGVkIC1hY2N1cmF0ZSBhdG9taWNpdHktIgo+ID4+ID4gSSByZWFsbHkgZG9uJ3Qgc2VlIGFu
-eSBoYXJkd2FyZSB0aGF0IGNvdWxkIGJyZWFrIHRoZSBhdG9taWNpdHkgb2YgdGhpcwo+ID4+ID4g
-Yy5lYnJlYWsgc2NlbmFyaW86Cj4gPj4gPiAgLSBjLmVicmVhayBvbiB0aGUgaGVhZCBvZiAzMmIg
-aW5zbgo+ID4+ID4gIC0gZWJyZWFrIG9uIGFuIGFsaWduZWQgMzJiIGluc24KPiA+PiA+Cj4gPj4g
-PiBJZiBJRlUgZmV0Y2hlcyB3aXRoIGNhY2hlbGluZSwgYWxsIGlzIGF0b21pY2l0eS4KPiA+PiA+
-IElmIElGVSBmZXRjaGVzIHdpdGggMTZiaXQgb25lIGJ5IG9uZSwgdGhlIGZpcnN0IGMuZWJyZWFr
-IHdvdWxkIHJhaXNlCj4gPj4gPiBhbiBleGNlcHRpb24gYW5kIHNraXAgdGhlIG5leHQgYnJva2Uv
-aWxsZWdhbCBpbnN0cnVjdGlvbi4KPiA+PiA+IEV2ZW4gaWYgSUZVIGZldGNoZXMgd2l0aG91dCBh
-bnkgc2VxdWVuY2UsIHRoZSBJRFUgbXVzdCBkZWNvZGUgb25lIGJ5Cj4gPj4gPiBvbmUsIHJpZ2h0
-PyBUaGUgZmlyc3QgaGFsZiBjLmVicmVhayB3b3VsZCBwcm90ZWN0IGFuZCBwcmV2ZW50IHRoZSBu
-ZXh0Cj4gPj4gPiBicm9rZS9pbGxlZ2FsIGluc3RydWN0aW9uLiBTcGVjdWxhdGl2ZSBleGVjdXRp
-b24gb24gYnJva2UvaWxsZWdhbAo+ID4+ID4gaW5zdHJ1Y3Rpb24gd29uJ3QgY2F1c2UgYW55IGV4
-Y2VwdGlvbnMuCj4gPj4gPgo+ID4+ID4gSXQncyBhIGNvbW1vbiBpc3N1ZSwgbm90IGEgc3BlY2lm
-aWMgSVNBIGlzc3VlLgo+ID4+ID4gMzJiIGluc3RydWN0aW9uIEEgLT4gMTZiIGVicmVhayArIDE2
-YiBicm9rZW4vaWxsZWdhbCAtPiAzMmIKPiA+PiA+IGluc3RydWN0aW9uIEEuIEl0J3Mgc2FmZSB0
-byB0cmFuc2Zvcm0uCj4gPj4KPiA+PiBXYWtpbmcgdXAgdGhpcyB0aHJlYWQgYWdhaW4sIG5vdyB0
-aGF0IENoYW5nYmluIGhhcyBzaG93ZWQgc29tZSBpbnRlcmVzdAo+ID4+IGZyb20gYW5vdGhlciB0
-aHJlYWQgWzFdLgo+ID4+Cj4gPj4gR3VvLCB3ZSBjYW4ndCByZWFsbHkgYWRkIHlvdXIgcGF0Y2hl
-cywgYW5kIGNsYWltIHRoYXQgdGhleSdyZSBnZW5lcmljLAo+ID4+ICJ3b3JrcyBvbiBhbGwiIFJJ
-U0MtViBzeXN0ZW1zLiBXaGlsZSBpdCBtaWdodCB3b3JrIGZvciB5b3VyIEkvRCBjb2hlcmVudAo+
-ID4+IHN5c3RlbSwgdGhhdCBkb2VzIG5vdCBpbXBseSB0aGF0IGl0J2xsIHdvcmsgb24gYWxsIHBs
-YXRmb3Jtcy4gUklTQy1WCj4gPj4gYWxsb3dzIGZvciBpbXBsZW1lbnRhdGlvbnMgdGhhdCBhcmUg
-SS9EIGluY29oZXJlbnQsIGFuZCBoZXJlIHlvdXIKPiA+PiBJRlUtaW1wbGVtZW50YXRpb25zIGFy
-Z3VtZW50cyBkbyBub3QgaG9sZC4gSSdkIHJlYWxseSByZWNvbW1lbmQgdG8KPiA+PiByZWFkdXAg
-b24gWzJdLgo+ID4gU29ycnksIFsyXSBpc24ndCByZWxhdGVkIHRvIHRoaXMgcGF0Y2guCj4KPiBX
-ZWxsLCBpdCBpcy4gUGFnZSA0NCBhbmQgOTguIFlvdSBhcmUgY2hhbmdpbmcgYW4gaW5zdHJ1Y3Rp
-b24sIHRoYXQKPiBwb3RlbnRpYWxseSB0aGUgcHJvY2Vzc29yIGZldGNoZXMgYW5kIGV4ZWN1dGVz
-LCBmcm9tIGFuIGluc3RydWN0aW9uCj4gc3RvcmFnZSB3aGljaCBoYXMgbm90IGJlZW4gbWFkZSBj
-b25zaXN0ZW50IHdpdGggZGF0YSBzdG9yYWdlLgpQYWdlIDQ0IGRlc2NyaWJlcyBob3cgdHdvIFNU
-IHNlcXVlbmNlcyBhZmZlY3QgSUZVIGZldGNoLCBpdCBpcyBub3QKcmVsYXRlZCB0byB0aGlzIHBh
-dGNoIChXZSBvbmx5IHVzZSBvbmUgSUFMSUdOIGVicmVhaykuClBhZ2UgOTggaXMgYSBiaWcgdG9w
-aWMgYW5kIGlnbm9yZXMgdGhlIG1pbmltYWwgZmV0Y2ggZWxlbWVudCBzaXplLgooVGhpcyBtYXRl
-cmlhbCBhbHNvIGFncmVlcyB0aGF0IHRoZSBJRlUgc2hvdWxkIGZvbGxvdyBJU0EgbWluaW1hbApp
-bnN0cnVjdGlvbiBzaXplIHRvIGZldGNoIGluc3RydWN0aW9ucyBmcm9tIG1lbW9yeS4pCgpJZiB5
-b3Ugd2FudCB0byBhZGQgc29tZXRoaW5nIGluIHRoZSBJU0Egc3BlYyBmb3IgdGhpcyBwYXRjaC4g
-SSB0aGluawppdCBzaG91bGQgYmUgYXQgdGhlIGJlZ2lubmluZyBvZiB0aGUgSVNBIHNwZWM6Ci0t
-LQpkaWZmIC0tZ2l0IGEvc3JjL2ludHJvLnRleCBiL3NyYy9pbnRyby50ZXgKaW5kZXggN2E3NGFi
-Ny4uNGQzNTNlZSAxMDA2NDQKLS0tIGEvc3JjL2ludHJvLnRleAorKysgYi9zcmMvaW50cm8udGV4
-CkBAIC00NjcsNyArNDY3LDggQEAgV2UgdXNlIHRoZSB0ZXJtIElBTElHTiAobWVhc3VyZWQgaW4g
-Yml0cykgdG8gcmVmZXIKdG8gdGhlIGluc3RydWN0aW9uLWFkZHJlc3MKIGFsaWdubWVudCBjb25z
-dHJhaW50IHRoZSBpbXBsZW1lbnRhdGlvbiBlbmZvcmNlcy4gIElBTElHTiBpcyAzMiBiaXRzIGlu
-IHRoZQogYmFzZSBJU0EsIGJ1dCBzb21lIElTQSBleHRlbnNpb25zLCBpbmNsdWRpbmcgdGhlIGNv
-bXByZXNzZWQgSVNBIGV4dGVuc2lvbiwKIHJlbGF4IElBTElHTiB0byAxNiBiaXRzLiAgSUFMSUdO
-IG1heSBub3QgdGFrZSBvbiBhbnkgdmFsdWUgb3RoZXIgdGhhbiAxNiBvcgotMzIuCiszMi4gVGhl
-IEluc3RydWN0aW9uIEZldGNoIFVuaXQgbXVzdCBmZXRjaCBtZW1vcnkgaW4gSUFMR04sIHdoaWNo
-IG1lYW5zIElGVQorZG9lc24ndCBzdXBwb3J0IG1pc2FsaWduZWQgZmV0Y2guCgogV2UgdXNlIHRo
-ZSB0ZXJtIElMRU4gKG1lYXN1cmVkIGluIGJpdHMpIHRvIHJlZmVyIHRvIHRoZSBtYXhpbXVtCiBp
-bnN0cnVjdGlvbiBsZW5ndGggc3VwcG9ydGVkIGJ5IGFuIGltcGxlbWVudGF0aW9uLCBhbmQgd2hp
-Y2ggaXMgYWx3YXlzCi0tLQoKVGhpcyBzZW50ZW5jZSBpcyByZWR1bmRhbnQuIE5vIElGVSB3aWxs
-IG1pc3BsYWNlIGZldGNoIGluc3RydWN0aW9ucywgcmlnaHQ/CgoKPgo+ID4gVGhpcyBwYXRjaCBk
-aWRuJ3QgaGF2ZSBJL0QgaW5jb2hlcmVudCBwcm9ibGVtIGJlY2F1c2Ugd2UgYnJvYWRjYXN0IHRo
-ZQo+ID4gSVBJIGZlbmNlLmkgaW4gcGF0Y2hfdGV4dF9ub3N5bmMuCj4KPiBBZnRlciB0aGUgbW9k
-aWZpY2F0aW9uLCB5ZXMuCj4KPiA+IENvbXBhcmVkIHRvIHRoZSBzdG9wX21hY2hpbmUgdmVyc2lv
-biwgdGhlcmUgaXMgYSBjcmF6eSBuZXN0ZWQgSVBJCj4gPiBicm9hZGNhc3QgY29zdC4KPiA+IHN0
-b3BfbWFjaGluZSAtPiBwYXRjaF90ZXh0X25vc3luYyAtPiBmbHVzaF9pY2FjaGVfYWxsCj4gPiB2
-b2lkIGZsdXNoX2ljYWNoZV9hbGwodm9pZCkKPiA+IHsKPiA+ICAgICAgICAgbG9jYWxfZmx1c2hf
-aWNhY2hlX2FsbCgpOwo+ID4KPiA+ICAgICAgICAgaWYgKElTX0VOQUJMRUQoQ09ORklHX1JJU0NW
-X1NCSSkpCj4gPiAgICAgICAgICAgICAgICAgc2JpX3JlbW90ZV9mZW5jZV9pKE5VTEwpOwo+ID4g
-ICAgICAgICBlbHNlCj4gPiAgICAgICAgICAgICAgICAgb25fZWFjaF9jcHUoaXBpX3JlbW90ZV9m
-ZW5jZV9pLCBOVUxMLCAxKTsKPiA+IH0KPiA+IEVYUE9SVF9TWU1CT0woZmx1c2hfaWNhY2hlX2Fs
-bCk7Cj4KPiBMb29rLCBJJ2QgbG92ZSB0byBoYXZlIHlvdXIgcGF0Y2ggaW4gKmlmIHdlIGNvdWxk
-IHNheSB0aGF0IGl0IHdvcmtzIG9uCj4gYWxsIFJJU0MtViBwbGF0Zm9ybXMqLiBJZiBldmVyeW9u
-ZSBhZ3JlZXMgdGhhdCAiR3VvJ3MgYXBwcm9hY2ggd29ya3MiIC0tCj4gSSdkIGJlIGEgaGFwcHkg
-cGVyc29uLiBJIGhhdGUgdGhlIHN0b3BtYWNoaW5lIGZsb3cgYXMgbXVjaCBhcyB0aGUgbmV4dAo+
-IGd1eS4gSSB3YW50IGEgYmV0dGVyIG1lY2hhbmlzbSBpbiBhcyB3ZWxsLiBXaGF0IEknbSBzYXlp
-bmcgaXMgdGhhdDoKPgo+IFRoZXJlJ3Mgbm8gc3BlY2lmaWNhdGlvbiBmb3IgdGhpcy4gV2hhdCBh
-c3N1bXB0aW9ucyBjYW4gYmUgbWFkZT8gVGhlCj4gZmFjdCB0aGF0IEludGVsLCBBcm0sIGFuZCBw
-b3dlciBoYXMgdGhpcyBleHBsaWNpdGx5IHN0YXRlZCBpbiB0aGUgc3BlY3MsCj4gaGludHMgdGhh
-dCB0aGlzIGlzIHNvbWV0aGluZyB0byBwYXkgYXR0ZW50aW9uIHRvLiBVbmRlZmluZWQgYmVoYXZp
-b3IgaXMKPiBubyBmdW4gZGVidWdnaW5nLgo+Cj4gWW91IHNlZW0gdmVyeSBjb25maWRlbnQgdGhh
-dCBpdCdzIGltcG9zc2libGUgdG8gY29uc3RydWN0IGhhcmR3YXJlIHdoZXJlCj4geW91ciBhcHBy
-b2FjaCBkb2VzIG5vdCB3b3JrLgo+Cj4gSWYgdGhlcmUncyBjb25jZW5zdXMgdGhhdCB5b3VyIGFw
-cHJvYWNoIGlzICJnb29kIGVub3VnaCIgLS0gaGV5LCB0aGF0J2QKPiBiZSBncmVhdCEgR2V0IGl0
-IGluIQo+Cj4gPj4gTm93IGhvdyBjb3VsZCB3ZSBtb3ZlIG9uIHdpdGggeW91ciBwYXRjaGVzPyBH
-ZXQgaXQgaW4gYSBzcGVjLCBvciBmb2xkCj4gPj4gdGhlIHBhdGNoZXMgaW4gYXMgYSBLY29uZmln
-LnNvY3MtdGhpbmcgZm9yIHRoZSBwbGF0Zm9ybXMgd2hlcmUgdGhpcyBpcwo+ID4+IE9LLiBXaGF0
-IGFyZSB5b3UgdGhvdWdodHMgb24gdGhlIGxhdHRlcj8KPiA+Cj4gPiBJIGRpZG4ndCB0YWxrIGFi
-b3V0IEkvRCBpbmNvaGVyZW50L2NvaGVyZW50OyB3aGF0IEkgc2F5IGlzIHRoZSBiYXNpYwo+ID4g
-c2l6ZSBvZiB0aGUgaW5zdHJ1Y3Rpb24gZWxlbWVudC4KPiA+IEluIGFuIEkvRCBjYWNoZSBzeXN0
-ZW0sIHdoeSBjb3VsZG4ndCBMU1Ugc3RvcmUtaGFsZiBndWFyYW50ZWUKPiA+IGF0b21pY2l0eSBm
-b3IgSS1jYWNoZSBmZXRjaD8gSG93IEktY2FjaGUgY291bGQgZmV0Y2ggb25seSBvbmUgYnl0ZSBv
-Zgo+ID4gdGhhdCBTdG9yZS1oYWxmIHZhbHVlPwo+ID4gV2UndmUgYXNzdW1lZCB0aGlzIGd1YXJh
-bnRlZSBpbiB0aGUgcmlzY3YganVtcF9sYWJlbCBpbXBsZW1lbnRhdGlvbiwKPiA+IHNvIHdoeSBu
-b3QgdGhpcyBwYXRjaCBjb3VsZG4ndD8KPgo+IFdoaWNoIGlzIGEgZ29vZCBwb2ludC4gSXMgdGhh
-dCB3b3JraW5nIG9uIGFsbCBleGlzdGluZyBpbXBsZW1lbnRhdGlvbnM/Cj4gSXMgdGhhdCBhc3N1
-bXB0aW9uIGNvcnJlY3Q/ICBXZSd2ZSBzZWVuIGlzc3VlcyB3aXRoIHRoYXQgYXBwcm9hY2ggb24K
-PiAqc2ltdWxhdGlvbiosIHdoZXJlIHlvdS9BbmR5IGZpeGVkIGl0Ogo+IGh0dHBzOi8vbG9yZS5r
-ZXJuZWwub3JnL2xpbnV4LXJpc2N2LzIwMjMwMjA2MDkwNDQwLjEyNTUwMDEtMS1ndW9yZW5Aa2Vy
-bmVsLm9yZy8KPgo+IE1heWJlIHRoZSBSSVNDLVYga2VybmVsJ3MgYXNzdW1wdGlvbnMgYWJvdXQg
-dGV4dCBwYXRjaGluZyBzaG91bGQganVzdCBiZQo+IGRvY3VtZW50ZWQsIGFuZCBzdGF0aW5nICJ0
-aGlzIGlzIHdoYXQgdGhlIGtlcm5lbCBkb2VzLCBhbmQgd2hhdCBpdAo+IGFzc3VtZXMgYWJvdXQg
-dGhlIGV4ZWN1dGlvbiBlbnZpcm9ubWVudCAtLSBpZiB5b3VyIGhhcmR3YXJlIGRvZXNuJ3Qgd29y
-awo+IHdpdGggdGhhdCDCr1xfKOODhClfL8KvIi4KPgo+IFdoYXQgYXJlIHlvdXIgdGhvdWdodHMg
-b24gdGhpcywgR3VvPyBZb3UgZG9uJ3Qgc2VlbSB0byBzaGFyZSBteQo+IGNvbmNlcm5zLiBPciBp
-cyBpdCBiZXR0ZXIgdG8gZ28gZm9yIHlvdXIgcGF0aCAocGF0Y2hlcyEpLCBhbmQgc2ltcGx5Cj4g
-Y2hhbmdlIGl0IGlmIHRoZXJlJ3MgaXNzdWVzIGRvd24gdGhlIGxpbmU/Cj4KCgotLSAKQmVzdCBS
-ZWdhcmRzCiBHdW8gUmVuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
-ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
-LXJpc2N2Cg==
+add  samin.guo@starfivetech.com  to loop.
+
+On 2023/2/16 18:53, Emil Renner Berthing wrote:
+> On Wed, 18 Jan 2023 at 07:20, Yanhong Wang
+> <yanhong.wang@starfivetech.com> wrote:
+>>
+>> This adds StarFive dwmac driver support on the StarFive JH7110 SoCs.
+>>
+>> Signed-off-by: Yanhong Wang <yanhong.wang@starfivetech.com>
+>> Co-developed-by: Emil Renner Berthing <kernel@esmil.dk>
+>> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+>> ---
+>>  MAINTAINERS                                   |   1 +
+>>  drivers/net/ethernet/stmicro/stmmac/Kconfig   |  12 ++
+>>  drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
+>>  .../stmicro/stmmac/dwmac-starfive-plat.c      | 118 ++++++++++++++++++
+>>  4 files changed, 132 insertions(+)
+>>  create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-starfive-plat.c
+>>
+>> diff --git a/MAINTAINERS b/MAINTAINERS
+>> index 56be59bb09f7..5b50b52d3dbb 100644
+>> --- a/MAINTAINERS
+>> +++ b/MAINTAINERS
+>> @@ -19609,6 +19609,7 @@ F:      include/dt-bindings/clock/starfive*
+>>  STARFIVE DWMAC GLUE LAYER
+>>  M:     Yanhong Wang <yanhong.wang@starfivetech.com>
+>>  S:     Maintained
+>> +F:     Documentation/devicetree/bindings/net/dwmac-starfive-plat.c
+>>  F:     Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
+>>
+>>  STARFIVE PINCTRL DRIVER
+>> diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+>> index 31ff35174034..f9a4ad4abd54 100644
+>> --- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
+>> +++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+>> @@ -235,6 +235,18 @@ config DWMAC_INTEL_PLAT
+>>           the stmmac device driver. This driver is used for the Intel Keem Bay
+>>           SoC.
+>>
+>> +config DWMAC_STARFIVE_PLAT
+>> +       tristate "StarFive dwmac support"
+>> +       depends on OF && COMMON_CLK
+>> +       depends on STMMAC_ETH
+>> +       default SOC_STARFIVE
+>> +       help
+>> +         Support for ethernet controllers on StarFive RISC-V SoCs
+>> +
+>> +         This selects the StarFive platform specific glue layer support for
+>> +         the stmmac device driver. This driver is used for StarFive JH7110
+>> +         ethernet controller.
+>> +
+>>  config DWMAC_VISCONTI
+>>         tristate "Toshiba Visconti DWMAC support"
+>>         default ARCH_VISCONTI
+>> diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
+>> index d4e12e9ace4f..a63ab0ab5071 100644
+>> --- a/drivers/net/ethernet/stmicro/stmmac/Makefile
+>> +++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
+>> @@ -31,6 +31,7 @@ obj-$(CONFIG_DWMAC_DWC_QOS_ETH)       += dwmac-dwc-qos-eth.o
+>>  obj-$(CONFIG_DWMAC_INTEL_PLAT) += dwmac-intel-plat.o
+>>  obj-$(CONFIG_DWMAC_GENERIC)    += dwmac-generic.o
+>>  obj-$(CONFIG_DWMAC_IMX8)       += dwmac-imx.o
+>> +obj-$(CONFIG_DWMAC_STARFIVE_PLAT)      += dwmac-starfive-plat.o
+> 
+> Hi Yanhong,
+> 
+> For the next version could you please drop the _PLAT from the config
+> symbol and -plat from filename. I know the intel wrapper does the
+> same, but it's the only one, so lets do like the majority of other
+> wrappers and not add more different ways of doing things.
+> 
+
+Thanks. I will fix.
+
+>>  obj-$(CONFIG_DWMAC_VISCONTI)   += dwmac-visconti.o
+>>  stmmac-platform-objs:= stmmac_platform.o
+>>  dwmac-altr-socfpga-objs := altr_tse_pcs.o dwmac-socfpga.o
+>> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive-plat.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive-plat.c
+>> new file mode 100644
+>> index 000000000000..e441d920933a
+>> --- /dev/null
+>> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive-plat.c
+>> @@ -0,0 +1,118 @@
+>> +// SPDX-License-Identifier: GPL-2.0+
+>> +/*
+>> + * StarFive DWMAC platform driver
+>> + *
+>> + * Copyright(C) 2022 StarFive Technology Co., Ltd.
+>> + *
+>> + */
+>> +
+>> +#include <linux/of_device.h>
+>> +
+>> +#include "stmmac_platform.h"
+>> +
+>> +struct starfive_dwmac {
+>> +       struct device *dev;
+>> +       struct clk *clk_tx;
+>> +       struct clk *clk_gtx;
+>> +       struct clk *clk_gtxc;
+>> +};
+> 
+> I like this name. For the next version could you also
+> s/starfive_eth_plat_/starfive_dwmac_/ on the function/struct names
+> below for consistency.
+> 
+
+I will fix.
+
+>> +
+>> +static void starfive_eth_plat_fix_mac_speed(void *priv, unsigned int speed)
+>> +{
+>> +       struct starfive_dwmac *dwmac = priv;
+>> +       unsigned long rate;
+>> +       int err;
+>> +
+>> +       rate = clk_get_rate(dwmac->clk_gtx);
+>> +
+>> +       switch (speed) {
+>> +       case SPEED_1000:
+>> +               rate = 125000000;
+>> +               break;
+>> +       case SPEED_100:
+>> +               rate = 25000000;
+>> +               break;
+>> +       case SPEED_10:
+>> +               rate = 2500000;
+>> +               break;
+>> +       default:
+>> +               dev_err(dwmac->dev, "invalid speed %u\n", speed);
+>> +               break;
+>> +       }
+>> +
+>> +       err = clk_set_rate(dwmac->clk_gtx, rate);
+>> +       if (err)
+>> +               dev_err(dwmac->dev, "failed to set tx rate %lu\n", rate);
+>> +}
+>> +
+>> +static int starfive_eth_plat_probe(struct platform_device *pdev)
+>> +{
+>> +       struct plat_stmmacenet_data *plat_dat;
+>> +       struct stmmac_resources stmmac_res;
+>> +       struct starfive_dwmac *dwmac;
+>> +       int err;
+>> +
+>> +       err = stmmac_get_platform_resources(pdev, &stmmac_res);
+>> +       if (err)
+>> +               return err;
+>> +
+>> +       plat_dat = stmmac_probe_config_dt(pdev, stmmac_res.mac);
+>> +       if (IS_ERR(plat_dat)) {
+>> +               dev_err(&pdev->dev, "dt configuration failed\n");
+>> +               return PTR_ERR(plat_dat);
+>> +       }
+>> +
+>> +       dwmac = devm_kzalloc(&pdev->dev, sizeof(*dwmac), GFP_KERNEL);
+>> +       if (!dwmac)
+>> +               return -ENOMEM;
+>> +
+>> +       dwmac->clk_tx = devm_clk_get_enabled(&pdev->dev, "tx");
+>> +       if (IS_ERR(dwmac->clk_tx))
+>> +               return dev_err_probe(&pdev->dev, PTR_ERR(dwmac->clk_tx),
+>> +                                               "error getting tx clock\n");
+>> +
+>> +       dwmac->clk_gtx = devm_clk_get_enabled(&pdev->dev, "gtx");
+>> +       if (IS_ERR(dwmac->clk_gtx))
+>> +               return dev_err_probe(&pdev->dev, PTR_ERR(dwmac->clk_gtx),
+>> +                                               "error getting gtx clock\n");
+>> +
+>> +       dwmac->clk_gtxc = devm_clk_get_enabled(&pdev->dev, "gtxc");
+>> +       if (IS_ERR(dwmac->clk_gtxc))
+>> +               return dev_err_probe(&pdev->dev, PTR_ERR(dwmac->clk_gtxc),
+>> +                                               "error getting gtxc clock\n");
+>> +
+>> +       dwmac->dev = &pdev->dev;
+>> +       plat_dat->fix_mac_speed = starfive_eth_plat_fix_mac_speed;
+>> +       plat_dat->init = NULL;
+>> +       plat_dat->bsp_priv = dwmac;
+>> +       plat_dat->dma_cfg->dche = true;
+>> +
+>> +       err = stmmac_dvr_probe(&pdev->dev, plat_dat, &stmmac_res);
+>> +       if (err) {
+>> +               stmmac_remove_config_dt(pdev, plat_dat);
+>> +               return err;
+>> +       }
+>> +
+>> +       return 0;
+>> +}
+>> +
+>> +static const struct of_device_id starfive_eth_plat_match[] = {
+>> +       { .compatible = "starfive,jh7110-dwmac" },
+>> +       { }
+>> +};
+>> +
+>> +static struct platform_driver starfive_eth_plat_driver = {
+>> +       .probe  = starfive_eth_plat_probe,
+>> +       .remove = stmmac_pltfr_remove,
+>> +       .driver = {
+>> +               .name = "starfive-eth-plat",
+>> +               .pm = &stmmac_pltfr_pm_ops,
+>> +               .of_match_table = starfive_eth_plat_match,
+>> +       },
+>> +};
+>> +
+>> +module_platform_driver(starfive_eth_plat_driver);
+>> +
+>> +MODULE_LICENSE("GPL");
+>> +MODULE_DESCRIPTION("StarFive DWMAC platform driver");
+>> +MODULE_AUTHOR("Yanhong Wang <yanhong.wang@starfivetech.com>");
+>> --
+>> 2.17.1
+>>
+>>
+>> _______________________________________________
+>> linux-riscv mailing list
+>> linux-riscv@lists.infradead.org
+>> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
