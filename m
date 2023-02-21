@@ -4,70 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4034DC61DA3
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Feb 2023 17:27:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B43A8C636D7
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Feb 2023 18:56:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5VVmJUx/PYbtDndDAfO9yGsW/7Rh1ma+zjLFeXA10JE=; b=TMxRArY9z2BZkBzEqXP69Qubrl
-	vTj9jnRKW+AZC0gF3Wm3yb4Ieo/ySqWXJyAYlWg5Q0+BFUAxhf+ALa/Ef/ni8lGRGAvHeWcsiKsQ6
-	BbatXFlR44Okg5zbtvjSFuGDvwccW5xKLSwovWFhUzVENuEF8d0d4cqVmgKXetNEcN/s8hv7Kk5vt
-	hhyHpK0V0/eAyOcgrYUm0ImgsUnkFgNzOEHD6KVXBn4KjOB/KWvU8TRfrwp8JPCnSIq9jaDO7AFpX
-	xLf/kkdY2m2zOtJSAUTvBom6iYxrR6teBosutyJKkJgxJCEofXp914LN6nSdQAvdXRtpaI5YbgY2d
-	jm/jP1BA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=RGLQHmAWpX0PEQvFxTtIr9y0pekrcLcPty9mDWJ5IDo=; b=zNBFlE/9hBG184
+	wYDJqOj+flMAjR8z13vjpMLFBaQ0o7sqMwy2U5/qyX9B/2nHVymLSYZxwfqLvyL5EwZ+p7bibjtmv
+	fmhLupUzgmwm5kTNbFbW6w1fYqy7goE/Ea6wBO1Kpxg2PYFOr1rhWFJeN2ydZbz/NgMiGhCFyTHX/
+	Qu95R8q5Ti+BlFgTqyx8Jt7IMbeWxOCSM4/IqWeLVJ72gTDZalfrwu1UDqbGm2VJRB1r2aDXM5taN
+	w0xhXXDJ5gS3SAfoCCkUu7n3HcUr+8RKw9HFmdKcqSJ/oAQXK/1haDNJjN4psstK8qtjooH42HSKU
+	33e4jlhiu0UWbRu914TA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUWPw-0099UB-Hc; Tue, 21 Feb 2023 17:27:04 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1pUXoI-009Rl1-4J; Tue, 21 Feb 2023 18:56:18 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUWPt-0099TS-Ly
-	for linux-riscv@lists.infradead.org; Tue, 21 Feb 2023 17:27:03 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 43DBEB81041;
-	Tue, 21 Feb 2023 17:27:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E370C433D2;
-	Tue, 21 Feb 2023 17:26:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1677000418;
-	bh=cU3JZqMV8I3eS5IY8uyBVDPij+HEK0bbMqGZL/n+ibs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BBd6XKzZRC4zypG8/Sv9m1DgSz4NXl7JmiIuHWIdOoGLcVmFuqzGWIz8lLvasbrmt
-	 OmUOGbn9LJUJN4DPV5G3c5OnfUoTQLc9dNe1lJJ1bJepKb5xd66OaYofBoS3C5Rg4G
-	 OWRJmZ3CnCBdG8XWXsySLYKz3QqeF16N5EXUQpkzJyPtXp6ribvWPcfiDyBUaeV9Ze
-	 8bqx8Zhjwvbvx1hDMrUGIXo92NL5iuUbhDXRVJqEyNhKnsaTpEjrBe/DxHm3phNFeg
-	 pV1g/a14ODF7PXArEtZf35UTxyq8MAopmkMH8DvhvsAz/9p4+nAfgAyHcnrwTe1iwW
-	 5KnBkidNZ01IQ==
-Date: Tue, 21 Feb 2023 17:26:52 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Hal Feng <hal.feng@starfivetech.com>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, Stephen Boyd <sboyd@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Ben Dooks <ben.dooks@sifive.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 10/19] dt-bindings: clock: Add StarFive JH7110
- always-on clock and reset generator
-Message-ID: <Y/T+3H8A7jrX+I9M@spud>
-References: <20230221024645.127922-1-hal.feng@starfivetech.com>
- <20230221024645.127922-11-hal.feng@starfivetech.com>
+	id 1pUXo6-009RgX-V5
+	for linux-riscv@lists.infradead.org; Tue, 21 Feb 2023 18:56:08 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id o12so21666984edb.9
+        for <linux-riscv@lists.infradead.org>; Tue, 21 Feb 2023 10:56:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=wZIzRvc7dIUy4nOgy3khITy5mNesAgpukiOZYMO9HBs=;
+        b=CvMGdA2lSm6clJ2CTDceKhf4cXVuAZENovyg8Hb83ly5hVB4B6HrdzG98kZLmB1qkq
+         8NgxYbmOuE/exoxTrAnURz/Ks9g+BwvumtEh6lI8ZEv9rOSsWbqulh2v6mA7W5M3l6o4
+         up4y3UtypVaOGH6EfvrMXvcg8HZTd6PRHYTbE/7l6YtOXI/xNXas84MQxjjGVUpJoWMj
+         OyijrbpJRFcFGLlbYn2RXZyVXI040O9TqNWD6YDnhVk4JVlKM6rqHgumolJeK/7LFcKX
+         uxTYc2sAxLBrDHCl1pWRIwk6SGsafHYJdygJ1ah4gUjiBkbm0lgkdExtDdqAL87yc2WD
+         0m4A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=wZIzRvc7dIUy4nOgy3khITy5mNesAgpukiOZYMO9HBs=;
+        b=0FX7ObxLGfXt5wle1g78/ZkEy/ILCsf+8xbvfh7xLJYbJ6bNGJhU98ZP2+LlhcZlIn
+         P3hSRw03+CnGMZnT486fTADoJl26GPJoLxoJt7cNGDVB2Qud6hq2dNBxNPTxkixuT4I+
+         UbP2k/aO3rFcDYi/QWtNN+tzD/iozEhOe95w8khsMgcSmVmFY7xKLyOBN6wSkwLeC4+q
+         XO4UikJq1hHA1DNEHBriSGg3KOusrVHK2rq0y2CvVbjn71VEJKZNLOclhQpl3Xfr8F2v
+         YgWegFdv2mZXgWzW6FX5wkPVr8vGSYulCfBrUITGyJaUmH5e8suadGtr6nL48ksG//M1
+         llJw==
+X-Gm-Message-State: AO0yUKWs9Qd2mpf4DVqWgJMm95pZxlLFLhxMjyEZn7OAf9of5NOq3/Mg
+	nzRMPAwlMvC5bCmMi6sUEwpjFG7PUR2JJ1xr
+X-Google-Smtp-Source: AK7set8GGuiFrlj4F2eQPMlDPdgOeU20rDzUVpY872TWxAEwkH43uKvZUCVzDPD3u71kC8rrxQWgHg==
+X-Received: by 2002:a17:907:98bc:b0:8b1:7b10:61d5 with SMTP id ju28-20020a17090798bc00b008b17b1061d5mr16540173ejc.33.1677005764488;
+        Tue, 21 Feb 2023 10:56:04 -0800 (PST)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id i3-20020a50c3c3000000b004af5aa16fcasm192002edf.66.2023.02.21.10.56.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 21 Feb 2023 10:56:04 -0800 (PST)
+From: Andrew Jones <ajones@ventanamicro.com>
+To: linux-riscv@lists.infradead.org
+Cc: 'Jisheng Zhang ' <jszhang@kernel.org>,
+	'Heiko Stuebner ' <heiko@sntech.de>,
+	'Paul Walmsley ' <paul.walmsley@sifive.com>,
+	'Palmer Dabbelt ' <palmer@dabbelt.com>,
+	'Conor Dooley ' <conor.dooley@microchip.com>,
+	'Albert Ou ' <aou@eecs.berkeley.edu>
+Subject: [PATCH 0/5] riscv: alternative/cpufeature related cleanups
+Date: Tue, 21 Feb 2023 19:55:58 +0100
+Message-Id: <20230221185603.570882-1-ajones@ventanamicro.com>
+X-Mailer: git-send-email 2.39.1
 MIME-Version: 1.0
-In-Reply-To: <20230221024645.127922-11-hal.feng@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230221_092701_907489_C27248EE 
-X-CRM114-Status: GOOD (  11.49  )
+X-CRM114-CacheID: sfid-20230221_105607_018518_35A5FD62 
+X-CRM114-Status: UNSURE (   6.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,75 +87,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8574561421582787313=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+This series has no intended functional change. These cleanups were
+found while renaming errata_id to patch_id in order to better
+convey that its purpose is larger than errata (it's also for
+cpufeatures).
 
---===============8574561421582787313==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="uwaipNMKG/E3gxwR"
-Content-Disposition: inline
+Based on riscv-linux/for-next
 
+Thanks,
+drew
 
---uwaipNMKG/E3gxwR
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Andrew Jones (5):
+  riscv: Rename Kconfig.erratas to Kconfig.errata
+  riscv: alternatives: Remove unnecessary define and unused struct
+  riscv: alternatives: Rename errata_id to patch_id
+  riscv: lib: Include hwcap.h directly
+  riscv: cpufeature: Drop unused includes
 
-On Tue, Feb 21, 2023 at 10:46:36AM +0800, Hal Feng wrote:
-> From: Emil Renner Berthing <kernel@esmil.dk>
->=20
-> Add bindings for the always-on clock and reset generator (AONCRG) on the
-> JH7110 RISC-V SoC by StarFive Ltd.
+ arch/riscv/Kconfig                            |  8 +--
+ .../riscv/{Kconfig.erratas => Kconfig.errata} |  0
+ arch/riscv/errata/sifive/errata.c             |  8 +--
+ arch/riscv/errata/thead/errata.c              |  4 +-
+ arch/riscv/include/asm/alternative-macros.h   | 72 +++++++++----------
+ arch/riscv/include/asm/alternative.h          |  9 +--
+ arch/riscv/kernel/cpufeature.c                | 11 +--
+ arch/riscv/lib/strcmp.S                       |  3 +-
+ arch/riscv/lib/strlen.S                       |  3 +-
+ arch/riscv/lib/strncmp.S                      |  3 +-
+ 10 files changed, 53 insertions(+), 68 deletions(-)
+ rename arch/riscv/{Kconfig.erratas => Kconfig.errata} (100%)
 
-> +  clocks:
-> +    items:
-> +      - description: Main Oscillator (24 MHz)
-> +      - description: RTC Oscillator (32.768 kHz)
-> +      - description: GMAC0 RMII reference
-> +      - description: GMAC0 RGMII RX
-> +      - description: STG AXI/AHB
-> +      - description: APB Bus
-> +      - description: GMAC0 GTX
+-- 
+2.39.1
 
-Ditto here, are some of these clocks, especially gmac0, also optional?
-
-> +
-> +  clock-names:
-> +    items:
-> +      - const: osc
-> +      - const: rtc_osc
-> +      - const: gmac0_rmii_refin
-> +      - const: gmac0_rgmii_rxin
-> +      - const: stg_axiahb
-> +      - const: apb_bus
-> +      - const: gmac0_gtxclk
-
---uwaipNMKG/E3gxwR
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY/T+3AAKCRB4tDGHoIJi
-0lMNAQDqgVssSvoD3wO1kWvaRRB+UiE+OxXFzbBA7J4AeUX9hgEA+XWwcgAbEcF4
-SWAUhBnnb6ev3bxrmG4+m7rCyVZ9og4=
-=Az7l
------END PGP SIGNATURE-----
-
---uwaipNMKG/E3gxwR--
-
-
---===============8574561421582787313==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8574561421582787313==--
-
