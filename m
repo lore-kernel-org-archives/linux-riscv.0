@@ -4,103 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A7DDC61DA3
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Feb 2023 20:02:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1E8FC61DA3
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Feb 2023 20:02:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YJvRQsYJjn+aX5rLOM4XVxRP/hFpZXT2ovyyq6BKbIU=; b=0K5MjbYGZrO87C
-	s7MOT2y5QMJLu9zu85H3Q6vRniOyah/3hMmWTNtYdsvojGQsgxvf+rCHeLQBklN9lFuCO2UVMKut4
-	XFdpG8IGEgczxcPCq2KntxXes88qoybefmimkfVYfdIKklBof/sJaWsRLKH8prMBhCjVuVLb4MtRN
-	wKc+owgSBEyggMkZTd8Ddsfp2caNEBUn/YzeEvNpUA53KVx2J0BoON0n83KGjzW6II87N5hegxPB6
-	ygdzUIOoFi1pJRMDkfjZ2hUEw6rBdLdZGCS5ofraGKgQEWVx1VwfiCRcCtBQhKbh355z5GpUnJXws
-	WqoLv5VIXAMHDgIJKRGg==;
+	List-Owner; bh=GFIh4BLnSNdZaWE/jKOfgmohlEl7H6dVUV/URyS6L94=; b=gyRBqd67032u7/
+	FI+eeS6i5W+bL2FMt2drYzSrm3zL4NyL+ELTRpJKfGH0twnv7U7PK4N7/EVBFFY5lixNbiwqfi0F/
+	yPPfepEG05e2XBj1iB5u8Rl/EQeaaZ0pKfU8z9TL0dY9kW1rzrYqDpS7PDYIZ3Btc+V9IhenQET/H
+	x6NQ1MI32U0SEAOnsPatcLZ1a4qXSn0dshP9i5ug01wD/KC+frS5081wSVwyWv4ML5I9OKLr7+Gb5
+	yi618t7Qm06U5i01os7q65y9lNm4h4id99gGVkHNH0Oa+Hhh12oWOt1kxtqc78BonFGAa+Yoto8py
+	36PW8TjMrrlg+OsswwUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUYq0-009d3b-9G; Tue, 21 Feb 2023 20:02:08 +0000
+	id 1pUYqV-009dNQ-L8; Tue, 21 Feb 2023 20:02:39 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUYpz-009d2m-8F
-	for linux-riscv@bombadil.infradead.org; Tue, 21 Feb 2023 20:02:07 +0000
+	id 1pUYqU-009dMQ-AI
+	for linux-riscv@bombadil.infradead.org; Tue, 21 Feb 2023 20:02:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=2Tqclwd4xuHoIstm7B9UCq8HRirfokgGB9GqloWqZiE=; b=mqz/bD/z6GBVcDXDZVpJ0PzLI8
-	r2VVR7ubSulKuvzS2td8iQsFHJIFCrXVC2uoih7E72+Zdqf3RpXYawHaP4KjTMSKXRk6rO4E9D5Bs
-	bfsXPDRspu2C1knUQSCLPdDGQ+mVip2Rl7po5sT+Sx3XNRRAkg2LYTWK5jF9xhyXWqntqS7YtA26X
-	qQOzhtTaIJVXO1YUcXxgR2CzaE764MYyrYfu8QBg/qEcoxVeQXsoLMCUzXmpMWAnuGFREXgdJSEFA
-	vPkTjyScCYsIZsmzgis5T28o4wCUzXhud/XPFpQQnhCV++PHHmWB64hRTcNF1nYBHrmCfn/Eo45K4
-	sWIbd6+g==;
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-type
+	:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=34NFoNBQKweqYqqRRhyhG2y14f8qhVJaos3C6Zb1qCA=; b=Pl9clcDCivNu6j4TFsWaBHpKtt
+	P7WH91B+1nZigX/NeVI9TdLrzHIYJn2SnV4G9VJMi4s6xnjDy5se3uiajbNs989vN5kL8/1AqFDMJ
+	Ww4gTAy9kBWr+9R+nI4NNg9ye8b4osdxE4xkTGjI3Tn14hpcAo2++9fWs8EUJ7zR6Qi6/Hb1KGOvT
+	2TnXD8dSNXb04MrMYCjoOjpyj/qu92dzINe5rSpinvSTR+8ObJaFOiGqiMunZIFDtWJRjCkBUeEya
+	lEs+5phDxUhsifCVzgafrbCQvZoGNcDFcivMFtoguW0/hFcDS2Z8V+vGx4kr7SwLAaO4DcyBczf3G
+	kYfYf5aQ==;
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
 	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pUY1H-00CGXP-17
+	id 1pUY12-00CGUG-2T
 	for linux-riscv@lists.infradead.org;
-	Tue, 21 Feb 2023 19:09:45 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id nw10-20020a17090b254a00b00233d7314c1cso6137669pjb.5
-        for <linux-riscv@lists.infradead.org>; Tue, 21 Feb 2023 11:09:42 -0800 (PST)
+	Tue, 21 Feb 2023 19:09:31 +0000
+Received: by mail-ed1-x536.google.com with SMTP id da10so22604808edb.3
+        for <linux-riscv@lists.infradead.org>; Tue, 21 Feb 2023 11:09:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        d=ventanamicro.com; s=google;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=2Tqclwd4xuHoIstm7B9UCq8HRirfokgGB9GqloWqZiE=;
-        b=Glob1piUQen2dFOUxlhvjRQj1tFTffF+lmacJDS8QehrlDVh4nBSsxUVpti29enOmc
-         Ts3wco5RVkC/XsDz7hiLoMRoqNlJ2rz+fpVTLNlKx46nR+IUjT21SYM0Ta8uD1mbYVJm
-         w7GE5FT6oG9+lb+XUNup35yMK+qbWTBvqvO9GWhSk0rnPafkitJM82jwEF3qiTZRreIZ
-         cbO5Cq002Bt1cu2tKL1BJe973TcIvwMkBi/OdRgdFqY/S185mPI/l/1QANji5hwDdsxi
-         48Y6Qv3FKj9BmZlRAjAFkMya5T7OSCx3dzUwzhKjoZbKxJcx/mKWejGjM2WIdYKbrso+
-         YWPg==
+        bh=34NFoNBQKweqYqqRRhyhG2y14f8qhVJaos3C6Zb1qCA=;
+        b=NyDRWGQLHDM4WE1MYSCVp6YW+mR5oILACbgX2cpEbZ+C1DA4Z8a4rlbPwZC2sOFHwf
+         cvtP4Kpv/sZisnUc7GoEl3D7AYs9j/bPLf7FoggpE5+IaNqHPNbdm/EF9OyKjWd9pxE2
+         maV7OKvNYzIJ59NRQ8+JHyuK2aCSn6MEytvF8cC2+Uta/54D4d1eKP1iOHsN3KLPE/ya
+         jjjuouOa5gFoXNYvY+OfVjdmbCvAl0y86fEmEF2f3KSS66UsrVKNGzXOAr3YECL+G8yK
+         l05TJwz4xo3MExkf17ynt3J7nCTQQfP/E2yDzqhZc4+RO7GrIgT12sedGQazDqKkgBte
+         Z2rw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=2Tqclwd4xuHoIstm7B9UCq8HRirfokgGB9GqloWqZiE=;
-        b=1Rt8YwWv0I2QB3Kw4Rudk2s9jo60D6EBl3Tjw3wcaWB1coP9SZLAQ7XXsNY2k/AffS
-         a5NfC/QK7hWthvnoehouxHVymnBP8pyMPeCnpFCmHpTacaKn0Vf2DRVYj5X7cKJzoPI9
-         j4RenEg8M99ODqDFMCoKcN2qXK2wdNogDyfoLLKcmDQi3MNIor8fAzQEUYAKb0Oi5FI6
-         elhklE/alPiALy4GLnn50miriSx8TwUQEe2ElnXa6stY9rR4jJMZ06xyDVhO13x/+JiP
-         byp1NlvrS0PPPKJUoXxZO06nE3gyQqiVWIQrjFbUbj7KEJ8OJUlR7W8VRJ3Bw6ByAI3O
-         /eiw==
-X-Gm-Message-State: AO0yUKWKxf5KfZ8LyJKM+JvKiqV15ZtRoKTDrwYY8NTKtuD0Bv2LYs1A
-	vRZAGK9k6sqzHqge11RlAqiavw==
-X-Google-Smtp-Source: AK7set8KKr96eBrj1R/guBqOwnlQKDGOKsi6FPJZIyeJcudjAKXfowybkO6ZGH2MC0wQPkyoqLAyrg==
-X-Received: by 2002:a05:6a20:394f:b0:c0:df5b:e9e7 with SMTP id r15-20020a056a20394f00b000c0df5be9e7mr6407888pzg.60.1677006581159;
-        Tue, 21 Feb 2023 11:09:41 -0800 (PST)
-Received: from evan.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id b16-20020a170902b61000b0019602b2c00csm1583863pls.175.2023.02.21.11.09.40
+        bh=34NFoNBQKweqYqqRRhyhG2y14f8qhVJaos3C6Zb1qCA=;
+        b=aSoybLdT1FjG0rnnG63x494Euz1OOxaAFvCBmJnx80EoC1DXDR/C5B4cVYtbK+ok84
+         yKAUtHFAIuYCuVgrB7iUInHF0cQ99Pz+vjd3h/OJeqDVyIg4ISB2EFa/BTztCOHkIde2
+         +XDEtWK9VFoWuF4YQWEzQuJYQt8WSx9b5zSh/QpsRi9ThVpCHA1hWw1Tzq7Cj7UWGBpg
+         b5wBfHZJviAvGo/Zofu/1sH4pZ4zr3+t++C233aBABN3FMWE1KypEAA73Tjaj2qqtvEc
+         4+Q7gn1BL9LXHSitWdwIOXbOVeqna2nYqn5ctxFYKVoZxzDYL7tqX4zGeKxrhDmxUtX4
+         Hoig==
+X-Gm-Message-State: AO0yUKVbgni5CBSEv/xmIeQlmaxi1mU1s+qoO+frYkr11Ag/d/0K0idh
+	BxVukYEzF0qJSxY2tXkixJ7zbLllKDsvjIww
+X-Google-Smtp-Source: AK7set+rFsFWbTWMLIdMY+Q2/Z4HCUYcZHJSaxWuUbHlYQ1cFc34yRDDdrx0axW4+oXkdSAylmamTQ==
+X-Received: by 2002:aa7:d705:0:b0:4ac:89b:b605 with SMTP id t5-20020aa7d705000000b004ac089bb605mr7342612edq.22.1677006565381;
+        Tue, 21 Feb 2023 11:09:25 -0800 (PST)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id i25-20020a508719000000b004acb42134c4sm2040769edb.70.2023.02.21.11.09.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Feb 2023 11:09:40 -0800 (PST)
-From: Evan Green <evan@rivosinc.com>
-To: Palmer Dabbelt <palmer@rivosinc.com>
-Cc: heiko@sntech.de,
-	Conor Dooley <conor@kernel.org>,
-	slewis@rivosinc.com,
-	vineetg@rivosinc.com,
-	Evan Green <evan@rivosinc.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Brown <broonie@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Shuah Khan <shuah@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v3 6/7] selftests: Test the new RISC-V hwprobe interface
-Date: Tue, 21 Feb 2023 11:08:57 -0800
-Message-Id: <20230221190858.3159617-7-evan@rivosinc.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20230221190858.3159617-1-evan@rivosinc.com>
-References: <20230221190858.3159617-1-evan@rivosinc.com>
+        Tue, 21 Feb 2023 11:09:25 -0800 (PST)
+From: Andrew Jones <ajones@ventanamicro.com>
+To: linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	kvm-riscv@lists.infradead.org
+Cc: 'Rob Herring ' <robh@kernel.org>,
+	'Jisheng Zhang ' <jszhang@kernel.org>,
+	'Anup Patel ' <apatel@ventanamicro.com>,
+	'Conor Dooley ' <conor.dooley@microchip.com>,
+	'Krzysztof Kozlowski ' <krzysztof.kozlowski+dt@linaro.org>,
+	'Heiko Stuebner ' <heiko@sntech.de>,
+	'Paul Walmsley ' <paul.walmsley@sifive.com>,
+	'Palmer Dabbelt ' <palmer@dabbelt.com>,
+	'Albert Ou ' <aou@eecs.berkeley.edu>,
+	'Ben Dooks ' <ben.dooks@codethink.co.uk>,
+	'Atish Patra ' <atishp@rivosinc.com>
+Subject: [PATCH v5 5/8] riscv: cpufeatures: Put the upper 16 bits of patch ID to work
+Date: Tue, 21 Feb 2023 20:09:13 +0100
+Message-Id: <20230221190916.572454-6-ajones@ventanamicro.com>
+X-Mailer: git-send-email 2.39.1
+In-Reply-To: <20230221190916.572454-1-ajones@ventanamicro.com>
+References: <20230221190916.572454-1-ajones@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230221_190943_562423_FD8874A8 
-X-CRM114-Status: GOOD (  28.16  )
+X-CRM114-CacheID: sfid-20230221_190929_084386_1E34A695 
+X-CRM114-Status: GOOD (  18.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,244 +116,106 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This adds a test for the recently added RISC-V interface for probing
-hardware capabilities.  It happens to be the first selftest we have for
-RISC-V, so I've added some infrastructure for those as well.  The build
-stuff looks pretty straight-forward, but there's also  a tiny C library
-to avoid coupling this to any userspace implementation.
+cpufeature IDs are consecutive integers starting at 26, so a 32-bit
+patch ID allows an aircraft carrier load of feature IDs. Repurposing
+the upper 16 bits still leaves a boat load of feature IDs and gains
+16 bits which may be used to control patching on a per patch-site
+basis.
 
-Co-developed-by: Palmer Dabbelt <palmer@rivosinc.com>
-Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-Signed-off-by: Evan Green <evan@rivosinc.com>
+This will be initially used in Zicboz's application to clear_page(),
+as Zicboz's block size must also be considered. In that case, the
+upper 16-bit value's role will be to convey the maximum block size
+which the Zicboz clear_page() implementation supports.
 
+cpufeature patch sites which need to check for the existence or
+absence of other cpufeatures may also be able to make use of this.
+
+Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
 ---
+ arch/riscv/include/asm/alternative.h |  3 +++
+ arch/riscv/kernel/cpufeature.c       | 37 +++++++++++++++++++++++++---
+ 2 files changed, 36 insertions(+), 4 deletions(-)
 
-(no changes since v2)
-
-Changes in v2:
- - Updated the selftests to the new API and added some more.
- - Fixed indentation, comments in .S, and general checkpatch complaints.
-
-
----
- tools/testing/selftests/Makefile              |  1 +
- tools/testing/selftests/riscv/Makefile        | 58 ++++++++++++
- .../testing/selftests/riscv/hwprobe/Makefile  | 10 +++
- .../testing/selftests/riscv/hwprobe/hwprobe.c | 89 +++++++++++++++++++
- .../selftests/riscv/hwprobe/sys_hwprobe.S     | 12 +++
- 5 files changed, 170 insertions(+)
- create mode 100644 tools/testing/selftests/riscv/Makefile
- create mode 100644 tools/testing/selftests/riscv/hwprobe/Makefile
- create mode 100644 tools/testing/selftests/riscv/hwprobe/hwprobe.c
- create mode 100644 tools/testing/selftests/riscv/hwprobe/sys_hwprobe.S
-
-diff --git a/tools/testing/selftests/Makefile b/tools/testing/selftests/Makefile
-index 41b649452560..a599ef726310 100644
---- a/tools/testing/selftests/Makefile
-+++ b/tools/testing/selftests/Makefile
-@@ -62,6 +62,7 @@ TARGETS += pstore
- TARGETS += ptrace
- TARGETS += openat2
- TARGETS += resctrl
-+TARGETS += riscv
- TARGETS += rlimits
- TARGETS += rseq
- TARGETS += rtc
-diff --git a/tools/testing/selftests/riscv/Makefile b/tools/testing/selftests/riscv/Makefile
-new file mode 100644
-index 000000000000..32a72902d045
---- /dev/null
-+++ b/tools/testing/selftests/riscv/Makefile
-@@ -0,0 +1,58 @@
-+# SPDX-License-Identifier: GPL-2.0
-+# Originally tools/testing/arm64/Makefile
+diff --git a/arch/riscv/include/asm/alternative.h b/arch/riscv/include/asm/alternative.h
+index 8f39d4e8598d..f2cb543b0bd2 100644
+--- a/arch/riscv/include/asm/alternative.h
++++ b/arch/riscv/include/asm/alternative.h
+@@ -17,6 +17,9 @@
+ #include <linux/stddef.h>
+ #include <asm/hwcap.h>
+ 
++#define PATCH_ID_CPUFEATURE_ID(p)		((u16)((u32)(p) & 0xffff))
++#define PATCH_ID_CPUFEATURE_VALUE(p)		((u16)(((u32)(p) >> 16) & 0xffff))
 +
-+# When ARCH not overridden for crosscompiling, lookup machine
-+ARCH ?= $(shell uname -m 2>/dev/null || echo not)
-+
-+ifneq (,$(filter $(ARCH),riscv))
-+RISCV_SUBTARGETS ?= hwprobe
-+else
-+RISCV_SUBTARGETS :=
-+endif
-+
-+CFLAGS := -Wall -O2 -g
-+
-+# A proper top_srcdir is needed by KSFT(lib.mk)
-+top_srcdir = $(realpath ../../../../)
-+
-+# Additional include paths needed by kselftest.h and local headers
-+CFLAGS += -I$(top_srcdir)/tools/testing/selftests/
-+
-+CFLAGS += $(KHDR_INCLUDES)
-+
-+export CFLAGS
-+export top_srcdir
-+
-+all:
-+	@for DIR in $(RISCV_SUBTARGETS); do				\
-+		BUILD_TARGET=$(OUTPUT)/$$DIR;			\
-+		mkdir -p $$BUILD_TARGET;			\
-+		$(MAKE) OUTPUT=$$BUILD_TARGET -C $$DIR $@;		\
-+	done
-+
-+install: all
-+	@for DIR in $(RISCV_SUBTARGETS); do				\
-+		BUILD_TARGET=$(OUTPUT)/$$DIR;			\
-+		$(MAKE) OUTPUT=$$BUILD_TARGET -C $$DIR $@;		\
-+	done
-+
-+run_tests: all
-+	@for DIR in $(RISCV_SUBTARGETS); do				\
-+		BUILD_TARGET=$(OUTPUT)/$$DIR;			\
-+		$(MAKE) OUTPUT=$$BUILD_TARGET -C $$DIR $@;		\
-+	done
-+
-+# Avoid any output on non riscv on emit_tests
-+emit_tests: all
-+	@for DIR in $(RISCV_SUBTARGETS); do				\
-+		BUILD_TARGET=$(OUTPUT)/$$DIR;			\
-+		$(MAKE) OUTPUT=$$BUILD_TARGET -C $$DIR $@;		\
-+	done
-+
-+clean:
-+	@for DIR in $(RISCV_SUBTARGETS); do				\
-+		BUILD_TARGET=$(OUTPUT)/$$DIR;			\
-+		$(MAKE) OUTPUT=$$BUILD_TARGET -C $$DIR $@;		\
-+	done
-+
-+.PHONY: all clean install run_tests emit_tests
-diff --git a/tools/testing/selftests/riscv/hwprobe/Makefile b/tools/testing/selftests/riscv/hwprobe/Makefile
-new file mode 100644
-index 000000000000..ebdbb3c22e54
---- /dev/null
-+++ b/tools/testing/selftests/riscv/hwprobe/Makefile
-@@ -0,0 +1,10 @@
-+# SPDX-License-Identifier: GPL-2.0
-+# Copyright (C) 2021 ARM Limited
-+# Originally tools/testing/arm64/abi/Makefile
-+
-+TEST_GEN_PROGS := hwprobe
-+
-+include ../../lib.mk
-+
-+$(OUTPUT)/hwprobe: hwprobe.c sys_hwprobe.S
-+	$(CC) -o$@ $(CFLAGS) $(LDFLAGS) $^
-diff --git a/tools/testing/selftests/riscv/hwprobe/hwprobe.c b/tools/testing/selftests/riscv/hwprobe/hwprobe.c
-new file mode 100644
-index 000000000000..ddfb61de2938
---- /dev/null
-+++ b/tools/testing/selftests/riscv/hwprobe/hwprobe.c
-@@ -0,0 +1,89 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+#include <asm/hwprobe.h>
-+
+ #define RISCV_ALTERNATIVES_BOOT		0 /* alternatives applied during regular boot */
+ #define RISCV_ALTERNATIVES_MODULE	1 /* alternatives applied during module-init */
+ #define RISCV_ALTERNATIVES_EARLY_BOOT	2 /* alternatives applied before mmu start */
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 6102b6bb5db3..0594989ead63 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -273,12 +273,35 @@ void __init riscv_fill_hwcap(void)
+ }
+ 
+ #ifdef CONFIG_RISCV_ALTERNATIVE
 +/*
-+ * Rather than relying on having a new enough libc to define this, just do it
-+ * ourselves.  This way we don't need to be coupled to a new-enough libc to
-+ * contain the call.
++ * Alternative patch sites consider 48 bits when determining when to patch
++ * the old instruction sequence with the new. These bits are broken into a
++ * 16-bit vendor ID and a 32-bit patch ID. A non-zero vendor ID means the
++ * patch site is for an erratum, identified by the 32-bit patch ID. When
++ * the vendor ID is zero, the patch site is for a cpufeature. cpufeatures
++ * further break down patch ID into two 16-bit numbers. The lower 16 bits
++ * are the cpufeature ID and the upper 16 bits are used for a value specific
++ * to the cpufeature and patch site. If the upper 16 bits are zero, then it
++ * implies no specific value is specified. cpufeatures that want to control
++ * patching on a per-site basis will provide non-zero values and implement
++ * checks here. The checks return true when patching should be done, and
++ * false otherwise.
 + */
-+long riscv_hwprobe(struct riscv_hwprobe *pairs, long pair_count,
-+		   long cpu_count, unsigned long *cpus, unsigned long flags);
-+
-+int main(int argc, char **argv)
++static bool riscv_cpufeature_patch_check(u16 id, u16 value)
 +{
-+	struct riscv_hwprobe pairs[8];
-+	unsigned long cpus;
-+	long out;
++	if (!value)
++		return true;
 +
-+	/* Fake the CPU_SET ops. */
-+	cpus = -1;
-+
-+	/*
-+	 * Just run a basic test: pass enough pairs to get up to the base
-+	 * behavior, and then check to make sure it's sane.
-+	 */
-+	for (long i = 0; i < 8; i++)
-+		pairs[i].key = i;
-+	out = riscv_hwprobe(pairs, 8, 1, &cpus, 0);
-+	if (out != 0)
-+		return -1;
-+	for (long i = 0; i < 4; ++i) {
-+		/* Fail if the kernel claims not to recognize a base key. */
-+		if ((i < 4) && (pairs[i].key != i))
-+			return -2;
-+
-+		if (pairs[i].key != RISCV_HWPROBE_KEY_BASE_BEHAVIOR)
-+			continue;
-+
-+		if (pairs[i].value & RISCV_HWPROBE_BASE_BEHAVIOR_IMA)
-+			continue;
-+
-+		return -3;
-+	}
-+
-+	/*
-+	 * This should also work with a NULL CPU set, but should not work
-+	 * with an improperly supplied CPU set.
-+	 */
-+	out = riscv_hwprobe(pairs, 8, 0, 0, 0);
-+	if (out != 0)
-+		return -4;
-+
-+	out = riscv_hwprobe(pairs, 8, 0, &cpus, 0);
-+	if (out == 0)
-+		return -5;
-+
-+	out = riscv_hwprobe(pairs, 8, 1, 0, 0);
-+	if (out == 0)
-+		return -6;
-+
-+	/*
-+	 * Check that keys work by providing one that we know exists, and
-+	 * checking to make sure the resultig pair is what we asked for.
-+	 */
-+	pairs[0].key = RISCV_HWPROBE_KEY_BASE_BEHAVIOR;
-+	out = riscv_hwprobe(pairs, 1, 1, &cpus, 0);
-+	if (out != 0)
-+		return -7;
-+	if (pairs[0].key != RISCV_HWPROBE_KEY_BASE_BEHAVIOR)
-+		return -8;
-+
-+	/*
-+	 * Check that an unknown key gets overwritten with -1,
-+	 * but doesn't block elements after it.
-+	 */
-+	pairs[0].key = 0x5555;
-+	pairs[1].key = 1;
-+	pairs[1].value = 0xAAAA;
-+	out = riscv_hwprobe(pairs, 2, 0, 0, 0);
-+	if (out != 0)
-+		return -9;
-+
-+	if (pairs[0].key != -1)
-+		return -10;
-+
-+	if ((pairs[1].key != 1) || (pairs[1].value == 0xAAAA))
-+		return -11;
-+
-+	return 0;
++	return false;
 +}
-diff --git a/tools/testing/selftests/riscv/hwprobe/sys_hwprobe.S b/tools/testing/selftests/riscv/hwprobe/sys_hwprobe.S
-new file mode 100644
-index 000000000000..ed8d28863b27
---- /dev/null
-+++ b/tools/testing/selftests/riscv/hwprobe/sys_hwprobe.S
-@@ -0,0 +1,12 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/* Copyright (C) 2022 Rivos, Inc */
 +
-+.text
-+.global riscv_hwprobe
-+riscv_hwprobe:
-+	# Put __NR_riscv_hwprobe in the syscall number register, then just shim
-+	# back the kernel's return.  This doesn't do any sort of errno
-+	# handling, the caller can deal with it.
-+	li a7, 258
-+	ecall
-+	ret
+ void __init_or_module riscv_cpufeature_patch_func(struct alt_entry *begin,
+ 						  struct alt_entry *end,
+ 						  unsigned int stage)
+ {
+ 	struct alt_entry *alt;
+ 	void *oldptr, *altptr;
++	u16 id, value;
+ 
+ 	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
+ 		return;
+@@ -286,13 +309,19 @@ void __init_or_module riscv_cpufeature_patch_func(struct alt_entry *begin,
+ 	for (alt = begin; alt < end; alt++) {
+ 		if (alt->vendor_id != 0)
+ 			continue;
+-		if (alt->patch_id >= RISCV_ISA_EXT_MAX) {
+-			WARN(1, "This extension id:%d is not in ISA extension list",
+-				alt->patch_id);
++
++		id = PATCH_ID_CPUFEATURE_ID(alt->patch_id);
++
++		if (id >= RISCV_ISA_EXT_MAX) {
++			WARN(1, "This extension id:%d is not in ISA extension list", id);
+ 			continue;
+ 		}
+ 
+-		if (!__riscv_isa_extension_available(NULL, alt->patch_id))
++		if (!__riscv_isa_extension_available(NULL, id))
++			continue;
++
++		value = PATCH_ID_CPUFEATURE_VALUE(alt->patch_id);
++		if (!riscv_cpufeature_patch_check(id, value))
+ 			continue;
+ 
+ 		oldptr = ALT_OLD_PTR(alt);
 -- 
-2.25.1
+2.39.1
 
 
 _______________________________________________
