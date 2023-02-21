@@ -4,75 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15B42C61DA3
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Feb 2023 11:22:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BA2CC6379F
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Feb 2023 11:26:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hmVJnTxxOdHQ/DuClWyTiGB6VGNL1GH+MkxB5SlYKM8=; b=j8t+LffyLsSsqiBmzZZ2mzhF/C
-	Ixt9DIUEYH7phHzDkha/ynvkL9FGD0u3v2aHp45T4zGuEA8HAIxOVDeiS5c0LiZuVzqZHW/foLHzI
-	StD/D2iNixvvCC1oSEFtFiSeyIiUYJfbjithIqSm85RwiLWQwTrv87TlqHNrEH12bZ4BV3Wc+wHcj
-	m9B39RAekofB5zjkdaIhTObaEstmG/2FUlLF95C10LlEG9UfUBF6X6IGAGAp+OcLpW0ICKOz5KjJ6
-	kmg2V9GYIIy5FrwrJu2iunwmRL9coSiBGUc1O+K5Gir/K7nkU8KNQnigAqXBEDrzyMfSxmC5T+DLC
-	fzZebalw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=rdJFNkC9HzoUNdW07vCqdAE+aLfNOmZoHjNCfb4l4XE=; b=SGWIAtTKk41U40
+	MpVBBZuZjoUrOOrA98lAIHTOsIZefCOzLbFWGn4RPCEisbp6FUDYJtBsvzSCkVfh+aZ6Bd2UsFuno
+	SKSlOIJw9vK2th0yMVX7sxNPy+EkkuW8WAUc+o9z5GJQtngHuVJCP9K6/YkkbMkSEkrQdHhQBTVD2
+	5PQqOXWeVxVcIK5TkoMvT3CD/qyx33wFRxL4+UU22ki0xI9ik0AYfGA7QALqq1U564/XKAnjLCzPR
+	lWAurX0S/HYkqmfMuwfJGtYiU2nTw5d7vxEqoa2uv4SBzrsu5aTnRlRbvgAulb40L6XXpF1j5MdC2
+	ZGfarEkN5KhcTEAmU3DQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUQjO-007Y8Q-ID; Tue, 21 Feb 2023 11:22:46 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1pUQmN-007YSk-Hq; Tue, 21 Feb 2023 11:25:51 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUQjL-007Y7v-1M; Tue, 21 Feb 2023 11:22:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1676978562; x=1708514562;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=xnVKZ8JYLPRVBwZVLXPtUJF2QZfME0M6oxa6WpSevws=;
-  b=dTllXfzXdxg7A66QPkHuDgx/zBMalx8syeC4rWJzRMbwEwq3DeG31voi
-   arjVrqA0OBVh63CbMJehh/sr8aFGfN6y4Ao6Pn6t6Y9g+z8NkBL63x5zh
-   d3PILV0UePH4M4oAxXjXOTF8nrp/wNLCQJxZsE33sNynLrAg4erQDhNq/
-   JCE55U1iBxQ64tp5+bXIfGIbi6vs07AfuSf1ab+v3xcXnnbnbo21X8i9B
-   o/YgOBFaoaa7WuLdcv8PAjriyQd31GlhpDrVbwjB78+ePXl2NN5/Fs22r
-   XrlS+U97tM0DVF6MlCwMxYumkEnWtVBYWXdHUgiYgKVlEVZtpcx6LGASt
-   A==;
-X-IronPort-AV: E=Sophos;i="5.97,315,1669100400"; 
-   d="asc'?scan'208";a="201608555"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 21 Feb 2023 04:22:40 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.16; Tue, 21 Feb 2023 04:22:40 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.16 via Frontend
- Transport; Tue, 21 Feb 2023 04:22:38 -0700
-Date: Tue, 21 Feb 2023 11:22:12 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Christoph =?iso-8859-1?Q?M=FCllner?= <christoph.muellner@vrull.eu>
-CC: Jessica Clarke <jrtc27@jrtc27.com>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Anup Patel <apatel@ventanamicro.com>, <pbonzini@redhat.com>, Atish Patra
-	<atishp@atishpatra.org>, Paul Walmsley <paul.walmsley@sifive.com>, Andrew
- Jones <ajones@ventanamicro.com>, Anup Patel <anup@brainfault.org>,
-	<kvm@vger.kernel.org>, <kvm-riscv@lists.infradead.org>, linux-riscv
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 2/7] RISC-V: Detect AIA CSRs from ISA string
-Message-ID: <Y/SpZHRdUXCiV4KT@wendy>
-References: <20230128072737.2995881-3-apatel@ventanamicro.com>
- <mhng-0f9bdf58-5289-4db4-8fd7-38898824c44f@palmer-ri-x1c9>
- <CAEg0e7hrQFu+cdZy+3QO1ML9FNTPBehZwOOBnr1F-5ABYDnkGg@mail.gmail.com>
- <CAEg0e7hRjMSgYZbPTQztbQ3bGZf-r8wAfCK5ZnDXOcx27HcTCA@mail.gmail.com>
- <Y/Sfpb2c/LS0LCiA@wendy>
- <F80EBB4C-29C4-472D-B213-EFD220EF9B1F@jrtc27.com>
- <Y/SkES28TNBz02wM@wendy>
- <CAEg0e7i3=Zg5pxG4HCEfFkzpot5-u6yHoTSFKPBuCGU+djZ5uw@mail.gmail.com>
+	id 1pUQmK-007YRz-Jj
+	for linux-riscv@lists.infradead.org; Tue, 21 Feb 2023 11:25:49 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id h16so15960546edz.10
+        for <linux-riscv@lists.infradead.org>; Tue, 21 Feb 2023 03:25:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=GS/FuJCPhQ1uOLyGjkR0iAM8SEKwfPpWzwME5MLPJhM=;
+        b=e7Loni/yJXd48Da9Dl6Q0CN99QB8bdYlsJD9tqOTTTgROY9tjFa+mhRq4YeAqspbmh
+         1UcUCGn9b283dP37/+guJd1qaK1O+5ojvaIHvB4vIL3rK2Rc0fdR3rblSSO+BTAvv8Zc
+         dFoTk/29lWYc+RuNNuJzSoYizvCuYLZMg7EehNrJXDD0Vb3mk52amkM5DbQsUkrYI3Wh
+         TpJNHS8s1EQEo0vhBvuuVDguD46CYhOnQ3fj5/ReU4+7VgKymiF5PSe2YkuC/vVdGBfA
+         9/BtrpQQZ9TutamhoSH6bn2CqdHy3FR+1pIp3tfsBxw1gkqyu5DAsTN4MqONTlmaBjhZ
+         f0ug==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=GS/FuJCPhQ1uOLyGjkR0iAM8SEKwfPpWzwME5MLPJhM=;
+        b=ARMEepzWuvmr3mfMrVsLFlc0bCuPXFZjy8CYlE/ry8VG7khYl9CjPWwV7kEuy7uuGs
+         BktsRj1BAhY1L06q2txevCWw+GmMOfoFYxUrj99ljYaLhhyng3qQLGq+xNfQMKKUjQTJ
+         G6/ajHMkLOZOppXPNiHkaKx9jPkVzYxQsgkhpLS9VzJBcgcl6fo8hnRkFn4INZg/GsIB
+         Jbp15iB+MDbaNAQ01Bh+6zbMHCztOGoGtwh1s7cAAlIUzDjytPVLjML2bsdEtchSi4CK
+         yiIsIxjKUie1Z9gQI2lfaEl6zt9jARPVmjmoUyi10rC7sttSbpREnlO0XneroQZfUb9C
+         cgVg==
+X-Gm-Message-State: AO0yUKVBdyC7rYrKNq/VO7QwbGvJA/xAZEHBb0MWSyWxvGVSuMrsDUZN
+	UAJ54/B97/3tjdRKisHciiMStQ==
+X-Google-Smtp-Source: AK7set9i7iCdrmNLxS44tLm4Cod1bYIxstYUo7G3Yv7gMOYC2J4cFKB4FWle3mr9SoLL129HeBZZlg==
+X-Received: by 2002:a50:ee01:0:b0:4ae:eb0f:892e with SMTP id g1-20020a50ee01000000b004aeeb0f892emr4242179eds.20.1676978743932;
+        Tue, 21 Feb 2023 03:25:43 -0800 (PST)
+Received: from [192.168.1.109] ([178.197.216.144])
+        by smtp.gmail.com with ESMTPSA id t10-20020a50c24a000000b004aeeb476c5bsm2040071edf.24.2023.02.21.03.25.42
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 21 Feb 2023 03:25:43 -0800 (PST)
+Message-ID: <430318ed-5b30-e549-a5ce-df83aa18adf9@linaro.org>
+Date: Tue, 21 Feb 2023 12:25:41 +0100
 MIME-Version: 1.0
-In-Reply-To: <CAEg0e7i3=Zg5pxG4HCEfFkzpot5-u6yHoTSFKPBuCGU+djZ5uw@mail.gmail.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.8.0
+Subject: Re: [PATCH v2 01/11] dt-bindings: clock: Add StarFive JH7110
+ System-Top-Group clock and reset generator
+Content-Language: en-US
+To: Xingyu Wu <xingyu.wu@starfivetech.com>, linux-riscv@lists.infradead.org,
+ devicetree@vger.kernel.org, Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Emil Renner Berthing <kernel@esmil.dk>
+Cc: Rob Herring <robh+dt@kernel.org>, Conor Dooley <conor@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Hal Feng <hal.feng@starfivetech.com>, linux-kernel@vger.kernel.org,
+ linux-clk@vger.kernel.org
+References: <20230221083323.302471-1-xingyu.wu@starfivetech.com>
+ <20230221083323.302471-2-xingyu.wu@starfivetech.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20230221083323.302471-2-xingyu.wu@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230221_032243_179075_42DCF89C 
-X-CRM114-Status: GOOD (  17.45  )
+X-CRM114-CacheID: sfid-20230221_032548_689895_391C4269 
+X-CRM114-Status: GOOD (  11.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,74 +97,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7665550808898947525=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============7665550808898947525==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="HQ7FIfEfxxoLIcym"
-Content-Disposition: inline
-
---HQ7FIfEfxxoLIcym
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, Feb 21, 2023 at 12:03:45PM +0100, Christoph M=FCllner wrote:
-> On Tue, Feb 21, 2023 at 12:00 PM Conor Dooley
-> <conor.dooley@microchip.com> wrote:
-> >
-> > On Tue, Feb 21, 2023 at 10:51:13AM +0000, Jessica Clarke wrote:
-> > > On 21 Feb 2023, at 10:40, Conor Dooley <conor.dooley@microchip.com> w=
-rote:
-> > > > On Tue, Feb 21, 2023 at 08:12:58AM +0100, Christoph M=FCllner wrote:
-> > > >> The full meeting minutes can be found here:
-> > > >>  https://lists.riscv.org/g/tech-chairs/message/1381
-> > > >
-> > > > This link is non functional unfortunately :/
-> > >
-> > > tech-chairs is private, for (co-)chairs only... not sure why it went
-> > > there rather than tech-privileged.
-> >
-> > Yah, that's what I was getting at.. This is a conversation on a public
-> > ML, so it'd be annoying enough for some readers if it was gated around
-> > RVI membership, but gating on membership of the inner circle makes it
-> > kinda useless!
->=20
-> The mail was forwarded there as well (and to tech-unprivileged):
->   https://lists.riscv.org/g/tech-privileged/message/1294
->   https://lists.riscv.org/g/tech-unprivileged/message/430
-
-Great, those I can actually read. Thanks for sharing with the unwashed!
-
-Conor.
+On 21/02/2023 09:33, Xingyu Wu wrote:
+> Add bindings for the System-Top-Group clock and reset generator (STGCRG)
+> on the JH7110 RISC-V SoC by StarFive Ltd.
+> 
+> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
 
 
---HQ7FIfEfxxoLIcym
-Content-Type: application/pgp-signature; name="signature.asc"
+> +    };
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 93eb504c3b21..2e70c9f21989 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -19914,6 +19914,7 @@ F:	arch/riscv/boot/dts/starfive/
+>  STARFIVE JH71X0 CLOCK DRIVERS
+>  M:	Emil Renner Berthing <kernel@esmil.dk>
+>  M:	Hal Feng <hal.feng@starfivetech.com>
+> +M:	Xingyu Wu <xingyu.wu@starfivetech.com>
 
------BEGIN PGP SIGNATURE-----
+No improvements here. You add here new bindings for one device and then
+- without explanation - add yourself to all Starfive clock bindings.
+Either explain it or drop it or move it to separate patch.
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY/SpZAAKCRB4tDGHoIJi
-0gOxAP449GebNOGwifeFqectIA3BJ265MzeJAYp+PoMgGSZ96wEA+vF3amkYJJTt
-36jS+BUDlwbiv7F/Px3wiehR/0FmNAU=
-=LI0o
------END PGP SIGNATURE-----
+You already got comment for this.
 
---HQ7FIfEfxxoLIcym--
+Best regards,
+Krzysztof
 
-
---===============7665550808898947525==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7665550808898947525==--
-
