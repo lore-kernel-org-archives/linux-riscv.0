@@ -4,68 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8F2CC636D6
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Feb 2023 02:28:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8998C636D6
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Feb 2023 02:35:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=i04I85Dut0VhZs1jNTENV0BV+PcbsyijfoY5j7btW9Y=; b=i2/RqpA8bzqRLC
-	keYTa+qVqgVXoPYXYZ1Xx3K3YWe7P5xRB9YVikcXOAe2PI7lPp3uAi3gzfoDhSt3y4KJxhA07XeJL
-	/TMndbj03Vr5xJVeq0PKJOHe02mrxWgMcWAolMJf8jpTz+6zFC+FgpkzXMxqJueShq4eO19ir6RSH
-	jRXolzxJK/nLje99TkYyOZqbFKHW/uulok5YpFq3Kcm3HjZxin29F/MfBcJPJCw8e/qIOPvHvBfre
-	M7017fWJNKXOVU7oAPNTqf4Gu3tABAyLqJpxcBQcEpySuQ4yf0jtjafSBx9/jWP6fIf2dnhs0hXJO
-	dUpVg+mbCPcoLkKbx3Bg==;
+	List-Owner; bh=sSWE6KY1FBAvlWamHDojWMDz9DIFq9MP1lPeoEfxHyQ=; b=Fvknn+YHk96zrz
+	2DdxRQ83F/ojlhXf3U4yn5QFvxTUU2YWrhc43RSL2hgdDj9verodvbSTl2ADr3KaZdhfk2tECKC/k
+	d1Dc3GTeU2G5lHoH8FIrkakmXXTeOr7x4jkK/6akNQJ/k+IUDADiv+Z820J48ZEGCXw8V1YpcCJEp
+	x1LX0+JJb7GgqTuoaVfGhkwmTXEK4oqh48FqWBYuejRfmXHXOkleqt5FrGnoIyZZ7JrUNd1FvIinN
+	PFxf/LBYwXSFOCkWA+yAOx6jw0uGR8uS38ZbI9Pj3tl8+O0wQG1T1ZwnTm2CIfP/tQfn/qKrnSjAj
+	7ZLtcHFMyby40h+XElFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUINr-006Ioe-IS; Tue, 21 Feb 2023 02:27:59 +0000
+	id 1pUIVP-006JV7-QP; Tue, 21 Feb 2023 02:35:47 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUINm-006Ilr-OY
-	for linux-riscv@lists.infradead.org; Tue, 21 Feb 2023 02:27:57 +0000
+	id 1pUIVM-006JU3-2E
+	for linux-riscv@lists.infradead.org; Tue, 21 Feb 2023 02:35:45 +0000
 Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 338E624E202;
-	Tue, 21 Feb 2023 10:27:18 +0800 (CST)
-Received: from EXMBX073.cuchost.com (172.16.6.83) by EXMBX166.cuchost.com
+	by ex01.ufhost.com (Postfix) with ESMTP id 2AAEC24E1F6;
+	Tue, 21 Feb 2023 10:35:38 +0800 (CST)
+Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX166.cuchost.com
  (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 21 Feb
- 2023 10:27:07 +0800
-Received: from [192.168.120.49] (171.223.208.138) by EXMBX073.cuchost.com
- (172.16.6.83) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 21 Feb
- 2023 10:27:06 +0800
-Message-ID: <dfddde90-ddce-d0e5-d31c-bbbbecaf7323@starfivetech.com>
-Date: Tue, 21 Feb 2023 10:27:05 +0800
+ 2023 10:35:38 +0800
+Received: from jsia-virtual-machine.localdomain (202.188.176.82) by
+ EXMBX066.cuchost.com (172.16.6.66) with Microsoft SMTP Server (TLS) id
+ 15.0.1497.42; Tue, 21 Feb 2023 10:35:35 +0800
+From: Sia Jee Heng <jeeheng.sia@starfivetech.com>
+To: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>
+CC: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<jeeheng.sia@starfivetech.com>, <leyfoon.tan@starfivetech.com>,
+	<mason.huo@starfivetech.com>
+Subject: [PATCH v4 2/4] RISC-V: Factor out common code of __cpu_resume_enter()
+Date: Tue, 21 Feb 2023 10:35:21 +0800
+Message-ID: <20230221023523.1498500-3-jeeheng.sia@starfivetech.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20230221023523.1498500-1-jeeheng.sia@starfivetech.com>
+References: <20230221023523.1498500-1-jeeheng.sia@starfivetech.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.7.2
-Subject: Re: [PATCH v4 5/7] net: stmmac: Add glue layer for StarFive JH7110
- SoCs
-Content-Language: en-US
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-CC: <linux-riscv@lists.infradead.org>, <netdev@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "David S .
- Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, "Jakub
- Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
-	<robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
-	Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>,
-	<samin.guo@starfivetech.com>
-References: <20230118061701.30047-1-yanhong.wang@starfivetech.com>
- <20230118061701.30047-6-yanhong.wang@starfivetech.com>
- <CAJM55Z-zvb5CJq4PU4c=YKvY0xPY216MAALFsmWTcVFjSd=wEA@mail.gmail.com>
-From: yanhong wang <yanhong.wang@starfivetech.com>
-In-Reply-To: <CAJM55Z-zvb5CJq4PU4c=YKvY0xPY216MAALFsmWTcVFjSd=wEA@mail.gmail.com>
-X-Originating-IP: [171.223.208.138]
-X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX073.cuchost.com
- (172.16.6.83)
+X-Originating-IP: [202.188.176.82]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX066.cuchost.com
+ (172.16.6.66)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230220_182755_130511_C2F7A157 
-X-CRM114-Status: GOOD (  25.41  )
+X-CRM114-CacheID: sfid-20230220_183544_417043_5EFD2E41 
+X-CRM114-Status: GOOD (  12.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,223 +71,142 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-add  samin.guo@starfivetech.com  to loop.
+The cpu_resume() function is very similar for the suspend to disk and
+suspend to ram cases. Factor out the common code into restore_csr macro
+and restore_reg macro.
 
-On 2023/2/16 18:53, Emil Renner Berthing wrote:
-> On Wed, 18 Jan 2023 at 07:20, Yanhong Wang
-> <yanhong.wang@starfivetech.com> wrote:
->>
->> This adds StarFive dwmac driver support on the StarFive JH7110 SoCs.
->>
->> Signed-off-by: Yanhong Wang <yanhong.wang@starfivetech.com>
->> Co-developed-by: Emil Renner Berthing <kernel@esmil.dk>
->> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
->> ---
->>  MAINTAINERS                                   |   1 +
->>  drivers/net/ethernet/stmicro/stmmac/Kconfig   |  12 ++
->>  drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
->>  .../stmicro/stmmac/dwmac-starfive-plat.c      | 118 ++++++++++++++++++
->>  4 files changed, 132 insertions(+)
->>  create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-starfive-plat.c
->>
->> diff --git a/MAINTAINERS b/MAINTAINERS
->> index 56be59bb09f7..5b50b52d3dbb 100644
->> --- a/MAINTAINERS
->> +++ b/MAINTAINERS
->> @@ -19609,6 +19609,7 @@ F:      include/dt-bindings/clock/starfive*
->>  STARFIVE DWMAC GLUE LAYER
->>  M:     Yanhong Wang <yanhong.wang@starfivetech.com>
->>  S:     Maintained
->> +F:     Documentation/devicetree/bindings/net/dwmac-starfive-plat.c
->>  F:     Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
->>
->>  STARFIVE PINCTRL DRIVER
->> diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
->> index 31ff35174034..f9a4ad4abd54 100644
->> --- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
->> +++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
->> @@ -235,6 +235,18 @@ config DWMAC_INTEL_PLAT
->>           the stmmac device driver. This driver is used for the Intel Keem Bay
->>           SoC.
->>
->> +config DWMAC_STARFIVE_PLAT
->> +       tristate "StarFive dwmac support"
->> +       depends on OF && COMMON_CLK
->> +       depends on STMMAC_ETH
->> +       default SOC_STARFIVE
->> +       help
->> +         Support for ethernet controllers on StarFive RISC-V SoCs
->> +
->> +         This selects the StarFive platform specific glue layer support for
->> +         the stmmac device driver. This driver is used for StarFive JH7110
->> +         ethernet controller.
->> +
->>  config DWMAC_VISCONTI
->>         tristate "Toshiba Visconti DWMAC support"
->>         default ARCH_VISCONTI
->> diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
->> index d4e12e9ace4f..a63ab0ab5071 100644
->> --- a/drivers/net/ethernet/stmicro/stmmac/Makefile
->> +++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
->> @@ -31,6 +31,7 @@ obj-$(CONFIG_DWMAC_DWC_QOS_ETH)       += dwmac-dwc-qos-eth.o
->>  obj-$(CONFIG_DWMAC_INTEL_PLAT) += dwmac-intel-plat.o
->>  obj-$(CONFIG_DWMAC_GENERIC)    += dwmac-generic.o
->>  obj-$(CONFIG_DWMAC_IMX8)       += dwmac-imx.o
->> +obj-$(CONFIG_DWMAC_STARFIVE_PLAT)      += dwmac-starfive-plat.o
-> 
-> Hi Yanhong,
-> 
-> For the next version could you please drop the _PLAT from the config
-> symbol and -plat from filename. I know the intel wrapper does the
-> same, but it's the only one, so lets do like the majority of other
-> wrappers and not add more different ways of doing things.
-> 
+Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
+---
+ arch/riscv/include/asm/assembler.h | 62 ++++++++++++++++++++++++++++++
+ arch/riscv/kernel/suspend_entry.S  | 34 ++--------------
+ 2 files changed, 65 insertions(+), 31 deletions(-)
+ create mode 100644 arch/riscv/include/asm/assembler.h
 
-Thanks. I will fix.
+diff --git a/arch/riscv/include/asm/assembler.h b/arch/riscv/include/asm/assembler.h
+new file mode 100644
+index 000000000000..727a97735493
+--- /dev/null
++++ b/arch/riscv/include/asm/assembler.h
+@@ -0,0 +1,62 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2023 StarFive Technology Co., Ltd.
++ *
++ * Author: Jee Heng Sia <jeeheng.sia@starfivetech.com>
++ */
++
++#ifndef __ASSEMBLY__
++#error "Only include this from assembly code"
++#endif
++
++#ifndef __ASM_ASSEMBLER_H
++#define __ASM_ASSEMBLER_H
++
++#include <asm/asm.h>
++#include <asm/asm-offsets.h>
++#include <asm/csr.h>
++
++/*
++ * restore_csr - restore hart's CSR value
++ */
++	.macro restore_csr
++		REG_L	t0, (SUSPEND_CONTEXT_REGS + PT_EPC)(a0)
++		csrw	CSR_EPC, t0
++		REG_L	t0, (SUSPEND_CONTEXT_REGS + PT_STATUS)(a0)
++		csrw	CSR_STATUS, t0
++		REG_L	t0, (SUSPEND_CONTEXT_REGS + PT_BADADDR)(a0)
++		csrw	CSR_TVAL, t0
++		REG_L	t0, (SUSPEND_CONTEXT_REGS + PT_CAUSE)(a0)
++		csrw	CSR_CAUSE, t0
++	.endm
++
++/*
++ * restore_reg - Restore registers (except A0 and T0-T6)
++ */
++	.macro restore_reg
++		REG_L	ra, (SUSPEND_CONTEXT_REGS + PT_RA)(a0)
++		REG_L	sp, (SUSPEND_CONTEXT_REGS + PT_SP)(a0)
++		REG_L	gp, (SUSPEND_CONTEXT_REGS + PT_GP)(a0)
++		REG_L	tp, (SUSPEND_CONTEXT_REGS + PT_TP)(a0)
++		REG_L	s0, (SUSPEND_CONTEXT_REGS + PT_S0)(a0)
++		REG_L	s1, (SUSPEND_CONTEXT_REGS + PT_S1)(a0)
++		REG_L	a1, (SUSPEND_CONTEXT_REGS + PT_A1)(a0)
++		REG_L	a2, (SUSPEND_CONTEXT_REGS + PT_A2)(a0)
++		REG_L	a3, (SUSPEND_CONTEXT_REGS + PT_A3)(a0)
++		REG_L	a4, (SUSPEND_CONTEXT_REGS + PT_A4)(a0)
++		REG_L	a5, (SUSPEND_CONTEXT_REGS + PT_A5)(a0)
++		REG_L	a6, (SUSPEND_CONTEXT_REGS + PT_A6)(a0)
++		REG_L	a7, (SUSPEND_CONTEXT_REGS + PT_A7)(a0)
++		REG_L	s2, (SUSPEND_CONTEXT_REGS + PT_S2)(a0)
++		REG_L	s3, (SUSPEND_CONTEXT_REGS + PT_S3)(a0)
++		REG_L	s4, (SUSPEND_CONTEXT_REGS + PT_S4)(a0)
++		REG_L	s5, (SUSPEND_CONTEXT_REGS + PT_S5)(a0)
++		REG_L	s6, (SUSPEND_CONTEXT_REGS + PT_S6)(a0)
++		REG_L	s7, (SUSPEND_CONTEXT_REGS + PT_S7)(a0)
++		REG_L	s8, (SUSPEND_CONTEXT_REGS + PT_S8)(a0)
++		REG_L	s9, (SUSPEND_CONTEXT_REGS + PT_S9)(a0)
++		REG_L	s10, (SUSPEND_CONTEXT_REGS + PT_S10)(a0)
++		REG_L	s11, (SUSPEND_CONTEXT_REGS + PT_S11)(a0)
++	.endm
++
++#endif	/* __ASM_ASSEMBLER_H */
+diff --git a/arch/riscv/kernel/suspend_entry.S b/arch/riscv/kernel/suspend_entry.S
+index aafcca58c19d..74a8fab8e0f6 100644
+--- a/arch/riscv/kernel/suspend_entry.S
++++ b/arch/riscv/kernel/suspend_entry.S
+@@ -7,6 +7,7 @@
+ #include <linux/linkage.h>
+ #include <asm/asm.h>
+ #include <asm/asm-offsets.h>
++#include <asm/assembler.h>
+ #include <asm/csr.h>
+ #include <asm/xip_fixup.h>
+ 
+@@ -83,39 +84,10 @@ ENTRY(__cpu_resume_enter)
+ 	add	a0, a1, zero
+ 
+ 	/* Restore CSRs */
+-	REG_L	t0, (SUSPEND_CONTEXT_REGS + PT_EPC)(a0)
+-	csrw	CSR_EPC, t0
+-	REG_L	t0, (SUSPEND_CONTEXT_REGS + PT_STATUS)(a0)
+-	csrw	CSR_STATUS, t0
+-	REG_L	t0, (SUSPEND_CONTEXT_REGS + PT_BADADDR)(a0)
+-	csrw	CSR_TVAL, t0
+-	REG_L	t0, (SUSPEND_CONTEXT_REGS + PT_CAUSE)(a0)
+-	csrw	CSR_CAUSE, t0
++	restore_csr
+ 
+ 	/* Restore registers (except A0 and T0-T6) */
+-	REG_L	ra, (SUSPEND_CONTEXT_REGS + PT_RA)(a0)
+-	REG_L	sp, (SUSPEND_CONTEXT_REGS + PT_SP)(a0)
+-	REG_L	gp, (SUSPEND_CONTEXT_REGS + PT_GP)(a0)
+-	REG_L	tp, (SUSPEND_CONTEXT_REGS + PT_TP)(a0)
+-	REG_L	s0, (SUSPEND_CONTEXT_REGS + PT_S0)(a0)
+-	REG_L	s1, (SUSPEND_CONTEXT_REGS + PT_S1)(a0)
+-	REG_L	a1, (SUSPEND_CONTEXT_REGS + PT_A1)(a0)
+-	REG_L	a2, (SUSPEND_CONTEXT_REGS + PT_A2)(a0)
+-	REG_L	a3, (SUSPEND_CONTEXT_REGS + PT_A3)(a0)
+-	REG_L	a4, (SUSPEND_CONTEXT_REGS + PT_A4)(a0)
+-	REG_L	a5, (SUSPEND_CONTEXT_REGS + PT_A5)(a0)
+-	REG_L	a6, (SUSPEND_CONTEXT_REGS + PT_A6)(a0)
+-	REG_L	a7, (SUSPEND_CONTEXT_REGS + PT_A7)(a0)
+-	REG_L	s2, (SUSPEND_CONTEXT_REGS + PT_S2)(a0)
+-	REG_L	s3, (SUSPEND_CONTEXT_REGS + PT_S3)(a0)
+-	REG_L	s4, (SUSPEND_CONTEXT_REGS + PT_S4)(a0)
+-	REG_L	s5, (SUSPEND_CONTEXT_REGS + PT_S5)(a0)
+-	REG_L	s6, (SUSPEND_CONTEXT_REGS + PT_S6)(a0)
+-	REG_L	s7, (SUSPEND_CONTEXT_REGS + PT_S7)(a0)
+-	REG_L	s8, (SUSPEND_CONTEXT_REGS + PT_S8)(a0)
+-	REG_L	s9, (SUSPEND_CONTEXT_REGS + PT_S9)(a0)
+-	REG_L	s10, (SUSPEND_CONTEXT_REGS + PT_S10)(a0)
+-	REG_L	s11, (SUSPEND_CONTEXT_REGS + PT_S11)(a0)
++	restore_reg
+ 
+ 	/* Return zero value */
+ 	add	a0, zero, zero
+-- 
+2.34.1
 
->>  obj-$(CONFIG_DWMAC_VISCONTI)   += dwmac-visconti.o
->>  stmmac-platform-objs:= stmmac_platform.o
->>  dwmac-altr-socfpga-objs := altr_tse_pcs.o dwmac-socfpga.o
->> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive-plat.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive-plat.c
->> new file mode 100644
->> index 000000000000..e441d920933a
->> --- /dev/null
->> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive-plat.c
->> @@ -0,0 +1,118 @@
->> +// SPDX-License-Identifier: GPL-2.0+
->> +/*
->> + * StarFive DWMAC platform driver
->> + *
->> + * Copyright(C) 2022 StarFive Technology Co., Ltd.
->> + *
->> + */
->> +
->> +#include <linux/of_device.h>
->> +
->> +#include "stmmac_platform.h"
->> +
->> +struct starfive_dwmac {
->> +       struct device *dev;
->> +       struct clk *clk_tx;
->> +       struct clk *clk_gtx;
->> +       struct clk *clk_gtxc;
->> +};
-> 
-> I like this name. For the next version could you also
-> s/starfive_eth_plat_/starfive_dwmac_/ on the function/struct names
-> below for consistency.
-> 
-
-I will fix.
-
->> +
->> +static void starfive_eth_plat_fix_mac_speed(void *priv, unsigned int speed)
->> +{
->> +       struct starfive_dwmac *dwmac = priv;
->> +       unsigned long rate;
->> +       int err;
->> +
->> +       rate = clk_get_rate(dwmac->clk_gtx);
->> +
->> +       switch (speed) {
->> +       case SPEED_1000:
->> +               rate = 125000000;
->> +               break;
->> +       case SPEED_100:
->> +               rate = 25000000;
->> +               break;
->> +       case SPEED_10:
->> +               rate = 2500000;
->> +               break;
->> +       default:
->> +               dev_err(dwmac->dev, "invalid speed %u\n", speed);
->> +               break;
->> +       }
->> +
->> +       err = clk_set_rate(dwmac->clk_gtx, rate);
->> +       if (err)
->> +               dev_err(dwmac->dev, "failed to set tx rate %lu\n", rate);
->> +}
->> +
->> +static int starfive_eth_plat_probe(struct platform_device *pdev)
->> +{
->> +       struct plat_stmmacenet_data *plat_dat;
->> +       struct stmmac_resources stmmac_res;
->> +       struct starfive_dwmac *dwmac;
->> +       int err;
->> +
->> +       err = stmmac_get_platform_resources(pdev, &stmmac_res);
->> +       if (err)
->> +               return err;
->> +
->> +       plat_dat = stmmac_probe_config_dt(pdev, stmmac_res.mac);
->> +       if (IS_ERR(plat_dat)) {
->> +               dev_err(&pdev->dev, "dt configuration failed\n");
->> +               return PTR_ERR(plat_dat);
->> +       }
->> +
->> +       dwmac = devm_kzalloc(&pdev->dev, sizeof(*dwmac), GFP_KERNEL);
->> +       if (!dwmac)
->> +               return -ENOMEM;
->> +
->> +       dwmac->clk_tx = devm_clk_get_enabled(&pdev->dev, "tx");
->> +       if (IS_ERR(dwmac->clk_tx))
->> +               return dev_err_probe(&pdev->dev, PTR_ERR(dwmac->clk_tx),
->> +                                               "error getting tx clock\n");
->> +
->> +       dwmac->clk_gtx = devm_clk_get_enabled(&pdev->dev, "gtx");
->> +       if (IS_ERR(dwmac->clk_gtx))
->> +               return dev_err_probe(&pdev->dev, PTR_ERR(dwmac->clk_gtx),
->> +                                               "error getting gtx clock\n");
->> +
->> +       dwmac->clk_gtxc = devm_clk_get_enabled(&pdev->dev, "gtxc");
->> +       if (IS_ERR(dwmac->clk_gtxc))
->> +               return dev_err_probe(&pdev->dev, PTR_ERR(dwmac->clk_gtxc),
->> +                                               "error getting gtxc clock\n");
->> +
->> +       dwmac->dev = &pdev->dev;
->> +       plat_dat->fix_mac_speed = starfive_eth_plat_fix_mac_speed;
->> +       plat_dat->init = NULL;
->> +       plat_dat->bsp_priv = dwmac;
->> +       plat_dat->dma_cfg->dche = true;
->> +
->> +       err = stmmac_dvr_probe(&pdev->dev, plat_dat, &stmmac_res);
->> +       if (err) {
->> +               stmmac_remove_config_dt(pdev, plat_dat);
->> +               return err;
->> +       }
->> +
->> +       return 0;
->> +}
->> +
->> +static const struct of_device_id starfive_eth_plat_match[] = {
->> +       { .compatible = "starfive,jh7110-dwmac" },
->> +       { }
->> +};
->> +
->> +static struct platform_driver starfive_eth_plat_driver = {
->> +       .probe  = starfive_eth_plat_probe,
->> +       .remove = stmmac_pltfr_remove,
->> +       .driver = {
->> +               .name = "starfive-eth-plat",
->> +               .pm = &stmmac_pltfr_pm_ops,
->> +               .of_match_table = starfive_eth_plat_match,
->> +       },
->> +};
->> +
->> +module_platform_driver(starfive_eth_plat_driver);
->> +
->> +MODULE_LICENSE("GPL");
->> +MODULE_DESCRIPTION("StarFive DWMAC platform driver");
->> +MODULE_AUTHOR("Yanhong Wang <yanhong.wang@starfivetech.com>");
->> --
->> 2.17.1
->>
->>
->> _______________________________________________
->> linux-riscv mailing list
->> linux-riscv@lists.infradead.org
->> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
