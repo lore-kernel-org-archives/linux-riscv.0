@@ -4,60 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC13DC636D7
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Feb 2023 15:50:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6A4CC636D7
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Feb 2023 16:34:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FN4T0+w8Vfkyu65vmXHayTnmfqEY0zhKAgUxWWVPfPE=; b=gyyBsuFNA719LW
-	EzmDkBach8LlczSj7dMZTF9MMdSQ+mfLkfHGeurpr4xvv4hyk14lpqBzjyFRnQ5lw6Elijza4/6fr
-	T0TqtoBADrD3tJ2IvH9vAGrapRFSURXyzFg7jrkGPAXTzoS6a1CypYvW+/yB81SwYL48ZAjbmEwnc
-	ZMUVT9PpFo07w5FJi+k2jQtZjcdn1dglDk5fcfUMDVhgqMwoCEXJBkB2KJop2+Y4Uxxp56oDRn2vw
-	XnUhbOvr1fhysBkEdiMQIRy427PoSsRFcK93WR271s57wzQtQATajLA7ChHNaopIicZTA0kTM+xTW
-	VhaCEGu86gc8krR39RLw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fLfLZ9hITgtvTItSVIylsJvmUcYJZ6LaNvF8OWMly4I=; b=mwZ1hpP7oyIuscvE2gYCzf+sKh
+	0CKiKU9N5vCtY/1AD795rRU2HkzJzLRyoT4OLY0yJsMOb++z3zWvOyiNy4U/EmuBUBWtrqhiBbXRm
+	zvsn0JiQe27cLcE+DfMbfiolMQZbPTpigVMz8L9t4yF8uyxddYBnH2m0RD3MOXqZfJK5+EnEPSR1u
+	e3k99jA35QGntD2HRat0AY+4Hmbi1UJWdatjwW2Qq6sh1Q2BLC7d1rjcU13bU84rfhFs7njDr8VRJ
+	mYD200CiyGT0kc5FY8f5k4gN5DsP1y0i1Q3e19Mr1iZrl5v6fPD5s7OeP2t/Bmnxqh06sTEQQxHWP
+	yMbkdBzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUUuk-008oma-Bc; Tue, 21 Feb 2023 15:50:46 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pUVav-008yaY-7N; Tue, 21 Feb 2023 16:34:21 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUUug-008ojx-Gb
-	for linux-riscv@lists.infradead.org; Tue, 21 Feb 2023 15:50:44 +0000
+	id 1pUVas-008ya7-VV
+	for linux-riscv@lists.infradead.org; Tue, 21 Feb 2023 16:34:20 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 4E85861072;
-	Tue, 21 Feb 2023 15:50:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62303C433D2;
-	Tue, 21 Feb 2023 15:50:38 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 51BC960FC5;
+	Tue, 21 Feb 2023 16:34:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A406C433D2;
+	Tue, 21 Feb 2023 16:34:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1676994638;
-	bh=mz1tP6BevVUDwP7gGFCXZ6st2qmh6ulbhacqzwUvUso=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=GBgce3wlKR5rpfnz/ODQ0zKLchmDKoi2uiK6MkclthkVW7rUR/b0V8MXCYj6wrIiD
-	 V/lZbK5MeV07fqkb+EHzIP0wW+rTmvtDsIpbSLtHUf9Tc75UK9YYj7wqCWlyH9u9Fw
-	 X7Y0kxQll0sSTor+6HssmDImeEoQXk4RIiIp4cTXOiOfYxIv4TOWCJasfcrGtsZVri
-	 6GJl5n+t3WDeVtcz+YqMxWs3Xfzs7QGek1ngsZnUb0Z3QB0gy63MghJFdy66j/6muU
-	 r+Q059k6Ov+NN9fgSbCbmkujKargusrMpITLkizyFvGsdsSWu5khC1Qvpn5/Lr1+pM
-	 Z4mHNBdvkQhog==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Ard Biesheuvel <ardb@kernel.org>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-efi@vger.kernel.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: Re: [PATCH 0/4] riscv: Introduce KASLR
-In-Reply-To: <20230215145113.465558-1-alexghiti@rivosinc.com>
-References: <20230215145113.465558-1-alexghiti@rivosinc.com>
-Date: Tue, 21 Feb 2023 16:50:36 +0100
-Message-ID: <878rgrqapf.fsf@all.your.base.are.belong.to.us>
+	s=k20201202; t=1676997257;
+	bh=rScjK5VMyCZR5Ghp9Xxc1QS4YiviN+AcyuGZCuMiRvk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=vBMq8NWq57Shnjk1qmarEq628THtxn2i9weKpl5EIslwqdTn0RISvGrycnu0NMX7D
+	 NX4jLf0LWPPdx+gVdgfq2CbeWU11SEWV2rGpC5nUGS6smzJSnoXTsK5RoLKstj5h1c
+	 yGLQp/4NJ9ITBs+TsO+x2U6jANTN++82vMCXCWJ8W5pfaVpSco8GMcUghkq+btNfYk
+	 LakAdK2joxng/PVW5RWh3Hp/vJdM1+/Jw1kgIVrGDscMmUCdYNYTxZJp3Mb7S38SP4
+	 9nleouZkPbo0xCQrwJe/l9vr/bRnKNtZnPbir2/ULiUu7RvVGkVobN8DCZKYK1cUa0
+	 +M0PKpVMOLAqA==
+Date: Tue, 21 Feb 2023 16:34:11 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Cc: Hal Feng <hal.feng@starfivetech.com>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Stephen Boyd <sboyd@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Ben Dooks <ben.dooks@sifive.com>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 13/19] reset: starfive: Add StarFive JH7110 reset
+ driver
+Message-ID: <Y/TygwbxyuhbDooX@spud>
+References: <20230221024645.127922-1-hal.feng@starfivetech.com>
+ <20230221024645.127922-14-hal.feng@starfivetech.com>
+ <CAJM55Z_O9K=sCRXga9pMOXk9YjXc1v_V0e5S-8xN9Mi8gvHzvg@mail.gmail.com>
 MIME-Version: 1.0
+In-Reply-To: <CAJM55Z_O9K=sCRXga9pMOXk9YjXc1v_V0e5S-8xN9Mi8gvHzvg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230221_075042_633040_398E569B 
-X-CRM114-Status: GOOD (  15.85  )
+X-CRM114-CacheID: sfid-20230221_083419_111849_4A56AB47 
+X-CRM114-Status: GOOD (  21.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,45 +80,102 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============0685846602056402158=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-QWxleGFuZHJlIEdoaXRpIDxhbGV4Z2hpdGlAcml2b3NpbmMuY29tPiB3cml0ZXM6Cgo+IFRoZSBm
-b2xsb3dpbmcgS0FTTFIgaW1wbGVtZW50YXRpb24gYWxsb3dzIHRvIHJhbmRvbWl6ZSB0aGUga2Vy
-bmVsIG1hcHBpbmc6Cj4KPiAtIHZpcnR1YWxseTogd2UgZXhwZWN0IHRoZSBib290bG9hZGVyIHRv
-IHByb3ZpZGUgYSBzZWVkIGluIHRoZSBkZXZpY2UtdHJlZQo+IC0gcGh5c2ljYWxseTogb25seSBp
-bXBsZW1lbnRlZCBpbiB0aGUgRUZJIHN0dWIsIGl0IHJlbGllcyBvbiB0aGUgZmlybXdhcmUgdG8K
-PiAgIHByb3ZpZGUgYSBzZWVkIHVzaW5nIEVGSV9STkdfUFJPVE9DT0wuIGFybTY0IGhhcyBhIHNp
-bWlsYXIgaW1wbGVtZW50YXRpb24KPiAgIGhlbmNlIHRoZSBwYXRjaCAzIGZhY3Rvcml6ZXMgS0FT
-TFIgcmVsYXRlZCBmdW5jdGlvbnMgZm9yIHJpc2N2IHRvIHRha2UKPiAgIGFkdmFudGFnZS4KPgo+
-IFRoZSBuZXcgdmlydHVhbCBrZXJuZWwgbG9jYXRpb24gaXMgbGltaXRlZCBieSB0aGUgZWFybHkg
-cGFnZSB0YWJsZSB0aGF0IG9ubHkKPiBoYXMgb25lIFBVRCBhbmQgd2l0aCB0aGUgUE1EIGFsaWdu
-bWVudCBjb25zdHJhaW50LCB0aGUga2VybmVsIGNhbiBvbmx5IHRha2UKPiA8IDUxMiBwb3NpdGlv
-bnMuCj4KPiBOb3RlIHRoYXQgdGhlIHBhdGNoICJyaXNjdjogVXNlIFBVRC9QNEQvUEdEIHBhZ2Vz
-IGZvciB0aGUgbGluZWFyCj4gbWFwcGluZyIgaXMgbmVjZXNzYXJ5IHRvIHJldHJpZXZlIHRoZSBt
-ZW1vcnkgYmVsb3cgdGhlIHBoeXNpY2FsIGtlcm5lbAo+IGFkZHJlc3MsIHNvIHRoYXQgdGhlIEVG
-SSBzdHViIGRvZXMgbm90IGhhdmUgdG8gdHJ5IHRvIHJlbG9jYXRlIHRoZSBrZXJuZWwKPiBhcyBj
-bG9zZSBhcyBwb3NzaWJsZSB0byB0aGUgc3RhcnQgb2YgZHJhbS4KPgo+IFRoaXMgcGF0Y2hzZXQg
-aXMgcmViYXNlZCBvbiB0b3Agb2Y6Cj4KPiBJbnRyb2R1Y2UgNjRiIHJlbG9jYXRhYmxlIGtlcm5l
-bCAoaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGttbC8yMDIzMDIxNTE0MzYyNi40NTM0OTEtMS1h
-bGV4Z2hpdGlAcml2b3NpbmMuY29tLykKPiBSSVNDLVYga2FzYW4gcmV3b3JrIChodHRwczovL2xv
-cmUua2VybmVsLm9yZy9sa21sL1k2VFR2a3UlMkZ5dVNqbTQyakBzcHVkL1QvKQo+IHJpc2N2OiBV
-c2UgUFVEL1A0RC9QR0QgcGFnZXMgZm9yIHRoZSBsaW5lYXIgbWFwcGluZyAoaHR0cHM6Ly9sb3Jl
-Lmtlcm5lbC5vcmcvbGttbC8yMDIzMDEyNTExNDIyOS5ocmhzeXc0YWVncm5tb2F1QG9yZWwvVC8p
-Cj4gcmlzY3Y6IEFsbG93IHRvIGRvd25ncmFkZSBwYWdpbmcgbW9kZSBmcm9tIHRoZSBjb21tYW5k
-IGxpbmUgKGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xrbWwvQ0FIVlh1YmplU012ZlRQbnZybllS
-dXBPR3g2K3ZVdlVHZlJTM3BpVGVvPVRIMmNIS05nQG1haWwuZ21haWwuY29tLykKPiBiYXNlLWNv
-bW1pdC10YWc6IHY2LjItcmM3Cj4KPiBUaGlzIHBhdGNoc2V0IHdhcyB0ZXN0ZWQgd2l0aCB1LWJv
-b3QgYm9vdHRpbWUgc2VydmljZSBmb3IgdGhlIHNlZWQgb246Cj4gLSB1YnVudHUgZGVmY29uZmln
-ICsga2FzYW4gb3V0bGluZSAoc3YzOSwgc3Y0OCwgc3Y1Nyk6IE9LCj4gLSB1YnVudHUgZGVmY29u
-ZmlnICsga2FzYW4gaW5saW5lIChzdjM5LCBzdjQ4LCBzdjU3KTogT0sKPiAtIHVidW50dSBkZWZj
-b25mZyAoc3YzOSwgc3Y0OCwgc3Y1Nyk6IE9LCgpJJ3ZlIHRha2VuIHRoZSBzZXJpZXMgZm9yIGEg
-c3BpbiAocWVtdSB1LWJvb3QgVUVGSSwgYW5kIHFlbXUgbm9uLVVFRkkpLApvbi10b3Agb2YgdGhl
-IHBhdGNoZXMgb3V0bGluZSBhYm92ZSwgYnV0IHdpdGggNi4yIHByb3Blci4KCkZvciB0aGUgc2Vy
-aWVzOgpSZXZpZXdlZC1ieTogQmrDtnJuIFTDtnBlbCA8Ympvcm5Acml2b3NpbmMuY29tPgpUZXN0
-ZWQtYnk6IEJqw7ZybiBUw7ZwZWwgPGJqb3JuQHJpdm9zaW5jLmNvbT4KCl9fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
-dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
-b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+
+--===============0685846602056402158==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="di8SMzK5TxlOLwpm"
+Content-Disposition: inline
+
+
+--di8SMzK5TxlOLwpm
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Feb 21, 2023 at 04:33:09PM +0100, Emil Renner Berthing wrote:
+> On Tue, 21 Feb 2023 at 03:47, Hal Feng <hal.feng@starfivetech.com> wrote:
+> >
+> > Add auxiliary driver to support StarFive JH7110 system
+> > and always-on resets.
+> >
+> > Reported-by: kernel test robot <lkp@intel.com>
+
+Drop the reported-by here too please Hal.
+
+> > Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+
+> > +static int jh7110_reset_probe(struct auxiliary_device *adev,
+> > +                             const struct auxiliary_device_id *id)
+> > +{
+> > +       struct reset_info *info =3D (struct reset_info *)(id->driver_da=
+ta);
+> > +       void __iomem **base =3D (void __iomem **)dev_get_drvdata(adev->=
+dev.parent);
+>=20
+> Hi Hal,
+>=20
+> I saw the kernel test robot complain about this, but I still wonder if
+> the extra level of indirection is really needed. Isn't it enough to
+> just add the explicit casts, so
+>=20
+> dev_set_drvdata(priv->dev, (void *)priv->base);
+>=20
+> in the clock drivers and here just
+>=20
+> void __iomem *base =3D (void __iomem *)dev_get_drvdata(adev->dev.parent);
+
+I *think* if you do that, sparse will complain that you cast away the
+__iomem. The complaint is something like "cast removes address space
+qualifier from expression".
+
+The other option is, rather than set the base as the drvdata, just pass
+the whole priv struct. That's what I did for mpfs at least & I thought I
+had suggested it on v3, but must not have.
+It looks prettier than the casting madness at least ;)
+
+> > +
+> > +       if (!info || !base)
+> > +               return -ENODEV;
+> > +
+> > +       return reset_starfive_jh71x0_register(&adev->dev, adev->dev.par=
+ent->of_node,
+> > +                                             *base + info->assert_offs=
+et,
+> > +                                             *base + info->status_offs=
+et,
+> > +                                             NULL,
+> > +                                             info->nr_resets,
+> > +                                             NULL);
+> > +}
+
+--di8SMzK5TxlOLwpm
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY/TybAAKCRB4tDGHoIJi
+0pUxAQC1ZljYcv5/Q6mze0u0z96Oz5pkrLAITwYsm92VzYEYpAEAk6PbItP1RJvB
+MFzAwz5syZ6Y4U9Krg0CMdAnSOLNGQ8=
+=u5Rk
+-----END PGP SIGNATURE-----
+
+--di8SMzK5TxlOLwpm--
+
+
+--===============0685846602056402158==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0685846602056402158==--
+
