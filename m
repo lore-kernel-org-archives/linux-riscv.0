@@ -4,88 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8594FC678DB
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Feb 2023 20:15:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D554C61DA3
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Feb 2023 20:15:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Rmn+xffy+S+SvEh9CJaL6B2LDCtpmc0a/IqVLNZAM9s=; b=Dg3XKqa6etEO2Z
-	imukIUmpxYMhLDjAiDz6mkmfYLDh/3eOp3BdNpLt9qn4/aUjSSRYABkLH7Vr+jzSXFdehBVf8a9hb
-	pU0FTIaalxrLeQgoN1wFmw6hlavov/LLoY7bX1kfMgP9jE/O0OKMhpYEkYG2IgZv48V4wRo5eBkYi
-	xT6z2mOVv9wPot4CA1pfsEDsN1bRUuNMlYGRzPBXyuqHJ34uKnFzDGC9cWbm7sg9JkkEHZt3I5N77
-	nzQiuRHjSYClIbJJa5yDUAwclXpauxTgijSgMF4uKe9mGi8FmR2ysSIpaoVAMvxZaEaT7YCX+s+Mc
-	ObqbnXrXeI/ISjGRMA6g==;
+	List-Owner; bh=n/30xtvEtWleEcywfDtjoYMC8ZJEwDdxnhTzPkualH4=; b=UiYLSa6c6mDoDv
+	RPUw+48Qcp5SoRNRA3vk86AEzEToMHwe6qrLE8zhu19QS3eA54pgxVUR2ftHmIXXHQQdwYhTwR0cV
+	OzqZMG9X2Q/SSVJr8mPKxTnVAxX7htL0X+svqi4qo0YxlrXi6iB63uXGa57FEp+dRjJkb7FRAbcnR
+	6Fa0Jmf2V+APbIgOlsxBhZeO/FIuTaVfTC8YKgxxDI9H0pjNo3nvTkDBlJJ+rGh/DgqPNKO6G1A4P
+	WCljenQ1YuQoVLWOO4Cil5LkCSsrTv7qqYROekX05lhZKm76EtfwIAEjber5R97olIR5vjxLhTv/4
+	5MvowfRwpRhJCl6CHc7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUZ37-009fkH-Dd; Tue, 21 Feb 2023 20:15:41 +0000
-Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
+	id 1pUZ33-009fhk-NV; Tue, 21 Feb 2023 20:15:37 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUY14-009Uva-0o
-	for linux-riscv@lists.infradead.org; Tue, 21 Feb 2023 19:09:31 +0000
-Received: by mail-ed1-x52f.google.com with SMTP id x10so20568361edd.13
-        for <linux-riscv@lists.infradead.org>; Tue, 21 Feb 2023 11:09:29 -0800 (PST)
+	id 1pUY0x-009UpQ-OI
+	for linux-riscv@lists.infradead.org; Tue, 21 Feb 2023 19:09:28 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id h14so6311826plf.10
+        for <linux-riscv@lists.infradead.org>; Tue, 21 Feb 2023 11:09:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=/Z6tZFFE5BTtnAERh23ZFuGlAMKjWB1LeNlstGrShuA=;
-        b=Ix1WNvgwNW8D11ctXgNiOM0FiK4BP7PrjTKvgkUfpwf9LXRk8uG51OjAxnA8ioAYFi
-         D7SM+TuDqx8chuwOWx4IOfWJnA58WTuVxTWmB9gPJ8po+vGR2jZpanaImIuYL1iwnEuK
-         pYuvxb+l68vlmFFaqmaUQAATaeyb9d0LttpnMIm1qZJuEzg+yLqrctAmD2rSgkMiEow1
-         IxL4fBU6Gy8FPm2oLqKq9ButSf2Pf20/i/i/sbkVaFkZiY/BNXSoBmlXyHHgKVIx2A7B
-         p0LwD7ukEuh8lnqf0SKjFJI5Y6+OOpLG9+xNTYZ9V8ybN4RldqgE30eL869Evw3RWDcQ
-         kx/g==
+        bh=5PlwZzP1OOkIe8VY/GWOoEev+10r3VEkS4WO6Gk8l2k=;
+        b=QQBnZajvWt8L0J2op7Y8kbVD/inXT8jI1jPRtrAaF1l32CC/UmkDKZntxGEkxJT9A6
+         RXUSdeohaBNYxrUQ0keb/sWyK7iBM1289G/b7aRD5jchfFz3o4/HGm4ySSqAa1DsvEwY
+         IFoMRUFDU+aQ1bFAs+wWir3DnVgSR8eE5W6ixGdGxdQr+vORYiuR7OBS1iAFoNih8X56
+         tYuBPx3j25tO75A0wH5LzIduopQFOwGLI4EMG+UU7vXPk6D9HoyAqtEgibBGTc90hnLk
+         7IpYLiiJAU3s9OgqZJQa1VBtSf8nmzaZIld31oJqqb3L3Ph5b6DDIH+rsXj4ab3Uks2r
+         0hew==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=/Z6tZFFE5BTtnAERh23ZFuGlAMKjWB1LeNlstGrShuA=;
-        b=3Hfn7qXUZP49FzfKMKNWt32JoLG2yhM3dpvwg6PiOuLtfLRWIV9MpZWxsfkq5S3VSc
-         xQm0aktaX8yKAXiOHN5xP9X5zdvPZzxOD63Bpm+VmeymcnYm3hRy7sN+ux2r3GwWBuuF
-         Pw6/8jn/5sBLrVG+JNe7OVrN2Cycu/68HDDhQlyEYdSAKEBn8XsjC8mWl77tgvBXbpxd
-         dtTLHeOkFZRi6pn0PurYVpZJAiWyRro+PnJl870us/jNAhFqPpuaum6Am3BL9zIr2+Ht
-         JBMkkq5iIoC8qMmDOSAc5ROmrs6FrTZnKqYV9v8gw0FWJ/aaAMlDsf2zw0q9RG72sacZ
-         KjKQ==
-X-Gm-Message-State: AO0yUKVLKIz8fo64Tfj1bX+BuWYcsgjeOMsBSuBKo8cj3Pv3ju+6OePK
-	zkd7kdBd1/qDxzdJek6FS8UmuYMydfcCEbky
-X-Google-Smtp-Source: AK7set/AalazSeZ6RJbQ8i5VBI5Nicd13b/AoGuXnMO/zFDUec7sv0ihAdmsDzdQEpzsSiF/L+IgHQ==
-X-Received: by 2002:a17:906:fb14:b0:8d4:1e81:f87e with SMTP id lz20-20020a170906fb1400b008d41e81f87emr6368743ejb.57.1677006568414;
-        Tue, 21 Feb 2023 11:09:28 -0800 (PST)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id y25-20020a170906471900b008d2683e24c4sm3043840ejq.69.2023.02.21.11.09.27
+        bh=5PlwZzP1OOkIe8VY/GWOoEev+10r3VEkS4WO6Gk8l2k=;
+        b=a/siBjK3XW3uySBvAnkcmuYVBphD5VsLggcSKVAUOv+NikUOV45G/qzKAvYQWhUIPD
+         wcKwEDzQyD6Xm5kg+t/dgvPYfjfahsTSXBNmkuriciZpSiQWcoBfSXbWwkxO9U6NL5NO
+         07MNgD5IlkSw/qw6bc22ke4S1PXCol4GSXdMKWx6MkrPAzcdXJCnOtSahL4qSB6oRGeU
+         rMw1lVVpMsYzAb8aESbV1eY+Tl/c4lCcGdFLCNk0RDaXidvVQ8KviPtQKnJ6H5L4sG9y
+         tq+Ml0lPCXxn1am3MvY/yuiYAN6Nyheve9Ym5GvvCQGBxSlPGK1lzDm2gkc0T1pEyHfu
+         FNXA==
+X-Gm-Message-State: AO0yUKWSxjh2PwOJcqbaHdoP9je7+H0R8l/ZKWBk5IVmGbgBkNw22sWM
+	4Ygzf56uoH889KLEk2VLYI0tQA==
+X-Google-Smtp-Source: AK7set9Q85lvtHtrFPYHZWf/kOfD/8K3nKYkOZE+80ANPB1/PRLs2yUzrjgynto2OVVHbsuyXfrBAg==
+X-Received: by 2002:a17:902:e886:b0:199:15bb:8316 with SMTP id w6-20020a170902e88600b0019915bb8316mr8643038plg.68.1677006561719;
+        Tue, 21 Feb 2023 11:09:21 -0800 (PST)
+Received: from evan.ba.rivosinc.com ([66.220.2.162])
+        by smtp.gmail.com with ESMTPSA id b16-20020a170902b61000b0019602b2c00csm1583863pls.175.2023.02.21.11.09.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Feb 2023 11:09:28 -0800 (PST)
-From: Andrew Jones <ajones@ventanamicro.com>
-To: linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	kvm-riscv@lists.infradead.org
-Cc: 'Rob Herring ' <robh@kernel.org>,
-	'Jisheng Zhang ' <jszhang@kernel.org>,
-	'Anup Patel ' <apatel@ventanamicro.com>,
-	'Conor Dooley ' <conor.dooley@microchip.com>,
-	'Krzysztof Kozlowski ' <krzysztof.kozlowski+dt@linaro.org>,
-	'Heiko Stuebner ' <heiko@sntech.de>,
-	'Paul Walmsley ' <paul.walmsley@sifive.com>,
-	'Palmer Dabbelt ' <palmer@dabbelt.com>,
-	'Albert Ou ' <aou@eecs.berkeley.edu>,
-	'Ben Dooks ' <ben.dooks@codethink.co.uk>,
-	'Atish Patra ' <atishp@rivosinc.com>,
-	Anup Patel <anup@brainfault.org>
-Subject: [PATCH v5 7/8] RISC-V: KVM: Provide UAPI for Zicboz block size
-Date: Tue, 21 Feb 2023 20:09:15 +0100
-Message-Id: <20230221190916.572454-8-ajones@ventanamicro.com>
-X-Mailer: git-send-email 2.39.1
-In-Reply-To: <20230221190916.572454-1-ajones@ventanamicro.com>
-References: <20230221190916.572454-1-ajones@ventanamicro.com>
+        Tue, 21 Feb 2023 11:09:21 -0800 (PST)
+From: Evan Green <evan@rivosinc.com>
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Subject: [PATCH v3 1/7] RISC-V: Move struct riscv_cpuinfo to new header
+Date: Tue, 21 Feb 2023 11:08:52 -0800
+Message-Id: <20230221190858.3159617-2-evan@rivosinc.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20230221190858.3159617-1-evan@rivosinc.com>
+References: <20230221190858.3159617-1-evan@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230221_110930_068756_F76AFBA9 
-X-CRM114-Status: GOOD (  11.44  )
+X-CRM114-CacheID: sfid-20230221_110923_794987_D44E7307 
+X-CRM114-Status: GOOD (  15.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,64 +83,88 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Anup Patel <apatel@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, heiko@sntech.de, Atish Patra <atishp@rivosinc.com>, Randy Dunlap <rdunlap@infradead.org>, vineetg@rivosinc.com, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Conor Dooley <conor.dooley@microchip.com>, Evan Green <evan@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>, slewis@rivosinc.com, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-We're about to allow guests to use the Zicboz extension. KVM
-userspace needs to know the cache block size in order to
-properly advertise it to the guest. Provide a virtual config
-register for userspace to get it with the GET_ONE_REG API, but
-setting it cannot be supported, so disallow SET_ONE_REG.
+In preparation for tracking and exposing microarchitectural details to
+userspace (like whether or not unaligned accesses are fast), move the
+riscv_cpuinfo struct out to its own new cpufeatures.h header. It will
+need to be used by more than just cpu.c.
 
-Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+Signed-off-by: Evan Green <evan@rivosinc.com>
 Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: Anup Patel <anup@brainfault.org>
 ---
- arch/riscv/include/uapi/asm/kvm.h | 1 +
- arch/riscv/kvm/vcpu.c             | 7 +++++++
- 2 files changed, 8 insertions(+)
 
-diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
-index 92af6f3f057c..c1a1bb0fa91c 100644
---- a/arch/riscv/include/uapi/asm/kvm.h
-+++ b/arch/riscv/include/uapi/asm/kvm.h
-@@ -52,6 +52,7 @@ struct kvm_riscv_config {
- 	unsigned long mvendorid;
- 	unsigned long marchid;
- 	unsigned long mimpid;
-+	unsigned long zicboz_block_size;
- };
+Changes in v3:
+ - Updated copyright date in cpufeature.h
+ - Fixed typo in cpufeature.h comment (Conor)
+
+Changes in v2:
+ - Factored the move of struct riscv_cpuinfo to its own header
+
+ arch/riscv/include/asm/cpufeature.h | 21 +++++++++++++++++++++
+ arch/riscv/kernel/cpu.c             |  8 ++------
+ 2 files changed, 23 insertions(+), 6 deletions(-)
+ create mode 100644 arch/riscv/include/asm/cpufeature.h
+
+diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
+new file mode 100644
+index 000000000000..66ebaae449c8
+--- /dev/null
++++ b/arch/riscv/include/asm/cpufeature.h
+@@ -0,0 +1,21 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright 2022-2023 Rivos, Inc
++ */
++
++#ifndef _ASM_CPUFEATURE_H
++#define _ASM_CPUFEATURE_H
++
++/*
++ * These are probed via a device_initcall(), via either the SBI or directly
++ * from the corresponding CSRs.
++ */
++struct riscv_cpuinfo {
++	unsigned long mvendorid;
++	unsigned long marchid;
++	unsigned long mimpid;
++};
++
++DECLARE_PER_CPU(struct riscv_cpuinfo, riscv_cpuinfo);
++
++#endif
+diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+index 1b9a5a66e55a..684e5419d37d 100644
+--- a/arch/riscv/kernel/cpu.c
++++ b/arch/riscv/kernel/cpu.c
+@@ -7,6 +7,7 @@
+ #include <linux/init.h>
+ #include <linux/seq_file.h>
+ #include <linux/of.h>
++#include <asm/cpufeature.h>
+ #include <asm/csr.h>
+ #include <asm/hwcap.h>
+ #include <asm/sbi.h>
+@@ -70,12 +71,7 @@ int riscv_of_parent_hartid(struct device_node *node, unsigned long *hartid)
+ 	return -1;
+ }
  
- /* CORE registers for KVM_GET_ONE_REG and KVM_SET_ONE_REG */
-diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-index 7c08567097f0..e5126cefbc87 100644
---- a/arch/riscv/kvm/vcpu.c
-+++ b/arch/riscv/kvm/vcpu.c
-@@ -276,6 +276,11 @@ static int kvm_riscv_vcpu_get_reg_config(struct kvm_vcpu *vcpu,
- 			return -EINVAL;
- 		reg_val = riscv_cbom_block_size;
- 		break;
-+	case KVM_REG_RISCV_CONFIG_REG(zicboz_block_size):
-+		if (!riscv_isa_extension_available(vcpu->arch.isa, ZICBOZ))
-+			return -EINVAL;
-+		reg_val = riscv_cboz_block_size;
-+		break;
- 	case KVM_REG_RISCV_CONFIG_REG(mvendorid):
- 		reg_val = vcpu->arch.mvendorid;
- 		break;
-@@ -347,6 +352,8 @@ static int kvm_riscv_vcpu_set_reg_config(struct kvm_vcpu *vcpu,
- 		break;
- 	case KVM_REG_RISCV_CONFIG_REG(zicbom_block_size):
- 		return -EOPNOTSUPP;
-+	case KVM_REG_RISCV_CONFIG_REG(zicboz_block_size):
-+		return -EOPNOTSUPP;
- 	case KVM_REG_RISCV_CONFIG_REG(mvendorid):
- 		if (!vcpu->arch.ran_atleast_once)
- 			vcpu->arch.mvendorid = reg_val;
+-struct riscv_cpuinfo {
+-	unsigned long mvendorid;
+-	unsigned long marchid;
+-	unsigned long mimpid;
+-};
+-static DEFINE_PER_CPU(struct riscv_cpuinfo, riscv_cpuinfo);
++DEFINE_PER_CPU(struct riscv_cpuinfo, riscv_cpuinfo);
+ 
+ unsigned long riscv_cached_mvendorid(unsigned int cpu_id)
+ {
 -- 
-2.39.1
+2.25.1
 
 
 _______________________________________________
