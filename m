@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A9BCC61DA3
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Feb 2023 23:43:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11911C636D6
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Feb 2023 00:58:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yyRzbMEmd9tCX44PCGVl2k8Czivzvo9J62P7c0gf5IY=; b=UTf8qUYj3mnxnS
-	DdNj9kAl0RnmG7MKLNI08aXGUNQ9ieNSQFA8ZbLLws9MtOT9dd4/9ijcsGPNL4R8Cj5uyJLL6iaBZ
-	Gne3Q/2XoylV3EO7LxOAVSJKwY7jz/HEjun9R/1pHyciXB3ielsdaIui0XJjs8ejkewR9otMYPJhJ
-	GPaNaeGbCDVBHxY4e6mlCkV4isVBPgnapJagwVCNvf84RY30HdOTRxVSbuu2mnjpdpgE1AcjA3baR
-	2T+0e6Z2chNdtpDLT3TSEnMyjwPNkRo6GXPv0qAUxTh0nCiaqP/pbRa5xNVXsLmsbk7DXyz6tmr7R
-	xAZ0DMXgxNxvqfsBhj6g==;
+	List-Owner; bh=XLmwgmKoSNmwBEyamhXyy1rwrFh49Wq3uEkGRRZP0/4=; b=2Z8XaEwWNzdaNv
+	6TX6Cnwzb3EiV4XE4hIvXyWOWgM4d9gdQcQjqQSccME6c3DmcezfFjlk7FgRx5Pg8axQXQbKeROeN
+	U4We/R7nsjWGa7EfaPW8N7oMbFZ7JLp4Dee6fsjSmeoU+2yMdx48dzfQkLgvexFKfgDULU0EheUHm
+	MSt/3XxKorritFuaI/+o5b6pEGfxHUKpQOUYQmnltl47C7YFeeGyeRgFUMsR9+U3hT9ClTDb+jXls
+	tRH7bnTAWCsfAfAz8MrrLx3+Mo3pCI8qALh+JLGC7p07tHwgb3q68/XaHs2z4Fa4z2EfcChl3JcHD
+	+exvjWsydGjST8rNu8dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUFou-005xGd-Ru; Mon, 20 Feb 2023 23:43:44 +0000
-Received: from mail-oa1-f49.google.com ([209.85.160.49])
+	id 1pUGyl-0068Se-8o; Tue, 21 Feb 2023 00:57:59 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUFoq-005xFQ-FX
-	for linux-riscv@lists.infradead.org; Mon, 20 Feb 2023 23:43:42 +0000
-Received: by mail-oa1-f49.google.com with SMTP id 586e51a60fabf-17213c961dfso2626980fac.0
-        for <linux-riscv@lists.infradead.org>; Mon, 20 Feb 2023 15:43:37 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=EeJOLdeEl+yXgjAhl7LhKSHnNfddVQHGyrv16jc4d6s=;
-        b=IUr3C58UmtEQjpr1oa8NJcYfAylyU+QCbrQva1/wLqng0s/hZLHxeYwBo/sfcvEpjW
-         uB1CUS36l14Zogp5tzWm4dwrYbHYVswYRX6BUnF+NldZ2w6SqQrp70QaEx8QQ3dbANMj
-         mcbDfuIx/YtGGO7vDi2WMi9/sBsWzbdGD/TIWC5g7EON0xG+Q96tb53q9gsuIbR4J6LC
-         uqDG/DSciIdSoHfYKuCYcgjFPNfZNuXlwEB17KpXDsr9oAppNRsNCHf6JYMmO4BkJy+H
-         S57C4NxjFlpz0aTSenI45QB1PndmkthS9E7FW14BeH7ER2XVqKj+qiZ+4eG4QQq4wqko
-         i6fw==
-X-Gm-Message-State: AO0yUKWoNoL2aOisXhM8Fd1heV1LTZkYuSIcQ4Ykq9HCZOQv05EfXBJN
-	7DpFilJycbX+MUeUbjhdroDRevKXoA==
-X-Google-Smtp-Source: AK7set+oaLlcAaz3GBVoEx9R0WvBFgQQNyYAjjorvsvo0n6o3lXE+kwePpv8yWNjSObzdDBTXU3vNg==
-X-Received: by 2002:a05:6870:17a3:b0:16d:f8aa:9fa8 with SMTP id r35-20020a05687017a300b0016df8aa9fa8mr5591332oae.12.1676936616888;
-        Mon, 20 Feb 2023 15:43:36 -0800 (PST)
-Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id dt22-20020a0568705a9600b001722d0e365fsm2359oab.20.2023.02.20.15.43.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Feb 2023 15:43:36 -0800 (PST)
-Received: (nullmailer pid 618228 invoked by uid 1000);
-	Mon, 20 Feb 2023 23:43:35 -0000
-Date: Mon, 20 Feb 2023 17:43:35 -0600
-From: Rob Herring <robh@kernel.org>
-To: William Qiu <william.qiu@starfivetech.com>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, linux-mmc@vger.kernel.org, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Jaehoon Chung <jh80.chung@samsung.com>, Ulf Hansson <ulf.hansson@linaro.org>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 4/4] dt-bindings: syscon: Add StarFive syscon doc
-Message-ID: <20230220234335.GA615198-robh@kernel.org>
-References: <20230215113249.47727-1-william.qiu@starfivetech.com>
- <20230215113249.47727-5-william.qiu@starfivetech.com>
+	id 1pUGyh-0068Rq-AZ
+	for linux-riscv@lists.infradead.org; Tue, 21 Feb 2023 00:57:57 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by sin.source.kernel.org (Postfix) with ESMTPS id 8B927CE1263
+	for <linux-riscv@lists.infradead.org>; Tue, 21 Feb 2023 00:57:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C83F0C4339C
+	for <linux-riscv@lists.infradead.org>; Tue, 21 Feb 2023 00:57:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1676941069;
+	bh=2U77emMxZCJK0muP9uqiLxYApzuUYnFt3FC/cM2Sl8s=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=YDowIFslhLW0nRS6jEESOcLRwT+2N6NWKamVze3XH6HcbZAsRMSgugxjQboiqdcqW
+	 FPNz/mvIgQf7zsf+Jra23ITa8hETU5YtO9gvyt51PPAfrdJIUEYHxsX44arcbp4ksK
+	 RdrMrORIvFjNF4deRn96ZvyO7X6PuD+D4YaMj84f4U8z921jUDqGeCMNDCkMgvBHNa
+	 +SKg9pNe1US16yDpaSzLqfCKeUmEDPouP+/F0Ba43wyiOiLm642JBqG0jHwffzWV5H
+	 6Q51FOg+Uyq+Dkep+Wfk7f1zEzQwGr+tDqWyvFEtYgwei2xUr9c6U7GKPtWMxgw2k1
+	 V89DXXCGJpRNQ==
+Received: by mail-ed1-f51.google.com with SMTP id h16so11134149edz.10
+        for <linux-riscv@lists.infradead.org>; Mon, 20 Feb 2023 16:57:49 -0800 (PST)
+X-Gm-Message-State: AO0yUKWJXZNyxWnDJMv2XenKlBMZi6iaci0ajVnaB4zMVKIGhBy7Joyg
+	kB/2x4AkLNZJdvCpb1cgvmDPDgdZZ86y9lbMDlU=
+X-Google-Smtp-Source: AK7set812L7nRs5euDJ3PT/OYLOJgSnYAJL71so7Vxh/1YKPDgaRO8nbLFoOBH8i087dkguT4GDDIds8RpU7/Iwv5xc=
+X-Received: by 2002:a17:906:4550:b0:8b1:7aec:c8e7 with SMTP id
+ s16-20020a170906455000b008b17aecc8e7mr6705351ejq.8.1676941067986; Mon, 20 Feb
+ 2023 16:57:47 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230215113249.47727-5-william.qiu@starfivetech.com>
+References: <20230126161559.1467374-1-guoren@kernel.org> <20230217004234.dbf3159e821e6581a62374b1@kernel.org>
+In-Reply-To: <20230217004234.dbf3159e821e6581a62374b1@kernel.org>
+From: Guo Ren <guoren@kernel.org>
+Date: Tue, 21 Feb 2023 08:57:36 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTTdojp+GohNv7BcdPGiEc=JCfi1SWjzfv6qKTF1JY+KCw@mail.gmail.com>
+Message-ID: <CAJF2gTTdojp+GohNv7BcdPGiEc=JCfi1SWjzfv6qKTF1JY+KCw@mail.gmail.com>
+Subject: Re: [PATCH] riscv: kprobe: Optimize kprobe with accurate atomicity
+To: Masami Hiramatsu <mhiramat@kernel.org>
+Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, conor.dooley@microchip.com, 
+	penberg@kernel.org, mark.rutland@arm.com, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230220_154340_934958_6EC9F0EC 
-X-CRM114-Status: GOOD (  16.11  )
+X-CRM114-CacheID: sfid-20230220_165755_781583_16B228D9 
+X-CRM114-Status: GOOD (  36.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,49 +81,180 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 15, 2023 at 07:32:49PM +0800, William Qiu wrote:
-> Add documentation to describe StarFive System Controller Registers.
-> 
-> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
-> ---
->  .../bindings/soc/starfive/jh7110-syscon.yaml  | 51 +++++++++++++++++++
->  MAINTAINERS                                   |  5 ++
->  2 files changed, 56 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/soc/starfive/jh7110-syscon.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/soc/starfive/jh7110-syscon.yaml b/Documentation/devicetree/bindings/soc/starfive/jh7110-syscon.yaml
-> new file mode 100644
-> index 000000000000..fa4d8522a454
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/soc/starfive/jh7110-syscon.yaml
-> @@ -0,0 +1,51 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/soc/starfive/jh7110-syscon.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: StarFive JH7110 SoC system controller
-> +
-> +maintainers:
-> +  - William Qiu <william.qiu@starfivetech.com>
-> +
-> +description: |
-> +  The StarFive JH7110 SoC system controller provides register information such
-> +  as offset, mask and shift to configure related modules such as MMC and PCIe.
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - enum:
-> +          - starfive,jh7110-stg-syscon
-> +          - starfive,jh7110-sys-syscon
-> +          - starfive,jh7110-aon-syscon
+On Thu, Feb 16, 2023 at 11:42 PM Masami Hiramatsu <mhiramat@kernel.org> wrote:
+>
+> On Thu, 26 Jan 2023 11:15:59 -0500
+> guoren@kernel.org wrote:
+>
+> > From: Guo Ren <guoren@linux.alibaba.com>
+> >
+> > The previous implementation was based on the stop_matchine mechanism,
+> > which reduced the speed of arm/disarm_kprobe. Using minimum ebreak
+> > instruction would get accurate atomicity.
+> >
+> > This patch removes the patch_text of riscv, which is based on
+> > stop_machine. Then riscv only reserved patch_text_nosync, and developers
+> > need to be more careful in dealing with patch_text atomicity.
+> >
+> > When CONFIG_RISCV_ISA_C=n, the ebreak could replace the whole
+> > instruction. When CONFIG_RISCV_ISA_C=y, the patch uses 16-bit length
+> > c.ebreak instruction, which may occupy the first part of the 32-bit
+> > instruction and leave half the rest of the broken instruction. Because
+> > ebreak could detour the flow to skip it, leaving it in the kernel text
+> > memory is okay.
+> >
+> > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> > Signed-off-by: Guo Ren <guoren@kernel.org>
+>
+> I'm not sure how the RISCV specification ensures this type of self
+> code modification. But if you think calling the stop_machine() for
+> *each* probe arm/disarm is slow, there may be another way to avoid
+> ot by introducing a batch arming interface too. (reserve-commit way)
+Could you give out "reserve-commit way" link? I'm not making sense of
+that, thank you.
 
-Is 'syscon' really part of what the blocks are called? Is just 'stg', 
-'sys' and 'aon' not unique enough?
+>
+> BTW, for the BPF usecase which is usually only for function
+> entry/exit, we will use Fprobes. Since that will use ftrace batch
+> text patching, I think we already avoid such slowdown.
+>
+> FYI, for ftrace dynamic event usecase, there is another reason to slow
+> down the enable/disable dynamic event itself (to sync up the event
+> enabled status to ensure all event handler has been done, it waits
+> for rcu-sync for each operation.)
+If it's done, the ftrace common code will guarantee all events are
+done. Do you know if anyone has started this work? - "sync up the
+event enabled status to ensure all event handler has been done".
 
-Rob
+>
+> Thank you,
+>
+> > ---
+> >  arch/riscv/include/asm/patch.h     |  1 -
+> >  arch/riscv/kernel/patch.c          | 33 ------------------------------
+> >  arch/riscv/kernel/probes/kprobes.c | 29 ++++++++++++++++++--------
+> >  3 files changed, 21 insertions(+), 42 deletions(-)
+> >
+> > diff --git a/arch/riscv/include/asm/patch.h b/arch/riscv/include/asm/patch.h
+> > index 9a7d7346001e..2500782e6f5b 100644
+> > --- a/arch/riscv/include/asm/patch.h
+> > +++ b/arch/riscv/include/asm/patch.h
+> > @@ -7,6 +7,5 @@
+> >  #define _ASM_RISCV_PATCH_H
+> >
+> >  int patch_text_nosync(void *addr, const void *insns, size_t len);
+> > -int patch_text(void *addr, u32 insn);
+> >
+> >  #endif /* _ASM_RISCV_PATCH_H */
+> > diff --git a/arch/riscv/kernel/patch.c b/arch/riscv/kernel/patch.c
+> > index 765004b60513..8bd51ed8b806 100644
+> > --- a/arch/riscv/kernel/patch.c
+> > +++ b/arch/riscv/kernel/patch.c
+> > @@ -98,36 +98,3 @@ int patch_text_nosync(void *addr, const void *insns, size_t len)
+> >       return ret;
+> >  }
+> >  NOKPROBE_SYMBOL(patch_text_nosync);
+> > -
+> > -static int patch_text_cb(void *data)
+> > -{
+> > -     struct patch_insn *patch = data;
+> > -     int ret = 0;
+> > -
+> > -     if (atomic_inc_return(&patch->cpu_count) == num_online_cpus()) {
+> > -             ret =
+> > -                 patch_text_nosync(patch->addr, &patch->insn,
+> > -                                         GET_INSN_LENGTH(patch->insn));
+> > -             atomic_inc(&patch->cpu_count);
+> > -     } else {
+> > -             while (atomic_read(&patch->cpu_count) <= num_online_cpus())
+> > -                     cpu_relax();
+> > -             smp_mb();
+> > -     }
+> > -
+> > -     return ret;
+> > -}
+> > -NOKPROBE_SYMBOL(patch_text_cb);
+> > -
+> > -int patch_text(void *addr, u32 insn)
+> > -{
+> > -     struct patch_insn patch = {
+> > -             .addr = addr,
+> > -             .insn = insn,
+> > -             .cpu_count = ATOMIC_INIT(0),
+> > -     };
+> > -
+> > -     return stop_machine_cpuslocked(patch_text_cb,
+> > -                                    &patch, cpu_online_mask);
+> > -}
+> > -NOKPROBE_SYMBOL(patch_text);
+> > diff --git a/arch/riscv/kernel/probes/kprobes.c b/arch/riscv/kernel/probes/kprobes.c
+> > index 475989f06d6d..27f8960c321c 100644
+> > --- a/arch/riscv/kernel/probes/kprobes.c
+> > +++ b/arch/riscv/kernel/probes/kprobes.c
+> > @@ -24,12 +24,18 @@ post_kprobe_handler(struct kprobe *, struct kprobe_ctlblk *, struct pt_regs *);
+> >  static void __kprobes arch_prepare_ss_slot(struct kprobe *p)
+> >  {
+> >       unsigned long offset = GET_INSN_LENGTH(p->opcode);
+> > +#ifdef CONFIG_RISCV_ISA_C
+> > +     u32 opcode = __BUG_INSN_16;
+> > +#else
+> > +     u32 opcode = __BUG_INSN_32;
+> > +#endif
+> >
+> >       p->ainsn.api.restore = (unsigned long)p->addr + offset;
+> >
+> > -     patch_text(p->ainsn.api.insn, p->opcode);
+> > -     patch_text((void *)((unsigned long)(p->ainsn.api.insn) + offset),
+> > -                __BUG_INSN_32);
+> > +     patch_text_nosync(p->ainsn.api.insn, &p->opcode, offset);
+> > +     patch_text_nosync((void *)((unsigned long)(p->ainsn.api.insn) + offset),
+> > +                       &opcode, GET_INSN_LENGTH(opcode));
+> > +
+> >  }
+> >
+> >  static void __kprobes arch_prepare_simulate(struct kprobe *p)
+> > @@ -114,16 +120,23 @@ void *alloc_insn_page(void)
+> >  /* install breakpoint in text */
+> >  void __kprobes arch_arm_kprobe(struct kprobe *p)
+> >  {
+> > -     if ((p->opcode & __INSN_LENGTH_MASK) == __INSN_LENGTH_32)
+> > -             patch_text(p->addr, __BUG_INSN_32);
+> > -     else
+> > -             patch_text(p->addr, __BUG_INSN_16);
+> > +#ifdef CONFIG_RISCV_ISA_C
+> > +     u32 opcode = __BUG_INSN_16;
+> > +#else
+> > +     u32 opcode = __BUG_INSN_32;
+> > +#endif
+> > +     patch_text_nosync(p->addr, &opcode, GET_INSN_LENGTH(opcode));
+> >  }
+> >
+> >  /* remove breakpoint from text */
+> >  void __kprobes arch_disarm_kprobe(struct kprobe *p)
+> >  {
+> > -     patch_text(p->addr, p->opcode);
+> > +#ifdef CONFIG_RISCV_ISA_C
+> > +     u32 opcode = __BUG_INSN_16;
+> > +#else
+> > +     u32 opcode = __BUG_INSN_32;
+> > +#endif
+> > +     patch_text_nosync(p->addr, &p->opcode, GET_INSN_LENGTH(opcode));
+> >  }
+> >
+> >  void __kprobes arch_remove_kprobe(struct kprobe *p)
+> > --
+> > 2.36.1
+> >
+>
+>
+> --
+> Masami Hiramatsu (Google) <mhiramat@kernel.org>
+
+
+
+-- 
+Best Regards
+ Guo Ren
 
 _______________________________________________
 linux-riscv mailing list
