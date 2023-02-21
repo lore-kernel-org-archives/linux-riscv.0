@@ -4,78 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 428F5C61DA3
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Feb 2023 21:18:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87195C636D7
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Feb 2023 22:17:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Date:To:Cc:From:Subject:References:
+	In-Reply-To:MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EEzfGmS74DSonQ5bzlClWLU4M5vD4jmOQcYJqECt0QU=; b=AOxAqDUQSGlo5B
-	4M1q35x6t/TZYdyziLeCqCB+AwboHIqxQt+P8PY6HxeasQovXqxECCdnQVZK1yR/dG8/6g8NwXKtC
-	pkApROGrKfhSkX6pFi2Y8KQNeMFe9Pg7PpSvFqEQRPaVOLlmZDJ0SfhOQJcwIhHteBI5BtYiZnigJ
-	bqAbr2BiHV5D/Sq+qBq1UA5W0ha2hMFDEn+WrQVZ/Wm1cg6ZCi6TkwpyqEQp+DXLnTzLlOK4SI9iL
-	Q9SCCaP7mrZTHJtqOla+jNVu1kefqG+kdKiuVAjAzKlzhXcdIzNaGYHRSxp5qhaQqiiQ7Kuf9JxLe
-	pxGZkp4y2+ox9sUk6Fpw==;
+	List-Owner; bh=kcRv8vLoH0edR9gI7WpUbNKzmzax0JFo5Gne93JtthA=; b=UKETlG/ROWPEDI
+	eiLq04D3X8sRNWiqLjlkVTP3KklFVttfxZg6H8Q+Q/GuOd+tnuK/0oxyoaLzO+eSpwvRZnXAjz0RI
+	9vmf8Ek+mOVr2YSlKCC/6s5zyGIqUft45CTYGOKxp3GR0XIAOd64u+IS9h2WIgsDiKu/hgqc8zZTX
+	aNiIlEcIq/X6q2jHAyDa4L+Ndsuol+lIOCaK9UVj2wxqZVFV00jXI5pqUT9uNaCRbGJ96GLbZMGZp
+	3iYcFEh8TiyAb+RxMnHZbZJZJox65yDHTQL88aQbPOXxhu5Dw4YJWc2nTFF84pcZPfQV5KSTftDqp
+	3BGrUUdi2ZtyrHeO5kNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUa1K-009nZv-Cs; Tue, 21 Feb 2023 21:17:54 +0000
-Received: from mga04.intel.com ([192.55.52.120])
+	id 1pUawt-009xKZ-Ma; Tue, 21 Feb 2023 22:17:23 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUa1G-009nYu-Se
-	for linux-riscv@lists.infradead.org; Tue, 21 Feb 2023 21:17:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1677014270; x=1708550270;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=2Z8HpLXCWddG+Jt9ywudS/nE++JVzN3twAynOXAq0E0=;
-  b=l0IMtcOH4jse0jpOUPiOohylRBquJIKQ0bte0r3bE533mA58torPLbjG
-   lmBL+uMP4wqJMFljYJ9eNLjmLgAymYSKWG1mF27mfcCmLRGuxcbRNQUnk
-   c3Gw30JV5xCpVpMLKCA2Mcor4Notd6rbozYceAqr13edVqHAxGeRRh2RJ
-   jMfqWYfIkcqeTCKqnXys3P0CO1K+OQ+u9+1KUb+8Z6tYZTzH7s7S68hx5
-   LDGcs3rlOw0TMUVimHEq+mh7tJ7xernMtMuTzB21c3swBbqP3Es9O528t
-   xpODZBAfPwME9HrrXQqpHoYk3ysSzAJ4HbmdLSbu6tDzIvGX2FDLz3XVl
-   Q==;
-X-IronPort-AV: E=McAfee;i="6500,9779,10628"; a="331423416"
-X-IronPort-AV: E=Sophos;i="5.97,315,1669104000"; 
-   d="scan'208";a="331423416"
-Received: from fmsmga005.fm.intel.com ([10.253.24.32])
-  by fmsmga104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Feb 2023 13:17:47 -0800
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6500,9779,10628"; a="1000749794"
-X-IronPort-AV: E=Sophos;i="5.97,315,1669104000"; 
-   d="scan'208";a="1000749794"
-Received: from lkp-server01.sh.intel.com (HELO eac18b5d7d93) ([10.239.97.150])
-  by fmsmga005.fm.intel.com with ESMTP; 21 Feb 2023 13:17:42 -0800
-Received: from kbuild by eac18b5d7d93 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1pUa17-0000FP-1J;
-	Tue, 21 Feb 2023 21:17:41 +0000
-Date: Wed, 22 Feb 2023 05:17:23 +0800
-From: kernel test robot <lkp@intel.com>
-To: Evan Green <evan@rivosinc.com>, Palmer Dabbelt <palmer@rivosinc.com>
-Cc: oe-kbuild-all@lists.linux.dev, heiko@sntech.de,
-	Conor Dooley <conor@kernel.org>, slewis@rivosinc.com,
-	vineetg@rivosinc.com, Evan Green <evan@rivosinc.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Andrew Bresticker <abrestic@rivosinc.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Celeste Liu <coelacanthus@outlook.com>, Guo Ren <guoren@kernel.org>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 7/7] RISC-V: Add hwprobe vDSO function and data
-Message-ID: <202302220534.zLN2kaHH-lkp@intel.com>
-References: <20230221190858.3159617-8-evan@rivosinc.com>
+	id 1pUawr-009xJv-0j
+	for linux-riscv@lists.infradead.org; Tue, 21 Feb 2023 22:17:22 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 58733611E3;
+	Tue, 21 Feb 2023 22:17:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABDBFC433EF;
+	Tue, 21 Feb 2023 22:17:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1677017839;
+	bh=bs1akhKjv3J4NmgD6apUPLidQ9TEW782FUgeyLThyxA=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=C+6QWIYGa1uLXRUxWQg7WY9brhFOOPrRR8c9ih5Y6tzBubrze2OOYnpKlCp45vK4d
+	 kFhnNQqNod0heMGMtlamwIfY1Q33DssADqtXcAOYAc/O7iyaaRmwZIb/Fxvi0utuy1
+	 DkE2dL29TGy9GA80R9+GfHrQNeviPT8NQBNYrh1iWissJtOgff5AMtLpGsUl/sXZch
+	 HRJz51hvEv0wqVF+gTuD/lrmw/z/eCLzNLt7BFxJD5r5TncYdKrgfNG2tyi2Re2SIz
+	 ytkMmDBiJx62wHzB6DFj6r0ptT+huSMbu370vRq6dqKcZadSpCVaD/ChCte0A4ivVE
+	 4tuolzr56XuJw==
+Message-ID: <72953dc9371b87da8d03c63633d7d9dd.sboyd@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230221190858.3159617-8-evan@rivosinc.com>
+In-Reply-To: <Y+5z8skN2DuvxDEL@spud>
+References: <20221220005054.34518-1-hal.feng@starfivetech.com> <20221220005054.34518-8-hal.feng@starfivetech.com> <Y6JB37Pd5TZoGMy4@spud> <7a7bccb1-4d47-3d32-36e6-4aab7b5b8dad@starfivetech.com> <Y6tSWB2+98a8k9Qw@spud> <5cf0fe71-fd17-fb28-c01e-28356081ba76@starfivetech.com> <Y+5z8skN2DuvxDEL@spud>
+Subject: Re: [PATCH v3 07/11] dt-bindings: clock: Add StarFive JH7110 system clock and reset generator
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, linux-clk@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Michael Turquette <mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>, Emil Renner Berthing <emil.renner.berthing@canonical.com>, linux-kernel@vger.kernel.org
+To: Conor Dooley <conor@kernel.org>, Hal Feng <hal.feng@starfivetech.com>
+Date: Tue, 21 Feb 2023 14:17:17 -0800
+User-Agent: alot/0.10
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230221_131750_981941_E88C77B8 
-X-CRM114-Status: GOOD (  12.39  )
+X-CRM114-CacheID: sfid-20230221_141721_156843_6827D163 
+X-CRM114-Status: GOOD (  31.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,65 +71,98 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Evan,
+Quoting Conor Dooley (2023-02-16 10:20:34)
+> Hey Hal!
+> 
+> On Thu, Feb 16, 2023 at 10:42:20PM +0800, Hal Feng wrote:
+> > On Tue, 27 Dec 2022 20:15:20 +0000, Conor Dooley wrote:
+> > > On Mon, Dec 26, 2022 at 12:26:32AM +0800, Hal Feng wrote:
+> > >> On Tue, 20 Dec 2022 23:14:39 +0000, Conor Dooley wrote:
+> > >> > On Tue, Dec 20, 2022 at 08:50:50AM +0800, Hal Feng wrote:
+> > >> > > From: Emil Renner Berthing <kernel@esmil.dk>
+> > >> > > 
+> > >> > > Add bindings for the system clock and reset generator (SYSCRG) on the
+> > >> > > JH7110 RISC-V SoC by StarFive Ltd.
+> > >> > > 
+> > >> > > Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+> > >> > > Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+> > > 
+> > >> > > +  clocks:
+> > >> > > +    items:
+> > >> > > +      - description: Main Oscillator (24 MHz)
+> > >> > > +      - description: GMAC1 RMII reference
+> > >> > > +      - description: GMAC1 RGMII RX
+> > >> > > +      - description: External I2S TX bit clock
+> > >> > > +      - description: External I2S TX left/right channel clock
+> > >> > > +      - description: External I2S RX bit clock
+> > >> > > +      - description: External I2S RX left/right channel clock
+> > >> > > +      - description: External TDM clock
+> > >> > > +      - description: External audio master clock
+> > >> > 
+> > >> > So, from peeking at the clock driver & the dt - it looks like a bunch of
+> > >> > these are not actually required?
+> > >> 
+> > >> These clocks are used as root clocks or optional parent clocks in clock tree.
+> > >> Some of them are optional, but they are required if we want to describe the
+> > >> complete clock tree of JH7110 SoC.
+> > > 
+> > > Perhaps I have a misunderstand of what required means. To me, required
+> > > means "you must provide this clock for the SoC to operate in all
+> > > configurations".
+> > > Optional therefore would be for things that are needed only for some
+> > > configurations and may be omitted if not required.
+> > > 
+> > > From your comment below, boards with a JH7110 may choose not to populate
+> > > both external clock inputs to a mux. In that case, "dummy" clocks should
+> > > not have to be provided in the DT of such boards to satisfy this binding
+> > > which seems wrong to me..
 
-Thank you for the patch! Perhaps something to improve:
+I agree. We don't want there to be "dummy" clks in DT. It should never
+be required.
 
-[auto build test WARNING on shuah-kselftest/next]
-[also build test WARNING on shuah-kselftest/fixes robh/for-next soc/for-next linus/master v6.2]
-[cannot apply to next-20230221]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+> > 
+> > Please see the picture of these external clocks in clock tree.
+> > 
+> > # mount -t debugfs none /mnt
+> > # cat /mnt/clk/clk_summary
+> >                                  enable  prepare  protect                                duty  hardware
+> >    clock                          count    count    count        rate   accuracy phase  cycle    enable
+> > -------------------------------------------------------------------------------------------------------
+> >  *mclk_ext*                             0        0        0    12288000          0     0  50000         Y
+> >  *tdm_ext*                              0        0        0    49152000          0     0  50000         Y
+> >  *i2srx_lrck_ext*                       0        0        0      192000          0     0  50000         Y
+> >  *i2srx_bclk_ext*                       0        0        0    12288000          0     0  50000         Y
+> >  *i2stx_lrck_ext*                       0        0        0      192000          0     0  50000         Y
+> >  *i2stx_bclk_ext*                       0        0        0    12288000          0     0  50000         Y
+> >  *gmac1_rgmii_rxin*                     0        0        0   125000000          0     0  50000         Y
+> >     gmac1_rx                          0        0        0   125000000          0     0  50000         Y
+> >        gmac1_rx_inv                   0        0        0   125000000          0   180  50000         Y
+> >  *gmac1_rmii_refin*                     0        0        0    50000000          0     0  50000         Y
+> >     gmac1_rmii_rtx                    0        0        0    50000000          0     0  50000         Y
+> >        gmac1_tx                       0        0        0    50000000          0     0  50000         N
+> >           gmac1_tx_inv                0        0        0    50000000          0   180  50000         Y
+> >  *osc*                                  4        4        0    24000000          0     0  50000         Y
+> >     apb_func                          0        0        0    24000000          0     0  50000         Y
+> >  ...
+> > 
+> > The clock "gmac1_rgmii_rxin" and the clock "gmac1_rmii_refin" are
+> > actually used as the parent of other clocks.
+> 
+> > The "dummy" clocks
+> > you said are all internal clocks.
+> 
+> No, what I meant by "dummy" clocks is that if you make clocks "required"
+> in the binding that are not needed by the hardware for operation a
+> customer of yours might have to add "dummy" clocks to their devicetree
+> to pass dtbs_check.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Evan-Green/RISC-V-Move-struct-riscv_cpuinfo-to-new-header/20230222-031210
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/shuah/linux-kselftest.git next
-patch link:    https://lore.kernel.org/r/20230221190858.3159617-8-evan%40rivosinc.com
-patch subject: [PATCH v3 7/7] RISC-V: Add hwprobe vDSO function and data
-config: riscv-allyesconfig (https://download.01.org/0day-ci/archive/20230222/202302220534.zLN2kaHH-lkp@intel.com/config)
-compiler: riscv64-linux-gcc (GCC) 12.1.0
-reproduce (this is a W=1 build):
-        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-        chmod +x ~/bin/make.cross
-        # https://github.com/intel-lab-lkp/linux/commit/3f47f3f920ffcb37a461d04a1ee0e245451c869e
-        git remote add linux-review https://github.com/intel-lab-lkp/linux
-        git fetch --no-tags linux-review Evan-Green/RISC-V-Move-struct-riscv_cpuinfo-to-new-header/20230222-031210
-        git checkout 3f47f3f920ffcb37a461d04a1ee0e245451c869e
-        # save the config file
-        mkdir build_dir && cp config build_dir/.config
-        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.1.0 make.cross W=1 O=build_dir ARCH=riscv olddefconfig
-        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.1.0 make.cross W=1 O=build_dir ARCH=riscv prepare
-
-If you fix the issue, kindly add following tag where applicable
-| Reported-by: kernel test robot <lkp@intel.com>
-| Link: https://lore.kernel.org/oe-kbuild-all/202302220534.zLN2kaHH-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
->> arch/riscv/kernel/vdso/hwprobe.c:14:5: warning: no previous prototype for '__vdso_riscv_hwprobe' [-Wmissing-prototypes]
-      14 | int __vdso_riscv_hwprobe(struct riscv_hwprobe *pairs, long pair_count,
-         |     ^~~~~~~~~~~~~~~~~~~~
---
-   scripts/genksyms/parse.y: warning: 9 shift/reduce conflicts [-Wconflicts-sr]
-   scripts/genksyms/parse.y: warning: 5 reduce/reduce conflicts [-Wconflicts-rr]
-   scripts/genksyms/parse.y: note: rerun with option '-Wcounterexamples' to generate conflict counterexamples
->> arch/riscv/kernel/vdso/hwprobe.c:14:5: warning: no previous prototype for '__vdso_riscv_hwprobe' [-Wmissing-prototypes]
-      14 | int __vdso_riscv_hwprobe(struct riscv_hwprobe *pairs, long pair_count,
-         |     ^~~~~~~~~~~~~~~~~~~~
-
-
-vim +/__vdso_riscv_hwprobe +14 arch/riscv/kernel/vdso/hwprobe.c
-
-     9	
-    10	extern int riscv_hwprobe(struct riscv_hwprobe *pairs, long pair_count,
-    11				 long cpu_count, unsigned long *cpus,
-    12				 unsigned long flags);
-    13	
-  > 14	int __vdso_riscv_hwprobe(struct riscv_hwprobe *pairs, long pair_count,
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests
+They can set the phandle specifier to '<0>' to fill in the required
+property when there isn't anything there. If this is inside an SoC, it
+is always connected because silicon can't change after it is made
+(unless this is an FPGA). Therefore, any and all input clocks should be
+listed as required. If the clk controller has inputs that are
+pads/balls/pins on the SoC then they can be optional if a valid design
+can leave those pins not connected.
 
 _______________________________________________
 linux-riscv mailing list
