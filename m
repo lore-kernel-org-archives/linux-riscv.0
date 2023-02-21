@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97EB5C6FA9D
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Feb 2023 02:48:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05E21C61DA3
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Feb 2023 02:48:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kuAaEOr4324GKleMdyTMPGwjvBwD0+Kj4MEFdkFEt4k=; b=rz5be5o+YNnaAA
-	aXNq0+ErQ1SF/thtb2o8WpUh9kcocGGV1UPGXR3xPt+qKjXLsQV0qrV8t0vc/QeBPR5NKeCC4r14x
-	k6s5g/vHzP1vFL+erl0bxPSrdR7BMwnVLjWmTdZpERgQwRbEG60iAGF1rn5iXgkOQdc1Uty8GrPc2
-	hXpfpDAIYmwIRHPPXufXqsSZY9MrhoGpE7kbz/GhifJQYv+eDNfwqcKsFvHjAcdoDfAZVuh8oejOf
-	Bvy+CgG1wX2fYCfQKHvQgseySp25r4FV9+jXn4SumgncLywqNxUwmkiacf//m8q+JSsscBlNSIA33
-	hqB7bXUrSDqoMH5p6Beg==;
+	List-Owner; bh=TWOsxgzmh0Z+FvwMOROzHrMcAjVGxbLrTwWKPQRTdn8=; b=i/YlarZizB8BAo
+	QqXkTVfIklXMt1MGmw0x2xMLQssG8t1jyrCL8Su0stu8hxpMrYaYROKmhrQs8/EuhzC3dtBm/0/0w
+	5EGMpRH9I4qed0so8bF7YM1G4uNaN/LrEyU7h+WxMyzRn9vGpK5IG2hPYSbGgsKgR4acPQxSUbXSg
+	GqYf/ObtZ0EHyvSEw8e8Z/Slddq9i33ydLrHST0Cwqi+HlbqBAPwiUjpzKz9wNArtmDcJ6pw+7xFP
+	5ap1JnoO01CgSbhO/E9EVF+aFavIJPnb1IQ/enXvuqFfalt1A7uYSL0+QwGxMgTLt+xDUDvEZdrpT
+	wrDY86NMP1XlH5pgP+Yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUIhC-006Lmw-2t; Tue, 21 Feb 2023 02:47:58 +0000
+	id 1pUIhF-006LqX-Cz; Tue, 21 Feb 2023 02:48:01 +0000
 Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUIh5-006LLj-LY
-	for linux-riscv@lists.infradead.org; Tue, 21 Feb 2023 02:47:54 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	id 1pUIh5-006LLd-LX
+	for linux-riscv@lists.infradead.org; Tue, 21 Feb 2023 02:47:55 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 2E11724E320;
-	Tue, 21 Feb 2023 10:47:09 +0800 (CST)
-Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 21 Feb
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 2589B24E330;
+	Tue, 21 Feb 2023 10:47:08 +0800 (CST)
+Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 21 Feb
  2023 10:47:08 +0800
 Received: from localhost.localdomain (183.27.98.67) by EXMBX172.cuchost.com
  (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 21 Feb
- 2023 10:47:07 +0800
+ 2023 10:47:06 +0800
 From: Hal Feng <hal.feng@starfivetech.com>
 To: <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-riscv@lists.infradead.org>
@@ -49,9 +49,9 @@ CC: Stephen Boyd <sboyd@kernel.org>, Michael Turquette
 	Marc Zyngier <maz@kernel.org>, Emil Renner Berthing
 	<emil.renner.berthing@canonical.com>, Hal Feng <hal.feng@starfivetech.com>,
 	<linux-kernel@vger.kernel.org>
-Subject: [PATCH v4 18/19] riscv: dts: starfive: Add StarFive JH7110 pin function definitions
-Date: Tue, 21 Feb 2023 10:46:44 +0800
-Message-ID: <20230221024645.127922-19-hal.feng@starfivetech.com>
+Subject: [PATCH v4 17/19] riscv: dts: starfive: Add initial StarFive JH7110 device tree
+Date: Tue, 21 Feb 2023 10:46:43 +0800
+Message-ID: <20230221024645.127922-18-hal.feng@starfivetech.com>
 X-Mailer: git-send-email 2.38.1
 In-Reply-To: <20230221024645.127922-1-hal.feng@starfivetech.com>
 References: <20230221024645.127922-1-hal.feng@starfivetech.com>
@@ -61,8 +61,8 @@ X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX172.cuchost.com
  (172.16.6.92)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230220_184752_184572_54114086 
-X-CRM114-Status: GOOD (  12.72  )
+X-CRM114-CacheID: sfid-20230220_184752_195541_12F187E8 
+X-CRM114-Status: GOOD (  11.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,333 +79,534 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Jianlong Huang <jianlong.huang@starfivetech.com>
+From: Emil Renner Berthing <kernel@esmil.dk>
 
-Add pin function definitions for StarFive JH7110 SoC.
+Add initial device tree for the JH7110 RISC-V SoC by StarFive
+Technology Ltd.
 
-Co-developed-by: Emil Renner Berthing <kernel@esmil.dk>
 Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+Co-developed-by: Jianlong Huang <jianlong.huang@starfivetech.com>
 Signed-off-by: Jianlong Huang <jianlong.huang@starfivetech.com>
+Co-developed-by: Hal Feng <hal.feng@starfivetech.com>
 Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
 ---
- arch/riscv/boot/dts/starfive/jh7110-pinfunc.h | 308 ++++++++++++++++++
- 1 file changed, 308 insertions(+)
- create mode 100644 arch/riscv/boot/dts/starfive/jh7110-pinfunc.h
+ arch/riscv/boot/dts/starfive/jh7110.dtsi | 507 +++++++++++++++++++++++
+ 1 file changed, 507 insertions(+)
+ create mode 100644 arch/riscv/boot/dts/starfive/jh7110.dtsi
 
-diff --git a/arch/riscv/boot/dts/starfive/jh7110-pinfunc.h b/arch/riscv/boot/dts/starfive/jh7110-pinfunc.h
+diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
 new file mode 100644
-index 000000000000..fb0139b56723
+index 000000000000..5a892b3320e5
 --- /dev/null
-+++ b/arch/riscv/boot/dts/starfive/jh7110-pinfunc.h
-@@ -0,0 +1,308 @@
-+/* SPDX-License-Identifier: GPL-2.0 OR MIT */
++++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+@@ -0,0 +1,507 @@
++// SPDX-License-Identifier: GPL-2.0 OR MIT
 +/*
-+ * Copyright (C) 2022 Emil Renner Berthing <kernel@esmil.dk>
 + * Copyright (C) 2022 StarFive Technology Co., Ltd.
++ * Copyright (C) 2022 Emil Renner Berthing <kernel@esmil.dk>
 + */
 +
-+#ifndef __JH7110_PINFUNC_H__
-+#define __JH7110_PINFUNC_H__
++/dts-v1/;
++#include <dt-bindings/clock/starfive,jh7110-crg.h>
++#include <dt-bindings/reset/starfive,jh7110-crg.h>
 +
-+/*
-+ * mux bits:
-+ *  | 31 - 24 | 23 - 16 | 15 - 10 |  9 - 8   |  7 - 0  |
-+ *  |  din    |  dout   |  doen   | function | gpio nr |
-+ *
-+ * dout:     output signal
-+ * doen:     output enable signal
-+ * din:      optional input signal, 0xff = none
-+ * function: function selector
-+ * gpio nr:  gpio number, 0 - 63
-+ */
-+#define GPIOMUX(n, dout, doen, din) ( \
-+		(((din)  & 0xff) << 24) | \
-+		(((dout) & 0xff) << 16) | \
-+		(((doen) & 0x3f) << 10) | \
-+		((n) & 0x3f))
++/ {
++	compatible = "starfive,jh7110";
++	#address-cells = <2>;
++	#size-cells = <2>;
 +
-+#define PINMUX(n, func) ((1 << 10) | (((func) & 0x3) << 8) | ((n) & 0xff))
++	cpus {
++		#address-cells = <1>;
++		#size-cells = <0>;
 +
-+/* sys_iomux dout */
-+#define GPOUT_LOW				0
-+#define GPOUT_HIGH				1
-+#define GPOUT_SYS_WAVE511_UART_TX		2
-+#define GPOUT_SYS_CAN0_STBY			3
-+#define GPOUT_SYS_CAN0_TST_NEXT_BIT		4
-+#define GPOUT_SYS_CAN0_TST_SAMPLE_POINT		5
-+#define GPOUT_SYS_CAN0_TXD			6
-+#define GPOUT_SYS_USB_DRIVE_VBUS		7
-+#define GPOUT_SYS_QSPI_CS1			8
-+#define GPOUT_SYS_SPDIF				9
-+#define GPOUT_SYS_HDMI_CEC_SDA			10
-+#define GPOUT_SYS_HDMI_DDC_SCL			11
-+#define GPOUT_SYS_HDMI_DDC_SDA			12
-+#define GPOUT_SYS_WATCHDOG			13
-+#define GPOUT_SYS_I2C0_CLK			14
-+#define GPOUT_SYS_I2C0_DATA			15
-+#define GPOUT_SYS_SDIO0_BACK_END_POWER		16
-+#define GPOUT_SYS_SDIO0_CARD_POWER_EN		17
-+#define GPOUT_SYS_SDIO0_CCMD_OD_PULLUP_EN	18
-+#define GPOUT_SYS_SDIO0_RST			19
-+#define GPOUT_SYS_UART0_TX			20
-+#define GPOUT_SYS_HIFI4_JTAG_TDO		21
-+#define GPOUT_SYS_JTAG_TDO			22
-+#define GPOUT_SYS_PDM_MCLK			23
-+#define GPOUT_SYS_PWM_CHANNEL0			24
-+#define GPOUT_SYS_PWM_CHANNEL1			25
-+#define GPOUT_SYS_PWM_CHANNEL2			26
-+#define GPOUT_SYS_PWM_CHANNEL3			27
-+#define GPOUT_SYS_PWMDAC_LEFT			28
-+#define GPOUT_SYS_PWMDAC_RIGHT			29
-+#define GPOUT_SYS_SPI0_CLK			30
-+#define GPOUT_SYS_SPI0_FSS			31
-+#define GPOUT_SYS_SPI0_TXD			32
-+#define GPOUT_SYS_GMAC_PHYCLK			33
-+#define GPOUT_SYS_I2SRX_BCLK			34
-+#define GPOUT_SYS_I2SRX_LRCK			35
-+#define GPOUT_SYS_I2STX0_BCLK			36
-+#define GPOUT_SYS_I2STX0_LRCK			37
-+#define GPOUT_SYS_MCLK				38
-+#define GPOUT_SYS_TDM_CLK			39
-+#define GPOUT_SYS_TDM_SYNC			40
-+#define GPOUT_SYS_TDM_TXD			41
-+#define GPOUT_SYS_TRACE_DATA0			42
-+#define GPOUT_SYS_TRACE_DATA1			43
-+#define GPOUT_SYS_TRACE_DATA2			44
-+#define GPOUT_SYS_TRACE_DATA3			45
-+#define GPOUT_SYS_TRACE_REF			46
-+#define GPOUT_SYS_CAN1_STBY			47
-+#define GPOUT_SYS_CAN1_TST_NEXT_BIT		48
-+#define GPOUT_SYS_CAN1_TST_SAMPLE_POINT		49
-+#define GPOUT_SYS_CAN1_TXD			50
-+#define GPOUT_SYS_I2C1_CLK			51
-+#define GPOUT_SYS_I2C1_DATA			52
-+#define GPOUT_SYS_SDIO1_BACK_END_POWER		53
-+#define GPOUT_SYS_SDIO1_CARD_POWER_EN		54
-+#define GPOUT_SYS_SDIO1_CLK			55
-+#define GPOUT_SYS_SDIO1_CMD_OD_PULLUP_EN	56
-+#define GPOUT_SYS_SDIO1_CMD			57
-+#define GPOUT_SYS_SDIO1_DATA0			58
-+#define GPOUT_SYS_SDIO1_DATA1			59
-+#define GPOUT_SYS_SDIO1_DATA2			60
-+#define GPOUT_SYS_SDIO1_DATA3			61
-+#define GPOUT_SYS_SDIO1_DATA4			63
-+#define GPOUT_SYS_SDIO1_DATA5			63
-+#define GPOUT_SYS_SDIO1_DATA6			64
-+#define GPOUT_SYS_SDIO1_DATA7			65
-+#define GPOUT_SYS_SDIO1_RST			66
-+#define GPOUT_SYS_UART1_RTS			67
-+#define GPOUT_SYS_UART1_TX			68
-+#define GPOUT_SYS_I2STX1_SDO0			69
-+#define GPOUT_SYS_I2STX1_SDO1			70
-+#define GPOUT_SYS_I2STX1_SDO2			71
-+#define GPOUT_SYS_I2STX1_SDO3			72
-+#define GPOUT_SYS_SPI1_CLK			73
-+#define GPOUT_SYS_SPI1_FSS			74
-+#define GPOUT_SYS_SPI1_TXD			75
-+#define GPOUT_SYS_I2C2_CLK			76
-+#define GPOUT_SYS_I2C2_DATA			77
-+#define GPOUT_SYS_UART2_RTS			78
-+#define GPOUT_SYS_UART2_TX			79
-+#define GPOUT_SYS_SPI2_CLK			80
-+#define GPOUT_SYS_SPI2_FSS			81
-+#define GPOUT_SYS_SPI2_TXD			82
-+#define GPOUT_SYS_I2C3_CLK			83
-+#define GPOUT_SYS_I2C3_DATA			84
-+#define GPOUT_SYS_UART3_TX			85
-+#define GPOUT_SYS_SPI3_CLK			86
-+#define GPOUT_SYS_SPI3_FSS			87
-+#define GPOUT_SYS_SPI3_TXD			88
-+#define GPOUT_SYS_I2C4_CLK			89
-+#define GPOUT_SYS_I2C4_DATA			90
-+#define GPOUT_SYS_UART4_RTS			91
-+#define GPOUT_SYS_UART4_TX			92
-+#define GPOUT_SYS_SPI4_CLK			93
-+#define GPOUT_SYS_SPI4_FSS			94
-+#define GPOUT_SYS_SPI4_TXD			95
-+#define GPOUT_SYS_I2C5_CLK			96
-+#define GPOUT_SYS_I2C5_DATA			97
-+#define GPOUT_SYS_UART5_RTS			98
-+#define GPOUT_SYS_UART5_TX			99
-+#define GPOUT_SYS_SPI5_CLK			100
-+#define GPOUT_SYS_SPI5_FSS			101
-+#define GPOUT_SYS_SPI5_TXD			102
-+#define GPOUT_SYS_I2C6_CLK			103
-+#define GPOUT_SYS_I2C6_DATA			104
-+#define GPOUT_SYS_SPI6_CLK			105
-+#define GPOUT_SYS_SPI6_FSS			106
-+#define GPOUT_SYS_SPI6_TXD			107
++		S7_0: cpu@0 {
++			compatible = "sifive,s7", "riscv";
++			reg = <0>;
++			d-cache-block-size = <64>;
++			d-cache-sets = <64>;
++			d-cache-size = <8192>;
++			d-tlb-sets = <1>;
++			d-tlb-size = <40>;
++			device_type = "cpu";
++			i-cache-block-size = <64>;
++			i-cache-sets = <64>;
++			i-cache-size = <16384>;
++			i-tlb-sets = <1>;
++			i-tlb-size = <40>;
++			mmu-type = "riscv,sv39";
++			next-level-cache = <&ccache>;
++			riscv,isa = "rv64imac_zicsr_zba_zbb";
++			tlb-split;
++			status = "disabled";
 +
-+/* aon_iomux dout */
-+#define GPOUT_AON_CLK_32K_OUT			2
-+#define GPOUT_AON_PTC0_PWM4			3
-+#define GPOUT_AON_PTC0_PWM5			4
-+#define GPOUT_AON_PTC0_PWM6			5
-+#define GPOUT_AON_PTC0_PWM7			6
-+#define GPOUT_AON_CLK_GCLK0			7
-+#define GPOUT_AON_CLK_GCLK1			8
-+#define GPOUT_AON_CLK_GCLK2			9
++			cpu0_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
 +
-+/* sys_iomux doen */
-+#define GPOEN_ENABLE				0
-+#define GPOEN_DISABLE				1
-+#define GPOEN_SYS_HDMI_CEC_SDA			2
-+#define GPOEN_SYS_HDMI_DDC_SCL			3
-+#define GPOEN_SYS_HDMI_DDC_SDA			4
-+#define GPOEN_SYS_I2C0_CLK			5
-+#define GPOEN_SYS_I2C0_DATA			6
-+#define GPOEN_SYS_HIFI4_JTAG_TDO		7
-+#define GPOEN_SYS_JTAG_TDO			8
-+#define GPOEN_SYS_PWM0_CHANNEL0			9
-+#define GPOEN_SYS_PWM0_CHANNEL1			10
-+#define GPOEN_SYS_PWM0_CHANNEL2			11
-+#define GPOEN_SYS_PWM0_CHANNEL3			12
-+#define GPOEN_SYS_SPI0_NSSPCTL			13
-+#define GPOEN_SYS_SPI0_NSSP			14
-+#define GPOEN_SYS_TDM_SYNC			15
-+#define GPOEN_SYS_TDM_TXD			16
-+#define GPOEN_SYS_I2C1_CLK			17
-+#define GPOEN_SYS_I2C1_DATA			18
-+#define GPOEN_SYS_SDIO1_CMD			19
-+#define GPOEN_SYS_SDIO1_DATA0			20
-+#define GPOEN_SYS_SDIO1_DATA1			21
-+#define GPOEN_SYS_SDIO1_DATA2			22
-+#define GPOEN_SYS_SDIO1_DATA3			23
-+#define GPOEN_SYS_SDIO1_DATA4			24
-+#define GPOEN_SYS_SDIO1_DATA5			25
-+#define GPOEN_SYS_SDIO1_DATA6			26
-+#define GPOEN_SYS_SDIO1_DATA7			27
-+#define GPOEN_SYS_SPI1_NSSPCTL			28
-+#define GPOEN_SYS_SPI1_NSSP			29
-+#define GPOEN_SYS_I2C2_CLK			30
-+#define GPOEN_SYS_I2C2_DATA			31
-+#define GPOEN_SYS_SPI2_NSSPCTL			32
-+#define GPOEN_SYS_SPI2_NSSP			33
-+#define GPOEN_SYS_I2C3_CLK			34
-+#define GPOEN_SYS_I2C3_DATA			35
-+#define GPOEN_SYS_SPI3_NSSPCTL			36
-+#define GPOEN_SYS_SPI3_NSSP			37
-+#define GPOEN_SYS_I2C4_CLK			38
-+#define GPOEN_SYS_I2C4_DATA			39
-+#define GPOEN_SYS_SPI4_NSSPCTL			40
-+#define GPOEN_SYS_SPI4_NSSP			41
-+#define GPOEN_SYS_I2C5_CLK			42
-+#define GPOEN_SYS_I2C5_DATA			43
-+#define GPOEN_SYS_SPI5_NSSPCTL			44
-+#define GPOEN_SYS_SPI5_NSSP			45
-+#define GPOEN_SYS_I2C6_CLK			46
-+#define GPOEN_SYS_I2C6_DATA			47
-+#define GPOEN_SYS_SPI6_NSSPCTL			48
-+#define GPOEN_SYS_SPI6_NSSP			49
++		U74_1: cpu@1 {
++			compatible = "sifive,u74-mc", "riscv";
++			reg = <1>;
++			d-cache-block-size = <64>;
++			d-cache-sets = <64>;
++			d-cache-size = <32768>;
++			d-tlb-sets = <1>;
++			d-tlb-size = <40>;
++			device_type = "cpu";
++			i-cache-block-size = <64>;
++			i-cache-sets = <64>;
++			i-cache-size = <32768>;
++			i-tlb-sets = <1>;
++			i-tlb-size = <40>;
++			mmu-type = "riscv,sv39";
++			next-level-cache = <&ccache>;
++			riscv,isa = "rv64imafdc_zicsr_zba_zbb";
++			tlb-split;
 +
-+/* aon_iomux doen */
-+#define GPOEN_AON_PTC0_OE_N_4			2
-+#define GPOEN_AON_PTC0_OE_N_5			3
-+#define GPOEN_AON_PTC0_OE_N_6			4
-+#define GPOEN_AON_PTC0_OE_N_7			5
++			cpu1_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
 +
-+/* sys_iomux gin */
-+#define GPI_NONE				255
++		U74_2: cpu@2 {
++			compatible = "sifive,u74-mc", "riscv";
++			reg = <2>;
++			d-cache-block-size = <64>;
++			d-cache-sets = <64>;
++			d-cache-size = <32768>;
++			d-tlb-sets = <1>;
++			d-tlb-size = <40>;
++			device_type = "cpu";
++			i-cache-block-size = <64>;
++			i-cache-sets = <64>;
++			i-cache-size = <32768>;
++			i-tlb-sets = <1>;
++			i-tlb-size = <40>;
++			mmu-type = "riscv,sv39";
++			next-level-cache = <&ccache>;
++			riscv,isa = "rv64imafdc_zicsr_zba_zbb";
++			tlb-split;
 +
-+#define GPI_SYS_WAVE511_UART_RX			0
-+#define GPI_SYS_CAN0_RXD			1
-+#define GPI_SYS_USB_OVERCURRENT			2
-+#define GPI_SYS_SPDIF				3
-+#define GPI_SYS_JTAG_RST			4
-+#define GPI_SYS_HDMI_CEC_SDA			5
-+#define GPI_SYS_HDMI_DDC_SCL			6
-+#define GPI_SYS_HDMI_DDC_SDA			7
-+#define GPI_SYS_HDMI_HPD			8
-+#define GPI_SYS_I2C0_CLK			9
-+#define GPI_SYS_I2C0_DATA			10
-+#define GPI_SYS_SDIO0_CD			11
-+#define GPI_SYS_SDIO0_INT			12
-+#define GPI_SYS_SDIO0_WP			13
-+#define GPI_SYS_UART0_RX			14
-+#define GPI_SYS_HIFI4_JTAG_TCK			15
-+#define GPI_SYS_HIFI4_JTAG_TDI			16
-+#define GPI_SYS_HIFI4_JTAG_TMS			17
-+#define GPI_SYS_HIFI4_JTAG_RST			18
-+#define GPI_SYS_JTAG_TDI			19
-+#define GPI_SYS_JTAG_TMS			20
-+#define GPI_SYS_PDM_DMIC0			21
-+#define GPI_SYS_PDM_DMIC1			22
-+#define GPI_SYS_I2SRX_SDIN0			23
-+#define GPI_SYS_I2SRX_SDIN1			24
-+#define GPI_SYS_I2SRX_SDIN2			25
-+#define GPI_SYS_SPI0_CLK			26
-+#define GPI_SYS_SPI0_FSS			27
-+#define GPI_SYS_SPI0_RXD			28
-+#define GPI_SYS_JTAG_TCK			29
-+#define GPI_SYS_MCLK_EXT			30
-+#define GPI_SYS_I2SRX_BCLK			31
-+#define GPI_SYS_I2SRX_LRCK			32
-+#define GPI_SYS_I2STX0_BCLK			33
-+#define GPI_SYS_I2STX0_LRCK			34
-+#define GPI_SYS_TDM_CLK				35
-+#define GPI_SYS_TDM_RXD				36
-+#define GPI_SYS_TDM_SYNC			37
-+#define GPI_SYS_CAN1_RXD			38
-+#define GPI_SYS_I2C1_CLK			39
-+#define GPI_SYS_I2C1_DATA			40
-+#define GPI_SYS_SDIO1_CD			41
-+#define GPI_SYS_SDIO1_INT			42
-+#define GPI_SYS_SDIO1_WP			43
-+#define GPI_SYS_SDIO1_CMD			44
-+#define GPI_SYS_SDIO1_DATA0			45
-+#define GPI_SYS_SDIO1_DATA1			46
-+#define GPI_SYS_SDIO1_DATA2			47
-+#define GPI_SYS_SDIO1_DATA3			48
-+#define GPI_SYS_SDIO1_DATA4			49
-+#define GPI_SYS_SDIO1_DATA5			50
-+#define GPI_SYS_SDIO1_DATA6			51
-+#define GPI_SYS_SDIO1_DATA7			52
-+#define GPI_SYS_SDIO1_STRB			53
-+#define GPI_SYS_UART1_CTS			54
-+#define GPI_SYS_UART1_RX			55
-+#define GPI_SYS_SPI1_CLK			56
-+#define GPI_SYS_SPI1_FSS			57
-+#define GPI_SYS_SPI1_RXD			58
-+#define GPI_SYS_I2C2_CLK			59
-+#define GPI_SYS_I2C2_DATA			60
-+#define GPI_SYS_UART2_CTS			61
-+#define GPI_SYS_UART2_RX			62
-+#define GPI_SYS_SPI2_CLK			63
-+#define GPI_SYS_SPI2_FSS			64
-+#define GPI_SYS_SPI2_RXD			65
-+#define GPI_SYS_I2C3_CLK			66
-+#define GPI_SYS_I2C3_DATA			67
-+#define GPI_SYS_UART3_RX			68
-+#define GPI_SYS_SPI3_CLK			69
-+#define GPI_SYS_SPI3_FSS			70
-+#define GPI_SYS_SPI3_RXD			71
-+#define GPI_SYS_I2C4_CLK			72
-+#define GPI_SYS_I2C4_DATA			73
-+#define GPI_SYS_UART4_CTS			74
-+#define GPI_SYS_UART4_RX			75
-+#define GPI_SYS_SPI4_CLK			76
-+#define GPI_SYS_SPI4_FSS			77
-+#define GPI_SYS_SPI4_RXD			78
-+#define GPI_SYS_I2C5_CLK			79
-+#define GPI_SYS_I2C5_DATA			80
-+#define GPI_SYS_UART5_CTS			81
-+#define GPI_SYS_UART5_RX			82
-+#define GPI_SYS_SPI5_CLK			83
-+#define GPI_SYS_SPI5_FSS			84
-+#define GPI_SYS_SPI5_RXD			85
-+#define GPI_SYS_I2C6_CLK			86
-+#define GPI_SYS_I2C6_DATA			87
-+#define GPI_SYS_SPI6_CLK			88
-+#define GPI_SYS_SPI6_FSS			89
-+#define GPI_SYS_SPI6_RXD			90
++			cpu2_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
 +
-+/* aon_iomux gin */
-+#define GPI_AON_PMU_GPIO_WAKEUP_0		0
-+#define GPI_AON_PMU_GPIO_WAKEUP_1		1
-+#define GPI_AON_PMU_GPIO_WAKEUP_2		2
-+#define GPI_AON_PMU_GPIO_WAKEUP_3		3
++		U74_3: cpu@3 {
++			compatible = "sifive,u74-mc", "riscv";
++			reg = <3>;
++			d-cache-block-size = <64>;
++			d-cache-sets = <64>;
++			d-cache-size = <32768>;
++			d-tlb-sets = <1>;
++			d-tlb-size = <40>;
++			device_type = "cpu";
++			i-cache-block-size = <64>;
++			i-cache-sets = <64>;
++			i-cache-size = <32768>;
++			i-tlb-sets = <1>;
++			i-tlb-size = <40>;
++			mmu-type = "riscv,sv39";
++			next-level-cache = <&ccache>;
++			riscv,isa = "rv64imafdc_zicsr_zba_zbb";
++			tlb-split;
 +
-+#endif
++			cpu3_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		U74_4: cpu@4 {
++			compatible = "sifive,u74-mc", "riscv";
++			reg = <4>;
++			d-cache-block-size = <64>;
++			d-cache-sets = <64>;
++			d-cache-size = <32768>;
++			d-tlb-sets = <1>;
++			d-tlb-size = <40>;
++			device_type = "cpu";
++			i-cache-block-size = <64>;
++			i-cache-sets = <64>;
++			i-cache-size = <32768>;
++			i-tlb-sets = <1>;
++			i-tlb-size = <40>;
++			mmu-type = "riscv,sv39";
++			next-level-cache = <&ccache>;
++			riscv,isa = "rv64imafdc_zicsr_zba_zbb";
++			tlb-split;
++
++			cpu4_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu-map {
++			cluster0 {
++				core0 {
++					cpu = <&S7_0>;
++				};
++
++				core1 {
++					cpu = <&U74_1>;
++				};
++
++				core2 {
++					cpu = <&U74_2>;
++				};
++
++				core3 {
++					cpu = <&U74_3>;
++				};
++
++				core4 {
++					cpu = <&U74_4>;
++				};
++			};
++		};
++	};
++
++	osc: oscillator {
++		compatible = "fixed-clock";
++		clock-output-names = "osc";
++		#clock-cells = <0>;
++	};
++
++	rtc_osc: rtc-oscillator {
++		compatible = "fixed-clock";
++		clock-output-names = "rtc_osc";
++		#clock-cells = <0>;
++	};
++
++	gmac0_rmii_refin: gmac0-rmii-refin-clock {
++		compatible = "fixed-clock";
++		clock-output-names = "gmac0_rmii_refin";
++		#clock-cells = <0>;
++	};
++
++	gmac0_rgmii_rxin: gmac0-rgmii-rxin-clock {
++		compatible = "fixed-clock";
++		clock-output-names = "gmac0_rgmii_rxin";
++		#clock-cells = <0>;
++	};
++
++	gmac1_rmii_refin: gmac1-rmii-refin-clock {
++		compatible = "fixed-clock";
++		clock-output-names = "gmac1_rmii_refin";
++		#clock-cells = <0>;
++	};
++
++	gmac1_rgmii_rxin: gmac1-rgmii-rxin-clock {
++		compatible = "fixed-clock";
++		clock-output-names = "gmac1_rgmii_rxin";
++		#clock-cells = <0>;
++	};
++
++	i2stx_bclk_ext: i2stx-bclk-ext-clock {
++		compatible = "fixed-clock";
++		clock-output-names = "i2stx_bclk_ext";
++		#clock-cells = <0>;
++	};
++
++	i2stx_lrck_ext: i2stx-lrck-ext-clock {
++		compatible = "fixed-clock";
++		clock-output-names = "i2stx_lrck_ext";
++		#clock-cells = <0>;
++	};
++
++	i2srx_bclk_ext: i2srx-bclk-ext-clock {
++		compatible = "fixed-clock";
++		clock-output-names = "i2srx_bclk_ext";
++		#clock-cells = <0>;
++	};
++
++	i2srx_lrck_ext: i2srx-lrck-ext-clock {
++		compatible = "fixed-clock";
++		clock-output-names = "i2srx_lrck_ext";
++		#clock-cells = <0>;
++	};
++
++	tdm_ext: tdm-ext-clock {
++		compatible = "fixed-clock";
++		clock-output-names = "tdm_ext";
++		#clock-cells = <0>;
++	};
++
++	mclk_ext: mclk-ext-clock {
++		compatible = "fixed-clock";
++		clock-output-names = "mclk_ext";
++		#clock-cells = <0>;
++	};
++
++	soc {
++		compatible = "simple-bus";
++		interrupt-parent = <&plic>;
++		#address-cells = <2>;
++		#size-cells = <2>;
++		ranges;
++
++		clint: timer@2000000 {
++			compatible = "starfive,jh7110-clint", "sifive,clint0";
++			reg = <0x0 0x2000000 0x0 0x10000>;
++			interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>,
++					      <&cpu1_intc 3>, <&cpu1_intc 7>,
++					      <&cpu2_intc 3>, <&cpu2_intc 7>,
++					      <&cpu3_intc 3>, <&cpu3_intc 7>,
++					      <&cpu4_intc 3>, <&cpu4_intc 7>;
++		};
++
++		plic: interrupt-controller@c000000 {
++			compatible = "starfive,jh7110-plic", "sifive,plic-1.0.0";
++			reg = <0x0 0xc000000 0x0 0x4000000>;
++			interrupts-extended = <&cpu0_intc 11>,
++					      <&cpu1_intc 11>, <&cpu1_intc 9>,
++					      <&cpu2_intc 11>, <&cpu2_intc 9>,
++					      <&cpu3_intc 11>, <&cpu3_intc 9>,
++					      <&cpu4_intc 11>, <&cpu4_intc 9>;
++			interrupt-controller;
++			#interrupt-cells = <1>;
++			#address-cells = <0>;
++			riscv,ndev = <136>;
++		};
++
++		ccache: cache-controller@2010000 {
++			compatible = "starfive,jh7110-ccache", "sifive,ccache0", "cache";
++			reg = <0x0 0x2010000 0x0 0x4000>;
++			interrupts = <1>, <3>, <4>, <2>;
++			cache-block-size = <64>;
++			cache-level = <2>;
++			cache-sets = <2048>;
++			cache-size = <2097152>;
++			cache-unified;
++		};
++
++		uart0: serial@10000000 {
++			compatible = "snps,dw-apb-uart";
++			reg = <0x0 0x10000000 0x0 0x10000>;
++			clocks = <&syscrg JH7110_SYSCLK_UART0_CORE>,
++				 <&syscrg JH7110_SYSCLK_UART0_APB>;
++			clock-names = "baudclk", "apb_pclk";
++			resets = <&syscrg JH7110_SYSRST_UART0_APB>;
++			interrupts = <32>;
++			reg-io-width = <4>;
++			reg-shift = <2>;
++			status = "disabled";
++		};
++
++		uart1: serial@10010000 {
++			compatible = "snps,dw-apb-uart";
++			reg = <0x0 0x10010000 0x0 0x10000>;
++			clocks = <&syscrg JH7110_SYSCLK_UART1_CORE>,
++				 <&syscrg JH7110_SYSCLK_UART1_APB>;
++			clock-names = "baudclk", "apb_pclk";
++			resets = <&syscrg JH7110_SYSRST_UART1_APB>;
++			interrupts = <33>;
++			reg-io-width = <4>;
++			reg-shift = <2>;
++			status = "disabled";
++		};
++
++		uart2: serial@10020000 {
++			compatible = "snps,dw-apb-uart";
++			reg = <0x0 0x10020000 0x0 0x10000>;
++			clocks = <&syscrg JH7110_SYSCLK_UART2_CORE>,
++				 <&syscrg JH7110_SYSCLK_UART2_APB>;
++			clock-names = "baudclk", "apb_pclk";
++			resets = <&syscrg JH7110_SYSRST_UART2_APB>;
++			interrupts = <34>;
++			reg-io-width = <4>;
++			reg-shift = <2>;
++			status = "disabled";
++		};
++
++		i2c0: i2c@10030000 {
++			compatible = "snps,designware-i2c";
++			reg = <0x0 0x10030000 0x0 0x10000>;
++			clocks = <&syscrg JH7110_SYSCLK_I2C0_APB>;
++			clock-names = "ref";
++			resets = <&syscrg JH7110_SYSRST_I2C0_APB>;
++			interrupts = <35>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++
++		i2c1: i2c@10040000 {
++			compatible = "snps,designware-i2c";
++			reg = <0x0 0x10040000 0x0 0x10000>;
++			clocks = <&syscrg JH7110_SYSCLK_I2C1_APB>;
++			clock-names = "ref";
++			resets = <&syscrg JH7110_SYSRST_I2C1_APB>;
++			interrupts = <36>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++
++		i2c2: i2c@10050000 {
++			compatible = "snps,designware-i2c";
++			reg = <0x0 0x10050000 0x0 0x10000>;
++			clocks = <&syscrg JH7110_SYSCLK_I2C2_APB>;
++			clock-names = "ref";
++			resets = <&syscrg JH7110_SYSRST_I2C2_APB>;
++			interrupts = <37>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++
++		uart3: serial@12000000 {
++			compatible = "snps,dw-apb-uart";
++			reg = <0x0 0x12000000 0x0 0x10000>;
++			clocks = <&syscrg JH7110_SYSCLK_UART3_CORE>,
++				 <&syscrg JH7110_SYSCLK_UART3_APB>;
++			clock-names = "baudclk", "apb_pclk";
++			resets = <&syscrg JH7110_SYSRST_UART3_APB>;
++			interrupts = <45>;
++			reg-io-width = <4>;
++			reg-shift = <2>;
++			status = "disabled";
++		};
++
++		uart4: serial@12010000 {
++			compatible = "snps,dw-apb-uart";
++			reg = <0x0 0x12010000 0x0 0x10000>;
++			clocks = <&syscrg JH7110_SYSCLK_UART4_CORE>,
++				 <&syscrg JH7110_SYSCLK_UART4_APB>;
++			clock-names = "baudclk", "apb_pclk";
++			resets = <&syscrg JH7110_SYSRST_UART4_APB>;
++			interrupts = <46>;
++			reg-io-width = <4>;
++			reg-shift = <2>;
++			status = "disabled";
++		};
++
++		uart5: serial@12020000 {
++			compatible = "snps,dw-apb-uart";
++			reg = <0x0 0x12020000 0x0 0x10000>;
++			clocks = <&syscrg JH7110_SYSCLK_UART5_CORE>,
++				 <&syscrg JH7110_SYSCLK_UART5_APB>;
++			clock-names = "baudclk", "apb_pclk";
++			resets = <&syscrg JH7110_SYSRST_UART5_APB>;
++			interrupts = <47>;
++			reg-io-width = <4>;
++			reg-shift = <2>;
++			status = "disabled";
++		};
++
++		i2c3: i2c@12030000 {
++			compatible = "snps,designware-i2c";
++			reg = <0x0 0x12030000 0x0 0x10000>;
++			clocks = <&syscrg JH7110_SYSCLK_I2C3_APB>;
++			clock-names = "ref";
++			resets = <&syscrg JH7110_SYSRST_I2C3_APB>;
++			interrupts = <48>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++
++		i2c4: i2c@12040000 {
++			compatible = "snps,designware-i2c";
++			reg = <0x0 0x12040000 0x0 0x10000>;
++			clocks = <&syscrg JH7110_SYSCLK_I2C4_APB>;
++			clock-names = "ref";
++			resets = <&syscrg JH7110_SYSRST_I2C4_APB>;
++			interrupts = <49>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++
++		i2c5: i2c@12050000 {
++			compatible = "snps,designware-i2c";
++			reg = <0x0 0x12050000 0x0 0x10000>;
++			clocks = <&syscrg JH7110_SYSCLK_I2C5_APB>;
++			clock-names = "ref";
++			resets = <&syscrg JH7110_SYSRST_I2C5_APB>;
++			interrupts = <50>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++
++		i2c6: i2c@12060000 {
++			compatible = "snps,designware-i2c";
++			reg = <0x0 0x12060000 0x0 0x10000>;
++			clocks = <&syscrg JH7110_SYSCLK_I2C6_APB>;
++			clock-names = "ref";
++			resets = <&syscrg JH7110_SYSRST_I2C6_APB>;
++			interrupts = <51>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++
++		syscrg: clock-controller@13020000 {
++			compatible = "starfive,jh7110-syscrg";
++			reg = <0x0 0x13020000 0x0 0x10000>;
++			clocks = <&osc>, <&gmac1_rmii_refin>,
++				 <&gmac1_rgmii_rxin>,
++				 <&i2stx_bclk_ext>, <&i2stx_lrck_ext>,
++				 <&i2srx_bclk_ext>, <&i2srx_lrck_ext>,
++				 <&tdm_ext>, <&mclk_ext>;
++			clock-names = "osc", "gmac1_rmii_refin",
++				      "gmac1_rgmii_rxin",
++				      "i2stx_bclk_ext", "i2stx_lrck_ext",
++				      "i2srx_bclk_ext", "i2srx_lrck_ext",
++				      "tdm_ext", "mclk_ext";
++			#clock-cells = <1>;
++			#reset-cells = <1>;
++		};
++
++		sysgpio: pinctrl@13040000 {
++			compatible = "starfive,jh7110-sys-pinctrl";
++			reg = <0x0 0x13040000 0x0 0x10000>;
++			clocks = <&syscrg JH7110_SYSCLK_IOMUX_APB>;
++			resets = <&syscrg JH7110_SYSRST_IOMUX_APB>;
++			interrupts = <86>;
++			interrupt-controller;
++			#interrupt-cells = <2>;
++			gpio-controller;
++			#gpio-cells = <2>;
++		};
++
++		aoncrg: clock-controller@17000000 {
++			compatible = "starfive,jh7110-aoncrg";
++			reg = <0x0 0x17000000 0x0 0x10000>;
++			clocks = <&osc>, <&rtc_osc>,
++				 <&gmac0_rmii_refin>, <&gmac0_rgmii_rxin>,
++				 <&syscrg JH7110_SYSCLK_STG_AXIAHB>,
++				 <&syscrg JH7110_SYSCLK_APB_BUS>,
++				 <&syscrg JH7110_SYSCLK_GMAC0_GTXCLK>;
++			clock-names = "osc", "rtc_osc", "gmac0_rmii_refin",
++				      "gmac0_rgmii_rxin", "stg_axiahb",
++				      "apb_bus", "gmac0_gtxclk";
++			#clock-cells = <1>;
++			#reset-cells = <1>;
++		};
++
++		aongpio: pinctrl@17020000 {
++			compatible = "starfive,jh7110-aon-pinctrl";
++			reg = <0x0 0x17020000 0x0 0x10000>;
++			resets = <&aoncrg JH7110_AONRST_IOMUX>;
++			interrupts = <85>;
++			interrupt-controller;
++			#interrupt-cells = <2>;
++			gpio-controller;
++			#gpio-cells = <2>;
++		};
++	};
++};
 -- 
 2.38.1
 
