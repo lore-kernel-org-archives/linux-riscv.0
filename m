@@ -4,104 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AE5DC636D7
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Feb 2023 20:03:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4478CC636D7
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Feb 2023 20:03:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Zzg+zjYmGfgoGBgAlX3H7UvyCOjLWje4QqQm79UWgiI=; b=W4GNdUeenF6EvP
-	P1bHSHsedCDHMvOLmwITApIpGmmrSBY0aD8Mhz76t7gy3lt2a153LyVkKnY1v2PyuPlFFDg+w5wgs
-	P3/glYtOsLdtADVpAuybgX1NWM/gDaViXwMwpjxkZruwzpMiMH23W8OIk08LRJjAmxtnFKBmg65rv
-	uV7Uez0tJ+Rc6nHeZ6JTGNdLtqAhhX1maC7ymh/nfKSI8L45qkY5wPOysmwQX4X2zqnpVRxfuqu4z
-	UlSZmtRVNc+uMVfWRE+CfcqaAsMTCXbtKPyfITlZvNeMTmHkIKyuSuSGgDr5MiqkH4hdR1sIdCXE3
-	YkCsyJl3AUGOhClIEdLw==;
+	List-Owner; bh=O3JwQl7Puq5Yxr3TEg78I6F9T0R/knwPWrUbNVZ2yZA=; b=lsUDyZqrTP9YnT
+	n9dPKLhvtkaZoTrzV+nJlP2NNQnKREvAdErEVQvxz0+H6lQ1q02LVN7O8HJ0BhPS86CXAXQtBqqb0
+	NgADblSjjhuOImUfMLJKuZDi3sm/DvPNxP3RkK/g9C5LYKCWeELm1d03YwJ8HoGt/4fDF60W6V8Sd
+	NW9axb7HSquB3Zh2Vj4WwfnX1cCVmToRAnqxfjvmOOX1xvFvNwLeIYCDoPneW204b1QsUQESY2tDZ
+	aRUy1hzKIeoaMzIjMjoLOAJxjwt50YhPJ0MNjLRi5WEQ89ygVbuvcj4dkanqQM2OqVftn+g9CBbAK
+	gLb3kIZb2gR90vdDqaHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUYqq-009dY1-R5; Tue, 21 Feb 2023 20:03:00 +0000
+	id 1pUYqu-009dZm-3v; Tue, 21 Feb 2023 20:03:04 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUYqp-009dX6-5A
-	for linux-riscv@bombadil.infradead.org; Tue, 21 Feb 2023 20:02:59 +0000
+	id 1pUYqt-009dYu-51
+	for linux-riscv@bombadil.infradead.org; Tue, 21 Feb 2023 20:03:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-type
-	:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=LQSbWzdXITTUFGVPTFXHGgENmDgXWQs7cxb8n6vTRIg=; b=ahIy9PymP04pLo3XSIogyXiYzc
-	fdK9oXJCOG3U5f0+XSmkDwnBXIlAbs3zbh2Ij2kf6g+wLcMDuVM/6rEqA58FpF6p+6q/lmKhr1oyL
-	Yrj22lFs5fzYzULBmqidcT0YILjM3HVoqggy1snwckED6/vtY4VjeEAC35uJgz9Ixb5PTVVrUbHzh
-	dPTL0PsmbuaYoxM++hN3Qnw9t3vEfB6mBxymqS8xbF94XhDvOVN3pN+HP75sJ7ihg5PqPyOjau72U
-	YsjkzVV/SbbfGi6VqEtjas8bjjBwAyzayzp7rKF8bVrLq6WoQW5Eq6Q74NioYlwmDX4h8yNb5ciPA
-	sXa/l0Iw==;
-Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=Ngg8NDFZzsFlILqqXwu8UXpBsOAV4Baprs2BRNqdLJ0=; b=UmU0AhauvH4WtLTlbjattApQp1
+	7kBOuVmyzB+LKz3gmjkPqayZwWGFkASBfVyL1Wgjg1BtP1gf9CU+xS8kkz6ccIaBhbjRwoEaZXUAn
+	wg47PSRrd76ZbH1Bt4SedilHyYrgeAYF8lnqKhgiTqhseVW43onhXXrE4Xf4m5WJ6spOd6C6lkcgc
+	E6DS4tM0iEnzU+MI+Mz/F8YfJ4+E+CIwvorJHJNftL+pa6khkipNUAtr/fzJG1IOGu1bXrlWaO7Tc
+	enZKb3jzuHKQpM8chYf67InPqWEbL1uIUNh4CfyD0CBoDyYLeMyKGpscwssinIA/vD3DVoJlWSmxI
+	ArKrSkuA==;
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
 	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pUY15-00CGVe-2c
+	id 1pUY1E-00CGX7-01
 	for linux-riscv@lists.infradead.org;
-	Tue, 21 Feb 2023 19:09:34 +0000
-Received: by mail-ed1-x529.google.com with SMTP id ec43so20864628edb.8
-        for <linux-riscv@lists.infradead.org>; Tue, 21 Feb 2023 11:09:31 -0800 (PST)
+	Tue, 21 Feb 2023 19:09:42 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id z20-20020a17090a8b9400b002372d7f823eso2068240pjn.4
+        for <linux-riscv@lists.infradead.org>; Tue, 21 Feb 2023 11:09:39 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=LQSbWzdXITTUFGVPTFXHGgENmDgXWQs7cxb8n6vTRIg=;
-        b=XxAMGoWv73/z3O/e/TZW7W5m5IwiXjtoyA8bp8jFz2NakB5O/GfUjsIl0WUiN4hiHj
-         hT08h5nj9m91jxSsVJsUj0snKdPrmvVIaSWuTXH69EzEDhIdn01F3CIv0gB+Di+ujQSI
-         ykJramzQDCwLJsz7xkD4kE9DynwJPGqICZ5eklWmscYOhJJHW2Rzeka87dKEsNDmmn4b
-         S7GszEz7Rb3BA3LJKpQSrOeWS447OCGp1Kts6pk5VkMTv7FpB77YxEDAnyVyVGW2VNuH
-         NnjQ85WrQjzepoicZrIYWxDwtFTJTcIu4ckqoGJmq/z6qCMMzP7eEmTnITiFyeE5tVt1
-         ASAQ==
+        bh=Ngg8NDFZzsFlILqqXwu8UXpBsOAV4Baprs2BRNqdLJ0=;
+        b=FRaQAuEcLIi5R8B0k5soD4TzlqXCCD8xIpm8vDv1PejHFBAIH+x1Tn70DoKzgIdA29
+         u1jhu2VwxdcVAhXFFoX/6TH7my+wq3hu7nU9QgtM6yw2HV0ZFaak+mABSNAIv2Nt9DcO
+         uOH1qJ2tSXdTM6O7Y/ouRusJ8HdInJja7HVGua5j2lSuVPAedU9lCOL6WoWNzbiSah4R
+         xYFmxAswhiNF1Zeqy/XjhCFRfl1N4PEpgeMLggVHFGWvU3NzVAGGO/XjdNzZcrM2wdYu
+         Z6jp38wpp3OPylFbdSXC7mVj42OEJpVKBcWehrwWDIJYHmt02qObKqWwFTSEfpTEFvlu
+         tMEA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=LQSbWzdXITTUFGVPTFXHGgENmDgXWQs7cxb8n6vTRIg=;
-        b=WcUR9cFdmJzbcK9RNf9Qy+DpVYoeD9BOfrcEGgg5t6m6DreOvF+F1B5//qER8cyF/a
-         a9xTJ8/qU5pZuYdpLjbRiq1W3QGIqypPRx0g/4x20AE1TyaEtfSuf7bhpCHPwMNlBx61
-         uSsa8/jL948qcbqyy+KHy5+3LM+O5OReENz9Oo472fRf0bj9fCyhbLbH98mmvhP8cJ9m
-         PUfNlG9yn3gOrQHZ26uU1jEFe3kFEsnd/fWnwey741ivlXgLWuMQWB+RPCqC4/Gc2cjc
-         Y0Dfwr8ycrMsa0WuVd9ahcimC91VMOcajg6gS0+l+EJp2obpOFBpy+QRpMv6l+mXIpE6
-         7P4A==
-X-Gm-Message-State: AO0yUKVAzxSr7dplNZFx/J+tRvnnAJ7XNGLvDXEkH4YDUJscoMnECq43
-	JVVV+5Pzry8xmdjIKE1dxQYqfR3p/d4ZK3k9
-X-Google-Smtp-Source: AK7set+QxS6Nf/kPSQ9yU93mzJ3Mgta9VHeTQonMkPjJqw/qXdCPEq+ZiHN80rpKxC+OtcbK+or3wA==
-X-Received: by 2002:a17:907:a42a:b0:8b1:730b:a296 with SMTP id sg42-20020a170907a42a00b008b1730ba296mr23303956ejc.15.1677006569859;
-        Tue, 21 Feb 2023 11:09:29 -0800 (PST)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id ck20-20020a170906c45400b008c95f0ce32esm3967120ejb.3.2023.02.21.11.09.29
+        bh=Ngg8NDFZzsFlILqqXwu8UXpBsOAV4Baprs2BRNqdLJ0=;
+        b=5XqUvuroDOoPdbB1dRrKJG7hYYn1Rt/+kn7ECp6V/xpt0L2Rri+f/ETFn6nQCboVY4
+         t9oD70IYfDG8Uyb45gffRb6fygB6lOUlAVyqjaAW2WAH1mjcaSK14ePy498n33vNFDEM
+         QRAUrIWnu/A2E/Mvp/59U8Fuedpof2jzGDXvfZ3tUhmjFAOjDZ1eYWTuIgAVGQNjC+8J
+         kKkF8/A1bN5H/kCvVuPSd0oAyTcUX80iXaS0DXZeJzPiZZMWwxiPC24E+gF1CI+SzqTA
+         rq5beu/deYBgMxNrYPqmkxkIwzH+JGKGCu3Bfu+xBVUE94D1/HBv9wv5HKmWsfPPrZ5l
+         H9qA==
+X-Gm-Message-State: AO0yUKVp8eicLNlv7k1y5hsR0TU2ffKXF8r6ZuXdxP3D8XaSzWcvLoth
+	Xuk+F5FRsCKQ507AcL6PRdzJAA==
+X-Google-Smtp-Source: AK7set+9JyhPkEzwlrHweLrwuAKU/yz0dbdPwCbQGwgBKeOM2IKtDHtvgrtUF617GgoYGmIFS/kJLg==
+X-Received: by 2002:a17:903:22c8:b0:199:12d5:5b97 with SMTP id y8-20020a17090322c800b0019912d55b97mr7589315plg.12.1677006577820;
+        Tue, 21 Feb 2023 11:09:37 -0800 (PST)
+Received: from evan.ba.rivosinc.com ([66.220.2.162])
+        by smtp.gmail.com with ESMTPSA id b16-20020a170902b61000b0019602b2c00csm1583863pls.175.2023.02.21.11.09.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Feb 2023 11:09:29 -0800 (PST)
-From: Andrew Jones <ajones@ventanamicro.com>
-To: linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	kvm-riscv@lists.infradead.org
-Cc: 'Rob Herring ' <robh@kernel.org>,
-	'Jisheng Zhang ' <jszhang@kernel.org>,
-	'Anup Patel ' <apatel@ventanamicro.com>,
-	'Conor Dooley ' <conor.dooley@microchip.com>,
-	'Krzysztof Kozlowski ' <krzysztof.kozlowski+dt@linaro.org>,
-	'Heiko Stuebner ' <heiko@sntech.de>,
-	'Paul Walmsley ' <paul.walmsley@sifive.com>,
-	'Palmer Dabbelt ' <palmer@dabbelt.com>,
-	'Albert Ou ' <aou@eecs.berkeley.edu>,
-	'Ben Dooks ' <ben.dooks@codethink.co.uk>,
-	'Atish Patra ' <atishp@rivosinc.com>,
-	Anup Patel <anup@brainfault.org>
-Subject: [PATCH v5 8/8] RISC-V: KVM: Expose Zicboz to the guest
-Date: Tue, 21 Feb 2023 20:09:16 +0100
-Message-Id: <20230221190916.572454-9-ajones@ventanamicro.com>
-X-Mailer: git-send-email 2.39.1
-In-Reply-To: <20230221190916.572454-1-ajones@ventanamicro.com>
-References: <20230221190916.572454-1-ajones@ventanamicro.com>
+        Tue, 21 Feb 2023 11:09:37 -0800 (PST)
+From: Evan Green <evan@rivosinc.com>
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Subject: [PATCH v3 5/7] RISC-V: hwprobe: Support probing of misaligned access performance
+Date: Tue, 21 Feb 2023 11:08:56 -0800
+Message-Id: <20230221190858.3159617-6-evan@rivosinc.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20230221190858.3159617-1-evan@rivosinc.com>
+References: <20230221190858.3159617-1-evan@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230221_190932_049792_72BCA2A4 
-X-CRM114-Status: UNSURE (   9.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230221_190940_322578_AF50999F 
+X-CRM114-Status: GOOD (  20.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,61 +98,254 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: heiko@sntech.de, linux-doc@vger.kernel.org, Andrew Bresticker <abrestic@rivosinc.com>, Atish Patra <atishp@rivosinc.com>, Conor Dooley <conor.dooley@microchip.com>, Celeste Liu <coelacanthus@outlook.com>, Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org, Jonathan Corbet <corbet@lwn.net>, Xianting Tian <xianting.tian@linux.alibaba.com>, Tsukasa OI <research_trasio@irq.a4lg.com>, Andrew Jones <ajones@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, vineetg@rivosinc.com, Paul Walmsley <paul.walmsley@sifive.com>, Ruizhe Pan <c141028@gmail.com>, Anup Patel <apatel@ventanamicro.com>, slewis@rivosinc.com, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Evan Green <evan@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>, Guo Ren <guoren@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Guests may use the cbo.zero instruction when the CPU has the Zicboz
-extension and the hypervisor sets henvcfg.CBZE.
+This allows userspace to select various routines to use based on the
+performance of misaligned access on the target hardware.
 
-Add Zicboz support for KVM guests which may be enabled and
-disabled from KVM userspace using the ISA extension ONE_REG API.
+Co-developed-by: Palmer Dabbelt <palmer@rivosinc.com>
+Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+Signed-off-by: Evan Green <evan@rivosinc.com>
 
-Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: Anup Patel <anup@brainfault.org>
 ---
- arch/riscv/include/uapi/asm/kvm.h | 1 +
- arch/riscv/kvm/vcpu.c             | 4 ++++
- 2 files changed, 5 insertions(+)
 
-diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
-index c1a1bb0fa91c..e44c1e90eaa7 100644
---- a/arch/riscv/include/uapi/asm/kvm.h
-+++ b/arch/riscv/include/uapi/asm/kvm.h
-@@ -106,6 +106,7 @@ enum KVM_RISCV_ISA_EXT_ID {
- 	KVM_RISCV_ISA_EXT_SVINVAL,
- 	KVM_RISCV_ISA_EXT_ZIHINTPAUSE,
- 	KVM_RISCV_ISA_EXT_ZICBOM,
-+	KVM_RISCV_ISA_EXT_ZICBOZ,
- 	KVM_RISCV_ISA_EXT_MAX,
- };
- 
-diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-index e5126cefbc87..198ee86cad38 100644
---- a/arch/riscv/kvm/vcpu.c
-+++ b/arch/riscv/kvm/vcpu.c
-@@ -63,6 +63,7 @@ static const unsigned long kvm_isa_ext_arr[] = {
- 	KVM_ISA_EXT_ARR(SVPBMT),
- 	KVM_ISA_EXT_ARR(ZIHINTPAUSE),
- 	KVM_ISA_EXT_ARR(ZICBOM),
-+	KVM_ISA_EXT_ARR(ZICBOZ),
- };
- 
- static unsigned long kvm_riscv_vcpu_base2isa_ext(unsigned long base_ext)
-@@ -865,6 +866,9 @@ static void kvm_riscv_vcpu_update_config(const unsigned long *isa)
- 	if (riscv_isa_extension_available(isa, ZICBOM))
- 		henvcfg |= (ENVCFG_CBIE | ENVCFG_CBCFE);
- 
-+	if (riscv_isa_extension_available(isa, ZICBOZ))
-+		henvcfg |= ENVCFG_CBZE;
+Changes in v3:
+ - Have hwprobe_misaligned return int instead of long.
+ - Constify cpumask pointer in hwprobe_misaligned()
+ - Fix warnings in _PERF_O list documentation, use :c:macro:.
+ - Move include cpufeature.h to misaligned patch.
+ - Fix documentation mismatch for RISCV_HWPROBE_KEY_CPUPERF_0 (Conor)
+ - Use for_each_possible_cpu() instead of NR_CPUS (Conor)
+ - Break early in misaligned access iteration (Conor)
+ - Increase MISALIGNED_MASK from 2 bits to 3 for possible UNSUPPORTED future
+   value (Conor)
+
+Changes in v2:
+ - Fixed logic error in if(of_property_read_string...) that caused crash
+ - Include cpufeature.h in cpufeature.h to avoid undeclared variable
+   warning.
+ - Added a _MASK define
+ - Fix random checkpatch complaints
+
+ Documentation/riscv/hwprobe.rst       | 14 ++++++++++++
+ arch/riscv/include/asm/cpufeature.h   |  2 ++
+ arch/riscv/include/asm/hwprobe.h      |  2 +-
+ arch/riscv/include/asm/smp.h          | 11 ++++++++++
+ arch/riscv/include/uapi/asm/hwprobe.h |  6 ++++++
+ arch/riscv/kernel/cpufeature.c        | 31 +++++++++++++++++++++++++--
+ arch/riscv/kernel/sys_riscv.c         | 27 +++++++++++++++++++++++
+ 7 files changed, 90 insertions(+), 3 deletions(-)
+
+diff --git a/Documentation/riscv/hwprobe.rst b/Documentation/riscv/hwprobe.rst
+index 9f2da414fbf8..ac6ded9eb0da 100644
+--- a/Documentation/riscv/hwprobe.rst
++++ b/Documentation/riscv/hwprobe.rst
+@@ -58,3 +58,17 @@ The following keys are defined:
+     minimumNumber/maximumNumber, not minNum/maxNum") of the RISC-V ISA manual.
+   * :c:macro:`RISCV_HWPROBE_IMA_C`: The C extension is supported, as defined
+     by version 2.2 of the RISC-V ISA manual.
++* :c:macro:`RISCV_HWPROBE_KEY_CPUPERF_0`: A bitmask that contains performance
++  information about the selected set of processors.
 +
- 	csr_write(CSR_HENVCFG, henvcfg);
- #ifdef CONFIG_32BIT
- 	csr_write(CSR_HENVCFGH, henvcfg >> 32);
++  * :c:macro:`RISCV_HWPROBE_MISALIGNED_UNKNOWN`: The performance of misaligned
++    accesses is unknown.
++  * :c:macro:`RISCV_HWPROBE_MISALIGNED_EMULATED`: Misaligned accesses are
++    emulated via software, either in or below the kernel.  These accesses are
++    always extremely slow.
++  * :c:macro:`RISCV_HWPROBE_MISALIGNED_SLOW`: Misaligned accesses are supported
++    in hardware, but are slower than the cooresponding aligned accesses
++    sequences.
++  * :c:macro:`RISCV_HWPROBE_MISALIGNED_FAST`: Misaligned accesses are supported
++    in hardware and are faster than the cooresponding aligned accesses
++    sequences.
+diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
+index 66ebaae449c8..808d5403f2ac 100644
+--- a/arch/riscv/include/asm/cpufeature.h
++++ b/arch/riscv/include/asm/cpufeature.h
+@@ -18,4 +18,6 @@ struct riscv_cpuinfo {
+ 
+ DECLARE_PER_CPU(struct riscv_cpuinfo, riscv_cpuinfo);
+ 
++DECLARE_PER_CPU(long, misaligned_access_speed);
++
+ #endif
+diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hwprobe.h
+index 7e52f1e1fe10..4e45e33015bc 100644
+--- a/arch/riscv/include/asm/hwprobe.h
++++ b/arch/riscv/include/asm/hwprobe.h
+@@ -8,6 +8,6 @@
+ 
+ #include <uapi/asm/hwprobe.h>
+ 
+-#define RISCV_HWPROBE_MAX_KEY 4
++#define RISCV_HWPROBE_MAX_KEY 5
+ 
+ #endif
+diff --git a/arch/riscv/include/asm/smp.h b/arch/riscv/include/asm/smp.h
+index 3831b638ecab..4f77a64194e5 100644
+--- a/arch/riscv/include/asm/smp.h
++++ b/arch/riscv/include/asm/smp.h
+@@ -26,6 +26,17 @@ struct riscv_ipi_ops {
+  */
+ extern unsigned long __cpuid_to_hartid_map[NR_CPUS];
+ #define cpuid_to_hartid_map(cpu)    __cpuid_to_hartid_map[cpu]
++static inline long hartid_to_cpuid_map(unsigned long hartid)
++{
++	long i;
++
++	for_each_possible_cpu(i) {
++		if (cpuid_to_hartid_map(i) == hartid)
++			return i;
++	}
++
++	return -1;
++}
+ 
+ /* print IPI stats */
+ void show_ipi_stats(struct seq_file *p, int prec);
+diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
+index fc5665411782..93fde30fc4a8 100644
+--- a/arch/riscv/include/uapi/asm/hwprobe.h
++++ b/arch/riscv/include/uapi/asm/hwprobe.h
+@@ -25,6 +25,12 @@ struct riscv_hwprobe {
+ #define RISCV_HWPROBE_KEY_IMA_EXT_0	4
+ #define		RISCV_HWPROBE_IMA_FD		(1 << 0)
+ #define		RISCV_HWPROBE_IMA_C		(1 << 1)
++#define RISCV_HWPROBE_KEY_CPUPERF_0	5
++#define		RISCV_HWPROBE_MISALIGNED_UNKNOWN	(0 << 0)
++#define		RISCV_HWPROBE_MISALIGNED_EMULATED	(1 << 0)
++#define		RISCV_HWPROBE_MISALIGNED_SLOW		(2 << 0)
++#define		RISCV_HWPROBE_MISALIGNED_FAST		(3 << 0)
++#define		RISCV_HWPROBE_MISALIGNED_MASK		(7 << 0)
+ /* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
+ 
+ #endif
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 93e45560af30..12af6f7a2f53 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -14,8 +14,10 @@
+ #include <linux/of.h>
+ #include <asm/alternative.h>
+ #include <asm/cacheflush.h>
++#include <asm/cpufeature.h>
+ #include <asm/errata_list.h>
+ #include <asm/hwcap.h>
++#include <asm/hwprobe.h>
+ #include <asm/patch.h>
+ #include <asm/pgtable.h>
+ #include <asm/processor.h>
+@@ -32,6 +34,9 @@ static DECLARE_BITMAP(riscv_isa, RISCV_ISA_EXT_MAX) __read_mostly;
+ DEFINE_STATIC_KEY_ARRAY_FALSE(riscv_isa_ext_keys, RISCV_ISA_EXT_KEY_MAX);
+ EXPORT_SYMBOL(riscv_isa_ext_keys);
+ 
++/* Performance information */
++DEFINE_PER_CPU(long, misaligned_access_speed);
++
+ /**
+  * riscv_isa_extension_base() - Get base extension word
+  *
+@@ -89,11 +94,11 @@ static bool riscv_isa_extension_check(int id)
+ void __init riscv_fill_hwcap(void)
+ {
+ 	struct device_node *node;
+-	const char *isa;
++	const char *isa, *misaligned;
+ 	char print_str[NUM_ALPHA_EXTS + 1];
+ 	int i, j, rc;
+ 	unsigned long isa2hwcap[26] = {0};
+-	unsigned long hartid;
++	unsigned long hartid, cpu;
+ 
+ 	isa2hwcap['i' - 'a'] = COMPAT_HWCAP_ISA_I;
+ 	isa2hwcap['m' - 'a'] = COMPAT_HWCAP_ISA_M;
+@@ -246,6 +251,28 @@ void __init riscv_fill_hwcap(void)
+ 			bitmap_copy(riscv_isa, this_isa, RISCV_ISA_EXT_MAX);
+ 		else
+ 			bitmap_and(riscv_isa, riscv_isa, this_isa, RISCV_ISA_EXT_MAX);
++
++		/*
++		 * Check for the performance of misaligned accesses.
++		 */
++		cpu = hartid_to_cpuid_map(hartid);
++		if (cpu < 0)
++			continue;
++
++		if (!of_property_read_string(node, "riscv,misaligned-access-performance",
++					     &misaligned)) {
++			if (strcmp(misaligned, "emulated") == 0)
++				per_cpu(misaligned_access_speed, cpu) =
++					RISCV_HWPROBE_MISALIGNED_EMULATED;
++
++			if (strcmp(misaligned, "slow") == 0)
++				per_cpu(misaligned_access_speed, cpu) =
++					RISCV_HWPROBE_MISALIGNED_SLOW;
++
++			if (strcmp(misaligned, "fast") == 0)
++				per_cpu(misaligned_access_speed, cpu) =
++					RISCV_HWPROBE_MISALIGNED_FAST;
++		}
+ 	}
+ 
+ 	/* We don't support systems with F but without D, so mask those out
+diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
+index f2b224550923..afc1b96d5c1a 100644
+--- a/arch/riscv/kernel/sys_riscv.c
++++ b/arch/riscv/kernel/sys_riscv.c
+@@ -7,6 +7,7 @@
+ 
+ #include <linux/syscalls.h>
+ #include <asm/cacheflush.h>
++#include <asm/cpufeature.h>
+ #include <asm/hwprobe.h>
+ #include <asm/sbi.h>
+ #include <asm/switch_to.h>
+@@ -116,6 +117,28 @@ static void hwprobe_arch_id(struct riscv_hwprobe *pair,
+ 	pair->value = id;
+ }
+ 
++static int hwprobe_misaligned(const struct cpumask *cpus)
++{
++	int cpu, perf = -1;
++
++	for_each_cpu(cpu, cpus) {
++		int this_perf = per_cpu(misaligned_access_speed, cpu);
++
++		if (perf == -1)
++			perf = this_perf;
++
++		if (perf != this_perf) {
++			perf = RISCV_HWPROBE_MISALIGNED_UNKNOWN;
++			break;
++		}
++	}
++
++	if (perf == -1)
++		return RISCV_HWPROBE_MISALIGNED_UNKNOWN;
++
++	return perf;
++}
++
+ static void hwprobe_one_pair(struct riscv_hwprobe *pair,
+ 			     const struct cpumask *cpus)
+ {
+@@ -145,6 +168,10 @@ static void hwprobe_one_pair(struct riscv_hwprobe *pair,
+ 
+ 		break;
+ 
++	case RISCV_HWPROBE_KEY_CPUPERF_0:
++		pair->value = hwprobe_misaligned(cpus);
++		break;
++
+ 	/*
+ 	 * For forward compatibility, unknown keys don't fail the whole
+ 	 * call, but get their element key set to -1 and value set to 0
 -- 
-2.39.1
+2.25.1
 
 
 _______________________________________________
