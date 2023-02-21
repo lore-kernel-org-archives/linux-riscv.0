@@ -4,61 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B43A8C636D7
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0352EC61DA3
 	for <linux-riscv@archiver.kernel.org>; Tue, 21 Feb 2023 18:56:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=RGLQHmAWpX0PEQvFxTtIr9y0pekrcLcPty9mDWJ5IDo=; b=zNBFlE/9hBG184
-	wYDJqOj+flMAjR8z13vjpMLFBaQ0o7sqMwy2U5/qyX9B/2nHVymLSYZxwfqLvyL5EwZ+p7bibjtmv
-	fmhLupUzgmwm5kTNbFbW6w1fYqy7goE/Ea6wBO1Kpxg2PYFOr1rhWFJeN2ydZbz/NgMiGhCFyTHX/
-	Qu95R8q5Ti+BlFgTqyx8Jt7IMbeWxOCSM4/IqWeLVJ72gTDZalfrwu1UDqbGm2VJRB1r2aDXM5taN
-	w0xhXXDJ5gS3SAfoCCkUu7n3HcUr+8RKw9HFmdKcqSJ/oAQXK/1haDNJjN4psstK8qtjooH42HSKU
-	33e4jlhiu0UWbRu914TA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=sngBO/qBs29BZynl8osA6785Cgix3Sm5WOK6ndXYgtk=; b=PlpVJBZobvz+b6
+	YizvT6PGRK7B7dsCuwztC/Ct1KTiCvwxxEmkeMjrAtVUnLR/n9zfUvF5FD/tq+qTGZh1zeNKAZ5oK
+	Xl07GE/po2+xSDkbWHGIZGfkJczoB1AgN8iclntjiTME4lvSLHTa2sF+lc5jlkpTxgeHamsXNyuOU
+	8M0JQi24hNTanKYxCaubuN+KBbwByuoAOanxesJOOAeBgODOVVyONpscvbzHgKC6vHIBWU5NjsmfD
+	SmXfB0Tk/1krE3OMSc3mC33S59D99RhpqXbSWUx0n3BeS0lGkEjmhyP5bfIpIDlnwRPF8hs0K3yYI
+	Tq8696lKQklM3Y6Rh9Iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUXoI-009Rl1-4J; Tue, 21 Feb 2023 18:56:18 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1pUXoL-009Rn5-1k; Tue, 21 Feb 2023 18:56:21 +0000
+Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUXo6-009RgX-V5
-	for linux-riscv@lists.infradead.org; Tue, 21 Feb 2023 18:56:08 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id o12so21666984edb.9
-        for <linux-riscv@lists.infradead.org>; Tue, 21 Feb 2023 10:56:05 -0800 (PST)
+	id 1pUXo9-009RiK-Hq
+	for linux-riscv@lists.infradead.org; Tue, 21 Feb 2023 18:56:10 +0000
+Received: by mail-ed1-x52f.google.com with SMTP id ec43so20726545edb.8
+        for <linux-riscv@lists.infradead.org>; Tue, 21 Feb 2023 10:56:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=ventanamicro.com; s=google;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=wZIzRvc7dIUy4nOgy3khITy5mNesAgpukiOZYMO9HBs=;
-        b=CvMGdA2lSm6clJ2CTDceKhf4cXVuAZENovyg8Hb83ly5hVB4B6HrdzG98kZLmB1qkq
-         8NgxYbmOuE/exoxTrAnURz/Ks9g+BwvumtEh6lI8ZEv9rOSsWbqulh2v6mA7W5M3l6o4
-         up4y3UtypVaOGH6EfvrMXvcg8HZTd6PRHYTbE/7l6YtOXI/xNXas84MQxjjGVUpJoWMj
-         OyijrbpJRFcFGLlbYn2RXZyVXI040O9TqNWD6YDnhVk4JVlKM6rqHgumolJeK/7LFcKX
-         uxTYc2sAxLBrDHCl1pWRIwk6SGsafHYJdygJ1ah4gUjiBkbm0lgkdExtDdqAL87yc2WD
-         0m4A==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=TltiuwpZqYUNrkoSwtmCGojBAiTWTBNMLzWk+hCRaCQ=;
+        b=cn01rrsBn68vq3gy0L/4ZadelRbPKmQGMfJp5K52r+ScOPSzM5HUVYzFKzAA4Mfm0D
+         0e0r7hMTrjYu9aY8JTgDdyPHUpkTgtXObivWL4lL01+Mzw/qeGVeaI8MRWfo7tp866Ez
+         AZuPMyw6FlbWr1GFZ3nZRmXjjCkkv6eHCt/oJpMYUQhsL4pHZ5mfGF15h2rMfV8ZB+E3
+         Vtu7+5BcYP1BGJ5f/LxMgPp1zlIDyBqwLDTT2Gvr7jt6PGpXNtjZgEmINHDWVk9SC/vi
+         X/4r7GhBcSiN5vKqF0shEeXecxpB4bEbQ8H4QOH99Kak7IPvcBGBJ/gk3PdeWRRp44AU
+         Cs/g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=wZIzRvc7dIUy4nOgy3khITy5mNesAgpukiOZYMO9HBs=;
-        b=0FX7ObxLGfXt5wle1g78/ZkEy/ILCsf+8xbvfh7xLJYbJ6bNGJhU98ZP2+LlhcZlIn
-         P3hSRw03+CnGMZnT486fTADoJl26GPJoLxoJt7cNGDVB2Qud6hq2dNBxNPTxkixuT4I+
-         UbP2k/aO3rFcDYi/QWtNN+tzD/iozEhOe95w8khsMgcSmVmFY7xKLyOBN6wSkwLeC4+q
-         XO4UikJq1hHA1DNEHBriSGg3KOusrVHK2rq0y2CvVbjn71VEJKZNLOclhQpl3Xfr8F2v
-         YgWegFdv2mZXgWzW6FX5wkPVr8vGSYulCfBrUITGyJaUmH5e8suadGtr6nL48ksG//M1
-         llJw==
-X-Gm-Message-State: AO0yUKWs9Qd2mpf4DVqWgJMm95pZxlLFLhxMjyEZn7OAf9of5NOq3/Mg
-	nzRMPAwlMvC5bCmMi6sUEwpjFG7PUR2JJ1xr
-X-Google-Smtp-Source: AK7set8GGuiFrlj4F2eQPMlDPdgOeU20rDzUVpY872TWxAEwkH43uKvZUCVzDPD3u71kC8rrxQWgHg==
-X-Received: by 2002:a17:907:98bc:b0:8b1:7b10:61d5 with SMTP id ju28-20020a17090798bc00b008b17b1061d5mr16540173ejc.33.1677005764488;
-        Tue, 21 Feb 2023 10:56:04 -0800 (PST)
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=TltiuwpZqYUNrkoSwtmCGojBAiTWTBNMLzWk+hCRaCQ=;
+        b=ICIG9Fs3IEjhlPRkZJsncXUWdz8ghHnjUkg0p+Zgt1TQR9l42jEN1nL9y+KabHwTt6
+         zkpRE40rQmlBHWg+Vdl3aqFKMK2bOEves89GRR9SrnA9TZL3wnV5jy+hvAQV2jfoOVHF
+         bzigIsg68VFd00+Epbx2uIBLdoMiHuo4m8YuE1GQ7uA6SYT6lUp7vOq7V/06IfWXIUr4
+         EogJ17/seeBr+8sTgXOHYGsNq0uuP466rCIN+sNKZJWQHzdScSL4N2D+cuz8zoty8ShX
+         Gd96kSuMcGA+ThdUJoPIDIeCTQ/H7aN2rJz5lkLMlKQHTkpftenc0iiHMJgm0Np/3rp1
+         iWpg==
+X-Gm-Message-State: AO0yUKUMqvDPq125bKKOWvt7UhaivoqAfZ3xv0yE4yCF3WbaJkWZKflG
+	+9/MCGUC2Bb7Asn1DUbAofvsLCKrITnMPaQP
+X-Google-Smtp-Source: AK7set8r68GojFoFklKZBnS8kTMYnc1wrkxoezhHL9297kY810Q88EFu2XcyOxJVJAXgIq99pb2o4g==
+X-Received: by 2002:a17:906:c309:b0:88a:888b:c8b with SMTP id s9-20020a170906c30900b0088a888b0c8bmr13430552ejz.35.1677005767869;
+        Tue, 21 Feb 2023 10:56:07 -0800 (PST)
 Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id i3-20020a50c3c3000000b004af5aa16fcasm192002edf.66.2023.02.21.10.56.03
+        by smtp.gmail.com with ESMTPSA id m18-20020a17090607d200b008d044ede804sm3241640ejc.163.2023.02.21.10.56.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Feb 2023 10:56:04 -0800 (PST)
+        Tue, 21 Feb 2023 10:56:07 -0800 (PST)
 From: Andrew Jones <ajones@ventanamicro.com>
 To: linux-riscv@lists.infradead.org
 Cc: 'Jisheng Zhang ' <jszhang@kernel.org>,
@@ -67,14 +68,16 @@ Cc: 'Jisheng Zhang ' <jszhang@kernel.org>,
 	'Palmer Dabbelt ' <palmer@dabbelt.com>,
 	'Conor Dooley ' <conor.dooley@microchip.com>,
 	'Albert Ou ' <aou@eecs.berkeley.edu>
-Subject: [PATCH 0/5] riscv: alternative/cpufeature related cleanups
-Date: Tue, 21 Feb 2023 19:55:58 +0100
-Message-Id: <20230221185603.570882-1-ajones@ventanamicro.com>
+Subject: [PATCH 2/5] riscv: alternatives: Remove unnecessary define and unused struct
+Date: Tue, 21 Feb 2023 19:56:00 +0100
+Message-Id: <20230221185603.570882-3-ajones@ventanamicro.com>
 X-Mailer: git-send-email 2.39.1
+In-Reply-To: <20230221185603.570882-1-ajones@ventanamicro.com>
+References: <20230221185603.570882-1-ajones@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230221_105607_018518_35A5FD62 
-X-CRM114-Status: UNSURE (   6.51  )
+X-CRM114-CacheID: sfid-20230221_105609_612552_DD5062D1 
+X-CRM114-Status: UNSURE (   9.36  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,36 +95,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series has no intended functional change. These cleanups were
-found while renaming errata_id to patch_id in order to better
-convey that its purpose is larger than errata (it's also for
-cpufeatures).
+A define and a struct were introduced with commit 6f4eea90465a
+("riscv: Introduce alternative mechanism to apply errata solution"),
+which introduced alternatives to RISC-V. The define is used for
+an arbitrary string length, specific to sifive errata, so just use
+the number directly there instead. The struct has never been used,
+so remove it.
 
-Based on riscv-linux/for-next
+Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+---
+ arch/riscv/errata/sifive/errata.c    | 2 +-
+ arch/riscv/include/asm/alternative.h | 7 -------
+ 2 files changed, 1 insertion(+), 8 deletions(-)
 
-Thanks,
-drew
-
-Andrew Jones (5):
-  riscv: Rename Kconfig.erratas to Kconfig.errata
-  riscv: alternatives: Remove unnecessary define and unused struct
-  riscv: alternatives: Rename errata_id to patch_id
-  riscv: lib: Include hwcap.h directly
-  riscv: cpufeature: Drop unused includes
-
- arch/riscv/Kconfig                            |  8 +--
- .../riscv/{Kconfig.erratas => Kconfig.errata} |  0
- arch/riscv/errata/sifive/errata.c             |  8 +--
- arch/riscv/errata/thead/errata.c              |  4 +-
- arch/riscv/include/asm/alternative-macros.h   | 72 +++++++++----------
- arch/riscv/include/asm/alternative.h          |  9 +--
- arch/riscv/kernel/cpufeature.c                | 11 +--
- arch/riscv/lib/strcmp.S                       |  3 +-
- arch/riscv/lib/strlen.S                       |  3 +-
- arch/riscv/lib/strncmp.S                      |  3 +-
- 10 files changed, 53 insertions(+), 68 deletions(-)
- rename arch/riscv/{Kconfig.erratas => Kconfig.errata} (100%)
-
+diff --git a/arch/riscv/errata/sifive/errata.c b/arch/riscv/errata/sifive/errata.c
+index ef9a4eec0dba..9e7dffa800f2 100644
+--- a/arch/riscv/errata/sifive/errata.c
++++ b/arch/riscv/errata/sifive/errata.c
+@@ -13,7 +13,7 @@
+ #include <asm/errata_list.h>
+ 
+ struct errata_info_t {
+-	char name[ERRATA_STRING_LENGTH_MAX];
++	char name[32];
+ 	bool (*check_func)(unsigned long  arch_id, unsigned long impid);
+ };
+ 
+diff --git a/arch/riscv/include/asm/alternative.h b/arch/riscv/include/asm/alternative.h
+index b8648d4f2ac1..3beef400a971 100644
+--- a/arch/riscv/include/asm/alternative.h
++++ b/arch/riscv/include/asm/alternative.h
+@@ -6,8 +6,6 @@
+ #ifndef __ASM_ALTERNATIVE_H
+ #define __ASM_ALTERNATIVE_H
+ 
+-#define ERRATA_STRING_LENGTH_MAX 32
+-
+ #include <asm/alternative-macros.h>
+ 
+ #ifndef __ASSEMBLY__
+@@ -43,11 +41,6 @@ struct alt_entry {
+ 	u32 errata_id;		/* The errata id */
+ };
+ 
+-struct errata_checkfunc_id {
+-	unsigned long vendor_id;
+-	bool (*func)(struct alt_entry *alt);
+-};
+-
+ void sifive_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
+ 			      unsigned long archid, unsigned long impid,
+ 			      unsigned int stage);
 -- 
 2.39.1
 
