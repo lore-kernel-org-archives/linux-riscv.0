@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFD0EC6379F
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Feb 2023 08:34:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69998C64EC7
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Feb 2023 08:34:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kFh7YO7+dl8tg+OqKl080QkwFYqOC9yoIUaIhQKrcxc=; b=MldAmHuUwXZ0+c
-	Z1lPAYaivyWUZaz2A0HzgJcVmsw5VCVX3vVjIfI2QOitnZboOURR72DMHfuyTMKglR+DT9NqaeMn5
-	n6Fu/kmoNu2/uIjT2TaoqIuw1IENyAz1HROlFBhLAJXd9dezVs4DAv1wRm35LZTmhHOaNeuSNDENZ
-	XXxOcjyqQtIoxWv+7n1glBExBPrd+rC6KXhK98O9gHtOtIKrF3kNxMDsn1BEFha70NS/m6H5fnDpt
-	dykUuOD/MeuuamaLlc+EJS5MZx+YP3Eof4hwEDCzNoCXvtYfUH7nhqJAwuqHhWIaWGr7O0CYeSkfO
-	V9rMjM3oEd49ZnlGdleQ==;
+	List-Owner; bh=DkRgiCKhvx1loi3oIeonwLtUjcXQ7rnwqPGPOFkwYig=; b=w1rFc9eYzAk0vm
+	vYzlvYB/1O4lDWqeUS23ff119cUyEAPfOkTxdtfLeoeBpIikHNq3Z25LzJJfO9MiZjYNzwnvyAwYL
+	aM7bg8wkS9ttJ1awk6lwc4Lx8rCtFYGwoErW4hNUGNgeJlBrShNusGfnohi+fEmWqVzD9Pp4ryiS3
+	o7MiN9u4LugqhS3yNjrVFM13Jt0vEwCJWqTIwBgFkJnKCjWq+RxqAANeCc6MOppInreZNnJ+enf+F
+	f52cZoFRF/jGIgNYurYyu4jpflRnWw8ITYQcaCTvz8hm1eZaXOrHTsBydWJCIbeX/XsuFSYF/xfkq
+	Vr1dh37Ul9bckwJrHxkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUO6j-0074Dp-0u; Tue, 21 Feb 2023 08:34:41 +0000
+	id 1pUO6k-0074FQ-Gr; Tue, 21 Feb 2023 08:34:42 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUO6Z-0073nc-Sq
-	for linux-riscv@lists.infradead.org; Tue, 21 Feb 2023 08:34:33 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	id 1pUO6b-0073nZ-JK
+	for linux-riscv@lists.infradead.org; Tue, 21 Feb 2023 08:34:35 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id E002424E214;
-	Tue, 21 Feb 2023 16:33:36 +0800 (CST)
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 21 Feb
- 2023 16:33:36 +0800
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 4F3CD24E212;
+	Tue, 21 Feb 2023 16:33:34 +0800 (CST)
+Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 21 Feb
+ 2023 16:33:34 +0800
 Received: from localhost.localdomain (183.27.98.67) by EXMBX061.cuchost.com
  (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 21 Feb
- 2023 16:33:35 +0800
+ 2023 16:33:32 +0800
 From: Xingyu Wu <xingyu.wu@starfivetech.com>
 To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Michael
  Turquette" <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
@@ -46,9 +46,9 @@ CC: Rob Herring <robh+dt@kernel.org>, Conor Dooley <conor@kernel.org>, "Paul
 	Albert Ou <aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>,
 	Xingyu Wu <xingyu.wu@starfivetech.com>, <linux-kernel@vger.kernel.org>,
 	<linux-clk@vger.kernel.org>
-Subject: [PATCH v2 08/11] reset: starfive: jh7110: Add StarFive Video-Output reset support
-Date: Tue, 21 Feb 2023 16:33:20 +0800
-Message-ID: <20230221083323.302471-9-xingyu.wu@starfivetech.com>
+Subject: [PATCH v2 05/11] reset: starfive: jh7110: Add StarFive Image-Signal-Process reset support
+Date: Tue, 21 Feb 2023 16:33:17 +0800
+Message-ID: <20230221083323.302471-6-xingyu.wu@starfivetech.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20230221083323.302471-1-xingyu.wu@starfivetech.com>
 References: <20230221083323.302471-1-xingyu.wu@starfivetech.com>
@@ -58,7 +58,7 @@ X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX061.cuchost.com
  (172.16.6.61)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230221_003432_094238_91BC64CE 
+X-CRM114-CacheID: sfid-20230221_003433_941445_5A4C4782 
 X-CRM114-Status: GOOD (  11.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -76,8 +76,9 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add auxiliary_device_id to support StarFive JH7110 Video-Output resets
-of which the auxiliary device name is "clk_starfive_jh71x0.reset-vout".
+Add auxiliary_device_id to support StarFive JH7110 Image-Signal-Process
+resets of which the auxiliary device name is
+"clk_starfive_jh71x0.reset-isp".
 
 Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
 ---
@@ -85,29 +86,29 @@ Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
  1 file changed, 10 insertions(+)
 
 diff --git a/drivers/reset/starfive/reset-starfive-jh7110.c b/drivers/reset/starfive/reset-starfive-jh7110.c
-index e3b7b6941217..ad967398f227 100644
+index 94ebb363c6bc..e3b7b6941217 100644
 --- a/drivers/reset/starfive/reset-starfive-jh7110.c
 +++ b/drivers/reset/starfive/reset-starfive-jh7110.c
-@@ -52,6 +52,12 @@ static const struct reset_info jh7110_isp_info = {
- 	.status_offset = 0x3C,
+@@ -46,6 +46,12 @@ static const struct reset_info jh7110_stg_info = {
+ 	.status_offset = 0x78,
  };
  
-+static const struct reset_info jh7110_vout_info = {
-+	.nr_resets = JH7110_VOUTRST_END,
-+	.assert_offset = 0x48,
-+	.status_offset = 0x4C,
++static const struct reset_info jh7110_isp_info = {
++	.nr_resets = JH7110_ISPRST_END,
++	.assert_offset = 0x38,
++	.status_offset = 0x3C,
 +};
 +
  static const struct auxiliary_device_id jh7110_reset_ids[] = {
  	{
  		.name = "clk_starfive_jh71x0.reset-sys",
-@@ -69,6 +75,10 @@ static const struct auxiliary_device_id jh7110_reset_ids[] = {
- 		.name = "clk_starfive_jh71x0.reset-isp",
- 		.driver_data = (kernel_ulong_t)&jh7110_isp_info,
+@@ -59,6 +65,10 @@ static const struct auxiliary_device_id jh7110_reset_ids[] = {
+ 		.name = "clk_starfive_jh71x0.reset-stg",
+ 		.driver_data = (kernel_ulong_t)&jh7110_stg_info,
  	},
 +	{
-+		.name = "clk_starfive_jh71x0.reset-vout",
-+		.driver_data = (kernel_ulong_t)&jh7110_vout_info,
++		.name = "clk_starfive_jh71x0.reset-isp",
++		.driver_data = (kernel_ulong_t)&jh7110_isp_info,
 +	},
  	{ /* sentinel */ }
  };
