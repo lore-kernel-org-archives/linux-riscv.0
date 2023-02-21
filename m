@@ -4,65 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2073BC636D7
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Feb 2023 06:44:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45034C636D7
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Feb 2023 07:03:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:
+	In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+mwr7woem1Si5zGsTgH+VjOl/HqY4QXtMIcOeLJaa1g=; b=RQCPL+SkIyYV47
-	Yj4YCBna4NcfbXA47D965zicVYMnG1vHuHJAtxKx62OWB47I87kUnOgePmPphIRZOZwmJs5TXAAG4
-	qBf+/Xm9ZwTbKKdT46qFazSQ3LqC25AfUwLhjvVEBjLshrlzdAKVuvFCOYJMVyG7m31E85/wpc3mE
-	zQHMfiKItINvesphsxMCm8DIsHaVrAwu4aIX+lp+GwHGyXrN5eq0m5W7k9cvvq71gSCI1zjDMtALs
-	BQvbM4Hp4kGHJbRerHXHJD/wX71ooVgp6d9is+c6NeAKGuyx4pALJRsXTpje1W71WNm+Gd5p5sjzx
-	f/5o1ISevn6xV8CExr2w==;
+	References:List-Owner; bh=JvwQ+h+navDNvJ1bRawKficcD2suY4JdtRfHIL7QDeU=; b=keq
+	VhmyJDtG9P9PMiRmkYLPz/hxAkxEb4h8qzMG3/5xPRzvA1gN47eumiLzqStO5Q3KkSGoCtNb1TTLC
+	DFWElMqzYhSVfWxd2NmrEMhKCyShTXdB4oZ3Z1BFJoCy5EWCrg5O81BO/2j+ELaCZFXHRoDQTmumI
+	64dDHe/4lMALfiroMH57n9A31bM3W77ImWg3vJuQeyjZcWMyy6d4w+u7cvYIGSttpm5liwEVilLm/
+	luw3U2tyl/JPSIv5rs0RGivzXxriwZTySBJxjDqUSdn0zV4xEergduMQY83SozEuz45puUOaJz3eL
+	BpyrG6V0a/u9HVNYl0OIXbrtl751Vsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUMOP-006mEN-1o; Tue, 21 Feb 2023 06:44:49 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUMOK-006mC9-Fo
-	for linux-riscv@lists.infradead.org; Tue, 21 Feb 2023 06:44:47 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 4757F24E31E;
-	Tue, 21 Feb 2023 14:44:12 +0800 (CST)
-Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 21 Feb
- 2023 14:44:12 +0800
-Received: from [192.168.125.82] (183.27.98.67) by EXMBX172.cuchost.com
- (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 21 Feb
- 2023 14:44:11 +0800
-Message-ID: <d7880fbb-ee6a-751b-4372-9d3154257c6c@starfivetech.com>
-Date: Tue, 21 Feb 2023 14:44:10 +0800
+	id 1pUMft-006o3G-PS; Tue, 21 Feb 2023 07:02:53 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pUMfr-006o2Q-E7
+	for linux-riscv@lists.infradead.org; Tue, 21 Feb 2023 07:02:52 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 5BA3EB80E69;
+	Tue, 21 Feb 2023 07:02:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FED7C433D2;
+	Tue, 21 Feb 2023 07:02:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1676962966;
+	bh=KHMXE/LYnRNjuYWIFxQpGNwDw4WhCf5BXnM9jJyFYKc=;
+	h=From:To:Cc:Subject:In-Reply-To:Date:From;
+	b=Yhirujjn3Gs86md/vNl+4XmkPPjo94SNOAaKFnOQXjQX0yv6l93XMl4Rob/1p9Mz1
+	 BildrxHwu/yefVQiDMIl7NerNxFloHYRyqcm2B4R4tbghBYAkiMhmCNPjpT1Od05VX
+	 amluMYPMkNK+MpZbAwYf/8YLhEMvqDTzgSe3GeTjwLDOTUyttUSxZ7IKckID//bHdy
+	 law45gIPLx1cUA8MzcuejYCUYm9QgN6v3pwGQeyhnP2oWDTUQKixA934HlVQ9vrnV2
+	 eAmVeCjUaOlME832YphdHzsDFaUFjXu0u2WRsFWYtK5D31ISj2b1xYR7ciu0peUqlW
+	 v7vDwyZ5fr6JQ==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Pu Lehui <pulehui@huaweicloud.com>, bpf@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
+ <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Martin KaFai
+ Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, Yonghong Song
+ <yhs@fb.com>, John Fastabend <john.fastabend@gmail.com>, KP Singh
+ <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>, Hao Luo
+ <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>, Pu Lehui
+ <pulehui@huawei.com>
+Subject: Re: [PATCH bpf-next v2] riscv, bpf: Add kfunc support for RV64
+In-Reply-To: <80e69e73-b873-6717-fe45-a854dbdd5476@huaweicloud.com>
+Date: Tue, 21 Feb 2023 08:02:43 +0100
+Message-ID: <87h6vffqlo.fsf@all.your.base.are.belong.to.us>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.2
-Subject: Re: [PATCH v3 09/11] clk: starfive: Add StarFive JH7110 system clock
- driver
-Content-Language: en-US
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-clk@vger.kernel.org>, Conor Dooley <conor@kernel.org>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Stephen Boyd <sboyd@kernel.org>,
-	"Michael Turquette" <mturquette@baylibre.com>, Philipp Zabel
-	<p.zabel@pengutronix.de>, <linux-kernel@vger.kernel.org>
-References: <20221220005054.34518-1-hal.feng@starfivetech.com>
- <20221220005054.34518-10-hal.feng@starfivetech.com>
- <CAJM55Z-qpQkLjSFN33ELGE8DtoygY+vL6zi2raPh6POJ69pjbg@mail.gmail.com>
-From: Hal Feng <hal.feng@starfivetech.com>
-In-Reply-To: <CAJM55Z-qpQkLjSFN33ELGE8DtoygY+vL6zi2raPh6POJ69pjbg@mail.gmail.com>
-X-Originating-IP: [183.27.98.67]
-X-ClientProxiedBy: EXCAS061.cuchost.com (172.16.6.21) To EXMBX172.cuchost.com
- (172.16.6.92)
-X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230220_224444_835373_245C28E4 
-X-CRM114-Status: GOOD (  18.60  )
+X-CRM114-CacheID: sfid-20230220_230251_649148_EBED018D 
+X-CRM114-Status: GOOD (  10.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,90 +71,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 19 Feb 2023 22:23:39 +0100, Emil Renner Berthing wrote:
-> On Tue, 20 Dec 2022 at 01:51, Hal Feng <hal.feng@starfivetech.com> wrote:
->> diff --git a/drivers/clk/starfive/clk-starfive-jh7110-sys.c b/drivers/clk/starfive/clk-starfive-jh7110-sys.c
->> new file mode 100644
->> index 000000000000..abc1c280bbe3
->> --- /dev/null
->> +++ b/drivers/clk/starfive/clk-starfive-jh7110-sys.c
->> @@ -0,0 +1,448 @@
->> +// SPDX-License-Identifier: GPL-2.0
->> +/*
->> + * StarFive JH7110 System Clock Driver
-[...]
->> +static int __init jh7110_syscrg_probe(struct platform_device *pdev)
->> +{
->> +       struct jh71x0_clk_priv *priv;
->> +       unsigned int idx;
->> +       int ret;
->> +
->> +       priv = devm_kzalloc(&pdev->dev,
->> +                           struct_size(priv, reg, JH7110_SYSCLK_PLL0_OUT),
->> +                           GFP_KERNEL);
->> +       if (!priv)
->> +               return -ENOMEM;
->> +
->> +       spin_lock_init(&priv->rmw_lock);
->> +       priv->dev = &pdev->dev;
->> +       priv->base = devm_platform_ioremap_resource(pdev, 0);
->> +       if (IS_ERR(priv->base))
->> +               return PTR_ERR(priv->base);
->> +
->> +       dev_set_drvdata(priv->dev, priv->base);
->> +
->> +       /* 24MHz -> 1250.0MHz */
->> +       priv->pll[0] = devm_clk_hw_register_fixed_factor(priv->dev, "pll0_out",
->> +                                                        "osc", 0, 625, 12);
->> +       if (IS_ERR(priv->pll[0]))
->> +               return PTR_ERR(priv->pll[0]);
-> 
-> Hi Hal,
-> 
-> Are you sure this should be 1.25GHz and not 1GHz? I can't seem to make
-> the ethernet driver work unless I set it to 1GHz. This also makes
-> other derived clocks that should be 125MHz show up as such in the
-> clock tree. Eg. "usb_125m".
-> 
-> Perhaps it's because I updated my board to the latest u-boot
-> release[1]. I know these PLLs are just placeholders until you add
-> proper code to control them, but until then it's important that these
-> values match the defaults or whatever the latest u-boot sets them to.
-> Please check the PLLs below with the latest u-boot too.
-> 
-> /Emil
-> 
-> [1]: https://github.com/starfive-tech/VisionFive2/releases
-
-After this series sent out, we found a bug in the u-boot when cpu
-running at 1.25 GHz, so now the cpu runs at 1GHz in the latest
-u-boot. I have updated it in v4. Thanks for reminding.
-What's more, we will support adjusting the cpu frequency in the
-future, so the cpu can run at a higher frequency.
-
-Best regards,
-Hal
-
-> 
->> +       /* 24MHz -> 1066.0MHz */
->> +       priv->pll[1] = devm_clk_hw_register_fixed_factor(priv->dev, "pll1_out",
->> +                                                        "osc", 0, 533, 12);
->> +       if (IS_ERR(priv->pll[1]))
->> +               return PTR_ERR(priv->pll[1]);
->> +
->> +       /* 24MHz -> 1188.0MHz */
->> +       priv->pll[2] = devm_clk_hw_register_fixed_factor(priv->dev, "pll2_out",
->> +                                                        "osc", 0, 99, 2);
->> +       if (IS_ERR(priv->pll[2]))
->> +               return PTR_ERR(priv->pll[2]);
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+UHUgTGVodWkgPHB1bGVodWlAaHVhd2VpY2xvdWQuY29tPiB3cml0ZXM6Cgo+IE9uIDIwMjMvMi8y
+MCAyMjozNCwgQmrDtnJuIFTDtnBlbCB3cm90ZToKPj4gUHUgTGVodWkgPHB1bGVodWlAaHVhd2Vp
+Y2xvdWQuY29tPiB3cml0ZXM6Cj4+IAo+Pj4gRnJvbTogUHUgTGVodWkgPHB1bGVodWlAaHVhd2Vp
+LmNvbT4KPj4+Cj4+PiBBcyBhbm90aGVyIGltcG9ydGFudCBtaXNzaW5nIHBpZWNlIG9mIFJWNjQg
+SklULCBrZnVuYyBhbGxvdyBicGYgcHJvZ3JhbXMKPj4+IGNhbGwga2VybmVsIGZ1bmN0aW9ucy4g
+Rm9yIG5vdywgUlY2NCBpcyBzdWZmaWNpZW50IHRvIGVuYWJsZSBpdC4KPj4gCj4+IFRoYW5rcyBM
+ZWh1aSEKPj4gCj4+IE1heWJlIHdlIGNhbiByZXdvcmQvbWFzc2FnZSB0aGUgY29tbWl0IG1lc3Nh
+Z2UgYSBiaXQ/IFdoYXQgZG8geW91IHRoaW5rCj4+IGFib3V0IHNvbWV0aGluZyBsaWtlOgo+PiAK
+Pj4gIk5vdyB0aGF0IHRoZSBCUEYgdHJhbXBvbGluZSBpcyBzdXBwb3J0ZWQgYnkgUklTQy1WLCBp
+dCBpcyBwb3NzaWJsZSB0bwo+PiB1c2UgQlBGIHByb2dyYW1zIHdpdGgga2Z1bmMgY2FsbHMuCj4+
+IAo+Cj4ga2Z1bmMgYW5kIGJwZiB0cmFtcG9saW5lIGFyZSBmdW5jdGlvbmFsbHkgaW5kZXBlbmRl
+bnQuIGtmdW5jIFsxXSwgbGlrZSAKPiBicGYgaGVscGVyIGZ1bmN0aW9ucywgYWxsb3dzIGJwZiBw
+cm9ncmFtcyB0byBjYWxsIGV4cG9ydGVkIGtlcm5lbCAKPiBmdW5jdGlvbnMsIHdoaWxlIGJwZiB0
+cmFtcG9saW5lIHByb3ZpZGVzIGEgbW9yZSBlZmZpY2llbnQgd2F5IHRoYW4gCj4ga3Byb2JlIHRv
+IGFjdCBhcyBhIG1lZGlhdG9yIGJldHdlZW4ga2VybmVsIGZ1bmN0aW9ucyBhbmQgYnBmIHByb2dy
+YW1zLCAKPiBhbmQgYmV0d2VlbiBicGYgcHJvZ3JhbXMuCj4KPiBJbiBmYWN0LCBpdCB3YXMgYWxy
+ZWFkeSBzdXBwb3J0ZWQgYmVmb3JlIHRoZSBicGYgdHJhbXBvbGluZSAKPiBpbXBsZW1lbnRhdGlv
+biwgSSBqdXN0IHR1cm5lZCBpdCBvbi4KCkdvb2QgcG9pbnQuIEkgZ3Vlc3MgbXkgKGluY29ycmVj
+dCkga2Z1bmMgbWVudGFsIG1vZGVsIHdhcyB0aGF0CnN0cnVjdF9vcHMgYW5kIGtmdW5jIHdlcmUg
+dGlnaHRseSBjb3VwbGVkLiAoVGhlbiBhZ2Fpbiwgdy9vIHN0cnVjdF9vcHMKd29ya2luZyBrZnVu
+YyBpcyBhIGJpdCBoYWxmLXdvcmtpbmcgaW4gbXkgdmlldy4pCgpGYWlyIGVub3VnaC4gSSdtIHN0
+aWxsIGEgYml0IGNvbmZ1c2VkIGFib3V0IHRoZSBjb21taXQgbWVzc2FnZSwgYnV0CmhhcHB5IHdp
+dGggdGhlIHBhdGNoLgoKQWNrZWQtYnk6IEJqw7ZybiBUw7ZwZWwgPGJqb3JuQHJpdm9zaW5jLmNv
+bT4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4
+LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6
+Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
