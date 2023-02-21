@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11CCDC64ED6
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Feb 2023 18:56:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C34E5C61DA3
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Feb 2023 18:56:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dxuYqsMJ6F6Yeb6sF2YYc43h9nhhtk6mw7p6KIUJBw0=; b=Pa/WX45RlVPr5i
-	xDpjiaRAvDmRFKAqf4aGkzTY2WPynWe6rwZFjR2pMVjP1yx/HBKmGnLT0Lz/urgG5GNJujZn5bf0F
-	t5m/GMocJYODu0b/cBXRRvCWeUCXQDg6RHheFFmZvnjmbiwvtRJqk2k0kvO+qAk79a4iAS1FhBGVw
-	LWaCI5ceUcMjjaFI6vgFpDPXSenDh8vvX44uqoR12eKti33uHenW/nGV4elQ56Y33QCSRUfDqLp0A
-	dYHX5yPvLBLOv3DOdFIsIQYvJTIAHyPDH43byqTUVvl1N0+wKYO0sr32FWPCTU/17pr1VdkZ+4LYa
-	rnrpAEj+ViChmmEifoEw==;
+	List-Owner; bh=Va53vADhg4yK7APcji0Mi+1WyFZTMv1tYA+ZQWnBnkM=; b=t0GZzCAooISuVF
+	EhsvKs7DOt/Lh009OD/WjnuhRjcELwRcdYspdvKWPtE4cfL1+7QttT1sbGlowFEh67pBfXwENd6Lb
+	cuKsiLOQ2ygZG5UIkIJ5W9gwRWwkvI/+r7sm8ZRDZHkkL3pFSmQ1YZPuCvxjh0Bsn4R/DCLdgDlfz
+	WdNdqtity3BKt2a5MFXnP7KE8RgTJTsKfb36Mm64/bkXtXpZGoYi15KeaMDW/xJCEvgd5x5/Pp/U4
+	ZqJBA5jvaS9eSBlyBVe7ejYrlUiCyKIREBIWMJDNuNqrcwiPjeOCvyiQifPQNhNXBBrvWt+2rJGhr
+	T0QZsAJabm0CMd5SeJ8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUXoM-009RnT-6H; Tue, 21 Feb 2023 18:56:22 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	id 1pUXoO-009Rp6-Ni; Tue, 21 Feb 2023 18:56:24 +0000
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUXoA-009Rgq-Dd
-	for linux-riscv@lists.infradead.org; Tue, 21 Feb 2023 18:56:12 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id g1so20995393edz.7
-        for <linux-riscv@lists.infradead.org>; Tue, 21 Feb 2023 10:56:10 -0800 (PST)
+	id 1pUXoE-009Rk5-R1
+	for linux-riscv@lists.infradead.org; Tue, 21 Feb 2023 18:56:16 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id s26so21200633edw.11
+        for <linux-riscv@lists.infradead.org>; Tue, 21 Feb 2023 10:56:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=ventanamicro.com; s=google;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=FGwBxo7OcBRhOdIXwXXtPxjsoCQeaadZRw3ZvkvtyNc=;
-        b=Fa4yY+KfFWKhap+E/OVFBWgQtpqV8H1llQbd/GBZjGkREQbjiyAVke82qo03cUeJkM
-         ZIHmz9xXbjB8qYQColepfoonzBqhtXcWu/uksTZ8zxcYkPcQd7tw2GaHhwWI0hslB2np
-         nwE66cNfAorRXDNr3zOcTzzHSUNmbEXafbbLFB44drzLWEak/MAxfPEiUriWKs0dBgiX
-         SsXEooCz6+Pd7Rxk1fRbXeaIRNmQDvRZhVPB1sSb0+dNyeyYLR7E2atgGwNMi9N21YDD
-         ifroh9xcYSDSCx/GYIWCWV8LxMUBBvMHOIiQ3KMHHsu0A2jHxDYodQL5X8JRbkwXHkI8
-         ZpuQ==
+        bh=Og71LrObtS1yzwYX+O+5Em/eKqR41zpeBRkbhQ6w52o=;
+        b=W6MErgKHnuE8h7IGs7wNeQckwxXI576Tb/Vt5AvTGKM4cq4Fkvv9rDS+na30CQihtR
+         qutKJAdZsMqBqLur75TB0v0AinL92nZmfTK3Qt3F2QzzVKE1w5WswVgFGSiiTltfro6H
+         fh2y8VOHiacSTWYEqe0ikmTz8xxSWuo1/vgAhoQBPqHhPV1Npdh8ZKpiEz/iqOngC9Fs
+         Ucv+t1XK/AZQjB/HJh6CvYZwZLwqKC/6UtkFo1cIJEMmKWe21zucDudRjKXJ5LGX/Tmo
+         rivLY68MgdKv/q35XiGPneqbDGBsF0q17T1XD6DROEl8CbXDLfJDOzKnpsVyiUwAzIZA
+         CfeA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=FGwBxo7OcBRhOdIXwXXtPxjsoCQeaadZRw3ZvkvtyNc=;
-        b=DuopbCIEwdhMCS1Xh8dowzSYCFQgzJJ/sIeWRdvDAUjbRadUpG4rmRF2uYnMVcqRb3
-         fpXzDfScRHRnX0YEo/BLrG1f3oDad8/N5AE2+DHGbX6AiQTMtPfpHe2DMw0tk4Zl4QLg
-         DQoag9c16CR0kpc6Dr+o6/CcS8av78UJNePj1LpXcnW3GScViIFSQzcq5VH/3xXqLh+K
-         iSSP4CShZp/f8JevwDi8bzz38Wi8rkux8ARQIyghGMERWCER0E7lGDwqa/VuFtcWMYM6
-         P51bzJhKgHha62IidS4BhsSwnCIFIfp0SPhA4/Hvb8Qe6i6Lp8DadtJcWtABi8Nu8h7F
-         PLKA==
-X-Gm-Message-State: AO0yUKV6fb/t827GyEO2+A3C5tPL4fO/f9VsBaiIF+GoiZEnGbOE+KrR
-	vQujzRW2czCITjl3OJ+ev2VEVsc0CJDgOqtW
-X-Google-Smtp-Source: AK7set/LPmrUQFVHQiN6+GJvEJSw5KyUgSFz+PSCfo9+cCLp1FkNaf644XLw7VBl5pxXL81ogi0J9g==
-X-Received: by 2002:aa7:cc0f:0:b0:4ab:4bb7:6ee8 with SMTP id q15-20020aa7cc0f000000b004ab4bb76ee8mr6073351edt.25.1677005769645;
-        Tue, 21 Feb 2023 10:56:09 -0800 (PST)
+        bh=Og71LrObtS1yzwYX+O+5Em/eKqR41zpeBRkbhQ6w52o=;
+        b=SP+AcPuu9WnXetxn7fwKBqeLheeIwfiohkPWsLb1LCDHIohsvqi05lRUd7u9X3Dnxk
+         tCTtkumgGGrxiO1n9hm9ozwd8eyjcRkOnWSvm0VLw1zDMHbwt9AnCFBOCTsyZTzWcsvW
+         mMNEmSi2goDcjxkYhunzYrCSG1kVnDOSe5B5pAyHlA498gw6S9BOvr4CTJJJSshIyG5F
+         L6YCAW8ZlBncxNJsZTvV7yGH9ZQUsE+WpPqmpw0RcgWakxAwSzZ9Lq9zceMLg25O1gkD
+         YaN7LwTq/c6PFG+9E+zVNMESLWlTqF4j5fL+x1BzCINya9TjWrqYxX3sU85z42lGhVHd
+         vGBQ==
+X-Gm-Message-State: AO0yUKXNoCmhWpMva3k0LXprY5wtY6czsicXwbGXurf5Ryw/GDiBdUyx
+	JxXS4IhuLvjtA/FVvcUiO1C2YQ7ZMo+bxmqx
+X-Google-Smtp-Source: AK7set/hem1TXFBAOSy26MAb4biaHcfCsIvQ6Z8aJqX5iKI32GX26xwOZZqB5UlAdxpMA/+SoWw5Sg==
+X-Received: by 2002:a17:906:518:b0:8b1:3554:25 with SMTP id j24-20020a170906051800b008b135540025mr12596275eja.61.1677005772489;
+        Tue, 21 Feb 2023 10:56:12 -0800 (PST)
 Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id 19-20020a508e13000000b004aef609f747sm3564501edw.3.2023.02.21.10.56.08
+        by smtp.gmail.com with ESMTPSA id um17-20020a170907cb1100b008e076ae6783sm981564ejc.14.2023.02.21.10.56.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Feb 2023 10:56:09 -0800 (PST)
+        Tue, 21 Feb 2023 10:56:12 -0800 (PST)
 From: Andrew Jones <ajones@ventanamicro.com>
 To: linux-riscv@lists.infradead.org
 Cc: 'Jisheng Zhang ' <jszhang@kernel.org>,
@@ -68,16 +68,17 @@ Cc: 'Jisheng Zhang ' <jszhang@kernel.org>,
 	'Palmer Dabbelt ' <palmer@dabbelt.com>,
 	'Conor Dooley ' <conor.dooley@microchip.com>,
 	'Albert Ou ' <aou@eecs.berkeley.edu>
-Subject: [PATCH 3/5] riscv: alternatives: Rename errata_id to patch_id
-Date: Tue, 21 Feb 2023 19:56:01 +0100
-Message-Id: <20230221185603.570882-4-ajones@ventanamicro.com>
+Subject: [PATCH 5/5] riscv: cpufeature: Drop unused includes
+Date: Tue, 21 Feb 2023 19:56:03 +0100
+Message-Id: <20230221185603.570882-6-ajones@ventanamicro.com>
 X-Mailer: git-send-email 2.39.1
 In-Reply-To: <20230221185603.570882-1-ajones@ventanamicro.com>
 References: <20230221185603.570882-1-ajones@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230221_105610_532259_D2C293F8 
-X-CRM114-Status: GOOD (  17.63  )
+X-CRM114-CacheID: sfid-20230221_105614_897611_E7354701 
+X-CRM114-Status: UNSURE (   7.05  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,268 +95,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Alternatives are used for both errata and cpufeatures. Use a more
-generic name, 'patch_id', as in "ID of code patching site", to
-avoid confusion when alternatives are used for cpufeatures.
+Do some additional include pruning while dropping errata_list.h,
+which is getting dropped, since cpufeature.c includes hwcap.h
+directly to get cpufeature IDs.
 
 Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
 ---
- arch/riscv/Kconfig                          |  6 +-
- arch/riscv/errata/sifive/errata.c           |  6 +-
- arch/riscv/errata/thead/errata.c            |  4 +-
- arch/riscv/include/asm/alternative-macros.h | 72 ++++++++++-----------
- arch/riscv/include/asm/alternative.h        |  2 +-
- arch/riscv/kernel/cpufeature.c              |  6 +-
- 6 files changed, 48 insertions(+), 48 deletions(-)
+ arch/riscv/kernel/cpufeature.c | 5 -----
+ 1 file changed, 5 deletions(-)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 736f42f572aa..0c494c36e911 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -377,9 +377,9 @@ config RISCV_ALTERNATIVE
- 	depends on !XIP_KERNEL
- 	help
- 	  This Kconfig allows the kernel to automatically patch the
--	  errata required by the execution platform at run time. The
--	  code patching is performed once in the boot stages. It means
--	  that the overhead from this mechanism is just taken once.
-+	  erratum or cpufeature required by the execution platform at run
-+	  time. The code patching is performed once in the boot stages. It
-+	  means that the overhead from this mechanism is just taken once.
- 
- config RISCV_ALTERNATIVE_EARLY
- 	bool
-diff --git a/arch/riscv/errata/sifive/errata.c b/arch/riscv/errata/sifive/errata.c
-index 9e7dffa800f2..3fe8bab5bb9e 100644
---- a/arch/riscv/errata/sifive/errata.c
-+++ b/arch/riscv/errata/sifive/errata.c
-@@ -100,12 +100,12 @@ void __init_or_module sifive_errata_patch_func(struct alt_entry *begin,
- 	for (alt = begin; alt < end; alt++) {
- 		if (alt->vendor_id != SIFIVE_VENDOR_ID)
- 			continue;
--		if (alt->errata_id >= ERRATA_SIFIVE_NUMBER) {
--			WARN(1, "This errata id:%d is not in kernel errata list", alt->errata_id);
-+		if (alt->patch_id >= ERRATA_SIFIVE_NUMBER) {
-+			WARN(1, "This errata id:%d is not in kernel errata list", alt->patch_id);
- 			continue;
- 		}
- 
--		tmp = (1U << alt->errata_id);
-+		tmp = (1U << alt->patch_id);
- 		if (cpu_req_errata & tmp) {
- 			patch_text_nosync(ALT_OLD_PTR(alt), ALT_ALT_PTR(alt),
- 					  alt->alt_len);
-diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
-index 1dd90a5f86f0..39fc144f1b1f 100644
---- a/arch/riscv/errata/thead/errata.c
-+++ b/arch/riscv/errata/thead/errata.c
-@@ -92,10 +92,10 @@ void __init_or_module thead_errata_patch_func(struct alt_entry *begin, struct al
- 	for (alt = begin; alt < end; alt++) {
- 		if (alt->vendor_id != THEAD_VENDOR_ID)
- 			continue;
--		if (alt->errata_id >= ERRATA_THEAD_NUMBER)
-+		if (alt->patch_id >= ERRATA_THEAD_NUMBER)
- 			continue;
- 
--		tmp = (1U << alt->errata_id);
-+		tmp = (1U << alt->patch_id);
- 		if (cpu_req_errata & tmp) {
- 			oldptr = ALT_OLD_PTR(alt);
- 			altptr = ALT_ALT_PTR(alt);
-diff --git a/arch/riscv/include/asm/alternative-macros.h b/arch/riscv/include/asm/alternative-macros.h
-index 51c6867e02f3..993a44a8fdac 100644
---- a/arch/riscv/include/asm/alternative-macros.h
-+++ b/arch/riscv/include/asm/alternative-macros.h
-@@ -6,18 +6,18 @@
- 
- #ifdef __ASSEMBLY__
- 
--.macro ALT_ENTRY oldptr newptr vendor_id errata_id new_len
-+.macro ALT_ENTRY oldptr newptr vendor_id patch_id new_len
- 	.4byte \oldptr - .
- 	.4byte \newptr - .
- 	.2byte \vendor_id
- 	.2byte \new_len
--	.4byte \errata_id
-+	.4byte \patch_id
- .endm
- 
--.macro ALT_NEW_CONTENT vendor_id, errata_id, enable = 1, new_c : vararg
-+.macro ALT_NEW_CONTENT vendor_id, patch_id, enable = 1, new_c : vararg
- 	.if \enable
- 	.pushsection .alternative, "a"
--	ALT_ENTRY 886b, 888f, \vendor_id, \errata_id, 889f - 888f
-+	ALT_ENTRY 886b, 888f, \vendor_id, \patch_id, 889f - 888f
- 	.popsection
- 	.subsection 1
- 888 :
-@@ -33,7 +33,7 @@
- 	.endif
- .endm
- 
--.macro ALTERNATIVE_CFG old_c, new_c, vendor_id, errata_id, enable
-+.macro ALTERNATIVE_CFG old_c, new_c, vendor_id, patch_id, enable
- 886 :
- 	.option push
- 	.option norvc
-@@ -41,13 +41,13 @@
- 	\old_c
- 	.option pop
- 887 :
--	ALT_NEW_CONTENT \vendor_id, \errata_id, \enable, \new_c
-+	ALT_NEW_CONTENT \vendor_id, \patch_id, \enable, \new_c
- .endm
- 
--.macro ALTERNATIVE_CFG_2 old_c, new_c_1, vendor_id_1, errata_id_1, enable_1,	\
--				new_c_2, vendor_id_2, errata_id_2, enable_2
--	ALTERNATIVE_CFG "\old_c", "\new_c_1", \vendor_id_1, \errata_id_1, \enable_1
--	ALT_NEW_CONTENT \vendor_id_2, \errata_id_2, \enable_2, \new_c_2
-+.macro ALTERNATIVE_CFG_2 old_c, new_c_1, vendor_id_1, patch_id_1, enable_1,	\
-+				new_c_2, vendor_id_2, patch_id_2, enable_2
-+	ALTERNATIVE_CFG "\old_c", "\new_c_1", \vendor_id_1, \patch_id_1, \enable_1
-+	ALT_NEW_CONTENT \vendor_id_2, \patch_id_2, \enable_2, \new_c_2
- .endm
- 
- #define __ALTERNATIVE_CFG(...)		ALTERNATIVE_CFG __VA_ARGS__
-@@ -58,17 +58,17 @@
- #include <asm/asm.h>
- #include <linux/stringify.h>
- 
--#define ALT_ENTRY(oldptr, newptr, vendor_id, errata_id, newlen)		\
-+#define ALT_ENTRY(oldptr, newptr, vendor_id, patch_id, newlen)		\
- 	".4byte	((" oldptr ") - .) \n"					\
- 	".4byte	((" newptr ") - .) \n"					\
- 	".2byte	" vendor_id "\n"					\
- 	".2byte " newlen "\n"						\
--	".4byte	" errata_id "\n"
-+	".4byte	" patch_id "\n"
- 
--#define ALT_NEW_CONTENT(vendor_id, errata_id, enable, new_c)		\
-+#define ALT_NEW_CONTENT(vendor_id, patch_id, enable, new_c)		\
- 	".if " __stringify(enable) " == 1\n"				\
- 	".pushsection .alternative, \"a\"\n"				\
--	ALT_ENTRY("886b", "888f", __stringify(vendor_id), __stringify(errata_id), "889f - 888f") \
-+	ALT_ENTRY("886b", "888f", __stringify(vendor_id), __stringify(patch_id), "889f - 888f") \
- 	".popsection\n"							\
- 	".subsection 1\n"						\
- 	"888 :\n"							\
-@@ -83,7 +83,7 @@
- 	".previous\n"							\
- 	".endif\n"
- 
--#define __ALTERNATIVE_CFG(old_c, new_c, vendor_id, errata_id, enable)	\
-+#define __ALTERNATIVE_CFG(old_c, new_c, vendor_id, patch_id, enable)	\
- 	"886 :\n"							\
- 	".option push\n"						\
- 	".option norvc\n"						\
-@@ -91,22 +91,22 @@
- 	old_c "\n"							\
- 	".option pop\n"							\
- 	"887 :\n"							\
--	ALT_NEW_CONTENT(vendor_id, errata_id, enable, new_c)
-+	ALT_NEW_CONTENT(vendor_id, patch_id, enable, new_c)
- 
--#define __ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, errata_id_1, enable_1,	\
--				   new_c_2, vendor_id_2, errata_id_2, enable_2)	\
--	__ALTERNATIVE_CFG(old_c, new_c_1, vendor_id_1, errata_id_1, enable_1)	\
--	ALT_NEW_CONTENT(vendor_id_2, errata_id_2, enable_2, new_c_2)
-+#define __ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, patch_id_1, enable_1,	\
-+				   new_c_2, vendor_id_2, patch_id_2, enable_2)	\
-+	__ALTERNATIVE_CFG(old_c, new_c_1, vendor_id_1, patch_id_1, enable_1)	\
-+	ALT_NEW_CONTENT(vendor_id_2, patch_id_2, enable_2, new_c_2)
- 
- #endif /* __ASSEMBLY__ */
- 
--#define _ALTERNATIVE_CFG(old_c, new_c, vendor_id, errata_id, CONFIG_k)	\
--	__ALTERNATIVE_CFG(old_c, new_c, vendor_id, errata_id, IS_ENABLED(CONFIG_k))
-+#define _ALTERNATIVE_CFG(old_c, new_c, vendor_id, patch_id, CONFIG_k)	\
-+	__ALTERNATIVE_CFG(old_c, new_c, vendor_id, patch_id, IS_ENABLED(CONFIG_k))
- 
--#define _ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, errata_id_1, CONFIG_k_1,		\
--				  new_c_2, vendor_id_2, errata_id_2, CONFIG_k_2)		\
--	__ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, errata_id_1, IS_ENABLED(CONFIG_k_1),	\
--				   new_c_2, vendor_id_2, errata_id_2, IS_ENABLED(CONFIG_k_2))
-+#define _ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, patch_id_1, CONFIG_k_1,		\
-+				  new_c_2, vendor_id_2, patch_id_2, CONFIG_k_2)		\
-+	__ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, patch_id_1, IS_ENABLED(CONFIG_k_1),	\
-+				   new_c_2, vendor_id_2, patch_id_2, IS_ENABLED(CONFIG_k_2))
- 
- #else /* CONFIG_RISCV_ALTERNATIVE */
- #ifdef __ASSEMBLY__
-@@ -137,19 +137,19 @@
- 
- /*
-  * Usage:
-- *   ALTERNATIVE(old_content, new_content, vendor_id, errata_id, CONFIG_k)
-+ *   ALTERNATIVE(old_content, new_content, vendor_id, patch_id, CONFIG_k)
-  * in the assembly code. Otherwise,
-- *   asm(ALTERNATIVE(old_content, new_content, vendor_id, errata_id, CONFIG_k));
-+ *   asm(ALTERNATIVE(old_content, new_content, vendor_id, patch_id, CONFIG_k));
-  *
-  * old_content: The old content which is probably replaced with new content.
-  * new_content: The new content.
-  * vendor_id: The CPU vendor ID.
-- * errata_id: The errata ID.
-- * CONFIG_k: The Kconfig of this errata. When Kconfig is disabled, the old
-+ * patch_id: The patch ID (erratum ID or cpufeature ID).
-+ * CONFIG_k: The Kconfig of this patch ID. When Kconfig is disabled, the old
-  *	     content will alwyas be executed.
-  */
--#define ALTERNATIVE(old_content, new_content, vendor_id, errata_id, CONFIG_k) \
--	_ALTERNATIVE_CFG(old_content, new_content, vendor_id, errata_id, CONFIG_k)
-+#define ALTERNATIVE(old_content, new_content, vendor_id, patch_id, CONFIG_k) \
-+	_ALTERNATIVE_CFG(old_content, new_content, vendor_id, patch_id, CONFIG_k)
- 
- /*
-  * A vendor wants to replace an old_content, but another vendor has used
-@@ -158,9 +158,9 @@
-  * on the following sample code and then replace ALTERNATIVE() with
-  * ALTERNATIVE_2() to append its customized content.
-  */
--#define ALTERNATIVE_2(old_content, new_content_1, vendor_id_1, errata_id_1, CONFIG_k_1,		\
--				   new_content_2, vendor_id_2, errata_id_2, CONFIG_k_2)		\
--	_ALTERNATIVE_CFG_2(old_content, new_content_1, vendor_id_1, errata_id_1, CONFIG_k_1,	\
--					new_content_2, vendor_id_2, errata_id_2, CONFIG_k_2)
-+#define ALTERNATIVE_2(old_content, new_content_1, vendor_id_1, patch_id_1, CONFIG_k_1,		\
-+				   new_content_2, vendor_id_2, patch_id_2, CONFIG_k_2)		\
-+	_ALTERNATIVE_CFG_2(old_content, new_content_1, vendor_id_1, patch_id_1, CONFIG_k_1,	\
-+					new_content_2, vendor_id_2, patch_id_2, CONFIG_k_2)
- 
- #endif
-diff --git a/arch/riscv/include/asm/alternative.h b/arch/riscv/include/asm/alternative.h
-index 3beef400a971..8f39d4e8598d 100644
---- a/arch/riscv/include/asm/alternative.h
-+++ b/arch/riscv/include/asm/alternative.h
-@@ -38,7 +38,7 @@ struct alt_entry {
- 	s32 alt_offset;		/* offset relative to replacement instruction or data */
- 	u16 vendor_id;		/* cpu vendor id */
- 	u16 alt_len;		/* The replacement size */
--	u32 errata_id;		/* The errata id */
-+	u32 patch_id;		/* The patch ID (erratum ID or cpufeature ID) */
- };
- 
- void sifive_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
 diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 21fb567e1b22..85c99ae64017 100644
+index 85c99ae64017..151e1a715db9 100644
 --- a/arch/riscv/kernel/cpufeature.c
 +++ b/arch/riscv/kernel/cpufeature.c
-@@ -281,13 +281,13 @@ void __init_or_module riscv_cpufeature_patch_func(struct alt_entry *begin,
- 	for (alt = begin; alt < end; alt++) {
- 		if (alt->vendor_id != 0)
- 			continue;
--		if (alt->errata_id >= RISCV_ISA_EXT_MAX) {
-+		if (alt->patch_id >= RISCV_ISA_EXT_MAX) {
- 			WARN(1, "This extension id:%d is not in ISA extension list",
--				alt->errata_id);
-+				alt->patch_id);
- 			continue;
- 		}
+@@ -8,19 +8,14 @@
  
--		if (!__riscv_isa_extension_available(NULL, alt->errata_id))
-+		if (!__riscv_isa_extension_available(NULL, alt->patch_id))
- 			continue;
+ #include <linux/bitmap.h>
+ #include <linux/ctype.h>
+-#include <linux/libfdt.h>
+ #include <linux/log2.h>
+ #include <linux/module.h>
+ #include <linux/of.h>
+ #include <asm/alternative.h>
+ #include <asm/cacheflush.h>
+-#include <asm/errata_list.h>
+ #include <asm/hwcap.h>
+ #include <asm/patch.h>
+-#include <asm/pgtable.h>
+ #include <asm/processor.h>
+-#include <asm/smp.h>
+-#include <asm/switch_to.h>
  
- 		oldptr = ALT_OLD_PTR(alt);
+ #define NUM_ALPHA_EXTS ('z' - 'a' + 1)
+ 
 -- 
 2.39.1
 
