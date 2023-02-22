@@ -4,76 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF7B5C64EC7
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Feb 2023 15:01:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62E3DC64EC4
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Feb 2023 15:01:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2KIHac3XdG0OUHpyVJw9QeMlaKCx/cSCi/Nw4bfAxwk=; b=BWrpNLUoQoaYAN
-	N1pksryt5VwYu2SCqt4yi53yQB+yp5XIb8CcvgtxLOzd7SyVU0nTav0Y4+ffQOJwBxNpVFLbjSUs4
-	Kl9qxnlNv1c+5WX6WTz3ClpGDMvkBxplvQ5G5vCl1P0S+iVk9tGHmWy/LTiZW7+Uszl7FwX1IZDwO
-	sLd8FIuzv5QLRWM+0V3rXi5SyvVK4uYATJoojPsEkBZH7rJ/cPTgZ1zKa8cl/L8G49kEfYzC6/OuO
-	u7JAwN0gjjLkvEE14X7M3Qf9ciQWxGgYW+bwg/QHwh+bKaAQuzIW9aM8x5TjaQLl8U7L8peb9rIwF
-	aVGUXm0GwrgMc+mZluRg==;
+	List-Owner; bh=gyUlPAYCMBXEBZ5UVdNUiyXWI8phMf2vNjUnCbl+z7E=; b=nphNfv7xA4QqEN
+	Pg+kzmEEl/I8TJmt2HqlFSD5s0LtrRD9HgPmcyQfM/s71uRbg4M5ZjdikgBvVIwNQnjPA9qp4M1/R
+	xtsgq2MLU0zlwbjHh+wkfH+I1nq2dtd1g19KCDT1k+EVecQL4Q5/Tt9brdZvpx082Ve98M00pgtqd
+	EPYSOCKqWYnixpYG1xbdaRJRMCglKIM29/Y4iWUkUK9pgbGs9OcnodcaRTcShpjpB2boi1WWbKIm1
+	qmS86PvGVGNs6mjnVn3bjHzrLMKdivZJB0m/Jy+HNDeFkX4spe/1Ap7lBK/HcCeLGv6bIxR6Qv2QI
+	wMDZPU4vzFzNKCHXEliQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUqc6-00CmW4-8c; Wed, 22 Feb 2023 15:00:58 +0000
+	id 1pUqc7-00CmXR-Ny; Wed, 22 Feb 2023 15:00:59 +0000
 Received: from desiato.infradead.org ([90.155.92.199])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUqbl-00CmC8-PW
+	id 1pUqbl-00CmC7-No
 	for linux-riscv@bombadil.infradead.org; Wed, 22 Feb 2023 15:00:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:Content-Type:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=WtYCVLbQm8neeYQ5TdiZJpKYlGHfnNKrqWs5ac11QSY=; b=cVRyqvLVwSkZJQ/BwFfqiJdGDI
-	6qlO+mB+oW/Vf0Nj52B7g7RgnFGZj3DQlxhh5/PVV2xQZeXYUnimpMU7+LjcQlld1fPkef8+i6QjQ
-	3/LGfhWVVjF12kxiekxF6Sp6OO8g21JJUvArOySm/wbvD+E5glalN9WVCTbSfQg/Zl6MMf3iskfq1
-	QPJt+Sd2BMdty2rE27EHBZv7GYdpZEIiRF/0zfJ+9AbX6PNur9Z/9CGCCtUZkJpkCNVMJwIbBVKPs
-	BR+v6C6OC7JL+/wZmAllDWCJAiV/kin8p4wpf+j91+ptQfKqXl/+1CpRcFIJImW31BwAHUpae6yY/
-	GNOOZWuQ==;
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	bh=LEaLK1npVLOWsuH6brTgRjOQUjyzcwPSgHkYTrF9Jyg=; b=S7DNzyXNPemSrkmu0s/ammz1if
+	gbyWO/LEhT/4Hcg4dB6SNY3ZHRm9P5Mx033tvlE7hhbdgBo++S7zsAMq7F1NQxpRVlaRnqbo2r0DO
+	mvbcaEtL7LsX1wd7zZB7zJM7f2yxzH/QYRAHhNzaZdeGXzmx3lgGmgQWtPMjG+afFsMpDRBdrnvGQ
+	6jrbSq9ynV3RhI2yKQswxPyI3GaTcvRM9VXz5ArS4rDdmUzJOcF1jmrja5Nb5lDXTgFYFWakvT4kO
+	MD0ahDzJRCgL2WSko42glhIxXBBpAJXtBlWdsEjANqwTD63iFg1wieGh7ud3lARABuJe1g5QGUA+Q
+	uBj2fz+w==;
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pUqbf-00CZvR-20
+	id 1pUqbf-00CZvQ-1l
 	for linux-riscv@lists.infradead.org;
 	Wed, 22 Feb 2023 15:00:36 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 1BD35614C2;
-	Wed, 22 Feb 2023 15:00:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id B28E7C4332E;
+	by sin.source.kernel.org (Postfix) with ESMTPS id 326EFCE1DE5;
+	Wed, 22 Feb 2023 15:00:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 5A438C43444;
 	Wed, 22 Feb 2023 15:00:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1677078022;
-	bh=7r+PiGpQC/jPWvSvPp3U+a5U5bek3m6CH3EArNTd7Z0=;
+	bh=//0EBuofToROe4aHx0Fig7UklG17tIZf4rPh6uYWYYA=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=Hmj46h5FqsKYjWT0c+fkGLcvTAufr4S8vpNK/deuvZNA9+jLLfGAAofUmMDEAjDuH
-	 v46t9i8z8Wb9tpwyMjB55ctt/t/8/aptG2rwtrkv9K76Sg2YsgXBiKmML3bcAwOVI6
-	 P1LyhxpObORmoN/MaQ2+bpDmYCRtV+CfIoLD9Pkea7hWEYb77A+ROqAarvAhUCpL+I
-	 lcX4fPDGaU1kh/w85WcXX5UOYwG4e+D+0/KFyVNKRKoRpThsf+zgYlyrImLE1ogxx8
-	 KE6YYfdOm5BfpYRQBZrGjy9YX3l0MmULKSfXyTvrwWNbUUv0hA0t55/fScm5s9Oo06
-	 kwB6hf1bTeOkQ==
+	b=bp1WJT9+8TdJIp4pxW+sPJBmJ55lT8100WwM5ZxC+gAf7r3EurN/X2Zehztmit/j5
+	 t8oa5P3QZd595iAym+M3wW4eC6DAQ7TNWAgL9//+LwHja5miR+O7yvXxoUiu/tFWDN
+	 K/zJstFnZ/C0jRO9TztJ2mYGWMOm0KzhR+aK2woFIHWI5ken3A6BGmFkk5ELMTzOWS
+	 zd4rj1PSq7ATxoWgN/JH1sAWgJk7pbiDV3OtKTYPTmxEViJGBu4nPh9YRSO//JYubD
+	 Om6KLuww+DwTXpMAfoKbrX8VKQCIqZrCMLdac8rQW8M/YB4uJRPZ27Oe8dEn1r+Kfo
+	 Vd25wOcK2CWCQ==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 93B33C73FE7;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 3888BC73FF5;
 	Wed, 22 Feb 2023 15:00:22 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH 0/2] Small fixups for the Zbb string functions
+Subject: Re: [PATCH v2 0/5] riscv: improve link and support
+ ARCH_WANT_LD_ORPHAN_WARN
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id:  <167707802259.24438.1077934966472416097.git-patchwork-notify@kernel.org>
+Message-Id:  <167707802222.24438.1548732675746244127.git-patchwork-notify@kernel.org>
 Date: Wed, 22 Feb 2023 15:00:22 +0000
-References: <20230208225328.1636017-1-heiko@sntech.de>
-In-Reply-To: <20230208225328.1636017-1-heiko@sntech.de>
-To: =?utf-8?q?Heiko_St=C3=BCbner_=3Cheiko=40sntech=2Ede=3E?=@ci.codeaurora.org
-Cc: linux-riscv@lists.infradead.org, palmer@rivosinc.com, conor@kernel.org,
- linux-kernel@vger.kernel.org, christoph.muellner@vrull.eu,
- ajones@ventanamicro.com, heiko.stuebner@vrull.eu
+References: <20230119155417.2600-1-jszhang@kernel.org>
+In-Reply-To: <20230119155417.2600-1-jszhang@kernel.org>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, masahiroy@kernel.org,
+ keescook@chromium.org, nathan@kernel.org, conor@kernel.org,
+ linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230222_150032_291479_D69A53C1 
-X-CRM114-Status: GOOD (  10.44  )
+X-CRM114-CacheID: sfid-20230222_150032_291479_A9BFFEED 
+X-CRM114-Status: UNSURE (   9.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,21 +98,29 @@ Hello:
 This series was applied to riscv/linux.git (for-next)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Wed,  8 Feb 2023 23:53:26 +0100 you wrote:
-> From: Heiko Stuebner <heiko.stuebner@vrull.eu>
+On Thu, 19 Jan 2023 23:54:12 +0800 you wrote:
+> This series tries to improve link time handling of riscv:
+> patch1 adds the missing RUNTIME_DISCARD_EXIT as suggested by Masahiro.
 > 
-> I didn't manage to address Andrews comments on v5 [0] in time
-> before the series got applied, so here are two addon comments
-> that hopefully do his comments justice now.
-> 
+> Similar as other architectures such as x86, arm64 and so on, enable
+> ARCH_WANT_LD_ORPHAN_WARN to enable linker orphan warnings to prevent
+> from missing any new sections in future. So the following two patches
+> are preparation ones, and the last patch finally selects
+> ARCH_WANT_LD_ORPHAN_WARN
 > 
 > [...]
 
 Here is the summary with links:
-  - [1/2] RISC-V: fix ordering of Zbb extension
-    https://git.kernel.org/riscv/c/1eac28201ac0
-  - [2/2] RISC-V: improve string-function assembly
-    (no matching commit)
+  - [v2,1/5] riscv: lds: define RUNTIME_DISCARD_EXIT
+    https://git.kernel.org/riscv/c/7e92586c28a5
+  - [v2,2/5] riscv: vmlinux.lds.S: explicitly catch .rela.dyn symbols
+    https://git.kernel.org/riscv/c/e5973191a8e3
+  - [v2,3/5] riscv: vmlinux.lds.S: explicitly catch .riscv.attributes sections
+    https://git.kernel.org/riscv/c/b13e64d94149
+  - [v2,4/5] riscv: vmlinux.lds.S: explicitly catch .init.bss sections from EFI stub
+    https://git.kernel.org/riscv/c/0ed0031b093b
+  - [v2,5/5] riscv: select ARCH_WANT_LD_ORPHAN_WARN for !XIP_KERNEL
+    https://git.kernel.org/riscv/c/f4b71bff8d85
 
 You are awesome, thank you!
 -- 
