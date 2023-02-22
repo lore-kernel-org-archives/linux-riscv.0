@@ -4,53 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D913FC636D6
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Feb 2023 17:25:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31856C61DA4
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Feb 2023 17:28:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=37vL0Uw54c8axp2IHT+CRYyqDOl7TADmGwW6wBqc97c=; b=fKE4JySlyy3DSN
-	fA8EQ4rJt9/3MEXnYqRT4DSlh5g5k9/ZuoW5iPFMBdFOyhUbLzUd5ual5haxBUKF3YQfIRPbSxoI3
-	ZlyNzTYTyGOhp8Nru2SscFac/Q+5iM65VWj5qC1Xq9wJb/SXBFA2+uzrv02rin2Xe4Fg6RrLjLDs4
-	IgbDNIIhVqCHm9hVdLI61yF6ikP5LI9+1KAUm4YsZ+4vS41VHpZSxUVMqzXOCheZFH+oTCxivj0dT
-	wMrYC0ivDOUFP2apTDjLSX2SJjnne1YNzGOZNFEJSXN7+bo5LKxSy9pafU4McDU1fOxntGwp/1Mu7
-	GzaswzpWZWceLaLvgFBg==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PJupI3vFUFORSr5mXg4QmiiK0E9dE5tUSZbhw8bkc8c=; b=HlM9JIA/p2ubN+k7XtEXOy+85G
+	7UTj+lMyPyX1EXki+GWktnb5DJHEZN3o4X7aZK2GUaNQEvj8Zfsu17+kEQbpsGs5/LVB+5zEB0Wpd
+	YDqoAj38J7x/tvDyFIAM3WQiyRw2pF3ViEyA6GIA+3RdUV8nSpYxIcdOHJXeT1iQELcz0tyAsQGju
+	q98NVIx/IO3yIx+HtazRNgCkkLCj8nQuRDJTjUd1p12HJEA7NO6yLGc7ZFU6Opt8VDNY+H91QKU3a
+	nrD3tIt6fo1kWYyCj/z/ictYjM82KducKobL2BJthAI6gdBaf+Igiw93ScN7BaupBc/66lEKD5S0D
+	w0GkAoGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUsrQ-00DDFQ-8p; Wed, 22 Feb 2023 17:24:56 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUsrN-00DDCM-Gf
-	for linux-riscv@lists.infradead.org; Wed, 22 Feb 2023 17:24:55 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 996D41063;
-	Wed, 22 Feb 2023 09:25:28 -0800 (PST)
-Received: from [10.57.16.42] (unknown [10.57.16.42])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CE2E83F881;
-	Wed, 22 Feb 2023 09:24:43 -0800 (PST)
-Message-ID: <e9d882f4-d57d-f6b4-7ae0-bbfea0f5aa59@arm.com>
-Date: Wed, 22 Feb 2023 17:24:36 +0000
+	id 1pUsuY-00DFHL-Vp; Wed, 22 Feb 2023 17:28:11 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pUsuS-00DFDl-Ft; Wed, 22 Feb 2023 17:28:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=7PCb/nQ6ECZ4J8VaAk/5mSyJ7jm4dBsoYJUGthXnf7c=; b=BO3p3FFreJTHiS3TuMwoKmYCm5
+	Mnh5nwJy4dZBB7F2WodaI7P9AsWmIuExlA5dBw7cyj7wGZ4pF/KChybByM4Ty9p/ed7dhmw4sT6wx
+	itfKd6UNv0EEIf7I6B5xByJkoTgDnbLUQTJOLIJ0IvgND1RBxgqEQp9oV+dxVi4jtZTm55k8Rfkfe
+	uBsKyv0pwmj90Mv8R1u1gCOVX9KFFkcWhRHJS2rYF7oD8MkFezun7LbrmEQmOrNHyBsdFz9Ng/EaI
+	5+v0bYqFW36dBgT+sL3PV/29TG2U2htjf2wrApqQpYAlKziuK5xycVgA9HosBJ+tQw8c+/nJLeZHU
+	dscoIonQ==;
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1pUsuO-00Cbfl-2S;
+	Wed, 22 Feb 2023 17:28:03 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 5BFE1B815CF;
+	Wed, 22 Feb 2023 17:27:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B058C433D2;
+	Wed, 22 Feb 2023 17:27:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1677086873;
+	bh=GaQWt87pfqWhihgkWvN8V4jqdum+gGbBj2QXnN43Xco=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qmGVZmNf6jMCxbIEVKkOfdRYDWfmYRNqQJzVKPfG9rfKn3VOryXgjnJhTnGslNMdC
+	 RRf/KvBODyLsWBHMMqhO3VwsjMi/Hm9gafrXRZzPSRrBMxc+Kl5tvIMw4V9VFiQFP8
+	 rHSXXnfzO+dQsj01XYlOpdW63MNr1vZgIh9qrNa7nm06hA9TekwcIvkauuinyLt/RM
+	 ko4QAisxGK276tPWrc7ASm07tGuVxlsgmDbV8+YWMbuJp6K0tQRUnO+kqglPwuWLd9
+	 CWjRDeV6tpa34aHZY0qNDv7zJR6w0wRZJ6LQLPll6sewq+2emPNeDsIIxDvS+kjoNH
+	 yYOXOsgNx+n/g==
+Date: Wed, 22 Feb 2023 17:27:47 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	kvm-riscv@lists.infradead.org, 'Rob Herring ' <robh@kernel.org>,
+	'Jisheng Zhang ' <jszhang@kernel.org>,
+	'Anup Patel ' <apatel@ventanamicro.com>,
+	'Conor Dooley ' <conor.dooley@microchip.com>,
+	'Krzysztof Kozlowski ' <krzysztof.kozlowski+dt@linaro.org>,
+	'Heiko Stuebner ' <heiko@sntech.de>,
+	'Paul Walmsley ' <paul.walmsley@sifive.com>,
+	'Palmer Dabbelt ' <palmer@dabbelt.com>,
+	'Albert Ou ' <aou@eecs.berkeley.edu>,
+	'Ben Dooks ' <ben.dooks@codethink.co.uk>,
+	'Atish Patra ' <atishp@rivosinc.com>
+Subject: Re: [PATCH v5 5/8] riscv: cpufeatures: Put the upper 16 bits of
+ patch ID to work
+Message-ID: <Y/ZQk0ifXPEnenoe@spud>
+References: <20230221190916.572454-1-ajones@ventanamicro.com>
+ <20230221190916.572454-6-ajones@ventanamicro.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:102.0) Gecko/20100101
- Thunderbird/102.7.2
-Subject: Re: [PATCH 3/3] of: address: Use dma_default_coherent to determine
- default coherency
-Content-Language: en-GB
-To: Jiaxun Yang <jiaxun.yang@flygoat.com>, linux-mips@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- tsbogend@alpha.franken.de, mpe@ellerman.id.au, paul.walmsley@sifive.com,
- palmer@dabbelt.com, robh+dt@kernel.org, hch@lst.de,
- m.szyprowski@samsung.com, linux-riscv@lists.infradead.org
-References: <20230222133712.8079-1-jiaxun.yang@flygoat.com>
- <20230222133712.8079-4-jiaxun.yang@flygoat.com>
-From: Robin Murphy <robin.murphy@arm.com>
-In-Reply-To: <20230222133712.8079-4-jiaxun.yang@flygoat.com>
+In-Reply-To: <20230221190916.572454-6-ajones@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230222_092453_686766_F804FE50 
-X-CRM114-Status: GOOD (  22.21  )
+X-CRM114-CacheID: sfid-20230222_172800_977174_630D732A 
+X-CRM114-Status: GOOD (  34.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,120 +91,180 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============3843478683927809725=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2023-02-22 13:37, Jiaxun Yang wrote:
-> As for now all arches have dma_default_coherent matched with default
-> DMA coherency for of devices, so there is no need to have a standalone
-> config option.
-> 
-> This also fixes a case that for some MIPS platforms, coherency information
-> is not carried in devicetree and kernel will override dma_default_coherent
-> at early boot.
-> 
-> Note for PowerPC: CONFIG_OF_DMA_DEFUALT_COHERENT was only selected when
-> CONFIG_NOT_COHERENT_CACHE is false, in this case dma_default_coherent will
-> be true, so it still matches present behavior.
-> 
-> Note for RISC-V: dma_default_coherent is set to true at init code in this
-> series.
 
-OK, so the fundamental problem here is that we have two slightly 
-different conflicting mechanisms, the ex-PowerPC config option, and the 
-ex-MIPS dma_default_coherent for which of_dma_is_coherent() has 
-apparently been broken forever.
+--===============3843478683927809725==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="GqMNVKB/GCgclQiO"
+Content-Disposition: inline
 
-I'd agree that it's worth consolidating the two, but please separate out 
-the fix as below, so it's feasible to backport without having to muck 
-about in arch code.
 
-> Signed-off-by: Jiaxun Yang <jiaxun.yang@flygoat.com>
+--GqMNVKB/GCgclQiO
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Feb 21, 2023 at 08:09:13PM +0100, Andrew Jones wrote:
+> cpufeature IDs are consecutive integers starting at 26, so a 32-bit
+> patch ID allows an aircraft carrier load of feature IDs. Repurposing
+> the upper 16 bits still leaves a boat load of feature IDs and gains
+> 16 bits which may be used to control patching on a per patch-site
+> basis.
+>=20
+> This will be initially used in Zicboz's application to clear_page(),
+> as Zicboz's block size must also be considered. In that case, the
+> upper 16-bit value's role will be to convey the maximum block size
+> which the Zicboz clear_page() implementation supports.
+>=20
+> cpufeature patch sites which need to check for the existence or
+> absence of other cpufeatures may also be able to make use of this.
+>=20
+> Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
 > ---
->   arch/powerpc/Kconfig | 1 -
->   arch/riscv/Kconfig   | 1 -
->   drivers/of/Kconfig   | 4 ----
->   drivers/of/address.c | 2 +-
->   4 files changed, 1 insertion(+), 7 deletions(-)
-> 
-> diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
-> index 2c9cdf1d8761..c67e5da714f7 100644
-> --- a/arch/powerpc/Kconfig
-> +++ b/arch/powerpc/Kconfig
-> @@ -272,7 +272,6 @@ config PPC
->   	select NEED_PER_CPU_PAGE_FIRST_CHUNK	if PPC64
->   	select NEED_SG_DMA_LENGTH
->   	select OF
-> -	select OF_DMA_DEFAULT_COHERENT		if !NOT_COHERENT_CACHE
->   	select OF_EARLY_FLATTREE
->   	select OLD_SIGACTION			if PPC32
->   	select OLD_SIGSUSPEND
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 1d46a268ce16..406c6816d289 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -119,7 +119,6 @@ config RISCV
->   	select MODULES_USE_ELF_RELA if MODULES
->   	select MODULE_SECTIONS if MODULES
->   	select OF
-> -	select OF_DMA_DEFAULT_COHERENT
->   	select OF_EARLY_FLATTREE
->   	select OF_IRQ
->   	select PCI_DOMAINS_GENERIC if PCI
-> diff --git a/drivers/of/Kconfig b/drivers/of/Kconfig
-> index 644386833a7b..e40f10bf2ba4 100644
-> --- a/drivers/of/Kconfig
-> +++ b/drivers/of/Kconfig
-> @@ -102,8 +102,4 @@ config OF_OVERLAY
->   config OF_NUMA
->   	bool
->   
-> -config OF_DMA_DEFAULT_COHERENT
-> -	# arches should select this if DMA is coherent by default for OF devices
-> -	bool
-> -
->   endif # OF
-> diff --git a/drivers/of/address.c b/drivers/of/address.c
-> index 4c0b169ef9bf..23ade4919853 100644
-> --- a/drivers/of/address.c
-> +++ b/drivers/of/address.c
-> @@ -1103,7 +1103,7 @@ phys_addr_t __init of_dma_get_max_cpu_address(struct device_node *np)
->   bool of_dma_is_coherent(struct device_node *np)
->   {
->   	struct device_node *node;
-> -	bool is_coherent = IS_ENABLED(CONFIG_OF_DMA_DEFAULT_COHERENT);
-> +	bool is_coherent = dma_default_coherent;
+>  arch/riscv/include/asm/alternative.h |  3 +++
+>  arch/riscv/kernel/cpufeature.c       | 37 +++++++++++++++++++++++++---
+>  2 files changed, 36 insertions(+), 4 deletions(-)
+>=20
+> diff --git a/arch/riscv/include/asm/alternative.h b/arch/riscv/include/as=
+m/alternative.h
+> index 8f39d4e8598d..f2cb543b0bd2 100644
+> --- a/arch/riscv/include/asm/alternative.h
+> +++ b/arch/riscv/include/asm/alternative.h
+> @@ -17,6 +17,9 @@
+>  #include <linux/stddef.h>
+>  #include <asm/hwcap.h>
+> =20
+> +#define PATCH_ID_CPUFEATURE_ID(p)		((u16)((u32)(p) & 0xffff))
+> +#define PATCH_ID_CPUFEATURE_VALUE(p)		((u16)(((u32)(p) >> 16) & 0xffff))
 
-AFAICS, all you should actually need is a single self-contained addition 
-here, something like:
+I was just fiddling around a bit with macros, I think these do the same
+thing:
+#define PATCH_ID_CPUFEATURE_ID(p)		((p) & GENMASK(15, 0))
+#define PATCH_ID_CPUFEATURE_VALUE(p)		FIELD_GET(GENMASK(31, 16), (p))
+Although without the same care about types - is there a specific reason
+you were casting like that?
 
-+	/*
-+	 * DT-based MIPS doesn't use OF_DMA_DEFAULT_COHERENT, but
-+	 * might override the system-wide default at runtime.
-+	 */
-+#if defined(CONFIG_ARCH_HAS_SYNC_DMA_FOR_DEVICE) || \
-+	defined(CONFIG_ARCH_HAS_SYNC_DMA_FOR_CPU) || \
-+	defined(CONFIG_ARCH_HAS_SYNC_DMA_FOR_CPU_ALL)
-+	is_coherent = dma_default_coherent;
-+#endif
+Either way, I think I prefer this approach to the vendor_id stuffing!
+If we do end up needing to fit an aircraft carrier, we can come back and
+revisit another parameter in the alternatives I suppose...
 
->   
->   	node = of_node_get(np);
->   
-
-Then *after* that's fixed, we can do a more comprehensive refactoring to 
-merge the two mechanisms properly. FWIW I think I'd prefer an approach 
-closer to the first one, where config options control the initial value 
-of dma_default_coherent rather than architectures having to override it 
-unconditionally (and TBH I'd also like to have a generic config symbol 
-for whether an arch supports per-device coherency or not).
+I don't really know if the macros do anything to help with
+understandability, so with or without trying to use macros:
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
 Thanks,
-Robin.
+Conor.
+
+>  #define RISCV_ALTERNATIVES_BOOT		0 /* alternatives applied during regula=
+r boot */
+>  #define RISCV_ALTERNATIVES_MODULE	1 /* alternatives applied during modul=
+e-init */
+>  #define RISCV_ALTERNATIVES_EARLY_BOOT	2 /* alternatives applied before m=
+mu start */
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeatur=
+e.c
+> index 6102b6bb5db3..0594989ead63 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -273,12 +273,35 @@ void __init riscv_fill_hwcap(void)
+>  }
+> =20
+>  #ifdef CONFIG_RISCV_ALTERNATIVE
+> +/*
+> + * Alternative patch sites consider 48 bits when determining when to pat=
+ch
+> + * the old instruction sequence with the new. These bits are broken into=
+ a
+> + * 16-bit vendor ID and a 32-bit patch ID. A non-zero vendor ID means the
+> + * patch site is for an erratum, identified by the 32-bit patch ID. When
+> + * the vendor ID is zero, the patch site is for a cpufeature. cpufeatures
+> + * further break down patch ID into two 16-bit numbers. The lower 16 bits
+> + * are the cpufeature ID and the upper 16 bits are used for a value spec=
+ific
+> + * to the cpufeature and patch site. If the upper 16 bits are zero, then=
+ it
+> + * implies no specific value is specified. cpufeatures that want to cont=
+rol
+> + * patching on a per-site basis will provide non-zero values and impleme=
+nt
+> + * checks here. The checks return true when patching should be done, and
+> + * false otherwise.
+> + */
+> +static bool riscv_cpufeature_patch_check(u16 id, u16 value)
+> +{
+> +	if (!value)
+> +		return true;
+> +
+> +	return false;
+> +}
+> +
+>  void __init_or_module riscv_cpufeature_patch_func(struct alt_entry *begi=
+n,
+>  						  struct alt_entry *end,
+>  						  unsigned int stage)
+>  {
+>  	struct alt_entry *alt;
+>  	void *oldptr, *altptr;
+> +	u16 id, value;
+> =20
+>  	if (stage =3D=3D RISCV_ALTERNATIVES_EARLY_BOOT)
+>  		return;
+> @@ -286,13 +309,19 @@ void __init_or_module riscv_cpufeature_patch_func(s=
+truct alt_entry *begin,
+>  	for (alt =3D begin; alt < end; alt++) {
+>  		if (alt->vendor_id !=3D 0)
+>  			continue;
+> -		if (alt->patch_id >=3D RISCV_ISA_EXT_MAX) {
+> -			WARN(1, "This extension id:%d is not in ISA extension list",
+> -				alt->patch_id);
+> +
+> +		id =3D PATCH_ID_CPUFEATURE_ID(alt->patch_id);
+> +
+> +		if (id >=3D RISCV_ISA_EXT_MAX) {
+> +			WARN(1, "This extension id:%d is not in ISA extension list", id);
+>  			continue;
+>  		}
+> =20
+> -		if (!__riscv_isa_extension_available(NULL, alt->patch_id))
+> +		if (!__riscv_isa_extension_available(NULL, id))
+> +			continue;
+> +
+> +		value =3D PATCH_ID_CPUFEATURE_VALUE(alt->patch_id);
+> +		if (!riscv_cpufeature_patch_check(id, value))
+>  			continue;
+> =20
+>  		oldptr =3D ALT_OLD_PTR(alt);
+> --=20
+> 2.39.1
+>=20
+
+--GqMNVKB/GCgclQiO
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY/ZQkwAKCRB4tDGHoIJi
+0k+wAPwIor5ilu4B0RgPKFqm7EtX5MEeyIBYCiI+e43beFThVAD8DO/1X/a4zv0y
+P04ldR+yuDJDo4G0/ySBm28E4Kbc1Ac=
+=THQn
+-----END PGP SIGNATURE-----
+
+--GqMNVKB/GCgclQiO--
+
+
+--===============3843478683927809725==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3843478683927809725==--
+
