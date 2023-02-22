@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12C03C64EC7
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Feb 2023 03:31:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1A77C61DA4
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Feb 2023 06:56:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=F31PJ/XG1IGZbIgnMAbSk2zoYhKnRWpHKQPvIT6wR1o=; b=KKJAQNtPTtzoH0
-	qE9W+Y2rMlT0M4/3IFyEuYIl6U3yNi2oCp+wr2094godb9JXHewm8cr0HR6ZH9nNwmzH2wvmnfRey
-	Yy9cRg0E1APobGWquy6mUHN4Q6cJYdef3l4vEkI5z2RLhXjBVxEO9AdjNkoVeSq6bhNv/6P2VM3c8
-	xr5EVb//NzX3NyMusut/pgCBgJl1Ls819byndDlSkxEe1xZzo3gqMmKEHzFOeQprNikdJseie7JRG
-	jdcgVnrAHanXWLKwwM2IU0rNLhBK0O8rcIFHq8vHCbVN0Mysmflss2Ra0ThoghT6TI8sKa9rywCIK
-	6ZyPXes1MaDyNQEgqkNw==;
+	List-Owner; bh=djDh/zuPixdLI3R58Umxt6ZPXQCOwY9rvbvcnYAP82Q=; b=VBzJMG++zc78sJ
+	D4liDAiMOmiIl5ABb0Vuavc1kgwF/enVi8Mzm7PlzpcGyzHfdRX4pEp2uPNwztr/Eah7tJaZSNWM0
+	1cTgz7BAyfxjefDFSs0QzbrcwRUn/GSuwKDzJkNMrfgDlCsX8C6FbrT/Ty9xo5u4fJ5RapoZx/jBn
+	0gjAdJvIFT9E3uRTyZccW83SYbNCHpB/82vJkxQZ0donEdxxH+gMjPEO+r0dn/Wt84YveUipgk6Xg
+	i5Xcg222ThVYx0LFSp4be9XrhmNNFJAdI3QG64iHfUR22t8nKXdN6dxNccMyfS0o049ewSkVhTJnj
+	nO+ekqK+IGV6AUGAiaUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUfr3-00AbZp-ID; Wed, 22 Feb 2023 03:31:41 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1pUj3K-00B0G8-SF; Wed, 22 Feb 2023 06:56:34 +0000
+Received: from mga04.intel.com ([192.55.52.120])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUfqz-00AbX6-TZ
-	for linux-riscv@lists.infradead.org; Wed, 22 Feb 2023 03:31:40 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by sin.source.kernel.org (Postfix) with ESMTPS id F056CCE1CE5;
-	Wed, 22 Feb 2023 03:31:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DAEEC433A1;
-	Wed, 22 Feb 2023 03:31:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1677036695;
-	bh=BCEF9tz3PqpoLVNs6mBcgcViy7YzFnU5Zx1xRtgtCrQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=R1RpW8UtqtmM0PPoFbekx/WGniM1mqrmVKT6pQwhNBM/+wrXaF8TEO80rZvYIhh99
-	 M9UWU9bnquG4jnW60wmVL87IFH4ZjOgilCHMwFpxm+k6XuYdt/TDY7DfMKwl2dBgmT
-	 QN5hwPLd+EyLlEkLM9jXEeNH+ixcUjHwqeOlFXUrOUzBVfFpEpYpjcQLVR2sU1w7Iz
-	 F+W1miBt+iwAu1KXzY0BnERMYnMGt2cQDVTgiSYG8Gp4e+rw5maWwH8g5OVmEy2Dld
-	 guJ1Fzr01mHt/KnaR3obPBKg8GVUMCBZxpzm11vt0xlUC3gZkjNyK3kjjNKX2fhLgt
-	 lYtdnhlgt7LYw==
-From: guoren@kernel.org
-To: arnd@arndb.de,
-	guoren@kernel.org,
-	palmer@rivosinc.com,
-	tglx@linutronix.de,
-	peterz@infradead.org,
-	luto@kernel.org,
-	conor.dooley@microchip.com,
-	heiko@sntech.de,
-	jszhang@kernel.org,
-	lazyparser@gmail.com,
-	falcon@tinylab.org,
-	chenhuacai@kernel.org,
-	apatel@ventanamicro.com,
-	atishp@atishpatra.org,
-	mark.rutland@arm.com,
-	ben@decadent.org.uk,
-	bjorn@kernel.org,
-	palmer@dabbelt.com
-Cc: linux-arch@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>
-Subject: [PATCH -next V17 7/7] riscv: entry: Consolidate general regs saving/restoring
-Date: Tue, 21 Feb 2023 22:30:21 -0500
-Message-Id: <20230222033021.983168-8-guoren@kernel.org>
-X-Mailer: git-send-email 2.36.1
-In-Reply-To: <20230222033021.983168-1-guoren@kernel.org>
-References: <20230222033021.983168-1-guoren@kernel.org>
+	id 1pUj3H-00B0FM-Vd
+	for linux-riscv@lists.infradead.org; Wed, 22 Feb 2023 06:56:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1677048991; x=1708584991;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=82jIRTqG/oCoc9diigbGRAEiGCekgnVu2ioPgEIZrMQ=;
+  b=X5h2mN37yksm+VNMAWm49wYP5HKm2HAmpN+o5TLhhAouuFKg08KqT6UD
+   gOdDrjjZ/A6lEOlMn7UJUctI6LMOWcc95SGUA0QaTSoJa1tdvjvLWUl97
+   q03u5YW0rxrBBWWtA5F/RZD8P1ynRPgQoVHUCU+OJEW7NV4Jc7EwzgUVD
+   8fixW0r7Cyw7tYVZOV7Sy/5e3CkmkQ8Mpspn/R6LadOw2sbrkOuj3/1FR
+   NtNPpOa/EW8TRoLNpLQ7UgzkoVLNRzN5sOkiavLzRx82P+Ey2R+e3SmCh
+   5JkU2v73FGfQ4uzCFoTyXYHJWA8+0PWFwLV5JpG/i7cQCpZFKtLNDSrCV
+   Q==;
+X-IronPort-AV: E=McAfee;i="6500,9779,10628"; a="331519486"
+X-IronPort-AV: E=Sophos;i="5.97,318,1669104000"; 
+   d="scan'208";a="331519486"
+Received: from fmsmga008.fm.intel.com ([10.253.24.58])
+  by fmsmga104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Feb 2023 22:56:04 -0800
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6500,9779,10628"; a="735771026"
+X-IronPort-AV: E=Sophos;i="5.97,318,1669104000"; 
+   d="scan'208";a="735771026"
+Received: from lkp-server01.sh.intel.com (HELO 3895f5c55ead) ([10.239.97.150])
+  by fmsmga008.fm.intel.com with ESMTP; 21 Feb 2023 22:56:00 -0800
+Received: from kbuild by 3895f5c55ead with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1pUj2l-00005h-2b;
+	Wed, 22 Feb 2023 06:55:59 +0000
+Date: Wed, 22 Feb 2023 14:55:47 +0800
+From: kernel test robot <lkp@intel.com>
+To: Evan Green <evan@rivosinc.com>, Palmer Dabbelt <palmer@rivosinc.com>
+Cc: oe-kbuild-all@lists.linux.dev, heiko@sntech.de,
+	Conor Dooley <conor@kernel.org>, slewis@rivosinc.com,
+	vineetg@rivosinc.com, Evan Green <evan@rivosinc.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Andrew Bresticker <abrestic@rivosinc.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Celeste Liu <coelacanthus@outlook.com>, Guo Ren <guoren@kernel.org>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v3 7/7] RISC-V: Add hwprobe vDSO function and data
+Message-ID: <202302221419.SOkwfXfm-lkp@intel.com>
+References: <20230221190858.3159617-8-evan@rivosinc.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230221190858.3159617-8-evan@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230221_193138_360679_631C7FDB 
-X-CRM114-Status: UNSURE (   9.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230221_225632_074583_9161E0FD 
+X-CRM114-Status: GOOD (  16.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,130 +87,131 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogSmlzaGVuZyBaaGFuZyA8anN6aGFuZ0BrZXJuZWwub3JnPgoKQ29uc29saWRhdGUgdGhl
-IHNhdmluZy9yZXN0b3JpbmcgR1BzIChleGNlcHQgemVybywgcmEsIHNwLCBncCwKdHAgYW5kIHQw
-KSBpbnRvIHNhdmVfZnJvbV94Nl90b194MzEvcmVzdG9yZV9mcm9tX3g2X3RvX3gzMSBtYWNyb3Mu
-CgpObyBmdW5jdGlvbmFsIGNoYW5nZSBpbnRlbmRlZC4KClNpZ25lZC1vZmYtYnk6IEppc2hlbmcg
-WmhhbmcgPGpzemhhbmdAa2VybmVsLm9yZz4KUmV2aWV3ZWQtYnk6IEd1byBSZW4gPGd1b3JlbkBr
-ZXJuZWwub3JnPgpSZXZpZXdlZC1ieTogQmrDtnJuIFTDtnBlbCA8Ympvcm5Acml2b3NpbmMuY29t
-PgpUZXN0ZWQtYnk6IEd1byBSZW4gPGd1b3JlbkBrZXJuZWwub3JnPgpTaWduZWQtb2ZmLWJ5OiBH
-dW8gUmVuIDxndW9yZW5Aa2VybmVsLm9yZz4KLS0tCiBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2Fz
-bS5oICAgfCA2MSArKysrKysrKysrKysrKysrKysrKysrKysrCiBhcmNoL3Jpc2N2L2tlcm5lbC9l
-bnRyeS5TICAgICAgfCA4MSArKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCiBhcmNo
-L3Jpc2N2L2tlcm5lbC9tY291bnQtZHluLlMgfCA1NyArKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0K
-IDMgZmlsZXMgY2hhbmdlZCwgNjggaW5zZXJ0aW9ucygrKSwgMTMxIGRlbGV0aW9ucygtKQoKZGlm
-ZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vYXNtLmggYi9hcmNoL3Jpc2N2L2luY2x1
-ZGUvYXNtL2FzbS5oCmluZGV4IDgxNmU3NTNkZTYzNi4uMTE0YmJhZGFlZjQxIDEwMDY0NAotLS0g
-YS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2FzbS5oCisrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9h
-c20vYXNtLmgKQEAgLTY5LDYgKzY5LDcgQEAKICNlbmRpZgogCiAjaWZkZWYgX19BU1NFTUJMWV9f
-CisjaW5jbHVkZSA8YXNtL2FzbS1vZmZzZXRzLmg+CiAKIC8qIENvbW1vbiBhc3NlbWJseSBzb3Vy
-Y2UgbWFjcm9zICovCiAKQEAgLTgxLDYgKzgyLDY2IEBACiAJLmVuZHIKIC5lbmRtCiAKKwkvKiBz
-YXZlIGFsbCBHUHMgZXhjZXB0IHgxIH4geDUgKi8KKwkubWFjcm8gc2F2ZV9mcm9tX3g2X3RvX3gz
-MQorCVJFR19TIHg2LCAgUFRfVDEoc3ApCisJUkVHX1MgeDcsICBQVF9UMihzcCkKKwlSRUdfUyB4
-OCwgIFBUX1MwKHNwKQorCVJFR19TIHg5LCAgUFRfUzEoc3ApCisJUkVHX1MgeDEwLCBQVF9BMChz
-cCkKKwlSRUdfUyB4MTEsIFBUX0ExKHNwKQorCVJFR19TIHgxMiwgUFRfQTIoc3ApCisJUkVHX1Mg
-eDEzLCBQVF9BMyhzcCkKKwlSRUdfUyB4MTQsIFBUX0E0KHNwKQorCVJFR19TIHgxNSwgUFRfQTUo
-c3ApCisJUkVHX1MgeDE2LCBQVF9BNihzcCkKKwlSRUdfUyB4MTcsIFBUX0E3KHNwKQorCVJFR19T
-IHgxOCwgUFRfUzIoc3ApCisJUkVHX1MgeDE5LCBQVF9TMyhzcCkKKwlSRUdfUyB4MjAsIFBUX1M0
-KHNwKQorCVJFR19TIHgyMSwgUFRfUzUoc3ApCisJUkVHX1MgeDIyLCBQVF9TNihzcCkKKwlSRUdf
-UyB4MjMsIFBUX1M3KHNwKQorCVJFR19TIHgyNCwgUFRfUzgoc3ApCisJUkVHX1MgeDI1LCBQVF9T
-OShzcCkKKwlSRUdfUyB4MjYsIFBUX1MxMChzcCkKKwlSRUdfUyB4MjcsIFBUX1MxMShzcCkKKwlS
-RUdfUyB4MjgsIFBUX1QzKHNwKQorCVJFR19TIHgyOSwgUFRfVDQoc3ApCisJUkVHX1MgeDMwLCBQ
-VF9UNShzcCkKKwlSRUdfUyB4MzEsIFBUX1Q2KHNwKQorCS5lbmRtCisKKwkvKiByZXN0b3JlIGFs
-bCBHUHMgZXhjZXB0IHgxIH4geDUgKi8KKwkubWFjcm8gcmVzdG9yZV9mcm9tX3g2X3RvX3gzMQor
-CVJFR19MIHg2LCAgUFRfVDEoc3ApCisJUkVHX0wgeDcsICBQVF9UMihzcCkKKwlSRUdfTCB4OCwg
-IFBUX1MwKHNwKQorCVJFR19MIHg5LCAgUFRfUzEoc3ApCisJUkVHX0wgeDEwLCBQVF9BMChzcCkK
-KwlSRUdfTCB4MTEsIFBUX0ExKHNwKQorCVJFR19MIHgxMiwgUFRfQTIoc3ApCisJUkVHX0wgeDEz
-LCBQVF9BMyhzcCkKKwlSRUdfTCB4MTQsIFBUX0E0KHNwKQorCVJFR19MIHgxNSwgUFRfQTUoc3Ap
-CisJUkVHX0wgeDE2LCBQVF9BNihzcCkKKwlSRUdfTCB4MTcsIFBUX0E3KHNwKQorCVJFR19MIHgx
-OCwgUFRfUzIoc3ApCisJUkVHX0wgeDE5LCBQVF9TMyhzcCkKKwlSRUdfTCB4MjAsIFBUX1M0KHNw
-KQorCVJFR19MIHgyMSwgUFRfUzUoc3ApCisJUkVHX0wgeDIyLCBQVF9TNihzcCkKKwlSRUdfTCB4
-MjMsIFBUX1M3KHNwKQorCVJFR19MIHgyNCwgUFRfUzgoc3ApCisJUkVHX0wgeDI1LCBQVF9TOShz
-cCkKKwlSRUdfTCB4MjYsIFBUX1MxMChzcCkKKwlSRUdfTCB4MjcsIFBUX1MxMShzcCkKKwlSRUdf
-TCB4MjgsIFBUX1QzKHNwKQorCVJFR19MIHgyOSwgUFRfVDQoc3ApCisJUkVHX0wgeDMwLCBQVF9U
-NShzcCkKKwlSRUdfTCB4MzEsIFBUX1Q2KHNwKQorCS5lbmRtCisKICNlbmRpZiAvKiBfX0FTU0VN
-QkxZX18gKi8KIAogI2VuZGlmIC8qIF9BU01fUklTQ1ZfQVNNX0ggKi8KZGlmZiAtLWdpdCBhL2Fy
-Y2gvcmlzY3Yva2VybmVsL2VudHJ5LlMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9lbnRyeS5TCmluZGV4
-IDVjY2VmMjU5NDk4ZC4uM2ZiYjEwMGJjOWU0IDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2L2tlcm5l
-bC9lbnRyeS5TCisrKyBiL2FyY2gvcmlzY3Yva2VybmVsL2VudHJ5LlMKQEAgLTQyLDMyICs0Miw3
-IEBAIF9zYXZlX2NvbnRleHQ6CiAJUkVHX1MgeDEsICBQVF9SQShzcCkKIAlSRUdfUyB4MywgIFBU
-X0dQKHNwKQogCVJFR19TIHg1LCAgUFRfVDAoc3ApCi0JUkVHX1MgeDYsICBQVF9UMShzcCkKLQlS
-RUdfUyB4NywgIFBUX1QyKHNwKQotCVJFR19TIHg4LCAgUFRfUzAoc3ApCi0JUkVHX1MgeDksICBQ
-VF9TMShzcCkKLQlSRUdfUyB4MTAsIFBUX0EwKHNwKQotCVJFR19TIHgxMSwgUFRfQTEoc3ApCi0J
-UkVHX1MgeDEyLCBQVF9BMihzcCkKLQlSRUdfUyB4MTMsIFBUX0EzKHNwKQotCVJFR19TIHgxNCwg
-UFRfQTQoc3ApCi0JUkVHX1MgeDE1LCBQVF9BNShzcCkKLQlSRUdfUyB4MTYsIFBUX0E2KHNwKQot
-CVJFR19TIHgxNywgUFRfQTcoc3ApCi0JUkVHX1MgeDE4LCBQVF9TMihzcCkKLQlSRUdfUyB4MTks
-IFBUX1MzKHNwKQotCVJFR19TIHgyMCwgUFRfUzQoc3ApCi0JUkVHX1MgeDIxLCBQVF9TNShzcCkK
-LQlSRUdfUyB4MjIsIFBUX1M2KHNwKQotCVJFR19TIHgyMywgUFRfUzcoc3ApCi0JUkVHX1MgeDI0
-LCBQVF9TOChzcCkKLQlSRUdfUyB4MjUsIFBUX1M5KHNwKQotCVJFR19TIHgyNiwgUFRfUzEwKHNw
-KQotCVJFR19TIHgyNywgUFRfUzExKHNwKQotCVJFR19TIHgyOCwgUFRfVDMoc3ApCi0JUkVHX1Mg
-eDI5LCBQVF9UNChzcCkKLQlSRUdfUyB4MzAsIFBUX1Q1KHNwKQotCVJFR19TIHgzMSwgUFRfVDYo
-c3ApCisJc2F2ZV9mcm9tX3g2X3RvX3gzMQogCiAJLyoKIAkgKiBEaXNhYmxlIHVzZXItbW9kZSBt
-ZW1vcnkgYWNjZXNzIGFzIGl0IHNob3VsZCBvbmx5IGJlIHNldCBpbiB0aGUKQEAgLTE4MiwzMiAr
-MTU3LDcgQEAgU1lNX0NPREVfU1RBUlRfTk9BTElHTihyZXRfZnJvbV9leGNlcHRpb24pCiAJUkVH
-X0wgeDMsICBQVF9HUChzcCkKIAlSRUdfTCB4NCwgIFBUX1RQKHNwKQogCVJFR19MIHg1LCAgUFRf
-VDAoc3ApCi0JUkVHX0wgeDYsICBQVF9UMShzcCkKLQlSRUdfTCB4NywgIFBUX1QyKHNwKQotCVJF
-R19MIHg4LCAgUFRfUzAoc3ApCi0JUkVHX0wgeDksICBQVF9TMShzcCkKLQlSRUdfTCB4MTAsIFBU
-X0EwKHNwKQotCVJFR19MIHgxMSwgUFRfQTEoc3ApCi0JUkVHX0wgeDEyLCBQVF9BMihzcCkKLQlS
-RUdfTCB4MTMsIFBUX0EzKHNwKQotCVJFR19MIHgxNCwgUFRfQTQoc3ApCi0JUkVHX0wgeDE1LCBQ
-VF9BNShzcCkKLQlSRUdfTCB4MTYsIFBUX0E2KHNwKQotCVJFR19MIHgxNywgUFRfQTcoc3ApCi0J
-UkVHX0wgeDE4LCBQVF9TMihzcCkKLQlSRUdfTCB4MTksIFBUX1MzKHNwKQotCVJFR19MIHgyMCwg
-UFRfUzQoc3ApCi0JUkVHX0wgeDIxLCBQVF9TNShzcCkKLQlSRUdfTCB4MjIsIFBUX1M2KHNwKQot
-CVJFR19MIHgyMywgUFRfUzcoc3ApCi0JUkVHX0wgeDI0LCBQVF9TOChzcCkKLQlSRUdfTCB4MjUs
-IFBUX1M5KHNwKQotCVJFR19MIHgyNiwgUFRfUzEwKHNwKQotCVJFR19MIHgyNywgUFRfUzExKHNw
-KQotCVJFR19MIHgyOCwgUFRfVDMoc3ApCi0JUkVHX0wgeDI5LCBQVF9UNChzcCkKLQlSRUdfTCB4
-MzAsIFBUX1Q1KHNwKQotCVJFR19MIHgzMSwgUFRfVDYoc3ApCisJcmVzdG9yZV9mcm9tX3g2X3Rv
-X3gzMQogCiAJUkVHX0wgeDIsICBQVF9TUChzcCkKIApAQCAtMjg3LDMyICsyMzcsNyBAQCByZXN0
-b3JlX2NhbGxlcl9yZWc6CiAJUkVHX1MgeDEsICBQVF9SQShzcCkKIAlSRUdfUyB4MywgIFBUX0dQ
-KHNwKQogCVJFR19TIHg1LCAgUFRfVDAoc3ApCi0JUkVHX1MgeDYsICBQVF9UMShzcCkKLQlSRUdf
-UyB4NywgIFBUX1QyKHNwKQotCVJFR19TIHg4LCAgUFRfUzAoc3ApCi0JUkVHX1MgeDksICBQVF9T
-MShzcCkKLQlSRUdfUyB4MTAsIFBUX0EwKHNwKQotCVJFR19TIHgxMSwgUFRfQTEoc3ApCi0JUkVH
-X1MgeDEyLCBQVF9BMihzcCkKLQlSRUdfUyB4MTMsIFBUX0EzKHNwKQotCVJFR19TIHgxNCwgUFRf
-QTQoc3ApCi0JUkVHX1MgeDE1LCBQVF9BNShzcCkKLQlSRUdfUyB4MTYsIFBUX0E2KHNwKQotCVJF
-R19TIHgxNywgUFRfQTcoc3ApCi0JUkVHX1MgeDE4LCBQVF9TMihzcCkKLQlSRUdfUyB4MTksIFBU
-X1MzKHNwKQotCVJFR19TIHgyMCwgUFRfUzQoc3ApCi0JUkVHX1MgeDIxLCBQVF9TNShzcCkKLQlS
-RUdfUyB4MjIsIFBUX1M2KHNwKQotCVJFR19TIHgyMywgUFRfUzcoc3ApCi0JUkVHX1MgeDI0LCBQ
-VF9TOChzcCkKLQlSRUdfUyB4MjUsIFBUX1M5KHNwKQotCVJFR19TIHgyNiwgUFRfUzEwKHNwKQot
-CVJFR19TIHgyNywgUFRfUzExKHNwKQotCVJFR19TIHgyOCwgUFRfVDMoc3ApCi0JUkVHX1MgeDI5
-LCBQVF9UNChzcCkKLQlSRUdfUyB4MzAsIFBUX1Q1KHNwKQotCVJFR19TIHgzMSwgUFRfVDYoc3Ap
-CisJc2F2ZV9mcm9tX3g2X3RvX3gzMQogCiAJUkVHX0wgczAsIFRBU0tfVElfS0VSTkVMX1NQKHRw
-KQogCWNzcnIgczEsIENTUl9TVEFUVVMKZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL21j
-b3VudC1keW4uUyBiL2FyY2gvcmlzY3Yva2VybmVsL21jb3VudC1keW4uUwppbmRleCAxMjVkZTgx
-OGQxYmEuLjY2OWI4Njk3YWEzOCAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvbWNvdW50
-LWR5bi5TCisrKyBiL2FyY2gvcmlzY3Yva2VybmVsL21jb3VudC1keW4uUwpAQCAtNjYsNjYgKzY2
-LDE3IEBACiAJUkVHX1MgeDMsICBQVF9HUChzcCkKIAlSRUdfUyB4NCwgIFBUX1RQKHNwKQogCVJF
-R19TIHg1LCAgUFRfVDAoc3ApCi0JUkVHX1MgeDYsICBQVF9UMShzcCkKLQlSRUdfUyB4NywgIFBU
-X1QyKHNwKQotCVJFR19TIHg4LCAgUFRfUzAoc3ApCi0JUkVHX1MgeDksICBQVF9TMShzcCkKLQlS
-RUdfUyB4MTAsIFBUX0EwKHNwKQotCVJFR19TIHgxMSwgUFRfQTEoc3ApCi0JUkVHX1MgeDEyLCBQ
-VF9BMihzcCkKLQlSRUdfUyB4MTMsIFBUX0EzKHNwKQotCVJFR19TIHgxNCwgUFRfQTQoc3ApCi0J
-UkVHX1MgeDE1LCBQVF9BNShzcCkKLQlSRUdfUyB4MTYsIFBUX0E2KHNwKQotCVJFR19TIHgxNywg
-UFRfQTcoc3ApCi0JUkVHX1MgeDE4LCBQVF9TMihzcCkKLQlSRUdfUyB4MTksIFBUX1MzKHNwKQot
-CVJFR19TIHgyMCwgUFRfUzQoc3ApCi0JUkVHX1MgeDIxLCBQVF9TNShzcCkKLQlSRUdfUyB4MjIs
-IFBUX1M2KHNwKQotCVJFR19TIHgyMywgUFRfUzcoc3ApCi0JUkVHX1MgeDI0LCBQVF9TOChzcCkK
-LQlSRUdfUyB4MjUsIFBUX1M5KHNwKQotCVJFR19TIHgyNiwgUFRfUzEwKHNwKQotCVJFR19TIHgy
-NywgUFRfUzExKHNwKQotCVJFR19TIHgyOCwgUFRfVDMoc3ApCi0JUkVHX1MgeDI5LCBQVF9UNChz
-cCkKLQlSRUdfUyB4MzAsIFBUX1Q1KHNwKQotCVJFR19TIHgzMSwgUFRfVDYoc3ApCisJc2F2ZV9m
-cm9tX3g2X3RvX3gzMQogCS5lbmRtCiAKIAkubWFjcm8gUkVTVE9SRV9BTEwKLQlSRUdfTCB0MCwg
-IFBUX0VQQyhzcCkKIAlSRUdfTCB4MSwgIFBUX1JBKHNwKQogCVJFR19MIHgyLCAgUFRfU1Aoc3Ap
-CiAJUkVHX0wgeDMsICBQVF9HUChzcCkKIAlSRUdfTCB4NCwgIFBUX1RQKHNwKQotCVJFR19MIHg2
-LCAgUFRfVDEoc3ApCi0JUkVHX0wgeDcsICBQVF9UMihzcCkKLQlSRUdfTCB4OCwgIFBUX1MwKHNw
-KQotCVJFR19MIHg5LCAgUFRfUzEoc3ApCi0JUkVHX0wgeDEwLCBQVF9BMChzcCkKLQlSRUdfTCB4
-MTEsIFBUX0ExKHNwKQotCVJFR19MIHgxMiwgUFRfQTIoc3ApCi0JUkVHX0wgeDEzLCBQVF9BMyhz
-cCkKLQlSRUdfTCB4MTQsIFBUX0E0KHNwKQotCVJFR19MIHgxNSwgUFRfQTUoc3ApCi0JUkVHX0wg
-eDE2LCBQVF9BNihzcCkKLQlSRUdfTCB4MTcsIFBUX0E3KHNwKQotCVJFR19MIHgxOCwgUFRfUzIo
-c3ApCi0JUkVHX0wgeDE5LCBQVF9TMyhzcCkKLQlSRUdfTCB4MjAsIFBUX1M0KHNwKQotCVJFR19M
-IHgyMSwgUFRfUzUoc3ApCi0JUkVHX0wgeDIyLCBQVF9TNihzcCkKLQlSRUdfTCB4MjMsIFBUX1M3
-KHNwKQotCVJFR19MIHgyNCwgUFRfUzgoc3ApCi0JUkVHX0wgeDI1LCBQVF9TOShzcCkKLQlSRUdf
-TCB4MjYsIFBUX1MxMChzcCkKLQlSRUdfTCB4MjcsIFBUX1MxMShzcCkKLQlSRUdfTCB4MjgsIFBU
-X1QzKHNwKQotCVJFR19MIHgyOSwgUFRfVDQoc3ApCi0JUkVHX0wgeDMwLCBQVF9UNShzcCkKLQlS
-RUdfTCB4MzEsIFBUX1Q2KHNwKQorCS8qIFJlc3RvcmUgdDAgd2l0aCBQVF9FUEMgKi8KKwlSRUdf
-TCB4NSwgIFBUX0VQQyhzcCkKKwlyZXN0b3JlX2Zyb21feDZfdG9feDMxCiAKIAlhZGRpCXNwLCBz
-cCwgUFRfU0laRV9PTl9TVEFDSwogCS5lbmRtCi0tIAoyLjM2LjEKCgpfX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
-bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
-Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Hi Evan,
+
+Thank you for the patch! Yet something to improve:
+
+[auto build test ERROR on shuah-kselftest/next]
+[also build test ERROR on shuah-kselftest/fixes robh/for-next soc/for-next linus/master v6.2]
+[cannot apply to next-20230222]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Evan-Green/RISC-V-Move-struct-riscv_cpuinfo-to-new-header/20230222-031210
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/shuah/linux-kselftest.git next
+patch link:    https://lore.kernel.org/r/20230221190858.3159617-8-evan%40rivosinc.com
+patch subject: [PATCH v3 7/7] RISC-V: Add hwprobe vDSO function and data
+config: riscv-rv32_defconfig (https://download.01.org/0day-ci/archive/20230222/202302221419.SOkwfXfm-lkp@intel.com/config)
+compiler: riscv32-linux-gcc (GCC) 12.1.0
+reproduce (this is a W=1 build):
+        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+        chmod +x ~/bin/make.cross
+        # https://github.com/intel-lab-lkp/linux/commit/3f47f3f920ffcb37a461d04a1ee0e245451c869e
+        git remote add linux-review https://github.com/intel-lab-lkp/linux
+        git fetch --no-tags linux-review Evan-Green/RISC-V-Move-struct-riscv_cpuinfo-to-new-header/20230222-031210
+        git checkout 3f47f3f920ffcb37a461d04a1ee0e245451c869e
+        # save the config file
+        mkdir build_dir && cp config build_dir/.config
+        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.1.0 make.cross W=1 O=build_dir ARCH=riscv olddefconfig
+        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.1.0 make.cross W=1 O=build_dir ARCH=riscv prepare
+
+If you fix the issue, kindly add following tag where applicable
+| Reported-by: kernel test robot <lkp@intel.com>
+| Link: https://lore.kernel.org/oe-kbuild-all/202302221419.SOkwfXfm-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   In file included from include/vdso/datapage.h:137,
+                    from arch/riscv/kernel/vdso/hwprobe.c:7:
+   arch/riscv/include/asm/vdso/gettimeofday.h: In function 'gettimeofday_fallback':
+>> arch/riscv/include/asm/vdso/gettimeofday.h:21:38: error: '__NR_gettimeofday' undeclared (first use in this function)
+      21 |         register long nr asm("a7") = __NR_gettimeofday;
+         |                                      ^~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/vdso/gettimeofday.h:21:38: note: each undeclared identifier is reported only once for each function it appears in
+   arch/riscv/include/asm/vdso/gettimeofday.h: In function 'clock_gettime_fallback':
+>> arch/riscv/include/asm/vdso/gettimeofday.h:37:38: error: '__NR_clock_gettime' undeclared (first use in this function)
+      37 |         register long nr asm("a7") = __NR_clock_gettime;
+         |                                      ^~~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/vdso/gettimeofday.h: In function 'clock_getres_fallback':
+>> arch/riscv/include/asm/vdso/gettimeofday.h:53:38: error: '__NR_clock_getres' undeclared (first use in this function)
+      53 |         register long nr asm("a7") = __NR_clock_getres;
+         |                                      ^~~~~~~~~~~~~~~~~
+   arch/riscv/kernel/vdso/hwprobe.c: At top level:
+   arch/riscv/kernel/vdso/hwprobe.c:14:5: warning: no previous prototype for '__vdso_riscv_hwprobe' [-Wmissing-prototypes]
+      14 | int __vdso_riscv_hwprobe(struct riscv_hwprobe *pairs, long pair_count,
+         |     ^~~~~~~~~~~~~~~~~~~~
+   make[2]: *** [scripts/Makefile.build:252: arch/riscv/kernel/vdso/hwprobe.o] Error 1
+   make[2]: Target 'include/generated/vdso-offsets.h' not remade because of errors.
+   make[1]: *** [arch/riscv/Makefile:126: vdso_prepare] Error 2
+   make[1]: Target 'prepare' not remade because of errors.
+   make: *** [Makefile:242: __sub-make] Error 2
+   make: Target 'prepare' not remade because of errors.
+
+
+vim +/__NR_gettimeofday +21 arch/riscv/include/asm/vdso/gettimeofday.h
+
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  13  
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  14  static __always_inline
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  15  int gettimeofday_fallback(struct __kernel_old_timeval *_tv,
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  16  			  struct timezone *_tz)
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  17  {
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  18  	register struct __kernel_old_timeval *tv asm("a0") = _tv;
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  19  	register struct timezone *tz asm("a1") = _tz;
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  20  	register long ret asm("a0");
+ad5d1122b82fbd6 Vincent Chen 2020-06-09 @21  	register long nr asm("a7") = __NR_gettimeofday;
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  22  
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  23  	asm volatile ("ecall\n"
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  24  		      : "=r" (ret)
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  25  		      : "r"(tv), "r"(tz), "r"(nr)
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  26  		      : "memory");
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  27  
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  28  	return ret;
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  29  }
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  30  
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  31  static __always_inline
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  32  long clock_gettime_fallback(clockid_t _clkid, struct __kernel_timespec *_ts)
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  33  {
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  34  	register clockid_t clkid asm("a0") = _clkid;
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  35  	register struct __kernel_timespec *ts asm("a1") = _ts;
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  36  	register long ret asm("a0");
+ad5d1122b82fbd6 Vincent Chen 2020-06-09 @37  	register long nr asm("a7") = __NR_clock_gettime;
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  38  
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  39  	asm volatile ("ecall\n"
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  40  		      : "=r" (ret)
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  41  		      : "r"(clkid), "r"(ts), "r"(nr)
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  42  		      : "memory");
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  43  
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  44  	return ret;
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  45  }
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  46  
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  47  static __always_inline
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  48  int clock_getres_fallback(clockid_t _clkid, struct __kernel_timespec *_ts)
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  49  {
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  50  	register clockid_t clkid asm("a0") = _clkid;
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  51  	register struct __kernel_timespec *ts asm("a1") = _ts;
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  52  	register long ret asm("a0");
+ad5d1122b82fbd6 Vincent Chen 2020-06-09 @53  	register long nr asm("a7") = __NR_clock_getres;
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  54  
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  55  	asm volatile ("ecall\n"
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  56  		      : "=r" (ret)
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  57  		      : "r"(clkid), "r"(ts), "r"(nr)
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  58  		      : "memory");
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  59  
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  60  	return ret;
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  61  }
+ad5d1122b82fbd6 Vincent Chen 2020-06-09  62  
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
