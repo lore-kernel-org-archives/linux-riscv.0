@@ -4,66 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ABB2C61DA4
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Feb 2023 12:47:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15269C636D6
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Feb 2023 13:28:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=moy2YHDFsNwB7sXvhAPvyCFGr4KKzyouFxEJuLQ2sJE=; b=NeMQtdaQgD4o59
-	WD2HtzWLgF7YBCJKdYurcJHwHyhsJ+zeTD1uXcGeKn70Ljhbk/dn7X73+CRjgZCBkVNATlykGTjo2
-	Gov1vsRq+6e3ziQUDW2OE52L16pkrMbCtlNWy0qekVT5/QzyjkqkFJWrH++qIRzo4hqbPmlXYT8F4
-	n44xcCxyOR+GdSVpQ2053XzeFZFIyBzQCSTJW55MC5RFXcwck0/W7srX2wBoVGpD2Ff2u5evnaBDs
-	bZShMjmVZqVyFkZU6qx1ih2wzzrG0e/ph1Rd9jkwsD1U2d96T4emjrk4s2uSs4MawEoasBEw0Qipu
-	/3PqSK6b9tgQvGbZcuBQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=dZkj3HDpN7O7G81QLe8LVRshAtvrqzio4fRmqkp9YDU=; b=l5eJ2ifG2K8ppM
+	GTbmyisA0ca2z22pxhTXR8rvL5ZOMpyw9GfvKgdDgNTbqV0I21U7W/sckl3Ow29c4Bphz7HyvsYZN
+	1ZJdB47hytkaU2IxCc6LD/qWt1aoQqW/1AXoqED6e7oXjBV9z3m3LWNxGCb4q0HFOwAELkkEEvtyy
+	iH6SZ0aflY2Qzyuzaie75XA+DMF49Fr28FHMhD2qwscK0WUjLZCDGf5pqoWOsRDyusdc5y2B5fA4t
+	PBdNEOl3vJjp6t3RdunfdzOat1JBuhvbuZ1JqDhKCltT7OJkFTeV6zf+73dFmAWBNVMwXh+ntBQjF
+	dVbAtc3JyZXP6f7qFYXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUoWs-00CRac-Pc; Wed, 22 Feb 2023 12:47:26 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUoWp-00CRYg-Ai
-	for linux-riscv@lists.infradead.org; Wed, 22 Feb 2023 12:47:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1677070043; x=1708606043;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=bz2YGtVOM/rE8m1sy9aAUJspjtnfkVan+svdZyu3YfQ=;
-  b=uterJogJ+xhAOylkqH/72Xiw5jVGtgEatSr8Z8zByrIFE5/kYoaE9VAQ
-   qd/IiFPZUDf/JStTInHoMb4GrqMU5Km+4u/KIXAT0dPyFX0D4R5NpsU7r
-   iyQ6boD7TRJ9fNlHMJZamXUwbSZbgFH7/3ZA7FICGVBV9fzP9KBHDzpL4
-   Tnkb5kiPIFfGCSjPMqHYqdw1ARPBVC2UxlqPr1EeRyerNaRFJw4rWTDRV
-   +F2dmpWoFsecarRX1+feSr0nxgkrR6wUCHs4eCUB2ZiGcOWSodIsm2YUU
-   XSdZtBcFf4oNs/LdsOJQK/9YxPM7uKIU03T9I/l1foH3j02J/HpAgBX5n
-   g==;
-X-IronPort-AV: E=Sophos;i="5.97,318,1669100400"; 
-   d="scan'208";a="201759967"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 22 Feb 2023 05:47:19 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.16; Wed, 22 Feb 2023 05:47:18 -0700
-Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.16 via Frontend
- Transport; Wed, 22 Feb 2023 05:47:17 -0700
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Conor Dooley <conor@kernel.org>, <sboyd@kernel.org>
-CC: Conor Dooley <conor.dooley@microchip.com>, <linux-clk@vger.kernel.org>,
-	<daire.mcnamara@microchip.com>, <linux-riscv@lists.infradead.org>
-Subject: [PATCH] MAINTAINERS: add missing clock driver coverage for Microchip FPGAs
-Date: Wed, 22 Feb 2023 12:46:11 +0000
-Message-ID: <20230222124610.257101-1-conor.dooley@microchip.com>
-X-Mailer: git-send-email 2.39.0
+	id 1pUpAd-00CWZi-8P; Wed, 22 Feb 2023 13:28:31 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pUpAX-00CWVh-4e
+	for linux-riscv@lists.infradead.org; Wed, 22 Feb 2023 13:28:29 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 9474424E2B4;
+	Wed, 22 Feb 2023 21:27:39 +0800 (CST)
+Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 22 Feb
+ 2023 21:27:39 +0800
+Received: from [192.168.125.82] (113.72.147.165) by EXMBX172.cuchost.com
+ (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 22 Feb
+ 2023 21:27:38 +0800
+Message-ID: <c0472d7f-56fe-3e91-e0a0-49ee51700b5d@starfivetech.com>
+Date: Wed, 22 Feb 2023 21:27:37 +0800
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1032; i=conor.dooley@microchip.com; h=from:subject; bh=bz2YGtVOM/rE8m1sy9aAUJspjtnfkVan+svdZyu3YfQ=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDMnf+Cb9NMhzeeVuyHiwd/ey8LjvDp8u6lzVD1e5laPwUuBI tuqJjlIWBjEOBlkxRZbE230tUuv/uOxw7nkLM4eVCWQIAxenAEzk0TeGn4y1/ydmh0hrO809w/C463 rLpQtFbfcSfUJ9ZA0Klp1MV2FkaLJp+nK5YdFyI/3XNhf19SQjY9Mtl0/6waL+cUPCxfd23AA=
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.3.2
+Subject: Re: [PATCH v3 07/11] dt-bindings: clock: Add StarFive JH7110 system
+ clock and reset generator
+Content-Language: en-US
+To: Conor Dooley <conor@kernel.org>, Stephen Boyd <sboyd@kernel.org>
+CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-clk@vger.kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring
+	<robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Michael Turquette
+	<mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>, "Emil
+ Renner Berthing" <emil.renner.berthing@canonical.com>,
+	<linux-kernel@vger.kernel.org>
+References: <20221220005054.34518-1-hal.feng@starfivetech.com>
+ <20221220005054.34518-8-hal.feng@starfivetech.com> <Y6JB37Pd5TZoGMy4@spud>
+ <7a7bccb1-4d47-3d32-36e6-4aab7b5b8dad@starfivetech.com>
+ <Y6tSWB2+98a8k9Qw@spud>
+ <5cf0fe71-fd17-fb28-c01e-28356081ba76@starfivetech.com>
+ <Y+5z8skN2DuvxDEL@spud> <72953dc9371b87da8d03c63633d7d9dd.sboyd@kernel.org>
+ <Y/VWNPfApsfm3/UD@spud>
+From: Hal Feng <hal.feng@starfivetech.com>
+In-Reply-To: <Y/VWNPfApsfm3/UD@spud>
+X-Originating-IP: [113.72.147.165]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX172.cuchost.com
+ (172.16.6.92)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230222_044723_396390_2B835515 
-X-CRM114-Status: UNSURE (   8.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230222_052825_505555_68D089DB 
+X-CRM114-Status: GOOD (  23.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,33 +84,92 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When the CCC support was added, the clock binding coverage was
-converted to a regex in commit 71c8517e004b ("MAINTAINERS: update
-polarfire soc clock binding"), but the coverage for the clock drivers
-themselves was not updated. Rectify that now.
+On Tue, 21 Feb 2023 23:39:32 +0000, Conor Dooley wrote:
+> On Tue, Feb 21, 2023 at 02:17:17PM -0800, Stephen Boyd wrote:
+>> Quoting Conor Dooley (2023-02-16 10:20:34)
+>> > On Thu, Feb 16, 2023 at 10:42:20PM +0800, Hal Feng wrote:
+>> > > On Tue, 27 Dec 2022 20:15:20 +0000, Conor Dooley wrote:
+>> > > > On Mon, Dec 26, 2022 at 12:26:32AM +0800, Hal Feng wrote:
+>> > > Please see the picture of these external clocks in clock tree.
+>> > > 
+>> > > # mount -t debugfs none /mnt
+>> > > # cat /mnt/clk/clk_summary
+>> > >                                  enable  prepare  protect                                duty  hardware
+>> > >    clock                          count    count    count        rate   accuracy phase  cycle    enable
+>> > > -------------------------------------------------------------------------------------------------------
+>> > >  *mclk_ext*                             0        0        0    12288000          0     0  50000         Y
+>> > >  *tdm_ext*                              0        0        0    49152000          0     0  50000         Y
+>> > >  *i2srx_lrck_ext*                       0        0        0      192000          0     0  50000         Y
+>> > >  *i2srx_bclk_ext*                       0        0        0    12288000          0     0  50000         Y
+>> > >  *i2stx_lrck_ext*                       0        0        0      192000          0     0  50000         Y
+>> > >  *i2stx_bclk_ext*                       0        0        0    12288000          0     0  50000         Y
+>> > >  *gmac1_rgmii_rxin*                     0        0        0   125000000          0     0  50000         Y
+>> > >     gmac1_rx                          0        0        0   125000000          0     0  50000         Y
+>> > >        gmac1_rx_inv                   0        0        0   125000000          0   180  50000         Y
+>> > >  *gmac1_rmii_refin*                     0        0        0    50000000          0     0  50000         Y
+>> > >     gmac1_rmii_rtx                    0        0        0    50000000          0     0  50000         Y
+>> > >        gmac1_tx                       0        0        0    50000000          0     0  50000         N
+>> > >           gmac1_tx_inv                0        0        0    50000000          0   180  50000         Y
+>> > >  *osc*                                  4        4        0    24000000          0     0  50000         Y
+>> > >     apb_func                          0        0        0    24000000          0     0  50000         Y
+>> > >  ...
+>> > > 
+>> > > The clock "gmac1_rgmii_rxin" and the clock "gmac1_rmii_refin" are
+>> > > actually used as the parent of other clocks.
+>> > 
+>> > > The "dummy" clocks
+>> > > you said are all internal clocks.
+>> > 
+>> > No, what I meant by "dummy" clocks is that if you make clocks "required"
+>> > in the binding that are not needed by the hardware for operation a
+>> > customer of yours might have to add "dummy" clocks to their devicetree
+>> > to pass dtbs_check.
+>> 
+>> They can set the phandle specifier to '<0>' to fill in the required
+>> property when there isn't anything there. If this is inside an SoC, it
+>> is always connected because silicon can't change after it is made
+>> (unless this is an FPGA). Therefore, any and all input clocks should be
+>> listed as required.
+> 
+>> If the clk controller has inputs that are
+>> pads/balls/pins on the SoC then they can be optional if a valid design
+>> can leave those pins not connected.
+> 
+> From the discussion on the dts patches, where the clocks have been put
+> (intentionally) into board.dts, I've been under the impression that we
+> are in this situation.
 
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
-Stephen, if you could take this via clk that'd be great, thanks.
----
- MAINTAINERS | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+For the system (sys) clock controller, we are in this situation.
+For the always-on (aon) clock controller, we are not, because some input
+clocks are inside the SoC.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 0abf3589423b..df3d195c1507 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -17992,7 +17992,7 @@ F:	Documentation/devicetree/bindings/spi/microchip,mpfs-spi.yaml
- F:	Documentation/devicetree/bindings/usb/microchip,mpfs-musb.yaml
- F:	arch/riscv/boot/dts/microchip/
- F:	drivers/char/hw_random/mpfs-rng.c
--F:	drivers/clk/microchip/clk-mpfs.c
-+F:	drivers/clk/microchip/clk-mpfs*.c
- F:	drivers/i2c/busses/i2c-microchip-corei2c.c
- F:	drivers/mailbox/mailbox-mpfs.c
- F:	drivers/pci/controller/pcie-microchip-host.c
--- 
-2.39.0
+> Up to Hal to tell us if the hardware is capable of having those inputs
+> left unfilled!
+
+The situation is different for v1.2A and v1.3B boards.
+
+For the v1.2A board,
+gmac1 only requires "gmac1_rmii_refin", which support 100MHz
+gmac0 only requires "gmac0_rgmii_rxin", which support 1000MHz
+
+For the v1.3B board,
+gmac1 only requires "gmac1_rgmii_rxin", which support 1000MHz
+gmac0 only requires "gmac0_rgmii_rxin", which support 1000MHz
+
+So we should set the "required" property depending on different
+boards.
+
+Best regards,
+Hal
+
+> 
+> FWIW, there's a v4 [1] of this series - but the question has yet to be
+> resolved.
+> 
+> Thanks,
+> Conor.
+> 
+> 1 - https://lore.kernel.org/all/20230221024645.127922-1-hal.feng@starfivetech.com/
 
 
 _______________________________________________
