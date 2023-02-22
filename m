@@ -4,61 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0587EC64EC4
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Feb 2023 14:50:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1B7EC61DA4
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Feb 2023 15:00:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WwhWAmzxTsC8ZME42yhnBsiR9JQLhA5cEv3LGyclBT4=; b=nM+YoJo7BB8D9Vo7oKewvup7OO
-	FmBtcFI127zaX+33l6+N83m1OPLs7+Y486zJKWK+kyyPDU6vZdvJ0UjZR/ZzS4igxKdOkxwf/CnnS
-	GmAXBEF7gOToGvGZrUu9BZevGQKz6AhXNLhbBeUC+VsNY6s4otJb/Ir2yzUa7ddVWBF3Hwz4Qfg3s
-	ZsVZdQlm1+0xIx7JJYDpEiPsnanyWEUoKWnmyzIGPpgNb2pbdceqpU1y3Uwdot9i6JZXCZmnQWIug
-	VclaBFfP1+/WMLBwU7VN61ddIgj+4JqMTx94Yl3tfdumV2I6UobiRQ8TkcTHj8T4GJCoBbcJH8YWT
-	8Ch2c9wQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=jJsxLoRfEom7DcQVtowyRpdwMXMmlAvIYMg5xMUMgME=; b=BKuc/AyO/W8l5U
+	D53A4mtjnGWeizYkfoHnnrBtMNkb2HuL+YB+h3IzuMsp+7fbATNRDiLQe9/JaVJPGbUwWVEk3QsAr
+	vsHHzd6P4IuwwsRqTQfuv3M2dWcp8r/Eq/XohN8N9jBVYNNYJKMfE1gvYW4qgc3bvZW6vJBZAAFRB
+	A95WAzd5QJBE8nQPdzoZRfbRAWOsA4s9vwMBFXaOWdk2pcgYeqm+3UV+DARAU9o15uYaUBAjWKMPY
+	EbT8OSoQQt25/Gt2EFPAPwUUaB9YTSSwjQEV43DvbBHF4ZL3MXywDW0oU4Dy9sZKAFDZ5Yys+RoSq
+	C9+5W9/n+b6nBam4Kf+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUqSF-00CkJP-8c; Wed, 22 Feb 2023 14:50:47 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pUqbe-00Cm8V-8d; Wed, 22 Feb 2023 15:00:30 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUqSC-00CkIL-7A
-	for linux-riscv@lists.infradead.org; Wed, 22 Feb 2023 14:50:45 +0000
+	id 1pUqbY-00Cm4x-VW
+	for linux-riscv@lists.infradead.org; Wed, 22 Feb 2023 15:00:26 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id D5F696147A;
-	Wed, 22 Feb 2023 14:50:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC4EDC433EF;
-	Wed, 22 Feb 2023 14:50:38 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 80559614B0;
+	Wed, 22 Feb 2023 15:00:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 466F5C433A8;
+	Wed, 22 Feb 2023 15:00:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1677077441;
-	bh=jECYUd++ya4ZsTEPgf+A4rG4QEZxORJ8FxqhcduO8rI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=F9FnSipHjdSvaLOQeeDh5U9J3OpPg9y5rhPajM5/U+Cp3uL7ggJ33uDUPrBW8wXtY
-	 dxwQS5jPa6FBJztre9QhvYkYot55Fi8CX2LTPH6nKb+QaHFgtOU9M94nC8CFjUXJJk
-	 Yrk5Al9cxSObZat0W7cNiwTRi09vzMWVed3iGUEwaBlZsQp3G8A4wy0pZA0r8P+zZQ
-	 nf/G9mJBt+b+VjZs23yAMChRURMV6ZV9x9c29+LU/iN+ivvlqI0bsnepYkWdruSqUk
-	 UBrwNLpVtvZi/yBsTrEcL97dRHQq2n108wme856Mnn7rCYBhc/3AiIvpn2rvGr83Ea
-	 x8V/LWk7+cOPg==
-Date: Wed, 22 Feb 2023 14:50:36 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Jiaxun Yang <jiaxun.yang@flygoat.com>
-Cc: linux-mips@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, tsbogend@alpha.franken.de,
-	mpe@ellerman.id.au, paul.walmsley@sifive.com, palmer@dabbelt.com,
-	robh+dt@kernel.org, hch@lst.de, m.szyprowski@samsung.com,
-	robin.murphy@arm.com, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 2/3] riscv: Set dma_default_coherent to true
-Message-ID: <Y/YrvDBJcYUQt4WC@spud>
-References: <20230222133712.8079-1-jiaxun.yang@flygoat.com>
- <20230222133712.8079-3-jiaxun.yang@flygoat.com>
+	s=k20201202; t=1677078022;
+	bh=iRBat2u1+RmG1QEv7W26a47GotBKVLB8ntUrJI9i/oA=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=pz+qICuPlJ07C3m5mpGnqpXbgSV/sVvFWMg4ECZFxJIE8ngR7LvlpbAvkqP/xmiYA
+	 oKnf0xoPPThf1sw+LYcPnvg2Vl7I82I28wnB4e9c/iMInpeZH3xBMaMK9PoUVEcjv0
+	 iKrila+XO1MThyknhoCjxxu4OF1mfMWXwP84zA2CvySJ5F6OUh8eENcXYeXAn5sSnF
+	 n1xdALsNKpR8lWZQMN02YNxcM7pAj7McciQqO1EBc6QzegO6uuO1Gjd4a/fNnwp+CW
+	 3gaDB1rIIhhejYYEQd5NmhkxgIul8LiowJrjqUeZwJIMtMZOUgo3GiwEsHi5tE0SJf
+	 S6SlN0Rk6sAig==
+Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 218EDC73FE7;
+	Wed, 22 Feb 2023 15:00:22 +0000 (UTC)
 MIME-Version: 1.0
-In-Reply-To: <20230222133712.8079-3-jiaxun.yang@flygoat.com>
+Subject: Re: [PATCH] riscv: alternative: proceed one more instruction for
+ auipc/jalr pair
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id:  <167707802213.24438.17946403277180818321.git-patchwork-notify@kernel.org>
+Date: Wed, 22 Feb 2023 15:00:22 +0000
+References: <20230115162811.3146-1-jszhang@kernel.org>
+In-Reply-To: <20230115162811.3146-1-jszhang@kernel.org>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, ajones@ventanamicro.com,
+ heiko.stuebner@vrull.eu, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230222_065044_334294_A3A705EA 
-X-CRM114-Status: GOOD (  18.10  )
+X-CRM114-CacheID: sfid-20230222_070025_098966_0F700C15 
+X-CRM114-Status: GOOD (  10.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,84 +71,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1612961023499132602=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hello:
 
---===============1612961023499132602==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="mMMYT62i9d1eIRHl"
-Content-Disposition: inline
+This patch was applied to riscv/linux.git (for-next)
+by Palmer Dabbelt <palmer@rivosinc.com>:
 
+On Mon, 16 Jan 2023 00:28:11 +0800 you wrote:
+> If we patched auipc + jalr pair, we'd better proceed one more
+> instruction. Andrew pointed out "There's not a problem now, since
+> we're only adding a fixup for jal, not jalr, but we should
+> future-proof this and there's no reason to revisit an already fixed-up
+> instruction anyway."
+> 
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> Suggested-by: Andrew Jones <ajones@ventanamicro.com>
+> 
+> [...]
 
---mMMYT62i9d1eIRHl
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Here is the summary with links:
+  - riscv: alternative: proceed one more instruction for auipc/jalr pair
+    https://git.kernel.org/riscv/c/91612cfb1736
 
-On Wed, Feb 22, 2023 at 01:37:11PM +0000, Jiaxun Yang wrote:
-> For riscv our assumption is unless a device states it is non-coherent,
-> we take it to be DMA coherent.
->=20
-> For devicetree probed devices that have been true since very begining
-> with OF_DMA_DEFAULT_COHERENT selected.
->=20
-> Signed-off-by: Jiaxun Yang <jiaxun.yang@flygoat.com>
-> ---
->  arch/riscv/kernel/setup.c | 3 +++
->  1 file changed, 3 insertions(+)
->=20
-> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> index 376d2827e736..34b371180976 100644
-> --- a/arch/riscv/kernel/setup.c
-> +++ b/arch/riscv/kernel/setup.c
-> @@ -300,6 +300,9 @@ void __init setup_arch(char **cmdline_p)
->  	riscv_init_cbom_blocksize();
->  	riscv_fill_hwcap();
->  	apply_boot_alternatives();
-> +#ifdef CONFIG_RISCV_DMA_NONCOHERENT
-> +	dma_default_coherent =3D true;
-> +#endif
-
-Do we really need to add ifdeffery for this here?
-It's always coherent by default, so why do we need to say set it in
-setup_arch() when we know that, regardless of options, it is true?
-
-Cheers,
-Conor.
-
->  	if (IS_ENABLED(CONFIG_RISCV_ISA_ZICBOM) &&
->  	    riscv_isa_extension_available(NULL, ZICBOM))
->  		riscv_noncoherent_supported();
-> --=20
-> 2.37.1 (Apple Git-137.1)
->=20
-
---mMMYT62i9d1eIRHl
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY/YruQAKCRB4tDGHoIJi
-0oqOAQClwxhHez3G5Ku8YKYt1QD25AwhnbdgPYGZX4nrg3jkDAEA0YEX+g+BVk6l
-KwiIMBd6nPQZSCwfvdaJvG++kv81mQU=
-=pBfa
------END PGP SIGNATURE-----
-
---mMMYT62i9d1eIRHl--
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
 
---===============1612961023499132602==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1612961023499132602==--
-
