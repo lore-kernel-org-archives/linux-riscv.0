@@ -4,81 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A393C61DA4
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Feb 2023 19:07:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47257C636D6
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Feb 2023 20:34:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:Subject:From:References:Cc:To:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9jXsNZsEQlahUBQChKj52G2nq5TNLtWN/GdpX6st4J0=; b=u/NZ/E+Jzrr1Yd
-	LvBVTm8F6vRAMdNeFoYwjnbTZFb/h0xYot9itGLoV9b6xPR2uaD4PXH+q0K7Y/K7//CPamEvJRiWQ
-	hDDLqd2+uUykB6Hun0USv7hIRQ97mIQA6F2th/w4hh32rf8IuhmSTfCfHwginTUtmr5SAMRi9JV1B
-	TiCejy5yo+ZwSEWbfnwdzZt55GFM3xBH1T9HMPCJ4IDtZRjouy3QoNsrxbXIIBJd1n5W2NTune35B
-	BykU2WSJHY4Rl0ZG+mXZnTUjWDGDV++Fc0xTajZklEkm28URE5x2E+jT9h3T/TulKBK/Da8uLvp4L
-	jhGQXBqTfOeqwi/KA+uQ==;
+	List-Owner; bh=4vQg8XmGc1d0ImOp2SrhblNNRqqR734Zt9KJtCUSi9Q=; b=V4I7+M29dgA9ZO
+	mecz5EWTE85ifJBSWRmpMn/4A+YH6GjNw/rApdVTJ0FGRNQ4iwtBt6aGCuGHYUFwsDMfYWjBsfs70
+	iTZEkEBRvkgkQTclyN2BtgKO6NapwP5aDlNkjuUhcOb5wQgWVt9UMojz6phEijWoP6FsqiWTaEwzg
+	trU1abhK2hu0+nQuyK17UdwQqmbu1LGceKPH0BtOzup+KM6K1d4VzHveE+yJdaDxq0V8yql3gzR72
+	OszA1PZxKK8f9xmY7CxU+Ye3PEdLR60Xv7HJjyTRX/zhPQ0kL7kSZuFSox7Ko+qIDG9YsUcQbDonM
+	B/utq0k3lgrNnmvONu1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUuSH-00DnAj-7A; Wed, 22 Feb 2023 19:07:05 +0000
-Received: from mail-io1-xd32.google.com ([2607:f8b0:4864:20::d32])
+	id 1pUvoc-00E0wN-6n; Wed, 22 Feb 2023 20:34:14 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUuSE-00Dn9I-99
-	for linux-riscv@lists.infradead.org; Wed, 22 Feb 2023 19:07:04 +0000
-Received: by mail-io1-xd32.google.com with SMTP id f14so1185203iow.5
-        for <linux-riscv@lists.infradead.org>; Wed, 22 Feb 2023 11:06:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=content-transfer-encoding:in-reply-to:subject:from:references:cc:to
-         :content-language:user-agent:mime-version:date:message-id:sender
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=TZ4fBzBorwJwtd4OddJRAAg1J5HGFiV6ynnjD0xVnCI=;
-        b=fci9fu/c9ktccRbKc8cJwcbk/VVIs4ztQKiXG5OmvuXPFibtWzIwPnjTLEldYf0qoG
-         JKQN9g9W0cw7s7nrmnL5/sc/Jao6lg59wHQJjvtqN4NFBPmYNGL1IyUt45izmDT0C/p2
-         79PsD24XyKXaMTjzVy8c8tZcCIXJuT4JgvEHDodJvuyJDz24ozqy8AQSaIewz3+NBHeb
-         5OgJRv9BVo+YTWb9EUXRvcdPp2479ksYkHOSYlOdLrnUgIIK/aVVQWHvq9wjhOARhrKz
-         Fjy6IuGYXqXFPQ7e3lSwhZiBZAng+AlCT7OHZbCzcI1qLuteMGiqqnncBf/CIInBnNN/
-         brnQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:subject:from:references:cc:to
-         :content-language:user-agent:mime-version:date:message-id:sender
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=TZ4fBzBorwJwtd4OddJRAAg1J5HGFiV6ynnjD0xVnCI=;
-        b=5hZRmqmy/jqKUlmsfgqTpxmLdQ8u0UL54TTD1SpcMhS6MyPK0Zf9r4Vlx4MwIHc1Bo
-         dgyvFHpwToAGvX5DOmAhmRCllZi6LuSon0jKABscO5Ss8Wad+DqXpKQvDdCzC3utO2Cc
-         qP2S1JOi9FDRFyPgj3cd57whdQadRtbO8uxxCVj02r/PA2dKc/e17AEhA5NSmUZVnn23
-         XdBx58d+GBn+q+8oZKlnceizwWZd9HksMzmfXSdWtQZCFtDg3sK2Zy3HdEbgPn30g3CB
-         nX8NEHGaqIDRfgIx880X9/Zv8PPYCB+HwsyzkER2BIaDLhOd6Gy8oD6juEHarRbxd8Hl
-         yWVg==
-X-Gm-Message-State: AO0yUKXL0Qi57bYyrlstc3L72ZoDy39EMpocsjnWRYNGsU51JXrllK/8
-	f53lJwqL9MQrRXOsdn03n6s=
-X-Google-Smtp-Source: AK7set8tSJHiRkmj9JzGIquVgHxGfRC2FT3jVyiadlVZCWIkn4nEVGUNFSuQ4o4uMU1H6ExbHKSNgw==
-X-Received: by 2002:a5d:9306:0:b0:71a:1b72:5afc with SMTP id l6-20020a5d9306000000b0071a1b725afcmr1336227ion.19.1677092818783;
-        Wed, 22 Feb 2023 11:06:58 -0800 (PST)
-Received: from ?IPV6:2600:1700:e321:62f0:329c:23ff:fee3:9d7c? ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
-        by smtp.gmail.com with ESMTPSA id p16-20020a92da50000000b0031535804125sm2748662ilq.88.2023.02.22.11.06.57
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 22 Feb 2023 11:06:58 -0800 (PST)
-Message-ID: <7d5d72a6-986f-945c-34ad-d87cf69cf89f@roeck-us.net>
-Date: Wed, 22 Feb 2023 11:06:56 -0800
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.7.1
-Content-Language: en-US
-To: =?UTF-8?Q?Heiko_St=c3=bcbner?= <heiko@sntech.de>,
- Palmer Dabbelt <palmer@dabbelt.com>
+	id 1pUvoY-00E0vn-Nf
+	for linux-riscv@lists.infradead.org; Wed, 22 Feb 2023 20:34:12 +0000
+Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1pUvoD-0006wR-Uh; Wed, 22 Feb 2023 21:33:50 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Palmer Dabbelt <palmer@dabbelt.com>, Guenter Roeck <linux@roeck-us.net>
 Cc: ajones@ventanamicro.com, Conor Dooley <conor@kernel.org>,
  Conor Dooley <conor.dooley@microchip.com>, samuel@sholland.org,
  linux-riscv@lists.infradead.org, christoph.muellner@vrull.eu
-References: <mhng-72b23626-1921-454b-bba8-aec29b32048d@palmer-ri-x1c9a>
- <2186881.72vocr9iq0@diego> <2801162.88bMQJbFj6@diego>
-From: Guenter Roeck <linux@roeck-us.net>
 Subject: Re: [PATCH v1] RISC-V: take text_mutex during alternative patching
-In-Reply-To: <2801162.88bMQJbFj6@diego>
+Date: Wed, 22 Feb 2023 21:33:47 +0100
+Message-ID: <1733202.X513TT2pbd@diego>
+In-Reply-To: <7d5d72a6-986f-945c-34ad-d87cf69cf89f@roeck-us.net>
+References:  <mhng-72b23626-1921-454b-bba8-aec29b32048d@palmer-ri-x1c9a>
+ <2801162.88bMQJbFj6@diego>
+ <7d5d72a6-986f-945c-34ad-d87cf69cf89f@roeck-us.net>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230222_110702_376982_ADBB0804 
-X-CRM114-Status: GOOD (  27.32  )
+X-CRM114-CacheID: sfid-20230222_123410_946563_2DA0C1D4 
+X-CRM114-Status: GOOD (  42.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,190 +57,307 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMi8yMi8yMyAwOTo0MywgSGVpa28gU3TDvGJuZXIgd3JvdGU6Cj4gQW0gTWl0dHdvY2gsIDIy
-LiBGZWJydWFyIDIwMjMsIDE4OjAzOjU1IENFVCBzY2hyaWViIEhlaWtvIFN0w7xibmVyOgo+PiBB
-bSBNaXR0d29jaCwgMjIuIEZlYnJ1YXIgMjAyMywgMTc6NDc6MTAgQ0VUIHNjaHJpZWIgUGFsbWVy
-IERhYmJlbHQ6Cj4+PiBPbiBXZWQsIDIyIEZlYiAyMDIzIDA3OjM5OjExIFBTVCAoLTA4MDApLCBo
-ZWlrb0BzbnRlY2guZGUgd3JvdGU6Cj4+Pj4gQW0gTWl0dHdvY2gsIDIyLiBGZWJydWFyIDIwMjMs
-IDE2OjMxOjI1IENFVCBzY2hyaWViIEFuZHJldyBKb25lczoKPj4+Pj4gT24gV2VkLCBGZWIgMjIs
-IDIwMjMgYXQgMDM6Mjc6NDNQTSArMDEwMCwgQW5kcmV3IEpvbmVzIHdyb3RlOgo+Pj4+Pj4gT24g
-VGh1LCBGZWIgMTYsIDIwMjMgYXQgMDc6MzM6NTVBTSAtMDgwMCwgR3VlbnRlciBSb2VjayB3cm90
-ZToKPj4+Pj4+PiBPbiAyLzE1LzIzIDE0OjAwLCBIZWlrbyBTdMO8Ym5lciB3cm90ZToKPj4+Pj4+
-PiBbIC4uLiBdCj4+Pj4+Pj4+Cj4+Pj4+Pj4+IFNvIG5vdyBJJ3ZlIGFsc28gdGVzdGVkIFBhbG1l
-cidzIGZvci1uZXh0IGF0Cj4+Pj4+Pj4+ICAgICBjb21taXQgZWM2MzExOTE5ZWE2ICgiTWVyZ2Ug
-cGF0Y2ggc2VyaWVzICJyaXNjdjogT3B0aW1pemUgZnVuY3Rpb24gdHJhY2UiIikKPj4+Pj4+Pj4K
-Pj4+Pj4+Pj4gYWdhaW4gd2l0aCB0aGUgc2FtZSB2YXJpYW50cwo+Pj4+Pj4+PiAtIHFlbXUtcmlz
-Y3YzMiB3aXRob3V0IHpiYgo+Pj4+Pj4+PiAtIHFlbXUtcmlzY3YzMiB3aXRoIHpiYgo+Pj4+Pj4+
-PiAtIHFlbXUtcmlzY3Y2NCB3aXRob3V0IHpiYgo+Pj4+Pj4+PiAtIHFlbXUtcmlzY3Y2NCB3aXRo
-IHpiYgo+Pj4+Pj4+Pgo+Pj4+Pj4+PiBBbmQgYWxsIG9mIHRoZW0gYm9vdGVkIGZpbmUgaW50byBh
-IG5mcy1yb290IChkZWJpYW4gZm9yIHJpc2N2NjQgYW5kIGEKPj4+Pj4+Pj4gYnVpbGRyb290IGZv
-ciByaXNjdjMyKS4KPj4+Pj4+Pj4KPj4+Pj4+Pj4gSSBldmVuIGZvcmNlZCBhIGJ1ZyBpbnRvIHRo
-ZSB6YmIgY29kZSB0byBtYWtlIHN1cmUgdGhlIHBhdGNoaW5nIHdvcmtlZAo+Pj4+Pj4+PiBjb3Jy
-ZWN0bHkgKHdoZXJlIHRoZSBrZXJuZWwgZmFpbGVkIGFzIGV4cGVjdGVkKS4KPj4+Pj4+Pj4KPj4+
-Pj4+Pj4gUWVtdS12ZXJzaW9uIGZvciBtZSB3YXMgNy4yLjUwICh2Ny4yLjAtNzQ0LWc1YTM2MzM5
-MjlhLWRpcnR5KQo+Pj4+Pj4+Pgo+Pj4+Pj4+PiBJIGRpZCB0cnkgdGhlIG9uZSBmcm9tIERlYmlh
-bi1zdGFibGUgKHFlbXUtNS4yKSBidXQgdGhhdCB3YXMgdG9vIG9sZCBhbmQKPj4+Pj4+Pj4gZGlk
-bid0IHN1cHBvcnQgWmJiIHlldC4KPj4+Pj4+Pj4KPj4+Pj4+Pj4gT25lIHRoaW5nIG9mIG5vdGUs
-IHRoZSAiYWN0aXZlIiAzMmJpdCBjb25maWcgSSBoYWQsIHNvbWVob3cgZGlkbid0IHByb2R1Y2UK
-Pj4+Pj4+Pj4gd29ya2luZyBpbWFnZXMgYW5kIEkgbmVlZGVkIHRvIHN0YXJ0IGEgbmV3IGJ1aWxk
-IHVzaW5nIHRoZSBydjMyX2RlZmNvbmZpZy4KPj4+Pj4+Pj4KPj4+Pj4+Pj4gU28gcmlnaHQgbm93
-LCBJJ20gbm90IHN1cmUgd2hhdCBtb3JlIHRvIHRlc3QgdGhvdWdoLgo+Pj4+Pj4+Pgo+Pj4+Pj4+
-Cj4+Pj4+Pj4gQW5vdGhlciBleGFtcGxlOgo+Pj4+Pj4+Cj4+Pj4+Pj4gLSBidWlsZCBkZWZjb25m
-aWcKPj4+Pj4+PiAtIHJ1bgo+Pj4+Pj4+ICAgIHFlbXUtc3lzdGVtLXJpc2N2NjQgLU0gdmlydCAt
-bSA1MTJNIC1uby1yZWJvb3QgLWtlcm5lbCBhcmNoL3Jpc2N2L2Jvb3QvSW1hZ2UgXAo+Pj4+Pj4+
-ICAgICAgLXNuYXBzaG90IC1kZXZpY2UgdmlydGlvLWJsay1kZXZpY2UsZHJpdmU9ZDAgLWRyaXZl
-IGZpbGU9cm9vdGZzLmV4dDIsaWY9bm9uZSxpZD1kMCxmb3JtYXQ9cmF3IFwKPj4+Pj4+PiAgICAg
-IC1hcHBlbmQgInJvb3Q9L2Rldi92ZGEgY29uc29sZT10dHlTMCwxMTUyMDAgZWFybHljb249dWFy
-dDgyNTAsbW1pbywweDEwMDAwMDAwLDExNTIwMCIgXAo+Pj4+Pj4+ICAgICAgLW5vZ3JhcGhpYyAt
-bW9uaXRvciBub25lCj4+Pj4+Pj4KPj4+Pj4+PiBXaXRoIENPTkZJR19SSVNDVl9JU0FfWkJCPXks
-IHRoYXQgcmVzdWx0cyBpbgo+Pj4+Pj4+Cj4+Pj4+Pj4gWyAgICAwLjgxODI2M10gL2Rldi9yb290
-OiBDYW4ndCBvcGVuIGJsb2NrZGV2Cj4+Pj4+Pj4gWyAgICAwLjgxODg1Nl0gVkZTOiBDYW5ub3Qg
-b3BlbiByb290IGRldmljZSAiL2Rldi92ZGEiIG9yIHVua25vd24tYmxvY2soMCwwKTogZXJyb3Ig
-LTYKPj4+Pj4+PiBbICAgIDAuODE5MTc3XSBQbGVhc2UgYXBwZW5kIGEgY29ycmVjdCAicm9vdD0i
-IGJvb3Qgb3B0aW9uOyBoZXJlIGFyZSB0aGUgYXZhaWxhYmxlIHBhcnRpdGlvbnM6Cj4+Pj4+Pj4g
-WyAgICAwLjgxOTgwOF0gZmUwMCAgICAgICAgICAgMTYzODQgdmRhCj4+Pj4+Pj4gWyAgICAwLjgx
-OTk0NF0gIGRyaXZlcjogdmlydGlvX2Jsawo+Pj4+Pj4+IFsgICAgMC44MjA1MzRdIEtlcm5lbCBw
-YW5pYyAtIG5vdCBzeW5jaW5nOiBWRlM6IFVuYWJsZSB0byBtb3VudCByb290IGZzIG9uIHVua25v
-d24tYmxvY2soMCwwKQo+Pj4+Pj4+IFsgICAgMC44MjExMDFdIENQVTogMCBQSUQ6IDEgQ29tbTog
-c3dhcHBlci8wIE5vdCB0YWludGVkIDYuMi4wLXJjOC1uZXh0LTIwMjMwMjE2LTAwMDAyLWc4MDMz
-MjgyNWUyNDAgIzQKPj4+Pj4+PiBbICAgIDAuODIxNjcyXSBIYXJkd2FyZSBuYW1lOiByaXNjdi12
-aXJ0aW8scWVtdSAoRFQpCj4+Pj4+Pj4gWyAgICAwLjgyMjA1MF0gQ2FsbCBUcmFjZToKPj4+Pj4+
-PiBbICAgIDAuODIyNDI3XSBbPGZmZmZmZmZmODAwMDUzZTQ+XSBkdW1wX2JhY2t0cmFjZSsweDFj
-LzB4MjQKPj4+Pj4+PiBbICAgIDAuODIyODM0XSBbPGZmZmZmZmZmODA3ZjkwZTQ+XSBzaG93X3N0
-YWNrKzB4MmMvMHgzOAo+Pj4+Pj4+IFsgICAgMC44MjMwODVdIFs8ZmZmZmZmZmY4MDgwM2FlYT5d
-IGR1bXBfc3RhY2tfbHZsKzB4M2MvMHg1NAo+Pj4+Pj4+IFsgICAgMC44MjMzNTFdIFs8ZmZmZmZm
-ZmY4MDgwM2IxNj5dIGR1bXBfc3RhY2srMHgxNC8weDFjCj4+Pj4+Pj4gWyAgICAwLjgyMzYwMV0g
-WzxmZmZmZmZmZjgwN2Y5NDRjPl0gcGFuaWMrMHgxMDIvMHgyOWUKPj4+Pj4+PiBbICAgIDAuODIz
-ODM0XSBbPGZmZmZmZmZmODBhMDE1ZTI+XSBtb3VudF9ibG9ja19yb290KzB4MThjLzB4MjNlCj4+
-Pj4+Pj4gWyAgICAwLjgyNDE0OF0gWzxmZmZmZmZmZjgwYTAxODdjPl0gbW91bnRfcm9vdCsweDFl
-OC8weDIxOAo+Pj4+Pj4+IFsgICAgMC44MjQzOThdIFs8ZmZmZmZmZmY4MGEwMTllZT5dIHByZXBh
-cmVfbmFtZXNwYWNlKzB4MTQyLzB4MTg0Cj4+Pj4+Pj4gWyAgICAwLjgyNDY1NV0gWzxmZmZmZmZm
-ZjgwYTAxMTgyPl0ga2VybmVsX2luaXRfZnJlZWFibGUrMHgyMzYvMHgyNWEKPj4+Pj4+PiBbICAg
-IDAuODI0OTM0XSBbPGZmZmZmZmZmODA4MDQ2MDI+XSBrZXJuZWxfaW5pdCsweDFlLzB4MTBhCj4+
-Pj4+Pj4gWyAgICAwLjgyNTIwMV0gWzxmZmZmZmZmZjgwMDAzNTYwPl0gcmV0X2Zyb21fZXhjZXB0
-aW9uKzB4MC8weDE2Cj4+Pj4+Pj4gWyAgICAwLjgyNjE4MF0gLS0tWyBlbmQgS2VybmVsIHBhbmlj
-IC0gbm90IHN5bmNpbmc6IFZGUzogVW5hYmxlIHRvIG1vdW50IHJvb3QgZnMgb24gdW5rbm93bi1i
-bG9jaygwLDApIF0tLS0KPj4+Pj4+Pgo+Pj4+Pj4+IFRoaXMgd29ya3MgZmluZSBpZiBDT05GSUdf
-UklTQ1ZfSVNBX1pCQiBpcyBub3QgZW5hYmxlZC4KPj4+Pj4+Pgo+Pj4+Pj4+IFRlc3RlZCB3aXRo
-IGdjYyAxMS4zLCBiaW51dGlscyAyLjM5LCBxZW11IHY3LjIuMCBhbmQgcWVtdSBidWlsdCBmcm9t
-IG1haW5saW5lLgo+Pj4+Pj4+Cj4+Pj4+Pgo+Pj4+Pj4gSnVzdCB0byArMSB0aGlzLCBJIGdldCB0
-aGUgc2FtZSByZXN1bHQgKHVuYWJsZSB0byBtb3VudCByb290IGZzKSB3aXRoCj4+Pj4+Pgo+Pj4+
-Pj4gJFFFTVUgLWNwdSBydjY0LHpiYj1vbiBcCj4+Pj4+PiAgICAgICAgICAtbm9ncmFwaGljIFwK
-Pj4+Pj4+ICAgICAgICAgIC1tYWNoaW5lIHZpcnQgXAo+Pj4+Pj4gICAgICAgICAgLWtlcm5lbCAk
-S0VSTkVMIFwKPj4+Pj4+ICAgICAgICAgIC1hcHBlbmQgJ3Jvb3Q9L2Rldi92ZGEgY29uc29sZT10
-dHlTMCcgXAo+Pj4+Pj4gICAgICAgICAgLWRyaXZlIGZpbGU9ZGlzay5leHQ0LGZvcm1hdD1yYXcs
-aWQ9aGQwIFwKPj4+Pj4+ICAgICAgICAgIC1kZXZpY2UgdmlydGlvLWJsay1wY2ksZHJpdmU9aGQw
-Cj4+Pj4+Pgo+Pj4+Pj4ga2VybmVsOiAgIGxhdGVzdCByaXNjdi1saW51eC9mb3ItbmV4dCAoODY1
-OGRiMGE0YTBmKSwgZGVmY29uZmlnCj4+Pj4+PiBnY2M6ICAgICAgcmlzY3YtZ251LXRvb2xjaGFp
-biAoMTIuMS4wKQo+Pj4+Pj4gYmludXRpbHM6IHJpc2N2LWdudS10b29sY2hhaW4gKDIuMzkpCj4+
-Pj4+PiBxZW11OiAgICAgbGF0ZXN0IG1hc3RlciAoNzliNjc3ZDY1OGQzKQo+Pj4+Pj4KPj4+Pj4+
-IEZsaXBwaW5nIHRoZSBRRU1VIGNwdSB6YmIgcHJvcGVydHkgb2ZmIGFsbG93cyBib290IHRvIHN1
-Y2NlZWQsIGkuZS4gaXQncwo+Pj4+Pj4gbm90IG5lY2Vzc2FyeSB0byBjb21waWxlIG91dCB0aGUg
-Q09ORklHX1JJU0NWX0lTQV9aQkIgY29kZSBmcm9tIHRoZQo+Pj4+Pj4ga2VybmVsLCBpdCdzIGp1
-c3QgbmVjZXNzYXJ5IHRvIGF2b2lkIHVzaW5nIGl0Lgo+Pj4+Pj4KPj4+Pj4KPj4+Pj4gTG9va3Mg
-bGlrZSBzb21ldGhpbmcgaW4gdGhlIHN0cm5jbXAgaW1wbGVtZW50YXRpb24uIE9ubHkgY29tbWVu
-dGluZyBpdAo+Pj4+PiBvdXQgYWxsb3dzIGJvb3QgdG8gc3VjY2VlZC4KPj4+Pgo+Pj4+IGFuZCBp
-bnRlcmVzdGluZ2x5IGl0IHNlZW1zIHRvIGJlIHNvbWV0aGluZyB2ZXJ5IHNwZWNpZmljLiBJLmUu
-IG15IHNldHVwIGlzCj4+Pj4gbmZzcm9vdC1iYXNlZCAocWVtdSBpcyAianVzdCIgYW5vdGhlciBi
-b2FyZCBpbiBteSBib2FyZGZhcm0pIGFuZCBib290aW5nCj4+Pj4gaW50byBhbiBuZnMtcm9vdCB3
-b3JrcyBxdWl0ZSBuaWNlbHkuCj4+Pj4KPj4+PiBJIGd1ZXNzIEkgbmVlZCB0byBsb29rIGludG8g
-aG93IHRvIGdldCBhbiBhY3R1YWwgZGlzay1pbWFnZSBpbiB0aGVyZS4KPj4+Cj4+PiBJdCBsb29r
-cyBsaWtlIERyZXcgaXNuJ3QgdXNpbmcgYW4gaW5pdHJkIChhbmQgd2l0aCBORlMsIHByZXN1bWFi
-bHkgeW91Cj4+PiBhcmUpPyAgVGhhdCdzIHByb2JhYmx5IGEgYmlnIGRpZmZlcmVuY2UgYXMgd2Vs
-bC4KPj4KPj4gVGhlcmUgaXMgbm8gaW5pdHJkIGludm9sdmVkIGluIG15IHFlbXUgc2V0dXAgOy0p
-IC4KPj4gSnVzdCBhIGtlcm5lbCBidWlsdCBmcm9tIGN1cnJlbnQgZm9yLW5leHQgKyBkZWZjb25m
-aWcgYW5kIGEgbmZzLXNlcnZlcgo+PiBob2xkaW5nIGEgZnVsbCBEZWJpYW4tcmlzY3Y2NCBzeXN0
-ZW0uCj4+Cj4+Cj4+IFRoZSBtYWdpYyBxZW11IGluY2FudGF0aW9uIGlzIGFsc28gcHJldHR5IHN0
-YW5kYXJkOgo+Pgo+PiAvdXNyL2xvY2FsL2Jpbi9xZW11LXN5c3RlbS1yaXNjdjY0IC1NIHZpcnQg
-LXNtcCAyIC1tIDFHIC1kaXNwbGF5IG5vbmUgXAo+PiAgIC1jcHUgcnY2NCx6YmI9dHJ1ZSx6YmM9
-dHJ1ZSxzdnBibXQ9dHJ1ZSxaaWNib209dHJ1ZSxaYXdycz10cnVlLHNzY29mcG1mPXRydWUsdj10
-cnVlIFwKPj4gICAtc2VyaWFsIHRlbG5ldDpsb2NhbGhvc3Q6NTUwMCxzZXJ2ZXIsbm93YWl0IC1r
-ZXJuZWwgL2hvbWUvZGV2ZWwvbmZzL2tlcm5lbC9yaXNjdjY0L0ltYWdlIFwKPj4gICAtYXBwZW5k
-IGVhcmx5Y29uPXNiaSByb290PS9kZXYvbmZzIG5mc3Jvb3Q9MTAuMC4yLjI6L2hvbWUvZGV2ZWwv
-bmZzL3Jvb3Rmcy1yaXNjdjY0dmlydCBpcD1kaGNwIHJ3IFwKPj4gICAtbmV0ZGV2IHVzZXIsaWQ9
-bjEgLWRldmljZSB2aXJ0aW8tbmV0LXBjaSxuZXRkZXY9bjEgLW5hbWUgYm9hcmRmYXJtLTAscHJv
-Y2Vzcz1ib2FyZGZhcm0tdm0tMCAtZGFlbW9uaXplCj4+Cj4+Cj4+IEFuZCBJIGFsc28gY2hlY2tl
-ZCB0aGF0IG15IGtlcm5lbCByZWFsbHkgbGFuZHMgaW4gdGhlIFpiYi1jb2RlIGJ5IHNpbXBseQo+
-PiBhZGRpbmcgYSAicmV0IiBbMF0gYW5kIG1ha2luZyBzdXJlIGl0IGJyZWFrcyB2cy4gcnVucyB3
-aXRob3V0IGl0Cj4+Cj4+Cj4+IE5leHQgSSdsbCB0cnkgdG8gbW92ZSBteSByb290ZnMgaW50byBh
-IHJlYWwgaW1hZ2UtZmlsZSBhbmQgc3dpdGNoIG92ZXIgdG8KPj4gdGhlIGNvbW1hbmRsaW5lIERy
-ZXcgY2FsbHMsIHRvIHNlZSBpZiBpdCdsbCByZXByb2R1Y2UgdGhlbi4KPiAKPiBXaXRoIHRoZSBy
-b290ZnMgaW4gYW4gaW1hZ2UgSSBjb3VsZCByZXByb2R1Y2UgdGhlIGlzc3VlIG5vdy4KPiAKPiBJ
-IGhhY2tlZCBpbiBhIHZlcnkgY3J1ZGUgY2hhbmdlIHRvIGZpbmQgdGhlIGludm9jYXRpb24gdGhh
-dCBhY3RzIGRpZmZlcmVudGx5Cj4gYW5kIHZvaWxhIGl0J3MgYSBzdHJuY21wIG9mIHRoZSAiL2Rl
-di92ZGEiIGFnYWluc3QgIi9kZXYvIiBbMF0uCj4gCj4gSXQncyByZWFsbHkgc3RyYW5nZSB0aGF0
-IGFsbCB0aGUgb3RoZXIgaW52b2NhdGlvbnMgcHJvZHVjZSBjb3JyZWN0IHJlc3VsdHMuCj4gCgpO
-b3QgcmVhbGx5OyB0aGUgZmFpbHVyZXMgYXJlIHRoZSBvbmx5IGNvbXBhcmlzb25zIHdoaWNoIGFy
-ZSBleHBlY3RlZCB0bwpyZXR1cm4gMCBhbmQgYXJlIG5vdCBhIGNvbXBsZXRlIHN0cmluZyBtYXRj
-aC4KCkknZCBzdXNwZWN0IHRoYXQgc3RybmNtcChzMSwgczIsIHN0cmxlbihzMikpIHdpbGwgYWx3
-YXlzIHJldHVybgphIGJhZCByZXN1bHQgaWYgczEgc3RhcnRzIHdpdGggczIgYnV0IGlzIG5vdCBp
-ZGVudGljYWwgdG8gczIuCgpHdWVudGVyCgo+IAo+IAo+IAo+IFswXQo+IG5vbi13b3JraW5nIC0g
-d2l0aCB6YmItc3RybmNtcDoKPiBbICAgIDIuNjE5MTI5XSBzdHJuY21wOiBjb21wYXJpbmcgL2Rl
-di92ZGEgPC0+IG10ZCwgY291bnQgMyA9PiAtMQo+IFsgICAgMi42MjA0NTFdIHN0cm5jbXA6IGNv
-bXBhcmluZyAvZGV2L3ZkYSA8LT4gdWJpLCBjb3VudCAzID0+IC0xCj4gWyAgICAyLjYyMTE2M10g
-c3RybmNtcDogY29tcGFyaW5nIC9kZXYvdmRhIDwtPiBQQVJUVVVJRD0sIGNvdW50IDkgPT4gLTEK
-PiBbICAgIDIuNjIxNzAzXSBzdHJuY21wOiBjb21wYXJpbmcgL2Rldi92ZGEgPC0+IFBBUlRMQUJF
-TD0sIGNvdW50IDEwID0+IC0xCj4gLS0tLS0tIGJlbG93IGlzIHRoZSBkaWZmZXJlbmNlCj4gWyAg
-ICAyLjYyMjI1NV0gc3RybmNtcDogY29tcGFyaW5nIC9kZXYvdmRhIDwtPiAvZGV2LywgY291bnQg
-NSA9PiAxCj4gWyAgICAyLjYyMzQ0Nl0gc3RybmNtcDogY29tcGFyaW5nIC9kZXYvdmRhIDwtPiAv
-ZGV2LywgY291bnQgNSA9PiAxCj4gLS0tLS0tIGFib3ZlIGlzIHRoZSBkaWZmZXJlbmNlCj4gWyAg
-ICAyLjYyNzA2NF0gc3RybmNtcDogY29tcGFyaW5nIHN5c2ZzIDwtPiBleHQzLCBjb3VudCA0ID0+
-IDE0Cj4gWyAgICAyLjYyNzY0Nl0gc3RybmNtcDogY29tcGFyaW5nIHRtcGZzIDwtPiBleHQzLCBj
-b3VudCA0ID0+IDE1Cj4gWyAgICAyLjYyODQ3Nl0gc3RybmNtcDogY29tcGFyaW5nIGJkZXYgPC0+
-IGV4dDMsIGNvdW50IDQgPT4gLTMKPiBbICAgIDIuNjI4OTkwXSBzdHJuY21wOiBjb21wYXJpbmcg
-cHJvYyA8LT4gZXh0MywgY291bnQgNCA9PiAxMQo+IFsgICAgMi42Mjk0MjJdIHN0cm5jbXA6IGNv
-bXBhcmluZyBjZ3JvdXAgPC0+IGV4dDMsIGNvdW50IDQgPT4gLTIKPiBbICAgIDIuNjI5ODU2XSBz
-dHJuY21wOiBjb21wYXJpbmcgY2dyb3VwMiA8LT4gZXh0MywgY291bnQgNCA9PiAtMgo+IFsgICAg
-Mi42MzAzNDVdIHN0cm5jbXA6IGNvbXBhcmluZyBjcHVzZXQgPC0+IGV4dDMsIGNvdW50IDQgPT4g
-LTIKPiBbICAgIDIuNjMwNzg1XSBzdHJuY21wOiBjb21wYXJpbmcgZGV2dG1wZnMgPC0+IGV4dDMs
-IGNvdW50IDQgPT4gLTEKPiBbICAgIDIuNjMxMjY3XSBzdHJuY21wOiBjb21wYXJpbmcgZGVidWdm
-cyA8LT4gZXh0MywgY291bnQgNCA9PiAtMQo+IFsgICAgMi42MzE2OTZdIHN0cm5jbXA6IGNvbXBh
-cmluZyBzZWN1cml0eWZzIDwtPiBleHQzLCBjb3VudCA0ID0+IDEKPiBbICAgIDIuNjMyNTk2XSBz
-dHJuY21wOiBjb21wYXJpbmcgc29ja2ZzIDwtPiBleHQzLCBjb3VudCA0ID0+IDE0Cj4gWyAgICAy
-LjYzMzA5NV0gc3RybmNtcDogY29tcGFyaW5nIGJwZiA8LT4gZXh0MywgY291bnQgNCA9PiAtMwo+
-IFsgICAgMi42MzM2MDBdIHN0cm5jbXA6IGNvbXBhcmluZyBwaXBlZnMgPC0+IGV4dDMsIGNvdW50
-IDQgPT4gMTEKPiBbICAgIDIuNjM0MDcxXSBzdHJuY21wOiBjb21wYXJpbmcgcmFtZnMgPC0+IGV4
-dDMsIGNvdW50IDQgPT4gMTMKPiBbICAgIDIuNjM0NTAxXSBzdHJuY21wOiBjb21wYXJpbmcgaHVn
-ZXRsYmZzIDwtPiBleHQzLCBjb3VudCA0ID0+IDEKPiBbICAgIDIuNjM0OTU1XSBzdHJuY21wOiBj
-b21wYXJpbmcgcnBjX3BpcGVmcyA8LT4gZXh0MywgY291bnQgNCA9PiAxCj4gWyAgICAyLjYzNTQw
-N10gc3RybmNtcDogY29tcGFyaW5nIGRldnB0cyA8LT4gZXh0MywgY291bnQgNCA9PiAtMQo+IFsg
-ICAgMi42Mzg3ODhdIHN0cm5jbXA6IGNvbXBhcmluZyBleHQzIDwtPiBleHQzLCBjb3VudCA0ID0+
-IDAKPiAKPiAKPiB3b3JraW5nIC0gd2l0aCBub3JtYWwgc3RybmNtcDoKPiBbICAgIDIuNDE2NDM4
-XSBzdHJuY21wOiBjb21wYXJpbmcgL2Rldi92ZGEgPC0+IG10ZCwgY291bnQgMyA9PiAtNjIKPiBb
-ICAgIDIuNDE3MzEyXSBzdHJuY21wOiBjb21wYXJpbmcgL2Rldi92ZGEgPC0+IHViaSwgY291bnQg
-MyA9PiAtNzAKPiBbICAgIDIuNDE4Mjk2XSBzdHJuY21wOiBjb21wYXJpbmcgL2Rldi92ZGEgPC0+
-IFBBUlRVVUlEPSwgY291bnQgOSA9PiAtMzMKPiBbICAgIDIuNDE4OTIxXSBzdHJuY21wOiBjb21w
-YXJpbmcgL2Rldi92ZGEgPC0+IFBBUlRMQUJFTD0sIGNvdW50IDEwID0+IC0zMwo+IC0tLS0tLSBi
-ZWxvdyBpcyB0aGUgZGlmZmVyZW5jZQo+IFsgICAgMi40MTk0NTBdIHN0cm5jbXA6IGNvbXBhcmlu
-ZyAvZGV2L3ZkYSA8LT4gL2Rldi8sIGNvdW50IDUgPT4gMAo+IFsgICAgMi40MjA2OThdIHN0cm5j
-bXA6IGNvbXBhcmluZyAvZGV2L3ZkYSA8LT4gL2Rldi8sIGNvdW50IDUgPT4gMAo+IC0tLS0tLSBh
-Ym92ZSBpcyB0aGUgZGlmZmVyZW5jZQo+IFsgICAgMi40MjQwODZdIHN0cm5jbXA6IGNvbXBhcmlu
-ZyBzeXNmcyA8LT4gZXh0MywgY291bnQgNCA9PiAxNAo+IFsgICAgMi40MjQ2NjNdIHN0cm5jbXA6
-IGNvbXBhcmluZyB0bXBmcyA8LT4gZXh0MywgY291bnQgNCA9PiAxNQo+IFsgICAgMi40MjUxMTFd
-IHN0cm5jbXA6IGNvbXBhcmluZyBiZGV2IDwtPiBleHQzLCBjb3VudCA0ID0+IC0zCj4gWyAgICAy
-LjQyNTU2M10gc3RybmNtcDogY29tcGFyaW5nIHByb2MgPC0+IGV4dDMsIGNvdW50IDQgPT4gMTEK
-PiBbICAgIDIuNDI2MDIyXSBzdHJuY21wOiBjb21wYXJpbmcgY2dyb3VwIDwtPiBleHQzLCBjb3Vu
-dCA0ID0+IC0yCj4gWyAgICAyLjQyNjcxN10gc3RybmNtcDogY29tcGFyaW5nIGNncm91cDIgPC0+
-IGV4dDMsIGNvdW50IDQgPT4gLTIKPiBbICAgIDIuNDI3MTc1XSBzdHJuY21wOiBjb21wYXJpbmcg
-Y3B1c2V0IDwtPiBleHQzLCBjb3VudCA0ID0+IC0yCj4gWyAgICAyLjQyNzYwOF0gc3RybmNtcDog
-Y29tcGFyaW5nIGRldnRtcGZzIDwtPiBleHQzLCBjb3VudCA0ID0+IC0xCj4gWyAgICAyLjQyODA2
-MV0gc3RybmNtcDogY29tcGFyaW5nIGRlYnVnZnMgPC0+IGV4dDMsIGNvdW50IDQgPT4gLTEKPiBb
-ICAgIDIuNDI4NTI2XSBzdHJuY21wOiBjb21wYXJpbmcgc2VjdXJpdHlmcyA8LT4gZXh0MywgY291
-bnQgNCA9PiAxNAo+IFsgICAgMi40Mjg5ODVdIHN0cm5jbXA6IGNvbXBhcmluZyBzb2NrZnMgPC0+
-IGV4dDMsIGNvdW50IDQgPT4gMTQKPiBbICAgIDIuNDI5NDIzXSBzdHJuY21wOiBjb21wYXJpbmcg
-YnBmIDwtPiBleHQzLCBjb3VudCA0ID0+IC0zCj4gWyAgICAyLjQyOTg2M10gc3RybmNtcDogY29t
-cGFyaW5nIHBpcGVmcyA8LT4gZXh0MywgY291bnQgNCA9PiAxMQo+IFsgICAgMi40MzA0MzNdIHN0
-cm5jbXA6IGNvbXBhcmluZyByYW1mcyA8LT4gZXh0MywgY291bnQgNCA9PiAxMwo+IFsgICAgMi40
-MzEyMDJdIHN0cm5jbXA6IGNvbXBhcmluZyBodWdldGxiZnMgPC0+IGV4dDMsIGNvdW50IDQgPT4g
-Mwo+IFsgICAgMi40MzE3MjFdIHN0cm5jbXA6IGNvbXBhcmluZyBycGNfcGlwZWZzIDwtPiBleHQz
-LCBjb3VudCA0ID0+IDEzCj4gWyAgICAyLjQzMjIyMl0gc3RybmNtcDogY29tcGFyaW5nIGRldnB0
-cyA8LT4gZXh0MywgY291bnQgNCA9PiAtMQo+IFsgICAgMi40MzI2ODVdIHN0cm5jbXA6IGNvbXBh
-cmluZyBleHQzIDwtPiBleHQzLCBjb3VudCA0ID0+IDAKPiAKPiAKPiAKCgpfX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
-c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
-Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Am Mittwoch, 22. Februar 2023, 20:06:56 CET schrieb Guenter Roeck:
+> On 2/22/23 09:43, Heiko St=FCbner wrote:
+> > Am Mittwoch, 22. Februar 2023, 18:03:55 CET schrieb Heiko St=FCbner:
+> >> Am Mittwoch, 22. Februar 2023, 17:47:10 CET schrieb Palmer Dabbelt:
+> >>> On Wed, 22 Feb 2023 07:39:11 PST (-0800), heiko@sntech.de wrote:
+> >>>> Am Mittwoch, 22. Februar 2023, 16:31:25 CET schrieb Andrew Jones:
+> >>>>> On Wed, Feb 22, 2023 at 03:27:43PM +0100, Andrew Jones wrote:
+> >>>>>> On Thu, Feb 16, 2023 at 07:33:55AM -0800, Guenter Roeck wrote:
+> >>>>>>> On 2/15/23 14:00, Heiko St=FCbner wrote:
+> >>>>>>> [ ... ]
+> >>>>>>>>
+> >>>>>>>> So now I've also tested Palmer's for-next at
+> >>>>>>>>     commit ec6311919ea6 ("Merge patch series "riscv: Optimize fu=
+nction trace"")
+> >>>>>>>>
+> >>>>>>>> again with the same variants
+> >>>>>>>> - qemu-riscv32 without zbb
+> >>>>>>>> - qemu-riscv32 with zbb
+> >>>>>>>> - qemu-riscv64 without zbb
+> >>>>>>>> - qemu-riscv64 with zbb
+> >>>>>>>>
+> >>>>>>>> And all of them booted fine into a nfs-root (debian for riscv64 =
+and a
+> >>>>>>>> buildroot for riscv32).
+> >>>>>>>>
+> >>>>>>>> I even forced a bug into the zbb code to make sure the patching =
+worked
+> >>>>>>>> correctly (where the kernel failed as expected).
+> >>>>>>>>
+> >>>>>>>> Qemu-version for me was 7.2.50 (v7.2.0-744-g5a3633929a-dirty)
+> >>>>>>>>
+> >>>>>>>> I did try the one from Debian-stable (qemu-5.2) but that was too=
+ old and
+> >>>>>>>> didn't support Zbb yet.
+> >>>>>>>>
+> >>>>>>>> One thing of note, the "active" 32bit config I had, somehow didn=
+'t produce
+> >>>>>>>> working images and I needed to start a new build using the rv32_=
+defconfig.
+> >>>>>>>>
+> >>>>>>>> So right now, I'm not sure what more to test though.
+> >>>>>>>>
+> >>>>>>>
+> >>>>>>> Another example:
+> >>>>>>>
+> >>>>>>> - build defconfig
+> >>>>>>> - run
+> >>>>>>>    qemu-system-riscv64 -M virt -m 512M -no-reboot -kernel arch/ri=
+scv/boot/Image \
+> >>>>>>>      -snapshot -device virtio-blk-device,drive=3Dd0 -drive file=
+=3Drootfs.ext2,if=3Dnone,id=3Dd0,format=3Draw \
+> >>>>>>>      -append "root=3D/dev/vda console=3DttyS0,115200 earlycon=3Du=
+art8250,mmio,0x10000000,115200" \
+> >>>>>>>      -nographic -monitor none
+> >>>>>>>
+> >>>>>>> With CONFIG_RISCV_ISA_ZBB=3Dy, that results in
+> >>>>>>>
+> >>>>>>> [    0.818263] /dev/root: Can't open blockdev
+> >>>>>>> [    0.818856] VFS: Cannot open root device "/dev/vda" or unknown=
+-block(0,0): error -6
+> >>>>>>> [    0.819177] Please append a correct "root=3D" boot option; her=
+e are the available partitions:
+> >>>>>>> [    0.819808] fe00           16384 vda
+> >>>>>>> [    0.819944]  driver: virtio_blk
+> >>>>>>> [    0.820534] Kernel panic - not syncing: VFS: Unable to mount r=
+oot fs on unknown-block(0,0)
+> >>>>>>> [    0.821101] CPU: 0 PID: 1 Comm: swapper/0 Not tainted 6.2.0-rc=
+8-next-20230216-00002-g80332825e240 #4
+> >>>>>>> [    0.821672] Hardware name: riscv-virtio,qemu (DT)
+> >>>>>>> [    0.822050] Call Trace:
+> >>>>>>> [    0.822427] [<ffffffff800053e4>] dump_backtrace+0x1c/0x24
+> >>>>>>> [    0.822834] [<ffffffff807f90e4>] show_stack+0x2c/0x38
+> >>>>>>> [    0.823085] [<ffffffff80803aea>] dump_stack_lvl+0x3c/0x54
+> >>>>>>> [    0.823351] [<ffffffff80803b16>] dump_stack+0x14/0x1c
+> >>>>>>> [    0.823601] [<ffffffff807f944c>] panic+0x102/0x29e
+> >>>>>>> [    0.823834] [<ffffffff80a015e2>] mount_block_root+0x18c/0x23e
+> >>>>>>> [    0.824148] [<ffffffff80a0187c>] mount_root+0x1e8/0x218
+> >>>>>>> [    0.824398] [<ffffffff80a019ee>] prepare_namespace+0x142/0x184
+> >>>>>>> [    0.824655] [<ffffffff80a01182>] kernel_init_freeable+0x236/0x=
+25a
+> >>>>>>> [    0.824934] [<ffffffff80804602>] kernel_init+0x1e/0x10a
+> >>>>>>> [    0.825201] [<ffffffff80003560>] ret_from_exception+0x0/0x16
+> >>>>>>> [    0.826180] ---[ end Kernel panic - not syncing: VFS: Unable t=
+o mount root fs on unknown-block(0,0) ]---
+> >>>>>>>
+> >>>>>>> This works fine if CONFIG_RISCV_ISA_ZBB is not enabled.
+> >>>>>>>
+> >>>>>>> Tested with gcc 11.3, binutils 2.39, qemu v7.2.0 and qemu built f=
+rom mainline.
+> >>>>>>>
+> >>>>>>
+> >>>>>> Just to +1 this, I get the same result (unable to mount root fs) w=
+ith
+> >>>>>>
+> >>>>>> $QEMU -cpu rv64,zbb=3Don \
+> >>>>>>          -nographic \
+> >>>>>>          -machine virt \
+> >>>>>>          -kernel $KERNEL \
+> >>>>>>          -append 'root=3D/dev/vda console=3DttyS0' \
+> >>>>>>          -drive file=3Ddisk.ext4,format=3Draw,id=3Dhd0 \
+> >>>>>>          -device virtio-blk-pci,drive=3Dhd0
+> >>>>>>
+> >>>>>> kernel:   latest riscv-linux/for-next (8658db0a4a0f), defconfig
+> >>>>>> gcc:      riscv-gnu-toolchain (12.1.0)
+> >>>>>> binutils: riscv-gnu-toolchain (2.39)
+> >>>>>> qemu:     latest master (79b677d658d3)
+> >>>>>>
+> >>>>>> Flipping the QEMU cpu zbb property off allows boot to succeed, i.e=
+. it's
+> >>>>>> not necessary to compile out the CONFIG_RISCV_ISA_ZBB code from the
+> >>>>>> kernel, it's just necessary to avoid using it.
+> >>>>>>
+> >>>>>
+> >>>>> Looks like something in the strncmp implementation. Only commenting=
+ it
+> >>>>> out allows boot to succeed.
+> >>>>
+> >>>> and interestingly it seems to be something very specific. I.e. my se=
+tup is
+> >>>> nfsroot-based (qemu is "just" another board in my boardfarm) and boo=
+ting
+> >>>> into an nfs-root works quite nicely.
+> >>>>
+> >>>> I guess I need to look into how to get an actual disk-image in there.
+> >>>
+> >>> It looks like Drew isn't using an initrd (and with NFS, presumably you
+> >>> are)?  That's probably a big difference as well.
+> >>
+> >> There is no initrd involved in my qemu setup ;-) .
+> >> Just a kernel built from current for-next + defconfig and a nfs-server
+> >> holding a full Debian-riscv64 system.
+> >>
+> >>
+> >> The magic qemu incantation is also pretty standard:
+> >>
+> >> /usr/local/bin/qemu-system-riscv64 -M virt -smp 2 -m 1G -display none \
+> >>   -cpu rv64,zbb=3Dtrue,zbc=3Dtrue,svpbmt=3Dtrue,Zicbom=3Dtrue,Zawrs=3D=
+true,sscofpmf=3Dtrue,v=3Dtrue \
+> >>   -serial telnet:localhost:5500,server,nowait -kernel /home/devel/nfs/=
+kernel/riscv64/Image \
+> >>   -append earlycon=3Dsbi root=3D/dev/nfs nfsroot=3D10.0.2.2:/home/deve=
+l/nfs/rootfs-riscv64virt ip=3Ddhcp rw \
+> >>   -netdev user,id=3Dn1 -device virtio-net-pci,netdev=3Dn1 -name boardf=
+arm-0,process=3Dboardfarm-vm-0 -daemonize
+> >>
+> >>
+> >> And I also checked that my kernel really lands in the Zbb-code by simp=
+ly
+> >> adding a "ret" [0] and making sure it breaks vs. runs without it
+> >>
+> >>
+> >> Next I'll try to move my rootfs into a real image-file and switch over=
+ to
+> >> the commandline Drew calls, to see if it'll reproduce then.
+> > =
+
+> > With the rootfs in an image I could reproduce the issue now.
+> > =
+
+> > I hacked in a very crude change to find the invocation that acts differ=
+ently
+> > and voila it's a strncmp of the "/dev/vda" against "/dev/" [0].
+> > =
+
+> > It's really strange that all the other invocations produce correct resu=
+lts.
+> > =
+
+> =
+
+> Not really; the failures are the only comparisons which are expected to
+> return 0 and are not a complete string match.
+> =
+
+> I'd suspect that strncmp(s1, s2, strlen(s2)) will always return
+> a bad result if s1 starts with s2 but is not identical to s2.
+
+The issue seems to come into play when s2 is shorter than the stepsize
+for the bitops-accelerated part (reg-size being 8) here.
+
+I.e. =
+
+
+	strncmp("/dev/vda", "/dev/", 5): 1
+	strncmp("/dev/vda", "/dev", 4): 1
+	strncmp("/dev/vda", "/de", 3): 1
+	...
+but
+	strncmp("/dev/vda12", "/dev/vda", 8): 0
+	strncmp("/dev/vda12", "/dev/vda1", 9): 0
+
+For size-9 this succeeds because the first step is "/dev/vda" and the
+0byte in "12" is detected and jumps to processing the rest individually.
+
+Duplicating the 0-byte check for s2 [1] - i.e. jumping to the byte-wise
+path when a 0-byte is detected in the second string - solves the issue.
+
+Not sure if there is a more performant solution for this, because we do
+have the length available. I'll think some more about that part.
+
+
+Heiko
+
+
+[1]
+@@ -83,6 +83,8 @@ strncmp_zbb:
+        REG_L   t1, 0(a1)
+        orc.b   t3, t0
+        bne     t3, t5, 2f
++       orc.b   t3, t1
++       bne     t3, t5, 2f
+        addi    a0, a0, SZREG
+        addi    a1, a1, SZREG
+        beq     t0, t1, 1b
+
+
+
+> > [0]
+> > non-working - with zbb-strncmp:
+> > [    2.619129] strncmp: comparing /dev/vda <-> mtd, count 3 =3D> -1
+> > [    2.620451] strncmp: comparing /dev/vda <-> ubi, count 3 =3D> -1
+> > [    2.621163] strncmp: comparing /dev/vda <-> PARTUUID=3D, count 9 =3D=
+> -1
+> > [    2.621703] strncmp: comparing /dev/vda <-> PARTLABEL=3D, count 10 =
+=3D> -1
+> > ------ below is the difference
+> > [    2.622255] strncmp: comparing /dev/vda <-> /dev/, count 5 =3D> 1
+> > [    2.623446] strncmp: comparing /dev/vda <-> /dev/, count 5 =3D> 1
+> > ------ above is the difference
+> > [    2.627064] strncmp: comparing sysfs <-> ext3, count 4 =3D> 14
+> > [    2.627646] strncmp: comparing tmpfs <-> ext3, count 4 =3D> 15
+> > [    2.628476] strncmp: comparing bdev <-> ext3, count 4 =3D> -3
+> > [    2.628990] strncmp: comparing proc <-> ext3, count 4 =3D> 11
+> > [    2.629422] strncmp: comparing cgroup <-> ext3, count 4 =3D> -2
+> > [    2.629856] strncmp: comparing cgroup2 <-> ext3, count 4 =3D> -2
+> > [    2.630345] strncmp: comparing cpuset <-> ext3, count 4 =3D> -2
+> > [    2.630785] strncmp: comparing devtmpfs <-> ext3, count 4 =3D> -1
+> > [    2.631267] strncmp: comparing debugfs <-> ext3, count 4 =3D> -1
+> > [    2.631696] strncmp: comparing securityfs <-> ext3, count 4 =3D> 1
+> > [    2.632596] strncmp: comparing sockfs <-> ext3, count 4 =3D> 14
+> > [    2.633095] strncmp: comparing bpf <-> ext3, count 4 =3D> -3
+> > [    2.633600] strncmp: comparing pipefs <-> ext3, count 4 =3D> 11
+> > [    2.634071] strncmp: comparing ramfs <-> ext3, count 4 =3D> 13
+> > [    2.634501] strncmp: comparing hugetlbfs <-> ext3, count 4 =3D> 1
+> > [    2.634955] strncmp: comparing rpc_pipefs <-> ext3, count 4 =3D> 1
+> > [    2.635407] strncmp: comparing devpts <-> ext3, count 4 =3D> -1
+> > [    2.638788] strncmp: comparing ext3 <-> ext3, count 4 =3D> 0
+> > =
+
+> > =
+
+> > working - with normal strncmp:
+> > [    2.416438] strncmp: comparing /dev/vda <-> mtd, count 3 =3D> -62
+> > [    2.417312] strncmp: comparing /dev/vda <-> ubi, count 3 =3D> -70
+> > [    2.418296] strncmp: comparing /dev/vda <-> PARTUUID=3D, count 9 =3D=
+> -33
+> > [    2.418921] strncmp: comparing /dev/vda <-> PARTLABEL=3D, count 10 =
+=3D> -33
+> > ------ below is the difference
+> > [    2.419450] strncmp: comparing /dev/vda <-> /dev/, count 5 =3D> 0
+> > [    2.420698] strncmp: comparing /dev/vda <-> /dev/, count 5 =3D> 0
+> > ------ above is the difference
+> > [    2.424086] strncmp: comparing sysfs <-> ext3, count 4 =3D> 14
+> > [    2.424663] strncmp: comparing tmpfs <-> ext3, count 4 =3D> 15
+> > [    2.425111] strncmp: comparing bdev <-> ext3, count 4 =3D> -3
+> > [    2.425563] strncmp: comparing proc <-> ext3, count 4 =3D> 11
+> > [    2.426022] strncmp: comparing cgroup <-> ext3, count 4 =3D> -2
+> > [    2.426717] strncmp: comparing cgroup2 <-> ext3, count 4 =3D> -2
+> > [    2.427175] strncmp: comparing cpuset <-> ext3, count 4 =3D> -2
+> > [    2.427608] strncmp: comparing devtmpfs <-> ext3, count 4 =3D> -1
+> > [    2.428061] strncmp: comparing debugfs <-> ext3, count 4 =3D> -1
+> > [    2.428526] strncmp: comparing securityfs <-> ext3, count 4 =3D> 14
+> > [    2.428985] strncmp: comparing sockfs <-> ext3, count 4 =3D> 14
+> > [    2.429423] strncmp: comparing bpf <-> ext3, count 4 =3D> -3
+> > [    2.429863] strncmp: comparing pipefs <-> ext3, count 4 =3D> 11
+> > [    2.430433] strncmp: comparing ramfs <-> ext3, count 4 =3D> 13
+> > [    2.431202] strncmp: comparing hugetlbfs <-> ext3, count 4 =3D> 3
+> > [    2.431721] strncmp: comparing rpc_pipefs <-> ext3, count 4 =3D> 13
+> > [    2.432222] strncmp: comparing devpts <-> ext3, count 4 =3D> -1
+> > [    2.432685] strncmp: comparing ext3 <-> ext3, count 4 =3D> 0
+> > =
+
+> > =
+
+> > =
+
+> =
+
+> =
+
+
+
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
