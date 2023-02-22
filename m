@@ -4,48 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3223C636D6
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Feb 2023 17:44:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD8F3C61DA4
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Feb 2023 17:58:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UPCy+8aYlUV9I/Z7ho6ta1aOxlVwg3ikXjd7FZv8Ch0=; b=ppZEk0wsnnSswD
-	qqewC2/i3MT5kyCN0s/e385JnS4SFF2pwURTdKGLgEPoSjUWEEF6Ya/zKqEVaxCibydMgbInyL2N4
-	JFU7NsG7TjbNGIl+8cxTJydkerf2pgyCWdCZhlFz7EcEbPUvmKLbMDfgeGXZr8JH3yJyixT8yj0sU
-	GRihUzqsD9JFCpHf0mEnKLcudXY9/uFs5LDlzS1Gp5QoAtP3Cu8GxZk9gconFSrP97KKYh4mQ7Epy
-	Qr+oS4FzgekuBEm5PjZkLWrnRlsvuCDftlCV3SEMQQfVn2yLpmjVoZkokafwHh1nbSxxwo2k99AUi
-	AVfAoNnUgMGcPaFkwBzQ==;
+	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
+	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=5d/ZMkBAJv5So98olc7v6v8a/LiSpAL+cKOMTts1FD4=; b=nI+KQJBpb5i+rP
+	QSv9velKKd5RIZH+uje7RLzYXgpTw5AnZ78kM7aHd8HnKNNtzH2km7uhelFK3UKVhARTUzVW7pfPt
+	x78khfp/RVR55/kqbDJ/7ELKgIr2eeF34FX3td/Fa6EAfQH/b3/jn+pO4G9SZD4xoFwL6vM3VJnh0
+	fm9Oao7u76ZT2qRONETySldAxz7dcaUbsFKykbJLTM6wDe9WN6zwb7/q+6SsuEdzH4R8WF6i1aHtL
+	cNPoXpHVQ/rF0kosQQajEeGdmTxJ78zoJWZGs/dqC3B/vgiVqRZzVtKeN6sJS4mwxYPQH1kMaP7vW
+	fHiXZgTkaJ7NBtWTlVJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUt9m-00DIPs-TA; Wed, 22 Feb 2023 17:43:54 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1pUtNV-00DKDv-EM; Wed, 22 Feb 2023 17:58:05 +0000
+Received: from out5-smtp.messagingengine.com ([66.111.4.29])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUt9j-00DIPJ-2n
-	for linux-riscv@lists.infradead.org; Wed, 22 Feb 2023 17:43:53 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1pUt9U-0005ln-Pu; Wed, 22 Feb 2023 18:43:36 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: linux@roeck-us.net, ajones@ventanamicro.com,
- Conor Dooley <conor@kernel.org>, Conor Dooley <conor.dooley@microchip.com>,
- samuel@sholland.org, linux-riscv@lists.infradead.org,
- christoph.muellner@vrull.eu
-Subject: Re: [PATCH v1] RISC-V: take text_mutex during alternative patching
-Date: Wed, 22 Feb 2023 18:43:36 +0100
-Message-ID: <2801162.88bMQJbFj6@diego>
-In-Reply-To: <2186881.72vocr9iq0@diego>
-References:  <mhng-72b23626-1921-454b-bba8-aec29b32048d@palmer-ri-x1c9a>
- <2186881.72vocr9iq0@diego>
-MIME-Version: 1.0
+	id 1pUtNR-00DKCX-RO
+	for linux-riscv@lists.infradead.org; Wed, 22 Feb 2023 17:58:03 +0000
+Received: from compute1.internal (compute1.nyi.internal [10.202.2.41])
+	by mailout.nyi.internal (Postfix) with ESMTP id 774765C0179;
+	Wed, 22 Feb 2023 12:57:58 -0500 (EST)
+Received: from mailfrontend1 ([10.202.2.162])
+  by compute1.internal (MEProxy); Wed, 22 Feb 2023 12:57:58 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=flygoat.com; h=
+	cc:cc:content-transfer-encoding:content-type:date:date:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:sender:subject:subject:to:to; s=fm2; t=1677088678; x=
+	1677175078; bh=nwLpEjWmPs3D70+3STrydy7bvzs4kmjkM2HWhBxwqA4=; b=j
+	ikmgFtpuxcvGFE3qLG9zGDa67/AhicEIaxG3nROOylRG77UraKUHrKHE4w0DkqCN
+	juLgoFbkmxEUvlgTPLkhRcIfocLwQ6rYblkMYvB767KjwC2R72bJ/mntoP7Mu06U
+	01SVQ7azBcy8yh8Usc3r4O9rM+5y8iSk4FjpTjK9OUET8LAT2jgNVFhkVNd2bFpG
+	WtAHzyW3z+GpKcPVxYEwL6fKI3djbcCtCB+1407xPzdsqdCqpqo4JjTvWKTYZovZ
+	D/ynxL5ek8xImyl1sMZv1P4tydrJoM9BGbMP6AQ+90SlNhjqGx3nkxYVSvtRJaSX
+	a09azk2gcGDSrgt4qacaA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:sender:subject:subject:to:to:x-me-proxy:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1677088678; x=
+	1677175078; bh=nwLpEjWmPs3D70+3STrydy7bvzs4kmjkM2HWhBxwqA4=; b=F
+	1WqK9/ULyFs4gxOGhyvCmiJIQB3mGUP18D7cWzo1zWxHL1pWVzaBXJQBpP2/pYVw
+	mmt2W9b6KHDtXmOC7SmwehKJO4vQKLiA8J33wetjZme0BDi6w8GTTFW6YnLp8jOv
+	Z5bvi7H8rtZDtMsGxQurQZMQzpbD6ysgyuJgbt5nRJKkmAPByAlbi249wFnGjk1e
+	st0tyo6nbYf5TAkZXd59fuvxuOUasD7yQJyMkPlI4wyvKnu/DLCt7VFJU1b15rmE
+	yzi0lZA00myG3rVP44ujENo9lFlCJMLct6pPu3EgEU84xGSdrZRPIXeeA+xnCwVC
+	WRD4q2Egwg2PXv4La+Ewg==
+X-ME-Sender: <xms:pVf2Yzx8OrQqCZ0sOnDXREkTOheOAE0JcfVq1ZutGu1XPMZnuzSGWw>
+    <xme:pVf2Y7Tpyh8Ajut76gG4bVgfgl2kyimD5FMoTAJchnC78gsU6Avt3cN9Gy62Vsu07
+    vLH7onUHnxeqj30AGo>
+X-ME-Received: <xmr:pVf2Y9WRrVgvM0qGmbtV2Tdkf6Z_FgWSLNhnBkLRdSo_LxZidN0vUJQ7fb9fGL4lF-3_>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrudejledguddthecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfgh
+    necuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmd
+    enucfjughrpegtggfuhfgjffevgffkfhfvofesthhqmhdthhdtjeenucfhrhhomheplfhi
+    rgiguhhnucgjrghnghcuoehjihgrgihunhdrhigrnhhgsehflhihghhorghtrdgtohhmqe
+    enucggtffrrghtthgvrhhnpedutdejffetteefkeejieehfeeuieeguedtveeijeeviefh
+    ffelvdfgudeihfdvtdenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrih
+    hlfhhrohhmpehjihgrgihunhdrhigrnhhgsehflhihghhorghtrdgtohhm
+X-ME-Proxy: <xmx:pVf2Y9jhKx6uMWMcE7nOTDP86zbRG4nuGBKhwOTVk-hAypdTn0-d7A>
+    <xmx:pVf2Y1D9-gQ2sodvvOhtRVec4qTLdZ-EYxDa1iDfW1muxI-TTh9E5w>
+    <xmx:pVf2Y2JXGgWxYdnIBo1a9TApluAVvgnGtcOCiKd4dMOrAK0SEp3lZg>
+    <xmx:plf2Y56DW5KT5B5mFPh4C-TOYY2smqCXhc4nxf8Om2SRBXv__88Xxg>
+Feedback-ID: ifd894703:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 22 Feb 2023 12:57:55 -0500 (EST)
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3731.300.101.1.3\))
+Subject: Re: [PATCH 3/3] of: address: Use dma_default_coherent to determine
+ default coherency
+From: Jiaxun Yang <jiaxun.yang@flygoat.com>
+In-Reply-To: <e9d882f4-d57d-f6b4-7ae0-bbfea0f5aa59@arm.com>
+Date: Wed, 22 Feb 2023 17:57:44 +0000
+Cc: "linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
+ linux-kernel@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ mpe@ellerman.id.au,
+ paul.walmsley@sifive.com,
+ palmer@dabbelt.com,
+ Rob Herring <robh+dt@kernel.org>,
+ Christoph Hellwig <hch@lst.de>,
+ m.szyprowski@samsung.com,
+ linux-riscv@lists.infradead.org
+Message-Id: <3E55E1F7-7A34-4165-9BF4-C2AAF6A6CFC1@flygoat.com>
+References: <20230222133712.8079-1-jiaxun.yang@flygoat.com>
+ <20230222133712.8079-4-jiaxun.yang@flygoat.com>
+ <e9d882f4-d57d-f6b4-7ae0-bbfea0f5aa59@arm.com>
+To: Robin Murphy <robin.murphy@arm.com>
+X-Mailer: Apple Mail (2.3731.300.101.1.3)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230222_094351_317643_41D54448 
-X-CRM114-Status: GOOD (  42.14  )
+X-CRM114-CacheID: sfid-20230222_095802_328809_E7D47682 
+X-CRM114-Status: GOOD (  11.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -57,266 +110,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Mittwoch, 22. Februar 2023, 18:03:55 CET schrieb Heiko St=FCbner:
-> Am Mittwoch, 22. Februar 2023, 17:47:10 CET schrieb Palmer Dabbelt:
-> > On Wed, 22 Feb 2023 07:39:11 PST (-0800), heiko@sntech.de wrote:
-> > > Am Mittwoch, 22. Februar 2023, 16:31:25 CET schrieb Andrew Jones:
-> > >> On Wed, Feb 22, 2023 at 03:27:43PM +0100, Andrew Jones wrote:
-> > >> > On Thu, Feb 16, 2023 at 07:33:55AM -0800, Guenter Roeck wrote:
-> > >> > > On 2/15/23 14:00, Heiko St=FCbner wrote:
-> > >> > > [ ... ]
-> > >> > > > =
-
-> > >> > > > So now I've also tested Palmer's for-next at
-> > >> > > >    commit ec6311919ea6 ("Merge patch series "riscv: Optimize f=
-unction trace"")
-> > >> > > > =
-
-> > >> > > > again with the same variants
-> > >> > > > - qemu-riscv32 without zbb
-> > >> > > > - qemu-riscv32 with zbb
-> > >> > > > - qemu-riscv64 without zbb
-> > >> > > > - qemu-riscv64 with zbb
-> > >> > > > =
-
-> > >> > > > And all of them booted fine into a nfs-root (debian for riscv6=
-4 and a
-> > >> > > > buildroot for riscv32).
-> > >> > > > =
-
-> > >> > > > I even forced a bug into the zbb code to make sure the patchin=
-g worked
-> > >> > > > correctly (where the kernel failed as expected).
-> > >> > > > =
-
-> > >> > > > Qemu-version for me was 7.2.50 (v7.2.0-744-g5a3633929a-dirty)
-> > >> > > > =
-
-> > >> > > > I did try the one from Debian-stable (qemu-5.2) but that was t=
-oo old and
-> > >> > > > didn't support Zbb yet.
-> > >> > > > =
-
-> > >> > > > One thing of note, the "active" 32bit config I had, somehow di=
-dn't produce
-> > >> > > > working images and I needed to start a new build using the rv3=
-2_defconfig.
-> > >> > > > =
-
-> > >> > > > So right now, I'm not sure what more to test though.
-> > >> > > > =
-
-> > >> > > =
-
-> > >> > > Another example:
-> > >> > > =
-
-> > >> > > - build defconfig
-> > >> > > - run
-> > >> > >   qemu-system-riscv64 -M virt -m 512M -no-reboot -kernel arch/ri=
-scv/boot/Image \
-> > >> > >     -snapshot -device virtio-blk-device,drive=3Dd0 -drive file=
-=3Drootfs.ext2,if=3Dnone,id=3Dd0,format=3Draw \
-> > >> > >     -append "root=3D/dev/vda console=3DttyS0,115200 earlycon=3Du=
-art8250,mmio,0x10000000,115200" \
-> > >> > >     -nographic -monitor none
-> > >> > > =
-
-> > >> > > With CONFIG_RISCV_ISA_ZBB=3Dy, that results in
-> > >> > > =
-
-> > >> > > [    0.818263] /dev/root: Can't open blockdev
-> > >> > > [    0.818856] VFS: Cannot open root device "/dev/vda" or unknow=
-n-block(0,0): error -6
-> > >> > > [    0.819177] Please append a correct "root=3D" boot option; he=
-re are the available partitions:
-> > >> > > [    0.819808] fe00           16384 vda
-> > >> > > [    0.819944]  driver: virtio_blk
-> > >> > > [    0.820534] Kernel panic - not syncing: VFS: Unable to mount =
-root fs on unknown-block(0,0)
-> > >> > > [    0.821101] CPU: 0 PID: 1 Comm: swapper/0 Not tainted 6.2.0-r=
-c8-next-20230216-00002-g80332825e240 #4
-> > >> > > [    0.821672] Hardware name: riscv-virtio,qemu (DT)
-> > >> > > [    0.822050] Call Trace:
-> > >> > > [    0.822427] [<ffffffff800053e4>] dump_backtrace+0x1c/0x24
-> > >> > > [    0.822834] [<ffffffff807f90e4>] show_stack+0x2c/0x38
-> > >> > > [    0.823085] [<ffffffff80803aea>] dump_stack_lvl+0x3c/0x54
-> > >> > > [    0.823351] [<ffffffff80803b16>] dump_stack+0x14/0x1c
-> > >> > > [    0.823601] [<ffffffff807f944c>] panic+0x102/0x29e
-> > >> > > [    0.823834] [<ffffffff80a015e2>] mount_block_root+0x18c/0x23e
-> > >> > > [    0.824148] [<ffffffff80a0187c>] mount_root+0x1e8/0x218
-> > >> > > [    0.824398] [<ffffffff80a019ee>] prepare_namespace+0x142/0x184
-> > >> > > [    0.824655] [<ffffffff80a01182>] kernel_init_freeable+0x236/0=
-x25a
-> > >> > > [    0.824934] [<ffffffff80804602>] kernel_init+0x1e/0x10a
-> > >> > > [    0.825201] [<ffffffff80003560>] ret_from_exception+0x0/0x16
-> > >> > > [    0.826180] ---[ end Kernel panic - not syncing: VFS: Unable =
-to mount root fs on unknown-block(0,0) ]---
-> > >> > > =
-
-> > >> > > This works fine if CONFIG_RISCV_ISA_ZBB is not enabled.
-> > >> > > =
-
-> > >> > > Tested with gcc 11.3, binutils 2.39, qemu v7.2.0 and qemu built =
-from mainline.
-> > >> > >
-> > >> > =
-
-> > >> > Just to +1 this, I get the same result (unable to mount root fs) w=
-ith
-> > >> > =
-
-> > >> > $QEMU -cpu rv64,zbb=3Don \
-> > >> >         -nographic \
-> > >> >         -machine virt \
-> > >> >         -kernel $KERNEL \
-> > >> >         -append 'root=3D/dev/vda console=3DttyS0' \
-> > >> >         -drive file=3Ddisk.ext4,format=3Draw,id=3Dhd0 \
-> > >> >         -device virtio-blk-pci,drive=3Dhd0
-> > >> > =
-
-> > >> > kernel:   latest riscv-linux/for-next (8658db0a4a0f), defconfig
-> > >> > gcc:      riscv-gnu-toolchain (12.1.0)
-> > >> > binutils: riscv-gnu-toolchain (2.39)
-> > >> > qemu:     latest master (79b677d658d3)
-> > >> > =
-
-> > >> > Flipping the QEMU cpu zbb property off allows boot to succeed, i.e=
-. it's
-> > >> > not necessary to compile out the CONFIG_RISCV_ISA_ZBB code from the
-> > >> > kernel, it's just necessary to avoid using it.
-> > >> >
-> > >> =
-
-> > >> Looks like something in the strncmp implementation. Only commenting =
-it
-> > >> out allows boot to succeed.
-> > >
-> > > and interestingly it seems to be something very specific. I.e. my set=
-up is
-> > > nfsroot-based (qemu is "just" another board in my boardfarm) and boot=
-ing
-> > > into an nfs-root works quite nicely.
-> > >
-> > > I guess I need to look into how to get an actual disk-image in there.
-> > =
-
-> > It looks like Drew isn't using an initrd (and with NFS, presumably you =
-
-> > are)?  That's probably a big difference as well.
-> =
-
-> There is no initrd involved in my qemu setup ;-) .
-> Just a kernel built from current for-next + defconfig and a nfs-server
-> holding a full Debian-riscv64 system.
-> =
-
-> =
-
-> The magic qemu incantation is also pretty standard:
-> =
-
-> /usr/local/bin/qemu-system-riscv64 -M virt -smp 2 -m 1G -display none \
->  -cpu rv64,zbb=3Dtrue,zbc=3Dtrue,svpbmt=3Dtrue,Zicbom=3Dtrue,Zawrs=3Dtrue=
-,sscofpmf=3Dtrue,v=3Dtrue \
->  -serial telnet:localhost:5500,server,nowait -kernel /home/devel/nfs/kern=
-el/riscv64/Image \
->  -append earlycon=3Dsbi root=3D/dev/nfs nfsroot=3D10.0.2.2:/home/devel/nf=
-s/rootfs-riscv64virt ip=3Ddhcp rw \
->  -netdev user,id=3Dn1 -device virtio-net-pci,netdev=3Dn1 -name boardfarm-=
-0,process=3Dboardfarm-vm-0 -daemonize
-> =
-
-> =
-
-> And I also checked that my kernel really lands in the Zbb-code by simply
-> adding a "ret" [0] and making sure it breaks vs. runs without it
-> =
-
-> =
-
-> Next I'll try to move my rootfs into a real image-file and switch over to
-> the commandline Drew calls, to see if it'll reproduce then.
-
-With the rootfs in an image I could reproduce the issue now.
-
-I hacked in a very crude change to find the invocation that acts differently
-and voila it's a strncmp of the "/dev/vda" against "/dev/" [0].
-
-It's really strange that all the other invocations produce correct results.
-
-
-
-
-[0]
-non-working - with zbb-strncmp:
-[    2.619129] strncmp: comparing /dev/vda <-> mtd, count 3 =3D> -1
-[    2.620451] strncmp: comparing /dev/vda <-> ubi, count 3 =3D> -1
-[    2.621163] strncmp: comparing /dev/vda <-> PARTUUID=3D, count 9 =3D> -1
-[    2.621703] strncmp: comparing /dev/vda <-> PARTLABEL=3D, count 10 =3D> =
--1
------- below is the difference
-[    2.622255] strncmp: comparing /dev/vda <-> /dev/, count 5 =3D> 1
-[    2.623446] strncmp: comparing /dev/vda <-> /dev/, count 5 =3D> 1
------- above is the difference
-[    2.627064] strncmp: comparing sysfs <-> ext3, count 4 =3D> 14
-[    2.627646] strncmp: comparing tmpfs <-> ext3, count 4 =3D> 15
-[    2.628476] strncmp: comparing bdev <-> ext3, count 4 =3D> -3
-[    2.628990] strncmp: comparing proc <-> ext3, count 4 =3D> 11
-[    2.629422] strncmp: comparing cgroup <-> ext3, count 4 =3D> -2
-[    2.629856] strncmp: comparing cgroup2 <-> ext3, count 4 =3D> -2
-[    2.630345] strncmp: comparing cpuset <-> ext3, count 4 =3D> -2
-[    2.630785] strncmp: comparing devtmpfs <-> ext3, count 4 =3D> -1
-[    2.631267] strncmp: comparing debugfs <-> ext3, count 4 =3D> -1
-[    2.631696] strncmp: comparing securityfs <-> ext3, count 4 =3D> 1
-[    2.632596] strncmp: comparing sockfs <-> ext3, count 4 =3D> 14
-[    2.633095] strncmp: comparing bpf <-> ext3, count 4 =3D> -3
-[    2.633600] strncmp: comparing pipefs <-> ext3, count 4 =3D> 11
-[    2.634071] strncmp: comparing ramfs <-> ext3, count 4 =3D> 13
-[    2.634501] strncmp: comparing hugetlbfs <-> ext3, count 4 =3D> 1
-[    2.634955] strncmp: comparing rpc_pipefs <-> ext3, count 4 =3D> 1
-[    2.635407] strncmp: comparing devpts <-> ext3, count 4 =3D> -1
-[    2.638788] strncmp: comparing ext3 <-> ext3, count 4 =3D> 0
-
-
-working - with normal strncmp:
-[    2.416438] strncmp: comparing /dev/vda <-> mtd, count 3 =3D> -62
-[    2.417312] strncmp: comparing /dev/vda <-> ubi, count 3 =3D> -70
-[    2.418296] strncmp: comparing /dev/vda <-> PARTUUID=3D, count 9 =3D> -33
-[    2.418921] strncmp: comparing /dev/vda <-> PARTLABEL=3D, count 10 =3D> =
--33
------- below is the difference
-[    2.419450] strncmp: comparing /dev/vda <-> /dev/, count 5 =3D> 0
-[    2.420698] strncmp: comparing /dev/vda <-> /dev/, count 5 =3D> 0
------- above is the difference
-[    2.424086] strncmp: comparing sysfs <-> ext3, count 4 =3D> 14
-[    2.424663] strncmp: comparing tmpfs <-> ext3, count 4 =3D> 15
-[    2.425111] strncmp: comparing bdev <-> ext3, count 4 =3D> -3
-[    2.425563] strncmp: comparing proc <-> ext3, count 4 =3D> 11
-[    2.426022] strncmp: comparing cgroup <-> ext3, count 4 =3D> -2
-[    2.426717] strncmp: comparing cgroup2 <-> ext3, count 4 =3D> -2
-[    2.427175] strncmp: comparing cpuset <-> ext3, count 4 =3D> -2
-[    2.427608] strncmp: comparing devtmpfs <-> ext3, count 4 =3D> -1
-[    2.428061] strncmp: comparing debugfs <-> ext3, count 4 =3D> -1
-[    2.428526] strncmp: comparing securityfs <-> ext3, count 4 =3D> 14
-[    2.428985] strncmp: comparing sockfs <-> ext3, count 4 =3D> 14
-[    2.429423] strncmp: comparing bpf <-> ext3, count 4 =3D> -3
-[    2.429863] strncmp: comparing pipefs <-> ext3, count 4 =3D> 11
-[    2.430433] strncmp: comparing ramfs <-> ext3, count 4 =3D> 13
-[    2.431202] strncmp: comparing hugetlbfs <-> ext3, count 4 =3D> 3
-[    2.431721] strncmp: comparing rpc_pipefs <-> ext3, count 4 =3D> 13
-[    2.432222] strncmp: comparing devpts <-> ext3, count 4 =3D> -1
-[    2.432685] strncmp: comparing ext3 <-> ext3, count 4 =3D> 0
-
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Cgo+IDIwMjPlubQy5pyIMjLml6UgMTc6MjTvvIxSb2JpbiBNdXJwaHkgPHJvYmluLm11cnBoeUBh
+cm0uY29tPiDlhpnpgZPvvJoKClsuLi5dCgo+IAo+IEFGQUlDUywgYWxsIHlvdSBzaG91bGQgYWN0
+dWFsbHkgbmVlZCBpcyBhIHNpbmdsZSBzZWxmLWNvbnRhaW5lZCBhZGRpdGlvbiBoZXJlLCBzb21l
+dGhpbmcgbGlrZToKPiAKPiArIC8qCj4gKyAgKiBEVC1iYXNlZCBNSVBTIGRvZXNuJ3QgdXNlIE9G
+X0RNQV9ERUZBVUxUX0NPSEVSRU5ULCBidXQKPiArICAqIG1pZ2h0IG92ZXJyaWRlIHRoZSBzeXN0
+ZW0td2lkZSBkZWZhdWx0IGF0IHJ1bnRpbWUuCj4gKyAgKi8KPiArI2lmIGRlZmluZWQoQ09ORklH
+X0FSQ0hfSEFTX1NZTkNfRE1BX0ZPUl9ERVZJQ0UpIHx8IFwKPiArIGRlZmluZWQoQ09ORklHX0FS
+Q0hfSEFTX1NZTkNfRE1BX0ZPUl9DUFUpIHx8IFwKPiArIGRlZmluZWQoQ09ORklHX0FSQ0hfSEFT
+X1NZTkNfRE1BX0ZPUl9DUFVfQUxMKQo+ICsgaXNfY29oZXJlbnQgPSBkbWFfZGVmYXVsdF9jb2hl
+cmVudDsKPiArI2VuZGlmCgpUaGF0IG1ha2VzIG1vcmUgc2Vuc2UsIHRoYW5rcy4KSeKAmWxsIGFw
+cGVuZCBDT05GSUdfTUlQUyBhcyBhIGNvbmRpdGlvbiBoZXJlIGFzIHdlbGwgYmVjYXVzZSBpdCBt
+YXkgYnJlYWsgUklTQy1WIHdob3NlIGRtYV9kZWZhdWx0X2NvaGVyZW50CmlzIG5vdCBzZXQgdG8g
+dHJ1ZSBmcm9tIHZlcnkgYmVnaW5uaW5nLgoKPiAKPj4gICAgIG5vZGUgPSBvZl9ub2RlX2dldChu
+cCk7Cj4+ICAKPiAKPiBUaGVuICphZnRlciogdGhhdCdzIGZpeGVkLCB3ZSBjYW4gZG8gYSBtb3Jl
+IGNvbXByZWhlbnNpdmUgcmVmYWN0b3JpbmcgdG8gbWVyZ2UgdGhlIHR3byBtZWNoYW5pc21zIHBy
+b3Blcmx5LiBGV0lXIEkgdGhpbmsgSSdkIHByZWZlciBhbiBhcHByb2FjaCBjbG9zZXIgdG8gdGhl
+IGZpcnN0IG9uZSwgd2hlcmUgY29uZmlnIG9wdGlvbnMgY29udHJvbCB0aGUgaW5pdGlhbCB2YWx1
+ZSBvZiBkbWFfZGVmYXVsdF9jb2hlcmVudCByYXRoZXIgdGhhbiBhcmNoaXRlY3R1cmVzIGhhdmlu
+ZyB0byBvdmVycmlkZSBpdCB1bmNvbmRpdGlvbmFsbHkgKGFuZCBUQkggSSdkIGFsc28gbGlrZSB0
+byBoYXZlIGEgZ2VuZXJpYyBjb25maWcgc3ltYm9sIGZvciB3aGV0aGVyIGFuIGFyY2ggc3VwcG9y
+dHMgcGVyLWRldmljZSBjb2hlcmVuY3kgb3Igbm90KS4KCk9rIEnigJlsbCB0cnkgdG8gcmV2ZXJ0
+IHRvIHRoZSBpbml0aWFsIHdheS4KSXMgdGhlcmUgYW55IHJlYXNvbiB0aGF0IGFuIGFyY2ggY2Fu
+4oCZdCBzdXBwb3J0IHBlci1kZXZpY2UgY29oZXJlbmN5PwoKVGhhbmtzCi0gSmlheHVuCgoKPiAK
+PiBUaGFua3MsCj4gUm9iaW4uCgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
+bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
+bGludXgtcmlzY3YK
