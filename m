@@ -4,59 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F0FCC677F1
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Feb 2023 15:00:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 150D4C64EC4
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Feb 2023 15:00:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=17nYFTXHpUmzGZsXobcBT8fFkcvxe8dGyEi5ZT8CI1k=; b=qJBZkMFrZBXQ2M
-	Moh56pMiFxhAohRk64ALMdBZGIlHh8O+aQ0tIVfgjogS5zXXmukq8yEy0RB71qQFup9+tEXO3IYo5
-	9QIiXj1e/FfCvEPsyXQui3Un216O2CjndcVtHecyixfcXBF/LYDwTjcVNTLEXGBUrw8agD6Bi0AwA
-	2iiDCwbEyTJSTo4LYcp+JurRnYd4Xczfza5xchVW7uzxEOJT8F85ikMznjbvsbs5yskDrboQzf21X
-	qv/N7i84LajOOvpIlEzoSFlvf+Q+J2ciN0ITZ4qyci2FOzZIpfD+4D171qTai2Nqq6Tc51ds1f7ZO
-	AunlQ+9t/Sja9cvtibYw==;
+	List-Owner; bh=dD+xTsa514j2nJKT1nBExe9renTbIieFb54Xgb18vO0=; b=MWIl4717z6GW93
+	MbTtrEIpKN0rxEwNndW4rMtQTsBNCQRjddPceGX7OOYCGC2M/lltdD08R4vNesj0SqdBZOLC/48EL
+	dvUhhGuB5JjSCrBWBXMQWBPPEO5iLHebdfrTcATr64+LMFf2IERjRmxmOAHhexrBcZQSFtzt3rBIy
+	8aZKEfYeAV830o3w7yMBOPINX401H8VrEXGVOUsXC2+Qe667eiXZ8LdPcczzx+aCecN0rnlIBm/Vz
+	NjjUMvP7hBQMtc3njFEkghzvItdrInVebthe7SgRNkE+qLRxkiyeTPdmt0JwEiKkjajRLrRynsSbJ
+	BrQLP1FJ4NNWQ/2QEKBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUqbl-00CmCK-Pu; Wed, 22 Feb 2023 15:00:37 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pUqbn-00CmE3-IT; Wed, 22 Feb 2023 15:00:39 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUqba-00Cm77-Rw
+	id 1pUqba-00Cm76-S6
 	for linux-riscv@lists.infradead.org; Wed, 22 Feb 2023 15:00:29 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 18E8B614BD;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 0FCEB614AF;
 	Wed, 22 Feb 2023 15:00:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 9E37AC4332D;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 55601C43442;
 	Wed, 22 Feb 2023 15:00:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1677078022;
-	bh=+MRE/LAZDItpygtqfBDDWhz2Cv1d/xSdGOKWBaWGtdw=;
+	bh=sAD41qlfpUmeVTbNrsaNBRxCTKKHTpb6EbOTUc1nL0c=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=Q0aCcZ1FFW3QQ5FQTzVJ6Uf0gGHxOx1pE9wTuXUUvDiXuG7o/4jjXGY9+QueQhQHy
-	 8qQXbLmEVfpWfA/oL8xKyQW0bW2f6sN3M94/j6Hcxnvpw3yXLqcITu7NdNCRvm3u0v
-	 llnw7bqwwbxOt8N+jFnPqptS/nzSP+fdVAiSSlNgmx2yL+TK6ZwxrrmINf6bYhOZin
-	 9LWICfnQL2ihBBDTzbe+woXG9zO1wGr4ko19LDFyEP92/z97DJyHeViBNRqVyx81kh
-	 N3gFS1DQvU3nWWz1v3/riT9rAJ/1DN3/wYglC2SfuK7o/Xxe67/RKUzXQ8OjYosHyb
-	 4WmVspJVgkQzg==
+	b=V0GT9cQpOdFsMVan0RIVmmJO+AJk4l/zpz/IuknM0eLQAWsPzL5hKHWyYPotVvWC/
+	 iExM48uAxvBH+w+0Jq78YGe4QyD1XXSYMfoCpk5izibz/MCysGVp+193+kKHKA2rtr
+	 /YJeUHHnmY79nLNHzWfK3un7fSEDdaiYta01V6q1RYfD1FxgWUzyDqhSvSWHaPkzvC
+	 QHLNMeHCPDgpFGYkFFt5Aq/Met4mYxXT9hVHw5VquKkiontLPESjEZgJayccvGT9fW
+	 9uw/s10f3er9LoaawnufdN6uDtuTiVSZB4sz2uGojc6kMt1Q8mQ12fU6V8/x6mBJ/6
+	 OOoq+Z+g37U7Q==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 8AACEC43151;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 2DCB4C691DE;
 	Wed, 22 Feb 2023 15:00:22 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH] RISC-V: Only provide the single-letter extensions in HWCAP
+Subject: Re: [PATCH] riscv: Add header include guards to insn.h
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id:  <167707802256.24438.13163769473587926363.git-patchwork-notify@kernel.org>
+Message-Id:  <167707802217.24438.17901281821213780885.git-patchwork-notify@kernel.org>
 Date: Wed, 22 Feb 2023 15:00:22 +0000
-References: <20230202233832.11036-1-palmer@rivosinc.com>
-In-Reply-To: <20230202233832.11036-1-palmer@rivosinc.com>
-To: Palmer Dabbelt <palmer@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org
+References: <20230129094242.282620-1-liaochang1@huawei.com>
+In-Reply-To: <20230129094242.282620-1-liaochang1@huawei.com>
+To: liaochang (A) <liaochang1@huawei.com>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, heiko.stuebner@vrull.eu,
+ ajones@ventanamicro.com, prabhakar.mahadev-lad.rj@bp.renesas.com,
+ conor.dooley@microchip.com, jszhang@kernel.org, vincent.chen@sifive.com,
+ linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230222_070026_982127_248429F6 
-X-CRM114-Status: GOOD (  11.23  )
+X-CRM114-CacheID: sfid-20230222_070026_995030_EA3AAAB8 
+X-CRM114-Status: GOOD (  10.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,20 +82,19 @@ Hello:
 This patch was applied to riscv/linux.git (for-next)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Thu,  2 Feb 2023 15:38:32 -0800 you wrote:
-> The recent refactoring led to us leaking some HWCAP bits to userspace
-> that didn't make much sense.  With any luck we'll have a better scheme
-> soon, but for now just mask off those bits to avoid polluting userspace.
+On Sun, 29 Jan 2023 17:42:42 +0800 you wrote:
+> Add header include guards to insn.h to prevent repeating declaration of
+> any identifiers in insn.h.
 > 
-> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+> Fixes: edde5584c7ab ("riscv: Add SW single-step support for KDB")
+> Signed-off-by: Liao Chang <liaochang1@huawei.com>
 > ---
->  arch/riscv/include/asm/elf.h   | 10 ++++++----
->  arch/riscv/include/asm/hwcap.h |  8 --------
->  2 files changed, 6 insertions(+), 12 deletions(-)
+>  arch/riscv/include/asm/insn.h | 4 ++++
+>  1 file changed, 4 insertions(+)
 
 Here is the summary with links:
-  - RISC-V: Only provide the single-letter extensions in HWCAP
-    https://git.kernel.org/riscv/c/2350bd192fa2
+  - riscv: Add header include guards to insn.h
+    https://git.kernel.org/riscv/c/8ac6e619d9d5
 
 You are awesome, thank you!
 -- 
