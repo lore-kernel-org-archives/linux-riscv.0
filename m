@@ -4,63 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 150D4C64EC4
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Feb 2023 15:00:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F2DCC61DA4
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Feb 2023 15:00:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dD+xTsa514j2nJKT1nBExe9renTbIieFb54Xgb18vO0=; b=MWIl4717z6GW93
-	MbTtrEIpKN0rxEwNndW4rMtQTsBNCQRjddPceGX7OOYCGC2M/lltdD08R4vNesj0SqdBZOLC/48EL
-	dvUhhGuB5JjSCrBWBXMQWBPPEO5iLHebdfrTcATr64+LMFf2IERjRmxmOAHhexrBcZQSFtzt3rBIy
-	8aZKEfYeAV830o3w7yMBOPINX401H8VrEXGVOUsXC2+Qe667eiXZ8LdPcczzx+aCecN0rnlIBm/Vz
-	NjjUMvP7hBQMtc3njFEkghzvItdrInVebthe7SgRNkE+qLRxkiyeTPdmt0JwEiKkjajRLrRynsSbJ
-	BrQLP1FJ4NNWQ/2QEKBQ==;
+	List-Owner; bh=kaAxiOGUSN5DyLSQm/PilqtDNy8SHhwRwCzFzrJm/UM=; b=AVWo7QpgbNrbM4
+	xS3YH+IEcP4yCUVnHeaX/zBnTjvU777mokMqgGWomXlBYJesmwh+Kg9j2SmRMRhme2CIxL5hyrY4i
+	+fGVCnxO6JAkfVJrO2l5CMi2y6fG1fkqVTadUt3ks4K5F1P64akhZE8XY4MJsxsZkBRSdp7i4VN4w
+	D6ZFZYFLxjBJL5gcP6Am4Y1+fYbZ+IOagKSkx3K/IZrtQvfQOCsHmGQZzS7nu+eHMTMPBjXgS88DR
+	1ij9nu6JXHWWbCoBNzXFRcx60MC2Ywh06UbmWO6ternzpiDNkMvodtWzfNKq8DoFYHHrEgOhK9zdR
+	OHw8GhoH4znSMXX0+iaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUqbn-00CmE3-IT; Wed, 22 Feb 2023 15:00:39 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pUqbp-00CmFQ-7u; Wed, 22 Feb 2023 15:00:41 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUqba-00Cm76-S6
-	for linux-riscv@lists.infradead.org; Wed, 22 Feb 2023 15:00:29 +0000
+	id 1pUqbZ-00Cm50-HD
+	for linux-riscv@lists.infradead.org; Wed, 22 Feb 2023 15:00:30 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 0FCEB614AF;
-	Wed, 22 Feb 2023 15:00:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 55601C43442;
+	by ams.source.kernel.org (Postfix) with ESMTPS id 662B2B815C8;
+	Wed, 22 Feb 2023 15:00:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 1F054C4339B;
 	Wed, 22 Feb 2023 15:00:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1677078022;
-	bh=sAD41qlfpUmeVTbNrsaNBRxCTKKHTpb6EbOTUc1nL0c=;
+	bh=kydm5AUKJGxRvRaP4t7C0EB2bX0fweLM9h2sQNC5Byk=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=V0GT9cQpOdFsMVan0RIVmmJO+AJk4l/zpz/IuknM0eLQAWsPzL5hKHWyYPotVvWC/
-	 iExM48uAxvBH+w+0Jq78YGe4QyD1XXSYMfoCpk5izibz/MCysGVp+193+kKHKA2rtr
-	 /YJeUHHnmY79nLNHzWfK3un7fSEDdaiYta01V6q1RYfD1FxgWUzyDqhSvSWHaPkzvC
-	 QHLNMeHCPDgpFGYkFFt5Aq/Met4mYxXT9hVHw5VquKkiontLPESjEZgJayccvGT9fW
-	 9uw/s10f3er9LoaawnufdN6uDtuTiVSZB4sz2uGojc6kMt1Q8mQ12fU6V8/x6mBJ/6
-	 OOoq+Z+g37U7Q==
+	b=QF3n4CqTvoxq/NH0jcIs+uxO22bVplSaoDzshEHaQOMhvaTBW/4E6zp5cZ/VZXp/g
+	 bfU3plMH8gGfZMD60MfsbT2/w+HfXObEFE4SyPNv8dyrCCWVMxjK9SvGrl9Jrdma2I
+	 +6G6XkqdZYk4h7cdDVOalAo138K8MtM6m8AqViv0lQs+L3mMGXPESWi0CLM4Srb/p1
+	 2eaYzlNWP1/APrj6yxG9gLyPCEblere/O8Gpa4CM5mVo5CEzDx6oI+YNOamYXANL0k
+	 Fw+84oT7ckBU5zcOGQSg4ZTV3ben/mIIPV4PO1ClYnTBmWrY2IyIRAqizCx1S75+DI
+	 RKnc6BmjWNYRw==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 2DCB4C691DE;
-	Wed, 22 Feb 2023 15:00:22 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id E663EC395DF;
+	Wed, 22 Feb 2023 15:00:21 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH] riscv: Add header include guards to insn.h
+Subject: Re: [PATCH v4 00/19] Basic clock,
+ reset & device tree support for StarFive JH7110 RISC-V SoC
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id:  <167707802217.24438.17901281821213780885.git-patchwork-notify@kernel.org>
-Date: Wed, 22 Feb 2023 15:00:22 +0000
-References: <20230129094242.282620-1-liaochang1@huawei.com>
-In-Reply-To: <20230129094242.282620-1-liaochang1@huawei.com>
-To: liaochang (A) <liaochang1@huawei.com>
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, heiko.stuebner@vrull.eu,
- ajones@ventanamicro.com, prabhakar.mahadev-lad.rj@bp.renesas.com,
- conor.dooley@microchip.com, jszhang@kernel.org, vincent.chen@sifive.com,
- linux-kernel@vger.kernel.org
+Message-Id:  <167707802193.24438.5407460288169239541.git-patchwork-notify@kernel.org>
+Date: Wed, 22 Feb 2023 15:00:21 +0000
+References: <20230221024645.127922-1-hal.feng@starfivetech.com>
+In-Reply-To: <20230221024645.127922-1-hal.feng@starfivetech.com>
+To: Hal Feng <hal.feng@starfivetech.com>
+Cc: linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, sboyd@kernel.org, mturquette@baylibre.com,
+ p.zabel@pengutronix.de, robh+dt@kernel.org,
+ krzysztof.kozlowski+dt@linaro.org, conor@kernel.org, palmer@dabbelt.com,
+ paul.walmsley@sifive.com, aou@eecs.berkeley.edu, ben.dooks@sifive.com,
+ daniel.lezcano@linaro.org, tglx@linutronix.de, maz@kernel.org,
+ emil.renner.berthing@canonical.com, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230222_070026_995030_EA3AAAB8 
-X-CRM114-Status: GOOD (  10.32  )
+X-CRM114-CacheID: sfid-20230222_070025_890933_9D4B9738 
+X-CRM114-Status: GOOD (  11.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,22 +82,58 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This patch was applied to riscv/linux.git (for-next)
+This series was applied to riscv/linux.git (for-next)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Sun, 29 Jan 2023 17:42:42 +0800 you wrote:
-> Add header include guards to insn.h to prevent repeating declaration of
-> any identifiers in insn.h.
+On Tue, 21 Feb 2023 10:46:26 +0800 you wrote:
+> This patch series adds basic clock, reset & DT support for StarFive
+> JH7110 SoC. Patch 17 depends on series [1] which provides pinctrl
+> dt-bindings. Patch 19 depends on series [2] which provides dt-bindings
+> of VisionFive 2 board and JH7110 SoC.
 > 
-> Fixes: edde5584c7ab ("riscv: Add SW single-step support for KDB")
-> Signed-off-by: Liao Chang <liaochang1@huawei.com>
-> ---
->  arch/riscv/include/asm/insn.h | 4 ++++
->  1 file changed, 4 insertions(+)
+> You can simply review or test the patches at the link [3].
+> 
+> [...]
 
 Here is the summary with links:
-  - riscv: Add header include guards to insn.h
-    https://git.kernel.org/riscv/c/8ac6e619d9d5
+  - [v4,01/19] clk: starfive: Factor out common JH7100 and JH7110 code
+    (no matching commit)
+  - [v4,02/19] clk: starfive: Rename clk-starfive-jh7100.h to clk-starfive-jh71x0.h
+    https://git.kernel.org/riscv/c/f3af3b0039fe
+  - [v4,03/19] clk: starfive: Rename "jh7100" to "jh71x0" for the common code
+    (no matching commit)
+  - [v4,04/19] reset: Create subdirectory for StarFive drivers
+    (no matching commit)
+  - [v4,05/19] reset: starfive: Factor out common JH71X0 reset code
+    (no matching commit)
+  - [v4,06/19] reset: starfive: Extract the common JH71X0 reset code
+    (no matching commit)
+  - [v4,07/19] reset: starfive: Rename "jh7100" to "jh71x0" for the common code
+    (no matching commit)
+  - [v4,08/19] reset: starfive: jh71x0: Use 32bit I/O on 32bit registers
+    (no matching commit)
+  - [v4,09/19] dt-bindings: clock: Add StarFive JH7110 system clock and reset generator
+    (no matching commit)
+  - [v4,10/19] dt-bindings: clock: Add StarFive JH7110 always-on clock and reset generator
+    (no matching commit)
+  - [v4,11/19] clk: starfive: Add StarFive JH7110 system clock driver
+    (no matching commit)
+  - [v4,12/19] clk: starfive: Add StarFive JH7110 always-on clock driver
+    (no matching commit)
+  - [v4,13/19] reset: starfive: Add StarFive JH7110 reset driver
+    (no matching commit)
+  - [v4,14/19] dt-bindings: timer: Add StarFive JH7110 clint
+    (no matching commit)
+  - [v4,15/19] dt-bindings: interrupt-controller: Add StarFive JH7110 plic
+    (no matching commit)
+  - [v4,16/19] dt-bindings: riscv: Add SiFive S7 compatible
+    (no matching commit)
+  - [v4,17/19] riscv: dts: starfive: Add initial StarFive JH7110 device tree
+    (no matching commit)
+  - [v4,18/19] riscv: dts: starfive: Add StarFive JH7110 pin function definitions
+    (no matching commit)
+  - [v4,19/19] riscv: dts: starfive: Add StarFive JH7110 VisionFive 2 board device tree
+    (no matching commit)
 
 You are awesome, thank you!
 -- 
