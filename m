@@ -4,76 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDF1AC636D6
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Feb 2023 15:01:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78AF2C61DA4
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Feb 2023 15:31:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=szZ3qvEDkU2h5EJ++uxQSY6olYVcdAllhwJAdwFjLyo=; b=GXpEjO68Hy0EI+
-	2SCtHBpwCoe/oVZgeic4zbAmVwpBpWh1sIganRxkQk97PdK71VLQedOKBumbGxWS2f0+sQk2IB2Qr
-	LKuBTXa6/dErT0wpLyxUyymcKHZrVxoouC/jpcIZ+86uL6hU0Y1raKCUtNPNL1R5GcY7bH53CILaa
-	MWHKjbB3x5vd+a8Id/AM9jrfrvx7FkH14D8tmFa133jYg2OyLZQJ5cq8ppc8v7q7Xs/RH5v6UyayC
-	asnv8epQQ97WnK3BUOJHUigwFchd8yYeX5k3VDX8bhPga4cQcoPz58L+q+cCDQbX/eQdZFVjwXt00
-	InrXevrIjpOOs+H+454A==;
+	List-Owner; bh=KOY0EyDJRycjUrscog5oNXhxZXGDjiFEpP01YeYmHbQ=; b=bpfUL2AtnXuqtt
+	gPTADiApI9xaejo17V8JLxz5eFibsFL6AjR7qXwnd3IlB6m8c+viFYNQwf3IjA57Uf3ftSky/lU+y
+	+Kba4ty20k+yMhOME3hJgFNtNhZJ62bLrvOK2AN/kQHRz3lXoMr+fQG9p73NrhOoQkOdDBvTlZSYl
+	tApaX3UFTwJ6ZM8w0KwAOg02FEjDCqiqZrnlNpG01nezGaUOLU/4sBTwxtPTaD3ohnEdTT0UC66L0
+	aOTMazrmvj46OobGkirSo5LXVuQK2llKVN8KWkIQo06ESKY+LeyGTgjrjym7LAPIaG8RZ9STHlC0F
+	LFpvpuopI+VIhWYlvmzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUqcE-00Cmbm-Ad; Wed, 22 Feb 2023 15:01:06 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1pUr5g-00Cs0K-H0; Wed, 22 Feb 2023 15:31:32 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUqbw-00CmMn-HN
-	for linux-riscv@bombadil.infradead.org; Wed, 22 Feb 2023 15:00:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:Content-Type:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=xo5bmqGdelyD1EQY1HgDNO9+ILldcjL4AXynQNIwQuk=; b=LIqbKvaJPvJZCHaskkXWanuy5R
-	cvH7rQvSnkspNV9quYwNOdhzSl7VEAHzvNKllUjEzARngDHs2CsQ/G3WU53rK71D1bz++PA2rX+cp
-	AUaH8aCNhgjEa1GspRaAjB6a1Pn/iS6o8MFYCrAecInBhEZK/jM/FqxfydEeBzaiF3L1LTbJpNOoH
-	nl9o4K3opqyLomXg98QbGFEqdviCnqJ1mepYWSoBq+8CqmFs9krZ3CeQ1jA+mpJ8etYvmNdo7/0Wi
-	gTZl3qF8f0zz3RwP+57sJh1NKr9wAeHkGYNdLYPL117ZLAuBK5cFzVlwJZ4UovALRi8kyDBLbo0eq
-	WpoVZ9tw==;
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
-	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pUqbf-00CZvO-1P
-	for linux-riscv@lists.infradead.org;
-	Wed, 22 Feb 2023 15:00:41 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 45DEBB815DB;
-	Wed, 22 Feb 2023 15:00:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 98B4EC4332B;
-	Wed, 22 Feb 2023 15:00:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1677078022;
-	bh=hIRN8tehXwNHubfdhEu3xNrgKNVctXSNEDEqcMC2+x0=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=pQEg7YpP/OIIJ328RI2/Cp1AX7a0zra/vKuf2Wl6N6eD6882WyfsWKZexQW9iznaa
-	 w6wQg+5MyfB8Rb06h5bDGAWFxirdZDYpPF7USLiGGL4iN+EMMdJ5c15duSt3TUHjlZ
-	 XBbJwZQAw+3BwPuPGr8LQn6ZwJxYw1xpd1OFDhQRu+T7rlesBmN/Am/UU/1mKoO5vr
-	 On7ZcVxzLKlWGZ//fiEnnyCyP4SyOL1wI9+rEDOTtinqQgkpVBLbdW+X6LxZSoSMvP
-	 TLWK/OsIdVfPXCTSYiVH8xatvR9NgF5/VNNe5ePJmFOf4LVlgTvGhduxzcJHAXBoWI
-	 ns4lGbqXfisBg==
-Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 8163CC59A4C;
-	Wed, 22 Feb 2023 15:00:22 +0000 (UTC)
+	id 1pUr5c-00CryL-TT
+	for linux-riscv@lists.infradead.org; Wed, 22 Feb 2023 15:31:30 +0000
+Received: by mail-ed1-x536.google.com with SMTP id cy6so26465598edb.5
+        for <linux-riscv@lists.infradead.org>; Wed, 22 Feb 2023 07:31:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=ChWnWnzdIDKCiV1QTw+QARHja99IVW7t5SbEawDvoJI=;
+        b=fgqY5P6jSxs+emKwEc2yhb0uZXSl/EIVTYnIqZ1d+TTggeR9xIk07eA4mXNfN0H7PK
+         cOEc3hcGE6xDTYf8b+KAFnTZUAsU3UWUkgFw0ygWxIFrA1VEWISzOK7YhoL+hxTlnFLA
+         zpT7AJpTOQ1H0fn2/bsmrwUolbTjLJfoIHphynUHpTCcLwKz3og35SDR+uxHyUmbsZ9f
+         aafrGqfukFTDJAc19vw0qttepNrBPZtGaJ8+FGHD/Ws04HnGNDLKNroorbyHe5vK3rKV
+         4k8I4hEubUoOn/7NuHjZDOBO7oKYKFsegLNLF22I3CwyXbCh8+qQBKpfMUs7Vi7IT6Aq
+         domg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ChWnWnzdIDKCiV1QTw+QARHja99IVW7t5SbEawDvoJI=;
+        b=F8nCMEVXVAu8/U88mQT6Efm9tbcpfTGu+GJr7UAskOHbv6Xm1Y+9PvIcQLEM95GvaS
+         I6VGJjnC+Cx1Iwgk2rTAX/k3VkjIe3VCjV7sreK6rmbQg52In4326kxEzUHc5r1/Ba94
+         IenX0k/4IO7oE5z58YcPAojmZJqW7hNF58tDkQBMyPPhUGHi9wMiwNY0f7Yor8Qv3JtR
+         h5k58c+S7r1wRVEbMq6xydGwrUZ2AcxQkWkT5hvbmRouKelAUrtMYE52HLTYDJbjjOct
+         zf85ILY31O1sWO929KaG1lgebuRb61OIUp9hpbE6gKPZ9qgAdIp3uSQpvunSbEtFRMNn
+         nq6Q==
+X-Gm-Message-State: AO0yUKVxv3iO2og5xcUSkTo6J3rEFVn4gwTnhYZauawADrMK6hvyGC/7
+	ETfDWWNiBnY+Tdx36PxJ3daLkA==
+X-Google-Smtp-Source: AK7set/L9eWVr7uxMUtrIrwN1/WQki4hGLnLnKzM9fjEDHkErnojjIsGXpwzaCHWlqcr3iQ6mJS8mA==
+X-Received: by 2002:a05:6402:1253:b0:4ad:7c44:c46b with SMTP id l19-20020a056402125300b004ad7c44c46bmr9451449edw.40.1677079886734;
+        Wed, 22 Feb 2023 07:31:26 -0800 (PST)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id ec39-20020a0564020d6700b004a21304f5a0sm2853599edb.72.2023.02.22.07.31.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 22 Feb 2023 07:31:26 -0800 (PST)
+Date: Wed, 22 Feb 2023 16:31:25 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Guenter Roeck <linux@roeck-us.net>
+Cc: Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>,
+	Conor Dooley <conor@kernel.org>, palmer@dabbelt.com,
+	Conor Dooley <conor.dooley@microchip.com>, samuel@sholland.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v1] RISC-V: take text_mutex during alternative patching
+Message-ID: <20230222153125.72hugojgwweqkzdy@orel>
+References: <20230212194735.491785-1-conor@kernel.org>
+ <Y+q8ZnZ2A8g7BNdS@spud>
+ <1944134.usQuhbGJ8B@diego>
+ <45316784.fMDQidcC6G@diego>
+ <479cbefe-7b19-9d2d-4a3c-2bf25e479ce4@roeck-us.net>
+ <20230222142743.a36qt4lgfq6zwd3c@orel>
 MIME-Version: 1.0
-Subject: Re: [PATCH] riscv: hwcap: Don't alphabetize ISA extension IDs
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id:  <167707802252.24438.7610659561758047093.git-patchwork-notify@kernel.org>
-Date: Wed, 22 Feb 2023 15:00:22 +0000
-References: <20230209123636.123537-1-ajones@ventanamicro.com>
-In-Reply-To: <20230209123636.123537-1-ajones@ventanamicro.com>
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, conor.dooley@microchip.com,
- panqinglin00@gmail.com
+Content-Disposition: inline
+In-Reply-To: <20230222142743.a36qt4lgfq6zwd3c@orel>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230222_150039_312769_D152A302 
-X-CRM114-Status: GOOD (  11.98  )
+X-CRM114-CacheID: sfid-20230222_073128_979840_6F09A09E 
+X-CRM114-Status: GOOD (  30.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,39 +92,154 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
+On Wed, Feb 22, 2023 at 03:27:43PM +0100, Andrew Jones wrote:
+> On Thu, Feb 16, 2023 at 07:33:55AM -0800, Guenter Roeck wrote:
+> > On 2/15/23 14:00, Heiko St=FCbner wrote:
+> > [ ... ]
+> > > =
 
-This patch was applied to riscv/linux.git (for-next)
-by Palmer Dabbelt <palmer@rivosinc.com>:
+> > > So now I've also tested Palmer's for-next at
+> > >    commit ec6311919ea6 ("Merge patch series "riscv: Optimize function=
+ trace"")
+> > > =
 
-On Thu,  9 Feb 2023 13:36:36 +0100 you wrote:
-> While the comment above the ISA extension ID definitions says
-> "Entries are sorted alphabetically.", this stopped being good
-> advice with commit d8a3d8a75206 ("riscv: hwcap: make ISA extension
-> ids can be used in asm"), as we now use macros instead of enums.
-> Reshuffling defines is error-prone, so, since they don't need to be
-> in any particular order, change the advice to just adding new
-> extensions at the bottom. Also, take the opportunity to change
-> spaces to tabs, merge three comments into one, and move the base
-> and max defines into more logical locations wrt the ID definitions.
-> 
-> [...]
+> > > again with the same variants
+> > > - qemu-riscv32 without zbb
+> > > - qemu-riscv32 with zbb
+> > > - qemu-riscv64 without zbb
+> > > - qemu-riscv64 with zbb
+> > > =
 
-Here is the summary with links:
-  - riscv: hwcap: Don't alphabetize ISA extension IDs
-    https://git.kernel.org/riscv/c/dac8bf14bb49
+> > > And all of them booted fine into a nfs-root (debian for riscv64 and a
+> > > buildroot for riscv32).
+> > > =
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+> > > I even forced a bug into the zbb code to make sure the patching worked
+> > > correctly (where the kernel failed as expected).
+> > > =
+
+> > > Qemu-version for me was 7.2.50 (v7.2.0-744-g5a3633929a-dirty)
+> > > =
+
+> > > I did try the one from Debian-stable (qemu-5.2) but that was too old =
+and
+> > > didn't support Zbb yet.
+> > > =
+
+> > > One thing of note, the "active" 32bit config I had, somehow didn't pr=
+oduce
+> > > working images and I needed to start a new build using the rv32_defco=
+nfig.
+> > > =
+
+> > > So right now, I'm not sure what more to test though.
+> > > =
+
+> > =
+
+> > Another example:
+> > =
+
+> > - build defconfig
+> > - run
+> >   qemu-system-riscv64 -M virt -m 512M -no-reboot -kernel arch/riscv/boo=
+t/Image \
+> >     -snapshot -device virtio-blk-device,drive=3Dd0 -drive file=3Drootfs=
+.ext2,if=3Dnone,id=3Dd0,format=3Draw \
+> >     -append "root=3D/dev/vda console=3DttyS0,115200 earlycon=3Duart8250=
+,mmio,0x10000000,115200" \
+> >     -nographic -monitor none
+> > =
+
+> > With CONFIG_RISCV_ISA_ZBB=3Dy, that results in
+> > =
+
+> > [    0.818263] /dev/root: Can't open blockdev
+> > [    0.818856] VFS: Cannot open root device "/dev/vda" or unknown-block=
+(0,0): error -6
+> > [    0.819177] Please append a correct "root=3D" boot option; here are =
+the available partitions:
+> > [    0.819808] fe00           16384 vda
+> > [    0.819944]  driver: virtio_blk
+> > [    0.820534] Kernel panic - not syncing: VFS: Unable to mount root fs=
+ on unknown-block(0,0)
+> > [    0.821101] CPU: 0 PID: 1 Comm: swapper/0 Not tainted 6.2.0-rc8-next=
+-20230216-00002-g80332825e240 #4
+> > [    0.821672] Hardware name: riscv-virtio,qemu (DT)
+> > [    0.822050] Call Trace:
+> > [    0.822427] [<ffffffff800053e4>] dump_backtrace+0x1c/0x24
+> > [    0.822834] [<ffffffff807f90e4>] show_stack+0x2c/0x38
+> > [    0.823085] [<ffffffff80803aea>] dump_stack_lvl+0x3c/0x54
+> > [    0.823351] [<ffffffff80803b16>] dump_stack+0x14/0x1c
+> > [    0.823601] [<ffffffff807f944c>] panic+0x102/0x29e
+> > [    0.823834] [<ffffffff80a015e2>] mount_block_root+0x18c/0x23e
+> > [    0.824148] [<ffffffff80a0187c>] mount_root+0x1e8/0x218
+> > [    0.824398] [<ffffffff80a019ee>] prepare_namespace+0x142/0x184
+> > [    0.824655] [<ffffffff80a01182>] kernel_init_freeable+0x236/0x25a
+> > [    0.824934] [<ffffffff80804602>] kernel_init+0x1e/0x10a
+> > [    0.825201] [<ffffffff80003560>] ret_from_exception+0x0/0x16
+> > [    0.826180] ---[ end Kernel panic - not syncing: VFS: Unable to moun=
+t root fs on unknown-block(0,0) ]---
+> > =
+
+> > This works fine if CONFIG_RISCV_ISA_ZBB is not enabled.
+> > =
+
+> > Tested with gcc 11.3, binutils 2.39, qemu v7.2.0 and qemu built from ma=
+inline.
+> >
+> =
+
+> Just to +1 this, I get the same result (unable to mount root fs) with
+> =
+
+> $QEMU -cpu rv64,zbb=3Don \
+>         -nographic \
+>         -machine virt \
+>         -kernel $KERNEL \
+>         -append 'root=3D/dev/vda console=3DttyS0' \
+>         -drive file=3Ddisk.ext4,format=3Draw,id=3Dhd0 \
+>         -device virtio-blk-pci,drive=3Dhd0
+> =
+
+> kernel:   latest riscv-linux/for-next (8658db0a4a0f), defconfig
+> gcc:      riscv-gnu-toolchain (12.1.0)
+> binutils: riscv-gnu-toolchain (2.39)
+> qemu:     latest master (79b677d658d3)
+> =
+
+> Flipping the QEMU cpu zbb property off allows boot to succeed, i.e. it's
+> not necessary to compile out the CONFIG_RISCV_ISA_ZBB code from the
+> kernel, it's just necessary to avoid using it.
+>
+
+Looks like something in the strncmp implementation. Only commenting it
+out allows boot to succeed.
+
+diff --git a/arch/riscv/lib/strncmp.S b/arch/riscv/lib/strncmp.S
+index ee49595075be..0bf03abe1ced 100644
+--- a/arch/riscv/lib/strncmp.S
++++ b/arch/riscv/lib/strncmp.S
+@@ -9,7 +9,7 @@
+ /* int strncmp(const char *cs, const char *ct, size_t count) */
+ SYM_FUNC_START(strncmp)
+
+-       ALTERNATIVE("nop", "j strncmp_zbb", 0, RISCV_ISA_EXT_ZBB, CONFIG_RI=
+SCV_ISA_ZBB)
++//     ALTERNATIVE("nop", "j strncmp_zbb", 0, RISCV_ISA_EXT_ZBB, CONFIG_RI=
+SCV_ISA_ZBB)
+
+        /*
+         * Returns
 
 
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
