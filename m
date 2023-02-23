@@ -4,70 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43398C636D6
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Feb 2023 10:23:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB8ACC636D6
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Feb 2023 11:37:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JGOygs/gePhbgQBcLoLhWGDVR5LfuQbDNaTnRrKu2zU=; b=g0J7jyZaHqhy95
-	6RIn9zo8JPiug70EXsmFMlEpPgm9sj0xQH5rDM1CRnkKiRITWOJMBwud7nlUvqWzmKCdSlEgBGYiz
-	qGl0dLXInPh/ocveiIb9FJ45hpyqiCGmMnDlhzKahc4ukek/O1iYipeXf9JU03HL6aVF5Nl7PxuQV
-	ZGJ8SZ1lFSvKqk0eH7svfVbY7e+IJGmLQNIil4nJes1KaZjm6r/kxIQjLK6qF4qTn33MKgexqgv/W
-	yeVnIyfw0aTbVuDxyi44IIdPiGmk9dUsPR/vG2ongUgm0NDvnGGmySZmP+2Fum4YVHSHCVYGRqDYU
-	Pr2Dp8qGMkRyCQ9bO/fA==;
+	List-Owner; bh=taHN/tPXTGRT5LRIw7+bEdyKVGeVP0S6Jup4aHIByyg=; b=M3gk/6VCDwgqjO
+	lNvWDfQHJR0DcPfLXjG47xchSXgLqB3LxBFDG+N8mLJxnW/lzkJaZZ6XAoFMMCnRZqKGTIsxZX5ko
+	xZjnp45j860pTGn/u93zbRGGkvmCovkKeq8e6FtP+quVeXHUENT+MLB3q4nwKTI7SN27y98Cr61B8
+	6HTakOvI8AJKQO4M61YacTA8Y31a1688YGUh70yzRZMkQVk2lvzUwo9dPXL+7QfIlf7N7O2LOk5Xp
+	hf7QULKIpGbTPfqZO8yVH5f9OHbGPGeV/HOxvXl+tePK0ZS49BztVN5d5sKespSZ8w1FsKzpQGhF8
+	5sEKdYvOlWirjNgeYImw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pV8l5-00Fv99-S7; Thu, 23 Feb 2023 10:23:27 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pV8l0-00Fv2S-Lr
-	for linux-riscv@lists.infradead.org; Thu, 23 Feb 2023 10:23:26 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 1D09424E289;
-	Thu, 23 Feb 2023 18:22:59 +0800 (CST)
-Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 23 Feb
- 2023 18:22:59 +0800
-Received: from [192.168.125.82] (113.72.147.165) by EXMBX172.cuchost.com
- (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 23 Feb
- 2023 18:22:57 +0800
-Message-ID: <04e071d8-3195-d065-d33f-ef81e3fcfb22@starfivetech.com>
-Date: Thu, 23 Feb 2023 18:22:52 +0800
+	id 1pV9uK-00GB5K-BY; Thu, 23 Feb 2023 11:37:04 +0000
+Received: from wout2-smtp.messagingengine.com ([64.147.123.25])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pV9uH-00GB4O-26
+	for linux-riscv@lists.infradead.org; Thu, 23 Feb 2023 11:37:02 +0000
+Received: from compute2.internal (compute2.nyi.internal [10.202.2.46])
+	by mailout.west.internal (Postfix) with ESMTP id A7D0132002FB;
+	Thu, 23 Feb 2023 06:36:59 -0500 (EST)
+Received: from mailfrontend1 ([10.202.2.162])
+  by compute2.internal (MEProxy); Thu, 23 Feb 2023 06:37:00 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=flygoat.com; h=
+	cc:cc:content-transfer-encoding:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:sender
+	:subject:subject:to:to; s=fm2; t=1677152219; x=1677238619; bh=SE
+	VSeLr4YeKzVQBfQj2m8k28yjFkBt6zYOmqTsWGRHk=; b=tkgwUTQMf9ZUqyL7Pm
+	dCQxjPqaAiYgMW3ulsYsZMv56+ATiKJ90DbWp96j/ASkWraUbkOkVVEtLxgkRqhB
+	5KISa4zdGtMFV62h7FCIw9lnKYrSarmCPycp5A2mFeeKuNctbfdFd9724x8lR0k0
+	puU42biv/3ngK6RsNcOuB0qm4RQfeCW9Jvh3yxEMhm9H13AXW4jVluO5nMxiwe/r
+	AJumXHNOzF8tNCZ6Krb+fwSkMkUGp0x3RbnvV5yk+86Nbby2l7gsRagaiYE/XByl
+	UscRAIJerz+p3Z2iHPJhjvnHinwUL/a3M2qII2YbPHXbevmLzB15VpkoB/h/jhq+
+	J0yQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:sender:subject
+	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
+	:x-sasl-enc; s=fm1; t=1677152219; x=1677238619; bh=SEVSeLr4YeKzV
+	QBfQj2m8k28yjFkBt6zYOmqTsWGRHk=; b=n7K9bHnbvf+Sgdso3+qV9w/+4j4Wx
+	P6V0HoS4s8nJerg8xH5n0LYdKLLZzA6bik/CeEsVPFS/AeO9T5UMBjF0c19NSq6l
+	sGzMRrSmtF9TxVuWOoKB2JvT3Hiq10n/oHw+pRfoCUCitlf2Gvzt+rnoGvsO/9Fo
+	vJ/HBNICnYsaRPy68KP6EmHJysUxZ24Lk+s1TstbLUS15XnqZByj7vBv5KS4YM7c
+	w3a6JBQ4Rw8FA0KlXoVKutX+6He5pxE1+qFqUDy0zt6YVgQNv0LbxUnQ5tRV9jma
+	GoilnAslD9j2Z+kX7piSp9V/3aAf2Qt8QpospLVNwCAqOyisIPIwncuvA==
+X-ME-Sender: <xms:2k_3Y0LeqdD9VES44UJcs-iNFK0oPlM7azFd0AQ86qt93aoFnRctlw>
+    <xme:2k_3Y0IK0d6nFckInNH4-14XXUHL_vkqQxgXupoNmAigFkFrVqWoisxlAG6370n7M
+    xDxzLf1i7CI_ozpF9Q>
+X-ME-Received: <xmr:2k_3Y0sCcVZTOmBbc19IMQjH1-DGV-O3XVtxGUOMyyjNrvBDs60YWe32rY19FLR5tCHzoXESMcQ>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrudekuddgvdekucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+    uceurghilhhouhhtmecufedttdenucenucfjughrpefhvfevufffkffojghfggfgsedtke
+    ertdertddtnecuhfhrohhmpeflihgrgihunhcujggrnhhguceojhhirgiguhhnrdihrghn
+    ghesfhhlhihgohgrthdrtghomheqnecuggftrfgrthhtvghrnhepfeeludefheegvdeuvd
+    dvgeekgfdvtdettdelieeihfegtedugeekhfdvhfejfedtnecuvehluhhsthgvrhfuihii
+    vgeptdenucfrrghrrghmpehmrghilhhfrhhomhepjhhirgiguhhnrdihrghnghesfhhlhi
+    hgohgrthdrtghomh
+X-ME-Proxy: <xmx:2k_3YxbINMIlIGBy3Hj4IwM9eWgYDemlsNVp-aZSERGBtFmXqWb5Gw>
+    <xmx:2k_3Y7a5yOBpO5VPDzRNVy6Tj2bc4AGYcC-jWnNw1VabkMo7Xvw6uA>
+    <xmx:2k_3Y9Ay_5QHyHsXt5CiH-cKhawcVgA5qJHeqBWbmvakiL5L-eiEZw>
+    <xmx:20_3Y5CZBxjeBjCCvPi3m55ULkI05ZiSp5TbTPX6a54wtqpCs7SSHw>
+Feedback-ID: ifd894703:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 23 Feb 2023 06:36:56 -0500 (EST)
+From: Jiaxun Yang <jiaxun.yang@flygoat.com>
+To: linux-mips@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	tsbogend@alpha.franken.de,
+	mpe@ellerman.id.au,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	robh+dt@kernel.org,
+	hch@lst.de,
+	m.szyprowski@samsung.com,
+	robin.murphy@arm.com,
+	linux-riscv@lists.infradead.org,
+	Jiaxun Yang <jiaxun.yang@flygoat.com>
+Subject: [PATCH v2 1/5] of: address: Fix default coherency for MIPS
+Date: Thu, 23 Feb 2023 11:36:40 +0000
+Message-Id: <20230223113644.23356-2-jiaxun.yang@flygoat.com>
+X-Mailer: git-send-email 2.37.1 (Apple Git-137.1)
+In-Reply-To: <20230223113644.23356-1-jiaxun.yang@flygoat.com>
+References: <20230223113644.23356-1-jiaxun.yang@flygoat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.2
-Subject: Re: [PATCH v4 09/19] dt-bindings: clock: Add StarFive JH7110 system
- clock and reset generator
-Content-Language: en-US
-To: Conor Dooley <conor.dooley@microchip.com>, Krzysztof Kozlowski
-	<krzysztof.kozlowski@linaro.org>
-CC: <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, Stephen Boyd <sboyd@kernel.org>, "Michael
- Turquette" <mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>,
-	Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor@kernel.org>, "Palmer
- Dabbelt" <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Ben Dooks <ben.dooks@sifive.com>, "Daniel
- Lezcano" <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Marc Zyngier <maz@kernel.org>, Emil Renner Berthing
-	<emil.renner.berthing@canonical.com>, <linux-kernel@vger.kernel.org>
-References: <20230221024645.127922-1-hal.feng@starfivetech.com>
- <20230221024645.127922-10-hal.feng@starfivetech.com>
- <e4c2b711-7953-821b-4281-04e4b40154ea@linaro.org> <Y/XxOw+T0WdYY7jP@wendy>
-From: Hal Feng <hal.feng@starfivetech.com>
-In-Reply-To: <Y/XxOw+T0WdYY7jP@wendy>
-X-Originating-IP: [113.72.147.165]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX172.cuchost.com
- (172.16.6.92)
-X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230223_022323_015925_2144D4DA 
-X-CRM114-Status: GOOD (  21.03  )
+X-CRM114-CacheID: sfid-20230223_033701_147611_303BD465 
+X-CRM114-Status: UNSURE (   6.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,75 +113,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 22 Feb 2023 10:40:59 +0000, Conor Dooley wrote:
-> On Wed, Feb 22, 2023 at 10:13:19AM +0100, Krzysztof Kozlowski wrote:
->> On 21/02/2023 03:46, Hal Feng wrote:
->> > From: Emil Renner Berthing <kernel@esmil.dk>
->> > 
->> > Add bindings for the system clock and reset generator (SYSCRG) on the
->> > JH7110 RISC-V SoC by StarFive Ltd.
->> > 
->> > Reviewed-by: Rob Herring <robh@kernel.org>
->> > Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
->> > Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
->> 
->> I don't know what is happening here as neither this nor other patchset
->> explains anything. Please stop writing what you do in the patches, but
->> explain why. What is easy to get.
->> 
->> (...)
->> 
->> 
->> > +
->> > +#define JH7110_SYSCLK_PLL0_OUT			190
->> > +#define JH7110_SYSCLK_PLL1_OUT			191
->> > +#define JH7110_SYSCLK_PLL2_OUT			192
->> 
->> NAK. Do not add incorrect bindings just to remove it THE SAME TIME.
-> 
-> For some context, the PLL driver series [1] does the following, which is
-> where this complaint stems from:
->> diff --git a/include/dt-bindings/clock/starfive,jh7110-crg.h b/include/dt-bindings/clock/starfive,jh7110-crg.h
->> index 5e4f21ca0642..086a6ddcf380 100644
->> --- a/include/dt-bindings/clock/starfive,jh7110-crg.h
->> +++ b/include/dt-bindings/clock/starfive,jh7110-crg.h
->> @@ -6,6 +6,12 @@
->>  #ifndef __DT_BINDINGS_CLOCK_STARFIVE_JH7110_CRG_H__
->>  #define __DT_BINDINGS_CLOCK_STARFIVE_JH7110_CRG_H__
->>  
->> +/* PLL clocks */
->> +#define JH7110_CLK_PLL0_OUT			0
->> +#define JH7110_CLK_PLL1_OUT			1
->> +#define JH7110_CLK_PLL2_OUT			2
->> +#define JH7110_PLLCLK_END			3
->> +
->>  /* SYSCRG clocks */
->>  #define JH7110_SYSCLK_CPU_ROOT			0
->>  #define JH7110_SYSCLK_CPU_CORE			1
->> @@ -198,11 +204,7 @@
->>  #define JH7110_SYSCLK_TDM_TDM_INV		188
->>  #define JH7110_SYSCLK_JTAG_CERTIFICATION_TRNG	189
->>  
->> -#define JH7110_SYSCLK_PLL0_OUT			190
->> -#define JH7110_SYSCLK_PLL1_OUT			191
->> -#define JH7110_SYSCLK_PLL2_OUT			192
-> 
-> I was talking to Emil, who pointed out that these defines aren't
-> actually ever used in the dts, so there's nothing really gained
-> by adding them here in the first place.
-> Seems like this series could simply move these defines into the driver
-> (as the PLL addition series also does) and then we would not have to
-> be worried about breaking the ABI in the future?
+DT-based MIPS doesn't use OF_DMA_DEFAULT_COHERENT, but
+might override the system-wide default at runtime.
 
-Sorry for that I didn't synchronize this with Xingyu. I'll move these
-PLL definitions into the driver in the next version.
+Use dma_default_coherent to override default coherence for
+MIPS.
 
-Best regards,
-Hal
+Signed-off-by: Jiaxun Yang <jiaxun.yang@flygoat.com>
+---
+ drivers/of/address.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-> 
-> 1 - https://patchwork.kernel.org/project/linux-riscv/patch/20230221141147.303642-3-xingyu.wu@starfivetech.com/
-> 
+diff --git a/drivers/of/address.c b/drivers/of/address.c
+index 4c0b169ef9bf..c105d66a1fa4 100644
+--- a/drivers/of/address.c
++++ b/drivers/of/address.c
+@@ -1105,6 +1105,14 @@ bool of_dma_is_coherent(struct device_node *np)
+ 	struct device_node *node;
+ 	bool is_coherent = IS_ENABLED(CONFIG_OF_DMA_DEFAULT_COHERENT);
+ 
++	/*
++	 * DT-based MIPS doesn't use OF_DMA_DEFAULT_COHERENT, but
++	 * might override the system-wide default at runtime.
++	 */
++#if defined(CONFIG_MIPS) && defined(CONFIG_DMA_NONCOHERENT)
++	is_coherent = dma_default_coherent;
++#endif
++
+ 	node = of_node_get(np);
+ 
+ 	while (node) {
+-- 
+2.37.1 (Apple Git-137.1)
 
 
 _______________________________________________
