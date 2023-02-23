@@ -4,80 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9426CC64ED8
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Feb 2023 21:24:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4123C61DA4
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Feb 2023 22:06:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bzE+UB2QazpCDMXSVOvncZoQA7/CIhmF11pbK7IRImk=; b=F1iyHafTCpigNO
-	InyyME7M01LYhSH+ItftmdWfJdUN2mrkQRY6ZShsZUiOg2Ue1RjyvP1lDAcWvq7Xe01JA8PXvR5Td
-	nqqpKOvRUVUmI5gerFXtOSMycC6r7PsRUQSagLDn2XvSM7AGaENp4TTKaaATPxFn2VOozxmKZBh1B
-	9HtOhhmERiHBomZ+m1nMZpluQOmFwxoATIlylKi1TIzJkCiQNKOR6n2iJ++uY8ClwhBsu2ygWf8LQ
-	cv8P7jQgBH5n53kCA6HGJY0Wi7MSaWoLXGCW2oGlWZwgtKAZcv5mNn1Jp2tdAMK52FVIkf7SvNCmQ
-	nk3sMRhzBvydU01dWwLA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=gQvvlYvN17HOmpYl+XE74SXgxJu2gW/a6zt+41kpimg=; b=wbcxQlgkTkqdlA
+	S04zFn4rFOCx4MLFyKQQvDUlQwxnJ6QTg8QYIdEPUfyvPiBU7P6jJna2CSvt2Sv2bhzvQAcEUuqtW
+	1YmMVCSBL0gcTg5pGpUUys1CWwZ8Ms0oLJgvRUFlyt/Lq0uqwwQdeKUlgnzP0fr200+yIvQqJHbIz
+	/xwjgNacKQgoyb0fLTCzmWynEj0DZXUtI877Ok9gBZZ21mqXKGpE/Rz4fL1yxnSw+KP9Bw4DxQG46
+	UNJDOfhHMkVVz38qQgjgQ+tXSpL3m+RRbq+ZGZ+NWIgSgEAjZzj6TkRCcItsk11mIbQ78+keivcF7
+	xnoqLihD7kF0cXygU/zQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pVJ59-000Nk4-BV; Thu, 23 Feb 2023 21:24:51 +0000
-Received: from mga04.intel.com ([192.55.52.120])
+	id 1pVJit-000S5p-N7; Thu, 23 Feb 2023 22:05:55 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pVJ4z-000Ngk-Lk; Thu, 23 Feb 2023 21:24:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1677187481; x=1708723481;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=mVoVfL5vlPHnSouV6VBABWbzjtaVYznfmLZ6wrrIyJs=;
-  b=AwQJUMxNqJ31wQmhtGu0LSCBEtlwnqGAvdAIFyBRZBKBK3+aWfFUiF9X
-   03q759M+DBnAdbY+8b9eQiK5uolkUlvDVpkDS7RzKHuQ2h5LiZOKpaEKz
-   aLbclSdMXHVg07oqNzUhwZ/C7ryf40wDfDi27ASLY9m4oYgmtJAr/gXzY
-   heDB3vkML0VGe2MPyHlO7VAV+DW0onDHuGJR22ImlFFFTYNf1ddfSXoAA
-   Y8RVIq+AEuN3M3Cq8+brt3mX6HT/xf/FSZ6cZVrY3GqZog10xH6zWgE2Z
-   gSHVEDdtVsRgSadN2K1EXGjzAm8VTUzrq2D1/amCt5msNJi59X67Pazu+
-   A==;
-X-IronPort-AV: E=McAfee;i="6500,9779,10630"; a="332006826"
-X-IronPort-AV: E=Sophos;i="5.97,322,1669104000"; 
-   d="scan'208";a="332006826"
-Received: from orsmga007.jf.intel.com ([10.7.209.58])
-  by fmsmga104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Feb 2023 13:24:28 -0800
-X-IronPort-AV: E=McAfee;i="6500,9779,10630"; a="665941632"
-X-IronPort-AV: E=Sophos;i="5.97,322,1669104000"; 
-   d="scan'208";a="665941632"
-Received: from ahajda-mobl.ger.corp.intel.com (HELO [10.213.25.22]) ([10.213.25.22])
-  by orsmga007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Feb 2023 13:24:21 -0800
-Message-ID: <17f40b7c-f98d-789d-fa19-12ec077b756a@intel.com>
-Date: Thu, 23 Feb 2023 22:24:19 +0100
+	id 1pVJir-000S4o-6M
+	for linux-riscv@lists.infradead.org; Thu, 23 Feb 2023 22:05:54 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 58BD6617A9;
+	Thu, 23 Feb 2023 22:05:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D5003C433EF;
+	Thu, 23 Feb 2023 22:05:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1677189951;
+	bh=fYz5rIrd5JU5+RovoJams1gjh8QJtQxDO8e8HQED13k=;
+	h=From:To:Cc:Subject:Date:From;
+	b=OXLt9k56FMBL7+Tx8DTJWjJgrkrgqlfkF2NBR4wGb6BQwNS9Ou1n3faswnIWMwj9a
+	 DtdnqEUKUT//A3gIWah7Xyt8pGUgDCh97cZvPqcM+GLhOcpEV10AYvcS3KBN0XIUCi
+	 H3FztziA8S81HC3zpEyRcZZj1KOZyvmhSKV8uX2iDfCiYJ0uWM6D6kGrZhPQQ0F/i2
+	 Ah7oBhXHC6EIKAC6z2LQ6KTJFzBSUC9chnM0bXCyLVToSky9LpwQrJvTuMK7gt35FA
+	 N5+HjlQdL26X1PP9CFKLww8yewJm9uhlniN0YDepHYXlHQAp0ennwj9d26mCNvxQC1
+	 yZC+GnXYKAXhA==
+From: Conor Dooley <conor@kernel.org>
+To: palmer@dabbelt.com
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	nathan@kernel.org,
+	naresh.kamboju@linaro.org,
+	linux-riscv@lists.infradead.org,
+	llvm@lists.linux.dev
+Subject: [PATCH v1 0/2] RISC-V: avoid build issues for clang/llvm-17 with binutils 2.35
+Date: Thu, 23 Feb 2023 22:05:44 +0000
+Message-Id: <20230223220546.52879-1-conor@kernel.org>
+X-Mailer: git-send-email 2.39.1
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Firefox/102.0 Thunderbird/102.8.0
-Subject: Re: [Intel-gfx] [PATCH v5 0/7] Introduce __xchg, non-atomic xchg
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Mark Rutland <mark.rutland@arm.com>, linux-ia64@vger.kernel.org,
- linux-sh@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linux-mips@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-hexagon@vger.kernel.org, linux-snps-arc@lists.infradead.org,
- Boqun Feng <boqun.feng@gmail.com>, linux-xtensa@linux-xtensa.org,
- Arnd Bergmann <arnd@arndb.de>, intel-gfx@lists.freedesktop.org,
- linux-m68k@lists.linux-m68k.org, openrisc@lists.librecores.org,
- loongarch@lists.linux.dev, Rodrigo Vivi <rodrigo.vivi@intel.com>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- linux-arm-kernel@lists.infradead.org, linux-parisc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
- Andrew Morton <akpm@linux-foundation.org>, linuxppc-dev@lists.ozlabs.org
-References: <20230118153529.57695-1-andrzej.hajda@intel.com>
- <Y/ZLH5F8LA3H10aL@hirez.programming.kicks-ass.net>
-Content-Language: en-US
-From: Andrzej Hajda <andrzej.hajda@intel.com>
-Organization: Intel Technology Poland sp. z o.o. - ul. Slowackiego 173, 80-298
- Gdansk - KRS 101882 - NIP 957-07-52-316
-In-Reply-To: <Y/ZLH5F8LA3H10aL@hirez.programming.kicks-ass.net>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1399; i=conor.dooley@microchip.com; h=from:subject; bh=Tu5ucbEE25sTwVSc9Il+0h6BckMJ3n6JBbt+V1iSKoQ=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDMnfH5uyHbolse9Tyuu5B3+1f5mqnB8QHDF3zde0gPyule+1 OFMMOkpZGMQ4GGTFFFkSb/e1SK3/47LDuectzBxWJpAhDFycAjCRHdaMDJcCCkVYg+9ySHOLsMS9lX ngPIHl2cZTV6OCzl0/vCg9i4vhvy9j9JSLZzjO78+rkXTdsVePdW1tqv2R8uaWcjHxwxFvWAA=
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230223_132441_814150_5E5B04EF 
-X-CRM114-Status: UNSURE (   9.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230223_140553_292474_278BF65B 
+X-CRM114-Status: GOOD (  10.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,42 +71,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 22.02.2023 18:04, Peter Zijlstra wrote:
-> On Wed, Jan 18, 2023 at 04:35:22PM +0100, Andrzej Hajda wrote:
-> 
->> Andrzej Hajda (7):
->>    arch: rename all internal names __xchg to __arch_xchg
->>    linux/include: add non-atomic version of xchg
->>    arch/*/uprobes: simplify arch_uretprobe_hijack_return_addr
->>    llist: simplify __llist_del_all
->>    io_uring: use __xchg if possible
->>    qed: use __xchg if possible
->>    drm/i915/gt: use __xchg instead of internal helper
-> 
-> Nothing crazy in here I suppose, I somewhat wonder why you went through
-> the trouble, but meh.
+From: Conor Dooley <conor.dooley@microchip.com>
 
-If you are asking why I have proposed this patchset, then the answer is 
-simple, 1st I've tried to find a way to move internal i915 helper to 
-core (see patch 7).
-Then I was looking for possible other users of this helper. And 
-apparently there are many of them, patches 3-7 shows some.
+Hey,
+Here's an attempted (interim?) fix for issues on v5.10 due to the
+presence of zifencei & zicsr in object files. I'm seeing another issue
+that only appears with ld from binutils-2.35 & not with ld from
+binutils-2.37 on riscv/for-next:
+/stuff/toolchains/binutils-2.35/bin/riscv64-linux-gnu-ld: .init.data has both ordered [`__patchable_function_entries' in init/main.o] and unordered [`.meminit.data' in mm/sparse.o] sections
+/stuff/toolchains/binutils-2.35/bin/riscv64-linux-gnu-ld: final link failed: bad value
+But that's far far further on in the build than we were getting before
+these patches.
 
+Even if we end up dealing with the emitted strings a different way [1],
+I think the first patch here has some value in moving the check to
+Kconfig so that it's far easier to tell if the toolchain does need/use
+these extensions from someone's build artifacts.
 
-> 
-> You want me to take this through te locking tree (for the next cycle,
-> not this one) where I normally take atomic things or does someone else
-> want this?
+Cheers,
+Conor.
 
-If you could take it I will be happy.
+1 - https://lore.kernel.org/linux-riscv/20230223195112.10489-1-palmer@rivosinc.com/
 
-Regards
-Andrzej
+cc: nathan@kernel.org
+cc: palmer@dabbelt.com
+cc: naresh.kamboju@linaro.org
+cc: linux-riscv@lists.infradead.org
+cc: llvm@lists.linux.dev
+
+Conor Dooley (2):
+  RISC-V: move zicsr/zifencei spec version check to Kconfig
+  RISC-V: make TOOLCHAIN_NEEDS_SPEC_20191213 gas only
+
+ arch/riscv/Kconfig  | 9 +++++++++
+ arch/riscv/Makefile | 5 +----
+ 2 files changed, 10 insertions(+), 4 deletions(-)
+
+-- 
+2.39.1
 
 
 _______________________________________________
