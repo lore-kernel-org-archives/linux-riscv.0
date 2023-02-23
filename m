@@ -4,98 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A999C636D6
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Feb 2023 09:54:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0700AC61DA4
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Feb 2023 09:55:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IF2/hNB/wngiiK5bgc73OKj3lQ88LH+GtO8TQr8wKjI=; b=Gvt6AcRUysmYoH
-	e0KlldznOjKwwG+E42/h3pJC8bD3/UfBnJnyMb1dHIf71O3cxj5kew72VVQOkWVbX4ZpG7Fm0DvUb
-	ZUFdyvKRos6AAeanpZCdeZ4+p9vktRwfcFGzwzZ9vS8HLIoocxssJV/Qs/wfgQ2LYOHnqw7SKCaLz
-	AAQZia3UEvn0EHriCICMd3HVlXC16Thv0sQzidoUvzSnIaVqQWkHbSYaGpfxT0k/p/mplWiPlipM3
-	D32RvxJMyukdr/n5hfAzdQSnxGR4NoEohUAo9d+fg/xtGND+abSvpcA5MQUGQi6S7MF1eT2IoxRw2
-	L7MWE1nmwd/St4XM4QOw==;
+	List-Owner; bh=Tdf9fQVfLD3B7tobIi8WftlFtdZhNEpETBr2LT5GOGs=; b=j3VmDxDrT3KS6b
+	K/zlJd4P2/LGGAS2FBPgWwTx3tyW5EHIQarLHbVDSHIQWGF4AK2X8DEleDq7qDcPPZYHN9g6cERvg
+	IFk5uHPWHPC1KWOAtpXZReGuEMg2tp5oCESQSUJObqW7Fo2tuSN4FxkVbmpcLHrlU6X9LKlv3zGSS
+	53Yd9kfvi659fQtBnraNKcauJU2UB6Pk4ryDP2PuOQfYbAeJ/CzEiUPQ3ikFNkCDCkkVIZj1JHPYt
+	Ee7TJqfAeYpXBB1q/F/13ASBUeNwWo1b4ChBRa4bwPLo4S2QZEzsvMmu6AlC6TKzJEPQe1QijbYuK
+	zdnyjzV56Qg5J+anr0AQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pV8JG-00Fni4-Ct; Thu, 23 Feb 2023 09:54:42 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1pV8JX-00FnrK-2g; Thu, 23 Feb 2023 09:54:59 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pV8JD-00Fnf0-4M
-	for linux-riscv@lists.infradead.org; Thu, 23 Feb 2023 09:54:40 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id l7-20020a05600c4f0700b003e79fa98ce1so5802212wmq.2
-        for <linux-riscv@lists.infradead.org>; Thu, 23 Feb 2023 01:54:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=mAI7GZiBb7iDC4DRNXr8MXcTGzYlBwIWTXO3a37K9fA=;
-        b=6rqEsmJobKimBOx+ObGs4Y9oYCoGGA+7PUJSCUc+XzhAJr7k8trhGNeL9l///zHG9h
-         zKi4GFdApLZMJxwwGKyAK5T4vZVP0aQ3XXyt/OWPp5oueU3BzBJzSR5QoLC+/Xx2iJgz
-         5hm79+32XzmlSgEMuCRgCF6jE20gfyjKVSWE2hFVc6aKlMZQREWTRqXyzaVmSBj/MhzH
-         AXlVDuu21E6Hjr/kwbOkk278Lu43ZitZTQ7OHZU1h8q5OpD5tJY9ufRMnPPJf2Rq79nz
-         v4bZ2eQSQps7BpX5yAyoX5mS+40xRdAoLwhab6GQ6F1yPaND58wp3xipYKvUJEcT++Q8
-         E7ow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=mAI7GZiBb7iDC4DRNXr8MXcTGzYlBwIWTXO3a37K9fA=;
-        b=zjyojxHuv1Kt6X6cULHkh7Rdi7sUrzVhSaBQSOKp/K5W6ZrcwlLb4KOyfMqkhVPYt3
-         vYWR4jcBNC+wBni8jBcWX//aw8TrO8Ht42ZbcvgvkBlSm9Hsg0mERWWJ829Z05udAnLz
-         c0kWFlZMRbTsrpCMCLJZ9n0lV2NGslMzBsuqCG5PkAsh+b9jxpPh3PQdY4D9lWReoHde
-         Q1EfnpUtRuAHN81Fw0mPKTvVjptheCvlDzND/sdxI24DghbHUjCsFWFH9IFaty5GbLEp
-         Eji5rUXvsKAPXN8XlKayjUwp8o1MS2qD0NY8No8i7M5p2Lt9WnFeJIYhU6TD/SZYzprD
-         Yrlg==
-X-Gm-Message-State: AO0yUKU9jayzRsXk/hrXPhywYG39QNtyV0gPpum58xy8RgWi7Y7cJQdl
-	lRko225ttViVpgqFRTPMQEPqQpWF9GA9s+1kSeWdVw==
-X-Google-Smtp-Source: AK7set+bh83ESZvs/5JP0HBfjTnQ76DE1v1RkcKyYbYV7gCfY3t7LNoC9ir4Jaga+QNOEzC6TCzSn38PMw2DLd3UjM4=
-X-Received: by 2002:a05:600c:3b9c:b0:3df:df03:45be with SMTP id
- n28-20020a05600c3b9c00b003dfdf0345bemr826148wms.7.1677146076791; Thu, 23 Feb
- 2023 01:54:36 -0800 (PST)
+	id 1pV8JE-00Fnfc-4x; Thu, 23 Feb 2023 09:54:42 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 8B881B81993;
+	Thu, 23 Feb 2023 09:54:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA4C9C433EF;
+	Thu, 23 Feb 2023 09:54:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1677146077;
+	bh=tzlp0We19KInWirh8J/R3X53YBq02wyMg36MmcYZucg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rWHav/x5svyAQ2Kiupi0qIMdQsQIRNHbVu7V7cvhIG+FB2Ab9YOZbznomFKNVRU5c
+	 dJGp13n1+5gUWl60lh8PHfPhiLUUzRx/jkZWhR2U0IJ4QwSkA71R1sHDBM1LDZoGSQ
+	 K8nl4u6N+AgQlSy2sBaBWuu95IVveXkXHttSWa9s=
+Date: Thu, 23 Feb 2023 10:54:34 +0100
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Tom Saeger <tom.saeger@oracle.com>
+Cc: Sasha Levin <sashal@kernel.org>,
+	Naresh Kamboju <naresh.kamboju@linaro.org>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Rich Felker <dalias@libc.org>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Dennis Gilmore <dennis@ausil.us>,
+	Palmer Dabbelt <palmer@rivosinc.com>, Arnd Bergmann <arnd@arndb.de>,
+	Andrew Morton <akpm@linux-foundation.org>, stable@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Nicolas Schier <nicolas@fjasle.eu>, Will Deacon <will@kernel.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Heiko Carstens <hca@linux.ibm.com>, Christoph Hellwig <hch@lst.de>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>
+Subject: Re: [PATCH 6.1 v2 0/7] Backport Build ID fixes
+Message-ID: <Y/c32nwwcfmqZqbc@kroah.com>
+References: <20230210-tsaeger-upstream-linux-6-1-y-v2-0-3689d04e29fc@oracle.com>
 MIME-Version: 1.0
-References: <20230214074925.228106-1-alexghiti@rivosinc.com>
- <20230214074925.228106-4-alexghiti@rivosinc.com> <Y+zXIgwO5wteLQZ5@shell.armlinux.org.uk>
- <f3e1585c-0d9d-4709-9b21-74a63d8cc9ac@app.fastmail.com>
-In-Reply-To: <f3e1585c-0d9d-4709-9b21-74a63d8cc9ac@app.fastmail.com>
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-Date: Thu, 23 Feb 2023 10:54:26 +0100
-Message-ID: <CAHVXubgsvjxGbgM6AcxfsHDsHT0iL2pAemGMr5t8KVLKiqC3RA@mail.gmail.com>
-Subject: Re: [PATCH v3 03/24] arm: Remove COMMAND_LINE_SIZE from uapi
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Russell King <linux@armlinux.org.uk>, Jonathan Corbet <corbet@lwn.net>, 
-	Richard Henderson <richard.henderson@linaro.org>, Ivan Kokshaysky <ink@jurassic.park.msu.ru>, 
-	Matt Turner <mattst88@gmail.com>, Vineet Gupta <vgupta@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, Michal Simek <monstr@monstr.eu>, 
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
-	"James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>, Helge Deller <deller@gmx.de>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
-	Christophe Leroy <christophe.leroy@csgroup.eu>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
-	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Sven Schnelle <svens@linux.ibm.com>, Yoshinori Sato <ysato@users.sourceforge.jp>, 
-	Rich Felker <dalias@libc.org>, "David S . Miller" <davem@davemloft.net>, 
-	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
-	"H. Peter Anvin" <hpa@zytor.com>, Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org, 
-	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org, 
-	linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, 
-	sparclinux@vger.kernel.org, Linux-Arch <linux-arch@vger.kernel.org>, 
-	Palmer Dabbelt <palmer@rivosinc.com>
+Content-Disposition: inline
+In-Reply-To: <20230210-tsaeger-upstream-linux-6-1-y-v2-0-3689d04e29fc@oracle.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230223_015439_377130_156632F7 
-X-CRM114-Status: GOOD (  18.94  )
+X-CRM114-CacheID: sfid-20230223_015440_361848_A95260ED 
+X-CRM114-Status: GOOD (  14.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,42 +85,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Arnd,
+On Fri, Feb 10, 2023 at 01:17:15PM -0700, Tom Saeger wrote:
+> Keep 6.1 in-sync with Build ID fixes.
+> 
+> I've build tested this on {x86_64, arm64, riscv, powerpc, s390, sh}.
+> 
+> Changes for v2:
+> - include 1/7 2348e6bf4421 ("riscv: remove special treatment for the link order of head.o")
+> - include 2/7 994b7ac1697b ("arm64: remove special treatment for the link order of head.o")
+> - rebase  7/7 c1c551bebf92 ("sh: define RUNTIME_DISCARD_EXIT") from upstream
+> 
+> Previous threads:
+> [1] https://lore.kernel.org/all/cover.1674876902.git.tom.saeger@oracle.com/
+> [2] https://lore.kernel.org/all/3df32572ec7016e783d37e185f88495831671f5d.1671143628.git.tom.saeger@oracle.com/
+> [3] https://lore.kernel.org/all/cover.1670358255.git.tom.saeger@oracle.com/
+> 
+> Signed-off-by: Tom Saeger <tom.saeger@oracle.com>
+> ---
+> Jisheng Zhang (1):
+>       riscv: remove special treatment for the link order of head.o
+> 
+> Masahiro Yamada (3):
+>       arm64: remove special treatment for the link order of head.o
+>       arch: fix broken BuildID for arm64 and riscv
+>       s390: define RUNTIME_DISCARD_EXIT to fix link error with GNU ld < 2.36
+> 
+> Michael Ellerman (2):
+>       powerpc/vmlinux.lds: Define RUNTIME_DISCARD_EXIT
+>       powerpc/vmlinux.lds: Don't discard .rela* for relocatable builds
+> 
+> Tom Saeger (1):
+>       sh: define RUNTIME_DISCARD_EXIT
+> 
+>  arch/powerpc/kernel/vmlinux.lds.S | 6 +++++-
+>  arch/s390/kernel/vmlinux.lds.S    | 2 ++
+>  arch/sh/kernel/vmlinux.lds.S      | 1 +
+>  include/asm-generic/vmlinux.lds.h | 5 +++++
+>  scripts/head-object-list.txt      | 2 --
+>  5 files changed, 13 insertions(+), 3 deletions(-)
+> ---
+> base-commit: d60c95efffe84428e3611431bf688f50bfc13f4e
+> change-id: 20230210-tsaeger-upstream-linux-6-1-y-06c93fbe5bc8
 
-On Wed, Feb 15, 2023 at 2:05 PM Arnd Bergmann <arnd@arndb.de> wrote:
->
-> On Wed, Feb 15, 2023, at 13:59, Russell King (Oracle) wrote:
-> > On Tue, Feb 14, 2023 at 08:49:04AM +0100, Alexandre Ghiti wrote:
-> >> From: Palmer Dabbelt <palmer@rivosinc.com>
-> >>
-> >> As far as I can tell this is not used by userspace and thus should not
-> >> be part of the user-visible API.
-> >>
-> >> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-> >
-> > Looks good to me. What's the merge plan for this?
->
-> The easiest way is probably if I merge it through the whole
-> series through the asm-generic tree. The timing is a bit
-> unfortunate as we're just ahead of the merge window, so unless
-> we really need this in 6.3, I'd suggest that Alexandre resend
-> the series to me in two weeks with the Acks added in and I'll
-> pick it up for 6.4.
+Now queued up, thanks.
 
-Sorry for the response delay, I was waiting to see if Palmer would
-merge my KASAN patchset in 6.3 (which he does): I have to admit that
-fixing the command line size + the KASAN patchset would allow 6.3 to
-run on syzkaller, which would be nice.
-
-If I don't see this merged in 6.3, I'll send another round as you
-suggested in 1 week now :)
-
-Thanks!
-
-Alex
-
->
->      Arnd
+greg k-h
 
 _______________________________________________
 linux-riscv mailing list
