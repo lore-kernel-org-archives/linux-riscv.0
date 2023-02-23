@@ -4,73 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A941C636D6
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Feb 2023 02:55:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BD0AC636D6
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Feb 2023 03:04:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/Rfvz+vM3KozYMbkCuLxLF4PllrIeiBJg/pJN5CLx7w=; b=rG3pkRvPEwNavh
-	uelupf8ft1cRsgRloWhVa9LWq29tQCvKSi55BT/bbNkuVXyM8BlPnXuHBP5gVI5EvPa9X5+pEzDU9
-	gKT+MMkR79CqAhuU9y7687DXDPpUi/9tAVb9E3WRb5LX4zoyr1KuPFuiL2HGmrtni8LFxID6cV7gj
-	z7VbOaoRiQ1yd6h5O3RX9cUc+GIyMPPLyAUEgcZgAh8kpdE3t9E77YWiyIM//aZym3J0E8OxVq8B1
-	U7Wd35KVcqqToEuvcRKOT4TlVJ6k8zxeL5tgEkf4dH8jQCp5pZuwvBjmBAjuglr48khRdptdL2reZ
-	2lpZy8lEGAxg3J+rs4rg==;
+	List-Owner; bh=JiJbAmLvTaRakFZ99TzDNLwVJFvWx6u+lL7KN45bIok=; b=vyak9GCV/drb6X
+	EFlNejHoL5Mdl+RdoOUyQtx+lpQobG5hnFQ7bopR4vqxg9Goga1iqwa2AguurdL6AYnD3OSyFJz3D
+	SjxwfZw+FyNS1pSfzCPAq0hoqNg+NSZVMX0ZGIjyUD+KoLeOtW8wsOxXRYtjZCSYTd0k3CDFETjo9
+	80jphoZAI/fSITrP3a0tTDFK4u2Qcq4h44aRLkzbeTAfFnQMxtWSBVqyf5ACKXxfxbdbZsxQetRsv
+	685MMglBUXBGmDUfE338wwYX9itrZV08ruzBbQ2jRKftkOCw4Eb8MCinRrL0/0gov99+vBZdRdfpC
+	3+MREslnfO/NSQU3ckeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pV1lr-00Enxk-Uo; Thu, 23 Feb 2023 02:55:47 +0000
-Received: from mail-vs1-xe30.google.com ([2607:f8b0:4864:20::e30])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pV1lp-00Enw1-EI
-	for linux-riscv@lists.infradead.org; Thu, 23 Feb 2023 02:55:47 +0000
-Received: by mail-vs1-xe30.google.com with SMTP id m10so10859469vso.4
-        for <linux-riscv@lists.infradead.org>; Wed, 22 Feb 2023 18:55:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1677120942;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=AZET/dAHnThSMI4ijShZNNiovoZM2A1RWGGjD4Jr3zI=;
-        b=cQA7kltWBFhKaJFUORao4wek6jqjyO5D4kYl2n7nRPq3J23ED5n+McNlruyi43uuZl
-         07VJ9zt4Nm++tPV3fZ0GPkp+rOqEcek1ldgMMLzR4f36/FF8Wx5t3CKAazBh3Z13hddI
-         B6W1eOUUTqWrpMBR7j9rrOPL8xVjOZ680Q5kmvqASZuxgvTrFGqiAJ142h0x2kc0WyH5
-         2yZF2L3He+AN7F3B9MVgRoQ6mGhm6rZ//a0QfDtrX3ML2Jo0k74YIAXyAXFaqd+V5q1j
-         xruLkqG7LM1OPIR415ZcAjCnV4/6IEcL4uqzIcrQ9dhQgQhHI8v+wa3uUdGhv0LCzUEf
-         gGwQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1677120942;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=AZET/dAHnThSMI4ijShZNNiovoZM2A1RWGGjD4Jr3zI=;
-        b=DAhc1yWQP+CNsTN4BZX/yV40A+AB1tWCV/NT5zxlUMe0a+JfV6XibgdolDf12/OEBK
-         3FXYEODdbYMTI2iksMW8kTz9L+GSaBrL7hHCmvou0gffiw4IPob06+9Gkh0EkDmGLNrv
-         VJvdLkqGXNUVClOtCyharq/w4UXnAP4IA9V93EjXkZm9wkgIZtzKBWoPN256QY0oE2LA
-         7OMYJdh92Ace8YKrt2YiXGa7Fuutpqq5xksQVhSXEwwsLOSnz95uGQZCAJSRw7tdw7YG
-         UTE4D5gLAokdQ7a9r9Z9pLfSrynDTikbVJKB6JmPatT1or+DIsxrKwBnk5MTLLcfTK28
-         F0IQ==
-X-Gm-Message-State: AO0yUKWluqsng1qmyGLOfZuDBX+e+DewmYzcGZawLH04XYtOadiFRm2D
-	1S4tL/ByU1/Ow4R9tyRhz9N8uY65zN+oK0Zy+spgsw==
-X-Google-Smtp-Source: AK7set+xIQn5l60WL9i2IviMkablDKXnJOMl8YCsfmyE5doLc73GdhGypaDze9dw46Wo8k5gVoLEbV4HXYtU7CRLrck=
-X-Received: by 2002:a1f:7ccf:0:b0:406:1e33:3ddb with SMTP id
- x198-20020a1f7ccf000000b004061e333ddbmr1856299vkc.1.1677120942440; Wed, 22
- Feb 2023 18:55:42 -0800 (PST)
+	id 1pV1tg-00Ep6T-NE; Thu, 23 Feb 2023 03:03:52 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pV1tb-00Eorz-J3
+	for linux-riscv@lists.infradead.org; Thu, 23 Feb 2023 03:03:51 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 3FB1D24E245;
+	Thu, 23 Feb 2023 11:03:15 +0800 (CST)
+Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 23 Feb
+ 2023 11:03:14 +0800
+Received: from [192.168.125.82] (113.72.147.165) by EXMBX172.cuchost.com
+ (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 23 Feb
+ 2023 11:03:14 +0800
+Message-ID: <63d0e2a9-84b9-6637-6bbf-dedb2527eaa5@starfivetech.com>
+Date: Thu, 23 Feb 2023 11:03:04 +0800
 MIME-Version: 1.0
-References: <CAOnJCUKHq_8msJtU-H1JvWJ8nY94J0tcarQMBsPNpBZO8sP6HQ@mail.gmail.com>
-In-Reply-To: <CAOnJCUKHq_8msJtU-H1JvWJ8nY94J0tcarQMBsPNpBZO8sP6HQ@mail.gmail.com>
-From: Anup Patel <apatel@ventanamicro.com>
-Date: Thu, 23 Feb 2023 08:25:31 +0530
-Message-ID: <CAK9=C2Uy_0B6D2TGq35sfrGkp9s1Td=cEsidzDPTDhG7Nq5EWw@mail.gmail.com>
-Subject: Re: Perf event to counter mapping question
-To: Atish Patra <atishp@atishpatra.org>
-Cc: linux-perf-users@vger.kernel.org, 
-	"linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, 
-	"mark.rutland@arm.com" <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Beeman Strong <beeman@rivosinc.com>, linux-riscv <linux-riscv@lists.infradead.org>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.3.2
+Subject: Re: [PATCH v3 07/11] dt-bindings: clock: Add StarFive JH7110 system
+ clock and reset generator
+Content-Language: en-US
+To: Conor Dooley <conor@kernel.org>
+CC: Stephen Boyd <sboyd@kernel.org>, <linux-riscv@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-clk@vger.kernel.org>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Michael Turquette
+	<mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>, "Emil
+ Renner Berthing" <emil.renner.berthing@canonical.com>,
+	<linux-kernel@vger.kernel.org>
+References: <20221220005054.34518-1-hal.feng@starfivetech.com>
+ <20221220005054.34518-8-hal.feng@starfivetech.com> <Y6JB37Pd5TZoGMy4@spud>
+ <7a7bccb1-4d47-3d32-36e6-4aab7b5b8dad@starfivetech.com>
+ <Y6tSWB2+98a8k9Qw@spud>
+ <5cf0fe71-fd17-fb28-c01e-28356081ba76@starfivetech.com>
+ <Y+5z8skN2DuvxDEL@spud> <72953dc9371b87da8d03c63633d7d9dd.sboyd@kernel.org>
+ <Y/VWNPfApsfm3/UD@spud>
+ <c0472d7f-56fe-3e91-e0a0-49ee51700b5d@starfivetech.com>
+ <Y/ZCRv3jHwFxN1Fo@spud>
+From: Hal Feng <hal.feng@starfivetech.com>
+In-Reply-To: <Y/ZCRv3jHwFxN1Fo@spud>
+X-Originating-IP: [113.72.147.165]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX172.cuchost.com
+ (172.16.6.92)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230222_185545_504330_66C7AE05 
-X-CRM114-Status: GOOD (  27.83  )
+X-CRM114-CacheID: sfid-20230222_190347_932251_D009EBD3 
+X-CRM114-Status: GOOD (  25.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,77 +86,139 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 23, 2023 at 5:58 AM Atish Patra <atishp@atishpatra.org> wrote:
->
-> Hi All,
-> We are trying to figure out what is the best approach to define the
-> perf event to programmable counter mappings in RISC-V.
-> Until recently, all the programmable counter/event selector registers
-> were writable in M-mode (highest privilege mode) only. The firmware
-> residing in M-mode
-> would discover the mapping from device tree[1] and the perf driver
-> relies on SBI PMU[2] interface to discover the mapping between event &
-> counters.
->
-> There are new ISA extensions being proposed to make counters /event
-> selector register in supervisor mode as well. Thus, a pmu driver
-> can directly program the event selectors without relying on firmware.
-> However, the kernel needs to be aware of counter mapping to do that.
->
-> AFAIK, ARM64 allows all-to-all mapping in pmuv3[1]. That makes life
-> much easier. It just needs to pick the next available counter.
-> On the other hand, x86 allows selective counter mapping which is
-> discovered from the json file and maintained in per event
-> constraints[4].
-> There may be some legacy reasons why it was done in x86 this way[5].
-> Please correct me if I am wrong in my understanding/assumption.
->
-> Here are a few approaches that can be used to solve it in RISC-V.
->
-> 1. Continue to use device tree bindings
-> Cons: We have to define similar entries for ACPI. It makes
-> virtualization difficult as the VMM has to discover and update the
-> device tree/ACPI as well.
->
-> 2. Mandate all-to-all mapping similar to ARM64.
-> Note: This is only for programmable counters. If the platform supports
-> any fixed counters (i.e. can monitor
-> only a specific event), that needs to be provisioned via some other
-> method. IIRC the fixed counters(apart from cycle) in ARM64 are part of
-> AMU not PMU.
->
-> 3. All platforms need to define which subset of events can be
-> monitored using a subset of counters. The platform specific perf json
-> file can specify that.
-> This approach provides more flexibility but makes the code path a bit
-> more complex as the counter mask constraint needs to be maintained per
-> event basis.
->
-> 4. Any other approach ?
+On Wed, 22 Feb 2023 16:26:46 +0000, Conor Dooley wrote:
+> On Wed, Feb 22, 2023 at 09:27:37PM +0800, Hal Feng wrote:
+>> On Tue, 21 Feb 2023 23:39:32 +0000, Conor Dooley wrote:
+>> > On Tue, Feb 21, 2023 at 02:17:17PM -0800, Stephen Boyd wrote:
+>> >> Quoting Conor Dooley (2023-02-16 10:20:34)
+>> >> > On Thu, Feb 16, 2023 at 10:42:20PM +0800, Hal Feng wrote:
+>> >> > > On Tue, 27 Dec 2022 20:15:20 +0000, Conor Dooley wrote:
+>> >> > > > On Mon, Dec 26, 2022 at 12:26:32AM +0800, Hal Feng wrote:
+>> >> > > Please see the picture of these external clocks in clock tree.
+>> >> > > 
+>> >> > > # mount -t debugfs none /mnt
+>> >> > > # cat /mnt/clk/clk_summary
+>> >> > >                                  enable  prepare  protect                                duty  hardware
+>> >> > >    clock                          count    count    count        rate   accuracy phase  cycle    enable
+>> >> > > -------------------------------------------------------------------------------------------------------
+>> >> > >  *mclk_ext*                             0        0        0    12288000          0     0  50000         Y
+>> >> > >  *tdm_ext*                              0        0        0    49152000          0     0  50000         Y
+>> >> > >  *i2srx_lrck_ext*                       0        0        0      192000          0     0  50000         Y
+>> >> > >  *i2srx_bclk_ext*                       0        0        0    12288000          0     0  50000         Y
+>> >> > >  *i2stx_lrck_ext*                       0        0        0      192000          0     0  50000         Y
+>> >> > >  *i2stx_bclk_ext*                       0        0        0    12288000          0     0  50000         Y
+>> >> > >  *gmac1_rgmii_rxin*                     0        0        0   125000000          0     0  50000         Y
+>> >> > >     gmac1_rx                          0        0        0   125000000          0     0  50000         Y
+>> >> > >        gmac1_rx_inv                   0        0        0   125000000          0   180  50000         Y
+>> >> > >  *gmac1_rmii_refin*                     0        0        0    50000000          0     0  50000         Y
+>> >> > >     gmac1_rmii_rtx                    0        0        0    50000000          0     0  50000         Y
+>> >> > >        gmac1_tx                       0        0        0    50000000          0     0  50000         N
+>> >> > >           gmac1_tx_inv                0        0        0    50000000          0   180  50000         Y
+>> >> > >  *osc*                                  4        4        0    24000000          0     0  50000         Y
+>> >> > >     apb_func                          0        0        0    24000000          0     0  50000         Y
+>> >> > >  ...
+>> >> > > 
+>> >> > > The clock "gmac1_rgmii_rxin" and the clock "gmac1_rmii_refin" are
+>> >> > > actually used as the parent of other clocks.
+>> >> > 
+>> >> > > The "dummy" clocks
+>> >> > > you said are all internal clocks.
+>> >> > 
+>> >> > No, what I meant by "dummy" clocks is that if you make clocks "required"
+>> >> > in the binding that are not needed by the hardware for operation a
+>> >> > customer of yours might have to add "dummy" clocks to their devicetree
+>> >> > to pass dtbs_check.
+>> >> 
+>> >> They can set the phandle specifier to '<0>' to fill in the required
+>> >> property when there isn't anything there. If this is inside an SoC, it
+>> >> is always connected because silicon can't change after it is made
+>> >> (unless this is an FPGA). Therefore, any and all input clocks should be
+>> >> listed as required.
+>> > 
+>> >> If the clk controller has inputs that are
+>> >> pads/balls/pins on the SoC then they can be optional if a valid design
+>> >> can leave those pins not connected.
+>> > 
+>> > From the discussion on the dts patches, where the clocks have been put
+>> > (intentionally) into board.dts, I've been under the impression that we
+>> > are in this situation.
+>> 
+>> For the system (sys) clock controller, we are in this situation.
+>> For the always-on (aon) clock controller, we are not, because some input
+>> clocks are inside the SoC.
+>> 
+>> > Up to Hal to tell us if the hardware is capable of having those inputs
+>> > left unfilled!
+>> 
+>> The situation is different for v1.2A and v1.3B boards.
+>> 
+>> For the v1.2A board,
+>> gmac1 only requires "gmac1_rmii_refin", which support 100MHz
+>> gmac0 only requires "gmac0_rgmii_rxin", which support 1000MHz
+>> 
+>> For the v1.3B board,
+>> gmac1 only requires "gmac1_rgmii_rxin", which support 1000MHz
+>> gmac0 only requires "gmac0_rgmii_rxin", which support 1000MHz
+>> 
+>> So we should set the "required" property depending on different
+>> boards.
+> 
+> These were Krzk's suggestions:
+> oneOf:
+>  - clock-names:
+>      minItems: 3
+>      items:
+>        - a
+>        - b
+>        - c
+>        - d
+>  - clock-names:
+>      items:
+>        - a
+>        - b
+>        - d
+> 
+> or maybe:
+>  - clock-names:
+>      minItems: 3
+>      items:
+>        - a
+>        - b
+>        - enum: [c, d]
+>        - d
+> 
+> Might be making a mess here, but I think that becomes:
+>   clock-names:
+>     oneOf:
+>       - items:
+>           - const: osc
+>           - enum:
+>               - gmac1_rmii_refin
+>               - gmac1_rgmii_rxin
+>           - const: i2stx_bclk_ext
+>           - const: i2stx_lrck_ext
+>           - const: i2srx_bclk_ext
+>           - const: i2srx_lrck_ext
+>           - const: tdm_ext
+>           - const: mclk_ext
+> 
+>       - items:
+>           - const: osc
+>           - const: gmac1_rmii_refin
+>           - const: gmac1_rgmii_rxin
+>           - const: i2stx_bclk_ext
+>           - const: i2stx_lrck_ext
+>           - const: i2srx_bclk_ext
+>           - const: i2srx_lrck_ext
+>           - const: tdm_ext
+>           - const: mclk_ext
 
-I suggest a 4th approach where by default the kernel assumes all-to-all
-mappings and optionally perf json file can be used to override mappings
-for certain counters. This approach is more like a hybrid approach between
-approach #2 and #3. It work fine with KVM RISC-V as well because Guest/VM
-will assume all-to-all mapping for logical HW counters whereas Host can have
-specific counter mappings.
+Will modify it and improve the description of clock items for
+pointing out which clock is required on different boards.
+Thank you all for your helpful suggestions.
 
->
-> Any thoughts on what would be the best approach for RISC-V. It would
-> be great to repeat any past mistakes in RISC-V by learning from
-> experience from the community.
->
-> [1] https://lore.kernel.org/lkml/Y6tS959TaY2EBAdn@spud/T/
-> [2] https://github.com/riscv-non-isa/riscv-sbi-doc/blob/master/riscv-sbi.adoc#function-find-and-configure-a-matching-counter-fid-2
-> [3] https://elixir.bootlin.com/linux/v6.2/source/arch/arm64/kernel/perf_event.c#L899
-> [4] https://elixir.bootlin.com/linux/latest/source/arch/x86/events/core.c#L876
-> [5] https://www.mail-archive.com/linux-kernel@vger.kernel.org/msg1978937.html
-> --
-> Regards,
-> Atish
-
-Regards,
-Anup
+Best regards,
+Hal
 
 _______________________________________________
 linux-riscv mailing list
