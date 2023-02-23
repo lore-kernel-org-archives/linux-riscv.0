@@ -4,77 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA978C61DA4
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Feb 2023 20:04:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40471C61DA4
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Feb 2023 21:18:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fVisea9CJnHjZMWvfl4DJy+Pi083FTPhl1Rc4tS86lc=; b=Q8RrMwd1KECXDd
-	wg/qLbm+vjitQTYEagdnF3mpf/zM9q3BaMtmfbMpWdkEyvo/9EgdklkiCZd1G0Fc/kY7xDFPvlWvm
-	68yna/x2NK3rfTxVvvAIrXk90l2e4zEppBtfOKMRZCNhxJuX8jK2xKglfjg6c0G6lRkeia6pXuzX5
-	nZ/K3anqAimKRKaBsPiRS3gGYil4qauEG9A+RZeHxjKMth21QED7dJtuiHjtFT/SUkBGba0tTzYbC
-	GmAnAwt2h5c3SqnSc0IMn7gu084woGOdWxHnV91esTF5sW0WmjjcmQpN/z/CqKsRkaPRniClgO3Bz
-	IvxySvoyhM/lGva1DJIQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sI7jeneVZf8qHkYLRFZn25Lezx1hT8IJtPv3inPVWWU=; b=JQ9VTEfh/7aar6re4gKdkUdsnB
+	fC3XMkTSirKyDXXexrrXQ72lunFbVmjYiSlBKW8BOIIbJbVETKYxqP+anPlJl1pFBcaBJnRrTpQ+c
+	S4tUDW++EoetFLtY9IGgmbwsdVqvCBu54sxfJWs3o2Qw8BJG6odeF6YSxa/sjnDegYDCC36GsaCr0
+	5GKjPNaMZxlku9QNx3nj5kUcvv6hzjiRLhYGO0isjNiJcjGWqdys7pnl8smRH4FaKU3B7tecqBOqA
+	Gyds/a4LCQ/vxdRWdy+ZCwknL2svi0Y6pzixTdrJpcZUK2HGbZ0TGeRuetBBYaDtT6GGT42jp5wXa
+	Gz6gGosw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pVHpb-000DVd-FU; Thu, 23 Feb 2023 20:04:43 +0000
-Received: from mga12.intel.com ([192.55.52.136])
+	id 1pVIyf-000N0O-Q4; Thu, 23 Feb 2023 21:18:09 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pVHpY-000DTx-Bq
-	for linux-riscv@lists.infradead.org; Thu, 23 Feb 2023 20:04:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1677182680; x=1708718680;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=bMM8jrE3GaTMJ5jxYncWrywv+nAQI6dAHrUKTQF4Qzg=;
-  b=avyuAhjywIc15ZWuFxkd7TM+NfPPzmrZhF3mKnpKrxSWyjOK4DBtEL3J
-   YH4f8vZ+PW3zwtqz/oVnxDOP/DawPJhtOYviZfmKtPbuLJwfq1u89O+26
-   epha10Fa7IGcDAlOr8HmvTErpqin3J3KpzObizxAWBt8RFD45McJ8HK9Q
-   taoFdEeVQr6qOfXWmNpLTRJ0o807hcga/lbX+xE7zW5gE2jlYknMVNEoR
-   U9/EaRcfROPEm8UHVfzgbMCB5YzQUje5cwC2dw62FwMG8CgSYVTrw0RXl
-   BxO7ZKKx258Yy59TzTecNKLrnpzvSNt7uKdx8UaMu4tld1PJjgnXdPK3I
-   g==;
-X-IronPort-AV: E=McAfee;i="6500,9779,10630"; a="312947297"
-X-IronPort-AV: E=Sophos;i="5.97,322,1669104000"; 
-   d="scan'208";a="312947297"
-Received: from orsmga008.jf.intel.com ([10.7.209.65])
-  by fmsmga106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Feb 2023 12:04:21 -0800
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6500,9779,10630"; a="702921729"
-X-IronPort-AV: E=Sophos;i="5.97,322,1669104000"; 
-   d="scan'208";a="702921729"
-Received: from lkp-server01.sh.intel.com (HELO 3895f5c55ead) ([10.239.97.150])
-  by orsmga008.jf.intel.com with ESMTP; 23 Feb 2023 12:04:17 -0800
-Received: from kbuild by 3895f5c55ead with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1pVHpB-0001hR-0R;
-	Thu, 23 Feb 2023 20:04:17 +0000
-Date: Fri, 24 Feb 2023 04:03:33 +0800
-From: kernel test robot <lkp@intel.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Cc: oe-kbuild-all@lists.linux.dev, Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: Re: [PATCH v6 1/1] riscv: Allow to downgrade paging mode from the
- command line
-Message-ID: <202302240308.1CC475U8-lkp@intel.com>
-References: <20230223082434.1280957-2-alexghiti@rivosinc.com>
+	id 1pVIyc-000MzL-8y
+	for linux-riscv@lists.infradead.org; Thu, 23 Feb 2023 21:18:07 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 5044C6179C;
+	Thu, 23 Feb 2023 21:18:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA9C8C4339C;
+	Thu, 23 Feb 2023 21:18:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1677187084;
+	bh=ryMScYPKgcG2y/dIoerUES8vyJI6dI87YEw1j2E6dSc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=geW8yMwU8qnT+6fGz/aR8NCnI0FKkOGMfAakDGnxakPoKvBD2GgpDyS/aOKrK7FKZ
+	 SmmX0ejzAaNKriODryQvJFRXam9xHPudpYvFOAsZvDLQudiEVR1VhaLsPESRlIPrBz
+	 SQjnKWXK3rEHO4gYS+bMVX/23Mr0Btknh4pEJ+Eq1sZMb/Rq+MxjWq2VVouLVJmJRf
+	 4bUtl0X1RRRAmtxvdIvmP/UMpg7vmC3WrpM9u/NXiTieQl9pfU72YD9M8oXl80dzL1
+	 pSwh6xvEMqn52Y5dXRMGJOzHStpLX2AubHppI1NLbyn1J2mFbHupotuqlXYWu9r1kS
+	 azdqpbpuuPeAA==
+Date: Thu, 23 Feb 2023 21:18:01 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org
+Subject: Re: [PATCH] RISC-V: Stop emitting attributes
+Message-ID: <Y/fYCbcHByowuhD1@spud>
+References: <20230223195112.10489-1-palmer@rivosinc.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230223082434.1280957-2-alexghiti@rivosinc.com>
+In-Reply-To: <20230223195112.10489-1-palmer@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230223_120440_468061_757C4C39 
-X-CRM114-Status: GOOD (  14.72  )
+X-CRM114-CacheID: sfid-20230223_131806_434196_D419EEDD 
+X-CRM114-Status: GOOD (  16.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,75 +65,161 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8405679380621118821=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Alexandre,
 
-Thank you for the patch! Yet something to improve:
-
-[auto build test ERROR on linus/master]
-[also build test ERROR on v6.2 next-20230223]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Alexandre-Ghiti/riscv-Allow-to-downgrade-paging-mode-from-the-command-line/20230223-162702
-patch link:    https://lore.kernel.org/r/20230223082434.1280957-2-alexghiti%40rivosinc.com
-patch subject: [PATCH v6 1/1] riscv: Allow to downgrade paging mode from the command line
-config: riscv-rv32_defconfig (https://download.01.org/0day-ci/archive/20230224/202302240308.1CC475U8-lkp@intel.com/config)
-compiler: riscv32-linux-gcc (GCC) 12.1.0
-reproduce (this is a W=1 build):
-        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-        chmod +x ~/bin/make.cross
-        # https://github.com/intel-lab-lkp/linux/commit/7e18f795579f897e63812ca9dcb5b48ef2b7b4d2
-        git remote add linux-review https://github.com/intel-lab-lkp/linux
-        git fetch --no-tags linux-review Alexandre-Ghiti/riscv-Allow-to-downgrade-paging-mode-from-the-command-line/20230223-162702
-        git checkout 7e18f795579f897e63812ca9dcb5b48ef2b7b4d2
-        # save the config file
-        mkdir build_dir && cp config build_dir/.config
-        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.1.0 make.cross W=1 O=build_dir ARCH=riscv olddefconfig
-        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.1.0 make.cross W=1 O=build_dir ARCH=riscv SHELL=/bin/bash
-
-If you fix the issue, kindly add following tag where applicable
-| Reported-by: kernel test robot <lkp@intel.com>
-| Link: https://lore.kernel.org/oe-kbuild-all/202302240308.1CC475U8-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   arch/riscv/kernel/pi/cmdline_early.c: In function 'match_noXlvl':
->> arch/riscv/kernel/pi/cmdline_early.c:50:24: error: 'SATP_MODE_48' undeclared (first use in this function); did you mean 'SATP_MODE_32'?
-      50 |                 return SATP_MODE_48;
-         |                        ^~~~~~~~~~~~
-         |                        SATP_MODE_32
-   arch/riscv/kernel/pi/cmdline_early.c:50:24: note: each undeclared identifier is reported only once for each function it appears in
->> arch/riscv/kernel/pi/cmdline_early.c:52:24: error: 'SATP_MODE_57' undeclared (first use in this function); did you mean 'SATP_MODE_32'?
-      52 |                 return SATP_MODE_57;
-         |                        ^~~~~~~~~~~~
-         |                        SATP_MODE_32
+--===============8405679380621118821==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="c1vsZHsT+lu3/Lpd"
+Content-Disposition: inline
 
 
-vim +50 arch/riscv/kernel/pi/cmdline_early.c
+--c1vsZHsT+lu3/Lpd
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-    46	
-    47	static u64 __init match_noXlvl(char *cmdline)
-    48	{
-    49		if (strstr(cmdline, "no4lvl"))
-  > 50			return SATP_MODE_48;
-    51		else if (strstr(cmdline, "no5lvl"))
-  > 52			return SATP_MODE_57;
-    53	
-    54		return 0;
-    55	}
-    56	
+On Thu, Feb 23, 2023 at 11:51:12AM -0800, Palmer Dabbelt wrote:
+> The RISC-V ELF attributes don't contain any useful information.  New
+> toolchains ignore them, but they frequently trip up various older/mixed
+> toolchains.  So just turn them off.
+>=20
+> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+> ---
+>  arch/riscv/Makefile | 5 +++++
+>  1 file changed, 5 insertions(+)
+>=20
+> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+> index 76989561566b..1fc504e2b85e 100644
+> --- a/arch/riscv/Makefile
+> +++ b/arch/riscv/Makefile
+> @@ -81,6 +81,11 @@ ifeq ($(CONFIG_PERF_EVENTS),y)
+>          KBUILD_CFLAGS +=3D -fno-omit-frame-pointer
+>  endif
+> =20
+> +# The RISC-V attributes frequently cause compatibility issues and provid=
+e no
+> +# information, so just turn them off.
+> +KBUILD_CFLAGS +=3D $(call cc-option,-mno-riscv-attribute)
+> +KBUILD_CFLAGS +=3D $(call as-option,-Wa$(comma)-mno-arch-attr)
+> +
+>  KBUILD_CFLAGS_MODULE +=3D $(call cc-option,-mno-relax)
+>  KBUILD_AFLAGS_MODULE +=3D $(call as-option,-Wa$(comma)-mno-relax)
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests
+As requested, the build issues I see w/ this patch applied & ld 2.35:
+  LD      arch/riscv/purgatory/purgatory.ro
+/stuff/toolchains/binutils-2.35/bin/riscv64-linux-gnu-ld: -march=3Drv64i2p0=
+_m2p0_a2p0_f2p0_d2p0_c2p0_zmmul1p0: Invalid or unknown z ISA extension: 'zm=
+mul'
+/stuff/toolchains/binutils-2.35/bin/riscv64-linux-gnu-ld: failed to merge t=
+arget specific data of file arch/riscv/purgatory/memcpy.o
+/stuff/toolchains/binutils-2.35/bin/riscv64-linux-gnu-ld: -march=3Drv64i2p0=
+_m2p0_a2p0_f2p0_d2p0_c2p0_zmmul1p0: Invalid or unknown z ISA extension: 'zm=
+mul'
+/stuff/toolchains/binutils-2.35/bin/riscv64-linux-gnu-ld: failed to merge t=
+arget specific data of file arch/riscv/purgatory/memset.o
+/stuff/toolchains/binutils-2.35/bin/riscv64-linux-gnu-ld: -march=3Drv64i2p0=
+_m2p0_a2p0_f2p0_d2p0_c2p0_zmmul1p0: Invalid or unknown z ISA extension: 'zm=
+mul'
+/stuff/toolchains/binutils-2.35/bin/riscv64-linux-gnu-ld: failed to merge t=
+arget specific data of file arch/riscv/purgatory/strcmp.o
+/stuff/toolchains/binutils-2.35/bin/riscv64-linux-gnu-ld: -march=3Drv64i2p0=
+_m2p0_a2p0_f2p0_d2p0_c2p0_zmmul1p0: Invalid or unknown z ISA extension: 'zm=
+mul'
+/stuff/toolchains/binutils-2.35/bin/riscv64-linux-gnu-ld: failed to merge t=
+arget specific data of file arch/riscv/purgatory/strlen.o
+/stuff/toolchains/binutils-2.35/bin/riscv64-linux-gnu-ld: -march=3Drv64i2p0=
+_m2p0_a2p0_f2p0_d2p0_c2p0_zmmul1p0: Invalid or unknown z ISA extension: 'zm=
+mul'
+/stuff/toolchains/binutils-2.35/bin/riscv64-linux-gnu-ld: failed to merge t=
+arget specific data of file arch/riscv/purgatory/strncmp.o
+  CHECK   /stuff/linux/ipc/ipc_sysctl.c
+make[6]: *** [/stuff/linux/arch/riscv/purgatory/Makefile:95: arch/riscv/pur=
+gatory/purgatory.ro] Error 1
+make[6]: Target 'arch/riscv/purgatory/' not remade because of errors.
+make[5]: *** [/stuff/linux/scripts/Makefile.build:504: arch/riscv/purgatory=
+] Error 2
+  CC      arch/riscv/mm/dma-noncoherent.o
+  AR      arch/riscv/kernel/probes/built-in.a
+  CHECK   /stuff/linux/lib/zlib_inflate/inffast.c
+  VDSOLD  arch/riscv/kernel/vdso/vdso.so.dbg
+  VDSOLD  arch/riscv/kernel/compat_vdso/compat_vdso.so.dbg
+/stuff/toolchains/binutils-2.35/bin/riscv64-linux-gnu-ld: -march=3Drv64i2p0=
+_m2p0_a2p0_f2p0_d2p0_c2p0_zmmul1p0: Invalid or unknown z ISA extension: 'zm=
+mul'
+/stuff/toolchains/binutils-2.35/bin/riscv64-linux-gnu-ld: failed to merge t=
+arget specific data of file arch/riscv/kernel/vdso/getcpu.o
+/stuff/toolchains/binutils-2.35/bin/riscv64-linux-gnu-ld: -march=3Drv64i2p0=
+_m2p0_a2p0_f2p0_d2p0_c2p0_zmmul1p0: Invalid or unknown z ISA extension: 'zm=
+mul'
+/stuff/toolchains/binutils-2.35/bin/riscv64-linux-gnu-ld: failed to merge t=
+arget specific data of file arch/riscv/kernel/vdso/flush_icache.o
+/stuff/toolchains/binutils-2.35/bin/riscv64-linux-gnu-ld: -march=3Drv64i2p0=
+_m2p0_a2p0_f2p0_d2p0_c2p0_zmmul1p0: Invalid or unknown z ISA extension: 'zm=
+mul'
+/stuff/toolchains/binutils-2.35/bin/riscv64-linux-gnu-ld: failed to merge t=
+arget specific data of file arch/riscv/kernel/vdso/note.o
+/stuff/toolchains/binutils-2.35/bin/riscv64-linux-gnu-ld: -march=3Drv32i2p0=
+_m2p0_a2p0_f2p0_d2p0_zmmul1p0: Invalid or unknown z ISA extension: 'zmmul'
+/stuff/toolchains/binutils-2.35/bin/riscv64-linux-gnu-ld: failed to merge t=
+arget specific data of file arch/riscv/kernel/compat_vdso/getcpu.o
+/stuff/toolchains/binutils-2.35/bin/riscv64-linux-gnu-ld: -march=3Drv32i2p0=
+_m2p0_a2p0_f2p0_d2p0_zmmul1p0: Invalid or unknown z ISA extension: 'zmmul'
+/stuff/toolchains/binutils-2.35/bin/riscv64-linux-gnu-ld: failed to merge t=
+arget specific data of file arch/riscv/kernel/compat_vdso/flush_icache.o
+/stuff/toolchains/binutils-2.35/bin/riscv64-linux-gnu-ld: -march=3Drv32i2p0=
+_m2p0_a2p0_f2p0_d2p0_zmmul1p0: Invalid or unknown z ISA extension: 'zmmul'
+/stuff/toolchains/binutils-2.35/bin/riscv64-linux-gnu-ld: failed to merge t=
+arget specific data of file arch/riscv/kernel/compat_vdso/note.o
+  OBJCOPY arch/riscv/kernel/compat_vdso/compat_vdso.so
+  OBJCOPY arch/riscv/kernel/vdso/vdso.so
+riscv64-unknown-linux-gnu-objcopy: 'arch/riscv/kernel/compat_vdso/compat_vd=
+so.so.dbg': No such file
+riscv64-unknown-linux-gnu-objcopy: 'arch/riscv/kernel/vdso/vdso.so.dbg': No=
+ such file
+make[7]: *** [/stuff/linux/arch/riscv/kernel/compat_vdso/Makefile:48: arch/=
+riscv/kernel/compat_vdso/compat_vdso.so] Error 1
+
+Specifically this is what I am running:
+CONFIG_CC_VERSION_TEXT=3D"riscv64-unknown-linux-gnu-gcc (ge4703bd0e15-dirty=
+) 13.0.1 20230122 (experimental)"
+CONFIG_CC_IS_GCC=3Dy
+CONFIG_GCC_VERSION=3D130001
+CONFIG_AS_IS_GNU=3Dy
+CONFIG_AS_VERSION=3D24050
+CONFIG_LD_IS_BFD=3Dy
+CONFIG_LD_VERSION=3D23500
+
+Cheers,
+Conor.
+
+
+--c1vsZHsT+lu3/Lpd
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY/fYBQAKCRB4tDGHoIJi
+0oyeAP46jUFW2mUS3M2/YC1ohjbAG8pWDUyKgrn2zaNGQ7ADMQEAsms2+WRe+0j6
+0rgAzg+efjAzWceORpjswfX5VrpeMAI=
+=0B/X
+-----END PGP SIGNATURE-----
+
+--c1vsZHsT+lu3/Lpd--
+
+
+--===============8405679380621118821==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8405679380621118821==--
+
