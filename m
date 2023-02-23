@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7329DC64EC7
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Feb 2023 03:41:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55DF0C61DA4
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Feb 2023 05:53:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lU/ZVL5atDO6p7brpbUKsmjw0CTKMOwUJSe60GwK1gg=; b=zfot+ORGxAJMm4
-	dTUcIM9Z2EliUEpg24xgRtD3Dc+03mFPjBio5H45kXrskZ6JCLE1uI0s3LHnD8LhK9APnB2tJGDVU
-	DlkhZW7279sVuCHesLYuGnGufZlovAe4vHLzb3kKg5ClBl/8JyPAhVhqExE7KSPRK3UehxkuQHK9F
-	sB1qQSbYXil8kZGaUc7hAJgMU/F5Ohbm3ey/HaZ8G+iwk2ab/GyBIhUe131PYdOdGmcNkiGJWIvUK
-	GvHd+fOf1Aj1mZKbYCwpfiBCoxpO39rdnEeTW4aq1OOTudZSvLDZKpfraT2KiGyulkjoDMkbhelr9
-	Ie314Sez8x8KA/QzBjAw==;
+	List-Owner; bh=5LO9mD0nZbOTNuBPEKaXWcGZcgWUCDKFJmIlw48z/p8=; b=Lxr+j76J7nahYZ
+	Aqb2Pg/Oft1sVKzm9aH/ZtIocbaLaut1OfQbaeTXcc4tCb/0DPbmgwoSp1mIc1yba0SdkFWCbpECK
+	/mAiAc+TqK2IQiE014pL3TwgWWjZP1YWTsw9hvKulXZ6LcvrHjN3DpUzgaLD8fcw53WWklYuhwr06
+	3zOSzX+m5Flkkw9EsNPhiJjtfkqzVWIrQU0tt9AZMzS08N8cE9LsBUs0XVxhYLSttigtVR7o6FqJf
+	q+G+topDlULMnTVKFWq60fyQVdUCABjYq6BVnfzt9LFVtNDFzETFOvOu4nJ9WmERWd7aZzYLz9cYA
+	Jw4qwShJDJSdhBDpX5oA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pV2Tt-00EtCd-UN; Thu, 23 Feb 2023 03:41:17 +0000
+	id 1pV4XO-00FCZj-8o; Thu, 23 Feb 2023 05:53:02 +0000
 Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pV2Tp-00EtAt-TN
-	for linux-riscv@lists.infradead.org; Thu, 23 Feb 2023 03:41:16 +0000
+	id 1pV4XL-00FCXX-1r
+	for linux-riscv@lists.infradead.org; Thu, 23 Feb 2023 05:53:01 +0000
 Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 2B77324E1D4;
-	Thu, 23 Feb 2023 11:40:42 +0800 (CST)
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 4F5FA24E1C6;
+	Thu, 23 Feb 2023 13:52:22 +0800 (CST)
 Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX165.cuchost.com
  (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 23 Feb
- 2023 11:40:41 +0800
+ 2023 13:52:22 +0800
 Received: from [192.168.125.82] (113.72.147.165) by EXMBX172.cuchost.com
  (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 23 Feb
- 2023 11:40:40 +0800
-Message-ID: <25c01857-8f59-02ed-062d-a5e619258204@starfivetech.com>
-Date: Thu, 23 Feb 2023 11:40:40 +0800
+ 2023 13:52:21 +0800
+Message-ID: <ef44a4c7-9fd9-5f33-a524-a91fb9ff793a@starfivetech.com>
+Date: Thu, 23 Feb 2023 13:52:20 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
  Thunderbird/102.3.2
-Subject: Re: [PATCH v4 09/19] dt-bindings: clock: Add StarFive JH7110 system
- clock and reset generator
+Subject: Re: [PATCH v4 10/19] dt-bindings: clock: Add StarFive JH7110
+ always-on clock and reset generator
 Content-Language: en-US
 To: Conor Dooley <conor@kernel.org>
 CC: <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
@@ -56,16 +56,17 @@ CC: <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
  Renner Berthing" <emil.renner.berthing@canonical.com>,
 	<linux-kernel@vger.kernel.org>
 References: <20230221024645.127922-1-hal.feng@starfivetech.com>
- <20230221024645.127922-10-hal.feng@starfivetech.com> <Y/T+GNQAXLGyUtCH@spud>
+ <20230221024645.127922-11-hal.feng@starfivetech.com> <Y/T+3H8A7jrX+I9M@spud>
 From: Hal Feng <hal.feng@starfivetech.com>
-In-Reply-To: <Y/T+GNQAXLGyUtCH@spud>
+In-Reply-To: <Y/T+3H8A7jrX+I9M@spud>
 X-Originating-IP: [113.72.147.165]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX172.cuchost.com
+X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX172.cuchost.com
  (172.16.6.92)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230222_194114_248167_4575E2F5 
-X-CRM114-Status: GOOD (  16.47  )
+X-CRM114-CacheID: sfid-20230222_215259_255170_B86EF2F3 
+X-CRM114-Status: UNSURE (   8.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,69 +83,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 21 Feb 2023 17:23:36 +0000, Conor Dooley wrote:
-> Hey Hal,
-> 
-> On Tue, Feb 21, 2023 at 10:46:35AM +0800, Hal Feng wrote:
+On Tue, 21 Feb 2023 17:26:52 +0000, Conor Dooley wrote:
+> On Tue, Feb 21, 2023 at 10:46:36AM +0800, Hal Feng wrote:
 >> From: Emil Renner Berthing <kernel@esmil.dk>
 >> 
->> Add bindings for the system clock and reset generator (SYSCRG) on the
+>> Add bindings for the always-on clock and reset generator (AONCRG) on the
 >> JH7110 RISC-V SoC by StarFive Ltd.
->> 
->> Reviewed-by: Rob Herring <robh@kernel.org>
->> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
->> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
 > 
->> diff --git a/Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml b/Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
->> new file mode 100644
->> index 000000000000..ec81504dcb27
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
->> @@ -0,0 +1,80 @@
->> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/clock/starfive,jh7110-syscrg.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: StarFive JH7110 System Clock and Reset Generator
->> +
->> +maintainers:
->> +  - Emil Renner Berthing <kernel@esmil.dk>
->> +
->> +properties:
->> +  compatible:
->> +    const: starfive,jh7110-syscrg
->> +
->> +  reg:
->> +    maxItems: 1
->> +
 >> +  clocks:
 >> +    items:
 >> +      - description: Main Oscillator (24 MHz)
->> +      - description: GMAC1 RMII reference
->> +      - description: GMAC1 RGMII RX
->> +      - description: External I2S TX bit clock
->> +      - description: External I2S TX left/right channel clock
->> +      - description: External I2S RX bit clock
->> +      - description: External I2S RX left/right channel clock
->> +      - description: External TDM clock
->> +      - description: External audio master clock
+>> +      - description: RTC Oscillator (32.768 kHz)
+>> +      - description: GMAC0 RMII reference
+>> +      - description: GMAC0 RGMII RX
+>> +      - description: STG AXI/AHB
+>> +      - description: APB Bus
+>> +      - description: GMAC0 GTX
 > 
-> You didn't reply to the conversation I had with Krzysztof about how to
-> represent the optional nature of some of these clocks, contained in this
-> thread here:
-> https://lore.kernel.org/all/7a7bccb1-4d47-3d32-36e6-4aab7b5b8dad@starfivetech.com/
-> 
-> What happens to the gmac1 mux if only one of the input clocks is
-> provided?
-> And I mean what does the hardware do, not the software representation of
-> that mux in the driver.
+> Ditto here, are some of these clocks, especially gmac0, also optional?
 
-In hardware, just providing the required input clocks is enough. Refer to the
-following link for the required clocks. Thanks.
-
-https://lore.kernel.org/all/c0472d7f-56fe-3e91-e0a0-49ee51700b5d@starfivetech.com/
+The clock "rtc_osc" and "gmac0_rmii_refin" are optional, the other
+clocks are required. I will modify accordingly. Thanks.
 
 Best regards,
 Hal
@@ -154,14 +113,12 @@ Hal
 >> +  clock-names:
 >> +    items:
 >> +      - const: osc
->> +      - const: gmac1_rmii_refin
->> +      - const: gmac1_rgmii_rxin
->> +      - const: i2stx_bclk_ext
->> +      - const: i2stx_lrck_ext
->> +      - const: i2srx_bclk_ext
->> +      - const: i2srx_lrck_ext
->> +      - const: tdm_ext
->> +      - const: mclk_ext
+>> +      - const: rtc_osc
+>> +      - const: gmac0_rmii_refin
+>> +      - const: gmac0_rgmii_rxin
+>> +      - const: stg_axiahb
+>> +      - const: apb_bus
+>> +      - const: gmac0_gtxclk
 
 
 _______________________________________________
