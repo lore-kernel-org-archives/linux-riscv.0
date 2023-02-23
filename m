@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99784C636D6
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Feb 2023 02:00:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FDA8C636D6
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Feb 2023 02:01:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=YtK8l9lhZWqXNTzVd/5pmAhdrV3QbYOyHp7198PNj3Q=; b=sX6egf4mKr67qH
-	DL0MnwV5E+ajifdt8TJwFSWApoz0f2DM/jRA/BPKemXKiYoiO1r/lXhsu1CZnqyGCYhUrw2SuXcH3
-	wqeGjstvKaVYYwtKB0oq4w45l0zsP/MkePZejemDQj51vFPWurFAZFIYmSdVnrd+yj/T9dAp1mZ2C
-	2jt+tm+WFgkURiNhLXmAO/Cc2djT3RUfGppho//MXbipXFlQ4XzZYg0w/tthZZklRbpKOM4hxKLo0
-	WjXpVfGrOq8wiRpq/zpgv5E+/AUVqOdheEdX5EGjdCUbZSH08EuhGwLXdK081xh2ENZA/Od3og7ya
-	kLqUjNKflJ2KIFVJXKIQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=KTVyiC+wyy43CnejjaO1vTjwUYqmEU1cdjWRYTEupNo=; b=QVHLxf4v0vGUkT
+	uUHOb/F4SBaZfY9yyuHLgdCmdKcOz3sJy8j7D884dKS/nAmhq3HAnvg4BsbH/i95EPpf2HkefBPUc
+	A9sLr6xXyPgtjI4tMzm1knE5v1JNhczXfI1M3NODSRqDHzstrqJxx7nd5hb5OrAaRdg++geysVP9X
+	njqFjrfwsAnWNDodaPouKQoVu31n0es/gVmH8HEogVXSFoDySUu3Gi05L96VxalSUiA1gyOid6XQc
+	AHAlBfdF79Ea4kHcGACa6bOebXsE2Q21i7D7hW777E0WBV32y7vPt7bU5smdNHGRZWPWTWLsYqboz
+	d3HrnE2QP37mtMw1h46Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pV0uP-00EiHk-LW; Thu, 23 Feb 2023 02:00:33 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	id 1pV0uo-00EiLf-KK; Thu, 23 Feb 2023 02:00:58 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pV0uL-00EiD5-3N; Thu, 23 Feb 2023 02:00:32 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	id 1pV0ul-00EiCv-Ve; Thu, 23 Feb 2023 02:00:57 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 9418B24DE73;
-	Thu, 23 Feb 2023 09:59:54 +0800 (CST)
-Received: from EXMBX162.cuchost.com (172.16.6.72) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 23 Feb
- 2023 09:59:54 +0800
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 99D8324E23E;
+	Thu, 23 Feb 2023 09:59:57 +0800 (CST)
+Received: from EXMBX162.cuchost.com (172.16.6.72) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 23 Feb
+ 2023 09:59:57 +0800
 Received: from ubuntu.localdomain (113.72.147.165) by EXMBX162.cuchost.com
  (172.16.6.72) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 23 Feb
- 2023 09:59:53 +0800
+ 2023 09:59:56 +0800
 From: Changhuang Liang <changhuang.liang@starfivetech.com>
 To: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
 	Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
@@ -46,18 +46,21 @@ CC: Jack Zhu <jack.zhu@starfivetech.com>, Changhuang Liang
 	<changhuang.liang@starfivetech.com>, <linux-phy@lists.infradead.org>,
 	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<linux-riscv@lists.infradead.org>
-Subject: [PATCH v2 0/3] Add JH7110 MIPI DPHY RX support
-Date: Wed, 22 Feb 2023 17:59:49 -0800
-Message-ID: <20230223015952.201841-1-changhuang.liang@starfivetech.com>
+Subject: [PATCH v2 3/3] riscv: dts: starfive: Add dphy rx node
+Date: Wed, 22 Feb 2023 17:59:52 -0800
+Message-ID: <20230223015952.201841-4-changhuang.liang@starfivetech.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20230223015952.201841-1-changhuang.liang@starfivetech.com>
+References: <20230223015952.201841-1-changhuang.liang@starfivetech.com>
 MIME-Version: 1.0
 X-Originating-IP: [113.72.147.165]
 X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX162.cuchost.com
  (172.16.6.72)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230222_180029_462151_502DB483 
-X-CRM114-Status: GOOD (  11.41  )
+X-CRM114-CacheID: sfid-20230222_180056_195950_B128761C 
+X-CRM114-Status: UNSURE (   8.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,98 +77,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patchset adds mipi dphy rx driver for the StarFive JH7110 SoC.
-It is used to transfer CSI camera data. The series has been tested on
-the VisionFive 2 board.
+Add dphy rx node for the Starfive JH7110 SoC. It is used to transfer CSI
+camera data.
 
-This patchset should be applied after the patchset [1] and patch [2]:
-[1] https://lore.kernel.org/all/20230221083323.302471-1-xingyu.wu@starfivetech.com/
-[2] https://lore.kernel.org/all/20230215113249.47727-4-william.qiu@starfivetech.com/
+Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
+---
+ arch/riscv/boot/dts/starfive/jh7110.dtsi | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
-changes since v1:
-- Rebased on tag v6.2.
-- Dropped patch 1, it will be added by the patch [2].
-
-patch 1:
-- Changed the node name 'dphy' to 'phy'.
-- Changed the "starfive,aon-syscon" description.
-- Changed the MIPI DPHY RX IP description.
-- Add description to resets.
-- Update devicetree binding examples.
-
-patch 2:
-- Changed the commit message.
-
-patch 3:
-- Changed the commit message.
-- Changed the node name 'dphy' to 'phy'.
-- Sorted the node by address.
-
-v1: https://lore.kernel.org/all/20230210061713.6449-1-changhuang.liang@starfivetech.com/
-
-Changhuang Liang (3):
-  dt-bindings: phy: Add starfive,jh7110-dphy-rx
-  phy: starfive: Add mipi dphy rx support
-  riscv: dts: starfive: Add dphy rx node
-
- .../bindings/phy/starfive,jh7110-dphy-rx.yaml |  74 ++++
- MAINTAINERS                                   |   7 +
- arch/riscv/boot/dts/starfive/jh7110.dtsi      |  13 +
- drivers/phy/Kconfig                           |   1 +
- drivers/phy/Makefile                          |   1 +
- drivers/phy/starfive/Kconfig                  |  13 +
- drivers/phy/starfive/Makefile                 |   2 +
- drivers/phy/starfive/phy-starfive-dphy-rx.c   | 362 ++++++++++++++++++
- 8 files changed, 473 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/phy/starfive,jh7110-dphy-rx.yaml
- create mode 100644 drivers/phy/starfive/Kconfig
- create mode 100644 drivers/phy/starfive/Makefile
- create mode 100644 drivers/phy/starfive/phy-starfive-dphy-rx.c
-
-
-base-commit: c9c3395d5e3dcc6daee66c6908354d47bf98cb0c
-prerequisite-patch-id: 4dc515731ce237184553c1606ffb3afaeb51c3d8
-prerequisite-patch-id: ac150a8c622e858e088df8121093d448df49c245
-prerequisite-patch-id: a4255724d4698f1238663443024de56de38d717b
-prerequisite-patch-id: a798370d170dc2bcc79ed86f741c21c1e6d87c78
-prerequisite-patch-id: 203d2500cadc112bd20fefc56eabf1470d3d2d2d
-prerequisite-patch-id: 315303931e4b6499de7127a88113763f86e97e16
-prerequisite-patch-id: 40cb8212ddb024c20593f73d8b87d9894877e172
-prerequisite-patch-id: a1673a9e9f19d6fab5a51abb721e54e36636f067
-prerequisite-patch-id: 94860423c7acc9025249d4bb36652a585bd0a797
-prerequisite-patch-id: b5084253283929d9a6d0e66c350400c7c85d034d
-prerequisite-patch-id: a428ed7a2aa45abab86923dc467e1e6b08427e85
-prerequisite-patch-id: d4f80829fca7ce370a6fad766593cdcb502fa245
-prerequisite-patch-id: e3490e19e089fe284334db300ee189b619a61628
-prerequisite-patch-id: 34298e3882261bc2d72955b1570cc9612ab7d662
-prerequisite-patch-id: 377c5c282a0776feee9acd10b565adbd5275a67e
-prerequisite-patch-id: 3ccee718de0750adbf8d0b77d553a2778a344f64
-prerequisite-patch-id: 4710f2ac22dca0bdd9ff5d744d2c37cab3c74515
-prerequisite-patch-id: 65f2aed865d88e6fa468d2923527b523d4313857
-prerequisite-patch-id: 258ea5f9b8bf41b6981345dcc81795f25865d38f
-prerequisite-patch-id: 8b6f2c9660c0ac0ee4e73e4c21aca8e6b75e81b9
-prerequisite-patch-id: e3b986b9c60b2b93b7812ec174c9e1b4cfb14c97
-prerequisite-patch-id: a2b3a9cff8a683422eb0ccf3a0850091401812d4
-prerequisite-patch-id: dbb0c0151b8bdf093e6ce79fd2fe3f60791a6e0b
-prerequisite-patch-id: ea9a6d0313dd3936c8de0239dc2072c3360a2f6b
-prerequisite-patch-id: d57e95d31686772abc4c4d5aa1cadc344dc293cd
-prerequisite-patch-id: 29aab7148bf56a20acddcb8a11f290705fcc97f6
-prerequisite-patch-id: eeecb5367bea99627210b661986ca5b49e2a9d63
-prerequisite-patch-id: c02658f677990683d4c4957e06c19ed3a3a0cfab
-prerequisite-patch-id: 2ddada18ab6ea5cd1da14212aaf59632f5203d40
-prerequisite-patch-id: 55b80c069faccc7dede15748d888bb13c7120a30
-prerequisite-patch-id: 7acbc9c924e802712d3574dd74a6b3576089f78c
-prerequisite-patch-id: 35b9e27cc439a35eebc18cbe375ea65da94653be
-prerequisite-patch-id: d426704849c21687b4ef32c7d399081706e34c51
-prerequisite-patch-id: 9f71c539a241baf1e73c7e7dfde5b0b04c66a502
-prerequisite-patch-id: 5acc7f9a7547a301014071f446685e21779cb5f7
-prerequisite-patch-id: 9fddcb61301b615ad6f0102f2235265a01ccc2a2
-prerequisite-patch-id: 0c04762f1d20f09cd2a1356334a86e520907d111
-prerequisite-patch-id: 04d1167facdccfd6c737bf64d83cfd6ed1d74099
-prerequisite-patch-id: ff5bca2dbaafaa14248f5f9a6ddc5d26d827cf50
-prerequisite-patch-id: 2bc43b375b470f7e8bbe937b78678ba3856e3b8f
---
+diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+index 697ab59191a1..074423d17786 100644
+--- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+@@ -563,6 +563,19 @@ ispcrg: clock-controller@19810000 {
+ 			power-domains = <&pwrc JH7110_PD_ISP>;
+ 		};
+ 
++		csi_phy: phy@19820000 {
++			compatible = "starfive,jh7110-dphy-rx";
++			reg = <0x0 0x19820000 0x0 0x10000>;
++			clocks = <&ispcrg JH7110_ISPCLK_M31DPHY_CFGCLK_IN>,
++				 <&ispcrg JH7110_ISPCLK_M31DPHY_REFCLK_IN>,
++				 <&ispcrg JH7110_ISPCLK_M31DPHY_TXCLKESC_LAN0>;
++			clock-names = "cfg", "ref", "tx";
++			resets = <&ispcrg JH7110_ISPRST_M31DPHY_HW>,
++				 <&ispcrg JH7110_ISPRST_M31DPHY_B09_ALWAYS_ON>;
++			starfive,aon-syscon = <&aon_syscon 0x00>;
++			#phy-cells = <0>;
++		};
++
+ 		voutcrg: clock-controller@295C0000 {
+ 			compatible = "starfive,jh7110-voutcrg";
+ 			reg = <0x0 0x295C0000 0x0 0x10000>;
+-- 
 2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
