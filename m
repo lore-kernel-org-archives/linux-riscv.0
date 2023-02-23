@@ -4,78 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F77BC61DA4
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Feb 2023 18:07:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26858C636D6
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Feb 2023 18:23:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AMk1NDOE63t2IQIfFDkE0ULZaSAQlkEiQ5i7OTNtExk=; b=qb72x465RhMZG/
-	E7cLXtzy4E6nZbzJGHye14AeH8x+BNr7W+XNqJOG2OTWFNF2zu5jJaE1lYyHqHeatdr4TtfX/qkAr
-	+5USeFl/+J4Wo/mMC8KTMrG8onOuChTm8u3qhAHjeBGcg4HeU6TEG7iiiZP2yvfAWrTxSdD1Dl233
-	8b/zcil+8oRe1Zc4PPit3xzW8NCQ/tgvntTtxFSMQK7Ixs3peTHRxPc4k5rbFcP62mxqh9dQACIGq
-	WhfeHOz1IX4/JXPQm5uz+n5ryCMM/oWDlVJbQf7rFFyZbn0hYR3aYXLqgHUK5exyryU5X12mXxXe+
-	PMkSy5oXL2URbWEvkCZA==;
+	List-Owner; bh=kLncOCphkuI2RtslLS+JreisTZBanJT9U7m5s48c9dI=; b=rXE70upnaoCgbi
+	Bgay8h5DPxdUy88X00lFulFegfdlTyd7HbHkD8UCVrpmhF3IxsWBXGf87Cz71TYDS242Cc52XOGrm
+	FCT+4I7CzNCvW32fVl+kobfIGowvR/U+rPOmydTwDH+xHeQgwe2B4H+BTp4457hxOqPw7vTlH8wrv
+	+2BPgKbOiFYtgQQ0a1P5ixZMo+r2r0Nw7Jg4kzC4PxHSHyTgQQAy9GvSxRYdnI82nllzEmuvnPK+V
+	+2TtWuGANf6SV9kdJnvM+hQcH1yT6+w1xG+PyDBpSVB9W96KH3DibpLtSJXWkmMIBtCYUei3lWyO/
+	Be+Sj2HKRFzEQmXXh2UA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pVG0A-00HSQ5-JO; Thu, 23 Feb 2023 18:07:30 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1pVGFy-00HVJ7-Ve; Thu, 23 Feb 2023 18:23:50 +0000
+Received: from mail-il1-x135.google.com ([2607:f8b0:4864:20::135])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pVG06-00HSOl-W5
-	for linux-riscv@lists.infradead.org; Thu, 23 Feb 2023 18:07:29 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id c12so11387420wrw.1
-        for <linux-riscv@lists.infradead.org>; Thu, 23 Feb 2023 10:07:26 -0800 (PST)
+	id 1pVGFu-00HVHs-9n
+	for linux-riscv@lists.infradead.org; Thu, 23 Feb 2023 18:23:49 +0000
+Received: by mail-il1-x135.google.com with SMTP id e10so5711955ilu.4
+        for <linux-riscv@lists.infradead.org>; Thu, 23 Feb 2023 10:23:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
+        d=gmail.com; s=20210112;
         h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=RoAKb3CX0tDkDUpSWRTkTiTk/5lqpiT7FQmOTuvuGSA=;
-        b=Oiq+Lt3iukZx/mMOnjlsMZYaBu0CQiaCAM9J1hIpTcvmzawO1d4bpT7/KuDCR2pNGk
-         legIHUUIn3TSo0HFe2JneOiK+tTKTlxw97WZcnk8wkwhMYrdXb9u5iUND9d2OwQjXdWK
-         oASlUADEpQlg5KYs5biJuZIe85p92wiuAtVU0LPZhvY0hLg9dQHqLiEkYVcRATaEK1E4
-         IXbY2j1C28iR8vMmdfzsc6t1TP/qRraf9lEuPZcUEDRWmznJen4az62750ZuKLz9ZZLf
-         WKwcuCtC/HG5v8+OOGNs0Mi68fCGGrO4tTS7fVY8cf5AxtsinysPJ4DBqCJKVGHJgGcb
-         dozQ==
+         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=KqaReXDUZ6RSuPnkPc3Zr3BCXFW8JQnRugjPygUU3Zo=;
+        b=G346yfAw2yX3ZGhRl6Xlj92UQWX5OCg+4gr7CEgxsYQHGT9HYadjLH56DLX/cxni5H
+         xVMIcja8ZoZv6YxRvVrY/Cy3dXCiNMvSnEkwkNvX3RWdI5CLqid/gn/m4uiO7yBI7KP3
+         ocOc7O4Gm3X0RrFvuRMnFpS343Fv57ar4b6EDYTFZipr9yxhpizbNleWk5hRcGPtEN7h
+         Tn0jpmw349vGSe4hrn+bTPdDSm7UTQwjLbuIGQ82qaQpW83YBDnkvHeGGnADn7kY0pDF
+         JdtnyTFl6swTbkRBQu1jJEPiMH2QT67VSDGg5G5TqXa35lmq0mk+2+oFh2H2GFAXfmPW
+         CLxQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RoAKb3CX0tDkDUpSWRTkTiTk/5lqpiT7FQmOTuvuGSA=;
-        b=6LmCKTdG/pfC0t94i9xTpLu2L3H6GHJmvelu3WDp6PkBeJfpOQaAWVQqIOcziYH9Y7
-         g6fchXe9Bcz67q79isdjbRamNVWKnH6+9ZgukAuQi1s/R/kRTPB3xGRPfpdi0qE2iccH
-         KGcLMswAYsA8FM28zDJxVEBonQEzJtTidVo8Dq3wfjkQhnDmZmGa+xCOTlo0+7A+ghVB
-         zGL637iUzonXIVC3cO1YOLFInKhPnEMI6Vz6K3CMWcOyI1HYaPcKQPj+exMdHiLRkDcX
-         aIJsaCiPUHazsbieL4z1stYFoUSHCrI+bmCTsCpHjSudtoHWECogh0aEqsQMPdFqrRWq
-         nc0A==
-X-Gm-Message-State: AO0yUKUISBfMM2Td1mcrxzz0npNZfwa4DU2U3Nsr55M+XUXBzBHfZVxz
-	UaTjhotC1CsSfSaqpsaVF2sDF+4X+zy+Pt1N
-X-Google-Smtp-Source: AK7set8+M9J86cok2juTnc9orRi3NfQtYIsumqtzqek8Dln1SF2WTi+/zg/T0SqAp2XFvw+PkgnMDw==
-X-Received: by 2002:adf:f6c5:0:b0:2c7:17b8:575b with SMTP id y5-20020adff6c5000000b002c717b8575bmr885176wrp.46.1677175641820;
-        Thu, 23 Feb 2023 10:07:21 -0800 (PST)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id o4-20020a5d6844000000b002c70e60abd4sm3299606wrw.2.2023.02.23.10.07.21
+         :subject:cc:to:from:date:sender:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=KqaReXDUZ6RSuPnkPc3Zr3BCXFW8JQnRugjPygUU3Zo=;
+        b=ZxGJ1quDkNc32dXMDmgoQp5l231NaoLSxzQ90pw/lH1/RxUm70njx3VFcyZ3NfkCMW
+         hsP99TEZ03LefQgxDha/nAXkOx+SPVRuV8AJDtmelxiEd1ICjGpF9mNj6tHdnCp36iqW
+         1eTF7JSY37S2iuD3jz8XXw8FhgXID1icYFR4EN9f3WahHjmC6MLLMJC9A1tIKVna6XDs
+         SXVMdlclx474GTPU7HEaHDBTrlrvbB41NtzQLUtI3sSe14BEvJo3pxeKel2741Mf4hQe
+         FzywITMIww77iBSTz2cDWjeyGherTmPdARSF1Ba4A4aBCF5OVps3r83y2QEdb8yMeXXC
+         /lxA==
+X-Gm-Message-State: AO0yUKU0s23rHUCO/MAka4MvMq55Zgk8GkpadE4A8u865l5ZchHAU/07
+	BN311BvjUll+Ngl5XY/Wq2Q=
+X-Google-Smtp-Source: AK7set89ESDqURyBGkcDKv0T06SviKnWXnA60W24VArgDS2JHZE+6zExlHNF4D6xALUY2qbMH5SvYA==
+X-Received: by 2002:a05:6e02:1d87:b0:316:b0b2:beff with SMTP id h7-20020a056e021d8700b00316b0b2beffmr13004998ila.4.1677176624254;
+        Thu, 23 Feb 2023 10:23:44 -0800 (PST)
+Received: from server.roeck-us.net ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
+        by smtp.gmail.com with ESMTPSA id q28-20020a02cf1c000000b003c4f35c21absm3791473jar.137.2023.02.23.10.23.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Feb 2023 10:07:21 -0800 (PST)
-Date: Thu, 23 Feb 2023 19:07:20 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Sia Jee Heng <jeeheng.sia@starfivetech.com>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	leyfoon.tan@starfivetech.com, mason.huo@starfivetech.com
-Subject: Re: [PATCH v4 4/4] RISC-V: Add arch functions to support
- hibernation/suspend-to-disk
-Message-ID: <20230223180720.55fgbxzlx6xvzgms@orel>
-References: <20230221023523.1498500-1-jeeheng.sia@starfivetech.com>
- <20230221023523.1498500-5-jeeheng.sia@starfivetech.com>
+        Thu, 23 Feb 2023 10:23:43 -0800 (PST)
+Date: Thu, 23 Feb 2023 10:23:41 -0800
+From: Guenter Roeck <linux@roeck-us.net>
+To: Xingyu Wu <xingyu.wu@starfivetech.com>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-watchdog@vger.kernel.org,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Samin Guo <samin.guo@starfivetech.com>,
+	linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>
+Subject: Re: [PATCH v3 2/2] drivers: watchdog: Add StarFive Watchdog driver
+Message-ID: <20230223182341.GA200380@roeck-us.net>
+References: <20230220081926.267695-1-xingyu.wu@starfivetech.com>
+ <20230220081926.267695-3-xingyu.wu@starfivetech.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230221023523.1498500-5-jeeheng.sia@starfivetech.com>
+In-Reply-To: <20230220081926.267695-3-xingyu.wu@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230223_100727_072462_434694FA 
-X-CRM114-Status: GOOD (  42.22  )
+X-CRM114-CacheID: sfid-20230223_102346_383514_042DAD96 
+X-CRM114-Status: GOOD (  36.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,723 +100,785 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 21, 2023 at 10:35:23AM +0800, Sia Jee Heng wrote:
-> Low level Arch functions were created to support hibernation.
-> swsusp_arch_suspend() relies code from __cpu_suspend_enter() to write
-> cpu state onto the stack, then calling swsusp_save() to save the memory
-> image.
+On Mon, Feb 20, 2023 at 04:19:26PM +0800, Xingyu Wu wrote:
+> Add watchdog driver for the StarFive JH7110 SoC.
 > 
-> Arch specific hibernation header is implemented and is utilized by the
-> arch_hibernation_header_restore() and arch_hibernation_header_save()
-> functions. The arch specific hibernation header consists of satp, hartid,
-> and the cpu_resume address. The kernel built version is also need to be
-> saved into the hibernation image header to making sure only the same
-> kernel is restore when resume.
-> 
-> swsusp_arch_resume() creates a temporary page table that covering only
-> the linear map. It copies the restore code to a 'safe' page, then start
-> to restore the memory image. Once completed, it restores the original
-> kernel's page table. It then calls into __hibernate_cpu_resume()
-> to restore the CPU context. Finally, it follows the normal hibernation
-> path back to the hibernation core.
-> 
-> To enable hibernation/suspend to disk into RISCV, the below config
-> need to be enabled:
-> - CONFIG_ARCH_HIBERNATION_HEADER
-> - CONFIG_ARCH_HIBERNATION_POSSIBLE
-> 
-> Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
-> Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
-> Reviewed-by: Mason Huo <mason.huo@starfivetech.com>
+> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
 > ---
->  arch/riscv/Kconfig                 |   7 +
->  arch/riscv/include/asm/assembler.h |  20 ++
->  arch/riscv/include/asm/suspend.h   |  19 ++
->  arch/riscv/kernel/Makefile         |   1 +
->  arch/riscv/kernel/asm-offsets.c    |   5 +
->  arch/riscv/kernel/hibernate-asm.S  |  77 +++++
->  arch/riscv/kernel/hibernate.c      | 447 +++++++++++++++++++++++++++++
->  7 files changed, 576 insertions(+)
->  create mode 100644 arch/riscv/kernel/hibernate-asm.S
->  create mode 100644 arch/riscv/kernel/hibernate.c
+>  MAINTAINERS                     |   7 +
+>  drivers/watchdog/Kconfig        |   9 +
+>  drivers/watchdog/Makefile       |   2 +
+>  drivers/watchdog/starfive-wdt.c | 651 ++++++++++++++++++++++++++++++++
+>  4 files changed, 669 insertions(+)
+>  create mode 100644 drivers/watchdog/starfive-wdt.c
 > 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index e2b656043abf..4555848a817f 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -690,6 +690,13 @@ menu "Power management options"
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 135d93368d36..6cbcf08fa76a 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -19933,6 +19933,13 @@ F:	Documentation/devicetree/bindings/reset/starfive,jh7100-reset.yaml
+>  F:	drivers/reset/reset-starfive-jh7100.c
+>  F:	include/dt-bindings/reset/starfive-jh7100.h
 >  
->  source "kernel/power/Kconfig"
+> +STARFIVE JH7110 WATCHDOG DRIVER
+> +M:	Xingyu Wu <xingyu.wu@starfivetech.com>
+> +M:	Samin Guo <samin.guo@starfivetech.com>
+> +S:	Supported
+> +F:	Documentation/devicetree/bindings/watchdog/starfive*
+> +F:	drivers/watchdog/starfive-wdt.c
+> +
+>  STATIC BRANCH/CALL
+>  M:	Peter Zijlstra <peterz@infradead.org>
+>  M:	Josh Poimboeuf <jpoimboe@kernel.org>
+> diff --git a/drivers/watchdog/Kconfig b/drivers/watchdog/Kconfig
+> index 0bc40b763b06..4608eb5c9501 100644
+> --- a/drivers/watchdog/Kconfig
+> +++ b/drivers/watchdog/Kconfig
+> @@ -2089,6 +2089,15 @@ config UML_WATCHDOG
+>  	tristate "UML watchdog"
+>  	depends on UML || COMPILE_TEST
 >  
-> +config ARCH_HIBERNATION_POSSIBLE
-> +	def_bool y
+> +config STARFIVE_WATCHDOG
+> +	tristate "StarFive Watchdog support"
+> +	depends on RISCV
+> +	select WATCHDOG_CORE
+> +	default SOC_STARFIVE
+> +	help
+> +	  Say Y here to support the watchdog of StarFive JH7110 SoC.
+> +	  This driver can also be built as a module if choose M.
 > +
-> +config ARCH_HIBERNATION_HEADER
-> +	def_bool y
-> +	depends on HIBERNATION
-
-nit: I think this can be simplified as def_bool HIBERNATION
-
-> +
->  endmenu # "Power management options"
+>  #
+>  # ISA-based Watchdog Cards
+>  #
+> diff --git a/drivers/watchdog/Makefile b/drivers/watchdog/Makefile
+> index 9cbf6580f16c..4c0bd377e92a 100644
+> --- a/drivers/watchdog/Makefile
+> +++ b/drivers/watchdog/Makefile
+> @@ -211,6 +211,8 @@ obj-$(CONFIG_WATCHDOG_SUN4V)		+= sun4v_wdt.o
+>  # Xen
+>  obj-$(CONFIG_XEN_WDT) += xen_wdt.o
 >  
->  menu "CPU Power Management"
-> diff --git a/arch/riscv/include/asm/assembler.h b/arch/riscv/include/asm/assembler.h
-> index 727a97735493..68c46c0e0ea8 100644
-> --- a/arch/riscv/include/asm/assembler.h
-> +++ b/arch/riscv/include/asm/assembler.h
-> @@ -59,4 +59,24 @@
->  		REG_L	s11, (SUSPEND_CONTEXT_REGS + PT_S11)(a0)
->  	.endm
->  
-> +/*
-> + * copy_page - copy 1 page (4KB) of data from source to destination
-> + * @a0 - destination
-> + * @a1 - source
-> + */
-> +	.macro	copy_page a0, a1
-> +		lui	a2, 0x1
-> +		add	a2, a2, a0
-> +1 :
-    ^ please remove this space
-
-> +		REG_L	t0, 0(a1)
-> +		REG_L	t1, SZREG(a1)
+> +obj-$(CONFIG_STARFIVE_WATCHDOG) += starfive-wdt.o
 > +
-> +		REG_S	t0, 0(a0)
-> +		REG_S	t1, SZREG(a0)
-> +
-> +		addi	a0, a0, 2 * SZREG
-> +		addi	a1, a1, 2 * SZREG
-> +		bne	a2, a0, 1b
-> +	.endm
-> +
->  #endif	/* __ASM_ASSEMBLER_H */
-> diff --git a/arch/riscv/include/asm/suspend.h b/arch/riscv/include/asm/suspend.h
-> index 75419c5ca272..3362da56a9d8 100644
-> --- a/arch/riscv/include/asm/suspend.h
-> +++ b/arch/riscv/include/asm/suspend.h
-> @@ -21,6 +21,11 @@ struct suspend_context {
->  #endif
->  };
->  
-> +/*
-> + * Used by hibernation core and cleared during resume sequence
-> + */
-> +extern int in_suspend;
-> +
->  /* Low-level CPU suspend entry function */
->  int __cpu_suspend_enter(struct suspend_context *context);
->  
-> @@ -36,4 +41,18 @@ int __cpu_resume_enter(unsigned long hartid, unsigned long context);
->  /* Used to save and restore the csr */
->  void suspend_save_csrs(struct suspend_context *context);
->  void suspend_restore_csrs(struct suspend_context *context);
-> +
-> +/* Low-level API to support hibernation */
-> +int swsusp_arch_suspend(void);
-> +int swsusp_arch_resume(void);
-> +int arch_hibernation_header_save(void *addr, unsigned int max_size);
-> +int arch_hibernation_header_restore(void *addr);
-> +int __hibernate_cpu_resume(void);
-> +
-> +/* Used to resume on the CPU we hibernated on */
-> +int hibernate_resume_nonboot_cpu_disable(void);
-> +
-> +asmlinkage void hibernate_restore_image(unsigned long resume_satp, unsigned long satp_temp,
-> +					unsigned long cpu_resume);
-> +asmlinkage int hibernate_core_restore_code(void);
->  #endif
-> diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-> index 4cf303a779ab..daab341d55e4 100644
-> --- a/arch/riscv/kernel/Makefile
-> +++ b/arch/riscv/kernel/Makefile
-> @@ -64,6 +64,7 @@ obj-$(CONFIG_MODULES)		+= module.o
->  obj-$(CONFIG_MODULE_SECTIONS)	+= module-sections.o
->  
->  obj-$(CONFIG_CPU_PM)		+= suspend_entry.o suspend.o
-> +obj-$(CONFIG_HIBERNATION)	+= hibernate.o hibernate-asm.o
->  
->  obj-$(CONFIG_FUNCTION_TRACER)	+= mcount.o ftrace.o
->  obj-$(CONFIG_DYNAMIC_FTRACE)	+= mcount-dyn.o
-> diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
-> index df9444397908..d6a75aac1d27 100644
-> --- a/arch/riscv/kernel/asm-offsets.c
-> +++ b/arch/riscv/kernel/asm-offsets.c
-> @@ -9,6 +9,7 @@
->  #include <linux/kbuild.h>
->  #include <linux/mm.h>
->  #include <linux/sched.h>
-> +#include <linux/suspend.h>
->  #include <asm/kvm_host.h>
->  #include <asm/thread_info.h>
->  #include <asm/ptrace.h>
-> @@ -116,6 +117,10 @@ void asm_offsets(void)
->  
->  	OFFSET(SUSPEND_CONTEXT_REGS, suspend_context, regs);
->  
-> +	OFFSET(HIBERN_PBE_ADDR, pbe, address);
-> +	OFFSET(HIBERN_PBE_ORIG, pbe, orig_address);
-> +	OFFSET(HIBERN_PBE_NEXT, pbe, next);
-> +
->  	OFFSET(KVM_ARCH_GUEST_ZERO, kvm_vcpu_arch, guest_context.zero);
->  	OFFSET(KVM_ARCH_GUEST_RA, kvm_vcpu_arch, guest_context.ra);
->  	OFFSET(KVM_ARCH_GUEST_SP, kvm_vcpu_arch, guest_context.sp);
-> diff --git a/arch/riscv/kernel/hibernate-asm.S b/arch/riscv/kernel/hibernate-asm.S
+>  # Architecture Independent
+>  obj-$(CONFIG_BD957XMUF_WATCHDOG) += bd9576_wdt.o
+>  obj-$(CONFIG_DA9052_WATCHDOG) += da9052_wdt.o
+> diff --git a/drivers/watchdog/starfive-wdt.c b/drivers/watchdog/starfive-wdt.c
 > new file mode 100644
-> index 000000000000..846affe4dced
+> index 000000000000..dfbb80406076
 > --- /dev/null
-> +++ b/arch/riscv/kernel/hibernate-asm.S
-> @@ -0,0 +1,77 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +++ b/drivers/watchdog/starfive-wdt.c
+> @@ -0,0 +1,651 @@
+> +// SPDX-License-Identifier: GPL-2.0
 > +/*
-> + * Hibernation low level support for RISCV.
+> + * Starfive Watchdog driver
 > + *
-> + * Copyright (C) 2023 StarFive Technology Co., Ltd.
-> + *
-> + * Author: Jee Heng Sia <jeeheng.sia@starfivetech.com>
+> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
 > + */
 > +
-> +#include <asm/asm.h>
-> +#include <asm/asm-offsets.h>
-> +#include <asm/assembler.h>
-> +#include <asm/csr.h>
+> +#include <linux/clk.h>
+> +#include <linux/iopoll.h>
+> +#include <linux/module.h>
+> +#include <linux/of_device.h>
+> +#include <linux/pm_runtime.h>
+> +#include <linux/reset.h>
+> +#include <linux/watchdog.h>
 > +
-> +#include <linux/linkage.h>
-> +
-> +/*
-> + * int __hibernate_cpu_resume(void)
-> + * Switch back to the hibernated image's page table prior to restoring the CPU
-> + * context.
-> + *
-> + * Always returns 0
-> + */
-> +ENTRY(__hibernate_cpu_resume)
-> +	/* switch to hibernated image's page table. */
-> +	csrw CSR_SATP, s0
-> +	sfence.vma
-> +
-> +	REG_L	a0, hibernate_cpu_context
-> +
-> +	restore_csr
-> +	restore_reg
-> +
-> +	/* Return zero value. */
-> +	add	a0, zero, zero
+> +/* JH7110 WatchDog register define */
+> +#define STARFIVE_WDT_JH7110_LOAD	0x000	/* RW: Watchdog load register */
+> +#define STARFIVE_WDT_JH7110_VALUE	0x004	/* RO: The current value for the watchdog counter */
+> +#define STARFIVE_WDT_JH7110_CONTROL	0x008	/*
+> +						 * RW:
+> +						 * [0]: reset enable;
+> +						 * [1]: int enable/wdt enable/reload counter;
+> +						 * [31:2]: reserve.
 
-nit: mv a0, zero
+reserved
 
-> +
-> +	ret
-> +END(__hibernate_cpu_resume)
-> +
-> +/*
-> + * Prepare to restore the image.
-> + * a0: satp of saved page tables.
-> + * a1: satp of temporary page tables.
-> + * a2: cpu_resume.
-> + */
-> +ENTRY(hibernate_restore_image)
-> +	mv	s0, a0
-> +	mv	s1, a1
-> +	mv	s2, a2
-> +	REG_L	s4, restore_pblist
-> +	REG_L	a1, relocated_restore_code
-> +
-> +	jalr	a1
-> +END(hibernate_restore_image)
-> +
-> +/*
-> + * The below code will be executed from a 'safe' page.
-> + * It first switches to the temporary page table, then starts to copy the pages
-> + * back to the original memory location. Finally, it jumps to __hibernate_cpu_resume()
-> + * to restore the CPU context.
-> + */
-> +ENTRY(hibernate_core_restore_code)
-> +	/* switch to temp page table. */
-> +	csrw satp, s1
-> +	sfence.vma
-> +.Lcopy:
-> +	/* The below code will restore the hibernated image. */
-> +	REG_L	a1, HIBERN_PBE_ADDR(s4)
-> +	REG_L	a0, HIBERN_PBE_ORIG(s4)
+> +						 */
+> +#define STARFIVE_WDT_JH7110_INTCLR	0x00c	/* WO: clear intterupt && reload the counter */
+> +#define STARFIVE_WDT_JH7110_RIS		0x010	/* RO: Raw interrupt status from the counter */
+> +#define STARFIVE_WDT_JH7110_IMS		0x014	/* RO: Enabled interrupt status from the counter */
+> +#define STARFIVE_WDT_JH7110_LOCK	0xc00	/*
+> +						 * RO: Enable write access to all other registers
+> +						 * by writing 0x1ACCE551.
+> +						 */
 
-Are we sure restore_pblist will never be NULL?
+"RO" contradicts itself against the rest of the comment. The register is
+written to, so it can't bew RO.
 
 > +
-> +	copy_page a0, a1
+> +/* WDOGCONTROL */
+> +#define STARFIVE_WDT_ENABLE			0x1
+> +#define STARFIVE_WDT_JH7110_EN_SHIFT		0
+> +#define STARFIVE_WDT_RESET_EN			0x1
+> +#define STARFIVE_WDT_JH7110_RESEN_SHIFT		1
 > +
-> +	REG_L	s4, HIBERN_PBE_NEXT(s4)
-> +	bnez	s4, .Lcopy
+> +/* WDOGLOCK */
+> +#define STARFIVE_WDT_LOCKED			BIT(0)
+> +#define STARFIVE_WDT_JH7110_UNLOCK_KEY		0x1acce551
 > +
-> +	jalr	s2
-> +END(hibernate_core_restore_code)
-> diff --git a/arch/riscv/kernel/hibernate.c b/arch/riscv/kernel/hibernate.c
-> new file mode 100644
-> index 000000000000..46a2f470db6e
-> --- /dev/null
-> +++ b/arch/riscv/kernel/hibernate.c
-> @@ -0,0 +1,447 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Hibernation support for RISCV
-> + *
-> + * Copyright (C) 2023 StarFive Technology Co., Ltd.
-> + *
-> + * Author: Jee Heng Sia <jeeheng.sia@starfivetech.com>
-> + */
+> +/* WDOGINTCLR */
+> +#define STARFIVE_WDT_INTCLR			0x1
 > +
-> +#include <asm/barrier.h>
-> +#include <asm/cacheflush.h>
-> +#include <asm/mmu_context.h>
-> +#include <asm/page.h>
-> +#include <asm/pgalloc.h>
-> +#include <asm/pgtable.h>
-> +#include <asm/sections.h>
-> +#include <asm/set_memory.h>
-> +#include <asm/smp.h>
-> +#include <asm/suspend.h>
+> +#define STARFIVE_WDT_MAXCNT			0xffffffff
+> +#define STARFIVE_WDT_DEFAULT_TIME		(15)
+> +#define STARFIVE_WDT_DELAY_US			0
+> +#define STARFIVE_WDT_TIMEOUT_US			10000
 > +
-> +#include <linux/cpu.h>
-> +#include <linux/memblock.h>
-> +#include <linux/pm.h>
-> +#include <linux/sched.h>
-> +#include <linux/suspend.h>
-> +#include <linux/utsname.h>
+> +/* module parameter */
+> +#define STARFIVE_WDT_EARLY_ENA			0
 > +
-> +/* The logical cpu number we should resume on, initialised to a non-cpu number. */
-> +static int sleep_cpu = -EINVAL;
+> +static bool nowayout = WATCHDOG_NOWAYOUT;
+> +static int heartbeat;
+> +static int early_enable = STARFIVE_WDT_EARLY_ENA;
 > +
-> +/* Pointer to the temporary resume page table. */
-> +static pgd_t *resume_pg_dir;
+> +module_param(heartbeat, int, 0);
+> +module_param(early_enable, int, 0);
+> +module_param(nowayout, bool, 0);
 > +
-> +/* CPU context to be saved. */
-> +struct suspend_context *hibernate_cpu_context;
-> +EXPORT_SYMBOL_GPL(hibernate_cpu_context);
+> +MODULE_PARM_DESC(heartbeat, "Watchdog heartbeat in seconds. (default="
+> +		 __MODULE_STRING(STARFIVE_WDT_DEFAULT_TIME) ")");
+> +MODULE_PARM_DESC(early_enable,
+> +		 "Watchdog is started at boot time if set to 1, default="
+> +		 __MODULE_STRING(STARFIVE_WDT_EARLY_ENA));
+> +MODULE_PARM_DESC(nowayout, "Watchdog cannot be stopped once started (default="
+> +		 __MODULE_STRING(WATCHDOG_NOWAYOUT) ")");
 > +
-> +unsigned long relocated_restore_code;
-> +EXPORT_SYMBOL_GPL(relocated_restore_code);
-> +
-> +/**
-> + * struct arch_hibernate_hdr_invariants - container to store kernel build version.
-> + * @uts_version: to save the build number and date so that the we do not resume with
-> + *		a different kernel.
-> + */
-> +struct arch_hibernate_hdr_invariants {
-> +	char		uts_version[__NEW_UTS_LEN + 1];
+> +struct starfive_wdt_variant {
+> +	u32 control;
+> +	u32 load;
+> +	u32 enable;
+> +	u32 value;
+> +	u32 int_clr;
+> +	u32 unlock;
+> +	u32 unlock_key;
+> +	u32 irq_is_raise;
+> +	u8 enrst_shift;
+> +	u8 en_shift;
 > +};
 > +
-> +/**
-> + * struct arch_hibernate_hdr - helper parameters that help us to restore the image.
-> + * @invariants: container to store kernel build version.
-> + * @hartid: to make sure same boot_cpu executes the hibernate/restore code.
-> + * @saved_satp: original page table used by the hibernated image.
-> + * @restore_cpu_addr: the kernel's image address to restore the CPU context.
-> + */
-> +static struct arch_hibernate_hdr {
-> +	struct arch_hibernate_hdr_invariants invariants;
-> +	unsigned long	hartid;
-> +	unsigned long	saved_satp;
-> +	unsigned long	restore_cpu_addr;
-> +} resume_hdr;
+> +struct starfive_wdt {
+> +	unsigned long freq;
+> +	struct device *dev;
+> +	struct watchdog_device wdt_device;
+> +	struct clk *core_clk;
+> +	struct clk *apb_clk;
+> +	struct reset_control *rsts;
+> +	const struct starfive_wdt_variant *drv_data;
+> +	u32 count;	/*count of timeout*/
+> +	u32 reload;	/*restore the count*/
+> +	void __iomem *base;
+> +	spinlock_t lock;	/* spinlock for register handling */
+> +};
 > +
-> +static inline void arch_hdr_invariants(struct arch_hibernate_hdr_invariants *i)
+> +/* Register bias in JH7110 */
+> +static const struct starfive_wdt_variant drv_data_jh7110 = {
+> +	.control = STARFIVE_WDT_JH7110_CONTROL,
+> +	.load = STARFIVE_WDT_JH7110_LOAD,
+> +	.enable = STARFIVE_WDT_JH7110_CONTROL,
+> +	.value = STARFIVE_WDT_JH7110_VALUE,
+> +	.int_clr = STARFIVE_WDT_JH7110_INTCLR,
+> +	.unlock = STARFIVE_WDT_JH7110_LOCK,
+> +	.unlock_key = STARFIVE_WDT_JH7110_UNLOCK_KEY,
+> +	.irq_is_raise = STARFIVE_WDT_JH7110_IMS,
+> +	.enrst_shift = STARFIVE_WDT_JH7110_RESEN_SHIFT,
+> +	.en_shift = STARFIVE_WDT_JH7110_EN_SHIFT,
+> +};
+> +
+> +static const struct of_device_id starfive_wdt_match[] = {
+> +	{ .compatible = "starfive,jh7110-wdt", .data = &drv_data_jh7110 },
+> +	{}
+> +};
+> +MODULE_DEVICE_TABLE(of, starfive_wdt_match);
+> +
+> +static const struct platform_device_id starfive_wdt_ids[] = {
+> +	{
+> +		.name = "starfive-jh7110-wdt",
+> +		.driver_data = (unsigned long)&drv_data_jh7110,
+> +	},
+> +	{}
+> +};
+> +MODULE_DEVICE_TABLE(platform, starfive_wdt_ids);
+> +
+> +static int starfive_wdt_get_clock_rate(struct starfive_wdt *wdt)
 > +{
-> +	memset(i, 0, sizeof(*i));
-> +	memcpy(i->uts_version, init_utsname()->version, sizeof(i->uts_version));
+> +	wdt->freq = clk_get_rate(wdt->core_clk);
+> +	/* The clock rate should not be 0.*/
+
+This is obvious and not worth a comment.
+
+> +	if (wdt->freq)
+> +		return 0;
+> +
+> +	dev_err(wdt->dev, "get clock rate failed.\n");
+> +	return -ENOENT;
+
+Error handling should come first
+
+	if (!wdt->freq) {
+		dev_err(wdt->dev, "get clock rate failed.\n");
+		return -EINVAL;
+	}
+	return 0;
+
+This is not "No such file or directory" (yes, I see that other drivers
+do that, but that doesn't make it better). Use -EINVAL instead.
+
 > +}
 > +
-> +/*
-> + * Check if the given pfn is in the 'nosave' section.
-> + */
-> +int pfn_is_nosave(unsigned long pfn)
+> +static int starfive_wdt_get_clock(struct starfive_wdt *wdt)
 > +{
-> +	unsigned long nosave_begin_pfn = sym_to_pfn(&__nosave_begin);
-> +	unsigned long nosave_end_pfn = sym_to_pfn(&__nosave_end - 1);
+> +	wdt->apb_clk = devm_clk_get(wdt->dev, "apb");
+> +	if (IS_ERR(wdt->apb_clk)) {
+> +		dev_err(wdt->dev, "failed to get apb clock.\n");
+> +		return PTR_ERR(wdt->apb_clk);
+> +	}
 > +
-> +	return ((pfn >= nosave_begin_pfn) && (pfn <= nosave_end_pfn));
-> +}
-> +
-> +void notrace save_processor_state(void)
-> +{
-> +	WARN_ON(num_online_cpus() != 1);
-> +}
-> +
-> +void notrace restore_processor_state(void)
-> +{
-> +}
-> +
-> +/*
-> + * Helper parameters need to be saved to the hibernation image header.
-> + */
-> +int arch_hibernation_header_save(void *addr, unsigned int max_size)
-> +{
-> +	struct arch_hibernate_hdr *hdr = addr;
-> +
-> +	if (max_size < sizeof(*hdr))
-> +		return -EOVERFLOW;
-> +
-> +	arch_hdr_invariants(&hdr->invariants);
-> +
-> +	hdr->hartid = cpuid_to_hartid_map(sleep_cpu);
-> +	hdr->saved_satp = csr_read(CSR_SATP);
-> +	hdr->restore_cpu_addr = (unsigned long)__hibernate_cpu_resume;
+> +	wdt->core_clk = devm_clk_get(wdt->dev, "core");
+> +	if (IS_ERR(wdt->core_clk)) {
+> +		dev_err(wdt->dev, "failed to get core clock.\n");
+> +		return PTR_ERR(wdt->core_clk);
+> +	}
 > +
 > +	return 0;
 > +}
-> +EXPORT_SYMBOL_GPL(arch_hibernation_header_save);
 > +
-> +/*
-> + * Retrieve the helper parameters from the hibernation image header.
-> + */
-> +int arch_hibernation_header_restore(void *addr)
-> +{
-> +	struct arch_hibernate_hdr_invariants invariants;
-> +	struct arch_hibernate_hdr *hdr = addr;
-> +	int ret = 0;
-> +
-> +	arch_hdr_invariants(&invariants);
-> +
-> +	if (memcmp(&hdr->invariants, &invariants, sizeof(invariants))) {
-> +		pr_crit("Hibernate image not generated by this kernel!\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	sleep_cpu = riscv_hartid_to_cpuid(hdr->hartid);
-> +	if (sleep_cpu < 0) {
-> +		pr_crit("Hibernated on a CPU not known to this kernel!\n");
-> +		sleep_cpu = -EINVAL;
-> +		return -EINVAL;
-> +	}
-> +
-> +#ifdef CONFIG_SMP
-> +	ret = bringup_hibernate_cpu(sleep_cpu);
-> +	if (ret) {
-> +		sleep_cpu = -EINVAL;
-> +		return ret;
-> +	}
-> +#endif
-> +	resume_hdr = *hdr;
-> +
-> +	return ret;
-> +}
-> +EXPORT_SYMBOL_GPL(arch_hibernation_header_restore);
-> +
-> +int swsusp_arch_suspend(void)
+> +static int starfive_wdt_reset_init(struct starfive_wdt *wdt)
 > +{
 > +	int ret = 0;
 > +
-> +	if (__cpu_suspend_enter(hibernate_cpu_context)) {
-> +		sleep_cpu = smp_processor_id();
-> +		suspend_save_csrs(hibernate_cpu_context);
-> +		ret = swsusp_save();
+> +	wdt->rsts = devm_reset_control_array_get_exclusive(wdt->dev);
+> +	if (IS_ERR(wdt->rsts)) {
+> +		dev_err(wdt->dev, "failed to get rsts error.\n");
+
+I don't think this message is understandable. "failed to get reset
+control", maybe. Also, the call may return -EPROBE_DEFER,
+which should not generate an error message. Either drop the message
+or use dev_err_probe().
+
+> +		ret = PTR_ERR(wdt->rsts);
 > +	} else {
-> +		suspend_restore_csrs(hibernate_cpu_context);
-> +		flush_tlb_all();
-> +		flush_icache_all();
-> +
-> +		/*
-> +		 * Tell the hibernation core that we've just restored the memory.
-> +		 */
-> +		in_suspend = 0;
-> +		sleep_cpu = -EINVAL;
+> +		ret = reset_control_deassert(wdt->rsts);
+> +		if (ret)
+> +			dev_err(wdt->dev, "failed to deassert rsts.\n");
 > +	}
 > +
 > +	return ret;
 > +}
 > +
-> +static unsigned long _temp_pgtable_map_pte(pte_t *dst_ptep, pte_t *src_ptep,
-> +					   unsigned long addr, pgprot_t prot)
+> +static u32 starfive_wdt_ticks_to_sec(struct starfive_wdt *wdt, u32 ticks)
 > +{
-> +	pte_t pte = READ_ONCE(*src_ptep);
+> +	return DIV_ROUND_CLOSEST(ticks, wdt->freq);
+> +}
 > +
-> +	if (pte_present(pte))
-> +		set_pte(dst_ptep, __pte(pte_val(pte) | pgprot_val(prot)));
+> +/*
+> + * Write unlock-key to unlock. Write other value to lock. When lock bit is 1,
+> + * external accesses to other watchdog registers are ignored.
+> + */
+> +static bool starfive_wdt_is_locked(struct starfive_wdt *wdt)
+> +{
+> +	u32 val;
+> +
+> +	val = readl(wdt->base + wdt->drv_data->unlock);
+> +	return !!(val & STARFIVE_WDT_LOCKED);
+> +}
+> +
+> +static void starfive_wdt_unlock(struct starfive_wdt *wdt)
+> +{
+> +	if (starfive_wdt_is_locked(wdt))
+> +		writel(wdt->drv_data->unlock_key,
+> +		       wdt->base + wdt->drv_data->unlock);
+> +}
+> +
+> +static void starfive_wdt_lock(struct starfive_wdt *wdt)
+> +{
+> +	if (!starfive_wdt_is_locked(wdt))
+> +		writel(~wdt->drv_data->unlock_key,
+> +		       wdt->base + wdt->drv_data->unlock);
+> +}
+> +
+> +/* enable watchdog interrupt to reset/reboot */
+> +static void starfive_wdt_enable_reset(struct starfive_wdt *wdt)
+> +{
+> +	u32 val;
+> +
+> +	val = readl(wdt->base + wdt->drv_data->control);
+> +	val |= STARFIVE_WDT_RESET_EN << wdt->drv_data->enrst_shift;
+> +	writel(val, wdt->base + wdt->drv_data->control);
+> +}
+> +
+> +/* disable watchdog interrupt to reset/reboot */
+> +static void starfive_wdt_disable_reset(struct starfive_wdt *wdt)
+> +{
+> +	u32 val;
+> +
+> +	val = readl(wdt->base + wdt->drv_data->control);
+> +	val &= ~(STARFIVE_WDT_RESET_EN << wdt->drv_data->enrst_shift);
+> +	writel(val, wdt->base + wdt->drv_data->control);
+> +}
+> +
+> +/* interrupt status whether has been raised from the counter */
+> +static bool starfive_wdt_raise_irq_status(struct starfive_wdt *wdt)
+> +{
+> +	return !!readl(wdt->base + wdt->drv_data->irq_is_raise);
+> +}
+> +
+> +/* clear interrupt signal before initialization or reload */
+> +static void starfive_wdt_int_clr(struct starfive_wdt *wdt)
+> +{
+> +	writel(STARFIVE_WDT_INTCLR, wdt->base + wdt->drv_data->int_clr);
+> +}
+> +
+> +static inline void starfive_wdt_set_count(struct starfive_wdt *wdt, u32 val)
+> +{
+> +	writel(val, wdt->base + wdt->drv_data->load);
+> +}
+> +
+> +static inline u32 starfive_wdt_get_count(struct starfive_wdt *wdt)
+> +{
+> +	return readl(wdt->base + wdt->drv_data->value);
+> +}
+> +
+> +/* enable watchdog */
+> +static inline void starfive_wdt_enable(struct starfive_wdt *wdt)
+> +{
+> +	u32 val;
+> +
+> +	val = readl(wdt->base + wdt->drv_data->enable);
+> +	val |= STARFIVE_WDT_ENABLE << wdt->drv_data->en_shift;
+> +	writel(val, wdt->base + wdt->drv_data->enable);
+> +}
+> +
+> +/* disable watchdog */
+> +static inline void starfive_wdt_disable(struct starfive_wdt *wdt)
+> +{
+> +	u32 val;
+> +
+> +	val = readl(wdt->base + wdt->drv_data->enable);
+> +	val &= ~(STARFIVE_WDT_ENABLE << wdt->drv_data->en_shift);
+> +	writel(val, wdt->base + wdt->drv_data->enable);
+> +}
+> +
+> +static inline void starfive_wdt_set_reload_count(struct starfive_wdt *wdt, u32 count)
+> +{
+> +	starfive_wdt_set_count(wdt, count);
+> +	/* need enable controller to reload counter */
+> +	starfive_wdt_enable(wdt);
+> +}
+> +
+> +static unsigned int starfive_wdt_max_timeout(struct starfive_wdt *wdt)
+> +{
+> +	return DIV_ROUND_UP(STARFIVE_WDT_MAXCNT, (wdt->freq / 2)) - 1;
+> +}
+> +
+> +static unsigned int starfive_wdt_get_timeleft(struct watchdog_device *wdd)
+> +{
+> +	struct starfive_wdt *wdt = watchdog_get_drvdata(wdd);
+> +	u32 count;
+> +
+> +	starfive_wdt_unlock(wdt);
+> +	/*
+> +	 * Because set half count value,
+> +	 * timeleft value should add the count value before first timeout.
+> +	 */
+> +	count = starfive_wdt_get_count(wdt);
+> +	if (!starfive_wdt_raise_irq_status(wdt))
+> +		count += wdt->count;
+> +
+> +	starfive_wdt_lock(wdt);
+> +
+> +	return starfive_wdt_ticks_to_sec(wdt, count);
+> +}
+> +
+> +static int starfive_wdt_keepalive(struct watchdog_device *wdd)
+> +{
+> +	struct starfive_wdt *wdt = watchdog_get_drvdata(wdd);
+> +
+> +	spin_lock(&wdt->lock);
+> +
+> +	starfive_wdt_unlock(wdt);
+> +	starfive_wdt_int_clr(wdt);
+> +	starfive_wdt_set_reload_count(wdt, wdt->count);
+> +	starfive_wdt_lock(wdt);
+> +
+> +	spin_unlock(&wdt->lock);
 > +
 > +	return 0;
 > +}
 > +
-> +static unsigned long temp_pgtable_map_pte(pmd_t *dst_pmdp, pmd_t *src_pmdp,
-> +					  unsigned long start, unsigned long end,
-> +					  pgprot_t prot)
+> +static int starfive_wdt_stop(struct watchdog_device *wdd)
 > +{
-> +	unsigned long addr = start;
-> +	pte_t *src_ptep;
-> +	pte_t *dst_ptep;
+> +	struct starfive_wdt *wdt = watchdog_get_drvdata(wdd);
 > +
-> +	if (pmd_none(READ_ONCE(*dst_pmdp))) {
-> +		dst_ptep = (pte_t *)get_safe_page(GFP_ATOMIC);
-> +		if (!dst_ptep)
-> +			return -ENOMEM;
+> +	spin_lock(&wdt->lock);
 > +
-> +		pmd_populate_kernel(NULL, dst_pmdp, dst_ptep);
-> +	}
-> +
-> +	dst_ptep = pte_offset_kernel(dst_pmdp, start);
-> +	src_ptep = pte_offset_kernel(src_pmdp, start);
-> +
-> +	do {
-> +		_temp_pgtable_map_pte(dst_ptep, src_ptep, addr, prot);
+> +	starfive_wdt_unlock(wdt);
+> +	starfive_wdt_disable_reset(wdt);
 
-I think I'd rather have the body of _temp_pgtable_map_pte() here and drop
-the helper, because the helper does (pte_val(pte) | pgprot_val(prot))
-which looks strange, until seeing here that 'pte' is only the address
-bits, so OR'ing in new prot bits without clearing old prot bits makes
-sense.
+Is that necessary ? The watchdog is going to be stopped, after all.
 
-> +	} while (dst_ptep++, src_ptep++, addr += PAGE_SIZE, addr < end);
+> +	starfive_wdt_int_clr(wdt);
+> +	starfive_wdt_disable(wdt);
+> +	starfive_wdt_lock(wdt);
+> +
+> +	spin_unlock(&wdt->lock);
 > +
 > +	return 0;
 > +}
 > +
-> +static unsigned long temp_pgtable_map_pmd(pud_t *dst_pudp, pud_t *src_pudp,
-> +					  unsigned long start, unsigned long end,
-> +					  pgprot_t prot)
+> +static int starfive_wdt_pm_stop(struct watchdog_device *wdd)
 > +{
-> +	unsigned long addr = start;
-> +	unsigned long next;
-> +	unsigned long ret;
-> +	pmd_t *src_pmdp;
-> +	pmd_t *dst_pmdp;
+> +	struct starfive_wdt *wdt = watchdog_get_drvdata(wdd);
 > +
-> +	if (pud_none(READ_ONCE(*dst_pudp))) {
-> +		dst_pmdp = (pmd_t *)get_safe_page(GFP_ATOMIC);
-> +		if (!dst_pmdp)
-> +			return -ENOMEM;
+> +	starfive_wdt_stop(wdd);
+> +	pm_runtime_put_sync(wdt->dev);
 > +
-> +		pud_populate(NULL, dst_pudp, dst_pmdp);
+> +	return 0;
+> +}
+> +
+> +static int starfive_wdt_start(struct watchdog_device *wdd)
+> +{
+> +	struct starfive_wdt *wdt = watchdog_get_drvdata(wdd);
+> +
+> +	spin_lock(&wdt->lock);
+> +	starfive_wdt_unlock(wdt);
+> +	/* disable watchdog, to be safe */
+> +	starfive_wdt_disable(wdt);
+> +
+> +	starfive_wdt_enable_reset(wdt);
+> +	starfive_wdt_int_clr(wdt);
+> +	starfive_wdt_set_count(wdt, wdt->count);
+> +	starfive_wdt_enable(wdt);
+> +
+> +	starfive_wdt_lock(wdt);
+> +	spin_unlock(&wdt->lock);
+> +
+> +	return 0;
+> +}
+> +
+> +static int starfive_wdt_pm_start(struct watchdog_device *wdd)
+> +{
+> +	struct starfive_wdt *wdt = watchdog_get_drvdata(wdd);
+> +
+> +	pm_runtime_get_sync(wdt->dev);
+> +
+> +	return starfive_wdt_start(wdd);
+> +}
+> +
+> +static int starfive_wdt_set_timeout(struct watchdog_device *wdd,
+> +				    unsigned int timeout)
+> +{
+> +	struct starfive_wdt *wdt = watchdog_get_drvdata(wdd);
+> +	unsigned long freq = wdt->freq;
+> +
+> +	spin_lock(&wdt->lock);
+> +
+> +	/*
+> +	 * This watchdog takes twice timeouts to reset.
+> +	 * In order to reduce time to reset, should set half count value.
+> +	 */
+> +	wdt->count = timeout * freq / 2;
+> +	wdd->timeout = timeout;
+> +
+> +	starfive_wdt_unlock(wdt);
+> +	starfive_wdt_disable(wdt);
+> +	starfive_wdt_set_reload_count(wdt, wdt->count);
+> +	starfive_wdt_enable(wdt);
+> +	starfive_wdt_lock(wdt);
+> +
+> +	spin_unlock(&wdt->lock);
+> +
+> +	return 0;
+> +}
+> +
+> +#define OPTIONS (WDIOF_SETTIMEOUT | WDIOF_KEEPALIVEPING | WDIOF_MAGICCLOSE)
+> +
+> +static const struct watchdog_info starfive_wdt_ident = {
+> +	.options = OPTIONS,
+> +	.identity = "StarFive Watchdog",
+> +};
+> +
+> +static const struct watchdog_ops starfive_wdt_ops = {
+> +	.owner = THIS_MODULE,
+> +	.start = starfive_wdt_pm_start,
+> +	.stop = starfive_wdt_pm_stop,
+> +	.ping = starfive_wdt_keepalive,
+> +	.set_timeout = starfive_wdt_set_timeout,
+> +	.get_timeleft = starfive_wdt_get_timeleft,
+> +};
+> +
+> +static const struct watchdog_device starfive_wdd = {
+> +	.info = &starfive_wdt_ident,
+> +	.ops = &starfive_wdt_ops,
+> +	.timeout = STARFIVE_WDT_DEFAULT_TIME,
+> +};
+> +
+> +static inline const struct starfive_wdt_variant *
+> +starfive_wdt_get_drv_data(struct platform_device *pdev)
+> +{
+> +	const struct starfive_wdt_variant *variant;
+> +
+> +	variant = of_device_get_match_data(&pdev->dev);
+> +	if (!variant) {
+> +		/* Device matched by platform_device_id */
+> +		variant = (struct starfive_wdt_variant *)
+> +			   platform_get_device_id(pdev)->driver_data;
 > +	}
 > +
-> +	dst_pmdp = pmd_offset(dst_pudp, start);
-> +	src_pmdp = pmd_offset(src_pudp, start);
-> +
-> +	do {
-> +		pmd_t pmd = READ_ONCE(*src_pmdp);
-> +
-> +		next = pmd_addr_end(addr, end);
-> +
-> +		if (pmd_none(pmd))
-> +			continue;
-> +
-> +		if (pmd_leaf(pmd)) {
-> +			set_pmd(dst_pmdp, __pmd(pmd_val(pmd) | pgprot_val(prot)));
-> +		} else {
-> +			ret = temp_pgtable_map_pte(dst_pmdp, src_pmdp, addr, next, prot);
-> +			if (ret)
-> +				return -ENOMEM;
-> +		}
-> +	} while (dst_pmdp++, src_pmdp++, addr = next, addr != end);
-> +
-> +	return 0;
+> +	return variant;
 > +}
 > +
-> +static unsigned long temp_pgtable_map_pud(p4d_t *dst_p4dp, p4d_t *src_p4dp,
-> +					  unsigned long start,
-> +					  unsigned long end, pgprot_t prot)
+> +static int starfive_wdt_probe(struct platform_device *pdev)
 > +{
-> +	unsigned long addr = start;
-> +	unsigned long next;
-> +	unsigned long ret;
-> +	pud_t *dst_pudp;
-> +	pud_t *src_pudp;
+> +	struct device *dev = &pdev->dev;
+> +	struct starfive_wdt *wdt;
+> +	int ret;
 > +
-> +	if (p4d_none(READ_ONCE(*dst_p4dp))) {
-> +		dst_pudp = (pud_t *)get_safe_page(GFP_ATOMIC);
-> +		if (!dst_pudp)
-> +			return -ENOMEM;
-> +
-> +		p4d_populate(NULL, dst_p4dp, dst_pudp);
-> +	}
-> +
-> +	dst_pudp = pud_offset(dst_p4dp, start);
-> +	src_pudp = pud_offset(src_p4dp, start);
-> +
-> +	do {
-> +		pud_t pud = READ_ONCE(*src_pudp);
-> +
-> +		next = pud_addr_end(addr, end);
-> +
-> +		if (pud_none(pud))
-> +			continue;
-> +
-> +		if (pud_leaf(pud)) {
-> +			set_pud(dst_pudp, __pud(pud_val(pud) | pgprot_val(prot)));
-> +		} else {
-> +			ret = temp_pgtable_map_pmd(dst_pudp, src_pudp, addr, next, prot);
-> +			if (ret)
-> +				return -ENOMEM;
-> +		}
-> +	} while (dst_pudp++, src_pudp++, addr = next, addr != end);
-> +
-> +	return 0;
-> +}
-> +
-> +static unsigned long temp_pgtable_map_p4d(pgd_t *dst_pgdp, pgd_t *src_pgdp,
-> +					  unsigned long start, unsigned long end,
-> +					  pgprot_t prot)
-> +{
-> +	unsigned long addr = start;
-> +	unsigned long next;
-> +	unsigned long ret;
-> +	p4d_t *dst_p4dp;
-> +	p4d_t *src_p4dp;
-> +
-> +	if (pgd_none(READ_ONCE(*dst_pgdp))) {
-> +		dst_p4dp = (p4d_t *)get_safe_page(GFP_ATOMIC);
-> +		if (!dst_p4dp)
-> +			return -ENOMEM;
-> +
-> +		pgd_populate(NULL, dst_pgdp, dst_p4dp);
-> +	}
-> +
-> +	dst_p4dp = p4d_offset(dst_pgdp, start);
-> +	src_p4dp = p4d_offset(src_pgdp, start);
-> +
-> +	do {
-> +		p4d_t p4d = READ_ONCE(*src_p4dp);
-> +
-> +		next = p4d_addr_end(addr, end);
-> +
-> +		if (p4d_none(READ_ONCE(*src_p4dp)))
-> +			continue;
-> +
-> +		if (p4d_leaf(p4d)) {
-> +			set_p4d(dst_p4dp, __p4d(p4d_val(p4d) | pgprot_val(prot)));
-> +		} else {
-> +			ret = temp_pgtable_map_pud(dst_p4dp, src_p4dp, addr, next, prot);
-> +			if (ret)
-> +				return -ENOMEM;
-> +		}
-> +	} while (dst_p4dp++, src_p4dp++, addr = next, addr != end);
-> +
-> +	return 0;
-> +}
-> +
-> +static unsigned long temp_pgtable_mapping(pgd_t *pgdp)
-> +{
-> +	unsigned long end = (unsigned long)pfn_to_virt(max_low_pfn);
-> +	unsigned long addr = PAGE_OFFSET;
-> +	pgd_t *dst_pgdp = pgd_offset_pgd(pgdp, addr);
-> +	pgd_t *src_pgdp = pgd_offset_k(addr);
-> +	unsigned long next;
-> +
-> +	do {
-> +		next = pgd_addr_end(addr, end);
-> +		if (pgd_none(READ_ONCE(*src_pgdp)))
-> +			continue;
-> +
-> +		if (temp_pgtable_map_p4d(dst_pgdp, src_pgdp, addr, next, PAGE_KERNEL))
-> +			return -ENOMEM;
-> +	} while (dst_pgdp++, src_pgdp++, addr = next, addr != end);
-> +
-> +	return 0;
-> +}
-> +
-> +static unsigned long temp_pgtable_text_mapping(pgd_t *pgdp, unsigned long addr)
-> +{
-> +	pgd_t *dst_pgdp = pgd_offset_pgd(pgdp, addr);
-> +	pgd_t *src_pgdp = pgd_offset_k(addr);
-> +
-> +	if (pgd_none(READ_ONCE(*src_pgdp)))
-> +		return -EFAULT;
-> +
-> +	if (temp_pgtable_map_p4d(dst_pgdp, src_pgdp, addr, addr, PAGE_KERNEL_EXEC))
+> +	wdt = devm_kzalloc(dev, sizeof(*wdt), GFP_KERNEL);
+> +	if (!wdt)
 > +		return -ENOMEM;
 > +
-> +	return 0;
-> +}
+> +	wdt->dev = dev;
+> +	spin_lock_init(&wdt->lock);
+> +	wdt->wdt_device = starfive_wdd;
 > +
-> +static unsigned long relocate_restore_code(void)
-> +{
-> +	unsigned long ret;
-> +	void *page = (void *)get_safe_page(GFP_ATOMIC);
+> +	wdt->drv_data = starfive_wdt_get_drv_data(pdev);
 > +
-> +	if (!page)
-> +		return -ENOMEM;
+> +	/* get the memory region for the watchdog timer */
+> +	wdt->base = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(wdt->base)) {
+> +		ret = PTR_ERR(wdt->base);
+> +		return ret;
+> +	}
 > +
-> +	copy_page(page, hibernate_core_restore_code);
+> +	platform_set_drvdata(pdev, wdt);
+> +	pm_runtime_enable(wdt->dev);
 > +
-> +	/* Make the page containing the relocated code executable. */
-> +	set_memory_x((unsigned long)page, 1);
-> +
-> +	ret = temp_pgtable_text_mapping(resume_pg_dir, (unsigned long)page);
+> +	ret = starfive_wdt_get_clock(wdt);
 > +	if (ret)
 > +		return ret;
 > +
-> +	return (unsigned long)page;
-> +}
-> +
-> +int swsusp_arch_resume(void)
-> +{
-> +	unsigned long ret;
-> +
-> +	/*
-> +	 * Memory allocated by get_safe_page() will be dealt with by the hibernation core,
-> +	 * we don't need to free it here.
-> +	 */
-> +	resume_pg_dir = (pgd_t *)get_safe_page(GFP_ATOMIC);
-> +	if (!resume_pg_dir)
-> +		return -ENOMEM;
-> +
-> +	/*
-> +	 * The pages need to be writable when restoring the image.
-> +	 * Create a second copy of page table just for the linear map.
-> +	 * Use this temporary page table to restore the image.
-> +	 */
-> +	ret = temp_pgtable_mapping(resume_pg_dir);
-> +	if (ret)
-> +		return (int)ret;
-> +
-> +	/* Move the restore code to a new page so that it doesn't get overwritten by itself. */
-> +	relocated_restore_code = relocate_restore_code();
-> +	if (relocated_restore_code == -ENOMEM)
-> +		return -ENOMEM;
-> +
-> +	/*
-> +	 * Map the __hibernate_cpu_resume() address to the temporary page table so that the
-> +	 * restore code can jumps to it after finished restore the image. The next execution
-> +	 * code doesn't find itself in a different address space after switching over to the
-> +	 * original page table used by the hibernated image.
-> +	 */
-> +	ret = temp_pgtable_text_mapping(resume_pg_dir, (unsigned long)resume_hdr.restore_cpu_addr);
-> +	if (ret)
-> +		return ret;
-> +
-> +	hibernate_restore_image(resume_hdr.saved_satp, (PFN_DOWN(__pa(resume_pg_dir)) | satp_mode),
-> +				resume_hdr.restore_cpu_addr);
-> +
-> +	return 0;
-> +}
-> +
-> +#ifdef CONFIG_PM_SLEEP_SMP
-> +int hibernate_resume_nonboot_cpu_disable(void)
-> +{
-> +	if (sleep_cpu < 0) {
-> +		pr_err("Failing to resume from hibernate on an unknown CPU\n");
-> +		return -ENODEV;
+> +	if (pm_runtime_enabled(wdt->dev)) {
+> +		ret = pm_runtime_get_sync(wdt->dev);
+> +		if (ret < 0)
+> +			return ret;
+> +	} else {
+> +		/* runtime PM is disabled but clocks need to be enabled */
+> +		ret = clk_prepare_enable(wdt->apb_clk);
+> +		if (ret) {
+> +			dev_err(wdt->dev, "failed to enable apb_clk.\n");
+> +			return ret;
+> +		}
+> +		ret = clk_prepare_enable(wdt->core_clk);
+> +		if (ret) {
+> +			dev_err(wdt->dev, "failed to enable core_clk.\n");
+> +			goto err_apb_clk_disable;
+> +		}
 > +	}
 > +
-> +	return freeze_secondary_cpus(sleep_cpu);
+> +	ret = starfive_wdt_get_clock_rate(wdt);
+> +	if (ret)
+> +		goto err_clk_disable;
+> +
+> +	ret = starfive_wdt_reset_init(wdt);
+> +	if (ret)
+> +		goto err_clk_disable;
+> +
+> +	wdt->wdt_device.min_timeout = 1;
+> +	wdt->wdt_device.max_timeout = starfive_wdt_max_timeout(wdt);
+
+	wdt->wdt_device.timeout = STARFIVE_WDT_DEFAULT_TIME;
+
+should be set here. Otherwise the warning below would always be seen
+if the module parameter is not set.
+
+> +
+> +	watchdog_set_drvdata(&wdt->wdt_device, wdt);
+> +
+> +	/*
+> +	 * see if we can actually set the requested heartbeat,
+> +	 * and if not, try the default value.
+> +	 */
+> +	watchdog_init_timeout(&wdt->wdt_device, heartbeat, dev);
+> +	if (wdt->wdt_device.timeout == 0 ||
+
+If wdt->wdt_device.timeout is pre-initialized, it will never be 0 here.
+
+> +	    wdt->wdt_device.timeout > wdt->wdt_device.max_timeout) {
+
+That won't happen because watchdog_init_timeout() validates it and does
+not update the value if it is out of range.
+
+> +		dev_warn(dev, "heartbeat value out of range, default %d used\n",
+> +			 STARFIVE_WDT_DEFAULT_TIME);
+> +		wdt->wdt_device.timeout = STARFIVE_WDT_DEFAULT_TIME;
+
+And this is then unnecessary. wdt->wdt_device.timeout will always be
+valid if it was pre-initialized.
+
+> +	}
+> +	starfive_wdt_set_timeout(&wdt->wdt_device, wdt->wdt_device.timeout);
+> +
+> +	watchdog_set_nowayout(&wdt->wdt_device, nowayout);
+> +	watchdog_stop_on_reboot(&wdt->wdt_device);
+> +	watchdog_stop_on_unregister(&wdt->wdt_device);
+> +
+> +	wdt->wdt_device.parent = dev;
+> +
+> +	ret = watchdog_register_device(&wdt->wdt_device);
+> +	if (ret)
+> +		goto err_clk_disable;
+> +
+> +	if (early_enable) {
+> +		starfive_wdt_start(&wdt->wdt_device);
+> +		set_bit(WDOG_HW_RUNNING, &wdt->wdt_device.status);
+
+Is it correct to call pm_runtime_put_sync() below if the watchdog
+is running ? Doesn't that stop the clock ?
+
+> +	} else {
+> +		starfive_wdt_stop(&wdt->wdt_device);
+> +	}
+
+Wrong order. This has to be done _before_ the watchdog device is registered
+to make sure that the watchdog core knows about WDOG_HW_RUNNING.
+
+> +
+> +	pm_runtime_put_sync(wdt->dev);
+> +
+> +	return 0;
+> +
+> +err_clk_disable:
+> +	clk_disable_unprepare(wdt->core_clk);
+> +err_apb_clk_disable:
+> +	clk_disable_unprepare(wdt->apb_clk);
+> +	pm_runtime_disable(wdt->dev);
+> +
+> +	return ret;
 > +}
-> +#endif
 > +
-> +static int __init riscv_hibernate_init(void)
+> +static int starfive_wdt_remove(struct platform_device *dev)
 > +{
-> +	hibernate_cpu_context = kzalloc(sizeof(*hibernate_cpu_context), GFP_KERNEL);
+> +	struct starfive_wdt *wdt = platform_get_drvdata(dev);
 > +
-> +	if (WARN_ON(!hibernate_cpu_context))
-> +		return -ENOMEM;
+> +	starfive_wdt_stop(&wdt->wdt_device);
+> +	watchdog_unregister_device(&wdt->wdt_device);
+> +
+> +	if (pm_runtime_enabled(wdt->dev)) {
+> +		pm_runtime_disable(wdt->dev);
+> +	} else {
+> +		/* disable clock without PM */
+> +		clk_disable_unprepare(wdt->core_clk);
+> +		clk_disable_unprepare(wdt->apb_clk);
+> +	}
 > +
 > +	return 0;
 > +}
 > +
-> +early_initcall(riscv_hibernate_init);
+> +static void starfive_wdt_shutdown(struct platform_device *dev)
+> +{
+> +	struct starfive_wdt *wdt = platform_get_drvdata(dev);
+> +
+> +	starfive_wdt_pm_stop(&wdt->wdt_device);
+> +}
+> +
+> +#ifdef CONFIG_PM_SLEEP
+> +static int starfive_wdt_suspend(struct device *dev)
+> +{
+> +	int ret;
+> +	struct starfive_wdt *wdt = dev_get_drvdata(dev);
+> +
+> +	starfive_wdt_unlock(wdt);
+> +
+> +	/* Save watchdog state, and turn it off. */
+> +	wdt->reload = starfive_wdt_get_count(wdt);
+> +
+> +	/* Note that WTCNT doesn't need to be saved. */
+> +	starfive_wdt_stop(&wdt->wdt_device);
+> +	pm_runtime_force_suspend(dev);
+> +
+> +	starfive_wdt_lock(wdt);
+> +
+> +	return 0;
+> +}
+> +
+> +static int starfive_wdt_resume(struct device *dev)
+> +{
+> +	int ret;
+> +	struct starfive_wdt *wdt = dev_get_drvdata(dev);
+> +
+> +	starfive_wdt_unlock(wdt);
+> +
+> +	pm_runtime_force_resume(dev);
+> +
+> +	/* Restore watchdog state. */
+> +	starfive_wdt_set_reload_count(wdt, wdt->reload);
+> +
+> +	starfive_wdt_start(&wdt->wdt_device);
+> +
+> +	starfive_wdt_lock(wdt);
+> +
+> +	return 0;
+> +}
+> +#endif /* CONFIG_PM_SLEEP */
+> +
+> +#ifdef CONFIG_PM
+> +static int starfive_wdt_runtime_suspend(struct device *dev)
+> +{
+> +	struct starfive_wdt *wdt = dev_get_drvdata(dev);
+> +
+> +	clk_disable_unprepare(wdt->apb_clk);
+> +	clk_disable_unprepare(wdt->core_clk);
+> +
+> +	return 0;
+> +}
+> +
+> +static int starfive_wdt_runtime_resume(struct device *dev)
+> +{
+> +	struct starfive_wdt *wdt = dev_get_drvdata(dev);
+> +	int ret;
+> +
+> +	ret = clk_prepare_enable(wdt->apb_clk);
+> +	if (ret) {
+> +		dev_err(wdt->dev, "failed to enable apb_clk.\n");
+> +		return ret;
+> +	}
+> +
+> +	ret = clk_prepare_enable(wdt->core_clk);
+> +	if (ret)
+> +		dev_err(wdt->dev, "failed to enable core_clk.\n");
+> +
+> +	return ret;
+> +}
+> +#endif /* CONFIG_PM */
+> +
+> +static const struct dev_pm_ops starfive_wdt_pm_ops = {
+> +	SET_RUNTIME_PM_OPS(starfive_wdt_runtime_suspend, starfive_wdt_runtime_resume, NULL)
+> +	SET_SYSTEM_SLEEP_PM_OPS(starfive_wdt_suspend, starfive_wdt_resume)
+> +};
+> +
+> +static struct platform_driver starfive_wdt_driver = {
+> +	.probe		= starfive_wdt_probe,
+> +	.remove		= starfive_wdt_remove,
+> +	.shutdown	= starfive_wdt_shutdown,
+> +	.id_table	= starfive_wdt_ids,
+> +	.driver		= {
+> +		.name	= "starfive-wdt",
+> +		.pm	= &starfive_wdt_pm_ops,
+> +		.of_match_table = of_match_ptr(starfive_wdt_match),
+> +	},
+> +};
+> +
+> +module_platform_driver(starfive_wdt_driver);
+> +
+> +MODULE_AUTHOR("Xingyu Wu <xingyu.wu@starfivetech.com>");
+> +MODULE_AUTHOR("Samin Guo <samin.guo@starfivetech.com>");
+> +MODULE_DESCRIPTION("StarFive Watchdog Device Driver");
+> +MODULE_LICENSE("GPL");
 > -- 
-> 2.34.1
->
-
-Thanks,
-drew
+> 2.25.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
