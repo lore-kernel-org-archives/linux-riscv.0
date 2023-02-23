@@ -4,74 +4,201 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 150EDC61DA4
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Feb 2023 18:47:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57D31C61DA4
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Feb 2023 19:09:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=j8qPp3MyhDDcVkpwzXTG+mKpun0T891yEKIOvGOgs/E=; b=2FnHE3loUJCzxf
-	R4qHmBqwcBcgOgHG3mfzLh9exjHbSl87KcSQCXLFIuntALQCl9M1sYXgj4vqV0em9TzBK14faGJ2K
-	I0Uph/nErLeCihVzcPdsEjpvW6dxhqW4MaEGnT0KxTa7P2erpHFm0XV99OJ5rP9lDXyjY/8CT25IU
-	eeTQqNF+3ARMbjSpgMB/7V4+h83gps8RLIPT/YeGNFFHYJqDmC9x1XpfXyAtSijyAhzgeYTrRJYDn
-	2VUPjyg9RMAfTMya/fD3siei5yUDnZyRwUbq3/ygEe0fJ/TdjiZ9CEPZ9TlIvqxYivYC0JJ3+lLja
-	lQrsQcAbgCuzrCMBjsYg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fdoaGkykK8m0MBrGY4eAPs+qeScXnZELHoQmvMvAuDs=; b=LebkgJ73lTKu/tLdnDW2rPufNV
+	QD9zjRm5gF4bTMrGl8hOihg++uYvm/5kNyeMM4udYpO1ox+lI6rlkfrbR2RVXgwboC/K+Hekwdb6i
+	Bvze1JDJzsOr06ShHN6u6gRuTBLARLq1zws5PKO2JUeVrgmvk97kZG/2lvcTTdU5iWKR5rwt0KeBv
+	30Y9ZF/u2uQ+6JY8cqoFBybEdEnSR8obuPb7YwooLlO5cPSbPVW4vo+D/L/wdYn/zl9CNnLCrBcQF
+	uT3C8M0fifC3dhW71nFKKG7fFZK7j06sezzMH9nhwzIjcnrrzgDmHD0/QyTFeUIgj+z8DzMjvkhmG
+	g65AGAsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pVGcY-00HaAt-7y; Thu, 23 Feb 2023 18:47:10 +0000
-Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
+	id 1pVGxn-00033i-Q4; Thu, 23 Feb 2023 19:09:07 +0000
+Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pVGcV-00Ha83-3T
-	for linux-riscv@lists.infradead.org; Thu, 23 Feb 2023 18:47:08 +0000
-Received: by mail-lf1-x136.google.com with SMTP id s20so14650770lfb.11
-        for <linux-riscv@lists.infradead.org>; Thu, 23 Feb 2023 10:46:59 -0800 (PST)
+	id 1pVGxl-00032z-0x; Thu, 23 Feb 2023 19:09:07 +0000
+Received: from pps.filterd (m0333520.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 31NGwk56016284;
+	Thu, 23 Feb 2023 19:08:54 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=date : from : to : cc
+ : subject : message-id : references : content-type : in-reply-to :
+ mime-version; s=corp-2022-7-12;
+ bh=lywkw/TbnXMuOROFmOeTQBHo4IjYomIoZbkv6dYaSPE=;
+ b=O+PJMYLhHMl/sUeffslBluZSkVgYSxs47XGwga3rZU58aEYfydoTycM+aF5gCLzHPK0U
+ DNpDJnHModD50hCeZVZnlQ0NHNePPCmqL0GOe2JgQv3zI5TyNLxC1Qn/ASgaP3lJgeM0
+ zL9zLpnx8XJczZRGkBSFz3cOwsCV7xussQSWDj+mpYxG2pHdUA5L70oN8q3RT+Ji9Q/F
+ 0YDh+R943fMNM0d/V+bMAG500xjzTH9UYCO9ZSTIhgyxGO491xCaaBRHlitDoIo+uyqc
+ brT1XMc3PQKTSj2AI4MmzKfnzbaTU6jJcOZqoari2KtQxacvXHtexDpOnSGAWJaXuWug gw== 
+Received: from phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta01.appoci.oracle.com [138.1.114.2])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 3ntpqckg31-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 23 Feb 2023 19:08:54 +0000
+Received: from pps.filterd (phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
+	by phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (8.17.1.5/8.17.1.5) with ESMTP id 31NIGE5D025849;
+	Thu, 23 Feb 2023 19:08:53 GMT
+Received: from nam11-dm6-obe.outbound.protection.outlook.com (mail-dm6nam11lp2172.outbound.protection.outlook.com [104.47.57.172])
+	by phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 3ntn48fe5x-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 23 Feb 2023 19:08:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=RBipNn7r0E1E3gOdOqT+Yv+Jonazi+tKxkFQyrTAs9I/jwBoZ4gl0avewoWaH0MrhSOIGkzmYEyuAwu/hcFPFwJL9joEG9qEMGqe9Lvhy3Xved/s6qP4D9MzSJoAPQjmW4olsGW8TSq0wlVDI7Es9yqWqJ5R/81jJilXaZGBimjgzds/KHhyNIklW1/a+ME7Khu5IYrbz2FbVW+hOtb4hXomJ3MAtw6EeKXiShnSG1xDMAYBIkW3F/QxV0tTMij15E2f4zGSoAfL5D+P/brF5A8JVAA2cx/wuL8KXwHxIItG9PXrN2XAG/wp6HL9XKzq4ARALR6i+pO3z371z8jblA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=lywkw/TbnXMuOROFmOeTQBHo4IjYomIoZbkv6dYaSPE=;
+ b=MZloz76ITHmJB4fQEjNzJ08nxFDf/wecPiMAS+sMN+4g+m70pjqjYtL65yBIOfqTBYCDM7G9cKKyDgQ4Oe0mVgjNvC58kRi8U7dQDridYgnIOPe33YPl2jeAwgLsLdWF5uZ2Oiu2bM1T8W8CRfpi1YYYIRiAt/CZUX2ewiKHvioaXAVKvXWWois1q8lZxuECnXUjmvpL/O6d6zPDdUtlnKgIcnXfQoECIRvV3wTgxDkGQQ0O9egVZpW9Gle+K/f0FFdqbAjYbnqpcS+Lb0TrM04lmu/YP2JDODXn8E8ymHKJjDZ/Jypn8y0xaUEX3G8AwiYyub8TAQROaTT0Q9ecyg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=d84WjkOkqupHcw+FU5vzhrvdpAfWUWehoXECwf0pUzI=;
-        b=qhm3hPm+oSJ4s1ShP0lapEUYR5IkwmhP+F+TJeQKrxZd+TPQYlMiwjnu0Bj10ztB0Y
-         YVurYzUsyGsKrzwbqRkGwEmL9maWHZaHGOOA65qnrC6JLnKcGptkWpvgQMgseJZlUAH2
-         iYEoFhf2x9kip/2gCIgUrrWz9EeWQvDPbx5zbpqbicLx2RZgcVWR5xKL1BQro2kthufd
-         kXPaewWe4ha8b3ROmFmaN0PuS2+nM4kSds4IAapt12zwv+KDBqlfRMQJj64QvmhtF2nf
-         c+ZepL+WBfUJtsnpJmB//rjxP68pXKk+MNswp83Ty3nkVa+jVVkAAnxXoFpnZycxev4B
-         pYmQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=d84WjkOkqupHcw+FU5vzhrvdpAfWUWehoXECwf0pUzI=;
-        b=KPd8AO6YazKRWc3KyKp7KLP4eyLW1TvDx+eUMN+9R0uP+3DxhVw2P0AT9VcOpEzsaK
-         bewtsZfNmaq62wUTpCGNO1Xs5ubpKBsRh2Uv8YbKNFrezAaa1b4sWcrMAvp0Q1gAteeE
-         zHJ7Y+29bqq/74r4HV9EY4qq5GSXiNw+nJQZqzAVbkjxl7mu3YfcD/LVNG+SfkNgMU/Y
-         9dbssWWwX+T2NKgrran08EmSOCWJiukaS0HEC0WgKQvH4laTUx2Jvo23wdOv/2Zun66C
-         IztlDGkkW/ojr8T2C7icbQ89fMANaLNoXBhmfWQ2IJpHVjDMFqdyu6WKBSb250TpZERm
-         ih1A==
-X-Gm-Message-State: AO0yUKUuSAKiXh13lDMDwZoqYF70pgV4jfhmzhQQ5LQRAwbYAgFG1JlU
-	q77W5rNe03mfokR72gOUZgkI6oYM6lw72d6Taj0dUQ==
-X-Google-Smtp-Source: AK7set9GVMhv/MFxdE4YCHJ+J6E6QpFq7wGeHK54sZrlaJUASkgEtczMsrA24TNPaRXTbFQJxd/Sez72HlZanbuvKhg=
-X-Received: by 2002:ac2:5689:0:b0:4d5:ca42:aeed with SMTP id
- 9-20020ac25689000000b004d5ca42aeedmr4072955lfr.13.1677178017989; Thu, 23 Feb
- 2023 10:46:57 -0800 (PST)
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=lywkw/TbnXMuOROFmOeTQBHo4IjYomIoZbkv6dYaSPE=;
+ b=GsBfV3+u4p1xrkAlqd2DhpKNeZkkoq1fETMDLX7n2Y5JwuuyCF1BwOP1gcPR+5tQ42lMBjG5iDZRk9Y5TdsoByNIJFu/ANQETq/85RUdfP0VvRgickuqdMrPZYwYC4ZOiZf40UdLRLilcyE7t92LXzISVr7QnEmmTPoFMR3bF+0=
+Received: from BY5PR10MB3794.namprd10.prod.outlook.com (2603:10b6:a03:1b2::30)
+ by SJ0PR10MB5786.namprd10.prod.outlook.com (2603:10b6:a03:3d7::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6134.17; Thu, 23 Feb
+ 2023 19:08:50 +0000
+Received: from BY5PR10MB3794.namprd10.prod.outlook.com
+ ([fe80::df97:c045:6f0c:974f]) by BY5PR10MB3794.namprd10.prod.outlook.com
+ ([fe80::df97:c045:6f0c:974f%3]) with mapi id 15.20.6156.007; Thu, 23 Feb 2023
+ 19:08:49 +0000
+Date: Thu, 23 Feb 2023 13:08:36 -0600
+From: Tom Saeger <tom.saeger@oracle.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Sasha Levin <sashal@kernel.org>,
+        Naresh Kamboju <naresh.kamboju@linaro.org>,
+        John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+        Rich Felker <dalias@libc.org>, Masahiro Yamada <masahiroy@kernel.org>,
+        Ard Biesheuvel <ardb@kernel.org>,
+        Nathan Chancellor <nathan@kernel.org>,
+        Dennis Gilmore <dennis@ausil.us>, Palmer Dabbelt <palmer@rivosinc.com>,
+        Arnd Bergmann <arnd@arndb.de>,
+        Andrew Morton <akpm@linux-foundation.org>, stable@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+        linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
+        linux-sh@vger.kernel.org, "H.J. Lu" <hjl.tools@gmail.com>,
+        Borislav Petkov <bp@suse.de>, Kees Cook <keescook@chromium.org>
+Subject: Re: [PATCH 5.4 v2 1/6] x86, vmlinux.lds: Add RUNTIME_DISCARD_EXIT to
+ generic DISCARDS
+Message-ID: <20230223190836.fagumtcd7rqqepbs@oracle.com>
+References: <20230210-tsaeger-upstream-linux-stable-5-4-v2-0-a56d1e0f5e98@oracle.com>
+ <20230210-tsaeger-upstream-linux-stable-5-4-v2-1-a56d1e0f5e98@oracle.com>
+ <Y/c23lnfn42s5uCC@kroah.com>
+Content-Type: multipart/mixed; boundary="v4usfuzmqzk4jq7z"
+Content-Disposition: inline
+In-Reply-To: <Y/c23lnfn42s5uCC@kroah.com>
+X-ClientProxiedBy: MN2PR07CA0017.namprd07.prod.outlook.com
+ (2603:10b6:208:1a0::27) To BY5PR10MB3794.namprd10.prod.outlook.com
+ (2603:10b6:a03:1b2::30)
 MIME-Version: 1.0
-References: <CAOnJCUKHq_8msJtU-H1JvWJ8nY94J0tcarQMBsPNpBZO8sP6HQ@mail.gmail.com>
- <Y/cjW8qVhRTPiz0t@hirez.programming.kicks-ass.net>
-In-Reply-To: <Y/cjW8qVhRTPiz0t@hirez.programming.kicks-ass.net>
-From: Beeman Strong <beeman@rivosinc.com>
-Date: Thu, 23 Feb 2023 10:46:46 -0800
-Message-ID: <CAP55G9CmOai+L_5yhqAQT586sas5+zSc=NgeJZVa6U8WzQYf+Q@mail.gmail.com>
-Subject: Re: Perf event to counter mapping question
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Atish Patra <atishp@atishpatra.org>, linux-perf-users@vger.kernel.org, 
-	"linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, 
-	"mark.rutland@arm.com" <mark.rutland@arm.com>, Anup Patel <apatel@ventanamicro.com>, 
-	linux-riscv <linux-riscv@lists.infradead.org>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BY5PR10MB3794:EE_|SJ0PR10MB5786:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4b53acf0-2fec-41a7-5a3b-08db15d16522
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: 	xrIVCEcC+NCCqEgGBBkLVT6EAT+TuApX1XOmzMjRnF7PmzdzrSD88LZD00zZrac41DmhCQew5To9h3zAvaG+GpuDaauqrySKTiUh2pVvAmThhKnuEA2lC0OwXij6nXL4isxu47lg/glk1LrzBezlpUCt2yNTuVWw0d36fcQr17uINoVr5uk/uCu5HXx/M/lTsCI5/uR8zlZcrZLUOmc3lx/trSb5FnyM26An9CH4ijI1QXh5zbFcCvRHW+PsMKf69IE5MailK+ClKTQINq57MdIhmOOg9OSxfZslQ7xRRKIsEbbmEfKRunCTBUdG2jGJklc7/kWWa6e/nl5teAc/q61xuHAQjC021h4aYdrHucEz1xjkd1ofJg1kcsZkj8F0TNW6KTdUIIVSttG7DWZIIqPnb5JAkxMsrLmmlYoENhNOABAQwyzX1MF/OTpSNUiGhoMW9rmf8mz9QW2wMfCkPIzucKrqt+KhqQjeTzdFo3MGmAwvz7MxTzhCoMecEW7vmyiQVE9OUtzeO/3ffMSjgccb/94AXeM72gecPL95I743X5U5wOKw+NbzBBeMLLWJ5emESvjqQCmozuiikD5sEfBlFsyeaPe4uTJ4eeVHJjfA6DpFdSvUjR4aiaxfkhwJWAmBPyeObBw9D7o50tXHlYXlJA91GbfkNJnbSso/gCQ54zpiKrpTW6CtNj7qq/tlPTU+yCBBcqFsyYDGYNWAxw==
+X-Forefront-Antispam-Report: 	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BY5PR10MB3794.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230025)(376002)(39860400002)(136003)(396003)(346002)(366004)(451199018)(2906002)(33964004)(44144004)(6486002)(6512007)(6506007)(1076003)(186003)(26005)(38100700002)(966005)(6666004)(7416002)(235185007)(5660300002)(8936002)(44832011)(41300700001)(83380400001)(2616005)(66476007)(86362001)(4326008)(8676002)(66946007)(66556008)(6916009)(36756003)(316002)(478600001)(54906003)(41533002)(2700100001);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 	=?utf-8?B?NmpmREhKTEk5em5uU2hnelVjeTBBWGVyb2I1TEtMSU1xa1FReUNDWlAwYTBh?=
+ =?utf-8?B?dmNtalJFRmlLZXdiNmE2YnFwL3dGNGNrT200OFF6b1NYSHNvNTA4ZWd3NDVC?=
+ =?utf-8?B?ZS9ESTZmMmZaY1FIcGRIL2RSZ1ZZZ3c3eDE3VWJqbFdjc0w2U3B1SzI5djFm?=
+ =?utf-8?B?R0wzWDBOWEN3SlhtaUxEcTFhK3NiYUc5QzJBaGt0YjlJSUdadDZNcXR4NDRz?=
+ =?utf-8?B?KzNCYlNER1l4WkNjNS96cHBZekZMVWg3K3B4VkloYlg5ZWo1Z3BSbVk1bHJo?=
+ =?utf-8?B?c2Y0aVprU1NRQkFhSm5BNHh3emRMcC9OQlc3dkd5Ynd4Y05QcmswdGtCOEFG?=
+ =?utf-8?B?RUJJUzJZTHhBclRSb01vRDRGMUJkY2ZLeG0vQ09RRjFnTUo2L3Z3US9qY09m?=
+ =?utf-8?B?WjJ5SVRFZ0dpY2oxNERNblpXaDhIYU5sdXNtdm5vOFhPRjAxSmJ3a01lSjBs?=
+ =?utf-8?B?KzR3dk5iUUppQTBHeFBraTJhMktRL3R0bCtNMDcyTzNncWFjNUoyeGI2Nlh6?=
+ =?utf-8?B?YXZuZzB3OWVuWjFaQTczNVA4YTQ1ZE11TU1EbndrOC9kcGVJRjRvVjZDQ0xR?=
+ =?utf-8?B?Wk0wTjhHdE0ycmtZRWZtcytGWU1YTGVRZjVJMmhOMmFxVHNxZnFDdWpJa2N6?=
+ =?utf-8?B?a0Z2cVVoM0l4b0taWS83UjRwbUUwdVNqY054bjBjc1lGbkhvaDZjR2NVczNs?=
+ =?utf-8?B?VlVMUG0ydG81aHVsMnJtbWRMKzFjQVRTOEREVys4TCtHaUFIRDd2cHhjTUJz?=
+ =?utf-8?B?RTlxZXh1ZzNLTEFHYnhEeVNvS05pU0VTcDRXR2cxUlZ1NzhIU0RWZkQ1MnVq?=
+ =?utf-8?B?UU5xSy95d0ZEeVJrQjNEbTdPR2tJelNlVFFvRXlPK3dma0xZMGJqR2hWcWtP?=
+ =?utf-8?B?MFAxK3Y3cGxjOG5lQmdEaERjYVVTNGtlaW00MWpvekdNcFozdU5wVXM3a1M5?=
+ =?utf-8?B?VzNIYU9QMmxzM2RCU1RiTTcwdFVLdDl4b0lHaGRBSEVJcXliNmgxRDdGSk0r?=
+ =?utf-8?B?T29CdHlralZXVVpZWDBTaFU5Z0FWREpWRXNZdkJsTFRObW9rS0xUUXNwYXA4?=
+ =?utf-8?B?VDBuUmMwWisvMjFjQWdramYrWm1oQVdXQ2xrazZhTVFpRHFQWW1nODJrVUZC?=
+ =?utf-8?B?bmNCa0wyMTU3NDZZcThqSGNXblBVVWVCNHpsTDJNYkFPaWM0ZE9ZV2lydyt5?=
+ =?utf-8?B?QXBIUThoaktyNXJhSm00ZThjM3JCbWJMdnVINnltcFl4YXM3cVhwUm1xUDVh?=
+ =?utf-8?B?b0lJU29DZTRQUmNhemVmeXMydGVaSkYrRXhZYlVHQ1VnakQ5SjJRQTZBKzNK?=
+ =?utf-8?B?amNoaDJXc1luVjJkY3FvejNWTi8wWTQxa0dtL2dOS0M1UlNhWlVNdkkwWkcw?=
+ =?utf-8?B?MnZlZzdPd2FYYWFKdDU1SCt5YW9wSHZNUFp3ZHBRRTJON3dRRW4rS0VEeTNq?=
+ =?utf-8?B?R0ZsNVBvcjBXejF4bFV4SWJDK2JWMUlmUW8rVkpIdmFxbkxydVo5L0VtQytN?=
+ =?utf-8?B?eXZFQVpNVnlGRk16V3lsZWt4b3FXWnFmbUNRdEFxaWVpblFJQytNdVlQMTJw?=
+ =?utf-8?B?L2N6bEVNSjhlb3hVNHRVNFRnU3pSTUdTcE9rcC8zdEd6bkRlK2Y4NnphZnhs?=
+ =?utf-8?B?cElFbzVXd1pOWFVWTUt2M0k1b04yNzVqYzNaUjBIQjRpVS85U01lRGZCV0hP?=
+ =?utf-8?B?eGVJRzVkcTRhdGlYRk1DYlFrRkcwWVl2SHFXUnpMSE80U05oOGlJQTM2ZE5Q?=
+ =?utf-8?B?bkpFM3EwTUZ0ZDIvck04cXRSZ0laQ01VajBPZ2RRSWk4N0RKcStFUU9ESFVZ?=
+ =?utf-8?B?cnlYMFcza201NGVSR0F4QWFTOGlYSW42bERvd2R1cE03bTc0TExCSXpzYWhx?=
+ =?utf-8?B?Rk8zQ21ZL1lIVlk0Zml6Nm95Smd0Ym92dFZkK2x3a3dFS1dyYk44bVI2QzQx?=
+ =?utf-8?B?dVF1SXZsYy9McHpFVUF5VmdVMjZSeGllS29EQnRKTHJPcTBGR0Z1V2xUWjh5?=
+ =?utf-8?B?ZGU3RVM2NGVuNmRsMzU2alNYeElnc0lSNVJYVFo5b1Z3NlVWQ00yeWxtZDM5?=
+ =?utf-8?B?QUFZRHk4bWRqdDNLeDlvK2dkZFRLZXE0WU5KSzBBam4xbEhaK3RML2srMEpJ?=
+ =?utf-8?Q?22Gz3idTS8aG17FwoNae/O2jI?=
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: 	=?utf-8?B?ZWNjbUhHM3RtN3Y3TFRUb2JHUERtdDQ5UkIvZmJTWW5oYjl3SG1vbExBaE9D?=
+ =?utf-8?B?MkVsV0dsdXV1Q0R6bzZ1Nm14ajBSdE9rdjlITVpVOXppU0hXUnJrbDdrN1JO?=
+ =?utf-8?B?T1VmOWY5T3l3WTg3Vkdna09TMU5rMjZuQlZlWUNVRFJodEwvNVVHdHlLaGM5?=
+ =?utf-8?B?UUxwcWFOWmdtazNjMzJyZGtMeWV1OVA5QW1JKzQydlZCWlBHUE1pZWtJeWx5?=
+ =?utf-8?B?bklrUUdSUlJUODNheUNlTUJGVDdCNlU5YXEzRlBmT0krVE5VRU9oblNyL3Za?=
+ =?utf-8?B?K3I0L3VqNjR1cVJsc0hWUHg4N2JwK05oTmJjUU13S2cvSzZ6cy9HckFLaEFt?=
+ =?utf-8?B?My9qRXlZWVFUUVVoeXQrZzdQbE9uMXlLWTlVVTJrVEVjNHkrd2ZFeGJWSWJk?=
+ =?utf-8?B?MDlJcHA3d0tLNFR2cTEvbEZIZkE2emJXZnlIaVBLem1LQW5MK1k5N2UyMzJx?=
+ =?utf-8?B?b0JRVjQ4U0Jyanlib25zOENORktGMVgxZlFDc3pPbzV0MVdtVzEzZkp1NGRI?=
+ =?utf-8?B?Tm1YbWd0clNscjR5TTVXakJiNVNJUHpMRXBnQ2dGaE11R3pseUhvNURuTU9z?=
+ =?utf-8?B?Tm5DcTBtY2lVekNFWXl1L3RKV2lGbWQ2TTh5VGdMa290YStoZmw3QXgyaXFz?=
+ =?utf-8?B?UzRoQzZTU0N0a1dFUXovSUQ0U2U5YnNJcGRlaW9oV2I0QjEwamJacWJiYnRS?=
+ =?utf-8?B?eXc4aDB6VFEyTDdmSWpUT0VoZTZMOFhYK0xKWHlNdVU3MlhqbUZWdDhzY2hP?=
+ =?utf-8?B?dGYzNXBQWVBYWTYvWEV4bDVrYTMwSXdYOUI2VzRjSGNmVXVYYytIa3VFWk9Z?=
+ =?utf-8?B?QmdIQzR3UTkrTnpqeVFJZmJsaUR2b0V1Rlh0NHQraWN0RXlYNUIvVWlObHkw?=
+ =?utf-8?B?TGtjUFdxU3NybVZwUi83WmdxZURYOXA3bzhyRXdDZWp0cERyTFVhRTJFK3BM?=
+ =?utf-8?B?UkdCTzhkajF6QjJqRExsUi9FbkFSaTQ2UzFRNUJiYUlDdkNsZ0dXUldkc1Nn?=
+ =?utf-8?B?cFByWnVyQ200b3hiVDJkMG03N2R2SmoxcGkzeDRTWkJJd0ZPc2lFU01Zb29q?=
+ =?utf-8?B?QnpRU05WVjF5Y01yeXgyZzRpZTdnWnAvOUN4YnRkL3lzSFpMcnJXbG8vL1Ay?=
+ =?utf-8?B?c3p6Z1hNcDhhOVBsT2c0ZGtTY0RpNEtHeXNOQ1REb1R4UVVQMHljQUcvTU81?=
+ =?utf-8?B?V2ZBUzVWRjliOVVBU3BsZTlBbWRUcG0rREhNRUFJY0QvQ2lkTytZVTJ1SHNm?=
+ =?utf-8?B?L3B3VWdLQVZJWXBiOGJabjllbFNQTi9ZcGY4ZnVRNmxyR20vUmdBTkgra0o3?=
+ =?utf-8?B?TlI3OE9aWDFvTUtsNmpib0JySCs5eUxZdExYYUZ3bmVpOWVoR2VIcUJrTnJ0?=
+ =?utf-8?B?Y0R6L0k2WlRMRWtkTGFsMjc1SXlvaGx1SG5XZFp0MktMUFR3UXd6ZStVczN4?=
+ =?utf-8?B?K0Rkcm5hSjVNOHQwMlQ3OWw4NzEwWEU3YXJqUHkvOGphVGdFS014YjQxdTRW?=
+ =?utf-8?B?UWJtbm9aVTA3Tnd4dytaRVlsN2g2YTJhb3NvdnMrNEs0NERhUjhTQTNBWVA1?=
+ =?utf-8?B?UjZMcGVDT0dHaWxJR28rZUNLWjVPdGpjV0lIeWUvVVRlUmZhNU4wbmtQaXZo?=
+ =?utf-8?B?bitLZmFTMzNyejZUaHdIUjhMTXovOFo1Z0RQek53bWc5dmEwYUxSTHVsWktC?=
+ =?utf-8?B?WDRLNG0vanNaZWhETFNtWkhuamkxWnp6YlovZkhFU0tXaldldW9ETnN3PT0=?=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4b53acf0-2fec-41a7-5a3b-08db15d16522
+X-MS-Exchange-CrossTenant-AuthSource: BY5PR10MB3794.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Feb 2023 19:08:49.7155
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 7o8BO906Tp5WEL+GDYSPb2A7jqdeJf/vh9KzJJbuprTiuYwa36occoHyyRwL3PDxoZ7J+I+Y2CkPSwNw3AsXAg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR10MB5786
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.219,Aquarius:18.0.930,Hydra:6.0.562,FMLib:17.11.170.22
+ definitions=2023-02-23_12,2023-02-23_01,2023-02-09_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 malwarescore=0 spamscore=0
+ mlxlogscore=999 bulkscore=0 mlxscore=0 adultscore=0 suspectscore=0
+ phishscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2212070000 definitions=main-2302230159
+X-Proofpoint-GUID: QMa8qYSn5GhNtzmqNmiOFaSwCI1GKuaB
+X-Proofpoint-ORIG-GUID: QMa8qYSn5GhNtzmqNmiOFaSwCI1GKuaB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230223_104707_194638_22DC033A 
-X-CRM114-Status: GOOD (  19.62  )
+X-CRM114-CacheID: sfid-20230223_110905_685912_406F3718 
+X-CRM114-Status: GOOD (  28.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,61 +210,114 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Trying again:
-Hi Peter, thanks for the feedback.  Can you say more about AMD's
-overlapping constraints?
+--v4usfuzmqzk4jq7z
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 
+On Thu, Feb 23, 2023 at 10:50:22AM +0100, Greg Kroah-Hartman wrote:
+> On Fri, Feb 10, 2023 at 01:20:22PM -0700, Tom Saeger wrote:
+> > From: "H.J. Lu" <hjl.tools@gmail.com>
+> > 
+> > commit 84d5f77fc2ee4e010c2c037750e32f06e55224b0 upstream.
+> > 
+> > In the x86 kernel, .exit.text and .exit.data sections are discarded at
+> > runtime, not by the linker. Add RUNTIME_DISCARD_EXIT to generic DISCARDS
+> > and define it in the x86 kernel linker script to keep them.
+> > 
+> > The sections are added before the DISCARD directive so document here
+> > only the situation explicitly as this change doesn't have any effect on
+> > the generated kernel. Also, other architectures like ARM64 will use it
+> > too so generalize the approach with the RUNTIME_DISCARD_EXIT define.
+> > 
+> >  [ bp: Massage and extend commit message. ]
+> > 
+> > Signed-off-by: H.J. Lu <hjl.tools@gmail.com>
+> > Signed-off-by: Borislav Petkov <bp@suse.de>
+> > Reviewed-by: Kees Cook <keescook@chromium.org>
+> > Link: https://lkml.kernel.org/r/20200326193021.255002-1-hjl.tools@gmail.com
+> > Signed-off-by: Tom Saeger <tom.saeger@oracle.com>
+> > ---
+> >  arch/x86/kernel/vmlinux.lds.S     |  1 +
+> >  include/asm-generic/vmlinux.lds.h | 11 +++++++++--
+> >  2 files changed, 10 insertions(+), 2 deletions(-)
+> > 
+> > diff --git a/arch/x86/kernel/vmlinux.lds.S b/arch/x86/kernel/vmlinux.lds.S
+> > index 1afe211d7a7c..0ae3cd9a25ea 100644
+> > --- a/arch/x86/kernel/vmlinux.lds.S
+> > +++ b/arch/x86/kernel/vmlinux.lds.S
+> > @@ -21,6 +21,7 @@
+> >  #define LOAD_OFFSET __START_KERNEL_map
+> >  #endif
+> >  
+> > +#define RUNTIME_DISCARD_EXIT
+> >  #include <asm-generic/vmlinux.lds.h>
+> >  #include <asm/asm-offsets.h>
+> >  #include <asm/thread_info.h>
+> 
+> Does this backport look correct from a style point-of-view?
 
-On Thu, Feb 23, 2023 at 12:27 AM Peter Zijlstra <peterz@infradead.org> wrote:
->
-> On Wed, Feb 22, 2023 at 04:28:36PM -0800, Atish Patra wrote:
->
-> > AFAIK, ARM64 allows all-to-all mapping in pmuv3[1]. That makes life
-> > much easier. It just needs to pick the next available counter.
-> > On the other hand, x86 allows selective counter mapping which is
-> > discovered from the json file and maintained in per event
-> > constraints[4].
->
-> All the contraint management is done in kernel, and yes, it's a giant
-> pain in the rear side.
->
-> From what I understand the reason for these contraints is complexity of
-> implementation, less constraints is more 'wires' in the hardware.
->
-> With PMU use being ever more popular, we're seeing the x86 PMU move
-> towards less constraints -- although I don't think we'll ever get rid of
-> them :/
->
-> > 2. Mandate all-to-all mapping similar to ARM64.
->
-> If at all possible, I would strongly recommend taking this route. Yes,
-> the hardware people will complain, but newer x86 hardware having less,
-> or simpler, constraints might be sufficient to convince them.
->
-> (and if you do have to do contraints, please take a lesson from x86 and
->  *never* allow overlapping contraints as AMD had, solving those
->  constraints is not fun)
->
-> As you note, this is *much* simpler to program and virtualize.
->
-> > Note: This is only for programmable counters. If the platform supports
-> > any fixed counters (i.e. can monitor
-> > only a specific event), that needs to be provisioned via some other
-> > method. IIRC the fixed counters(apart from cycle) in ARM64 are part of
-> > AMU not PMU.
->
-> So free running counters are ideal and fairly simple to multiplex/use.
->
-> The moment you start adding overflow interrupts / filters and any other
-> complexities to fixed function counters it becomes a mess (look at the
-> x86 PMU again).
+I debated about this.
+
+> 
+> Hint, extra blank line needed after the define, like what is done in the
+> original...
+
+I did check, truly.  See attached git-cherry-vimdiff
+
+I show the blank line introduced here (which isn't in 5.4.y):
+441110a547f8 ("vmlinux.lds.h: Provide EMIT_PT_NOTE to indicate export of .notes")
+
+And wasn't sure whether to stay with the original or add a blank.
+I chose the former.
+I chose wrong.
+Now I know.
+
+Cheers,
+
+--Tom
+
+> 
+> thanks,
+> 
+> greg k-h
+
+--v4usfuzmqzk4jq7z
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: attachment; filename=git-cherry-vimdiff
+
+#!/usr/bin/env bash
+# Given a git hash ($1),
+# use vimdiff to compare given commit to commit it was cherry-picked from.
+#
+# Author: Tom Saeger <tom.saeger@gmail.com>
+# 6/21/2017
+
+FIRST=${1:-$(tig-pick)}
+SECOND=${2:-$(git show --format=email "${FIRST}" | sed -ne '/cherry picked/{s/.*commit \([0-9a-z]\+\).*/\1/;p;q;}')}
+
+# if not "cherry picked" find first line with "commit"
+if test -z "${SECOND}" ; then
+SECOND=$(git show --format=email "${FIRST}" | sed -ne '/commit /{s/.*commit \([0-9a-z]\+\).*/\1/;p;q;}')
+fi
+
+if test -z "${SECOND}" ; then
+    exit 0;
+fi
+vim -d <(git show --format=email "${FIRST}") <(git show --format=email "${SECOND}")
+
+--v4usfuzmqzk4jq7z
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--v4usfuzmqzk4jq7z--
+
