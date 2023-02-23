@@ -4,67 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48303C61DA4
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Feb 2023 00:29:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99784C636D6
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Feb 2023 02:00:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=wRcsw+42qC4IHxqeeczEeOVqihH/+EcX309b6i+OtLE=; b=p3rRa+U4Y6Bf2V
-	z6MXjjmq9fzcm+1sDvpIuNt6S/Jka3INN88cp7YzCPCPGNqXU97u2C+9zzhtaYCFzbTZW/qfZqHi7
-	0PquDUcBKXc7x75Lb5hqrkOEh3U3uZ9R41JErOEOxKvYk1xysT8yDv+RQcM7C31SyKkSppHn5S3c7
-	jbN7xNLaEwkKlXFesznHoij1L6tmETdGr7TCRxaWgkkVspsGgCGpA7EkxfYFbvtkfCaj3FXBESnnX
-	Qltla35OBySiDnPP3vWhrhZ1jt0tVXppqODfCj3mWtAY6sknZMghtBfF/q2z4CY7/oIla99aocFIl
-	NRJIepNrSaeJMwemnCrA==;
+	List-Owner; bh=YtK8l9lhZWqXNTzVd/5pmAhdrV3QbYOyHp7198PNj3Q=; b=sX6egf4mKr67qH
+	DL0MnwV5E+ajifdt8TJwFSWApoz0f2DM/jRA/BPKemXKiYoiO1r/lXhsu1CZnqyGCYhUrw2SuXcH3
+	wqeGjstvKaVYYwtKB0oq4w45l0zsP/MkePZejemDQj51vFPWurFAZFIYmSdVnrd+yj/T9dAp1mZ2C
+	2jt+tm+WFgkURiNhLXmAO/Cc2djT3RUfGppho//MXbipXFlQ4XzZYg0w/tthZZklRbpKOM4hxKLo0
+	WjXpVfGrOq8wiRpq/zpgv5E+/AUVqOdheEdX5EGjdCUbZSH08EuhGwLXdK081xh2ENZA/Od3og7ya
+	kLqUjNKflJ2KIFVJXKIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUzTk-00EXaw-2i; Thu, 23 Feb 2023 00:28:56 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pUzTg-00EXZs-JF
-	for linux-riscv@lists.infradead.org; Thu, 23 Feb 2023 00:28:54 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id pt11so11642970pjb.1
-        for <linux-riscv@lists.infradead.org>; Wed, 22 Feb 2023 16:28:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=atishpatra.org; s=google;
-        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=WO6JN/lm3lqcQUnXcLoikkeEf2tkfRdlWGJSxQRLbXY=;
-        b=F82qGBR6+LJm7hgQrtY1K9rv0f84ccQwl2P9aVuk3adqaJXZb4qRmdhXYeXAuWZcQw
-         9eIsELi6Zifxx/0gWK4pSECx6ypFlVV0pIDbrFGxgXwxU8N2XYR3VqYDRTcvef+jjprR
-         z6sH3x1QwlrRaeO/9R5wENE/GLujCk8qs3UTI=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=WO6JN/lm3lqcQUnXcLoikkeEf2tkfRdlWGJSxQRLbXY=;
-        b=iReN1Wc4lw1DjmsuoN6HKvRF0BbpVLS/DMVR2dMMtJTGDnyl18tId+inO3aqoWfI+I
-         gtV3yrpVpJan/bsC+LzmxehnArYRKoNjN18/gmB2ben9Gtqe8iIvHjUYdneOm9qKQCa6
-         +fyJI4Q/ADeM6OKqfbmot5cvt2HUWqF7kbzd19+fFbTG77UFRsa8YIpC1osbNZxSywHM
-         An7711MSvb9QBvzlIXgDpSfNqBMpVYlZf0peouuYsSWzLI6D3GUCQhqdPtr4EG+zEmjb
-         4XyDz+qzNOCNVh+nQM+00x3E24s4UJnAPW1JIa94dXC6sXMd9LRYIRerra2376fcma4V
-         I/sg==
-X-Gm-Message-State: AO0yUKVZvDlk4/kX/MaE8ZzM/VdraBqbEfLYH9BHRi7FWv/gq9jw5uqv
-	WJDbsyV5xW4dRC5JKrqkWLXrJKzUBJ/tdY1uFJvk
-X-Google-Smtp-Source: AK7set/XC3/Aa7hXy/PABBf/Y0Z6F8a+4tSvCIQ4QT2fhxgwWrwkyx6sCvKWNMWyowSnBYt4xOIDVtO9q0vznwbApGU=
-X-Received: by 2002:a17:90b:3e8a:b0:233:c312:47a1 with SMTP id
- rj10-20020a17090b3e8a00b00233c31247a1mr2193217pjb.81.1677112127857; Wed, 22
- Feb 2023 16:28:47 -0800 (PST)
+	id 1pV0uP-00EiHk-LW; Thu, 23 Feb 2023 02:00:33 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pV0uL-00EiD5-3N; Thu, 23 Feb 2023 02:00:32 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 9418B24DE73;
+	Thu, 23 Feb 2023 09:59:54 +0800 (CST)
+Received: from EXMBX162.cuchost.com (172.16.6.72) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 23 Feb
+ 2023 09:59:54 +0800
+Received: from ubuntu.localdomain (113.72.147.165) by EXMBX162.cuchost.com
+ (172.16.6.72) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 23 Feb
+ 2023 09:59:53 +0800
+From: Changhuang Liang <changhuang.liang@starfivetech.com>
+To: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
+	Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	Philipp Zabel <p.zabel@pengutronix.de>
+CC: Jack Zhu <jack.zhu@starfivetech.com>, Changhuang Liang
+	<changhuang.liang@starfivetech.com>, <linux-phy@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>
+Subject: [PATCH v2 0/3] Add JH7110 MIPI DPHY RX support
+Date: Wed, 22 Feb 2023 17:59:49 -0800
+Message-ID: <20230223015952.201841-1-changhuang.liang@starfivetech.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-From: Atish Patra <atishp@atishpatra.org>
-Date: Wed, 22 Feb 2023 16:28:36 -0800
-Message-ID: <CAOnJCUKHq_8msJtU-H1JvWJ8nY94J0tcarQMBsPNpBZO8sP6HQ@mail.gmail.com>
-Subject: Perf event to counter mapping question
-To: linux-perf-users@vger.kernel.org
-Cc: "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, 
-	"mark.rutland@arm.com" <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Beeman Strong <beeman@rivosinc.com>, Anup Patel <apatel@ventanamicro.com>, 
-	linux-riscv <linux-riscv@lists.infradead.org>
+X-Originating-IP: [113.72.147.165]
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX162.cuchost.com
+ (172.16.6.72)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230222_162852_934693_CA0A30AC 
-X-CRM114-Status: GOOD (  14.83  )
+X-CRM114-CacheID: sfid-20230222_180029_462151_502DB483 
+X-CRM114-Status: GOOD (  11.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,64 +74,98 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi All,
-We are trying to figure out what is the best approach to define the
-perf event to programmable counter mappings in RISC-V.
-Until recently, all the programmable counter/event selector registers
-were writable in M-mode (highest privilege mode) only. The firmware
-residing in M-mode
-would discover the mapping from device tree[1] and the perf driver
-relies on SBI PMU[2] interface to discover the mapping between event &
-counters.
+This patchset adds mipi dphy rx driver for the StarFive JH7110 SoC.
+It is used to transfer CSI camera data. The series has been tested on
+the VisionFive 2 board.
 
-There are new ISA extensions being proposed to make counters /event
-selector register in supervisor mode as well. Thus, a pmu driver
-can directly program the event selectors without relying on firmware.
-However, the kernel needs to be aware of counter mapping to do that.
+This patchset should be applied after the patchset [1] and patch [2]:
+[1] https://lore.kernel.org/all/20230221083323.302471-1-xingyu.wu@starfivetech.com/
+[2] https://lore.kernel.org/all/20230215113249.47727-4-william.qiu@starfivetech.com/
 
-AFAIK, ARM64 allows all-to-all mapping in pmuv3[1]. That makes life
-much easier. It just needs to pick the next available counter.
-On the other hand, x86 allows selective counter mapping which is
-discovered from the json file and maintained in per event
-constraints[4].
-There may be some legacy reasons why it was done in x86 this way[5].
-Please correct me if I am wrong in my understanding/assumption.
+changes since v1:
+- Rebased on tag v6.2.
+- Dropped patch 1, it will be added by the patch [2].
 
-Here are a few approaches that can be used to solve it in RISC-V.
+patch 1:
+- Changed the node name 'dphy' to 'phy'.
+- Changed the "starfive,aon-syscon" description.
+- Changed the MIPI DPHY RX IP description.
+- Add description to resets.
+- Update devicetree binding examples.
 
-1. Continue to use device tree bindings
-Cons: We have to define similar entries for ACPI. It makes
-virtualization difficult as the VMM has to discover and update the
-device tree/ACPI as well.
+patch 2:
+- Changed the commit message.
 
-2. Mandate all-to-all mapping similar to ARM64.
-Note: This is only for programmable counters. If the platform supports
-any fixed counters (i.e. can monitor
-only a specific event), that needs to be provisioned via some other
-method. IIRC the fixed counters(apart from cycle) in ARM64 are part of
-AMU not PMU.
+patch 3:
+- Changed the commit message.
+- Changed the node name 'dphy' to 'phy'.
+- Sorted the node by address.
 
-3. All platforms need to define which subset of events can be
-monitored using a subset of counters. The platform specific perf json
-file can specify that.
-This approach provides more flexibility but makes the code path a bit
-more complex as the counter mask constraint needs to be maintained per
-event basis.
+v1: https://lore.kernel.org/all/20230210061713.6449-1-changhuang.liang@starfivetech.com/
 
-4. Any other approach ?
+Changhuang Liang (3):
+  dt-bindings: phy: Add starfive,jh7110-dphy-rx
+  phy: starfive: Add mipi dphy rx support
+  riscv: dts: starfive: Add dphy rx node
 
-Any thoughts on what would be the best approach for RISC-V. It would
-be great to repeat any past mistakes in RISC-V by learning from
-experience from the community.
+ .../bindings/phy/starfive,jh7110-dphy-rx.yaml |  74 ++++
+ MAINTAINERS                                   |   7 +
+ arch/riscv/boot/dts/starfive/jh7110.dtsi      |  13 +
+ drivers/phy/Kconfig                           |   1 +
+ drivers/phy/Makefile                          |   1 +
+ drivers/phy/starfive/Kconfig                  |  13 +
+ drivers/phy/starfive/Makefile                 |   2 +
+ drivers/phy/starfive/phy-starfive-dphy-rx.c   | 362 ++++++++++++++++++
+ 8 files changed, 473 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/phy/starfive,jh7110-dphy-rx.yaml
+ create mode 100644 drivers/phy/starfive/Kconfig
+ create mode 100644 drivers/phy/starfive/Makefile
+ create mode 100644 drivers/phy/starfive/phy-starfive-dphy-rx.c
 
-[1] https://lore.kernel.org/lkml/Y6tS959TaY2EBAdn@spud/T/
-[2] https://github.com/riscv-non-isa/riscv-sbi-doc/blob/master/riscv-sbi.adoc#function-find-and-configure-a-matching-counter-fid-2
-[3] https://elixir.bootlin.com/linux/v6.2/source/arch/arm64/kernel/perf_event.c#L899
-[4] https://elixir.bootlin.com/linux/latest/source/arch/x86/events/core.c#L876
-[5] https://www.mail-archive.com/linux-kernel@vger.kernel.org/msg1978937.html
--- 
-Regards,
-Atish
+
+base-commit: c9c3395d5e3dcc6daee66c6908354d47bf98cb0c
+prerequisite-patch-id: 4dc515731ce237184553c1606ffb3afaeb51c3d8
+prerequisite-patch-id: ac150a8c622e858e088df8121093d448df49c245
+prerequisite-patch-id: a4255724d4698f1238663443024de56de38d717b
+prerequisite-patch-id: a798370d170dc2bcc79ed86f741c21c1e6d87c78
+prerequisite-patch-id: 203d2500cadc112bd20fefc56eabf1470d3d2d2d
+prerequisite-patch-id: 315303931e4b6499de7127a88113763f86e97e16
+prerequisite-patch-id: 40cb8212ddb024c20593f73d8b87d9894877e172
+prerequisite-patch-id: a1673a9e9f19d6fab5a51abb721e54e36636f067
+prerequisite-patch-id: 94860423c7acc9025249d4bb36652a585bd0a797
+prerequisite-patch-id: b5084253283929d9a6d0e66c350400c7c85d034d
+prerequisite-patch-id: a428ed7a2aa45abab86923dc467e1e6b08427e85
+prerequisite-patch-id: d4f80829fca7ce370a6fad766593cdcb502fa245
+prerequisite-patch-id: e3490e19e089fe284334db300ee189b619a61628
+prerequisite-patch-id: 34298e3882261bc2d72955b1570cc9612ab7d662
+prerequisite-patch-id: 377c5c282a0776feee9acd10b565adbd5275a67e
+prerequisite-patch-id: 3ccee718de0750adbf8d0b77d553a2778a344f64
+prerequisite-patch-id: 4710f2ac22dca0bdd9ff5d744d2c37cab3c74515
+prerequisite-patch-id: 65f2aed865d88e6fa468d2923527b523d4313857
+prerequisite-patch-id: 258ea5f9b8bf41b6981345dcc81795f25865d38f
+prerequisite-patch-id: 8b6f2c9660c0ac0ee4e73e4c21aca8e6b75e81b9
+prerequisite-patch-id: e3b986b9c60b2b93b7812ec174c9e1b4cfb14c97
+prerequisite-patch-id: a2b3a9cff8a683422eb0ccf3a0850091401812d4
+prerequisite-patch-id: dbb0c0151b8bdf093e6ce79fd2fe3f60791a6e0b
+prerequisite-patch-id: ea9a6d0313dd3936c8de0239dc2072c3360a2f6b
+prerequisite-patch-id: d57e95d31686772abc4c4d5aa1cadc344dc293cd
+prerequisite-patch-id: 29aab7148bf56a20acddcb8a11f290705fcc97f6
+prerequisite-patch-id: eeecb5367bea99627210b661986ca5b49e2a9d63
+prerequisite-patch-id: c02658f677990683d4c4957e06c19ed3a3a0cfab
+prerequisite-patch-id: 2ddada18ab6ea5cd1da14212aaf59632f5203d40
+prerequisite-patch-id: 55b80c069faccc7dede15748d888bb13c7120a30
+prerequisite-patch-id: 7acbc9c924e802712d3574dd74a6b3576089f78c
+prerequisite-patch-id: 35b9e27cc439a35eebc18cbe375ea65da94653be
+prerequisite-patch-id: d426704849c21687b4ef32c7d399081706e34c51
+prerequisite-patch-id: 9f71c539a241baf1e73c7e7dfde5b0b04c66a502
+prerequisite-patch-id: 5acc7f9a7547a301014071f446685e21779cb5f7
+prerequisite-patch-id: 9fddcb61301b615ad6f0102f2235265a01ccc2a2
+prerequisite-patch-id: 0c04762f1d20f09cd2a1356334a86e520907d111
+prerequisite-patch-id: 04d1167facdccfd6c737bf64d83cfd6ed1d74099
+prerequisite-patch-id: ff5bca2dbaafaa14248f5f9a6ddc5d26d827cf50
+prerequisite-patch-id: 2bc43b375b470f7e8bbe937b78678ba3856e3b8f
+--
+2.25.1
 
 _______________________________________________
 linux-riscv mailing list
