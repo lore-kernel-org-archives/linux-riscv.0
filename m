@@ -4,68 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85CA3C61DA4
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Feb 2023 11:08:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED5CAC61DA3
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Feb 2023 12:03:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0FdvgsruCqykwPwk+DMijZpZIdvPyOycqLaF72ITdlg=; b=uEL2ikTvPC3OUzG1c2dVLfPzYl
-	0VNGeAI2Oq/m63CIkCWUGecFUQkGRGe0/HdhOxpq0IYpdVi5MEuB49rn19cz04KaAxaphgGcE2DLg
-	cSVojh0kTy/9DDx1zcd1qjWZP7LjPuE7cmzdneBHKknRRX8+6HzcdQthqmMay2tsPSUuRwpQ0fgyg
-	ClqLzFlgeMT4bRFWFYbwjHRYrx5eASglmGmiwODiIguZme1fON+Jor4iFhQUNXM9xQj3c7oYB11l6
-	3jOQGHY+uavSDlWpWHNrOe8962zRgf/Zb5o5ZsZXoRElnGq6ZhLypcGUKucQU8ItQyPV62DZ2LrCz
-	H4kHto4g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=s4uLaKNuOAu9Z0+ENDXIMk0vixePEQAFEezTLSwDjpo=; b=2JfCC09qGgm6+f
+	D9fmVCnPxW6IAhSTGaVRL6Y4Ht9/alJfRxflYxksq2+UeYzjNhN7Cy6jVDSeXplcQeF4GnzYUAgSL
+	x4yFgweC+PhImMBROfdyQ14DUt/CqkjWIxWnWZYG4tDfwRseE1CFGHvMOxR4fZdBz5sV9dgjaJrBa
+	HKTu+CBqod5lZgd5gPBPgKLcNI/SX+sAxK/34GeCIuWPDHrqOYgMnbUmbhHY+0JJAd78izSXJVKtu
+	Nnwckl64/GhHLfomxqeYe22TrMIisGdisFnfT/FjnU6ANfxK7miuPTbqQHvPlunqGS1GefF03Cess
+	YM2yZvtDQQSCufntLA7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pVVw8-002BnM-Jj; Fri, 24 Feb 2023 11:08:24 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1pVWnT-002Jvx-FE; Fri, 24 Feb 2023 12:03:31 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pVVw5-002BlO-4G
-	for linux-riscv@lists.infradead.org; Fri, 24 Feb 2023 11:08:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1677236900; x=1708772900;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=DMCXTMe4oV50E85uap9w6csM3AzaSqzKKkA7hgvfXFI=;
-  b=ew+59eKL7+c7FGqTffaGsev/ZYwPKUE9KJD2/TvlwQaWGJHVSdPMNPeO
-   8csoviRHRTz88XZ1x2CDWqfqcGwMGW35ryAVojVp6j/HN6Xd6t7vjYqQs
-   9rdLKyx27rsJU8uVq9ZJ73vmD7BOw3czEFDydQAZsUoUJmXn8AoXEMQ+E
-   jUr6Kx7Ld0tFT0i5pQAKEXPF4FBLFqFHy7bJd0hRx/Qdp/alMYwCgVy35
-   qrkjqdoB6w60QpBaHXJ60LwjZybDFz+P58mVjz/BaoLx7/pbAzDfIcJq0
-   YnfZcxVKO+PcHYIWq6FfLlq0DTzWbVJAzN0rCdq2Q2o4nCupd4rf+Lotj
-   A==;
-X-IronPort-AV: E=Sophos;i="5.97,324,1669100400"; 
-   d="asc'?scan'208";a="202234574"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 24 Feb 2023 04:08:14 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.16; Fri, 24 Feb 2023 04:08:10 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.16 via Frontend
- Transport; Fri, 24 Feb 2023 04:08:09 -0700
-Date: Fri, 24 Feb 2023 11:07:42 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Changbin Du <changbin.du@huawei.com>
-CC: Conor Dooley <conor@kernel.org>, <palmer@dabbelt.com>, Palmer Dabbelt
-	<palmerdabbelt@google.com>, <linux-riscv@lists.infradead.org>, Steven Rostedt
-	<rostedt@goodmis.org>, Changbin Du <changbin.du@gmail.com>, Palmer Dabbelt
-	<palmer@rivosinc.com>
-Subject: Re: [PATCH v3] RISC-V: Don't check text_mutex during stop_machine
-Message-ID: <Y/iafgRdYtWCmQZ2@wendy>
-References: <20230215164317.727657-1-conor@kernel.org>
- <20230216113126.kio4uqovoo4p6ubm@M910t>
+	id 1pVWnP-002Jv0-6i
+	for linux-riscv@lists.infradead.org; Fri, 24 Feb 2023 12:03:29 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id oe18-20020a17090b395200b00236a0d55d3aso2451986pjb.3
+        for <linux-riscv@lists.infradead.org>; Fri, 24 Feb 2023 04:03:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=MjPROIr0qGwhUYh5g74pFM5GpA5WGW4aBOr62nGt2dk=;
+        b=mPEo1cMEHY/yB0t1LDM2RnjmiDw7QFk/XuH2gPkS3U2EHORhRjgbe+6gOBD04CXj8Y
+         nJR0R+aIZjGtTozSa8j0gDbKEEVeo5bjt6Ct62rTLUGib05TI5XBBSzEwSrPbI9X5P3s
+         XMb9k2z4dwm0h8+NuIWfJGGpd7jPdGqGk+g0G/TdwyKtvzsRdawuDcy+EGYnzf/zmwlL
+         HwQaEvjLBDQJMnSd6ntUkcJCxpEiUBKcwaYt+A58+glW5bHy113Qy9xqCeZ+5fo7GgPM
+         wSbfR+xpowtLb6F5kWiwLbsxZOfbic+JRX6O4ZTCsNqBmcX6Tk73qufcRIKruVV66x9j
+         N2Ew==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=MjPROIr0qGwhUYh5g74pFM5GpA5WGW4aBOr62nGt2dk=;
+        b=uedAVFu6svJ2JQP55a7srZhwJIOoJzCnCi22xVPp0kx5550b20wbWLFmnGlqaTefWo
+         jL0/jvyivU0VfyfsP5U7Y8+F5dSKBt9eTt9PVm2xXr2igH7jZ/G7i/KuO/b4KxRFE3wD
+         tC95OHH9DHo4G2A/nI2dISv9rvjt+M3IZOeeTJwSAztdBFuUqTkBoVwiACLEt/w1Nzq8
+         5I0REmtTQafFchukuLRUmtc0DrDANVh27Gd56HWm7gD58kbR00QGEwGBYUY3weyFVBVd
+         kCRljoBmAIFQgWcGfJ80AvJYb9k+TW/G+IiXahzRsYxy4iQm18AWlMfZa5hDkxcnCai9
+         0XUA==
+X-Gm-Message-State: AO0yUKVqUQyHJW06pGkSwVXKOou/cbrG4/mBoW6Xyl/pf4p5iDJt83fo
+	FX/z4f8CS8Pc6VaVg79UbjhckA==
+X-Google-Smtp-Source: AK7set8s4KJUlAUa+S8V50XxDO/fcproXW1ucDuhrZ/FIOtcL0GdtiqhtiSV3XKXShecQRYH1ubh+g==
+X-Received: by 2002:a17:902:e5cd:b0:19a:bbd0:c5c7 with SMTP id u13-20020a170902e5cd00b0019abbd0c5c7mr23075349plf.64.1677240205325;
+        Fri, 24 Feb 2023 04:03:25 -0800 (PST)
+Received: from sunil-laptop ([49.206.14.226])
+        by smtp.gmail.com with ESMTPSA id jh18-20020a170903329200b0019cb8ffd592sm3561453plb.163.2023.02.24.04.03.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 24 Feb 2023 04:03:24 -0800 (PST)
+Date: Fri, 24 Feb 2023 17:33:15 +0530
+From: Sunil V L <sunilvl@ventanamicro.com>
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Marc Zyngier <maz@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Atish Patra <atishp@rivosinc.com>,
+	"Rafael J . Wysocki" <rafael.j.wysocki@intel.com>
+Subject: Re: [PATCH V2 08/21] drivers/acpi: RISC-V: Add RHCT related code
+Message-ID: <Y/ingw3nYwO7PUHm@sunil-laptop>
+References: <20230216182043.1946553-1-sunilvl@ventanamicro.com>
+ <20230216182043.1946553-9-sunilvl@ventanamicro.com>
+ <20230220163648.72bw7ujwzkx42far@orel>
 MIME-Version: 1.0
-In-Reply-To: <20230216113126.kio4uqovoo4p6ubm@M910t>
+Content-Disposition: inline
+In-Reply-To: <20230220163648.72bw7ujwzkx42far@orel>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230224_030821_310361_26A486E4 
-X-CRM114-Status: GOOD (  44.10  )
+X-CRM114-CacheID: sfid-20230224_040327_291848_AF18B4BC 
+X-CRM114-Status: GOOD (  39.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,237 +95,207 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2058375448647815319=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============2058375448647815319==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="Zh3dtgAMuW4Zo9IM"
-Content-Disposition: inline
-
---Zh3dtgAMuW4Zo9IM
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Feb 16, 2023 at 07:31:26PM +0800, Changbin Du wrote:
-> On Wed, Feb 15, 2023 at 04:43:17PM +0000, Conor Dooley wrote:
-> > From: Palmer Dabbelt <palmerdabbelt@google.com>
-> >=20
-> > We're currently using stop_machine() to update ftrace, which means that
-> > the thread that takes text_mutex during ftrace_prepare() may not be the
-> > same as the thread that eventually patches the code.  This isn't
-> > actually a race because the lock is still held (preventing any other
-> > concurrent accesses) and there is only one thread running during
-> > stop_machine(), but it does trigger a lockdep failure.
-> >=20
-> > This patch just elides the lockdep check during stop_machine.
-> >=20
-> > Fixes: c15ac4fd60d5 ("riscv/ftrace: Add dynamic function tracer support=
-")
-> > Suggested-by: Steven Rostedt <rostedt@goodmis.org>
-> > Reported-by: Changbin Du <changbin.du@gmail.com>
-> > Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
-> > Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-> > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+On Mon, Feb 20, 2023 at 05:36:48PM +0100, Andrew Jones wrote:
+> On Thu, Feb 16, 2023 at 11:50:30PM +0530, Sunil V L wrote:
+> > RHCT is a new table defined for RISC-V to communicate the
+> > features of the CPU to the OS. Create a new architecture folder
+> > in drivers/acpi and add RHCT parsing code.
+> > 
+> > Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
+> > Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
 > > ---
-> > Resending this version as I am quite averse to deleting the assertion!
-> >=20
-> > Changes since v2 [<20220322022331.32136-1-palmer@rivosinc.com>]:
-> > * rebase on riscv/for-next as it as been a year.
-> > * incorporate Changbin's suggestion that init_nop should take the lock
-> >   rather than call prepare() & post_process().
-> >=20
-> > Changes since v1 [<20210506071041.417854-1-palmer@dabbelt.com>]:
-> > * Use ftrace_arch_ocde_modify_{prepare,post_process}() to set the flag.
-> >   I remember having a reason I wanted the function when I wrote the v1,
-> >   but it's been almost a year and I forget what that was -- maybe I was
-> >   just crazy, the patch was sent at midnight.
-> > * Fix DYNAMIC_FTRACE=3Dn builds.
-> > ---
-> >  arch/riscv/include/asm/ftrace.h |  7 +++++++
-> >  arch/riscv/kernel/ftrace.c      | 15 +++++++++++++--
-> >  arch/riscv/kernel/patch.c       | 10 +++++++++-
-> >  3 files changed, 29 insertions(+), 3 deletions(-)
-> >=20
-> > diff --git a/arch/riscv/include/asm/ftrace.h b/arch/riscv/include/asm/f=
-trace.h
-> > index 04dad3380041..3ac7609f4ee9 100644
-> > --- a/arch/riscv/include/asm/ftrace.h
-> > +++ b/arch/riscv/include/asm/ftrace.h
-> > @@ -81,8 +81,15 @@ do {									\
-> >  struct dyn_ftrace;
-> >  int ftrace_init_nop(struct module *mod, struct dyn_ftrace *rec);
-> >  #define ftrace_init_nop ftrace_init_nop
-> > +extern int riscv_ftrace_in_stop_machine;
-> >  #endif
-> > =20
-> > +#else /* CONFIG_DYNAMIC_FTRACE */
+> >  arch/riscv/include/asm/acpi.h |  9 ++++
+> >  drivers/acpi/Makefile         |  2 +
+> >  drivers/acpi/riscv/Makefile   |  2 +
+> >  drivers/acpi/riscv/rhct.c     | 92 +++++++++++++++++++++++++++++++++++
+> >  4 files changed, 105 insertions(+)
+> >  create mode 100644 drivers/acpi/riscv/Makefile
+> >  create mode 100644 drivers/acpi/riscv/rhct.c
+> > 
+> > diff --git a/arch/riscv/include/asm/acpi.h b/arch/riscv/include/asm/acpi.h
+> > index 4a3622b38159..7bc49f65c86b 100644
+> > --- a/arch/riscv/include/asm/acpi.h
+> > +++ b/arch/riscv/include/asm/acpi.h
+> > @@ -58,6 +58,15 @@ static inline bool acpi_has_cpu_in_madt(void)
+> >  
+> >  static inline void arch_fix_phys_package_id(int num, u32 slot) { }
+> >  
+> > +int acpi_get_riscv_isa(struct acpi_table_header *table,
+> > +		       unsigned int cpu, const char **isa);
+> > +#else
+> > +static inline int acpi_get_riscv_isa(struct acpi_table_header *table,
+> > +				     unsigned int cpu, const char **isa)
+> > +{
+> > +	return -EINVAL;
+> > +}
 > > +
-> > +#ifndef __ASSEMBLY__
-> > +#define riscv_ftrace_in_stop_machine 0
-> >  #endif
-> > =20
-> > +#endif /* CONFIG_DYNAMIC_FTRACE */
+> >  #endif /* CONFIG_ACPI */
+> >  
+> >  #endif /*_ASM_ACPI_H*/
+> > diff --git a/drivers/acpi/Makefile b/drivers/acpi/Makefile
+> > index feb36c0b9446..3fc5a0d54f6e 100644
+> > --- a/drivers/acpi/Makefile
+> > +++ b/drivers/acpi/Makefile
+> > @@ -131,3 +131,5 @@ obj-y				+= dptf/
+> >  obj-$(CONFIG_ARM64)		+= arm64/
+> >  
+> >  obj-$(CONFIG_ACPI_VIOT)		+= viot.o
 > > +
-> >  #endif /* _ASM_RISCV_FTRACE_H */
-> > diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
-> > index 2086f6585773..661bfa72f359 100644
-> > --- a/arch/riscv/kernel/ftrace.c
-> > +++ b/arch/riscv/kernel/ftrace.c
-> > @@ -11,14 +11,25 @@
-> >  #include <asm/cacheflush.h>
-> >  #include <asm/patch.h>
-> > =20
-> > +int riscv_ftrace_in_stop_machine;
+> > +obj-$(CONFIG_RISCV)		+= riscv/
+> > diff --git a/drivers/acpi/riscv/Makefile b/drivers/acpi/riscv/Makefile
+> > new file mode 100644
+> > index 000000000000..8b3b126e0b94
+> > --- /dev/null
+> > +++ b/drivers/acpi/riscv/Makefile
+> > @@ -0,0 +1,2 @@
+> > +# SPDX-License-Identifier: GPL-2.0-only
+> > +obj-y 	+= rhct.o
+> > diff --git a/drivers/acpi/riscv/rhct.c b/drivers/acpi/riscv/rhct.c
+> > new file mode 100644
+> > index 000000000000..5bafc236d627
+> > --- /dev/null
+> > +++ b/drivers/acpi/riscv/rhct.c
+> > @@ -0,0 +1,92 @@
+> > +// SPDX-License-Identifier: GPL-2.0-only
+> > +/*
+> > + * Copyright (C) 2022-2023, Ventana Micro Systems Inc
+> > + *	Author: Sunil V L <sunilvl@ventanamicro.com>
+> > + *
+> > + */
 > > +
-> >  #ifdef CONFIG_DYNAMIC_FTRACE
-> >  void ftrace_arch_code_modify_prepare(void) __acquires(&text_mutex)
-> >  {
-> >  	mutex_lock(&text_mutex);
+> > +#define pr_fmt(fmt)	"ACPI: RHCT: " fmt
+> > +
+> > +#include <linux/acpi.h>
+> > +
+> > +static void acpi_rhct_warn_missing(void)
+> > +{
+> > +	pr_warn_once("No RHCT table found\n");
+> > +}
+> > +
+> > +static struct acpi_table_header *acpi_get_rhct(void)
+> > +{
+> > +	static struct acpi_table_header *rhct;
+> > +	acpi_status status;
 > > +
 > > +	/*
-> > +	 * The code sequences we use for ftrace can't be patched while the
-> > +	 * kernel is running, so we need to use stop_machine() to modify them
-> > +	 * for now.  This doesn't play nice with text_mutex, we use this flag
-> > +	 * to elide the check.
+> > +	 * RHCT will be used at runtime on every CPU, so we
+> > +	 * don't need to call acpi_put_table() to release the table mapping.
 > > +	 */
-> > +	riscv_ftrace_in_stop_machine =3D true;
-> >  }
-> > =20
-> >  void ftrace_arch_code_modify_post_process(void) __releases(&text_mutex)
-> >  {
-> > +	riscv_ftrace_in_stop_machine =3D false;
-> >  	mutex_unlock(&text_mutex);
-> >  }
-> > =20
-> > @@ -134,9 +145,9 @@ int ftrace_init_nop(struct module *mod, struct dyn_=
-ftrace *rec)
-> >  {
-> >  	int out;
-> > =20
-> > -	ftrace_arch_code_modify_prepare();
-> > +	mutex_lock(&text_mutex);
-> >  	out =3D ftrace_make_nop(mod, rec, MCOUNT_ADDR);
-> > -	ftrace_arch_code_modify_post_process();
-> > +	mutex_unlock(&text_mutex);
-> > =20
-> >  	return out;
-> >  }
-> > diff --git a/arch/riscv/kernel/patch.c b/arch/riscv/kernel/patch.c
-> > index 765004b60513..56b70271518d 100644
-> > --- a/arch/riscv/kernel/patch.c
-> > +++ b/arch/riscv/kernel/patch.c
-> > @@ -11,6 +11,7 @@
-> >  #include <asm/kprobes.h>
-> >  #include <asm/cacheflush.h>
-> >  #include <asm/fixmap.h>
-> > +#include <asm/ftrace.h>
-> >  #include <asm/patch.h>
-> > =20
-> >  struct patch_insn {
-> > @@ -59,8 +60,15 @@ static int patch_insn_write(void *addr, const void *=
-insn, size_t len)
-> >  	 * Before reaching here, it was expected to lock the text_mutex
-> >  	 * already, so we don't need to give another lock here and could
-> >  	 * ensure that it was safe between each cores.
-> > +	 *
-> > +	 * We're currently using stop_machine() for ftrace, and while that
-> > +	 * ensures text_mutex is held before installing the mappings it does
-> > +	 * not ensure text_mutex is held by the calling thread.  That's safe
-> > +	 * but triggers a lockdep failure, so just elide it for that specific
-> > +	 * case.
-> >  	 */
-> > -	lockdep_assert_held(&text_mutex);
-> > +	if (!riscv_ftrace_in_stop_machine)
-> > +		lockdep_assert_held(&text_mutex);
-> > =20
-> >  	if (across_pages)
-> >  		patch_map(addr + len, FIX_TEXT_POKE1);
-> This misses this function.
->=20
-> int patch_text(void *addr, u32 insn)
+> > +	if (!rhct) {
+> > +		status = acpi_get_table(ACPI_SIG_RHCT, 0, &rhct);
+> > +		if (ACPI_FAILURE(status))
+> > +			acpi_rhct_warn_missing();
+> 
+> Probably don't need the wrapper function for this one callsite. Also,
+> returning NULL here, rather than relying on acpi_get_table() to set
+> rhct to NULL would be a bit more robust.
+> 
+Sure. Will update.
 
-So, with a corresponding rename to the symbol, does the following look
-okay to you?
+> > +	}
+> > +
+> > +	return rhct;
+> > +}
+> > +
+> > +/*
+> > + * During early boot, the caller should call acpi_get_table() and pass its pointer to
+> > + * these functions(and free up later). At run time, since this table can be used
+> > + * multiple times, pass NULL so that the table remains in memory
+> 
+> ...multiple times, NULL may be passed in order to use the cached table.
+> 
+Okay.
 
-diff --git a/arch/riscv/kernel/probes/kprobes.c b/arch/riscv/kernel/probes/=
-kprobes.c
-index f21592d20306..433b454e693f 100644
---- a/arch/riscv/kernel/probes/kprobes.c
-+++ b/arch/riscv/kernel/probes/kprobes.c
-@@ -27,9 +27,15 @@ static void __kprobes arch_prepare_ss_slot(struct kprobe=
- *p)
-=20
- 	p->ainsn.api.restore =3D (unsigned long)p->addr + offset;
-=20
-+	/*
-+	 * kprobes takes text_mutex, but patch_text() calls stop_machine and
-+	 * lockdep gets confused by the context in which the lock is taken.
-+	 */
-+	riscv_patch_in_stop_machine =3D true;
- 	patch_text(p->ainsn.api.insn, p->opcode);
- 	patch_text((void *)((unsigned long)(p->ainsn.api.insn) + offset),
- 		   __BUG_INSN_32);
-+	riscv_patch_in_stop_machine =3D false;
- }
-=20
- static void __kprobes arch_prepare_simulate(struct kprobe *p)
-@@ -96,16 +102,28 @@ void *alloc_insn_page(void)
- /* install breakpoint in text */
- void __kprobes arch_arm_kprobe(struct kprobe *p)
- {
-+	/*
-+	 * kprobes takes text_mutex, but patch_text() calls stop_machine and
-+	 * lockdep gets confused by the context in which the lock is taken.
-+	 */
-+	riscv_patch_in_stop_machine =3D true;
- 	if ((p->opcode & __INSN_LENGTH_MASK) =3D=3D __INSN_LENGTH_32)
- 		patch_text(p->addr, __BUG_INSN_32);
- 	else
- 		patch_text(p->addr, __BUG_INSN_16);
-+	riscv_patch_in_stop_machine =3D false;
- }
-=20
- /* remove breakpoint from text */
- void __kprobes arch_disarm_kprobe(struct kprobe *p)
- {
-+	/*
-+	 * kprobes takes text_mutex, but patch_text() calls stop_machine and
-+	 * lockdep gets confused by the context in which the lock is taken.
-+	 */
-+	riscv_patch_in_stop_machine =3D true;
- 	patch_text(p->addr, p->opcode);
-+	riscv_patch_in_stop_machine =3D false;
- }
-=20
- void __kprobes arch_remove_kprobe(struct kprobe *p)
+> > + */
+> > +int acpi_get_riscv_isa(struct acpi_table_header *table, unsigned int acpi_cpu_id, const char **isa)
+> > +{
+> > +	struct acpi_rhct_node_header *node, *ref_node, *end;
+> > +	struct acpi_table_rhct *rhct;
+> > +	struct acpi_rhct_hart_info *hart_info;
+> > +	struct acpi_rhct_isa_string *isa_node;
+> > +	u32 *hart_info_node_offset;
+> > +	int i, j;
+> > +	u32 size_hdr = sizeof(struct acpi_rhct_node_header);
+> > +	u32 size_hartinfo = sizeof(struct acpi_rhct_hart_info);
+> > +
+> > +	if (acpi_disabled) {
+> > +		pr_debug("%s: acpi is disabled\n", __func__);
+> > +		return -1;
+> 
+> This seems like something that should never happen and easy to catch
+> and fix with a BUG_ON. Is there any chance that BUG'ing here would
+> be a bad idea?
+> 
+Yes, we can use BUG_ON. Will update.
 
---Zh3dtgAMuW4Zo9IM
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY/iafgAKCRB4tDGHoIJi
-0r+kAQDkslf97CFCevVYoHU26k3n4u4UHGtdALwNT3P6GYB02AD6Az9axmjrx56x
-EPiivKk+OD4k2gyznH+bS2jDa9EjYAM=
-=HabL
------END PGP SIGNATURE-----
-
---Zh3dtgAMuW4Zo9IM--
-
-
---===============2058375448647815319==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> > +	}
+> > +
+> > +	if (!table) {
+> > +		rhct = (struct acpi_table_rhct *)acpi_get_rhct();
+> > +		if (!rhct)
+> > +			return -ENOENT;
+> > +	} else {
+> > +		rhct = (struct acpi_table_rhct *)table;
+> > +	}
+> > +
+> > +	node = ACPI_ADD_PTR(struct acpi_rhct_node_header, rhct, rhct->node_offset);
+> > +	end = ACPI_ADD_PTR(struct acpi_rhct_node_header, rhct, rhct->header.length);
+> > +
+> > +	for (i = 0; i < rhct->node_count; i++) {
+> > +		if (node >= end)
+> > +			break;
+> 
+> for (node = ACPI_ADD_PTR(struct acpi_rhct_node_header, rhct, rhct->node_offset);
+>      node < end;
+>      node = ACPI_ADD_PTR(struct acpi_rhct_node_header, node node->length))
+> 
+> > +		switch (node->type) {
+> > +		case ACPI_RHCT_NODE_TYPE_HART_INFO:
+> 
+> if (node->type == ACPI_RHCT_NODE_TYPE_HART_INFO)
+> 
+> > +			hart_info = ACPI_ADD_PTR(struct acpi_rhct_hart_info, node, size_hdr);
+> > +			hart_info_node_offset = ACPI_ADD_PTR(u32, hart_info, size_hartinfo);
+> > +			if (acpi_cpu_id != hart_info->uid)
+> > +				break;
+> 
+> With the above suggested changes, this 'break' becomes 'continue'.
+> 
+Okay.
+> > +			for (j = 0; j < hart_info->num_offsets; j++) {
+> > +				ref_node = ACPI_ADD_PTR(struct acpi_rhct_node_header,
+> > +							rhct, hart_info_node_offset[j]);
+> > +				if (ref_node->type == ACPI_RHCT_NODE_TYPE_ISA_STRING) {
+> > +					isa_node = ACPI_ADD_PTR(struct acpi_rhct_isa_string,
+> > +								ref_node, size_hdr);
+> > +					*isa = isa_node->isa;
+> > +					return 0;
+> > +				}
+> > +			}
+> > +			break;
+> > +		}
+> > +		node = ACPI_ADD_PTR(struct acpi_rhct_node_header, node, node->length);
+> > +	}
+> > +
+> > +	return -1;
+> > +}
+> > -- 
+> > 2.34.1
+> > 
+> 
+> Other than the nits,
+> 
+> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+> 
+Thanks!
+Sunil
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2058375448647815319==--
-
