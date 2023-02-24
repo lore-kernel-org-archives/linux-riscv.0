@@ -4,50 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E2C6C61DA4
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Feb 2023 12:48:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAE4CC61DA4
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Feb 2023 12:59:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FnvHXGEiK1Gqp2qLpkbPZ6EFaQvG4SwlckiuR4q6AV4=; b=KXyMscVDKKD5H+
-	wcl/EascBTiTYvmsTack5/ihJoFYNmk7882nmm0BJbkOGce9vfWs0BTSBm0PVnfctrY/ooRQTkzph
-	oXpRNQGtg8xk+YcfujR+xWUxDkec/neRUVaCEbBJ0MupluRxbq9q2KZLNOdZ0sT3sBXmgkJPMS70M
-	yZyPivBO4l5FkhYEBWN12O/4HEGsMYw3clhb+zi4Pm4nOIu2XIzEetQW32yziVgGhZByeefQOjHVL
-	ZI6p6grTh96SB4PmFU4TO+Jrl6hj5aSu0Elf0FSOLsqcsNXUMMI6y3cqGSxAgV86wl7CwUu/LxSuR
-	qC7tkga3HkC2YS/yAFPw==;
+	List-Owner; bh=m+ryJYqjc2Bir/d/YoiV94hJMklxFrAiHrvuSVT662Q=; b=0yjT3+Ln8tlj7Z
+	nFT2mBg2St5Q6+8RgP3tamMnJIcdJjp7WcrZAElHYSSdYwepBxc7EosODwpQRDwAHQ16mGAZY5TLU
+	W8d+casd5rBYXMbxS0WZ7phBsswhQROcRXqz9EH6DK6W4FvDUT/CdoUJ/izS0DQStOAcucghNn7b1
+	X1Acmtmg1YWpPXtCu8Gi++TLqnOrIqPG7+RlNts43q6hx1RQlKbSsl09oqy3SrR7jV/Ysl2IdsL+H
+	7inhtM0S/OHTBHn65I8MutqClAKXXqpfM3t9sWmChmgvnB74g1K1S5iAI6HpyPSorGYkwWC7D9dee
+	wWstykjIVFyVAkdXG93g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pVXUd-002Sp2-3U; Fri, 24 Feb 2023 12:48:07 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1pVXfl-002Ufa-0H; Fri, 24 Feb 2023 12:59:37 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pVXUb-002SoO-5f
-	for linux-riscv@lists.infradead.org; Fri, 24 Feb 2023 12:48:06 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1pVXUZ-0004KF-Or; Fri, 24 Feb 2023 13:48:03 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
-Cc: 'Jisheng Zhang ' <jszhang@kernel.org>,
- 'Paul Walmsley ' <paul.walmsley@sifive.com>,
- 'Palmer Dabbelt ' <palmer@dabbelt.com>,
- 'Conor Dooley ' <conor.dooley@microchip.com>,
- 'Albert Ou ' <aou@eecs.berkeley.edu>
-Subject: Re: [PATCH 5/5] riscv: cpufeature: Drop unused includes
-Date: Fri, 24 Feb 2023 13:48:03 +0100
-Message-ID: <13210765.uLZWGnKmhe@diego>
-In-Reply-To: <20230221185603.570882-6-ajones@ventanamicro.com>
-References:  <20230221185603.570882-1-ajones@ventanamicro.com>
- <20230221185603.570882-6-ajones@ventanamicro.com>
+	id 1pVXff-002UcO-9a
+	for linux-riscv@lists.infradead.org; Fri, 24 Feb 2023 12:59:34 +0000
+Received: from kwepemi500013.china.huawei.com (unknown [172.30.72.57])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4PNVJb5LBczRs7r;
+	Fri, 24 Feb 2023 20:56:31 +0800 (CST)
+Received: from M910t (10.110.54.157) by kwepemi500013.china.huawei.com
+ (7.221.188.120) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.17; Fri, 24 Feb
+ 2023 20:59:17 +0800
+Date: Fri, 24 Feb 2023 20:58:57 +0800
+From: Changbin Du <changbin.du@huawei.com>
+To: Conor Dooley <conor.dooley@microchip.com>
+CC: Changbin Du <changbin.du@huawei.com>, Conor Dooley <conor@kernel.org>,
+	<palmer@dabbelt.com>, Palmer Dabbelt <palmerdabbelt@google.com>,
+	<linux-riscv@lists.infradead.org>, Steven Rostedt <rostedt@goodmis.org>,
+	Changbin Du <changbin.du@gmail.com>, Palmer Dabbelt <palmer@rivosinc.com>,
+	Hui Wang <hw.huiwang@huawei.com>
+Subject: Re: [PATCH v3] RISC-V: Don't check text_mutex during stop_machine
+Message-ID: <20230224125857.dbsaj7mv2by66wm3@M910t>
+References: <20230215164317.727657-1-conor@kernel.org>
+ <20230216113126.kio4uqovoo4p6ubm@M910t>
+ <Y/iafgRdYtWCmQZ2@wendy>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <Y/iafgRdYtWCmQZ2@wendy>
+X-Originating-IP: [10.110.54.157]
+X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
+ kwepemi500013.china.huawei.com (7.221.188.120)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230224_044805_239890_22B64504 
-X-CRM114-Status: UNSURE (   7.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230224_045931_556842_46220141 
+X-CRM114-Status: GOOD (  13.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,16 +71,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Dienstag, 21. Februar 2023, 19:56:03 CET schrieb Andrew Jones:
-> Do some additional include pruning while dropping errata_list.h,
-> which is getting dropped, since cpufeature.c includes hwcap.h
-> directly to get cpufeature IDs.
+On Fri, Feb 24, 2023 at 11:07:42AM +0000, Conor Dooley wrote:
+> > > -	lockdep_assert_held(&text_mutex);
+> > > +	if (!riscv_ftrace_in_stop_machine)
+> > > +		lockdep_assert_held(&text_mutex);
+> > >  
+> > >  	if (across_pages)
+> > >  		patch_map(addr + len, FIX_TEXT_POKE1);
+> > This misses this function.
+> > 
+> > int patch_text(void *addr, u32 insn)
 > 
-> Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+> So, with a corresponding rename to the symbol, does the following look
+> okay to you?
+> 
+> diff --git a/arch/riscv/kernel/probes/kprobes.c b/arch/riscv/kernel/probes/kprobes.c
+> index f21592d20306..433b454e693f 100644
+> --- a/arch/riscv/kernel/probes/kprobes.c
+> +++ b/arch/riscv/kernel/probes/kprobes.c
+> @@ -27,9 +27,15 @@ static void __kprobes arch_prepare_ss_slot(struct kprobe *p)
+>  
+>  	p->ainsn.api.restore = (unsigned long)p->addr + offset;
+>  
+> +	/*
+> +	 * kprobes takes text_mutex, but patch_text() calls stop_machine and
+> +	 * lockdep gets confused by the context in which the lock is taken.
+> +	 */
+> +	riscv_patch_in_stop_machine = true;
+>  	patch_text(p->ainsn.api.insn, p->opcode);
+>  	patch_text((void *)((unsigned long)(p->ainsn.api.insn) + offset),
+>  		   __BUG_INSN_32);
+> +	riscv_patch_in_stop_machine = false;
+>  }
+hmm, why not just put 'riscv_patch_in_stop_machine' into patch_text()? Then you
+just need to modify that function.
 
-Reviewed-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
-
-
+-- 
+Cheers,
+Changbin Du
 
 _______________________________________________
 linux-riscv mailing list
