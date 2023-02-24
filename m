@@ -4,87 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C43EC61DA3
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Feb 2023 13:07:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D267C61DA4
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Feb 2023 13:09:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GRJcvjVqVeSR7z5N5KPvOOndp4iMOstBsvwQU3lswXs=; b=sRL0k3Q9Q4wFor
-	vnymGLwRHwukgek+Gx7CGJwyzOOWldVMsA6N4fktE4mzzYuQTm5D//FzZTYx+uXaAY9afOuJnBDFa
-	8GpgDAOWibf2mPkkChnotGK0KFLzxZIdT1X3XsIKcyzu+he27yzeJhqdqrwLJakuOhdrFA1yeLOCl
-	8wZYgwHyoOMpX2MBamhw6TbvgtEdukpgvIZXSGjGtlhd7qEL5T6XPMU+mselRj9H4+U7QPhyzUMED
-	FjwdzMP4V10u4AiClLUtSwgW7pvNizirHR2WX2koWNQ3gaOnFPwbAJtxxqLa1oYdaIDfPsoQoVzcu
-	62AnKJCEU3w49vybC+/Q==;
+	List-Owner; bh=jeN866oQYaz3uwZBNn1mkL+fZpJu8jzyKT9K69vg3Ys=; b=PrnchsN8wwiVZj
+	Blq8GL4v2ICVKbQNnLSi5eqcya0MvAvt6+fp7B5lusUNbmbObmFTAj/2S3gtiX4CQQNFor9spk8/o
+	wa++6eusYSTJMdWrCmA0eIvTP1dX5pxgz0Vm/SVsT2BncKsx7vF0kS0Mkria1DOZKvajxkXFG/GTN
+	snmID9uUiqIAc3xr+o2QOzvSIAcram7HMEP3Jun+5tUmQePv1kGeGn27qXd/iE6HN8lo+xj27Qx/v
+	nNFd4LCxIa8UsQkxs72DQPU2rAnjuc0x3y2JaRKM277OwcYXSLX4kOiYMPHv3TxOU75+boZC22yWj
+	Hv01nQRqh686MTDKOKxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pVXnH-002XlR-TO; Fri, 24 Feb 2023 13:07:23 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pVXnE-002Xgj-Gy
-	for linux-riscv@lists.infradead.org; Fri, 24 Feb 2023 13:07:22 +0000
-Received: by mail-wm1-x333.google.com with SMTP id p26so11348240wmc.4
-        for <linux-riscv@lists.infradead.org>; Fri, 24 Feb 2023 05:07:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=vRmr+qDGaynX3Fi6rufm9jo6Cki4j4VKaIrpKJ6hwe4=;
-        b=RIzQ/rCEKDayTetLjXaZd+oSz1DZTFs/EICH39jXUnNfYZuNXnhAVn70h8MAx/r7En
-         9s9Ztit2RAsX5OutmWbcjJkoU9mBD5kv04WMC7vhxIx2bstjHAjj1xeOVYwNJaVShM3z
-         MSXKpi6MONd3MJNXHM3ZRafE10CLJIX6gKoSHplkfWt/wYKfHUkuSARSfw7LabxHBMej
-         7+Hj+7Xcz24oxDBt9lUDiNIcYvmbGKsvwOQ6uDv4vzRQi9cfze/4mtNDEknnN7oKrxjS
-         5fsa6SOiCOHWvHCnDcmSg4Fx9Qf3bP4BqNcw8pBity7kNEjBwK6FWjDX5KLT8rrlrAUs
-         iiuw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vRmr+qDGaynX3Fi6rufm9jo6Cki4j4VKaIrpKJ6hwe4=;
-        b=CRM6E/xqSsI7MMVbFRk2Ln+yEhTNTiNOHiEqxwT3fp58u+eK1nMn57INBQFPmK/OFX
-         sS3t1/CuBfyTHwGa+ypm6FT/5vFNNkihijt2mn2fK9u6TrkHDmZ7BcansFNotEi5KRWs
-         T+27/Qgabu1qTTxIdi3u43kmgF0ymlf2sLS/aErQV0kgPILa/9ZNbTBH3sumoM3oQ0gI
-         7k/skENq3wc+qOhGijCEJcbDPY1w8ZdTRSlBvTiIBhNyjofyQQJtFuUeJkESGSehYoHO
-         H+YMyi0Cg0cqzQU4HzvsDve9YCO9HwVNFH7eTDv3GiFkw7QY9zM2OC5YX/zXr4thho4Z
-         DAbQ==
-X-Gm-Message-State: AO0yUKXukmscpYI56bqJIhKWhq3e/N6A0iFC1jIHs1we+hInmTjSw4WX
-	IYU2B8FLz8AHxmpLCfQe+h7HJw==
-X-Google-Smtp-Source: AK7set/jjFnC7ufdlcEvxsuUZyY5vrhEqrMGd5YSK2I2jwDD6VLGYlvjWgiKEajdk68eJyHa5z6g7w==
-X-Received: by 2002:a05:600c:80f:b0:3db:fc3:6de4 with SMTP id k15-20020a05600c080f00b003db0fc36de4mr11161205wmp.35.1677244033586;
-        Fri, 24 Feb 2023 05:07:13 -0800 (PST)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id b4-20020a5d4d84000000b002c71703876bsm3195029wru.14.2023.02.24.05.07.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Feb 2023 05:07:13 -0800 (PST)
-Date: Fri, 24 Feb 2023 14:07:12 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Sunil V L <sunilvl@ventanamicro.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Marc Zyngier <maz@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Atish Patra <atishp@rivosinc.com>,
-	"Rafael J . Wysocki" <rafael.j.wysocki@intel.com>
-Subject: Re: [PATCH V2 18/21] RISC-V: Add ACPI initialization in setup_arch()
-Message-ID: <20230224130712.c42ob66ux5xhffbm@orel>
-References: <20230216182043.1946553-1-sunilvl@ventanamicro.com>
- <20230216182043.1946553-19-sunilvl@ventanamicro.com>
- <20230220200743.rev3djzbaa2jcmg6@orel>
- <Y/ivRjQbIna7M4R2@sunil-laptop>
+	id 1pVXpb-002Yk0-5m; Fri, 24 Feb 2023 13:09:47 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pVXpV-002YZ3-8k
+	for linux-riscv@lists.infradead.org; Fri, 24 Feb 2023 13:09:45 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 7A15524E31E;
+	Fri, 24 Feb 2023 21:09:08 +0800 (CST)
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 24 Feb
+ 2023 21:09:08 +0800
+Received: from [192.168.125.93] (113.72.147.165) by EXMBX168.cuchost.com
+ (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 24 Feb
+ 2023 21:09:07 +0800
+Message-ID: <bd4301c5-d79f-6ba5-a840-95b733d2d44e@starfivetech.com>
+Date: Fri, 24 Feb 2023 21:09:07 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Y/ivRjQbIna7M4R2@sunil-laptop>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.7.2
+Subject: Re: [PATCH v2 1/3] dt-bindings: dma: snps,dw-axi-dmac: Add reset
+ items
+Content-Language: en-US
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Eugeniy Paltsev
+	<Eugeniy.Paltsev@synopsys.com>, Vinod Koul <vkoul@kernel.org>, Rob Herring
+	<robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor@kernel.org>, "Palmer
+ Dabbelt" <palmer@dabbelt.com>, Emil Renner Berthing <kernel@esmil.dk>, "Emil
+ Renner Berthing" <emil.renner.berthing@canonical.com>
+CC: <dmaengine@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+References: <20230221140424.719-1-walker.chen@starfivetech.com>
+ <20230221140424.719-2-walker.chen@starfivetech.com>
+ <1467f7c5-07eb-97db-c6f2-573a4208cc28@linaro.org>
+ <d0984638-3f7f-7e4e-fe3e-5e1f88375dca@starfivetech.com>
+ <36188e04-332f-e944-9c58-f6f2b74987da@linaro.org>
+From: Walker Chen <walker.chen@starfivetech.com>
+In-Reply-To: <36188e04-332f-e944-9c58-f6f2b74987da@linaro.org>
+X-Originating-IP: [113.72.147.165]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX168.cuchost.com
+ (172.16.6.78)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230224_050720_594962_6149D249 
-X-CRM114-Status: GOOD (  16.21  )
+X-CRM114-CacheID: sfid-20230224_050941_635183_18A579B1 
+X-CRM114-Status: UNSURE (   8.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,34 +83,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 24, 2023 at 06:06:22PM +0530, Sunil V L wrote:
-> On Mon, Feb 20, 2023 at 09:07:43PM +0100, Andrew Jones wrote:
-> > On Thu, Feb 16, 2023 at 11:50:40PM +0530, Sunil V L wrote:
-...
-> > > +	fadt = (struct acpi_table_fadt *)table;
-> > > +
-> > > +	if (!(fadt->flags & ACPI_FADT_HW_REDUCED)) {
-> > 
-> > Do we also need to check for ACPI version 5.0+ when checking for HW
-> > reduced?
-> > 
-> We need to add version check of FADT once spec is released. Will
-> update it at that time.
+
+
+On 2023/2/24 18:51, Krzysztof Kozlowski wrote:
+> On 24/02/2023 11:14, Walker Chen wrote:
+>>>>    resets:
+>>>> -    maxItems: 1
+>>>> +    maxItems: 2
+>>>
+>>> This breaks ABI and all other users. Test your changes before sending.
+>> 
+>> I think 'minItems' should be added here. So like this:
+>> resets:
+>>   minItems: 1
+>>   maxItems: 2
+>> 
+>> Other platform/users will not be affected by this.
 > 
+> Which will allow two resets on all platforms. Is this correct for these
+> platforms? Do they have two resets?
+> 
+In kernel 6.2, only two platforms use this DMA controller (see 'arch/arc/boot/dts/hsdk.dts' and 'arch/riscv/boot/dts/canaan/k210.dtsi').
+There is one reset on k210, while there is no reset of DMA on hsdk at all.
+If here minItems with value 1 is added and the value of maxItems is changed to 2, after my testing,
+whether it is one reset or two resets, even no reset, there is no errors occur when doing dtbs_check,
+the DMA initialization shall not be affected either on their platforms.
 
-I was thinking we need the version check already just for the flag.
-The spec has a footnote that says
 
-"The description of HW_REDUCED_ACPI provided here applies to ACPI
- specifications 5.0 and later"
-
-It doesn't really matter in practice since no RISC-V machines can
-boot with ACPI less than a version that support the new RISC-V
-tables... But I'd rather we either document that fact, or just do
-the check.
-
-Thanks,
-drew
 
 _______________________________________________
 linux-riscv mailing list
