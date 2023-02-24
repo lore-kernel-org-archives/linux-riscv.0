@@ -4,70 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB698C64ED8
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Feb 2023 08:29:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1B83C64ED8
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Feb 2023 08:46:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JucCUKEGslUzXmWGeTht4rAQDGGyFwbsXHcfUaTsSbU=; b=TpNLDSeIJ2qMktzgtnvXvHNz52
-	H9bNMqPUUydwwg4cMOfYuHtEoL8jY5c7y9ApQLqV7BrXso7l2rd3w0lZpBgug/3K4lMGQYaUu4ojd
-	pEaMEW9Y5kFvrayq15ltEBAOr3T4S8uL0QjcukLBw5dKxiPknJ3yM2z7/ZeTS25epFP+lY2Oui7tN
-	mP3fxr4WzEDytvNjtVY5iAJWIPkvp1ZZccpgHNWdi7OLkLjjTXeOC8O8XQPllIxmiAFYzebzJhF8f
-	8CmcSHi6QNtReCHE8r4S+PXG2rK4jXxtsqg7QHtSaHwNy/6xnLHN4/c0UXx3aoDzTvDe47tBH4Bc8
-	sfwu6UxQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=yfRwnblWtTStaEX4riLDuop4blv414dqF3TPYlRt1pk=; b=syfcvBvHEUuVZz
+	+GUimcsg4nxBjEhIdt1a/eT5KshuM1EnO6JSWeY0e2UI8bH0brO/MaX1TYIX84iaqu5hIaTWIj1vW
+	4c6jkaHyDv6U4FvzLxYOMmwlKo3u7UXHO2rAFTTTxoame8c8Ul+jjJMuy4z9aUf6HgHsXHgq6zXeL
+	HC27YbKbb1VqWjRU3o/yU6hFFTcEyOL2+/ANglqzZD57j3GtM/KfCHvLEwQR2bj8aSwV6IWsSPEvi
+	2ANcWiyiqoYAfcHsih2sljQMt8lymV2C5d3y5BQBfo/W9+vl0DBiax15Yux3FWVdAjSuTj2tOMCGG
+	SSYp46MdvYpNtCcZfwLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pVTRu-001X1a-0O; Fri, 24 Feb 2023 08:29:02 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1pVTiK-001ZUZ-OZ; Fri, 24 Feb 2023 08:46:00 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pVTRq-001WzW-Lz
-	for linux-riscv@lists.infradead.org; Fri, 24 Feb 2023 08:29:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1677227339; x=1708763339;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=SIn1p7e4VSan5YSb/O/jBQErVaCbUiyyEKP8M4PMU5w=;
-  b=GD2DaJ/yuawn2XTAh5sOklfBIo37uhmREWcI45ey0Ymqu01GhU6V8RD+
-   CWwoHs/jOfXKDxLF2LVQmwdUomCfq9y3xiv9TGtAvhQiv0MqgF4onDgLT
-   HkYbzGtYIhwr4vqFvh02hQWOvOLF4yCywKJYAfdO6we2wcCPAWbt7pPYx
-   cRnDi2HIRVCl9Rt7HtpPbxRtj31xkwZZ6vxmogLwGNHXBpzPe6+cylL3S
-   DxENAWZ0oGzb8tl5035f5dBHeNbrDaNozeaWCBo7Aw2DuOsgmSvPDN5q9
-   PK/WQdzFfqkNFE85vNpV1xNZcQpTFPkQHjYKmOQr+YoZSRi5ExzCZ2U4n
-   A==;
-X-IronPort-AV: E=Sophos;i="5.97,324,1669100400"; 
-   d="asc'?scan'208";a="202385503"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 24 Feb 2023 01:28:54 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.16; Fri, 24 Feb 2023 01:28:53 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.16 via Frontend
- Transport; Fri, 24 Feb 2023 01:28:51 -0700
-Date: Fri, 24 Feb 2023 08:28:24 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Xu Yilun <yilun.xu@intel.com>
-CC: Conor Dooley <conor@kernel.org>, Daire McNamara
-	<daire.mcnamara@microchip.com>, Rob Herring <robh+dt@kernel.org>, "Krzysztof
- Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Moritz Fischer
-	<mdf@kernel.org>, Wu Hao <hao.wu@intel.com>, Tom Rix <trix@redhat.com>,
-	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-fpga@vger.kernel.org>
-Subject: Re: [PATCH v1 0/6] PolarFire SoC Auto Update Support
-Message-ID: <Y/h1KFGSw13OabYw@wendy>
-References: <20230217164023.14255-1-conor@kernel.org>
- <Y/ht1eHgtRrLxIhC@yilunxu-OptiPlex-7050>
+	id 1pVTiH-001ZTX-Cc
+	for linux-riscv@lists.infradead.org; Fri, 24 Feb 2023 08:45:58 +0000
+Received: by mail-pl1-x631.google.com with SMTP id e9so10966429plh.2
+        for <linux-riscv@lists.infradead.org>; Fri, 24 Feb 2023 00:45:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=m/g1Br9nMWuN1kMcnj12xFgT0Rd9SMTlaPziJnIgRsI=;
+        b=HJVHq/ZFu4hLwrKBdjVcvVDh8BY2u5vhJLGEkVHDDj91kJv4YRW/orPIWQhCaQxpt3
+         T196f1t9afHRM06Hddxj2UDAO/ZGAp/4kLtWatrr2Okps1PTMLtqCUl5fVyPFfyBJ1r9
+         njk21YOnKbov8YmqfqNYhKCy42RNelscCPU+Er6jPjma9ntQP2o8VWzzyB1lhdt34cre
+         wX8Am/J5HGndXiNov/b4ZFzZeWYXynWWExyK8oc+79LtF5/IxHIvGTbOynOGQzioxjCs
+         0Sh3H6i9pQCMtts9OvyTkbzRTMlymONFJDCHlrq9Da5sNVqQf+ayqR2CP41xXwzYfjyl
+         81bg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=m/g1Br9nMWuN1kMcnj12xFgT0Rd9SMTlaPziJnIgRsI=;
+        b=hN4uNPTKJ8ggrVTSFzLKjM0PY/sLE3cK5o+aCm7NYZFne0gPmbT1mCQnJzX2+oMJVc
+         3uuYN9mdCm3Qf6cR4ke02i0+ZTOMQhU3EUaHN83IOj8aKPww0xmKbcrBi7iecOgRE7Jb
+         Ml60CCnw0cFZI6h+88Q+92ruvNzIQ+H7PAGWjEAdWoZ8lc6BTNumbjzXqdkOdudqvPZ/
+         28Sf4fl4EhdTon5+dnCZulu3rkcVAm881eppsd2ObmDjih7gLreeFFvm6pCr/TuEAwyz
+         0abrPdfPVhmbsQUxOl74216STc3hTz492/jdCfowb49fTlONXqOKpjsEUoFXFq32BMI8
+         pB7w==
+X-Gm-Message-State: AO0yUKUxSI4HK36JLjhtvsQyVZMpXgOgM2DFiKuLfdqU/AzEb8zq8rUX
+	MQZvAtsCww5Nls0EGlzt+MqUPQ==
+X-Google-Smtp-Source: AK7set8MdWRkAMrfAw1y8GkgFBrDn6UZ97qOIFghP/NVv/y5GdQIrkhZih6PNeZKPMELP0frUqPa5A==
+X-Received: by 2002:a05:6a20:3ca0:b0:be:e0c3:5012 with SMTP id b32-20020a056a203ca000b000bee0c35012mr14992895pzj.1.1677228355548;
+        Fri, 24 Feb 2023 00:45:55 -0800 (PST)
+Received: from sunil-laptop ([49.206.14.226])
+        by smtp.gmail.com with ESMTPSA id h5-20020a62b405000000b005ae8e94b0d5sm2665775pfn.107.2023.02.24.00.45.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 24 Feb 2023 00:45:55 -0800 (PST)
+Date: Fri, 24 Feb 2023 14:15:46 +0530
+From: Sunil V L <sunilvl@ventanamicro.com>
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Marc Zyngier <maz@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Atish Patra <atishp@rivosinc.com>,
+	"Rafael J . Wysocki" <rafael.j.wysocki@intel.com>
+Subject: Re: [PATCH V2 05/21] ACPI: Kconfig: Enable ACPI_PROCESSOR for RISC-V
+Message-ID: <Y/h5OiF61xtcdUQP@sunil-laptop>
+References: <20230216182043.1946553-1-sunilvl@ventanamicro.com>
+ <20230216182043.1946553-6-sunilvl@ventanamicro.com>
+ <20230220160518.zuppmgvvhvipawxe@orel>
 MIME-Version: 1.0
-In-Reply-To: <Y/ht1eHgtRrLxIhC@yilunxu-OptiPlex-7050>
+Content-Disposition: inline
+In-Reply-To: <20230220160518.zuppmgvvhvipawxe@orel>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230224_002858_749602_23DF3B11 
-X-CRM114-Status: GOOD (  18.75  )
+X-CRM114-CacheID: sfid-20230224_004557_450192_7B18E443 
+X-CRM114-Status: GOOD (  21.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,75 +95,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7304931191350261149=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============7304931191350261149==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="MKpYTFhinBTffULG"
-Content-Disposition: inline
+On Mon, Feb 20, 2023 at 05:05:18PM +0100, Andrew Jones wrote:
+> On Thu, Feb 16, 2023 at 11:50:27PM +0530, Sunil V L wrote:
+> > Enable the ACPI processor driver for RISC-V.
+> > 
+> > Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
+> > Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
+> > ---
+> >  drivers/acpi/Kconfig | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> > 
+> > diff --git a/drivers/acpi/Kconfig b/drivers/acpi/Kconfig
+> > index ccbeab9500ec..b44ac8e55b54 100644
+> > --- a/drivers/acpi/Kconfig
+> > +++ b/drivers/acpi/Kconfig
+> > @@ -281,7 +281,7 @@ config ACPI_CPPC_LIB
+> >  
+> >  config ACPI_PROCESSOR
+> >  	tristate "Processor"
+> > -	depends on X86 || IA64 || ARM64 || LOONGARCH
+> > +	depends on X86 || IA64 || ARM64 || LOONGARCH || RISCV
+> >  	select ACPI_PROCESSOR_IDLE
+> >  	select ACPI_CPU_FREQ_PSS if X86 || IA64 || LOONGARCH
+> >  	select THERMAL
+> > -- 
+> > 2.34.1
+> >
+> 
+> The commit message doesn't tell me if this is a premature config
+> enablement or if it's already necessary for this series. I think
+> if it's already necessary, then it should point out what requires
+> it in the commit message or be squashed into whatever patch
+> requires it (and also point out in that commit message why it's
+> required).
+> 
+Thanks Drew. Let me drop this patch. We will need it in future when
+we need to enable LPI/CPPC etc.
 
---MKpYTFhinBTffULG
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Feb 24, 2023 at 03:57:09PM +0800, Xu Yilun wrote:
-> On 2023-02-17 at 16:40:17 +0000, Conor Dooley wrote:
-
-> > This patchset adds support for the "Auto Update" feature on PolarFire
-> > SoC that allows for writing an FPGA bistream to the SPI flash connected
-> > to the system controller.
->=20
-> I haven't fully checked the patches yet, just some quick comments:
->=20
-> Since this feature is just to R/W the flash, and would not affect the
-> runtime FPGA region, I don't think an FPGA manager is actually needed.
-> Why not just use the MTD uAPI? There is a set of exsiting MTD uAPI &
-> MTD tool if I remember correctly.
-
-A lack of interest in opening up the system controller to userspace!
-You're right in that the writing of the image can be done that way, and
-while I was testing I used the userspace bits of mtd along the way - but
-for validating that the image we are writing we rely on the system
-controller.
-I'm really not interested in exposing the system controller's
-functionality, especially the bitstream manipulation parts, to userspace
-due to the risk of input validation bugs, so at least that side of
-things should remain in the kernel.
-I suppose I could implement something custom in drivers/soc that does
-the validation only, and push the rest out to userspace. Just seemed
-fitting to do the whole lot in drivers/fpga.
-
-Cheers,
-Conor.
-
-
---MKpYTFhinBTffULG
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY/h1GAAKCRB4tDGHoIJi
-0jYZAP0b4isZi20eYfPCosiKMCfUgAK5+YFO5MSqE1BKfxYw5wD9F8vB/xfqYImD
-Iw3UauhLpsnOEvidjzCRFdckvVP+gwY=
-=Xgqy
------END PGP SIGNATURE-----
-
---MKpYTFhinBTffULG--
-
-
---===============7304931191350261149==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thanks,
+Sunil
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7304931191350261149==--
-
