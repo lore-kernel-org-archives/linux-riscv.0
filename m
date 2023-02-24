@@ -4,78 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5D42C6FA8E
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Feb 2023 21:32:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4829EC64ED8
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Feb 2023 21:35:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=Rl8C9R7G4/xjYbzZnuyWf4WcTI49sI/3TA/kAHA8jSw=; b=lHim3ntLwuO14CNwREl/OcZi22
-	yrjRCjNP1dnaZlQTu1glyWBZttOtQx500W1416Db3dUtyfdVaQcHmYBJIX++7iQ1QurpRrPTqp33L
-	DpT6y1uYZ1ObmbwuNDNx4pccI6wUmQ+SxlvgAtz7QxQhV+DfOe4h6XMVhv0T7OAvH5UmTBPVI/nS0
-	P1s7W9ziv/t5i4rtoZBObUllmlOsI8Tm3vm4jtAxmkk/l02x7R4H2eW19VJCrhkrWzQQQVhJzbW9j
-	UQDWWpaPf9LCCDmj/uq+7p0A4cbkdFzm4DQhFPL4UIRyxmtVuIHyp7aUqt8vi11dmd39m8s2D+F8G
-	+MHbTdjA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ysDXnQkAhb2MTYs0P318WrIG/6BGfUiDh4I9psK+sgU=; b=0uNgpJWdWNhjQi
+	aMvScymOUhberN7ImN2ZkqBePsCjhM3Tn42oBHvSk6RupEZyPPGFxGQRmcu2mGmZSm1KBG+Klj2jJ
+	e4DxzG5Ll39ooHx1vur0nwqCbM1d4ClFs+EAUM9g3F3C8Ou0q189k1pCj0amf8Pj7RziaN7Guj861
+	f6Qf9cKSVA622hEjxzBpQc7NWCedLvVNwTuqpskZaLzy9sODKqxgUamcspAMCrDc3iJyPeaGIjnOC
+	IbQJEQba03Emm0g8MImY90tHa0hV3OCiyW0JlyXblYnIisThTiP/uD15cAR18kAdGa1hqZKlsAzXH
+	alKCZKiLetuB74mseS7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pVffh-003zZc-Su; Fri, 24 Feb 2023 21:32:05 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1pVfiq-0040Qs-Uo; Fri, 24 Feb 2023 21:35:20 +0000
+Received: from mga12.intel.com ([192.55.52.136])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pVfff-003zWf-2z
-	for linux-riscv@lists.infradead.org; Fri, 24 Feb 2023 21:32:05 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id q31-20020a17090a17a200b0023750b69614so581688pja.5
-        for <linux-riscv@lists.infradead.org>; Fri, 24 Feb 2023 13:31:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=cvJN8dmrmNJu4tTYhdlBrzcRSinLAy+Jhaplp/kCRiA=;
-        b=wh807lSO9v29Yu6tO13IzDLOgiVo3Y9CLLlEMCaN5Bfph5SWKk/ief3r4cZyouTDq3
-         ekQ8BZiAaegZvDAKUQ41D41hsAmetgk6oRbzZgr5tZ8Ebv6rouEL0se6NNr8O8vuHMuA
-         Y9E1KcrrOfgbPedMh8QVliNBmDLSSk306iIqsN5Z3WjNY4Kf8EbTZS61IOkrrZWWRWux
-         SIrlqYQU9Ed7MRpv4GK6gK/n40iENTbOVq0sI7jnPIv4ay32p0xTWuzO+r4e3KUxS3Aw
-         mV9fpIWYF+zc1nWP6gzHkwKwUixXjTuaac3chNZcBChKKjLuR16rINK9a4ShFPJKhkRy
-         dJKA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=cvJN8dmrmNJu4tTYhdlBrzcRSinLAy+Jhaplp/kCRiA=;
-        b=FIjOQULCwI2Dta02sN+uNTJzKEhYFOHjSSpjFE+Za0QMO2AGlFX1o/copfbu3VuPOT
-         NikRrnKPCuM4NGIzKPY8qSdw5LUh1G0Pq+Bs/08NQyZ8oo+gmIYAzqEQML6x34ofYdGK
-         7nBitlXs13AUaytqAsGYkEckMjAnZnE/R1fGFpgpfiFp76/GifUvB/KPq77/v0EL3ITJ
-         zXrElEJNqYHl4r0Bi52vzDZZ+IUSqLdxT9lQvQdrzsahj0sKkmYKODH4vHVF67+BdqOp
-         +HmOZ15W/XscHelplQdfZTqQizoO4whmhnj7Z+CfUtfefxEPm7TqWklUqPWa1Gw1wEpw
-         Z66w==
-X-Gm-Message-State: AO0yUKX4pC2sks4k6MIbLaM0KakvKZyjabjOIzGc7DHW7y4ZsRfYRqnw
-	1kEP1z22V76jEvy6Rh5q1ZcH0VUXHRWmCewZ
-X-Google-Smtp-Source: AK7set+inR9Bfe356VnjZRrkMmucPTHHx4QOqBABEwJbFOr2cvrtN9y1cnMB0g/q9qfmCnSJDZEm5g==
-X-Received: by 2002:a17:902:d506:b0:199:4d25:6a4d with SMTP id b6-20020a170902d50600b001994d256a4dmr997355plg.10.1677274316335;
-        Fri, 24 Feb 2023 13:31:56 -0800 (PST)
-Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id jw9-20020a170903278900b0019a7d58e595sm6071070plb.143.2023.02.24.13.31.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Feb 2023 13:31:55 -0800 (PST)
-Date: Fri, 24 Feb 2023 13:31:55 -0800 (PST)
-X-Google-Original-Date: Fri, 24 Feb 2023 13:31:09 PST (-0800)
-Subject: Re: [RFC 0/2] RISC-V: enable rust
-In-Reply-To: <20230224133609.2877396-1-conor.dooley@microchip.com>
-CC: linux-riscv@lists.infradead.org, Conor Dooley <conor.dooley@microchip.com>,
-  Conor Dooley <conor@kernel.org>, ojeda@kernel.org, alex.gaynor@gmail.com, wedsonaf@gmail.com,
-  boqun.feng@gmail.com, gary@garyguo.net, bjorn3_gh@protonmail.com, corbet@lwn.net,
-  Paul Walmsley <paul.walmsley@sifive.com>, nathan@kernel.org, ndesaulniers@google.com, trix@redhat.com,
-  rust-for-linux@vger.kernel.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, llvm@lists.linux.dev
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Conor Dooley <conor.dooley@microchip.com>
-Message-ID: <mhng-f429a40f-1869-4c5b-ab4f-e7eec94489e8@palmer-ri-x1c9a>
-Mime-Version: 1.0 (MHng)
+	id 1pVfim-0040P7-2M; Fri, 24 Feb 2023 21:35:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1677274516; x=1708810516;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=ybeakOQi7yUmZ50PjhJ/OYDWkDV3kiv0r3J9mR6X2tU=;
+  b=ZoRGH3I5pvb0GPDtyMVeLLhndwdxxUAGWjkqnv0HIKQPZPOalwgwoMSS
+   l17P1BDpypJgd0JAMlpgX+xNdCEgXfGCT0JqSZQtoJ1sKVA6LRLEjN8PY
+   m+khzj3OAqxkWOnTBHvTy7+pIHeOzCMdtgfCZQnORWYgcCVTWKMwz6rDt
+   LWCBsvIGHZaEOVOjZID9cVfo9xYlyVj4xWOIm7FqNDmWIEU1Z4yqy9N4Z
+   uR56090V0394yA1oBD9Aepxgf//l1oha6LZw3NypnrQAmMPuLIY93Ebtz
+   pPOr+cXmlKujBU7P/AneuOmorTdws0BkVLiLG1GlwMPvULZeLnh8066Bz
+   w==;
+X-IronPort-AV: E=McAfee;i="6500,9779,10631"; a="313221944"
+X-IronPort-AV: E=Sophos;i="5.97,325,1669104000"; 
+   d="scan'208";a="313221944"
+Received: from orsmga006.jf.intel.com ([10.7.209.51])
+  by fmsmga106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Feb 2023 13:35:13 -0800
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6500,9779,10631"; a="650490411"
+X-IronPort-AV: E=Sophos;i="5.97,325,1669104000"; 
+   d="scan'208";a="650490411"
+Received: from lkp-server01.sh.intel.com (HELO 3895f5c55ead) ([10.239.97.150])
+  by orsmga006.jf.intel.com with ESMTP; 24 Feb 2023 13:35:08 -0800
+Received: from kbuild by 3895f5c55ead with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1pVfie-0002k2-0g;
+	Fri, 24 Feb 2023 21:35:08 +0000
+Date: Sat, 25 Feb 2023 05:35:01 +0800
+From: kernel test robot <lkp@intel.com>
+To: Andy Chiu <andy.chiu@sifive.com>, linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com, anup@brainfault.org, atishp@atishpatra.org,
+	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	vineetg@rivosinc.com, greentime.hu@sifive.com,
+	guoren@linux.alibaba.com, Andy Chiu <andy.chiu@sifive.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Subject: Re: [PATCH -next v14 19/19] riscv: Enable Vector code to be built
+Message-ID: <202302250511.yaHzCeR1-lkp@intel.com>
+References: <20230224170118.16766-20-andy.chiu@sifive.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230224170118.16766-20-andy.chiu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230224_133203_337963_8631B67E 
-X-CRM114-Status: GOOD (  19.88  )
+X-CRM114-CacheID: sfid-20230224_133516_162947_472E66BB 
+X-CRM114-Status: GOOD (  11.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,46 +82,236 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCAyNCBGZWIgMjAyMyAwNTozNjowOCBQU1QgKC0wODAwKSwgQ29ub3IgRG9vbGV5IHdy
-b3RlOgo+IFRoaXMgaXMgYSBzb21ld2hhdCBibGluZCAoYW5kIG1heWJlIGZvb2xpc2gpIGF0dGVt
-cHQgYXQgZW5hYmxpbmcgUnVzdAo+IGZvciBSSVNDLVYuIEkndmUgdGVzdGVkIHRoaXMgb24gSWNp
-Y2xlLCBhbmQgdGhlIG1vZHVsZXMgc2VlbSB0byB3b3JrLgo+IEknZCBsaWtlIHRvIHBsYXkgYXJv
-dW5kIHdpdGggUnVzdCBvbiBSSVNDLVYsIGJ1dCBJJ20gbm90IGludGVyZXN0ZWQgaW4KPiB1c2lu
-ZyBkb3duc3RyZWFtIGtlcm5lbHMsIHNvIGZpZ3VyZWQgSSBzaG91bGQgdHJ5IGFuZCBzZWUgd2hh
-dCdzCj4gbWlzc2luZy4uLgo+IEkndmUgdGFnZ2VkIHRoaXMgYXMgUkZDIGluIGNhc2UgSSd2ZSBt
-aXNzZWQgc29tZSAiV0FhYWFhIHlvdSBjYW4ndCBkbwo+IHRoaXMiIHNvbWV3aGVyZSA6KQoKSSdt
-IGZpbmUgd2l0aCBpdCwgYnV0IElJUkMgdGhlIFJ1c3Qgc3VwcG9ydCBmb3IgbW9zdCB0YXJnZXRz
-IHdhcyBwdWxsZWQgCm91dCBhcyB0aGV5IHdlcmVuJ3QgZGVlbWVkIHJlYWR5IHRvIGdvIHlldC4g
-IElmIHRoZSBSdXN0IGZvbGtzIGFyZSBPSyAKdHVybmluZyBvbiBSSVNDLVYgc3VwcG9ydCB0aGVu
-IGl0J3MgZmluZSB3aXRoIG1lLCBidXQgSSB0aGluayBpdCdzIApyZWFsbHkgbW9yZSB1cCB0byB0
-aGVtIGF0IHRoaXMgcG9pbnQuCgpTbwoKQWNrZWQtYnk6IFBhbG1lciBEYWJiZWx0IDxwYWxtZXJA
-cml2b3NpbmMuY29tPgoKaW4gY2FzZSBmb2xrcyB3YW50IHRvIHRha2UgaXQgdmlhIHNvbWUgUnVz
-dC1yZWxhdGVkIHRyZWUsIGJ1dCBJJ20gYWxzbyAKZmluZSB0YWtpbmcgaXQgdmlhIHRoZSBSSVND
-LVYgdHJlZSBpZiB0aGF0J3MgZWFzaWVyLgoKPgo+IFRoYW5rcywKPiBDb25vci4KPgo+IENDOiBN
-aWd1ZWwgT2plZGEgPG9qZWRhQGtlcm5lbC5vcmc+Cj4gQ0M6IEFsZXggR2F5bm9yIDxhbGV4Lmdh
-eW5vckBnbWFpbC5jb20+Cj4gQ0M6IFdlZHNvbiBBbG1laWRhIEZpbGhvIDx3ZWRzb25hZkBnbWFp
-bC5jb20+Cj4gQ0M6IEJvcXVuIEZlbmcgPGJvcXVuLmZlbmdAZ21haWwuY29tPgo+IENDOiBHYXJ5
-IEd1byA8Z2FyeUBnYXJ5Z3VvLm5ldD4KPiBDQzogQmrDtnJuIFJveSBCYXJvbiA8Ympvcm4zX2do
-QHByb3Rvbm1haWwuY29tPgo+IENDOiBKb25hdGhhbiBDb3JiZXQgPGNvcmJldEBsd24ubmV0Pgo+
-IENDOiBQYXVsIFdhbG1zbGV5IDxwYXVsLndhbG1zbGV5QHNpZml2ZS5jb20+Cj4gQ0M6IFBhbG1l
-ciBEYWJiZWx0IDxwYWxtZXJAZGFiYmVsdC5jb20+Cj4gQ0M6IE5hdGhhbiBDaGFuY2VsbG9yIDxu
-YXRoYW5Aa2VybmVsLm9yZz4KPiBDQzogTmljayBEZXNhdWxuaWVycyA8bmRlc2F1bG5pZXJzQGdv
-b2dsZS5jb20+Cj4gQ0M6IFRvbSBSaXggPHRyaXhAcmVkaGF0LmNvbT4KPiBDQzogcnVzdC1mb3It
-bGludXhAdmdlci5rZXJuZWwub3JnCj4gQ0M6IGxpbnV4LWRvY0B2Z2VyLmtlcm5lbC5vcmcKPiBD
-QzogbGludXgta2VybmVsQHZnZXIua2VybmVsLm9yZwo+IENDOiBsaW51eC1yaXNjdkBsaXN0cy5p
-bmZyYWRlYWQub3JnCj4gQ0M6IGxsdm1AbGlzdHMubGludXguZGV2Cj4KPiBNaWd1ZWwgT2plZGEg
-KDIpOgo+ICAgc2NyaXB0czogZ2VuZXJhdGVfcnVzdF90YXJnZXQ6IGVuYWJsZSBidWlsZGluZyBv
-biBSSVNDLVYKPiAgIFJJU0MtVjogZW5hYmxlIGJ1aWxkaW5nIHRoZSA2NC1iaXQga2VybmVscyB3
-aXRoIHJ1c3Qgc3VwcG9ydAo+Cj4gIERvY3VtZW50YXRpb24vcnVzdC9hcmNoLXN1cHBvcnQucnN0
-IHwgIDIgKysKPiAgYXJjaC9yaXNjdi9LY29uZmlnICAgICAgICAgICAgICAgICAgfCAgMSArCj4g
-IGFyY2gvcmlzY3YvTWFrZWZpbGUgICAgICAgICAgICAgICAgIHwgIDMgKystCj4gIHNjcmlwdHMv
-Z2VuZXJhdGVfcnVzdF90YXJnZXQucnMgICAgIHwgMTkgKysrKysrKysrKysrKysrKysrKwo+ICA0
-IGZpbGVzIGNoYW5nZWQsIDI0IGluc2VydGlvbnMoKyksIDEgZGVsZXRpb24oLSkKCl9fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
-bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
-YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hi Andy,
+
+I love your patch! Yet something to improve:
+
+[auto build test ERROR on next-20230224]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Andy-Chiu/riscv-Rename-__switch_to_aux-fpu/20230225-011059
+patch link:    https://lore.kernel.org/r/20230224170118.16766-20-andy.chiu%40sifive.com
+patch subject: [PATCH -next v14 19/19] riscv: Enable Vector code to be built
+config: riscv-buildonly-randconfig-r002-20230222 (https://download.01.org/0day-ci/archive/20230225/202302250511.yaHzCeR1-lkp@intel.com/config)
+compiler: clang version 17.0.0 (https://github.com/llvm/llvm-project db89896bbbd2251fff457699635acbbedeead27f)
+reproduce (this is a W=1 build):
+        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+        chmod +x ~/bin/make.cross
+        # install riscv cross compiling tool for clang build
+        # apt-get install binutils-riscv-linux-gnu
+        # https://github.com/intel-lab-lkp/linux/commit/cd0ad21a9ef9d63f1eef80fd3b09ae6e0d884ce3
+        git remote add linux-review https://github.com/intel-lab-lkp/linux
+        git fetch --no-tags linux-review Andy-Chiu/riscv-Rename-__switch_to_aux-fpu/20230225-011059
+        git checkout cd0ad21a9ef9d63f1eef80fd3b09ae6e0d884ce3
+        # save the config file
+        mkdir build_dir && cp config build_dir/.config
+        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross W=1 O=build_dir ARCH=riscv olddefconfig
+        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross W=1 O=build_dir ARCH=riscv SHELL=/bin/bash arch/riscv/kernel/
+
+If you fix the issue, kindly add following tag where applicable
+| Reported-by: kernel test robot <lkp@intel.com>
+| Link: https://lore.kernel.org/oe-kbuild-all/202302250511.yaHzCeR1-lkp@intel.com/
+
+All error/warnings (new ones prefixed by >>):
+
+   In file included from arch/riscv/kernel/ptrace.c:10:
+>> arch/riscv/include/asm/vector.h:88:3: error: instruction requires the following: 'V' (Vector Extension for Application Processors), 'Zve32x' or 'Zve64x' (Vector Extensions for Embedded Processors)
+                   "vsetvli        t4, x0, e8, m8, ta, ma\n\t"
+                   ^
+   <inline asm>:1:2: note: instantiated into assembly here
+           vsetvli t4, x0, e8, m8, ta, ma
+           ^
+   In file included from arch/riscv/kernel/ptrace.c:10:
+   arch/riscv/include/asm/vector.h:88:36: error: instruction requires the following: 'V' (Vector Extension for Application Processors), 'Zve32x' or 'Zve64x' (Vector Extensions for Embedded Processors)
+                   "vsetvli        t4, x0, e8, m8, ta, ma\n\t"
+                                                           ^
+   <inline asm>:2:2: note: instantiated into assembly here
+           vse8.v          v0, (a1)
+           ^
+   In file included from arch/riscv/kernel/ptrace.c:10:
+   arch/riscv/include/asm/vector.h:90:21: error: instruction requires the following: 'V' (Vector Extension for Application Processors), 'Zve32x' or 'Zve64x' (Vector Extensions for Embedded Processors)
+                   "add            %0, %0, t4\n\t"
+                                               ^
+   <inline asm>:4:2: note: instantiated into assembly here
+           vse8.v          v8, (a1)
+           ^
+   In file included from arch/riscv/kernel/ptrace.c:10:
+   arch/riscv/include/asm/vector.h:92:21: error: instruction requires the following: 'V' (Vector Extension for Application Processors), 'Zve32x' or 'Zve64x' (Vector Extensions for Embedded Processors)
+                   "add            %0, %0, t4\n\t"
+                                               ^
+   <inline asm>:6:2: note: instantiated into assembly here
+           vse8.v          v16, (a1)
+           ^
+   In file included from arch/riscv/kernel/ptrace.c:10:
+   arch/riscv/include/asm/vector.h:94:21: error: instruction requires the following: 'V' (Vector Extension for Application Processors), 'Zve32x' or 'Zve64x' (Vector Extensions for Embedded Processors)
+                   "add            %0, %0, t4\n\t"
+                                               ^
+   <inline asm>:8:2: note: instantiated into assembly here
+           vse8.v          v24, (a1)
+           ^
+   5 errors generated.
+--
+   In file included from arch/riscv/kernel/signal.c:20:
+   In file included from arch/riscv/include/asm/switch_to.h:11:
+   arch/riscv/include/asm/vector.h:105:3: error: instruction requires the following: 'V' (Vector Extension for Application Processors), 'Zve32x' or 'Zve64x' (Vector Extensions for Embedded Processors)
+                   "vsetvli        t4, x0, e8, m8, ta, ma\n\t"
+                   ^
+   <inline asm>:1:2: note: instantiated into assembly here
+           vsetvli t4, x0, e8, m8, ta, ma
+           ^
+   In file included from arch/riscv/kernel/signal.c:20:
+   In file included from arch/riscv/include/asm/switch_to.h:11:
+   arch/riscv/include/asm/vector.h:105:36: error: instruction requires the following: 'V' (Vector Extension for Application Processors), 'Zve32x' or 'Zve64x' (Vector Extensions for Embedded Processors)
+                   "vsetvli        t4, x0, e8, m8, ta, ma\n\t"
+                                                           ^
+   <inline asm>:2:2: note: instantiated into assembly here
+           vle8.v          v0, (a1)
+           ^
+   In file included from arch/riscv/kernel/signal.c:20:
+   In file included from arch/riscv/include/asm/switch_to.h:11:
+   arch/riscv/include/asm/vector.h:107:21: error: instruction requires the following: 'V' (Vector Extension for Application Processors), 'Zve32x' or 'Zve64x' (Vector Extensions for Embedded Processors)
+                   "add            %0, %0, t4\n\t"
+                                               ^
+   <inline asm>:4:2: note: instantiated into assembly here
+           vle8.v          v8, (a1)
+           ^
+   In file included from arch/riscv/kernel/signal.c:20:
+   In file included from arch/riscv/include/asm/switch_to.h:11:
+   arch/riscv/include/asm/vector.h:109:21: error: instruction requires the following: 'V' (Vector Extension for Application Processors), 'Zve32x' or 'Zve64x' (Vector Extensions for Embedded Processors)
+                   "add            %0, %0, t4\n\t"
+                                               ^
+   <inline asm>:6:2: note: instantiated into assembly here
+           vle8.v          v16, (a1)
+           ^
+   In file included from arch/riscv/kernel/signal.c:20:
+   In file included from arch/riscv/include/asm/switch_to.h:11:
+   arch/riscv/include/asm/vector.h:111:21: error: instruction requires the following: 'V' (Vector Extension for Application Processors), 'Zve32x' or 'Zve64x' (Vector Extensions for Embedded Processors)
+                   "add            %0, %0, t4\n\t"
+                                               ^
+   <inline asm>:8:2: note: instantiated into assembly here
+           vle8.v          v24, (a1)
+           ^
+   In file included from arch/riscv/kernel/signal.c:20:
+   In file included from arch/riscv/include/asm/switch_to.h:11:
+   arch/riscv/include/asm/vector.h:75:3: error: instruction requires the following: 'V' (Vector Extension for Application Processors), 'Zve32x' or 'Zve64x' (Vector Extensions for Embedded Processors)
+                   "vsetvl  x0, %2, %1\n\t"
+                   ^
+   <inline asm>:1:2: note: instantiated into assembly here
+           vsetvl   x0, a3, a2
+           ^
+   In file included from arch/riscv/kernel/signal.c:20:
+   In file included from arch/riscv/include/asm/switch_to.h:11:
+>> arch/riscv/include/asm/vector.h:88:3: error: instruction requires the following: 'V' (Vector Extension for Application Processors), 'Zve32x' or 'Zve64x' (Vector Extensions for Embedded Processors)
+                   "vsetvli        t4, x0, e8, m8, ta, ma\n\t"
+                   ^
+   <inline asm>:1:2: note: instantiated into assembly here
+           vsetvli t4, x0, e8, m8, ta, ma
+           ^
+   In file included from arch/riscv/kernel/signal.c:20:
+   In file included from arch/riscv/include/asm/switch_to.h:11:
+   arch/riscv/include/asm/vector.h:88:36: error: instruction requires the following: 'V' (Vector Extension for Application Processors), 'Zve32x' or 'Zve64x' (Vector Extensions for Embedded Processors)
+                   "vsetvli        t4, x0, e8, m8, ta, ma\n\t"
+                                                           ^
+   <inline asm>:2:2: note: instantiated into assembly here
+           vse8.v          v0, (a1)
+           ^
+   In file included from arch/riscv/kernel/signal.c:20:
+   In file included from arch/riscv/include/asm/switch_to.h:11:
+   arch/riscv/include/asm/vector.h:90:21: error: instruction requires the following: 'V' (Vector Extension for Application Processors), 'Zve32x' or 'Zve64x' (Vector Extensions for Embedded Processors)
+                   "add            %0, %0, t4\n\t"
+                                               ^
+   <inline asm>:4:2: note: instantiated into assembly here
+           vse8.v          v8, (a1)
+           ^
+   In file included from arch/riscv/kernel/signal.c:20:
+   In file included from arch/riscv/include/asm/switch_to.h:11:
+   arch/riscv/include/asm/vector.h:92:21: error: instruction requires the following: 'V' (Vector Extension for Application Processors), 'Zve32x' or 'Zve64x' (Vector Extensions for Embedded Processors)
+                   "add            %0, %0, t4\n\t"
+                                               ^
+   <inline asm>:6:2: note: instantiated into assembly here
+           vse8.v          v16, (a1)
+           ^
+   In file included from arch/riscv/kernel/signal.c:20:
+   In file included from arch/riscv/include/asm/switch_to.h:11:
+   arch/riscv/include/asm/vector.h:94:21: error: instruction requires the following: 'V' (Vector Extension for Application Processors), 'Zve32x' or 'Zve64x' (Vector Extensions for Embedded Processors)
+                   "add            %0, %0, t4\n\t"
+                                               ^
+   <inline asm>:8:2: note: instantiated into assembly here
+           vse8.v          v24, (a1)
+           ^
+   11 errors generated.
+--
+>> arch/riscv/kernel/vector.c:50:3: error: expected expression
+                   u32 width = RVV_EXRACT_VL_VS_WIDTH(insn_buf);
+                   ^
+>> arch/riscv/kernel/vector.c:52:7: error: use of undeclared identifier 'width'
+                   if (width == RVV_VL_VS_WIDTH_8 || width == RVV_VL_VS_WIDTH_16 ||
+                       ^
+   arch/riscv/kernel/vector.c:52:37: error: use of undeclared identifier 'width'
+                   if (width == RVV_VL_VS_WIDTH_8 || width == RVV_VL_VS_WIDTH_16 ||
+                                                     ^
+   arch/riscv/kernel/vector.c:53:7: error: use of undeclared identifier 'width'
+                       width == RVV_VL_VS_WIDTH_32 || width == RVV_VL_VS_WIDTH_64)
+                       ^
+   arch/riscv/kernel/vector.c:53:38: error: use of undeclared identifier 'width'
+                       width == RVV_VL_VS_WIDTH_32 || width == RVV_VL_VS_WIDTH_64)
+                                                      ^
+   arch/riscv/kernel/vector.c:57:3: error: expected expression
+                   u32 csr = RVG_EXTRACT_SYSTEM_CSR(insn_buf);
+                   ^
+>> arch/riscv/kernel/vector.c:59:8: error: use of undeclared identifier 'csr'
+                   if ((csr >= CSR_VSTART && csr <= CSR_VCSR) ||
+                        ^
+   arch/riscv/kernel/vector.c:59:29: error: use of undeclared identifier 'csr'
+                   if ((csr >= CSR_VSTART && csr <= CSR_VCSR) ||
+                                             ^
+   arch/riscv/kernel/vector.c:60:8: error: use of undeclared identifier 'csr'
+                       (csr >= CSR_VL && csr <= CSR_VLENB))
+                        ^
+   arch/riscv/kernel/vector.c:60:25: error: use of undeclared identifier 'csr'
+                       (csr >= CSR_VL && csr <= CSR_VLENB))
+                                         ^
+>> arch/riscv/kernel/vector.c:67:5: warning: no previous prototype for function 'riscv_v_thread_zalloc' [-Wmissing-prototypes]
+   int riscv_v_thread_zalloc(void)
+       ^
+   arch/riscv/kernel/vector.c:67:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   int riscv_v_thread_zalloc(void)
+   ^
+   static 
+   1 warning and 10 errors generated.
+
+
+vim +88 arch/riscv/include/asm/vector.h
+
+27038c69020be5 Greentime Hu 2023-02-24  81  
+e296a266de6c10 Greentime Hu 2023-02-24  82  static inline void __riscv_v_vstate_save(struct __riscv_v_ext_state *save_to,
+e296a266de6c10 Greentime Hu 2023-02-24  83  					 void *datap)
+27038c69020be5 Greentime Hu 2023-02-24  84  {
+27038c69020be5 Greentime Hu 2023-02-24  85  	riscv_v_enable();
+27038c69020be5 Greentime Hu 2023-02-24  86  	__vstate_csr_save(save_to);
+27038c69020be5 Greentime Hu 2023-02-24  87  	asm volatile (
+27038c69020be5 Greentime Hu 2023-02-24 @88  		"vsetvli	t4, x0, e8, m8, ta, ma\n\t"
+27038c69020be5 Greentime Hu 2023-02-24  89  		"vse8.v		v0, (%0)\n\t"
+27038c69020be5 Greentime Hu 2023-02-24  90  		"add		%0, %0, t4\n\t"
+27038c69020be5 Greentime Hu 2023-02-24  91  		"vse8.v		v8, (%0)\n\t"
+27038c69020be5 Greentime Hu 2023-02-24  92  		"add		%0, %0, t4\n\t"
+27038c69020be5 Greentime Hu 2023-02-24  93  		"vse8.v		v16, (%0)\n\t"
+27038c69020be5 Greentime Hu 2023-02-24  94  		"add		%0, %0, t4\n\t"
+27038c69020be5 Greentime Hu 2023-02-24  95  		"vse8.v		v24, (%0)\n\t"
+27038c69020be5 Greentime Hu 2023-02-24  96  		: : "r" (datap) : "t4", "memory");
+27038c69020be5 Greentime Hu 2023-02-24  97  	riscv_v_disable();
+27038c69020be5 Greentime Hu 2023-02-24  98  }
+27038c69020be5 Greentime Hu 2023-02-24  99  
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
