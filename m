@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9840AC7EE31
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Feb 2023 17:31:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6270C7EE32
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Feb 2023 17:31:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oclLBTJ77uMxTtPMNVQHT8tciuWXM52y+Tg0HfC6ofY=; b=CEDI5QUYOru+Gf
-	p/lks/Jpdxo4JonK+MX9TkBH1DYo6Br3oT9FyrdbjJ6WXSpsu3f6gYLw0iboTE6jYDzCG5EGwS0R4
-	EGOLF7f95uj8blixbFUxRpdOv5VseSFfOezT8mx3zmzD16RulzBwepTSEzLclw0fKCCFNLDBfFXNL
-	UV0RHwGSgBQvXwIUyXQeux3HJ6ddgiqUVRr4JZletqSPdpGj1zfouJg38bm+AnRAV3CrXPnvfzraT
-	kxC5U0pIQ5Ijrz6RmuXbI1xX7hrUXw83HWBtBjf0StQNhD1nwuN1IF7ZE7N2FRXROKdmcb+526eCF
-	p7dXGmsAQUyb/gGaMehw==;
+	List-Owner; bh=FSStlc8UgBBX/iJC/4TVKS08jhssdBx8c2Tgi7NUvEA=; b=sHKWaXSt3sJ0z8
+	bKVS6LctJfWTKWciR3/yTrUezlN4+hPQewQpm//OplpJKAd0LKcMOaG/okr5Hia4fN0wKNZbPLlLL
+	s6f9DqdhH0pKndHmi4EAffFbmmzXX0c93/jowkTJmOv1zzBIlTES8QtKvj00Ve4FyR/tO0QqKeRYe
+	KqHNTnZNJcvdg7dHmOnhAXhl9Gr/W3kDBlgFi4ZXyfv+ZB5yAyZNCIlDz+SbfWhwovD5WwZeM1ylW
+	ei4UGQmFtwKbPWF/YMz8pRp1fgkekr0pfN5efpYqbmwANVuAsAWUwWiFHRmqabd4G/rd0jZW3GOKc
+	hmXxGDn8rCqA11TpQWMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pVbuO-003JI0-9c; Fri, 24 Feb 2023 17:31:00 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1pVbuP-003JIR-Bd; Fri, 24 Feb 2023 17:31:01 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pVau8-003740-MI
+	id 1pVau9-00376x-Pg
 	for linux-riscv@lists.infradead.org; Fri, 24 Feb 2023 16:26:43 +0000
-Received: by mail-wr1-x431.google.com with SMTP id r18so130957wrx.1
-        for <linux-riscv@lists.infradead.org>; Fri, 24 Feb 2023 08:26:38 -0800 (PST)
+Received: by mail-wm1-x336.google.com with SMTP id d41-20020a05600c4c2900b003e9e066550fso2068718wmp.4
+        for <linux-riscv@lists.infradead.org>; Fri, 24 Feb 2023 08:26:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=ventanamicro.com; s=google;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=dbdPBOzzPYzUW7R/pezDgOGaiAEFQuXRsOtgnDBQFk4=;
-        b=UV0emYXoBdJT27zo07mpFRgP47HFrrkzCdPAE2IF+ljnUcWeCB+QdRhSMUZYtmHeUT
-         BbvjmiMAzv7zmLkN1pG+62nPCAoaaGSZQYaPzO4ESn1DJE1fsqvjmqTWKW0HTkHGk9Rq
-         U2Z+pdIW21je+7Yugu0i5Dxim5B1n/z+VfY2wWcdI8ZmaIPu8hvxmsJILWwd/I1if06e
-         6jhJU0sJROWLKuEsQEF1W3dVxdpGkpMIzgN79kV+doivKZ444hE/Og4inPnLkrM9eBCE
-         nLicS71uUR8gvtz0xGgJDs90jinhK3hD9y4CDTtj4zsqtGK1xVjSP67d4dnufrI8rnqP
-         FwhQ==
+        bh=Q2P2JQFCkCvwqQ+izE3XFcbD2hXA/JB7nAY/h1d8raI=;
+        b=RMWMWkVoB3LRLO0tinT5AnaXIJm3ODgGdXH4+VsQohW/FaOKu1obC6iDEG0UjOaG+m
+         sWXmE89bNrwvmFq/g4ekXOiBJRGqEbPms321SWNwDscwmK7fxLPD0u7dGOmafXG+FZ4e
+         WhZMtYzAzobepUS6BB9Px/Xl3UAWX9ZilQejogz2RhCOcC77vHjriOxPVxzksApcAHMR
+         VjHVV425lHIvWxxnrGj8WC39bRBlvCSIisVW7duRdvgtrEWaA6nAD2pu2qpCHs4JUxSY
+         kM0feNjdKxhoBqZLeZhuLbG0tZdHUxaK0m4Wf8LsSmrEBu22y0GLUDZaPXYalxo7KWTq
+         HAwQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=dbdPBOzzPYzUW7R/pezDgOGaiAEFQuXRsOtgnDBQFk4=;
-        b=2IrvpwYaTvEYgrAhmVQx0d7+ZP/ATD1lEoWiQXPUvJudmE+bdclbFdP/bBG14T7Nbe
-         G/sGD7zCd/h6Rd6c0v8r8wPz2GNT0L/7OtX8vy5F0Nmlll/Gfb6HT2SS+mZ4ELjFgYE/
-         l9rf0JbpmVdempY8QI9oBImuD8w/2IX8PKlJItbKIkRr21C4dNUu6OLV98OncGB7W/HL
-         Mptl6m34o34QhDNvIAKqFHGWuBbaZVylyGjVkzf0wNJIVI0Z8s064IN5p5BjH+yYH1KS
-         3Rkxk40SPtpqi8xo9A7LtH2W6828CTmUEyXYX/5rpUyjw0PRy5ZZG+hj9iqonlaAXszX
-         RCWw==
-X-Gm-Message-State: AO0yUKXKtGk2Npq2S55Iu7jkuf3g4qar1BkKoxbgTp659SIZim5jVdR4
-	qY+yFR29VsFL4oR7WvRVWVUpYD0W9CeHhRdf
-X-Google-Smtp-Source: AK7set9W+IJgMgm8MUii/vuWSBmohf3LUCoVdSgiqdilF8D2R8yuYJCXwcKt5dPltMDNFz6zm9pP9w==
-X-Received: by 2002:a5d:4ec9:0:b0:2c7:7b7:eed2 with SMTP id s9-20020a5d4ec9000000b002c707b7eed2mr10581390wrv.69.1677255997316;
-        Fri, 24 Feb 2023 08:26:37 -0800 (PST)
+        bh=Q2P2JQFCkCvwqQ+izE3XFcbD2hXA/JB7nAY/h1d8raI=;
+        b=3tnpwrXmgHpsgLEz/bwq9hoAFxx56B/I12ypo8VGStxgZ+yr4muNmk5aUIvufb2kti
+         hCuAejRq/ikjiES3Txtai6y8K6hHzBTXGctdI6kY6pGLloVFo1paJTWEnP6Lnu3A8vdp
+         deQytwonMji5EPIxCFHx+G1Sw4wRJMp2awYLT8N9gvEzQaEgwTcb5yrq6z+D2b0r8YQu
+         RcZCWTZYWoR12Nqr28+JmhLRzN1MygxeY6GNxKvw7VQUq6cYc3JjAVQ+jBBYD0QfCzer
+         0L3HHpGxQuQtJk4nrQVMm8vJ75wzAzqgtPxKkEkvkz3nMNcns+zHHl78m3wL4ubF8XK2
+         mM/A==
+X-Gm-Message-State: AO0yUKXxP18LzrT7Fg391Lx2xetMoeqsTqksAMyQs5BSjIvCCkglYMqk
+	Li7sRWL9UNqN33vDEmFP4b3cPEUruCfNAj7U
+X-Google-Smtp-Source: AK7set+LVMfzBlUl+ospJ9FT85y8/nybf3TYDjnZSzHtvowRG/uoPyt4FaaFXBM+Cp5KCIiqQ82b6Q==
+X-Received: by 2002:a05:600c:715:b0:3eb:2b88:a290 with SMTP id i21-20020a05600c071500b003eb2b88a290mr1136814wmn.28.1677256000084;
+        Fri, 24 Feb 2023 08:26:40 -0800 (PST)
 Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id l11-20020adff48b000000b002c592535839sm13524154wro.17.2023.02.24.08.26.36
+        by smtp.gmail.com with ESMTPSA id ja18-20020a05600c557200b003eb0d6f48f3sm2669244wmb.27.2023.02.24.08.26.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Feb 2023 08:26:36 -0800 (PST)
+        Fri, 24 Feb 2023 08:26:39 -0800 (PST)
 From: Andrew Jones <ajones@ventanamicro.com>
 To: linux-riscv@lists.infradead.org,
 	kvm-riscv@lists.infradead.org,
@@ -76,16 +76,16 @@ Cc: 'Conor Dooley ' <conor.dooley@microchip.com>,
 	'Rob Herring ' <robh@kernel.org>,
 	'Jisheng Zhang ' <jszhang@kernel.org>,
 	'Heiko Stuebner ' <heiko@sntech.de>
-Subject: [PATCH v6 4/8] RISC-V: Add Zicboz detection and block size parsing
-Date: Fri, 24 Feb 2023 17:26:27 +0100
-Message-Id: <20230224162631.405473-5-ajones@ventanamicro.com>
+Subject: [PATCH v6 6/8] RISC-V: Use Zicboz in clear_page when available
+Date: Fri, 24 Feb 2023 17:26:29 +0100
+Message-Id: <20230224162631.405473-7-ajones@ventanamicro.com>
 X-Mailer: git-send-email 2.39.1
 In-Reply-To: <20230224162631.405473-1-ajones@ventanamicro.com>
 References: <20230224162631.405473-1-ajones@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230224_082640_765320_C844C05B 
-X-CRM114-Status: GOOD (  14.91  )
+X-CRM114-CacheID: sfid-20230224_082641_888792_FEEB9BD2 
+X-CRM114-Status: GOOD (  20.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,149 +102,205 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Parse "riscv,cboz-block-size" from the DT by piggybacking on Zicbom's
-riscv_init_cbom_blocksize(). Additionally check the DT for the presence
-of the "zicboz" extension and, when it's present, validate the parsed
-cboz block size as we do Zicbom's cbom block size with
-riscv_isa_extension_check().
+Using memset() to zero a 4K page takes 563 total instructions, where
+20 are branches. clear_page(), with Zicboz and a 64 byte block size,
+takes 169 total instructions, where 4 are branches and 33 are nops.
+Even though the block size is a variable, thanks to alternatives, we
+can still implement a Duff device without having to do any preliminary
+calculations. This is achieved by using the alternatives' cpufeature
+value (the upper 16 bits of patch_id). The value used is the maximum
+zicboz block size order accepted at the patch site. This enables us
+to stop patching / unrolling when 4K bytes have been zeroed (we would
+loop and continue after 4K if the page size would be larger)
+
+For 4K pages, unrolling 16 times allows block sizes of 64 and 128 to
+only loop a few times and larger block sizes to not loop at all. Since
+cbo.zero doesn't take an offset, we also need an 'add' after each
+instruction, making the loop body 112 to 160 bytes. Hopefully this
+is small enough to not cause icache misses.
 
 Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- arch/riscv/include/asm/cacheflush.h |  3 ++-
- arch/riscv/include/asm/hwcap.h      |  1 +
- arch/riscv/kernel/cpu.c             |  1 +
- arch/riscv/kernel/cpufeature.c      | 10 ++++++++++
- arch/riscv/kernel/setup.c           |  2 +-
- arch/riscv/mm/cacheflush.c          | 23 +++++++++++++++--------
- 6 files changed, 30 insertions(+), 10 deletions(-)
+ arch/riscv/Kconfig                | 13 ++++++
+ arch/riscv/include/asm/insn-def.h |  4 ++
+ arch/riscv/include/asm/page.h     |  6 ++-
+ arch/riscv/kernel/cpufeature.c    | 11 +++++
+ arch/riscv/lib/Makefile           |  1 +
+ arch/riscv/lib/clear_page.S       | 74 +++++++++++++++++++++++++++++++
+ 6 files changed, 108 insertions(+), 1 deletion(-)
+ create mode 100644 arch/riscv/lib/clear_page.S
 
-diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/include/asm/cacheflush.h
-index 03e3b95ae6da..8091b8bf4883 100644
---- a/arch/riscv/include/asm/cacheflush.h
-+++ b/arch/riscv/include/asm/cacheflush.h
-@@ -50,7 +50,8 @@ void flush_icache_mm(struct mm_struct *mm, bool local);
- #endif /* CONFIG_SMP */
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index aa951fe2bc56..f715aa39c465 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -458,6 +458,19 @@ config RISCV_ISA_ZICBOM
  
- extern unsigned int riscv_cbom_block_size;
--void riscv_init_cbom_blocksize(void);
-+extern unsigned int riscv_cboz_block_size;
-+void riscv_init_cbo_blocksizes(void);
+ 	   If you don't know what to do here, say Y.
  
- #ifdef CONFIG_RISCV_DMA_NONCOHERENT
- void riscv_noncoherent_supported(void);
-diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-index 8f3994a7f0ca..a96d3d7d7d28 100644
---- a/arch/riscv/include/asm/hwcap.h
-+++ b/arch/riscv/include/asm/hwcap.h
-@@ -42,6 +42,7 @@
- #define RISCV_ISA_EXT_ZBB		30
- #define RISCV_ISA_EXT_ZICBOM		31
- #define RISCV_ISA_EXT_ZIHINTPAUSE	32
-+#define RISCV_ISA_EXT_ZICBOZ		33
++config RISCV_ISA_ZICBOZ
++	bool "Zicboz extension support for faster zeroing of memory"
++	depends on !XIP_KERNEL && MMU
++	select RISCV_ALTERNATIVE
++	default y
++	help
++	   Enable the use of the ZICBOZ extension (cbo.zero instruction)
++	   when available.
++
++	   The Zicboz extension is used for faster zeroing of memory.
++
++	   If you don't know what to do here, say Y.
++
+ config TOOLCHAIN_HAS_ZIHINTPAUSE
+ 	bool
+ 	default y
+diff --git a/arch/riscv/include/asm/insn-def.h b/arch/riscv/include/asm/insn-def.h
+index e01ab51f50d2..6960beb75f32 100644
+--- a/arch/riscv/include/asm/insn-def.h
++++ b/arch/riscv/include/asm/insn-def.h
+@@ -192,4 +192,8 @@
+ 	INSN_I(OPCODE_MISC_MEM, FUNC3(2), __RD(0),		\
+ 	       RS1(base), SIMM12(2))
  
- #define RISCV_ISA_EXT_MAX		64
- #define RISCV_ISA_EXT_NAME_LEN_MAX	32
-diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-index 8400f0cc9704..1b0411280141 100644
---- a/arch/riscv/kernel/cpu.c
-+++ b/arch/riscv/kernel/cpu.c
-@@ -186,6 +186,7 @@ arch_initcall(riscv_cpuinfo_init);
-  */
- static struct riscv_isa_ext_data isa_ext_arr[] = {
- 	__RISCV_ISA_EXT_DATA(zicbom, RISCV_ISA_EXT_ZICBOM),
-+	__RISCV_ISA_EXT_DATA(zicboz, RISCV_ISA_EXT_ZICBOZ),
- 	__RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
- 	__RISCV_ISA_EXT_DATA(zbb, RISCV_ISA_EXT_ZBB),
- 	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
++#define CBO_zero(base)						\
++	INSN_I(OPCODE_MISC_MEM, FUNC3(2), __RD(0),		\
++	       RS1(base), SIMM12(4))
++
+ #endif /* __ASM_INSN_DEF_H */
+diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
+index 9f432c1b5289..ccd168fe29d2 100644
+--- a/arch/riscv/include/asm/page.h
++++ b/arch/riscv/include/asm/page.h
+@@ -49,10 +49,14 @@
+ 
+ #ifndef __ASSEMBLY__
+ 
++#ifdef CONFIG_RISCV_ISA_ZICBOZ
++void clear_page(void *page);
++#else
+ #define clear_page(pgaddr)			memset((pgaddr), 0, PAGE_SIZE)
++#endif
+ #define copy_page(to, from)			memcpy((to), (from), PAGE_SIZE)
+ 
+-#define clear_user_page(pgaddr, vaddr, page)	memset((pgaddr), 0, PAGE_SIZE)
++#define clear_user_page(pgaddr, vaddr, page)	clear_page(pgaddr)
+ #define copy_user_page(vto, vfrom, vaddr, topg) \
+ 			memcpy((vto), (vfrom), PAGE_SIZE)
+ 
 diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 6569d963fc7d..538779d03311 100644
+index d424cd76beb1..8e7b0d703841 100644
 --- a/arch/riscv/kernel/cpufeature.c
 +++ b/arch/riscv/kernel/cpufeature.c
-@@ -74,6 +74,15 @@ static bool riscv_isa_extension_check(int id)
- 			return false;
- 		}
+@@ -293,6 +293,17 @@ static bool riscv_cpufeature_patch_check(u16 id, u16 value)
+ 	if (!value)
  		return true;
+ 
++	switch (id) {
 +	case RISCV_ISA_EXT_ZICBOZ:
-+		if (!riscv_cboz_block_size) {
-+			pr_err("Zicboz detected in ISA string, but no cboz-block-size found\n");
-+			return false;
-+		} else if (!is_power_of_2(riscv_cboz_block_size)) {
-+			pr_err("cboz-block-size present, but is not a power-of-2\n");
-+			return false;
-+		}
-+		return true;
- 	}
- 
- 	return true;
-@@ -222,6 +231,7 @@ void __init riscv_fill_hwcap(void)
- 				SET_ISA_EXT_MAP("svpbmt", RISCV_ISA_EXT_SVPBMT);
- 				SET_ISA_EXT_MAP("zbb", RISCV_ISA_EXT_ZBB);
- 				SET_ISA_EXT_MAP("zicbom", RISCV_ISA_EXT_ZICBOM);
-+				SET_ISA_EXT_MAP("zicboz", RISCV_ISA_EXT_ZICBOZ);
- 				SET_ISA_EXT_MAP("zihintpause", RISCV_ISA_EXT_ZIHINTPAUSE);
- 			}
- #undef SET_ISA_EXT_MAP
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index 376d2827e736..5d3184cbf518 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -297,7 +297,7 @@ void __init setup_arch(char **cmdline_p)
- 	setup_smp();
- #endif
- 
--	riscv_init_cbom_blocksize();
-+	riscv_init_cbo_blocksizes();
- 	riscv_fill_hwcap();
- 	apply_boot_alternatives();
- 	if (IS_ENABLED(CONFIG_RISCV_ISA_ZICBOM) &&
-diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
-index eaf23fc14966..ba4832bb949b 100644
---- a/arch/riscv/mm/cacheflush.c
-+++ b/arch/riscv/mm/cacheflush.c
-@@ -98,6 +98,9 @@ void flush_icache_pte(pte_t pte)
- unsigned int riscv_cbom_block_size;
- EXPORT_SYMBOL_GPL(riscv_cbom_block_size);
- 
-+unsigned int riscv_cboz_block_size;
-+EXPORT_SYMBOL_GPL(riscv_cboz_block_size);
++		/*
++		 * Zicboz alternative applications provide the maximum
++		 * supported block size order, or zero when it doesn't
++		 * matter. If the current block size exceeds the maximum,
++		 * then the alternative cannot be applied.
++		 */
++		return riscv_cboz_block_size <= (1U << value);
++	}
 +
- static void cbo_get_block_size(struct device_node *node,
- 			       const char *name, u32 *block_size,
- 			       unsigned long *first_hartid)
-@@ -120,19 +123,23 @@ static void cbo_get_block_size(struct device_node *node,
- 	}
+ 	return false;
  }
  
--void riscv_init_cbom_blocksize(void)
-+void riscv_init_cbo_blocksizes(void)
- {
-+	unsigned long cbom_hartid, cboz_hartid;
-+	u32 cbom_block_size = 0, cboz_block_size = 0;
- 	struct device_node *node;
--	unsigned long cbom_hartid;
--	u32 probed_block_size;
+diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
+index 6c74b0bedd60..26cb2502ecf8 100644
+--- a/arch/riscv/lib/Makefile
++++ b/arch/riscv/lib/Makefile
+@@ -8,5 +8,6 @@ lib-y			+= strlen.o
+ lib-y			+= strncmp.o
+ lib-$(CONFIG_MMU)	+= uaccess.o
+ lib-$(CONFIG_64BIT)	+= tishift.o
++lib-$(CONFIG_RISCV_ISA_ZICBOZ)	+= clear_page.o
  
--	probed_block_size = 0;
- 	for_each_of_cpu_node(node) {
--		/* set block-size for cbom extension if available */
-+		/* set block-size for cbom and/or cboz extension if available */
- 		cbo_get_block_size(node, "riscv,cbom-block-size",
--				   &probed_block_size, &cbom_hartid);
-+				   &cbom_block_size, &cbom_hartid);
-+		cbo_get_block_size(node, "riscv,cboz-block-size",
-+				   &cboz_block_size, &cboz_hartid);
- 	}
- 
--	if (probed_block_size)
--		riscv_cbom_block_size = probed_block_size;
-+	if (cbom_block_size)
-+		riscv_cbom_block_size = cbom_block_size;
+ obj-$(CONFIG_FUNCTION_ERROR_INJECTION) += error-inject.o
+diff --git a/arch/riscv/lib/clear_page.S b/arch/riscv/lib/clear_page.S
+new file mode 100644
+index 000000000000..d7a256eb53f4
+--- /dev/null
++++ b/arch/riscv/lib/clear_page.S
+@@ -0,0 +1,74 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (c) 2023 Ventana Micro Systems Inc.
++ */
 +
-+	if (cboz_block_size)
-+		riscv_cboz_block_size = cboz_block_size;
- }
++#include <linux/linkage.h>
++#include <asm/asm.h>
++#include <asm/alternative-macros.h>
++#include <asm-generic/export.h>
++#include <asm/hwcap.h>
++#include <asm/insn-def.h>
++#include <asm/page.h>
++
++#define CBOZ_ALT(order, old, new)				\
++	ALTERNATIVE(old, new, 0,				\
++		    ((order) << 16) | RISCV_ISA_EXT_ZICBOZ,	\
++		    CONFIG_RISCV_ISA_ZICBOZ)
++
++/* void clear_page(void *page) */
++SYM_FUNC_START(clear_page)
++	li	a2, PAGE_SIZE
++
++	/*
++	 * If Zicboz isn't present, or somehow has a block
++	 * size larger than 4K, then fallback to memset.
++	 */
++	CBOZ_ALT(12, "j .Lno_zicboz", "nop")
++
++	lw	a1, riscv_cboz_block_size
++	add	a2, a0, a2
++.Lzero_loop:
++	CBO_zero(a0)
++	add	a0, a0, a1
++	CBOZ_ALT(11, "bltu a0, a2, .Lzero_loop; ret", "nop; nop")
++	CBO_zero(a0)
++	add	a0, a0, a1
++	CBOZ_ALT(10, "bltu a0, a2, .Lzero_loop; ret", "nop; nop")
++	CBO_zero(a0)
++	add	a0, a0, a1
++	CBO_zero(a0)
++	add	a0, a0, a1
++	CBOZ_ALT(9, "bltu a0, a2, .Lzero_loop; ret", "nop; nop")
++	CBO_zero(a0)
++	add	a0, a0, a1
++	CBO_zero(a0)
++	add	a0, a0, a1
++	CBO_zero(a0)
++	add	a0, a0, a1
++	CBO_zero(a0)
++	add	a0, a0, a1
++	CBOZ_ALT(8, "bltu a0, a2, .Lzero_loop; ret", "nop; nop")
++	CBO_zero(a0)
++	add	a0, a0, a1
++	CBO_zero(a0)
++	add	a0, a0, a1
++	CBO_zero(a0)
++	add	a0, a0, a1
++	CBO_zero(a0)
++	add	a0, a0, a1
++	CBO_zero(a0)
++	add	a0, a0, a1
++	CBO_zero(a0)
++	add	a0, a0, a1
++	CBO_zero(a0)
++	add	a0, a0, a1
++	CBO_zero(a0)
++	add	a0, a0, a1
++	bltu	a0, a2, .Lzero_loop
++	ret
++.Lno_zicboz:
++	li	a1, 0
++	tail	__memset
++SYM_FUNC_END(clear_page)
++EXPORT_SYMBOL(clear_page)
 -- 
 2.39.1
 
