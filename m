@@ -4,73 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17ED6C61DA3
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Feb 2023 09:34:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45F2DC64ED8
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Feb 2023 09:55:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=K3CO9EjfuaK7kNauGRMBiVYnOQjkDu+DvDl0L0JL1k8=; b=F9kKiwUtz6p6F4
-	nvLtcluDGB07/wN3j4A/IvXB3V9XOKmwjIzqzRtbO8wtn4t7IJL3o8aHMHxY0tz/qL6K+iRksiwqp
-	1J8o6Sf002DjdW1konO3W0VBBGj5qPryygTxXEbKaHE/NysF2tJwsqEzNLbbGtkMp2ZATA4cKyjF2
-	gbP8j2wKJSBy2SM1VGeAhMOHSl+k2puq582Eixlq2vwJbebsbWHimduNT1QnAnEqVClul6txCrqZI
-	MS8SEN+Cp2P+DDZf+9+BnvrW6y73CSKcr21JMcoQ+EpZ51Q5cq8ms4Ui3J22vImNI1FcPxq87+6Oa
-	3s/NZUTr3cALp1+Zl7tg==;
+	List-Owner; bh=ICakCMNzkVuqSdfAlviDVlGcdbfYlM9CgCleLeJz4wk=; b=aSwEd7/oqCv9Zp
+	6k08kpm4hB80zvC7KD73chXgPFuCKB6x5Vcb6uJFmCcys/6vy46cytYzBRYxX5csrygSOlbgNkSFf
+	2Z9F9Fy7CCUjbbJ4mHJm3o1si6GyB0d95n4MEu6GRWOPZ0DA+Jv3+3P8QZMN5jI30mNaa6D5/CMvw
+	BnyzFVRAIMLWfZDgNC/hEd2lJVBAwBEEzH3xdcBmFi/zr6mLeL91az9lWlVWZE0+fBZmtANDirErn
+	tAUYbXwaLuhpiiH9OpF0xSqBsbeXCV6hSxNB1VJpP5+422of15ue7b0fK0YWHs4/bb68nyVbyRPTO
+	eQPJqKlmtnzBl+NcyCAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pVUSt-001hpw-EZ; Fri, 24 Feb 2023 09:34:07 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pVUSn-001hnL-J2
-	for linux-riscv@lists.infradead.org; Fri, 24 Feb 2023 09:34:05 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 9A2D024E289;
-	Fri, 24 Feb 2023 17:33:31 +0800 (CST)
-Received: from EXMBX164.cuchost.com (172.16.7.74) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 24 Feb
- 2023 17:33:31 +0800
-Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX164.cuchost.com
- (172.16.7.74) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 24 Feb
- 2023 17:33:31 +0800
-Received: from EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f]) by
- EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f%17]) with mapi id
- 15.00.1497.044; Fri, 24 Feb 2023 17:33:31 +0800
-From: JeeHeng Sia <jeeheng.sia@starfivetech.com>
-To: Andrew Jones <ajones@ventanamicro.com>
-CC: "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>, "aou@eecs.berkeley.edu"
-	<aou@eecs.berkeley.edu>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
+	id 1pVUnf-001ma4-58; Fri, 24 Feb 2023 09:55:35 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pVUnb-001mWD-DF
+	for linux-riscv@lists.infradead.org; Fri, 24 Feb 2023 09:55:33 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id 6so12906323wrb.11
+        for <linux-riscv@lists.infradead.org>; Fri, 24 Feb 2023 01:55:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=B/I6Birz1nudKbAt4YEObLJmlU5k2URNQpB36UP4RQ0=;
+        b=Xjumt1lF1bSLpds0vviECi7/BQkLwvPdAxAyqALWyMFHOunQlaxKUL/KyW57n67aoQ
+         t0jNmVKzSZhPf1P06M/zj0MEnr/M3BnjkAWTFEhgL8+rvXny5ZT/BXQFgmtBh6KheK1P
+         YGoSJAgJl1NKkIHKsVXnitXLgfSKoI5/XbnG+0B3fZrncgQ067CJWIwxH9Fc3WOaYfC8
+         3N7YJSXKDMK/6O3+XEJJ7FiqPTwgynNWuPpxN024ylJUUXEmTerPT8CM/JY4wSBb8rMj
+         KVVmtuEeNNheRblXk2Wc5Dl+J2XOrglKe6JXR3O8pxJtDrLte2Ue9O+2nmV4mhQntWEw
+         PXGA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=B/I6Birz1nudKbAt4YEObLJmlU5k2URNQpB36UP4RQ0=;
+        b=1qp6UBwZlljqlunBC/Iw2uM7gIJB3UwTBdMsCIqkSIT3/oZXr0rnWrlwwZl3OgiBhl
+         vungvdQiWyINJiBZ5UyiJD5iEaXGAL3Z5g01V/JyyYUZBaTHNtb7wxo1z42h+K9BMhdG
+         HCeO41nJc/jaEUmRp4TS0P9RJF1kfTnJt6+i/4MoAuS14G/S4Pcr4M/l9iMdKNm/tlAi
+         TFPc9KrmnrDFNxoOaA9mXlw4p/aSUMamjgcI3nDofw382mv1H0GB0gFuNRElzT+BOvmL
+         Ac3T6Lj/QMcw8hAjt7nbUWJGGHi3oEjO6ZQLcbLcP8WavP7UIXXBjYayilnc58asOP0k
+         Kl6g==
+X-Gm-Message-State: AO0yUKVqdlw8k18NdrYZXIOwNOQmHnny6yD92x8pddBjYm5x+kV9HpCh
+	/WsW66tFSSd0p9JgBu7gj1udkg==
+X-Google-Smtp-Source: AK7set/voORFL8ptlES8cyFefg46x+RkqPydamcWb2PsuaMeH1zT0Pw5Yj+0shlZ2/9b2kkxLO2xlg==
+X-Received: by 2002:a5d:54c5:0:b0:2c7:df1:a09d with SMTP id x5-20020a5d54c5000000b002c70df1a09dmr6212222wrv.4.1677232527666;
+        Fri, 24 Feb 2023 01:55:27 -0800 (PST)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id az35-20020a05600c602300b003eaf666cbe0sm2272910wmb.27.2023.02.24.01.55.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 24 Feb 2023 01:55:27 -0800 (PST)
+Date: Fri, 24 Feb 2023 10:55:26 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: JeeHeng Sia <jeeheng.sia@starfivetech.com>
+Cc: "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
+	"palmer@dabbelt.com" <palmer@dabbelt.com>,
+	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
 	Mason Huo <mason.huo@starfivetech.com>
-Subject: RE: [PATCH v4 4/4] RISC-V: Add arch functions to support
+Subject: Re: [PATCH v4 4/4] RISC-V: Add arch functions to support
  hibernation/suspend-to-disk
-Thread-Topic: [PATCH v4 4/4] RISC-V: Add arch functions to support
- hibernation/suspend-to-disk
-Thread-Index: AQHZRZ0zqkG7/pRhhEiAX6gFjug0Aa7cUgAAgAEC65D///aKAIAAiLXg
-Date: Fri, 24 Feb 2023 09:33:31 +0000
-Message-ID: <9cfd485d1e0d46cdb1323bb6ea330f6e@EXMBX066.cuchost.com>
+Message-ID: <20230224095526.ctctpzw3p3csf6qj@orel>
 References: <20230221023523.1498500-1-jeeheng.sia@starfivetech.com>
  <20230221023523.1498500-5-jeeheng.sia@starfivetech.com>
  <20230223180720.55fgbxzlx6xvzgms@orel>
  <b26264a20b5f4bc5abfc6dd87aa4e38f@EXMBX066.cuchost.com>
  <20230224090010.nmy6latszfkdqcft@orel>
-In-Reply-To: <20230224090010.nmy6latszfkdqcft@orel>
-Accept-Language: en-US, zh-CN
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [60.50.196.81]
-x-yovoleruleagent: yovoleflag
+ <9cfd485d1e0d46cdb1323bb6ea330f6e@EXMBX066.cuchost.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <9cfd485d1e0d46cdb1323bb6ea330f6e@EXMBX066.cuchost.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230224_013402_185517_DB1BD914 
-X-CRM114-Status: GOOD (  49.76  )
+X-CRM114-CacheID: sfid-20230224_015531_479940_6A9EE303 
+X-CRM114-Status: GOOD (  48.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,530 +100,304 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Fri, Feb 24, 2023 at 09:33:31AM +0000, JeeHeng Sia wrote:
+> 
+> 
+> > -----Original Message-----
+> > From: Andrew Jones <ajones@ventanamicro.com>
+> > Sent: Friday, 24 February, 2023 5:00 PM
+> > To: JeeHeng Sia <jeeheng.sia@starfivetech.com>
+> > Cc: paul.walmsley@sifive.com; palmer@dabbelt.com; aou@eecs.berkeley.edu; linux-riscv@lists.infradead.org; linux-
+> > kernel@vger.kernel.org; Leyfoon Tan <leyfoon.tan@starfivetech.com>; Mason Huo <mason.huo@starfivetech.com>
+> > Subject: Re: [PATCH v4 4/4] RISC-V: Add arch functions to support hibernation/suspend-to-disk
+> > 
+> > On Fri, Feb 24, 2023 at 02:05:43AM +0000, JeeHeng Sia wrote:
+> > >
+> > >
+> > > > -----Original Message-----
+> > > > From: Andrew Jones <ajones@ventanamicro.com>
+> > > > Sent: Friday, 24 February, 2023 2:07 AM
+> > > > To: JeeHeng Sia <jeeheng.sia@starfivetech.com>
+> > > > Cc: paul.walmsley@sifive.com; palmer@dabbelt.com; aou@eecs.berkeley.edu; linux-riscv@lists.infradead.org; linux-
+> > > > kernel@vger.kernel.org; Leyfoon Tan <leyfoon.tan@starfivetech.com>; Mason Huo <mason.huo@starfivetech.com>
+> > > > Subject: Re: [PATCH v4 4/4] RISC-V: Add arch functions to support hibernation/suspend-to-disk
+> > > >
+> > > > On Tue, Feb 21, 2023 at 10:35:23AM +0800, Sia Jee Heng wrote:
+> > > > > Low level Arch functions were created to support hibernation.
+> > > > > swsusp_arch_suspend() relies code from __cpu_suspend_enter() to write
+> > > > > cpu state onto the stack, then calling swsusp_save() to save the memory
+> > > > > image.
+> > > > >
+> > > > > Arch specific hibernation header is implemented and is utilized by the
+> > > > > arch_hibernation_header_restore() and arch_hibernation_header_save()
+> > > > > functions. The arch specific hibernation header consists of satp, hartid,
+> > > > > and the cpu_resume address. The kernel built version is also need to be
+> > > > > saved into the hibernation image header to making sure only the same
+> > > > > kernel is restore when resume.
+> > > > >
+> > > > > swsusp_arch_resume() creates a temporary page table that covering only
+> > > > > the linear map. It copies the restore code to a 'safe' page, then start
+> > > > > to restore the memory image. Once completed, it restores the original
+> > > > > kernel's page table. It then calls into __hibernate_cpu_resume()
+> > > > > to restore the CPU context. Finally, it follows the normal hibernation
+> > > > > path back to the hibernation core.
+> > > > >
+> > > > > To enable hibernation/suspend to disk into RISCV, the below config
+> > > > > need to be enabled:
+> > > > > - CONFIG_ARCH_HIBERNATION_HEADER
+> > > > > - CONFIG_ARCH_HIBERNATION_POSSIBLE
+> > > > >
+> > > > > Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
+> > > > > Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+> > > > > Reviewed-by: Mason Huo <mason.huo@starfivetech.com>
+> > > > > ---
+> > > > >  arch/riscv/Kconfig                 |   7 +
+> > > > >  arch/riscv/include/asm/assembler.h |  20 ++
+> > > > >  arch/riscv/include/asm/suspend.h   |  19 ++
+> > > > >  arch/riscv/kernel/Makefile         |   1 +
+> > > > >  arch/riscv/kernel/asm-offsets.c    |   5 +
+> > > > >  arch/riscv/kernel/hibernate-asm.S  |  77 +++++
+> > > > >  arch/riscv/kernel/hibernate.c      | 447 +++++++++++++++++++++++++++++
+> > > > >  7 files changed, 576 insertions(+)
+> > > > >  create mode 100644 arch/riscv/kernel/hibernate-asm.S
+> > > > >  create mode 100644 arch/riscv/kernel/hibernate.c
+> > > > >
+> > > > > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> > > > > index e2b656043abf..4555848a817f 100644
+> > > > > --- a/arch/riscv/Kconfig
+> > > > > +++ b/arch/riscv/Kconfig
+> > > > > @@ -690,6 +690,13 @@ menu "Power management options"
+> > > > >
+> > > > >  source "kernel/power/Kconfig"
+> > > > >
+> > > > > +config ARCH_HIBERNATION_POSSIBLE
+> > > > > +	def_bool y
+> > > > > +
+> > > > > +config ARCH_HIBERNATION_HEADER
+> > > > > +	def_bool y
+> > > > > +	depends on HIBERNATION
+> > > >
+> > > > nit: I think this can be simplified as def_bool HIBERNATION
+> > > good suggestion. will change it.
+> > > >
+> > > > > +
+> > > > >  endmenu # "Power management options"
+> > > > >
+> > > > >  menu "CPU Power Management"
+> > > > > diff --git a/arch/riscv/include/asm/assembler.h b/arch/riscv/include/asm/assembler.h
+> > > > > index 727a97735493..68c46c0e0ea8 100644
+> > > > > --- a/arch/riscv/include/asm/assembler.h
+> > > > > +++ b/arch/riscv/include/asm/assembler.h
+> > > > > @@ -59,4 +59,24 @@
+> > > > >  		REG_L	s11, (SUSPEND_CONTEXT_REGS + PT_S11)(a0)
+> > > > >  	.endm
+> > > > >
+> > > > > +/*
+> > > > > + * copy_page - copy 1 page (4KB) of data from source to destination
+> > > > > + * @a0 - destination
+> > > > > + * @a1 - source
+> > > > > + */
+> > > > > +	.macro	copy_page a0, a1
+> > > > > +		lui	a2, 0x1
+> > > > > +		add	a2, a2, a0
+> > > > > +1 :
+> > > >     ^ please remove this space
+> > > can't remove it otherwise checkpatch will throws ERROR: spaces required around that ':'
+> > 
+> > Oh, right, labels in macros have this requirement.
+> > 
+> > > >
+> > > > > +		REG_L	t0, 0(a1)
+> > > > > +		REG_L	t1, SZREG(a1)
+> > > > > +
+> > > > > +		REG_S	t0, 0(a0)
+> > > > > +		REG_S	t1, SZREG(a0)
+> > > > > +
+> > > > > +		addi	a0, a0, 2 * SZREG
+> > > > > +		addi	a1, a1, 2 * SZREG
+> > > > > +		bne	a2, a0, 1b
+> > > > > +	.endm
+> > > > > +
+> > > > >  #endif	/* __ASM_ASSEMBLER_H */
+> > > > > diff --git a/arch/riscv/include/asm/suspend.h b/arch/riscv/include/asm/suspend.h
+> > > > > index 75419c5ca272..3362da56a9d8 100644
+> > > > > --- a/arch/riscv/include/asm/suspend.h
+> > > > > +++ b/arch/riscv/include/asm/suspend.h
+> > > > > @@ -21,6 +21,11 @@ struct suspend_context {
+> > > > >  #endif
+> > > > >  };
+> > > > >
+> > > > > +/*
+> > > > > + * Used by hibernation core and cleared during resume sequence
+> > > > > + */
+> > > > > +extern int in_suspend;
+> > > > > +
+> > > > >  /* Low-level CPU suspend entry function */
+> > > > >  int __cpu_suspend_enter(struct suspend_context *context);
+> > > > >
+> > > > > @@ -36,4 +41,18 @@ int __cpu_resume_enter(unsigned long hartid, unsigned long context);
+> > > > >  /* Used to save and restore the csr */
+> > > > >  void suspend_save_csrs(struct suspend_context *context);
+> > > > >  void suspend_restore_csrs(struct suspend_context *context);
+> > > > > +
+> > > > > +/* Low-level API to support hibernation */
+> > > > > +int swsusp_arch_suspend(void);
+> > > > > +int swsusp_arch_resume(void);
+> > > > > +int arch_hibernation_header_save(void *addr, unsigned int max_size);
+> > > > > +int arch_hibernation_header_restore(void *addr);
+> > > > > +int __hibernate_cpu_resume(void);
+> > > > > +
+> > > > > +/* Used to resume on the CPU we hibernated on */
+> > > > > +int hibernate_resume_nonboot_cpu_disable(void);
+> > > > > +
+> > > > > +asmlinkage void hibernate_restore_image(unsigned long resume_satp, unsigned long satp_temp,
+> > > > > +					unsigned long cpu_resume);
+> > > > > +asmlinkage int hibernate_core_restore_code(void);
+> > > > >  #endif
+> > > > > diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+> > > > > index 4cf303a779ab..daab341d55e4 100644
+> > > > > --- a/arch/riscv/kernel/Makefile
+> > > > > +++ b/arch/riscv/kernel/Makefile
+> > > > > @@ -64,6 +64,7 @@ obj-$(CONFIG_MODULES)		+= module.o
+> > > > >  obj-$(CONFIG_MODULE_SECTIONS)	+= module-sections.o
+> > > > >
+> > > > >  obj-$(CONFIG_CPU_PM)		+= suspend_entry.o suspend.o
+> > > > > +obj-$(CONFIG_HIBERNATION)	+= hibernate.o hibernate-asm.o
+> > > > >
+> > > > >  obj-$(CONFIG_FUNCTION_TRACER)	+= mcount.o ftrace.o
+> > > > >  obj-$(CONFIG_DYNAMIC_FTRACE)	+= mcount-dyn.o
+> > > > > diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
+> > > > > index df9444397908..d6a75aac1d27 100644
+> > > > > --- a/arch/riscv/kernel/asm-offsets.c
+> > > > > +++ b/arch/riscv/kernel/asm-offsets.c
+> > > > > @@ -9,6 +9,7 @@
+> > > > >  #include <linux/kbuild.h>
+> > > > >  #include <linux/mm.h>
+> > > > >  #include <linux/sched.h>
+> > > > > +#include <linux/suspend.h>
+> > > > >  #include <asm/kvm_host.h>
+> > > > >  #include <asm/thread_info.h>
+> > > > >  #include <asm/ptrace.h>
+> > > > > @@ -116,6 +117,10 @@ void asm_offsets(void)
+> > > > >
+> > > > >  	OFFSET(SUSPEND_CONTEXT_REGS, suspend_context, regs);
+> > > > >
+> > > > > +	OFFSET(HIBERN_PBE_ADDR, pbe, address);
+> > > > > +	OFFSET(HIBERN_PBE_ORIG, pbe, orig_address);
+> > > > > +	OFFSET(HIBERN_PBE_NEXT, pbe, next);
+> > > > > +
+> > > > >  	OFFSET(KVM_ARCH_GUEST_ZERO, kvm_vcpu_arch, guest_context.zero);
+> > > > >  	OFFSET(KVM_ARCH_GUEST_RA, kvm_vcpu_arch, guest_context.ra);
+> > > > >  	OFFSET(KVM_ARCH_GUEST_SP, kvm_vcpu_arch, guest_context.sp);
+> > > > > diff --git a/arch/riscv/kernel/hibernate-asm.S b/arch/riscv/kernel/hibernate-asm.S
+> > > > > new file mode 100644
+> > > > > index 000000000000..846affe4dced
+> > > > > --- /dev/null
+> > > > > +++ b/arch/riscv/kernel/hibernate-asm.S
+> > > > > @@ -0,0 +1,77 @@
+> > > > > +/* SPDX-License-Identifier: GPL-2.0-only */
+> > > > > +/*
+> > > > > + * Hibernation low level support for RISCV.
+> > > > > + *
+> > > > > + * Copyright (C) 2023 StarFive Technology Co., Ltd.
+> > > > > + *
+> > > > > + * Author: Jee Heng Sia <jeeheng.sia@starfivetech.com>
+> > > > > + */
+> > > > > +
+> > > > > +#include <asm/asm.h>
+> > > > > +#include <asm/asm-offsets.h>
+> > > > > +#include <asm/assembler.h>
+> > > > > +#include <asm/csr.h>
+> > > > > +
+> > > > > +#include <linux/linkage.h>
+> > > > > +
+> > > > > +/*
+> > > > > + * int __hibernate_cpu_resume(void)
+> > > > > + * Switch back to the hibernated image's page table prior to restoring the CPU
+> > > > > + * context.
+> > > > > + *
+> > > > > + * Always returns 0
+> > > > > + */
+> > > > > +ENTRY(__hibernate_cpu_resume)
+> > > > > +	/* switch to hibernated image's page table. */
+> > > > > +	csrw CSR_SATP, s0
+> > > > > +	sfence.vma
+> > > > > +
+> > > > > +	REG_L	a0, hibernate_cpu_context
+> > > > > +
+> > > > > +	restore_csr
+> > > > > +	restore_reg
+> > > > > +
+> > > > > +	/* Return zero value. */
+> > > > > +	add	a0, zero, zero
+> > > >
+> > > > nit: mv a0, zero
+> > > sure
+> > > >
+> > > > > +
+> > > > > +	ret
+> > > > > +END(__hibernate_cpu_resume)
+> > > > > +
+> > > > > +/*
+> > > > > + * Prepare to restore the image.
+> > > > > + * a0: satp of saved page tables.
+> > > > > + * a1: satp of temporary page tables.
+> > > > > + * a2: cpu_resume.
+> > > > > + */
+> > > > > +ENTRY(hibernate_restore_image)
+> > > > > +	mv	s0, a0
+> > > > > +	mv	s1, a1
+> > > > > +	mv	s2, a2
+> > > > > +	REG_L	s4, restore_pblist
+> > > > > +	REG_L	a1, relocated_restore_code
+> > > > > +
+> > > > > +	jalr	a1
+> > > > > +END(hibernate_restore_image)
+> > > > > +
+> > > > > +/*
+> > > > > + * The below code will be executed from a 'safe' page.
+> > > > > + * It first switches to the temporary page table, then starts to copy the pages
+> > > > > + * back to the original memory location. Finally, it jumps to __hibernate_cpu_resume()
+> > > > > + * to restore the CPU context.
+> > > > > + */
+> > > > > +ENTRY(hibernate_core_restore_code)
+> > > > > +	/* switch to temp page table. */
+> > > > > +	csrw satp, s1
+> > > > > +	sfence.vma
+> > > > > +.Lcopy:
+> > > > > +	/* The below code will restore the hibernated image. */
+> > > > > +	REG_L	a1, HIBERN_PBE_ADDR(s4)
+> > > > > +	REG_L	a0, HIBERN_PBE_ORIG(s4)
+> > > >
+> > > > Are we sure restore_pblist will never be NULL?
+> > > restore_pblist is a link-list, it will be null during initialization or during page clean up by hibernation core. During the initial resume
+> > process, the hibernation core will check the header and load the pages. If everything works correctly, the page will be linked to the
+> > restore_pblist and then invoke swsusp_arch_resume() else hibernation core will throws error and failed to resume from the
+> > hibernated image.
+> > 
+> > I know restore_pblist is a linked-list and this doesn't answer the
+> > question. The comment above restore_pblist says
+> > 
+> > /*
+> >  * List of PBEs needed for restoring the pages that were allocated before
+> >  * the suspend and included in the suspend image, but have also been
+> >  * allocated by the "resume" kernel, so their contents cannot be written
+> >  * directly to their "original" page frames.
+> >  */
+> > 
+> > which implies the pages that end up on this list are "special". My
+> > question is whether or not we're guaranteed to have at least one
+> > of these special pages. If not, we shouldn't assume s4 is non-null.
+> > If so, then a comment stating why that's guaranteed would be nice.
+> The restore_pblist will not be null otherwise swsusp_arch_resume wouldn't get invoked. you can find how the link-list are link and how it checks against validity at https://elixir.bootlin.com/linux/v6.2-rc8/source/kernel/power/snapshot.c . " A comment stating why that's guaranteed would be nice" ? Hmm, perhaps this is out of my scope but I do believe in the page validity checking in the link I shared.
 
+Sorry, but pointing to an entire source file (one that I've obviously
+already looked at, since I quoted a comment from it...) is not helpful.
+I don't see where restore_pblist is being checked before
+swsusp_arch_resume() is issued (from its callsite in hibernate.c).
 
-> -----Original Message-----
-> From: Andrew Jones <ajones@ventanamicro.com>
-> Sent: Friday, 24 February, 2023 5:00 PM
-> To: JeeHeng Sia <jeeheng.sia@starfivetech.com>
-> Cc: paul.walmsley@sifive.com; palmer@dabbelt.com; aou@eecs.berkeley.edu; linux-riscv@lists.infradead.org; linux-
-> kernel@vger.kernel.org; Leyfoon Tan <leyfoon.tan@starfivetech.com>; Mason Huo <mason.huo@starfivetech.com>
-> Subject: Re: [PATCH v4 4/4] RISC-V: Add arch functions to support hibernation/suspend-to-disk
-> 
-> On Fri, Feb 24, 2023 at 02:05:43AM +0000, JeeHeng Sia wrote:
-> >
-> >
-> > > -----Original Message-----
-> > > From: Andrew Jones <ajones@ventanamicro.com>
-> > > Sent: Friday, 24 February, 2023 2:07 AM
-> > > To: JeeHeng Sia <jeeheng.sia@starfivetech.com>
-> > > Cc: paul.walmsley@sifive.com; palmer@dabbelt.com; aou@eecs.berkeley.edu; linux-riscv@lists.infradead.org; linux-
-> > > kernel@vger.kernel.org; Leyfoon Tan <leyfoon.tan@starfivetech.com>; Mason Huo <mason.huo@starfivetech.com>
-> > > Subject: Re: [PATCH v4 4/4] RISC-V: Add arch functions to support hibernation/suspend-to-disk
-> > >
-> > > On Tue, Feb 21, 2023 at 10:35:23AM +0800, Sia Jee Heng wrote:
-> > > > Low level Arch functions were created to support hibernation.
-> > > > swsusp_arch_suspend() relies code from __cpu_suspend_enter() to write
-> > > > cpu state onto the stack, then calling swsusp_save() to save the memory
-> > > > image.
-> > > >
-> > > > Arch specific hibernation header is implemented and is utilized by the
-> > > > arch_hibernation_header_restore() and arch_hibernation_header_save()
-> > > > functions. The arch specific hibernation header consists of satp, hartid,
-> > > > and the cpu_resume address. The kernel built version is also need to be
-> > > > saved into the hibernation image header to making sure only the same
-> > > > kernel is restore when resume.
-> > > >
-> > > > swsusp_arch_resume() creates a temporary page table that covering only
-> > > > the linear map. It copies the restore code to a 'safe' page, then start
-> > > > to restore the memory image. Once completed, it restores the original
-> > > > kernel's page table. It then calls into __hibernate_cpu_resume()
-> > > > to restore the CPU context. Finally, it follows the normal hibernation
-> > > > path back to the hibernation core.
-> > > >
-> > > > To enable hibernation/suspend to disk into RISCV, the below config
-> > > > need to be enabled:
-> > > > - CONFIG_ARCH_HIBERNATION_HEADER
-> > > > - CONFIG_ARCH_HIBERNATION_POSSIBLE
-> > > >
-> > > > Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
-> > > > Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
-> > > > Reviewed-by: Mason Huo <mason.huo@starfivetech.com>
-> > > > ---
-> > > >  arch/riscv/Kconfig                 |   7 +
-> > > >  arch/riscv/include/asm/assembler.h |  20 ++
-> > > >  arch/riscv/include/asm/suspend.h   |  19 ++
-> > > >  arch/riscv/kernel/Makefile         |   1 +
-> > > >  arch/riscv/kernel/asm-offsets.c    |   5 +
-> > > >  arch/riscv/kernel/hibernate-asm.S  |  77 +++++
-> > > >  arch/riscv/kernel/hibernate.c      | 447 +++++++++++++++++++++++++++++
-> > > >  7 files changed, 576 insertions(+)
-> > > >  create mode 100644 arch/riscv/kernel/hibernate-asm.S
-> > > >  create mode 100644 arch/riscv/kernel/hibernate.c
-> > > >
-> > > > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > > > index e2b656043abf..4555848a817f 100644
-> > > > --- a/arch/riscv/Kconfig
-> > > > +++ b/arch/riscv/Kconfig
-> > > > @@ -690,6 +690,13 @@ menu "Power management options"
-> > > >
-> > > >  source "kernel/power/Kconfig"
-> > > >
-> > > > +config ARCH_HIBERNATION_POSSIBLE
-> > > > +	def_bool y
-> > > > +
-> > > > +config ARCH_HIBERNATION_HEADER
-> > > > +	def_bool y
-> > > > +	depends on HIBERNATION
-> > >
-> > > nit: I think this can be simplified as def_bool HIBERNATION
-> > good suggestion. will change it.
-> > >
-> > > > +
-> > > >  endmenu # "Power management options"
-> > > >
-> > > >  menu "CPU Power Management"
-> > > > diff --git a/arch/riscv/include/asm/assembler.h b/arch/riscv/include/asm/assembler.h
-> > > > index 727a97735493..68c46c0e0ea8 100644
-> > > > --- a/arch/riscv/include/asm/assembler.h
-> > > > +++ b/arch/riscv/include/asm/assembler.h
-> > > > @@ -59,4 +59,24 @@
-> > > >  		REG_L	s11, (SUSPEND_CONTEXT_REGS + PT_S11)(a0)
-> > > >  	.endm
-> > > >
-> > > > +/*
-> > > > + * copy_page - copy 1 page (4KB) of data from source to destination
-> > > > + * @a0 - destination
-> > > > + * @a1 - source
-> > > > + */
-> > > > +	.macro	copy_page a0, a1
-> > > > +		lui	a2, 0x1
-> > > > +		add	a2, a2, a0
-> > > > +1 :
-> > >     ^ please remove this space
-> > can't remove it otherwise checkpatch will throws ERROR: spaces required around that ':'
-> 
-> Oh, right, labels in macros have this requirement.
-> 
-> > >
-> > > > +		REG_L	t0, 0(a1)
-> > > > +		REG_L	t1, SZREG(a1)
-> > > > +
-> > > > +		REG_S	t0, 0(a0)
-> > > > +		REG_S	t1, SZREG(a0)
-> > > > +
-> > > > +		addi	a0, a0, 2 * SZREG
-> > > > +		addi	a1, a1, 2 * SZREG
-> > > > +		bne	a2, a0, 1b
-> > > > +	.endm
-> > > > +
-> > > >  #endif	/* __ASM_ASSEMBLER_H */
-> > > > diff --git a/arch/riscv/include/asm/suspend.h b/arch/riscv/include/asm/suspend.h
-> > > > index 75419c5ca272..3362da56a9d8 100644
-> > > > --- a/arch/riscv/include/asm/suspend.h
-> > > > +++ b/arch/riscv/include/asm/suspend.h
-> > > > @@ -21,6 +21,11 @@ struct suspend_context {
-> > > >  #endif
-> > > >  };
-> > > >
-> > > > +/*
-> > > > + * Used by hibernation core and cleared during resume sequence
-> > > > + */
-> > > > +extern int in_suspend;
-> > > > +
-> > > >  /* Low-level CPU suspend entry function */
-> > > >  int __cpu_suspend_enter(struct suspend_context *context);
-> > > >
-> > > > @@ -36,4 +41,18 @@ int __cpu_resume_enter(unsigned long hartid, unsigned long context);
-> > > >  /* Used to save and restore the csr */
-> > > >  void suspend_save_csrs(struct suspend_context *context);
-> > > >  void suspend_restore_csrs(struct suspend_context *context);
-> > > > +
-> > > > +/* Low-level API to support hibernation */
-> > > > +int swsusp_arch_suspend(void);
-> > > > +int swsusp_arch_resume(void);
-> > > > +int arch_hibernation_header_save(void *addr, unsigned int max_size);
-> > > > +int arch_hibernation_header_restore(void *addr);
-> > > > +int __hibernate_cpu_resume(void);
-> > > > +
-> > > > +/* Used to resume on the CPU we hibernated on */
-> > > > +int hibernate_resume_nonboot_cpu_disable(void);
-> > > > +
-> > > > +asmlinkage void hibernate_restore_image(unsigned long resume_satp, unsigned long satp_temp,
-> > > > +					unsigned long cpu_resume);
-> > > > +asmlinkage int hibernate_core_restore_code(void);
-> > > >  #endif
-> > > > diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-> > > > index 4cf303a779ab..daab341d55e4 100644
-> > > > --- a/arch/riscv/kernel/Makefile
-> > > > +++ b/arch/riscv/kernel/Makefile
-> > > > @@ -64,6 +64,7 @@ obj-$(CONFIG_MODULES)		+= module.o
-> > > >  obj-$(CONFIG_MODULE_SECTIONS)	+= module-sections.o
-> > > >
-> > > >  obj-$(CONFIG_CPU_PM)		+= suspend_entry.o suspend.o
-> > > > +obj-$(CONFIG_HIBERNATION)	+= hibernate.o hibernate-asm.o
-> > > >
-> > > >  obj-$(CONFIG_FUNCTION_TRACER)	+= mcount.o ftrace.o
-> > > >  obj-$(CONFIG_DYNAMIC_FTRACE)	+= mcount-dyn.o
-> > > > diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
-> > > > index df9444397908..d6a75aac1d27 100644
-> > > > --- a/arch/riscv/kernel/asm-offsets.c
-> > > > +++ b/arch/riscv/kernel/asm-offsets.c
-> > > > @@ -9,6 +9,7 @@
-> > > >  #include <linux/kbuild.h>
-> > > >  #include <linux/mm.h>
-> > > >  #include <linux/sched.h>
-> > > > +#include <linux/suspend.h>
-> > > >  #include <asm/kvm_host.h>
-> > > >  #include <asm/thread_info.h>
-> > > >  #include <asm/ptrace.h>
-> > > > @@ -116,6 +117,10 @@ void asm_offsets(void)
-> > > >
-> > > >  	OFFSET(SUSPEND_CONTEXT_REGS, suspend_context, regs);
-> > > >
-> > > > +	OFFSET(HIBERN_PBE_ADDR, pbe, address);
-> > > > +	OFFSET(HIBERN_PBE_ORIG, pbe, orig_address);
-> > > > +	OFFSET(HIBERN_PBE_NEXT, pbe, next);
-> > > > +
-> > > >  	OFFSET(KVM_ARCH_GUEST_ZERO, kvm_vcpu_arch, guest_context.zero);
-> > > >  	OFFSET(KVM_ARCH_GUEST_RA, kvm_vcpu_arch, guest_context.ra);
-> > > >  	OFFSET(KVM_ARCH_GUEST_SP, kvm_vcpu_arch, guest_context.sp);
-> > > > diff --git a/arch/riscv/kernel/hibernate-asm.S b/arch/riscv/kernel/hibernate-asm.S
-> > > > new file mode 100644
-> > > > index 000000000000..846affe4dced
-> > > > --- /dev/null
-> > > > +++ b/arch/riscv/kernel/hibernate-asm.S
-> > > > @@ -0,0 +1,77 @@
-> > > > +/* SPDX-License-Identifier: GPL-2.0-only */
-> > > > +/*
-> > > > + * Hibernation low level support for RISCV.
-> > > > + *
-> > > > + * Copyright (C) 2023 StarFive Technology Co., Ltd.
-> > > > + *
-> > > > + * Author: Jee Heng Sia <jeeheng.sia@starfivetech.com>
-> > > > + */
-> > > > +
-> > > > +#include <asm/asm.h>
-> > > > +#include <asm/asm-offsets.h>
-> > > > +#include <asm/assembler.h>
-> > > > +#include <asm/csr.h>
-> > > > +
-> > > > +#include <linux/linkage.h>
-> > > > +
-> > > > +/*
-> > > > + * int __hibernate_cpu_resume(void)
-> > > > + * Switch back to the hibernated image's page table prior to restoring the CPU
-> > > > + * context.
-> > > > + *
-> > > > + * Always returns 0
-> > > > + */
-> > > > +ENTRY(__hibernate_cpu_resume)
-> > > > +	/* switch to hibernated image's page table. */
-> > > > +	csrw CSR_SATP, s0
-> > > > +	sfence.vma
-> > > > +
-> > > > +	REG_L	a0, hibernate_cpu_context
-> > > > +
-> > > > +	restore_csr
-> > > > +	restore_reg
-> > > > +
-> > > > +	/* Return zero value. */
-> > > > +	add	a0, zero, zero
-> > >
-> > > nit: mv a0, zero
-> > sure
-> > >
-> > > > +
-> > > > +	ret
-> > > > +END(__hibernate_cpu_resume)
-> > > > +
-> > > > +/*
-> > > > + * Prepare to restore the image.
-> > > > + * a0: satp of saved page tables.
-> > > > + * a1: satp of temporary page tables.
-> > > > + * a2: cpu_resume.
-> > > > + */
-> > > > +ENTRY(hibernate_restore_image)
-> > > > +	mv	s0, a0
-> > > > +	mv	s1, a1
-> > > > +	mv	s2, a2
-> > > > +	REG_L	s4, restore_pblist
-> > > > +	REG_L	a1, relocated_restore_code
-> > > > +
-> > > > +	jalr	a1
-> > > > +END(hibernate_restore_image)
-> > > > +
-> > > > +/*
-> > > > + * The below code will be executed from a 'safe' page.
-> > > > + * It first switches to the temporary page table, then starts to copy the pages
-> > > > + * back to the original memory location. Finally, it jumps to __hibernate_cpu_resume()
-> > > > + * to restore the CPU context.
-> > > > + */
-> > > > +ENTRY(hibernate_core_restore_code)
-> > > > +	/* switch to temp page table. */
-> > > > +	csrw satp, s1
-> > > > +	sfence.vma
-> > > > +.Lcopy:
-> > > > +	/* The below code will restore the hibernated image. */
-> > > > +	REG_L	a1, HIBERN_PBE_ADDR(s4)
-> > > > +	REG_L	a0, HIBERN_PBE_ORIG(s4)
-> > >
-> > > Are we sure restore_pblist will never be NULL?
-> > restore_pblist is a link-list, it will be null during initialization or during page clean up by hibernation core. During the initial resume
-> process, the hibernation core will check the header and load the pages. If everything works correctly, the page will be linked to the
-> restore_pblist and then invoke swsusp_arch_resume() else hibernation core will throws error and failed to resume from the
-> hibernated image.
-> 
-> I know restore_pblist is a linked-list and this doesn't answer the
-> question. The comment above restore_pblist says
-> 
-> /*
->  * List of PBEs needed for restoring the pages that were allocated before
->  * the suspend and included in the suspend image, but have also been
->  * allocated by the "resume" kernel, so their contents cannot be written
->  * directly to their "original" page frames.
->  */
-> 
-> which implies the pages that end up on this list are "special". My
-> question is whether or not we're guaranteed to have at least one
-> of these special pages. If not, we shouldn't assume s4 is non-null.
-> If so, then a comment stating why that's guaranteed would be nice.
-The restore_pblist will not be null otherwise swsusp_arch_resume wouldn't get invoked. you can find how the link-list are link and how it checks against validity at https://elixir.bootlin.com/linux/v6.2-rc8/source/kernel/power/snapshot.c . " A comment stating why that's guaranteed would be nice" ? Hmm, perhaps this is out of my scope but I do believe in the page validity checking in the link I shared.
-> 
-> > >
-> > > > +
-> > > > +	copy_page a0, a1
-> > > > +
-> > > > +	REG_L	s4, HIBERN_PBE_NEXT(s4)
-> > > > +	bnez	s4, .Lcopy
-> > > > +
-> > > > +	jalr	s2
-> > > > +END(hibernate_core_restore_code)
-> > > > diff --git a/arch/riscv/kernel/hibernate.c b/arch/riscv/kernel/hibernate.c
-> > > > new file mode 100644
-> > > > index 000000000000..46a2f470db6e
-> > > > --- /dev/null
-> > > > +++ b/arch/riscv/kernel/hibernate.c
-> > > > @@ -0,0 +1,447 @@
-> > > > +// SPDX-License-Identifier: GPL-2.0-only
-> > > > +/*
-> > > > + * Hibernation support for RISCV
-> > > > + *
-> > > > + * Copyright (C) 2023 StarFive Technology Co., Ltd.
-> > > > + *
-> > > > + * Author: Jee Heng Sia <jeeheng.sia@starfivetech.com>
-> > > > + */
-> > > > +
-> > > > +#include <asm/barrier.h>
-> > > > +#include <asm/cacheflush.h>
-> > > > +#include <asm/mmu_context.h>
-> > > > +#include <asm/page.h>
-> > > > +#include <asm/pgalloc.h>
-> > > > +#include <asm/pgtable.h>
-> > > > +#include <asm/sections.h>
-> > > > +#include <asm/set_memory.h>
-> > > > +#include <asm/smp.h>
-> > > > +#include <asm/suspend.h>
-> > > > +
-> > > > +#include <linux/cpu.h>
-> > > > +#include <linux/memblock.h>
-> > > > +#include <linux/pm.h>
-> > > > +#include <linux/sched.h>
-> > > > +#include <linux/suspend.h>
-> > > > +#include <linux/utsname.h>
-> > > > +
-> > > > +/* The logical cpu number we should resume on, initialised to a non-cpu number. */
-> > > > +static int sleep_cpu = -EINVAL;
-> > > > +
-> > > > +/* Pointer to the temporary resume page table. */
-> > > > +static pgd_t *resume_pg_dir;
-> > > > +
-> > > > +/* CPU context to be saved. */
-> > > > +struct suspend_context *hibernate_cpu_context;
-> > > > +EXPORT_SYMBOL_GPL(hibernate_cpu_context);
-> > > > +
-> > > > +unsigned long relocated_restore_code;
-> > > > +EXPORT_SYMBOL_GPL(relocated_restore_code);
-> > > > +
-> > > > +/**
-> > > > + * struct arch_hibernate_hdr_invariants - container to store kernel build version.
-> > > > + * @uts_version: to save the build number and date so that the we do not resume with
-> > > > + *		a different kernel.
-> > > > + */
-> > > > +struct arch_hibernate_hdr_invariants {
-> > > > +	char		uts_version[__NEW_UTS_LEN + 1];
-> > > > +};
-> > > > +
-> > > > +/**
-> > > > + * struct arch_hibernate_hdr - helper parameters that help us to restore the image.
-> > > > + * @invariants: container to store kernel build version.
-> > > > + * @hartid: to make sure same boot_cpu executes the hibernate/restore code.
-> > > > + * @saved_satp: original page table used by the hibernated image.
-> > > > + * @restore_cpu_addr: the kernel's image address to restore the CPU context.
-> > > > + */
-> > > > +static struct arch_hibernate_hdr {
-> > > > +	struct arch_hibernate_hdr_invariants invariants;
-> > > > +	unsigned long	hartid;
-> > > > +	unsigned long	saved_satp;
-> > > > +	unsigned long	restore_cpu_addr;
-> > > > +} resume_hdr;
-> > > > +
-> > > > +static inline void arch_hdr_invariants(struct arch_hibernate_hdr_invariants *i)
-> > > > +{
-> > > > +	memset(i, 0, sizeof(*i));
-> > > > +	memcpy(i->uts_version, init_utsname()->version, sizeof(i->uts_version));
-> > > > +}
-> > > > +
-> > > > +/*
-> > > > + * Check if the given pfn is in the 'nosave' section.
-> > > > + */
-> > > > +int pfn_is_nosave(unsigned long pfn)
-> > > > +{
-> > > > +	unsigned long nosave_begin_pfn = sym_to_pfn(&__nosave_begin);
-> > > > +	unsigned long nosave_end_pfn = sym_to_pfn(&__nosave_end - 1);
-> > > > +
-> > > > +	return ((pfn >= nosave_begin_pfn) && (pfn <= nosave_end_pfn));
-> > > > +}
-> > > > +
-> > > > +void notrace save_processor_state(void)
-> > > > +{
-> > > > +	WARN_ON(num_online_cpus() != 1);
-> > > > +}
-> > > > +
-> > > > +void notrace restore_processor_state(void)
-> > > > +{
-> > > > +}
-> > > > +
-> > > > +/*
-> > > > + * Helper parameters need to be saved to the hibernation image header.
-> > > > + */
-> > > > +int arch_hibernation_header_save(void *addr, unsigned int max_size)
-> > > > +{
-> > > > +	struct arch_hibernate_hdr *hdr = addr;
-> > > > +
-> > > > +	if (max_size < sizeof(*hdr))
-> > > > +		return -EOVERFLOW;
-> > > > +
-> > > > +	arch_hdr_invariants(&hdr->invariants);
-> > > > +
-> > > > +	hdr->hartid = cpuid_to_hartid_map(sleep_cpu);
-> > > > +	hdr->saved_satp = csr_read(CSR_SATP);
-> > > > +	hdr->restore_cpu_addr = (unsigned long)__hibernate_cpu_resume;
-> > > > +
-> > > > +	return 0;
-> > > > +}
-> > > > +EXPORT_SYMBOL_GPL(arch_hibernation_header_save);
-> > > > +
-> > > > +/*
-> > > > + * Retrieve the helper parameters from the hibernation image header.
-> > > > + */
-> > > > +int arch_hibernation_header_restore(void *addr)
-> > > > +{
-> > > > +	struct arch_hibernate_hdr_invariants invariants;
-> > > > +	struct arch_hibernate_hdr *hdr = addr;
-> > > > +	int ret = 0;
-> > > > +
-> > > > +	arch_hdr_invariants(&invariants);
-> > > > +
-> > > > +	if (memcmp(&hdr->invariants, &invariants, sizeof(invariants))) {
-> > > > +		pr_crit("Hibernate image not generated by this kernel!\n");
-> > > > +		return -EINVAL;
-> > > > +	}
-> > > > +
-> > > > +	sleep_cpu = riscv_hartid_to_cpuid(hdr->hartid);
-> > > > +	if (sleep_cpu < 0) {
-> > > > +		pr_crit("Hibernated on a CPU not known to this kernel!\n");
-> > > > +		sleep_cpu = -EINVAL;
-> > > > +		return -EINVAL;
-> > > > +	}
-> > > > +
-> > > > +#ifdef CONFIG_SMP
-> > > > +	ret = bringup_hibernate_cpu(sleep_cpu);
-> > > > +	if (ret) {
-> > > > +		sleep_cpu = -EINVAL;
-> > > > +		return ret;
-> > > > +	}
-> > > > +#endif
-> > > > +	resume_hdr = *hdr;
-> > > > +
-> > > > +	return ret;
-> > > > +}
-> > > > +EXPORT_SYMBOL_GPL(arch_hibernation_header_restore);
-> > > > +
-> > > > +int swsusp_arch_suspend(void)
-> > > > +{
-> > > > +	int ret = 0;
-> > > > +
-> > > > +	if (__cpu_suspend_enter(hibernate_cpu_context)) {
-> > > > +		sleep_cpu = smp_processor_id();
-> > > > +		suspend_save_csrs(hibernate_cpu_context);
-> > > > +		ret = swsusp_save();
-> > > > +	} else {
-> > > > +		suspend_restore_csrs(hibernate_cpu_context);
-> > > > +		flush_tlb_all();
-> > > > +		flush_icache_all();
-> > > > +
-> > > > +		/*
-> > > > +		 * Tell the hibernation core that we've just restored the memory.
-> > > > +		 */
-> > > > +		in_suspend = 0;
-> > > > +		sleep_cpu = -EINVAL;
-> > > > +	}
-> > > > +
-> > > > +	return ret;
-> > > > +}
-> > > > +
-> > > > +static unsigned long _temp_pgtable_map_pte(pte_t *dst_ptep, pte_t *src_ptep,
-> > > > +					   unsigned long addr, pgprot_t prot)
-> > > > +{
-> > > > +	pte_t pte = READ_ONCE(*src_ptep);
-> > > > +
-> > > > +	if (pte_present(pte))
-> > > > +		set_pte(dst_ptep, __pte(pte_val(pte) | pgprot_val(prot)));
-> > > > +
-> > > > +	return 0;
-> > > > +}
-> > > > +
-> > > > +static unsigned long temp_pgtable_map_pte(pmd_t *dst_pmdp, pmd_t *src_pmdp,
-> > > > +					  unsigned long start, unsigned long end,
-> > > > +					  pgprot_t prot)
-> > > > +{
-> > > > +	unsigned long addr = start;
-> > > > +	pte_t *src_ptep;
-> > > > +	pte_t *dst_ptep;
-> > > > +
-> > > > +	if (pmd_none(READ_ONCE(*dst_pmdp))) {
-> > > > +		dst_ptep = (pte_t *)get_safe_page(GFP_ATOMIC);
-> > > > +		if (!dst_ptep)
-> > > > +			return -ENOMEM;
-> > > > +
-> > > > +		pmd_populate_kernel(NULL, dst_pmdp, dst_ptep);
-> > > > +	}
-> > > > +
-> > > > +	dst_ptep = pte_offset_kernel(dst_pmdp, start);
-> > > > +	src_ptep = pte_offset_kernel(src_pmdp, start);
-> > > > +
-> > > > +	do {
-> > > > +		_temp_pgtable_map_pte(dst_ptep, src_ptep, addr, prot);
-> > >
-> > > I think I'd rather have the body of _temp_pgtable_map_pte() here and drop
-> > > the helper, because the helper does (pte_val(pte) | pgprot_val(prot))
-> > > which looks strange, until seeing here that 'pte' is only the address
-> > > bits, so OR'ing in new prot bits without clearing old prot bits makes
-> > > sense.
-> > we do not need to clear the old bits since we going to keep those bits but add new bits which are required for resume. Let's hold
-> your question here but I will would like to see how Alex view it.
-> 
-> I confused myself a bit in my first read, so some of what I said isn't
-> relevant, but I still wonder why we don't want to be more explicit about
-> what prot bits are present in the end, and I still wonder why we need such
-> a simple helper function which is used in exactly one place. Indeed, the
-> pattern of all the other pgtable functions below is to put the set_p*
-> calls directly in the loop.
-I am sorry if I confused you but what I meant is that I would like to consolidate all comments from other reviewers before provide the best solution. There is no doubt that your comment is valid.
-> 
-> Thanks,
-> drew
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
