@@ -4,78 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BEC7C61DA4
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Feb 2023 15:20:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C06BC61DA4
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Feb 2023 15:24:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Gsq0E8cLVioteC/xahecbxCXjaNcmBqR6wLaMVDWd4M=; b=NxGA5cRUBQZXou
-	xQI/HE04qUak+C729zrP1aF9QIUyVljbNYMyJu5FtwejrMgHuCjZdncAqjnrnVZdNcWfhU7G8tF47
-	ZrazXEKuAqjQ4D5n1fs5mFeDmUHSlJjGNoE0vflDndzH0GE4LuQ/p9u0Wo0EFWFPlJdcQq4NdQ9Fo
-	19t+dZavWJBYS3kP+FyzV4+u01E+Jtt1N/NnaTpiXYd9C4MKk8ohKdWt7btnkhQitwEVuSfE75Q78
-	7XqmJHYzfcTsel/aNxjjo69ibmKHhfRSQpnTq/TnYfCFoYzasENIKOUYulsOCEOHgAHbJfJ8nDDOF
-	rgw45b8RL2xTbanA+/iA==;
+	List-Owner; bh=mfNjeQ1brdUgK6zQd+dtJY9D80ewHgxHwOSMYDoArkw=; b=RWugewpRy5KIFO
+	KfUdpWAlgmS+YDQRvTuMQZQvYzTyKgLqLLpJlcx8b9JZJZCa7yC/kEnL2Qouh8A80IKi+Nn2OfKQx
+	a0lL2KCGRiON6lshDJDpJCiWyGzfQjYpjxeJsTwjcUgqski3IXgNMOV6dGLBgW+FrB1LUALAXIkEt
+	JLcMrDTTZzJq+miKMD+M4ZSJ0WgyJ+/UuXT9iVoCpZJgqv+m/bdCF9Skfiny3w6o4OU0A3ymAktn2
+	ykuCzuIjBnatPoobXstej4j9dBJjxdJQuL7F5K4BmTN5BDVVamnesNZffwDh81kHrYlfkApBLI86I
+	XPtTHGjZleHm78uoWoeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pVZrW-002vga-ED; Fri, 24 Feb 2023 15:19:54 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pVZrS-002veI-8i
-	for linux-riscv@lists.infradead.org; Fri, 24 Feb 2023 15:19:51 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id t25-20020a1c7719000000b003eb052cc5ccso1962658wmi.4
-        for <linux-riscv@lists.infradead.org>; Fri, 24 Feb 2023 07:19:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=fC6oYMwmtO5KYErOXzRpec74ti6/DTvM7ji07Q6hYeA=;
-        b=Hi3u4uA+2sMpS8TGZr4OX75lp4qI6HKBgupJ9hE0sii9J7OsDmqe9F4wLyCw5422cP
-         sstlDry7gjwklu/FJuuIYJnG+9116TY5TXA/7sa7gIBMctVtMEcKHdMdGHg3xfE2eWRA
-         Hmvnf6cqNmSinh4pBuc+M5yp1F8qz0y46+tqqcUvezVn+AqylevpBlibvunq5vli+Y9r
-         1LLkD4n2nVsOFZHREUo9h4jp3rhVJjou43KqF781CSLGCKO25gy4nRXm4LA/yTDkNGQD
-         sYNxTP6bB7aviUdFeMPeE5nhP3MSJ+GGhG+RPQzYYlsSQQ9rqMKx/EQ9lGuTXDvWoaE5
-         jMEQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=fC6oYMwmtO5KYErOXzRpec74ti6/DTvM7ji07Q6hYeA=;
-        b=BPxXjhmo8xky/ITXQBi8zEnc9zXlqmHJDUGonRGkcFQgObkdvuw5PppiaXyRPwF5fE
-         kpArll+D2OYMeqbPAGoon2R8z2CALagR8EXpwmr1kvGWlO9TcXZkHvuu1J6/L5mzmuXT
-         rT4e+53yLahM/IaJ2UrrDr9qU1odyp4MgykxPgy4v2bGTYErH09jteR3OzUV9/cqPXm9
-         ejlnpTX6X51VH0xwQU/SGdZurnpn4XkpAdrXfXQuwTCPpZFKvpV1GvoTuM4uqgiOpI95
-         fRW/wyqD9vlGjplwBeIp410oAo+Ydzyh4wtd0aFCZ1D8h8b1/tC+ErJFxXsQsAUAM7eC
-         pW0Q==
-X-Gm-Message-State: AO0yUKXug1uErFliu0yp9m0nAlUOQpwPKaoK1CgQCHswJXR/4IyTfaOW
-	XgmGS709hClbvxJBIGo9zbRsaA==
-X-Google-Smtp-Source: AK7set8DciOcIRo70kOWkW9pRoR4i+i31QW5OBpHAqgFl0RBQGJvDnkklwDCUVu7JdaorpN0NjxH/A==
-X-Received: by 2002:a05:600c:1695:b0:3ea:bc08:8f0c with SMTP id k21-20020a05600c169500b003eabc088f0cmr4377825wmn.8.1677251986431;
-        Fri, 24 Feb 2023 07:19:46 -0800 (PST)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id bd12-20020a05600c1f0c00b003e0015c8618sm3241373wmb.6.2023.02.24.07.19.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Feb 2023 07:19:46 -0800 (PST)
-Date: Fri, 24 Feb 2023 16:19:45 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Ben Dooks <ben.dooks@codethink.co.uk>
-Cc: linux-riscv@lists.infradead.org,
-	Sudip Mukherjee <sudip.mukherjee@codethink.co.uk>
-Subject: Re: [PATCH] RISC-V: Fixup clear_page export when using Zicboz
-Message-ID: <20230224151945.od3ye74pk5ye3paz@orel>
-References: <20230221190916.572454-7-ajones@ventanamicro.com>
- <20230224135844.619054-1-ben.dooks@codethink.co.uk>
- <20230224141812.nftdkbtt4gbgvnts@orel>
- <d9944799-7887-8c0b-ace1-7b340dacf9af@codethink.co.uk>
+	id 1pVZvc-002x5j-40; Fri, 24 Feb 2023 15:24:08 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pVZv9-002wo6-LI
+	for linux-riscv@lists.infradead.org; Fri, 24 Feb 2023 15:23:43 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id E170724E2C7;
+	Fri, 24 Feb 2023 23:23:04 +0800 (CST)
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 24 Feb
+ 2023 23:23:04 +0800
+Received: from [192.168.125.93] (113.72.147.165) by EXMBX168.cuchost.com
+ (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 24 Feb
+ 2023 23:23:03 +0800
+Message-ID: <4636338e-b69c-0dc6-d9ee-2a687bf9448c@starfivetech.com>
+Date: Fri, 24 Feb 2023 23:23:03 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <d9944799-7887-8c0b-ace1-7b340dacf9af@codethink.co.uk>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.7.2
+Subject: Re: [PATCH v2 1/3] dt-bindings: dma: snps,dw-axi-dmac: Add reset
+ items
+Content-Language: en-US
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Eugeniy Paltsev
+	<Eugeniy.Paltsev@synopsys.com>, Vinod Koul <vkoul@kernel.org>, Rob Herring
+	<robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor@kernel.org>, "Palmer
+ Dabbelt" <palmer@dabbelt.com>, Emil Renner Berthing <kernel@esmil.dk>, "Emil
+ Renner Berthing" <emil.renner.berthing@canonical.com>
+CC: <dmaengine@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+References: <20230221140424.719-1-walker.chen@starfivetech.com>
+ <20230221140424.719-2-walker.chen@starfivetech.com>
+ <1467f7c5-07eb-97db-c6f2-573a4208cc28@linaro.org>
+ <d0984638-3f7f-7e4e-fe3e-5e1f88375dca@starfivetech.com>
+ <36188e04-332f-e944-9c58-f6f2b74987da@linaro.org>
+ <bd4301c5-d79f-6ba5-a840-95b733d2d44e@starfivetech.com>
+ <6ebf87aa-4422-1f84-7e76-276ac4d884c3@linaro.org>
+From: Walker Chen <walker.chen@starfivetech.com>
+In-Reply-To: <6ebf87aa-4422-1f84-7e76-276ac4d884c3@linaro.org>
+X-Originating-IP: [113.72.147.165]
+X-ClientProxiedBy: EXCAS061.cuchost.com (172.16.6.21) To EXMBX168.cuchost.com
+ (172.16.6.78)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230224_071950_343887_FA78D318 
-X-CRM114-Status: GOOD (  30.96  )
+X-CRM114-CacheID: sfid-20230224_072340_036691_15BDDFDA 
+X-CRM114-Status: GOOD (  15.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,80 +84,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 24, 2023 at 02:42:11PM +0000, Ben Dooks wrote:
-> On 24/02/2023 14:18, Andrew Jones wrote:
-> > On Fri, Feb 24, 2023 at 01:58:44PM +0000, Ben Dooks wrote:
-> > > When the clear_page() via Zicboz is enabled, the module build
-> > > fails as clear_page() is not marked as a ksym entry. Fix this
-> > > by changing the asm code to use <asm-generic/export.h> to add
-> > > the correct export.
-> > > 
-> > > Also remove the weak clear_page() as there's nothing else in
-> > > the build defining this symbol, so just make it the entry when
-> > > the Zicboz is enabled.
-> > > 
-> > > Fixes modpost errors such as this:
-> > > ERROR: modpost: "clear_page" [drivers/gpu/drm/ttm/ttm.ko] undefined!
-> > > 
-> > > Reported-by: Sudip Mukherjee <sudip.mukherjee@codethink.co.uk>
-> > > Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
-> > > ---
-> > >   arch/riscv/lib/clear_page.S | 6 ++++--
-> > >   1 file changed, 4 insertions(+), 2 deletions(-)
-> > > 
-> > > diff --git a/arch/riscv/lib/clear_page.S b/arch/riscv/lib/clear_page.S
-> > > index 7c7fa45b5ab5..4ed5fef52d80 100644
-> > > --- a/arch/riscv/lib/clear_page.S
-> > > +++ b/arch/riscv/lib/clear_page.S
-> > > @@ -6,6 +6,7 @@
-> > >   #include <linux/linkage.h>
-> > >   #include <asm/asm.h>
-> > >   #include <asm/alternative-macros.h>
-> > > +#include <asm-generic/export.h>
-> > >   #include <asm/hwcap.h>
-> > >   #include <asm/insn-def.h>
-> > >   #include <asm/page.h>
-> > > @@ -17,7 +18,7 @@
-> > >   /* void clear_page(void *page) */
-> > >   ENTRY(__clear_page)
-> > > -WEAK(clear_page)
-> > > +SYM_FUNC_START(clear_page)
-> > >   	li	a2, PAGE_SIZE
-> > >   	/*
-> > > @@ -70,4 +71,5 @@ WEAK(clear_page)
-> > >   .Lno_zicboz:
-> > >   	li	a1, 0
-> > >   	tail	__memset
-> > > -END(__clear_page)
-> > > +SYM_FUNC_END(clear_page)
-> > > +EXPORT_SYMBOL(clear_page)
-> > > -- 
-> > > 2.39.1
-> > > 
-> > 
-> > Hi Ben,
-> > 
-> > This looks good to me. I agree that I shouldn't have made clear_page weak,
-> > but not because there isn't currently anything else defining it, but
-> > because it's not something a subsystem is likely to ever define. Exporting
-> > for modules is also definitely needed.
-> > 
-> > Is there any reason I shouldn't just squash this into the patch which
-> > introduces clear_page? That patch is still under review, and merging
-> > it broken just to immediately fix it would break bisection for no reason.
+
+
+On 2023/2/24 21:21, Krzysztof Kozlowski wrote:
+> On 24/02/2023 14:09, Walker Chen wrote:
+>> 
+>> 
+>> On 2023/2/24 18:51, Krzysztof Kozlowski wrote:
+>>> On 24/02/2023 11:14, Walker Chen wrote:
+>>>>>>    resets:
+>>>>>> -    maxItems: 1
+>>>>>> +    maxItems: 2
+>>>>>
+>>>>> This breaks ABI and all other users. Test your changes before sending.
+>>>>
+>>>> I think 'minItems' should be added here. So like this:
+>>>> resets:
+>>>>   minItems: 1
+>>>>   maxItems: 2
+>>>>
+>>>> Other platform/users will not be affected by this.
+>>>
+>>> Which will allow two resets on all platforms. Is this correct for these
+>>> platforms? Do they have two resets?
+>>>
+>> In kernel 6.2, only two platforms use this DMA controller (see 'arch/arc/boot/dts/hsdk.dts' and 'arch/riscv/boot/dts/canaan/k210.dtsi').
 > 
-> Yeah, as long as you note fixes from myself an sudip, then go for it.
+> What about all out-of-tree platforms, bootloaders and FW?
+> 
+>> There is one reset on k210, while there is no reset of DMA on hsdk at all.
+>> If here minItems with value 1 is added and the value of maxItems is changed to 2, after my testing,
+>> whether it is one reset or two resets, even no reset, there is no errors occur when doing dtbs_check,
+> 
+> Yeah, I know how this works.
+> 
+>> the DMA initialization shall not be affected either on their platforms.
+> 
+> I asked whether the hardware physically have two resets. dtbs_check
+> checks the DTS, not the hardware. You know allow two resets for each
+> other variant. What's more, you call first reset axi for all variants.
+> This does not look correct, e.g. k210.dtsi does not indicate this is axi
+> reset line but reset for entire block.
+> 
+> Thus your change should be constrained per your variant (min/max in
+> top-level, allOf:if:then allowing two lines for you, disallowing for
+> others).
+> 
+I see what you mean. Thank you for your guidance!
+I will use allOf:if:then structure to indicate different case for resets in next version of patch.
 
-I'll mention it in the changelog, but there's not really a good way to
-give credit for things like this. There's either nothing (except the
-changelog) or a Co-developed-by tag. I don't think this warrants the
-latter.
+Best regards,
+Walker 
 
-Of course, I'd be happy to pick up T-b's and/or R-b's from you and Sudip,
-which would then be applied to the patch(es), if you submit them.
-
-Thanks,
-drew
 
 _______________________________________________
 linux-riscv mailing list
