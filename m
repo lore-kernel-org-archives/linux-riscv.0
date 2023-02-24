@@ -4,71 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4682FC64ED8
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Feb 2023 07:45:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14BC4C61DA3
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Feb 2023 08:06:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1IzKUd6Bg9IdKuJ3PbYq9g05zuzCrxrjMAoDdVpEu0c=; b=tG+qrwogqqVmah
-	lZPWtAVkmcZH3uRXj/BrgTNYzA47zwZaUVOv8YRQHvuqblmf/OXGgHQEF+URaCm2ljFM9tnC3atG1
-	ZjDGhtgqebIl0Hphf1kP4wu5VmDlg2LpTmz06Q2A1jDOn0huDPfDgScKMxyiCbxCGmCNtDe9CL6N6
-	HAK0NZnhvJKYjV0VReq5wCbVconwY1mwrBVH9oFMA0kauaDHmMT1gqwyzmaZ/I+y48+n99gQw2b7q
-	BuRNHYy7uIDj6mZ+z+7hrCuMFPSJeLDMgzyoHXFWgnIxB35zYgL5JhBxFFvAYPovXNt6/nv+P8Ti7
-	h+rtN5YTTaYQ2ZpxwchA==;
+	List-Owner; bh=JlAKtetPxXlzewIurwezsLFV4aGfVQ74tgRe2i+kNaQ=; b=CaMWFLPMpZ9gwQ
+	l2rpO8kRAta70TsHCSC+/s1qIWuliIPqbhLrWCPWWxVwsTxRZqcO5CC9PmOg7sCT1fb1gaHYKmUcm
+	bWkmyawQzabTnBpwuBtXWz42NRiLLsmpZ6QQTqllu7h2fAHwmvsTTTTs5Q+drmcsdIHUB8QtRzVQv
+	hT74+oezu/rWk4m+bxCjxXHrAAziVk5iXG8gK9NrYc5+0ajO/1ySLAA990NuOwnvmjKP6oGruU6bD
+	hV7YIwl7bhock8EuuZsOjb4yy/fFoIGA+JZf/6TImbTACzorpJqZhadBtrzYMCvRzBrvd39pnpOnM
+	scTrjBKJ+bMQ9J0oTMxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pVSlb-001RFa-F3; Fri, 24 Feb 2023 07:45:19 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pVSlY-001RDF-Ev
-	for linux-riscv@lists.infradead.org; Fri, 24 Feb 2023 07:45:18 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 467D724E154;
-	Fri, 24 Feb 2023 15:44:48 +0800 (CST)
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 24 Feb
- 2023 15:44:48 +0800
-Received: from [192.168.125.128] (113.72.147.165) by EXMBX061.cuchost.com
- (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 24 Feb
- 2023 15:44:46 +0800
-Message-ID: <3d9679f8-45c6-3f27-b671-a0828a1a4ad3@starfivetech.com>
-Date: Fri, 24 Feb 2023 15:45:06 +0800
+	id 1pVT5m-001TZx-97; Fri, 24 Feb 2023 08:06:10 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pVT5j-001TYt-GN
+	for linux-riscv@lists.infradead.org; Fri, 24 Feb 2023 08:06:08 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id fm20-20020a05600c0c1400b003ead37e6588so1479227wmb.5
+        for <linux-riscv@lists.infradead.org>; Fri, 24 Feb 2023 00:06:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=OwYWtYjN1CfjceQzav7b8+GgO5w58Bor29r/iGEEIRY=;
+        b=G9dYB469tKwGs/z3gT+9nW9btYSFDZfOUHS/7IVAOnsSpXG2KRwG/B9uoLrGXKsuPH
+         efAbMUVvRkvu7iSPDHbcRD6F6wPMXgbQm5ESx9VFFPq6e/BST01ZTHD8F83bwBQ35Cjz
+         uVhqnJdLZ0ceqpLFpPkDBe2dPrMuqmdDtDHqHGCMSjNLoFfjwOKHBLQ4saLrLQrLa0s+
+         wjQIeefsOD/lkzDqFcrzYSKUV3+QV+WFfUTtcJSDICh+ARWWftcvsue6su33Fgb5tHSw
+         pDnVWP6yxOQN591AdbiVIHVzcaWSwt2QrqVM0XFJYViLCzDf5qqfzhnqhbP7+1jTjt2/
+         mWkg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=OwYWtYjN1CfjceQzav7b8+GgO5w58Bor29r/iGEEIRY=;
+        b=ZiPPvlDZ6S6y5RCfT529FoC9xlXcUCmjtqzawq7Lqacq+MErrQMKX75xK1FnN5O1W1
+         BTXF8DaXD4bstPsVqDRYeyB91Eog2MCzrJChQm8Fqjta8Dsdb0CX2UXlTrSzYf+r0JQb
+         QdlqIiTi6FNcyFDmuu2AXr2aqzJjk/3r8lQ2wHDoNkItwsJeUwZR3Z8lrJQyeQAUkc2s
+         pSVNfBpoy1z5Gg1ppGwEqtyQgLFSuiKbzNBdScDIZS9vmdvUTMPIYUb+j+TzRQqppXuM
+         0D0uVxOcY+6xo4cY18wy/5jfSefCD+1CW9G+WNsw2WcSBStsFKDfgEx1WsFWr6GveS7Y
+         Igqg==
+X-Gm-Message-State: AO0yUKXn+d8o/GuOcs+pQ9f6ULIQnQ+9jLOZlPpbqcQtV+9Y3/kDW640
+	iZaJ1JB4CMdNM0D5mpgLj1uNXw==
+X-Google-Smtp-Source: AK7set/xGoU0JTJ7OzYO1fNDranDDqgRd6SlZ5FsEeW/Bx6z6/j7UeiMcXG33tGIDYtktaW9jwQq3w==
+X-Received: by 2002:a05:600c:2cd8:b0:3ea:d610:f068 with SMTP id l24-20020a05600c2cd800b003ead610f068mr2840268wmc.33.1677225964407;
+        Fri, 24 Feb 2023 00:06:04 -0800 (PST)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id j21-20020a5d6e55000000b002c3f81c51b6sm13639503wrz.90.2023.02.24.00.06.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 24 Feb 2023 00:06:03 -0800 (PST)
+Date: Fri, 24 Feb 2023 09:06:02 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: linux-riscv@lists.infradead.org, 'Jisheng Zhang ' <jszhang@kernel.org>,
+	'Heiko Stuebner ' <heiko@sntech.de>,
+	'Paul Walmsley ' <paul.walmsley@sifive.com>,
+	'Palmer Dabbelt ' <palmer@dabbelt.com>,
+	'Conor Dooley ' <conor.dooley@microchip.com>,
+	'Albert Ou ' <aou@eecs.berkeley.edu>
+Subject: Re: [PATCH 3/5] riscv: alternatives: Rename errata_id to patch_id
+Message-ID: <20230224080602.eddclmcn2sbn6ca7@orel>
+References: <20230221185603.570882-1-ajones@ventanamicro.com>
+ <20230221185603.570882-4-ajones@ventanamicro.com>
+ <Y/f1uRERxTU5kAgh@spud>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.8.0
-Subject: Re: [PATCH v1 2/3] clk: starfive: Add StarFive JH7110 PLL clock
- driver
-Content-Language: en-US
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Michael
- Turquette" <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Emil Renner Berthing <kernel@esmil.dk>, Rob Herring
-	<robh+dt@kernel.org>, Conor Dooley <conor@kernel.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>,
-	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>
-References: <20230221141147.303642-1-xingyu.wu@starfivetech.com>
- <20230221141147.303642-3-xingyu.wu@starfivetech.com>
- <3f50066b-f967-b9fa-1e0d-5337ec1ed194@linaro.org>
- <5e4007b7-6522-4c81-ca15-15a98c586aad@starfivetech.com>
- <50b6fb73-afb2-051b-7969-d7fbbe1e6175@linaro.org>
- <f23b3755-e2dd-f858-02ad-3f1b58934bc6@starfivetech.com>
- <d76f25ff-3c60-4e9b-87d7-8c4043b2e47f@linaro.org>
-From: Xingyu Wu <xingyu.wu@starfivetech.com>
-In-Reply-To: <d76f25ff-3c60-4e9b-87d7-8c4043b2e47f@linaro.org>
-X-Originating-IP: [113.72.147.165]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX061.cuchost.com
- (172.16.6.61)
-X-YovoleRuleAgent: yovoleflag
+Content-Disposition: inline
+In-Reply-To: <Y/f1uRERxTU5kAgh@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230223_234516_792812_51F2AFAF 
-X-CRM114-Status: GOOD (  13.33  )
+X-CRM114-CacheID: sfid-20230224_000607_569974_80471CD4 
+X-CRM114-Status: GOOD (  28.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,71 +95,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2023/2/23 18:10, Krzysztof Kozlowski wrote:
-> On 23/02/2023 11:03, Xingyu Wu wrote:
->> On 2023/2/23 17:35, Krzysztof Kozlowski wrote:
->>> On 23/02/2023 10:32, Xingyu Wu wrote:
->>>> On 2023/2/23 16:56, Krzysztof Kozlowski wrote:
->>>>> On 21/02/2023 15:11, Xingyu Wu wrote:
->>>>>> Add driver for the StarFive JH7110 PLL clock controller and
->>>>>> modify the JH7110 system clock driver to rely on this PLL clocks.
->>>>>>
->>>>>> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
->>>>>> ---
->>>>>
->>>>>
->>>>>> +
->>>>>> +static int jh7110_pll_clk_probe(struct platform_device *pdev)
->>>>>> +{
->>>>>> +	int ret;
->>>>>> +	struct of_phandle_args args;
->>>>>> +	struct regmap *pll_syscon_regmap;
->>>>>> +	unsigned int idx;
->>>>>> +	struct jh7110_clk_pll_priv *priv;
->>>>>> +	struct jh7110_clk_pll_data *data;
->>>>>> +	char *pll_name[JH7110_PLLCLK_END] = {
->>>>>> +		"pll0_out",
->>>>>> +		"pll1_out",
->>>>>> +		"pll2_out"
->>>>>> +	};
->>>>>> +
->>>>>> +	priv = devm_kzalloc(&pdev->dev,
->>>>>> +			    struct_size(priv, data, JH7110_PLLCLK_END),
->>>>>> +			    GFP_KERNEL);
->>>>>> +	if (!priv)
->>>>>> +		return -ENOMEM;
->>>>>> +
->>>>>> +	priv->dev = &pdev->dev;
->>>>>> +	ret = of_parse_phandle_with_fixed_args(pdev->dev.of_node, "starfive,sysreg", 0, 0, &args);
->>>>>
->>>>> 1. Wrong wrapping. Wrap code at 80 as coding style asks.
->>>>>
->>>>> 2. Why you are using syscon for normal, device MMIO operation? Your DTS
->>>>> also points that this is incorrect, hacky representation of hardware.
->>>>> Don't add devices to DT to fake places and then overuse syscon to fix
->>>>> that fake placement. The clock is in system registers, thus it must be
->>>>> there.
->>>>>
->>>>> 3. Even if this stays, why so complicated code instead of
->>>>> syscon_regmap_lookup_by_phandle()?
->>>>>
->>>>
->>>> Thanks for your advice. Will use syscon_regmap_lookup_by_phandle instead it
->>>> and remove useless part.
->>>
->>> So you ignored entirely part 2? This was the main comment... I am going
->>> to keep NAK-ing it then.
->> 
->> What I understand to mean is that I cannot use a fake node to operate syscon
->> registers. So I should move the PLL node under syscon node directly. Is it ok?
+On Thu, Feb 23, 2023 at 11:24:41PM +0000, Conor Dooley wrote:
+> On Tue, Feb 21, 2023 at 07:56:01PM +0100, Andrew Jones wrote:
+> > Alternatives are used for both errata and cpufeatures. Use a more
+> > generic name, 'patch_id', as in "ID of code patching site", to
+> > avoid confusion when alternatives are used for cpufeatures.
+> > 
+> > Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+> > ---
+> >  arch/riscv/Kconfig                          |  6 +-
+> >  arch/riscv/errata/sifive/errata.c           |  6 +-
+> >  arch/riscv/errata/thead/errata.c            |  4 +-
+> >  arch/riscv/include/asm/alternative-macros.h | 72 ++++++++++-----------
+> >  arch/riscv/include/asm/alternative.h        |  2 +-
+> >  arch/riscv/kernel/cpufeature.c              |  6 +-
+> >  6 files changed, 48 insertions(+), 48 deletions(-)
+> > 
+> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> > index 736f42f572aa..0c494c36e911 100644
+> > --- a/arch/riscv/Kconfig
+> > +++ b/arch/riscv/Kconfig
+> > @@ -377,9 +377,9 @@ config RISCV_ALTERNATIVE
+> >  	depends on !XIP_KERNEL
+> >  	help
+> >  	  This Kconfig allows the kernel to automatically patch the
+> > -	  errata required by the execution platform at run time. The
+> > -	  code patching is performed once in the boot stages. It means
+> > -	  that the overhead from this mechanism is just taken once.
+> > +	  erratum or cpufeature required by the execution platform at run
+> > +	  time. The code patching is performed once in the boot stages. It
+> > +	  means that the overhead from this mechanism is just taken once.
 > 
-> Yes, because it looks like entire PLL clock control is from the syscon
-> node, thus the clocks are there.
+> A line in this comment doesn't really make much sense to an unfamiliar
+> reader. "Once in the boot stages"? That's just not true, is it?
+> Code patching for alternatives happens more than once and not just
+> during boot? Not this patch's doing though!
 
-Thanks for the guidance, I will modify it in the next patch.
+Right, code patching also happens at module load time. Reworking this
+paragraph would be another nice cleanup. I can respin this series with
+another patch doing that, along with picking up other suggestions you
+have.
 
-Best regards,
-Xingyu Wu
+> 
+> > diff --git a/arch/riscv/include/asm/alternative.h b/arch/riscv/include/asm/alternative.h
+> > index 3beef400a971..8f39d4e8598d 100644
+> > --- a/arch/riscv/include/asm/alternative.h
+> > +++ b/arch/riscv/include/asm/alternative.h
+> > @@ -38,7 +38,7 @@ struct alt_entry {
+> >  	s32 alt_offset;		/* offset relative to replacement instruction or data */
+> >  	u16 vendor_id;		/* cpu vendor id */
+> >  	u16 alt_len;		/* The replacement size */
+> > -	u32 errata_id;		/* The errata id */
+> > +	u32 patch_id;		/* The patch ID (erratum ID or cpufeature ID) */
+> 
+> The inconsistent use of ID versus id in these comments bothers my OCD!
+
+I'll sneak a change in of vendor_id's comment to 'CPU vendor ID' for v2.
+
+> 
+> Either way, "patch" is a more accurate description of the usage than
+> errata, so I am on board.
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
