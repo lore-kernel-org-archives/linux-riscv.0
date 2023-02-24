@@ -4,71 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D521C61DA4
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Feb 2023 14:57:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B06A8C61DA4
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Feb 2023 15:14:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uXlzMVwlfncrm2LCdAe7+H7vPgvcR2IbqgZjvM0qGb4=; b=QodcHQIKHaU7ms
-	V6Aq9VMXvaXf4snXxmb42pGhiLjYele5vxMxLJVP+h3AkvBRDwwiaEdPjMl6XyOS+2171zhLvv2bp
-	LKEVAMU78A2brc4e7MaJijsbX6YzSmBt0o5/FabY3e73Qp8d5ylKxAEDu7FfF5N9ujW+ChZ7eR3sr
-	1UwLcwMMrmWcU8dyU96wS2AQCoFm3NTEeadQ3RnMN1Zs+DICvGY47TFX3h6hRG+pSDDWC89z7i7fU
-	ELMZKpp4GFxpmCulof9AJQZ/o5jn7svErzFzQA5Pt6qyE1llIXejdCpwomtqyeZFKojtPSo6d2skb
-	ZD29WIvboDcctOyaHHbg==;
+	List-Owner; bh=A7TgqSRgULhN4lVxE9NTON9oHokVe4ESo+dt6LtgK6Q=; b=U73jZGZye0QIOE
+	ko/zZMNgD7/PMdS6jiasCxPHxIzV474gzwjDsXBu95/kxB42zihfKeyM9Y5uXP5xmTqsfkHXiUrVE
+	BSmTjARyYBCiWB5BWnpViBVNUfwiCBwKc7SQ9cDkPYu99cgoZFLAqtMft6jxKexEIJOVwDxeqG1Mj
+	9idu4T7GQRqnD8Ct7r+AQCsA/vS9oqKowJVKCtiw+zHENUzNSv3SpG0DWQCKBJwu56KTGTamWCkIb
+	UUmZIgEG/ZeFH4+RZI8eyfTiuEWsVsZ9v+omVh5rTPZ0awROIjiEh5xr/dLfQdu2gER5QKyIZ/wb5
+	s55mgz8XHxj0qgPOBiXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pVZVh-002pMf-Nf; Fri, 24 Feb 2023 14:57:21 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pVZmB-002tmh-LN; Fri, 24 Feb 2023 15:14:23 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pVZVf-002pLr-IP
-	for linux-riscv@lists.infradead.org; Fri, 24 Feb 2023 14:57:20 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 1111F618EA;
-	Fri, 24 Feb 2023 14:57:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D587C433EF;
-	Fri, 24 Feb 2023 14:57:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1677250636;
-	bh=BX7ubvR3+x0sfXaoE8k2EQZkDXcr72I1hlLKxFfUneM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LeQAyzUcx24i3ueMY7iYVCIa0WNjPNOdR2O9fKOX1Zw2ZioO/R0gDk8e4oc8g1Cvj
-	 FxSMJc0ZD84wdrZMaGSJHxOEhX2i0A3F1/CzWSIf0EpCEP7LoqN2Bq2I2hLN9xyH4Z
-	 S0rbr3SZAFB8DuO+TiQON/aD0nYjHLe6jn2JQZaEvlcf3XLSipn96yH68a+vD3ViXb
-	 QXOSRBREy4zXA1dbb+bpYd4pXYyDOmGJ+E0il+5z6x3VKBm0E0rsWkX8ivUqz9lJRR
-	 HFf0ngDbQYWzhbSk6ovc9LY+bnVvtNoRsPmb1TVo2pCiTab1TKvAejr4+H/pD7zJEn
-	 QkfMmKNjAIHhA==
-Date: Fri, 24 Feb 2023 07:57:13 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: linux-riscv@lists.infradead.org, conor@kernel.org,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Alex Gaynor <alex.gaynor@gmail.com>,
-	Wedson Almeida Filho <wedsonaf@gmail.com>,
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Tom Rix <trix@redhat.com>, rust-for-linux@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev
-Subject: Re: [RFC RESEND 2/2] RISC-V: enable building the 64-bit kernels with
- rust support
-Message-ID: <Y/jQSUpXH5XwQTqg@dev-arch.thelio-3990X>
-References: <20230224135044.2882109-1-conor.dooley@microchip.com>
- <20230224135044.2882109-3-conor.dooley@microchip.com>
+	id 1pVZjl-002sgN-MS
+	for linux-riscv@lists.infradead.org; Fri, 24 Feb 2023 15:11:55 +0000
+Received: by mail-wm1-x329.google.com with SMTP id az36so2035570wmb.1
+        for <linux-riscv@lists.infradead.org>; Fri, 24 Feb 2023 07:11:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=kPCVl0QlfALZDlMpbAkmLwutUFq3j5xbJedN6gd80NA=;
+        b=KdSot8AYvTiOiRCBNWn1ICTSXNUa286AnwHWfzBTVoapo8rDPOVtsiFy2aDHLUBIe0
+         E33BAZHJGV8T8PKtmKozLzMl/TtAi3GWoynQGoFMdaxBdXoGBtPC4oTbULpI9+ArPSZn
+         SHAq9LHae/hH+42Gc5kP7uDW70XcCzklxooPl/yNm2WkCQoOB5M2kn+4qeVi14K9E9iR
+         qDB4pPHqKgkkqAfNRa2pdsD3M8Zg8ZYDZteFBGGzc0PEELD4PrrC3VS267kilKHz3XWN
+         VBpn1AEeNJlUqMKisfyhEhnWM+Xw+O4On9SegnqvQMW+VZbJYTxTrqYXrluhoB1ILSxo
+         STlA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=kPCVl0QlfALZDlMpbAkmLwutUFq3j5xbJedN6gd80NA=;
+        b=u1B/aXGtplykFlzrlTgymkf3jmQGRgAPxqIfy7kVdShkmFlZHzoTUDVlO5Is/ZM7kJ
+         vdCO8QstZloj6Po5vJhrR2MoYLWV80Gano6CZVnRmgO+OFa+Gyvgtndl34P5GrVScJpD
+         YpOrD7oy2rHPjde8p8FISuu3IGTIQZ7i048SCfHxZhKcI2r8yDQlUjLDT0qkEnYhfbXy
+         V3gQKdK5XBT4zY/LMuXG/2RiC01+4owWHUCCcape8CgF58N/oajaxhVPKP/WQJx09sHb
+         HjidXaJZtbKT1VkmD/HquflQs2RpSImxhevbsTYntULMCf6sw53o800JzhMQO0Ss+up2
+         fKag==
+X-Gm-Message-State: AO0yUKUhx6pX6NXVkDAEZ0o1GmIymYbAnLLcunR2EmI5eVQVM4Gzwhz9
+	ArA402oFJA+hp0Qj6xJbYS/gdA==
+X-Google-Smtp-Source: AK7set/0a69ASdEuHX4mdKctjhgtqi3LPakn5reJ3fhn0MwVk1TzGvIblpwaOBT/QtZRajxgovADhg==
+X-Received: by 2002:a05:600c:4da4:b0:3ea:c100:f18d with SMTP id v36-20020a05600c4da400b003eac100f18dmr4187559wmp.9.1677251509959;
+        Fri, 24 Feb 2023 07:11:49 -0800 (PST)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id fm16-20020a05600c0c1000b003dd1bd0b915sm3186026wmb.22.2023.02.24.07.11.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 24 Feb 2023 07:11:49 -0800 (PST)
+Date: Fri, 24 Feb 2023 16:11:48 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Sudip Mukherjee <sudip.mukherjee@codethink.co.uk>
+Cc: Ben Dooks <ben.dooks@codethink.co.uk>, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH] RISC-V: Fixup clear_page export when using Zicboz
+Message-ID: <20230224151148.5lj7pdmu3nlxsqux@orel>
+References: <20230221190916.572454-7-ajones@ventanamicro.com>
+ <20230224135844.619054-1-ben.dooks@codethink.co.uk>
+ <52014360-7160-82ac-7f7a-26f55ee3b684@codethink.co.uk>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230224135044.2882109-3-conor.dooley@microchip.com>
+In-Reply-To: <52014360-7160-82ac-7f7a-26f55ee3b684@codethink.co.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230224_065719_723657_E56A6919 
-X-CRM114-Status: GOOD (  19.23  )
+X-CRM114-CacheID: sfid-20230224_071153_781202_F8DBA40C 
+X-CRM114-Status: GOOD (  20.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,84 +90,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
-
-On Fri, Feb 24, 2023 at 01:50:44PM +0000, Conor Dooley wrote:
-> From: Miguel Ojeda <ojeda@kernel.org>
+On Fri, Feb 24, 2023 at 02:44:17PM +0000, Sudip Mukherjee wrote:
 > 
-> The rust modules work on 64-bit RISC-V, with no twiddling required.
-> Select HAS_RUST and provide the required flags to kbuild so that the
-> modules can be used.
-> 32-bit is broken in core rust code, so support is limited to 64-bit
-> only: ld.lld: error: undefined symbol: __udivdi3
 > 
-> Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->  Documentation/rust/arch-support.rst | 2 ++
->  arch/riscv/Kconfig                  | 1 +
->  arch/riscv/Makefile                 | 3 ++-
->  3 files changed, 5 insertions(+), 1 deletion(-)
+> On 24/02/2023 1:58 pm, Ben Dooks wrote:
+> > When the clear_page() via Zicboz is enabled, the module build
+> > fails as clear_page() is not marked as a ksym entry. Fix this
+> > by changing the asm code to use <asm-generic/export.h> to add
+> > the correct export.
+> > 
+> > Also remove the weak clear_page() as there's nothing else in
+> > the build defining this symbol, so just make it the entry when
+> > the Zicboz is enabled.
+> > 
+> > Fixes modpost errors such as this:
+> > ERROR: modpost: "clear_page" [drivers/gpu/drm/ttm/ttm.ko] undefined!
+> > 
+> > Reported-by: Sudip Mukherjee <sudip.mukherjee@codethink.co.uk>
+> > Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
+> > ---
+> >  arch/riscv/lib/clear_page.S | 6 ++++--
+> >  1 file changed, 4 insertions(+), 2 deletions(-)
+> > 
+> > diff --git a/arch/riscv/lib/clear_page.S b/arch/riscv/lib/clear_page.S
+> > index 7c7fa45b5ab5..4ed5fef52d80 100644
+> > --- a/arch/riscv/lib/clear_page.S
+> > +++ b/arch/riscv/lib/clear_page.S
+> > @@ -6,6 +6,7 @@
+> >  #include <linux/linkage.h>
+> >  #include <asm/asm.h>
+> >  #include <asm/alternative-macros.h>
+> > +#include <asm-generic/export.h>
+> >  #include <asm/hwcap.h>
+> >  #include <asm/insn-def.h>
+> >  #include <asm/page.h>
+> > @@ -17,7 +18,7 @@
+> >  
+> >  /* void clear_page(void *page) */
+> >  ENTRY(__clear_page)
 > 
-> diff --git a/Documentation/rust/arch-support.rst b/Documentation/rust/arch-support.rst
-> index 6982b63775da..197919158596 100644
-> --- a/Documentation/rust/arch-support.rst
-> +++ b/Documentation/rust/arch-support.rst
-> @@ -15,5 +15,7 @@ support corresponds to ``S`` values in the ``MAINTAINERS`` file.
->  ============  ================  ==============================================
->  Architecture  Level of support  Constraints
->  ============  ================  ==============================================
-> +``riscv``     Maintained        ``rv64`` only.
-> +============  ================  ==============================================
->  ``x86``       Maintained        ``x86_64`` only.
->  ============  ================  ==============================================
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 81eb031887d2..73174157212d 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -115,6 +115,7 @@ config RISCV
->  	select HAVE_POSIX_CPU_TIMERS_TASK_WORK
->  	select HAVE_REGS_AND_STACK_ACCESS_API
->  	select HAVE_RSEQ
-> +	select HAVE_RUST if 64BIT
+> Shouldn't this be removed also? Am I missing something?
 
-Just a small drive by comment, you have 'if 64BIT' here...
+Yes, it should be dropped, I've done so while squashing.
 
->  	select HAVE_STACKPROTECTOR
->  	select HAVE_SYSCALL_TRACEPOINTS
->  	select IRQ_DOMAIN
-> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-> index 76989561566b..0d6fc4e25221 100644
-> --- a/arch/riscv/Makefile
-> +++ b/arch/riscv/Makefile
-> @@ -29,8 +29,8 @@ ifeq ($(CONFIG_ARCH_RV64I),y)
->  
->  	KBUILD_CFLAGS += -mabi=lp64
->  	KBUILD_AFLAGS += -mabi=lp64
-> -
->  	KBUILD_LDFLAGS += -melf64lriscv
-> +	KBUILD_RUSTFLAGS += -Ctarget-cpu=generic-rv64
->  else
->  	BITS := 32
->  	UTS_MACHINE := riscv32
-> @@ -38,6 +38,7 @@ else
->  	KBUILD_CFLAGS += -mabi=ilp32
->  	KBUILD_AFLAGS += -mabi=ilp32
->  	KBUILD_LDFLAGS += -melf32lriscv
-> +	KBUILD_RUSTFLAGS += -Ctarget-cpu=generic-rv32
-
-but also add KBUILD_RUSTFLAGS for the !64BIT case. Seems like one of
-those can be removed.
-
->  endif
->  
->  ifeq ($(CONFIG_LD_IS_LLD),y)
-> -- 
-> 2.39.2
-> 
-
-Cheers,
-Nathan
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
