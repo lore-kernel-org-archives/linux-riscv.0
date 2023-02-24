@@ -4,87 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 037FCC678DB
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Feb 2023 14:37:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33038C61DA4
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Feb 2023 14:42:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cio+UQp9l1gY/p+B5yAOF5JVCP0PQDIf+MpvYvL9BmY=; b=2GnfSSaQQwuMCX
-	rSqsecNkTBniZN4E9GLoC65H9V9KMgcfxEvPK4CmOygjDqKfRh6rDU2VYSMSAoeqiAUrUBXLyO0PN
-	J11mUu8FBVlGTpZ6YISbcwM7RrwioJkhSckUZxVh9OfSJGLCgqvmcBfGINdg+mSQS3dnhidlTZsKY
-	jWZJ5jq2yXBG/KMqzucGDBrR7JknzZw8U0vlStUyueaGtcVWP0FlShTijeFF0IAhJVbUbfSHxb2CL
-	yodN9R/My4KKafNpHfb8yhTiuireQBT1WLfr92LBeGTaD1BbEBkZEyG655tRUiUuIv6sdzc1fRTCg
-	GrgfHugUtEbcD+UyRAkw==;
+	List-Owner; bh=YZTUhUDXo+vGevriSToawW4Z2SRGbBPqNJL/vZQ5FVM=; b=Jt0+wpOr6fbTCM
+	7gFj4Ly3V/AzTIFndCIQ19FMRQq8RsfIhCgr9KnH/06QuDpcBSuoonRuGRQ6TcEelygaT8wg3k5+n
+	GUNEPZ2F67zbLvQ2yv/BbqOJq8byOXxGtcGizQE5JZlOOI0wBqZkCJ2MpNnfIQjw+L57LIc7w00kF
+	7dx5o7+729aadstlXEEV8085ELE47bGo9K7GfIaRWaYinXer3rSzcsyQ0PNrc0fU25xpXyBHNCKef
+	tgSa59oq1S7F8fZYJIWP2L+YGWfkSWZXtb5Sg7aH8MvVOSNmMJWdVFb6YlvJW+8mIHrWEsx8teGrY
+	kyNEhDjen9LsuXGdO4lA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pVZCA-002mlv-Ar; Fri, 24 Feb 2023 14:37:10 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1pVZH8-002nGm-Lj; Fri, 24 Feb 2023 14:42:18 +0000
+Received: from imap5.colo.codethink.co.uk ([78.40.148.171])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pVZC7-002mka-8S
-	for linux-riscv@lists.infradead.org; Fri, 24 Feb 2023 14:37:08 +0000
-Received: by mail-wr1-x434.google.com with SMTP id l25so13726787wrb.3
-        for <linux-riscv@lists.infradead.org>; Fri, 24 Feb 2023 06:36:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=zX/vrcCWtSvPkleAvaStM5cYJt4w+dPaI3g+F6rt3j8=;
-        b=LQHkkHCx890jy2G0naCp3/iTJg8xCD/7RdzH+EY7Fard/LFReBEjzS0jqaZIo+axF+
-         dq0W8Eh6fhgonwAZSeI3Ajf+ta2XfYcb0kNsfLUKBpBUjoYbEMJB2EJKVdD3efUDnvKw
-         0kEz4DYaBense7NWRslHiTk5MgH9d6jO+Cl8X8KiowOVJeYyNiS84rimUM4Xpq7dcqNR
-         3r5ppl0vx11OZLTdURYTSXPBbwtjjFhP1sqqurST1jZW7rlMKgg1LCPFori3QuO8YAkZ
-         r/XmXcLZVjoxf0R/j3zFZyH/NZkJSi56d1Q2zxytHiSulhpJr9eqOT/+vZhqlzE8fy7J
-         Vggg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zX/vrcCWtSvPkleAvaStM5cYJt4w+dPaI3g+F6rt3j8=;
-        b=Ziz1XplkF99VMuc3jjits2MLRUseN3LycN4f0E8plgPVeiSXqC/5VAgPUWWT+Dxj7j
-         Lbx0lJb/vUXguWaLe2iWfgFZfs4wSKO3u5ICH3Nm+mo6pCGST0gDv92YdRG0sUfbJgSG
-         r+RumAIBDr9AwQu1t8uWA4aydakcUzAVjlCx6w/uyzbn6rRu21o8OnANjFyjhNDqCFNQ
-         tInz1Dh7yZkNLzVmEJ34LNrFql6tkKOAuKBxr7JtTKxyfKxOCrB2VjKjIwE8+k1U11/J
-         7Y7ws7Qqz/x1eHZvuLr58Gu1J3Ibo7dpiM56U7Rj5cJ8cm/CWF8fkElMSxlyJ7xEJvZY
-         jVGw==
-X-Gm-Message-State: AO0yUKW6ueC5L8Do3nV4T1NzBukj9yUOvXw786yUNGDPZdSdhwAYWwgt
-	UVVbaTpAUfjQtf+LkIZcfbDrWA==
-X-Google-Smtp-Source: AK7set8xcAN5eLkL1fj65+8NoThpjh9Ic3yJgNR/wjD6Z+Qa0hu1nIgY5u/dHnWm9iJiQRdgtG3WNw==
-X-Received: by 2002:adf:ea88:0:b0:2c5:5a65:79a0 with SMTP id s8-20020adfea88000000b002c55a6579a0mr10892663wrm.53.1677249417783;
-        Fri, 24 Feb 2023 06:36:57 -0800 (PST)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id b15-20020a5d4b8f000000b002c561805a4csm15288994wrt.45.2023.02.24.06.36.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Feb 2023 06:36:56 -0800 (PST)
-Date: Fri, 24 Feb 2023 15:36:55 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Ben Dooks <ben.dooks@codethink.co.uk>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	kvm-riscv@lists.infradead.org, 'Rob Herring ' <robh@kernel.org>,
-	'Jisheng Zhang ' <jszhang@kernel.org>,
-	'Anup Patel ' <apatel@ventanamicro.com>,
-	'Conor Dooley ' <conor.dooley@microchip.com>,
-	'Krzysztof Kozlowski ' <krzysztof.kozlowski+dt@linaro.org>,
-	'Heiko Stuebner ' <heiko@sntech.de>,
-	'Paul Walmsley ' <paul.walmsley@sifive.com>,
-	'Palmer Dabbelt ' <palmer@dabbelt.com>,
-	'Albert Ou ' <aou@eecs.berkeley.edu>,
-	'Atish Patra ' <atishp@rivosinc.com>
-Subject: Re: [PATCH v5 6/8] RISC-V: Use Zicboz in clear_page when available
-Message-ID: <20230224143655.5scd7nxwunqpr3u3@orel>
-References: <20230221190916.572454-1-ajones@ventanamicro.com>
- <20230221190916.572454-7-ajones@ventanamicro.com>
- <36abc02f-ef35-88a8-1fa8-ce7cebbae7ea@codethink.co.uk>
- <20230224142530.mq5qzfycvyvtnqiv@orel>
+	id 1pVZH6-002nGK-0T
+	for linux-riscv@lists.infradead.org; Fri, 24 Feb 2023 14:42:17 +0000
+Received: from [167.98.27.226] (helo=[10.35.4.85])
+	by imap5.colo.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
+	id 1pVZH2-008Zw5-7Z; Fri, 24 Feb 2023 14:42:12 +0000
+Message-ID: <d9944799-7887-8c0b-ace1-7b340dacf9af@codethink.co.uk>
+Date: Fri, 24 Feb 2023 14:42:11 +0000
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230224142530.mq5qzfycvyvtnqiv@orel>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.7.2
+Subject: Re: [PATCH] RISC-V: Fixup clear_page export when using Zicboz
+Content-Language: en-GB
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: linux-riscv@lists.infradead.org,
+ Sudip Mukherjee <sudip.mukherjee@codethink.co.uk>
+References: <20230221190916.572454-7-ajones@ventanamicro.com>
+ <20230224135844.619054-1-ben.dooks@codethink.co.uk>
+ <20230224141812.nftdkbtt4gbgvnts@orel>
+From: Ben Dooks <ben.dooks@codethink.co.uk>
+Organization: Codethink Limited.
+In-Reply-To: <20230224141812.nftdkbtt4gbgvnts@orel>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230224_063707_339127_A2D952C3 
-X-CRM114-Status: GOOD (  11.48  )
+X-CRM114-CacheID: sfid-20230224_064216_077620_7DB6312A 
+X-CRM114-Status: GOOD (  20.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,31 +58,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 24, 2023 at 03:25:30PM +0100, Andrew Jones wrote:
-> On Fri, Feb 24, 2023 at 02:00:44PM +0000, Ben Dooks wrote:
-> > On 21/02/2023 19:09, Andrew Jones wrote:
-...
-> > > +/* void clear_page(void *page) */
-> > > +ENTRY(__clear_page)
-> > > +WEAK(clear_page)
-> > 
-> > out of interest, why the __clear_page() entry and the
-> > WEAK(clear_page)?
+On 24/02/2023 14:18, Andrew Jones wrote:
+> On Fri, Feb 24, 2023 at 01:58:44PM +0000, Ben Dooks wrote:
+>> When the clear_page() via Zicboz is enabled, the module build
+>> fails as clear_page() is not marked as a ksym entry. Fix this
+>> by changing the asm code to use <asm-generic/export.h> to add
+>> the correct export.
+>>
+>> Also remove the weak clear_page() as there's nothing else in
+>> the build defining this symbol, so just make it the entry when
+>> the Zicboz is enabled.
+>>
+>> Fixes modpost errors such as this:
+>> ERROR: modpost: "clear_page" [drivers/gpu/drm/ttm/ttm.ko] undefined!
+>>
+>> Reported-by: Sudip Mukherjee <sudip.mukherjee@codethink.co.uk>
+>> Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
+>> ---
+>>   arch/riscv/lib/clear_page.S | 6 ++++--
+>>   1 file changed, 4 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/arch/riscv/lib/clear_page.S b/arch/riscv/lib/clear_page.S
+>> index 7c7fa45b5ab5..4ed5fef52d80 100644
+>> --- a/arch/riscv/lib/clear_page.S
+>> +++ b/arch/riscv/lib/clear_page.S
+>> @@ -6,6 +6,7 @@
+>>   #include <linux/linkage.h>
+>>   #include <asm/asm.h>
+>>   #include <asm/alternative-macros.h>
+>> +#include <asm-generic/export.h>
+>>   #include <asm/hwcap.h>
+>>   #include <asm/insn-def.h>
+>>   #include <asm/page.h>
+>> @@ -17,7 +18,7 @@
+>>   
+>>   /* void clear_page(void *page) */
+>>   ENTRY(__clear_page)
+>> -WEAK(clear_page)
+>> +SYM_FUNC_START(clear_page)
+>>   	li	a2, PAGE_SIZE
+>>   
+>>   	/*
+>> @@ -70,4 +71,5 @@ WEAK(clear_page)
+>>   .Lno_zicboz:
+>>   	li	a1, 0
+>>   	tail	__memset
+>> -END(__clear_page)
+>> +SYM_FUNC_END(clear_page)
+>> +EXPORT_SYMBOL(clear_page)
+>> -- 
+>> 2.39.1
+>>
 > 
-> I was inspired by memset, but, in hindsight, it doesn't make sense for
-> clear_page to be weak.
+> Hi Ben,
+> 
+> This looks good to me. I agree that I shouldn't have made clear_page weak,
+> but not because there isn't currently anything else defining it, but
+> because it's not something a subsystem is likely to ever define. Exporting
+> for modules is also definitely needed.
+> 
+> Is there any reason I shouldn't just squash this into the patch which
+> introduces clear_page? That patch is still under review, and merging
+> it broken just to immediately fix it would break bisection for no reason.
 
-Of course I failed to completely follow the memset pattern, which also
-has an export (in riscv_ksyms.c). I prefer the export in clear_page.S,
-though, as you've done.
+Yeah, as long as you note fixes from myself an sudip, then go for it.
 
-Thanks,
-drew
+-- 
+Ben Dooks				http://www.codethink.co.uk/
+Senior Engineer				Codethink - Providing Genius
+
+https://www.codethink.co.uk/privacy.html
+
 
 _______________________________________________
 linux-riscv mailing list
