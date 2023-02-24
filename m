@@ -4,87 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E65A7C7EE23
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Feb 2023 17:06:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20A2EC6FA8E
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Feb 2023 17:31:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=o6RT23EjDTk6+wC8gxuDZQAyc5vMDZoQguFhIEtiAYo=; b=ecrGdhAtVtCUFK
-	u8IPDNivreqjUMg3tFIJl1dttXSngk6mEUW74ieIn+/L1qgjRpybPQXDjHEXQfXBPmRhn9AsAKI8F
-	+2RUagguQwFPEWpX8gwlo/v5oTcdIerc0UfG4pGZXcACnGx26s+H3B3i/il2PSt5FausaVviE1WVG
-	aim9gUiyXaC9K71YSPbAwJmmZ22+6rzsd/y2OnRYum2qVuFtn+snq/DyF08xI5vNZQPtTXJeRw1br
-	WY0s+EFETs6xnRlpN7jAphX3dQKuh6CxodUUyW9XyUB3ZOR+qTRdWchtOUBVEjNdEG/PLhdRTFYy0
-	NT6FwUr8bNfxrgZcWlLQ==;
+	List-Owner; bh=Rmn+xffy+S+SvEh9CJaL6B2LDCtpmc0a/IqVLNZAM9s=; b=ks2TvuLh9Huijw
+	6c6h7NeKTmC7bES3M6lA4y126bBdXzVQTNQrvsILVxripTBDPCQqQ5tsLvEPQ0SGpU6aOlK0jgDiZ
+	IIylBB+wSa8p6KjEo3R/hPkwI6GhFAzwzvJrCuIsM3DxqXapwUkv9R0yb3QyLNLTgqyPovJKFSTM3
+	Z9KlaX4hAqyxWq9ZKRqGvzswsVPo1MdyG6aWNVCwqqPQ8gJ5YSGEmTQp9VH8A5c016+cjU7JllhOv
+	QAnV2P2pMU3bdstpT4xsf/9hSkcW+gtn/D/xDJTW5TwlOxUv2Xbs4HVogc9NT5fnGM9NRQ1HPG0LX
+	xd626ZPL4A8WUMFOl/tQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pVbWk-003FgV-Er; Fri, 24 Feb 2023 17:06:34 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1pVbuQ-003JJL-ID; Fri, 24 Feb 2023 17:31:02 +0000
+Received: from mail-wr1-f49.google.com ([209.85.221.49])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pVbWh-003FeI-Ar
-	for linux-riscv@lists.infradead.org; Fri, 24 Feb 2023 17:06:32 +0000
-Received: by mail-wr1-x434.google.com with SMTP id r7so14459627wrz.6
-        for <linux-riscv@lists.infradead.org>; Fri, 24 Feb 2023 09:06:26 -0800 (PST)
+	id 1pVauC-00378K-T8
+	for linux-riscv@lists.infradead.org; Fri, 24 Feb 2023 16:26:46 +0000
+Received: by mail-wr1-f49.google.com with SMTP id q16so4153895wrw.2
+        for <linux-riscv@lists.infradead.org>; Fri, 24 Feb 2023 08:26:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Am7UTsrrLl5LeWU1phk06r4aR+aojXRx8nt3c68UlzA=;
-        b=T8uUCWgFONTHlUy4fcf1OtN163guOpfDSvC9cRpeQQm8mOTkqbWJjpPowNk66P8aNL
-         ZiGxi3v5PAdjNAlneDE1HI89mAAkmRx//62ebbndeI1ULCrhcDnTJIq1Dxf8jbGhIeFR
-         wSruzc2Rw5xjIC/KNVlZVMNlz1/0Ju35kRnQduhUV1+rBY2K6M757XELJ0aSi2wceClc
-         0AS7Zi75IA+FQld6Nr6zpIOGrv4RrhAuWXBZGSBX6FtgENkABF7N4Iaj25rXyeGEivYK
-         C8mU9beKrjf3rsbed9ZG/jfyBcRuoasDsbLpScBbm+nVwgXYCTuFMdNg0ulgPgGd+nxS
-         aL/g==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/Z6tZFFE5BTtnAERh23ZFuGlAMKjWB1LeNlstGrShuA=;
+        b=Vy71SU7zuNIXJiH/qB1kiXZfMEfbB0uoSbnTAnzP1PjTxaknmh+uieMfRQ6/zp3xwI
+         1E0yfSZRExBO6kXuBZ82OuZcPS+SA3bXdWyGMvPV6vhXVvnifzs1o/w3kobRRYgNct3w
+         rkkjMf3lVRjipghLhcn1DmgDh676bVYG+nwh09AJ61Lq/e2GCjrP0fK7E1wcEny1D/Hg
+         Qu6sSvnhbbuUHEse4hbl84VcYhM3RXXJzJafSlqWdRGIFFQUPQxoJqKIJiMP7V5/YkZC
+         2tvWjg6zURxTidnqq/Jl/Cu/1On97PKDfMO814pQ0+Z84XRQ8rCmzQbvtjIfHlxBNgpG
+         Xrug==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Am7UTsrrLl5LeWU1phk06r4aR+aojXRx8nt3c68UlzA=;
-        b=Cj918n7UU8Iug1RX8Q8yvMa8QJBhdrRCoshdNY13iNqTrt/NCIvz1aZy8Pm1LtBPTl
-         wpul4dmL5ZpEdIMwD9+gSJIWfQ1pZwpIu2bfofji6QYsaV2NVpa5j4F+xGEhpohoWCgX
-         OLPHasyZlZIXflpQHhMKvE6qZMNN6xfL8iu7no8LEoQFDEDKqVnFNMkVJhKGELoLR3ro
-         1xDCyy45mN8K3atEA52nKu1omFL3XjNjuD8odSudinwmP8unXyVAsiiGjp7dMrw+FCFh
-         3+bTcS7HWiYkC3huacXESUKh07rWYuOkyb0UA80+yywzHXdkx6NTNJkBswFQked/jqtg
-         NTJQ==
-X-Gm-Message-State: AO0yUKWW2Fyj6n1POSlhzxUYxYTKsvkEFopz0y/50uuyB04pM+bKCEQh
-	t4MX5WyNWR0WOVhpLBvlOR+x/g==
-X-Google-Smtp-Source: AK7set88uoDBhcGuMYfhYqWOmL9+KmCBxlE31bBrR7wtdw0dI+ThATqK199/etDNQtfA8PwDynkLKA==
-X-Received: by 2002:adf:f946:0:b0:2c5:617a:5023 with SMTP id q6-20020adff946000000b002c5617a5023mr14388379wrr.71.1677258384848;
-        Fri, 24 Feb 2023 09:06:24 -0800 (PST)
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=/Z6tZFFE5BTtnAERh23ZFuGlAMKjWB1LeNlstGrShuA=;
+        b=SCvK7+l8Ucp+h/Gpu1UX/hZm47EAbHS/MezssM+47avZiZ+E1/pvKVPXZ1MJrngtGT
+         EeTrwGGYny5QzG2NCJAqhuLMtmv5fKdL8UyBcIh43eIB+MIKrJMwfzQPyVWis+7oV0b6
+         DUL/1D2cCUqURDrF7dWQZG/SciXrw5sbGKBYsIsGoR3jUbzeYRSvcs0dp/5bE5qsnO/t
+         DWNB5Ko5zi6o4spzXN4PCAgR2XFpQbO425egy3n3XvvIQTV2SPEG0HIUoS88uEoozIZH
+         t9VEHlOBcVFAYZWktUi+Z7C2IQ+7uEf2cNAH08/0xa02gshjl1t2layYGIYyKuVvPG+S
+         nfPQ==
+X-Gm-Message-State: AO0yUKVlRoUf6QRE1BMPlNZujSCyoTYkB9y4mTjRE3YBpSuPWRbsRzhY
+	ifrI7EpGdS6SG0jr6wfy9zlU+FP//gViVHc8
+X-Google-Smtp-Source: AK7set/VtgsyzXm8Ap48VZCq1ILylsYFDhexWn5ba7SjzSOIRQncUWlH4PUYTDZ/8fn10OmbbTANfA==
+X-Received: by 2002:a05:6000:89:b0:2c8:42b5:8025 with SMTP id m9-20020a056000008900b002c842b58025mr640072wrx.47.1677256001439;
+        Fri, 24 Feb 2023 08:26:41 -0800 (PST)
 Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id x4-20020adfdd84000000b002c556a4f1casm13292847wrl.42.2023.02.24.09.06.24
+        by smtp.gmail.com with ESMTPSA id y7-20020a1c4b07000000b003daf672a616sm3318597wma.22.2023.02.24.08.26.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Feb 2023 09:06:24 -0800 (PST)
-Date: Fri, 24 Feb 2023 18:06:23 +0100
+        Fri, 24 Feb 2023 08:26:41 -0800 (PST)
 From: Andrew Jones <ajones@ventanamicro.com>
-To: Sunil V L <sunilvl@ventanamicro.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Marc Zyngier <maz@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Atish Patra <atishp@rivosinc.com>,
-	"Rafael J . Wysocki" <rafael.j.wysocki@intel.com>
-Subject: Re: [PATCH V2 10/21] RISC-V: smpboot: Add ACPI support in smp_setup()
-Message-ID: <20230224170623.d6ubdmatqfromjjm@orel>
-References: <20230216182043.1946553-1-sunilvl@ventanamicro.com>
- <20230216182043.1946553-11-sunilvl@ventanamicro.com>
- <20230220170843.2zkrqcnqcwbruea6@orel>
- <Y/jqye85kKU8KfDU@sunil-laptop>
+To: linux-riscv@lists.infradead.org,
+	kvm-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org
+Cc: 'Conor Dooley ' <conor.dooley@microchip.com>,
+	'Paul Walmsley ' <paul.walmsley@sifive.com>,
+	'Palmer Dabbelt ' <palmer@dabbelt.com>,
+	'Sudip Mukherjee ' <sudip.mukherjee@codethink.co.uk>,
+	'Ben Dooks ' <ben.dooks@codethink.co.uk>,
+	'Atish Patra ' <atishp@rivosinc.com>,
+	'Albert Ou ' <aou@eecs.berkeley.edu>,
+	'Anup Patel ' <apatel@ventanamicro.com>,
+	'Krzysztof Kozlowski ' <krzysztof.kozlowski+dt@linaro.org>,
+	'Rob Herring ' <robh@kernel.org>,
+	'Jisheng Zhang ' <jszhang@kernel.org>,
+	'Heiko Stuebner ' <heiko@sntech.de>,
+	Anup Patel <anup@brainfault.org>
+Subject: [PATCH v6 7/8] RISC-V: KVM: Provide UAPI for Zicboz block size
+Date: Fri, 24 Feb 2023 17:26:30 +0100
+Message-Id: <20230224162631.405473-8-ajones@ventanamicro.com>
+X-Mailer: git-send-email 2.39.1
+In-Reply-To: <20230224162631.405473-1-ajones@ventanamicro.com>
+References: <20230224162631.405473-1-ajones@ventanamicro.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Y/jqye85kKU8KfDU@sunil-laptop>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230224_090631_398268_2A478B3E 
-X-CRM114-Status: GOOD (  37.73  )
+X-CRM114-CacheID: sfid-20230224_082644_962427_369B962E 
+X-CRM114-Status: GOOD (  10.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,110 +103,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 24, 2023 at 10:20:17PM +0530, Sunil V L wrote:
-> On Mon, Feb 20, 2023 at 06:08:43PM +0100, Andrew Jones wrote:
-> > On Thu, Feb 16, 2023 at 11:50:32PM +0530, Sunil V L wrote:
-> > > Enable SMP boot on ACPI based platforms by using the RINTC
-> > > structures in the MADT table.
-> > > 
-> > > Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
-> > > Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
-> > > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> > > ---
-> > >  arch/riscv/include/asm/acpi.h |  7 ++++
-> > >  arch/riscv/kernel/smpboot.c   | 70 ++++++++++++++++++++++++++++++++++-
-> > >  2 files changed, 76 insertions(+), 1 deletion(-)
-> > > 
-> > > diff --git a/arch/riscv/include/asm/acpi.h b/arch/riscv/include/asm/acpi.h
-> > > index 7bc49f65c86b..3c3a8ac3b37a 100644
-> > > --- a/arch/riscv/include/asm/acpi.h
-> > > +++ b/arch/riscv/include/asm/acpi.h
-> > > @@ -60,6 +60,13 @@ static inline void arch_fix_phys_package_id(int num, u32 slot) { }
-> > >  
-> > >  int acpi_get_riscv_isa(struct acpi_table_header *table,
-> > >  		       unsigned int cpu, const char **isa);
-> > > +
-> > > +#ifdef CONFIG_ACPI_NUMA
-> > > +int acpi_numa_get_nid(unsigned int cpu);
-> > > +#else
-> > > +static inline int acpi_numa_get_nid(unsigned int cpu) { return NUMA_NO_NODE; }
-> > > +#endif /* CONFIG_ACPI_NUMA */
-> > 
-> > The #ifdef stuff seems premature since we're not providing an
-> > implementation for acpi_numa_get_nid() or selecting ACPI_NUMA, but OK.
-> > 
-> Yes, will remove it. We can add as part NUMA enablement.
-> 
-> > > +
-> > >  #else
-> > >  static inline int acpi_get_riscv_isa(struct acpi_table_header *table,
-> > >  				     unsigned int cpu, const char **isa)
-> > > diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-> > > index 26214ddefaa4..77630f8ed12b 100644
-> > > --- a/arch/riscv/kernel/smpboot.c
-> > > +++ b/arch/riscv/kernel/smpboot.c
-> > > @@ -8,6 +8,7 @@
-> > >   * Copyright (C) 2017 SiFive
-> > >   */
-> > >  
-> > > +#include <linux/acpi.h>
-> > >  #include <linux/arch_topology.h>
-> > >  #include <linux/module.h>
-> > >  #include <linux/init.h>
-> > > @@ -70,6 +71,70 @@ void __init smp_prepare_cpus(unsigned int max_cpus)
-> > >  	}
-> > >  }
-> > >  
-> > > +#ifdef CONFIG_ACPI
-> > > +static unsigned int cpu_count = 1;
-> > > +
-> > > +static int __init acpi_parse_rintc(union acpi_subtable_headers *header, const unsigned long end)
-> > > +{
-> > > +	unsigned long hart;
-> > > +	bool found_boot_cpu = false;
-> > 
-> > I guess found_boot_cpu should be static?
-> > 
-> Good catch!. Thanks!
-> 
-> > > +	struct acpi_madt_rintc *processor = (struct acpi_madt_rintc *)header;
-> > > +
-> > > +	/*
-> > > +	 * Each RINTC structure in MADT will have a flag. If ACPI_MADT_ENABLED
-> > > +	 * bit in the flag is not enabled, it means OS should not try to enable
-> > > +	 * the cpu to which RINTC belongs.
-> > > +	 */
-> > > +	if (!(processor->flags & ACPI_MADT_ENABLED))
-> > > +		return 0;
-> > > +
-> > > +	hart = processor->hart_id;
-> > > +	if (hart < 0)
-> > > +		return 0;
-> > 
-> > A valid hart ID is anything up to INVALID_HARTID, right? Shouldn't we only
-> > be checking for INVALID_HARTID here? And what does it mean to have an
-> > invalid hart ID here? It's not an issue to error/warn about?
-> > 
-> Yes, will check for INVALID_HARTID (though I am not really sure how it
-> can be invalid). Will add a warning.
-> 
-> > > +	if (hart == cpuid_to_hartid_map(0)) {
-> > > +		BUG_ON(found_boot_cpu);
-> > 
-> > Do we really want to BUG due to bad, but potentially bootable ACPI tables?
-> > I'd BUG for things that can only happen when we break the code, but broken
-> > ACPI tables might be something we want to complain loudly about and then
-> > attempt to limp along.
-> > 
-> Okay. I used same logic as in DT. It may be better to use BUG instead of
-> debugging weird symptoms later, right?
+We're about to allow guests to use the Zicboz extension. KVM
+userspace needs to know the cache block size in order to
+properly advertise it to the guest. Provide a virtual config
+register for userspace to get it with the GET_ONE_REG API, but
+setting it cannot be supported, so disallow SET_ONE_REG.
 
-Maybe? I guess it depends on how obvious the symptoms are, how much they
-mess things up, and how easy it is to correct the ACPI tables. I'll leave
-this one up to you :-)
+Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Anup Patel <anup@brainfault.org>
+---
+ arch/riscv/include/uapi/asm/kvm.h | 1 +
+ arch/riscv/kvm/vcpu.c             | 7 +++++++
+ 2 files changed, 8 insertions(+)
 
-Thanks,
-drew
+diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
+index 92af6f3f057c..c1a1bb0fa91c 100644
+--- a/arch/riscv/include/uapi/asm/kvm.h
++++ b/arch/riscv/include/uapi/asm/kvm.h
+@@ -52,6 +52,7 @@ struct kvm_riscv_config {
+ 	unsigned long mvendorid;
+ 	unsigned long marchid;
+ 	unsigned long mimpid;
++	unsigned long zicboz_block_size;
+ };
+ 
+ /* CORE registers for KVM_GET_ONE_REG and KVM_SET_ONE_REG */
+diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+index 7c08567097f0..e5126cefbc87 100644
+--- a/arch/riscv/kvm/vcpu.c
++++ b/arch/riscv/kvm/vcpu.c
+@@ -276,6 +276,11 @@ static int kvm_riscv_vcpu_get_reg_config(struct kvm_vcpu *vcpu,
+ 			return -EINVAL;
+ 		reg_val = riscv_cbom_block_size;
+ 		break;
++	case KVM_REG_RISCV_CONFIG_REG(zicboz_block_size):
++		if (!riscv_isa_extension_available(vcpu->arch.isa, ZICBOZ))
++			return -EINVAL;
++		reg_val = riscv_cboz_block_size;
++		break;
+ 	case KVM_REG_RISCV_CONFIG_REG(mvendorid):
+ 		reg_val = vcpu->arch.mvendorid;
+ 		break;
+@@ -347,6 +352,8 @@ static int kvm_riscv_vcpu_set_reg_config(struct kvm_vcpu *vcpu,
+ 		break;
+ 	case KVM_REG_RISCV_CONFIG_REG(zicbom_block_size):
+ 		return -EOPNOTSUPP;
++	case KVM_REG_RISCV_CONFIG_REG(zicboz_block_size):
++		return -EOPNOTSUPP;
+ 	case KVM_REG_RISCV_CONFIG_REG(mvendorid):
+ 		if (!vcpu->arch.ran_atleast_once)
+ 			vcpu->arch.mvendorid = reg_val;
+-- 
+2.39.1
+
 
 _______________________________________________
 linux-riscv mailing list
