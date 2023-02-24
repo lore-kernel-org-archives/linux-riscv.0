@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99949C7EE2D
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Feb 2023 17:02:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07494C7EE23
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Feb 2023 17:02:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gMN0YSpeXZiRzGu+P24Atikmce4+6C8Ba4Y7hAV8IaA=; b=QAWdjCCiRw8Gqk
-	9Mz88ieYivQCGDYH7+7zaOrP3c+3Tzk1dQ1tbeNsXEWl6hxoRvM/o5Cl6zzR7zGWLhJMn/HOJjH3F
-	8ce2RKs112vcI0a1sbCVUxfjLzMD9r+/OFSgttfWYkVCzmfxdygibnOfW5ta1nFxH0aQbyeMc7asM
-	xmn+6gcM2BkD8k3GPqznGyhMdG9S0CItfsfC0L9GSb+EIC33cSCzQI4cTMQgPSjew5MlCP1LAjUok
-	VOsgbIW7L6+1g6JKvnZalYVOdsSRt2kN+SoDveZYP4HFGceJtvVPH7fvG7ZgLvikDVgMnnTloZ22M
-	jxRmYoj9bRtE+I6HbduA==;
+	List-Owner; bh=SnFAGHxlPl3ydYVB5NN7Y0tZVX4yPsEO9UOd+l64Uq0=; b=JVVRqy+bLXy1UR
+	CBXM/YmKP/+9U9fWVI7YY3wsiI5ZfZCQi6EsjJ1GgBSAoyS/3co1LiBCD0lgIcalbNvVfEMDCGGrn
+	tFlSFV9K0wbD0N2XumDLqIRenukKmFYfaiDAogkgWfOWfwbBd+mJ+truMHyDDMe1D1KPCNBaMl6Vl
+	8s2OizmQYH/xBL/O1uTaIWuIo7XSZafTqm4Z/smcVkxieHIiFK14ohIbaM2vNDtmbUzzj1UnPRcws
+	uFziXjlHufSGTxFUIYlA2tbPnj5JfCUm7PxYZu39sEbPmb33SQv8pMe6Ki5qUTnCbr4skAa2P6eZU
+	kzg6cS//CQC0sx6xp7Pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pVbSd-003DZN-PA; Fri, 24 Feb 2023 17:02:19 +0000
+	id 1pVbSj-003Dew-Iv; Fri, 24 Feb 2023 17:02:25 +0000
 Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pVbSa-003DCy-TW
-	for linux-riscv@lists.infradead.org; Fri, 24 Feb 2023 17:02:18 +0000
-Received: by mail-pj1-x1033.google.com with SMTP id x34so13665919pjj.0
-        for <linux-riscv@lists.infradead.org>; Fri, 24 Feb 2023 09:02:16 -0800 (PST)
+	id 1pVbSg-003DbZ-CB
+	for linux-riscv@lists.infradead.org; Fri, 24 Feb 2023 17:02:24 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id k21-20020a17090aaa1500b002376652e160so3421234pjq.0
+        for <linux-riscv@lists.infradead.org>; Fri, 24 Feb 2023 09:02:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=sifive.com; s=google;
         h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=jdBCcSWmD/x09vfaLkK8fboQxvooLDnkzeel7XCFY9U=;
-        b=bZZevSe2DQytVTGOyFQ2xDnTw4PQL3rigDBvzkiepYBQx/QHxvAQAmL2vOoZX8HUmD
-         TXtGgHS6RG0EzPPRNc1AY0KbRvPhnyy1R1qMeUAGqAHlTzpyeauB1qV8Gbu1SN/Zz6E9
-         o7UKRmu99/FyIPJmWYe8037CRfiiUausqb7IjxXETTwtCm1MBjjPmHQK0TgZRQsmQ8W1
-         PurxMJG2xi94kXD2y/n9Y/VDzhksTH1r6CKgTrSFronmPumFPHyEHimlXQNzEMl/M1zf
-         QfnF9MWDYNysGvzdFaTQAjfyMkYrBdYRBezTWS/sr9xVJzgWEj080N/i1aUTHl4W0pb5
-         CKVA==
+        bh=oeU1EzgQZPviUx8x1M7BAweIqWoiI9GPVL7R1I1QzEM=;
+        b=mCv4sAOXa6oisDiWg8GBB0kENtNWNon7JU+fper8v5+3Jca7jjEYPtzqjo+GDcKTRe
+         dKQWOL/12E3JIHbfMwmwsjVqTzcMkbdGG0tU2mJCvYQhmq2qZtul4aVJpiv9vTjB2CEG
+         s2tX/NYrLjyVC7gK5UbMStg2KZWL7aa4Th2HZJgW6NBSord4riefsGbIYHn2TtO11swN
+         gpFObbkXYjqCIwmOjipi67WxH6YeSk5gFZRxq4VLihFHoq1RXGxXpVyTI0MwPSBGb/Wc
+         j16z5G28M6/5z1avj7DaB5K928ZA9BM+KnG83aMj2BQffJAhGslMpHuHFemuhEJgOv/N
+         5HZA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=references:in-reply-to:message-id:date:subject:cc:to:from
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=jdBCcSWmD/x09vfaLkK8fboQxvooLDnkzeel7XCFY9U=;
-        b=jMtqIhA70RuR60lzZm9WEZDAj+W5cUffPd4v273c53L/LFucxYWpDfP0bxti4N6w/V
-         e8tW9J38X81XDtWPKYltxtcvszAfFqB3cw2jwVw97VBVYQmYyjl3GCBY5wz2D4Omyxn0
-         nV0Pu5lDM6reeNSwzWnElN9C/oh8nED73U2yBGFlIDwzXJUy7fu0zhwdZJX9XcSRBaME
-         CrufvW/8cRhUVmVqlFTGslnH+i2Um4JgVrzTHj2FqSl3UoiWOScMXEmF9mstVhlfuOgO
-         VCEmv5hcy0pWgeoeoqQupd5EKbOezzIsJcNZSOB2Idy36hdzz/1g13MDwJ5iT0jncTVy
-         dTqg==
-X-Gm-Message-State: AO0yUKV38zsAFjrGovBI2SA9JlUTnK6OekRihUdQsRWUFmywvg/zJ150
-	1hBz7GToS8plwreCyOkt4iQjtvHcsp4l66gw381VR13y0Mo4QDpQzPIkMU0govsxIPMzHrmF4LU
-	/yGZ2gbNMd66il/VVKTfk3D4S5ucAg1N2SPMJ5lyBDSlJ0AaqSMoiQq8b8zFW6Run2V8pqpiCG8
-	1f3WmDSJQfyA==
-X-Google-Smtp-Source: AK7set/VIz4IdFcCcmfDfMawU19KMH70KUxyj7igMRlChX/KsDv5plpD+hAzyc5Oik79mqw8pbV61g==
-X-Received: by 2002:a17:902:d4cb:b0:19a:b033:2bb0 with SMTP id o11-20020a170902d4cb00b0019ab0332bb0mr21485385plg.46.1677258136106;
-        Fri, 24 Feb 2023 09:02:16 -0800 (PST)
+        bh=oeU1EzgQZPviUx8x1M7BAweIqWoiI9GPVL7R1I1QzEM=;
+        b=YTY7RuPIYdryP8dMM2bcOC+4+ZTbHMJ/FNHnNZ/kji5QMXge+xhiJ5zPih2jgEfMlq
+         k1Je6T/WAcR5DdNsTsuix8fGf/ykFYT/+K8DNOV73FNzUH5B1Ndm463FF0yDyFPnhGAp
+         ZFm47V3cgUHjdMaIBQJCbMPUmh8hJ4HvaLcqK5BE/2hLf9jxPULdpideaBT/SDCcNQ1v
+         CC4mHWUJl1Z1vLt9c6mVnWf7XEH/w44WVFezFvqfTin6Ng2FHLSf3hlpY72HSvnLYvUv
+         lWBUhssOducYr8lfOr9QJZdj9J958fpLv8EOnY2Qky4J1V61I67UQICPq/WUNy5bygng
+         zyaA==
+X-Gm-Message-State: AO0yUKWRqdfUDJaFXQXhevOhUbp8B6gNsxCOLNL+qI88WP1ZyrdDkVt3
+	bYj9/+EX6IzURk0TVWfFUAAe/cMOBquui9izi5LrnEJM797pmKOsKzUZfRHrZgMqJa7J5ikAx9k
+	6F3Pov7dAGI6YtPENqy+0983Y91e/Gv2SjeimmJ/Gfcd8Wehai5bUb0tYA+RPid5MySm5qHHnsu
+	w0sar/vZimRw==
+X-Google-Smtp-Source: AK7set82aDGPKd/oN7NmcHtGanjLX/28ckwBJ2M7mKySEAYrKIk1lgwMUdj//Im6eaBTyENN/Kiv2w==
+X-Received: by 2002:a17:902:c950:b0:19a:b44b:cca6 with SMTP id i16-20020a170902c95000b0019ab44bcca6mr19680763pla.24.1677258141591;
+        Fri, 24 Feb 2023 09:02:21 -0800 (PST)
 Received: from hsinchu25.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id b12-20020a170902b60c00b0019472226769sm9234731pls.251.2023.02.24.09.02.12
+        by smtp.gmail.com with ESMTPSA id b12-20020a170902b60c00b0019472226769sm9234731pls.251.2023.02.24.09.02.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Feb 2023 09:02:15 -0800 (PST)
+        Fri, 24 Feb 2023 09:02:20 -0800 (PST)
 From: Andy Chiu <andy.chiu@sifive.com>
 To: linux-riscv@lists.infradead.org,
 	palmer@dabbelt.com,
@@ -75,24 +75,16 @@ Cc: vineetg@rivosinc.com,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Guo Ren <guoren@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Changbin Du <changbin.du@intel.com>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Li Zhengyu <lizhengyu3@huawei.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Tsukasa OI <research_trasio@irq.a4lg.com>,
 	Richard Henderson <richard.henderson@linaro.org>
-Subject: [PATCH -next v14 07/19] riscv: Introduce riscv_v_vsize to record size of Vector context
-Date: Fri, 24 Feb 2023 17:01:06 +0000
-Message-Id: <20230224170118.16766-8-andy.chiu@sifive.com>
+Subject: [PATCH -next v14 08/19] riscv: Introduce struct/helpers to save/restore per-task Vector state
+Date: Fri, 24 Feb 2023 17:01:07 +0000
+Message-Id: <20230224170118.16766-9-andy.chiu@sifive.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20230224170118.16766-1-andy.chiu@sifive.com>
 References: <20230224170118.16766-1-andy.chiu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230224_090216_977910_9DB10DCA 
-X-CRM114-Status: GOOD (  16.12  )
+X-CRM114-CacheID: sfid-20230224_090222_426126_03358186 
+X-CRM114-Status: GOOD (  11.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,107 +104,174 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Greentime Hu <greentime.hu@sifive.com>
 
-This patch is used to detect the size of CPU vector registers and use
-riscv_v_vsize to save the size of all the vector registers. It assumes all
-harts has the same capabilities in a SMP system.
+Add vector state context struct to be added later in thread_struct. And
+prepare low-level helper functions to save/restore vector contexts.
 
-[guoren@linux.alibaba.com: add has_vector checking]
-Co-developed-by: Guo Ren <guoren@linux.alibaba.com>
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+This include Vector Regfile and CSRs holding dynamic configuration state
+(vstart, vl, vtype, vcsr). The Vec Register width could be implementation
+defined, but same for all processes, so that is saved separately.
+
+This is not yet wired into final thread_struct - will be done when
+__switch_to actually starts doing this in later patches.
+
+Given the variable (and potentially large) size of regfile, they are
+saved in dynamically allocated memory, pointed to by datap pointer in
+__riscv_v_ext_state.
+
 Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
 Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
 Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
+Signed-off-by: Vineet Gupta <vineetg@rivosinc.com>
+[vineetg: merged bits from 2 different patches]
 Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
+[andy.chiu: use inline asm to save/restore context, remove asm vaiant]
 ---
- arch/riscv/include/asm/vector.h |  5 +++++
- arch/riscv/kernel/Makefile      |  1 +
- arch/riscv/kernel/cpufeature.c  |  2 ++
- arch/riscv/kernel/vector.c      | 21 +++++++++++++++++++++
- 4 files changed, 29 insertions(+)
- create mode 100644 arch/riscv/kernel/vector.c
+ arch/riscv/include/asm/vector.h      | 84 ++++++++++++++++++++++++++++
+ arch/riscv/include/uapi/asm/ptrace.h | 17 ++++++
+ 2 files changed, 101 insertions(+)
 
 diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
-index dfe5a321b2b4..692d3ee2d2d3 100644
+index 692d3ee2d2d3..9c025f2efdc3 100644
 --- a/arch/riscv/include/asm/vector.h
 +++ b/arch/riscv/include/asm/vector.h
-@@ -13,6 +13,9 @@
+@@ -12,6 +12,9 @@
+ 
  #include <asm/hwcap.h>
  #include <asm/csr.h>
- 
-+extern unsigned long riscv_v_vsize;
-+void riscv_v_setup_vsize(void);
++#include <asm/asm.h>
 +
- static __always_inline bool has_vector(void)
- {
++#define CSR_STR(x) __ASM_STR(x)
+ 
+ extern unsigned long riscv_v_vsize;
+ void riscv_v_setup_vsize(void);
+@@ -21,6 +24,26 @@ static __always_inline bool has_vector(void)
  	return riscv_has_extension_likely(RISCV_ISA_EXT_v);
-@@ -31,6 +34,8 @@ static __always_inline void riscv_v_disable(void)
- #else /* ! CONFIG_RISCV_ISA_V  */
+ }
  
- static __always_inline bool has_vector(void) { return false; }
-+#define riscv_v_vsize (0)
-+#define riscv_v_setup_vsize()	 do {} while (0)
- 
- #endif /* CONFIG_RISCV_ISA_V */
- 
-diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-index 4cf303a779ab..48d345a5f326 100644
---- a/arch/riscv/kernel/Makefile
-+++ b/arch/riscv/kernel/Makefile
-@@ -55,6 +55,7 @@ obj-$(CONFIG_MMU) += vdso.o vdso/
- 
- obj-$(CONFIG_RISCV_M_MODE)	+= traps_misaligned.o
- obj-$(CONFIG_FPU)		+= fpu.o
-+obj-$(CONFIG_RISCV_ISA_V)	+= vector.o
- obj-$(CONFIG_SMP)		+= smpboot.o
- obj-$(CONFIG_SMP)		+= smp.o
- obj-$(CONFIG_SMP)		+= cpu_ops.o
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 4b82a01f5603..e6d53e2e672b 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -22,6 +22,7 @@
- #include <asm/processor.h>
- #include <asm/smp.h>
- #include <asm/switch_to.h>
-+#include <asm/vector.h>
- 
- #define NUM_ALPHA_EXTS ('z' - 'a' + 1)
- 
-@@ -257,6 +258,7 @@ void __init riscv_fill_hwcap(void)
- 	}
- 
- 	if (elf_hwcap & COMPAT_HWCAP_ISA_V) {
-+		riscv_v_setup_vsize();
- 		/*
- 		 * ISA string in device tree might have 'v' flag, but
- 		 * CONFIG_RISCV_ISA_V is disabled in kernel.
-diff --git a/arch/riscv/kernel/vector.c b/arch/riscv/kernel/vector.c
-new file mode 100644
-index 000000000000..082baf2a061f
---- /dev/null
-+++ b/arch/riscv/kernel/vector.c
-@@ -0,0 +1,21 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Copyright (C) 2023 SiFive
-+ * Author: Andy Chiu <andy.chiu@sifive.com>
-+ */
-+#include <linux/export.h>
-+
-+#include <asm/vector.h>
-+#include <asm/csr.h>
-+
-+unsigned long riscv_v_vsize __read_mostly;
-+EXPORT_SYMBOL_GPL(riscv_v_vsize);
-+
-+void riscv_v_setup_vsize(void)
++static inline void __riscv_v_vstate_clean(struct pt_regs *regs)
 +{
-+	/* There are 32 vector registers with vlenb length. */
++	regs->status = (regs->status & ~(SR_VS)) | SR_VS_CLEAN;
++}
++
++static inline void riscv_v_vstate_off(struct pt_regs *regs)
++{
++	regs->status = (regs->status & ~SR_VS) | SR_VS_OFF;
++}
++
++static inline void riscv_v_vstate_on(struct pt_regs *regs)
++{
++	regs->status = (regs->status & ~(SR_VS)) | SR_VS_INITIAL;
++}
++
++static inline bool riscv_v_vstate_query(struct pt_regs *regs)
++{
++	return (regs->status & SR_VS) != 0;
++}
++
+ static __always_inline void riscv_v_enable(void)
+ {
+ 	csr_set(CSR_SSTATUS, SR_VS);
+@@ -31,11 +54,72 @@ static __always_inline void riscv_v_disable(void)
+ 	csr_clear(CSR_SSTATUS, SR_VS);
+ }
+ 
++static __always_inline void __vstate_csr_save(struct __riscv_v_ext_state *dest)
++{
++	asm volatile (
++		"csrr	%0, " CSR_STR(CSR_VSTART) "\n\t"
++		"csrr	%1, " CSR_STR(CSR_VTYPE) "\n\t"
++		"csrr	%2, " CSR_STR(CSR_VL) "\n\t"
++		"csrr	%3, " CSR_STR(CSR_VCSR) "\n\t"
++		: "=r" (dest->vstart), "=r" (dest->vtype), "=r" (dest->vl),
++		  "=r" (dest->vcsr) : :);
++}
++
++static __always_inline void __vstate_csr_restore(struct __riscv_v_ext_state *src)
++{
++	asm volatile (
++		"vsetvl	 x0, %2, %1\n\t"
++		"csrw	" CSR_STR(CSR_VSTART) ", %0\n\t"
++		"csrw	" CSR_STR(CSR_VCSR) ", %3\n\t"
++		: : "r" (src->vstart), "r" (src->vtype), "r" (src->vl),
++		    "r" (src->vcsr) :);
++}
++
++static inline void __riscv_v_vstate_save(struct __riscv_v_ext_state *save_to, void *datap)
++{
 +	riscv_v_enable();
-+	riscv_v_vsize = csr_read(CSR_VLENB) * 32;
++	__vstate_csr_save(save_to);
++	asm volatile (
++		"vsetvli	t4, x0, e8, m8, ta, ma\n\t"
++		"vse8.v		v0, (%0)\n\t"
++		"add		%0, %0, t4\n\t"
++		"vse8.v		v8, (%0)\n\t"
++		"add		%0, %0, t4\n\t"
++		"vse8.v		v16, (%0)\n\t"
++		"add		%0, %0, t4\n\t"
++		"vse8.v		v24, (%0)\n\t"
++		: : "r" (datap) : "t4", "memory");
 +	riscv_v_disable();
 +}
 +
++static inline void __riscv_v_vstate_restore(struct __riscv_v_ext_state *restore_from,
++				    void *datap)
++{
++	riscv_v_enable();
++	asm volatile (
++		"vsetvli	t4, x0, e8, m8, ta, ma\n\t"
++		"vle8.v		v0, (%0)\n\t"
++		"add		%0, %0, t4\n\t"
++		"vle8.v		v8, (%0)\n\t"
++		"add		%0, %0, t4\n\t"
++		"vle8.v		v16, (%0)\n\t"
++		"add		%0, %0, t4\n\t"
++		"vle8.v		v24, (%0)\n\t"
++		: : "r" (datap) : "t4");
++	__vstate_csr_restore(restore_from);
++	riscv_v_disable();
++}
++
+ #else /* ! CONFIG_RISCV_ISA_V  */
+ 
++struct pt_regs;
++
+ static __always_inline bool has_vector(void) { return false; }
++static inline bool riscv_v_vstate_query(struct pt_regs *regs) { return false; }
+ #define riscv_v_vsize (0)
+ #define riscv_v_setup_vsize()	 do {} while (0)
++#define riscv_v_vstate_off(regs)		do {} while (0)
++#define riscv_v_vstate_on(regs)			do {} while (0)
+ 
+ #endif /* CONFIG_RISCV_ISA_V */
+ 
+diff --git a/arch/riscv/include/uapi/asm/ptrace.h b/arch/riscv/include/uapi/asm/ptrace.h
+index 882547f6bd5c..586786d023c4 100644
+--- a/arch/riscv/include/uapi/asm/ptrace.h
++++ b/arch/riscv/include/uapi/asm/ptrace.h
+@@ -77,6 +77,23 @@ union __riscv_fp_state {
+ 	struct __riscv_q_ext_state q;
+ };
+ 
++struct __riscv_v_ext_state {
++	unsigned long vstart;
++	unsigned long vl;
++	unsigned long vtype;
++	unsigned long vcsr;
++	void *datap;
++	/*
++	 * In signal handler, datap will be set a correct user stack offset
++	 * and vector registers will be copied to the address of datap
++	 * pointer.
++	 *
++	 * In ptrace syscall, datap will be set to zero and the vector
++	 * registers will be copied to the address right after this
++	 * structure.
++	 */
++};
++
+ #endif /* __ASSEMBLY__ */
+ 
+ #endif /* _UAPI_ASM_RISCV_PTRACE_H */
 -- 
 2.17.1
 
