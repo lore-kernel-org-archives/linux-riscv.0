@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20A2EC6FA8E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B72DC7EE23
 	for <linux-riscv@archiver.kernel.org>; Fri, 24 Feb 2023 17:31:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,54 +12,54 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Rmn+xffy+S+SvEh9CJaL6B2LDCtpmc0a/IqVLNZAM9s=; b=ks2TvuLh9Huijw
-	6c6h7NeKTmC7bES3M6lA4y126bBdXzVQTNQrvsILVxripTBDPCQqQ5tsLvEPQ0SGpU6aOlK0jgDiZ
-	IIylBB+wSa8p6KjEo3R/hPkwI6GhFAzwzvJrCuIsM3DxqXapwUkv9R0yb3QyLNLTgqyPovJKFSTM3
-	Z9KlaX4hAqyxWq9ZKRqGvzswsVPo1MdyG6aWNVCwqqPQ8gJ5YSGEmTQp9VH8A5c016+cjU7JllhOv
-	QAnV2P2pMU3bdstpT4xsf/9hSkcW+gtn/D/xDJTW5TwlOxUv2Xbs4HVogc9NT5fnGM9NRQ1HPG0LX
-	xd626ZPL4A8WUMFOl/tQ==;
+	List-Owner; bh=tp8HQ1cO959L7YjZ9U0kZzdl0R7y1gYDf+zGSib/Dx8=; b=3GXbmVoF/ej+WO
+	ixbrdIK8vUboL8wzFI0QGt9tLo+dMhzfOfacEfVkDvyrqMqplNHiN6kGAwUvkShduzk59YUr93zc5
+	EBkuG+wpWQXKBtT9DVMILnK0iNlC203IX7ZMeKjktNBtijXyxQROP4qyzKFti+JDnRBT/UvF+KEhI
+	YHt/HWhLc7utSuxdQTjeNUFIH8BEO48J5WusyL5tuBKtwaxpD7IX8mN992SFyO4Gz3nw5P/kSjBc2
+	aDjg0aEye+h0O4e8nkqFoqJxPGUyetukvg701rS2Y6DU/xjam+4YAguUVepicOR/oLkObUx71cQTx
+	ceQORFjGMvDR3iDjeHuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pVbuQ-003JJL-ID; Fri, 24 Feb 2023 17:31:02 +0000
-Received: from mail-wr1-f49.google.com ([209.85.221.49])
+	id 1pVbuN-003JHf-85; Fri, 24 Feb 2023 17:30:59 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pVauC-00378K-T8
-	for linux-riscv@lists.infradead.org; Fri, 24 Feb 2023 16:26:46 +0000
-Received: by mail-wr1-f49.google.com with SMTP id q16so4153895wrw.2
-        for <linux-riscv@lists.infradead.org>; Fri, 24 Feb 2023 08:26:43 -0800 (PST)
+	id 1pVau8-00375D-54
+	for linux-riscv@lists.infradead.org; Fri, 24 Feb 2023 16:26:42 +0000
+Received: by mail-wr1-x432.google.com with SMTP id 6so14096931wrb.11
+        for <linux-riscv@lists.infradead.org>; Fri, 24 Feb 2023 08:26:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=ventanamicro.com; s=google;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=/Z6tZFFE5BTtnAERh23ZFuGlAMKjWB1LeNlstGrShuA=;
-        b=Vy71SU7zuNIXJiH/qB1kiXZfMEfbB0uoSbnTAnzP1PjTxaknmh+uieMfRQ6/zp3xwI
-         1E0yfSZRExBO6kXuBZ82OuZcPS+SA3bXdWyGMvPV6vhXVvnifzs1o/w3kobRRYgNct3w
-         rkkjMf3lVRjipghLhcn1DmgDh676bVYG+nwh09AJ61Lq/e2GCjrP0fK7E1wcEny1D/Hg
-         Qu6sSvnhbbuUHEse4hbl84VcYhM3RXXJzJafSlqWdRGIFFQUPQxoJqKIJiMP7V5/YkZC
-         2tvWjg6zURxTidnqq/Jl/Cu/1On97PKDfMO814pQ0+Z84XRQ8rCmzQbvtjIfHlxBNgpG
-         Xrug==
+        bh=pJYbQbc0fp/1TEeivoz5jqaz0elP91c/5Hx47qRP3S8=;
+        b=T9k3WNwF4SgXouAMaIQEpElSSyQKpHZS9zR9oid7jReaBACXj9/6ILxMRNnYeQcnn5
+         2QFIROiy7JTL2aYrE4N45Ta5CIxhL65TaFUNpIIvZiRHMMzov7LTDSgmDX7KrrCcZYsz
+         MXGf85V3Aq9mQjKrtW28cBaqCIB5VMymx+R2CNx0NdMUjetJceDRqAaJWgqypeOpiTck
+         z/FqID1Dxwdr45nbAfTob1b4XrQoarv5uoLlIYJmZXd+GRE0Hf/GmOuQJleh0NHWCeeq
+         3FnJT8Vz90VBe4VrDN2xP7n/5opfhdA2meUQeZR4UCTEVG8ADdZOLvKrodzu3fd6txr8
+         E58w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=/Z6tZFFE5BTtnAERh23ZFuGlAMKjWB1LeNlstGrShuA=;
-        b=SCvK7+l8Ucp+h/Gpu1UX/hZm47EAbHS/MezssM+47avZiZ+E1/pvKVPXZ1MJrngtGT
-         EeTrwGGYny5QzG2NCJAqhuLMtmv5fKdL8UyBcIh43eIB+MIKrJMwfzQPyVWis+7oV0b6
-         DUL/1D2cCUqURDrF7dWQZG/SciXrw5sbGKBYsIsGoR3jUbzeYRSvcs0dp/5bE5qsnO/t
-         DWNB5Ko5zi6o4spzXN4PCAgR2XFpQbO425egy3n3XvvIQTV2SPEG0HIUoS88uEoozIZH
-         t9VEHlOBcVFAYZWktUi+Z7C2IQ+7uEf2cNAH08/0xa02gshjl1t2layYGIYyKuVvPG+S
-         nfPQ==
-X-Gm-Message-State: AO0yUKVlRoUf6QRE1BMPlNZujSCyoTYkB9y4mTjRE3YBpSuPWRbsRzhY
-	ifrI7EpGdS6SG0jr6wfy9zlU+FP//gViVHc8
-X-Google-Smtp-Source: AK7set/VtgsyzXm8Ap48VZCq1ILylsYFDhexWn5ba7SjzSOIRQncUWlH4PUYTDZ/8fn10OmbbTANfA==
-X-Received: by 2002:a05:6000:89:b0:2c8:42b5:8025 with SMTP id m9-20020a056000008900b002c842b58025mr640072wrx.47.1677256001439;
-        Fri, 24 Feb 2023 08:26:41 -0800 (PST)
+        bh=pJYbQbc0fp/1TEeivoz5jqaz0elP91c/5Hx47qRP3S8=;
+        b=qLVX10MjOigytLGXvHkBE3YB7pPbglI7IlRKjimO5M1K0EbDcpzhdPbEcJzzgN8mlD
+         mmhu24O/4Mq8mbzvbgn8uBi76nlq+FisKlX6QHUP253DScAwdaz0DCDczfxJCkMFVCXj
+         jKRipQ3Ftnq5cC8UhFnJtcxSaGRI6G2le+sHb6yppRBmS29ZYqHz94nhIZl6iG1LMouA
+         jBPZ494f82KIP6qtuq0Pd3/qD4+HZI01os8FgXBYdHexgd49Soc6HFu17f5a6GbGGem9
+         xtM0SFT8ZJEN+CsHZcE/wTkbY/O+gX3sTrk4/dHQQsPnrytuFHohgHoeznRPz6YaOwoW
+         HFVQ==
+X-Gm-Message-State: AO0yUKUrNmnAPjO+fAoFK5gXF5IIU9a+b+axUumUUkVz57VOELfLjNwM
+	sgFZlVOs0XDkJ9Cqt7zp8l5jE3iTKKR0E9pJ
+X-Google-Smtp-Source: AK7set+OdB+nNMNrDkf8ZsIb/m/7AziP4DhVrARdnyFGkIMk9cLJYfRn1jdgP8eW7KMoa+q5qUmoLQ==
+X-Received: by 2002:a5d:5683:0:b0:2c6:676c:4af with SMTP id f3-20020a5d5683000000b002c6676c04afmr12927717wrv.36.1677255998611;
+        Fri, 24 Feb 2023 08:26:38 -0800 (PST)
 Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id y7-20020a1c4b07000000b003daf672a616sm3318597wma.22.2023.02.24.08.26.40
+        by smtp.gmail.com with ESMTPSA id a18-20020adfe5d2000000b002be505ab59asm14229155wrn.97.2023.02.24.08.26.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Feb 2023 08:26:41 -0800 (PST)
+        Fri, 24 Feb 2023 08:26:38 -0800 (PST)
 From: Andrew Jones <ajones@ventanamicro.com>
 To: linux-riscv@lists.infradead.org,
 	kvm-riscv@lists.infradead.org,
@@ -75,18 +75,17 @@ Cc: 'Conor Dooley ' <conor.dooley@microchip.com>,
 	'Krzysztof Kozlowski ' <krzysztof.kozlowski+dt@linaro.org>,
 	'Rob Herring ' <robh@kernel.org>,
 	'Jisheng Zhang ' <jszhang@kernel.org>,
-	'Heiko Stuebner ' <heiko@sntech.de>,
-	Anup Patel <anup@brainfault.org>
-Subject: [PATCH v6 7/8] RISC-V: KVM: Provide UAPI for Zicboz block size
-Date: Fri, 24 Feb 2023 17:26:30 +0100
-Message-Id: <20230224162631.405473-8-ajones@ventanamicro.com>
+	'Heiko Stuebner ' <heiko@sntech.de>
+Subject: [PATCH v6 5/8] RISC-V: cpufeatures: Put the upper 16 bits of patch ID to work
+Date: Fri, 24 Feb 2023 17:26:28 +0100
+Message-Id: <20230224162631.405473-6-ajones@ventanamicro.com>
 X-Mailer: git-send-email 2.39.1
 In-Reply-To: <20230224162631.405473-1-ajones@ventanamicro.com>
 References: <20230224162631.405473-1-ajones@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230224_082644_962427_369B962E 
-X-CRM114-Status: GOOD (  10.90  )
+X-CRM114-CacheID: sfid-20230224_082640_275847_F6789907 
+X-CRM114-Status: GOOD (  17.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,57 +102,110 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-We're about to allow guests to use the Zicboz extension. KVM
-userspace needs to know the cache block size in order to
-properly advertise it to the guest. Provide a virtual config
-register for userspace to get it with the GET_ONE_REG API, but
-setting it cannot be supported, so disallow SET_ONE_REG.
+cpufeature IDs are consecutive integers starting at 26, so a 32-bit
+patch ID allows an aircraft carrier load of feature IDs. Repurposing
+the upper 16 bits still leaves a boat load of feature IDs and gains
+16 bits which may be used to control patching on a per patch-site
+basis.
+
+This will be initially used in Zicboz's application to clear_page(),
+as Zicboz's block size must also be considered. In that case, the
+upper 16-bit value's role will be to convey the maximum block size
+which the Zicboz clear_page() implementation supports.
+
+cpufeature patch sites which need to check for the existence or
+absence of other cpufeatures may also be able to make use of this.
 
 Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
 Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: Anup Patel <anup@brainfault.org>
 ---
- arch/riscv/include/uapi/asm/kvm.h | 1 +
- arch/riscv/kvm/vcpu.c             | 7 +++++++
- 2 files changed, 8 insertions(+)
+ arch/riscv/include/asm/alternative.h |  4 +++
+ arch/riscv/kernel/cpufeature.c       | 37 +++++++++++++++++++++++++---
+ 2 files changed, 37 insertions(+), 4 deletions(-)
 
-diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
-index 92af6f3f057c..c1a1bb0fa91c 100644
---- a/arch/riscv/include/uapi/asm/kvm.h
-+++ b/arch/riscv/include/uapi/asm/kvm.h
-@@ -52,6 +52,7 @@ struct kvm_riscv_config {
- 	unsigned long mvendorid;
- 	unsigned long marchid;
- 	unsigned long mimpid;
-+	unsigned long zicboz_block_size;
- };
+diff --git a/arch/riscv/include/asm/alternative.h b/arch/riscv/include/asm/alternative.h
+index c8dea9e94310..58ccd2f8cab7 100644
+--- a/arch/riscv/include/asm/alternative.h
++++ b/arch/riscv/include/asm/alternative.h
+@@ -13,10 +13,14 @@
+ #ifdef CONFIG_RISCV_ALTERNATIVE
  
- /* CORE registers for KVM_GET_ONE_REG and KVM_SET_ONE_REG */
-diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-index 7c08567097f0..e5126cefbc87 100644
---- a/arch/riscv/kvm/vcpu.c
-+++ b/arch/riscv/kvm/vcpu.c
-@@ -276,6 +276,11 @@ static int kvm_riscv_vcpu_get_reg_config(struct kvm_vcpu *vcpu,
- 			return -EINVAL;
- 		reg_val = riscv_cbom_block_size;
- 		break;
-+	case KVM_REG_RISCV_CONFIG_REG(zicboz_block_size):
-+		if (!riscv_isa_extension_available(vcpu->arch.isa, ZICBOZ))
-+			return -EINVAL;
-+		reg_val = riscv_cboz_block_size;
-+		break;
- 	case KVM_REG_RISCV_CONFIG_REG(mvendorid):
- 		reg_val = vcpu->arch.mvendorid;
- 		break;
-@@ -347,6 +352,8 @@ static int kvm_riscv_vcpu_set_reg_config(struct kvm_vcpu *vcpu,
- 		break;
- 	case KVM_REG_RISCV_CONFIG_REG(zicbom_block_size):
- 		return -EOPNOTSUPP;
-+	case KVM_REG_RISCV_CONFIG_REG(zicboz_block_size):
-+		return -EOPNOTSUPP;
- 	case KVM_REG_RISCV_CONFIG_REG(mvendorid):
- 		if (!vcpu->arch.ran_atleast_once)
- 			vcpu->arch.mvendorid = reg_val;
+ #include <linux/init.h>
++#include <linux/kernel.h>
+ #include <linux/types.h>
+ #include <linux/stddef.h>
+ #include <asm/hwcap.h>
+ 
++#define PATCH_ID_CPUFEATURE_ID(p)		lower_16_bits(p)
++#define PATCH_ID_CPUFEATURE_VALUE(p)		upper_16_bits(p)
++
+ #define RISCV_ALTERNATIVES_BOOT		0 /* alternatives applied during regular boot */
+ #define RISCV_ALTERNATIVES_MODULE	1 /* alternatives applied during module-init */
+ #define RISCV_ALTERNATIVES_EARLY_BOOT	2 /* alternatives applied before mmu start */
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 538779d03311..d424cd76beb1 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -274,12 +274,35 @@ void __init riscv_fill_hwcap(void)
+ }
+ 
+ #ifdef CONFIG_RISCV_ALTERNATIVE
++/*
++ * Alternative patch sites consider 48 bits when determining when to patch
++ * the old instruction sequence with the new. These bits are broken into a
++ * 16-bit vendor ID and a 32-bit patch ID. A non-zero vendor ID means the
++ * patch site is for an erratum, identified by the 32-bit patch ID. When
++ * the vendor ID is zero, the patch site is for a cpufeature. cpufeatures
++ * further break down patch ID into two 16-bit numbers. The lower 16 bits
++ * are the cpufeature ID and the upper 16 bits are used for a value specific
++ * to the cpufeature and patch site. If the upper 16 bits are zero, then it
++ * implies no specific value is specified. cpufeatures that want to control
++ * patching on a per-site basis will provide non-zero values and implement
++ * checks here. The checks return true when patching should be done, and
++ * false otherwise.
++ */
++static bool riscv_cpufeature_patch_check(u16 id, u16 value)
++{
++	if (!value)
++		return true;
++
++	return false;
++}
++
+ void __init_or_module riscv_cpufeature_patch_func(struct alt_entry *begin,
+ 						  struct alt_entry *end,
+ 						  unsigned int stage)
+ {
+ 	struct alt_entry *alt;
+ 	void *oldptr, *altptr;
++	u16 id, value;
+ 
+ 	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
+ 		return;
+@@ -287,13 +310,19 @@ void __init_or_module riscv_cpufeature_patch_func(struct alt_entry *begin,
+ 	for (alt = begin; alt < end; alt++) {
+ 		if (alt->vendor_id != 0)
+ 			continue;
+-		if (alt->patch_id >= RISCV_ISA_EXT_MAX) {
+-			WARN(1, "This extension id:%d is not in ISA extension list",
+-				alt->patch_id);
++
++		id = PATCH_ID_CPUFEATURE_ID(alt->patch_id);
++
++		if (id >= RISCV_ISA_EXT_MAX) {
++			WARN(1, "This extension id:%d is not in ISA extension list", id);
+ 			continue;
+ 		}
+ 
+-		if (!__riscv_isa_extension_available(NULL, alt->patch_id))
++		if (!__riscv_isa_extension_available(NULL, id))
++			continue;
++
++		value = PATCH_ID_CPUFEATURE_VALUE(alt->patch_id);
++		if (!riscv_cpufeature_patch_check(id, value))
+ 			continue;
+ 
+ 		oldptr = ALT_OLD_PTR(alt);
 -- 
 2.39.1
 
