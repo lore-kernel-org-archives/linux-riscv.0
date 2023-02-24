@@ -4,65 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10A3DC61DA3
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Feb 2023 15:59:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F90BC7EE2F
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Feb 2023 16:26:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=l/qqDvq1COIZ3vsaXSJwE8G8Gjlk+qkuZsHoovRY/p0=; b=sO83xMdn78VB0x
-	UYQmMPbXxt4T1OlQzwLGPkPRTo1ix+1fKYSuXqrQB7QDrxLoKNJmbfb3RVrCPR3wVSkua3lizsoeE
-	jdMVyxfn6CenmJW7yrp3sbd36ofL9MzSLoF4Ie7g6Wd7JEleVwuLSBDenxhctZkRS1/bUK8g4br1m
-	XMEew6oFDdbN/dMAYrqeHlI3MWnM0aVfG8N4jqX07USClhlP+UudxmOwP/SHJp3hmxY0ZR/tSSUNW
-	+ycyuK6PX1QELybom/XI0QqhVo5gN3G/Xcg54f0T8araykepwcE7CKOqN35ptnj8CMqHAnHU1Vq9G
-	RbXtVj/7k/65mCY+WQDg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=A9fA4ps96NeVwjHfNDQOvayy/XoMlHfehFRqJxai0W8=; b=hU58ttkvUk5scW
+	SjAThP+u4dimmnMd9I24MuIVTbWIIq1UCiCQsB8BFH3G43fWwcNVMeWQYnG9dM/cqWvz/nw9kUD5l
+	mk5pdG5DlcEHpHlSDpqmAtGJ5D3hLAto7ch6I0ZpJbAC9ZcK2mmCLReBq1lDlNskpoUgeYiAwHKi8
+	Cqq4bnxlZTko8Owcg/4qaxkSMqi6Yo8j99L4htkgtyZJYMhsBJXv5bd4GQMVV5AwIc/V9jMXbfrZq
+	tI1NWWeL1GKY539bt+62jYf1OvaXrrZJHV2HUEAMUyswkgPMRBdUpR75Vjj/rcH7zxv2bmf8g7Lk1
+	wt8DzDKM1nGZBpXPHdWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pVaTO-0032cK-AM; Fri, 24 Feb 2023 15:59:02 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pVau7-003759-5N; Fri, 24 Feb 2023 16:26:39 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pVaTK-0032bK-Ad
-	for linux-riscv@lists.infradead.org; Fri, 24 Feb 2023 15:59:00 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 2171A618E6;
-	Fri, 24 Feb 2023 15:58:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 118FDC433D2;
-	Fri, 24 Feb 2023 15:58:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1677254335;
-	bh=rRfXjsGBMvvnDz60uwLB5dc9ju4oNbQeuN0GLhjFFZk=;
-	h=From:To:Subject:In-Reply-To:References:Date:From;
-	b=IV+x2SOKujlDxRkpOOclYLhRMxavxs2ZgAVNSvw7w90V9xvyuyFfsJCv80gYcOG2p
-	 A4TsrQ/qWG2iKNVl3avpevUIt5GA93ovI/qxOn7KRfjQxoOnikKjPiXeR7hhdclS6q
-	 dqmICBshEsrCnUZnXi2fTr77wbblb1vHL/rZvDQG8+JRWHjmvTQn465vrIBEOHJ7Iz
-	 OcdwuhdpCS1R/LJKz0LToyAjRK19HbZPcprjDc1e+B3ESMEvkoWdKClgQQu+6mliia
-	 B68A719Xz9UxYpvtgkDRGcfVlkhGZKsdVyehclJsK+pzSytz6pbulYjyBSnzYllZVj
-	 F5Yvnz7APGcSQ==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Alexandre Ghiti <alex@ghiti.fr>, Alexandre Ghiti
- <alexghiti@rivosinc.com>, Michael Ellerman <mpe@ellerman.id.au>, Nicholas
- Piggin <npiggin@gmail.com>, Christophe Leroy
- <christophe.leroy@csgroup.eu>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, nathan@kernel.org,
- linux-kbuild@vger.kernel.org, llvm@lists.linux.dev,
- ndesaulniers@google.com
-Subject: Re: [PATCH v8 1/3] riscv: Introduce CONFIG_RELOCATABLE
-In-Reply-To: <4a6fc7a3-9697-a49b-0941-97f32194b0d7@ghiti.fr>
-References: <20230215143626.453491-1-alexghiti@rivosinc.com>
- <20230215143626.453491-2-alexghiti@rivosinc.com>
- <4a6fc7a3-9697-a49b-0941-97f32194b0d7@ghiti.fr>
-Date: Fri, 24 Feb 2023 16:58:52 +0100
-Message-ID: <877cw7dphf.fsf@all.your.base.are.belong.to.us>
+	id 1pVau4-00371e-1X
+	for linux-riscv@lists.infradead.org; Fri, 24 Feb 2023 16:26:37 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id p26so18598wmc.4
+        for <linux-riscv@lists.infradead.org>; Fri, 24 Feb 2023 08:26:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=t9XbWHh7z6xgH5ybAb50Re8BsD/CWjb0q5NB4qWpec8=;
+        b=gsHKxSc3W9Zg5Bwa49/u6XCMwFmMozy5gZOPAcKwyNE+3BbQC+e3sFtFbXn864pb4b
+         smxfrVzr42Nhl5qOR4ejNJI2UT7Yz9SDQXHZHdXthOKbW/VLttOGPIgaUD97VIKYdSHF
+         9tuA/U3Hp+dMFtRcjUqB5vKLUqL19CCg/Y2wsW2d+rYpcMQ61EIUlyT60RXIdCyf3cYK
+         PvU9aGHJSsHHRMQOCdzogh/PYH8GdGKZJeXZK1en2aFCOG8ZWL7cPy0fuy7cws5fa+i9
+         7Ztx6iYS2rDbj/Nj1rKQl4H2P+iHZ0N9y1Ia+bJH5XDN7EKuP4qHL/5X/4rL7VjRjfXJ
+         UF3Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=t9XbWHh7z6xgH5ybAb50Re8BsD/CWjb0q5NB4qWpec8=;
+        b=WGE6H0Cnw7rQSHEbhjrQVe10vUbJFjShwJmzY5OSghvXtZEPv26osTYBCA+FpRX5lr
+         cbTwOtqeesDUYT+mDTwetaman9wTqpW5KTXRYVAn3SIYEwryxHcNmMvRDpzcXr/glU4T
+         NjVDw5DGzko/eVB/H49Z55mBFNLEzS02DYvAAskrFGj4oUEX2eBhSvW9wdTG6/AuXpwZ
+         80ZZqhKhnFv2GjT9dAzU8eryb/hALn6F11uz82KTZwjRzqRoJymhG18IBX85iJmQcsk0
+         +uW0R+A+bva/FsrqF9Tgc/ttYER1YI6qpyXW83H7aBjOp4AYg35VjjSIeoJk/PRf2Pj+
+         sT0g==
+X-Gm-Message-State: AO0yUKUwjG6mSbspay3yaYkpWap8shJL47DsAy0FiATxvtAyJ1xlxnNb
+	AaD2eeU1qWxRfmN5ZW37ekA0HBKywPJLWkQx
+X-Google-Smtp-Source: AK7set8ukUPh65qDDxzUQFuvobiA31BDiqMniPH3YEdUSNAmm/HLb2YZzIQ94J5cJRZx13PIJ/67bQ==
+X-Received: by 2002:a05:600c:3b85:b0:3ea:e7f7:65e2 with SMTP id n5-20020a05600c3b8500b003eae7f765e2mr3425401wms.26.1677255992156;
+        Fri, 24 Feb 2023 08:26:32 -0800 (PST)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id e8-20020a7bc2e8000000b003e6efc0f91csm3336755wmk.42.2023.02.24.08.26.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 24 Feb 2023 08:26:31 -0800 (PST)
+From: Andrew Jones <ajones@ventanamicro.com>
+To: linux-riscv@lists.infradead.org,
+	kvm-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org
+Cc: 'Conor Dooley ' <conor.dooley@microchip.com>,
+	'Paul Walmsley ' <paul.walmsley@sifive.com>,
+	'Palmer Dabbelt ' <palmer@dabbelt.com>,
+	'Sudip Mukherjee ' <sudip.mukherjee@codethink.co.uk>,
+	'Ben Dooks ' <ben.dooks@codethink.co.uk>,
+	'Atish Patra ' <atishp@rivosinc.com>,
+	'Albert Ou ' <aou@eecs.berkeley.edu>,
+	'Anup Patel ' <apatel@ventanamicro.com>,
+	'Krzysztof Kozlowski ' <krzysztof.kozlowski+dt@linaro.org>,
+	'Rob Herring ' <robh@kernel.org>,
+	'Jisheng Zhang ' <jszhang@kernel.org>,
+	'Heiko Stuebner ' <heiko@sntech.de>
+Subject: [PATCH v6 0/8] RISC-V: Apply Zicboz to clear_page
+Date: Fri, 24 Feb 2023 17:26:23 +0100
+Message-Id: <20230224162631.405473-1-ajones@ventanamicro.com>
+X-Mailer: git-send-email 2.39.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230224_075858_491848_F7B50EEF 
-X-CRM114-Status: GOOD (  26.78  )
+X-CRM114-CacheID: sfid-20230224_082636_097292_2C465F36 
+X-CRM114-Status: GOOD (  20.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,136 +94,137 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-QWxleGFuZHJlIEdoaXRpIDxhbGV4QGdoaXRpLmZyPiB3cml0ZXM6Cgo+ICtjYyBsaW51eC1rYnVp
-bGQsIGxsdm0sIE5hdGhhbiwgTmljawo+Cj4gT24gMi8xNS8yMyAxNTozNiwgQWxleGFuZHJlIEdo
-aXRpIHdyb3RlOgo+PiBGcm9tOiBBbGV4YW5kcmUgR2hpdGkgPGFsZXhAZ2hpdGkuZnI+Cj4+Cj4+
-IFRoaXMgY29uZmlnIGFsbG93cyB0byBjb21waWxlIDY0YiBrZXJuZWwgYXMgUElFIGFuZCB0byBy
-ZWxvY2F0ZSBpdCBhdAo+PiBhbnkgdmlydHVhbCBhZGRyZXNzIGF0IHJ1bnRpbWU6IHRoaXMgcGF2
-ZXMgdGhlIHdheSB0byBLQVNMUi4KPj4gUnVudGltZSByZWxvY2F0aW9uIGlzIHBvc3NpYmxlIHNp
-bmNlIHJlbG9jYXRpb24gbWV0YWRhdGEgYXJlIGVtYmVkZGVkIGludG8KPj4gdGhlIGtlcm5lbC4K
-Pj4KPj4gTm90ZSB0aGF0IHJlbG9jYXRpbmcgYXQgcnVudGltZSBpbnRyb2R1Y2VzIGFuIG92ZXJo
-ZWFkIGV2ZW4gaWYgdGhlCj4+IGtlcm5lbCBpcyBsb2FkZWQgYXQgdGhlIHNhbWUgYWRkcmVzcyBp
-dCB3YXMgbGlua2VkIGF0IGFuZCB0aGF0IHRoZSBjb21waWxlcgo+PiBvcHRpb25zIGFyZSB0aG9z
-ZSB1c2VkIGluIGFybTY0IHdoaWNoIHVzZXMgdGhlIHNhbWUgUkVMQSByZWxvY2F0aW9uCj4+IGZv
-cm1hdC4KPj4KPj4gU2lnbmVkLW9mZi1ieTogQWxleGFuZHJlIEdoaXRpIDxhbGV4QGdoaXRpLmZy
-Pgo+PiAtLS0KPj4gICBhcmNoL3Jpc2N2L0tjb25maWcgICAgICAgICAgICAgIHwgMTQgKysrKysr
-KysrCj4+ICAgYXJjaC9yaXNjdi9NYWtlZmlsZSAgICAgICAgICAgICB8ICA3ICsrKy0tCj4+ICAg
-YXJjaC9yaXNjdi9rZXJuZWwvZWZpLWhlYWRlci5TICB8ICA2ICsrLS0KPj4gICBhcmNoL3Jpc2N2
-L2tlcm5lbC92bWxpbnV4Lmxkcy5TIHwgMTAgKysrKy0tCj4+ICAgYXJjaC9yaXNjdi9tbS9NYWtl
-ZmlsZSAgICAgICAgICB8ICA0ICsrKwo+PiAgIGFyY2gvcmlzY3YvbW0vaW5pdC5jICAgICAgICAg
-ICAgfCA1NCArKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKy0KPj4gICA2IGZpbGVzIGNo
-YW5nZWQsIDg3IGluc2VydGlvbnMoKyksIDggZGVsZXRpb25zKC0pCj4+Cj4+IGRpZmYgLS1naXQg
-YS9hcmNoL3Jpc2N2L0tjb25maWcgYi9hcmNoL3Jpc2N2L0tjb25maWcKPj4gaW5kZXggZTJiNjU2
-MDQzYWJmLi5lMGVlN2NlNGIyZTMgMTAwNjQ0Cj4+IC0tLSBhL2FyY2gvcmlzY3YvS2NvbmZpZwo+
-PiArKysgYi9hcmNoL3Jpc2N2L0tjb25maWcKPj4gQEAgLTU0NCw2ICs1NDQsMjAgQEAgY29uZmln
-IENPTVBBVAo+PiAgIAo+PiAgIAkgIElmIHlvdSB3YW50IHRvIGV4ZWN1dGUgMzItYml0IHVzZXJz
-cGFjZSBhcHBsaWNhdGlvbnMsIHNheSBZLgo+PiAgIAo+PiArY29uZmlnIFJFTE9DQVRBQkxFCj4+
-ICsJYm9vbCAiQnVpbGQgYSByZWxvY2F0YWJsZSBrZXJuZWwiCj4+ICsJZGVwZW5kcyBvbiBNTVUg
-JiYgNjRCSVQgJiYgIVhJUF9LRVJORUwKPj4gKwloZWxwCj4+ICsgICAgICAgICAgVGhpcyBidWls
-ZHMgYSBrZXJuZWwgYXMgYSBQb3NpdGlvbiBJbmRlcGVuZGVudCBFeGVjdXRhYmxlIChQSUUpLAo+
-PiArICAgICAgICAgIHdoaWNoIHJldGFpbnMgYWxsIHJlbG9jYXRpb24gbWV0YWRhdGEgcmVxdWly
-ZWQgdG8gcmVsb2NhdGUgdGhlCj4+ICsgICAgICAgICAga2VybmVsIGJpbmFyeSBhdCBydW50aW1l
-IHRvIGEgZGlmZmVyZW50IHZpcnR1YWwgYWRkcmVzcyB0aGFuIHRoZQo+PiArICAgICAgICAgIGFk
-ZHJlc3MgaXQgd2FzIGxpbmtlZCBhdC4KPj4gKyAgICAgICAgICBTaW5jZSBSSVNDViB1c2VzIHRo
-ZSBSRUxBIHJlbG9jYXRpb24gZm9ybWF0LCB0aGlzIHJlcXVpcmVzIGEKPj4gKyAgICAgICAgICBy
-ZWxvY2F0aW9uIHBhc3MgYXQgcnVudGltZSBldmVuIGlmIHRoZSBrZXJuZWwgaXMgbG9hZGVkIGF0
-IHRoZQo+PiArICAgICAgICAgIHNhbWUgYWRkcmVzcyBpdCB3YXMgbGlua2VkIGF0Lgo+PiArCj4+
-ICsgICAgICAgICAgSWYgdW5zdXJlLCBzYXkgTi4KPj4gKwo+PiAgIGVuZG1lbnUgIyAiS2VybmVs
-IGZlYXR1cmVzIgo+PiAgIAo+PiAgIG1lbnUgIkJvb3Qgb3B0aW9ucyIKPj4gZGlmZiAtLWdpdCBh
-L2FyY2gvcmlzY3YvTWFrZWZpbGUgYi9hcmNoL3Jpc2N2L01ha2VmaWxlCj4+IGluZGV4IDgyMTUz
-OTYwYWMwMC4uOTdjMzQxMzZiMDI3IDEwMDY0NAo+PiAtLS0gYS9hcmNoL3Jpc2N2L01ha2VmaWxl
-Cj4+ICsrKyBiL2FyY2gvcmlzY3YvTWFrZWZpbGUKPj4gQEAgLTcsOSArNywxMiBAQAo+PiAgICMK
-Pj4gICAKPj4gICBPQkpDT1BZRkxBR1MgICAgOj0gLU8gYmluYXJ5Cj4+IC1MREZMQUdTX3ZtbGlu
-dXggOj0KPj4gK2lmZXEgKCQoQ09ORklHX1JFTE9DQVRBQkxFKSx5KQo+PiArCUxERkxBR1Nfdm1s
-aW51eCArPSAtc2hhcmVkIC1Cc3ltYm9saWMgLXogbm90ZXh0IC16IG5vcmVscm8KPj4gKwlLQlVJ
-TERfQ0ZMQUdTICs9IC1mUElFCj4+ICtlbmRpZgo+PiAgIGlmZXEgKCQoQ09ORklHX0RZTkFNSUNf
-RlRSQUNFKSx5KQo+PiAtCUxERkxBR1Nfdm1saW51eCA6PSAtLW5vLXJlbGF4Cj4+ICsJTERGTEFH
-U192bWxpbnV4ICs9IC0tbm8tcmVsYXgKPj4gICAJS0JVSUxEX0NQUEZMQUdTICs9IC1EQ0NfVVNJ
-TkdfUEFUQ0hBQkxFX0ZVTkNUSU9OX0VOVFJZCj4+ICAgCUNDX0ZMQUdTX0ZUUkFDRSA6PSAtZnBh
-dGNoYWJsZS1mdW5jdGlvbi1lbnRyeT04Cj4+ICAgZW5kaWYKPj4gZGlmZiAtLWdpdCBhL2FyY2gv
-cmlzY3Yva2VybmVsL2VmaS1oZWFkZXIuUyBiL2FyY2gvcmlzY3Yva2VybmVsL2VmaS1oZWFkZXIu
-Uwo+PiBpbmRleCA4ZTczM2FhNDhiYTYuLmY3ZWUwOWM0ZjEyZCAxMDA2NDQKPj4gLS0tIGEvYXJj
-aC9yaXNjdi9rZXJuZWwvZWZpLWhlYWRlci5TCj4+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL2Vm
-aS1oZWFkZXIuUwo+PiBAQCAtMzMsNyArMzMsNyBAQCBvcHRpb25hbF9oZWFkZXI6Cj4+ICAgCS5i
-eXRlCTB4MDIJCQkJCS8vIE1ham9yTGlua2VyVmVyc2lvbgo+PiAgIAkuYnl0ZQkweDE0CQkJCQkv
-LyBNaW5vckxpbmtlclZlcnNpb24KPj4gICAJLmxvbmcJX19wZWNvZmZfdGV4dF9lbmQgLSBlZmlf
-aGVhZGVyX2VuZAkvLyBTaXplT2ZDb2RlCj4+IC0JLmxvbmcJX19wZWNvZmZfZGF0YV92aXJ0X3Np
-emUJCQkvLyBTaXplT2ZJbml0aWFsaXplZERhdGEKPj4gKwkubG9uZwlfX3BlY29mZl9kYXRhX3Zp
-cnRfZW5kIC0gX19wZWNvZmZfdGV4dF9lbmQJLy8gU2l6ZU9mSW5pdGlhbGl6ZWREYXRhCj4+ICAg
-CS5sb25nCTAJCQkJCS8vIFNpemVPZlVuaW5pdGlhbGl6ZWREYXRhCj4+ICAgCS5sb25nCV9fZWZp
-c3R1Yl9lZmlfcGVfZW50cnkgLSBfc3RhcnQJCS8vIEFkZHJlc3NPZkVudHJ5UG9pbnQKPj4gICAJ
-LmxvbmcJZWZpX2hlYWRlcl9lbmQgLSBfc3RhcnQJCQkvLyBCYXNlT2ZDb2RlCj4+IEBAIC05MSw5
-ICs5MSw5IEBAIHNlY3Rpb25fdGFibGU6Cj4+ICAgCQlJTUFHRV9TQ05fTUVNX0VYRUNVVEUJCQkv
-LyBDaGFyYWN0ZXJpc3RpY3MKPj4gICAKPj4gICAJLmFzY2lpCSIuZGF0YVwwXDBcMCIKPj4gLQku
-bG9uZwlfX3BlY29mZl9kYXRhX3ZpcnRfc2l6ZQkJCS8vIFZpcnR1YWxTaXplCj4+ICsJLmxvbmcJ
-X19wZWNvZmZfZGF0YV92aXJ0X2VuZCAtIF9fcGVjb2ZmX3RleHRfZW5kCS8vIFZpcnR1YWxTaXpl
-Cj4+ICAgCS5sb25nCV9fcGVjb2ZmX3RleHRfZW5kIC0gX3N0YXJ0CQkvLyBWaXJ0dWFsQWRkcmVz
-cwo+PiAtCS5sb25nCV9fcGVjb2ZmX2RhdGFfcmF3X3NpemUJCQkvLyBTaXplT2ZSYXdEYXRhCj4+
-ICsJLmxvbmcJX19wZWNvZmZfZGF0YV9yYXdfZW5kIC0gX19wZWNvZmZfdGV4dF9lbmQJLy8gU2l6
-ZU9mUmF3RGF0YQo+PiAgIAkubG9uZwlfX3BlY29mZl90ZXh0X2VuZCAtIF9zdGFydAkJLy8gUG9p
-bnRlclRvUmF3RGF0YQo+PiAgIAo+PiAgIAkubG9uZwkwCQkJCQkvLyBQb2ludGVyVG9SZWxvY2F0
-aW9ucwo+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvdm1saW51eC5sZHMuUyBiL2Fy
-Y2gvcmlzY3Yva2VybmVsL3ZtbGludXgubGRzLlMKPj4gaW5kZXggNGU2Yzg4YWE0ZDg3Li44YmUy
-ZGUzYmUwOGMgMTAwNjQ0Cj4+IC0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL3ZtbGludXgubGRzLlMK
-Pj4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvdm1saW51eC5sZHMuUwo+PiBAQCAtMTIyLDkgKzEy
-MiwxNSBAQCBTRUNUSU9OUwo+PiAgIAkJKiguc2RhdGEqKQo+PiAgIAl9Cj4+ICAgCj4+ICsJLnJl
-bGEuZHluIDogQUxJR04oOCkgewo+PiArCQlfX3JlbGFfZHluX3N0YXJ0ID0gLjsKPj4gKwkJKigu
-cmVsYSAucmVsYSopCj4+ICsJCV9fcmVsYV9keW5fZW5kID0gLjsKPj4gKwl9Cj4+ICsKPgo+Cj4g
-U28gSSByZWFsaXplZCB0aG9zZSByZWxvY2F0aW9ucyB3b3VsZCBiZSBiZXR0ZXIgaW4gdGhlIGlu
-aXQgc2VjdGlvbiBzbyAKPiB3ZSBjYW4gZ2V0IHJpZCBvZiB0aGVtIGF0IHNvbWUgcG9pbnQuIFNv
-IEkgdHJpZWQgdGhlIGZvbGxvd2luZzoKPgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5l
-bC92bWxpbnV4Lmxkcy5TIAo+IGIvYXJjaC9yaXNjdi9rZXJuZWwvdm1saW51eC5sZHMuUwo+IGlu
-ZGV4IDdhYzIxNTQ2N2ZkNS4uNjExMTAyM2E4OWVmIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3Yv
-a2VybmVsL3ZtbGludXgubGRzLlMKPiArKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC92bWxpbnV4Lmxk
-cy5TCj4gQEAgLTkzLDYgKzkzLDEyIEBAIFNFQ1RJT05TCj4gIMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoCAqKC5yZWwuZHluKikKPiAgwqDCoMKgwqDCoMKgwqAgfQo+Cj4gK8KgwqDCoMKg
-wqDCoCAucmVsYS5keW4gOiBBTElHTig4KSB7Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqAgX19yZWxhX2R5bl9zdGFydCA9IC47Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAg
-KigucmVsYSAucmVsYSopCj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgX19yZWxhX2R5
-bl9lbmQgPSAuOwo+ICvCoMKgwqDCoMKgwqAgfQo+ICsKPiAgwqDCoMKgwqDCoMKgwqAgX19pbml0
-X2RhdGFfZW5kID0gLjsKPgo+ICDCoMKgwqDCoMKgwqDCoCAuID0gQUxJR04oOCk7Cj4gQEAgLTEx
-OSwxMiArMTI1LDYgQEAgU0VDVElPTlMKPiAgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-ICooLnNkYXRhKikKPiAgwqDCoMKgwqDCoMKgwqAgfQo+Cj4gLcKgwqDCoMKgwqDCoCAucmVsYS5k
-eW4gOiBBTElHTig4KSB7Cj4gLcKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgX19yZWxhX2R5
-bl9zdGFydCA9IC47Cj4gLcKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgKigucmVsYSAucmVs
-YSopCj4gLcKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgX19yZWxhX2R5bl9lbmQgPSAuOwo+
-IC3CoMKgwqDCoMKgwqAgfQo+IC0KPiAgwqAjaWZkZWYgQ09ORklHX0VGSQo+ICDCoMKgwqDCoMKg
-wqDCoCAucGVjb2ZmX2VkYXRhX3BhZGRpbmcgOiB7IEJZVEUoMCk7IC4gPSAKPiBBTElHTihQRUNP
-RkZfRklMRV9BTElHTk1FTlQpOyB9Cj4gIMKgwqDCoMKgwqDCoMKgIF9fcGVjb2ZmX2RhdGFfcmF3
-X2VuZCA9IEFCU09MVVRFKC4pOwo+Cj4KPiBCdXQgdGhlbiBhbGwgdGhlIHJlbG9jYXRpb25zIGlu
-IHZtbGludXggZW5kIHVwIGJlaW5nIG51bGw6Cj4KPiB2bWxpbnV4OsKgwqDCoMKgIGZpbGUgZm9y
-bWF0IGVsZjY0LWxpdHRsZXJpc2N2Cj4KPiAkIHJpc2N2NjQtbGludXgtZ251LW9iamR1bXAgLVIg
-dm1saW51eAo+Cj4gRFlOQU1JQyBSRUxPQ0FUSU9OIFJFQ09SRFMKPiBPRkZTRVTCoMKgwqDCoMKg
-wqDCoMKgwqDCoCBUWVBFwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgVkFMVUUKPiAwMDAwMDAw
-MDAwMDAwMDAwIFJfUklTQ1ZfTk9ORcKgwqDCoMKgwqAgKkFCUyoKPiAwMDAwMDAwMDAwMDAwMDAw
-IFJfUklTQ1ZfTk9ORcKgwqDCoMKgwqAgKkFCUyoKPiAuLi4uCj4KPiAgwqBJIGFsc28gbm90aWNl
-ZCB0aGF0IHJlLWxpbmtpbmcgdm1saW51eCB3aXRoIHRoZSBzYW1lIGNvbW1hbmQgcmlnaHQgCj4g
-YWZ0ZXIgd29ya3MgKGllLCB0aGUgcmVsb2NhdGlvbnMgYXJlIG5vdyB2YWxpZCk6Cj4KPiAkIHJp
-c2N2NjQtbGludXgtZ251LW9iamR1bXAgLVIgdm1saW51eAo+Cj4gdm1saW51eDrCoMKgwqDCoCBm
-aWxlIGZvcm1hdCBlbGY2NC1saXR0bGVyaXNjdgo+Cj4gRFlOQU1JQyBSRUxPQ0FUSU9OIFJFQ09S
-RFMKPiBPRkZTRVTCoMKgwqDCoMKgwqDCoMKgwqDCoCBUWVBFwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqAgVkFMVUUKPiBmZmZmZmZmZjgyNjAwNzE4IFJfUklTQ1ZfUkVMQVRJVkXCoCAqQUJTKi0w
-eDAwMDAwMDAwN2Q5ZmY4ZTgKPiBmZmZmZmZmZjgyNjAwNzIwIFJfUklTQ1ZfUkVMQVRJVkXCoCAq
-QUJTKi0weDAwMDAwMDAwN2Q5ZmY4ZTgKPiAuLi4KPgo+IEJlbG93IGlzIHRoZSBjb21tYW5kIHVz
-ZWQgdG8gZ2VuZXJhdGUgdGhpcyB3b3JraW5nIHZtbGludXg6Cj4KPiByaXNjdjY0LXVua25vd24t
-bGludXgtZ251LWxkIC1tZWxmNjRscmlzY3YgLXogbm9leGVjc3RhY2sgCj4gLS1uby13YXJuLXJ3
-eC1zZWdtZW50cyAtc2hhcmVkIC1Cc3ltYm9saWMgLXogbm90ZXh0IC16IG5vcmVscm8gCj4gLS1u
-by1yZWxheCAtLWJ1aWxkLWlkPXNoYTEgLS1zY3JpcHQ9Li9hcmNoL3Jpc2N2L2tlcm5lbC92bWxp
-bnV4LmxkcyAKPiAtTWFwPXZtbGludXgubWFwIC1vIHZtbGludXggLS13aG9sZS1hcmNoaXZlIHZt
-bGludXguYSAudm1saW51eC5leHBvcnQubyAKPiBpbml0L3ZlcnNpb24tdGltZXN0YW1wLm8gLS1u
-by13aG9sZS1hcmNoaXZlIC0tc3RhcnQtZ3JvdXAgCj4gLi9kcml2ZXJzL2Zpcm13YXJlL2VmaS9s
-aWJzdHViL2xpYi5hIC0tZW5kLWdyb3VwIC50bXBfdm1saW51eC5rYWxsc3ltczMubwo+Cj4gSSB0
-cmllZCBhIGxvdCBvZiB0aGluZ3MsIGJ1dCBJIHN0cnVnZ2xlIHRvIHVuZGVyc3RhbmQsIGRvZXMg
-YW55b25lIGhhdmUgCj4gYW55IGlkZWE/IEZZSSwgdGhlIHNhbWUgcHJvYmxlbSBoYXBwZW5zIHdp
-dGggTExWTS4KCkRvbid0IGFzayBtZSAqd2h5KiwgYnV0IGFkZGluZyAtLWVtaXQtcmVsb2NzIHRv
-IHlvdXIgbGlua2VyIGZsYWdzIHNvbHZlcwoidGhlIE5VTEwgLnJlbGEuZHluIiBib3RoIGZvciBH
-Q0MgYW5kIExMVk0uCgpUaGUgZG93bnNpZGUgaXMgdGhhdCB5b3UgZW5kIHVwIHdpdGggYSBidW5j
-aCBvZiAucmVsYSBjcnVmdCBpbiB5b3VyCnZtbGludXguCgoKQmrDtnJuCgpfX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
-c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
-Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+When the Zicboz extension is available we can more rapidly zero naturally
+aligned Zicboz block sized chunks of memory. As pages are always page
+aligned and are larger than any Zicboz block size will be, then
+clear_page() appears to be a good candidate for the extension. While cycle
+count and energy consumption should also be considered, we can be pretty
+certain that implementing clear_page() with the Zicboz extension is a win
+by comparing the new dynamic instruction count with its current count[1].
+Doing so we see that the new count is just over a quarter of the old count
+(see patch6's commit message for more details).
+
+For those of you who reviewed v1[2], you may be looking for the memset()
+patches. As pointed out in v1, and a couple follow-up emails, it's not
+clear that patching memset() is a win yet. When I get a chance to test
+on real hardware with a comprehensive benchmark collection then I can
+post the memset() patches separately (assuming the benchmarks show it's
+worthwhile).
+
+Based on riscv-linux/for-next plus the dependencies listed below.
+
+Dependencies:
+https://lore.kernel.org/all/20230224154601.88163-1-ajones@ventanamicro.com/
+
+The patches are also available here
+https://github.com/jones-drew/linux/commits/riscv/zicboz-v6
+
+To test over QEMU this branch may be used to enable Zicboz
+https://gitlab.com/jones-drew/qemu/-/commits/riscv/zicboz
+
+To test running a KVM guest with Zicboz this kvmtool branch may be used
+https://github.com/jones-drew/kvmtool/commits/riscv/zicboz
+
+Thanks,
+drew
+
+[1] I ported the functions under test to userspace and linked them with
+    a test program. Then, I ran them under gdb with a script[3] which
+    counted instructions by single stepping.
+[2] https://lore.kernel.org/all/20221027130247.31634-1-ajones@ventanamicro.com/
+[3] https://gist.github.com/jones-drew/487791c956ceca8c18adc2847eec9c60
+
+v6:
+  - Rebased on latest riscv-linux/for-next
+  - Used upper/lower_16_bits() in PATCH_ID_* macros, thanks to Conor
+    for pointing out that they can be improved
+  - Switched to SYM_FUNC_START/END for clear_page and exported the
+    symbol since other building modules which use clear_page was
+    busted [Ben Dooks and Sudip Mukherjee]
+  - Picked up an R-b from Conor
+
+v5:
+  - Rebased on latest for-next which allowed dropping v4's dependencies
+  - Added a new dependency on an alternatives/cpufeatures cleanup series
+  - Replaced "RISC-V: cpufeature: Put vendor_id to work" with "riscv:
+    cpufeatures: Put the upper 16 bits of patch ID to work" since touching
+    vendor_id is probably a bad idea [Conor]
+  - Picked up an r-b from Conor
+
+v4:
+  - Rebased on latest for-next which allowed dropping one dependency
+  - Added "RISC-V: alternatives: Support patching multiple insns in assembly"
+    since I needed to use more than one instruction in an ALTERNATIVE call
+    from assembly. I can post this patch separately as a fix if desired.
+  - Improved the dt-binding patch commit message [Conor]
+  - Picked up some tags from Conor and Rob (I kept Conor's a-b on the
+    clear_page patch, even though there are several changes to it, because
+    I interpreted the a-b as "OK by me to implement a Zicboz clear_page")
+  - Added "RISC-V: cpufeature: Put vendor_id to work", which was necessary
+    for how I wanted to use ALTERNATIVE in clear_page.
+  - Fallback to memset when the Zicboz block size is too big for the
+    Zicboz implementation of clear_page [Palmer]
+  - Use lw without la in clear_page impl [Palmer]
+  - Implement a Duff device for clear_page using the new 'vendor_id'
+    alternatives support [drew]
+
+v3:
+  - CC'ed DT list
+  - Improved commit message of DT bindings patch to point out relationship
+    with cbom-block-size
+  - Picked up an a-b from Conor
+
+v2:
+  - s/blksz/block_size/, improved commit message for "RISC-V: Add Zicboz
+    detection and block size parsing", isa ext sorting [Conor]
+  - Added dt binding patch [Heiko]
+  - Picked up r-b's from Conor, Heiko, and Anup
+  - Moved config symbol and CBO_zero() introduction to "RISC-V: Use Zicboz
+    in clear_page when available" and improved its commit message and
+    implementation (unrolled four times) [drew]
+  - Dropped memset() patches [drew]
+  - Rebased on ae4d39f75308 ("Merge patch "RISC-V: fix incorrect type of
+    ARCH_CANAAN_K210_DTB_SOURCE"") plus the dependencies
+
+Andrew Jones (8):
+  RISC-V: alternatives: Support patching multiple insns in assembly
+  RISC-V: Factor out body of riscv_init_cbom_blocksize loop
+  dt-bindings: riscv: Document cboz-block-size
+  RISC-V: Add Zicboz detection and block size parsing
+  RISC-V: cpufeatures: Put the upper 16 bits of patch ID to work
+  RISC-V: Use Zicboz in clear_page when available
+  RISC-V: KVM: Provide UAPI for Zicboz block size
+  RISC-V: KVM: Expose Zicboz to the guest
+
+ .../devicetree/bindings/riscv/cpus.yaml       |  5 ++
+ arch/riscv/Kconfig                            | 13 ++++
+ arch/riscv/include/asm/alternative-macros.h   |  6 +-
+ arch/riscv/include/asm/alternative.h          |  4 +
+ arch/riscv/include/asm/cacheflush.h           |  3 +-
+ arch/riscv/include/asm/hwcap.h                |  1 +
+ arch/riscv/include/asm/insn-def.h             |  4 +
+ arch/riscv/include/asm/page.h                 |  6 +-
+ arch/riscv/include/uapi/asm/kvm.h             |  2 +
+ arch/riscv/kernel/cpu.c                       |  1 +
+ arch/riscv/kernel/cpufeature.c                | 58 ++++++++++++++-
+ arch/riscv/kernel/setup.c                     |  2 +-
+ arch/riscv/kvm/vcpu.c                         | 11 +++
+ arch/riscv/lib/Makefile                       |  1 +
+ arch/riscv/lib/clear_page.S                   | 74 +++++++++++++++++++
+ arch/riscv/mm/cacheflush.c                    | 64 +++++++++-------
+ 16 files changed, 219 insertions(+), 36 deletions(-)
+ create mode 100644 arch/riscv/lib/clear_page.S
+
+-- 
+2.39.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
