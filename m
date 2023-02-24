@@ -4,61 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBCE5C7EE2E
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Feb 2023 16:37:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4783C7EE2D
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Feb 2023 16:50:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nQmpDegxt1YCE27buwH6ZU53cu0jlk9aA2x4hbiqQ4w=; b=1X1Z29lgjL915O
-	4BxqyN1wErVl8xwHJFWZNGsp1as2rsZ1izYL1isswG7cj+D1UcDmDXdCpnxGt2HiTGMFzMlkb0Pig
-	BUp0vvW2OinTUat9nk+kXRJop2kZt6/V/aqowSfO4Vzh+FmQDPvbc9mt862ar5+tqB9OVlwTTKNH9
-	nvGY2GyA2eU9lPx+W0WNQMBeNa5ndnSypOKbJ/mUgotW/3u/O+07/60PAWflFPwXW0/wNgRhjJHAA
-	tmW0CZku17KC3DAQXXekFrO7V9tguPfNNwbTMVIwIWxhg59xwVQ5JjemQN8M1FGwYMzNfldzsMXNM
-	LcmHJsPwJDr84FPsQOFg==;
+	List-Owner; bh=jvt+tK+MEzdaMA7oO01bMDpHXcekMlFlkHTVfskVKV0=; b=FX1O9lM5q9vJxV
+	JLltBtZIn0HVq+MUGqxiVbUapA6QcPhCGBWJxXubafLTRi25DPJEGvvXMgUQhWAbqvArjaHYC4yWi
+	tDd6z7eZs8kSDrviwXP/VZSfH3Vxy5ve7Xf6q/LNH/u7MUwFAXkmmh8rMJL4+3n6+CNgLjxDZ1Sw4
+	6ymQlMXIzAvm6tfWsVhL05Jj+gqIdOOb7DSdpu8CQAudM2jRgMnuUdvhpUiGQJBrRsTFGO6fBtGFl
+	tyTp0vtW1CIfKGl1zNGn3aQ3LVj9vzLghY3Vnn1a57rg7iQGwx+h/A0rJ3IKmWt7tg3VqVpQ169cG
+	t1WxWlKc3o/8ELfSLU7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pVb4i-0039Rg-RZ; Fri, 24 Feb 2023 16:37:36 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1pVbHG-003Bie-0q; Fri, 24 Feb 2023 16:50:34 +0000
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pVb4f-0039QL-Mz
-	for linux-riscv@lists.infradead.org; Fri, 24 Feb 2023 16:37:35 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 1AEA5B81CAD;
-	Fri, 24 Feb 2023 16:37:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5477EC433D2;
-	Fri, 24 Feb 2023 16:37:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1677256650;
-	bh=5KoQTxArulQ7bM11DTjGz3jpBGFaiF67rqpLvKCWpdE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QT3lnmzoBM8WBMSOtsmWwtV/MjjuR4LlWs7fV+LRoEEcojnIAajocqIaN8QTd5U95
-	 BCLXCInp+XtxHHlUU7WCazrUcZpRJKgJRT15TE+LX2GT9gYxQt79WXdnthPc0LfIzr
-	 QzISB4RSDm/THC8QT+99L8duDhQdD23jvG18aOPLTPEtduUF0xfYiQAA9UXTRNvFUM
-	 Pc0j+FCmpDuQRgP5LJKjtEerJwMA3sZjtexUrf9EL+kw78XmTg48XcMX8tosBJ38xl
-	 zfX/IJVQhrDtZtCkINutpNf9yGz10pPEOorK7POER2Pn6eYQS5biM3g4g36Y7UsEie
-	 XdOLx7qvA/PzA==
-Date: Fri, 24 Feb 2023 09:37:28 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: palmer@dabbelt.com, Conor Dooley <conor.dooley@microchip.com>,
-	naresh.kamboju@linaro.org, linux-riscv@lists.infradead.org,
-	llvm@lists.linux.dev
-Subject: Re: [PATCH v1 1/2] RISC-V: move zicsr/zifencei spec version check to
- Kconfig
-Message-ID: <Y/jnyJZNZC1X6IO8@dev-arch.thelio-3990X>
-References: <20230223220546.52879-1-conor@kernel.org>
- <20230223220546.52879-2-conor@kernel.org>
+	id 1pVbHD-003BhK-2a
+	for linux-riscv@lists.infradead.org; Fri, 24 Feb 2023 16:50:32 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id y10so1550760pfi.8
+        for <linux-riscv@lists.infradead.org>; Fri, 24 Feb 2023 08:50:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=GlirhmbI5oiUJoslwLZo1tlht30rF9y3H4Y3f7asFP4=;
+        b=asGuSq0OBibU7wZq6pODvvrZfVEWYrTa6oDgxwaK/I9gANNJ3qvU/Nhh9hFlH2a3no
+         NPMM+j+Xku5gGOW8l9AV2kYpc0ctNZzaiy0DgtUQ6lCkTX6xULxKav0/VQLEAQskfNe0
+         4uB5fh7mjEbjNh4qNuV3KMBltsilkPf9zAaF8VjhLSe/pcYm1If+hHT75XLzQ8z907Hn
+         q+Zh1qA/lLqZCXVBnkmu+15B9bQ66L/BuO2iQ6gDsJ+RQlcZiEfmjRY/ZjpqvzIU+J0R
+         tt0v6D/NOZgq+3lPLGOWv8U/eDmKcA4c421nPV1dY3rlLdBV4Wsz47wgxZOYXOjNcfl/
+         Ozpg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GlirhmbI5oiUJoslwLZo1tlht30rF9y3H4Y3f7asFP4=;
+        b=T1qqwy6PYSIZgRo6gIR6VM9D9TQPfo3gBGth2kG4y0uZRW7Ou1DWPmItDTizbbOmVw
+         9mtlbHeJxtRrDP8hkA4+7anbiWSbsZdvAtHhFoa1gcsEeBmbEpAAzbCVBmkbY/58daPG
+         fy/TM08+6Qlapvgt7riZdnJLcgyq8kGvIxQxZ1rfBy3rcn0dl55KGOt6/PDqe2W3ihjn
+         g+jCiAulOG6eUGN38/lWF8k2bvCOWPrOjYqQlfjoB+NDkxuTnlZlkHi07idmbxvd2F19
+         +hsGPfnKkimDl4FTiWXg49b2MriZIcZtagwgKW+oSext1DTbj8wESiDyAZS5++YELYxA
+         U9YA==
+X-Gm-Message-State: AO0yUKU5Mx7dJUlYYdPaBOGH9qGrniWXgmlR6vBNaI0lWJqIcwdDUl5y
+	ZAK5Zy/VPo2R0rFkgrTuF0zlEA==
+X-Google-Smtp-Source: AK7set/2gvzAB/DiniWjw9Fyo5qXHnaKG7eu5pHf43D4jVCbfCH6f8c9fOkyPCPiySwoGdTRLtKDaw==
+X-Received: by 2002:aa7:96ee:0:b0:5dc:6ddd:878f with SMTP id i14-20020aa796ee000000b005dc6ddd878fmr5376351pfq.2.1677257427001;
+        Fri, 24 Feb 2023 08:50:27 -0800 (PST)
+Received: from sunil-laptop ([49.206.14.226])
+        by smtp.gmail.com with ESMTPSA id h3-20020aa786c3000000b005a84de344a6sm6456521pfo.14.2023.02.24.08.50.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 24 Feb 2023 08:50:26 -0800 (PST)
+Date: Fri, 24 Feb 2023 22:20:17 +0530
+From: Sunil V L <sunilvl@ventanamicro.com>
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Marc Zyngier <maz@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Atish Patra <atishp@rivosinc.com>,
+	"Rafael J . Wysocki" <rafael.j.wysocki@intel.com>
+Subject: Re: [PATCH V2 10/21] RISC-V: smpboot: Add ACPI support in smp_setup()
+Message-ID: <Y/jqye85kKU8KfDU@sunil-laptop>
+References: <20230216182043.1946553-1-sunilvl@ventanamicro.com>
+ <20230216182043.1946553-11-sunilvl@ventanamicro.com>
+ <20230220170843.2zkrqcnqcwbruea6@orel>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230223220546.52879-2-conor@kernel.org>
+In-Reply-To: <20230220170843.2zkrqcnqcwbruea6@orel>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230224_083734_070578_69802247 
-X-CRM114-Status: GOOD (  24.49  )
+X-CRM114-CacheID: sfid-20230224_085031_141568_9DFDE9B3 
+X-CRM114-Status: GOOD (  43.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,73 +100,185 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 23, 2023 at 10:05:45PM +0000, Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
+On Mon, Feb 20, 2023 at 06:08:43PM +0100, Andrew Jones wrote:
+> On Thu, Feb 16, 2023 at 11:50:32PM +0530, Sunil V L wrote:
+> > Enable SMP boot on ACPI based platforms by using the RINTC
+> > structures in the MADT table.
+> > 
+> > Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
+> > Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
+> > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> > ---
+> >  arch/riscv/include/asm/acpi.h |  7 ++++
+> >  arch/riscv/kernel/smpboot.c   | 70 ++++++++++++++++++++++++++++++++++-
+> >  2 files changed, 76 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/arch/riscv/include/asm/acpi.h b/arch/riscv/include/asm/acpi.h
+> > index 7bc49f65c86b..3c3a8ac3b37a 100644
+> > --- a/arch/riscv/include/asm/acpi.h
+> > +++ b/arch/riscv/include/asm/acpi.h
+> > @@ -60,6 +60,13 @@ static inline void arch_fix_phys_package_id(int num, u32 slot) { }
+> >  
+> >  int acpi_get_riscv_isa(struct acpi_table_header *table,
+> >  		       unsigned int cpu, const char **isa);
+> > +
+> > +#ifdef CONFIG_ACPI_NUMA
+> > +int acpi_numa_get_nid(unsigned int cpu);
+> > +#else
+> > +static inline int acpi_numa_get_nid(unsigned int cpu) { return NUMA_NO_NODE; }
+> > +#endif /* CONFIG_ACPI_NUMA */
 > 
-> Checking whether binutils defaults to using a version of the spec
-> requiring zicsr/zifencei being done in our Makefile is functionally
-> sufficient at present, but makes it harder to tell after the fact
-> which extensions are enabled.
-> By moving it to Kconfig, it's easy to tell from standard build artifacts
-> what has been done & the road is paved for dealing with this differently
-> for both binutils and LLVM.
+> The #ifdef stuff seems premature since we're not providing an
+> implementation for acpi_numa_get_nid() or selecting ACPI_NUMA, but OK.
 > 
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+Yes, will remove it. We can add as part NUMA enablement.
 
-Reviewed-by: Nathan Chancellor <nathan@kernel.org>
-
-> ---
->  arch/riscv/Kconfig  | 10 ++++++++++
->  arch/riscv/Makefile |  5 +----
->  2 files changed, 11 insertions(+), 4 deletions(-)
+> > +
+> >  #else
+> >  static inline int acpi_get_riscv_isa(struct acpi_table_header *table,
+> >  				     unsigned int cpu, const char **isa)
+> > diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
+> > index 26214ddefaa4..77630f8ed12b 100644
+> > --- a/arch/riscv/kernel/smpboot.c
+> > +++ b/arch/riscv/kernel/smpboot.c
+> > @@ -8,6 +8,7 @@
+> >   * Copyright (C) 2017 SiFive
+> >   */
+> >  
+> > +#include <linux/acpi.h>
+> >  #include <linux/arch_topology.h>
+> >  #include <linux/module.h>
+> >  #include <linux/init.h>
+> > @@ -70,6 +71,70 @@ void __init smp_prepare_cpus(unsigned int max_cpus)
+> >  	}
+> >  }
+> >  
+> > +#ifdef CONFIG_ACPI
+> > +static unsigned int cpu_count = 1;
+> > +
+> > +static int __init acpi_parse_rintc(union acpi_subtable_headers *header, const unsigned long end)
+> > +{
+> > +	unsigned long hart;
+> > +	bool found_boot_cpu = false;
 > 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index cebf0c5f8824..4eb0ef8314b3 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -288,6 +288,16 @@ config ARCH_RV64I
->  
->  endchoice
->  
-> +config TOOLCHAIN_NEEDS_SPEC_20191213
-
-This symbol's name is a little confusing to me, how does the toolchain
-need spec version 20191213. Maybe 'SPEC_20191213' should be something
-like 'EXPLICIT_ZICSR_ZIFENCEI'? Otherwise, maybe it should be something
-like 'TOOLCHAIN_HAS_DEFAULT_SPEC_20191213'? Sorry for the bikeshed but I
-think most Kconfig symbols should be self describing.
-
-> +	bool
-> +	default y
-> +	depends on !64BIT || $(cc-option,-mabi=lp64 -march=rv64ima_zicsr_zifencei)
-> +	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zicsr_zifencei)
-> +	help
-> +	  Newer binutils versions default to ISA spec version 20191213 which
-> +	  moves some instructions from the I extension to the Zicsr and Zifencei
-> +	  extensions.
-> +
->  # We must be able to map all physical memory into the kernel, but the compiler
->  # is still a bit more efficient when generating code if it's setup in a manner
->  # such that it can only map 2GiB of memory.
-> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-> index 12d91b0a73d8..7e1267b0e73f 100644
-> --- a/arch/riscv/Makefile
-> +++ b/arch/riscv/Makefile
-> @@ -53,10 +53,7 @@ riscv-march-$(CONFIG_ARCH_RV64I)	:= rv64ima
->  riscv-march-$(CONFIG_FPU)		:= $(riscv-march-y)fd
->  riscv-march-$(CONFIG_RISCV_ISA_C)	:= $(riscv-march-y)c
->  
-> -# Newer binutils versions default to ISA spec version 20191213 which moves some
-> -# instructions from the I extension to the Zicsr and Zifencei extensions.
-> -toolchain-need-zicsr-zifencei := $(call cc-option-yn, -march=$(riscv-march-y)_zicsr_zifencei)
-> -riscv-march-$(toolchain-need-zicsr-zifencei) := $(riscv-march-y)_zicsr_zifencei
-> +riscv-march-$(CONFIG_TOOLCHAIN_NEEDS_SPEC_20191213) := $(riscv-march-y)_zicsr_zifencei
->  
->  # Check if the toolchain supports Zicbom extension
->  riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZICBOM) := $(riscv-march-y)_zicbom
-> -- 
-> 2.39.1
+> I guess found_boot_cpu should be static?
 > 
+Good catch!. Thanks!
+
+> > +	struct acpi_madt_rintc *processor = (struct acpi_madt_rintc *)header;
+> > +
+> > +	/*
+> > +	 * Each RINTC structure in MADT will have a flag. If ACPI_MADT_ENABLED
+> > +	 * bit in the flag is not enabled, it means OS should not try to enable
+> > +	 * the cpu to which RINTC belongs.
+> > +	 */
+> > +	if (!(processor->flags & ACPI_MADT_ENABLED))
+> > +		return 0;
+> > +
+> > +	hart = processor->hart_id;
+> > +	if (hart < 0)
+> > +		return 0;
+> 
+> A valid hart ID is anything up to INVALID_HARTID, right? Shouldn't we only
+> be checking for INVALID_HARTID here? And what does it mean to have an
+> invalid hart ID here? It's not an issue to error/warn about?
+> 
+Yes, will check for INVALID_HARTID (though I am not really sure how it
+can be invalid). Will add a warning.
+
+> > +	if (hart == cpuid_to_hartid_map(0)) {
+> > +		BUG_ON(found_boot_cpu);
+> 
+> Do we really want to BUG due to bad, but potentially bootable ACPI tables?
+> I'd BUG for things that can only happen when we break the code, but broken
+> ACPI tables might be something we want to complain loudly about and then
+> attempt to limp along.
+> 
+Okay. I used same logic as in DT. It may be better to use BUG instead of
+debugging weird symptoms later, right?
+
+> > +		found_boot_cpu = true;
+> > +		early_map_cpu_to_node(0, acpi_numa_get_nid(cpu_count));
+> > +		return 0;
+> > +	}
+> > +
+> > +	if (cpu_count >= NR_CPUS) {
+> > +		pr_warn("Invalid cpuid [%d] for hartid [%lu]\n",
+> > +			cpu_count, hart);
+> 
+> cpuid isn't invalid, NR_CPUS is too small for the number of ACPI tables.
+> 
+Okay.
+
+> > +		return 0;
+> > +	}
+> > +
+> > +	cpuid_to_hartid_map(cpu_count) = hart;
+> > +	early_map_cpu_to_node(cpu_count, acpi_numa_get_nid(cpu_count));
+> > +	cpu_count++;
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +static void __init acpi_parse_and_init_cpus(void)
+> > +{
+> > +	int cpuid;
+> > +
+> > +	cpu_set_ops(0);
+> > +
+> > +	/*
+> > +	 * do a walk of MADT to determine how many CPUs
+> > +	 * we have including disabled CPUs, and get information
+> > +	 * we need for SMP init.
+> > +	 */
+> 
+> I know this comment comes verbatim from arm64, but not only does it
+> have grammar issues, I'm not sure it's accurate. Where is the count
+> of disabled CPUs for arm64 or riscv?
+>
+MADT will have multiple RINTC structures. Each RINTC structure will have
+a flag to indicate whether enabled or disabled. So, we need to walk the
+MADT to get all CPUs present. But I think this comment is not required
+since comments are added in the parser function.
+ 
+> > +	acpi_table_parse_madt(ACPI_MADT_TYPE_RINTC, acpi_parse_rintc, 0);
+> > +
+> > +	for (cpuid = 1; cpuid < nr_cpu_ids; cpuid++) {
+> > +		if (cpuid_to_hartid_map(cpuid) != INVALID_HARTID) {
+> > +			cpu_set_ops(cpuid);
+> > +			set_cpu_possible(cpuid, true);
+> > +		}
+> > +	}
+> > +}
+> > +#else
+> > +#define acpi_parse_and_init_cpus(...)	do { } while (0)
+> > +#endif
+> > +
+> >  static void __init of_parse_and_init_cpus(void)
+> >  {
+> >  	struct device_node *dn;
+> > @@ -118,7 +183,10 @@ static void __init of_parse_and_init_cpus(void)
+> >  
+> >  void __init setup_smp(void)
+> >  {
+> > -	of_parse_and_init_cpus();
+> > +	if (acpi_disabled)
+> > +		of_parse_and_init_cpus();
+> > +	else
+> > +		acpi_parse_and_init_cpus();
+> >  }
+> >  
+> >  static int start_secondary_cpu(int cpu, struct task_struct *tidle)
+> > -- 
+> > 2.34.1
+> >
+> 
+> Do we not want to add an entry to acpi_table_print_madt_entry() for RINTC?
+> 
+Yes. Will add a patch for this to help debugging.
+
+Thanks,
+Sunil
 
 _______________________________________________
 linux-riscv mailing list
