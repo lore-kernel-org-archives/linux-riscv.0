@@ -4,90 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51ECEC61DA3
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Feb 2023 13:21:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3020C61DA4
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Feb 2023 13:37:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=r3jNaUDPO1LjWPGvE7EzSJJMXWYtu9aHOQ4TwkiGQHA=; b=PaRnrBGa7RnbqB
-	Q2w95m28dy1rNOwNInq+QrHDdvcn3tJHTblzrbFGQ52ZZMmRlhgTAdv59KKS5tlRWsZseBQSVBrsN
-	yrMVuabC7SWlNyqJb/e1gcezqL/HqGy8S60Yy+WlwKUlv9U9og7PUHAvUrcozQyQQuVusB5KslMAl
-	cLLN8CSgBt7Ol4Sthgkj3WsVu+2t6VGCvBRjPrKUj7ILtQd3YTZCgRBe+mz+rRGlWySPb8ihc6zTB
-	olT3L5Qmu6efUH1n0fTt9Ae75PZuMgEd5/G/zP3qbQd/Dx1vfikIBT0uBzZIaCuntrU08NrWB4gZo
-	a2mAutgW+Zt4Zlyj3L1Q==;
+	List-Owner; bh=c+6YNRe16AiLTW2WoiW7v7eMONz+R+0yQInL8za7s9g=; b=rkG0RQsDRI9XPq
+	+kWUua3HkmSFRH9qbtASxv8ery27w3xcU1cnpqYRVFuTVhHYLS8lvSX8VZ5QxUxntsYIKsxDhaBrq
+	FP6N9mHUtuCMGcCVg7leuhKTszV55Li8RUrtNKnJEGNTeQaeYl/KMK369P25+a6f3JqVpUOVAn72+
+	vhVQ8AYbufoV9740cKd+gymr2sYtcq0YQyffXhtw7BgqczEmAQ4sPx06iV6W4W7Fjr+tZY/siuo38
+	aB8q0vL6bYcmFicnea5lmXWmkEuEzKJo2Sj9mRlLwsRcfOy5azYoI3YLpmmr7HEo5jCm0wgAHMVBy
+	xZ8GcMyUuplR77hsniQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pVY0x-002bgR-Hl; Fri, 24 Feb 2023 13:21:31 +0000
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
+	id 1pVYGQ-002dDt-O2; Fri, 24 Feb 2023 13:37:30 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pVY0u-002bfQ-79
-	for linux-riscv@lists.infradead.org; Fri, 24 Feb 2023 13:21:29 +0000
-Received: by mail-ed1-x531.google.com with SMTP id ee7so39603535edb.2
-        for <linux-riscv@lists.infradead.org>; Fri, 24 Feb 2023 05:21:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=ZyflOORFuzAU5BULEoWaY0vuPe5ZUd6mweprOBGP7n4=;
-        b=eEGf8AL+6iX6ix7igIArls0uX4woeA0Icw/G+F3GhaIH0WKf1pteL+EEp/5D5voScK
-         QXJSbogrGgJb059hs7A0Dv7UMrG9AIajzfIAwo4bfpy8M0TiF8bv00PhDa9H0zxJgSEb
-         520bsEZ1Cl92FhcSMTMskoZ3ZLuxA0IEnYdfiCWdjyOV395WmAjbDCzeE5cBgzOBa9ve
-         36lKYVNVqORoRDhbXrxKrTzVHaBR7Pt98o5SWqpi+5p42MTb2GNFnjGCSHvdh9MBD1Ul
-         gR7MuEowqHHhoSNgQiFW1mzH3nb6hGV38h4nF6qe6dt0Jn/xqBNjZr/ZSZOiYuJhMjPA
-         TIZA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZyflOORFuzAU5BULEoWaY0vuPe5ZUd6mweprOBGP7n4=;
-        b=xZ54VaYUsREb4foHdXFARNlvaU1lbQi5NOeW1bDGlMTgl7oqhGDlGJXeNbmfSwtMK8
-         9nQq5G+2bweqjiWSZcNQa6QO8By1L8k4TWRlRHJAY80IjgHIgzAS0zEqalcIm1B0oFtD
-         bCS0jy4gkHn2BmX38OslZ7QNBMg8Zz9gXsGYe/oe40NuKwBN6MQqe0m13f2xcVW7CHid
-         cG8guyTA4Dsp37flOIKmaODXPgz4sGC0xDYO+wx1qQ4MRiGeR5O/aBGaVlNHzZAYtIXD
-         FOIK7swJEFEBd26jEjZlCx1+4a2EeK7nxprnvqMQh+ZjyoD88aPLC9+YXlPU/WJpK2tE
-         zRmw==
-X-Gm-Message-State: AO0yUKWKiIXlCTLHQoX0OoBRb91Za5xshhga8U0cUtvyq9vc7sEOtReB
-	1B6qtEqNXOff0wcrcRRZxk0guJO8VQuni7bq
-X-Google-Smtp-Source: AK7set+7MBWjsuB8yva8Fc5p8aC5aN5uYqqryTPqCXjxKK3H5HjlkWNP4KGkPHf5peiWVdp8nCUvCw==
-X-Received: by 2002:a17:906:f212:b0:8a9:f870:d25b with SMTP id gt18-20020a170906f21200b008a9f870d25bmr22004320ejb.15.1677244883698;
-        Fri, 24 Feb 2023 05:21:23 -0800 (PST)
-Received: from [192.168.1.20] ([178.197.216.144])
-        by smtp.gmail.com with ESMTPSA id kx20-20020a170907775400b008b17de96f00sm9947077ejc.151.2023.02.24.05.21.22
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 24 Feb 2023 05:21:23 -0800 (PST)
-Message-ID: <6ebf87aa-4422-1f84-7e76-276ac4d884c3@linaro.org>
-Date: Fri, 24 Feb 2023 14:21:21 +0100
+	id 1pVYGM-002dCN-Nj
+	for linux-riscv@lists.infradead.org; Fri, 24 Feb 2023 13:37:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1677245847; x=1708781847;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=Zxyy6A23kw6IrlgYDJt5MU6IfP1fNW8NpMWRI27Z4YI=;
+  b=oJkcZNwn/+bbLmyvtemdU7PFKXY9YpAB+eee40idvXUIAQ/DwuyYFsj4
+   sxJXmjlvg1R9JEJUhVI0c7h6EFEUwcu24Gc9LFZ7tTk1d/Uro0XLBMIJl
+   84jhg1HheLQ0xjb+LmVxYUjqdjgTiYk1XnRDd8uhW2LHveYyda4N2CY1+
+   ricrHoOogKse7/33XPL7VbntjIhZ5U3Bk+sv90oZi7iumSMWTb53Q6QiC
+   UZDp3lA6F04BG7YIAo597FmH1Bd+pC4g7DCuryzKD7ONxO+K6bSAwo4Zh
+   7Xdq06wTtFQt4t/gQs443KR7QpADBgmd9eN5P0pH31L5jslEA72g4t0/Z
+   g==;
+X-IronPort-AV: E=Sophos;i="5.97,324,1669100400"; 
+   d="scan'208";a="202424687"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 24 Feb 2023 06:37:23 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.16; Fri, 24 Feb 2023 06:37:22 -0700
+Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex02.mchp-main.com
+ (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.16 via Frontend
+ Transport; Fri, 24 Feb 2023 06:37:21 -0700
+From: Conor Dooley <conor.dooley@microchip.com>
+To: <linux-riscv@lists.infradead.org>
+CC: Miguel Ojeda <ojeda@kernel.org>, <conor@kernel.org>, Conor Dooley
+	<conor.dooley@microchip.com>
+Subject: [RFC 2/2] RISC-V: enable building the 64-bit kernels with rust support
+Date: Fri, 24 Feb 2023 13:36:10 +0000
+Message-ID: <20230224133609.2877396-3-conor.dooley@microchip.com>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20230224133609.2877396-1-conor.dooley@microchip.com>
+References: <20230224133609.2877396-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.8.0
-Subject: Re: [PATCH v2 1/3] dt-bindings: dma: snps,dw-axi-dmac: Add reset
- items
-Content-Language: en-US
-To: Walker Chen <walker.chen@starfivetech.com>,
- Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, Vinod Koul
- <vkoul@kernel.org>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Emil Renner Berthing <kernel@esmil.dk>,
- Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Cc: dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <20230221140424.719-1-walker.chen@starfivetech.com>
- <20230221140424.719-2-walker.chen@starfivetech.com>
- <1467f7c5-07eb-97db-c6f2-573a4208cc28@linaro.org>
- <d0984638-3f7f-7e4e-fe3e-5e1f88375dca@starfivetech.com>
- <36188e04-332f-e944-9c58-f6f2b74987da@linaro.org>
- <bd4301c5-d79f-6ba5-a840-95b733d2d44e@starfivetech.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <bd4301c5-d79f-6ba5-a840-95b733d2d44e@starfivetech.com>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2348; i=conor.dooley@microchip.com; h=from:subject; bh=aaMnOWRcKygLDf2dZAPyBV3QPo/ZEMMt7m1TdDcBtFs=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDMk/9rrOEpLPe6KkszyUS712Y8XHqcdrI9QORtuon8s+m3Jh 7YGojlIWBjEOBlkxRZbE230tUuv/uOxw7nkLM4eVCWQIAxenAExkTRXD/7yPq97J5pfbKerH1jh1+V i6xhtKld6+1VVvzcb+S0LzJMM/Kym747N9EktYPpQwF3paq2xacz/9fIWHjZYGu56fwxR+AA==
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230224_052128_295743_C6E29F9E 
-X-CRM114-Status: GOOD (  13.32  )
+X-CRM114-CacheID: sfid-20230224_053726_871637_D47A663E 
+X-CRM114-Status: UNSURE (   7.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,53 +82,69 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 24/02/2023 14:09, Walker Chen wrote:
-> 
-> 
-> On 2023/2/24 18:51, Krzysztof Kozlowski wrote:
->> On 24/02/2023 11:14, Walker Chen wrote:
->>>>>    resets:
->>>>> -    maxItems: 1
->>>>> +    maxItems: 2
->>>>
->>>> This breaks ABI and all other users. Test your changes before sending.
->>>
->>> I think 'minItems' should be added here. So like this:
->>> resets:
->>>   minItems: 1
->>>   maxItems: 2
->>>
->>> Other platform/users will not be affected by this.
->>
->> Which will allow two resets on all platforms. Is this correct for these
->> platforms? Do they have two resets?
->>
-> In kernel 6.2, only two platforms use this DMA controller (see 'arch/arc/boot/dts/hsdk.dts' and 'arch/riscv/boot/dts/canaan/k210.dtsi').
+From: Miguel Ojeda <ojeda@kernel.org>
 
-What about all out-of-tree platforms, bootloaders and FW?
+The rust modules work on 64-bit RISC-V, with no twiddling required.
+Select HAS_RUST and provide the required flags to kbuild so that the
+modules can be used.
+32-bit is broken in core rust code, so support is limited to 64-bit
+only: ld.lld: error: undefined symbol: __udivdi3
 
-> There is one reset on k210, while there is no reset of DMA on hsdk at all.
-> If here minItems with value 1 is added and the value of maxItems is changed to 2, after my testing,
-> whether it is one reset or two resets, even no reset, there is no errors occur when doing dtbs_check,
+Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ Documentation/rust/arch-support.rst | 2 ++
+ arch/riscv/Kconfig                  | 1 +
+ arch/riscv/Makefile                 | 3 ++-
+ 3 files changed, 5 insertions(+), 1 deletion(-)
 
-Yeah, I know how this works.
-
-> the DMA initialization shall not be affected either on their platforms.
-
-I asked whether the hardware physically have two resets. dtbs_check
-checks the DTS, not the hardware. You know allow two resets for each
-other variant. What's more, you call first reset axi for all variants.
-This does not look correct, e.g. k210.dtsi does not indicate this is axi
-reset line but reset for entire block.
-
-Thus your change should be constrained per your variant (min/max in
-top-level, allOf:if:then allowing two lines for you, disallowing for
-others).
-
-
-
-Best regards,
-Krzysztof
+diff --git a/Documentation/rust/arch-support.rst b/Documentation/rust/arch-support.rst
+index 6982b63775da..197919158596 100644
+--- a/Documentation/rust/arch-support.rst
++++ b/Documentation/rust/arch-support.rst
+@@ -15,5 +15,7 @@ support corresponds to ``S`` values in the ``MAINTAINERS`` file.
+ ============  ================  ==============================================
+ Architecture  Level of support  Constraints
+ ============  ================  ==============================================
++``riscv``     Maintained        ``rv64`` only.
++============  ================  ==============================================
+ ``x86``       Maintained        ``x86_64`` only.
+ ============  ================  ==============================================
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 81eb031887d2..73174157212d 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -115,6 +115,7 @@ config RISCV
+ 	select HAVE_POSIX_CPU_TIMERS_TASK_WORK
+ 	select HAVE_REGS_AND_STACK_ACCESS_API
+ 	select HAVE_RSEQ
++	select HAVE_RUST if 64BIT
+ 	select HAVE_STACKPROTECTOR
+ 	select HAVE_SYSCALL_TRACEPOINTS
+ 	select IRQ_DOMAIN
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index 76989561566b..f8b3f58f2e40 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -29,7 +29,7 @@ ifeq ($(CONFIG_ARCH_RV64I),y)
+ 
+ 	KBUILD_CFLAGS += -mabi=lp64
+ 	KBUILD_AFLAGS += -mabi=lp64
+-
++	KBUILD_RUSTFLAGS += -Ctarget-cpu=generic-rv64
+ 	KBUILD_LDFLAGS += -melf64lriscv
+ else
+ 	BITS := 32
+@@ -38,6 +38,7 @@ else
+ 	KBUILD_CFLAGS += -mabi=ilp32
+ 	KBUILD_AFLAGS += -mabi=ilp32
+ 	KBUILD_LDFLAGS += -melf32lriscv
++	KBUILD_RUSTFLAGS += -Ctarget-cpu=generic-rv32
+ endif
+ 
+ ifeq ($(CONFIG_LD_IS_LLD),y)
+-- 
+2.39.2
 
 
 _______________________________________________
