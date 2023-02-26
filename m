@@ -4,65 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85D94C64ED6
-	for <linux-riscv@archiver.kernel.org>; Sun, 26 Feb 2023 14:33:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C7CEC64ED6
+	for <linux-riscv@archiver.kernel.org>; Sun, 26 Feb 2023 15:02:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:References:
-	In-Reply-To:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eNWwssClwLNgjzU9GWbVbkp6sgY46tKzNKvJlJb3uk4=; b=yAA2ANL5bdyNWh
-	7CZMz59yJDKt7qVfpqaJ+RyckL8ycKjB2qO6PPET0OQvvhc3Xk02rmgYLoyZxTI8+sfvN7K9qKnFr
-	VBuX/7/HWJa0CD96sEXPJ3pcy0otc71W9Wt7r9iavJxCN/GjUmkr4IJFU5fqtECfs+04+TJl4Mgrz
-	yvIun9gV6z4ifSvo5pAhgJfRXkxzrUDgWc1JNfFBiY0oDFPEfZ88/I+0t/BOycU5GdNvzJiYeSFED
-	C0sTplU0k5FzltbsTdTDIYoRR7EVrEW/tg9I9Yz+WnDjC+yOhN4JI/QFXPSFmZB4h/op1X/lhdoFX
-	2l35O8N8WwvSGrsSiBFw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=w602+mGTKFieHAoa7EmAU7oYNwMPd+7FZ1W3lz4JxGk=; b=G6px+aYCNz+mRd
+	4ozBdmPh/8osbQbYDcZgVPELam7HFUVkDU5zY31dZ+0shVp7pJspS7daBavVhlKR6qh893Ur6T7Rf
+	zNrsdnMXjmmIFuPdCAFN6gybHotjH7pAaTZGOlTFl9QrRpCjJUXQquaZawcQkeOr2+w8a6JMHZGEf
+	AIYMOdN+6oUpaOQWX0z2mM0kY6YVXD3gpRxqGSUy+Ryx6DVjDhYrdidu4OSPEqn4H76kEZGVi+1hB
+	pOkMWlNLOIxFM/Vnwol1ARcTE0oSacNRV7TL61duEZqObJhOMqklDDB0tCbqxO4WXdS05WO75Nio6
+	/Gw7v0lwyS688hr/rmaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWI5Y-007OCR-9n; Sun, 26 Feb 2023 14:33:20 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1pWIXX-007UhA-D9; Sun, 26 Feb 2023 15:02:15 +0000
+Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWI5V-007OBu-NO
-	for linux-riscv@lists.infradead.org; Sun, 26 Feb 2023 14:33:19 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 809F760B93;
-	Sun, 26 Feb 2023 14:33:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0BC50C433EF;
-	Sun, 26 Feb 2023 14:33:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1677421992;
-	bh=YnxpkmbkG6PzcFyevBigSqi5GniCxlw3dIbgKnEcWt8=;
-	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
-	b=U3DuBm8ED4PczZm6tJIrICo3o0CiMDJs/JYJdSPCpS0NtAkSmXSQzk7lNXiai09hv
-	 pf1kE2IMc0V6kunxscDiTdqyu9iVub+ezxpNfGwo7X8O/V5kYEoAZ43XJNqDZPoEE+
-	 88LBVIv83wfKYZ6Usc4hyCyEhESXElIr8FwFOVkWyzfijHsZfd6RnWqkpMg7fylJdh
-	 yhJoo65Kh68Fxp/qXpJH2cBein1afGn/NF+mPUfucsqJomFjaV7MDQ0lXAEcp8ydaO
-	 +pmOjeiBpmXa4iN+m30WpiUGh/zC7ewF0iVptIbEK5t6Ng7Mf2uGHkF0lfV82hPg0S
-	 d1p07RvrhfS2g==
-Date: Sun, 26 Feb 2023 14:33:07 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
- Xingyu Wu <xingyu.wu@starfivetech.com>
-CC: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
- linux-watchdog@vger.kernel.org, Wim Van Sebroeck <wim@linux-watchdog.org>,
- Guenter Roeck <linux@roeck-us.net>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Samin Guo <samin.guo@starfivetech.com>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/2] drivers: watchdog: Add StarFive Watchdog driver
-User-Agent: K-9 Mail for Android
-In-Reply-To: <CAJM55Z823iqUqD8enM0qJ_MA3Tw94Mn0mq71fbLT1Qjo2s2J3g@mail.gmail.com>
-References: <20230220081926.267695-1-xingyu.wu@starfivetech.com> <20230220081926.267695-3-xingyu.wu@starfivetech.com> <CAJM55Z823iqUqD8enM0qJ_MA3Tw94Mn0mq71fbLT1Qjo2s2J3g@mail.gmail.com>
-Message-ID: <CA6686A1-2336-442F-8C7B-7D8EFEEE1940@kernel.org>
+	id 1pWIXS-007UfI-2n
+	for linux-riscv@lists.infradead.org; Sun, 26 Feb 2023 15:02:14 +0000
+Received: by mail-lf1-x134.google.com with SMTP id t11so5363834lfr.1
+        for <linux-riscv@lists.infradead.org>; Sun, 26 Feb 2023 07:02:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=00BrJtQYUm2ctanqeELqxST7ownlOAdQkcEkYX1TRIY=;
+        b=DNtNgHrKHGXDrwr0dIP1O02KBWNU47s76Dn5SZDAb6npnbDtIsEz+mG0/q+/q8ZXvp
+         JhwhVmePdBDUiYTFoluF34vUTAT1Xkia/4id2ET6dSqcD6DYeZR5doLS0XBCH0HhPNUI
+         +M4PjPkoe1xrs6QJkY+MLyskbQZ+AeZMRoyM8sWVd9XzjkEQsqCZK61iS8PLEPOkPY3Q
+         sUfaAXMxzCA6tn02IrcfmaQsprjTwQDTuzw3O8oN+jOtT+B/k33erSWdkJqG9Ar7CCxi
+         GKAqqcnQ4H+ul7vKeu+UB6RiazneG1GS+KvcWbKNEvXSL+pKzy/txhmacIG6YkFWrvSW
+         HWhA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=00BrJtQYUm2ctanqeELqxST7ownlOAdQkcEkYX1TRIY=;
+        b=ElCohiEbR/sENKOdLViPSDAYDNmihn7Ds9HHwdNoQtQSAV9qRGRkt+pNR29+4SsZ0V
+         6pCgKcIHAPgSCBq9pwAUrRQgOm1RKFyCCXLlDCvIUisHa7iSN924yFebFyk/h1McZOxW
+         ysWRkmiL12boEgC3U2y+wgO8MpJgf+pSlqAGTzPd0nu/hamEyEX0gqtDvyG5taxb8g8B
+         XHPIuAGB+prlZRa7KnDpoDfFroiGp5IQFIvLN4zLyzCw6d5bNzEv6FJnaHKu9VswN7eV
+         sz7a9hTbuovnQzMRnn49SisQDtbgv0qBP/YRT+RMJHirsfjbN+rHT2mjSe1i1L9vMqyT
+         bGrA==
+X-Gm-Message-State: AO0yUKW66xgiQzNprpyK5b9F5tHzf25odru4y1NYvZsPauOAA872ZlZ/
+	xI8La/Wum2eijyu3/wRIrSbEkeSmwd6X9444hvU=
+X-Google-Smtp-Source: AK7set8F9McGCBvWUbZ8pqypNd9y272tlLBLu/PzUd1t2mSBj/bDCrHtHZv9kX6OSJHVK/frmc2mTA==
+X-Received: by 2002:ac2:5383:0:b0:4dc:4c53:4460 with SMTP id g3-20020ac25383000000b004dc4c534460mr6907072lfh.16.1677423720441;
+        Sun, 26 Feb 2023 07:02:00 -0800 (PST)
+Received: from localhost.localdomain ([5.188.167.245])
+        by smtp.googlemail.com with ESMTPSA id z7-20020ac25de7000000b004db44dfd888sm580715lfq.30.2023.02.26.07.01.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 26 Feb 2023 07:01:59 -0800 (PST)
+From: Sergey Matyukevich <geomatsi@gmail.com>
+To: linux-riscv@lists.infradead.org,
+	linux-arch@vger.kernel.org
+Cc: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Zong Li <zong.li@sifive.com>,
+	Guo Ren <guoren@kernel.org>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Sergey Matyukevich <geomatsi@gmail.com>
+Subject: [PATCH 0/2] riscv: asid: switch to alternative way to fix stale TLB entries
+Date: Sun, 26 Feb 2023 18:01:35 +0300
+Message-Id: <20230226150137.1919750-1-geomatsi@gmail.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230226_063317_881071_8503CF40 
-X-CRM114-Status: GOOD (  12.58  )
+X-CRM114-CacheID: sfid-20230226_070210_166272_929DBB99 
+X-CRM114-Status: GOOD (  12.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,60 +93,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi all,
+
+Some time ago two different patches have been posted to fix stale TLB
+entries that caused applications crashes.
+
+The patch [0] suggested 'aggregating' mm_cpumask, i.e. current cpu is not
+cleared for the switched-out task in switch_mm function. For additional
+explanations see the commit message by Guo Ren. The same approach is
+used by arc architecture, so another good comment is for switch_mm
+in arch/arc/include/asm/mmu_context.h.
+
+The patch [1] attempted to reduce the number of TLB flushes by deferring
+(and possibly avoiding) them for CPUs not running the task.
+
+Patch [1] has been merged. However we already have two bug reports from
+different vendors. So apparently something is missing in the approach
+suggested in [1]. In both cases the patch [0] fixed the issue.
+
+This patch series reverts [1] and replaces it by [0].
+
+Regards,
+Sergey
+
+[0] https://lore.kernel.org/linux-riscv/20221111075902.798571-1-guoren@kernel.org/
+[1] https://lore.kernel.org/linux-riscv/20220829205219.283543-1-geomatsi@gmail.com/
 
 
-On 26 February 2023 14:14:25 GMT, Emil Renner Berthing <emil.renner.berthing@canonical.com> wrote:
->On Mon, 20 Feb 2023 at 09:21, Xingyu Wu <xingyu.wu@starfivetech.com> wrote:
->>
->> Add watchdog driver for the StarFive JH7110 SoC.
->>
->> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
->> ---
->>  MAINTAINERS                     |   7 +
->>  drivers/watchdog/Kconfig        |   9 +
->>  drivers/watchdog/Makefile       |   2 +
->>  drivers/watchdog/starfive-wdt.c | 651 ++++++++++++++++++++++++++++++++
->>  4 files changed, 669 insertions(+)
->>  create mode 100644 drivers/watchdog/starfive-wdt.c
->>
->> diff --git a/MAINTAINERS b/MAINTAINERS
->> index 135d93368d36..6cbcf08fa76a 100644
->> --- a/MAINTAINERS
->> +++ b/MAINTAINERS
->> @@ -19933,6 +19933,13 @@ F:     Documentation/devicetree/bindings/reset/starfive,jh7100-reset.yaml
->>  F:     drivers/reset/reset-starfive-jh7100.c
->>  F:     include/dt-bindings/reset/starfive-jh7100.h
->>
->> +STARFIVE JH7110 WATCHDOG DRIVER
->> +M:     Xingyu Wu <xingyu.wu@starfivetech.com>
->> +M:     Samin Guo <samin.guo@starfivetech.com>
->> +S:     Supported
->> +F:     Documentation/devicetree/bindings/watchdog/starfive*
->> +F:     drivers/watchdog/starfive-wdt.c
->> +
->>  STATIC BRANCH/CALL
->>  M:     Peter Zijlstra <peterz@infradead.org>
->>  M:     Josh Poimboeuf <jpoimboe@kernel.org>
->> diff --git a/drivers/watchdog/Kconfig b/drivers/watchdog/Kconfig
->> index 0bc40b763b06..4608eb5c9501 100644
->> --- a/drivers/watchdog/Kconfig
->> +++ b/drivers/watchdog/Kconfig
->> @@ -2089,6 +2089,15 @@ config UML_WATCHDOG
->>         tristate "UML watchdog"
->>         depends on UML || COMPILE_TEST
->>
->> +config STARFIVE_WATCHDOG
->> +       tristate "StarFive Watchdog support"
->> +       depends on RISCV
->
->Let's do like the pinctrl and clock drivers and
->
->    depends SOC_STARFIVE || COMPILE_TEST
+Guo Ren (1):
+  riscv: asid: Fixup stale TLB entry cause application crash
 
-Or better yet, rebase on 6.3-rc1, and use ARCH_STARFIVE and save me a conversion!
+Sergey Matyukevich (1):
+  Revert "riscv: mm: notify remote harts about mmu cache updates"
 
-Thanks,
-Conor.
+ arch/riscv/include/asm/mmu.h      |  2 --
+ arch/riscv/include/asm/tlbflush.h | 18 --------------
+ arch/riscv/mm/context.c           | 40 +++++++++++++++----------------
+ arch/riscv/mm/tlbflush.c          | 28 +++++++++++++---------
+ 4 files changed, 37 insertions(+), 51 deletions(-)
+
+-- 
+2.39.2
+
 
 _______________________________________________
 linux-riscv mailing list
