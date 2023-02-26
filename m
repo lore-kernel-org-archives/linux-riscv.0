@@ -4,84 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC3D3C7EE23
-	for <linux-riscv@archiver.kernel.org>; Sun, 26 Feb 2023 15:02:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6846BC64ED6
+	for <linux-riscv@archiver.kernel.org>; Sun, 26 Feb 2023 15:16:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7l7mmCaBw1UBIa3XCByxdY907PbVmyjM31fQRM5co1I=; b=hs4uAVYB9lMiQH
-	PuZjhDIqSqtTFhTXeatOUBZVZ9ImURnp3IS+Bgk+UsZUg8miXyyeRBeUqx/ROa4CQs5loCe5RBMGG
-	bn0ld4KOp05cAdcwz8glLXxn6cJyPPCydezXv4i9raqyH8dwAKxoyrJd3ZvR31ee3sndN6xseT0W2
-	/2FoT+uWM/LFgtDa7UCxxw5u7N0npMFpJ47veyH05xDeUYhBg/buf1CmvKTPCITb9a22i3JNAeCmn
-	mT67Vdm1aRR8RZTMuckUkTlFx1eW3cbcbPIl21UVCp3b9FStiQXTsnIjPemb51ze1Cjm579LqGHwP
-	a/Bs7LDsPfNTcui2SpBg==;
+	List-Owner; bh=LfwmMgkP+uo4gPIlcLs2/aVuc8G5LMut6oyiRqxOp78=; b=ghPhWUNIpU1ked
+	YmoJ5ctklcOyDsleXB1rrSvDVQMRnuPtchaeeOl7jH2oZEfoQIk+nNTH5xPYmR51EPoCy49Hy8sfL
+	dEbCOFnTIwNwz2tDLKb02vn5YePiC6DJOzChbKS/ilC5kjrWNNkZriAwJBmZTTHnXtboqeeIapHLg
+	k7Ws+PGXy4VE3cFQFfQQSt/Zq4UwhLwwsksJHJwKg81Np9iCKQgZwPLgUqHjsXfB6PXbdL2odWQRK
+	fbqxcFkHmNiTPcf+VhMo/WCC8VRxyH2wHQ8k/yoURS6thBbBq4nocIEbetv4qLRi2eGji/e06mMPv
+	m9Oga3G+CpL8tszZBZXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWIXc-007UiN-6b; Sun, 26 Feb 2023 15:02:20 +0000
-Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
+	id 1pWIkr-007VgB-9I; Sun, 26 Feb 2023 15:16:01 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWIXU-007UfL-DQ
-	for linux-riscv@lists.infradead.org; Sun, 26 Feb 2023 15:02:15 +0000
-Received: by mail-lf1-x131.google.com with SMTP id bi9so5349986lfb.2
-        for <linux-riscv@lists.infradead.org>; Sun, 26 Feb 2023 07:02:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=AU8fbmkzw6fJ/9/3WpmqHnvxujK+M1whKxViRm0r9mg=;
-        b=PtDR6RKJG4wxI5mHCRv7xDve6+yWo2w8RwXvuCokGANC3b1tvnenSHUCDlHR1Bx3D8
-         m4dB+zV0p8VeYO5BjwWiJtUD+SYC/SSsLEFuNq5bZxnTrSTjwlnv7CZf6KWWZ0EMCrZi
-         Db0vJmN20CHiHEZVFzprEzu04lPD2JHkNyJt78jmUvcEUinSm3kFfyJAZGNbbGtS5tPw
-         F7nQm39KjQPs1PFasKzN/cL2IVIJvbTfZOhxV6QB3hRL/ihwhxP2p/Go8YD0CSiQVpx8
-         9mN4BWqm8eL3l4dRoI4fmBT475LdtPSBsED3rkwxnX86cztoPiU1P6ZGqAJmBQgXzseS
-         vyrA==
+	id 1pWIkl-007Vff-0A
+	for linux-riscv@lists.infradead.org; Sun, 26 Feb 2023 15:15:57 +0000
+Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com [209.85.219.70])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 93C413F5A0
+	for <linux-riscv@lists.infradead.org>; Sun, 26 Feb 2023 15:15:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1677424552;
+	bh=wIBy6U41Dj5n4ITVB/Mns+jjmQ4eaV8djJQzjN4oRmU=;
+	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=YY1lYwftwx/w5BIGEbceF++jawqPgcS/hKW8hstBlR7F1kAt2uBs2/8Y13xmLAWyj
+	 XoRlPBktBtg+/EHvTQMCz0lh44fKKk/c8aFHE162+JY2eay3nX0zfdi0vELW5ovj5u
+	 zsQ2h+l1jkpo4jKaO++OSGJ0+fwFk+NoCtDKxMa5q6p/AjP2PECFSdfqPUBDvt532w
+	 1FlEl7gjX2u3JSX+1Q4C57sPQKuyEpNim9d9Pi1TIls/wNo9xxslGsPbvhyYdjhV3H
+	 PI4yfF5p4V1fRflj6BKQp7ZHoZCecgcq0hnJlD3vnQvaZf/47J2MIbDHrJFRlH/gyV
+	 0L9Nqjq2bC3zw==
+Received: by mail-qv1-f70.google.com with SMTP id u18-20020a0cec92000000b0056ea549d728so2111540qvo.10
+        for <linux-riscv@lists.infradead.org>; Sun, 26 Feb 2023 07:15:52 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=AU8fbmkzw6fJ/9/3WpmqHnvxujK+M1whKxViRm0r9mg=;
-        b=ZiMviVhLaee0NUpBZFAR6GQEDU8cp+Fig9nBG2kQ4ZGwGy/e/YIFOZV4+Sq+sVWFqe
-         uWMYCCvCV7OXDk0gTgaS6SjW6FG4zniiQWAjRLPskpOoJq0FLrTFELdAhYZXt2b1+jtE
-         dF0zFCvEdmoVAtJxEXLQ3tU4IHEcS6etUdbPXZQR1SPcnQbmWrU+58GAgkNHdySk3baa
-         kddMmo+H//SGdad8JLTQjohp6ZR/+Y5ONGxzP8w3QU1GHm5nw7cgG7WsVLmKXpGlvs1v
-         BrY6fzlGa+TkAiQAx1MnFojBxbazS3WRXsO+NH/tTe9MXuplM6ObjuMIYBqOT38ztLlt
-         4RNw==
-X-Gm-Message-State: AO0yUKViTguEKH2dDBlp6PwLFbmvwqgRMk/1ZRF33iy31Jgaf2OK3blg
-	om/ZooUSEG7jCR2MeisX945qmjcH9lmcdcoDLUw=
-X-Google-Smtp-Source: AK7set9hBGR0JAbPzigbHaqMspFiDSaFSBYwBSZSE/LcKnWZyxKjGuEPrk+fZeuuAlRKWFSLlwAz+Q==
-X-Received: by 2002:ac2:59c4:0:b0:4dd:cef0:c27c with SMTP id x4-20020ac259c4000000b004ddcef0c27cmr1945798lfn.33.1677423721791;
-        Sun, 26 Feb 2023 07:02:01 -0800 (PST)
-Received: from localhost.localdomain ([5.188.167.245])
-        by smtp.googlemail.com with ESMTPSA id z7-20020ac25de7000000b004db44dfd888sm580715lfq.30.2023.02.26.07.02.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 26 Feb 2023 07:02:01 -0800 (PST)
-From: Sergey Matyukevich <geomatsi@gmail.com>
-To: linux-riscv@lists.infradead.org,
-	linux-arch@vger.kernel.org
-Cc: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Zong Li <zong.li@sifive.com>,
-	Guo Ren <guoren@kernel.org>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Sergey Matyukevich <geomatsi@gmail.com>,
-	Sergey Matyukevich <sergey.matyukevich@syntacore.com>,
-	stable@vger.kernel.org
-Subject: [PATCH 1/2] Revert "riscv: mm: notify remote harts about mmu cache updates"
-Date: Sun, 26 Feb 2023 18:01:36 +0300
-Message-Id: <20230226150137.1919750-2-geomatsi@gmail.com>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20230226150137.1919750-1-geomatsi@gmail.com>
-References: <20230226150137.1919750-1-geomatsi@gmail.com>
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=wIBy6U41Dj5n4ITVB/Mns+jjmQ4eaV8djJQzjN4oRmU=;
+        b=Wf1UY9HUdhV9B1xl1IUNrE2ivcuMGD8P4ZqIH7eU2YYO53A5bO8jNdMxFg/aaqzUTL
+         AjHNYo4kFueu0BZMG1LAvidh+1l5qS+qsgHBdTdqrG/RGGSm5SBw+8yvrR3BxlzSEqkF
+         hC+XrD36i6dSpDJp5rJi0TO9eH6sNUcV39HhxO8BN9BOrl5pllI2/X2JzflBV5KDK0Nt
+         r2SfStB+sZ8SdHgPUEnGwFBXqmPRx7oE3mBWPdplRcGmQREm8DSgXQNBwYD5Sv9bfx0L
+         Uj8gKQFTidSoA9BxyNX+zOxQmbiDF0rBGA3UlqSf4QvBD2QRK1Ya/nQG2+hGIv8ANRO+
+         KSxQ==
+X-Gm-Message-State: AO0yUKVcJz6ZNT5Gq2gtMNkA9/wfrtqRfU5++j5l+fhV1u6aIn9LQRX0
+	c9Bx/DpKK4VvxAb4Oh8u4ZA14TVNYFUz8M2ujUfw7Pcp5igJDvaBSt+sT0+RGXqnUTcBUQnpAiJ
+	7SLV/cQF2sZpubnvr6Tv37razaXt9DU0opkAYHqY19jEHmVUms8hR/ScI+6FT7Q==
+X-Received: by 2002:a05:620a:a07:b0:73b:a941:7206 with SMTP id i7-20020a05620a0a0700b0073ba9417206mr4398877qka.7.1677424551263;
+        Sun, 26 Feb 2023 07:15:51 -0800 (PST)
+X-Google-Smtp-Source: AK7set8kQriIg1Y8SjWJC50nqEv7gKjengpifGiOd7lR5AGwmNGEmtjmOyntTOaSQCXjHHlWUCWd3sZxCSc6ihPh31c=
+X-Received: by 2002:a05:620a:a07:b0:73b:a941:7206 with SMTP id
+ i7-20020a05620a0a0700b0073ba9417206mr4398863qka.7.1677424550956; Sun, 26 Feb
+ 2023 07:15:50 -0800 (PST)
 MIME-Version: 1.0
+References: <20230118061701.30047-1-yanhong.wang@starfivetech.com>
+ <20230118061701.30047-6-yanhong.wang@starfivetech.com> <CAJM55Z-zvb5CJq4PU4c=YKvY0xPY216MAALFsmWTcVFjSd=wEA@mail.gmail.com>
+ <dfddde90-ddce-d0e5-d31c-bbbbecaf7323@starfivetech.com>
+In-Reply-To: <dfddde90-ddce-d0e5-d31c-bbbbecaf7323@starfivetech.com>
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Date: Sun, 26 Feb 2023 16:15:34 +0100
+Message-ID: <CAJM55Z-Pkd5+GBi4NYEuRSHezvJ_vUYiWLdQCpY2D2RqLa-btw@mail.gmail.com>
+Subject: Re: [PATCH v4 5/7] net: stmmac: Add glue layer for StarFive JH7110 SoCs
+To: yanhong wang <yanhong.wang@starfivetech.com>
+Cc: linux-riscv@lists.infradead.org, netdev@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>, 
+	Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew@lunn.ch>, 
+	Heiner Kallweit <hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>, samin.guo@starfivetech.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230226_070212_477343_176EB8D7 
-X-CRM114-Status: GOOD (  15.33  )
+X-CRM114-CacheID: sfid-20230226_071555_493309_70972748 
+X-CRM114-Status: GOOD (  39.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,146 +101,233 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
+On Tue, 21 Feb 2023 at 03:27, yanhong wang
+<yanhong.wang@starfivetech.com> wrote:
+>
+> add  samin.guo@starfivetech.com  to loop.
+>
+> On 2023/2/16 18:53, Emil Renner Berthing wrote:
+> > On Wed, 18 Jan 2023 at 07:20, Yanhong Wang
+> > <yanhong.wang@starfivetech.com> wrote:
+> >>
+> >> This adds StarFive dwmac driver support on the StarFive JH7110 SoCs.
+> >>
+> >> Signed-off-by: Yanhong Wang <yanhong.wang@starfivetech.com>
+> >> Co-developed-by: Emil Renner Berthing <kernel@esmil.dk>
+> >> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+> >> ---
+> >>  MAINTAINERS                                   |   1 +
+> >>  drivers/net/ethernet/stmicro/stmmac/Kconfig   |  12 ++
+> >>  drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
+> >>  .../stmicro/stmmac/dwmac-starfive-plat.c      | 118 ++++++++++++++++++
+> >>  4 files changed, 132 insertions(+)
+> >>  create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-starfive-plat.c
+> >>
+> >> diff --git a/MAINTAINERS b/MAINTAINERS
+> >> index 56be59bb09f7..5b50b52d3dbb 100644
+> >> --- a/MAINTAINERS
+> >> +++ b/MAINTAINERS
+> >> @@ -19609,6 +19609,7 @@ F:      include/dt-bindings/clock/starfive*
+> >>  STARFIVE DWMAC GLUE LAYER
+> >>  M:     Yanhong Wang <yanhong.wang@starfivetech.com>
+> >>  S:     Maintained
+> >> +F:     Documentation/devicetree/bindings/net/dwmac-starfive-plat.c
+> >>  F:     Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
+> >>
+> >>  STARFIVE PINCTRL DRIVER
+> >> diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+> >> index 31ff35174034..f9a4ad4abd54 100644
+> >> --- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
+> >> +++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+> >> @@ -235,6 +235,18 @@ config DWMAC_INTEL_PLAT
+> >>           the stmmac device driver. This driver is used for the Intel Keem Bay
+> >>           SoC.
+> >>
+> >> +config DWMAC_STARFIVE_PLAT
+> >> +       tristate "StarFive dwmac support"
+> >> +       depends on OF && COMMON_CLK
+> >> +       depends on STMMAC_ETH
+> >> +       default SOC_STARFIVE
+> >> +       help
+> >> +         Support for ethernet controllers on StarFive RISC-V SoCs
+> >> +
+> >> +         This selects the StarFive platform specific glue layer support for
+> >> +         the stmmac device driver. This driver is used for StarFive JH7110
+> >> +         ethernet controller.
+> >> +
+> >>  config DWMAC_VISCONTI
+> >>         tristate "Toshiba Visconti DWMAC support"
+> >>         default ARCH_VISCONTI
+> >> diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
+> >> index d4e12e9ace4f..a63ab0ab5071 100644
+> >> --- a/drivers/net/ethernet/stmicro/stmmac/Makefile
+> >> +++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
+> >> @@ -31,6 +31,7 @@ obj-$(CONFIG_DWMAC_DWC_QOS_ETH)       += dwmac-dwc-qos-eth.o
+> >>  obj-$(CONFIG_DWMAC_INTEL_PLAT) += dwmac-intel-plat.o
+> >>  obj-$(CONFIG_DWMAC_GENERIC)    += dwmac-generic.o
+> >>  obj-$(CONFIG_DWMAC_IMX8)       += dwmac-imx.o
+> >> +obj-$(CONFIG_DWMAC_STARFIVE_PLAT)      += dwmac-starfive-plat.o
+> >
+> > Hi Yanhong,
+> >
+> > For the next version could you please drop the _PLAT from the config
+> > symbol and -plat from filename. I know the intel wrapper does the
+> > same, but it's the only one, so lets do like the majority of other
+> > wrappers and not add more different ways of doing things.
+> >
+>
+> Thanks. I will fix.
+>
+> >>  obj-$(CONFIG_DWMAC_VISCONTI)   += dwmac-visconti.o
+> >>  stmmac-platform-objs:= stmmac_platform.o
+> >>  dwmac-altr-socfpga-objs := altr_tse_pcs.o dwmac-socfpga.o
+> >> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive-plat.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive-plat.c
+> >> new file mode 100644
+> >> index 000000000000..e441d920933a
+> >> --- /dev/null
+> >> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive-plat.c
+> >> @@ -0,0 +1,118 @@
+> >> +// SPDX-License-Identifier: GPL-2.0+
+> >> +/*
+> >> + * StarFive DWMAC platform driver
+> >> + *
+> >> + * Copyright(C) 2022 StarFive Technology Co., Ltd.
+> >> + *
+> >> + */
+> >> +
+> >> +#include <linux/of_device.h>
+> >> +
+> >> +#include "stmmac_platform.h"
+> >> +
+> >> +struct starfive_dwmac {
+> >> +       struct device *dev;
+> >> +       struct clk *clk_tx;
+> >> +       struct clk *clk_gtx;
+> >> +       struct clk *clk_gtxc;
+> >> +};
+> >
+> > I like this name. For the next version could you also
+> > s/starfive_eth_plat_/starfive_dwmac_/ on the function/struct names
+> > below for consistency.
+> >
+>
+> I will fix.
+>
+> >> +
+> >> +static void starfive_eth_plat_fix_mac_speed(void *priv, unsigned int speed)
+> >> +{
+> >> +       struct starfive_dwmac *dwmac = priv;
+> >> +       unsigned long rate;
+> >> +       int err;
+> >> +
+> >> +       rate = clk_get_rate(dwmac->clk_gtx);
+> >> +
+> >> +       switch (speed) {
+> >> +       case SPEED_1000:
+> >> +               rate = 125000000;
+> >> +               break;
+> >> +       case SPEED_100:
+> >> +               rate = 25000000;
+> >> +               break;
+> >> +       case SPEED_10:
+> >> +               rate = 2500000;
+> >> +               break;
+> >> +       default:
+> >> +               dev_err(dwmac->dev, "invalid speed %u\n", speed);
+> >> +               break;
+> >> +       }
+> >> +
+> >> +       err = clk_set_rate(dwmac->clk_gtx, rate);
+> >> +       if (err)
+> >> +               dev_err(dwmac->dev, "failed to set tx rate %lu\n", rate);
+> >> +}
+> >> +
+> >> +static int starfive_eth_plat_probe(struct platform_device *pdev)
+> >> +{
+> >> +       struct plat_stmmacenet_data *plat_dat;
+> >> +       struct stmmac_resources stmmac_res;
+> >> +       struct starfive_dwmac *dwmac;
+> >> +       int err;
+> >> +
+> >> +       err = stmmac_get_platform_resources(pdev, &stmmac_res);
+> >> +       if (err)
+> >> +               return err;
+> >> +
+> >> +       plat_dat = stmmac_probe_config_dt(pdev, stmmac_res.mac);
+> >> +       if (IS_ERR(plat_dat)) {
+> >> +               dev_err(&pdev->dev, "dt configuration failed\n");
+> >> +               return PTR_ERR(plat_dat);
+> >> +       }
+> >> +
+> >> +       dwmac = devm_kzalloc(&pdev->dev, sizeof(*dwmac), GFP_KERNEL);
+> >> +       if (!dwmac)
+> >> +               return -ENOMEM;
+> >> +
+> >> +       dwmac->clk_tx = devm_clk_get_enabled(&pdev->dev, "tx");
+> >> +       if (IS_ERR(dwmac->clk_tx))
+> >> +               return dev_err_probe(&pdev->dev, PTR_ERR(dwmac->clk_tx),
+> >> +                                               "error getting tx clock\n");
+> >> +
+> >> +       dwmac->clk_gtx = devm_clk_get_enabled(&pdev->dev, "gtx");
+> >> +       if (IS_ERR(dwmac->clk_gtx))
+> >> +               return dev_err_probe(&pdev->dev, PTR_ERR(dwmac->clk_gtx),
+> >> +                                               "error getting gtx clock\n");
+> >> +
+> >> +       dwmac->clk_gtxc = devm_clk_get_enabled(&pdev->dev, "gtxc");
+> >> +       if (IS_ERR(dwmac->clk_gtxc))
+> >> +               return dev_err_probe(&pdev->dev, PTR_ERR(dwmac->clk_gtxc),
+> >> +                                               "error getting gtxc clock\n");
+> >> +
+> >> +       dwmac->dev = &pdev->dev;
+> >> +       plat_dat->fix_mac_speed = starfive_eth_plat_fix_mac_speed;
+> >> +       plat_dat->init = NULL;
+> >> +       plat_dat->bsp_priv = dwmac;
+> >> +       plat_dat->dma_cfg->dche = true;
+> >> +
+> >> +       err = stmmac_dvr_probe(&pdev->dev, plat_dat, &stmmac_res);
+> >> +       if (err) {
+> >> +               stmmac_remove_config_dt(pdev, plat_dat);
+> >> +               return err;
+> >> +       }
+> >> +
+> >> +       return 0;
+> >> +}
+> >> +
+> >> +static const struct of_device_id starfive_eth_plat_match[] = {
+> >> +       { .compatible = "starfive,jh7110-dwmac" },
+> >> +       { }
+> >> +};
 
-This reverts the remaining bits of commit 4bd1d80efb5a ("riscv: mm:
-notify remote harts harts about mmu cache updates").
+I noticed you're missing a
+MODULE_DEVICE_TABLE(of, starfive_dwmac_match);
+here, so udev will load the module automatically.
 
-According to bug reports, suggested approach to fix stale TLB entries
-is not sufficient. It needs to be replaced by a more robust solution.
+While you're at it I also like the idiom of using { /* sentinel */ }
+for the last entry here.
 
-Fixes: 4bd1d80efb5a ("riscv: mm: notify remote harts about mmu cache updates")
-Reported-by: Zong Li <zong.li@sifive.com>
-Reported-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Signed-off-by: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
-Cc: stable@vger.kernel.org
-
----
- arch/riscv/include/asm/mmu.h      |  2 --
- arch/riscv/include/asm/tlbflush.h | 18 ------------------
- arch/riscv/mm/context.c           | 10 ----------
- arch/riscv/mm/tlbflush.c          | 28 +++++++++++++++++-----------
- 4 files changed, 17 insertions(+), 41 deletions(-)
-
-diff --git a/arch/riscv/include/asm/mmu.h b/arch/riscv/include/asm/mmu.h
-index 5ff1f19fd45c..0099dc116168 100644
---- a/arch/riscv/include/asm/mmu.h
-+++ b/arch/riscv/include/asm/mmu.h
-@@ -19,8 +19,6 @@ typedef struct {
- #ifdef CONFIG_SMP
- 	/* A local icache flush is needed before user execution can resume. */
- 	cpumask_t icache_stale_mask;
--	/* A local tlb flush is needed before user execution can resume. */
--	cpumask_t tlb_stale_mask;
- #endif
- } mm_context_t;
- 
-diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
-index 907b9efd39a8..801019381dea 100644
---- a/arch/riscv/include/asm/tlbflush.h
-+++ b/arch/riscv/include/asm/tlbflush.h
-@@ -22,24 +22,6 @@ static inline void local_flush_tlb_page(unsigned long addr)
- {
- 	ALT_FLUSH_TLB_PAGE(__asm__ __volatile__ ("sfence.vma %0" : : "r" (addr) : "memory"));
- }
--
--static inline void local_flush_tlb_all_asid(unsigned long asid)
--{
--	__asm__ __volatile__ ("sfence.vma x0, %0"
--			:
--			: "r" (asid)
--			: "memory");
--}
--
--static inline void local_flush_tlb_page_asid(unsigned long addr,
--		unsigned long asid)
--{
--	__asm__ __volatile__ ("sfence.vma %0, %1"
--			:
--			: "r" (addr), "r" (asid)
--			: "memory");
--}
--
- #else /* CONFIG_MMU */
- #define local_flush_tlb_all()			do { } while (0)
- #define local_flush_tlb_page(addr)		do { } while (0)
-diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
-index 80ce9caba8d2..7acbfbd14557 100644
---- a/arch/riscv/mm/context.c
-+++ b/arch/riscv/mm/context.c
-@@ -196,16 +196,6 @@ static void set_mm_asid(struct mm_struct *mm, unsigned int cpu)
- 
- 	if (need_flush_tlb)
- 		local_flush_tlb_all();
--#ifdef CONFIG_SMP
--	else {
--		cpumask_t *mask = &mm->context.tlb_stale_mask;
--
--		if (cpumask_test_cpu(cpu, mask)) {
--			cpumask_clear_cpu(cpu, mask);
--			local_flush_tlb_all_asid(cntx & asid_mask);
--		}
--	}
--#endif
- }
- 
- static void set_mm_noasid(struct mm_struct *mm)
-diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
-index ce7dfc81bb3f..37ed760d007c 100644
---- a/arch/riscv/mm/tlbflush.c
-+++ b/arch/riscv/mm/tlbflush.c
-@@ -5,7 +5,23 @@
- #include <linux/sched.h>
- #include <asm/sbi.h>
- #include <asm/mmu_context.h>
--#include <asm/tlbflush.h>
-+
-+static inline void local_flush_tlb_all_asid(unsigned long asid)
-+{
-+	__asm__ __volatile__ ("sfence.vma x0, %0"
-+			:
-+			: "r" (asid)
-+			: "memory");
-+}
-+
-+static inline void local_flush_tlb_page_asid(unsigned long addr,
-+		unsigned long asid)
-+{
-+	__asm__ __volatile__ ("sfence.vma %0, %1"
-+			:
-+			: "r" (addr), "r" (asid)
-+			: "memory");
-+}
- 
- void flush_tlb_all(void)
- {
-@@ -15,7 +31,6 @@ void flush_tlb_all(void)
- static void __sbi_tlb_flush_range(struct mm_struct *mm, unsigned long start,
- 				  unsigned long size, unsigned long stride)
- {
--	struct cpumask *pmask = &mm->context.tlb_stale_mask;
- 	struct cpumask *cmask = mm_cpumask(mm);
- 	unsigned int cpuid;
- 	bool broadcast;
-@@ -29,15 +44,6 @@ static void __sbi_tlb_flush_range(struct mm_struct *mm, unsigned long start,
- 	if (static_branch_unlikely(&use_asid_allocator)) {
- 		unsigned long asid = atomic_long_read(&mm->context.id);
- 
--		/*
--		 * TLB will be immediately flushed on harts concurrently
--		 * executing this MM context. TLB flush on other harts
--		 * is deferred until this MM context migrates there.
--		 */
--		cpumask_setall(pmask);
--		cpumask_clear_cpu(cpuid, pmask);
--		cpumask_andnot(pmask, pmask, cmask);
--
- 		if (broadcast) {
- 			sbi_remote_sfence_vma_asid(cmask, start, size, asid);
- 		} else if (size <= stride) {
--- 
-2.39.2
-
+> >> +static struct platform_driver starfive_eth_plat_driver = {
+> >> +       .probe  = starfive_eth_plat_probe,
+> >> +       .remove = stmmac_pltfr_remove,
+> >> +       .driver = {
+> >> +               .name = "starfive-eth-plat",
+> >> +               .pm = &stmmac_pltfr_pm_ops,
+> >> +               .of_match_table = starfive_eth_plat_match,
+> >> +       },
+> >> +};
+> >> +
+> >> +module_platform_driver(starfive_eth_plat_driver);
+> >> +
+> >> +MODULE_LICENSE("GPL");
+> >> +MODULE_DESCRIPTION("StarFive DWMAC platform driver");
+> >> +MODULE_AUTHOR("Yanhong Wang <yanhong.wang@starfivetech.com>");
+> >> --
+> >> 2.17.1
+> >>
+> >>
+> >> _______________________________________________
+> >> linux-riscv mailing list
+> >> linux-riscv@lists.infradead.org
+> >> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
