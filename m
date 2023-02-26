@@ -4,67 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BBABC6FA8E
-	for <linux-riscv@archiver.kernel.org>; Sun, 26 Feb 2023 18:02:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79955C7EE2D
+	for <linux-riscv@archiver.kernel.org>; Sun, 26 Feb 2023 20:14:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iXyo8HwjZU2UWz5E00gT+QY+RXLUi+pBDdYqxZWOFPM=; b=BjE6XRRsI1spNQ
-	Duhu7/aZMTUMd5DNA8tc9W6HGVL0L4NUK1m1doFQu+lehkHv95hiBo2KCIhklE7ZpMZvC6/xn+xVx
-	gE8T+35gMm6l3h+KgkLKYNdkb5u7xjYbZKPvaL7yQd3NJLS0eKY2V+UXDvhU5I27oWr08EW2zrTeG
-	wmhfXuHUphayEq8ZSmBg46NiaYc+o6Rdv4373x9Wz8ARUyuoPbVaOUA3jH1MWQKDJbexz1lM1k/46
-	uyN1Q5b+Yjoe6ewX6CG5t+kERNyMw2EXK4LCk/VZ9A7BFL/uv1qCltBUx7RfFcb/SH6BcO3v/vw30
-	9zixc8lmtlP942LVo2Pg==;
+	List-Owner; bh=+ofwtHV0YyIkknRhQq6x9xXlueyenblgKHiYB5TYSOc=; b=MI7/MSu9p2172v
+	GxBOdqZASbqPauwoUg0KS/ZeYAO1IER39tCtS0FFddzfdkV6dRSXCiN8p8JeG0hcruxvZTUykwCXS
+	sltdRMCkMOESPJWLMlb3fSoVkvV9y1UN8VjeeKNcynVeptfk9MXLwEoQtAS/ZyUl2SlGmElzecjK7
+	b/doIfLlBLFMfKm15UnOVr9zhvCIpvResWnOcg5X6bqLMcdGWnebx5BX2J3mO9kYxgzhj6xc8yH5A
+	SfkVG29+cD+oYzhbmQVir3uMQFKFKSIHL/ygN+wp657RymHU4suEUf8ULzqKa0Z5A3N0BFc5b3/l/
+	eO5NRLF8oUdP90YZcK9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWLLL-007exx-U4; Sun, 26 Feb 2023 18:01:51 +0000
-Received: from mail-io1-f50.google.com ([209.85.166.50])
+	id 1pWNPS-007pAc-Az; Sun, 26 Feb 2023 20:14:14 +0000
+Received: from mail-qt1-f170.google.com ([209.85.160.170])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWLLI-007exU-W2
-	for linux-riscv@lists.infradead.org; Sun, 26 Feb 2023 18:01:50 +0000
-Received: by mail-io1-f50.google.com with SMTP id v10so1699919iox.8
-        for <linux-riscv@lists.infradead.org>; Sun, 26 Feb 2023 10:01:48 -0800 (PST)
+	id 1pWNP5-007p7n-GL; Sun, 26 Feb 2023 20:13:53 +0000
+Received: by mail-qt1-f170.google.com with SMTP id z6so4833852qtv.0;
+        Sun, 26 Feb 2023 12:13:50 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gSUnq8xRtOagq4E41s+KbYjKwfOmBG7Es9wmftqohqU=;
-        b=yFNnvud8iglifK5rUb1rWQnmF4/aCw+iiBW6ZpXw5tnrTJyW1B5HrL8nmPNW9+6j2y
-         lDTJEP6Pcw+Jf5byl/NjMytSLzdr+n+HIUtnuqBqhWRsH8tjOkQzwMuEcofBw0r9EH8t
-         Izdt0ra2YObgNCPefKfIJgnnu5crjCeiNuObGgQPc/audedGy+5U6IDRaqmbEJqspkI4
-         A0maiV55OERZSqcvlPam2tIuiaUKO+m2SFkA0/QIbV/9uc7c7+PxL8pqQM4EOcPnHcFb
-         PY4LrcqA3peH4VG7KshTgak0aH+2rqnwb/yoBk9kIbaSmEUcqwheicreJ+nb9jKw5EFF
-         bxzA==
-X-Gm-Message-State: AO0yUKVTYHItGh47bY5E97PCufQCq/AyqjOmkXxRdn10ijsRYcJJMTTP
-	kLcmdPJg0tf7cbjNp90OlQ==
-X-Google-Smtp-Source: AK7set+3Ok4qG7EMNR+nPCTdYBuutxqpvNu4gD21+j2oWwh0QKKh9T2K+w1r/DIfDQboVOtz+yGwMQ==
-X-Received: by 2002:a5d:904f:0:b0:74c:d67a:6fa0 with SMTP id v15-20020a5d904f000000b0074cd67a6fa0mr2414345ioq.7.1677434507245;
-        Sun, 26 Feb 2023 10:01:47 -0800 (PST)
-Received: from robh_at_kernel.org ([2605:ef80:8069:8ddf:ff6b:c94c:94fd:4442])
-        by smtp.gmail.com with ESMTPSA id h2-20020a5ecb42000000b00734ac8a5ef7sm1598081iok.25.2023.02.26.10.01.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 26 Feb 2023 10:01:46 -0800 (PST)
-Received: (nullmailer pid 101541 invoked by uid 1000);
-	Sun, 26 Feb 2023 18:01:43 -0000
-Date: Sun, 26 Feb 2023 12:01:43 -0600
-From: Rob Herring <robh@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: Xu Yilun <yilun.xu@intel.com>, Conor Dooley <conor.dooley@microchip.com>, Daire McNamara <daire.mcnamara@microchip.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Moritz Fischer <mdf@kernel.org>, Wu Hao <hao.wu@intel.com>, Tom Rix <trix@redhat.com>, linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-fpga@vger.kernel.org
-Subject: Re: [PATCH v1 2/6] dt-bindings: soc: microchip: add a property for
- system controller flash
-Message-ID: <20230226180143.GA96766-robh@kernel.org>
-References: <20230217164023.14255-1-conor@kernel.org>
- <20230217164023.14255-3-conor@kernel.org>
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Gg5lD1thnSOjSPD2ugSmhhuDJpRIfjxQ4WV4ji/sEm4=;
+        b=y1Zuj55AI7B+5CrT9T76on3GLiRX/6I6Op6adO0Cb+qCbstUz5+rtsAlRp9eNU3ZXc
+         8qgQPZ5Kyq6JKlVPtIxs2q5ZFgOmKnq6iQe7p/hsANdVRfYhXR8LxFNvh4OLkeNbMaRO
+         /r+JGrptRoXl8xPh37H8fsjNBkRjKD9k79LmOx/25Ca8GGOSChlTSb22VqAGvHX8+PKP
+         epjAz6pGIRWjlp7Cy/WcZWXLqnuDvWptLqlYPVo4u5k+jf1thDej7ABYKupjMZv9VkTt
+         9pA+IBAfJcd7wcoMbMtc2OYQhmInIgVc+Tr0nfYGBjAm5MV9YSUKiCNMHxeUP/zxYFpq
+         egbQ==
+X-Gm-Message-State: AO0yUKXFUvcvGNzLD5lsh9uAJaNOC9uUYjenKpgZX2nqPB7Xdt9vd72x
+	/rhQCVpcZ53EiqdxVT/K7p8nmGzl53jYJw==
+X-Google-Smtp-Source: AK7set9dp2lp9Emkt0gIkvF4cwIlKa43iqEFDAWM2FMmoJJwK47nQclHvzWGTBT7uQdDO1eBofiyBA==
+X-Received: by 2002:ac8:7f15:0:b0:3bd:607:434e with SMTP id f21-20020ac87f15000000b003bd0607434emr38898578qtk.55.1677442428954;
+        Sun, 26 Feb 2023 12:13:48 -0800 (PST)
+Received: from mail-yw1-f175.google.com (mail-yw1-f175.google.com. [209.85.128.175])
+        by smtp.gmail.com with ESMTPSA id h20-20020ac85154000000b0039cc0fbdb61sm3384311qtn.53.2023.02.26.12.13.47
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 26 Feb 2023 12:13:47 -0800 (PST)
+Received: by mail-yw1-f175.google.com with SMTP id 00721157ae682-536b7ffdd34so123334547b3.6;
+        Sun, 26 Feb 2023 12:13:47 -0800 (PST)
+X-Received: by 2002:a81:af5f:0:b0:536:38b4:f51 with SMTP id
+ x31-20020a81af5f000000b0053638b40f51mr8731562ywj.5.1677442427017; Sun, 26 Feb
+ 2023 12:13:47 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230217164023.14255-3-conor@kernel.org>
+References: <20230113171026.582290-1-david@redhat.com> <20230113171026.582290-12-david@redhat.com>
+In-Reply-To: <20230113171026.582290-12-david@redhat.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Sun, 26 Feb 2023 21:13:33 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdX-FDga8w=pgg1myskEx6wp+oyZifhPPPFnWrc1zW7ZpQ@mail.gmail.com>
+Message-ID: <CAMuHMdX-FDga8w=pgg1myskEx6wp+oyZifhPPPFnWrc1zW7ZpQ@mail.gmail.com>
+Subject: Re: [PATCH mm-unstable v1 11/26] microblaze/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE
+To: David Hildenbrand <david@redhat.com>
+Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>, 
+	Hugh Dickins <hughd@google.com>, John Hubbard <jhubbard@nvidia.com>, Jason Gunthorpe <jgg@nvidia.com>, 
+	Mike Rapoport <rppt@linux.ibm.com>, Yang Shi <shy828301@gmail.com>, 
+	Vlastimil Babka <vbabka@suse.cz>, Nadav Amit <namit@vmware.com>, 
+	Andrea Arcangeli <aarcange@redhat.com>, Peter Xu <peterx@redhat.com>, linux-mm@kvack.org, 
+	x86@kernel.org, linux-alpha@vger.kernel.org, 
+	linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
+	linux-ia64@vger.kernel.org, loongarch@lists.linux.dev, 
+	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
+	openrisc@lists.librecores.org, linux-parisc@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, 
+	sparclinux@vger.kernel.org, linux-um@lists.infradead.org, 
+	linux-xtensa@linux-xtensa.org, Michal Simek <monstr@monstr.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230226_100149_129680_7DDDE8A8 
-X-CRM114-Status: GOOD (  20.18  )
+X-CRM114-CacheID: sfid-20230226_121351_584886_1E43BA8C 
+X-CRM114-Status: GOOD (  32.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,53 +95,97 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 17, 2023 at 04:40:19PM +0000, Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
-> 
-> The system controller "shares" a SPI flash device with a QSPI controller
-> in the MSS. This flash is used to store FPGA bitstreams & other
-> metadata. IAP and Auto Upgrade both write images to this flash that the
-> System Controller will use to re-program the FPGA.
-> 
-> Add a phandle property signifying which flash device is connected to the
-> system controller.
-> 
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->  .../soc/microchip/microchip,mpfs-sys-controller.yaml   | 10 ++++++++++
->  1 file changed, 10 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-sys-controller.yaml b/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-sys-controller.yaml
-> index 04ffee3a7c59..97a7cb74cbf9 100644
-> --- a/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-sys-controller.yaml
-> +++ b/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-sys-controller.yaml
-> @@ -26,6 +26,16 @@ properties:
->    compatible:
->      const: microchip,mpfs-sys-controller
->  
-> +  microchip,bitstream-flash:
-> +    $ref: "/schemas/types.yaml#/definitions/phandle"
+Hi David,
 
-Drop quotes.
+On Fri, Jan 13, 2023 at 6:16 PM David Hildenbrand <david@redhat.com> wrote:
+> Let's support __HAVE_ARCH_PTE_SWP_EXCLUSIVE by stealing one bit
+> from the type. Generic MM currently only uses 5 bits for the type
+> (MAX_SWAPFILES_SHIFT), so the stolen bit is effectively unused.
+>
+> The shift by 2 when converting between PTE and arch-specific swap entry
+> makes the swap PTE layout a little bit harder to decipher.
+>
+> While at it, drop the comment from paulus---copy-and-paste leftover
+> from powerpc where we actually have _PAGE_HASHPTE---and mask the type in
+> __swp_entry_to_pte() as well.
+>
+> Cc: Michal Simek <monstr@monstr.eu>
+> Signed-off-by: David Hildenbrand <david@redhat.com>
 
-With that,
+Thanks for your patch, which is now commit b5c88f21531c3457
+("microblaze/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE") in
 
-Reviewed-by: Rob Herring <robh@kernel.org>
+>  arch/m68k/include/asm/mcf_pgtable.h   |  4 +--
 
-> +    description:
-> +      The SPI flash connected to the system controller's QSPI controller.
-> +      The system controller may retrieve FPGA bitstreams from this flash to
-> +      perform In-Application Programming (IAP) or during device initialisation
-> +      for Auto Update. The MSS and system controller have separate QSPI
-> +      controllers and this flash is connected to both. Software running in the
-> +      MSS can write bitstreams to the flash.
-> +
->  required:
->    - compatible
->    - mboxes
-> -- 
-> 2.39.1
-> 
+What is this m68k change doing here?
+Sorry for not noticing this earlier.
+
+Furthermore, several things below look strange to me...
+
+>  arch/microblaze/include/asm/pgtable.h | 45 +++++++++++++++++++++------
+>  2 files changed, 37 insertions(+), 12 deletions(-)
+>
+> diff --git a/arch/m68k/include/asm/mcf_pgtable.h b/arch/m68k/include/asm/mcf_pgtable.h
+> index 3f8f4d0e66dd..e573d7b649f7 100644
+> --- a/arch/m68k/include/asm/mcf_pgtable.h
+> +++ b/arch/m68k/include/asm/mcf_pgtable.h
+> @@ -46,8 +46,8 @@
+>  #define _CACHEMASK040          (~0x060)
+>  #define _PAGE_GLOBAL040                0x400   /* 68040 global bit, used for kva descs */
+>
+> -/* We borrow bit 7 to store the exclusive marker in swap PTEs. */
+> -#define _PAGE_SWP_EXCLUSIVE    0x080
+> +/* We borrow bit 24 to store the exclusive marker in swap PTEs. */
+> +#define _PAGE_SWP_EXCLUSIVE    CF_PAGE_NOCACHE
+
+CF_PAGE_NOCACHE is 0x80, so this is still bit 7, thus the new comment
+is wrong?
+
+>
+>  /*
+>   * Externally used page protection values.
+> diff --git a/arch/microblaze/include/asm/pgtable.h b/arch/microblaze/include/asm/pgtable.h
+> index 42f5988e998b..7e3de54bf426 100644
+> --- a/arch/microblaze/include/asm/pgtable.h
+> +++ b/arch/microblaze/include/asm/pgtable.h
+> @@ -131,10 +131,10 @@ extern pte_t *va_to_pte(unsigned long address);
+>   * of the 16 available.  Bit 24-26 of the TLB are cleared in the TLB
+>   * miss handler.  Bit 27 is PAGE_USER, thus selecting the correct
+>   * zone.
+> - * - PRESENT *must* be in the bottom two bits because swap cache
+> - * entries use the top 30 bits.  Because 4xx doesn't support SMP
+> - * anyway, M is irrelevant so we borrow it for PAGE_PRESENT.  Bit 30
+> - * is cleared in the TLB miss handler before the TLB entry is loaded.
+> + * - PRESENT *must* be in the bottom two bits because swap PTEs use the top
+> + * 30 bits.  Because 4xx doesn't support SMP anyway, M is irrelevant so we
+> + * borrow it for PAGE_PRESENT.  Bit 30 is cleared in the TLB miss handler
+> + * before the TLB entry is loaded.
+
+So the PowerPC 4xx comment is still here?
+
+>   * - All other bits of the PTE are loaded into TLBLO without
+>   *  * modification, leaving us only the bits 20, 21, 24, 25, 26, 30 for
+>   * software PTE bits.  We actually use bits 21, 24, 25, and
+> @@ -155,6 +155,9 @@ extern pte_t *va_to_pte(unsigned long address);
+>  #define _PAGE_ACCESSED 0x400   /* software: R: page referenced */
+>  #define _PMD_PRESENT   PAGE_MASK
+>
+> +/* We borrow bit 24 to store the exclusive marker in swap PTEs. */
+> +#define _PAGE_SWP_EXCLUSIVE    _PAGE_DIRTY
+
+_PAGE_DIRTY is 0x80, so this is also bit 7, thus the new comment is
+wrong?
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
