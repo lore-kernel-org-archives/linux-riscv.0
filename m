@@ -4,63 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 218A4C64ED6
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Feb 2023 07:31:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8FE1C64ED6
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Feb 2023 07:48:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=grGBsJ0vi/bxrS6pv2Rx5GG08sk/DyY6483wW/BNK5c=; b=Af+S61z+uR+Fek
-	BTA0GuM+zqlCLquP2hRIeEErH0Yx7dhnpI24AISR+BZnZM/mtjAPBnfN3zp6/gbxNt7t7UxlZkKq3
-	9yBST1g63plA0F13KRe9fhz7Y7vGhOoPy86+jzscWLPZVYAklE42NIbRFv8A2kY9fQXmEM1oKTHiF
-	diEoBBs9YPM7YlSZYjDz7RaWXUWMbEItAtWexc4EhKRjrjGZFxahMIgTaXkMHYV1VviiouZxDmwsB
-	U7alkpNDn43wsv9qPBohboOgkzs12eTGQty+6kiCbqFl6XMErxKt2qd13NtXrYZehpS4pckoatlqt
-	JJ4QY278/u8Iq29aghvA==;
+	List-Owner; bh=CWduA9u+d0EtRm/AR4YKxdN4UtJ9Tz+HkHUQS2frf1w=; b=O4pPb/WS7tGay7
+	ns9GDHUM4EReJUUcrcQZKfwrG9QcRCRHQKR7s6jmi7xaNDSVrnWVX5AuCUQSG8RiODN0660Q+oT9f
+	qisUGk4w3sA+MePFkShJnqULDyZ7XmjbNA6WgD3bDaFY2EbqJ8cSlU/GhR58bcHkUECjWKNx+204q
+	eVtxJL4RrzBx7rsjpfF0EI53GYfwwY+g0WGwTWRvk5tx59QXHFUg8XUOaIug0Jrv8Ote1QBqtHWr5
+	E9canthqUh9GRsTvnIfqERs5mYw4zU5lJJrryBje09U5fVaZECohsNJU7/DXXfVZspoL1SPGBu/1x
+	5IjLQmSB9R34FChmGdHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWXyb-008g1c-MJ; Mon, 27 Feb 2023 07:31:13 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWXyX-008fyj-QM
-	for linux-riscv@lists.infradead.org; Mon, 27 Feb 2023 07:31:11 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by sin.source.kernel.org (Postfix) with ESMTPS id 6ADC1CE0EFE;
-	Mon, 27 Feb 2023 07:31:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43A22C433D2;
-	Mon, 27 Feb 2023 07:31:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1677483063;
-	bh=BKhCyAlJfue3qCvD5gMnMzJg0H76KaUopSvrz0ZoyQg=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=TmYqZkRB9HOHTkjyN7ucvV530Ru4DXBhtuoiDpIFeWrO3r2bKRVAwQKDNeDMIP7Dd
-	 4aEL0nX1rwJLEjcHPAKMejx+PHjv1Yj6kG6SnnLmxPOPedgTMTs6036OrC9HUHFQjs
-	 uiFtLbPkV8SE90m52pllzCmbaOTq4+EgyYAT/4eNPCFjUkJJFNZzbMaBNhj1Ommm/x
-	 rnquABFHmNe0jHm2Z237hJoiAceY4lW+jm6FXDSQdiIl1qIvKnhr3+1L7vL3TVDQZ/
-	 Ykl4AYR0En6yYRwdWOe5FtD1fArR1VoDgMRNjwhscOw54Y67Xkdd14SYEjlU6EPwXF
-	 Kp73Qnt9Gmmug==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Randy Dunlap <rdunlap@infradead.org>, linux-kernel@vger.kernel.org
-Cc: Randy Dunlap <rdunlap@infradead.org>, kernel test robot <lkp@intel.com>,
- Pu Lehui <pulehui@huawei.com>, Luke Nelson <luke.r.nels@gmail.com>, Xi
- Wang <xi.wang@gmail.com>, bpf@vger.kernel.org, Alexei Starovoitov
- <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, John Fastabend
- <john.fastabend@gmail.com>, Andrii Nakryiko <andrii@kernel.org>, Paul
- Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH bpf v2] riscv, bpf: fix patch_text implicit declaration
-In-Reply-To: <20230227072016.14618-1-rdunlap@infradead.org>
-References: <20230227072016.14618-1-rdunlap@infradead.org>
-Date: Mon, 27 Feb 2023 08:31:01 +0100
-Message-ID: <87k003a7ka.fsf@all.your.base.are.belong.to.us>
+	id 1pWYFb-008i11-Ky; Mon, 27 Feb 2023 07:48:47 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pWYFY-008hx5-5F
+	for linux-riscv@lists.infradead.org; Mon, 27 Feb 2023 07:48:46 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 7173C24E094;
+	Mon, 27 Feb 2023 15:47:48 +0800 (CST)
+Received: from EXMBX068.cuchost.com (172.16.6.68) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 27 Feb
+ 2023 15:47:48 +0800
+Received: from [192.168.120.55] (171.223.208.138) by EXMBX068.cuchost.com
+ (172.16.6.68) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 27 Feb
+ 2023 15:47:47 +0800
+Message-ID: <ca9bed19-9809-9443-7ca1-1d11984ded55@starfivetech.com>
+Date: Mon, 27 Feb 2023 15:47:46 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.8.0
+Subject: Re: [PATCH v4 0/4] StarFive's SDIO/eMMC driver support
+Content-Language: en-US
+To: Ulf Hansson <ulf.hansson@linaro.org>
+CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-mmc@vger.kernel.org>, Rob Herring <robh+dt@kernel.org>, "Krzysztof
+ Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Jaehoon Chung
+	<jh80.chung@samsung.com>, <linux-kernel@vger.kernel.org>
+References: <20230215113249.47727-1-william.qiu@starfivetech.com>
+ <CAPDyKFqJxrLh+pgQ-u_Lwxv4_TsH--rga049GBTqKAa_M14_yw@mail.gmail.com>
+From: William Qiu <william.qiu@starfivetech.com>
+In-Reply-To: <CAPDyKFqJxrLh+pgQ-u_Lwxv4_TsH--rga049GBTqKAa_M14_yw@mail.gmail.com>
+X-Originating-IP: [171.223.208.138]
+X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX068.cuchost.com
+ (172.16.6.68)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230226_233110_069536_A669B64F 
-X-CRM114-Status: UNSURE (   9.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230226_234844_522290_026AE2B8 
+X-CRM114-Status: GOOD (  20.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,39 +70,119 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-UmFuZHkgRHVubGFwIDxyZHVubGFwQGluZnJhZGVhZC5vcmc+IHdyaXRlczoKCj4gYnBmX2ppdF9j
-b21wNjQuYyB1c2VzIHBhdGNoX3RleHQoKSwgc28gYWRkIDxhc20vcGF0Y2guaD4gdG8gaXQKPiB0
-byBwcmV2ZW50IHRoZSBidWlsZCBlcnJvcjoKPgo+IC4uL2FyY2gvcmlzY3YvbmV0L2JwZl9qaXRf
-Y29tcDY0LmM6IEluIGZ1bmN0aW9uICdicGZfYXJjaF90ZXh0X3Bva2UnOgo+IC4uL2FyY2gvcmlz
-Y3YvbmV0L2JwZl9qaXRfY29tcDY0LmM6NjkxOjIzOiBlcnJvcjogaW1wbGljaXQgZGVjbGFyYXRp
-b24gb2YgZnVuY3Rpb24gJ3BhdGNoX3RleHQnOyBkaWQgeW91IG1lYW4gJ3BhdGhfZ2V0Jz8gWy1X
-ZXJyb3I9aW1wbGljaXQtZnVuY3Rpb24tZGVjbGFyYXRpb25dCj4gICA2OTEgfCAgICAgICAgICAg
-ICAgICAgcmV0ID0gcGF0Y2hfdGV4dChpcCwgbmV3X2luc25zLCBuaW5zbnMpOwo+ICAgICAgIHwg
-ICAgICAgICAgICAgICAgICAgICAgIF5+fn5+fn5+fn4KPgo+IEZpeGVzOiA1OTZmMmU2ZjljZjQg
-KCJyaXNjdiwgYnBmOiBBZGQgYnBmX2FyY2hfdGV4dF9wb2tlIHN1cHBvcnQgZm9yIFJWNjQiKQo+
-IFNpZ25lZC1vZmYtYnk6IFJhbmR5IER1bmxhcCA8cmR1bmxhcEBpbmZyYWRlYWQub3JnPgo+IFJl
-cG9ydGVkLWJ5OiBrZXJuZWwgdGVzdCByb2JvdCA8bGtwQGludGVsLmNvbT4KPiBMaW5rOiBodHRw
-czovL2xvcmUua2VybmVsLm9yZy9yLzIwMjMwMjI3MTAwMC5BajRuTVhiWi1sa3BAaW50ZWwuY29t
-Cj4gQ2M6IFB1IExlaHVpIDxwdWxlaHVpQGh1YXdlaS5jb20+Cj4gQ2M6IEx1a2UgTmVsc29uIDxs
-dWtlLnIubmVsc0BnbWFpbC5jb20+Cj4gQ2M6IFhpIFdhbmcgPHhpLndhbmdAZ21haWwuY29tPgo+
-IENjOiBicGZAdmdlci5rZXJuZWwub3JnCj4gQ2M6IEFsZXhlaSBTdGFyb3ZvaXRvdiA8YXN0QGtl
-cm5lbC5vcmc+Cj4gQ2M6IERhbmllbCBCb3JrbWFubiA8ZGFuaWVsQGlvZ2VhcmJveC5uZXQ+Cj4g
-Q2M6IEpvaG4gRmFzdGFiZW5kIDxqb2huLmZhc3RhYmVuZEBnbWFpbC5jb20+Cj4gQ2M6IEFuZHJp
-aSBOYWtyeWlrbyA8YW5kcmlpQGtlcm5lbC5vcmc+Cj4gQ2M6IFBhdWwgV2FsbXNsZXkgPHBhdWwu
-d2FsbXNsZXlAc2lmaXZlLmNvbT4KPiBDYzogUGFsbWVyIERhYmJlbHQgPHBhbG1lckBkYWJiZWx0
-LmNvbT4KPiBDYzogQWxiZXJ0IE91IDxhb3VAZWVjcy5iZXJrZWxleS5lZHU+Cj4gQ2M6ICJCasO2
-cm4gVMO2cGVsIiA8Ympvcm5Aa2VybmVsLm9yZz4KPiBDYzogbGludXgtcmlzY3ZAbGlzdHMuaW5m
-cmFkZWFkLm9yZwo+IC0tLQo+IHYyOiBhZGQgaGVhZGVyIGZpbGUgZGlyZWN0bHkgdG8gYnBmX2pp
-dF9jb21wNjQuYyAoUHUgTGVodWkpCj4gICAgIGNoYW5nZSBwYXRjaCB0YXJnZXQgdG8gYnBmIChm
-b3IgZml4ZXMpCgpUaGFua3MsIFJhbmR5IQoKRm9yIHRoZSBjdXJpb3VzOyBUaGUgYXNtL3BhdGNo
-LmggZmlsZSB3YXMgcGlja2VkIHZpYSBVUFJPQkVTICh2aWEKUEVSRl9FVkVOVFM9eSkuIEZvciBQ
-RVJGX0VWRU5UUz1uLCB5b3UgZ2V0IHRoZSBidWlsZCBlcnJvci4KCgpBY2tlZC1ieTogQmrDtnJu
-IFTDtnBlbCA8Ympvcm5Acml2b3NpbmMuY29tPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2
-QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9s
-aXN0aW5mby9saW51eC1yaXNjdgo=
+
+
+On 2023/2/15 20:37, Ulf Hansson wrote:
+> On Wed, 15 Feb 2023 at 12:32, William Qiu <william.qiu@starfivetech.com> wrote:
+>>
+>> Hi,
+>>
+>> This patchset adds initial rudimentary support for the StarFive
+>> designware mobile storage host controller driver. And this driver will
+>> be used in StarFive's VisionFive 2 board. The main purpose of adding
+>> this driver is to accommodate the ultra-high speed mode of eMMC.
+>>
+>> The last patch should be applied after the patchset [1]:
+>> [1] https://lore.kernel.org/all/20221220011247.35560-1-hal.feng@starfivetech.com/
+>>
+>> Changes v3->v4:
+>> - Added documentation to describe StarFive System Controller Registers.
+>> - Added aon_syscon and stg_syscon node.
+>> - Fixed some checkpatch errors/warnings.
+>>
+>> Changes v2->v3:
+>> - Wraped commit message according to Linux coding style.
+>> - Rephrased the description of the patches.
+>> - Changed the description of syscon regsiter.
+>> - Dropped redundant properties.
+>>
+>> Changes v1->v2:
+>> - Renamed the dt-binding 'starfive,jh7110-sdio.yaml' to 'starfive,jh7110-mmc.yaml'.
+>> - Changed the type of 'starfive,syscon' and modify its description.
+>> - Deleted unused head files like '#include <linux/gpio.h>'.
+>> - Added comment for the 'rise_point' and 'fall_point'.
+>> - Changed the API 'num_caps' to 'common_caps'.
+>> - Changed the node name 'sys_syscon' to 'syscon'.
+>> - Changed the node name 'sdio' to 'mmc'.
+>>
+>> The patch series is based on v6.1.
+>>
+>> William Qiu (4):
+>>   dt-bindings: mmc: Add StarFive MMC module
+>>   mmc: starfive: Add sdio/emmc driver support
+>>   riscv: dts: starfive: Add mmc node
+>>   dt-bindings: syscon: Add StarFive syscon doc
+>>
+>>  .../bindings/mmc/starfive,jh7110-mmc.yaml     |  77 ++++++++
+>>  .../bindings/soc/starfive/jh7110-syscon.yaml  |  51 +++++
+>>  MAINTAINERS                                   |  11 ++
+>>  .../jh7110-starfive-visionfive-2.dtsi         |  23 +++
+>>  arch/riscv/boot/dts/starfive/jh7110.dtsi      |  47 +++++
+>>  drivers/mmc/host/Kconfig                      |  10 +
+>>  drivers/mmc/host/Makefile                     |   1 +
+>>  drivers/mmc/host/dw_mmc-starfive.c            | 186 ++++++++++++++++++
+>>  8 files changed, 406 insertions(+)
+>>  create mode 100644 Documentation/devicetree/bindings/mmc/starfive,jh7110-mmc.yaml
+>>  create mode 100644 Documentation/devicetree/bindings/soc/starfive/jh7110-syscon.yaml
+>>  create mode 100644 drivers/mmc/host/dw_mmc-starfive.c
+>>
+> 
+> I have dropped the v3 patches and applied patch1 and patch2 from the
+> v4 series instead, for my next branch, thanks!
+> 
+> Kind regards
+> Uffe
+
+Hi Uffe,
+
+Sorry to bother you.But I found a bug that in drivers/mmc/host/dw_mmc-starfive.c:
+
+    47 static int dw_mci_starfive_execute_tuning(struct dw_mci_slot *slot,
+    48                                              u32 opcode)
+    49 {
+    50         static const int grade  = MAX_DELAY_CHAIN;
+    51         struct dw_mci *host = slot->host;
+    52         struct starfive_priv *priv = host->priv;
+    53         int rise_point = -1, fall_point = -1;
+    54         int err, prev_err;
+    55         int i;
+    56         bool found = 0;
+    57         u32 regval;
+    58 
+    59         /*
+    60          * Use grade as the max delay chain, and use the rise_point and
+    61          * fall_point to ensure the best sampling point of a data input
+    62          * signals.
+    63          */
+    64         for (i = 0; i < grade; i++) {
+    65                 regval = i << priv->syscon_shift;
+    66                 err = regmap_update_bits(priv->reg_syscon, priv->syscon_offset,
+    67                                                 priv->syscon_mask, regval);
+    68                 if (err)
+    69                         return err;
+    70                 mci_writel(host, RINTSTS, ALL_INT_CLR);
+    71 
+    72                 err = mmc_send_tuning(slot->mmc, opcode, NULL);
+    73                 if (!err)
+    74                         found = 1;
+    75 
+    76                 if (i > 0) {
+--> 77                         if (err && !prev_err)
+
+prev_err was never initialized to zero.
+
+So I'm here to ask for your suggestion, should I send a new version
+to fix it or send you a patch with a fixes tag?
+
+Best regards
+William
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
