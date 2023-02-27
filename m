@@ -4,70 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB4B1C64ED8
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Feb 2023 13:59:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8016CC64ED6
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Feb 2023 14:04:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Cc:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ItWEsbG9CURwOSIZc7jsqSHvHIZ92zr8/qRAQsZmKo0=; b=fi41vHqv9rs/dtvijROEUDtvXP
-	wjn1jMcaX7zYtfOTiHLmXOMbARrWecEhPPMc4orFi675YRlYiLo9euVJmhLHLQs57oYrVp1/dfFc4
-	CTx+/4rBioXKcT0KpwJ5xhuKdesY6g3Pxk0RJpVP9I1DHLJfhhfv2k6fraO6DEo8EDS+jox3A+gfF
-	z7TAvqWxt+9r/+lZvKc3mlf/S2yvkLiLdSvYO7bHBK+hRTvVZgAR6rhM0D0FpztI8kF1DPIxnIszR
-	bswYTJpQaBpc9v9vrKYDOeQeqHt6b8DCPRbqXPjg3uTb6bRCHh5FSfKZF5MxtJM9ZtYPl6XfLlYYt
-	uYlntRvw==;
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dLiYjf3aS/CNuK01wBHjW72WhivijYg1bzj1CXHBLvw=; b=OrZ8rMU5zAZ0256unGC8oY3TEo
+	KSBlUvYLi8DLR5yTxSsG44RXDSHydRti8UQ3T0THqRc7r9+l3VDpoGdJdtXD3pIRK3H1h+XAsqxcu
+	XqPW43hv5K2v/8q6ZjHoc+x4KJxQRWBukivNir+C67KYNoTSs6TWJEfFO21bYqKhejqp3Ulusrk8z
+	BGkJVKfH37AhQWeE4H68JGqHpI+JXnl8T9HAXWKmj0B4p47XnRcVszHfIEHM8VB1K0s8g4V1GDml3
+	0TUU5bhYiyVXATwp2M+f75XMLoNt5uXmhaO4H3jzAbG9H40+f4Ks6rL5q64Rd61K7ZqZ3+zB5mAhE
+	CFb0javQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWe2N-009sta-Fs; Mon, 27 Feb 2023 13:59:31 +0000
+	id 1pWe6m-009tSO-Sd; Mon, 27 Feb 2023 14:04:04 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWe2K-009ssq-Fk; Mon, 27 Feb 2023 13:59:30 +0000
+	id 1pWe6g-009tQZ-Pn
+	for linux-riscv@lists.infradead.org; Mon, 27 Feb 2023 14:04:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1677506368; x=1709042368;
-  h=date:from:to:subject:message-id:references:mime-version:
-   in-reply-to;
-  bh=v6O37f445n4RLV5R6biUlsJ/PrWMXyEC/3FIJ00LLK0=;
-  b=HBy90/xf4bcmV9RFMtNa5WblFUProXwazaU+SEsX+wOs9OeX78ZnOeFe
-   Um8xFBE0GYytNylm1Qgt1zUAhM8SEJmtkwyNePJJf2pu9In2dPyKKLePf
-   /cuoj57/Wkbqm74wWpSMF16cmlgTB2OmS5wTiq21k12rMr1tGqmuZztBb
-   +t97FFzkIUfid6tkGwxPa7j4+DBxEBwvrGkhdXym+VJTKEAsx4dOzHTSt
-   PQTcs9zJo8os1lMJ+t6bYDGLGn+msisSf9noLo/PlZ3vp+0fzh30Bp7EU
-   +77Lqp5OiC3JNEQkOBlP3cxhHMykA+zrQxLoPNEc/Shb+24RfujMK9w5U
-   g==;
+  t=1677506638; x=1709042638;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=lhINFStdkUVW6diIibKLb9nd7HYBVPWekTlInXGunlM=;
+  b=x+bRhmtBZx2nx6R+5HhztNXI3ptTCcbN0mW6qwlzhTiOmhGUJflpU5EY
+   L3GiUbHCzI4r1j3q2qEUTZTSqMKHsd+eXnU1klZ7y4OJ7FvtfsRn/FSqu
+   0T2DvBZJi8IGUm288xeUNVUZ8WWO7y5j7oC/QlPuq3y4Dlumh3zJIskQ4
+   pxf4uFog+BUfeqQ6rnlC6UXJ+rv2GQRc/tk63jlAyhbfToFVYuIZOm+hB
+   gNGQSR9c5YTRye0f6NnBUCyNs2PEjKg2sTSJJp1Eo7XztY/YYgKSrdZul
+   4A03PTKNiW94MD2Kj3A/KkoDZr5QCQii/s+m6YfxlF84EaWMNgMax5Wpc
+   A==;
 X-IronPort-AV: E=Sophos;i="5.98,332,1673938800"; 
-   d="asc'?scan'208";a="198933742"
+   d="asc'?scan'208";a="139247079"
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 27 Feb 2023 06:59:26 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 27 Feb 2023 07:03:55 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.16; Mon, 27 Feb 2023 06:59:22 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
+ 15.1.2507.16; Mon, 27 Feb 2023 07:03:55 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.16 via Frontend
- Transport; Mon, 27 Feb 2023 06:59:20 -0700
-Date: Mon, 27 Feb 2023 13:58:53 +0000
+ Transport; Mon, 27 Feb 2023 07:03:53 -0700
+Date: Mon, 27 Feb 2023 14:03:26 +0000
 From: Conor Dooley <conor.dooley@microchip.com>
-To: Andy Chiu <andy.chiu@sifive.com>, <linux-riscv@lists.infradead.org>,
-	<palmer@dabbelt.com>, <anup@brainfault.org>, <atishp@atishpatra.org>,
-	<kvm-riscv@lists.infradead.org>, <kvm@vger.kernel.org>,
-	<vineetg@rivosinc.com>, <greentime.hu@sifive.com>,
-	<guoren@linux.alibaba.com>, Paul Walmsley <paul.walmsley@sifive.com>, Albert
- Ou <aou@eecs.berkeley.edu>
-Subject: Re: [PATCH -next v14 19/19] riscv: Enable Vector code to be built
-Message-ID: <Y/y3HbZJa8zQwivc@wendy>
-References: <20230224170118.16766-1-andy.chiu@sifive.com>
- <20230224170118.16766-20-andy.chiu@sifive.com>
- <Y/yDeurep0ZBnLdR@wendy>
- <Y/yy3sDX2AxvBD0f@bruce.bluespec.com>
+To: Hal Feng <hal.feng@starfivetech.com>
+CC: <linux-hwmon@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-doc@vger.kernel.org>, <linux-riscv@lists.infradead.org>, Jean Delvare
+	<jdelvare@suse.com>, Guenter Roeck <linux@roeck-us.net>, Jonathan Corbet
+	<corbet@lwn.net>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor@kernel.org>, Paul
+ Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, Samin Guo <samin.guo@starfivetech.com>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v5 2/2] hwmon: (sfctemp) Add StarFive JH71x0 temperature
+ sensor
+Message-ID: <Y/y4LunvriV2RYwu@wendy>
+References: <20230227134125.120638-1-hal.feng@starfivetech.com>
+ <20230227134125.120638-3-hal.feng@starfivetech.com>
 MIME-Version: 1.0
-In-Reply-To: <Y/yy3sDX2AxvBD0f@bruce.bluespec.com>
+In-Reply-To: <20230227134125.120638-3-hal.feng@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230227_055928_614403_4D413DBD 
-X-CRM114-Status: GOOD (  31.37  )
+X-CRM114-CacheID: sfid-20230227_060402_307390_7589C408 
+X-CRM114-Status: GOOD (  14.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,144 +83,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4303784514673369681=="
+Content-Type: multipart/mixed; boundary="===============0230544419753428615=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============4303784514673369681==
+--===============0230544419753428615==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="NHHGYGTcCF3WT1JP"
+	protocol="application/pgp-signature"; boundary="NBI72SkxZsmpX/ON"
 Content-Disposition: inline
 
---NHHGYGTcCF3WT1JP
+--NBI72SkxZsmpX/ON
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Mon, Feb 27, 2023 at 08:40:46AM -0500, Darius Rad wrote:
-> On Mon, Feb 27, 2023 at 10:18:34AM +0000, Conor Dooley wrote:
-> > On Fri, Feb 24, 2023 at 05:01:18PM +0000, Andy Chiu wrote:
-> > > From: Guo Ren <guoren@linux.alibaba.com>
-> > >=20
-> > > This patch adds a config which enables vector feature from the kernel
-> > > space.
-> > >=20
-> > > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> > > Co-developed-by: Greentime Hu <greentime.hu@sifive.com>
-> > > Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
-> > > Suggested-by: Vineet Gupta <vineetg@rivosinc.com>
-> > > Suggested-by: Atish Patra <atishp@atishpatra.org>
-> > > Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
-> >=20
-> > At this point, you've basically re-written this patch and should be
-> > listed as a co-author at the very least!
-> >=20
-> > > ---
-> > >  arch/riscv/Kconfig  | 18 ++++++++++++++++++
-> > >  arch/riscv/Makefile |  3 ++-
-> > >  2 files changed, 20 insertions(+), 1 deletion(-)
-> > >=20
-> > > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > > index 81eb031887d2..19deeb3bb36b 100644
-> > > --- a/arch/riscv/Kconfig
-> > > +++ b/arch/riscv/Kconfig
-> > > @@ -418,6 +418,24 @@ config RISCV_ISA_SVPBMT
-> > > =20
-> > >  	   If you don't know what to do here, say Y.
-> > > =20
-> > > +config TOOLCHAIN_HAS_V
-> > > +	bool
-> > > +	default y
-> > > +	depends on !64BIT || $(cc-option,-mabi=3Dlp64 -march=3Drv64iv)
-> > > +	depends on !32BIT || $(cc-option,-mabi=3Dilp32 -march=3Drv32iv)
-> > > +	depends on LLD_VERSION >=3D 140000 || LD_VERSION >=3D 23800
-> > > +
-> > > +config RISCV_ISA_V
-> > > +	bool "VECTOR extension support"
-> > > +	depends on TOOLCHAIN_HAS_V
-> > > +	select DYNAMIC_SIGFRAME
-> >=20
-> > So, nothing here makes V depend on CONFIG_FPU...
-> >=20
-> > > +	default y
-> > > +	help
-> > > +	  Say N here if you want to disable all vector related procedure
-> > > +	  in the kernel.
-> > > +
-> > > +	  If you don't know what to do here, say Y.
-> > > +
-> > >  config TOOLCHAIN_HAS_ZBB
-> > >  	bool
-> > >  	default y
-> > > diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-> > > index 76989561566b..375a048b11cb 100644
-> > > --- a/arch/riscv/Makefile
-> > > +++ b/arch/riscv/Makefile
-> > > @@ -56,6 +56,7 @@ riscv-march-$(CONFIG_ARCH_RV32I)	:=3D rv32ima
-> > >  riscv-march-$(CONFIG_ARCH_RV64I)	:=3D rv64ima
-> > >  riscv-march-$(CONFIG_FPU)		:=3D $(riscv-march-y)fd
-> >=20
-> > ...but march only contains fd if CONFIG_FPU is enabled...
-> >=20
-> > >  riscv-march-$(CONFIG_RISCV_ISA_C)	:=3D $(riscv-march-y)c
-> > > +riscv-march-$(CONFIG_RISCV_ISA_V)	:=3D $(riscv-march-y)v
-> > > =20
-> > >  # Newer binutils versions default to ISA spec version 20191213 which=
- moves some
-> > >  # instructions from the I extension to the Zicsr and Zifencei extens=
-ions.
-> > > @@ -65,7 +66,7 @@ riscv-march-$(toolchain-need-zicsr-zifencei) :=3D $=
-(riscv-march-y)_zicsr_zifencei
-> > >  # Check if the toolchain supports Zihintpause extension
-> > >  riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZIHINTPAUSE) :=3D $(riscv-march-y=
-)_zihintpause
-> > > =20
-> > > -KBUILD_CFLAGS +=3D -march=3D$(subst fd,,$(riscv-march-y))
-> > > +KBUILD_CFLAGS +=3D -march=3D$(subst fdv,,$(riscv-march-y))
-> >=20
-> > ...so I think this will not work if !CONFIG_FPU && RISCV_ISA_V.
-> > IIRC, vector uses some floating point opcodes, but does it (or Linux's
-> > implementation) actually depend on having floating point support in the
-> > kernel?
+On Mon, Feb 27, 2023 at 09:41:25PM +0800, Hal Feng wrote:
+> From: Emil Renner Berthing <kernel@esmil.dk>
 >=20
-> Yes.
+> Add driver for the StarFive JH71x0 temperature sensor. You
+> can enable/disable it and read temperature in milli Celcius
+> through sysfs.
 >=20
-> "The V extension requires the scalar processor implements the F and D
-> extensions", RISC-V "V" Vector Extension, Section 18.3. V: Vector Extensi=
-on
-> for Application Processors.
+> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+> Co-developed-by: Samin Guo <samin.guo@starfivetech.com>
+> Signed-off-by: Samin Guo <samin.guo@starfivetech.com>
+> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
 
-Thanks, I should probably just have gone and read the spec!
+> +config SENSORS_SFCTEMP
+> +	tristate "Starfive JH71x0 temperature sensor"
+> +	depends on SOC_STARFIVE || COMPILE_TEST
 
-> > If not, this cannot be done in a oneliner. Otherwise, CONFIG_RISCV_ISA_V
-> > should explicitly depend on CONFIG_FPU.
+We (or I?) am trying to homogenise RISC-V with the rest of the kernel by
+using ARCH_FOO rather than SOC_FOO. We've currently got a mix of both,
+due to companies that started out with RISC-V having SOC_ symbols &
+those with history in other archs having ARCH_ ones.
+The ARCH_ definitions landed in mainline this week, so if you end up
+resubmitting this driver, it'd save me a conversion if you were to use
+the ARCH_ variant.
 
-Since it does depend on F & D, the Kconfig symbol should explicitly
-depend on CONFIG_FPU.
-The oneliner like that still doesn't work, as V is added to march after
-C, leading (for clang-15 allmodconfig) to: -march=3Drv64imafdcv_zihintpause
-Doing it as a oneline also breaks the case where CONFIG_FPU &&
-!RISCV_ISA_VECTOR, which ends up with: -march=3Drv64imafdc_zihintpause.
-
-Cheers,
+Thanks,
 Conor.
 
+> +	help
+> +	  If you say yes here you get support for temperature sensor
+> +	  on the Starfive JH71x0 SoCs.
+> +
+> +	  This driver can also be built as a module.  If so, the module
+> +	  will be called sfctemp.
 
---NHHGYGTcCF3WT1JP
+--NBI72SkxZsmpX/ON
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY/y3HQAKCRB4tDGHoIJi
-0vzxAQDx81kk349JUaKSa+IA5L5Pdfs39KahgQMLQ/Er425CQgEA5pE+edwmzKof
-XW/CvkKd4pIK2J6fETt/gxnc1CC/vgY=
-=JzC8
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY/y4LgAKCRB4tDGHoIJi
+0mJ0AP4vNo5Ie/2kHWAmJFUKGr8YQL9x84VEY3Xn9vgF9A6izgD/QJzmlpXfLT0E
+wuAiKkJkRPP9FP1Z+dqqrB2FAZrw3QY=
+=DO8S
 -----END PGP SIGNATURE-----
 
---NHHGYGTcCF3WT1JP--
+--NBI72SkxZsmpX/ON--
 
 
---===============4303784514673369681==
+--===============0230544419753428615==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -227,5 +156,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============4303784514673369681==--
+--===============0230544419753428615==--
 
