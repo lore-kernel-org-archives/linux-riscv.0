@@ -4,77 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE44FC64ED6
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Feb 2023 13:43:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33CE3C64ED8
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Feb 2023 13:48:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y1fQy3XQ9vrKOEWXj9AgqTVkemJnqfLj8IOQMTTI/y4=; b=XfBeX+OKsGrqvTwkI9OchFqluf
-	agP/K2lM9GObnyDe8QIpnjvKiOIebke+YMiYGGXEtG5AgR7BE7tBe+s0xj7by8hxnbnE5pP/ckkbf
-	Y8HmjN/sJvKGF+BhHZSdXuo8P+O/U/gTDrK8nevvnsW4AdVz4HHTZcgoQOzFHvwb3q4Nz5efAaFmE
-	uvxpFRYyLVHG+JbHFVdPVNVelyQuxa4hw0jHBwke9YHLt5/E8kZmwjQLUeXiUn6k9j5dtt//McfaN
-	sPj4X561LAADipJ7ER9gYUfvadgm+hHUUwbsjWD9zNVOrwmhZQeqrxgfRoq9wRpVQ2X/6osqICi5G
-	gdgLxYpw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=kYXXbG86MWS9fab83Hsz/KwPRESoUMz3fQmLPxPCKBs=; b=AmuOeJrea9xd19
+	8KzzITBPNJCQpyITdYGaKrH++5YELzMNssc7BC7dJ+ZeMQ/xHJlj9PhdS/hzItMYIdJ14PQ7VrkzX
+	YGP0ZYTKdamg5iKerrRHiSSrYgknDJ/7nl+YFinGyIG12iHgKExqYdPWd//YZR1vTNUGdws0ADwb2
+	s1wvZID4g45+BLFfid+KRCviBaNpQBynQN3d0av5Ue43UhA4RfGL4bo93eCYipEigqLLlrGYqDd6/
+	sSkrWW0oSvRDTtB4lVtL8jMNNWNl4IKbcGoRZmBuVpw0mJGhydQR9EumWaQiDII1DU8C5Vy1IXSUE
+	M1HuYA0fG2pK5P8Y93kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWdmm-009pZb-DZ; Mon, 27 Feb 2023 13:43:24 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1pWdrQ-009qkO-Qu; Mon, 27 Feb 2023 13:48:12 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWdmj-009pWq-F7
-	for linux-riscv@lists.infradead.org; Mon, 27 Feb 2023 13:43:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1677505402; x=1709041402;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=B8kKgrBjxWQyCV0wZXde3NVGF5SDI0kmpRoxcky0ObQ=;
-  b=fs/LOIKqQzr0ylFUwF5Y4X3eSwwJPYrJfwYGtjKXrVqnoYn0YZjlQrYZ
-   D1YKeLCZ6LrHOwL/oIlw/3QcmT+iLW4qCx0UJ+V9NYNkBIoKvIS+O5yq8
-   hAGTIa8RBSL5WFE3WcVG0+4Aaa3XUqhHI+tORsUqIcJZWmB5MkQkF9qIs
-   dbCxrhi6NoudXtVY7qfH0GjYYmVhLNxEQ60xMPyTBkjPKPJgnv+rSy7Qa
-   1AaGfnyzl7T7wfd+DWaNXVrU4l1M97Mqzu+YWrvBAcO0RnRqx+3GxUVXc
-   MicN+EoHRS9+6Lb1VIascOnEMVX75hIBYtRg9+NrvKXL9MbWR2wBN/aax
-   g==;
-X-IronPort-AV: E=Sophos;i="5.97,332,1669100400"; 
-   d="asc'?scan'208";a="198931385"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 27 Feb 2023 06:43:17 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.16; Mon, 27 Feb 2023 06:43:16 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.16 via Frontend
- Transport; Mon, 27 Feb 2023 06:43:13 -0700
-Date: Mon, 27 Feb 2023 13:42:46 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Alexandre Ghiti <alex@ghiti.fr>
-CC: Ard Biesheuvel <ardb@kernel.org>, Alexandre Ghiti
-	<alexghiti@rivosinc.com>, Jonathan Corbet <corbet@lwn.net>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, =?iso-8859-1?Q?Bj=F6rn_T=F6pel?=
-	<bjorn@rivosinc.com>, <nathan@kernel.org>, <llvm@lists.linux.dev>,
-	<ndesaulniers@google.com>
-Subject: Re: [PATCH v7 1/1] riscv: Allow to downgrade paging mode from the
- command line
-Message-ID: <Y/yzVv717htZLuRY@wendy>
-References: <20230224100218.1824569-1-alexghiti@rivosinc.com>
- <20230224100218.1824569-2-alexghiti@rivosinc.com>
- <Y/yilORflGv3vXjX@wendy>
- <CAMj1kXGCkqpHY7rHZv0EFKhPNk6jpbh1OfG_Jm3vSW8c5Y+9_A@mail.gmail.com>
- <6bd8012a-7311-7956-b0ae-966b8534a64a@ghiti.fr>
+	id 1pWdrJ-009qjJ-NF
+	for linux-riscv@lists.infradead.org; Mon, 27 Feb 2023 13:48:11 +0000
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id CF4B33F737
+	for <linux-riscv@lists.infradead.org>; Mon, 27 Feb 2023 13:47:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1677505676;
+	bh=Qt3E5flVBMfHP3C44cEpXDpByE+OTGf4ytpF8RE1WDw=;
+	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=ESkqL2jetwk5aMmx0VGqoh8paJHXU8ssuE1MweBJxJrZ3Tsf1K8wgO6J9a+pi5zl7
+	 FvTr33uJJVmB5Cr8D3rTW1bXMB6bQOOyD4k76wYrEQe3GabnfuNYzup2N2F48X2IsV
+	 +xa7kczdRlY71rQSnyRGiGVFgVegpi8/A0Ja4qBwUZRIOENR1MPMuWhQj3nrEIS7Lc
+	 8g7GPSOqusne1PVqdOEr2ZPiT1+w1nrCJiOn7nnQcG/EREj33mJAVVkuTDxMAagGPW
+	 9zMzEKfZeUnx7j1aLa/cYP7xBJSAXc/GtTpjOEJxaeCiSRBLBgDtBQecGTVCDXCCXG
+	 MISlssHFcB/2w==
+Received: by mail-qk1-f198.google.com with SMTP id d72-20020ae9ef4b000000b0072db6346c39so4028218qkg.16
+        for <linux-riscv@lists.infradead.org>; Mon, 27 Feb 2023 05:47:56 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Qt3E5flVBMfHP3C44cEpXDpByE+OTGf4ytpF8RE1WDw=;
+        b=Y2wS6b3hmblp/E76tIg3zcHyaWDBTjj1O7zyD16gkMbxKjyErczp1lMUlcEcteSbaj
+         23Zg5ZcDlFGQ9RYIBw4GoO24a7+Le/x9q21scpy12g+0YUNnAcnpYmhmXBSauPz6jbfK
+         /+fmF7i1nOQCySz4MW4pqZubpQuwcXy2EkBFSVJCrN/fostvTiJEHrBgHiohWS5TlUcq
+         xZTeqhOHXoSgMpPH7L+oIseduSZr01tY+7yDAYwSFLoT0GigVJkRQqDjnk6aAsqNF7Kb
+         8dYKqyDHr0t2AHkPIcC6o0apKUaKj7bhHeSRVZzmqV1CgueytNzLIdiWfH1crD+ZMr3K
+         c45g==
+X-Gm-Message-State: AO0yUKWEsoqsefNqsYJhHnzltjBr8q23IFhQDuag4xDr0Wl7YEMdKfUf
+	1bZW5p4W5CXFtgr7bGORZFQwBiqjLRNKtHVWmhcKimOoGsw5bZtAyjDfZqyrqWuFOQd9iF7t++u
+	5xEwGut5spEEwR4lxnkJtdPR9utRz3q9mwfBulZ5ffoisInXpLOOctwrqV7vU6Q==
+X-Received: by 2002:ae9:e313:0:b0:742:8868:bfd1 with SMTP id v19-20020ae9e313000000b007428868bfd1mr1851587qkf.7.1677505675818;
+        Mon, 27 Feb 2023 05:47:55 -0800 (PST)
+X-Google-Smtp-Source: AK7set/TJt2EU/afZqiJqR6VD4laReyHa5Perg50Z5/nKcJ7QgSMmS3Kx2TG7JRmCyAgRQOQJcDd5SBGKgSUDP5Ny2k=
+X-Received: by 2002:ae9:e313:0:b0:742:8868:bfd1 with SMTP id
+ v19-20020ae9e313000000b007428868bfd1mr1851578qkf.7.1677505675539; Mon, 27 Feb
+ 2023 05:47:55 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <6bd8012a-7311-7956-b0ae-966b8534a64a@ghiti.fr>
+References: <20230227131042.16125-1-walker.chen@starfivetech.com> <20230227131042.16125-3-walker.chen@starfivetech.com>
+In-Reply-To: <20230227131042.16125-3-walker.chen@starfivetech.com>
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Date: Mon, 27 Feb 2023 14:47:38 +0100
+Message-ID: <CAJM55Z946EVyN50KcBmh7chOOnzwTOjwLR+Z_fCOrfin9j7LNA@mail.gmail.com>
+Subject: Re: [PATCH v3 2/3] dmaengine: dw-axi-dmac: Add support for StarFive
+ JH7110 DMA
+To: Walker Chen <walker.chen@starfivetech.com>
+Cc: Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, Vinod Koul <vkoul@kernel.org>, 
+	Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+	Conor Dooley <conor.dooley@microchip.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	dmaengine@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230227_054321_646085_E65A9771 
-X-CRM114-Status: GOOD (  10.00  )
+X-CRM114-CacheID: sfid-20230227_054806_196761_654AA16A 
+X-CRM114-Status: GOOD (  28.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,60 +94,177 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3976301208921319769=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============3976301208921319769==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="i8ZwX1OEi/syzAPO"
-Content-Disposition: inline
+On Mon, 27 Feb 2023 at 14:11, Walker Chen <walker.chen@starfivetech.com> wrote:
+>
+> Add DMA reset operation in device probe and use different configuration
+> on CH_CFG registers according to match data.
+>
+> Signed-off-by: Walker Chen <walker.chen@starfivetech.com>
+> Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 
---i8ZwX1OEi/syzAPO
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Hi Walker,
 
-On Mon, Feb 27, 2023 at 02:27:11PM +0100, Alexandre Ghiti wrote:
-> On 2/27/23 13:56, Ard Biesheuvel wrote:
+Firstly your Signed-off-by should be the last line.
 
-> > Note that we switched
-> > to --orphan-handling=error on other arches, as the linker sometimes
+I may have been unclear in my last review, sorry. I meant to give my
+reviewed-by if you just removed the reset pointer that was never used.
+This new version also adds a lot of new code.
 
-> It seems orphan-handling is set to "error" only when WERROR is set (see
-> CONFIG_LD_ORPHAN_WARN_LEVEL).
+Though, I'm glad you want to update the driver to use match data
+rather than of_device_is_compatible, but then please update all uses
+of of_device_is_compatible. With this patch starfive uses match data
+and the intel,kmb-axi-dma still uses of_device_is_compatible.
 
-My CI explicitly disables CONFIG_WERROR for allmodconfig builds so that
-it can run with W=1, it is indeed set to "error" for regular
-allmodconfig runs.
+More comments below..
 
-Thanks Alex/Ard,
-Conor.
+> ---
+>  .../dma/dw-axi-dmac/dw-axi-dmac-platform.c    | 34 +++++++++++++++++--
+>  drivers/dma/dw-axi-dmac/dw-axi-dmac.h         |  7 ++++
+>  2 files changed, 39 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
+> index bf85aa0979ec..400eeef707bf 100644
+> --- a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
+> +++ b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
+> @@ -21,10 +21,12 @@
+>  #include <linux/kernel.h>
+>  #include <linux/module.h>
+>  #include <linux/of.h>
+> +#include <linux/of_device.h>
+>  #include <linux/of_dma.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/pm_runtime.h>
+>  #include <linux/property.h>
+> +#include <linux/reset.h>
+>  #include <linux/slab.h>
+>  #include <linux/types.h>
+>
+> @@ -86,7 +88,8 @@ static inline void axi_chan_config_write(struct axi_dma_chan *chan,
+>
+>         cfg_lo = (config->dst_multblk_type << CH_CFG_L_DST_MULTBLK_TYPE_POS |
+>                   config->src_multblk_type << CH_CFG_L_SRC_MULTBLK_TYPE_POS);
+> -       if (chan->chip->dw->hdata->reg_map_8_channels) {
+> +       if (chan->chip->dw->hdata->reg_map_8_channels &&
+> +           !chan->chip->dw->hdata->use_cfg2) {
+>                 cfg_hi = config->tt_fc << CH_CFG_H_TT_FC_POS |
+>                          config->hs_sel_src << CH_CFG_H_HS_SEL_SRC_POS |
+>                          config->hs_sel_dst << CH_CFG_H_HS_SEL_DST_POS |
+> @@ -1142,7 +1145,7 @@ static int dma_chan_terminate_all(struct dma_chan *dchan)
+>         axi_chan_disable(chan);
+>
+>         ret = readl_poll_timeout_atomic(chan->chip->regs + DMAC_CHEN, val,
+> -                                       !(val & chan_active), 1000, 10000);
+> +                                       !(val & chan_active), 1000, DMAC_TIMEOUT_US);
+>         if (ret == -ETIMEDOUT)
+>                 dev_warn(dchan2dev(dchan),
+>                          "%s failed to stop\n", axi_chan_name(chan));
+> @@ -1367,6 +1370,17 @@ static int parse_device_properties(struct axi_dma_chip *chip)
+>         return 0;
+>  }
+>
+> +static int jh7110_rst_init(struct platform_device *pdev)
+> +{
+> +       struct reset_control *resets;
+> +
+> +       resets = devm_reset_control_array_get_exclusive(&pdev->dev);
+> +       if (IS_ERR(resets))
+> +               return PTR_ERR(resets);
+> +
+> +       return reset_control_deassert(resets);
+> +}
+> +
+>  static int dw_probe(struct platform_device *pdev)
+>  {
+>         struct device_node *node = pdev->dev.of_node;
+> @@ -1374,6 +1388,7 @@ static int dw_probe(struct platform_device *pdev)
+>         struct resource *mem;
+>         struct dw_axi_dma *dw;
+>         struct dw_axi_dma_hcfg *hdata;
+> +       const struct axi_dma_chip_config *ccfg;
+>         u32 i;
+>         int ret;
+>
+> @@ -1416,6 +1431,15 @@ static int dw_probe(struct platform_device *pdev)
+>         if (IS_ERR(chip->cfgr_clk))
+>                 return PTR_ERR(chip->cfgr_clk);
+>
+> +       ccfg = of_device_get_match_data(&pdev->dev);
+> +       if (ccfg) {
+> +               ret = ccfg->rst_init(pdev);
+> +               if (ret)
+> +                       return ret;
+> +
+> +               chip->dw->hdata->use_cfg2 = ccfg->use_cfg2;
+> +       }
+> +
+>         ret = parse_device_properties(chip);
+>         if (ret)
+>                 return ret;
+> @@ -1557,9 +1581,15 @@ static const struct dev_pm_ops dw_axi_dma_pm_ops = {
+>         SET_RUNTIME_PM_OPS(axi_dma_runtime_suspend, axi_dma_runtime_resume, NULL)
+>  };
+>
+> +static const struct axi_dma_chip_config jh7110_chip_config = {
+> +       .rst_init = jh7110_rst_init,
+> +       .use_cfg2 = true,
+> +};
+> +
+>  static const struct of_device_id dw_dma_of_id_table[] = {
+>         { .compatible = "snps,axi-dma-1.01a" },
+>         { .compatible = "intel,kmb-axi-dma" },
+> +       { .compatible = "starfive,jh7110-axi-dma", .data = &jh7110_chip_config },
+>         {}
+>  };
+>  MODULE_DEVICE_TABLE(of, dw_dma_of_id_table);
+> diff --git a/drivers/dma/dw-axi-dmac/dw-axi-dmac.h b/drivers/dma/dw-axi-dmac/dw-axi-dmac.h
+> index e9d5eb0fd594..7b404ae9a26a 100644
+> --- a/drivers/dma/dw-axi-dmac/dw-axi-dmac.h
+> +++ b/drivers/dma/dw-axi-dmac/dw-axi-dmac.h
+> @@ -21,6 +21,7 @@
+>  #define DMAC_MAX_CHANNELS      16
+>  #define DMAC_MAX_MASTERS       2
+>  #define DMAC_MAX_BLK_SIZE      0x200000
+> +#define DMAC_TIMEOUT_US                200000
+>
+>  struct dw_axi_dma_hcfg {
+>         u32     nr_channels;
+> @@ -33,6 +34,7 @@ struct dw_axi_dma_hcfg {
+>         /* Register map for DMAX_NUM_CHANNELS <= 8 */
+>         bool    reg_map_8_channels;
+>         bool    restrict_axi_burst_len;
+> +       bool    use_cfg2;
+>  };
+>
+>  struct axi_dma_chan {
+> @@ -72,6 +74,11 @@ struct axi_dma_chip {
+>         struct dw_axi_dma       *dw;
+>  };
+>
+> +struct axi_dma_chip_config {
+> +       int (*rst_init)(struct platform_device *pdev);
 
+Please just spell reset in full, it's not that much longer.
 
---i8ZwX1OEi/syzAPO
-Content-Type: application/pgp-signature; name="signature.asc"
+> +       bool use_cfg2;
+> +};
+> +
 
------BEGIN PGP SIGNATURE-----
+This struct is only used in dw-axi-dmac-platform.c above, so no need
+to add it here.
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY/yzVgAKCRB4tDGHoIJi
-0v7sAP97bImU6hzDN3fw3MI74GR1HLzo1JA7yvIRvToGW+BFVQD9E0SqjMsSvsa0
-8IM3znP8VY/yIXWltmbmNqpvKDHp5QI=
-=46Kj
------END PGP SIGNATURE-----
-
---i8ZwX1OEi/syzAPO--
-
-
---===============3976301208921319769==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+>  /* LLI == Linked List Item */
+>  struct __packed axi_dma_lli {
+>         __le64          sar;
+> --
+> 2.17.1
+>
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3976301208921319769==--
-
