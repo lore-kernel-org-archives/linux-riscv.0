@@ -4,56 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5B33C64ED6
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Feb 2023 22:20:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 633DEC64ED8
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Feb 2023 22:29:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hWQ7mA+CGfL5yGQkx7q9aEU2rOys/o3V7W4WzXGg4VY=; b=Xysj9BBdPwRCRyW4ViN75+bIoU
-	fqsgPUwBOdLCTpNfF00i5N/fQCYo/mMbH0RAAGIqgpd2Am93tbT/JCmUNXphq/0W60MmLhewDNr2l
-	UiK32Bs3vN2hZGzZNQVp9G8Oll6+HqOwXNRVIZT17g2rGESPLfEgTff6H9l9aix1BFnuo1l6893Uq
-	Oqz//2rOSpwb0yRB0c2XcIBQeExRHTDof5SwMYpe9a/HMXG9VtxxdV8PlGD1oqr4OWjB3kQDz/DhN
-	6PBwr03e3gF2Z/25wVVqARBBsGQauy4hnFlY9jmL+CbTsmBg3OQKPg5FrtXrpbwtwYLBVe7QNcTuM
-	LcAgfZRw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=GO0o/yHzqxeQfvLN6tRFs6Dq21al5Nrald1bdRz99/o=; b=kmPUBCqK9+aV3I
+	PStJCd6qDOFLogw521z0n9A0bWaeEWAhW+0WzdB9oYZv3VV2bgGlWzZlmMyuURXRS6HAZzzhrMqP9
+	Ou13k5iAw5iEoJVgNWvQrwGBwcEZf7W9Q6koP9Kyr1tDu3d6GRfFscnpVMjg6yF03Pmqres+upXQ1
+	khWNN3SiAl8qskKM/etvCz6MkrG1c5Q2z6z7ETwqdsQjPysZVRWVYk0JHqMniyeLlLWJWVnP6TFmp
+	OeffZpDgCQjIYUquKGZVMJ7QYWK/ows9p0c/8TYZ8ce/753qF3XpWdPVx8Ob7uuzmJrGavXq8fkRD
+	Zos01+8ILLw+NwYha68g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWlqr-00BQ3j-Op; Mon, 27 Feb 2023 22:20:09 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1pWlza-00BS1t-Qb; Mon, 27 Feb 2023 22:29:10 +0000
+Received: from mail-oa1-f45.google.com ([209.85.160.45])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWlqo-00BQ2Y-P3
-	for linux-riscv@lists.infradead.org; Mon, 27 Feb 2023 22:20:08 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 6C88BB80DBB;
-	Mon, 27 Feb 2023 22:20:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37953C433D2;
-	Mon, 27 Feb 2023 22:19:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1677536402;
-	bh=BRZW2CPrqrzUKqLHGgsYAAf75xiDMUePxhcVBDQ50pU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FtEEb0u0cDuEahRcqb9OMSBqgaL5tpKzJq5Wbx2VCEvo1ldHuwxfzrGk1A0hmhPil
-	 e9DFyF3oF1hwfyFzk28JSCP/JsQ3IYbB2MeC9YdekJRUxLfaB0RViWYaD76tmv/+yP
-	 1SO4wXd8qDkeZQ7UORowt/LCfZEzpuJnWi0hbQi3c7XtQ6OHi29ocAydB4o/Y7lR2n
-	 0bCPnDYtpdNfYPhZi/XvaglhCpHr+nDtS8aCfGZHbFAaNd+SO96Wl/XjxOm3e6cp0I
-	 PrKHh2iK38pYfRwiNcqLPqKwNM2y8+XsAK0RZVE+bpKeiABf9YG8wPJfDufu1I1VPn
-	 w3uRE9gK5NYMw==
-Date: Mon, 27 Feb 2023 22:19:54 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Evan Green <evan@rivosinc.com>
-Subject: Re: [PATCH v3 2/7] RISC-V: Add a syscall for HW probing
-Message-ID: <Y/0sikPIVR3j7cKI@spud>
-References: <20230221190858.3159617-1-evan@rivosinc.com>
- <20230221190858.3159617-3-evan@rivosinc.com>
+	id 1pWlzX-00BS0j-J7
+	for linux-riscv@lists.infradead.org; Mon, 27 Feb 2023 22:29:09 +0000
+Received: by mail-oa1-f45.google.com with SMTP id 586e51a60fabf-17227cba608so9056866fac.3
+        for <linux-riscv@lists.infradead.org>; Mon, 27 Feb 2023 14:29:06 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ZFoqsd6EBPQ0PzNdCKJoWZA5o9P3njK484v747rHzjE=;
+        b=zlwAfozQ4R2D9CtKPWRsNUuJMkWpC46nCDV4lFupxHFz7xVfMocutTU1j7FZWoqBlx
+         EZLHPVJEzA4s0D6e7xGkp+3asO70IWNKixIhyi4coK87HBdLz19TXqB2bl86pnPKIH6/
+         y15pwNkNEO0/KLDuFsEpqup27/I1PatVWzhC5eyg241/u43Pj6bPnF1qW28jaOiTB3Iw
+         gvr6MTNuLVXGHCsdkTmCzCuYGLsUUxsuIVaMkueKYA6ooP3AZnljLguzSUg1AjUY/AJk
+         ZpU121k/wL0UuO4yDAzgnd6xv1r8ZZxtyt2C3xvIZ9nDZ1i3MWyB+C6YNi/Hgw3Cb9Qh
+         fgrw==
+X-Gm-Message-State: AO0yUKXLi65FNG3mbKwFFG1u8E2m+/S155w1zYt4w7w8HkiLu0IN3dG+
+	i9nfjRokierN6b6DDhFC6w==
+X-Google-Smtp-Source: AK7set9EvaHbC0pq/Q5M8Jesf6gQwD4JT+CCUAwMK4iN767gMIlj2Bv0JNrjP2eDiCwdeJnGYGCy1A==
+X-Received: by 2002:a05:6870:c113:b0:173:245d:d26c with SMTP id f19-20020a056870c11300b00173245dd26cmr271200oad.17.1677536945490;
+        Mon, 27 Feb 2023 14:29:05 -0800 (PST)
+Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
+        by smtp.gmail.com with ESMTPSA id x9-20020a4a8689000000b0051d13098c54sm3139588ooh.19.2023.02.27.14.29.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 27 Feb 2023 14:29:05 -0800 (PST)
+Received: (nullmailer pid 1215162 invoked by uid 1000);
+	Mon, 27 Feb 2023 22:29:04 -0000
+Date: Mon, 27 Feb 2023 16:29:04 -0600
+From: Rob Herring <robh@kernel.org>
+To: William Qiu <william.qiu@starfivetech.com>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, linux-mmc@vger.kernel.org, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Jaehoon Chung <jh80.chung@samsung.com>, Ulf Hansson <ulf.hansson@linaro.org>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 4/4] dt-bindings: syscon: Add StarFive syscon doc
+Message-ID: <20230227222904.GC1048218-robh@kernel.org>
+References: <20230215113249.47727-1-william.qiu@starfivetech.com>
+ <20230215113249.47727-5-william.qiu@starfivetech.com>
+ <20230220234335.GA615198-robh@kernel.org>
+ <348796cc-72d9-4dcf-9f09-4c2aa55cb858@starfivetech.com>
 MIME-Version: 1.0
-In-Reply-To: <20230221190858.3159617-3-evan@rivosinc.com>
+Content-Disposition: inline
+In-Reply-To: <348796cc-72d9-4dcf-9f09-4c2aa55cb858@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230227_142007_128048_5ACB7EBD 
-X-CRM114-Status: GOOD (  15.67  )
+X-CRM114-CacheID: sfid-20230227_142907_665036_4BB00676 
+X-CRM114-Status: GOOD (  21.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,76 +77,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Niklas Cassel <niklas.cassel@wdc.com>, heiko@sntech.de, linux-doc@vger.kernel.org, Andrew Bresticker <abrestic@rivosinc.com>, Atish Patra <atishp@rivosinc.com>, Palmer Dabbelt <palmer@rivosinc.com>, Conor Dooley <conor.dooley@microchip.com>, Celeste Liu <coelacanthus@outlook.com>, slewis@rivosinc.com, Bagas Sanjaya <bagasdotme@gmail.com>, linux-riscv@lists.infradead.org, Jonathan Corbet <corbet@lwn.net>, Tobias Klauser <tklauser@distanz.ch>, Andrew Jones <ajones@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>, vineetg@rivosinc.com, Paul Walmsley <paul.walmsley@sifive.com>, Ruizhe Pan <c141028@gmail.com>, Anup Patel <apatel@ventanamicro.com>, Randy Dunlap <rdunlap@infradead.org>, linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Guo Ren <guoren@kernel.org>
-Content-Type: multipart/mixed; boundary="===============1582590246957843204=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Tue, Feb 21, 2023 at 10:44:02AM +0800, William Qiu wrote:
+> 
+> 
+> On 2023/2/21 7:43, Rob Herring wrote:
+> > On Wed, Feb 15, 2023 at 07:32:49PM +0800, William Qiu wrote:
+> >> Add documentation to describe StarFive System Controller Registers.
+> >> 
+> >> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
+> >> ---
+> >>  .../bindings/soc/starfive/jh7110-syscon.yaml  | 51 +++++++++++++++++++
+> >>  MAINTAINERS                                   |  5 ++
+> >>  2 files changed, 56 insertions(+)
+> >>  create mode 100644 Documentation/devicetree/bindings/soc/starfive/jh7110-syscon.yaml
+> >> 
+> >> diff --git a/Documentation/devicetree/bindings/soc/starfive/jh7110-syscon.yaml b/Documentation/devicetree/bindings/soc/starfive/jh7110-syscon.yaml
+> >> new file mode 100644
+> >> index 000000000000..fa4d8522a454
+> >> --- /dev/null
+> >> +++ b/Documentation/devicetree/bindings/soc/starfive/jh7110-syscon.yaml
+> >> @@ -0,0 +1,51 @@
+> >> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> >> +%YAML 1.2
+> >> +---
+> >> +$id: http://devicetree.org/schemas/soc/starfive/jh7110-syscon.yaml#
+> >> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> >> +
+> >> +title: StarFive JH7110 SoC system controller
+> >> +
+> >> +maintainers:
+> >> +  - William Qiu <william.qiu@starfivetech.com>
+> >> +
+> >> +description: |
+> >> +  The StarFive JH7110 SoC system controller provides register information such
+> >> +  as offset, mask and shift to configure related modules such as MMC and PCIe.
+> >> +
+> >> +properties:
+> >> +  compatible:
+> >> +    items:
+> >> +      - enum:
+> >> +          - starfive,jh7110-stg-syscon
+> >> +          - starfive,jh7110-sys-syscon
+> >> +          - starfive,jh7110-aon-syscon
+> > 
+> > Is 'syscon' really part of what the blocks are called? Is just 'stg', 
+> > 'sys' and 'aon' not unique enough?
+> > 
+> > Rob
+> Hi Rob,
+> 
+> In StarFive SoC, we do have syscrg/aoncrg/stgcrg, which is uesd to be the clock
+> controller, so 'syscon' is added to avoid confusion.
 
---===============1582590246957843204==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="WERgPH8NLamXNLLe"
-Content-Disposition: inline
+You've only added to my confusion. 'syscrg' and 'sys-syscon' are 2 
+different h/w blocks and unrelated to each other? Or 'syscrg' is the 
+clock portion of 'sys-syscon'? In that case, 'syscrg' should be a child 
+of 'sys-syscon' or possibly just all one node. Please provide details on 
+the entire h/w block so we can provide better input on the bindings.
 
-
---WERgPH8NLamXNLLe
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, Feb 21, 2023 at 11:08:53AM -0800, Evan Green wrote:
-> We don't have enough space for these all in ELF_HWCAP{,2} and there's no
-> system call that quite does this, so let's just provide an arch-specific
-> one to probe for hardware capabilities.  This currently just provides
-> m{arch,imp,vendor}id, but with the key-value pairs we can pass more in
-> the future.
->=20
-> Co-developed-by: Palmer Dabbelt <palmer@rivosinc.com>
-> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-> Signed-off-by: Evan Green <evan@rivosinc.com>
-
-> +static
-> +int do_riscv_hwprobe(struct riscv_hwprobe __user *pairs, long pair_count,
-> +		      long cpu_count, unsigned long __user *cpus_user,
-> +		      unsigned long flags)
-
-I almost feel bad commenting this, but this is now the only function
-split like this w/ the static on its own line.
-
-With the same caveat about ignorance about glibc's desires & lingering
-doubt as to whether this interface is the right way to go, this looks
-good to me now.
-I'm reluctant to give an R-b for the latter reason, but assuming the
-Higher Power deem this approach acceptable:
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
-Cheers,
-Conor.
-
---WERgPH8NLamXNLLe
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY/0sigAKCRB4tDGHoIJi
-0sB+APwPbrJoN2ZTjbu9wQhfhdvGJ5YTQBDL1iNUak2khoxEtwD/d1Mt0NmZaWq9
-vtXIm6otTg5BOlzMVEZ1+eEce/1G8QI=
-=cgIn
------END PGP SIGNATURE-----
-
---WERgPH8NLamXNLLe--
-
-
---===============1582590246957843204==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Rob
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1582590246957843204==--
-
