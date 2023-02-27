@@ -4,72 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 701C9C64ED6
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Feb 2023 18:12:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3D5DC64ED8
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Feb 2023 18:34:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZTI7SG84rqKRCMUJOF6AUHsQHdHAZn9VMA5/NqfI1So=; b=SvbaiW+hXXjTQM5FLFbzlxMYfD
-	xlcM4KaltYuQt/XIKF8ZlKCUsJ8UtzwOAqAY14qsTLw/ubfjPFhwTa19+2qMWQ4xac0uMeSZZEcLy
-	cf7vMZolec7rpeWlAfac1Icn4U+cjGvgchJUyhIj9pNmteC+rTIydmb5z1Sfg8/+beCgEwPihroEd
-	VwMbcGg+WPn4BswIkFXS9MXwXvj6GGbrsYp63PsGoJlqVx6O/7Uh5gZfCssY8uJTNkL90y2/KtVqC
-	W9+NlQ2nOjYduMpzG2tBvnN5ZrolxIQvyRAfGl54Dt2aJGoggXcKtcwKsKoD2XlfC/O2Df9QzIzUI
-	QlOtdgBA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=70zy9w2haonXmZGZ8hAwDsfzwMbiwPCvRwQMxa5enNc=; b=EwdcJAdfbgfc1Z
+	b61/k14maM//SWidXFQk28b5hvbEhyo9sNwymObrDE2UhIiVxEYk5M+vFgsBDKc+/dTfXXKKQMLPr
+	lt5T8+Q+fnsDbZjHu2C9+9dGIvqONF2LMESRjLTjriK/6R7ZQ+aRA31Qlz/I9+hm6cuzoy48CErKw
+	Z7Wqcch7uSQgDbSwP6euLlo6t1CgZIjnQ3+EQ4pNpvxBGcvCoRYBNJiZBaTPsOGN27fDRZE1CNZFe
+	Z2fVe28Q7QmW9crgL75OAOAXXOv5HOQcft1FhxBBp/uflIStE5LHb0XalPs7bM01BCZ+0Maf6qnrr
+	V+azXAQrVbUeqsKx4EtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWhzP-00AfQ3-A4; Mon, 27 Feb 2023 18:12:43 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1pWiKg-00Akal-Eh; Mon, 27 Feb 2023 18:34:42 +0000
+Received: from mail-oa1-f50.google.com ([209.85.160.50])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWhzN-00AfPS-87
-	for linux-riscv@lists.infradead.org; Mon, 27 Feb 2023 18:12:42 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 6C9E860EA4;
-	Mon, 27 Feb 2023 18:12:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67D79C433D2;
-	Mon, 27 Feb 2023 18:12:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1677521559;
-	bh=zMhMn8aAWF1yij6h/z2ZQ66w5ISBOOImdqMr7vAIcJ0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UByeI1j6YFGybIKdXAkZNElk4G3cms0EW3kzf4qqXkGQHebKNAbLiygzTKQH9WdA/
-	 ROmOZ9Vx2kidAqUwx/OK7IB2t3jEVKLDFHk2zxx0BymR3xCsTRgbaJD+qUW6wX2a7z
-	 zCcEzcw8idFMHhowAGyfWHFPt8JZ8+IUTR7JEQLZFRTDKPp6tVDi8du4Mnk7Rjal5D
-	 pQD01wOZb07LIWDU4Ji6t9RKZ/0oSxUxgQQtD6jwbUlin5OiCi9G/kz/hPebpRXWNq
-	 7JzTw8ofrp9V+lgBkwP1F+DgKofx5TeyV1oYwz5J2U++r0WgDdjqd5LtCHaLzFO60i
-	 1ZjN6FQyN9oCg==
-Date: Mon, 27 Feb 2023 18:12:33 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Hal Feng <hal.feng@starfivetech.com>
-Cc: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, Stephen Boyd <sboyd@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Ben Dooks <ben.dooks@sifive.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 19/19] riscv: dts: starfive: Add StarFive JH7110
- VisionFive 2 board device tree
-Message-ID: <Y/zykfydb+bJ7G2l@spud>
-References: <20230221024645.127922-1-hal.feng@starfivetech.com>
- <20230221024645.127922-20-hal.feng@starfivetech.com>
- <CAJM55Z_QMtzKeRFN1iGf498z4+vga6RBgwybCQi6aOUYCr_P-Q@mail.gmail.com>
- <2af3f84b-2c2b-dc79-c76c-9411fcbcf7ca@starfivetech.com>
+	id 1pWiKc-00AkZL-Qn; Mon, 27 Feb 2023 18:34:40 +0000
+Received: by mail-oa1-f50.google.com with SMTP id 586e51a60fabf-17264e9b575so8333301fac.9;
+        Mon, 27 Feb 2023 10:34:36 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/n6Yv51jW5LAwlzGIh67sJQM+UVRJdiU8ADnwyoJqp4=;
+        b=P3l/eh+wVi4nfJH/hmO+mi58/uEYJ+YnXsIo+jYlCjY/uAmkwzIRvcqYUrEnz+qQt5
+         kaG+IQsaK+zB4knwddQN9wictj1Sz403NoVZOYzEd9mp+EEGQ80Y/4uLVM/DHFSsycJL
+         V8XVdiU+4kvPo2OJU1b2iWH8KWM94JaBV2d2oYFpJnDMdRWMXW0mkZwf/c3DcILP3aNc
+         m6QKZockHvsjX6BHX/Aj8/G0SbmCGfFlqzfRRwutA9qqUtBA5y3bkXu/v65Ks/3wA3y0
+         BHPi8tU4PlwJoQwbvcAcUK9DfX50Fz0Y/NKf+hUrtztTnqsFOeHUcf9LafOcTSQtz4dB
+         XgyA==
+X-Gm-Message-State: AO0yUKX7J/Io3cwSAs857wX80hfXVfYp5Ym7HMIpMMt4zTtvCS9TSsHw
+	dvwbRF5eFcdikHIZcRLlSw==
+X-Google-Smtp-Source: AK7set/ZtQIEXLigG6HKVUhIDHBY2W/Gvzvr0DTnjglSjgXggcIfBsaT1ydf9BJAYYtr0mOVbmGB4A==
+X-Received: by 2002:a05:6870:f283:b0:172:fda1:5773 with SMTP id u3-20020a056870f28300b00172fda15773mr3395641oap.32.1677522875743;
+        Mon, 27 Feb 2023 10:34:35 -0800 (PST)
+Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
+        by smtp.gmail.com with ESMTPSA id ef27-20020a0568701a9b00b00152c52608dbsm2545569oab.34.2023.02.27.10.34.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 27 Feb 2023 10:34:35 -0800 (PST)
+Received: (nullmailer pid 647312 invoked by uid 1000);
+	Mon, 27 Feb 2023 18:34:34 -0000
+Date: Mon, 27 Feb 2023 12:34:34 -0600
+From: Rob Herring <robh@kernel.org>
+To: Changhuang Liang <changhuang.liang@starfivetech.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>, Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Jack Zhu <jack.zhu@starfivetech.com>, linux-phy@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 1/3] dt-bindings: phy: Add starfive,jh7110-dphy-rx
+Message-ID: <20230227183434.GA642331-robh@kernel.org>
+References: <20230223015952.201841-1-changhuang.liang@starfivetech.com>
+ <20230223015952.201841-2-changhuang.liang@starfivetech.com>
 MIME-Version: 1.0
-In-Reply-To: <2af3f84b-2c2b-dc79-c76c-9411fcbcf7ca@starfivetech.com>
+Content-Disposition: inline
+In-Reply-To: <20230223015952.201841-2-changhuang.liang@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230227_101241_385633_CC9FA83F 
-X-CRM114-Status: GOOD (  26.69  )
+X-CRM114-CacheID: sfid-20230227_103438_892301_3FA4F8FA 
+X-CRM114-Status: GOOD (  18.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,124 +74,117 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7011325922800060913=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, Feb 22, 2023 at 05:59:50PM -0800, Changhuang Liang wrote:
+> Starfive SoCs like the jh7110 use a MIPI D-PHY RX controller based on
+> a M31 IP. Add a binding for it.
+> 
+> Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
+> ---
+>  .../bindings/phy/starfive,jh7110-dphy-rx.yaml | 74 +++++++++++++++++++
+>  1 file changed, 74 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/phy/starfive,jh7110-dphy-rx.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/phy/starfive,jh7110-dphy-rx.yaml b/Documentation/devicetree/bindings/phy/starfive,jh7110-dphy-rx.yaml
+> new file mode 100644
+> index 000000000000..a67ca57a6f21
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/phy/starfive,jh7110-dphy-rx.yaml
+> @@ -0,0 +1,74 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/phy/starfive,jh7110-dphy-rx.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Starfive SoC MIPI D-PHY Rx Controller
+> +
+> +maintainers:
+> +  - Jack Zhu <jack.zhu@starfivetech.com>
+> +  - Changhuang Liang <changhuang.liang@starfivetech.com>
+> +
+> +description:
+> +  The Starfive SoC uses the MIPI CSI D-PHY based on M31 IP to transfer
+> +  CSI camera data.
+> +
+> +properties:
+> +  compatible:
+> +    const: starfive,jh7110-dphy-rx
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    maxItems: 3
+> +
+> +  clock-names:
+> +    items:
+> +      - const: cfg
+> +      - const: ref
+> +      - const: tx
 
---===============7011325922800060913==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="qQDklUlJ7jtziWjT"
-Content-Disposition: inline
+Should be 'rx' given this is the 'rx' block? A description of each clock 
+in 'clocks' would be good.
 
+> +
+> +  resets:
+> +    items:
+> +      - description: DPHY_HW reset
+> +      - description: DPHY_B09_ALWAYS_ON reset
+> +
+> +  starfive,aon-syscon:
+> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+> +    items:
+> +      items:
 
---qQDklUlJ7jtziWjT
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+- items: ?
 
-On Thu, Feb 23, 2023 at 04:50:20PM +0800, Hal Feng wrote:
-> On Tue, 21 Feb 2023 16:03:08 +0100, Emil Renner Berthing wrote:
-> > On Tue, 21 Feb 2023 at 03:47, Hal Feng <hal.feng@starfivetech.com> wrot=
-e:
-> >> From: Emil Renner Berthing <kernel@esmil.dk>
-> >>
-> >> Add a minimal device tree for StarFive JH7110 VisionFive 2 board
-> >> which has version A and version B. Support booting and basic
-> >> clock/reset/pinctrl/uart drivers.
-> >>
-> >> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> >> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
-> >> Co-developed-by: Jianlong Huang <jianlong.huang@starfivetech.com>
-> >> Signed-off-by: Jianlong Huang <jianlong.huang@starfivetech.com>
-> >> Co-developed-by: Hal Feng <hal.feng@starfivetech.com>
-> >> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
-> >> ---
-> >>  arch/riscv/boot/dts/starfive/Makefile         |   6 +-
-> >>  .../jh7110-starfive-visionfive-2-v1.2a.dts    |  13 ++
-> >>  .../jh7110-starfive-visionfive-2-v1.3b.dts    |  13 ++
-> >>  .../jh7110-starfive-visionfive-2.dtsi         | 215 ++++++++++++++++++
-> >>  4 files changed, 246 insertions(+), 1 deletion(-)
-> >>  create mode 100644 arch/riscv/boot/dts/starfive/jh7110-starfive-visio=
-nfive-2-v1.2a.dts
-> >>  create mode 100644 arch/riscv/boot/dts/starfive/jh7110-starfive-visio=
-nfive-2-v1.3b.dts
-> >>  create mode 100644 arch/riscv/boot/dts/starfive/jh7110-starfive-visio=
-nfive-2.dtsi
-> >>
-> >> diff --git a/arch/riscv/boot/dts/starfive/Makefile b/arch/riscv/boot/d=
-ts/starfive/Makefile
-> >> index 039c143cba33..cd73519b907b 100644
-> >> --- a/arch/riscv/boot/dts/starfive/Makefile
-> >> +++ b/arch/riscv/boot/dts/starfive/Makefile
-> >> @@ -1,2 +1,6 @@
-> >>  # SPDX-License-Identifier: GPL-2.0
-> >> -dtb-$(CONFIG_SOC_STARFIVE) +=3D jh7100-beaglev-starlight.dtb jh7100-s=
-tarfive-visionfive-v1.dtb
-> >> +dtb-$(CONFIG_SOC_STARFIVE) +=3D jh7100-beaglev-starlight.dtb
-> >> +dtb-$(CONFIG_SOC_STARFIVE) +=3D jh7100-starfive-visionfive-v1.dtb
-> >> +
-> >> +dtb-$(CONFIG_SOC_STARFIVE) +=3D jh7110-starfive-visionfive-2-v1.2a.dtb
-> >> +dtb-$(CONFIG_SOC_STARFIVE) +=3D jh7110-starfive-visionfive-2-v1.3b.dtb
+Otherwise, multiple 2 cell entries are allowed. Is that intended?
 
-If you could rebase on top of v6.3-rc1 for the next version & use ARCH_
-not SOC_ here that'd be great.
-
-> >> +/ {
-> >> +       aliases {
-> >> +               serial0 =3D &uart0;
-> >> +               i2c0 =3D &i2c0;
-> >> +               i2c2 =3D &i2c2;
-> >> +               i2c5 =3D &i2c5;
-> >> +               i2c6 =3D &i2c6;
-> >=20
-> > Let's keep these sorted alphabetically.
->=20
-> OK, will fix it.
->=20
-
-> > It would be great to have some sort of order to this file so it's
-> > obvious where to add new nodes. I suggest we do
-> > - root node
-> > - external clocks
-> > - other node references in alphabetical order
-> >=20
-> > You're almost there with this patch except the uart0 node is out of pla=
-ce.
->=20
-> Will fix accordingly. Thanks for your suggestions.
-
-With Emil's suggestions implemented:
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
-Thanks,
-Conor.
+> +        - description: phandle of AON SYSCON
+> +        - description: register offset
+> +    description: The power of dphy rx is configured by AON SYSCON
+> +      in this property.
 
 
---qQDklUlJ7jtziWjT
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY/zykQAKCRB4tDGHoIJi
-0rQPAPkBDZJoRNk6lCcj0ANg8faGvHfRWGdaYyYaWI+YfboLwAD+PN28woxpivfc
-IvPNVwHix48qqNSe6XV1YTMwD50HggM=
-=0cCt
------END PGP SIGNATURE-----
-
---qQDklUlJ7jtziWjT--
-
-
---===============7011325922800060913==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> +
+> +  "#phy-cells":
+> +    const: 0
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - clock-names
+> +  - resets
+> +  - starfive,aon-syscon
+> +  - "#phy-cells"
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    phy@19820000 {
+> +      compatible = "starfive,jh7110-dphy-rx";
+> +      reg = <0x19820000 0x10000>;
+> +      clocks = <&ispcrg 3>,
+> +               <&ispcrg 4>,
+> +               <&ispcrg 5>;
+> +      clock-names = "cfg", "ref", "tx";
+> +      resets = <&ispcrg 2>,
+> +               <&ispcrg 3>;
+> +      starfive,aon-syscon = <&aon_syscon 0x00>;
+> +      #phy-cells = <0>;
+> +    };
+> -- 
+> 2.25.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7011325922800060913==--
-
