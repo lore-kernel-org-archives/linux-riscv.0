@@ -4,82 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F7D3C64ED8
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Feb 2023 11:57:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81F76C64ED8
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Feb 2023 12:32:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wow/7ThOmLJj83l19PliJ4v1zPVecgwB9X6S5zmFwyc=; b=H4h8dD3FbdEoLXQgnh/GDsEc67
-	ZnRo//zpFXP9er6tVjvS+50GWAvSN7GCzwChnaOVvpL57SU6YX8hD4kgJ+sVU6677cyS2v1qOuwEx
-	eo7B40ZjDENNuTr6oGvxzFix/4f4KdQrxlWmw93sMbFiNyfvxEtzKzqokBEZq3UJU12rk3O5UgI2Y
-	idno2njJAwt9icxPfaL/xxmZ5TFYmurWMCa+T56p0O3iLFxgILi41kJQ8uF0fy+RENmi6rx4WqvRj
-	27H6AcX5xfdkMoqOa1YGolOn8SGcU/TNj4ZIXUApVR0Qrq6XjHiF/chiZNLxnmPA3x29LaVvFLS9t
-	GsVElqZw==;
+	bh=R3tJsaoCo4nfjmSCd8nN7dj/wZM9AwAekTg9ISxd0xc=; b=dGK8a3L1B2giMWCJYZqOY/vk+L
+	bz95Tgjuxo8KAeuRDxtZv0m5zN5G5hTPfpfNa6gKemYYOkIUJY/iRHGFIX5lSFR6kbKHAtiFhDzNW
+	qifTmmEKuudiC49CeK6CxlJCvgAIIUm02kLah3hfq1kpZH2sOwW0aQtZmMkHrYtBqRkqjBgp+WHV+
+	uizU9LlI+DBlJKhtyHJq8opYyPTwgOMzHSYiTIvPp8bAFw5CryhWv0TZrOdtCLkOD+4ec7dwWtDgd
+	EQEJLOXiZi/MLJQLIrL73g3dbRsLL7Fw+0Osx1SQn9+r3Wyn9/mZ0v4MAWpt//I1GCMSgjENa2T3l
+	2xlSoLwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWc8N-009UPL-IC; Mon, 27 Feb 2023 11:57:35 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1pWcfy-009bdy-Ff; Mon, 27 Feb 2023 12:32:18 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWc8K-009UNY-EP
-	for linux-riscv@bombadil.infradead.org; Mon, 27 Feb 2023 11:57:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:CC:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=+LvN16KGYk7iDe5AzcBbBdbtn3iYc07lrCr0/NVqCik=; b=Nf6bS51UHopqySLlIIsH4gZlaI
-	7yGihwVeRnGxgnhxqRg7XshDikQUCG01jqMPeJBWfSPu2AyFggQSHXROF4rSdkF4HVl0Is1eP75LW
-	TUFtjoi6RUslXTNHymcR22uPWp99O0WAWsox0YMB9bIpJnxXyr7vQn4guTEanAiIFHiHEpkEsO7z4
-	2HzTcM/yE8TXhto2d/cQ4sldj5GL6wmgUkiHO6Ktm+E3VibG3EDPMTDSQ+bX5cvhlTH+b3axWrsk2
-	udUrOPvlWr445FWVnUsJ4BDJB5ZmsFrD/wRqsJ5gd8sBtJ7fvkUBFLV+/YG/2utWqGS6O4H7y4WO7
-	bfkSP60w==;
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
-	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1pWc8F-00EDhu-00
-	for linux-riscv@lists.infradead.org;
-	Mon, 27 Feb 2023 11:57:30 +0000
+	id 1pWcfu-009bbZ-9g
+	for linux-riscv@lists.infradead.org; Mon, 27 Feb 2023 12:32:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1677499048; x=1709035048;
+  t=1677501134; x=1709037134;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=OYWmC+11VkZ07K9SxaUsII3U3gMEbonSgeOzevEiM9w=;
-  b=NbshbcRQFKI8eeg8s2u+HOxDthJYPc7mfulxdCBp9xrorO9y4jItH9fX
-   87rlnDp7rT+BfgwUgVkZo9x+1oO7TeoV41pPB+p/DZIqewqAjquIMeqII
-   W3ryfZV9WE8nn+yv0wfBv17w4RI2prnV0PmxkzOJvnYpYNoQyCvNu642Z
-   DTnW2R+7HmpA/FM6gdkLvBS5VIly8TKTLEe7VRueg07S9FL4K4XI1eVFr
-   PBBzg+S3bP0sqkv3dDS7oWSUQl88MLLbE7EQsw22dTqQ9+jvmijm0sjXY
-   QRwpGFVbJqj+EZ7TN2jI2p6bdanMsdApWtnmojttgcRMSyxRWyzVXvCld
-   A==;
-X-IronPort-AV: E=Sophos;i="5.97,331,1669100400"; 
-   d="asc'?scan'208";a="198902334"
+  bh=RO6aTFXermoMWjG0Tt8TtnTKM9NV8n7SoUu00FD0WU8=;
+  b=YhAEJsPfxZbnuiHhCIBLZYver8h1CR+Df173v8x0z073dyBSIaOdWFJi
+   4c3DyP/oE0hjgcUzeIK0jpOl8E6xmhw3debdcB9kPpT+5XKE/KXS3bg1m
+   492tLY1jHtqO1SZ8pqjiMc/sV9ps2Hr5rZix2u4FjHX4M4+YC/pUHGmwd
+   Dj+xAxVjtFKJ2Pt/+4at6q0zrl6Gz57hDIiWkMtJ/p1Mmn2GhNnNTjZ0u
+   wrDYiS+T3nV6Li6HV/quR+0prVTyGkbKQmLguTzcgah27hIttdnFLL1jy
+   ZyUzt4NqDFgBzkkTrmq1cc1LBZywaP4WzG/ATFy3GHRYwZqrhhFi2KEZW
+   Q==;
+X-IronPort-AV: E=Sophos;i="5.97,332,1669100400"; 
+   d="asc'?scan'208";a="202701616"
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 27 Feb 2023 04:57:18 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 27 Feb 2023 05:31:46 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.16; Mon, 27 Feb 2023 04:57:16 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server (version=TLS1_2,
+ 15.1.2507.16; Mon, 27 Feb 2023 05:31:45 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.16 via Frontend
- Transport; Mon, 27 Feb 2023 04:57:15 -0700
-Date: Mon, 27 Feb 2023 11:56:48 +0000
+ Transport; Mon, 27 Feb 2023 05:31:43 -0700
+Date: Mon, 27 Feb 2023 12:31:16 +0000
 From: Conor Dooley <conor.dooley@microchip.com>
-To: Song Shuai <suagrfillet@gmail.com>
-CC: <corbet@lwn.net>, <alexs@kernel.org>, <siyanteng@loongson.cn>,
-	<robh@kernel.org>, <palmer@rivosinc.com>, <leyfoon.tan@starfivetech.com>,
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+CC: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>, Ard Biesheuvel
+	<ardb@kernel.org>, =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
 	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH] sched/doc: supplement CPU capacity with RISC-V
-Message-ID: <Y/yagE7jfRGo1FgY@wendy>
-References: <20230227105941.2749193-1-suagrfillet@gmail.com>
+	<linux-riscv@lists.infradead.org>, =?iso-8859-1?Q?Bj=F6rn_T=F6pel?=
+	<bjorn@rivosinc.com>, <nathan@kernel.org>, <llvm@lists.linux.dev>,
+	<ndesaulniers@google.com>
+Subject: Re: [PATCH v7 1/1] riscv: Allow to downgrade paging mode from the
+ command line
+Message-ID: <Y/yilORflGv3vXjX@wendy>
+References: <20230224100218.1824569-1-alexghiti@rivosinc.com>
+ <20230224100218.1824569-2-alexghiti@rivosinc.com>
 MIME-Version: 1.0
-In-Reply-To: <20230227105941.2749193-1-suagrfillet@gmail.com>
+In-Reply-To: <20230224100218.1824569-2-alexghiti@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230227_115727_854696_1E1A8CA4 
-X-CRM114-Status: GOOD (  15.43  )
+X-CRM114-CacheID: sfid-20230227_043214_467783_0B3CE4BF 
+X-CRM114-Status: GOOD (  20.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,78 +82,122 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1929429015146575580=="
+Content-Type: multipart/mixed; boundary="===============7941095156392935807=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============1929429015146575580==
+--===============7941095156392935807==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="Qu+vqTjLVyvhigH7"
+	protocol="application/pgp-signature"; boundary="8ORzwRGnfaATysc6"
 Content-Disposition: inline
 
---Qu+vqTjLVyvhigH7
-Content-Type: text/plain; charset=us-ascii
+--8ORzwRGnfaATysc6
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Mon, Feb 27, 2023 at 06:59:41PM +0800, Song Shuai wrote:
-> This commit 7d2078310cbf ("dt-bindings: arm: move cpu-capacity to a
-> shared loation") updates some references about capacity-dmips-mhz
+Hey Alex, clang/llvm folk,
 
-Not requesting a respin for this, but mentioning commit 991994509ee9
-("dt-bindings: riscv: add a capacity-dmips-mhz cpu property") is
-probably more relevant as a justification for this change.
-
-> property in this document.
+On Fri, Feb 24, 2023 at 11:02:18AM +0100, Alexandre Ghiti wrote:
+> Add 2 early command line parameters that allow to downgrade satp mode
+> (using the same naming as x86):
+> - "no5lvl": use a 4-level page table (down from sv57 to sv48)
+> - "no4lvl": use a 3-level page table (down from sv57/sv48 to sv39)
 >=20
-> The list of architectures using capacity-dmips-mhz omits RISC-V, so
-> supplements it here.
+> Note that going through the device tree to get the kernel command line
+> works with ACPI too since the efi stub creates a device tree anyway with
+> the command line.
 >=20
-> Signed-off-by: Song Shuai <suagrfillet@gmail.com>
+> In KASAN kernels, we can't use the libfdt that early in the boot process
+> since we are not ready to execute instrumented functions. So instead of
+> using the "generic" libfdt, we compile our own versions of those functions
+> that are not instrumented and that are prefixed so that they do not
+> conflict with the generic ones. We also need the non-instrumented versions
+> of the string functions and the prefixed versions of memcpy/memmove.
+>=20
+> This is largely inspired by commit aacd149b6238 ("arm64: head: avoid
+> relocating the kernel twice for KASLR") from which I removed compilation
+> flags that were not relevant to RISC-V at the moment (LTO, SCS, pie).
+>=20
+> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+> Tested-by: Bj=F6rn T=F6pel <bjorn@rivosinc.com>
+> Reviewed-by: Bj=F6rn T=F6pel <bjorn@rivosinc.com>
 > ---
->  Documentation/scheduler/sched-capacity.rst                    | 2 +-
->  Documentation/translations/zh_CN/scheduler/sched-capacity.rst | 2 +-
->  2 files changed, 2 insertions(+), 2 deletions(-)
->=20
-> diff --git a/Documentation/scheduler/sched-capacity.rst b/Documentation/s=
-cheduler/sched-capacity.rst
-> index 8e2b8538bc2b..e2c1cf743158 100644
-> --- a/Documentation/scheduler/sched-capacity.rst
-> +++ b/Documentation/scheduler/sched-capacity.rst
-> @@ -258,7 +258,7 @@ Linux cannot currently figure out CPU capacity on its=
- own, this information thus
->  needs to be handed to it. Architectures must define arch_scale_cpu_capac=
-ity()
->  for that purpose.
-> =20
-> -The arm and arm64 architectures directly map this to the arch_topology d=
-river
-> +The arm, arm64, and RISC-V architectures directly map this to the arch_t=
-opology driver
+>  .../admin-guide/kernel-parameters.txt         |  5 +-
+>  arch/riscv/kernel/Makefile                    |  2 +
+>  arch/riscv/kernel/pi/Makefile                 | 37 +++++++++++
+>  arch/riscv/kernel/pi/cmdline_early.c          | 62 +++++++++++++++++++
 
-My grep clearly missed this change, thanks.
-For the only part of the patch I understand:
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
++      4 ld.lld: warning: vmlinux.a(arch/riscv/kernel/pi/string.pi.o):(.ini=
+t.sdata) is being placed in '.init.sdata'
 
-Thanks,
-Conor.
+I'm getting 4 new linker warnings with LLVM=3D1 clang-15 allmodconfig
+builds - but I don't really understand this issue.
+Is this spurious, and a just consequence of...
 
+> diff --git a/arch/riscv/kernel/pi/Makefile b/arch/riscv/kernel/pi/Makefile
+> new file mode 100644
+> index 000000000000..4002ed94b6d3
+> --- /dev/null
+> +++ b/arch/riscv/kernel/pi/Makefile
+> @@ -0,0 +1,37 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +# This file was copied from arm64/kernel/pi/Makefile.
+> +
+> +KBUILD_CFLAGS	:=3D $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) \
+> +		   -Os -DDISABLE_BRANCH_PROFILING $(DISABLE_STACKLEAK_PLUGIN) \
+> +		   $(call cc-option,-mbranch-protection=3Dnone) \
+> +		   -I$(srctree)/scripts/dtc/libfdt -fno-stack-protector \
+> +		   -D__DISABLE_EXPORTS -ffreestanding \
+> +		   -fno-asynchronous-unwind-tables -fno-unwind-tables \
+> +		   $(call cc-option,-fno-addrsig)
+> +
+> +CFLAGS_cmdline_early.o +=3D -D__NO_FORTIFY
+> +CFLAGS_lib-fdt_ro.o +=3D -D__NO_FORTIFY
+> +
+> +GCOV_PROFILE	:=3D n
+> +KASAN_SANITIZE	:=3D n
+> +KCSAN_SANITIZE	:=3D n
+> +UBSAN_SANITIZE	:=3D n
+> +KCOV_INSTRUMENT	:=3D n
+> +
+> +$(obj)/%.pi.o: OBJCOPYFLAGS :=3D --prefix-symbols=3D__pi_ \
+> +			       --remove-section=3D.note.gnu.property \
+> +			       --prefix-alloc-sections=3D.init
 
---Qu+vqTjLVyvhigH7
+=2E..this?
+
+> +$(obj)/%.pi.o: $(obj)/%.o FORCE
+> +	$(call if_changed,objcopy)
+> +
+> +$(obj)/lib-%.o: $(srctree)/lib/%.c FORCE
+> +	$(call if_changed_rule,cc_o_c)
+> +
+> +$(obj)/string.o: $(srctree)/lib/string.c FORCE
+> +	$(call if_changed_rule,cc_o_c)
+> +
+> +$(obj)/ctype.o: $(srctree)/lib/ctype.c FORCE
+> +	$(call if_changed_rule,cc_o_c)
+> +
+> +obj-y		:=3D cmdline_early.pi.o string.pi.o ctype.pi.o lib-fdt.pi.o lib-f=
+dt_ro.pi.o
+> +extra-y		:=3D $(patsubst %.pi.o,%.o,$(obj-y))
+
+--8ORzwRGnfaATysc6
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHQEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY/yacQAKCRB4tDGHoIJi
-0jMuAPUS3U8wKt0dDvUC5JFcU2VrD5RRUuYkkJESmDvd+oMvAPsE9NZjwV40Eqvv
-MRChuLnLfK6qyIngBouG73xf0TMeBQ==
-=v5xR
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY/yilAAKCRB4tDGHoIJi
+0vndAQC4f+NCDSCyNXYj0njkGSVRxmlHAyLfwBzffl3veDQDTwD+Ll58OPQxpsri
+ApRUvSTvYGRl+S21vQH6TERahcXL2gI=
+=2KwQ
 -----END PGP SIGNATURE-----
 
---Qu+vqTjLVyvhigH7--
+--8ORzwRGnfaATysc6--
 
 
---===============1929429015146575580==
+--===============7941095156392935807==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -173,5 +208,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============1929429015146575580==--
+--===============7941095156392935807==--
 
