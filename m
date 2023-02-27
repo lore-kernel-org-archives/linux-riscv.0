@@ -4,84 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D013C64ED8
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Feb 2023 19:47:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B54CBC7EE30
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Feb 2023 19:53:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Hk/ec+PqXXWfxu3e3xwYpr+tf+brT/sHA3zgGXb09B8=; b=2Qj7od8YeWKv9k
-	uNlZbQ2TgAwlaQvpDIpztmwIQXWRWouZF9KjWU46P5RahFdgtvuB1K7/DJ/m26B7Op2ILw/7GGDd+
-	hl75KJNp+VhmeBkgI1ZYWnpR9Y64QMhSma3Xwlp+om2iEAe6UDqjggnzqfZoUxsaJMQ8XXNA4ws5J
-	1/Tfd2jUQGGGIlj7+9evuuAScgmh/9NTDzJ/7pJsV7CkbhTqo0H0ZGgMV95MgH9M68YNd3Ze4LA17
-	I8zHSDw4xCY+uAdphgL0ifIx9mDIEiIIIXo6tz7E+Bfma5JTD+O6W+9aGNZtdcEEo9TcGO7FbqV33
-	DZWjmhTEinHhsJ2UimYQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MGczXd9TyZzwxRP+8Pp0ZMmpbQMzQJej7x0Rn/Ps4d4=; b=p07d/ewrCcGSEccMEDGm5HQu7I
+	v5B/FBvv+/FiGXFw/9QtX+e3SQKMhj2S6rMp0KAeX0pZfabkdoeL1jTT3jgvOncB/UNtQRzXumrII
+	IVDIjExqXl54359OFYD6PDJliIgUwk/mQBHmYh1klob9R6R7GwiG9+TCLoQM7Z291xJwcbHS1FoeE
+	zp3zLsotOgfUhrYW6co/FkMdQmfdPvXKRSBCx1MEnG/dEwC4iTGYr7UySb/MxjY0kdepMFWOTzuoC
+	vq3+JuREaRH2b2IbLQRLS2FV1BXFOY+yZwYJFG5TjrM96MZcY0unpTC9INkc0GQtSigzxD1LpV16k
+	uMu1I5HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWjSg-00B18s-BG; Mon, 27 Feb 2023 19:47:02 +0000
-Received: from mail-qv1-f54.google.com ([209.85.219.54])
+	id 1pWjYj-00B35M-H7; Mon, 27 Feb 2023 19:53:17 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWjSS-00B13e-I3; Mon, 27 Feb 2023 19:46:49 +0000
-Received: by mail-qv1-f54.google.com with SMTP id ff4so5284669qvb.2;
-        Mon, 27 Feb 2023 11:46:48 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=zgbfP6t1iEXlYeQDHgpgkGKrmlu/wPbkfmiZJDZsq5c=;
-        b=oAk2aVaRdffw1H8qNRrFUT9DRXNJpNmQmOcI9SM5lpEDSjpOP+n1ewqrE9Efc7gpDX
-         MfPeXL+ltsejMBmv5iduqL7ZcpRt9dRaJrl22y8IXKRWV4tnTRRTS3AFCHWiQUpT+Hyz
-         r3Pi0pwY/IlDQscCRHV5tw1Rr5Czvy7vTLRfQbBozSY42C3tP4RYXBNAfPTr8cAoXkuZ
-         TiClROp38W5SZSR3ax9N8VPrYH11z8blJP/97sftxvpuQFLiZ1EajFHm9znqJQPr5+an
-         Nm7maW5UXpw3XUdb6PrPHdDFHKJa9sZRyaxbiPV4Pezcs03C0mYI4PhX9jbqsWmZDXow
-         G7Ag==
-X-Gm-Message-State: AO0yUKUhbGOzHndkp3WgNEpG4TKeR+szQuBmRV2GeQ+zmH1DwEKXu583
-	eDRmT9wvYG0QACLzVtr6XAI1IXGcEHLZAw==
-X-Google-Smtp-Source: AK7set/JcX7GGVfJK3j2rk7gQ9SfEEL3ZfEV7xVdjvYbJa5/QvU7y0HjvH8ox1lYo/gwSe8Vbdebfw==
-X-Received: by 2002:a05:6214:2622:b0:56e:9dd8:47f3 with SMTP id gv2-20020a056214262200b0056e9dd847f3mr1289737qvb.13.1677527206421;
-        Mon, 27 Feb 2023 11:46:46 -0800 (PST)
-Received: from mail-yw1-f174.google.com (mail-yw1-f174.google.com. [209.85.128.174])
-        by smtp.gmail.com with ESMTPSA id i3-20020a378603000000b007068b49b8absm5431356qkd.62.2023.02.27.11.46.45
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 27 Feb 2023 11:46:45 -0800 (PST)
-Received: by mail-yw1-f174.google.com with SMTP id 00721157ae682-536bbef1c5eso206876077b3.9;
-        Mon, 27 Feb 2023 11:46:45 -0800 (PST)
-X-Received: by 2002:a5b:d4e:0:b0:967:f8b2:7a42 with SMTP id
- f14-20020a5b0d4e000000b00967f8b27a42mr7816406ybr.7.1677527205039; Mon, 27 Feb
- 2023 11:46:45 -0800 (PST)
+	id 1pWjYh-00B33M-9S
+	for linux-riscv@lists.infradead.org; Mon, 27 Feb 2023 19:53:16 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id F2BF9B80DB4;
+	Mon, 27 Feb 2023 19:53:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3AF4C433EF;
+	Mon, 27 Feb 2023 19:53:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1677527592;
+	bh=FN7q+7LSkEQEP880hk5AYmzKXSJvzUeUVUoebZQ16HA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tYj+uDZDne/XGQiIqDWNdSQzxsv/OBNbwggrKIK5fDT5AdGAdFlLg7n1KODd+NYf+
+	 EV1Ne8D2msXpPrcqoSSSSy3os+Z0QHTf/KSQWv7RdFamOk16lGvZcGShDlqko/Rftm
+	 1J9NTjHHxoAzBVROVwzTTvqxwX4ykZpGgjxd571UFCAZ+a7WyvJUBlWzQwjzN1nGdQ
+	 Na6nld+VvRuyiOj2pQt2uIExSPPVE5JDc3ioC1axM5c3VHqmVmJbtE+J1k37rNYakU
+	 HC0hpyzsdMk36kbPalLwJBHb9nM5yvEdz65WHE5FpHQjgr/8HJ6u7QVb2ORaXyTWB3
+	 JiVsEeuo8RBXA==
+Date: Mon, 27 Feb 2023 19:53:07 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Xingyu Wu <xingyu.wu@starfivetech.com>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Rob Herring <robh+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Hal Feng <hal.feng@starfivetech.com>, linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org
+Subject: Re: [PATCH v2 11/11] riscv: dts: starfive: jh7110: Add
+ STGCRG/ISPCRG/VOUTCRG nodes
+Message-ID: <Y/0KI0rgqjqMi1Db@spud>
+References: <20230221083323.302471-1-xingyu.wu@starfivetech.com>
+ <20230221083323.302471-12-xingyu.wu@starfivetech.com>
 MIME-Version: 1.0
-References: <20230113171026.582290-1-david@redhat.com> <20230113171026.582290-12-david@redhat.com>
- <CAMuHMdX-FDga8w=pgg1myskEx6wp+oyZifhPPPFnWrc1zW7ZpQ@mail.gmail.com>
- <9ed766a6-cf06-535d-3337-ea6ff25c2362@redhat.com> <CAMuHMdWSaoKqO1Nx7QMDCcXrRmFbqqX8uwDRezXs8g+HdEFjKA@mail.gmail.com>
- <c145a2db-f92c-65aa-3e68-07dbb2e097a6@redhat.com>
-In-Reply-To: <c145a2db-f92c-65aa-3e68-07dbb2e097a6@redhat.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 27 Feb 2023 20:46:31 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdX7MND++KXgTpx4jscfctQA_-zPt3EN9-+79EWE7e+OjA@mail.gmail.com>
-Message-ID: <CAMuHMdX7MND++KXgTpx4jscfctQA_-zPt3EN9-+79EWE7e+OjA@mail.gmail.com>
-Subject: Re: [PATCH mm-unstable v1 11/26] microblaze/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE
-To: David Hildenbrand <david@redhat.com>
-Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>, 
-	Hugh Dickins <hughd@google.com>, John Hubbard <jhubbard@nvidia.com>, Jason Gunthorpe <jgg@nvidia.com>, 
-	Mike Rapoport <rppt@linux.ibm.com>, Yang Shi <shy828301@gmail.com>, 
-	Vlastimil Babka <vbabka@suse.cz>, Nadav Amit <namit@vmware.com>, 
-	Andrea Arcangeli <aarcange@redhat.com>, Peter Xu <peterx@redhat.com>, linux-mm@kvack.org, 
-	x86@kernel.org, linux-alpha@vger.kernel.org, 
-	linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
-	linux-ia64@vger.kernel.org, loongarch@lists.linux.dev, 
-	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
-	openrisc@lists.librecores.org, linux-parisc@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, 
-	sparclinux@vger.kernel.org, linux-um@lists.infradead.org, 
-	linux-xtensa@linux-xtensa.org, Michal Simek <monstr@monstr.eu>
+In-Reply-To: <20230221083323.302471-12-xingyu.wu@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230227_114648_620807_555EC630 
-X-CRM114-Status: GOOD (  27.17  )
+X-CRM114-CacheID: sfid-20230227_115315_504594_F6ECFF0D 
+X-CRM114-Status: GOOD (  15.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,70 +78,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7307598889717288726=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi David,
 
-On Mon, Feb 27, 2023 at 6:01 PM David Hildenbrand <david@redhat.com> wrote:
-> >>>>    /*
-> >>>>     * Externally used page protection values.
-> >>>> diff --git a/arch/microblaze/include/asm/pgtable.h b/arch/microblaze/include/asm/pgtable.h
-> >>>> index 42f5988e998b..7e3de54bf426 100644
-> >>>> --- a/arch/microblaze/include/asm/pgtable.h
-> >>>> +++ b/arch/microblaze/include/asm/pgtable.h
+--===============7307598889717288726==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="zQa043iT/WKT54d9"
+Content-Disposition: inline
 
-> >>>>     * - All other bits of the PTE are loaded into TLBLO without
-> >>>>     *  * modification, leaving us only the bits 20, 21, 24, 25, 26, 30 for
-> >>>>     * software PTE bits.  We actually use bits 21, 24, 25, and
-> >>>> @@ -155,6 +155,9 @@ extern pte_t *va_to_pte(unsigned long address);
-> >>>>    #define _PAGE_ACCESSED 0x400   /* software: R: page referenced */
-> >>>>    #define _PMD_PRESENT   PAGE_MASK
-> >>>>
-> >>>> +/* We borrow bit 24 to store the exclusive marker in swap PTEs. */
-> >>>> +#define _PAGE_SWP_EXCLUSIVE    _PAGE_DIRTY
-> >>>
-> >>> _PAGE_DIRTY is 0x80, so this is also bit 7, thus the new comment is
-> >>> wrong?
-> >>
-> >> In the example, I use MSB-0 bit numbering (which I determined to be
-> >> correct in microblaze context eventually, but I got confused a couple a
-> >> times because it's very inconsistent). That should be MSB-0 bit 24.
-> >
-> > Thanks, TIL microblaze uses IBM bit numbering...
->
-> I assume IBM bit numbering corresponds to MSB-0 bit numbering, correct?
 
-Correct, as seen in s370 and PowerPC manuals...
+--zQa043iT/WKT54d9
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> I recall that I used the comment above "/* Definitions for MicroBlaze.
-> */" as an orientation.
->
-> 0  1  2  3  4  ... 18 19 20 21 22 23 24 25 26 27 28 29 30 31
-> RPN.....................  0  0 EX WR ZSEL.......  W  I  M  G
+On Tue, Feb 21, 2023 at 04:33:23PM +0800, Xingyu Wu wrote:
+> Add STGCRG/ISPCRG/VOUTCRG new node to support JH7110
+> System-Top-Group, Image-Signal-Process and Video-Output
+> clock and reset drivers for the JH7110 RISC-V SoC.
+>=20
+> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+> ---
+>  arch/riscv/boot/dts/starfive/jh7110.dtsi | 59 ++++++++++++++++++++++++
+>  1 file changed, 59 insertions(+)
+>=20
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/d=
+ts/starfive/jh7110.dtsi
+> index a5e6fb3ad188..697ab59191a1 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> @@ -6,6 +6,7 @@
+> =20
+>  /dts-v1/;
+>  #include <dt-bindings/clock/starfive,jh7110-crg.h>
+> +#include <dt-bindings/power/starfive,jh7110-pmu.h>
+>  #include <dt-bindings/reset/starfive,jh7110-crg.h>
 
-Indeed, that's where I noticed the "unconventional" numbering...
+Please keep these sorted alphabetically, otherwise this *looks* fine to
+me.
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
-> So ... either we adjust both or we leave it as is. (again, depends on
-> what the right thing to to is -- which I don't know :) )
+Thanks,
+Conor.
 
-It depends whether you want to match the hardware documentation,
-or the Linux BIT() macro and friends...
 
-Gr{oetje,eeting}s,
+--zQa043iT/WKT54d9
+Content-Type: application/pgp-signature; name="signature.asc"
 
-                        Geert
+-----BEGIN PGP SIGNATURE-----
 
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY/0KIwAKCRB4tDGHoIJi
+0jvJAQDekG/U779L3Qjyj6JbBBmIo+FDgfYF3Uun3G4Hi9mw+AD/XmgxAMbFNf8a
+ktj4/8QaSfT2gPFgTUOnACOYIdRbDw0=
+=e2v5
+-----END PGP SIGNATURE-----
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+--zQa043iT/WKT54d9--
+
+
+--===============7307598889717288726==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7307598889717288726==--
+
