@@ -4,60 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8850FC7EE23
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Feb 2023 13:42:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE44FC64ED6
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Feb 2023 13:43:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=kvr2h1SPX6gsVTaNzEKRb4akW/uzp/tsLdByMO/CWFE=; b=ton6pgfXdJJXR+
-	QfwAjiEMe16N74p+xU4l89dZEOj3GJApSDVvuGd+OoVWhVNrhzJWzxarL6dSE0jfoCDaGVD02meXE
-	glbKe0SNcvkDLm44Bm//YG9CSiPiNvYh30ZDtozZ9yWqZlrYiq+O4PadCVF4rUC1Dxyac7IRDdCr6
-	NkSxWUiyJIe7xReHR40jbrdO/R20hDD/ZgkTCE4giWNlyk7WXcItrhvALZu5MS/snyDgLSojKy3MA
-	Utb/YEcxwo2zqbLdhcfiSKfWQ12zGY9rS36kWGSrN2Ff5R6guOwN1PxTxtzXF7K+AGCljk46CuPa5
-	PqcWCjLLU5nYXQVS3JZw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Y1fQy3XQ9vrKOEWXj9AgqTVkemJnqfLj8IOQMTTI/y4=; b=XfBeX+OKsGrqvTwkI9OchFqluf
+	agP/K2lM9GObnyDe8QIpnjvKiOIebke+YMiYGGXEtG5AgR7BE7tBe+s0xj7by8hxnbnE5pP/ckkbf
+	Y8HmjN/sJvKGF+BhHZSdXuo8P+O/U/gTDrK8nevvnsW4AdVz4HHTZcgoQOzFHvwb3q4Nz5efAaFmE
+	uvxpFRYyLVHG+JbHFVdPVNVelyQuxa4hw0jHBwke9YHLt5/E8kZmwjQLUeXiUn6k9j5dtt//McfaN
+	sPj4X561LAADipJ7ER9gYUfvadgm+hHUUwbsjWD9zNVOrwmhZQeqrxgfRoq9wRpVQ2X/6osqICi5G
+	gdgLxYpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWdli-009p9a-Ra; Mon, 27 Feb 2023 13:42:18 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWdlc-009owU-Ex
-	for linux-riscv@lists.infradead.org; Mon, 27 Feb 2023 13:42:17 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 8FF8824E336;
-	Mon, 27 Feb 2023 21:41:28 +0800 (CST)
-Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 27 Feb
- 2023 21:41:28 +0800
-Received: from ubuntu.localdomain (113.72.145.171) by EXMBX172.cuchost.com
- (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 27 Feb
- 2023 21:41:27 +0800
-From: Hal Feng <hal.feng@starfivetech.com>
-To: <linux-hwmon@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-doc@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-CC: Jean Delvare <jdelvare@suse.com>, Guenter Roeck <linux@roeck-us.net>,
-	Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh+dt@kernel.org>,
-	"Krzysztof Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
-	<conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Emil Renner Berthing
-	<emil.renner.berthing@canonical.com>, Samin Guo <samin.guo@starfivetech.com>,
-	Hal Feng <hal.feng@starfivetech.com>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v5 0/2] hwmon: Add StarFive JH71X0 temperature sensor
-Date: Mon, 27 Feb 2023 21:41:23 +0800
-Message-ID: <20230227134125.120638-1-hal.feng@starfivetech.com>
-X-Mailer: git-send-email 2.38.1
+	id 1pWdmm-009pZb-DZ; Mon, 27 Feb 2023 13:43:24 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pWdmj-009pWq-F7
+	for linux-riscv@lists.infradead.org; Mon, 27 Feb 2023 13:43:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1677505402; x=1709041402;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=B8kKgrBjxWQyCV0wZXde3NVGF5SDI0kmpRoxcky0ObQ=;
+  b=fs/LOIKqQzr0ylFUwF5Y4X3eSwwJPYrJfwYGtjKXrVqnoYn0YZjlQrYZ
+   D1YKeLCZ6LrHOwL/oIlw/3QcmT+iLW4qCx0UJ+V9NYNkBIoKvIS+O5yq8
+   hAGTIa8RBSL5WFE3WcVG0+4Aaa3XUqhHI+tORsUqIcJZWmB5MkQkF9qIs
+   dbCxrhi6NoudXtVY7qfH0GjYYmVhLNxEQ60xMPyTBkjPKPJgnv+rSy7Qa
+   1AaGfnyzl7T7wfd+DWaNXVrU4l1M97Mqzu+YWrvBAcO0RnRqx+3GxUVXc
+   MicN+EoHRS9+6Lb1VIascOnEMVX75hIBYtRg9+NrvKXL9MbWR2wBN/aax
+   g==;
+X-IronPort-AV: E=Sophos;i="5.97,332,1669100400"; 
+   d="asc'?scan'208";a="198931385"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 27 Feb 2023 06:43:17 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.16; Mon, 27 Feb 2023 06:43:16 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.16 via Frontend
+ Transport; Mon, 27 Feb 2023 06:43:13 -0700
+Date: Mon, 27 Feb 2023 13:42:46 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Alexandre Ghiti <alex@ghiti.fr>
+CC: Ard Biesheuvel <ardb@kernel.org>, Alexandre Ghiti
+	<alexghiti@rivosinc.com>, Jonathan Corbet <corbet@lwn.net>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
+	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, =?iso-8859-1?Q?Bj=F6rn_T=F6pel?=
+	<bjorn@rivosinc.com>, <nathan@kernel.org>, <llvm@lists.linux.dev>,
+	<ndesaulniers@google.com>
+Subject: Re: [PATCH v7 1/1] riscv: Allow to downgrade paging mode from the
+ command line
+Message-ID: <Y/yzVv717htZLuRY@wendy>
+References: <20230224100218.1824569-1-alexghiti@rivosinc.com>
+ <20230224100218.1824569-2-alexghiti@rivosinc.com>
+ <Y/yilORflGv3vXjX@wendy>
+ <CAMj1kXGCkqpHY7rHZv0EFKhPNk6jpbh1OfG_Jm3vSW8c5Y+9_A@mail.gmail.com>
+ <6bd8012a-7311-7956-b0ae-966b8534a64a@ghiti.fr>
 MIME-Version: 1.0
-X-Originating-IP: [113.72.145.171]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX172.cuchost.com
- (172.16.6.92)
-X-YovoleRuleAgent: yovoleflag
+In-Reply-To: <6bd8012a-7311-7956-b0ae-966b8534a64a@ghiti.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230227_054212_879224_C35C4B1E 
-X-CRM114-Status: GOOD (  15.64  )
+X-CRM114-CacheID: sfid-20230227_054321_646085_E65A9771 
+X-CRM114-Status: GOOD (  10.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,83 +86,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3976301208921319769=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This adds a driver for the temperature sensor on the JH7100 and JH7110,
-RISC-V SoCs by StarFive Technology Co. Ltd.. The JH7100 is used on the
-BeagleV Starlight board and StarFive VisionFive board. The JH7110 is
-used on the StarFive VisionFive 2 board.
+--===============3976301208921319769==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="i8ZwX1OEi/syzAPO"
+Content-Disposition: inline
 
-v5:
-* Dropp the "interrupts" property in dt-bindings.
-* Reword the commit message of patch 2.
-* Use continuous mode instead of single mode and drop the interrupt
-  related code used in the single mode.
-* Add the missing "default:" statements in the driver.
-* Change the device name to "sfctemp" which avoids a warning when startup.
+--i8ZwX1OEi/syzAPO
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-v4:
-* Change the node name from "tmon" to "temperature-sensor" in dt-binding
-  example, which is more generic.
-* Add support for StarFive JH7110 SoC besides JH7100.
-* Add clock and reset support in the dt-bindings and driver.
-* Add the missing headers in patch 2.
-* Use devm_platform_ioremap_resource() to remap instead of
-  platform_get_resource() and devm_ioremap_resource().
-* Use dev_err_probe() instead of dev_err().
-* Add Signed-off-by tag for Hal Feng. Add Co-developed-by tag for
-  Samin Guo in patch 2.
+On Mon, Feb 27, 2023 at 02:27:11PM +0100, Alexandre Ghiti wrote:
+> On 2/27/23 13:56, Ard Biesheuvel wrote:
 
-v3:
-* Handle timeouts from wait_for_completion_interruptible_timeout
-  properly.
+> > Note that we switched
+> > to --orphan-handling=error on other arches, as the linker sometimes
 
-v2:
-* Fix checkpatch.pl --strict warnings
-  - Add myself to MAINTAINERS
-  - Fix multiline comments
-  - Use proper case and whitespace for #defines
-  - Add comment to sfctemp::lock mutex.
-* Remaining comments by Guenter Roeck
-  - Add Documentation/hwmon/sfctemp.rst
-  - Use devm_add_action() and devm_hwmon_device_register_with_info()
-    instead of a driver .remove function.
-  - Don't do test conversion at probe time.
-  - #include <linux/io.h>
-  - Remove unused #defines
-  - Use int return variable in sfctemp_convert().
-* Add Samin's Signed-off-by to patch 2/2
+> It seems orphan-handling is set to "error" only when WERROR is set (see
+> CONFIG_LD_ORPHAN_WARN_LEVEL).
 
-History:
-v4: https://lore.kernel.org/all/20230207072314.62040-1-hal.feng@starfivetech.com/
-v3: https://lore.kernel.org/all/20210726171802.1052716-1-kernel@esmil.dk/
-v2: https://lore.kernel.org/all/20210624162108.832518-1-esmil@mailme.dk/
-v1: https://lore.kernel.org/all/20210616181545.496149-1-kernel@esmil.dk/
+My CI explicitly disables CONFIG_WERROR for allmodconfig builds so that
+it can run with W=1, it is indeed set to "error" for regular
+allmodconfig runs.
 
-Emil Renner Berthing (2):
-  dt-bindings: hwmon: Add starfive,jh71x0-temp
-  hwmon: (sfctemp) Add StarFive JH71x0 temperature sensor
+Thanks Alex/Ard,
+Conor.
 
- .../bindings/hwmon/starfive,jh71x0-temp.yaml  |  70 ++++
- Documentation/hwmon/index.rst                 |   1 +
- Documentation/hwmon/sfctemp.rst               |  33 ++
- MAINTAINERS                                   |   8 +
- drivers/hwmon/Kconfig                         |  10 +
- drivers/hwmon/Makefile                        |   1 +
- drivers/hwmon/sfctemp.c                       | 331 ++++++++++++++++++
- 7 files changed, 454 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/hwmon/starfive,jh71x0-temp.yaml
- create mode 100644 Documentation/hwmon/sfctemp.rst
- create mode 100644 drivers/hwmon/sfctemp.c
 
--- 
-2.38.1
+--i8ZwX1OEi/syzAPO
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY/yzVgAKCRB4tDGHoIJi
+0v7sAP97bImU6hzDN3fw3MI74GR1HLzo1JA7yvIRvToGW+BFVQD9E0SqjMsSvsa0
+8IM3znP8VY/yIXWltmbmNqpvKDHp5QI=
+=46Kj
+-----END PGP SIGNATURE-----
+
+--i8ZwX1OEi/syzAPO--
+
+
+--===============3976301208921319769==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3976301208921319769==--
+
