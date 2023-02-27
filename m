@@ -4,65 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3D5DC64ED8
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Feb 2023 18:34:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D013C64ED8
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Feb 2023 19:47:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=70zy9w2haonXmZGZ8hAwDsfzwMbiwPCvRwQMxa5enNc=; b=EwdcJAdfbgfc1Z
-	b61/k14maM//SWidXFQk28b5hvbEhyo9sNwymObrDE2UhIiVxEYk5M+vFgsBDKc+/dTfXXKKQMLPr
-	lt5T8+Q+fnsDbZjHu2C9+9dGIvqONF2LMESRjLTjriK/6R7ZQ+aRA31Qlz/I9+hm6cuzoy48CErKw
-	Z7Wqcch7uSQgDbSwP6euLlo6t1CgZIjnQ3+EQ4pNpvxBGcvCoRYBNJiZBaTPsOGN27fDRZE1CNZFe
-	Z2fVe28Q7QmW9crgL75OAOAXXOv5HOQcft1FhxBBp/uflIStE5LHb0XalPs7bM01BCZ+0Maf6qnrr
-	V+azXAQrVbUeqsKx4EtA==;
+	List-Owner; bh=Hk/ec+PqXXWfxu3e3xwYpr+tf+brT/sHA3zgGXb09B8=; b=2Qj7od8YeWKv9k
+	uNlZbQ2TgAwlaQvpDIpztmwIQXWRWouZF9KjWU46P5RahFdgtvuB1K7/DJ/m26B7Op2ILw/7GGDd+
+	hl75KJNp+VhmeBkgI1ZYWnpR9Y64QMhSma3Xwlp+om2iEAe6UDqjggnzqfZoUxsaJMQ8XXNA4ws5J
+	1/Tfd2jUQGGGIlj7+9evuuAScgmh/9NTDzJ/7pJsV7CkbhTqo0H0ZGgMV95MgH9M68YNd3Ze4LA17
+	I8zHSDw4xCY+uAdphgL0ifIx9mDIEiIIIXo6tz7E+Bfma5JTD+O6W+9aGNZtdcEEo9TcGO7FbqV33
+	DZWjmhTEinHhsJ2UimYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWiKg-00Akal-Eh; Mon, 27 Feb 2023 18:34:42 +0000
-Received: from mail-oa1-f50.google.com ([209.85.160.50])
+	id 1pWjSg-00B18s-BG; Mon, 27 Feb 2023 19:47:02 +0000
+Received: from mail-qv1-f54.google.com ([209.85.219.54])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWiKc-00AkZL-Qn; Mon, 27 Feb 2023 18:34:40 +0000
-Received: by mail-oa1-f50.google.com with SMTP id 586e51a60fabf-17264e9b575so8333301fac.9;
-        Mon, 27 Feb 2023 10:34:36 -0800 (PST)
+	id 1pWjSS-00B13e-I3; Mon, 27 Feb 2023 19:46:49 +0000
+Received: by mail-qv1-f54.google.com with SMTP id ff4so5284669qvb.2;
+        Mon, 27 Feb 2023 11:46:48 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/n6Yv51jW5LAwlzGIh67sJQM+UVRJdiU8ADnwyoJqp4=;
-        b=P3l/eh+wVi4nfJH/hmO+mi58/uEYJ+YnXsIo+jYlCjY/uAmkwzIRvcqYUrEnz+qQt5
-         kaG+IQsaK+zB4knwddQN9wictj1Sz403NoVZOYzEd9mp+EEGQ80Y/4uLVM/DHFSsycJL
-         V8XVdiU+4kvPo2OJU1b2iWH8KWM94JaBV2d2oYFpJnDMdRWMXW0mkZwf/c3DcILP3aNc
-         m6QKZockHvsjX6BHX/Aj8/G0SbmCGfFlqzfRRwutA9qqUtBA5y3bkXu/v65Ks/3wA3y0
-         BHPi8tU4PlwJoQwbvcAcUK9DfX50Fz0Y/NKf+hUrtztTnqsFOeHUcf9LafOcTSQtz4dB
-         XgyA==
-X-Gm-Message-State: AO0yUKX7J/Io3cwSAs857wX80hfXVfYp5Ym7HMIpMMt4zTtvCS9TSsHw
-	dvwbRF5eFcdikHIZcRLlSw==
-X-Google-Smtp-Source: AK7set/ZtQIEXLigG6HKVUhIDHBY2W/Gvzvr0DTnjglSjgXggcIfBsaT1ydf9BJAYYtr0mOVbmGB4A==
-X-Received: by 2002:a05:6870:f283:b0:172:fda1:5773 with SMTP id u3-20020a056870f28300b00172fda15773mr3395641oap.32.1677522875743;
-        Mon, 27 Feb 2023 10:34:35 -0800 (PST)
-Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id ef27-20020a0568701a9b00b00152c52608dbsm2545569oab.34.2023.02.27.10.34.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Feb 2023 10:34:35 -0800 (PST)
-Received: (nullmailer pid 647312 invoked by uid 1000);
-	Mon, 27 Feb 2023 18:34:34 -0000
-Date: Mon, 27 Feb 2023 12:34:34 -0600
-From: Rob Herring <robh@kernel.org>
-To: Changhuang Liang <changhuang.liang@starfivetech.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>, Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Jack Zhu <jack.zhu@starfivetech.com>, linux-phy@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 1/3] dt-bindings: phy: Add starfive,jh7110-dphy-rx
-Message-ID: <20230227183434.GA642331-robh@kernel.org>
-References: <20230223015952.201841-1-changhuang.liang@starfivetech.com>
- <20230223015952.201841-2-changhuang.liang@starfivetech.com>
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=zgbfP6t1iEXlYeQDHgpgkGKrmlu/wPbkfmiZJDZsq5c=;
+        b=oAk2aVaRdffw1H8qNRrFUT9DRXNJpNmQmOcI9SM5lpEDSjpOP+n1ewqrE9Efc7gpDX
+         MfPeXL+ltsejMBmv5iduqL7ZcpRt9dRaJrl22y8IXKRWV4tnTRRTS3AFCHWiQUpT+Hyz
+         r3Pi0pwY/IlDQscCRHV5tw1Rr5Czvy7vTLRfQbBozSY42C3tP4RYXBNAfPTr8cAoXkuZ
+         TiClROp38W5SZSR3ax9N8VPrYH11z8blJP/97sftxvpuQFLiZ1EajFHm9znqJQPr5+an
+         Nm7maW5UXpw3XUdb6PrPHdDFHKJa9sZRyaxbiPV4Pezcs03C0mYI4PhX9jbqsWmZDXow
+         G7Ag==
+X-Gm-Message-State: AO0yUKUhbGOzHndkp3WgNEpG4TKeR+szQuBmRV2GeQ+zmH1DwEKXu583
+	eDRmT9wvYG0QACLzVtr6XAI1IXGcEHLZAw==
+X-Google-Smtp-Source: AK7set/JcX7GGVfJK3j2rk7gQ9SfEEL3ZfEV7xVdjvYbJa5/QvU7y0HjvH8ox1lYo/gwSe8Vbdebfw==
+X-Received: by 2002:a05:6214:2622:b0:56e:9dd8:47f3 with SMTP id gv2-20020a056214262200b0056e9dd847f3mr1289737qvb.13.1677527206421;
+        Mon, 27 Feb 2023 11:46:46 -0800 (PST)
+Received: from mail-yw1-f174.google.com (mail-yw1-f174.google.com. [209.85.128.174])
+        by smtp.gmail.com with ESMTPSA id i3-20020a378603000000b007068b49b8absm5431356qkd.62.2023.02.27.11.46.45
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 27 Feb 2023 11:46:45 -0800 (PST)
+Received: by mail-yw1-f174.google.com with SMTP id 00721157ae682-536bbef1c5eso206876077b3.9;
+        Mon, 27 Feb 2023 11:46:45 -0800 (PST)
+X-Received: by 2002:a5b:d4e:0:b0:967:f8b2:7a42 with SMTP id
+ f14-20020a5b0d4e000000b00967f8b27a42mr7816406ybr.7.1677527205039; Mon, 27 Feb
+ 2023 11:46:45 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230223015952.201841-2-changhuang.liang@starfivetech.com>
+References: <20230113171026.582290-1-david@redhat.com> <20230113171026.582290-12-david@redhat.com>
+ <CAMuHMdX-FDga8w=pgg1myskEx6wp+oyZifhPPPFnWrc1zW7ZpQ@mail.gmail.com>
+ <9ed766a6-cf06-535d-3337-ea6ff25c2362@redhat.com> <CAMuHMdWSaoKqO1Nx7QMDCcXrRmFbqqX8uwDRezXs8g+HdEFjKA@mail.gmail.com>
+ <c145a2db-f92c-65aa-3e68-07dbb2e097a6@redhat.com>
+In-Reply-To: <c145a2db-f92c-65aa-3e68-07dbb2e097a6@redhat.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 27 Feb 2023 20:46:31 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdX7MND++KXgTpx4jscfctQA_-zPt3EN9-+79EWE7e+OjA@mail.gmail.com>
+Message-ID: <CAMuHMdX7MND++KXgTpx4jscfctQA_-zPt3EN9-+79EWE7e+OjA@mail.gmail.com>
+Subject: Re: [PATCH mm-unstable v1 11/26] microblaze/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE
+To: David Hildenbrand <david@redhat.com>
+Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>, 
+	Hugh Dickins <hughd@google.com>, John Hubbard <jhubbard@nvidia.com>, Jason Gunthorpe <jgg@nvidia.com>, 
+	Mike Rapoport <rppt@linux.ibm.com>, Yang Shi <shy828301@gmail.com>, 
+	Vlastimil Babka <vbabka@suse.cz>, Nadav Amit <namit@vmware.com>, 
+	Andrea Arcangeli <aarcange@redhat.com>, Peter Xu <peterx@redhat.com>, linux-mm@kvack.org, 
+	x86@kernel.org, linux-alpha@vger.kernel.org, 
+	linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
+	linux-ia64@vger.kernel.org, loongarch@lists.linux.dev, 
+	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
+	openrisc@lists.librecores.org, linux-parisc@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, 
+	sparclinux@vger.kernel.org, linux-um@lists.infradead.org, 
+	linux-xtensa@linux-xtensa.org, Michal Simek <monstr@monstr.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230227_103438_892301_3FA4F8FA 
-X-CRM114-Status: GOOD (  18.93  )
+X-CRM114-CacheID: sfid-20230227_114648_620807_555EC630 
+X-CRM114-Status: GOOD (  27.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,110 +98,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 22, 2023 at 05:59:50PM -0800, Changhuang Liang wrote:
-> Starfive SoCs like the jh7110 use a MIPI D-PHY RX controller based on
-> a M31 IP. Add a binding for it.
-> 
-> Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
-> ---
->  .../bindings/phy/starfive,jh7110-dphy-rx.yaml | 74 +++++++++++++++++++
->  1 file changed, 74 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/phy/starfive,jh7110-dphy-rx.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/phy/starfive,jh7110-dphy-rx.yaml b/Documentation/devicetree/bindings/phy/starfive,jh7110-dphy-rx.yaml
-> new file mode 100644
-> index 000000000000..a67ca57a6f21
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/phy/starfive,jh7110-dphy-rx.yaml
-> @@ -0,0 +1,74 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/phy/starfive,jh7110-dphy-rx.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Starfive SoC MIPI D-PHY Rx Controller
-> +
-> +maintainers:
-> +  - Jack Zhu <jack.zhu@starfivetech.com>
-> +  - Changhuang Liang <changhuang.liang@starfivetech.com>
-> +
-> +description:
-> +  The Starfive SoC uses the MIPI CSI D-PHY based on M31 IP to transfer
-> +  CSI camera data.
-> +
-> +properties:
-> +  compatible:
-> +    const: starfive,jh7110-dphy-rx
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    maxItems: 3
-> +
-> +  clock-names:
-> +    items:
-> +      - const: cfg
-> +      - const: ref
-> +      - const: tx
+Hi David,
 
-Should be 'rx' given this is the 'rx' block? A description of each clock 
-in 'clocks' would be good.
+On Mon, Feb 27, 2023 at 6:01 PM David Hildenbrand <david@redhat.com> wrote:
+> >>>>    /*
+> >>>>     * Externally used page protection values.
+> >>>> diff --git a/arch/microblaze/include/asm/pgtable.h b/arch/microblaze/include/asm/pgtable.h
+> >>>> index 42f5988e998b..7e3de54bf426 100644
+> >>>> --- a/arch/microblaze/include/asm/pgtable.h
+> >>>> +++ b/arch/microblaze/include/asm/pgtable.h
 
-> +
-> +  resets:
-> +    items:
-> +      - description: DPHY_HW reset
-> +      - description: DPHY_B09_ALWAYS_ON reset
-> +
-> +  starfive,aon-syscon:
-> +    $ref: /schemas/types.yaml#/definitions/phandle-array
-> +    items:
-> +      items:
+> >>>>     * - All other bits of the PTE are loaded into TLBLO without
+> >>>>     *  * modification, leaving us only the bits 20, 21, 24, 25, 26, 30 for
+> >>>>     * software PTE bits.  We actually use bits 21, 24, 25, and
+> >>>> @@ -155,6 +155,9 @@ extern pte_t *va_to_pte(unsigned long address);
+> >>>>    #define _PAGE_ACCESSED 0x400   /* software: R: page referenced */
+> >>>>    #define _PMD_PRESENT   PAGE_MASK
+> >>>>
+> >>>> +/* We borrow bit 24 to store the exclusive marker in swap PTEs. */
+> >>>> +#define _PAGE_SWP_EXCLUSIVE    _PAGE_DIRTY
+> >>>
+> >>> _PAGE_DIRTY is 0x80, so this is also bit 7, thus the new comment is
+> >>> wrong?
+> >>
+> >> In the example, I use MSB-0 bit numbering (which I determined to be
+> >> correct in microblaze context eventually, but I got confused a couple a
+> >> times because it's very inconsistent). That should be MSB-0 bit 24.
+> >
+> > Thanks, TIL microblaze uses IBM bit numbering...
+>
+> I assume IBM bit numbering corresponds to MSB-0 bit numbering, correct?
 
-- items: ?
+Correct, as seen in s370 and PowerPC manuals...
 
-Otherwise, multiple 2 cell entries are allowed. Is that intended?
+> I recall that I used the comment above "/* Definitions for MicroBlaze.
+> */" as an orientation.
+>
+> 0  1  2  3  4  ... 18 19 20 21 22 23 24 25 26 27 28 29 30 31
+> RPN.....................  0  0 EX WR ZSEL.......  W  I  M  G
 
-> +        - description: phandle of AON SYSCON
-> +        - description: register offset
-> +    description: The power of dphy rx is configured by AON SYSCON
-> +      in this property.
+Indeed, that's where I noticed the "unconventional" numbering...
 
+> So ... either we adjust both or we leave it as is. (again, depends on
+> what the right thing to to is -- which I don't know :) )
 
-> +
-> +  "#phy-cells":
-> +    const: 0
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - clock-names
-> +  - resets
-> +  - starfive,aon-syscon
-> +  - "#phy-cells"
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    phy@19820000 {
-> +      compatible = "starfive,jh7110-dphy-rx";
-> +      reg = <0x19820000 0x10000>;
-> +      clocks = <&ispcrg 3>,
-> +               <&ispcrg 4>,
-> +               <&ispcrg 5>;
-> +      clock-names = "cfg", "ref", "tx";
-> +      resets = <&ispcrg 2>,
-> +               <&ispcrg 3>;
-> +      starfive,aon-syscon = <&aon_syscon 0x00>;
-> +      #phy-cells = <0>;
-> +    };
-> -- 
-> 2.25.1
-> 
+It depends whether you want to match the hardware documentation,
+or the Linux BIT() macro and friends...
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
