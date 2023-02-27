@@ -4,67 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91397C64ED8
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Feb 2023 22:47:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EAB8C64ED9
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Feb 2023 22:56:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3Lti/gIVdjwJJyIowpVVMvZGa3SMeVGaYoOOWvvIiK4=; b=FNRU4E3y4hYhYGidEAX1YBqX/R
-	EuV7sfGY5f52raIu5JcXtf3dt9dNnXFTsI054oEQKBF28AAhwdmKdBxHaYvd8fQLipuv0qdwvmQkI
-	bhybOOJYBWeWXKzlvWnsb7lvgixBaclDI+sntTDw4Nncy9Q5qXfZMnaP1TvqKUUgq2HxyUx2N9jrk
-	o+Q/nVEvoNpimLEVKvTpKrG6ZBfzYtO7eF9uDt9F5jGN9vc6BeDCOvPPlcCUq/DuKVgyaFi/1XM5f
-	zjJix2E95TpRFIyHjHIknq9zqtAvKURDwzM4GdsLT3qP/zji285aXLENjRLrp7htTnHsYP7u6AK/X
-	0SIOj2Hw==;
+	bh=fvJpOxwHWq1uVlDFuuX+6Sj8nbFLA/hseS0fzM4VFSw=; b=z4MQgT6ruw8dVWLUMkSO3xhkkG
+	swLenc2SrDAL97j+oFcgh0WPproCiTZc29pZzV+NGGjlSXbHUA33QJx2HeBpDxwse4b08hkAYmxZO
+	ZUniguT/r3IwwGfa6g/XRyHUdwUMu18E3B7BpNsQcnOZbPMmdZaRhbJbFLgSi1VNBKv6KPYFZ3Vmv
+	9/+QRrenagPNXlrIgW0YtkhMq0QN3odJAA3YXlld7jACcvJ6dH9pY5K26ecwvNpiGWtmbhW2uPJQ8
+	CjbcNjiNAbTVH2lB4fCCoEyGW3HhjkHYJ73ObnshSRvSwkofLx97s+9fMvwCRsZdARdZrV0mhg2JW
+	ZtZyoZXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWmHe-00BWKV-CR; Mon, 27 Feb 2023 22:47:50 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1pWmPo-00BXAO-B7; Mon, 27 Feb 2023 22:56:16 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWmHc-00BWJx-0n
-	for linux-riscv@lists.infradead.org; Mon, 27 Feb 2023 22:47:49 +0000
+	id 1pWmPl-00BX9P-Ht
+	for linux-riscv@lists.infradead.org; Mon, 27 Feb 2023 22:56:15 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 8C263B80DC3;
-	Mon, 27 Feb 2023 22:47:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E722C433D2;
-	Mon, 27 Feb 2023 22:47:41 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id B1F3F60EBC;
+	Mon, 27 Feb 2023 22:56:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82AA7C433EF;
+	Mon, 27 Feb 2023 22:56:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1677538065;
-	bh=BQC2Xe6hyxIuIr07Xnnpv5N2HK5t+HJGmgw69hotKhY=;
+	s=k20201202; t=1677538572;
+	bh=dpHi37mfVvbBGOpxpxT24SQip4gsSfxZgt5gs1idsfE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=IUdwByaAfmWSQWUwaa2Pzj7uqN5fr/iyGfkHiph0wlw6lBaS7nN54qr2XkJrl6K4q
-	 pZooF51PQQQ/fBKH4rabmZ+c50pagzmIbskodCuRNPyZuJNWoHjRGGBRWfrZg2l9VZ
-	 7zA9ZxTg/DdI+lFynt2kUBi3vBv8dtccg/I9JOqbzTwQsRb/P7QpVGPZHr9KtxJPO2
-	 qhOr0fCsTxe+ZvbBlZmOHSx8vESp4rS+zeAHgKiKRz2NIuPas2I4AicdI8eu41kS/w
-	 +V8j5RYKH6VIM7/O5n9kg3DcUNyOzAR0jL+e6S6h8zLPXegg6ChgxMwg9jTVHVPsZ3
-	 HNbMnJERCqs2w==
-Date: Mon, 27 Feb 2023 22:47:39 +0000
+	b=EmP+nTqncuAUTTbmpiWanrCN4o0CN+b3vmSDO/YDnkocYGthdPgr/iBiWWLahd9yu
+	 3EA64PabxwXev2sxjFjAIAvjALkA81Br8j/k/OA9c4i0itfJUpVcdT+d8ac5h2b7R3
+	 gffZruDbCuWlb3ZeLJiRH41WJOakKk97RkEdTUG+ThEeE9qqj9sQXoft1ggCp3aBsa
+	 Iag6Ed8VkcFOWBSjJI+eBp5iCcqOpcatcjS+fktKVWy9ish10CDSRDs5Ck2WiOi0v4
+	 P9xrhuVrm43rkYHyUYq0vB7/y+qjkYsX0tGJpXvkM6UZu1FVLMmYHPHqAgHnQoMRr0
+	 4tQQoU4CANk1Q==
+Date: Mon, 27 Feb 2023 22:56:07 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Evan Green <evan@rivosinc.com>
-Cc: Palmer Dabbelt <palmer@rivosinc.com>, heiko@sntech.de,
-	slewis@rivosinc.com, vineetg@rivosinc.com,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Andrew Bresticker <abrestic@rivosinc.com>,
-	Atish Patra <atishp@rivosinc.com>,
-	Celeste Liu <coelacanthus@outlook.com>, Guo Ren <guoren@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 3/7] RISC-V: hwprobe: Add support for
- RISCV_HWPROBE_BASE_BEHAVIOR_IMA
-Message-ID: <Y/0zC0Dn9gwC8N5w@spud>
-References: <20230221190858.3159617-1-evan@rivosinc.com>
- <20230221190858.3159617-4-evan@rivosinc.com>
+To: Russ Weight <russell.h.weight@intel.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Xu Yilun <yilun.xu@intel.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Moritz Fischer <mdf@kernel.org>, Wu Hao <hao.wu@intel.com>,
+	Tom Rix <trix@redhat.com>, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-fpga@vger.kernel.org
+Subject: Re: [PATCH v1 0/6] PolarFire SoC Auto Update Support
+Message-ID: <Y/01B4hCOs9JPfR8@spud>
+References: <20230217164023.14255-1-conor@kernel.org>
+ <Y/ht1eHgtRrLxIhC@yilunxu-OptiPlex-7050>
+ <Y/h1KFGSw13OabYw@wendy>
+ <21bebf9d-eb27-5607-b0a9-274c46ef8aa3@intel.com>
+ <Y/0r1aR6Wik2KYBd@spud>
+ <cc6176cb-6792-ef11-f42a-d2d5b12d04b4@intel.com>
 MIME-Version: 1.0
-In-Reply-To: <20230221190858.3159617-4-evan@rivosinc.com>
+In-Reply-To: <cc6176cb-6792-ef11-f42a-d2d5b12d04b4@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230227_144748_362771_B973223B 
-X-CRM114-Status: GOOD (  30.07  )
+X-CRM114-CacheID: sfid-20230227_145613_693408_721C735A 
+X-CRM114-Status: GOOD (  38.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,152 +78,108 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6960423485177280787=="
+Content-Type: multipart/mixed; boundary="===============5302001172399876176=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============6960423485177280787==
+--===============5302001172399876176==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="YEhy8lQvUbxojQ+D"
+	protocol="application/pgp-signature"; boundary="ddJkjCSxr4LPX3qv"
 Content-Disposition: inline
 
 
---YEhy8lQvUbxojQ+D
+--ddJkjCSxr4LPX3qv
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-Hey Evan,
-
-On Tue, Feb 21, 2023 at 11:08:54AM -0800, Evan Green wrote:
-> We have an implicit set of base behaviors that userspace depends on,
-> which are mostly defined in various ISA specifications.
+On Mon, Feb 27, 2023 at 02:42:30PM -0800, Russ Weight wrote:
 >=20
-> Co-developed-by: Palmer Dabbelt <palmer@rivosinc.com>
-> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-> Signed-off-by: Evan Green <evan@rivosinc.com>
-> ---
 >=20
-> Changes in v3:
->  - Refactored base ISA behavior probe to allow kernel probing as well,
->    in prep for vDSO data initialization.
->  - Fixed doc warnings in IMA text list, use :c:macro:.
+> On 2/27/23 14:16, Conor Dooley wrote:
+> > Hey Russ,
+> >
+> > On Mon, Feb 27, 2023 at 02:04:36PM -0800, Russ Weight wrote:
+> >> On 2/24/23 00:28, Conor Dooley wrote:
+> >>> On Fri, Feb 24, 2023 at 03:57:09PM +0800, Xu Yilun wrote:
+> >>>> On 2023-02-17 at 16:40:17 +0000, Conor Dooley wrote:
+> >>>>> This patchset adds support for the "Auto Update" feature on PolarFi=
+re
+> >>>>> SoC that allows for writing an FPGA bistream to the SPI flash conne=
+cted
+> >>>>> to the system controller.
+> >>>> I haven't fully checked the patches yet, just some quick comments:
+> >>>>
+> >>>> Since this feature is just to R/W the flash, and would not affect the
+> >>>> runtime FPGA region, I don't think an FPGA manager is actually neede=
+d.
+> >>>> Why not just use the MTD uAPI? There is a set of exsiting MTD uAPI &
+> >>>> MTD tool if I remember correctly.
+> >>> A lack of interest in opening up the system controller to userspace!
+> >>> You're right in that the writing of the image can be done that way, a=
+nd
+> >>> while I was testing I used the userspace bits of mtd along the way - =
+but
+> >>> for validating that the image we are writing we rely on the system
+> >>> controller.
+> >>> I'm really not interested in exposing the system controller's
+> >>> functionality, especially the bitstream manipulation parts, to usersp=
+ace
+> >>> due to the risk of input validation bugs, so at least that side of
+> >>> things should remain in the kernel.
+> >>> I suppose I could implement something custom in drivers/soc that does
+> >>> the validation only, and push the rest out to userspace. Just seemed
+> >>> fitting to do the whole lot in drivers/fpga.
+> >> In case you haven't already looked at the new firmware-upload
+> >> support in the firmware-loader, I'll give you some references
+> >> here to see if it fit you needs. This would only support the
+> >> write (not the read) but it would allow the controller to do
+> >> validation on the write.
+> >>
+> >> The is the cover letter which shows a usage example:
+> >> https://lore.kernel.org/lkml/20220421212204.36052-1-russell.h.weight@i=
+ntel.com/
+> >>
+> >> And this is a pointer to the latest documentation for it:
+> >> https://docs.kernel.org/driver-api/firmware/fw_upload.html
+> >>
+> >> The only current user is: drivers/fpga/intel-m10-bmc-sec-update.c
+> > Sounds interesting, I shall go and take a look. Just quickly, when you
+> > say it wouldn't support the read, what exactly do you mean?
+> > The only read that I am really interested in doing is reading the first
+> > 1K of flash as I need to RMW it, but I don't think that that's what you
+> > mean.
+> > Do you mean that I would not be able to dump the firmware using your
+> > fw_upload interface? If so, that's an acceptable constraint IMO.
 >=20
->  Documentation/riscv/hwprobe.rst       | 21 +++++++++++++++++++++
->  arch/riscv/include/asm/hwprobe.h      |  2 +-
->  arch/riscv/include/uapi/asm/hwprobe.h |  5 +++++
->  arch/riscv/kernel/sys_riscv.c         | 20 ++++++++++++++++++++
->  4 files changed, 47 insertions(+), 1 deletion(-)
->=20
-> diff --git a/Documentation/riscv/hwprobe.rst b/Documentation/riscv/hwprob=
-e.rst
-> index 88b015a2026e..9f2da414fbf8 100644
-> --- a/Documentation/riscv/hwprobe.rst
-> +++ b/Documentation/riscv/hwprobe.rst
-> @@ -37,3 +37,24 @@ The following keys are defined:
->    defined by the RISC-V privileged architecture specification.
->  * :c:macro:`RISCV_HWPROBE_KEY_MIMPLID`: Contains the value of ``mimplid`=
-`, as
->    defined by the RISC-V privileged architecture specification.
-> +* :c:macro:`RISCV_HWPROBE_KEY_BASE_BEHAVIOR`: A bitmask containing the b=
-ase
-> +  user-visible behavior that this kernel supports.  The following base u=
-ser ABIs
-> +  are defined:
-> +
-> +  * :c:macro:`RISCV_HWPROBE_BASE_BEHAVIOR_IMA`: Support for rv32ima or
-> +    rv64ima, as defined by version 2.2 of the user ISA and version 1.10 =
-of the
-> +    privileged ISA, with the following known exceptions (more exceptions=
- may be
-> +    added, but only if it can be demonstrated that the user ABI is not b=
-roken):
-> +
-> +    * The :fence.i: instruction cannot be directly executed by userspace
-> +      programs (it may still be executed in userspace via a
-> +      kernel-controlled mechanism such as the vDSO).
-> +* :c:macro:`RISCV_HWPROBE_KEY_IMA_EXT_0`: A bitmask containing the exten=
-sions
-> +  that are compatible with the :c:macro:`RISCV_HWPROBE_BASE_BEHAVIOR_IMA=
-`:
-> +  base system behavior.
-> +
-> +  * :c:macro:`RISCV_HWPROBE_IMA_FD`: The F and D extensions are supporte=
-d, as
-> +    defined by commit cd20cee ("FMIN/FMAX now implement
-> +    minimumNumber/maximumNumber, not minNum/maxNum") of the RISC-V ISA m=
-anual.
-> +  * :c:macro:`RISCV_HWPROBE_IMA_C`: The C extension is supported, as def=
-ined
-> +    by version 2.2 of the RISC-V ISA manual.
+> Yes - I mean that you couldn't dump the firmware image from userspace
+> using the fw_upload interface. The sysfs interface allows you to read
+> and write a temporary buffer, but once you "echo 0 > loading", there
+> is no sysfs interface associated with the firmware-loader that would
+> allow you to read the image from flash. Your controller actually does
+> the writes, so RMW in that context is fine.
 
-I think I asked for some newlines, but this all seems kinda random now
-as to whether there is a blank line between list items or not.
+Ahh cool. I don't really care about dumping the firmware via such a
+mechanism, so that sounds good to me.
+I'll check out your approach, the immediate thought is that it sounds
+suitable to my use case, so thanks!
 
-> diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
-> index 02c2f1f7417e..f2b224550923 100644
-> --- a/arch/riscv/kernel/sys_riscv.c
-> +++ b/arch/riscv/kernel/sys_riscv.c
-> @@ -9,6 +9,7 @@
->  #include <asm/cacheflush.h>
->  #include <asm/hwprobe.h>
->  #include <asm/sbi.h>
-> +#include <asm/switch_to.h>
->  #include <asm/uaccess.h>
->  #include <asm/unistd.h>
->  #include <asm-generic/mman-common.h>
-> @@ -124,6 +125,25 @@ static void hwprobe_one_pair(struct riscv_hwprobe *p=
-air,
->  	case RISCV_HWPROBE_KEY_MIMPID:
->  		hwprobe_arch_id(pair, cpus);
->  		break;
-> +	/*
-> +	 * The kernel already assumes that the base single-letter ISA
-> +	 * extensions are supported on all harts, and only supports the
-> +	 * IMA base, so just cheat a bit here and tell that to
-> +	 * userspace.
-> +	 */
-> +	case RISCV_HWPROBE_KEY_BASE_BEHAVIOR:
-> +		pair->value =3D RISCV_HWPROBE_BASE_BEHAVIOR_IMA;
-> +		break;
-> +
-> +	case RISCV_HWPROBE_KEY_IMA_EXT_0:
-> +		pair->value =3D 0;
-> +		if (has_fpu())
-> +			pair->value |=3D RISCV_HWPROBE_IMA_FD;
-> +
-> +		if (elf_hwcap & RISCV_ISA_EXT_c)
-> +			pair->value |=3D RISCV_HWPROBE_IMA_C;
-> +
-> +		break;
-> =20
->  	/*
->  	 * For forward compatibility, unknown keys don't fail the whole
-
-This looks a lot nicer after the refactor, sans the {}.
-With a consistent approach taken to newlines:
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
-Cheers,
-Conor.
-
-
---YEhy8lQvUbxojQ+D
+--ddJkjCSxr4LPX3qv
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY/0zCwAKCRB4tDGHoIJi
-0nP/AP4/GMxjR+8aS2db8L6UNa8dMZrUVlDVN9gqSAuBgYHEdQEAjO85CrCUpq4r
-bNmr88hLkiB/gnFkN44wqNyLANSZLgk=
-=hgpt
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY/01BgAKCRB4tDGHoIJi
+0nOzAQCVzNJeksXU+zI1ruvAN/DTsh07Pw5PSCFafnRQ3Cg2zwD/XfUj6xyLgU5H
+ucBsaFA67jnQdJVy7N+LZx7RyDGalQA=
+=gW8R
 -----END PGP SIGNATURE-----
 
---YEhy8lQvUbxojQ+D--
+--ddJkjCSxr4LPX3qv--
 
 
---===============6960423485177280787==
+--===============5302001172399876176==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -232,5 +190,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============6960423485177280787==--
+--===============5302001172399876176==--
 
