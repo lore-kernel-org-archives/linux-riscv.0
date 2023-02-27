@@ -4,56 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 651B4C64ED8
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Feb 2023 13:27:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F264EC64ED6
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Feb 2023 13:32:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	List-Unsubscribe:List-Id:In-Reply-To:Subject:From:References:Cc:To:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+vE4hTTH2ceI4vj1A121oNNEtBRcL9pcva/VkDnIwqE=; b=Dabnows3Ir7O1m
-	orc8T5SF99rFffY2HA3mMegHzouiQq/5ZrPJ4hiAC2PMieGhAo5avChV3iS4oWx3zVPVv25svN5I0
-	bMGRevz1d/P18DhpbAgA2798KnkDJ2DimoNZQYm+aajW2JjUGr7UAPLz9ZtKohOzEbRs//QN5+RZr
-	0dDOOS2xrHpg9tOLMumo1thEEJpyQPQ9fmYKt5n7wnI4UEmKlTqgHZwjR4N8SV/3OTkaXy+nl/MzB
-	dIoZwcNZAHtnsTNhxBOc+UTg7z7WLNw+8Awj9RDZj7n4Jst0DHmMjkLflh4yth8VdfNItGXFjLYX6
-	8MOOVlhL1FXp8AFtjCQw==;
+	List-Owner; bh=/ADPVGeGClPAVjaK1NUKFiUQgXC09wruwct6yTF3m3c=; b=oBZI0rz4HyYKdW
+	GBMU/jKVyT1Nf9RLSHYDZryqM5+Ua7SZ4q888mPQ2PwyPPTG1qstC0TACAIP3f6NV5kNZcyw1eklt
+	Ua7aeNf8wPjKLnCJmAxOPnCexHuB+5Wu7LrUGadQkKh+zH9rh6AUJ8UodWE7tzvY9D+dTThPwEBOB
+	l4OKfVS6MrGUbikoLynklDdsvo0yGwb5hpCXEX+K8oXo4G1XjG2TCVS2/2MXZVT0iyK8ybd6DU/jw
+	gnnE5glq4EYOK0VTzOwfJVtNnECzjDiwXVLASQYlKf87/Izojsbqj1j9XYaxO1k+IgyORkoRH1mff
+	+kQCHOsL3nHF3gZu/KNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWdXM-009l3H-HZ; Mon, 27 Feb 2023 13:27:28 +0000
-Received: from relay4-d.mail.gandi.net ([2001:4b98:dc4:8::224])
+	id 1pWdbf-009liL-Jd; Mon, 27 Feb 2023 13:31:55 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWdXH-009l0e-Q6
-	for linux-riscv@lists.infradead.org; Mon, 27 Feb 2023 13:27:26 +0000
-Received: (Authenticated sender: alex@ghiti.fr)
-	by mail.gandi.net (Postfix) with ESMTPSA id 275B3E0006;
-	Mon, 27 Feb 2023 13:27:11 +0000 (UTC)
-Message-ID: <6bd8012a-7311-7956-b0ae-966b8534a64a@ghiti.fr>
-Date: Mon, 27 Feb 2023 14:27:11 +0100
+	id 1pWdbV-009lez-4Z
+	for linux-riscv@lists.infradead.org; Mon, 27 Feb 2023 13:31:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1677504702;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=V+6qFC7OXniFoFqHVWKESI1xjQfVcOUspp9yumvENXI=;
+	b=ex46fXXrhKmDPYEWGcB+af8vCe1J2IzZwA/e2KmgnAYszjSYEeJRhD0SpcUuO1qPy3fF9X
+	XAUmcoTTxXm+25+CGrHsNBZUTmHTyITfycVgVEzyB9To6mrfHrZuTHv/h//7qCbivgE7jW
+	G/8xMJixjPXbKePOGt18zoDHMoIkxVA=
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_128_GCM_SHA256) id
+ us-mta-235-gFBnPWI1NeK6nITunTDuaw-1; Mon, 27 Feb 2023 08:31:41 -0500
+X-MC-Unique: gFBnPWI1NeK6nITunTDuaw-1
+Received: by mail-wr1-f69.google.com with SMTP id bt1-20020a056000080100b002c557db0e0fso849123wrb.11
+        for <linux-riscv@lists.infradead.org>; Mon, 27 Feb 2023 05:31:40 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:in-reply-to:subject:organization:from
+         :references:cc:to:content-language:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=V+6qFC7OXniFoFqHVWKESI1xjQfVcOUspp9yumvENXI=;
+        b=dLE4o5JoeJkb9ITcGP48X5su8dOsLfSQRYkdrMbpmmOmwhnMaIU6mVmrR0IVdN1JR9
+         8TtFUrgOtnO5Qh/W4b2hG1lKTiOV1DMCUp8Zm1ETsEx2yCUEHBJYEtQG6V122l2hEHBB
+         y/NmX4h9J9hFeE/8FlaHdFoey/shzIaUa3MAZwAKwnGor/Q41hAA0itP1TfP57wZkEBg
+         dSFImOZxqS8NG29w+IqXj91UBgou7+eJdhgMI8Fv4LWjun9HySsfMpNja/zo454Rbwal
+         2jmxBMuznwNaxbnocs4uPuv8hDyfGxfz8Rx2jY0V7ca0ub4MAnaeAfQK4z5k3GOyWEAU
+         7H5Q==
+X-Gm-Message-State: AO0yUKUvPWxUJYvXaC3WbFmM97qYAE0sR4ONndGVISQoAAzu2bTWxB9j
+	fndP+yb3NENP10pL73UfesL1vAI6fxPV8apntXs7StfFUzw5i7vOtJpujUrnBL7pD/LrTcCbBJj
+	mGouK1xwRL0dYDXgdp1mTjrpRMydA
+X-Received: by 2002:a05:600c:3d9b:b0:3ea:f6c4:5f2a with SMTP id bi27-20020a05600c3d9b00b003eaf6c45f2amr11631378wmb.17.1677504699853;
+        Mon, 27 Feb 2023 05:31:39 -0800 (PST)
+X-Google-Smtp-Source: AK7set9k8OE3X06H0t6ffblDghDw4p6MluetLQ2Nt3K/GymnPq5PiNVd71t1cUTwSWsd1hBXO2jKVw==
+X-Received: by 2002:a05:600c:3d9b:b0:3ea:f6c4:5f2a with SMTP id bi27-20020a05600c3d9b00b003eaf6c45f2amr11631342wmb.17.1677504699482;
+        Mon, 27 Feb 2023 05:31:39 -0800 (PST)
+Received: from ?IPV6:2003:cb:c703:1f00:7816:2307:5967:2228? (p200300cbc7031f007816230759672228.dip0.t-ipconnect.de. [2003:cb:c703:1f00:7816:2307:5967:2228])
+        by smtp.gmail.com with ESMTPSA id m34-20020a05600c3b2200b003df5be8987esm14091432wms.20.2023.02.27.05.31.37
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 27 Feb 2023 05:31:38 -0800 (PST)
+Message-ID: <9ed766a6-cf06-535d-3337-ea6ff25c2362@redhat.com>
+Date: Mon, 27 Feb 2023 14:31:37 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.7.1
-Subject: Re: [PATCH v7 1/1] riscv: Allow to downgrade paging mode from the
- command line
-To: Ard Biesheuvel <ardb@kernel.org>,
- Conor Dooley <conor.dooley@microchip.com>
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>, Jonathan Corbet
- <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Conor Dooley <conor@kernel.org>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
- <bjorn@kernel.org>, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
- <bjorn@rivosinc.com>, nathan@kernel.org, llvm@lists.linux.dev,
- ndesaulniers@google.com
-References: <20230224100218.1824569-1-alexghiti@rivosinc.com>
- <20230224100218.1824569-2-alexghiti@rivosinc.com> <Y/yilORflGv3vXjX@wendy>
- <CAMj1kXGCkqpHY7rHZv0EFKhPNk6jpbh1OfG_Jm3vSW8c5Y+9_A@mail.gmail.com>
+ Thunderbird/102.7.2
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
+ Hugh Dickins <hughd@google.com>, John Hubbard <jhubbard@nvidia.com>,
+ Jason Gunthorpe <jgg@nvidia.com>, Mike Rapoport <rppt@linux.ibm.com>,
+ Yang Shi <shy828301@gmail.com>, Vlastimil Babka <vbabka@suse.cz>,
+ Nadav Amit <namit@vmware.com>, Andrea Arcangeli <aarcange@redhat.com>,
+ Peter Xu <peterx@redhat.com>, linux-mm@kvack.org, x86@kernel.org,
+ linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+ linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org, openrisc@lists.librecores.org,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-um@lists.infradead.org, linux-xtensa@linux-xtensa.org,
+ Michal Simek <monstr@monstr.eu>
+References: <20230113171026.582290-1-david@redhat.com>
+ <20230113171026.582290-12-david@redhat.com>
+ <CAMuHMdX-FDga8w=pgg1myskEx6wp+oyZifhPPPFnWrc1zW7ZpQ@mail.gmail.com>
+From: David Hildenbrand <david@redhat.com>
+Organization: Red Hat
+Subject: Re: [PATCH mm-unstable v1 11/26] microblaze/mm: support
+ __HAVE_ARCH_PTE_SWP_EXCLUSIVE
+In-Reply-To: <CAMuHMdX-FDga8w=pgg1myskEx6wp+oyZifhPPPFnWrc1zW7ZpQ@mail.gmail.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
 Content-Language: en-US
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <CAMj1kXGCkqpHY7rHZv0EFKhPNk6jpbh1OfG_Jm3vSW8c5Y+9_A@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230227_052724_187557_0AE5FBF6 
-X-CRM114-Status: GOOD (  22.59  )
+X-CRM114-CacheID: sfid-20230227_053145_343041_5CAE817D 
+X-CRM114-Status: GOOD (  29.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,88 +114,129 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Ck9uIDIvMjcvMjMgMTM6NTYsIEFyZCBCaWVzaGV1dmVsIHdyb3RlOgo+IE9uIE1vbiwgMjcgRmVi
-IDIwMjMgYXQgMTM6MzIsIENvbm9yIERvb2xleSA8Y29ub3IuZG9vbGV5QG1pY3JvY2hpcC5jb20+
-IHdyb3RlOgo+PiBIZXkgQWxleCwgY2xhbmcvbGx2bSBmb2xrLAo+Pgo+PiBPbiBGcmksIEZlYiAy
-NCwgMjAyMyBhdCAxMTowMjoxOEFNICswMTAwLCBBbGV4YW5kcmUgR2hpdGkgd3JvdGU6Cj4+PiBB
-ZGQgMiBlYXJseSBjb21tYW5kIGxpbmUgcGFyYW1ldGVycyB0aGF0IGFsbG93IHRvIGRvd25ncmFk
-ZSBzYXRwIG1vZGUKPj4+ICh1c2luZyB0aGUgc2FtZSBuYW1pbmcgYXMgeDg2KToKPj4+IC0gIm5v
-NWx2bCI6IHVzZSBhIDQtbGV2ZWwgcGFnZSB0YWJsZSAoZG93biBmcm9tIHN2NTcgdG8gc3Y0OCkK
-Pj4+IC0gIm5vNGx2bCI6IHVzZSBhIDMtbGV2ZWwgcGFnZSB0YWJsZSAoZG93biBmcm9tIHN2NTcv
-c3Y0OCB0byBzdjM5KQo+Pj4KPj4+IE5vdGUgdGhhdCBnb2luZyB0aHJvdWdoIHRoZSBkZXZpY2Ug
-dHJlZSB0byBnZXQgdGhlIGtlcm5lbCBjb21tYW5kIGxpbmUKPj4+IHdvcmtzIHdpdGggQUNQSSB0
-b28gc2luY2UgdGhlIGVmaSBzdHViIGNyZWF0ZXMgYSBkZXZpY2UgdHJlZSBhbnl3YXkgd2l0aAo+
-Pj4gdGhlIGNvbW1hbmQgbGluZS4KPj4+Cj4+PiBJbiBLQVNBTiBrZXJuZWxzLCB3ZSBjYW4ndCB1
-c2UgdGhlIGxpYmZkdCB0aGF0IGVhcmx5IGluIHRoZSBib290IHByb2Nlc3MKPj4+IHNpbmNlIHdl
-IGFyZSBub3QgcmVhZHkgdG8gZXhlY3V0ZSBpbnN0cnVtZW50ZWQgZnVuY3Rpb25zLiBTbyBpbnN0
-ZWFkIG9mCj4+PiB1c2luZyB0aGUgImdlbmVyaWMiIGxpYmZkdCwgd2UgY29tcGlsZSBvdXIgb3du
-IHZlcnNpb25zIG9mIHRob3NlIGZ1bmN0aW9ucwo+Pj4gdGhhdCBhcmUgbm90IGluc3RydW1lbnRl
-ZCBhbmQgdGhhdCBhcmUgcHJlZml4ZWQgc28gdGhhdCB0aGV5IGRvIG5vdAo+Pj4gY29uZmxpY3Qg
-d2l0aCB0aGUgZ2VuZXJpYyBvbmVzLiBXZSBhbHNvIG5lZWQgdGhlIG5vbi1pbnN0cnVtZW50ZWQg
-dmVyc2lvbnMKPj4+IG9mIHRoZSBzdHJpbmcgZnVuY3Rpb25zIGFuZCB0aGUgcHJlZml4ZWQgdmVy
-c2lvbnMgb2YgbWVtY3B5L21lbW1vdmUuCj4+Pgo+Pj4gVGhpcyBpcyBsYXJnZWx5IGluc3BpcmVk
-IGJ5IGNvbW1pdCBhYWNkMTQ5YjYyMzggKCJhcm02NDogaGVhZDogYXZvaWQKPj4+IHJlbG9jYXRp
-bmcgdGhlIGtlcm5lbCB0d2ljZSBmb3IgS0FTTFIiKSBmcm9tIHdoaWNoIEkgcmVtb3ZlZCBjb21w
-aWxhdGlvbgo+Pj4gZmxhZ3MgdGhhdCB3ZXJlIG5vdCByZWxldmFudCB0byBSSVNDLVYgYXQgdGhl
-IG1vbWVudCAoTFRPLCBTQ1MsIHBpZSkuCj4+Pgo+Pj4gU2lnbmVkLW9mZi1ieTogQWxleGFuZHJl
-IEdoaXRpIDxhbGV4Z2hpdGlAcml2b3NpbmMuY29tPgo+Pj4gVGVzdGVkLWJ5OiBCasO2cm4gVMO2
-cGVsIDxiam9ybkByaXZvc2luYy5jb20+Cj4+PiBSZXZpZXdlZC1ieTogQmrDtnJuIFTDtnBlbCA8
-Ympvcm5Acml2b3NpbmMuY29tPgo+Pj4gLS0tCj4+PiAgIC4uLi9hZG1pbi1ndWlkZS9rZXJuZWwt
-cGFyYW1ldGVycy50eHQgICAgICAgICB8ICA1ICstCj4+PiAgIGFyY2gvcmlzY3Yva2VybmVsL01h
-a2VmaWxlICAgICAgICAgICAgICAgICAgICB8ICAyICsKPj4+ICAgYXJjaC9yaXNjdi9rZXJuZWwv
-cGkvTWFrZWZpbGUgICAgICAgICAgICAgICAgIHwgMzcgKysrKysrKysrKysKPj4+ICAgYXJjaC9y
-aXNjdi9rZXJuZWwvcGkvY21kbGluZV9lYXJseS5jICAgICAgICAgIHwgNjIgKysrKysrKysrKysr
-KysrKysrKwo+PiArICAgICAgNCBsZC5sbGQ6IHdhcm5pbmc6IHZtbGludXguYShhcmNoL3Jpc2N2
-L2tlcm5lbC9waS9zdHJpbmcucGkubyk6KC5pbml0LnNkYXRhKSBpcyBiZWluZyBwbGFjZWQgaW4g
-Jy5pbml0LnNkYXRhJwo+Pgo+PiBJJ20gZ2V0dGluZyA0IG5ldyBsaW5rZXIgd2FybmluZ3Mgd2l0
-aCBMTFZNPTEgY2xhbmctMTUgYWxsbW9kY29uZmlnCj4+IGJ1aWxkcyAtIGJ1dCBJIGRvbid0IHJl
-YWxseSB1bmRlcnN0YW5kIHRoaXMgaXNzdWUuCj4+IElzIHRoaXMgc3B1cmlvdXMsIGFuZCBhIGp1
-c3QgY29uc2VxdWVuY2Ugb2YuLi4KPj4KPj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5l
-bC9waS9NYWtlZmlsZSBiL2FyY2gvcmlzY3Yva2VybmVsL3BpL01ha2VmaWxlCj4+PiBuZXcgZmls
-ZSBtb2RlIDEwMDY0NAo+Pj4gaW5kZXggMDAwMDAwMDAwMDAwLi40MDAyZWQ5NGI2ZDMKPj4+IC0t
-LSAvZGV2L251bGwKPj4+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3BpL01ha2VmaWxlCj4+PiBA
-QCAtMCwwICsxLDM3IEBACj4+PiArIyBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMAo+
-Pj4gKyMgVGhpcyBmaWxlIHdhcyBjb3BpZWQgZnJvbSBhcm02NC9rZXJuZWwvcGkvTWFrZWZpbGUu
-Cj4+PiArCj4+PiArS0JVSUxEX0NGTEFHUyAgICAgICAgOj0gJChzdWJzdCAkKENDX0ZMQUdTX0ZU
-UkFDRSksLCQoS0JVSUxEX0NGTEFHUykpIFwKPj4+ICsgICAgICAgICAgICAgICAgLU9zIC1ERElT
-QUJMRV9CUkFOQ0hfUFJPRklMSU5HICQoRElTQUJMRV9TVEFDS0xFQUtfUExVR0lOKSBcCj4+PiAr
-ICAgICAgICAgICAgICAgICQoY2FsbCBjYy1vcHRpb24sLW1icmFuY2gtcHJvdGVjdGlvbj1ub25l
-KSBcCj4+PiArICAgICAgICAgICAgICAgIC1JJChzcmN0cmVlKS9zY3JpcHRzL2R0Yy9saWJmZHQg
-LWZuby1zdGFjay1wcm90ZWN0b3IgXAo+Pj4gKyAgICAgICAgICAgICAgICAtRF9fRElTQUJMRV9F
-WFBPUlRTIC1mZnJlZXN0YW5kaW5nIFwKPj4+ICsgICAgICAgICAgICAgICAgLWZuby1hc3luY2hy
-b25vdXMtdW53aW5kLXRhYmxlcyAtZm5vLXVud2luZC10YWJsZXMgXAo+Pj4gKyAgICAgICAgICAg
-ICAgICAkKGNhbGwgY2Mtb3B0aW9uLC1mbm8tYWRkcnNpZykKPj4+ICsKPj4+ICtDRkxBR1NfY21k
-bGluZV9lYXJseS5vICs9IC1EX19OT19GT1JUSUZZCj4+PiArQ0ZMQUdTX2xpYi1mZHRfcm8ubyAr
-PSAtRF9fTk9fRk9SVElGWQo+Pj4gKwo+Pj4gK0dDT1ZfUFJPRklMRSA6PSBuCj4+PiArS0FTQU5f
-U0FOSVRJWkUgICAgICAgOj0gbgo+Pj4gK0tDU0FOX1NBTklUSVpFICAgICAgIDo9IG4KPj4+ICtV
-QlNBTl9TQU5JVElaRSAgICAgICA6PSBuCj4+PiArS0NPVl9JTlNUUlVNRU5UICAgICAgOj0gbgo+
-Pj4gKwo+Pj4gKyQob2JqKS8lLnBpLm86IE9CSkNPUFlGTEFHUyA6PSAtLXByZWZpeC1zeW1ib2xz
-PV9fcGlfIFwKPj4+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgLS1yZW1vdmUtc2VjdGlv
-bj0ubm90ZS5nbnUucHJvcGVydHkgXAo+Pj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAt
-LXByZWZpeC1hbGxvYy1zZWN0aW9ucz0uaW5pdAo+PiAuLi50aGlzPwo+Pgo+IFllcy4gaWYgdGhl
-IGlucHV0IG9iamVjdCBoYXMgYSAuc2RhdGEgc2VjdGlvbiwgdGhlIG91dHB1dCAucGkubyBvYmpl
-Y3QKPiB3aWxsIGhhdmUgYSAuaW5pdC5zZGF0YSBzZWN0aW9uLCBhbmQgaWYgdGhlIGNvbW1vbiBs
-aW5rZXIgc2NyaXB0IGRvZXMKPiBub3QgcGxhY2UgaXQgZXhwbGljaXRseSwgeW91IHdpbGwgZ2V0
-IGEgd2FybmluZy4gTm90ZSB0aGF0IHdlIHN3aXRjaGVkCj4gdG8gLS1vcnBoYW4taGFuZGxpbmc9
-ZXJyb3Igb24gb3RoZXIgYXJjaGVzLCBhcyB0aGUgbGlua2VyIHNvbWV0aW1lcwoKCkl0IHNlZW1z
-IG9ycGhhbi1oYW5kbGluZyBpcyBzZXQgdG8gImVycm9yIiBvbmx5IHdoZW4gV0VSUk9SIGlzIHNl
-dCAoc2VlIApDT05GSUdfTERfT1JQSEFOX1dBUk5fTEVWRUwpLgoKCj4gZG9lcyB1bmV4cGVjdGVk
-IHRoaW5ncyB3aXRoIHNlY3Rpb25zIGl0IGRvZXNuJ3Qga25vdyBhYm91dC4KPgo+IEknZCBpbWFn
-aW5lIHRoaXMgbmVlZHMgdG8gYmUgY29tYmluZWQgd2l0aCAuaW5pdC5kYXRhCgoKWWVzLCBnY2Mg
-ZG9lcyBub3QgcHJvZHVjZSB0aGlzIHNlY3Rpb24gYnV0IG90aGVycyB0aGF0IEkgcGxhY2VkIGlu
-IGEgbmV3IApzZWN0aW9uIGNhbGxlZCAuaW5pdC5waWRhdGE6IEkgZGlkIG5vdCB3YW50IHRvIGV4
-cGFuZCBJTklUX0RBVEFfU0VDVElPTiAKbWFjcm8gYmVjYXVzZSB3ZSB3b24ndCBuZWVkIHRoYXQg
-YW55bW9yZSB3aGVuIHdlIGltcGxlbWVudCBhbGwgdGhlIApzdHJpbmcgZnVuY3Rpb25zLgoKU28g
-SSdsbCBhZGQgdGhpcyBuZXcgLmluaXQuc2RhdGEgc2VjdGlvbiB0byAuaW5pdC5waWRhdGEgaW4g
-dGhlIHY4IQoKVGhhbmtzLAoKCj4KPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fXwo+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+IGxpbnV4LXJpc2N2QGxp
-c3RzLmluZnJhZGVhZC5vcmcKPiBodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xp
-c3RpbmZvL2xpbnV4LXJpc2N2CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
-cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
-bnV4LXJpc2N2Cg==
+On 26.02.23 21:13, Geert Uytterhoeven wrote:
+> Hi David,
+
+Hi Geert,
+
+> 
+> On Fri, Jan 13, 2023 at 6:16 PM David Hildenbrand <david@redhat.com> wrote:
+>> Let's support __HAVE_ARCH_PTE_SWP_EXCLUSIVE by stealing one bit
+>> from the type. Generic MM currently only uses 5 bits for the type
+>> (MAX_SWAPFILES_SHIFT), so the stolen bit is effectively unused.
+>>
+>> The shift by 2 when converting between PTE and arch-specific swap entry
+>> makes the swap PTE layout a little bit harder to decipher.
+>>
+>> While at it, drop the comment from paulus---copy-and-paste leftover
+>> from powerpc where we actually have _PAGE_HASHPTE---and mask the type in
+>> __swp_entry_to_pte() as well.
+>>
+>> Cc: Michal Simek <monstr@monstr.eu>
+>> Signed-off-by: David Hildenbrand <david@redhat.com>
+> 
+> Thanks for your patch, which is now commit b5c88f21531c3457
+> ("microblaze/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE") in
+> 
+
+Right, it went upstream, so we can only fixup.
+
+>>   arch/m68k/include/asm/mcf_pgtable.h   |  4 +--
+> 
+> What is this m68k change doing here?
+> Sorry for not noticing this earlier.
+
+Thanks for the late review, still valuable :)
+
+That hunk should have gone into the previous patch, looks like I messed 
+that up when reworking.
+
+> 
+> Furthermore, several things below look strange to me...
+> 
+>>   arch/microblaze/include/asm/pgtable.h | 45 +++++++++++++++++++++------
+>>   2 files changed, 37 insertions(+), 12 deletions(-)
+>>
+>> diff --git a/arch/m68k/include/asm/mcf_pgtable.h b/arch/m68k/include/asm/mcf_pgtable.h
+>> index 3f8f4d0e66dd..e573d7b649f7 100644
+>> --- a/arch/m68k/include/asm/mcf_pgtable.h
+>> +++ b/arch/m68k/include/asm/mcf_pgtable.h
+>> @@ -46,8 +46,8 @@
+>>   #define _CACHEMASK040          (~0x060)
+>>   #define _PAGE_GLOBAL040                0x400   /* 68040 global bit, used for kva descs */
+>>
+>> -/* We borrow bit 7 to store the exclusive marker in swap PTEs. */
+>> -#define _PAGE_SWP_EXCLUSIVE    0x080
+>> +/* We borrow bit 24 to store the exclusive marker in swap PTEs. */
+>> +#define _PAGE_SWP_EXCLUSIVE    CF_PAGE_NOCACHE
+> 
+> CF_PAGE_NOCACHE is 0x80, so this is still bit 7, thus the new comment
+> is wrong?
+
+You're right, it's still bit 7 (and we use LSB-0 bit numbering in that 
+file). I'll send a fixup.
+
+> 
+>>
+>>   /*
+>>    * Externally used page protection values.
+>> diff --git a/arch/microblaze/include/asm/pgtable.h b/arch/microblaze/include/asm/pgtable.h
+>> index 42f5988e998b..7e3de54bf426 100644
+>> --- a/arch/microblaze/include/asm/pgtable.h
+>> +++ b/arch/microblaze/include/asm/pgtable.h
+>> @@ -131,10 +131,10 @@ extern pte_t *va_to_pte(unsigned long address);
+>>    * of the 16 available.  Bit 24-26 of the TLB are cleared in the TLB
+>>    * miss handler.  Bit 27 is PAGE_USER, thus selecting the correct
+>>    * zone.
+>> - * - PRESENT *must* be in the bottom two bits because swap cache
+>> - * entries use the top 30 bits.  Because 4xx doesn't support SMP
+>> - * anyway, M is irrelevant so we borrow it for PAGE_PRESENT.  Bit 30
+>> - * is cleared in the TLB miss handler before the TLB entry is loaded.
+>> + * - PRESENT *must* be in the bottom two bits because swap PTEs use the top
+>> + * 30 bits.  Because 4xx doesn't support SMP anyway, M is irrelevant so we
+>> + * borrow it for PAGE_PRESENT.  Bit 30 is cleared in the TLB miss handler
+>> + * before the TLB entry is loaded.
+> 
+> So the PowerPC 4xx comment is still here?
+
+I only dropped the comment above __swp_type(). I guess you mean that we 
+could also drop the "Because 4xx doesn't support SMP anyway, M is 
+irrelevant so we borrow it for PAGE_PRESENT." sentence, correct? Not 
+sure about the "Bit 30 is cleared in the TLB miss handler" comment, if 
+that can similarly be dropped.
+
+> 
+>>    * - All other bits of the PTE are loaded into TLBLO without
+>>    *  * modification, leaving us only the bits 20, 21, 24, 25, 26, 30 for
+>>    * software PTE bits.  We actually use bits 21, 24, 25, and
+>> @@ -155,6 +155,9 @@ extern pte_t *va_to_pte(unsigned long address);
+>>   #define _PAGE_ACCESSED 0x400   /* software: R: page referenced */
+>>   #define _PMD_PRESENT   PAGE_MASK
+>>
+>> +/* We borrow bit 24 to store the exclusive marker in swap PTEs. */
+>> +#define _PAGE_SWP_EXCLUSIVE    _PAGE_DIRTY
+> 
+> _PAGE_DIRTY is 0x80, so this is also bit 7, thus the new comment is
+> wrong?
+
+In the example, I use MSB-0 bit numbering (which I determined to be 
+correct in microblaze context eventually, but I got confused a couple a 
+times because it's very inconsistent). That should be MSB-0 bit 24.
+
+Thanks!
+
+-- 
+Thanks,
+
+David / dhildenb
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
