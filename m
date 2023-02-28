@@ -4,61 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB2ECC64ED6
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Feb 2023 17:35:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FF25C64EC7
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Feb 2023 18:07:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nd3VYZNTEtgQfWTMtndKI8HXbrGrm5xNn99BTtOGvgg=; b=iI19p455RpUmW6
-	hAl12tnF30eMsYa2HYF5P3clIML0XPkUX/250Bp4QaN4GGeVFUUVdj8iC7/5l3cNav8ipUFAkZFiQ
-	JBqxxX89C6TN0NHcvEn6hwQveEJn8kgb0nsnnnuhf47acpJ4gZ8W6e3s9GGm3u0sUpSYYkdiHd9Bp
-	pZVVb9xD72MxnAPgsRVnFnH8amampfez8I7h3a9+vi88xHSAa0Xl4zjZwJXlSDMnG7tPWrczPwjJo
-	/bV0zOPdqyxNlBvWLOL5rSPUTKqsaMU9OjJH4CiL1eziyRNVbG9sCk+D28ERzBlHQJO+MFVVxH8Ux
-	tRuhP9KbJv+uXnfYZMBw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BAa1VaoPB17Z/MLESqTgicTEvC5nFUU68qx9SKzVNRs=; b=09xn+xzQJsM+u5O8SP9sRAYNOs
+	ZGC2MzbQKr+mHC99qA5I+SK5RU4p/CprmQnmQCQQlGX1/Tm4pK8x6SQ8H/Wt9Sg+5dAnYmLE9CCi1
+	7Fv9vOCMlUez9Dr28WM7kWs6CyO6GO5TopI/8XKbUotXNSChqYr+0i0XokPjHuffVm51yfcdeGLsv
+	t7Jt+IXXXG5i1mzZ81/aRioWelpDJfT+3lFVqmrk1pi1LrD79t3dZ+JZFwpfsk0nJYe9DcoKLbEQB
+	iOuA7B+WQnIjKMwzTYRKopJ3f7zGdQWL7O7B01i+EphNIvsxetCOVc9rgXEo4iRU0gjBUHLp6+KjE
+	9U5b5LcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pX3sb-00DtBU-MA; Tue, 28 Feb 2023 17:35:09 +0000
-Received: from zeniv.linux.org.uk ([2a03:a000:7:0:5054:ff:fe1c:15ff])
+	id 1pX4NF-00DxTy-RH; Tue, 28 Feb 2023 18:06:49 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pX3sX-00Dt8k-Ex
-	for linux-riscv@lists.infradead.org; Tue, 28 Feb 2023 17:35:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=linux.org.uk; s=zeniv-20220401; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=bN8lETEGtH3eSCzqdqNXhuD99n9DHCrwwsYdF542otk=; b=tlM7n0Xf2FPdjnh6I1lRD/dMeA
-	/hXzqbpV8RRtbLC1sDVsgtMEN7cikGeK3Z5yneR36FFONPjOZYDhLmOP/tyJMoxJHxpZVcoVnVV0M
-	syx0lJ1Po6cnoqtkr5LVPcY5p0oj3P5gJV5Wm7cl3V/2lA269sPqGXI3qSuox0K2VHs51kQDHSTfm
-	lUncCtO7g0VDFwoVXw7wGG2YSp29ouOnhFFV0dGyHRGISsU+Gw86N7WhFw1pGsETFEz5N+P6P8lb6
-	0P3epZK72dBTYM3LK14Md4g++i+Xn8vyTQ2iKpNruxRo8PZF/qH7Ax8EFV0zWBStHnqUwCar2xFby
-	+gfd/aUQ==;
-Received: from viro by zeniv.linux.org.uk with local (Exim 4.96 #2 (Red Hat Linux))
-	id 1pX3sK-00CtWb-2k;
-	Tue, 28 Feb 2023 17:34:52 +0000
-Date: Tue, 28 Feb 2023 17:34:52 +0000
-From: Al Viro <viro@zeniv.linux.org.uk>
-To: Helge Deller <deller@gmx.de>
-Cc: linux-arch@vger.kernel.org, linux-alpha@vger.kernel.org,
-	linux-ia64@vger.kernel.org, linux-hexagon@vger.kernel.org,
-	linux-m68k@lists.linux-m68k.org, Michal Simek <monstr@monstr.eu>,
-	Dinh Nguyen <dinguyen@kernel.org>, openrisc@lists.librecores.org,
-	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	sparclinux@vger.kernel.org,
-	Linus Torvalds <torvalds@linux-foundation.org>
-Subject: Re: [PATCH 08/10] parisc: fix livelock in uaccess
-Message-ID: <Y/47PMmpLDX5lPWx@ZenIV>
-References: <Y9lz6yk113LmC9SI@ZenIV>
- <Y9l0w4M91DwYLO3N@ZenIV>
- <84b1c2e4-c096-ed19-9701-472b54a4890c@gmx.de>
+	id 1pX4NC-00DxRx-B4
+	for linux-riscv@lists.infradead.org; Tue, 28 Feb 2023 18:06:48 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id A0AAFB80E28;
+	Tue, 28 Feb 2023 18:06:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A322C433EF;
+	Tue, 28 Feb 2023 18:06:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1677607603;
+	bh=2rrPrh+K63elL1eQoqGcoJYDst8N+5jDNSgkcC6esto=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bbDhW8EsytBpqdpPdVqId3xBtB6/7iUHA3cNPJC9ladfQXz8e5KHXmIdKSYxhFloj
+	 mIAmRTnv+EFW8KNAUUTA0O88Z2fN9rVkIBKLUFgyRWdJSQMkFCSUeo4NL14XX/3Wmb
+	 7PlV+IpqYwxqX8GfHP7G4DQ+ZDP5Xr2+fgrbZm1iNcnT/3JZSpbaA+UdnpGrgR/vnq
+	 pR7JZZRm2N/4AV3WpJEt+VVyzEdIvHBhU7pZ3ul2apuStiU2xqGngGFMRD7Ke247mK
+	 maf1iPqHTOg8iJIgcen3M89SFzvPBSUZgz554zYusOYOaEPZKeWLa4vkhSOtHkSFK3
+	 eoQM0TSwIk9lg==
+Date: Tue, 28 Feb 2023 18:06:38 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	William Qiu <william.qiu@starfivetech.com>,
+	Rob Herring <robh@kernel.org>, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-mmc@vger.kernel.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Jaehoon Chung <jh80.chung@samsung.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 4/4] dt-bindings: syscon: Add StarFive syscon doc
+Message-ID: <Y/5Crl+76wcviHKo@spud>
+References: <20230220234335.GA615198-robh@kernel.org>
+ <348796cc-72d9-4dcf-9f09-4c2aa55cb858@starfivetech.com>
+ <20230227222904.GC1048218-robh@kernel.org>
+ <f8d2b665-ce5d-81f8-8c55-81f1a4cb62b9@starfivetech.com>
+ <54f51fa0-7821-b67b-b782-eb9a35b7bba9@linaro.org>
+ <CAJM55Z85fitjBOcCLqad9W-a7h3iN9bxtctVGzPgqCbf5fWobw@mail.gmail.com>
+ <a0168d89-3c30-55e1-cf4c-37f7fe90aae4@linaro.org>
+ <CAJM55Z8dR4TDJNeO-qiS9CurfCWM1ccNigOA1fDb7S1VKCxv2Q@mail.gmail.com>
+ <be911895-4944-e983-1af5-b11ff5e8e7cc@linaro.org>
+ <CAJM55Z99FZteGkzFC-cSCrTKD_qBn8huzcnynM9Xd7-4F_9rGQ@mail.gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <84b1c2e4-c096-ed19-9701-472b54a4890c@gmx.de>
+In-Reply-To: <CAJM55Z99FZteGkzFC-cSCrTKD_qBn8huzcnynM9Xd7-4F_9rGQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230228_093505_526752_6041F04D 
-X-CRM114-Status: GOOD (  25.61  )
+X-CRM114-CacheID: sfid-20230228_100646_698016_EDA905FF 
+X-CRM114-Status: GOOD (  36.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,63 +80,129 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8616300808773713616=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 06, 2023 at 05:58:02PM +0100, Helge Deller wrote:
-> Hi Al,
-> 
-> On 1/31/23 21:06, Al Viro wrote:
-> > parisc equivalent of 26178ec11ef3 "x86: mm: consolidate VM_FAULT_RETRY handling"
-> > If e.g. get_user() triggers a page fault and a fatal signal is caught, we might
-> > end up with handle_mm_fault() returning VM_FAULT_RETRY and not doing anything
-> > to page tables.  In such case we must *not* return to the faulting insn -
-> > that would repeat the entire thing without making any progress; what we need
-> > instead is to treat that as failed (user) memory access.
-> > 
-> > Signed-off-by: Al Viro <viro@zeniv.linux.org.uk>
-> > ---
-> >   arch/parisc/mm/fault.c | 5 ++++-
-> >   1 file changed, 4 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/arch/parisc/mm/fault.c b/arch/parisc/mm/fault.c
-> > index 869204e97ec9..bb30ff6a3e19 100644
-> > --- a/arch/parisc/mm/fault.c
-> > +++ b/arch/parisc/mm/fault.c
-> > @@ -308,8 +308,11 @@ void do_page_fault(struct pt_regs *regs, unsigned long code,
-> > 
-> >   	fault = handle_mm_fault(vma, address, flags, regs);
-> > 
-> > -	if (fault_signal_pending(fault, regs))
-> > +	if (fault_signal_pending(fault, regs)) {
-> > +		if (!user_mode(regs))
-> > +			goto no_context;
-> >   		return;
-> > +	}
-> 
-> The testcase in
->   https://lore.kernel.org/lkml/20170822102527.GA14671@leverpostej/
->   https://lore.kernel.org/linux-arch/20210121123140.GD48431@C02TD0UTHF1T.local/
-> does hang with and without above patch on parisc.
-> It does not consume CPU in that state and can be killed with ^C.
-> 
-> Any idea?
 
-	Still trying to resurrect the parisc box to test on it...
-FWIW, right now I've locally confirmed that mainline has the bug
-in question and that patch fixes it for alpha, sparc32 and sparc64;
-hexagon, m68k and riscv got acks from other folks; microblaze,
-nios2 and openrisc I can't test at all (no hardware, no qemu setup);
-same for parisc64.  Itanic and parisc32 I might be able to test,
-if I manage to resurrect the hardware.
+--===============8616300808773713616==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="OgGewJrsqlCKMN24"
+Content-Disposition: inline
 
-	Just to confirm: your "can be killed with ^C" had been on the
-mainline parisc kernel (with userfaultfd enable, of course, or it wouldn't
-hang up at all), right?  Was it 32bit or 64bit kernel?
+
+--OgGewJrsqlCKMN24
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Feb 28, 2023 at 06:31:46PM +0100, Emil Renner Berthing wrote:
+> On Tue, 28 Feb 2023 at 17:59, Krzysztof Kozlowski
+> <krzysztof.kozlowski@linaro.org> wrote:
+> > On 28/02/2023 15:59, Emil Renner Berthing wrote:
+> > > On Tue, 28 Feb 2023 at 12:28, Krzysztof Kozlowski
+> > > <krzysztof.kozlowski@linaro.org> wrote:
+
+> > > I see what you mean, but if you look into what the registers in the
+> > > SYSCON blocks actually do it's not clear to me that they should be
+> > > grouped with the clocks/resets any more than say the pinctrl/GPIO
+> > > node. Maybe it's my fault for not giving you the full picture. Eg. for
+> > > "system" and "always-on" there are blocks:
+> > >
+> > > SYS CRG
+> > > SYS SYSCON
+> > > SYS IOMUX
+> > > AON CRG
+> > > AON SYSCON
+> > > AON IOMUX
+> > >
+> > > ..and it really don't see why eg. SYS CRG and SYS SYSCON should be
+> > > thought of as one device, but not include SYS IOMUX then.
+> >
+> > ... include sys iomux as well, just like GPIO is included for AON.
+>=20
+> This would at least take the view that the blocks named alike should
+> be thought of as a single device to its logical conclusion.
+> Unfortunately we're a bit late for that. The pinctrl/GPiO bindings and
+> drivers are already merged:
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit=
+/?id=3Dd6e0a660097dcdb80e7c5c859eb12f776060b02e
+>=20
+> > >
+> > > As an examly the SYS SYSCON includes registers to control:
+> > > - remapping of different peripherals from SD controller to video enco=
+ders
+> > > - voltage select for certain GPIO pins
+> > > - phy interface selection for ethernet and CAN
+> > > - QuadSPI delay chain and SRAM configuration
+> > > - PLL configuration
+> > > - endian selection for the SD controller
+> > >
+> > > To me this is pretty much exactly described by the syscon device tree=
+ binding:
+> > > "System controller node represents a register region containing a set
+> > > of miscellaneous registers. The registers are not cohesive enough to
+> > > represent as any specific type of device. [..]"
+> > > In any case it's clear that however the SYSCON blocks are represented
+> > > in the device tree, a driver for it would need to export registers in
+> > > the SYSCON block for other drivers to use.
+> >
+> > You started entire sentence with "but" so you disagree but with what
+> > exactly? The naming? But syscon is fine - hardware manual calls it like
+> > that.
+> >
+> > The point was that AON is one device (consisting of multiple blocks).
+>=20
+> Yes, and what I'm trying to explain is that I'm not convinced that's
+> the right model. The CRG blocks and IOMUX blocks don't really have
+> anything in common other than the name StarFive gave them. You can
+> argue that the CRG and IOMUX blocks overlap with the corresponding
+> SYSCON block, but so do a lot of other peripherals as you can see from
+> the list above.
+>=20
+> I think the IOMUX and SYSCON blocks are just named after the clock
+> domain they're under, but a lot of other peripherals are also under
+> the SYS and AON clock domains and we don't model them as one big
+> device.
+
+I went and bothered Rob/Krzysztof on IRC about this.
+Not gonna speak for them, but I think they're now okay with keeping the
+SYS_CRG (clock+reset block) separate from the SYS_SYSCON block ("random
+collection of registers"). Possibly there was just confusion due to the
+naming used here, thinking that "SYS", "STG" and "AON" were devices with
+two register blocks, as opposed to being the name of a clock/power domain
+on the SoC.
+
+I'll leave it up to them to confirm that though!
+
+Cheers,
+Conor.
+
+
+--OgGewJrsqlCKMN24
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY/5CrgAKCRB4tDGHoIJi
+0pKjAQDTeT+TZc/EBmewPaKfdSLP7DCjgM+V1bTyEZ6/CVuCUAD+M46W4w/Jg86q
+jFnVxeqFklXmTiTe/VWnQwOzTfrw1ws=
+=adFT
+-----END PGP SIGNATURE-----
+
+--OgGewJrsqlCKMN24--
+
+
+--===============8616300808773713616==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8616300808773713616==--
+
