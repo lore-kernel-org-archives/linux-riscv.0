@@ -4,89 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F6DEC64EC7
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Feb 2023 11:28:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E4BFC7EE31
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Feb 2023 13:03:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lVMEQ1HjguHSxhWGLKO8LbXWHbgy0bMjrXaZCtUsZGw=; b=CzutVc8attbYQG
-	+cBs2ZBc8STWPAJPw2ubfY0AsW5gnOVsxKEuwtFDI4XzImbZbsH40zsChUV2NjBQqssehAs5CZAs0
-	jScyK1mbum5tsPsKsty+iSKSkW38FcUBJCH7xu9cwcrDKMZ1AFlY+OKTa7DTsx5pMtryt8Z7JhCkZ
-	obXf4ZcjQdBMHr8xWbcLtKJUBZH/h/wZb6+y6aA7CTGIwMYD2+EpdYt20JJbTx+IrImk8FOM6rfbJ
-	jkahUZ8IWnuZ12RKFwSCD6Yc1Dxvp/ce7BVbKkVA+RKr4H+atJWkl7oQzIpdVX7FSaQUctzMIva5P
-	bAMgJ1JnqqsrLno5kl3g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=RA2wZwg1QdEUCJ9f1COcC+r8fE4ZmtVcAp2GUbbHxZ0=; b=DTCJlYa3CDnM+A
+	fJKod0l+jBOfoi+LiLuYucuFal0Elclr0SMM0d7mXeCLz/ZfT9XzU2NecN4xiduf8qI9SpZREmi5X
+	MfZYBp0Gvq5RD0PHGx04P02zH7wx81Zwr6hqdcspwpLJFrqkWraGUPNNSuGdaNM8af03/sQakhWLQ
+	FoaK8KdfSX/Vio+eQd7plaaAixXtlRy2S6uHamS4cYFQkTIYX95wYotgFIMWK0IJs3QUDsljG0zXb
+	1aroqQSTFbnbZhT77KBGgNH6Sb3rpiH2PZGGQBo1hYmvKyw49LGVXMhVsIFoZfdepKu9NkuBL7Bh/
+	3FIS6hLuj4M5SAe0Fabg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWy9x-00CzW4-0D; Tue, 28 Feb 2023 11:28:41 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1pWzd3-00DEZB-4H; Tue, 28 Feb 2023 13:02:49 +0000
+Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWy9q-00CzTW-3l
-	for linux-riscv@lists.infradead.org; Tue, 28 Feb 2023 11:28:39 +0000
-Received: by mail-wm1-x331.google.com with SMTP id az36so6177074wmb.1
-        for <linux-riscv@lists.infradead.org>; Tue, 28 Feb 2023 03:28:33 -0800 (PST)
+	id 1pWzcz-00DEWU-Qw
+	for linux-riscv@lists.infradead.org; Tue, 28 Feb 2023 13:02:47 +0000
+Received: from pps.filterd (m0246627.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 31S5topL027510;
+	Tue, 28 Feb 2023 13:02:28 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=from : to : cc :
+ subject : date : message-id : content-transfer-encoding : content-type :
+ mime-version; s=corp-2022-7-12;
+ bh=Kp1ECelG6OJENwDHiUOpQYLyRIhQa3K95aRaGLUOL9c=;
+ b=FOPK7aX02tfB3on0r2slGKK/2TMu4flNdExY0Z//BJcOL38ByzL2A8nEVM5BAq39OTh/
+ U8TkN5OoawBY5OsH9d8WAoo7OjE76iqDGV34aeXOO9Kbykeu87USbJBVD40m2rLhiPF5
+ F+0d8rC4Omh152zeLSGn1EnaUxZQt6neDFJ7QL2fJD0qrBluOnSPEFHVEV9YtCyM2uAH
+ jKS4aZZ/VY74z2taUos8up3JrSCen+UX4uuMvue1+kX2dJC9+F+aEDYIwAZJEnm0dNe5
+ IGxGLAnRbOi/OQwuyeg1tO/rPFlvintrkCRdKRWdPmL0X9NAToJOWWaOmCEGptM10n5Y lA== 
+Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta02.appoci.oracle.com [147.154.18.20])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 3nyb9ae35q-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 28 Feb 2023 13:02:28 +0000
+Received: from pps.filterd (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (8.17.1.5/8.17.1.5) with ESMTP id 31SBOUsk031538;
+	Tue, 28 Feb 2023 13:02:27 GMT
+Received: from nam11-dm6-obe.outbound.protection.outlook.com (mail-dm6nam11lp2177.outbound.protection.outlook.com [104.47.57.177])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 3ny8sdh6j5-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 28 Feb 2023 13:02:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=JLUqqUvEpK18WO10DZbOrWdbMwDsUXdHKWslMnGcudFr0OxQLv+X7Z/RWDufjGzP5+H5L5qMJJb2PhXwWRyGM09NNRQXLUR2wUZUDeFnfr80AY3cHuCy4zRI/WdtlmFioBd1Cv8WD9MBgICOKBGKiHgMH0gnGhWl96zOpZpNHfzwkOrDYhEB3cJU10eWJGdjh1AvFKc4cqeHtRBL7K003oqkPAX/1ccHF8ry3jpGNa47J0/1YQ14TB0BEDDxjvA5O+j6lLVRO/sDPQEWtEEFgN4a+uUy+zj+h46Xd200oUyxGn63YaBemDAADwJOFiTOXJJA1+rVY3aRxoDUbnyngg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Kp1ECelG6OJENwDHiUOpQYLyRIhQa3K95aRaGLUOL9c=;
+ b=a5FDSgWy4/sJKIPmcb0B1ghkhw4qzSMLT8bfN6U+BfvfHIsF0MV4axjKmmpfSNNYsnRd4dxHC6q6FKMP1j9qtPG4PMosTBULPsfMA8A0ohWo7XRaoyiNz7WW8iqtU/K6v6IyORbk2SFgLWmZK3kZZEeeBQJAtLmvHZN+eMiS6a5OZ7podE0EL3mn/IJh8is/a73Vlepvn4Az3WQXQOFLNvtlfMH8ZNQymqi6lPYI33lE8K3vwg8w8appv3mAg3c/uUIvBTCfg7yMYhmEww1SLIWJfPKN2bhsihLtTdjTjYxr7/rznd5HIqpLtGdc6iuUFeOliBXulI5x3RG3BgZ/AQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1677583712;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=oOBHN8SOWfG+6E39W2LRb5Mdzz3QwZLD1qrh4jZE1NY=;
-        b=Ag74R7l9pGf3aD9fmSORY5jTnHtW5Ti/+uDtY+oI0soLyi5X24HUuTq0geN35auA7/
-         paINEYop5l3gS5/N8IYQhngW16h5NO32M6RuFIxrO7+8dOKVcpc+mnYIdIKunamBpjUP
-         gKBR9N4o9PQj7M+yEOBrpr3+g+Hnj0A2P9DUlpU0QMldjArH9BMjp8fggYwl1Ux/YLO2
-         DEQ5nvlWQ8V5qt44dQRQnvhUp6+i5pgOB4iAvRcSiiAY+kMNJBoTEeXtb+dFABkYM/Ig
-         UTwlSK2+DzrdrcKg3pPniZSoC+pYom93m4UMNJ71TSziZ1o0G8swohICA9akBJ1114hg
-         aeFQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1677583712;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=oOBHN8SOWfG+6E39W2LRb5Mdzz3QwZLD1qrh4jZE1NY=;
-        b=7DG6Fn+iijFtXodV2Pv2Hh2m3mWpEENyRFDnX6tzBEwy+UfJyr1RQOwKz0K9I4WQz/
-         mD8QpOwqGke6cn8N0diIJe94/7CmLZ7EgoxRTTUpIqsX2VJ4yW71OKWRCQ0+cQe3OwGB
-         Eaqap5knaO7xJrIO/Q2KL3o79nwLzDQFuENHTM4dBXnxC2zTSDuxnrYdyNcEJvsVtwdn
-         6f5SXtz1BlfZ8iej1zaC4yiyC3H+5TEwCqiFhNykgTIF86Z9ebVtXXZKf6bu10Os4oJJ
-         H6RAU7RYl042LgzS3KhkcAWJ/oxcRBJHntPKMQ+AH9T63hv1j6bn1TJInDqnpwcHUUxR
-         AUhw==
-X-Gm-Message-State: AO0yUKW1Fpht5mH2jA1of1QithJeEgorcayJuYq5r5Ie+0AnejQZvNf5
-	dTx4CxLVYXpFdqVuYAaEH55ZGw==
-X-Google-Smtp-Source: AK7set9i1nyEmV4xklLiWUberN1IuWUGxUCefGBaFmf86XSGGwOVTlVC376se2dRpHJO97E6LEOKBw==
-X-Received: by 2002:a05:600c:4f85:b0:3eb:383c:1876 with SMTP id n5-20020a05600c4f8500b003eb383c1876mr1983616wmq.6.1677583712514;
-        Tue, 28 Feb 2023 03:28:32 -0800 (PST)
-Received: from [192.168.1.20] ([178.197.216.144])
-        by smtp.gmail.com with ESMTPSA id e26-20020a7bc2fa000000b003eb39e60ec9sm9135043wmk.36.2023.02.28.03.28.31
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 28 Feb 2023 03:28:32 -0800 (PST)
-Message-ID: <a0168d89-3c30-55e1-cf4c-37f7fe90aae4@linaro.org>
-Date: Tue, 28 Feb 2023 12:28:30 +0100
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Kp1ECelG6OJENwDHiUOpQYLyRIhQa3K95aRaGLUOL9c=;
+ b=q0S3ouytcZhCJO0aWQW7fbWCo6k958/6uXfyzRv+FoA9sKpDqHdV7v3Z+luxKsAIcQpJVK120rr94qneHcGws82P95rYvcP0403v7icbSQnN86iC7EcC9apiZbFvrirY/mEVojaElW6MPc3AI5NlVKb2VDvRGSN12XpWsPRZ4rg=
+Received: from DS0PR10MB6798.namprd10.prod.outlook.com (2603:10b6:8:13c::20)
+ by CY8PR10MB7290.namprd10.prod.outlook.com (2603:10b6:930:7b::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6156.16; Tue, 28 Feb
+ 2023 13:02:24 +0000
+Received: from DS0PR10MB6798.namprd10.prod.outlook.com
+ ([fe80::d0f7:e4fd:bd4:b760]) by DS0PR10MB6798.namprd10.prod.outlook.com
+ ([fe80::d0f7:e4fd:bd4:b760%4]) with mapi id 15.20.6156.017; Tue, 28 Feb 2023
+ 13:02:24 +0000
+From: Nick Alcock <nick.alcock@oracle.com>
+To: mcgrof@kernel.org
+Cc: linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-modules@vger.kernel.org,
+        linux-perf-users@vger.kernel.org, linux-pm@vger.kernel.org,
+        linux-remoteproc@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+        linux-riscv@lists.infradead.org, linux-serial@vger.kernel.org,
+        linux-tegra@vger.kernel.org, linux-trace-devel@vger.kernel.org,
+        linux-trace-kernel@vger.kernel.org
+Subject: [PATCH 00/20] MODULE_LICENSE removals, fifth tranche
+Date: Tue, 28 Feb 2023 13:01:55 +0000
+Message-Id: <20230228130215.289081-1-nick.alcock@oracle.com>
+X-Mailer: git-send-email 2.39.1.268.g9de2f9a303
+X-ClientProxiedBy: LO2P265CA0088.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:8::28) To DS0PR10MB6798.namprd10.prod.outlook.com
+ (2603:10b6:8:13c::20)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.8.0
-Subject: Re: [PATCH v4 4/4] dt-bindings: syscon: Add StarFive syscon doc
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Cc: William Qiu <william.qiu@starfivetech.com>, Rob Herring
- <robh@kernel.org>, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, linux-mmc@vger.kernel.org,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Jaehoon Chung <jh80.chung@samsung.com>, Ulf Hansson
- <ulf.hansson@linaro.org>, linux-kernel@vger.kernel.org
-References: <20230215113249.47727-1-william.qiu@starfivetech.com>
- <20230215113249.47727-5-william.qiu@starfivetech.com>
- <20230220234335.GA615198-robh@kernel.org>
- <348796cc-72d9-4dcf-9f09-4c2aa55cb858@starfivetech.com>
- <20230227222904.GC1048218-robh@kernel.org>
- <f8d2b665-ce5d-81f8-8c55-81f1a4cb62b9@starfivetech.com>
- <54f51fa0-7821-b67b-b782-eb9a35b7bba9@linaro.org>
- <CAJM55Z85fitjBOcCLqad9W-a7h3iN9bxtctVGzPgqCbf5fWobw@mail.gmail.com>
-Content-Language: en-US
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <CAJM55Z85fitjBOcCLqad9W-a7h3iN9bxtctVGzPgqCbf5fWobw@mail.gmail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR10MB6798:EE_|CY8PR10MB7290:EE_
+X-MS-Office365-Filtering-Correlation-Id: 46e29157-3c6c-4b2b-d3b3-08db198c0932
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: 	4/tra7qIBfDQLQ/Wd9Hqe90NgQTbTKLi2pLeOwPycEUwzrI7a6zi5hLAOOZ2zPlnGZYR0kM/P0lvP2cOgj2epV90Zfib6TYc3r/xYdiO0sGEDxP8Qmu0mAMYB15c/H8a9t594HeblQ+qP3FaWpPeF2P4WLzclcHYzgfy2SGDtZ9HguS8DxIdddHadpawFWsr1LvVzBnepfp8Imt9J8ZNADShIpeOAVYL53d1duBPmsDlgSEyxIXPxrKiCiaC5IHGIc7kzVHQO3vHIB1eGK6xM7KAeaDhLEhq0sAic6hvTNqja//jFrCUCobGLSTe//fFBFAzvNXqgo87McyVhprkMVd/GRQLgA33Z6QYaAxd5QlxLYLqybsWowuunykIXfF99b3n2ZZuNUBuAN91e27VQ3NzQvAScKo3ZHgJD14VrINtIOmcdhHgh3PA9beD3DlXLRm+fc6W6FpH2cN1mdRX+LjKbELCk87Vb+PXcd6hualBttGHBa2kuwII0zchJLZH7lkREySImuteOxJJitt9B8LlKSpOSsj60T1cH2rKOPnVetbw0E9v5oWNHV/L9Je0XHKHDTk01/m2HruvqWTKE9FatpnsH75p8IAR04aKhGfX4vrzJgNSeeHWejKFfebn
+X-Forefront-Antispam-Report: 	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR10MB6798.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230025)(346002)(366004)(39860400002)(396003)(136003)(376002)(451199018)(7416002)(36756003)(44832011)(5660300002)(83380400001)(478600001)(6666004)(6486002)(966005)(2616005)(6512007)(6506007)(1076003)(186003)(4326008)(6916009)(8676002)(66476007)(66556008)(66946007)(41300700001)(86362001)(8936002)(38100700002)(2906002)(316002);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 	=?us-ascii?Q?emTKdlA5MaGNgNUhY7ZvnUad6pBw0fhB1EGJ9enLrcLDSK1+cSglKONroPjj?=
+ =?us-ascii?Q?RSZ377aF502faCE4nnpzm5NcbVGayJyH0GSr/ebunOXCopRlbeOpxnOAwFy7?=
+ =?us-ascii?Q?BtR6+Q0+tbmlbC5NjTYXpVQoJT4s8Q/KDD+74ltMOZR5RgK/nDiia0wByTAh?=
+ =?us-ascii?Q?bD2gNkKXzVb8EPc5l7vIeavsnuE7YNmvdpLnUhG6qZPoc8YeeElsC/tqsn8D?=
+ =?us-ascii?Q?8PfUS9pHcsI1xOs/0sJDwTOE6RZi28ZSoc2cY08DR99LP0PAba2dAkbBMfYc?=
+ =?us-ascii?Q?fRJToDSWS1kHvBu46h+nhqAN2S1T8qHZmjOQo6L7Ulcs7eHtLFH3WdXSts1H?=
+ =?us-ascii?Q?XEhb1hbWLmoZmiURWgslFdN1RFZfq9dG03pfs+wfaaNKBGZnhOkehrZZsGbu?=
+ =?us-ascii?Q?fTesjK1qwRqZ+SD5tABrCJ8im4EbDbmb/7JN7DpwucAO5X8lQY6oM2TPCZmg?=
+ =?us-ascii?Q?xnCGiv7wj//gDQ4QazOPQytWCBSdT2vjnwAS7y7eRSJ8CrfM/qkLakeqYe1/?=
+ =?us-ascii?Q?jQ8Uh6lKWZQjNqz/1+k3ZXnMvA7kYlsiRRPYbKzSVQdlkNoGyrpQA1qTt1i5?=
+ =?us-ascii?Q?dWhPuxrwFiFPmQyPVUyMcYrZq725UbB/iGsQlMvVtYKeZe+49J2XnSE52Iep?=
+ =?us-ascii?Q?/3O0TCFKRgOYzAj/jIN0Q5pn3vMHJKG0jOTP8BCYYzoXwxKmSIGKndMXaspj?=
+ =?us-ascii?Q?W0PDx2v1IxxNIoSH5DuqDCaw+TFjwvAIUlS1y9xYjJ1MjK/f6ft81hBhj18U?=
+ =?us-ascii?Q?aLgc3O3yGryAtaO2JCHPxySIJk0wS9VHCNpF4PvVeEA5NxOo/efp77ZQTYZn?=
+ =?us-ascii?Q?2DFOv5vNI8sHCMP+6oQ1CH8mhkgCDhXcAQfVrPAtOk/0LNGoyGhBkAVsowpM?=
+ =?us-ascii?Q?sSX6/b6fp3wiKAFt1s+WeGE/NI/vskhkSaHdkUsw0OdSpvL1SgFdYJDzD63s?=
+ =?us-ascii?Q?V6Klxrftny0ws2TcrczsmS5ZEK4tMu0Y+lHBvA1uRxA3BscF24/SAumfjoS8?=
+ =?us-ascii?Q?g25+iKlKzxHdcoxFHmslOvFtTmgNMfllzymTTGBn0FKbVA56+pyWtKmeJR8y?=
+ =?us-ascii?Q?RY5oy7oJHmulS+TbB5UECZAeS8Onjn+vMFbUQZlrkkfFa+LVTlUHOjZpTbcO?=
+ =?us-ascii?Q?hYwibYwLPPR+6fPFlrefbw6wZNX4Sq6pRAgm6LVTBBlUjUeNx5X66LGEtqpB?=
+ =?us-ascii?Q?R9Gnnd7xEMDAl8Y/ZSxuKmsw1Z1bWAPt69dniAFLm4R94VnG5BMg0t9xr5Vn?=
+ =?us-ascii?Q?aYHhbaWymFyWmyQfLtDcDyatHOJtG60QnfLyb/j63Wreod/J8p6znBmjiwkK?=
+ =?us-ascii?Q?/zs9vhErgDyhVayW/T6tOcrUT07ahmHfTh+GSbINZ3FTXN3a668px6R9y0wO?=
+ =?us-ascii?Q?F/4KzsmwENdBXOjosWDRPk8/21czB2DODtM6Ns0izL/2BdgcpsxUiX4JGA+S?=
+ =?us-ascii?Q?wkNh5ttvO0CtzovNm8OxohJNoxBEIoyXvcmEtbEAX/xsBfdpKlgXw6HLjSZZ?=
+ =?us-ascii?Q?O2LTY/kCBeUvmTgGAlxFYX2b7kdwYuTGPYWfU2tCgPthhsdhf/GR12dw74dk?=
+ =?us-ascii?Q?NybFP+JoDQGbxstQL+zWQ87V7iJAWt941bRgsoGCPMVJGYOtV5fQzDwRFrpg?=
+ =?us-ascii?Q?hA=3D=3D?=
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: 	JzjOShtMGLUNzTep2nIBSFOvdFeWJA3SkP9N4nXcg9X9W/8oj2gHk9SzrRwPYqDwEqYEjIELAAE0YX+3UI+NJt2NfTWovX4sQND3ATvo4vM60wXQwIKtGwBIfZbsIB+lSe/6/YmIq8SjXpB3CU93Rh8vgCCToMHPBhzkUrkMdegOMoJDjaqDffs9AWMuLX5jMzpowtjdqgyO9h8rB+Z+P138ej/tEOACRyedATHmHh2Z00S8+ecQ6RXxFJK6pELLT9L0htlCQSYyp80yIS9A57X78azMME6sHHTZGmeCxt55byjYxtdGHPsTHVjrm3eZXMMyMuuuLfwrcCocu7DCB2eRsTBJAzrH6tm2XDRM65o7BbXaoqMOHI6SV2H0NJhBwYA+K8mIq2EiliL5vOWbZrHo1nPK5tOtS3bqADjVvK/u2Oubs9+Ac+CdAGvUfjQt1qBlY3vOEnHsBlEBYcwibIEJMS+OHVZJbpuWBELB7iUE1/JBIweYY8FYP0nqgdP/NO0hw76i37+snrH32ATTbNfE/gf2XojXzzeAdqHizz/IK+i18zAw2UDqarStWF7RrRqq8wwMWflgKYAA7JEmaJxKZcvJvHIROE6dpOBwtknSaw+OIHp4OsU0b5Z5APvOVw1WQ61s6D4hFr+KqA1fR6wiyMK0w/4EG+fmsEKSaeKujUUMfs2w4OGFIa/SFFD4x8MTId/KdA6y2Q0OnT6ggKbX8yR7sUkqrD6sbNMccU9IqNA8I4qZKvXvJtsLQ+FAOtL5wesKuyo52JgV222Jf/fB5JhjbTwWDJdHvVLZyFNKJ+AX1E1i8FDj6u2uqIxrpBW52BP5UiG/ofkK55fABgf/Gdz6eVOA2IxWVbhrT7I=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 46e29157-3c6c-4b2b-d3b3-08db198c0932
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR10MB6798.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Feb 2023 13:02:24.6155
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: gBO8U2ki+Vlaw6zq4680IUYpN4TXcnMplZ801Um1cikaxIWFLZBl8TQpoe99+SaEFvI90fltk6PTuTk3BtJYoQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR10MB7290
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.219,Aquarius:18.0.930,Hydra:6.0.573,FMLib:17.11.170.22
+ definitions=2023-02-28_09,2023-02-28_02,2023-02-09_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 spamscore=0 mlxlogscore=999 mlxscore=0
+ adultscore=0 bulkscore=0 malwarescore=0 phishscore=0 suspectscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2212070000
+ definitions=main-2302280105
+X-Proofpoint-GUID: yS0PWM9CSruv-mml4anN20JmkUT8CdGc
+X-Proofpoint-ORIG-GUID: yS0PWM9CSruv-mml4anN20JmkUT8CdGc
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230228_032834_304615_F023E417 
-X-CRM114-Status: GOOD (  22.47  )
+X-CRM114-CacheID: sfid-20230228_050245_886408_33BDEFC1 
+X-CRM114-Status: GOOD (  12.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,113 +167,103 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 28/02/2023 12:02, Emil Renner Berthing wrote:
-> On Tue, 28 Feb 2023 at 11:40, Krzysztof Kozlowski
-> <krzysztof.kozlowski@linaro.org> wrote:
->>
->> On 28/02/2023 10:05, William Qiu wrote:
->>>
->>>
->>> On 2023/2/28 6:29, Rob Herring wrote:
->>>> On Tue, Feb 21, 2023 at 10:44:02AM +0800, William Qiu wrote:
->>>>>
->>>>>
->>>>> On 2023/2/21 7:43, Rob Herring wrote:
->>>>>> On Wed, Feb 15, 2023 at 07:32:49PM +0800, William Qiu wrote:
->>>>>>> Add documentation to describe StarFive System Controller Registers.
->>>>>>>
->>>>>>> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
->>>>>>> ---
->>>>>>>  .../bindings/soc/starfive/jh7110-syscon.yaml  | 51 +++++++++++++++++++
->>>>>>>  MAINTAINERS                                   |  5 ++
->>>>>>>  2 files changed, 56 insertions(+)
->>>>>>>  create mode 100644 Documentation/devicetree/bindings/soc/starfive/jh7110-syscon.yaml
->>>>>>>
->>>>>>> diff --git a/Documentation/devicetree/bindings/soc/starfive/jh7110-syscon.yaml b/Documentation/devicetree/bindings/soc/starfive/jh7110-syscon.yaml
->>>>>>> new file mode 100644
->>>>>>> index 000000000000..fa4d8522a454
->>>>>>> --- /dev/null
->>>>>>> +++ b/Documentation/devicetree/bindings/soc/starfive/jh7110-syscon.yaml
->>>>>>> @@ -0,0 +1,51 @@
->>>>>>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
->>>>>>> +%YAML 1.2
->>>>>>> +---
->>>>>>> +$id: http://devicetree.org/schemas/soc/starfive/jh7110-syscon.yaml#
->>>>>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->>>>>>> +
->>>>>>> +title: StarFive JH7110 SoC system controller
->>>>>>> +
->>>>>>> +maintainers:
->>>>>>> +  - William Qiu <william.qiu@starfivetech.com>
->>>>>>> +
->>>>>>> +description: |
->>>>>>> +  The StarFive JH7110 SoC system controller provides register information such
->>>>>>> +  as offset, mask and shift to configure related modules such as MMC and PCIe.
->>>>>>> +
->>>>>>> +properties:
->>>>>>> +  compatible:
->>>>>>> +    items:
->>>>>>> +      - enum:
->>>>>>> +          - starfive,jh7110-stg-syscon
->>>>>>> +          - starfive,jh7110-sys-syscon
->>>>>>> +          - starfive,jh7110-aon-syscon
->>>>>>
->>>>>> Is 'syscon' really part of what the blocks are called? Is just 'stg',
->>>>>> 'sys' and 'aon' not unique enough?
->>>>>>
->>>>>> Rob
->>>>> Hi Rob,
->>>>>
->>>>> In StarFive SoC, we do have syscrg/aoncrg/stgcrg, which is uesd to be the clock
->>>>> controller, so 'syscon' is added to avoid confusion.
->>>>
->>>> You've only added to my confusion. 'syscrg' and 'sys-syscon' are 2
->>>> different h/w blocks and unrelated to each other? Or 'syscrg' is the
->>>> clock portion of 'sys-syscon'? In that case, 'syscrg' should be a child
->>>> of 'sys-syscon' or possibly just all one node. Please provide details on
->>>> the entire h/w block so we can provide better input on the bindings.
->>>>
->>>> Rob
->>>
->>> Hi Rob,
->>>
->>> It's my description that's problematic.'syscon' here refers to the hardware module
->>> inside our JH7110, which is different from the syscon interface in linux. The syscon
->>> I added now uses the syscon interface of linux to read and write the syscon register
->>> in our JH7110. So we decided to name it that way.
->>
->> You didn't really answer Rob's questions.
->>
->> Also, syscon is Linux term, so are you sure hardware module is called
->> like this? Hardware engineers took pure Linux name and used it?
-> 
-> Yes, from the documentation I could find[1] there are CRG blocks
-> (Clock and Reset Generator) and SYSCON blocks:
-> SYS CRG
-> STG CRG
-> AON CRG
-> SYS SYSCON
-> STG SYSCON
-> AON SYSCON
-> 
-> The CRG blocks contain registers to control clocks and resets that
-> follow a pattern used by the clock and reset drivers. The SYSCON
-> blocks just seem to contain registers to control whatever didn't fit
-> in any other blocks, but might be vaguely related to the peripherals
-> that run off clocks controlled by the corresponding CRG block.
+This series, based on current modules-next, is part of a treewide cleanup
+suggested by Luis Chamberlain, to remove the LICENSE_MODULE usage from
+files/objects that are not tristate.  Due to recent changes to kbuild, these
+uses are now problematic.  See the commit logs for more details.
 
-The memory map [1] suggests these are indeed separate address spaces,
-e.g. AON CRG, AON SYSCON and AON GPIO, but now I would argue that this
-might be still one device - AON (or STG, SYS). Just like PCIE0 has four
-address spaces, it does not mean you have four separate PCIE0 devices.
-You have only one PCIE0, just like you have only one AON, one STG and
-one SYS (System).
+(The commit log prefixes and Cc lists are automatically determined.  I've
+eyeballed them, and they seem reasonable: my apologies if they are not.)
 
-[1] https://doc-en.rvspace.org/JH7110/TRM/JH7110_TRM/system_memory_map.html
+I'll be sending a sixth and final tranche in a few days. (In total, there are 121
+patches in this series.)
 
 
-Best regards,
-Krzysztof
+The series at a whole can be found here:
+  https://github.com/nickalcock/linux module-license
+
+(This is a respin with kbuild: prefixes dropped.  The previous series,
+used in the mailouts of tranche 3 and earlier, is in the
+module-license-kbuild-prefix branch.)
+
+Cc: linux-clk@vger.kernel.org
+Cc: linux-gpio@vger.kernel.org
+Cc: linux-gpio@vger.kernel.org 
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-modules@vger.kernel.org
+Cc: linux-perf-users@vger.kernel.org
+Cc: linux-pm@vger.kernel.org
+Cc: linux-remoteproc@vger.kernel.org
+Cc: linux-renesas-soc@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org
+Cc: linux-serial@vger.kernel.org
+Cc: linux-tegra@vger.kernel.org
+Cc: linux-trace-devel@vger.kernel.org
+Cc: linux-trace-kernel@vger.kernel.org
+
+Nick Alcock (20):
+  perf/hw_breakpoint: remove MODULE_LICENSE in non-modules
+  pinctrl: amd: remove MODULE_LICENSE in non-modules
+  pinctrl: mediatek: remove MODULE_LICENSE in non-modules
+  pinctrl: renesas: remove MODULE_LICENSE in non-modules
+  lib: remove MODULE_LICENSE in non-modules
+  powercap: remove MODULE_LICENSE in non-modules
+  power: supply: remove MODULE_LICENSE in non-modules
+  remoteproc: remove MODULE_LICENSE in non-modules
+  clk: renesas: remove MODULE_LICENSE in non-modules
+  reset: mchp: sparx5: remove MODULE_LICENSE in non-modules
+  reset: lantiq: remove MODULE_LICENSE in non-modules
+  clk: microchip: mpfs: remove MODULE_LICENSE in non-modules
+  reset: remove MODULE_LICENSE in non-modules
+  rv/reactor: remove MODULE_LICENSE in non-modules
+  tty: serial: imx: remove MODULE_LICENSE in non-modules
+  irqchip/irq-sl28cpld: remove MODULE_LICENSE in non-modules
+  ARC: reset: remove MODULE_LICENSE in non-modules
+  ARC: reset: remove MODULE_LICENSE in non-modules
+  power: reset: remove MODULE_LICENSE in non-modules
+  soc/tegra: cbb: remove MODULE_LICENSE in non-modules
+
+ drivers/clk/microchip/clk-mpfs.c          | 1 -
+ drivers/clk/renesas/rcar-usb2-clock-sel.c | 1 -
+ drivers/clk/renesas/renesas-cpg-mssr.c    | 1 -
+ drivers/clk/renesas/rzg2l-cpg.c           | 1 -
+ drivers/irqchip/irq-sl28cpld.c            | 1 -
+ drivers/pinctrl/mediatek/pinctrl-mt8188.c | 1 -
+ drivers/pinctrl/mediatek/pinctrl-mt8192.c | 1 -
+ drivers/pinctrl/mediatek/pinctrl-mt8365.c | 1 -
+ drivers/pinctrl/pinctrl-amd.c             | 1 -
+ drivers/pinctrl/renesas/pinctrl-rza1.c    | 1 -
+ drivers/pinctrl/renesas/pinctrl-rza2.c    | 1 -
+ drivers/pinctrl/renesas/pinctrl-rzg2l.c   | 1 -
+ drivers/pinctrl/renesas/pinctrl-rzn1.c    | 1 -
+ drivers/pinctrl/renesas/pinctrl-rzv2m.c   | 1 -
+ drivers/power/reset/as3722-poweroff.c     | 1 -
+ drivers/power/reset/gpio-poweroff.c       | 1 -
+ drivers/power/reset/gpio-restart.c        | 1 -
+ drivers/power/reset/ltc2952-poweroff.c    | 1 -
+ drivers/power/reset/regulator-poweroff.c  | 1 -
+ drivers/power/reset/restart-poweroff.c    | 1 -
+ drivers/power/reset/tps65086-restart.c    | 1 -
+ drivers/power/supply/power_supply_core.c  | 1 -
+ drivers/power/supply/wm97xx_battery.c     | 1 -
+ drivers/powercap/powercap_sys.c           | 1 -
+ drivers/remoteproc/remoteproc_core.c      | 1 -
+ drivers/reset/reset-axs10x.c              | 1 -
+ drivers/reset/reset-hsdk.c                | 1 -
+ drivers/reset/reset-lantiq.c              | 1 -
+ drivers/reset/reset-microchip-sparx5.c    | 1 -
+ drivers/reset/reset-mpfs.c                | 1 -
+ drivers/soc/tegra/cbb/tegra194-cbb.c      | 1 -
+ drivers/soc/tegra/cbb/tegra234-cbb.c      | 1 -
+ drivers/tty/serial/imx_earlycon.c         | 1 -
+ kernel/events/hw_breakpoint_test.c        | 1 -
+ kernel/trace/rv/reactor_panic.c           | 1 -
+ kernel/trace/rv/reactor_printk.c          | 1 -
+ lib/pldmfw/pldmfw.c                       | 1 -
+ 37 files changed, 37 deletions(-)
+
+-- 
+2.39.1.268.g9de2f9a303
 
 
 _______________________________________________
