@@ -4,63 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C567C64ED6
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Feb 2023 06:00:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9846C64ED6
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Feb 2023 06:34:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eXICUBWxqvSZBwMBNYFXVjVhs5ZMvKFuU2mFJitsqOw=; b=b4HkH2m9XR3g3V
-	465oFwwpWJhvR9njn7jRw8luCAkqMPwEqaP2eA8d6E/m4jZzL3DTX+hcyUw7Z/mMwxH/iCwcSjR9v
-	uBZc8g68abb3jMVK+sT1tExk7NFWfU3XSPlxnDTqzKtJXSiO4ICuPGFGUJK6Y4Sb6SOJYSazKB6oj
-	8REHtraz95ZvVUc77hgPongnqR0Evk8yifTFZvYxHgAlCu4sfOUOFkIcdlkGcvZukdr1QCPd4ek6X
-	gjrTR0gPVZiBs4BfoP4Ruoxg+LndC/czgfKbuRY33qPwQethapu5PLc832CDvTHIkMAyxov4q7/Zf
-	pi1/oD8waRJmRGn32qzQ==;
+	List-Owner; bh=wdCu3OrASOOP3DInEBOqb+thgW4jYjxMEgNxRuObbSQ=; b=hcZVp2AI5s9qp0
+	sqPPrCQxIyMJmwXqkuIoDEP2N5OqPKI/LLE9NM05OM0o7Pftilkn8iIA6CTpZejq+KaLC/k9+ZN7Z
+	jFh7VUgx9g0HxJ/IWwWdhvknt3kRXzjymZFlSTcRyGQVVU+IO1w9EW6PZxeHoZOKRi516ClcWMcJT
+	DkmDDR0JGsaQKH6VW+eDZ4QLXl0SFg/jQWlgV5MW/AkytilgQxtxiWzteuxtgaCOSI8kmqbkIC6Zw
+	luCUCJBvYP0Lyz+SGF3lzlM2vXcDJgM01As3fph9sw82U5Rl4MQERffLwG5twyHpRZOei0K/wKifv
+	ZShJPLNy5u5xtim4d6GA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWt1r-00C520-L8; Tue, 28 Feb 2023 05:59:59 +0000
+	id 1pWtZJ-00CAA7-3x; Tue, 28 Feb 2023 06:34:33 +0000
 Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWt1o-00C50j-E5
-	for linux-riscv@lists.infradead.org; Tue, 28 Feb 2023 05:59:58 +0000
+	id 1pWtZC-00CA0k-VT
+	for linux-riscv@lists.infradead.org; Tue, 28 Feb 2023 06:34:30 +0000
 Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 004BC24E3DE;
-	Tue, 28 Feb 2023 13:59:33 +0800 (CST)
-Received: from EXMBX068.cuchost.com (172.16.6.68) by EXMBX166.cuchost.com
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 2D58C24E3E2;
+	Tue, 28 Feb 2023 14:34:03 +0800 (CST)
+Received: from EXMBX161.cuchost.com (172.16.6.71) by EXMBX166.cuchost.com
  (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 28 Feb
- 2023 13:56:58 +0800
-Received: from [192.168.120.55] (171.223.208.138) by EXMBX068.cuchost.com
- (172.16.6.68) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 28 Feb
- 2023 13:56:57 +0800
-Message-ID: <34512ec5-d110-2817-cd25-fa4bb75989ce@starfivetech.com>
-Date: Tue, 28 Feb 2023 13:56:57 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.8.0
-Subject: Re: [PATCH v4 0/4] StarFive's SDIO/eMMC driver support
-To: Ulf Hansson <ulf.hansson@linaro.org>
-CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-mmc@vger.kernel.org>, Rob Herring <robh+dt@kernel.org>, "Krzysztof
- Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Jaehoon Chung
-	<jh80.chung@samsung.com>, <linux-kernel@vger.kernel.org>
-References: <20230215113249.47727-1-william.qiu@starfivetech.com>
- <CAPDyKFqJxrLh+pgQ-u_Lwxv4_TsH--rga049GBTqKAa_M14_yw@mail.gmail.com>
- <ca9bed19-9809-9443-7ca1-1d11984ded55@starfivetech.com>
- <CAPDyKFpwFq26Tqa-5k7SbQ7Zgk3-AQSrjo7ZSJt6uo6QJR3+5Q@mail.gmail.com>
+ 2023 14:33:59 +0800
+Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX161.cuchost.com
+ (172.16.6.71) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 28 Feb
+ 2023 14:33:59 +0800
+Received: from EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f]) by
+ EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f%17]) with mapi id
+ 15.00.1497.044; Tue, 28 Feb 2023 14:33:59 +0800
+From: JeeHeng Sia <jeeheng.sia@starfivetech.com>
+To: Andrew Jones <ajones@ventanamicro.com>
+CC: "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
+	"palmer@dabbelt.com" <palmer@dabbelt.com>, "aou@eecs.berkeley.edu"
+	<aou@eecs.berkeley.edu>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
+	Mason Huo <mason.huo@starfivetech.com>
+Subject: RE: [PATCH v4 4/4] RISC-V: Add arch functions to support
+ hibernation/suspend-to-disk
+Thread-Topic: [PATCH v4 4/4] RISC-V: Add arch functions to support
+ hibernation/suspend-to-disk
+Thread-Index: AQHZRZ0zqkG7/pRhhEiAX6gFjug0Aa7cUgAAgAEC65D///aKAIAAiLXg//+GvACAAI+BwP//lVOAAJFkcXD//+axAP//cjXQgADMoID//pX2AIACjLaA//9iDwA=
+Date: Tue, 28 Feb 2023 06:33:59 +0000
+Message-ID: <ffd2e7849b764043bef606d9b8019506@EXMBX066.cuchost.com>
+References: <20230224090010.nmy6latszfkdqcft@orel>
+ <9cfd485d1e0d46cdb1323bb6ea330f6e@EXMBX066.cuchost.com>
+ <20230224095526.ctctpzw3p3csf6qj@orel>
+ <24a6dbe6aa2043c7812bf7e258786e13@EXMBX066.cuchost.com>
+ <20230224120715.wgqnqmkadsbqusus@orel>
+ <180fda36f9974809b436c52e4b3eda58@EXMBX066.cuchost.com>
+ <20230227075942.rgl4hqnwttwvoroe@orel>
+ <178ca008701147828d2e62402ff4f78a@EXMBX066.cuchost.com>
+ <20230227114435.eow57ax5zhysz3kv@orel>
+ <a6c319dd867f4f1d97e9d950b9e7c636@EXMBX066.cuchost.com>
+ <20230228050457.zfbflfawctaccepv@orel>
+In-Reply-To: <20230228050457.zfbflfawctaccepv@orel>
+Accept-Language: en-US, zh-CN
 Content-Language: en-US
-From: William Qiu <william.qiu@starfivetech.com>
-In-Reply-To: <CAPDyKFpwFq26Tqa-5k7SbQ7Zgk3-AQSrjo7ZSJt6uo6QJR3+5Q@mail.gmail.com>
-X-Originating-IP: [171.223.208.138]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX068.cuchost.com
- (172.16.6.68)
-X-YovoleRuleAgent: yovoleflag
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [202.188.176.82]
+x-yovoleruleagent: yovoleflag
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230227_215956_784572_F56A7076 
-X-CRM114-Status: GOOD (  25.13  )
+X-CRM114-CacheID: sfid-20230227_223427_321722_29001E2B 
+X-CRM114-Status: GOOD (  38.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,123 +95,73 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 
-On 2023/2/27 22:53, Ulf Hansson wrote:
-> On Mon, 27 Feb 2023 at 08:47, William Qiu <william.qiu@starfivetech.com> wrote:
->>
->>
->>
->> On 2023/2/15 20:37, Ulf Hansson wrote:
->> > On Wed, 15 Feb 2023 at 12:32, William Qiu <william.qiu@starfivetech.com> wrote:
->> >>
->> >> Hi,
->> >>
->> >> This patchset adds initial rudimentary support for the StarFive
->> >> designware mobile storage host controller driver. And this driver will
->> >> be used in StarFive's VisionFive 2 board. The main purpose of adding
->> >> this driver is to accommodate the ultra-high speed mode of eMMC.
->> >>
->> >> The last patch should be applied after the patchset [1]:
->> >> [1] https://lore.kernel.org/all/20221220011247.35560-1-hal.feng@starfivetech.com/
->> >>
->> >> Changes v3->v4:
->> >> - Added documentation to describe StarFive System Controller Registers.
->> >> - Added aon_syscon and stg_syscon node.
->> >> - Fixed some checkpatch errors/warnings.
->> >>
->> >> Changes v2->v3:
->> >> - Wraped commit message according to Linux coding style.
->> >> - Rephrased the description of the patches.
->> >> - Changed the description of syscon regsiter.
->> >> - Dropped redundant properties.
->> >>
->> >> Changes v1->v2:
->> >> - Renamed the dt-binding 'starfive,jh7110-sdio.yaml' to 'starfive,jh7110-mmc.yaml'.
->> >> - Changed the type of 'starfive,syscon' and modify its description.
->> >> - Deleted unused head files like '#include <linux/gpio.h>'.
->> >> - Added comment for the 'rise_point' and 'fall_point'.
->> >> - Changed the API 'num_caps' to 'common_caps'.
->> >> - Changed the node name 'sys_syscon' to 'syscon'.
->> >> - Changed the node name 'sdio' to 'mmc'.
->> >>
->> >> The patch series is based on v6.1.
->> >>
->> >> William Qiu (4):
->> >>   dt-bindings: mmc: Add StarFive MMC module
->> >>   mmc: starfive: Add sdio/emmc driver support
->> >>   riscv: dts: starfive: Add mmc node
->> >>   dt-bindings: syscon: Add StarFive syscon doc
->> >>
->> >>  .../bindings/mmc/starfive,jh7110-mmc.yaml     |  77 ++++++++
->> >>  .../bindings/soc/starfive/jh7110-syscon.yaml  |  51 +++++
->> >>  MAINTAINERS                                   |  11 ++
->> >>  .../jh7110-starfive-visionfive-2.dtsi         |  23 +++
->> >>  arch/riscv/boot/dts/starfive/jh7110.dtsi      |  47 +++++
->> >>  drivers/mmc/host/Kconfig                      |  10 +
->> >>  drivers/mmc/host/Makefile                     |   1 +
->> >>  drivers/mmc/host/dw_mmc-starfive.c            | 186 ++++++++++++++++++
->> >>  8 files changed, 406 insertions(+)
->> >>  create mode 100644 Documentation/devicetree/bindings/mmc/starfive,jh7110-mmc.yaml
->> >>  create mode 100644 Documentation/devicetree/bindings/soc/starfive/jh7110-syscon.yaml
->> >>  create mode 100644 drivers/mmc/host/dw_mmc-starfive.c
->> >>
->> >
->> > I have dropped the v3 patches and applied patch1 and patch2 from the
->> > v4 series instead, for my next branch, thanks!
->> >
->> > Kind regards
->> > Uffe
->>
->> Hi Uffe,
->>
->> Sorry to bother you.But I found a bug that in drivers/mmc/host/dw_mmc-starfive.c:
->>
->>     47 static int dw_mci_starfive_execute_tuning(struct dw_mci_slot *slot,
->>     48                                              u32 opcode)
->>     49 {
->>     50         static const int grade  = MAX_DELAY_CHAIN;
->>     51         struct dw_mci *host = slot->host;
->>     52         struct starfive_priv *priv = host->priv;
->>     53         int rise_point = -1, fall_point = -1;
->>     54         int err, prev_err;
->>     55         int i;
->>     56         bool found = 0;
->>     57         u32 regval;
->>     58
->>     59         /*
->>     60          * Use grade as the max delay chain, and use the rise_point and
->>     61          * fall_point to ensure the best sampling point of a data input
->>     62          * signals.
->>     63          */
->>     64         for (i = 0; i < grade; i++) {
->>     65                 regval = i << priv->syscon_shift;
->>     66                 err = regmap_update_bits(priv->reg_syscon, priv->syscon_offset,
->>     67                                                 priv->syscon_mask, regval);
->>     68                 if (err)
->>     69                         return err;
->>     70                 mci_writel(host, RINTSTS, ALL_INT_CLR);
->>     71
->>     72                 err = mmc_send_tuning(slot->mmc, opcode, NULL);
->>     73                 if (!err)
->>     74                         found = 1;
->>     75
->>     76                 if (i > 0) {
->> --> 77                         if (err && !prev_err)
->>
->> prev_err was never initialized to zero.
->>
->> So I'm here to ask for your suggestion, should I send a new version
->> to fix it or send you a patch with a fixes tag?
+> -----Original Message-----
+> From: Andrew Jones <ajones@ventanamicro.com>
+> Sent: Tuesday, 28 February, 2023 1:05 PM
+> To: JeeHeng Sia <jeeheng.sia@starfivetech.com>
+> Cc: paul.walmsley@sifive.com; palmer@dabbelt.com; aou@eecs.berkeley.edu; linux-riscv@lists.infradead.org; linux-
+> kernel@vger.kernel.org; Leyfoon Tan <leyfoon.tan@starfivetech.com>; Mason Huo <mason.huo@starfivetech.com>
+> Subject: Re: [PATCH v4 4/4] RISC-V: Add arch functions to support hibernation/suspend-to-disk
 > 
-> Please send a new incremental patch on top. I will queue it up as a
-> fix for v6.3-rc[n].
+> On Tue, Feb 28, 2023 at 01:32:53AM +0000, JeeHeng Sia wrote:
+> > > > > > 	load image;
+> > > > > > loop:	Create pbe chain, return error if failed;
+> > > > >
+> > > > > This loop pseudocode is incomplete. It's
+> > > > >
+> > > > > loop:
+> > > > >         if (swsusp_page_is_forbidden(page) && swsusp_page_is_free(page))
+> > > > > 	   return page_address(page);
+> > > > > 	Create pbe chain, return error if failed;
+> > > > > 	...
+> > > > >
+> > > > > which I pointed out explicitly in my last reply. Also, as I asked in my
+> > > > > last reply (and have been asking four times now, albeit less explicitly
+> > > > > the first two times), how do we know at least one PBE will be linked?
+> > > > 1 PBE correspond to 1 page, you shouldn't expect only 1 page is saved.
+> > >
+> > > I know PBEs correspond to pages. *Why* should I not expect only one page
+> > > is saved? Or, more importantly, why should I expect more than zero pages
+> > > are saved?
+> > >
+> > > Convincing answers might be because we *always* put the restore code in
+> > > pages which get added to the PBE list or that the original page tables
+> > > *always* get put in pages which get added to the PBE list. It's not very
+> > > convincing to simply *assume* that at least one random page will always
+> > > meet the PBE list criteria.
+> > >
+> > > > Hibernation core will do the calculation. If the PBEs (restore_pblist) linked successfully, the hibernated image will be restore else
+> > > normal boot will take place.
+> > > > > Or, even more specifically this time, where is the proof that for each
+> > > > > hibernation resume, there exists some page such that
+> > > > > !swsusp_page_is_forbidden(page) or !swsusp_page_is_free(page) is true?
+> > > > forbidden_pages and free_pages are not contributed to the restore_pblist (as you already aware from the code). Infact, the
+> > > forbidden_pages and free_pages are not save into the disk.
+> > >
+> > > Exactly, so those pages are *not* going to contribute to the greater than
+> > > zero pages. What I've been asking for, from the beginning, is to know
+> > > which page(s) are known to *always* contribute to the list. Or, IOW, how
+> > > do you know the PBE list isn't empty, a.k.a restore_pblist isn't NULL?
+> > Well, this is keep going around in a circle, thought the answer is in the hibernation code. restore_pblist get the pointer from the PBE,
+> and the PBE already checked for validity.
 > 
-> Kind regards
-> Uffe
-
-Fine, I'll do it in my next version. Thanks for your apply.
-
-Best regards
-William
+> It keeps going around in circles because you keep avoiding my question by
+> pointing out trivial linked list code. I'm not worried about the linked
+> list code being correct. My concern is that you're using a linked list
+> with an assumption that it is not empty. My question has been all along,
+> how do you know it's not empty?
+> 
+> I'll change the way I ask this time. Please take a look at your PBE list
+> and let me know if there are PBEs on it that must be there on each
+> hibernation resume, e.g. the resume code page is there or whatever.
+Just to add on, it is not "my" PBE list but the list is from the hibernation core. As already draw out the scenarios for you, checking should be done at the initialization phase. 
+> 
+> > Can I suggest you to submit a patch to the hibernation core?
+> 
+> Why? What's wrong with it?
+> 
+> Thanks,
+> drew
 
 _______________________________________________
 linux-riscv mailing list
