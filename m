@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84936C64ED6
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Feb 2023 00:06:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C76CDC7EE32
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Feb 2023 00:06:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=U7BjrdP4K8UboXCZaQoMHDyRcjQuonDKn7sDihqhKzA=; b=fziLOjJOxA70B1
-	tDI6QQpFpMeH6cr+U/r3mOJtLvmZrxxrFEB7hSgVYuChn3Hv3eix1LdId/+PKyKdEXHx7KESOp+AY
-	ptlCe/6MJcZMiieQjH8csbYZ2nnP0OKRiyxzqOqhcb7JwFuGP8B/8pcACbNRzmrr8YUW6yrN3fpyw
-	aQ9qXkGk/T4E7btbMFsAzVvzk0bdll6XSj1mLrCNpp5i1sZHNr+6hz6iEtqW2LkUydZe9GoQ7MqM9
-	1ReA4KHe52CpIPXu5Z2nIiGyfGYyDy37kepmBi1JQQ6o/3SLzZDD3oaC4MRWCRSXG6mZ7zfCVmCaz
-	r0UKFHbiu36ObA7I9CmA==;
+	List-Owner; bh=OkLfn9M2fopg5cOhPaFlUTi59955vfmES1SZNADypzU=; b=JMm/QM8teuNrnW
+	vPF0bvq6r8GhLK8boY2jG17L047gNXoMeBdhvlkPH/Dltw2VqY6LOGjs1qabgXdCWuigfFQgMkhVN
+	75m88WBg1Ps+ks46K5H5Md2/4dA+9OT9/DmTU1nZs7GqcQGpSEnGRIXLp+nTLLECeJztTkEV7Fxa3
+	Q4lmlEMrHqjRIs/JfBx/t1NB/wS0b8UbwXRyZU92mT/9du28L9c17qk/p2fQawnMDo+K+TYljvuEX
+	9GRV3NUJFlBxyjbs9xfkkv2kmy9bHsLQaw+HR5HPOns1TMLZyArr85EO8QP3ON4icOhNbvWAinlLa
+	kTzeRNX8gHOcEqJDjvOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWnVS-00BbrU-4i; Tue, 28 Feb 2023 00:06:10 +0000
+	id 1pWnVQ-00BbqM-2g; Tue, 28 Feb 2023 00:06:08 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWnVJ-00BbmI-Ii
-	for linux-riscv@lists.infradead.org; Tue, 28 Feb 2023 00:06:05 +0000
+	id 1pWnVJ-00Bblc-Im
+	for linux-riscv@lists.infradead.org; Tue, 28 Feb 2023 00:06:04 +0000
 Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=phil.lan)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1pWnVA-000552-3j; Tue, 28 Feb 2023 01:05:52 +0100
+	id 1pWnV7-000552-Mh; Tue, 28 Feb 2023 01:05:49 +0100
 From: Heiko Stuebner <heiko@sntech.de>
 To: palmer@rivosinc.com
 Cc: greentime.hu@sifive.com,
@@ -38,17 +38,18 @@ Cc: greentime.hu@sifive.com,
 	linux-riscv@lists.infradead.org,
 	christoph.muellner@vrull.eu,
 	heiko@sntech.de,
+	Vincent Chen <vincent.chen@sifive.com>,
 	Heiko Stuebner <heiko.stuebner@vrull.eu>
-Subject: [PATCH RFC v2 09/16] RISC-V: crypto: update perl include with helpers for vector (crypto) instructions
-Date: Tue, 28 Feb 2023 01:05:37 +0100
-Message-Id: <20230228000544.2234136-10-heiko@sntech.de>
+Subject: [PATCH RFC v2 01/16] riscv: Add support for kernel mode vector
+Date: Tue, 28 Feb 2023 01:05:29 +0100
+Message-Id: <20230228000544.2234136-2-heiko@sntech.de>
 X-Mailer: git-send-email 2.39.0
 In-Reply-To: <20230228000544.2234136-1-heiko@sntech.de>
 References: <20230228000544.2234136-1-heiko@sntech.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230227_160601_934884_2845AAED 
-X-CRM114-Status: GOOD (  12.35  )
+X-CRM114-CacheID: sfid-20230227_160601_671195_8A6D43FB 
+X-CRM114-Status: GOOD (  20.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,470 +66,199 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Heiko Stuebner <heiko.stuebner@vrull.eu>
+From: Greentime Hu <greentime.hu@sifive.com>
 
-The openSSL scripts use a number of helpers for handling vector
-instructions and instructions from the vector-crypto-extensions.
+Add kernel_rvv_begin() and kernel_rvv_end() function declarations
+and corresponding definitions in kernel_mode_vector.c
 
-Therefore port these over from openSSL.
+These are needed to wrap uses of vector in kernel mode.
 
+Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
+Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
+Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
 Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
 ---
- arch/riscv/crypto/riscv.pm | 433 ++++++++++++++++++++++++++++++++++++-
- 1 file changed, 431 insertions(+), 2 deletions(-)
+ arch/riscv/include/asm/vector.h        |  14 +++
+ arch/riscv/kernel/Makefile             |   1 +
+ arch/riscv/kernel/kernel_mode_vector.c | 132 +++++++++++++++++++++++++
+ 3 files changed, 147 insertions(+)
+ create mode 100644 arch/riscv/kernel/kernel_mode_vector.c
 
-diff --git a/arch/riscv/crypto/riscv.pm b/arch/riscv/crypto/riscv.pm
-index 61bc4fc41a43..a707dd3a68fb 100644
---- a/arch/riscv/crypto/riscv.pm
-+++ b/arch/riscv/crypto/riscv.pm
-@@ -48,11 +48,34 @@ sub read_reg {
-     return $1;
+diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
+index 7c77696d704a..f38266ec483a 100644
+--- a/arch/riscv/include/asm/vector.h
++++ b/arch/riscv/include/asm/vector.h
+@@ -134,6 +134,20 @@ static inline void vstate_restore(struct task_struct *task,
+ 	}
  }
  
-+my @vregs = map("v$_",(0..31));
-+my %vreglookup;
-+@vreglookup{@vregs} = @vregs;
-+
-+sub read_vreg {
-+    my $vreg = lc shift;
-+    if (!exists($vreglookup{$vreg})) {
-+        my $trace = "";
-+        if ($have_stacktrace) {
-+            $trace = Devel::StackTrace->new->as_string;
-+        }
-+        die("Unknown vector register ".$vreg."\n".$trace);
-+    }
-+    if (!($vreg =~ /^v([0-9]+)$/)) {
-+        my $trace = "";
-+        if ($have_stacktrace) {
-+            $trace = Devel::StackTrace->new->as_string;
-+        }
-+        die("Could not process vector register ".$vreg."\n".$trace);
-+    }
-+    return $1;
++static inline void vector_flush_cpu_state(void)
++{
++	asm volatile (
++		"vsetvli	t0, x0, e8, m8, ta, ma\n\t"
++		"vmv.v.i	v0, 0\n\t"
++		"vmv.v.i	v8, 0\n\t"
++		"vmv.v.i	v16, 0\n\t"
++		"vmv.v.i	v24, 0\n\t"
++		: : : "t0");
 +}
 +
- # Helper functions
++void kernel_rvv_begin(void);
++void kernel_rvv_end(void);
++
+ #else /* ! CONFIG_RISCV_ISA_V  */
  
- sub brev8_rv64i {
--    # brev8 without `brev8` instruction (only in Zkbk)
--    # Bit-reverses the first argument and needs three scratch registers
-+    # brev8 without `brev8` instruction (only in Zbkb)
-+    # Bit-reverses the first argument and needs two scratch registers
-     my $val = shift;
-     my $t0 = shift;
-     my $t1 = shift;
-@@ -227,4 +250,410 @@ sub rev8 {
-     return ".word ".($template | ($rs << 15) | ($rd << 7));
- }
- 
-+# Vector instructions
+ struct pt_regs;
+diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+index 48d345a5f326..304c500cc1f7 100644
+--- a/arch/riscv/kernel/Makefile
++++ b/arch/riscv/kernel/Makefile
+@@ -56,6 +56,7 @@ obj-$(CONFIG_MMU) += vdso.o vdso/
+ obj-$(CONFIG_RISCV_M_MODE)	+= traps_misaligned.o
+ obj-$(CONFIG_FPU)		+= fpu.o
+ obj-$(CONFIG_RISCV_ISA_V)	+= vector.o
++obj-$(CONFIG_RISCV_ISA_V)	+= kernel_mode_vector.o
+ obj-$(CONFIG_SMP)		+= smpboot.o
+ obj-$(CONFIG_SMP)		+= smp.o
+ obj-$(CONFIG_SMP)		+= cpu_ops.o
+diff --git a/arch/riscv/kernel/kernel_mode_vector.c b/arch/riscv/kernel/kernel_mode_vector.c
+new file mode 100644
+index 000000000000..0277168af0c5
+--- /dev/null
++++ b/arch/riscv/kernel/kernel_mode_vector.c
+@@ -0,0 +1,132 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * Copyright (C) 2012 ARM Ltd.
++ * Author: Catalin Marinas <catalin.marinas@arm.com>
++ * Copyright (C) 2017 Linaro Ltd. <ard.biesheuvel@linaro.org>
++ * Copyright (C) 2021 SiFive
++ */
++#include <linux/compiler.h>
++#include <linux/irqflags.h>
++#include <linux/percpu.h>
++#include <linux/preempt.h>
++#include <linux/types.h>
 +
-+sub vadd_vv {
-+    # vadd.vv vd, vs2, vs1
-+    my $template = 0b0000001_00000_00000_000_00000_1010111;
-+    my $vd = read_vreg shift;
-+    my $vs2 = read_vreg shift;
-+    my $vs1 = read_vreg shift;
-+    return ".word ".($template | ($vs2 << 20) | ($vs1 << 15) | ($vd << 7));
++#include <asm/vector.h>
++#include <asm/switch_to.h>
++
++DECLARE_PER_CPU(bool, vector_context_busy);
++DEFINE_PER_CPU(bool, vector_context_busy);
++
++/*
++ * may_use_vector - whether it is allowable at this time to issue vector
++ *                instructions or access the vector register file
++ *
++ * Callers must not assume that the result remains true beyond the next
++ * preempt_enable() or return from softirq context.
++ */
++static __must_check inline bool may_use_vector(void)
++{
++	/*
++	 * vector_context_busy is only set while preemption is disabled,
++	 * and is clear whenever preemption is enabled. Since
++	 * this_cpu_read() is atomic w.r.t. preemption, vector_context_busy
++	 * cannot change under our feet -- if it's set we cannot be
++	 * migrated, and if it's clear we cannot be migrated to a CPU
++	 * where it is set.
++	 */
++	return !in_irq() && !irqs_disabled() && !in_nmi() &&
++	       !this_cpu_read(vector_context_busy);
 +}
 +
-+sub vid_v {
-+    # vid.v vd
-+    my $template = 0b0101001_00000_10001_010_00000_1010111;
-+    my $vd = read_vreg shift;
-+    return ".word ".($template | ($vd << 7));
++/*
++ * Claim ownership of the CPU vector context for use by the calling context.
++ *
++ * The caller may freely manipulate the vector context metadata until
++ * put_cpu_vector_context() is called.
++ */
++static void get_cpu_vector_context(void)
++{
++	bool busy;
++
++	preempt_disable();
++	busy = __this_cpu_xchg(vector_context_busy, true);
++
++	WARN_ON(busy);
 +}
 +
-+sub vle32_v {
-+    # vle32.v vd, (rs1)
-+    my $template = 0b0000001_00000_00000_110_00000_0000111;
-+    my $vd = read_vreg shift;
-+    my $rs1 = read_reg shift;
-+    return ".word ".($template | ($rs1 << 15) | ($vd << 7));
++/*
++ * Release the CPU vector context.
++ *
++ * Must be called from a context in which get_cpu_vector_context() was
++ * previously called, with no call to put_cpu_vector_context() in the
++ * meantime.
++ */
++static void put_cpu_vector_context(void)
++{
++	bool busy = __this_cpu_xchg(vector_context_busy, false);
++
++	WARN_ON(!busy);
++	preempt_enable();
 +}
 +
-+sub vle64_v {
-+    # vle64.v vd, (rs1)
-+    my $template = 0b0000001_00000_00000_111_00000_0000111;
-+    my $vd = read_vreg shift;
-+    my $rs1 = read_reg shift;
-+    return ".word ".($template | ($rs1 << 15) | ($vd << 7));
++/*
++ * kernel_rvv_begin(): obtain the CPU vector registers for use by the calling
++ * context
++ *
++ * Must not be called unless may_use_vector() returns true.
++ * Task context in the vector registers is saved back to memory as necessary.
++ *
++ * A matching call to kernel_rvv_end() must be made before returning from the
++ * calling context.
++ *
++ * The caller may freely use the vector registers until kernel_rvv_end() is
++ * called.
++ */
++void kernel_rvv_begin(void)
++{
++	if (WARN_ON(!has_vector()))
++		return;
++
++	WARN_ON(!may_use_vector());
++
++	/* Acquire kernel mode vector */
++	get_cpu_vector_context();
++
++	/* Save vector state, if any */
++	vstate_save(current, task_pt_regs(current));
++
++	/* Enable vector */
++	rvv_enable();
++
++	/* Invalidate vector regs */
++	vector_flush_cpu_state();
 +}
++EXPORT_SYMBOL_GPL(kernel_rvv_begin);
 +
-+sub vlse32_v {
-+    # vlse32.v vd, (rs1), rs2
-+    my $template = 0b0000101_00000_00000_110_00000_0000111;
-+    my $vd = read_vreg shift;
-+    my $rs1 = read_reg shift;
-+    my $rs2 = read_reg shift;
-+    return ".word ".($template | ($rs2 << 20) | ($rs1 << 15) | ($vd << 7));
++/*
++ * kernel_rvv_end(): give the CPU vector registers back to the current task
++ *
++ * Must be called from a context in which kernel_rvv_begin() was previously
++ * called, with no call to kernel_rvv_end() in the meantime.
++ *
++ * The caller must not use the vector registers after this function is called,
++ * unless kernel_rvv_begin() is called again in the meantime.
++ */
++void kernel_rvv_end(void)
++{
++	if (WARN_ON(!has_vector()))
++		return;
++
++	/* Invalidate vector regs */
++	vector_flush_cpu_state();
++
++	/* Restore vector state, if any */
++	vstate_restore(current, task_pt_regs(current));
++
++	/* disable vector */
++	rvv_disable();
++
++	/* release kernel mode vector */
++	put_cpu_vector_context();
 +}
-+
-+sub vlse64_v {
-+    # vlse64.v vd, (rs1), rs2
-+    my $template = 0b0000101_00000_00000_111_00000_0000111;
-+    my $vd = read_vreg shift;
-+    my $rs1 = read_reg shift;
-+    my $rs2 = read_reg shift;
-+    return ".word ".($template | ($rs2 << 20) | ($rs1 << 15) | ($vd << 7));
-+}
-+
-+sub vmerge_vim {
-+    # vmerge.vim vd, vs2, imm, v0
-+    my $template = 0b0101110_00000_00000_011_00000_1010111;
-+    my $vd = read_vreg shift;
-+    my $vs2 = read_vreg shift;
-+    my $imm = shift;
-+    return ".word ".($template | ($vs2 << 20) | ($imm << 15) | ($vd << 7));
-+}
-+
-+sub vmerge_vvm {
-+    # vmerge.vvm vd vs2 vs1
-+    my $template = 0b0101110_00000_00000_000_00000_1010111;
-+    my $vd = read_vreg shift;
-+    my $vs2 = read_vreg shift;
-+    my $vs1 = read_vreg shift;
-+    return ".word ".($template | ($vs2 << 20) | ($vs1 <<   15) | ($vd << 7))
-+}
-+
-+sub vmseq_vi {
-+    # vmseq vd vs1, imm
-+    my $template = 0b0110001_00000_00000_011_00000_1010111;
-+    my $vd = read_vreg shift;
-+    my $vs1 = read_vreg shift;
-+    my $imm = shift;
-+    return ".word ".($template | ($vs1 << 20) | ($imm <<   15) | ($vd << 7))
-+}
-+
-+sub vmv_v_i {
-+    # vmv.v.i vd, imm
-+    my $template = 0b0101111_00000_00000_011_00000_1010111;
-+    my $vd = read_vreg shift;
-+    my $imm = shift;
-+    return ".word ".($template | ($imm << 15) | ($vd << 7));
-+}
-+
-+sub vmv_v_v {
-+    # vmv.v.v vd, vs1
-+    my $template = 0b0101111_00000_00000_000_00000_1010111;
-+    my $vd = read_vreg shift;
-+    my $vs1 = read_vreg shift;
-+    return ".word ".($template | ($vs1 << 15) | ($vd << 7));
-+}
-+
-+sub vor_vv_v0t {
-+    # vor.vv vd, vs2, vs1, v0.t
-+    my $template = 0b0010100_00000_00000_000_00000_1010111;
-+    my $vd = read_vreg shift;
-+    my $vs2 = read_vreg shift;
-+    my $vs1 = read_vreg shift;
-+    return ".word ".($template | ($vs2 << 20) | ($vs1 << 15) | ($vd << 7));
-+}
-+
-+sub vse32_v {
-+    # vse32.v vd, (rs1)
-+    my $template = 0b0000001_00000_00000_110_00000_0100111;
-+    my $vd = read_vreg shift;
-+    my $rs1 = read_reg shift;
-+    return ".word ".($template | ($rs1 << 15) | ($vd << 7));
-+}
-+
-+sub vse64_v {
-+    # vse64.v vd, (rs1)
-+    my $template = 0b0000001_00000_00000_111_00000_0100111;
-+    my $vd = read_vreg shift;
-+    my $rs1 = read_reg shift;
-+    return ".word ".($template | ($rs1 << 15) | ($vd << 7));
-+}
-+
-+sub vsetivli__x0_2_e64_m1_ta_ma {
-+    # vsetivli x0, 2, e64, m1, ta, ma
-+    return ".word 0xcd817057";
-+}
-+
-+sub vsetivli__x0_4_e32_m1_ta_ma {
-+    # vsetivli x0, 4, e32, m1, ta, ma
-+    return ".word 0xcd027057";
-+}
-+
-+sub vsetivli__x0_4_e64_m1_ta_ma {
-+    # vsetivli x0,4,e64,m1,ta,ma
-+    return ".word 0xcd827057";
-+}
-+
-+sub vsetivli__x0_8_e32_m1_ta_ma {
-+    return ".word 0xcd047057";
-+}
-+
-+sub vslidedown_vi {
-+    # vslidedown.vi vd, vs2, uimm
-+    my $template = 0b0011111_00000_00000_011_00000_1010111;
-+    my $vd = read_vreg shift;
-+    my $vs2 = read_vreg shift;
-+    my $uimm = shift;
-+    return ".word ".($template | ($vs2 << 20) | ($uimm << 15) | ($vd << 7));
-+}
-+
-+sub vslideup_vi_v0t {
-+    # vslideup.vi vd, vs2, uimm, v0.t
-+    my $template = 0b0011100_00000_00000_011_00000_1010111;
-+    my $vd = read_vreg shift;
-+    my $vs2 = read_vreg shift;
-+    my $uimm = shift;
-+    return ".word ".($template | ($vs2 << 20) | ($uimm << 15) | ($vd << 7));
-+}
-+
-+sub vslideup_vi {
-+    # vslideup.vi vd, vs2, uimm
-+    my $template = 0b0011101_00000_00000_011_00000_1010111;
-+    my $vd = read_vreg shift;
-+    my $vs2 = read_vreg shift;
-+    my $uimm = shift;
-+    return ".word ".($template | ($vs2 << 20) | ($uimm << 15) | ($vd << 7));
-+}
-+
-+sub vsll_vi {
-+    # vsll.vi vd, vs2, uimm, vm
-+    my $template = 0b1001011_00000_00000_011_00000_1010111;
-+    my $vd = read_vreg shift;
-+    my $vs2 = read_vreg shift;
-+    my $uimm = shift;
-+    return ".word ".($template | ($vs2 << 20) | ($uimm << 15) | ($vd << 7));
-+}
-+
-+sub vsrl_vx {
-+    # vsrl.vx vd, vs2, rs1
-+    my $template = 0b1010001_00000_00000_100_00000_1010111;
-+    my $vd = read_vreg shift;
-+    my $vs2 = read_vreg shift;
-+    my $rs1 = read_reg shift;
-+    return ".word ".($template | ($vs2 << 20) | ($rs1 << 15) | ($vd << 7));
-+}
-+
-+sub vsse32_v {
-+    # vse32.v vs3, (rs1), rs2
-+    my $template = 0b0000101_00000_00000_110_00000_0100111;
-+    my $vs3 = read_vreg shift;
-+    my $rs1 = read_reg shift;
-+    my $rs2 = read_reg shift;
-+    return ".word ".($template | ($rs2 << 20) | ($rs1 << 15) | ($vs3 << 7));
-+}
-+
-+sub vsse64_v {
-+    # vsse64.v vs3, (rs1), rs2
-+    my $template = 0b0000101_00000_00000_111_00000_0100111;
-+    my $vs3 = read_vreg shift;
-+    my $rs1 = read_reg shift;
-+    my $rs2 = read_reg shift;
-+    return ".word ".($template | ($rs2 << 20) | ($rs1 << 15) | ($vs3 << 7));
-+}
-+
-+sub vxor_vv_v0t {
-+    # vxor.vv vd, vs2, vs1, v0.t
-+    my $template = 0b0010110_00000_00000_000_00000_1010111;
-+    my $vd = read_vreg shift;
-+    my $vs2 = read_vreg shift;
-+    my $vs1 = read_vreg shift;
-+    return ".word ".($template | ($vs2 << 20) | ($vs1 << 15) | ($vd << 7));
-+}
-+
-+sub vxor_vv {
-+    # vxor.vv vd, vs2, vs1
-+    my $template = 0b0010111_00000_00000_000_00000_1010111;
-+    my $vd = read_vreg shift;
-+    my $vs2 = read_vreg shift;
-+    my $vs1 = read_vreg shift;
-+    return ".word ".($template | ($vs2 << 20) | ($vs1 << 15) | ($vd << 7));
-+}
-+
-+# Vector crypto instructions
-+
-+## Zvkb instructions
-+
-+sub vclmulh_vx {
-+    # vclmulh.vx vd, vs2, rs1
-+    my $template = 0b0011011_00000_00000_110_00000_1010111;
-+    my $vd = read_vreg shift;
-+    my $vs2 = read_vreg shift;
-+    my $rs1 = read_reg shift;
-+    return ".word ".($template | ($vs2 << 20) | ($rs1 << 15) | ($vd << 7));
-+}
-+
-+sub vclmul_vx_v0t {
-+    # vclmul.vx vd, vs2, rs1, v0.t
-+    my $template = 0b0011000_00000_00000_110_00000_1010111;
-+    my $vd = read_vreg shift;
-+    my $vs2 = read_vreg shift;
-+    my $rs1 = read_reg shift;
-+    return ".word ".($template | ($vs2 << 20) | ($rs1 << 15) | ($vd << 7));
-+}
-+
-+sub vclmul_vx {
-+    # vclmul.vx vd, vs2, rs1
-+    my $template = 0b0011001_00000_00000_110_00000_1010111;
-+    my $vd = read_vreg shift;
-+    my $vs2 = read_vreg shift;
-+    my $rs1 = read_reg shift;
-+    return ".word ".($template | ($vs2 << 20) | ($rs1 << 15) | ($vd << 7));
-+}
-+
-+sub vrev8_v {
-+    # vrev8.v vd, vs2
-+    my $template = 0b0100101_00000_01001_010_00000_1010111;
-+    my $vd = read_vreg shift;
-+    my $vs2 = read_vreg shift;
-+    return ".word ".($template | ($vs2 << 20) | ($vd << 7));
-+}
-+
-+## Zvkg instructions
-+
-+sub vghsh_vv {
-+    # vghsh.vv vd, vs2, vs1
-+    my $template = 0b1011001_00000_00000_010_00000_1110111;
-+    my $vd = read_vreg shift;
-+    my $vs2 = read_vreg shift;
-+    my $vs1 = read_vreg shift;
-+    return ".word ".($template | ($vs2 << 20) | ($vs1 << 15) | ($vd << 7));
-+}
-+
-+sub vgmul_vv {
-+    # vgmul.vv vd, vs2
-+    my $template = 0b1010001_00000_10001_010_00000_1110111;
-+    my $vd = read_vreg shift;
-+    my $vs2 = read_vreg shift;
-+    return ".word ".($template | ($vs2 << 20) | ($vd << 7));
-+}
-+
-+## Zvkned instructions
-+
-+sub vaesdf_vs {
-+    # vaesdf.vs vd, vs2
-+    my $template = 0b101001_1_00000_00001_010_00000_1110111;
-+    my $vd = read_vreg  shift;
-+    my $vs2 = read_vreg  shift;
-+    return ".word ".($template | ($vs2 << 20) | ($vd << 7));
-+}
-+
-+sub vaesdm_vs {
-+    # vaesdm.vs vd, vs2
-+    my $template = 0b101001_1_00000_00000_010_00000_1110111;
-+    my $vd = read_vreg shift;
-+    my $vs2 = read_vreg shift;
-+    return ".word ".($template | ($vs2 << 20) | ($vd << 7));
-+}
-+
-+sub vaesef_vs {
-+    # vaesef.vs vd, vs2
-+    my $template = 0b101001_1_00000_00011_010_00000_1110111;
-+    my $vd = read_vreg  shift;
-+    my $vs2 = read_vreg  shift;
-+    return ".word ".($template | ($vs2 << 20) | ($vd << 7));
-+}
-+
-+sub vaesem_vs {
-+    # vaesem.vs vd, vs2
-+    my $template = 0b101001_1_00000_00010_010_00000_1110111;
-+    my $vd = read_vreg  shift;
-+    my $vs2 = read_vreg  shift;
-+    return ".word ".($template | ($vs2 << 20) | ($vd << 7));
-+}
-+
-+sub vaeskf1_vi {
-+    # vaeskf1.vi vd, vs2, uimmm
-+    my $template = 0b100010_1_00000_00000_010_00000_1110111;
-+    my $vd = read_vreg  shift;
-+    my $vs2 = read_vreg  shift;
-+    my $uimm = shift;
-+    return ".word ".($template | ($uimm << 15) | ($vs2 << 20) | ($vd << 7));
-+}
-+
-+sub vaeskf2_vi {
-+    # vaeskf2.vi vd, vs2, uimm
-+    my $template = 0b101010_1_00000_00000_010_00000_1110111;
-+    my $vd = read_vreg shift;
-+    my $vs2 = read_vreg shift;
-+    my $uimm = shift;
-+    return ".word ".($template | ($vs2 << 20) | ($uimm << 15) | ($vd << 7));
-+}
-+
-+sub vaesz_vs {
-+    # vaesz.vs vd, vs2
-+    my $template = 0b101001_1_00000_00111_010_00000_1110111;
-+    my $vd = read_vreg  shift;
-+    my $vs2 = read_vreg  shift;
-+    return ".word ".($template | ($vs2 << 20) | ($vd << 7));
-+}
-+
-+## Zvknha and Zvknhb instructions
-+
-+sub vsha2ms_vv {
-+    # vsha2ms.vv vd, vs2, vs1
-+    my $template = 0b1011011_00000_00000_010_00000_1110111;
-+    my $vd = read_vreg shift;
-+    my $vs2 = read_vreg shift;
-+    my $vs1 = read_vreg shift;
-+    return ".word ".($template | ($vs2 << 20)| ($vs1 << 15 )| ($vd << 7));
-+}
-+
-+sub vsha2ch_vv {
-+    # vsha2ch.vv vd, vs2, vs1
-+    my $template = 0b101110_10000_00000_001_00000_01110111;
-+    my $vd = read_vreg shift;
-+    my $vs2 = read_vreg shift;
-+    my $vs1 = read_vreg shift;
-+    return ".word ".($template | ($vs2 << 20)| ($vs1 << 15 )| ($vd << 7));
-+}
-+
-+sub vsha2cl_vv {
-+    # vsha2cl.vv vd, vs2, vs1
-+    my $template = 0b101111_10000_00000_001_00000_01110111;
-+    my $vd = read_vreg shift;
-+    my $vs2 = read_vreg shift;
-+    my $vs1 = read_vreg shift;
-+    return ".word ".($template | ($vs2 << 20)| ($vs1 << 15 )| ($vd << 7));
-+}
-+
-+## Zvksed instructions
-+
-+sub vsm4k_vi {
-+    # vsm4k.vi vd, vs2, uimm
-+    my $template = 0b1000011_00000_00000_010_00000_1110111;
-+    my $vd = read_vreg shift;
-+    my $vs2 = read_vreg shift;
-+    my $uimm = shift;
-+    return ".word ".($template | ($vs2 << 20) | ($uimm << 15) | ($vd << 7));
-+}
-+
-+sub vsm4r_vs {
-+    # vsm4r.vs vd, vs2
-+    my $template = 0b1010011_00000_10000_010_00000_1110111;
-+    my $vd = read_vreg shift;
-+    my $vs2 = read_vreg shift;
-+    return ".word ".($template | ($vs2 << 20) | ($vd << 7));
-+}
-+
-+## zvksh instructions
-+
-+sub vsm3c_vi {
-+    # vsm3c.vi vd, vs2, uimm
-+    my $template = 0b1010111_00000_00000_010_00000_1110111;
-+    my $vd = read_vreg shift;
-+    my $vs2 = read_vreg shift;
-+    my $uimm = shift;
-+    return ".word ".($template | ($vs2 << 20) | ($uimm << 15 ) | ($vd << 7));
-+}
-+
-+sub vsm3me_vv {
-+    # vsm3me.vv vd, vs2, vs1
-+    my $template = 0b1000001_00000_00000_010_00000_1110111;
-+    my $vd = read_vreg shift;
-+    my $vs2 = read_vreg shift;
-+    my $vs1 = read_vreg shift;
-+    return ".word ".($template | ($vs2 << 20) | ($vs1 << 15 ) | ($vd << 7));
-+}
-+
- 1;
++EXPORT_SYMBOL_GPL(kernel_rvv_end);
 -- 
 2.39.0
 
