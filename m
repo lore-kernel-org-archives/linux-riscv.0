@@ -4,92 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 099E6C64ED6
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Feb 2023 10:59:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2B30C64ED6
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Feb 2023 11:03:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cNWYL0BcMNl2YOxA8sAvZ+uEYQTICQaSWXF3wqLMIM8=; b=QGKAi9cCgG35Li
-	FXfUc3JvEQlgwJkDX/h8er9+dNyjUHj90+5oU9KYwJ6CsiUeltFtttHlbmeQpgi9iBDRxt0V/8c8s
-	vm8Jj+7cL2NlywcBcrgS+j0Dnalf+pF8B33eZFZHeNRXPpVzeEy5+xWu4WTQh2t6qCpqfpK31n7KZ
-	XpGOTDyCBk1OdUkVVNlioIAVR1XSkY9MR8puT8Y/T0PaxYQm7NGKlZmS4t3eVVqoeMXnZqxR7t/VN
-	BB4nMOQ2cfw33XaP4ekPDFFSbNRInnLGafWmOlgGp0/BEbE1QdZCCQTuNhb+G6ZG0xIC+GGQtWHaB
-	sDc13uUW5pPQljEtyEvQ==;
+	List-Owner; bh=e8Mr0vLdPlFBelrvSPhRBeRwdD/4Vm8woCYSc4vp910=; b=hBF+XXc4fM27CR
+	gpd4vL/ZjDAAd6RaibZQ6H0i5Gv+2tAZ3cb5XeW3ssTxDwndowLqNiDBgvLaQDzQVMWSCgE15WLLq
+	+jvdRXbSnhr6Hh8tUvIdZ65ZZHStFZpwL8IhuHcYZlYrTQ3xEe1+B/sDiXZvc9795MLCbX4MzkLoq
+	IwuW8gf2hYYcrr6oyIQds3TjtnfVdhGnCQj5g0hAo4N3bVZZ54aXyrw0WAUTsICqhDn9UCi0RMv36
+	itGDS0Vca1f4fYMs4UzLaObE8kF7HvNt3UT/tib+gOhp5ywar29x6d6GWCbQ3VB7K3MVDberr46kM
+	DKRApeJG5fOHb2sKw0aQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWxhR-00CqS4-Q0; Tue, 28 Feb 2023 10:59:13 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1pWxlk-00CsWg-MR; Tue, 28 Feb 2023 11:03:40 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWxgM-00CpqA-Tb
-	for linux-riscv@lists.infradead.org; Tue, 28 Feb 2023 10:58:08 +0000
-Received: by mail-wm1-x330.google.com with SMTP id p26so6085070wmc.4
-        for <linux-riscv@lists.infradead.org>; Tue, 28 Feb 2023 02:58:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1677581881;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=u6A2Sc2TLWOMEQ5y9qjHmMZKsT1Mi1qRqi+sfSjfpO0=;
-        b=QqHiXL8xz6P0TwObJgri1HUKQUaS8QRVLWP1zU/kcdZdLcOZfuS5LDo0CS5erblAss
-         i3mypQ/t5If0PlKVO61jzWGlWmhg5iEbWbVAJTt3c/96K1HPpgFdTgkGsdah4LuMTPwD
-         fnCX9JgcR1J9JaLiR8LQCOAqmX0u0Hh/hRjIgiK5GzJp9UlARoRRiba8GJvtAuACohiF
-         XCvoPuYjEyVDUWaHz3N/HSDzhCIf0MpsRIZzq9mUHo9ch8t7+BCyvKtKV3vDwWCdAWjW
-         hm3QDZr1IgJXPvCyKzLVDXISQaIKaeMJgoaCP4/OgQK0T5wviBJNNPhoAI7f1FICoZbm
-         ZqMA==
+	id 1pWxkp-00Cs0g-PJ
+	for linux-riscv@lists.infradead.org; Tue, 28 Feb 2023 11:02:46 +0000
+Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com [209.85.219.71])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 66ED23F329
+	for <linux-riscv@lists.infradead.org>; Tue, 28 Feb 2023 11:02:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1677582160;
+	bh=whVHBfeNmd48/Mtd8KK1rHa96pedE0BT/IGoZMz9JD4=;
+	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=WZ1ruGWMNQy8M99yrTIIGLqzGwPx3c6TSwpDDzYiWXEalhI+rOoOTACF3gNs6fM06
+	 J/hCQjFvPDn5RmKg1wmyB9Y+j9QEtQlubzBcLX/vOK8gIu6NQr9/I3d0R08bD6UrLE
+	 dUwpRLWiXKoQnxGBcdctDDLbJXKUUHvEEIWCQ/mVlyqMsC/YOi344iPvCA80sfMObp
+	 8BrqDtRThGeYW9Gf6GI1ziV8+X1k//P9sJSSatvGvl1rfDVKcYTi2qJU1DHw3S0SDn
+	 agkFrDa8XuXCebI5s6uV/GGNYKVVlK/KWyD4H2/wW4xRy09M9BZeyY/1rB3f2G8+l3
+	 zAD9psFkwqFag==
+Received: by mail-qv1-f71.google.com with SMTP id px25-20020a056214051900b0056f0794632bso4927422qvb.18
+        for <linux-riscv@lists.infradead.org>; Tue, 28 Feb 2023 03:02:40 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1677581881;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=u6A2Sc2TLWOMEQ5y9qjHmMZKsT1Mi1qRqi+sfSjfpO0=;
-        b=EDwG20waZRC21tvzICOTgOYxmBrBkfLNx4iIeoAj7KjR4V0/vi6ptedHsyqC6erNKq
-         zNcP/Vmx42yWnFnk6C64H7RHO1pID60VKL1zd8t+zZsVp6LaRj87I9c93TcsxP9qOSMj
-         i+LYiVpWBBzZLgwqrcKQpmFNxSzQQAHrEAbOtphZh4UkOazjJqGrGDp//yS/fUYKdI/z
-         +TY7K/gQPJZstDrlz/pMEzmDA88Vnk3OJvQwPDvusZD+9kbZjJEx+rKitfxYMx0WgitU
-         9L+YMNRt5eMC9NSw4WabeRFuZ/QIDxubhICyx9R3wM76yDQFyZF62qF3TSpu5GHhG3oZ
-         Ypzg==
-X-Gm-Message-State: AO0yUKUal+ZS+0h1rz2ElUdm0zNuoIGkqWVkRiKAFF0gZIipPOBtSqd5
-	VxcM1ruFglhQ4e/SZVVL3P2/qw==
-X-Google-Smtp-Source: AK7set9aj//n9rmdyGmH3/dOQnO4mTtlCGyI8o1O6rY/P5ntjM8Tk+WDegjEDx/5j8Gn/DHp/NQNyQ==
-X-Received: by 2002:a05:600c:4d20:b0:3eb:2e66:8 with SMTP id u32-20020a05600c4d2000b003eb2e660008mr1731362wmp.35.1677581881467;
-        Tue, 28 Feb 2023 02:58:01 -0800 (PST)
-Received: from [192.168.1.20] ([178.197.216.144])
-        by smtp.gmail.com with ESMTPSA id fl16-20020a05600c0b9000b003e1f6e18c95sm16244493wmb.21.2023.02.28.02.57.59
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 28 Feb 2023 02:58:01 -0800 (PST)
-Message-ID: <545c23f3-1d68-2bff-89d9-584e3ca31044@linaro.org>
-Date: Tue, 28 Feb 2023 11:57:58 +0100
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=whVHBfeNmd48/Mtd8KK1rHa96pedE0BT/IGoZMz9JD4=;
+        b=ayJlxXyDbuMBKkbutht03g6QsYb9sbCR6K5D0e8TXvOdjA8Rw4UU7YqL4vObzbO0ic
+         ht8R7binIz/Zz5nBwAXB5YRicz6qxtOdfDuY0s8TT3LlS2uEXLnvq21l5C2jRwMy0QUF
+         ocOb9VyRL5QJYGaB+ARMAbOTRQiAsOFC8IcyohdSznhPYOI2q8iEvt61OCfD8Vh22huC
+         VEQQmOPERyCCZU4GdvzJdwX7ysP95Bw3F72jev2q0xLwwHCNDRS4jtEhhqC4N1ouqL8o
+         VbwAPJmrG37TIOqoKFTpumhuzL01T4giHhJUOTK0Ny6G0LAEsyKta2f9niSg0yfVx99b
+         nGAQ==
+X-Gm-Message-State: AO0yUKXX+0+qusGz9wKezjICkDcedr/23K3bvMS12qlPNUD2zgfBUaRv
+	C3SYFeVmr4XMQZS7KE9rNMoSe1y6WVnn9NE2GyhM+JOfSTX2k/wvmuPe0Glrn2Xx1uavuU2Oiq8
+	k1MpdjT1c++dFtIJYLwoaL9jmvJOTgpPWBEm0Y0o9K6biArVaIHIuOLMqcVYNhQ==
+X-Received: by 2002:ac8:56e8:0:b0:3bd:1fb6:c67a with SMTP id 8-20020ac856e8000000b003bd1fb6c67amr553377qtu.3.1677582159399;
+        Tue, 28 Feb 2023 03:02:39 -0800 (PST)
+X-Google-Smtp-Source: AK7set8FR64yuzbIcs6D/WmwZMDZz31/kKp6+pin5PnwYtz+dLmWYPMDS6NzC6y0YpP+iqeWB1QMFW3KNM1UQsJutms=
+X-Received: by 2002:ac8:56e8:0:b0:3bd:1fb6:c67a with SMTP id
+ 8-20020ac856e8000000b003bd1fb6c67amr553374qtu.3.1677582159145; Tue, 28 Feb
+ 2023 03:02:39 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.8.0
-Subject: Re: [PATCH v3 2/2] drivers: watchdog: Add StarFive Watchdog driver
-Content-Language: en-US
-To: Conor Dooley <conor.dooley@microchip.com>,
- Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Cc: Xingyu Wu <xingyu.wu@starfivetech.com>, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, linux-watchdog@vger.kernel.org,
- Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck
- <linux@roeck-us.net>, Krzysztof Kozlowski
- <krzysztof.kozlowski+dt@linaro.org>, Rob Herring <robh+dt@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Samin Guo <samin.guo@starfivetech.com>, linux-kernel@vger.kernel.org,
- Conor Dooley <conor@kernel.org>
-References: <20230220081926.267695-1-xingyu.wu@starfivetech.com>
- <20230220081926.267695-3-xingyu.wu@starfivetech.com>
- <CAJM55Z823iqUqD8enM0qJ_MA3Tw94Mn0mq71fbLT1Qjo2s2J3g@mail.gmail.com>
- <0ffb02d2-0bbd-fd0d-b0f6-cb5605570050@starfivetech.com>
- <CAJM55Z_hRpUYueZ-XuWUx1NfAsL9E+-4ry9TYeRWM_bKXvym-g@mail.gmail.com>
- <Y/3coFvMWOLaaY9p@wendy>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <Y/3coFvMWOLaaY9p@wendy>
+References: <20230215113249.47727-1-william.qiu@starfivetech.com>
+ <20230215113249.47727-5-william.qiu@starfivetech.com> <20230220234335.GA615198-robh@kernel.org>
+ <348796cc-72d9-4dcf-9f09-4c2aa55cb858@starfivetech.com> <20230227222904.GC1048218-robh@kernel.org>
+ <f8d2b665-ce5d-81f8-8c55-81f1a4cb62b9@starfivetech.com> <54f51fa0-7821-b67b-b782-eb9a35b7bba9@linaro.org>
+In-Reply-To: <54f51fa0-7821-b67b-b782-eb9a35b7bba9@linaro.org>
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Date: Tue, 28 Feb 2023 12:02:21 +0100
+Message-ID: <CAJM55Z85fitjBOcCLqad9W-a7h3iN9bxtctVGzPgqCbf5fWobw@mail.gmail.com>
+Subject: Re: [PATCH v4 4/4] dt-bindings: syscon: Add StarFive syscon doc
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: William Qiu <william.qiu@starfivetech.com>, Rob Herring <robh@kernel.org>, 
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-mmc@vger.kernel.org, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Jaehoon Chung <jh80.chung@samsung.com>, 
+	Ulf Hansson <ulf.hansson@linaro.org>, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230228_025807_026690_D5A6884E 
-X-CRM114-Status: GOOD (  13.22  )
+X-CRM114-CacheID: sfid-20230228_030244_264261_2253DD90 
+X-CRM114-Status: GOOD (  31.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,28 +100,112 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 28/02/2023 11:51, Conor Dooley wrote:
-> On Tue, Feb 28, 2023 at 11:36:49AM +0100, Emil Renner Berthing wrote:
->> On Tue, 28 Feb 2023 at 10:44, Xingyu Wu <xingyu.wu@starfivetech.com> wrote:
->>> On 2023/2/26 22:14, Emil Renner Berthing wrote:
->>>> On Mon, 20 Feb 2023 at 09:21, Xingyu Wu <xingyu.wu@starfivetech.com> wrote:
-> 
->>> So the dt-bingdings need to rename, and which one could be better,
->>> 'starfive,jh71x0-wdt.yaml' or 'starfive,jh-wdt.yaml'?
->>
->> Sure, starfive,jh71x0-wdt.yaml sounds good to me.
-> 
-> I feel like a common comment I see from the dt folks is to not put
-> wildcards in filenames & just pick the first compatible.
-> I could very well be wrong on that front though...
+On Tue, 28 Feb 2023 at 11:40, Krzysztof Kozlowski
+<krzysztof.kozlowski@linaro.org> wrote:
+>
+> On 28/02/2023 10:05, William Qiu wrote:
+> >
+> >
+> > On 2023/2/28 6:29, Rob Herring wrote:
+> >> On Tue, Feb 21, 2023 at 10:44:02AM +0800, William Qiu wrote:
+> >>>
+> >>>
+> >>> On 2023/2/21 7:43, Rob Herring wrote:
+> >>>> On Wed, Feb 15, 2023 at 07:32:49PM +0800, William Qiu wrote:
+> >>>>> Add documentation to describe StarFive System Controller Registers.
+> >>>>>
+> >>>>> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
+> >>>>> ---
+> >>>>>  .../bindings/soc/starfive/jh7110-syscon.yaml  | 51 +++++++++++++++++++
+> >>>>>  MAINTAINERS                                   |  5 ++
+> >>>>>  2 files changed, 56 insertions(+)
+> >>>>>  create mode 100644 Documentation/devicetree/bindings/soc/starfive/jh7110-syscon.yaml
+> >>>>>
+> >>>>> diff --git a/Documentation/devicetree/bindings/soc/starfive/jh7110-syscon.yaml b/Documentation/devicetree/bindings/soc/starfive/jh7110-syscon.yaml
+> >>>>> new file mode 100644
+> >>>>> index 000000000000..fa4d8522a454
+> >>>>> --- /dev/null
+> >>>>> +++ b/Documentation/devicetree/bindings/soc/starfive/jh7110-syscon.yaml
+> >>>>> @@ -0,0 +1,51 @@
+> >>>>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> >>>>> +%YAML 1.2
+> >>>>> +---
+> >>>>> +$id: http://devicetree.org/schemas/soc/starfive/jh7110-syscon.yaml#
+> >>>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> >>>>> +
+> >>>>> +title: StarFive JH7110 SoC system controller
+> >>>>> +
+> >>>>> +maintainers:
+> >>>>> +  - William Qiu <william.qiu@starfivetech.com>
+> >>>>> +
+> >>>>> +description: |
+> >>>>> +  The StarFive JH7110 SoC system controller provides register information such
+> >>>>> +  as offset, mask and shift to configure related modules such as MMC and PCIe.
+> >>>>> +
+> >>>>> +properties:
+> >>>>> +  compatible:
+> >>>>> +    items:
+> >>>>> +      - enum:
+> >>>>> +          - starfive,jh7110-stg-syscon
+> >>>>> +          - starfive,jh7110-sys-syscon
+> >>>>> +          - starfive,jh7110-aon-syscon
+> >>>>
+> >>>> Is 'syscon' really part of what the blocks are called? Is just 'stg',
+> >>>> 'sys' and 'aon' not unique enough?
+> >>>>
+> >>>> Rob
+> >>> Hi Rob,
+> >>>
+> >>> In StarFive SoC, we do have syscrg/aoncrg/stgcrg, which is uesd to be the clock
+> >>> controller, so 'syscon' is added to avoid confusion.
+> >>
+> >> You've only added to my confusion. 'syscrg' and 'sys-syscon' are 2
+> >> different h/w blocks and unrelated to each other? Or 'syscrg' is the
+> >> clock portion of 'sys-syscon'? In that case, 'syscrg' should be a child
+> >> of 'sys-syscon' or possibly just all one node. Please provide details on
+> >> the entire h/w block so we can provide better input on the bindings.
+> >>
+> >> Rob
+> >
+> > Hi Rob,
+> >
+> > It's my description that's problematic.'syscon' here refers to the hardware module
+> > inside our JH7110, which is different from the syscon interface in linux. The syscon
+> > I added now uses the syscon interface of linux to read and write the syscon register
+> > in our JH7110. So we decided to name it that way.
+>
+> You didn't really answer Rob's questions.
+>
+> Also, syscon is Linux term, so are you sure hardware module is called
+> like this? Hardware engineers took pure Linux name and used it?
 
-First compatible is a bit better, unless you are sure this will cover
-all such compatibles now and in the future. For many bindings the
-family/wildcards were fine in filename.
+Yes, from the documentation I could find[1] there are CRG blocks
+(Clock and Reset Generator) and SYSCON blocks:
+SYS CRG
+STG CRG
+AON CRG
+SYS SYSCON
+STG SYSCON
+AON SYSCON
 
-Best regards,
-Krzysztof
+The CRG blocks contain registers to control clocks and resets that
+follow a pattern used by the clock and reset drivers. The SYSCON
+blocks just seem to contain registers to control whatever didn't fit
+in any other blocks, but might be vaguely related to the peripherals
+that run off clocks controlled by the corresponding CRG block.
 
+[1]: https://doc-en.rvspace.org/JH7110/TRM/JH7110_TRM/system_control_registers.html
+
+/Emil
+
+> Best regards,
+> Krzysztof
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
