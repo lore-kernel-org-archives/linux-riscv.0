@@ -4,67 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AC47C64ED6
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Feb 2023 14:56:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F9DFC64EC7
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Feb 2023 14:57:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=blNcInsKmgePr+h3gAwX3HcQcgq4wjRUw19a0trY8Z8=; b=3OYwFsLCiszY3K
-	6DKtONRnihnZkudbjr8hLRer5YOixhORZkuGq7DlaFuNTIyy+2dkIgALBFDRhBchUdtdCKUSwM746
-	9HB0XlhRW1YUMproIcGPC6Q6rvBuSM6o5J3X5nqoS8LLWyO/3JuqsfWX/UkKMiAwbH89ttd5FaQX8
-	NQhRxaHazM7Spd3xxl+INBCoyFq9QQQlK8KamGlUghNgJ9frCW1teyMM2Mkku3mvh9qblpiJJGRln
-	NZu2949CvAQq5kZsbQBkihO2JHOSWxrNyWJD5k9NLfkP6W6xuqdEocN4xhRy+c4CviAy7/TwY50Iv
-	hmP8WTxI2+MWPEGaM16w==;
+	List-Owner; bh=RCHmlSDgMuuvCAnOHXeHLb1zgDgPEFpLa04EdmS5CZg=; b=MdI65xve+IAd6/
+	y9u3F7c5NJFY6K7aH7kYNzP5xQwcMlBPkjgMDoy+vPscqcm2U8FTungR2n+MGjUzgWYONv60e/O/f
+	FdoJVs0NEBE0HaxVqV2wLr8GuGxjlwMCfYdYGLwu5qWsW8LumbnlOC1uS6ugz62W6OSoKTYRIHezU
+	28v2KF1DyPymQyhNOImi8WDGIXZQenhPhb6PzQgZOFCreajwRrV3D7cHjOipLYEd9RxjtQ3P+bazB
+	jgrUg+rxWv9y0582H81tyD+RRV9c3cUhn8WCxa/h3AMBVBsw9n7AgNEhXHw9vq9Mi/+g5B4WK08vY
+	miqSJI6tHrQZr52gdlJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pX1P2-00DZGy-8p; Tue, 28 Feb 2023 14:56:28 +0000
-Received: from mail-oa1-f43.google.com ([209.85.160.43])
+	id 1pX1Pn-00DZWg-OC; Tue, 28 Feb 2023 14:57:15 +0000
+Received: from mail-oi1-f179.google.com ([209.85.167.179])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pX1Oy-00DZDM-Oa
-	for linux-riscv@lists.infradead.org; Tue, 28 Feb 2023 14:56:26 +0000
-Received: by mail-oa1-f43.google.com with SMTP id 586e51a60fabf-17227cba608so11180928fac.3
-        for <linux-riscv@lists.infradead.org>; Tue, 28 Feb 2023 06:56:18 -0800 (PST)
+	id 1pX1Pk-00DZUn-Us
+	for linux-riscv@lists.infradead.org; Tue, 28 Feb 2023 14:57:14 +0000
+Received: by mail-oi1-f179.google.com with SMTP id s41so7428500oiw.13
+        for <linux-riscv@lists.infradead.org>; Tue, 28 Feb 2023 06:57:11 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=V5ioO1pIepGfs4SqLPVfsMcAuwOTg1zSb7b6ZK0A88s=;
-        b=ih9zEX2/Pn34ikdKo/JQn7w8liAtATo8fgHZctl+7KQMDZILR1+aXqo4lPxnex2hkt
-         QHCZrBaphX7ir0n/bkLAzSN4nxlVChOmxZkFgQdd2l1yRBzAngfSpmUqXk49p0xM6tmq
-         gFCPuJHHHUexqE4JKXQTtrByaGG8jx/BXtmf2zJJar427PGZsdQtT81xuWkuuWG+80L2
-         d8Uw/EuDAW60Wgt+FA4QC7BetTxEucIJaMeHHBPLs3bYtIh1Iwp1WCg5dP/nO7md5AeP
-         F7rB4wKDWIihqMn2MxKkVW9OCdKL6Xw/ChgmPEcHDIkEvxiy1nfa07eU1aH3cQrSNHmM
-         9GGw==
-X-Gm-Message-State: AO0yUKWZFbrDaznssc0H8w/fPi89UO0IRMTen0fET/tULUcSI+1ubaCc
-	LDvVFFTiUb8fRo3tCfIx4w==
-X-Google-Smtp-Source: AK7set+W45Qn/7/1YbmF3TWAhYItsVzxA7GfCwF6t4mgcwhbvhEsNDIOss2JQCOTYam578+VvcvXBw==
-X-Received: by 2002:a05:6870:8a2c:b0:172:7236:a5c0 with SMTP id p44-20020a0568708a2c00b001727236a5c0mr1663030oaq.13.1677596177578;
-        Tue, 28 Feb 2023 06:56:17 -0800 (PST)
+        bh=jz13ePRsdvAV4VQWspwggO2nF1bgHhH78z9EfhScQfo=;
+        b=odnUD/EgUBODKdm2Yju0jBPB7DV202Ckxn7+XoJmxVNjxeQxF4WYre6VBPqSpNav1e
+         sPgt+C948LAmZr/gqaqEiVrwjAhPMlaRIPLnQVLOW4IlI5hJuHZ8EUQn/ndo5cANVMB4
+         UFGpVaXlgLt04ZArv3uM3FRMYxFrTvLFmGE7ud6u2O5hfLJhCeJ1kZQq9FqGtLBPt0/3
+         Gz9wM1DXrHTENx4RYLostJu5kmLo7kpEa5w/4fiM+TWQi0r/n4r4tFI1J5zFJl1C926+
+         xqOsqqscpwPuY2o/+1lleYOJjMs0K03vkE23IsSYw5iMoV7m+z5i5+phncDc41aBirXc
+         oM4w==
+X-Gm-Message-State: AO0yUKUPsWDNUFQruTI1L/bfCZuDOAk/reVnvuacidswHCssWQF/d9F4
+	4Rw6fYQMRNs74/Z7+ETfzg==
+X-Google-Smtp-Source: AK7set94DR+xwEQYa8X8GkWyWk88A0B84qdhXg17GydthqLk+zGWGRTBG3KHBfgVM1ahYSFwmLQceQ==
+X-Received: by 2002:a54:470e:0:b0:383:ee1d:f4b2 with SMTP id k14-20020a54470e000000b00383ee1df4b2mr1658344oik.15.1677596230861;
+        Tue, 28 Feb 2023 06:57:10 -0800 (PST)
 Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id w11-20020a9d70cb000000b0068bb3a9e2b9sm3696943otj.77.2023.02.28.06.56.16
+        by smtp.gmail.com with ESMTPSA id bk15-20020a0568081a0f00b003845000eca7sm635702oib.1.2023.02.28.06.57.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Feb 2023 06:56:17 -0800 (PST)
-Received: (nullmailer pid 3231849 invoked by uid 1000);
-	Tue, 28 Feb 2023 14:56:16 -0000
-Date: Tue, 28 Feb 2023 08:56:16 -0600
+        Tue, 28 Feb 2023 06:57:10 -0800 (PST)
+Received: (nullmailer pid 3232983 invoked by uid 1000);
+	Tue, 28 Feb 2023 14:57:09 -0000
+Date: Tue, 28 Feb 2023 08:57:09 -0600
 From: Rob Herring <robh@kernel.org>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: David.Laight@aculab.com, evan@rivosinc.com, Conor Dooley <conor@kernel.org>, Vineet Gupta <vineetg@rivosinc.com>, heiko@sntech.de, slewis@rivosinc.com, aou@eecs.berkeley.edu, krzysztof.kozlowski+dt@linaro.org, Paul Walmsley <paul.walmsley@sifive.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 4/6] dt-bindings: Add RISC-V misaligned access
+To: Conor Dooley <conor@kernel.org>
+Cc: Evan Green <evan@rivosinc.com>, Palmer Dabbelt <palmer@rivosinc.com>, heiko@sntech.de, slewis@rivosinc.com, vineetg@rivosinc.com, Albert Ou <aou@eecs.berkeley.edu>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v3 4/7] dt-bindings: Add RISC-V misaligned access
  performance
-Message-ID: <20230228145616.GA3205994-robh@kernel.org>
-References: <4bd24def02014939a87eb8430ba0070d@AcuMS.aculab.com>
- <mhng-8736b349-e27a-4372-81ca-3a25d2ec1e94@palmer-ri-x1c9>
+Message-ID: <20230228145709.GA3198794-robh@kernel.org>
+References: <20230221190858.3159617-1-evan@rivosinc.com>
+ <20230221190858.3159617-5-evan@rivosinc.com>
+ <Y/01c7sZ9ri5i8ao@spud>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <mhng-8736b349-e27a-4372-81ca-3a25d2ec1e94@palmer-ri-x1c9>
+In-Reply-To: <Y/01c7sZ9ri5i8ao@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230228_065624_826317_51112554 
-X-CRM114-Status: GOOD (  43.39  )
+X-CRM114-CacheID: sfid-20230228_065713_011722_17600C5F 
+X-CRM114-Status: GOOD (  12.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,117 +82,20 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 09, 2023 at 08:51:22AM -0800, Palmer Dabbelt wrote:
-> On Wed, 08 Feb 2023 04:45:10 PST (-0800), David.Laight@ACULAB.COM wrote:
-> > From: Rob Herring
-> > > Sent: 07 February 2023 17:06
-> > > 
-> > > On Mon, Feb 06, 2023 at 12:14:53PM -0800, Evan Green wrote:
-> > > > From: Palmer Dabbelt <palmer@rivosinc.com>
-> > > >
-> > > > This key allows device trees to specify the performance of misaligned
-> > > > accesses to main memory regions from each CPU in the system.
-> > > >
-> > > > Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-> > > > Signed-off-by: Evan Green <evan@rivosinc.com>
-> > > > ---
-> > > >
-> > > > (no changes since v1)
-> > > >
-> > > >  Documentation/devicetree/bindings/riscv/cpus.yaml | 15 +++++++++++++++
-> > > >  1 file changed, 15 insertions(+)
-> > > >
-> > > > diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml
-> > > b/Documentation/devicetree/bindings/riscv/cpus.yaml
-> > > > index c6720764e765..2c09bd6f2927 100644
-> > > > --- a/Documentation/devicetree/bindings/riscv/cpus.yaml
-> > > > +++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
-> > > > @@ -85,6 +85,21 @@ properties:
-> > > >      $ref: "/schemas/types.yaml#/definitions/string"
-> > > >      pattern: ^rv(?:64|32)imaf?d?q?c?b?v?k?h?(?:_[hsxz](?:[a-z])+)*$
-> > > >
-> > > > +  riscv,misaligned-access-performance:
-> > > > +    description:
-> > > > +      Identifies the performance of misaligned memory accesses to main memory
-> > > > +      regions.  There are three flavors of unaligned access performance: "emulated"
-> > > > +      means that misaligned accesses are emulated via software and thus
-> > > > +      extremely slow, "slow" means that misaligned accesses are supported by
-> > > > +      hardware but still slower that aligned accesses sequences, and "fast"
-> > > > +      means that misaligned accesses are as fast or faster than the
-> > > > +      cooresponding aligned accesses sequences.
-> > > > +    $ref: "/schemas/types.yaml#/definitions/string"
-> > > > +    enum:
-> > > > +      - emulated
-> > > > +      - slow
-> > > > +      - fast
-> > > 
-> > > I don't think this belongs in DT. (I'm not sure about a userspace
-> > > interface either.)
+On Mon, Feb 27, 2023 at 10:57:55PM +0000, Conor Dooley wrote:
+> Hey Evan,
 > 
-> [Kind of answered below.]
-> 
-> > > Can't this be tested and determined at runtime? Do misaligned accesses
-> > > and compare the performance. We already do this for things like memcpy
-> > > or crypto implementation selection.
-> 
-> We've had a history of broken firmware emulation of misaligned accesses
-> wreaking havoc.  We don't run into concrete bugs there because we avoid
-> misaligned accesses as much as possible in the kernel, but I'd be worried
-> that we'd trigger a lot of these when probing for misaligned accesses.
-
-Then how do you distinguish between emulated and working vs. emulated 
-and broken? Sounds like the kernel running things would motivate fixing 
-firmware. :) If not, then broken platforms can disable the check with a 
-kernel command line flag. 
-
-> 
-> > There is also an long discussion about misaligned accesses
-> > for loooongarch.
+> On Tue, Feb 21, 2023 at 11:08:55AM -0800, Evan Green wrote:
+> > From: Palmer Dabbelt <palmer@rivosinc.com>
 > > 
-> > Basically if you want to run a common kernel (and userspace)
-> > you have to default to compiling everything with -mno-stict-align
-> > so that the compiler generates byte accesses for anything
-> > marked 'packed' (etc).
-> > 
-> > Run-time tests can optimise some hot-spots.
-> > 
-> > In any case 'slow' is probably pointless - unless the accesses
-> > take more than 1 or 2 extra cycles.
+> > This key allows device trees to specify the performance of misaligned
+> > accesses to main memory regions from each CPU in the system.
 > 
-> [Also below.]
-> 
-> > Oh, and you really never, ever want to emulate them.
-> 
-> Unfortunately we're kind of stuck with this one: the specs used to require
-> that misaligned accesses were supported and thus there's a bunch of
-> firmwares that emulate them (and various misaligned accesses spread around,
-> though they're kind of a mess).  The specs no longer require this support,
-> but just dropping it from firmware will break binaries.
-> 
-> There's been some vague plans to dig out of this, but it'd require some sort
-> of firmware interface additions in order to turn off the emulation and
-> that's going to take a while.  As it stands we've got a bunch of users that
-> just want to know when they can emit misaligned accesses.
-> 
-> > Technically misaligned reads on (some) x86-64 cpu are slower
-> > than aligned ones, but the difference is marginal.
-> > I've measured two 64bit misaligned reads every clock.
-> > But it is consistently slower by much less than one clock
-> > per cache line.
-> 
-> The "fast" case is explicitly written to catch that flavor of
-> implementation.
-> 
-> The "slow" one is a bit vaguer, but the general idea is to catch
-> implementations that end up with some sort of pipeline flush on misaligned
-> accesses.  We've got a lot of very small in-order processors in RISC-V land,
-> and while I haven't gotten around to benchmarking them all my guess is that
-> the spec requirement for support ended up with some simple implementations.
+> Could you fold some of Palmer's explanation for why this must be in the
+> devicetree? Think this is where he explained it:
+> https://lore.kernel.org/all/mhng-8736b349-e27a-4372-81ca-3a25d2ec1e94@palmer-ri-x1c9/
 
-If userspace wants to get into microarchitecture level optimizations, it 
-should just look at the CPU model. IOW, use the CPU compatible to infer 
-things rather than continuously adding properties in an adhoc manor 
-trying to parameterize everything.
+I still don't think this belongs in DT and replied on the above thread.
 
 Rob
 
