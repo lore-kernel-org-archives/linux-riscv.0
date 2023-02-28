@@ -4,56 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7D0EC7EE3A
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Feb 2023 21:38:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E149C64EC7
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Feb 2023 21:53:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=whg/foBKnKLwViXl3gBJN2UB7pMpX1PPFFaffIh4rkg=; b=4sfdoQv8JtADvQ
-	VtBy0ITx0Va2u7hJjOA8ARFJK0b68X5oIhoft4BVnBEsFVYHK551QpA23LRnpyYhBbQibXf1Rblp4
-	J7O0sWmZInrr1Fewhs+DnRywNd2/qX+jsoirfuAPGmAdfVbt0+alwxa4wMWX6XIVIKUAZvkCHvrO7
-	V3fRZwiQ52ZtL6Ic78SdEtDAfBjkR9Yk4R8XEFutZY9shoMDw6dM0qPLhWFNIbK45KU3CsNYniVPY
-	yDJuE8rFjgeuk/T2FC/euonzb9mR6guYZEJi5KoWhQE9nlRq645YDspGe5QQRaYpkAJlz8FZg437f
-	XjTwQI6J44dKeFiNc+4Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=eah1BpX9DtzLM8haNsp62speBFWo4B5oJ3o1dGTU1kM=; b=B7/gJ2EWKzJ6hLYNEBtaY0FZX9
+	OvppNfFBrt5yernGCzt/Eqgvz3ss/7q62INdfY+qLE3bRhQp/Qaaz7XC3C3s+Mjn+tEgI9Qfz6ZBX
+	rGextZCUbg443nvzsefzPn7osR8ZZ3uxtMMB8cDxUa0VeHDlnQBN5Oyl/tuNr9XZ1DBug+Ic1hFhs
+	aVYqpxEaAdLuhg5V5+Qap4o/nwdqCdS9kdX8ma31lc36DvcN0IEBHMiGNFtPS6F5OYxU5iJfcqefU
+	oC3TrDXccHp90V6N2lUrBz1dIUm6WwGCmhBYVhg+HmKyBh9fyhrsjLCEL3K8usOV0tO4eHlaubTzA
+	GIosQkcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pX7fd-00ELqj-7v; Tue, 28 Feb 2023 21:38:01 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1pX7u1-00EOCJ-MY; Tue, 28 Feb 2023 21:52:53 +0000
+Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pX7fL-00ELgS-Ea
-	for linux-riscv@bombadil.infradead.org; Tue, 28 Feb 2023 21:37:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=bgDXt1j338PLwuReLhtbxzMM/LqJBLyZGUvNk00hFLE=; b=MZG8P9QCVk6X6QUeTHsxN4ljba
-	XHTJvll6JiCHqkrFufD6FkOaPVdMfdChmuIsYG6gPN/C0EtF8ZsJOFYFEH1aeBcwuCVsvT6cc6zYC
-	kERWqlZqxcgCWvBS70G4o63hwFCq5a5JLvfaDSP47cYHd1mFAk1fwtqJ/1In2d8HC2ySTJuVnuQNW
-	lGzpIRExrBET51YPs0VKertzPTTKR+WXGDup5hZEHoBb9ayQxwVwro9LZ0dfPFqtLQK6Q85qK5e7b
-	Aj8Top+afwoUhwQOh16Hnac/FNf0S0cYWNl7KZwibvSYNIWcbo2rngPWYZgxF35kJkqJ6zw0rggUf
-	HdbXC1nQ==;
-Received: from willy by casper.infradead.org with local (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pX7fJ-0018pu-IG; Tue, 28 Feb 2023 21:37:41 +0000
-From: "Matthew Wilcox (Oracle)" <willy@infradead.org>
-To: linux-mm@kvack.org,
-	linux-arch@vger.kernel.org
-Cc: "Matthew Wilcox (Oracle)" <willy@infradead.org>,
-	linux-kernel@vger.kernel.org,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v3 20/34] riscv: Implement the new page table range API
-Date: Tue, 28 Feb 2023 21:37:23 +0000
-Message-Id: <20230228213738.272178-21-willy@infradead.org>
-X-Mailer: git-send-email 2.37.1
-In-Reply-To: <20230228213738.272178-1-willy@infradead.org>
-References: <20230228213738.272178-1-willy@infradead.org>
-MIME-Version: 1.0
+	id 1pX7ty-00EOAu-3Z
+	for linux-riscv@lists.infradead.org; Tue, 28 Feb 2023 21:52:52 +0000
+Received: by mail-pj1-x102d.google.com with SMTP id kb15so11314925pjb.1
+        for <linux-riscv@lists.infradead.org>; Tue, 28 Feb 2023 13:52:47 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20210112.gappssmtp.com; s=20210112; t=1677621166;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=w+zwAHBnS5+TovEmhkYJhNFoHDMUmuJ8ck612nZS1t8=;
+        b=omA2S4LjqCtvzyGP293QcxTJ7Lo75f7JjOAJP3W5yp4CiKRAVuH5MtWpvo7ryDtMFz
+         i4jDGzLy7aG5c07lAXorf7etqeUG4ti2THkpl4Pl5N4VjhCaAQvBh+zuvqBpue/ChW5q
+         GPkiN80WRdLr/ITBQd4kPSb2Wp7rH42C3abAIZzxPmPdVZMnjCxDg7rbUbaOeiom2pjP
+         BhZ8vn+XysK7S+6EWyghBcLpbo20XZl3pKYBT+y+773NB05P05laLT6RGZyuV0IwgejA
+         cn3a/8Rb6R9Gl3jRiEUDxW+b9Ut/C2i9kNS1PvV+OEaP/Hp7CL/b+0dweVERR7XEfGGO
+         ocxA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1677621166;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=w+zwAHBnS5+TovEmhkYJhNFoHDMUmuJ8ck612nZS1t8=;
+        b=R+PoD9l1MzdG/Kct7vKmjPYlPtRqY7rybv8zr81PuJVeQDtvhNFGrL1WoM7Ui7fJT0
+         n06LoSO8Gyotum32mLn4NdLfjaGIcBbdyaPAOKk4JVWPKZaVKVmVwcmK0ql8qKuE0JLS
+         sMWaKPpb3t7jLHO0eNtxjXd/7E6KGfFBoxbU0Qpj0oO3ZjEovD4HYVA88/2j7Ky9mdma
+         njM1Ek5XGPaOzjEG+uUp/AFi3yyR+uU+tilvgsqZq4Lsoo2Pt27ZCeuapy9aWiyBSOH6
+         e6y2av38YsbolC2uAF90AUvkj7KZXcXpbdDdqQMbM7VjC9blNk4l4FLoHjzPrqg2BlfD
+         Exfg==
+X-Gm-Message-State: AO0yUKVJECU5l/vx1yWiVzWU0Qtl/PhZnByPopRc/qnbp2A28D1o8XK0
+	liur9AeRCvDVR82Z1aBE7r+K0tdTISu4ntZclnQ=
+X-Google-Smtp-Source: AK7set/juip8p0MiLlYoPEIxqV9PMajgZBFayKyd5KvUfxhWs1VFVopVgOhH6LHgXjliJBQQwUAyQA==
+X-Received: by 2002:a17:902:e851:b0:19a:839f:435 with SMTP id t17-20020a170902e85100b0019a839f0435mr13658248plg.3.1677621166383;
+        Tue, 28 Feb 2023 13:52:46 -0800 (PST)
+Received: from localhost ([50.221.140.188])
+        by smtp.gmail.com with ESMTPSA id jj13-20020a170903048d00b001967692d6f5sm6945909plb.227.2023.02.28.13.52.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 28 Feb 2023 13:52:45 -0800 (PST)
+Date: Tue, 28 Feb 2023 13:52:45 -0800 (PST)
+X-Google-Original-Date: Tue, 28 Feb 2023 13:51:58 PST (-0800)
+Subject: Re: [PATCH 0/2] riscv: support ELF format binaries in nommu mode
+In-Reply-To: <20230228135126.1686427-1-gerg@kernel.org>
+CC: linux-riscv@lists.infradead.org, linux-mm@kvack.org,
+  linux-kernel@vger.kernel.org, gerg@kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: gerg@kernel.org, damien.lemoal@opensource.wdc.com
+Message-ID: <mhng-20faeb04-8ed4-4759-8f13-aef3d2446d15@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20230228_135250_384232_EF9DBB41 
+X-CRM114-Status: GOOD (  26.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,140 +84,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add set_ptes(), update_mmu_cache_range() and flush_dcache_folio().
-Change the PG_dcache_clean flag from being per-page to per-folio.
+On Tue, 28 Feb 2023 05:51:24 PST (-0800), gerg@kernel.org wrote:
+> The following changes add the ability to run ELF format binaries when
+> running RISC-V in nommu mode. That support is actually part of the
+> ELF-FDPIC loader, so these changes are all about making that work on
+> RISC-V.
+>
+> The first issue to deal with is making the ELF-FDPIC loader capable of
+> handling 64-bit ELF files. As coded right now it only supports 32-bit
+> ELF files.
+>
+> Secondly some changes are required to enable and compile the ELF-FDPIC
+> loader on RISC-V and to pass the ELF-FDPIC mapping addresses through to
+> user space when execing the new program.
+>
+> These changes have not been used to run actual ELF-FDPIC binaries.
+> It is used to load and run normal ELF - compiled -pie format. Though the
+> underlying changes are expected to work with full ELF-FDPIC binaries if
+> or when that is supported on RISC-V in gcc.
+>
+> To avoid needing changes to the C-library (tested with uClibc-ng
+> currently) there is a simple runtime dynamic loader (interpreter)
+> available to do the final relocations, https://github.com/gregungerer/uldso.
+> The nice thing about doing it this way is that the same program
+> binary can also be loaded with the usual ELF loader in MMU linux.
+>
+> The motivation here is to provide an easy to use alternative to the
+> flat format binaries normally used for RISC-V nommu based systems.
+>
+> Signed-off-by: Greg Ungerer <gerg@kernel.org>
+> ---
+>
+>  arch/riscv/include/asm/elf.h         |   11 +++++++++-
+>  arch/riscv/include/asm/mmu.h         |    4 +++
+>  arch/riscv/include/uapi/asm/ptrace.h |    5 ++++
+>  fs/Kconfig.binfmt                    |    2 -
+>  fs/binfmt_elf_fdpic.c                |   38 +++++++++++++++++------------------
+>  include/linux/elf-fdpic.h            |   14 +++++++++++-
+>  include/uapi/linux/elf-fdpic.h       |   15 +++++++++++++
+>  7 files changed, 67 insertions(+), 22 deletions(-)
 
-Signed-off-by: Matthew Wilcox (Oracle) <willy@infradead.org>
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv@lists.infradead.org
----
- arch/riscv/include/asm/cacheflush.h | 19 +++++++++----------
- arch/riscv/include/asm/pgtable.h    | 26 +++++++++++++++++++-------
- arch/riscv/mm/cacheflush.c          | 11 ++---------
- 3 files changed, 30 insertions(+), 26 deletions(-)
+Adding Damien, as IIRC he's had some hacked up userspace bits for the 
+K210.  I'm yet to get anything running, but it'd be great if we get this 
+to a point where I can actually boot test this on QEMU (I'm just doing 
+builds now).
 
-diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/include/asm/cacheflush.h
-index 03e3b95ae6da..10e5e96f09b5 100644
---- a/arch/riscv/include/asm/cacheflush.h
-+++ b/arch/riscv/include/asm/cacheflush.h
-@@ -15,20 +15,19 @@ static inline void local_flush_icache_all(void)
- 
- #define PG_dcache_clean PG_arch_1
- 
--static inline void flush_dcache_page(struct page *page)
-+static inline void flush_dcache_folio(struct folio *folio)
- {
--	/*
--	 * HugeTLB pages are always fully mapped and only head page will be
--	 * set PG_dcache_clean (see comments in flush_icache_pte()).
--	 */
--	if (PageHuge(page))
--		page = compound_head(page);
--
--	if (test_bit(PG_dcache_clean, &page->flags))
--		clear_bit(PG_dcache_clean, &page->flags);
-+	if (test_bit(PG_dcache_clean, &folio->flags))
-+		clear_bit(PG_dcache_clean, &folio->flags);
- }
-+#define flush_dcache_folio flush_dcache_folio
- #define ARCH_IMPLEMENTS_FLUSH_DCACHE_PAGE 1
- 
-+static inline void flush_dcache_page(struct page *page)
-+{
-+	flush_dcache_folio(page_folio(page));
-+}
-+
- /*
-  * RISC-V doesn't have an instruction to flush parts of the instruction cache,
-  * so instead we just flush the whole thing.
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index b516f3b59616..3a3a776fc047 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -405,8 +405,8 @@ static inline pte_t pte_modify(pte_t pte, pgprot_t newprot)
- 
- 
- /* Commit new configuration to MMU hardware */
--static inline void update_mmu_cache(struct vm_area_struct *vma,
--	unsigned long address, pte_t *ptep)
-+static inline void update_mmu_cache_range(struct vm_area_struct *vma,
-+		unsigned long address, pte_t *ptep, unsigned int nr)
- {
- 	/*
- 	 * The kernel assumes that TLBs don't cache invalid entries, but
-@@ -415,8 +415,11 @@ static inline void update_mmu_cache(struct vm_area_struct *vma,
- 	 * Relying on flush_tlb_fix_spurious_fault would suffice, but
- 	 * the extra traps reduce performance.  So, eagerly SFENCE.VMA.
- 	 */
--	local_flush_tlb_page(address);
-+	while (nr--)
-+		local_flush_tlb_page(address + nr * PAGE_SIZE);
- }
-+#define update_mmu_cache(vma, addr, ptep) \
-+	update_mmu_cache_range(vma, addr, ptep, 1)
- 
- #define __HAVE_ARCH_UPDATE_MMU_TLB
- #define update_mmu_tlb update_mmu_cache
-@@ -456,12 +459,21 @@ static inline void __set_pte_at(struct mm_struct *mm,
- 	set_pte(ptep, pteval);
- }
- 
--static inline void set_pte_at(struct mm_struct *mm,
--	unsigned long addr, pte_t *ptep, pte_t pteval)
-+static inline void set_ptes(struct mm_struct *mm, unsigned long addr,
-+		pte_t *ptep, pte_t pteval, unsigned int nr)
- {
--	page_table_check_ptes_set(mm, addr, ptep, pteval, 1);
--	__set_pte_at(mm, addr, ptep, pteval);
-+	page_table_check_ptes_set(mm, addr, ptep, pteval, nr);
-+
-+	for (;;) {
-+		__set_pte_at(mm, addr, ptep, pteval);
-+		if (--nr == 0)
-+			break;
-+		ptep++;
-+		addr += PAGE_SIZE;
-+		pte_val(pteval) += 1 << _PAGE_PFN_SHIFT;
-+	}
- }
-+#define set_pte_at(mm, addr, ptep, pte) set_ptes(mm, addr, ptep, pte, 1)
- 
- static inline void pte_clear(struct mm_struct *mm,
- 	unsigned long addr, pte_t *ptep)
-diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
-index fcd6145fbead..e36a851e5788 100644
---- a/arch/riscv/mm/cacheflush.c
-+++ b/arch/riscv/mm/cacheflush.c
-@@ -81,16 +81,9 @@ void flush_icache_mm(struct mm_struct *mm, bool local)
- #ifdef CONFIG_MMU
- void flush_icache_pte(pte_t pte)
- {
--	struct page *page = pte_page(pte);
-+	struct folio *folio = page_folio(pte_page(pte));
- 
--	/*
--	 * HugeTLB pages are always fully mapped, so only setting head page's
--	 * PG_dcache_clean flag is enough.
--	 */
--	if (PageHuge(page))
--		page = compound_head(page);
--
--	if (!test_bit(PG_dcache_clean, &page->flags)) {
-+	if (!test_bit(PG_dcache_clean, &folio->flags)) {
- 		flush_icache_all();
- 		set_bit(PG_dcache_clean, &page->flags);
- 	}
--- 
-2.39.1
+Given that it's the second week of the merge window and this is a bunch 
+of new uABI it seems best to hold off until the next cycle.  I poked 
+around and don't see anything wrong, but I'll try and take a more 
+detailed look after the merge window.
 
+Thanks!
 
 _______________________________________________
 linux-riscv mailing list
