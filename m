@@ -4,83 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFBE4C64EC7
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Feb 2023 19:19:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61BEAC64EC7
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Feb 2023 19:19:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lMrSUj7T5YBwYQD0TjyYDfmAL6Wl/Yg3QGIlEDwg29Q=; b=RXaruToOYXDKbo
-	pq/FqmdQ+gNu2B58/ONfMhgqrv91pPbqBy0z9XdpLFrwRXpOF7GrJXBHliRYRdfD1edB8unSTDLYu
-	UxI3itw/uKuQcg8cm+hJMb0HRrWb54VYGCVatkVI1UBA255l78mfQ8EwLrZABUHRrHS5ZvNCphFru
-	vx5RkfR7zJHnTccYREYfA10k5XDqyXwMOxB/9t2jCGwVZ6wmpBobZhePO4/msFVj4fH9oy0eAXj1c
-	JK5JrFFf2nSykzPXcxtKRXwGR9JoizCsoQZU1Azp0vXfAZVxUOlBieRBECl2OhfdaEBxue9zsmgQ/
-	6QJB1oMOvEdhnOIzW17g==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JJo+yO52X1Sr8LQocf36Bgbc10hnLzOnNueRJ7ip9/A=; b=qISMxMqOq5SuTC8Crztp1gXIh0
+	pzVf+xhpzmNWn2+gtV0aVZYOa2zMwe+ka4U9MAeyTR4JOKyc80hotxkJKpM1DZrY4Epasz30MpWO9
+	dQw5YNvQi1ga9Cn6KCb6U1B3xabQOD64TP6TjBhSrxgy+njL558K4KqqrkK3TGhUJu2wOuKvDUWIi
+	Wpf0xN8sHrc4LgIVz8/zRgLPZMBtQ4gBlF9A1TXW9PlLVOJjw/l5GoFqSSA+aSANxLLUoqloe6i4d
+	WQxQjKOu3ygg6mMpbXRNf2UF8yGFp0Lk0S1D5YYYcIucnlRjK7ehT/+1YbNI8C55vUt55aO2pmAXx
+	NPZQXFgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pX5VN-00E4O2-GD; Tue, 28 Feb 2023 19:19:17 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1pX5Vm-00E4TF-8K; Tue, 28 Feb 2023 19:19:42 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pX5VH-00E4M9-E2
-	for linux-riscv@lists.infradead.org; Tue, 28 Feb 2023 19:19:12 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id a2so1128635plm.4
-        for <linux-riscv@lists.infradead.org>; Tue, 28 Feb 2023 11:19:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112; t=1677611948;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=FpEVz7SmprPoPkB0vfE/PqJxuugSFBKj6AY2r5uLAhc=;
-        b=oWlcXRzyqWqEIYwyzrAbhH5dfbtnZIzo1YdAD6EbxrkG1UYmywauWswlbWUb9RyzJT
-         brrhvXg9BV/J80dlhPlO1Y21wLf6vRkFdXy7JICIvDrelyzHIZjZVwrR4yuaicL7f3Vk
-         2p3merJr6M4IafXoXz51BvBxgjw+2vFOvA7iQCX7+ipsnTqqyjWJ3THXEnrQ8p4gJgDk
-         xZ3DYrEnn6dh5SSFWIpnSPW533U6fF1NRXuZZhGMXkF858tTyzkALowN2hKgVfeUNsrR
-         5wS/6VMndefgSb0UUhYGxgiYLa81lYWrHHI0iDazPBKk+F/PHzqrgvgcgWVcBnyOqxfC
-         HgLQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1677611948;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=FpEVz7SmprPoPkB0vfE/PqJxuugSFBKj6AY2r5uLAhc=;
-        b=nAPCVaRn1LfLtNUwDJ6jaqP8SCG7Ko3fFTM8HOOzDbCwDvcNYJAqK/SdA0dKewWuFT
-         fvWx1ClGsr2pltIfFq3P8UcUSTzKfod8saeughNukzaVejBbxeJZsQ5m21I+rj8ppGbK
-         /hMMZLVD8OHdnWkTmuxPtQ9RzP0ksHrWvEQ/HouHr2SMoEVfPEqEpSgRsCrolBVA7k/g
-         USfqH5ANQg7rJ3Uv0Ey1gx98jmpt4HwFCbybOgJQc0SVEaoeG6MHkPHxjull45+z7z9P
-         Vym8rbeCr7XZT8OTcriIvtvywh/GKKH8QBZBFOU8UTuplZnGBzPBv5nP1SbrNbhrI/jO
-         Xodw==
-X-Gm-Message-State: AO0yUKUReitVhO21CtIS6bnOeKhxxLaytnyuTBOIWm5+n2CiEmc1JWtr
-	eartRpNaWLCCkZcl4WDLxHM=
-X-Google-Smtp-Source: AK7set9nvpB6Jm7bh8EL2CSZ/onqaLVDtbrhvaG0Y49z4Hn9XsjcfvrcAyDG9rY99D0UL9m1Qq4bXA==
-X-Received: by 2002:a05:6a20:7f8e:b0:cb:6e9e:e6df with SMTP id d14-20020a056a207f8e00b000cb6e9ee6dfmr5180512pzj.14.1677611948146;
-        Tue, 28 Feb 2023 11:19:08 -0800 (PST)
-Received: from ?IPV6:2001:df0:0:200c:112f:75e9:7ff2:6774? ([2001:df0:0:200c:112f:75e9:7ff2:6774])
-        by smtp.gmail.com with ESMTPSA id j8-20020a62b608000000b005ded4825201sm6382146pff.112.2023.02.28.11.19.02
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 28 Feb 2023 11:19:07 -0800 (PST)
-Message-ID: <f619e8ce-1fce-ace9-3685-e0b50646e8fb@gmail.com>
-Date: Wed, 1 Mar 2023 08:18:59 +1300
+	id 1pX5Vk-00E4S8-52
+	for linux-riscv@lists.infradead.org; Tue, 28 Feb 2023 19:19:41 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id BF2CEB80E72;
+	Tue, 28 Feb 2023 19:19:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31FAEC433EF;
+	Tue, 28 Feb 2023 19:19:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1677611977;
+	bh=fo0jm9LIFRTBLWMyXrRtWlqKUsGki35LZNiy0Ybfk6g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=V/vEXAL6MEcX2zrFrn1ooCXm/U/Qvczx09vMgM+M51u/u6WOmi+A6bhT5b7D6inYF
+	 MBn9Q68VHUvJxbUZ2QtxMtTgY+YgZ4FD4t2PUQPUp5H++zCRuimzwcbwqNpNbOI0pC
+	 dU4uIFCCYgCLTGD3JNY2dhgTaXmrDWUMS552KY74nI5wggf8xgHOGLAjcp4FuKcAG2
+	 gvdmjM4V95xI9eGgfu3ppqxpJwMXPVR4Qh3o/Lc3UdBSfRka0I8hO880mm33eesT5i
+	 c7z6fAT9VzZ5h61c1E12YjEiUKKC1kvjvv83RjfmrsTIdgAhR8NdAjt5JPX9dApvP0
+	 n5zbALL3o+Afw==
+Date: Tue, 28 Feb 2023 19:19:32 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Nick Alcock <nick.alcock@oracle.com>
+Cc: mcgrof@kernel.org, linux-modules@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Hitomi Hasegawa <hasegawa-hitomi@fujitsu.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, linux-riscv@lists.infradead.org,
+	linux-clk@vger.kernel.org
+Subject: Re: [PATCH 12/20] clk: microchip: mpfs: remove MODULE_LICENSE in
+ non-modules
+Message-ID: <Y/5TxBLcTDIdv2eM@spud>
+References: <20230228130215.289081-1-nick.alcock@oracle.com>
+ <20230228130215.289081-13-nick.alcock@oracle.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.7.1
-Subject: Re: [PATCH 08/10] parisc: fix livelock in uaccess
-Content-Language: en-US
-To: Guenter Roeck <linux@roeck-us.net>, Al Viro <viro@zeniv.linux.org.uk>
-Cc: linux-arch@vger.kernel.org, linux-alpha@vger.kernel.org,
- linux-ia64@vger.kernel.org, linux-hexagon@vger.kernel.org,
- linux-m68k@lists.linux-m68k.org, Michal Simek <monstr@monstr.eu>,
- Dinh Nguyen <dinguyen@kernel.org>, openrisc@lists.librecores.org,
- linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
- sparclinux@vger.kernel.org, Linus Torvalds <torvalds@linux-foundation.org>
-References: <Y9lz6yk113LmC9SI@ZenIV> <Y9l0w4M91DwYLO3N@ZenIV>
- <20230228152236.GA4088022@roeck-us.net>
-From: Michael Schmitz <schmitzmic@gmail.com>
-In-Reply-To: <20230228152236.GA4088022@roeck-us.net>
+In-Reply-To: <20230228130215.289081-13-nick.alcock@oracle.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230228_111911_499581_525D8B7D 
-X-CRM114-Status: GOOD (  17.75  )
+X-CRM114-CacheID: sfid-20230228_111940_504085_F209EB26 
+X-CRM114-Status: GOOD (  19.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,43 +74,94 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============1525956673083687075=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-R3VlbnRlciwKCk9uIDEvMDMvMjMgMDQ6MjIsIEd1ZW50ZXIgUm9lY2sgd3JvdGU6Cj4gT24gVHVl
-LCBKYW4gMzEsIDIwMjMgYXQgMDg6MDY6MjdQTSArMDAwMCwgQWwgVmlybyB3cm90ZToKPj4gcGFy
-aXNjIGVxdWl2YWxlbnQgb2YgMjYxNzhlYzExZWYzICJ4ODY6IG1tOiBjb25zb2xpZGF0ZSBWTV9G
-QVVMVF9SRVRSWSBoYW5kbGluZyIKPj4gSWYgZS5nLiBnZXRfdXNlcigpIHRyaWdnZXJzIGEgcGFn
-ZSBmYXVsdCBhbmQgYSBmYXRhbCBzaWduYWwgaXMgY2F1Z2h0LCB3ZSBtaWdodAo+PiBlbmQgdXAg
-d2l0aCBoYW5kbGVfbW1fZmF1bHQoKSByZXR1cm5pbmcgVk1fRkFVTFRfUkVUUlkgYW5kIG5vdCBk
-b2luZyBhbnl0aGluZwo+PiB0byBwYWdlIHRhYmxlcy4gIEluIHN1Y2ggY2FzZSB3ZSBtdXN0ICpu
-b3QqIHJldHVybiB0byB0aGUgZmF1bHRpbmcgaW5zbiAtCj4+IHRoYXQgd291bGQgcmVwZWF0IHRo
-ZSBlbnRpcmUgdGhpbmcgd2l0aG91dCBtYWtpbmcgYW55IHByb2dyZXNzOyB3aGF0IHdlIG5lZWQK
-Pj4gaW5zdGVhZCBpcyB0byB0cmVhdCB0aGF0IGFzIGZhaWxlZCAodXNlcikgbWVtb3J5IGFjY2Vz
-cy4KPj4KPj4gU2lnbmVkLW9mZi1ieTogQWwgVmlybyA8dmlyb0B6ZW5pdi5saW51eC5vcmcudWs+
-Cj4+IC0tLQo+PiAgIGFyY2gvcGFyaXNjL21tL2ZhdWx0LmMgfCA1ICsrKystCj4+ICAgMSBmaWxl
-IGNoYW5nZWQsIDQgaW5zZXJ0aW9ucygrKSwgMSBkZWxldGlvbigtKQo+Pgo+PiBkaWZmIC0tZ2l0
-IGEvYXJjaC9wYXJpc2MvbW0vZmF1bHQuYyBiL2FyY2gvcGFyaXNjL21tL2ZhdWx0LmMKPj4gaW5k
-ZXggODY5MjA0ZTk3ZWM5Li5iYjMwZmY2YTNlMTkgMTAwNjQ0Cj4+IC0tLSBhL2FyY2gvcGFyaXNj
-L21tL2ZhdWx0LmMKPj4gKysrIGIvYXJjaC9wYXJpc2MvbW0vZmF1bHQuYwo+PiBAQCAtMzA4LDgg
-KzMwOCwxMSBAQCB2b2lkIGRvX3BhZ2VfZmF1bHQoc3RydWN0IHB0X3JlZ3MgKnJlZ3MsIHVuc2ln
-bmVkIGxvbmcgY29kZSwKPj4gICAKPj4gICAJZmF1bHQgPSBoYW5kbGVfbW1fZmF1bHQodm1hLCBh
-ZGRyZXNzLCBmbGFncywgcmVncyk7Cj4+ICAgCj4+IC0JaWYgKGZhdWx0X3NpZ25hbF9wZW5kaW5n
-KGZhdWx0LCByZWdzKSkKPj4gKwlpZiAoZmF1bHRfc2lnbmFsX3BlbmRpbmcoZmF1bHQsIHJlZ3Mp
-KSB7Cj4+ICsJCWlmICghdXNlcl9tb2RlKHJlZ3MpKQo+PiArCQkJZ290byBub19jb250ZXh0Owo+
-IDAtZGF5IHJpZ2h0ZnVsbHkgY29tcGxhaW5zIHRoYXQgdGhpcyBsZWF2ZXMgJ21zZycgdW5pbml0
-aWFsaXplZC4KPgo+IGFyY2gvcGFyaXNjL21tL2ZhdWx0LmM6NDI3IGRvX3BhZ2VfZmF1bHQoKSBl
-cnJvcjogdW5pbml0aWFsaXplZCBzeW1ib2wgJ21zZycKPgo+IEd1ZW50ZXIKCldoYXQgaGFwcGVu
-cyBpZiB5b3UgaW5pdGlhbGl6ZSBtc2cgdG8gIlBhZ2UgZmF1bHQ6IG5vIGNvbnRleHQiIHJpZ2h0
-IGF0IAp0aGUgc3RhcnQgb2YgZG9fcGFnZV9mYXVsdCAoYW5kIGRyb3AgdGhlIGFzc2lnbm1lbnQg
-YSBmZXcgbGluZXMgZG93biBhcyAKdGhhdCdzIG5vdyByZWR1bmRhbnQpPwoKKFdvbmRlcmluZyBp
-ZiB0aGUgemVybyBwYWdlIGFjY2VzcyBvbiBwYXJpc2MgY291bGQgY2F1c2UgYSB0cmlwIHJpZ2h0
-IApiYWNrIGludG8gZG9fcGFnZV9mYXVsdCwgYWQgaW5maW5pdHVtLi4uKQoKQ2hlZXJzLAoKIMKg
-wqDCoCBNaWNoYWVsCgoKPj4gICAJCXJldHVybjsKPj4gKwl9Cj4+ICAgCj4+ICAgCS8qIFRoZSBm
-YXVsdCBpcyBmdWxseSBjb21wbGV0ZWQgKGluY2x1ZGluZyByZWxlYXNpbmcgbW1hcCBsb2NrKSAq
-Lwo+PiAgIAlpZiAoZmF1bHQgJiBWTV9GQVVMVF9DT01QTEVURUQpCgpfX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
-bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
-Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+--===============1525956673083687075==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="J9YrWK5U4Nxh9aHS"
+Content-Disposition: inline
+
+
+--J9YrWK5U4Nxh9aHS
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Feb 28, 2023 at 01:02:07PM +0000, Nick Alcock wrote:
+> Since commit 8b41fc4454e ("kbuild: create modules.builtin without
+> Makefile.modbuiltin or tristate.conf"), MODULE_LICENSE declarations
+> are used to identify modules. As a consequence, uses of the macro
+> in non-modules will cause modprobe to misidentify their containing
+> object file as a module when it is not (false positives), and modprobe
+> might succeed rather than failing with a suitable error message.
+>=20
+> So remove it in the files in this commit, none of which can be built as
+> modules.
+>=20
+> Signed-off-by: Nick Alcock <nick.alcock@oracle.com>
+> Suggested-by: Luis Chamberlain <mcgrof@kernel.org>
+> Cc: Luis Chamberlain <mcgrof@kernel.org>
+> Cc: linux-modules@vger.kernel.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: Hitomi Hasegawa <hasegawa-hitomi@fujitsu.com>
+> Cc: Conor Dooley <conor.dooley@microchip.com>
+> Cc: Daire McNamara <daire.mcnamara@microchip.com>
+> Cc: Michael Turquette <mturquette@baylibre.com>
+> Cc: Stephen Boyd <sboyd@kernel.org>
+> Cc: linux-riscv@lists.infradead.org
+> Cc: linux-clk@vger.kernel.org
+> ---
+>  drivers/clk/microchip/clk-mpfs.c | 1 -
+>  1 file changed, 1 deletion(-)
+>=20
+> diff --git a/drivers/clk/microchip/clk-mpfs.c b/drivers/clk/microchip/clk=
+-mpfs.c
+> index 4f0a19db7ed74..d85b345f4c08d 100644
+> --- a/drivers/clk/microchip/clk-mpfs.c
+> +++ b/drivers/clk/microchip/clk-mpfs.c
+> @@ -513,4 +513,3 @@ MODULE_DESCRIPTION("Microchip PolarFire SoC Clock Dri=
+ver");
+>  MODULE_AUTHOR("Padmarao Begari <padmarao.begari@microchip.com>");
+>  MODULE_AUTHOR("Daire McNamara <daire.mcnamara@microchip.com>");
+>  MODULE_AUTHOR("Conor Dooley <conor.dooley@microchip.com>");
+> -MODULE_LICENSE("GPL");
+
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+
+I'll take this via the microchip/at91 clock tree after v6.3-rc1 has been
+released.
+
+Thanks,
+Conor.
+
+
+--J9YrWK5U4Nxh9aHS
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY/5TxAAKCRB4tDGHoIJi
+0qRYAP4hAGmSiUtr+YIBtvnpss72NXfOb3W3G/mOzk1iYpD5WwEAqOGVxkikgTDE
+dmyRBIRrLaGFnutuZJDaqnQBnAUB6QQ=
+=p4yC
+-----END PGP SIGNATURE-----
+
+--J9YrWK5U4Nxh9aHS--
+
+
+--===============1525956673083687075==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1525956673083687075==--
+
