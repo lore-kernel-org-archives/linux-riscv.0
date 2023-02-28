@@ -4,70 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AEDFC64EC7
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Feb 2023 08:58:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F299C7EE31
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Feb 2023 08:58:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=V6UC34NM0+coSXRrbzLMmAuWmQv6+q4WN/6jO+D1cIg=; b=TInImHY3qpOKyd
-	Cez6dK/+yRbMqfHKwB7V7ToQhTTnLah+gO1lnWMvPkraacDTq7jKm6ihwELm/WacyfS9QaylrjA1S
-	Dtp6jNd9LDhjNGmE078iNmSUukDV925Gzs+4+MGdgZ6eWm+hkj8UJ94IO76FrJ6WqxJ/veD4HyL8q
-	fdGAwr1+pj+IlRYfzcoYIrcnywk/gTA1sxy1/5Nhicu1rzvr1pYa6aaWeZETxsFyajTDgEyQ0eELG
-	aipf0WlDjxIV4YuESd9rGDloZfZ/HpyiDIgEQj7UUbvBIj/FklcHUf07DDoc/M/9ux85n2YpoTJg4
-	Rx3a28WrYJpYHxGn4k1g==;
+	List-Owner; bh=9w6ZtfpvE/MtVCXF3RJOlMXmu3v//y++pNxrhnTCMr8=; b=sbc8yjmhwbKWl3
+	b20ZvHXSOuzdjB3d3u7L7iMDm/xm27svjSgWyYldwHGzw1Bnr373gp0K6HlZtNWmPcQn4qNelh4Wh
+	ZzyOg2EJ3YWJDxGLEX4mGkkudNtefqRf7FqF+4DQl4cO1mClFbUEERrwuNVjo1eEk+ndRQ3h+Xrh7
+	lnH635dwt24LKggPfbghT52+3AnLDyj9PuPVuc2FMPlTlH0A3P3Thcu4V+FTsp0Pg1E0CosG0clEm
+	uffbsvoFtNViQzcBhWL+038feEVRbHCrbsEQZt0yKfKM9OhwmmosZcuqTS+cEXYW82bsg07372PHe
+	pxV6Dgy8thWEHmUlE7pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWvod-00CR2e-SY; Tue, 28 Feb 2023 08:58:31 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWvoT-00CR0v-3e; Tue, 28 Feb 2023 08:58:22 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 378F660FDD;
-	Tue, 28 Feb 2023 08:58:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24246C433D2;
-	Tue, 28 Feb 2023 08:58:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1677574699;
-	bh=UztsLsaqmIXyoCT63yUOOYX/F2RBn+tEboh82iUTl84=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dvFldP2nDPK1JM1UdTSvrNFQgLKdCKwOzfkHHphaxtZJbfiOb+x1w8SgrPHVVLpTM
-	 0+DGxsyLVGr/st2iaB5VqG6eeN9RmbwrKyu1S1M0ogYouEhMNuHsdIhPyL2tnEfVU1
-	 gTZGjIJffgoh26CK72V24tXXKN+/RvSZ3yTVgjyc=
-Date: Tue, 28 Feb 2023 09:58:16 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Tom Saeger <tom.saeger@oracle.com>
-Cc: Sasha Levin <sashal@kernel.org>,
-	Naresh Kamboju <naresh.kamboju@linaro.org>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Rich Felker <dalias@libc.org>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Dennis Gilmore <dennis@ausil.us>,
-	Palmer Dabbelt <palmer@rivosinc.com>, Arnd Bergmann <arnd@arndb.de>,
-	Andrew Morton <akpm@linux-foundation.org>, stable@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org
-Subject: Re: [PATCH 5.15 v2 1/5] arch: fix broken BuildID for arm64 and riscv
-Message-ID: <Y/3CKO8XjvyMlg+5@kroah.com>
-References: <20230210-tsaeger-upstream-linux-stable-5-15-v2-0-6c68622745e9@oracle.com>
- <20230210-tsaeger-upstream-linux-stable-5-15-v2-1-6c68622745e9@oracle.com>
- <Y/c3MSvnN4DcvzSx@kroah.com>
- <20230223175331.7tsgvkvcur6wl7h7@oracle.com>
- <20230224024724.whvtsrljz5k3jpln@oracle.com>
+	id 1pWvoj-00CR3r-46; Tue, 28 Feb 2023 08:58:37 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pWvof-00CR0h-Dw; Tue, 28 Feb 2023 08:58:35 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id F169A24E46D;
+	Tue, 28 Feb 2023 16:57:58 +0800 (CST)
+Received: from EXMBX162.cuchost.com (172.16.6.72) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 28 Feb
+ 2023 16:55:09 +0800
+Received: from [192.168.125.68] (113.72.145.171) by EXMBX162.cuchost.com
+ (172.16.6.72) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 28 Feb
+ 2023 16:55:08 +0800
+Message-ID: <6aaebbc4-9d60-6445-7066-a9a60c50c6dd@starfivetech.com>
+Date: Tue, 28 Feb 2023 16:55:06 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230224024724.whvtsrljz5k3jpln@oracle.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.8.0
+Subject: Re: [PATCH v2 1/3] dt-bindings: phy: Add starfive,jh7110-dphy-rx
+To: Rob Herring <robh@kernel.org>
+CC: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing
+	<kernel@esmil.dk>, Conor Dooley <conor@kernel.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Jack Zhu
+	<jack.zhu@starfivetech.com>, <linux-phy@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>
+References: <20230223015952.201841-1-changhuang.liang@starfivetech.com>
+ <20230223015952.201841-2-changhuang.liang@starfivetech.com>
+ <20230227183434.GA642331-robh@kernel.org>
+Content-Language: en-US
+From: Changhuang Liang <changhuang.liang@starfivetech.com>
+In-Reply-To: <20230227183434.GA642331-robh@kernel.org>
+X-Originating-IP: [113.72.145.171]
+X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX162.cuchost.com
+ (172.16.6.72)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230228_005821_266518_79FFC5B7 
-X-CRM114-Status: GOOD (  26.32  )
+X-CRM114-CacheID: sfid-20230228_005833_782150_3FB9C105 
+X-CRM114-Status: UNSURE (   9.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,68 +80,65 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 23, 2023 at 08:47:24PM -0600, Tom Saeger wrote:
-> On Thu, Feb 23, 2023 at 11:53:42AM -0600, Tom Saeger wrote:
-> > On Thu, Feb 23, 2023 at 10:51:45AM +0100, Greg Kroah-Hartman wrote:
-> > > On Fri, Feb 10, 2023 at 01:18:40PM -0700, Tom Saeger wrote:
-> > > > From: Masahiro Yamada <masahiroy@kernel.org>
-> > > > 
-> > > > commit 99cb0d917ffa1ab628bb67364ca9b162c07699b1 upstream.
-> > > > 
-> > > > Dennis Gilmore reports that the BuildID is missing in the arm64 vmlinux
-> > > > since commit 994b7ac1697b ("arm64: remove special treatment for the
-> > > > link order of head.o").
-> > > > 
-> > > > The issue is that the type of .notes section, which contains the BuildID,
-> > > > changed from NOTES to PROGBITS.
-> > > > 
-> > > > Ard Biesheuvel figured out that whichever object gets linked first gets
-> > > > to decide the type of a section. The PROGBITS type is the result of the
-> > > > compiler emitting .note.GNU-stack as PROGBITS rather than NOTE.
-> > > > 
-> > > > While Ard provided a fix for arm64, I want to fix this globally because
-> > > > the same issue is happening on riscv since commit 2348e6bf4421 ("riscv:
-> > > > remove special treatment for the link order of head.o"). This problem
-> > > > will happen in general for other architectures if they start to drop
-> > > > unneeded entries from scripts/head-object-list.txt.
-> > > > 
-> > > > Discard .note.GNU-stack in include/asm-generic/vmlinux.lds.h.
-> > > > 
-> > > > Link: https://lore.kernel.org/lkml/CAABkxwuQoz1CTbyb57n0ZX65eSYiTonFCU8-LCQc=74D=xE=rA@mail.gmail.com/
-> > > > Fixes: 994b7ac1697b ("arm64: remove special treatment for the link order of head.o")
-> > > > Fixes: 2348e6bf4421 ("riscv: remove special treatment for the link order of head.o")
-> 
-> Greg, how about something like this tacked onto backport of this commit?
-> 
-> [Tom: stable backport 5.15.y, 5.10.y, 5.4.y]
-> 
-> Though the above "Fixes:" commits are not in this kernel, the conditions
-> which lead to a missing Build ID in arm64 vmlinux are similar.
-> 
-> Evidence points to these conditions:
-> 1. ld version > 2.36 (exact binutils commit documented in a494398bde27)
-> 2. first object which gets linked (head.o) has a PROGBITS .note.GNU-stack segment
-> 
-> These conditions can be observed when:
-> - 5.15.60+ OR 5.10.136+ OR 5.4.210+
-> - AND ld version > 2.36
-> - AND arch=arm64
-> - AND CONFIG_MODVERSIONS=y
-> 
-> This was previously bisected to the stable backport of 0d362be5b142.
-> Follow-up experiments were discussed here: https://lore.kernel.org/all/20221221235413.xaisboqmr7dkqwn6@oracle.com/ 
-> which strongly hints at condition 2.
-> 
-> 
-> > > 
-> > > Why are we adding a commit to 5.15.y that fixes an issue that only
-> > > showed up in 6.1.y?
-> 
-> If you approve - I'll send v3 for 5.15, 5.10, and 5.4 (with style fixes).
 
-That would make more sense, thanks.
 
-greg k-h
+On 2023/2/28 2:34, Rob Herring wrote:
+> On Wed, Feb 22, 2023 at 05:59:50PM -0800, Changhuang Liang wrote:
+[...]
+>> +
+>> +  clocks:
+>> +    maxItems: 3
+>> +
+>> +  clock-names:
+>> +    items:
+>> +      - const: cfg
+>> +      - const: ref
+>> +      - const: tx
+> 
+> Should be 'rx' given this is the 'rx' block? A description of each clock 
+> in 'clocks' would be good.
+> 
+
+'tx': This clock is directly used to generate transmit escape sequences, 
+will add description of each clock in 'clocks'.
+
+>> +
+>> +  resets:
+>> +    items:
+>> +      - description: DPHY_HW reset
+>> +      - description: DPHY_B09_ALWAYS_ON reset
+>> +
+>> +  starfive,aon-syscon:
+>> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+>> +    items:
+>> +      items:
+> 
+> - items: ?
+> 
+> Otherwise, multiple 2 cell entries are allowed. Is that intended?
+> 
+
+Will change to:
+items:
+  - items:
+
+>> +        - description: phandle of AON SYSCON
+>> +        - description: register offset
+>> +    description: The power of dphy rx is configured by AON SYSCON
+>> +      in this property.
+> 
+> 
+>> +
+>> +  "#phy-cells":
+>> +    const: 0
+>> +
+>> +required:
+>> +  - compatible
+>> +  - reg
+[...]
+>> -- 
+>> 2.25.1
+>>
 
 _______________________________________________
 linux-riscv mailing list
