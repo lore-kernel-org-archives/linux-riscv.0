@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEA14C7EE2E
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Feb 2023 00:06:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C322C7EE2E
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Feb 2023 00:08:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dFFyu+I3KpWDIJrljc+fUf+VSaBAFJUeXQtwV3SM1t4=; b=04A36IiZ1QeWEM
-	k4nzKHFAxsL+KIT581ULMgZWq5v583NQV8AgQL6IlV0qF73DWJgdZuEsRb1cN72NLv3WthK5PHdzG
-	LBMVCrC1mywHLZJmYkf7Ig5t3esM73VLFAsWKLk/vWr2wTPbUc0l/JfHHSO50NQj1oWGf/xKZLbI5
-	S2CJD+m/PpuCz8SKDUx8Fr1kL2WBOgh9n/BYoOtCPRaPG0VbwCLKjQb4su67D8j4ykRBEwv3Elm5v
-	UxGQb0G9jgFBPtMfOHk6y0Ce5ek47h7yNAGKdyhF3FDBX/FPmzz6zzwsbYDL2QAbp4uKkAyd79CEC
-	9+R2JhICOD3xJJtfC//Q==;
+	List-Owner; bh=+FHJYcCBC7nLSPW2kVTCA5b7FxmNILQ46EzfO6DQtwg=; b=NXIt44wcyZQLFV
+	XplZotu09yL4GEXW3OflCm7+xNSBtNxp4D42LwoaWpY26kSVGBfUJDOMtz3dR8mk2erArN2eceWIi
+	IHu7/MtlQv3bhecKRlhwUaisoMZlv1sgJbFYzNFY4/WKIqEVgGw6+22CkiwdIgS3lqTMWE1/nTAiQ
+	bDdMxH2m9lSY8U4MUC3RzHliehaoVgN9R24medO7xzAp7nbksmwb6NURBdu+q9I/eZ9PDC4ydVMtB
+	nFa4gTkOkxDtZ3iqPlhywWw3KzcqkeVZdKa/klfDrzqGfTA6oVlvgX8wn0OfmWJA6j0hOI5e6kHOU
+	sM3HEXLilzmmdIry6t1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWnVz-00BcGS-Db; Tue, 28 Feb 2023 00:06:43 +0000
+	id 1pWnXv-00Bcuz-N9; Tue, 28 Feb 2023 00:08:43 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWnVv-00BcEB-BD
-	for linux-riscv@lists.infradead.org; Tue, 28 Feb 2023 00:06:42 +0000
+	id 1pWnXr-00BcuF-Rs
+	for linux-riscv@lists.infradead.org; Tue, 28 Feb 2023 00:08:42 +0000
 Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=phil.lan)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1pWnVA-000552-Fz; Tue, 28 Feb 2023 01:05:52 +0100
+	id 1pWnVB-000552-D7; Tue, 28 Feb 2023 01:05:53 +0100
 From: Heiko Stuebner <heiko@sntech.de>
 To: palmer@rivosinc.com
 Cc: greentime.hu@sifive.com,
@@ -39,16 +39,16 @@ Cc: greentime.hu@sifive.com,
 	christoph.muellner@vrull.eu,
 	heiko@sntech.de,
 	Heiko Stuebner <heiko.stuebner@vrull.eu>
-Subject: [PATCH RFC v2 10/16] RISC-V: crypto: add Zvkb accelerated GCM GHASH implementation
-Date: Tue, 28 Feb 2023 01:05:38 +0100
-Message-Id: <20230228000544.2234136-11-heiko@sntech.de>
+Subject: [PATCH RFC v2 13/16] RISC-V: crypto: add a vector-crypto-accelerated SHA512 implementation
+Date: Tue, 28 Feb 2023 01:05:41 +0100
+Message-Id: <20230228000544.2234136-14-heiko@sntech.de>
 X-Mailer: git-send-email 2.39.0
 In-Reply-To: <20230228000544.2234136-1-heiko@sntech.de>
 References: <20230228000544.2234136-1-heiko@sntech.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230227_160639_713627_F0E1EDDD 
-X-CRM114-Status: GOOD (  35.22  )
+X-CRM114-CacheID: sfid-20230227_160840_219133_957D3F2A 
+X-CRM114-Status: GOOD (  25.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,249 +67,179 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Heiko Stuebner <heiko.stuebner@vrull.eu>
 
-Add a gcm hash implementation using the Zvkb crypto extension.
-It gets possibly registered alongside the Zbc-based variant, with a higher
-priority so that the crypto subsystem will be able to select the most
-performant variant, but the algorithm itself will still be part of the
-crypto selftests that run during registration.
+This adds an accelerated SHA512 algorithm using either the Zvknhb
+vector crypto extension.
 
 Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
 ---
- arch/riscv/crypto/Kconfig               |   3 +-
- arch/riscv/crypto/Makefile              |   8 +-
- arch/riscv/crypto/ghash-riscv64-glue.c  | 147 ++++++++++
- arch/riscv/crypto/ghash-riscv64-zvkb.pl | 349 ++++++++++++++++++++++++
- 4 files changed, 505 insertions(+), 2 deletions(-)
- create mode 100644 arch/riscv/crypto/ghash-riscv64-zvkb.pl
+ arch/riscv/crypto/Kconfig                  |  11 +
+ arch/riscv/crypto/Makefile                 |   8 +-
+ arch/riscv/crypto/sha512-riscv64-glue.c    | 104 ++++++
+ arch/riscv/crypto/sha512-riscv64-zvknhb.pl | 347 +++++++++++++++++++++
+ 4 files changed, 469 insertions(+), 1 deletion(-)
+ create mode 100644 arch/riscv/crypto/sha512-riscv64-glue.c
+ create mode 100644 arch/riscv/crypto/sha512-riscv64-zvknhb.pl
 
 diff --git a/arch/riscv/crypto/Kconfig b/arch/riscv/crypto/Kconfig
-index 010adbbb058a..404fd9b3cb7c 100644
+index 8645e02171f7..da6244f0c0c4 100644
 --- a/arch/riscv/crypto/Kconfig
 +++ b/arch/riscv/crypto/Kconfig
-@@ -4,7 +4,7 @@ menu "Accelerated Cryptographic Algorithms for CPU (riscv)"
+@@ -26,4 +26,15 @@ config CRYPTO_SHA256_RISCV64
+ 	  Architecture: riscv64 using
+ 	  - Zvknha or Zvknhb vector crypto extensions
  
- config CRYPTO_GHASH_RISCV64
- 	tristate "Hash functions: GHASH"
--	depends on 64BIT && RISCV_ISA_ZBC
-+	depends on 64BIT && (RISCV_ISA_ZBC || RISCV_ISA_V)
- 	select CRYPTO_HASH
- 	select CRYPTO_LIB_GF128MUL
- 	help
-@@ -12,5 +12,6 @@ config CRYPTO_GHASH_RISCV64
- 
- 	  Architecture: riscv64 using one of:
- 	  - ZBC extension
-+	  - ZVKB vector crypto extension
- 
++config CRYPTO_SHA512_RISCV64
++	tristate "Hash functions: SHA-512"
++	depends on 64BIT && RISCV_ISA_V
++	select CRYPTO_HASH
++	select CRYPTO_SHA512
++	help
++	  SHA-512 secure hash algorithm (FIPS 180)
++
++	  Architecture: riscv64
++	  - Zvknhb vector crypto extension
++
  endmenu
 diff --git a/arch/riscv/crypto/Makefile b/arch/riscv/crypto/Makefile
-index 0a158919e9da..8ab9a0ae8f2d 100644
+index 02b3b4c32672..3c94753affdf 100644
 --- a/arch/riscv/crypto/Makefile
 +++ b/arch/riscv/crypto/Makefile
-@@ -8,6 +8,9 @@ ghash-riscv64-y := ghash-riscv64-glue.o
- ifdef CONFIG_RISCV_ISA_ZBC
- ghash-riscv64-y += ghash-riscv64-zbc.o
- endif
-+ifdef CONFIG_RISCV_ISA_V
-+ghash-riscv64-y += ghash-riscv64-zvkb.o
-+endif
+@@ -15,6 +15,9 @@ endif
+ obj-$(CONFIG_CRYPTO_SHA256_RISCV64) += sha256-riscv64.o
+ sha256-riscv64-y := sha256-riscv64-glue.o sha256-riscv64-zvknhb.o
  
++obj-$(CONFIG_CRYPTO_SHA512_RISCV64) += sha512-riscv64.o
++sha512-riscv64-y := sha512-riscv64-glue.o sha512-riscv64-zvknhb.o
++
  quiet_cmd_perlasm = PERLASM $@
        cmd_perlasm = $(PERL) $(<) void $(@)
-@@ -15,4 +18,7 @@ quiet_cmd_perlasm = PERLASM $@
- $(obj)/ghash-riscv64-zbc.S: $(src)/ghash-riscv64-zbc.pl
+ 
+@@ -30,5 +33,8 @@ $(obj)/ghash-riscv64-zvkg.S: $(src)/ghash-riscv64-zvkg.pl
+ $(obj)/sha256-riscv64-zvknhb.S: $(src)/sha256-riscv64-zvknha.pl
  	$(call cmd,perlasm)
  
--clean-files += ghash-riscv64-zbc.S
-+$(obj)/ghash-riscv64-zvkb.S: $(src)/ghash-riscv64-zvkb.pl
++$(obj)/sha512-riscv64-zvknhb.S: $(src)/sha512-riscv64-zvknhb.pl
 +	$(call cmd,perlasm)
 +
-+clean-files += ghash-riscv64-zbc.S ghash-riscv64-zvkb.S
-diff --git a/arch/riscv/crypto/ghash-riscv64-glue.c b/arch/riscv/crypto/ghash-riscv64-glue.c
-index 6a6c39e16702..004a1a11d7d8 100644
---- a/arch/riscv/crypto/ghash-riscv64-glue.c
-+++ b/arch/riscv/crypto/ghash-riscv64-glue.c
-@@ -11,6 +11,7 @@
- #include <linux/crypto.h>
- #include <linux/module.h>
- #include <asm/simd.h>
+ clean-files += ghash-riscv64-zbc.S ghash-riscv64-zvkb.S ghash-riscv64-zvkg.S
+-clean-files += sha256-riscv64-zvknha.S
++clean-files += sha256-riscv64-zvknha.S sha512-riscv64-zvknhb.S
+diff --git a/arch/riscv/crypto/sha512-riscv64-glue.c b/arch/riscv/crypto/sha512-riscv64-glue.c
+new file mode 100644
+index 000000000000..fc35ba269bbc
+--- /dev/null
++++ b/arch/riscv/crypto/sha512-riscv64-glue.c
+@@ -0,0 +1,104 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * Linux/riscv64 port of the OpenSSL SHA512 implementation for RISCV64
++ *
++ * Copyright (C) 2023 VRULL GmbH
++ * Author: Heiko Stuebner <heiko.stuebner@vrull.eu>
++ */
++
++#include <linux/types.h>
++#include <asm/simd.h>
 +#include <asm/vector.h>
- #include <crypto/ghash.h>
- #include <crypto/internal/hash.h>
- #include <crypto/internal/simd.h>
-@@ -21,6 +22,10 @@ void gcm_ghash_rv64i_zbc(u64 Xi[2], const u128 Htable[16],
- void gcm_ghash_rv64i_zbc__zbkb(u64 Xi[2], const u128 Htable[16],
- 			       const u8 *inp, size_t len);
- 
-+/* Zvkb (vector crypto with vclmul) based routines. */
-+void gcm_ghash_rv64i_zvkb(u64 Xi[2], const u128 Htable[16],
-+			  const u8 *inp, size_t len);
++#include <crypto/internal/hash.h>
++#include <crypto/internal/simd.h>
++#include <crypto/sha2.h>
++#include <crypto/sha512_base.h>
 +
- struct riscv64_ghash_ctx {
- 	void (*ghash_func)(u64 Xi[2], const u128 Htable[16],
- 			   const u8 *inp, size_t len);
-@@ -46,6 +51,140 @@ static int riscv64_ghash_init(struct shash_desc *desc)
- 	return 0;
- }
- 
-+#ifdef CONFIG_RISCV_ISA_V
++asmlinkage void sha512_block_data_order_zvknhb(u64 *digest, const void *data,
++					unsigned int num_blks);
 +
-+#define RISCV64_ZVK_SETKEY(VARIANT, GHASH)				\
-+void gcm_init_rv64i_ ## VARIANT(u128 Htable[16], const u64 Xi[2]);	\
-+static int riscv64_zvk_ghash_setkey_ ## VARIANT(struct crypto_shash *tfm,	\
-+					   const u8 *key,		\
-+					   unsigned int keylen)		\
-+{									\
-+	struct riscv64_ghash_ctx *ctx = crypto_tfm_ctx(crypto_shash_tfm(tfm)); \
-+	const u64 k[2] = { cpu_to_be64(((const u64 *)key)[0]),		\
-+			   cpu_to_be64(((const u64 *)key)[1]) };	\
-+									\
-+	if (keylen != GHASH_BLOCK_SIZE)					\
-+		return -EINVAL;						\
-+									\
-+	memcpy(&ctx->key, key, GHASH_BLOCK_SIZE);			\
-+	kernel_rvv_begin();						\
-+	gcm_init_rv64i_ ## VARIANT(ctx->htable, k);			\
-+	kernel_rvv_end();						\
-+									\
-+	ctx->ghash_func = gcm_ghash_rv64i_ ## GHASH;			\
-+									\
-+	return 0;							\
++static void __sha512_block_data_order(struct sha512_state *sst, u8 const *src,
++				      int blocks)
++{
++	sha512_block_data_order_zvknhb(sst->state, src, blocks);
 +}
 +
-+static inline void __ghash_block(struct riscv64_ghash_ctx *ctx,
-+				 struct riscv64_ghash_desc_ctx *dctx)
++static int sha512_update(struct shash_desc *desc, const u8 *data,
++			 unsigned int len)
 +{
 +	if (crypto_simd_usable()) {
++		int ret;
++
 +		kernel_rvv_begin();
-+		ctx->ghash_func(dctx->shash, ctx->htable,
-+				dctx->buffer, GHASH_DIGEST_SIZE);
++		ret = sha512_base_do_update(desc, data, len,
++					    __sha512_block_data_order);
 +		kernel_rvv_end();
-+	} else {
-+		crypto_xor((u8 *)dctx->shash, dctx->buffer, GHASH_BLOCK_SIZE);
-+		gf128mul_lle((be128 *)dctx->shash, &ctx->key);
++		return ret;
++	} else { 
++		return crypto_sha512_update(desc, data, len);
 +	}
 +}
 +
-+static inline void __ghash_blocks(struct riscv64_ghash_ctx *ctx,
-+				  struct riscv64_ghash_desc_ctx *dctx,
-+				  const u8 *src, unsigned int srclen)
++static int sha512_finup(struct shash_desc *desc, const u8 *data,
++			unsigned int len, u8 *out)
 +{
-+	if (crypto_simd_usable()) {
-+		kernel_rvv_begin();
-+		ctx->ghash_func(dctx->shash, ctx->htable,
-+				src, srclen);
-+		kernel_rvv_end();
-+	} else {
-+		while (srclen >= GHASH_BLOCK_SIZE) {
-+			crypto_xor((u8 *)dctx->shash, src, GHASH_BLOCK_SIZE);
-+			gf128mul_lle((be128 *)dctx->shash, &ctx->key);
-+			srclen -= GHASH_BLOCK_SIZE;
-+			src += GHASH_BLOCK_SIZE;
-+		}
-+	}
++	if (!crypto_simd_usable())
++		return crypto_sha512_finup(desc, data, len, out);
++
++	kernel_rvv_begin();
++	if (len)
++		sha512_base_do_update(desc, data, len,
++				      __sha512_block_data_order);
++
++	sha512_base_do_finalize(desc, __sha512_block_data_order);
++	kernel_rvv_end();
++
++	return sha512_base_finish(desc, out);
 +}
 +
-+static int riscv64_zvk_ghash_update(struct shash_desc *desc,
-+			   const u8 *src, unsigned int srclen)
++static int sha512_final(struct shash_desc *desc, u8 *out)
 +{
-+	unsigned int len;
-+	struct riscv64_ghash_ctx *ctx = crypto_tfm_ctx(crypto_shash_tfm(desc->tfm));
-+	struct riscv64_ghash_desc_ctx *dctx = shash_desc_ctx(desc);
-+
-+	if (dctx->bytes) {
-+		if (dctx->bytes + srclen < GHASH_DIGEST_SIZE) {
-+			memcpy(dctx->buffer + dctx->bytes, src,
-+				srclen);
-+			dctx->bytes += srclen;
-+			return 0;
-+		}
-+		memcpy(dctx->buffer + dctx->bytes, src,
-+			GHASH_DIGEST_SIZE - dctx->bytes);
-+
-+		__ghash_block(ctx, dctx);
-+
-+		src += GHASH_DIGEST_SIZE - dctx->bytes;
-+		srclen -= GHASH_DIGEST_SIZE - dctx->bytes;
-+		dctx->bytes = 0;
-+	}
-+	len = srclen & ~(GHASH_DIGEST_SIZE - 1);
-+
-+	if (len) {
-+		__ghash_blocks(ctx, dctx, src, len);
-+		src += len;
-+		srclen -= len;
-+	}
-+
-+	if (srclen) {
-+		memcpy(dctx->buffer, src, srclen);
-+		dctx->bytes = srclen;
-+	}
-+	return 0;
++	return sha512_finup(desc, NULL, 0, out);
 +}
 +
-+static int riscv64_zvk_ghash_final(struct shash_desc *desc, u8 *out)
-+{
-+	struct riscv64_ghash_ctx *ctx = crypto_tfm_ctx(crypto_shash_tfm(desc->tfm));
-+	struct riscv64_ghash_desc_ctx *dctx = shash_desc_ctx(desc);
-+	int i;
-+
-+	if (dctx->bytes) {
-+		for (i = dctx->bytes; i < GHASH_DIGEST_SIZE; i++)
-+			dctx->buffer[i] = 0;
-+		__ghash_block(ctx, dctx);
-+		dctx->bytes = 0;
-+	}
-+
-+	memcpy(out, dctx->shash, GHASH_DIGEST_SIZE);
-+	return 0;
-+}
-+
-+RISCV64_ZVK_SETKEY(zvkb, zvkb);
-+struct shash_alg riscv64_zvkb_ghash_alg = {
-+	.digestsize = GHASH_DIGEST_SIZE,
-+	.init = riscv64_ghash_init,
-+	.update = riscv64_zvk_ghash_update,
-+	.final = riscv64_zvk_ghash_final,
-+	.setkey = riscv64_zvk_ghash_setkey_zvkb,
-+	.descsize = sizeof(struct riscv64_ghash_desc_ctx)
-+		    + sizeof(struct ghash_desc_ctx),
-+	.base = {
-+		 .cra_name = "ghash",
-+		 .cra_driver_name = "riscv64_zvkb_ghash",
-+		 .cra_priority = 300,
-+		 .cra_blocksize = GHASH_BLOCK_SIZE,
-+		 .cra_ctxsize = sizeof(struct riscv64_ghash_ctx),
-+		 .cra_module = THIS_MODULE,
-+	},
++static struct shash_alg sha512_alg = {
++	.digestsize		= SHA512_DIGEST_SIZE,
++	.init			= sha512_base_init,
++	.update			= sha512_update,
++	.final			= sha512_final,
++	.finup			= sha512_finup,
++	.descsize		= sizeof(struct sha512_state),
++	.base.cra_name		= "sha512",
++	.base.cra_driver_name	= "sha512-riscv64-zvknhb",
++	.base.cra_priority	= 150,
++	.base.cra_blocksize	= SHA512_BLOCK_SIZE,
++	.base.cra_module	= THIS_MODULE,
 +};
 +
-+#endif /* CONFIG_RISCV_ISA_V */
++static int __init sha512_mod_init(void)
++{
++	/* sha512 needs at least a vlen of 256 to work correctly */
++	if (riscv_isa_extension_available(NULL, ZVKNHB) &&
++	    riscv_isa_extension_available(NULL, ZVKB) &&
++	    riscv_vector_vlen() >= 256)
++		return crypto_register_shash(&sha512_alg);
 +
- #ifdef CONFIG_RISCV_ISA_ZBC
- 
- #define RISCV64_ZBC_SETKEY(VARIANT, GHASH)				\
-@@ -236,6 +375,14 @@ static int __init riscv64_ghash_mod_init(void)
- 	}
- #endif
- 
-+#ifdef CONFIG_RISCV_ISA_V
-+	if (riscv_isa_extension_available(NULL, ZVKB)) {
-+		ret = riscv64_ghash_register(&riscv64_zvkb_ghash_alg);
-+		if (ret < 0)
-+			return ret;
-+	}
-+#endif
++	return 0;
++}
 +
- 	return 0;
- }
- 
-diff --git a/arch/riscv/crypto/ghash-riscv64-zvkb.pl b/arch/riscv/crypto/ghash-riscv64-zvkb.pl
++static void __exit sha512_mod_fini(void)
++{
++	if (riscv_isa_extension_available(NULL, ZVKNHB) &&
++	    riscv_isa_extension_available(NULL, ZVKB) &&
++	    riscv_vector_vlen() >= 256)
++		crypto_unregister_shash(&sha512_alg);
++}
++
++module_init(sha512_mod_init);
++module_exit(sha512_mod_fini);
++
++MODULE_DESCRIPTION("SHA-512 secure hash for riscv64");
++MODULE_AUTHOR("Andy Polyakov <appro@openssl.org>");
++MODULE_AUTHOR("Ard Biesheuvel <ard.biesheuvel@linaro.org>");
++MODULE_LICENSE("GPL v2");
++MODULE_ALIAS_CRYPTO("sha512");
+diff --git a/arch/riscv/crypto/sha512-riscv64-zvknhb.pl b/arch/riscv/crypto/sha512-riscv64-zvknhb.pl
 new file mode 100644
-index 000000000000..3b81c082ba5a
+index 000000000000..f7d609003358
 --- /dev/null
-+++ b/arch/riscv/crypto/ghash-riscv64-zvkb.pl
-@@ -0,0 +1,349 @@
++++ b/arch/riscv/crypto/sha512-riscv64-zvknhb.pl
+@@ -0,0 +1,347 @@
 +#! /usr/bin/env perl
 +# Copyright 2023 The OpenSSL Project Authors. All Rights Reserved.
 +#
@@ -318,9 +248,11 @@ index 000000000000..3b81c082ba5a
 +# in the file LICENSE in the source distribution or at
 +# https://www.openssl.org/source/license.html
 +
++# The generated code of this file depends on the following RISC-V extensions:
 +# - RV64I
-+# - RISC-V vector ('V') with VLEN >= 128
++# - RISC-V vector ('V') with VLEN >= 256
 +# - Vector Bit-manipulation used in Cryptography ('Zvkb')
++# - Vector SHA-2 Secure Hash ('Zvknhb')
 +
 +use strict;
 +use warnings;
@@ -341,319 +273,315 @@ index 000000000000..3b81c082ba5a
 +.text
 +___
 +
-+################################################################################
-+# void gcm_init_rv64i_zvkg(u128 Htable[16], const u64 H[2]);
-+#
-+# input:	H: 128-bit H - secret parameter E(K, 0^128)
-+# output:	Htable: Preprocessed key data for gcm_gmult_rv64i_zvkb and
-+#                       gcm_ghash_rv64i_zvkb
-+{
-+my ($Htable,$H,$TMP0,$TMP1,$TMP2) = ("a0","a1","t0","t1","t2");
-+my ($V0,$V1,$V2,$V3,$V4,$V5,$V6) = ("v0","v1","v2","v3","v4","v5","v6");
++my ($V0, $V10, $V11, $V12, $V13, $V14, $V15, $V16, $V17) = ("v0", "v10", "v11", "v12", "v13", "v14","v15", "v16", "v17");
++my ($V26, $V27) = ("v26", "v27");
 +
-+$code .= <<___;
-+.p2align 3
-+.globl gcm_init_rv64i_zvkb
-+.type gcm_init_rv64i_zvkb,\@function
-+gcm_init_rv64i_zvkb:
-+    # Load/store data in reverse order.
-+    # This is needed as a part of endianness swap.
-+    add $H, $H, 8
-+    li $TMP0, -8
-+    li $TMP1, 63
-+    la $TMP2, Lpolymod
++my $K512 = "K512";
 +
-+    @{[vsetivli__x0_2_e64_m1_ta_ma]} # vsetivli x0, 2, e64, m1, ta, ma
-+
-+    @{[vlse64_v  $V1, $H, $TMP0]}    # vlse64.v v1, (a1), t0
-+    @{[vle64_v $V2, $TMP2]}          # vle64.v v2, (t2)
-+
-+    # Shift one left and get the carry bits.
-+    @{[vsrl_vx $V3, $V1, $TMP1]}     # vsrl.vx v3, v1, t1
-+    @{[vsll_vi $V1, $V1, 1]}         # vsll.vi v1, v1, 1
-+
-+    # Use the fact that the polynomial degree is no more than 128,
-+    # i.e. only the LSB of the upper half could be set.
-+    # Thanks to we don't need to do the full reduction here.
-+    # Instead simply subtract the reduction polynomial.
-+    # This idea was taken from x86 ghash implementation in OpenSSL.
-+    @{[vslideup_vi $V4, $V3, 1]}     # vslideup.vi v4, v3, 1
-+    @{[vslidedown_vi $V3, $V3, 1]}   # vslidedown.vi v3, v3, 1
-+
-+    @{[vmv_v_i $V0, 2]}              # vmv.v.i v0, 2
-+    @{[vor_vv_v0t $V1, $V1, $V4]}    # vor.vv v1, v1, v4, v0.t
-+
-+    # Need to set the mask to 3, if the carry bit is set.
-+    @{[vmv_v_v $V0, $V3]}            # vmv.v.v v0, v3
-+    @{[vmv_v_i $V3, 0]}              # vmv.v.i v3, 0
-+    @{[vmerge_vim $V3, $V3, 3]}      # vmerge.vim v3, v3, 3, v0
-+    @{[vmv_v_v $V0, $V3]}            # vmv.v.v v0, v3
-+
-+    @{[vxor_vv_v0t $V1, $V1, $V2]}   # vxor.vv v1, v1, v2, v0.t
-+
-+    @{[vse64_v $V1, $Htable]}        # vse64.v v1, (a0)
-+    ret
-+.size gcm_init_rv64i_zvkb,.-gcm_init_rv64i_zvkb
-+___
-+}
++# Function arguments
++my ($H, $INP, $LEN, $KT, $STRIDE) = ("a0", "a1", "a2", "a3", "t3");
 +
 +################################################################################
-+# void gcm_gmult_rv64i_zvkb(u64 Xi[2], const u128 Htable[16]);
-+#
-+# input:	Xi: current hash value
-+#		Htable: preprocessed H
-+# output:	Xi: next hash value Xi = (Xi * H mod f)
-+{
-+my ($Xi,$Htable,$TMP0,$TMP1,$TMP2,$TMP3,$TMP4) = ("a0","a1","t0","t1","t2","t3","t4");
-+my ($V0,$V1,$V2,$V3,$V4,$V5,$V6) = ("v0","v1","v2","v3","v4","v5","v6");
-+
++# void sha512_block_data_order(void *c, const void *p, size_t len)
 +$code .= <<___;
-+.text
-+.p2align 3
-+.globl gcm_gmult_rv64i_zvkb
-+.type gcm_gmult_rv64i_zvkb,\@function
-+gcm_gmult_rv64i_zvkb:
-+    ld $TMP0, ($Htable)
-+    ld $TMP1, 8($Htable)
-+    li $TMP2, 63
-+    la $TMP3, Lpolymod
-+    ld $TMP3, 8($TMP3)
++.p2align 2
++.globl sha512_block_data_order_zvknhb
++.type sha512_block_data_order_zvknhb,\@function
++sha512_block_data_order_zvknhb:
++    @{[vsetivli__x0_4_e64_m1_ta_ma]}
 +
-+    # Load/store data in reverse order.
-+    # This is needed as a part of endianness swap.
-+    add $Xi, $Xi, 8
-+    li $TMP4, -8
++    # H is stored as {a,b,c,d},{e,f,g,h}, but we need {f,e,b,a},{h,g,d,c}
++    # We achieve this by reading with a negative stride followed by
++    # element sliding.
++    li $STRIDE, -8
++    addi $H, $H, 24
++    @{[vlse64_v $V16, $H, $STRIDE]} # {d,c,b,a}
++    addi $H, $H, 32
++    @{[vlse64_v $V17, $H, $STRIDE]} # {h,g,f,e}
++    # Keep H advanced by 24
++    addi $H, $H, -32
 +
-+    @{[vsetivli__x0_2_e64_m1_ta_ma]} # vsetivli x0, 2, e64, m1, ta, ma
++    @{[vmv_v_v $V27, $V16]} # {d,c,b,a}
++    @{[vslidedown_vi $V26, $V16, 2]} # {b,a,0,0}
++    @{[vslidedown_vi $V16, $V17, 2]} # {f,e,0,0}
++    @{[vslideup_vi $V16, $V26, 2]} # {f,e,b,a}
++    @{[vslideup_vi $V17, $V27, 2]} # {h,g,d,c}
 +
-+    @{[vlse64_v $V5, $Xi, $TMP4]}    # vlse64.v v5, (a0), t4
-+    @{[vrev8_v $V5, $V5]}            # vrev8.v v5, v5
++    # Keep the old state as we need it later: H' = H+{a',b',c',...,h'}.
++    @{[vmv_v_v $V26, $V16]}
++    @{[vmv_v_v $V27, $V17]}
 +
-+    # Multiplication
++L_round_loop:
++    la $KT, $K512 # Load round constants K512
 +
-+    # Do two 64x64 multiplications in one go to save some time
-+    # and simplify things.
++    # Load the 1024-bits of the message block in v10-v13 and perform
++    # an endian swap on each 4 bytes element.
++    @{[vle64_v $V10, $INP]}
++    @{[vrev8_v $V10, $V10]}
++    add $INP, $INP, 32
++    @{[vle64_v $V11, $INP]}
++    @{[vrev8_v $V11, $V11]}
++    add $INP, $INP, 32
++    @{[vle64_v $V12, $INP]}
++    @{[vrev8_v $V12, $V12]}
++    add $INP, $INP, 32
++    @{[vle64_v $V13, $INP]}
++    @{[vrev8_v $V13, $V13]}
++    add $INP, $INP, 32
 +
-+    # A = a1a0 (t1, t0)
-+    # B = b1b0 (v5)
-+    # C = c1c0 (256 bit)
-+    # c1 = a1b1 + (a0b1)h + (a1b0)h
-+    # c0 = a0b0 + (a0b1)l + (a1b0)h
++    # Decrement length by 1
++    add $LEN, $LEN, -1
 +
-+    # v1 = (a0b1)l,(a0b0)l
-+    @{[vclmul_vx $V1, $V5, $TMP0]}   # vclmul.vx v1, v5, t0
-+    # v3 = (a0b1)h,(a0b0)h
-+    @{[vclmulh_vx $V3, $V5, $TMP0]}  # vclmulh.vx v3, v5, t0
++    # Set v0 up for the vmerge that replaces the first word (idx==0)
++    @{[vid_v $V0]}
++    @{[vmseq_vi $V0, $V0, 0x0]} # v0.mask[i] = (i == 0 ? 1 : 0)
 +
-+    # v4 = (a1b1)l,(a1b0)l
-+    @{[vclmul_vx $V4, $V5, $TMP1]}   # vclmul.vx v4, v5, t1
-+    # v2 = (a1b1)h,(a1b0)h
-+    @{[vclmulh_vx $V2, $V5, $TMP1]}   # vclmulh.vx v2, v5, t1
++    # Quad-round 0 (+0, v10->v11->v12->v13)
++    @{[vle64_v $V15, ($KT)]}
++    addi $KT, $KT, 32
++    @{[vadd_vv $V14, $V15, $V10]}
++    @{[vsha2cl_vv $V17, $V16, $V14]}
++    @{[vsha2ch_vv $V16, $V17, $V14]}
++    @{[vmerge_vvm $V14, $V12, $V11, $V0]}
++    @{[vsha2ms_vv $V10, $V14, $V13]}
 +
-+    # Is there a better way to do this?
-+    # Would need to swap the order of elements within a vector register.
-+    @{[vslideup_vi $V5, $V3, 1]}     # vslideup.vi v5, v3, 1
-+    @{[vslideup_vi $V6, $V4, 1]}     # vslideup.vi v6, v4, 1
-+    @{[vslidedown_vi $V3, $V3, 1]}   # vslidedown.vi v3, v3, 1
-+    @{[vslidedown_vi $V4, $V4, 1]}   # vslidedown.vi v4, v4, 1
++    # Quad-round 1 (+1, v11->v12->v13->v10)
++    @{[vle64_v $V15, ($KT)]}
++    addi $KT, $KT, 32
++    @{[vadd_vv $V14, $V15, $V11]}
++    @{[vsha2cl_vv $V17, $V16, $V14]}
++    @{[vsha2ch_vv $V16, $V17, $V14]}
++    @{[vmerge_vvm $V14, $V13, $V12, $V0]}
++    @{[vsha2ms_vv $V11, $V14, $V10]}
 +
-+    @{[vmv_v_i $V0, 1]}              # vmv.v.i v0, 1
-+    # v2 += (a0b1)h
-+    @{[vxor_vv_v0t $V2, $V2, $V3]}   # vxor.vv v2, v2, v3, v0.t
-+    # v2 += (a1b1)l
-+    @{[vxor_vv_v0t $V2, $V2, $V4]}   # vxor.vv v2, v2, v4, v0.t
++    # Quad-round 2 (+2, v12->v13->v10->v11)
++    @{[vle64_v $V15, ($KT)]}
++    addi $KT, $KT, 32
++    @{[vadd_vv $V14, $V15, $V12]}
++    @{[vsha2cl_vv $V17, $V16, $V14]}
++    @{[vsha2ch_vv $V16, $V17, $V14]}
++    @{[vmerge_vvm $V14, $V10, $V13, $V0]}
++    @{[vsha2ms_vv $V12, $V14, $V11]}
 +
-+    @{[vmv_v_i $V0, 2]}              # vmv.v.i v0, 2
-+    # v1 += (a0b0)h,0
-+    @{[vxor_vv_v0t $V1, $V1, $V5]}   # vxor.vv v1, v1, v5, v0.t
-+    # v1 += (a1b0)l,0
-+    @{[vxor_vv_v0t $V1, $V1, $V6]}   # vxor.vv v1, v1, v6, v0.t
++    # Quad-round 3 (+3, v13->v10->v11->v12)
++    @{[vle64_v $V15, ($KT)]}
++    addi $KT, $KT, 32
++    @{[vadd_vv $V14, $V15, $V13]}
++    @{[vsha2cl_vv $V17, $V16, $V14]}
++    @{[vsha2ch_vv $V16, $V17, $V14]}
++    @{[vmerge_vvm $V14, $V11, $V10, $V0]}
++    @{[vsha2ms_vv $V13, $V14, $V12]}
 +
-+    # Now the 256bit product should be stored in (v2,v1)
-+    # v1 = (a0b1)l + (a0b0)h + (a1b0)l, (a0b0)l
-+    # v2 = (a1b1)h, (a1b0)h + (a0b1)h + (a1b1)l
++    # Quad-round 4 (+0, v10->v11->v12->v13)
++    @{[vle64_v $V15, ($KT)]}
++    addi $KT, $KT, 32
++    @{[vadd_vv $V14, $V15, $V10]}
++    @{[vsha2cl_vv $V17, $V16, $V14]}
++    @{[vsha2ch_vv $V16, $V17, $V14]}
++    @{[vmerge_vvm $V14, $V12, $V11, $V0]}
++    @{[vsha2ms_vv $V10, $V14, $V13]}
 +
-+    # Reduction
-+    # Let C := A*B = c3,c2,c1,c0 = v2[1],v2[0],v1[1],v1[0]
-+    # This is a slight variation of the Gueron's Montgomery reduction.
-+    # The difference being the order of some operations has been changed,
-+    # to make a better use of vclmul(h) instructions.
++    # Quad-round 5 (+1, v11->v12->v13->v10)
++    @{[vle64_v $V15, ($KT)]}
++    addi $KT, $KT, 32
++    @{[vadd_vv $V14, $V15, $V11]}
++    @{[vsha2cl_vv $V17, $V16, $V14]}
++    @{[vsha2ch_vv $V16, $V17, $V14]}
++    @{[vmerge_vvm $V14, $V13, $V12, $V0]}
++    @{[vsha2ms_vv $V11, $V14, $V10]}
 +
-+    # First step:
-+    # c1 += (c0 * P)l
-+    # vmv.v.i v0, 2
-+    @{[vslideup_vi_v0t $V3, $V1, 1]} # vslideup.vi v3, v1, 1, v0.t
-+    @{[vclmul_vx_v0t $V3, $V3, $TMP3]} # vclmul.vx v3, v3, t3, v0.t
-+    @{[vxor_vv_v0t $V1, $V1, $V3]}   # vxor.vv v1, v1, v3, v0.t
++    # Quad-round 6 (+2, v12->v13->v10->v11)
++    @{[vle64_v $V15, ($KT)]}
++    addi $KT, $KT, 32
++    @{[vadd_vv $V14, $V15, $V12]}
++    @{[vsha2cl_vv $V17, $V16, $V14]}
++    @{[vsha2ch_vv $V16, $V17, $V14]}
++    @{[vmerge_vvm $V14, $V10, $V13, $V0]}
++    @{[vsha2ms_vv $V12, $V14, $V11]}
 +
-+    # Second step:
-+    # D = d1,d0 is final result
-+    # We want:
-+    # m1 = c1 + (c1 * P)h
-+    # m0 = (c1 * P)l + (c0 * P)h + c0
-+    # d1 = c3 + m1
-+    # d0 = c2 + m0
++    # Quad-round 7 (+3, v13->v10->v11->v12)
++    @{[vle64_v $V15, ($KT)]}
++    addi $KT, $KT, 32
++    @{[vadd_vv $V14, $V15, $V13]}
++    @{[vsha2cl_vv $V17, $V16, $V14]}
++    @{[vsha2ch_vv $V16, $V17, $V14]}
++    @{[vmerge_vvm $V14, $V11, $V10, $V0]}
++    @{[vsha2ms_vv $V13, $V14, $V12]}
 +
-+    #v3 = (c1 * P)l, 0
-+    @{[vclmul_vx_v0t $V3, $V1, $TMP3]} # vclmul.vx v3, v1, t3, v0.t
-+    #v4 = (c1 * P)h, (c0 * P)h
-+    @{[vclmulh_vx $V4, $V1, $TMP3]}   # vclmulh.vx v4, v1, t3
++    # Quad-round 8 (+0, v10->v11->v12->v13)
++    @{[vle64_v $V15, ($KT)]}
++    addi $KT, $KT, 32
++    @{[vadd_vv $V14, $V15, $V10]}
++    @{[vsha2cl_vv $V17, $V16, $V14]}
++    @{[vsha2ch_vv $V16, $V17, $V14]}
++    @{[vmerge_vvm $V14, $V12, $V11, $V0]}
++    @{[vsha2ms_vv $V10, $V14, $V13]}
 +
-+    @{[vmv_v_i $V0, 1]}              # vmv.v.i v0, 1
-+    @{[vslidedown_vi $V3, $V3, 1]}   # vslidedown.vi v3, v3, 1
++    # Quad-round 9 (+1, v11->v12->v13->v10)
++    @{[vle64_v $V15, ($KT)]}
++    addi $KT, $KT, 32
++    @{[vadd_vv $V14, $V15, $V11]}
++    @{[vsha2cl_vv $V17, $V16, $V14]}
++    @{[vsha2ch_vv $V16, $V17, $V14]}
++    @{[vmerge_vvm $V14, $V13, $V12, $V0]}
++    @{[vsha2ms_vv $V11, $V14, $V10]}
 +
-+    @{[vxor_vv $V1, $V1, $V4]}       # vxor.vv v1, v1, v4
-+    @{[vxor_vv_v0t $V1, $V1, $V3]}   # vxor.vv v1, v1, v3, v0.t
++    # Quad-round 10 (+2, v12->v13->v10->v11)
++    @{[vle64_v $V15, ($KT)]}
++    addi $KT, $KT, 32
++    @{[vadd_vv $V14, $V15, $V12]}
++    @{[vsha2cl_vv $V17, $V16, $V14]}
++    @{[vsha2ch_vv $V16, $V17, $V14]}
++    @{[vmerge_vvm $V14, $V10, $V13, $V0]}
++    @{[vsha2ms_vv $V12, $V14, $V11]}
 +
-+    # XOR in the upper upper part of the product
-+    @{[vxor_vv $V2, $V2, $V1]}       # vxor.vv v2, v2, v1
++    # Quad-round 11 (+3, v13->v10->v11->v12)
++    @{[vle64_v $V15, ($KT)]}
++    addi $KT, $KT, 32
++    @{[vadd_vv $V14, $V15, $V13]}
++    @{[vsha2cl_vv $V17, $V16, $V14]}
++    @{[vsha2ch_vv $V16, $V17, $V14]}
++    @{[vmerge_vvm $V14, $V11, $V10, $V0]}
++    @{[vsha2ms_vv $V13, $V14, $V12]}
 +
-+    @{[vrev8_v $V2, $V2]}            # vrev8.v v2, v2
-+    @{[vsse64_v $V2, $Xi, $TMP4]}    # vsse64.v v2, (a0), t4
++    # Quad-round 12 (+0, v10->v11->v12->v13)
++    @{[vle64_v $V15, ($KT)]}
++    addi $KT, $KT, 32
++    @{[vadd_vv $V14, $V15, $V10]}
++    @{[vsha2cl_vv $V17, $V16, $V14]}
++    @{[vsha2ch_vv $V16, $V17, $V14]}
++    @{[vmerge_vvm $V14, $V12, $V11, $V0]}
++    @{[vsha2ms_vv $V10, $V14, $V13]}
++
++    # Quad-round 13 (+1, v11->v12->v13->v10)
++    @{[vle64_v $V15, ($KT)]}
++    addi $KT, $KT, 32
++    @{[vadd_vv $V14, $V15, $V11]}
++    @{[vsha2cl_vv $V17, $V16, $V14]}
++    @{[vsha2ch_vv $V16, $V17, $V14]}
++    @{[vmerge_vvm $V14, $V13, $V12, $V0]}
++    @{[vsha2ms_vv $V11, $V14, $V10]}
++
++    # Quad-round 14 (+2, v12->v13->v10->v11)
++    @{[vle64_v $V15, ($KT)]}
++    addi $KT, $KT, 32
++    @{[vadd_vv $V14, $V15, $V12]}
++    @{[vsha2cl_vv $V17, $V16, $V14]}
++    @{[vsha2ch_vv $V16, $V17, $V14]}
++    @{[vmerge_vvm $V14, $V10, $V13, $V0]}
++    @{[vsha2ms_vv $V12, $V14, $V11]}
++
++    # Quad-round 15 (+3, v13->v10->v11->v12)
++    @{[vle64_v $V15, ($KT)]}
++    addi $KT, $KT, 32
++    @{[vadd_vv $V14, $V15, $V13]}
++    @{[vsha2cl_vv $V17, $V16, $V14]}
++    @{[vsha2ch_vv $V16, $V17, $V14]}
++    @{[vmerge_vvm $V14, $V11, $V10, $V0]}
++    @{[vsha2ms_vv $V13, $V14, $V12]}
++
++    # Quad-round 16 (+0, v10->v11->v12->v13)
++    # Note that we stop generating new message schedule words (Wt, v10-13)
++    # as we already generated all the words we end up consuming (i.e., W[79:76]).
++    @{[vle64_v $V15, ($KT)]}
++    addi $KT, $KT, 32
++    @{[vadd_vv $V14, $V15, $V10]}
++    @{[vsha2cl_vv $V17, $V16, $V14]}
++    @{[vsha2ch_vv $V16, $V17, $V14]}
++    @{[vmerge_vvm $V14, $V12, $V11, $V0]}
++
++    # Quad-round 17 (+1, v11->v12->v13->v10)
++    @{[vle64_v $V15, ($KT)]}
++    addi $KT, $KT, 32
++    @{[vadd_vv $V14, $V15, $V11]}
++    @{[vsha2cl_vv $V17, $V16, $V14]}
++    @{[vsha2ch_vv $V16, $V17, $V14]}
++    @{[vmerge_vvm $V14, $V13, $V12, $V0]}
++
++    # Quad-round 18 (+2, v12->v13->v10->v11)
++    @{[vle64_v $V15, ($KT)]}
++    addi $KT, $KT, 32
++    @{[vadd_vv $V14, $V15, $V12]}
++    @{[vsha2cl_vv $V17, $V16, $V14]}
++    @{[vsha2ch_vv $V16, $V17, $V14]}
++    @{[vmerge_vvm $V14, $V10, $V13, $V0]}
++
++    # Quad-round 19 (+3, v13->v10->v11->v12)
++    @{[vle64_v $V15, ($KT)]}
++    # No t1 increment needed.
++    @{[vadd_vv $V14, $V15, $V13]}
++    @{[vsha2cl_vv $V17, $V16, $V14]}
++    @{[vsha2ch_vv $V16, $V17, $V14]}
++
++    # H' = H+{a',b',c',...,h'}
++    @{[vadd_vv $V16, $V26, $V16]}
++    @{[vadd_vv $V17, $V27, $V17]}
++    @{[vmv_v_v $V26, $V16]}
++    @{[vmv_v_v $V27, $V17]}
++    bnez $LEN, L_round_loop
++
++    # v26 = v16 = {f,e,b,a}
++    # v27 = v17 = {h,g,d,c}
++    # Let's do the opposit transformation like on entry.
++
++    @{[vslideup_vi $V17, $V16, 2]} # {h,g,f,e}
++
++    @{[vslidedown_vi $V16, $V27, 2]} # {d,c,0,0}
++    @{[vslidedown_vi $V26, $V26, 2]} # {b,a,0,0}
++    @{[vslideup_vi $V16, $V26, 2]} # {d,c,b,a}
++
++    # H is already advanced by 24
++    @{[vsse64_v $V16, $H, $STRIDE]} # {a,b,c,d}
++    addi $H, $H, 32
++    @{[vsse64_v $V17, $H, $STRIDE]} # {e,f,g,h}
++
 +    ret
-+.size gcm_gmult_rv64i_zvkb,.-gcm_gmult_rv64i_zvkb
-+___
-+}
++.size sha512_block_data_order_zvknhb,.-sha512_block_data_order_zvknhb
 +
-+################################################################################
-+# void gcm_ghash_rv64i_zvkb(u64 Xi[2], const u128 Htable[16],
-+#                           const u8 *inp, size_t len);
-+#
-+# input:	Xi: current hash value
-+#		Htable: preprocessed H
-+#		inp: pointer to input data
-+#		len: length of input data in bytes (mutiple of block size)
-+# output:	Xi: Xi+1 (next hash value Xi)
-+{
-+my ($Xi,$Htable,$inp,$len,$TMP0,$TMP1,$TMP2,$TMP3,$M8,$TMP5,$TMP6) = ("a0","a1","a2","a3","t0","t1","t2","t3","t4","t5","t6");
-+my ($V0,$V1,$V2,$V3,$V4,$V5,$V6,$Vinp) = ("v0","v1","v2","v3","v4","v5","v6","v7");
-+
-+$code .= <<___;
 +.p2align 3
-+.globl gcm_ghash_rv64i_zvkb
-+.type gcm_ghash_rv64i_zvkb,\@function
-+gcm_ghash_rv64i_zvkb:
-+    ld $TMP0, ($Htable)
-+    ld $TMP1, 8($Htable)
-+    li $TMP2, 63
-+    la $TMP3, Lpolymod
-+    ld $TMP3, 8($TMP3)
-+
-+    # Load/store data in reverse order.
-+    # This is needed as a part of endianness swap.
-+    add $Xi, $Xi, 8
-+    add $inp, $inp, 8
-+    li $M8, -8
-+
-+    @{[vsetivli__x0_2_e64_m1_ta_ma]} # vsetivli x0, 2, e64, m1, ta, ma
-+
-+    @{[vlse64_v $V5, $Xi, $M8]}      # vlse64.v v5, (a0), t4
-+
-+Lstep:
-+    # Read input data
-+    @{[vlse64_v $Vinp, $inp, $M8]}   # vle64.v v0, (a2)
-+    add $inp, $inp, 16
-+    add $len, $len, -16
-+    # XOR them into Xi
-+    @{[vxor_vv $V5, $V5, $Vinp]}       # vxor.vv v0, v0, v1
-+
-+    @{[vrev8_v $V5, $V5]}            # vrev8.v v5, v5
-+
-+    # Multiplication
-+
-+    # Do two 64x64 multiplications in one go to save some time
-+    # and simplify things.
-+
-+    # A = a1a0 (t1, t0)
-+    # B = b1b0 (v5)
-+    # C = c1c0 (256 bit)
-+    # c1 = a1b1 + (a0b1)h + (a1b0)h
-+    # c0 = a0b0 + (a0b1)l + (a1b0)h
-+
-+    # v1 = (a0b1)l,(a0b0)l
-+    @{[vclmul_vx $V1, $V5, $TMP0]}   # vclmul.vx v1, v5, t0
-+    # v3 = (a0b1)h,(a0b0)h
-+    @{[vclmulh_vx $V3, $V5, $TMP0]}  # vclmulh.vx v3, v5, t0
-+
-+    # v4 = (a1b1)l,(a1b0)l
-+    @{[vclmul_vx $V4, $V5, $TMP1]}   # vclmul.vx v4, v5, t1
-+    # v2 = (a1b1)h,(a1b0)h
-+    @{[vclmulh_vx $V2, $V5, $TMP1]}   # vclmulh.vx v2, v5, t1
-+
-+    # Is there a better way to do this?
-+    # Would need to swap the order of elements within a vector register.
-+    @{[vslideup_vi $V5, $V3, 1]}     # vslideup.vi v5, v3, 1
-+    @{[vslideup_vi $V6, $V4, 1]}     # vslideup.vi v6, v4, 1
-+    @{[vslidedown_vi $V3, $V3, 1]}   # vslidedown.vi v3, v3, 1
-+    @{[vslidedown_vi $V4, $V4, 1]}   # vslidedown.vi v4, v4, 1
-+
-+    @{[vmv_v_i $V0, 1]}              # vmv.v.i v0, 1
-+    # v2 += (a0b1)h
-+    @{[vxor_vv_v0t $V2, $V2, $V3]}   # vxor.vv v2, v2, v3, v0.t
-+    # v2 += (a1b1)l
-+    @{[vxor_vv_v0t $V2, $V2, $V4]}   # vxor.vv v2, v2, v4, v0.t
-+
-+    @{[vmv_v_i $V0, 2]}              # vmv.v.i v0, 2
-+    # v1 += (a0b0)h,0
-+    @{[vxor_vv_v0t $V1, $V1, $V5]}   # vxor.vv v1, v1, v5, v0.t
-+    # v1 += (a1b0)l,0
-+    @{[vxor_vv_v0t $V1, $V1, $V6]}   # vxor.vv v1, v1, v6, v0.t
-+
-+    # Now the 256bit product should be stored in (v2,v1)
-+    # v1 = (a0b1)l + (a0b0)h + (a1b0)l, (a0b0)l
-+    # v2 = (a1b1)h, (a1b0)h + (a0b1)h + (a1b1)l
-+
-+    # Reduction
-+    # Let C := A*B = c3,c2,c1,c0 = v2[1],v2[0],v1[1],v1[0]
-+    # This is a slight variation of the Gueron's Montgomery reduction.
-+    # The difference being the order of some operations has been changed,
-+    # to make a better use of vclmul(h) instructions.
-+
-+    # First step:
-+    # c1 += (c0 * P)l
-+    # vmv.v.i v0, 2
-+    @{[vslideup_vi_v0t $V3, $V1, 1]} # vslideup.vi v3, v1, 1, v0.t
-+    @{[vclmul_vx_v0t $V3, $V3, $TMP3]} # vclmul.vx v3, v3, t3, v0.t
-+    @{[vxor_vv_v0t $V1, $V1, $V3]}   # vxor.vv v1, v1, v3, v0.t
-+
-+    # Second step:
-+    # D = d1,d0 is final result
-+    # We want:
-+    # m1 = c1 + (c1 * P)h
-+    # m0 = (c1 * P)l + (c0 * P)h + c0
-+    # d1 = c3 + m1
-+    # d0 = c2 + m0
-+
-+    #v3 = (c1 * P)l, 0
-+    @{[vclmul_vx_v0t $V3, $V1, $TMP3]} # vclmul.vx v3, v1, t3, v0.t
-+    #v4 = (c1 * P)h, (c0 * P)h
-+    @{[vclmulh_vx $V4, $V1, $TMP3]}   # vclmulh.vx v4, v1, t3
-+
-+    @{[vmv_v_i $V0, 1]}              # vmv.v.i v0, 1
-+    @{[vslidedown_vi $V3, $V3, 1]}   # vslidedown.vi v3, v3, 1
-+
-+    @{[vxor_vv $V1, $V1, $V4]}       # vxor.vv v1, v1, v4
-+    @{[vxor_vv_v0t $V1, $V1, $V3]}   # vxor.vv v1, v1, v3, v0.t
-+
-+    # XOR in the upper upper part of the product
-+    @{[vxor_vv $V2, $V2, $V1]}       # vxor.vv v2, v2, v1
-+
-+    @{[vrev8_v $V5, $V2]}            # vrev8.v v2, v2
-+
-+    bnez $len, Lstep
-+
-+    @{[vsse64_v $V5, $Xi, $M8]}    # vsse64.v v2, (a0), t4
-+    ret
-+.size gcm_ghash_rv64i_zvkb,.-gcm_ghash_rv64i_zvkb
-+___
-+}
-+
-+$code .= <<___;
-+.p2align 4
-+Lpolymod:
-+        .dword 0x0000000000000001
-+        .dword 0xc200000000000000
-+.size Lpolymod,.-Lpolymod
++.type $K512,\@object
++$K512:
++    .dword 0x428a2f98d728ae22, 0x7137449123ef65cd
++    .dword 0xb5c0fbcfec4d3b2f, 0xe9b5dba58189dbbc
++    .dword 0x3956c25bf348b538, 0x59f111f1b605d019
++    .dword 0x923f82a4af194f9b, 0xab1c5ed5da6d8118
++    .dword 0xd807aa98a3030242, 0x12835b0145706fbe
++    .dword 0x243185be4ee4b28c, 0x550c7dc3d5ffb4e2
++    .dword 0x72be5d74f27b896f, 0x80deb1fe3b1696b1
++    .dword 0x9bdc06a725c71235, 0xc19bf174cf692694
++    .dword 0xe49b69c19ef14ad2, 0xefbe4786384f25e3
++    .dword 0x0fc19dc68b8cd5b5, 0x240ca1cc77ac9c65
++    .dword 0x2de92c6f592b0275, 0x4a7484aa6ea6e483
++    .dword 0x5cb0a9dcbd41fbd4, 0x76f988da831153b5
++    .dword 0x983e5152ee66dfab, 0xa831c66d2db43210
++    .dword 0xb00327c898fb213f, 0xbf597fc7beef0ee4
++    .dword 0xc6e00bf33da88fc2, 0xd5a79147930aa725
++    .dword 0x06ca6351e003826f, 0x142929670a0e6e70
++    .dword 0x27b70a8546d22ffc, 0x2e1b21385c26c926
++    .dword 0x4d2c6dfc5ac42aed, 0x53380d139d95b3df
++    .dword 0x650a73548baf63de, 0x766a0abb3c77b2a8
++    .dword 0x81c2c92e47edaee6, 0x92722c851482353b
++    .dword 0xa2bfe8a14cf10364, 0xa81a664bbc423001
++    .dword 0xc24b8b70d0f89791, 0xc76c51a30654be30
++    .dword 0xd192e819d6ef5218, 0xd69906245565a910
++    .dword 0xf40e35855771202a, 0x106aa07032bbd1b8
++    .dword 0x19a4c116b8d2d0c8, 0x1e376c085141ab53
++    .dword 0x2748774cdf8eeb99, 0x34b0bcb5e19b48a8
++    .dword 0x391c0cb3c5c95a63, 0x4ed8aa4ae3418acb
++    .dword 0x5b9cca4f7763e373, 0x682e6ff3d6b2b8a3
++    .dword 0x748f82ee5defb2fc, 0x78a5636f43172f60
++    .dword 0x84c87814a1f0ab72, 0x8cc702081a6439ec
++    .dword 0x90befffa23631e28, 0xa4506cebde82bde9
++    .dword 0xbef9a3f7b2c67915, 0xc67178f2e372532b
++    .dword 0xca273eceea26619c, 0xd186b8c721c0c207
++    .dword 0xeada7dd6cde0eb1e, 0xf57d4f7fee6ed178
++    .dword 0x06f067aa72176fba, 0x0a637dc5a2c898a6
++    .dword 0x113f9804bef90dae, 0x1b710b35131c471b
++    .dword 0x28db77f523047d84, 0x32caab7b40c72493
++    .dword 0x3c9ebe0a15c9bebc, 0x431d67c49c100d4c
++    .dword 0x4cc5d4becb3e42b6, 0x597f299cfc657e2a
++    .dword 0x5fcb6fab3ad6faec, 0x6c44198c4a475817
++.size $K512,.-$K512
 +___
 +
 +print $code;
