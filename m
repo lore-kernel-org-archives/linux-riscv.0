@@ -4,67 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDF56C7EE23
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Feb 2023 01:58:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93F3BC64ED6
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Feb 2023 02:01:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BgMhktKMOBCgsS5zBZTtDcW1TNEbe6nKPoYBai73rto=; b=uE8c5nknZL4xN5
-	28oW0llNUbhMPGkKwylhFsfiFTAI7ikux/hjjqxdlQjCxRoGW7XxeSHHdtivxjjNonKBgqW2t0kRl
-	btIUgb9fApEley/3auX/4kz4mW2YqLav6djKVdeu6I/21v1cbvu8dsB3eDo8R39/XTFXvkbMUTXJc
-	XmYoOrVHHz2O1/pgfSU1hM8QGwkUldGCiLQGcI6pvPVAX3nay/6dk8KKLbyP3uoGchsYtFUhIFHH9
-	ej/Aci0QBStjE73hHUgoc9QbRtgcoMnt4YGbpvcJ5l3zvyweC1mnZSY10ops1xJEcu4ePjaz3oTBw
-	z4hpTKTAxn/tLTa/UaUA==;
+	List-Owner; bh=mUVMP2L7El8lvG0CVH9Qmv4k3+NRCCCLbLZTHDeFwzY=; b=xCENWgq7m+AQVT
+	ANyVWm6FQtf9d2gaBIvrvO16kM4DGW/EQoPWzgmk9sxHCw5gTR1hmXTowcQ1PFpPSNpmCtC+Gn2hF
+	JkdFuuA6QNwPYjxZHlPu0331YyoaymGj8VXqG28SRqxqhj9v2HE97NQo1I5qdwFmHDaL0Vf2NUbTy
+	6te6NGy79+Q92GIjdvTUJpaBAk7iDYiIeKWihS10p1QmkxC3lVNILHw2HFOkzQZTxlMCiLk4pNp4D
+	Mf1ZOEXzUHIR3xkt1/VLKdHXxu5qG/BpjzZDC8xvwzG67G0URqYIp9bQddG+TnnETT+z/oqlPqlCf
+	VD0oQVvx8fRltkcSszZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWpG5-00Bmcg-7J; Tue, 28 Feb 2023 01:58:25 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	id 1pWpJN-00Bmuq-JX; Tue, 28 Feb 2023 02:01:49 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWpG1-00Bmam-Jv
-	for linux-riscv@lists.infradead.org; Tue, 28 Feb 2023 01:58:23 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	id 1pWpJK-00BmtA-5J
+	for linux-riscv@lists.infradead.org; Tue, 28 Feb 2023 02:01:47 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 4649624E36E;
-	Tue, 28 Feb 2023 09:57:57 +0800 (CST)
-Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 28 Feb
- 2023 09:57:57 +0800
-Received: from [192.168.125.82] (113.72.145.171) by EXMBX172.cuchost.com
- (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 28 Feb
- 2023 09:57:56 +0800
-Message-ID: <db0036f5-e904-36b2-b3f5-3b0c520ca6aa@starfivetech.com>
-Date: Tue, 28 Feb 2023 09:57:55 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.2
-Subject: Re: [PATCH v5 2/2] hwmon: (sfctemp) Add StarFive JH71x0 temperature
- sensor
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 362B824E16E;
+	Tue, 28 Feb 2023 10:00:57 +0800 (CST)
+Received: from EXMBX163.cuchost.com (172.16.7.73) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 28 Feb
+ 2023 10:00:57 +0800
+Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX163.cuchost.com
+ (172.16.6.73) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 28 Feb
+ 2023 10:00:56 +0800
+Received: from EXMBX061.cuchost.com ([fe80::b087:fbb:9f87:209e]) by
+ EXMBX061.cuchost.com ([fe80::b087:fbb:9f87:209e%14]) with mapi id
+ 15.00.1497.044; Tue, 28 Feb 2023 10:00:56 +0800
+From: Leyfoon Tan <leyfoon.tan@starfivetech.com>
+To: Conor Dooley <conor.dooley@microchip.com>, Song Shuai
+	<suagrfillet@gmail.com>
+CC: "corbet@lwn.net" <corbet@lwn.net>, "alexs@kernel.org" <alexs@kernel.org>,
+	"siyanteng@loongson.cn" <siyanteng@loongson.cn>, "robh@kernel.org"
+	<robh@kernel.org>, "palmer@rivosinc.com" <palmer@rivosinc.com>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Subject: RE: [PATCH] sched/doc: supplement CPU capacity with RISC-V
+Thread-Topic: [PATCH] sched/doc: supplement CPU capacity with RISC-V
+Thread-Index: AQHZSpq2x4Tv+NIInUmyvON4k7Hisa7iKdIAgAAMR4CAAAQ8AIABXwiw
+Date: Tue, 28 Feb 2023 02:00:56 +0000
+Message-ID: <49412393956e428fbc7d27ddecee3493@EXMBX061.cuchost.com>
+References: <20230227105941.2749193-1-suagrfillet@gmail.com>
+ <Y/yagE7jfRGo1FgY@wendy>
+ <CAAYs2=jSt9=d=N98DCVvtNA9FE6KcVYVdHPG-wpuDPknBFUndQ@mail.gmail.com>
+ <Y/yoWt+Y7n8/A6m9@wendy>
+In-Reply-To: <Y/yoWt+Y7n8/A6m9@wendy>
+Accept-Language: en-US, zh-CN
 Content-Language: en-US
-To: Conor Dooley <conor.dooley@microchip.com>
-CC: <linux-hwmon@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-doc@vger.kernel.org>, <linux-riscv@lists.infradead.org>, Jean Delvare
-	<jdelvare@suse.com>, Guenter Roeck <linux@roeck-us.net>, Jonathan Corbet
-	<corbet@lwn.net>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor@kernel.org>, "Paul
- Walmsley" <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Emil Renner Berthing
-	<emil.renner.berthing@canonical.com>, Samin Guo <samin.guo@starfivetech.com>,
-	<linux-kernel@vger.kernel.org>
-References: <20230227134125.120638-1-hal.feng@starfivetech.com>
- <20230227134125.120638-3-hal.feng@starfivetech.com> <Y/y4LunvriV2RYwu@wendy>
-From: Hal Feng <hal.feng@starfivetech.com>
-In-Reply-To: <Y/y4LunvriV2RYwu@wendy>
-X-Originating-IP: [113.72.145.171]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX172.cuchost.com
- (172.16.6.92)
-X-YovoleRuleAgent: yovoleflag
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [202.188.176.82]
+x-yovoleruleagent: yovoleflag
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230227_175821_964028_9B3FC91F 
-X-CRM114-Status: GOOD (  14.48  )
+X-CRM114-CacheID: sfid-20230227_180146_517711_C241CDC9 
+X-CRM114-Status: GOOD (  21.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,51 +80,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 27 Feb 2023 14:03:26 +0000, Conor Dooley wrote:
-> On Mon, Feb 27, 2023 at 09:41:25PM +0800, Hal Feng wrote:
->> From: Emil Renner Berthing <kernel@esmil.dk>
->> 
->> Add driver for the StarFive JH71x0 temperature sensor. You
->> can enable/disable it and read temperature in milli Celcius
->> through sysfs.
->> 
->> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
->> Co-developed-by: Samin Guo <samin.guo@starfivetech.com>
->> Signed-off-by: Samin Guo <samin.guo@starfivetech.com>
->> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
-> 
->> +config SENSORS_SFCTEMP
->> +	tristate "Starfive JH71x0 temperature sensor"
->> +	depends on SOC_STARFIVE || COMPILE_TEST
-> 
-> We (or I?) am trying to homogenise RISC-V with the rest of the kernel by
-> using ARCH_FOO rather than SOC_FOO. We've currently got a mix of both,
-> due to companies that started out with RISC-V having SOC_ symbols &
-> those with history in other archs having ARCH_ ones.
-> The ARCH_ definitions landed in mainline this week, so if you end up
-> resubmitting this driver, it'd save me a conversion if you were to use
-> the ARCH_ variant.
-
-Got it. I will use the ARCH_ symbol instead in the next version. Thanks.
-
-Best regards,
-Hal
-
-> 
->> +	help
->> +	  If you say yes here you get support for temperature sensor
->> +	  on the Starfive JH71x0 SoCs.
->> +
->> +	  This driver can also be built as a module.  If so, the module
->> +	  will be called sfctemp.
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+DQoNCj4gLS0tLS1PcmlnaW5hbCBNZXNzYWdlLS0tLS0NCj4gRnJvbTogQ29ub3IgRG9vbGV5IDxj
+b25vci5kb29sZXlAbWljcm9jaGlwLmNvbT4NCj4gU2VudDogTW9uZGF5LCBGZWJydWFyeSAyNywg
+MjAyMyA4OjU2IFBNDQo+IFRvOiBTb25nIFNodWFpIDxzdWFncmZpbGxldEBnbWFpbC5jb20+DQo+
+IENjOiBjb3JiZXRAbHduLm5ldDsgYWxleHNAa2VybmVsLm9yZzsgc2l5YW50ZW5nQGxvb25nc29u
+LmNuOw0KPiByb2JoQGtlcm5lbC5vcmc7IHBhbG1lckByaXZvc2luYy5jb207IExleWZvb24gVGFu
+DQo+IDxsZXlmb29uLnRhbkBzdGFyZml2ZXRlY2guY29tPjsgbGludXgtZG9jQHZnZXIua2VybmVs
+Lm9yZzsgbGludXgtDQo+IGtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc7IGxpbnV4LXJpc2N2QGxpc3Rz
+LmluZnJhZGVhZC5vcmcNCj4gU3ViamVjdDogUmU6IFtQQVRDSF0gc2NoZWQvZG9jOiBzdXBwbGVt
+ZW50IENQVSBjYXBhY2l0eSB3aXRoIFJJU0MtVg0KPiANCj4gT24gTW9uLCBGZWIgMjcsIDIwMjMg
+YXQgMTI6NDA6NDVQTSArMDAwMCwgU29uZyBTaHVhaSB3cm90ZToNCj4gPiBDb25vciBEb29sZXkg
+PGNvbm9yLmRvb2xleUBtaWNyb2NoaXAuY29tPiDkuo4yMDIz5bm0MuaciDI35pel5ZGo5LiADQo+
+IDExOjU35YaZ6YGT77yaDQo+ID4gPg0KPiA+ID4gT24gTW9uLCBGZWIgMjcsIDIwMjMgYXQgMDY6
+NTk6NDFQTSArMDgwMCwgU29uZyBTaHVhaSB3cm90ZToNCj4gPiA+ID4gVGhpcyBjb21taXQgN2Qy
+MDc4MzEwY2JmICgiZHQtYmluZGluZ3M6IGFybTogbW92ZSBjcHUtY2FwYWNpdHkgdG8NCj4gPiA+
+ID4gYSBzaGFyZWQgbG9hdGlvbiIpIHVwZGF0ZXMgc29tZSByZWZlcmVuY2VzIGFib3V0DQo+ID4g
+PiA+IGNhcGFjaXR5LWRtaXBzLW1oeg0KPiA+ID4NCj4gPiA+IE5vdCByZXF1ZXN0aW5nIGEgcmVz
+cGluIGZvciB0aGlzLCBidXQgbWVudGlvbmluZyBjb21taXQgOTkxOTk0NTA5ZWU5DQo+ID4gPiAo
+ImR0LWJpbmRpbmdzOiByaXNjdjogYWRkIGEgY2FwYWNpdHktZG1pcHMtbWh6IGNwdSBwcm9wZXJ0
+eSIpIGlzDQo+ID4gPiBwcm9iYWJseSBtb3JlIHJlbGV2YW50IGFzIGEganVzdGlmaWNhdGlvbiBm
+b3IgdGhpcyBjaGFuZ2UuDQo+ID4gPg0KPiA+IFRoYW5rcyBmb3IgeW91ciBjb3JyZWN0aW9uLCBJ
+J2xsIHBheSBhdHRlbnRpb24gbmV4dCB0aW1lLg0KPiA+DQo+ID4gSSBoYXZlIGEgcXVlc3Rpb24g
+YWJvdXQgdGhlIHBhdGNoIHlvdSBtZW50aW9uZWQ6DQo+ID4gVGhlIHBhdGNoIHVzZXMgY3B1X3Nj
+YWxlIHBlcl9jcHUgdmFyaWFibGUgdG8gc3RvcmUgdGhlIENQVSBjYXBhY2l0eQ0KPiA+IHRocm91
+Z2ggYXJjaF90b3BvbG9neSwgQnV0IGFyY2hfc2NhbGVfY3B1X2NhcGFjaXR5KCkgaW50ZXJmYWNl
+IHNlZW1zDQo+ID4gbm90IGRlZmluZWQgdG8gZGVsaXZlciB0aGUgY3B1X3NjYWxlIHRvIHRoZSBz
+Y2hlZHVsZXIgSW4gY29udHJhc3QsDQo+ID4gYXJtNjQgZGVmaW5lcyBpdCBhcyB0aGUgdG9wb2xv
+Z3lfZ2V0X2NwdV9zY2FsZSgpIGluIGl0cw0KPiA+IGFyY2gvYXJtNjQvaW5jbHVkZS9hc20vdG9w
+b2xvZ3kuaC4NCj4gPiBJcyB0aGlzIGFuIG92ZXJzaWdodCBvciBhIHBhcnRpY3VsYXIgcHVycG9z
+ZT8NCj4gDQo+IEludGVudGlvbmFsIG92ZXJzaWdodCBJIHN1cHBvc2U/IEl0IHdhc24ndCBteSBp
+bnRlbnRpb24gdG8gZG8gYW55dGhpbmcgb3RoZXINCj4gdGhhbiBkb2N1bWVudCB0aGUgcHJvcGVy
+dHkgdGhhdCBwZW9wbGUgd2VyZSBhbHJlYWR5IHVzaW5nIGluIHRoZWlyDQo+IGRldmljZXRyZWVz
+IChhbmQgZmluZGluZyBidWdzIHdpdGghKS4NCj4gSW4gcmV0cm9zcGVjdCwgcGVyaGFwcyBpdCBp
+cyBiZXR0ZXIgaWYgSSB1bi1yZXZpZXcgdGhpcyBwYXRjaCB1bnRpbCB3ZSBrbm93IGl0IGlzDQo+
+IHBsdW1iZWQgaW50byB0aGUgc2NoZWR1bGVyIHByb3Blcmx5Pw0KPiANCj4gTGV5IEZvb24gVGFu
+IGlzIHRoZSBvbmUgdGhhdCBmb3VuZCB0aGUgUklTQy1WIGJ1Z3Mgd2l0aCB0aGlzIHByb3BlcnR5
+IGluIHRoZWlyDQo+IGRldmljZXRyZWUsIHNvIHBlcmhhcHMgdGhleSd2ZSBhbHJlYWR5IGRvbmUg
+dGhlIHdvcmsgaGVyZT8NCg0KSSBoYXZlIGZldyBwYXRjaGVzIHRvIHdpcmUgdXAgZmV3IGFyY2hf
+Kl90b3BvbG9neSBmdW5jdGlvbnMgZm9yIFJJU0MtViBhcmNoaXRlY3R1cmUuIEJ1dCBoYXZlbid0
+IHNlbmQgb3V0IHRvIE1MLg0KDQpSZWdhcmRzDQpMZXkgRm9vbg0KX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cmxp
+bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
+bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
