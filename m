@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20A09C6FA8E
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Feb 2023 07:30:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83BBDC64ED6
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Feb 2023 07:36:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=X/Jc/BCNHLbYAks1FDUbj4avo4SLywn553SbfXgrZ48=; b=ImB8zvPQOCueEf
-	gZZ2TP9crilZoXnkm4WSVzPCNJWeiHi6tXAhWH9+MB7WIBtqRoZrsI/3wCljFY3Lnkkz3EZ2d8EYP
-	kGGBCMJTnUMTl+KqjcyoSyl+5al+Vumq8Yr3I3Qu6KVmMQBGnaNIafoVXwBN80tyLjE8nVrNzYO+A
-	Jo8l7s7yF7T/5xGN7jK2fosJQvMh1BjIBELAP4twNTIHZa//kEgSotHlEix1JYu4MMxftJvrbhtxC
-	1z877cpoF7QYpN4+r14LsQgoI3/6TBshxYNddWiapLf9QaAbl0QM6EtSZrQc60G7J3mpWgtdHR1nl
-	F+kVHDvtP+tHaiprHyxg==;
+	List-Owner; bh=1Cid9PplZE5AFXaowZsZ7BaeLnlVnzSHW+mO434rxGg=; b=SxFlcCVZ2QlpL3
+	uY71AGXp/hmmKzG+YJ1674E1NRyMisbp+L+Wacs66qMqIqgBfJhE/CvodLgk/x1xEjWcKPdenDgxA
+	o9XeXx4GJs1SbwZQYT5u/e/LfAlgkUk7hIT2oHCOyar9uuq1JVZ5MMAMlJZ7FUqZPKxP1U6x75xJI
+	zfEWVaOHEm5BChXbYmeYJ59KJWI9JF78OEczoyyv/IhMuRhPv7L5OfEBeav+zjTq3CcP4R+ejyWbI
+	FOizRd9yKvhEPYvNBqG/3bqR+cipFpUecfG2s/p6KecTP/tNk0bZTuWDy6MB19bQ3C35GBo0NWwVr
+	ikBNs5h8B0SAf33KFcJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWuRS-00CFxB-5z; Tue, 28 Feb 2023 07:30:30 +0000
+	id 1pWuWt-00CHFZ-5H; Tue, 28 Feb 2023 07:36:07 +0000
 Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWuRB-00CFiP-NK
-	for linux-riscv@lists.infradead.org; Tue, 28 Feb 2023 07:30:17 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	id 1pWuWp-00CHCw-Mx
+	for linux-riscv@lists.infradead.org; Tue, 28 Feb 2023 07:36:05 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id E640124E43A;
-	Tue, 28 Feb 2023 15:29:45 +0800 (CST)
-Received: from EXMBX068.cuchost.com (172.16.6.68) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 28 Feb
- 2023 15:29:40 +0800
-Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX068.cuchost.com
- (172.16.6.68) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 28 Feb
- 2023 15:29:40 +0800
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 624D924E435;
+	Tue, 28 Feb 2023 15:35:40 +0800 (CST)
+Received: from EXMBX063.cuchost.com (172.16.7.63) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 28 Feb
+ 2023 15:34:27 +0800
+Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX063.cuchost.com
+ (172.16.7.63) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 28 Feb
+ 2023 15:34:27 +0800
 Received: from EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f]) by
  EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f%17]) with mapi id
- 15.00.1497.044; Tue, 28 Feb 2023 15:29:40 +0800
+ 15.00.1497.044; Tue, 28 Feb 2023 15:34:26 +0800
 From: JeeHeng Sia <jeeheng.sia@starfivetech.com>
 To: Andrew Jones <ajones@ventanamicro.com>
 CC: "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
@@ -51,9 +51,9 @@ Subject: RE: [PATCH v4 4/4] RISC-V: Add arch functions to support
  hibernation/suspend-to-disk
 Thread-Topic: [PATCH v4 4/4] RISC-V: Add arch functions to support
  hibernation/suspend-to-disk
-Thread-Index: AQHZRZ0zqkG7/pRhhEiAX6gFjug0Aa7cUgAAgAEC65D///aKAIAAiLXg//+GvACAAI+BwP//lVOAAJFkcXD//+axAP//cjXQgADMoID//pX2AIACjLaA//93Q9AAFcQCgP//eFGw
-Date: Tue, 28 Feb 2023 07:29:40 +0000
-Message-ID: <abd16b950ca744b081fc9f545977b8fa@EXMBX066.cuchost.com>
+Thread-Index: AQHZRZ0zqkG7/pRhhEiAX6gFjug0Aa7cUgAAgAEC65D///aKAIAAiLXg//+GvACAAI+BwP//lVOAAJFkcXD//+axAP//cjXQgADMoID//pX2AIACjLaA//9iDwAAGMuEAP//eWFg
+Date: Tue, 28 Feb 2023 07:34:26 +0000
+Message-ID: <dcaabfb44fbb40acbe21aebb2dbc29b0@EXMBX066.cuchost.com>
 References: <20230224095526.ctctpzw3p3csf6qj@orel>
  <24a6dbe6aa2043c7812bf7e258786e13@EXMBX066.cuchost.com>
  <20230224120715.wgqnqmkadsbqusus@orel>
@@ -63,9 +63,9 @@ References: <20230224095526.ctctpzw3p3csf6qj@orel>
  <20230227114435.eow57ax5zhysz3kv@orel>
  <a6c319dd867f4f1d97e9d950b9e7c636@EXMBX066.cuchost.com>
  <20230228050457.zfbflfawctaccepv@orel>
- <803ac603023c4eeda4a0b8e414cce6f1@EXMBX066.cuchost.com>
- <20230228071845.k6s6bcnesdsnw3jl@orel>
-In-Reply-To: <20230228071845.k6s6bcnesdsnw3jl@orel>
+ <ffd2e7849b764043bef606d9b8019506@EXMBX066.cuchost.com>
+ <20230228072936.22ahmg6ggqk4v5wh@orel>
+In-Reply-To: <20230228072936.22ahmg6ggqk4v5wh@orel>
 Accept-Language: en-US, zh-CN
 Content-Language: en-US
 X-MS-Has-Attach: 
@@ -75,8 +75,8 @@ x-originating-ip: [202.188.176.82]
 x-yovoleruleagent: yovoleflag
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230227_233014_219951_2DAAC5EF 
-X-CRM114-Status: GOOD (  52.27  )
+X-CRM114-CacheID: sfid-20230227_233604_027761_802620B1 
+X-CRM114-Status: GOOD (  49.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,13 +97,13 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 > -----Original Message-----
 > From: Andrew Jones <ajones@ventanamicro.com>
-> Sent: Tuesday, 28 February, 2023 3:19 PM
+> Sent: Tuesday, 28 February, 2023 3:30 PM
 > To: JeeHeng Sia <jeeheng.sia@starfivetech.com>
 > Cc: paul.walmsley@sifive.com; palmer@dabbelt.com; aou@eecs.berkeley.edu; linux-riscv@lists.infradead.org; linux-
 > kernel@vger.kernel.org; Leyfoon Tan <leyfoon.tan@starfivetech.com>; Mason Huo <mason.huo@starfivetech.com>
 > Subject: Re: [PATCH v4 4/4] RISC-V: Add arch functions to support hibernation/suspend-to-disk
 > 
-> On Tue, Feb 28, 2023 at 05:33:32AM +0000, JeeHeng Sia wrote:
+> On Tue, Feb 28, 2023 at 06:33:59AM +0000, JeeHeng Sia wrote:
 > >
 > >
 > > > -----Original Message-----
@@ -167,73 +167,27 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 > > > I'll change the way I ask this time. Please take a look at your PBE list
 > > > and let me know if there are PBEs on it that must be there on each
 > > > hibernation resume, e.g. the resume code page is there or whatever.
+> > Just to add on, it is not "my" PBE list but the list is from the hibernation core. As already draw out the scenarios for you, checking
+> should be done at the initialization phase.
+> 
+> Your PBE list is your instance of the PBE list when you resume your
+> hibernation test. I'm simply asking you to dump the PBE list while
+> you resume a hibernation, and then tell me what's there.
+> 
+> Please stop thinking about the trivial details of the code, like which
+> file a variable is in, and start thinking about how the code is being
+> used. A PBE list is a concept, your PBE list is an instance of that
+> concept, the code, which is the least interesting part, is just an
+> implementation of that concept. First, I want to understand the concept,
+> then we can worry about the code.
+> 
+Dear Andrew, perhaps a conference call is better? otherwise it is going to waste the time in typing...Let me know how to join the call with you....thank you.
+> drew
+> 
 > > >
 > > > > Can I suggest you to submit a patch to the hibernation core?
 > > >
 > > > Why? What's wrong with it?
-> > Kindly let me draw 2 scenarios for you. Option 1 is to add the restore_pblist checking to the hibernation core and option 2 is to add
-> restore_pblist checking to the arch solution
-> > Although I really don't think it is needed. But if you really wanted to add the checking, I would suggest to go with option 1. again, I
-> really think that it is not needed!
-> 
-> This entire email thread is because you've first coded, and now stated,
-> that you don't think the PBE list will ever be empty. And now, below, I
-> see you're proposing to return an error when the PBE list is empty, why?
-> If there's nothing in the PBE list, then there's nothing to do for it.
-> Why is that an error condition?
-> 
-> Please explain to me why you think the PBE list *must* not be empty
-> (which is what I've been asking for over and over). OIOW, are there
-> any pages you have in mind which the resume kernel always uses and
-> are also always going to end up in the suspend image? I don't know,
-> but I assume clean, file-backed pages do not get added to the suspend
-> image, which would rule out most kernel code pages. Also, many pages
-> written during boot (which is where the resume kernel is at resume time)
-> were no longer resident at hibernate time, so they won't be in the
-> suspend image either. While it's quite likely I'm missing something
-> obvious, I'd rather be told what that is than to assume the PBE list
-> will never be empty. Which is why I keep asking about it...
-The answer already in the Linux kernel hibernation core, do you need me to write a white paper to explain in detail or you need a conference call? 
-> 
-> Thanks,
-> drew
-> 
-> >
-> > 	//Option 1
-> > 	//Pseudocode to illustrate the image loading
-> > 	initialize restore_pblist to null;
-> > 	initialize safe_pages_list to null;
-> > 	Allocate safe page list, return error if failed;
-> > 	load image;
-> > loop:	Create pbe chain, return error if failed;
-> > 	assign orig_addr and safe_page to pbe;
-> > 	link pbe to restore_pblist;
-> > 	/* Add checking here */
-> > 	return error if restore_pblist equal to null;
-> > 	return pbe to handle->buffer;
-> > 	check handle->buffer;
-> > 	goto loop if no error else return with error;
-> >
-> > 	//option 2
-> > 	//Pseudocode to illustrate the image loading
-> > 	initialize restore_pblist to null;
-> > 	initialize safe_pages_list to null;
-> > 	Allocate safe page list, return error if failed;
-> > 	load image;
-> > loop:	Create pbe chain, return error if failed;
-> > 	assign orig_addr and safe_page to pbe;
-> > 	link pbe to restore_pblist;
-> > 	return pbe to handle->buffer;
-> > 	check handle->buffer;
-> > 	goto loop if no error else return with error;
-> > 	everything works correctly, continue the rest of the operation
-> > 	invoke swsusp_arch_resume
-> >
-> > 	//@swsusp_arch_resume()
-> > loop2: return error if restore_pblist is null
-> > 	increment restore_pblist and goto loop2
-> > 	create temp_pg_table
-> > 	continue the rest of the resume operation
 > > >
 > > > Thanks,
 > > > drew
