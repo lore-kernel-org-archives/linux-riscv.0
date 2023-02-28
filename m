@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8CEBC64ED6
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Feb 2023 00:11:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00EE6C7EE2E
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Feb 2023 00:12:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ww/nkrn46K+D3HIrxzNqBkCu1rRVIIu1CJU7T9etlpw=; b=SQkUNFfQsK4EHq
-	qr4RDxU993y4JlenqjBUoOhjb40niXXWjzq00ibiiIrw6QH3yXggJarWlOdQ7RF8eVmCn2R9VOiVb
-	SFcHdt1zhFcOTxfQdUwQxxcDzlXfGBiCEj5X1gbIQRxHTOz0b4LE7q0R+RjqwGqPGatTigz2iPWN1
-	GsBOEDYZxRxuOQ9MozJktqVbKlzlvxXOThQBcH5YApNjnb5ie1WMw2MIZkJhrrsZlALqgLSb2oUSY
-	VX+6GlrUZOeLVeuZ3km6hC2bAClKTre78VIz3sqrc6d3F8uOWgxKbdWuP9/62nbWwSthY6kwsPcCa
-	aqidgS8DSmsVk9SrLF5A==;
+	List-Owner; bh=bAfYZwtlxV1fNbmoMac+gAwtNwRFivbHZFsIqmVtyqo=; b=aQ/iKm0Gy0Xl3z
+	xHbaekTC/+py0Ut1r1KkI27dazCRYzT7p0EtvRh9zjaYQo5oU7plVr7Xxxwe2ouU5ZNbqQ0MB8VBo
+	060hc4LjZlqrbsYEUnURQfkFH1DQdWgOGTxdErRuT3dl5XlbEQdkzpDI9JfScpzrZGleyhZs0OKBj
+	+laE/1rQZK9nA6jNDQamAxEz5omso28gyoKJZtrPONq+dR8GnBViVaw/fzuBt1fKiw8zBXl3mkfFC
+	Qg/yAq1qn0NXOdHlzMoRJPZ30yH/8QW1z/Nqn1KVZLzCcL7hldCdcTY+y5fK7mlLFpAA3t4nEoR/I
+	enWiOajhlSOYriqx3Zqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWnai-00BdP3-Ex; Tue, 28 Feb 2023 00:11:36 +0000
+	id 1pWnbE-00BdWG-3S; Tue, 28 Feb 2023 00:12:08 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWnae-00BdOB-Mj
-	for linux-riscv@lists.infradead.org; Tue, 28 Feb 2023 00:11:35 +0000
+	id 1pWnbA-00BdUe-Hu
+	for linux-riscv@lists.infradead.org; Tue, 28 Feb 2023 00:12:06 +0000
 Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=phil.lan)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1pWnVC-000552-0T; Tue, 28 Feb 2023 01:05:54 +0100
+	id 1pWnVA-000552-QF; Tue, 28 Feb 2023 01:05:52 +0100
 From: Heiko Stuebner <heiko@sntech.de>
 To: palmer@rivosinc.com
 Cc: greentime.hu@sifive.com,
@@ -39,16 +39,16 @@ Cc: greentime.hu@sifive.com,
 	christoph.muellner@vrull.eu,
 	heiko@sntech.de,
 	Heiko Stuebner <heiko.stuebner@vrull.eu>
-Subject: [PATCH RFC v2 15/16] RISC-V: crypto: add Zvksed accelerated SM4 encryption implementation
-Date: Tue, 28 Feb 2023 01:05:43 +0100
-Message-Id: <20230228000544.2234136-16-heiko@sntech.de>
+Subject: [PATCH RFC v2 11/16] RISC-V: crypto: add Zvkg accelerated GCM GHASH implementation
+Date: Tue, 28 Feb 2023 01:05:39 +0100
+Message-Id: <20230228000544.2234136-12-heiko@sntech.de>
 X-Mailer: git-send-email 2.39.0
 In-Reply-To: <20230228000544.2234136-1-heiko@sntech.de>
 References: <20230228000544.2234136-1-heiko@sntech.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230227_161133_057030_360D1704 
-X-CRM114-Status: GOOD (  24.65  )
+X-CRM114-CacheID: sfid-20230227_161204_770277_E71F0C91 
+X-CRM114-Status: GOOD (  22.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,245 +67,162 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Heiko Stuebner <heiko.stuebner@vrull.eu>
 
-Add support for the SM4 symmetric cipher implemented using the special
-instructions provided by the Zvksed vector crypto instructions.
+When the Zvkg vector crypto extension is available another optimized
+gcm ghash variant is possible, so add it as another implmentation.
 
 Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
 ---
- arch/riscv/crypto/Kconfig               |  17 ++
- arch/riscv/crypto/Makefile              |   7 +
- arch/riscv/crypto/sm4-riscv64-glue.c    | 163 ++++++++++++++
- arch/riscv/crypto/sm4-riscv64-zvksed.pl | 270 ++++++++++++++++++++++++
- 4 files changed, 457 insertions(+)
- create mode 100644 arch/riscv/crypto/sm4-riscv64-glue.c
- create mode 100644 arch/riscv/crypto/sm4-riscv64-zvksed.pl
+ arch/riscv/crypto/Kconfig               |   1 +
+ arch/riscv/crypto/Makefile              |   7 +-
+ arch/riscv/crypto/ghash-riscv64-glue.c  |  80 ++++++++++++
+ arch/riscv/crypto/ghash-riscv64-zvkg.pl | 161 ++++++++++++++++++++++++
+ 4 files changed, 247 insertions(+), 2 deletions(-)
+ create mode 100644 arch/riscv/crypto/ghash-riscv64-zvkg.pl
 
 diff --git a/arch/riscv/crypto/Kconfig b/arch/riscv/crypto/Kconfig
-index c8abb29bb49b..a78c4fcb4127 100644
+index 404fd9b3cb7c..84da19bdde8b 100644
 --- a/arch/riscv/crypto/Kconfig
 +++ b/arch/riscv/crypto/Kconfig
-@@ -51,4 +51,21 @@ config CRYPTO_SHA512_RISCV64
- 	  Architecture: riscv64
- 	  - Zvknhb vector crypto extension
+@@ -13,5 +13,6 @@ config CRYPTO_GHASH_RISCV64
+ 	  Architecture: riscv64 using one of:
+ 	  - ZBC extension
+ 	  - ZVKB vector crypto extension
++	  - ZVKG vector crypto extension
  
-+config CRYPTO_SM4_RISCV64
-+	tristate "Ciphers: SM4 (ShangMi 4)"
-+	depends on 64BIT && RISCV_ISA_V
-+	select CRYPTO_ALGAPI
-+	select CRYPTO_SM4
-+	select CRYPTO_SM4_GENERIC
-+	help
-+	  SM4 cipher algorithms (OSCCA GB/T 32907-2016,
-+	  ISO/IEC 18033-3:2010/Amd 1:2021)
-+
-+	  SM4 (GBT.32907-2016) is a cryptographic standard issued by the
-+	  Organization of State Commercial Administration of China (OSCCA)
-+	  as an authorized cryptographic algorithms for the use within China.
-+
-+	  Architecture: riscv64
-+	  - Zvksed vector crypto extension
-+
  endmenu
 diff --git a/arch/riscv/crypto/Makefile b/arch/riscv/crypto/Makefile
-index e5c702dff883..c721da42af4c 100644
+index 8ab9a0ae8f2d..1ee0ce7d3264 100644
 --- a/arch/riscv/crypto/Makefile
 +++ b/arch/riscv/crypto/Makefile
-@@ -21,6 +21,9 @@ sha256-riscv64-y := sha256-riscv64-glue.o sha256-riscv64-zvknhb.o
- obj-$(CONFIG_CRYPTO_SHA512_RISCV64) += sha512-riscv64.o
- sha512-riscv64-y := sha512-riscv64-glue.o sha512-riscv64-zvknhb.o
+@@ -9,7 +9,7 @@ ifdef CONFIG_RISCV_ISA_ZBC
+ ghash-riscv64-y += ghash-riscv64-zbc.o
+ endif
+ ifdef CONFIG_RISCV_ISA_V
+-ghash-riscv64-y += ghash-riscv64-zvkb.o
++ghash-riscv64-y += ghash-riscv64-zvkb.o ghash-riscv64-zvkg.o
+ endif
  
-+obj-$(CONFIG_CRYPTO_SM4_RISCV64) += sm4-riscv64.o
-+sm4-riscv64-y := sm4-riscv64-glue.o sm4-riscv64-zvksed.o
-+
  quiet_cmd_perlasm = PERLASM $@
-       cmd_perlasm = $(PERL) $(<) void $(@)
- 
-@@ -42,6 +45,10 @@ $(obj)/sha256-riscv64-zvknhb.S: $(src)/sha256-riscv64-zvknha.pl
- $(obj)/sha512-riscv64-zvknhb.S: $(src)/sha512-riscv64-zvknhb.pl
+@@ -21,4 +21,7 @@ $(obj)/ghash-riscv64-zbc.S: $(src)/ghash-riscv64-zbc.pl
+ $(obj)/ghash-riscv64-zvkb.S: $(src)/ghash-riscv64-zvkb.pl
  	$(call cmd,perlasm)
  
-+$(obj)/sm4-riscv64-zvksed.S: $(src)/sm4-riscv64-zvksed.pl
+-clean-files += ghash-riscv64-zbc.S ghash-riscv64-zvkb.S
++$(obj)/ghash-riscv64-zvkg.S: $(src)/ghash-riscv64-zvkg.pl
 +	$(call cmd,perlasm)
 +
- clean-files += aes-riscv64-zvkned.S
- clean-files += ghash-riscv64-zbc.S ghash-riscv64-zvkb.S ghash-riscv64-zvkg.S
- clean-files += sha256-riscv64-zvknha.S sha512-riscv64-zvknhb.S
-+clean-files += sm4-riscv64-zvksed.S
-diff --git a/arch/riscv/crypto/sm4-riscv64-glue.c b/arch/riscv/crypto/sm4-riscv64-glue.c
-new file mode 100644
-index 000000000000..3eb37441f37c
---- /dev/null
-+++ b/arch/riscv/crypto/sm4-riscv64-glue.c
-@@ -0,0 +1,163 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Linux/riscv64 port of the OpenSSL SM4 implementation for RISCV64
-+ *
-+ * Copyright (C) 2023 VRULL GmbH
-+ * Author: Heiko Stuebner <heiko.stuebner@vrull.eu>
-+ */
++clean-files += ghash-riscv64-zbc.S ghash-riscv64-zvkb.S ghash-riscv64-zvkg.S
+diff --git a/arch/riscv/crypto/ghash-riscv64-glue.c b/arch/riscv/crypto/ghash-riscv64-glue.c
+index 004a1a11d7d8..9c7a8616049e 100644
+--- a/arch/riscv/crypto/ghash-riscv64-glue.c
++++ b/arch/riscv/crypto/ghash-riscv64-glue.c
+@@ -26,6 +26,10 @@ void gcm_ghash_rv64i_zbc__zbkb(u64 Xi[2], const u128 Htable[16],
+ void gcm_ghash_rv64i_zvkb(u64 Xi[2], const u128 Htable[16],
+ 			  const u8 *inp, size_t len);
+ 
++/* Zvkg (vector crypto with vghmac.vv). */
++void gcm_ghash_rv64i_zvkg(u64 Xi[2], const u128 Htable[16],
++			  const u8 *inp, size_t len);
 +
-+#include <linux/crypto.h>
-+#include <linux/delay.h>
-+#include <linux/err.h>
-+#include <linux/module.h>
-+#include <linux/types.h>
-+#include <asm/simd.h>
-+#include <asm/vector.h>
-+#include <crypto/sm4.h>
-+#include <crypto/internal/cipher.h>
-+#include <crypto/internal/simd.h>
-+
-+struct sm4_key {
-+	u32 rkey[SM4_RKEY_WORDS];
-+};
-+
-+void rv64i_zvksed_sm4_encrypt(const u8 *in, u8 *out, const struct sm4_key *key);
-+void rv64i_zvksed_sm4_decrypt(const u8 *in, u8 *out, const struct sm4_key *key);
-+int rv64i_zvksed_sm4_set_encrypt_key(const u8 *userKey, struct sm4_key *key);
-+int rv64i_zvksed_sm4_set_decrypt_key(const u8 *userKey, struct sm4_key *key);
-+
-+struct riscv_sm4_ctx {
-+	struct crypto_cipher *fallback;
-+	struct sm4_key enc_key;
-+	struct sm4_key dec_key;
-+	unsigned int keylen;
-+};
-+
-+static int riscv64_sm4_init_zvksed(struct crypto_tfm *tfm)
-+{
-+	struct riscv_sm4_ctx *ctx = crypto_tfm_ctx(tfm);
-+	const char *alg = crypto_tfm_alg_name(tfm);
-+	struct crypto_cipher *fallback;
-+
-+	fallback = crypto_alloc_cipher(alg, 0, CRYPTO_ALG_NEED_FALLBACK);
-+	if (IS_ERR(fallback)) {
-+		printk(KERN_ERR
-+		       "Failed to allocate fallback for '%s': %ld\n",
-+		       alg, PTR_ERR(fallback));
-+		return PTR_ERR(fallback);
-+	}
-+
-+	crypto_cipher_set_flags(fallback,
-+				crypto_cipher_get_flags((struct
-+							 crypto_cipher *)
-+							tfm));
-+	ctx->fallback = fallback;
-+
-+	return 0;
-+}
-+
-+static void riscv64_sm4_exit_zvksed(struct crypto_tfm *tfm)
-+{
-+	struct riscv_sm4_ctx *ctx = crypto_tfm_ctx(tfm);
-+
-+	if (ctx->fallback) {
-+		crypto_free_cipher(ctx->fallback);
-+		ctx->fallback = NULL;
-+	}
-+}
-+
-+static int riscv64_sm4_setkey_zvksed(struct crypto_tfm *tfm, const u8 *key,
-+				     unsigned int keylen)
-+{
-+	struct riscv_sm4_ctx *ctx = crypto_tfm_ctx(tfm);
-+	int ret;
-+
-+	ctx->keylen = keylen;
-+
-+	kernel_rvv_begin();
-+	ret = rv64i_zvksed_sm4_set_encrypt_key(key, &ctx->enc_key);
-+	if (ret != 1) {
-+		kernel_rvv_end();
-+		return -EINVAL;
-+	}
-+
-+	ret = rv64i_zvksed_sm4_set_decrypt_key(key, &ctx->dec_key);
-+	kernel_rvv_end();
-+	if (ret != 1)
-+		return -EINVAL;
-+
-+	ret = crypto_cipher_setkey(ctx->fallback, key, keylen);
-+
-+	return ret ? -EINVAL : 0;
-+}
-+
-+static void riscv64_sm4_encrypt_zvksed(struct crypto_tfm *tfm, u8 *dst, const u8 *src)
-+{
-+	struct riscv_sm4_ctx *ctx = crypto_tfm_ctx(tfm);
-+
-+	if (crypto_simd_usable()) {
-+		kernel_rvv_begin();
-+		rv64i_zvksed_sm4_encrypt(src, dst, &ctx->enc_key);
-+		kernel_rvv_end();
-+	} else {
-+		crypto_cipher_encrypt_one(ctx->fallback, dst, src);
-+	}
-+}
-+
-+static void riscv64_sm4_decrypt_zvksed(struct crypto_tfm *tfm, u8 *dst, const u8 *src)
-+{
-+	struct riscv_sm4_ctx *ctx = crypto_tfm_ctx(tfm);
-+
-+	if (crypto_simd_usable()) {
-+		kernel_rvv_begin();
-+		rv64i_zvksed_sm4_decrypt(src, dst, &ctx->dec_key);
-+		kernel_rvv_end();
-+	} else {
-+		crypto_cipher_decrypt_one(ctx->fallback, dst, src);
-+	}
-+}
-+
-+struct crypto_alg riscv64_sm4_zvksed_alg = {
-+	.cra_name = "sm4",
-+	.cra_driver_name = "riscv-sm4-zvksed",
-+	.cra_module = THIS_MODULE,
-+	.cra_priority = 300,
-+	.cra_flags = CRYPTO_ALG_TYPE_CIPHER | CRYPTO_ALG_NEED_FALLBACK,
-+	.cra_blocksize = SM4_BLOCK_SIZE,
-+	.cra_ctxsize = sizeof(struct riscv_sm4_ctx),
-+	.cra_init = riscv64_sm4_init_zvksed,
-+	.cra_exit = riscv64_sm4_exit_zvksed,
-+	.cra_cipher = {
-+		.cia_min_keysize = SM4_KEY_SIZE,
-+		.cia_max_keysize = SM4_KEY_SIZE,
-+		.cia_setkey = riscv64_sm4_setkey_zvksed,
-+		.cia_encrypt = riscv64_sm4_encrypt_zvksed,
-+		.cia_decrypt = riscv64_sm4_decrypt_zvksed,
+ struct riscv64_ghash_ctx {
+ 	void (*ghash_func)(u64 Xi[2], const u128 Htable[16],
+ 			   const u8 *inp, size_t len);
+@@ -183,6 +187,63 @@ struct shash_alg riscv64_zvkb_ghash_alg = {
+ 	},
+ };
+ 
++RISCV64_ZVK_SETKEY(zvkg, zvkg);
++struct shash_alg riscv64_zvkg_ghash_alg = {
++	.digestsize = GHASH_DIGEST_SIZE,
++	.init = riscv64_ghash_init,
++	.update = riscv64_zvk_ghash_update,
++	.final = riscv64_zvk_ghash_final,
++	.setkey = riscv64_zvk_ghash_setkey_zvkg,
++	.descsize = sizeof(struct riscv64_ghash_desc_ctx)
++		    + sizeof(struct ghash_desc_ctx),
++	.base = {
++		 .cra_name = "ghash",
++		 .cra_driver_name = "riscv64_zvkg_ghash",
++		 .cra_priority = 301,
++		 .cra_blocksize = GHASH_BLOCK_SIZE,
++		 .cra_ctxsize = sizeof(struct riscv64_ghash_ctx),
++		 .cra_module = THIS_MODULE,
 +	},
 +};
 +
-+static int __init riscv64_sm4_mod_init(void)
-+{
-+	if (riscv_isa_extension_available(NULL, ZVKSED) &&
-+	    riscv_isa_extension_available(NULL, ZVKB) &&
-+	    riscv_vector_vlen() >= 128)
-+		return crypto_register_alg(&riscv64_sm4_zvksed_alg);
++RISCV64_ZVK_SETKEY(zvkg__zbb_or_zbkb, zvkg);
++struct shash_alg riscv64_zvkg_zbb_or_zbkb_ghash_alg = {
++	.digestsize = GHASH_DIGEST_SIZE,
++	.init = riscv64_ghash_init,
++	.update = riscv64_zvk_ghash_update,
++	.final = riscv64_zvk_ghash_final,
++	.setkey = riscv64_zvk_ghash_setkey_zvkg__zbb_or_zbkb,
++	.descsize = sizeof(struct riscv64_ghash_desc_ctx)
++		    + sizeof(struct ghash_desc_ctx),
++	.base = {
++		 .cra_name = "ghash",
++		 .cra_driver_name = "riscv64_zvkg_zbb_or_zbkb_ghash",
++		 .cra_priority = 302,
++		 .cra_blocksize = GHASH_BLOCK_SIZE,
++		 .cra_ctxsize = sizeof(struct riscv64_ghash_ctx),
++		 .cra_module = THIS_MODULE,
++	},
++};
 +
-+	return 0;
-+}
++RISCV64_ZVK_SETKEY(zvkg__zvkb, zvkg);
++struct shash_alg riscv64_zvkg_zvkb_ghash_alg = {
++	.digestsize = GHASH_DIGEST_SIZE,
++	.init = riscv64_ghash_init,
++	.update = riscv64_zvk_ghash_update,
++	.final = riscv64_zvk_ghash_final,
++	.setkey = riscv64_zvk_ghash_setkey_zvkg__zvkb,
++	.descsize = sizeof(struct riscv64_ghash_desc_ctx)
++		    + sizeof(struct ghash_desc_ctx),
++	.base = {
++		 .cra_name = "ghash",
++		 .cra_driver_name = "riscv64_zvkg_zvkb_ghash",
++		 .cra_priority = 303,
++		 .cra_blocksize = GHASH_BLOCK_SIZE,
++		 .cra_ctxsize = sizeof(struct riscv64_ghash_ctx),
++		 .cra_module = THIS_MODULE,
++	},
++};
 +
-+static void __exit riscv64_sm4_mod_fini(void)
-+{
-+	if (riscv_isa_extension_available(NULL, ZVKSED) &&
-+	    riscv_isa_extension_available(NULL, ZVKB) &&
-+	    riscv_vector_vlen() >= 128)
-+		crypto_unregister_alg(&riscv64_sm4_zvksed_alg);
-+}
+ #endif /* CONFIG_RISCV_ISA_V */
+ 
+ #ifdef CONFIG_RISCV_ISA_ZBC
+@@ -381,6 +442,25 @@ static int __init riscv64_ghash_mod_init(void)
+ 		if (ret < 0)
+ 			return ret;
+ 	}
 +
-+module_init(riscv64_sm4_mod_init);
-+module_exit(riscv64_sm4_mod_fini);
++	if (riscv_isa_extension_available(NULL, ZVKG)) {
++		ret = riscv64_ghash_register(&riscv64_zvkg_ghash_alg);
++		if (ret < 0)
++			return ret;
 +
-+MODULE_DESCRIPTION("SM4 (accelerated)");
-+MODULE_AUTHOR("Heiko Stuebner <heiko.stuebner@vrull.eu>");
-+MODULE_LICENSE("GPL v2");
-+MODULE_ALIAS_CRYPTO("sm4");
-diff --git a/arch/riscv/crypto/sm4-riscv64-zvksed.pl b/arch/riscv/crypto/sm4-riscv64-zvksed.pl
++		if (riscv_isa_extension_available(NULL, ZVKB)) {
++			ret = riscv64_ghash_register(&riscv64_zvkg_zvkb_ghash_alg);
++			if (ret < 0)
++				return ret;
++		}
++
++		if (riscv_isa_extension_available(NULL, ZBB) ||
++		    riscv_isa_extension_available(NULL, ZBKB)) {
++			ret = riscv64_ghash_register(&riscv64_zvkg_zbb_or_zbkb_ghash_alg);
++			if (ret < 0)
++				return ret;
++		}
++	}
+ #endif
+ 
+ 	return 0;
+diff --git a/arch/riscv/crypto/ghash-riscv64-zvkg.pl b/arch/riscv/crypto/ghash-riscv64-zvkg.pl
 new file mode 100644
-index 000000000000..3c948f273071
+index 000000000000..c13dd9c4ee31
 --- /dev/null
-+++ b/arch/riscv/crypto/sm4-riscv64-zvksed.pl
-@@ -0,0 +1,270 @@
++++ b/arch/riscv/crypto/ghash-riscv64-zvkg.pl
+@@ -0,0 +1,161 @@
 +#! /usr/bin/env perl
 +# Copyright 2023 The OpenSSL Project Authors. All Rights Reserved.
 +#
@@ -314,11 +231,9 @@ index 000000000000..3c948f273071
 +# in the file LICENSE in the source distribution or at
 +# https://www.openssl.org/source/license.html
 +
-+# The generated code of this file depends on the following RISC-V extensions:
 +# - RV64I
 +# - RISC-V vector ('V') with VLEN >= 128
-+# - Vector Bit-manipulation used in Cryptography ('Zvkb')
-+# - Vector ShangMi Suite: SM4 Block Cipher ('Zvksed')
++# - RISC-V vector crypto GHASH extension ('Zvkg')
 +
 +use strict;
 +use warnings;
@@ -339,239 +254,132 @@ index 000000000000..3c948f273071
 +.text
 +___
 +
-+####
-+# int rv64i_zvksed_sm4_set_encrypt_key(const unsigned char *userKey,
-+#                                      SM4_KEY *key);
++################################################################################
++# void gcm_init_rv64i_zvkg(u128 Htable[16], const u64 H[2]);
++# void gcm_init_rv64i_zvkg__zbb_or_zbkb(u128 Htable[16], const u64 H[2]);
++# void gcm_init_rv64i_zvkg__zvkb(u128 Htable[16], const u64 H[2]);
 +#
++# input: H: 128-bit H - secret parameter E(K, 0^128)
++# output: Htable: Copy of secret parameter (in normalized byte order)
++#
++# All callers of this function revert the byte-order unconditionally
++# on little-endian machines. So we need to revert the byte-order back.
 +{
-+my ($ukey,$keys,$fk)=("a0","a1","t0");
-+my ($vukey,$vfk,$vk0,$vk1,$vk2,$vk3,$vk4,$vk5,$vk6,$vk7)=("v1","v2","v3","v4","v5","v6","v7","v8","v9","v10");
++my ($Htable,$H,$VAL0,$VAL1,$TMP0) = ("a0","a1","a2","a3","t0");
++
 +$code .= <<___;
 +.p2align 3
-+.globl rv64i_zvksed_sm4_set_encrypt_key
-+.type rv64i_zvksed_sm4_set_encrypt_key,\@function
-+rv64i_zvksed_sm4_set_encrypt_key:
-+    @{[vsetivli__x0_4_e32_m1_ta_ma]}
-+
-+    # Load the user key
-+    @{[vle32_v $vukey, $ukey]}
-+    @{[vrev8_v $vukey, $vukey]}
-+
-+    # Load the FK.
-+    la $fk, FK
-+    @{[vle32_v $vfk, $fk]}
-+
-+    # Generate round keys.
-+    @{[vxor_vv $vukey, $vukey, $vfk]}
-+    @{[vsm4k_vi $vk0, $vukey, 0]} # rk[0:3]
-+    @{[vsm4k_vi $vk1, $vk0, 1]} # rk[4:7]
-+    @{[vsm4k_vi $vk2, $vk1, 2]} # rk[8:11]
-+    @{[vsm4k_vi $vk3, $vk2, 3]} # rk[12:15]
-+    @{[vsm4k_vi $vk4, $vk3, 4]} # rk[16:19]
-+    @{[vsm4k_vi $vk5, $vk4, 5]} # rk[20:23]
-+    @{[vsm4k_vi $vk6, $vk5, 6]} # rk[24:27]
-+    @{[vsm4k_vi $vk7, $vk6, 7]} # rk[28:31]
-+
-+    # Store round keys
-+    @{[vse32_v $vk0, $keys]} # rk[0:3]
-+    addi $keys, $keys, 16
-+    @{[vse32_v $vk1, $keys]} # rk[4:7]
-+    addi $keys, $keys, 16
-+    @{[vse32_v $vk2, $keys]} # rk[8:11]
-+    addi $keys, $keys, 16
-+    @{[vse32_v $vk3, $keys]} # rk[12:15]
-+    addi $keys, $keys, 16
-+    @{[vse32_v $vk4, $keys]} # rk[16:19]
-+    addi $keys, $keys, 16
-+    @{[vse32_v $vk5, $keys]} # rk[20:23]
-+    addi $keys, $keys, 16
-+    @{[vse32_v $vk6, $keys]} # rk[24:27]
-+    addi $keys, $keys, 16
-+    @{[vse32_v $vk7, $keys]} # rk[28:31]
-+
-+    li a0, 1
++.globl gcm_init_rv64i_zvkg
++.type gcm_init_rv64i_zvkg,\@function
++gcm_init_rv64i_zvkg:
++    # First word
++    ld      $VAL0, 0($H)
++    ld      $VAL1, 8($H)
++    @{[sd_rev8_rv64i $VAL0, $Htable, 0, $TMP0]}
++    @{[sd_rev8_rv64i $VAL1, $Htable, 8, $TMP0]}
 +    ret
-+.size rv64i_zvksed_sm4_set_encrypt_key,.-rv64i_zvksed_sm4_set_encrypt_key
++.size gcm_init_rv64i_zvkg,.-gcm_init_rv64i_zvkg
 +___
 +}
 +
-+####
-+# int rv64i_zvksed_sm4_set_decrypt_key(const unsigned char *userKey,
-+#                                      SM4_KEY *key);
-+#
 +{
-+my ($ukey,$keys,$fk,$stride)=("a0","a1","t0","t1");
-+my ($vukey,$vfk,$vk0,$vk1,$vk2,$vk3,$vk4,$vk5,$vk6,$vk7)=("v1","v2","v3","v4","v5","v6","v7","v8","v9","v10");
++my ($Htable,$H,$TMP0,$TMP1) = ("a0","a1","t0","t1");
++
 +$code .= <<___;
 +.p2align 3
-+.globl rv64i_zvksed_sm4_set_decrypt_key
-+.type rv64i_zvksed_sm4_set_decrypt_key,\@function
-+rv64i_zvksed_sm4_set_decrypt_key:
-+    @{[vsetivli__x0_4_e32_m1_ta_ma]}
-+
-+    # Load the user key
-+    @{[vle32_v $vukey, $ukey]}
-+    @{[vrev8_v $vukey, $vukey]}
-+
-+    # Load the FK.
-+    la $fk, FK
-+    @{[vle32_v $vfk, $fk]}
-+
-+    # Generate round keys.
-+    @{[vxor_vv $vukey, $vukey, $vfk]}
-+    @{[vsm4k_vi $vk0, $vukey, 0]} # rk[0:3]
-+    @{[vsm4k_vi $vk1, $vk0, 1]} # rk[4:7]
-+    @{[vsm4k_vi $vk2, $vk1, 2]} # rk[8:11]
-+    @{[vsm4k_vi $vk3, $vk2, 3]} # rk[12:15]
-+    @{[vsm4k_vi $vk4, $vk3, 4]} # rk[16:19]
-+    @{[vsm4k_vi $vk5, $vk4, 5]} # rk[20:23]
-+    @{[vsm4k_vi $vk6, $vk5, 6]} # rk[24:27]
-+    @{[vsm4k_vi $vk7, $vk6, 7]} # rk[28:31]
-+
-+    # Store round keys in reverse order
-+    addi $keys, $keys, 12
-+    li $stride, -4
-+    @{[vsse32_v $vk7, $keys, $stride]} # rk[31:28]
-+    addi $keys, $keys, 16
-+    @{[vsse32_v $vk6, $keys, $stride]} # rk[27:24]
-+    addi $keys, $keys, 16
-+    @{[vsse32_v $vk5, $keys, $stride]} # rk[23:20]
-+    addi $keys, $keys, 16
-+    @{[vsse32_v $vk4, $keys, $stride]} # rk[19:16]
-+    addi $keys, $keys, 16
-+    @{[vsse32_v $vk3, $keys, $stride]} # rk[15:12]
-+    addi $keys, $keys, 16
-+    @{[vsse32_v $vk2, $keys, $stride]} # rk[11:8]
-+    addi $keys, $keys, 16
-+    @{[vsse32_v $vk1, $keys, $stride]} # rk[7:4]
-+    addi $keys, $keys, 16
-+    @{[vsse32_v $vk0, $keys, $stride]} # rk[3:0]
-+
-+    li a0, 1
++.globl gcm_init_rv64i_zvkg__zbb_or_zbkb
++.type gcm_init_rv64i_zvkg__zbb_or_zbkb,\@function
++gcm_init_rv64i_zvkg__zbb_or_zbkb:
++    ld      $TMP0,0($H)
++    ld      $TMP1,8($H)
++    @{[rev8 $TMP0, $TMP0]}           #rev8    $TMP0, $TMP0
++    @{[rev8 $TMP1, $TMP1]}           #rev8    $TMP1, $TMP1
++    sd      $TMP0,0($Htable)
++    sd      $TMP1,8($Htable)
 +    ret
-+.size rv64i_zvksed_sm4_set_decrypt_key,.-rv64i_zvksed_sm4_set_decrypt_key
++.size gcm_init_rv64i_zvkg__zbb_or_zbkb,.-gcm_init_rv64i_zvkg__zbb_or_zbkb
 +___
 +}
 +
-+####
-+# void rv64i_zvksed_sm4_encrypt(const unsigned char *in, unsigned char *out,
-+#                               const SM4_KEY *key);
-+#
 +{
-+my ($in,$out,$keys,$stride)=("a0","a1","a2","t0");
-+my ($vdata,$vk0,$vk1,$vk2,$vk3,$vk4,$vk5,$vk6,$vk7,$vgen)=("v1","v2","v3","v4","v5","v6","v7","v8","v9","v10");
++my ($Htable,$H,$V0) = ("a0","a1","v0");
++
 +$code .= <<___;
 +.p2align 3
-+.globl rv64i_zvksed_sm4_encrypt
-+.type rv64i_zvksed_sm4_encrypt,\@function
-+rv64i_zvksed_sm4_encrypt:
-+    @{[vsetivli__x0_4_e32_m1_ta_ma]}
-+
-+    # Order of elements was adjusted in set_encrypt_key()
-+    @{[vle32_v $vk0, $keys]} # rk[0:3]
-+    addi $keys, $keys, 16
-+    @{[vle32_v $vk1, $keys]} # rk[4:7]
-+    addi $keys, $keys, 16
-+    @{[vle32_v $vk2, $keys]} # rk[8:11]
-+    addi $keys, $keys, 16
-+    @{[vle32_v $vk3, $keys]} # rk[12:15]
-+    addi $keys, $keys, 16
-+    @{[vle32_v $vk4, $keys]} # rk[16:19]
-+    addi $keys, $keys, 16
-+    @{[vle32_v $vk5, $keys]} # rk[20:23]
-+    addi $keys, $keys, 16
-+    @{[vle32_v $vk6, $keys]} # rk[24:27]
-+    addi $keys, $keys, 16
-+    @{[vle32_v $vk7, $keys]} # rk[28:31]
-+
-+    # Load input data
-+    @{[vle32_v $vdata, $in]}
-+    @{[vrev8_v $vdata, $vdata]}
-+
-+    # Encrypt with all keys
-+    @{[vsm4r_vs $vdata, $vk0]}
-+    @{[vsm4r_vs $vdata, $vk1]}
-+    @{[vsm4r_vs $vdata, $vk2]}
-+    @{[vsm4r_vs $vdata, $vk3]}
-+    @{[vsm4r_vs $vdata, $vk4]}
-+    @{[vsm4r_vs $vdata, $vk5]}
-+    @{[vsm4r_vs $vdata, $vk6]}
-+    @{[vsm4r_vs $vdata, $vk7]}
-+
-+    # Save the ciphertext (in reverse element order)
-+    @{[vrev8_v $vdata, $vdata]}
-+    li $stride, -4
-+    addi $out, $out, 12
-+    @{[vsse32_v $vdata, $out, $stride]}
-+
++.globl gcm_init_rv64i_zvkg__zvkb
++.type gcm_init_rv64i_zvkg__zvkb,\@function
++gcm_init_rv64i_zvkg__zvkb:
++    # All callers of this function revert the byte-order unconditionally
++    # on little-endian machines. So we need to revert the byte-order back.
++    @{[vsetivli__x0_2_e64_m1_ta_ma]} # vsetivli x0, 2, e64, m1, ta, ma
++    @{[vle64_v $V0, $H]}             # vle64.v v0, (a1)
++    @{[vrev8_v $V0, $V0]}            # vrev8.v v0, v0
++    @{[vse64_v $V0, $Htable]}        # vse64.v v0, (a0)
 +    ret
-+.size rv64i_zvksed_sm4_encrypt,.-rv64i_zvksed_sm4_encrypt
++.size gcm_init_rv64i_zvkg__zvkb,.-gcm_init_rv64i_zvkg__zvkb
 +___
 +}
 +
-+####
-+# void rv64i_zvksed_sm4_decrypt(const unsigned char *in, unsigned char *out,
-+#                               const SM4_KEY *key);
++################################################################################
++# void gcm_gmult_rv64i_zvkg(u64 Xi[2], const u128 Htable[16]);
 +#
++# input: Xi: current hash value
++#        Htable: copy of H
++# output: Xi: next hash value Xi
 +{
-+my ($in,$out,$keys,$stride)=("a0","a1","a2","t0");
-+my ($vdata,$vk0,$vk1,$vk2,$vk3,$vk4,$vk5,$vk6,$vk7,$vgen)=("v1","v2","v3","v4","v5","v6","v7","v8","v9","v10");
++my ($Xi,$Htable) = ("a0","a1");
++my ($VD,$VS2) = ("v1","v2");
++
 +$code .= <<___;
 +.p2align 3
-+.globl rv64i_zvksed_sm4_decrypt
-+.type rv64i_zvksed_sm4_decrypt,\@function
-+rv64i_zvksed_sm4_decrypt:
++.globl gcm_gmult_rv64i_zvkg
++.type gcm_gmult_rv64i_zvkg,\@function
++gcm_gmult_rv64i_zvkg:
 +    @{[vsetivli__x0_4_e32_m1_ta_ma]}
-+
-+    # Order of elements was adjusted in set_decrypt_key()
-+    @{[vle32_v $vk7, $keys]} # rk[31:28]
-+    addi $keys, $keys, 16
-+    @{[vle32_v $vk6, $keys]} # rk[27:24]
-+    addi $keys, $keys, 16
-+    @{[vle32_v $vk5, $keys]} # rk[23:20]
-+    addi $keys, $keys, 16
-+    @{[vle32_v $vk4, $keys]} # rk[19:16]
-+    addi $keys, $keys, 16
-+    @{[vle32_v $vk3, $keys]} # rk[15:11]
-+    addi $keys, $keys, 16
-+    @{[vle32_v $vk2, $keys]} # rk[11:8]
-+    addi $keys, $keys, 16
-+    @{[vle32_v $vk1, $keys]} # rk[7:4]
-+    addi $keys, $keys, 16
-+    @{[vle32_v $vk0, $keys]} # rk[3:0]
-+
-+    # Load input data
-+    @{[vle32_v $vdata, $in]}
-+    @{[vrev8_v $vdata, $vdata]}
-+
-+    # Encrypt with all keys
-+    @{[vsm4r_vs $vdata, $vk7]}
-+    @{[vsm4r_vs $vdata, $vk6]}
-+    @{[vsm4r_vs $vdata, $vk5]}
-+    @{[vsm4r_vs $vdata, $vk4]}
-+    @{[vsm4r_vs $vdata, $vk3]}
-+    @{[vsm4r_vs $vdata, $vk2]}
-+    @{[vsm4r_vs $vdata, $vk1]}
-+    @{[vsm4r_vs $vdata, $vk0]}
-+
-+    # Save the ciphertext (in reverse element order)
-+    @{[vrev8_v $vdata, $vdata]}
-+    li $stride, -4
-+    addi $out, $out, 12
-+    @{[vsse32_v $vdata, $out, $stride]}
-+
++    @{[vle32_v $VS2, $Htable]}
++    @{[vle32_v $VD, $Xi]}
++    @{[vgmul_vv $VD, $VS2]}
++    @{[vse32_v $VD, $Xi]}
 +    ret
-+.size rv64i_zvksed_sm4_decrypt,.-rv64i_zvksed_sm4_decrypt
++.size gcm_gmult_rv64i_zvkg,.-gcm_gmult_rv64i_zvkg
 +___
 +}
 +
++################################################################################
++# void gcm_ghash_rv64i_zvkg(u64 Xi[2], const u128 Htable[16],
++#                           const u8 *inp, size_t len);
++#
++# input: Xi: current hash value
++#        Htable: copy of H
++#        inp: pointer to input data
++#        len: length of input data in bytes (mutiple of block size)
++# output: Xi: Xi+1 (next hash value Xi)
++{
++my ($Xi,$Htable,$inp,$len) = ("a0","a1","a2","a3");
++my ($vXi,$vH,$vinp,$Vzero) = ("v1","v2","v3","v4");
++
 +$code .= <<___;
-+# Family Key (little-endian 32-bit chunks)
 +.p2align 3
-+FK:
-+    .word 0xA3B1BAC6, 0x56AA3350, 0x677D9197, 0xB27022DC
-+.size FK,.-FK
++.globl gcm_ghash_rv64i_zvkg
++.type gcm_ghash_rv64i_zvkg,\@function
++gcm_ghash_rv64i_zvkg:
++    @{[vsetivli__x0_4_e32_m1_ta_ma]}
++    @{[vle32_v $vH, $Htable]}
++    @{[vle32_v $vXi, $Xi]}
++
++Lstep:
++    @{[vle32_v $vinp, $inp]}
++    add $inp, $inp, 16
++    add $len, $len, -16
++    @{[vghsh_vv $vXi, $vinp, $vH]}
++    bnez $len, Lstep
++
++    @{[vse32_v $vXi, $Xi]}
++    ret
++
++.size gcm_ghash_rv64i_zvkg,.-gcm_ghash_rv64i_zvkg
 +___
++}
 +
 +print $code;
 +
