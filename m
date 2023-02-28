@@ -4,71 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FB33C7EE23
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Feb 2023 02:07:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAAFEC64ED6
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Feb 2023 02:31:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JkSSXUzeFiPCaivKZ1r5Kl+LrH8nO1tlbzx5YOqBD10=; b=IXCDoHmSMwulz2
-	/OQnCmY1VEvtk44iNJf88eq06dQ8OXbd2LVayyzL+h4YJkzt3i8KnTUeyJAx3MUy3g/7vkCSLGW7X
-	cHHSfDoSm+AtsciFV5MlTXYHds+qbU/0871pyBrnRg4V98jWlNW+bMb5KlEe+6LeI+ps+DcyavNEC
-	mNp9vW2pj/MX2pgCILk9+er8/2w52YFJI26XtS8iSpJMes9ss5WTOvrjRuNNsaqMJWuCtJOHg7Z11
-	lx47TuEb+Ehjd8hIwq2/IZKiQ1LMNh4MJIGW85HLY5trDjsW825sfuciPdE/aYFShLtjEEkEgMTjC
-	1E81NrzK0jVoheoybAlg==;
+	List-Owner; bh=jRnAG7KtdWcbVaPEtiYB8IeHfNNomyoPZ5MxXztFw7w=; b=N447+BV8tZ7ti7
+	1UmQbCRYtbgE6ifVtdOFnO0tlz7rlIHcCKhlvfg7xTLUYb+XDZGciaEVuBrHTOInaEOgAgrZYUgwV
+	nsEoSW+fJonLN6UEViO/448y9nouUk7qiT9GxztZWoRtTzbVs9bbBuZtoldHG9mwS4rl7kNOlKKiA
+	e6Ao3lPsfYxtziPHM5tGlUBn0dY9fhOZwg+KqUrBEtIpSARImIBWuoJWzk3HO5yqaapSQLQMxCTjx
+	QDmnyHDBWVZ0uVX9acdxhbYlQKi32EwCMGLnL9Lg3n0K++gzrOQ3/3fkUccpo6rzU3hmNRsKAM3j/
+	2/e8fDsVvOWmSWI/F6QA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWpP9-00BnUh-1b; Tue, 28 Feb 2023 02:07:47 +0000
+	id 1pWpm5-00BpCy-56; Tue, 28 Feb 2023 02:31:29 +0000
 Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWpP6-00BnSD-6l
-	for linux-riscv@lists.infradead.org; Tue, 28 Feb 2023 02:07:45 +0000
+	id 1pWpm0-00BpBa-4L
+	for linux-riscv@lists.infradead.org; Tue, 28 Feb 2023 02:31:27 +0000
 Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id ECB2A24E30E;
-	Tue, 28 Feb 2023 10:06:50 +0800 (CST)
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id DC53924E3AC;
+	Tue, 28 Feb 2023 10:30:59 +0800 (CST)
+Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX166.cuchost.com
  (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 28 Feb
- 2023 10:06:50 +0800
-Received: from [192.168.125.128] (113.72.145.171) by EXMBX061.cuchost.com
- (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 28 Feb
- 2023 10:06:48 +0800
-Message-ID: <704dea02-6b9d-b977-1354-a390a489a7fb@starfivetech.com>
-Date: Tue, 28 Feb 2023 10:07:05 +0800
+ 2023 10:30:59 +0800
+Received: from [192.168.125.82] (113.72.145.171) by EXMBX172.cuchost.com
+ (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 28 Feb
+ 2023 10:30:58 +0800
+Message-ID: <6f3a30e0-6c8e-04d9-53b2-48a26d8a70a6@starfivetech.com>
+Date: Tue, 28 Feb 2023 10:30:57 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.8.0
-Subject: Re: [PATCH v3 2/2] drivers: watchdog: Add StarFive Watchdog driver
+ Thunderbird/102.3.2
+Subject: Re: [PATCH v4 11/19] clk: starfive: Add StarFive JH7110 system clock
+ driver
 Content-Language: en-US
-To: Guenter Roeck <linux@roeck-us.net>
-CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-watchdog@vger.kernel.org>, Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Rob Herring
-	<robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, "Palmer
- Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, "Philipp
- Zabel" <p.zabel@pengutronix.de>, Samin Guo <samin.guo@starfivetech.com>,
-	<linux-kernel@vger.kernel.org>, Conor Dooley <conor@kernel.org>
-References: <20230220081926.267695-1-xingyu.wu@starfivetech.com>
- <20230220081926.267695-3-xingyu.wu@starfivetech.com>
- <20230223182341.GA200380@roeck-us.net>
- <8ba002ea-299c-2eaf-b1a7-d7d38a540152@starfivetech.com>
- <ae998eb6-54ce-05c4-2961-bdb2393eac64@roeck-us.net>
- <58cab864-2a59-b82c-bdfe-2e805a04fd7a@starfivetech.com>
- <547a469d-eeaa-750c-4fe5-cc82d92493a6@roeck-us.net>
- <2b79e1ac-3399-075d-1d1d-e6d7f88351fc@starfivetech.com>
- <a7ffe026-a48b-9ffd-20d3-7d25caba120d@roeck-us.net>
-From: Xingyu Wu <xingyu.wu@starfivetech.com>
-In-Reply-To: <a7ffe026-a48b-9ffd-20d3-7d25caba120d@roeck-us.net>
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+CC: <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, Stephen Boyd <sboyd@kernel.org>, "Michael
+ Turquette" <mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+	Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor@kernel.org>, "Palmer
+ Dabbelt" <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Ben Dooks <ben.dooks@sifive.com>, "Daniel
+ Lezcano" <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Marc Zyngier <maz@kernel.org>, <linux-kernel@vger.kernel.org>
+References: <20230221024645.127922-1-hal.feng@starfivetech.com>
+ <20230221024645.127922-12-hal.feng@starfivetech.com>
+ <CAJM55Z8Hf+kJ72CV1uFvNL2g3YjCgEciG7rMJQhZ5O7R1F3RAw@mail.gmail.com>
+From: Hal Feng <hal.feng@starfivetech.com>
+In-Reply-To: <CAJM55Z8Hf+kJ72CV1uFvNL2g3YjCgEciG7rMJQhZ5O7R1F3RAw@mail.gmail.com>
 X-Originating-IP: [113.72.145.171]
-X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX061.cuchost.com
- (172.16.6.61)
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX172.cuchost.com
+ (172.16.6.92)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230227_180744_553573_F3799348 
-X-CRM114-Status: GOOD (  12.22  )
+X-CRM114-CacheID: sfid-20230227_183124_775946_A2865C88 
+X-CRM114-Status: UNSURE (   7.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,65 +78,334 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjAyMy8yLzI3IDIyOjUwLCBHdWVudGVyIFJvZWNrIHdyb3RlOgo+IE9uIDIvMjYvMjMgMjI6
-NDUsIFhpbmd5dSBXdSB3cm90ZToKPj4gT24gMjAyMy8yLzI3IDE0OjM2LCBHdWVudGVyIFJvZWNr
-IHdyb3RlOgo+Pj4gT24gMi8yNi8yMyAyMjoyNiwgWGluZ3l1IFd1IHdyb3RlOgo+Pj4+IE9uIDIw
-MjMvMi8yNCAyMzoxOCwgR3VlbnRlciBSb2VjayB3cm90ZToKPj4+Pj4gT24gMi8yMy8yMyAyMzo0
-MiwgWGluZ3l1IFd1IHdyb3RlOgo+Pj4+Pj4gT24gMjAyMy8yLzI0IDI6MjMsIEd1ZW50ZXIgUm9l
-Y2sgd3JvdGU6Cj4+Pj4+Pj4gT24gTW9uLCBGZWIgMjAsIDIwMjMgYXQgMDQ6MTk6MjZQTSArMDgw
-MCwgWGluZ3l1IFd1IHdyb3RlOgo+Pj4+Pj4+PiBbLi4uXQo+Pj4+Pj4+PiArCj4+Pj4+Pj4+ICvC
-oMKgwqAgd2R0LT53ZHRfZGV2aWNlLm1pbl90aW1lb3V0ID0gMTsKPj4+Pj4+Pj4gK8KgwqDCoCB3
-ZHQtPndkdF9kZXZpY2UubWF4X3RpbWVvdXQgPSBzdGFyZml2ZV93ZHRfbWF4X3RpbWVvdXQod2R0
-KTsKPj4+Pj4+Pgo+Pj4+Pj4+IMKgwqDCoMKgwqDCoHdkdC0+d2R0X2RldmljZS50aW1lb3V0ID0g
-U1RBUkZJVkVfV0RUX0RFRkFVTFRfVElNRTsKPj4+Pj4+Pgo+Pj4+Pj4+IHNob3VsZCBiZSBzZXQg
-aGVyZS4gT3RoZXJ3aXNlIHRoZSB3YXJuaW5nIGJlbG93IHdvdWxkIGFsd2F5cyBiZSBzZWVuCj4+
-Pj4+Pj4gaWYgdGhlIG1vZHVsZSBwYXJhbWV0ZXIgaXMgbm90IHNldC4KPj4+Pj4+Pgo+Pj4+Pj4+
-PiArCj4+Pj4+Pj4+ICvCoMKgwqAgd2F0Y2hkb2dfc2V0X2RydmRhdGEoJndkdC0+d2R0X2Rldmlj
-ZSwgd2R0KTsKPj4+Pj4+Pj4gKwo+Pj4+Pj4+PiArwqDCoMKgIC8qCj4+Pj4+Pj4+ICvCoMKgwqDC
-oCAqIHNlZSBpZiB3ZSBjYW4gYWN0dWFsbHkgc2V0IHRoZSByZXF1ZXN0ZWQgaGVhcnRiZWF0LAo+
-Pj4+Pj4+PiArwqDCoMKgwqAgKiBhbmQgaWYgbm90LCB0cnkgdGhlIGRlZmF1bHQgdmFsdWUuCj4+
-Pj4+Pj4+ICvCoMKgwqDCoCAqLwo+Pj4+Pj4+PiArwqDCoMKgIHdhdGNoZG9nX2luaXRfdGltZW91
-dCgmd2R0LT53ZHRfZGV2aWNlLCBoZWFydGJlYXQsIGRldik7Cj4+Pj4+Pj4+ICvCoMKgwqAgaWYg
-KHdkdC0+d2R0X2RldmljZS50aW1lb3V0ID09IDAgfHwKPj4+Pj4+Pgo+Pj4+Pj4+IElmIHdkdC0+
-d2R0X2RldmljZS50aW1lb3V0IGlzIHByZS1pbml0aWFsaXplZCwgaXQgd2lsbCBuZXZlciBiZSAw
-IGhlcmUuCj4+Pj4+Pj4KPj4+Pj4+Pj4gK8KgwqDCoMKgwqDCoMKgIHdkdC0+d2R0X2RldmljZS50
-aW1lb3V0ID4gd2R0LT53ZHRfZGV2aWNlLm1heF90aW1lb3V0KSB7Cj4+Pj4+Pj4KPj4+Pj4+PiBU
-aGF0IHdvbid0IGhhcHBlbiBiZWNhdXNlIHdhdGNoZG9nX2luaXRfdGltZW91dCgpIHZhbGlkYXRl
-cyBpdCBhbmQgZG9lcwo+Pj4+Pj4+IG5vdCB1cGRhdGUgdGhlIHZhbHVlIGlmIGl0IGlzIG91dCBv
-ZiByYW5nZS4KPj4+Pj4+Pgo+Pj4+Pj4+PiArwqDCoMKgwqDCoMKgwqAgZGV2X3dhcm4oZGV2LCAi
-aGVhcnRiZWF0IHZhbHVlIG91dCBvZiByYW5nZSwgZGVmYXVsdCAlZCB1c2VkXG4iLAo+Pj4+Pj4+
-PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIFNUQVJGSVZFX1dEVF9ERUZBVUxUX1RJTUUpOwo+
-Pj4+Pj4+PiArwqDCoMKgwqDCoMKgwqAgd2R0LT53ZHRfZGV2aWNlLnRpbWVvdXQgPSBTVEFSRklW
-RV9XRFRfREVGQVVMVF9USU1FOwo+Pj4+Pj4+Cj4+Pj4+Pj4gQW5kIHRoaXMgaXMgdGhlbiB1bm5l
-Y2Vzc2FyeS4gd2R0LT53ZHRfZGV2aWNlLnRpbWVvdXQgd2lsbCBhbHdheXMgYmUKPj4+Pj4+PiB2
-YWxpZCBpZiBpdCB3YXMgcHJlLWluaXRpYWxpemVkLgo+Pj4+Pj4KPj4+Pj4+IEl0IGlzIGNoYW5n
-ZWQgdG8gYmUgdGhpcyBhdCBiZWdpbm5pbmcgb2YgdGhlIGRyaXZlcjoKPj4+Pj4+Cj4+Pj4+PiBz
-dGF0aWMgaW50IGhlYXJ0YmVhdCA9IFNUQVJGSVZFX1dEVF9ERUZBVUxUX1RJTUU7Cj4+Pj4+Pgo+
-Pj4+Pgo+Pj4+PiBObywgdGhpcyBpcyB3cm9uZy4gVGhlIHN0YXRpYyB2YXJpYWJsZSBzaG91bGQg
-YmUgc2V0IHRvIDAgdG8gaW5kaWNhdGUKPj4+Pj4gInVzZSBkZWZhdWx0Ii4KPj4+Pj4KPj4+Pj4+
-IGFuZCBpdCBpcyBjaGFuZ2VkIHRvIGJlIHRoaXMgaGVyZToKPj4+Pj4+Cj4+Pj4+PiByZXQgPSB3
-YXRjaGRvZ19pbml0X3RpbWVvdXQoJndkdC0+d2R0X2RldmljZSwgaGVhcnRiZWF0LCBkZXYpOwo+
-Pj4+Pj4gaWYgKHJldCkKPj4+Pj4+IMKgwqDCoMKgwqDCoHJldHVybiByZXQ7Cj4+Pj4+Pgo+Pj4+
-Pj4gV291bGQgdGhhdCBiZSBiZXR0ZXI/Cj4+Pj4+Pgo+Pj4+Pgo+Pj4+PiBObywgaXQgaXMgd29y
-c2UsIGJlY2F1c2UgaXQgd291bGQgbm90IGluc3RhbnRpYXRlIHRoZSB3YXRjaGRvZyBhdCBhbGwK
-Pj4+Pj4gaWYgYSBiYWQgaGVhcnRiZWF0IGlzIHByb3ZpZGVkLgo+Pj4+Pgo+Pj4+Cj4+Pj4gU28g
-aW5zdGFudGlhdGUgdGhlIHdhdGNoZG9nIHdpdGggaGVhcmJlYXQgZmlyc3QuIEFuZCBpZiB0aGlz
-IHdyb25nLCB1c2UgZGVmYXVsdCB0aW1lb3V0Lgo+Pj4+IDoKPj4+PiBpZiAod2F0Y2hkb2dfaW5p
-dF90aW1lb3V0KCZ3ZHQtPndkdF9kZXZpY2UsIGhlYXJ0YmVhdCwgZGV2KSkKPj4+PiDCoMKgwqDC
-oMKgd2R0LT53ZHRfZGV2aWNlLnRpbWVvdXQgPSBTVEFSRklWRV9XRFRfREVGQVVMVF9USU1FOwo+
-Pj4+Cj4+Pgo+Pj4gSSBhbSBraW5kIG9mIGxvc3Qgd2h5IHlvdSBoYXZlIHRvIG1ha2UgaXQgdGhh
-dCBjb21wbGljYXRlZC4KPj4+IEp1c3QgcHJlLWluaXRpYWxpemUgd2R0LT53ZHRfZGV2aWNlLnRp
-bWVvdXQgbGlrZSBhbGwgdGhlIG90aGVyIGRyaXZlcnMgZG8sCj4+PiBhbmQgYXMgSSBoYWQgc3Vn
-Z2VzdGVkIGVhcmxpZXIuCj4+Pgo+Pgo+PiBTbyB5b3UgbWVhbiBqdXN0IHVzZSA6Cj4+IHdkdC0+
-d2R0X2RldmljZS50aW1lb3V0ID0gU1RBUkZJVkVfV0RUX0RFRkFVTFRfVElNRTsKPj4gdG8gaW5p
-dGlhbGl6ZSB3YXRjaGRvZyBkaXJlY3RseT8KPj4KPiAKPiBZZXMsIGFzIEkgaGFkIHN1Z2dlc3Rl
-ZCBiZWZvcmUsIGJlZm9yZSBjYWxsaW5nIHdhdGNoZG9nX2luaXRfdGltZW91dCgpLgo+IAoKT0ss
-IHRoYW5rcy4KQmVzdCByZWdhcmQsClhpbmd5dSBXdQoKCl9fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
-aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
-YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Sun, 26 Feb 2023 17:07:04 +0100, Emil Renner Berthing wrote:
+> On Tue, 21 Feb 2023 at 03:47, Hal Feng <hal.feng@starfivetech.com> wrote:
+>> diff --git a/drivers/clk/starfive/clk-starfive-jh7110-sys.c b/drivers/clk/starfive/clk-starfive-jh7110-sys.c
+>> new file mode 100644
+>> index 000000000000..6e230b81a387
+>> --- /dev/null
+>> +++ b/drivers/clk/starfive/clk-starfive-jh7110-sys.c
+>> @@ -0,0 +1,448 @@
+[...]
+>> +static const struct jh71x0_clk_data jh7110_sysclk_data[] __initconst = {
+>> +       /* root */
+>> +       JH71X0__MUX(JH7110_SYSCLK_CPU_ROOT, "cpu_root", 2,
+>> +                   JH7110_SYSCLK_OSC,
+>> +                   JH7110_SYSCLK_PLL0_OUT),
+>> +       JH71X0__DIV(JH7110_SYSCLK_CPU_CORE, "cpu_core", 7, JH7110_SYSCLK_CPU_ROOT),
+>> +       JH71X0__DIV(JH7110_SYSCLK_CPU_BUS, "cpu_bus", 2, JH7110_SYSCLK_CPU_CORE),
+>> +       JH71X0__MUX(JH7110_SYSCLK_GPU_ROOT, "gpu_root", 2,
+>> +                   JH7110_SYSCLK_PLL2_OUT,
+>> +                   JH7110_SYSCLK_PLL1_OUT),
+>> +       JH71X0_MDIV(JH7110_SYSCLK_PERH_ROOT, "perh_root", 2, 2,
+>> +                   JH7110_SYSCLK_PLL0_OUT,
+>> +                   JH7110_SYSCLK_PLL2_OUT),
+>> +       JH71X0__MUX(JH7110_SYSCLK_BUS_ROOT, "bus_root", 2,
+>> +                   JH7110_SYSCLK_OSC,
+>> +                   JH7110_SYSCLK_PLL2_OUT),
+>> +       JH71X0__DIV(JH7110_SYSCLK_NOCSTG_BUS, "nocstg_bus", 3, JH7110_SYSCLK_BUS_ROOT),
+>> +       JH71X0__DIV(JH7110_SYSCLK_AXI_CFG0, "axi_cfg0", 3, JH7110_SYSCLK_BUS_ROOT),
+>> +       JH71X0__DIV(JH7110_SYSCLK_STG_AXIAHB, "stg_axiahb", 2, JH7110_SYSCLK_AXI_CFG0),
+>> +       JH71X0_GATE(JH7110_SYSCLK_AHB0, "ahb0", CLK_IS_CRITICAL, JH7110_SYSCLK_STG_AXIAHB),
+>> +       JH71X0_GATE(JH7110_SYSCLK_AHB1, "ahb1", CLK_IS_CRITICAL, JH7110_SYSCLK_STG_AXIAHB),
+>> +       JH71X0__DIV(JH7110_SYSCLK_APB_BUS, "apb_bus", 8, JH7110_SYSCLK_STG_AXIAHB),
+>> +       JH71X0_GATE(JH7110_SYSCLK_APB0, "apb0", CLK_IS_CRITICAL, JH7110_SYSCLK_APB_BUS),
+>> +       JH71X0__DIV(JH7110_SYSCLK_PLL0_DIV2, "pll0_div2", 2, JH7110_SYSCLK_PLL0_OUT),
+>> +       JH71X0__DIV(JH7110_SYSCLK_PLL1_DIV2, "pll1_div2", 2, JH7110_SYSCLK_PLL1_OUT),
+>> +       JH71X0__DIV(JH7110_SYSCLK_PLL2_DIV2, "pll2_div2", 2, JH7110_SYSCLK_PLL2_OUT),
+>> +       JH71X0__DIV(JH7110_SYSCLK_AUDIO_ROOT, "audio_root", 8, JH7110_SYSCLK_PLL2_OUT),
+>> +       JH71X0__DIV(JH7110_SYSCLK_MCLK_INNER, "mclk_inner", 64, JH7110_SYSCLK_AUDIO_ROOT),
+>> +       JH71X0__MUX(JH7110_SYSCLK_MCLK, "mclk", 2,
+>> +                   JH7110_SYSCLK_MCLK_INNER,
+>> +                   JH7110_SYSCLK_MCLK_EXT),
+>> +       JH71X0_GATE(JH7110_SYSCLK_MCLK_OUT, "mclk_out", 0, JH7110_SYSCLK_MCLK_INNER),
+>> +       JH71X0_MDIV(JH7110_SYSCLK_ISP_2X, "isp_2x", 8, 2,
+>> +                   JH7110_SYSCLK_PLL2_OUT,
+>> +                   JH7110_SYSCLK_PLL1_OUT),
+>> +       JH71X0__DIV(JH7110_SYSCLK_ISP_AXI, "isp_axi", 4, JH7110_SYSCLK_ISP_2X),
+>> +       JH71X0_GDIV(JH7110_SYSCLK_GCLK0, "gclk0", 0, 62, JH7110_SYSCLK_PLL0_DIV2),
+>> +       JH71X0_GDIV(JH7110_SYSCLK_GCLK1, "gclk1", 0, 62, JH7110_SYSCLK_PLL1_DIV2),
+>> +       JH71X0_GDIV(JH7110_SYSCLK_GCLK2, "gclk2", 0, 62, JH7110_SYSCLK_PLL2_DIV2),
+>> +       /* cores */
+>> +       JH71X0_GATE(JH7110_SYSCLK_CORE, "core", CLK_IS_CRITICAL, JH7110_SYSCLK_CPU_CORE),
+>> +       JH71X0_GATE(JH7110_SYSCLK_CORE1, "core1", CLK_IS_CRITICAL, JH7110_SYSCLK_CPU_CORE),
+>> +       JH71X0_GATE(JH7110_SYSCLK_CORE2, "core2", CLK_IS_CRITICAL, JH7110_SYSCLK_CPU_CORE),
+>> +       JH71X0_GATE(JH7110_SYSCLK_CORE3, "core3", CLK_IS_CRITICAL, JH7110_SYSCLK_CPU_CORE),
+>> +       JH71X0_GATE(JH7110_SYSCLK_CORE4, "core4", CLK_IS_CRITICAL, JH7110_SYSCLK_CPU_CORE),
+>> +       JH71X0_GATE(JH7110_SYSCLK_DEBUG, "debug", 0, JH7110_SYSCLK_CPU_BUS),
+>> +       JH71X0__DIV(JH7110_SYSCLK_RTC_TOGGLE, "rtc_toggle", 6, JH7110_SYSCLK_OSC),
+>> +       JH71X0_GATE(JH7110_SYSCLK_TRACE0, "trace0", 0, JH7110_SYSCLK_CPU_CORE),
+>> +       JH71X0_GATE(JH7110_SYSCLK_TRACE1, "trace1", 0, JH7110_SYSCLK_CPU_CORE),
+>> +       JH71X0_GATE(JH7110_SYSCLK_TRACE2, "trace2", 0, JH7110_SYSCLK_CPU_CORE),
+>> +       JH71X0_GATE(JH7110_SYSCLK_TRACE3, "trace3", 0, JH7110_SYSCLK_CPU_CORE),
+>> +       JH71X0_GATE(JH7110_SYSCLK_TRACE4, "trace4", 0, JH7110_SYSCLK_CPU_CORE),
+>> +       JH71X0_GATE(JH7110_SYSCLK_TRACE_COM, "trace_com", 0, JH7110_SYSCLK_CPU_BUS),
+>> +       /* noc */
+>> +       JH71X0_GATE(JH7110_SYSCLK_NOC_BUS_CPU_AXI, "noc_bus_cpu_axi", CLK_IS_CRITICAL,
+>> +                   JH7110_SYSCLK_CPU_BUS),
+>> +       JH71X0_GATE(JH7110_SYSCLK_NOC_BUS_AXICFG0_AXI, "noc_bus_axicfg0_axi", CLK_IS_CRITICAL,
+>> +                   JH7110_SYSCLK_AXI_CFG0),
+>> +       /* ddr */
+>> +       JH71X0__DIV(JH7110_SYSCLK_OSC_DIV2, "osc_div2", 2, JH7110_SYSCLK_OSC),
+>> +       JH71X0__DIV(JH7110_SYSCLK_PLL1_DIV4, "pll1_div4", 2, JH7110_SYSCLK_PLL1_DIV2),
+>> +       JH71X0__DIV(JH7110_SYSCLK_PLL1_DIV8, "pll1_div8", 2, JH7110_SYSCLK_PLL1_DIV4),
+>> +       JH71X0__MUX(JH7110_SYSCLK_DDR_BUS, "ddr_bus", 4,
+>> +                   JH7110_SYSCLK_OSC_DIV2,
+>> +                   JH7110_SYSCLK_PLL1_DIV2,
+>> +                   JH7110_SYSCLK_PLL1_DIV4,
+>> +                   JH7110_SYSCLK_PLL1_DIV8),
+>> +       JH71X0_GATE(JH7110_SYSCLK_DDR_AXI, "ddr_axi", CLK_IGNORE_UNUSED, JH7110_SYSCLK_DDR_BUS),
+>> +       /* gpu */
+>> +       JH71X0__DIV(JH7110_SYSCLK_GPU_CORE, "gpu_core", 7, JH7110_SYSCLK_GPU_ROOT),
+>> +       JH71X0_GATE(JH7110_SYSCLK_GPU_CORE_CLK, "gpu_core_clk", 0, JH7110_SYSCLK_GPU_CORE),
+>> +       JH71X0_GATE(JH7110_SYSCLK_GPU_SYS_CLK, "gpu_sys_clk", 0, JH7110_SYSCLK_ISP_AXI),
+>> +       JH71X0_GATE(JH7110_SYSCLK_GPU_APB, "gpu_apb", 0, JH7110_SYSCLK_APB_BUS),
+>> +       JH71X0_GDIV(JH7110_SYSCLK_GPU_RTC_TOGGLE, "gpu_rtc_toggle", 0, 12, JH7110_SYSCLK_OSC),
+>> +       JH71X0_GATE(JH7110_SYSCLK_NOC_BUS_GPU_AXI, "noc_bus_gpu_axi", 0, JH7110_SYSCLK_GPU_CORE),
+>> +       /* isp */
+>> +       JH71X0_GATE(JH7110_SYSCLK_ISP_TOP_CORE, "isp_top_core", 0, JH7110_SYSCLK_ISP_2X),
+>> +       JH71X0_GATE(JH7110_SYSCLK_ISP_TOP_AXI, "isp_top_axi", 0, JH7110_SYSCLK_ISP_AXI),
+>> +       JH71X0_GATE(JH7110_SYSCLK_NOC_BUS_ISP_AXI, "noc_bus_isp_axi", CLK_IS_CRITICAL,
+>> +                   JH7110_SYSCLK_ISP_AXI),
+>> +       /* hifi4 */
+>> +       JH71X0__DIV(JH7110_SYSCLK_HIFI4_CORE, "hifi4_core", 15, JH7110_SYSCLK_BUS_ROOT),
+>> +       JH71X0__DIV(JH7110_SYSCLK_HIFI4_AXI, "hifi4_axi", 2, JH7110_SYSCLK_HIFI4_CORE),
+>> +       /* axi_cfg1 */
+>> +       JH71X0_GATE(JH7110_SYSCLK_AXI_CFG1_MAIN, "axi_cfg1_main", CLK_IGNORE_UNUSED,
+>> +                   JH7110_SYSCLK_ISP_AXI),
+>> +       JH71X0_GATE(JH7110_SYSCLK_AXI_CFG1_AHB, "axi_cfg1_ahb", CLK_IGNORE_UNUSED,
+>> +                   JH7110_SYSCLK_AHB0),
+>> +       /* vout */
+>> +       JH71X0_GATE(JH7110_SYSCLK_VOUT_SRC, "vout_src", 0, JH7110_SYSCLK_PLL2_OUT),
+>> +       JH71X0__DIV(JH7110_SYSCLK_VOUT_AXI, "vout_axi", 7, JH7110_SYSCLK_PLL2_OUT),
+>> +       JH71X0_GATE(JH7110_SYSCLK_NOC_BUS_DISP_AXI, "noc_bus_disp_axi", 0, JH7110_SYSCLK_VOUT_AXI),
+>> +       JH71X0_GATE(JH7110_SYSCLK_VOUT_TOP_AHB, "vout_top_ahb", 0, JH7110_SYSCLK_AHB1),
+>> +       JH71X0_GATE(JH7110_SYSCLK_VOUT_TOP_AXI, "vout_top_axi", 0, JH7110_SYSCLK_VOUT_AXI),
+>> +       JH71X0_GATE(JH7110_SYSCLK_VOUT_TOP_HDMITX0_MCLK, "vout_top_hdmitx0_mclk", 0,
+>> +                   JH7110_SYSCLK_MCLK),
+>> +       JH71X0__DIV(JH7110_SYSCLK_VOUT_TOP_MIPIPHY_REF, "vout_top_mipiphy_ref", 2,
+>> +                   JH7110_SYSCLK_OSC),
+>> +       /* jpegc */
+>> +       JH71X0__DIV(JH7110_SYSCLK_JPEGC_AXI, "jpegc_axi", 16, JH7110_SYSCLK_PLL2_OUT),
+>> +       JH71X0_GATE(JH7110_SYSCLK_CODAJ12_AXI, "codaj12_axi", 0, JH7110_SYSCLK_JPEGC_AXI),
+>> +       JH71X0_GDIV(JH7110_SYSCLK_CODAJ12_CORE, "codaj12_core", 0, 16, JH7110_SYSCLK_PLL2_OUT),
+>> +       JH71X0_GATE(JH7110_SYSCLK_CODAJ12_APB, "codaj12_apb", 0, JH7110_SYSCLK_APB_BUS),
+>> +       /* vdec */
+>> +       JH71X0__DIV(JH7110_SYSCLK_VDEC_AXI, "vdec_axi", 7, JH7110_SYSCLK_BUS_ROOT),
+>> +       JH71X0_GATE(JH7110_SYSCLK_WAVE511_AXI, "wave511_axi", 0, JH7110_SYSCLK_VDEC_AXI),
+>> +       JH71X0_GDIV(JH7110_SYSCLK_WAVE511_BPU, "wave511_bpu", 0, 7, JH7110_SYSCLK_BUS_ROOT),
+>> +       JH71X0_GDIV(JH7110_SYSCLK_WAVE511_VCE, "wave511_vce", 0, 7, JH7110_SYSCLK_PLL0_OUT),
+>> +       JH71X0_GATE(JH7110_SYSCLK_WAVE511_APB, "wave511_apb", 0, JH7110_SYSCLK_APB_BUS),
+>> +       JH71X0_GATE(JH7110_SYSCLK_VDEC_JPG, "vdec_jpg", CLK_IGNORE_UNUSED,
+>> +                   JH7110_SYSCLK_JPEGC_AXI),
+>> +       JH71X0_GATE(JH7110_SYSCLK_VDEC_MAIN, "vdec_main", CLK_IGNORE_UNUSED,
+>> +                   JH7110_SYSCLK_VDEC_AXI),
+>> +       JH71X0_GATE(JH7110_SYSCLK_NOC_BUS_VDEC_AXI, "noc_bus_vdec_axi", 0, JH7110_SYSCLK_VDEC_AXI),
+>> +       /* venc */
+>> +       JH71X0__DIV(JH7110_SYSCLK_VENC_AXI, "venc_axi", 15, JH7110_SYSCLK_PLL2_OUT),
+>> +       JH71X0_GATE(JH7110_SYSCLK_WAVE420L_AXI, "wave420l_axi", 0, JH7110_SYSCLK_VENC_AXI),
+>> +       JH71X0_GDIV(JH7110_SYSCLK_WAVE420L_BPU, "wave420l_bpu", 0, 15, JH7110_SYSCLK_PLL2_OUT),
+>> +       JH71X0_GDIV(JH7110_SYSCLK_WAVE420L_VCE, "wave420l_vce", 0, 15, JH7110_SYSCLK_PLL2_OUT),
+>> +       JH71X0_GATE(JH7110_SYSCLK_WAVE420L_APB, "wave420l_apb", 0, JH7110_SYSCLK_APB_BUS),
+>> +       JH71X0_GATE(JH7110_SYSCLK_NOC_BUS_VENC_AXI, "noc_bus_venc_axi", 0, JH7110_SYSCLK_VENC_AXI),
+>> +       /* axi_cfg0 */
+>> +       JH71X0_GATE(JH7110_SYSCLK_AXI_CFG0_MAIN_DIV, "axi_cfg0_main_div", CLK_IGNORE_UNUSED,
+>> +                   JH7110_SYSCLK_AHB1),
+>> +       JH71X0_GATE(JH7110_SYSCLK_AXI_CFG0_MAIN, "axi_cfg0_main", CLK_IGNORE_UNUSED,
+>> +                   JH7110_SYSCLK_AXI_CFG0),
+>> +       JH71X0_GATE(JH7110_SYSCLK_AXI_CFG0_HIFI4, "axi_cfg0_hifi4", CLK_IGNORE_UNUSED,
+>> +                   JH7110_SYSCLK_HIFI4_AXI),
+>> +       /* intmem */
+>> +       JH71X0_GATE(JH7110_SYSCLK_AXIMEM2_AXI, "aximem2_axi", CLK_IGNORE_UNUSED,
+>> +                   JH7110_SYSCLK_AXI_CFG0),
+>> +       /* qspi */
+>> +       JH71X0_GATE(JH7110_SYSCLK_QSPI_AHB, "qspi_ahb", CLK_IGNORE_UNUSED, JH7110_SYSCLK_AHB1),
+>> +       JH71X0_GATE(JH7110_SYSCLK_QSPI_APB, "qspi_apb", CLK_IGNORE_UNUSED, JH7110_SYSCLK_APB_BUS),
+>> +       JH71X0__DIV(JH7110_SYSCLK_QSPI_REF_SRC, "qspi_ref_src", 16, JH7110_SYSCLK_PLL0_OUT),
+>> +       JH71X0_GMUX(JH7110_SYSCLK_QSPI_REF, "qspi_ref", CLK_IGNORE_UNUSED, 2,
+>> +                   JH7110_SYSCLK_OSC,
+>> +                   JH7110_SYSCLK_QSPI_REF_SRC),
+>> +       /* sdio */
+>> +       JH71X0_GATE(JH7110_SYSCLK_SDIO0_AHB, "sdio0_ahb", CLK_IGNORE_UNUSED, JH7110_SYSCLK_AHB0),
+>> +       JH71X0_GATE(JH7110_SYSCLK_SDIO1_AHB, "sdio1_ahb", CLK_IGNORE_UNUSED, JH7110_SYSCLK_AHB0),
+>> +       JH71X0_GDIV(JH7110_SYSCLK_SDIO0_SDCARD, "sdio0_sdcard", CLK_IGNORE_UNUSED, 15,
+>> +                   JH7110_SYSCLK_AXI_CFG0),
+>> +       JH71X0_GDIV(JH7110_SYSCLK_SDIO1_SDCARD, "sdio1_sdcard", CLK_IGNORE_UNUSED, 15,
+>> +                   JH7110_SYSCLK_AXI_CFG0),
+>> +       /* stg */
+>> +       JH71X0__DIV(JH7110_SYSCLK_USB_125M, "usb_125m", 15, JH7110_SYSCLK_PLL0_OUT),
+>> +       JH71X0_GATE(JH7110_SYSCLK_NOC_BUS_STG_AXI, "noc_bus_stg_axi", CLK_IGNORE_UNUSED,
+>> +                   JH7110_SYSCLK_NOCSTG_BUS),
+>> +       /* gmac1 */
+>> +       JH71X0_GATE(JH7110_SYSCLK_GMAC1_AHB, "gmac1_ahb", 0, JH7110_SYSCLK_AHB0),
+>> +       JH71X0_GATE(JH7110_SYSCLK_GMAC1_AXI, "gmac1_axi", 0, JH7110_SYSCLK_STG_AXIAHB),
+>> +       JH71X0__DIV(JH7110_SYSCLK_GMAC_SRC, "gmac_src", 7, JH7110_SYSCLK_PLL0_OUT),
+>> +       JH71X0__DIV(JH7110_SYSCLK_GMAC1_GTXCLK, "gmac1_gtxclk", 15, JH7110_SYSCLK_PLL0_OUT),
+>> +       JH71X0__DIV(JH7110_SYSCLK_GMAC1_RMII_RTX, "gmac1_rmii_rtx", 30,
+>> +                   JH7110_SYSCLK_GMAC1_RMII_REFIN),
+>> +       JH71X0_GDIV(JH7110_SYSCLK_GMAC1_PTP, "gmac1_ptp", 0, 31, JH7110_SYSCLK_GMAC_SRC),
+>> +       JH71X0__MUX(JH7110_SYSCLK_GMAC1_RX, "gmac1_rx", 2,
+>> +                   JH7110_SYSCLK_GMAC1_RGMII_RXIN,
+>> +                   JH7110_SYSCLK_GMAC1_RMII_RTX),
+>> +       JH71X0__INV(JH7110_SYSCLK_GMAC1_RX_INV, "gmac1_rx_inv", JH7110_SYSCLK_GMAC1_RX),
+>> +       JH71X0_GMUX(JH7110_SYSCLK_GMAC1_TX, "gmac1_tx", 0, 2,
+>> +                   JH7110_SYSCLK_GMAC1_GTXCLK,
+>> +                   JH7110_SYSCLK_GMAC1_RMII_RTX),
+>> +       JH71X0__INV(JH7110_SYSCLK_GMAC1_TX_INV, "gmac1_tx_inv", JH7110_SYSCLK_GMAC1_TX),
+>> +       JH71X0_GATE(JH7110_SYSCLK_GMAC1_GTXC, "gmac1_gtxc", 0, JH7110_SYSCLK_GMAC1_GTXCLK),
+>> +       /* gmac0 */
+>> +       JH71X0_GDIV(JH7110_SYSCLK_GMAC0_GTXCLK, "gmac0_gtxclk", 0, 15, JH7110_SYSCLK_PLL0_OUT),
+>> +       JH71X0_GDIV(JH7110_SYSCLK_GMAC0_PTP, "gmac0_ptp", 0, 31, JH7110_SYSCLK_GMAC_SRC),
+>> +       JH71X0_GDIV(JH7110_SYSCLK_GMAC_PHY, "gmac_phy", 0, 31, JH7110_SYSCLK_GMAC_SRC),
+>> +       JH71X0_GATE(JH7110_SYSCLK_GMAC0_GTXC, "gmac0_gtxc", 0, JH7110_SYSCLK_GMAC0_GTXCLK),
+>> +       /* apb misc */
+>> +       JH71X0_GATE(JH7110_SYSCLK_IOMUX_APB, "iomux_apb", CLK_IGNORE_UNUSED,
+>> +                   JH7110_SYSCLK_APB_BUS),
+>> +       JH71X0_GATE(JH7110_SYSCLK_MAILBOX_APB, "mailbox_apb", CLK_IGNORE_UNUSED,
+>> +                   JH7110_SYSCLK_APB_BUS),
+>> +       JH71X0_GATE(JH7110_SYSCLK_INT_CTRL_APB, "int_ctrl_apb", CLK_IGNORE_UNUSED,
+>> +                   JH7110_SYSCLK_APB_BUS),
+>> +       /* can0 */
+>> +       JH71X0_GATE(JH7110_SYSCLK_CAN0_APB, "can0_apb", 0, JH7110_SYSCLK_APB_BUS),
+>> +       JH71X0_GDIV(JH7110_SYSCLK_CAN0_TIMER, "can0_timer", 0, 24, JH7110_SYSCLK_OSC),
+>> +       JH71X0_GDIV(JH7110_SYSCLK_CAN0_CAN, "can0_can", 0, 63, JH7110_SYSCLK_PERH_ROOT),
+>> +       /* can1 */
+>> +       JH71X0_GATE(JH7110_SYSCLK_CAN1_APB, "can1_apb", 0, JH7110_SYSCLK_APB_BUS),
+>> +       JH71X0_GDIV(JH7110_SYSCLK_CAN1_TIMER, "can1_timer", 0, 24, JH7110_SYSCLK_OSC),
+>> +       JH71X0_GDIV(JH7110_SYSCLK_CAN1_CAN, "can1_can", 0, 63, JH7110_SYSCLK_PERH_ROOT),
+>> +       /* pwm */
+>> +       JH71X0_GATE(JH7110_SYSCLK_PWM_APB, "pwm_apb", 0, JH7110_SYSCLK_APB_BUS),
+>> +       /* wdt */
+>> +       JH71X0_GATE(JH7110_SYSCLK_WDT_APB, "wdt_apb", CLK_IGNORE_UNUSED, JH7110_SYSCLK_APB_BUS),
+>> +       JH71X0_GATE(JH7110_SYSCLK_WDT_CORE, "wdt_core", CLK_IGNORE_UNUSED, JH7110_SYSCLK_OSC),
+>> +       /* timer */
+>> +       JH71X0_GATE(JH7110_SYSCLK_TIMER_APB, "timer_apb", CLK_IGNORE_UNUSED,
+>> +                   JH7110_SYSCLK_APB_BUS),
+>> +       JH71X0_GATE(JH7110_SYSCLK_TIMER0, "timer0", CLK_IGNORE_UNUSED, JH7110_SYSCLK_OSC),
+>> +       JH71X0_GATE(JH7110_SYSCLK_TIMER1, "timer1", CLK_IGNORE_UNUSED, JH7110_SYSCLK_OSC),
+>> +       JH71X0_GATE(JH7110_SYSCLK_TIMER2, "timer2", CLK_IGNORE_UNUSED, JH7110_SYSCLK_OSC),
+>> +       JH71X0_GATE(JH7110_SYSCLK_TIMER3, "timer3", CLK_IGNORE_UNUSED, JH7110_SYSCLK_OSC),
+>> +       /* temp sensor */
+>> +       JH71X0_GATE(JH7110_SYSCLK_TEMP_APB, "temp_apb", 0, JH7110_SYSCLK_APB_BUS),
+>> +       JH71X0_GDIV(JH7110_SYSCLK_TEMP_CORE, "temp_core", 0, 24, JH7110_SYSCLK_OSC),
+>> +       /* spi */
+>> +       JH71X0_GATE(JH7110_SYSCLK_SPI0_APB, "spi0_apb", 0, JH7110_SYSCLK_APB0),
+>> +       JH71X0_GATE(JH7110_SYSCLK_SPI1_APB, "spi1_apb", 0, JH7110_SYSCLK_APB0),
+>> +       JH71X0_GATE(JH7110_SYSCLK_SPI2_APB, "spi2_apb", 0, JH7110_SYSCLK_APB0),
+>> +       JH71X0_GATE(JH7110_SYSCLK_SPI3_APB, "spi3_apb", 0, JH7110_SYSCLK_APB_BUS),
+>> +       JH71X0_GATE(JH7110_SYSCLK_SPI4_APB, "spi4_apb", 0, JH7110_SYSCLK_APB_BUS),
+>> +       JH71X0_GATE(JH7110_SYSCLK_SPI5_APB, "spi5_apb", 0, JH7110_SYSCLK_APB_BUS),
+>> +       JH71X0_GATE(JH7110_SYSCLK_SPI6_APB, "spi6_apb", 0, JH7110_SYSCLK_APB_BUS),
+>> +       /* i2c */
+>> +       JH71X0_GATE(JH7110_SYSCLK_I2C0_APB, "i2c0_apb", 0, JH7110_SYSCLK_APB0),
+>> +       JH71X0_GATE(JH7110_SYSCLK_I2C1_APB, "i2c1_apb", 0, JH7110_SYSCLK_APB0),
+>> +       JH71X0_GATE(JH7110_SYSCLK_I2C2_APB, "i2c2_apb", 0, JH7110_SYSCLK_APB0),
+>> +       JH71X0_GATE(JH7110_SYSCLK_I2C3_APB, "i2c3_apb", 0, JH7110_SYSCLK_APB_BUS),
+>> +       JH71X0_GATE(JH7110_SYSCLK_I2C4_APB, "i2c4_apb", 0, JH7110_SYSCLK_APB_BUS),
+>> +       JH71X0_GATE(JH7110_SYSCLK_I2C5_APB, "i2c5_apb", 0, JH7110_SYSCLK_APB_BUS),
+>> +       JH71X0_GATE(JH7110_SYSCLK_I2C6_APB, "i2c6_apb", 0, JH7110_SYSCLK_APB_BUS),
+>> +       /* uart */
+>> +       JH71X0_GATE(JH7110_SYSCLK_UART0_APB, "uart0_apb", CLK_IGNORE_UNUSED, JH7110_SYSCLK_APB0),
+>> +       JH71X0_GATE(JH7110_SYSCLK_UART0_CORE, "uart0_core", CLK_IGNORE_UNUSED, JH7110_SYSCLK_OSC),
+>> +       JH71X0_GATE(JH7110_SYSCLK_UART1_APB, "uart1_apb", 0, JH7110_SYSCLK_APB0),
+>> +       JH71X0_GATE(JH7110_SYSCLK_UART1_CORE, "uart1_core", 0, JH7110_SYSCLK_OSC),
+>> +       JH71X0_GATE(JH7110_SYSCLK_UART2_APB, "uart2_apb", 0, JH7110_SYSCLK_APB0),
+>> +       JH71X0_GATE(JH7110_SYSCLK_UART2_CORE, "uart2_core", 0, JH7110_SYSCLK_OSC),
+>> +       JH71X0_GATE(JH7110_SYSCLK_UART3_APB, "uart3_apb", 0, JH7110_SYSCLK_APB0),
+>> +       JH71X0_GDIV(JH7110_SYSCLK_UART3_CORE, "uart3_core", 0, 10, JH7110_SYSCLK_PERH_ROOT),
+>> +       JH71X0_GATE(JH7110_SYSCLK_UART4_APB, "uart4_apb", 0, JH7110_SYSCLK_APB0),
+>> +       JH71X0_GDIV(JH7110_SYSCLK_UART4_CORE, "uart4_core", 0, 10, JH7110_SYSCLK_PERH_ROOT),
+>> +       JH71X0_GATE(JH7110_SYSCLK_UART5_APB, "uart5_apb", 0, JH7110_SYSCLK_APB0),
+>> +       JH71X0_GDIV(JH7110_SYSCLK_UART5_CORE, "uart5_core", 0, 10, JH7110_SYSCLK_PERH_ROOT),
+>> +       /* pwmdac */
+>> +       JH71X0_GATE(JH7110_SYSCLK_PWMDAC_APB, "pwmdac_apb", 0, JH7110_SYSCLK_APB0),
+>> +       JH71X0_GDIV(JH7110_SYSCLK_PWMDAC_CORE, "pwmdac_core", 0, 256, JH7110_SYSCLK_AUDIO_ROOT),
+>> +       /* spdif */
+>> +       JH71X0_GATE(JH7110_SYSCLK_SPDIF_APB, "spdif_apb", 0, JH7110_SYSCLK_APB0),
+>> +       JH71X0_GATE(JH7110_SYSCLK_SPDIF_CORE, "spdif_core", 0, JH7110_SYSCLK_MCLK),
+>> +       /* i2stx0 */
+>> +       JH71X0_GATE(JH7110_SYSCLK_I2STX0_APB, "i2stx0_apb", 0, JH7110_SYSCLK_APB0),
+>> +       JH71X0_GDIV(JH7110_SYSCLK_I2STX0_BCLK_MST, "i2stx0_bclk_mst", 0, 32, JH7110_SYSCLK_MCLK),
+>> +       JH71X0__INV(JH7110_SYSCLK_I2STX0_BCLK_MST_INV, "i2stx0_bclk_mst_inv",
+>> +                   JH7110_SYSCLK_I2STX0_BCLK_MST),
+>> +       JH71X0_MDIV(JH7110_SYSCLK_I2STX0_LRCK_MST, "i2stx0_lrck_mst", 64, 2,
+>> +                   JH7110_SYSCLK_I2STX0_BCLK_MST_INV,
+>> +                   JH7110_SYSCLK_I2STX0_BCLK_MST),
+>> +       JH71X0__MUX(JH7110_SYSCLK_I2STX0_BCLK, "i2stx0_bclk",   2,
+>> +                   JH7110_SYSCLK_I2STX0_BCLK_MST,
+>> +                   JH7110_SYSCLK_I2STX_BCLK_EXT),
+>> +       JH71X0__INV(JH7110_SYSCLK_I2STX0_BCLK_INV, "i2stx0_bclk_inv", JH7110_SYSCLK_I2STX0_BCLK),
+>> +       JH71X0__MUX(JH7110_SYSCLK_I2STX0_LRCK, "i2stx0_lrck", 2,
+>> +                   JH7110_SYSCLK_I2STX0_LRCK_MST,
+>> +                   JH7110_SYSCLK_I2STX_LRCK_EXT),
+>> +       /* i2stx1 */
+>> +       JH71X0_GATE(JH7110_SYSCLK_I2STX1_APB, "i2stx1_apb", 0, JH7110_SYSCLK_APB0),
+>> +       JH71X0_GDIV(JH7110_SYSCLK_I2STX1_BCLK_MST, "i2stx1_bclk_mst", 0, 32, JH7110_SYSCLK_MCLK),
+>> +       JH71X0__INV(JH7110_SYSCLK_I2STX1_BCLK_MST_INV, "i2stx1_bclk_mst_inv",
+>> +                   JH7110_SYSCLK_I2STX1_BCLK_MST),
+>> +       JH71X0_MDIV(JH7110_SYSCLK_I2STX1_LRCK_MST, "i2stx1_lrck_mst", 64, 2,
+>> +                   JH7110_SYSCLK_I2STX1_BCLK_MST_INV,
+>> +                   JH7110_SYSCLK_I2STX1_BCLK_MST),
+>> +       JH71X0__MUX(JH7110_SYSCLK_I2STX1_BCLK, "i2stx1_bclk", 2,
+>> +                   JH7110_SYSCLK_I2STX1_BCLK_MST,
+>> +                   JH7110_SYSCLK_I2STX_BCLK_EXT),
+>> +       JH71X0__INV(JH7110_SYSCLK_I2STX1_BCLK_INV, "i2stx1_bclk_inv", JH7110_SYSCLK_I2STX1_BCLK),
+>> +       JH71X0__MUX(JH7110_SYSCLK_I2STX1_LRCK, "i2stx1_lrck", 2,
+>> +                   JH7110_SYSCLK_I2STX1_LRCK_MST,
+>> +                   JH7110_SYSCLK_I2STX_LRCK_EXT),
+>> +       /* i2srx */
+>> +       JH71X0_GATE(JH7110_SYSCLK_I2SRX_APB, "i2srx_apb", 0, JH7110_SYSCLK_APB0),
+>> +       JH71X0_GDIV(JH7110_SYSCLK_I2SRX_BCLK_MST, "i2srx_bclk_mst", 0, 32, JH7110_SYSCLK_MCLK),
+>> +       JH71X0__INV(JH7110_SYSCLK_I2SRX_BCLK_MST_INV, "i2srx_bclk_mst_inv",
+>> +                   JH7110_SYSCLK_I2SRX_BCLK_MST),
+>> +       JH71X0_MDIV(JH7110_SYSCLK_I2SRX_LRCK_MST, "i2srx_lrck_mst", 64, 2,
+>> +                   JH7110_SYSCLK_I2SRX_BCLK_MST_INV,
+>> +                   JH7110_SYSCLK_I2SRX_BCLK_MST),
+>> +       JH71X0__MUX(JH7110_SYSCLK_I2SRX_BCLK, "i2srx_bclk", 2,
+>> +                   JH7110_SYSCLK_I2SRX_BCLK_MST,
+>> +                   JH7110_SYSCLK_I2SRX_BCLK_EXT),
+>> +       JH71X0__INV(JH7110_SYSCLK_I2SRX_BCLK_INV, "i2srx_bclk_inv", JH7110_SYSCLK_I2SRX_BCLK),
+>> +       JH71X0__MUX(JH7110_SYSCLK_I2SRX_LRCK, "i2srx_lrck", 2,
+>> +                   JH7110_SYSCLK_I2SRX_LRCK_MST,
+>> +                   JH7110_SYSCLK_I2SRX_LRCK_EXT),
+>> +       /* pdm */
+>> +       JH71X0_GDIV(JH7110_SYSCLK_PDM_DMIC, "pdm_dmic", 0, 64, JH7110_SYSCLK_MCLK),
+>> +       JH71X0_GATE(JH7110_SYSCLK_PDM_APB, "pdm_apb", 0, JH7110_SYSCLK_APB0),
+>> +       /* tdm */
+>> +       JH71X0_GATE(JH7110_SYSCLK_TDM_AHB, "tdm_ahb", 0, JH7110_SYSCLK_AHB0),
+>> +       JH71X0_GATE(JH7110_SYSCLK_TDM_APB, "tdm_apb", 0, JH7110_SYSCLK_APB0),
+>> +       JH71X0_GDIV(JH7110_SYSCLK_TDM_INTERNAL, "tdm_internal", 0, 64, JH7110_SYSCLK_MCLK),
+>> +       JH71X0__MUX(JH7110_SYSCLK_TDM_TDM, "tdm_tdm", 2,
+>> +                   JH7110_SYSCLK_TDM_INTERNAL,
+>> +                   JH7110_SYSCLK_TDM_EXT),
+>> +       JH71X0__INV(JH7110_SYSCLK_TDM_TDM_INV, "tdm_tdm_inv", JH7110_SYSCLK_TDM_TDM),
+>> +       /* jtag */
+>> +       JH71X0__DIV(JH7110_SYSCLK_JTAG_CERTIFICATION_TRNG, "jtag_certification_trng", 4,
+>> +                   JH7110_SYSCLK_OSC),
+>> +};
+> 
+> Hi Hal,
+> 
+> I noticed this list still contains both clocks with the
+> CLK_IS_CRITICAL flag and the CLK_IGNORE_UNUSED. I fear I may be source
+> of this because I used the CLK_IGNORE_UNUSED as a placeholder until I
+> figured out if the clock was critical or not. For the next revision
+> could you please go through clocks marked with CLK_IGNORE_UNUSED and
+> determine if they're critical or they can be safely turned off when
+> not used by any peripheral.
+
+I had synchronized these clock flags with JH7110 SDK before. I will
+recheck these again. Thanks.
+
+Best regards,
+Hal
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
