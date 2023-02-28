@@ -4,74 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96457C64EC7
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Feb 2023 05:05:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A932BC64EC7
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Feb 2023 05:36:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Q9FsmVLnfEGwMWqmA5PZmrrD3w0WiwC/p+QXLBZ72BI=; b=WIhvx8o+9mqMlE
-	GYaPxqlWZXtVXu1D9Xw6u/lpAz9qohAfQbh7AgOsdqznXGt3Qa1OAu0iMJxWfkCVwPTYmWELzDfEP
-	Dywvy0HdPr4oSxIfmCaXjsTeen0318zrULqfFHttSZ4StgvtVwvFjrMe6eW9Y/22yx33GqXEuo4s3
-	bC6uuYIOzknajuRTWxwQGBAR0SJOu0IVeSsDR4cfoa84XfuILZPUUBon4x+AmLfMWIBdVP0NGq4g9
-	hjwXp7ADDcfczUE7DHkrD546Mcl8jzMwVc0CzHKXFgMk2GCqQVH8UxZyQQuQNy14pnal+v7rNEU1U
-	FZe1/R+ElGOQ1i+46rtA==;
+	List-Owner; bh=db4r5icmKt4/YE8pnPnDW64/3FGXDrZTmF+PlrjgZRw=; b=lvJTa3eh2xXNwH
+	x9pElF+bgO8BXwMWUZQSg6QHsfFwlZO9txD+m9YfLzJHJ9peALAfwF7NXNX+JyH837nNY9GpoawPL
+	BmWbpfyP7398G0CJY121Q1XfwaBr82g7SaQMK8mCPJkgaWLb9Y1OGTiwYQppxOWAQNVSrYXm6IdCh
+	WQMdYgth3nrM7Ooepo4ndKg/qZXCV0wcWZx6SWVgMiR+EZSF32EoIOYvMmpawdQRrDFuhazwUGO3N
+	F7byDwWVXSoX/3M4dutOFrqmjGHdMPsN22vvNfYKEUDcPzG2hWNqx6KEtAa3lI5swUsS1Vsgpqf6h
+	Ievqz4xKsx2YnXfIaJAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWsAl-00C2OS-Vl; Tue, 28 Feb 2023 05:05:07 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWsAj-00C2Ng-Et
-	for linux-riscv@lists.infradead.org; Tue, 28 Feb 2023 05:05:06 +0000
-Received: by mail-wm1-x332.google.com with SMTP id d41-20020a05600c4c2900b003e9e066550fso5098983wmp.4
-        for <linux-riscv@lists.infradead.org>; Mon, 27 Feb 2023 21:05:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=/rUgYeuyp4a42zgvscb8Ayf+i4666OzYHVPuCh3+igs=;
-        b=WKyQgStiyUSSLrOIZVBXxsvgUnH5p+qmORAJ0JkgpNJisWFdZRhsc0ATyM3Xs38HWm
-         pmkpvP+OXPOb87WoqAmlU0zx3lO+44k90VTwLqgUKo9tQNXFAg5KJTwI32zIt1l0VtvP
-         y9l+p9bZD+MjUfQQjJGe3XgyG+nJu+mIsw+Vt7JI1L+BtSiiAGj2qUpr+P9z6L5ky6co
-         oHaEFh/9Bg99yUMxP5FpaypCv6WGNVQHLNYMPPQJmCKXr9MZg4hi0mh8Zw7wjuUQARKd
-         5IkZWuEdeKUIdOwSLTXII1L7l92u/7jWhfjOirSWi4P6kNWkdHidFVBd7iDHftPeARmo
-         mmzA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/rUgYeuyp4a42zgvscb8Ayf+i4666OzYHVPuCh3+igs=;
-        b=achvKeBozs7AG6LiHxnJoiTKgI+k00004FoY9g8KbAY9X3njlW0n+ZwhUGKdxALcCP
-         pfnRgIdHlgKr7925EitDurG8wZsZRLZdYs74dSYNiuDXxxhX889wvVmtAp9at+OqTzbC
-         2WT0M01X7uj+qAfVzz2bIbaiYPdB0KBCpRHKBjOCLnaLEF/rT+E5dmHic3QA9NCVHAzV
-         3yphPOVyPi9V/8FZltvvAHu16/pAC7+CNmhpBoDvCG9Ki2gew712N4PQJEjw9Bs/4aJc
-         zylqj20fbkR5Ihpuk1JRq+KvHM08tvf/Gtf/GjrzT6umpp3NO+DFsjd8xSRqbRde458s
-         VY5Q==
-X-Gm-Message-State: AO0yUKWo/GyT6nhTKCklR1o3xZA5TXyy8Nc1x7sRjZ3CaOJnQ4kYlyA0
-	z7g2U3CSN3uHGwYRVH+0wsV5kw==
-X-Google-Smtp-Source: AK7set/3CqhMiz3nslm7Dq0Ps2HgrKYEBhz1XT+MvxtIEesgrxicJ4Ac6LP6iwP8C3YGBw504146ig==
-X-Received: by 2002:a05:600c:3595:b0:3ea:c101:72b with SMTP id p21-20020a05600c359500b003eac101072bmr947095wmq.17.1677560699034;
-        Mon, 27 Feb 2023 21:04:59 -0800 (PST)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id v14-20020adfedce000000b002c7b229b1basm8715953wro.15.2023.02.27.21.04.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Feb 2023 21:04:58 -0800 (PST)
-Date: Tue, 28 Feb 2023 06:04:57 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: JeeHeng Sia <jeeheng.sia@starfivetech.com>
-Cc: "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>,
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
+	id 1pWsf2-00C3wl-Dy; Tue, 28 Feb 2023 05:36:24 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pWsex-00C3uv-TY
+	for linux-riscv@lists.infradead.org; Tue, 28 Feb 2023 05:36:22 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id D99BB24E3C9;
+	Tue, 28 Feb 2023 13:35:27 +0800 (CST)
+Received: from EXMBX062.cuchost.com (172.16.6.62) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 28 Feb
+ 2023 13:33:33 +0800
+Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX062.cuchost.com
+ (172.16.6.62) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 28 Feb
+ 2023 13:33:33 +0800
+Received: from EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f]) by
+ EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f%17]) with mapi id
+ 15.00.1497.044; Tue, 28 Feb 2023 13:33:32 +0800
+From: JeeHeng Sia <jeeheng.sia@starfivetech.com>
+To: Andrew Jones <ajones@ventanamicro.com>
+CC: "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
+	"palmer@dabbelt.com" <palmer@dabbelt.com>, "aou@eecs.berkeley.edu"
+	<aou@eecs.berkeley.edu>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
 	Mason Huo <mason.huo@starfivetech.com>
-Subject: Re: [PATCH v4 4/4] RISC-V: Add arch functions to support
+Subject: RE: [PATCH v4 4/4] RISC-V: Add arch functions to support
  hibernation/suspend-to-disk
-Message-ID: <20230228050457.zfbflfawctaccepv@orel>
+Thread-Topic: [PATCH v4 4/4] RISC-V: Add arch functions to support
+ hibernation/suspend-to-disk
+Thread-Index: AQHZRZ0zqkG7/pRhhEiAX6gFjug0Aa7cUgAAgAEC65D///aKAIAAiLXg//+GvACAAI+BwP//lVOAAJFkcXD//+axAP//cjXQgADMoID//pX2AIACjLaA//93Q9A=
+Date: Tue, 28 Feb 2023 05:33:32 +0000
+Message-ID: <803ac603023c4eeda4a0b8e414cce6f1@EXMBX066.cuchost.com>
 References: <20230224090010.nmy6latszfkdqcft@orel>
  <9cfd485d1e0d46cdb1323bb6ea330f6e@EXMBX066.cuchost.com>
  <20230224095526.ctctpzw3p3csf6qj@orel>
@@ -82,12 +64,19 @@ References: <20230224090010.nmy6latszfkdqcft@orel>
  <178ca008701147828d2e62402ff4f78a@EXMBX066.cuchost.com>
  <20230227114435.eow57ax5zhysz3kv@orel>
  <a6c319dd867f4f1d97e9d950b9e7c636@EXMBX066.cuchost.com>
+ <20230228050457.zfbflfawctaccepv@orel>
+In-Reply-To: <20230228050457.zfbflfawctaccepv@orel>
+Accept-Language: en-US, zh-CN
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [202.188.176.82]
+x-yovoleruleagent: yovoleflag
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <a6c319dd867f4f1d97e9d950b9e7c636@EXMBX066.cuchost.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230227_210505_531433_719B5797 
-X-CRM114-Status: GOOD (  33.30  )
+X-CRM114-CacheID: sfid-20230227_213620_261958_9158C4A9 
+X-CRM114-Status: GOOD (  39.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,63 +93,112 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 28, 2023 at 01:32:53AM +0000, JeeHeng Sia wrote:
-> > > > > 	load image;
-> > > > > loop:	Create pbe chain, return error if failed;
-> > > >
-> > > > This loop pseudocode is incomplete. It's
-> > > >
-> > > > loop:
-> > > >         if (swsusp_page_is_forbidden(page) && swsusp_page_is_free(page))
-> > > > 	   return page_address(page);
-> > > > 	Create pbe chain, return error if failed;
-> > > > 	...
-> > > >
-> > > > which I pointed out explicitly in my last reply. Also, as I asked in my
-> > > > last reply (and have been asking four times now, albeit less explicitly
-> > > > the first two times), how do we know at least one PBE will be linked?
-> > > 1 PBE correspond to 1 page, you shouldn't expect only 1 page is saved.
-> > 
-> > I know PBEs correspond to pages. *Why* should I not expect only one page
-> > is saved? Or, more importantly, why should I expect more than zero pages
-> > are saved?
-> > 
-> > Convincing answers might be because we *always* put the restore code in
-> > pages which get added to the PBE list or that the original page tables
-> > *always* get put in pages which get added to the PBE list. It's not very
-> > convincing to simply *assume* that at least one random page will always
-> > meet the PBE list criteria.
-> > 
-> > > Hibernation core will do the calculation. If the PBEs (restore_pblist) linked successfully, the hibernated image will be restore else
-> > normal boot will take place.
-> > > > Or, even more specifically this time, where is the proof that for each
-> > > > hibernation resume, there exists some page such that
-> > > > !swsusp_page_is_forbidden(page) or !swsusp_page_is_free(page) is true?
-> > > forbidden_pages and free_pages are not contributed to the restore_pblist (as you already aware from the code). Infact, the
-> > forbidden_pages and free_pages are not save into the disk.
-> > 
-> > Exactly, so those pages are *not* going to contribute to the greater than
-> > zero pages. What I've been asking for, from the beginning, is to know
-> > which page(s) are known to *always* contribute to the list. Or, IOW, how
-> > do you know the PBE list isn't empty, a.k.a restore_pblist isn't NULL?
-> Well, this is keep going around in a circle, thought the answer is in the hibernation code. restore_pblist get the pointer from the PBE, and the PBE already checked for validity.
 
-It keeps going around in circles because you keep avoiding my question by
-pointing out trivial linked list code. I'm not worried about the linked
-list code being correct. My concern is that you're using a linked list
-with an assumption that it is not empty. My question has been all along,
-how do you know it's not empty?
 
-I'll change the way I ask this time. Please take a look at your PBE list
-and let me know if there are PBEs on it that must be there on each
-hibernation resume, e.g. the resume code page is there or whatever.
+> -----Original Message-----
+> From: Andrew Jones <ajones@ventanamicro.com>
+> Sent: Tuesday, 28 February, 2023 1:05 PM
+> To: JeeHeng Sia <jeeheng.sia@starfivetech.com>
+> Cc: paul.walmsley@sifive.com; palmer@dabbelt.com; aou@eecs.berkeley.edu; linux-riscv@lists.infradead.org; linux-
+> kernel@vger.kernel.org; Leyfoon Tan <leyfoon.tan@starfivetech.com>; Mason Huo <mason.huo@starfivetech.com>
+> Subject: Re: [PATCH v4 4/4] RISC-V: Add arch functions to support hibernation/suspend-to-disk
+> 
+> On Tue, Feb 28, 2023 at 01:32:53AM +0000, JeeHeng Sia wrote:
+> > > > > > 	load image;
+> > > > > > loop:	Create pbe chain, return error if failed;
+> > > > >
+> > > > > This loop pseudocode is incomplete. It's
+> > > > >
+> > > > > loop:
+> > > > >         if (swsusp_page_is_forbidden(page) && swsusp_page_is_free(page))
+> > > > > 	   return page_address(page);
+> > > > > 	Create pbe chain, return error if failed;
+> > > > > 	...
+> > > > >
+> > > > > which I pointed out explicitly in my last reply. Also, as I asked in my
+> > > > > last reply (and have been asking four times now, albeit less explicitly
+> > > > > the first two times), how do we know at least one PBE will be linked?
+> > > > 1 PBE correspond to 1 page, you shouldn't expect only 1 page is saved.
+> > >
+> > > I know PBEs correspond to pages. *Why* should I not expect only one page
+> > > is saved? Or, more importantly, why should I expect more than zero pages
+> > > are saved?
+> > >
+> > > Convincing answers might be because we *always* put the restore code in
+> > > pages which get added to the PBE list or that the original page tables
+> > > *always* get put in pages which get added to the PBE list. It's not very
+> > > convincing to simply *assume* that at least one random page will always
+> > > meet the PBE list criteria.
+> > >
+> > > > Hibernation core will do the calculation. If the PBEs (restore_pblist) linked successfully, the hibernated image will be restore else
+> > > normal boot will take place.
+> > > > > Or, even more specifically this time, where is the proof that for each
+> > > > > hibernation resume, there exists some page such that
+> > > > > !swsusp_page_is_forbidden(page) or !swsusp_page_is_free(page) is true?
+> > > > forbidden_pages and free_pages are not contributed to the restore_pblist (as you already aware from the code). Infact, the
+> > > forbidden_pages and free_pages are not save into the disk.
+> > >
+> > > Exactly, so those pages are *not* going to contribute to the greater than
+> > > zero pages. What I've been asking for, from the beginning, is to know
+> > > which page(s) are known to *always* contribute to the list. Or, IOW, how
+> > > do you know the PBE list isn't empty, a.k.a restore_pblist isn't NULL?
+> > Well, this is keep going around in a circle, thought the answer is in the hibernation code. restore_pblist get the pointer from the PBE,
+> and the PBE already checked for validity.
+> 
+> It keeps going around in circles because you keep avoiding my question by
+> pointing out trivial linked list code. I'm not worried about the linked
+> list code being correct. My concern is that you're using a linked list
+> with an assumption that it is not empty. My question has been all along,
+> how do you know it's not empty?
+> 
+> I'll change the way I ask this time. Please take a look at your PBE list
+> and let me know if there are PBEs on it that must be there on each
+> hibernation resume, e.g. the resume code page is there or whatever.
+> 
+> > Can I suggest you to submit a patch to the hibernation core?
+> 
+> Why? What's wrong with it?
+Kindly let me draw 2 scenarios for you. Option 1 is to add the restore_pblist checking to the hibernation core and option 2 is to add restore_pblist checking to the arch solution
+Although I really don't think it is needed. But if you really wanted to add the checking, I would suggest to go with option 1. again, I really think that it is not needed!
 
-> Can I suggest you to submit a patch to the hibernation core?
+	//Option 1
+	//Pseudocode to illustrate the image loading
+	initialize restore_pblist to null;
+	initialize safe_pages_list to null;
+	Allocate safe page list, return error if failed;
+	load image;
+loop:	Create pbe chain, return error if failed;
+	assign orig_addr and safe_page to pbe;
+	link pbe to restore_pblist;
+	/* Add checking here */
+	return error if restore_pblist equal to null;
+	return pbe to handle->buffer;
+	check handle->buffer;
+	goto loop if no error else return with error;
 
-Why? What's wrong with it?
+	//option 2
+	//Pseudocode to illustrate the image loading
+	initialize restore_pblist to null;
+	initialize safe_pages_list to null;
+	Allocate safe page list, return error if failed;
+	load image;
+loop:	Create pbe chain, return error if failed;
+	assign orig_addr and safe_page to pbe;
+	link pbe to restore_pblist;
+	return pbe to handle->buffer;
+	check handle->buffer;
+	goto loop if no error else return with error;
+	everything works correctly, continue the rest of the operation
+	invoke swsusp_arch_resume
 
-Thanks,
-drew
+	//@swsusp_arch_resume()
+loop2: return error if restore_pblist is null
+	increment restore_pblist and goto loop2
+	create temp_pg_table
+	continue the rest of the resume operation
+> 
+> Thanks,
+> drew
 
 _______________________________________________
 linux-riscv mailing list
