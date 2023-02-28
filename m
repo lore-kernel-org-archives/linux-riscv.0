@@ -4,79 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9846C64ED6
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Feb 2023 06:34:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36A5EC64ED6
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Feb 2023 07:12:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wdCu3OrASOOP3DInEBOqb+thgW4jYjxMEgNxRuObbSQ=; b=hcZVp2AI5s9qp0
-	sqPPrCQxIyMJmwXqkuIoDEP2N5OqPKI/LLE9NM05OM0o7Pftilkn8iIA6CTpZejq+KaLC/k9+ZN7Z
-	jFh7VUgx9g0HxJ/IWwWdhvknt3kRXzjymZFlSTcRyGQVVU+IO1w9EW6PZxeHoZOKRi516ClcWMcJT
-	DkmDDR0JGsaQKH6VW+eDZ4QLXl0SFg/jQWlgV5MW/AkytilgQxtxiWzteuxtgaCOSI8kmqbkIC6Zw
-	luCUCJBvYP0Lyz+SGF3lzlM2vXcDJgM01As3fph9sw82U5Rl4MQERffLwG5twyHpRZOei0K/wKifv
-	ZShJPLNy5u5xtim4d6GA==;
+	List-Owner; bh=gPF76Mb6hrZX448t2KtMoPl/GFZC8NXwCzWsRdRl/Jk=; b=2irYiVBuCJmOTf
+	GBYe8bjv9NZUUIqJ3qcJ/s94yIENPNqvSZRaYJ3bg+I/SgKBSdqsuOCeE7KUtuCR1cuf4wh9eNOz6
+	ck3SHajWRVxY15Hietv0BtsN8/7eAWLyec/H4a2T78iTxqp0jPZL1FuMHqiRwvY/nqOVkHILPJ0Wv
+	qMqLRr7ndOegmkCe27HPOtz0zJaNYgmu+GjeyRX9Kcf4lNhkjXK95V8/35niyWN01zR7n80GISiLp
+	hi6827IqefstbusF2+iweYVq3odqFGdRHJXpe8HxP/YL5qKHCMBorqmK8/b1gxFJXUtPkYv5+eTBS
+	IGyK1Tdp4D/VIwKvQiBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWtZJ-00CAA7-3x; Tue, 28 Feb 2023 06:34:33 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWtZC-00CA0k-VT
-	for linux-riscv@lists.infradead.org; Tue, 28 Feb 2023 06:34:30 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 2D58C24E3E2;
-	Tue, 28 Feb 2023 14:34:03 +0800 (CST)
-Received: from EXMBX161.cuchost.com (172.16.6.71) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 28 Feb
- 2023 14:33:59 +0800
-Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX161.cuchost.com
- (172.16.6.71) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 28 Feb
- 2023 14:33:59 +0800
-Received: from EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f]) by
- EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f%17]) with mapi id
- 15.00.1497.044; Tue, 28 Feb 2023 14:33:59 +0800
-From: JeeHeng Sia <jeeheng.sia@starfivetech.com>
-To: Andrew Jones <ajones@ventanamicro.com>
-CC: "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>, "aou@eecs.berkeley.edu"
-	<aou@eecs.berkeley.edu>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
-	Mason Huo <mason.huo@starfivetech.com>
-Subject: RE: [PATCH v4 4/4] RISC-V: Add arch functions to support
- hibernation/suspend-to-disk
-Thread-Topic: [PATCH v4 4/4] RISC-V: Add arch functions to support
- hibernation/suspend-to-disk
-Thread-Index: AQHZRZ0zqkG7/pRhhEiAX6gFjug0Aa7cUgAAgAEC65D///aKAIAAiLXg//+GvACAAI+BwP//lVOAAJFkcXD//+axAP//cjXQgADMoID//pX2AIACjLaA//9iDwA=
-Date: Tue, 28 Feb 2023 06:33:59 +0000
-Message-ID: <ffd2e7849b764043bef606d9b8019506@EXMBX066.cuchost.com>
-References: <20230224090010.nmy6latszfkdqcft@orel>
- <9cfd485d1e0d46cdb1323bb6ea330f6e@EXMBX066.cuchost.com>
- <20230224095526.ctctpzw3p3csf6qj@orel>
- <24a6dbe6aa2043c7812bf7e258786e13@EXMBX066.cuchost.com>
- <20230224120715.wgqnqmkadsbqusus@orel>
- <180fda36f9974809b436c52e4b3eda58@EXMBX066.cuchost.com>
- <20230227075942.rgl4hqnwttwvoroe@orel>
- <178ca008701147828d2e62402ff4f78a@EXMBX066.cuchost.com>
- <20230227114435.eow57ax5zhysz3kv@orel>
- <a6c319dd867f4f1d97e9d950b9e7c636@EXMBX066.cuchost.com>
- <20230228050457.zfbflfawctaccepv@orel>
-In-Reply-To: <20230228050457.zfbflfawctaccepv@orel>
-Accept-Language: en-US, zh-CN
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [202.188.176.82]
-x-yovoleruleagent: yovoleflag
+	id 1pWuA1-00CE2t-Tq; Tue, 28 Feb 2023 07:12:29 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1pWu9y-00CE1X-GQ
+	for linux-riscv@lists.infradead.org; Tue, 28 Feb 2023 07:12:27 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id f18so11894991lfa.3
+        for <linux-riscv@lists.infradead.org>; Mon, 27 Feb 2023 23:12:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112; t=1677568341;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=V2el8epI4ehY4PQhzCIaQmBUYq/tD84LZ7fZuHKl00o=;
+        b=OogPw/DeSprgfA45tucixhanu1pqk4JujFYhoxxBMC/vl2iAoBga9+G3Pu/pq9n6o7
+         ztmvezIRFcEG2RSBLU2vIZPHB2hPPQ2Nbire1D2KdUiTWfpCgNaYRmgozx1y0k38yIlQ
+         zgLemtdhlCTC4gUWaPT0xCpO6tAioJnDr+IBXdQSqY7OEPGUMPtFKGFXa9KkR6qzDSiy
+         Ap+QSgf452caujUPME3M3ACeUyaErwZ+1rZM3HthMeQ2wIEz19bgoH9Q8oSD3DECxZ9d
+         NHyJHnWkHHZLt7wFVEKrxbNubIe+Ki1v0v/frQRrLW5T3LZgOIuXtIN5QSCgpM6YvOwM
+         20Xg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1677568341;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=V2el8epI4ehY4PQhzCIaQmBUYq/tD84LZ7fZuHKl00o=;
+        b=3BngkURJH1HWMVrUAvmJRezuribPXzuOW0gv/b8EkDVEnzc+ceXf+E4fmSALm20BbF
+         2tCfxx6SDmiHgYg23W5L4oV8FWbjPzoYElMTPnrle30R1WfgnvFQXwkaVBIzl7KXojcI
+         58YK856QiJm4ss5XxSJyUZJSFeAnvlXy7BxreG4xRhmS1+36rc1yUFrCx9MR+gAJIEEz
+         KOhh8bmsDv/8aBFUOMbQhWElyDluc0GK1HYhhCa7qEuUpRKzoduNp5/eOlcFMlFYcVQ/
+         8E0yNoVZGJxFAPvT0LbEV5NjNkHJm+A99aDW2lqS+NXcEx7NM8POk4dJ4COsjNBFyPWD
+         8iNQ==
+X-Gm-Message-State: AO0yUKU5lJmKj55rsXkXDlZmcEg3ZbkVJIiK5Naz+IpCKFGlu/LMBA38
+	TWXWOsUxBgEAlv4mu4fPhbRojf2/UYLcc+FmwWM=
+X-Google-Smtp-Source: AK7set85nhQ9g8yz02zH57y/oTI0WP0o9k1NFfgZU2Uz9PbtXdmMvCjK/p4NyEDFKJMgEHfHvgJnVUYXT02rDuEFI5Q=
+X-Received: by 2002:ac2:4432:0:b0:4db:38ba:618d with SMTP id
+ w18-20020ac24432000000b004db38ba618dmr382693lfl.12.1677568340985; Mon, 27 Feb
+ 2023 23:12:20 -0800 (PST)
 MIME-Version: 1.0
+References: <20230227105941.2749193-1-suagrfillet@gmail.com>
+In-Reply-To: <20230227105941.2749193-1-suagrfillet@gmail.com>
+From: Alex Shi <seakeel@gmail.com>
+Date: Tue, 28 Feb 2023 15:11:44 +0800
+Message-ID: <CAJy-AmnZmeTEwG9xTevhCzB2t9y0nb2yYsyWPMLn8R1V4XonQw@mail.gmail.com>
+Subject: Re: [PATCH] sched/doc: supplement CPU capacity with RISC-V
+To: Song Shuai <suagrfillet@gmail.com>
+Cc: corbet@lwn.net, alexs@kernel.org, siyanteng@loongson.cn, robh@kernel.org, 
+	conor.dooley@microchip.com, palmer@rivosinc.com, leyfoon.tan@starfivetech.com, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230227_223427_321722_29001E2B 
-X-CRM114-Status: GOOD (  38.26  )
+X-CRM114-CacheID: sfid-20230227_231226_571170_258CAEDC 
+X-CRM114-Status: GOOD (  14.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,82 +83,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-> -----Original Message-----
-> From: Andrew Jones <ajones@ventanamicro.com>
-> Sent: Tuesday, 28 February, 2023 1:05 PM
-> To: JeeHeng Sia <jeeheng.sia@starfivetech.com>
-> Cc: paul.walmsley@sifive.com; palmer@dabbelt.com; aou@eecs.berkeley.edu; linux-riscv@lists.infradead.org; linux-
-> kernel@vger.kernel.org; Leyfoon Tan <leyfoon.tan@starfivetech.com>; Mason Huo <mason.huo@starfivetech.com>
-> Subject: Re: [PATCH v4 4/4] RISC-V: Add arch functions to support hibernation/suspend-to-disk
-> 
-> On Tue, Feb 28, 2023 at 01:32:53AM +0000, JeeHeng Sia wrote:
-> > > > > > 	load image;
-> > > > > > loop:	Create pbe chain, return error if failed;
-> > > > >
-> > > > > This loop pseudocode is incomplete. It's
-> > > > >
-> > > > > loop:
-> > > > >         if (swsusp_page_is_forbidden(page) && swsusp_page_is_free(page))
-> > > > > 	   return page_address(page);
-> > > > > 	Create pbe chain, return error if failed;
-> > > > > 	...
-> > > > >
-> > > > > which I pointed out explicitly in my last reply. Also, as I asked in my
-> > > > > last reply (and have been asking four times now, albeit less explicitly
-> > > > > the first two times), how do we know at least one PBE will be linked?
-> > > > 1 PBE correspond to 1 page, you shouldn't expect only 1 page is saved.
-> > >
-> > > I know PBEs correspond to pages. *Why* should I not expect only one page
-> > > is saved? Or, more importantly, why should I expect more than zero pages
-> > > are saved?
-> > >
-> > > Convincing answers might be because we *always* put the restore code in
-> > > pages which get added to the PBE list or that the original page tables
-> > > *always* get put in pages which get added to the PBE list. It's not very
-> > > convincing to simply *assume* that at least one random page will always
-> > > meet the PBE list criteria.
-> > >
-> > > > Hibernation core will do the calculation. If the PBEs (restore_pblist) linked successfully, the hibernated image will be restore else
-> > > normal boot will take place.
-> > > > > Or, even more specifically this time, where is the proof that for each
-> > > > > hibernation resume, there exists some page such that
-> > > > > !swsusp_page_is_forbidden(page) or !swsusp_page_is_free(page) is true?
-> > > > forbidden_pages and free_pages are not contributed to the restore_pblist (as you already aware from the code). Infact, the
-> > > forbidden_pages and free_pages are not save into the disk.
-> > >
-> > > Exactly, so those pages are *not* going to contribute to the greater than
-> > > zero pages. What I've been asking for, from the beginning, is to know
-> > > which page(s) are known to *always* contribute to the list. Or, IOW, how
-> > > do you know the PBE list isn't empty, a.k.a restore_pblist isn't NULL?
-> > Well, this is keep going around in a circle, thought the answer is in the hibernation code. restore_pblist get the pointer from the PBE,
-> and the PBE already checked for validity.
-> 
-> It keeps going around in circles because you keep avoiding my question by
-> pointing out trivial linked list code. I'm not worried about the linked
-> list code being correct. My concern is that you're using a linked list
-> with an assumption that it is not empty. My question has been all along,
-> how do you know it's not empty?
-> 
-> I'll change the way I ask this time. Please take a look at your PBE list
-> and let me know if there are PBEs on it that must be there on each
-> hibernation resume, e.g. the resume code page is there or whatever.
-Just to add on, it is not "my" PBE list but the list is from the hibernation core. As already draw out the scenarios for you, checking should be done at the initialization phase. 
-> 
-> > Can I suggest you to submit a patch to the hibernation core?
-> 
-> Why? What's wrong with it?
-> 
-> Thanks,
-> drew
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBGZWIgMjcsIDIwMjMgYXQgNjo1OSBQTSBTb25nIFNodWFpIDxzdWFncmZpbGxldEBn
+bWFpbC5jb20+IHdyb3RlOgo+Cj4gVGhpcyBjb21taXQgN2QyMDc4MzEwY2JmICgiZHQtYmluZGlu
+Z3M6IGFybTogbW92ZSBjcHUtY2FwYWNpdHkgdG8gYQo+IHNoYXJlZCBsb2F0aW9uIikgdXBkYXRl
+cyBzb21lIHJlZmVyZW5jZXMgYWJvdXQgY2FwYWNpdHktZG1pcHMtbWh6Cj4gcHJvcGVydHkgaW4g
+dGhpcyBkb2N1bWVudC4KPgo+IFRoZSBsaXN0IG9mIGFyY2hpdGVjdHVyZXMgdXNpbmcgY2FwYWNp
+dHktZG1pcHMtbWh6IG9taXRzIFJJU0MtViwgc28KPiBzdXBwbGVtZW50cyBpdCBoZXJlLgo+Cj4g
+U2lnbmVkLW9mZi1ieTogU29uZyBTaHVhaSA8c3VhZ3JmaWxsZXRAZ21haWwuY29tPgo+IC0tLQo+
+ICBEb2N1bWVudGF0aW9uL3NjaGVkdWxlci9zY2hlZC1jYXBhY2l0eS5yc3QgICAgICAgICAgICAg
+ICAgICAgIHwgMiArLQo+ICBEb2N1bWVudGF0aW9uL3RyYW5zbGF0aW9ucy96aF9DTi9zY2hlZHVs
+ZXIvc2NoZWQtY2FwYWNpdHkucnN0IHwgMiArLQo+ICAyIGZpbGVzIGNoYW5nZWQsIDIgaW5zZXJ0
+aW9ucygrKSwgMiBkZWxldGlvbnMoLSkKPgo+IGRpZmYgLS1naXQgYS9Eb2N1bWVudGF0aW9uL3Nj
+aGVkdWxlci9zY2hlZC1jYXBhY2l0eS5yc3QgYi9Eb2N1bWVudGF0aW9uL3NjaGVkdWxlci9zY2hl
+ZC1jYXBhY2l0eS5yc3QKPiBpbmRleCA4ZTJiODUzOGJjMmIuLmUyYzFjZjc0MzE1OCAxMDA2NDQK
+PiAtLS0gYS9Eb2N1bWVudGF0aW9uL3NjaGVkdWxlci9zY2hlZC1jYXBhY2l0eS5yc3QKPiArKysg
+Yi9Eb2N1bWVudGF0aW9uL3NjaGVkdWxlci9zY2hlZC1jYXBhY2l0eS5yc3QKPiBAQCAtMjU4LDcg
+KzI1OCw3IEBAIExpbnV4IGNhbm5vdCBjdXJyZW50bHkgZmlndXJlIG91dCBDUFUgY2FwYWNpdHkg
+b24gaXRzIG93biwgdGhpcyBpbmZvcm1hdGlvbiB0aHVzCj4gIG5lZWRzIHRvIGJlIGhhbmRlZCB0
+byBpdC4gQXJjaGl0ZWN0dXJlcyBtdXN0IGRlZmluZSBhcmNoX3NjYWxlX2NwdV9jYXBhY2l0eSgp
+Cj4gIGZvciB0aGF0IHB1cnBvc2UuCj4KPiAtVGhlIGFybSBhbmQgYXJtNjQgYXJjaGl0ZWN0dXJl
+cyBkaXJlY3RseSBtYXAgdGhpcyB0byB0aGUgYXJjaF90b3BvbG9neSBkcml2ZXIKPiArVGhlIGFy
+bSwgYXJtNjQsIGFuZCBSSVNDLVYgYXJjaGl0ZWN0dXJlcyBkaXJlY3RseSBtYXAgdGhpcyB0byB0
+aGUgYXJjaF90b3BvbG9neSBkcml2ZXIKPiAgQ1BVIHNjYWxpbmcgZGF0YSwgd2hpY2ggaXMgZGVy
+aXZlZCBmcm9tIHRoZSBjYXBhY2l0eS1kbWlwcy1taHogQ1BVIGJpbmRpbmc7IHNlZQo+ICBEb2N1
+bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvY3B1L2NwdS1jYXBhY2l0eS50eHQuCj4KPiBk
+aWZmIC0tZ2l0IGEvRG9jdW1lbnRhdGlvbi90cmFuc2xhdGlvbnMvemhfQ04vc2NoZWR1bGVyL3Nj
+aGVkLWNhcGFjaXR5LnJzdCBiL0RvY3VtZW50YXRpb24vdHJhbnNsYXRpb25zL3poX0NOL3NjaGVk
+dWxlci9zY2hlZC1jYXBhY2l0eS5yc3QKPiBpbmRleCBlMDdmZmRkMzkxZDMuLjhjYmExMzVkY2Qx
+YSAxMDA2NDQKPiAtLS0gYS9Eb2N1bWVudGF0aW9uL3RyYW5zbGF0aW9ucy96aF9DTi9zY2hlZHVs
+ZXIvc2NoZWQtY2FwYWNpdHkucnN0Cj4gKysrIGIvRG9jdW1lbnRhdGlvbi90cmFuc2xhdGlvbnMv
+emhfQ04vc2NoZWR1bGVyL3NjaGVkLWNhcGFjaXR5LnJzdAo+IEBAIC0yMzEsNyArMjMxLDcgQEAg
+Q0ZT6LCD5bqm57G75Z+65LqO5a6e5L2T6LSf6L296Lef6Liq5py65Yi277yIUGVyLUVudGl0eSBM
+b2FkIFRyYWNraW5nLCBQRUxU77yJCj4gIOW9k+WJje+8jExpbnV45peg5rOV5Yet6Ieq6Lqr566X
+5Ye6Q1BV566X5Yqb77yM5Zug5q2k5b+F6aG76KaB5pyJ5oqK6L+Z5Liq5L+h5oGv5Lyg6YCS57uZ
+TGludXjnmoTmlrnlvI/jgILmr4/kuKrmnrbmnoTlv4XpobvkuLrmraQKPiAg5a6a5LmJYXJjaF9z
+Y2FsZV9jcHVfY2FwYWNpdHkoKeWHveaVsOOAggo+Cj4gLWFybeWSjGFybTY05p625p6E55u05o6l
+5oqK6L+Z5Liq5L+h5oGv5pig5bCE5YiwYXJjaF90b3BvbG9neempseWKqOeahENQVSBzY2FsaW5n
+5pWw5o2u5Lit77yI6K+R5rOo77ya5Y+C6ICDCj4gK2FybeOAgWFybTY05ZKMUklTQy1W5p625p6E
+55u05o6l5oqK6L+Z5Liq5L+h5oGv5pig5bCE5YiwYXJjaF90b3BvbG9neempseWKqOeahENQVSBz
+Y2FsaW5n5pWw5o2u5Lit77yI6K+R5rOo77ya5Y+C6ICDCj4gIGFyY2hfdG9wb2xvZ3kuaOeahHBl
+cmNwdeWPmOmHj2NwdV9zY2FsZe+8ie+8jOWug+aYr+S7jmNhcGFjaXR5LWRtaXBzLW1oeiBDUFUg
+YmluZGluZ+S4reihjeeUn+iuoeeulwo+ICDlh7rmnaXnmoTjgILlj4Lop4FEb2N1bWVudGF0aW9u
+L2RldmljZXRyZWUvYmluZGluZ3MvY3B1L2NwdS1jYXBhY2l0eS50eHTjgIIKCkxHVE0sClJldmll
+d2VkLWJ5OiBBbGV4IFNoaSA8YWxleHNAa2VybmVsLm9yZz4KCj4KPiAtLQo+IDIuMjAuMQo+Cgpf
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
+diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
+dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
