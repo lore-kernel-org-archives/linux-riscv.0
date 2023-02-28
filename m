@@ -4,68 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C74DC64ED6
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Feb 2023 02:43:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E5AAC64ED6
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Feb 2023 02:58:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/H9X5NDoP/tfzrRtOn+/iC556fIFB/d2dg5ztgtlmU8=; b=jyC4iV/xvO7SVs
-	QAojxBOUznghDIXjTEq6KZMxntGgPH9ro9ly5bEHEMEfQRtmf5NZUNWX+m5CsLPVW0zhDv7DqshTT
-	SCzAhKL2JnRDIUgPbCuFQ6/qIeT/BXNPIVClZeyu2i8gM9f0xRdGookYLj/3kL95QOoNjvJGcJf9R
-	sq7CDgNERFdEUDsIvOguWjI7nP1F1g9c3bj+TAGm8fO9K434w0SUYSurVm4Ts0XbRA/Tx1lD69jdP
-	XfW2cd7RmNVvw0Y+G1D+OkZ5qLVyNC6Nx3h/CdyGigxXLw0VqVvvZPlb3gotVBazbftAyUI5UH3Q7
-	EDMwjQ9cxDTfMQR6se+A==;
+	List-Owner; bh=tQ7+ZxMBeixWp5Dv5Bf1SWZL6yXYrDzLBukXwkoGx/k=; b=41C7A2icaxg+fH
+	/4YddCivX+xtpjXxNcbLCBPWVSWp7vJOKlS++T82OF9TrKW8/fI80vcBTXVlJ8Put1lRjBywcI7GM
+	kr4al6h0fDj0FWE+1sazDmH6k1+iRdiY24u6tshuxemJ9VgBUYMJxz7NPoSzE6bVDk9fVNSokfrBG
+	uhqMWUqnhs3Y36wea5wkX5J9tcx6ZYJ3IJds90dhZvDqnSlVHm769SN3Lj0jbpLQmaxQSq9d9sDfA
+	5xIo+9mjolId5q8Dnuz4ziOT2EXWYqD490h46Xq0Lwt3Lc/PF6VjDFbZ8TFRYG3I7cllz35JIJ/Kj
+	/QeNCLUbRgT4NBlG6SSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWpxL-00Bq6m-Ps; Tue, 28 Feb 2023 02:43:07 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	id 1pWqCF-00BsA2-E0; Tue, 28 Feb 2023 02:58:31 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pWpxI-00Bq5U-8K
-	for linux-riscv@lists.infradead.org; Tue, 28 Feb 2023 02:43:06 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	id 1pWqCB-00Bs6Q-MH
+	for linux-riscv@lists.infradead.org; Tue, 28 Feb 2023 02:58:29 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 9C1FC24E398;
-	Tue, 28 Feb 2023 10:42:37 +0800 (CST)
-Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 28 Feb
- 2023 10:42:37 +0800
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 4BAA124E1A4;
+	Tue, 28 Feb 2023 10:58:03 +0800 (CST)
+Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 28 Feb
+ 2023 10:58:03 +0800
 Received: from [192.168.125.82] (113.72.145.171) by EXMBX172.cuchost.com
  (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 28 Feb
- 2023 10:42:36 +0800
-Message-ID: <8c30220a-abef-7518-cb44-abcea91408e2@starfivetech.com>
-Date: Tue, 28 Feb 2023 10:42:35 +0800
+ 2023 10:58:02 +0800
+Message-ID: <9a0f4aa1-be98-cac7-adc4-5af67792a2e2@starfivetech.com>
+Date: Tue, 28 Feb 2023 10:58:01 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
  Thunderbird/102.3.2
-Subject: Re: [PATCH v4 12/19] clk: starfive: Add StarFive JH7110 always-on
- clock driver
+Subject: Re: [PATCH v4 19/19] riscv: dts: starfive: Add StarFive JH7110
+ VisionFive 2 board device tree
 Content-Language: en-US
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-CC: <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
+To: Conor Dooley <conor@kernel.org>
+CC: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	<linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-riscv@lists.infradead.org>, Stephen Boyd <sboyd@kernel.org>, "Michael
  Turquette" <mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>,
 	Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor@kernel.org>, "Palmer
- Dabbelt" <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Ben Dooks <ben.dooks@sifive.com>, "Daniel
- Lezcano" <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Marc Zyngier <maz@kernel.org>, <linux-kernel@vger.kernel.org>
+	<krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	Ben Dooks <ben.dooks@sifive.com>, Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+	<linux-kernel@vger.kernel.org>
 References: <20230221024645.127922-1-hal.feng@starfivetech.com>
- <20230221024645.127922-13-hal.feng@starfivetech.com>
- <CAJM55Z8H4qmy_BiD0SHW-w5ifzhzokdO-QxpUUz9aeUd+htrZg@mail.gmail.com>
+ <20230221024645.127922-20-hal.feng@starfivetech.com>
+ <CAJM55Z_QMtzKeRFN1iGf498z4+vga6RBgwybCQi6aOUYCr_P-Q@mail.gmail.com>
+ <2af3f84b-2c2b-dc79-c76c-9411fcbcf7ca@starfivetech.com>
+ <Y/zykfydb+bJ7G2l@spud> <Y/0L4SKKtl49C95j@spud>
 From: Hal Feng <hal.feng@starfivetech.com>
-In-Reply-To: <CAJM55Z8H4qmy_BiD0SHW-w5ifzhzokdO-QxpUUz9aeUd+htrZg@mail.gmail.com>
+In-Reply-To: <Y/0L4SKKtl49C95j@spud>
 X-Originating-IP: [113.72.145.171]
 X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX172.cuchost.com
  (172.16.6.92)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230227_184304_598677_A2B6A32F 
-X-CRM114-Status: GOOD (  21.80  )
+X-CRM114-CacheID: sfid-20230227_185828_026090_8FECB794 
+X-CRM114-Status: GOOD (  25.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,136 +85,83 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 26 Feb 2023 18:34:52 +0100, Emil Renner Berthing wrote:
-> On Tue, 21 Feb 2023 at 03:47, Hal Feng <hal.feng@starfivetech.com> wrote:
->> From: Emil Renner Berthing <kernel@esmil.dk>
->>
->> Add driver for the StarFive JH7110 always-on clock controller
->> and register an auxiliary device for always-on reset controller
->> which is named as "reset-aon".
->>
->> Reported-by: kernel test robot <lkp@intel.com>
->> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
->> Co-developed-by: Hal Feng <hal.feng@starfivetech.com>
->> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
->> ---
->>  drivers/clk/starfive/Kconfig                  |  11 ++
->>  drivers/clk/starfive/Makefile                 |   1 +
->>  .../clk/starfive/clk-starfive-jh7110-aon.c    | 156 ++++++++++++++++++
->>  3 files changed, 168 insertions(+)
->>  create mode 100644 drivers/clk/starfive/clk-starfive-jh7110-aon.c
->>
->> diff --git a/drivers/clk/starfive/Kconfig b/drivers/clk/starfive/Kconfig
->> index 4640d0665d1c..2aa664f2cdee 100644
->> --- a/drivers/clk/starfive/Kconfig
->> +++ b/drivers/clk/starfive/Kconfig
->> @@ -31,3 +31,14 @@ config CLK_STARFIVE_JH7110_SYS
->>         help
->>           Say yes here to support the system clock controller on the
->>           StarFive JH7110 SoC.
->> +
->> +config CLK_STARFIVE_JH7110_AON
->> +       tristate "StarFive JH7110 always-on clock support"
->> +       depends on CLK_STARFIVE_JH7110_SYS
->> +       select AUXILIARY_BUS
->> +       select CLK_STARFIVE_JH71X0
->> +       select RESET_STARFIVE_JH7110
->> +       default CLK_STARFIVE_JH7110_SYS
-> 
-> As far as I can tell the JH7110 boots fine without this driver and it
-> already depends on the _SYS driver above, so please do
-> 
-> default m if SOC_STARFIVE
+On Mon, 27 Feb 2023 20:00:33 +0000, Conor Dooley wrote:
+> On Mon, Feb 27, 2023 at 06:12:40PM +0000, Conor Dooley wrote:
+>> On Thu, Feb 23, 2023 at 04:50:20PM +0800, Hal Feng wrote:
+>> > On Tue, 21 Feb 2023 16:03:08 +0100, Emil Renner Berthing wrote:
+>> > > On Tue, 21 Feb 2023 at 03:47, Hal Feng <hal.feng@starfivetech.com> wrote:
+>> > >> From: Emil Renner Berthing <kernel@esmil.dk>
+>> > >>
+>> > >> Add a minimal device tree for StarFive JH7110 VisionFive 2 board
+>> > >> which has version A and version B. Support booting and basic
+>> > >> clock/reset/pinctrl/uart drivers.
+>> > >>
+>> > >> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+>> > >> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+>> > >> Co-developed-by: Jianlong Huang <jianlong.huang@starfivetech.com>
+>> > >> Signed-off-by: Jianlong Huang <jianlong.huang@starfivetech.com>
+>> > >> Co-developed-by: Hal Feng <hal.feng@starfivetech.com>
+>> > >> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+>> > >> ---
+>> > >>  arch/riscv/boot/dts/starfive/Makefile         |   6 +-
+>> > >>  .../jh7110-starfive-visionfive-2-v1.2a.dts    |  13 ++
+>> > >>  .../jh7110-starfive-visionfive-2-v1.3b.dts    |  13 ++
+>> > >>  .../jh7110-starfive-visionfive-2.dtsi         | 215 ++++++++++++++++++
+>> > >>  4 files changed, 246 insertions(+), 1 deletion(-)
+>> > >>  create mode 100644 arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-v1.2a.dts
+>> > >>  create mode 100644 arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-v1.3b.dts
+>> > >>  create mode 100644 arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+>> > >>
+>> > >> diff --git a/arch/riscv/boot/dts/starfive/Makefile b/arch/riscv/boot/dts/starfive/Makefile
+>> > >> index 039c143cba33..cd73519b907b 100644
+>> > >> --- a/arch/riscv/boot/dts/starfive/Makefile
+>> > >> +++ b/arch/riscv/boot/dts/starfive/Makefile
+>> > >> @@ -1,2 +1,6 @@
+>> > >>  # SPDX-License-Identifier: GPL-2.0
+>> > >> -dtb-$(CONFIG_SOC_STARFIVE) += jh7100-beaglev-starlight.dtb jh7100-starfive-visionfive-v1.dtb
+>> > >> +dtb-$(CONFIG_SOC_STARFIVE) += jh7100-beaglev-starlight.dtb
+>> > >> +dtb-$(CONFIG_SOC_STARFIVE) += jh7100-starfive-visionfive-v1.dtb
+>> > >> +
+>> > >> +dtb-$(CONFIG_SOC_STARFIVE) += jh7110-starfive-visionfive-2-v1.2a.dtb
+>> > >> +dtb-$(CONFIG_SOC_STARFIVE) += jh7110-starfive-visionfive-2-v1.3b.dtb
+>> 
+>> If you could rebase on top of v6.3-rc1 for the next version & use ARCH_
+>> not SOC_ here that'd be great.
 
-OK. Will fix it.
+I will use the ARCH_ symbol instead and tell the other people from StarFive
+to do so.
 
+>> 
+>> > >> +/ {
+>> > >> +       aliases {
+>> > >> +               serial0 = &uart0;
+>> > >> +               i2c0 = &i2c0;
+>> > >> +               i2c2 = &i2c2;
+>> > >> +               i2c5 = &i2c5;
+>> > >> +               i2c6 = &i2c6;
+>> > > 
+>> > > Let's keep these sorted alphabetically.
+>> > 
+>> > OK, will fix it.
+>> > 
+>> 
+>> > > It would be great to have some sort of order to this file so it's
+>> > > obvious where to add new nodes. I suggest we do
+>> > > - root node
+>> > > - external clocks
+>> > > - other node references in alphabetical order
+>> > > 
+>> > > You're almost there with this patch except the uart0 node is out of place.
+>> > 
+>> > Will fix accordingly. Thanks for your suggestions.
+>> 
+>> With Emil's suggestions implemented:
+>> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 > 
-> And consider helping Conor by changing all the SOC_STARFIVE instances
-> to ARCH_STARFIVE for the next version.
+> Actually, there's one thing that I don't think was (explicitly?) mentioned,
+> could you sort the external clocks alphanumerically too?
 
-OK, I see. Will use the ARCH_ symbol instead.
-
-> 
->> +       help
->> +         Say yes here to support the always-on clock controller on the
->> +         StarFive JH7110 SoC.
->> diff --git a/drivers/clk/starfive/Makefile b/drivers/clk/starfive/Makefile
->> index 5ca4e887fb9c..f3df7d957b1e 100644
->> --- a/drivers/clk/starfive/Makefile
->> +++ b/drivers/clk/starfive/Makefile
->> @@ -5,3 +5,4 @@ obj-$(CONFIG_CLK_STARFIVE_JH7100)       += clk-starfive-jh7100.o
->>  obj-$(CONFIG_CLK_STARFIVE_JH7100_AUDIO)        += clk-starfive-jh7100-audio.o
->>
->>  obj-$(CONFIG_CLK_STARFIVE_JH7110_SYS)  += clk-starfive-jh7110-sys.o
->> +obj-$(CONFIG_CLK_STARFIVE_JH7110_AON)  += clk-starfive-jh7110-aon.o
->> diff --git a/drivers/clk/starfive/clk-starfive-jh7110-aon.c b/drivers/clk/starfive/clk-starfive-jh7110-aon.c
->> new file mode 100644
->> index 000000000000..da808dc93048
->> --- /dev/null
->> +++ b/drivers/clk/starfive/clk-starfive-jh7110-aon.c
->> @@ -0,0 +1,156 @@
->> +// SPDX-License-Identifier: GPL-2.0
->> +/*
->> + * StarFive JH7110 Always-On Clock Driver
->> + *
->> + * Copyright (C) 2022 Emil Renner Berthing <kernel@esmil.dk>
->> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
->> + */
->> +
->> +#include <linux/clk.h>
->> +#include <linux/clk-provider.h>
->> +#include <linux/io.h>
->> +#include <linux/platform_device.h>
->> +
->> +#include <dt-bindings/clock/starfive,jh7110-crg.h>
->> +
->> +#include "clk-starfive-jh71x0.h"
->> +
->> +/* external clocks */
->> +#define JH7110_AONCLK_OSC              (JH7110_AONCLK_END + 0)
->> +#define JH7110_AONCLK_RTC_OSC          (JH7110_AONCLK_END + 1)
->> +#define JH7110_AONCLK_GMAC0_RMII_REFIN (JH7110_AONCLK_END + 2)
->> +#define JH7110_AONCLK_GMAC0_RGMII_RXIN (JH7110_AONCLK_END + 3)
->> +#define JH7110_AONCLK_STG_AXIAHB       (JH7110_AONCLK_END + 4)
->> +#define JH7110_AONCLK_APB_BUS          (JH7110_AONCLK_END + 5)
->> +#define JH7110_AONCLK_GMAC0_GTXCLK     (JH7110_AONCLK_END + 6)
->> +
->> +static const struct jh71x0_clk_data jh7110_aonclk_data[] = {
->> +       /* source */
->> +       JH71X0__DIV(JH7110_AONCLK_OSC_DIV4, "osc_div4", 4, JH7110_AONCLK_OSC),
->> +       JH71X0__MUX(JH7110_AONCLK_APB_FUNC, "apb_func", 2,
->> +                   JH7110_AONCLK_OSC_DIV4,
->> +                   JH7110_AONCLK_OSC),
->> +       /* gmac0 */
->> +       JH71X0_GATE(JH7110_AONCLK_GMAC0_AHB, "gmac0_ahb", 0, JH7110_AONCLK_STG_AXIAHB),
->> +       JH71X0_GATE(JH7110_AONCLK_GMAC0_AXI, "gmac0_axi", 0, JH7110_AONCLK_STG_AXIAHB),
->> +       JH71X0__DIV(JH7110_AONCLK_GMAC0_RMII_RTX, "gmac0_rmii_rtx", 30,
->> +                   JH7110_AONCLK_GMAC0_RMII_REFIN),
->> +       JH71X0_GMUX(JH7110_AONCLK_GMAC0_TX, "gmac0_tx", 0, 2,
->> +                   JH7110_AONCLK_GMAC0_GTXCLK,
->> +                   JH7110_AONCLK_GMAC0_RMII_RTX),
->> +       JH71X0__INV(JH7110_AONCLK_GMAC0_TX_INV, "gmac0_tx_inv", JH7110_AONCLK_GMAC0_TX),
->> +       JH71X0__MUX(JH7110_AONCLK_GMAC0_RX, "gmac0_rx", 2,
->> +                   JH7110_AONCLK_GMAC0_RGMII_RXIN,
->> +                   JH7110_AONCLK_GMAC0_RMII_RTX),
->> +       JH71X0__INV(JH7110_AONCLK_GMAC0_RX_INV, "gmac0_rx_inv", JH7110_AONCLK_GMAC0_RX),
->> +       /* otpc */
->> +       JH71X0_GATE(JH7110_AONCLK_OTPC_APB, "otpc_apb", CLK_IGNORE_UNUSED, JH7110_AONCLK_APB_BUS),
->> +       /* rtc */
->> +       JH71X0_GATE(JH7110_AONCLK_RTC_APB, "rtc_apb", CLK_IGNORE_UNUSED, JH7110_AONCLK_APB_BUS),
->> +       JH71X0__DIV(JH7110_AONCLK_RTC_INTERNAL, "rtc_internal", 1022, JH7110_AONCLK_OSC),
->> +       JH71X0__MUX(JH7110_AONCLK_RTC_32K, "rtc_32k", 2,
->> +                   JH7110_AONCLK_RTC_OSC,
->> +                   JH7110_AONCLK_RTC_INTERNAL),
->> +       JH71X0_GATE(JH7110_AONCLK_RTC_CAL, "rtc_cal", 0, JH7110_AONCLK_OSC),
->> +};
-> 
-> This list also contains instances of the CLK_IGNORE_UNUSED flag. Again
-> please go through them and figure out which clocks are critical and
-> which are fine to turn off when not used.
-
-I had synchronized these clock flags with JH7110 SDK before and I will
-recheck these flags. Thanks.
+OK. I will sort them in the next version. Thanks.
 
 Best regards,
 Hal
