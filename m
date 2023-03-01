@@ -4,137 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D2DCC64ED6
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Mar 2023 08:16:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 828A4C64EC7
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Mar 2023 08:26:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:Subject:From:References:Cc:To:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lPmDMQmPcAvg0fyI0LBrc0V1r3hzectofYHnuGl6T1A=; b=ouX4cfumInxTVP
-	O5BEz7woEgB/ZxAykgqOA2ZVIsfbmxkn5ZxgWUiFcbfSinbO+QrGLCg52tlIXiH0x4YJXv6u1zSuJ
-	VqUfCkGNr0dpG5iaWzJSWim9qJC6DRPwxP+NbNK5PoDSSLGOV35nD7sgUkF6K0SuoPcdt6R44kPKP
-	YNNAkUMDyGGSibKyh/sOOQMDwSoPDTl/HdSsXVVVs+ylLhZXT3RvBBlS/w/+3met4TI8Dy2I3kNKw
-	z5Qt9hKNmpUFmqiiHWGuUZh8oQu4iLH82L2guMos2ZY1tp+6AfSst/zqpvgAeGvQBMMT3WKDTpmuo
-	rGDkpgkaDNPPX0cM9EPg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=cbWqfW+iKTypJbeYvisSrgugkDV9KV+8rUPSz4AFswI=; b=hpPywniqE0C/Vf
+	3oNpkev3/YA1DBZNeHP2A7GPNnl1EKIdHfX8sjRV23o0VkggZyPtPRQKoPSL0Vqw1RF84JLwjBXFc
+	SH5StsGKi63Ww7nEko0DCZJ34mQUR9CYPoG098LJmVZQSLehp/hS2ilm5puWc4TCpOawMvlOHYCrj
+	iy3u++EdXMLW7xdGP+v735pAnh93qCL8p3tb83YNoNgdsy379S4RVvvDXIQq5sSCpIA1XRcS3ENHm
+	p1WOZA413Z/PWm9ED6YgiL3fJ8uKCo2EtGNb9LyQrX9Voyg3drp38uamM0WAVlkbcaqaUhUknHzVG
+	KoKJfeOQBOHa5MgUyVHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pXHdJ-00FQfF-CU; Wed, 01 Mar 2023 08:16:17 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1pXHn5-00FRls-Qc; Wed, 01 Mar 2023 08:26:23 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pXHdE-00FQce-Na
-	for linux-riscv@lists.infradead.org; Wed, 01 Mar 2023 08:16:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1677658571;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=qQIo0hNE1IdmdTJeAfVSWSJHdp/A2L81MbqwgQGi7/s=;
-	b=Lgx4494Ki92A8P7KBec9GZ+oniD/so9S6s376pXCBfwIZbpFryYzm7VuUbDCudOmPpuazJ
-	BZlYjiR+awKb7+/obJJdaVaNJPlnbEr8EXFHhRoDxhAjgvdnre76/wb2aZFcUicW5ld7qE
-	AjRVQKfqtaApCJ9VvbYhapBkNy2Iiis=
-Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
- [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_128_GCM_SHA256) id
- us-mta-106-YNxlfAhCMi-_GwmZoudv1g-1; Wed, 01 Mar 2023 03:16:10 -0500
-X-MC-Unique: YNxlfAhCMi-_GwmZoudv1g-1
-Received: by mail-wm1-f72.google.com with SMTP id p22-20020a7bcc96000000b003e2036a1516so7996391wma.7
-        for <linux-riscv@lists.infradead.org>; Wed, 01 Mar 2023 00:16:10 -0800 (PST)
+	id 1pXHn1-00FRkp-W9
+	for linux-riscv@lists.infradead.org; Wed, 01 Mar 2023 08:26:21 +0000
+Received: by mail-wr1-x430.google.com with SMTP id v16so9519401wrn.0
+        for <linux-riscv@lists.infradead.org>; Wed, 01 Mar 2023 00:26:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112; t=1677659176;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=HfD4q2LgbRRlvJ4+bYxh6ZqsbcVB/WxMo7rj6NRQuk0=;
+        b=f7dPjsGeDMkdphwBk+4dWnmbmhEKV1N7dpGkBBAUcyhUY0gcTKFFBuC1ja3NxeDB+/
+         rPTxKIBV6WvchBkRLT/usr+RSymAsbd9LhEYMY3QXqDcozg6r/j6yNAXluT1sVZvsxuJ
+         YAcMT7CNVOmIH3vMKAkZoAQy6ng+6gk4BX0XWTACqeGneIfVMiFUC8d9yR+1N1vlJnbe
+         y45ne71uOYnjyQdPWgJnIZcWr9s1/SBmFsUFlg7vwFIE4s4mHDFPLsXbnP+3BO9hPq6T
+         dnn82De3HHv9pTb7KAQ+wcCOUerZ9baKElRNGegh7lftO2JosnaJqWHps9bfpDfIViUv
+         QTTQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:subject:organization:from
-         :content-language:references:cc:to:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20210112; t=1677659176;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=qQIo0hNE1IdmdTJeAfVSWSJHdp/A2L81MbqwgQGi7/s=;
-        b=GOMbYFtRs/kP6NeThW1PYXDVB+QSxGKvI7ZbinRRy2C3Q8XlHJF4wYb6w6HD70xUxz
-         a2A6BXMvOU0X1g1iy22AD++cz1FHu7augBLdDs/VLWueFo7VqnkCO/HHEc8lCU74Kddp
-         OKir9AT0iiwkLGu0HJusjD1penotWjmdUHzFisxtDqu1xdldaD8yi/XX/R6BX2HZQ39j
-         pPuwmZrOgx0EpTHvh9xKmJa467V5qvl2TRCxjU0Oqt6UCwh76ElwSU2hlXRJYxhJwuGA
-         wHwTojqd6vIH1RI5hjAWi7alUdUEEA6MPiwHmv+0r0ERjCuxJX+X1pvq5AMbJEZRFPn6
-         K4LA==
-X-Gm-Message-State: AO0yUKVPwJR71886n594US5hDiaaVarWy/v6DIp9wsWbYDaLJKFfjx9o
-	nliUp5upTVh1jGq+ecuzUZ5SfJWKiSL/rCvHGad3psgcmcNzGUv8U2dZAqlikPOyhB6QmF4rgJw
-	fo4qWTs5CDScPMO5m+IZQOs1TXgjg
-X-Received: by 2002:adf:fa42:0:b0:2c8:9cfe:9e29 with SMTP id y2-20020adffa42000000b002c89cfe9e29mr3673912wrr.38.1677658569263;
-        Wed, 01 Mar 2023 00:16:09 -0800 (PST)
-X-Google-Smtp-Source: AK7set/Zcp0KDYd3P+ttMa1nxfZFskB2aS7FMY5A6AFDn91vWMJGTRwO0n5U4FI/yi5+QKrlOm4zVQ==
-X-Received: by 2002:adf:fa42:0:b0:2c8:9cfe:9e29 with SMTP id y2-20020adffa42000000b002c89cfe9e29mr3673883wrr.38.1677658568881;
-        Wed, 01 Mar 2023 00:16:08 -0800 (PST)
-Received: from ?IPV6:2a09:80c0:192:0:5dac:bf3d:c41:c3e7? ([2a09:80c0:192:0:5dac:bf3d:c41:c3e7])
-        by smtp.gmail.com with ESMTPSA id m15-20020a5d6a0f000000b002c707785da4sm11739026wru.107.2023.03.01.00.16.06
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 01 Mar 2023 00:16:08 -0800 (PST)
-Message-ID: <550c6035-6dd0-d215-226b-1a82dafa05d6@redhat.com>
-Date: Wed, 1 Mar 2023 09:16:06 +0100
+        bh=HfD4q2LgbRRlvJ4+bYxh6ZqsbcVB/WxMo7rj6NRQuk0=;
+        b=z9o0c9U77rTyJnKkFIzY7k/Rn5tii9mQ+a2PS1HcJBoE3646DzL2dGs1NHIgoG9dkG
+         2meQFFxACXM5+L6JtBZO55dLdueMEKDygje8VJatgpOt+elLk9KA/8zoNG/FzUjqrx65
+         uNNfUAEETm6w0DTvwXl4glLdbrpe+7+gKY0/wYKSNUPYgjWNcOQirafltbvv9nZLcWuj
+         sGmmKRSiI7RITaFUhIrdmGxyNhziaVOvtNqBrV0uaY/8DiF0fFTDpONx4M5rpK85+kiC
+         nnfiyOysKPsnRvZlu/Ack06wC4Jz6dEtJx+1GexE8Mwnj+GP6hGpaNd4j/wMs7x/i0jO
+         xn8w==
+X-Gm-Message-State: AO0yUKVOEqN/+yUKpRpm4RrNfpcwdnim1klE6Jdfbh1VWZAHtche8YXn
+	8lT9KPOp/SmZsMF/QaRXQFEbPA==
+X-Google-Smtp-Source: AK7set860SjBlAUqr0i040uF9NlXD059b879x/lzjp+pMjSSaQDOynaWXtRRmOsueJGr/ZNni44PcA==
+X-Received: by 2002:a5d:424a:0:b0:2ca:d5dc:bba4 with SMTP id s10-20020a5d424a000000b002cad5dcbba4mr4492855wrr.59.1677659175817;
+        Wed, 01 Mar 2023 00:26:15 -0800 (PST)
+Received: from alex-rivos.home (lfbn-gre-1-235-32.w90-112.abo.wanadoo.fr. [90.112.194.32])
+        by smtp.gmail.com with ESMTPSA id w11-20020adff9cb000000b002c55de1c72bsm11859694wrr.62.2023.03.01.00.26.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 01 Mar 2023 00:26:15 -0800 (PST)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Rob Herring <robh+dt@kernel.org>,
+	Frank Rowand <frowand.list@gmail.com>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH v6 0/2] riscv: Use PUD/P4D/PGD pages for the linear mapping
+Date: Wed,  1 Mar 2023 09:25:50 +0100
+Message-Id: <20230301082552.274331-1-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.37.2
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.8.0
-To: Christophe Leroy <christophe.leroy@csgroup.eu>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>, "x86@kernel.org"
- <x86@kernel.org>, "H . Peter Anvin" <hpa@zytor.com>,
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
- "linux-mm@kvack.org" <linux-mm@kvack.org>,
- "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
- "linux-api@vger.kernel.org" <linux-api@vger.kernel.org>,
- Arnd Bergmann <arnd@arndb.de>, Andy Lutomirski <luto@kernel.org>,
- Balbir Singh <bsingharora@gmail.com>, Borislav Petkov <bp@alien8.de>,
- Cyrill Gorcunov <gorcunov@gmail.com>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- Eugene Syromiatnikov <esyr@redhat.com>, Florian Weimer <fweimer@redhat.com>,
- "H . J . Lu" <hjl.tools@gmail.com>, Jann Horn <jannh@google.com>,
- Jonathan Corbet <corbet@lwn.net>, Kees Cook <keescook@chromium.org>,
- Mike Kravetz <mike.kravetz@oracle.com>, Nadav Amit <nadav.amit@gmail.com>,
- Oleg Nesterov <oleg@redhat.com>, Pavel Machek <pavel@ucw.cz>,
- Peter Zijlstra <peterz@infradead.org>, Randy Dunlap <rdunlap@infradead.org>,
- Weijiang Yang <weijiang.yang@intel.com>,
- "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>,
- John Allen <john.allen@amd.com>, "kcc@google.com" <kcc@google.com>,
- "eranian@google.com" <eranian@google.com>, "rppt@kernel.org"
- <rppt@kernel.org>,
- "jamorris@linux.microsoft.com" <jamorris@linux.microsoft.com>,
- "dethoma@microsoft.com" <dethoma@microsoft.com>,
- "akpm@linux-foundation.org" <akpm@linux-foundation.org>,
- "Andrew.Cooper3@citrix.com" <Andrew.Cooper3@citrix.com>,
- "christina.schimpe@intel.com" <christina.schimpe@intel.com>,
- "debug@rivosinc.com" <debug@rivosinc.com>
-Cc: "linux-alpha@vger.kernel.org" <linux-alpha@vger.kernel.org>,
- "linux-snps-arc@lists.infradead.org" <linux-snps-arc@lists.infradead.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
- "linux-hexagon@vger.kernel.org" <linux-hexagon@vger.kernel.org>,
- "linux-ia64@vger.kernel.org" <linux-ia64@vger.kernel.org>,
- "loongarch@lists.linux.dev" <loongarch@lists.linux.dev>,
- "linux-m68k@lists.linux-m68k.org" <linux-m68k@lists.linux-m68k.org>,
- Michal Simek <monstr@monstr.eu>, Dinh Nguyen <dinguyen@kernel.org>,
- "linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
- "linux-openrisc@vger.kernel.org" <linux-openrisc@vger.kernel.org>,
- "linux-parisc@vger.kernel.org" <linux-parisc@vger.kernel.org>,
- "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>,
- "linux-sh@vger.kernel.org" <linux-sh@vger.kernel.org>,
- "sparclinux@vger.kernel.org" <sparclinux@vger.kernel.org>,
- "linux-um@lists.infradead.org" <linux-um@lists.infradead.org>,
- "xen-devel@lists.xenproject.org" <xen-devel@lists.xenproject.org>
-References: <20230227222957.24501-1-rick.p.edgecombe@intel.com>
- <20230227222957.24501-14-rick.p.edgecombe@intel.com>
- <1f8b78b6-9f34-b646-68f2-eac62136b9f4@csgroup.eu>
-From: David Hildenbrand <david@redhat.com>
-Organization: Red Hat
-Subject: Re: [PATCH v7 13/41] mm: Make pte_mkwrite() take a VMA
-In-Reply-To: <1f8b78b6-9f34-b646-68f2-eac62136b9f4@csgroup.eu>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230301_001612_860365_FD6372B7 
-X-CRM114-Status: GOOD (  20.18  )
+X-CRM114-CacheID: sfid-20230301_002620_296205_5021323A 
+X-CRM114-Status: GOOD (  10.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,44 +88,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMDEuMDMuMjMgMDg6MDMsIENocmlzdG9waGUgTGVyb3kgd3JvdGU6Cj4gCj4gCj4gTGUgMjcv
-MDIvMjAyMyDDoCAyMzoyOSwgUmljayBFZGdlY29tYmUgYSDDqWNyaXTCoDoKPj4gVGhlIHg4NiBD
-b250cm9sLWZsb3cgRW5mb3JjZW1lbnQgVGVjaG5vbG9neSAoQ0VUKSBmZWF0dXJlIGluY2x1ZGVz
-IGEgbmV3Cj4+IHR5cGUgb2YgbWVtb3J5IGNhbGxlZCBzaGFkb3cgc3RhY2suIFRoaXMgc2hhZG93
-IHN0YWNrIG1lbW9yeSBoYXMgc29tZQo+PiB1bnVzdWFsIHByb3BlcnRpZXMsIHdoaWNoIHJlcXVp
-cmVzIHNvbWUgY29yZSBtbSBjaGFuZ2VzIHRvIGZ1bmN0aW9uCj4+IHByb3Blcmx5Lgo+Pgo+PiBP
-bmUgb2YgdGhlc2UgdW51c3VhbCBwcm9wZXJ0aWVzIGlzIHRoYXQgc2hhZG93IHN0YWNrIG1lbW9y
-eSBpcyB3cml0YWJsZSwKPj4gYnV0IG9ubHkgaW4gbGltaXRlZCB3YXlzLiBUaGVzZSBsaW1pdHMg
-YXJlIGFwcGxpZWQgdmlhIGEgc3BlY2lmaWMgUFRFCj4+IGJpdCBjb21iaW5hdGlvbi4gTmV2ZXJ0
-aGVsZXNzLCB0aGUgbWVtb3J5IGlzIHdyaXRhYmxlLCBhbmQgY29yZSBtbSBjb2RlCj4+IHdpbGwg
-bmVlZCB0byBhcHBseSB0aGUgd3JpdGFibGUgcGVybWlzc2lvbnMgaW4gdGhlIHR5cGljYWwgcGF0
-aHMgdGhhdAo+PiBjYWxsIHB0ZV9ta3dyaXRlKCkuCj4+Cj4+IEluIGFkZGl0aW9uIHRvIFZNX1dS
-SVRFLCB0aGUgc2hhZG93IHN0YWNrIFZNQSdzIHdpbGwgaGF2ZSBhIGZsYWcgZGVub3RpbmcKPj4g
-dGhhdCB0aGV5IGFyZSBzcGVjaWFsIHNoYWRvdyBzdGFjayBmbGF2b3Igb2Ygd3JpdGFibGUgbWVt
-b3J5LiBTbyBtYWtlCj4+IHB0ZV9ta3dyaXRlKCkgdGFrZSBhIFZNQSwgc28gdGhhdCB0aGUgeDg2
-IGltcGxlbWVudGF0aW9uIG9mIGl0IGNhbiBrbm93IHRvCj4+IGNyZWF0ZSByZWd1bGFyIHdyaXRh
-YmxlIG1lbW9yeSBvciBzaGFkb3cgc3RhY2sgbWVtb3J5Lgo+Pgo+PiBBcHBseSB0aGUgc2FtZSBj
-aGFuZ2VzIGZvciBwbWRfbWt3cml0ZSgpIGFuZCBodWdlX3B0ZV9ta3dyaXRlKCkuCj4gCj4gSSdt
-IG5vdCBzdXJlIGl0IGlzIGEgZ29vZCBpZGVhIHRvIGFkZCBhIHNlY29uZCBhcmd1bWVudCB0bwo+
-IHB0ZV9ta3dyaXRlKCkuIEFsbCBwdGVfbWt4eHh4KCkgb25seSB0YWtlIGEgcHRlIGFuZCBub3Ro
-aW5nIGVsc2UuCgpXZSB0b3VjaGVkIG9uIHRoaXMgaW4gcHJldmlvdXMgcmV2aXNpb25zIGFuZCBz
-byBmYXIgdGhlcmUgd2FzIG5vIHN0cm9uZyAKcHVzaCBiYWNrLiBUaGlzIHR1cm5lZCBvdXQgdG8g
-YmUgY2xlYW5lciBhbmQgZWFzaWVyIHRoYW4gdGhlIAphbHRlcm5hdGl2ZXMgd2UgZXZhbHVhdGVk
-LgoKcHRlX21vZGlmeSgpLCBmb3IgZXhhbXBsZSwgdGFrZXMgYW5vdGhlciBhcmd1bWVudC4gU3Vy
-ZSwgd2UgY291bGQgdHJ5IAp0aGlua2luZyBhYm91dCBwYXNzaW5nIHNvbWV0aGluZyBlbHNlIHRo
-YW4gYSBWTUEgdG8gaWRlbnRpZnkgdGhlIAp3cml0YWJpbGl0eSB0eXBlLCBidXQgSSBhbSBub3Qg
-Y29udmluY2VkIHRoYXQgd2lsbCBsb29rIHBhcnRpY3VsYXJseSBiZXR0ZXIuCgo+IAo+IEkgdGhp
-bmsgeW91IHNob3VsZCBkbyB0aGUgc2FtZSBhcyBjb21taXQgZDllZDlmYWFjMjgzICgibW06IGFk
-ZCBuZXcKPiBhcmNoX21ha2VfaHVnZV9wdGUoKSBtZXRob2QgZm9yIHRpbGUgc3VwcG9ydCIpCj4g
-CgpXZSBhbHJlYWR5IGhhdmUgMyBhcmNoaXRlY3R1cmVzIGludGVuZGluZyB0byBzdXBwb3J0IHNo
-YWRvdyBzdGFja3MgaW4gCm9uZSB3YXkgb3IgdGhlIG90aGVyLiBSZXBsYWNpbmcgYWxsIHB0ZV9t
-a3dyaXRlKCkgd2l0aCAKYXJjaF9wdGVfbWt3cml0ZSgpIGRvZXNuJ3Qgc291bmQgcGFydGljdWxh
-cmx5IGFwcGVhbGluZyB0byBtZS4KCgotLSAKVGhhbmtzLAoKRGF2aWQgLyBkaGlsZGVuYgoKCl9f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2
-IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0
-cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+This patchset intends to improve tlb utilization by using hugepages for
+the linear mapping.
+
+base-commit-tag: v6.2-rc7
+
+v6:
+- quiet LLVM warning by casting phys_ram_base into an unsigned long
+
+v5:
+- Fix nommu builds by getting rid of riscv_pfn_base in patch 1, thanks
+  Conor
+- Add RB from Andrew
+
+v4:
+- Rebase on top of v6.2-rc3, as noted by Conor
+- Add Acked-by Rob
+
+v3:
+- Change the comment about initrd_start VA conversion so that it fits
+  ARM64 and RISCV64 (and others in the future if needed), as suggested
+  by Rob
+
+v2:
+- Add a comment on why RISCV64 does not need to set initrd_start/end that
+  early in the boot process, as asked by Rob
+
+Alexandre Ghiti (2):
+  riscv: Get rid of riscv_pfn_base variable
+  riscv: Use PUD/P4D/PGD pages for the linear mapping
+
+ arch/riscv/include/asm/page.h | 19 +++++++++++++++++--
+ arch/riscv/mm/init.c          | 28 ++++++++++++++++++----------
+ arch/riscv/mm/physaddr.c      | 16 ++++++++++++++++
+ drivers/of/fdt.c              | 11 ++++++-----
+ 4 files changed, 57 insertions(+), 17 deletions(-)
+
+--
+2.37.2
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
