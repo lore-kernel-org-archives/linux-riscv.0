@@ -4,33 +4,33 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2904CC6FA9D
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Mar 2023 18:53:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 434D1C7EE2D
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Mar 2023 18:54:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BjVxAWi43UkEKu4ePTlpLdGXMdan8mq7HPwKV5yGIdU=; b=E47YNu4dqV8JAT
-	5Ww2V9ytk2R88B+zSFCvw1rlu44AOHnc/ynHae1umG0rR7AyF7l+MdrDSZo8yr+H0fN+0A4rjbjry
-	+mEaIbftl7jhULFeWS6BgRVbbeKqQYau7ZcEt5G0AS/T+uUACrLNzSX8nEHALjdKNM363DRGNC+cB
-	UHWjhLLdGOdv5I1EfayovX2hxqvKCJgG052mox5rSWepYffS2gdVFowgHKyU1nuaFd2k+f29+RkAM
-	WF28fO713K9ybbEfeff4RkSLOjuvCK5orDofO4wrpRo5UUfxi5zBVgvE21QT3ZcD10BR1TyXG6p/S
-	S3kU92zhToDfeKseyPxw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=25s3uoYGHbCpzXyvW/DQJaL9WQvg1FYdM9M6RemHAqE=; b=sUW2cXR+oKKyrP
+	VdaD8SgtIa8AvywX5a95/XNNT6GHwKc9BBYaU1i4KgB9ltRF2GChRJBbwUgATLwyIddMASIHUWZB0
+	goIqSH3KxHA2cnBN03yxuiUIFBLCs/C3hSJkJOjlwUCyUkv0fcE9zcNYCnTubXFhC9xzd2hkoDAxN
+	eImqG6uOwmF+FexTT0KZoywv9S2IwLqWZriPgUrYFooAyryv+c7YiOUAahN/35xkn2kFh8QFoFGmv
+	EXTOfAo7jttYm2+y04PS8Vik6j7CfS1aaljOT87LIMDKaFUO/4bccYEv4v3GXXHDQItnu72ce23n4
+	Oq195fjCeqGeQ1NhE/1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pXRaA-00HCXM-JZ; Wed, 01 Mar 2023 18:53:42 +0000
+	id 1pXRaW-00HCke-95; Wed, 01 Mar 2023 18:54:04 +0000
 Received: from smtpout1.mo528.mail-out.ovh.net ([46.105.34.251])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pXRZe-00HCJb-6y; Wed, 01 Mar 2023 18:53:13 +0000
+	id 1pXRZk-00HCJU-BX; Wed, 01 Mar 2023 18:53:17 +0000
 Received: from pro2.mail.ovh.net (unknown [10.109.156.120])
-	by mo528.mail-out.ovh.net (Postfix) with ESMTPS id BF7E021936;
-	Wed,  1 Mar 2023 18:53:00 +0000 (UTC)
+	by mo528.mail-out.ovh.net (Postfix) with ESMTPS id 694A92195F;
+	Wed,  1 Mar 2023 18:52:58 +0000 (UTC)
 Received: from localhost.localdomain (88.161.25.233) by DAG1EX1.emp2.local
  (172.16.2.1) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21; Wed, 1 Mar
- 2023 19:52:59 +0100
+ 2023 19:52:57 +0100
 From: Jean-Jacques Hiblot <jjhiblot@traphandler.com>
 To: <saravanak@google.com>, <clement.leger@bootlin.com>, Geert Uytterhoeven
 	<geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, Russell King
@@ -53,25 +53,23 @@ CC: <linux-renesas-soc@vger.kernel.org>,
 	<linux-sunxi@lists.linux.dev>, <devicetree@vger.kernel.org>,
 	<linux-pci@vger.kernel.org>, <linux-usb@vger.kernel.org>,
 	<linux-tegra@vger.kernel.org>, Jean-Jacques Hiblot <jjhiblot@traphandler.com>
-Subject: [PATCH 3/3] of: irq: release the node after looking up for "interrupts-extended"
-Date: Wed, 1 Mar 2023 19:52:09 +0100
-Message-ID: <20230301185209.274134-4-jjhiblot@traphandler.com>
+Subject: [PATCH 0/3] of: irq: Fixes refcount issues with of_irq_parse_one()/of_irq_parse_raw()
+Date: Wed, 1 Mar 2023 19:52:06 +0100
+Message-ID: <20230301185209.274134-1-jjhiblot@traphandler.com>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20230301185209.274134-1-jjhiblot@traphandler.com>
-References: <20230301185209.274134-1-jjhiblot@traphandler.com>
 MIME-Version: 1.0
 X-Originating-IP: [88.161.25.233]
 X-ClientProxiedBy: DAG3EX2.emp2.local (172.16.2.22) To DAG1EX1.emp2.local
  (172.16.2.1)
-X-Ovh-Tracer-Id: 11460535155466975612
+X-Ovh-Tracer-Id: 11460535153186650492
 X-VR-SPAMSTATE: OK
 X-VR-SPAMSCORE: -100
-X-VR-SPAMCAUSE: gggruggvucftvghtrhhoucdtuddrgedvhedrudelhedguddutdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfqggfjpdevjffgvefmvefgnecuuegrihhlohhuthemucehtddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffojghfggfgtghisehtkeertdertddtnecuhfhrohhmpeflvggrnhdqlfgrtghquhgvshcujfhisghlohhtuceojhhjhhhisghlohhtsehtrhgrphhhrghnughlvghrrdgtohhmqeenucggtffrrghtthgvrhhnpeduteevleevvefggfdvueffffejhfehheeuiedtgedtjeeghfehueduudegfeefueenucfkphepuddvjedrtddrtddruddpkeekrdduiedurddvhedrvdeffeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeduvdejrddtrddtrddupdhmrghilhhfrhhomhepoehjjhhhihgslhhothesthhrrghphhgrnhgulhgvrhdrtghomheqpdhnsggprhgtphhtthhopedupdhrtghpthhtohepshgrrhgrvhgrnhgrkhesghhoohhglhgvrdgtohhmpdhnmhesthhirdgtohhmpdhsshgrnhhtohhshheskhgvrhhnvghlrdhorhhgpdhmrghthhhirghsrdhnhihmrghnsehinhhtvghlrdgtohhmpdhgrhgvghhkhheslhhinhhugihfohhunhgurghtihhonhdrohhrghdpthhhihgvrhhrhidrrhgvughinhhgsehgmhgrihhlrdgtohhmpdhjohhnrghthhgrnhhhsehnvhhiughirgdrtghomhdplhhinhhugi
- dqrhgvnhgvshgrshdqshhotgesvhhgvghrrdhkvghrnhgvlhdrohhrghdplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdplhhinhhugihpphgtqdguvghvsehlihhsthhsrdhoiihlrggsshdrohhrghdplhhinhhugidqfihirhgvlhgvshhssehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhlihhnuhigqdgrtghtihhonhhssehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhlihhnuhigqdhrihhstghvsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhlihhnuhigqdhsuhhngihisehlihhsthhsrdhlihhnuhigrdguvghvpdguvghvihgtvghtrhgvvgesvhhgvghrrdhkvghrnhgvlhdrohhrghdplhhinhhugidqphgtihesvhhgvghrrdhkvghrnhgvlhdrohhrghdplhhinhhugidquhhssgesvhhgvghrrdhkvghrnhgvlhdrohhrghdpsghhvghlghgrrghssehgohhoghhlvgdrtghomhdpfhhrohifrghnugdrlhhishhtsehgmhgrihhlrdgtohhmpdhrohgshhdoughtsehkvghrnhgvlhdrohhrghdpshgrmhhuvghlsehshhholhhlrghnugdrohhrghdptghlvghmvghnthdrlhgvghgvrhessghoohhtlhhinhdrtghomhdpghgvvghrthdorhgvnhgvshgrshesghhlihguvghrrdgsvgdpmhgrghhnuhhsrdgurghmmhesghhmrghilhdrtghomhdplhhinhhugiesrghrmhhlihhnuhigrdh
- orhhgrdhukhdpmhhpvgesvghllhgvrhhmrghnrdhiugdrrghupdhnphhighhgihhnsehgmhgrihhlrdgtohhmpdgthhhrihhsthhophhhvgdrlhgvrhhohiestghsghhrohhuphdrvghupdiirghjvggtheesghhmrghilhdrtghomhdplhhinhhugidqthgvghhrrgesvhhgvghrrdhkvghrnhgvlhdrohhrghdpuggrnhhivghlrdhlvgiitggrnhhosehlihhnrghrohdrohhrghdptghlrghuughiuhdrsggviihnvggrsehmihgtrhhotghhihhprdgtohhmpdhmrgiisehkvghrnhgvlhdrohhrghdprghfrggvrhgsvghrsehsuhhsvgdruggvpdhmrghniheskhgvrhhnvghlrdhorhhgpdhprghlmhgvrhesuggrsggsvghlthdrtghomhdpphgruhhlrdifrghlmhhslhgvhiesshhifhhivhgvrdgtohhmpdifvghnshestghsihgvrdhorhhgpdhjvghrnhgvjhdrshhkrhgrsggvtgesghhmrghilhdrtghomhdpthhglhigsehlihhnuhhtrhhonhhigidruggvpdfovfetjfhoshhtpehmohehvdekpdhmohguvgepshhmthhpohhuth
+X-VR-SPAMCAUSE: gggruggvucftvghtrhhoucdtuddrgedvhedrudelhedguddutdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfqggfjpdevjffgvefmvefgnecuuegrihhlohhuthemucehtddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffoggfgtghisehtkeertdertddtnecuhfhrohhmpeflvggrnhdqlfgrtghquhgvshcujfhisghlohhtuceojhhjhhhisghlohhtsehtrhgrphhhrghnughlvghrrdgtohhmqeenucggtffrrghtthgvrhhnpeejuefhkeelgffhlefhtefhgeektdevvdfgkeeltdehgeeujeeutdehkeeuhffftdenucfkphepuddvjedrtddrtddruddpkeekrdduiedurddvhedrvdeffeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeduvdejrddtrddtrddupdhmrghilhhfrhhomhepoehjjhhhihgslhhothesthhrrghphhgrnhgulhgvrhdrtghomheqpdhnsggprhgtphhtthhopedupdhrtghpthhtohepshgrrhgrvhgrnhgrkhesghhoohhglhgvrdgtohhmpdhnmhesthhirdgtohhmpdhsshgrnhhtohhshheskhgvrhhnvghlrdhorhhgpdhmrghthhhirghsrdhnhihmrghnsehinhhtvghlrdgtohhmpdhgrhgvghhkhheslhhinhhugihfohhunhgurghtihhonhdrohhrghdpthhhihgvrhhrhidrrhgvughinhhgsehgmhgrihhlrdgtohhmpdhjohhnrghthhgrnhhhsehnvhhiughirgdrtghomhdplhhinhhugidqrh
+ gvnhgvshgrshdqshhotgesvhhgvghrrdhkvghrnhgvlhdrohhrghdplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdplhhinhhugihpphgtqdguvghvsehlihhsthhsrdhoiihlrggsshdrohhrghdplhhinhhugidqfihirhgvlhgvshhssehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhlihhnuhigqdgrtghtihhonhhssehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhlihhnuhigqdhrihhstghvsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhlihhnuhigqdhsuhhngihisehlihhsthhsrdhlihhnuhigrdguvghvpdguvghvihgtvghtrhgvvgesvhhgvghrrdhkvghrnhgvlhdrohhrghdplhhinhhugidqphgtihesvhhgvghrrdhkvghrnhgvlhdrohhrghdplhhinhhugidquhhssgesvhhgvghrrdhkvghrnhgvlhdrohhrghdpsghhvghlghgrrghssehgohhoghhlvgdrtghomhdpfhhrohifrghnugdrlhhishhtsehgmhgrihhlrdgtohhmpdhrohgshhdoughtsehkvghrnhgvlhdrohhrghdpshgrmhhuvghlsehshhholhhlrghnugdrohhrghdptghlvghmvghnthdrlhgvghgvrhessghoohhtlhhinhdrtghomhdpghgvvghrthdorhgvnhgvshgrshesghhlihguvghrrdgsvgdpmhgrghhnuhhsrdgurghmmhesghhmrghilhdrtghomhdplhhinhhugiesrghrmhhlihhnuhigrdhorhh
+ grdhukhdpmhhpvgesvghllhgvrhhmrghnrdhiugdrrghupdhnphhighhgihhnsehgmhgrihhlrdgtohhmpdgthhhrihhsthhophhhvgdrlhgvrhhohiestghsghhrohhuphdrvghupdiirghjvggtheesghhmrghilhdrtghomhdplhhinhhugidqthgvghhrrgesvhhgvghrrdhkvghrnhgvlhdrohhrghdpuggrnhhivghlrdhlvgiitggrnhhosehlihhnrghrohdrohhrghdptghlrghuughiuhdrsggviihnvggrsehmihgtrhhotghhihhprdgtohhmpdhmrgiisehkvghrnhgvlhdrohhrghdprghfrggvrhgsvghrsehsuhhsvgdruggvpdhmrghniheskhgvrhhnvghlrdhorhhgpdhprghlmhgvrhesuggrsggsvghlthdrtghomhdpphgruhhlrdifrghlmhhslhgvhiesshhifhhivhgvrdgtohhmpdifvghnshestghsihgvrdhorhhgpdhjvghrnhgvjhdrshhkrhgrsggvtgesghhmrghilhdrtghomhdpthhglhigsehlihhnuhhtrhhonhhigidruggvpdfovfetjfhoshhtpehmohehvdekpdhmohguvgepshhmthhpohhuth
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230301_105310_585596_B09DCFBC 
-X-CRM114-Status: GOOD (  13.09  )
+X-CRM114-CacheID: sfid-20230301_105316_736538_BDDEF241 
+X-CRM114-Status: GOOD (  11.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,35 +86,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When of_parse_phandle_with_args() succeeds, a get() is performed on
-out_irq->np. And another get() is performed in of_irq_parse_raw(),
-resulting in the refcount being incremented twice.
-Fixing this by calling put() after of_irq_parse_raw().
+This series attempts to fix refcounting issues related to of_irq_parse_one()
+and of_irq_parse_raw().
 
-Signed-off-by: Jean-Jacques Hiblot <jjhiblot@traphandler.com>
----
- drivers/of/irq.c | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
+The first issue is simply that most callers of of_irq_parse_one() and
+of_irq_parse_raw() don't call of_node_put() on the returned device node when
+they no longer need it.
 
-diff --git a/drivers/of/irq.c b/drivers/of/irq.c
-index 95da943fcf075..244f240bc4ac4 100644
---- a/drivers/of/irq.c
-+++ b/drivers/of/irq.c
-@@ -349,8 +349,12 @@ int of_irq_parse_one(struct device_node *device, int index, struct of_phandle_ar
- 	/* Try the new-style interrupts-extended first */
- 	res = of_parse_phandle_with_args(device, "interrupts-extended",
- 					"#interrupt-cells", index, out_irq);
--	if (!res)
--		return of_irq_parse_raw(addr, out_irq);
-+	if (!res) {
-+		p = out_irq->np;
-+		res = of_irq_parse_raw(addr, out_irq);
-+		of_node_put(p);
-+		return res;
-+	}
- 
- 	/* Look for the interrupt parent. */
- 	p = of_irq_find_parent(device);
+The second issue is a double get() happening in of_irq_parse_one() when
+parsing the "interrupts-extended" properties.
+
+WARNING: I tried to be careful when modifying the callers of
+of_irq_parse_one()/of_irq_parse_raw() but haven't test-build all the changes.
+
+
+Jean-Jacques Hiblot (3):
+  of: irq: make callers of of_irq_parse_raw() release the device node
+  of: irq: make callers of of_irq_parse_one() release the device node
+  of: irq: release the node after looking up for "interrupts-extended"
+
+ .../mach-shmobile/regulator-quirk-rcar-gen2.c |  1 +
+ arch/powerpc/platforms/fsl_uli1575.c          |  1 +
+ arch/powerpc/sysdev/mpic_msi.c                |  1 +
+ drivers/bcma/main.c                           |  5 +++-
+ drivers/clocksource/timer-clint.c             |  1 +
+ drivers/irqchip/irq-mchp-eic.c                |  1 +
+ drivers/irqchip/irq-owl-sirq.c                |  1 +
+ drivers/irqchip/irq-renesas-rzg2l.c           |  1 +
+ drivers/irqchip/irq-sifive-plic.c             |  1 +
+ drivers/irqchip/irq-sun6i-r.c                 |  2 ++
+ drivers/of/irq.c                              | 30 ++++++++++++++-----
+ drivers/of/unittest.c                         |  7 +++++
+ drivers/pci/of.c                              |  6 +++-
+ drivers/soc/ti/knav_qmss_queue.c              |  3 ++
+ drivers/usb/host/xhci-tegra.c                 |  1 +
+ 15 files changed, 53 insertions(+), 9 deletions(-)
+
 -- 
 2.25.1
 
