@@ -4,67 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55BC9C64ED6
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Mar 2023 09:21:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50B46C64ED6
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Mar 2023 09:47:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aukXRpC3Zlwzc0B7Apy4FeQ6fekxYsESvoGkCed3xN0=; b=Ssz5p0HpM0yEqsXLv4930UlxFU
-	7vHRqm0gVnizdZnpy5+4silFMjQojqQffMrDn52ACmllFr2AXqDXEm4skIElrFlMaDZjhHkLNZY7O
-	og0WKDnZuVRbsKoGkuiK0iGU9H2qTk+3MaIUmLNyKvQzY70Ng7q8mq2ai/h9P9ETBvdi6KHL4J5fT
-	wdPwhMWcG0RtxQObfe+7Dl3YyD7eSz9QxEgSWQVBXffmxReQ0fy/U6yLmJ8ozEP6xHLlX+sB5rM9g
-	B6Yw4jVFSteZjDkjZZ52thn1EbFT9LQ6Ca7aqs3qJSUgc/5Xnkz8H6g9r/S6Iv4GRDqUI+26YvUbx
-	bddTGULw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=+hyE4D/Us0y1RE/5vd56K7p1O4zqYHeeFacDV+M95EQ=; b=vnO4XYAZwV9k0s
+	SUp+RmG2352SciT5LuDNNUDWJmrbUgzy7UE4+8vedDI+n01+gtqMWW236OvOLiKs87qfjDGA6jN1P
+	pXSzR2JVQyEvK8eATgP6e/GW//fjb3blGMefPuwFtNWmKUlk9z73iskWJozjyjUs9pAWFs42nfppJ
+	M3/VDjvMCSpfirwuVwm23yL41b3eV7E0f+7JiuspRfeA2IPiSuCnKc0sEX8bNl+sa8VRudUt0F6xG
+	onbGQfKYhsFyMuNfzWrFYDeMklOy/dI1rdlUKECEGJ98xUqwPlEIg2TOoGP95rY+ZQD56YxZQ1Wee
+	66fzH4pCH2spvUf6oynQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pXIe2-00FZSk-TW; Wed, 01 Mar 2023 09:21:06 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1pXJ2y-00FcWu-N9; Wed, 01 Mar 2023 09:46:52 +0000
+Received: from esa5.hgst.iphmx.com ([216.71.153.144])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pXIdz-00FZQR-3O
-	for linux-riscv@lists.infradead.org; Wed, 01 Mar 2023 09:21:04 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1pXIdp-0004k8-VR; Wed, 01 Mar 2023 10:20:54 +0100
-Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
-	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1pXIdn-0014Ab-4C; Wed, 01 Mar 2023 10:20:51 +0100
-Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1pXIdm-001Fi4-CX; Wed, 01 Mar 2023 10:20:50 +0100
-Date: Wed, 1 Mar 2023 10:20:50 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: Nylon Chen <nylon.chen@sifive.com>
-Cc: aou@eecs.berkeley.edu, conor@kernel.org,
-	emil.renner.berthing@canonical.com, geert+renesas@glider.be,
-	heiko@sntech.de, krzysztof.kozlowski+dt@linaro.org,
-	palmer@dabbelt.com, paul.walmsley@sifive.com, robh+dt@kernel.org,
-	thierry.reding@gmail.com, devicetree@vger.kernel.org,
-	linux-pwm@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, nylon7717@gmail.com,
-	zong.li@sifive.com, greentime.hu@sifive.com,
-	vincent.chen@sifive.com
-Subject: Re: [PATCH v2 2/2] pwm: sifive: change the PWM controlled LED
- algorithm
-Message-ID: <20230301092050.gwwbfsltyuow7pq6@pengutronix.de>
-References: <20230130093229.27489-1-nylon.chen@sifive.com>
- <20230130093229.27489-3-nylon.chen@sifive.com>
- <20230130101707.pdvabl3na2wpwxqu@pengutronix.de>
- <CAHh=Yk_hFOjwY1mbmYk8yqH_AKDs1_3J+5pYQStseNsZukPSoA@mail.gmail.com>
+	id 1pXJ2v-00FcVH-Bu
+	for linux-riscv@lists.infradead.org; Wed, 01 Mar 2023 09:46:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+  t=1677664009; x=1709200009;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-id:content-transfer-encoding:
+   mime-version;
+  bh=330Totb3cC2ik8PB1iVpepDCcMA5ykgR3JNLSAVZaE0=;
+  b=J99uFCx6OC0Ftj4/zPXvzBtsf0jTGxIK35ycjIxGOBKGQ0MiWfsgd0mc
+   4Dzv5WdRyVwuv/30mF/OB7B7+Ms5+qBCGs3bveawNcY4hEdO/tOIJsOX7
+   3r+PYUfStNDEQvDO0EaHIveVRS6Gpz4jIVF+gJmVVUTnRWSoDvLmnVjli
+   LhkCPl+0oUTc2pu90PMF6st5VH87HizKwrfcOHSwM//WDhWua1Lath8gv
+   Jx1Oy5xPCDVoz5o6+vvN0GuFeGiI9XTNLTYrJypM8L/Qg2lWz+icXhye2
+   JYKAp+ID3cPmtdDXmOAMDcA600IQW64sAWbaj5sHXhEedqramHQ180RXn
+   g==;
+X-IronPort-AV: E=Sophos;i="5.98,224,1673884800"; 
+   d="scan'208";a="224297252"
+Received: from mail-dm6nam11lp2176.outbound.protection.outlook.com (HELO NAM11-DM6-obe.outbound.protection.outlook.com) ([104.47.57.176])
+  by ob1.hgst.iphmx.com with ESMTP; 01 Mar 2023 17:46:44 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=Kriim7F2yyXRvMUZuLHhiiVUDpGyRXXCdXRtTFyaS+kecGQv9VfhKWYOp06ET/GVw/Ucy/RtP5vh3PL1NEcdDWjonLQ1xt6Szk8eArWfsGWtUqNPBav/XEM89jkQu78gL50kADvmJh9AoK8vRpudKOX1eBawV1dF2REt3JhTptetpfUrcvu4jU17L8YKrTvjW8DIde5j/Nz3lF35K04Z939Q9DxMjCwgsnGK3KR2VIqpygAOqWDCc3fRDD36DenydfM/GxbLSvIsZwdMItNAkM46KclxjSs2pfzyudsQhD/xpSG9LdBZEo/JhuZuzV8APlr2yz+59XBZiwCQLxOEIQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=iQ6R5cb1aILxvYeYw7jaYCWuu83fcDPRG41DpDlzGkQ=;
+ b=ZBc5JZ0yXx7YWPIfV8lwG/uA8I42rO/yEHHbt/bEelZTMKbUcYGXtSlrxkiknGbAk19ndIw39I2RuC02Bobs80bxVxFm+5Bl0n71nBQjq98Vq5jZDF2mM4YoM6naaT19hPbiUZFCGI8iHJO770Oi5pDRrgiT0egtDvhaWDlXwnjkY1AVJu9VrUpMGuDW6Hjo34z93JBjEfc3i0QH9NeRELvbU/jci7nXhta4id8+ueBrsQ+erVIXAB+NiptXpAynzg4uSCAhdOzQQn/mDJpEbgG3SpbiOih79JT3MjVvbqyAszr0cTq39TswpMiItFdqTUZ+zwsOPvPMAtn2ejAlSA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
+ header.d=wdc.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=iQ6R5cb1aILxvYeYw7jaYCWuu83fcDPRG41DpDlzGkQ=;
+ b=Cra2JHwNyHXTUAuPcULvsI2jKghqhfnlOmqYCJjerH1jRkfioc79Z1dskJqNggcIg8KBmon3NJFu5FJwFdd+op+2xcym/jDExNolLuEKnPUkMCwqSUGGbxwam+yPovB9drPXnn+BlhNznvO/Hen5kyyEYIgERHXQPNWVwtdqpgc=
+Received: from MN2PR04MB6272.namprd04.prod.outlook.com (2603:10b6:208:e0::27)
+ by SJ0PR04MB7389.namprd04.prod.outlook.com (2603:10b6:a03:29e::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6156.18; Wed, 1 Mar
+ 2023 09:46:41 +0000
+Received: from MN2PR04MB6272.namprd04.prod.outlook.com
+ ([fe80::4fcf:ae46:b9c4:127a]) by MN2PR04MB6272.namprd04.prod.outlook.com
+ ([fe80::4fcf:ae46:b9c4:127a%7]) with mapi id 15.20.6134.024; Wed, 1 Mar 2023
+ 09:46:41 +0000
+From: Niklas Cassel <Niklas.Cassel@wdc.com>
+To: Damien Le Moal <damien.lemoal@opensource.wdc.com>
+CC: Palmer Dabbelt <palmer@dabbelt.com>, "gerg@kernel.org" <gerg@kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"linux-mm@kvack.org" <linux-mm@kvack.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 0/2] riscv: support ELF format binaries in nommu mode
+Thread-Topic: [PATCH 0/2] riscv: support ELF format binaries in nommu mode
+Thread-Index: AQHZS8bkMV7zY86mpUOr+8CiHQEYNK7lreKA
+Date: Wed, 1 Mar 2023 09:46:40 +0000
+Message-ID: <Y/8e/7lfr0iWxnAd@x1-carbon>
+References: <mhng-20faeb04-8ed4-4759-8f13-aef3d2446d15@palmer-ri-x1c9a>
+ <3719a4f0-1a5a-4661-a6d7-5d4f67d7b7e8@opensource.wdc.com>
+In-Reply-To: <3719a4f0-1a5a-4661-a6d7-5d4f67d7b7e8@opensource.wdc.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=wdc.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: MN2PR04MB6272:EE_|SJ0PR04MB7389:EE_
+x-ms-office365-filtering-correlation-id: fb58231b-dd1b-475b-ed0c-08db1a39dbcb
+wdcipoutbound: EOP-TRUE
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info:  LtEhqLM1EOeFMD8bZQmqwjWD+raiG1oPQprg4R/McuGird+c9m9wa5ZdisjexUEqRQpXGim+2DPmqrLwL/sNNGQaW7i22DS8zdXSnfatKRoUdVcl6v8iy5qSXneUPHqTxqnjzoMOlIg0IIS0FKpcsHdmUv6AYMg7V+nUsUE5L1KETGwY9g+dClDUSpWjkWtbJYU9lynx0rRUC4CqTcPAklgCe+OGxc9Mj/HfOO2YNHd1smoJdpL8sG3y8mAqcfUW3Fe5DIyXyuAXpwZQzFcNDQJuNTMuB4hjauo49JHBnIXUQOhAf3nE85g1k8qGmSQEpMvtiRC81/W4Ock+pbpiGD+5VZx2YTytnXsYRX7QC7HyaB9dK7+skl/LdkLLlyaE3pm7idjV39pLbxNJ5/+z34N/7SeN3GeOPrKQ1LUO4NFquaRqH6snp8qzfzfLkvGKTlfrqZiNDfa3Nr1z+xd6DH17wBiAqzMTlh+uOorj+KWwjcSqWgFc6r7LQ0e4xwGm3+Q6Ig2ljDcRDoGFSKl3QQ4LoDDt78oj01us5EzRZSTwEdTjswgD2KoWCM8TZLiulqIIauz1zvIhWEqXDf0gZH+YZhZFBo2pS8XillWPRch97PvoinkZwTxZhSgLIySExLqBByQW0Ez76jXGKBRgfiFbMwC/jYwYF7uFtfFqxvGlWWi14+3v/ImdZZcR45Hw/u3lH3QDp6IL9EDYqvn3434/pOda4ZXMZNMhN2U8pg/Y1yyh/7DfS3mvL0NgW08T
+x-forefront-antispam-report:  CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR04MB6272.namprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230025)(4636009)(7916004)(346002)(396003)(376002)(39860400002)(136003)(366004)(451199018)(6506007)(33716001)(6512007)(71200400001)(6486002)(76116006)(66946007)(91956017)(82960400001)(122000001)(64756008)(66446008)(66556008)(66476007)(4326008)(8676002)(478600001)(54906003)(316002)(2906002)(86362001)(9686003)(5660300002)(4744005)(26005)(186003)(38100700002)(8936002)(6862004)(41300700001)(38070700005);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:  =?us-ascii?Q?HWYegVnMKQ3gIPNSogtPhYrzQrliMs8zoFVMz+BuTMBVqil2Wr7tDRc2vqCr?=
+ =?us-ascii?Q?y1iQ5n4oAqSHRCP654wEddNFvQwHCYy/o9kCy5o22YW6N+qhEzVcFRjNL8IU?=
+ =?us-ascii?Q?bL1CIe86t6NALNTDdG4bmQzw9/2lgdnqziUUTJrNTvG5jhyziSB1tze4RRDF?=
+ =?us-ascii?Q?gg5Domg+U6R3FUD1gh31w6WjnRzAMlh75IqQCBIifXOqsvAViqJRwrx47b2s?=
+ =?us-ascii?Q?7jenJcl+wxS8XHs3b6BDeAj5OfyYTzXafBMkDNgp2afFzLxgRUxOmcjitIl1?=
+ =?us-ascii?Q?7KZO3CfA39XB7Bsqw3Px96aUMPyvsMYVJ2oaM1ymJJF7WufDi5W/JOLq0cC1?=
+ =?us-ascii?Q?k+AWG2ZT07SDs0/RnaSS9RL1I64invbjyrCD1yuJfzPuZtLAVLe7EOu5eslz?=
+ =?us-ascii?Q?2KfWj+QY125apBBGIk2EDi/G8AT8Bb4LM6UkrlRGNPhlkhstmDgOCP+zDsyz?=
+ =?us-ascii?Q?RYtroiykVW6HDhQPhZIpoZDYXfqaS5fqpkFRt79YDbkw7w9lRqa0DlsBTyhx?=
+ =?us-ascii?Q?eIO9emxWUWhF8zffSHJfB9/97Fvpixo2OqmVDZQIm4iCaq8kMFhXhAVCwo5g?=
+ =?us-ascii?Q?SFOqINwB+hYhjTLN8BuO/l9wxLmM6VvKqpLx9fON/lHfui2XWq0K2SNlGo4E?=
+ =?us-ascii?Q?/3O9yLFvxc6wPkJlzbKYnXADNFTXx3afKiOMKde0g5K7CXMuPnjltW6EmZZ+?=
+ =?us-ascii?Q?xW1jI3WJ+Arq0qeJsjtMYoB4xKnRMPA0JZ1HhYRghq7xgFFFA9h5YvYR78Dj?=
+ =?us-ascii?Q?oMK9gxNvPWSWZm+TyqAYzK37RVQk7kOQtvh4UwD++dUFWL0XkGmc8P3slED0?=
+ =?us-ascii?Q?pkbOme9eCCPBhgc3eVZ1/q5vjUjmTWHM+bbTYATgsxTORgOS8yKJQAUNd0gc?=
+ =?us-ascii?Q?Q9wcfg/pcH4Vv/ZKdQLcdg7AWw6u8wl0EsBuW3OGUTzTc5Th3wzns41jwdIV?=
+ =?us-ascii?Q?LsynhCLv8M/2vLnCw6fl9KgaAaUaLahG3R82EmDIOTL8RvL/SuTa00fkDafn?=
+ =?us-ascii?Q?Znv+ff8IwBKndSdPLYjeD/f+nygv0HEDQj7DYxmc4aWFfoLYkZLX9YqcO21+?=
+ =?us-ascii?Q?VS2HocCvQ1FN+RQGwVfVgOLliWKpxa1xyHrElyPmnUJEh3as0xzqJUSkexR1?=
+ =?us-ascii?Q?H16GsYBZk8z4T1JRD6O6nIx56dosVwBbTmqjeHi+N1yAjeuSqECaJuKC9TQr?=
+ =?us-ascii?Q?lR2MGEtU2ysjoFjejqkB4TQNBD+f2eeecXN97M0a/xouGfFMdwGvfQvkClBe?=
+ =?us-ascii?Q?R7IFfRmVxbZTbnfsBs6gWLKrf5ExTKrVMGMLNIds44tFpziGb1pso/SxwXge?=
+ =?us-ascii?Q?KCOfyelky8SOoenI8wrqYscgJ0FE25QLdaOdc0jgHBAeVU90sYmFl2Z6fprO?=
+ =?us-ascii?Q?+OfzJWvzu0eKS5Eo1295/7Uoym72g/bcjWr1CBgNsoIBImV32eU4wfH8JuZ3?=
+ =?us-ascii?Q?CD9V4M1D7/nANvpe8EF4wnzSHszHAeu23Cz9imY6jfbg/gANFqSsvOTbwzyy?=
+ =?us-ascii?Q?wkj4z5xFDSMhZerxbPc4bErMWi807CJTdoA6naLGyYF10PeunGUdSKz5CEnu?=
+ =?us-ascii?Q?yFTDzXa/6Cp8SDCJNauKuZCxyLnOFSWJGtf3ZwwKMTPJ12VBPlsxDftEtdfG?=
+ =?us-ascii?Q?HQ=3D=3D?=
+Content-ID: <A9F4D4AD6A5B42408AAC09D7768D695F@namprd04.prod.outlook.com>
 MIME-Version: 1.0
-In-Reply-To: <CAHh=Yk_hFOjwY1mbmYk8yqH_AKDs1_3J+5pYQStseNsZukPSoA@mail.gmail.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: 	Ztnfk6/TL++vDNRVaI8jMqfmvM3Z0JBsGLjuRJfQtihE038VJNUIQvLmd2TZJQln/xdcpge2WeWYR2y3Cm55fCke+0vhSzpJCDAnDh2uHad5wO4qLOlAO3y/H8nBMHnYBLFP2I9o8lsp5p5ow6LNepZOZPxr7TP+YuV40TlbdspOrpyB75xmwyAg7x8iafH/J/QRncEck1NgEDxeiPS4w8innroSd5+8+KgfW1+j4Xqy4eE29g0BPh8ukBecsvdwswD2sEzFWErcy/pT93JzRIr5k0nKAYwc/A2YQHyURt0rUwq2ZcDDLUz2uEErhCNhq23kcnW/lBp12HMEtLVIhHL/cq5gqOiKHOG2ZC+4bBdO2jVjHCZgD2DF7IR8oBZukFB+RtZyf6PpJKKRNlzkUUKCQZvlGjYDzvsRgwHCM1g5H/gSraqB6s5cL6urzPsVmnCNXkzqMhMbs8c5serkdMiU8aFdTD9O314TxgjZuZbyslPGx9o5RsM3/COsWzqIghgo8E2OQP+53L/rQaWL1/J13xUaMhG16ezrRds1erv0I3rXGj4sD4wh4DGfrHXaYFQKEFgw/CtH7OrL1sP46+CrD5eyLG01xeM6eyfqMmBJA+d6Vib0KCLMfxTzx69RHZUpDakCYOlBkgymapKbr6asM6dYNzI8vhU9aaxi1RfWah5Ug+L81f84UWuop9XJntGLz8FVF2Mq6JVpA8UgdUKWZ+lYDKpFrgJra+erdr71I6A299yYTY5TQMPb5pqbsW9EF6gQ+RrDyS4FufE8gWTPz/wJOZbYoSeRkY5bJz3FwyLPmsFljH94sgZWKhAb5mMeyfxFi/K69puQZDWAgOn8p5kpBZ/cFHMFhDf+QIZywBxFjLnb4+/87v1oPPz7RVbh0WHA7jNGHMHoSwbz0era8OkmVGqmdFiJ0u6mXTo=
+X-OriginatorOrg: wdc.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: MN2PR04MB6272.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fb58231b-dd1b-475b-ed0c-08db1a39dbcb
+X-MS-Exchange-CrossTenant-originalarrivaltime: 01 Mar 2023 09:46:40.5465
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: Oif3iQvevN5mvgw0wbIPWP4tIXz6meMTs6o719mnr8+Zr2fiWziqpHTymfZqE9rQun8mv+Op7uPPsvfzPZYajw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR04MB7389
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230301_012103_207483_539CF51C 
-X-CRM114-Status: GOOD (  32.49  )
+X-CRM114-CacheID: sfid-20230301_014649_856518_5EF48B80 
+X-CRM114-Status: GOOD (  14.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,132 +154,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8047105807750383087=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, Mar 01, 2023 at 07:49:05AM +0900, Damien Le Moal wrote:
 
---===============8047105807750383087==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="uloatnw5mqumdhea"
-Content-Disposition: inline
+(snip)
 
+> > Adding Damien, as IIRC he's had some hacked up userspace bits for the 
+> > K210.  I'm yet to get anything running, but it'd be great if we get this 
+> > to a point where I can actually boot test this on QEMU (I'm just doing 
+> > builds now).
+> 
+> +Niklas
+> 
+> Niklas, didn't you add a nommu qemu build for buildroot ? Can't find the config
+> though...
 
---uloatnw5mqumdhea
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Yes, I did.
 
-Hello Nylon,
+In buildroot:
+$ make qemu_riscv64_nommu_virt_defconfig
 
-On Wed, Feb 01, 2023 at 04:56:42PM +0800, Nylon Chen wrote:
-> Uwe Kleine-K=C3=B6nig <u.kleine-koenig@pengutronix.de> =E6=96=BC 2023=E5=
-=B9=B41=E6=9C=8830=E6=97=A5 =E9=80=B1=E4=B8=80 =E4=B8=8B=E5=8D=886:17=E5=AF=
-=AB=E9=81=93=EF=BC=9A
-> > On Mon, Jan 30, 2023 at 05:32:29PM +0800, Nylon Chen wrote:
-> > > The `frac` variable represents the pulse inactive time, and the resul=
-t of
-> > > this algorithm is the pulse active time. Therefore, we must reverse t=
-he
-> > > result.
-> > >
-> > > The reference is SiFive FU740-C000 Manual[0].
-> > >
-> > > [0]: https://sifive.cdn.prismic.io/sifive/1a82e600-1f93-4f41-b2d8-86e=
-d8b16acba_fu740-c000-manual-v1p6.pdf
-> > >
-> > > Signed-off-by: Nylon Chen <nylon.chen@sifive.com>
-> > > ---
-> > >  drivers/pwm/pwm-sifive.c | 1 +
-> > >  1 file changed, 1 insertion(+)
-> > >
-> > > diff --git a/drivers/pwm/pwm-sifive.c b/drivers/pwm/pwm-sifive.c
-> > > index 62b6acc6373d..a5eda165d071 100644
-> > > --- a/drivers/pwm/pwm-sifive.c
-> > > +++ b/drivers/pwm/pwm-sifive.c
-> > > @@ -158,6 +158,7 @@ static int pwm_sifive_apply(struct pwm_chip *chip=
-, struct pwm_device *pwm,
-> > >       frac =3D DIV64_U64_ROUND_CLOSEST(num, state->period);
-> > >       /* The hardware cannot generate a 100% duty cycle */
-> > >       frac =3D min(frac, (1U << PWM_SIFIVE_CMPWIDTH) - 1);
-> > > +     frac =3D (1U << PWM_SIFIVE_CMPWIDTH) - 1 - frac;
-> >
-> > The same problem exists in pwm_sifive_get_state(), doesn't it?
-> >
-> > As fixing this is an interruptive change anyhow, this is the opportunity
-> > to align the driver to the rules tested by PWM_DEBUG.
-> >
-> > The problems I see in the driver (only checked quickly, so I might be
-> > wrong):
-> >
-> >  - state->period !=3D ddata->approx_period isn't necessarily a problem.=
- If
-> >    state->period > ddata->real_period that's fine and the driver should
-> >    continue
-> >
-> >  - frac =3D DIV64_U64_ROUND_CLOSEST(num, state->period);
-> >    is wrong for two reasons:
-> >    it should round down and use the real period.
-> >
-> I need a little time to clarify your assumptions. If possible, I will
-> make similar changes.
->=20
-> e.g.
-> rounddown(num, state->period);
-> if (state->period < ddata->approx_period)
->     ...
+The QEMU command line generated by buildroot:
+qemu-system-riscv64 -M virt -bios none -kernel output/images/Image -append "rootwait root=/dev/vda ro" -drive file=output/images/rootfs.ext2,format=raw,id=hd0 -device virtio-blk-device,drive=hd0 -nographic -cpu rv64,mmu=off # qemu_riscv64_nommu_virt_defconfig
 
-the idea is that for a given request apply should do the following to
-select the hardware setting:
-
- - Check polarity, if the hardware doesn't support it, return -EINVAL.
-   (A period always starts with the active phase for the duration of
-   duty_cycle. For normal polarity active =3D high.)
- - Pick the biggest period length possible that is not bigger than the
-   requested period.
- - For the picked period, select the biggest duty_cycle possible that is
-   not bigger than the requested duty_cycle.
-
-Then if possible switch to the selected setting in an atomic step.
-
-Does this clearify your doubts?
-
-Best regards
-Uwe
-
---=20
-Pengutronix e.K.                           | Uwe Kleine-K=C3=B6nig         =
-   |
-Industrial Linux Solutions                 | https://www.pengutronix.de/ |
-
---uloatnw5mqumdhea
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEfnIqFpAYrP8+dKQLwfwUeK3K7AkFAmP/GO8ACgkQwfwUeK3K
-7AmiBQf/QkDz4UZYVBJc3n2y9z64RYU6Ri68Em2lO8oxTfUYy7I/4IePztOJf0un
-riimd6Yxxwu7+b+wmtMyaMmHyzIZP+ecScJejXrSedMLGdC+SIvdGtNVEVUa/Lue
-41IHyN6Bv0SgKb7CSNGzo8luaU1n3R2v9pujlMCPW7kaS03SOfEf3TN5ior4DEdt
-9fl5PaVY1OY0M3Y+wkK3QLaD8u4GUkppSknT6tuQ0OP8r8rZil0p173UYRgpQ1rh
-EJt0oVvaSIDRC9oSL4qFqIf8k5sIjvP8rc0c6bfunPNW6saV2DK05Dg7F3A9/NrO
-uyu2CPKCuZ0h82DWo5SHFN3TKgF0QA==
-=5dcD
------END PGP SIGNATURE-----
-
---uloatnw5mqumdhea--
+Compared to a regular riscv64 QEMU command line, the relevant parameter is:
+-cpu rv64,mmu=off
 
 
---===============8047105807750383087==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
+Kind regards,
+Niklas
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8047105807750383087==--
-
