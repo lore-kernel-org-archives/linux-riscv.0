@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 858D5C7EE30
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Mar 2023 00:27:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02C93C64EC7
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Mar 2023 00:27:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6Lbo3pjc0IKREQUhCu2kkzBjlYWAuJd1REg6mkPOdCY=; b=2aQ1TPbgDhpueQ
-	e89mosHfMPKQp9IRdFgK9EgXdyQFy9vmgQxoNK7AT5d8Fj/Ib5gxQGfgzDCOMx0lJs9y6HttcXPHH
-	DbS3y6gpPU7uIuc6Gxo4x4vlxLW+yNkMGezT/rr3TpdGl91PUgA7FmtPmxxPtaunoRCVNJRJn/XQZ
-	C4T6F5grdlE9pOnrtZAzXFjst/hawyjWm7CaZIZbnflis6aupFBom/cs67D9Xt+BSfjoNlPx1ADUG
-	F1xyOwAZ7ZXk3RM6wQ1hWRubjLXbQnWvN0amLHS4xRymjmA99f97lTktgZUgwYMD7kb9FX9A7XQmL
-	46J2dMSxn/sNLPMFs7WA==;
+	List-Owner; bh=NHFV+1ypgy4EtHWRvdGVZPF5T+6lkM5qwhKyju8/b4Y=; b=gSkBraDj06Usmn
+	iUiybp6o6CLGJL2czPi/lYkYOyRjk2jbx9dHs4xy3f+iygtp8jfB/DpNzgqKvHiDjM6+hqCxvjKQC
+	Kk1rEVsJSfksHndP8+J7eHDKkM6YShufMls7u7k0HzLrIJ1JjNAMGzzvZlgZN6lERgR6vq+bAiP3/
+	Kl0AJM694VEGIek3LDrBw/2VNHAB2puHZO5pEjrgA5ni/lpdFb3jRNg6cQbsZvVolKZxFFIJynGgH
+	BkKUZU9o2lwFx5E+9Wm17neWH7RM3vF5M3me6E6VfqcYwfVsVwGMUyC8qlDzzlzP3lx9ZPblzSTcr
+	xmbfITUEgoE8u2ExMITw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pXAJG-00EeCh-A1; Wed, 01 Mar 2023 00:27:06 +0000
-Received: from mail-qt1-x82b.google.com ([2607:f8b0:4864:20::82b])
+	id 1pXAJJ-00EeDl-GD; Wed, 01 Mar 2023 00:27:09 +0000
+Received: from mail-qt1-x836.google.com ([2607:f8b0:4864:20::836])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1pXAJC-00EeAT-Eh
-	for linux-riscv@lists.infradead.org; Wed, 01 Mar 2023 00:27:03 +0000
-Received: by mail-qt1-x82b.google.com with SMTP id r5so12629579qtp.4
-        for <linux-riscv@lists.infradead.org>; Tue, 28 Feb 2023 16:27:01 -0800 (PST)
+	id 1pXAJE-00EeBJ-Jb
+	for linux-riscv@lists.infradead.org; Wed, 01 Mar 2023 00:27:05 +0000
+Received: by mail-qt1-x836.google.com with SMTP id z6so12723865qtv.0
+        for <linux-riscv@lists.infradead.org>; Tue, 28 Feb 2023 16:27:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112; t=1677630420;
+        d=gmail.com; s=20210112; t=1677630422;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=EJeL8n1akQBNQY4mRwitUTFXHR0Ml81lQFAgFs/9ooY=;
-        b=K7bv3zo7nkCzf6deBRp4Lg5YJiKpmZGrVVrcwX6fMe04PLGbmPyiZ1MfpMFJQ3gczk
-         PTyFy7vyLgLlx4rQsvY5iWzcRX3PiEerotSwO1e2S/uUms8G6rSLjchIcjEksVUEjiAm
-         lqxx6nLANTkqsDfT2GGi0AknUbNFldAXU+7lx+ghL7WHK+3w+CaZW0Jan14INQZhOML9
-         ojesxHzEYYczhj2+mxUoQOQVI0RHUXdx3ff+mDU8+OOYUEjKABkvjPah1T9R0sgtLfL1
-         JRbjxDw92oE/6vsQ929iWXZ7ucRImszCuaADlO3+M6lK9IL4xYmXkipZHIL1URAUffnO
-         DiVw==
+        bh=ah2e83PDoe/U6Gf57zepbByTh0n9RNpGO3gN23MY0Ho=;
+        b=Cjy/nNRu165SghzyRoqBtp+mon81oWgIkg4ZrARfae2E9Rsz8v/brGam+WmHVCrGm2
+         EJUFWKIkQnPjCIaJhSD3M9cWgX4rHCi9bdnX22p2poLAQyjNF6ayxZHO2a6bWB+6/uL9
+         vFcUd1bOjeoR07sXMzjbVsONZDxMQSC6t8rI7qaKrXNulpyuyU0TWec4hlrhRB7TF12X
+         NA/FZ+SvEA4uc1PklvT1POYrJ7bHPsBVAbfMsX2JkVP1tX8YwzePyfLbkuPpcZCb02f2
+         DvBphTVSgrLmolfoO4XAwdZ2o1VW68ULKkmOaSTw2Eyu8Qr5h5v8m4Qeus2AE10sERpl
+         m3vQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1677630420;
+        d=1e100.net; s=20210112; t=1677630422;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=EJeL8n1akQBNQY4mRwitUTFXHR0Ml81lQFAgFs/9ooY=;
-        b=VjoDxZaepYlnFttFwjjQZlWDU1q6ZwROIyucz1pU9khN7oFOuvVV36brfdht8WfvDk
-         d9moCmMlGGXr6Rv8eMdp20pjixLNEB1Goey7+M7fSxTGngwV3E2OKyddrkJLK8SIqrNW
-         d5oXGOVzyjsoF0kSe0yd20tv9Nqr6Vjoqn7z/UGTKsTxlB0hweDvkQrCTsOv149GVt9+
-         RYLzspWRIhXC6NgyODDRUp4Oq84TnPcBx+N/ZRxn3hW3t9qMc2/0I7pmftz9TkGiUlxK
-         2O4wDWCaHPzpR6x76NgF0lJmMo07eOow9a58d/LmHuo3l+xJmEbIEqCuD7ryVR1cXJUf
-         BO1w==
-X-Gm-Message-State: AO0yUKVAui7hW+IE9Mr4pQRqP/qb28Ya5ustAcTFAqe8U5s6JPHD8w3X
-	fmB+gz/7L1ieuUcrIo7mvAurZr5cfOs=
-X-Google-Smtp-Source: AK7set8zokOxucIULtSs5zhdVozPV61o7zflDRvd+aPvYt9Y7AQE+0kZsw5WSyFy3Fvn+3de2l1rkQ==
-X-Received: by 2002:a05:622a:1746:b0:3bf:dbd3:a014 with SMTP id l6-20020a05622a174600b003bfdbd3a014mr8768717qtk.45.1677630420219;
-        Tue, 28 Feb 2023 16:27:00 -0800 (PST)
+        bh=ah2e83PDoe/U6Gf57zepbByTh0n9RNpGO3gN23MY0Ho=;
+        b=v2fYZ7RiWkMaRUGdtiolxOyf3YsblmjOyXRtQGb/G+dkR0FdAEHyh668mxUK6iAJ50
+         MGsAKBJ8N4kcm996GhBfAVTvrjAAK6X2RIl28O2F7y2xk1V9wYWHk7S3/xXwGx6YNH9Y
+         0QfBi3iK8i/KegSO4S5SCmr7sSXu0VePg7aQjjKAq6NqaZq7Wrosb3e86Fe+MdXjCRj2
+         xjFrCAO3EfNiXdBOVu6XL49y+54iVe8DcRUR8SpT5XlBekyVQ88RrmHH3llZFhUjwb5Q
+         8SQwHSNjgw2qfCMqkER5JCjMjBmGrn6IZFynDdZ0GHPr5fnSXZC5OEF3/Jx/07FrJ2QZ
+         /v6w==
+X-Gm-Message-State: AO0yUKVAw0QJ9ZmWqhT6/mYf3W7Wi1Wz75uSC7CCMZrQTFumIDghZdNi
+	MMm9w026PZvscKjrv6tlgT/840ZvEz4=
+X-Google-Smtp-Source: AK7set9iiLqJtrwPOOeLikPIZrT4VRpY2Bg6vQXeyHliiddZ31/ha/5MTwNUlgvr+61QjoyKXtwnIw==
+X-Received: by 2002:a05:622a:2c9:b0:3bd:155c:3ac8 with SMTP id a9-20020a05622a02c900b003bd155c3ac8mr8147019qtx.67.1677630422226;
+        Tue, 28 Feb 2023 16:27:02 -0800 (PST)
 Received: from jesse-desktop.jtp-bos.lab (pool-108-26-182-112.bstnma.fios.verizon.net. [108.26.182.112])
-        by smtp.gmail.com with ESMTPSA id t8-20020ac85888000000b003bb8c60cdf1sm7576698qta.78.2023.02.28.16.26.59
+        by smtp.gmail.com with ESMTPSA id t8-20020ac85888000000b003bb8c60cdf1sm7576698qta.78.2023.02.28.16.27.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Feb 2023 16:26:59 -0800 (PST)
+        Tue, 28 Feb 2023 16:27:01 -0800 (PST)
 From: Jesse Taube <mr.bossman075@gmail.com>
 X-Google-Original-From: Jesse Taube <Mr.Bossman075@gmail.com>
 To: linux-riscv@lists.infradead.org
@@ -74,18 +74,17 @@ Cc: linux-clk@vger.kernel.org,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	kernel test robot <lkp@intel.com>
-Subject: [PATCH v3 1/3] clk: k210: remove an implicit 64-bit division
-Date: Tue, 28 Feb 2023 19:26:55 -0500
-Message-Id: <20230301002657.352637-2-Mr.Bossman075@gmail.com>
+	Conor Dooley <conor@kernel.org>
+Subject: [PATCH v3 3/3] riscv: configs: Add nommu PHONY defconfig for RV32
+Date: Tue, 28 Feb 2023 19:26:57 -0500
+Message-Id: <20230301002657.352637-4-Mr.Bossman075@gmail.com>
 X-Mailer: git-send-email 2.39.0
 In-Reply-To: <20230301002657.352637-1-Mr.Bossman075@gmail.com>
 References: <20230301002657.352637-1-Mr.Bossman075@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230228_162702_513381_B00B21F0 
-X-CRM114-Status: GOOD (  13.62  )
+X-CRM114-CacheID: sfid-20230228_162704_661599_B6F9CAF0 
+X-CRM114-Status: GOOD (  10.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,41 +101,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+32bit risc-v can be configured to run without MMU. Introduce
+rv32_nommu_virt_defconfig .PHONY target, that is based on
+nommu_virt_defconfig. This is similar to how rv32_defconfig
+is based on "defconfig".
 
-The K210 clock driver depends on SOC_CANAAN, which is only selectable
-when !MMU on RISC-V. !MMU is not possible on 32-bit yet, but patches
-have been sent for its enabling. The kernel test robot reported this
-implicit 64-bit division there.
-
-Replace the implicit division with an explicit one.
-
-Reported-by: kernel test robot <lkp@intel.com>
-Link: https://lore.kernel.org/linux-riscv/202301201538.zNlqgE4L-lkp@intel.com/
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+Suggested-by: Conor Dooley <conor@kernel.org>
 Signed-off-by: Jesse Taube <Mr.Bossman075@gmail.com>
+Cc: Yimin Gu <ustcymgu@gmail.com>
 ---
 V1->V2:
- - new commit
+ - Fix typo in commit title
 V2->V3:
- - No change
+ - Change from defconfig file to a PHONY config
 ---
- drivers/clk/clk-k210.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/riscv/Makefile | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/drivers/clk/clk-k210.c b/drivers/clk/clk-k210.c
-index 67a7cb3503c3..4eed667eddaf 100644
---- a/drivers/clk/clk-k210.c
-+++ b/drivers/clk/clk-k210.c
-@@ -495,7 +495,7 @@ static unsigned long k210_pll_get_rate(struct clk_hw *hw,
- 	f = FIELD_GET(K210_PLL_CLKF, reg) + 1;
- 	od = FIELD_GET(K210_PLL_CLKOD, reg) + 1;
- 
--	return (u64)parent_rate * f / (r * od);
-+	return div_u64((u64)parent_rate * f, r * od);
- }
- 
- static const struct clk_ops k210_pll_ops = {
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index 6203c3378922..1b276f62f22b 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -174,3 +174,7 @@ rv64_randconfig:
+ PHONY += rv32_defconfig
+ rv32_defconfig:
+ 	$(Q)$(MAKE) -f $(srctree)/Makefile defconfig 32-bit.config
++
++PHONY += rv32_nommu_virt_defconfig
++rv32_nommu_virt_defconfig:
++	$(Q)$(MAKE) -f $(srctree)/Makefile nommu_virt_defconfig 32-bit.config
 -- 
 2.39.0
 
